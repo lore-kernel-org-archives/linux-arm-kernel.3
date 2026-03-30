@@ -4,65 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49D071061B0F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 16:17:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A6F51061B0F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 16:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KA6PIAke+w12FQUc5hQX3XUt9cZmL4mzA7f/NHv9gaA=; b=UQdMsYe666IAKT6M1TMIp2kcQb
-	qDQO7J3FM4DkB0PwsYUR9xL9YxCycddl5HxO9zTp3RPuhncOgllYPb+bVEN5h+cdtq/WZKZicm8Gs
-	f039kBaNAKlhnR4xdWa2u2hqk8UiPcky3VT8UP8K30fluAIu/PKUjOY2Ef5CjXLKzgLKhH9OFVj1a
-	gCVk/0aSKRlj+2+Qqf4pO896cPIwzUMfRW4XjhnneJW8rY5o7+uLYPGzhyz0UcdDqkZKKQvezK33W
-	+uib/es3TDx7ndOa2OH7/4AQMfLsUZSGXOshQPkXAm239nOqTzmbaTKZU63PZs2Y6CASb1sWg/agC
-	V8YHnRLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cK6CHQ0JYSO7WKzfUcaM8seLmBH8P37jyo8prhZDYfM=; b=WH9Fhv8bM7FIS3Dpve/hXrIRJU
+	kPjoT/0cY9a3nYJRCKmwOThoHJy17mj8pVCawG9x8NnjhLkuRCpm9mm6g8UGhUucFvwTAxaZ87F/U
+	Cg0bHw8cuS51KnEtqZlukA937D6PUeel9jNKWkKJujKo8pbcwupMZ5jz7S+kDK4yHmvYTlaurMvgG
+	WNdqjTfqci4NV3Hlsy5WvsB87uK2chvXiMIf2q/Dln6t6sXftoSl+UY2ukQ9sarSbHHaLMQ3HkOLf
+	qs860Evs1cKou8xDCDAzLXzJvrxQFFAFk5VbafLzWHCAsT9BeuYIxMqzxruaquN/qCG4RkHQhwk/1
+	za/44yhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7FJ2-0000000BdFB-2caC;
-	Mon, 30 Mar 2026 16:17:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7FIo-0000000BdAH-1GWL
+	id 1w7FKh-0000000BddJ-0nUZ;
+	Mon, 30 Mar 2026 16:19:19 +0000
+Received: from mail-westeuropeazon11013068.outbound.protection.outlook.com ([52.101.72.68] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7FKe-0000000BdcA-0oUf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 16:17:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E500922EE;
-	Mon, 30 Mar 2026 09:17:14 -0700 (PDT)
-Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 32D873F7D8;
-	Mon, 30 Mar 2026 09:17:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774887440; bh=COaDMbsN8eO6SAbKcHec0PuEr6HZPMdZOsyBW4Qmzog=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jHgzeW/2y4QAYFhk4rTRGcFkIPeNSwnunltm11A6sAR98pfTeCCcUSp/gO6+vFiBQ
-	 935Wm+DchOSaQ6ffEwErE5QUsMP6FpS8K8PF8RPmtgUBEamIArG2iWbZCmMZYtKeii
-	 EAQdBJt/0AhHTPxCSdykBHDg//qSZNn05aKY1k7A=
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Dev Jain <dev.jain@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Jinjiang Tu <tujinjiang@huawei.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v2 2/3] arm64: mm: Handle invalid large leaf mappings correctly
-Date: Mon, 30 Mar 2026 17:17:03 +0100
-Message-ID: <20260330161705.3349825-3-ryan.roberts@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260330161705.3349825-1-ryan.roberts@arm.com>
-References: <20260330161705.3349825-1-ryan.roberts@arm.com>
+	Mon, 30 Mar 2026 16:19:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=F9IIZJ2l98XnCcO0j1l7fa/EQWrqHotXH9AysUfRlLVvrCXD1/YsuvViWZUmmUCVk3np6nslPKAc4/BikUHv+zh+sm1QLQQaXE0CZyIF2jiaHvAWSH3M0j4mgZo+qLCkxfq+3rks9owazqkm94IkEQSBmCnYUFhcVOW6Xpg9DcTwfN0tywYKVcs+ZLpSGHjRVVmuyw2w7OkF9hu4ksyHOyv5aZWPE3w8L8iWQ4A3HvKp51h5p1M8O3BoM6eKIyrykgn3TEReXzcLxpKHOijjKRDrSDnaOk6Udngl0DV+aNUFI4ndo2kHbdoJ4VNnDDCp6hNFgB58J+/rgQQ01ch1ng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cK6CHQ0JYSO7WKzfUcaM8seLmBH8P37jyo8prhZDYfM=;
+ b=v8n7G2EXTZyRfDe99cAGZFsHYXA78kUnwLqXykfIi+pQkmFLBrbDhIxsxeOjTtZ+UcB/lpJN5xTzZDnz9Ythno6FdPUxBWyEWyE2tDNg1nU4KSJlye9uvo9BSxV3CT0Net3edJwUidUFuGcTdq9mM8HoBYhMcBlN8vwNEyVeLSbb3v3ubWIS61jULSRv/ME2rScoEl1nvn62edhGIz1gxOuz+aoxPXfptDg2mZbFcbATr48bIeT190lm4t4EoPHG/qesIoP6B997Mdpd4UlQYUaXwXgBh3uSVp6cgZyOF28HEkfvfGkEnGO53bfY5TDERqsqYKgGaJTeqjplb7uu9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cK6CHQ0JYSO7WKzfUcaM8seLmBH8P37jyo8prhZDYfM=;
+ b=ObnxSOjcPPcTF/2o3p0SFflTONibhOg98I110qgfqh9RHydlZWM18OyFh46JjJh4CUa7nYu7ua2hZ2BASUK2elTZhlxj1H2MCERWa1e/5mberTpIIp8WDYrFvIo5LL/PYGE4x4WPSCvm6/5AGqB/Djp23DCOZF80xlSBX5F0qX6+gHgY/qF41uojO+e6lJ6eMDu1uUUixlJ3sTAa6tySuwlzai5XVJt/91NmfNCtIHqnueu0tVRtc6zlOdMTOYhWCK7a/1B5V6P5XcsWQeWqfyibq7istJA8dV5+3EX3mg7JQQIUc0gSM6R8kvH8wJRyBeMVLPHCr3BJKsrtOJr32g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AS8PR04MB8261.eurprd04.prod.outlook.com (2603:10a6:20b:3b1::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Mon, 30 Mar
+ 2026 16:04:19 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.027; Mon, 30 Mar 2026
+ 16:04:19 +0000
+Date: Mon, 30 Mar 2026 12:04:12 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Srinivas Neeli <srinivas.neeli@amd.com>
+Cc: Vinod Koul <vkoul@kernel.org>, git@amd.com,
+	Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Suraj Gupta <suraj.gupta2@amd.com>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>,
+	Folker Schwesinger <dev@folker-schwesinger.de>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Kees Cook <kees@kernel.org>, Abin Joseph <abin.joseph@amd.com>,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V2 5/5] dmaengine: xilinx_dma: Add support for reporting
+ transfer size to AXI DMA / MCDMA client when app fields are unavailable
+Message-ID: <acqe_AF3YHPLNzoV@lizhi-Precision-Tower-5810>
+References: <20260313062533.421249-1-srinivas.neeli@amd.com>
+ <20260313062533.421249-6-srinivas.neeli@amd.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260313062533.421249-6-srinivas.neeli@amd.com>
+X-ClientProxiedBy: SA0PR11CA0039.namprd11.prod.outlook.com
+ (2603:10b6:806:d0::14) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB8261:EE_
+X-MS-Office365-Filtering-Correlation-Id: f189232a-85c1-46ab-fed3-08de8e760049
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|7416014|1800799024|19092799006|56012099003|18002099003|22082099003|38350700014;
+X-Microsoft-Antispam-Message-Info: oFlmOb014+NHhjpWrBdyLQ1bXAwmWg1mavcF79v2JL3s3SZFfO501HQXSoOppJA9NOhDPKVSN5nc6f5PMWDeSr3K9Y/Lqv6vxGemmLGrj2ONJ30zys7chCUShjbKAdLmxpZgTQB3jQKEjTK/hK34vj1LSyVw/pnXMJPGLG2MDX9L5xJ0l2YbPeD/BhaSZxVA33YiJ6TZki0/jGhuWyrIRxp7b2sDvD3Oz8LWIJZWV1jMLvdMX8TOhRGGbWmOqwehk4xZVodfdz0jnueCDuoa2i33AtMhdolYMx5oee+aSeZVCJOzX+nzrwnjWfgFW45hwuPr4s1u8U4PPocdt75M26iR3ofeRX2M9sfIxHrPdTC67fxD+qlMm4p3v5O1GeJUQCODmVRv4X0+WUpiBqJw/U40B7WEq6zmdMohcBrZj4LXVIh9CUeaNigC6TTKcX6IeUwRJxcWwBnqrv4o3TABeH9ZBCrfo31tTtxCXyUb0cgo537r2CE9i+2o/efhts5beyurRD5jARI6OJWyV0rM9dfZ6k4MyNVIk1k6nkL8cavy7toJ6EcTADKOFUYNm0xFObH4E+lGtfXjCxQ2Da1Tmad2XzCrjInyordEs2aSrp/bPvnzZoqR/88AxzAehzA5y1sM8lYu9QXndud3x+HRAqNaXU4ytqUiEC6nGe3TlUzPafcZpE4sOU3cbV34gVhfX1hU1aMhGvS0h9rVeP8XdLwd7zEyCxzdvmASQ8Td3l2jiMasYWYVmfoAkfPWmTwH53309vIuMsbak91VXTdSk7Sf1BHbpdwNWPaMvuuXM3A=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(7416014)(1800799024)(19092799006)(56012099003)(18002099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6RMRlxV0vnmrLDssuECMbpm+r0GySv1DS5IJhjebT1gKFOov5Za2+TXv4fBS?=
+ =?us-ascii?Q?lSYLFfycHABx+RXqeMwQFY6OH4Zg8Q04A0a8k971+km2z0R4ncb8+/0ak1EP?=
+ =?us-ascii?Q?ZKZfQXkZqqSCc3+LvWNeYEiiWknhFaj0znzPqS8RZOzmtFPoTDHGbOCmvEdZ?=
+ =?us-ascii?Q?86dmsbIjC7gAektTLfgPNNqF9eD+fKDgUTbkACW/2+NrVCaudDlB4WbdkHkd?=
+ =?us-ascii?Q?paOHQ0T0673p6uWW1SXJIj3wJgUKx1Va0mcOSCf4DnEhhPG76MZqIer8iv7w?=
+ =?us-ascii?Q?HnM2/04nvmH4BQxeQbDTYTvk4nMsUQk7W2HRnUD8H28uHkPTFrJ+5lcUS8lf?=
+ =?us-ascii?Q?YcWa1FR+XFHPoE58W/FC4rqpyYX3iCBZ1kv/XTXWBsNR2vUDgCc3DtQTuNkX?=
+ =?us-ascii?Q?1PcwwUmlaSgIE/zvejS4CasR6VcHgxtkKYw1Se36z+ztS/wfhNRzFpr8vix8?=
+ =?us-ascii?Q?3qHUxJpANDePk7sZ9sHu3B9xyKXWyZP6erzfMCsxhPndg3QFSXR87wFB3yNF?=
+ =?us-ascii?Q?j1gOGR2iAM7D4W6x4A+6Af0Fhbj+pKO+bqK+i7mQ+CuSy7aQ9Heky+Tlw9Wp?=
+ =?us-ascii?Q?oIkWQGcfJ/PMUbubAL6uplcOtHCvHVyImR67J5CKNAdjoKPzK3JH5j2beOSt?=
+ =?us-ascii?Q?Vvb3Cm4Lle1cnpN8QXucu1DmeZkdvq2AhfkbI7RhR/paxWenhcgZiCMndwdk?=
+ =?us-ascii?Q?c/XGNSJ9W/fAjYuyspELfpZXdUkqadZRcFjw7RmxYHBnjLpRUyaMcCESppql?=
+ =?us-ascii?Q?rf4XAoAgBJtzsDuCGLJImctPiMk2EdDYc0+A4S0HOvOHRwlJqa6Ox6vQznIm?=
+ =?us-ascii?Q?bTZ6iFmZpLtiGoOXVwyEH5R4H0dygaXa3Bgl1MnQbL8TfnlTbvqcF4Grg7GT?=
+ =?us-ascii?Q?I/s2fzvO6zCttIvX21AIGFiBCrvNj40ij+6lXcnKbaIa9TA+inKWdNKGg/hI?=
+ =?us-ascii?Q?qgkOLyQFegk+cIp3NNaZybGnSIMGQcPgml5+owCc+6ngLu4mJGX3RtoNDlGj?=
+ =?us-ascii?Q?JM+i+XzaN5rzfMF6JpYlmxYHk2/TT0u+oXGW8iK2UAycRfd785xNnR0mgUxO?=
+ =?us-ascii?Q?cammEz7ZPjo/rbwYU/IAwVbPk+NY0bO3hGU7INgxgwNBM3niIniZ0YtX+NGO?=
+ =?us-ascii?Q?9jRwBAimHjUhkTOKnHv8S/5MddSDTcAi/IVJ7pugaSgT0Lyz1X72h4ZeETNA?=
+ =?us-ascii?Q?GSSXkK6kSQrxIqEKqn40gCoY7h13lvj0vsl/W4FKzVD5xDVhCLzfvK39KLGQ?=
+ =?us-ascii?Q?HAPHG4yfRQKtXU0zjyId8vG+FZsVjsyLWl7R54HizdjQL+cmIGzFOYptdzXJ?=
+ =?us-ascii?Q?RCjkhDVF62LUICwy1v+a5VhTvY3NoprJXLB0qbagEjqU06/82DFCJC+8c3PV?=
+ =?us-ascii?Q?RHxnCCs8oH58aC+Kr0RR+vK9VD3JLaZcd0RwsrP/MDrhgHfRqBQMoanj0SvX?=
+ =?us-ascii?Q?BsTyrXNZ4VIRrQTiXOane4FQnrNj4hGuFQfaPfBsLETm9WEYUpjOFApYevlY?=
+ =?us-ascii?Q?SbQkLBh42iHEDK/sUoh9xuQN6/jEtukZzDeTZAPmimcyRpsit2C1IPBEk0QC?=
+ =?us-ascii?Q?Wo47EuRnzze7t10OjxJpfnCt2cAJOrnrOHDYzGdcMjRAtItUnkK3lBlmMAbK?=
+ =?us-ascii?Q?T5BLcvlSJp2uzbu6ZueIhsaCD4iQnUcntJvjUvtsJzjazERsxJBMbqmNFcHs?=
+ =?us-ascii?Q?8tPVF91tyRY2L50Z4eexcx77ZirenWaKgC8w5PdTVeIJKrCo?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f189232a-85c1-46ab-fed3-08de8e760049
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Mar 2026 16:04:19.6856
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xhemQrNMxg4+6BwAIrGETU6C39tSZSbM36yS9hkvLVOZtUy7VpfUI8GmdzX+/ESYJ844l1g5iMmBObI3Vs2JKw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8261
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_091722_430133_4860F810 
-X-CRM114-Status: GOOD (  32.11  )
+X-CRM114-CacheID: sfid-20260330_091916_234743_892E3B41 
+X-CRM114-Status: GOOD (  30.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,406 +146,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It has been possible for a long time to mark ptes in the linear map as
-invalid. This is done for secretmem, kfence, realm dma memory un/share,
-and others, by simply clearing the PTE_VALID bit. But until commit
-a166563e7ec37 ("arm64: mm: support large block mapping when
-rodata=full") large leaf mappings were never made invalid in this way.
+On Fri, Mar 13, 2026 at 11:55:33AM +0530, Srinivas Neeli wrote:
+> From: Suraj Gupta <suraj.gupta2@amd.com>
+>
+> The AXI4-stream status and control interface is optional in the AXI DMA /
+> MCDMA IP design; when it is not present, app fields are not available in
+> DMA descriptor. In such cases, the transferred byte count can be
+> communicated to the client using the status field (bits 0-25) of
+> AXI DMA / MCDMA descriptor.
+>
+> Add a xferred_bytes field to struct xilinx_dma_tx_descriptor to record the
+> number of bytes transferred for each transaction. The value is calculated
+> using the existing xilinx_dma_get_residue() function, which traverses all
+> hardware descriptors associated with the async transaction descriptor,
+> avoiding redundant traversal.
 
-It turns out various parts of the code base are not equipped to handle
-invalid large leaf mappings (in the way they are currently encoded) and
-I've observed a kernel panic while booting a realm guest on a
-BBML2_NOABORT system as a result:
+Can you split this change to new patch?
 
-[   15.432706] software IO TLB: Memory encryption is active and system is using DMA bounce buffers
-[   15.476896] Unable to handle kernel paging request at virtual address ffff000019600000
-[   15.513762] Mem abort info:
-[   15.527245]   ESR = 0x0000000096000046
-[   15.548553]   EC = 0x25: DABT (current EL), IL = 32 bits
-[   15.572146]   SET = 0, FnV = 0
-[   15.592141]   EA = 0, S1PTW = 0
-[   15.612694]   FSC = 0x06: level 2 translation fault
-[   15.640644] Data abort info:
-[   15.661983]   ISV = 0, ISS = 0x00000046, ISS2 = 0x00000000
-[   15.694875]   CM = 0, WnR = 1, TnD = 0, TagAccess = 0
-[   15.723740]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-[   15.755776] swapper pgtable: 4k pages, 48-bit VAs, pgdp=0000000081f3f000
-[   15.800410] [ffff000019600000] pgd=0000000000000000, p4d=180000009ffff403, pud=180000009fffe403, pmd=00e8000199600704
-[   15.855046] Internal error: Oops: 0000000096000046 [#1]  SMP
-[   15.886394] Modules linked in:
-[   15.900029] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.0.0-rc4-dirty #4 PREEMPT
-[   15.935258] Hardware name: linux,dummy-virt (DT)
-[   15.955612] pstate: 21400005 (nzCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
-[   15.986009] pc : __pi_memcpy_generic+0x128/0x22c
-[   16.006163] lr : swiotlb_bounce+0xf4/0x158
-[   16.024145] sp : ffff80008000b8f0
-[   16.038896] x29: ffff80008000b8f0 x28: 0000000000000000 x27: 0000000000000000
-[   16.069953] x26: ffffb3976d261ba8 x25: 0000000000000000 x24: ffff000019600000
-[   16.100876] x23: 0000000000000001 x22: ffff0000043430d0 x21: 0000000000007ff0
-[   16.131946] x20: 0000000084570010 x19: 0000000000000000 x18: ffff00001ffe3fcc
-[   16.163073] x17: 0000000000000000 x16: 00000000003fffff x15: 646e612065766974
-[   16.194131] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
-[   16.225059] x11: 0000000000000000 x10: 0000000000000010 x9 : 0000000000000018
-[   16.256113] x8 : 0000000000000018 x7 : 0000000000000000 x6 : 0000000000000000
-[   16.287203] x5 : ffff000019607ff0 x4 : ffff000004578000 x3 : ffff000019600000
-[   16.318145] x2 : 0000000000007ff0 x1 : ffff000004570010 x0 : ffff000019600000
-[   16.349071] Call trace:
-[   16.360143]  __pi_memcpy_generic+0x128/0x22c (P)
-[   16.380310]  swiotlb_tbl_map_single+0x154/0x2b4
-[   16.400282]  swiotlb_map+0x5c/0x228
-[   16.415984]  dma_map_phys+0x244/0x2b8
-[   16.432199]  dma_map_page_attrs+0x44/0x58
-[   16.449782]  virtqueue_map_page_attrs+0x38/0x44
-[   16.469596]  virtqueue_map_single_attrs+0xc0/0x130
-[   16.490509]  virtnet_rq_alloc.isra.0+0xa4/0x1fc
-[   16.510355]  try_fill_recv+0x2a4/0x584
-[   16.526989]  virtnet_open+0xd4/0x238
-[   16.542775]  __dev_open+0x110/0x24c
-[   16.558280]  __dev_change_flags+0x194/0x20c
-[   16.576879]  netif_change_flags+0x24/0x6c
-[   16.594489]  dev_change_flags+0x48/0x7c
-[   16.611462]  ip_auto_config+0x258/0x1114
-[   16.628727]  do_one_initcall+0x80/0x1c8
-[   16.645590]  kernel_init_freeable+0x208/0x2f0
-[   16.664917]  kernel_init+0x24/0x1e0
-[   16.680295]  ret_from_fork+0x10/0x20
-[   16.696369] Code: 927cec03 cb0e0021 8b0e0042 a9411c26 (a900340c)
-[   16.723106] ---[ end trace 0000000000000000 ]---
-[   16.752866] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
-[   16.792556] Kernel Offset: 0x3396ea200000 from 0xffff800080000000
-[   16.818966] PHYS_OFFSET: 0xfff1000080000000
-[   16.837237] CPU features: 0x0000000,00060005,13e38581,957e772f
-[   16.862904] Memory Limit: none
-[   16.876526] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
-
-This panic occurs because the swiotlb memory was previously shared to
-the host (__set_memory_enc_dec()), which involves transitioning the
-(large) leaf mappings to invalid, sharing to the host, then marking the
-mappings valid again. But pageattr_p[mu]d_entry() would only update the
-entry if it is a section mapping, since otherwise it concluded it must
-be a table entry so shouldn't be modified. But p[mu]d_sect() only
-returns true if the entry is valid. So the result was that the large
-leaf entry was made invalid in the first pass then ignored in the second
-pass. It remains invalid until the above code tries to access it and
-blows up.
-
-The simple fix would be to update pageattr_pmd_entry() to use
-!pmd_table() instead of pmd_sect(). That would solve this problem.
-
-But the ptdump code also suffers from a similar issue. It checks
-pmd_leaf() and doesn't call into the arch-specific note_page() machinery
-if it returns false. As a result of this, ptdump wasn't even able to
-show the invalid large leaf mappings; it looked like they were valid
-which made this super fun to debug. the ptdump code is core-mm and
-pmd_table() is arm64-specific so we can't use the same trick to solve
-that.
-
-But we already support the concept of "present-invalid" for user space
-entries. And even better, pmd_leaf() will return true for a leaf mapping
-that is marked present-invalid. So let's just use that encoding for
-present-invalid kernel mappings too. Then we can use pmd_leaf() where we
-previously used pmd_sect() and everything is magically fixed.
-
-Additionally, from inspection kernel_page_present() was broken in a
-similar way, so I'm also updating that to use pmd_leaf().
-
-The transitional page tables component was also similarly broken; it
-creates a copy of the kernel page tables, making RO leaf mappings RW in
-the process. It also makes invalid (but-not-none) pte mappings valid.
-But it was not doing this for large leaf mappings. This could have
-resulted in crashes at kexec- or hibernate-time. This code is fixed to
-flip "present-invalid" mappings back to "present-valid" at all levels.
-
-Finally, I have hardened split_pmd()/split_pud() so that if it is passed
-a "present-invalid" leaf, it will maintain that property in the split
-leaves, since I wasn't able to convince myself that it would only ever
-be called for "present-valid" leaves.
-
-Fixes: a166563e7ec37 ("arm64: mm: support large block mapping when rodata=full")
-Cc: stable@vger.kernel.org
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
----
- arch/arm64/include/asm/pgtable-prot.h |  2 ++
- arch/arm64/include/asm/pgtable.h      |  9 +++--
- arch/arm64/mm/mmu.c                   |  4 +++
- arch/arm64/mm/pageattr.c              | 50 +++++++++++++++------------
- arch/arm64/mm/trans_pgd.c             | 42 ++++------------------
- 5 files changed, 48 insertions(+), 59 deletions(-)
-
-diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
-index f560e64202674..212ce1b02e15e 100644
---- a/arch/arm64/include/asm/pgtable-prot.h
-+++ b/arch/arm64/include/asm/pgtable-prot.h
-@@ -25,6 +25,8 @@
-  */
- #define PTE_PRESENT_INVALID	(PTE_NG)		 /* only when !PTE_VALID */
- 
-+#define PTE_PRESENT_VALID_KERNEL (PTE_VALID | PTE_MAYBE_NG)
-+
- #ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP
- #define PTE_UFFD_WP		(_AT(pteval_t, 1) << 58) /* uffd-wp tracking */
- #define PTE_SWP_UFFD_WP		(_AT(pteval_t, 1) << 3)	 /* only for swp ptes */
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index b3e58735c49bd..dd062179b9b66 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -322,9 +322,11 @@ static inline pte_t pte_mknoncont(pte_t pte)
- 	return clear_pte_bit(pte, __pgprot(PTE_CONT));
- }
- 
--static inline pte_t pte_mkvalid(pte_t pte)
-+static inline pte_t pte_mkvalid_k(pte_t pte)
- {
--	return set_pte_bit(pte, __pgprot(PTE_VALID));
-+	pte = clear_pte_bit(pte, __pgprot(PTE_PRESENT_INVALID));
-+	pte = set_pte_bit(pte, __pgprot(PTE_PRESENT_VALID_KERNEL));
-+	return pte;
- }
- 
- static inline pte_t pte_mkinvalid(pte_t pte)
-@@ -594,6 +596,7 @@ static inline int pmd_protnone(pmd_t pmd)
- #define pmd_mkclean(pmd)	pte_pmd(pte_mkclean(pmd_pte(pmd)))
- #define pmd_mkdirty(pmd)	pte_pmd(pte_mkdirty(pmd_pte(pmd)))
- #define pmd_mkyoung(pmd)	pte_pmd(pte_mkyoung(pmd_pte(pmd)))
-+#define pmd_mkvalid_k(pmd)	pte_pmd(pte_mkvalid_k(pmd_pte(pmd)))
- #define pmd_mkinvalid(pmd)	pte_pmd(pte_mkinvalid(pmd_pte(pmd)))
- #ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP
- #define pmd_uffd_wp(pmd)	pte_uffd_wp(pmd_pte(pmd))
-@@ -635,6 +638,8 @@ static inline pmd_t pmd_mkspecial(pmd_t pmd)
- 
- #define pud_young(pud)		pte_young(pud_pte(pud))
- #define pud_mkyoung(pud)	pte_pud(pte_mkyoung(pud_pte(pud)))
-+#define pud_mkwrite_novma(pud)	pte_pud(pte_mkwrite_novma(pud_pte(pud)))
-+#define pud_mkvalid_k(pud)	pte_pud(pte_mkvalid_k(pud_pte(pud)))
- #define pud_write(pud)		pte_write(pud_pte(pud))
- 
- static inline pud_t pud_mkhuge(pud_t pud)
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 223947487a223..1575680675d8d 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -602,6 +602,8 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
- 		tableprot |= PMD_TABLE_PXN;
- 
- 	prot = __pgprot((pgprot_val(prot) & ~PTE_TYPE_MASK) | PTE_TYPE_PAGE);
-+	if (!pmd_valid(pmd))
-+		prot = pte_pgprot(pte_mkinvalid(pfn_pte(0, prot)));
- 	prot = __pgprot(pgprot_val(prot) & ~PTE_CONT);
- 	if (to_cont)
- 		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
-@@ -647,6 +649,8 @@ static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
- 		tableprot |= PUD_TABLE_PXN;
- 
- 	prot = __pgprot((pgprot_val(prot) & ~PMD_TYPE_MASK) | PMD_TYPE_SECT);
-+	if (!pud_valid(pud))
-+		prot = pmd_pgprot(pmd_mkinvalid(pfn_pmd(0, prot)));
- 	prot = __pgprot(pgprot_val(prot) & ~PTE_CONT);
- 	if (to_cont)
- 		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index 358d1dc9a576f..ce035e1b4eaf6 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -25,6 +25,11 @@ static ptdesc_t set_pageattr_masks(ptdesc_t val, struct mm_walk *walk)
- {
- 	struct page_change_data *masks = walk->private;
- 
-+	/*
-+	 * Some users clear and set bits which alias each other (e.g. PTE_NG and
-+	 * PTE_PRESENT_INVALID). It is therefore important that we always clear
-+	 * first then set.
-+	 */
- 	val &= ~(pgprot_val(masks->clear_mask));
- 	val |= (pgprot_val(masks->set_mask));
- 
-@@ -36,7 +41,7 @@ static int pageattr_pud_entry(pud_t *pud, unsigned long addr,
- {
- 	pud_t val = pudp_get(pud);
- 
--	if (pud_sect(val)) {
-+	if (pud_leaf(val)) {
- 		if (WARN_ON_ONCE((next - addr) != PUD_SIZE))
- 			return -EINVAL;
- 		val = __pud(set_pageattr_masks(pud_val(val), walk));
-@@ -52,7 +57,7 @@ static int pageattr_pmd_entry(pmd_t *pmd, unsigned long addr,
- {
- 	pmd_t val = pmdp_get(pmd);
- 
--	if (pmd_sect(val)) {
-+	if (pmd_leaf(val)) {
- 		if (WARN_ON_ONCE((next - addr) != PMD_SIZE))
- 			return -EINVAL;
- 		val = __pmd(set_pageattr_masks(pmd_val(val), walk));
-@@ -132,11 +137,12 @@ static int __change_memory_common(unsigned long start, unsigned long size,
- 	ret = update_range_prot(start, size, set_mask, clear_mask);
- 
- 	/*
--	 * If the memory is being made valid without changing any other bits
--	 * then a TLBI isn't required as a non-valid entry cannot be cached in
--	 * the TLB.
-+	 * If the memory is being switched from present-invalid to valid without
-+	 * changing any other bits then a TLBI isn't required as a non-valid
-+	 * entry cannot be cached in the TLB.
- 	 */
--	if (pgprot_val(set_mask) != PTE_VALID || pgprot_val(clear_mask))
-+	if (pgprot_val(set_mask) != PTE_PRESENT_VALID_KERNEL ||
-+	    pgprot_val(clear_mask) != PTE_PRESENT_INVALID)
- 		flush_tlb_kernel_range(start, start + size);
- 	return ret;
- }
-@@ -237,18 +243,18 @@ int set_memory_valid(unsigned long addr, int numpages, int enable)
- {
- 	if (enable)
- 		return __change_memory_common(addr, PAGE_SIZE * numpages,
--					__pgprot(PTE_VALID),
--					__pgprot(0));
-+					__pgprot(PTE_PRESENT_VALID_KERNEL),
-+					__pgprot(PTE_PRESENT_INVALID));
- 	else
- 		return __change_memory_common(addr, PAGE_SIZE * numpages,
--					__pgprot(0),
--					__pgprot(PTE_VALID));
-+					__pgprot(PTE_PRESENT_INVALID),
-+					__pgprot(PTE_PRESENT_VALID_KERNEL));
- }
- 
- int set_direct_map_invalid_noflush(struct page *page)
- {
--	pgprot_t clear_mask = __pgprot(PTE_VALID);
--	pgprot_t set_mask = __pgprot(0);
-+	pgprot_t clear_mask = __pgprot(PTE_PRESENT_VALID_KERNEL);
-+	pgprot_t set_mask = __pgprot(PTE_PRESENT_INVALID);
- 
- 	if (!can_set_direct_map())
- 		return 0;
-@@ -259,8 +265,8 @@ int set_direct_map_invalid_noflush(struct page *page)
- 
- int set_direct_map_default_noflush(struct page *page)
- {
--	pgprot_t set_mask = __pgprot(PTE_VALID | PTE_WRITE);
--	pgprot_t clear_mask = __pgprot(PTE_RDONLY);
-+	pgprot_t set_mask = __pgprot(PTE_PRESENT_VALID_KERNEL | PTE_WRITE);
-+	pgprot_t clear_mask = __pgprot(PTE_PRESENT_INVALID | PTE_RDONLY);
- 
- 	if (!can_set_direct_map())
- 		return 0;
-@@ -296,8 +302,8 @@ static int __set_memory_enc_dec(unsigned long addr,
- 	 * entries or Synchronous External Aborts caused by RIPAS_EMPTY
- 	 */
- 	ret = __change_memory_common(addr, PAGE_SIZE * numpages,
--				     __pgprot(set_prot),
--				     __pgprot(clear_prot | PTE_VALID));
-+				     __pgprot(set_prot | PTE_PRESENT_INVALID),
-+				     __pgprot(clear_prot | PTE_PRESENT_VALID_KERNEL));
- 
- 	if (ret)
- 		return ret;
-@@ -311,8 +317,8 @@ static int __set_memory_enc_dec(unsigned long addr,
- 		return ret;
- 
- 	return __change_memory_common(addr, PAGE_SIZE * numpages,
--				      __pgprot(PTE_VALID),
--				      __pgprot(0));
-+				      __pgprot(PTE_PRESENT_VALID_KERNEL),
-+				      __pgprot(PTE_PRESENT_INVALID));
- }
- 
- static int realm_set_memory_encrypted(unsigned long addr, int numpages)
-@@ -404,15 +410,15 @@ bool kernel_page_present(struct page *page)
- 	pud = READ_ONCE(*pudp);
- 	if (pud_none(pud))
- 		return false;
--	if (pud_sect(pud))
--		return true;
-+	if (pud_leaf(pud))
-+		return pud_valid(pud);
- 
- 	pmdp = pmd_offset(pudp, addr);
- 	pmd = READ_ONCE(*pmdp);
- 	if (pmd_none(pmd))
- 		return false;
--	if (pmd_sect(pmd))
--		return true;
-+	if (pmd_leaf(pmd))
-+		return pmd_valid(pmd);
- 
- 	ptep = pte_offset_kernel(pmdp, addr);
- 	return pte_valid(__ptep_get(ptep));
-diff --git a/arch/arm64/mm/trans_pgd.c b/arch/arm64/mm/trans_pgd.c
-index 18543b603c77b..cca9706a875c3 100644
---- a/arch/arm64/mm/trans_pgd.c
-+++ b/arch/arm64/mm/trans_pgd.c
-@@ -31,36 +31,6 @@ static void *trans_alloc(struct trans_pgd_info *info)
- 	return info->trans_alloc_page(info->trans_alloc_arg);
- }
- 
--static void _copy_pte(pte_t *dst_ptep, pte_t *src_ptep, unsigned long addr)
--{
--	pte_t pte = __ptep_get(src_ptep);
--
--	if (pte_valid(pte)) {
--		/*
--		 * Resume will overwrite areas that may be marked
--		 * read only (code, rodata). Clear the RDONLY bit from
--		 * the temporary mappings we use during restore.
--		 */
--		__set_pte(dst_ptep, pte_mkwrite_novma(pte));
--	} else if (!pte_none(pte)) {
--		/*
--		 * debug_pagealloc will removed the PTE_VALID bit if
--		 * the page isn't in use by the resume kernel. It may have
--		 * been in use by the original kernel, in which case we need
--		 * to put it back in our copy to do the restore.
--		 *
--		 * Other cases include kfence / vmalloc / memfd_secret which
--		 * may call `set_direct_map_invalid_noflush()`.
--		 *
--		 * Before marking this entry valid, check the pfn should
--		 * be mapped.
--		 */
--		BUG_ON(!pfn_valid(pte_pfn(pte)));
--
--		__set_pte(dst_ptep, pte_mkvalid(pte_mkwrite_novma(pte)));
--	}
--}
--
- static int copy_pte(struct trans_pgd_info *info, pmd_t *dst_pmdp,
- 		    pmd_t *src_pmdp, unsigned long start, unsigned long end)
- {
-@@ -76,7 +46,11 @@ static int copy_pte(struct trans_pgd_info *info, pmd_t *dst_pmdp,
- 
- 	src_ptep = pte_offset_kernel(src_pmdp, start);
- 	do {
--		_copy_pte(dst_ptep, src_ptep, addr);
-+		pte_t pte = __ptep_get(src_ptep);
-+
-+		if (pte_none(pte))
-+			continue;
-+		__set_pte(dst_ptep, pte_mkvalid_k(pte_mkwrite_novma(pte)));
- 	} while (dst_ptep++, src_ptep++, addr += PAGE_SIZE, addr != end);
- 
- 	return 0;
-@@ -109,8 +83,7 @@ static int copy_pmd(struct trans_pgd_info *info, pud_t *dst_pudp,
- 			if (copy_pte(info, dst_pmdp, src_pmdp, addr, next))
- 				return -ENOMEM;
- 		} else {
--			set_pmd(dst_pmdp,
--				__pmd(pmd_val(pmd) & ~PMD_SECT_RDONLY));
-+			set_pmd(dst_pmdp, pmd_mkvalid_k(pmd_mkwrite_novma(pmd)));
- 		}
- 	} while (dst_pmdp++, src_pmdp++, addr = next, addr != end);
- 
-@@ -145,8 +118,7 @@ static int copy_pud(struct trans_pgd_info *info, p4d_t *dst_p4dp,
- 			if (copy_pmd(info, dst_pudp, src_pudp, addr, next))
- 				return -ENOMEM;
- 		} else {
--			set_pud(dst_pudp,
--				__pud(pud_val(pud) & ~PUD_SECT_RDONLY));
-+			set_pud(dst_pudp, pud_mkvalid_k(pud_mkwrite_novma(pud)));
- 		}
- 	} while (dst_pudp++, src_pudp++, addr = next, addr != end);
- 
--- 
-2.43.0
-
+Frank
+>
+> The driver uses the xlnx,include-stscntrl-strm device tree property to
+> determine if the status/control stream interface is present and selects the
+> appropriate metadata source accordingly.
+>
+> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+> ---
+>  drivers/dma/xilinx/xilinx_dma.c | 28 ++++++++++++++++++++++++----
+>  1 file changed, 24 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+> index 52203d44e7a4..f5ef03a1297c 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -380,6 +380,8 @@ struct xilinx_cdma_tx_segment {
+>   * @cyclic: Check for cyclic transfers.
+>   * @err: Whether the descriptor has an error.
+>   * @residue: Residue of the completed descriptor
+> + * @xferred_bytes: Number of bytes transferred by this transaction
+> + *                 descriptor.
+>   */
+>  struct xilinx_dma_tx_descriptor {
+>  	struct xilinx_dma_chan *chan;
+> @@ -389,6 +391,7 @@ struct xilinx_dma_tx_descriptor {
+>  	bool cyclic;
+>  	bool err;
+>  	u32 residue;
+> +	u32 xferred_bytes;
+>  };
+>
+>  /**
+> @@ -515,6 +518,7 @@ struct xilinx_dma_config {
+>   * @mm2s_chan_id: DMA mm2s channel identifier
+>   * @max_buffer_len: Max buffer length
+>   * @has_axistream_connected: AXI DMA connected to AXI Stream IP
+> + * @has_stsctrl_stream: AXI4-stream status and control interface is enabled
+>   */
+>  struct xilinx_dma_device {
+>  	void __iomem *regs;
+> @@ -534,6 +538,7 @@ struct xilinx_dma_device {
+>  	u32 mm2s_chan_id;
+>  	u32 max_buffer_len;
+>  	bool has_axistream_connected;
+> +	bool has_stsctrl_stream;
+>  };
+>
+>  /* Macros */
+> @@ -672,8 +677,12 @@ static void *xilinx_dma_get_metadata_ptr(struct dma_async_tx_descriptor *tx,
+>  				       struct xilinx_axidma_tx_segment, node);
+>  		metadata_ptr = seg->hw.app;
+>  	}
+> -	*max_len = *payload_len = sizeof(u32) * XILINX_DMA_NUM_APP_WORDS;
+> -	return metadata_ptr;
+> +	if (desc->chan->xdev->has_stsctrl_stream) {
+> +		*max_len = *payload_len = sizeof(u32) * XILINX_DMA_NUM_APP_WORDS;
+> +		return metadata_ptr;
+> +	}
+> +	*max_len = *payload_len = sizeof(desc->xferred_bytes);
+> +	return (void *)&desc->xferred_bytes;
+>  }
+>
+>  static struct dma_descriptor_metadata_ops xilinx_dma_metadata_ops = {
+> @@ -864,6 +873,7 @@ xilinx_dma_alloc_tx_descriptor(struct xilinx_dma_chan *chan)
+>  		return NULL;
+>
+>  	desc->chan = chan;
+> +	desc->xferred_bytes = 0;
+>  	INIT_LIST_HEAD(&desc->segments);
+>
+>  	return desc;
+> @@ -1014,6 +1024,7 @@ static u32 xilinx_dma_get_residue(struct xilinx_dma_chan *chan,
+>  	struct xilinx_aximcdma_desc_hw *aximcdma_hw;
+>  	struct list_head *entry;
+>  	u32 residue = 0;
+> +	u32 xferred = 0;
+>
+>  	list_for_each(entry, &desc->segments) {
+>  		if (chan->xdev->dma_config->dmatype == XDMA_TYPE_CDMA) {
+> @@ -1031,25 +1042,32 @@ static u32 xilinx_dma_get_residue(struct xilinx_dma_chan *chan,
+>  			axidma_hw = &axidma_seg->hw;
+>  			residue += (axidma_hw->control - axidma_hw->status) &
+>  				   chan->xdev->max_buffer_len;
+> +			xferred += axidma_hw->status & chan->xdev->max_buffer_len;
+>  		} else {
+>  			aximcdma_seg =
+>  				list_entry(entry,
+>  					   struct xilinx_aximcdma_tx_segment,
+>  					   node);
+>  			aximcdma_hw = &aximcdma_seg->hw;
+> -			if (chan->direction == DMA_DEV_TO_MEM)
+> +			if (chan->direction == DMA_DEV_TO_MEM) {
+>  				residue +=
+>  					(aximcdma_hw->control -
+>  					 aximcdma_hw->s2mm_status) &
+>  					chan->xdev->max_buffer_len;
+> -			else
+> +				xferred += aximcdma_hw->s2mm_status &
+> +					chan->xdev->max_buffer_len;
+> +			} else {
+>  				residue +=
+>  					(aximcdma_hw->control -
+>  					 aximcdma_hw->mm2s_status) &
+>  					chan->xdev->max_buffer_len;
+> +				xferred += aximcdma_hw->mm2s_status &
+> +					chan->xdev->max_buffer_len;
+> +			}
+>  		}
+>  	}
+>
+> +	desc->xferred_bytes = xferred;
+>  	return residue;
+>  }
+>
+> @@ -3284,6 +3302,8 @@ static int xilinx_dma_probe(struct platform_device *pdev)
+>  	    xdev->dma_config->dmatype == XDMA_TYPE_AXIMCDMA) {
+>  		xdev->has_axistream_connected =
+>  			of_property_read_bool(node, "xlnx,axistream-connected");
+> +		xdev->has_stsctrl_stream =
+> +			of_property_read_bool(node, "xlnx,include-stscntrl-strm");
+>  	}
+>
+>  	if (xdev->dma_config->dmatype == XDMA_TYPE_VDMA) {
+> --
+> 2.43.0
+>
 
