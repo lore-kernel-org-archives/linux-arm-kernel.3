@@ -4,95 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63F74FB3CEA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 09:36:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1D89FB3CEA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 09:36:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dw3GlJzRigow5MEAZRBZ9gfDU7AZvtgosUcNlmBiH4s=; b=mffjnsoaK/yQfoJaIgFbwEu9Hm
-	vcGcwxfyEWa6LtNwWy+kocotHK+bGPQVWKcOW3XZcr93RFzo4VY4/H1uaA6uzpDRplb7a/2jEqS3g
-	7SxlZUK3E8zQXQ+BkL2mqzenm55hia+W0cQdxuOIZMm1XgUjyalAkr1Tb8DBF8qf5muRfYTsdfQGQ
-	w74jJtq+KFJrQsG2Iruu223RsuofEB/T1bYMHVapNsinTCbVNi6Tn6fHUxYXNUsidygUWiNUP/uOf
-	WZ4Lj+ksfGMpjXBowIY1Y06jLs5ubHbqWeFFTXeOVE/cI79g4PczzUk1qiSPgT43LFLPXBGTi9Xvm
-	L9asOfQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ONNvpnHIrrlZOFnwwhyENzcT4/Pw+OdMUWkbXsdiH4Y=; b=F/aEJBKs5e/cBxT32WXR8TWJ0G
+	XMJqh0RJLV7oq0rP/aOJ0s4uE+4vlUXb0EpH0FKe4X39VaAYUYhtmlcr8Ls7isU9BArX1bcooNnKT
+	cGTTBWtxifv65aKkT9u1XhvfPV5WvjyWrw0LuNUlaVl3FLd0i/vfqqJ2V4QAgT/tbT8vR3D2eJOdn
+	Yl91Fx/+a7W2IGU6QasUFZURpVy3hq0BwaXZ8tQDR6pL2LV2tyNvO0sVMO0szoMVtxUhaYph9tNdN
+	OjSzfzoK7ERLLpp4Mu8vSyLGMmKPgCCkJyf3kAMuOMT34+zdXbrHYoGpz+Gf1I9dSrjA6isyBkucr
+	TWVrHUsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w792N-0000000AyOX-2uHw;
-	Mon, 30 Mar 2026 09:35:59 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1w792b-0000000AySq-3PLe;
+	Mon, 30 Mar 2026 09:36:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w792K-0000000AyMt-3Vew
+	id 1w792a-0000000AyS3-3KuJ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 30 Mar 2026 09:36:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ONNvpnHIrrlZOFnwwhyENzcT4/Pw+OdMUWkbXsdiH4Y=; b=YfDArPY/jziKlFzUM3ZvEVxJEq
+	7h5ofJ9mHit8ePhoajrF4H9emWmdy0x26RgGwN+kXxbAlCTILLahEHvZQm0RcQH8Xha5UjEDidwzK
+	obz+q32h4j0JC9VQc9DxddI7CpllKRNsqCORSY2Oy9gyVuzr1Uw/bTBHojNfFvVC6vqL4V4do5F/1
+	sFNEg7y2uceUulwPW49hfZteAY0lNVg1AJw3ssZHWPtOvI/2OvhD0xhZicXzasaX+pRjauH41iCoM
+	PiMO28OrZkJINe44sSxxO4ywfoUNGRvSb5Dv3pYFZEwVvcCAMRj5T5gES5bl0m/V+KBu59euCsjNN
+	dqbgxMQw==;
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w792W-0000000DSHD-22LK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 09:35:58 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-486ff201041so41886435e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 02:35:55 -0700 (PDT)
+	Mon, 30 Mar 2026 09:36:10 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-5a2a70bb69eso4401048e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 02:36:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774863366; cv=none;
+        d=google.com; s=arc-20240605;
+        b=DxFy3gY2xXSGq5YoA38VJwhLgXMk0aapOc28yteGkXt7b+ASzaEN0yD+Mp03CKDfAd
+         Cq2LLq1t3++FbCjpLKepnsMZD1BLhDDWWO6kcqxFivH2+F2wkqulp0cmMk8Fz39nw1s2
+         Z8N0szHnpX1D0vPc6V86sUdZrhRcdENATK3cDBWPUkEOVJg/mOSr2Qxb14TqEnvEf+YW
+         xw14iajN/MeVi96QybFOZCDd1+jt7YVCG42ce/ugPyzHLHJJC94LxTcZh1fRKelE+gek
+         72pWqmBQWUMcMj5la8h9iPjN6SJJMm0HpPnb9FZ9GxIPPdAVQJohcRuCPbTTwKQvrhpQ
+         bu2w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ONNvpnHIrrlZOFnwwhyENzcT4/Pw+OdMUWkbXsdiH4Y=;
+        fh=sNtRfHEfwb9gEQ5uDwoTyCmNBwFyAj57SDDT+h3oD1o=;
+        b=DYlbeREl6tb4LGsrRg7MydQgpynEOCVmYKtQMPjReoL7XHoOWqbf/wzl+McK5N0BcM
+         PQWy7shN9OOvfxNwFHDHbiZCjbASPzVFPE3xorLITkYs0C6YlTp/Vl5c/J952Rpbnjy2
+         rEHyFEknFH40TdkLIyreeiRZwe1vaC0m9lcmqPY5JBjfx8bS2AWxdRdUSH3vMNIyLyWB
+         sSrXyk0mzhoT71Z2c7fsQCXDiWUfqbJLJcth30flzjI+mpEGF2NYsfKQdFVp4LJizNTQ
+         TY1IeKWdu05pJurt61+teWrEQHqwuew61O0DjDUKuKwkK+r0unq/1vulkaaEtHqlGTR5
+         k5qw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774863354; x=1775468154; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=dw3GlJzRigow5MEAZRBZ9gfDU7AZvtgosUcNlmBiH4s=;
-        b=FE75r7DMVJeP0tMLHVVQM7dUi9flDRYMPMLGDDMUFHQhVEVyYC6bKsDqxivFEGNaS+
-         zbwz1R6Z4LgDiqg+hVQj9B4nB7sXypO10FhRPdd/9bRdxZMfKsEhUBVFp0kmn+zc1WQl
-         ++JkaYI0q7LbdSWqAnYs2A//Oq1p41FTWqgqHyEpcrNbMee1WQCZiZr9DT3/mh4JETk8
-         8T8F/TFOTnTRCSE3XMkFphs3KOx51U5KRor3f6pB1R30MshpCz1LfDbHnt0dTgptulHn
-         43PJxZJLFvv54bD2T8GfRoLCAClqXyAudAmxFhxPdcKj/QewNVYhikmknBpzvIhHjgmQ
-         6FHg==
+        d=chromium.org; s=google; t=1774863366; x=1775468166; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ONNvpnHIrrlZOFnwwhyENzcT4/Pw+OdMUWkbXsdiH4Y=;
+        b=Y9zGQ15zM9CQoO59R0MGHvzGQlFcuFPPfFvFwLUF7zQUZAfXYMDUChMyfR6YJVcHmp
+         uxCtDCjjAQV0+A1p9EdH2NtbVdyfmLdjfcaBsS79L/xuWyKY9ZCY5ahI02YxA3mdHCJT
+         uOEgRRWBJCpTqsqMrE4QSJ3M3sYhUSJF1X6Z4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774863354; x=1775468154;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dw3GlJzRigow5MEAZRBZ9gfDU7AZvtgosUcNlmBiH4s=;
-        b=RYKv+7CvfKIr2vuUOSNjVmupQdHMUC8ftSdfjc2GIkFy1koL1uET0UqWds3O3/eTI/
-         LrfpSTsk3UJCK0h7wHIRFP486oK1XjKiArbSeAT4t6pIx+gILTSl9RJaLGoNL5/GHWbA
-         eRwgMWQ4LDvOXdAcWkXGK3olE/5X/qW2+R+/K7kTFdz+wVME9yYqmD4xxe3AblMlHPao
-         XLRhMbnHQyDacm36Qv6q/SCPAfMwo+wP/3jNaJsSjsVLg8ePfujSzCc34NVqfj56Wcng
-         KyeXG5aimRsK75CrPDkh34jkUe85DTc/vH+OYrXRAZDw2xrTfIPXIbxyyl3ZXUdrdpOh
-         rdtg==
-X-Forwarded-Encrypted: i=1; AJvYcCVLYWrqo+9xuDlyLHqiKe+Ja6p9eaXEjPm83n49aV0ebR5KzyxsEmqOaXH2JqD5f6/KIcuWYONKkIfEbJNPKoH9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6Rn8oUvcafduqJlV6XRSOe0qZ13TUgXTHrVf5cxnHsxXsnoKp
-	bamJI4uCu3ti5InQNO+jf2NAVwV8xpKkt/drn15pW06WRrjVgDyOJ2sL
-X-Gm-Gg: ATEYQzx+cN1Ub70L4u4SPxBKHwAOlLf53airx0LiJGf3vetZaDivOnjJjemSUgBNoMd
-	6D9UQ21A1niwis2jj/KZkcDUWR2KGqmhx4QGXPrVxF4+PmF/VgF/GFx1vVDD1asOF0U04S5jzMI
-	ECPpRrfRllDfMeQei4V4kNEmkaVJJPay4SFTSCDUS/4kvNz71aeBpQjljby6IDcYdM10+WgLZlC
-	Qg5Pk45RiWv224WhgV7h5zuZppsoR0o7V5L5+P9UTWXP7O6/Z8x8K3j9az8qdOB+3491sTR4URt
-	Ms1Y3cN+l03mYLClN2SLiQ/M8ICSgLTjEmqWBMZkewhYuZCmFN/p065Dc2WVTaIzvI+Dk3AqGnU
-	yyaTYRBlp3S7fpGueohYRs5VPnWW7RpBMwIYhAzfq2gRMmOOF3sx3yZDSiMHTmePxwZfPGQvXOw
-	67tv22rM1i7z48sqDIIAY=
-X-Received: by 2002:a05:600c:c87:b0:486:fe83:8621 with SMTP id 5b1f17b1804b1-48727ede17amr203752735e9.23.1774863354250;
-        Mon, 30 Mar 2026 02:35:54 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43cf1db08e6sm26884641f8f.0.2026.03.30.02.35.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Mar 2026 02:35:53 -0700 (PDT)
-Date: Mon, 30 Mar 2026 12:35:50 +0300
-From: Dan Carpenter <error27@gmail.com>
-To: Sebastian Josue Alba Vives <sebasjosue84@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-staging@lists.linux.dev, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	kernel-list@raspberrypi.com, stable@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] staging: vc04_services: vchiq-mmal: validate
- component index in event_to_host_cb()
-Message-ID: <acovDyj3L4ORCn-H@stanley.mountain>
-References: <20260329062229.493430-1-sebasjosue84@gmail.com>
- <20260329071616.507876-1-sebasjosue84@gmail.com>
- <20260329071616.507876-2-sebasjosue84@gmail.com>
+        d=1e100.net; s=20251104; t=1774863366; x=1775468166;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ONNvpnHIrrlZOFnwwhyENzcT4/Pw+OdMUWkbXsdiH4Y=;
+        b=CaR18L/kXBuaqDfPWIdwOiLYkB3eYt2rf7mSi/3XYV2GnxPuZQDWu6kRHcWn2uqvGy
+         n0YztWUlmT+x7w6TF71vUYKKBRITIEtzeA3oLvdFeIhsyP05uwYNrGsC7pPYVIXIDaYP
+         jhfnsi35YjcYrvniZbg0uYedoqF56mA0VFqUhOciqJvQzejSqWAjtD4cZ5DuWSuf3jz4
+         6F/WuZgvRTNFwuTufvtH+C6g9NP4+kgcDFXmf6Wu80yVdg+JJSiW9yCgL8ywBmN5oqO+
+         +8iY63r7IJijmlFMVmO5aGv8M/ZHfrr6VC8Pa2uJP8QxMn6RJMldorI+Xunx5FyC5YPq
+         IsgA==
+X-Forwarded-Encrypted: i=1; AJvYcCVBzUkIwb1lrRBnla5R/C6jVQMznTjHV7/1C4sVf2+2pW9yN3h6/8LCamiX9tzVez8N5tTKixge+p8rUDX37DaO@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDHiF26QJD27mfholDERyoLm9sDYS4fk3lep4tOYZu6mX/wv5/
+	rxHHeTtvMS2GZS1ajIUukhaojTAf6wxfva/lx3RdFVb6mIsw0Jtq84MEJcXzcOLQuxJMAvUs0gR
+	IL0CM4Jf8KM534LQIPvRjOb6AzOCwGnap8Al5jK/v
+X-Gm-Gg: ATEYQzy+fxl+BpkSIaY/rWL/7oHc41CV3AU4zQtw5B+pyk7KdS0JNSMJSfgNXh60N3Q
+	tHUkRNQjVQFQ6fPC2T4dFcJZ9HqVpJDXuCrlSvUjLeyPTXnQqbXRdpxt2RJ9xNYnsZNstiQRbkS
+	eFGwa5Pr10lEh7Ssr70NQfGjDEVnT04ZorYchUhIZSgDFIFSoIf3bAkHOligPSJRc9h11CO7IHu
+	q484BR7kt9WFybRIo0sEV/TksbAEbQer/tx3apdHxuJqIFVvUAQCv8noJjm3rkBBwOZwNCY/iqW
+	4Fiec+VWZxPPS0KJpUKNeZQt4UGyIXLeOUob
+X-Received: by 2002:a05:6512:3f12:b0:5a2:7aeb:e7b3 with SMTP id
+ 2adb3069b0e04-5a2ab92ae11mr5011592e87.29.1774863365955; Mon, 30 Mar 2026
+ 02:36:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260329071616.507876-2-sebasjosue84@gmail.com>
+References: <20260317184507.523060-1-l.scorcia@gmail.com> <20260317184507.523060-8-l.scorcia@gmail.com>
+ <CAGXv+5GmDtrtFHJXs+fDyF+dZ5YW-TSEqXnPs2xCH8cu-Xcn9w@mail.gmail.com> <CAORyz2J355NZH=7iQ9sTDBhAmtjP7xTpXe21_3Z9J_R5YvdXAQ@mail.gmail.com>
+In-Reply-To: <CAORyz2J355NZH=7iQ9sTDBhAmtjP7xTpXe21_3Z9J_R5YvdXAQ@mail.gmail.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Mon, 30 Mar 2026 17:35:54 +0800
+X-Gm-Features: AQROBzDDuO289B2CM0DmVnpmaCFifXhpUymo-5rQ6aPBkZTqTiIMBWQIo9x2VA8
+Message-ID: <CAGXv+5HRWRW=+Mk2z4qCPrF7zFax9zQJ70Q4ihR6PkWJP0OUrg@mail.gmail.com>
+Subject: Re: [PATCH v3 7/9] regulator: mt6392: Add support for MT6392 regulator
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, Fabien Parent <parent.f@gmail.com>, 
+	Val Packett <val@packett.cool>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Linus Walleij <linusw@kernel.org>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Gary Bisson <bisson.gary@gmail.com>, 
+	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
+	Julien Massot <julien.massot@collabora.com>, Chen Zhong <chen.zhong@mediatek.com>, 
+	linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_023556_910860_C7F15968 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20260330_103608_697236_16446506 
+X-CRM114-Status: GOOD (  26.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,30 +141,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 29, 2026 at 01:15:39AM -0600, Sebastian Josue Alba Vives wrote:
-> From: Sebastián Alba Vives <sebasjosue84@gmail.com>
-> 
-> event_to_host_cb() uses msg->u.event_to_host.client_component as an
-> index into the instance->component[] array (size VCHIQ_MMAL_MAX_COMPONENTS
-> = 64) without bounds validation. While the kernel generally trusts the
-> hardware it is bound to, a bounds check here hardens the driver against
-> potential firmware bugs that could otherwise cause an uncontrolled
-> out-of-bounds array access and kernel crash.
-> 
-> Add a bounds check on comp_idx before using it as an array index and
-> move the component pointer assignment after the validation. Use
-> pr_err_ratelimited() to avoid log flooding. Note: this file does not
-> currently have access to a struct device, so dev_err() is not available.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: b18ee53ad297 ("staging: bcm2835: Break MMAL support out from camera")
+On Mon, Mar 30, 2026 at 3:39=E2=80=AFPM Luca Leonardo Scorcia
+<l.scorcia@gmail.com> wrote:
+>
+> Il giorno gio 19 mar 2026 alle ore 06:04 Chen-Yu Tsai
+> <wenst@chromium.org> ha scritto:
+>
+> > If this PMIC is anything like the MT6358, then it has 0.01V fine
+> > tuning for most if not all the LDOs. It is sometimes needed as
+> > a rail may have a 0.04V boost that would otherwise be invisible
+> > to the system. And then if you have something like 3.04V set in
+> > the DT constraints, you end up with something the regulator driver
+> > doesn't support, but the hardware does.
+> >
+> > Please see how it's done in the MT6358 driver. I spent a lot of
+> > time on that driver to make it actually support the full range
+> > of voltages, and describing the supplies.
+> >
+>
+> I had a good look at the datasheet (MT6392 PMIC Datasheet v1.0 08 Dec.
+> 2016) and unfortunately I did not see any fine tuning option in there.
+> I'm sure this data sheet is not perfect as it's missing some regulator
+> registers that are clearly used in the Android sources, but there's no
+> mention of fine tuning in that code either. I guess it does not have
+> that capability.
 
-This fixes tag is wrong.  That patch just moves code around.
+Well, thanks for looking. FWIW on the MT6358 / MT6366, the main voltage
+control and the fine tuning are mostly in the same register. The fine
+tuning is described as "calibrates output voltage" from +00mV to +100mV.
 
-I can't apply this patch to linux-next.  Is this another out of tree
-bug?
+I looked into this because the LDO table shows some of the default voltages
+with 0.01V precision, but the main voltage controls only have 0.1V precisio=
+n.
 
-regards,
-dan carpenter
 
+ChenYu
+
+> I will shortly submit v4 that hopefully addresses the rest of the comment=
+s.
+>
+> Thanks for your help!
+> --
+> Luca Leonardo Scorcia
+> l.scorcia@gmail.com
 
