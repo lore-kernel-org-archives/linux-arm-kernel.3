@@ -4,65 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25A861061B18
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 18:50:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D52B91061B1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 19:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZbI/xWQ/rrC6wAb85E1XodfYiivSfrUvb5aJFFUK0R4=; b=POgYORFJF+f2d+hnn3mb/3jHDL
-	3KP/u6FctJPhIZdjcv7gKpLk3/3IwpvQ+ANyW++81QyzxBc2zTpELliZvdAP1wspKlPXCHwkWdN3m
-	k5JP6p+aUsT8M/ghXhVaa9MvyL2HI15i44Me0cYiGlgxQkXeAocyy7AcWbHG/i6Q2AZfPLpoga1/M
-	nRZI722FZ9wy29/igtKtzc7rgmVHnkhZVnDOnc4RQbm6MqhTAopkuPtHM4tIvLIKAtIT4yHTtYuxP
-	d0LZ7pwAP4M5UzVqJOnp7zOvRXFRC/wqR4eZssNEafqNXSBM5vl5h2KwnHhqI4S+V+qMNMXvS43Q8
-	z5TEUjAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tCivOAAC6y2SDtg+mjVT1nslDmiFVfh5SXg06Jz+HY0=; b=bjLSdLKvUfjPQHWv1VC1LVQvEm
+	Bt9NR2Kivd8NfxLIF7geigBjGfQBPEnUy0tVOWt5vpY2mWfzjy+0CzGHbuZ7Gz8S0leneFfyuBmJm
+	T104s6h77FxgPWd1pKZAyKrAtgQvJ2ACCHIrSEbHVN60qz7b/rm44tiFMOHINs0uqjgRnJxFDqNUB
+	xfEhA4PZqjzdlhKKSWP/5CYTk3Vv70sdm452JUvk6MJH6d0E8KWsQLaJu+x+vLVvYJSPkNm4W2ht7
+	6L1RbU4PSleWomtwCh/p6TnzragJZ+7G0nDHpLHK/UrbXKq6/2iPkN/TCOhqszJ1tJbdRl/eeIZKI
+	BD0TNkNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Hgr-0000000BkWs-2zuZ;
-	Mon, 30 Mar 2026 18:50:21 +0000
-Received: from out-176.mta1.migadu.com ([95.215.58.176])
+	id 1w7Htd-0000000BlM2-19n2;
+	Mon, 30 Mar 2026 19:03:33 +0000
+Received: from mail-southcentralusazon11012009.outbound.protection.outlook.com ([40.93.195.9] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Hgm-0000000BkUQ-3jcn
+	id 1w7Hta-0000000BlLN-0i6M
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 18:50:18 +0000
-Message-ID: <8a57e85b-8917-48b8-9412-b10a38fa230b@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1774896612;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZbI/xWQ/rrC6wAb85E1XodfYiivSfrUvb5aJFFUK0R4=;
-	b=dXamNKUKlXf3V7TOgKCvckNA8R4hlEefGV1lkULsTRrQwPcO2HWM0lPy99bob7KpucHVR2
-	/8gwDkVk+iRKYIITKU+oy1ANThY8TLqSVDzZVX4hMvZS5Rr2cSLcS00JMdKNC/JI5oV52B
-	Z4J7fYAAc5CJeelap4+eCNbFtAmW+oU=
-Date: Mon, 30 Mar 2026 14:49:59 -0400
+	Mon, 30 Mar 2026 19:03:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rUN/yx3aQxr7EytPfv4SO8KlThQPZNIFaik1wUmz4pSvEaoGcwRuqLC/PhEa2pb9UoobfeZnwBT6dbQDhy7LEM5ERDIeWXW9/ZtI556nz4qpMfQmyR1CoefIZPZXb5tBidl/A2dONDlPXYu9ZfNQnIPd3Y/hmNiGsrxINrIHCEwVRkSGYnSsehrLzn6T/zoOGm54cQDROWKq3eWxHkBbuqFCtP8NvXJJfQ9DUIN4+0qdmummo0gilEBbko9U+tE0i0Rx5fm8+Pqai7jwKYbjTTGaBZVjXJCBwPu3tAhgRItT+O6SmrnLzZ336JYAzU8FBnVK8PSW5fMqe1uxHZwP+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tCivOAAC6y2SDtg+mjVT1nslDmiFVfh5SXg06Jz+HY0=;
+ b=nNI/8LvZmZGFh1drUKs1Bz3YyF6QOlDQi21YpIwecwkOlOqjkceWiWxsu4ZDyZlaZSaa5iikYNBIT04EZ+sY5c9yINvTvMg3WUPYCsUDz0XzuRRd0ENNB0Rmc/2eUWsLtGRCVbtkR9oXyziPu5j8JADFOcoKKZR9Vb6x7vouex01EBgGJTIJCyTM2vUIN7RzOfw+LYy0TsFcyLMjRJVYZvvugUp8iqQcs43NanIfPvspHWuK4rbdU8IzhsJkgZawOz4+Hyw6Ihg7Vq/jYDWYmltEosowZ3P01Htz9GBtjfliK/ZcDyUyAzaqUIWZ154EwjjUL7UFB7tyEJLzjg3fkQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=linuxfoundation.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tCivOAAC6y2SDtg+mjVT1nslDmiFVfh5SXg06Jz+HY0=;
+ b=hT8+hGNDU2wytfZHoBLSKxmlEvaJQEW1hWijZp/RjRgrXOhLxLSpzZ9RgcFfxRfKFfjfZvF/S54SneQ+xTBB5REFA6ST1SGHxS7JV5/+Xe7SQcFqxw7KaIV1K+/v7q92yGsAmgnevWTV1/ZRANXc5Bo0BveA8Blypb1GWi3uOZc=
+Received: from SJ0PR03CA0074.namprd03.prod.outlook.com (2603:10b6:a03:331::19)
+ by DS3PR12MB999215.namprd12.prod.outlook.com (2603:10b6:8:38f::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Mon, 30 Mar
+ 2026 19:03:21 +0000
+Received: from SJ5PEPF000001CA.namprd05.prod.outlook.com
+ (2603:10b6:a03:331:cafe::f2) by SJ0PR03CA0074.outlook.office365.com
+ (2603:10b6:a03:331::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.28 via Frontend Transport; Mon,
+ 30 Mar 2026 19:03:21 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SJ5PEPF000001CA.mail.protection.outlook.com (10.167.242.39) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9745.21 via Frontend Transport; Mon, 30 Mar 2026 19:03:21 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 30 Mar
+ 2026 14:03:16 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 30 Mar
+ 2026 14:03:15 -0500
+Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Mon, 30 Mar 2026 14:03:12 -0500
+From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+To: <gregkh@linuxfoundation.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <michal.simek@amd.com>, <Thinh.Nguyen@synopsys.com>,
+	<p.zabel@pengutronix.de>
+CC: <linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<git@amd.com>, Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Subject: [PATCH v2 0/4] usb: dwc3: xilinx: Add Versal2 MMI USB 3.2 controller support
+Date: Tue, 31 Mar 2026 00:33:00 +0530
+Message-ID: <20260330190304.1841593-1-radhey.shyam.pandey@amd.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Subject: Re: [PATCH net V2 2/2] net: xilinx: axienet: Fix BQL accounting for
- multi-BD TX packets
-To: Suraj Gupta <suraj.gupta2@amd.com>,
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Michal Simek <michal.simek@amd.com>,
- Daniel Borkmann <daniel@iogearbox.net>,
- Ariane Keller <ariane.keller@tik.ee.ethz.ch>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260327073238.134948-1-suraj.gupta2@amd.com>
- <20260327073238.134948-3-suraj.gupta2@amd.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <20260327073238.134948-3-suraj.gupta2@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001CA:EE_|DS3PR12MB999215:EE_
+X-MS-Office365-Filtering-Correlation-Id: d3529159-9323-46fb-0bfe-08de8e8f02e9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|36860700016|13003099007|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 93KyPfJUlfPCrnO9EJdoiLMu75AhwZpRy+FKRg4xd5uzvr1m61tL2m2fnymJfLHgZzRBrxyQRJrHqnUXm1nbdPOnKMAMdkp9s+iSHwpBSbnBHGO/NGBZRkDxk0wBegf3HiCnmpl2ECZbWwMVu2uSmfv6ij1sUy4A8rTU02cHHRKMvseav5veSpA50/N2AIIAfg1RWbKAogYwf1Fpd3T+dFsqbX40AHhCW/PFOvc5t4IP9wiRd+y5S/UxSKDkAusJPMYXnegpDPKyGXOmyjiSby9P4lpRsYA9xQf8tmLUp1qHiQcCbRrUiclV0UElRUYGrfYZgF/pDiDcqOZixVDeHgGhWsmlclcSOtX9gSxFe/1AyKbIIsGsh2MNfE429Gw25J9WJAqoh4gAitjHQzcSW0iCrCTlISfAm/3Ngm9i47YtFKtkvqLO5igKkbVwDRf+Jpf4TkFuufKJ06+z6rJiTgKEGntetNOzmqw1vWlSwxAoJ1xhtInIeziVNNTX0569092KoT6mbdWrxSECqN7BW+jOuTIyl7g18z98vZnpcrdsaes3O4Bnp0Ou0923Mpb4N30Xz4+ORJTSd9Q7cRnlggHWBhrW5K4uwvD5EIoSjQdpxXevNfsiuOMTYsno6gjLeg15KRy19DMVJ049d440cbevpWlNIpyZFRSKrnqbGIjKN2Xfz+XjifejYDDurDyCKZ4vSbqM9uOWvFxMsZyPpwZSBW6ys/xibwn+U87Ri6nUhHjs5Kj9MD/meSb1jlRmEd+RUYBQGYz1fSrN8KxY4Q==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(36860700016)(13003099007)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: sLDtn8tZ+s0rIerjlb37IIT3DEyMxwq19x1E8761OndDsYtdd73sprXbSscPe2gM0/y9CgPT3Vw/VtGqd8IX3u+ChmnswS0SkbRXxxMVMnUL5TT0vt0IFd7PfPkfHrmUeLAA482j5pr+UcwSnFBzUfaACS42xSZ+JyO2pDEXMOeb99vtldVN5Gp4CmjhKJ6syd+OCoAR0+2BcGdyzraYdpCPTOFKvGl+Sw/wiywoz9L0kDpUo1Ex2tTo6oMjTZ8UeEU3sXwqCDrVswPL9nWAwAisIIibyb/if6m1Y/I6qpdDm55e2i9UBof4IVBUMDW3kYy6Mt+kR561a0LVn6QyNhGJ1sjzJIJ4FfcPH+1tGcRD/1JoszXPJ4mrUWGZnFNK3uEakBomaAJ2EI/v43VHF9I7uYgZ5Q02tlzhFCilspw32t+cbJqfwc5UGrwFrhSV
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Mar 2026 19:03:21.2390
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d3529159-9323-46fb-0bfe-08de8e8f02e9
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001CA.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS3PR12MB999215
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_115017_223319_16AB0EBD 
-X-CRM114-Status: GOOD (  21.94  )
+X-CRM114-CacheID: sfid-20260330_120330_212499_A620F83F 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,65 +125,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/27/26 03:32, Suraj Gupta wrote:
-> When a TX packet spans multiple buffer descriptors (scatter-gather),
-> axienet_free_tx_chain sums the per-BD actual length from descriptor
-> status into a caller-provided accumulator. That sum is reset on each
-> NAPI poll. If the BDs for a single packet complete across different
-> polls, the earlier bytes are lost and never credited to BQL. This
-> causes BQL to think bytes are permanently in-flight, eventually
-> stalling the TX queue.
-> 
-> The SKB pointer is stored only on the last BD of a packet. When that
-> BD completes, use skb->len for the byte count instead of summing
-> per-BD status lengths. This matches netdev_sent_queue(), which debits
-> skb->len, and naturally survives across polls because no partial
-> packet contributes to the accumulator.
-> 
-> Fixes: c900e49d58eb ("net: xilinx: axienet: Implement BQL")
-> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
-> ---
->  drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 9 ++++-----
->  1 file changed, 4 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index b06e4c37ff61..263c4b67fd5a 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> @@ -770,8 +770,8 @@ static int axienet_device_reset(struct net_device *ndev)
->   * @first_bd:	Index of first descriptor to clean up
->   * @nr_bds:	Max number of descriptors to clean up
->   * @force:	Whether to clean descriptors even if not complete
-> - * @sizep:	Pointer to a u32 filled with the total sum of all bytes
-> - *		in all cleaned-up descriptors. Ignored if NULL.
-> + * @sizep:	Pointer to a u32 accumulating the total byte count of
-> + *		completed packets (using skb->len). Ignored if NULL.
->   * @budget:	NAPI budget (use 0 when not called from NAPI poll)
->   *
->   * Would either be called after a successful transmit operation, or after
-> @@ -805,6 +805,8 @@ static int axienet_free_tx_chain(struct axienet_local *lp, u32 first_bd,
->  				 DMA_TO_DEVICE);
->  
->  		if (cur_p->skb && (status & XAXIDMA_BD_STS_COMPLETE_MASK)) {
-> +			if (sizep)
-> +				*sizep += cur_p->skb->len;
->  			napi_consume_skb(cur_p->skb, budget);
->  			packets++;
->  		}
-> @@ -818,9 +820,6 @@ static int axienet_free_tx_chain(struct axienet_local *lp, u32 first_bd,
->  		wmb();
->  		cur_p->cntrl = 0;
->  		cur_p->status = 0;
-> -
-> -		if (sizep)
-> -			*sizep += status & XAXIDMA_BD_STS_ACTUAL_LEN_MASK;
->  	}
->  
->  	if (!force) {
+This series introduces support for the Multi-Media Integrated (MMI) USB
+3.2 Dual-Role Device (DRD) controller on Xilinx Versal2 platforms.
 
-Reviewed-by: Sean Anderson <sean.anderson@linux.dev>
+The controller supports SSP(10-Gbps), SuperSpeed, high-speed, full-speed
+and low-speed operation modes.
 
-Although FWIW this may result in slightly-different statistics. Not sure
-if we care since this will only affect packets that could not be sent
-for whatever reason (collisions, loss of carrier, etc.)
+USB2 and USB3 PHY support Physical connectivity via the Type-C
+connectivity. DWC3 wrapper IP IO space is in SLCR so reg is made
+optional.
+
+The driver is required for the clock, reset and platform specific
+initialization (coherency/TX_DEEMPH etc). In this initial version typec
+reversibility is not implemented and it is assumed that USB3 PHY TCA mux
+programming is done by MMI configuration data object (CDOs) and TI PD
+controller is configured using external tiva programmer on VEK385
+evaluation board.
+
+Changes for v2:
+- DT binding: fix MHz spacing (SI convention), reorder description
+  before $ref in xlnx,usb-syscon, restore zynqmp-dwc3 example and add
+  versal2-mmi-dwc3 example, fix node name for no-reg case, use 1/1
+  address/size configuration and lowercase hex in syscon offsets.
+- Split config struct refactoring (device_get_match_data,dwc3_xlnx_config)
+  into a separate preparatory patch.
+- Fix error message capitalization to lowercase per kernel convention.
+- Rename property snps,lcsr_tx_deemph to snps,lcsr-tx-deemph (hyphens).
+- Fix double space in comment and missing blank line in core.h.
+- Use platform data instead of of_device_is_compatible() check for
+  deemphasis support.
+
+Link: https://lore.kernel.org/all/20251119193036.2666877-1-radhey.shyam.pandey@amd.com/
+
+Radhey Shyam Pandey (4):
+  dt-bindings: usb: dwc3-xilinx: Add MMI USB support on Versal Gen2
+    platform
+  usb: dwc3: xilinx: Introduce dwc3_xlnx_config for per-platform data
+  usb: dwc3: xilinx: Add Versal2 MMI USB 3.2 controller support
+  usb: dwc3: xilinx: Add support to program MMI USB TX deemphasis
+
+ .../devicetree/bindings/usb/dwc3-xilinx.yaml  | 70 ++++++++++++++-
+ drivers/usb/dwc3/core.c                       | 17 ++++
+ drivers/usb/dwc3/core.h                       |  8 ++
+ drivers/usb/dwc3/dwc3-xilinx.c                | 89 +++++++++++++++----
+ 4 files changed, 166 insertions(+), 18 deletions(-)
+
+
+base-commit: 46b513250491a7bfc97d98791dbe6a10bcc8129d
+-- 
+2.43.0
+
 
