@@ -4,103 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7789510D14A3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 11:40:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9780010D14A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 11:44:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WONPmbm2TYoQSix9aTbSrjRS3fmoy0yaRkZ4ZNle6tE=; b=nPbwzWt0h4uU6Dz43ZZJojCJMH
-	L+PGw0AzedPUNpXr4cp/ixq22cEbZ/IiOKt7TYTxkoJlQzd79AbNkVLG1X5539KzQS+NdCX1ihVQW
-	4XS3LSkcHiGNxQ5ylwhLq6Jjy8NmKDGfHK1yBzcOag7uPKHIhs/S2HL8OjZsxfoNnh6oV7hDJ9XDZ
-	70/MLEI5mF3cFjvniEKZakrPxWVhymLl23QZDkK+2y/t5qpW7tTzumGFVKSdBKWz1y2lxyFvGEmzk
-	H/5oCsHDLPMtIzuVf3sdTn99CR04PDaqZIb0GzGDMgRhbyb3OZW9paV7RCmkzm0zXKMozzvWFPZ5a
-	zRgSR3Eg==;
+	bh=gvAh52M6pis730l5q8D5EHWXWp5qXG4bsCWjlx9wIeo=; b=i14RxyYhZ1QM4zJvcrw6WHzbfu
+	1oLcCfxiZjOG5wnXCk06dOPQ9Z6zK4JareAMTqc9vtj3ICP6KZw4JyQx0YQ58k5qfimiFVXu6wcUO
+	1TTzY79bFtHXRQRdQjJ5tShKRU96vGFszCIP0pWL15gbqWeRY86hXjBO1cXzLtR+JG0MMS1ARpu1Q
+	AzKsB7LJzIUDxWkRnWD18goy2qb5+b8njFY/hSe17YfRyIAKwhxOj7lvximV48PTq+eVCS5NAWToN
+	6T2I24o+7tQ9JE5vzmgG+6JgX1L5bnRx8S1WtjXv//Voq5Vesg7zr6LxuB4DC9dbAXnavKIUHKTBI
+	JDVdzB/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Az8-0000000BB2B-3a3T;
-	Mon, 30 Mar 2026 11:40:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w7B2r-0000000BBKB-0mky;
+	Mon, 30 Mar 2026 11:44:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Az6-0000000BB1h-41Rw
+	id 1w7B2k-0000000BBIn-2CuR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 11:40:45 +0000
+	Mon, 30 Mar 2026 11:44:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2227D60054;
-	Mon, 30 Mar 2026 11:40:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39ECBC2BCB2;
-	Mon, 30 Mar 2026 11:40:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 42AC64433B
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 11:44:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FE6AC2BCB1
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 11:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774870843;
-	bh=9QKKv/MJNfK4wnYIZ5u8Bg82kMFl+XFfFNUay1UF+Rs=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=guMb6WiyIx+dTK/AmWGtCNWoG//OUYXZsBV+PSEFirwCO65+c/lsE0eiws8xQrWM7
-	 HtdOtyrXIoweS2EXb76m+KxLtf+6plMRZBQpq9EgbTl+VCDhzA6W+zLeKU6n3IgLGi
-	 W8MbgB2Ww0TLfYoR240go/K/RC5etfv728E1N49WSqxgryWgTxK9b9iCs/vOOdA5uY
-	 eHQ2Bj4mpgZXAaq+ksvhAZAtOjK9wpNPLgHg+Zh4uwxqEvltJ64GKq97EA4LfQs7HH
-	 pySHIRnEbiSpBn9N+tqeq7jNfusEH1AVlI1XpD4APTC0TX3l96n0kimhEx35FFYITS
-	 OVex5ScCyoavA==
-Message-ID: <cefdfe38-a638-45d5-8fae-5bd5c3fa6387@kernel.org>
-Date: Mon, 30 Mar 2026 13:40:40 +0200
+	s=k20201202; t=1774871069;
+	bh=f4YOF8vt92eNl1mKdqZyMCWyNb3+OoCLLo4tIp4YmMQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=uRgEIC0OHFTjGnjqpcUzudj5PK0ySwoo0ihbOdzRQr39HpLRTD/b2F2IvmnAy0QMB
+	 rMpU3c4qVSq+9B8Y3duAzRNQuULKIQZbB39tqIkx8h89z4P2sZ9eMWiMJ30V3z502w
+	 NIF2J7pbUI3fUK3BirFOwUYBzMAggmASC/7WvxLSBKqvpOvo7SunL3gq+bnDoEJUBY
+	 /UdVOODG1a06dfavlzYSUXk3tAmWgl7T6tulCQxgzbVEbmMNzTjDANd7cfZfR1sR8j
+	 74NgXYv75Qk/gs3G1Y+cluMsPz+Bgmuy8fyQZZ4dv58tGBG5rim27ZzZxmmF48FCKY
+	 N6cZh6RtZJ6jQ==
+Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-66c1d3fecb2so140055a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 04:44:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUN//fCQ4yFl2/e8a+rB7bm3PQMT2eG33bSQ4e0hPvx65djh4JjwkleAf688+6XbcNEZtRv2kEGWx9XumQOp/dP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz30/SJYvMWrH0rHn64khavU/VG4WaMnscvm6MjTddWeXoRmEAc
+	8p7KOV0mBtCro69EruODFkDBdwkPBvye8QW4aADyJIZXmG36ROjh1VcobSkAwNS0gV22amGDAAP
+	eyVWamcJXzSmspCIPeFKmdc5h2Duidg==
+X-Received: by 2002:a05:6402:448d:b0:66b:82e6:5355 with SMTP id
+ 4fb4d7f45d1cf-66b82e65456mr3962353a12.19.1774871067648; Mon, 30 Mar 2026
+ 04:44:27 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL 1/7] dt-bindings: Changes for v7.1-rc1
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Thierry Reding <thierry.reding@kernel.org>, arm@kernel.org, soc@kernel.org
-Cc: Thierry Reding <thierry.reding@gmail.com>,
- Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260329151045.1443133-1-thierry.reding@kernel.org>
- <406ca5ed-4a3e-48ba-94ad-d88c53b09299@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <406ca5ed-4a3e-48ba-94ad-d88c53b09299@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260225060347.718905-1-coxu@redhat.com> <20260225060347.718905-4-coxu@redhat.com>
+In-Reply-To: <20260225060347.718905-4-coxu@redhat.com>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 30 Mar 2026 06:44:15 -0500
+X-Gmail-Original-Message-ID: <CAL_Jsq+0w2hGN=Loy=ucHbZcdnn+ty3x9qS4WVX0Vj+g19tfpg@mail.gmail.com>
+X-Gm-Features: AQROBzBPVOVlPWkIprh4svfiWPChabJG3_HPxZ8omC63yiiiHstiwFYKcyHWrdY
+Message-ID: <CAL_Jsq+0w2hGN=Loy=ucHbZcdnn+ty3x9qS4WVX0Vj+g19tfpg@mail.gmail.com>
+Subject: Re: [PATCH v5 3/3] arm64,ppc64le/kdump: pass dm-crypt keys to kdump kernel
+To: Coiby Xu <coxu@redhat.com>
+Cc: kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, devicetree@vger.kernel.org, 
+	Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>, Baoquan he <bhe@redhat.com>, 
+	Dave Young <dyoung@redhat.com>, Kairui Song <ryncsn@gmail.com>, Pingfan Liu <kernelfans@gmail.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Thomas Staudt <tstaudt@de.ibm.com>, Sourabh Jain <sourabhjain@linux.ibm.com>, 
+	Will Deacon <will@kernel.org>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Saravana Kannan <saravanak@kernel.org>, open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260330_044430_676124_3A55F338 
+X-CRM114-Status: GOOD (  21.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,66 +90,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/03/2026 13:39, Krzysztof Kozlowski wrote:
-> On 29/03/2026 17:10, Thierry Reding wrote:
->> From: Thierry Reding <thierry.reding@gmail.com>
->>
->> Hi ARM SoC maintainers,
->>
->> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
->>
->>   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
->>
->> are available in the Git repository at:
->>
->>   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-7.1-dt-bindings
->>
->> for you to fetch changes up to bed2f5b4de6c6fd8f8928f6373ad92e8795c370f:
->>
->>   dt-bindings: arm: tegra: Document Jetson AGX Thor DevKit (2026-03-28 01:05:24 +0100)
->>
->> Thanks,
->> Thierry
->>
->> ----------------------------------------------------------------
->> dt-bindings: Changes for v7.1-rc1
->>
->> This contains a few conversions to DT schema along with various
->> additions and fixes to reduce the amount of validation warnings.
->>
->> Included are also a new binding for the PCIe controller found on
->> Tegra264 as well as compatible strings for the Jetson AGX Thor
->> Developer Kit.
->>
->> ----------------------------------------------------------------
->> Sumit Gupta (1):
->>       dt-bindings: arm: tegra: Add Tegra238 CBB compatible strings
->>
->> Svyatoslav Ryhel (1):
->>       dt-bindings: display: tegra: Document Tegra20 HDMI port
->>
->> Thierry Reding (9):
->>       dt-bindings: pci: Document the NVIDIA Tegra264 PCIe controller
-> 
-> Why are you taking subsystem patches? This was posted on 26th of March
-> and was not acked by PCI maintainers.
-> 
-> How the bindings should go is already documented, so there is no
-> question here.
-> 
-> The question was whether you can take them if subsystem maintainer is
-> non-responsive and yes, you can. You gave PCI maintainers one day before
-> applying it.
-> 
-> 
->>       dt-bindings: phy: tegra-xusb: Document Type C support
-> 
-> No acks, but that is waiting for one month so it is fine.
+On Wed, Feb 25, 2026 at 12:04=E2=80=AFAM Coiby Xu <coxu@redhat.com> wrote:
+>
+> CONFIG_CRASH_DM_CRYPT has been introduced to support LUKS-encrypted
+> device dump target by addressing two challenges [1],
+>  - Kdump kernel may not be able to decrypt the LUKS partition. For some
+>    machines, a system administrator may not have a chance to enter the
+>    password to decrypt the device in kdump initramfs after the 1st kernel
+>    crashes
+>
+>  - LUKS2 by default use the memory-hard Argon2 key derivation function
+>    which is quite memory-consuming compared to the limited memory reserve=
+d
+>    for kdump.
+>
+> To also enable this feature for ARM64 and PowerPC, the missing piece is
+> to let the kdump kernel know where to find the dm-crypt keys which are
+> randomly stored in memory reserved for kdump. Introduce a new device
+> tree property dmcryptkeys [2] as similar to elfcorehdr to pass the
+> memory address of the stored info of dm-crypt keys to the kdump kernel.
+> Since this property is only needed by the kdump kernel, it won't be
+> exposed to user space.
+>
+> [1] https://lore.kernel.org/all/20250502011246.99238-1-coxu@redhat.com/
+> [2] https://github.com/devicetree-org/dt-schema/pull/181
+>
+> Cc: Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>
+> Cc: Baoquan he <bhe@redhat.com>
+> Cc: Dave Young <dyoung@redhat.com>
+> Cc: Kairui Song <ryncsn@gmail.com>
+> Cc: Pingfan Liu <kernelfans@gmail.com>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Krzysztof Kozlowski <krzk@kernel.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Thomas Staudt <tstaudt@de.ibm.com>
+> Cc: Sourabh Jain <sourabhjain@linux.ibm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+> Signed-off-by: Coiby Xu <coxu@redhat.com>
+> ---
+>  arch/arm64/kernel/machine_kexec_file.c |  4 ++++
+>  arch/powerpc/kexec/elf_64.c            |  4 ++++
+>  drivers/of/fdt.c                       | 21 +++++++++++++++++++++
+>  drivers/of/kexec.c                     | 19 +++++++++++++++++++
+>  4 files changed, 48 insertions(+)
 
-Ha, no, you did not even send it to maintainers, so how they could ack it?
-
-Nothing here was sent to the right people.
-
-Best regards,
-Krzysztof
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
