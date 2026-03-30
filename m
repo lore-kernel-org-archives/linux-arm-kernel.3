@@ -4,70 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB347FB3D03
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 10:36:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DD89FB3D04
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 10:38:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=avSqpePzBcmmA/8cEA9JWHipZckz/1aV2ecpNWSnj6A=; b=F8dTyEqGtdwAS3RaBLos93zxne
-	p4whfS92+iLH3zf4xI7yzUvPmmHwUnH/KfMBmN5j21R9okwkr833CYJXN4M3z5apRDvW5BkZi6zx4
-	WNjC+uye0c2fM2W3sxvNtWSLBpq7fTuv22r10QJVw2v1KAJId/rv9TeVCB1yHyFk9t1q1YJK0Okdu
-	6sdHMhqp10fowXhkLWkZIf4KEJKZdoz7KUsZE+M6VYDYus3K4nspwHQa48yifa1zba7ajI2OwM3I0
-	6Ax0YuA1bP7S5VPGiwdhDU6f8ZbCkzOTwH9Oj8nCEXaV6y2qViSc3zrno+vOA/IOy7jR/MUD3V1kW
-	/qr0KJ4Q==;
+	bh=E3RklmhJed+hWGX4pq5dK6XJTswXRrVph61OVvfGm7Q=; b=R082slBSNjx/n6VaVuhqzJYiaP
+	1x/0k2Fhy+USPu83dfEqUPLL1oWf2AkACXIyRvl96fZJbtXk/haAgv5Wdg+GF0RhCYGvb/B3WPn4j
+	1yG752j5P5nBgHYkoAAZ4CGk/D3N/a5SJD2YS0AwcHGPBilXhJ04Vb31LUix/wMlL8vI1Gd1+oelS
+	sOpzntwMt1YM17oLjZ8RLmoOTkq2oCxV+iNyq8vorNn4rFyDBuVRL4lmkD7vHNYWiwUKvasWQ+PjY
+	rDFlt1BPlXePbQ9nbmUf6xlpDcopkORKYc+zXX/cJ8UT+my9+g776XDVZt155rfQGkzx5T3E3rP00
+	1QrVUiow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w79yp-0000000B4h8-3sje;
-	Mon, 30 Mar 2026 10:36:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w79yn-0000000B4gM-2kzI
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 10:36:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9C50A1684;
-	Mon, 30 Mar 2026 03:36:11 -0700 (PDT)
-Received: from [10.57.13.56] (unknown [10.57.13.56])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2B9B03F915;
-	Mon, 30 Mar 2026 03:36:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774866977; bh=jz2gi11NiG/KZMld4u+nIsujltktGVyGRcWg97yjGS0=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=ZVn46wu2i0+k6UlKc80S1S6R1+BCanT5RW1OehNARboz2md1u1ESA54kYJcVM8fBY
-	 ru8ufmp1ujB0annXg4MAPeQhzK9RROmf01Ve0Ua31mnUjJcUxFQL236bmdNf52m0M+
-	 JJcgTQyjFMTTQ5Snfcr4hbVwbu765iwiOSlaGI9I=
-Message-ID: <9bf7ad5a-9a07-4150-9dbb-c3cf7cac0cb7@arm.com>
-Date: Mon, 30 Mar 2026 11:36:12 +0100
+	id 1w7A0w-0000000B4wh-43BM;
+	Mon, 30 Mar 2026 10:38:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7A0u-0000000B4w7-0lks;
+	Mon, 30 Mar 2026 10:38:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3E6C843D40;
+	Mon, 30 Mar 2026 10:38:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69165C4CEF7;
+	Mon, 30 Mar 2026 10:38:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774867111;
+	bh=pS2seSZ5ELxKTKE+BAk9JFfw8kute7d+kJeKyhN65tE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KdEcel9ZLrxBy6g7r+RYXeBJ8vty98SV+ekPMxQJnhgegv1boQC2S4m6VhwDiWN41
+	 WPPUHm3mAcOAFcGwoxa3GEMRnBldz2J/LLR0a/UDnJsK/NC5rULRHDk2CzbNiOac5a
+	 DWnD9V02M/zbJDCc1ubWPpcBo07nR4897G7IrwYt9WS8CksVxsZDQ3k9X8euDqzbE+
+	 rfihKgXlboIy60FzPF1xlD0yFQGrVzoO3oKpOOabuIayj6mWu5dR+B9YoFnhn8+FW9
+	 VH32kFKqCCYEkxG/yRBwi+sqDXAxvM5DgsSqOH1bm2GRgmZK71XCVZKJ7kRnyVBuaC
+	 pzwe8BvSdquUQ==
+Message-ID: <36822ad1-c73d-4903-bd39-091874558f10@kernel.org>
+Date: Mon, 30 Mar 2026 12:38:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: Re: [PATCH v13 30/48] KVM: arm64: Handle Realm PSCI requests
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20260318155413.793430-1-steven.price@arm.com>
- <20260318155413.793430-31-steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260318155413.793430-31-steven.price@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH] arm64: dts: amlogic: t7: khadas-vim4: Remove invalid
+ property
+To: Ronald Claveau <linux-kernel-dev@aliel.fr>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kernel test robot <lkp@intel.com>
+References: <20260330-fix-invalid-property-v1-1-e829c4d806cb@aliel.fr>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260330-fix-invalid-property-v1-1-e829c4d806cb@aliel.fr>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_033621_805479_3E23E9E8 
-X-CRM114-Status: GOOD (  30.34  )
+X-CRM114-CacheID: sfid-20260330_033832_265243_8ED20787 
+X-CRM114-Status: UNSURE (   5.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,188 +123,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/03/2026 15:53, Steven Price wrote:
-> The RMM needs to be informed of the target REC when a PSCI call is made
-> with an MPIDR argument. Expose an ioctl to the userspace in case the PSCI
-> is handled by it.
+On 30/03/2026 12:21, Ronald Claveau wrote:
+> Fix introduced invalid property for Khadas VIM4 sdcard regulator.
 > 
-> [NOTE: A future version of the RMM specification is likely to remove the
-> need for this ioctl.]
-
-This will need to stay for the PSCI_CPU_ON case, where the host has to
-acknowledge the onlining of a vCPU.
-
+> arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dtb: regulator-sdcard-3v3 (regulator-fixed): Unevaluated properties are not allowed ('enable-active-low' was unexpected)
 > 
-> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Steven Price <steven.price@arm.com>
 
-For the record, we can drop the UAPI following our discussions and 
-implicitly do the PSCI complete before REC_ENTER, similar to what
-we do for the SET_RIPAS request. The VMM/KVM can treat the case
-as a normal PSCI_CPU_ON request and return the result as in normal
-VMs.
+Fixes commit?
 
-The target REC may ENTER before we complete the reporting, but we can
-handle this error case (RMI_ERROR_REC) and return -EAGAIN to the
-userspace.
+Why there is no such change in recent next? Was it just merged?
 
-Suzuki
-
-
-> ---
-> Changes since v12:
->   * Chance return code for non-realms to -ENXIO to better represent that
->     the ioctl is invalid for non-realms (checkpatch is insistent that
->     "ENOSYS means 'invalid syscall nr' and nothing else").
-> Changes since v11:
->   * RMM->RMI renaming.
-> Changes since v6:
->   * Use vcpu_is_rec() rather than kvm_is_realm(vcpu->kvm).
->   * Minor renaming/formatting fixes.
-> ---
->   arch/arm64/include/asm/kvm_rmi.h |  3 +++
->   arch/arm64/kvm/arm.c             | 25 +++++++++++++++++++++++++
->   arch/arm64/kvm/psci.c            | 30 ++++++++++++++++++++++++++++++
->   arch/arm64/kvm/rmi.c             | 14 ++++++++++++++
->   4 files changed, 72 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-> index 38208be3c602..1ee5ed0f5ab2 100644
-> --- a/arch/arm64/include/asm/kvm_rmi.h
-> +++ b/arch/arm64/include/asm/kvm_rmi.h
-> @@ -117,6 +117,9 @@ int realm_map_non_secure(struct realm *realm,
->   			 unsigned long size,
->   			 enum kvm_pgtable_prot prot,
->   			 struct kvm_mmu_memory_cache *memcache);
-> +int realm_psci_complete(struct kvm_vcpu *source,
-> +			struct kvm_vcpu *target,
-> +			unsigned long status);
->   
->   static inline bool kvm_realm_is_private_address(struct realm *realm,
->   						unsigned long addr)
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 304fb1f2b3ff..61182eb0cf70 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -1846,6 +1846,22 @@ static int kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
->   	return __kvm_arm_vcpu_set_events(vcpu, events);
->   }
->   
-> +static int kvm_arm_vcpu_rmi_psci_complete(struct kvm_vcpu *vcpu,
-> +					  struct kvm_arm_rmi_psci_complete *arg)
-> +{
-> +	struct kvm_vcpu *target = kvm_mpidr_to_vcpu(vcpu->kvm, arg->target_mpidr);
-> +
-> +	if (!target)
-> +		return -EINVAL;
-> +
-> +	/*
-> +	 * RMM v1.0 only supports PSCI_RET_SUCCESS or PSCI_RET_DENIED
-> +	 * for the status. But, let us leave it to the RMM to filter
-> +	 * for making this future proof.
-> +	 */
-> +	return realm_psci_complete(vcpu, target, arg->psci_status);
-> +}
-> +
->   long kvm_arch_vcpu_ioctl(struct file *filp,
->   			 unsigned int ioctl, unsigned long arg)
->   {
-> @@ -1974,6 +1990,15 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
->   
->   		return kvm_arm_vcpu_finalize(vcpu, what);
->   	}
-> +	case KVM_ARM_VCPU_RMI_PSCI_COMPLETE: {
-> +		struct kvm_arm_rmi_psci_complete req;
-> +
-> +		if (!vcpu_is_rec(vcpu))
-> +			return -ENXIO;
-> +		if (copy_from_user(&req, argp, sizeof(req)))
-> +			return -EFAULT;
-> +		return kvm_arm_vcpu_rmi_psci_complete(vcpu, &req);
-> +	}
->   	default:
->   		r = -EINVAL;
->   	}
-> diff --git a/arch/arm64/kvm/psci.c b/arch/arm64/kvm/psci.c
-> index 3b5dbe9a0a0e..a68f3c1878a5 100644
-> --- a/arch/arm64/kvm/psci.c
-> +++ b/arch/arm64/kvm/psci.c
-> @@ -103,6 +103,12 @@ static unsigned long kvm_psci_vcpu_on(struct kvm_vcpu *source_vcpu)
->   
->   	reset_state->reset = true;
->   	kvm_make_request(KVM_REQ_VCPU_RESET, vcpu);
-> +	/*
-> +	 * Make sure we issue PSCI_COMPLETE before the VCPU can be
-> +	 * scheduled.
-> +	 */
-> +	if (vcpu_is_rec(vcpu))
-> +		realm_psci_complete(source_vcpu, vcpu, PSCI_RET_SUCCESS);
->   
->   	/*
->   	 * Make sure the reset request is observed if the RUNNABLE mp_state is
-> @@ -115,6 +121,11 @@ static unsigned long kvm_psci_vcpu_on(struct kvm_vcpu *source_vcpu)
->   
->   out_unlock:
->   	spin_unlock(&vcpu->arch.mp_state_lock);
-> +	if (vcpu_is_rec(vcpu) && ret != PSCI_RET_SUCCESS) {
-> +		realm_psci_complete(source_vcpu, vcpu,
-> +				    ret == PSCI_RET_ALREADY_ON ?
-> +				    PSCI_RET_SUCCESS : PSCI_RET_DENIED);
-> +	}
->   	return ret;
->   }
->   
-> @@ -142,6 +153,25 @@ static unsigned long kvm_psci_vcpu_affinity_info(struct kvm_vcpu *vcpu)
->   	/* Ignore other bits of target affinity */
->   	target_affinity &= target_affinity_mask;
->   
-> +	if (vcpu_is_rec(vcpu)) {
-> +		struct kvm_vcpu *target_vcpu;
-> +
-> +		/* RMM supports only zero affinity level */
-> +		if (lowest_affinity_level != 0)
-> +			return PSCI_RET_INVALID_PARAMS;
-> +
-> +		target_vcpu = kvm_mpidr_to_vcpu(kvm, target_affinity);
-> +		if (!target_vcpu)
-> +			return PSCI_RET_INVALID_PARAMS;
-> +
-> +		/*
-> +		 * Provide the references of the source and target RECs to the
-> +		 * RMM so that the RMM can complete the PSCI request.
-> +		 */
-> +		realm_psci_complete(vcpu, target_vcpu, PSCI_RET_SUCCESS);
-> +		return PSCI_RET_SUCCESS;
-> +	}
-> +
->   	/*
->   	 * If one or more VCPU matching target affinity are running
->   	 * then ON else OFF
-> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-> index 30292814b1ec..e56c8af2ad61 100644
-> --- a/arch/arm64/kvm/rmi.c
-> +++ b/arch/arm64/kvm/rmi.c
-> @@ -353,6 +353,20 @@ static void free_rtt(phys_addr_t phys)
->   	kvm_account_pgtable_pages(phys_to_virt(phys), -1);
->   }
->   
-> +int realm_psci_complete(struct kvm_vcpu *source, struct kvm_vcpu *target,
-> +			unsigned long status)
-> +{
-> +	int ret;
-> +
-> +	ret = rmi_psci_complete(virt_to_phys(source->arch.rec.rec_page),
-> +				virt_to_phys(target->arch.rec.rec_page),
-> +				status);
-> +	if (ret)
-> +		return -EINVAL;
-> +
-> +	return 0;
-> +}
-> +
->   static int realm_rtt_create(struct realm *realm,
->   			    unsigned long addr,
->   			    int level,
-
+Best regards,
+Krzysztof
 
