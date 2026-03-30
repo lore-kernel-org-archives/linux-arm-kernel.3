@@ -4,91 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA68C1061B20
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 20:55:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC3D61061B20
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 20:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QuBN5LC4CCoVTyDBa2ABz4OuVl7GEpGiv+ePoy4pqeE=; b=4ItyDwka8GWMi0KTXJchQdS6KJ
-	jlX7BFxgHRhcTs7RvHlsRX6flD9Wcq4BVqia4TDAdXBTfO9QhszIsBMiCRtcFZyShW/M/DQgZvrjT
-	irDWiJCyU/qNIWCqbckST+iY1ga/M5vfnlcfWnIoZE8VlnyNQNPgAd/n6Y91PrS+IL+Gw85lMBvZ5
-	Zxmbs2QbejU2QLL1pnWwyIDt+h5Z9v1d9cDrS52uS5J63qBQbZ5QqwbwZ3l52DLy0xzHW7YTnMyEF
-	fmM/tb4fqLaPo1gTwzIpjxkGaR6zNxpmYRVbMfY8DWAvDN5NwNhVj6IJUfCCBtZ4Hhn4NzffZeWEm
-	JdsnK9fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=frztTOmTf3SkuLYaPWUosPvcRTJGFbSFXLD1W9fYAwY=; b=Rce5hIPI/1MjzhAK0o5Xxh6ywK
+	Wd2Ph28B3F1LR+WuQJHT3l+mZpuSt1igLVo2AauW2a2i3jvU0jtmnX3NqyQdXfnYFoT//W/wXfRTw
+	jTNjy4yFyOASh4GhgehYlP6srNNEpMVi5TvUq7FET8t8xNAY8y/xEkTkKELKpFtcqVo6qLA9wXwxi
+	QZsTIZk1u+5fJAPYjUoD00rx/wIr1SriPZh+8syBEdTopVIKmNAsIIdDbDQ4y7Y7ELr4sEhIrv0VR
+	0LdzfRGKddNhytK5kTUXcH4Hbtrmxe4O67gv8X7Jd/xnCBBPtagS0lSVIPdtkKj2vKCX2IkpHB5iw
+	ar9ETsZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Jdx-0000000BsPf-0qdG;
-	Mon, 30 Mar 2026 20:55:29 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1w7Jh3-0000000BsZK-1ATm;
+	Mon, 30 Mar 2026 20:58:41 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Jdt-0000000BsPF-2qyJ
+	id 1w7Jh0-0000000BsYz-09yQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 20:55:28 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2b258d93ffeso6533805ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 13:55:22 -0700 (PDT)
+	Mon, 30 Mar 2026 20:58:39 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-82a893d289bso2150158b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 13:58:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774904122; x=1775508922; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=QuBN5LC4CCoVTyDBa2ABz4OuVl7GEpGiv+ePoy4pqeE=;
-        b=AWz76J2WH9GKaikfOOAOjP6n9SR2qGcjGjNZbr7rf3AHEXiv7G+S1y2Ib/fb4KR6dF
-         McXIjD64BOp9HCDWZ/sLj8LVgkUt8jY10Tl6cb8+EhA+ctKcsSpoOrCnvi0AJaNCWN3q
-         cUNnvFDbHxnrQwNn5+MtSxWc7NKuzSY/4urt5VwZRjzBSt97e2Precw/NOcTvBp7JqNJ
-         w75TpxVweNg59GIgr6YbsOVl7pveQaXOmha9/RCEx45a2iHnBfKPowXu3kZiTi9p0xxP
-         EY1Av72Hgh8gBGwNqo4UN/8WLXGBsQtU8sMcZxhwpeLt9bY79jpUtRFDFU6sila9+lvP
-         hTFQ==
+        d=linaro.org; s=google; t=1774904317; x=1775509117; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=frztTOmTf3SkuLYaPWUosPvcRTJGFbSFXLD1W9fYAwY=;
+        b=qKSMbbofTO2lApd+ijOJu/gRZQeWvHTnz8Vkac0DL6XNxurEaIuS5av87DoqWG2jxn
+         NqCxCbh3HQCST22jce0zNkD+4wC5ehcR/bVY2BcsKi8ujzy3xzFxhVAAtnp7hacitMqt
+         FRL7Vw+GjhML/wF4OLGHEHu+8xcG07ZhGuth2I5vbGPRJDhOQq7HzFy8mli8ovlLPjYK
+         nwTG3Yp7VQZTPV+0/7t3yyfKJBZ2bY8PW9r+kyMxotkcuibSBjismlWNP1yj/azQ5kHC
+         m4Lrhrt60sW8t6H/db6myD6pboBowBjhwonCsY5PavHtfop7imILUtpHgQ3j5ZTAPOpN
+         NEOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774904122; x=1775508922;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QuBN5LC4CCoVTyDBa2ABz4OuVl7GEpGiv+ePoy4pqeE=;
-        b=NrCU5CC5nmE2FkMZysgkZOb4t33EcTzrfzS1BMGhlrn+PhEzpwAEgHOMnWWwZVcNVS
-         Qm9wmLF+tFD+tjgQo7cx3C/JcLLb7vzkv0o3ViDTkAz/ZEv+VEr9jlYcrVXDF1QxESZ9
-         P2Yp6DiRMrrwNJW/Bm4a+OuYOJ5lclH1B+rfSE+2twGRbe/whSK8O+G7KuZTvSVxZ6tx
-         W5d3bOEd//UodTyzlOQTEaB/MDLdj9x1aQ5GjL0FOVnq5Vb/EydX2DXdImtoQ5k+GrNB
-         cZ2szRSLTGnNYLd1rVFcx/Lcy0RVA0OdtutLQcl408rpnax3qfsUuUTL3+GF+2SEP1eE
-         BydQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWAhS/RFe6dRggQiGwpN0cW1oqMizfeDwqWLDKIIrSessEHYSdYjEI7cmEL+YFhjQYG2xYxCLs43hglgN7wIvqx@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUQw/ZSkFYteKKJJzxVBrZBKeYsB4o6JQt5D6GeXO7xcYT4m/U
-	7HLbrZ7z0tDls1zkdcLmr431CMp8Vp0rOJu3uEw07ZLK5o71MsQDsmYs
-X-Gm-Gg: ATEYQzxUglwqYTVY3IQXHCtPGpQGxAgTVaOSnsJpuzkFIVUlmnL2BA0mkwbvIehm8q3
-	GRicvQrhO2ZtiwpK6Wv4SMywadld2uKfc06QiJCu+V29hUBA8l2mWGiewYMQfuiRtkEsApgbSj0
-	fKp25KgLIjWFQMsEcGjuiFFEnzqG6E5VZVfSceHQDeVSXf2bOfMRNJbFhTRVTvJKABj+2GWOdU+
-	VAye1MGZy2LVLPdCBhBXApUkCBo1yJGlVuph9rzCsEEQf0CHn47BmFQVFT2mFh96uQZodxJYc5H
-	1eM35cg8Drg2RvfzqjWSf35yWdksMRjdOB5H77FZhWKfSoajridlurP3vt/2q+zse37mGoJNTSP
-	G6kqMVO+ITSdKvkCA8EsdWn8P/2bpXS7ckr8eZbO9On1lu8VwYwMjEvOBGLCVKEr5alEwNFm84p
-	E1QanwRKgrR9Yo6q4vs97Rl0MXWFY3sM+OHf+SJP3zQp9FzUUKXldfLJU=
-X-Received: by 2002:a17:902:ea05:b0:2b0:5dcb:84cb with SMTP id d9443c01a7336-2b0cdc240c6mr134127465ad.2.1774904122159;
-        Mon, 30 Mar 2026 13:55:22 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d::8bd])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b242642887sm104673825ad.1.2026.03.30.13.55.20
+        d=1e100.net; s=20251104; t=1774904317; x=1775509117;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=frztTOmTf3SkuLYaPWUosPvcRTJGFbSFXLD1W9fYAwY=;
+        b=YYML/jSS1coHtQYtvRFpOxZphwPeUWT8p4UcrVyHZ3ULu1za1XVz4exBwmRzCsTIGA
+         X65AYqeKoZa9NrL1v5Jv/Ap87gU+eNqLVfhphwFNm9V0srq47RUDZdHvXsXC2o4hM95k
+         IZVjRkKwHNXQOt/ed5G37KnMvPXpf7mRJPC6Kkj/Z60PrTFEb7ZeA5brcXOuqFtM5Pws
+         TXsVRrfoyBuofmlcT6Z1dW6zA9ZIITJQFisQAvqE0eziMGHeupCesK8ceijlY75X7oOd
+         DHjyIWDNSL6o+svaLuoZbJBcVWpm4uQxXQBEBVAU8oA1PNO8YMDJ0LR5FDBX7zeJ3gfj
+         2NRA==
+X-Forwarded-Encrypted: i=1; AJvYcCVbbrGtK8PxXPuwUAEWbL+VPvkIZtIPYjdNNVdTtaucDl2gRdbmmPzMcxqteuhW58LX2cBSzuWbhjMwlxTL0IZL@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbLk93EqTwi0ek9LJRs8TY257vYY7Y1buNPZsNb3wN4sb6etPQ
+	fw2kY/oOeWccZ84vHWbmJ4eLY60qIRItAgCrSNwNdtWA1kR6zHwSIurxOy68jIK6YtU=
+X-Gm-Gg: ATEYQzzBEkjBUONQOig88XjT7/sjei47NHkeWMBvxTO5DfZT72WfxR2NZ8VvVE8w3i1
+	zce+kM8q2kbscdywV5ibi1xCHWhRh6ERXkavhm9ox/gZvw2DKxCQ8U0zQFAOSv/U9qkudE6o0PN
+	nY/Jvf4dsSz7pU89AaHLFj8cGtfcb0vO25xvVfXW2P/Tr7mYISvbp21KbFMe1ZY2YeEQ1V906Dd
+	TpG0xsNo/1SjU6hOzoBJyt7AguHTGnhdjcvE3Z2VhzoeK1A9oXYJmCD9xvY9cYC2gNCok/0eGFu
+	k9kpByIWYrbVnajqokSIs3zF0iFyiXM22s8A9ZCF30NwqRj26TlpEjMbsBnO/bN/CZOdEY8ay0A
+	nRE6TP0DpI6hTMbnX+3S0N2JR1vilpTrQubA+tkUm6T/Yc/3eg18jHBVQJ/y5mxMjr0zbxU3r8h
+	HuWfN61jkYOQnstDyVXTae2lCCiOw=
+X-Received: by 2002:a05:6a00:ad88:b0:82a:6d9d:3f84 with SMTP id d2e1a72fcca58-82c96002905mr13353400b3a.33.1774904316640;
+        Mon, 30 Mar 2026 13:58:36 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:e8c9:5e1e:f42a:2b73])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82ca85fc6c8sm7426575b3a.45.2026.03.30.13.58.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Mar 2026 13:55:21 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-clk@vger.kernel.org
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,...),
-	linux-kernel@vger.kernel.org (open list),
-	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be)?\b)
-Subject: [PATCHv2] clk: kirkwood: use kzalloc_flex
-Date: Mon, 30 Mar 2026 13:55:04 -0700
-Message-ID: <20260330205504.10143-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        Mon, 30 Mar 2026 13:58:36 -0700 (PDT)
+Date: Mon, 30 Mar 2026 14:58:33 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>
+Subject: Re: [PATCH v13 10/48] arm64: RMI: Ensure that the RMM has GPT
+ entries for memory
+Message-ID: <acrj-cKphy4hJsEG@p14s>
+References: <20260318155413.793430-1-steven.price@arm.com>
+ <20260318155413.793430-11-steven.price@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260318155413.793430-11-steven.price@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_135527_214231_8C4BF350 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20260330_135838_127280_18D971E9 
+X-CRM114-Status: GOOD (  35.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,71 +116,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Simplify allocation by using a flexible array member and kzalloc_flex to
-combine allocations.
+Hi,
 
-Add __counted_by for extra runtime analysis. Move counting variable
-assignment to right after allocation as required by __counted_by.
+On Wed, Mar 18, 2026 at 03:53:34PM +0000, Steven Price wrote:
+> The RMM may not be tracking all the memory of the system at boot. Create
+> the necessary tracking state and GPTs within the RMM so that all boot
+> memory can be delegated to the RMM as needed during runtime.
+> 
+> Note: support is currently missing for SROs which means that if the RMM
+> needs memory donating this will fail (and render CCA unusable in Linux).
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> New patch for v13
+> ---
+>  arch/arm64/kvm/rmi.c | 89 ++++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 89 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+> index 9590dff9a2c1..80aedc85e94a 100644
+> --- a/arch/arm64/kvm/rmi.c
+> +++ b/arch/arm64/kvm/rmi.c
+> @@ -4,6 +4,7 @@
+>   */
+>  
+>  #include <linux/kvm_host.h>
+> +#include <linux/memblock.h>
+>  
+>  #include <asm/kvm_pgtable.h>
+>  #include <asm/rmi_cmds.h>
+> @@ -56,6 +57,18 @@ static int rmi_check_version(void)
+>  	return 0;
+>  }
+>  
+> +/*
+> + * These are the 'default' sizes when passing 0 as the tracking_region_size.
+> + * TODO: Support other granule sizes
+> + */
+> +#ifdef CONFIG_PAGE_SIZE_4KB
+> +#define RMM_GRANULE_TRACKING_SIZE	SZ_1G
+> +#elif defined(CONFIG_PAGE_SIZE_16KB)
+> +#define RMM_GRANULE_TRACKING_SIZE	SZ_32M
+> +#elif defined(CONFIG_PAGE_SIZE_64KB)
+> +#define RMM_GRANULE_TRACKING_SIZE	SZ_512M
+> +#endif
+> +
+>  static int rmi_configure(void)
+>  {
+>  	struct rmm_config *config __free(free_page) = NULL;
+> @@ -95,6 +108,80 @@ static int rmi_configure(void)
+>  	return 0;
+>  }
+>  
+> +static int rmi_verify_memory_tracking(phys_addr_t start, phys_addr_t end)
+> +{
+> +	start = ALIGN_DOWN(start, RMM_GRANULE_TRACKING_SIZE);
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- v2: remove unused goto.
- drivers/clk/mvebu/kirkwood.c | 21 ++++++++-------------
- 1 file changed, 8 insertions(+), 13 deletions(-)
+This will produce an error on systems where the start of system memory is not
+aligned to RMM_GRANULE_TRACKING_SIZE.  For instance, on QEMU-SBSA the system
+memory starts at 0x100_4300_0000.  With the above and RMM_GRANULE_TRACKING_SIZE
+set to SZ_1G, @start becomes 0x100_4000_0000, which falls outside the memory map
+known to the TF-A.  I fixed it with these modifications:
 
-diff --git a/drivers/clk/mvebu/kirkwood.c b/drivers/clk/mvebu/kirkwood.c
-index ed061d82fb65..f4f62b241193 100644
---- a/drivers/clk/mvebu/kirkwood.c
-+++ b/drivers/clk/mvebu/kirkwood.c
-@@ -253,8 +253,8 @@ struct clk_muxing_soc_desc {
+LINUX:
 
- struct clk_muxing_ctrl {
- 	spinlock_t *lock;
--	struct clk **muxes;
- 	int num_muxes;
-+	struct clk *muxes[] __counted_by(num_muxes);
- };
-
- static const char *powersave_parents[] = {
-@@ -297,21 +297,18 @@ static void __init kirkwood_clk_muxing_setup(struct device_node *np,
- 	if (WARN_ON(!base))
- 		return;
-
--	ctrl = kzalloc_obj(*ctrl);
--	if (WARN_ON(!ctrl))
--		goto ctrl_out;
--
--	/* lock must already be initialized */
--	ctrl->lock = &ctrl_gating_lock;
--
- 	/* Count, allocate, and register clock muxes */
- 	for (n = 0; desc[n].name;)
- 		n++;
-
-+	ctrl = kzalloc_flex(*ctrl, muxes, n);
-+	if (WARN_ON(!ctrl))
-+		goto ctrl_out;
+diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+index 10ff1c3bddaf..21bfbbe2f047 100644
+--- a/arch/arm64/kvm/rmi.c
++++ b/arch/arm64/kvm/rmi.c
+@@ -424,7 +424,9 @@ static int rmi_configure(void)
+ 
+ static int rmi_verify_memory_tracking(phys_addr_t start, phys_addr_t end)
+ {
+-       start = ALIGN_DOWN(start, RMM_GRANULE_TRACKING_SIZE);
++       phys_addr_t offset;
 +
- 	ctrl->num_muxes = n;
--	ctrl->muxes = kzalloc_objs(struct clk *, ctrl->num_muxes);
--	if (WARN_ON(!ctrl->muxes))
--		goto muxes_out;
++       offset = start - ALIGN_DOWN(start, RMM_GRANULE_TRACKING_SIZE);
+        end = ALIGN(end, RMM_GRANULE_TRACKING_SIZE);
+ 
+        while (start < end) {
+@@ -439,7 +441,13 @@ static int rmi_verify_memory_tracking(phys_addr_t start, phys_addr_t end)
+                                start);
+                        return -ENODEV;
+                }
+-               start += RMM_GRANULE_TRACKING_SIZE;
 +
-+	/* lock must already be initialized */
-+	ctrl->lock = &ctrl_gating_lock;
++               if (offset) {
++                       start += (RMM_GRANULE_TRACKING_SIZE - offset);
++                       offset = 0;
++               } else {
++                       start += RMM_GRANULE_TRACKING_SIZE;
++               }
+        }
+ 
+        return 0;
 
- 	for (n = 0; n < ctrl->num_muxes; n++) {
- 		ctrl->muxes[n] = clk_register_mux(NULL, desc[n].name,
-@@ -324,8 +321,6 @@ static void __init kirkwood_clk_muxing_setup(struct device_node *np,
- 	of_clk_add_provider(np, clk_muxing_get_src, ctrl);
+RMM:
 
- 	return;
--muxes_out:
--	kfree(ctrl);
- ctrl_out:
- 	iounmap(base);
- }
---
-2.53.0
+diff --git a/runtime/rmi/granule.c b/runtime/rmi/granule.c
+index cef521fc0869..60358d9ee81e 100644
+--- a/runtime/rmi/granule.c
++++ b/runtime/rmi/granule.c
+@@ -209,9 +209,11 @@ void smc_granule_tracking_get(unsigned long addr,
+                return;
+        }
+ 
++#if 0
+        if (!ALIGNED(addr, RMM_INTERNAL_TRACKING_REGION_SIZE)) {
+                return;
+        }
++#endif
+ 
+        g = find_granule(addr);
+        if (g != NULL) {
 
+This is likely not the right fix but hopefully provides some guidance.  Send me
+your patches when you have an idea and I'll test them.
+
+Thanks,
+Mathieu
+
+
+> +	end = ALIGN(end, RMM_GRANULE_TRACKING_SIZE);
+> +
+> +	while (start < end) {
+> +		unsigned long ret, category, state;
+> +
+> +		ret = rmi_granule_tracking_get(start, &category, &state);
+> +		if (ret != RMI_SUCCESS ||
+> +		    state != RMI_TRACKING_FINE ||
+> +		    category != RMI_MEM_CATEGORY_CONVENTIONAL) {
+> +			/* TODO: Set granule tracking in this case */
+> +			kvm_err("Granule tracking for region isn't fine/conventional: %llx",
+> +				start);
+> +			return -ENODEV;
+> +		}
+> +		start += RMM_GRANULE_TRACKING_SIZE;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static unsigned long rmi_l0gpt_size(void)
+> +{
+> +	return 1UL << (30 + FIELD_GET(RMI_FEATURE_REGISTER_1_L0GPTSZ,
+> +				      rmm_feat_reg1));
+> +}
+> +
+> +static int rmi_create_gpts(phys_addr_t start, phys_addr_t end)
+> +{
+> +	unsigned long l0gpt_sz = rmi_l0gpt_size();
+> +
+> +	start = ALIGN_DOWN(start, l0gpt_sz);
+> +	end = ALIGN(end, l0gpt_sz);
+> +
+> +	while (start < end) {
+> +		int ret = rmi_gpt_l1_create(start);
+> +
+> +		if (ret && ret != RMI_ERROR_GPT) {
+> +			/*
+> +			 * FIXME: Handle SRO so that memory can be donated for
+> +			 * the tables.
+> +			 */
+> +			kvm_err("GPT Level1 table missing for %llx\n", start);
+> +			return -ENOMEM;
+> +		}
+> +		start += l0gpt_sz;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int rmi_init_metadata(void)
+> +{
+> +	phys_addr_t start, end;
+> +	const struct memblock_region *r;
+> +
+> +	for_each_mem_region(r) {
+> +		int ret;
+> +
+> +		start = memblock_region_memory_base_pfn(r) << PAGE_SHIFT;
+> +		end = memblock_region_memory_end_pfn(r) << PAGE_SHIFT;
+> +		ret = rmi_verify_memory_tracking(start, end);
+> +		if (ret)
+> +			return ret;
+> +		ret = rmi_create_gpts(start, end);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static int rmm_check_features(void)
+>  {
+>  	if (kvm_lpa2_is_enabled() && !rmi_has_feature(RMI_FEATURE_REGISTER_0_LPA2)) {
+> @@ -120,6 +207,8 @@ void kvm_init_rmi(void)
+>  		return;
+>  	if (rmi_configure())
+>  		return;
+> +	if (rmi_init_metadata())
+> +		return;
+>  
+>  	/* Future patch will enable static branch kvm_rmi_is_available */
+>  }
+> -- 
+> 2.43.0
+> 
+> 
 
