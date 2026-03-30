@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 885121061B07
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AB9E1061B0A
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W/7WPBVnn+wY3RGRDYoHmhcG//9P0CSZDRZXPby3zwo=; b=j51V+xAEUkNVHfd0urmKRyOWIM
-	ub7OEAgXtzXwzf5PtXlcJXKUn85ewJbNukGK95G4oMU6iScGv+osoKut0/f7R/zSEUa8qC/otW8xn
-	vZ6pFxaqNQagpRo6eMUw44fZ9itMDZpqQrN2KlEwXRUZIv1hDDIaSmXCn9nMr8APqH0EiDlL2N6pS
-	GSzB41Vb4zht5X2983MRC28aqJvglemzAV+o+oDozSiGpLVSJ95dvrdUIwJM2pN6SHfAz7vHQpORP
-	KBqdpQsyS4k9lI6HkuXQzbKaCmK0aXVGsJV2wDYApIZg1UI+qYCLR3RSL6Bydqef+zyiGXOxemmbf
-	FLX0nH1g==;
+	bh=v5aP3Ali1P/4ULjKFuZFTKzxU1og8DKRquRGo+Oh4lA=; b=ici3mmO0wps43oVImqK4Yhi4wX
+	VYc5i2TsBc/GDh9nmUzrjkjfv7vEHT99zaYJ/fXiX7Nme4t4GYGWMYJ5JuqSBbpuZ47g/urW3PnOb
+	rnYGVrM0EyYkVoknSQ03T23q884j5o+O+UhusP38S1AFXu33aAUzvPzyGjWveXSWxu2TsPtBpbUEq
+	2JkYwK0RRxfPavBcQr1OlIsBL94Lzk+ozbtPmyX4idOj2zYSGh+hBaxvE460EL39vDOb0n18OA22p
+	Q5un3tXm8v5Ze/HubcilHK+wNYjYCljYlfX0aY5KFyuQeWQL8o9pZFNOzH9r8BrLGe5ycvu/9AYNO
+	uNW3xFMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DwR-0000000BTjf-2tEm;
+	id 1w7DwR-0000000BTj1-0Wrb;
 	Mon, 30 Mar 2026 14:50:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Dw7-0000000BTSR-2nlR
+	id 1w7Dw4-0000000BTOe-1jok
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 14:49:51 +0000
+	Mon, 30 Mar 2026 14:49:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 166A260127;
-	Mon, 30 Mar 2026 14:49:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F5F9C4CEF7;
+	by tor.source.kernel.org (Postfix) with ESMTP id C2C6560126;
 	Mon, 30 Mar 2026 14:49:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9F95C2BCB1;
+	Mon, 30 Mar 2026 14:49:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774882190;
-	bh=ogU9AKOUaT35sbK8mPxNvogWxla2rweipWB00VFORvc=;
+	s=k20201202; t=1774882187;
+	bh=pg3rhx9t9Whm8ZmzowMLSfZvJMvUSy26V3uyjJDEPQw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=NMnNL2WMe7uDe3uyNNKfnO/XpOcf0kPrt79ADkN5IDlQa6wWQUQF9RqZmcdffxIul
-	 RyAKZWTuiCXPSrn1SXkekHEB9gMtK+lDJaaaa/0/BSvaYkL8jZRVaFmdJVrphYjrlr
-	 6P2Xpi7UInitIaR7gB3gK/BH/79/thTyN4bW32/DohKGrWonmR3mp/qCi0h7uTThnL
-	 kIhoX2qJqw03dSyGb6gkNpYMuTCWGVuDE6CRoO3k9PVCktqGwbAUD9UF3CibvtDtUb
-	 uuZzGJXhmDh98tlEaRo3Nht1XkXpcstRTU1mTuVD5+upShfHP6giDgfX5/2AoSOrgP
-	 kjJBlVsbTliLw==
+	b=qwkDD/YFDJGH2KYyWBshJD7Wy8LT6BNcQ1ghcqZJcJwOKWxNl4fXBOPXCes+H2rp2
+	 hr+x8HZ7FPOdiRVV74JH+8sk7UIl6uqcd8wAVTb7LLljaocti/ty84SrDgIOSlZmmW
+	 +XVfqQJUAMlWLq+hvqd856U9FkqYiySMKVvjA314qFWkbqGtctbEkGMJXlkV1wcZo7
+	 boKgl8swBwgWKG+8WK9lJjHr/rncu31fwKW0wDEqOzfEjkSTHa1k05j+hDeeDVRwkc
+	 UxRpEnR9VpTFoFfkInwXgRUlXfvBEl/KH7qZz92eU7j8UWZE3mLHOWXLYbjn7ucZP4
+	 jxGINYuVWlwbA==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -57,9 +57,9 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v5 18/38] KVM: arm64: Support translation faults in inject_host_exception()
-Date: Mon, 30 Mar 2026 15:48:19 +0100
-Message-ID: <20260330144841.26181-19-will@kernel.org>
+Subject: [PATCH v5 17/38] KVM: arm64: Factor out pKVM host exception injection logic
+Date: Mon, 30 Mar 2026 15:48:18 +0100
+Message-ID: <20260330144841.26181-18-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260330144841.26181-1-will@kernel.org>
 References: <20260330144841.26181-1-will@kernel.org>
@@ -79,10 +79,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend inject_host_exception() to support the injection of translation
-faults on both the data and instruction side to 32-bit and 64-bit EL0
-as well as 64-bit EL1. This will be used in a subsequent patch when
-resolving an unhandled host stage-2 abort.
+inject_undef64() open-codes the logic to inject an exception into the
+pKVM host. In preparation for reusing this logic to inject a data abort
+on an unhandled stage-2 fault from the host, factor out the meat and
+potatoes of the function into a new inject_host_exception() function
+which takes the ESR as a parameter.
 
 Cc: Fuad Tabba <tabba@google.com>
 Reviewed-by: Fuad Tabba <tabba@google.com>
@@ -90,63 +91,88 @@ Tested-by: Fuad Tabba <tabba@google.com>
 Tested-by: Mostafa Saleh <smostafa@google.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/hyp/include/nvhe/trap_handler.h |  2 ++
- arch/arm64/kvm/hyp/nvhe/hyp-main.c             | 18 +++++++++++++++---
- 2 files changed, 17 insertions(+), 3 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 49 ++++++++++++++----------------
+ 1 file changed, 23 insertions(+), 26 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h b/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h
-index ba5382c12787..32d7b7746e8e 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/trap_handler.h
-@@ -16,4 +16,6 @@
- 				__always_unused int ___check_reg_ ## reg;	\
- 				type name = (type)cpu_reg(ctxt, (reg))
- 
-+void inject_host_exception(u64 esr);
-+
- #endif /* __ARM64_KVM_NVHE_TRAP_HANDLER_H__ */
 diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index adfc0bc15398..6db5aebd92dc 100644
+index 7294c94f9296..adfc0bc15398 100644
 --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
 +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -705,15 +705,24 @@ static void handle_host_smc(struct kvm_cpu_context *host_ctxt)
+@@ -705,43 +705,40 @@ static void handle_host_smc(struct kvm_cpu_context *host_ctxt)
  	kvm_skip_host_instr();
  }
  
--static void inject_host_exception(u64 esr)
-+void inject_host_exception(u64 esr)
+-/*
+- * Inject an Undefined Instruction exception into the host.
+- *
+- * This is open-coded to allow control over PSTATE construction without
+- * complicating the generic exception entry helpers.
+- */
+-static void inject_undef64(void)
++static void inject_host_exception(u64 esr)
  {
- 	u64 sctlr, spsr_el1, spsr_el2, exc_offset = except_type_sync;
- 	const u64 spsr_mask = PSR_N_BIT | PSR_Z_BIT | PSR_C_BIT |
- 			      PSR_V_BIT | PSR_DIT_BIT | PSR_PAN_BIT;
+-	u64 spsr_mask, vbar, sctlr, old_spsr, new_spsr, esr, offset;
++	u64 sctlr, spsr_el1, spsr_el2, exc_offset = except_type_sync;
++	const u64 spsr_mask = PSR_N_BIT | PSR_Z_BIT | PSR_C_BIT |
++			      PSR_V_BIT | PSR_DIT_BIT | PSR_PAN_BIT;
  
--	exc_offset += CURRENT_EL_SP_ELx_VECTOR;
+-	spsr_mask = PSR_N_BIT | PSR_Z_BIT | PSR_C_BIT | PSR_V_BIT | PSR_DIT_BIT | PSR_PAN_BIT;
++	exc_offset += CURRENT_EL_SP_ELx_VECTOR;
++
++	spsr_el1 = spsr_el2 = read_sysreg_el2(SYS_SPSR);
++	spsr_el2 &= spsr_mask;
++	spsr_el2 |= PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT |
++		    PSR_MODE_EL1h;
+ 
+-	vbar = read_sysreg_el1(SYS_VBAR);
+ 	sctlr = read_sysreg_el1(SYS_SCTLR);
+-	old_spsr = read_sysreg_el2(SYS_SPSR);
 -
- 	spsr_el1 = spsr_el2 = read_sysreg_el2(SYS_SPSR);
-+	switch (spsr_el1 & (PSR_MODE_MASK | PSR_MODE32_BIT)) {
-+	case PSR_MODE_EL0t:
-+		exc_offset += LOWER_EL_AArch64_VECTOR;
-+		break;
-+	case PSR_MODE_EL0t | PSR_MODE32_BIT:
-+		exc_offset += LOWER_EL_AArch32_VECTOR;
-+		break;
-+	default:
-+		exc_offset += CURRENT_EL_SP_ELx_VECTOR;
-+	}
-+
- 	spsr_el2 &= spsr_mask;
- 	spsr_el2 |= PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT |
- 		    PSR_MODE_EL1h;
-@@ -728,6 +737,9 @@ static void inject_host_exception(u64 esr)
- 	if (system_supports_mte())
- 		spsr_el2 |= PSR_TCO_BIT;
+-	new_spsr = old_spsr & spsr_mask;
+-	new_spsr |= PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT;
+-	new_spsr |= PSR_MODE_EL1h;
+-
+ 	if (!(sctlr & SCTLR_EL1_SPAN))
+-		new_spsr |= PSR_PAN_BIT;
++		spsr_el2 |= PSR_PAN_BIT;
  
-+	if (esr_fsc_is_translation_fault(esr))
-+		write_sysreg_el1(read_sysreg_el2(SYS_FAR), SYS_FAR);
-+
+ 	if (sctlr & SCTLR_ELx_DSSBS)
+-		new_spsr |= PSR_SSBS_BIT;
++		spsr_el2 |= PSR_SSBS_BIT;
+ 
+ 	if (system_supports_mte())
+-		new_spsr |= PSR_TCO_BIT;
+-
+-	esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT) | ESR_ELx_IL;
+-	offset = CURRENT_EL_SP_ELx_VECTOR + except_type_sync;
++		spsr_el2 |= PSR_TCO_BIT;
+ 
  	write_sysreg_el1(esr, SYS_ESR);
  	write_sysreg_el1(read_sysreg_el2(SYS_ELR), SYS_ELR);
- 	write_sysreg_el1(spsr_el1, SYS_SPSR);
+-	write_sysreg_el1(old_spsr, SYS_SPSR);
+-	write_sysreg_el2(vbar + offset, SYS_ELR);
+-	write_sysreg_el2(new_spsr, SYS_SPSR);
++	write_sysreg_el1(spsr_el1, SYS_SPSR);
++	write_sysreg_el2(read_sysreg_el1(SYS_VBAR) + exc_offset, SYS_ELR);
++	write_sysreg_el2(spsr_el2, SYS_SPSR);
++}
++
++static void inject_host_undef64(void)
++{
++	inject_host_exception((ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT) |
++			       ESR_ELx_IL);
+ }
+ 
+ static bool handle_host_mte(u64 esr)
+@@ -764,7 +761,7 @@ static bool handle_host_mte(u64 esr)
+ 		return false;
+ 	}
+ 
+-	inject_undef64();
++	inject_host_undef64();
+ 	return true;
+ }
+ 
 -- 
 2.53.0.1018.g2bb0e51243-goog
 
