@@ -4,137 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A26061061B06
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81BF91061B02
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dIHkGQ7ITN+jsskUNKQDbR5xcBYylEpy8Ig4gLBAZhw=; b=Dbemwybv8D5ReBeUV4qnmljSS9
-	jZRgMZ4hU2m2EaWyzejhARSRuxak+KkK8i2sKB91ckZ4W2jpvNoWxuY3KImJCo3HYfQEXZypDmB2Q
-	Ufw9j8Voa/mujhoEQvKIqpfTML10hbrXdLTruYA/PQmB+UbHt0EllkMeXLIjqEwGO7hWzgShGbAIK
-	jTDRmhhRmPJeEhMkTRTNGhWyxmcLVlt2fFJuZ0+TLeml56SCCtx6gqgWKgzHQ6y8pEdr/ohKHU+B6
-	v3WeciGQm98nVEYzDtzYqHT7p2tH2Riwmvxu077xlkXzV/gWUUuW9ivaXE6LFgEhk0/7xxlJROFyp
-	DIYRvJyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+66i0+NEqb5bbxKFGg8fovNrcxiQO7n74V5N5Qc1Ufg=; b=yhlVSKQoImAqd2n0dLmxucgoKT
+	xNY7F6+Ibf5Ncnt5jaNvnnnb4ZUWjAYImkCC3go/1FvxI8Y18MkGkRK2u9GBXXNhXz3u7uazVeys1
+	bwXjxTow9tCY+xMB+nWxm8qA7/PdzEOYUGCYhg88ApczEnP8vDcciy4xCrvPb4BmZj4H3X11EorJv
+	trGEsit8evZ132TkykBfHTzidMRB1poSmBZKpDtWXhYAS1vs87cv5SDFQtr04M1daQ7BCprq02ly6
+	/KSe5EurcNL9JJycubxZ0r27YfqrXeZOlBKGNjPowgvSBsYoUevXqJwjX6Nfx6jfMd5sR2AHeK3+p
+	ffsvXCgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DtO-0000000BSCK-2Swx;
-	Mon, 30 Mar 2026 14:47:02 +0000
-Received: from mail-westeuropeazon11013017.outbound.protection.outlook.com ([52.101.72.17] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1w7DvB-0000000BSnC-2OMY;
+	Mon, 30 Mar 2026 14:48:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DtI-0000000BS8t-2AX6
+	id 1w7DvA-0000000BSn1-0YWA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 14:46:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=J7D2Ths+ayeV8d3/OXKAYkbefbP5ZtwJAuTTRwgZWjn8GCMQG0yN4ErkUo7nrkgNb6xXsyUkBvOtpdcOtPHfPJWgU3SbV/KiqAT1ZkQf4AHLcm1X2odPr0I8Njb4Olx4Fv1uvDBDes2Os81Fm9Tw3DTeHX75D9epajZSK3ix1NUyRN88JixiBQNoLHU1n8ikZ4Zkq8gKwfxqOQm0A1fHQVQvMX+cduKBNcQI//gg3zYLPc/XYyoRioztMAWYzvy9a9ReSRaGEsKZrs0IZV2MGAjRu2i8j8i7U63HozKCgbzlB9paNV4jyTlwI4rl7SFEj1J0S5puf0dttuWPsjhnmA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dIHkGQ7ITN+jsskUNKQDbR5xcBYylEpy8Ig4gLBAZhw=;
- b=pqvcKawMyO7qbECZC6RccjEbefyce2xTScPETjWCH+Xg8hBMYRHoOLzkOBrV5UGZy5Zk0XBrzE2LtyrPScBU8TMUHP2DV8PYHeF4aLmOmGbZISJz1l4ZrD8V5K/vRUVxThWzdGZp6i8QN0oVek5Z55jmgQGsHhNlYUF+tNmbUr8gsggYkvjkz3kh1FnXMxTGeD+9YPdodv0f+Udm87bkHj/MP+IC9veJPGMcoORiABwJXyE52hblhYB+HVIVw2mRK10PDp42vRAYL48gxdqT0/OZDsg8RqKA4Y6zZSmXKVMN4gik/QhQlYhpG8n0jpwqzKqzf0IP3xcsR366NmSElA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dIHkGQ7ITN+jsskUNKQDbR5xcBYylEpy8Ig4gLBAZhw=;
- b=I20j79HHqQPmNBS78DfvyyjCHNGEksPJUZLGFr9i3u5P/epgnmqFUrlPKzARdabWOPWCJ8gh9C/BmHtHFr1TgZjC/7b3DtqG23YiA46VcLy00jan+2DaQsze0QlzTXodAdhEz3aaNuuJmmGEY0djXxoswZeZXPkX7OoOtQ+meQ6QHa1GNqXfTzfgOz81HGU8JUmiXImZFjLw7OvTrRl8QdS+O1kuyWeLcE/Yi8WoP/3QJtQ0PTSATQa0SvR7ksonrluEb2vqEIrrQ8XB2nW1C6wmrYz+FhIetMM5MSYxifNhs05SwR6QzCPW20CZvEZMgKILEjIJQeNLxG2WkVNnxw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by GVXPR04MB9928.eurprd04.prod.outlook.com (2603:10a6:150:117::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Mon, 30 Mar
- 2026 14:46:52 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.027; Mon, 30 Mar 2026
- 14:46:51 +0000
-Date: Mon, 30 Mar 2026 10:46:43 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: David Carlier <devnexen@gmail.com>
-Cc: laurent.pinchart@ideasonboard.com, mchehab@kernel.org,
-	s.hauer@pengutronix.de, festevam@gmail.com, jacopo@jmondi.org,
-	aisheng.dong@nxp.com, guoniu.zhou@nxp.com,
-	linux-media@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: nxp: imx8-isi: fix memory leaks in probe error
- paths and remove
-Message-ID: <acqM06YySijL1VpU@lizhi-Precision-Tower-5810>
-References: <20260327222711.268132-1-devnexen@gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260327222711.268132-1-devnexen@gmail.com>
-X-ClientProxiedBy: SJ0PR05CA0037.namprd05.prod.outlook.com
- (2603:10b6:a03:33f::12) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Mon, 30 Mar 2026 14:48:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7FDFD600CB;
+	Mon, 30 Mar 2026 14:48:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 703B0C19423;
+	Mon, 30 Mar 2026 14:48:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774882131;
+	bh=NrRyOsVjOHoPrL6iv8tTnDhamv18Yc2Yh+BKq0iPw3U=;
+	h=From:To:Cc:Subject:Date:From;
+	b=LDxJphnhxDQ5+QBR7ZVz8YElpXuAciEF0HNA0S07NRqfPJZwjcUdiFikuehe7g4v9
+	 wiDGQNMNure4FJ2+nNTkueMMiE9zWLi4B2IQkLY+RfBRvoOLwbgKsRyPRgT8My54Y0
+	 Cdl0vPZnqYJ4GRApfSTf08rwQHYmGbRdX9iTr9kXfSXFPVjMkw8+w5lJPL3pyOYavL
+	 JaAXJ5+s/ZsJMVTRj4+UpFR99B9eprLPFp128g2ZDsIILCKnKB/pIPED4u7TRMeiuI
+	 rpu8QpDQntLjFsFha+zEqBN5MSk8R/wxEWP9uNrRcYtWhES29+cocdlU0jzAhnHzhd
+	 Cx2To5/C5dBbQ==
+From: Will Deacon <will@kernel.org>
+To: kvmarm@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Subject: [PATCH v5 00/38] KVM: arm64: Add support for protected guest memory with pKVM
+Date: Mon, 30 Mar 2026 15:48:01 +0100
+Message-ID: <20260330144841.26181-1-will@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GVXPR04MB9928:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8698152e-4603-4bbe-f561-08de8e6b2df1
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|7416014|52116014|38350700014|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: Tnu8fQFHKgg2UH/RKwOGvUDAk5832t184ACX5TJpVK8NkV67FB/3+9t2+DQXJ51CpR/SdzsJYifynk7sdEJKY8IJmoCg+9dtU46yGci+a11v1AnKaSL+tNkeqnBpvOO1hs6yhtOuE70+wPY4TGe+P48F1CwKM7jnRYZoiPcF1b7P/lOWiGs1Y64f43BjltqucomjEUdaz/swUGmtDOXA3x367DkNzxUDJxFetQoWajQUHlmFGo7CVwWVVndPHqC3yoYZgrikbGbFQgMSXfTXMCmCIM3Qj5k+MpzYnuYYF37Peee0TrJUZSf9dTmRP1THxk3Gf5I+8L3DIWi0ORuZ1YlxXsTSQF/CIN+67E2zqWHaL7Yf/h5HiMoqddtGnKSs+0T+GBw5/PkRTekuNbUc4MaRGZB9Qo3jP5kkYLgWhUjcLX91jU0+s0/TJhBFUtoiIUMkuoFQPWslLjCtMIF/KL/b/OqumvlUf2IHcNjKpJXBTu6+MB9Rt/E022v6RS6uvvA5KpopHjNqp3vEmy0uLWqXVw/LvoJx49warFLjO8praFWxhXza4/XH5BEdDYFffNNLu2dIYOngOitN/SPkmirIXoizR4uCBYfWtzhPfsXZSrWU485gWq7qVuu3GOg1tyNrqFKf5SOkKPUUuZHwY80CGSmHlnzuetjPfkEbS7C4ptcPI7nZ+fkiSJLaaJvIb1kM7p3qnaLSo8EYxN6EsMLQD4yv9BT7rUl7VFOkeY1d9Ep4nJ7VSRaW0Py5toVn+Z/9EsroJ9gZhUe+XNGkSsl5/x5EsVBbpfdHwdoCIVM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(7416014)(52116014)(38350700014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?KzRLYU9NbFhCMmdDL1laendlVE9kSHUrdHFXUjFtMC9YT05aVUZFQmRveVg5?=
- =?utf-8?B?Nm5WV2FjVE1KQlM1WlJLM2w5OTA3VVZnOUtTcHIwM2k4RUtZR1pTd1VXbnVl?=
- =?utf-8?B?SmpxSlh5NkJEbUVoMGEwRFR6VVA4TFh6c3NyRjdJcGNoVTViS05oR1dLanNO?=
- =?utf-8?B?NXlGZmpyN0JGaU5xUmpNaVZkZ0ozbTdBN25kSFBZU0d3S1JRaGFUMmUzVEZU?=
- =?utf-8?B?Y1B3cnZRdjRlaXJLdWJmU212V2w2dktvWWdiQUFDSUlUYkFMMEFQb2RtZTR1?=
- =?utf-8?B?Y3lmNVNWMWFPZlk3K1RWWjFZZUZ4b3E4YmN4eXlkdHk3RGZ1K0hMQk9ZQzZ3?=
- =?utf-8?B?UnJWazROelpPUnd4SCtkZ3JnczVWVTk4WW96RkJXdVBKS1pzdUJJdzJDWHZI?=
- =?utf-8?B?T3JkNVYwT1p1QzhCeENJeTd2cEhPTkE4NFBmeWVaOGhGUVg2L2RhVFpXUnVq?=
- =?utf-8?B?MmJSNldXVXQ1SnMwTTgya2ZmYzhVK3pCd0pkZzJhTm54U3U2VlRrUEVFNnE1?=
- =?utf-8?B?ZnVYd0ZmazZBWlpXRXVNbUdNcUtyWDNobDFTalBvUHpGa1RSNDlaRTRMaVZY?=
- =?utf-8?B?bjQrSk1vSnNPZzI4M0U3a1VVNFFySHAvaW1aR25LVjB0ZldCOFh3bUNSdDhX?=
- =?utf-8?B?SkdTMlc3VGJWN2xTT3k4bkxnSnBiM1RzMEFZdEVsN3NSNDhYdVpBVDQ4SzZE?=
- =?utf-8?B?TVUwU3RlRFpHTFkrcFdZTVc3VXJaVjVja2xHamJsTGdOYk0xVkE3LzF1b0V2?=
- =?utf-8?B?UFZQdUFtK1hzNng5U3hQKytzY0d6aXc2alZaODRtRFBOVFdqclhZMWFhQXJu?=
- =?utf-8?B?TGNPRyt3OUlhWFhrZ1J6TExuTXVLTDBRZmd3S0wwVzZHMjhpQjZKaFpuQWJQ?=
- =?utf-8?B?T3lsUjUwdWhSdGEwazY5R2lCZi9wUWwvb1hLbkpoNVFvbU1ESzhlZ0F1T0Jm?=
- =?utf-8?B?Z0J5QlJXUkdxR3U4VjhVU1RJUDlIc3gzSmhZV2JPYURZeHNpVTd2aThiMHlr?=
- =?utf-8?B?U1IvbWduUnY2SnY0aGtVaWtWUllsWCtmdGFoOFNjRmR0dVphMElhSmJRbk5T?=
- =?utf-8?B?YTBGNm9JdjVMcFo2OTlDM3Y3V3pMa2hxYmdtQlVOT2c4WVVTY3JWVFN2ZXV5?=
- =?utf-8?B?UHloZkRUdVZTOTZGTitOZXNObDV0S0dVMHhxZXMwdm4zQ3FXNTd0bzFOT1FH?=
- =?utf-8?B?TitKWlpCVHkxN2hCVFE1K0dYelNwZ2dsMVZNSDRJOFpTL1FpWEdRT3k0K3JK?=
- =?utf-8?B?WUdLOHpQWUdObVhPYmE3QkNoYURhQjZZNXRrK0RXRWFvOGxjRG1JckJCbG9U?=
- =?utf-8?B?dGQwbGFIRGZJcHRLRjFrMDczYmduSVJxaUQzRjVCcm1XUkU1SXpXckxMcHdl?=
- =?utf-8?B?ZTlwT1VaaDhHTEI1aG1RQWt1ejN5VWJEc0JncGtmR1dqQVUwNGQ1c1lEeEFr?=
- =?utf-8?B?VENuNmFJM3VEMmFpc3ltOVV6NnBGeFB0UnlCd0pVRDdGUXhPaWFTTUJRN0pM?=
- =?utf-8?B?ZzE0UGRjckhPOEhzS0ZieVBma0gxRldoS2Rmc2Q2OTFOYkpmbHJjTlZTcjFW?=
- =?utf-8?B?RE1PRkNIejFiQjU1RVQ3M004cVlhMERqZ2ExemNnYUZ0WncwaHB5aFdJdC9X?=
- =?utf-8?B?Qlh2T1dCUzdpQXNnR2dkcU9LYWxhdWNva1RhMWhDdEQweHQyelM4NXg5UXht?=
- =?utf-8?B?Yk5KMHArRWYyUlJjVGNQZEVpZjVHUFVYRUJxUlpBVWo2VXU1R3F6Zm15SG1W?=
- =?utf-8?B?b0Y3RUJ6bjBnUG9GS09ScFpod1puZE9jQk1JSk9yalZEWFJVakxtRG1raDVp?=
- =?utf-8?B?KzErODNhc2NKZDJTUVJaOGp5Y1Eyd0RVZy9xM2FiZm95NitURFF1SmdwSHIy?=
- =?utf-8?B?emJmS0RZb21pN2FsYTJLZlpJaXczWEhuLzFBeE9sR1E4K213Zms1eXk4ekRq?=
- =?utf-8?B?cDhrc3pUdHhKaDduUDhCZHNvNHlERmYvNzVFRW5NU2UzQnJOVUdYRCtjTGpp?=
- =?utf-8?B?bUJyRWdPOVlMVDdCOGpVd2RNazRhYk1WZ1RVUXJ5RHVtdXRGc2tIbmhnWkZM?=
- =?utf-8?B?YytRcU9OVGhlQm9aS0tYZ21wZmJUaVVkMGVZYmdFZVdJV1dWZmwyb05ZZ2tu?=
- =?utf-8?B?cmJOQnZXQTQvSnppdjd2ZGZ4YTY5dWlwL2lZWnZBcWttS3AvZkUxSkJKY3hy?=
- =?utf-8?B?blBzanZZUFRVVDNCT3ZIQ1hPM3lDREp4VEptWStrQitmb2xnVUxYN00wbEZQ?=
- =?utf-8?B?NnN2WU1jdjZ0K0dTRFpmMTFWU3B4OTlwSEUrQWRwd3dPa2pMcHhIcldzYUk2?=
- =?utf-8?Q?kQMvlDR7fWPHeHEicg?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8698152e-4603-4bbe-f561-08de8e6b2df1
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Mar 2026 14:46:51.8593
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8HlluLgRDI3PQZU5hVvjAVMNjKBz1hvBUsStBJkOk9D62hRoviSPrJi/g1ceTacbXYiQTsbVibYYC/YRmCngRQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9928
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_074656_560480_BD8A489B 
-X-CRM114-Status: GOOD (  20.36  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,44 +77,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 27, 2026 at 10:27:11PM +0000, David Carlier wrote:
-> mxc_isi_probe() allocates isi->pipes with kzalloc_objs() but never
-> frees it on any probe failure path or in mxc_isi_remove(), leaking the
-> allocation on every failed probe and every normal unbind.
->
-> Additionally, when mxc_isi_pipe_init() fails partway through the
-> channel loop or when mxc_isi_v4l2_init() fails, the already initialized
-> pipes are not cleaned up — their media entities and mutexes are leaked.
->
-> Fix both by adding kfree(isi->pipes) to all probe error paths and to
-> mxc_isi_remove(), and cleaning up already-initialized pipes in the
-> err_xbar error path.
->
-> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISP Channel driver")
-> Signed-off-by: David Carlier <devnexen@gmail.com>
-> ---
+Hi everyone,
 
-I think provide a helper function, devm_kzalloc_objs(), or using old
-devm_kzalloc is better fix method.
+As promised on Friday, here's v5 of the pKVM protected memory patches
+previously posted here:
 
-Frank
+  v1: https://lore.kernel.org/kvmarm/20260105154939.11041-1-will@kernel.org/
+  v2: https://lore.kernel.org/kvmarm/20260119124629.2563-1-will@kernel.org/
+  v3: https://lore.kernel.org/r/20260305144351.17071-1-will@kernel.org
+  v4: https://lore.kernel.org/r/20260327140039.21228-1-will@kernel.org
 
->  .../platform/nxp/imx8-isi/imx8-isi-core.c     | 24 +++++++++++++++----
->  1 file changed, 19 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> index 4bf8570e1b9e..ab32c5b6ac9c 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> @@ -490,33 +490,43 @@ static int mxc_isi_probe(struct platform_device *pdev)
->  		return -ENOMEM;
->
->  	isi->num_clks = devm_clk_bulk_get_all(dev, &isi->clks);
-> -	if (isi->num_clks < 0)
-> +	if (isi->num_clks < 0) {
-> +		kfree(isi->pipes);
->  		return dev_err_probe(dev, isi->num_clks, "Failed to get clocks\n");
-> +	}
->
->
+This version primarily addresses the comments from Sashiko that I think
+are valid:
+
+  * Mask out page offset from physical address passed to "force reclaim"
+    hypercall.
+  * Check for 'is_dying' in get_pkvm_hyp_vm() to prevent taking a
+    reference on a VM in the process of being destroyed.
+  * Take the 'slots_lock' while creating the hyp vm to avoid racing with
+    check in kvm_arch_prepare_memory_region().
+  * Keep trying to reclaim pages from a dying guest if we fail part-way
+    through.
+  * Fix return value from pkvm_pgtable_stage2_test_clear_young() if it's
+    unexpectedly called for a pVM.
+
+As before, I've pushed an updated branch with this series:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=kvm/protected-memory
+
+and the kvmtool patches are available at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/log/?h=pkvm
+
+Cheers,
+
+Will
+
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Zenghui Yu <yuzenghui@huawei.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Quentin Perret <qperret@google.com>
+Cc: Fuad Tabba <tabba@google.com>
+Cc: Vincent Donnefort <vdonnefort@google.com>
+Cc: Mostafa Saleh <smostafa@google.com>
+Cc: Alexandru Elisei <alexandru.elisei@arm.com>
+
+--->8
+
+Fuad Tabba (1):
+  KVM: arm64: Expose self-hosted debug regs as RAZ/WI for protected
+    guests
+
+Quentin Perret (1):
+  KVM: arm64: Inject SIGSEGV on illegal accesses
+
+Will Deacon (36):
+  KVM: arm64: Remove unused PKVM_ID_FFA definition
+  KVM: arm64: Don't leak stage-2 page-table if VM fails to init under
+    pKVM
+  KVM: arm64: Move handle check into pkvm_pgtable_stage2_destroy_range()
+  KVM: arm64: Rename __pkvm_pgtable_stage2_unmap()
+  KVM: arm64: Don't advertise unsupported features for protected guests
+  KVM: arm64: Remove is_protected_kvm_enabled() checks from hypercalls
+  KVM: arm64: Ignore MMU notifier callbacks for protected VMs
+  KVM: arm64: Prevent unsupported memslot operations on protected VMs
+  KVM: arm64: Ignore -EAGAIN when mapping in pages for the pKVM host
+  KVM: arm64: Split teardown hypercall into two phases
+  KVM: arm64: Introduce __pkvm_host_donate_guest()
+  KVM: arm64: Hook up donation hypercall to pkvm_pgtable_stage2_map()
+  KVM: arm64: Handle aborts from protected VMs
+  KVM: arm64: Introduce __pkvm_reclaim_dying_guest_page()
+  KVM: arm64: Hook up reclaim hypercall to pkvm_pgtable_stage2_destroy()
+  KVM: arm64: Factor out pKVM host exception injection logic
+  KVM: arm64: Support translation faults in inject_host_exception()
+  KVM: arm64: Avoid pointless annotation when mapping host-owned pages
+  KVM: arm64: Generalise kvm_pgtable_stage2_set_owner()
+  KVM: arm64: Introduce host_stage2_set_owner_metadata_locked()
+  KVM: arm64: Change 'pkvm_handle_t' to u16
+  KVM: arm64: Annotate guest donations with handle and gfn in host
+    stage-2
+  KVM: arm64: Introduce hypercall to force reclaim of a protected page
+  KVM: arm64: Reclaim faulting page from pKVM in spurious fault handler
+  KVM: arm64: Return -EFAULT from VCPU_RUN on access to a poisoned pte
+  KVM: arm64: Add hvc handler at EL2 for hypercalls from protected VMs
+  KVM: arm64: Implement the MEM_SHARE hypercall for protected VMs
+  KVM: arm64: Implement the MEM_UNSHARE hypercall for protected VMs
+  KVM: arm64: Allow userspace to create protected VMs when pKVM is
+    enabled
+  KVM: arm64: Add some initial documentation for pKVM
+  KVM: arm64: Extend pKVM page ownership selftests to cover guest
+    donation
+  KVM: arm64: Register 'selftest_vm' in the VM table
+  KVM: arm64: Extend pKVM page ownership selftests to cover forced
+    reclaim
+  KVM: arm64: Extend pKVM page ownership selftests to cover guest hvcs
+  KVM: arm64: Rename PKVM_PAGE_STATE_MASK
+  drivers/virt: pkvm: Add Kconfig dependency on DMA_RESTRICTED_POOL
+
+ .../admin-guide/kernel-parameters.txt         |   4 +-
+ Documentation/virt/kvm/arm/index.rst          |   1 +
+ Documentation/virt/kvm/arm/pkvm.rst           | 106 ++++
+ arch/arm64/include/asm/kvm_asm.h              |  31 +-
+ arch/arm64/include/asm/kvm_host.h             |   9 +-
+ arch/arm64/include/asm/kvm_pgtable.h          |  45 +-
+ arch/arm64/include/asm/kvm_pkvm.h             |   4 +-
+ arch/arm64/include/asm/virt.h                 |   9 +
+ arch/arm64/kvm/arm.c                          |  12 +-
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  10 +-
+ arch/arm64/kvm/hyp/include/nvhe/memory.h      |  12 +-
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |   7 +-
+ .../arm64/kvm/hyp/include/nvhe/trap_handler.h |   2 +
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 184 +++---
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 587 ++++++++++++++++--
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                | 232 ++++++-
+ arch/arm64/kvm/hyp/nvhe/switch.c              |   1 +
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c            |   8 +
+ arch/arm64/kvm/hyp/pgtable.c                  |  33 +-
+ arch/arm64/kvm/mmu.c                          | 114 +++-
+ arch/arm64/kvm/pkvm.c                         | 157 ++++-
+ arch/arm64/mm/fault.c                         |  33 +-
+ drivers/virt/coco/pkvm-guest/Kconfig          |   2 +-
+ include/uapi/linux/kvm.h                      |   5 +
+ 24 files changed, 1380 insertions(+), 228 deletions(-)
+ create mode 100644 Documentation/virt/kvm/arm/pkvm.rst
+
+-- 
+2.53.0.1018.g2bb0e51243-goog
+
 
