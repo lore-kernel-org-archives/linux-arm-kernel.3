@@ -4,135 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 063961061B0F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 15:59:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D1C61061B0A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 16:02:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gWDiTD+U+UjgLErWuzI2cWp9sivMplzLUYOmq3MVyQ0=; b=CJVpL9HYn6oK8IbEuKHUkVdeHH
-	6MqGVLqzQI3pGA0XDGD1zB/dvCpzvw5CiKvwL4XmkFZvOP6hhvKxEXopmWHnkFzaccEvSvB9cdFvJ
-	+h1xkpW1BR0i921x+8Mj/M7QI6hA5QTbzUv05ZrPfoeT2DFrqQCcXo6nRjh0P1qTXCHCWo+Zooy8X
-	9kfUzW0wMITzP/7kYKzHr2I7CzsjuV1Tv+pvGAcqB+S0d9tdnumeXMhWDpCrDssDCP/MqL0YY7mo7
-	uwLk0xoM1v7cwHhUV68LX8r3RWwxU3Dok3S8Aj9LgrfR7+LPGdrgkmFg3NGtINQNBOvoN+67ji8MQ
-	OKPun2xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A6sReMjLzSP9a3K+XAEcm0M2BlICzHIwZtGCaoPGUog=; b=Qs4pCSm4drXrngvH4OCvCQCpy+
+	8b91uITvTZWl0busQScXqTZppVKR3Oqr4JNcL/rFbkAZC/cguO/tqdRmvlR8pqsfw8nbguwXDxzG3
+	vs+MKSRcuyEMPgRpx8Q+AKvgGMxJqjYXZ2f5nx5JXdtUrEF+/rVeUuFN1IWwUwMtZROAW0yWEUeQi
+	jAuys8YXz5lVuFcJyYvQI3w9BheYqqNq7aqW+mlTWrrU1jSR1IvGCBQZMDuhNHfPZWI/bSKUYbkxr
+	cIy9YeWBHcCkkXzwh27bHqY/7//c5vemCEm7XmhX/cUmoGKhSoF6n0xdZnOIgPqBdwsxti9ntfArh
+	Axvu9tHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7F1A-0000000BbbP-2kio;
-	Mon, 30 Mar 2026 15:59:08 +0000
-Received: from mail-northeuropeazon11011024.outbound.protection.outlook.com ([52.101.65.24] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1w7F3u-0000000Bbnd-2chx;
+	Mon, 30 Mar 2026 16:01:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7F18-0000000Bbav-3zTx
+	id 1w7F3r-0000000BbnK-3OSq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 15:59:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sCzmbG9xLIvRoK+mXCOQVihPP1lJNmr9GuSPXLEjOZ9R0c3OsFoe5zulEeDOTatD1FYmIKxjaOhhumERB7GXE+XcbOv5S963s+GcVgEIJRynrUesrR5LTCi1t/I454voe66GJt6/myDt2uNORlAN2wDk6borQ463hT8OhMkwJmpSoL+4ibHaVdn9NzdivRm2sM2fOeMhqsHr6yek2fFY6tDw55G0GkdrmKusNtjLmD/NoDj3qqGAlEh4u3I4NFwOBZ37RvFncyQO2Ibxi5NvZn8lglFkrZWijRD0hJp+i/FCX2Xz6dXunLEqCWmFUBOurphsgB3Fv6PsTwB7Ee8myw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gWDiTD+U+UjgLErWuzI2cWp9sivMplzLUYOmq3MVyQ0=;
- b=C6SZNSNw8LK/vrpxxIPaZHPm+9JPvPDcaoCzXsrAggZhkoNnXHPnwXWw1KISr87maUeUbaOto1aRNvhgdtw3y6H0d7B7oKkLg4ZNYwARd5nSqvD90doOhSNZbWYcWQLxZ1ptRqjyJbrMVmQh+bDGT9DsAV8v0ODXW0ut2rBNwnf9k2Vxy1r3xlRwumgBkAf8VBadxNpRFJlcStO9+1HSlgXhN9CkK5ojXA3QTe3VUPIDVnNgKBSmWohxNX6DkTX5CfQv80wng2+0zHUNltcWcmANAM89LhZQS5sra7RN0AUiUQXTvenbE9vJONazEpA8I5FN6tqgNt3h8J8kJL67lw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gWDiTD+U+UjgLErWuzI2cWp9sivMplzLUYOmq3MVyQ0=;
- b=f4rSIpXGfqczcqZnVVg83YQfFhRLm2N92QqbiGkkadWoFzxSw/3NfYVYFsMYDb1WrP2OBajFLWJVDx8QX6xVPQhsccOpl+mXcU+GIxjaiDf1Rpz5C//aBgnY+DUOQGTcJriIeKAI1Avv1WGiEsQFiW005/W+HL8U9Im5VNLpNDvYaoF+dQv1AEy9EGQsYTDeTDwPMCiPQk0gher8U7dgqj7onwXLRqsB3cy2auNmKusDJJvolyw6+Pvz0H7MNnTiy8EqocyOthxreD1qLz7KiV+/xCKbAX2oYExdomx0LdcuHTCVW712XfcmYKllNG3NT5z4e+1LerBm4KQpnwIH5w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by GV1PR04MB10377.eurprd04.prod.outlook.com (2603:10a6:150:1d1::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Mon, 30 Mar
- 2026 15:59:00 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.027; Mon, 30 Mar 2026
- 15:59:00 +0000
-Date: Mon, 30 Mar 2026 11:58:51 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Srinivas Neeli <srinivas.neeli@amd.com>
-Cc: Vinod Koul <vkoul@kernel.org>, git@amd.com,
-	Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Suraj Gupta <suraj.gupta2@amd.com>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>,
-	Folker Schwesinger <dev@folker-schwesinger.de>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Kees Cook <kees@kernel.org>, Abin Joseph <abin.joseph@amd.com>,
-	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V2 3/5] dmaengine: xilinx_dma: Extend metadata handling
- for AXI MCDMA
-Message-ID: <acqdu-oEKU1o-qrU@lizhi-Precision-Tower-5810>
-References: <20260313062533.421249-1-srinivas.neeli@amd.com>
- <20260313062533.421249-4-srinivas.neeli@amd.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260313062533.421249-4-srinivas.neeli@amd.com>
-X-ClientProxiedBy: PH3PEPF000040AA.namprd05.prod.outlook.com
- (2603:10b6:518:1::4c) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Mon, 30 Mar 2026 16:01:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BD81B43DA1;
+	Mon, 30 Mar 2026 16:01:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05D29C19423;
+	Mon, 30 Mar 2026 16:01:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774886514;
+	bh=2q05kcOGYH4miihvecwHGaShdUjVihansqExlAnDv9o=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=lM/I/ykY4Kx4d5k2NqwUGZEli9cwHyglf6BWPWaRYxVfG3dZc/hBmIrx4H0hSGLaj
+	 lJrr7eFrLU95WuU3GN7kvfFf/RfbglHlJzP6CkFf3wXmbsL89MQa46TudaHnycLCFd
+	 q7hGNNoQoSMaBfZ0hL/UqY84IMz7LW0xRmQEyvDf4wvPEc9wZt4+x3Sn1QpnXxXRIT
+	 1gPeG3znhY+wbwzXQfHppfh6jAhDybITjlQ5g31PhVPr+m00hsS5E3YC8DEFuL0YAt
+	 CH9Cusk4f7Vjwo7sSIW8hnVxLQaVD1Oozu8JwSo/tz4027AyK9j3L7OSSd9E3+fPrL
+	 gHl2YLGnNSnIQ==
+From: Bjorn Andersson <andersson@kernel.org>
+To: konradybcio@kernel.org,
+	Canfeng Zhuang <canfeng.zhuang@oss.qualcomm.com>
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/2] arm64: dts: qcom: enable UARTs for robot expansion board
+Date: Mon, 30 Mar 2026 11:01:14 -0500
+Message-ID: <177488647759.633011.5997983880216734366.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260327083101.1343613-1-canfeng.zhuang@oss.qualcomm.com>
+References: <20260327083101.1343613-1-canfeng.zhuang@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV1PR04MB10377:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7720121b-ba73-4420-2a64-08de8e7541d0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|1800799024|19092799006|38350700014|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: BQ0tPT/AsSv9s9cjDjiofKoo5t3xjhz13WyG04okT65GftLrl41/g0Gc5QcA3wV0iKVh7X7kO9uXcAuCnSpxXNBEhIyeuO4TRt9S1uHAX3yNlFTvjV8xgGvM92ClvFuMIsOr8AUp80c0yiyUdUgOKQMl4zPZVwvhXi2AhQFM+/G4vpFXTRMdaqzFDCjK7LVL3B8W6GHoSqowIIyLawIjxdtbPcbg7Ne7LhrrwEyxVC5cLDJQe7RHHFZJVQ0PZqBJFhMc9GopCslzPHPSDdcfAKkyGVFevE5zqqKMJefAFY83jQ5V081RULMtLTYgAirXVJpZin64RIWciYVLdpzyO3eyjCvAMPWPYYJXDT4+Oe5kmt/heAtPOGr/mdb+K9mOyCY9zJQXJa16w5Z16U12nIXex/XTSqef/+QGRpRLu0ObfKLg/DI2XNpEY1ovxC8BEntQ4VIbQkhcj24NMKXqOMuF1bRT4FVXUdhKfOT9mUKqe9/yrcLFH+nz1SpKCmYKgAQHzGnPNmrbPUOx+QlRLsr9BAB5mIQ6kJKTFDQAj7qYPmwVkbWCsgkSJWPIlEti89nOFdvrdEXJOZGgxVvmMiHRlOn49GJmeS1Q9qzKul7LSJTDUepRloji+EUQMTXePpUtIGgXv1vH7dM9UNia+rzoVcmm/9NTN9uDLCgQ4Z0lgMQqda8QxsY8MrrMIrv8U/Sd2SWYhYfEuB3+fT9Aw1mIGq7vDF+/cXjCvy7UbHnpmOCQhMLEzZLTmmk3CvHmz05XVnsf5KIOnRh6EPuKUzzDcdcs7oTZkJbVU+xVZbo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(1800799024)(19092799006)(38350700014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+vxTq/zuy+dXZzFOLsb21aKmuIOspNTIDsK3SGzKWyH8pUb0AzVt8nY5y36H?=
- =?us-ascii?Q?Hc4MfoiLMTt3z+ybM6p8i4nHfWm7Z02P89l0f867wyBYo/LGcxxbtS4T33oD?=
- =?us-ascii?Q?Hx4vvBJtrEB+HcTXC8iT8F1fJMwmcOn3+EfxlhRfgamF7RRh45ptg7LbMAAi?=
- =?us-ascii?Q?+2gzzTFo+kye7Lh+zUrVwoCjJbywbKznQA0nlbpVMoWI7DHRN8Rf95rsvucW?=
- =?us-ascii?Q?ZU586aLtTmUgYmK/IKSA06SRu8FwN4uSNhY6tbEoGau07+9Wym0bmTzE+cJM?=
- =?us-ascii?Q?3KWBOxQhg1wdMqD7Z7skJTtrPHmEIxTSaY6cBnAE+HwCIs0l4HP3TB7X9mWp?=
- =?us-ascii?Q?EG0jQlDOrI9LU4v79mgAZRnw6PqoykbNSFmHY39eNgj2ajelqUVC9Wh7+b5+?=
- =?us-ascii?Q?XbaRQWaMeIrPZY7s9IRCe5Y0VUEMQ3Pt9dj1qsvenuM2eIbvLI4b0ahShY5E?=
- =?us-ascii?Q?T14Urx5MEV7fwoyD6RkHz16SJiQyFwpc9VNeu756cak3+V062QR4WPdNeslh?=
- =?us-ascii?Q?1JECIDk4RmynH91zYWpHwAG2xJ/NZ88fSMJ+8TpBjIuf+88YouY/IMohpwO8?=
- =?us-ascii?Q?dPcHXtDzxX9+5TOE0sQ6UMjlWMbAulEw3/X4pzRN3MSDaG5IzNs2tgdGjgzE?=
- =?us-ascii?Q?D04QXykM55jHp64wn6lZ613d4y6EWKCgZ1QQwkM5+OKGu4amvICvqNC4xYXH?=
- =?us-ascii?Q?6M8bP7QPjFM+Q5HKS+okE4Is44pOTbU3SAdqJ8pBHeRn+n8ILIPfg3ZrCMq7?=
- =?us-ascii?Q?2SYK8bmEdHkOIQznIROyCjzONtkoRfIZbi2CnumoKuFq35kM7KlPhnDM891q?=
- =?us-ascii?Q?cYnVbhVggj5gmgmSvrzbIThSbAjY4kmvldwCs/ih1MMEuAObztYnoGXuvY+K?=
- =?us-ascii?Q?iIXkU24rSbNnru1ZAkI5sW2Mad3AaN0y3JG9RsmsXPZxO+3ZYnSagY7dvsvY?=
- =?us-ascii?Q?OTo8CyyiV9mEdTKc0+9uK37Q43nrTisBCJcav5zBTa5td5QlXxWb66WdKfQs?=
- =?us-ascii?Q?CJ+YuRYsXXKnwM4rybztncCkNsZVyuIaMqlv+JNkCIWAW7y4NmghOZj+GuUJ?=
- =?us-ascii?Q?li/WUDLDZV5YVmV/y4jPjImooOjNPpE+GHVIjTIjnyR0PtYLpERQu1JoScNb?=
- =?us-ascii?Q?5cshZDNZNr5SBu0qPU+ZtwciPzQtnlaWRm24B3i6KBYFrR1gXevQ1tgq9cYn?=
- =?us-ascii?Q?X0rqsUIY9+GlxGpWoULB+ZdiuACDL/DPcDODK+dwLhgVrHkhqKvdVtYMLfri?=
- =?us-ascii?Q?7p68I2L1kBBU8FvTEiN6JH6JxVpNyt2N4nkq+UV42YZ8aOh/2Ikq+Ww9BSbq?=
- =?us-ascii?Q?SnwCTUozogK1fU71jVnRRuUqiON5h/SDpBTZpr7EdsytejfFmNEmh2787qFu?=
- =?us-ascii?Q?YAJDEe5wiLVB4crgZ/rnPfyjXa6NFL1nhaVAm6F6EYArpqBJ0dvSJNLUkGWG?=
- =?us-ascii?Q?KNB/v6G9I/ou+z5nhNHWd1CJmu/ZhRENSJMJAGgEOREjzX/KDZxC8otxqQ4f?=
- =?us-ascii?Q?a9Soz5PBLjf1PEnlVY7kiexch+LisV7ZKTL5mYb0A+FOSuuKObdgSb+C8HQJ?=
- =?us-ascii?Q?f51cAw8WIvSqymrFIyPxPMIZTGYzlv9zF9ce64CkhgjG5FpX4/lGlLctOeVS?=
- =?us-ascii?Q?EY++JEnIvhTTiEcDy07BMSVExLvJtqGv0GTVp6eFIs0h9LmLDje6gXhBpHMZ?=
- =?us-ascii?Q?s0irtVJrrM6W7W//Nd96h2Qeg96pqVVG3OQ+RMrqiqO6L5LHjKuKfpoLYlG9?=
- =?us-ascii?Q?CInOcN+/oQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7720121b-ba73-4420-2a64-08de8e7541d0
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Mar 2026 15:59:00.0987
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: O9o8hlsLq2vUCjRrHYdVDJADqy8FvfNg8obp0FVR59dic6OVLqwV80WMSaVLKBpOoc/R2cFXm9y5E6yl6yo6ig==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10377
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_085906_991276_7EE6CC5E 
-X-CRM114-Status: GOOD (  18.06  )
+X-CRM114-CacheID: sfid-20260330_090155_997080_31DBBB80 
+X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,56 +78,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 11:55:31AM +0530, Srinivas Neeli wrote:
-> From: Suraj Gupta <suraj.gupta2@amd.com>
->
-> Extend probe logic to detect AXI Stream connections for MCDMA. When
-> an AXI Stream interface is present, metadata operations are enabled for
-> the MCDMA channel. The xilinx_dma_get_metadata_ptr() is enhanced to
-> retrieve metadata directly from MCDMA descriptors.
 
-Need extra empty line between paragraph
+On Fri, 27 Mar 2026 16:30:59 +0800, Canfeng Zhuang wrote:
+> The Qualcomm Lemans EVK and Monaco EVK boards expose a mezzanine
+> connector used by a motor control expansion board.
+> 
+> This expansion board hosts an MCU running NuttX and communicates with
+> Linux over UART, with all protocol handling done in userspace.
+> 
+> This series enables the required UARTs and assigns stable serial aliases
+> to ensure consistent device enumeration across platforms.
+> 
+> [...]
 
-> Add corresponding channel reference in struct xilinx_dma_tx_descriptor to
-> retrieve associated channel.
-> These changes ensure proper metadata handling and accurate transfer
-> size reporting for MCDMA transfers.
->
-> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
-> Co-developed-by: Srinivas Neeli <srinivas.neeli@amd.com>
-> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
-> ---
->  drivers/dma/xilinx/xilinx_dma.c | 30 +++++++++++++++++++++++++-----
->  1 file changed, 25 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-> index 00200b4c2372..52203d44e7a4 100644
-> --- a/drivers/dma/xilinx/xilinx_dma.c
-> +++ b/drivers/dma/xilinx/xilinx_dma.c
-> @@ -222,6 +222,8 @@
->  #define XILINX_MCDMA_BD_EOP			BIT(30)
->  #define XILINX_MCDMA_BD_SOP			BIT(31)
->
-> +struct xilinx_dma_chan;
-> +
->  /**
->   * struct xilinx_vdma_desc_hw - Hardware Descriptor
->   * @next_desc: Next Descriptor Pointer @0x00
-> @@ -371,6 +373,7 @@ struct xilinx_cdma_tx_segment {
->
->  /**
->   * struct xilinx_dma_tx_descriptor - Per Transaction structure
-> + * @chan: DMA channel for which this descriptor is allocated
->   * @async_tx: Async transaction descriptor
->   * @segments: TX segments list
->   * @node: Node in the channel descriptors list
-> @@ -379,6 +382,7 @@ struct xilinx_cdma_tx_segment {
->   * @residue: Residue of the completed descriptor
->   */
->  struct xilinx_dma_tx_descriptor {
-> +	struct xilinx_dma_chan *chan;
+Applied, thanks!
 
-async_tx already include dma_chan's information.
+[1/2] arm64: dts: qcom: lemans-evk: enable UART0 for robot expansion board
+      commit: 0be638f326c2015ae9406f4238d9bc54b5b7a584
+[2/2] arm64: dts: qcom: monaco-evk: enable UART6 for robot expansion board
+      commit: 74620bf0c3c6091ecd7972075f5ddeba29994407
 
-Frank
+Best regards,
+-- 
+Bjorn Andersson <andersson@kernel.org>
 
