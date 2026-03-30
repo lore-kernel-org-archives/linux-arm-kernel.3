@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0CC5FB3D15
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 11:01:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71CAA10D149C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 11:02:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tif0BX5UVtB4rV6WFT+caqXXTeWJp7XZF9XEZjBKH00=; b=xi7X48xkBJnUJ8uNyRKI+lzJ5J
-	tw75tq3yVO33ovhUEekg36hO5TSn5npB1NQWH94W1koyW5VjA/NtQIFCqlmOMWNiGmvpd0vI939f/
-	dsew4nh7yBrEEWUceziu2y2/CYn4Vp1N6rCv5NFgALXgsCMXOab15Q3J19JU3btOWz3HJ5ktgnYb9
-	+99vwsCgtV4R16q+XlcgYt+Q3HtBCUN3JkcbxE2/KOaCdjeXOWqCZO4C/8E1zI+1/JbmXtJ7XRVCI
-	NzPYiP6LZBq7atz3kIEW/mpshwOs5SWSeuJGfyNc/zJCvQQz3lPFIlL0+raWt6SUPeqenSuic4qbp
-	YmIqOquw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uzIYPQw/5COzLY48k1UwENwJKiLAR2jrBv0FayowuYM=; b=D/I1bJXMjw2uFx0lUvOxxol2F+
+	69r1FKYz823IhqlBs/XqpF9Js777PscTlL7rrGJfjhpS0NcdqHaBqBODbzFi/KpYfZlD4qSCPTPP0
+	schmJ3FgXOYtw4KcCaE282aeOt8swzX+6ZVu4mtx71rTfyyfhcSZi8knEQXyHVeNCVSaZJXbf0yKd
+	OITfxqJHk1f4P44vPvDLbC0KiTvYkKpa+YoQf+J/vTWGDSLTL7kLMobbrpkFMD2Wmpb0lngyYFszZ
+	kBxotkX5Inrwuvb771foviF4MPa5Efj+oIHbYIOgr0CJYtW+Sva++e5yC+xCRWf3gcJE/8lmP2aAl
+	z2CcJADw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ANT-0000000B7uK-1bnT;
-	Mon, 30 Mar 2026 11:01:51 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1w7ANd-0000000B7wy-2uzw;
+	Mon, 30 Mar 2026 11:02:01 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ANR-0000000B7tD-0vHn
+	id 1w7ANb-0000000B7w7-03hz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 11:01:50 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2a871daa98fso33378895ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 04:01:48 -0700 (PDT)
+	Mon, 30 Mar 2026 11:02:00 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2b2469e5117so8278945ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 04:01:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774868508; x=1775473308; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=tif0BX5UVtB4rV6WFT+caqXXTeWJp7XZF9XEZjBKH00=;
-        b=XRlYyhlV8XKNjUITtfoMmUbdo1/l+o8vJyvxDDey8UHmDEZjCYZgvp3JTA7+RB9vu4
-         BR1cOStEY0pRnxwJ41K1hcT4k7W32lglkkPBWY74BnWYpjR53IQkceqYNvojbGt1kkkD
-         zZU04ELfOGAR3DQ2MFrxohW4V+97tueYEXcLY9G8J1jMjNSxt+9+2D7RmYgaQwlmMALu
-         UImDvl3FlH2obkwZTVVOmhRXCrhOmLKrqS39J8gEd9WVLu7CEBvUR3d8Jbk1BmDHBe0S
-         SxmisJMmzQXAdt+yDLUMStIr3HfP56jebSb7wuYBaNaRIEmfWPx9NjErCihwY38q5zZn
-         qMrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774868508; x=1775473308;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1774868518; x=1775473318; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tif0BX5UVtB4rV6WFT+caqXXTeWJp7XZF9XEZjBKH00=;
-        b=JWgAmFNC44k7ZK47K5tvBBZElWV/WoazU3s41t/V16BJMlJ58pLdeGN3S4NrT/Nw9F
-         xShYr89zV36JLFKxhLePIA6ArOF0v2k+GPqtKmyZ+Eo8t7BBnXcWvAyI3HcSUGRV9qZR
-         6+imlJqpn+D/jsD6tOVYx4V0h+5FEZIrUUlgDIOvsu3TgO2vyOX+79QR+kcxY2m3vAmR
-         KR2VBfNdASYS/2Wea/bma6GyXXpN08einc2Fx4JCLUIhFiGh2+casL5+63/S6L2N932M
-         KbOmqfsif0YA3oDRhWQUiLDOUfhQs/DsNnrRZITt2y2tCYV0BIFcHt+jc6MwKN6PxHOy
-         Dl2g==
-X-Forwarded-Encrypted: i=1; AJvYcCWxHRV+WMPt5tRkwT9/BZGjjhTMrezZyx35/dMXxnStYUEZyNFSJ/DLSi6Jd5lzz94wvldmV51tn8+hmdQB924r@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdWHVob+PV0ePeA6bD0SOLFAK5qIyHxMNcBOinQ4eubOn8R6s4
-	FveaBag8RchssDhDK1/rU8vE1JXqiIbsIcgOXzT1TQvjcrOZWhiLYUCB
-X-Gm-Gg: ATEYQzyjvTw+j2aGWkXPXVrSoeKVbknP9D6X3EGhsuF+MfzYnZAaMVKaC12Gw1yn3uT
-	1Jbz2Tn/GOd+fRgBDhsLLeki5eJZK9tAKOtmW35kh8z0Y6KteMA1/sZv6hxha64NBtDZo+Z07Om
-	TbONQ7EmYImMVn/Hq8qs0doWtEzyubHX/Mbysk9yH1Wgj9L53O+ydEYuBqxEhFHR30uAoPKtfIa
-	yB/pn3TlwliP+nEN1wnG09U8G2ckSzlBbQcvvi0zS7P81MOWSl3LCQyt0qwC6R+G89MswPJuGMq
-	AskGasUkQwejiz7zzu6MsvGNQ8jHoxnq8cDZixgPhMd1dN0sjAvPIpr/x9MHb09HBqJrRQIL2h0
-	Yuw0Y67l1kCk1cJGTP0wIwxfi0LZfT+RJgMv2V3pGW1uZxGFwxl4kxdaC5WW/Jwpo4vqyQXJfPM
-	K+YZJvRWvpAL8d1zBahNY+n1XnEAd+
-X-Received: by 2002:a17:903:37cf:b0:2b0:659e:97bb with SMTP id d9443c01a7336-2b0cdd104e6mr122029165ad.46.1774868508266;
-        Mon, 30 Mar 2026 04:01:48 -0700 (PDT)
+        bh=uzIYPQw/5COzLY48k1UwENwJKiLAR2jrBv0FayowuYM=;
+        b=Lzeb7eT/1qe9ILeWyUIkUFqJweqXYBPSqdZ76n4YYhQHpuxAebiF+1NWk6xHzA2cy5
+         J0SDkZflMb905WiboRSaNEcczedLojpBqRLurUqL8pHwxL+rHaM38Rx+MDkuv24KxBs8
+         QWGTcX3jtRWbUJjMhVC5Rzjz0hnSTcb3sj/wSBv4XA7xf+MCCEg0ZGxliUdcBzCShIWA
+         ceOH1IJF35uzZrKPJF/upcxInLFDOHe4rAju0g2bIFQ0x/ed77BKgkyk0zrBPo6qoTIc
+         GEp8XAsaGjaV4jT1lXvHWEKjM+nwaWvirgT0uDbIOiNy6YOBBsNxkaxcn30SqrzUFfPC
+         kYvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774868518; x=1775473318;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=uzIYPQw/5COzLY48k1UwENwJKiLAR2jrBv0FayowuYM=;
+        b=ohlgc/PCrZPTC7cmf+onvbRxacjRfqet2SocyECYQRjh5OXP5IYVOzj10oe5EswyJe
+         gFAzopzdd8Bx4Fx4oHF3S5PzDLUaD/6cxVOWek4+NUWuSWmVU/1DOWm9GZh47OhIdGZk
+         JNbc3gwkie1Di+yOJEN2pAeaE+qA10fpxjTwgpmMrW/8rDGwGVQcbNXCRnHxIfCIPMtb
+         2Ot8p9bcaiLALZCN7m7ep8t9/9nhHwm5jwuUXVMbhseM27sC+egFi7CaqVtiqI6SOEak
+         MILwODKn3iQD4K6jsdf5zYpwiydoiA8f3d2haxtvqvBzZYzStDWjECxrEq+S8+4tNP/t
+         ozhg==
+X-Forwarded-Encrypted: i=1; AJvYcCUNaIfkEZnBHH3oHa21Pq2fEJI1Fy50bltvjJA0nDLjZruo3vcGm0h5DjNA5w2lOjjItYYCOVTP4KwbQrIe0WQz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6o4lM4iQ/Z6yMmL7TSNn41OXntAHbXoTAbAca7tRH2GeQ7Hoe
+	ozEb1d8n1yib+Acc1hCsg52GfexYiBw8NzAMl7QQwsGP2VyVZf5598Tf
+X-Gm-Gg: ATEYQzxArf51iynzv9VV0dyB/iNc+UvNTZRQ7I/YwQi6MvmYDOdsRh0vHOaLt1CJ2Hg
+	2UVmJYxC0AlOweJ9g5qT6K6hBIQdHnqpFc0yLTVbjmR9MRO2EI10UF2cE+l+LZBKUMU+Vr8AWjn
+	1xHwXcco2KXYsKer2yqu2YiSXBWD74+bH4ocXw5bxZeM0IUaHZjj7NdZcob8KcbIj1K+7xMnOIK
+	C/g0G7tfLmWChUT31P16exDspu6eonU+EbQHxF2DOs7/HK5cUuqVacwSnDzJUkK/+0v1qw5R+Dk
+	2sD7fxRtQK/ZEW5gLSq53z2ZBf91ccTTTjmWw/PnOZ6sDzLwdvtF3FS11r1mpm8OkLecnVWQExc
+	HKp6xstI+1SIcPl0OjFDJnOIB8gtVM871wD7TdmZEH+Ag0Ednq0XneE01SBEIM4wcgbwZQWpz/T
+	k9HdAaoTf0W9WQ+lVoES56+wmDNvlz4zGRPwxJpLA=
+X-Received: by 2002:a17:903:b83:b0:2ae:cd8c:bd04 with SMTP id d9443c01a7336-2b0c485870amr154320775ad.10.1774868518033;
+        Mon, 30 Mar 2026 04:01:58 -0700 (PDT)
 Received: from snowman ([2401:4900:646d:9a6e:3eae:13fa:fe3c:864])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b24279113fsm77701375ad.60.2026.03.30.04.01.40
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b24279113fsm77701375ad.60.2026.03.30.04.01.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Mar 2026 04:01:47 -0700 (PDT)
+        Mon, 30 Mar 2026 04:01:57 -0700 (PDT)
 From: Khushal Chitturi <khushalchitturi@gmail.com>
 To: sre@kernel.org,
 	robh@kernel.org,
@@ -84,16 +85,17 @@ Cc: daniel.baluta@nxp.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Khushal Chitturi <khushalchitturi@gmail.com>
-Subject: [PATCH v3 0/2] dt-bindings: power: reset: cortina: Convert to DT schema and rename node
-Date: Mon, 30 Mar 2026 16:31:33 +0530
-Message-ID: <20260330110135.10316-1-khushalchitturi@gmail.com>
+Subject: [PATCH v3 1/2] dt-bindings: power: reset: cortina,gemini-power-controller: convert to DT schema
+Date: Mon, 30 Mar 2026 16:31:34 +0530
+Message-ID: <20260330110135.10316-2-khushalchitturi@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260330110135.10316-1-khushalchitturi@gmail.com>
+References: <20260330110135.10316-1-khushalchitturi@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_040149_257623_1E89B8E0 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260330_040159_054370_0F259CC1 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,21 +111,97 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Convert the Cortina Systems Gemini Poweroff Controller bindings to
-DT schema and update corresponding dtsi file with new node name
+DT schema.
 
+Signed-off-by: Khushal Chitturi <khushalchitturi@gmail.com>
 ---
-Khushal Chitturi (2):
-  dt-bindings: power: reset: cortina,gemini-power-controller: convert to
-    DT schema
-  ARM: dts: gemini: Rename power controller node to poweroff
+Changelog:
+v2 -> v3:
+- Used generic node name "poweroff" instead of "gemini-poweroff".
+v1 -> v2:
+- Renamed the node from "power-controller" to "gemini-poweroff" to resolve dtschema warnings.
+
+Note:
+* This patch series is part of the GSoC2026 application process for device tree bindings conversions
+* https://github.com/LinuxFoundationGSoC/ProjectIdeas/wiki/GSoC-2026-Device-Tree-Bindings
 
  .../cortina,gemini-power-controller.yaml      | 42 +++++++++++++++++++
  .../bindings/power/reset/gemini-poweroff.txt  | 17 --------
- arch/arm/boot/dts/gemini/gemini.dtsi          |  2 +-
- 3 files changed, 43 insertions(+), 18 deletions(-)
+ 2 files changed, 42 insertions(+), 17 deletions(-)
  create mode 100644 Documentation/devicetree/bindings/power/reset/cortina,gemini-power-controller.yaml
  delete mode 100644 Documentation/devicetree/bindings/power/reset/gemini-poweroff.txt
 
+diff --git a/Documentation/devicetree/bindings/power/reset/cortina,gemini-power-controller.yaml b/Documentation/devicetree/bindings/power/reset/cortina,gemini-power-controller.yaml
+new file mode 100644
+index 000000000000..ef5e04f86be1
+--- /dev/null
++++ b/Documentation/devicetree/bindings/power/reset/cortina,gemini-power-controller.yaml
+@@ -0,0 +1,42 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/power/reset/cortina,gemini-power-controller.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Cortina Systems Gemini Poweroff Controller
++
++maintainers:
++  - Linus Walleij <linusw@kernel.org>
++
++description: |
++  The Gemini power controller is a dedicated IP block in the Cortina Gemini SoC that
++  controls system power-down operations.
++
++properties:
++  compatible:
++    const: cortina,gemini-power-controller
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - interrupts
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    poweroff@4b000000 {
++      compatible = "cortina,gemini-power-controller";
++      reg = <0x4b000000 0x100>;
++      interrupts = <26 IRQ_TYPE_EDGE_FALLING>;
++    };
++...
+diff --git a/Documentation/devicetree/bindings/power/reset/gemini-poweroff.txt b/Documentation/devicetree/bindings/power/reset/gemini-poweroff.txt
+deleted file mode 100644
+index 7fec3e100214..000000000000
+--- a/Documentation/devicetree/bindings/power/reset/gemini-poweroff.txt
++++ /dev/null
+@@ -1,17 +0,0 @@
+-* Device-Tree bindings for Cortina Systems Gemini Poweroff
+-
+-This is a special IP block in the Cortina Gemini SoC that only
+-deals with different ways to power the system down.
+-
+-Required properties:
+-- compatible: should be "cortina,gemini-power-controller"
+-- reg: should contain the physical memory base and size
+-- interrupts: should contain the power management interrupt
+-
+-Example:
+-
+-power-controller@4b000000 {
+-	compatible = "cortina,gemini-power-controller";
+-	reg = <0x4b000000 0x100>;
+-	interrupts = <26 IRQ_TYPE_EDGE_FALLING>;
+-};
 -- 
 2.53.0
 
