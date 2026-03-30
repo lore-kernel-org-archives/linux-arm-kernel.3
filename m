@@ -4,108 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BE2A1061B20
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 21:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C6491061B20
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 21:46:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IY6TefpABY+FWNRT3kahjkpIdjUN+0MXMlIzQOjUTr0=; b=UVeEoCvSklP5KLC+1avAkeOR2W
-	Yui3iyi2IxLyc72qVLF3xhclLlRykwUbhz0CxKHJUHpAgoRUH/xoGUOfGlPOQFKLYiN2o8dXx3xNh
-	pArKRg4hkLNiKbi71aRh9AyWA1K8ClSnk5FaJ39uF/O97/voRGP9v8hJvdOIzq+OIlxyulJ8ebiHe
-	G1/DWL7L1vahlTfdRpG7XFw8d5j1a900tVP+Ce6m2i7dhOD+IAab06/KcKOjf4KJWQdnvBSUEgYdS
-	N1oF+vrHSzs7VJpjfYwjXs4zvWMKUR22rIeE+hV75bXmx5d7FS0IlSVsqI+2CcqaZv67ht8/KLTPX
-	6rOmW73g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y/4gRi5RHE4lEQNk8r3GZP5jsAjQXbbb0ZHPhMUySrM=; b=ViKNSbkiH+gCde1YdmvgbQDIS0
+	z6O0H/PkP1YVmPr2fI1XtvbuiewOfVxwSUoLlfHdhKHDAkGyGNrAjPmPFl1yy+q1PNZGxB5cq13U7
+	gO5ehnO/gpCn3j7naPA0O4WGvv4W+zeSk/69+dx2le/MoTj5TdOzqvqAWeIi1GhCSATESlj3LaY0x
+	OaveaTH39YcPmefFiQlUYGeqXEszJoqFe+0jyiU7zs+jkR2nIBqIOUgZK8KnldMd0Vt/k3oMXF1On
+	cOOs0FicDleXeYwqZbJHOWlCSFb3UInvJ75T0wjrNJHubQ9uwIXvbisktUn2ZpcWhjvUIp5k1fBrD
+	Rrgi38gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7KPe-0000000BvHA-0dTJ;
-	Mon, 30 Mar 2026 21:44:46 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1w7KRh-0000000BvSt-0hXn;
+	Mon, 30 Mar 2026 21:46:53 +0000
+Received: from mail-dy1-x132a.google.com ([2607:f8b0:4864:20::132a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7KPb-0000000BvGQ-0uUQ
+	id 1w7KRf-0000000BvSZ-16z9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 21:44:44 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2a7a9b8ed69so48989775ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 14:44:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774907082; cv=none;
-        d=google.com; s=arc-20240605;
-        b=BJXNMYfTPzBdreLJMlWw/4dvod+stMkefz0u873+NjNcMomX4J0uF9k9b9uPdV2L28
-         0kWMXaO2nrUw2QQ96zr9cmGuZjnhr/ZRbQYVJqoIRjZOkb2JHj4+YNBnYzL+QpGa5Imk
-         PgLsZbQ/pxV2c7dvA/72vG0psL9m4KnUV4UdAIdCOT+maFnc3GpShdchD2vtcZq9NalP
-         ew6+rfHvEZqwVsrEUqfBm0vq84AqaF8J9RCGC3wFLRIZtwKvA9F7vaFWMZKZuprImysp
-         jnLj8lFGuyj8i5K6M7jVkelc03KsTDKjkPqwc4iHswVYDK5UtewP5GD02G5qf1oUq6Wj
-         e3ag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=IY6TefpABY+FWNRT3kahjkpIdjUN+0MXMlIzQOjUTr0=;
-        fh=pbKnakMMBuTs89rpcnrPNCTrXHmEOXUPssqP1TX+Jbc=;
-        b=RcxL9NW7mmyWJSuBrlkit/jhySvTuABgll2dD5UIZzheKSBuZkXbzP6m6+/rwVvSTs
-         1cqpKiuMypEBht8T5sfdxecWIV7b9MJJGcJqDPBYoal62VTRQUbWBDv5Da2n4VZXXRpD
-         ClxIrQ9sQOWjwQm1d1Rz68CNnqsmWnVCxD7Dv6j75ZLPPFOV8srXCpxOnmcr3m9jhNlH
-         OIeOrbKlXydY0P2HP30TXW8e4lylwe7vI8PLhQyWjMzMwffqvoaKpVZHWQtw/sIR47OK
-         Oc1Zy3a/SaFvF7IQ3CI9ZAlP3JFsx2o3emsc29kQeKZcWTLzHLWMmnuiFnjohFjYAMSD
-         mbVA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 30 Mar 2026 21:46:52 +0000
+Received: by mail-dy1-x132a.google.com with SMTP id 5a478bee46e88-2c6f5574d3cso519144eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 14:46:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20251104; t=1774907082; x=1775511882; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IY6TefpABY+FWNRT3kahjkpIdjUN+0MXMlIzQOjUTr0=;
-        b=SpN+QQ5NuJM91ngbAkNksJ3VOojl+xHb+3ckMmCNykTWtAZrrThPYFmC2qq1WeOxoU
-         uqqFhzcpGcTo8Gg421Rj6b/J+jkDk/mcmRAhiYOXsHMJ6QPlcOG9J/TD/RaCkC0gZaKp
-         EM1eANGoYC4bmKZBbUhKGMoSTCKDwERRwQBX+NlxIvifvxctauMh0kR9gfl0a28l6uaI
-         8/X3mpWOyxWw9V2tXV2KJAPoYsvVTJ271I9cn1XIL3ELn/h1abPiA53wvNW9zTjgyzE/
-         QMU+kO4zwULid8rCGmpbIickdCzcWOqLUn4lU6FpDIxBfDlgVMN8uCxvcRQhxLcr3HDq
-         MBXA==
+        d=gmail.com; s=20251104; t=1774907210; x=1775512010; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=y/4gRi5RHE4lEQNk8r3GZP5jsAjQXbbb0ZHPhMUySrM=;
+        b=V/HZTzYhJL/9IARSBkyGfZI1xdZeTE3dQSbvhQ/cI57JBzY9w0G+DPoRvLlYLMMJo0
+         qwx9Bn7MHN4JujmkhqGZIBXmLKQ2Ockr/vrDewz2hAdVNhTsBVUXRtTBV6jvmOuFUhy3
+         WKtbIBcPGNTEDCXgPu1n97KyUT7yRWaxygSI0/tlJS9gDKuX6usZ7E4VbCgvrG4B4vuc
+         0RXxghjZGGrBLbSy+/6s1kOCEvlgv4GU21UvJMjCnguOcteDTGlyHc53B8oLANW+ByD9
+         cfL9KrGPX8OOieGZjksFCB+DuebJ0t5r1St2P2SjC2uFgGRdeSG3ohBNY1HM0770Bdry
+         Y8bQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774907082; x=1775511882;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=IY6TefpABY+FWNRT3kahjkpIdjUN+0MXMlIzQOjUTr0=;
-        b=OWCcdLh4/o1HbO/8LWAtBjrLDWU0VxBHvJx+4XHyZc18xZ84zJbtTy/1cIKFCFLShM
-         Zanh7XF78ZUwBltYrYgoxfey39Tu80H7E+U0Nz5JhQ2zoZUp3nHmZ2EBwSLiNlpT+/NG
-         v6jcBziWwMOw2CnGUZ7jhFu7PoCepD3S5oNZw+Meu9jq0e4BBJFwmZnAM69iEUdy8Tpm
-         mJGB+EUinCvCOGv6jnAgjWkl9UwUW5PCvdMZypyLD5y2RwegMPQSj8GZ8HpUI+wjW4/6
-         LK1maO/G5UZmiukkHlNCX7MIYt48hwiUU/1ZCN+OA0yWFNGlcYykRlV727EHto2IY9v+
-         xH5g==
-X-Forwarded-Encrypted: i=1; AJvYcCWZtfVJ8A5nlt7lWQQFeC8xFnY//Bv6aQq5AZfsPR35NvqWNzX1B85EAUwxCGoKo7bgjCrlBt1vU70t3FerILIk@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywj2iUgQQwQ7yQimHVu6ZmG9EMxIiEzke1H1v3nAnO/M2eyv3Kl
-	P7xrSISnfmdUFFCgxd/RtxVli7h43jut0SFb+8phhRjfmi4jeR/y2FMhB/m/gFe48GmkLoo1wzC
-	+PjYIwlhwJDPF84fP+DTkvjQAKrsn9jU=
-X-Gm-Gg: ATEYQzzbtXCtiHTonYj5woTR5iI7HJ8/8SC/MO5psZz6i+0zBLs3/MaqcuvVREUAKnx
-	r/2dEazLYk1rRSjWLDxBVAwlH0QopMTykOWDzuddrXGbv1F7ZteFFe5eOeZ1z9e24rAvoi1NUEn
-	FKoZ85idw2ozn3UDc2Nhfg6iqyrYmSZ916br4OcZ1ej9V+P40ZUv7sEmVtaYsaC04Sj2B5+PdAP
-	biK0lcEqLQsPLCevTUlFO4MxpPc35ZWstRnPVpQS+lzDA5vMLyYqi/FSVuYnU0OPk1YTG5DO7B+
-	q4V1oacnhMw1FHbncJCTe/HwQsB0gXVGxPIzpkXb
-X-Received: by 2002:a17:902:e847:b0:2b2:54e5:b3af with SMTP id
- d9443c01a7336-2b254e5b653mr47612585ad.45.1774907082131; Mon, 30 Mar 2026
- 14:44:42 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1774907210; x=1775512010;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=y/4gRi5RHE4lEQNk8r3GZP5jsAjQXbbb0ZHPhMUySrM=;
+        b=AOJ8+rBmgRnbN4nt1LLZoYcNx/2tLQFRwZqQEC5SU9StPrLmEpGxGuoie8p367jihs
+         blXZtNaMZXnFply+lbuFyDDOiPmq+Mdcb59sC/A4V9LKOcf3rAgyoQvcJP48YalIEQ4Z
+         8iOYz3/OxZ4v81CfmRSAyme74wnI1SFsCVs85Ko7SoRGNd0mIe/z5wNgUBkdQrEdDiPX
+         xWq3B/Vp1xKbuhRIZIsZaDam4q57KZzcxkMV2zpK9DY5NFY+YdqgOZ7xcKLC4dkeu5tJ
+         3PA24dY1xmBYzBTfhDbIIkfUMCtZa2yIZilJsbGAjOVkZaQXFs/DLrmUxQtrLnGWQAvx
+         eDJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWtBvAB065ahsOqk+hD3xWchhRGHQtcmG857sE+ULQf+7lglFUMC3ovV2aiS9fJ0Q41mVeMvkiLGoFxHh2KDeqj@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+87DboNXT4numzWZwYUmlnASW4UzTwqRNbP2eWXJYfzwFK4ZX
+	zpN4sSi6Lj4mFVa7lirnUm5ZO0GccaUPsurY6L+Yzfd39XmW1I1h2cK0
+X-Gm-Gg: ATEYQzwXTp7E5N/hRw2i9coAQH9TK4EQAXMJn1euO942MCCTEV34j3JY6LPP+i2lSKa
+	omFUXbe23tznD5SHmrl3aPWYGFCuV1rTYSZMjMr8MwPi06KHl6ok4tQ5C0NGPNqb4urcuRhDTLQ
+	VdRfdQ+uf6bB30GydikOC4niwwKt4B4aq1cic7SUC/EbkKMrmktfI5tcfamEnk1cSya4zp7xKys
+	gjUqO0jzzU41c8yGUri11F6ESzOL13g9wzklhXRXAZhx2AORfTcST8Nw2j9Yrv/mC1ZuDxnoVTg
+	KQV03TWApjDWkhdOhrbbCNHVEOuBvAz04Z8xjY0YwraygHDOSOGlwtv9blEF/XxLgGAbJOAi0rv
+	dgpEYnkjEieJvvhclX5BDDXfmVCBb0JGX/OFh5TcqOJb0m2uouvSPx3/ivGvQ+VrXxC8nSOE+xy
+	m2J0i+MBG+WHfeODXd2EhLz58piKGwubrT1rKhrhCvFgn15B2biLRDji0yXTaqxdFk
+X-Received: by 2002:a05:7301:1f17:b0:2c5:d833:a507 with SMTP id 5a478bee46e88-2c7bc35b062mr700637eec.12.1774907210198;
+        Mon, 30 Mar 2026 14:46:50 -0700 (PDT)
+Received: from google.com ([2a00:79e0:2ebe:8:7f4e:2749:b37a:e9d5])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2c3c68b2721sm7751610eec.14.2026.03.30.14.46.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Mar 2026 14:46:49 -0700 (PDT)
+Date: Mon, 30 Mar 2026 14:46:45 -0700
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	Aaro Koskinen <aaro.koskinen@iki.fi>, Janusz Krzysztofik <jmkrzyszt@gmail.com>, 
+	Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, 
+	Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>, brgl@kernel.org, 
+	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
+Subject: Re: [PATCH v4 2/3] driver core: make software nodes available earlier
+Message-ID: <acruxMNdnUlyRHiy@google.com>
+References: <20260330-nokia770-gpio-swnodes-v4-0-b68592e977d0@oss.qualcomm.com>
+ <20260330-nokia770-gpio-swnodes-v4-2-b68592e977d0@oss.qualcomm.com>
+ <acrcDTPpXZ_5A4D8@ashevche-desk.local>
 MIME-Version: 1.0
-References: <20260326-s6-s7-pwm-v1-0-67e2f72b98bc@amlogic.com> <20260326-s6-s7-pwm-v1-2-67e2f72b98bc@amlogic.com>
-In-Reply-To: <20260326-s6-s7-pwm-v1-2-67e2f72b98bc@amlogic.com>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Mon, 30 Mar 2026 23:44:31 +0200
-X-Gm-Features: AQROBzDFiVgbyoC-RBIZt33tOxsaNE_LH0olelId_HKu2Jck3TyhrNiFIv2aRxY
-Message-ID: <CAFBinCD-4dwp7pmM_GHK_N1kag_5VBZbP9VAwQOxcyg6aquj3w@mail.gmail.com>
-Subject: Re: [PATCH 2/2] pwm: meson: Add support for Amlogic S7
-To: xianwei.zhao@amlogic.com
-Cc: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, linux-pwm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <acrcDTPpXZ_5A4D8@ashevche-desk.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_144443_338599_4C8658CC 
-X-CRM114-Status: GOOD (  23.92  )
+X-CRM114-CacheID: sfid-20260330_144651_305173_560846CA 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,73 +106,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Xianwei Zhao,
+On Mon, Mar 30, 2026 at 11:24:45PM +0300, Andy Shevchenko wrote:
+> On Mon, Mar 30, 2026 at 02:40:47PM +0200, Bartosz Golaszewski wrote:
+> > Software nodes are currently initialized in a function registered as
+> > a postcore_initcall(). However, some devices may want to register
+> > software nodes earlier than that (or also in a postcore_initcall() where
+> > they're at the merci of the link order). Move the initialization to
+> > driver_init() making swnode available much earlier as well as making
+> > their initialization time deterministic.
+> 
+> ...
+> 
+> > -static void __exit software_node_exit(void)
+> > -{
+> > -	ida_destroy(&swnode_root_ids);
+> > -	kset_unregister(swnode_kset);
+> >  }
+> > -__exitcall(software_node_exit);
+> 
+> 
+> Why? What's wrong with the __exitcall?
+> 
 
-On Thu, Mar 26, 2026 at 7:35=E2=80=AFAM Xianwei Zhao via B4 Relay
-<devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
->
-> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
->
-> Add support for Amlogic S7 PWM. Amlogic S7 different from the
-> previous SoCs, a controller includes one pwm, at the same time,
-> the controller has only one input clock source.
->
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> ---
->  drivers/pwm/pwm-meson.c | 32 ++++++++++++++++++++++++++++++--
->  1 file changed, 30 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/pwm/pwm-meson.c b/drivers/pwm/pwm-meson.c
-> index 8c6bf3d49753..3d16694e254e 100644
-> --- a/drivers/pwm/pwm-meson.c
-> +++ b/drivers/pwm/pwm-meson.c
-> @@ -113,6 +113,7 @@ struct meson_pwm_data {
->         int (*channels_init)(struct pwm_chip *chip);
->         bool has_constant;
->         bool has_polarity;
-> +       bool single_pwm;
-At first I wasn't sure about this and thought we should replace it
-with a num_pwms (or similar) variable.
-However, I think it will be hard to add a third (or even more)
-channels to the PWM controller (not just from driver perspective but
-also from hardware perspective). So I think this is good enough as the
-choice will only be 1 or 2.
+It's dead code. Always was, always will be.
 
-[...]
-> +static const struct meson_pwm_data pwm_s7_data =3D {
-> +       .channels_init =3D meson_pwm_init_channels_s7,
-I think you can use .channels_init =3D meson_pwm_init_channels_s4, if
-you change the code inside that function from:
-    for (i =3D 0; i < MESON_NUM_PWMS; i++) {
-to:
-    for (i =3D 0; i < chip->npwm; i++) {
+Maybe split in a separate patch, but I sometimes feel the idea of "one
+change" is taken to extreme and adds to both developer's and maintainers
+burden by needing to keep track of extra patches.
 
-[...]
-> @@ -650,9 +674,13 @@ static int meson_pwm_probe(struct platform_device *p=
-dev)
->  {
->         struct pwm_chip *chip;
->         struct meson_pwm *meson;
-> +       const struct meson_pwm_data *pdata =3D of_device_get_match_data(&=
-pdev->dev);
->         int err;
->
-> -       chip =3D devm_pwmchip_alloc(&pdev->dev, MESON_NUM_PWMS, sizeof(*m=
-eson));
-> +       if (pdata->single_pwm)
-> +               chip =3D devm_pwmchip_alloc(&pdev->dev, 1, sizeof(*meson)=
-);
-> +       else
-> +               chip =3D devm_pwmchip_alloc(&pdev->dev, MESON_NUM_PWMS, s=
-izeof(*meson));
-I don't think this code is too bad for now.
-However, I'm wondering if you want to make "channels" from struct
-meson_pwm a flexible array member in a future patch. In that case it
-will be helpful to have an "unsigned int npwm =3D pdata->single_pwm ? 1
-: MESON_NUM_PWMS;" (or similar) variable to future-proof your code.
-What do you think?
+Thanks.
 
-
-Best regards,
-Martin
+-- 
+Dmitry
 
