@@ -4,118 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB4EFF4946
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 06:15:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D40DFF4946
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 06:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WHKg9Q+JlijQx5DLBnlJ/zAbiL0GUVaVF5hXeyCPbC8=; b=RrtmV+qY/78/Je0Ybk5B5dz5qz
-	Ha94BdxHidKRuDNWOBmD9BJPda7pdYkG5Lsi3cSa5CKwVAoT/CkkWUq6ody0Nw4rnNd8IBoyY/0XD
-	0D4lipgtBlvYUhCXeC9IevdwvrrKPKBD2HooXDeLqMYLT+jZzb6DfeDkB3Lt7qRLnXHYbQxr8vvaE
-	I4lTIcwHFrcxJLb2AYVLWxKpl6b2gIXBtNi8gvcnfYnggQRYhxx/+XYYXV3rKpzEb3nka1dB67uCF
-	424H3CDbT6bRcOiQdDhFqEPAUXjg9uXdd7YnOCLFz5UjWYMpqFE8grFx6azjkmPL4v3b+ViefD6Vd
-	duIRa5pA==;
+	bh=JRGlqTUddNs22qbjK1XF9AytOTARdjde3qWaPPuWarI=; b=R1d29IfWhPV2TWOW3yU5FKRMUl
+	kNBfUqqmdzax9zx7yfAc4A/Y9Ixwq9+M8WSqXzKjR3LpUJ++8Wl0lojjT7ZkTmAAEESvwVBY9xTbZ
+	VEHeYIvNBT9doilqttcUlx5opzsREUmEeIgFc2EEs6KFkVfwo8XBtnUZb0C2pz+dkk2lOpXCrQbWS
+	iEFEbFhBpitRmo5l0fSbVz7ziqlXz7RsgEtKmmjGJ4khhC2S14UYHNGddqo852d9LrKBthcetThIO
+	iqUWfUAJGhmnJA+06QpF0zMVA7A5LYlxtBSTpxtPoKcB1L7Ia8eWZgjL3c4PFwrCTBkcBz8V/W78K
+	rjMo2S0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w75uP-0000000Afgc-48UH;
-	Mon, 30 Mar 2026 06:15:33 +0000
-Received: from mail-westeuropeazon11013017.outbound.protection.outlook.com ([52.101.72.17] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1w760x-0000000Ag7o-1KIG;
+	Mon, 30 Mar 2026 06:22:19 +0000
+Received: from out-176.mta1.migadu.com ([95.215.58.176])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w75uN-0000000AfgE-0SzX
+	id 1w760t-0000000Ag6D-1FEp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 06:15:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mWJKK/QOK29xDoh5MS102ZLgzalXV4OzarfpjbStbCBHT13e2OAa/fSM2b6R9huhhjkifOQAdkeF1FdOdPjqqblcRl6ozpDN2U4cQoF57ehWVqFn5WIMZ+vS5ehH7eekPJ9BZOijHttEDTmq6OpKe34M8Fc2ocaGjl7AA2RoCqfmM1/8fwXa6VLlnTQNHtGw1odmSKrk5WzTmtn7UTlAxzWqq0EGGw5jZ6j2nrVByCM0f2HlHo/Nz6vKLYzfM3WxtqL/DwTkj6aSkbKVllW0mRzQdGsU9/6/iH2zdjVAtylW3iBYdxUxVwloyKTwHdKPAjeQ+YFCufxEvjr5eqk7Jg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WHKg9Q+JlijQx5DLBnlJ/zAbiL0GUVaVF5hXeyCPbC8=;
- b=DA3ORlzHHgdHZzAU9HBDWkN8a0UO4PEW9AHk7IXcC7U39BfiXFPCGDt1fg/rhB4TYih1/2JhzkEGOQclP7Fb/GE9dM3AmnStHESc4LT9OrlTIdS9blY/BeRXGKMoiugcw1X7AAU1H24VAcuXLt7Z6g2kLReW+yMehD+R9yHUjVMmBzzKum4V44RDYEzA9pSt2G31VVe6+RPy1OyNaIYKuC1Uu6kQbbE7WHzmsAOhGqk3ZxXxvZqJLUoiJP4b8QIrqviD6uzLh165SEa7qiKBONRsH3BcFH8AC4oIift8tpr/1Ar0GaHyY01gPGPqbt4DI4czoBibDARLK7q5EKtMPA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WHKg9Q+JlijQx5DLBnlJ/zAbiL0GUVaVF5hXeyCPbC8=;
- b=VI/6UcWPFl/gnw7TpPcKbdoTiqMJgNLm7cE02B3ncXSJDrGkNuFuT+4flOitzmFSYcXl2rciGEGnLmM2/wwrrD8FoEL8gORnsiZgVVqnPGsZ/0gG3Mowo7H4/u2FydR3arZcZzppasgTEyiM0Q4RVOnL+DEBk+ErO4qv0+2UFVvyYZJ35GR1qHHsLb2Ef0PEvI7SOe2iMKL0P9sd0o/auIEAE+UsjV5vcK6SMf75O6tO2BzbAzsRToVv84SI7MVquMLrp7lE2o5thou/WSA6zirGAQh8nn9mgyIcDEwOJPUFWPYYm9DR8RBw+l/pvAN242W3LwomMgEHYGKKEhoLfA==
-Received: from AS4P250CA0002.EURP250.PROD.OUTLOOK.COM (2603:10a6:20b:5df::20)
- by AS4PR10MB6063.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:582::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Mon, 30 Mar
- 2026 05:59:44 +0000
-Received: from AM4PEPF00027A62.eurprd04.prod.outlook.com
- (2603:10a6:20b:5df:cafe::cf) by AS4P250CA0002.outlook.office365.com
- (2603:10a6:20b:5df::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.28 via Frontend Transport; Mon,
- 30 Mar 2026 05:59:39 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- AM4PEPF00027A62.mail.protection.outlook.com (10.167.16.71) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9745.21 via Frontend Transport; Mon, 30 Mar 2026 05:59:44 +0000
-Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 30 Mar
- 2026 08:02:23 +0200
-Received: from [10.48.87.93] (10.48.87.93) by STKDAG1NODE1.st.com
- (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 30 Mar
- 2026 07:59:43 +0200
-Message-ID: <f9c1d1e8-408b-4456-b048-1eed4526e214@foss.st.com>
-Date: Mon, 30 Mar 2026 07:59:42 +0200
+	Mon, 30 Mar 2026 06:22:17 +0000
+Message-ID: <0064952b-048c-455d-ad89-e27e5cb82591@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1774851728;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JRGlqTUddNs22qbjK1XF9AytOTARdjde3qWaPPuWarI=;
+	b=ITBmfkdGvwuPDXnsffYC3RL1CaOmCF/2VlOTHdKT+Q7ImF10cXOMIoVaLLRIU4blXOt6tP
+	duQCcmk2g36LuwcQWBgCNhYQYhVZf0XcLdzLJABnsHxs6Gkks4lvw9jpYB4A7jo5ZZy2Hs
+	0Pk3+FiE2FReGdaXwbt6hKscxnFc+Cc=
+Date: Mon, 30 Mar 2026 14:21:50 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] spi: stm32-ospi: Fix reset control leak on probe
- error
-To: Felix Gu <ustc.gu@gmail.com>, Mark Brown <broonie@kernel.org>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, Philipp Zabel <p.zabel@pengutronix.de>
-CC: <linux-spi@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260329-stm32-ospi-v1-0-142122466412@gmail.com>
- <20260329-stm32-ospi-v1-1-142122466412@gmail.com>
+Subject: Re: [PATCH v17 24/24] KVM: selftests: Add guest_memfd testcase to
+ fault-in on !mmap()'d memory
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, kvm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>,
+ Gavin Shan <gshan@redhat.com>, Shivank Garg <shivankg@amd.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Xiaoyao Li <xiaoyao.li@intel.com>,
+ David Hildenbrand <david@redhat.com>, Fuad Tabba <tabba@google.com>,
+ Ackerley Tng <ackerleytng@google.com>, Tao Chan <chentao@kylinos.cn>,
+ James Houghton <jthoughton@google.com>
+References: <20250729225455.670324-1-seanjc@google.com>
+ <20250729225455.670324-25-seanjc@google.com>
 Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <20260329-stm32-ospi-v1-1-142122466412@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Zenghui Yu <zenghui.yu@linux.dev>
+In-Reply-To: <20250729225455.670324-25-seanjc@google.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.93]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE1.st.com
- (10.75.128.132)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM4PEPF00027A62:EE_|AS4PR10MB6063:EE_
-X-MS-Office365-Filtering-Correlation-Id: 58711f11-8bf6-4c1d-ee6b-08de8e218a80
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|1800799024|82310400026|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: k4I/aVFRdcQjDyqE03HcN37hy+OaeeUkFw3riu7Mf5VeFJ5tklBcX89Pt7ahYZhtEVeq8hKxfV2ZpctJus4qrdKjAtxIb3whgo1aOiRo7iPKEz3PyqzpWL5pmX1wD4zRIF1xLm/s7hjM6m/M8CtEKqL82kVNsEgIeUOhj07rOhaKD9+oBqLIjF8Om1vgQqWBF8zcwUr0OJp+l9pg7yWoQy1U+eyhNSPGCj8TrBlHD3FHVaZZdhQ3E8/kPRJz8+VVj0huSwIgSOvrLsXTAThT0vYzzpM8wpefWqDDPWiWocKbFLdeHr6n4xZr5vRsHIVU4BKq7dPx5Nd+Q2A0nMZVg3eW/oSfds5vMiFybXr8fD1bHHXyDwXQLEUVtQVf/Rf9NmJKDt6EkK5Al05UnM/5x34z51w7zb4TIUcKx+Ob2ztObPx6J1SZqM5xWjv0h/YTsRF0T8MDuQf2d1YqTrDLnCgC1LD38u18E9vBNBB20/Iy3152SAYwAyzQHFl1F/FWJdilGDX06iKVry0Mby40QJX6nDY36Vdh6GCW2E+bh70G/2yKnF/mZlrHsbowt4ay3xBq/sMdneQk7iU2gj+G5GsJg/db9/USIUFgYFnI/V5ExdebehCgozEImIfacIOgwrVOUHBB6n43ozFS36eYgOza1GOSl71Tk2zlQrKaJBDOMAyYQ9+F0RaygR9BMrlN8FlP8S+hFTE5ITcXgrewDXV0cuu0VysfVAVKJGEgAmQBQVwkPzSLg0LXkUyeycCxbJLHabyKcH0BMxgv1Wdi9A==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(1800799024)(82310400026)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: sajkBAqiMzyQ8q6OJNpckjkh4UgPWTD71OcLfRMjyCb0vbJLmN6K9Wa0pLiNDSiTfPdY97eou3O4EVxSubmRm8BsTL3HqgJ86ioV9AuSCYsYM9AeNneGkpdZzb5CDHbCKdxRmUyIXF5+eVsCj4RzX1p9PQObh3A7WwcUBYQkzut86cF1WmqUu100Xw57Uo/idIih/BQG3HHi+PKJYh7Ymc1qADv4GYPOEiOUieg/8zpsILd5aqfuVdviWL8wbIjXcS0dGzrELI5BYWDIAKkswa5gkw+PwWgG+B05JC74StYeQ88AHvwe3jSgVtTaFzGeJ54tK7egEO9K//OQippmKrSB9ST00lFuMR6K0xZYxkXuV4/AiJqv5U/J98pqLdm/ADPeMdUscpAHUsHn9eHbmi7EB1B3Kt0PgbycteH/Q85IB/dSp0Kp7qBzzwLfbwV1
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Mar 2026 05:59:44.1046
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 58711f11-8bf6-4c1d-ee6b-08de8e218a80
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A62.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR10MB6063
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_231531_254844_5E41CC42 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20260329_232216_264069_D25F9FEF 
+X-CRM114-Status: GOOD (  20.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,49 +78,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-
-On 3/28/26 17:07, Felix Gu wrote:
-> When spi_register_controller() fails after reset_control_acquire()
-> succeeds, the reset control is never released. This causes a resource
-> leak in the error path.
+On 7/30/25 6:54 AM, Sean Christopherson wrote:
+> Add a guest_memfd testcase to verify that a vCPU can fault-in guest_memfd
+> memory that supports mmap(), but that is not currently mapped into host
+> userspace and/or has a userspace address (in the memslot) that points at
+> something other than the target guest_memfd range.  Mapping guest_memfd
+> memory into the guest is supposed to operate completely independently from
+> any userspace mappings.
 > 
-> Add the missing reset_control_release() call in the error path.
-> 
-> Fixes: cf2c3eceb757 ("spi: stm32-ospi: Make usage of reset_control_acquire/release() API")
-> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
->  drivers/spi/spi-stm32-ospi.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
+>  .../testing/selftests/kvm/guest_memfd_test.c  | 64 +++++++++++++++++++
+>  1 file changed, 64 insertions(+)
 > 
-> diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
-> index acf2d182e8b1..52997c3f7174 100644
-> --- a/drivers/spi/spi-stm32-ospi.c
-> +++ b/drivers/spi/spi-stm32-ospi.c
-> @@ -960,13 +960,15 @@ static int stm32_ospi_probe(struct platform_device *pdev)
->  	if (ret) {
->  		/* Disable ospi */
->  		writel_relaxed(0, ospi->regs_base + OSPI_CR);
-> -		goto err_pm_resume;
-> +		goto err_reset_control;
->  	}
+> diff --git a/tools/testing/selftests/kvm/guest_memfd_test.c b/tools/testing/selftests/kvm/guest_memfd_test.c
+> index 088053d5f0f5..b86bf89a71e0 100644
+> --- a/tools/testing/selftests/kvm/guest_memfd_test.c
+> +++ b/tools/testing/selftests/kvm/guest_memfd_test.c
+> @@ -13,6 +13,7 @@
 >  
->  	pm_runtime_put_autosuspend(ospi->dev);
+>  #include <linux/bitmap.h>
+>  #include <linux/falloc.h>
+> +#include <linux/sizes.h>
+>  #include <setjmp.h>
+>  #include <signal.h>
+>  #include <sys/mman.h>
+> @@ -21,6 +22,7 @@
 >  
->  	return 0;
+>  #include "kvm_util.h"
+>  #include "test_util.h"
+> +#include "ucall_common.h"
 >  
-> +err_reset_control:
-> +	reset_control_release(ospi->rstc);
->  err_pm_resume:
->  	pm_runtime_put_sync_suspend(ospi->dev);
+>  static void test_file_read_write(int fd)
+>  {
+> @@ -298,6 +300,66 @@ static void test_guest_memfd(unsigned long vm_type)
+>  	kvm_vm_free(vm);
+>  }
 >  
-> 
+> +static void guest_code(uint8_t *mem, uint64_t size)
+> +{
+> +	size_t i;
+> +
+> +	for (i = 0; i < size; i++)
+> +		__GUEST_ASSERT(mem[i] == 0xaa,
+> +			       "Guest expected 0xaa at offset %lu, got 0x%x", i, mem[i]);
+> +
+> +	memset(mem, 0xff, size);
+> +	GUEST_DONE();
+> +}
+> +
+> +static void test_guest_memfd_guest(void)
+> +{
+> +	/*
+> +	 * Skip the first 4gb and slot0.  slot0 maps <1gb and is used to back
+> +	 * the guest's code, stack, and page tables, and low memory contains
+> +	 * the PCI hole and other MMIO regions that need to be avoided.
+> +	 */
+> +	const uint64_t gpa = SZ_4G;
+> +	const int slot = 1;
+> +
+> +	struct kvm_vcpu *vcpu;
+> +	struct kvm_vm *vm;
+> +	uint8_t *mem;
+> +	size_t size;
+> +	int fd, i;
+> +
+> +	if (!kvm_has_cap(KVM_CAP_GUEST_MEMFD_MMAP))
+> +		return;
+> +
+> +	vm = __vm_create_shape_with_one_vcpu(VM_SHAPE_DEFAULT, &vcpu, 1, guest_code);
+> +
+> +	TEST_ASSERT(vm_check_cap(vm, KVM_CAP_GUEST_MEMFD_MMAP),
+> +		    "Default VM type should always support guest_memfd mmap()");
+> +
+> +	size = vm->page_size;
+> +	fd = vm_create_guest_memfd(vm, size, GUEST_MEMFD_FLAG_MMAP);
 
+This test fails on arm64 when vm->page_size is 4k and host's page_size
+is 64k:
 
-Hi Felix
+[root@localhost kvm]# ./guest_memfd_test
+Random seed: 0x6b8b4567
+__vm_create: mode='PA-bits:40,  VA-bits:48,  4K pages' type='0', pages='660'
+==== Test Assertion Failure ====
+  include/kvm_util.h:683: fd >= 0
+  pid=889 tid=889 errno=22 - Invalid argument
+     1	0x000000000040262b: vm_create_guest_memfd at kvm_util.h:683
+     2	 (inlined by) test_guest_memfd_guest at guest_memfd_test.c:450
+     3	 (inlined by) main at guest_memfd_test.c:491
+     4	0x00007fff8f56af3b: ?? ??:0
+     5	0x00007fff8f56b007: ?? ??:0
+     6	0x0000000000402a2f: _start at ??:?
+  KVM_CREATE_GUEST_MEMFD failed, rc: -1 errno: 22 (Invalid argument)
 
-Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
+Thanks,
+Zenghui
 
-Thanks
-Patrice
+> +	vm_set_user_memory_region2(vm, slot, KVM_MEM_GUEST_MEMFD, gpa, size, NULL, fd, 0);
+> +
+> +	mem = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+> +	TEST_ASSERT(mem != MAP_FAILED, "mmap() on guest_memfd failed");
+> +	memset(mem, 0xaa, size);
+> +	munmap(mem, size);
+> +
+> +	virt_pg_map(vm, gpa, gpa);
+> +	vcpu_args_set(vcpu, 2, gpa, size);
+> +	vcpu_run(vcpu);
+> +
+> +	TEST_ASSERT_EQ(get_ucall(vcpu, NULL), UCALL_DONE);
+> +
+> +	mem = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+> +	TEST_ASSERT(mem != MAP_FAILED, "mmap() on guest_memfd failed");
+> +	for (i = 0; i < size; i++)
+> +		TEST_ASSERT_EQ(mem[i], 0xff);
+> +
+> +	close(fd);
+> +	kvm_vm_free(vm);
+> +}
+> +
+>  int main(int argc, char *argv[])
+>  {
+>  	unsigned long vm_types, vm_type;
+> @@ -314,4 +376,6 @@ int main(int argc, char *argv[])
+>  
+>  	for_each_set_bit(vm_type, &vm_types, BITS_PER_TYPE(vm_types))
+>  		test_guest_memfd(vm_type);
+> +
+> +	test_guest_memfd_guest();
+>  }
 
