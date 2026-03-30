@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 270EA10D14A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 11:39:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7789510D14A3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 11:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EFesw2UgUNxK3Ul9wGPzZZ0aPKP99iP8x2Xu6Ay9pY0=; b=iA00A/V/NdGR68ikrgTHcjj8iW
-	QhW9ZWtFYYnootsK1fVAZFHbtOR1UpqmM/rBsg7ZUHyVKX649yTGfyQ0pH8Ap11IiX1UAmlZZ6rx/
-	l9EsZpwI8A+/h8KFe6HygTH0i+PTu+E7Herne6HzC1XrYkugtQxnAXg2kTQ7JRITA0BiqGGZo8sgw
-	i6cPBGmugFX8DwVEZ8/X4zvfOU+8NW9kZJsthgnYJ7YN5Yv23OfurQx/HJe9JyS3mtR7CFydApYxQ
-	6J0C6vOsWCLLekzbj7T/vLm52AQRMzrI5bHgkTlohZwwvDNXMQr9B8Saf2xcS4nt8J5kz3+Sozrp/
-	EuOFNvpQ==;
+	bh=WONPmbm2TYoQSix9aTbSrjRS3fmoy0yaRkZ4ZNle6tE=; b=nPbwzWt0h4uU6Dz43ZZJojCJMH
+	L+PGw0AzedPUNpXr4cp/ixq22cEbZ/IiOKt7TYTxkoJlQzd79AbNkVLG1X5539KzQS+NdCX1ihVQW
+	4XS3LSkcHiGNxQ5ylwhLq6Jjy8NmKDGfHK1yBzcOag7uPKHIhs/S2HL8OjZsxfoNnh6oV7hDJ9XDZ
+	70/MLEI5mF3cFjvniEKZakrPxWVhymLl23QZDkK+2y/t5qpW7tTzumGFVKSdBKWz1y2lxyFvGEmzk
+	H/5oCsHDLPMtIzuVf3sdTn99CR04PDaqZIb0GzGDMgRhbyb3OZW9paV7RCmkzm0zXKMozzvWFPZ5a
+	zRgSR3Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7AyI-0000000BAx6-1pIR;
-	Mon, 30 Mar 2026 11:39:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7Az8-0000000BB2B-3a3T;
+	Mon, 30 Mar 2026 11:40:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7AyH-0000000BAwy-2pbj
+	id 1w7Az6-0000000BB1h-41Rw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 11:39:53 +0000
+	Mon, 30 Mar 2026 11:40:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ECB6960054;
-	Mon, 30 Mar 2026 11:39:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1098AC4CEF7;
-	Mon, 30 Mar 2026 11:39:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2227D60054;
+	Mon, 30 Mar 2026 11:40:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39ECBC2BCB2;
+	Mon, 30 Mar 2026 11:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774870792;
-	bh=b/ampavt86PAu57HuZv/UNHbgnlk14x5mFwNDCZ00cA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LkjdYa9FevU1z0t+WxRQ78dGym4f2C2/8GwAgO9/SIrcKe2nhP9nxMncnPsMP6Y3P
-	 /bbRW61zXsGFM0f2hAal2XyFE+cIa06DyMHQZ43E0bUwGssoy33l5qpwQLLmEcigDi
-	 +PHP+wBLRLCO02RZ5c15qMp+tNK33OXmTYYAyVaSjkHBsyjE61vbbpCaflBEug4fzv
-	 l2hmB5A7cV3Q2Hw7I6k7SrujAfDWJbVFxhtFWC32aAMNyCX89V8HdsAU61W5Iz/46R
-	 GUh3w5AJjVG2PaapdVbLxRfmcWWGT3i3PZa53NwUzc8zFHfhcYPG7Ksq2iMGkPNBvh
-	 jp0LOJK/kHxiQ==
-Message-ID: <406ca5ed-4a3e-48ba-94ad-d88c53b09299@kernel.org>
-Date: Mon, 30 Mar 2026 13:39:49 +0200
+	s=k20201202; t=1774870843;
+	bh=9QKKv/MJNfK4wnYIZ5u8Bg82kMFl+XFfFNUay1UF+Rs=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=guMb6WiyIx+dTK/AmWGtCNWoG//OUYXZsBV+PSEFirwCO65+c/lsE0eiws8xQrWM7
+	 HtdOtyrXIoweS2EXb76m+KxLtf+6plMRZBQpq9EgbTl+VCDhzA6W+zLeKU6n3IgLGi
+	 W8MbgB2Ww0TLfYoR240go/K/RC5etfv728E1N49WSqxgryWgTxK9b9iCs/vOOdA5uY
+	 eHQ2Bj4mpgZXAaq+ksvhAZAtOjK9wpNPLgHg+Zh4uwxqEvltJ64GKq97EA4LfQs7HH
+	 pySHIRnEbiSpBn9N+tqeq7jNfusEH1AVlI1XpD4APTC0TX3l96n0kimhEx35FFYITS
+	 OVex5ScCyoavA==
+Message-ID: <cefdfe38-a638-45d5-8fae-5bd5c3fa6387@kernel.org>
+Date: Mon, 30 Mar 2026 13:40:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [GIT PULL 1/7] dt-bindings: Changes for v7.1-rc1
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Thierry Reding <thierry.reding@kernel.org>, arm@kernel.org, soc@kernel.org
 Cc: Thierry Reding <thierry.reding@gmail.com>,
  Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <20260329151045.1443133-1-thierry.reding@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <406ca5ed-4a3e-48ba-94ad-d88c53b09299@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -97,7 +98,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260329151045.1443133-1-thierry.reding@kernel.org>
+In-Reply-To: <406ca5ed-4a3e-48ba-94ad-d88c53b09299@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -114,77 +115,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/03/2026 17:10, Thierry Reding wrote:
-> From: Thierry Reding <thierry.reding@gmail.com>
+On 30/03/2026 13:39, Krzysztof Kozlowski wrote:
+> On 29/03/2026 17:10, Thierry Reding wrote:
+>> From: Thierry Reding <thierry.reding@gmail.com>
+>>
+>> Hi ARM SoC maintainers,
+>>
+>> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+>>
+>>   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+>>
+>> are available in the Git repository at:
+>>
+>>   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-7.1-dt-bindings
+>>
+>> for you to fetch changes up to bed2f5b4de6c6fd8f8928f6373ad92e8795c370f:
+>>
+>>   dt-bindings: arm: tegra: Document Jetson AGX Thor DevKit (2026-03-28 01:05:24 +0100)
+>>
+>> Thanks,
+>> Thierry
+>>
+>> ----------------------------------------------------------------
+>> dt-bindings: Changes for v7.1-rc1
+>>
+>> This contains a few conversions to DT schema along with various
+>> additions and fixes to reduce the amount of validation warnings.
+>>
+>> Included are also a new binding for the PCIe controller found on
+>> Tegra264 as well as compatible strings for the Jetson AGX Thor
+>> Developer Kit.
+>>
+>> ----------------------------------------------------------------
+>> Sumit Gupta (1):
+>>       dt-bindings: arm: tegra: Add Tegra238 CBB compatible strings
+>>
+>> Svyatoslav Ryhel (1):
+>>       dt-bindings: display: tegra: Document Tegra20 HDMI port
+>>
+>> Thierry Reding (9):
+>>       dt-bindings: pci: Document the NVIDIA Tegra264 PCIe controller
 > 
-> Hi ARM SoC maintainers,
+> Why are you taking subsystem patches? This was posted on 26th of March
+> and was not acked by PCI maintainers.
 > 
-> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+> How the bindings should go is already documented, so there is no
+> question here.
 > 
->   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+> The question was whether you can take them if subsystem maintainer is
+> non-responsive and yes, you can. You gave PCI maintainers one day before
+> applying it.
 > 
-> are available in the Git repository at:
 > 
->   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-7.1-dt-bindings
+>>       dt-bindings: phy: tegra-xusb: Document Type C support
 > 
-> for you to fetch changes up to bed2f5b4de6c6fd8f8928f6373ad92e8795c370f:
-> 
->   dt-bindings: arm: tegra: Document Jetson AGX Thor DevKit (2026-03-28 01:05:24 +0100)
-> 
-> Thanks,
-> Thierry
-> 
-> ----------------------------------------------------------------
-> dt-bindings: Changes for v7.1-rc1
-> 
-> This contains a few conversions to DT schema along with various
-> additions and fixes to reduce the amount of validation warnings.
-> 
-> Included are also a new binding for the PCIe controller found on
-> Tegra264 as well as compatible strings for the Jetson AGX Thor
-> Developer Kit.
-> 
-> ----------------------------------------------------------------
-> Sumit Gupta (1):
->       dt-bindings: arm: tegra: Add Tegra238 CBB compatible strings
-> 
-> Svyatoslav Ryhel (1):
->       dt-bindings: display: tegra: Document Tegra20 HDMI port
-> 
-> Thierry Reding (9):
->       dt-bindings: pci: Document the NVIDIA Tegra264 PCIe controller
+> No acks, but that is waiting for one month so it is fine.
 
-Why are you taking subsystem patches? This was posted on 26th of March
-and was not acked by PCI maintainers.
+Ha, no, you did not even send it to maintainers, so how they could ack it?
 
-How the bindings should go is already documented, so there is no
-question here.
-
-The question was whether you can take them if subsystem maintainer is
-non-responsive and yes, you can. You gave PCI maintainers one day before
-applying it.
-
-
->       dt-bindings: phy: tegra-xusb: Document Type C support
-
-No acks, but that is waiting for one month so it is fine.
-
->       dt-bindings: clock: tegra124-dfll: Convert to json-schema
->       dt-bindings: interrupt-controller: tegra: Fix reg entries
->       dt-bindings: arm: tegra: Add missing compatible strings
->       dt-bindings: phy: tegra: Document Tegra210 USB PHY
->       dt-bindings: memory: Add Tegra210 memory controller bindings
->       dt-bindings: memory: tegra210: Mark EMC as cooling device
-
-That's even my subsystem and I did not ack it. You did not even sent it
-to me as requested by MAINTAINERS file (+dt is ignore alias), so
-obviously I did not even had a chance to ack it.
-
-And we even had few days ago talk were I explained you how these
-bindings must go. Seeing pull request completely ignoring that
-discussion is just huge surprise.
-
-No, it cannot go in. Send patches to proper maintainers first.
+Nothing here was sent to the right people.
 
 Best regards,
 Krzysztof
