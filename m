@@ -4,134 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A6F51061B0F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 16:19:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A56CA1061B0F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 16:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cK6CHQ0JYSO7WKzfUcaM8seLmBH8P37jyo8prhZDYfM=; b=WH9Fhv8bM7FIS3Dpve/hXrIRJU
-	kPjoT/0cY9a3nYJRCKmwOThoHJy17mj8pVCawG9x8NnjhLkuRCpm9mm6g8UGhUucFvwTAxaZ87F/U
-	Cg0bHw8cuS51KnEtqZlukA937D6PUeel9jNKWkKJujKo8pbcwupMZ5jz7S+kDK4yHmvYTlaurMvgG
-	WNdqjTfqci4NV3Hlsy5WvsB87uK2chvXiMIf2q/Dln6t6sXftoSl+UY2ukQ9sarSbHHaLMQ3HkOLf
-	qs860Evs1cKou8xDCDAzLXzJvrxQFFAFk5VbafLzWHCAsT9BeuYIxMqzxruaquN/qCG4RkHQhwk/1
-	za/44yhg==;
+	bh=F1Y+AAG1QLMLsPOlCltTIPZbXa5nMvK08Dl3ksosxFQ=; b=pXz7Nik/frP5MHhp9mo5r/uBPo
+	w4znEO8m3+lKSnXgqnskO4wz+0YzEpXrgxIclFgAvwkesPDiRUlhMA72T+Wgo/cHqWlqTEsYFM5qp
+	nUYH7g7cylzdkV45ar8ejqvtzigy4Ka/UyiQhlOnAhZbaVK0qXwjBxYgynGhKn5d+m++mlvOL77Q0
+	TJcd6dYrX7cBYfZrnHcimJY6sxxC4KKcJLWtLcMQrGozRF2+f2fGcjf1IPnntDoXP9rGkrLRlvdYN
+	ynVI64h0PnYq072YSx+pnKwEG6OulZDt4pxUf937OWDYW0KeRI9PGtEYrDyR7IDvFfsr6Do1RRhTK
+	KxNgaevg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7FKh-0000000BddJ-0nUZ;
-	Mon, 30 Mar 2026 16:19:19 +0000
-Received: from mail-westeuropeazon11013068.outbound.protection.outlook.com ([52.101.72.68] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1w7FLx-0000000BdlT-2Zh7;
+	Mon, 30 Mar 2026 16:20:37 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7FKe-0000000BdcA-0oUf
+	id 1w7FLv-0000000Bdko-2m8e
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 16:19:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F9IIZJ2l98XnCcO0j1l7fa/EQWrqHotXH9AysUfRlLVvrCXD1/YsuvViWZUmmUCVk3np6nslPKAc4/BikUHv+zh+sm1QLQQaXE0CZyIF2jiaHvAWSH3M0j4mgZo+qLCkxfq+3rks9owazqkm94IkEQSBmCnYUFhcVOW6Xpg9DcTwfN0tywYKVcs+ZLpSGHjRVVmuyw2w7OkF9hu4ksyHOyv5aZWPE3w8L8iWQ4A3HvKp51h5p1M8O3BoM6eKIyrykgn3TEReXzcLxpKHOijjKRDrSDnaOk6Udngl0DV+aNUFI4ndo2kHbdoJ4VNnDDCp6hNFgB58J+/rgQQ01ch1ng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cK6CHQ0JYSO7WKzfUcaM8seLmBH8P37jyo8prhZDYfM=;
- b=v8n7G2EXTZyRfDe99cAGZFsHYXA78kUnwLqXykfIi+pQkmFLBrbDhIxsxeOjTtZ+UcB/lpJN5xTzZDnz9Ythno6FdPUxBWyEWyE2tDNg1nU4KSJlye9uvo9BSxV3CT0Net3edJwUidUFuGcTdq9mM8HoBYhMcBlN8vwNEyVeLSbb3v3ubWIS61jULSRv/ME2rScoEl1nvn62edhGIz1gxOuz+aoxPXfptDg2mZbFcbATr48bIeT190lm4t4EoPHG/qesIoP6B997Mdpd4UlQYUaXwXgBh3uSVp6cgZyOF28HEkfvfGkEnGO53bfY5TDERqsqYKgGaJTeqjplb7uu9w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cK6CHQ0JYSO7WKzfUcaM8seLmBH8P37jyo8prhZDYfM=;
- b=ObnxSOjcPPcTF/2o3p0SFflTONibhOg98I110qgfqh9RHydlZWM18OyFh46JjJh4CUa7nYu7ua2hZ2BASUK2elTZhlxj1H2MCERWa1e/5mberTpIIp8WDYrFvIo5LL/PYGE4x4WPSCvm6/5AGqB/Djp23DCOZF80xlSBX5F0qX6+gHgY/qF41uojO+e6lJ6eMDu1uUUixlJ3sTAa6tySuwlzai5XVJt/91NmfNCtIHqnueu0tVRtc6zlOdMTOYhWCK7a/1B5V6P5XcsWQeWqfyibq7istJA8dV5+3EX3mg7JQQIUc0gSM6R8kvH8wJRyBeMVLPHCr3BJKsrtOJr32g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AS8PR04MB8261.eurprd04.prod.outlook.com (2603:10a6:20b:3b1::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Mon, 30 Mar
- 2026 16:04:19 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.027; Mon, 30 Mar 2026
- 16:04:19 +0000
-Date: Mon, 30 Mar 2026 12:04:12 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Srinivas Neeli <srinivas.neeli@amd.com>
-Cc: Vinod Koul <vkoul@kernel.org>, git@amd.com,
-	Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Suraj Gupta <suraj.gupta2@amd.com>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>,
-	Folker Schwesinger <dev@folker-schwesinger.de>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Kees Cook <kees@kernel.org>, Abin Joseph <abin.joseph@amd.com>,
-	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V2 5/5] dmaengine: xilinx_dma: Add support for reporting
- transfer size to AXI DMA / MCDMA client when app fields are unavailable
-Message-ID: <acqe_AF3YHPLNzoV@lizhi-Precision-Tower-5810>
-References: <20260313062533.421249-1-srinivas.neeli@amd.com>
- <20260313062533.421249-6-srinivas.neeli@amd.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260313062533.421249-6-srinivas.neeli@amd.com>
-X-ClientProxiedBy: SA0PR11CA0039.namprd11.prod.outlook.com
- (2603:10b6:806:d0::14) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Mon, 30 Mar 2026 16:20:37 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 295041F8005D
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 16:20:30 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id 89117B2EA6B; Mon, 30 Mar 2026 16:20:28 +0000 (UTC)
+Received: from shepard (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id 3490AB2EA45;
+	Mon, 30 Mar 2026 16:20:27 +0000 (UTC)
+Date: Mon, 30 Mar 2026 18:20:24 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Krzysztof =?utf-8?Q?Ha=C5=82asa?= <khalasa@piap.pl>
+Cc: Liu Ying <victor.liu@nxp.com>, Maxime Ripard <mripard@kernel.org>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Marek Vasut <marex@nabladev.com>, Stefan Agner <stefan@agner.ch>,
+	Simona Vetter <simona@ffwll.ch>, imx@lists.linux.dev,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Lucas Stach <l.stach@pengutronix.de>
+Subject: Re: i.MX8MP: Fix HDMI LCDIF FIFO underruns
+Message-ID: <acqiyNHYsNFa7LxM@shepard>
+References: <m3ms04caaj.fsf@t19.piap.pl>
+ <32317022-3c44-4ead-9e2d-04caa12b28cb@nabladev.com>
+ <m36pvjbo4xy2rtdymshjpmwu7icl3wlyiwcmmjaozo7jpe5lqk@zt7byx7iwmym>
+ <20260320-amiable-hairy-bullfinch-28bfda@houat>
+ <m3a4w2d4ds.fsf@t19.piap.pl>
+ <ecd02f87-c4b7-44ed-8ecf-98e0990af34a@nxp.com>
+ <m35x6mpuya.fsf@t19.piap.pl>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB8261:EE_
-X-MS-Office365-Filtering-Correlation-Id: f189232a-85c1-46ab-fed3-08de8e760049
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|7416014|1800799024|19092799006|56012099003|18002099003|22082099003|38350700014;
-X-Microsoft-Antispam-Message-Info: oFlmOb014+NHhjpWrBdyLQ1bXAwmWg1mavcF79v2JL3s3SZFfO501HQXSoOppJA9NOhDPKVSN5nc6f5PMWDeSr3K9Y/Lqv6vxGemmLGrj2ONJ30zys7chCUShjbKAdLmxpZgTQB3jQKEjTK/hK34vj1LSyVw/pnXMJPGLG2MDX9L5xJ0l2YbPeD/BhaSZxVA33YiJ6TZki0/jGhuWyrIRxp7b2sDvD3Oz8LWIJZWV1jMLvdMX8TOhRGGbWmOqwehk4xZVodfdz0jnueCDuoa2i33AtMhdolYMx5oee+aSeZVCJOzX+nzrwnjWfgFW45hwuPr4s1u8U4PPocdt75M26iR3ofeRX2M9sfIxHrPdTC67fxD+qlMm4p3v5O1GeJUQCODmVRv4X0+WUpiBqJw/U40B7WEq6zmdMohcBrZj4LXVIh9CUeaNigC6TTKcX6IeUwRJxcWwBnqrv4o3TABeH9ZBCrfo31tTtxCXyUb0cgo537r2CE9i+2o/efhts5beyurRD5jARI6OJWyV0rM9dfZ6k4MyNVIk1k6nkL8cavy7toJ6EcTADKOFUYNm0xFObH4E+lGtfXjCxQ2Da1Tmad2XzCrjInyordEs2aSrp/bPvnzZoqR/88AxzAehzA5y1sM8lYu9QXndud3x+HRAqNaXU4ytqUiEC6nGe3TlUzPafcZpE4sOU3cbV34gVhfX1hU1aMhGvS0h9rVeP8XdLwd7zEyCxzdvmASQ8Td3l2jiMasYWYVmfoAkfPWmTwH53309vIuMsbak91VXTdSk7Sf1BHbpdwNWPaMvuuXM3A=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(7416014)(1800799024)(19092799006)(56012099003)(18002099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6RMRlxV0vnmrLDssuECMbpm+r0GySv1DS5IJhjebT1gKFOov5Za2+TXv4fBS?=
- =?us-ascii?Q?lSYLFfycHABx+RXqeMwQFY6OH4Zg8Q04A0a8k971+km2z0R4ncb8+/0ak1EP?=
- =?us-ascii?Q?ZKZfQXkZqqSCc3+LvWNeYEiiWknhFaj0znzPqS8RZOzmtFPoTDHGbOCmvEdZ?=
- =?us-ascii?Q?86dmsbIjC7gAektTLfgPNNqF9eD+fKDgUTbkACW/2+NrVCaudDlB4WbdkHkd?=
- =?us-ascii?Q?paOHQ0T0673p6uWW1SXJIj3wJgUKx1Va0mcOSCf4DnEhhPG76MZqIer8iv7w?=
- =?us-ascii?Q?HnM2/04nvmH4BQxeQbDTYTvk4nMsUQk7W2HRnUD8H28uHkPTFrJ+5lcUS8lf?=
- =?us-ascii?Q?YcWa1FR+XFHPoE58W/FC4rqpyYX3iCBZ1kv/XTXWBsNR2vUDgCc3DtQTuNkX?=
- =?us-ascii?Q?1PcwwUmlaSgIE/zvejS4CasR6VcHgxtkKYw1Se36z+ztS/wfhNRzFpr8vix8?=
- =?us-ascii?Q?3qHUxJpANDePk7sZ9sHu3B9xyKXWyZP6erzfMCsxhPndg3QFSXR87wFB3yNF?=
- =?us-ascii?Q?j1gOGR2iAM7D4W6x4A+6Af0Fhbj+pKO+bqK+i7mQ+CuSy7aQ9Heky+Tlw9Wp?=
- =?us-ascii?Q?oIkWQGcfJ/PMUbubAL6uplcOtHCvHVyImR67J5CKNAdjoKPzK3JH5j2beOSt?=
- =?us-ascii?Q?Vvb3Cm4Lle1cnpN8QXucu1DmeZkdvq2AhfkbI7RhR/paxWenhcgZiCMndwdk?=
- =?us-ascii?Q?c/XGNSJ9W/fAjYuyspELfpZXdUkqadZRcFjw7RmxYHBnjLpRUyaMcCESppql?=
- =?us-ascii?Q?rf4XAoAgBJtzsDuCGLJImctPiMk2EdDYc0+A4S0HOvOHRwlJqa6Ox6vQznIm?=
- =?us-ascii?Q?bTZ6iFmZpLtiGoOXVwyEH5R4H0dygaXa3Bgl1MnQbL8TfnlTbvqcF4Grg7GT?=
- =?us-ascii?Q?I/s2fzvO6zCttIvX21AIGFiBCrvNj40ij+6lXcnKbaIa9TA+inKWdNKGg/hI?=
- =?us-ascii?Q?qgkOLyQFegk+cIp3NNaZybGnSIMGQcPgml5+owCc+6ngLu4mJGX3RtoNDlGj?=
- =?us-ascii?Q?JM+i+XzaN5rzfMF6JpYlmxYHk2/TT0u+oXGW8iK2UAycRfd785xNnR0mgUxO?=
- =?us-ascii?Q?cammEz7ZPjo/rbwYU/IAwVbPk+NY0bO3hGU7INgxgwNBM3niIniZ0YtX+NGO?=
- =?us-ascii?Q?9jRwBAimHjUhkTOKnHv8S/5MddSDTcAi/IVJ7pugaSgT0Lyz1X72h4ZeETNA?=
- =?us-ascii?Q?GSSXkK6kSQrxIqEKqn40gCoY7h13lvj0vsl/W4FKzVD5xDVhCLzfvK39KLGQ?=
- =?us-ascii?Q?HAPHG4yfRQKtXU0zjyId8vG+FZsVjsyLWl7R54HizdjQL+cmIGzFOYptdzXJ?=
- =?us-ascii?Q?RCjkhDVF62LUICwy1v+a5VhTvY3NoprJXLB0qbagEjqU06/82DFCJC+8c3PV?=
- =?us-ascii?Q?RHxnCCs8oH58aC+Kr0RR+vK9VD3JLaZcd0RwsrP/MDrhgHfRqBQMoanj0SvX?=
- =?us-ascii?Q?BsTyrXNZ4VIRrQTiXOane4FQnrNj4hGuFQfaPfBsLETm9WEYUpjOFApYevlY?=
- =?us-ascii?Q?SbQkLBh42iHEDK/sUoh9xuQN6/jEtukZzDeTZAPmimcyRpsit2C1IPBEk0QC?=
- =?us-ascii?Q?Wo47EuRnzze7t10OjxJpfnCt2cAJOrnrOHDYzGdcMjRAtItUnkK3lBlmMAbK?=
- =?us-ascii?Q?T5BLcvlSJp2uzbu6ZueIhsaCD4iQnUcntJvjUvtsJzjazERsxJBMbqmNFcHs?=
- =?us-ascii?Q?8tPVF91tyRY2L50Z4eexcx77ZirenWaKgC8w5PdTVeIJKrCo?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f189232a-85c1-46ab-fed3-08de8e760049
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Mar 2026 16:04:19.6856
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xhemQrNMxg4+6BwAIrGETU6C39tSZSbM36yS9hkvLVOZtUy7VpfUI8GmdzX+/ESYJ844l1g5iMmBObI3Vs2JKw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8261
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="irefZmrCtKVlvx7w"
+Content-Disposition: inline
+In-Reply-To: <m35x6mpuya.fsf@t19.piap.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_091916_234743_892E3B41 
-X-CRM114-Status: GOOD (  30.39  )
+X-CRM114-CacheID: sfid-20260330_092036_043297_968A125A 
+X-CRM114-Status: GOOD (  30.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,147 +82,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 11:55:33AM +0530, Srinivas Neeli wrote:
-> From: Suraj Gupta <suraj.gupta2@amd.com>
->
-> The AXI4-stream status and control interface is optional in the AXI DMA /
-> MCDMA IP design; when it is not present, app fields are not available in
-> DMA descriptor. In such cases, the transferred byte count can be
-> communicated to the client using the status field (bits 0-25) of
-> AXI DMA / MCDMA descriptor.
->
-> Add a xferred_bytes field to struct xilinx_dma_tx_descriptor to record the
-> number of bytes transferred for each transaction. The value is calculated
-> using the existing xilinx_dma_get_residue() function, which traverses all
-> hardware descriptors associated with the async transaction descriptor,
-> avoiding redundant traversal.
 
-Can you split this change to new patch?
+--irefZmrCtKVlvx7w
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Frank
->
-> The driver uses the xlnx,include-stscntrl-strm device tree property to
-> determine if the status/control stream interface is present and selects the
-> appropriate metadata source accordingly.
->
-> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
-> ---
->  drivers/dma/xilinx/xilinx_dma.c | 28 ++++++++++++++++++++++++----
->  1 file changed, 24 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-> index 52203d44e7a4..f5ef03a1297c 100644
-> --- a/drivers/dma/xilinx/xilinx_dma.c
-> +++ b/drivers/dma/xilinx/xilinx_dma.c
-> @@ -380,6 +380,8 @@ struct xilinx_cdma_tx_segment {
->   * @cyclic: Check for cyclic transfers.
->   * @err: Whether the descriptor has an error.
->   * @residue: Residue of the completed descriptor
-> + * @xferred_bytes: Number of bytes transferred by this transaction
-> + *                 descriptor.
->   */
->  struct xilinx_dma_tx_descriptor {
->  	struct xilinx_dma_chan *chan;
-> @@ -389,6 +391,7 @@ struct xilinx_dma_tx_descriptor {
->  	bool cyclic;
->  	bool err;
->  	u32 residue;
-> +	u32 xferred_bytes;
->  };
->
->  /**
-> @@ -515,6 +518,7 @@ struct xilinx_dma_config {
->   * @mm2s_chan_id: DMA mm2s channel identifier
->   * @max_buffer_len: Max buffer length
->   * @has_axistream_connected: AXI DMA connected to AXI Stream IP
-> + * @has_stsctrl_stream: AXI4-stream status and control interface is enabled
->   */
->  struct xilinx_dma_device {
->  	void __iomem *regs;
-> @@ -534,6 +538,7 @@ struct xilinx_dma_device {
->  	u32 mm2s_chan_id;
->  	u32 max_buffer_len;
->  	bool has_axistream_connected;
-> +	bool has_stsctrl_stream;
->  };
->
->  /* Macros */
-> @@ -672,8 +677,12 @@ static void *xilinx_dma_get_metadata_ptr(struct dma_async_tx_descriptor *tx,
->  				       struct xilinx_axidma_tx_segment, node);
->  		metadata_ptr = seg->hw.app;
->  	}
-> -	*max_len = *payload_len = sizeof(u32) * XILINX_DMA_NUM_APP_WORDS;
-> -	return metadata_ptr;
-> +	if (desc->chan->xdev->has_stsctrl_stream) {
-> +		*max_len = *payload_len = sizeof(u32) * XILINX_DMA_NUM_APP_WORDS;
-> +		return metadata_ptr;
-> +	}
-> +	*max_len = *payload_len = sizeof(desc->xferred_bytes);
-> +	return (void *)&desc->xferred_bytes;
+Hi,
+
+On Mon 23 Mar 26, 13:54, Krzysztof Ha=C5=82asa wrote:
+> Liu Ying <victor.liu@nxp.com> writes:
+> > If you may use a display mode with low resolution, say 640x480p60, and
+> > the issue still happens, then I bet it's not related to the panic
+> > threshold settings, but more likely related to KMS detail control seqeu=
+nce.
+
+I've also seen the same behavior. The NoC panic thresholds are meant to
+temporarily increase the NoC master priority if the FIFOs are not able to
+fetch data in time because too much data is moving on the NoC interconnect
+and the display engine may be starved and fail to fetch data in time for
+scanout.
+
+The fact that our issue also happens with low sizes means that NoC access is
+probably not the bottleneck that causes the FIFO errors and that tweaking t=
+he
+thresholds probably has no effect. I've also made my experiments with pretty
+much nothing running on the system, so the NoC has no reason to be busy.
+
+One issue I had with this issue is that it sometimes feels like certain cha=
+nges
+make the issue less frequent, but it is often just variability due to the s=
+mall
+numbers of tries.
+
+It's true however that the nxp bsp does use different thereshold values for
+lcdif3, which are probably tweaked for specific use cases with high load on
+the interconnect. But I'm not sure it's very important to have them in main=
+line
+for now.
+
+All the best,
+
+Paul
+
+> > This reminds me that Lucas had a patch series[1] to try to fix the
+> > sequence, but it seems that it didn't fix i.MX93 LCDIF according to [2]
+> > hence no landing.
+>=20
+> It seems it depends on resolution: at 1080p60 with the DIV_ROUND_UP
+> (thresholds increased by 1) it seems to work fine. At 2160p30 (twice the
+> clock) there are frequent underruns. Now with thresholds increased to
+> 2/4 and 3/4, weston started fine 10/10, while shutdowns were 8/10.
+> 4/6 and 5/6 made it worse, though.
+>=20
+> I don't know now. I will try to investigate a bit more tomorrow.
+> Perhaps the sequence of register writes could be better, indeed.
+>=20
+> The following doesn't fix it for me either:
+> --- a/drivers/gpu/drm/mxsfb/lcdif_kms.c
+> +++ b/drivers/gpu/drm/mxsfb/lcdif_kms.c
+> @@ -358,34 +358,27 @@ static void lcdif_enable_controller(struct lcdif_dr=
+m_private *lcdif)
+>  	writel(INT_ENABLE_D1_PLANE_PANIC_EN,
+>  	       lcdif->base + LCDC_V8_INT_ENABLE_D1);
+> =20
+> -	reg =3D readl(lcdif->base + LCDC_V8_DISP_PARA);
+> -	reg |=3D DISP_PARA_DISP_ON;
+> -	writel(reg, lcdif->base + LCDC_V8_DISP_PARA);
+> -
+>  	reg =3D readl(lcdif->base + LCDC_V8_CTRLDESCL0_5);
+>  	reg |=3D CTRLDESCL0_5_EN;
+>  	writel(reg, lcdif->base + LCDC_V8_CTRLDESCL0_5);
+> +
+> +	reg =3D readl(lcdif->base + LCDC_V8_DISP_PARA);
+> +	reg |=3D DISP_PARA_DISP_ON;
+> +	writel(reg, lcdif->base + LCDC_V8_DISP_PARA);
 >  }
->
->  static struct dma_descriptor_metadata_ops xilinx_dma_metadata_ops = {
-> @@ -864,6 +873,7 @@ xilinx_dma_alloc_tx_descriptor(struct xilinx_dma_chan *chan)
->  		return NULL;
->
->  	desc->chan = chan;
-> +	desc->xferred_bytes = 0;
->  	INIT_LIST_HEAD(&desc->segments);
->
->  	return desc;
-> @@ -1014,6 +1024,7 @@ static u32 xilinx_dma_get_residue(struct xilinx_dma_chan *chan,
->  	struct xilinx_aximcdma_desc_hw *aximcdma_hw;
->  	struct list_head *entry;
->  	u32 residue = 0;
-> +	u32 xferred = 0;
->
->  	list_for_each(entry, &desc->segments) {
->  		if (chan->xdev->dma_config->dmatype == XDMA_TYPE_CDMA) {
-> @@ -1031,25 +1042,32 @@ static u32 xilinx_dma_get_residue(struct xilinx_dma_chan *chan,
->  			axidma_hw = &axidma_seg->hw;
->  			residue += (axidma_hw->control - axidma_hw->status) &
->  				   chan->xdev->max_buffer_len;
-> +			xferred += axidma_hw->status & chan->xdev->max_buffer_len;
->  		} else {
->  			aximcdma_seg =
->  				list_entry(entry,
->  					   struct xilinx_aximcdma_tx_segment,
->  					   node);
->  			aximcdma_hw = &aximcdma_seg->hw;
-> -			if (chan->direction == DMA_DEV_TO_MEM)
-> +			if (chan->direction == DMA_DEV_TO_MEM) {
->  				residue +=
->  					(aximcdma_hw->control -
->  					 aximcdma_hw->s2mm_status) &
->  					chan->xdev->max_buffer_len;
-> -			else
-> +				xferred += aximcdma_hw->s2mm_status &
-> +					chan->xdev->max_buffer_len;
-> +			} else {
->  				residue +=
->  					(aximcdma_hw->control -
->  					 aximcdma_hw->mm2s_status) &
->  					chan->xdev->max_buffer_len;
-> +				xferred += aximcdma_hw->mm2s_status &
-> +					chan->xdev->max_buffer_len;
-> +			}
->  		}
->  	}
->
-> +	desc->xferred_bytes = xferred;
->  	return residue;
->  }
->
-> @@ -3284,6 +3302,8 @@ static int xilinx_dma_probe(struct platform_device *pdev)
->  	    xdev->dma_config->dmatype == XDMA_TYPE_AXIMCDMA) {
->  		xdev->has_axistream_connected =
->  			of_property_read_bool(node, "xlnx,axistream-connected");
-> +		xdev->has_stsctrl_stream =
-> +			of_property_read_bool(node, "xlnx,include-stscntrl-strm");
->  	}
->
->  	if (xdev->dma_config->dmatype == XDMA_TYPE_VDMA) {
-> --
-> 2.43.0
->
+> =20
+>=20
+> --=20
+> Krzysztof "Chris" Ha=C5=82asa
+>=20
+> Sie=C4=87 Badawcza =C5=81ukasiewicz
+> Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
+> Al. Jerozolimskie 202, 02-486 Warszawa
+
+--=20
+Paul Kocialkowski,
+
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--irefZmrCtKVlvx7w
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmnKosgACgkQhP3B6o/u
+lQyrMg//TlCsn7dGmVsLb+l/eFqPgGfIXFW9p/661KXp7XAuNpRqEWnruc+hXoPk
+RRKUOKWZKfUsoGjE1IY78Wsdk1mgkG1i5ZpbW3Bq8ACU1yaFrKbF/WDgzoRUd+B6
+rjt0b19rn58nURb1cNCSwFR1Cmy6XuKyrLeHvP3+n1PRZN+IqSN52Q4JM+DXICbt
+emOiVq7mBvJFxOFaD/qGPOqj/l1sjHui7xj79411Lx/ZXR5ffmrRwlYLk2bhpeSa
+sV5UvaI1U4LEaHoPsqHoIluhqDQ87Lq8yhXW4/kVBKhfYbqSRiEDybIKjztfrPDx
+bKl+lZ0eftuYBGLL0fxgl3x7G4FpgV1gv2qY+kWyo6+GPbFTQJ7Zs5Lloij0xy1O
+7vBzi4xSZyFqQWa5DkYWZzAYWizLls63MB8c+5eyWglHFPgqsSV2AnkId1C5kQmv
+4iUJe0MzuZgOtXlvYuon2DHw3e5Kvu/XnZPb2kAgZLUK5VnANRni2DJsQHQOZSYF
+sCgJa1arM50b0ftO6iAdXZ4wnI6htNd2t6ca8k1SyKF8OI9rMzTW888x3WRNMcDg
+nyB/+NCZCE4jkA1Fgvs0AA8oTkmo1Opl5SXvCc4CCB9ftPsCPgQBER35KYQTzvkq
+XxXaLNhv2T+SFidzLdF7jebBNPHw1NfJWDKeSuzMtvCHbXi3kBs=
+=q6XA
+-----END PGP SIGNATURE-----
+
+--irefZmrCtKVlvx7w--
 
