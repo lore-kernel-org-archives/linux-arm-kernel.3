@@ -4,101 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2152610D14AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 13:11:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6117010D14AE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 13:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N6kH+88JrqlfOND0jjbov2Nsohrt5nnjk0qLVmg5Ovw=; b=wgB2kPDuReI7NfpjqgqBUOe0kx
-	TbbROeR0s3sBZr0n6cRzV4KF7tOx/m1tVA+qas1ts9u1eX3WjosNiPrNEmyOZehGTD8U/M6h2/ZGx
-	mKHiiLQcm6+FXfbDtRRbQbYlCYfXlt42sIJ/Grb1cI2KgjZyuE6wlTB4YAc/9r3QEDWW1Z3u639ir
-	0IbXxgVX/tM+caaglqq+TTkUwUoZYPKJX4Fii+Sg+qsKCKGpo6j+/vJmhbEzz/fAh4KMYhgtYyfHK
-	cjIdlnhNY6SnvixXIB72PAWW16DvUhciMX5clEWb2vAeXW1wm1Vf3h9Uuzs7jj06fqLun+eD5nFE2
-	tZTy682A==;
+	bh=JUo0/wHcRmQzbX45cbbWi4ZZUfa7cbgmLMG4WHaF32c=; b=aJUnkm1dw5QuYZbUQt5P/nRS9k
+	p248XOa0+x4sZrREgNfbxN+w6WLcT9y4kQMIthI9gOVS+akBV8NUILSjzWn52ekzTqLVnr+51dpSE
+	WHeCSQ7ZPvRQChBQwwMd+8QCRSFbXzOueh5YP8gvvX3ZOJs/IgvF+zopxa6Yv8tLKaHwLngREUTPD
+	CDKMP4qgkWm6gL3TOGfbMBaSnICZ8ipV97EK6LUC/LCXZENq+jVW5AgZ12iI+hApL3rPttoehabU9
+	RFdn0nFnGaBYh4U/EJ1L+9N9cpG6K8NP/M+jcDwrlYXGH2TDiwh8cAY3ltrC3Ul5v9cStieHCl3tT
+	BkHlLS/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7COQ-0000000BK1Q-0gqR;
-	Mon, 30 Mar 2026 13:10:58 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1w7CQc-0000000BKBS-36dP;
+	Mon, 30 Mar 2026 13:13:14 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7COM-0000000BK10-4BcW
+	id 1w7CQZ-0000000BKAt-1UtB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 13:10:56 +0000
+	Mon, 30 Mar 2026 13:13:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1774876254;
+	s=mimecast20190719; t=1774876390;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=N6kH+88JrqlfOND0jjbov2Nsohrt5nnjk0qLVmg5Ovw=;
-	b=C0O90PfPkhA3IVYPwUlsuy02iPuuVkYnsR/EX9AKxfcKlok7UtA9zqu1DVXXfoNcr6lFjH
-	LkCl1IkiV14p6QO78QdTN98vIj58vizY57R8gOeSwUvpX5pAMFikVBm+5Y3i45HJ+FEmmw
-	W/h6uhFDNQqDEdIjc1i92qLg63qy2sE=
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
- [209.85.219.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=JUo0/wHcRmQzbX45cbbWi4ZZUfa7cbgmLMG4WHaF32c=;
+	b=TgDgnMXubbTMc2S4OQ9C3FtseK+1w4oNmOhQTkPEyDvhwJxzjEA6GZhdkbATQDo7r1bIWY
+	vXJuC32BxV3eOyvNHBY/38l19aFXdwYazdu8r7NG1ea4nvf/JTsNQ7aC5wuIU/rXASNvTX
+	rkSuCFpWjzQzbMvEZs/i48nq/lHxDv4=
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
+ [209.85.219.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-19-DYStXBIMOiCOFJ2OIaN9ig-1; Mon, 30 Mar 2026 09:10:52 -0400
-X-MC-Unique: DYStXBIMOiCOFJ2OIaN9ig-1
-X-Mimecast-MFC-AGG-ID: DYStXBIMOiCOFJ2OIaN9ig_1774876251
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-89fa878662bso85186366d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 06:10:52 -0700 (PDT)
+ us-mta-664-g6vpdVOJOiGRBneYruK6Uw-1; Mon, 30 Mar 2026 09:13:08 -0400
+X-MC-Unique: g6vpdVOJOiGRBneYruK6Uw-1
+X-Mimecast-MFC-AGG-ID: g6vpdVOJOiGRBneYruK6Uw_1774876388
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-89c4ec516e5so221309026d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 06:13:08 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774876251; x=1775481051;
+        d=1e100.net; s=20251104; t=1774876388; x=1775481188;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=N6kH+88JrqlfOND0jjbov2Nsohrt5nnjk0qLVmg5Ovw=;
-        b=iee4E3xxilp/WWYcz3zANj2zxieyndg9LnYcEb1MGriJAFMqLUA86HsRg3K5SnHa85
-         75IeU5dO/q/J7WG/JXq+Z4XC20XINewFUZe/TKT/vkUv9+8aFDmQcQ2G/jB0jp4d9evW
-         mXulRyGMjJ1NFRIf+2QIruze9Nl8MQRbYD7Q7Vu/YsG1PPbwT//dvQZQVGHSBLjce9LV
-         FSDxyUCVPFHa+DBCnkrEwKemjScAe+2oNrVokgrlUXaJkpoBLWcbMa7OyIaVSzEEoyAT
-         qqFEsrAM7aUmh5QZ61FMjNsGnZirnRdSYBJYyvi5XvnAKYh0mz0DsngfCzA2W8PC1w6g
-         hNEA==
-X-Forwarded-Encrypted: i=1; AJvYcCU4lEfzM+6sxAYWHR8jIm8Y+nqmpGE/ad6lhnqZpT+gUjrDAqezELj06ZfmC2/XL25f5o/IolRltRSxSz3aOn4G@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMudkq4tmTObsT6vFR+g2VWD0+/gWRWCugA6wIyam9caVZaFhr
-	Q8d37NPA+UDOYgBG/+w4R0fUL6jXhUq5uP5ueoawnttu0IGXGYz8SeAt13Vzxh3Zoa/XYP19cnC
-	zsTiVvTYz3dgIVRvHEPqvnNRIsBj5wQGqK6K4BVpKnRd04djVUoR952kE76ahX0yE6+hih4sOZU
-	3JPLzedeQV
-X-Gm-Gg: ATEYQzwu6gjRAizftdRpzpjWA94einvksl1Mw4vgeL5NHa2p75/QPpadAipXBaiZtVZ
-	m+FmNJvfN7N6x17L7cSV7Q63yqYon2fvkFde1Jx1t0x7p1ElQJzDl2wQ0BMXlT6Dp+77HPKql0e
-	+7EDPqqNJRtO72WhJkaAZpfEqkmsU5lFVpEDCUhjC4lYVu/OgFaNOAKHERocaj/ZfDJd/oApk+C
-	fuzMiS/zahoaBjS7gnUztxZfjtXLI6xjOlforsWKLQJz7x1ZTv3x+zLiCbuCQ7yiTcBcMgyyh5l
-	peWLpXk8JTHxsFRHEZBCu7Zzu5gTxqh+cNrbR1gLNo4QcKRW3XamIXUyw4JVm8OUpsDWH/B0mGR
-	fee+47fR1tcpYEDg9+ZAHQqrxXzoeTuvswMagcxtCSDvdYTsdfQehLdcN
-X-Received: by 2002:a05:6214:4402:b0:899:ef63:9a86 with SMTP id 6a1803df08f44-89ce8cbd43cmr195601096d6.7.1774876251541;
-        Mon, 30 Mar 2026 06:10:51 -0700 (PDT)
-X-Received: by 2002:a05:6214:4402:b0:899:ef63:9a86 with SMTP id 6a1803df08f44-89ce8cbd43cmr195600246d6.7.1774876250830;
-        Mon, 30 Mar 2026 06:10:50 -0700 (PDT)
+        bh=JUo0/wHcRmQzbX45cbbWi4ZZUfa7cbgmLMG4WHaF32c=;
+        b=hB5MNpZWojWmS9XUL6wAtTyrSiLt30XyWfYahRdn8CDoqfotFWqq72GTlcQ9k4y23d
+         D93159Vj+nliS9O1dZmIp+3ZuGhSekeFwbI/nqn3ZvP1W/GX1zmthrCkQTYFM/5j7Tp7
+         ablWhMfbYgvbeZJuX6UkFW6yb0sQLQ50AfWjS0ymUWldzeL+vMoRqpVRTJLGvAAvUTxt
+         DJVCCbvlnimsc5eW3lhk90EBqV9mqp4QR3e6fa/MXlxyY0ipAlXFbNkV9UfuUc3jyr+9
+         +seC/ogKUC8GYqbKDF7FM8f0N6sqDMpnjCIy6ZqpZRfeIXqNzqyjZqsJbZI5xAZ5L4hd
+         fpJA==
+X-Forwarded-Encrypted: i=1; AJvYcCU7yOMfXGnAewaTjtlI1SBNzvaaFIxDdx6DUC1cD40pznBbfauFd4QOfFRKiZ/wAQJiEIEv8SUh4Saffwn2NRLM@lists.infradead.org
+X-Gm-Message-State: AOJu0YzI/CLHUWS+1tEqNK0WkOCTGzTNiJnHtqAD6AlljhWFAIqxxLLM
+	d0vrjgbn6PQxFlTA2jrE7gV1WQjubQi/DB9y5GfZ+z8fTXrrYWyQTpvUNjsPA8jEzNbW07Z3p5N
+	jPBRgc4OyADv5yBoH79jZE9KSh63Yu/fXSLZ9+CX8hB3zqm8qUtihqYHhYKsDHq8CE6sCJfHv35
+	EO
+X-Gm-Gg: ATEYQzx9eNts6XFVhIE/5s0DWF1pYjSYmc/O6MJ8R3YsXMmYlTT4d+i1v1bNZdF6TFV
+	PV+L7WzreDIxYCsHi+r6fY8TZxtgB/Vt2ZhvwPOZHDe1xGCagQC5b3/a8fxt8LLyvUH1YnDlb/C
+	1zd9iaeDKwhYr5SEfIhzLqeG0+mpLo3kcSZYhNbf+q1096ClSWVfTAOOiOVUQbwRyxzWsGgLx8y
+	cRVm0Uzue2z51jQFZ3AKKdUgCccs4ncDD+52iphOKyB4hZ7gr6Jav5RDj/l0Na02qbg4vU2vun6
+	bSvC1ufUgNEyQZsQyZwc4QTnvVvgfRFsv3d9iQU3BqlTzufPSMzWract8jYeSkJYrIHBK9HvQq1
+	20x9y2CVbg0aPwDzSy18XQTZU8a2/mHS3Sy+TvYJ3MdAPrwXEOC07OgFi
+X-Received: by 2002:a05:6214:4105:b0:8a0:22bb:1d3c with SMTP id 6a1803df08f44-8a022bb1fb2mr76477746d6.3.1774876387584;
+        Mon, 30 Mar 2026 06:13:07 -0700 (PDT)
+X-Received: by 2002:a05:6214:4105:b0:8a0:22bb:1d3c with SMTP id 6a1803df08f44-8a022bb1fb2mr76476806d6.3.1774876386785;
+        Mon, 30 Mar 2026 06:13:06 -0700 (PDT)
 Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89ecbda4d50sm61748316d6.15.2026.03.30.06.10.49
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-89ec6ec2266sm63989576d6.0.2026.03.30.06.13.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Mar 2026 06:10:50 -0700 (PDT)
-Date: Mon, 30 Mar 2026 09:10:48 -0400
+        Mon, 30 Mar 2026 06:13:06 -0700 (PDT)
+Date: Mon, 30 Mar 2026 09:13:04 -0400
 From: Brian Masney <bmasney@redhat.com>
 To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-clk@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	"moderated list:BROADCOM IPROC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] clk: bcm: iproc-asiu: simplify allocation
-Message-ID: <acp2WE84FJ8Ts6Cq@redhat.com>
-References: <20260326045324.240150-1-rosenp@gmail.com>
+Cc: linux-clk@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	"moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,..." <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:KERNEL HARDENING (not covered by other areas):Keyword:b__counted_by(_le|_be)?b" <linux-hardening@vger.kernel.org>
+Subject: Re: [PATCH] clk: kirkwood: use kzalloc_flex
+Message-ID: <acp24GchNcb9iHXJ@redhat.com>
+References: <20260326045555.240730-1-rosenp@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20260326045324.240150-1-rosenp@gmail.com>
+In-Reply-To: <20260326045555.240730-1-rosenp@gmail.com>
 User-Agent: Mutt/2.3.0 (2026-01-25)
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: aLZaihSc3HbZPjLF271rCnmQBtrmxrQBvAbrIBe9t3Y_1774876251
+X-Mimecast-MFC-PROC-ID: MVABGvrP7p1ndaqO_EzOUP-QAMYvMk-cuXWCGd_NNoU_1774876388
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_061055_155423_69DBC3F3 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260330_061311_515143_43FD514C 
+X-CRM114-Status: GOOD (  20.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,14 +115,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 09:53:24PM -0700, Rosen Penev wrote:
-> Use kzalloc_flex and a flexible array member to combine allocations
+On Wed, Mar 25, 2026 at 09:55:55PM -0700, Rosen Penev wrote:
+> Simplify allocation by using a flexible array member and kzalloc_flex to
+> combine allocations.
 > 
-> While at it, take clk_data out of the struct and move it into probe.
-> It's not used anywhere else.
+> Add __counted_by for extra runtime analysis. Move counting variable
+> assignment to right after allocation as required by __counted_by.
 > 
 > Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> ---
+>  drivers/clk/mvebu/kirkwood.c | 19 ++++++++-----------
+>  1 file changed, 8 insertions(+), 11 deletions(-)
+> 
+> diff --git a/drivers/clk/mvebu/kirkwood.c b/drivers/clk/mvebu/kirkwood.c
+> index ed061d82fb65..fc2972538008 100644
+> --- a/drivers/clk/mvebu/kirkwood.c
+> +++ b/drivers/clk/mvebu/kirkwood.c
+> @@ -253,8 +253,8 @@ struct clk_muxing_soc_desc {
+>  
+>  struct clk_muxing_ctrl {
+>  	spinlock_t *lock;
+> -	struct clk **muxes;
+>  	int num_muxes;
+> +	struct clk *muxes[] __counted_by(num_muxes);
+>  };
+>  
+>  static const char *powersave_parents[] = {
+> @@ -297,21 +297,18 @@ static void __init kirkwood_clk_muxing_setup(struct device_node *np,
+>  	if (WARN_ON(!base))
+>  		return;
+>  
+> -	ctrl = kzalloc_obj(*ctrl);
+> -	if (WARN_ON(!ctrl))
+> -		goto ctrl_out;
+> -
+> -	/* lock must already be initialized */
+> -	ctrl->lock = &ctrl_gating_lock;
+> -
+>  	/* Count, allocate, and register clock muxes */
+>  	for (n = 0; desc[n].name;)
+>  		n++;
+>  
+> +	ctrl = kzalloc_flex(*ctrl, muxes, n);
+> +	if (WARN_ON(!ctrl))
+> +		goto ctrl_out;
+> +
+>  	ctrl->num_muxes = n;
+> -	ctrl->muxes = kzalloc_objs(struct clk *, ctrl->num_muxes);
+> -	if (WARN_ON(!ctrl->muxes))
+> -		goto muxes_out;
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+Question from Sashiko:
+
+https://sashiko.dev/#/patchset/20260326045555.240730-1-rosenp%40gmail.com
+
+    This isn't a bug, but since the goto muxes_out error path was removed here,
+    should the muxes_out label and its kfree(ctrl) be removed at the end of the
+    function?
+    They appear to be dead code now and might cause an unused label warning:
+    	return;
+    muxes_out:
+    	kfree(ctrl);
+    ctrl_out:
+    	iounmap(base);
+    }
+
+Brian
+
+
+> +
+> +	/* lock must already be initialized */
+> +	ctrl->lock = &ctrl_gating_lock;
+>  
+>  	for (n = 0; n < ctrl->num_muxes; n++) {
+>  		ctrl->muxes[n] = clk_register_mux(NULL, desc[n].name,
+> -- 
+> 2.53.0
+> 
 
 
