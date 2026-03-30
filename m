@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D4461061B16
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 16:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30BEF1061B15
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 16:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LyrL60ey8eS6gEWd30fnPmjm9d6S/QljeFofuGU8Zz0=; b=vExAJvViAc2QntnWFpqh5qJu0r
-	jhucVXrEnErsCkGR02/2MEq2XUBi6iAG2jh5W5xOPjbxFpdU6A/6IWFw+sM6gtvRrVkT91sfzWm8i
-	MSK7aCn8mr9qDqr90GOfX/50hoQA6doVyi1FFInK2dhhp5CiOh4369HEZJzlDbAOrd1NEMdBAVP8I
-	r1AuU9KRPWf6Wkh4ZIwcMMKD3YFRTRw8NWVkeSDUjOwoJMsMGQDIPR8eEjF3/tL/eEuoAAw1wKbRQ
-	CooSX8O0kccgyE7tTvd8lYkSPGD1dXwgdm0ckPXTQAnNlcztY7XsqBbmGKsePhcrGFpHWI3xZ3+xl
-	D7WBifrg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cDdS45lavJOKhvVvf7Im6p8b+Plxzdq4VLLt3nmyGa4=; b=vj2aFtmg2dqFuU
+	M8h4ELl4oxOC2hsVFjPKhHDxBErJFfkuHzT9Gj9MQ6E4BFmWXCNWzAhWFEDrani8d9bWtK9iyRpg0
+	wZqDcpzbeRULyqu/TD6NWy/fzZoqbLBIDNQ9TNw85X79EYi9jig3nownbJGy6Sdw9dhPwSDBlC1l9
+	PKbjeX19eRCnEjyQ0fiSkUgZ3IGAwDhs741tl5gLHo4ViJ7vdrhfTfOpb+XKbXD4rxHiMVqAiCrvF
+	j86ThqqHPO2wyO8CGrvAY2/zfbaz7KtForyvJwQ8Mqj1DYnGK5AdBS2CMEIKCF+cjh7X6WvGu2Xs1
+	aIQSdyQrHfF2TApB8rfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7FjK-0000000Beyp-0ohp;
-	Mon, 30 Mar 2026 16:44:46 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1w7Fjt-0000000Bf4Y-1GRC;
+	Mon, 30 Mar 2026 16:45:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7FjH-0000000BeyR-2Ebt
+	id 1w7Fjs-0000000Bf4O-11Dl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 16:44:45 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[IPv6:::1])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <l.stach@pengutronix.de>)
-	id 1w7Fiu-0002FJ-Fk; Mon, 30 Mar 2026 18:44:20 +0200
-Message-ID: <0e8863b39cc9cab3ef16aedde480c70a158c4cbe.camel@pengutronix.de>
-Subject: Re: i.MX8MP: Fix HDMI LCDIF FIFO underruns
-From: Lucas Stach <l.stach@pengutronix.de>
-To: Paul Kocialkowski <paulk@sys-base.io>, Krzysztof =?UTF-8?Q?Ha=C5=82asa?=
-	 <khalasa@piap.pl>
-Cc: Liu Ying <victor.liu@nxp.com>, Maxime Ripard <mripard@kernel.org>, Marco
- Felsch <m.felsch@pengutronix.de>, Marek Vasut <marex@nabladev.com>, Stefan
- Agner <stefan@agner.ch>,  Simona Vetter <simona@ffwll.ch>,
- imx@lists.linux.dev, Fabio Estevam <festevam@gmail.com>, Pengutronix Kernel
- Team <kernel@pengutronix.de>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>,  Sascha Hauer
- <s.hauer@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
- linux-kernel@vger.kernel.org,  dri-devel@lists.freedesktop.org, Thomas
- Zimmermann <tzimmermann@suse.de>,  David Airlie <airlied@gmail.com>,
- linux-arm-kernel@lists.infradead.org
-Date: Mon, 30 Mar 2026 18:44:17 +0200
-In-Reply-To: <acqgO5b8_1fL9t_U@shepard>
-References: <m3ms04caaj.fsf@t19.piap.pl>
-	 <32317022-3c44-4ead-9e2d-04caa12b28cb@nabladev.com>
-	 <m36pvjbo4xy2rtdymshjpmwu7icl3wlyiwcmmjaozo7jpe5lqk@zt7byx7iwmym>
-	 <20260320-amiable-hairy-bullfinch-28bfda@houat>
-	 <m3a4w2d4ds.fsf@t19.piap.pl> <ecd02f87-c4b7-44ed-8ecf-98e0990af34a@nxp.com>
-	 <m3se9onkv0.fsf@t19.piap.pl> <acqgO5b8_1fL9t_U@shepard>
+	Mon, 30 Mar 2026 16:45:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4331860128
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 16:45:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB0D1C2BCB2
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 16:45:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774889118;
+	bh=cDdS45lavJOKhvVvf7Im6p8b+Plxzdq4VLLt3nmyGa4=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=BawTVvW8MfthtSM7EjuuTexhu+g6v03GXeZmrU5PJ68JA/fGMBCWNIN2w0UAoGeVQ
+	 3LBMLnsEeFzryjqocEIOr2JWRmS3Ys4N4jINcIoqlz6qlHK/OAHGJr8j3/A68i0WOr
+	 Uc7oE3e1hmKKXP5aMtAs8FaptvXbhYRuUbsMZZClZqzkjrS27q0beJ6Qj7+CsJu7B0
+	 kWzSWCqs94JnKjVyiofE9D3IJG1SPaXiCbPY4ZiBx324rwgbJ0pcghUVj093YlbB91
+	 Fn95Wou9t4owNwX/4xfYYODNI6fPLDEWWqcgEpJnhdBWn1ZAJghXCFwZGzRKSvrdwg
+	 EOqV8zObOAmCg==
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-38a3066b68bso30698511fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 09:45:18 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUeFzbRF/5thn1lB37zREdgduxWpc2V/1KaFfeHvfpeq4HFFcKP3o6MfOX2eCLPk6PXCV3VKns9MoGqpV6Vk03K@lists.infradead.org
+X-Gm-Message-State: AOJu0YxC/yhvbF475Fe8HtxKRSnP8Ourla/TO+Ws21M8FTxpGwpmI70s
+	YcC6b9GBvG4kN2Unb9pj5rZcmvHmfjWIV2By3GMQlCeDCsndAMVrYySBEd71/zSDiir0EaEbDdq
+	pMNqo2PCk5LlGe7CSALaYaIprxS4FIBA=
+X-Received: by 2002:a05:651c:3041:b0:38b:dd7a:52aa with SMTP id
+ 38308e7fff4ca-38c731eb805mr36701791fa.7.1774889117273; Mon, 30 Mar 2026
+ 09:45:17 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260324080856.56787-1-pengpeng@iscas.ac.cn> <2823210.mvXUDI8C0e@jernej-laptop>
+ <CAGb2v674Ei2uFh6O0LoFoJrPcqGKGr_v+hfvE7TSfwztxDfTAA@mail.gmail.com> <603785eb48d69bc50c0296fc696eb0985c2a3ac5.camel@collabora.com>
+In-Reply-To: <603785eb48d69bc50c0296fc696eb0985c2a3ac5.camel@collabora.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Tue, 31 Mar 2026 00:45:05 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65EM1rZwePR2B8Y-ipz4iEJPLnd4jsfu140N9vq4GYL2Q@mail.gmail.com>
+X-Gm-Features: AQROBzCCf-gBGZiQsgZ0PWLzupAc_iXzFsXr0d6GTNbJZ5GFha2Q7zktumWSWEw
+Message-ID: <CAGb2v65EM1rZwePR2B8Y-ipz4iEJPLnd4jsfu140N9vq4GYL2Q@mail.gmail.com>
+Subject: Re: [PATCH] media: cedrus: skip invalid H.264 reference list entries
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Cc: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>, 
+	mripard@kernel.org, Pengpeng Hou <pengpeng@iscas.ac.cn>, paulk@sys-base.io, 
+	mchehab@kernel.org, gregkh@linuxfoundation.org, samuel@sholland.org, 
+	linux-media@vger.kernel.org, linux-staging@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
-MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: l.stach@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_094443_599536_EF951A85 
-X-CRM114-Status: GOOD (  37.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,123 +81,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
+On Mon, Mar 30, 2026 at 11:55=E2=80=AFPM Nicolas Dufresne
+<nicolas.dufresne@collabora.com> wrote:
+>
+> Le dimanche 29 mars 2026 =C3=A0 20:44 +0800, Chen-Yu Tsai a =C3=A9crit :
+> > On Sun, Mar 29, 2026 at 5:21=E2=80=AFPM Jernej =C5=A0krabec <jernej.skr=
+abec@gmail.com> wrote:
+> > >
+> > > Dne torek, 24. marec 2026 ob 09:08:56 Srednjeevropski poletni =C4=8Da=
+s je Pengpeng Hou napisal(a):
+> > > > Cedrus consumes H.264 ref_pic_list0/ref_pic_list1 entries from the
+> > > > stateless slice control and later uses their indices to look up
+> > > > decode->dpb[] in _cedrus_write_ref_list().
+> > > >
+> > > > Rejecting such controls in cedrus_try_ctrl() would break existing
+> > > > userspace, since stateless H.264 reference lists may legitimately c=
+arry
+> > > > out-of-range indices for missing references. Instead, guard the act=
+ual
+> > > > DPB lookup in Cedrus and skip entries whose indices do not fit the =
+fixed
+> > > > V4L2_H264_NUM_DPB_ENTRIES array.
+> > > >
+> > > > This keeps the fix local to the driver use site and avoids out-of-b=
+ounds
+> > > > reads from malformed or unsupported reference list entries.
+> > > >
+> > > > Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+> > >
+> > > Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+> >
+> > Tested-by: Chen-Yu Tsai <wens@kernel.org>
+> >
+> > This fixes a KASAN slab-use-after-free warning when running fluster H.2=
+64
+> > tests.
+>
+> Ah, very good, can you cite which test caused that ? I didn't expect flus=
+ter to
+> cover cases with missing references. I think it will be handy for future
+> testing.
 
-Am Montag, dem 30.03.2026 um 18:09 +0200 schrieb Paul Kocialkowski:
-> Hi folks,
->=20
-> On Wed 25 Mar 26, 13:40, Krzysztof Ha=C5=82asa wrote:
-> > Why did the first (boot) sequence result in success and this second one
-> > in failure? This is somehow reproducible.
->=20
-> I've been seeing the same issue that is described in this thread when dri=
-ving
-> a regular 1080p@60 monitor, which shows a solid color background with a p=
-ixel
-> from the previous frame when reconfiguring the mode from time to time.
->=20
-> When that happens, I see the lcdif fifo underrun/empty status until a new=
- mode
-> is applied, which often resolves the situation. This situation never happ=
-ens
-> with the downstream nxp bsp driver.
->=20
-> After weeks of investigation I finally narrowed it down to a part of the =
-nxp
-> original code that is missing in the upstream driver:
-> https://github.com/phytec/linux-phytec-imx/blob/v6.6.23-2.0.0-phy/drivers=
-/gpu/imx/lcdifv3/lcdifv3-common.c#L492
->=20
-Thanks for tracking this down! It was also on my list of things to look
-at.
+Looks like it is FM1_BT_B. And it only happens on the first run after reboo=
+t,
+or KASAN just only reports it once.
 
-> A big old sleep that waits for the DMA engine to finish handling the curr=
-ent
-> frame before it is disabled. When this delay is not respected, there seem=
-s to
-> be "unlucky" times when disabling the DMA engine too early will confuse t=
-he
-> unit and make it unable to resume proper operation later.
->=20
-I think we can be a bit more clever than a indiscriminate sleep. If we
-set the shadow load enable bit in the disable sequence, we should be
-able to wait for this bit to be cleared by the hardware. All the DMA
-parameters (presumably including the enable state) should be applied by
-the hardware when this bit is cleared.
+BTW, this would be a lot easier to figure out if we could get fluster to
+output a system timestamp for each decode run (at least in single job mode)=
+.
 
-I guess the read_poll_timeout in lcdif_disable_controller() was
-supposed to do exactly that wait, but as it was actually copied from
-the mxsfb driver, it's not working as intended. It's my understanding
-that the old lcdif HW only cleared the enable bit once it is actually
-done, but on the lcdifv3 on i.MX8MP those states are double buffered,
-so the bit in the register would be cleared instantaneously, rendering
-the wait in the current code a no-op. The only reliable indicator to
-see if the HW has updated it's internal state is to set the shadow load
-enable bit and wait for it to be cleared.
+I had to hack in delays between each decode rune, and then look at `dmesg -=
+w`
+and switching back to the window that has fluster running once the warning
+triggers.
 
-> It is a bit surprising that the issue is not actually related to configur=
-ing
-> the display engine but to disabling it. This is why the first mode set al=
-ways
-> works but subsequentil ones might fail. The crtc is essentially disabled =
-and
-> re-enabled each time a new mode is applied.
->=20
-> Adding the sleep solves the issue on my side and all mode sets now work
-> reliably. It does add a delay before returning to userspace when configur=
-ing
-> a new mode, but it seems legitimate to me if the underlying hardware is s=
-till
-> in-flight. I'm also unsure if it would apply to an async atomic commit.
->=20
-This hardware doesn't support async commits. All DMA state changes are
-applied during vblank when the shadow load enable bit is set.
 
-Regards,
-Lucas
-
-> I will send a patch adding the delay and the undocumented fifo clear
-> bit that was discovered in this thread too.
->=20
-> All the best,
->=20
-> Paul
->=20
-> Perhaps there is a more elegant way to handle this=20
->=20
->=20
-> > Interestingly, Weston usually starts fine in subsequent launches.
-> >=20
-> > How is this first (actually second - after the first VSYNC) frame
-> > different from all the others? Maybe we're programming UPDATE_SHADOW
-> > after the actual start of blanking period, but before DE, so it has no
-> > chance to reload registers, yet the DMA is somehow not ready?
-> >=20
-> > The manual (LCDIF display control Register (CTRL)) suggests that the DM=
-A
-> > (with present settings) starts to fetch FB data at the end of the
-> > previous active video pixel time (DE and pixel data going inactive):
-> > fetch_start_option (bits 9-8): Indicates when to start fetching for new
-> > frame. This signals also decide the shadow load, fifo clear time
-> > 00b - fetch start as soon as FPV begins(as the end of the data_enable).
-> >=20
-> > This should leave a lot of time to fill the FIFO (before the next DE),
-> > shouldn't it?
-> >=20
-> > 297 MHz pixclk, 3840x2160, 30 Hz, H back porch 296 pixclks, Vfp 176,
-> > V back porch 72 lines, Hfp 8 lines, VSYNC 10 lines, HSYNC 88 pixclks.
-> > HTotal =3D 4400 pixels which makes Vactive time =3D 4400 * 2160/297e6 =
-=3D
-> > 32 ms, with the remaining 1.3333 ms for all the V sync stuff.
-> > --=20
-> > Krzysztof "Chris" Ha=C5=82asa
-> >=20
-> > Sie=C4=87 Badawcza =C5=81ukasiewicz
-> > Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-> > Al. Jerozolimskie 202, 02-486 Warszawa
->=20
-
+ChenYu
 
