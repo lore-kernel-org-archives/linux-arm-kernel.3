@@ -4,65 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A870810D14AD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 12:56:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97A7F10D14AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 13:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ABb3mCmxINvfC74mwIx/aFMr/5W/YrJg7LRCk/iB4A=; b=gdcsKkdmkdDsXg78FDKD6Jmolc
-	Y1sl2tH3yKmPRGbS58IfQF2/AygHIzVBSW6B+atxmlsi3qQQArM997uq/H72diHkqiVJf2RViyl9S
-	l+9Kc3MCcFZ8rOG2GIOMOyq6vf9EqsLFS7fHfIk0YN49srM5C2CJBtdjbJyIIZFi1VFmkl1S0v4Ky
-	TRdpyETfX68Ps+Qs8bLlS4SByMjNN2KDySwVHTg2pKXeS429xf7IQ+aoKju/6ZHmCy0t1XlTSQUre
-	yFcGcNcfamWomyohSbi9GTjvCeiYQrT047LZtQ212SJBGf7UImLe44Cx46rlTE27m57klqhJQOktP
-	41+Updew==;
+	bh=EWF69AjOqt6N2CIHiO1Uak2H0q0N8jpGBjchhrsVTNs=; b=TDjMect0SuxqJN2hUgDTYdUkrU
+	SgwQuAOVHweqm/0OGSNw2MSFe8pqO/SHjq8S36iJQOm5/NX2LKzLRKLfN0jDTMKWoZmUqbQ1k+7a/
+	aJ7BMro7vB099ZFtavGGw9lT4/P0MfA55azjjb5mzu9Jr4SICb9QcJdNq2fuRQ6E9AILgY7BnviRG
+	zizk96mrgttytIl8lc3J53v30DjEmWUQewqt14tcqhKfUT1N58ArD68UPVmNcHYVIoPb+99WpvzYq
+	sfJ0/0hw4/VNT2+U5G2vApOn0T/HwFaUoNBM7GsFYipwg+86hDl/BeElVBngncmZ5Bor3yuYaP6G0
+	xMVRTM4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7CAE-0000000BIZM-1lV7;
-	Mon, 30 Mar 2026 12:56:18 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1w7CG9-0000000BJA1-3YWg;
+	Mon, 30 Mar 2026 13:02:25 +0000
+Received: from verein.lst.de ([213.95.11.211])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7CAD-0000000BIYp-07Q4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 30 Mar 2026 12:56:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=6ABb3mCmxINvfC74mwIx/aFMr/5W/YrJg7LRCk/iB4A=; b=HIqM33CROqAhISIXKTEGIZr+1O
-	bfqwa7rBYHRXXoGMNNncKV7ZqE/BQVqqNEY1+Vb4vLrFrpdabkJVms6fUnwJr5c1yMrzTIJgWV0ZK
-	DVffrdyimh2J265xgwjnUlEkVa9ZyAomWfYJ8bsS3b097CgBA8e568vhSyMBl2xIvtO8GHH8XQJuF
-	7v6bhdX97EaFCxpQ/pFgL14hRrYowpHKUF4Vi0v2DaDbugPZsiwh7a3MNLMG9ODGO9r6TOjOPdn4c
-	MOiUJ8nhTS2w3wDLH0/nHuIO5uPc1MYZHLHeyFhK5ECQN/DF0+yLRGlim+PAOoYcVwpAXSARgi+X+
-	/r/DNaEA==;
-Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7CA4-00000006gVN-2Qj0;
-	Mon, 30 Mar 2026 12:56:08 +0000
-Date: Mon, 30 Mar 2026 13:56:08 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: WANG Rui <r@hev.cc>
-Cc: usama.arif@linux.dev, Liam.Howlett@oracle.com, ajd@linux.ibm.com,
-	akpm@linux-foundation.org, apopple@nvidia.com, baohua@kernel.org,
-	baolin.wang@linux.alibaba.com, brauner@kernel.org,
-	catalin.marinas@arm.com, david@kernel.org, dev.jain@arm.com,
-	jack@suse.cz, kees@kernel.org, kevin.brodsky@arm.com,
-	lance.yang@linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, lorenzo.stoakes@oracle.com, mhocko@suse.com,
-	npache@redhat.com, pasha.tatashin@soleen.com, rmclure@linux.ibm.com,
-	rppt@kernel.org, ryan.roberts@arm.com, surenb@google.com,
-	vbabka@kernel.org, viro@zeniv.linux.org.uk
-Subject: Re: [PATCH v2 3/4] elf: align ET_DYN base to max folio size for PTE
- coalescing
-Message-ID: <acpy6DLjPVXXzwJX@casper.infradead.org>
-References: <0725ce97-b8a3-47c9-952f-7b512873cc35@linux.dev>
- <20260329043700.19355-1-r@hev.cc>
+	id 1w7CG7-0000000BJ8T-0RXL
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Mar 2026 13:02:24 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id CDABA68AFE; Mon, 30 Mar 2026 15:02:17 +0200 (CEST)
+Date: Mon, 30 Mar 2026 15:02:17 +0200
+From: Christoph Hellwig <hch@lst.de>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Christoph Hellwig <hch@lst.de>, Ard Biesheuvel <ardb+git@google.com>,
+	linux-raid@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+	Arnd Bergmann <arnd@arndb.de>, Eric Biggers <ebiggers@kernel.org>
+Subject: Re: [PATCH 4/5] xor/arm64: Use shared NEON intrinsics
+ implementation from 32-bit ARM
+Message-ID: <20260330130217.GA32392@lst.de>
+References: <20260327113047.4043492-7-ardb+git@google.com> <20260327113047.4043492-11-ardb+git@google.com> <20260327135051.GA739@lst.de> <cca6facc-6c37-48d0-81e6-f8568f36b91d@app.fastmail.com> <20260330053233.GB4736@lst.de> <6bedf98e-a424-4baa-890c-806345c067c1@app.fastmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260329043700.19355-1-r@hev.cc>
+In-Reply-To: <6bedf98e-a424-4baa-890c-806345c067c1@app.fastmail.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260330_060223_285274_39BC8558 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +62,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 29, 2026 at 12:37:00PM +0800, WANG Rui wrote:
-> > mapping_max_folio_size() reflects what the page cache will actually
-> > allocate for a given filesystem, since readahead caps folio allocation
-> > at mapping_max_folio_order() (in page_cache_ra_order()). If btrfs
-> > reports PAGE_SIZE, readahead won't allocate large folios for it, so
-> > there are no large folios to coalesce PTEs for, aligning the binary
-> > beyond that would only reduce ASLR entropy for no benefit.
-> > 
-> > I don't think we should over-align binaries on filesystems that can't
-> > take advantage of it.
+On Mon, Mar 30, 2026 at 11:38:15AM +0200, Ard Biesheuvel wrote:
+> > This avoid the including of .c files which is always a bit ugly.
+> > But if there is a strong argument to prefer including of the .c file I
+> > can live with that as well.
+> >
 > 
-> Ah, it looks like this might be overlooking another path that can create
-> huge page mappings for read-only code segments: even when the filesystem
-> (e.g. btrfs without experimental) didn't support large folios,
-> READ_ONLY_THP_FOR_FS still allowed read-only file-backed code segments
-> to be collapsed into huge page mappings via khugepaged.
+> I've respun it without the include. Instead, I've added this to arm/xor-neon.c
 > 
-> As Wilcox pointed out, it may take quite some time for many filesystems
-> to gain full large folio support? So what I'm trying to clarify is that
-> using mapping_max_folio_size() on this path is not favorable for
-> khugepaged-based optimizations.
+> +#ifdef CONFIG_ARM64
+> +extern typeof(__xor_neon_2) __xor_eor3_2 __alias(__xor_neon_2);
+> +#endif
+> 
+> so that __xor_eor3_2() exists in the arm64 build as an alias. That way, the arm64-only EOR3 implementation can just remain a separate compilation unit.
 
-Nono, that's not what I'm pointing out!  btrfs is simply not putting
-in the effort to support large folios, and that needs to change.
-READ_ONLY_THP_FOR_FS unnecessaily burdens the rest of the kernel.
-It was a great hack for its time and paved the path for a lot of what
-we have today, but it's time to remove it.
+Ok.
+
 
