@@ -4,83 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 596FE10D14A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 12:17:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB1010D14A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 12:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OYBsgiHXf3ZQOm8ERXT7vY+logJn4LzjJGp2BrSGgNA=; b=O1K68b1VVngssmECb4kkOhcGuQ
-	3X9P9yccL9cRC43nLsIBTtMJAF36RwJKKEP+4J+TmrsHAonLPkTIwrHq/DAWeEzozrdaj8VZtcM3d
-	tHoFhx8/8oFDmxDVUV3sUJ7QrkRhFxJX9uHXH5XrBxkPXzXu/RM63VwmzYaiogwW4HO6h3klDiH3A
-	MS2tXyrt2ahgZJSBFkSH340lRFVwACOmCnYAPAJHkm3UX1RVguGkEdeHri/KXN+0KeFjw7N2X9gYO
-	PXBNsyczmGxN2Bpkmzh6bwYCnow5apdhJsC2YIIfXr2sfD4XBqu8E1o2LBJ3oY2Jrto34e5ujArli
-	65l9slqQ==;
+	bh=veBAT8N9PXJSRI8kHRpQ29JL9EyN/jr+PWryhqRzBmk=; b=11M1ayjG73AJ7Jw/S9VbEfXOM8
+	JEx3rf/1OBu6sEhh6sivvW6hXRwiAsx8cXQgVTtX3eO1za5eDJlbmJkWnj0y6CKTBvCKjKHmjxUo0
+	bhooXEmddNrSGGpLwFbJVERoGzLSRY1gmAHsczx2LsYiVSbnk/O/l+bV0kDyVPTJ57kpG0Fa9PoOh
+	L3N/hgjVbK6ho09fm2K44MZiROK7xdsP4mt9DVzLjyewhb36vl7fcRNHBbnQuoRjpvGUF7Vvnc//0
+	EOHxgb6hWyPLT2JSiPAbJ5HR0Ab5Voy1YMTHZBb/XGs0zyrKgsX76JwSJSapmXId+GdRllm9qkMWC
+	OG4YiENA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7BZ0-0000000BEn9-3pDH;
-	Mon, 30 Mar 2026 12:17:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w7Bbf-0000000BF1e-1dqa;
+	Mon, 30 Mar 2026 12:20:36 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7BYy-0000000BEmb-3hqw
+	id 1w7Bbc-0000000BF15-2TfB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 12:17:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C9305416FD;
-	Mon, 30 Mar 2026 12:17:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9ED12C4CEF7;
-	Mon, 30 Mar 2026 12:17:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774873067;
-	bh=zeKFVpdAfIum0NKsvb2F2pCJfenzKs8whCcofbsI9Js=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=naxpmJpudZmV6cJ2x3BxM2UAxdDKK6zOxpRWUSCx0VMwLBXL84/DFUlWV5fE9h+S+
-	 9SFx/+SHIMWaCcAKmpdQZ0LChs37rgXC8qGSzNDLSglWsdJYDsmgJ5BM6xMeyb0gID
-	 dVPka1n8WQ9QmHba8CQb4yS5Vr7H1sPCZvBS0L5EJ9wLnK8RrRYsQmNgfbhFLebJEp
-	 Ec8L7efFMrGk/ieoZvlRfQCilFy146xciS7Cr+4CadLELFsILNcSqDzITk7TLmBwS1
-	 xVFWoqfWVRFhil7QW8+aQWz4MCt7a+49OqryJ2FuSZWRCbLwzZwEbyvL0VDDPmiLE8
-	 eXtcwnXvpCngg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	Mon, 30 Mar 2026 12:20:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=veBAT8N9PXJSRI8kHRpQ29JL9EyN/jr+PWryhqRzBmk=; b=wPM54DK01Q8N254E8px4APBfKH
+	UIeqvvYFYUsrpjSXOvsemWOhETVj9D7LVVWZ4Ce1H8ZKqgyUwC9DDugUIAfjC3yXNUOAng3YrAIju
+	1MfcTshv5NYdJ2Qu8XwgPmFt5LMmZYlNtNtJ+l4Sjr9x6U1HQILzrZnP8PIeetsO5hGUjb7vSnD7x
+	oOsSxFtJacRtDdOXXqmpNp93fFKC71HVZV791Zda3UFp9nhYBegRjRWvAjv14/cbVa9AFdgQvmydL
+	XKOgRJKGfski3b9FnylZKtYwC71nejuyTMqwTOHCn9QTTz+wfif1lNo1cUhveN1ublyANzSwl6bfy
+	2o2ypw7g==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:38442)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w7BYv-000000074gj-04eQ;
-	Mon, 30 Mar 2026 12:17:45 +0000
-Date: Mon, 30 Mar 2026 13:17:44 +0100
-Message-ID: <878qb9cxzr.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
-Cc: Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose
- <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Mark Brown
- <broonie@kernel.org>,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v4 35/49] KVM: arm64: GICv3: nv: Plug L1 LR sync into deactivation primitive
-In-Reply-To: <2e12c5c2-a1b6-47b7-b54c-7281a77bbe0a@os.amperecomputing.com>
-References: <20251120172540.2267180-1-maz@kernel.org>
-	<20251120172540.2267180-36-maz@kernel.org>
-	<2e12c5c2-a1b6-47b7-b54c-7281a77bbe0a@os.amperecomputing.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: vishnu@os.amperecomputing.com, tabba@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, broonie@kernel.org, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w7BbS-000000000ST-11Bh;
+	Mon, 30 Mar 2026 13:20:22 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w7BbO-000000002fP-0eU8;
+	Mon, 30 Mar 2026 13:20:18 +0100
+Date: Mon, 30 Mar 2026 13:20:18 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH RFC net-next] net: stmmac: qcom-ethqos: set clk_csr
+Message-ID: <acpqgpCsbo3lJs3l@shell.armlinux.org.uk>
+References: <E1w6AZm-0000000E54W-1F6E@rmk-PC.armlinux.org.uk>
+ <9d0a529a-d065-4f46-a93b-23195a4f9727@oss.qualcomm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9d0a529a-d065-4f46-a93b-23195a4f9727@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_051748_972850_A7206825 
-X-CRM114-Status: GOOD (  18.70  )
+X-CRM114-CacheID: sfid-20260330_052032_736946_D33ABD59 
+X-CRM114-Status: GOOD (  14.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,59 +86,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 30 Mar 2026 12:51:51 +0100,
-Vishnu Pajjuri <vishnu@os.amperecomputing.com> wrote:
+On Mon, Mar 30, 2026 at 01:18:56PM +0200, Konrad Dybcio wrote:
+> On 3/27/26 6:02 PM, Russell King (Oracle) wrote:
+> > The clocks for qcom-ethqos return a rate of zero as firmware manages
+> > their rate. According to hardware documentation, the clock which is
+> > fed to the slave AHB interface can crange between 50 and 100MHz.
 > 
-> Hi Fuad Tabba,
+> FWIW this __may__ possibly differ between platforms, but I'm not sure
+> to what degree. Will there be visible impact if we e.g. have a 200 or
+> 300 MHz clock somewhere?
 
-To be brutally honest, I doubt Fuad really cares about NV,
+When you add other platforms, you're going to have to deal with their
+differences.
 
->    I'm trying to run nested VMs on Ampere platforms after this patch
-> series(v6.19+) but nested VMs are not booting and triggering soft
-> lockups on L0 and L0 hang. But just before this patch I could able to
-> successfully boot the Nested VMs.
+IEEE 802.3 states that the maximum clock rate for the MDIO bus is
+2.5MHz. You need to ensure that is the case.
 
-So the host dies? There isn't much here that interacts with the host
-at all. Worse case, the L1 dies by not making progress.
+Current qcom-ethqos code doesn't set clk_csr, and returns zero for
+clk_get_rate() on the stmmac clocks because they are managed entirely
+in firmware.
 
-> 
-> I bisected the failure to a single commit which is this patch which is
-> causing the issue.
-> 
-> I would like to understand from you that did you observed anything
-> like that?
+This leads to the GMII_Address register field CR "CSR Clock Range"
+being programmed with a value of 15, which, according to some
+documentation, states that the clock divisor is CSR clock / 18.
 
-No. If I had, I wouldn't have merged the series.
+With the /18 divisor (assuming your dwmac uses that divisor):
 
-> 
-> Were you able to boot Nested VMs successfully after v6.19+?
+CSR clock	MDIO MDC clock rate
+50MHz		2.78MHz (exceeds IEEE 802.3 maximum)
+100MHz		5.56MHz (exceeds IEEE 802.3 maximum)
+200MHz		11.1MHz (exceeds IEEE 802.3 maximum)
+300MHz		16.7MHz (exceeds IEEE 802.3 maximum)
 
-I boot L3s every day.
-
-> LOG:
-> [  164.647367] Call trace:
-> [  164.647368]  smp_call_function_many_cond+0x334/0x7a0 (P)
-> [  164.647372]  smp_call_function_many+0x20/0x40
-> [  164.647374]  kvm_make_all_cpus_request+0xec/0x1b8
-> [  164.647377]  vgic_queue_irq_unlock+0x1c8/0x2c8
-> [  164.647380]  kvm_vgic_inject_irq+0x194/0x1e0
-> [  164.647381]  kvm_vm_ioctl_irq_line+0x170/0x400
-> [  164.647386]  kvm_vm_ioctl+0x7b8/0xc88
-> [  164.647389]  __arm64_sys_ioctl+0xb4/0x118
-> [  164.647393]  invoke_syscall+0x6c/0x100
-> [  164.647397]  el0_svc_common.constprop.0+0x48/0xf0
-> [  164.647398]  do_el0_svc+0x24/0x38
-> [  164.647400]  el0_svc+0x3c/0x170
-> [  164.647403]  el0t_64_sync_handler+0xa0/0xe8
-> [  164.647405]  el0t_64_sync+0x1b0/0x1b8
-
-This trace is about interrupt injection from userspace, not
-deactivation of a HW interrupt.
-
-None of that makes much sense.
-
-	M.
+Do you think this is acceptable, or do you think this should be
+fixed before anything else happens with the driver?
 
 -- 
-Jazz isn't dead. It just smells funny.
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
