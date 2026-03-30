@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB6BE1061B0A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:51:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C63871061B0B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:51:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SPMH4yzKVdDM7c3OAF57NgczFqaAnI37tnI7dnyq26c=; b=Ofk/RCVkkTPk1EDl1EUXxZ+mzo
-	vSkWcyqQI8AmKnoRDCjBPmEXcxQE0MWbQ2+8CEt3RuvwCVlfvtel4Nv93LTA7l84YgBaWj0ZleVBe
-	jm31wcJsluGexbQ18kBZ1mLju9FzdGHHNWagmZw0itEU0FKIwnPa+MN49IrPr4HX1x+9ro75kF5pj
-	1c9b82an2X38oCccg/ObfvVdKEsLwTGc0qyLUDutF5HW6Pq7MXs+fv6YTToOO2gI4SAUXJIxpT6H0
-	QIyBnfcIrjm3vIXAvQP8fPXLKAIhvMhTCb06ZOT7yrxMyAbdgq95VvuoT3yoEieByMGBU5adog0OR
-	/Frz2t6A==;
+	bh=K7qHddVh91blqKP7hLHvJp87AcjusiBJdMFiP3ZjG6k=; b=DIQq8mzPoaaHlGRNaUwa4fD6H0
+	PGpoVRJfJklfehhVAg3T9TXSyNtxMmyuryzebd0D+B1ageJ1gyWb4dvZXcLNgsBtYWeaOdtCMw8+m
+	X4rAL+ozEipDCM/oAjI++DM4aFEY33ZDzr0nmRxyjLlZcPYBq6nYx0krjix4WpL5vLAJtegdAyUFz
+	r4zqwYbn7PexL1OJGHJ7r6SWE8argGOtnaG2TEHzCkDGzHjLV/UyVSsl8Re6i8OSF21skMmQ9flST
+	3h0IUoXVGygkHzQaob3lSV5mf4z8OJZfHECinJOlE5NzfEIfgBFkaTnYzUipbUQ5MwWo6IUu2iCSh
+	aqe2Fyxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Dxa-0000000BUiU-3sri;
-	Mon, 30 Mar 2026 14:51:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w7Dxc-0000000BUkS-2XRp;
+	Mon, 30 Mar 2026 14:51:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Dwi-0000000BU2y-3855
+	id 1w7Dwv-0000000BUHd-2Fkm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 14:50:28 +0000
+	Mon, 30 Mar 2026 14:50:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C76F26012B;
-	Mon, 30 Mar 2026 14:50:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6AD5C4CEF7;
-	Mon, 30 Mar 2026 14:50:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E7BBB600CB;
+	Mon, 30 Mar 2026 14:50:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF7BEC19423;
+	Mon, 30 Mar 2026 14:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774882227;
-	bh=yIN9/3I2NZmwPaOR+XbdpPFeTdBR3WYuGyV0iJdCHYE=;
+	s=k20201202; t=1774882240;
+	bh=JDr6+HF5adEnysKcfCT+USkqPZk7q34fiPEroIJwW4o=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FQRmswiY+lyYrk4zPe3tBO8I0/oJKC1Jq3L3gaLLlod+4lc7iarRe6a8XNGAwpeFF
-	 RjpVt4+IEMyHz2uOtmvOUlGH5alNwXamd/m7rGovIbjA1GdlVVEgs9m4EbpIp5t1D3
-	 tA5uZ6UaFA1irH/zDdy88U+NgQUD5aVkQYURQyQw1jRqdihxoWBRmq45wiXmLb3Ux+
-	 +u/hn6t3KUaBuaVf7pMabpcQ/6KGcuInwzVHqPi+SIUXBRlN0uEiXir38j+a5A3KX2
-	 O/O8wfDUmlhm+af42gD8LPmyMsfhZZyQvoV/d/V512QW44oLO7dUHQJnwhItDDKhIa
-	 9YjeoKZQoymcQ==
+	b=hQvMKUrEd0PRuoJOzbQtkudKmylcOrLccPYTgobjh3si4Bk//YACZ3CF6uxSY61us
+	 8ik2giij3yqyfhJbwwPeCNLJbGqOLtOMCYB5gtwwYkirIVsYapKsiLVvMQe96booJB
+	 RNuQKasECMXobuXxjR+eJUZJ1/tM+pjhfqQiWDoVel0rSM1MAymhaz3xoqeRjVyboc
+	 kGa/DpFPrqkLz6CVL3pU1wYZ1YO5iBdIVZFWeMz5Aulyy67C0bWjROR/VMuB66GZLb
+	 m9kFOhixuL8V1GsfJUPjqmUKmRf3Q8O+Dgb/+KLEXRcBe5gb2c91Rbh/2J5orVPmO4
+	 9aoPc1/fo27Ug==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -57,9 +57,9 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v5 29/38] KVM: arm64: Implement the MEM_SHARE hypercall for protected VMs
-Date: Mon, 30 Mar 2026 15:48:30 +0100
-Message-ID: <20260330144841.26181-30-will@kernel.org>
+Subject: [PATCH v5 33/38] KVM: arm64: Extend pKVM page ownership selftests to cover guest donation
+Date: Mon, 30 Mar 2026 15:48:34 +0100
+Message-ID: <20260330144841.26181-34-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260330144841.26181-1-will@kernel.org>
 References: <20260330144841.26181-1-will@kernel.org>
@@ -79,160 +79,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the ARM_SMCCC_KVM_FUNC_MEM_SHARE hypercall to allow protected
-VMs to share memory (e.g. the swiotlb bounce buffers) back to the host.
+Extend the pKVM page ownership selftests to donate and reclaim a page
+to/from a guest.
 
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 Tested-by: Fuad Tabba <tabba@google.com>
 Tested-by: Mostafa Saleh <smostafa@google.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  1 +
- arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 32 ++++++++++
- arch/arm64/kvm/hyp/nvhe/pkvm.c                | 61 +++++++++++++++++++
- 3 files changed, 94 insertions(+)
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-index 8bc9a2489298..fea8aecae5ef 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-@@ -34,6 +34,7 @@ extern unsigned long hyp_nr_cpus;
- 
- int __pkvm_prot_finalize(void);
- int __pkvm_host_share_hyp(u64 pfn);
-+int __pkvm_guest_share_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn);
- int __pkvm_host_unshare_hyp(u64 pfn);
- int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
- int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
 diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 31ca3db26fb5..593eca37f863 100644
+index db94323b430c..13d2cb2f5fab 100644
 --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
 +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -959,6 +959,38 @@ int __pkvm_host_share_hyp(u64 pfn)
- 	return ret;
- }
+@@ -1751,6 +1751,7 @@ void pkvm_ownership_selftest(void *base)
+ 	assert_transition_res(-EPERM,	hyp_pin_shared_mem, virt, virt + size);
+ 	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
+ 	assert_transition_res(-ENOENT,	__pkvm_host_unshare_guest, gfn, 1, vm);
++	assert_transition_res(-EPERM,   __pkvm_host_donate_guest, pfn, gfn, vcpu);
  
-+int __pkvm_guest_share_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn)
-+{
-+	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
-+	u64 phys, ipa = hyp_pfn_to_phys(gfn);
-+	kvm_pte_t pte;
-+	int ret;
-+
-+	host_lock_component();
-+	guest_lock_component(vm);
-+
-+	ret = get_valid_guest_pte(vm, ipa, &pte, &phys);
-+	if (ret)
-+		goto unlock;
-+
-+	ret = -EPERM;
-+	if (pkvm_getstate(kvm_pgtable_stage2_pte_prot(pte)) != PKVM_PAGE_OWNED)
-+		goto unlock;
-+	if (__host_check_page_state_range(phys, PAGE_SIZE, PKVM_NOPAGE))
-+		goto unlock;
-+
-+	ret = 0;
-+	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
-+				       pkvm_mkstate(KVM_PGTABLE_PROT_RWX, PKVM_PAGE_SHARED_OWNED),
-+				       &vcpu->vcpu.arch.pkvm_memcache, 0));
-+	WARN_ON(__host_set_page_state_range(phys, PAGE_SIZE, PKVM_PAGE_SHARED_BORROWED));
-+unlock:
-+	guest_unlock_component(vm);
-+	host_unlock_component();
-+
-+	return ret;
-+}
-+
- int __pkvm_host_unshare_hyp(u64 pfn)
- {
- 	u64 phys = hyp_pfn_to_phys(pfn);
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 1f184c4994fa..408307603863 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -973,6 +973,58 @@ int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
- 	hyp_spin_unlock(&vm_table_lock);
- 	return err;
- }
-+
-+static u64 __pkvm_memshare_page_req(struct kvm_vcpu *vcpu, u64 ipa)
-+{
-+	u64 elr;
-+
-+	/* Fake up a data abort (level 3 translation fault on write) */
-+	vcpu->arch.fault.esr_el2 = (ESR_ELx_EC_DABT_LOW << ESR_ELx_EC_SHIFT) |
-+				   ESR_ELx_WNR | ESR_ELx_FSC_FAULT |
-+				   FIELD_PREP(ESR_ELx_FSC_LEVEL, 3);
-+
-+	/* Shuffle the IPA around into the HPFAR */
-+	vcpu->arch.fault.hpfar_el2 = (HPFAR_EL2_NS | (ipa >> 8)) & HPFAR_MASK;
-+
-+	/* This is a virtual address. 0's good. Let's go with 0. */
-+	vcpu->arch.fault.far_el2 = 0;
-+
-+	/* Rewind the ELR so we return to the HVC once the IPA is mapped */
-+	elr = read_sysreg(elr_el2);
-+	elr -= 4;
-+	write_sysreg(elr, elr_el2);
-+
-+	return ARM_EXCEPTION_TRAP;
-+}
-+
-+static bool pkvm_memshare_call(u64 *ret, struct kvm_vcpu *vcpu, u64 *exit_code)
-+{
-+	struct pkvm_hyp_vcpu *hyp_vcpu;
-+	u64 ipa = smccc_get_arg1(vcpu);
-+
-+	if (!PAGE_ALIGNED(ipa))
-+		goto out_guest;
-+
-+	hyp_vcpu = container_of(vcpu, struct pkvm_hyp_vcpu, vcpu);
-+	switch (__pkvm_guest_share_host(hyp_vcpu, hyp_phys_to_pfn(ipa))) {
-+	case 0:
-+		ret[0] = SMCCC_RET_SUCCESS;
-+		goto out_guest;
-+	case -ENOENT:
-+		/*
-+		 * Convert the exception into a data abort so that the page
-+		 * being shared is mapped into the guest next time.
-+		 */
-+		*exit_code = __pkvm_memshare_page_req(vcpu, ipa);
-+		goto out_host;
-+	}
-+
-+out_guest:
-+	return true;
-+out_host:
-+	return false;
-+}
-+
- /*
-  * Handler for protected VM HVC calls.
-  *
-@@ -989,6 +1041,7 @@ bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code)
- 	case ARM_SMCCC_VENDOR_HYP_KVM_FEATURES_FUNC_ID:
- 		val[0] = BIT(ARM_SMCCC_KVM_FUNC_FEATURES);
- 		val[0] |= BIT(ARM_SMCCC_KVM_FUNC_HYP_MEMINFO);
-+		val[0] |= BIT(ARM_SMCCC_KVM_FUNC_MEM_SHARE);
- 		break;
- 	case ARM_SMCCC_VENDOR_HYP_KVM_HYP_MEMINFO_FUNC_ID:
- 		if (smccc_get_arg1(vcpu) ||
-@@ -999,6 +1052,14 @@ bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code)
+ 	selftest_state.host = PKVM_PAGE_OWNED;
+ 	selftest_state.hyp = PKVM_NOPAGE;
+@@ -1770,6 +1771,7 @@ void pkvm_ownership_selftest(void *base)
+ 	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
+ 	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
+ 	assert_transition_res(-ENOENT,	__pkvm_host_unshare_guest, gfn, 1, vm);
++	assert_transition_res(-EPERM,   __pkvm_host_donate_guest, pfn, gfn, vcpu);
  
- 		val[0] = PAGE_SIZE;
- 		break;
-+	case ARM_SMCCC_VENDOR_HYP_KVM_MEM_SHARE_FUNC_ID:
-+		if (smccc_get_arg2(vcpu) ||
-+		    smccc_get_arg3(vcpu)) {
-+			break;
-+		}
+ 	assert_transition_res(0,	hyp_pin_shared_mem, virt, virt + size);
+ 	assert_transition_res(0,	hyp_pin_shared_mem, virt, virt + size);
+@@ -1782,6 +1784,7 @@ void pkvm_ownership_selftest(void *base)
+ 	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
+ 	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
+ 	assert_transition_res(-ENOENT,	__pkvm_host_unshare_guest, gfn, 1, vm);
++	assert_transition_res(-EPERM,   __pkvm_host_donate_guest, pfn, gfn, vcpu);
+ 
+ 	hyp_unpin_shared_mem(virt, virt + size);
+ 	assert_page_state();
+@@ -1801,6 +1804,7 @@ void pkvm_ownership_selftest(void *base)
+ 	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
+ 	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
+ 	assert_transition_res(-ENOENT,	__pkvm_host_unshare_guest, gfn, 1, vm);
++	assert_transition_res(-EPERM,   __pkvm_host_donate_guest, pfn, gfn, vcpu);
+ 	assert_transition_res(-EPERM,	hyp_pin_shared_mem, virt, virt + size);
+ 
+ 	selftest_state.host = PKVM_PAGE_OWNED;
+@@ -1817,6 +1821,7 @@ void pkvm_ownership_selftest(void *base)
+ 	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
+ 	assert_transition_res(-EPERM,	__pkvm_host_unshare_hyp, pfn);
+ 	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
++	assert_transition_res(-EPERM,   __pkvm_host_donate_guest, pfn, gfn, vcpu);
+ 	assert_transition_res(-EPERM,	hyp_pin_shared_mem, virt, virt + size);
+ 
+ 	selftest_state.guest[1] = PKVM_PAGE_SHARED_BORROWED;
+@@ -1830,6 +1835,23 @@ void pkvm_ownership_selftest(void *base)
+ 	selftest_state.host = PKVM_PAGE_OWNED;
+ 	assert_transition_res(0,	__pkvm_host_unshare_guest, gfn + 1, 1, vm);
+ 
++	selftest_state.host = PKVM_NOPAGE;
++	selftest_state.guest[0] = PKVM_PAGE_OWNED;
++	assert_transition_res(0,	__pkvm_host_donate_guest, pfn, gfn, vcpu);
++	assert_transition_res(-EPERM,	__pkvm_host_donate_guest, pfn, gfn, vcpu);
++	assert_transition_res(-EPERM,	__pkvm_host_donate_guest, pfn, gfn + 1, vcpu);
++	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
++	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn + 1, 1, vcpu, prot);
++	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
++	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
++	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
++	assert_transition_res(-EPERM,	__pkvm_host_unshare_hyp, pfn);
++	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
 +
-+		handled = pkvm_memshare_call(val, vcpu, exit_code);
-+		break;
- 	default:
- 		/* Punt everything else back to the host, for now. */
- 		handled = false;
++	selftest_state.host = PKVM_PAGE_OWNED;
++	selftest_state.guest[0] = PKVM_NOPAGE;
++	assert_transition_res(0,	__pkvm_host_reclaim_page_guest, gfn, vm);
++
+ 	selftest_state.host = PKVM_NOPAGE;
+ 	selftest_state.hyp = PKVM_PAGE_OWNED;
+ 	assert_transition_res(0,	__pkvm_host_donate_hyp, pfn, 1);
 -- 
 2.53.0.1018.g2bb0e51243-goog
 
