@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D81410D14A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 11:45:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D314F10D14A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 11:46:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qPzhc3XhsU98dh8UutUyRVu8P0pbosIbUzwwsbe9Vi0=; b=ctPzH/lSjw+zLpI/ZdpfyzBOi0
-	6cONttaztT5Feev13bY7aTButvT8a1f2jSyw9a91PEIGDIv8HeGpamsPQC5uSffUMN1c4OKUzmtL0
-	9u4GdVu8gAIV4VcPhJGJKZS8zcifXzfd6qeEvHePJ96vplaKP7ix9ipg7YKFGBsbQus2KXbJp/J2E
-	pxYCzRpDbCJu8YAI+UlkwAs5kXCgLVktaObRJp0PtOH6f/pZuVXGWwqaumDDFc9iOPTvq6jn0tb7J
-	++VSEMJ2MoOMHiqd/zGG0wE+cC4Y6IQDugkHyQoLLnF+hKF4yjE3GbhBSuUer0+rwtZiv8tCZTxem
-	SSb1gN/g==;
+	bh=CbBORblfbPCzokUTF/Q07D7SWHUDSf+6gkz46isN5HE=; b=mnT0E/qn97SKinhkXbSF74XW9R
+	RLaLOa8A3isRoaM2ycwR48GMW56KD8RwOknPOL9P9vHQowZu7Ftatx4MeV/fdlkMHa+TSVSbrt2YN
+	cIhRWxVoqqqZgqVzPpcI33rquiFwipK8GYdnYaUvqp04Ban+oEiX/c+9eQJuLQ8oOBjIDUivi1us5
+	vNHqVZ9txVST3BjmKTSWYKHwD/SmfTwQJXd7D6gAeG7jgs9dfVIHEV466bXEi3J1PF17QdvnLB1jy
+	SK4jObO/VVlAglcEyPjSrPnf1v54zLeP1A+IfevL+8qAMRrlrWT0ewkXtRqv9FqCWyTdeIz4J1Pi0
+	MLbQJgjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7B3j-0000000BBSb-2kgN;
-	Mon, 30 Mar 2026 11:45:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w7B4o-0000000BBdr-3PR2;
+	Mon, 30 Mar 2026 11:46:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7B3g-0000000BBS4-38WW
+	id 1w7B4m-0000000BBdh-3Y06
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 11:45:30 +0000
+	Mon, 30 Mar 2026 11:46:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2E01A41941;
-	Mon, 30 Mar 2026 11:45:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6911BC4CEF7;
-	Mon, 30 Mar 2026 11:45:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2524C60054;
+	Mon, 30 Mar 2026 11:46:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 352A2C4CEF7;
+	Mon, 30 Mar 2026 11:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774871128;
-	bh=xAuRrCNkVfOL1dlC4RgS5Yw93+8Y9miVgG7onvUPc9k=;
+	s=k20201202; t=1774871195;
+	bh=vNBRaBmxUML/9tvCHr/F0jTWJtIo36Ls04uYN9WKbQI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pdc38o2hO/YijyFOuUdktTl+uS4M7SKQZ9gxT2iWhkrl/zm+dLFCJ+VtSdh84zPoA
-	 HzA0DYepdGMH2KpSAVqmu8upMIrtUfoyo8lau5PiPzPOQ4BNf8h8bU3nSv6k9tOAWY
-	 1F8HmeLZDpcrCEEAH9CvzqpCn4ssW1Fu7Q5Y0HoH5s++xsZiz2ZjVubQWixan/dYq3
-	 M0uVZf7QmulcDiSIzwkraeg/ZXoJUM8iBjZ4mQ6dqiz/9b0gpu1v/scPRNBemRPyWD
-	 o6bHQZzrHSpSbTojPI6dL03ZBmWYo3sDtoyn9+PshRRqYjU9TsfXVTQj/RSyj1az+V
-	 7mx5u4OMgcpeg==
-Message-ID: <7b9bc5d1-7a1d-456c-b280-5f4dc969609d@kernel.org>
-Date: Mon, 30 Mar 2026 13:45:24 +0200
+	b=RzEby+oS5hA4ztdP34lTC7HWqKiGaf/mX4Vhjw+MUqBJEDsuhk5mFAmOzDfkKzvuQ
+	 +QhapPlgi64ILY8d/7zHw7il3PFnTdTlL4zSIpbhn9NslzspcGbnrSAhPuhG9FJF1F
+	 8T+gkBHx7KNETahPZmqOtH1KfevNMi/+VU/zIWqKiSST9cGYV72b+yQZVbLPoAns/d
+	 8dkvNPzp4OvfpBw/Iiz53+m8fBuYeamO0Mge+OFJWmj3KFrmvNURy9lVzNBxbcv83V
+	 exJkhvCkNd/i3SsEPts3FG20y23kIyf4oe84eBrtvnYrvkO9weKJGQd8/vTMNR5NRi
+	 PI2P1yAPaGAug==
+Message-ID: <058d79b7-3d4c-4f0a-a95f-b2e3582a4fa7@kernel.org>
+Date: Mon, 30 Mar 2026 13:46:32 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL 6/7] arm64: tegra: Device tree changes for v7.1-rc1
+Subject: Re: [GIT PULL 4/7] ARM: tegra: Device tree changes for v7.1-rc1
 To: Thierry Reding <thierry.reding@kernel.org>, arm@kernel.org, soc@kernel.org
 Cc: Thierry Reding <thierry.reding@gmail.com>,
  Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <20260329151045.1443133-1-thierry.reding@kernel.org>
- <20260329151045.1443133-6-thierry.reding@kernel.org>
+ <20260329151045.1443133-4-thierry.reding@kernel.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -98,12 +98,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260329151045.1443133-6-thierry.reding@kernel.org>
+In-Reply-To: <20260329151045.1443133-4-thierry.reding@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_044528_829631_FC189079 
-X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,56 +116,41 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 29/03/2026 17:10, Thierry Reding wrote:
-> From: Thierry Reding <thierry.reding@gmail.com>
+> ----------------------------------------------------------------
+> ARM: tegra: Device tree changes for v7.1-rc1
 > 
-> Hi ARM SoC maintainers,
-> 
-> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
-> 
->   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
-> 
-> are available in the Git repository at:
-> 
->   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-7.1-arm64-dt
-> 
-> for you to fetch changes up to c70e6bc11d2008fbb19695394b69fd941ab39030:
-> 
->   arm64: tegra: Add Tegra264 GPIO controllers (2026-03-28 01:36:46 +0100)
-> 
-> Thanks,
-> Thierry
+> Various improvements for Tegra114 boards, as well as some legacy cleanup
+> for PAZ00 and Transformers devices.
 > 
 > ----------------------------------------------------------------
-> arm64: tegra: Device tree changes for v7.1-rc1
+> Dmitry Torokhov (1):
+>       ARM: tegra: paz00: Configure WiFi rfkill switch through device tree
 > 
-> Various fixes and new additions across a number of devices. GPIO and PCI
-> are enabled on Tegra264 and the Jetson AGX Thor Developer Kit, allowing
-> it to boot via network and mass storage.
+> Svyatoslav Ryhel (8):
+>       ARM: tegra: Add SOCTHERM support on Tegra114
+>       ARM: tn7: Adjust panel node
+>       ARM: tegra: lg-x3: Add panel and bridge nodes
+>       ARM: tegra: lg-x3: Add USB and power related nodes
+>       ARM: tegra: lg-x3: Add node for capacitive buttons
+>       ARM: tegra: Add ACTMON node to Tegra114 device tree
+>       ARM: tegra: Add External Memory Controller node on Tegra114
+>       ARM: tegra: transformers: Add connector node
 > 
-> ----------------------------------------------------------------
-> Diogo Ivo (1):
->       arm64: tegra: smaug: Enable SPI-NOR flash
-> 
-> Jon Hunter (1):
->       arm64: tegra: Fix RTC aliases
-> 
-> Prathamesh Shete (1):
->       arm64: tegra: Add Tegra264 GPIO controllers
-> 
-> Thierry Reding (6):
->       dt-bindings: pci: Document the NVIDIA Tegra264 PCIe controller
+>  arch/arm/boot/dts/nvidia/tegra114-tn7.dts        |  13 +-
+>  arch/arm/boot/dts/nvidia/tegra114.dtsi           | 221 +++++++++++++++++++++++
+>  arch/arm/boot/dts/nvidia/tegra20-paz00.dts       |   8 +
+>  arch/arm/boot/dts/nvidia/tegra30-asus-tf600t.dts |  21 ++-
+>  arch/arm/boot/dts/nvidia/tegra30-lg-p880.dts     |  23 +++
+>  arch/arm/boot/dts/nvidia/tegra30-lg-p895.dts     |  33 ++++
+>  arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi      | 174 +++++++++++++++++-
+>  arch/arm/mach-tegra/Makefile                     |   2 -
+>  arch/arm/mach-tegra/board-paz00.c                |  56 ------
+>  arch/arm/mach-tegra/board.h                      |   2 -
+>  arch/arm/mach-tegra/tegra.c                      |   4 -
 
-
-This is unreviewed/unacked binding where PCI maintainers had 1 day to
-react to your v3. Maybe they had more time for previous versions, but
-nevertheless it is also part of other patchset, so it will get into the
-kernel other tree and nothing on v3 posting:
-https://lore.kernel.org/all/20260326135855.2795149-4-thierry.reding@kernel.org/
-gives hints that there will be cross tree merge.
-
-So no, that branch cannot be taken.
-
-Please get your code first reviewed with subsystem maintainers.
+Why does the DTS branch has mach code? Tag message mentions legacy
+cleanup only and such cleanup should not cause mixing independent
+hardware description (DTS) with drivers.
 
 Best regards,
 Krzysztof
