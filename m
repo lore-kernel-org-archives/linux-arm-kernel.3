@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13D951061B02
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA9C71061B06
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PxbQoD/Qpdnz6cFoZ6hUxglZzCvDwS164VQXceUeV64=; b=T8lqIINxrAYAQxYtD+TUFZPJyI
-	7MV3ymgZqIfcUqT/Us+lyfwm5w1zQy0igJFBpL4lqezcrlQjWNUajEDoO2rvqYVoc9uanAZJ+V3zs
-	QC1xd6qLA5W1Q7lseGCjsuYSioPWrnA2a4y9/dX7gwvy9ct8bD90Fd4MicjQ2CndiS2FpkRrViFXE
-	R01Wc/yRK/ey+gC3UObOKTF5bxuutxOhMVn8Jb3LJokBy/and29myPhwTktLb+vBwQ9hOJdk/UIdj
-	H4al1JeImhoYbhC1NgbS9KMqX1vza5FRUx9zZbNELccT78pCIqE80qKyrdML1ZFPgwxG/tvj1js3H
-	8Pb5GS3w==;
+	bh=LgrjD5noHmDJANSVbPGgjcYS5PeEbzeo0KHKVLAtL38=; b=ll13m0edawaNhmT1YyqliIpdR1
+	5b8SP+uD8jWh5gpm4EUZdzwHG+V/OFfSnTDu4+a8t6FWhUfEGjrpsFVZujStF5o0OdUq9MbFxdeOo
+	I69eJw/KxMvx8Q0rnAcjDOSCEN++QYY37N80gjTcwB+GqnbaebL0YKOYW8bRNSyBE/+0YJIoyFYX6
+	CPDA/0Uwhj1KqOC/h2M0McBo6ibkyjOfGH3o3iMuc/UPMqgzbV2mgKMBlhuV65JYd9/O4CZfHOxtb
+	e49CtqgH66a7GES6A7e/5H/8kITrr2naiwJNYydgtuMHwTVx2cbhjHY1b63V66aCjNUupgkmkJ/Ba
+	HI2/0Nsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DvT-0000000BSvl-0teT;
+	id 1w7DvT-0000000BSwJ-2PcA;
 	Mon, 30 Mar 2026 14:49:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DvJ-0000000BSqU-4AI0
+	id 1w7DvM-0000000BSsE-3YB5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 14:49:02 +0000
+	Mon, 30 Mar 2026 14:49:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6E2666011F;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8E43940B93;
+	Mon, 30 Mar 2026 14:49:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFCB2C4AF09;
 	Mon, 30 Mar 2026 14:49:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66032C19423;
-	Mon, 30 Mar 2026 14:48:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774882141;
-	bh=QaZdw+cKvQLXGdg14aZy7asM3jAbDolMGcxEF/Z3CVE=;
+	s=k20201202; t=1774882144;
+	bh=03J6umtHfd+8x3jSWjUFyG+CUtvyPNtbJU/vryIouac=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=icn9PE3D3gD3a8v+fq7y6CNB1xCwSVz63G0zJ6F1FJm5NSraD6hykwQULQC3cdGOi
-	 /wdbCePrs4F2zP1ylOZjpKz0j6yXIzjMiPKtyFnC3vdyO5xpT5X4vv4lo1xgjM+bSD
-	 HQweV9nHFi3qI282ljear5q0xFK1p5sOYbaVj47aWNmJFKELSZuxslTqFcYDOyOeyi
-	 /Zie+EW7aT1Ug+HwWFFkHUZw58LVWePcj3t91jFD+FIPgq8U5ZuD7KbJjM2LwSzzKS
-	 98bDxJ290cJslw/ZTaqRF+ZB2o4rWAGFTFz1pxuU9XDN/SBZ9/KtjoxedDhtloce/q
-	 Jj0WvdRPKWRBA==
+	b=AW6n3URxgaVJRnXW2D2AGOM2N6BOG7qPEQRpvZpV1tp/Fh5woKf4ZfxDjD/IORMGx
+	 fQ05cUCMLBDmd1T6dhkzZMxDKMPQ0e56GD9Amisx8T4nZTGgIt4Bdq9L6FfsEnPNfq
+	 +EaMqsfmVfFiZurYPmbRr52ImhGpfh8tgUASrL2xvFCyXKbDRdPBxzCNbyTTkSwXgn
+	 Z8/WZbRDn27yhKNUdd3yZOvURgiJnccI90p6CmyEeS/NkzzzAFwiEv3M1z+gpB/CYg
+	 RbYz0b+hsQzcC0fKgUOY+a9YazVJl1CNLvAkeG/vnxhr2lkfEYAUDOE6HJj3k6WYTt
+	 HUdAe07VzAN4g==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -57,14 +57,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v5 03/38] KVM: arm64: Move handle check into pkvm_pgtable_stage2_destroy_range()
-Date: Mon, 30 Mar 2026 15:48:04 +0100
-Message-ID: <20260330144841.26181-4-will@kernel.org>
+Subject: [PATCH v5 04/38] KVM: arm64: Rename __pkvm_pgtable_stage2_unmap()
+Date: Mon, 30 Mar 2026 15:48:05 +0100
+Message-ID: <20260330144841.26181-5-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260330144841.26181-1-will@kernel.org>
 References: <20260330144841.26181-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260330_074904_898984_ACE228D2 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,52 +82,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When pKVM is enabled, a VM has a 'handle' allocated by the hypervisor
-in kvm_arch_init_vm() and released later by kvm_arch_destroy_vm().
-
-Consequently, the only time __pkvm_pgtable_stage2_unmap() can run into
-an uninitialised 'handle' is on the kvm_arch_init_vm() failure path,
-where we destroy the empty stage-2 page-table if we fail to allocate a
-handle.
-
-Move the handle check into pkvm_pgtable_stage2_destroy_range(), which
-will additionally handle protected VMs in subsequent patches.
+In preparation for adding support for protected VMs, where pages are
+donated rather than shared, rename __pkvm_pgtable_stage2_unmap() to
+__pkvm_pgtable_stage2_unshare() to make it clearer about what is going
+on.
 
 Reviewed-by: Fuad Tabba <tabba@google.com>
 Tested-by: Fuad Tabba <tabba@google.com>
 Tested-by: Mostafa Saleh <smostafa@google.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/pkvm.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+ arch/arm64/kvm/pkvm.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index d7a0f69a9982..7797813f4dbe 100644
+index 7797813f4dbe..42f6e50825ac 100644
 --- a/arch/arm64/kvm/pkvm.c
 +++ b/arch/arm64/kvm/pkvm.c
-@@ -329,9 +329,6 @@ static int __pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 start, u64 e
- 	struct pkvm_mapping *mapping;
- 	int ret;
- 
--	if (!handle)
--		return 0;
--
- 	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
- 		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn,
- 					mapping->nr_pages);
-@@ -347,6 +344,12 @@ static int __pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 start, u64 e
- void pkvm_pgtable_stage2_destroy_range(struct kvm_pgtable *pgt,
- 					u64 addr, u64 size)
- {
-+	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
-+	pkvm_handle_t handle = kvm->arch.pkvm.handle;
-+
-+	if (!handle)
-+		return;
-+
- 	__pkvm_pgtable_stage2_unmap(pgt, addr, addr + size);
+@@ -322,7 +322,7 @@ int pkvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
+ 	return 0;
  }
  
+-static int __pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 start, u64 end)
++static int __pkvm_pgtable_stage2_unshare(struct kvm_pgtable *pgt, u64 start, u64 end)
+ {
+ 	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
+ 	pkvm_handle_t handle = kvm->arch.pkvm.handle;
+@@ -350,7 +350,7 @@ void pkvm_pgtable_stage2_destroy_range(struct kvm_pgtable *pgt,
+ 	if (!handle)
+ 		return;
+ 
+-	__pkvm_pgtable_stage2_unmap(pgt, addr, addr + size);
++	__pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
+ }
+ 
+ void pkvm_pgtable_stage2_destroy_pgd(struct kvm_pgtable *pgt)
+@@ -386,7 +386,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ 			return -EAGAIN;
+ 
+ 		/* Remove _any_ pkvm_mapping overlapping with the range, bigger or smaller. */
+-		ret = __pkvm_pgtable_stage2_unmap(pgt, addr, addr + size);
++		ret = __pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
+ 		if (ret)
+ 			return ret;
+ 		mapping = NULL;
+@@ -409,7 +409,7 @@ int pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ {
+ 	lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(pgt->mmu)->mmu_lock);
+ 
+-	return __pkvm_pgtable_stage2_unmap(pgt, addr, addr + size);
++	return __pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
+ }
+ 
+ int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
 -- 
 2.53.0.1018.g2bb0e51243-goog
 
