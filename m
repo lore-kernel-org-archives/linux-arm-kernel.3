@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6EA01061B1C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 19:10:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A1A1061B20
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 20:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fAc7YHSQrwJfKCXX2f47zs5maWQYLeQ6iIc2j8sAEX0=; b=df1WpxdOAkaenhxcqLE1ENYpWZ
-	KnnjBVtt78pW8GtbgWVPH0WFvLtEDwZ4Y9byC6MKGjG7EkMeehZi7XP4zT1R+j4vBHNBpswIOBt+6
-	zJdec07wDdo3Hy/+R78xJ5OfTETJe+cWb81N755qZfgVymJv/VtG1DmAZAEMO0neOIVGFWpWz0Y8s
-	31MAWC68O0SwcxzPD56ND6C9laB0qeFHSGGJH0P2I7JDWF6Exeb/JEHDLOcp10sfpWL+WNKsQbrIs
-	QFY40YzptdVbJYDufAvgLfWy7i691xADd+lIFAjMuRFp9SnJ0zIG3ZmtfkVoxEZbPRjb2fTXTAjzE
-	O9xGsaBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DpB8EE5DN+dzBnxMc30HBDUOsH9XHSaxkV3ApmYwWbk=; b=0U/6e4+sk/Ne4pF9ObXy7XGnOk
+	4Wx992m94EvV5BT3qD5jJVbeps31DHLcWZqAD+3UfLW838cOsd6TBhAsmmpwJbb5eTPOWg7bpbuDK
+	lBQiAvrkiGA5uS42LdZkJCZg5HEPD/wAcWZTihlMB7tIz2BCxzPDxV10AfFUHX4loziYToJtrFyo4
+	Qpor/wYcxAhoWRC5mhhD0Bwy1JYDIRJT6+BCUH+Q4/RyUzIdmG5Vn/tON2S8bm4Bfvr8dKtjChZcC
+	Ho4COR/aeIrKF6VOV1aiOODolr1PS4S7eqKdtCr2FXmXGTOS+QgzqW+xESt/vw6k699Fd6ucK5Od4
+	f/ZJNE8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Hzo-0000000Bm0h-1y3R;
-	Mon, 30 Mar 2026 19:09:56 +0000
-Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
+	id 1w7JAN-0000000BpgP-1liK;
+	Mon, 30 Mar 2026 20:24:55 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Hzm-0000000Bm09-0Ibi
+	id 1w7JAL-0000000Bpg2-0gBe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 19:09:55 +0000
-Message-ID: <9bec08b6-c97b-4e04-8940-d08afa831722@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1774897790;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fAc7YHSQrwJfKCXX2f47zs5maWQYLeQ6iIc2j8sAEX0=;
-	b=tPR/aBRWQ8VkUoJzfAOYOUvQmkoyvMwtDry/5SZEN21PjHOm7y6bKd0IAplfRoed63tUu/
-	Sb99GaNLgRWU71EMf9gWSKdfP5Rsb3lTobGalag4XHMXBRLAwpyJT9VVg932E7RM5xIFAF
-	CNlDqcaku08E0KDQgTF7EtzQZ0p1IMo=
-Date: Mon, 30 Mar 2026 15:09:38 -0400
+	Mon, 30 Mar 2026 20:24:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774902293; x=1806438293;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=i6O0R420JsaobqCAMpIhjIoGFKW4TulkjH6tJS6uS2s=;
+  b=I4rvMLabUxKJl7BY8w/zu8MQnb37J39/ypXTlHwWY71JDqzyVNQgTRg8
+   nwb3erMaHxbunEyjsmuwXrmJWgGePxGfrMuOx81z3pV7voRfUSJbxCaNs
+   BFEEiSW4cO0/ZmTgk3bylAchgZzBAL8kPluMqxcJ0UHAawivUBAMG03CO
+   /pRthJW2yqpSQzXvV/9m/a381Wwn609L446l0NesEE1Lych3eg3T+j+lc
+   2ME0JgSv7K/DZ2S4Ad3nUazQ6dSHMjFlOh5hTENAxtLCw7/+mD+Qrq1Q7
+   pONEOArmusjY/iO2A1oVJb8YgHIoRONmhDrHvKBd1fKWeCaoENfm9vnIa
+   A==;
+X-CSE-ConnectionGUID: SfuLv24QRpa0yqSNmXBMDg==
+X-CSE-MsgGUID: kyJ+hiA7QZOqvbFsrlspIg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11744"; a="86598212"
+X-IronPort-AV: E=Sophos;i="6.23,150,1770624000"; 
+   d="scan'208";a="86598212"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Mar 2026 13:24:52 -0700
+X-CSE-ConnectionGUID: TXJZI8ekRJ6g6M9KfTUpgw==
+X-CSE-MsgGUID: 7aHZRfASRmelp1lYOfoS4w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,150,1770624000"; 
+   d="scan'208";a="223280125"
+Received: from vpanait-mobl.ger.corp.intel.com (HELO localhost) ([10.245.245.100])
+  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Mar 2026 13:24:48 -0700
+Date: Mon, 30 Mar 2026 23:24:45 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>,
+	brgl@kernel.org, driver-core@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
+Subject: Re: [PATCH v4 2/3] driver core: make software nodes available earlier
+Message-ID: <acrcDTPpXZ_5A4D8@ashevche-desk.local>
+References: <20260330-nokia770-gpio-swnodes-v4-0-b68592e977d0@oss.qualcomm.com>
+ <20260330-nokia770-gpio-swnodes-v4-2-b68592e977d0@oss.qualcomm.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH net V2 1/2] net: xilinx: axienet: Correct BD length masks
- to match AXIDMA IP spec
-To: Suraj Gupta <suraj.gupta2@amd.com>,
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Michal Simek <michal.simek@amd.com>,
- Daniel Borkmann <daniel@iogearbox.net>,
- Ariane Keller <ariane.keller@tik.ee.ethz.ch>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260327073238.134948-1-suraj.gupta2@amd.com>
- <20260327073238.134948-2-suraj.gupta2@amd.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <20260327073238.134948-2-suraj.gupta2@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260330-nokia770-gpio-swnodes-v4-2-b68592e977d0@oss.qualcomm.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_120954_521737_6682281C 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20260330_132453_217105_8B6F9B01 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,44 +99,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/27/26 03:32, Suraj Gupta wrote:
-> The XAXIDMA_BD_CTRL_LENGTH_MASK and XAXIDMA_BD_STS_ACTUAL_LEN_MASK
-> macros were defined as 0x007FFFFF (23 bits), but the AXI DMA IP
-> product guide (PG021) specifies the buffer length field as bits 25:0
-> (26 bits). Update both masks to match the IP documentation.
-> 
-> In practice this had no functional impact, since Ethernet frames are
-> far smaller than 2^23 bytes and the extra bits were always zero, but
-> the masks should still reflect the hardware specification.
-> 
-> Fixes: 8a3b7a252dca ("drivers/net/ethernet/xilinx: added Xilinx AXI Ethernet driver")
-> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
-> ---
->  drivers/net/ethernet/xilinx/xilinx_axienet.h | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h b/drivers/net/ethernet/xilinx/xilinx_axienet.h
-> index 5ff742103beb..fcd3aaef27fc 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
-> @@ -105,7 +105,7 @@
->  #define XAXIDMA_BD_HAS_DRE_MASK		0xF00 /* Whether has DRE mask */
->  #define XAXIDMA_BD_WORDLEN_MASK		0xFF /* Whether has DRE mask */
->  
-> -#define XAXIDMA_BD_CTRL_LENGTH_MASK	0x007FFFFF /* Requested len */
-> +#define XAXIDMA_BD_CTRL_LENGTH_MASK	GENMASK(25, 0) /* Requested len */
->  #define XAXIDMA_BD_CTRL_TXSOF_MASK	0x08000000 /* First tx packet */
->  #define XAXIDMA_BD_CTRL_TXEOF_MASK	0x04000000 /* Last tx packet */
->  #define XAXIDMA_BD_CTRL_ALL_MASK	0x0C000000 /* All control bits */
-> @@ -130,7 +130,7 @@
->  #define XAXIDMA_BD_CTRL_TXEOF_MASK	0x04000000 /* Last tx packet */
->  #define XAXIDMA_BD_CTRL_ALL_MASK	0x0C000000 /* All control bits */
->  
-> -#define XAXIDMA_BD_STS_ACTUAL_LEN_MASK	0x007FFFFF /* Actual len */
-> +#define XAXIDMA_BD_STS_ACTUAL_LEN_MASK	GENMASK(25, 0) /* Actual len */
->  #define XAXIDMA_BD_STS_COMPLETE_MASK	0x80000000 /* Completed */
->  #define XAXIDMA_BD_STS_DEC_ERR_MASK	0x40000000 /* Decode error */
->  #define XAXIDMA_BD_STS_SLV_ERR_MASK	0x20000000 /* Slave error */
+On Mon, Mar 30, 2026 at 02:40:47PM +0200, Bartosz Golaszewski wrote:
+> Software nodes are currently initialized in a function registered as
+> a postcore_initcall(). However, some devices may want to register
+> software nodes earlier than that (or also in a postcore_initcall() where
+> they're at the merci of the link order). Move the initialization to
+> driver_init() making swnode available much earlier as well as making
+> their initialization time deterministic.
 
-Reviewed-by: Sean Anderson <sean.anderson@linux.dev>
+...
+
+> -static void __exit software_node_exit(void)
+> -{
+> -	ida_destroy(&swnode_root_ids);
+> -	kset_unregister(swnode_kset);
+>  }
+> -__exitcall(software_node_exit);
+
+
+Why? What's wrong with the __exitcall?
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
