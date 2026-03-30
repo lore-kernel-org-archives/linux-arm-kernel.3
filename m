@@ -4,92 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F5691061B1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 18:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56EEB1061B18
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 18:46:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a7bh5ixiifKbiWJ6yXLI+KwYDZ4p+qUAcuT1NVFVQLQ=; b=CmRvmIo84YTnHolznSpS2oP/QE
-	azK3w/hpXBEVCckgby/cqhHBZwjZmnUqlAiLAxLhxBXX9O05PAFU04weapneDvdrNqjKeTUBvBK2l
-	7dyQrha334y8uO+bQtqUApQ2HtNmK00YufrsT+vB/VwpZ+/aob6Qib3EGKfGzMFxiyYdFNEn+wpCx
-	NHE4tr98R9I1x89D1YAj8CE+hcnZbw+JAmriqbhv1MNx848Ctd7UAg70vRTcgD6XWEvcIdLJ3ZnNV
-	LB5T8EEGuesvX5D1AUL/z7loqRl0e/90QvoLiauFroGqSSPhmIPkdHeZ8f1dBE7sQYVTOfjWcRIAx
-	+Y/eI1dg==;
+	bh=M1E+3WVXMJwlqaN80KkJm7QShEoP0ecOMzlPB5qaAL4=; b=gAEcAWWEhXq/gy7uHceCndORol
+	RW+yplMqwMB4CyLFoAkFtAEtO2Jzr7Cv8oBtsmI2juuq66k2m/11/ysqxim4fyDC+iRDZ6fH2jWvM
+	OBPOw66jNcBnTHJ8kHQGhSxcR62vwuxP4ImF2tFhb2cAiHTSnNIpDRoH4SbCdFSbFRkCH9VgppszR
+	wG40G+GhoPfWN0firLic265wJJzYOV0+D8nZL4eo8l9EXomsyN4+WmdzFhcDkfuKtpKF1Y82yiOMU
+	bLbQBOJ3TRN58jrag1r3N+pXAyiNb5hRUUbV/NVhCgKXWt4iubQSNo9CesSQ5GDqlDROJ8fIpZP53
+	qE93zoZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7HbS-0000000Bjy5-2qkU;
-	Mon, 30 Mar 2026 18:44:46 +0000
-Received: from mail-yx1-xb164.google.com ([2607:f8b0:4864:20::b164])
+	id 1w7HdV-0000000BkAF-3VMl;
+	Mon, 30 Mar 2026 18:46:53 +0000
+Received: from mail-pj1-x1061.google.com ([2607:f8b0:4864:20::1061])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7HbQ-0000000BjxC-0m9i
+	id 1w7HdS-0000000Bk9a-2vsG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 18:44:46 +0000
-Received: by mail-yx1-xb164.google.com with SMTP id 956f58d0204a3-6500040f128so4844694d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 11:44:43 -0700 (PDT)
+	Mon, 30 Mar 2026 18:46:51 +0000
+Received: by mail-pj1-x1061.google.com with SMTP id 98e67ed59e1d1-35d94f4ee36so1324620a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 11:46:50 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774896283; x=1775501083;
+        d=1e100.net; s=20251104; t=1774896410; x=1775501210;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=a7bh5ixiifKbiWJ6yXLI+KwYDZ4p+qUAcuT1NVFVQLQ=;
-        b=VJCx+osFDRUqvAdG9mzhgDgKvAgME/SfjCzHB96rxEs8xkxClDsBC4fP4ddSzWo0EW
-         evb4dcWiXaiLITPxWIZi/pIMkhbDi5EA/VyuTOTtNKvDIyHqppd3tQnyWeSVtGnSlSGV
-         cFyLjHPsCtYhXo+F3Ltv2AFlOuvVR0eOTDt94vMWywzfs+v3AhHzvZQh5+Csqr+ftGvn
-         jJr5VZK4+dA/qADGOLbD1dL4DG0famvEuGyzF14PjGRlST9zSxASd0KUGoauOwrb3FKp
-         fDnPJghBhtUqL2p9HJimPVZTb/eiuTd5aaOSyTZhfXNLqbrssSbEFigKmFIUaAZo76un
-         TOJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXfJAVn+HISIU8qt7//C2v7oeS5VcAj6KEfeiOa+n2dedteSttrF/JnrEMBKvmV2FW1F/Hj2UBZf9ZV83rG+j+p@lists.infradead.org
-X-Gm-Message-State: AOJu0YzegpY+uQM9vZbhGur8k1ttVJ4WoZY4WpZXuVhVfM2v7Kg/0Oho
-	/CJgpJsZIB3DB+cUFN+E/zInaOJQlhQam24VmFpDskwF1ufumf/xm/HJAc50WBfFznv31pK32oN
-	WSjwpqedy0sbz/stdvKraChexrs79FHWX+GU+f0qbTbcDH5lvOi+BjXbxxK0yE1GGwUC4cTxk1W
-	aQrFcXMyU52/P1Y3G1CLKKIS9VTolsdiC7nm3oh52pV9B8XcwqZDtOwGa5tVAYKrXJewrcgg16O
-	YqDfwqUbf2v1RIt6oILP0gvX9pL7Pa5bK4=
-X-Gm-Gg: ATEYQzyQbwBWTTroDCnE2H7p+I0SMkYBZC5ph9jInFzGeJBUJ43ZOI+3R5OSHlDSBsq
-	1/hS28N67OJE0wCAKtP5DVUwK3iiffqf/pnPjO3UbRz21hIwvfXHFBUGdoUQf5oRVmKufT/5qZp
-	w/qnL6gPBOF0xFg1/TNBFUV0qjVynMtAMYoKmcxLihjIvjYvxX1+zgNY60RVXna+xwski5O09xu
-	DWjR8YwJER4noSIHOSdP2UZKaAti1wJY5yseOBDI5wlC0zMP9EBsdSVLxxp6L+4snp1/HPnTwtL
-	aemgnxYDulA9kol/PKpcuI2kjqJxrZqlNJMKRHBtGAntcvkf7U/sw5sXTXn+Kt/ZDHVVdfTiY0q
-	ULcEwQcLVaRdDwH7MPuXDoJ4GzNaUJG9uU/QNvXwLfDakCtFrKnhbMkZXXQ3xOmui7ka1FLFy+b
-	STsFta59b9aw==
-X-Received: by 2002:a05:690c:d81:b0:79a:b75e:1509 with SMTP id 00721157ae682-79bde0ea7aamr138058457b3.43.1774896282870;
-        Mon, 30 Mar 2026 11:44:42 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com ([144.49.247.127])
-        by smtp-relay.gmail.com with ESMTPS id 00721157ae682-79cba07355csm6407887b3.17.2026.03.30.11.44.42
+        bh=M1E+3WVXMJwlqaN80KkJm7QShEoP0ecOMzlPB5qaAL4=;
+        b=Bpy2dlwKn7PHYHQIEZj/B9zItYxm8pwf/StNb5RD5cWp6G6Jfv08k1H1q9SmMlTfmy
+         k4p+bMDaEVmlUs6wFytEhlbIt6jFTddeKVWuVPNJAuqGii6Q9Ec/zINj/Mq2g/P6ct1H
+         KIPwZTP8+fo4QuxgyHXsLfEYUR37Ys+FrFV3t3xI9rKhYbcIqDDegiGNmPVD1Nt/gGNw
+         pWVMcDxkhC7YN8gBJ2qoFR+0VwCUcuW1hYw01LwLdnBWapYavSn0i4ygFIJyPrBxb3SU
+         fsDifb8zR9+YP5Ni/UGtFd0N1wfoE5zeplv8/SgQBWhUpD3vlhdCHs91l1bANEW01cif
+         n7zA==
+X-Forwarded-Encrypted: i=1; AJvYcCVoufgHNIILq5FDE3cr9Ny52KG7vE0GBz0CoAyblfU7aZV+e/EgSmR4MGYH6IK7NrB7ufwkOYqIOqUnAzY8ts2U@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPQaZ0IU8YaIt0agao8szeDl28NRY8lOkVdugZNY/C/VGmag7o
+	oXCchMDlpR+Bq6J6DrXcPMO9ZfQIHP+uDUZvEKO/P8UaDGKdLrY5iKU3kPZcqdZv7DlUmFT1mb/
+	XaoHzKyXVz1rSpQ+/lWMsoMnWcQm8jzMUoRbdyPdm8egLrfDu5ZO/szYM00YA2qw8JRGf4Gj2P1
+	RO6B1F6A46AjKk6v4ib1KM4jcrYlA04drXQ28zA4niSCWeJume5jkyHJa9gPGdhpU0yiYcpen77
+	UhAR4/0wecfd1AdOHfHmUU78w53G5lSAV8=
+X-Gm-Gg: ATEYQzwLg6LVMofAC5xB8B3NSuLjRUjQhuLv1koUQavWBt2EghIjiKmG7DFzVhII8D0
+	4l0fIdQ1EgP0gukckezuWKZHEjUrIDQGJVIwjhBPjEcidZBsQv8Q3Ntf+FQ6BtoBDLZxbHwxdec
+	SQOOSjkQQ0dpoTJkFiF70jq8eJxnc1z4FhVt8nvTyqdUSQE8Cd5rXmWzYUpUxmt+k+PiWocw+0D
+	6pefa2h/2Mop8OVoMaGHam/4G/jnuAthKXVXAgNKg9DTi1NlomlhFcdqA68PMReqMVEo5feLMcr
+	zldrtAdUhij3hzY5zeQxFHhjsR34X3RM1/3FwD37Q13UGpY60fZ9Yw60HIaWYxkeyZdp/pEdosC
+	R/Oj0p+IFe9AiiWYs7U7mQQwLV0kmcSeoLD6wGpqZov7ZObWavB2ko8D1TiFPmrdfiBZ/wRIJ35
+	+qZRw3RJ0NoLSUhLP711erBqxGoimieRix+NyTh0RuRmUJIfXdhwBbevsFYFjBAA==
+X-Received: by 2002:a17:90b:1a8c:b0:35b:9aaf:21c2 with SMTP id 98e67ed59e1d1-35c3000d679mr11979238a91.13.1774896409668;
+        Mon, 30 Mar 2026 11:46:49 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-15.dlp.protect.broadcom.com. [144.49.247.15])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-35d9508bf40sm943348a91.8.2026.03.30.11.46.49
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 30 Mar 2026 11:44:42 -0700 (PDT)
+        Mon, 30 Mar 2026 11:46:49 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50b2cbe7223so157427441cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 11:44:42 -0700 (PDT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-50b220c72bbso176722531cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 11:46:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1774896282; x=1775501082; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1774896408; x=1775501208; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=a7bh5ixiifKbiWJ6yXLI+KwYDZ4p+qUAcuT1NVFVQLQ=;
-        b=CR8WAdJa0g256oiGXPwe0beQebDuQXxpf0wLAPAX1qAxhJGEoHeCm+KvC5ikGsaQxS
-         N/KBG2yh2sJb77RpVQQGsazqtffHNvNnze4YWKH8yO/gtHJ8bbdJgDt5hXMk2pVLiYZs
-         OfCiSWHazRbBtYBIel86WdKabx7A5Y03NHKos=
-X-Forwarded-Encrypted: i=1; AJvYcCVird4qUtpThVJ2InqfJFn2LUxIJpDIuWaJNA1XSM7cqrZSWIdvtJp7OCM7pPlXnmBq0VThmEyg0xtg2m2zzZXu@lists.infradead.org
-X-Received: by 2002:a05:622a:510:b0:50b:3a6d:db5d with SMTP id d75a77b69052e-50ba39ad465mr187299541cf.65.1774896281966;
-        Mon, 30 Mar 2026 11:44:41 -0700 (PDT)
-X-Received: by 2002:a05:622a:510:b0:50b:3a6d:db5d with SMTP id d75a77b69052e-50ba39ad465mr187298991cf.65.1774896281285;
-        Mon, 30 Mar 2026 11:44:41 -0700 (PDT)
+        bh=M1E+3WVXMJwlqaN80KkJm7QShEoP0ecOMzlPB5qaAL4=;
+        b=gZK7u+by+iiMf5aZ4HpYsZziPrpqfxPWWoeJDddZ+3EwKrqBJLa6f98u6W4Kvwjp56
+         8pijNCnlqIA9Wh9xKC4cAh8vZbMX6hjwekwqHqsvXvrtbZPIAVNYwtk3OmYtpaNPLrnO
+         JBq5Z+Xj4VW4A1pSYIZX8SeWNlFKVynhDdkXk=
+X-Forwarded-Encrypted: i=1; AJvYcCU+j1Te2hnHspMAX9P/t4L6/E6tJkVuCGC1Vf1E7mqo8X8La6Cv+MfwBE3PkGxBYrlY7pI1+QePeCz2A0uGKeq4@lists.infradead.org
+X-Received: by 2002:a05:622a:5591:b0:509:2618:cef1 with SMTP id d75a77b69052e-50ba38c8f89mr180654151cf.47.1774896408094;
+        Mon, 30 Mar 2026 11:46:48 -0700 (PDT)
+X-Received: by 2002:a05:622a:5591:b0:509:2618:cef1 with SMTP id d75a77b69052e-50ba38c8f89mr180653611cf.47.1774896407577;
+        Mon, 30 Mar 2026 11:46:47 -0700 (PDT)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-50bb2c96a5asm68164441cf.10.2026.03.30.11.44.37
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-50bb2cccbc4sm75020471cf.13.2026.03.30.11.46.45
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 Mar 2026 11:44:39 -0700 (PDT)
-Message-ID: <f39c38bd-edde-46f2-9b2f-2dbf22e80487@broadcom.com>
-Date: Mon, 30 Mar 2026 11:44:37 -0700
+        Mon, 30 Mar 2026 11:46:47 -0700 (PDT)
+Message-ID: <189a2bcf-88f6-4038-99f9-af11a4e27990@broadcom.com>
+Date: Mon, 30 Mar 2026 11:46:44 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/3] drm/v3d: Allocate all resources before enabling
- the clock
+Subject: Re: [PATCH v8 3/3] drm/v3d: Introduce Runtime Power Management
 To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
  Stefan Wahren <wahrenst@gmx.net>, Maxime Ripard <mripard@kernel.org>,
  Melissa Wen <mwen@igalia.com>, Iago Toral Quiroga <itoral@igalia.com>,
@@ -99,7 +98,7 @@ Cc: dri-devel@lists.freedesktop.org, linux-rpi-kernel@lists.infradead.org,
  Broadcom internal kernel review list
  <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
 References: <20260328-v3d-power-management-v8-0-94336830df5f@igalia.com>
- <20260328-v3d-power-management-v8-2-94336830df5f@igalia.com>
+ <20260328-v3d-power-management-v8-3-94336830df5f@igalia.com>
 Content-Language: en-US, fr-FR
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -134,14 +133,13 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20260328-v3d-power-management-v8-2-94336830df5f@igalia.com>
+In-Reply-To: <20260328-v3d-power-management-v8-3-94336830df5f@igalia.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_114444_236296_7E0B8989 
-X-CRM114-Status: UNSURE (   8.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260330_114650_735958_67482C87 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,18 +155,36 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 3/28/26 11:52, Maíra Canal wrote:
-> Move all resource allocation operations before actually enabling the
-> clock, as those operations don't require the GPU to be powered on.
+> Commit 90a64adb0876 ("drm/v3d: Get rid of pm code") removed the last
+> bits of power management code that V3D had, which were actually never
+> hooked. Therefore, currently, the GPU clock is enabled during probe
+> and only disabled when removing the driver.
 > 
-> This is a preparation for runtime PM support. The next commit will
-> move all code related to powering on and initiating the GPU into the
-> runtime PM resume callback and all resource allocation will happen
-> before resume().
+> Implement proper power management using the kernel's Runtime PM
+> framework.
 > 
 > Reviewed-by: Melissa Wen <mwen@igalia.com>
 > Signed-off-by: Maíra Canal <mcanal@igalia.com>
+> ---
+[snip]
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> +static void
+> +v3d_suspend_sms(struct v3d_dev *v3d)
+> +{
+> +	if (v3d->ver < V3D_GEN_71)
+> +		return;
+> +
+> +	V3D_SMS_WRITE(V3D_SMS_TEE_CS, V3D_SMS_POWER_OFF);
+> +
+> +	if (wait_for((V3D_GET_FIELD(V3D_SMS_READ(V3D_SMS_TEE_CS),
+> +				    V3D_SMS_STATE) == V3D_SMS_POWER_OFF_STATE), 100)) {
+> +		drm_err(&v3d->drm, "Failed to power off SMS\n");
+> +	}
+
+We would certainly want to propagate any errors from wait_for() here to 
+ensure that we built appropriately timeout and get a chance at debugging.
+
+Same for v3d_resume_sms().
 -- 
 Florian
 
