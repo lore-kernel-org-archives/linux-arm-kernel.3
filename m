@@ -4,96 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 222F31061B18
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 21:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 767191061B18
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 21:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xN/QkzMYPIlbhAvsrH44ktU+4AeFHj8GPyLj9MABI9Q=; b=FLYT3JbXpXmabLturJzTU2kslt
-	1KZSQoJBlr3AMgRjoTVM5wsGuneMIAlcMSPRo2TRgC996GqdbMScf9AYc7Qauh0Lg26+mp2KJX3ly
-	4pLTs5AoIzYy1YUk9r/KRtETj1e6wnA74xsDhvZTqr8uUGFPBefA9sSN2fTQOeoM0XUam+qUt9u5y
-	rn8epzOskHXmZZu9QCtgyWrdkrxV0tfOXxOvoBQKRP+w5y1W+earGwZ0kfutz+Tcx30xbzjNR7K/K
-	KH3JI22RWYi7Z9w6Am49Koq9V3gqZ8nEXHA9XmbttPQclQ5139IoCzv5Y9c0dlVFS+PHQEm50Pn9+
-	pFKHCYEw==;
+	bh=FJE8Ztq2yR97Wm+KeZdBFg3MTQmh8UlZm5qTyN3YQu0=; b=zyGQ0TedgLq+HhcE1YZQYApZEU
+	ePnVcJriDgVYtZOn2Bg3297h74TQNyOTxPjC6DOdh4gwff/eqCgmlj7eJtoasvKILAA8f7FfoL8ue
+	bafcN8b7uA7vcY0p6bxgUOXcanGaFGH5RpbqjmkNmuxtsMk3/5nti/kwmDh+A0kuiF4UiAIXSf29s
+	fBxz/uchPRqwUPhjSN2AjPGj5GiJUmJ9/r1Irme3di/MvPuiXhxKqFE7Dp1EoctFW/wb1zyiYOADI
+	H0mlQ06W8fZb7H9T/1KGzv6xKrw01RfBTrkTvTwzg2OnSiu9pAiE4gJi3HwZ1E5dz+eXWm1UsZB2F
+	jqZ8zznA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7KZZ-0000000BwCM-0war;
-	Mon, 30 Mar 2026 21:55:01 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1w7Kd7-0000000BwQX-0oou;
+	Mon, 30 Mar 2026 21:58:41 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7KZX-0000000BwB6-3MCT
+	id 1w7Kd4-0000000BwPk-2rFd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 21:55:01 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-35d99bae2ebso1912350a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 14:54:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774907699; cv=none;
+	Mon, 30 Mar 2026 21:58:39 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2b23f90f53aso27520395ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 14:58:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774907917; cv=none;
         d=google.com; s=arc-20240605;
-        b=YrEbd7aGTbjALZ5mVwbsPyTtkBjUaI55uUqHlVT++BC7oOdxKQNXYJ0Y0ea8vb06KJ
-         v+V6fNKAOLSyO5Xai2teDLnfN+BIgE4lruAMl6uHpV+gXwIIHNd7aC4G4tlHw6om5fc4
-         82a/tzX48NJF0nc0AIVHcHUZjsmuw1pmYP9vJItFgl8uHsdKNNS1/77LBWZft+5ayAs2
-         mfcBQUseQZMwHKzEQxQzDAWn7cWpHtqgBFFVGTQpiOckcX43Rr0kghtTMLkG94g62rvk
-         Jn6dYmTy1mHZhCJObSnNDT6UqTVgNkdSicMxYjs/IgvtyY/nelGmizVUgiwkUgnm60Db
-         HTGQ==
+        b=hPYACB8GFCzz44ht4kfl1s4oANb0eFtUwb3EX0ZsCxt4CW9kGhkHT17dP0xcRRPTJr
+         0CuJTuFrWxHj7bN7Uaj6mttQSc/F/rbIJEGCKGAmkqvowIegiRQ1Fgkf5d147+VgwiwK
+         VCTRhxBtiUXvYugG2q3trE4HVJe0D55Y3PN68u9ydAfiG1ttzcOlZXALaKC92nMdflF4
+         WV2Kn9Zf79vzLqb8Bl+KnpM+VHkF4KNnvq0sfX5SpEoBjmqtoqUw7/1rAcallYCR2Dlz
+         scEIGGIwf3WUJHOGbqPXA62xAFRc87IrN2Nm+gB8BM6ATEuLsfdStZJ9oyUXGwUIJDWt
+         qUzg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=xN/QkzMYPIlbhAvsrH44ktU+4AeFHj8GPyLj9MABI9Q=;
-        fh=aO3V4CaesXk/qFyRuiF9eiW4bWmMTsVGRmu36CfEBR4=;
-        b=juPr2Z9oy3gzph1MDD+zql2320fyjhqGZ3zODQo3N30ACVSOm5i/i5O5ZydJeKldvk
-         JKI25zk3HVjlNYIl9lAcbqv7vmMhDAFqDLfuJJGJYMetklGThHJg9oTzpbMc0/lLKwKj
-         uRyf//JgYhjB/eSIKlWEJiIjoocopasEaFWCRX7BtiwJZ18zDiKeekqRnjxcmjGsvvhj
-         ce8kXlFmt0ORex5Zi5z9XYlmqM2Dc6nRtEP3zlCcvn7GziaReX27JVtxbGwctJyoe/LD
-         EBFIbWvwB4rDNdkOCgYYdPrF3VefCD/OiHW3hWTcr8DACmP0SN98VMp2TG1xidYDkW+D
-         onLg==;
+        bh=FJE8Ztq2yR97Wm+KeZdBFg3MTQmh8UlZm5qTyN3YQu0=;
+        fh=d0LyEUVQbds17hPgyA+Er7BNHdQqE7T7qHsiMg3WTYs=;
+        b=VXqKVW6vkqAPJl3BDv/H8pZHwULoBS7i9AjiBdM3oAoVJ1IB1+AE9+IBnfmAvlIrQq
+         4LoIfrNIbrP6B11m/g82hLxX23LY4+LnXiA6SbmBUiUGjgmA+v8ulkJPj2Meim7WfAyi
+         nu3ej9XFVKVKvdRSYUYk1r/0gYh+zzuDwaalCQzDPx5QOSiq6CslJw/4/XmNLYE+zhhs
+         AK0AxCvbBM+CcbPNekSyCBsy5a99dXL+9kT1gHkpq/vydU+qfbDv/GH+ZYYbyGadxbzD
+         cOulH5phK0UIMs3N1vFzHdxusRKKG9nHIDjLpAgtqmwsYO4Gu9DSjoCRgZkW0uP8ufPW
+         Y05Q==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20251104; t=1774907699; x=1775512499; darn=lists.infradead.org;
+        d=googlemail.com; s=20251104; t=1774907917; x=1775512717; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=xN/QkzMYPIlbhAvsrH44ktU+4AeFHj8GPyLj9MABI9Q=;
-        b=El7/c1G8YpVwWbKgVj4rm/+p5A8y+mx1AUFocOYqGthqzJwxef+kFFyznCyJjeJppO
-         LsSY8RiswFLflhz/wTJYQkHVOqNo4gjcJe3nbBGcx6sRjCpv2+Y7mZ3Jko1bnYdRBYZc
-         DkVX0spL6MhO/rP7IoZAtwjJI4x5PkM6odK7RG/SJNxoNtdOewXg4Mx2u6kPloe/VbMg
-         eHsKsf8tz0xnn46Fx6c4p9t64sbB8pb0V5FpqX5oqkWJ7IyH+T0Wy547Bsf7lb0vmYsN
-         Wz7tD13Kw7z64q0yyS68Zw5MpCWa5P3D0BgPPJDrmogHNBYh0J7MSUqvGZAua7Iu4lbQ
-         VCWg==
+        bh=FJE8Ztq2yR97Wm+KeZdBFg3MTQmh8UlZm5qTyN3YQu0=;
+        b=TkrPrXbaVldDkjf4gL8V/SpGzgOpddx/5wBCaeoWv6v4xvuGN2NbpN1prVpmJiJ4Yd
+         REWS1TPJJuajIZQyXi1gst6IW5HVeLpGXzhW49NIIwiYc4Sbhqg/nhjhV/TLfMNjY61y
+         Re24f5+tStvnEncsJpdxXM2aKXo3A5Cw9HZNmIReEAmaRsQ7UVSTtz71xTKjDlDQOVi1
+         2J4Q7wMTNBG8hxaEs3pqrhn1i1hmRJwF/lacmNK8QkrLfxHtAHDCZd0mk8g0CzCSmLGK
+         8Sd5cDaJ4EmIRch2qRWRbKvz0RGTSyo+nW2TbiEtuqSE2TpUiW2XIXjBaLiQZPr7lqwm
+         jtKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774907699; x=1775512499;
+        d=1e100.net; s=20251104; t=1774907917; x=1775512717;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=xN/QkzMYPIlbhAvsrH44ktU+4AeFHj8GPyLj9MABI9Q=;
-        b=gOlVDcEg9Iv07J/wTMsKbVRMwE59PrtJ84asjY2wKILOrYZrGw1TA4WbDg5MoBFhxQ
-         Lz1lO8ed2Z/jxZTY2Yp7fXCmwB+SIXdgbfsXUADmZv3Wh4ufEPaUo5qvxumPLuSd1Lbz
-         jGMFJVou1O+NNUV4VB/VvEF2fj0AAn4PQi8g67EIW273lFAg7WVwKKSvH5xOd4AVMrAK
-         eAptDLvFxy/K+7FYilkOIK3vXhLBpjn8givWdE2djDmuptAfUPpYYgzz9joGtIa0/se7
-         LUSHibDWxMKhvU7uQlSAGRp3j/ls9PHaq8tfJDrh1G7hn3EGi2GvBeJe8sxzCtuhV0Ii
-         ucvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU9b2rcGgsQ65hkXJU2AIHIyVnLgNeFV3VvMjukmg2wVwToXhLW62xOEFkb0ODMdw2Xdlo6tpLt7UTzflF1ZW4a@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhKsYYSC2OsQceig/78gFRermc4wSCf8U8aY6xvcOX14y9ApQI
-	1avCB0hx4lIvcDkM7CLoaVpIEZAWwt64vnbyxIbLTcau5Cu3ECXTyF4OrsaAVL1VxhatF7yczJb
-	+2U6m2mjtmu0jf/YJBMKA7TH48vHfSyI=
-X-Gm-Gg: ATEYQzyH2wPtVnVq5pS+YrwTv+N0I6VFrABYJPHStQAG4lPFLfZG4PayO/38uQHUOj7
-	zmLIsoMJ9YIyhcg4bdDJQdAsdQmlp4Y4GNut25tKGAuGWeWbpjAzczbgW/ei3mkffulHi5ql7fV
-	JDBk5VvNkNKPHGRJsw18nCwGXmj5DdlpLGybx7L5Q/CSvEmLbAPafBcokP4S0vSwcoI5m6Vc+PF
-	/BqbDv+d7TeVM2Oy8JiX0WHwO3bws5Jhew9dZkd+IqN2X5Wsi6PYqkAttQsXnXgPj5W0DNyYOXF
-	N8XPnPFjaqS6owjmlPu9zlhGSJj4FMjk5uBldChhtUvzqJE/1zU=
-X-Received: by 2002:a17:903:98d:b0:2b0:60f1:de58 with SMTP id
- d9443c01a7336-2b0cdcfae43mr147607145ad.45.1774907698891; Mon, 30 Mar 2026
- 14:54:58 -0700 (PDT)
+        bh=FJE8Ztq2yR97Wm+KeZdBFg3MTQmh8UlZm5qTyN3YQu0=;
+        b=lMKz8pkDcegjik8A3gU6INXRiDpvdGS5wd6Q3yxuSoGxbpH3lwPa1LargVmPHrTGzP
+         qRlsuYxAM9v8CFwkDquWtp71OuXquWc0NbjmRM0od6+j56TJ8jf48nv9sL5895vD1XkC
+         0pCCrsPvQlPh+1jGu2RbPHeu6ZQGKREwcxbdp0+sPQgSCnWNUwjWBCqiHzZEIFdibngd
+         Hv+dWG3furxuxh72pfy1S5975mpgBsHi41xMuskCZUnB1jY9QRFPdxfdhqTnUZVKMxPB
+         cTfZwAKqGIYJw3Wv0cwvjDVozZyEp9SkN63VTbwZBb3KRYosln94SxY30oAIWpspAgfn
+         66Cg==
+X-Forwarded-Encrypted: i=1; AJvYcCWiWvw+W+rFvldDa2y9R2b/ZN4sSZ2K8RJscLy8vHMeacIdT+5fVE+vNMbSZx0i7YBBDBqN58NZCEoeIp8m/vln@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0gQN8OZ8qOvkRA34+TTTdqyNQlj0muRSl4ootrL6dewlcGvTK
+	2YUzh0rAqkV9GFgOrn3nc9FvwHVfBKP6Eew9WHL93qyOOwG3PVJ2eaqD3XwfW8vy9IaCAzVPAfm
+	NacaeCoYz0C7UbzbjXuY0JhvB10NrMrk=
+X-Gm-Gg: ATEYQzzQiSxrqqQTh90RPU1Rh8cWVBjcSXzjBSVVY4wsa0NUwZ7JrCNSnNVKIMMjfnR
+	FLlF/zrsNf8rJdBQvifnknpvowNeZKfm637z7x00ongatvhs3zGvzSmXUGUqk1ysLXvNGZUKzIh
+	k3IegquZmrDu9v+3Br/JoRcTz+GGu9kLmGWvoAXI5KTxfpNpbb3dQ9Gayt2sS5JlPqY8oLTFjEz
+	64hXgXsNxEFCI7G6Y4Qg/A3GnmWYE76EehoQnDhzMpTrl/ZDrQbZvHCuGF070zFM5aVO2OHTZ2x
+	y94vv4iHe+TapggtLWM9RqXjJeUMjjR2fkJrWSSWK65pUt2xFGY=
+X-Received: by 2002:a17:902:ef44:b0:2b2:58c7:2cd6 with SMTP id
+ d9443c01a7336-2b258c73377mr34992175ad.5.1774907917613; Mon, 30 Mar 2026
+ 14:58:37 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260326-s6-s7-pwm-v1-0-67e2f72b98bc@amlogic.com>
-In-Reply-To: <20260326-s6-s7-pwm-v1-0-67e2f72b98bc@amlogic.com>
+References: <20260326-s6-s7-pwm-v1-0-67e2f72b98bc@amlogic.com> <20260326-s6-s7-pwm-v1-1-67e2f72b98bc@amlogic.com>
+In-Reply-To: <20260326-s6-s7-pwm-v1-1-67e2f72b98bc@amlogic.com>
 From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Mon, 30 Mar 2026 23:54:47 +0200
-X-Gm-Features: AQROBzC2-9WP_iYu993gr4kZhNfXgWBsXWt6220pBOvgiFbgiwhI3kcyG0LtR-E
-Message-ID: <CAFBinCD1GPP82MEBDHg3BwCJg6JY5k2HksEt+kCB=YjnYTO7Tw@mail.gmail.com>
-Subject: Re: [PATCH 0/2] Add PWM support Amlogic S7 S7D S6
+Date: Mon, 30 Mar 2026 23:58:26 +0200
+X-Gm-Features: AQROBzC9sJkgJfCVL7Eb0aOMXTr94-EjxC4gSLY0i2t4mSqOPphK9W4gxOQsQKg
+Message-ID: <CAFBinCDOd_Xp3DqqFNDUEfJPq0U=f9FazNAh_=k2B2eOcUeu+A@mail.gmail.com>
+Subject: Re: [PATCH 1/2] dt-bindings: pwm: amlogic: Add new bindings for S6 S7 S7D
 To: xianwei.zhao@amlogic.com
 Cc: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
 	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
@@ -105,8 +105,9 @@ Cc: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_145459_837961_14870511 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20260330_145838_723610_28A2E34F 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,28 +122,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Xianwei Zhao,
-
-thanks for your contribution!
-
 On Thu, Mar 26, 2026 at 7:35=E2=80=AFAM Xianwei Zhao via B4 Relay
 <devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
 >
-> Add bindings and driver support Amlogic S7/S7D/S6 SoCs.
-There is an old report that got lost, stating that the current
-pwm-meson driver has an off-by-one error with the hi and lo fields:
-[0]
-Since you are working on bringing up a new platform: is this something
-you can verify in your lab?
-To be clear: I'm not expecting you to work on this ad-hoc or bring a
-patch into this series. However, it would be great if you could verify
-if the findings from [0] are correct and send an updated patch in
-future.
-
-Thank you and best regards
-Martin
-
-
-[0] https://lore.kernel.org/all/20241225105639.1787237-3-gnstark@salutedevi=
-ces.com/
+> From: Junyi Zhao <junyi.zhao@amlogic.com>
+>
+> Amlogic S7/S7D/S6 different from the previous SoCs, a controller
+> includes one pwm, at the same time, the controller has only one
+> input clock source.
+>
+> Signed-off-by: Junyi Zhao <junyi.zhao@amlogic.com>
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+With the two suggestions from Krzysztof added:
+Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 
