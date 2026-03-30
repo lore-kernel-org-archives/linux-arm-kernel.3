@@ -4,138 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2D33FF4958
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 07:55:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17D2DFF4956
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 07:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AUItjZv34EZ10kX4LACTE3wjNz+JATlDo11i94BXg48=; b=1hWCNOc6mgG/kWOLKACk4B26eI
-	PlLpYocBn41nMB0vG1a2vgSpMonZK28T2sA44ckBpletP8vBAn4MyMaQ9zlyTGgRaEOPIMlVFJrYe
-	YzSg5RzGs0OGnwU6b0QLzpebo10yeTHqUJrfxb84HmPFcQrXdISv8kGBqPBJ8huQ/NJw44J0RHPqW
-	4tf6hrqdoN4GSPa+pMIikobYN92lsJSxkxb9Jfb0oB7zxNTnSg6B30aMUZMs1UlsRBvB4ng7q+gNY
-	0Fg5Bgq8oLPF3aE81T3v+gYvWQeHyZdKE1DJavRbSZkqe/Eu/sK393DI5c5BKEhXxunB1lPfAArPL
-	sD1Wd6NA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+pIwAq3HCWXuZDd2BIwqIdBPUGwkfsHICB8846knP/Y=; b=m4MwzsUR7XatyT9JhFdcC6zoZr
+	lmHdEQ70+ND48xAGNsjQqvz5Px6MBcDJx9GSVQAR4R2VVsevoi/AznEuPvH0CCon5r9xPRMzA4XZf
+	0rkhRUlC91BXjzhfOZIHIkYbtNskaAUCYp7bu6uaxOouWi2DkQVdzzXVkYfBtu5SQslCeWyotdTbF
+	4aJTDcLhU4kyhhfiZak5xY3hMoGCyuvMfgSR/wJpz2KDO5cEzTWSC6WdQbwPL2MFK6z6/5SuDTdrG
+	8lOJEKiDdVZNv6a22nb9bQSgpRG5ibJvhdANrsoQnfmj+hnyaACb32Gvuc1gP55C0XaH0N2clpaS7
+	5P5PyEVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w77TI-0000000AnUq-2uOv;
-	Mon, 30 Mar 2026 07:55:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w77Ts-0000000Anb8-3T60;
+	Mon, 30 Mar 2026 07:56:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w77TF-0000000AnUK-0noT
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 30 Mar 2026 07:55:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:References:Cc:To:Subject:Reply-To:From:MIME-Version:Date:
-	Message-ID:Sender:Content-ID:Content-Description;
-	bh=AUItjZv34EZ10kX4LACTE3wjNz+JATlDo11i94BXg48=; b=Z+N3/3ws8BxgjbSF7KFHKi2wm7
-	GCYVx6dNWaOJMK9+3qKMGMJhd4bP6LTcOBXcArfENLrhlFakFw5E4yW2vMmTtr4Ob5HD/LGOG7dh+
-	bWa3d21kxew0F5AnCCTvsiXF2cmkz1FSuDCRoDx3Qbqjl7B6c39lPujWhm8YegB/+LFVWYnShgvTX
-	NRj5PkPL65ecXiLg+GPxVdqCNp3CXCHDYJ2TDLsuF400Icap2sx0Px2FikoceOVZXMJXjdble2EQn
-	oUqc0czwLRJAkcZHfpy8mSevHU4VeG/y/RB+EwRBbtP0TpNnem4mbFSDba+lhkf6JZniVcySTEqPI
-	bbWOcyzg==;
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w77TA-0000000DG1W-38tL
+	id 1w77Tr-0000000Anaf-0WVY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 07:55:35 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4853c1ca73aso40599715e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 00:55:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1774857330; x=1775462130; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AUItjZv34EZ10kX4LACTE3wjNz+JATlDo11i94BXg48=;
-        b=mA+a02G9c7zhX/cvaLeBmG0Q9neUD9YgmOf9z6mCwARXp82zA7yhSOcNMWkjdzrnh+
-         RPaZ4ao/FIEOcYm6r4Lu6oqGiLIQ1qsTsN8+YUUbSq1DGra5ymNBXnkhZf46J8wWPwa4
-         1uZZkTDzWd5s75shKIohqODFwJ/6KbzxRBMKzdVgCD8ngvJi/9tCGOMnnj4XHzRDVMrg
-         vu9AW31ZMYDF7wDuHJU9smJMREBDUDJvxZ/kIgZ2k5KvX081SY/FP6o2D9ib/OIQ79xb
-         9mKo9/r1951FvYK0U23GCmJULxdCgISIH0JBbe8NioIZ7xLiMrqPFBC2VFpU1OX8zQLm
-         CiOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774857330; x=1775462130;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AUItjZv34EZ10kX4LACTE3wjNz+JATlDo11i94BXg48=;
-        b=jgqlvW5/TNXFc3qIj0OArE6enT+1Yu4G6uiHyNwD0KkUJqPr5rpAhLy/01MduiZoRB
-         z1vkD90z4MNvQBbsCriPWtQ1kZUg8X5iZHvlc4QH70eSM17CGGF3ilTqshkAneUMrr7X
-         pNoU4183xo/RBsTv03MpGRbdRCwk3JfI2ZuhKInaHA/zcOVe2HmM+HCBMRCpkk+DBnaJ
-         Tbg6N7hWr+28pPWRGU4InVxceYeZ2IZdrZsMTcw2A9n4EcAgriItc7un1wiAOf7S5CJP
-         DsapGuHQr4OReEf89dzzxMgGmccXUAJFu8iX2MVJlfx+rMuWU3lHVMaNqZyPvpdRcSLi
-         IhvQ==
-X-Gm-Message-State: AOJu0YzQS3bQke7EyD07EodU5b8Uv3Osu762i7+t6dHTWYQELt5mlxVD
-	M6FsaQYvnSKEPcjgtmFvDbIKCb4hyXarX6YWBMSEoVLSCaPEbLmAi4p38wf3I9hlG+s=
-X-Gm-Gg: ATEYQzw3Ti68AF7JAaFKXBNI7yks3mNL83XLJlgWWeMwl4DQs2sANkjAfQ3aWWVHzYL
-	7uPGvHU8sAc/6Ripi01C4H5sF8WJt9K99wOUk9wnpXuGc2UeuvuWDS0BSHh9LhEtFwgRJxsUHFw
-	4U7+ij8p3i5w962jMd5gpKQ6ZyAbhZn7/uLGNOT+LxLgJqSrUh9FrEa+FE851pk745iwZF30UDz
-	oQOfPlKca6F2b21/03uHOuRq1RNZ0gqQbuUGbfIch0F/SX5s+MUaXVmPIVOzJBLl6A7GR72yOJL
-	y2yf//wJOnQ6xaIrRKp6gxHGAGWQFh0U6E7kOQghhWXDiBzqs7Y5L6Tc4ay+iY9qGcJHYxlZNdk
-	pyd0cV06Fwch6tnFxHWKi0V4/2c374n236bAziPnygwscnzBdhJOFKFu32papNQwUxwnum4NBBk
-	ZLLQHvniF5b5XhjaLFOrjSYqZ6JWsM1RgYUfkdMc54+v/FlkKHbpSf/kW4n9HzDgEI/RChfQKe4
-	DInKCc=
-X-Received: by 2002:a05:600c:4f91:b0:485:3f30:6250 with SMTP id 5b1f17b1804b1-48727eda62emr178938295e9.20.1774857330208;
-        Mon, 30 Mar 2026 00:55:30 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:106d:1080:cb3c:d0d2:870b:6ad0? ([2a01:e0a:106d:1080:cb3c:d0d2:870b:6ad0])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48735faac9dsm60393575e9.0.2026.03.30.00.55.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 Mar 2026 00:55:29 -0700 (PDT)
-Message-ID: <416d42a6-8d99-421c-91aa-e705f23576e2@linaro.org>
-Date: Mon, 30 Mar 2026 09:55:28 +0200
+	Mon, 30 Mar 2026 07:56:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 75510400E4;
+	Mon, 30 Mar 2026 07:56:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80D01C2BC9E;
+	Mon, 30 Mar 2026 07:56:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774857374;
+	bh=zeS1OLBakm72PzeJc5HV4iNGdedBLFN7CphCz1QzWAI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CFf7lppLX0kh0VCC+fJRTk8LMuRpksq1Aj+37CHBSG2UF7nf75g7Ikitw44+IJC1v
+	 Wj+PHZgPTgiX34N+Hb4vAv2QZenjouv01V4B3DBWbZDxLVRlOqpOa/KRuYC7g3lKan
+	 O5gAgRsyvbvF5M8orgAQ5J5X1lhWH2MAu92N7n4f16uJ8aWJ68yR1cTm5FT4dz5x47
+	 hQjOu+dliu5ZZflKEz6bNwIQdtl4A+YtX9YDL2gI6iBVU9dhWHIJApNQOovP+IusC+
+	 ltMgAYR2uvGSk+sDM2BJEG6lkAdloTVmwXTsL3qTarzq5NgJcoz/3T4SOTO5OyG+jI
+	 NZ3esFw0F5mYA==
+Message-ID: <3e0461fb-6d22-41d0-9366-5c5dd6af7c61@kernel.org>
+Date: Mon, 30 Mar 2026 09:56:10 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v5 6/9] arm64: dts: amlogic: t7: khadas-vim4: Add power
- regulators
-To: Ronald Claveau <linux-kernel-dev@aliel.fr>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
- Johannes Berg <johannes@sipsolutions.net>, van Spriel <arend@broadcom.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mmc@vger.kernel.org, linux-wireless@vger.kernel.org
-References: <20260326-add-emmc-t7-vim4-v5-0-d3f182b48e9d@aliel.fr>
- <20260326-add-emmc-t7-vim4-v5-6-d3f182b48e9d@aliel.fr>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20260326-add-emmc-t7-vim4-v5-6-d3f182b48e9d@aliel.fr>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v3 1/1] arm64: defconfig: Enable CIX Sky1 pinctrl, PCIe
+ host, and Cadence GPIO
+To: Peter Chen <peter.chen@cixtech.com>, arnd@arndb.de
+Cc: krzysztof.kozlowski@oss.qualcomm.com, geert+renesas@glider.be,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ cix-kernel-upstream@cixtech.com, Yunseong Kim <ysk@kzalloc.com>
+References: <20260327114628.3800886-1-peter.chen@cixtech.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260327114628.3800886-1-peter.chen@cixtech.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_085533_004847_0C97A0DC 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20260330_005615_223101_DAB6A5A4 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,60 +116,25 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/26/26 10:59, Ronald Claveau wrote:
-> Add voltage regulator nodes describing the VIM4 power tree,
-> required by peripheral nodes such as the SD card controller.
+On 27/03/2026 12:46, Peter Chen wrote:
+> Enable the CIX Sky1 pinctrl driver (PINCTRL_SKY1), CIX Sky1 PCIe host
+> controller (PCI_SKY1_HOST), and Cadence GPIO controller (GPIO_CADENCE)
+> for the Radxa Orion O6 board which uses the CIX Sky1 SoC.
 > 
-> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
-> ---
->   .../dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts  | 90 ++++++++++++++++++++++
->   1 file changed, 90 insertions(+)
+> The pinctrl driver is a dependency for other on-SoC peripherals. The
+> Cadence-based PCIe host controller enables use of PCIe peripherals on
+> the board. The Cadence GPIO controller provides GPIO support for the
+> SoC.
 > 
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> index fffdab96b12eb..2450084d37642 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> @@ -6,6 +6,8 @@
->   /dts-v1/;
->   
->   #include "amlogic-t7.dtsi"
-> +#include <dt-bindings/gpio/amlogic,t7-periphs-pinctrl.h>
-> +#include <dt-bindings/gpio/gpio.h>
->   
->   / {
->   	model = "Khadas vim4";
-> @@ -45,6 +47,94 @@ xtal: xtal-clk {
->   		#clock-cells = <0>;
->   	};
->   
-> +	dc_in: regulator-dc-in {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "DC_IN";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	sd_3v3: regulator-sdcard-3v3 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "SD_3V3";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		vin-supply = <&vddao_3v3>;
-> +		gpio = <&gpio GPIOD_11 GPIO_ACTIVE_LOW>;
-> +		regulator-boot-on;
+> Cc: Yunseong Kim <ysk@kzalloc.com>
+> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
 
-> +		enable-active-low;
 
-This properly is invalid, please send follow up patch removing this,
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Thanks,
-Neil
-
-<snip>
+Best regards,
+Krzysztof
 
