@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3634C1061B07
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 112F01061B02
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:50:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+6zb5pMqXsUxzgfMgRUFvHEkkKKRmYwiibXMKLvzHDY=; b=qVROkD/RRNvwdBihb+hNWb0/c1
-	V++iezOQpg89YHAllEoGwEL0EBzEfUzRiEYZn4SrQSNctqYDLjnAp8zIl5JXETLA/X2BdAIF+wkUc
-	Lfr/WZQP1P/FL0fO3VB2e0XDLSEFXxyMUSXkDCV6jTxoCaCzRE9U1FMu8HE/ARDs7lG4IDRmNx31Y
-	0bnejQh1kkSa90igs7E+lfwp5SDpX7oYjFPEmgkiQrxP6peENjOrBJGevIwpvvwbPnZzAwMNprt/t
-	ssZI6rG8vpQsIrj1r6lQQgcRtSmhmutlL40zq9HN3Juh8oJTvFxuVE2Qcu5alrCChqPyOGBKkvvsA
-	uhYKa3Gg==;
+	bh=0ewm7XL//wKzak9rqEuTO/NA6ZyRaO+W3mEj3Um0y+c=; b=sTl8Y52XgoGyBcrNr6hFB9/dZo
+	SBwIIT5oyNVl6TeJlVrqGCXdJRT5th4VVkvxGKZz15mA+gw1dtbZ6PyiB0kCn1SLgMt3ErgN/mOUZ
+	fCS9j1LNCfKVEdFifNB0DwJuRYWVA8Mzty7yduFlhaYd3Ni+LbJwKxD7Z98GbB2eRlqcLuKuzOCcP
+	i+CsRDJkr8QJ522pBsgzZvPKZeIe46WXjmhDlLLq8h2vDE2zAELnKsaCIdtfqe6q3mv/eotqrN7nH
+	+Cet+6L79KZJLvRg60+Wu2bVC+0pk9uoD+gNKo7tp/uEHJGSFRBx/JouTwpqdR1MK0JW8QJNSJMs4
+	/Nmbs6bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DwT-0000000BTmZ-23Rp;
-	Mon, 30 Mar 2026 14:50:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w7DwS-0000000BTkz-31oH;
+	Mon, 30 Mar 2026 14:50:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DwE-0000000BTXU-1E3T
+	id 1w7DwA-0000000BTVR-46wg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 14:49:58 +0000
+	Mon, 30 Mar 2026 14:49:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A563160127;
-	Mon, 30 Mar 2026 14:49:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E669C4CEF7;
+	by tor.source.kernel.org (Postfix) with ESMTP id 6236B60054;
 	Mon, 30 Mar 2026 14:49:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A4FFC4CEF7;
+	Mon, 30 Mar 2026 14:49:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774882197;
-	bh=7j8yBkqQI9cz054zxle+5jUI341HVt5dkS3HCJOIz8o=;
+	s=k20201202; t=1774882194;
+	bh=bI5a4vjg5oY6tgfFgKml4ung/nTnLBJ+vk2M8tkHhIw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cT9sizgJPQ7mSotul7kpay4TCwtpMTyPnHuUMuiStrLo4qefSP+6OCi+hrXnlx6iK
-	 +n2qYmCRxmEQY7Dk7NUV/xTPUxiF+cYDsPLh3wM++0/snpEeZJ+NKJVMI6AAX+JUhb
-	 JxlHOt4rPJl4nvhu6xvHImkIxgwYe3xD1QP7tTdiSythrdElBILgAp1PsWnCV4Z4LW
-	 SY4vejQSa1ll4jRx96whcEphreAidj5KN9U8iYwgWrY5dVkjaEBzRss727kX4MP3nJ
-	 KQaObQXZoDeaKBrLJ8S/0rgZzdMdw4wfksd78nv5JmScuWH3uMq5Ju5AHuCzHk+STq
-	 7X3+vaWQAr22w==
+	b=BveURL9/pOmf3TALCKeuJ2ybwGhufrLj/ZMWpNAKRPMtrp7WQjYss/Uv2gyeuAi3i
+	 T8DnNkD4Q9fxIhOF966OzA0hw8LZDNtaoIJG0CVC93z0e2WCxXSpdLqvpKBjCj3MCr
+	 6fVCU5+qVNwfLhpVICG5jNDaz8aLIaiUfm6Dx8AAj/N5RBXqOPDHxf41FyxZm29WLE
+	 OfZT1rO76nCZBZIBlQhMjp0pomWTixH4YJizUFLF+MZ+Xs/iNXKErzmuEbEGQLsR0H
+	 If4xeStX8Mx7fCCNY922SDmdnxy2lFVN2KCCmsXfd2hZzNZFd6HJv1q09c/ae8Mejd
+	 rQUzqvGOjKHoA==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -57,9 +57,9 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v5 20/38] KVM: arm64: Avoid pointless annotation when mapping host-owned pages
-Date: Mon, 30 Mar 2026 15:48:21 +0100
-Message-ID: <20260330144841.26181-21-will@kernel.org>
+Subject: [PATCH v5 19/38] KVM: arm64: Inject SIGSEGV on illegal accesses
+Date: Mon, 30 Mar 2026 15:48:20 +0100
+Message-ID: <20260330144841.26181-20-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260330144841.26181-1-will@kernel.org>
 References: <20260330144841.26181-1-will@kernel.org>
@@ -79,64 +79,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When a page is transitioned to host ownership, we can eagerly map it
-into the host stage-2 page-table rather than going via the convoluted
-step of a faulting annotation to trigger the mapping.
+From: Quentin Perret <qperret@google.com>
 
-Call host_stage2_idmap_locked() directly when transitioning a page to
-be owned by the host.
+The pKVM hypervisor will currently panic if the host tries to access
+memory that it doesn't own (e.g. protected guest memory). Sadly, as
+guest memory can still be mapped into the VMM's address space, userspace
+can trivially crash the kernel/hypervisor by poking into guest memory.
 
+To prevent this, inject the abort back in the host with S1PTW set in the
+ESR, hence allowing the host to differentiate this abort from normal
+userspace faults and inject a SIGSEGV cleanly.
+
+Reviewed-by: Fuad Tabba <tabba@google.com>
 Tested-by: Fuad Tabba <tabba@google.com>
 Tested-by: Mostafa Saleh <smostafa@google.com>
+Signed-off-by: Quentin Perret <qperret@google.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/hyp/nvhe/mem_protect.c | 28 +++++++++++++++------------
- 1 file changed, 16 insertions(+), 12 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 37 +++++++++++++++++++++++++++
+ arch/arm64/mm/fault.c                 | 22 ++++++++++++++++
+ 2 files changed, 59 insertions(+)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 0e57dc1881e0..bf5102594fc8 100644
+index ca266a4d9d50..0e57dc1881e0 100644
 --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
 +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -551,23 +551,27 @@ static void __host_update_page_state(phys_addr_t addr, u64 size, enum pkvm_page_
+@@ -18,6 +18,7 @@
+ #include <nvhe/memory.h>
+ #include <nvhe/mem_protect.h>
+ #include <nvhe/mm.h>
++#include <nvhe/trap_handler.h>
  
- int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
- {
--	int ret;
-+	int ret = -EINVAL;
+ #define KVM_HOST_S2_FLAGS (KVM_PGTABLE_S2_AS_S1 | KVM_PGTABLE_S2_IDMAP)
  
- 	if (!range_is_memory(addr, addr + size))
- 		return -EPERM;
- 
--	ret = host_stage2_try(kvm_pgtable_stage2_set_owner, &host_mmu.pgt,
--			      addr, size, &host_s2_pool, owner_id);
--	if (ret)
--		return ret;
-+	switch (owner_id) {
-+	case PKVM_ID_HOST:
-+		ret = host_stage2_idmap_locked(addr, size, PKVM_HOST_MEM_PROT);
-+		if (!ret)
-+			__host_update_page_state(addr, size, PKVM_PAGE_OWNED);
-+		break;
-+	case PKVM_ID_GUEST:
-+	case PKVM_ID_HYP:
-+		ret = host_stage2_try(kvm_pgtable_stage2_set_owner, &host_mmu.pgt,
-+				      addr, size, &host_s2_pool, owner_id);
-+		if (!ret)
-+			__host_update_page_state(addr, size, PKVM_NOPAGE);
-+		break;
-+	}
- 
--	/* Don't forget to update the vmemmap tracking for the host */
--	if (owner_id == PKVM_ID_HOST)
--		__host_update_page_state(addr, size, PKVM_PAGE_OWNED);
--	else
--		__host_update_page_state(addr, size, PKVM_NOPAGE);
--
--	return 0;
-+	return ret;
+@@ -612,6 +613,39 @@ static int host_stage2_idmap(u64 addr)
+ 	return ret;
  }
  
- static bool host_stage2_force_pte_cb(u64 addr, u64 end, enum kvm_pgtable_prot prot)
++static void host_inject_mem_abort(struct kvm_cpu_context *host_ctxt)
++{
++	u64 ec, esr, spsr;
++
++	esr = read_sysreg_el2(SYS_ESR);
++	spsr = read_sysreg_el2(SYS_SPSR);
++
++	/* Repaint the ESR to report a same-level fault if taken from EL1 */
++	if ((spsr & PSR_MODE_MASK) != PSR_MODE_EL0t) {
++		ec = ESR_ELx_EC(esr);
++		if (ec == ESR_ELx_EC_DABT_LOW)
++			ec = ESR_ELx_EC_DABT_CUR;
++		else if (ec == ESR_ELx_EC_IABT_LOW)
++			ec = ESR_ELx_EC_IABT_CUR;
++		else
++			WARN_ON(1);
++		esr &= ~ESR_ELx_EC_MASK;
++		esr |= ec << ESR_ELx_EC_SHIFT;
++	}
++
++	/*
++	 * Since S1PTW should only ever be set for stage-2 faults, we're pretty
++	 * much guaranteed that it won't be set in ESR_EL1 by the hardware. So,
++	 * let's use that bit to allow the host abort handler to differentiate
++	 * this abort from normal userspace faults.
++	 *
++	 * Note: although S1PTW is RES0 at EL1, it is guaranteed by the
++	 * architecture to be backed by flops, so it should be safe to use.
++	 */
++	esr |= ESR_ELx_S1PTW;
++	inject_host_exception(esr);
++}
++
+ void handle_host_mem_abort(struct kvm_cpu_context *host_ctxt)
+ {
+ 	struct kvm_vcpu_fault_info fault;
+@@ -635,6 +669,9 @@ void handle_host_mem_abort(struct kvm_cpu_context *host_ctxt)
+ 	addr = FIELD_GET(HPFAR_EL2_FIPA, fault.hpfar_el2) << 12;
+ 
+ 	switch (host_stage2_idmap(addr)) {
++	case -EPERM:
++		host_inject_mem_abort(host_ctxt);
++		fallthrough;
+ 	case -EEXIST:
+ 	case 0:
+ 		break;
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index be9dab2c7d6a..3abfc7272d63 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -43,6 +43,7 @@
+ #include <asm/system_misc.h>
+ #include <asm/tlbflush.h>
+ #include <asm/traps.h>
++#include <asm/virt.h>
+ 
+ struct fault_info {
+ 	int	(*fn)(unsigned long far, unsigned long esr,
+@@ -269,6 +270,15 @@ static inline bool is_el1_permission_fault(unsigned long addr, unsigned long esr
+ 	return false;
+ }
+ 
++static bool is_pkvm_stage2_abort(unsigned int esr)
++{
++	/*
++	 * S1PTW should only ever be set in ESR_EL1 if the pkvm hypervisor
++	 * injected a stage-2 abort -- see host_inject_mem_abort().
++	 */
++	return is_pkvm_initialized() && (esr & ESR_ELx_S1PTW);
++}
++
+ static bool __kprobes is_spurious_el1_translation_fault(unsigned long addr,
+ 							unsigned long esr,
+ 							struct pt_regs *regs)
+@@ -279,6 +289,9 @@ static bool __kprobes is_spurious_el1_translation_fault(unsigned long addr,
+ 	if (!is_el1_data_abort(esr) || !esr_fsc_is_translation_fault(esr))
+ 		return false;
+ 
++	if (is_pkvm_stage2_abort(esr))
++		return false;
++
+ 	local_irq_save(flags);
+ 	asm volatile("at s1e1r, %0" :: "r" (addr));
+ 	isb();
+@@ -395,6 +408,8 @@ static void __do_kernel_fault(unsigned long addr, unsigned long esr,
+ 			msg = "read from unreadable memory";
+ 	} else if (addr < PAGE_SIZE) {
+ 		msg = "NULL pointer dereference";
++	} else if (is_pkvm_stage2_abort(esr)) {
++		msg = "access to hypervisor-protected memory";
+ 	} else {
+ 		if (esr_fsc_is_translation_fault(esr) &&
+ 		    kfence_handle_page_fault(addr, esr & ESR_ELx_WNR, regs))
+@@ -621,6 +636,13 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+ 					 addr, esr, regs);
+ 	}
+ 
++	if (is_pkvm_stage2_abort(esr)) {
++		if (!user_mode(regs))
++			goto no_context;
++		arm64_force_sig_fault(SIGSEGV, SEGV_ACCERR, far, "stage-2 fault");
++		return 0;
++	}
++
+ 	perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS, 1, regs, addr);
+ 
+ 	if (!(mm_flags & FAULT_FLAG_USER))
 -- 
 2.53.0.1018.g2bb0e51243-goog
 
