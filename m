@@ -4,70 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BAF2FF4946
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 05:54:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D6C3FF4947
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 06:03:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=afwAGoeIuqD9LHpOYuSbhahM72VWSVPp05L9wyA1vFQ=; b=rtgkxAPP0kSGh6KVL+iELs2SFm
-	b6C8558rt/Lvvns/hho/e4fwNZDgq9VbQpH1kDhKnjB0dZOLsTzxSZcJLi9Q4F1huzAwllHdI4+eB
-	VMvgR6URlfsueN/jWCNtGfWDGqWDWrBXnTwiVN3crmXEj+/0JE09stV/TPXyA7z0ZrlyJ/qwmBNFv
-	ax/+wSJ5muQ9ppJznW1pVdi+58c/aSx5lA6rPFnJr9ufAi5KiLZe+QfBBPn5MmuiqLdpzitkD2y3o
-	GtyUsFh8pCF1Iv3T/fjkIuY9SdNOFCOLs8ElO/0jPnDD2TKjRZtkV+avOgVUMm32gD25M/CjYIQhI
-	MBVm911Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4NV5KHMa91ytPkFWV8Phit+K6SI36of/L0YBVKeZbhg=; b=ibDcTag9XyVcccCdOmdte6ad8s
+	9Ec1CEZhA4qKPYMM99YflA1k6W0AJQ97+cZ3ZBndcRj4b5Nb1K3pDCwPVeTEebcCh4sR4yzOI1+Gv
+	J9kESHRc/5m5vF+B/poSrna05JQI6wLsNvDp2AduWoAySB3IfG6rzwtkq5UFSMTLHdv/7iX/2piW4
+	d6DLlDed4zNzIIC46kZUQvapqvcRpggGeL4AgU0kgv81ma3N6Il9Zk2NKdr51Yaalrz/wSdX+QxCq
+	BIX4OXe1g1dxdDvzB5S1SWYWwrIy2k1YjBOW/gPYk11RIOUb3vSzPK8u+U6xbK2ZpJRMhZUIc2ZsM
+	zEJI/Www==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w75a8-0000000Aem3-3FyM;
-	Mon, 30 Mar 2026 05:54:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w75a6-0000000AelY-29mD
+	id 1w75iO-0000000Af6J-2yws;
+	Mon, 30 Mar 2026 06:03:08 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w75iM-0000000Af5Z-0Qi4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 05:54:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 703491C2B;
-	Sun, 29 Mar 2026 22:54:26 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0E0B83F641;
-	Sun, 29 Mar 2026 22:54:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774850072; bh=dFIflD8J6Bfuj9Sl1pB2+4e1A5GxZPMlNoQIe6/wxQE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YJ7lOtVLOzX2QjKKKD1sjBjhxzV7JBGJOFdMdt7bvVHTOfSMo8+krSsKQYjTce3eO
-	 WsZ8LM3Cd0DIMleAXAFayUS4EZlr58dAA/kNnKbuoi0i/fH+sJr9ZzdK2OU3aKOdlo
-	 jl2v09wVfkWXczr3J0T/FZED7o3pSNep7NXgikGE=
-Date: Mon, 30 Mar 2026 06:54:21 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, sudeep.holla@arm.com,
-	philip.radford@arm.com, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@foss.st.com, peng.fan@oss.nxp.com,
-	michal.simek@amd.com, dan.carpenter@linaro.org,
-	geert+renesas@glider.be, kuninori.morimoto.gx@renesas.com,
-	marek.vasut+renesas@gmail.com
-Subject: Re: [PATCH v2 08/13] firmware: arm_scmi: Harden clock protocol
- initialization
-Message-ID: <acoQDQ_Ytezv8KPC@pluto>
-References: <20260310184030.3669330-1-cristian.marussi@arm.com>
- <9b574ac5-09fa-4e7a-b2bb-a339fbb319bc@samsung.com>
- <acPUxJ3N0QptmtlJ@pluto>
- <5980695.DvuYhMxLoT@steina-w>
+	Mon, 30 Mar 2026 06:03:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ro6EwkL9KPeDFnOD9G+XD25l8wAIkpUsiIFtoisQTt26aNxbFXaY3wNNEdW4sIFlX0QXBJQBoU0LIlW3L4Mz/xBBB1NU/S5ND6sU6QNA+IqMbvcSkOnozZLAYx3UvGYAjiwOGpka4t+UrSMQ8hZuAbuvtgOdjZYQl5pSleE/p7TP+MzQ8QKFNhlMiCdTDm96S+GIU0h/6EzMM7iAim0TL0Ij9VSHYlO9nZEvhGb7kYxyLUZeLu9kPC0aQAJcaC/JPUm322xiq/bRdMzSbnpAgYqYHREBz+kFrvjelo+LvVWSD2IIk3b9HlYE0jzj8bBcyDT6XRtjv13+3q7Vwf0G3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4NV5KHMa91ytPkFWV8Phit+K6SI36of/L0YBVKeZbhg=;
+ b=RIwNqzydR9wjO/v6HTcqfR9xNzyES3wuMTZJa0Ig3Nhgfo17MuyJToKMVQzSNxhVuOM0Mov61FuRln8t0byJRa565Bn/L1prTGi1TPLDGLffMotQhNuPIW9X5qpP2euv1cNa3wLuffk7DgzTZUj6sGup59OpB3MMrz2fb/cJBx4nYLmmvUlVyLiUuVrBOI3MsDsOKpaGWOwc7FzhRkmRlQu8v3uS9g6mjs4oeG1VmlAEo6k78k2SEyEoBEOrcLlB1sRJQ8VZsOqlJnLO9psHOL31hkCxdF2jh2FBbdUKLwv+hqIsYaVdcVU2lyiPTkmaOdR3yMltMmHUnOaj7bf7Dg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4NV5KHMa91ytPkFWV8Phit+K6SI36of/L0YBVKeZbhg=;
+ b=P5YoVCm8M8L1StmPeN2wp8Kcq8Kaz2I9LCyj5s6qf8Ht7eYHUWMwsmG02Aj1+7ARNMAYnrSBlCvSe9uGmVR3qs6lhkT+f361mRWEeAFRQ5kV+16+jsn24iAlKwwwnAd2HP6ecEuXU+oTzTCmqdI47AwEtMcSxCiJaQ1CxFfUuNF+lOnJ2sSjvzpkMVnDfnAHpUAP5fYu94x0ZZhCucONcOl8WiRWhNnjod5cvkiGFzNAo5nUH2sVzdwYZ1+oevzyvPLKzs0HgW03cLGMK1cg+Tpkvd1PRS9ou6u4mtdoCcqlToPG0K1GnkqUm4vL7y84xre7IXMVuYuAMiUVtOUt4A==
+Received: from DB8PR06CA0058.eurprd06.prod.outlook.com (2603:10a6:10:120::32)
+ by AS8PR10MB6892.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:5b2::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Mon, 30 Mar
+ 2026 06:02:52 +0000
+Received: from DB5PEPF00014B8A.eurprd02.prod.outlook.com
+ (2603:10a6:10:120:cafe::ea) by DB8PR06CA0058.outlook.office365.com
+ (2603:10a6:10:120::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.28 via Frontend Transport; Mon,
+ 30 Mar 2026 06:02:51 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DB5PEPF00014B8A.mail.protection.outlook.com (10.167.8.198) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9745.21 via Frontend Transport; Mon, 30 Mar 2026 06:02:51 +0000
+Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 30 Mar
+ 2026 08:05:46 +0200
+Received: from [10.48.87.93] (10.48.87.93) by STKDAG1NODE1.st.com
+ (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 30 Mar
+ 2026 08:02:50 +0200
+Message-ID: <48310ec7-490b-42d9-b3dd-46084a3a7efb@foss.st.com>
+Date: Mon, 30 Mar 2026 08:02:50 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <5980695.DvuYhMxLoT@steina-w>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] spi: stm32-ospi: Fix DMA channel leak on
+ stm32_ospi_dma_setup() failure
+To: Felix Gu <ustc.gu@gmail.com>, Mark Brown <broonie@kernel.org>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>, Philipp Zabel <p.zabel@pengutronix.de>
+CC: <linux-spi@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20260329-stm32-ospi-v1-0-142122466412@gmail.com>
+ <20260329-stm32-ospi-v1-2-142122466412@gmail.com>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <20260329-stm32-ospi-v1-2-142122466412@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.93]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE1.st.com
+ (10.75.128.132)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB5PEPF00014B8A:EE_|AS8PR10MB6892:EE_
+X-MS-Office365-Filtering-Correlation-Id: 73fa7b63-f492-441a-fb78-08de8e21fa4e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|1800799024|82310400026|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: HniyeHbHKUgJXGQpCM78AjVt6WGu4OBmXIFdv3fxLP+Hczam6/stXejVbevMkJp4UFiJMT3cSR3QSypjOXtieheHQ5+ueampsH0xQQbw+rzbQ26bBbH9uJYzMuUtWVAotOa+21ahJwA5GEoNcIjZ3NsNMs+kEazLzjI4NFtQ4l99o8DnTeCxNno7F1ooNzqYvvUZT7//6zlKkgWiA9X2rLO233uHlMoDil5pfzZ0rbm1FMFFbvthdi968+qYLbj8/HApxSVa2rVJnFYz0pY5xedmBlKNq6OEydxBR5FZB7Y9gr4VObE1dhpxRJ0R8xvx9X7ftwZVwTFVA+bvxjKSzafvPgxt4MbX/0rq8qkgxrQ2zvuz7sEAVfmikw+edt9tQgt2dubzmzQgA10mc7IokLj3n9IXa4NIFQNjsDW1c7YUExCtEc+wb+O6pbEiedGhxNXcFfl+zWt/zdHxzyRIGFmJglCeQwwpir9/jPt61Ts+aUPre/NttlwNA+X88Fn56QSeDFNhUdXjy7DNRodi4AbYCGGJB3/TJyBboqi4/PJ8sLevRYzos3wcnvEzJ/h6LxbKO8ll/ivGPAguDGWppcVAmhYJDcTjDbC1+ndKDnD6A94ju8lWR1Us6sEyAY23+cs2JrxZTatyKAXq/e3gA1GH1ZsQIOIREmB7SxbGeeqvDcDAtSFJ/Rjq1fWhyF3tfegwL8ZYgH+65bsGv+mrBz/h2jEZ5YacFZwOf1Ejz2G7PeJPY38dkOUs4C8lkRNBM/+7iDQJbqpEJQ2REinCnA==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(82310400026)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: cSCiCcOJ7cmwVF0FpkYPd/1jcWHd+9YW6OaVACi8XxRf6arJENQa/qmhDjnf8XMnQ+EvA+aYzSWN0Y5YIgo++ADMyUnBj7zpTj6/i4SxTYk+XSgOq3gPsqo2klFTR+krX/+KXkledzzSH5geBkRWRKk+QzaZyqyiFexjgGXMMvxA2hhiEbzpUz9Sy3f3eYeZHR/C+HAiPblsqIQbblMl+M1/xcq8evq8wmyngM2XXbEkRbrbjKHwJdCsWEO6EVU+9QXtlfmOdQMNIpWIghN9ODQfq7jMeGt0B4h2b9uQLgDHJsSCNM9Ybcq7iu7CR0dOhHmo+uLdcJZdtuXxoKC7iA+nv3+QkMkcvCJlV823b9i4pLnGlaiFGZx5PIBcHt7AoXefI9xwPiEErEpawGKCLwzA2Foltv6Pw/GK/cm3t0G+wzuP/pEHjJ793zbGd3P4
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Mar 2026 06:02:51.6517
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 73fa7b63-f492-441a-fb78-08de8e21fa4e
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B8A.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR10MB6892
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260329_225434_835009_E2DE98CB 
-X-CRM114-Status: GOOD (  34.44  )
+X-CRM114-CacheID: sfid-20260329_230306_175403_B354415D 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,96 +130,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 26, 2026 at 09:55:18AM +0100, Alexander Stein wrote:
-> Hi,
+
+
+On 3/28/26 17:07, Felix Gu wrote:
+> When stm32_ospi_dma_setup() fails, the DMA channels allocated by
+> stm32_ospi_get_resources() were never released. Add proper cleanup
+> in the error path.
 > 
-
-Hi,
-
-> Am Mittwoch, 25. März 2026, 13:27:48 CET schrieb Cristian Marussi:
-> > On Wed, Mar 25, 2026 at 12:02:41PM +0100, Marek Szyprowski wrote:
-> > > On 10.03.2026 19:40, Cristian Marussi wrote:
-> > > > Add proper error handling on failure to enumerate clocks features or
-> > > > rates.
-> > > >
-> > > > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> > > 
-> > 
-> > Hi Marek,
-> > 
-> > > This patch landed yesterday in linux-next as commit 0d8b0c8068a8 
-> > > ("firmware: arm_scmi: Harden clock protocol initialization"). In my 
-> > > tests I found that it causes a regression on RK3568 Odroid-M1 board 
-> > > (arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts), cpufreq and GPU 
-> > > device are not probed properly:
-> > > 
-> > > # dmesg | grep scmi
-> > > scmi_core: SCMI protocol bus registered
-> > > arm-scmi arm-scmi.0.auto: Using scmi_smc_transport
-> > > arm-scmi arm-scmi.0.auto: SCMI max-rx-timeout: 30ms / max-msg-size: 
-> > > 104bytes / max-msg: 20
-> > > scmi_protocol scmi_dev.1: Enabled polling mode TX channel - prot_id:16
-> > > arm-scmi arm-scmi.0.auto: SCMI Notifications - Core Enabled.
-> > > arm-scmi arm-scmi.0.auto: Malformed reply - real_sz:8 calc_sz:4  
-> > > (loop_num_ret:1)
-> > > arm-scmi arm-scmi.0.auto: SCMI Protocol v2.0 'rockchip:' Firmware 
-> > > version 0x0
-> > > arm-scmi arm-scmi.0.auto: Enabling SCMI Quirk 
-> > > [quirk_clock_rates_triplet_out_of_spec]
-> > > scmi-clocks scmi_dev.3: probe with driver scmi-clocks failed with error -22
-> > > 
-> > 
-> > Yes there are multiple reports of issues on this hardening, the series
-> > is on hold and wont go into v7.1 as of now...it needs some basic fixes
-> > and various quirks probably to address non-compliant firmwares...
-> > 
-> > It will be pushed to next again with a few more fixes in the coming
-> > days and then we'll need to figure out how many quirks will be needed on
-> > top of that and if it is acceptable at all...
+> Fixes: e35a7607e05d ("spi: stm32-ospi: Set DMA maxburst dynamically")
+> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+> ---
+>  drivers/spi/spi-stm32-ospi.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 > 
-> Just for the records: imx95 (maybe imx94 as well) is also affected by this.
-> My board doesn't boot at all, because all the clocks are provided by SCMI.
-> 
-
-Sorry for the late reply, thanks for the report...
-
-> With this diff I can see it's the 'ext' clock
-> -->8---
-> --- a/drivers/firmware/arm_scmi/clock.c
-> +++ b/drivers/firmware/arm_scmi/clock.c
-> @@ -1253,8 +1253,11 @@ static int scmi_clock_protocol_init(const struct scmi_protocol_handle *ph)
->         for (clkid = 0; clkid < cinfo->num_clocks; clkid++) {
->                 cinfo->clkds[clkid].id = clkid;
->                 ret = scmi_clock_attributes_get(ph, clkid, cinfo);
-> -               if (ret)
-> +               if (ret) {
-> +                       dev_warn(ph->dev, "scmi_clock_attributes_get failed for '%s': %d\n",
-> +                                cinfo->clkds->info.name, ret);
->                         return ret;
-> +               }
+> diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
+> index 52997c3f7174..34498939bcdf 100644
+> --- a/drivers/spi/spi-stm32-ospi.c
+> +++ b/drivers/spi/spi-stm32-ospi.c
+> @@ -923,7 +923,7 @@ static int stm32_ospi_probe(struct platform_device *pdev)
+>  	dma_cfg.dst_addr = ospi->regs_phys_base + OSPI_DR;
+>  	ret = stm32_ospi_dma_setup(ospi, &dma_cfg);
+>  	if (ret)
+> -		return ret;
+> +		goto err_dma_free;
 >  
->                 ret = scmi_clock_describe_rates_get(ph, clkid, cinfo);
->                 if (ret)
-> -->8---
-> > arm-scmi arm-scmi.0.auto: scmi_clock_attributes_get failed for 'ext': -2
-> > scmi-clocks scmi_dev.6: probe with driver scmi-clocks failed with error -2
+>  	mutex_init(&ospi->lock);
+>  
+> @@ -975,6 +975,7 @@ static int stm32_ospi_probe(struct platform_device *pdev)
+>  err_pm_enable:
+>  	pm_runtime_force_suspend(ospi->dev);
+>  	mutex_destroy(&ospi->lock);
+> +err_dma_free:
+>  	if (ospi->dma_chtx)
+>  		dma_release_channel(ospi->dma_chtx);
+>  	if (ospi->dma_chrx)
 > 
-> What's the idea of how to proceeed as apparently several platforms are
-> affected?
-> 
 
-The series is on hold of course due to some residual bugs and all of
-these reports of misbehaving firmwares...as I was saying elsewhere we
-dont want of course to break existing boards in the wild that will most
-probably never get a FW fix, BUT at the same time we do NOT want to
-legalise/normalize this out of spec behaviour by leaving the kernel
-code as it is...I mean at least we'd like to try to discourage this
-mis-implementations in the future FWs ...
+Hi Felix
 
-At the end, this could mean some quirks applied to multiple platforms
-and vendors and maybe some relaxation in the checks, certainly some noisy
-annoying logs on the side :P
+Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
 
-Thanks,
-Cristian
+Thanks
+Patrice
 
