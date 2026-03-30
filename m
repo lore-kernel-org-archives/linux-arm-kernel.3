@@ -4,93 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D3B8FB3CE2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 09:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63F74FB3CEA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 09:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=evkirLKGhh0WuOBuZT2IPb0j74uGRBwEy0ZVb1MgXNE=; b=LFKzqcgHKuHctP9Xg9Tt3A14YG
-	zMCZYqkwLWW2c2OlsB3OG7jKUDEBmuB7vpq+n7wBxVNXIHtSrfGMxAMEflpCqu8RP3kFxScrz5kmA
-	2i1Gr5ZB8Xo14frCmy6JLbqnyMoBnB5NbbECvi8osCn9aVX8+QyC5A05xl4VqP116Snx5G2H/ohED
-	zZAjw2nZz+vTO7SOl54hCW9ZpoBYqSfCQrggUCBhLGzkm/L4cgl9h6dWrSZGQWmj8kxhvWxVHH0w0
-	AfRZlALNssM+XF8qLErAx3w2CSg1o+n50Q1ffZUCs0jRMK9b6M6/TeYysGxgFBYdGQ+CM30OenDeB
-	Plv3EuCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dw3GlJzRigow5MEAZRBZ9gfDU7AZvtgosUcNlmBiH4s=; b=mffjnsoaK/yQfoJaIgFbwEu9Hm
+	vcGcwxfyEWa6LtNwWy+kocotHK+bGPQVWKcOW3XZcr93RFzo4VY4/H1uaA6uzpDRplb7a/2jEqS3g
+	7SxlZUK3E8zQXQ+BkL2mqzenm55hia+W0cQdxuOIZMm1XgUjyalAkr1Tb8DBF8qf5muRfYTsdfQGQ
+	w74jJtq+KFJrQsG2Iruu223RsuofEB/T1bYMHVapNsinTCbVNi6Tn6fHUxYXNUsidygUWiNUP/uOf
+	WZ4Lj+ksfGMpjXBowIY1Y06jLs5ubHbqWeFFTXeOVE/cI79g4PczzUk1qiSPgT43LFLPXBGTi9Xvm
+	L9asOfQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w78yK-0000000Ay88-4Asa;
-	Mon, 30 Mar 2026 09:31:48 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1w792N-0000000AyOX-2uHw;
+	Mon, 30 Mar 2026 09:35:59 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w78yI-0000000Ay7j-1uSJ
+	id 1w792K-0000000AyMt-3Vew
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 09:31:48 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-486fe2024a9so30101565e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 02:31:46 -0700 (PDT)
+	Mon, 30 Mar 2026 09:35:58 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-486ff201041so41886435e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 02:35:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774863105; x=1775467905; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=evkirLKGhh0WuOBuZT2IPb0j74uGRBwEy0ZVb1MgXNE=;
-        b=id74mqM8RdKCdJagM0dQ6MhgQtG9axOs1cHNd3VgZEIsvBi3fxmn4tHO7p9VzX59rv
-         uOSTLjJocrzr41/hnMskyN3/3AlReDgVVvcwM4LbJGnkivOFqVwNGEgCguELKTFhx2DB
-         2CVls23H1xbauKe7qsmIjIQCSZmzU2q9H8R2XfOHSsu3dIbJCv1AgS2mfo56DgKZTbkS
-         h/ar9sVKIEz28kqdHK6P8K+Nobm/4V77l/NmG78BGEugh7fFhZPtP5bB2lF6pR/mAlIU
-         09Jo4sWLT4gndh81I43Gv5xX9UO2Xlkj3NG9pTX55/t1sqn1GVKIaLJH7HnSv/lo98eN
-         RvQQ==
+        d=gmail.com; s=20251104; t=1774863354; x=1775468154; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=dw3GlJzRigow5MEAZRBZ9gfDU7AZvtgosUcNlmBiH4s=;
+        b=FE75r7DMVJeP0tMLHVVQM7dUi9flDRYMPMLGDDMUFHQhVEVyYC6bKsDqxivFEGNaS+
+         zbwz1R6Z4LgDiqg+hVQj9B4nB7sXypO10FhRPdd/9bRdxZMfKsEhUBVFp0kmn+zc1WQl
+         ++JkaYI0q7LbdSWqAnYs2A//Oq1p41FTWqgqHyEpcrNbMee1WQCZiZr9DT3/mh4JETk8
+         8T8F/TFOTnTRCSE3XMkFphs3KOx51U5KRor3f6pB1R30MshpCz1LfDbHnt0dTgptulHn
+         43PJxZJLFvv54bD2T8GfRoLCAClqXyAudAmxFhxPdcKj/QewNVYhikmknBpzvIhHjgmQ
+         6FHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774863105; x=1775467905;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=evkirLKGhh0WuOBuZT2IPb0j74uGRBwEy0ZVb1MgXNE=;
-        b=kSyXuHfo1/okCa2LbkWdnSngXjVrNPosT0Zwbz8EmAqNUyY0whg4MO5j5dK2Key5zZ
-         OSuadnmuW0O8zvS4v1rIMzjw4/Ff4s/dd3yZaRbB/I6thYaKOgiTe0/vNxSBv+g8SodT
-         v1zhVvUhXVepsY4npCbRtP2hJO4oV/4aPx5NqLnBupiXpFUNL71/xqvRkR16crvqQujC
-         jyZsxaWpe77qi1BEmmQbIVIAhKolCudBQ/cIgYt52gOSpLwHeFCaqjLy3uoAAFA/Uzwr
-         Q9GN6bb8XQNuRH6ZSXgET3GZKcVUsLReQICwes7GlgWyxF/CSlvL3dT/rd8OhWPaarFj
-         5uJA==
-X-Forwarded-Encrypted: i=1; AJvYcCXgExBIMWfX7BKlHPudsFGirssDzI5UhiImMcmyzCY4OcSUa2QUy9DXEt8jbgvPcuOmJDjclteZAdPTf7C5HxQa@lists.infradead.org
-X-Gm-Message-State: AOJu0YysYkcyoHVzIwimLBQvFT8cUGdL9HAC3Bj23PZlDzn/YNURxiNg
-	9KwhVVb5gRGY3ezPcAPoFmU3a3vnPCNTaGl1d7Mc8JhKKUxFUek1hhBv
-X-Gm-Gg: ATEYQzwxAnX0Y7iZdW3cEvydQFi9qvZqRRViTgic13PpdVw2Kaq6TZEH6bw3oazmrCP
-	n0xaxUHIDQAj+1Mm+rOxrhV3cwk0DszRruNedcq2rJU5zI0o+wphZrxmgbaZXWjez2HvIpkBC6r
-	rkP3GO+M6zt4l48DpQP1d1Dw9V8wfFmoSWPNzAlsGjxfTFGnxWXOpMcKwsEUm5822+EkX10jSL7
-	Jvm2YZowpvFzJwPsv3C6e31Y5BdJor8O4+aP6VYdFa7oSPw8BVLlzT3osirM2AZwbX1Jg0qKz08
-	DA5Izryt8jk8yuj0YpZVcQA83TEdMkUfVCYD12HRtrzQ2dIp0zfKn4N/PFSfqWYJTWURgA8JLgx
-	moXFZihvDmqdvwWF3ipgtmqXoL2eZlKxb/KuVS494PxtoOP5s7UJJLJ/5Yrhazc759A+eWROrO3
-	Nf7NrMYjQ1fojaQJ3+GypM14+P7pEfZVHs5RD8MWTm2ES3V6IF2yatRJZRZncsyEkx1r8Nfas=
-X-Received: by 2002:a05:6000:2282:b0:439:b811:11de with SMTP id ffacd0b85a97d-43b9e9d5e30mr20922607f8f.7.1774863104329;
-        Mon, 30 Mar 2026 02:31:44 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43cf21e9e18sm16796564f8f.9.2026.03.30.02.31.43
+        d=1e100.net; s=20251104; t=1774863354; x=1775468154;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=dw3GlJzRigow5MEAZRBZ9gfDU7AZvtgosUcNlmBiH4s=;
+        b=RYKv+7CvfKIr2vuUOSNjVmupQdHMUC8ftSdfjc2GIkFy1koL1uET0UqWds3O3/eTI/
+         LrfpSTsk3UJCK0h7wHIRFP486oK1XjKiArbSeAT4t6pIx+gILTSl9RJaLGoNL5/GHWbA
+         eRwgMWQ4LDvOXdAcWkXGK3olE/5X/qW2+R+/K7kTFdz+wVME9yYqmD4xxe3AblMlHPao
+         XLRhMbnHQyDacm36Qv6q/SCPAfMwo+wP/3jNaJsSjsVLg8ePfujSzCc34NVqfj56Wcng
+         KyeXG5aimRsK75CrPDkh34jkUe85DTc/vH+OYrXRAZDw2xrTfIPXIbxyyl3ZXUdrdpOh
+         rdtg==
+X-Forwarded-Encrypted: i=1; AJvYcCVLYWrqo+9xuDlyLHqiKe+Ja6p9eaXEjPm83n49aV0ebR5KzyxsEmqOaXH2JqD5f6/KIcuWYONKkIfEbJNPKoH9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6Rn8oUvcafduqJlV6XRSOe0qZ13TUgXTHrVf5cxnHsxXsnoKp
+	bamJI4uCu3ti5InQNO+jf2NAVwV8xpKkt/drn15pW06WRrjVgDyOJ2sL
+X-Gm-Gg: ATEYQzx+cN1Ub70L4u4SPxBKHwAOlLf53airx0LiJGf3vetZaDivOnjJjemSUgBNoMd
+	6D9UQ21A1niwis2jj/KZkcDUWR2KGqmhx4QGXPrVxF4+PmF/VgF/GFx1vVDD1asOF0U04S5jzMI
+	ECPpRrfRllDfMeQei4V4kNEmkaVJJPay4SFTSCDUS/4kvNz71aeBpQjljby6IDcYdM10+WgLZlC
+	Qg5Pk45RiWv224WhgV7h5zuZppsoR0o7V5L5+P9UTWXP7O6/Z8x8K3j9az8qdOB+3491sTR4URt
+	Ms1Y3cN+l03mYLClN2SLiQ/M8ICSgLTjEmqWBMZkewhYuZCmFN/p065Dc2WVTaIzvI+Dk3AqGnU
+	yyaTYRBlp3S7fpGueohYRs5VPnWW7RpBMwIYhAzfq2gRMmOOF3sx3yZDSiMHTmePxwZfPGQvXOw
+	67tv22rM1i7z48sqDIIAY=
+X-Received: by 2002:a05:600c:c87:b0:486:fe83:8621 with SMTP id 5b1f17b1804b1-48727ede17amr203752735e9.23.1774863354250;
+        Mon, 30 Mar 2026 02:35:54 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43cf1db08e6sm26884641f8f.0.2026.03.30.02.35.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Mar 2026 02:31:44 -0700 (PDT)
-Date: Mon, 30 Mar 2026 10:31:42 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Demian Shulhan <demyansh@gmail.com>, linux-crypto@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- ardb@kernel.org
-Subject: Re: [PATCH v3] lib/crc: arm64: add NEON accelerated CRC64-NVMe
- implementation
-Message-ID: <20260330103142.193e2a98@pumpkin>
-In-Reply-To: <20260329221821.GC2106@quark>
-References: <20260317065425.2684093-1-demyansh@gmail.com>
-	<20260329074338.1053550-1-demyansh@gmail.com>
-	<20260329203829.GA2746@quark>
-	<20260329225704.0eb82966@pumpkin>
-	<20260329221821.GC2106@quark>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        Mon, 30 Mar 2026 02:35:53 -0700 (PDT)
+Date: Mon, 30 Mar 2026 12:35:50 +0300
+From: Dan Carpenter <error27@gmail.com>
+To: Sebastian Josue Alba Vives <sebasjosue84@gmail.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-staging@lists.linux.dev, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	kernel-list@raspberrypi.com, stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] staging: vc04_services: vchiq-mmal: validate
+ component index in event_to_host_cb()
+Message-ID: <acovDyj3L4ORCn-H@stanley.mountain>
+References: <20260329062229.493430-1-sebasjosue84@gmail.com>
+ <20260329071616.507876-1-sebasjosue84@gmail.com>
+ <20260329071616.507876-2-sebasjosue84@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260329071616.507876-2-sebasjosue84@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_023147_094548_94DA3AFD 
-X-CRM114-Status: GOOD (  31.77  )
+X-CRM114-CacheID: sfid-20260330_023556_910860_C7F15968 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,62 +107,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 29 Mar 2026 15:18:21 -0700
-Eric Biggers <ebiggers@kernel.org> wrote:
-
-> On Sun, Mar 29, 2026 at 10:57:04PM +0100, David Laight wrote:
-> > Final thought:
-> > Is that allowing for the cost of kernel_fpu_begin()? - which I think only
-> > affects the first call.
-> > And the cost of the data-cache misses for the lookup table reads? - again
-> > worse for the first call.  
+On Sun, Mar 29, 2026 at 01:15:39AM -0600, Sebastian Josue Alba Vives wrote:
+> From: Sebastián Alba Vives <sebasjosue84@gmail.com>
 > 
-> I assume you mean kernel_neon_begin().  This is an arm64 patch.
-
-Well, much the same.
-
-> (I encourage you to actually read the code.  You seem to send a lot of
-> speculation-heavy comments without actually reading the code.)
-
-I have looked at the code, since I (mostly) understand the maths I can
-almost work out what it is doing - but all the conversions between three
-different ways of holding two 64bit values in one 128bit register really
-don't help.
-
-> Currently, the benchmark in crc_kunit just measures the throughput in a
-> loop (as has been discussed before).  So no, it doesn't currently
-> capture the overhead of pulling code and data into cache.  For NEON
-> register use it captures only the amortized overhead.
+> event_to_host_cb() uses msg->u.event_to_host.client_component as an
+> index into the instance->component[] array (size VCHIQ_MMAL_MAX_COMPONENTS
+> = 64) without bounds validation. While the kernel generally trusts the
+> hardware it is bound to, a bounds check here hardens the driver against
+> potential firmware bugs that could otherwise cause an uncontrolled
+> out-of-bounds array access and kernel crash.
 > 
-> Note that using PMULL saves having to pull the table into memory, while
-> using the table is a bit less code and saves having to use kernel-mode
-> NEON.  So both have their advantages and disadvantages.
-
-Indeed - so the 128 is really a 'finger in the air' value :-)
-
-> This patch does fall back to the table for the last 'len & ~15' bytes,
-> which means the table may be needed anyway.
-
-Nibble lookups on two separate tables (256 bytes instead of 2k) might
-be almost as fast even with the tables in the cache.
-The critical part of the table lookup loop should be the:
-	crc = crc ^ table[crc & 0xff]
-part (the rotate should get hidden in the memory read latency).
-With nibble tables is becomes:
-	crc = crc ^ table_lo[crc & 0xf] ^ table_hi[(crc & 0xf0) >> 4]
-on any modern cpu the table lookups will happen in parallel; so it
-should just add one 'xor' to the loop.
-(And yes, I probably could measure it, at least in userspace on x86-64.)
-
-> That is not the optimal way
-> to do it, and it's something to address later when this is replaced with
-> something similar to x86's crc-pclmul-template.S.
-
-That is one bit I do need to grok...
-
-	David
-
+> Add a bounds check on comp_idx before using it as an array index and
+> move the component pointer assignment after the validation. Use
+> pr_err_ratelimited() to avoid log flooding. Note: this file does not
+> currently have access to a struct device, so dev_err() is not available.
 > 
-> - Eric
+> Cc: stable@vger.kernel.org
+> Fixes: b18ee53ad297 ("staging: bcm2835: Break MMAL support out from camera")
+
+This fixes tag is wrong.  That patch just moves code around.
+
+I can't apply this patch to linux-next.  Is this another out of tree
+bug?
+
+regards,
+dan carpenter
 
 
