@@ -4,80 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16683FF495E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:08:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 261E210F3DCD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:17:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2mIIEb1EA+uewi2wstHd8yBhZNS073zT/E0vuu7ZcMk=; b=K8lGzAosdxSd070Eh2/9wVzIfh
-	WScgr10gGbms3qXFtlaP+13bGdpGInVK32lkK3SMmHpedbfZImxhJAePQcBuJ145STE4oM0y81oB/
-	/wBQgrlT93b+e8E7fMztzo6olFOR6S/SfDaE7SmDeao6uLUKSEWb8hUkxf0gvzYzzRMR8LKE7FlQw
-	L9vfLNeBeQBs4Gta0B+ph45SJJYsHBp9aZ14AoHrHG+bm8mdLNYt/W/FdITanNNIRaCHBv9uibFaV
-	MrrHwd30qGw/tJm//Uc+NH9vMR3mYNsCTAhM1P8GWnYaAyfz2wn//E7GhWA3z0TebtD5/22/kufT5
-	PV9WLfaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wN+nIHbhPNmjFHpBqYd3YAUW7yFmR/J6cPpK3jEio+M=; b=hljz6S2EZ0zigujJrea0BBf+ZU
+	MiTvHMtTf4sCPxNOwPF16V9kWU0ATt7aUftPu3S3ibEXplz4mqfXoWN1H/P7AUyLYL0kSgEgkdQYE
+	YiN6abawOAzhHRKy33DTHNnxJAPhkxAwaznoiJETSrH6dHHjNnlSkquDDudTg8O/fnLXLnurKXuko
+	/4n1a7vx2rB2F6Y4ug3d7mvtq+CQi1f4t1nCzBr/Vh3+5KC/wmV6N5zvWqP5rqwdORTXJhNM37oCq
+	hpEwmnR+OnALjxB/42oMF+d7sPqLIkes78zH9crkQVOmO8IROCevSn32DEh4J294fhXRu+OGG32Cz
+	44KRfDDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DIT-0000000BOFi-0ujk;
-	Mon, 30 Mar 2026 14:08:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w7DQv-0000000BP7a-0kSc;
+	Mon, 30 Mar 2026 14:17:37 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DIQ-0000000BOFH-104F
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 14:08:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A0EBF44579
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 14:08:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87CA3C2BCB5
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 14:08:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774879729;
-	bh=UBMvKa6530vLa0XbCReC9z5oa2AyiAgd7zjDJyxTv74=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=uuP7Z1KsMgAA6tSsPe2Z5q0aw+WmtfZ+YM3g7RqLtOGZbCjBUCFDGPXKx1sZgMUTW
-	 5Bv24X1+9iOsLr8H5S0AxGPl5YVOjUUerA2gE4NkPS6v+P8//CqoiKR3akGiuY/9nn
-	 lfPWH9fALC2uJtMI7+dGs+kcW4lLy1bGguXutCbJffPStgYy71J8RZrhVBGFGPQ/D5
-	 F22RwOEq+Vly6dJixo51icP4mdgf9gnXn3g/rAQ04jobWUTbFQ8h/DfIOkctYqrTt/
-	 clayt7zBzx5tFb6Osuqcdlzia+Eccuc4WB2rwJE9J9TxMCXDdnVPdarIcRLwkCgrRr
-	 pd1UrbPCRMpEw==
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-38b13652c87so38265591fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 07:08:49 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWFcFSdy8Og8KW6KCJfI34sIjDdbtWyBQOThw8krC82kGCijGG1R9LVbDgWuQFT2+PJsdXe1soUqoci48S/BzpB@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBWEZtiomNOuobWw25UZ4LE/BIacgBP+uiRzA5ake7dAbgjiJt
-	YQGDinhsX/9mh+IQTyToxAquKnLhME9fBYmPDiSCaT5v/2b9DoARrrOr7/V+GMo2B1hz5TINr40
-	wC0eES7gdu6Ku6aNMJlA4mhWGZy0LdxaMFYDh48sR7w==
-X-Received: by 2002:a2e:a548:0:b0:38a:43eb:239e with SMTP id
- 38308e7fff4ca-38c73192b65mr45193471fa.13.1774879728025; Mon, 30 Mar 2026
- 07:08:48 -0700 (PDT)
+	id 1w7DQt-0000000BP7C-1tn8;
+	Mon, 30 Mar 2026 14:17:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1774880251;
+	bh=YXD0cPHX7FzEdOQwXJrWO33JjySneVnOOD3EPxs1EoY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=fK97Qm2wvpdCOdiM3bHzyQ6O171iALrqVd43ZjNhW1jyvVmbT5I2RTOj0tnLJagSV
+	 4MkeRWKdMR+dW9/OKSUj14m+CWW+PV365Lw1Gg/Zq6HZEWavUKd7olgJ9PjjBMWzQG
+	 dO0iRxrgC1xuq1+ocvuqQXe8sQ+K7UH00ZJWvakonhpJY0IwXQ/lNHFW1LKz+URXLR
+	 qzOW5CSpjvfQNTxT4y46Np1DpriMNxgdwWjjUZhLsH23HZE4Glv9bXGby8SwFCmvJA
+	 X8lRcLyGeL4IMgwPJItaqhdTgVH4W0RAVR3ny+Z0CYMm57iv+yqRfj/jl0Z2GsmMUU
+	 DBHrpsOJkhzAg==
+Received: from [IPv6:2606:6d00:15:e06b::c41] (unknown [IPv6:2606:6d00:15:e06b::c41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1671317E4686;
+	Mon, 30 Mar 2026 16:17:28 +0200 (CEST)
+Message-ID: <c177cd8ffb59ea63a26906577ba737677551cd0d.camel@collabora.com>
+Subject: Re: [PATCH 1/4] media: rkvdec: Introduce a global bitwriter helper
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Detlev Casanova <detlev.casanova@collabora.com>, Ezequiel Garcia	
+ <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>,  Heiko Stuebner	 <heiko@sntech.de>, Nathan Chancellor
+ <nathan@kernel.org>, Nick Desaulniers	 <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ Jonas Karlman <jonas@kwiboo.se>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	llvm@lists.linux.dev, kernel@collabora.com
+Date: Mon, 30 Mar 2026 10:17:26 -0400
+In-Reply-To: <20260327-rkvdec-use-bitwriter-v1-1-982cf872b590@collabora.com>
+References: <20260327-rkvdec-use-bitwriter-v1-0-982cf872b590@collabora.com>
+	 <20260327-rkvdec-use-bitwriter-v1-1-982cf872b590@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-yBgy0sQvaoJVzhLo4NBc"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-References: <20260330-nokia770-gpio-swnodes-v4-0-b68592e977d0@oss.qualcomm.com>
- <DHG5OX85I4LL.39U0RRBS0JXFP@kernel.org> <CAMRc=MfG1ZF=4T2WAw71Zb+4BFD2_4VSNRQZQsoGLE8gZxWcHg@mail.gmail.com>
-In-Reply-To: <CAMRc=MfG1ZF=4T2WAw71Zb+4BFD2_4VSNRQZQsoGLE8gZxWcHg@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Mon, 30 Mar 2026 16:08:35 +0200
-X-Gmail-Original-Message-ID: <CAMRc=Md4gD+9Rkg9MSe0OiYw-bS53nMAarFq_MZZHEq=yxYwVQ@mail.gmail.com>
-X-Gm-Features: AQROBzCZ3sn6YhqN7BcNEXBcWbVXRGN722aFgaQTZcIuW6VGsXjtEbj0I4HGOcQ
-Message-ID: <CAMRc=Md4gD+9Rkg9MSe0OiYw-bS53nMAarFq_MZZHEq=yxYwVQ@mail.gmail.com>
-Subject: Re: [PATCH v4 0/3] ARM: omap1: use real firmware node lookup for
- GPIOs on Nokia 770
-To: Danilo Krummrich <dakr@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
-	Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>, 
-	Russell King <linux@armlinux.org.uk>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>, driver-core@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_070850_468971_0AE4CD8D 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20260330_071735_668544_1FA1E646 
+X-CRM114-Status: GOOD (  21.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,32 +94,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 3:52=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.or=
-g> wrote:
->
-> On Mon, Mar 30, 2026 at 3:37=E2=80=AFPM Danilo Krummrich <dakr@kernel.org=
-> wrote:
-> >
-> > On Mon Mar 30, 2026 at 2:40 PM CEST, Bartosz Golaszewski wrote:
-> > > Bartosz Golaszewski (3):
-> > >       kernel: ksysfs: initialize kernel_kobj earlier
-> > >       driver core: make software nodes available earlier
-> > >       ARM: omap1: enable real software node lookup of GPIOs on Nokia =
-770
-> >
-> > Looks good to me overall (one minor nit in the first patch); which tree=
- should
-> > this go through?
->
-> If the first two patches can make v7.1 then I'm fine with postponing
-> patch 3 until v7.2. Maybe Dmitry's changes allowing passing
-> unregistered software nodes to new platform devices (where are we with
-> this?) would also make it in and patch 3/3 could be smaller as a
-> result.
->
 
-In other words: patches 1 and 2 can go though the driver core tree
-into v7.1 and patch 3/3 will be respun next cycle.
+--=-yBgy0sQvaoJVzhLo4NBc
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Bart
+Le vendredi 27 mars 2026 =C3=A0 11:16 -0400, Detlev Casanova a =C3=A9crit=
+=C2=A0:
+> The use of structures with bitfields is good when the values are
+> somewhat aligned.
+> More mis-alignement means that compilers need to do more gymanstics
+> to edit the fields values.
+>=20
+> Some cases have been reported with CLang on specific architectures
+> like armhf and hexagon, where the compiler would allocate a bigger
+> local stack than needed or even completely freeze during compilation.
+>=20
+> Some fixes have been provided to ease the issues, but the real fix
+> here is to use a bitwriter instead of heavily unaligned bitfields.
+>=20
+> This is a preparation commit to provide a global bitwriter interface
+> for the whole driver.
+>=20
+> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+> ---
+> =C2=A0drivers/media/platform/rockchip/rkvdec/Makefile=C2=A0=C2=A0=C2=A0 |=
+=C2=A0 1 +
+> =C2=A0.../platform/rockchip/rkvdec/rkvdec-bitwriter.c=C2=A0=C2=A0=C2=A0 |=
+ 30 ++++++++++++++++++++++
+> =C2=A0.../platform/rockchip/rkvdec/rkvdec-bitwriter.h=C2=A0=C2=A0=C2=A0 |=
+ 25 ++++++++++++++++++
+> =C2=A03 files changed, 56 insertions(+)
+>=20
+> diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile b/drivers/me=
+dia/platform/rockchip/rkvdec/Makefile
+> index e629d571e4d8..11e2122bcbbf 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/Makefile
+> +++ b/drivers/media/platform/rockchip/rkvdec/Makefile
+> @@ -2,6 +2,7 @@ obj-$(CONFIG_VIDEO_ROCKCHIP_VDEC) +=3D rockchip-vdec.o
+> =C2=A0
+> =C2=A0rockchip-vdec-y +=3D \
+> =C2=A0		=C2=A0=C2=A0 rkvdec.o \
+> +		=C2=A0=C2=A0 rkvdec-bitwriter.o \
+
+Its just one function, with 10 lines of code, can we inline it in the heade=
+r and
+drop the object ?
+
+> =C2=A0		=C2=A0=C2=A0 rkvdec-cabac.o \
+> =C2=A0		=C2=A0=C2=A0 rkvdec-h264.o \
+> =C2=A0		=C2=A0=C2=A0 rkvdec-h264-common.o \
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.c b/=
+drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.c
+> new file mode 100644
+> index 000000000000..673ebb89002b
+> --- /dev/null
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.c
+> @@ -0,0 +1,30 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Rockchip Video Decoder bit writer
+> + *
+> + * Copyright (C) 2026 Collabora, Ltd.
+> + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Detlev Casanova <detlev.casanova@collab=
+ora.com>
+> + * Copyright (C) 2019 Collabora, Ltd.
+> + *	Boris Brezillon <boris.brezillon@collabora.com>
+> + */
+> +
+> +#include <linux/types.h>
+> +#include <linux/bits.h>
+> +
+> +#include "rkvdec-bitwriter.h"
+> +
+> +void rkvdec_set_bw_field(u32 *buf, struct rkvdec_bw_field field, u32 val=
+ue)
+> +{
+> +	u8 bit =3D field.offset % 32;
+> +	u16 word =3D field.offset / 32;
+> +	u64 mask =3D GENMASK_ULL(bit + field.len - 1, bit);
+> +	u64 val =3D ((u64)value << bit) & mask;
+> +
+> +	buf[word] &=3D ~mask;
+> +	buf[word] |=3D val;
+> +	if (bit + field.len > 32) {
+> +		buf[word + 1] &=3D ~(mask >> 32);
+> +		buf[word + 1] |=3D val >> 32;
+> +	}
+> +}
+> +
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.h b/=
+drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.h
+> new file mode 100644
+> index 000000000000..44154f1ebc65
+> --- /dev/null
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-bitwriter.h
+> @@ -0,0 +1,25 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Rockchip Video Decoder bit writer
+> + *
+> + * Copyright (C) 2026 Collabora, Ltd.
+> + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Detlev Casanova <detlev.casanova@collab=
+ora.com>
+> + * Copyright (C) 2019 Collabora, Ltd.
+> + *	Boris Brezillon <boris.brezillon@collabora.com>
+> + */
+> +
+> +#ifndef RKVDEC_BIT_WRITER_H_
+> +#define RKVDEC_BIT_WRITER_H_
+> +
+> +#include <linux/types.h>
+> +
+> +struct rkvdec_bw_field {
+> +	u16 offset;
+> +	u8 len;
+> +};
+> +
+> +#define BW_FIELD(_offset, _len) ((struct rkvdec_bw_field){ _offset, _len=
+ })
+> +
+> +void rkvdec_set_bw_field(u32 *buf, struct rkvdec_bw_field field, u32 val=
+ue);
+> +
+> +#endif /* RKVDEC_BIT_WRITER_H_ */
+
+--=-yBgy0sQvaoJVzhLo4NBc
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCacqF9gAKCRDZQZRRKWBy
+9NNPAP9m/C7TMvFwXyQT8rK+UCGFvzuLY32by5+QAQwsH+fP4wEAoC19z0cPX+2k
+voSc2sk6B5FI6fzPOJXJX9z9XlPO0go=
+=/Y4+
+-----END PGP SIGNATURE-----
+
+--=-yBgy0sQvaoJVzhLo4NBc--
 
