@@ -4,87 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E049FB3CEB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 09:41:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C98DFB3CEB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 09:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zZNGZDhto4jkAxNh9++YfrnwQanqMAXiu2o8XL7KzB8=; b=4bkL3WJp+UwScSmOWJzk2UKGTm
-	zX1I0BjJX7+TLo1kR/3WYMlR2fEcJojZXUfFSnWQzzxbGMNFsH9GcAFCXYMD3DbG8rnuchBC1EWQy
-	WIjetq/JLf0bvDiGxrXETVPpOBiXYz+2WxXAVZEXqinXYa48rlcNtsfmXws44SG30D37SqwcBOTkL
-	5800Lpo2QAdddQYbpAwcSemk6HgwRdnT/gu60vQVABbZLgiB9VAAJyeeDfgfwJN6oVSs4I2pLRFsn
-	tc71oLW2U2XTmTi7BBu9FEcCXUu2K8e4sjGh95f2ez6n/D7H0DYe6PryTFCA/FKXeqGk7+B4RJsAF
-	oJt8LPfQ==;
+	bh=Tu5sxxyowtNL3/mhbMSRdJ5Z3bjQfebpk3ZnVZ+JE2Q=; b=yTzPmjrg1kXUIdVSIDHiKrdPsL
+	GuzF1WAfwpd7Ik3GMMZIXOCVxpzvJhnQSTwkU5JmvvPLdB2eNo4mwfYKl6HRn3mywJ2vLzuqoF80j
+	a58YASLvlMtpBa4ZzKggmFO/nkwcktnz5rwMbHF1LQ78oUl/rKzatLdHPxZV8fD6lXsudPHpuLBcX
+	A3Ewzp3+LN1g6cjxtfqH5llhF8LnGHcWu+CmKTuvx8nr37A6Jmo+0E7WJKEl4xpMbWKWy2H30fegn
+	l3UnpaDPKYDaZilCbSVjL/zP005Vg0KgNFhQZRldkoYIYEVLxl1lCOItt6wN3iBwW3Zjaol9dBtcS
+	5dR2R+0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w797O-0000000Az1g-2xPS;
-	Mon, 30 Mar 2026 09:41:10 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1w79BQ-0000000AzKq-32l8;
+	Mon, 30 Mar 2026 09:45:20 +0000
+Received: from mail-eastusazon11012001.outbound.protection.outlook.com ([52.101.53.1] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w797M-0000000Az1I-2t7b
+	id 1w79BN-0000000AzJz-2Cqs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 09:41:09 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-38bd60d7a2cso40505881fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 02:41:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1774863666; x=1775468466; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zZNGZDhto4jkAxNh9++YfrnwQanqMAXiu2o8XL7KzB8=;
-        b=FMTbW4KJEhV5H7SbjZsMB7UpzbkauqliI4RAvYTq0CQ8CBc4dJCppNHdBRxJdwdwGx
-         u4jSvZS7YgThBTyCz6VkmVMoYk8mD3H3zjcZ/t/ajdVIKKYb9254Tqf0kdYGKMgcqLBo
-         70Gw45hzDTQ250Fsymig25M02q+rdkqsvYkp4Z0UdRKR9ZNRk1UUwnQC1r4Z1J+Xwr1r
-         +qDwyXeYrf43qqMmn+7yGAkOJS1Y5qzAHKoWGLd2HIvF3H9hsp3xeZQsTA3stjpTtM4L
-         tjP3Xs8wKgwncYp7fLzBLRV0gao4NN+/PMmxg2vsqATgSk3fehPaA3mU0OTLGSB5OiZI
-         e20Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774863666; x=1775468466;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zZNGZDhto4jkAxNh9++YfrnwQanqMAXiu2o8XL7KzB8=;
-        b=IxnK1s+y3DuO/wjxfS0+zf44ax5Ckdw8EjFQKHjjTFZSI6q5imwsRAYUr015bBlOci
-         wQO4kbGdM8juLfHV1dNQ38AP2m5LLSXEzfonNnovFx778b1rhiW9Vw0T2D8a/sBmrrdA
-         G1EHH4c6uHrj+kfgsMZZ/4qhlSnTH0bQsb+jqwAdXfrtgIgXOUVEayQUoEjZv8mLsj2F
-         B9w/8jbpumLIM1nfXGZg4l++7AR9LlCoLNT1CjVzRSqPAvNtNJSFvmbQR4jCQxzsERCQ
-         8N19I0fU2lsSkZaJKgvkOejmuzBKwtUgC4+nEl6sq2XP2nzZivEfE8mzdnMvXQI+OyP4
-         umYw==
-X-Forwarded-Encrypted: i=1; AJvYcCV3OueU5OtHcovDVd3ikdOwQjl+x1sFIam0Q2BpOUtwqu2elWLS0kxba37JyjXbpkZ2K2Vb9roVZ2FURHMbsWrB@lists.infradead.org
-X-Gm-Message-State: AOJu0YwlrPz5vDvQZoM+TUsqMqVsSr6Uxw/1tAUqbXv6pallwusgKKFj
-	MCqqB5nUqeJyU2aVxuSk6nD+iOqB2XZ1TbUNtxIpvK6SE+ussRa/muIhYyczpzdNIw==
-X-Gm-Gg: ATEYQzxWlN/91jaoXMnYFWIPZ7L36QQH4aiiF8RllZiyIXbiQv7gU0JlS8RT1e0vPAQ
-	9VvJSa/2v5KFSxehekfjh73Nv6Nuyf8hjX0pSz9xjUgMbAUu4NeAIYM2kAKVDT7V6RPL4/kCuar
-	Pf+hfNssRTwuW1iYs1hCzkLSnXPak2tqHoujAT2PBYC2wMcHIZiKKdE9kTucV8oaisl+HPvwUZe
-	fzsRiEDafH+OQbuO8KgtBfkWwWWq0cpUPH0ciPPFVuiRcByBFZtiBq3+5fhuMuUOqRd/o99UPC9
-	cWlo+WpnR3QRu5g/v9gJ4hDFGxk0WeBZzTvby1LAJ14UTQVWia/0CnpX89oXp7Z87ofahshO2gu
-	alLVBS4uDqsYoYo8sWdOAdBz+Uf7tA9VlcANAL6803KY5O9LYRupof5Kz0kbF41OgWq2XWTCR7z
-	jys/t0T3PTHv5urzDUCMaexd59/OchQGXG+C1p32h9ZmcKSyN3Wkm/KiEgoFppRL1ZZw==
-X-Received: by 2002:a05:6512:3f0c:b0:5a2:7a31:9194 with SMTP id 2adb3069b0e04-5a2ab80d971mr3942218e87.19.1774863664954;
-        Mon, 30 Mar 2026 02:41:04 -0700 (PDT)
-Received: from google.com (27.69.88.34.bc.googleusercontent.com. [34.88.69.27])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a2b145f1dfsm1563489e87.79.2026.03.30.02.41.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Mar 2026 02:41:04 -0700 (PDT)
-Date: Mon, 30 Mar 2026 09:41:01 +0000
-From: Quentin Perret <qperret@google.com>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kernel-team@android.com
-Subject: Re: [PATCH] KVM: arm64: pkvm: Rollback refcount on hyp share/unshare
- error
-Message-ID: <acpCq1qZCMFqocs3@google.com>
-References: <20260324172757.2147153-1-vdonnefort@google.com>
+	Mon, 30 Mar 2026 09:45:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tueaeQo+Tl8vjTdVu4/hPq1nEFuh91QbJd1UrXW6Q/3dqAkOTih+Y7kam7iPZjcuADSwnJlQ8i6AtydpBtPlFnGFpedXWtnMInu+tueBE2oMJNV/83ngRnBNk8jaR06cRrYU7cVJ701nyLncWD/rfma+6CmsbrP+suyNNnBPovjYUoR9U+jQSXGZLMNiL4l6H0uqLqr6KvWoRO4zkx1XJV4curbDBl0JBR7IIALlVviE+KsUHOtPlpC02+4eTZc0RiSEm3vULgZKH5TskYJUS24+LgXgx72rWh7AcZUqcwWM/1ySvD/ouT5ZFeUTs7EThbNxiqELASEyALPt9b2yrQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Tu5sxxyowtNL3/mhbMSRdJ5Z3bjQfebpk3ZnVZ+JE2Q=;
+ b=jJZJrCNd/WxyT/5gw/lYn/DEDuFWGf5TsnW4ThzOZZKmx1gUW36yjhFTqEdqqf1TD+kD6vuXR9bu9Pxhw3QQJJtM/V7TswHLAbV35Ry0S6iwLgmsQEWkNFKkC0QUqWQn7sGXzXpAtGD0S8wod3p45inpZppwUGdELasB7XI/2ucAr2QIQiA0YFkqzfD1wL76ZgQC46aJDVMgMPSw1Gkoe57aZTyB0xVoxVsxE4wGEVlDmcc/ZwS/lGcrDXx+m+Wv7BBEhQxwFJVoxq+ywQklkWu45zqIA5p0kvQ475uHqy5RVmwBec9ss0F7gkWEU4q/rSjNwQdlhVPz6+bBaic79w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Tu5sxxyowtNL3/mhbMSRdJ5Z3bjQfebpk3ZnVZ+JE2Q=;
+ b=xdOaHT0CDsSXFtUfqzQTYgP0pHmbLTA3On0OztSwO9snfAnSzwQ7lOrwN3abdtR6Etd4MwRf04gHYcSHkTSNfrPR2UIkyK6hp8Pv+R7cCGz6520TQ2oMW9xB67URqE2ZvbA+c7HPRRBvWXdLUkkubBu5Q0uIyX+OXO7sKCaTGHc=
+Received: from BY5PR20CA0035.namprd20.prod.outlook.com (2603:10b6:a03:1f4::48)
+ by CY8PR10MB7121.namprd10.prod.outlook.com (2603:10b6:930:73::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Mon, 30 Mar
+ 2026 09:45:12 +0000
+Received: from SJ5PEPF00000205.namprd05.prod.outlook.com
+ (2603:10b6:a03:1f4:cafe::8d) by BY5PR20CA0035.outlook.office365.com
+ (2603:10b6:a03:1f4::48) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.27 via Frontend Transport; Mon,
+ 30 Mar 2026 09:45:10 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ SJ5PEPF00000205.mail.protection.outlook.com (10.167.244.38) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9745.21 via Frontend Transport; Mon, 30 Mar 2026 09:45:11 +0000
+Received: from DFLE213.ent.ti.com (10.64.6.71) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 30 Mar
+ 2026 04:45:08 -0500
+Received: from DFLE205.ent.ti.com (10.64.6.63) by DFLE213.ent.ti.com
+ (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 30 Mar
+ 2026 04:45:08 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE205.ent.ti.com
+ (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 30 Mar 2026 04:45:08 -0500
+Received: from moteen-ubuntu-desk.dhcp.ti.com (moteen-ubuntu-desk.dhcp.ti.com [10.24.50.20])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62U9j0bh505460;
+	Mon, 30 Mar 2026 04:45:05 -0500
+From: Moteen Shah <m-shah@ti.com>
+To: <krzk+dt@kernel.org>, <robh@kernel.org>, <conor+dt@kernel.org>,
+	<nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>, <gehariprasath@ti.com>,
+	<y-abhilashchandra@ti.com>, <m-shah@ti.com>
+Subject: [PATCH v3 1/2] ti,j721e-system-controller.yaml: Allow audio-refclk as clock-controller child
+Date: Mon, 30 Mar 2026 15:14:58 +0530
+Message-ID: <20260330094459.128648-2-m-shah@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260330094459.128648-1-m-shah@ti.com>
+References: <20260330094459.128648-1-m-shah@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260324172757.2147153-1-vdonnefort@google.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF00000205:EE_|CY8PR10MB7121:EE_
+X-MS-Office365-Filtering-Correlation-Id: e0485700-df96-4add-cb9e-08de8e410940
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|1800799024|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: wPyzQP0eC938VY9RrRnKNceWjeGJDthvEYhpMLbOaB3Dou9kT/ny/w0xFyxpA+K0PNCMXtexdJRigCnRFEQ0qazg/MRdsE5AcDPnTOfTdjluV2xWBtHml4BVmZJreDl+LMdq5pOnGuAECj4CU+IwD0Ixc6x5PT0agJyjIkYNzdsA45+8TEAoEBUGEJ5SMIF7lcMbUkTUVzJjmJve948aaIiG+53xL3oPv4ILocXrJlQVFsm3FzhvB6E/SQVpYyAyp4WlOcwbQn3l085HsoMukb765FVIR0ut3BsGIvcOJLbqwHxFtcN8quPfMEJ8kOAo5DtZ1ZdEhq2DqZd04YPvm3krtW6QdVBfdoE464YkR1+n6SYqBRU68ZlEQVsuOM+ssD7mZCYMTc96ooxL7GKmxn9b2yxyBRm++QridfekZvDVsNVDTz9SEs+sbhAP2YGl105b/Um3HSArauEMwfUW8kCM6AQ8m/Paxkutn+Mr3JE/3NrI778Oto1fVb3/8BHZVTnwSGabj0HWjvFtZtHG8ghXCzIz5a2H9HDF61EOaqroRSyQ14djkMQHQfLKnr1gj37eCHzIHqkHzlquPIz20cNpc86C76KlQMIZ5m637SRoUiEgbfvRfbBnYUsFhsrmNUl5jXJ5hj/yeAf6K/P3jz7XZ/YBhgKhVd8jbgj0UcrvyPL27aFW7Vjb3fHUzaHlzrM9Gf0RAGCOZDqitk0VbpfoYW6s18rlZJMPOKdmXFaJbyZW/uznRhYVW4AdtMytGw5KHWqE6RNJclfsUxUJZg==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: jSs3hhDocxfeuhTXpn52r9wOcAsvgIsx4JqYi4/V20qbXLvHT5/pIoH69jTey9i3HAY0Hy+Vl3lPmhh6UqSh2MA5/p4wafwE9/zoO2MvNG841NA7+S+9JjnZfcQAErOBoM6LWqnpTrM0sQ79aWtqWBIwN1gJ7U/mEuSGE8yL01gPyLV9mcniSutGQqjeycfhVFPGzlfMPE4SPGBsupQYYXQIMsCg25w7hrBoxV6aMjwWrAW1lBZkjcy/AqkJEqqv/2JKkjYkyHHt/U3WeZowKSXMq6BDjHfp4wWtm4b26pApizqN3ZsxvrGaI5alFR3D39CGpUQJKajLmp6Jdkwm2t6WxnMU5qYE2hb5pTiR4MOkjwDOwKy9+SOmOPfm7v0EAx1bZKLkDJQF0AEGVqpNhYoSwt7AKtIijpyZ9Zy8J+3jSv5Pj+LcZ8961QD0IXzl
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Mar 2026 09:45:11.0968
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e0485700-df96-4add-cb9e-08de8e410940
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000205.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR10MB7121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_024108_748517_1F2A08FF 
-X-CRM114-Status: GOOD (  17.38  )
+X-CRM114-CacheID: sfid-20260330_024517_695256_A2918DA2 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,73 +132,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Vincent,
+The ti,j721e-system-controller binding currently only allows
+clock-controller@ child nodes to reference the ti,am654-ehrpwm-tbclk
+schema. However, the system controller on J721S2 also contains audio
+reference clock controllers (ti,am62-audio-refclk) that use the same
+clock-controller@XXXX naming pattern.
 
-On Tuesday 24 Mar 2026 at 17:27:57 (+0000), Vincent Donnefort wrote:
-> If one of the HVC __pkvm_host_share_hyp or __pkvm_host_unshare_hyp fails,
-> rollback the refcount to ensure the hyp_shared_pfns tracking reflects
-> the actual sharing status.
+Hence, extend the clock-controller pattern to accept either ehrpwm-tbclk
+or audio-refclk schemas using a oneOf constraint.
 
-If any of these hypercalls fail I think we're still in trouble as
-kvm_{un}share_hyp() work on multi-page ranges and we could leak pages in
-a borked state if we fail halfway through. And failing any of these
-hypercalls is also sign of a bigger problem somewhere else so I wasn't
-too worried.
+Signed-off-by: Moteen Shah <m-shah@ti.com>
+---
+ .../bindings/soc/ti/ti,j721e-system-controller.yaml         | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-But if we're going to fix this properly, I'd suggest also improving the
-error handling in kvm_share_hyp(). 'Fixing' kvm_unshare_hyp() is a bit
-harder because we must tell the caller to leak the data structure that
-was shared I presume, so maybe we just keep the WARN and cross our
-fingers :)
+diff --git a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
+index f3bd0be3b279..d5d84a8f1257 100644
+--- a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
++++ b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
+@@ -53,9 +53,11 @@ patternProperties:
+ 
+   "^clock-controller@[0-9a-f]+$":
+     type: object
+-    $ref: /schemas/clock/ti,am654-ehrpwm-tbclk.yaml#
++    oneOf:
++      - $ref: /schemas/clock/ti,am654-ehrpwm-tbclk.yaml#
++      - $ref: /schemas/clock/ti,am62-audio-refclk.yaml#
+     description:
+-      Clock provider for TI EHRPWM nodes.
++      Clock provider for TI EHRPWM or Audio Reference Clock nodes.
+ 
+   "phy@[0-9a-f]+$":
+     type: object
+-- 
+2.34.1
 
-Cheers,
-Quentin
-
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-> 
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 17d64a1e11e5..0fb41d2c8b44 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -493,11 +493,17 @@ static int share_pfn_hyp(u64 pfn)
->  		goto unlock;
->  	}
->  
-> +	ret = kvm_call_hyp_nvhe(__pkvm_host_share_hyp, pfn);
-> +	if (ret) {
-> +		kfree(this);
-> +		goto unlock;
-> +	}
-> +
->  	this->pfn = pfn;
->  	this->count = 1;
->  	rb_link_node(&this->node, parent, node);
->  	rb_insert_color(&this->node, &hyp_shared_pfns);
-> -	ret = kvm_call_hyp_nvhe(__pkvm_host_share_hyp, pfn);
-> +
->  unlock:
->  	mutex_unlock(&hyp_shared_pfns_lock);
->  
-> @@ -521,9 +527,15 @@ static int unshare_pfn_hyp(u64 pfn)
->  	if (this->count)
->  		goto unlock;
->  
-> +	ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_hyp, pfn);
-> +	if (ret) {
-> +		this->count++;
-> +		goto unlock;
-> +	}
-> +
->  	rb_erase(&this->node, &hyp_shared_pfns);
->  	kfree(this);
-> -	ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_hyp, pfn);
-> +
->  unlock:
->  	mutex_unlock(&hyp_shared_pfns_lock);
->  
-> 
-> base-commit: c369299895a591d96745d6492d4888259b004a9e
-> -- 
-> 2.53.0.1018.g2bb0e51243-goog
-> 
 
