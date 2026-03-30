@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30BEF1061B15
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 16:45:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94A1D1061B15
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 16:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cDdS45lavJOKhvVvf7Im6p8b+Plxzdq4VLLt3nmyGa4=; b=vj2aFtmg2dqFuU
-	M8h4ELl4oxOC2hsVFjPKhHDxBErJFfkuHzT9Gj9MQ6E4BFmWXCNWzAhWFEDrani8d9bWtK9iyRpg0
-	wZqDcpzbeRULyqu/TD6NWy/fzZoqbLBIDNQ9TNw85X79EYi9jig3nownbJGy6Sdw9dhPwSDBlC1l9
-	PKbjeX19eRCnEjyQ0fiSkUgZ3IGAwDhs741tl5gLHo4ViJ7vdrhfTfOpb+XKbXD4rxHiMVqAiCrvF
-	j86ThqqHPO2wyO8CGrvAY2/zfbaz7KtForyvJwQ8Mqj1DYnGK5AdBS2CMEIKCF+cjh7X6WvGu2Xs1
-	aIQSdyQrHfF2TApB8rfQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eIVlMOLfUTIXhO4sr51C8ur+IibSbxiOjG5R1nKRWVU=; b=4NQ70BVh3EI/ctPe7g4hGJh5WX
+	ZbQUujinbagkLcZWEoFX5s0+p787R+rh1GeEELdPyCbtVsvxy6RWJKXluHrKaQtQOsaa9W3ZRDe/0
+	n8qj5u+YhxeaDu15zHsrwP0SpketwxgzmkzPbVjOOyenlz+tHgR69ek85pS5gmafeKgqubdHne4eh
+	qZZgd2oTgkkwqO0puXZWypmf7+OOWkrUCfVv8lPgu6PsOZdeDerucHwI7mhpd5zGbbQOq0hjf7+pJ
+	j1VqYK8dGBtKsDHWXsjuW73jHnqOuqj6ZqqFfiaf0K6OhEpLe+8CtAXhhOwvbbjq+nlgvjxIt0ofZ
+	n54qXTwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Fjt-0000000Bf4Y-1GRC;
-	Mon, 30 Mar 2026 16:45:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w7Fv2-0000000Bfd4-2Ja6;
+	Mon, 30 Mar 2026 16:56:52 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Fjs-0000000Bf4O-11Dl
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 16:45:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4331860128
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 16:45:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB0D1C2BCB2
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 16:45:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774889118;
-	bh=cDdS45lavJOKhvVvf7Im6p8b+Plxzdq4VLLt3nmyGa4=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=BawTVvW8MfthtSM7EjuuTexhu+g6v03GXeZmrU5PJ68JA/fGMBCWNIN2w0UAoGeVQ
-	 3LBMLnsEeFzryjqocEIOr2JWRmS3Ys4N4jINcIoqlz6qlHK/OAHGJr8j3/A68i0WOr
-	 Uc7oE3e1hmKKXP5aMtAs8FaptvXbhYRuUbsMZZClZqzkjrS27q0beJ6Qj7+CsJu7B0
-	 kWzSWCqs94JnKjVyiofE9D3IJG1SPaXiCbPY4ZiBx324rwgbJ0pcghUVj093YlbB91
-	 Fn95Wou9t4owNwX/4xfYYODNI6fPLDEWWqcgEpJnhdBWn1ZAJghXCFwZGzRKSvrdwg
-	 EOqV8zObOAmCg==
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-38a3066b68bso30698511fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 09:45:18 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUeFzbRF/5thn1lB37zREdgduxWpc2V/1KaFfeHvfpeq4HFFcKP3o6MfOX2eCLPk6PXCV3VKns9MoGqpV6Vk03K@lists.infradead.org
-X-Gm-Message-State: AOJu0YxC/yhvbF475Fe8HtxKRSnP8Ourla/TO+Ws21M8FTxpGwpmI70s
-	YcC6b9GBvG4kN2Unb9pj5rZcmvHmfjWIV2By3GMQlCeDCsndAMVrYySBEd71/zSDiir0EaEbDdq
-	pMNqo2PCk5LlGe7CSALaYaIprxS4FIBA=
-X-Received: by 2002:a05:651c:3041:b0:38b:dd7a:52aa with SMTP id
- 38308e7fff4ca-38c731eb805mr36701791fa.7.1774889117273; Mon, 30 Mar 2026
- 09:45:17 -0700 (PDT)
+	id 1w7Fuz-0000000Bfcd-1OZ1;
+	Mon, 30 Mar 2026 16:56:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=eIVlMOLfUTIXhO4sr51C8ur+IibSbxiOjG5R1nKRWVU=; b=pua4SOdsREReib0okvpC6/J0jl
+	hB/BBcaYva5wUZXTqHds6KCWMBEh5CmBeLRFqD9rIvms3Osox1qNEuqpCytBPwWwvOq9039VOriMw
+	p5mmXmKbONgkXkD4Jb03gQXVUIshLmFczO27ODU64cQXfnFY0PrFtcKwoUVKzqBGDAPC4WOFvW2JH
+	bMQ3H9UPdYHJaTAj6x5LpYgjRYIaXAJNQZ+VT5c/A8/vNNNIdMyd9I4d/ROTk4CryoNuOpwugync1
+	+YG1XHWPizHf5ny4qTvYI6TyqMlDsq2aQMUEQSNQi+np5ueBcKVkNTxZwF7YK8/TFJoAgQg1wZSHn
+	KXMTE9oQ==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
+ Diederik de Haas <diederik@cknow-tech.com>,
+ Maud Spierings <maud_spierings@hotmail.com>
+Subject: Re: [PATCH RESEND v4 4/4] drm/rockchip: dw_hdmi_qp: Do not send HPD events
+ for all connectors
+Date: Mon, 30 Mar 2026 18:56:15 +0200
+Message-ID: <47972235.fMDQidcC6G@phil>
+In-Reply-To: <20260323-dw-hdmi-qp-scramb-v4-4-1d99df84883e@collabora.com>
+References: <20260323-dw-hdmi-qp-scramb-v4-0-1d99df84883e@collabora.com>
+ <20260323-dw-hdmi-qp-scramb-v4-4-1d99df84883e@collabora.com>
 MIME-Version: 1.0
-References: <20260324080856.56787-1-pengpeng@iscas.ac.cn> <2823210.mvXUDI8C0e@jernej-laptop>
- <CAGb2v674Ei2uFh6O0LoFoJrPcqGKGr_v+hfvE7TSfwztxDfTAA@mail.gmail.com> <603785eb48d69bc50c0296fc696eb0985c2a3ac5.camel@collabora.com>
-In-Reply-To: <603785eb48d69bc50c0296fc696eb0985c2a3ac5.camel@collabora.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 31 Mar 2026 00:45:05 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65EM1rZwePR2B8Y-ipz4iEJPLnd4jsfu140N9vq4GYL2Q@mail.gmail.com>
-X-Gm-Features: AQROBzCCf-gBGZiQsgZ0PWLzupAc_iXzFsXr0d6GTNbJZ5GFha2Q7zktumWSWEw
-Message-ID: <CAGb2v65EM1rZwePR2B8Y-ipz4iEJPLnd4jsfu140N9vq4GYL2Q@mail.gmail.com>
-Subject: Re: [PATCH] media: cedrus: skip invalid H.264 reference list entries
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>, 
-	mripard@kernel.org, Pengpeng Hou <pengpeng@iscas.ac.cn>, paulk@sys-base.io, 
-	mchehab@kernel.org, gregkh@linuxfoundation.org, samuel@sholland.org, 
-	linux-media@vger.kernel.org, linux-staging@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260330_095649_411759_DDBF736B 
+X-CRM114-Status: GOOD (  22.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +74,143 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 11:55=E2=80=AFPM Nicolas Dufresne
-<nicolas.dufresne@collabora.com> wrote:
->
-> Le dimanche 29 mars 2026 =C3=A0 20:44 +0800, Chen-Yu Tsai a =C3=A9crit :
-> > On Sun, Mar 29, 2026 at 5:21=E2=80=AFPM Jernej =C5=A0krabec <jernej.skr=
-abec@gmail.com> wrote:
-> > >
-> > > Dne torek, 24. marec 2026 ob 09:08:56 Srednjeevropski poletni =C4=8Da=
-s je Pengpeng Hou napisal(a):
-> > > > Cedrus consumes H.264 ref_pic_list0/ref_pic_list1 entries from the
-> > > > stateless slice control and later uses their indices to look up
-> > > > decode->dpb[] in _cedrus_write_ref_list().
-> > > >
-> > > > Rejecting such controls in cedrus_try_ctrl() would break existing
-> > > > userspace, since stateless H.264 reference lists may legitimately c=
-arry
-> > > > out-of-range indices for missing references. Instead, guard the act=
-ual
-> > > > DPB lookup in Cedrus and skip entries whose indices do not fit the =
-fixed
-> > > > V4L2_H264_NUM_DPB_ENTRIES array.
-> > > >
-> > > > This keeps the fix local to the driver use site and avoids out-of-b=
-ounds
-> > > > reads from malformed or unsupported reference list entries.
-> > > >
-> > > > Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
-> > >
-> > > Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> >
-> > Tested-by: Chen-Yu Tsai <wens@kernel.org>
-> >
-> > This fixes a KASAN slab-use-after-free warning when running fluster H.2=
-64
-> > tests.
->
-> Ah, very good, can you cite which test caused that ? I didn't expect flus=
-ter to
-> cover cases with missing references. I think it will be handy for future
-> testing.
+Am Montag, 23. M=C3=A4rz 2026, 18:45:30 Mitteleurop=C3=A4ische Sommerzeit s=
+chrieb Cristian Ciocaltea:
+> In order to optimize the HPD event handling and run the detect cycle on
+> the affected connector only, make use of
+> drm_connector_helper_hpd_irq_event() instead of
+> drm_helper_hpd_irq_event().
+>=20
+> Additionally, move devm_request_threaded_irq() after bridge connector
+> initialization.
 
-Looks like it is FM1_BT_B. And it only happens on the first run after reboo=
-t,
-or KASAN just only reports it once.
+nit: Using "and", "additionally", etc in commit messages, is a strong
+indicator, things should be separate commits.
 
-BTW, this would be a lot easier to figure out if we could get fluster to
-output a system timestamp for each decode run (at least in single job mode)=
-.
+Especially as the sentence above just explains the "what" but not the
+why (interrupt firing, before the device is actually there probably).
 
-I had to hack in delays between each decode rune, and then look at `dmesg -=
-w`
-and switching back to the window that has fluster running once the warning
-triggers.
+If there are no other changes requested, they can stay together though,
+the "why" is somewhat obvious here.
 
 
-ChenYu
+Both changes themself look fine, so
+
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+
+
+> Tested-by: Diederik de Haas <diederik@cknow-tech.com>
+> Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+>  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 44 ++++++++++++--------=
+=2D-----
+>  1 file changed, 20 insertions(+), 24 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu=
+/drm/rockchip/dw_hdmi_qp-rockchip.c
+> index 1a09bcc96c3e..65dfaee15178 100644
+> --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> @@ -92,6 +92,7 @@ struct rockchip_hdmi_qp {
+>  	struct regmap *regmap;
+>  	struct regmap *vo_regmap;
+>  	struct rockchip_encoder encoder;
+> +	struct drm_connector *connector;
+>  	struct dw_hdmi_qp *hdmi;
+>  	struct phy *phy;
+>  	struct gpio_desc *frl_enable_gpio;
+> @@ -251,14 +252,10 @@ static void dw_hdmi_qp_rk3588_hpd_work(struct work_=
+struct *work)
+>  	struct rockchip_hdmi_qp *hdmi =3D container_of(work,
+>  						     struct rockchip_hdmi_qp,
+>  						     hpd_work.work);
+> -	struct drm_device *drm =3D hdmi->encoder.encoder.dev;
+> -	bool changed;
+> +	bool changed =3D drm_connector_helper_hpd_irq_event(hdmi->connector);
+> =20
+> -	if (drm) {
+> -		changed =3D drm_helper_hpd_irq_event(drm);
+> -		if (changed)
+> -			dev_dbg(hdmi->dev, "connector status changed\n");
+> -	}
+> +	if (changed)
+> +		dev_dbg(hdmi->dev, "connector status changed\n");
+>  }
+> =20
+>  static irqreturn_t dw_hdmi_qp_rk3576_hardirq(int irq, void *dev_id)
+> @@ -466,13 +463,12 @@ static int dw_hdmi_qp_rockchip_bind(struct device *=
+dev, struct device *master,
+>  	struct dw_hdmi_qp_plat_data plat_data =3D {};
+>  	const struct rockchip_hdmi_qp_cfg *cfg;
+>  	struct drm_device *drm =3D data;
+> -	struct drm_connector *connector;
+>  	struct drm_encoder *encoder;
+>  	struct rockchip_hdmi_qp *hdmi;
+>  	struct resource *res;
+>  	struct clk_bulk_data *clks;
+>  	struct clk *ref_clk;
+> -	int ret, irq, i;
+> +	int ret, hpd_irq, i;
+> =20
+>  	if (!pdev->dev.of_node)
+>  		return -ENODEV;
+> @@ -573,17 +569,9 @@ static int dw_hdmi_qp_rockchip_bind(struct device *d=
+ev, struct device *master,
+>  	if (plat_data.cec_irq < 0)
+>  		return plat_data.cec_irq;
+> =20
+> -	irq =3D platform_get_irq_byname(pdev, "hpd");
+> -	if (irq < 0)
+> -		return irq;
+> -
+> -	ret =3D devm_request_threaded_irq(hdmi->dev, irq,
+> -					cfg->ctrl_ops->hardirq_callback,
+> -					cfg->ctrl_ops->irq_callback,
+> -					IRQF_SHARED, "dw-hdmi-qp-hpd",
+> -					hdmi);
+> -	if (ret)
+> -		return ret;
+> +	hpd_irq =3D platform_get_irq_byname(pdev, "hpd");
+> +	if (hpd_irq < 0)
+> +		return hpd_irq;
+> =20
+>  	drm_encoder_helper_add(encoder, &dw_hdmi_qp_rockchip_encoder_helper_fun=
+cs);
+>  	drm_simple_encoder_init(drm, encoder, DRM_MODE_ENCODER_TMDS);
+> @@ -597,12 +585,20 @@ static int dw_hdmi_qp_rockchip_bind(struct device *=
+dev, struct device *master,
+>  				     "Failed to bind dw-hdmi-qp");
+>  	}
+> =20
+> -	connector =3D drm_bridge_connector_init(drm, encoder);
+> -	if (IS_ERR(connector))
+> -		return dev_err_probe(hdmi->dev, PTR_ERR(connector),
+> +	hdmi->connector =3D drm_bridge_connector_init(drm, encoder);
+> +	if (IS_ERR(hdmi->connector))
+> +		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->connector),
+>  				     "Failed to init bridge connector\n");
+> =20
+> -	return drm_connector_attach_encoder(connector, encoder);
+> +	ret =3D drm_connector_attach_encoder(hdmi->connector, encoder);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return devm_request_threaded_irq(hdmi->dev, hpd_irq,
+> +					 cfg->ctrl_ops->hardirq_callback,
+> +					 cfg->ctrl_ops->irq_callback,
+> +					 IRQF_SHARED, "dw-hdmi-qp-hpd",
+> +					 hdmi);
+>  }
+> =20
+>  static void dw_hdmi_qp_rockchip_unbind(struct device *dev,
+>=20
+>=20
+
+
+
+
 
