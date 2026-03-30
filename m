@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEE701061B1F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 20:40:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E94E1061B1F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 20:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Cc:To
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kQJQrCceeT3vdLIN7zWnldzYwpMDL1GuLvYlQTM7xZE=; b=hf0xaLZcJL3SO43PaOPmrFIZrk
-	mnarwPgJsMROWYsf36Xx/6ynhzkuFtt4XqTMzByROpxooPzJS4KSytE5H23H3/fhyFl838yYCZpIr
-	xke6nIdIsm2FWE98cjmmOebBzleGl9aXWrnecbOaLjqFwdZGCTfEiXewRzf7aLGrGwUqm7SLz1NwR
-	ghfubR4JWVMjxO7ZvJ7LfD43st0O7C4llh4Aendn4YMnX18jgGQB9ElljSYWfl5wr+F+roqoiOseI
-	w1i+Xoi3MFM7l4xKTHFCHFsxHMe6jj4Q2VeBNXZO8biCeK0RvgCIbskgFf22mbKKhffi5UnhNxDdE
-	a+QUynKg==;
+	bh=OKYvgQ1t1lSRkNHRJOJY5btuo/K6VYFBYLipl68nHhQ=; b=FbZBikMzyh58e/LlL7VYIITbwD
+	amQP74zmwygdSEK+9xuissXqscmM853K0kgUXW9+XiNZPx+4WN+giZc7cwPsWC7kX0/IUTrUz1wok
+	oQkVmtqE1vj1jTb7MsDQxOksyneM9W7s4PescbThE2X7m1zqvNFVneGP4Gz7vRJp5+jbjhqzyTxGf
+	W7TsmbCaLMQV6LhvQIBczN7fGVBfGPId5Gc2RQuVDXM9bp2tvWsQe5nq2bXMhH0s/UO5BaYo+WwfZ
+	qIyXKADuNGn+fnGrDmrmlDpsm5lWjSbCeBDg8XR+A0hlAh2U6gY9nExWzJ2E+9X4lxfQ3oERiUi9y
+	X++raU9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7JPL-0000000Br2v-3ZuE;
-	Mon, 30 Mar 2026 20:40:23 +0000
+	id 1w7JPT-0000000Br9z-2aNM;
+	Mon, 30 Mar 2026 20:40:32 +0000
 Received: from fout-a7-smtp.messagingengine.com ([103.168.172.150])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7JOb-0000000BqOD-0713;
-	Mon, 30 Mar 2026 20:39:38 +0000
+	id 1w7JOc-0000000BqPU-2jLK;
+	Mon, 30 Mar 2026 20:39:40 +0000
 Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfout.phl.internal (Postfix) with ESMTP id 40D0AEC0263;
-	Mon, 30 Mar 2026 16:39:36 -0400 (EDT)
+	by mailfout.phl.internal (Postfix) with ESMTP id DAEE0EC0266;
+	Mon, 30 Mar 2026 16:39:37 -0400 (EDT)
 Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-02.internal (MEProxy); Mon, 30 Mar 2026 16:39:36 -0400
+  by phl-compute-02.internal (MEProxy); Mon, 30 Mar 2026 16:39:37 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jetm.me; h=cc:cc
 	:content-transfer-encoding:content-type:content-type:date:date
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1774903176;
-	 x=1774989576; bh=kQJQrCceeT3vdLIN7zWnldzYwpMDL1GuLvYlQTM7xZE=; b=
-	p9+JGIo84WnX8h238/67WbniDjz10Ji7tIX/PCFk7FclITG3tYAj8msPOfs93UVY
-	ed2yLL+z9Ilnio7fmU5iLADKFEgLp6FQC5FLB5jVV59Okd4PyABw8/JoY4fFBGr9
-	aOPtf2HD9Rat+p2z0QrYVw1VCzC7yQgnoCXkeRaWzh64PipFqzeQ33Xmr9MDsvkZ
-	jZDy/b0s/fB6gp4w3w8ftcWWXaTk7mMwbxVTTlbKXw8/Sx78qMomltuUlht60tVJ
-	ctcFstiFA1uqEUnzFZXT/yaHRprkL07x+yp+5VXq+mbyOqwY73qRLhBDvUbKiI27
-	4Dt7R84rnaqtPKxP4rQEbg==
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1774903177;
+	 x=1774989577; bh=OKYvgQ1t1lSRkNHRJOJY5btuo/K6VYFBYLipl68nHhQ=; b=
+	S0UmgY9zxhxAgZdTyfvI268WvCUqEgvT5wfhpGIEk8g6fM6rWNWOn1O/ivwpg8Yp
+	P02pvjQi3qYnfC/aa1gmRbC7xom91nqGFQ9xDhheMwNuX+Soe6dxeDLPfza6Uxo+
+	GFa2Zb4GUtAgZNxvLQYpWAOWDV2Zdi6ichH9ZCwia+hMHptQZxxK8rWSzBW+8o5w
+	tU9aOF8kD3qy7RmT6ddfgyJpaCh1Lfa/1hWw0V9FqvrvSZZAY0MQEjY0OKA4xIkf
+	kn+x48IkiwbqWGHpBHvjkMdOUJMA5S9e403gjhkK4A8YDkqiAORQxfBBS7qeneZ9
+	ukxSucwMXRUVbZ+K4usWsw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1774903176; x=
-	1774989576; bh=kQJQrCceeT3vdLIN7zWnldzYwpMDL1GuLvYlQTM7xZE=; b=1
-	rR+BfigdzCBWenmD3VN5yicbXebrOWeTzqsz1goDer9qhemtyC7eg7pP/hRHIhIK
-	JGBqSaAmaZVWkdWEav8d+WNI0MZ7hQ/mama1MRLVcPDjIL18m+Se8K+EDqopVhfn
-	gU/GA7gVgbIvNcBgzQiMAJ5y4pKP70Whms4+ItNC/+bzKmrqZ9h9SedFNiUZmXgc
-	fNQnQufLYUcfmHeriptiHS1A7oMFbRZWRLbECuS3J5ELxRh13A8CWZGu03ZD/BqI
-	oC+T7JGMQwyrvaVFhk+te+ICdYWNqvmYcImlTo/RwFeZ4wkGP3xPXxGPoUHp3Pv0
-	kpztNoUAZfuVNlZG0inIg==
-X-ME-Sender: <xms:iN_KaYlt1LEvRKnVK8VXQuIrUgZTG48t0OU6lHomZ3I6vSHOXmZWxA>
-    <xme:iN_KaSqNtjWW2vK-aw19ixeWLJ_us8nL6ghPEt-JlWJ_tFJ4D_gj6Mg-fD8XliG8G
-    xSBEK8LJTsq5bdymAztIhfNQemfJS67jylD0_IOVf1HwamO9aKUf54>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1774903177; x=
+	1774989577; bh=OKYvgQ1t1lSRkNHRJOJY5btuo/K6VYFBYLipl68nHhQ=; b=d
+	jUF2ntXCYPkyUUfpgJSZClSyaoX0AiH3AgUiFdzcsboQ756FT34BnPA+MWMo+mD/
+	i2Z/38xEVD15xlIy7uGeQjWQfJ3P9QacLVJdPzDGxYq+5NTMXS4EzBkgvTmP0LxI
+	xrZTydu5BB5y5q3i2S12OPc1YQFNaRAJ9eyH/VRm0rB6cI7UTSy0DZLjZc6hg5li
+	qsWmvPXVpLlgRkL1wf8lZG+rUUZ1cT7Exi9gokghF2ftS4MaMZgLPYwQ/qG1Fdtd
+	2mlZNrbT87V3rHm7Wm+dCaVpR3wrCPuZ6RjsBnXXdjh1LF1+9WN6PiaBCOsf/BSE
+	3FTktHc1KOtGilmsmA2mw==
+X-ME-Sender: <xms:id_KaYShDuxeilWmys9R7TvYmMM4MHEdpR6Da0UteZarpVP73Z6ysg>
+    <xme:id_KaQkxluBJqB-6OidQj3e7VSmEsCT5LNgLHyQjpUsfxj9BR5hj6KJ8ruRuK4b4J
+    N2b6bYDTNicsFxZ732OXKh6YmA3PgT9LXOL61ewwOCtcWTRE_g5v8p4>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdeffeelleeiucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
@@ -65,60 +65,60 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdeffeelleeiucetufdote
     vghrucfvihgruceofhhlohhsshesjhgvthhmrdhmvgeqnecuggftrfgrthhtvghrnheptd
     efvdefkedutdejfffhheehfffgfedthfeuieeiteetgedttdfhveefledvkeejnecuffho
     mhgrihhnpehkvghrnhgvlhdrohhrghdpghhithhhuhgsrdgtohhmnecuvehluhhsthgvrh
-    fuihiivgepudenucfrrghrrghmpehmrghilhhfrhhomhepfhhlohhsshesjhgvthhmrdhm
+    fuihiivgepheenucfrrghrrghmpehmrghilhhfrhhomhepfhhlohhsshesjhgvthhmrdhm
     vgdpnhgspghrtghpthhtohepledpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprg
     hnghgvlhhoghhiohgrtggthhhinhhordguvghlrhgvghhnohestgholhhlrggsohhrrgdr
     tghomhdprhgtphhtthhopehluhhiiidruggvnhhtiiesghhmrghilhdrtghomhdprhgtph
-    htthhopehmrghtthhhihgrshdrsghgghesghhmrghilhdrtghomhdprhgtphhtthhopehn
-    ihhtihhnrdhrvgguugihkeeksehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrrhgtvg
-    hlsehhohhlthhmrghnnhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghr
-    nhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuh
-    igqdhmvgguihgrthgvkheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphht
-    thhopehlihhnuhigqdgslhhuvghtohhothhhsehvghgvrhdrkhgvrhhnvghlrdhorhhgpd
-    hrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:iN_KaUHClc2W848lMomtD6uakIiIUo1d19dFRntawgNeWt-j4UApzA>
-    <xmx:iN_KaQYdq7eJkYCcdnnMLwSDRZrz0-XgYRrg9587-fnAvVRTQ3nqqw>
-    <xmx:iN_KaYyXlEEAD-Ibyh9XUdrFqGrzPcXZ0jQB1wGte7MlayyWkupkPA>
-    <xmx:iN_KaSTGfmJvVUn9GFK_JbDaMpW6IsYzZd2S8MNAewUpoDpLCyyWPQ>
-    <xmx:iN_KadjNBZJxqk5ckzupS-znAZFEee5yHQOAhfAJu2URsoXFFCr2GlBx>
+    htthhopehmrghtthhhihgrshdrsghgghesghhmrghilhdrtghomhdprhgtphhtthhopehm
+    rghrtggvlheshhholhhtmhgrnhhnrdhorhhgpdhrtghpthhtohepthhisghosehhuhhmvg
+    hurhhlihgsrhgvrdhfrhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlhes
+    lhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhmvg
+    guihgrthgvkheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehl
+    ihhnuhigqdgslhhuvghtohhothhhsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpth
+    htoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:id_KaeU3g7iJpiWyVi95jJhfnQZJ_io454LpLrM4eWtTmBQme098iA>
+    <xmx:id_KaX9iUO3EIXMZJ1EwEsSKeefIjW_6CkeqmLjbgV7HSZUSwYYQQA>
+    <xmx:id_KaZuBzgvmhyROrnWUALMuG6vdovsx07xJJuaJr8SW7inrUyzc4g>
+    <xmx:id_Kaf3ZAgiMiWjID-LV_cHxmC67Y4zPIJx5kIU_gu2R3Oe2-AKgXw>
+    <xmx:id_KaYDGOgKKlDkYodeOM0_omZPNz8ogNS0qfxjwyVGK7UZAlA7fjSPC>
 Feedback-ID: i9dde48b3:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 1D4A91EA006B; Mon, 30 Mar 2026 16:39:36 -0400 (EDT)
+	id B54DB1EA006B; Mon, 30 Mar 2026 16:39:37 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 From: Javier Tia <floss@jetm.me>
-Date: Mon, 30 Mar 2026 14:39:28 -0600
-Subject: [PATCH v4 6/8] Bluetooth: btusb: Add MT7927 ID for MSI X870E Ace
- Max
+Date: Mon, 30 Mar 2026 14:39:29 -0600
+Subject: [PATCH v4 7/8] Bluetooth: btusb: Add MT7927 ID for TP-Link Archer
+ TBE550E
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260330-mt7927-bt-support-v4-6-cecc025e7062@jetm.me>
+Message-Id: <20260330-mt7927-bt-support-v4-7-cecc025e7062@jetm.me>
 To: Marcel Holtmann <marcel@holtmann.org>,
  Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
  Matthias Brugger <matthias.bgg@gmail.com>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Nitin Gurram <nitin.reddy88@gmail.com>
+ Thibaut FRANCOIS <tibo@humeurlibre.fr>
 X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2170; i=floss@jetm.me;
- h=from:subject:message-id; bh=oX9RcQEWF2VJoE6RgvKmZHprs09/2hbUA9uGu4FFREs=;
- b=owEB7QES/pANAwAKAbXuwwuoZ3cfAcsmYgBpyt97BaqY/zbN9L9A7pSx1KBlGc+EIDJ9mghuQ
- g6Z7XUhumCJAbMEAAEKAB0WIQSbE7ILzw7eI0VKk8m17sMLqGd3HwUCacrfewAKCRC17sMLqGd3
- Hx5UC/9G/Mdxdjl0Kq/mxFIVJnTpts57tvwpx1bbi6GkWwGMJD9sDqSD81fCz1RdhWmp5vp34Nz
- Rv0C4UAm7b2HEZqRDM7IcpuAbWKKPAbatcvlRrtpUsVY8Fy2xvn0DXVU1wLc7KVgx8EKa6AA/Yg
- rQNQq2VeSwJ2ps59qsV4e9CytThkmNjQf7mrJ/Jkq+NbVdW0TGQaNmmyBfHZXAUV8Gugv7LbYu3
- Ea+Ua2FUGFQegI0qhdWbjH+IfbLR+hXsM6t70oJNa8F5w4waP8j5mY1ehXEutqbRDGAnBvvSitn
- LxIorqzo9tH3XCOv/s7aTeS2M4xIWDGSqPWM5FZUCpAdp7WHbqSAJ9MsJe4XuoJc81mreU3Z6kb
- qGF8cCKilXuNjKfcXitoPkP/9yY2umaThBIzxtYLQ1Hbka6dYK6EbQda7l9r1OJyxopDIN4EZhB
- JhBzzdP0LkZdXfBVSBXrLhMt1Lk4fxjMjdjgwG3PEO7NKYgMl+IlPN+8hiaKUdbEI/f5Q=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2176; i=floss@jetm.me;
+ h=from:subject:message-id; bh=0X9iYzgDtL2noTXAFbHuUBjE+Gu6Hwn5WtC2t2VD+ZU=;
+ b=owEB7QES/pANAwAKAbXuwwuoZ3cfAcsmYgBpyt97LY/SZ5rcg3G9k7qesMrweJaMUpx2LZVGh
+ jHNrZUjVgiJAbMEAAEKAB0WIQSbE7ILzw7eI0VKk8m17sMLqGd3HwUCacrfewAKCRC17sMLqGd3
+ H8osDACISz3fln6X5a5+tcmN3bLyDlP19FlfSZCrCBWxWbaf+SfY04x8nKkxBLtTx6R/F/A8W6K
+ u0OBLE0BIQC6uwwVZiWluh9NunaYuzA+XeBO/yUPv9fTz1yPJKK4bfBMfW5Gx9ZQzedKJTeScUU
+ cIZAu9sxbkL1RjkKWZ31BjSUvqTopwvmckkwRNf6/ceTf0dQnCgitzysRvW62ZuukeRBlwcOPYO
+ JMmpx/HEL8cBehsj/1PFOmfXwYOgxnt3EjwdMWELjg7izEFx04A+y796jZZwBv/OAxUzXEl5RbU
+ 72p7CJy3pdpaPV6tzHMGN2xexn6UecuoTfbOGzrLLxMUJ2r1FUOAMf5XrQmWAE8EaAFjD0qmUzC
+ EjkR4ofNIqqTGq1igaey1tL9LdXaGWQcb6mkAUlKocnSmYHoYdnFsGaTbKPRWgRg0DmlFJao/TO
+ GzWdnlM3905iqRgwXasusyvTobQN6gCFokcGSiesP3/JoHeTXMLh9FqV7aeQMVykB+zV4=
 X-Developer-Key: i=floss@jetm.me; a=openpgp;
  fpr=9B13B20BCF0EDE23454A93C9B5EEC30BA867771F
 In-Reply-To: <20260330-mt7927-bt-support-v4-0-cecc025e7062@jetm.me>
 References: <20260330-mt7927-bt-support-v4-0-cecc025e7062@jetm.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_133937_712936_D15307B9 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20260330_133938_781253_072EA8D3 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,16 +133,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add USB device ID 0489:e110 (Foxconn/Hon Hai) for the MediaTek MT7927
-(Filogic 380) Bluetooth interface found on the MSI X870E Ace Max
-motherboard.
+Add USB device ID 0489:e116 (Foxconn/Hon Hai) for the MediaTek MT7927
+(Filogic 380) Bluetooth interface found on the TP-Link Archer TBE550E
+PCIe adapter.
 
 The information in /sys/kernel/debug/usb/devices about the Bluetooth
 device is listed as the below.
 
 T:  Bus=01 Lev=01 Prnt=01 Port=05 Cnt=04 Dev#=  5 Spd=480  MxCh= 0
 D:  Ver= 2.10 Cls=ef(misc ) Sub=02 Prot=01 MxPS=64 #Cfgs=  1
-P:  Vendor=0489 ProdID=e110 Rev= 1.00
+P:  Vendor=0489 ProdID=e116 Rev= 1.00
 S:  Manufacturer=MediaTek Inc.
 S:  Product=Wireless_Device
 S:  SerialNumber=000000000
@@ -164,20 +164,20 @@ E:  Ad=0a(O) Atr=03(Int.) MxPS= 512 Ivl=125us
 Link: https://bugzilla.kernel.org/show_bug.cgi?id=221096
 Link: https://github.com/openwrt/mt76/issues/927
 Signed-off-by: Javier Tia <floss@jetm.me>
-Tested-by: Nitin Gurram <nitin.reddy88@gmail.com>
+Tested-by: Thibaut FRANCOIS <tibo@humeurlibre.fr>
 ---
  drivers/bluetooth/btusb.c | 2 ++
  1 file changed, 2 insertions(+)
 
 diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
-index d60798331bb3..96882e9b831c 100644
+index 96882e9b831c..55a000540439 100644
 --- a/drivers/bluetooth/btusb.c
 +++ b/drivers/bluetooth/btusb.c
-@@ -757,6 +757,8 @@ static const struct usb_device_id quirks_table[] = {
+@@ -759,6 +759,8 @@ static const struct usb_device_id quirks_table[] = {
  						     BTUSB_WIDEBAND_SPEECH },
- 	{ USB_DEVICE(0x0489, 0xe10f), .driver_info = BTUSB_MEDIATEK |
+ 	{ USB_DEVICE(0x0489, 0xe110), .driver_info = BTUSB_MEDIATEK |
  						     BTUSB_WIDEBAND_SPEECH },
-+	{ USB_DEVICE(0x0489, 0xe110), .driver_info = BTUSB_MEDIATEK |
++	{ USB_DEVICE(0x0489, 0xe116), .driver_info = BTUSB_MEDIATEK |
 +						     BTUSB_WIDEBAND_SPEECH },
  	{ USB_DEVICE(0x0489, 0xe14e), .driver_info = BTUSB_MEDIATEK |
  						     BTUSB_WIDEBAND_SPEECH },
