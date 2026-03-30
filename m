@@ -4,93 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A451A1061B07
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:53:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA031061B07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ssYsLAnIx4oMr5cUDaN18URFoLsJRRuDZGGo0ofMqHI=; b=oJrqN/ElYjcPvdckwvY8aaGLuH
-	0nG9nZY2HkfP/Ae1nkffT3zdb7FmXlAwpFKi5pvMe2azSsPIyJOJmqKD+/lxQ8okasllUJyauXgse
-	o47/1MVExIaV1NiB2gNPlm75Q+L+76Mw7zOE2UyQrRKu2vRSSp1tWj2OLj/LVw238cimJZTXQt3KK
-	kEewVl0HfkydERVdYAzteL7K0oHqXSdBegfxM1nWNJjzrqtRdu4NbdRnt8xYJ+5Bw1ite9xx3kAw3
-	rBZKSbqbF9qGgOUKcI8IBWZSGQadeVng0I6kw7UK5mUIP5OuRJjM9Jik+sN+ZNho5+ExfCmFjwGqy
-	0XT6jKMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZM4C+JzbwHzCU5WlxMyAnCyOnhBDCuJp0A7/Exnjk9g=; b=iVp5WyF1iO05xWzZHksyj6NIlX
+	iV9aLX45JyZwanVXCiNzBq2KNh2W15fOe9ll2riuvAcyqeQkjDmmI1TZ3dVzEXSWfJu1u/m8SdbmC
+	2q/yA7t5vJEbo4WMf1WWFjflZQPX4NEndm6F7ZZEE0CjQVXlVXSHTwVzdCzFd7ByBObbu3Fb22ykL
+	aXPMFsRO/wTgZXAU+DAA8KBTR6eSHv7lVx7tpIogo1QHkOn+AMAS/qDdC/9XW/Y/7NoI7MrQcX3mm
+	L0oksqz0ewytzTk3g8GpkBxi54CqN5JzvIJedRYJfW6laOALuh4FRd+B7TLswdiytDTWP+5a0xFZy
+	BqysK2jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Dzi-0000000BWB7-09nz;
-	Mon, 30 Mar 2026 14:53:34 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1w7Dzu-0000000BWFp-0SMY;
+	Mon, 30 Mar 2026 14:53:46 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Dze-0000000BWAO-2zUU
+	id 1w7Dzq-0000000BWDx-2eun
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 14:53:31 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-3567e2b4159so3155332a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 07:53:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774882409; x=1775487209; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ssYsLAnIx4oMr5cUDaN18URFoLsJRRuDZGGo0ofMqHI=;
-        b=QGuC8WKmEjGack4Do02Z5CywKtHXDsBn7MNeikPhjOSRcXU16wa6+6HuPIvDrSyC0N
-         EaWlLi+bTb1/G9L5pNLWjmX8VEkT+0XjdG+9ghstn/Tc2ay48TsseWt8MVnOnOJchFew
-         pYDCHdF8dRS0wyCL5mHKK4zZE/EihZ/bCGEN0H5SCTtYqJottoxsA6dgWoUuJ38JCkzn
-         Lnu6bOkhk3q7ZrRmz0mWddNe6lf94I57DN06Qv1gpCvQliv85Wq3oI0Hrx1eQ9AWg4H3
-         K6CnyG2sr/bm8sR6SGvjYh+LczJPQ5ZtQXwwPWsvxeXNg6fTfLmfHcskmZO+zekCqwEj
-         bh5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774882409; x=1775487209;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ssYsLAnIx4oMr5cUDaN18URFoLsJRRuDZGGo0ofMqHI=;
-        b=bFOtmaV4c7HEbDAuLn5xp8E83QYf8DNITX1bFOz5DEbtYI0DzO+8w2Eaf8OXnV7uA0
-         iIEEjNNWPOSgJPFEMIjn9spCpenqsHL0ID/iljxtw/nwOSqC3sOzF99pl24gWyDLOiqP
-         WCkJUVy0RIqV26XsQWwD02CwUARHb4+XVHqHGBcpnXelI1m9AaVZ3sCMtXpVxsVxseii
-         fQNYK428p9UKPz1u+DjCrxGQ242/0znoeatmhARXyGgHjdu8B8Wr4lv1vC8X17NurSQO
-         r+zpl3r/b5eT8yRUOdIDqxzGROTL4eljHseIIzK2MoPUskt4rGfhhGaTZtNXuFDgVcqp
-         2ROw==
-X-Forwarded-Encrypted: i=1; AJvYcCVrsQL4cwt20WlJDyzaKctH0pr9uITFrl+c7yNghDaluIaT645I7UevywyHWOvgDniNCpXtNOO86ipeNR/QV8qw@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEJvPa/RE1FYgjP1s+9tE4LwPEKwaiAuktFGc0SoPzpTXU9mbo
-	F4xVP5UpVfIp/mzOxj+7YgzQpAoLQtgYhhzAiQUWe72MYEcS306rZPSx
-X-Gm-Gg: ATEYQzxH1YuNl6Z7QbSivzoWcyeuglKft5Nz+Ix2aIKcWR4Wwy11Up9N3PQvjVzJlWZ
-	6GhVQw7aHDiUQfwzstCa6xot+IyKEg5jmCPG9dfz87x2vCfYvxkQLerxDxCP18rpo5lWnCv11l5
-	dS08yryIQzMkJeucgEw9z6X/NXjnC9Qeql+chhAfnH+Nckq/DxkYE1akYKCj1sa6M1Na8DZnAEt
-	aX9Ypl0bkzRyowW1cR9INut2TJcCYZeivos2/IuG4q73Txia6ov0u5LKPRs2VrUj3uDh+njxp2W
-	41a4PfB5KQdnGIIMnMAPGiqilVKbykteT+jahbB8TI1d/4BCTgzLX+t38F9U9p+vtWwA+ZIm+bm
-	1rqIkn7Kr3LmB9EIr8GOjfvmldBRa5sGLI38UcvnpFjxyMV6S12DMMHjMdyf2evtR0qofpLCzNy
-	IX2iLxnJEh3ZMzQEpQ3eGHnD/JT5vZO4uQyUtwlqRzjB+DGA2aFK+L9R9zZO8yUGs7rBclecl7C
-	g3VQ86vgvDV2QqASpQ=
-X-Received: by 2002:a17:90b:4cc6:b0:34c:fe7e:84fe with SMTP id 98e67ed59e1d1-35c3011512cmr10970363a91.28.1774882409439;
-        Mon, 30 Mar 2026 07:53:29 -0700 (PDT)
-Received: from arch.localdomain (n058152025253.netvigator.com. [58.152.25.253])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35c22d8c92dsm13218247a91.9.2026.03.30.07.53.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Mar 2026 07:53:28 -0700 (PDT)
-From: Jun Yan <jerrysteve1101@gmail.com>
-To: linux-kernel@vger.kernel.org,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	neil.armstrong@linaro.org,
-	khilman@baylibre.com,
-	jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com,
-	Jun Yan <jerrysteve1101@gmail.com>
-Subject: [PATCH] arm64: dts: meson-gxl-p230: fix ethernet PHY interrupt number
-Date: Mon, 30 Mar 2026 22:51:11 +0800
-Message-ID: <20260330145111.115318-1-jerrysteve1101@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Mon, 30 Mar 2026 14:53:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nJyuxOgRvew7gS0M8TLiolwosgcboRC8/rPIXQzoq31e8+sIWS5jcvv+HPHzY9mEU4e2ceWFTw2zSnxk3k17FZ5uOZhcggPOL9OrNiDo4lVT7D2ClQl4NW0fYkx2OhyF2GKkrkfIhw4uOYU5sn+uJt1X+Qyg96aqVu0csVs855D10XoufscZYF6ErKNtoMCnnhCJXC6wXVwGEQFBoKmKzrUbU7DQZuRQYAZMHwZsClwW3HTjYM5Y09HToW1qawKi+O9QmGltIoZLxKh99V7TmMQ0rqEKFvjsqIaHbKWfa7rwbAc6IQaOx2VmJRqt4O+PZ0/0p7W7BW9ILuOFNubqaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZM4C+JzbwHzCU5WlxMyAnCyOnhBDCuJp0A7/Exnjk9g=;
+ b=cG4i288R2JEJgQLErnHV3rkGwYOwLMJAnnAKLIK3X9rRUT2W4Zop2A5PoHB9OEd9sbkwDzL5mQj282ZnmZ+iXeHgY8aKo4XqKCpE3F47sdQiG2EkbeuKbB3FKK9XKYFugHNHiTw6oBpo5hU03FRW3hbDacfV81PK0L1f6LEfVaFjgyw5Xg+uNeJwB+IV7ZLnx4h0FinpceqThQ0blBFp80+KHQqGIT48oJeZxdRz/QsTVj1yJvWlygJ75onZFxGeaz7KllrNg8IJZ+JXb/G2XDfPTy1e9ylrilpUJEN6AnGDLU/RzJqRX43qJIDQx/KEpnohdArSTm8HIV82qr5MbA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZM4C+JzbwHzCU5WlxMyAnCyOnhBDCuJp0A7/Exnjk9g=;
+ b=R8gDMbRxQFCotunQpNGe8ijdyC34noGFVZKIudGuu7BDiBoL5SvnHDLjVhKkrB3NXJoqEsoAW+PTSpv8MLVxRIm2V9jiLIZxF7YbbVEybr0LEVZQS6Bbon+LTsknkk8rXsCEXKXGeDDriunFFhXhS1chbSj0Wkgp0lrMnVZAVQc1VZ3G/8/FE4HIqzP67AolUGepkdB3unDT5Xg3C30uFpmYmYgmSOI6C2rramKz/rlrEQ0Q2MGHomk10SaXDg3FhZ9brQzK5EIHczTtF8cGJZOLD+OsG+0di8/g6MC6lYnP8t86VTZwsu6v97RdF6UtPxRUOEFoY0eg36FnalqE7A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by DU0PR04MB9587.eurprd04.prod.outlook.com (2603:10a6:10:317::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.24; Mon, 30 Mar
+ 2026 14:38:51 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.027; Mon, 30 Mar 2026
+ 14:38:51 +0000
+Date: Mon, 30 Mar 2026 10:38:44 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Michael Tretter <m.tretter@pengutronix.de>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Steve Longerbeam <slongerbeam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-staging@lists.linux.dev
+Subject: Re: [PATCH v2 0/3] media: imx-csi: cleanup media pipeline start
+Message-ID: <acqK9Ms_eRxg59Xa@lizhi-Precision-Tower-5810>
+References: <20251218-media-imx-cleanup-v2-0-9e3e3c269f7f@pengutronix.de>
+ <aXOoc0lvAtPt0fAL@pengutronix.de>
+ <aco5Ei1B4vJWKMMj@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aco5Ei1B4vJWKMMj@pengutronix.de>
+X-ClientProxiedBy: PH0P220CA0020.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:d3::34) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU0PR04MB9587:EE_
+X-MS-Office365-Filtering-Correlation-Id: e3333bbc-ab51-4983-8723-08de8e6a0f8f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|52116014|366016|1800799024|38350700014|921020|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: tDQ1Dip3G4fX+ekK0afRZcN20qBq0NLxLuCDcXtQO5Z2FbwEMLVzL0tH16CxilQHiwdb4xk3nYUaGg3pp0SWLvcKLTeS5SHYhlceyBhQ51ruvjNr0nSz6GQQXOx8MRYAYxLX9p65V7IpQpUVZVggkhSKr2OK2tEcbIFkYVhJ8DrbY8ajLRyHwJIEVEklF9bw4VarXbtf8Swb0czAmb512+O9rtZ92OlotK4vUH6DD60UGAXtDl1E9X7m4dA8Hldi+bFsxCMxguAadgc/aw7s55k7X2uMTwvqrcl8g+ADn81jscMCRLRizZtqj0CmyGQ/cYE9fkwiSCBn0L/DQqCSfjm6X6ATM8auimeP06zf7Ue0aWZuYXzmkX64uCDkS2mIeLM9No0oF0YDxqWsEtCQ9Tfk7NZdSBjsz6OQgGwReGK5PVD45L9txKl2SbxgQn0mXyegkpEMRF4Gvvl69nxk4B4lO3mPwIi5qXF7ZRzukCiLh2EIxqhVMgNa1A0O+7jlgkztImHyTeTOEQ0Zw9trSJXiwNzKNCgdLtivtKQ8MHri0paXsjkK9MVBxEOBqZ1jbgRyXIQeQlLIGd2XS663BYzXBgt3AK5osSlUzKVfl3fymd/1l9yarETrZ0AOlzTCWnDKNGKZqWTzeOXL12Jpubo+gFQCxsS34+zQptO8Nt4xHoljGksplJTB8rqbbslTQow9t0B29nQ1OmiGj3K8aI5OnTJRlY7u3DiV8o4j2ogVzBk4FcAKeACg8q0yATHK
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(52116014)(366016)(1800799024)(38350700014)(921020)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HXv1YNO9TsolJJr+qbUxaqZJHYHydOjEOigLmjvE0NvGZUK4zjy7sDwbik4j?=
+ =?us-ascii?Q?2J81cIJnz0ehXHkzu5rrLmIw2b82cAV1B3ZevGDF9E2+KHYfzx/nC92ikecb?=
+ =?us-ascii?Q?VgjffeXDFN8J3PyrHqSFQv3BLkgBtNj4zuqCELBSCFobw3DKmcRIyTQ6OgC4?=
+ =?us-ascii?Q?gSt/BUTuTbhDr2FO9kLkUG6CoTyAwmz6mc/K5/UJ0rD5psLnfQXqyMPxXc+N?=
+ =?us-ascii?Q?f9VS9L7E2UZq2XDpijns+DQd7TWlk4g2uWiJNU7WPGzBMQEQzHmne5rOuMND?=
+ =?us-ascii?Q?W6lxE6Trx3FJnsuaFESvsd78IQ5+aNbUUDfTc8qsbGEw0GHbajDQGlPFwSXh?=
+ =?us-ascii?Q?MyYy4axIWBHI12Rj9WwOH54J4P/jfSLScVFgAouerqQdOcI/PuV9Unz3WRlO?=
+ =?us-ascii?Q?QvhVeyaSHr40kPGAzKY70X6a2/Hk+P86J6Mo9YZ8uvzc1OGaUkk8yQ8ENESh?=
+ =?us-ascii?Q?K/ewKQ9/8kxSYz59zu/s57Iy+9hAV1/5swxqaYVZA1TtVRSTdoDoBlMX4XPl?=
+ =?us-ascii?Q?eFLQvMs2qJcgagtYNNkLaQ8GZVcaoYOo9YYKFs4nZJFygzF1amM/eKIMqp5i?=
+ =?us-ascii?Q?xX2bleg6B9o+SWyCh1v71hPfgnXdb7o7ff4EpZtKwDaXYrH0DyQnTciFnpFJ?=
+ =?us-ascii?Q?+V9f18Y+qLCN14d1G8MWpPbT89ykcfFPHqUWrxl0eUrpOfyrjBFRncqYr1I1?=
+ =?us-ascii?Q?t6w4XAxnZM4tsadJ4yvRKqN/OGQlfsP3HV2+Ynaq4Z2GeZR7lqvgw2in/iyn?=
+ =?us-ascii?Q?EM7IvafsvPOMqNZSydGT6nU9eSwfafz0GjOskyYDt1DzcTRczAQ0DrIFHDMx?=
+ =?us-ascii?Q?seGv8A/SZ071pVjvaZMDbrOOpAk3cshEPxKNZIyt9wWngQ8Aq3PnDCxcXDc5?=
+ =?us-ascii?Q?ZqHv1qvaDBpjQtNmWw2iXGZDs4D+z3fy76UZnfgTG+s2haUKcPuF/tiUUubA?=
+ =?us-ascii?Q?wdAag21OzJnQnzazhtlcVJAOQuVl1lLBHUCBzGZWwnjtf2e+R742Ul5oK+kK?=
+ =?us-ascii?Q?QgWP85uzvshHTcFTAeoYP6pMD88+nqfiL36VrrT9wvwiieAJ/JJtbsjMyBfJ?=
+ =?us-ascii?Q?Ep0JztNEgDnwnBYl0fHmzwiWOYZSfnX/TPuFx8SPqWNw5oyWr4kC0ApmNgHx?=
+ =?us-ascii?Q?J6+bAguBFtG5bEGmP2TxL0SGkEC+oka+N0NuT6EU9TUhPCr9exSE0nHbMWHn?=
+ =?us-ascii?Q?u+5gtPq0G4rWRu6ceGB9RAU35A0xr7hH1EcDvKxMl2DkSdI91X2wefgbLV4Z?=
+ =?us-ascii?Q?/HvpGWnOK7mBHlHqzNTig7mWLoXiSW3FDo4ccYpD7vnGwNVz2ZjTRLkJzIDR?=
+ =?us-ascii?Q?P3LK6kZNuWjPGLqRGWwCvsj5EeOcGnpPt29GmpNDXeRu0J7hH23O4rEMqCjN?=
+ =?us-ascii?Q?+sefwM8Fzw4zIKgz5g+ekp5bvnz3zGbk8WkKDufo9+pf0Gyi4fM5vbXlXqKa?=
+ =?us-ascii?Q?qfiPSAAxLGEMETZemwq0eiLp5Ldm/mH1o66VC1GOyRN5nzgkEsT2/gRDjHOt?=
+ =?us-ascii?Q?9Q93B3BsN/MgZilWnIFas0RjQji8qw83kyWw8Px9qX/ejdmhQO5RS0isAxg/?=
+ =?us-ascii?Q?f+rXynks+PodznpRLIVSCvEKQXJUr9Mb9SbJn6cKrykp0rcbKleaM3Dlv4Pr?=
+ =?us-ascii?Q?Mo0UEH/09yCT6EX/qEzlg+nsHw6QPHrqs5phXcBXIgCB6Xpo5ijtR4zorQNb?=
+ =?us-ascii?Q?/o3G944JHlM/P9T6TmDm5CUNeGJPyKOZQOkJbWheSFR/i8YF?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e3333bbc-ab51-4983-8723-08de8e6a0f8f
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Mar 2026 14:38:51.4043
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Qb1WG2CWfvfxn3z6TYV2ew1ZDkDyVPppcsW83ncikYDs/pV/uNpfvho6PxROegs6XAmgUvVvLMhh6/dchG58uQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9587
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_075330_751582_0F44F852 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20260330_075342_673168_1277E0C6 
+X-CRM114-Status: GOOD (  24.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,35 +144,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct the interrupt number assigned to the Realtek PHY in the p230
+On Mon, Mar 30, 2026 at 10:49:22AM +0200, Michael Tretter wrote:
+> Hi Hans,
+>
+> On Fri, 23 Jan 2026 17:57:23 +0100, Michael Tretter wrote:
+> > On Thu, 18 Dec 2025 10:23:48 +0100, Michael Tretter wrote:
+> > > The imx media device currently assumes that there is only a single media
+> > > pipeline. However, the media graph has multiple imx capture devices.
+> > > These may be started separately on media pipelines if they don't cause
+> > > conflicts in the media graph.
+> > >
+> > > Move the media pipeline from the media device to the capture devices to
+> > > properly track and handle multiple media pipelines for the imx-csi.
+> > > Refactor the code to start the media pipeline from the driver to help
+> > > the reader.
+> >
+>
+> Could you take a look and apply this series for the imx-media driver,
+> too? The patches are already reviewed by Frank Li and Philipp Zabel.
 
-following the same logic as commit 3106507e1004 ("ARM64: dts: meson-gxm:
-fix q200 interrupt number"),as reported in [PATCH 0/2] Ethernet PHY
-interrupt improvements [1].
+Michael Tretter:
 
-[1] https://lore.kernel.org/all/20171202214037.17017-1-martin.blumenstingl@googlemail.com/
+Sorry, I will take care imx's stage driver. I already sent pull-request,
+which included your other two patches.
 
-Fixes: b94d22d94ad2 ("ARM64: dts: meson-gx: add external PHY interrupt on some platforms")
-Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
----
- arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Do you have others patches, which need me take care. I am not sure if
+there are chance to send 2nd pull request for 7.1.
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts
-index 7dffeb5931c9..701de57ff0f3 100644
---- a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts
-@@ -84,7 +84,8 @@ external_phy: ethernet-phy@0 {
- 		reset-gpios = <&gpio GPIOZ_14 GPIO_ACTIVE_LOW>;
- 
- 		interrupt-parent = <&gpio_intc>;
--		interrupts = <29 IRQ_TYPE_LEVEL_LOW>;
-+		/* MAC_INTR on GPIOZ_15 */
-+		interrupts = <25 IRQ_TYPE_LEVEL_LOW>;
- 		eee-broken-1000t;
- 	};
- };
--- 
-2.53.0
+Frank
 
+>
+> Michael
+>
+> >
+> > >
+> > > Signed-off-by: Michael Tretter <m.tretter@pengutronix.de>
+> > > ---
+> > > Changes in v2:
+> > > - Improve code readability in Patch 2
+> > > - Update commit message of Patch 3 as suggested by Frank Li
+> > > - Link to v1: https://patch.msgid.link/20251107-media-imx-cleanup-v1-0-f82a693c28f4@pengutronix.de
+> > >
+> > > ---
+> > > Michael Tretter (3):
+> > >       media: imx-csi: move media_pipeline to video device
+> > >       media: imx-csi: explicitly start media pipeline on pad 0
+> > >       media: imx-csi: use media_pad_is_streaming helper
+> > >
+> > >  drivers/staging/media/imx/imx-media-capture.c |  8 ++++----
+> > >  drivers/staging/media/imx/imx-media-utils.c   | 12 ++++++++----
+> > >  drivers/staging/media/imx/imx-media.h         |  7 ++++---
+> > >  3 files changed, 16 insertions(+), 11 deletions(-)
+> > > ---
+> > > base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+> > > change-id: 20251107-media-imx-cleanup-9022d941ae44
 
