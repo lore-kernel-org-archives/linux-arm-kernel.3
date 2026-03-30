@@ -4,82 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5E61061B12
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 15:55:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 063961061B0F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 15:59:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xvfnu8n9xWUUX3eTGlWSUWqJseakKmLqFYYbqi1qNng=; b=vok+kdlsaPMspSJHDo97Rrh3N2
-	rrazG0AQwKq53UKhLyiljvArUQGIaveH9cukqz6Y0uIp9UmLxTpXI0aL8/1eWih84orsWHL5QOjkK
-	MVu3X9ZVyFBjBgOjjmVKmkofcuFN/IkT5shRO+KwqQyFk0uyuJeR1HpmLHS5ztrHK5VmukvXoNV8o
-	MPUWyscBwVDqo8rDLGF6i02k7zdmGdCvbwN1cmNaAbYhq6Gp9809nkSWlvTjcp4v4p0msJ6nl5cFK
-	XCey34gDiCQrsOr+W/elb6Lp2OGmHM26zccr1PYprIqItoS9fz6DnPDg0z9NAvehwTyVjYTzcMHpY
-	2B+JD9TA==;
+	bh=gWDiTD+U+UjgLErWuzI2cWp9sivMplzLUYOmq3MVyQ0=; b=CJVpL9HYn6oK8IbEuKHUkVdeHH
+	6MqGVLqzQI3pGA0XDGD1zB/dvCpzvw5CiKvwL4XmkFZvOP6hhvKxEXopmWHnkFzaccEvSvB9cdFvJ
+	+h1xkpW1BR0i921x+8Mj/M7QI6hA5QTbzUv05ZrPfoeT2DFrqQCcXo6nRjh0P1qTXCHCWo+Zooy8X
+	9kfUzW0wMITzP/7kYKzHr2I7CzsjuV1Tv+pvGAcqB+S0d9tdnumeXMhWDpCrDssDCP/MqL0YY7mo7
+	uwLk0xoM1v7cwHhUV68LX8r3RWwxU3Dok3S8Aj9LgrfR7+LPGdrgkmFg3NGtINQNBOvoN+67ji8MQ
+	OKPun2xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Exh-0000000BbJA-492t;
-	Mon, 30 Mar 2026 15:55:33 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1w7F1A-0000000BbbP-2kio;
+	Mon, 30 Mar 2026 15:59:08 +0000
+Received: from mail-northeuropeazon11011024.outbound.protection.outlook.com ([52.101.65.24] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Exf-0000000BbHw-2dew
+	id 1w7F18-0000000Bbav-3zTx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 15:55:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1774886129;
-	bh=xvfnu8n9xWUUX3eTGlWSUWqJseakKmLqFYYbqi1qNng=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=Sc68ieIfol+IQE7DIOloK1UgnGU8qNDmo2WSaON4sgBfUtYPS9via3VA7tGbBTORr
-	 NazvT2v44pBTyMSY2i3icaKZnD6a6cUy0N570nGKn3KVANxwB0voefSZlYxARSz6TR
-	 wGPxDRKtvLUvbU41H0gGyp+aHrYqS5/WBzMUfntfjUMqQi915joFlF9ROsUNEtLU8E
-	 zitiLECuoGbdiFzuaI5QqFjGvCmyl1n5KQgznx5i5zr5XyoJU8XIDjb40SnBdetlfd
-	 lXcjWISzqvOeBWzTbmhCANbHKMtZMyxRps9ecCxSKJstmoLI0Nv8WyGD4nuy7decj0
-	 15u1ufIR/pRMQ==
-Received: from [IPv6:2606:6d00:15:e06b::c41] (unknown [IPv6:2606:6d00:15:e06b::c41])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A680C17E4886;
-	Mon, 30 Mar 2026 17:55:27 +0200 (CEST)
-Message-ID: <603785eb48d69bc50c0296fc696eb0985c2a3ac5.camel@collabora.com>
-Subject: Re: [PATCH] media: cedrus: skip invalid H.264 reference list entries
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: wens@kernel.org, Jernej =?UTF-8?Q?=C5=A0krabec?=
- <jernej.skrabec@gmail.com>
-Cc: mripard@kernel.org, Pengpeng Hou <pengpeng@iscas.ac.cn>,
- paulk@sys-base.io, 	mchehab@kernel.org, gregkh@linuxfoundation.org,
- samuel@sholland.org, 	linux-media@vger.kernel.org,
- linux-staging@lists.linux.dev, 	linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, 	linux-kernel@vger.kernel.org
-Date: Mon, 30 Mar 2026 11:55:26 -0400
-In-Reply-To: <CAGb2v674Ei2uFh6O0LoFoJrPcqGKGr_v+hfvE7TSfwztxDfTAA@mail.gmail.com>
-References: <20260324080856.56787-1-pengpeng@iscas.ac.cn>
-	 <2823210.mvXUDI8C0e@jernej-laptop>
-	 <CAGb2v674Ei2uFh6O0LoFoJrPcqGKGr_v+hfvE7TSfwztxDfTAA@mail.gmail.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-UJIS4LK7twx1My3JsxhL"
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	Mon, 30 Mar 2026 15:59:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sCzmbG9xLIvRoK+mXCOQVihPP1lJNmr9GuSPXLEjOZ9R0c3OsFoe5zulEeDOTatD1FYmIKxjaOhhumERB7GXE+XcbOv5S963s+GcVgEIJRynrUesrR5LTCi1t/I454voe66GJt6/myDt2uNORlAN2wDk6borQ463hT8OhMkwJmpSoL+4ibHaVdn9NzdivRm2sM2fOeMhqsHr6yek2fFY6tDw55G0GkdrmKusNtjLmD/NoDj3qqGAlEh4u3I4NFwOBZ37RvFncyQO2Ibxi5NvZn8lglFkrZWijRD0hJp+i/FCX2Xz6dXunLEqCWmFUBOurphsgB3Fv6PsTwB7Ee8myw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gWDiTD+U+UjgLErWuzI2cWp9sivMplzLUYOmq3MVyQ0=;
+ b=C6SZNSNw8LK/vrpxxIPaZHPm+9JPvPDcaoCzXsrAggZhkoNnXHPnwXWw1KISr87maUeUbaOto1aRNvhgdtw3y6H0d7B7oKkLg4ZNYwARd5nSqvD90doOhSNZbWYcWQLxZ1ptRqjyJbrMVmQh+bDGT9DsAV8v0ODXW0ut2rBNwnf9k2Vxy1r3xlRwumgBkAf8VBadxNpRFJlcStO9+1HSlgXhN9CkK5ojXA3QTe3VUPIDVnNgKBSmWohxNX6DkTX5CfQv80wng2+0zHUNltcWcmANAM89LhZQS5sra7RN0AUiUQXTvenbE9vJONazEpA8I5FN6tqgNt3h8J8kJL67lw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gWDiTD+U+UjgLErWuzI2cWp9sivMplzLUYOmq3MVyQ0=;
+ b=f4rSIpXGfqczcqZnVVg83YQfFhRLm2N92QqbiGkkadWoFzxSw/3NfYVYFsMYDb1WrP2OBajFLWJVDx8QX6xVPQhsccOpl+mXcU+GIxjaiDf1Rpz5C//aBgnY+DUOQGTcJriIeKAI1Avv1WGiEsQFiW005/W+HL8U9Im5VNLpNDvYaoF+dQv1AEy9EGQsYTDeTDwPMCiPQk0gher8U7dgqj7onwXLRqsB3cy2auNmKusDJJvolyw6+Pvz0H7MNnTiy8EqocyOthxreD1qLz7KiV+/xCKbAX2oYExdomx0LdcuHTCVW712XfcmYKllNG3NT5z4e+1LerBm4KQpnwIH5w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by GV1PR04MB10377.eurprd04.prod.outlook.com (2603:10a6:150:1d1::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Mon, 30 Mar
+ 2026 15:59:00 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.027; Mon, 30 Mar 2026
+ 15:59:00 +0000
+Date: Mon, 30 Mar 2026 11:58:51 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Srinivas Neeli <srinivas.neeli@amd.com>
+Cc: Vinod Koul <vkoul@kernel.org>, git@amd.com,
+	Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Suraj Gupta <suraj.gupta2@amd.com>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>,
+	Folker Schwesinger <dev@folker-schwesinger.de>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Kees Cook <kees@kernel.org>, Abin Joseph <abin.joseph@amd.com>,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V2 3/5] dmaengine: xilinx_dma: Extend metadata handling
+ for AXI MCDMA
+Message-ID: <acqdu-oEKU1o-qrU@lizhi-Precision-Tower-5810>
+References: <20260313062533.421249-1-srinivas.neeli@amd.com>
+ <20260313062533.421249-4-srinivas.neeli@amd.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260313062533.421249-4-srinivas.neeli@amd.com>
+X-ClientProxiedBy: PH3PEPF000040AA.namprd05.prod.outlook.com
+ (2603:10b6:518:1::4c) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV1PR04MB10377:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7720121b-ba73-4420-2a64-08de8e7541d0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|1800799024|19092799006|38350700014|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: BQ0tPT/AsSv9s9cjDjiofKoo5t3xjhz13WyG04okT65GftLrl41/g0Gc5QcA3wV0iKVh7X7kO9uXcAuCnSpxXNBEhIyeuO4TRt9S1uHAX3yNlFTvjV8xgGvM92ClvFuMIsOr8AUp80c0yiyUdUgOKQMl4zPZVwvhXi2AhQFM+/G4vpFXTRMdaqzFDCjK7LVL3B8W6GHoSqowIIyLawIjxdtbPcbg7Ne7LhrrwEyxVC5cLDJQe7RHHFZJVQ0PZqBJFhMc9GopCslzPHPSDdcfAKkyGVFevE5zqqKMJefAFY83jQ5V081RULMtLTYgAirXVJpZin64RIWciYVLdpzyO3eyjCvAMPWPYYJXDT4+Oe5kmt/heAtPOGr/mdb+K9mOyCY9zJQXJa16w5Z16U12nIXex/XTSqef/+QGRpRLu0ObfKLg/DI2XNpEY1ovxC8BEntQ4VIbQkhcj24NMKXqOMuF1bRT4FVXUdhKfOT9mUKqe9/yrcLFH+nz1SpKCmYKgAQHzGnPNmrbPUOx+QlRLsr9BAB5mIQ6kJKTFDQAj7qYPmwVkbWCsgkSJWPIlEti89nOFdvrdEXJOZGgxVvmMiHRlOn49GJmeS1Q9qzKul7LSJTDUepRloji+EUQMTXePpUtIGgXv1vH7dM9UNia+rzoVcmm/9NTN9uDLCgQ4Z0lgMQqda8QxsY8MrrMIrv8U/Sd2SWYhYfEuB3+fT9Aw1mIGq7vDF+/cXjCvy7UbHnpmOCQhMLEzZLTmmk3CvHmz05XVnsf5KIOnRh6EPuKUzzDcdcs7oTZkJbVU+xVZbo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(1800799024)(19092799006)(38350700014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+vxTq/zuy+dXZzFOLsb21aKmuIOspNTIDsK3SGzKWyH8pUb0AzVt8nY5y36H?=
+ =?us-ascii?Q?Hc4MfoiLMTt3z+ybM6p8i4nHfWm7Z02P89l0f867wyBYo/LGcxxbtS4T33oD?=
+ =?us-ascii?Q?Hx4vvBJtrEB+HcTXC8iT8F1fJMwmcOn3+EfxlhRfgamF7RRh45ptg7LbMAAi?=
+ =?us-ascii?Q?+2gzzTFo+kye7Lh+zUrVwoCjJbywbKznQA0nlbpVMoWI7DHRN8Rf95rsvucW?=
+ =?us-ascii?Q?ZU586aLtTmUgYmK/IKSA06SRu8FwN4uSNhY6tbEoGau07+9Wym0bmTzE+cJM?=
+ =?us-ascii?Q?3KWBOxQhg1wdMqD7Z7skJTtrPHmEIxTSaY6cBnAE+HwCIs0l4HP3TB7X9mWp?=
+ =?us-ascii?Q?EG0jQlDOrI9LU4v79mgAZRnw6PqoykbNSFmHY39eNgj2ajelqUVC9Wh7+b5+?=
+ =?us-ascii?Q?XbaRQWaMeIrPZY7s9IRCe5Y0VUEMQ3Pt9dj1qsvenuM2eIbvLI4b0ahShY5E?=
+ =?us-ascii?Q?T14Urx5MEV7fwoyD6RkHz16SJiQyFwpc9VNeu756cak3+V062QR4WPdNeslh?=
+ =?us-ascii?Q?1JECIDk4RmynH91zYWpHwAG2xJ/NZ88fSMJ+8TpBjIuf+88YouY/IMohpwO8?=
+ =?us-ascii?Q?dPcHXtDzxX9+5TOE0sQ6UMjlWMbAulEw3/X4pzRN3MSDaG5IzNs2tgdGjgzE?=
+ =?us-ascii?Q?D04QXykM55jHp64wn6lZ613d4y6EWKCgZ1QQwkM5+OKGu4amvICvqNC4xYXH?=
+ =?us-ascii?Q?6M8bP7QPjFM+Q5HKS+okE4Is44pOTbU3SAdqJ8pBHeRn+n8ILIPfg3ZrCMq7?=
+ =?us-ascii?Q?2SYK8bmEdHkOIQznIROyCjzONtkoRfIZbi2CnumoKuFq35kM7KlPhnDM891q?=
+ =?us-ascii?Q?cYnVbhVggj5gmgmSvrzbIThSbAjY4kmvldwCs/ih1MMEuAObztYnoGXuvY+K?=
+ =?us-ascii?Q?iIXkU24rSbNnru1ZAkI5sW2Mad3AaN0y3JG9RsmsXPZxO+3ZYnSagY7dvsvY?=
+ =?us-ascii?Q?OTo8CyyiV9mEdTKc0+9uK37Q43nrTisBCJcav5zBTa5td5QlXxWb66WdKfQs?=
+ =?us-ascii?Q?CJ+YuRYsXXKnwM4rybztncCkNsZVyuIaMqlv+JNkCIWAW7y4NmghOZj+GuUJ?=
+ =?us-ascii?Q?li/WUDLDZV5YVmV/y4jPjImooOjNPpE+GHVIjTIjnyR0PtYLpERQu1JoScNb?=
+ =?us-ascii?Q?5cshZDNZNr5SBu0qPU+ZtwciPzQtnlaWRm24B3i6KBYFrR1gXevQ1tgq9cYn?=
+ =?us-ascii?Q?X0rqsUIY9+GlxGpWoULB+ZdiuACDL/DPcDODK+dwLhgVrHkhqKvdVtYMLfri?=
+ =?us-ascii?Q?7p68I2L1kBBU8FvTEiN6JH6JxVpNyt2N4nkq+UV42YZ8aOh/2Ikq+Ww9BSbq?=
+ =?us-ascii?Q?SnwCTUozogK1fU71jVnRRuUqiON5h/SDpBTZpr7EdsytejfFmNEmh2787qFu?=
+ =?us-ascii?Q?YAJDEe5wiLVB4crgZ/rnPfyjXa6NFL1nhaVAm6F6EYArpqBJ0dvSJNLUkGWG?=
+ =?us-ascii?Q?KNB/v6G9I/ou+z5nhNHWd1CJmu/ZhRENSJMJAGgEOREjzX/KDZxC8otxqQ4f?=
+ =?us-ascii?Q?a9Soz5PBLjf1PEnlVY7kiexch+LisV7ZKTL5mYb0A+FOSuuKObdgSb+C8HQJ?=
+ =?us-ascii?Q?f51cAw8WIvSqymrFIyPxPMIZTGYzlv9zF9ce64CkhgjG5FpX4/lGlLctOeVS?=
+ =?us-ascii?Q?EY++JEnIvhTTiEcDy07BMSVExLvJtqGv0GTVp6eFIs0h9LmLDje6gXhBpHMZ?=
+ =?us-ascii?Q?s0irtVJrrM6W7W//Nd96h2Qeg96pqVVG3OQ+RMrqiqO6L5LHjKuKfpoLYlG9?=
+ =?us-ascii?Q?CInOcN+/oQ=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7720121b-ba73-4420-2a64-08de8e7541d0
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Mar 2026 15:59:00.0987
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: O9o8hlsLq2vUCjRrHYdVDJADqy8FvfNg8obp0FVR59dic6OVLqwV80WMSaVLKBpOoc/R2cFXm9y5E6yl6yo6ig==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10377
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_085531_842669_644190BF 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20260330_085906_991276_7EE6CC5E 
+X-CRM114-Status: GOOD (  18.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,63 +147,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Mar 13, 2026 at 11:55:31AM +0530, Srinivas Neeli wrote:
+> From: Suraj Gupta <suraj.gupta2@amd.com>
+>
+> Extend probe logic to detect AXI Stream connections for MCDMA. When
+> an AXI Stream interface is present, metadata operations are enabled for
+> the MCDMA channel. The xilinx_dma_get_metadata_ptr() is enhanced to
+> retrieve metadata directly from MCDMA descriptors.
 
---=-UJIS4LK7twx1My3JsxhL
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Need extra empty line between paragraph
 
-Le dimanche 29 mars 2026 =C3=A0 20:44 +0800, Chen-Yu Tsai a =C3=A9crit=C2=
-=A0:
-> On Sun, Mar 29, 2026 at 5:21=E2=80=AFPM Jernej =C5=A0krabec <jernej.skrab=
-ec@gmail.com> wrote:
-> >=20
-> > Dne torek, 24. marec 2026 ob 09:08:56 Srednjeevropski poletni =C4=8Das =
-je Pengpeng Hou napisal(a):
-> > > Cedrus consumes H.264 ref_pic_list0/ref_pic_list1 entries from the
-> > > stateless slice control and later uses their indices to look up
-> > > decode->dpb[] in _cedrus_write_ref_list().
-> > >=20
-> > > Rejecting such controls in cedrus_try_ctrl() would break existing
-> > > userspace, since stateless H.264 reference lists may legitimately car=
-ry
-> > > out-of-range indices for missing references. Instead, guard the actua=
-l
-> > > DPB lookup in Cedrus and skip entries whose indices do not fit the fi=
-xed
-> > > V4L2_H264_NUM_DPB_ENTRIES array.
-> > >=20
-> > > This keeps the fix local to the driver use site and avoids out-of-bou=
-nds
-> > > reads from malformed or unsupported reference list entries.
-> > >=20
-> > > Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
-> >=20
-> > Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
->=20
-> Tested-by: Chen-Yu Tsai <wens@kernel.org>
->=20
-> This fixes a KASAN slab-use-after-free warning when running fluster H.264
-> tests.
+> Add corresponding channel reference in struct xilinx_dma_tx_descriptor to
+> retrieve associated channel.
+> These changes ensure proper metadata handling and accurate transfer
+> size reporting for MCDMA transfers.
+>
+> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+> Co-developed-by: Srinivas Neeli <srinivas.neeli@amd.com>
+> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
+> ---
+>  drivers/dma/xilinx/xilinx_dma.c | 30 +++++++++++++++++++++++++-----
+>  1 file changed, 25 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+> index 00200b4c2372..52203d44e7a4 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -222,6 +222,8 @@
+>  #define XILINX_MCDMA_BD_EOP			BIT(30)
+>  #define XILINX_MCDMA_BD_SOP			BIT(31)
+>
+> +struct xilinx_dma_chan;
+> +
+>  /**
+>   * struct xilinx_vdma_desc_hw - Hardware Descriptor
+>   * @next_desc: Next Descriptor Pointer @0x00
+> @@ -371,6 +373,7 @@ struct xilinx_cdma_tx_segment {
+>
+>  /**
+>   * struct xilinx_dma_tx_descriptor - Per Transaction structure
+> + * @chan: DMA channel for which this descriptor is allocated
+>   * @async_tx: Async transaction descriptor
+>   * @segments: TX segments list
+>   * @node: Node in the channel descriptors list
+> @@ -379,6 +382,7 @@ struct xilinx_cdma_tx_segment {
+>   * @residue: Residue of the completed descriptor
+>   */
+>  struct xilinx_dma_tx_descriptor {
+> +	struct xilinx_dma_chan *chan;
 
-Ah, very good, can you cite which test caused that ? I didn't expect fluste=
-r to
-cover cases with missing references. I think it will be handy for future
-testing.
+async_tx already include dma_chan's information.
 
-Nicolas
-
---=-UJIS4LK7twx1My3JsxhL
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCacqc7gAKCRDZQZRRKWBy
-9FkKAP0bRa5EpH2LNXuNv/NodKoSH3KIa/khjuqrhbX9hctiygEA85x995KxTAzc
-dj+/4z58jnmVuiq/T+Q69UrRdK9ypAg=
-=STk2
------END PGP SIGNATURE-----
-
---=-UJIS4LK7twx1My3JsxhL--
+Frank
 
