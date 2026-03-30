@@ -4,79 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D55AFC981D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 08:50:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 140A9FC97E2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 08:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tf5ULwJrTl2cI7z19tJ0FBIFsHUeLlxW6VqIecnfacY=; b=U1EEnQaOxcu2rKuV1/7YywgUyc
-	cTV3rL8ybAm0KZiIrMy65fe4Ex4P+TLGD9ZpH86si2nCjabty1f5LBhJeT8PzlUaosWk3T8cVVX78
-	vFH02oOqgmo2n9UpFPCa9G3nqi0wI1BVnypDUNcSoFj9J4uFxQpdoi8LgVyxfEsnztIZwqjGZKqb6
-	GAURIAk6RqQV00oKiJJM9m6KzLNDLSlZhAI0DfYUipK8luTis2GJvha5F6XoH14FH2Kn7+S/mxQSi
-	X7qXVM3lycdqbVRlaTcY5J+K5ZzDWjuaQvRn3mGwl84RyCKX1wTt10YUWStVQNoskHlBh4Um06Av8
-	juZbZRwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NuAWp3WuRNOiGbMUfdiOKGUuLbpHU86UYThvWrha9xo=; b=WMCMwOQm61eUqS4j/8VtfK5Zey
+	KBKt9hxVpXMgBH53fBjrQ9I8m6CmecLwioMnDZ3ooQ5Yfhb2Rx//gr6yGutlqP2VSk8Hbgr6MciBC
+	5jB0vHmvx8Ey2uaJyElzev8S01hPem1z4RHkxp20+/flFTqS8czSiZW9MwXIdklJx+QyTUX7szgNn
+	IPqHb5j57uf0BdrsQL6up/VbuCKZ98sTKtaLuMVVDdvrXmjMxLYXsnERYMp0Fxc5jte3FJEbGOfS7
+	zU/Ldj6u3NKDk4zMRv2utGnfoXxrjyVUtp36rK5GAppbYpTPyZ9D3eK00YJTv4HBjHVVdyZxEKF7W
+	w6zp8LWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w78KP-0000000Aumh-3pk6;
-	Mon, 30 Mar 2026 08:50:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w78RD-0000000AvDo-12KE;
+	Mon, 30 Mar 2026 08:57:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w78KP-0000000AumT-0Jeu
+	id 1w78RA-0000000AvCn-38vZ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 30 Mar 2026 08:57:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=NuAWp3WuRNOiGbMUfdiOKGUuLbpHU86UYThvWrha9xo=; b=bvSsFvzzpEG0rMMNqfsYthO0Am
+	iU/ks82d2OxKATh03IRqXFc5hGP1C32pIpV4h6rjvP+RdFGAExptt8kStfqZqdQuI/Ixdg/yOXJik
+	Qty9Q/59LXAxyiBYw5/oOcOYt41gA0g4Ki00+CU4v6zmNXN5PQj8kHcF7OBr9m3vlV32LKE3hTH1L
+	kpnUb9EgQdw6aamI68xBNiw7uPCaHm3owrIUnCpi9eoSAYOVxjn+wP6DK0DOTNDeXf4WphOKDDpkl
+	l0a373NzxdrsbPJnzd6f6z1A/E6Ylujzyin1TPRksbqLvS5oSDUVCB78j9njciu8i7lILfcTpdfjd
+	l12hHLCA==;
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w78R7-0000000DNBO-0VlN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 08:50:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 131C260123
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 08:50:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD31DC2BCB3
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 08:50:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774860631;
-	bh=tf5ULwJrTl2cI7z19tJ0FBIFsHUeLlxW6VqIecnfacY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Xf92L5XvfS6DOe68A+aTIVoyPlxdhPE3UBegn5Kf6obJ/Wf7BzMALvcuIeBMoLGaz
-	 d4giXxl1iaJYrSAJwJw2SE22at6710VnXhIlhRzG6MKp9msdUKsmHvhiBQ8GUSMijn
-	 EL2pfdKbZ9LZgbz9Dd19d2NVzMSynP13HCUpOlWBwRxCQ29+1Q5sL56WYwwoFhZK4/
-	 VCXxHqZL82p6W75XyD7El0+gm2WPUrE3V1Fz7Q19U+UqUirwHgGt6x3SN9Nm2ipY4P
-	 mDyonlqLpQPjNf+h54ixGxFw33harvnWSUcL+8kVmLscG7ZW2FY3M9X8q4mbqfOeHY
-	 kvBSTVvPncWyA==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5a2b5ea59a1so755918e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 01:50:31 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVHgdAtupDeDWUqi2DiwhyMa9eAMr9DAUzW2vdJSDI3SPbZst10wiDla3FoKXHj75QB/nBux/XkglMUnR97QmIF@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywc9/8urJBlNjpHDCHz0ZNsGxmG0yzskIbzdwN9bnwAlEH3rF7F
-	EpiNQKUa5VPQpI3mjYwe2At6kQi4Sg4vKqwFDYXQXwbI+E4uuLcnBLttpu9Mmrll4JfEx712VaQ
-	DBr4msaSsVxNTJJtbB6r5+x3UhT+Yi0n7RavSrvr8/w==
-X-Received: by 2002:a05:6512:3b0b:b0:5a1:1885:69d7 with SMTP id
- 2adb3069b0e04-5a2ab5fa3e9mr3943952e87.4.1774860630515; Mon, 30 Mar 2026
- 01:50:30 -0700 (PDT)
+	Mon, 30 Mar 2026 08:57:31 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-43b8cb81bc0so362466f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 01:57:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774861047; x=1775465847; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=NuAWp3WuRNOiGbMUfdiOKGUuLbpHU86UYThvWrha9xo=;
+        b=Z3SqUlq38vrQ1/uzLqmLk/fy96zUWi8gKdvmEn1ODRnkznglJsdwu/TsPOZLBY/e40
+         vK/3CM1qs+57/pcQxwOBqr5bSLiJUcjAsJIlNnoXHWUuRLcpjFX0nHntCbr7r5+ypa3h
+         IZ7/p/f/vV9fLKCQ8QGN7wx+FJvNquM5WijEBYjIwZc0fnHskqz0DqhZV5POHRcprflw
+         4uYSCX7H74XcVywTWz5izvNNffDGrZbfkxpwOaIMf6CMYtOzATB1l8WLVKQFvzoPtZEi
+         lnK3nfW4BGgXhVH8Az2fgfdqIcLqG0EmpSABWuQMWv+EGcYlNs5xkqP+9CfAlZCKnUKD
+         OLsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774861047; x=1775465847;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=NuAWp3WuRNOiGbMUfdiOKGUuLbpHU86UYThvWrha9xo=;
+        b=OH7ymRFX2PYi4T+ixe6yqZScvDCB4So68CTwMhM/NtJC5E8jvajbf/JUPY9ZoXGWjR
+         5qiif36+D76PXqt3v4TGafLvZtM19Jm6EXFFKSRwQsxpbyftLhZwvqvArdjIWoIyBWTW
+         JFSk2Y1oIp7mqi+excIoot5YXYtPXKDaZ0Q6fnGhGQ508/AmWGcEqncDdXz3scUUaR9U
+         KOOSV7tmTCtTAnAuam2o89MOShxi7FwW3D2JoMg4+434TJAB4yRfnSq+bJ2iv7kCPbWX
+         /UAJ9v5ksAQ89No41nAJ3wpl0VK2LCbkaM0Ji634sen0AneRceHBYbS4cQ/5LfYZQmz4
+         qj/A==
+X-Forwarded-Encrypted: i=1; AJvYcCUe14fS6YWR7A0J2k6Z4qtyFG/g13UTEH7UosmBly6wzTcBFnf4eHlWU6d2Us5Fjv4KMVO+B/MkInxbHE0yeXxP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxiIXX+1nYdYEpjnpTPFXEmQc78x9sJSEbK2uLa9bPKGriLXbkq
+	i6B45+PuXqVbX4WL69GEyyDYbZl84wc8E5HuVchHR/nyYLYZcXOS7Mcj
+X-Gm-Gg: ATEYQzw2F4O6B2EEzYaGW/apdtSKxHksaKC6brhc3mjtbrwnGdEsmOXfRx/uI4SLbbm
+	MAKNXTF6A+bXj+oRawP8auNlVkHzERpNHA5wcBdCdQw4GTdlvhLyRwhm3Bdit7Y3bazAgYDQf+X
+	bwQPBrPpyOqCk5Tbz7fz+vDry1LN+Qi/FtSrwm+v91RdjyvKyhzvqlLNHYtOfAwnFUm3qjjpIlr
+	zgQlCXG/hpymtkHWEEzd0XVicFejHK0On4ga89NKIPoMQbdxR9rACciT7bPX+Nv76IM7cUW3vPI
+	4SetWk1Hm3TAs6j824QJo8gKliH0iu4xiJmCoscsXJ2mtksVAQ4K1lZgLDEE9HwstcvSNQplPA9
+	BGeYgmpOCOmQfGyvKcTGf3YvoMj+FxEX+kONV4+phV3uTrM0nhESIODgp5PIK/vJuuxDzUYwN02
+	nvb4GI2MxILo5GBPmUkviGiEpAfA==
+X-Received: by 2002:a05:600c:1d1c:b0:487:1fbb:5a28 with SMTP id 5b1f17b1804b1-48727f2d043mr90623985e9.1.1774861046566;
+        Mon, 30 Mar 2026 01:57:26 -0700 (PDT)
+Received: from skbuf ([2a02:2f04:d50a:b400:a0f3:2097:3813:850f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4873bbcac33sm65338995e9.15.2026.03.30.01.57.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Mar 2026 01:57:25 -0700 (PDT)
+Date: Mon, 30 Mar 2026 11:57:23 +0300
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>, kernel@collabora.com,
+	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 0/2] phy: hdmi: Add FRL TxFFE level control
+Message-ID: <20260330085723.4rewkbs76lz3scum@skbuf>
+References: <20260328-hdptx-ffe-v1-0-53ebd5dea20a@collabora.com>
 MIME-Version: 1.0
-References: <2fb42d16-887a-4564-8e50-c9d6db564c4e@app.fastmail.com>
- <CAMRc=McYj-D8XL_wnmTEucMrwCy1-xr7h0XYrL68soMVHL1SRA@mail.gmail.com>
- <7h1phxpzml.fsf@baylibre.com> <CAMRc=McosSU39SERKtjmhJdTv2cPi44PG=bYqAcfQLDX4QB0Tg@mail.gmail.com>
- <CAMRc=MeYMe1gXjiYuQJpNWchp+V1uLkuRuyO3ohQjfAcg9q3MQ@mail.gmail.com>
- <acaOlGcGQEZHQ_mJ@darkstar.musicnaut.iki.fi> <CAMRc=McDdK8Y7wtG8WObjD6WF-2ftKBDwKbvj=xL-NMfeV=bPQ@mail.gmail.com>
- <aca3ajb_G3gD24S7@darkstar.musicnaut.iki.fi> <CAMRc=McVPskF4pMQSz=hR8CkyZhoPmCU_yJFT66vgTCPJd3-Vw@mail.gmail.com>
- <ackRzly0mXHReI7V@ashevche-desk.local> <aco3YBCQsT2BN2_N@kuha>
-In-Reply-To: <aco3YBCQsT2BN2_N@kuha>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Mon, 30 Mar 2026 10:50:16 +0200
-X-Gmail-Original-Message-ID: <CAMRc=MdEL-_od0wJbwA1Q=GDFjm94Ca47FfNR-koDpjumQrMdA@mail.gmail.com>
-X-Gm-Features: AQROBzAwfgAKKxJI4l4teSRtVg5dwLEFgmM7zFWj_0HkeLpVMZ1ljd0TW90H9VA
-Message-ID: <CAMRc=MdEL-_od0wJbwA1Q=GDFjm94Ca47FfNR-koDpjumQrMdA@mail.gmail.com>
-Subject: Re: [RFT PATCH v3] ARM: omap1: enable real software node lookup of
- GPIOs on Nokia 770
-To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
-	Janusz Krzysztofik <jmkrzyszt@gmail.com>, Arnd Bergmann <arnd@kernel.org>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Tony Lindgren <tony@atomide.com>, 
-	Russell King <linux@armlinux.org.uk>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Hans de Goede <hansg@kernel.org>, Linux-OMAP <linux-omap@vger.kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Kevin Hilman <khilman@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260328-hdptx-ffe-v1-0-53ebd5dea20a@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260330_095729_431318_3A93613E 
+X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,29 +116,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 10:43=E2=80=AFAM Heikki Krogerus
-<heikki.krogerus@linux.intel.com> wrote:
->
-> > > Thanks. This makes sense. Both omap16xx_gpio_init() and
-> > > software_node_init() run as postcore_initcall() so if the order is no=
-t
-> > > right, it will fail.
-> > >
-> > > Cc'ing Andy who's a reviewer for software nodes. Andy: is there any
-> > > reason to run software_node_init() as a postcore initcall? It only
-> > > allocates the kset, can we move it to core_initcall() by any chance?
-> >
-> > Good question. I don't know why it's chosen like this.
-> > Let ask Heikki, who is the author of the code.
->
-> I don't remember why it was it made a postcore initcall (I only
-> remember that there was some reason at the time). It's probable
-> fine to just make it a core initcall.
->
+On Sat, Mar 28, 2026 at 03:54:53PM +0200, Cristian Ciocaltea wrote:
+> During HDMI 2.1 Fixed Rate Link training, the source and sink may
+> negotiate a Transmitter Feed Forward Equalizer (TxFFE) level to
+> compensate for signal quality degradation on the physical channel.  The
+> source starts at level 0 and may increment it up to a maximum agreed
+> upon during LTS3 in response to persistent link failures reported by the
+> sink.  TxFFE adjustment is optional and entirely independent of the FRL
+> rate and lane count selection.
+> 
+> Patch 1 extends the HDMI PHY configuration API with two new fields in
+> the frl sub-struct: ffe_level to carry the requested level, and a
+> set_ffe_level flag that switches the semantics of a phy_configure() call
+> to a pure equalizer update, leaving all other fields ignored.
+> 
+> Patch 2 implements the new interface in the Rockchip Samsung HDPTX PHY
+> driver.
+> 
+> The series depends on the "[PATCH 0/6] phy: rockchip: samsung-hdptx:
+> Clock fixes and API transition cleanups" patchset:
+> 
+> https://lore.kernel.org/all/20260227-hdptx-clk-fixes-v1-0-f998f2762d0f@collabora.com/
+> 
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+> Cristian Ciocaltea (2):
+>       phy: hdmi: Add optional FRL TxFFE config options
+>       phy: rockchip: samsung-hdptx: Add support for FRL TxFFE level control
+> 
+>  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 74 +++++++++++++++++++++--
+>  include/linux/phy/phy-hdmi.h                      |  6 ++
+>  2 files changed, 75 insertions(+), 5 deletions(-)
+> ---
+> base-commit: f7b64ed948718290209074a50bb0df17e5944873
+> change-id: 20260328-hdptx-ffe-a89c51e66904
+> prerequisite-change-id: 20260227-hdptx-clk-fixes-47426632f862:v1
+> prerequisite-patch-id: 5c1d442fae39103bb758f54738aff33d2491401d
+> prerequisite-patch-id: b86f30292308345387d2a6b50949ad040b931592
+> prerequisite-patch-id: b1335105db9177cb10c64ed1bf0867832e6aac2f
+> prerequisite-patch-id: 83db6603d13e19f239e89fde2b26366eb0106b7e
+> prerequisite-patch-id: b534395ad315811861f11859a3946f65c90c631a
+> prerequisite-patch-id: f9637e57c902f35218cda658397416f84f7285cb
 
-Thanks, I think I'll do as Dmitry suggested and make the exact moment
-software nodes are initialized deterministic by moving it into the
-driver core initialization.
+Sorry for my ignorance; who is supposed to act upon this git-format-patch
+base tree information and in what way?
 
-Bart
+As things stand today, the build infrastructure we have in place will
+not be able to apply and test your series unless it applies directly
+onto the linux-phy/next branch.
 
