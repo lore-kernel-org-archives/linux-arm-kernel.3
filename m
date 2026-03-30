@@ -4,67 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C70301061B09
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:51:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A451A1061B07
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:53:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jdLEEC6mdxs/zMzXZPnIvj6mdc9sBcQUja8IkH/IZd4=; b=lXvAoBHOU+jb58grqTq+hxyzIW
-	LCBJ/hmhIG4c6c/6HjXvhCK+/cfee80jjdmJbs2rBZFmiSFYm7Ejl3C4OqJs2j0v3+ysDyne1irik
-	LxVJ9/Q3IiE1O1RsDCrrWIvTjiM+7X1WJZWhkE4aj9OrI+Sf5KB084Bu2wL4bs1GgYkRA/2u7JbOP
-	MBCOa4n6SPlPiUj5GpAFk1HThGlWkEaBnJeMqsL9+CkgOLf9kFx6xMQ0RXjrZldgXYNtpZgzS8cXb
-	GTcXq2x87iqLA5huwF0lMq/gntT4R8hkDzo3n7Bw3ZVKQAVK7hjDGzr4TnO7GP0SmASHgRzsc2pep
-	1BMsVu/Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ssYsLAnIx4oMr5cUDaN18URFoLsJRRuDZGGo0ofMqHI=; b=oJrqN/ElYjcPvdckwvY8aaGLuH
+	0nG9nZY2HkfP/Ae1nkffT3zdb7FmXlAwpFKi5pvMe2azSsPIyJOJmqKD+/lxQ8okasllUJyauXgse
+	o47/1MVExIaV1NiB2gNPlm75Q+L+76Mw7zOE2UyQrRKu2vRSSp1tWj2OLj/LVw238cimJZTXQt3KK
+	kEewVl0HfkydERVdYAzteL7K0oHqXSdBegfxM1nWNJjzrqtRdu4NbdRnt8xYJ+5Bw1ite9xx3kAw3
+	rBZKSbqbF9qGgOUKcI8IBWZSGQadeVng0I6kw7UK5mUIP5OuRJjM9Jik+sN+ZNho5+ExfCmFjwGqy
+	0XT6jKMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Dxh-0000000BUrl-13Ud;
-	Mon, 30 Mar 2026 14:51:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7Dzi-0000000BWB7-09nz;
+	Mon, 30 Mar 2026 14:53:34 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DxC-0000000BURd-03ZZ
+	id 1w7Dze-0000000BWAO-2zUU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 14:50:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6FF7F600CB;
-	Mon, 30 Mar 2026 14:50:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64877C19423;
-	Mon, 30 Mar 2026 14:50:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774882257;
-	bh=be2pSVdKYs2XTtccvYTydqz5T0J6rzFdyQOTW0pLEsY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oyg9MfE+vcunsCwkvYXhi6h3LKwmFgkF7BoB+L+mzyJr6qgP0THDfAxmgBJw9hYWI
-	 okQ58i3nQKTMMgjc364xxb9B1Gm5vm204rvSRjo9jqdTGiohRIXyHvIcxCt0a1n4IO
-	 pE4Sj+0HPeITJIGi4o3oXrtD8DEbGwcGpdEASVCQCsTeVzTqMkL10Twaik1cF0dyLZ
-	 TbYnolXBHeZY/JlHcKOJ+RKndhbllPLdFU/sn6fuM5nduqeYztHWxCkyaqGVzvSFgL
-	 29+7CIoP2E6uPJHOQavK2/RhLZDfQj9samhpqcPESG1WGL9EhPrYGyKPTD8sbHRT7y
-	 G4cg7Z/wvTSLA==
-From: Will Deacon <will@kernel.org>
-To: kvmarm@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	Fuad Tabba <tabba@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v5 38/38] drivers/virt: pkvm: Add Kconfig dependency on DMA_RESTRICTED_POOL
-Date: Mon, 30 Mar 2026 15:48:39 +0100
-Message-ID: <20260330144841.26181-39-will@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260330144841.26181-1-will@kernel.org>
-References: <20260330144841.26181-1-will@kernel.org>
+	Mon, 30 Mar 2026 14:53:31 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-3567e2b4159so3155332a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 07:53:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774882409; x=1775487209; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ssYsLAnIx4oMr5cUDaN18URFoLsJRRuDZGGo0ofMqHI=;
+        b=QGuC8WKmEjGack4Do02Z5CywKtHXDsBn7MNeikPhjOSRcXU16wa6+6HuPIvDrSyC0N
+         EaWlLi+bTb1/G9L5pNLWjmX8VEkT+0XjdG+9ghstn/Tc2ay48TsseWt8MVnOnOJchFew
+         pYDCHdF8dRS0wyCL5mHKK4zZE/EihZ/bCGEN0H5SCTtYqJottoxsA6dgWoUuJ38JCkzn
+         Lnu6bOkhk3q7ZrRmz0mWddNe6lf94I57DN06Qv1gpCvQliv85Wq3oI0Hrx1eQ9AWg4H3
+         K6CnyG2sr/bm8sR6SGvjYh+LczJPQ5ZtQXwwPWsvxeXNg6fTfLmfHcskmZO+zekCqwEj
+         bh5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774882409; x=1775487209;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ssYsLAnIx4oMr5cUDaN18URFoLsJRRuDZGGo0ofMqHI=;
+        b=bFOtmaV4c7HEbDAuLn5xp8E83QYf8DNITX1bFOz5DEbtYI0DzO+8w2Eaf8OXnV7uA0
+         iIEEjNNWPOSgJPFEMIjn9spCpenqsHL0ID/iljxtw/nwOSqC3sOzF99pl24gWyDLOiqP
+         WCkJUVy0RIqV26XsQWwD02CwUARHb4+XVHqHGBcpnXelI1m9AaVZ3sCMtXpVxsVxseii
+         fQNYK428p9UKPz1u+DjCrxGQ242/0znoeatmhARXyGgHjdu8B8Wr4lv1vC8X17NurSQO
+         r+zpl3r/b5eT8yRUOdIDqxzGROTL4eljHseIIzK2MoPUskt4rGfhhGaTZtNXuFDgVcqp
+         2ROw==
+X-Forwarded-Encrypted: i=1; AJvYcCVrsQL4cwt20WlJDyzaKctH0pr9uITFrl+c7yNghDaluIaT645I7UevywyHWOvgDniNCpXtNOO86ipeNR/QV8qw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEJvPa/RE1FYgjP1s+9tE4LwPEKwaiAuktFGc0SoPzpTXU9mbo
+	F4xVP5UpVfIp/mzOxj+7YgzQpAoLQtgYhhzAiQUWe72MYEcS306rZPSx
+X-Gm-Gg: ATEYQzxH1YuNl6Z7QbSivzoWcyeuglKft5Nz+Ix2aIKcWR4Wwy11Up9N3PQvjVzJlWZ
+	6GhVQw7aHDiUQfwzstCa6xot+IyKEg5jmCPG9dfz87x2vCfYvxkQLerxDxCP18rpo5lWnCv11l5
+	dS08yryIQzMkJeucgEw9z6X/NXjnC9Qeql+chhAfnH+Nckq/DxkYE1akYKCj1sa6M1Na8DZnAEt
+	aX9Ypl0bkzRyowW1cR9INut2TJcCYZeivos2/IuG4q73Txia6ov0u5LKPRs2VrUj3uDh+njxp2W
+	41a4PfB5KQdnGIIMnMAPGiqilVKbykteT+jahbB8TI1d/4BCTgzLX+t38F9U9p+vtWwA+ZIm+bm
+	1rqIkn7Kr3LmB9EIr8GOjfvmldBRa5sGLI38UcvnpFjxyMV6S12DMMHjMdyf2evtR0qofpLCzNy
+	IX2iLxnJEh3ZMzQEpQ3eGHnD/JT5vZO4uQyUtwlqRzjB+DGA2aFK+L9R9zZO8yUGs7rBclecl7C
+	g3VQ86vgvDV2QqASpQ=
+X-Received: by 2002:a17:90b:4cc6:b0:34c:fe7e:84fe with SMTP id 98e67ed59e1d1-35c3011512cmr10970363a91.28.1774882409439;
+        Mon, 30 Mar 2026 07:53:29 -0700 (PDT)
+Received: from arch.localdomain (n058152025253.netvigator.com. [58.152.25.253])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35c22d8c92dsm13218247a91.9.2026.03.30.07.53.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Mar 2026 07:53:28 -0700 (PDT)
+From: Jun Yan <jerrysteve1101@gmail.com>
+To: linux-kernel@vger.kernel.org,
+	linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	neil.armstrong@linaro.org,
+	khilman@baylibre.com,
+	jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com,
+	Jun Yan <jerrysteve1101@gmail.com>
+Subject: [PATCH] arm64: dts: meson-gxl-p230: fix ethernet PHY interrupt number
+Date: Mon, 30 Mar 2026 22:51:11 +0800
+Message-ID: <20260330145111.115318-1-jerrysteve1101@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260330_075330_751582_0F44F852 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,32 +105,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pKVM guests practically rely on CONFIG_DMA_RESTRICTED_POOL=y in order
-to establish shared memory regions with the host for virtio buffers.
+Correct the interrupt number assigned to the Realtek PHY in the p230
 
-Make CONFIG_ARM_PKVM_GUEST depend on CONFIG_DMA_RESTRICTED_POOL to avoid
-the inevitable segmentation faults experience if you have the former but
-not the latter.
+following the same logic as commit 3106507e1004 ("ARM64: dts: meson-gxm:
+fix q200 interrupt number"),as reported in [PATCH 0/2] Ethernet PHY
+interrupt improvements [1].
 
-Reported-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Will Deacon <will@kernel.org>
+[1] https://lore.kernel.org/all/20171202214037.17017-1-martin.blumenstingl@googlemail.com/
+
+Fixes: b94d22d94ad2 ("ARM64: dts: meson-gx: add external PHY interrupt on some platforms")
+Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
 ---
- drivers/virt/coco/pkvm-guest/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/virt/coco/pkvm-guest/Kconfig b/drivers/virt/coco/pkvm-guest/Kconfig
-index d2f344f1f98f..928b8e1668cc 100644
---- a/drivers/virt/coco/pkvm-guest/Kconfig
-+++ b/drivers/virt/coco/pkvm-guest/Kconfig
-@@ -1,6 +1,6 @@
- config ARM_PKVM_GUEST
- 	bool "Arm pKVM protected guest driver"
--	depends on ARM64
-+	depends on ARM64 && DMA_RESTRICTED_POOL
- 	help
- 	  Protected guests running under the pKVM hypervisor on arm64
- 	  are isolated from the host and must issue hypercalls to enable
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts
+index 7dffeb5931c9..701de57ff0f3 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts
++++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s905d-p230.dts
+@@ -84,7 +84,8 @@ external_phy: ethernet-phy@0 {
+ 		reset-gpios = <&gpio GPIOZ_14 GPIO_ACTIVE_LOW>;
+ 
+ 		interrupt-parent = <&gpio_intc>;
+-		interrupts = <29 IRQ_TYPE_LEVEL_LOW>;
++		/* MAC_INTR on GPIOZ_15 */
++		interrupts = <25 IRQ_TYPE_LEVEL_LOW>;
+ 		eee-broken-1000t;
+ 	};
+ };
 -- 
-2.53.0.1018.g2bb0e51243-goog
+2.53.0
 
 
