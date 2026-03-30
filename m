@@ -4,109 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 219F210D14AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 13:21:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D30A810D14AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 13:22:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oQy7rMRQqNqkam14G9bKJmi5NunYOfoWARsWVoG/9+Y=; b=WaHwHcywn9DoejAPDM/Ot0seyO
-	cjbsSako6o98Sg+SclQ17BuydFNlPIM6n9XIzjGdqPTlQRrLZxDR1HHeckc8h0Dx4EMzA1zAdtBWK
-	6F5TabKngwPj+ejw10W+WoaUfNHUXES78uzq803fLoEClznkKiw/VlGs9DtsUEXaZR/QTt13aRdLc
-	aD5bZohas2tyGWsbA9Aks0eU0FYLcP4voq6x4smr8PgV6DZ+n45/y0PrX51rYkr1O1sW07gWsuPb2
-	Ks3rtKOVLcBsTkCzpEkZZww05iPNZQRFJF+2ZOzoqbdBSFhtX+te33vZCLC/3d4U88U9R0760glhe
-	yoHZh8QA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=neu4ARCwcfoinhz170R6LNmDJUciz9Vr0r4/+mMh+SI=; b=Adx68S5qDGp0/u4ko63beeH7xW
+	udCzxFFlU9qf4cJcJwe/slRp1NyIqYyIu6ek97XYrk69iYsASKMnCYmtO3GafV1SQo+YChNwRXnSg
+	ysZ8AcYSlfYk12QLehqEhmCBwjqppiEd2z0ngjy+Mar5WcKxMpleilI0tfQRUhCVH7jyPQS4eJt94
+	z//lJ0FvmGNRAt0XPPpoblMAK/ZJXPL7H0IuQbZcBV1WSsYQ00YiXEgb50vKJu8hDrIAe01OYBlLB
+	9hX5LrFpE7l2u+QBoWC3GVI2U6GTrFgcQr4fl0yV8RKFaFg9OXLzecFbxXuuOD1Cfr5o6HSbIxVR3
+	ASoLVTOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7CYq-0000000BLNO-0HmF;
-	Mon, 30 Mar 2026 13:21:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w7CZK-0000000BLV8-2QEN;
+	Mon, 30 Mar 2026 13:22:14 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7CYo-0000000BLMb-0FEy
+	id 1w7CZH-0000000BLUB-1GKC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 13:21:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AF84F42D7C;
-	Mon, 30 Mar 2026 13:21:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9747DC4CEF7;
-	Mon, 30 Mar 2026 13:21:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774876901;
-	bh=xF+UxuXwGgvKdaU0z3Ax0YsRHe04xz94LJZOl/LSU4o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TMWStYd6i8vGeqkHDj6L+dz/9FhEqqtlJk9R2YDe9ZoWRTTUI+WnZNEbcja/w/1Pb
-	 7x8s523X5Y7H+dc1Lbh3GpucpQqTg1DkM9I0ydCoNt59kaH9o3oTrQHd9uwCCHnE2g
-	 29my9pYbvXXJOkEku/Svvd6vJ80HStQAtggEs4kIrTjiv/vRQqyMQn0W8OI8dDNFdM
-	 DEgJ1s++n/bDQOcPuQQ7RMNR+4ojs87gIC5AJT2OJlpzAfTgpd/X3NUkJYoB/pXSqY
-	 Pfl9s7PMCo/8KeYCpDnxphAQIrQkoR8PE3nCzfwc8ESs2rFVWu/QOMlHFOEFsrQif+
-	 OYWeMQ5RCCGMg==
-Message-ID: <706b84b5-1262-4fa8-a37d-6e48bd5c8b06@kernel.org>
-Date: Mon, 30 Mar 2026 15:21:35 +0200
+	Mon, 30 Mar 2026 13:22:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=neu4ARCwcfoinhz170R6LNmDJUciz9Vr0r4/+mMh+SI=; b=0gEg9KebiJm2KpoeNAh/J7egLy
+	BASIfKM3/qG1q4MpPqWRIHSzKy9xyMNPDWm78WnSMZQHQ5amOmm4E7FCwK1OH2RhKPSFIGrCJDegJ
+	VNQvnlysdvTZ7Zij3PesRxgZ9MNE+EsosQ0lwiSbLPbwzzZVYXsH8+Ld9WIyGpyQkMshGlkwiJDso
+	sE/9KiMQ3U7uxLxH9wU/2uVOz3NHe1g/62zeUA+mWGV3o2CrrBV1maSW9o3nhJ+9BnT0K9KkNPcx8
+	RyxMeayliIB1F8xfFm8dxKdM+fY0s4ZMADAOoODFmPJjP9o5dwb9D8VSNBT48GQSUdUTEsjNXEQqM
+	zNjCqXyQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35698)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w7CZ8-000000000X1-3ZfD;
+	Mon, 30 Mar 2026 14:22:02 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w7CZ5-000000002hc-2jMj;
+	Mon, 30 Mar 2026 14:21:59 +0100
+Date: Mon, 30 Mar 2026 14:21:59 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH RFC net-next] net: stmmac: qcom-ethqos: set clk_csr
+Message-ID: <acp490PTrVCWjiqT@shell.armlinux.org.uk>
+References: <E1w6AZm-0000000E54W-1F6E@rmk-PC.armlinux.org.uk>
+ <9d0a529a-d065-4f46-a93b-23195a4f9727@oss.qualcomm.com>
+ <acpqgpCsbo3lJs3l@shell.armlinux.org.uk>
+ <0d650de4-eb45-481b-8c39-1bf455b948c9@lunn.ch>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] arm64: dts: ti: k3-am62a7: Add ti,soc-info to OPP
- table
-To: Akashdeep Kaur <a-kaur@ti.com>, praneeth@ti.com, nm@ti.com,
- vigneshr@ti.com, kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, rafael@kernel.org, viresh.kumar@linaro.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, d-gole@ti.com
-Cc: vishalm@ti.com, sebin.francis@ti.com, k-willis@ti.com
-References: <20260330120105.2985200-1-a-kaur@ti.com>
- <20260330120105.2985200-4-a-kaur@ti.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260330120105.2985200-4-a-kaur@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0d650de4-eb45-481b-8c39-1bf455b948c9@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_062142_155663_827CF99F 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20260330_062211_355621_39BFC3E9 
+X-CRM114-Status: GOOD (  21.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,26 +89,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/03/2026 14:01, Akashdeep Kaur wrote:
-> Link CPU OPP table to k3-socinfo driver for dependency tracking.
+On Mon, Mar 30, 2026 at 02:35:39PM +0200, Andrew Lunn wrote:
+> On Mon, Mar 30, 2026 at 01:20:18PM +0100, Russell King (Oracle) wrote:
+> > On Mon, Mar 30, 2026 at 01:18:56PM +0200, Konrad Dybcio wrote:
+> > > On 3/27/26 6:02 PM, Russell King (Oracle) wrote:
+> > > > The clocks for qcom-ethqos return a rate of zero as firmware manages
+> > > > their rate. According to hardware documentation, the clock which is
+> > > > fed to the slave AHB interface can crange between 50 and 100MHz.
+> > > 
+> > > FWIW this __may__ possibly differ between platforms, but I'm not sure
+> > > to what degree. Will there be visible impact if we e.g. have a 200 or
+> > > 300 MHz clock somewhere?
+> > 
+> > When you add other platforms, you're going to have to deal with their
+> > differences.
+> > 
+> > IEEE 802.3 states that the maximum clock rate for the MDIO bus is
+> > 2.5MHz. You need to ensure that is the case.
+> > 
+> > Current qcom-ethqos code doesn't set clk_csr, and returns zero for
+> > clk_get_rate() on the stmmac clocks because they are managed entirely
+> > in firmware.
 > 
-> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
-> ---
->  arch/arm64/boot/dts/ti/k3-am62a7.dtsi | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7.dtsi b/arch/arm64/boot/dts/ti/k3-am62a7.dtsi
-> index b6e5eee99370..6d1459e9ea71 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62a7.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a7.dtsi
-> @@ -109,6 +109,7 @@ a53_opp_table: opp-table {
->  		compatible = "operating-points-v2-ti-cpu";
->  		opp-shared;
->  		syscon = <&opp_efuse_table>;
-> +		ti,soc-info = <&chipid>;
+> Could a fixed clock be used in DT to represent clk_csr? Different
+> platforms then set it to different frequencies, to represent whatever
+> the firmware is doing.
 
-You should have tested this before sending. It obviously fails checks.
+Unfortunately, at hardware level, clk_csr isn't a separate clock input
+as such. It can be one of many, depending on the synthesis options
+chosen by the designer. It may be hclk (AHB clock), aclk (AXI clock)
+clk_app (application clock) or a specific clk_csr input.
 
-Best regards,
-Krzysztof
+Nothing is simple with dwmac. :/
+
+The problem with adding a ficticious clock to solve this is that it
+adds to implementers confusion for what is already a very complicated
+problem.
+
+We've already seen that the stmmac clocks are a total trainwreck
+because no one seems to really understnad what is what, and that goes
+back to the days when that "apb" clock was added - and that made the
+situation worse not better.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
