@@ -4,135 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2528B1061B0F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 15:47:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA6CC1061B0F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 15:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tu/cxAdOyPi5zZCG3TBGMCDpNbGuZO7erYwxGvjP6ag=; b=YEN4xy9kDUPoq1Z3SIRcbo+lAw
-	n5ocU0rHRnTBrapre8OwvRNImDv22BFx73DIzurZiKmI2F4xnjkvqZ/OuGnUKQZIgGRVgaPSLxEpn
-	+FRZ5NVDGmgIHHmr8mJmXR5ON3KMt9A3ciry5j/1k2SR7hozw4xZU9lt0bO/qv/lUqcIX9ggEKt8G
-	V+95X43BgeBCM3o0ZqO5oZKGDR0c8/Uv8T0/whZ0fVQSudimiX3EnLvbvQUVzeEx601/DwRko3tsv
-	+ufM41UjYO6Zf9TOxFeTckxTka5OHtl1lBVdUsrZBtAB/QaGgp9MgSSpg9W7fWPew3URT/6Av2J+J
-	IivuWnIg==;
+	bh=dgAlqHBLxVt+bbtsMHOdr72p5pVTzNF5liMp4UeZYTQ=; b=bNtH0e8o1BYud+ivewAGYLPd2r
+	jNdRfI0CFEMTfT94ZyeaPY/bT4OJrLA/r/fygj8ELz0WqL7tIs0eU/VnznqZafVH9d3goBfcO64YC
+	0oWXBSogJRvufB2GAhzVyYWe+Oe7edavplVK7eheGWP+dD2rbdsazmI8A+EgEAo9uqfM1+tq8vpU1
+	V9ekRTIWs0rglXa8peeoNeKCsU+VOjB356cmXBwvoFi8NaTf79WjoBRflnWO2BBaRPECBRJPA+MWQ
+	Nm2BCzWqdDo044QkqzVaSKnGpBWsshZtHiy/XPqUGuRhoVfEhKXUFHwlHgdJW5+HJw3IZyOnr9BO2
+	iJWQvRfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Epf-0000000Baiz-2VD1;
-	Mon, 30 Mar 2026 15:47:15 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1w7EwT-0000000Bb4r-1kQL;
+	Mon, 30 Mar 2026 15:54:17 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Epd-0000000Baid-0QpJ
+	id 1w7EwQ-0000000Bb4T-47U3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 15:47:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Wrw/wtC4QgPPf0cXM0jcUE8hUjtYszZuZ7O5aFYbETpM7e1nrk/nERif3TJrqELkyGlYlBX+LbkdN85fmv6ukZJLxYTVET5SkXNEaHFBCW+14qxWyoLSUhOFypv4Qjr7yJlWP5PXMUiLn1xLGEtKoyJWjWwpMqyAU0XYx/U0RMAMm2kVNmn+Y2NPXpqTinluSWI9VGo6acZdR0S0Aeuz+hmxt4PWfRSFmqmuMBcv+VtmN/uUT8W3oIl8A18CKLxnsylENw90qZVQcjxvuBmyt0bUmEgf/TLWXAovyO+YiqAVtsxl8d8+E5rvwULyenLEHBJkX7N5Jnm9mYCj0bXGvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tu/cxAdOyPi5zZCG3TBGMCDpNbGuZO7erYwxGvjP6ag=;
- b=lGEHGptTfoNYu/bU7EjYUG2Ut57OfC7VOYZzoUpOtdMzqmbNVmQhj58iJAxVdIMvQKvfBWMlBccrUOYnUh4LK60pxfE49z3lc3wQh+w3CwfZ+GfLl/s3pbmDrngMNk4n/lVTfGoV/c7psOSnZQnAzRRD2rwXxfjCKWWTsy6GRc2aPFLyns+aw3pjPLgsBjMBpFs4mUJouHbpNlV5RYA5BesCUJdIi/lWnPUVZPaIYUvJjgwSpUHUg3a64ECdRmlGAFeNc/28wgb5WPGxY7LXf2UKNTmY/yveVoLfMpGBfw1yKUVBLeN6L0g1c4bb4uMkHLFWxv8vhiaERIGpwyq3EQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tu/cxAdOyPi5zZCG3TBGMCDpNbGuZO7erYwxGvjP6ag=;
- b=lUDYSCE9o7FEv/jqrTALwbPMFtI0E8vqTIJthj8wi6B8jaGE9HuNfDyxS2FVAM/sb3+f8zli5KIqBF22UWWEJys7NZt/Tkg5BZeu11mnRat46hzUppFbBjXuCg62FSIhv7kEfvUTId6hidZx94prrdt5HTKPJNY9tOqBzE1UzMxIxQgBX+WrkjMagMYJsF0VKMcMu3hCyatWKbFaik7H/1Lrw93dqwieX8mZS3muUkuVH1Agsn1rk2FHgALnOqoo25qpoeJQ0/Jh8JA8m+mcRXBy5iuJT9YEzmp2ej/Hgzz1OHuai2KO6XKC6CWKqp9R4TkgeoI+UOCoCxBOUdMXdw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DUZPR04MB9945.eurprd04.prod.outlook.com (2603:10a6:10:4d8::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.25; Mon, 30 Mar
- 2026 15:47:08 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.027; Mon, 30 Mar 2026
- 15:47:08 +0000
-Date: Mon, 30 Mar 2026 11:46:58 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Srinivas Neeli <srinivas.neeli@amd.com>
-Cc: Vinod Koul <vkoul@kernel.org>, git@amd.com,
-	Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Suraj Gupta <suraj.gupta2@amd.com>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>,
-	Folker Schwesinger <dev@folker-schwesinger.de>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Kees Cook <kees@kernel.org>, Abin Joseph <abin.joseph@amd.com>,
-	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V2 1/5] dmaengine: xilinx_dma: Fix MCDMA descriptor
- fields for MM2S vs S2MM
-Message-ID: <acqa8jj9Q-0BUc85@lizhi-Precision-Tower-5810>
-References: <20260313062533.421249-1-srinivas.neeli@amd.com>
- <20260313062533.421249-2-srinivas.neeli@amd.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260313062533.421249-2-srinivas.neeli@amd.com>
-X-ClientProxiedBy: BY3PR05CA0031.namprd05.prod.outlook.com
- (2603:10b6:a03:39b::6) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Mon, 30 Mar 2026 15:54:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1774886052;
+	bh=evRfJZ2H0f5w7cEuYrRalerBqdAFDdmPvV3Byn5zcKk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=fLMVzIO0WL+sc0qyr1bmUKPIeRxe5LGIhn01XN65Tdy4jP0Mbk93NzcokPLqcbb6g
+	 Jw8Vef2vcRCoDEeEHmQMdEk+jzWy4PfbHSNdiJQRp+dllic3Jt0vONpxJRSAsoYXQZ
+	 a8/34zeO0Qlfm/boSMeJiwrib/bcX3BLBId3CXAMdwAj9zPa4ZvAabKtbPYKrnOmOU
+	 7PQN7uJdT+2/5Zi9Peg8rknUiCTsblsLtQ0KZTvrlV0ggTgAipAUPtI8qwo8HVcpL+
+	 RJQTAFEulEKowN2/Uy333hWFXgye6g8tnk2TIsc/ad5nWcdTRhT0OrS3xjhBBg6Xl1
+	 0It6wdX6YaP2g==
+Received: from [IPv6:2606:6d00:15:e06b::c41] (unknown [IPv6:2606:6d00:15:e06b::c41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EC9FA17E4884;
+	Mon, 30 Mar 2026 17:54:10 +0200 (CEST)
+Message-ID: <ac0caac393dbc7dabe6e0fd530a6a2f9d2742f00.camel@collabora.com>
+Subject: Re: [PATCH] media: cedrus: skip invalid H.264 reference list entries
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>, mripard@kernel.org
+Cc: paulk@sys-base.io, mchehab@kernel.org, gregkh@linuxfoundation.org, 
+	wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, 
+	linux-media@vger.kernel.org, linux-staging@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Date: Mon, 30 Mar 2026 11:54:08 -0400
+In-Reply-To: <20260324080856.56787-1-pengpeng@iscas.ac.cn>
+References: <20260324080856.56787-1-pengpeng@iscas.ac.cn>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-kv04JgWUz8A1UA6gWqGA"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DUZPR04MB9945:EE_
-X-MS-Office365-Filtering-Correlation-Id: e2a51125-8126-480c-91bd-08de8e7399bd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|7416014|52116014|366016|56012099003|22082099003|18002099003|38350700014;
-X-Microsoft-Antispam-Message-Info: 81z+xMVjPlyCN0sLz1gAnplijP8DwzVaW3CgRSx6C/uZTf7GuX+yHIhSE3SeRYv0R1c8CmjSTMmgkdck7n4J4NrLlZK+qEfy5NcaGJCn+fkhKK0AQDO0uUOcZIWSXA44c03VK2BNVMMC048buDoZ1xXV8IHd8c3v/drgmJBTcketUIWt2UGLHD7X5omiFbCQcpXDYyoW/5hwZmV8ELK80VwPVP3sIHLXmmw0VMbUfrnVb+F17A2sx0/+mue2ReavEGH0anhW+xYJTSLL+uk0GPfC9652Cdjps49JJZNKmbQzOvPhtQLSe9IEIb76SpsIZYJOT0Zv2JjaHHIZq2VHpnOX6Pkm6iN4xU9X1PsnJ4wLzL694dE0EqK4lJ7WItyD6eWbSVwKyWV5khd/qjKJYHEXST31vtNPHqN/jabZaMxoscOXsgt3V17Jc/kuZZ8epra3DMPOJLknkigvvV4mPZtRpiNWiL1AAsaNx/yYNBKU5xKyIyXKyr/ju93oSa6OXnq4aCzkh94mFAQSIKUNOb7wVSmJvU8Yzh+cNmsyfw8K43ubqsbIcp1aDWnK9REybVEwWbg6AE2+0FN0127RbLSn6bxaSzPYU4IMM3FfgivmL03W2oE3sSuXyMOhrEr0PTOncudtyIsy+QHJjT+JzBX4lqsBP+y+KoPheLEH/xuw67JlUqktTgKceYOmOGEY80XOnmhavWNKtfQ58Y1+xe9Ov5sZ92sRcTW6F5Nb4i6KrsNqygJRBtwTed2zmkfAuyvIG4H/nPcf0Ir0Z3Ia9PfzdiY32gKAK4q0wIjzAcY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(7416014)(52116014)(366016)(56012099003)(22082099003)(18002099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uwvo7u2tufD9CHKgQEj4m1qmdmUdWh3PtoHDDXnDo++LLHcfhEF75ERxsgvZ?=
- =?us-ascii?Q?errRWxzTpNDpsa/oc0ag3Soe/Y9HTtq2yaYx+I7jSYCbrunBi1fU/xtEtk45?=
- =?us-ascii?Q?cHe6nvbHpwCkU3jOJq46inMhOssq3PZR7C66RM/pe4piJ9GSodEMHo/cQBP6?=
- =?us-ascii?Q?UDhlpK+RayXJEJfCrCHNlyuNVCe2d5yf9qDezQgx4YFyPUcNtftDTQhSszaz?=
- =?us-ascii?Q?czMPeZl3YcqX6wYu+qa05B4N72GbBb1bdQ9FUHbbIDMrW1lvP14JYwfn4+mz?=
- =?us-ascii?Q?YTJVIalyJrY4Km7sWfQ0hm5yOAmq3oX1HaCIYFTkY+26Edg8mSO1SkM2jmib?=
- =?us-ascii?Q?F1M4lzioM1OYA6DsK0P6sawcuocUgYZ6h6HBTKfJXCdMsw2N4Wj9VUebK7X3?=
- =?us-ascii?Q?bHbBrPHZC4B0XzsXDkToWzwyd77fjAJWecg7yDyIQtuAmV9meD1wv32aQ19v?=
- =?us-ascii?Q?x7/07maAVlcWEoKKaZjCU0c9mpYQqd/tF1ldnmiWy4bE+IpLYK0mY7OryO+O?=
- =?us-ascii?Q?2orxBwOJS/StjVAT2sIFXe47Y4kp50geTFvNWTn0ANS0w/gJy73TWZ43AwqU?=
- =?us-ascii?Q?Mezo0hXmw/XQ6KJsHQTX+k8Tr7x4vYStJVv5MYXHOCNJLer+hPDAHSNRumNy?=
- =?us-ascii?Q?KpPeNtPFZh8+DzNjtAY+JmgqikKeBnvV177rbRVajbThkyrVeMW1QAiwlvbk?=
- =?us-ascii?Q?jKFZfXTJHbuet4B1yGxYItaCoolo65uIB2Tus68OY2bSwcTukv0NCBQMshSr?=
- =?us-ascii?Q?Xw0Lmu4mWzVTPBYnKElEqpwM5FJfxDEYACNsGasfyf8onIhiiZtTU1cPNzil?=
- =?us-ascii?Q?AtCaqqXUIJ6f81q+l8lqjPzNDAPXiNbqWaid4SZ0+D3oIDuJkv8fUx8ReNnF?=
- =?us-ascii?Q?KXLGcLLiN7th5zJBNfytskkUOCOBFCaR3EXxOsYkViiCRGkfdRYoQ9HJ9uTk?=
- =?us-ascii?Q?x22ztK8BKvSer6/cLEYTej7uVYT5gMmL3oIegl2o2wv5pz+oI7e4RxiZDkLU?=
- =?us-ascii?Q?B9dXK9leeSG9jJ4Dazt3bpQUyRbbwMQbp/XEHiL9ri6FV/D7f1+bCk775t/n?=
- =?us-ascii?Q?0Fq+snaNENxlfs6BjnZtnz8IzS8t2SF2O13UkBAZTMLwmE0yeiZ1U/C27DCE?=
- =?us-ascii?Q?FZyhNy9dDgzSyTVyJqZYtInxVl6J5wGrJSrSSaGgJvDufpSMrE4TsLrB7Fjm?=
- =?us-ascii?Q?TCTmjVfeq6kOSiPYVBH9BrQpSgJL0r1xym6TZUYYwQY62sLdhFAnE3YSEVGK?=
- =?us-ascii?Q?IxxCnW3WdJXxjnGtxtVzkj5jrdg/kg3hJyJkiLFLkvWgOvlbs+8QUMdo5j5t?=
- =?us-ascii?Q?rkBfKWBh+3zOFXc5z44VtD1X72TK0w+ICSeg8fVjD/E3sqw8WuJ2o2W3Ufmc?=
- =?us-ascii?Q?MBX2dA8IOcmPa7GYyYQpYm/gpj/3FAdu5P4UqzScUQc5hokIMI0aEqfCj3o+?=
- =?us-ascii?Q?gE/G39o16ztBwhXmQmijWKC2tjQwarlqFe8TJpVdKBeJWlCfFZdQzC+xkbBv?=
- =?us-ascii?Q?9Jnnz7e2R5J3pBxwVEdRc4310iwL7e599mB4k9plintgb7XakD86JIv5HAxy?=
- =?us-ascii?Q?kp+O4OMHIpVvI3T5EHQUGtbHsLg7L4DR2C1K5kiWSfAwWZA3x6R/4E5SlDTz?=
- =?us-ascii?Q?Qo8QjfnYh2UzxPiAyJlyI2cwIWc14/k4Q0cT8yQom2DujOzY9q7MG888Ps59?=
- =?us-ascii?Q?1TgNJznewiUXlx8a4B77ejUyUR4TwOxed9bG7E1KRBZWfU4CJPTHizivBqGj?=
- =?us-ascii?Q?Y/9HdOtcnQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e2a51125-8126-480c-91bd-08de8e7399bd
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Mar 2026 15:47:08.6623
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: czMLODAAbdOrNXrYRK1fKe+vqqjPscZzis6VrnDc6whDSXXUtxlaNlkCc5CHyCCHmsjPOLk8xL09txQmg+jU7Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9945
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_084713_146765_D033A4A9 
-X-CRM114-Status: GOOD (  21.51  )
+X-CRM114-CacheID: sfid-20260330_085415_196362_74695BEE 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,91 +91,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 13, 2026 at 11:55:29AM +0530, Srinivas Neeli wrote:
-> The MCDMA BD format differs between MM2S and S2MM directions, but the
 
-Can you use DMA_DEV_TO_MEM and DMA_MEM_TO_DEV instead of MM2S and S2MM?
-or memory to slave, at least first place need extend term MM2S(memory to
-slave).
+--=-kv04JgWUz8A1UA6gWqGA
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> driver was using generic 'status' and 'sideband_status' fields for both.
-> This could lead to incorrect residue calculations when the hardware
-> updates direction-specific fields.
-
-driver was using generic 'status' and 'sideband_status' fields for both,
-which lead ... (use Affirmative Tone)
-
->
-> Refactor the descriptor structure to use unions with direction-specific
-> field names (mm2s_status/s2mm_status, etc.). This ensures the driver
-
-Ensure .. (needn't this)
-
-Frank
-> accesses the correct hardware fields based on channel direction and
-> matches the hardware documentation.
->
-> Fixes: 6ccd692bfb7f ("dmaengine: xilinx_dma: Add Xilinx AXI MCDMA Engine driver support")
-> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
+Le mardi 24 mars 2026 =C3=A0 16:08 +0800, Pengpeng Hou a =C3=A9crit=C2=A0:
+> Cedrus consumes H.264 ref_pic_list0/ref_pic_list1 entries from the
+> stateless slice control and later uses their indices to look up
+> decode->dpb[] in _cedrus_write_ref_list().
+>=20
+> Rejecting such controls in cedrus_try_ctrl() would break existing
+> userspace, since stateless H.264 reference lists may legitimately carry
+> out-of-range indices for missing references. Instead, guard the actual
+> DPB lookup in Cedrus and skip entries whose indices do not fit the fixed
+> V4L2_H264_NUM_DPB_ENTRIES array.
+>=20
+> This keeps the fix local to the driver use site and avoids out-of-bounds
+> reads from malformed or unsupported reference list entries.
+>=20
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 > ---
->  drivers/dma/xilinx/xilinx_dma.c | 29 ++++++++++++++++++++++-------
->  1 file changed, 22 insertions(+), 7 deletions(-)
->
-> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-> index b53292e02448..4a83492f2435 100644
-> --- a/drivers/dma/xilinx/xilinx_dma.c
-> +++ b/drivers/dma/xilinx/xilinx_dma.c
-> @@ -275,8 +275,10 @@ struct xilinx_axidma_desc_hw {
->   * @buf_addr_msb: MSB of Buffer address @0x0C
->   * @rsvd: Reserved field @0x10
->   * @control: Control Information field @0x14
-> - * @status: Status field @0x18
-> - * @sideband_status: Status of sideband signals @0x1C
-> + * @mm2s_ctrl_sideband: Sideband control info for mm2s @0x18
-> + * @s2mm_status: Status field for s2mm @0x18
-> + * @mm2s_status: Status field for mm2s @0x1C
-> + * @s2mm_sideband_status: Sideband status for s2mm @0x1C
->   * @app: APP Fields @0x20 - 0x30
->   */
->  struct xilinx_aximcdma_desc_hw {
-> @@ -286,8 +288,14 @@ struct xilinx_aximcdma_desc_hw {
->  	u32 buf_addr_msb;
->  	u32 rsvd;
->  	u32 control;
-> -	u32 status;
-> -	u32 sideband_status;
-> +	union {
-> +		u32 mm2s_ctrl_sideband;
-> +		u32 s2mm_status;
-> +	};
-> +	union {
-> +		u32 mm2s_status;
-> +		u32 s2mm_sideband_status;
-> +	};
->  	u32 app[XILINX_DMA_NUM_APP_WORDS];
->  } __aligned(64);
->
-> @@ -1013,9 +1021,16 @@ static u32 xilinx_dma_get_residue(struct xilinx_dma_chan *chan,
->  					   struct xilinx_aximcdma_tx_segment,
->  					   node);
->  			aximcdma_hw = &aximcdma_seg->hw;
-> -			residue +=
-> -				(aximcdma_hw->control - aximcdma_hw->status) &
-> -				chan->xdev->max_buffer_len;
-> +			if (chan->direction == DMA_DEV_TO_MEM)
-> +				residue +=
-> +					(aximcdma_hw->control -
-> +					 aximcdma_hw->s2mm_status) &
-> +					chan->xdev->max_buffer_len;
-> +			else
-> +				residue +=
-> +					(aximcdma_hw->control -
-> +					 aximcdma_hw->mm2s_status) &
-> +					chan->xdev->max_buffer_len;
->  		}
->  	}
->
-> --
-> 2.43.0
->
+> =C2=A0drivers/staging/media/sunxi/cedrus/cedrus_h264.c | 3 +++
+> =C2=A01 file changed, 3 insertions(+)
+>=20
+> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
+> b/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
+> --- a/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
+> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
+> @@ -210,6 +210,9 @@ static void _cedrus_write_ref_list(struct cedrus_ctx =
+*ctx,
+> =C2=A0		u8 dpb_idx;
+> =C2=A0
+> =C2=A0		dpb_idx =3D ref_list[i].index;
+> +		if (dpb_idx >=3D V4L2_H264_NUM_DPB_ENTRIES)
+> +			continue;
+
+Matches how we skip inactive references (in this diff, though most userspac=
+e
+just don't pass them). Now, if I looked lower, we set a position for each
+references. My understanding is that if no bits are set, it means "no posit=
+ion".
+How much testing have you done to confirm the HW behaves properly ?
+
+Despite this question, I think this is going to work better then doing memo=
+ry
+overrun:
+
+	Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+
+Nicolas
+
+> +
+> =C2=A0		dpb =3D &decode->dpb[dpb_idx];
+> =C2=A0
+> =C2=A0		if (!(dpb->flags & V4L2_H264_DPB_ENTRY_FLAG_ACTIVE))
+
+--=-kv04JgWUz8A1UA6gWqGA
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCacqcoQAKCRDZQZRRKWBy
+9DAQAPwKkG9KdjJow+AAJHKaPq3Zeel97DZlNnHZBVd/Ag0xRAEAs7QtX42z2jd5
+4nollgoY5CGJnkjx9RVSHq+m86uwcgU=
+=/FV6
+-----END PGP SIGNATURE-----
+
+--=-kv04JgWUz8A1UA6gWqGA--
 
