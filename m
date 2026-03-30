@@ -4,122 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA2C910D14AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 12:16:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 596FE10D14A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 12:17:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SU298OAIE11ocQTjhKba/yP+OoZH3h1N6NJC0Fscw3o=; b=rOGkib8Or/VySwW7E6kjZIl0Vy
-	CsPMMndrjxKeJnwRx8DT7KXd30SnGi1YoiwQgteFn5gC3YbAPpL1InwaXlPAjx3HYoqR5JZfqUYfb
-	wrsifBWs6ZxJ8zZ/m2LnmzBdt8ribjsIg3vpvPcQeA8vNWb3q4x6O9vphXYh0XhY63G1bLYdW93OH
-	zbxIeTN7rz/RiXyAWB77NKgIN/IKOKhK/r5utIiX0LxEOF09PZCDm8aMyJ2/LXjMQXcTZi0K/uDMq
-	xW9le95qs8J8Pw3MUDdqbu+PhBWi2miEX2PGO6rmgIR+R+FvzQ4zfVg6C1DgzEBLnh04Mp8X9IuYP
-	mhVm4mqQ==;
+	bh=OYBsgiHXf3ZQOm8ERXT7vY+logJn4LzjJGp2BrSGgNA=; b=O1K68b1VVngssmECb4kkOhcGuQ
+	3X9P9yccL9cRC43nLsIBTtMJAF36RwJKKEP+4J+TmrsHAonLPkTIwrHq/DAWeEzozrdaj8VZtcM3d
+	tHoFhx8/8oFDmxDVUV3sUJ7QrkRhFxJX9uHXH5XrBxkPXzXu/RM63VwmzYaiogwW4HO6h3klDiH3A
+	MS2tXyrt2ahgZJSBFkSH340lRFVwACOmCnYAPAJHkm3UX1RVguGkEdeHri/KXN+0KeFjw7N2X9gYO
+	PXBNsyczmGxN2Bpkmzh6bwYCnow5apdhJsC2YIIfXr2sfD4XBqu8E1o2LBJ3oY2Jrto34e5ujArli
+	65l9slqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7BXy-0000000BEXD-3N0S;
-	Mon, 30 Mar 2026 12:16:46 +0000
-Received: from mail-eastus2azon11011022.outbound.protection.outlook.com ([52.101.57.22] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1w7BZ0-0000000BEn9-3pDH;
+	Mon, 30 Mar 2026 12:17:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7BXv-0000000BEU5-3ghp
+	id 1w7BYy-0000000BEmb-3hqw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 12:16:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uGHnQ0kMiNFHIQIfD6VQ9TXhXFlsxP/jv5LPddB/dYbhjA75Qun51NTXDBI3YgVEyQh0vKd0htuJLQUsObNA39j7xx6JvCK0lT1D+iINOtT5fBeDBsRw9T2AUJW1il9qk2X4vg+jgzukeIhqy850HArORahHj+eW/EZJcU8o9MBZqVYsTx4eW1NRoB1U+4qNIixROf66NskIPDLX5QcpJu17vszHyQDZPRRn29IWfA3dv1ubkFjM5+aKC79fAGT40EpoKOw8GxSokRJEo9tyjOH1ly3cU6BbQwaWQ7K8trs+3YZu8mKQrU916O7rOPic9dtO2crabuh/eNitHXsyuQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SU298OAIE11ocQTjhKba/yP+OoZH3h1N6NJC0Fscw3o=;
- b=PJ7lde+G143Uw9Yw/nihQFgAxhUNyNTQD3QnOXfX0Odvn1s4lFum/vJ4VY/WJHaBSaoqbFKt3RrSS/UKYr9VUfe/oFu+3QlWvYPy8ZnrIWDh/yZQJ2KXj7YG9LaGQfkEOVikp/zKkuV+4p7B1MN6gbnamBRRWmwTMLbZhwLoarq6d9qgssBBxS1/y/TcRvphmfn/F2ALKIqXd3lcJU9cshjcAPjgKAldNT4H6BIzbRonFfpBcqGOLQKe9Ku6AdZCOTlGjnUNbGCHHgAJPbhEdXYJQM8A7IqxzL9hWXY0Z1lp74QNVW3MFqAhM6wTS2jveYhFCX0+gfk+BPrYHIPoSA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SU298OAIE11ocQTjhKba/yP+OoZH3h1N6NJC0Fscw3o=;
- b=SNiDxM+5f1Jn5wUaGZv3CT1lsIGfrC7jeOVzpM880sUulj1JXCBKgfQIopoH/sBbFKecvWq8dJP0Nf/41os2wb9c8VsxMk07+ZDwdA5d1bXkyoVFWdqoZ62v4px4TwwvjQeAB7BY+4JKkxvowSg5+bvP5nlym+/cxle5kWKt1Ic=
-Received: from SJ0PR03CA0019.namprd03.prod.outlook.com (2603:10b6:a03:33a::24)
- by SA2PR10MB4731.namprd10.prod.outlook.com (2603:10b6:806:11e::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Mon, 30 Mar
- 2026 12:01:42 +0000
-Received: from SJ1PEPF00001CEA.namprd03.prod.outlook.com
- (2603:10b6:a03:33a:cafe::69) by SJ0PR03CA0019.outlook.office365.com
- (2603:10b6:a03:33a::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.27 via Frontend Transport; Mon,
- 30 Mar 2026 12:01:41 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- SJ1PEPF00001CEA.mail.protection.outlook.com (10.167.242.26) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9745.21 via Frontend Transport; Mon, 30 Mar 2026 12:01:41 +0000
-Received: from DLEE210.ent.ti.com (157.170.170.112) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 30 Mar
- 2026 07:01:38 -0500
-Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE210.ent.ti.com
- (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 30 Mar
- 2026 07:01:37 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 30 Mar 2026 07:01:37 -0500
-Received: from akashdeep-HP-Z2-Tower-G5-Workstation.dhcp.ti.com (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.91])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62UC18tG242506;
-	Mon, 30 Mar 2026 07:01:33 -0500
-From: Akashdeep Kaur <a-kaur@ti.com>
-To: <praneeth@ti.com>, <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<rafael@kernel.org>, <viresh.kumar@linaro.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>, <d-gole@ti.com>
-CC: <vishalm@ti.com>, <sebin.francis@ti.com>, <k-willis@ti.com>,
-	<a-kaur@ti.com>
-Subject: [PATCH 4/5] arm64: dts: ti: k3-am62p5: Add ti,soc-info to OPP table
-Date: Mon, 30 Mar 2026 17:31:04 +0530
-Message-ID: <20260330120105.2985200-5-a-kaur@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260330120105.2985200-1-a-kaur@ti.com>
-References: <20260330120105.2985200-1-a-kaur@ti.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CEA:EE_|SA2PR10MB4731:EE_
-X-MS-Office365-Filtering-Correlation-Id: e1147562-cc17-4287-cdd9-08de8e541b2d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|7416014|376014|36860700016|921020|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: IQnFT/zbTiDg49GkClGOmpPkA6p3NqW8DbkWPRWROL5GPlBumo/gG92u/AZ0RCoBYWMY/TusAZlO/luvNIVVWATcRpz3dDrlBefAdvSTBzs/lpiU4re+1J152DyQ3FrK1mx6Wh+zFnuq7c4OE+cYFFpCMSb8l2ARHEP+T1HFUIF30/nSoyRPVT5noDyX7E2cnzrnsRPZxqoxJmWCHYJnunw0yPv/YTJGpHHTrz9KezVee2PIgFwG1SXBYzxr9bAiL1MYujWEdXuVp2rQYVp9uVe8V3dla0fNFLugL6V9QZYBv8xywTDnKvAN6hJ/tSpdAoA75fsaAAeyQ5YEfqUSwsUaZfx+sthKRz+KbybtTDDM5iNtXbLs0BWiRzSOZT/zOYVgUlurK4gf/aBf6Q84S3d12ntZSx+PA7PcpRsFoaxDveNy6vxe+MsVqL0hn6NBUHnXAPc6KSyRG1tJjbEK1GCTRz2zmt1BB1UzcxPbi2U83MQJ1LcamkumYXJUBvVy+AVv0dKw6bHC8TLj/6ouRuQJsCeEsaX7AWRQYCBr2TUP+eveUTOqSJCJasr4TYDQQJX0YPOMoOD8wdo/p8n7n1TVUql4EI5qCp8lUG8GH4puibDQQs+jZxKPv+SWJn3rGpwm76XG8O4mop8qe+TaDaUnnv1LbdnQFLhq9FbDALs1iCeis2Chr21klHAGDidykD2zx9fBZbFGckbUHBuAe15WXeG8tveRXAjbcHSGRKxDrszVnhCG61GQN1ZynYP6vQKy4V5PIGPUoRmuWt+OFs7wV7XHWMamG2WM2xL8o3t9q5UiIHzENEA1UfZkFGj2
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(7416014)(376014)(36860700016)(921020)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Y4nZFHz/igBsxeMOfRwzpvTgijq+eeeBw1wpE90O6635/Q5+KIcJB5nwqPdEUiiDvBGUcfwgIktUDbymsqMGPxdj/hS/V5179U360PznTEd5TJRt3YutsjpzkIy60cuy3/5FBsvXKfLEotmjduj7iSpOGmuke6Dl/jN3Xpn7v011yvO70mZNOc97i9D6bQCzocw/y0Ea5TVo2OviFpCF5n53ConEDEGvqM1KXJFR3MVVzvlI2HmqIhRrABuG3xkxe4Cqo62LHzeaaw+HF13/kbYLoJxqRHBPArZpYXlxC0FowQmzzDL+3OoBa2avoM7ZX8nPtiLru5HH04ZWuzdywbZUXtDulT6/B5hxlvniH9qtyIAt+fDZoZSA0+l/dJSoIq/KOFGqsC9yIk6QruL85FCHpY9ykA9LvRxsdl+DQq4sI80KfGWbHqvZ25tOJPJM
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Mar 2026 12:01:41.6232
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e1147562-cc17-4287-cdd9-08de8e541b2d
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CEA.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR10MB4731
+	Mon, 30 Mar 2026 12:17:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C9305416FD;
+	Mon, 30 Mar 2026 12:17:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9ED12C4CEF7;
+	Mon, 30 Mar 2026 12:17:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774873067;
+	bh=zeKFVpdAfIum0NKsvb2F2pCJfenzKs8whCcofbsI9Js=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=naxpmJpudZmV6cJ2x3BxM2UAxdDKK6zOxpRWUSCx0VMwLBXL84/DFUlWV5fE9h+S+
+	 9SFx/+SHIMWaCcAKmpdQZ0LChs37rgXC8qGSzNDLSglWsdJYDsmgJ5BM6xMeyb0gID
+	 dVPka1n8WQ9QmHba8CQb4yS5Vr7H1sPCZvBS0L5EJ9wLnK8RrRYsQmNgfbhFLebJEp
+	 Ec8L7efFMrGk/ieoZvlRfQCilFy146xciS7Cr+4CadLELFsILNcSqDzITk7TLmBwS1
+	 xVFWoqfWVRFhil7QW8+aQWz4MCt7a+49OqryJ2FuSZWRCbLwzZwEbyvL0VDDPmiLE8
+	 eXtcwnXvpCngg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w7BYv-000000074gj-04eQ;
+	Mon, 30 Mar 2026 12:17:45 +0000
+Date: Mon, 30 Mar 2026 13:17:44 +0100
+Message-ID: <878qb9cxzr.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
+Cc: Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose
+ <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Mark Brown
+ <broonie@kernel.org>,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v4 35/49] KVM: arm64: GICv3: nv: Plug L1 LR sync into deactivation primitive
+In-Reply-To: <2e12c5c2-a1b6-47b7-b54c-7281a77bbe0a@os.amperecomputing.com>
+References: <20251120172540.2267180-1-maz@kernel.org>
+	<20251120172540.2267180-36-maz@kernel.org>
+	<2e12c5c2-a1b6-47b7-b54c-7281a77bbe0a@os.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vishnu@os.amperecomputing.com, tabba@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, broonie@kernel.org, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_051643_912534_9BEF9E11 
-X-CRM114-Status: UNSURE (   8.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260330_051748_972850_A7206825 
+X-CRM114-Status: GOOD (  18.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,26 +95,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Link CPU OPP table to k3-socinfo driver for dependency tracking.
+On Mon, 30 Mar 2026 12:51:51 +0100,
+Vishnu Pajjuri <vishnu@os.amperecomputing.com> wrote:
+> 
+> Hi Fuad Tabba,
 
-Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62p5.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+To be brutally honest, I doubt Fuad really cares about NV,
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5.dtsi b/arch/arm64/boot/dts/ti/k3-am62p5.dtsi
-index 8982a7b9f1a6..1a498c5eb3d1 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p5.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5.dtsi
-@@ -108,6 +108,7 @@ a53_opp_table: opp-table {
- 		compatible = "operating-points-v2-ti-cpu";
- 		opp-shared;
- 		syscon = <&opp_efuse_table>;
-+		ti,soc-info = <&chipid>;
- 
- 		opp-200000000 {
- 			opp-hz = /bits/ 64 <200000000>;
+>    I'm trying to run nested VMs on Ampere platforms after this patch
+> series(v6.19+) but nested VMs are not booting and triggering soft
+> lockups on L0 and L0 hang. But just before this patch I could able to
+> successfully boot the Nested VMs.
+
+So the host dies? There isn't much here that interacts with the host
+at all. Worse case, the L1 dies by not making progress.
+
+> 
+> I bisected the failure to a single commit which is this patch which is
+> causing the issue.
+> 
+> I would like to understand from you that did you observed anything
+> like that?
+
+No. If I had, I wouldn't have merged the series.
+
+> 
+> Were you able to boot Nested VMs successfully after v6.19+?
+
+I boot L3s every day.
+
+> LOG:
+> [  164.647367] Call trace:
+> [  164.647368]  smp_call_function_many_cond+0x334/0x7a0 (P)
+> [  164.647372]  smp_call_function_many+0x20/0x40
+> [  164.647374]  kvm_make_all_cpus_request+0xec/0x1b8
+> [  164.647377]  vgic_queue_irq_unlock+0x1c8/0x2c8
+> [  164.647380]  kvm_vgic_inject_irq+0x194/0x1e0
+> [  164.647381]  kvm_vm_ioctl_irq_line+0x170/0x400
+> [  164.647386]  kvm_vm_ioctl+0x7b8/0xc88
+> [  164.647389]  __arm64_sys_ioctl+0xb4/0x118
+> [  164.647393]  invoke_syscall+0x6c/0x100
+> [  164.647397]  el0_svc_common.constprop.0+0x48/0xf0
+> [  164.647398]  do_el0_svc+0x24/0x38
+> [  164.647400]  el0_svc+0x3c/0x170
+> [  164.647403]  el0t_64_sync_handler+0xa0/0xe8
+> [  164.647405]  el0t_64_sync+0x1b0/0x1b8
+
+This trace is about interrupt injection from userspace, not
+deactivation of a HW interrupt.
+
+None of that makes much sense.
+
+	M.
+
 -- 
-2.34.1
-
+Jazz isn't dead. It just smells funny.
 
