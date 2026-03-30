@@ -4,89 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACF0C1061B08
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 21:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C43ED1061B22
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 21:16:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UW7odxZPYSWuCgnGtpRjdMtnRpvYwb8B9YLZ+r/hXWM=; b=K+V/TJbAG+9Omwoh/ZTFOgiy4m
-	m7a+l4aqEGl3OS8BP0CQK0/SiQvcCFc3HhXAe6Ky7Z/OKJ+ui2s6Q8E/2RYKzFxChsLtzcXlF6EnL
-	F4DbevtWd1WF05BPwR9jrgyyF8ZkUvi4jiILcmJDbae2NfQthE1Gkus2eoTrVuYEAExCf9oYZJy+m
-	DcF4u+/K3lxHH7kzx0TOEN5HNcJ2Nk22pyWov6jhdANKPgUNwNYEDcIV1bHAxrhAfaVuVoFWYRIYW
-	FVlWF40q6NnK+b6lDsU6gL/Nd2Cd+q2owoJ6G8owYJkU0ewXA2ko1w/e3vl1MX1pOZl/VUQfzfRuK
-	PKmsFqtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=68gdUMz2g9grlcrDSpgn+dvojozMOX9UEMee9F39uM8=; b=cK7KWe1UXYTzsQ+OcCHa6k0DIu
+	MteKLGhgnG/nrxURiLSdrIIenx9ip/0A0TB4N9h4JbZQptGCgt7rCCMKzN66mg+61FrA6uiJwqKlh
+	X1dvxHyf0a1rBvYHXrV8iDJgnwdLTlQy//TWuBbcXxzW/i0sEFDrIZ7KG3fUJQFUXQ4qXTlTugz17
+	qtdmcHWlniQ1qPgJWjn5BsxHmW80WF2qkl92TPkS9Fw5g/bv3bEpZCYCTVi7BU6dfKHdbW/uuG9f5
+	x3chGD8IiKOUdI7THagYGvM9R2uC8WlqNmrCXqqG4JkccpIfUZKZI8u46y0DDwd5CPiHxw2tJr88k
+	gnzyyCfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Jy4-0000000Btsl-3MiW;
-	Mon, 30 Mar 2026 21:16:16 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1w7JyR-0000000Btzb-0ZpR;
+	Mon, 30 Mar 2026 21:16:39 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Jy2-0000000BtsQ-0tKq
+	id 1w7JyL-0000000Btyl-3495
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 21:16:15 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-829781b2b01so2519288b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 14:16:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774905373; x=1775510173; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UW7odxZPYSWuCgnGtpRjdMtnRpvYwb8B9YLZ+r/hXWM=;
-        b=tEenbX++NHPJI/b9cYrC3qvPICck1mme2Ftka0AUMPxI6dfjnlDM98kjR/W5JZcLL3
-         JpzqoPR6yV4DG7LtAZVBqMH2xhic5BO7YSTKfPy5654/Ngcc/7emjImeMLeQhcGczvjc
-         c5JtTx0qfcnzsDXDFt0j1J1FAc3n5EAO2fTXp5dmL1VXV0db1Oug/51UMBcb4jArGOil
-         a3fSLzlhVpj5j4b3B0miUlUKs6wAu1uwU5N+tbtv34tbJK9UH3EYiyy/JCd+3uWQONM8
-         m5bYg5BSUNjONwQ4J3JQR/EBW4SMulIIQhi5/vj8hlNAxrXAR+nPUrvwZkyhnsmPuKnR
-         nnAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774905373; x=1775510173;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UW7odxZPYSWuCgnGtpRjdMtnRpvYwb8B9YLZ+r/hXWM=;
-        b=c8zXgiNNpGaazwDyol8pbxhk/fmlncvWCr/t9qgEYRv4Dpm9SL2gkbRMBsx29jBrRN
-         GwwvF+rtgoUo7fUHkOpppIbYnWB6EtAVSuXtJGIs/CcaQl6Q3+02C4THzPMvxUFi7UBY
-         mbRTPkd65TuFeysruo9yG9+0Ie3dJSPXAuWfob+GHZLNcYVXK90q5T0EzzdZ0zwMVgRS
-         lJCAC6gVfxpERCH8ofMySPDUmIkRvjNhJU6BfkAih7l9dvtcG0nxe5IatSnsT+VI+rkE
-         Np1OB9+NnaC5PXvpXdnS33n8n9IQLrbq79o9vx6QMmvhxcJStwtx8I3oq5hIYp72zcXW
-         QDAw==
-X-Forwarded-Encrypted: i=1; AJvYcCVJEyNb3dvUlkKPD9XLT0ohiG/KnCaBkspZxWl/tckH6KvuP6gZGo7O4nhIhKIA92fYnagtBDaZ2/YMm5TIzYAg@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjsgjwlCR26Rhc/gXogKFvvS2uze3mMKDt2wocRag2vZtJmGR8
-	YIlNjOfpyixijt2s+jezB4/mmUERz7I558A1xrx0LyJzv1wVXTa7v3Us
-X-Gm-Gg: ATEYQzy8NNYZ9QIY4k2uV58+GcwF5jgQRARK6o2kRKbsShtZy1cDMhsnPfMCBzdVnIb
-	Lv34286rWKXv+DWpdyiemJ9JxRImgK/wjWgzHfEnjq9ceAcvxARp0QoBR32DXDeBzkK4l9fIvto
-	dhm+Q5jOmn12gGlwEqig2AYGJm2WHQYUB4m+Ahsb+wkt1PTmXwLHCCKDjdDRsijKgyqy+QlcuKJ
-	h2V/gWSS2jkxy9QG3EWq9Mg/ToVJSArcDQK1chUnopxB5bl0uXf0SAcibsiQKsNFjOzK4EtAM2r
-	z1HbKC3HYjXxwxw2xTMNY66XWcxQfILCYnpa/IZaxLcs9rfPgiQlY61TPqtqY1U0OPzdXE83nMQ
-	dYxFJldJ7ENOGtm90TYPr8LBVabAYgx8FEKPluLVr9Sttnja+WmhehCT6Xr1zBZmvX8FW4Fg/Gy
-	hOl0kux2wRJ024aKGqHP6JCMDRDlFqD6zuNEhJdwY1jTgNnOd5Qcg/lXc=
-X-Received: by 2002:a05:6a00:4146:b0:82c:9126:31f1 with SMTP id d2e1a72fcca58-82c95c2188bmr14066508b3a.14.1774905373173;
-        Mon, 30 Mar 2026 14:16:13 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d::8bd])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82ca8466d89sm8661610b3a.22.2026.03.30.14.16.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Mar 2026 14:16:12 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: dmaengine@vger.kernel.org
-Cc: Patrice Chotard <patrice.chotard@foss.st.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STI ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list),
-	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be)?\b)
-Subject: [PATCH] dmaengine: st_fdma: simplify allocation
-Date: Mon, 30 Mar 2026 14:15:55 -0700
-Message-ID: <20260330211555.13974-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Mon, 30 Mar 2026 21:16:35 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 02A761F8005C
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 21:16:28 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id AE7A3B2EB9B; Mon, 30 Mar 2026 21:16:27 +0000 (UTC)
+Received: from shepard (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id B7459B2EB8F;
+	Mon, 30 Mar 2026 21:16:24 +0000 (UTC)
+Date: Mon, 30 Mar 2026 23:16:22 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Lucas Stach <l.stach@pengutronix.de>
+Cc: Krzysztof =?utf-8?Q?Ha=C5=82asa?= <khalasa@piap.pl>,
+	Liu Ying <victor.liu@nxp.com>, Maxime Ripard <mripard@kernel.org>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Marek Vasut <marex@nabladev.com>, Stefan Agner <stefan@agner.ch>,
+	Simona Vetter <simona@ffwll.ch>, imx@lists.linux.dev,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: i.MX8MP: Fix HDMI LCDIF FIFO underruns
+Message-ID: <acroJiSTReDL_2bB@shepard>
+References: <m3ms04caaj.fsf@t19.piap.pl>
+ <32317022-3c44-4ead-9e2d-04caa12b28cb@nabladev.com>
+ <m36pvjbo4xy2rtdymshjpmwu7icl3wlyiwcmmjaozo7jpe5lqk@zt7byx7iwmym>
+ <20260320-amiable-hairy-bullfinch-28bfda@houat>
+ <m3a4w2d4ds.fsf@t19.piap.pl>
+ <ecd02f87-c4b7-44ed-8ecf-98e0990af34a@nxp.com>
+ <m3se9onkv0.fsf@t19.piap.pl>
+ <acqgO5b8_1fL9t_U@shepard>
+ <0e8863b39cc9cab3ef16aedde480c70a158c4cbe.camel@pengutronix.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="CDf277NznvZQn5xT"
+Content-Disposition: inline
+In-Reply-To: <0e8863b39cc9cab3ef16aedde480c70a158c4cbe.camel@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_141614_273443_B53B8147 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20260330_141634_166181_DFF22C12 
+X-CRM114-Status: GOOD (  49.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,96 +84,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use a flexible array member to combine kzalloc and kcalloc to a single
-allocation.
 
-Add __counted_by for extra runtime analysis. Assign counting variable
-after allocation as required by __counted_by.
+--CDf277NznvZQn5xT
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- drivers/dma/st_fdma.c | 27 ++++++++-------------------
- drivers/dma/st_fdma.h |  4 ++--
- 2 files changed, 10 insertions(+), 21 deletions(-)
+Hi Lucas,
 
-diff --git a/drivers/dma/st_fdma.c b/drivers/dma/st_fdma.c
-index d9547017f3bd..3ec0d6731b8d 100644
---- a/drivers/dma/st_fdma.c
-+++ b/drivers/dma/st_fdma.c
-@@ -710,16 +710,6 @@ static const struct of_device_id st_fdma_match[] = {
- };
- MODULE_DEVICE_TABLE(of, st_fdma_match);
- 
--static int st_fdma_parse_dt(struct platform_device *pdev,
--			const struct st_fdma_driverdata *drvdata,
--			struct st_fdma_dev *fdev)
--{
--	snprintf(fdev->fw_name, FW_NAME_SIZE, "fdma_%s_%d.elf",
--		drvdata->name, drvdata->id);
--
--	return of_property_read_u32(pdev->dev.of_node, "dma-channels",
--				    &fdev->nr_channels);
--}
- #define FDMA_DMA_BUSWIDTHS	(BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) | \
- 				 BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) | \
- 				 BIT(DMA_SLAVE_BUSWIDTH_3_BYTES) | \
-@@ -742,27 +732,26 @@ static int st_fdma_probe(struct platform_device *pdev)
- 	struct st_fdma_dev *fdev;
- 	struct device_node *np = pdev->dev.of_node;
- 	const struct st_fdma_driverdata *drvdata;
-+	u32 nr_channels;
- 	int ret, i;
- 
- 	drvdata = device_get_match_data(&pdev->dev);
- 
--	fdev = devm_kzalloc(&pdev->dev, sizeof(*fdev), GFP_KERNEL);
--	if (!fdev)
--		return -ENOMEM;
--
--	ret = st_fdma_parse_dt(pdev, drvdata, fdev);
-+	ret = of_property_read_u32(pdev->dev.of_node, "dma-channels", &nr_channels);
- 	if (ret) {
- 		dev_err(&pdev->dev, "unable to find platform data\n");
--		goto err;
-+		return ret;
- 	}
- 
--	fdev->chans = devm_kcalloc(&pdev->dev, fdev->nr_channels,
--				   sizeof(struct st_fdma_chan), GFP_KERNEL);
--	if (!fdev->chans)
-+	fdev = devm_kzalloc(&pdev->dev, struct_size(fdev, chans, nr_channels), GFP_KERNEL);
-+	if (!fdev)
- 		return -ENOMEM;
- 
-+	fdev->nr_channels = nr_channels;
- 	fdev->dev = &pdev->dev;
- 	fdev->drvdata = drvdata;
-+	snprintf(fdev->fw_name, FW_NAME_SIZE, "fdma_%s_%d.elf", drvdata->name, drvdata->id);
-+
- 	platform_set_drvdata(pdev, fdev);
- 
- 	fdev->irq = platform_get_irq(pdev, 0);
-diff --git a/drivers/dma/st_fdma.h b/drivers/dma/st_fdma.h
-index f1e746f7bc7d..27ded555879f 100644
---- a/drivers/dma/st_fdma.h
-+++ b/drivers/dma/st_fdma.h
-@@ -136,13 +136,13 @@ struct st_fdma_dev {
- 
- 	int irq;
- 
--	struct st_fdma_chan *chans;
--
- 	spinlock_t dreq_lock;
- 	unsigned long dreq_mask;
- 
- 	u32 nr_channels;
- 	char fw_name[FW_NAME_SIZE];
-+
-+	struct st_fdma_chan chans[] __counted_by(nr_channels);
- };
- 
- /* Peripheral Registers*/
--- 
-2.53.0
+On Mon 30 Mar 26, 18:44, Lucas Stach wrote:
+> Am Montag, dem 30.03.2026 um 18:09 +0200 schrieb Paul Kocialkowski:
+> > After weeks of investigation I finally narrowed it down to a part of th=
+e nxp
+> > original code that is missing in the upstream driver:
+> > https://github.com/phytec/linux-phytec-imx/blob/v6.6.23-2.0.0-phy/drive=
+rs/gpu/imx/lcdifv3/lcdifv3-common.c#L492
+> >=20
+> Thanks for tracking this down! It was also on my list of things to look
+> at.
 
+Glad that it helps :)
+
+> > A big old sleep that waits for the DMA engine to finish handling the cu=
+rrent
+> > frame before it is disabled. When this delay is not respected, there se=
+ems to
+> > be "unlucky" times when disabling the DMA engine too early will confuse=
+ the
+> > unit and make it unable to resume proper operation later.
+> >=20
+> I think we can be a bit more clever than a indiscriminate sleep. If we
+> set the shadow load enable bit in the disable sequence, we should be
+> able to wait for this bit to be cleared by the hardware. All the DMA
+> parameters (presumably including the enable state) should be applied by
+> the hardware when this bit is cleared.
+
+I just tried it out and it works fine, thanks! It polls for a variable delay
+=66rom < 1 ms to < 16 ms, which makes perfect sense for a 60 Hz mode.
+
+This is much better than the hardcoded 25 ms. I'll add your Co-developed-by=
+ tag
+to the final commit.
+
+> I guess the read_poll_timeout in lcdif_disable_controller() was
+> supposed to do exactly that wait, but as it was actually copied from
+> the mxsfb driver, it's not working as intended. It's my understanding
+> that the old lcdif HW only cleared the enable bit once it is actually
+> done, but on the lcdifv3 on i.MX8MP those states are double buffered,
+> so the bit in the register would be cleared instantaneously, rendering
+> the wait in the current code a no-op. The only reliable indicator to
+> see if the HW has updated it's internal state is to set the shadow load
+> enable bit and wait for it to be cleared.
+
+Sounds right to me. Thanks for the details! Are there resources about the
+different generations/families used by nxp/freescale? They seem to be in-ho=
+use
+designs but with lots of different variations.
+
+> > It is a bit surprising that the issue is not actually related to config=
+uring
+> > the display engine but to disabling it. This is why the first mode set =
+always
+> > works but subsequentil ones might fail. The crtc is essentially disable=
+d and
+> > re-enabled each time a new mode is applied.
+> >=20
+> > Adding the sleep solves the issue on my side and all mode sets now work
+> > reliably. It does add a delay before returning to userspace when config=
+uring
+> > a new mode, but it seems legitimate to me if the underlying hardware is=
+ still
+> > in-flight. I'm also unsure if it would apply to an async atomic commit.
+> >=20
+> This hardware doesn't support async commits. All DMA state changes are
+> applied during vblank when the shadow load enable bit is set.
+
+Ah sorry I meant non-blocking atomic commit, not async. Since this is in the
+CRTC disable path, it probably makes the userspace process sleep even in the
+case of a non-blocking commit (unless this happens in a kernel thread, I'm =
+not
+sure exactly). But I guess it is legitimate to block until the previous fra=
+me
+is finished if it is mandatory.
+
+All the best,
+
+Paul
+
+>=20
+> Regards,
+> Lucas
+>=20
+> > I will send a patch adding the delay and the undocumented fifo clear
+> > bit that was discovered in this thread too.
+> >=20
+> > All the best,
+> >=20
+> > Paul
+> >=20
+> > Perhaps there is a more elegant way to handle this=20
+> >=20
+> >=20
+> > > Interestingly, Weston usually starts fine in subsequent launches.
+> > >=20
+> > > How is this first (actually second - after the first VSYNC) frame
+> > > different from all the others? Maybe we're programming UPDATE_SHADOW
+> > > after the actual start of blanking period, but before DE, so it has no
+> > > chance to reload registers, yet the DMA is somehow not ready?
+> > >=20
+> > > The manual (LCDIF display control Register (CTRL)) suggests that the =
+DMA
+> > > (with present settings) starts to fetch FB data at the end of the
+> > > previous active video pixel time (DE and pixel data going inactive):
+> > > fetch_start_option (bits 9-8): Indicates when to start fetching for n=
+ew
+> > > frame. This signals also decide the shadow load, fifo clear time
+> > > 00b - fetch start as soon as FPV begins(as the end of the data_enable=
+).
+> > >=20
+> > > This should leave a lot of time to fill the FIFO (before the next DE),
+> > > shouldn't it?
+> > >=20
+> > > 297 MHz pixclk, 3840x2160, 30 Hz, H back porch 296 pixclks, Vfp 176,
+> > > V back porch 72 lines, Hfp 8 lines, VSYNC 10 lines, HSYNC 88 pixclks.
+> > > HTotal =3D 4400 pixels which makes Vactive time =3D 4400 * 2160/297e6=
+ =3D
+> > > 32 ms, with the remaining 1.3333 ms for all the V sync stuff.
+> > > --=20
+> > > Krzysztof "Chris" Ha=C5=82asa
+> > >=20
+> > > Sie=C4=87 Badawcza =C5=81ukasiewicz
+> > > Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
+> > > Al. Jerozolimskie 202, 02-486 Warszawa
+> >=20
+>=20
+
+--=20
+Paul Kocialkowski,
+
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--CDf277NznvZQn5xT
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmnK6CYACgkQhP3B6o/u
+lQyH5A//V/9yZvIamca2VLwgWSF16F64igms4AaRROuVg2t9+TzNgINKg6rOU77z
+A6J9f6O4Wo36zukvA86exdLkrHAiCcgWhk5cAhxujIgvJ0LoeCqi1GgjN53K0PGQ
+TN7fzxVBENSA72l+E/Gd8o77dUsUAJHb9fcq/yB6po2OqkK/k5CVxkutugT0CDZa
+65w8gaTVdZ8z7XUIwdHKrmCfK5g1KixHBa/GGN3Dm/KO6klvpY8ErTH6WwzftdDr
+gtct/x2RKkJrUc2rkYY47MP88b9Mu83Ob9kMn//h87uuaTh29M5demnJJ3p2++3B
+EzE+SKR+E3Z289Lab5ricLwhROZ68lDjRaVICqrq6T5Elaf/cTyTkV0sgu3SC9yh
+XKKihJFlddsruoUnBQzcZ/uXYlVO/YeBH4pXZtlopAgM+XIcV4zX6iAPRNfoYO6J
+4/vArKYosjZAvmQ16S+V17aSvCCTWJcFoqeqlRhjgenZn8EVGU8l/JLubf4vNSTN
+6IskqUahUGrXoZ/sfcrGaJVe3d63b4SoUGDaWXWF30XAFsuRw2RUkujF2+SdFhLQ
+6RC/WNLF7DD93bcOgVyybP+gqa3ea8neNq2/lTNG36oQ9AIen2C5dPyxUzOVavJH
+3gfTbgw4AYg6KgXKLY1U3DnNxebD99sXsso8y95FDyZ/yDd5JqU=
+=/b6w
+-----END PGP SIGNATURE-----
+
+--CDf277NznvZQn5xT--
 
