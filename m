@@ -4,110 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9AA01061B20
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 21:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17CB51061B08
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 21:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zlsVcWSeeIpbPnsSYMwOt0k3yfDPRs+s8ihr0jHypXY=; b=OjQY0EOrF4PeVx+HTMTgxEOlnQ
-	z9K2i47svWa22WB6zntpKPzbfo7isGkvUhRnzVU3RQZMWxh8X4DnlyMSYw8bXuGqdm/iybPris69k
-	I+VAaJh06QJY9N0ZuIOcq8Kwi+ZasBmh6CSOooWo4n20+vFw0QHolRDXpjIAmCeig043rrdWPIOOX
-	g5+XuRTuY1Y8jIqHYqg42gqRKEmAW8XWgphL7zNcpjwXTEHalRE/1wRuGFPncI0TqY9AcPnr+oXPX
-	2qJ0fCDbvHEmBIxCHoEy+yZ3OkNjOBQ3OMMdcF0R/YudO0kK3/wcGjtQDjFdiiUxnqBny89pTvnQz
-	e7aX0bTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=itki3S53hN5ghJ+TbLPQdNLhKu/I8y2gwGAHgQqiXFA=; b=34nsc+1aX7F0BXZwGmxjn2hUK0
+	wZeuTCTa5Klud/6h9gle/nurt0gtXRunA97tUH4A95mla4nGLN2ITmgxB0YlW2Y1YDq8AW+6Ynqxl
+	thGUPSZz6Moz1LWen+knKBw3nzzqpn+RkDob3vVS+hfxAfYZfalxKmKajco6oW3gmkJ998pQ7FNhR
+	9E2l+AM2IfRJMvps49+tF8Eb0vPMBsBI6Wud+lLDVDwuwl+CcAYtGwidrdU2WBXtF/F2H85J0Awy0
+	A3KPQhha/0CZVYhzQ2kF7QoylRO2VSp36M47kM7zItg/Cha1WlKYmsxv5omo7otx1n+EzryYJsSjC
+	FqNoRKWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7JrM-0000000BtAm-2xqh;
-	Mon, 30 Mar 2026 21:09:20 +0000
-Received: from mail-vk1-xa29.google.com ([2607:f8b0:4864:20::a29])
+	id 1w7Jw2-0000000BtWN-1TYb;
+	Mon, 30 Mar 2026 21:14:10 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7JrJ-0000000Bt9G-3ZRG
+	id 1w7Jvy-0000000BtW1-3OkL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 21:09:18 +0000
-Received: by mail-vk1-xa29.google.com with SMTP id 71dfb90a1353d-56a9c5cb48bso1956325e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 14:09:17 -0700 (PDT)
+	Mon, 30 Mar 2026 21:14:08 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-c76b0cda2aeso34506a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 14:14:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774904956; x=1775509756; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=zlsVcWSeeIpbPnsSYMwOt0k3yfDPRs+s8ihr0jHypXY=;
-        b=EZwA6/ua8aWp8U89w0Uaq1+YR7XRPVIPXSlf8ZQYEokpKwBmoz15lAbzdk1tOAjeeO
-         6fYC2BH3rITBQ53fft+z/p68XiWxUDHrwSp+g9+M93rwVBkp5xPe1v+tqeEDKQDvNDPM
-         P0oi0/sAfj8b3pXCKRcFdv+ZiHvoVBVIDootoNKwdzzmVWrz0+VpOb6XNa5XUblU47Br
-         bmRkwNN8KDO+VJl71KtiGItTf/hgVy++6kW1LrJ38tNbswZ5U8M69ZowAc3rWSnytAdc
-         l/iueRMVVLk+NiLBKvpSLM15Q/tr1eWo3seFI1OeUfEXJX1LgcAfzkFWcVFSRmrdSE3z
-         krMA==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1774905245; x=1775510045; darn=lists.infradead.org;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=itki3S53hN5ghJ+TbLPQdNLhKu/I8y2gwGAHgQqiXFA=;
+        b=zIwvnWr7iqy5X2U4n/SMEbbVdAof6YVgVFOWRKAeSBidGr2HGn/wQUPf+Z5UKthI95
+         +zNN/6H2riktiaf3h8JfWqB7Zjuu2znadPvbNv0X6/NjQXnnUJ1cMzAjGYZx5+96AMsq
+         YHxBf6Q87kFKOZeYWDfFUk44xbu0JrtOkLGC5WI8uTrDuGafsPZqRfkhO0LaYu8myqQ4
+         rfqW25f7FiGW34H1xG4m0Wzjms50er1dcC2FONPiFRJNHFAhWCrL6x3HsppTX+D18KwN
+         LP6cJL2OO17aKcSwDNqwTwRrudUIJXDoBbKJERLWp+gdAEB8hOWwSeGe+wErvjiSeQqx
+         u3Pg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774904956; x=1775509756;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20251104; t=1774905245; x=1775510045;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=zlsVcWSeeIpbPnsSYMwOt0k3yfDPRs+s8ihr0jHypXY=;
-        b=DDk07AJB7n/fXKtwG6uyij8FNYA5zDl5fdWcxxcjCrvBncHCdpr9Tx0+GafLPTFOQG
-         HTSIJAki0/nnNWowtoX0QT7UtTZTQOOd1wd+JWmVeBqsY5e7O0En/9KxDZw+kfIv5eQf
-         iSdVPqrFFv/3yAoXwAPvsrviY84xUDCGR/6D+pWAy7I5C6iizJ/P17JXDN6GBuZCv0UK
-         aTIVuqs/aNsb+PvDX2W/+sWP/IzboMZKa95djOHlgOCgmy55lpTYJcaa1NCte/4lkbDk
-         Bf0vDbh4WnCk1oAS+HUhXlaT7kcS/fBlAhObjzbFQudz6Qyok6XIfFXdKb3gB7k6J1Fx
-         ddYg==
-X-Forwarded-Encrypted: i=1; AJvYcCXSJyWKQxw19Xt8rmBSdYkXGqnXK5Z0VVHdfF1HXRrdnhjSv1nF78oEg1A9xJouLjDJFSZNlcszFw2AgonRU0YR@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQrBFM3+dtqtZZDqt/nkig7GnGnGa+Ne9wQdBwx7y4Zf+myyvG
-	SqalLbNfgp5h0hk+W3SpY7HHNMTr6qZCbX1K0tnm0KR3sDWWrCbNxzC+
-X-Gm-Gg: ATEYQzzjjvsBVFWCjC/TqP/haP67yw8c0VtAUPdxXWI31d/T4R0KTH2IofUhm0kt+jC
-	+huIgIyzsVIwsbAv5Tqdw2fJAYcAHG9gwsD3bINDGm8teG+l9KLIDUIQVTaKJ1jJQ5gAvKy+DLZ
-	UpsSlzwy8oShmTPEDhyEgHathgVScoz+gmISVtpf+9cOY+H/pqXpL2rmyuesjmtmAkn+fYfSX5l
-	Lr1LRu8RrKfuohfULT3dY/cPTrxLAI95/Y4QiCekhBTFC3GW9/ZSfxe5qkhxc5M2qKUoijrP6bx
-	qATiKXfsqOn4XULq/griEk7dNxzoNLrdNuxm/2zwGa8fl3aGyQm+gH938r56s3KAnnEhKzJNVBF
-	7pjXokkFwtrWQzn+Kt8rQuuT5nRxTJjcJ/gOIEVj1Nh/ZkCHKAq27rF1vafJpaCaQ2bqKL0nkY7
-	j4AWztemBm1xIIOJZQrGiqsNM8VPGEHw58IjE1
-X-Received: by 2002:a05:6122:3c44:b0:56b:9ba4:1372 with SMTP id 71dfb90a1353d-56d4a5f8c0emr5672211e0c.9.1774904956234;
-        Mon, 30 Mar 2026 14:09:16 -0700 (PDT)
-Received: from ?IPV6:2001:871:22a:d2a7::cebd? ([2001:871:22a:d2a7::cebd])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56d58a333c9sm9989448e0c.13.2026.03.30.14.09.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 Mar 2026 14:09:15 -0700 (PDT)
-Message-ID: <f159850d-5fe6-4329-9703-b355305fd106@gmail.com>
-Date: Mon, 30 Mar 2026 23:09:06 +0200
+        bh=itki3S53hN5ghJ+TbLPQdNLhKu/I8y2gwGAHgQqiXFA=;
+        b=ig+tefmSJB9ZaJYz/dNCV97xJpbh7ZcurmjBME6B7jX+3lfCkN1iHBofptnUSMujKM
+         8BZEPkvSxxOki27DdfUrUmb9ytOz1pInNaCkLfoiRt29FrWGqiXQnRQB5tngiQ4mSxBz
+         6rSZWspb0UVDciWgAMmCaFo2i7RlaGY2xOuWz5BhDvrcaW0s8iQN51hdfV/e/aBFMw4V
+         Ib/pvAuc+hcylOxpsPaL2zZ1tx1FKprR/cK98ZAvF0qe83l/XlVrdP5bU5vSC5Ok4+6e
+         jWxuCsJdby/5Br3WMlQfo+ZqUI+cCu3PEdG7pIteOG3xgJji2dbT8LnUAXrfYuSxybXJ
+         a1Cg==
+X-Forwarded-Encrypted: i=1; AJvYcCXRv68zCERho0O1c3PS91MaWCzwqQgnUzONmEDnLcUfe8Qb/+JnUmW2aXMv05g9qSrkfWestmWANlBWNcJeqevs@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5N4U4PeHmwBWiIgPlUdI0KoA6yCcO75tXDnh9CdCFSrBO3PgG
+	OEzkW9QEeUSYDevziBM/+EWRAdNaSIDpeg5dQPx6mjA1BlvtBZREbBkBkv+RKtHH76g=
+X-Gm-Gg: ATEYQzxWJn5pvyrzTHb22rviDNqXV4i1geuODErfl6iaguOHxwboK6Ff7bsf+zo1ixM
+	7RZvT5gTl7dypzBMguzgkdaQPMQ0sY9nmgWI08xRiLAitoiKFUxZaMBi8vHyMkCgL+cTeBL4TEH
+	VBF6yZJ1l/UjmKOBCq76p1TFEgWE72f7Zbzmz9g5+VcLfivwgTUqPqWPBrjM05ssluCzz1N0jEw
+	cW1YrNy9zjJbtBiZRb5LFNWA0iFkETjI1ggl4h3ZXtpeKA25870/R31zHKDyCtYouPWYX+PwD6H
+	WdBgnWzgNKapSHeEBa8srv+qw3hKYHes+rChNaB/Bjximbh5qaze1LiQE6XN/cgtc2uaHXlsU+W
+	BRqrszRN/W0llFJaKUGQnwFkLsfSiLnG/cAEfcPzkBQvjMuiUpK9m+KFJY2r8QmrsKE2RAC7dvS
+	+MCM5dJukXs9ckB5q82D8=
+X-Received: by 2002:a17:902:d541:b0:2ae:c981:2a29 with SMTP id d9443c01a7336-2b0cdbf7bddmr141880015ad.2.1774905245314;
+        Mon, 30 Mar 2026 14:14:05 -0700 (PDT)
+Received: from localhost ([97.126.187.42])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b242676e13sm93479195ad.28.2026.03.30.14.14.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Mar 2026 14:14:04 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Kory Maincent <kory.maincent@bootlin.com>
+Cc: Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas Kemnade
+ <andreas@kemnade.info>, Roger Quadros <rogerq@kernel.org>, Tony Lindgren
+ <tony@atomide.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Russell King
+ <linux@armlinux.org.uk>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-omap@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, Luca Ceresoli
+ <luca.ceresoli@bootlin.com>, Bajjuri Praneeth <praneeth@ti.com>, Maarten
+ Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Louis
+ Chauvet <louis.chauvet@bootlin.com>
+Subject: Re: [PATCH v2 1/3] ARM: dts: ti: Enable overlays for am335x
+ BeagleBoard devicetrees
+In-Reply-To: <20260324103934.7d259008@kmaincent-XPS-13-7390>
+References: <20260216-feature_bbge-v2-1-22805cfdbf62@bootlin.com>
+ <177275924369.1445909.1029086854461649971.b4-ty@baylibre.com>
+ <20260324103934.7d259008@kmaincent-XPS-13-7390>
+Date: Mon, 30 Mar 2026 14:14:04 -0700
+Message-ID: <7h341hvx43.fsf@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/3] Inline helpers into Rust without full LTO
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
- "Russell King (Oracle)" <linux@armlinux.org.uk>,
- Alice Ryhl <aliceryhl@google.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Jamie Cunliffe
- <Jamie.Cunliffe@arm.com>, Will Deacon <will@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Miguel Ojeda <ojeda@kernel.org>,
- a.hindborg@kernel.org, acourbot@nvidia.com, akpm@linux-foundation.org,
- anton.ivanov@cambridgegreys.com, bjorn3_gh@protonmail.com,
- boqun.feng@gmail.com, dakr@kernel.org, david@davidgow.net, gary@garyguo.net,
- johannes@sipsolutions.net, justinstitt@google.com,
- linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linux-um@lists.infradead.org, llvm@lists.linux.dev, lossin@kernel.org,
- mark.rutland@arm.com, mmaurer@google.com, morbo@google.com,
- nathan@kernel.org, nick.desaulniers+lkml@gmail.com,
- nicolas.schier@linux.dev, nsc@kernel.org, peterz@infradead.org,
- richard@nod.at, rust-for-linux@vger.kernel.org, tmgross@umich.edu,
- urezki@gmail.com
-References: <20260322192159.88138-1-ojeda@kernel.org>
- <20260323000327.111235-1-ojeda@kernel.org>
- <acEP7tl8pqFA3tK8@shell.armlinux.org.uk> <acUGAsjYvNvTEO92@google.com>
- <CANiq72mzPpkELXis1CiSbKUmBXNQYMiMmjj-7-sYiLh4T_JSOQ@mail.gmail.com>
- <9cf5a94c-0f37-446c-b63d-ddac5674d220@gmail.com>
- <acVOL5Psz6kHlhq2@shell.armlinux.org.uk>
- <CANiq72=b+cr7Stxph_hXQTmD5crCvwWTqdaGKOJ7W1-66v4i_w@mail.gmail.com>
-Content-Language: en-US, de-DE
-From: Christian Schrefl <chrisi.schrefl@gmail.com>
-In-Reply-To: <CANiq72=b+cr7Stxph_hXQTmD5crCvwWTqdaGKOJ7W1-66v4i_w@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_140917_897918_18E0100A 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20260330_141406_985300_4D7684CC 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,38 +109,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/26/26 6:30 PM, Miguel Ojeda wrote:
-> On Thu, Mar 26, 2026 at 4:18 PM Russell King (Oracle)
-> <linux@armlinux.org.uk> wrote:
->>
->> I'm not sure if this is still true, but I believe it used to be the case
->> that the -linux-gnueabi target has one behaviour for enums (fixed size)
->> whereas -none-eabi, the size of the type depends on the range of values
->> included in the enum.
->>
->> Certianly, when Arm Ltd were proposing EABI, EABI had the latter
->> behaviour, and I think there were cases where Linux used "enum" in
->> its UAPI.
-> 
-> Short enums? I see `c-enum-min-bits` in the armv7a-none-eabi built-in
-> `rustc` target, and indeed:
-> 
->     #![no_std]
-> 
->     #[repr(C)]
->     enum T {
->         A,
->         B,
->     }
-> 
->     pub static S: usize = core::mem::size_of::<T>();
-> 
-> is 1 for that one, and 4 for the other.
+Kory Maincent <kory.maincent@bootlin.com> writes:
 
-I guess we could use a custom target spec, but I'm not
-sure if that is worth the hassle of adding another one.
+> Hello Kevin,
+>
+> On Thu, 05 Mar 2026 17:07:23 -0800
+> Kevin Hilman <khilman@baylibre.com> wrote:
+>
+>> On Mon, 16 Feb 2026 17:55:52 +0100, Kory Maincent (TI) wrote:
+>> > Allow overlays to be applied to am335x BeagleBoard boards. This adds
+>> > around ~40% to the total size of the DTB files on average.
+>> > 
+>> >   
+>> 
+>> Applied, thanks!
+>> 
+>> [1/3] ARM: dts: ti: Enable overlays for am335x BeagleBoard devicetrees
+>>       commit: 18161bb01ede109fed41c66efa2624a4c27377f7
+>> 
+>> Best regards,
+>
+> Thanks for merging it.
+> I see that you have merged patch 1 and 2 in your for-next branch.
+> Is there a reason to not merge the patch 3? Are you waiting for a dts
+> maintainer ack?
+>
+> Maybe I can resend only the 3rd patch to ping the dts maintainers.
 
-Cheers,
-Christian
+Not necessary.  I'm not sure how/why I missed patch 3.  It's now queued
+in my tree.
 
+Thanks for letting me know,
+
+Kevin
 
