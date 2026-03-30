@@ -4,128 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B254310D14AD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 12:52:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5FEC10D14AD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 12:55:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ALHChNwOXJFZFqHmcs9mk9q6bOiNEpVDdSzmOyH14CE=; b=T7z9zs9qcO6RC5LvBkHgrZsNBs
-	i+G7gA7k7FBgyjQ5SUqydP3A2yNFF2ytOpsiwewDNq7i4OBg89DdvvYTMZN1XhdYNbM9Ut/zgB8ye
-	xIh+sm/jOOu7uBtKgY9wrl5BwNnDtMor1+yw6XGHlCtuBKRqi2/bGl6J4wtfMnDJtbT8UZO7n8N4k
-	BSqwR3hunJGQBjSq2yC1675w6BIc2US4ip8OXTvY0LgInW2WJww4vCsDi5a50/vRvXf/+2t0jo3lc
-	0XxUIWM2kXIMD/yepG+UqkgEa58YxMAoO+wEiWalHQ/haNGmdSAroPcgL9VvmqT5OVci6XT4JSTNM
-	WQ5pgZAQ==;
+	bh=aB0/++ZXrD10YfLA7Ezy1zhTYnTocem3cy4Pgj+rsN4=; b=hf+S1F8gIXN1lepOMw7QnCehPb
+	soBdZDHKIGd1GzgV9/ijYNjYykrV6Z1PaN/Ng9gQbe+uz83U/3fpAaDecrUnvTaJ4C0etP8rIlpL0
+	sOHtTzpw7Ja9fkUzBMW6uYwRmsB/qJGsEISxGnxM0US+2sbiHVCf6JELQyntobi2eC87mgNS6pnBn
+	myOGfLoaZc7tGKh/0y3qdUz8v+it91Trgw6/oQDyOmBwQ8BqTDY5SFcFOyYEFJAApwa8l7TvWSadd
+	wYpEyU+1LLSSea//6AjbjVcs7gVL7pmZer9Dt1sxS+RD8W+FKZ3Ee4gGuLWF+v3hILqLpBZ3CkssQ
+	xRMvROvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7C6A-0000000BHzb-1ndf;
-	Mon, 30 Mar 2026 12:52:06 +0000
-Received: from mail-westcentralusazon11013068.outbound.protection.outlook.com ([40.93.201.68] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1w7C95-0000000BIQi-45F4;
+	Mon, 30 Mar 2026 12:55:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7C67-0000000BHyv-2C9B
+	id 1w7C94-0000000BIQO-0V16
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 12:52:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EB9geyfBJ3M4u2EQpGpS3AsEakZ5Vo0ysVwg3hL1gjaYNuuwjf9llandyxgAEzXLMUyQMJndeDsD2NX/2KvdAYJk16mHEQIaK8ZgydujoxxZX4wWjvWhZxuaWSiYxvRoTGtoLlk4pv247L3K3/QcD7oPXM8PfShsnmW1ZFOmGRV46bB1SQuer93u87U4FVfXoX3HhdmS5Y1EWvV+u1xS3aL6olHNSM30kyREd+U1Y5TIKs1a+TswX1qxhjadWXOLiCHyHuci8ax94gMAreFd0p2cF4v2dIk8eNvhUS3zbwVO1nmVHONHps18KuIh7yHUzTsiPk26+1keOAImqK0SFg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ALHChNwOXJFZFqHmcs9mk9q6bOiNEpVDdSzmOyH14CE=;
- b=FNYUWHF+Fhnhda39LhdHXKdl6NHHMdr1pMDHkoIgG5NiI7V2YBxZA3OIZnP9W6tSTn+AY8/zU42rzYHvgY9+EOcSSdo2SzBQGdxrI3fa66K1FuIL/DbLppkuI3IWZi+25pYiP32oR1JquPUbLIeIBqiwNClWKilLZIDL6paBI1avtKqmo+iHeMRg2NslVL82R/kwhZCCCnoM3dzEOZ8y+YO90A7OE4S9FB1bsuhkNXXnjghTpgkCDVvGdtqJMnZ68sacNLPEANqbWB0uGohVioBftAvWk6bsALf/7fKXDonHq47IR/e0JbH1Xn3cOuxqASGH6OCcad+/ZEArxXT8Fg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ALHChNwOXJFZFqHmcs9mk9q6bOiNEpVDdSzmOyH14CE=;
- b=inopS0NBTKPXlzD1t6UfaVz54DbFlHryvC5FjYeRfZrFu6g7qpKyLBRYWhiDXExBx0k4KxAKeUXdnib7x3FK+mjBXvKlpHtJuVmv+LsjcXGL3/JQJJMrVE9z6cf1O+LwBYIaWYrdybryYilPbf/3O/KvabBb+ZWhd0/DT13+N1nWHvhbW5K5lNFsur40ISiTaskN+t6bCVKAGdVzO4FiHVNRzcoMpdTyzQXQiH9KcKts5iLkpPzSDVj5LX90u29DBeObJ3Wmznkpohbikmpx6hKq3lPaUhDi6fjbVNnS6KgREN06PsqqfKNh7HiPEZbWYhyN/VVjfdUpBS4cvfc8Qw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by LV8PR12MB9667.namprd12.prod.outlook.com (2603:10b6:408:297::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Mon, 30 Mar
- 2026 12:51:55 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9769.014; Mon, 30 Mar 2026
- 12:51:53 +0000
-Date: Mon, 30 Mar 2026 09:51:51 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, bhelgaas@google.com,
-	joro@8bytes.org, praan@google.com, baolu.lu@linux.intel.com,
-	kevin.tian@intel.com, miko.lenczewski@arm.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	dan.j.williams@intel.com, jonathan.cameron@huawei.com,
-	vsethi@nvidia.com, linux-cxl@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] iommu/arm-smmu-v3: Allow ATS to be always on
-Message-ID: <20260330125151.GK310919@nvidia.com>
-References: <cover.1772833963.git.nicolinc@nvidia.com>
- <0e8d1ee1557c54943dd15ff836576de4c3aa58b6.1772833963.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0e8d1ee1557c54943dd15ff836576de4c3aa58b6.1772833963.git.nicolinc@nvidia.com>
-X-ClientProxiedBy: MN2PR16CA0060.namprd16.prod.outlook.com
- (2603:10b6:208:234::29) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Mon, 30 Mar 2026 12:55:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B57D241A0C;
+	Mon, 30 Mar 2026 12:55:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FDD4C4CEF7;
+	Mon, 30 Mar 2026 12:54:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774875305;
+	bh=R3YvVBoJbN9lPtFjocI0Duh7724R1ylPOyLBNcDb1zc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WfkRN5aCWVLbI0R2daRo0rZ+06XRIjrYv7LxhrUjOHEvJuy9DY71yL4PDIn1ltHYn
+	 oA7TQYJZMTUjC5r30E1AXuCHMB2kT5pTvdPo8jR693BYbH0XMYjKXjGnmAEs+Od1sI
+	 8ELrYYr7F9Y9nVsQky8x1V0ESQ/fheGt25dOdPyKmI6V4vgkzZaOALyKx+FSRZF9TI
+	 hcz8JWD03FFU5v072uUigXc+fxpgPGrFRjEjB1ig6jLllJ1O7sxLrMk2C9obw97cGL
+	 kIMspojUjJAupYkVX7h0yQtCFXDYnz1D1dtXu9Ay1NAEe3s05m4f9n+GB+O+PzkjwN
+	 8Bs+mc/9afXVA==
+Date: Mon, 30 Mar 2026 18:24:50 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
+	Md Sadre Alam <mdalam@qti.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+	Stephan Gerhold <stephan.gerhold@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Peter Ujfalusi <peter.ujfalusi@gmail.com>, Michal Simek <michal.simek@amd.com>, 
+	Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, brgl@kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH v14 05/12] dmaengine: qcom: bam_dma: add support for BAM
+ locking
+Message-ID: <ho3e26nrbz6ppxvs6cq2q76i2h6zpbbrssyekvuzc6e3koupvs@fpajvjgb2qjq>
+References: <20260323-qcom-qce-cmd-descr-v14-0-f323af411274@oss.qualcomm.com>
+ <20260323-qcom-qce-cmd-descr-v14-5-f323af411274@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|LV8PR12MB9667:EE_
-X-MS-Office365-Filtering-Correlation-Id: 60d4ee9c-a506-4d8c-6995-08de8e5b1e02
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: E4x81oDCES0JI7JWNOqe3FZXgru02pt+whRkMH9EAAgpAU61m2WAqG1CP4WPG5a+SF5hpJ6AkscofnvgkWNTHiHOmtz8VXM3ATwnf+ZyPNfhGu7BXL2op4rbBKlRJq44tbHz8KRBxZuO/2cS6VaDXJ0A6k42Gi1PYOi4H6w5L0bezxkaO3S2vUp9GNIRuVP8GjluYrFtWClY3c1m6oLVcaPYSH2GtZhaQkPehvq8rlxSkbyaEcnvcKTpXFhbPOUieB2kNLzwVuTot3pLhdsA0nievOI25jdSRW6hUph5rBIIRaO+hrk1s4pPKaNZwC1mt/850qOODNgBJG8nVqfIBhMX7a4jssrNscrX4y78SL1klpcBBr3BWp/Swgp5DPK6JUCDa8qUX/kMNfCdQtdSvTZL8MqAQRyJA92b0OzgP1qxfhAwknbNFAt48UuFNVxAmtW7PA55nPm1hM6xjxZoz8D+TeEJ7zY2sSQawp4IOyf67LFkBX/eefxBp7O7VFLnEMTx/RIb/A2ZHdN68Jrdo3HoyggqXvid8jI+UmWGC0dID1vo7Tg8pB9eWHbM2Aoh9GpBtVOBnot/Ddeuh4+gFPp4eY6Q2BXrbYrnqUOoLHktGtCEOgtPuRwGUdHaiRo/FugQ/IXPaJYjlAFVp8ceepxAP/vCBTW/XL44TO+iDGtUvmEeUmDj0zykjWd8r+2rj7YMnc6cNAeWr6ut1I8QJhOBylnTtR54dIaUF+y1DWg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?20e/mG6WE1RtSkT+QBQMiwSm2UiLP0CTy/+Jl+Wm463M+ZKJ2D5MIoYZS4yW?=
- =?us-ascii?Q?L/B47fAiLAVdEpBFddwH4qtS2SD+opLc+ynX8ZQZ6J0dLxEVIHQVHEDo09Id?=
- =?us-ascii?Q?46OUDfQqpbEXPY5XG67ZDkhw8tl8oGR+FdWtF3uB3Zg0f+Ows9V73NwYBABE?=
- =?us-ascii?Q?ZxL5fplTdeAA40C8+SUHmb5CULAS5aLo96brFPis9dNp0jknJVa4qq1zGIfa?=
- =?us-ascii?Q?WA3Q5QPFc+ZMwh4G3PYAPln1yjReQkCeTzWObGfQJCvoapP5Q4RPhyNDLE1A?=
- =?us-ascii?Q?/P9trT3+T0OkkSISJf1Z3JW48cBaiuXWJr4fwxEIQ0RXXKD96PEqOwypWp0U?=
- =?us-ascii?Q?wQzt+dG2t7cf3uVtnkgHipXyVHMPTb6HI9wVRn8ckASULCbq4ubVFqDzZVmq?=
- =?us-ascii?Q?s4/Oib0NdhZHCobEcjbCbLVR/UkAyhOnoAryC3WV9ITaKX072uWgJRUX/9oQ?=
- =?us-ascii?Q?oZb/ziMfarCXrLvDfOPsZ8MvtGCZBnQuiN4l5U43r8uONqTyc/WPE+YLqgXZ?=
- =?us-ascii?Q?PLI+qN3fRofQXQdt7mGQ10/U6q828Maox54DV7H8kzHiaQ/YJjdmfJsW5X08?=
- =?us-ascii?Q?XaDQ/SUqky7ElPxeKnQJlaQq4Nuozw7vKwV1ADUj97fXVn/FStFIPpCs2p/F?=
- =?us-ascii?Q?7nxELp1HldG7uNfSU64mQZTQP0Y70afhADoyiauzR70+jBmKO3Rc/+ZP3Y3q?=
- =?us-ascii?Q?Th1SGgmcUVfpoT9QCo0Ik96GvDOAheoibZ6eslVGC4JjqaOzUtFtZSGf4UbL?=
- =?us-ascii?Q?WYgbevh6sHTN98Yg6Rx3anniEDStxz84NzunU6JguyGTyoA+WYRYmdqwXK0Q?=
- =?us-ascii?Q?NxsvoSpqDnFmzbekpihlGieTCrCBIt9A5FYznZk1aSqLW5QiPx/ovEqVAWP6?=
- =?us-ascii?Q?qEukG07S4Z/fkm83lkkwGWzyzWXFmbjj+8SX39TuVYg14Cqmp0H29Icj77fV?=
- =?us-ascii?Q?KGeWRDIQ2XezTQ4OQ9z4ZZLFZdTTRcp2blk5O/VjvI9iOvxiQNNswKq/a9NB?=
- =?us-ascii?Q?jDYMulhY88wGENm53LIc16euvy19Aoyf+xXEQreHvmXg8Qakdm+xjVO7uVji?=
- =?us-ascii?Q?abPQ73+uUYvn7vxc7UDnppmXYktGoUYaLaLKZOokffpMxOPmrJnmkjX1vkxr?=
- =?us-ascii?Q?2XeYsUhSR4PFymos32qEb4O/GOboawhR6swjgwHytC0cs42OGt0gecnun/rm?=
- =?us-ascii?Q?16NesZ2Ai24D2fuJ1dNgFFrc4b9/XGPT8fWis1aU4ACPugyj2QLpPjPur+h4?=
- =?us-ascii?Q?VTMdwG3XCs0LCguHgwkc4AUAj4yLq/7mte1XzdxtyI1X2CutXkXTCFBEg5Ki?=
- =?us-ascii?Q?gLBomMDNpbUGsI5JjaBlGgSHfIxxf5DM+sWW24exP04xj4v/ifczGgcI/sZk?=
- =?us-ascii?Q?q3Jzp0f/PWCAzyjsdXVAqrFvVsJB5qNi9NY249OWCrrVvil6kDomyBXceRXl?=
- =?us-ascii?Q?71jUnjmz+t8n4q8RtgkHU5JaqUCa72pY0LZUjpcx49VpH6w5dgqMF2FtrQzY?=
- =?us-ascii?Q?h3DncJD1cXWwUWB+Pu4M8pny0XGn2eDlHYf4ZBKlYy1KWg3lHaIclw0p1uxz?=
- =?us-ascii?Q?vRwm6WPzFuZNI3ghlkkY9PUPOMe58S+JlEs6L3uZN6KPeXCA7giZ3FBT0FuO?=
- =?us-ascii?Q?9+dLTS0Il3l6TFeVfcghQnDat0ohhV2NGOmLIAtzNvURsx0KviNNunxWhKR7?=
- =?us-ascii?Q?Tp4PyVhfC0cXX6p5PLVeWzMp6MG+vxHoQEww0LmViBR83wh9?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 60d4ee9c-a506-4d8c-6995-08de8e5b1e02
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Mar 2026 12:51:53.2243
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +5Uzzgi8qa9zSP7V0KpuB1W+60Fz/mtq7qmepmlKEyIErtBKktTYfk+S6+q/H1K1
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9667
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260323-qcom-qce-cmd-descr-v14-5-f323af411274@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_055203_603700_80C7B199 
-X-CRM114-Status: GOOD (  19.44  )
+X-CRM114-CacheID: sfid-20260330_055506_239820_B184C56A 
+X-CRM114-Status: GOOD (  35.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,46 +82,308 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 03:41:17PM -0800, Nicolin Chen wrote:
-> When a device's default substream attaches to an identity domain, the SMMU
-> driver currently sets the device's STE between two modes:
+On Mon, Mar 23, 2026 at 04:17:11PM +0100, Bartosz Golaszewski wrote:
+> Add support for BAM pipe locking. To that end: when starting DMA on an RX
+> channel - prepend the existing queue of issued descriptors with an
+> additional "dummy" command descriptor with the LOCK bit set. Once the
+> transaction is done (no more issued descriptors), issue one more dummy
+> descriptor with the UNLOCK bit.
 > 
->   Mode 1: Cfg=Translate, S1DSS=Bypass, EATS=1
->   Mode 2: Cfg=bypass (EATS is ignored by HW)
+> We *must* wait until the transaction is signalled as done because we
+> must not perform any writes into config registers while the engine is
+> busy.
 > 
-> When there is an active PASID (non-default substream), mode 1 is used. And
-> when there is no PASID support or no active PASID, mode 2 is used.
+> The dummy writes must be issued into a scratchpad register of the client
+> so provide a mechanism to communicate the right address via descriptor
+> metadata.
 > 
-> The driver will also downgrade an STE from mode 1 to mode 2, when the last
-> active substream becomes inactive.
-> 
-> However, there are PCIe devices that demand ATS to be always on. For these
-> devices, their STEs have to use the mode 1 as HW ignores EATS with mode 2.
-> 
-> Change the driver accordingly:
->   - always use the mode 1
->   - never downgrade to mode 2
->   - allocate and retain a CD table (see note below)
-> 
-> Note that these devices might not support PASID, i.e. doing non-PASID ATS.
-> In such a case, the ssid_bits is set to 0. However, s1cdmax must be set to
-> a !0 value in order to keep the S1DSS field effective. Thus, when a master
-> requires ats_always_on, set its s1cdmax to minimal 1, meaning the CD table
-> will have a dummy entry (SSID=1) that will be never used.
-> 
-> Now, for these device, arm_smmu_cdtab_allocated() will always return true,
-> v.s. false prior to this change. When its default substream is attached to
-> an IDENTITY domain, its first CD is NULL in the table, which is a totally
-> valid case. Thus, add "!master->ats_always_on" to the condition.
-> 
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+
+Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+
+- Mani
+
 > ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  1 +
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 72 ++++++++++++++++++---
->  2 files changed, 65 insertions(+), 8 deletions(-)
+>  drivers/dma/qcom/bam_dma.c       | 165 ++++++++++++++++++++++++++++++++++++++-
+>  include/linux/dma/qcom_bam_dma.h |  10 +++
+>  2 files changed, 171 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
+> index 83491e7c2f17d8c9d12a1a055baea7e3a0a75a53..309681e798d2e44992e3d20679c3a7564ad8f29e 100644
+> --- a/drivers/dma/qcom/bam_dma.c
+> +++ b/drivers/dma/qcom/bam_dma.c
+> @@ -28,11 +28,13 @@
+>  #include <linux/clk.h>
+>  #include <linux/device.h>
+>  #include <linux/dma-mapping.h>
+> +#include <linux/dma/qcom_bam_dma.h>
+>  #include <linux/dmaengine.h>
+>  #include <linux/init.h>
+>  #include <linux/interrupt.h>
+>  #include <linux/io.h>
+>  #include <linux/kernel.h>
+> +#include <linux/lockdep.h>
+>  #include <linux/module.h>
+>  #include <linux/of_address.h>
+>  #include <linux/of_dma.h>
+> @@ -60,6 +62,8 @@ struct bam_desc_hw {
+>  #define DESC_FLAG_EOB BIT(13)
+>  #define DESC_FLAG_NWD BIT(12)
+>  #define DESC_FLAG_CMD BIT(11)
+> +#define DESC_FLAG_LOCK BIT(10)
+> +#define DESC_FLAG_UNLOCK BIT(9)
+>  
+>  struct bam_async_desc {
+>  	struct virt_dma_desc vd;
+> @@ -391,6 +395,13 @@ struct bam_chan {
+>  	struct list_head desc_list;
+>  
+>  	struct list_head node;
+> +
+> +	/* BAM locking infrastructure */
+> +	phys_addr_t scratchpad_addr;
+> +	struct scatterlist lock_sg;
+> +	struct scatterlist unlock_sg;
+> +	struct bam_cmd_element lock_ce;
+> +	struct bam_cmd_element unlock_ce;
+>  };
+>  
+>  static inline struct bam_chan *to_bam_chan(struct dma_chan *common)
+> @@ -652,6 +663,32 @@ static int bam_slave_config(struct dma_chan *chan,
+>  	return 0;
+>  }
+>  
+> +static int bam_metadata_attach(struct dma_async_tx_descriptor *desc, void *data, size_t len)
+> +{
+> +	struct bam_chan *bchan = to_bam_chan(desc->chan);
+> +	const struct bam_device_data *bdata = bchan->bdev->dev_data;
+> +	struct bam_desc_metadata *metadata = data;
+> +
+> +	if (!data)
+> +		return -EINVAL;
+> +
+> +	if (!bdata->pipe_lock_supported)
+> +		/*
+> +		 * The client wants to use locking but this BAM version doesn't
+> +		 * support it. Don't return an error here as this will stop the
+> +		 * client from using DMA at all for no reason.
+> +		 */
+> +		return 0;
+> +
+> +	bchan->scratchpad_addr = metadata->scratchpad_addr;
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct dma_descriptor_metadata_ops bam_metadata_ops = {
+> +	.attach = bam_metadata_attach,
+> +};
+> +
+>  /**
+>   * bam_prep_slave_sg - Prep slave sg transaction
+>   *
+> @@ -668,6 +705,7 @@ static struct dma_async_tx_descriptor *bam_prep_slave_sg(struct dma_chan *chan,
+>  	void *context)
+>  {
+>  	struct bam_chan *bchan = to_bam_chan(chan);
+> +	struct dma_async_tx_descriptor *tx_desc;
+>  	struct bam_device *bdev = bchan->bdev;
+>  	struct bam_async_desc *async_desc;
+>  	struct scatterlist *sg;
+> @@ -723,7 +761,12 @@ static struct dma_async_tx_descriptor *bam_prep_slave_sg(struct dma_chan *chan,
+>  		} while (remainder > 0);
+>  	}
+>  
+> -	return vchan_tx_prep(&bchan->vc, &async_desc->vd, flags);
+> +	tx_desc = vchan_tx_prep(&bchan->vc, &async_desc->vd, flags);
+> +	if (!tx_desc)
+> +		return NULL;
+> +
+> +	tx_desc->metadata_ops = &bam_metadata_ops;
+> +	return tx_desc;
+>  }
+>  
+>  /**
+> @@ -1012,13 +1055,116 @@ static void bam_apply_new_config(struct bam_chan *bchan,
+>  	bchan->reconfigure = 0;
+>  }
+>  
+> +static struct bam_async_desc *
+> +bam_make_lock_desc(struct bam_chan *bchan, struct scatterlist *sg,
+> +		   struct bam_cmd_element *ce, unsigned long flag)
+> +{
+> +	struct dma_chan *chan = &bchan->vc.chan;
+> +	struct bam_async_desc *async_desc;
+> +	struct bam_desc_hw *desc;
+> +	struct virt_dma_desc *vd;
+> +	struct virt_dma_chan *vc;
+> +	unsigned int mapped;
+> +	dma_cookie_t cookie;
+> +	int ret;
+> +
+> +	sg_init_table(sg, 1);
+> +
+> +	async_desc = kzalloc_flex(*async_desc, desc, 1, GFP_NOWAIT);
+> +	if (!async_desc) {
+> +		dev_err(bchan->bdev->dev, "failed to allocate the BAM lock descriptor\n");
+> +		return ERR_PTR(-ENOMEM);
+> +	}
+> +
+> +	async_desc->num_desc = 1;
+> +	async_desc->curr_desc = async_desc->desc;
+> +	async_desc->dir = DMA_MEM_TO_DEV;
+> +
+> +	desc = async_desc->desc;
+> +
+> +	bam_prep_ce_le32(ce, bchan->scratchpad_addr, BAM_WRITE_COMMAND, 0);
+> +	sg_set_buf(sg, ce, sizeof(*ce));
+> +
+> +	mapped = dma_map_sg_attrs(chan->slave, sg, 1, DMA_TO_DEVICE, DMA_PREP_CMD);
+> +	if (!mapped) {
+> +		kfree(async_desc);
+> +		return ERR_PTR(-ENOMEM);
+> +	}
+> +
+> +	desc->flags |= cpu_to_le16(DESC_FLAG_CMD | flag);
+> +	desc->addr = sg_dma_address(sg);
+> +	desc->size = sizeof(struct bam_cmd_element);
+> +
+> +	vc = &bchan->vc;
+> +	vd = &async_desc->vd;
+> +
+> +	dma_async_tx_descriptor_init(&vd->tx, &vc->chan);
+> +	vd->tx.flags = DMA_PREP_CMD;
+> +	vd->tx.desc_free = vchan_tx_desc_free;
+> +	vd->tx_result.result = DMA_TRANS_NOERROR;
+> +	vd->tx_result.residue = 0;
+> +
+> +	cookie = dma_cookie_assign(&vd->tx);
+> +	ret = dma_submit_error(cookie);
+> +	if (ret) {
+> +		dma_unmap_sg(chan->slave, sg, 1, DMA_TO_DEVICE);
+> +		kfree(async_desc);
+> +		return ERR_PTR(ret);
+> +	}
+> +
+> +	return async_desc;
+> +}
+> +
+> +static int bam_do_setup_pipe_lock(struct bam_chan *bchan, bool lock)
+> +{
+> +	struct bam_device *bdev = bchan->bdev;
+> +	const struct bam_device_data *bdata = bdev->dev_data;
+> +	struct bam_async_desc *lock_desc;
+> +	struct bam_cmd_element *ce;
+> +	struct scatterlist *sgl;
+> +	unsigned long flag;
+> +
+> +	lockdep_assert_held(&bchan->vc.lock);
+> +
+> +	if (!bdata->pipe_lock_supported || !bchan->scratchpad_addr ||
+> +	    bchan->slave.direction != DMA_MEM_TO_DEV)
+> +		return 0;
+> +
+> +	if (lock) {
+> +		sgl = &bchan->lock_sg;
+> +		ce = &bchan->lock_ce;
+> +		flag = DESC_FLAG_LOCK;
+> +	} else {
+> +		sgl = &bchan->unlock_sg;
+> +		ce = &bchan->unlock_ce;
+> +		flag = DESC_FLAG_UNLOCK;
+> +	}
+> +
+> +	lock_desc = bam_make_lock_desc(bchan, sgl, ce, flag);
+> +	if (IS_ERR(lock_desc))
+> +		return PTR_ERR(lock_desc);
+> +
+> +	if (lock)
+> +		list_add(&lock_desc->vd.node, &bchan->vc.desc_issued);
+> +	else
+> +		list_add_tail(&lock_desc->vd.node, &bchan->vc.desc_issued);
+> +
+> +	return 0;
+> +}
+> +
+> +static void bam_setup_pipe_lock(struct bam_chan *bchan)
+> +{
+> +	if (bam_do_setup_pipe_lock(bchan, true) || bam_do_setup_pipe_lock(bchan, false))
+> +		dev_err(bchan->vc.chan.slave, "Failed to setup BAM pipe lock descriptors");
+> +}
+> +
+>  /**
+>   * bam_start_dma - start next transaction
+>   * @bchan: bam dma channel
+>   */
+>  static void bam_start_dma(struct bam_chan *bchan)
+>  {
+> -	struct virt_dma_desc *vd = vchan_next_desc(&bchan->vc);
+> +	struct virt_dma_desc *vd;
+>  	struct bam_device *bdev = bchan->bdev;
+>  	struct bam_async_desc *async_desc = NULL;
+>  	struct bam_desc_hw *desc;
+> @@ -1030,6 +1176,9 @@ static void bam_start_dma(struct bam_chan *bchan)
+>  
+>  	lockdep_assert_held(&bchan->vc.lock);
+>  
+> +	bam_setup_pipe_lock(bchan);
+> +
+> +	vd = vchan_next_desc(&bchan->vc);
+>  	if (!vd)
+>  		return;
+>  
+> @@ -1157,8 +1306,15 @@ static void bam_issue_pending(struct dma_chan *chan)
+>   */
+>  static void bam_dma_free_desc(struct virt_dma_desc *vd)
+>  {
+> -	struct bam_async_desc *async_desc = container_of(vd,
+> -			struct bam_async_desc, vd);
+> +	struct bam_async_desc *async_desc = container_of(vd, struct bam_async_desc, vd);
+> +	struct bam_desc_hw *desc = async_desc->desc;
+> +	struct dma_chan *chan = vd->tx.chan;
+> +	struct bam_chan *bchan = to_bam_chan(chan);
+> +
+> +	if (le16_to_cpu(desc->flags) & DESC_FLAG_LOCK)
+> +		dma_unmap_sg(chan->slave, &bchan->lock_sg, 1, DMA_TO_DEVICE);
+> +	else if (le16_to_cpu(desc->flags) & DESC_FLAG_UNLOCK)
+> +		dma_unmap_sg(chan->slave, &bchan->unlock_sg, 1, DMA_TO_DEVICE);
+>  
+>  	kfree(async_desc);
+>  }
+> @@ -1350,6 +1506,7 @@ static int bam_dma_probe(struct platform_device *pdev)
+>  	bdev->common.device_terminate_all = bam_dma_terminate_all;
+>  	bdev->common.device_issue_pending = bam_issue_pending;
+>  	bdev->common.device_tx_status = bam_tx_status;
+> +	bdev->common.desc_metadata_modes = DESC_METADATA_CLIENT;
+>  	bdev->common.dev = bdev->dev;
+>  
+>  	ret = dma_async_device_register(&bdev->common);
+> diff --git a/include/linux/dma/qcom_bam_dma.h b/include/linux/dma/qcom_bam_dma.h
+> index 68fc0e643b1b97fe4520d5878daa322b81f4f559..5f0d2a27face8223ecb77da33d9e050c1ff2622f 100644
+> --- a/include/linux/dma/qcom_bam_dma.h
+> +++ b/include/linux/dma/qcom_bam_dma.h
+> @@ -34,6 +34,16 @@ enum bam_command_type {
+>  	BAM_READ_COMMAND,
+>  };
+>  
+> +/**
+> + * struct bam_desc_metadata - DMA descriptor metadata specific to the BAM driver.
+> + *
+> + * @scratchpad_addr: Physical address to use for dummy write operations when
+> + *                   queuing command descriptors with LOCK/UNLOCK bits set.
+> + */
+> +struct bam_desc_metadata {
+> +	phys_addr_t scratchpad_addr;
+> +};
+> +
+>  /*
+>   * prep_bam_ce_le32 - Wrapper function to prepare a single BAM command
+>   * element with the data already in le32 format.
+> 
+> -- 
+> 2.47.3
+> 
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-
-Jason
+-- 
+மணிவண்ணன் சதாசிவம்
 
