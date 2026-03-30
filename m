@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4C9CFF4959
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 08:07:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90DB7F3D5E7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 08:08:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vIKSOf3iwlefSeFtxh1vGjimtiwXBVMrRZlUPI0lqe4=; b=2XUcjx8WvCT7hdC3Aon3mYrAO2
-	3CTgYklE+r6jCTUGSp71Qf8RxgSjY0DDyTg9CAy2gMq35OE7TQyV4ELddLGQzAan55YcAa1VPin4i
-	swNd1d390UmlAKeJaCd70KyLYs9e0zcmRmhYa2KZ8lsNbvRhZwnSvvg2mA4muy/FK2ovdSm3mMO82
-	VCOWFQbBOP40tRNPMOdGhbhlzs4bCLxT9c5fb6RfRqlfJdkibxnyWocgVa95qDDS3gx4W6JtbI+Ll
-	IMvZh9pXfOZltzGytBkzm07uPniNw1IEcv+bUYlnSyfd2+k3cc2LB31FKDOLzUcUI7Z7+Pn0GPcHo
-	S+AMQ9hg==;
+	bh=WCrGrXBRzw3Kv3fNUxxYQyeRIObn7RdJ/sUqUBNRyb4=; b=UKzE84xwK0Zl9Y1LY8nm5HbWPD
+	6CcNxGxFoue7Tt9BoPOLVDGU3v3qJGlyMnTeXjLzg25k8LGxYtJJB3NDXVH4DhnFhxKS/loYlpfkF
+	e9tQB9jUcFleljjjUixNDvrMO90RnLkYVgGms02qKtEPhCSjMbDh4SfDQ6k2kt68SKa4JEdZejgNh
+	jx3hkwosJbWXpaXJvL4/ZbBWdzwNZOlaqFJwNSKSsqoynf8FaD7ZCxrHfADSxgSf+etHcDLOBIsPH
+	0OzaM8mHC7qf2QbOv7ZRCO5iOeUWJnRKFG9mp4dtXXC6tvKxWKwVQo4vewvWlSlmvQD3KwUOBDo/t
+	mNlxMK8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w77f5-0000000AoWv-2ZkI;
-	Mon, 30 Mar 2026 08:07:51 +0000
+	id 1w77fU-0000000Aocr-0sRb;
+	Mon, 30 Mar 2026 08:08:16 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w77f4-0000000AoWh-2X2j;
-	Mon, 30 Mar 2026 08:07:50 +0000
+	id 1w77fS-0000000AocS-3zKB;
+	Mon, 30 Mar 2026 08:08:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 58DCD600AC;
-	Mon, 30 Mar 2026 08:07:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 875BCC4CEF7;
-	Mon, 30 Mar 2026 08:07:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 62FB76011F;
+	Mon, 30 Mar 2026 08:08:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9246EC2BCB4;
+	Mon, 30 Mar 2026 08:08:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774858069;
-	bh=YhNcAxwi7k4UThTvxQ3mLuHi5PSHDChCgtFuITbLbxc=;
+	s=k20201202; t=1774858094;
+	bh=WCrGrXBRzw3Kv3fNUxxYQyeRIObn7RdJ/sUqUBNRyb4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ocr8hkDAXhQiBAHS4RwFz7yPOX50Khybw4gy4m2Tvv6g54XAgLfTroOxeOOUAagmK
-	 KuGvlMRF5zgVqt5c8jPuXNaTG+9Mmoz/lZ+YgWlIrJGLK4ENxAGo/V1tgwAyDh4jBZ
-	 3d/SN8TWYdM5qOUqpF/ojAf8qwsiTT7Uub2IK0PzsV0+iQBLF4NefjfN3mk4wC9lUw
-	 sphCkssq4RwBuOqfkwlB4fA704W/eMm5C2JxpKieDIF4I40Y+ymJYQ/ZxtIoVabL+2
-	 enWEde+7ek9RyhJeW9wVMpKG3d1DJg5gRI1b1CLvoD1fwvgme1QNfhmweHLz7jqjby
-	 9GoYF9e0vDhHg==
-Date: Mon, 30 Mar 2026 10:07:46 +0200
+	b=P8r/ZN4QlWHd5eTR5Z6U6Mo2prZPK+wl8OmlZEewr+yefBoZWEiid8MH4KlpyqOKu
+	 6F09K58FT1fwI4bkSgqlZ9LsyeEvEXZRXYrQR2rmgf9KLq9m6cjsxPJISf/F2ndQYf
+	 wGnJpJpwxfCYXAmY7FY8ezMqNcfktKbP9hbWFnnLlmkieXvmNcWFUvdN7Kv83+cd3A
+	 TrAZEcXyxchyQ12INEtah9NJ6YgenzXI+tomBYZjFwEYI0PrdUqt4XtC2gnfOMNTFQ
+	 0PhdzeLtlzbMLeQ0d6dx0B4JUCOUM+1SVrgXvPdHIsiwKW9IZiOu2KLhqB7ya9cSgk
+	 7Azs76izr/c9Q==
+Date: Mon, 30 Mar 2026 10:08:11 +0200
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Benjamin Larsson <benjamin.larsson@genexis.eu>
+To: Jakub Kicinski <kuba@kernel.org>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -57,14 +56,14 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	devicetree@vger.kernel.org, Xuegang Lu <xuegang.lu@airoha.com>
 Subject: Re: [PATCH net-next 00/10] net: airoha: Support multiple net_devices
  connected to the same GDM port
-Message-ID: <acovUgndujK08H-4@lore-desk>
+Message-ID: <acova-OzNROZPypL@lore-desk>
 References: <20260329-airoha-eth-multi-serdes-v1-0-00f52dc360ca@kernel.org>
- <a64e0f7e-7073-4355-a3de-e8d93e2c795c@genexis.eu>
+ <20260329103653.7593cbb2@kernel.org>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2FhnmY9eF5tpPTJI"
+	protocol="application/pgp-signature"; boundary="T79mHm2wjmVHKFmE"
 Content-Disposition: inline
-In-Reply-To: <a64e0f7e-7073-4355-a3de-e8d93e2c795c@genexis.eu>
+In-Reply-To: <20260329103653.7593cbb2@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,165 +79,38 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---2FhnmY9eF5tpPTJI
-Content-Type: text/plain; charset=utf-8
+--T79mHm2wjmVHKFmE
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-> Hi.
-
-Hi Ben,
-
->=20
-> On 29/03/2026 15:07, Lorenzo Bianconi wrote:
+> On Sun, 29 Mar 2026 15:07:50 +0200 Lorenzo Bianconi wrote:
 > > EN7581 or AN7583 SoCs support connecting multiple external SerDes (e.g.
 > > Ethernet or USB SerDes) to GDM3 or GDM4 ports via a hw multiplexer that
-> > manages the traffic in a TDM manner.
+> > manages the traffic in a TDM manner. As a result multiple net_devices c=
+an
+> > connect to the same GDM{3,4} port and there is a theoretical "1:n"
+> > relation between GDM ports and net_devices.
 >=20
-> I think the word for this is arbiter. I think the common use of mux is as=
- a
-> more fixed data path selector.
+> Does not apply.
 
+Hi Jakub,
 
-ack, I will fix it in v2.
+ack, I will rebase in v2.
 
 Regards,
 Lorenzo
 
->=20
-> > As a result multiple net_devices can
-> > connect to the same GDM{3,4} port and there is a theoretical "1:n"
-> > relation between GDM ports and net_devices.
-> >
-> >             =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
-=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
-=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=80=E2=94=80=E2=94=90
-> >             =E2=94=82                                 =E2=94=82    =E2=
-=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=90
-> >             =E2=94=82                         P1 GDM1 =E2=94=9C=E2=94=
-=80=E2=94=80=E2=94=80=E2=94=80=E2=96=BAMT7530=E2=94=82
-> >             =E2=94=82                                 =E2=94=82    =E2=
-=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=98
-> >             =E2=94=82                                 =E2=94=82      ET=
-H0 (DSA conduit)
-> >             =E2=94=82                                 =E2=94=82
-> >             =E2=94=82              PSE/FE             =E2=94=82
-> >             =E2=94=82                                 =E2=94=82
-> >             =E2=94=82                                 =E2=94=82
-> >             =E2=94=82                                 =E2=94=82    =E2=
-=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=90
-> >             =E2=94=82                         P0 CDM1 =E2=94=9C=E2=94=
-=80=E2=94=80=E2=94=80=E2=94=80=E2=96=BAQDMA0=E2=94=82
-> >             =E2=94=82  P4                     P9 GDM4 =E2=94=82    =E2=
-=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=98
-> >             =E2=94=94=E2=94=80=E2=94=80=E2=94=AC=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
-=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
-=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=AC=E2=94=80=E2=
-=94=80=E2=94=80=E2=94=80=E2=94=98
-> >                =E2=94=82                         =E2=94=82
-> >             =E2=94=8C=E2=94=80=E2=94=80=E2=96=BC=E2=94=80=E2=94=80=E2=
-=94=90                 =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=96=
-=BC=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=90
-> >             =E2=94=82 PPE =E2=94=82                 =E2=94=82   MUX   =
-=E2=94=82
-> >             =E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=98                 =E2=94=94=E2=94=80=E2=94=AC=E2=94=80=E2=94=80=E2=94=
-=80=E2=94=80=E2=94=80=E2=94=AC=E2=94=80=E2=94=98
-> >                                       =E2=94=82     =E2=94=82
-> >                                    =E2=94=8C=E2=94=80=E2=94=80=E2=96=BC=
-=E2=94=80=E2=94=80=E2=94=90=E2=94=8C=E2=94=80=E2=96=BC=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=90
-> >                                    =E2=94=82 ETH =E2=94=82=E2=94=82 USB=
- =E2=94=82
-> >                                    =E2=94=94=E2=94=80=E2=94=80=E2=94=80=
-=E2=94=80=E2=94=80=E2=94=98=E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=98
-> >                                     ETH1   ETH2
->=20
-> A more representative picture is like the following and in the GDM2 path
-> there is a real mux present(not relevant for this patch series though). T=
-hus
-> I think it is important to have the distinction between mux and arbiter.
-> (Feel free to reuse the following illustration freely).
->=20
->                 =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
-=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
-=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=80=E2=94=80=E2=94=90
->                 =E2=94=82                                 =E2=94=82    =
-=E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=90
->    =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
-=80=E2=94=80=E2=94=80=E2=94=90  =E2=94=82                         P1 GDM1 =
-=E2=94=9C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=96=BAMT7530=E2=94=82
->    =E2=94=82   MUX   =E2=94=9C=E2=94=80=E2=94=80=E2=94=82 P2 GDM2        =
-                 =E2=94=82    =E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
-=E2=94=80=E2=94=80=E2=94=98
->    =E2=94=94=E2=94=80=E2=94=AC=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
-=80=E2=94=AC=E2=94=80=E2=94=98  =E2=94=82                                 =
-=E2=94=82      ETH0 (DSA conduit)
->      =E2=94=82     =E2=94=82    =E2=94=82                                =
- =E2=94=82
->   =E2=94=8C=E2=94=80=E2=94=80=E2=96=BC=E2=94=80=E2=94=80=E2=94=90=E2=94=
-=8C=E2=94=80=E2=96=BC=E2=94=80=E2=94=80=E2=94=80=E2=94=90=E2=94=82         =
-     PSE/FE             =E2=94=82
->   =E2=94=82 PON =E2=94=82=E2=94=82 PON =E2=94=82=E2=94=82                =
-                 =E2=94=82
->   =E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=98=E2=94=
-=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=98=E2=94=82         =
-                        =E2=94=82
->    ETH5   XPON  =E2=94=82                                 =E2=94=82    =
-=E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=90
->                 =E2=94=82                         P0 CDM1 =E2=94=9C=E2=94=
-=80=E2=94=80=E2=94=80=E2=94=80=E2=96=BAQDMA0=E2=94=82
->                 =E2=94=82  P4      P3 GDM3        P9 GDM4 =E2=94=82    =
-=E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=98
->                 =E2=94=94=E2=94=80=E2=94=80=E2=94=AC=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
-=AC=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
-=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=AC=E2=94=80=E2=
-=94=80=E2=94=80=E2=94=80=E2=94=98
->                    =E2=94=82          =E2=94=82              =E2=94=82
->                 =E2=94=8C=E2=94=80=E2=94=80=E2=96=BC=E2=94=80=E2=94=80=E2=
-=94=90  =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=96=BC=E2=94=80=E2=
-=94=80=E2=94=80=E2=94=80=E2=94=90    =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=
-=E2=94=80=E2=96=BC=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=90
->                 =E2=94=82 PPE =E2=94=82  =E2=94=82   ARB   =E2=94=82    =
-=E2=94=82   ARB   =E2=94=82
->                 =E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=98  =E2=94=94=E2=94=80=E2=94=AC=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=AC=E2=94=80=E2=94=98    =E2=94=94=E2=94=80=E2=94=AC=E2=94=80=
-=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=AC=E2=94=80=E2=94=98
->                            =E2=94=82     =E2=94=82        =E2=94=82     =
-=E2=94=82
->                         =E2=94=8C=E2=94=80=E2=94=80=E2=96=BC=E2=94=80=E2=
-=94=80=E2=94=90=E2=94=8C=E2=94=80=E2=96=BC=E2=94=80=E2=94=80=E2=94=80=E2=94=
-=90 =E2=94=8C=E2=94=80=E2=94=80=E2=96=BC=E2=94=80=E2=94=80=E2=94=90=E2=94=
-=8C=E2=94=80=E2=96=BC=E2=94=80=E2=94=80=E2=94=80=E2=94=90
->                         =E2=94=82PCIE0=E2=94=82=E2=94=82PCIE1=E2=94=82 =
-=E2=94=82 ETH =E2=94=82=E2=94=82 USB =E2=94=82
->                         =E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=98=E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
-=98 =E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=98=E2=94=
-=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=98
->                           ETH3   ETH4    ETH1   ETH2
->=20
-> MvH
-> Benjamin Larsson
-
---2FhnmY9eF5tpPTJI
+--T79mHm2wjmVHKFmE
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCacovUgAKCRA6cBh0uS2t
-rIc2AP4wwRA1B4MtxFvfeaVVQ3m/NwmSTe6UHrO8PddiwUqlPgEAt83FeDeOn8S4
-2P1sF5r1gm8DzYCyZnJKsEyMVQAGBgo=
-=4iqG
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCacovawAKCRA6cBh0uS2t
+rLjsAQDqRNDCLAkpZdLlO6pj8AWlmRpg/HjyTEK9ZSoHwgMlHAEApL4xBjPwtYZN
+nwAYpyHCC9SZNb8pHXJrM/i12uFA5wM=
+=wkgu
 -----END PGP SIGNATURE-----
 
---2FhnmY9eF5tpPTJI--
+--T79mHm2wjmVHKFmE--
 
