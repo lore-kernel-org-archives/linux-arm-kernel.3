@@ -4,103 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D314F10D14A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 11:46:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A1910D14A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 11:52:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CbBORblfbPCzokUTF/Q07D7SWHUDSf+6gkz46isN5HE=; b=mnT0E/qn97SKinhkXbSF74XW9R
-	RLaLOa8A3isRoaM2ycwR48GMW56KD8RwOknPOL9P9vHQowZu7Ftatx4MeV/fdlkMHa+TSVSbrt2YN
-	cIhRWxVoqqqZgqVzPpcI33rquiFwipK8GYdnYaUvqp04Ban+oEiX/c+9eQJuLQ8oOBjIDUivi1us5
-	vNHqVZ9txVST3BjmKTSWYKHwD/SmfTwQJXd7D6gAeG7jgs9dfVIHEV466bXEi3J1PF17QdvnLB1jy
-	SK4jObO/VVlAglcEyPjSrPnf1v54zLeP1A+IfevL+8qAMRrlrWT0ewkXtRqv9FqCWyTdeIz4J1Pi0
-	MLbQJgjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WeBkqq5O1ar9tokoeech/QijVdroZixpni4x29l7RsU=; b=TFzkXZ9KZ8SLDcqGoSUA6F9P71
+	UvmUKL59fSI44lLo6m2yYKxUIQ3zFSGruPwraWoEiPuVDZK8Jnv1dEVhfIblrk1FlH5mS2BoLzun9
+	8i3kDPpzGuXFBEOGcR1MCywd/9Biencfg/w6ng3krDzUgDsW3sonpugpEoy0jYcUpoZiaGDrl/uk4
+	s+HE7EBS0YKzx32Os1a2K3SsGxZg0fr3DwtR3L1mfD8JpJxQo98ApMQK0thtHC5neWjXJHO8eyQyV
+	GMnHWkXD43MOqWQnUCPUVA2x2SfOp9pj1Q/YBhX05W0A1dUWItIz3etLUn0JvV/zHO2wIF38aro0s
+	1laW+y9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7B4o-0000000BBdr-3PR2;
-	Mon, 30 Mar 2026 11:46:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w7BA9-0000000BC2g-3j5b;
+	Mon, 30 Mar 2026 11:52:09 +0000
+Received: from mail-eastusazon11022099.outbound.protection.outlook.com ([52.101.53.99] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7B4m-0000000BBdh-3Y06
+	id 1w7BA7-0000000BC1o-1Anv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 11:46:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2524C60054;
-	Mon, 30 Mar 2026 11:46:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 352A2C4CEF7;
-	Mon, 30 Mar 2026 11:46:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774871195;
-	bh=vNBRaBmxUML/9tvCHr/F0jTWJtIo36Ls04uYN9WKbQI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RzEby+oS5hA4ztdP34lTC7HWqKiGaf/mX4Vhjw+MUqBJEDsuhk5mFAmOzDfkKzvuQ
-	 +QhapPlgi64ILY8d/7zHw7il3PFnTdTlL4zSIpbhn9NslzspcGbnrSAhPuhG9FJF1F
-	 8T+gkBHx7KNETahPZmqOtH1KfevNMi/+VU/zIWqKiSST9cGYV72b+yQZVbLPoAns/d
-	 8dkvNPzp4OvfpBw/Iiz53+m8fBuYeamO0Mge+OFJWmj3KFrmvNURy9lVzNBxbcv83V
-	 exJkhvCkNd/i3SsEPts3FG20y23kIyf4oe84eBrtvnYrvkO9weKJGQd8/vTMNR5NRi
-	 PI2P1yAPaGAug==
-Message-ID: <058d79b7-3d4c-4f0a-a95f-b2e3582a4fa7@kernel.org>
-Date: Mon, 30 Mar 2026 13:46:32 +0200
-MIME-Version: 1.0
+	Mon, 30 Mar 2026 11:52:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xrJKNeWS8izYCBLx1TUAyv92pMTVoZWUC4Cc/1NZk1+l6DLfIZ2wZX+UiGXsvWwwN/nbWHcpAltgl7AN/YefjhixzQDfAhfOb2dU2r2vcq/l33sTQKvCLFVXVeQu7CA9uSQ/4yIptSaNnuv6Ss2LZ6FNZJ7USw4sUHBGCjYirbuWWlIIulGrEFOV9mMVMkrJhjvXSuAFtv03pH+zYSTocWWDHuAEzrTrDWalJHctSNRuJuOAKvAw2Qm9CkK+nWKxdveQG5UE+taA+ZNEzKNO5RXrLUDHHC6cczQTTRl9ancWz1GezOe5rD1B+G4I2WRlVTKRodQzVVPqE4ENO8JCcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WeBkqq5O1ar9tokoeech/QijVdroZixpni4x29l7RsU=;
+ b=f+LDh5O1dMTNROSAh2EftH8JPgY8usz42cM1vObl65t5gw347XICBad4F/dw7A871Sddmg2ybDlkf3EtC2V/VezLrZk2xuoxbSRlj6DvgObUq0Q2BU2f46uHkZYUTb5v78ANVYvcB6BQvsfPUZtCJzTDJmBkM4tUvQoNWV1HEZaxCq6orm5cxP/UvGs5fGFIAy4gJiELbHAZF0Gib1onEW4ZL2BDHOGnNfpUL2YYPgMZ/nHT/o6UIVy+42UDVVa5hZZlXgqFE5yaDTFHrNbsqq1i7KX7T4P0/UST2LzvEomN5+1WR6RY/LPXRt2dIVa/i42+47QzvEUZgA9mEbXT6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WeBkqq5O1ar9tokoeech/QijVdroZixpni4x29l7RsU=;
+ b=tLib1TrhOPcykjtQejjMOemgZXoHAqmn6agUKFnfs2uGiAWFOzJHk1VjbIPCBPymPCr3PVA4TaarjQRMrVOEFk/JWnpqFXrp3f/w4ZJn+GYtGOv63a6MpdHPjn+mxJsBwvqLsfwnDu10wozJhz/YM7PvM2mOue+GDKOoYGTIN04=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from DM8PR01MB7142.prod.exchangelabs.com (2603:10b6:8:1::11) by
+ SJ0PR01MB6509.prod.exchangelabs.com (2603:10b6:a03:294::17) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9745.28; Mon, 30 Mar 2026 11:51:58 +0000
+Received: from DM8PR01MB7142.prod.exchangelabs.com
+ ([fe80::11b:da91:4857:6dda]) by DM8PR01MB7142.prod.exchangelabs.com
+ ([fe80::11b:da91:4857:6dda%6]) with mapi id 15.20.9745.027; Mon, 30 Mar 2026
+ 11:51:58 +0000
+Message-ID: <2e12c5c2-a1b6-47b7-b54c-7281a77bbe0a@os.amperecomputing.com>
+Date: Mon, 30 Mar 2026 17:21:51 +0530
 User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL 4/7] ARM: tegra: Device tree changes for v7.1-rc1
-To: Thierry Reding <thierry.reding@kernel.org>, arm@kernel.org, soc@kernel.org
-Cc: Thierry Reding <thierry.reding@gmail.com>,
- Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260329151045.1443133-1-thierry.reding@kernel.org>
- <20260329151045.1443133-4-thierry.reding@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v4 35/49] KVM: arm64: GICv3: nv: Plug L1 LR sync into
+ deactivation primitive
+To: Marc Zyngier <maz@kernel.org>, Fuad Tabba <tabba@google.com>
+Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>,
+ Zenghui Yu <yuzenghui@huawei.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Mark Brown
+ <broonie@kernel.org>, kvm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+References: <20251120172540.2267180-1-maz@kernel.org>
+ <20251120172540.2267180-36-maz@kernel.org>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260329151045.1443133-4-thierry.reding@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+From: Vishnu Pajjuri <vishnu@os.amperecomputing.com>
+In-Reply-To: <20251120172540.2267180-36-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0148.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1d7::18) To DM8PR01MB7142.prod.exchangelabs.com
+ (2603:10b6:8:1::11)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM8PR01MB7142:EE_|SJ0PR01MB6509:EE_
+X-MS-Office365-Filtering-Correlation-Id: 79946559-d7d4-4fd8-d7b2-08de8e52befe
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|56012099003|22082099003|18002099003|55112099003;
+X-Microsoft-Antispam-Message-Info: pTgn19wqSROW3oMYgxy7kNpbzpDIg7xu8BLDQA1wsKXlxHPxJ4QsI7cYZ8m6kJ0XFwNKge+bmFIOhNHPFybI+Gf2lBI5TYC6+PuQLn3cBnHiQUQkFZEupFad+CW3VMQaAlvyX1GOIb4HBUIGUKvsHaHfybjHQIV11at00o5eCvRh6QAJDH8OdpPihMIfrA+e/JMD1NGFIl74UwajMC3q95kVOJdRYjyeHO7zU3GCox/s+/+Szvw7EuN9K5pPJKc46mVzueljPdejiI+AvsXKnXzzhHIPSGK3IrqSXkipTkCys+eIWolxvR81wK3V7Y7LMk8A3DcEbFQDQNtez7f1H0J7AWRTyw0QzaESD18SO/ERAtyjqKKMF8BaiXuBoClA8LD2HounoHSkO5jzF+BCAAoQHove3B3xxZz1i352UI0f6OLzy+NuJNUpC/Xe7zXVoQIAT6WGPgGUPfKRBoqPhsw//iBXrE0IICF2NKn4OSqh63rhYg1Oahehp78CxWgb7m6Vp5bk+DEOKdYrnswrNgv2WyfOj7G7kO8bNfPbyJgna7V8GALAlBQXs4SJh9HdnnSlzjVOqNT3PWHZjTENQ/g2FGRgHO6VVsE/6RtvDOsvheJcMRLnSnsenm4pox+1y3MLKTCKrFO2EdIdITJFoh3AdUhC4IFF98g5QlNAdb0iTgt7Q0efUzHkMmX4EHjv8ywT3KXytSXaD7xTQMaYAXPrm39VsshSok+TcCnrFes=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM8PR01MB7142.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(56012099003)(22082099003)(18002099003)(55112099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?V0Y3bERHTE5wUzFFTzJQeTErUWlEaHhvYVBQUlhqaWVud3I1Umo4eW1Zc3Ny?=
+ =?utf-8?B?cmk3NGd4dUJBVzUzYTNSd0VmRFBaMGN5QzV4d1NXVzRvV01VL29ndkNiVGw4?=
+ =?utf-8?B?aUllWXBZTWwrR3NvOWZVaVlhUjlpNWxjdy9HUnMwOTVpcGMvUkNyMTRaRFpN?=
+ =?utf-8?B?eDlzTU1hSFM3NG9QVEoySXdiTUdXbjRVMGFQNkEzaE9YN29zVGVLS3VJQ1cy?=
+ =?utf-8?B?SlhON0h3SDU4cy9Wa1g3WCtDeDdhSVpHRkVqc2xpZ3V2SUxYSm8zR1YwNndn?=
+ =?utf-8?B?UE9vemt0R0pDY3lZQVVsTXNuUWxJOVJiSlUwK2pjalRWK2xQTUdVekI0T1NH?=
+ =?utf-8?B?SDUxYVJaeWk4M0xuWEpEeXpYaEVFeDlQVnlMbjZyTkh6TVRaU3R6a3oxa1FX?=
+ =?utf-8?B?V2dVUWcvYzByOWNYcUFOdWgxUWxzSkVnRzBqNTl6SXZSODZkb1V0Q3BTRm92?=
+ =?utf-8?B?N3Y4U0xyM3diWVhwclp5VDJIL1hrRE5nZFZId0h0Y0FnRlJqcmZZeVlJbGh5?=
+ =?utf-8?B?clNvNEp5SkUrTG80R2doaWFOc3BERGlQU0N5RWlGRWJjWU50SERnRHJZZzhs?=
+ =?utf-8?B?R2k1c3FubW5TYnlnRTRldFY3My9uOTZSMXNpMXh1SU8rd3Zkay8zejZ3N3c5?=
+ =?utf-8?B?WjQvcTRqdFZPU2tTanZJZ3YyUkhLT1hnRVI3LzlNSWxScUpsd2cvNGxRYkFP?=
+ =?utf-8?B?dENCSzRJcWxaZGdJMFVZblh5SkdVcldtVWhtT2gyOVdtRG1WV0NVRWpPazdC?=
+ =?utf-8?B?M2ZIQ0hVZk5CbTh2ZWJFREFoLzNkVnoxUnowUVNOYVJabEExNHM5S203ZUk2?=
+ =?utf-8?B?THJJWDNyWmhDWGduM0lPQ0U1Qm1CQnlRdm1pVk9HRUdRUlErbW9FOGo5eFMr?=
+ =?utf-8?B?VVdzdTNvSkp0eWI1TDhYbms4OTJhSUZpVDA4Tk5GS3V4ZjA2ZzNXRkVJNjh2?=
+ =?utf-8?B?aTZGVTRuTFpURWhHbktmeGxDN1NTQlBWN3NxRm1xVWl6Z1FzblE0QUk0bTk2?=
+ =?utf-8?B?S2xTNlViRFl0WjRzSG9YekxjZ0c3Sndxemh5VFlJcHh6RFcyUXpkUlFJSXhK?=
+ =?utf-8?B?d0hLOWRybjNwdiswZTl2ZVNKRFNEL0tlaDZkUnZVV3BTUjVmYzBad0VBQmRr?=
+ =?utf-8?B?aGx0Yk5qL1Y4VWlkamlleU91UEpBWjFHN0hxV2tiNUJ4dHN3dHlFWlNONlpT?=
+ =?utf-8?B?VFd5aWhMTUhocXc0Rm80ditmWWtRQVorQnZsaUZqYXpYZ1IvUGN2VW5Bb0JN?=
+ =?utf-8?B?ZkNxNG9meFpId0FMdkdyUHVIUXVLZXRXaENpZWlmMUVacXBmL2lXdCtjajF4?=
+ =?utf-8?B?UVNTK0h2RlhNV0lRUDBobTBtOUZyRjBocGdLd2dBejk4cXR1dmYwWnpSSjIy?=
+ =?utf-8?B?Z3VFVTYwS1VGcnlYd1hQbFVtTGphYXdBcTdUY3lMeGRYQk1NUnBqbUJBcUF6?=
+ =?utf-8?B?dG9zb0NtMmFXblZuWXZ2NHdCSFNHQ0IxZUdob216Tndvc1oyS3cybXN1UXda?=
+ =?utf-8?B?QjBRaE4wcks2RloraytDbDhjZGhTZkZqRlVXb0FxUGNGdUpZMWRZTFRDM0dj?=
+ =?utf-8?B?TEMxWWY0bWtmS1liYTgyZC9zZjhrUHFtWUN5Wm1FSDFLUzJQMzZrQityS0xM?=
+ =?utf-8?B?MUJHdDByOWhTbmZQVVhVY25lZkhvSkIvVGJDL3NkREg2TldxM3ZybUlhYjZV?=
+ =?utf-8?B?U0Zob3VuTlRRQW1maG1vcW1FZ2hyU3M5bzBvaG5PQmhOQmVXbi81N1BMQWo5?=
+ =?utf-8?B?aERHYm55ZVV4ellGaU13S2Z4Ym9zMDAzYzVoSWI0Z1NlV1BmYzJ2MSs5bkwv?=
+ =?utf-8?B?c0EyeGVYN2ZEU1ZzUTl5OWg1VlJFQk0rU2N4SGk4M2l3cUFneis2VWVFb0o0?=
+ =?utf-8?B?NDNjK3NIQlI4NWRUQkxxaW1mQVJWZnlIU3ZXS3JJbGViUXdURVhvUTlRbjky?=
+ =?utf-8?B?dXZJVTd0dHloWTZsbVV2NWdBcFM5VEMwVTlKc3o2S085cTJtMFYwSHEwZFVM?=
+ =?utf-8?B?Z3hwSHRaUDJzZGc1SStNZzYxalpkaFc2ajVDY2IvRUNoVVFlVHV5K2UyZDli?=
+ =?utf-8?B?M1FKZlNpY2I5TWJVNFRqdHByMEFwaWJhZlhRQ2ZvZHFCMFpRUDd1Rk84c1Ix?=
+ =?utf-8?B?b2hzb242dXUxWCtNaVltSVpOU0IzQnpJSmYxRCs5Y1FIYWNpZXJZb1pmSFRH?=
+ =?utf-8?B?ZmhoWW1KUG05WVlpVG5JS1hna2ppWGVLcWxscTlac2k4OHo0TW9PbW11TEZm?=
+ =?utf-8?B?dTZkUC9CNWZKalhyS1pnS2ZzWmFlbmtaU0NiODRRTGcxalRTRzBvZTVvMzQz?=
+ =?utf-8?B?NW1jR1RHZWRWSW5JNGdJTHNCNmlIOWsrdUc0MHhjM3BjWGNvZStlY2kwQnhY?=
+ =?utf-8?Q?bzucqMkOy41TALTKKVwX6p9qB8lbjfz7JjmoL?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 79946559-d7d4-4fd8-d7b2-08de8e52befe
+X-MS-Exchange-CrossTenant-AuthSource: DM8PR01MB7142.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Mar 2026 11:51:58.0570
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aBxACutA8bKy/fdx2m2sjhf75QDCOqo6ye41h9bA+bxqbfeVbsH4Mp+itDT2qzJfuuAaSjFirAVGP37aUR7LtmAmOocyXyzvU3pE1KmPVpfBpgx9Qbvwcs+ur2Hpmcm0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR01MB6509
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260330_045207_401707_B58FF833 
+X-CRM114-Status: GOOD (  23.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,43 +154,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/03/2026 17:10, Thierry Reding wrote:
-> ----------------------------------------------------------------
-> ARM: tegra: Device tree changes for v7.1-rc1
-> 
-> Various improvements for Tegra114 boards, as well as some legacy cleanup
-> for PAZ00 and Transformers devices.
-> 
-> ----------------------------------------------------------------
-> Dmitry Torokhov (1):
->       ARM: tegra: paz00: Configure WiFi rfkill switch through device tree
-> 
-> Svyatoslav Ryhel (8):
->       ARM: tegra: Add SOCTHERM support on Tegra114
->       ARM: tn7: Adjust panel node
->       ARM: tegra: lg-x3: Add panel and bridge nodes
->       ARM: tegra: lg-x3: Add USB and power related nodes
->       ARM: tegra: lg-x3: Add node for capacitive buttons
->       ARM: tegra: Add ACTMON node to Tegra114 device tree
->       ARM: tegra: Add External Memory Controller node on Tegra114
->       ARM: tegra: transformers: Add connector node
-> 
->  arch/arm/boot/dts/nvidia/tegra114-tn7.dts        |  13 +-
->  arch/arm/boot/dts/nvidia/tegra114.dtsi           | 221 +++++++++++++++++++++++
->  arch/arm/boot/dts/nvidia/tegra20-paz00.dts       |   8 +
->  arch/arm/boot/dts/nvidia/tegra30-asus-tf600t.dts |  21 ++-
->  arch/arm/boot/dts/nvidia/tegra30-lg-p880.dts     |  23 +++
->  arch/arm/boot/dts/nvidia/tegra30-lg-p895.dts     |  33 ++++
->  arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi      | 174 +++++++++++++++++-
->  arch/arm/mach-tegra/Makefile                     |   2 -
->  arch/arm/mach-tegra/board-paz00.c                |  56 ------
->  arch/arm/mach-tegra/board.h                      |   2 -
->  arch/arm/mach-tegra/tegra.c                      |   4 -
+Hi Fuad Tabba,
+    I'm trying to run nested VMs on Ampere platforms after this patch 
+series(v6.19+) but nested VMs are not booting and triggering soft 
+lockups on L0 and L0 hang. But just before this patch I could able to 
+successfully boot the Nested VMs.
 
-Why does the DTS branch has mach code? Tag message mentions legacy
-cleanup only and such cleanup should not cause mixing independent
-hardware description (DTS) with drivers.
+I bisected the failure to a single commit which is this patch which is 
+causing the issue.
 
-Best regards,
-Krzysztof
+I would like to understand from you that did you observed anything like 
+that?
+
+Were you able to boot Nested VMs successfully after v6.19+?
+
+LOG:
+[  164.647367] Call trace:
+[  164.647368]  smp_call_function_many_cond+0x334/0x7a0 (P)
+[  164.647372]  smp_call_function_many+0x20/0x40
+[  164.647374]  kvm_make_all_cpus_request+0xec/0x1b8
+[  164.647377]  vgic_queue_irq_unlock+0x1c8/0x2c8
+[  164.647380]  kvm_vgic_inject_irq+0x194/0x1e0
+[  164.647381]  kvm_vm_ioctl_irq_line+0x170/0x400
+[  164.647386]  kvm_vm_ioctl+0x7b8/0xc88
+[  164.647389]  __arm64_sys_ioctl+0xb4/0x118
+[  164.647393]  invoke_syscall+0x6c/0x100
+[  164.647397]  el0_svc_common.constprop.0+0x48/0xf0
+[  164.647398]  do_el0_svc+0x24/0x38
+[  164.647400]  el0_svc+0x3c/0x170
+[  164.647403]  el0t_64_sync_handler+0xa0/0xe8
+[  164.647405]  el0t_64_sync+0x1b0/0x1b8
+
+
+
+Regards,
+-Vishnu.
+
+On 20-11-2025 22:55, Marc Zyngier wrote:
+> Pretty much like the rest of the LR handling, deactivation of an
+> L2 interrupt gets reflected in the L1 LRs, and therefore must be
+> propagated into the L1 shadow state if the interrupt is HW-bound.
+> 
+> Instead of directly handling the active state (which looks a bit
+> off as it ignores locking and L1->L0 HW propagation), use the new
+> deactivation primitive to perform the deactivation and deal with
+> the required maintenance.
+> 
+> Tested-by: Fuad Tabba <tabba@google.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>   arch/arm64/kvm/vgic/vgic-v3-nested.c | 19 +++++++++----------
+>   1 file changed, 9 insertions(+), 10 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+> index 40f7a37e0685c..15e7033a7937e 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+> @@ -280,7 +280,6 @@ void vgic_v3_sync_nested(struct kvm_vcpu *vcpu)
+>   
+>   	for_each_set_bit(i, &shadow_if->lr_map, kvm_vgic_global_state.nr_lr) {
+>   		u64 val, host_lr, lr;
+> -		struct vgic_irq *irq;
+>   
+>   		host_lr = __gic_v3_get_lr(lr_map_idx_to_shadow_idx(shadow_if, i));
+>   
+> @@ -290,7 +289,14 @@ void vgic_v3_sync_nested(struct kvm_vcpu *vcpu)
+>   		val |= host_lr & ICH_LR_STATE;
+>   		__vcpu_assign_sys_reg(vcpu, ICH_LRN(i), val);
+>   
+> -		if (!(lr & ICH_LR_HW) || !(lr & ICH_LR_STATE))
+> +		/*
+> +		 * Deactivation of a HW interrupt: the LR must have the HW
+> +		 * bit set, have been in a non-invalid state before the run,
+> +		 * and now be in an invalid state. If any of that doesn't
+> +		 * hold, we're done with this LR.
+> +		 */
+> +		if (!((lr & ICH_LR_HW) && (lr & ICH_LR_STATE) &&
+> +		      !(host_lr & ICH_LR_STATE)))
+>   			continue;
+>   
+>   		/*
+> @@ -298,14 +304,7 @@ void vgic_v3_sync_nested(struct kvm_vcpu *vcpu)
+>   		 * need to emulate the HW effect between the guest hypervisor
+>   		 * and the nested guest.
+>   		 */
+> -		irq = vgic_get_vcpu_irq(vcpu, FIELD_GET(ICH_LR_PHYS_ID_MASK, lr));
+> -		if (WARN_ON(!irq)) /* Shouldn't happen as we check on load */
+> -			continue;
+> -
+> -		if (!(host_lr & ICH_LR_STATE))
+> -			irq->active = false;
+> -
+> -		vgic_put_irq(vcpu->kvm, irq);
+> +		vgic_v3_deactivate(vcpu, FIELD_GET(ICH_LR_PHYS_ID_MASK, lr));
+>   	}
+>   
+>   	/* We need these to be synchronised to generate the MI */
+
 
