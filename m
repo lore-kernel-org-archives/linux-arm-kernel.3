@@ -4,86 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 159D0FC981D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 09:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB0BFB3CE6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 09:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tNRac5Q0bdyEoztagZPdambBGiK73kwsfN5Tdvc35C8=; b=mUFLP7pXjh6bzgTRqpplLLKL3V
-	TH32y+ToHMpIG8C/yOqcoOWs0sG/SHG1wBALAN6PrK3X6Ir/RPRKw6Yi0hvVw5fBgjLhkwMVT+64/
-	7j5EbDNnov/Sp3tLF2UyYqRxdvWFAZTXfpYSEldVJhmilq1Vz1zxSxREDc8V/yX1g6MWf/foBmeCo
-	paoyZv7gwn2FUM9XXGLhwCeBU5jthXlTMA2o6phLooWDO38YjOnF91UaaGaDLT9Da4l3giBZcYexu
-	7ozP0C5OPD+3s4lV8p505/SZY+Zuxkqx+eSTcwSCwgDW30zluf7UqV6kJeT01oAzzUG8WmxWN66by
-	ndYCtX/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zUwEBaG9uQ3dYUOCSfxdYyIp/VwIgG+fgAgoqoHEw7s=; b=eTgTqiUPzEqruNTUr+/ff0uAtO
+	dM0cZP9nMMkhohpNllVKzYak52yrLPfNHwDlTv/Uhusit0OHqVWSl5omO5nWl+bUWfXd+UkChNfgG
+	4URhCGkiyqOyJvlu/WYr6rx/F1ytROyC3F7FD29dRvi/xo/uRBuuMKvBVS36ONF/SJHuokaGIbAbb
+	vO6c5rbc0wWlWlY41p6ex3KadPYw92mWHkYHLd6bpYMtat6IV/g9LdX4cmwiLGYkH640gMMIXWNhf
+	ywrZOl2xUPv5tbAyGcv3tO1foDEYLgfQ9bygV7YMXooaOQPCY+AAI9jM7pdCJr5EeG2PQng4PXE2w
+	QOTy29og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w78UM-0000000AvT7-3Rap;
-	Mon, 30 Mar 2026 09:00:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w78lA-0000000Awx5-2mz0;
+	Mon, 30 Mar 2026 09:18:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w78UL-0000000AvSq-1lSs
+	id 1w78l9-0000000Awwo-1iSq
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 30 Mar 2026 09:18:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=zUwEBaG9uQ3dYUOCSfxdYyIp/VwIgG+fgAgoqoHEw7s=; b=d4AT0JbsPLRP64BFZPHCsKQZHD
+	0+UpjPxk9fNlJvNVLFZoOaicEwh8aDx6uL5A7mzZdnDD7jFOXQOmH8i2EurtKw6Auv6Qcik8v893j
+	DG+8uVJ2MaycRFr5fwZFN0OyZoc+M9AS5YXZjUlo2AB+xkor1qBCUDz7JAPBlWYjww/h2Oj3BnjsH
+	ROcFOcvnPJpHXxrllQ7IkrETbYhasIIlqF5ax2VOC0JnNl+NjAFs7rH8mpe+WSoCulhMln7VoFeCB
+	sOJt81ziJ9BTaBglsmCoDj8/wYVHmRlCR0OfmaRatqFRlMHOHXJz+rQdlEelBb2sisBDsOAuAzM4N
+	gwpN2DVw==;
+Received: from abb.hmeau.com ([180.181.231.80])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w78l6-0000000DQBc-0ZFI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 09:00:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 42169600AC;
-	Mon, 30 Mar 2026 09:00:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29BC8C4CEF7;
-	Mon, 30 Mar 2026 09:00:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774861247;
-	bh=kryiSL0c5gWoP5Xn33RlQGuB1fDy2r29C8AZwGGNizM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WyVV6yhoGLHl2DGlMtLNk2PLvv1LoFNZHT4upzyLknoqI3XroAjHB9I1ha+vU4mPX
-	 jqLByu7cdkfcSBvwjAbgeSA7t1FnsQjdZlrHnf9SNnPEyV8aXCVfzuhI/9ayog85j2
-	 ZCfecMUhBhB9NayIQbTF+29vTra1H0L8yHpOy9Fwzj1WruGul10WlXsrznGUH8EUO4
-	 yAVoSQA1pK/w43OyYruiDlv+uPCsaxYtmh6p3C7asR9EeKI1wjuzkpsIcL4izJJluW
-	 H7vlwohlhoQLLz7U0ZJ9f5WNsHXklzmi3Z/jx+6T/BWbr7v0B1OnwuC2GYBfZcweMT
-	 Fa1JpYbf/eG2w==
-Message-ID: <b1c93301-c12a-46a6-ba92-53e8f9a28022@kernel.org>
-Date: Mon, 30 Mar 2026 11:00:37 +0200
+	Mon, 30 Mar 2026 09:18:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=zUwEBaG9uQ3dYUOCSfxdYyIp/VwIgG+fgAgoqoHEw7s=; 
+	b=pCtl85fVKvJ4gT8TC0bbHnVsIG4tjKeAj5ZU70JfKTbYx8dNtGB3xzBNhk17ypp8+h3FPZA3x5V
+	n+tFi3zI3+U0SjwkmOEu30E5j1SwEcwNSDxlroMzDOOCLPiXyMEFgG99jEtEJgCu2PSza+KIY6zeN
+	HU9GKQ00oh8lIgiM3aW8560cW9QkTHJzLGroXkMq4sOI2pkf/dd2p5wd/ih8HO1ZVx+T1PDuiMEwH
+	Vkayki76rrjQRJONtCCllWUjfblnHGFlHGXppTcN4vL51EY4o6fITxtGs6Wta1a0eBBD19EmFHcyy
+	hwfrPwGKhqNIp2eM1JDdN4wqrt5d127md5/w==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1w77qc-002Fdh-2B;
+	Mon, 30 Mar 2026 16:46:06 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 30 Mar 2026 17:46:05 +0900
+Date: Mon, 30 Mar 2026 17:46:05 +0900
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Aleksander Jan Bajkowski <olek2@wp.pl>
+Cc: davem@davemloft.net, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, linux-crypto@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4] crypto: testmgr - Add test vectors for
+ authenc(hmac(md5),cbc(aes))
+Message-ID: <aco4TfqpfWBZ1UIm@gondor.apana.org.au>
+References: <20260303184916.69132-1-olek2@wp.pl>
+ <abToanZh-mkEjmJ-@gondor.apana.org.au>
+ <c2a3dc2e-8d4a-4a59-ac5a-ca22be705488@wp.pl>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/9] mm: move free_reserved_area() to mm/memblock.c
-To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-Cc: Alexander Potapenko <glider@google.com>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Andreas Larsson <andreas@gaisler.com>, Ard Biesheuvel <ardb@kernel.org>,
- Borislav Petkov <bp@alien8.de>, Brendan Jackman <jackmanb@google.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Christian Brauner <brauner@kernel.org>, "David S. Miller"
- <davem@davemloft.net>, Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Ingo Molnar <mingo@redhat.com>, Jan Kara <jack@suse.cz>,
- Johannes Weiner <hannes@cmpxchg.org>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>, Marco Elver <elver@google.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Masami Hiramatsu <mhiramat@kernel.org>, Michael Ellerman
- <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Nicholas Piggin <npiggin@gmail.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Rob Herring <robh@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Saravana Kannan <saravanak@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>,
- Will Deacon <will@kernel.org>, Zi Yan <ziy@nvidia.com>,
- devicetree@vger.kernel.org, iommu@lists.linux.dev,
- kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org,
- linux-efi@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, x86@kernel.org
-References: <20260323074836.3653702-1-rppt@kernel.org>
- <20260323074836.3653702-5-rppt@kernel.org>
-From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-Content-Language: en-US
-In-Reply-To: <20260323074836.3653702-5-rppt@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c2a3dc2e-8d4a-4a59-ac5a-ca22be705488@wp.pl>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260330_101808_446887_9EB54BEF 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,19 +91,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/23/26 08:48, Mike Rapoport wrote:
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+On Fri, Mar 27, 2026 at 06:03:48PM +0100, Aleksander Jan Bajkowski wrote:
+>
+> Checked the crypto tree, and this patch still isn't applied. I've sent
+> multiple test vectors, and you're probably referring to a another patch.
+> Should I send it again, or will you accept it as is?
 > 
-> free_reserved_area() is related to memblock as it frees reserved memory
-> back to the buddy allocator, similar to what memblock_free_late() does.
-> 
-> Move free_reserved_area() to mm/memblock.c to prepare for further
-> consolidation of the functions that free reserved memory.
-> 
-> No functional changes.
-> 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> By the way, that's the last one. As of now, all my routers have the missing
+> vectors added :)
 
-Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
-
+Thanks I'll put the patch back into the queue.
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
