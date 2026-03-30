@@ -4,76 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4842B10F3DCD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:19:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B086C10F3DCD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 14:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SSbGB/eDWH+4zMIXetev5vgwGRXfeqVkDaG1KtmfhAo=; b=LdMO1JBAgAs5+7ML0BQlnk8ZZi
-	4n9uyruU27TyUi8xk1pG2ppKGeRyUpj2qjQk/SypOaE3piMSO0aTpsb4uid8DKLbaBKjKfnaRtBKi
-	0dzs2tKQkLWiJ+HtkiJ3kUM4lFxgkrj1B1SGSsUAhBjb8JqTD0AjQamizuF1jhjERiLiLXY9xlryl
-	gZsHX9OFSYG4409kplbQbdf6g8/OGR9x8yVext4BRSCPAHyCbQ/bsCjbi4Fd4getv9d9MGlDt2N5t
-	O/6V9soZFYdcPLe12oAc6TlbtXXGC0QlcMXq/ppMZxcUk2DUY/DGFt/UbyItgjwN4z56eH+GYmDyg
-	SvUhzsmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Iq0He9/oXJLUWm6vOdkZ5IQUo5MP9X7z1MRLQ9BwIMg=; b=nPyWQAL3R9/tmqjmDZtWEzW4nz
+	V0aYqFP0+NpIPakvzwgqadPF0rO+MyLuTChudqD2ED99UDBT2AabdtvMxg11RN9f7ZjOjGKbLz/3R
+	axn5VNmef5gFQbQm8/CsbCQMGDmuzEn4mO3cdmn8eQs4Zx1TFKhQTSy0D5ZX76BLVWyKHyu7zUluD
+	CSMEsYToyeKU3dS3+ZCmkM51eG1SJ9PUsOknKBN+qBhIarU6M76gvW+I7YS4A4ToKXrVHJyJ4Mp2D
+	+aoGn0a2g58fVvsj5K6o8yT5l+MmwOycEz+vnmGG6Ra1wpaOTWqPAO28AUeLZVJGo74uhZH+fstxX
+	jFgg0Gsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DSg-0000000BPHZ-0Wyd;
-	Mon, 30 Mar 2026 14:19:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7DSm-0000000BPK7-41V8;
+	Mon, 30 Mar 2026 14:19:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7DSd-0000000BPHO-3kHX
+	id 1w7DSj-0000000BPIN-2nFB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Mar 2026 14:19:24 +0000
+	Mon, 30 Mar 2026 14:19:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 04E3460054
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 14:19:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF5E2C2BCB1
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 14:19:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774880362;
-	bh=jKPl7vLvqPt4L8fZQsfb39R9t7tBQznk82n5HFjIulw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=BL25BcqCDMG25fw/wVsiojhvGXgPIqTZWewqcjhAAxT3uAzbAkj7BZBpbIdLjl4sR
-	 rCPNnZDrLQqnjaLrfZVVQlBLzW/VimcouO8ihTGQrD3NIfEX83Nw/Cya1TO7XgnxIz
-	 Q6FQ00ZD9Fu/sK2YoNhgTInSQgBsXuFdYC5OWTAOsCw1nkTq0nX65W2gDY/fiPgPTR
-	 ogUNAlH86GJd0zm7kTkvf20W0yHCCPlwDUj/0ZmdhZCM3WjZSC2NZu9ZiSwH7V9D0A
-	 8i84wUpKG7pbL0IcouaHmXJwa33t2NX208fzkdmaspWP48Lj7jI9uc3FS08O05QM5w
-	 9hk2SJWlpiisA==
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-38a42a0d7f7so44510381fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 07:19:22 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUV8WaivqyEYg5Hl9hs4quX6QdZAlWfafYXyToDLzuVm8KOhaua2g9PGLwMrcqgtijPNLQCQ3cnMzmosZk+/JCD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAP1/2ciQDXyTYOmSIHeXgkuRFCEjvsdCopNJKKyhntMBxHRPx
-	hLaGOx3G9ViMo3a8DQBO0qq3UH5mWtmUBAxT8VNg9STgaiy1CKeILKJQRDYmQwbemgouSEB+TY0
-	kckXfDBb7onIQlB9Hd87ZXsAOSpGpfR1ofJMcy1vy6w==
-X-Received: by 2002:a05:651c:1b12:b0:38b:f0f0:e39b with SMTP id
- 38308e7fff4ca-38c75c5ef7emr42861941fa.10.1774880361407; Mon, 30 Mar 2026
- 07:19:21 -0700 (PDT)
+	by sea.source.kernel.org (Postfix) with ESMTP id 43162435F4;
+	Mon, 30 Mar 2026 14:19:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5E44C4CEF7;
+	Mon, 30 Mar 2026 14:19:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1774880368;
+	bh=7JKfQ4X60P8s34YNmEr/x5qM0Dqg73sBd6HWsb7F41Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=koc9ObP56Zk6I/x3PxH9MOtjozVM385t3ulgg6JRKvOQrpPLo7M2vMdoqb5u2Ec94
+	 qe7pfwYLf7Ig/wM0VM7u1jLdI5rLHHYUJKCgxJ2MrIETU8gmtMqLGDs9gr3Tz+BKN1
+	 Q09cWbw4kptRO4/dVw6F4+9PdvFNZqnb5QaNzS3M=
+Date: Mon, 30 Mar 2026 16:19:24 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, linux-usb@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] usb: phy: mxs: manually reset phy regs after a warm reset
+Message-ID: <2026033057-sixties-erupt-fea7@gregkh>
+References: <20260330093133.973785-1-xu.yang_2@nxp.com>
 MIME-Version: 1.0
-References: <20260330-nokia770-gpio-swnodes-v4-0-b68592e977d0@oss.qualcomm.com>
- <20260330-nokia770-gpio-swnodes-v4-1-b68592e977d0@oss.qualcomm.com> <DHG5WQI26R5U.WTZW61VKJHF5@kernel.org>
-In-Reply-To: <DHG5WQI26R5U.WTZW61VKJHF5@kernel.org>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Mon, 30 Mar 2026 16:19:08 +0200
-X-Gmail-Original-Message-ID: <CAMRc=Mf3oWtrcdR+g69b8y4K-gwfMe+3LNMYQ6c6M-hw3Nh+Hw@mail.gmail.com>
-X-Gm-Features: AQROBzCFGjEJDyJGQ7QpuD7sAKfwUgETi1l52lFJ9qTeAWzKycqIShS33NqMS2A
-Message-ID: <CAMRc=Mf3oWtrcdR+g69b8y4K-gwfMe+3LNMYQ6c6M-hw3Nh+Hw@mail.gmail.com>
-Subject: Re: [PATCH v4 1/3] kernel: ksysfs: initialize kernel_kobj earlier
-To: Danilo Krummrich <dakr@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
-	Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>, 
-	Russell King <linux@armlinux.org.uk>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>, driver-core@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260330093133.973785-1-xu.yang_2@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260330_071929_736787_419F693C 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,30 +69,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 3:47=E2=80=AFPM Danilo Krummrich <dakr@kernel.org> =
-wrote:
->
-> On Mon Mar 30, 2026 at 2:40 PM CEST, Bartosz Golaszewski wrote:
-> > diff --git a/include/linux/kobject.h b/include/linux/kobject.h
-> > index c8219505a79f98bc370e52997efc8af51833cfda..71b9086621c35b7e4ef99b9=
-d3b6707db23faf58c 100644
-> > --- a/include/linux/kobject.h
-> > +++ b/include/linux/kobject.h
-> > @@ -219,4 +219,6 @@ int kobject_synth_uevent(struct kobject *kobj, cons=
-t char *buf, size_t count);
-> >  __printf(2, 3)
-> >  int add_uevent_var(struct kobj_uevent_env *env, const char *format, ..=
-.);
-> >
-> > +void ksysfs_init(void);
->
-> NIT: I'm aware there's also all the core kobjects in include/linux/kobjec=
-t.h,
-> but maybe a separate header would be a better fit.
+On Mon, Mar 30, 2026 at 05:31:33PM +0800, Xu Yang wrote:
+> The usb phy registers are not fully reset on warm reset under stress
+> conditions. We need to manually reset those (CTRL, PWD, DEBUG, PLL_SIC)
+> regs after a warm reset. This will reset DEBUG and PLL_SIC registers.
+> CTRL and PWD register are handled by "SFT" bit in stmp_reset_block().
+> 
+> ERR051269: USB PHY registers not fully resetting on warm reset under
+>            stress conditions
+> 
+> The following USB PHY registers must be written by SW to restore the reset
+> value after a warm reset:
+> 
+> Reg: ctrl Addr: 0x29910030 Data: 0xc000_0000
+> Reg: pwd Addr: 0x29910000 Data: 0x001e_1c00
+> Reg: debug0 Addr: 0x29910050 Data: 0x7f18_0000
+> Reg: pll_sic Addr: 0x299100a0 Data: 0x00d1_2000
+> 
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> ---
+>  drivers/usb/phy/phy-mxs-usb.c | 32 +++++++++++++++++++++++++++++---
+>  1 file changed, 29 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/usb/phy/phy-mxs-usb.c b/drivers/usb/phy/phy-mxs-usb.c
+> index 7069dd3f4d0d..dd42db8a0829 100644
+> --- a/drivers/usb/phy/phy-mxs-usb.c
+> +++ b/drivers/usb/phy/phy-mxs-usb.c
+> @@ -209,6 +209,9 @@ static const struct mxs_phy_data imx6ul_phy_data = {
+>  static const struct mxs_phy_data imx7ulp_phy_data = {
+>  };
+>  
+> +static const struct mxs_phy_data imx8ulp_phy_data = {
+> +};
+> +
+>  static const struct of_device_id mxs_phy_dt_ids[] = {
+>  	{ .compatible = "fsl,imx6sx-usbphy", .data = &imx6sx_phy_data, },
+>  	{ .compatible = "fsl,imx6sl-usbphy", .data = &imx6sl_phy_data, },
+> @@ -217,6 +220,7 @@ static const struct of_device_id mxs_phy_dt_ids[] = {
+>  	{ .compatible = "fsl,vf610-usbphy", .data = &vf610_phy_data, },
+>  	{ .compatible = "fsl,imx6ul-usbphy", .data = &imx6ul_phy_data, },
+>  	{ .compatible = "fsl,imx7ulp-usbphy", .data = &imx7ulp_phy_data, },
+> +	{ .compatible = "fsl,imx8ulp-usbphy", .data = &imx8ulp_phy_data, },
 
-Do you mean moving all the top-level kobject declarations
-(kernel_kobj, firmware_kobj, etc.) out of kobject.h into this new
-header (ksysfs.h?) along with their init functions?
+Why can't you use &imx7ulp_phy_data here as it's all just empty?
 
-Bart
+thanks,
+
+greg k-h
 
