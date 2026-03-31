@@ -4,116 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 490D210F9309
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 21:21:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 688EA10F9304
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 21:47:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GnS75n7UJaS2ddyRBNP9q5l7UtTm6b8DgT2o9RDojQ4=; b=jeK8KXwPxFx6cwjyFGrmw0jqWI
-	B/s/R7VWnDXRuOHcCgCVXBzp4G6hIOhuTrJK6DVTxcHli3uJO1vTBs+wInNcj6lijIUXLJ+vo3LZE
-	BXLc4z8w4XEZGYvlt4lth+IUggmxMmfxNrClZlJwMfpUngCUXOVaucg3GckkkhgJWtYzF8kw+XD+u
-	Vxy8ZanypTr+cQzHo3F+ipErid+ROjNlI3VSuU/9ouEVxU3J15Zh+FzCdx5lJ+HA0aPR6amTJLxzJ
-	dVnpViqG/e7eC0jjyG9KHfTWvA7cZUBZIGsnpaP2tZOr1UjY2t6OZVAEPrAW28pr8wllFMG+6DXnu
-	nSFyGyIA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T4QnNywyMGewGadpaYDCFIQRm/on7lVrc10IZ1svNYw=; b=DfFQw7c+zS6MYHHRn7rTEWrkFD
+	JOmWMaHd7409d0ceit1GUNhChXl8JTetlfOl8tTkfKoRc2ZrtPXTFLOB/kiCHjuqBx1Fyt2Mmgy0G
+	SQoPsv86UnIomeoyahxDzSr8b6j07atLjZ4F8tzC4DOKoYynxurht2HoF81hFMgw7+t/VAeqE97Vp
+	6aRnTD1XGsfKpMSm7u1wEw55RhEvmlRGNdnIDqPyT5WXtCzg+dBslZW3ZNuecfMOW7Vvs1Ag/nKj4
+	QR6mFrI4Me1fj0sIY/Ik/RmKRFSWc4aMJYKOiVhf9VLiS8JCic75VGTTTWTnYft3XOMsmA8+jsd/b
+	70k2c91A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7gWZ-0000000DZXX-0hoA;
-	Tue, 31 Mar 2026 21:21:23 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1w7gwD-0000000DbEO-0GGR;
+	Tue, 31 Mar 2026 21:47:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7gWV-0000000DZWl-1qrd
+	id 1w7gwA-0000000DbE2-2osN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 21:21:21 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2b0c12be0ecso156575ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 14:21:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774992078; cv=none;
-        d=google.com; s=arc-20240605;
-        b=kV3fBJU7h/5hNnwthNnXN1iG1pvSkThmzv0001O3MK61yuHMCStjCuGjGr97R/aBpo
-         mExciWAK0Ea9CgpTfnebatvzlIzgtUO0FTYZMouIuUl6AN/ptuc1OWd8WcEkxwa0o0cx
-         Rffv5LCe6ZPzRQ7Uw6Ye3025bp4nMi4MB1yPFoOMuFGsoCLY4IPMeWgFippouCGz+LzJ
-         UAVUHKOQ6d8BTcG4zTY0jtWn3ripDFbYIA095xDEVuQk6nmxeIFT1DHBfnLhB+aGJGDt
-         TcYvvDfdAlDaANjJ5/15K8a73o3LSbYs4F7ojFK24YhXGTqzn1hfVteflLzV7OBaOrVx
-         qcsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=GnS75n7UJaS2ddyRBNP9q5l7UtTm6b8DgT2o9RDojQ4=;
-        fh=lPrDV8PO1fda+WnpeTxsGn1zk9ryjgbj0vWe+5vTtos=;
-        b=XnS9QlU15pjlM/hyMeKgCwGmF2gDdGsUO6XbEXn4bWrRmN48aiC0tDOmaQsJZDA5xK
-         onTPexgiziD2fi+DKuQgUJls7jYftk+Ae2p9ZG9XUFyaq3L0VagMoOSFKFV6GOsVCzdm
-         jT3AkzBMNxIsew7Sb51x814Qx66LoC7ZRipf9L8lFIgU80FWHXJ1NwEyowUPwFzI/pGP
-         Y9Om3pLg6KSfeRUNpTtoj1r+hJ0xcf+pQwix/Ov0XBjDOYuNQsk+1DCCXDohx3bfbnVp
-         +TZYVT51lb95d1OYZzRjjLZyR0xtPU7tlP8Ku5RyxcKCtIGMoI4nT0ME4gD/jgBSxXtU
-         wi/w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1774992078; x=1775596878; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GnS75n7UJaS2ddyRBNP9q5l7UtTm6b8DgT2o9RDojQ4=;
-        b=HuuITDQpeSwlw8OJfuJKz3/Tmabu6qO2MKBaBmRxB0xF3MQCzMkWLNljM4gHCJ+yPC
-         PN2YWjEYn9jGAGtsolwhT+peehfgZoqT+5wWvveq+4+XggQjqOsLi/DMlkZqhFoY6CBw
-         sf1Z0scI1gYq0MnC7FZKGaol2P4zxLasyLsLKUOzBJWpQO94H+zHmus3EO/loAUSlOk+
-         qhEsOhU2u1zI4zHT9hcg6pGVcINu8ANNLl8NcNPRU2/I3ugB8BuivmAzqx6o82Y4k3Eo
-         hwA3m+Qtp4Lq32yqWMej+prVQyqgAIda8/wIqhM56EubBAMcs5CXZw18B7AOSRoNJPW4
-         LZ+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774992078; x=1775596878;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=GnS75n7UJaS2ddyRBNP9q5l7UtTm6b8DgT2o9RDojQ4=;
-        b=aelHiYksFzFz/hkmZROnzBnB8ffjqNEm3t6k5K9Jn7trXm3f3jLSGfWUxKKHCzAla5
-         IwVxaaTHsMsf9KT3efmvjmSIC7FZ4ltGyT8fwoV5Etcrwa+1Sad0lnKN/SZM9/n2F6GO
-         Z//ki0VCc8FgIo+o1KKRpeyYCAPnWzW8HBTcx5XPj0TmV0nXtKibbyXVdTJs/pN7vTUd
-         0gRFYNQ/bAV3R0SgX5pHkuZS24klP7jcASI0ti3uYluS9ujgJ1M/TsKn9WQIpJ5v4dG8
-         z2QZxWrpVykJpdnopM5G/oEzotQ4cEQBDmclNHHOZZeFK8/BVkuIAxks2LR6gkV5Dloo
-         JJTw==
-X-Forwarded-Encrypted: i=1; AJvYcCXYBFzoa1zbpo5aKu0kYj304o5NzTSXpo9hwS1IafWgYebEc1LD6COe8LbY5H+TixNjDA+Wu7agNMhY2b8BT8sU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4BeJWVQDZg55/jtN9FLQMGG3Fv0iMiddJ8tW52ALBSJxqleml
-	2KI0AhnRenLff7lH59dm5urRfpb2dEVPPUgKv6hXTkgySqUl3eujUUPRN5Fz0ytRJW2SpRmasUC
-	SoxmrPWf/LPF1RhqWgHhzPJ8aslatu864IqAi+FD/
-X-Gm-Gg: ATEYQzxeXgA1Xb4DVtizApurAZMlm9mJ6KoZLOitKLWODt5d7NzWmAQgMehrAUqtpu0
-	NU+p/yfdmtZWgjPEYb3bU+CSmmapgbrE4Fm0Uc1/Q5Ue61NlIGtl7VA3Gt/5KeRiopvW0i6YMLI
-	I9mRkzXfniT9iHHANF9xk5EhZH2HLrR15AEw0AKk2gIKhW7yRv4HqpHl7O4fmKU4WV4ZIMVHbBz
-	8o3LxDgVzvCa9rSYvUygadVFdWCymWL/pzsNZn4s5Ge+Jrsf1DqjqPUZvuNRYJLv1XqH90AZ7je
-	bnVFVCQbXK8Nrb8YZRI9BL9zNNEiyc1vnYN4pQ==
-X-Received: by 2002:a17:903:b0b:b0:2a7:6c4e:5914 with SMTP id
- d9443c01a7336-2b26b19268amr164775ad.6.1774992078005; Tue, 31 Mar 2026
- 14:21:18 -0700 (PDT)
+	Tue, 31 Mar 2026 21:47:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CF1A942E29;
+	Tue, 31 Mar 2026 21:47:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0799BC19423;
+	Tue, 31 Mar 2026 21:47:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774993669;
+	bh=iIuOOa8rW5wOieE9MmvxQaXBkwiQTbC9srYJ3whd+Ug=;
+	h=From:To:Cc:Subject:Date:From;
+	b=cN61ost4Z56nOhE6zwTn/RY9SSyxE2L5qtpjqfMvOTr0n0nF74Tmd3ATUOP1xrvmL
+	 dzfXbpR1n7aSusTfQVmhf9HX6+wJMlkGiLitKRhwLRYHexRnKgkUSLDczDItaDs2HM
+	 HPk632IOz1Tgzs3CSIe8s9ifLdNl6ITZNV75RqkrBALTi+TnspSNjCYCQe5y8bKfCE
+	 OqbfcnDHVIbnFunY0rn9QhL9M4Q32tSX15bwn2K18euc5jAp3JJCcR4x09tjtlBiBD
+	 qdm82ARe6lgzu3VX+SrJL5CFx5cbWFz83/IHlbx7zCUHDUGJzw2Gbh49Y1L/kjUCM9
+	 ZITNnqZFyBU4A==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+	Abel Vesa <abel.vesa@oss.qualcomm.com>,
+	Anjelique Melendez <anjelique.melendez@oss.qualcomm.com>,
+	Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
+	Aelin Reidel <aelin@mainlining.org>,
+	Alok Tiwari <alok.a.tiwari@oracle.com>,
+	Chris Lew <chris.lew@oss.qualcomm.com>,
+	Gopikrishna Garmidi <gopikrishna.garmidi@oss.qualcomm.com>,
+	Lei wang <quic_leiwan@quicinc.com>,
+	Richard Acayan <mailingradian@gmail.com>,
+	Unnathi Chalicheemala <unnathi.chalicheemala@oss.qualcomm.com>,
+	Hrishabh Rajput <hrishabh.rajput@oss.qualcomm.com>,
+	Jens Glathe <jens.glathe@oldschoolsolutions.biz>,
+	Le Qi <le.qi@oss.qualcomm.com>,
+	Luca Weiss <luca.weiss@fairphone.com>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Pankaj Patil <pankaj.patil@oss.qualcomm.com>,
+	Rosen Penev <rosenp@gmail.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
+	Val Packett <val@packett.cool>,
+	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+	Yijie Yang <yijie.yang@oss.qualcomm.com>
+Subject: [GIT PULL] Qualcomm driver updates for v7.1
+Date: Tue, 31 Mar 2026 16:47:41 -0500
+Message-ID: <20260331214741.966509-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-References: <CAP-5=fWVU3ktkGAnZQrjQJf+Z5AtQo73BVUhj-nr3H95GdcEJQ@mail.gmail.com>
- <20260305221927.3237145-1-irogers@google.com> <20260305221927.3237145-2-irogers@google.com>
- <acwxuPAo8g6C867R@x1>
-In-Reply-To: <acwxuPAo8g6C867R@x1>
-From: Ian Rogers <irogers@google.com>
-Date: Tue, 31 Mar 2026 14:21:06 -0700
-X-Gm-Features: AQROBzDbOw0ON8Mz97jk-SmsyhRJF1m_3_IhoXpTax6bYQx2IUJMMWJYWTEZhQA
-Message-ID: <CAP-5=fXHfCqdgSWh4o8uqwwJ1BvKiDm5dY38cgu87G8AaDHudQ@mail.gmail.com>
-Subject: Re: [PATCH v2 1/8] perf unwind: Refactor get_entries to allow dynamic
- libdw/libunwind selection
-To: Arnaldo Carvalho de Melo <acme@kernel.org>
-Cc: 9erthalion6@gmail.com, adrian.hunter@intel.com, alex@ghiti.fr, 
-	alexander.shishkin@linux.intel.com, andrew.jones@oss.qualcomm.com, 
-	aou@eecs.berkeley.edu, atrajeev@linux.ibm.com, blakejones@google.com, 
-	ctshao@google.com, dapeng1.mi@linux.intel.com, howardchu95@gmail.com, 
-	james.clark@linaro.org, john.g.garry@oracle.com, jolsa@kernel.org, 
-	leo.yan@linux.dev, libunwind-devel@nongnu.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	mingo@redhat.com, namhyung@kernel.org, palmer@dabbelt.com, 
-	peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com, 
-	tglozar@redhat.com, tmricht@linux.ibm.com, will@kernel.org, yuzhuo@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_142119_907861_FE1386DC 
-X-CRM114-Status: GOOD (  35.61  )
+X-CRM114-CacheID: sfid-20260331_144750_775931_8E0F97D7 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,416 +95,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 31, 2026 at 1:42=E2=80=AFPM Arnaldo Carvalho de Melo
-<acme@kernel.org> wrote:
->
-> On Thu, Mar 05, 2026 at 02:19:20PM -0800, Ian Rogers wrote:
-> > Currently, both libdw and libunwind define 'unwind__get_entries'. This
-> > causes a duplicate symbol build failure when both are compiled into
-> > perf.
-> >
-> > This commit refactors the DWARF unwind post-processing to be
-> > configurable at runtime via the .perfconfig file option
-> > 'unwind.style', or using the argument '--unwind-style' in the commands
-> > 'perf report', 'perf script' and 'perf inject', in a similar manner to
-> > the addr2line or the disassembler style.
-> >
-> > The file 'tools/perf/util/unwind.c' adds the top-level dispatch
-> > function 'unwind__get_entries'. The backend implementations are
-> > renamed to 'libdw__get_entries' and 'libunwind__get_entries'. Both are
-> > attempted as fallbacks if not configured, or if the primary backend
-> > fails.
-> >
-> > Fixes: 2e9191573a69 ("perf build: Remove NO_LIBDW_DWARF_UNWIND option")
-> > Signed-off-by: Ian Rogers <irogers@google.com>
-> > ---
-> >  tools/perf/builtin-inject.c        |   4 ++
-> >  tools/perf/builtin-report.c        |   4 ++
-> >  tools/perf/builtin-script.c        |   4 ++
-> >  tools/perf/util/Build              |   1 +
-> >  tools/perf/util/symbol_conf.h      |  15 +++++
-> >  tools/perf/util/unwind-libdw.c     |   2 +-
-> >  tools/perf/util/unwind-libunwind.c |   2 +-
-> >  tools/perf/util/unwind.c           | 102 +++++++++++++++++++++++++++++
-> >  tools/perf/util/unwind.h           |  40 +++++------
-> >  9 files changed, 149 insertions(+), 25 deletions(-)
-> >  create mode 100644 tools/perf/util/unwind.c
-> >
-> > diff --git a/tools/perf/builtin-inject.c b/tools/perf/builtin-inject.c
-> > index 5b29f4296861..9ad681b3c0dc 100644
-> > --- a/tools/perf/builtin-inject.c
-> > +++ b/tools/perf/builtin-inject.c
-> > @@ -26,6 +26,7 @@
-> >  #include "util/synthetic-events.h"
-> >  #include "util/thread.h"
-> >  #include "util/namespaces.h"
-> > +#include "util/unwind.h"
-> >  #include "util/util.h"
-> >  #include "util/tsc.h"
-> >
-> > @@ -2539,6 +2540,9 @@ int cmd_inject(int argc, const char **argv)
-> >               OPT_STRING(0, "guestmount", &symbol_conf.guestmount, "dir=
-ectory",
-> >                          "guest mount directory under which every guest=
- os"
-> >                          " instance has a subdir"),
-> > +             OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
-> > +                          "unwind styles (libdw,libunwind)",
-> > +                          unwind__option),
-> >               OPT_BOOLEAN(0, "convert-callchain", &inject.convert_callc=
-hain,
-> >                           "Generate callchains using DWARF and drop reg=
-ister/stack data"),
-> >               OPT_END()
-> > diff --git a/tools/perf/builtin-report.c b/tools/perf/builtin-report.c
-> > index 3b81f4b3dc49..ae20c0679990 100644
-> > --- a/tools/perf/builtin-report.c
-> > +++ b/tools/perf/builtin-report.c
-> > @@ -48,6 +48,7 @@
-> >  #include "util/time-utils.h"
-> >  #include "util/auxtrace.h"
-> >  #include "util/units.h"
-> > +#include "util/unwind.h"
-> >  #include "util/util.h" // perf_tip()
-> >  #include "ui/ui.h"
-> >  #include "ui/progress.h"
-> > @@ -1455,6 +1456,9 @@ int cmd_report(int argc, const char **argv)
-> >       OPT_CALLBACK(0, "addr2line-style", NULL, "addr2line style",
-> >                    "addr2line styles (libdw,llvm,libbfd,addr2line)",
-> >                    report_parse_addr2line_config),
-> > +     OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
-> > +                  "unwind styles (libdw,libunwind)",
-> > +                  unwind__option),
-> >       OPT_BOOLEAN(0, "demangle", &symbol_conf.demangle,
-> >                   "Symbol demangling. Enabled by default, use --no-dema=
-ngle to disable."),
-> >       OPT_BOOLEAN(0, "demangle-kernel", &symbol_conf.demangle_kernel,
-> > diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
-> > index 9f8b0fd27a0a..b6c7c164d02d 100644
-> > --- a/tools/perf/builtin-script.c
-> > +++ b/tools/perf/builtin-script.c
-> > @@ -63,6 +63,7 @@
-> >  #include <linux/err.h>
-> >  #include "util/dlfilter.h"
-> >  #include "util/record.h"
-> > +#include "util/unwind.h"
-> >  #include "util/util.h"
-> >  #include "util/cgroup.h"
-> >  #include "util/annotate.h"
-> > @@ -4164,6 +4165,9 @@ int cmd_script(int argc, const char **argv)
-> >                       "Enable symbol demangling"),
-> >       OPT_BOOLEAN(0, "demangle-kernel", &symbol_conf.demangle_kernel,
-> >                       "Enable kernel symbol demangling"),
-> > +     OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
-> > +                  "unwind styles (libdw,libunwind)",
-> > +                  unwind__option),
-> >       OPT_STRING(0, "addr2line", &symbol_conf.addr2line_path, "path",
-> >                       "addr2line binary to use for line numbers"),
-> >       OPT_STRING(0, "time", &script.time_str, "str",
-> > diff --git a/tools/perf/util/Build b/tools/perf/util/Build
-> > index bcccad7487a9..6190a8f5b0fa 100644
-> > --- a/tools/perf/util/Build
-> > +++ b/tools/perf/util/Build
-> > @@ -218,6 +218,7 @@ ifndef CONFIG_SETNS
-> >  perf-util-y +=3D setns.o
-> >  endif
-> >
-> > +perf-util-y +=3D unwind.o
-> >  perf-util-$(CONFIG_LIBDW) +=3D probe-finder.o
-> >  perf-util-$(CONFIG_LIBDW) +=3D dwarf-aux.o
-> >  perf-util-$(CONFIG_LIBDW) +=3D dwarf-regs.o
-> > diff --git a/tools/perf/util/symbol_conf.h b/tools/perf/util/symbol_con=
-f.h
-> > index 71bb17372a6c..25d92bbbfee7 100644
-> > --- a/tools/perf/util/symbol_conf.h
-> > +++ b/tools/perf/util/symbol_conf.h
-> > @@ -9,6 +9,19 @@
-> >  struct strlist;
-> >  struct intlist;
-> >
-> > +enum unwind_style {
-> > +
-> > +     UNWIND_STYLE_UNKNOWN =3D 0,
-> > +
-> > +     UNWIND_STYLE_LIBDW,
-> > +
-> > +     UNWIND_STYLE_LIBUNWIND,
-> > +
-> > +};
 
-I'll remove the blank lines in the next version.
+The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 
-> > +
-> > +#define MAX_UNWIND_STYLE (UNWIND_STYLE_LIBUNWIND + 1)
-> > +
-> > +
-> >  enum a2l_style {
-> >       A2L_STYLE_UNKNOWN =3D 0,
-> >       A2L_STYLE_LIBDW,
-> > @@ -80,6 +93,7 @@ struct symbol_conf {
-> >                       *bt_stop_list_str;
-> >       const char              *addr2line_path;
-> >       enum a2l_style  addr2line_style[MAX_A2L_STYLE];
-> > +     enum unwind_style unwind_style[MAX_UNWIND_STYLE];
-> >       unsigned long   time_quantum;
-> >         struct strlist        *dso_list,
-> >                       *comm_list,
-> > @@ -103,3 +117,4 @@ struct symbol_conf {
-> >  extern struct symbol_conf symbol_conf;
-> >
-> >  #endif // __PERF_SYMBOL_CONF
-> > +
-> > diff --git a/tools/perf/util/unwind-libdw.c b/tools/perf/util/unwind-li=
-bdw.c
-> > index 05e8e68bd49c..d8a5b7d54192 100644
-> > --- a/tools/perf/util/unwind-libdw.c
-> > +++ b/tools/perf/util/unwind-libdw.c
-> > @@ -339,7 +339,7 @@ frame_callback(Dwfl_Frame *state, void *arg)
-> >              DWARF_CB_ABORT : DWARF_CB_OK;
-> >  }
-> >
-> > -int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
-> > +int libdw__get_entries(unwind_entry_cb_t cb, void *arg,
-> >                       struct thread *thread,
-> >                       struct perf_sample *data,
-> >                       int max_stack,
-> > diff --git a/tools/perf/util/unwind-libunwind.c b/tools/perf/util/unwin=
-d-libunwind.c
-> > index cb8be6acfb6f..a0016b897dae 100644
-> > --- a/tools/perf/util/unwind-libunwind.c
-> > +++ b/tools/perf/util/unwind-libunwind.c
-> > @@ -79,7 +79,7 @@ void unwind__finish_access(struct maps *maps)
-> >               ops->finish_access(maps);
-> >  }
-> >
-> > -int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
-> > +int libunwind__get_entries(unwind_entry_cb_t cb, void *arg,
-> >                        struct thread *thread,
-> >                        struct perf_sample *data, int max_stack,
-> >                        bool best_effort)
-> > diff --git a/tools/perf/util/unwind.c b/tools/perf/util/unwind.c
-> > new file mode 100644
-> > index 000000000000..9ae7d5ad246d
-> > --- /dev/null
-> > +++ b/tools/perf/util/unwind.c
-> > @@ -0,0 +1,102 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +#include "debug.h"
-> > +#include "symbol_conf.h"
-> > +#include "unwind.h"
-> > +#include <linux/string.h>
-> > +#include <string.h>
-> > +#include <stdlib.h>
-> > +
-> > +int unwind__get_entries(unwind_entry_cb_t cb __maybe_unused, void *arg=
- __maybe_unused,
-> > +                     struct thread *thread __maybe_unused,
-> > +                     struct perf_sample *data __maybe_unused,
-> > +                     int max_stack __maybe_unused,
-> > +                     bool best_effort __maybe_unused)
-> > +{
-> > +     int ret =3D 0;
-> > +
-> > +#if defined(HAVE_LIBDW_SUPPORT) || defined(HAVE_LIBUNWIND_SUPPORT)
-> > +     if (symbol_conf.unwind_style[0] =3D=3D UNWIND_STYLE_UNKNOWN) {
-> > +             int i =3D 0;
-> > +#ifdef HAVE_LIBDW_SUPPORT
-> > +             symbol_conf.unwind_style[i++] =3D UNWIND_STYLE_LIBDW;
-> > +#endif
-> > +#ifdef HAVE_LIBUNWIND_SUPPORT
-> > +             symbol_conf.unwind_style[i++] =3D UNWIND_STYLE_LIBUNWIND;
-> > +#endif
-> > +     }
-> > +#endif //defined(HAVE_LIBDW_SUPPORT) || defined(HAVE_LIBUNWIND_SUPPORT=
-)
-> > +
-> > +     for (size_t i =3D 0; i < ARRAY_SIZE(symbol_conf.unwind_style); i+=
-+) {
-> > +             switch (symbol_conf.unwind_style[i]) {
-> > +             case UNWIND_STYLE_LIBDW:
-> > +#ifdef HAVE_LIBDW_SUPPORT
-> > +                     ret =3D libdw__get_entries(cb, arg, thread, data,=
- max_stack, best_effort);
-> > +#endif
-> > +                     break;
-> > +             case UNWIND_STYLE_LIBUNWIND:
-> > +#ifdef HAVE_LIBUNWIND_SUPPORT
-> > +                     ret =3D libunwind__get_entries(cb, arg, thread, d=
-ata, max_stack, best_effort);
-> > +#endif
-> > +                     break;
->
->
-> What if the user asks for one of the unwinders, symbol_conf.unwind_style
-> will be populated with the user's choices, but then here in
-> unwind__get_entries() we end up returning 0 because the user choice is
-> not built-in?
->
-> Also no warning will be emitted that what was asked for is not
-> available?
->
-> Maybe remove the ifdefs here and have a dummy libdw__get_entries() when
-> HAVE_LIBDW_SUPPORT ins't defined that emits the warning and returns -1?
-> Ditto for UNWIND_STYLE_LIBUNWIND?
+  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
 
-Makes sense, I'll add it to the next version. Since the later patches
-are larger I'll wait to address review feedback there before sending
-out the next version - this will avoid unnecessary mailing list churn.
+are available in the Git repository at:
 
-Thanks,
-Ian
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-7.1
 
-> - Arnaldo
->
-> > +             case UNWIND_STYLE_UNKNOWN:
-> > +             default:
-> > +#if !defined(HAVE_LIBDW_SUPPORT) && !defined(HAVE_LIBUNWIND_SUPPORT)
-> > +                     pr_warning_once(
-> > +                             "Error: dwarf unwinding not supported, bu=
-ild perf with libdw or libunwind.\n");
-> > +#endif
-> > +                     ret =3D -1;
-> > +                     break;
-> > +             }
-> > +             if (ret =3D=3D 0)
-> > +                     break;
-> > +     }
-> > +     return ret;
-> > +}
-> > +
-> > +int unwind__configure(const char *var, const char *value, void *cb __m=
-aybe_unused)
-> > +{
-> > +     static const char * const unwind_style_names[] =3D {
-> > +             [UNWIND_STYLE_LIBDW] =3D "libdw",
-> > +             [UNWIND_STYLE_LIBUNWIND] =3D "libunwind",
-> > +             NULL
-> > +     };
-> > +     char *s, *p, *saveptr;
-> > +     size_t i =3D 0;
-> > +
-> > +     if (strcmp(var, "unwind.style"))
-> > +             return 0;
-> > +
-> > +     if (!value)
-> > +             return -1;
-> > +
-> > +     s =3D strdup(value);
-> > +     if (!s)
-> > +             return -1;
-> > +
-> > +     p =3D strtok_r(s, ",", &saveptr);
-> > +     while (p && i < ARRAY_SIZE(symbol_conf.unwind_style)) {
-> > +             bool found =3D false;
-> > +             char *q =3D strim(p);
-> > +
-> > +             for (size_t j =3D UNWIND_STYLE_LIBDW; j < MAX_UNWIND_STYL=
-E; j++) {
-> > +                     if (!strcasecmp(q, unwind_style_names[j])) {
-> > +                             symbol_conf.unwind_style[i++] =3D j;
-> > +                             found =3D true;
-> > +                             break;
-> > +                     }
-> > +             }
-> > +             if (!found)
-> > +                     pr_warning("Unknown unwind style: %s\n", q);
-> > +             p =3D strtok_r(NULL, ",", &saveptr);
-> > +     }
-> > +
-> > +     free(s);
-> > +     return 0;
-> > +}
-> > +
-> > +int unwind__option(const struct option *opt __maybe_unused,
-> > +                const char *arg,
-> > +                int unset __maybe_unused)
-> > +{
-> > +     return unwind__configure("unwind.style", arg, NULL);
-> > +}
-> > diff --git a/tools/perf/util/unwind.h b/tools/perf/util/unwind.h
-> > index 9f7164c6d9aa..581d042e170a 100644
-> > --- a/tools/perf/util/unwind.h
-> > +++ b/tools/perf/util/unwind.h
-> > @@ -7,6 +7,7 @@
-> >  #include "util/map_symbol.h"
-> >
-> >  struct maps;
-> > +struct option;
-> >  struct perf_sample;
-> >  struct thread;
-> >
-> > @@ -26,7 +27,9 @@ struct unwind_libunwind_ops {
-> >                          struct perf_sample *data, int max_stack, bool =
-best_effort);
-> >  };
-> >
-> > -#ifdef HAVE_DWARF_UNWIND_SUPPORT
-> > +int unwind__configure(const char *var, const char *value, void *cb);
-> > +int unwind__option(const struct option *opt, const char *arg, int unse=
-t);
-> > +
-> >  /*
-> >   * When best_effort is set, don't report errors and fail silently. Thi=
-s could
-> >   * be expanded in the future to be more permissive about things other =
-than
-> > @@ -36,8 +39,20 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *=
-arg,
-> >                       struct thread *thread,
-> >                       struct perf_sample *data, int max_stack,
-> >                       bool best_effort);
-> > -/* libunwind specific */
-> > +
-> > +#ifdef HAVE_LIBDW_SUPPORT
-> > +int libdw__get_entries(unwind_entry_cb_t cb, void *arg,
-> > +                    struct thread *thread,
-> > +                    struct perf_sample *data, int max_stack,
-> > +                    bool best_effort);
-> > +#endif
-> > +
-> >  #ifdef HAVE_LIBUNWIND_SUPPORT
-> > +/* libunwind specific */
-> > +int libunwind__get_entries(unwind_entry_cb_t cb, void *arg,
-> > +                        struct thread *thread,
-> > +                        struct perf_sample *data, int max_stack,
-> > +                        bool best_effort);
-> >  #ifndef LIBUNWIND__ARCH_REG_ID
-> >  #define LIBUNWIND__ARCH_REG_ID(regnum) libunwind__arch_reg_id(regnum)
-> >  #endif
-> > @@ -57,26 +72,5 @@ static inline int unwind__prepare_access(struct maps=
- *maps __maybe_unused,
-> >  static inline void unwind__flush_access(struct maps *maps __maybe_unus=
-ed) {}
-> >  static inline void unwind__finish_access(struct maps *maps __maybe_unu=
-sed) {}
-> >  #endif
-> > -#else
-> > -static inline int
-> > -unwind__get_entries(unwind_entry_cb_t cb __maybe_unused,
-> > -                 void *arg __maybe_unused,
-> > -                 struct thread *thread __maybe_unused,
-> > -                 struct perf_sample *data __maybe_unused,
-> > -                 int max_stack __maybe_unused,
-> > -                 bool best_effort __maybe_unused)
-> > -{
-> > -     return 0;
-> > -}
-> > -
-> > -static inline int unwind__prepare_access(struct maps *maps __maybe_unu=
-sed,
-> > -                                      struct map *map __maybe_unused,
-> > -                                      bool *initialized __maybe_unused=
-)
-> > -{
-> > -     return 0;
-> > -}
-> >
-> > -static inline void unwind__flush_access(struct maps *maps __maybe_unus=
-ed) {}
-> > -static inline void unwind__finish_access(struct maps *maps __maybe_unu=
-sed) {}
-> > -#endif /* HAVE_DWARF_UNWIND_SUPPORT */
-> >  #endif /* __UNWIND_H */
-> > --
-> > 2.53.0.473.g4a7958ca14-goog
+for you to fetch changes up to d6e766e391ef0b2be62682e007223fc72ba7764f:
+
+  Merge branch '20260125-iris-ubwc-v4-1-1ff30644ac81@oss.qualcomm.com' into drivers-for-7.1 (2026-03-30 12:46:14 -0500)
+
+----------------------------------------------------------------
+Qualcomm driver updates for v7.1
+
+Add ECS LIVA QC710, Glymur CRD, Mahua CRD, Purwa IoT EVK, and Asus
+Vivobook to the QSEECOM allow-list, to enable UEFI variable access
+through uefisecapp.
+
+Register the Gunyah watchdog device if the SCM driver finds itself
+running under Gunyah. Clean up some locking using guards.
+
+Handle possible cases where AOSS cooling state is given a non-boolean
+state.
+
+Replace LLCC per-slice activation bitmap with reference counting. Also
+add SDM670 support.
+
+Improve probe deferral handling in the OCMEM driver.
+
+Add Milos, QCS615, Eliza, Glymur, and Mahua support to the pd-mapper.
+
+Add support for SoCCP-based pmic-glink, as found in Glymur and
+Kaanapali.
+
+Add common QMI service ids to the main qmi headerfile, to avoid
+spreading these constants in various drivers.
+
+Add support for version 2 of SMP2P and implement the irqchip state
+reading support.
+
+Add CQ7790, SA8650P, SM7450, SM7450P, and IPQ5210 SoC and the PM7550BA
+PMIC identifiers to the socinfo driver.
+
+Add Eliza and Mahua support to the UBWC driver, introduce helpers for
+drivers to read out min_acc length and other programmable values, and
+disable bank swizzling for Glymur.
+
+Simplify the logic related to allocation of NV download request in the
+WCNSS control driver.
+
+----------------------------------------------------------------
+Abel Vesa (3):
+      soc: qcom: socinfo: Add PM7550BA PMIC
+      dt-bindings: firmware: qcom,scm: document Eliza SCM Firmware Interface
+      soc: qcom: pd-mapper: Add support for Eliza
+
+Aelin Reidel (2):
+      dt-bindings: arm: qcom,ids: Add SoC IDs for SM7450 and SM7450P
+      soc: qcom: socinfo: Add SoC IDs for SM7450 and SM7450P
+
+Alok Tiwari (2):
+      soc: qcom: llcc: fix v1 SB syndrome register offset
+      soc: qcom: aoss: compare against normalized cooling state
+
+Anjelique Melendez (3):
+      dt-bindings: soc: qcom: qcom,pmic-glink: Add Glymur and Kaanapali compatibles
+      soc: qcom: pmic_glink: Add charger PDR service information to client data
+      soc: qcom: pmic_glink: Add support for Glymur and Kaanapali
+
+Bjorn Andersson (2):
+      Merge branch '20260309230346.3584252-2-daniel.lezcano@oss.qualcomm.com' into drivers-for-7.1
+      Merge branch '20260125-iris-ubwc-v4-1-1ff30644ac81@oss.qualcomm.com' into drivers-for-7.1
+
+Chris Lew (2):
+      soc: qcom: smp2p: Add irqchip state support
+      soc: qcom: smp2p: Add support for smp2p v2
+
+Daniel Lezcano (3):
+      soc: qcom: qmi: Enumerate the service IDs of QMI
+      soc: qcom: pdr: Use the unified QMI service ID instead of defining it locally
+      samples: qmi: Use the unified QMI service ID instead of defining it locally
+
+Dmitry Baryshkov (6):
+      soc: qcom: ubwc: disable bank swizzling for Glymur platform
+      soc: qcom: ocmem: make the core clock optional
+      soc: qcom: ocmem: register reasons for probe deferrals
+      soc: qcom: ocmem: return -EPROBE_DEFER is ocmem is not available
+      soc: qcom: ubwc: add helper to get min_acc length
+      soc: qcom: ubwc: add helpers to get programmable values
+
+Gopikrishna Garmidi (2):
+      soc: qcom: ubwc: Add support for Mahua
+      firmware: qcom: scm: Allow QSEECOM on Mahua CRD
+
+Hrishabh Rajput (1):
+      firmware: qcom: scm: Register gunyah watchdog device
+
+Jens Glathe (1):
+      firmware: qcom: scm: allow QSEECOM on ASUS Vivobook X1P42100 variant
+
+Kathiravan Thirumoorthy (4):
+      dt-bindings: arm: qcom,ids: add SOC IDs for IPQ5210 family
+      soc: qcom: socinfo: add SoC ID for IPQ5210 family
+      dt-bindings: firmware: qcom,scm: Document ipq5210 SCM
+      dt-bindings: firmware: qcom,scm: Document ipq9650 SCM
+
+Krzysztof Kozlowski (7):
+      dt-bindings: arm: qcom,ids: Add SoC ID for CQ7790
+      soc: qcom: socinfo: Add SoC ID for CQ7790
+      firmware: qcom: uefisecapp: Simplify mutex with guard
+      firmware: qcom: uefisecapp: Annotate acquiring locks for context tracking
+      firmware: qcom: scom: Simplify mutex with guard
+      soc: qcom: ubwc: Remove redundant x1e80100_data
+      soc: qcom: ubwc: Add configuration Eliza SoC
+
+Le Qi (1):
+      soc: qcom: pd-mapper: Add QCS615 power domain mappings
+
+Lei wang (2):
+      dt-bindings: arm: qcom,ids: Add SoC ID for SA8650P
+      soc: qcom: socinfo: Add SoC ID for SA8650P
+
+Luca Weiss (1):
+      soc: qcom: pd-mapper: Add Milos compatible
+
+Mukesh Ojha (1):
+      firmware: qcom_scm: don't opencode kmemdup
+
+Pankaj Patil (1):
+      firmware: qcom: scm: Allow QSEECOM on Glymur CRD
+
+Richard Acayan (2):
+      dt-bindings: cache: qcom,llcc: Add SDM670 compatible
+      soc: qcom: llcc: Add configuration data for SDM670
+
+Rosen Penev (1):
+      soc: qcom: wcnss: simplify allocation of req
+
+Srinivas Kandagatla (1):
+      soc: qcom: pd-mapper: Add support for Glymur and Mahua
+
+Unnathi Chalicheemala (2):
+      soc: qcom: llcc: Add per-slice counter and common llcc slice descriptor
+      soc: qcom: llcc: Use guards for mutex handling
+
+Val Packett (1):
+      firmware: qcom: scm: Allow QSEECOM on ECS LIVA QC710
+
+Vladimir Zapolskiy (1):
+      soc: qcom: pd-mapper: Simplify code using of_root to get root device tree node
+
+Yijie Yang (1):
+      firmware: qcom: scm: Allow QSEECOM on PURWA-IOT-EVK
+
+ .../devicetree/bindings/cache/qcom,llcc.yaml       |   2 +
+ .../devicetree/bindings/firmware/qcom,scm.yaml     |   4 +
+ .../bindings/soc/qcom/qcom,pmic-glink.yaml         |   2 +
+ drivers/firmware/qcom/qcom_qseecom_uefisecapp.c    |   9 +-
+ drivers/firmware/qcom/qcom_scm.c                   |  70 +++++++-
+ drivers/soc/qcom/llcc-qcom.c                       | 188 +++++++++++++++------
+ drivers/soc/qcom/ocmem.c                           |  17 +-
+ drivers/soc/qcom/pdr_interface.c                   |   4 +-
+ drivers/soc/qcom/pdr_internal.h                    |   3 -
+ drivers/soc/qcom/pmic_glink.c                      |  66 +++++---
+ drivers/soc/qcom/qcom_aoss.c                       |   2 +-
+ drivers/soc/qcom/qcom_pd_mapper.c                  |  33 +++-
+ drivers/soc/qcom/smp2p.c                           | 103 ++++++++++-
+ drivers/soc/qcom/socinfo.c                         |  11 ++
+ drivers/soc/qcom/ubwc_config.c                     |  31 ++--
+ drivers/soc/qcom/wcnss_ctrl.c                      |  17 +-
+ include/dt-bindings/arm/qcom,ids.h                 |  10 ++
+ include/linux/soc/qcom/llcc-qcom.h                 |   8 +-
+ include/linux/soc/qcom/qmi.h                       |  12 ++
+ include/linux/soc/qcom/ubwc.h                      |  25 +++
+ samples/qmi/qmi_sample_client.c                    |   2 +-
+ 21 files changed, 480 insertions(+), 139 deletions(-)
 
