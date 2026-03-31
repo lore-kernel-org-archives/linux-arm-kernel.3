@@ -4,63 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08B07FF60E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 08:13:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE84FF60E9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 08:19:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KK0eQCW33KmERzI09ortJszhsGGsvAQrl7rSJZo83j8=; b=mFXt2bNXGlQUr/Hf4tSgEASj5e
-	swPZVXdDjzm7iY1LPFcmpR6xklDcBjJ045vXttMURGiJJb12r0ALj4ZeDGxffUYm1korqpCob3HqB
-	3heGES36+EUdTOHBHaZ8dHU9buZwLCUg1NaWU/t5YHELb5rXRRwPA3wESBSqRpfuTJP9aRH2ioCkA
-	K4nJ1/bTNNrxLOQbsFWhh/t+mxXMgmELeHpdDvoHZaCD2rBswXNybHCe4MR7Yx/43saD0cRoVaXEb
-	0gFPxNUK1fGnaBp9DHbfg9Pqx3qmZVSGZjn3VLechORVWxcZ2MOv7nNn1bSOTBmdmQmzyxwgGRZUb
-	v6FDsafQ==;
+	bh=lkwSrrHeaTy0NZEu7oXPfH9QyLMTyoNiK6/SMFIi1jc=; b=TEBF9Ha9CzBzrKZx/BGmgg6nct
+	+Zj3IN55x15pSaRAmqR1T0CQqZMOalqaAHDsuTqB+x5h7iPUW7SpNu8D1xozPO67RiMV1MuDDD4sR
+	nBcwvXG2jsA2nkx0sMCAZr6tDM5eH2ROeMVuJv5qZONkv3RiBAAXbAwMgPUzFPwDuu9LJcFjYT6MU
+	yMN0ubnospwgm7l+jzHgyRiltGkdY96f5UlZiiBOIdARnaiyHdsx4oFB/daffg6oDqITJKYnyTzka
+	Q1lqYJNCMO1+AppdvPh0/0hQQ0WZRrLqTwUY4PwtMwbeWqoOMYC9ZR2XCqkmFeQ0uuxHJcjbEzoLS
+	cSbLvHrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7UDt-0000000CYcP-3QST;
-	Tue, 31 Mar 2026 08:13:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w7UK0-0000000CZPB-0FhR;
+	Tue, 31 Mar 2026 08:19:36 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7UDr-0000000CYc4-3W0n
+	id 1w7UJy-0000000CZOl-17Z9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 08:13:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3585A40523;
-	Tue, 31 Mar 2026 08:13:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 877CDC19423;
-	Tue, 31 Mar 2026 08:13:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774944795;
-	bh=pJGLGPlP+pgDoOnMJ+vDANz34nLVCZQqTJjj+JlmLOk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QKJ1TjY1KR5V2fPPOJ8XQi6etBUEiUGhvNaSWz4sQ4vb4o3f7qz6MkCmmuleaP4p3
-	 YwUeNMwpx0sd9qjM5cAnmH1wd1zJGdvHG2DTbGscmWNHk0c5hYJgKd9mi7EU9l86m9
-	 4dmS4MF6ZeoOiYzBriJJ6lU6kZErxPqRThfAin3Vz/hlq7sWyqnZqgqN4jXNYguAen
-	 036nr0blsQWpXDIQTLqbWwM4h7zkS0QyQS7Bl9waqZIQSAZb64NWH7Sw3LQghV3jxp
-	 ncbGmmivlJ8q+AR3RvfSpimH9YvOXzDg7pXAUA1YgTq/R/Lc35pfbL5pIkEcI2KMIA
-	 LzhHooHZ/9e/A==
-Date: Tue, 31 Mar 2026 10:13:12 +0200
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: arm@kernel.org, soc@kernel.org, 
-	Thierry Reding <thierry.reding@gmail.com>, Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL 6/7] arm64: tegra: Device tree changes for v7.1-rc1
-Message-ID: <acuBQcq0jEX7fv9J@orome>
-References: <20260329151045.1443133-1-thierry.reding@kernel.org>
- <20260329151045.1443133-6-thierry.reding@kernel.org>
- <63b6c9da-4c0e-497c-a2a6-8aa5e74e2adb@kernel.org>
+	Tue, 31 Mar 2026 08:19:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774945175; x=1806481175;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=lkwSrrHeaTy0NZEu7oXPfH9QyLMTyoNiK6/SMFIi1jc=;
+  b=S8EcZfT8fdnqWxcNfa600yxvv32LyGiQbJ17a/cUjfOKp1A6TmWxppoj
+   HdNyKpNvY8jFIxw1lvWuKOP4xSYpWf8P3IvwJUGvdt1Q7bABX/2Ln6DWV
+   H+Qu56QeO74/VMqYGIcfq5rVeeLTs02Imy3NMVIUFNcBQ6q42lL6Dmuqx
+   dL8hikkkrwKGU5nFNen39rAFCS2/NvlQPyF6gGtVU5JZlcaJ545EflGkV
+   nj6z8+Q6RME3l3GRJmJpq/fSDmqFRmx+9GABg8M1KXfNstEjTCHz0YMng
+   fPQLQ+0VoPbIpCXownNdKJZRWeLu5gLsu8IPSSopHSxa6ki4Z1unzexF3
+   g==;
+X-CSE-ConnectionGUID: h4Fq0t54R0GD3KPtZuf5Qw==
+X-CSE-MsgGUID: VUU3U7ceQGmd7n3BLIRmpw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11744"; a="76140303"
+X-IronPort-AV: E=Sophos;i="6.23,151,1770624000"; 
+   d="scan'208";a="76140303"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Mar 2026 01:19:25 -0700
+X-CSE-ConnectionGUID: rXxFvflZQqmcddiNlFh8FA==
+X-CSE-MsgGUID: rjcav9qSQ6az2DPLZTztQg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,151,1770624000"; 
+   d="scan'208";a="221894366"
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Mar 2026 01:19:24 -0700
+Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Tue, 31 Mar 2026 01:19:24 -0700
+Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
+ FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Tue, 31 Mar 2026 01:19:24 -0700
+Received: from DM5PR21CU001.outbound.protection.outlook.com (52.101.62.58) by
+ edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Tue, 31 Mar 2026 01:19:23 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=O+w0dN6LAOH60VxXY3IXgmSE0tIuWR++iBnW6BrC/vbJlSw5kacguD3xrUsHLTt6M10eMVOr/9FeDl1AMEzrB+lHpIJrUec0teNbEwGOlt+Q0+cH1+5EuSipZY8K22hODZ4WTN9Vld7Gm2DFsSwYwAjM6PbXUzi1dlZR+HDmKOmzlHHL7odXsqsTYGK3JlSMnaf1spF80u/Hdu/yoKoe7fvSvjWacZYAoi+5qfZfno+YbTdGu4YtyXQALvil26iPI189hFEAgHnfC5HMacvY5HyqaPn5SeJ/8EiHsM2/Vq6+mIETQDB73dd9dat/gIkzIu9hWnyZA4uWyCe33l9y1A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lkwSrrHeaTy0NZEu7oXPfH9QyLMTyoNiK6/SMFIi1jc=;
+ b=REHvWzvUkBZ92HiVYZ1KHFnDBafPeLZGhuLUVLI4j6N6hEtmDWigA0U/luUHHaktyYDa3jqcYxUEd7XjUERLyPilIEQfpngxQzkj+2xD/6lNVdO5M1qtZJR4PvTpkhWldVqsVYeZbrf4/L+SARlFNwFHoiZlPMjqYVHZFxZ8W5zLPVNNkYbOZ/aQ7QYHdZSwfrigvMw+WKq2dmIJjrmGd9iz97j+CcsR9YxhymkayCAxph51hKJUD01Sqw8DVGXL5hKSYi9yRuLqQwRokKCdNc9zoHR5rzWG2mVuY6HGnDuyE/5yvVL0X3d97/gOF2HnquvY48dt6Hieb3PmMkBmuA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by DM4PR11MB6191.namprd11.prod.outlook.com (2603:10b6:8:ac::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Tue, 31 Mar
+ 2026 08:19:19 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::f997:762f:f079:134f]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::f997:762f:f079:134f%5]) with mapi id 15.20.9769.014; Tue, 31 Mar 2026
+ 08:19:19 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "bhelgaas@google.com" <bhelgaas@google.com>
+CC: "joro@8bytes.org" <joro@8bytes.org>, "praan@google.com"
+	<praan@google.com>, "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "Williams, Dan J" <dan.j.williams@intel.com>,
+	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>, Vikram Sethi
+	<vsethi@nvidia.com>, "linux-cxl@vger.kernel.org" <linux-cxl@vger.kernel.org>
+Subject: RE: [PATCH v3 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Thread-Topic: [PATCH v3 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Thread-Index: AQHcrcLZlsPpC1aSZEGOkgr6dEwpTbXIca9Q
+Date: Tue, 31 Mar 2026 08:19:19 +0000
+Message-ID: <BN9PR11MB5276A6B1B103C4B0201458348C53A@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1772833963.git.nicolinc@nvidia.com>
+ <a0dd3e4cc5260f55bbec5b3ed6791def33028735.1772833963.git.nicolinc@nvidia.com>
+In-Reply-To: <a0dd3e4cc5260f55bbec5b3ed6791def33028735.1772833963.git.nicolinc@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|DM4PR11MB6191:EE_
+x-ms-office365-filtering-correlation-id: 8bc76981-b911-40bc-3c96-08de8efe34e5
+x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700021|18002099003|56012099003|22082099003;
+x-microsoft-antispam-message-info: K9WYwXPvyZ17fEuP2BGm2teDw2v0UmdLlL0+7Mf169TZYnl1hQp0dZnZb5R51+GHNDB/sq2CWRv5kskXSz6DvHuEZEkZ3yOBfYQ4sdbpr7m8glGD9eh+tCsf/zptwuqxel8+ys7DgMRNGqO43Hs9TA5FI964I1TatEojp/HX7tCUpG8C3K1bBi73o9kb2MlCg9+6CQzqM64jqNI+8Q+bKkcHVxdaV0Z+u37yqNchZhw6zqikvHqo+m08pWhsWc2tGXjWHiMdjwK9W5SPRp9qkpied02UrFfGa1tZNs2ei4pqAGP7A9hrY4bNVYyOeyUgHFpOUxYA4m23KhEktnng0V97f1CLusLK917DLc1EP0cYCzVt2Hdi0lTICKg1IGHyVNQ8s5HEZNZJ3cdiWWm99GrhxeWDax+dr/LuKdKlUt/m94QVB4PKpvJqJKj3rOPP9jTcJOira9rQs233F2mTa4+hIlAJ3znxJllcEhwSNwbuDxUH3Vdn4cXOVx3KOTOy4UtxNrWIblnWryaYTqhvlPLJJXDuhtWOUeZWI1gWAPfzGTVebFKzeKcGf1LrvvyF13Wv6d3MO8ZllCT0kx+tdWq0XlLhlmoYGKhQxiRhh2/ccjDlqgD6DI/Jc2ChesAPOW0wlme4mqfb/UQMbaJNAAvJtDh2tgrZZphZ8lDjCDLLyaIrjiDorLYpMbPq1h9o4EQoAUWYH2dZzp63JbxWtW2MFWOaS6Oj7+9jIT0kYXurv98f/hM2mSq0UIoOkGsISdPH+qqX6lX6M9Y1t99tI+lsbz1HFXrvJ/yXzFr6dFQ=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?GMrrEQoDhIcBkWJ7Qzm+VNBb3KHnTxYMXf7eM7wbN1D0X7DlJZ6GIOKWQvkh?=
+ =?us-ascii?Q?Zf/4TRc8VwLumQ5KEim0CHxzjLej5NRVapr5vkQBcITM4ggk+HXoP+TGaTcF?=
+ =?us-ascii?Q?Jgi3gGX125iIsYCRM8mQ7zGlcpShc7BxuHIZEH6483spBtMQSmJDXrI2izEM?=
+ =?us-ascii?Q?KPZ728iN1cu0cJsu3ZXWngHhtpirf2PSWyIWy8nTm9bVAREdMQQVD9/+X/di?=
+ =?us-ascii?Q?rs+Zc6BGT78bcIUlof3bzv0DvQI0YU3DiA/lIGxdTSsVgriq8MXgGJ4pzVFj?=
+ =?us-ascii?Q?uzJdwDxNWqdkvPtJh5z0WjqmO6VvVRgg2a7f0oqEcz3tj7nKB+iiFoulrfzN?=
+ =?us-ascii?Q?zanFbPp4bGbSpyg7V/eLxTPt+b8E3rt+J9lBFsSRBCPTk3RYmPXIK+5nvFuZ?=
+ =?us-ascii?Q?ntcovjPVFtjI4hPLF2XTY3SZ7ZObDjwnNq1FkXyguAIFxSsaoI1fg0q09Y3O?=
+ =?us-ascii?Q?pmaV7FvsAoO/ld9SKCv7U2tGEqAVbSAGnvlftbUZr1cXLRMLxwrGDHQXpcOR?=
+ =?us-ascii?Q?44/QLFEkm6KzEdNDFBF3Ru/AXiuGm6Ey1iwVS4SVX+HS2L4bAghVQo+djP5x?=
+ =?us-ascii?Q?ls3j/adWjl0oxFvqdEySZJtCTO9m4c6Xj1JjteRUfkOkKpcJ/6c0Y2PgzcXB?=
+ =?us-ascii?Q?V/uAHcSPz6C3qxCo5PCGpbAjwRt/RLfQZITpNlUOFWLnaDPMhnbO07oeHi8k?=
+ =?us-ascii?Q?QehSygF2lXflNHOLlAfi0OrFKuKP7s5sEVeGvZ3ItieWUAEOp3230zRc22ni?=
+ =?us-ascii?Q?HknZo9djCXKBUeUoJwwbxxQzwPyo28IgGwHHfRyhZ0WR1GogFfWDzO6uUQlI?=
+ =?us-ascii?Q?v301QDknR9AINtBqVgl2sRVGvR+/q4x+JMx3ykFv3YCZDtoN2r9N76Bd9xgX?=
+ =?us-ascii?Q?xj9uJjLFysjNwOOtmWvz3vsX5Ki3uO408DeC4q1ISTTHu8Jz8IkZKfdKVtgT?=
+ =?us-ascii?Q?y3hyZP9uc9QaCGn2vf0wPMZX8imY0KcvcBbS5/9zOX7cVX13wCRzQs/BKkQY?=
+ =?us-ascii?Q?zTX8jU48C7gJ26KU2P+XL1Dv5QcAbsTDGDG7IEVS11BOO1IIkTEDK6Dm9H5q?=
+ =?us-ascii?Q?luQqcvx5kblUC+Yi511aQHgNpiSyF4SVcu0Trp4xGypQsDVkOGcFwHlCphdJ?=
+ =?us-ascii?Q?VKSiF9wKnpeldg+ZN43d2D1KMYsCuW5dHduK235Ro24ZFaphsl6+D6S0qeJg?=
+ =?us-ascii?Q?EhajoS/dIoERVPK+Heq7gWXkKiTBdqEZpgrt2ivYIP2aWNq4YGj5eLTvUANc?=
+ =?us-ascii?Q?r460DJ9ZSE7uuS9hq277sRzxWqsNqdbWbJB+XLCe/U/ktvDUY6U8HiSJzir5?=
+ =?us-ascii?Q?6/jrLrvGjZnNbnkhGqnJti/3xUVEFA7S3CkYRfpj5yqYDUMnvYJPOyFFkHpf?=
+ =?us-ascii?Q?4RUN+Xwm1hSQ7H8VIt7B1LfhTPxZOLECu4FM8foAQF3W4lsY+rE+KmHz0LNE?=
+ =?us-ascii?Q?HYY67lBWHjG3Pg7UxvMhU5gppFqEaB3PLZBVZZ4Eirdwz43Rrp/2ud3vUgv+?=
+ =?us-ascii?Q?nJ6i53Use6/dN9ds9g5rBRah+Esw0QZ/dJDT0M52sRz79ZRHtl3pAyBdF33L?=
+ =?us-ascii?Q?2x6lg4LLaOSEvUUhN8N+UU10RaX3Fn01fben+dVjOcVq3CYBNDRrQP20xdsO?=
+ =?us-ascii?Q?8GQ/JaI/zrgld/1KUmZSelnp5khXWYWibVrU2pXbczMQMY7plsfs6jhCaiNW?=
+ =?us-ascii?Q?dxzXlt8FFxkd24L10vlKSNzWiADcojnaCENlolR1vbT07+RxoApWS7NcZWx/?=
+ =?us-ascii?Q?7VVAy5rRKw=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ucvm2dz66opruy4z"
-Content-Disposition: inline
-In-Reply-To: <63b6c9da-4c0e-497c-a2a6-8aa5e74e2adb@kernel.org>
+X-Exchange-RoutingPolicyChecked: drr/bBQQJXOmzM1kjDOzlcWnonI84f3LqH0z6A/xKQID0tAmv2rCDnADT89pPRI1BZJvOcTeieCwnV76ka65f1KQgQuTA2qdpjZjM6avZhj4rKpJ5wVQRoUeZXuZdtwhqXKvJvAZkrgkEmaaP5gnfVKfXwPAXmDSIUl4wCUH0YFvwoqg8Ex9miFEuEE9itWdgZPxJXJDvuDTmmrBEvuhRM9IvmFVOmIY7UoJBe48xtDiQjsFD+PvtiyEhcnrzsN373xIMGxd8/hMIOVDMf8OglxniDPsQsAIc4gX+P2EUn04WJ3lv+V2MIdsXutpDNdlW3Fl8RiqJWw4t8xEapO3fA==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8bc76981-b911-40bc-3c96-08de8efe34e5
+X-MS-Exchange-CrossTenant-originalarrivaltime: 31 Mar 2026 08:19:19.3101
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: wacubI2SU04eau/0TpfmvdbwELG3T2V4unPB/6PuoXHGtHUuYPNvnY/2bTP+cxIG9/Mdi5pt/POxBUmNLlY+5w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR11MB6191
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_011315_939377_6DCB8E73 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20260331_011934_344920_17EE2EBE 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,70 +187,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---ucvm2dz66opruy4z
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [GIT PULL 6/7] arm64: tegra: Device tree changes for v7.1-rc1
-MIME-Version: 1.0
-
-On Tue, Mar 31, 2026 at 09:59:07AM +0200, Krzysztof Kozlowski wrote:
-> On 29/03/2026 17:10, Thierry Reding wrote:
-> > From: Thierry Reding <thierry.reding@gmail.com>
-> >=20
-> > Hi ARM SoC maintainers,
-> >=20
-> > The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5=
-f27f:
-> >=20
-> >   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
-> >=20
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Saturday, March 7, 2026 7:41 AM
 >=20
-> I guess related to my question why patches were applied one day after
-> the list:
+> Controlled by the IOMMU driver, ATS is usually enabled "on demand" when
+> a
+> device requests a translation service from its associated IOMMU HW runnin=
+g
+> on the channel of a given PASID. This is working even when a device has n=
+o
+> translation on its RID (i.e., the RID is IOMMU bypassed).
+
+ATS is usually enabled "on demand" when a given PASID on the device
+is attached to an I/O page table. Above sounds like there will be a softwar=
+e
+action to enable ATS upon a device translation request.
+
 >=20
-> Days in linux-next:
-> ----------------------------------------
->  0 | ++++++++ (8)
+> However, certain PCIe devices require non-PASID ATS on their RID even
+> when
+> the RID is IOMMU bypassed. Call this "always on".
 >=20
-> Commits with 0 days in linux-next (8 of 8: 100.0%):
-> ...
+> For instance, the CXL spec notes in "3.2.5.13 Memory Type on CXL.cache":
+> "To source requests on CXL.cache, devices need to get the Host Physical
+> Address (HPA) from the Host by means of an ATS request on CXL.io."
 >=20
-> So you exposed soc tree to all sort of integration issues. No, please
-> keep them for some days in the next before you send them to soc, to
-> allow people to test and eventually complain/report issues.
+> In other words, the CXL.cache capability requires ATS; otherwise, it can'=
+t
+> access host physical memory.
+>=20
+> Introduce a new pci_ats_always_on() helper for the IOMMU driver to scan a
+> PCI device and shift ATS policies between "on demand" and "always on".
+>=20
+> Add the support for CXL.cache devices first. Pre-CXL devices will be adde=
+d
+> in quirks.c file.
+>=20
+> Note that pci_ats_always_on() validates against pci_ats_supported(), so w=
+e
+> ensure that untrusted devices (e.g. external ports) will not be always on=
+.
+> This maintains the existing ATS security policy regarding potential side-
+> channel attacks via ATS.
+>=20
+> Cc: linux-cxl@vger.kernel.org
+> Suggested-by: Vikram Sethi <vsethi@nvidia.com>
+> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 
-Most issues would've been caught by daily bots already. A lot of these
-probably were in linux-next but changed SHAs because I rebased them on
-top of the PCI bindings patch to keep the shared branch as small as
-possible.
+Reviewed-by: Kevin Tian <kevin.tian@intel.com>
 
-I also do fairly extensive build testing on my side before sending those
-pull requests, so I don't think I've exposed the SoC tree to an unfair
-amount of integration issues.
+with a nit:
 
-Thierry
+> +/*
+> + * CXL r4.0, sec 3.2.5.13 Memory Type on CXL.cache notes: to source
+> requests on
+> + * CXL.cache, devices need to get the Host Physical Address (HPA) from t=
+he
+> Host
+> + * by means of an ATS request on CXL.io.
+> + *
+> + * In other world, CXL.cache devices cannot access host physical memory
+> without
+> + * ATS.
+> + */
 
---ucvm2dz66opruy4z
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmnLghQACgkQ3SOs138+
-s6FfYw/+LNdbCG4yiEIT7ANseqTzRj7TYxgDAAw6I+FYeoOC4PhIliXs7xdMQMC3
-b7+LFqbsBcdIjG7TOLKcTeBjYtqOnGgHdWsAq3ZzA/RfZ8CmpjBhdQRC17xj0obs
-+WVpMTGcx51B7Am92oJeC8bG20c8q/Pw7E+xdwgO8tGiHY644TH6eWtijj14x94O
-JO4TVE8vwtvps8oQnTT49lfL9avljxGGd2M+LXbp1axt923uGfD6gI6NUovrxDXM
-Ihp1wln0YW3eF/wvmoxG+487P0GduvA9jrZf4ZGEcQ4bcQv7VebUk9JgVXVHVZII
-uxx2BeOdQUaZTcrCBV5/5iUNWORV+hCSblHZCuK+o0+HZ9MXxQi26+C4D7ZJ2RIV
-82TWX9EyZXbTl/oRQmOUGPPpuziIL+M0nx8ToRGo5s9wzXmbj5xsC87gtQP+RYZ8
-YL7dr1NkUtX+oqTzuhEVpiuR0NDFE0ggE68SL0ItlRiFxi3xATE3ttzvdTWXXawg
-7zco6kR+kgnwUURK2i0JD8ZyLx9zqMkux7nQ/NnX07bQdRmJ+rZ75mHzR3C/SPrw
-YM0a9EZXicfqrTlidqAYo77d/XVqiVc0zU3rUwXbopN+SS+nYIedyGsdsZNl558G
-gHY8TBhuDSYVdB/dYdu7lpzms/Fcl1W23sOjlUPpaXkaFuPlPjU=
-=nwD7
------END PGP SIGNATURE-----
-
---ucvm2dz66opruy4z--
+s/world/words/
 
