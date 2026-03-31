@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A3D10F9302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 22:33:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9629810F9307
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 22:42:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0C+/wWU1UaeRij4GshH92j601u74eU2k9j4h7bdT23g=; b=vxXv7UnMfWLHXpy7FoqYCm2ccH
-	onRCLRr868YkoYZknh+NTtQsGNAzspjb+vYsxEN6rE/6AuyOQA9VT9FKTw8stbRqRimSStYw2bxwH
-	jBWcCZg7viCNpwz0zZRqorrVVWRt5s5Wig1rvI2rr0tMDDu4jt6rgojynBVexHg1wCWD0XdQ8lGkB
-	o4kdREU4NsQ3VT1c7P/rrxzKZyW/3bvzjZfu9IGC9FcdBgpOl1oFKu3ypPZ1+FqZF74SWMRPhEXQT
-	uL+FD+H509U9HWPmjdu2VjlYo7vYBQL1CT14yZ0+g7m9OdgWOXKyV4OFJjo5HmHi3Vmkrlyo8t7kR
-	dJZNL4wg==;
+	bh=DkGFZJlJJYAqiA6CSpY8yMdz52BbflMHWlhu2mJGtwo=; b=tTbQW2d9hyzPdQ/jOcpEiLw0P3
+	0NU+LdBYqUb1SmQwBEL7r4PPcx43smLoS3mkg6gtSsOuu7l158o5NWZdBhS1uVCgyihovNBm6qYFF
+	XQO78JS8kXNcYkmk2FKzn7RlnzJMNbVkTby6g2VLB3NL8m+wXsMYZLoG9NJBRLMrr6P8aunaK5vDZ
+	LoRtI43hisdHRNyM0LeVgb2FWGrCLe8paQbLfXA9TInsnN5xcMlwWXi5KV+RB7XwB52eUT4OUswBW
+	5LFvYj8bp/FKBb+vvOkDSjv2imijY4JRGst8Vxc3e1xwKo56Xpgqv6LoIaC6YUgIXIk669oLXwdqJ
+	7TGHfzMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7hdx-0000000DdaD-1ftg;
-	Tue, 31 Mar 2026 22:33:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7hmd-0000000DeFk-1mnn;
+	Tue, 31 Mar 2026 22:42:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7hdv-0000000Dda1-26ph
+	id 1w7hmb-0000000DeF0-2QNv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 22:33:03 +0000
+	Tue, 31 Mar 2026 22:42:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9F312600CB;
-	Tue, 31 Mar 2026 22:33:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2879BC2BC9E;
-	Tue, 31 Mar 2026 22:33:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E283340124;
+	Tue, 31 Mar 2026 22:41:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90A94C19423;
+	Tue, 31 Mar 2026 22:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774996382;
-	bh=RJQkS8bUU8ttoMMCwjfNIsTwajwii9xgzqJ9jw17VAE=;
+	s=k20201202; t=1774996918;
+	bh=BIQjuY/Cy0cBjXyayPBeo180JhWYpL7ZP6b21kAEW/s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cbHRqBeSoYgfTE3DFt478XB2sAGrHwnP3pluE0g7KfKYO5IyjPKzQKNda8WfNYPdP
-	 T74vQZvwx/hci0GdiDSYVGQymjvfK7uYKFnMwhgoXGdG6Spc6TRT1wTRuk/iGUsjvp
-	 6EV+s9GR0S4JBMhefTroJ3sQtMZWBRlTurBSwI9WMsnYvcPoUuFlsBkye/a2184IYF
-	 p/hB8wfG7lNzS/bZ2nSURnlrRK7Z/5M7nX6xBoZ37fuenrMGxRqLJG0MbKNGQcLWlW
-	 fmoXHS1x03HVb7OYB49waYYKROPVWmDvPovBlXEV86XsxnN8kK54+C9GMaj1vHLJeU
-	 ka5cwaAPBkakw==
-Date: Tue, 31 Mar 2026 15:33:00 -0700
+	b=UYgMVVZ+W0ar1qIEYUb2isYfPkFwRgVwZcJlDV1Z5D0ql77FSMlVyf5VMR6Qk1Why
+	 WsNwHbL4/dGfr00H/V9O4F93uCxt3g2FGoWjwHSNImsFMWIIzbVopJvsopDfgz727j
+	 spn0jldgS8EW5+p1EZxX0fXy5PB5Ecwb96zR3g/afgVtWbgYagi2DKuT2EqimNgfQX
+	 +RK+YtGbdCLM9UD0PYouQaReXFVksx2JR2DPfEWx6DA2KNfSD8YDqm9mru76JY9dbH
+	 zHOVPrd6s96yiYJciyvCAOaMLlQqaxgBvTjpZt5bl+cNfwsUV+bdVQXWwoQgkL6nUw
+	 D2JzqvSbQBb6g==
+Date: Tue, 31 Mar 2026 15:41:56 -0700
 From: Eric Biggers <ebiggers@kernel.org>
 To: Ard Biesheuvel <ardb@kernel.org>
 Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Demian Shulhan <demyansh@gmail.com>
-Subject: Re: [PATCH 1/5] lib/crc: arm64: Drop unnecessary chunking logic from
- crc64
-Message-ID: <20260331223300.GA45047@quark>
+Subject: Re: [PATCH 5/5] lib/crc: arm: Enable arm64's NEON intrinsics
+ implementation of crc64
+Message-ID: <20260331224156.GB45047@quark>
 References: <20260330144630.33026-7-ardb@kernel.org>
- <20260330144630.33026-8-ardb@kernel.org>
+ <20260330144630.33026-12-ardb@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260330144630.33026-8-ardb@kernel.org>
+In-Reply-To: <20260330144630.33026-12-ardb@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260331_154201_640499_5CD47849 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,31 +74,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 04:46:32PM +0200, Ard Biesheuvel wrote:
-> On arm64, kernel mode NEON executes with preemption enabled, so there is
-> no need to chunk the input by hand.
-> 
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+On Mon, Mar 30, 2026 at 04:46:36PM +0200, Ard Biesheuvel wrote:
+> Enable big-endian support only on GCC - the code generated by Clang is
+> horribly broken.
+[...]
+> +#if defined(CONFIG_ARM) && defined(CONFIG_CC_IS_CLANG)
+> +static inline uint64x2_t pmull64(uint64x2_t a, uint64x2_t b)
+> +{
+> +	uint64_t l = vgetq_lane_u64(a, 0);
+> +	uint64_t m = vgetq_lane_u64(b, 0);
+> +	uint64x2_t result;
+> +
+> +	asm("vmull.p64	%q0, %1, %2" : "=w"(result) : "w"(l), "w"(m));
+> +
+> +	return result;
+> +}
 
-There's still similar "chunking" in other arm64 code:
+Perhaps omit big endian support, and use the inline asm implementation
+of these functions with both gcc and clang?  The more unique
+combinations need to be tested to cover all the code, the higher the
+chance of one being missed in testing.
 
-    $ git grep -E 'SZ_4K|cond_yield' lib/crypto/arm64
-    lib/crypto/arm64/chacha.h:              unsigned int todo = min_t(unsigned int, bytes, SZ_4K);
-    lib/crypto/arm64/poly1305.h:                    unsigned int todo = min_t(unsigned int, len, SZ_4K);
-    lib/crypto/arm64/sha1-ce-core.S:        cond_yield      1f, x5, x6
-    lib/crypto/arm64/sha256-ce.S:   cond_yield      1f, x5, x6
-    lib/crypto/arm64/sha3-ce-core.S:        cond_yield 4f, x8, x9
-    lib/crypto/arm64/sha512-ce-core.S:      cond_yield      3f, x4, x5
-
-I thought it was still sticking around, despite kernel-mode NEON now
-being preemptible on arm64, because of CONFIG_PREEMPT_VOLUNTARY.
-
-However, I see that support for CONFIG_PREEMPT_VOLUNTARY was recently
-removed on arm64.  So that's what finally makes this no longer needed,
-and we can now clean up these other cases too, right?
-
-(Though, I can't find where the voluntary preemption points actually
-were.  So maybe they weren't actually there anyway.)
+Also, leaving shared code in lib/crc/arm64/ will be confusing.  How
+about lib/crc/arm-common/, and crc64_nvme_arm64_c => crc64_nvme_neon()?
+Or even just put crc64-neon.c directly in lib/crc/.
 
 - Eric
 
