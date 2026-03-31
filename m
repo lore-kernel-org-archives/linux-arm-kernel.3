@@ -4,115 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F00C210F92E6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 17:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B31D210F92E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 17:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l98tvJP33qg7yUNaZsXGxPv2Z0+17QhIZr8805RPT0Y=; b=FlKZKkZyWYQvPINCpiisxzX7l6
-	xsqNITSVkh3LosRSf8EIw77JCg5CaUy+YwFoTDJpy5vn1RoeqsUt6qdtTXBwFRJxjhDqtAkYMdAVv
-	3wgX//w7LJ6XNM34qoK5wCgf+SIyen0eLtRr/eRSG5KUPlfws/pMUH8NeLNoKz3Z787o2cSDS1Cgq
-	qgSbOCZ4jACLVyz4DlLiWz1rWC+dj7ccpgWpGbXsk6hHJpgjLwwPm6A0fYLzeJfdPt46kyOU2yXge
-	AYcHm62rzjIle92twQaAXFJyAnxh4pCwLLVUVptYyGbxh+pTImqDRGa+egFCfL/+9dM5BDelEWjlM
-	G+bQ29vw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=amO2pQu0JMUy39S0lJLHlgjZuCnoi6ixK//Mw5vxLxQ=; b=WzxhA/TlYVoY2Yc5KLc8jhOfbp
+	8snjRUU6wINvn0vJUOFd2/pOkDQx6a0g9LO9YFvIXf0BV8OjK1SNF5CKuOSTyvqXxFw6GhlE6CEKA
+	olStAEdYtLkRIB7HUVnY8BiUOIBLdnWKw6YPLZeHEKG36RIlhUQZX+i00JfbZ1VglzfgnMlhRhhPi
+	8vUACHaGbnPsi9NJcvw0YFyGLVGLIwuDpORrkIosnv0455TAPlz1Ox3/GAlevhVoOo+p5TgAo825O
+	O7fW8AsOYpGOf6ChOSqYEAZ6wVaEs4tFAc5TWfOBXNpsop6v9XEylVAkiZegGhB0zXy06L3ulNxYv
+	8cjKwRtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7cTK-0000000DIIO-4AIH;
-	Tue, 31 Mar 2026 17:01:47 +0000
-Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
+	id 1w7cUY-0000000DIT6-1x3u;
+	Tue, 31 Mar 2026 17:03:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7cTI-0000000DIHY-1hHQ
+	id 1w7cUX-0000000DISm-0ZMv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 17:01:46 +0000
-Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-126ea4e9697so11910c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 10:01:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774976503; cv=none;
-        d=google.com; s=arc-20240605;
-        b=ed7+Js9VTzGCLuVLF75+zuXT0loKYoSOpYdPqitdr1C0NPDvfdVsjRuzPbrqExYI0R
-         fmzd1gDRIM9uj8wwfnAn6ck88mWbUU2RW2l5/zulWoHmMSZKlImSDiag7U7/76396qDj
-         AicI9VhKjnYalUWnC23nI/OTgWDRUHQM5SzhIMfIigRvouiL5ndBw2gaCSB30h4eehvh
-         ylQAuOuv+Wh+jIsSVCU8djL3BgYPGFdYq6VXu9xrUfxI4TIK/PwTNuQpTAi2nK+/YgV2
-         ujw1RNqWANMYejqAYfFwkUXs+i2UjFW6wkHev4j3XIxtbUldjhF+2SrvuRM2nYznbzDu
-         z6Zg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=l98tvJP33qg7yUNaZsXGxPv2Z0+17QhIZr8805RPT0Y=;
-        fh=UCnUn+gNo0Ste+KsJYAsPt6/zOUH4BUyXLLcwJrwjcw=;
-        b=fcHAJi2LkWB0Y4I307XwTF2Tm2Axoj1JrXRSu0JXslwjUDzM4VMEWgyaPDfaNaCnZS
-         fCR7ek6x2iTW9/xdSKr8G489Ji9id2dLcXqXtYRMUMpncq4w8U4QyWIIZ7T7BBBOv1Vg
-         ZtoVdzBicOSrPyw17JhPcmCU9G7WAAfGxdaLAHu1qvzp/v+3r03Void2uAEQvRkcJplH
-         xRnMnMABl+Gez+jzX/cIuCVkOJnpHiXDsvS1HqP7lxBlksb0Km582Pa4Icem+TmBPphE
-         Ac16cFZi5SVgdapjYONJt94EwodSACaXiLl1CCVf/QY/3kMZQH3Oix1/5edFnAHnu7O0
-         rOEw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1774976503; x=1775581303; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=l98tvJP33qg7yUNaZsXGxPv2Z0+17QhIZr8805RPT0Y=;
-        b=dt/wgGqC7ZHEQEw+Ksy98SrbFUC1Cf6lnKdycCNFfPXHhDCgkV3G6xf/D9q3qF9G67
-         iR8Poc+d10XcVc1OEfoHdgsdYT/TGRyPMbVwC1UikXmXfjRf7A54l2XPt4gGzIzipsSF
-         l4PPx0H5krAHCV0M2o0XLbpwgAzw0RApJDJ/TnBsRndKjdHKRmdOwcLogxEEADgTLnAN
-         gefOKMlsRBoC2sq81PZDXkWNMJOhtwPcws4yEar/4dtRoP10VIqAvWNitfu/UIjBMV3k
-         NOwWAwtCIfk0ieF21wp10Kh7mOpHPNYRFFliVMeILwHrsD0IFTDq0PlA+EHBIMtSWkFI
-         AVhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774976503; x=1775581303;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=l98tvJP33qg7yUNaZsXGxPv2Z0+17QhIZr8805RPT0Y=;
-        b=X2fTuLKbkb562W3ve++oCQy2Ml7/mInq+BgICwQsBZWfW3YdslyeSpVfSp4UV0uMZA
-         ejCM5tKUPfbc2BtK4SKcfXUFsvWH8ZttTT4Vq6c6FLeCLO+JA5wMJdC7PLCK564y6WXA
-         XRrQkOy/SGsmH3BNNGO+Vqjl7hRVTVLrmgAoKnnsG2wC26NCH9Ts+AgfCjqMUNdNjoux
-         7T/uqIEdnJ3tkS9k6i3/kmJE/jNraHz5sC6f+xN2TrV4V9hLJ0bfFgznb4POtDPHzjd9
-         a3RGb/o4yBYm0LH+H26z6gPYx6ux4JJHhXZfT16ZO7OiPdKPKcj9ZUL8WdEm6+2nfDI3
-         dQWw==
-X-Forwarded-Encrypted: i=1; AJvYcCWH4JRAurKzaXA7ogpmdlrqJWH0BYrkek8MNDB0rBJUnpXcZT6/pvJM1uZ/cEJscySswfnxAfXb8MlctFvV/SQU@lists.infradead.org
-X-Gm-Message-State: AOJu0YytRDfQxMnYlhAi79R6Lrhu5tA0zzAiBkYRL0t+q+nJMpkB9Q1W
-	NxgPwrnkxWRpWIwjQkuxi5+b0ysLtW0sF/p22Ww2ALp3zJXcLyhq76n/WniHqFf34bLXjPoV0jR
-	Ts9yJ75KCP/e01gRAyC/c+HY8Y3EjMwxFHf67J0fi
-X-Gm-Gg: ATEYQzyrSYEUPenllmtA+gL6s1R1WiADYAgRHsQCxMpQnjtl/WXLrPKv6hr4vQJ91VH
-	wZsK3Hol2kmWy2YRGqMKDqIaXbpuLjB5dfhUmjQk6GmuesE7K1ezhmQz/UEV4XAYj/F+DvCcl0Y
-	WAVOSsTrOS75vMcPj4SVR3p+fGxPHKPl+FkVOqY7ZjoBehAFBIQNEavCeGmFggnRq+3lWhBQYRt
-	kFzp7bRNbwJX9hLhD8Kfto4hQrOM4MmgMje0vrfcYkbiAT+UIhZ+GJPacl9pn0WxxGZR0Y3WWsR
-	lmZZjDGq4b04w1CvBSmw+EfYy8ECHEVyNSwhCQ==
-X-Received: by 2002:a05:7022:6987:b0:12a:8cf4:65d8 with SMTP id
- a92af1059eb24-12be6159009mr19765c88.14.1774976502067; Tue, 31 Mar 2026
- 10:01:42 -0700 (PDT)
-MIME-Version: 1.0
-References: <CAP-5=fWVU3ktkGAnZQrjQJf+Z5AtQo73BVUhj-nr3H95GdcEJQ@mail.gmail.com>
- <20260305221927.3237145-1-irogers@google.com> <20260305221927.3237145-3-irogers@google.com>
- <acrln3IwOebvb6yj@x1>
-In-Reply-To: <acrln3IwOebvb6yj@x1>
-From: Ian Rogers <irogers@google.com>
-Date: Tue, 31 Mar 2026 10:01:29 -0700
-X-Gm-Features: AQROBzAxOb5Fj0tz8CFxXnvG80J893x9iFJ4Ie0P731uMqrcv3OK1B9SMHLInoA
-Message-ID: <CAP-5=fXn+uNEfZ71a5zZ5BdKw8-LfWgpzye8+eTJH32gL1=b_Q@mail.gmail.com>
-Subject: Re: [PATCH v2 2/8] perf build loongarch: Remove reference to missing file
-To: Arnaldo Carvalho de Melo <acme@kernel.org>
-Cc: 9erthalion6@gmail.com, adrian.hunter@intel.com, alex@ghiti.fr, 
-	alexander.shishkin@linux.intel.com, andrew.jones@oss.qualcomm.com, 
-	aou@eecs.berkeley.edu, atrajeev@linux.ibm.com, blakejones@google.com, 
-	ctshao@google.com, dapeng1.mi@linux.intel.com, howardchu95@gmail.com, 
-	james.clark@linaro.org, john.g.garry@oracle.com, jolsa@kernel.org, 
-	leo.yan@linux.dev, libunwind-devel@nongnu.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	mingo@redhat.com, namhyung@kernel.org, palmer@dabbelt.com, 
-	peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com, 
-	tglozar@redhat.com, tmricht@linux.ibm.com, will@kernel.org, yuzhuo@google.com
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 31 Mar 2026 17:03:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3D1ED60137;
+	Tue, 31 Mar 2026 17:03:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE38DC19424;
+	Tue, 31 Mar 2026 17:02:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774976579;
+	bh=oH5g+TxOejieBcDKtfbs/WsgaSlYxvr2NX9/JoIYhLY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=pG/YU4Bzlq9TQ6O4UODbxn/yuhmmYDdkdU2/taFiI7fydUvEk9ZBICmEy1aXoQDcl
+	 fSP8qrcH1qQjfH7/YFd/pWvbbxqce8lLWVXGsV389v1KOTPo6B4+sdnp6ZuZVw7MHI
+	 Tjqdh7pe7NM/j8RlrmKQ9osIob8lc7yHFX2JjRCGztYbDqoFU9u0UN2VDYArz+H4UH
+	 jN0xHJRLNIUoG5E2e4FcbAvGn+fflZZUtoexJn/ZJAueLRKkSTKdMePEbSAqXzFyQm
+	 EvBxo++YMFP8kOq1REaZ/oGTlC59I0rhVw5/D1M6l+T8Pty+pIht9U8P/ZbUK1/40v
+	 /2e3FxY2lMlAA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w7cUT-00000007Ydk-29gg;
+	Tue, 31 Mar 2026 17:02:57 +0000
+Date: Tue, 31 Mar 2026 18:02:57 +0100
+Message-ID: <868qb83pa6.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Joey Gouly <Joey.Gouly@arm.com>,
+	"yuzenghui@huawei.com"
+	<yuzenghui@huawei.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"oupton@kernel.org" <oupton@kernel.org>,
+	"broonie@kernel.org"
+	<broonie@kernel.org>,
+	nd <nd@arm.com>
+Subject: Re: [PATCH 12/15] KVM: arm64: Remove evaluation of timer state in kvm_cpu_has_pending_timer()
+In-Reply-To: <2779510cb9795d1c934d2122478485847930358a.camel@arm.com>
+References: <20260326153530.3981879-1-maz@kernel.org>
+	<20260326153530.3981879-13-maz@kernel.org>
+	<2779510cb9795d1c934d2122478485847930358a.camel@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_100144_446392_D8B3DD4F 
-X-CRM114-Status: GOOD (  16.86  )
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Joey.Gouly@arm.com, yuzenghui@huawei.com, Suzuki.Poulose@arm.com, oupton@kernel.org, broonie@kernel.org, nd@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,39 +93,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 2:05=E2=80=AFPM Arnaldo Carvalho de Melo
-<acme@kernel.org> wrote:
->
-> On Thu, Mar 05, 2026 at 02:19:21PM -0800, Ian Rogers wrote:
-> > The file was removed in commit e62fae9d9e85 ("perf unwind-libdw: Fix a
-> > cross-arch unwinding bug") but the Build file not updated.
-> >
-> > Fixes: commit e62fae9d9e85 ("perf unwind-libdw: Fix a cross-arch unwind=
-ing bug")
->
-> Removing the 'commit' part.
-
-Thanks, checkpatch caught this but somehow I missed it.
-
-Ian
-
-> - Arnaldo
->
-> > Signed-off-by: Ian Rogers <irogers@google.com>
+On Tue, 31 Mar 2026 16:44:04 +0100,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+>=20
+> On Thu, 2026-03-26 at 15:35 +0000, Marc Zyngier wrote:
+> > The vgic-v5 code added some evaluations of the timers in a helper
+> > funtion
+> > (kvm_cpu_has_pending_timer()) that is called to determine whether
+> > the vcpu can wake-up.
+> >=20
+> > But looking at the timer there is wrong:
+> >=20
+> > - we want to see timers that are signalling an interrupt to the
+> > =C2=A0 vcpu, and not just that have a pending interrupt
+> >=20
+> > - we already have kvm_arch_vcpu_runnable() that evaluates the
+> > =C2=A0 state of interrupts
+> >=20
+> > - kvm_cpu_has_pending_timer() really is about WFIT, as the timeout
+> > =C2=A0 does not generate an interrupt, and is therefore distinct from
+> > =C2=A0 the point above
+> >=20
+> > As a consequence, revert these changes.
+> >=20
+> > Fixes: 9491c63b6cd7b ("KVM: arm64: gic-v5: Enlighten arch timer for
+> > GICv5")
+> > Link:
+> > https://sashiko.dev/#/patchset/20260319154937.3619520-1-sascha.bischoff=
+%40arm.com
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
 > > ---
-> >  tools/perf/arch/loongarch/util/Build | 1 -
-> >  1 file changed, 1 deletion(-)
-> >
-> > diff --git a/tools/perf/arch/loongarch/util/Build b/tools/perf/arch/loo=
-ngarch/util/Build
-> > index 3ad73d0289f3..8d91e78d31c9 100644
-> > --- a/tools/perf/arch/loongarch/util/Build
-> > +++ b/tools/perf/arch/loongarch/util/Build
-> > @@ -1,4 +1,3 @@
-> >  perf-util-y +=3D header.o
-> >
-> >  perf-util-$(CONFIG_LOCAL_LIBUNWIND) +=3D unwind-libunwind.o
-> > -perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) +=3D unwind-libdw.o
-> > --
-> > 2.53.0.473.g4a7958ca14-goog
+> > =C2=A0arch/arm64/kvm/arch_timer.c | 6 +-----
+> > =C2=A01 file changed, 1 insertion(+), 5 deletions(-)
+> >=20
+> > diff --git a/arch/arm64/kvm/arch_timer.c
+> > b/arch/arm64/kvm/arch_timer.c
+> > index 37279f8748695..6608c47d1f628 100644
+> > --- a/arch/arm64/kvm/arch_timer.c
+> > +++ b/arch/arm64/kvm/arch_timer.c
+> > @@ -402,11 +402,7 @@ static bool kvm_timer_should_fire(struct
+> > arch_timer_context *timer_ctx)
+> > =C2=A0
+> > =C2=A0int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu)
+> > =C2=A0{
+> > -	struct arch_timer_context *vtimer =3D vcpu_vtimer(vcpu);
+> > -	struct arch_timer_context *ptimer =3D vcpu_ptimer(vcpu);
+> > -
+> > -	return kvm_timer_should_fire(vtimer) ||
+> > kvm_timer_should_fire(ptimer) ||
+> > -	=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (vcpu_has_wfit_active(vcpu) && w=
+fit_delay_ns(vcpu) =3D=3D
+> > 0);
+> > +	return vcpu_has_wfit_active(vcpu) && wfit_delay_ns(vcpu) =3D=3D
+> > 0;
+> > =C2=A0}
+> > =C2=A0
+> > =C2=A0/*
+>=20
+> Hi Marc,
+>=20
+> It appears that I'd misunderstood the intent of this function when I
+> originally wrote this bit code. That is: I agree that these checks
+> shouldn't be here.
+>=20
+> However, said checks are needed somewhere. With GICv5, we directly
+> inject the timer state (when possible, at least) which means that we
+> never see the timer interrupt firing on the host, and don't track if it
+> is pending or not in struct vgic_irq as the pending state is driven by
+> the hardware itself. The result of this is that we explicitly need to
+> check if the timer interrupt would be pending if the guest were running
+> somewhere.
+>=20
+> I've run with this complete series and have tested the following
+> change. It is sufficient to catch this case, and does it as part of
+> checking if there are pending interrupts, i.e., a more appropriate
+> place called via kvm_arch_vcpu_runnable(). It is yet-another GICv5
+> special case, however. I'd love to hear your thoughts.
+>=20
+> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+> index cbea4d9ee9552..f8b95721857c3 100644
+> --- a/arch/arm64/kvm/arch_timer.c
+> +++ b/arch/arm64/kvm/arch_timer.c
+> @@ -400,6 +400,14 @@ static bool kvm_timer_should_fire(struct arch_timer_=
+context *timer_ctx)
+>         return cval <=3D now;
+>  }
+> =20
+> +int kvm_cpu_timer_should_fire(struct kvm_vcpu *vcpu)
+> +{
+> +       struct arch_timer_context *vtimer =3D vcpu_vtimer(vcpu);
+> +       struct arch_timer_context *ptimer =3D vcpu_ptimer(vcpu);
+> +
+> +       return kvm_timer_should_fire(vtimer) || kvm_timer_should_fire(pti=
+mer);
+> +}
+> +
+>  int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu)
+>  {
+>         return vcpu_has_wfit_active(vcpu) && wfit_delay_ns(vcpu) =3D=3D 0;
+> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+> index 7680ced92f715..ffb91f535efe8 100644
+> --- a/arch/arm64/kvm/vgic/vgic.c
+> +++ b/arch/arm64/kvm/vgic/vgic.c
+> @@ -1238,6 +1238,9 @@ int kvm_vgic_vcpu_pending_irq(struct kvm_vcpu *vcpu)
+>                 if (READ_ONCE(vcpu->arch.vgic_cpu.vgic_v5.gicv5_vpe.db_fi=
+red))
+>                         return true;
+> =20
+> +               if (kvm_cpu_timer_should_fire(vcpu))
+> +                       return true;
+> +
+
+This unfortunately seems to suffer from the exact same problem: you
+are evaluating the output of the timer independently of the enable
+bits gating the timer interrupt at the GIC level.
+
+With this, you can disable the timers at the GIC level, arm the timers
+so that they are in a firing position, and enter WFI: the vcpu will
+exit WFI immediately, which is not the expected result.
+
+I'd suggest something like this instead (compile tested only):
+
+diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+index 75372bbfb6a6a..e7d23d0519e8b 100644
+--- a/arch/arm64/kvm/vgic/vgic-v5.c
++++ b/arch/arm64/kvm/vgic/vgic-v5.c
+@@ -365,9 +365,13 @@ bool vgic_v5_has_pending_ppi(struct kvm_vcpu *vcpu)
+=20
+ 		irq =3D vgic_get_vcpu_irq(vcpu, intid);
+=20
+-		scoped_guard(raw_spinlock_irqsave, &irq->irq_lock)
+-			has_pending =3D (irq->enabled && irq_is_pending(irq) &&
++		scoped_guard(raw_spinlock_irqsave, &irq->irq_lock) {
++			bool pending;
++
++			pending =3D irq->hw ? vgic_get_phys_line_level(irq) : irq_is_pending(ir=
+q);
++			has_pending =3D (irq->enabled && pending &&
+ 				       irq->priority < priority_mask);
++		}
+=20
+ 		vgic_put_irq(vcpu->kvm, irq);
+=20
+
+Thanks,
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
