@@ -4,98 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D5B4FF60D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 06:53:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B227FF60D5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 06:58:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GbP8tAe8emnfrefImNYaY1sC/mYPUiQj77TYwG/NXDY=; b=Elug0j5jiSSA0yf6HJeufydsGz
-	yybI+/r9dcbKAwRAT6SEDht9R2mhd7YrfdO+NK/1vPQSFVAY+oX3xsuZgyyeyto1s/5CDYKkjFBmQ
-	pLPSRHrbYDoKUqKjA/W7A76USWIFTNzT9cnp9BVn5SiddTsSgPeu5/A4yJ6ZCkDx+s2b417mkJct8
-	Difax3K9jNGmZrImihNZXad8UogelLwbGrmWGetWyjlfIREk7Jfni89cFbliSOTsV8SNgmbMIArl6
-	RuAWX8PkK733u6AqVG7xklk3pXxcF2aBEEX2O7M1HYLuoi/Wl74aaI342nC1xFEmR73Mw5zJ7ul5R
-	F7VtCPlw==;
+	bh=Ltx9qgv0ZJfXJV+fakzVSjyFJKz1+cYJF1V4n3gJOfk=; b=slj8PdTUcnAfvwwNMz8HQnzKea
+	evfqHsAflj28JoQ7aeWXBndL90wG2rA2YhT5nS3tkDJWh+rRAAHnZj9aWTkw8MCXlYeaOkeVw839j
+	2WDRR96Uxk7wYjpBOeby6qds/29pJgIk9u4MpVXSfLyLIwEbYrCjYV/Orm6HOB+hGd6zhTbjq7ow/
+	pDrgm0o113QoeJaK5cWYa1i6sBLMz51bX/NBUzsX/qxtCwM7JjxNY101MaRdTIK9dQoyF6WAOGg+f
+	1FoRjerbFgTho7uTOOqv9HT9vh8SBgh6rl34K0z7vvINbF3702112+WppUaU7bRH8ml/Q6qyNEcR1
+	OVnhCieQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7SyA-0000000CPdm-3jOx;
-	Tue, 31 Mar 2026 06:52:58 +0000
-Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Sxr-0000000CPaR-1ixW
+	id 1w7T32-0000000CPv5-2Pz2;
+	Tue, 31 Mar 2026 06:58:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7T2z-0000000CPug-0qpC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 06:52:40 +0000
-Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-12776bebe9fso114526c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 23:52:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774939958; x=1775544758; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:references
-         :in-reply-to:user-agent:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=GbP8tAe8emnfrefImNYaY1sC/mYPUiQj77TYwG/NXDY=;
-        b=gKZFzxQj9/o6Q2rmMw7KS7nBS5JfU4WEtU2HUbPKvsIZGE9T8VGwuc11gAA4Y9e0Cz
-         izsrm+HfBF5KnH7pjjGzu/RosHnBIwCQ7HqVfBp57eL4Cd+lIZvgFL9ew/r7LRBIdHik
-         bsbM7JA9oouUPZx7cambtwE6EhjZogiXrNMUp2SFykX/95pA9ex0qmZRlDBRubSUAjhV
-         GwRe4vZsK5EqCW2hDsjaYfBGHaFFrl4Cxi1pTNOpkjNzU9pCr2vcDTj0EW9O37Hbe7et
-         SPFJFf0rA+TSasB5EuM4ZzV8+uUbyFz9a8sluvAQ3eJi3t8hBqrOyVn3P+RLu3d7PZOE
-         s7NQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774939958; x=1775544758;
-        h=content-transfer-encoding:mime-version:message-id:references
-         :in-reply-to:user-agent:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GbP8tAe8emnfrefImNYaY1sC/mYPUiQj77TYwG/NXDY=;
-        b=AgsmXb4fvhurBBPWEVQAqwGSthjHlFLSyeEFL1ZHkyqqjEiRhGobdLD6l7JhqtKnJP
-         HcScHaZ4ovWB0If6jUXi6ySF1SXaI60XDKx5AJw+YUMpP/Xhz04xXuxQCCOrZvef+9eu
-         n++kxOnGwXzPfFrUiiBJ9Tm+6sNTxAcZ6IFLvoMGy3HKkZGKRP35qBpngTgUhxNMFkFY
-         KZrfj5ProoZk0PShumbUtogdeCHsI4E8MlbOdff4KJnvvU/M3PUNx6pBxxkKXhxcM/Qq
-         D5D+jkrS7FqC2tpVuhT/C0vLmktufLIVOBZp96+dCTgbuLvG3RKVXYJAQvOp7cvdoNGB
-         YQ1A==
-X-Forwarded-Encrypted: i=1; AJvYcCUpIGNvpyuLGXxj6KZIRyRP/rXpHl4sEVpp5BYWNbFwwvXlx2P+8T2H4x60lnt84xcohJz5+8pzd8P4vQ3irGye@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvJMltid9g0YFVpEOQ7S2Ydc2FoIvbcUro6e48uUXmhu+elWaq
-	TQvSwaxKnVmbpFfjJXBQ233/wW/HbSV4uk+dI4kFdzlYnVsjw92In3sK
-X-Gm-Gg: ATEYQzxd9IfQjEWmwnjoLrDx6SX8CjtR5gpT6RlcXFQ1CSvaVNWAKaruBXSM6vtHuGt
-	s/2ax0hWFR0w4+lrpNXhEfqHnFCYm1uhljsLeG2jJ4/rrMq16UwX9ZiRiGmSJfoKH4GzYHySa9x
-	YihAe61KTTWfWFWcWDEo2EZqROjOJzZ5z9kXb+PF/WjmWKv2GlZhPsswmYy1CBOQigQbbqQ2l3K
-	nCfcDmeE2k29X961bdnmoqRxa6l+RzzfRDwRUvy/rEArCxQ0oz4Ks4rj1LPIUiO65nMwdAA8iV5
-	Ecwl4fIHq5lnPwSfOlSU26q9rJ5kBxyF4e56nNsq5KNNOMj8/mssNJRviqogqY4NDfYCV/pQ4rP
-	IWOmz59g7j5WSbj8Rrbcp8mJUJ1kNdg1p7RieiR+z2YxINe5LhOBeSMhLmmIBM6pYt1pmGBV103
-	HGuGvbRU2lMyeljlS4+D2PWi6RADxq+AHum7Ms1bGqkyg=
-X-Received: by 2002:a05:7022:4393:b0:12a:94ab:e20 with SMTP id a92af1059eb24-12ab28d8bb8mr9317994c88.20.1774939957860;
-        Mon, 30 Mar 2026 23:52:37 -0700 (PDT)
-Received: from ehlo.thunderbird.net ([2601:647:5e00:4acd:7f58:87c9:ef3d:71ac])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12ab983f904sm13792148c88.9.2026.03.30.23.52.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 Mar 2026 23:52:37 -0700 (PDT)
-Date: Mon, 30 Mar 2026 23:52:34 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-CC: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- Daniel Scally <djrscally@gmail.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Aaro Koskinen <aaro.koskinen@iki.fi>,
- Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>,
- Russell King <linux@armlinux.org.uk>, Kevin Hilman <khilman@baylibre.com>,
- Arnd Bergmann <arnd@arndb.de>, brgl@kernel.org, driver-core@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
-Subject: Re: [PATCH v4 2/3] driver core: make software nodes available earlier
-User-Agent: K-9 Mail for Android
-In-Reply-To: <acto3TE1AR8iTzF0@ashevche-desk.local>
-References: <20260330-nokia770-gpio-swnodes-v4-0-b68592e977d0@oss.qualcomm.com> <20260330-nokia770-gpio-swnodes-v4-2-b68592e977d0@oss.qualcomm.com> <acrcDTPpXZ_5A4D8@ashevche-desk.local> <acruxMNdnUlyRHiy@google.com> <acto3TE1AR8iTzF0@ashevche-desk.local>
-Message-ID: <DDF494E5-C188-4A86-AC02-265B6169B591@gmail.com>
+	Tue, 31 Mar 2026 06:57:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 47AC4495B;
+	Mon, 30 Mar 2026 23:57:49 -0700 (PDT)
+Received: from [10.57.18.211] (unknown [10.57.18.211])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A77703F7D8;
+	Mon, 30 Mar 2026 23:57:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774940275; bh=2tOMaJp56iXUOV/xkh3Q08VCKzhADZC2/A1u7wVNqcE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jUXTOiLI9uc4O/BtVmCD3Pfg6t+oABR1hnVEsw1GT0cmK6m8Z8yv2axk3OU8o/8ns
+	 E+sb+tkKwzB96Osa4oxz67fau7jGEOlCGveXKEBX4SYadsF6KoNdegLMx9hyzeKSKi
+	 zmUnKQuO2UoHxyr3MRgMXyzl4mtuN2b8FKFr48No=
+Message-ID: <8bd2b649-01b5-44f4-a034-c202e226e97c@arm.com>
+Date: Tue, 31 Mar 2026 12:27:48 +0530
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 12/30] KVM: arm64: Hoist MTE validation check out of
+ MMU lock path
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>,
+ Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <tabba@google.com>,
+ Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>
+References: <20260327113618.4051534-1-maz@kernel.org>
+ <20260327113618.4051534-13-maz@kernel.org>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20260327113618.4051534-13-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_235239_449975_B709A85B 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20260330_235757_447385_D68B176F 
+X-CRM114-Status: GOOD (  19.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,51 +75,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On March 30, 2026 11:25:33 PM PDT, Andy Shevchenko <andriy=2Eshevchenko@lin=
-ux=2Eintel=2Ecom> wrote:
->On Mon, Mar 30, 2026 at 02:46:45PM -0700, Dmitry Torokhov wrote:
->> On Mon, Mar 30, 2026 at 11:24:45PM +0300, Andy Shevchenko wrote:
->> > On Mon, Mar 30, 2026 at 02:40:47PM +0200, Bartosz Golaszewski wrote:
->
->=2E=2E=2E
->
->> > > -static void __exit software_node_exit(void)
->> > > -{
->> > > -	ida_destroy(&swnode_root_ids);
->> > > -	kset_unregister(swnode_kset);
->> > >  }
->> > > -__exitcall(software_node_exit);
->> >=20
->> > Why? What's wrong with the __exitcall?
->>=20
->> It's dead code=2E Always was, always will be=2E
->>=20
->> Maybe split in a separate patch, but I sometimes feel the idea of "one
->> change" is taken to extreme and adds to both developer's and maintainer=
-s
->> burden by needing to keep track of extra patches=2E
->
->Why does __exitcall() exist then? It's also used in other places=2E
->I think it's generally good to have a possibility to clean up
->after run=2E
->
+On 27/03/26 5:06 PM, Marc Zyngier wrote:
+> From: Fuad Tabba <tabba@google.com>
+> 
+> Simplify the non-cacheable attributes assignment by using a ternary
+> operator. Additionally, hoist the MTE validation check (mte_allowed) out
+> of kvm_s2_fault_map() and into kvm_s2_fault_compute_prot(). This allows
+> us to fail faster and avoid acquiring the KVM MMU lock unnecessarily
+> when the VMM introduces a disallowed VMA for an MTE-enabled guest.
+> 
+> Signed-off-by: Fuad Tabba <tabba@google.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/mmu.c | 28 ++++++++++++----------------
+>  1 file changed, 12 insertions(+), 16 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 0c71e3a9af8b0..ee2a548999b1b 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1870,18 +1870,21 @@ static int kvm_s2_fault_compute_prot(struct kvm_s2_fault *fault)
+>  	if (fault->exec_fault)
+>  		fault->prot |= KVM_PGTABLE_PROT_X;
+>  
+> -	if (fault->s2_force_noncacheable) {
+> -		if (fault->vm_flags & VM_ALLOW_ANY_UNCACHED)
+> -			fault->prot |= KVM_PGTABLE_PROT_NORMAL_NC;
+> -		else
+> -			fault->prot |= KVM_PGTABLE_PROT_DEVICE;
+> -	} else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC)) {
+> +	if (fault->s2_force_noncacheable)
+> +		fault->prot |= (fault->vm_flags & VM_ALLOW_ANY_UNCACHED) ?
+> +			       KVM_PGTABLE_PROT_NORMAL_NC : KVM_PGTABLE_PROT_DEVICE;
+> +	else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC))
+>  		fault->prot |= KVM_PGTABLE_PROT_X;
+> -	}
 
-The code section will be discarded when the kernel finishes booting so it =
-only increases image size on disk=2E=20
+Is not the existing code block bit more cleaner though ?
 
->A bit of archaeology:
->
->The first time it appeared was in the bcc2152647b8 ("Import 2=2E4=2E0-tes=
-t3pre3")=2E
->Then somehow spread a bit (but not much)=2E
->
+>  
+>  	if (fault->nested)
+>  		adjust_nested_exec_perms(kvm, fault->nested, &fault->prot);
+>  
+> +	if (!fault->fault_is_perm && !fault->s2_force_noncacheable && kvm_has_mte(kvm)) {
+> +		/* Check the VMM hasn't introduced a new disallowed VMA */
+> +		if (!fault->mte_allowed)
+> +			return -EFAULT;
+> +	}
+> +
+>  	return 0;
+>  }
+>  
+> @@ -1918,15 +1921,8 @@ static int kvm_s2_fault_map(struct kvm_s2_fault *fault, void *memcache)
+>  		}
+>  	}
+>  
+> -	if (!fault->fault_is_perm && !fault->s2_force_noncacheable && kvm_has_mte(kvm)) {
+> -		/* Check the VMM hasn't introduced a new disallowed VMA */
+> -		if (fault->mte_allowed) {
+> -			sanitise_mte_tags(kvm, fault->pfn, fault->vma_pagesize);
+> -		} else {
+> -			ret = -EFAULT;
+> -			goto out_unlock;
+> -		}
+> -	}
+> +	if (!fault->fault_is_perm && !fault->s2_force_noncacheable && kvm_has_mte(kvm))
+> +		sanitise_mte_tags(kvm, fault->pfn, fault->vma_pagesize);
+>  
+>  	/*
+>  	 * Under the premise of getting a FSC_PERM fault, we just need to relax
 
-And it shows how useful it is=2E Maybe it had some purpose a long time ago=
-, but at present time this code will never be executed since it cannot be b=
-uilt as a module=2E
-
-Thanks=2E=20
-
---=20
-Dmitry
 
