@@ -4,120 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF3D109B477
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 14:29:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 298FF109B46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 14:30:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gwjTKRN7CKx6VBzelTeoJWz//Z40N3ckpJ64EfpPZN4=; b=mw+OyDkslCnNuFbFT7LwvRxQKh
-	4dGpwWBbi7l96IDSN/iXwoW5xU6x1eZLMER9jZJtEgGa8M79SmJwQztp4pPUNSmUBSGEj42dwCyj1
-	99JrcJ+VINbcA6/iwg+Kv2EzurrNrFNQSuH15IbtkRmZhvy/uVjTBldQ4SV8W1jy8W3RmTBHWGtXu
-	LV60Z8zI7+CXJqSTEAwsXJtk9DBrzjsSMWLD56YkiTIKwKptp9W5AG6qr0CK8hh/9mmk2jJA8tc3G
-	Z1oxsPxcsO1eDhVs+Y3xUHCpBilMwhyaZzyapg1hfwi1A20RMwA/Mc3JHEWJ5Q3rxgUtEOr5SixCo
-	HGRMLTbA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8XAogAQ0R+MTqU5ylu2Jm9t2irGAufgO8/6BfhUgGGs=; b=EIXHZzbgNig7LqsQoaYgGn5Yvk
+	bHT/JnncytSz/0qQgDv3GD+ps95XkJLL6WxWrZomtqFFqacHE7S7hf+tbK0lCbEXhwtcJG4fPge8+
+	fDMxGgXFMbrzVl8++cI4QGO/JLkjnXs42bXF6YvaRJcdLsrindZzR8bl7vF4vr9cJh40D0oByxKq5
+	lqlP+LiiWP++zMIGxKSDqwpyIbXa7mYQDKJlSxuHZYKlhvTW/hHjTVllj8zM6Fda36SX79zN8PH7l
+	3e/x2sHryLi2OMAFFxfx7EuRunJyFZe4vdBXS3rrnt7USup92MbyUT1Ofrc0okI38CnnRWssXhxQC
+	lewtp7gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7a5Y-0000000D6KE-0rY0;
-	Tue, 31 Mar 2026 14:29:04 +0000
-Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
+	id 1w7a6b-0000000D6TV-2LB4;
+	Tue, 31 Mar 2026 14:30:10 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7a5V-0000000D6Ja-0Psk
+	id 1w7a6Y-0000000D6Sw-3kXW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 14:29:02 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id A771A7A00E8;
-	Tue, 31 Mar 2026 10:28:58 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Tue, 31 Mar 2026 10:28:59 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1774967338;
-	 x=1775053738; bh=gwjTKRN7CKx6VBzelTeoJWz//Z40N3ckpJ64EfpPZN4=; b=
-	GIyQRsgLBEUPdekUSmrKw3y2sdb9k8B56H0eto+5KHHuKLgLxNooiIV+8n1zkVXh
-	PK+Y/U141AnNdcccVG7n9IjwSAxwlP3wYwvP4EWOgxu8SuJ7qrrA6jWybMCA5Rcm
-	ixkvUub/GUbqmNsOtVUh2XO/ejs1kpWI49aosAvoltqSNmXKOqZAnDhXOgrXsTPq
-	ELOlAltwV91RL3I2cHjv1nyiT8h+o5nO3eqO9fieuaLHMzGLJfdwoyASfqZleSrS
-	IubSNfy+Jt3QbwVhEWSOPsMvMw4Wf9Gm3/NLXrNDDPWZQKgsxHY0ktwGvg3jb9Vg
-	OAHJq3ykXIuBV/7wv0gPmA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1774967338; x=
-	1775053738; bh=gwjTKRN7CKx6VBzelTeoJWz//Z40N3ckpJ64EfpPZN4=; b=J
-	x3yUZHQHmZi493P+Bypf5OpDAyDXLErp4LHLcwQ5F8rpRx25f5igK5cVLwI/M64P
-	bOs9G3iCafoQgiDE4CILBxQ/zRAy9aZbzAucwvOH0DjK0YlL8bDUde7timAiDcED
-	mg8z8KB85BqmCqo3pRpy9o5gJ8mpwACiAMNwkLB9nQv9mSDzOJ038gyBmka6K9/7
-	HOtJzBB703yxJIwCwJhRlU5Cu5cpcWyeAdtjimhBFWNWrr3sFATfBBz0iZlAO6eR
-	EKxcyRvw8Plov6LPzGkEEjy7bky1dWCfnn5B+g1QEfBIScbyhgw91C2/rF4OJhYm
-	7BT0sBH7STRbl+UxLYKnw==
-X-ME-Sender: <xms:KtrLaQSPBrym0FF0ZYzAt9huAYT-K0lY1ozO13CGTO0Jp02FF1iINQ>
-    <xme:KtrLaYlQhx63FcE-M7AX9J-mfJKcuG0jNHM3SLYLjCnPYffcMdSZTHvHJtfnB0VLJ
-    4ihpHML4BJ4mNx5eQrNoplaBv48wWW9o0SAMHCRqreaqUHv-N0_>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdeggecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegrihhl
-    ohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpe
-    foggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcuuegv
-    rhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrhhnpe
-    fhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieenucev
-    lhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrg
-    hrnhgusgdruggvpdhnsggprhgtphhtthhopedvtddpmhhouggvpehsmhhtphhouhhtpdhr
-    tghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhope
-    htohhnhiesrghtohhmihguvgdrtghomhdprhgtphhtthhopehkhhhilhhmrghnsegsrgih
-    lhhisghrvgdrtghomhdprhgtphhtthhopegujhhrshgtrghllhihsehgmhgrihhlrdgtoh
-    hmpdhrtghpthhtohepughmihhtrhihrdhtohhrohhkhhhovhesghhmrghilhdrtghomhdp
-    rhgtphhtthhopehjmhhkrhiihihsiihtsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprg
-    grrhhordhkohhskhhinhgvnhesihhkihdrfhhipdhrtghpthhtohepsghrghhlsehkvghr
-    nhgvlhdrohhrghdprhgtphhtthhopegurghkrheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:KtrLadCzLDpwew3xf9ULxZFdCUioGdiLTCHFC3kiDkY0QMU5oqvz9Q>
-    <xmx:KtrLaYvGjSiwzJzUHoUu94YNOAIMrFCh44hYhgCh7VabhHvroXMDGA>
-    <xmx:KtrLadHjmS5TgUtzGs25OUzfHPLXEPKsjZbAQkAXJrYT4YezYeYnZA>
-    <xmx:KtrLaT_NqHLFlO9u-7dljQjtLKKu9cv2kKw3eNzEotXKYe0-BHc5Gg>
-    <xmx:KtrLaVSozOKHK4qeBoQCNI6YOCaveUP1H8SnzxKeqdxn-lscZ_JgwLMW>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id ED3CA700065; Tue, 31 Mar 2026 10:28:57 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 31 Mar 2026 14:30:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
+	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=8XAogAQ0R+MTqU5ylu2Jm9t2irGAufgO8/6BfhUgGGs=; b=CqEFWxHrEilCwY7+bJZ+AvtmEs
+	9lcu1ILBJ5Y6jQBhgKzaVCtYLH4oKY/gg9CXJFEpWepPcrdPFaqd0gLjbIzdr5Dr8AX6t2kLfVGAa
+	lOM2QVSYCVCJKKgP0nfjwIjtkW2xlXM0z3BUvuz0/rEo8l2hezAJiCBwS1f7TFjBq+BBscVlhjdrg
+	STsRfTqDE+vLk17ueZHRl0Q2FWD6FjU3vWKrrHT0ELmAkAMmI+mAtoCSEhlOcyzdOxVfQD/A24Y0I
+	jVAAQGQhfqFzTDKwkW6aQmTQq2E5O1vuZYbtH6NxCEIjLPIbZxYF1wxSSc7JMN/wNS/Gd+qKDV0s5
+	0dawqAVQ==;
+Received: from [115.246.246.98] (port=23422 helo=cypher.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1w7ZpE-00000006wgO-2MNT;
+	Tue, 31 Mar 2026 10:12:13 -0400
+From: Parvathi Pudi <parvathi@couthit.com>
+To: nm@ti.com,
+	vigneshr@ti.com,
+	linux@armlinux.org.uk,
+	ardb@kernel.org,
+	ebiggers@kernel.org,
+	krzysztof.kozlowski@oss.qualcomm.com,
+	khilman@baylibre.com,
+	arnd@arndb.de,
+	geert+renesas@glider.be,
+	parvathi@couthit.com,
+	tiwai@suse.de,
+	kory.maincent@bootlin.com,
+	andreas@kemnade.info,
+	dmitry.baryshkov@oss.qualcomm.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com,
+	twoerner@gmail.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	pratheesh@ti.com,
+	j-rameshbabu@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	danishanwar@ti.com,
+	m-malladi@ti.com,
+	krishna@couthit.com,
+	mohan@couthit.com,
+	pmohan@couthit.com,
+	basharath@couthit.com
+Subject: [PATCH v3] arm: multi_v7_defconfig: Enable BRIDGE and DP83848_PHY for TI AM57xx, AM437x and AM335x
+Date: Tue, 31 Mar 2026 19:40:54 +0530
+Message-ID: <20260331141124.1811313-1-parvathi@couthit.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-ThreadId: AFr_uRj1O5Ps
-Date: Tue, 31 Mar 2026 16:28:37 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>
-Cc: "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
- "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- "Danilo Krummrich" <dakr@kernel.org>, "Daniel Scally" <djrscally@gmail.com>,
- "Heikki Krogerus" <heikki.krogerus@linux.intel.com>,
- "Sakari Ailus" <sakari.ailus@linux.intel.com>,
- "Aaro Koskinen" <aaro.koskinen@iki.fi>,
- "Janusz Krzysztofik" <jmkrzyszt@gmail.com>,
- "Tony Lindgren" <tony@atomide.com>, "Russell King" <linux@armlinux.org.uk>,
- "Kevin Hilman" <khilman@baylibre.com>,
- "Bartosz Golaszewski" <brgl@kernel.org>, driver-core@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Linux-OMAP <linux-omap@vger.kernel.org>
-Message-Id: <a895905f-069b-4fc5-bbf0-34c3978b3f39@app.fastmail.com>
-In-Reply-To: <acuraLhLVgyP-LUK@ashevche-desk.local>
-References: <20260330-nokia770-gpio-swnodes-v4-0-b68592e977d0@oss.qualcomm.com>
- <20260330-nokia770-gpio-swnodes-v4-2-b68592e977d0@oss.qualcomm.com>
- <acrcDTPpXZ_5A4D8@ashevche-desk.local> <acruxMNdnUlyRHiy@google.com>
- <acto3TE1AR8iTzF0@ashevche-desk.local>
- <DDF494E5-C188-4A86-AC02-265B6169B591@gmail.com>
- <acuMD7Oly4XWW4n8@ashevche-desk.local>
- <9359e475-fc8e-4d32-9ab4-383710170553@app.fastmail.com>
- <acuraLhLVgyP-LUK@ashevche-desk.local>
-Subject: Re: [PATCH v4 2/3] driver core: make software nodes available earlier
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
+X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_072901_183916_FADE1951 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20260331_073006_949130_62DB6BD0 
+X-CRM114-Status: UNSURE (   6.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,31 +109,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 31, 2026, at 13:09, Andy Shevchenko wrote:
-> On Tue, Mar 31, 2026 at 12:45:59PM +0200, Arnd Bergmann wrote:
->> On Tue, Mar 31, 2026, at 10:55, Andy Shevchenko wrote:
->>
->> My best guess is that __exit_call should just use
->> __attribute__((unused)) instead of __attribute__((used)) and
->> have the compiler drop it from built-in code instead of the linker:
->
-> But why do we need that at all? Can we just drop the full section for good.
-> Or i.o.w. where exactly is it being used in the current kernel?
+This patch enables BRIDGE and DP83848_PHY as kernel modules for AM57xx,
+AM437x and AM335x SoCs. BRIDGE is to support STP/RSTP Switch mode using
+PRU-ICSS which got recently merged and DP83848 PHY driver to support
+TI TLK10X PHY.
 
-The main use case I see for __exit_call is for device drivers
-that can be either loadable modules or built-in: In a loadable module,
-you need the cleanup function, but for built-in code you want
-it to be dropped at build time.
+Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+---
+Changes from v2 to v3 :
+*) No changes were made, only the version was updated.
+*) Rebased the series on latest linux-next.
 
-For the few direct callers of __exitcall, the only explanation I have
-is that these could at some point be turned into loadable modules,
-and the author wanted to be prepared for changing it later. In theory
-we could change those to module_exit(), or just remove them, but
-there is little practical benefit either way.
+Changes from v1 to v2 :
+*) Addressed  Krzysztof's comments on this patch.
+*) Rebased the series on latest linux-next.
 
-I've tested the __maybe_unused change on randconfig builds now and
-found no (build-time) issues with that, so I'm submitting that
-now.
+ arch/arm/configs/multi_v7_defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-     Arnd
+diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+index bcc9aabc1202..13362286b111 100644
+--- a/arch/arm/configs/multi_v7_defconfig
++++ b/arch/arm/configs/multi_v7_defconfig
+@@ -149,6 +149,7 @@ CONFIG_INET6_IPCOMP=m
+ CONFIG_IPV6_MIP6=m
+ CONFIG_IPV6_TUNNEL=m
+ CONFIG_IPV6_MULTIPLE_TABLES=y
++CONFIG_BRIDGE=m
+ CONFIG_NET_DSA=m
+ CONFIG_QRTR=m
+ CONFIG_QRTR_SMD=m
+@@ -288,6 +289,7 @@ CONFIG_ICPLUS_PHY=y
+ CONFIG_MARVELL_PHY=y
+ CONFIG_AT803X_PHY=y
+ CONFIG_ROCKCHIP_PHY=y
++CONFIG_DP83848_PHY=m
+ CONFIG_DP83867_PHY=y
+ CONFIG_CAN_AT91=m
+ CONFIG_CAN_FLEXCAN=m
+-- 
+2.43.0
+
 
