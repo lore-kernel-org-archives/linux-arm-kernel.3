@@ -4,77 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8D48FF60D9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:17:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D261FFF60D8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qkbimkF7HoXE/Jf1vzsZkAfNbNEc1Y65ZFXjx0QhOzM=; b=wRBre2aHf4JXN3jVmas3t71jGi
-	qA0d2G+1uzKY1xrGsuEo5QS+dnWX+7AOt9/KzMb2CX9DSv4W0t6+Rp4C5wnQkUxTMmJino30s5Knl
-	ynl/ntIEN6qrjrioUNx2Hhe+cigH9dZN6AoO6tjqN2OEoJr5ojawO4sWpz0YueiUWdnJXcsAPD9j/
-	gt+tIuBAws6b1992nv/T63Ih1uGVLY/28UxYWnvCWgJEBNjk78ZdrXZM05lOzZleirqn2JurK9TQf
-	BtzZrIXOpN/UG5sAD1uwJI9nDO+hHUm17K8HXEDJ6Vuirpiug9e3kYvmoLa/N4SgHIfUx9GIG3NUf
-	aNyUGQ5g==;
+	bh=VjCEfnJY0UWGMHzo/rmIFjXS2kL6uhfSt06WAzQBoZY=; b=eN2X1RE2zw6QszDx4bypVsRFrv
+	7DjEOkmht6Ck7akLxsmbOifWqDD/uIOcciAaYQvgcJxFPu4PdAMNP+oWKxIdR188kKPNZ7uLgvEhM
+	V3b/4HxDW6ry5wBBEPNXcjg70qZzP54FBDAxNNJZxTiC8vqEHW+VCJFpa1KdxTz7QgB6WU7a6uDoo
+	Nga5wnEmvxDyVu9kowFqB/r9FF6tJu9LhBRLU8Zfkq5kYk0SgsxxNlGLI/cAa0n06QDUaOmZkyOs3
+	ZndzkSrbB2YJ5JPmINeBUf2HHBNcde/DDT9Pj66agu7DlZjd+P2U6GKo+LZuUVeE/Zy3u8m3CXPoH
+	+wQqdJbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7TLx-0000000CSe9-0uo6;
-	Tue, 31 Mar 2026 07:17:33 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1w7TQY-0000000CTBr-23jf;
+	Tue, 31 Mar 2026 07:22:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7TLu-0000000CSdZ-28Ct
+	id 1w7TQX-0000000CTBZ-38tP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 07:17:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1774941448;
-	bh=qkbimkF7HoXE/Jf1vzsZkAfNbNEc1Y65ZFXjx0QhOzM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=NISHE6MXoK8tfRV9S8pt+leeucFZ70wxemyKXKi9pRF+a6WzkAGIquNAVMhKf2cnG
-	 YN5MOUGglqn76zKkmoH/lrTvgp8y8TAQJXrZIOd3X/VQwwzBZWwBnHnDKY54P56KGx
-	 XcB6sQ8EvgaaZQZkMHg5IsZzaH4wlCvxsA87d9poVrwV3A8tkMtbM4j6rgTVkkVLdi
-	 TNjJawi4Hvre/DNptnvZk6d650ymJ9y+B5x7pjivv+j2W/GEJ6aEu2cemVW7T2VGaX
-	 WTpk7L2R3bDnuaKMlcpG8Ff9O4/81GyOFLTUht1LMBFiTKMMjYE7AOQxcDFQzKDG2D
-	 8CH2GwMt2fcoA==
-Received: from [192.168.72.167] (210-10-213-150.per.static-ipl.aapt.com.au [210.10.213.150])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 3163E6002E;
-	Tue, 31 Mar 2026 15:17:28 +0800 (AWST)
-Message-ID: <72517fcf99a7453841ee75243dc54e735c10238f.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v28 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
- global-regs and enable-dma properties
-From: Jeremy Kerr <jk@codeconstruct.com.au>
-To: Ryan Chen <ryan_chen@aspeedtech.com>, Krzysztof Kozlowski
- <krzk@kernel.org>
-Cc: "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
-  Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
- <andrew@codeconstruct.com.au>, Benjamin Herrenschmidt
- <benh@kernel.crashing.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
- <linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
- <openbmc@lists.ozlabs.org>
-Date: Tue, 31 Mar 2026 15:17:28 +0800
-In-Reply-To: <TY2PPF5CB9A1BE6EA5BABE55EB8A7003D22F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-References: <20260330-upstream_i2c-v28-0-17bdae39c5cb@aspeedtech.com>
-	 <20260330-upstream_i2c-v28-2-17bdae39c5cb@aspeedtech.com>
-	 <20260331-fanatic-certain-bustard-fb13bc@quoll>
-	 <TY2PPF5CB9A1BE6F267C60EEC34B6A75400F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-	 <09cbc12bea5707f794e139ea1bfafac82c2d2c12.camel@codeconstruct.com.au>
-	 <TY2PPF5CB9A1BE6EA5BABE55EB8A7003D22F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2+deb12u1 
+	Tue, 31 Mar 2026 07:22:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BFA0C60133;
+	Tue, 31 Mar 2026 07:22:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6F43C19423;
+	Tue, 31 Mar 2026 07:22:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774941736;
+	bh=cAhfPY2nlrEvbPh4MsPAlD8tOnaKqYTDsn/2Pmn3kAA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ml9Kx8FfN1P7y9DKSLbTjPNUdC92APM15X5WMz1zjiaCDxeK10k+DSBoZequrmuxG
+	 f2iYYM0UYsxnpEl5vjRL9nl9hkaePvauuRz4Hgcw49ZL8Btnt5LPVJhptCXq2atX/5
+	 /xXdJ9mtVy+FO+6pRAfisFfp+Fxx2dTEIJUKaZADCyhU96oY9V/Nd+Nwoy3GnVIMP3
+	 edDfr2FlXQM/gEBvzjLaWtw3/QLr85BvkhIfko0hvqxjEXYgjRQcDLIgMyINt/k196
+	 WRLRZjZGV60A/5gaFwU6aS6ALFyzx/fpopdlRy1XF5kBaMJkRFduiPx70+ksNcWXVF
+	 d6MYgj80iSItA==
+Date: Tue, 31 Mar 2026 09:22:13 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Khushal Chitturi <khushalchitturi@gmail.com>
+Cc: sre@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, ulli.kroll@googlemail.com, linusw@kernel.org, 
+	daniel.baluta@nxp.com, simona.toaca@nxp.com, d-gole@ti.com, m-chawdhry@ti.com, 
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] dt-bindings: power: reset:
+ cortina,gemini-power-controller: convert to DT schema
+Message-ID: <20260331-acoustic-rousing-lyrebird-ab3cfd@quoll>
+References: <20260330110135.10316-1-khushalchitturi@gmail.com>
+ <20260330110135.10316-2-khushalchitturi@gmail.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_001730_739530_08681BE4 
-X-CRM114-Status: UNSURE (   8.96  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260330110135.10316-2-khushalchitturi@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,31 +73,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
+On Mon, Mar 30, 2026 at 04:31:34PM +0530, Khushal Chitturi wrote:
+> Convert the Cortina Systems Gemini Poweroff Controller bindings to
+> DT schema.
+> 
+> Signed-off-by: Khushal Chitturi <khushalchitturi@gmail.com>
 
-> > Sounds reasonable, but before you do so, how are you planning to manage=
- the
-> > allocation of DMA channels across multiple i2c peripherals?
-> >=20
-> The AST2600 I2C hardware has only one can use DMA at a time.
-> To avoid the complexity of managing DMA channel contention,
-> I plan to use buffer mode by default for all controllers, which still pro=
-vides
-> better performance than byte mode without requiring DMA channel allocatio=
-n.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-OK, but your wording there ("by default") implies that DMA is still
-selectable for one controller peripheral. In which case: you still have
-the problem of managing DMA channel contention, but now it's at runtime
-instead.
+Best regards,
+Krzysztof
 
-So my question still stands: how are you planning to enforce that DMA is
-only enabled for one controller?
-
-Or are you planning to disable I2C DMA entirely on AST2600?
-
-Cheers,
-
-
-Jeremy
 
