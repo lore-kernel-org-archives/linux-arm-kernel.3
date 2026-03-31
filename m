@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFD710F92FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 20:20:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9533C10F92FC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 20:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j0M0/sXX/s0DXkkv0+EF2fIkGOqZ6C31hkXqcBioYKU=; b=gmLG6Q2I/a3hQvO/z5NVDlyq1b
-	XQ7HQLOg6kJpEvmJihzDc7Ov3CCWO8Y/IktgZwaCkQDQNWnr9Glehn6Yfk6RESidsTUH7q8tyWPYh
-	YkBoxTGckYkpISM646DV1SI3/IQOMsrOYF+brW9lHyf6leBSg9Ama5lcO7dBcE9S97Z0KGyr4iFXs
-	OsoR0JYZbsk2KZQWt0/L3aKQroiZBum7ssTFQWGq386lnOIiBuGjPnlbG8BmGQzmLxjrbyhUQCjLX
-	F+T6kVYe/BBKEteBTubbmEBWEzgxU8VJg7ecsmRTlULW2Oi6z8tDu9IZm7UsRCCSvyX6nX9ATSliN
-	USEPTMAQ==;
+	bh=vAQrIl51DPfK24QcFg5HbgFTMd8+gY6sfhiY8s8SunQ=; b=bf0JOEW33Jm7KtUgPKZMpo2OAq
+	Y6boB/doMsf7Qgji3uSWSFk44Qz1TP5PNcuiwhXVK/t7FSl2XIHZcyFXRx/seo25x3Np2he/ROxa4
+	o4xOuXaVTNbHayW9Hfn106hO95Y7dEL7o7v+bZ5qMKDUnjr+jhFYDWZbBv5tHTaIM1jKLkmjViJLq
+	VHdJp83WYo5vYZ+ypo5ziJ6qljprVMo9a6JIKdLbLzOSjlOEBgStipHD5WfewJov2U3dHugAnLD/G
+	Th4NQkec2sM8ThmezAGyfqiBSG1J8WUx7s7SGJDkpzR06IPrbKpR3r8BOglKRebdOKVAb9xIbsKBU
+	Liu5eIuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7fZs-0000000DWaW-0QuE;
-	Tue, 31 Mar 2026 20:20:44 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1w7fre-0000000DXCz-3rmf;
+	Tue, 31 Mar 2026 20:39:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7fZp-0000000DWa1-3ZcJ;
-	Tue, 31 Mar 2026 20:20:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=j0M0/sXX/s0DXkkv0+EF2fIkGOqZ6C31hkXqcBioYKU=; b=dMmFTAQKdHoK+OMMZ3qvudqnUZ
-	4rainb2qsrUHgHOP8R3lPswoGe4ucx+aqtz6sk1eZ0HRM1mTT+QpN8ZdcE7tmTimxinxyvclzImRZ
-	rG7gHw2rRZgr+4aMdFknFtkiR23scQZZBBRxWw7pS4M6x2iqb3mZo9bysBw65vl02YInjsf1Jsn5i
-	y6i04IKp2U0Jv1hI2U+VKaWjndyOdwY6CAluE4xfowMd481CiK7bPi0bZYrbvpzW5lhh4uQnWs8G2
-	Z5kaLATQs5x8Fj9r+SMm31c7fZGXe7UA0JADZw1OIGNK7Ln1HCvdg62W2piCE0HgR6QbG6YNvSRZW
-	p+S9lLsQ==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Alexey Charkov <alchark@gmail.com>, Dennis Gilmore <dennis@ausil.us>
-Cc: Jimmy Hon <honyuenkwun@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- FUKAUMI Naoki <naoki@radxa.com>, Hsun Lai <i@chainsx.cn>,
- Jonas Karlman <jonas@kwiboo.se>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
- John Clark <inindev@gmail.com>,
- Michael Opdenacker <michael.opdenacker@rootcommit.com>,
- Quentin Schulz <quentin.schulz@cherry.de>, Andrew Lunn <andrew@lunn.ch>,
- Chukun Pan <amadeus@jmu.edu.cn>, Peter Robinson <pbrobinson@gmail.com>,
- Michael Riesch <michael.riesch@collabora.com>,
- Mykola Kvach <xakep.amatop@gmail.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 3/3] arm64: dts: rockchip: Add Orange Pi 5 Pro board support
-Date: Tue, 31 Mar 2026 22:19:50 +0200
-Message-ID: <2545205.jE0xQCEvom@phil>
-In-Reply-To: <CAABkxwsD_59G3YrpMdUi7D1fVHruSuDHn9-gQAZbwTdxGBHaBA@mail.gmail.com>
-References: <20260310031002.3921234-1-dennis@ausil.us>
- <CABjd4Yz3MKOp-gE8kNc4EOt3-a0mKZsxvbVYCN4KsbqTRDtWgA@mail.gmail.com>
- <CAABkxwsD_59G3YrpMdUi7D1fVHruSuDHn9-gQAZbwTdxGBHaBA@mail.gmail.com>
+	id 1w7frc-0000000DXCb-1y9b;
+	Tue, 31 Mar 2026 20:39:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C033243CDE;
+	Tue, 31 Mar 2026 20:39:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFCBCC19423;
+	Tue, 31 Mar 2026 20:39:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774989543;
+	bh=UshFWwx0qjigZqehF4ng5XUMVtYphhYyBW0Ri1qyVZg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=T4pC/ntyfTxVxy8aiC+/N8BGp6ZpEmpqTEUyjIbh6w86S2k0b3rTVrGTJn+nrnQd3
+	 IxAYDk+PR4IwlCVpNcMX4k9im8PPbaQX0YcdwrB/fR9LXLcNFKjeU8faHyXcAbjG5v
+	 dvKdW7Rp4aP5d9ICvFkxrLWORI8RZKAXMyAiZC0ZAXcs5Pk6HS11t3UbFjFr3qJfq0
+	 YER4YtAyH9HdAqgKw3NYfGX5fd6hUuS0pg4AxoP0BFjf+al4fpGzHneMF3ePfPaK3e
+	 PL6WorDgNJmO0LoqlUBxcSiNhK4i3ycNA8DzSwTIKaUkYdl0ZRDqWGMoqe+aShVfFt
+	 YtCoXblOKIAgQ==
+Date: Tue, 31 Mar 2026 17:38:59 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: 9erthalion6@gmail.com, adrian.hunter@intel.com, alex@ghiti.fr,
+	alexander.shishkin@linux.intel.com, andrew.jones@oss.qualcomm.com,
+	aou@eecs.berkeley.edu, atrajeev@linux.ibm.com,
+	blakejones@google.com, ctshao@google.com,
+	dapeng1.mi@linux.intel.com, howardchu95@gmail.com,
+	james.clark@linaro.org, john.g.garry@oracle.com, jolsa@kernel.org,
+	leo.yan@linux.dev, libunwind-devel@nongnu.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
+	mingo@redhat.com, namhyung@kernel.org, palmer@dabbelt.com,
+	peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com,
+	tglozar@redhat.com, tmricht@linux.ibm.com, will@kernel.org,
+	yuzhuo@google.com
+Subject: Re: [PATCH v2 1/8] perf unwind: Refactor get_entries to allow
+ dynamic libdw/libunwind selection
+Message-ID: <acww47MH3wdNvYxR@x1>
+References: <CAP-5=fWVU3ktkGAnZQrjQJf+Z5AtQo73BVUhj-nr3H95GdcEJQ@mail.gmail.com>
+ <20260305221927.3237145-1-irogers@google.com>
+ <20260305221927.3237145-2-irogers@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260305221927.3237145-2-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_132041_917934_22EA6572 
-X-CRM114-Status: GOOD (  33.03  )
+X-CRM114-CacheID: sfid-20260331_133904_560966_480CCB65 
+X-CRM114-Status: GOOD (  20.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,87 +84,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dennis,
+On Thu, Mar 05, 2026 at 02:19:20PM -0800, Ian Rogers wrote:
+> Currently, both libdw and libunwind define 'unwind__get_entries'. This
+> causes a duplicate symbol build failure when both are compiled into
+> perf.
+> 
+> This commit refactors the DWARF unwind post-processing to be
+> configurable at runtime via the .perfconfig file option
+> 'unwind.style', or using the argument '--unwind-style' in the commands
+> 'perf report', 'perf script' and 'perf inject', in a similar manner to
+> the addr2line or the disassembler style.
+> 
+> The file 'tools/perf/util/unwind.c' adds the top-level dispatch
+> function 'unwind__get_entries'. The backend implementations are
+> renamed to 'libdw__get_entries' and 'libunwind__get_entries'. Both are
+> attempted as fallbacks if not configured, or if the primary backend
+> fails.
+> 
+> Fixes: 2e9191573a69 ("perf build: Remove NO_LIBDW_DWARF_UNWIND option")
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>  tools/perf/builtin-inject.c        |   4 ++
+>  tools/perf/builtin-report.c        |   4 ++
+>  tools/perf/builtin-script.c        |   4 ++
+>  tools/perf/util/Build              |   1 +
+>  tools/perf/util/symbol_conf.h      |  15 +++++
+>  tools/perf/util/unwind-libdw.c     |   2 +-
+>  tools/perf/util/unwind-libunwind.c |   2 +-
+>  tools/perf/util/unwind.c           | 102 +++++++++++++++++++++++++++++
+>  tools/perf/util/unwind.h           |  40 +++++------
+>  9 files changed, 149 insertions(+), 25 deletions(-)
+>  create mode 100644 tools/perf/util/unwind.c
+> 
+> diff --git a/tools/perf/builtin-inject.c b/tools/perf/builtin-inject.c
+> index 5b29f4296861..9ad681b3c0dc 100644
+> --- a/tools/perf/builtin-inject.c
+> +++ b/tools/perf/builtin-inject.c
+> @@ -26,6 +26,7 @@
+>  #include "util/synthetic-events.h"
+>  #include "util/thread.h"
+>  #include "util/namespaces.h"
+> +#include "util/unwind.h"
+>  #include "util/util.h"
+>  #include "util/tsc.h"
+>  
+> @@ -2539,6 +2540,9 @@ int cmd_inject(int argc, const char **argv)
+>  		OPT_STRING(0, "guestmount", &symbol_conf.guestmount, "directory",
+>  			   "guest mount directory under which every guest os"
+>  			   " instance has a subdir"),
+> +		OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
+> +			     "unwind styles (libdw,libunwind)",
+> +			     unwind__option),
+>  		OPT_BOOLEAN(0, "convert-callchain", &inject.convert_callchain,
+>  			    "Generate callchains using DWARF and drop register/stack data"),
+>  		OPT_END()
+> diff --git a/tools/perf/builtin-report.c b/tools/perf/builtin-report.c
+> index 3b81f4b3dc49..ae20c0679990 100644
+> --- a/tools/perf/builtin-report.c
+> +++ b/tools/perf/builtin-report.c
+> @@ -48,6 +48,7 @@
+>  #include "util/time-utils.h"
+>  #include "util/auxtrace.h"
+>  #include "util/units.h"
+> +#include "util/unwind.h"
+>  #include "util/util.h" // perf_tip()
+>  #include "ui/ui.h"
+>  #include "ui/progress.h"
+> @@ -1455,6 +1456,9 @@ int cmd_report(int argc, const char **argv)
+>  	OPT_CALLBACK(0, "addr2line-style", NULL, "addr2line style",
+>  		     "addr2line styles (libdw,llvm,libbfd,addr2line)",
+>  		     report_parse_addr2line_config),
+> +	OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
+> +		     "unwind styles (libdw,libunwind)",
+> +		     unwind__option),
+>  	OPT_BOOLEAN(0, "demangle", &symbol_conf.demangle,
+>  		    "Symbol demangling. Enabled by default, use --no-demangle to disable."),
+>  	OPT_BOOLEAN(0, "demangle-kernel", &symbol_conf.demangle_kernel,
+> diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
+> index 9f8b0fd27a0a..b6c7c164d02d 100644
+> --- a/tools/perf/builtin-script.c
+> +++ b/tools/perf/builtin-script.c
+> @@ -63,6 +63,7 @@
+>  #include <linux/err.h>
+>  #include "util/dlfilter.h"
+>  #include "util/record.h"
+> +#include "util/unwind.h"
+>  #include "util/util.h"
+>  #include "util/cgroup.h"
+>  #include "util/annotate.h"
+> @@ -4164,6 +4165,9 @@ int cmd_script(int argc, const char **argv)
+>  			"Enable symbol demangling"),
+>  	OPT_BOOLEAN(0, "demangle-kernel", &symbol_conf.demangle_kernel,
+>  			"Enable kernel symbol demangling"),
+> +	OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
+> +		     "unwind styles (libdw,libunwind)",
+> +		     unwind__option),
+>  	OPT_STRING(0, "addr2line", &symbol_conf.addr2line_path, "path",
+>  			"addr2line binary to use for line numbers"),
+>  	OPT_STRING(0, "time", &script.time_str, "str",
+> diff --git a/tools/perf/util/Build b/tools/perf/util/Build
+> index bcccad7487a9..6190a8f5b0fa 100644
+> --- a/tools/perf/util/Build
+> +++ b/tools/perf/util/Build
+> @@ -218,6 +218,7 @@ ifndef CONFIG_SETNS
+>  perf-util-y += setns.o
+>  endif
+>  
+> +perf-util-y += unwind.o
+>  perf-util-$(CONFIG_LIBDW) += probe-finder.o
+>  perf-util-$(CONFIG_LIBDW) += dwarf-aux.o
+>  perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
+> diff --git a/tools/perf/util/symbol_conf.h b/tools/perf/util/symbol_conf.h
+> index 71bb17372a6c..25d92bbbfee7 100644
+> --- a/tools/perf/util/symbol_conf.h
+> +++ b/tools/perf/util/symbol_conf.h
+> @@ -9,6 +9,19 @@
+>  struct strlist;
+>  struct intlist;
+>  
+> +enum unwind_style {
+> +
+> +	UNWIND_STYLE_UNKNOWN = 0,
+> +
+> +	UNWIND_STYLE_LIBDW,
+> +
+> +	UNWIND_STYLE_LIBUNWIND,
+> +
 
-Am Dienstag, 31. M=C3=A4rz 2026, 21:41:50 Mitteleurop=C3=A4ische Sommerzeit=
- schrieb Dennis Gilmore:
-> On Wed, Mar 11, 2026 at 9:26=E2=80=AFAM Alexey Charkov <alchark@gmail.com=
-> wrote:
-> >
-> > On Wed, Mar 11, 2026 at 5:29=E2=80=AFAM Dennis Gilmore <dennis@ausil.us=
-> wrote:
-> > >
-> > > On Tue, Mar 10, 2026 at 7:20=E2=80=AFPM Jimmy Hon <honyuenkwun@gmail.=
-com> wrote:
-> > > >
-> > > > <snip>
-> > > > > +
-> > > > > +       vcc5v0_otg: regulator-vcc5v0-otg {
-> > > > > +               compatible =3D "regulator-fixed";
-> > > > > +               enable-active-high;
-> > > > > +               gpios =3D <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
-> > > > > +               pinctrl-names =3D "default";
-> > > > > +               pinctrl-0 =3D <&vcc5v0_otg_en>;
-> > > > > +               regulator-always-on;
-> > > > > +               regulator-boot-on;
-> > > > regulator-always-on and regulator-boot-on does not seem right.
-> > > >
-> > > > Why were these added? The vendor did not have them.
-> > > > https://github.com/orangepi-xunlong/linux-orangepi/blob/232ed4b97b6=
-5da2b7b647c4e3c496f8594b9f3f1/arch/arm64/boot/dts/rockchip/rk3588s-orangepi=
-=2D5-pro.dts#L216-L226
-> > > >
-> > > > Was this mistakenly taken from the regulator usb 20 which is poweri=
-ng
-> > > > the onboard usb2.0 hub?
-> > > > https://github.com/orangepi-xunlong/linux-orangepi/blob/232ed4b97b6=
-5da2b7b647c4e3c496f8594b9f3f1/arch/arm64/boot/dts/rockchip/rk3588s-orangepi=
-=2D5-pro.dts#L111-L119
-> > >
-> > > It may have been a missreading of the schematic, but it was added to
-> > > get power to the USB3 port. before I added it devices plugged into the
-> > > USB 3 port would not power on
-> >
-> > Hi Dennis,
-> >
-> > The schematic says that this regulator supplies the VBUS voltage for
-> > the USB3 part of your Type-A OTG connector. If you make it always-on,
-> > you'll likely lose the possibility to use this port in device mode
-> > (which you would need e.g. for flashing images over a USB cable in
-> > U-boot which also takes device tree sources from Linux via
-> > devicetree-rebasing).
-> >
-> > You also link it up as the PHY supply of the USB2 controller, which
-> > doesn't describe the actual hardware.
-> >
-> > Please see if you'd rather define a connector node for your Type-A
-> > port, and list this regulator as its VBUS supply explicitly. I've
-> > recently submitted a patch [1] to make the "onboard_usb_dev" driver
-> > take care of enabling VBUS in exactly this type of situations (it's in
-> > usb-testing now and will hopefully hit -next sometime soon). If you
-> > need an example for its use, please refer to [2].
-> >
-> > Best regards,
-> > Alexey
-> >
-> > [1] https://lore.kernel.org/all/20260217-typea-vbus-v1-1-657b4e55a4c2@f=
-lipper.net/
-> > [2] https://github.com/flipperdevices/flipper-linux-kernel/blob/2f814cd=
-f07f50e901fc1b1328213e76460864c20/arch/arm64/boot/dts/rockchip/rk3576-flipp=
-er-one-rev-f0b0c1.dts#L303-L328
->=20
-> Sorry for the delay, I am taking a look at it now. Please let me know
-> when it lands in -next. In the meantime, I believe what I have is in
-> good shape and is working well here. I am happy to make a change once
-> support lands upstream.
+Please remove the blank lines.
 
-Review comments should be addressed before patches get applied.
-
-So there is no waiting for "when it lands upstream" to make additional
-fixes, when you know at submission time, that things need improvement.
-
-
-Heiko
-
-
+- Arnaldo
 
