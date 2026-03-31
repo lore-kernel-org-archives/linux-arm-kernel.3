@@ -4,58 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69D8BFF60FF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 10:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D937AFF60FF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 10:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xaGWlO1YIH7AcPa5Ha0Z5tJJDU1vQUyR6SK3Cjxn8FQ=; b=JgFA1YktfkecWHSbJ8TxCquoUF
-	qASBWsNMK/pJj+w4Tju1HIRMJlCYLmLSwRvXLfEVeV0FJuoqs9xqTsg8/OdwLavH+1O/NlXPxUHs9
-	umX7de/3mE2QqlNNZcRr5JdGsNYQSktd9NMqGI8NuKjBilh5HnMvKWCKlGuUVqYo38tA/tIAEbY88
-	MGSCtOiqqQcblZsTZPw5Mn1Uv46WSjUdNWTQl7ziVVxK6Vl/JaWEwLmr3rv12p29L/YBsY3xpLpM7
-	yJ127Ik84KBA+fWVbsE72TC7kwkB7/5djOik82AAkP1JcUaMrySADRYYRO1wuya9v+b81eQYiS7E6
-	WikH+Rqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2pmbats54+MxucVCieGBchgsz1wK8hwjJIWyGJ7YoUA=; b=QWYL4YjVJ3P8pIWggx+k6bwo25
+	RvAvHYMSsUCy9MzH1h44DHTlYO0FUCDgfijpdKAQqtARHtqYf3NXrGAH1t2WWvCsb/jOIjYUXqHBa
+	BXQzZWz/zV0yn4am1NzKmwdPUt93LoSVldO6H3HGyLjJxfKF0lYG2MSoKxkkWQo2HQRcGlR/NXC60
+	MHv4diEwKJLTf6qBNyE2KBuUDzT7gtArtrc1ZnCx2usoFqCnDisCljEDY3KvT0HY6smwL/ijZQet8
+	bkJsLlsbvcMkcGaqzpjsFOlFP7M6X9qDRJnCf9Nxj/PBD1PazJN4CKwyLMQp/zWytui7/zYjmPtMl
+	qUpGJHiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7W4s-0000000CkTz-1Dd4;
-	Tue, 31 Mar 2026 10:12:06 +0000
-Received: from [195.187.100.5] (helo=ni.piap.pl)
+	id 1w7W4z-0000000CkVb-2Qi3;
+	Tue, 31 Mar 2026 10:12:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7W4q-0000000CkSq-0Gce
+	id 1w7W4y-0000000CkVH-0kXw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 10:12:05 +0000
-Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id 8A00EC3EEAC9;
-	Tue, 31 Mar 2026 12:11:56 +0200 (CEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl 8A00EC3EEAC9
-From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: <dri-devel@lists.freedesktop.org>,  <imx@lists.linux.dev>,
-  <linux-arm-kernel@lists.infradead.org>,  <linux-kernel@vger.kernel.org>,
-  Marek Vasut <marex@denx.de>,  Stefan Agner <stefan@agner.ch>,  Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
- <mripard@kernel.org>,  Thomas Zimmermann <tzimmermann@suse.de>,  David
- Airlie <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>,  Frank Li
- <Frank.Li@nxp.com>,  Sascha Hauer <s.hauer@pengutronix.de>,  Pengutronix
- Kernel Team <kernel@pengutronix.de>,  Fabio Estevam <festevam@gmail.com>,
-  Lucas Stach <l.stach@pengutronix.de>,  Marco Felsch
- <m.felsch@pengutronix.de>,  Liu Ying <victor.liu@nxp.com>
-Subject: Re: [PATCH 3/3] drm: lcdif: Wait for vblank before disabling DMA
-In-Reply-To: <20260330224619.2620782-4-paulk@sys-base.io> (Paul Kocialkowski's
-	message of "Tue, 31 Mar 2026 00:46:19 +0200")
-References: <20260330224619.2620782-1-paulk@sys-base.io>
-	<20260330224619.2620782-4-paulk@sys-base.io>
-Date: Tue, 31 Mar 2026 12:11:56 +0200
-Message-ID: <m3y0j8mhoz.fsf@t19.piap.pl>
+	Tue, 31 Mar 2026 10:12:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6140E60103;
+	Tue, 31 Mar 2026 10:12:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C368C2BCB2;
+	Tue, 31 Mar 2026 10:12:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774951931;
+	bh=HuZ9XGoQtldmCzvMR9gactMeYCZzEsjf+eC61YzxUVA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oSIKhHvnNVzyDB7Dbvcg/JqcpGEsuEKR1WQoJEpntULphGGp5lkEGIzKX7pp4Zfw6
+	 6wo7s8y0LBbabPjtdS+e+qDBSAC/JlZ4L9wxviznwYPHOwTetC3QqgB6QuC8bNwcbD
+	 6ujNKPxHwNC/8NY/Mr/wa2w9LUd/pByQT8Pjrye/7KtvT2gkjGELofJ4W6Qv5z3K7G
+	 /YM4vuPuLm9PdXo0fhQIEtkPH4V1wPjiJIdzdCtPxbqi2xlHTg+4e8v0CDTX28MfFc
+	 VwjCuhJJsxwt/9aD3QzApBcLwb03siv3rNEXVmPljUloc63KdNzOEV1Rv/8RqfCUk4
+	 3Ai2u6sR9BQQg==
+Date: Tue, 31 Mar 2026 11:12:03 +0100
+From: Lee Jones <lee@kernel.org>
+To: Akashdeep Kaur <a-kaur@ti.com>
+Cc: praneeth@ti.com, nm@ti.com, afd@ti.com, vigneshr@ti.com,
+	kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, aaro.koskinen@iki.fi, andreas@kemnade.info,
+	khilman@baylibre.com, rogerq@kernel.org, tony@atomide.com,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-omap@vger.kernel.org,
+	s-ramamoorthy@ti.com, vishalm@ti.com, sebin.francis@ti.com,
+	d-gole@ti.com, k-willis@ti.com
+Subject: Re: [PATCH v2 2/2] mfd: tps65219: Make poweroff handler conditional
+ on system-power-controller
+Message-ID: <20260331101203.GA3795166@google.com>
+References: <20260324101419.95616-1-a-kaur@ti.com>
+ <20260324101419.95616-3-a-kaur@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_031204_266055_B54EB7D9 
-X-CRM114-Status: GOOD (  23.67  )
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260324101419.95616-3-a-kaur@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,189 +77,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
+---
 
-Paul Kocialkowski writes:
+On Tue, 24 Mar 2026, Akashdeep Kaur wrote:
 
-> It is necessary to wait for the full frame to finish streaming
-> through the DMA engine before we can safely disable it by removing
-> the DISP_PARA_DISP_ON bit. Disabling it in-flight can leave the
-> hardware confused and unable to resume streaming for the next frame.
->
-> This causes the FIFO underrun and empty status bits to be set and
-> a single solid color to be shown on the display, coming from one of
-> the pixels of the previous frame. The issue occurs sporadically when
-> a new mode is set, which triggers the crtc disable and enable paths.
->
-> Setting the shadow load bit and waiting for it to be cleared by the
-> DMA engine allows waiting for completion.
->
-> The NXP BSP driver addresses this issue with a hardcoded 25 ms sleep.
+> Currently, the TPS65219 driver unconditionally registers a poweroff
+> handler. This causes issues on systems where a different component
+> (such as TF-A firmware) should handle system poweroff instead.
+> 
+> Make the poweroff handler registration conditional based on the
+> "system-power-controller" device tree property. This follows the
+> standard kernel pattern where only the designated power controller
+> registers for system poweroff operations.
+> 
+> On systems where the property is absent, the PMIC will not register
+> a poweroff handler, allowing other poweroff mechanisms to function.
+> 
+> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
+> ---
+>  drivers/mfd/tps65219.c | 14 ++++++++------
+>  1 file changed, 8 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/mfd/tps65219.c b/drivers/mfd/tps65219.c
+> index 7275dcdb7c44..6fa202339a0c 100644
+> --- a/drivers/mfd/tps65219.c
+> +++ b/drivers/mfd/tps65219.c
+> @@ -541,13 +541,15 @@ static int tps65219_probe(struct i2c_client *client)
+>  		return ret;
+>  	}
+>  
+> -	ret = devm_register_power_off_handler(tps->dev,
+> -					      tps65219_power_off_handler,
+> -					      tps);
+> -	if (ret) {
+> -		dev_err(tps->dev, "failed to register power-off handler: %d\n", ret);
+> -		return ret;
+> +	if (of_device_is_system_power_controller(tps->dev->of_node)) {
+> +		ret = devm_register_power_off_handler(tps->dev,
+> +						      tps65219_power_off_handler,
+> +						      tps);
+> +		if (ret)
+> +			return dev_err_probe(tps->dev, ret,
+> +					"failed to register power-off handler\n");
 
-...or "addressed" in the previous version :-)
+Couple of nits to fix.
 
-Test results: it works for me: at 1080p60 and 2160p30. I.e. it fixed the
-underrun problem. It's interesting how a CRTC shutdown can affect it's
-subsequent start following an SW_RESET.
+The `"` should be aligned with the `(` and the `failed` should be capitalised.
 
-Or... perhaps it has something to do with the clocks? Also see below.
-If somehow the DMA engine was "running" with it's clock disabled, it
-would result in an underrun, or worse.
-
-
-BTW apparently something converted your tab characters into spaces.
-
-> --- a/drivers/gpu/drm/mxsfb/lcdif_kms.c
-> +++ b/drivers/gpu/drm/mxsfb/lcdif_kms.c
-> @@ -393,6 +393,22 @@ static void lcdif_disable_controller(struct lcdif_dr=
-m_private *lcdif)
->         if (ret)
->                 drm_err(lcdif->drm, "Failed to disable controller!\n");
->
-> +       /*
-> +        * It is necessary to wait for the full frame to finish streaming
-> +        * through the DMA engine before we can safely disable it by remo=
-ving
-> +        * the DISP_PARA_DISP_ON bit. Disabling it in-flight can leave the
-> +        * hardware confused and unable to resume streaming for the next =
-frame.
-> +        */
-> +       reg =3D readl(lcdif->base + LCDC_V8_CTRLDESCL0_5);
-> +       reg |=3D CTRLDESCL0_5_SHADOW_LOAD_EN;
-> +       writel(reg, lcdif->base + LCDC_V8_CTRLDESCL0_5);
+>  	}
 > +
-> +       ret =3D readl_poll_timeout(lcdif->base + LCDC_V8_CTRLDESCL0_5,
-> +                                reg, !(reg & CTRLDESCL0_5_SHADOW_LOAD_EN=
-),
-> +                                0, 36000);     /* Wait ~2 frame times ma=
-x */
+>  	return 0;
+>  }
+>  
+> -- 
+> 2.34.1
+> 
 
-I guess this comment is not necessarily correct - at 2160p30 one frame =3D
-ca. 33 ms. Still works, though (I guess anything more than one frame is
-enough). I don't know how long a frame on HDMI (or LVDS, MIPI etc.) can
-take. 30 FPS on 2160p is common because the i.MX8MP can't display 2160p60.
-
-Also, found an issue. Perhaps unrelated? Powered the board without HDMI
-connected. Then connected 1080p60 display. It came in 1024x768, console
-64x24 :-)
-Run weston. Pressed ctrl-alt-backspace. It deadlocked. Sysrq (serial
-console, show blocked state) showed (with *lcdif* in it):
-task:systemd-logind  state:D stack:0     pid:253   tgid:253   ppid:1      t=
-ask_flags:0x400100 flags:0x00000800
-Call trace:
- ...
- schedule+0x34/0x118
- rpm_resume+0x188/0x678
- __pm_runtime_resume+0x4c/0x98
- clk_pm_runtime_get.part.0.isra.0+0x1c/0x94
- clk_core_set_rate_nolock+0xd0/0x2fc
- clk_set_rate+0x38/0x158
- lcdif_crtc_atomic_enable+0x74/0x8d0
- drm_atomic_helper_commit_crtc_enable+0xac/0x104
- drm_atomic_helper_commit_tail_rpm+0x68/0xd8
- commit_tail+0xa4/0x1a4
- drm_atomic_helper_commit+0x178/0x1a0
- drm_atomic_commit+0x8c/0xcc
- drm_client_modeset_commit_atomic+0x1f8/0x25c
- drm_client_modeset_commit_locked+0x60/0x17c
- __drm_fb_helper_restore_fbdev_mode_unlocked.part.0+0x2c/0x8c
- drm_fb_helper_set_par+0x5c/0x78
- fb_set_var+0x190/0x35c
- fbcon_blank+0x178/0x24c
- do_unblank_screen+0xa8/0x19c
- vt_ioctl+0x4fc/0x14c0
- tty_ioctl+0x228/0xb88
- __arm64_sys_ioctl+0x90/0xe4
- ...
-
-This is reproducible, though not always.
-It seems it locks on some mutex - the shell works until I do 'cat
-log.txt' or similar. Now (with std output/error redirection?), weston
-doesn't even start.
-
-dmesg doesn't show anything of interest.
-weston: 14.0.2
-using /dev/dri/card1
-DRM: supports atomic modesetting
-DRM: supports GBM modifiers
-DRM: does not support Atomic async page flip
-DRM: supports picture aspect ratio
-Loading module '/usr/lib64/libweston-14/gl-renderer.so'
-Using rendering device: /dev/dri/renderD128
-EGL version: 1.5
-EGL vendor: Mesa Project
-EGL client APIs: OpenGL OpenGL_ES
-...
-Registered plugin API 'weston_drm_output_api_v1' of size 40
-Registered plugin API 'weston_drm_virtual_output_api_v2' of size 48
-Color manager: no-op
-  protocol support: no
-Output 'HDMI-A-1' attempts EOTF mode SDR and colorimetry mode default.
-Output 'HDMI-A-1' using color profile: stock sRGB color profile
-Chosen EGL config details: id:  17 rgba: 8 8 8 0 buf: 24 dep:  0 stcl: 0 in=
-t: 1-1 type: win vis_id: XRGB8
-)
-Output HDMI-A-1 (crtc 37) video modes:
-1920x1080@60.0, preferred, current, 148.5 MHz
-
-Output 'HDMI-A-1' enabled with head(s) HDMI-A-1
-Loading module '/usr/lib64/weston/desktop-shell.so'
-launching '/usr/libexec/weston-keyboard'
-launching '/usr/libexec/weston-desktop-shell'
-Warning: computed repaint delay for output [HDMI-A-1] is abnormal: -69164 m=
-sec (happens always)
-
-could not load cursor 'dnd-copy'
-could not load cursor 'dnd-copy'
-could not load cursor 'dnd-none'
-could not load cursor 'dnd-none'
-
-Why all these clk* mutexes? Perhaps something didn't work out as it
-should there? clk_set_rate isn't supposed to take much time, is it?
-
-$ grep clk /tmp/minicom.cap -C1
-[  728.310054]  __pm_runtime_resume+0x4c/0x98
-[  728.310059]  clk_pm_runtime_get.part.0.isra.0+0x1c/0x94
-[  728.310065]  clk_core_set_rate_nolock+0xd0/0x2fc
-[  728.310071]  clk_set_rate+0x38/0x158
-[  728.310076]  lcdif_crtc_atomic_enable+0x74/0x8d0
---
-[  728.310210]  mutex_lock+0x48/0x58
-[  728.310216]  clk_prepare_lock+0x80/0xc0
-[  728.310223]  clk_unprepare+0x28/0x44
-[  728.310227]  fsl_samsung_hdmi_phy_suspend+0x24/0x40
---
-[  728.310344]  mutex_lock+0x48/0x58
-[  728.310350]  clk_prepare_lock+0x80/0xc0
-[  728.310359]  clk_unprepare+0x28/0x44
-[  728.310364]  etnaviv_gpu_clk_disable.isra.0+0x28/0x80
-[  728.310372]  etnaviv_gpu_rpm_suspend+0x78/0x1dc
---
-[  728.310494]  mutex_lock+0x48/0x58
-[  728.310499]  clk_prepare_lock+0x80/0xc0
-[  728.310506]  clk_unprepare+0x28/0x44
-[  728.310512]  sdhci_esdhc_runtime_suspend+0x7c/0x198
---
-[  728.310627]  mutex_lock+0x48/0x58
-[  728.310632]  clk_prepare_lock+0x80/0xc0
-[  728.310639]  clk_round_rate+0x38/0x1d8
-[  728.310646]  dev_pm_opp_set_rate+0xe4/0x2e0
---
-[  728.310760]  mutex_lock+0x48/0x58
-[  728.310765]  clk_prepare_lock+0x80/0xc0
-[  728.310771]  clk_prepare+0x1c/0x50
-[  728.310778]  sdhci_esdhc_runtime_resume+0x34/0x180
---
-[  728.311286]  mutex_lock+0x48/0x58
-[  728.311292]  clk_prepare_lock+0x80/0xc0
-[  728.311298]  clk_prepare+0x1c/0x50
-[  728.311303]  sdhci_esdhc_runtime_resume+0x34/0x180
-
-Something fishy here.
---
-Krzysztof "Chris" Ha=C5=82asa
-
-Sie=C4=87 Badawcza =C5=81ukasiewicz
-Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-Al. Jerozolimskie 202, 02-486 Warszawa
+-- 
+Lee Jones [李琼斯]
 
