@@ -4,148 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17225109B461
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 12:57:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ACA7109B462
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 12:58:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5CKD/N8ljmq+AS6GYe0clcmowjMnKA+yGWiTkWvPKzI=; b=Eb4G9qRXb9M32Fbxx4kia/nw/x
-	9SOy65hYz6eWKmdro+ZViieW84Ws9QLyIhaT9hW1va2oxeq24vdr6YJsz2jk0K1sbk8ZN5tNKHghT
-	+AG3+Eqk/yXFHaDAXZR+AM96in/S7h7jhjQeZCTiZ/ovmc3euLLTATB6atnI/pEONtG5SJQeHmPDo
-	S+cnZ1iKGEm7nvLMAuQhOqHhiDgcLVac7a6FK9u2bRi3aS+XbN/7FaAwI6na2j6mlx8WSORqBms12
-	ekjWo8P+6lm7CVO33fFW6YG+pCrjvGeYU16fCcR6/gbVN7tejDxA4ZnXgu1W2pQzBy9JAsz+PaXmf
-	0OU/NLBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2cLRzPgMh1jzUyXR5ubz7SX1AzTAShSPRbVtdWw9nFk=; b=alJiAJzQsSY2YT/+qSF1tIoh3W
+	08xdJ/gckAuCxEfdpZ+YcwJp6hlcLCG49BZ1kVgcwmtth3dgs/mnrZgG1hZXU92xz+/o5xN/xDfhy
+	BBrIBWsFk6mBOSStZmo48c3uTtik5xdZb/oc5RLiONSYs6yPR5+2grxMiPqZp7xSjKsyiMC2fbvB9
+	eOI2IR61ckhjoIg/7eSebOmRAAEXdiZwHs/1zFquqzxPueQSQb448LUd1RfFqqzGECbFzYyxWWy3B
+	mgiWLMnKLQImR4ZznvYQjkiR1PkSE0ZQyDkHQzfV2gU8NNQ7FVIxa8VcbHJbMMKM4PP6XXYbFVH+m
+	YGuPAJ5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Yef-0000000CyCC-2RqG;
-	Tue, 31 Mar 2026 12:57:13 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1w7Yfs-0000000CyLr-1tms;
+	Tue, 31 Mar 2026 12:58:28 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Yed-0000000CyBj-0qJ6
+	id 1w7Yfq-0000000CyLP-0UE7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 12:57:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hFvKaOwsn8dWVKvhF5MjUq8ILtAU6K9aIYNy58Ggjq2m9H8bqOwx6mw9IDj03Er8m3mqOkKtG5c7uebHFi+Lc9Snq0AYVccBjvAOYifjHxrA0TM/mjqA6FuP6Kc60app4agSVc1FNqx7olCI+JFy1a+8bHZKFH77SgPE1WbOqRT4SRZTRsR5w0dKMpa8jVcBWZjqWAj4C9UGnJjvr8Qy18grgJKFqjL4qgu5dWCCqQRBVy1esoDlVhSY843nTndr8V/6jnUuJGxy09uSUboSvvy99X524gSqUoKlHwtgvBclriX7nUGm6erN0ek/xPJVuxldcNe0gAKau3qgaEU2gg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5CKD/N8ljmq+AS6GYe0clcmowjMnKA+yGWiTkWvPKzI=;
- b=Y0XldOiBFjxlEzunDrmY6JXYGXByKAV6HET5DaWUrBVY9tjBsP+JIDDU5isVY/y0PFpT3REKlJBZOoUyAleWV30o4KdGXB06EfzH2sWJOk+WpmzLQuXYe+SromOqT5acMsVedJgkgk2Z8T70dTV3UEgM1k36MEpXGcJV4Fw6gw0bY27PPe2C+n6ZMpRHOXENG0DlXh14M6Gb8GKKnS0v1q+1ZIFAnbHOIP/cc8pu3Nmj8850xvrNi1kHE6KdctUTB0fcWT0I3+avaWOoQPErsR1JwjO0vwDQyP6s4bpSrs7KncQAMJhQewbcrzs0nbNBExL4XnLKWj/WkHue17O7NA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5CKD/N8ljmq+AS6GYe0clcmowjMnKA+yGWiTkWvPKzI=;
- b=uA0JNsL7Q3DBhIK8OXCi11a7ETViQUuibvFcd18ByzX1ykKGYroLYDdU5xWGhvlvXYyyrCB+MqEvrWGTqPQ3ftD3spUUo2UVJ50YMjGq+g56WKZfoOQuvbQyndqdteG5P/F6wz9mRA9+SemplIHU0UowLWnuQUaEDwWjWvb1k7ca3nUFEq03lqnsteidWTk6eM0dGKr+tUee9s7aUf0/J6JrYvaGA4puIg+drBQS7IX+o1TiGnLthPlXWVVy11HYVZ9cjHZ5C7IjVqArvomGgREytgqRWF/9vDs+cJPXw2TrVysOTIcmvZXeQywpRhgAl0CKoPTjnAvo3TS4/eK8Uw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
- by DB8PR04MB6922.eurprd04.prod.outlook.com (2603:10a6:10:11f::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Tue, 31 Mar
- 2026 12:57:03 +0000
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9745.027; Tue, 31 Mar 2026
- 12:57:03 +0000
-Message-ID: <b665d94a-e82a-41df-8295-6379362404f1@oss.nxp.com>
-Date: Tue, 31 Mar 2026 16:00:07 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] ARM: dts: nxp: imx51-ts4800: Rename wdt node to
- watchdog
-To: Eduard Bostina <egbostina@gmail.com>, daniel.baluta@nxp.com,
- simona.toaca@nxp.com, d-gole@ti.com, m-chawdhry@ti.com,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
- <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Mark Brown <broonie@kernel.org>,
- linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20260323175948.302441-1-egbostina@gmail.com>
- <20260323175948.302441-3-egbostina@gmail.com>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <20260323175948.302441-3-egbostina@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0055.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:cc::12) To GVXPR04MB12316.eurprd04.prod.outlook.com
- (2603:10a6:150:2c6::8)
+	Tue, 31 Mar 2026 12:58:27 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-486fe2024a9so41599445e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 05:58:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774961904; x=1775566704; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=2cLRzPgMh1jzUyXR5ubz7SX1AzTAShSPRbVtdWw9nFk=;
+        b=HafacbbX3iNKy1R0yK2phmdZ9u7WS5zUD1ogh7lOwf+/WZIFL+gk88RkmJrlv1UOIy
+         fm5AbYZIgPGMEAguoxPDqqCtHtocCaUwB+MCbllWU9ymidxNNuGhnaLQBU8Oj+DJYs3p
+         fjaL6Sb235wWbA5jPKiv2LJue4imsSDLNUiZ88+HxstWsV9vixV4JSR4o2IK/o67xu3l
+         6A1YYVRua2zVK5ulTqSghsploj/kn51CaeJnWlDwScyjjqqoYKvhoY8fMjLRyliucKg/
+         eODR+mIlxSWPm064a4IGYNEqLjBxMxSZ4VTFup0syaAmruvvj2gWVviv/5djhdR+88lo
+         k+CQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774961904; x=1775566704;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2cLRzPgMh1jzUyXR5ubz7SX1AzTAShSPRbVtdWw9nFk=;
+        b=ZCkjU/0gK4H9bQRSa3k8igLLeQmTy1gzbWLmJY1GZPGaHVuSvMJ3mkBaveH8WRA1Ys
+         4KCAu9nIsGM4vMANpcqdFYEFXpef88RWrLVWNAfko2TwYN/xUTozjV/3EhiST7zO7T0/
+         GNqFqWNSLKrhcwr7ZN2CWejj/c//dIempmIoUX2nbIapsUQVV5mGH2dy/SFPd7uymv8B
+         9ZbCp+F/CaMF5m9WPrgUJ48ozT2nXcjQ2qJaUd2mZn+wkJJ8lQ+qG7uNIsuuICjqTgcE
+         Q0P4lY9LMA4LHzR/S1eoLsVAjsrUW2mHxr/7bCPDiwUZ29oV70qNDY5svR8m4gHfWVCn
+         i/Hw==
+X-Forwarded-Encrypted: i=1; AJvYcCUrWJ2Mav+Ya/W4jE7R6OqgPIrTheFRvLOQFOVs+DSZH0d4JrFaWp2SF8EaYeMTczDtbCILHEdWyZQucChjohnI@lists.infradead.org
+X-Gm-Message-State: AOJu0YySGkz1VGwPJB5Qjf8U62ViLpNIuS2JinG3Jud0uq+U5umHtEuk
+	6tmeMKmlVYUky1aa4/tlwuAO8fwoQ37hnt9UMt7jg0uvKq+eeHjgg2o4
+X-Gm-Gg: ATEYQzyZBBnzmbgR3vInwwLajN8Me0rTgXtZS/ZHenTNPu3eju0xrSEf+PBfRBofNZg
+	rZ2RqdeAyET1CUxgc76MnAz8a5qV1OadvtVp5UW/IjK2xKfL9ihcyXDnnK2up4OVPH3Ef95Zz4R
+	n920wYsR867cWGdE4rBVh5A+l01I7BNMZ/z8TbPiZUteQ1HUfhavLFh1C1fbu9i/CBusgdILYHj
+	VZT0d6yqujmy50GGhC/xJkGkrFhm9UQtiBF0235oYpifb5VebsI67L1PnrSPk1Y4XX+qm7dGJXZ
+	8SEdi5l7hTsRzTECd4pWuXDSJEy/KSs9b6T7S4TS69tY0gqSYuWpG1r2rNrHnOcvCt/BYrc1Jaw
+	bNY06YxKzpIXobZHuKfe2BpVNfUNWF1cU2caAegIrHqi6A2DZ86PV9za/Xrrj4f2pzqRytEi1Ot
+	15Ke40GksVWQXwYboh/jQqBEJfR+CFAcdYa1SGcpCuaqahVU0Ys7krQBs=
+X-Received: by 2002:a05:600c:a012:b0:480:6bef:63a0 with SMTP id 5b1f17b1804b1-48727ede8d3mr291577115e9.21.1774961904134;
+        Tue, 31 Mar 2026 05:58:24 -0700 (PDT)
+Received: from nixos-office (195-23-151-163.net.novis.pt. [195.23.151.163])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4887e93c0cfsm38946535e9.9.2026.03.31.05.58.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 31 Mar 2026 05:58:23 -0700 (PDT)
+From: Julian Braha <julianbraha@gmail.com>
+To: manabian@gmail.com,
+	davem@davemloft.net,
+	peppe.cavallaro@st.com,
+	alexandre.torgue@foss.st.com,
+	mcoquelin.stm32@gmail.com
+Cc: netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Julian Braha <julianbraha@gmail.com>
+Subject: [PATCH] stmmac: cleanup dead dependencies on STMMAC_PLATFORM and STMMAC_ETH in Kconfig
+Date: Tue, 31 Mar 2026 13:58:17 +0100
+Message-ID: <20260331125817.117091-1-julianbraha@gmail.com>
+X-Mailer: git-send-email 2.51.2
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|DB8PR04MB6922:EE_
-X-MS-Office365-Filtering-Correlation-Id: e9c0af2a-db6c-49f4-5460-08de8f25010b
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|7416014|366016|56012099003|22082099003|18002099003|921020;
-X-Microsoft-Antispam-Message-Info: h59v4FDqhUXRBz7x1++vDO1+029BLN018Rn1A47HjmIX5/5tkOkGb7Wi4ItzWW70qAlX84mH+tCwcOgRinAu8khrPjyjTOv1OX28DsmZPqjQOQDTpcHQUWIW6D7FKIWHsgjLypYmc5WwrCeOBNbiPuEFJQpj9F81nblv1KLF4PEfpYmd6kRvZdkBCKYxcKkldOqrllbl5RKWwKUFxsQROPhqTefIYObnEY/6w5MoisLY814oELcbGRrvdhJ6V/hso0H5ZqWHWjxDDrLlvwAEaTT1UUuAD6SQSAHy8K/9nH6+qyIQVfvzBrJWUmAP2fKuo2D6WVb6fzqSssd/zECTEetY/4OZZZO8CiMqqqoOLfiGf/1X+m9Ohvlt/wfFzclT6276VxaDGa2YszXJ0ZOAPBf9P0PdE/sJ41ij2VfsRGwJp0jwISro9vFUndxOduJjuWvR7DLGEa2rqa4klnVPBS9gwIla/mmADcthzKgLD467S76yFkcQjf/TNfM5xordgOn7RG4XqmLqdMYVE3QJHMAsmglGEtaLNwdjiLDYBqYIdZXni9CiuEwb/1X/5HtU+iObOiQz6liTtwcffpvX0nKIWsCGmiskbC20RGZ4MmFZbMXYxfzP5Gr722QOa4aF6ecZxXwa2RvWPGZJwZv1aK8jM0aMQVWQlgG7OWW8596NcFnmcFLbv2DtDWGA4VhDQPLA4lwoBcGLUa5N3DanOGdARQzFZYwMBLloa9sO8RdUDKWGj03xiP+JGSm994FUYFlzHiRH09vzT3Qy7a0oMg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(7416014)(366016)(56012099003)(22082099003)(18002099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b1pERnpKSTRXM3pFY0czTWdOZzZudGxjZmRvYjVCL01aZStMdlVlUmNkMkJm?=
- =?utf-8?B?S1FqR2d5TktlVS9vU2ZVYm1MMTNRcCtma0hDbWJFcytEcExTUUk5TDJNckxT?=
- =?utf-8?B?dzJleXZWcVJwajlpTUxUOXNwbWVZajc5aGNXTmtLYy8xRzI2Y25ER1U2UmVs?=
- =?utf-8?B?Y3hEdEd4YTJwbHRha3pnVTgvU2V6TVZJcXNrdU93TVBKMXpBSTV4TkZtSlN2?=
- =?utf-8?B?NzVlUFhGblhZcFBxWXN0OXBUTzZYZks3MkVJa0g4VXcyb0tBNWtiRVNIbFZl?=
- =?utf-8?B?c3YyRFUzempNNERRcmpSTWdaMHIwbjFKeFgzWklmRzd0b1hQK1YreHdwU2h1?=
- =?utf-8?B?U2ZxTVd1WWx2K3NqNlVDUy82MFpvNTZTNE1YMTE3Mndjbm5KUDFxOVNpSnBT?=
- =?utf-8?B?ekh3OEF2WDhxanE1cHdvNUtaYnV1U2sxU2YzMkpPSzkwZ0VrSUVMc1dZNEpL?=
- =?utf-8?B?RThudFdHWUVkdUdnL0pVYm0wN05sUG05ZWl6YUs2ZjFEdjJkblQyUVp1UXov?=
- =?utf-8?B?ZnlXbVV1STNWc2l6c0lCMWNmdEJlUzhYVGE2RlRNQTFQbGJickJocVUyaFNi?=
- =?utf-8?B?NkE5bkFLYThJTnBRTVU4UHRzQXZzVTRvUUZXcWdVWmNPVmNLbU5ybWJ5T0FV?=
- =?utf-8?B?WU1rQnF6R3g1MUJoSWUyNng3QkNodFMzOUpCdGQ4eVZkbUh3RWRhSW5YNndL?=
- =?utf-8?B?TlZuWTBZTzIrcFJNUkRiMDk0TURvcFJybnkxWEpUb2pHNS9EeEFDWmgvK0Zt?=
- =?utf-8?B?cjdLTld0KzVsM2NZL0ovRnpvMXYyVWFIaVJxYU4yTTZQdDN3UTN4YnZIRVRl?=
- =?utf-8?B?QTZmMVBhaitBSEF1NGh4WDJmaWFzYnZXSjJPdmFYaDV0bEFXRG52aXZob2dq?=
- =?utf-8?B?c1NiaUtrZm1wOTI0QkFFR0o3UmZITDhzQmZtVHRZL2o3UGkwOUNOOUFFTkRH?=
- =?utf-8?B?Q0VvY1Jrc0tBSHhHYmxKUmdzekVkZU52Yk5DQi9QMlNoNEE2b0d4MFBpbHJL?=
- =?utf-8?B?ZWxLcVNWMjBxbmRYNTlyOVU0NHZ4dDBSS1hRM0RacFBPckFUZXdoeG1CSCs2?=
- =?utf-8?B?bDVKcUhiaGdWVFZ4aFMrOHQxUW9zWjlmU1dtZWZ1dXhyUFVzY1lCMm9IL2Uv?=
- =?utf-8?B?VHE2cEdWdFdNZzRJSWEwTVYxNTQyQ21jZ21rR1h2VU4wTWVTcUdWcVFvcDBl?=
- =?utf-8?B?NHY2OFI4K2dTUjZIMGVFL0NVWXFDR3IvUWs4WW9wS05ac21Vd1laWTVtSkov?=
- =?utf-8?B?dnpLMHExc3NMR2psK0pTamZESHFwQXlLaWdoY1ZuU2tySWRaT0VMYldVcTZt?=
- =?utf-8?B?dU1Na2JxL1YvWTBWbUdzVzljaThEaVZRaFlOZEJXcWVic3dnRjN0OGtCc2VP?=
- =?utf-8?B?enI5eWRPSTlWSVRWQ2VQS3lLRzhSbVRjWU16MEJoYXg2MGI5bGpxd0RKcndE?=
- =?utf-8?B?Z2gzSjNWQnpTa1JlNVFHV0x5QWtIcndmQWNZMzE5VWhVK3NmTFI2b28rM1A4?=
- =?utf-8?B?eEhCRFFXaEQyWnJXY1R3dTJJQ1hqNDNLWjJZa3pJMk4vRWtKeXltVllpcFNj?=
- =?utf-8?B?b3NGM3pFTE9kbHAweUpPZlNiQ0hoc1N4WE9XbVlwQzlERkdwQVN1Wjk0RzVp?=
- =?utf-8?B?TmVoVWcvQ3ZEZGtNMGtsR1pzdXVQN3pOUk5iQlZQb0U2U3BDTXFpTFpKWXZi?=
- =?utf-8?B?a25NNEpDMjlCRnBSSDNJSzlGOVBQOHUxd2dSaWRGYW1JdkpnZlJYTlhzUU9D?=
- =?utf-8?B?SkZjam9oTzd2QW9yeXVqTzJ0aTF5UFdxYTBrcDl2b3JYSW9YQnowU3FGcTc4?=
- =?utf-8?B?Wm5DL2Y2cEZ6d3VkYVQvbmpCbVZIcTdoVjNOR1U1RW5GMmtUcmVFNFNFaERN?=
- =?utf-8?B?cWlnMmlVZStmY0o3U2U4QlBOTVBKVXo5MjJHNWpsOXM1Q2VRTy8rM0lIbnM0?=
- =?utf-8?B?VWdhQVRpWGdUelJzVk1VcWQralgyVDNWQXpJMXI2UDdPU0ZIaXRMVS9NQm0v?=
- =?utf-8?B?V28rUlZPR2JQdTl4VGx0REcrTVNSeVU0Q1ZNU25NcXlpOFVxOHhZSzAveHdT?=
- =?utf-8?B?N2ZxLzNBS2dkQTJyVWVhOTQzeGJxRXRVLzV4WDhHRFhidE9NZENEQktTNXJs?=
- =?utf-8?B?NVVXdlZCWUdYNDAvd0xiaHdvZ1lTU3ZYTDJ5dXNEdjdvQkRGd1A3bFliNEJJ?=
- =?utf-8?B?MFpyN3Y1bmhFMHNhZHFOeUdQQmplcVZtOU56S0hLQlRxcklIWEF2NlVPcmNF?=
- =?utf-8?B?WVI0TXhvWnZpMERBaTJMWHZpSnhKZVkwbktnRnh0STBvajRWWXp0TjBRY2FS?=
- =?utf-8?B?ZHVmOVMwNmlJazdaeEd1Sks2YUl4U2RnN3MxRjNnRFA5dllqQ0FhQT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e9c0af2a-db6c-49f4-5460-08de8f25010b
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 12:57:02.9658
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uqE5bHSJPm1r/bz/CzFiemQmAKRnDErV5WEwdJHOFT6JjNNWsUr8sUDnAXKzLsYBR/YDMtoCxuQjux2nxxTmsA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6922
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_055711_251386_261F5C6C 
-X-CRM114-Status: UNSURE (   7.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260331_055826_204129_B09F2415 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,17 +101,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/23/26 19:59, Eduard Bostina wrote:
-> The Technologic Systems TS-4800 watchdog node was previously named 'wdt',
-> which violates the core watchdog.yaml schema expecting generic node names.
->
-> Rename the node to 'watchdog' to fix the following dtbs_check warning:
-> 'wdt' does not match '^(pmic|timer|watchdog)(@.*|-([0-9]|[1-9][0-9]+))?$'
->
-> Signed-off-by: Eduard Bostina <egbostina@gmail.com>
+There are already 'if STMMAC_ETH' and 'STMMAC_PLATFORM'
+conditions wrapping these config options, making the
+'depends on' statements duplicate dependencies (dead code).
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+I propose leaving the outer 'if STMMAC_PLATFORM...endif' and
+'if STMMAC_ETH...endif' conditions, and removing the
+individual 'depends on' statements.
 
+This dead code was found by kconfirm, a static analysis tool for Kconfig.
 
+Signed-off-by: Julian Braha <julianbraha@gmail.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/Kconfig | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+index c2cb530fd0a2..ba5473b8dae0 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
++++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+@@ -20,7 +20,6 @@ if STMMAC_ETH
+ config STMMAC_SELFTESTS
+ 	bool "Support for STMMAC Selftests"
+ 	depends on INET
+-	depends on STMMAC_ETH
+ 	default n
+ 	help
+ 	  This adds support for STMMAC Selftests using ethtool. Enable this
+@@ -29,7 +28,6 @@ config STMMAC_SELFTESTS
+ 
+ config STMMAC_PLATFORM
+ 	tristate "STMMAC Platform bus support"
+-	depends on STMMAC_ETH
+ 	select MFD_SYSCON
+ 	default y
+ 	help
+@@ -53,7 +51,6 @@ config DWMAC_DWC_QOS_ETH
+ 
+ config DWMAC_GENERIC
+ 	tristate "Generic driver for DWMAC"
+-	default STMMAC_PLATFORM
+ 	help
+ 	  Generic DWMAC driver for platforms that don't require any
+ 	  platform specific code to function or is using platform
+@@ -336,7 +333,6 @@ config DWMAC_IMX8
+ config DWMAC_INTEL_PLAT
+ 	tristate "Intel dwmac support"
+ 	depends on OF && COMMON_CLK
+-	depends on STMMAC_ETH
+ 	help
+ 	  Support for ethernet controllers on Intel SoCs
+ 
+@@ -371,7 +367,7 @@ config DWMAC_VISCONTI
+ 	help
+ 	  Support for ethernet controller on Visconti SoCs.
+ 
+-endif
++endif # STMMAC_PLATFORM
+ 
+ config STMMAC_LIBPCI
+ 	tristate
+@@ -381,7 +377,7 @@ config STMMAC_LIBPCI
+ config DWMAC_INTEL
+ 	tristate "Intel GMAC support"
+ 	default X86
+-	depends on X86 && STMMAC_ETH && PCI
++	depends on X86 && PCI
+ 	depends on COMMON_CLK
+ 	depends on ACPI
+ 	help
+@@ -420,4 +416,4 @@ config STMMAC_PCI
+ 	  If you have a controller with this interface, say Y or M here.
+ 
+ 	  If unsure, say N.
+-endif
++endif # STMMAC_ETH
+-- 
+2.51.2
 
 
