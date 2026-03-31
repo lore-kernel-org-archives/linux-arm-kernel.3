@@ -4,150 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1749109B47B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 14:44:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC756109B46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 14:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5rjP5iBsy8kPlzbvdsL0bTiLtesZG/Q20ju5pr8bjOM=; b=OJYwfLfAoqzhwOboemRqf0cDVo
-	YFgr0BFBGtq0lgeQkERQJNX6W7KIMvQkzDfq+1KQzJ3vmdkMQo9LnaKnTOZFnb0E5oGPl+lKjig9e
-	qISffKSz/tt49agdoRhJfiKCFc2IZmIWl+uE1S3pu4xzRosbOmLIA9yk/m2YUEOYPjd0zqUZwjD40
-	wrP++qY2EnPsBHHp552KEeR/uz41R+w6hLDtkqC0Wgk3nIS2jKHdtDPzg/mouml9WAzb+EeDR8cVI
-	25SMj49M4q/bIfsNVkYRtwBWVDeLXAW0qg7jvuSYLhmvrFHj9dovvtUV/c1bUeYv9I/J6bx014sPi
-	WLsDUNXw==;
+	bh=Ua09WmBLY6KGcbum/vvb0a1QtvfmmzFzVBV577v3kNg=; b=wsTaWgSYVz5mZZdQ6RcF0OYRKP
+	bs2k67xGkpVUTXnLBmXVixJl7XCrYLE5qpgDzJRd/IxPRxkZ4+n19GjZEFxNu0k9XAT2wC4S1Pu4U
+	nOLCbrS0ZGpRsjEWI+xGraePj00FLh+RlKyJBQYfEqWRK7JqxORE3G15jm8hC4dFyyygKyRB2QUcN
+	uD+XOUkA7AgL12VilAl6cB7OxLxxmpaSwZATtqRpg7v+v1rcFqt855I6o8q2CagKNLrSOiaZWU8iq
+	HEZdH7M8WTleVTR2b+7nHlZTKZES0LgwIgt/HDnfhvq5AjbMfG+IPa6Zc3/Dns30P8dPx27a6b+9J
+	z+yPQc6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7aKB-0000000D7Y4-2RaF;
-	Tue, 31 Mar 2026 14:44:11 +0000
-Received: from mail-norwayeastazon11013038.outbound.protection.outlook.com ([40.107.159.38] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1w7aKe-0000000D7ax-3ksm;
+	Tue, 31 Mar 2026 14:44:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7aK9-0000000D7Xe-0Pcj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 14:44:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AdYsGRhqRDD4FOd4IEbXR8BfmHiufSGLIQP420ghXe32R4WwVUQTVClzJ/1+7BvKQlkKk1M5TmhQWdd7XTb0XdLWeCTKGkOtKoP9dZ9wIMtC0so8EOW554J0mjzqjYGTkgqluanYZJH5fg4L64I5iN2RihtTiN/Hxll0oFs2JsbsRo+UVOWMz9WT4Jf5rbXOR/dms1uzqugkILAO1eddPho6oho3IHrIm2+VJEz7mvKW9Y0eNq2gPmvraH6pGTHYwvEcGXF5WyBOZOtEPEhrrvEweLesv3BSCkQ0ewgxGq5ddFzXrTzQhOj+aDf5ye+LgXClFDDr1PtNJ6iQ0ja3bw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5rjP5iBsy8kPlzbvdsL0bTiLtesZG/Q20ju5pr8bjOM=;
- b=JKB1te1GuyhYGbAB2/mjOavy3vmsXHwiuME8EBLDFxIUnR8S3v9hjNEC07E2YiOeuEgYgVX+kU0ZAH4Uj+MFdzLJfpInYkeqJFzpQMM/RBk0sJ4X9bM2GAgAd6rQil7tuep5aY6cOe2CJx0Ehh8gEW8VGiymsZq2j+J9eJHqdxSAtm4t2ApAzeda74PQle4LEfArJn6cl1Dt5DnuKv1NEqoGzYYtuQTXQjisPGsDSR7wg0c0DbVsBYrcUNyHA/jgkCxahwHIpYsdbdrYqwXldl0Wx8fB+dwv7c9KNGrE4HOfq5S0/3HWQIqru2QZrmn8fOutjN6Nqh3eRyVKH33Arw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5rjP5iBsy8kPlzbvdsL0bTiLtesZG/Q20ju5pr8bjOM=;
- b=XLm123qMbXdIcdERP9LJSClEFYgOIdUeYok6fwMk2NASndipY4t8+DWkE8m5wiUSnmExz8SKaRvcbInQr0KveVlZn+9M+psW0vtl/HJBXS8+5sCQVn72jr7UnjAOtOwqFv4okEC3clOsPGfxYwL+N3RSLDnk6xe/YBwJn6ABPVRwAVrG+IYK8IzQDVoGOBJyqWOZkLHOu/IOc3SV2YVEiGfbV4zmMeziG5/n+RWdnN298WrCq1QqVkvFjpQC4h2Fl5TItT0mkZX8VYWv5IlWgax3dRzusJe6xg+G4Ofx37lzAmo7Goac5oEMDf53m/R6QTAl9KhkWiG24s3MKxW5Ow==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PA1PR04MB10964.eurprd04.prod.outlook.com (2603:10a6:102:490::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Tue, 31 Mar
- 2026 14:44:03 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.027; Tue, 31 Mar 2026
- 14:44:03 +0000
-Date: Tue, 31 Mar 2026 10:43:53 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Cc: Nipun Gupta <nipun.gupta@amd.com>,
-	Nikhil Agarwal <nikhil.agarwal@amd.com>,
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Juergen Gross <jgross@suse.com>,
-	Stefano Stabellini <sstabellini@kernel.org>,
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Prakash Gupta <prakash.gupta@oss.qualcomm.com>,
-	Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org, imx@lists.linux.dev,
-	xen-devel@lists.xenproject.org, linux-arm-msm@vger.kernel.org,
-	Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
-Subject: Re: [PATCH v12 2/3] of: Factor arguments passed to of_map_id() into
- a struct
-Message-ID: <acvdqQvcitLTCZbm@lizhi-Precision-Tower-5810>
-References: <20260331-parse_iommu_cells-v12-0-decfd305eea9@oss.qualcomm.com>
- <20260331-parse_iommu_cells-v12-2-decfd305eea9@oss.qualcomm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260331-parse_iommu_cells-v12-2-decfd305eea9@oss.qualcomm.com>
-X-ClientProxiedBy: SA9PR13CA0007.namprd13.prod.outlook.com
- (2603:10b6:806:21::12) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	id 1w7aKd-0000000D7ag-2iH3;
+	Tue, 31 Mar 2026 14:44:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9F4566024D;
+	Tue, 31 Mar 2026 14:44:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D34BC19423;
+	Tue, 31 Mar 2026 14:44:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774968278;
+	bh=3Jhe3TYvRFJkGv7Zr9SSw2NSWBUOqC4UfBtpEzkNAq4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rj6yay0F8xnQmb2P+v/FnkDjrmuTOcOJYfOxuiibrcXSN9gjxUZ4lLxVRJbEbUYcS
+	 JN7r1VaXkvKla+H4EMfP13kjj5KfmKUrTosQUkMKLfJkQYOVXJwf1rs9/Qh5DQQJry
+	 ymJfWPTgj8DhkiErhAymB7y3E3e5qJLlgB66V/NM86KxvwDSkxvRgERA4O2T8AFwOU
+	 RDyfZ4Rs4dxSJOF36eVqZyClMR5Z1okIXEgkQ4hAts6VxccPH8hoCBK2CcfORUMbem
+	 q97xkpxD0/oWeQnKHq+ajwsKw9BWSA0PVbpuTEzR0lhadJ75DkuojegAu/+PCiYayh
+	 5u3BksmTnqH8g==
+Date: Tue, 31 Mar 2026 15:44:32 +0100
+From: Mark Brown <broonie@kernel.org>
+To: =?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Maxime Ripard <mripard@kernel.org>, Melissa Wen <mwen@igalia.com>,
+	Iago Toral Quiroga <itoral@igalia.com>,
+	Chema Casanova <jmcasanova@igalia.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	kernel-dev@igalia.com
+Subject: Re: [PATCH v7 1/5] clk: bcm: rpi: Manage clock rate in
+ prepare/unprepare callbacks
+Message-ID: <8a3c104f-9259-46a9-a6d2-a907d699e49c@sirena.org.uk>
+References: <20260312-v3d-power-management-v7-0-9f006a1d4c55@igalia.com>
+ <20260312-v3d-power-management-v7-1-9f006a1d4c55@igalia.com>
+ <5f0bec08-f458-4fba-8bf3-06817a100c4c@sirena.org.uk>
+ <d251c380-f2f5-4daf-9661-bbb6dc6c959e@igalia.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA1PR04MB10964:EE_
-X-MS-Office365-Filtering-Correlation-Id: 238e6cc5-6b23-42b7-8b74-08de8f33f3ae
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|52116014|19092799006|7416014|366016|38350700014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: s+KiA0MI42oQZjz97rmpPSQpWToS2IRv5hA0wHFEfQ66xgsjPtoOj9ZMmslrUM076pQAWJvYsHrvyebukhsQ4XAJM0x8O6BXX2ThzbrWO7mZoEH19gL6CoGyh0GlJFkpg6aua4BGZ6iexITGS74I7lVFSD8iryLffh+f3zIymaPL0VpY10HItZbSpNwUhBJMZrNw6jOUjQbf6rdChQYUsOtbHt7zZ6gq1tr4GqKrcP7brmUv9qY/aqXkJyZEZmRFrwBE+9qci02UHmSc2Dxb5vjbIUTDfmRYLD5DQv6J+4pQ+B7ybsJmamaaOyQySdUABFrxi39veWV7dRYlA1g3EKGxQUEy2VuGhori2AXujb41clpsUDX0ZC/LEvZv1KSeeVdE2WtYg3/775tjh6psWWIDeuWNAKXhJAlTaLgLmT772D7qNn5E9l3r8gBnwYfpd7j/Pg4Gw8+gNIw6dl+zhC7GsXYX2o0JYRYe1lHikufyEb0wf2kzwqGfaMIGu85m3JmIujt5iqX/41X5axuxKJ+Lr9HcXRXL7uS62awNx5kOmAfp+cA9mwgWxGeBgnkiRyI1dCGQQ6Y1iyDdJGWvWs1Fd2TnaCCd3jEcGgo31etGPcBr0rrZWjvLlK1S4s088ncYmX7jveSGvWeC22lnFigMWvlBl7Pv9LNo59jxDXG6JVKFYS0sMMrnGMwySLXlLo7oqTJe4CHXYAg4pNh0Vg2OxRx/xwZxX8msLiFnQPzh5UdBxoxRWGn2sRjE0QpirfG6FVA3eLQScmd8ttAH/wvXFKDHg9J203L5SbCpd10=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(52116014)(19092799006)(7416014)(366016)(38350700014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2iT9OHtHa+9bxUiNicBG0P/R6shQ/HaKVFFsEx/BcChqdn2hP08875nETbBY?=
- =?us-ascii?Q?8YQXh8M+Lq/Dc9PmWbMKeS6gk3m76p9SutE/+pCFHdLq8eAXlwYkIhm25Yvb?=
- =?us-ascii?Q?3k01D2Y0O+idAWzrbaTOGf4djc9rR7Hco89NznpwSSrxN7zxnQ3o0qfEy2/O?=
- =?us-ascii?Q?ZfdmNyoV433YFVUn2gaobRCr/K2e7+etGyjEWyfbxude9W+zhDFy9vjADNW7?=
- =?us-ascii?Q?n+6bncInM9l+tq4QUE0qQ+MYwsluE6r1pV2WAnn7EFHC1nbEo4yL+CjlgdJF?=
- =?us-ascii?Q?LkMhcYkH6Gqnw+87spICB1Agvr8DMwBMTNcqAFcvYHErR/QFlC9dBKacUlOj?=
- =?us-ascii?Q?fexhAH5qjYnXRRGsu2qtsIlwPKxBXmdur6LGhqi2m3qA+F/h2up6ux+9GNGK?=
- =?us-ascii?Q?5MIcbSh2W+6BO/TGpIcyrrhA/RrCQ6RKLLod50qo+FJfnDT8S0lupzDCszhC?=
- =?us-ascii?Q?ca0g3wxK9v+5TzwRzyobZMtze/QsZLZeeSrSN/s1u+Xr1IZWQcLSkswEGxqD?=
- =?us-ascii?Q?dXUzom5siSa/hCgVDYPMbi1D7CySRMFO1bDfb7g5f4MyPMURfDkPJVTfrIbc?=
- =?us-ascii?Q?DySVh8F8KTTkTzzFco0S121SLcD7hEDYIinqZVA6YatZQvu21HKik85kgKCK?=
- =?us-ascii?Q?Qih0BGi1es8UjMnf6qVmkBjqPcGGbUt+Ab9QJ2PbuW98Bmsk1IR1qrCnU4pO?=
- =?us-ascii?Q?A+WVAVTHUrjm+YMbp6Vj+0sugzC2+FV+IEWfGoUdlLNR8gmGh3rPAVN0vgKU?=
- =?us-ascii?Q?x8J4l5K8tEHSDXVaAq5EFMIbuwvmdZhCkr3857r6id0jyqMYnJ+WlGOiz052?=
- =?us-ascii?Q?6G/P4THBPjglA5biZc40FOkgZskw3TA1TG0FhRBRcWI5lcI3LKGzR0/w9yQ6?=
- =?us-ascii?Q?PI4a/D3TL3uGVZAfSwSC7cl8hWmRdUsVg6qy6onXnCT2Gs660pFDeCIUta4R?=
- =?us-ascii?Q?UUtIrkSGnDajFE92f8sgjKndjCIs+YSeWzXsdGrEP/Mini730vGxoLmNhuxU?=
- =?us-ascii?Q?l7IpdFMhTWH9AJw4Aqu6esRNdRKjJda5K9QsTezbVze0MzD469dPxZmwou9W?=
- =?us-ascii?Q?DJDjt0WfDEZJZyeaOpgR2VY6S0uk3kEsgk60LLcNm+sjPDuFwuC7CYMhOWaS?=
- =?us-ascii?Q?RwZSO0N0YhqxRtEKbriw6UbxrJ59IIwg+d9BdhSGB3U5Omy3xTW9jANTeXvu?=
- =?us-ascii?Q?Lpqf0UCJFae2MKBtBPHMk92yum9q/LFrIviKQzxoWszSznZ/+ZU2eYhgaNRp?=
- =?us-ascii?Q?Nb+yFP5GsfRLNBiWCEeVeJoD+i+8qzI0z7fvN5xRV2Q7HiJGZsicyieNDR0W?=
- =?us-ascii?Q?PJAR4hs2scosJne9NJZOlsh6KhBlcPjOyU7FUUJiaiWMeEDGG9XZb0navxRL?=
- =?us-ascii?Q?qSkZ51JRPmtejfhBr9fknmjREAR0JyL7fqGK0idQkmeDkZ/P4ZDwR0RK6/P5?=
- =?us-ascii?Q?qnyQUUjmF3G9gtHRp+3CmSnF0wfOLaGOUcu61W/yAVm0FMG1xURayDls+1/i?=
- =?us-ascii?Q?XZ+8ApOEGspIXbvX2mIoP+EWiBw3XiGdx2aUm277x72oSIgOkl5PdzagQwww?=
- =?us-ascii?Q?NJF84rfOgLEIHW91NEasYiqsE8aP43OGoD1i5gyBL5IRCi7RqdEWhhMmnQKh?=
- =?us-ascii?Q?ezClV6M0/ZDd1lMN68+OUJjAdCQ0riWdwr9wIaCBg8jhw6axWXAMfTL9QNbQ?=
- =?us-ascii?Q?AnKeRtx67LOv7ATbuRAP9nH19A5GPWGmH4Ypw0eShktvT4y5?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 238e6cc5-6b23-42b7-8b74-08de8f33f3ae
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 14:44:02.9815
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bivlZCOpDITUUh4tp669044ekslH3QourhUFHd2mfBsju1B1zO8ghXCYuVQ+4SwORLuIHvnCqGNFkexd92bU6Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10964
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_074409_139792_E638C836 
-X-CRM114-Status: GOOD (  15.26  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="mw1gwsm7ZbtolsXc"
+Content-Disposition: inline
+In-Reply-To: <d251c380-f2f5-4daf-9661-bbb6dc6c959e@igalia.com>
+X-Cookie: I just had a NOSE JOB!!
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,40 +86,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 31, 2026 at 07:34:47PM +0530, Vijayanand Jitta wrote:
-> From: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
->
-> Change of_map_id() to take a pointer to struct of_phandle_args
-> instead of passing target device node and translated IDs separately.
-> Update all callers accordingly.
->
-> Add an explicit filter_np parameter to of_map_id() and of_map_msi_id()
-> to separate the filter input from the output. Previously, the target
-> parameter served dual purpose: as an input filter (if non-NULL, only
-> match entries targeting that node) and as an output (receiving the
-> matched node with a reference held). Now filter_np is the explicit
-> input filter and arg->np is the pure output.
->
-> Previously, of_map_id() would call of_node_put() on the matched node
-> when a filter was provided, making reference ownership inconsistent.
-> Remove this internal of_node_put() call so that of_map_id() now always
-> transfers ownership of the matched node reference to the caller via
-> arg->np. Callers are now consistently responsible for releasing this
-> reference with of_node_put(arg->np) when done.
->
-> Suggested-by: Rob Herring (Arm) <robh@kernel.org>
-> Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> Signed-off-by: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
-> Signed-off-by: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-> ---
->  drivers/cdx/cdx_msi.c                    |  7 ++--
->  drivers/iommu/of_iommu.c                 |  4 +-
->  drivers/irqchip/irq-gic-its-msi-parent.c | 11 ++++--
->  drivers/of/base.c                        | 68 +++++++++++++++++---------------
->  drivers/of/irq.c                         | 10 ++++-
->  drivers/pci/controller/dwc/pci-imx6.c    | 32 +++++++--------
->
-> for imx part.
->
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+--mw1gwsm7ZbtolsXc
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Mar 31, 2026 at 11:32:07AM -0300, Ma=EDra Canal wrote:
+> On 31/03/26 09:49, Mark Brown wrote:
+> > On Thu, Mar 12, 2026 at 06:34:23PM -0300, Ma=EDra Canal wrote:
+
+> > > Rather than pushing rate management to clock consumers, handle it
+> > > directly in the clock framework's prepare/unprepare callbacks. In
+> > > unprepare, set the rate to the minimum before disabling the clock.
+> > > In prepare, for clocks marked with `maximize` (currently v3d),
+> > > restore the rate to the maximum after enabling.
+
+> > I'm seeing boot regressions in -next with NFS root on Raspberry Pi 3B+
+> > which bisect to this commit.  We get a likely unrelated oops from the
+> > firmware interface and the boot grinds to a halt some time later since
+> > the ethernet never comes up:
+
+> I've managed to address this issue locally with the following diff:
+
+> diff --git a/drivers/clk/bcm/clk-raspberrypi.c
+> b/drivers/clk/bcm/clk-raspberrypi.c
+> index df2d246eb6ef..ef5ae3b4adca 100644
+> --- a/drivers/clk/bcm/clk-raspberrypi.c
+> +++ b/drivers/clk/bcm/clk-raspberrypi.c
+> @@ -160,6 +160,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] =3D=
+ {
+>         [RPI_FIRMWARE_VEC_CLK_ID] =3D {
+>                 .export =3D true,
+>                 .minimize =3D true,
+> +               .flags =3D CLK_IGNORE_UNUSED,
+>         },
+>         [RPI_FIRMWARE_DISP_CLK_ID] =3D {
+>                 .export =3D true,
+
+> It looks like the VEC_CLK can't be disabled at boot time. Otherwise, a
+> bus lookup will happen (similar what happens to other RPi firmware
+> clocks).
+
+> Is it possible for me to test this change in LAVA CI before sending it
+> to the list? Just to double check that this patch indeed fixes the
+> issue on your side as well.
+
+I can give you access to submit jobs easily enough, if you're already
+familiar with LAVA and have somewhere to host the binaries that'd work.
+It might be more straightforward for me to just test it.
+
+--mw1gwsm7ZbtolsXc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnL3c8ACgkQJNaLcl1U
+h9DMywf/c7JBjgSLiPt0az2ROBbBsrilMJsPqSNTsDXA7X5NknfUFp72tFaotahG
+8vusN+z69oaPzUBfSXNsdkuURtbFw+lfZvxE4POlhNUeCVHgMtV2d3ZMkOp08tXW
+gsRgIsUPBRLUmJ1tbBJ2gLJefotLzW2GMgl9p2jn/fX9K7JGzb3WEE0mlGz+cEi5
+hhbYGyU5uEgI4inXmDrG5zb68H+yhuYSAFcmKVhGjPs+8C0UNLX8cD8sOYo64KR0
+6dYyMlGKUGrQyleLJ9kvD/k+enQTS043Vz81Iu0dGsn+RUM9J114a4jOg0R+0V4I
+JdWePwdWTSYwrYz1SOACpRqaYrMVEQ==
+=AW0Y
+-----END PGP SIGNATURE-----
+
+--mw1gwsm7ZbtolsXc--
 
