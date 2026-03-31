@@ -4,113 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 136521061B2E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB8D1061B3B
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 11:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gQp8anFPMnMnir64DF4tKE0PKzHB4PzWR8r7fg7Cdko=; b=bmq27+Yip4hPdbqelKjhKqHiqM
-	y98oKRFZL++8osDaw5LUK6bkkWIjNWfD+nDbJJEe3RHH8lD8Utmw12CNc3f19GWh/CtQE9OmwHvQl
-	oRWfMp9IxSxrGe6hfTCdXw1xofU0brHyevT5jeDi6pSs7/lYQBfgFEMahe96W22rLa8odbx+Fxcv1
-	G5ghxVGmF3TglXESsGR7qnLstCzBMkH0oQVbxnyqNVD4vl+jFLQisZbF7m/GEGkG5S9ZUgtmAHYvN
-	CVVnc21PoKAinugsqh8sNfGkFOFFR8A+Xsy345uAN8KdCsxbOjQBt61bD+ZpkZzq8u8zHcjX7jRVK
-	IK9i7RJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3ZeZ3dPwS0u+xryUhVkkEBmIqoBeIJKKHZEGRC4U5Ck=; b=Dt0jawbE2OXwEvoyrFALnGP7IV
+	sjo7d0q+5D+VeNz7AohulzCT9ycQMr6X9fSZ4uqAyvzH1XA6n4PMybIcb6ZGIQ3axiv/n5S67J61V
+	or0bopQy/oTAfLZnJEORx8TX4zte6Kmdbu6n/gwx4lKpUQ7h4r1Mv24jKGMgKki7X1xNstAOfRdac
+	etqsOA4yLm9hBeb+vBWMazOQtgrlXEMZBlX/e8AC38Q9lkOkQ4Bad795zdKEpvj3FfZTE9Fu0R6nj
+	TbvsLCXfbMqNfybplKMx+AuyJ9YMWlii8JhzauB3ckXTlFz5RB1xreIjSwDUL2vEcDu1oFD4MX18C
+	fC92BiiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7XWl-0000000CtoD-3lug;
-	Tue, 31 Mar 2026 11:44:59 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1w7XWm-0000000CtoV-0ny0;
+	Tue, 31 Mar 2026 11:45:00 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7XWj-0000000CtnE-2YzZ;
+	id 1w7XWk-0000000CtnF-2419
+	for linux-arm-kernel@lists.infradead.org;
 	Tue, 31 Mar 2026 11:44:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774957498; x=1806493498;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=B+8qcdkZoXchrsX7i0pthoUR4luw67BnA7+Ei8884jY=;
-  b=H7Lq6HFdxVrNntPzdM3GmT9yzqe9QPS/+0spkeST2ev+mpak2/+3ldGT
-   BwkZ9Xl3Fgq72fkVfZInQX7vKWs+mKHXArbXtBjBZchQ7ZAXmTGK2QobL
-   VQ5JKPXWg/+xQWqJ+de/gGlphZ2p+OH5HNrW0KhF53OIjcNgTBNLjFRb5
-   lBlsapaaQ2/+q8TUqZ71isYS3R1ArOgRowBOXSTpecEnWxMAhSS9p8hAX
-   cRSveuXwIxnu9X+gd4x6YWv9ME1Q+5hOfZPOnaQuL4mIMQgDiIFg0vXv6
-   Z6DPWUYZ/dp+LEv4UEsbovrB+ws73YWvhgZga0oJIgofzKHEKPG293Gtg
-   w==;
-X-CSE-ConnectionGUID: Gs3+KqWKQNWmaHe31kERgQ==
-X-CSE-MsgGUID: 7R5jjDtmQ/+X0N2/DfO6rg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11744"; a="75684700"
-X-IronPort-AV: E=Sophos;i="6.23,151,1770624000"; 
-   d="scan'208";a="75684700"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Mar 2026 04:44:55 -0700
-X-CSE-ConnectionGUID: 6h6u+1WGThKi+KKqZ0aLgw==
-X-CSE-MsgGUID: LxtBhquxT9ukvY131dMHYQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,151,1770624000"; 
-   d="scan'208";a="226222302"
-Received: from rvuia-mobl.ger.corp.intel.com (HELO localhost) ([10.245.244.24])
-  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Mar 2026 04:44:43 -0700
-Date: Tue, 31 Mar 2026 14:44:29 +0300
-From: Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Maxime Ripard <mripard@kernel.org>,
-	Harry Wentland <harry.wentland@amd.com>,
-	Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>,
-	Alex Deucher <alexander.deucher@amd.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com,
-	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org,
-	Werner Sembach <wse@tuxedocomputers.com>,
-	Andri Yngvason <andri@yngvason.is>,
-	Marius Vlad <marius.vlad@collabora.com>,
-	Pekka Paalanen <pekka.paalanen@collabora.com>,
-	Simon Ser <contact@emersion.fr>,
-	Sebastian Wick <sebastian@sebastianwick.net>,
-	Jonas =?iso-8859-1?Q?=C5dahl?= <jadahl@gmail.com>,
-	Xaver Hugl <xaver.hugl@gmail.com>
-Subject: Re: [PATCH v11 03/22] drm: Add new general DRM property "color
- format"
-Message-ID: <acuznQkiF3ncvz3y@intel.com>
-References: <20260324-color-format-v11-0-605559af4fb4@collabora.com>
- <acclgID7lSVNten2@intel.com>
- <acsNoCDsPtEhtkRn@intel.com>
- <5583906.GXAFRqVoOG@workhorse>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=y3PYjR1iNbIJQPNQquS5IMQXgww43FVtDAkRaps76suMgNfLuR6CAHOpds4cynWCf7jxXkVDiMOYC2Tq0fBDaqlnui1bczdaCM25aIIV/7yNHOrMuZ3vbCi7UAOhH0BPGo1HzLluNA7VxZWkNUggueD9sGa7JApuhtkrfZZ3xk4vFKQVn1K7DCIG9PLgc0Gvk5nwCtHMuUKfKR102Fx8hZ6y2bgOPM7iQdEjG25rITcrTzG4XLTAuYHzkVlL8Gy2NBhSNfKc0udkQgDwXIHQwLZdNFeR1dnpY6NME2I6eRxGmaq153ZnwRsGaDsAIgfddkNhtRZIKGICCmSqLw2XLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3ZeZ3dPwS0u+xryUhVkkEBmIqoBeIJKKHZEGRC4U5Ck=;
+ b=BDh1dFMgfgOpsDwmB9tnE+7b2ctSdRxL8OYzLmwyFLNkj7oKzzWy933U8GPOz3cv9GXD6PhrjeRheUofuT9Zl3CfSGznubEkx0GqBcynwe2Zo6ICazOi0Xxi/NBXe2biVdf0l23RyfBeM+uUVKERI4Rwj17xcjFpbDTlijDrw4uWF0bgL3QR/smMFKbExyx/GFaFinZczpNcVMki1bCdEOMswr943lNviIoW9cIPr+xySWgqh84kLHebj6ib06tVahJODjExb2Yjrg5dnab8yUBXm0fSRspSQbIW64XpG1dTKa0WOyov4a5ZkzjNy2xB+e7X8AT4YadTAHyRDAiL+Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3ZeZ3dPwS0u+xryUhVkkEBmIqoBeIJKKHZEGRC4U5Ck=;
+ b=hWy73E0pRWOiZcN62jQVrSjx7WstBrKpB9iltv9pBc+tuuag/+/Sq1B4PtmZKf+CQo8aNb0wh6a7PTnPihr5NhR9DvA92vOAqNtqbXBqcqWnppBNPKI1MesTBOQNgji2kiEWLsImRYUM0nDwpNszTRKdtWNThgjB9M5Nh9ETTiEjqFjEXC7ZK0AwCdxuriGYyl42s8a/E0tffd87sbuy7g6ztQmIxhynFegCZd3B75z+hyKGwgJva8xem7uq7Y9iQaaCzn28m+q0bAJmTveKbMoKmRFte9T5Ba0r/BMWMeKa24SgtsaIgQ4iY0T01NvewFYhtIO1mwsx5SS2x9Nt7w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM8PR04MB7284.eurprd04.prod.outlook.com (2603:10a6:20b:1dc::8)
+ by PA1PR04MB11406.eurprd04.prod.outlook.com (2603:10a6:102:4f1::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Tue, 31 Mar
+ 2026 11:29:06 +0000
+Received: from AM8PR04MB7284.eurprd04.prod.outlook.com
+ ([fe80::9cd6:51bd:82b:98dc]) by AM8PR04MB7284.eurprd04.prod.outlook.com
+ ([fe80::9cd6:51bd:82b:98dc%5]) with mapi id 15.20.9745.027; Tue, 31 Mar 2026
+ 11:29:06 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: claudiu.manoil@nxp.com,
+	vladimir.oltean@nxp.com,
+	xiaoning.wang@nxp.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	f.fainelli@gmail.com,
+	frank.li@nxp.com,
+	chleroy@kernel.org,
+	horms@kernel.org,
+	linux@armlinux.org.uk,
+	andrew@lunn.ch
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev
+Subject: [PATCH v4 net-next 05/14] net: enetc: add support for the "Add" operation to VLAN filter table
+Date: Tue, 31 Mar 2026 19:30:16 +0800
+Message-Id: <20260331113025.1566878-6-wei.fang@nxp.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260331113025.1566878-1-wei.fang@nxp.com>
+References: <20260331113025.1566878-1-wei.fang@nxp.com>
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <5583906.GXAFRqVoOG@workhorse>
-X-Patchwork-Hint: comment
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
+Content-Type: text/plain
+X-ClientProxiedBy: MA5P287CA0151.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1d7::14) To AM8PR04MB7284.eurprd04.prod.outlook.com
+ (2603:10a6:20b:1dc::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7284:EE_|PA1PR04MB11406:EE_
+X-MS-Office365-Filtering-Correlation-Id: e242f238-09bc-447f-24f8-08de8f18b81f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|52116014|366016|7416014|1800799024|18002099003|56012099003|22082099003|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: 50ZZwgKXsYrn0f7wPj4gNCbXN6cgGQ4V0cIm7vmv/2lXfyFUCkUHzXzTITsyVlRWfReuiIg04q2HrBGXif5jm+h7ucR1hYUGry0A+V662BUFH9DZ3x9MuRXTeMt4s1O37waFYivusyfNdM3o4Cmoq3zGR+K+Op/NW/gCRKJ4Urg3YU7Ei2DKCNGNlM00DnczNRboHfZif9OrNKxaBbFe1z5aLtub6ZNmuuFzbUkUviQ1lzs4EpcPBD5MJN415BC2zO2S2VlbX3RILdSA5NkUarJLzg60QO36WtQhs4UcFH5wNQNVEZgtHxVsXkyhpg7wpiNGRFjDzsW3vV1xLZSmMLnHB+7lftygmjYSGFKVvr3kbjln/ClhRwh8S95C6RIXVQmSxeAejLqU8AEaOGrFQ2uP+Xo+Oaad6BtblwuwixPR40GZ4Fqc1b6a0jb7T3jQWUKHz8za00Dg1KF5wR3347619gdOUO9aW/Zzb/O4G/KRuAttNwb0zgQJjoxZMdz3tF1aLXSS/pDImnLEWDxcE9b/W8Xi6XxxD89YsEO/hehQqm63YkN3NZWrBOmYGapNk+zVU00iFyTs0+AjK5dU1/jzLj4elon0ZB52X8YBVfuHrLo9ZJq0Lu8fJQexX5RViSu+bn0YcU443AVdsLrjtF7qTp5Tn8Wau4s49NDB4ZwhyPU0rMJBvyOrXiMV/Ey3kUZDmXgsplV+pogAdLZVs0D1aBludaKCfdZNgJEorDd9pPUduHeSZ3tQg2dkRumc1rF/dRNZhD9JSaHx67ny1OeFLcrwxwUAdVNnS07r9/vEw4VxW/wfsKJTm/mYs2F2
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7284.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(52116014)(366016)(7416014)(1800799024)(18002099003)(56012099003)(22082099003)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YxMWn8G9ALreC6/xMRj0qEygsv2lLV3VuoTv4+rBYmuX1oMDhx0qRLzPTdB0?=
+ =?us-ascii?Q?SRpgqyOOJi4vZsadC0yBY9QhOFApfzT7ppECdEHYwtgJshfxD5+/TnfyjsWE?=
+ =?us-ascii?Q?bqU4tixqOsjEFevw8DY9JIEETSrdRKfbRZNSY5pvlzlWhRuCsU2o2mkARf2v?=
+ =?us-ascii?Q?V+8S8io3sXkVCk/q61itQ1Ap/EE8g3k8VA8DRVgl7up/tvX7dsitjj/hboWo?=
+ =?us-ascii?Q?ixXbxsqkF+uiqBL4IG0wFtRQPqQGEN/hle1jHAb1d5joiGoDgnDqnd681Pz9?=
+ =?us-ascii?Q?y0ydFkmERn8p5GgY9jy0u2bI/d2343Y+++XoCvWBJNpT+sY9V3BFT477FMxJ?=
+ =?us-ascii?Q?yMgHdsrn1/1r60RzJrs5/TtSxOhNpWscY450Qv2TKhixwVTIn1BxQKv1oOsW?=
+ =?us-ascii?Q?MqE3o2NzDgbRzlKWU5fr0/Hi646gcLZt72nPOfmJve+xeQj6cwvITgbUpT39?=
+ =?us-ascii?Q?taROUKPt/hs1ZPdxolVzIellKx+4z63aUJMWsNhNsma5tHUQbnLsKWtFyJMa?=
+ =?us-ascii?Q?lAbBX9S3fxz14vJuomT8cEBTd9m4ZHPf3nkgXN07uoNGvHc6CKAbw2M5egZZ?=
+ =?us-ascii?Q?F+JU+/POWrMLpT7zaS/VFpkGF/L5mHKRNFBB+9yjOmpkfngpNI2yyeuk3lSR?=
+ =?us-ascii?Q?HvSM6qbCs2zZ/1r7cq2enAHHpskLkgcs09qe8dY3vdC+0UJED7s7p+/fh+ju?=
+ =?us-ascii?Q?RAgZO8B4zn1PNoQi536jRDEUck4o2887u26OVKa556gUitPXzkZ50x3EyeC1?=
+ =?us-ascii?Q?iGmbqL0WuqyRgxk1x/ea3SMtXbXbj9I00C2REUHx8LQaEz6gufYcTzqEIBmn?=
+ =?us-ascii?Q?6hJG94CidA6Two9gKSZtQkl+Gqm1Z9QtCNr1WHp5RBxjYIMx6XExC2Oa1L4t?=
+ =?us-ascii?Q?0xW4y/6I6Y3db+hdmKXiuKZg4Lu5vVMVIWAUoPfqBYfq5t7nuOnRV+r1f1Q9?=
+ =?us-ascii?Q?9rHij1SFEKcGQrO5zgyyOk33Pv9ovLQCGii+IZ14+tCYWGnaBwyN9D1cEVfW?=
+ =?us-ascii?Q?OsGGzkGuq7LaCq6UbYJd3ImdaokeUboo0cl5RwQac99WRbVNX33pQo9Iw4ei?=
+ =?us-ascii?Q?4eztvnM5WDQ3ihn+mFTga3j3t/jUqIsZYhfb8Xm2OKDajKqpYeZ8etbzkqJa?=
+ =?us-ascii?Q?77PPg56oyz9CKd9BtfElW22nwO+M9oaQpDHCew7PZMKDSz6+oHTFML9rZyu9?=
+ =?us-ascii?Q?FPTo3QDsQC3uRniH0alocNXpgCAYiti/8UEUAI91VjO8zKiyDylOAtrt8zhq?=
+ =?us-ascii?Q?TtzixT28Nj+cxdoHeLpDkLr5h3YtER7CeFhd3/r5WbX8CFjhIYXLjV98DNWw?=
+ =?us-ascii?Q?Cr1hafBHpKYVBRYbLlqTULnvQsnJAd9DWDvhArB1UfrHCa2B4cZsbs8CHc9R?=
+ =?us-ascii?Q?MtPDnj2vW7/l8XQNa9/ImrWn06AnmHeDvx9zItLCEA1dhXWJyQv7rhz+Vpd1?=
+ =?us-ascii?Q?+pnZZRI0d0OsdcAy7B5o4IKh1g1h2PeX1MUz/CFGIqup4+emJdqVMEeevPC0?=
+ =?us-ascii?Q?Yc3WVrGa0hlbCpLvQ75mllzVs7r6yucMbqwrHTa6yEqdRIxOrvXcZoH9L/Hh?=
+ =?us-ascii?Q?ep4BI0IT3KrI43pBUncamHxikPMEUJh1bZLQ39BN/7jWgI/NCgvw9x6qeKdC?=
+ =?us-ascii?Q?K1TpNQ8ww/yEqZMvFTW/ygyTyXzqvdG5LOxr/I0nosPhqLPVUQ2HLs8HpvB2?=
+ =?us-ascii?Q?zXyU7f1qQDmdamZyjxdBjmILpwfmmZSV6LdkdLw2InVySRJE?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e242f238-09bc-447f-24f8-08de8f18b81f
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7284.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 11:29:06.5453
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8xUrn/vEd5Zze0KtjyorVw6rri/94coqaxStv107K5cdCdnby7TUqsQvgNntomTLSs+VXz2b4pNs08bM7x3hOw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11406
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_044457_963383_F7C001A9 
-X-CRM114-Status: GOOD (  74.69  )
+X-CRM114-CacheID: sfid-20260331_044458_546380_8C7378F9 
+X-CRM114-Status: GOOD (  18.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,246 +154,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 31, 2026 at 12:33:00PM +0200, Nicolas Frattaroli wrote:
-> On Tuesday, 31 March 2026 01:56:16 Central European Summer Time Ville Syrjälä wrote:
-> > On Sat, Mar 28, 2026 at 02:49:04AM +0200, Ville Syrjälä wrote:
-> > > On Fri, Mar 27, 2026 at 01:56:06PM +0100, Nicolas Frattaroli wrote:
-> > > > On Thursday, 26 March 2026 18:58:25 Central European Standard Time Ville Syrjälä wrote:
-> > > > > On Thu, Mar 26, 2026 at 06:02:47PM +0100, Maxime Ripard wrote:
-> > > > > > On Wed, Mar 25, 2026 at 08:43:15PM +0200, Ville Syrjälä wrote:
-> > > > > > > On Wed, Mar 25, 2026 at 03:56:58PM +0100, Maxime Ripard wrote:
-> > > > > > > > On Wed, Mar 25, 2026 at 01:03:07PM +0200, Ville Syrjälä wrote:
-> > > > > > > > > On Wed, Mar 25, 2026 at 09:24:27AM +0100, Maxime Ripard wrote:
-> > > > > > > > > > On Tue, Mar 24, 2026 at 09:53:35PM +0200, Ville Syrjälä wrote:
-> > > > > > > > > > > On Tue, Mar 24, 2026 at 08:10:11PM +0100, Nicolas Frattaroli wrote:
-> > > > > > > > > > > > On Tuesday, 24 March 2026 18:00:45 Central European Standard Time Ville Syrjälä wrote:
-> > > > > > > > > > > > > On Tue, Mar 24, 2026 at 05:01:07PM +0100, Nicolas Frattaroli wrote:
-> > > > > > > > > > > > > > +enum drm_connector_color_format {
-> > > > > > > > > > > > > > +	/**
-> > > > > > > > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_AUTO: The driver or display protocol
-> > > > > > > > > > > > > > +	 * helpers should pick a suitable color format. All implementations of a
-> > > > > > > > > > > > > > +	 * specific display protocol must behave the same way with "AUTO", but
-> > > > > > > > > > > > > > +	 * different display protocols do not necessarily have the same "AUTO"
-> > > > > > > > > > > > > > +	 * semantics.
-> > > > > > > > > > > > > > +	 *
-> > > > > > > > > > > > > > +	 * For HDMI, "AUTO" picks RGB, but falls back to YCbCr 4:2:0 if the
-> > > > > > > > > > > > > > +	 * bandwidth required for full-scale RGB is not available, or the mode
-> > > > > > > > > > > > > > +	 * is YCbCr 4:2:0-only, as long as the mode and output both support
-> > > > > > > > > > > > > > +	 * YCbCr 4:2:0.
-> > > > > > > > > > > > > > +	 *
-> > > > > > > > > > > > > > +	 * For display protocols other than HDMI, the recursive bridge chain
-> > > > > > > > > > > > > > +	 * format selection picks the first chain of bridge formats that works,
-> > > > > > > > > > > > > > +	 * as has already been the case before the introduction of the "color
-> > > > > > > > > > > > > > +	 * format" property. Non-HDMI bridges should therefore either sort their
-> > > > > > > > > > > > > > +	 * bus output formats by preference, or agree on a unified auto format
-> > > > > > > > > > > > > > +	 * selection logic that's implemented in a common state helper (like
-> > > > > > > > > > > > > > +	 * how HDMI does it).
-> > > > > > > > > > > > > > +	 */
-> > > > > > > > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_AUTO = 0,
-> > > > > > > > > > > > > > +
-> > > > > > > > > > > > > > +	/**
-> > > > > > > > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_RGB444: RGB output format
-> > > > > > > > > > > > > > +	 */
-> > > > > > > > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_RGB444,
-> > > > > > > > > > > > > > +
-> > > > > > > > > > > > > > +	/**
-> > > > > > > > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR444: YCbCr 4:4:4 output format (ie.
-> > > > > > > > > > > > > > +	 * not subsampled)
-> > > > > > > > > > > > > > +	 */
-> > > > > > > > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR444,
-> > > > > > > > > > > > > > +
-> > > > > > > > > > > > > > +	/**
-> > > > > > > > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR422: YCbCr 4:2:2 output format (ie.
-> > > > > > > > > > > > > > +	 * with horizontal subsampling)
-> > > > > > > > > > > > > > +	 */
-> > > > > > > > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR422,
-> > > > > > > > > > > > > > +
-> > > > > > > > > > > > > > +	/**
-> > > > > > > > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR420: YCbCr 4:2:0 output format (ie.
-> > > > > > > > > > > > > > +	 * with horizontal and vertical subsampling)
-> > > > > > > > > > > > > > +	 */
-> > > > > > > > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR420,
-> > > > > > > > > > > > > 
-> > > > > > > > > > > > > Seems like this should document what the quantization range
-> > > > > > > > > > > > > should be for each format.
-> > > > > > > > > > > > > 
-> > > > > > > > > > > > 
-> > > > > > > > > > > > I don't think so? If you want per-component bit depth values,
-> > > > > > > > > > > > DRM_FORMAT_* defines would be the appropriate values to use. This
-> > > > > > > > > > > > enum is more abstract than that, and is there to communicate
-> > > > > > > > > > > > YUV vs. RGB and chroma subsampling, with bit depth being handled
-> > > > > > > > > > > > by other properties.
-> > > > > > > > > > > > 
-> > > > > > > > > > > > If you mean the factor used for subsampling, then that'd only be
-> > > > > > > > > > > > relevant if YCBCR410 was supported where one chroma plane isn't
-> > > > > > > > > > > > halved but quartered in resolution. I suspect 4:1:0 will never
-> > > > > > > > > > > > be added; no digital display protocol standard supports it to my
-> > > > > > > > > > > > knowledge, and hopefully none ever will.
-> > > > > > > > > > > 
-> > > > > > > > > > > No, I mean the quantization range (16-235 vs. 0-255 etc).
-> > > > > > > > > > > 
-> > > > > > > > > > > The i915 behaviour is that YCbCr is always limited range,
-> > > > > > > > > > > RGB can either be full or limited range depending on the 
-> > > > > > > > > > > "Broadcast RGB" property and other related factors.
-> > > > > > > > > > 
-> > > > > > > > > > So far the HDMI state has both the format and quantization range as
-> > > > > > > > > > different fields. I'm not sure we need to document the range in the
-> > > > > > > > > > format field, maybe only mention it's not part of the format but has a
-> > > > > > > > > > field of its own?
-> > > > > > > > > 
-> > > > > > > > > I think we only have it for RGB (on some drivers only?). For YCbCr
-> > > > > > > > > I think the assumption is limited range everywhere.
-> > > > > > > > > 
-> > > > > > > > > But I'm not really concerned about documenting struct members.
-> > > > > > > > > What I'm talking about is the *uapi* docs. Surely userspace
-> > > > > > > > > will want to know what the new property actually does so the
-> > > > > > > > > uapi needs to be documented properly. And down the line some
-> > > > > > > > > new driver might also implement the wrong behaviour if there
-> > > > > > > > > is no clear specification.
-> > > > > > > > 
-> > > > > > > > Ack
-> > > > > > > > 
-> > > > > > > > > So I'm thinking (or perhaps hoping) the rule might be something like:
-> > > > > > > > > - YCbCr limited range 
-> > > > > > > > > - RGB full range if "Broadcast RGB" property is not present
-> > > > > > > > 
-> > > > > > > > Isn't it much more complicated than that for HDMI though? My
-> > > > > > > > recollection was that any VIC but VIC1 would be limited range, and
-> > > > > > > > anything else full range?
-> > > > > > > 
-> > > > > > > Do we have some driver that implements the CTA-861 CE vs. IT mode
-> > > > > > > logic but doesn't expose the "Broadcast RGB" property? I was hoping
-> > > > > > > those would always go hand in hand now.
-> > > > > > 
-> > > > > > I'm not sure. i915 and the HDMI state helpers handle it properly (I
-> > > > > > think?) but it looks like only vc4 registers the Broadcast RGB property
-> > > > > > and uses the HDMI state helpers.
-> > > > > > 
-> > > > > > And it looks like amdgpu registers Broadcast RGB but doesn't use
-> > > > > > drm_default_rgb_quant_range() which seems suspicious?
-> > > > > 
-> > > > > If they want just manual full vs. limited then they should
-> > > > > limit the property to not expose the "auto" option at all.
-> > > > > 
-> > > > > amdgpu also ties this in with the "colorspace" property, which
-> > > > > originally in i915 only controlled the infoframes/etc. But on
-> > > > > amdgpu it now controls various aspects of output color
-> > > > > transformation. The end result is that the property is a complete
-> > > > > mess with most of the values making no sense. And for whatever
-> > > > > reason everyone involved refused to remove/deprecate the
-> > > > > nonsensical values :/
-> > > > > 
-> > > > > Looks like this series should make sure the documentation for
-> > > > > the "colorspace" property is in sync with the new property
-> > > > > as well. Currently now it's giving conflicting information.
-> > > > > 
-> > > > 
-> > > > I take it the problematic information is in
-> > > > 
-> > > >     * DOC: standard connector properties
-> > > >     *
-> > > >     * Colorspace:
-> > > > 
-> > > > and probably specifically BT2020_YCC's (and BT2020_RGB's?) insistence
-> > > > that they "produce RGB content".
-> > > > 
-> > > > I think we probably just have to change the statement "The variants
-> > > > BT2020_RGB and BT2020_YCC are equivalent and the driver chooses between
-> > > > RGB and YCbCr on its own."
-> > > > 
-> > > > The "on its own" here would get turned into "based on the color format
-> > > > property".
-> > > > 
-> > > > Speaking of i915, that patch is one of the very few (5) patches in
-> > > > this series still lacking a review (hint hint nudge nudge). I'd like
-> > > > to get some more feedback on the remaining patches before I send out
-> > > > another revision, so that it's hopefully not just docs changes (I
-> > > > know better than to think those patches must be perfect and won't
-> > > > need revision.)
-> > > 
-> > > The i915 code around this is already a big mess, and I don't really
-> > > adding to that mess. So I think we'll need to do some refactoring before
-> > > we add anything there. I already started typing something and so far
-> > > it looks fairly straightforward, so I should have something soon.
-> > 
-> > OK, posted something
-> > https://lore.kernel.org/intel-gfx/20260330235339.29479-1-ville.syrjala@linux.intel.com/T/#m7c349478ca6c856fbc68d5e2178f1aa31678a05f
-> 
-> Thanks! I'll take a look at this today to get a more solid idea of
-> where the pain points you highlighted are.
-> 
-> I'll also rebase/reimplement my i915 color format implementation
-> (sans the DP-MST part, as discussed) on top of this on the next
-> revision. I was never fully happy with the current one due to the
-> logic being shoehorned into the already existing i915 fallback
-> format logic, so I'm quite happy to have another opportunity to
-> implement it with less historic baggage.
-> 
-> > Are the wayland/compositor/color management folks on board with
-> > these new properties? I don't think I see the usual suspects on
-> > the cc list.
-> 
-> I don't know which precise group of people you refer to,
+The VLAN filter table contains configuration and control information for
+each VLAN configured on the switch. Each VLAN entry includes the VLAN
+port membership, which FID to use in the FDB lookup, which spanning tree
+group to use, the egress frame modification actions to apply to a frame
+exiting form this VLAN, and various configuration and control parameters
+for this VLAN.
 
-Off the top of my head, Pekka,Simon,Sebastian,Jonas,Xaver might be
-relevant here. Added to Cc...
+The VLAN filter table can only be managed by the command BD ring using
+table management protocol version 2.0. The table supports Add, Delete,
+Update and Query operations. And the table supports 3 access methods:
+Entry ID, Exact Match Key Element and Search. But currently we only add
+the ntmp_vft_add_entry() helper to support the upcoming switch driver to
+add an entry to the VLAN filter table. Other interfaces will be added in
+the future.
 
-> but at
-> least from the Collabora side of things, the userspace Wayland
-> people are on board with these new properties. In Weston, we use
-> it to implement the Weston frontend's "color-format" option in a
-> WIP branch at
-> 
-> https://gitlab.freedesktop.org/wayland/weston/-/merge_requests/1859
-> 
-> I've also been made aware that LibreELEC is aware, and will look
-> into making use of it rather than their own kernel patches.
-> 
-> Kind regards,
-> Nicolas Frattaroli
-> 
-> > > 
-> > > While doing that several questions came to my mind though:
-> > > 
-> > > * More interactions with the colorspace property, but I sent
-> > >   a separate mail already about that
-> > > 
-> > > * Which conversion matrix to use, and the answer I suspect
-> > >   should be "ask the colorspace property", as mentioned in the
-> > >   other mail
-> > > 
-> > > * Should we flat out reject color formats (and I suppose also
-> > >   colorspace prop values) the sink doesn't claim to support?
-> > > 
-> > >   If yes, then I think we'll have to forget about adding anything 
-> > >   to i915 MST code. The way the MST stuff works is that if one
-> > >   stream needs a modeset then all the related streams get modeset
-> > >   as well. Thus if the user replaces a monitor getting fed with a
-> > >   YCbCr stream just as another stream is being modeset, then the
-> > >   entire atomic commit could fail due to the YCbCr stream getting
-> > >   rejected.
-> > > 
-> > >   I think eventually we might have to invent some mechanism where
-> > >   all the input into the modeset computation is cached somehow,
-> > >   and said cache updated only on explicit userspace modesets.
-> > >   Either that or we have to come up  with a way to skip some of
-> > >   the calculations that depend on external factors. Either way
-> > >   it's going to be a pain.
-> > > 
-> > >   OTOH if we don't mind feeding the sink with stuff it can't
-> > >   understand, then I suppose we might add YCbCr 4:4:4 support
-> > >   for MST. It shouldn't be any different from RGB apart from
-> > >   the RGB->YCbCr conversion, which is handled elsewhere. But
-> > >   YCbCr 4:2:0 is definitely out either way, the MST code has
-> > >   no support for that currently.
-> > > 
-> > 
-> > 
-> 
-> 
-> 
+Signed-off-by: Wei Fang <wei.fang@nxp.com>
+---
+ drivers/net/ethernet/freescale/enetc/ntmp.c   | 50 +++++++++++++++++++
+ .../ethernet/freescale/enetc/ntmp_private.h   | 19 +++++++
+ include/linux/fsl/ntmp.h                      | 30 +++++++++++
+ 3 files changed, 99 insertions(+)
 
+diff --git a/drivers/net/ethernet/freescale/enetc/ntmp.c b/drivers/net/ethernet/freescale/enetc/ntmp.c
+index a4a99954baf2..d7d8a37078d1 100644
+--- a/drivers/net/ethernet/freescale/enetc/ntmp.c
++++ b/drivers/net/ethernet/freescale/enetc/ntmp.c
+@@ -21,6 +21,7 @@
+ #define NTMP_MAFT_ID			1
+ #define NTMP_RSST_ID			3
+ #define NTMP_FDBT_ID			15
++#define NTMP_VFT_ID			18
+ 
+ /* Generic Update Actions for most tables */
+ #define NTMP_GEN_UA_CFGEU		BIT(0)
+@@ -231,6 +232,8 @@ static const char *ntmp_table_name(int tbl_id)
+ 		return "RSS Table";
+ 	case NTMP_FDBT_ID:
+ 		return "FDB Table";
++	case NTMP_VFT_ID:
++		return "VLAN Filter Table";
+ 	default:
+ 		return "Unknown Table";
+ 	}
+@@ -652,5 +655,52 @@ int ntmp_fdbt_search_port_entry(struct ntmp_user *user, int port,
+ }
+ EXPORT_SYMBOL_GPL(ntmp_fdbt_search_port_entry);
+ 
++/**
++ * ntmp_vft_add_entry - add an entry into the VLAN filter table
++ * @user: target ntmp_user struct
++ * @vid: VLAN ID
++ * @cfge: configuration element data
++ *
++ * Return: 0 on success, otherwise a negative error code
++ */
++int ntmp_vft_add_entry(struct ntmp_user *user, u16 vid,
++		       const struct vft_cfge_data *cfge)
++{
++	struct ntmp_dma_buf data = {
++		.dev = user->dev,
++		.size = sizeof(struct vft_req_ua),
++	};
++	struct vft_req_ua *req;
++	union netc_cbd cbd;
++	u32 len;
++	int err;
++
++	err = ntmp_alloc_data_mem(&data, (void **)&req);
++	if (err)
++		return err;
++
++	/* Request data */
++	ntmp_fill_crd(&req->crd, user->tbl.vft_ver, 0,
++		      NTMP_GEN_UA_CFGEU);
++	req->ak.exact.vid = cpu_to_le16(vid);
++	req->cfge = *cfge;
++
++	/* Request header */
++	len = NTMP_LEN(data.size, NTMP_STATUS_RESP_LEN);
++	ntmp_fill_request_hdr(&cbd, data.dma, len, NTMP_VFT_ID,
++			      NTMP_CMD_ADD, NTMP_AM_EXACT_KEY);
++
++	err = netc_xmit_ntmp_cmd(user, &cbd);
++	if (err)
++		dev_err(user->dev,
++			"Failed to add %s entry, vid: %u, err: %pe\n",
++			ntmp_table_name(NTMP_VFT_ID), vid, ERR_PTR(err));
++
++	ntmp_free_data_mem(&data);
++
++	return err;
++}
++EXPORT_SYMBOL_GPL(ntmp_vft_add_entry);
++
+ MODULE_DESCRIPTION("NXP NETC Library");
+ MODULE_LICENSE("Dual BSD/GPL");
+diff --git a/drivers/net/ethernet/freescale/enetc/ntmp_private.h b/drivers/net/ethernet/freescale/enetc/ntmp_private.h
+index 8999eafe1920..d2a6399b0a36 100644
+--- a/drivers/net/ethernet/freescale/enetc/ntmp_private.h
++++ b/drivers/net/ethernet/freescale/enetc/ntmp_private.h
+@@ -160,4 +160,23 @@ struct fdbt_resp_query {
+ 	u8 resv[3];
+ };
+ 
++/* Access Key Format of VLAN Filter Table */
++struct vft_ak_exact {
++	__le16 vid; /* bit0~11: VLAN ID, other bits are reserved */
++	__le16 resv;
++};
++
++union vft_access_key {
++	__le32 entry_id; /* entry_id match */
++	struct vft_ak_exact exact;
++	__le32 resume_entry_id; /* search */
++};
++
++/* VLAN Filter Table Request Data Buffer Format of Update and Add actions */
++struct vft_req_ua {
++	struct ntmp_cmn_req_data crd;
++	union vft_access_key ak;
++	struct vft_cfge_data cfge;
++};
++
+ #endif
+diff --git a/include/linux/fsl/ntmp.h b/include/linux/fsl/ntmp.h
+index a9f3e6cbf422..2aedea17307f 100644
+--- a/include/linux/fsl/ntmp.h
++++ b/include/linux/fsl/ntmp.h
+@@ -32,6 +32,7 @@ struct netc_tbl_vers {
+ 	u8 maft_ver;
+ 	u8 rsst_ver;
+ 	u8 fdbt_ver;
++	u8 vft_ver;
+ };
+ 
+ struct netc_cbdr {
+@@ -94,6 +95,27 @@ struct fdbt_entry_data {
+ #define FDBT_ACT_FLAG		BIT(7)
+ };
+ 
++struct vft_cfge_data {
++	__le32 bitmap_stg;
++#define VFT_PORT_MEMBERSHIP	GENMASK(23, 0)
++#define VFT_STG_ID_MASK		GENMASK(27, 24)
++#define VFT_STG_ID(g)		FIELD_PREP(VFT_STG_ID_MASK, (g))
++	__le16 fid;
++#define VFT_FID			GENMASK(11, 0)
++	__le16 cfg;
++#define VFT_MLO			GENMASK(2, 0)
++#define VFT_MFO			GENMASK(4, 3)
++#define VFT_IPMFE		BIT(6)
++#define VFT_IPMFLE		BIT(7)
++#define VFT_PGA			BIT(8)
++#define VFT_SFDA		BIT(10)
++#define VFT_OSFDA		BIT(11)
++#define VFT_FDBAFSS		BIT(12)
++	__le32 eta_port_bitmap;
++#define VFT_ETA_PORT_BITMAP	GENMASK(23, 0)
++	__le32 et_eid;
++};
++
+ #if IS_ENABLED(CONFIG_NXP_NETC_LIB)
+ int ntmp_init_cbdr(struct netc_cbdr *cbdr, struct device *dev,
+ 		   const struct netc_cbdr_regs *regs);
+@@ -118,6 +140,8 @@ int ntmp_fdbt_delete_entry(struct ntmp_user *user, u32 entry_id);
+ int ntmp_fdbt_search_port_entry(struct ntmp_user *user, int port,
+ 				u32 *resume_entry_id,
+ 				struct fdbt_entry_data *entry);
++int ntmp_vft_add_entry(struct ntmp_user *user, u16 vid,
++		       const struct vft_cfge_data *cfge);
+ #else
+ static inline int ntmp_init_cbdr(struct netc_cbdr *cbdr, struct device *dev,
+ 				 const struct netc_cbdr_regs *regs)
+@@ -183,6 +207,12 @@ static inline int ntmp_fdbt_search_port_entry(struct ntmp_user *user, int port,
+ 	return 0;
+ }
+ 
++static inline int ntmp_vft_add_entry(struct ntmp_user *user, u16 vid,
++				     const struct vft_cfge_data *cfge)
++{
++	return 0;
++}
++
+ #endif
+ 
+ #endif
 -- 
-Ville Syrjälä
-Intel
+2.34.1
+
 
