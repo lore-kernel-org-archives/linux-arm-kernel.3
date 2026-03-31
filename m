@@ -4,108 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A28CFF60F7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 09:35:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1ABDFF60EF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 09:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jnl6XNk8UC6qXZOCP5DO07/PlyNvQfgjMeLLNH2mLPI=; b=4aW8Ndg9jLsTus5k/zl3C1192m
-	TjBepRdPLrazW744LEGo4GiAo+tnOxkYAS1ovXoOLtLr1MgNXckq977WSRBlf+Q0Ens9dX4YbRoyj
-	hOBxwTD9uY2gCTSQesOPowSxv4Atsepy7mHLpeGVEiKvWH+bXG3DVyAX2CB/CnMG+PONEL7t5MpbN
-	bY0lpvk7YRSJWaVAhJEoPHxhUuNlo40knjZoCbyRUBGXJp1ZMGfMjZAAmYIxhWFPSwzuTV8tsfpNr
-	NttHen0ctCYk/qLeYxCiYydfUhT+bS7SC6KHVjYSKmgCNF0aOeZ6ToaaBcaUBf3Bty8FA1wRtG8aw
-	Vg3LvJIA==;
+	bh=95cgJ4IYzVzZmSNEb5ByLxu9yUSstA+3ISA//eu69A4=; b=RyO9AEX1InAYODQvkrtgo0KbwD
+	p23kYoSkBcJnHrW3wPMw/rf1pDZKeluv1Ss7JyRDZAMqnxZMeYOr/sSYO4DPAxvCkoKU9dW5KR/Z0
+	aR5auOvIGTRydBsxaW1O3WFCvhuF5s5/QLjlRG5Y3o18gYH4F3z2cyT+olU31Ijbtm8tOspAwYDF3
+	g59nNyRcxcg1gT10OLZM4rnlcH9sbAO4/sQMX/S19KoqognZxRyOr9hfiyXrHaWABjPPtT8o8FDuU
+	wokSGKksKmqtvNW9xJbkri4INHNNDbSan/CU7TqMiBm0Wt0DsV7GpArS4HdMicQa9YwzTeziRFai9
+	7hYorHBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7VVZ-0000000ChVV-2O7R;
-	Tue, 31 Mar 2026 09:35:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7VVV-0000000ChUz-0WKo
+	id 1w7VcW-0000000ChsT-4Aw7;
+	Tue, 31 Mar 2026 09:42:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7VcU-0000000Chrx-0Pmy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 09:35:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 38E7544376;
-	Tue, 31 Mar 2026 09:35:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D463C19423;
-	Tue, 31 Mar 2026 09:35:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774949732;
-	bh=MLL2POGMVXzTnHIBJpfU1p1iRWDao/ze+iV7fL+FXGM=;
+	Tue, 31 Mar 2026 09:42:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B55A0493B;
+	Tue, 31 Mar 2026 02:42:37 -0700 (PDT)
+Received: from [10.57.17.66] (unknown [10.57.17.66])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 35F253F641;
+	Tue, 31 Mar 2026 02:42:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774950163; bh=5VovWs7x5Gj/F9cIKj8LswGY1DVcFVgjLYW2sGX5p5E=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QdsilYRZDnINvGmzmdKyIGaRqzIGCnpe5qYWfIccZ7NZ6+Qpo/GCufEiaN9iRwUL4
-	 v159lp7jRXuLvD5rCR+1WasYQqzdgEugRNrhIVD7YPn42k8Yg84E9jm+ZLg9RItz74
-	 MFLSQoSQHFLXsCQ41MkLqECkpw2ca5GisdAYnCzQQr1gr1pYxswCxDzzCDvDdA4Zep
-	 3vL5GyhY4ER7IroMYZi3jqXVnGnuG28kxtx4jZYgU2v87yWG0+5xSRk83WLY/hTOYg
-	 aLYoM2ybcRywAmcLiv6akku45n57Ci3LzhHjKHZZbnYWv2iecfA0ogUGgQuWQVI8e6
-	 /v1SxJKjx5s5Q==
-Message-ID: <75edde3a-6ebd-41ea-87ac-468b807593c0@kernel.org>
-Date: Tue, 31 Mar 2026 11:35:28 +0200
+	b=RhlDb4G0hci8PX/ZV8yx4zq2XSkpfMFUhg61yMoMGa4gzStH1IDRzyWVx3BTRGv3E
+	 4hMJaBcDca3nqBQgppUz+PsR2iF4q97YfpLaOtgFkb8RO1zZ2p09Urea+Oz+cBmEbo
+	 TwuP0T6lph+dIbz7joJbuqn9BCwKC3rb2z6ndmS4=
+Message-ID: <04214197-f521-47d6-88a1-94be1a8b1981@arm.com>
+Date: Tue, 31 Mar 2026 10:42:40 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL 6/7] arm64: tegra: Device tree changes for v7.1-rc1
-To: Thierry Reding <thierry.reding@kernel.org>
-Cc: arm@kernel.org, soc@kernel.org, Thierry Reding
- <thierry.reding@gmail.com>, Jon Hunter <jonathanh@nvidia.com>,
- linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260329151045.1443133-1-thierry.reding@kernel.org>
- <20260329151045.1443133-6-thierry.reding@kernel.org>
- <7b9bc5d1-7a1d-456c-b280-5f4dc969609d@kernel.org> <act77WcvwYedN0Q8@orome>
- <e5327cd9-4aa1-4e26-b748-dd1af29e6fdb@kernel.org> <acuE-URAuRvmtd4u@orome>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <acuE-URAuRvmtd4u@orome>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v3] coresight: tpdm: add traceid_show for checking traceid
+Content-Language: en-GB
+To: James Clark <james.clark@linaro.org>, Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Mike Leach <mike.leach@arm.com>,
+ Leo Yan <leo.yan@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+References: <20260325-add-traceid-show-for-tpdm-v3-1-0eb836d4ec30@oss.qualcomm.com>
+ <95610981-ad68-4a31-a776-27894b7bca59@linaro.org>
+ <ca1fe6ba-ec56-47a5-99ea-017dcc7a28ed@oss.qualcomm.com>
+ <207b78e5-ed6b-4caf-b9ce-546cf33d6dfd@oss.qualcomm.com>
+ <7abe93fa-3748-4077-b75a-d28296862654@linaro.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <7abe93fa-3748-4077-b75a-d28296862654@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_023535_196221_70583AA1 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20260331_024246_219820_1A4C28FE 
+X-CRM114-Status: GOOD (  30.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,37 +77,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/03/2026 10:43, Thierry Reding wrote:
->>>>                   Maybe they had more time for previous versions, but
->>>> nevertheless it is also part of other patchset, so it will get into the
->>>> kernel other tree and nothing on v3 posting:
->>>> https://lore.kernel.org/all/20260326135855.2795149-4-thierry.reding@kernel.org/
->>>> gives hints that there will be cross tree merge.
->>>
->>> Maybe look at the cover letter:
->>>
->>>   https://lore.kernel.org/all/20260326135855.2795149-1-thierry.reding@kernel.org/
->>>
->>> I clearly pointed out the build dependencies and suggested a shared
->>> branch to resolve them in both trees. Given that the bindings were
+On 31/03/2026 10:26, James Clark wrote:
+> 
+> 
+> On 31/03/2026 4:18 am, Jie Gan wrote:
+>> Hi James,
 >>
->> No problem, that's a valid solution. Can you point me with a lore link
->> to the shared branch posting (these tags/pull requests must be posted on
->> the lists)? Or to an ack from PCI maintainers?
+>> On 3/31/2026 9:29 AM, Jie Gan wrote:
+>>>
+>>> Hi James,
+>>>
+>>> On 3/30/2026 10:55 PM, James Clark wrote:
+>>>>
+>>>>
+>>>> On 25/03/2026 3:10 am, Jie Gan wrote:
+>>>>> Save the trace ID in drvdata during TPDM enablement and expose it
+>>>>> to userspace to support trace data parsing.
+>>>>>
+>>>>> The TPDM device’s trace ID corresponds to the trace ID allocated
+>>>>> to the connected TPDA device.
+>>>>>
+>>>>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>>>>> ---
+>>>>> Changes in v3:
+>>>>> 1. Only allow user to read the traceid while the TPDM device is 
+>>>>> enabled.
+>>>>> - Link to v2: https://lore.kernel.org/r/20260316-add-traceid-show- 
+>>>>> for- tpdm-v2-1-1dec2a67e4ed@oss.qualcomm.com
+>>>>>
+>>>>> Changes in V2:
+>>>>> 1. Use sysfs_emit instead of sprintf.
+>>>>> Link to V1 - https://lore.kernel.org/all/20260306-add-traceid-show- 
+>>>>> for-tpdm-v1-1-0658a8edb972@oss.qualcomm.com/
+>>>>> ---
+>>>>>   drivers/hwtracing/coresight/coresight-tpdm.c | 34 +++++++++++++++ 
+>>>>> + + + +++++++++-
+>>>>>   drivers/hwtracing/coresight/coresight-tpdm.h |  2 ++
+>>>>>   2 files changed, 35 insertions(+), 1 deletion(-)
+>>>>>
+>>>>> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/ 
+>>>>> drivers/ hwtracing/coresight/coresight-tpdm.c
+>>>>> index da77bdaad0a4..c8339b973bfc 100644
+>>>>> --- a/drivers/hwtracing/coresight/coresight-tpdm.c
+>>>>> +++ b/drivers/hwtracing/coresight/coresight-tpdm.c
+>>>>> @@ -481,7 +481,7 @@ static void __tpdm_enable(struct tpdm_drvdata 
+>>>>> *drvdata)
+>>>>>   static int tpdm_enable(struct coresight_device *csdev, struct 
+>>>>> perf_event *event,
+>>>>>                  enum cs_mode mode,
+>>>>> -               __maybe_unused struct coresight_path *path)
+>>>>> +               struct coresight_path *path)
+>>>>>   {
+>>>>>       struct tpdm_drvdata *drvdata = dev_get_drvdata(csdev- 
+>>>>> >dev.parent);
+>>>>> @@ -497,6 +497,7 @@ static int tpdm_enable(struct coresight_device 
+>>>>> *csdev, struct perf_event *event,
+>>>>>       }
+>>>>>       __tpdm_enable(drvdata);
+>>>>> +    drvdata->traceid = path->trace_id;
+>>>>>       drvdata->enable = true;
+>>>>>       spin_unlock(&drvdata->spinlock);
+>>>>> @@ -693,6 +694,29 @@ static struct attribute_group tpdm_attr_grp = {
+>>>>>       .attrs = tpdm_attrs,
+>>>>>   };
+>>>>> +static ssize_t traceid_show(struct device *dev,
+>>>>> +                struct device_attribute *attr, char *buf)
+>>>>> +{
+>>>>> +    unsigned long val;
+>>>>> +    struct tpdm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>>>>> +
+>>>>> +    if (coresight_get_mode(drvdata->csdev) == CS_MODE_DISABLED)
+>>>>> +        return -EINVAL;
+>>>>> +
+>>>>> +    val = drvdata->traceid;
+>>>>
+>>>> You probably need to take the coresight_mutex here otherwise you 
+>>>> could still return an invalid or stale value despite checking the mode.
+>>>>
+>>>
+>>> Acked. I have missed this potential race condition.
+>>>
+>>>> There might also be some value in it returning the last used trace 
+>>>> ID even if the mode isn't enabled anymore. Because you can still 
+>>>> read out of the sink after disabling, so it makes more sense for a 
+>>>> script to read it at that point rather than when it's enabled. Also, 
+>>>> you probably don't want to be doing other things in your script in 
+>>>> the point between enabling and disabling.
+>>>
+>>> That's making sense. I shouldnt add such restriction for the read 
+>>> process.
+>>>
 >>
->> The commit itself does not have an Ack, but maybe was just missed.
+>> I missed one point in last message.
+>>
+>> Is that acceptable to export the coresight_mutex from the core module?
+>> Currently, the coresight_mutex is used within the module only.
+>>
+>> Thanks,
+>> Jie
+>>
 > 
-> Yes, the DT bindings patch does not have an Acked-by, but again, I
-> didn't think that was necessary, especially since we were going to have
-> a cross-merge anyway.
+> If the plan is to only check for non-zero trace ID and not check the 
+> mode any more then you don't need to lock. Maybe lets see what Suzuki 
+> thinks about returning the last trace ID though as it was his idea to 
+> add -EINVAL.
 > 
-> Here's the PR for PCI:
-> 
-> 	https://lore.kernel.org/linux-tegra/20260329155040.1448158-1-thierry.reding@kernel.org/
 
-Thanks, this solves my question. A note in the pull message (not
-necessarily in the tag) would also solve it, BTW.
+I think there is value in reading out the traceid that was used. Also,
+I assume TPDM is always connected to a TPDA port and the traceID
+wouldn't change, ever ?
 
-Best regards,
-Krzysztof
+I am happy with the proposal
+
+Suzuki
+
+>>> Scenarios for reading:
+>>> 1. device is enabled -> trace ID is valid
+>>> 2. device is enabled then disabled -> trace ID is valid for the last 
+>>> trace event
+>>> 3. device is never enabled -> invalid trace ID (value 0)
+>>>
+>>> we only need to check the validation of the trace ID.
+>>>
+>>> mutex_lock(&coresight_mutex);
+>>> val = drvdata->traceid;
+>>> mutex_unlock(&coresight_mutex);
+>>>
+>>> if (!val)
+>>>      return -EINVAL;
+>>>
+>>> return sysfs_emit(buf, "%#lx\n", val);
+>>>
+>>> Thanks,
+>>> Jie
+>>>
+>>>>
+>>>>> +    return sysfs_emit(buf, "%#lx\n", val);
+>>>>> +}
+>>>>> +static DEVICE_ATTR_RO(traceid);
+>>>>> +
+>>>>> +static struct attribute *traceid_attrs[] = {
+>>>>> +    &dev_attr_traceid.attr,
+>>>>> +    NULL,
+>>>>> +};
+>>>>> +
+>>>>> +static struct attribute_group traceid_attr_grp = {
+>>>>> +    .attrs = traceid_attrs,
+>>>>> +};
+>>>>> +
+>>>>>   static ssize_t dsb_mode_show(struct device *dev,
+>>>>>                    struct device_attribute *attr,
+>>>>>                    char *buf)
+>>>>> @@ -1367,6 +1391,12 @@ static const struct attribute_group 
+>>>>> *tpdm_attr_grps[] = {
+>>>>>       &tpdm_cmb_patt_grp,
+>>>>>       &tpdm_cmb_msr_grp,
+>>>>>       &tpdm_mcmb_attr_grp,
+>>>>> +    &traceid_attr_grp,
+>>>>> +    NULL,
+>>>>> +};
+>>>>> +
+>>>>> +static const struct attribute_group *static_tpdm_attr_grps[] = {
+>>>>> +    &traceid_attr_grp,
+>>>>>       NULL,
+>>>>>   };
+>>>>> @@ -1425,6 +1455,8 @@ static int tpdm_probe(struct device *dev, 
+>>>>> struct resource *res)
+>>>>>       desc.access = CSDEV_ACCESS_IOMEM(base);
+>>>>>       if (res)
+>>>>>           desc.groups = tpdm_attr_grps;
+>>>>> +    else
+>>>>> +        desc.groups = static_tpdm_attr_grps;
+>>>>>       drvdata->csdev = coresight_register(&desc);
+>>>>>       if (IS_ERR(drvdata->csdev))
+>>>>>           return PTR_ERR(drvdata->csdev);
+>>>>> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.h b/ 
+>>>>> drivers/ hwtracing/coresight/coresight-tpdm.h
+>>>>> index 2867f3ab8186..11da64e1ade8 100644
+>>>>> --- a/drivers/hwtracing/coresight/coresight-tpdm.h
+>>>>> +++ b/drivers/hwtracing/coresight/coresight-tpdm.h
+>>>>> @@ -300,6 +300,7 @@ struct cmb_dataset {
+>>>>>    * @cmb         Specifics associated to TPDM CMB.
+>>>>>    * @dsb_msr_num Number of MSR supported by DSB TPDM
+>>>>>    * @cmb_msr_num Number of MSR supported by CMB TPDM
+>>>>> + * @traceid    Trace ID of the path.
+>>>>>    */
+>>>>>   struct tpdm_drvdata {
+>>>>> @@ -313,6 +314,7 @@ struct tpdm_drvdata {
+>>>>>       struct cmb_dataset    *cmb;
+>>>>>       u32            dsb_msr_num;
+>>>>>       u32            cmb_msr_num;
+>>>>> +    u8            traceid;
+>>>>>   };
+>>>>>   /* Enumerate members of various datasets */
+>>>>>
+>>>>> ---
+>>>>> base-commit: b84a0ebe421ca56995ff78b66307667b62b3a900
+>>>>> change-id: 20260316-add-traceid-show-for-tpdm-88d040651f00
+>>>>>
+>>>>> Best regards,
+>>>>
+>>>
+>>
+> 
+
 
