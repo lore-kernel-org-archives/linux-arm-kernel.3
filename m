@@ -4,144 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C7AFF60FF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 10:10:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E073FF60FF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 10:11:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OscVYcVLSC1PAO5AyKwi55H3UQZzDc7xDB2rFKH+jPA=; b=T6eg6kQ02P/0BNKivDaTTGGLl5
-	eW5a6F54cAN1RDDx57UjNbh4eR0jWQepULPTETUqOlk9rvR50l+mczRVmvW8XhyhnhDPOO5cndE0S
-	1TDCSWKGcJ9upAXh9ZOuNS+q9OhRqwrn5le5Rj5zHfLLNt/fKg1INQlTwClTKYGCfx6kZ0ijwBVFj
-	iWXpICc2sXT2rb4zRZ6SFXGus76+o6CuQ2203Cjji2tcNZROu+XSd+zemGDSfoA+d8hTCHwofwiLx
-	m3B+juFvvZbEJRYEQ0qNbth6gsWSNBGAeVzArPtHzdn7TVSZZ4HT3WuIArQOAZa+AOo5kiDVs5ul/
-	Yg4PTogQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lzN1Up3fqWbxCFKWrOl1SwoVlfS9THjfdjJdTAATjaw=; b=OLbqhxg/cQ26yFCxofo9JlTMC8
+	0FEBvC2wdv8VQizXI4Fh6QC3c3z9aZ5Kith2YBz7uVqTkfCpKqkaHHnbFlRdQyyPiWgY6BgIv4/C7
+	j2KnmUSJ6bEWXS9HOvv/DsdCikF3sqKcsRRvx72w26MjmVdNsyu6KhvVcOMyBOkB+ebP5UiZZK7R5
+	kjaMI+e74PfStQZ0vj5V69aezf9vQl/H/uVYuOwQw0py7nFp+6nsTDoc5KKqsbl6NUrldH8LKDBGl
+	G9TVdRwQeV5XBHaxNbhHMaDWyOUOsAATCoXhYeQfDOfF2RhN7GzUFxE4RzMczWBmSeLfMo0/8rebI
+	fQyvd+pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7W3Q-0000000CkFX-09cY;
-	Tue, 31 Mar 2026 10:10:36 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1w7W3o-0000000CkKE-3tXI;
+	Tue, 31 Mar 2026 10:11:00 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7W3N-0000000CkEJ-1LZJ
+	id 1w7W3k-0000000CkJ3-2X8t
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 10:10:34 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62V8jt7k2049398
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 10:10:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	OscVYcVLSC1PAO5AyKwi55H3UQZzDc7xDB2rFKH+jPA=; b=pvG+2BobqzBs0TOi
-	aYw1IjEyVY0cM3/yP62t3d/lGzz5EFXojW6zGq/5YmszC80MMcWoOUSioxfD5dHt
-	Q+ELIZEJhW++jEtY/uK7d9HYYVwmtKGvbSjiEu5WDLUuiZIRVWkbHYB7PYbNHdQf
-	vhnai5uso2JMOmOV1vm/Zb8sh3QbMS+pInOdztpj34dH5Sg+wf6tLfIAsvGvCxke
-	vu+2+142yDkoRA4cbkid3zrA9QhRz+z3ccrzDBf7/lC/j+0FgWWFUVqr9sPIPnxj
-	aPFTruBp61q6y29mj1/qObXpWUMx1kYpEX9HFfcXVa2dj3cL4b/NtB8Bk78JopGX
-	/w2wNg==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d8b1yrbj1-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 10:10:31 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8cfc644ff12so115948685a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 03:10:31 -0700 (PDT)
+	Tue, 31 Mar 2026 10:10:59 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-43cfce3a195so1236099f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 03:10:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1774951831; x=1775556631; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1774951854; x=1775556654; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=OscVYcVLSC1PAO5AyKwi55H3UQZzDc7xDB2rFKH+jPA=;
-        b=A1C+sHjnkPP6JptrYzq0oNWrwdViOuxGzDZcbCUt/Mc5BgM1v/b/sNHebkt35csD5H
-         olZWAGAIep0ISWCpnJd+f6iTrFW0Iu2odEmrVAFQANjlTM4/VSK1N9Q2tRN2qdgT8kTT
-         ujmfalJe4mcWxDuwgfiat5khh/4fEKI2JXEh4DJRsyQtjvmSVXwP7Zsmh1ooPbuNaw27
-         0XtR74ydVQDc0/cMZ9X0D7rd+oqufRY+pFWUqEfiPNfrF5cP6tAd16O4lQd6LujSpA5D
-         RgFNCoYJMBsh6TlnFT6lYMHZTNiMpfJp2nROYlESFG55h+jmjyvMBh6AKsF+x42/Cc//
-         PKnQ==
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=lzN1Up3fqWbxCFKWrOl1SwoVlfS9THjfdjJdTAATjaw=;
+        b=mqYPEhpmdKeSHE1SGmZdJscN+5I7SDSeiQo2RUN9lb4d6NnYAWQxmr2lFKsa98PmKY
+         GBuZSvxhPVX/YmcwxKpzRwof6r1Qm/Neoz/aBgwghDvEDDiMNsKm21tmhx3Raog7NEz+
+         GLhHrKkQoc7tmg82VVVLiQJelIkNSvBgOAl39/SL2HXMcvwpxR1u0WcYcmZZdb/ijfpq
+         CEzDMRF0BIK2poTWV372a4QpaNfZAO5d3KvqnQzxAIJaqdKhFKRRy3/cxF2vAaVysi60
+         l0Z5sAb6hrCxUDHJ4ZjB+Xv6JjwAKNnvlgqJ+yVPqsMV4DusIzGCDGWFSNx3K8UVYsZ2
+         pFwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774951831; x=1775556631;
+        d=1e100.net; s=20251104; t=1774951854; x=1775556654;
         h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=OscVYcVLSC1PAO5AyKwi55H3UQZzDc7xDB2rFKH+jPA=;
-        b=mRhw2edAta2AizI66vlro/p63djg1zfTzknwXwTacOJ38xsAAPxVrep7dqCO06KqjT
-         lHJ00ZK8sWoGcxTV+XTFXXUOQx+MvEau0AGHBtDLXaHqVYzYuQfJNCUOSAy+XWSVZ4BO
-         C8pa4kvZGCfE35AwExtvk4ygsqJffQbvKnsgvOBoX9zsBD8lZvRxGdvScKWw1cdfKcu6
-         2Xh+tEYPlbxg7oT8ZBOufpAj1gKbpxBvnHLJxC7rUaO8MtVAS2HXFRakQIqlPVU7UDGn
-         QSmejDO784gJgacjSwoXV9aqO3r0yQqXhWt5zU9/xaSG+vyLycFKBOmHo9LGN7gZSV5u
-         7cGA==
-X-Forwarded-Encrypted: i=1; AJvYcCW9T5kzL4j+Wq5gMn8F/8QcCSKGa7APmLQl4amvkV54e46eMVnge8DtbjMjFFjLNwH/Rm//wPy29zjymf0ke4xe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1A7yat3qfx0JEN1TZfVjY0bBqiMHjHnNeK+e83hKZgm27keuD
-	6atiNgt0H/7euGaNWt0SILSaC2QJpgClMMWHUqZX3Ejx9pm2d2zVBk/Lx1aboYIc2V5rB3eUY3f
-	BGj8lXDwUTE83Mn0ipt99q8aJoqnMPXvDqakfWyRJXHRaVsm0tJH36smi0JnvHg7V/2r5OHaJ6l
-	9RYQ==
-X-Gm-Gg: ATEYQzzDzHA54orcf/yW+7ylSCpVgZC6CXpgQ+Z2WxglhfbcTxTuuDS13O2Fihvf3b+
-	GNEKqYLy/rSnPYn2xUvQ6Sb04BIimphOso3mBK380dzS0RcPi3ttHTJ5pmRz3dxEDWOuA4L4gDw
-	3J7aZMXUVPo8JAbOE2K9STm6O5qpw4fVOwE1Utu1dlQQBfHEiwgijIQaBOxrUmv7DRTxrypTGLF
-	/LA4y6aiw7/P/0smGecLFqnGI/K00eUbVmlrkG9HYDcGx9X/klWTlU8sT8IDLw0UNzkgoJhUyfq
-	QwqgNTeaFdaeKKgsA+dnjW6Tu+VO717x2EHVBMLW8UoW+beunR0aKuwAdTbWqZ5StCaP2t4a2z2
-	PVvLBdvgve8al78OFUcfIjvjuqbI93HifY9ae2l8darl7LO4OdVPOLwfCtEenu3M6On72PTyzlQ
-	bxGio=
-X-Received: by 2002:a05:620a:4049:b0:8cf:c757:f1d1 with SMTP id af79cd13be357-8d01c82312cmr1476138785a.8.1774951831231;
-        Tue, 31 Mar 2026 03:10:31 -0700 (PDT)
-X-Received: by 2002:a05:620a:4049:b0:8cf:c757:f1d1 with SMTP id af79cd13be357-8d01c82312cmr1476134685a.8.1774951830813;
-        Tue, 31 Mar 2026 03:10:30 -0700 (PDT)
-Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-66b7276304fsm3447998a12.2.2026.03.31.03.10.28
+        bh=lzN1Up3fqWbxCFKWrOl1SwoVlfS9THjfdjJdTAATjaw=;
+        b=B/IGSWBSM2BUYON/MVok1JF0yIERzO+d9c2WWBF65gj2vawCMgRGlosdNxtWgCxTt6
+         sufcVYmyOeAz7vUKlklxaN86TPq3T+X/4HmL5xcMWg9j253XmQbHbml1+tEUz4jAnw3d
+         Q8O1GdGb84Pz1qmFqZabckrcioSH4pMbmPZ2mLeEo/O052prLztX7XFRUrjOfPu8vDCs
+         IXsca3/oWze5r/E8TCjdFmD+XftGsUUYeRM6F9n6ieyj7frlSogcyLMVsBJkT8iMNnQA
+         imNF34HVCgivdLEEaRFLgubW5G6TFERsPEbJQPxIieLJ2AKI7rOFqccL4cyuKo1d9X6x
+         o5yg==
+X-Forwarded-Encrypted: i=1; AJvYcCUdKCSEmmaAA0giWZpCsZobTNJdCtINo5aCGhChpEGaTxtJdH/Yxrlmzk5HcgSu9yLFKmafTIiGEuciDfgQjYs8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjivQWM5blbxCy8dy1MXJmPzq1WOlu9BDdka/4r+aAAmGdGGtk
+	h1KuCmnAjIxC5w9lYsC4I0s059+m/B8YI99hDrUD59FXDL6s63PBvF/GCK4viVABmg1ViVZGpBg
+	BBYK+qlU=
+X-Gm-Gg: ATEYQzzz2cMgvLfTKXj6QW9sNFe/YL8DBMPdPms/YU2XrKOurmTfkOHELkAgYoPK4ia
+	FNZMZyNNJADBtcg99+XumvuFRsCfYumWgjTuYxTWGGwDKnVXq8SfRBaeqXKnjydiHbzMjzN/OIv
+	jhWbxw+wuUaTCCkPTy+7xTqyeVwHUPjiJvO0GLY7HCrQhkrN7OXAB8rwqgb4/DjJmcUy4IOO1f9
+	C0GHwrCFn/oVnISQjrjCro896ch+7SveCNEmYYq462XTYuMXbnykITRLBi/HQi/cxOK6sEeEozd
+	C1gyAWghji9oCP11rwp9C6c6EcWMG5H1+PKyyZ9BcB2Q54LTmKK9Ppc2j/gxykxEdSbwhEW/Zpp
+	fOkpi1s42H0OjsiJA+pX5c/zAYph1X/OhdktDL7JU3HIQGbGP4KS6WZ9YuqXdpuX+6GXlOHg7BR
+	zbr/I/5twrog1g4Cdyz/konWmAv2oc
+X-Received: by 2002:a05:6000:290a:b0:43c:ffcc:b682 with SMTP id ffacd0b85a97d-43cffccb8bcmr10943998f8f.33.1774951854536;
+        Tue, 31 Mar 2026 03:10:54 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43cf2580168sm26662371f8f.36.2026.03.31.03.10.53
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 31 Mar 2026 03:10:29 -0700 (PDT)
-Message-ID: <51a05279-1759-4c03-8bba-835a9e972ccb@oss.qualcomm.com>
-Date: Tue, 31 Mar 2026 12:10:27 +0200
+        Tue, 31 Mar 2026 03:10:54 -0700 (PDT)
+Message-ID: <fa47405f-36c0-4ac1-915b-6d3e05502dd1@linaro.org>
+Date: Tue, 31 Mar 2026 11:10:53 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] clk: qcom: Constify qcom_cc_driver_data
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd
- <sboyd@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org
-References: <20260331091721.61613-3-krzysztof.kozlowski@oss.qualcomm.com>
- <a746be68-4f5d-4792-a896-bb693d029ea4@oss.qualcomm.com>
- <6ca492d7-c041-42b0-8f41-cd29ab7b4bab@oss.qualcomm.com>
+Subject: Re: [PATCH v4] coresight: tpdm: add traceid_show for checking traceid
+To: Jie Gan <jie.gan@oss.qualcomm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Mao Jinlong <quic_jinlmao@quicinc.com>,
+ Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+References: <20260331-add-traceid-show-for-tpdm-v4-1-ed3dda24a562@oss.qualcomm.com>
 Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <6ca492d7-c041-42b0-8f41-cd29ab7b4bab@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: 5JEMjAiEYEBkBMqVUc9nTmtslt5G5KS9
-X-Proofpoint-ORIG-GUID: 5JEMjAiEYEBkBMqVUc9nTmtslt5G5KS9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzMxMDA5NyBTYWx0ZWRfX8px47dTVE951
- 2texDasF1GYzgaMTpAgQUHCHr9TcK+3FGPIl/ICE4FIt87VzrzP18TanLFcGgRWE9gkmrasvi19
- vzybpGA6lGfsp9x0r5PaI4D3i7BoOB1pPkWbqO5OQfbtPPdhCDadeaexkYYhbxqNo6qk3PqGwUG
- UY4ThfPpZf4n4NevVIsHFwSJphaQrkoqTWuBurcytO+u1cKBfVH1yqspkrzaWN1JN7WjAtX22eN
- N0BbfaFWZ5avBRYkNoLw0w4sOipUvL3wgmvVfCGJrhGhcb8Ha5z+IhgtlNePDF4+ZsisqzyI+lI
- XUNVkEbaUZ1Yg2pkTblMmd9M9oAdqv0gpdOy91QcI+6H/Vu16mlYqqyiT2hzxcWZ+fh7LyifuXu
- y4HGzZP/UNIgR+8Ji7rCZfC1C3jRnErVRBuCzSis5DeCwVlTSuJpMyKM0RPT9l7XrlEupLcfUh2
- 3TuefnXzIYvsuhmVKBQ==
-X-Authority-Analysis: v=2.4 cv=aJT9aL9m c=1 sm=1 tr=0 ts=69cb9d97 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
- a=EUspDBNiAAAA:8 a=fArkNfqvCtmK_1YDpdcA:9 a=QEXdDO2ut3YA:10
- a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-31_02,2026-03-28_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 spamscore=0 phishscore=0 bulkscore=0 malwarescore=0
- priorityscore=1501 adultscore=0 lowpriorityscore=0 clxscore=1015
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
- definitions=main-2603310097
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260331-add-traceid-show-for-tpdm-v4-1-ed3dda24a562@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_031033_480455_B3BF0DF6 
-X-CRM114-Status: GOOD (  16.04  )
+X-CRM114-CacheID: sfid-20260331_031056_684604_1BF9DD2C 
+X-CRM114-Status: GOOD (  28.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,40 +106,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/31/26 12:09 PM, Krzysztof Kozlowski wrote:
-> On 31/03/2026 11:33, Konrad Dybcio wrote:
->> On 3/31/26 11:17 AM, Krzysztof Kozlowski wrote:
->>> The static 'struct qcom_cc_driver_data' contains probe match-like data
->>> and is not modified: neither by the driver defining it nor by common.c
->>> code using it.
->>>
->>> Make it const for code safety and code readability.
->>>
->>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->>> ---
->>
->> [...]
->>
->>> --- a/drivers/clk/qcom/common.h
->>> +++ b/drivers/clk/qcom/common.h
->>> @@ -49,7 +49,7 @@ struct qcom_cc_desc {
->>>  	size_t num_icc_hws;
->>>  	unsigned int icc_first_node_id;
->>>  	bool use_rpm;
->>> -	struct qcom_cc_driver_data *driver_data;
->>> +	const struct qcom_cc_driver_data *driver_data;
->>
->> This can be a const ptr to const data, even
+
+
+On 31/03/2026 11:05 am, Jie Gan wrote:
+> Save the trace ID in drvdata during TPDM enablement and expose it
+> to userspace to support trace data parsing.
 > 
-> None of other elements in 'qcom_cc_desc' is const pointer, even though
-> they also could. If doing this change, let's make it consistent - so
-> shall all of them be const?
+> The TPDM device’s trace ID corresponds to the trace ID allocated
+> to the connected TPDA device.
+> 
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> ---
+> Changes in v4:
+> 1. Return -EINVAL if the traceid is 0.
+> - Link to v3: https://lore.kernel.org/r/20260325-add-traceid-show-for-tpdm-v3-1-0eb836d4ec30@oss.qualcomm.com
+> 
+> Changes in v3:
+> 1. Only allow user to read the traceid while the TPDM device is enabled.
+> - Link to v2: https://lore.kernel.org/r/20260316-add-traceid-show-for-tpdm-v2-1-1dec2a67e4ed@oss.qualcomm.com
+> 
+> Changes in V2:
+> 1. Use sysfs_emit instead of sprintf.
+> Link to V1 - https://lore.kernel.org/all/20260306-add-traceid-show-for-tpdm-v1-1-0658a8edb972@oss.qualcomm.com/
+> ---
+>   .../ABI/testing/sysfs-bus-coresight-devices-tpdm   | 10 +++++++
+>   drivers/hwtracing/coresight/coresight-tpdm.c       | 34 +++++++++++++++++++++-
+>   drivers/hwtracing/coresight/coresight-tpdm.h       |  2 ++
+>   3 files changed, 45 insertions(+), 1 deletion(-)
+> 
 
-I thought about it, but then it turns out that videocc-sm8550.c has:
+Reviewed-by: James Clark <james.clark@linaro.org>
 
-video_cc_sm8550_driver_data.clk_cbcrs = video_cc_sm8650_critical_cbcrs
+> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
+> index f8016df64532..bc36ba32c900 100644
+> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
+> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
+> @@ -278,3 +278,13 @@ Date:           Aug 2025
+>   KernelVersion   6.18
+>   Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
+>   Description:    (Read) Show hardware context information of device.
+> +
+> +What:		/sys/bus/coresight/devices/<tpdm-name>/traceid
+> +Date:		March 2026
+> +KernelVersion:	7.1
+> +Contact:	Jie Gan <jie.gan@oss.qualcomm.com>
+> +Description:
+> +		(R) Show the trace ID that will appear in the trace stream
+> +		coming from this TPDM. The trace ID is inherited from the
+> +		connected TPDA device and is fixed for the lifetime of the
+> +		device. Returns -EINVAL if the device has not been enabled yet.
+> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
+> index da77bdaad0a4..9b16f368a58b 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpdm.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpdm.c
+> @@ -481,7 +481,7 @@ static void __tpdm_enable(struct tpdm_drvdata *drvdata)
+>   
+>   static int tpdm_enable(struct coresight_device *csdev, struct perf_event *event,
+>   		       enum cs_mode mode,
+> -		       __maybe_unused struct coresight_path *path)
+> +		       struct coresight_path *path)
+>   {
+>   	struct tpdm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>   
+> @@ -497,6 +497,7 @@ static int tpdm_enable(struct coresight_device *csdev, struct perf_event *event,
+>   	}
+>   
+>   	__tpdm_enable(drvdata);
+> +	drvdata->traceid = path->trace_id;
+>   	drvdata->enable = true;
+>   	spin_unlock(&drvdata->spinlock);
+>   
+> @@ -693,6 +694,29 @@ static struct attribute_group tpdm_attr_grp = {
+>   	.attrs = tpdm_attrs,
+>   };
+>   
+> +static ssize_t traceid_show(struct device *dev,
+> +			    struct device_attribute *attr, char *buf)
+> +{
+> +	unsigned long val;
+> +	struct tpdm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +
+> +	val = drvdata->traceid;
+> +	if (!val)
+> +		return -EINVAL;
+> +
+> +	return sysfs_emit(buf, "%#lx\n", val);
+> +}
+> +static DEVICE_ATTR_RO(traceid);
+> +
+> +static struct attribute *traceid_attrs[] = {
+> +	&dev_attr_traceid.attr,
+> +	NULL,
+> +};
+> +
+> +static struct attribute_group traceid_attr_grp = {
+> +	.attrs = traceid_attrs,
+> +};
+> +
+>   static ssize_t dsb_mode_show(struct device *dev,
+>   			     struct device_attribute *attr,
+>   			     char *buf)
+> @@ -1367,6 +1391,12 @@ static const struct attribute_group *tpdm_attr_grps[] = {
+>   	&tpdm_cmb_patt_grp,
+>   	&tpdm_cmb_msr_grp,
+>   	&tpdm_mcmb_attr_grp,
+> +	&traceid_attr_grp,
+> +	NULL,
+> +};
+> +
+> +static const struct attribute_group *static_tpdm_attr_grps[] = {
+> +	&traceid_attr_grp,
+>   	NULL,
+>   };
+>   
+> @@ -1425,6 +1455,8 @@ static int tpdm_probe(struct device *dev, struct resource *res)
+>   	desc.access = CSDEV_ACCESS_IOMEM(base);
+>   	if (res)
+>   		desc.groups = tpdm_attr_grps;
+> +	else
+> +		desc.groups = static_tpdm_attr_grps;
+>   	drvdata->csdev = coresight_register(&desc);
+>   	if (IS_ERR(drvdata->csdev))
+>   		return PTR_ERR(drvdata->csdev);
+> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.h b/drivers/hwtracing/coresight/coresight-tpdm.h
+> index 2867f3ab8186..11da64e1ade8 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpdm.h
+> +++ b/drivers/hwtracing/coresight/coresight-tpdm.h
+> @@ -300,6 +300,7 @@ struct cmb_dataset {
+>    * @cmb         Specifics associated to TPDM CMB.
+>    * @dsb_msr_num Number of MSR supported by DSB TPDM
+>    * @cmb_msr_num Number of MSR supported by CMB TPDM
+> + * @traceid	Trace ID of the path.
+>    */
+>   
+>   struct tpdm_drvdata {
+> @@ -313,6 +314,7 @@ struct tpdm_drvdata {
+>   	struct cmb_dataset	*cmb;
+>   	u32			dsb_msr_num;
+>   	u32			cmb_msr_num;
+> +	u8			traceid;
+>   };
+>   
+>   /* Enumerate members of various datasets */
+> 
+> ---
+> base-commit: b84a0ebe421ca56995ff78b66307667b62b3a900
+> change-id: 20260316-add-traceid-show-for-tpdm-88d040651f00
+> 
+> Best regards,
 
-So we'd have to duplicate the entire struct
-
-Konrad
 
