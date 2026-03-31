@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A66FF60CF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB6A0FF60CF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:25:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8UDKDpFdvlu+yHmlkw8x0m/80ZzvHagyajHrAnppOIs=; b=dcBk3/bJEJMKJYSF7lOKDcWGhl
-	QTrz7gEzFsxj6sZE4b+R7lR8YdYWCw8y8TNpwhYeXb4ogIgk6NqsQQkjXmK0+XQaviipiuPNo1Rvr
-	Wv1BhLj2H70CCaAq6nrf2e7zroY+AfcBBGEbGglKpiroBH3wDb+qkKD7ShQCg2EkaHbuKrYXE+mBC
-	k5VzQMZzCOGsGFkCdGRcnj48NptrhGyGnSVQdz0pKuFKIQTbi7jebI5LnivzkYna9U07eV2iSSJT9
-	wnyyiyqKL3n+eSvIJOunaniQ2pVLuRMnTrzsRes4DytkK90XQhqL4xIdELKdCj5OV6Bzt4TmfdS6w
-	wrCzTaow==;
+	bh=JPie6igWEVMiEee6bNPFfSXSnWs21rbUyCZln8rkxD8=; b=lg2Npp+us5n2zuMEafZaVyyoBi
+	1uhADyQH9XNvOyubHT0HzPPnqSUfehG6dQbjv36CxKMP7EfwzTDCDm89thAA1kbhrzne7cGJDQov+
+	vtxxde3Qd2lvAdImJ7FBRoff+2ZMUtWDqcF83VlFlhvCMtVM0Xjb9w8o6qxFL5IljLwQ736xle45L
+	J1nflJPLc1bZEwCdZEBFDQpE4FumSnsWQdif2zzwdLI/QBt7KpNT08vu4aRbufdv2usLGvsQ1ToiJ
+	a5nO5/oC9MGMly5reWpvKKx06Qka+k0noLU80Vvsnbv3BHeiQOuCBVbBpPAq+sc3oCdXFNJRe1S97
+	TynfCMlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7TTb-0000000CTk0-40ai;
-	Tue, 31 Mar 2026 07:25:27 +0000
-Received: from mail-westeuropeazon11011028.outbound.protection.outlook.com ([52.101.70.28] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1w7TTp-0000000CTrb-1cic;
+	Tue, 31 Mar 2026 07:25:41 +0000
+Received: from mail-francesouthazon11011036.outbound.protection.outlook.com ([40.107.130.36] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7TTS-0000000CTeY-2m67
+	id 1w7TTf-0000000CTm8-3X2p
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 07:25:20 +0000
+	Tue, 31 Mar 2026 07:25:32 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LSn1PX8DuU9gfV58lk1FHfgOIX6pb6L7TEfg8DcOUUjx5hFihJe/T4e4CKsFBNC0APjtmaahFbB1FbRLaw/6ZXO5B9tKB9f6+ONPLqWggsZzkeROEXGYI38UEhsxEiSwIqG4IrCVl/qfL4erh3zo5nGkAsnOu958BOdgaxk1CMOxWIIAk7+2dnXGOfg3itkisMAUooSeWliISIJ82vT0r1oRR0+g9O0LhNS6cEBJ2PC5sXBOpH105+VevnLjrxqVNyhyah9zSAECRuhWzRHdTF5VCduhwsJmPi4QZ3vxJNxy9YlA+jLXXNCduYsTQ6scgB4R28DuQoEVHt21kMvjTQ==
+ b=W0siN5ovUzzpQIoNme3H/2rJYjfddV9W4DbyP9s/b+PFtdUVYR9qYoa4tfUkAuSwsHnDOcb149SsX/5OPgBTRkf9Qp7BoCOSNACMzVWSjEZORwucjDW16SBdlIVSeYPe1eZqhlfaqYH5CCEJI9tITs0z69bYAmhBa4SYGBljVp39a/w73hLbYiW0ksrNk/1RdtS7tG96wWm6IP6fGQgoyo8cDgb5diC+htyiEGdm3PiHbFRPX7Na2ywIhAsOduEomOZguADMjjFKV8dSGUmBKw5oGBCg7e9NutvCrUx3coG4Bv+Auw0Y18UjAa3G+MM2hF5WiK1Rb41MjpWNbBkRyA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8UDKDpFdvlu+yHmlkw8x0m/80ZzvHagyajHrAnppOIs=;
- b=gcK9c0dlWYmWpbKuQZQAOpnxU3Y0ko9q4yLGgpQwaKECe8IdjfO6mZwa10FYUNx4zkhLDlE5+DZQY6K/hQVEEco+OpqJuMHHT/jugHGTQRPxzLvbfQxcOYOsV5alsOgP3YX5QrYySX4Q1gShFB0uQ5SZGYK72Bs7uk/xTPTbfuVBwtscQOhu5gWrtQrJMuRDGOzB1oXrxJS9JW8xBB0UA8qWWLGQKX6HJv7JpgfE1ietQzNMN9fyF0ZAvYxeQO2Eleg1fxloGRhqXmOLs8QLgdK+AYUFj+iMFlMAky43ulD0c+zleqy0s2yG1XNiSC+TwMLDVZ/LwijEp5cv696vDw==
+ bh=JPie6igWEVMiEee6bNPFfSXSnWs21rbUyCZln8rkxD8=;
+ b=hy3YDukOFxQjgQm/DqShC9xbUiin6NeJ/5u5MiZ8JU2trCV1pmQaSHuR/NoQLvXyQV2err+qsi45J7QSAcwZQkt9r0wN4g6MJX0TGbTlAVCZta9DooxaR0EUgAauW8LaOj88BNMbBR/uKSPc7lfGhJJJ2Er9AZ6C08tbzhSpUQW7DXcMrcSqk2RdhD7lFWbvJUmWwZwvLdEDnTYbe+A+8DCffJnwVafavWDVWovFq5gQqNZCDhttuhqq7HL8KV9XqwuwpoxL+qTFJ2kTYToG1yKRQTcwk7axGNoI4N7w4rgxuB6/jFBH/DSCq7jynRwVXomcTsDNsFJbhzYA+FoxqQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8UDKDpFdvlu+yHmlkw8x0m/80ZzvHagyajHrAnppOIs=;
- b=QYrs+y+HkfzuccplJMylBcn9sj1gayJF6mXeku+vBOoD6wrDmSxevXplMYTZX0AcuayTsVyqJlC+BPH7fmWrnVvOkMS/In8yDAcBg4RcF4O2eFgjW5VtQ/enX2/yYqkEPW2dyhjgRYKGB+J2FiUp5Va8jDiP46wmwA43Cx/XxrGV8Oa445jNQWrNU/kpKDRM8xu83bGt67h6jaj27UP0VuF6aJ0TwV0zdskq3lfBHNV7XnxDRABC1V5qfGUbugaUD6g+G7iMjZF+/3+BHsUHwIsYCuw1BVAQ6omWPlFNDxOELdJZ6FEgJHDHcfUxMLN1nr81jPVdTrn1jVeYkmOiPA==
+ bh=JPie6igWEVMiEee6bNPFfSXSnWs21rbUyCZln8rkxD8=;
+ b=Nq5wWUcS7qjHr/NEW2y2FnbYHlJyMf3rrgXy7hb2Bzt/1b83f7zKLw8IpVfSRZC1q7wUBv6kJJEGQersUbsJPPfeBWd07lqt6lktV/Do6v3orPMaKYvqtAKCDLuA4vtbiTyVzrceYoG7dsRn/bKk0m9JG6yESHvKmI4+Kc6A1YDnLL6LGsjUyLkGhq1V8UrWnx5dVNpGu+opc9Ng0TghWTHABVzg6u5PZxi5x0xuZQkswj9BVPcy6QoVDD2WrHJLkDAH526iY1rXzANjr9t2ilCatj/Y8m3jtZwk9TueP0vSmh22GJpRqKKgr4K9UOOQiflrOsd1dSRhdbpFOE5f2g==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from AM6PR04MB5110.eurprd04.prod.outlook.com (2603:10a6:20b:8::21)
- by DUZPR04MB9968.eurprd04.prod.outlook.com (2603:10a6:10:4d8::22) with
+ by AM9PR04MB8131.eurprd04.prod.outlook.com (2603:10a6:20b:3ed::21) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Tue, 31 Mar
- 2026 07:25:13 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Tue, 31 Mar
+ 2026 07:25:25 +0000
 Received: from AM6PR04MB5110.eurprd04.prod.outlook.com
  ([fe80::2866:93b6:c814:89fc]) by AM6PR04MB5110.eurprd04.prod.outlook.com
  ([fe80::2866:93b6:c814:89fc%5]) with mapi id 15.20.9632.017; Tue, 31 Mar 2026
- 07:25:13 +0000
+ 07:25:25 +0000
 From: ming.qian@oss.nxp.com
 To: linux-media@vger.kernel.org
 Cc: mchehab@kernel.org,
@@ -70,9 +70,9 @@ Cc: mchehab@kernel.org,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [RFC PATCH 3/7] media: v4l2-memtrack: Add V4L2 memory tracking infrastructure
-Date: Tue, 31 Mar 2026 15:23:13 +0800
-Message-ID: <20260331072347.253-4-ming.qian@oss.nxp.com>
+Subject: [RFC PATCH 5/7] MAINTAINERS: Add entry for V4L2 memory usage tracker
+Date: Tue, 31 Mar 2026 15:23:15 +0800
+Message-ID: <20260331072347.253-6-ming.qian@oss.nxp.com>
 X-Mailer: git-send-email 2.48.1.windows.1
 In-Reply-To: <20260331072347.253-1-ming.qian@oss.nxp.com>
 References: <20260331072347.253-1-ming.qian@oss.nxp.com>
@@ -84,59 +84,60 @@ X-ClientProxiedBy: MA0P287CA0014.INDP287.PROD.OUTLOOK.COM
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM6PR04MB5110:EE_|DUZPR04MB9968:EE_
-X-MS-Office365-Filtering-Correlation-Id: adeb03fa-4526-4c61-0326-08de8ef6a613
+X-MS-TrafficTypeDiagnostic: AM6PR04MB5110:EE_|AM9PR04MB8131:EE_
+X-MS-Office365-Filtering-Correlation-Id: 24d4c911-c2ae-4df5-2b3a-08de8ef6ace8
 X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|19092799006|18002099003|56012099003|22082099003|38350700014;
-X-Microsoft-Antispam-Message-Info: f3x275k4wAiPxVpyQDS7foBv+tXzJh7Uc4fYaqmpOwx7Nic++1nc53TZ9oo6kQwBD/p+jhW2bmvUosvJUO6YmxujVzYj0c7hbulgI5HXXTl4OH6nOMwz0qBLw7SRIFA6+jkcFVwdB1gRNjwFDxjaABRTJwGiVQ6IZDSx1BZgozRtnOChJCk9DASC6XjvUudU9rbYXm9Z2N26oiQt10bBOQVhqq00VN7ZWihCKvVeImkFN0jdiCgwmKZ4++zJD462f2VwaTSzgXyMRzAxIGhZ7YADGmClmZ/+cO1zcTdMaNg5CNlWkOhR/Wud1Zgv1o0tGK/FI2E2mzzXpyY+oe2cOp+Qbzkm0o6KyOTgCE9GY6oO4/n1PdvQNGFpoEUh/4pcDj+nGhOj/H8rfIdKxXLfkmoBLC3GGXzcqBCUgfyLwGswtU8gyjyOn73j6fgHJj1dEH+15sZndHxVT46TRCEoyYPHXlpwwzBYYTcu5hgeK8L0Pbe3ej9hMoattX96tJdq4nAUBNIJ2XcDLGFFsboDRNCuHgerMCizOgwFV1Kf1FBIPww3+ONuGEzNb8H6FoYVGJvJQQu9kPot5d+q3nih6028PXA96/3h4v43i5Efsno9a5KowClw0o90fBl522oROy8p02otPtfDxr/9E2dlN5gpWBAB2BqslBRgZLN8/+cqf+Y0adjHSjv9DQpkv4YDHDXlS3gSbhAYhQMcr1SJk86OGcEsdlScH+9T6/7XaDtAGm94EtL1UCsX4SyArWZ5iw1I2OryUTJSUTiJLe7j49Q5+PyZgZhpg8LKJc+JTuE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM6PR04MB5110.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(19092799006)(18002099003)(56012099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|52116014|38350700014|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: DYKrT5bA677ncq1ny1T8U/t8IgGxNbg7suLuNyEEpwq10S+5Y2FY70mM/fjmsdBcPBX4muM2Nxz1RhDakxfHhB/RnbRP10xuN9qkdqmznrKFKvu/erGJ56jYJxiTSemXfLBFIz+qJnPAUe2ZbPUZOqMiqHVehBsM8QWVhxpQcKde53/pFtUMn1vgPUUq+iuRfYljV5YpAm1cIyeDIbPDQQ6KfzyYQQlMPO46mDV7EPuVEgeyUc1nOmPbueaP4NeVzRjFDLYaYfTa7t22upmd5FSdwayvVyDLTweODOB6Jg+f/H582ZktFr5XHBkMmaB7FSCAzl9rwM9Sc+v4cCOiX5I1wLuXNQPgHN7UOXi2I0KxkOu++fPxJPYnaQ4BeoBZBH7+YTA0VdjUM8zt4hsliaO6EtIn4J5Nsf4pfhy+aLO3z7GQI5wIA5lBU3NKr3Fzbk0D8wzniPB2ksPkLZXpMKAU6zyKeQlOcPepLkPS0YhGN8GtXljv6W99FnT4+9qBvKcf87K7Ze+MIdmFqFJ2uTMGBfiaNJm031w73diq0gGHyUJ9SN+cQuzOm+IE6Sz9q58g6cCG7M3VT+8mtqeLhiTAmqYeEp6w8NE8zQXPCJ98v3CBcltGjFQzgLvyvrYrxVrJodEP4y8YtgjqECQbgyDjD++uat/C8RzrAXWqmvHQXOWs8uR8LcLeusTn2BD1KEjVpkdVgZ8O5RfmEGgNo30WTVtIGQy/Wo3Thk4QkwJ7z38kN/IG36Z91LOMAXuvSCrHz8L3CW6VusblqC9zqV65CJQK18keunjY8DVCacY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM6PR04MB5110.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(52116014)(38350700014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4SSHuxiIGM1RIHPp+hx9BQgtiqq4pfF8B3rp8VCdo3ZXg1vO1GEfq1BxCLG1?=
- =?us-ascii?Q?R4kXxUzfsiyz+s/wPVjQdJciYqOHR5cUWmEI4a1XQVi/6tnTu4uXNksRQp5D?=
- =?us-ascii?Q?PGXJKHNptXykfjtgMsKhNub9KyKaYICD7rejtjeoWZvdrbZPcHMYq3DpEc2d?=
- =?us-ascii?Q?q89QPrwc5v3jdA5TYM30Y6tsdCea+cqFgNM7udXkER/sxVpMNuxHT9ZjUhnY?=
- =?us-ascii?Q?9aoSH1OCLGafD6aU2sR0+PXdTZMBKXNgZDAqEi46EoEASgWE1o89EyDDFoK3?=
- =?us-ascii?Q?/eoO2dYenv3SC10OnJ6KEqhqtaXdS3VTk2TJoYmFSPZAy9XEJvD1hGN9uMUE?=
- =?us-ascii?Q?y7cAcY4m7eMH6ju9UJbQhhROPoxh1M8mVhs5HOTRJ0gZfr15ruKwZXFWJxVu?=
- =?us-ascii?Q?naZE73sAHbuzirKVFoJ57Q7+NIvKFAJdSRrS2DitGyrSwkXVSLRoe3FSUT0O?=
- =?us-ascii?Q?u4KSXcRUDE91Vw2OgVLCmIlKfwtiUk3n2oe536OrT7pk25q1T4crw+MWm9s8?=
- =?us-ascii?Q?FMlp3INFMF9bjHyj21QolJQOhjH6uCltEPC+Ky8mGtI12GE7Cd8EDm+sYi0g?=
- =?us-ascii?Q?iOxNZZHEWImSoGL/rBhXfrjTBqudCodvGSYSwssOMTi1z0c8xU9spmP1wMEj?=
- =?us-ascii?Q?ewQuw0pBqrhbSIfCKohum/kw2uLY5o703dxeSUum+qUhP5rbtk5yu2W02hJZ?=
- =?us-ascii?Q?VN8UjCDVOTFcTnCb1vEZ1lvW9BY6gnUdM5XSHR31kqLPCZDb5N68JWUpIxgU?=
- =?us-ascii?Q?rz0yv3s+8GMnxNDTWHqw5Wxfo15N58S9ggDcrmaM8BHZiJ+zMycXzeAwpStt?=
- =?us-ascii?Q?D3CuVfscAe8T4rbzBPF1yHchjlQnIJ7a/xC6I7XUyubSug4VAUlgNAYth+rF?=
- =?us-ascii?Q?rimjgZq5XKRVclh8EUOvz8eluAlytBb+H2ocWMjOIvyxm+pxErRPYz37Ri3r?=
- =?us-ascii?Q?SnWEjxwmbDZrX2FgkOiApeonO4xLJGwTsdaJBWPynte+A18q2YaGEI8+J/6T?=
- =?us-ascii?Q?ewhzuiKsBzN8OU4N5+qU9BmPe3HDGIHlMV6/3oKwL53oX+BHXu24sdqjlO/t?=
- =?us-ascii?Q?btIUMdxv1WuW0uSBaOTtNJw1ZKRA0j/MfD9iSzw1FfTv6/GsTBMv2OifpA9J?=
- =?us-ascii?Q?sDWhZ/FduDNzwFRhRAW2Af4mrkiv/8vKQeEYJDkM5DlU2NMp+zEpacR7WXLE?=
- =?us-ascii?Q?WK8BnuAUargqoK6tJ7atLp4PUOOkYLa+xkRipsbQmSxhrPgsL4JLeo191rN/?=
- =?us-ascii?Q?xXNc43ZmjjFpKb6RVuZoNsucsD8ncVLcj9Dwq1kYzsgKCLUW8rbwfkOFnYVJ?=
- =?us-ascii?Q?zirwrcHlWLrbhTYxbhDc45wmQxQP6tX2mGA8ySF+skKTLoFJk5XouhSS+JTP?=
- =?us-ascii?Q?G3+qps8dJtBLAw1BMinXEZ2rEmBVDoPQNYDbUlkiiqtt3JJdL06YQtjITg57?=
- =?us-ascii?Q?2hbFSilI1TobXiU821R2SoH1pYJaZQymZJvgq4gOMKCG7yV0U3JMgXPrnf1b?=
- =?us-ascii?Q?bTtG8litax9D8BOR4uf7woFoMrM1zUpp6p+0fVLNFAf5/96qethOYrw8I/Vu?=
- =?us-ascii?Q?1/eZO1BmH0vhPTHThhBilphGUxIVcQjcATUDlbgX+NUaAE/8pFAKNgsgkPnb?=
- =?us-ascii?Q?in1gpN5di7+cixyY4MlLQv5x+VqqoN306rV2nbEicsjxPf5ZDQU80WIFWnLf?=
- =?us-ascii?Q?pfkBfl3nfRDDKNJnrr0AdO4wLc2v3hTqvMjdSGLQ39R2nBF1bNmofMOmg1Uv?=
- =?us-ascii?Q?JNQxla8pjQ=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?w0WrH0WjnoMYBMn8gMa4Im0vnhpCb/FG9HIyj+V88Ddut62wQ4xxHBvp1JLo?=
+ =?us-ascii?Q?SmHqWuqqLGqWDiOMw4doMSJvh1CR+YKbOiviCemRyHgG6LzYwBImAuM2lGu9?=
+ =?us-ascii?Q?h6Ix8IRSqQiHR6UqBkIoP+09EX3xEskqcrmEJSrGkySc0WRt0j6iDEtbbRoJ?=
+ =?us-ascii?Q?iS4mSnR7zPLspqqXzKUcgzPi9TBnYpaX8XFu9cjJdEI4zhdw6bQOzH8QyJP4?=
+ =?us-ascii?Q?M2gBQiHm0cWjbBrWXCiRp1JuLOY3WTZUIeVbULckOfRVvFJ84D14coIN92vN?=
+ =?us-ascii?Q?U00HjOrun26sVlynIm5lcC0eSqztZVu5h3uKS1UhRV7+bLJcViz6ujyZpqgm?=
+ =?us-ascii?Q?LIOQUm9IUjxhs8XZoOTgZ2gc2UtT+WafRWSyqcGPwESXHs+m/I+KEMHM4Nug?=
+ =?us-ascii?Q?Rgtje+REvTjhIrZi2xiExfvzrgu0rLrX+FWL6ZFHpsYHzT+T65JtnHrIknQX?=
+ =?us-ascii?Q?/BNjA2ksxL58+gHaSd4CLjnKlK99ixLNuvZPnpcXZMMSgmS69unSkXiI3o9U?=
+ =?us-ascii?Q?oKFFB6Dsan6UIll+EZ75wI+Z6VyiXl83ZshatvjXIb2mqVND5I7VNMeWllKt?=
+ =?us-ascii?Q?vbs/aVYng/A3MVJ65o6nPAUqo6CnBAsI2dq3wVVjXp0HyeiCWrhNHbT36Old?=
+ =?us-ascii?Q?XWeRyStgGHMGPKu2JSrD3tbr8Lyo1EDUjogjEPbOZCbfdxZALwMpwGw9MfuW?=
+ =?us-ascii?Q?2cmHCFKYHxcfXOc/M0VDwj6sER7wakMTmAA1mnlOhvZiO8CZ2eUI/RHhzYKV?=
+ =?us-ascii?Q?3WLsGk0Nv0xLx6DBUWvN7bFFg1A8xP1K0NkbKLK5oFUw6WcUnOQl5Jy8/os9?=
+ =?us-ascii?Q?rAASvdLGQtbjPVh9gO0Ob3kwgvNpYdAv0tikgve70MDVZGz4ZTbe86Rd2Xdt?=
+ =?us-ascii?Q?uRhEWKUUPYNlgDh6XJIccUdkspm7LmBVZwkPuMTHd3JSNoapVqJcFapboDpI?=
+ =?us-ascii?Q?8KbWsWe/QQaupfdnHS55B4JoHRsScY+bHp0iiAtDIy+Bcdk2HrrKQHjDp2cM?=
+ =?us-ascii?Q?L8JF9E0AwlCsdtFZq5bhC24UE9i4Y9hPXmI9vqCetk0inyFeU3m6YmXrEI2j?=
+ =?us-ascii?Q?AOCEi9r3oB3e9WrLYxLqakfq6NoC9ZqMJlhaGyXbx5x14ZGRr9HL3CvBbS++?=
+ =?us-ascii?Q?zCryzlrl8KrZjvM+e0xq8iA0hOEkMXAiTh5pTr9nPKt04R+wzQ3kCA0wAu2H?=
+ =?us-ascii?Q?E6P/i0G8Y0agTk7KQCyvViIXuEFAIvkzEJoMmLTmjrxNTKgXJUFpb2Aw6fHW?=
+ =?us-ascii?Q?LPmU7AKROIWylvWVcxkX0kEblQtCsmqFPASj1Kk8E3bwtIWDtFNUbM49It9M?=
+ =?us-ascii?Q?A1DD+nCZiOGxiGHZh2g9HM0kv/ThzQ81hoS/QntyPXbrmMWnt+muzHPFlwvF?=
+ =?us-ascii?Q?CwBIwcacgHFPXULZGXzTxdlhtwhMt3C0JzX94H7K3YkH+WYmCet2fiJ9Ms8Z?=
+ =?us-ascii?Q?WJiBJUrlRK6lenAdQ1aUfYzTqYhKCkV/xD8HOuC6pgFkqmUAHOtBG0j6lAfu?=
+ =?us-ascii?Q?jBsdk7F1wjEHwb6RlZvTvCHNJJEC+75Q8/UBJys6cxV22dXr4d/BCIl21LQq?=
+ =?us-ascii?Q?sx+DFVBT9l4zq6/FTw9NS9vUg1sav78nE7QhA2sovg+4dvw3xJ+ILgDNzXZZ?=
+ =?us-ascii?Q?5K6d9+pMpV0jdn67Z8S4zNYCNJ8dpf2iWIuCFA6jcBcCypZF9CvL9Z31Fokc?=
+ =?us-ascii?Q?CV8BJMj2PyHQcLsMFhfJO3+LZRML3CyUB6UbJPGwZ/mUWsbJwzs5wMNl3HIz?=
+ =?us-ascii?Q?2kmg99mjew=3D=3D?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: adeb03fa-4526-4c61-0326-08de8ef6a613
+X-MS-Exchange-CrossTenant-Network-Message-Id: 24d4c911-c2ae-4df5-2b3a-08de8ef6ace8
 X-MS-Exchange-CrossTenant-AuthSource: AM6PR04MB5110.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 07:25:13.5370
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 07:25:25.0440
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: j6zt2eLODj4EPvxanosaxeMS9jlOJO6NXdw3Y1BPviO/3lmKj7Bh9owgGfOBDy5AynIMzZmYPvNvgwkc7FFWCQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9968
+X-MS-Exchange-CrossTenant-UserPrincipalName: nxgKkjbAM40gN/Xc8NiwJJMpIDea/bR455VXakV/7pRpVViLKdd4whYZZYuLzuHGwN2+TzZqFouBRrzADfC4vQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8131
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_002518_725714_21D33772 
-X-CRM114-Status: GOOD (  22.22  )
+X-CRM114-CacheID: sfid-20260331_002531_905255_9C10F13A 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,1154 +154,34 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ming Qian <ming.qian@oss.nxp.com>
 
-Add a hierarchical memory tracking system for V4L2 devices that allows
-drivers to monitor and report memory usage. This infrastructure provides:
-
-- Tree-structured memory tracking with parent-child relationships
-- Per-node memory accounting with allocation counts
-- Automatic aggregation of memory usage up the hierarchy
-- debugfs interface for inspecting memory usage trees
-- Notification callbacks for memory usage changes
-
-The tracking system uses a context-based design where each root node
-creates its own tracking tree. Memory changes propagate notifications up
-the tree, allowing drivers to update controls or take other actions.
-
-The debugfs interface creates entries under <debugfs>/v4l2-memtrack/
-showing hierarchical memory usage with indentation, allocation counts,
-and process information.
-
-Drivers can use this to track internal buffers, intermediate processing
-data, and other allocations, providing visibility into memory consumption
-for debugging and resource monitoring.
+Add a MAINTAINERS entry for the V4L2 memory tracking infrastructure,
+covering the driver API documentation, core implementation, and header
+files.
 
 Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
 ---
- drivers/media/common/Kconfig                  |   1 +
- drivers/media/common/Makefile                 |   2 +-
- drivers/media/common/v4l2-memtrack/Kconfig    |  19 +
- drivers/media/common/v4l2-memtrack/Makefile   |   3 +
- .../common/v4l2-memtrack/v4l2-memtrack.c      | 825 ++++++++++++++++++
- include/media/v4l2-memtrack.h                 | 220 +++++
- 6 files changed, 1069 insertions(+), 1 deletion(-)
- create mode 100644 drivers/media/common/v4l2-memtrack/Kconfig
- create mode 100644 drivers/media/common/v4l2-memtrack/Makefile
- create mode 100644 drivers/media/common/v4l2-memtrack/v4l2-memtrack.c
- create mode 100644 include/media/v4l2-memtrack.h
+ MAINTAINERS | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/drivers/media/common/Kconfig b/drivers/media/common/Kconfig
-index adcb6655385a..4da632f53970 100644
---- a/drivers/media/common/Kconfig
-+++ b/drivers/media/common/Kconfig
-@@ -27,5 +27,6 @@ config VIDEO_TVEEPROM
- source "drivers/media/common/b2c2/Kconfig"
- source "drivers/media/common/saa7146/Kconfig"
- source "drivers/media/common/siano/Kconfig"
-+source "drivers/media/common/v4l2-memtrack/Kconfig"
- source "drivers/media/common/v4l2-tpg/Kconfig"
- source "drivers/media/common/videobuf2/Kconfig"
-diff --git a/drivers/media/common/Makefile b/drivers/media/common/Makefile
-index c5ab905e7c20..0010a4d904ca 100644
---- a/drivers/media/common/Makefile
-+++ b/drivers/media/common/Makefile
-@@ -1,5 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0-only
--obj-y += b2c2/ saa7146/ siano/ v4l2-tpg/ videobuf2/
-+obj-y += b2c2/ saa7146/ siano/ v4l2-memtrack/ v4l2-tpg/ videobuf2/
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 32b1dfee8614..6de2f259415f 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -27667,6 +27667,14 @@ F:	drivers/media/v4l2-core/v4l2-isp.c
+ F:	include/media/v4l2-isp.h
+ F:	include/uapi/linux/media/v4l2-isp.h
  
- # Please keep it alphabetically sorted by Kconfig name
- # (e. g. LC_ALL=C sort Makefile)
-diff --git a/drivers/media/common/v4l2-memtrack/Kconfig b/drivers/media/common/v4l2-memtrack/Kconfig
-new file mode 100644
-index 000000000000..f4c97117b779
---- /dev/null
-+++ b/drivers/media/common/v4l2-memtrack/Kconfig
-@@ -0,0 +1,19 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+config V4L2_MEMTRACK
-+	tristate "V4L2 memory usage tracking support"
-+	help
-+	  This option enables hierarchical memory allocation tracking
-+	  for V4L2 devices. It provides:
-+
-+	  - Tree-structured memory usage monitoring
-+	  - Per-device and per-context tracking
-+	  - debugfs interface at /sys/kernel/debug/v4l2-memtrack/
-+	  - Optional V4L2 control for userspace queries
-+
-+	  This is useful for debugging memory leaks and monitoring
-+	  buffer allocation in video drivers.
-+
-+	  To compile this as a module, choose M here.
-+
-+	  If unsure, say N.
-diff --git a/drivers/media/common/v4l2-memtrack/Makefile b/drivers/media/common/v4l2-memtrack/Makefile
-new file mode 100644
-index 000000000000..5ed59453b35a
---- /dev/null
-+++ b/drivers/media/common/v4l2-memtrack/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+obj-$(CONFIG_V4L2_MEMTRACK) += v4l2-memtrack.o
-diff --git a/drivers/media/common/v4l2-memtrack/v4l2-memtrack.c b/drivers/media/common/v4l2-memtrack/v4l2-memtrack.c
-new file mode 100644
-index 000000000000..96eeaef7a653
---- /dev/null
-+++ b/drivers/media/common/v4l2-memtrack/v4l2-memtrack.c
-@@ -0,0 +1,825 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * V4L2 Memory Usage Tracker
-+ *
-+ * Copyright 2026 NXP
-+ *
-+ * Provides hierarchical memory allocation tracking for V4L2 devices.
-+ */
-+
-+#include <linux/module.h>
-+#include <linux/kernel.h>
-+#include <linux/slab.h>
-+#include <linux/list.h>
-+#include <linux/kref.h>
-+#include <linux/mutex.h>
-+#include <linux/debugfs.h>
-+#include <linux/seq_file.h>
-+#include <linux/atomic.h>
-+#include <linux/sched.h>
-+#include <linux/errno.h>
-+#include <linux/string.h>
-+#include <linux/workqueue.h>
-+
-+#include <media/v4l2-memtrack.h>
-+
-+#define V4L2_MEMTRACK_DEBUGFS_ROOT	"v4l2-memtrack"
-+#define V4L2_MEMTRACK_MAX_DEPTH		16
-+
-+/**
-+ * struct v4l2_memtrack_ctx - Memory tracker context
-+ * @name: Tracker name (shown in debugfs)
-+ * @root: Root node of tracking hierarchy
-+ * @debugfs: debugfs file entry
-+ * @lock: Protects the node tree
-+ */
-+struct v4l2_memtrack_ctx {
-+	const char *name;
-+	struct v4l2_memtrack_node *root;
-+	struct dentry *debugfs;
-+	struct mutex lock;
-+};
-+
-+/**
-+ * struct v4l2_memtrack_node - Memory tracking node
-+ * @list: Linkage in parent's children list
-+ * @parent: Parent node
-+ * @children: List of child nodes
-+ * @bytes: Memory usage in bytes
-+ * @alloc_count: Number of allocations
-+ * @name: Node name
-+ * @depth: Depth of this node in the tree (root = 0)
-+ * @pid: Process ID that created this node
-+ * @tgid: Thread group ID that created this node
-+ * @ctx: Back pointer to context
-+ * @is_leaf: True if this is a leaf node (internal use only)
-+ * @notify: Notification callback for memory changes
-+ * @notify_priv: Private data for notification callback
-+ * @notify_work: Per-node delayed work for coalesced notifications
-+ * @notify_delay_ms: Notification delay (<0: off, 0: immediate, >0: delayed)
-+ * @in_notify: Flag indicating if callback is currently executing
-+ * @notify_done: Completion for waiting on callback completion
-+ */
-+struct v4l2_memtrack_node {
-+	struct list_head list;
-+	struct v4l2_memtrack_node *parent;
-+	struct list_head children;
-+
-+	size_t bytes;
-+	unsigned int alloc_count;
-+
-+	const char *name;
-+	unsigned int depth;
-+	pid_t pid;
-+	pid_t tgid;
-+
-+	struct v4l2_memtrack_ctx *ctx;
-+	bool is_leaf;
-+
-+	/* Notify fields - only used by non-leaf nodes */
-+	v4l2_memtrack_notify_fn notify;
-+	void *notify_priv;
-+	struct delayed_work notify_work;
-+	int notify_delay_ms;
-+	bool in_notify;
-+	struct completion notify_done;
-+};
-+
-+static struct dentry *v4l2_memtrack_debugfs_root;
-+static DEFINE_MUTEX(v4l2_memtrack_debugfs_lock);
-+static struct kref v4l2_memtrack_debugfs_kref;
-+static bool v4l2_memtrack_debugfs_initialized;
-+
-+struct v4l2_memtrack_iter_state {
-+	struct v4l2_memtrack_node *node;
-+	struct list_head *next_child;
-+};
-+
-+typedef int (*v4l2_memtrack_visit_fn)(struct v4l2_memtrack_node *node, void *data);
-+
-+static int v4l2_memtrack_for_each_locked(struct v4l2_memtrack_node *root,
-+					 v4l2_memtrack_visit_fn visit,
-+					 void *data)
-+{
-+	struct v4l2_memtrack_iter_state stack[V4L2_MEMTRACK_MAX_DEPTH];
-+	struct v4l2_memtrack_node *node;
-+	int sp = 0;
-+	int ret;
-+
-+	lockdep_assert_held(&root->ctx->lock);
-+
-+	ret = visit(root, data);
-+	if (ret)
-+		return ret;
-+
-+	if (list_empty(&root->children))
-+		return 0;
-+
-+	stack[sp].node = root;
-+	stack[sp].next_child = root->children.next;
-+	sp++;
-+
-+	while (sp > 0) {
-+		struct v4l2_memtrack_iter_state *top = &stack[sp - 1];
-+
-+		if (top->next_child == &top->node->children) {
-+			sp--;
-+			continue;
-+		}
-+
-+		node = list_entry(top->next_child,
-+				  struct v4l2_memtrack_node, list);
-+		top->next_child = top->next_child->next;
-+
-+		ret = visit(node, data);
-+		if (ret)
-+			return ret;
-+
-+		if (!list_empty(&node->children) &&
-+		    sp < V4L2_MEMTRACK_MAX_DEPTH) {
-+			stack[sp].node = node;
-+			stack[sp].next_child = node->children.next;
-+			sp++;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static void v4l2_memtrack_debugfs_release(struct kref *kref)
-+{
-+	debugfs_remove(v4l2_memtrack_debugfs_root);
-+	v4l2_memtrack_debugfs_root = NULL;
-+	v4l2_memtrack_debugfs_initialized = false;
-+}
-+
-+static void v4l2_memtrack_debugfs_get(void)
-+{
-+	guard(mutex)(&v4l2_memtrack_debugfs_lock);
-+
-+	if (!v4l2_memtrack_debugfs_initialized) {
-+		kref_init(&v4l2_memtrack_debugfs_kref);
-+		v4l2_memtrack_debugfs_root =
-+			debugfs_create_dir(V4L2_MEMTRACK_DEBUGFS_ROOT, NULL);
-+		v4l2_memtrack_debugfs_initialized = true;
-+	} else {
-+		kref_get(&v4l2_memtrack_debugfs_kref);
-+	}
-+}
-+
-+static void v4l2_memtrack_debugfs_put(void)
-+{
-+	guard(mutex)(&v4l2_memtrack_debugfs_lock);
-+	kref_put(&v4l2_memtrack_debugfs_kref, v4l2_memtrack_debugfs_release);
-+}
-+
-+static void v4l2_memtrack_notify_work_handler(struct work_struct *work);
-+
-+static int v4l2_memtrack_node_init(struct v4l2_memtrack_node *node,
-+				   struct v4l2_memtrack_ctx *ctx,
-+				   unsigned int depth,
-+				   const char *name,
-+				   bool is_leaf)
-+{
-+	INIT_LIST_HEAD(&node->list);
-+	INIT_LIST_HEAD(&node->children);
-+	node->bytes = 0;
-+	node->alloc_count = 0;
-+	node->ctx = ctx;
-+	node->depth = depth;
-+	node->tgid = current->tgid;
-+	node->pid = current->pid;
-+	node->is_leaf = is_leaf;
-+
-+	/* Initialize notify fields only for non-leaf nodes */
-+	if (!is_leaf) {
-+		node->notify = NULL;
-+		node->notify_priv = NULL;
-+		INIT_DELAYED_WORK(&node->notify_work,
-+				  v4l2_memtrack_notify_work_handler);
-+		node->notify_delay_ms = 0;
-+		node->in_notify = false;
-+		init_completion(&node->notify_done);
-+	}
-+
-+	if (name) {
-+		node->name = kstrdup_const(name, GFP_KERNEL);
-+		if (!node->name)
-+			return -ENOMEM;
-+	} else {
-+		node->name = NULL;
-+	}
-+
-+	return 0;
-+}
-+
-+static inline const char *v4l2_memtrack_name(struct v4l2_memtrack_node *node)
-+{
-+	return node->name ? : "(unnamed)";
-+}
-+
-+static int v4l2_memtrack_sum_visitor(struct v4l2_memtrack_node *node, void *data)
-+{
-+	size_t *total = data;
-+
-+	*total += node->bytes;
-+	return 0;
-+}
-+
-+static size_t v4l2_memtrack_sum_bytes_locked(struct v4l2_memtrack_node *root)
-+{
-+	size_t total = 0;
-+
-+	lockdep_assert_held(&root->ctx->lock);
-+
-+	v4l2_memtrack_for_each_locked(root, v4l2_memtrack_sum_visitor, &total);
-+	return total;
-+}
-+
-+static void v4l2_memtrack_do_notify_locked(struct v4l2_memtrack_node *node)
-+{
-+	size_t total;
-+	v4l2_memtrack_notify_fn notify;
-+	void *priv;
-+	struct v4l2_memtrack_ctx *ctx = node->ctx;
-+
-+	lockdep_assert_held(&ctx->lock);
-+
-+	if (!node->notify)
-+		return;
-+
-+	total = v4l2_memtrack_sum_bytes_locked(node);
-+	notify = node->notify;
-+	priv = node->notify_priv;
-+
-+	node->in_notify = true;
-+	reinit_completion(&node->notify_done);
-+
-+	mutex_unlock(&ctx->lock);
-+	notify(node, total, priv);
-+	mutex_lock(&ctx->lock);
-+
-+	node->in_notify = false;
-+	complete_all(&node->notify_done);
-+}
-+
-+static void v4l2_memtrack_notify_work_handler(struct work_struct *work)
-+{
-+	struct v4l2_memtrack_node *node =
-+		container_of(to_delayed_work(work),
-+			     struct v4l2_memtrack_node, notify_work);
-+	struct v4l2_memtrack_ctx *ctx = node->ctx;
-+
-+	guard(mutex)(&ctx->lock);
-+	v4l2_memtrack_do_notify_locked(node);
-+}
-+
-+static void v4l2_memtrack_schedule_notify(struct v4l2_memtrack_node *node)
-+{
-+	int delay;
-+
-+	if (node->is_leaf || !node->notify)
-+		return;
-+
-+	delay = node->notify_delay_ms;
-+	if (delay < 0)
-+		return;
-+
-+	if (delay == 0)
-+		v4l2_memtrack_do_notify_locked(node);
-+	else
-+		schedule_delayed_work(&node->notify_work,
-+				      msecs_to_jiffies(delay));
-+}
-+
-+static void v4l2_memtrack_notify_change_locked(struct v4l2_memtrack_node *node)
-+{
-+	struct v4l2_memtrack_node *cur;
-+
-+	lockdep_assert_held(&node->ctx->lock);
-+
-+	for (cur = node; cur; cur = cur->parent) {
-+		if (!cur->is_leaf)
-+			v4l2_memtrack_schedule_notify(cur);
-+	}
-+}
-+
-+static void v4l2_memtrack_do_notify(struct v4l2_memtrack_node *node)
-+{
-+	if (!node || !node->ctx)
-+		return;
-+
-+	guard(mutex)(&node->ctx->lock);
-+	v4l2_memtrack_notify_change_locked(node);
-+}
-+
-+struct v4l2_memtrack_seq_ctx {
-+	struct seq_file *seq;
-+};
-+
-+static int v4l2_memtrack_seq_visitor(struct v4l2_memtrack_node *node, void *data)
-+{
-+	struct v4l2_memtrack_seq_ctx *ctx = data;
-+	struct seq_file *s = ctx->seq;
-+	size_t bytes;
-+
-+	bytes = v4l2_memtrack_sum_bytes_locked(node);
-+
-+	seq_printf(s, "%*s", node->depth * 2, "");
-+
-+	if (node->name)
-+		seq_printf(s, "%s ", node->name);
-+
-+	if (node->is_leaf)
-+		seq_puts(s, "[leaf] ");
-+
-+	if (node->tgid && node->pid)
-+		seq_printf(s, "(tgid=%d, pid=%d) ", node->tgid, node->pid);
-+
-+	seq_printf(s, "usage: %zu", bytes);
-+
-+	if (node->alloc_count > 1 || (node->alloc_count == 1 && !list_empty(&node->children))) {
-+		seq_printf(s, " (count=%u", node->alloc_count);
-+		if (!list_empty(&node->children))
-+			seq_printf(s, ", self=%zu", node->bytes);
-+		seq_puts(s, ")");
-+	}
-+
-+	seq_puts(s, "\n");
-+	return 0;
-+}
-+
-+static int v4l2_memtrack_seq_show(struct seq_file *s, void *data)
-+{
-+	struct v4l2_memtrack_ctx *ctx = s->private;
-+	struct v4l2_memtrack_seq_ctx seq_ctx = { .seq = s };
-+
-+	guard(mutex)(&ctx->lock);
-+
-+	seq_printf(s, "Total memory usage: %zu bytes\n",
-+		   v4l2_memtrack_sum_bytes_locked(ctx->root));
-+	v4l2_memtrack_for_each_locked(ctx->root, v4l2_memtrack_seq_visitor, &seq_ctx);
-+
-+	return 0;
-+}
-+
-+static int v4l2_memtrack_debugfs_open(struct inode *inode, struct file *file)
-+{
-+	return single_open(file, v4l2_memtrack_seq_show, inode->i_private);
-+}
-+
-+static const struct file_operations v4l2_memtrack_debugfs_fops = {
-+	.owner = THIS_MODULE,
-+	.open = v4l2_memtrack_debugfs_open,
-+	.release = single_release,
-+	.read = seq_read,
-+	.llseek = seq_lseek,
-+};
-+
-+static void v4l2_memtrack_create_debugfs(struct v4l2_memtrack_ctx *ctx)
-+{
-+	guard(mutex)(&v4l2_memtrack_debugfs_lock);
-+
-+	if (IS_ERR_OR_NULL(v4l2_memtrack_debugfs_root))
-+		return;
-+
-+	ctx->debugfs = debugfs_create_file(ctx->name, 0444,
-+					   v4l2_memtrack_debugfs_root,
-+					   ctx, &v4l2_memtrack_debugfs_fops);
-+}
-+
-+static struct v4l2_memtrack_ctx *v4l2_memtrack_ctx_create(const char *name)
-+{
-+	struct v4l2_memtrack_ctx *ctx;
-+
-+	ctx = kzalloc_obj(*ctx);
-+	if (!ctx)
-+		return NULL;
-+
-+	if (name) {
-+		ctx->name = kstrdup_const(name, GFP_KERNEL);
-+		if (!ctx->name) {
-+			kfree(ctx);
-+			return NULL;
-+		}
-+	}
-+
-+	mutex_init(&ctx->lock);
-+
-+	return ctx;
-+}
-+
-+static void v4l2_memtrack_ctx_destroy(struct v4l2_memtrack_ctx *ctx)
-+{
-+	debugfs_remove(ctx->debugfs);
-+	mutex_destroy(&ctx->lock);
-+	kfree_const(ctx->name);
-+	kfree(ctx);
-+	v4l2_memtrack_debugfs_put();
-+}
-+
-+struct v4l2_memtrack_node *v4l2_memtrack_create_root(const char *name)
-+{
-+	struct v4l2_memtrack_ctx *ctx;
-+	struct v4l2_memtrack_node *node;
-+
-+	v4l2_memtrack_debugfs_get();
-+
-+	ctx = v4l2_memtrack_ctx_create(name);
-+	if (!ctx) {
-+		v4l2_memtrack_debugfs_put();
-+		return NULL;
-+	}
-+
-+	node = kzalloc_obj(*node);
-+	if (!node) {
-+		v4l2_memtrack_ctx_destroy(ctx);
-+		return NULL;
-+	}
-+
-+	if (v4l2_memtrack_node_init(node, ctx, 0, name, false)) {
-+		kfree(node);
-+		v4l2_memtrack_ctx_destroy(ctx);
-+		return NULL;
-+	}
-+
-+	ctx->root = node;
-+
-+	if (name)
-+		v4l2_memtrack_create_debugfs(ctx);
-+
-+	return node;
-+}
-+EXPORT_SYMBOL_GPL(v4l2_memtrack_create_root);
-+
-+struct v4l2_memtrack_node *v4l2_memtrack_create_node(struct v4l2_memtrack_node *parent,
-+						     const char *name)
-+{
-+	struct v4l2_memtrack_ctx *ctx;
-+	struct v4l2_memtrack_node *node;
-+	unsigned int new_depth;
-+
-+	if (!parent || !parent->ctx)
-+		return NULL;
-+
-+	/* Leaf nodes cannot have children */
-+	if (parent->is_leaf) {
-+		pr_warn_once("v4l2-memtrack: cannot create child under leaf node\n");
-+		return NULL;
-+	}
-+
-+	new_depth = parent->depth + 1;
-+	if (new_depth >= V4L2_MEMTRACK_MAX_DEPTH) {
-+		pr_warn_once("v4l2-memtrack: max depth %d reached, cannot create child node\n",
-+			     V4L2_MEMTRACK_MAX_DEPTH);
-+		return NULL;
-+	}
-+
-+	ctx = parent->ctx;
-+
-+	node = kzalloc_obj(*node);
-+	if (!node)
-+		return NULL;
-+
-+	if (v4l2_memtrack_node_init(node, ctx, new_depth, name, false)) {
-+		kfree(node);
-+		return NULL;
-+	}
-+
-+	node->parent = parent;
-+
-+	scoped_guard(mutex, &ctx->lock)
-+		list_add_tail(&node->list, &parent->children);
-+
-+	return node;
-+}
-+EXPORT_SYMBOL_GPL(v4l2_memtrack_create_node);
-+
-+static void v4l2_memtrack_cancel_notify(struct v4l2_memtrack_node *node)
-+{
-+	bool wait_needed = false;
-+
-+	if (node->is_leaf)
-+		return;
-+
-+	cancel_delayed_work_sync(&node->notify_work);
-+
-+	scoped_guard(mutex, &node->ctx->lock) {
-+		node->notify = NULL;
-+		node->notify_priv = NULL;
-+		wait_needed = node->in_notify;
-+	}
-+
-+	if (wait_needed)
-+		wait_for_completion(&node->notify_done);
-+}
-+
-+static void v4l2_memtrack_delete_subtree_locked(struct v4l2_memtrack_node *root)
-+{
-+	struct v4l2_memtrack_ctx *ctx = root->ctx;
-+	struct v4l2_memtrack_node * const stop = root->parent;
-+	struct v4l2_memtrack_node *node, *parent;
-+
-+	lockdep_assert_held(&ctx->lock);
-+
-+	node = root;
-+	while (node) {
-+		if (!list_empty(&node->children)) {
-+			node = list_first_entry(&node->children,
-+						struct v4l2_memtrack_node, list);
-+		} else {
-+			parent = node->parent;
-+			list_del(&node->list);
-+			kfree_const(node->name);
-+			kfree(node);
-+
-+			if (parent == stop)
-+				break;
-+			node = parent;
-+		}
-+	}
-+}
-+
-+static int v4l2_memtrack_find_notify_visitor(struct v4l2_memtrack_node *node,
-+					     void *data)
-+{
-+	struct v4l2_memtrack_node **found = data;
-+
-+	if (!node->is_leaf && node->notify) {
-+		*found = node;
-+		return 1; /* Stop iteration */
-+	}
-+	return 0;
-+}
-+
-+static struct v4l2_memtrack_node *
-+v4l2_memtrack_get_next_notify_node_locked(struct v4l2_memtrack_node *root)
-+{
-+	struct v4l2_memtrack_node *found = NULL;
-+
-+	lockdep_assert_held(&root->ctx->lock);
-+
-+	v4l2_memtrack_for_each_locked(root, v4l2_memtrack_find_notify_visitor,
-+				      &found);
-+	return found;
-+}
-+
-+void v4l2_memtrack_destroy_node(struct v4l2_memtrack_node *node)
-+{
-+	struct v4l2_memtrack_ctx *ctx;
-+	struct v4l2_memtrack_node *parent;
-+	struct v4l2_memtrack_node *notify_node;
-+	bool is_root;
-+
-+	if (!node || !node->ctx)
-+		return;
-+
-+	ctx = node->ctx;
-+	parent = node->parent;
-+	is_root = !parent;
-+
-+	if (v4l2_memtrack_read(node))
-+		v4l2_memtrack_print_debug(node);
-+
-+	/*
-+	 * Cancel all notify callbacks in the subtree.
-+	 * Get one node with notify at a time while holding lock,
-+	 * then cancel it without lock to avoid deadlock.
-+	 */
-+	if (!node->is_leaf) {
-+		while (true) {
-+			scoped_guard(mutex, &ctx->lock)
-+				notify_node = v4l2_memtrack_get_next_notify_node_locked(node);
-+
-+			if (!notify_node)
-+				break;
-+
-+			v4l2_memtrack_cancel_notify(notify_node);
-+		}
-+	}
-+
-+	scoped_guard(mutex, &ctx->lock)
-+		v4l2_memtrack_delete_subtree_locked(node);
-+
-+	if (is_root)
-+		v4l2_memtrack_ctx_destroy(ctx);
-+	else
-+		v4l2_memtrack_do_notify(parent);
-+}
-+EXPORT_SYMBOL_GPL(v4l2_memtrack_destroy_node);
-+
-+static int v4l2_memtrack_create_leaf_locked(struct v4l2_memtrack_node *node,
-+					    size_t bytes, const char *name)
-+{
-+	struct v4l2_memtrack_ctx *ctx = node->ctx;
-+	struct v4l2_memtrack_node *child;
-+	unsigned int new_depth;
-+
-+	lockdep_assert_held(&ctx->lock);
-+
-+	new_depth = node->depth + 1;
-+	if (new_depth >= V4L2_MEMTRACK_MAX_DEPTH) {
-+		pr_warn_once("v4l2-memtrack: max depth %d reached\n",
-+			     V4L2_MEMTRACK_MAX_DEPTH);
-+		return -ENOSPC;
-+	}
-+
-+	child = kzalloc(sizeof(*child), GFP_KERNEL);
-+	if (!child)
-+		return -ENOMEM;
-+
-+	if (v4l2_memtrack_node_init(child, ctx, new_depth, name, true)) {
-+		kfree(child);
-+		return -ENOMEM;
-+	}
-+
-+	child->parent = node;
-+	child->bytes = bytes;
-+	child->alloc_count = 1;
-+
-+	list_add_tail(&child->list, &node->children);
-+
-+	return 0;
-+}
-+
-+void v4l2_memtrack_add(struct v4l2_memtrack_node *node, size_t bytes,
-+		       const char *name)
-+{
-+	if (!node || !node->ctx)
-+		return;
-+
-+	/* Leaf nodes cannot have children */
-+	if (node->is_leaf) {
-+		pr_warn_once("v4l2-memtrack: cannot add to leaf node\n");
-+		return;
-+	}
-+
-+	guard(mutex)(&node->ctx->lock);
-+
-+	if (name) {
-+		/* Create a leaf node for named allocations */
-+		if (v4l2_memtrack_create_leaf_locked(node, bytes, name) < 0) {
-+			/* Fallback to direct tracking on failure */
-+			node->bytes += bytes;
-+			node->alloc_count++;
-+		}
-+	} else {
-+		/* Direct tracking for unnamed allocations */
-+		node->bytes += bytes;
-+		node->alloc_count++;
-+	}
-+
-+	v4l2_memtrack_notify_change_locked(node);
-+}
-+EXPORT_SYMBOL_GPL(v4l2_memtrack_add);
-+
-+void v4l2_memtrack_sub(struct v4l2_memtrack_node *node, size_t bytes,
-+		       const char *name)
-+{
-+	struct v4l2_memtrack_node *child;
-+	struct v4l2_memtrack_node *found = NULL;
-+
-+	if (!node || !node->ctx)
-+		return;
-+
-+	guard(mutex)(&node->ctx->lock);
-+
-+	/* Try to find and remove a matching leaf node if name is provided */
-+	if (name && !node->is_leaf) {
-+		list_for_each_entry(child, &node->children, list) {
-+			if (!child->is_leaf)
-+				continue;
-+			if (child->bytes != bytes)
-+				continue;
-+			if (!child->name || strcmp(child->name, name))
-+				continue;
-+
-+			list_del(&child->list);
-+			found = child;
-+			break;
-+		}
-+	}
-+
-+	if (found) {
-+		kfree_const(found->name);
-+		kfree(found);
-+	} else {
-+		/* Direct subtraction */
-+		if (node->bytes < bytes) {
-+			pr_warn_once("v4l2-memtrack: %s: bytes underflow\n",
-+				     v4l2_memtrack_name(node));
-+			node->bytes = 0;
-+		} else {
-+			node->bytes -= bytes;
-+		}
-+
-+		if (node->alloc_count > 0)
-+			node->alloc_count--;
-+	}
-+
-+	v4l2_memtrack_notify_change_locked(node);
-+}
-+EXPORT_SYMBOL_GPL(v4l2_memtrack_sub);
-+
-+void v4l2_memtrack_set(struct v4l2_memtrack_node *node, size_t bytes)
-+{
-+	if (!node || !node->ctx)
-+		return;
-+
-+	guard(mutex)(&node->ctx->lock);
-+
-+	node->bytes = bytes;
-+	node->alloc_count = bytes ? 1 : 0;
-+	v4l2_memtrack_notify_change_locked(node);
-+}
-+EXPORT_SYMBOL_GPL(v4l2_memtrack_set);
-+
-+size_t v4l2_memtrack_read(struct v4l2_memtrack_node *node)
-+{
-+	struct v4l2_memtrack_ctx *ctx;
-+	size_t total;
-+
-+	if (!node || !node->ctx)
-+		return 0;
-+
-+	ctx = node->ctx;
-+
-+	scoped_guard(mutex, &ctx->lock)
-+		total = v4l2_memtrack_sum_bytes_locked(node);
-+
-+	return total;
-+}
-+EXPORT_SYMBOL_GPL(v4l2_memtrack_read);
-+
-+int v4l2_memtrack_register_notify(struct v4l2_memtrack_node *node,
-+				  v4l2_memtrack_notify_fn notify,
-+				  void *priv)
-+{
-+	if (!node || !node->ctx)
-+		return -EINVAL;
-+
-+	/* Leaf nodes do not support notifications */
-+	if (node->is_leaf)
-+		return -EINVAL;
-+
-+	guard(mutex)(&node->ctx->lock);
-+
-+	if (node->notify)
-+		return -EBUSY;
-+
-+	node->notify = notify;
-+	node->notify_priv = priv;
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(v4l2_memtrack_register_notify);
-+
-+void v4l2_memtrack_unregister_notify(struct v4l2_memtrack_node *node)
-+{
-+	if (!node || !node->ctx || node->is_leaf)
-+		return;
-+
-+	v4l2_memtrack_cancel_notify(node);
-+}
-+EXPORT_SYMBOL_GPL(v4l2_memtrack_unregister_notify);
-+
-+void v4l2_memtrack_set_notify_delay(struct v4l2_memtrack_node *node, int delay_ms)
-+{
-+	if (!node || !node->ctx || node->is_leaf)
-+		return;
-+
-+	guard(mutex)(&node->ctx->lock);
-+	node->notify_delay_ms = delay_ms;
-+}
-+EXPORT_SYMBOL_GPL(v4l2_memtrack_set_notify_delay);
-+
-+static int v4l2_memtrack_print_visitor(struct v4l2_memtrack_node *node, void *data)
-+{
-+	pr_debug("v4l2-memtrack: %*s%s%s: usage=%zu bytes, count=%u\n",
-+		 node->depth * 2, "",
-+		 v4l2_memtrack_name(node),
-+		 node->is_leaf ? " [leaf]" : "",
-+		 v4l2_memtrack_sum_bytes_locked(node),
-+		 node->alloc_count);
-+	return 0;
-+}
-+
-+void v4l2_memtrack_print_debug(struct v4l2_memtrack_node *node)
-+{
-+	struct v4l2_memtrack_ctx *ctx;
-+
-+	if (!node || !node->ctx)
-+		return;
-+
-+	ctx = node->ctx;
-+
-+	pr_debug("v4l2-memtrack: Memory Tracker: %s\n", ctx->name ? : "(unnamed)");
-+
-+	scoped_guard(mutex, &ctx->lock)
-+		v4l2_memtrack_for_each_locked(node, v4l2_memtrack_print_visitor, NULL);
-+}
-+EXPORT_SYMBOL_GPL(v4l2_memtrack_print_debug);
-+
-+MODULE_DESCRIPTION("V4L2 Memory Usage Tracker");
-+MODULE_AUTHOR("Ming Qian <ming.qian@oss.nxp.com>");
-+MODULE_LICENSE("GPL");
-diff --git a/include/media/v4l2-memtrack.h b/include/media/v4l2-memtrack.h
-new file mode 100644
-index 000000000000..b146277ab98f
---- /dev/null
-+++ b/include/media/v4l2-memtrack.h
-@@ -0,0 +1,220 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * V4L2 Memory Usage Tracker
-+ *
-+ * Copyright 2026 NXP
-+ *
-+ * Provides hierarchical memory allocation tracking for V4L2 devices,
-+ * useful for debugging memory leaks and monitoring buffer usage.
-+ */
-+
-+#ifndef _V4L2_MEMTRACK_H
-+#define _V4L2_MEMTRACK_H
-+
-+#include <linux/types.h>
-+
-+struct v4l2_memtrack_node;
-+
-+/**
-+ * typedef v4l2_memtrack_notify_fn - Memory change notification callback
-+ * @node: The node whose subtree memory usage changed
-+ * @total: Total memory usage of the node's subtree in bytes
-+ * @priv: Private data passed during registration
-+ *
-+ * This callback is invoked when memory usage changes in the node or any
-+ * of its descendants. The callback is executed without holding internal
-+ * locks, so it may call most kernel functions safely.
-+ *
-+ * However, the callback MUST NOT call v4l2_memtrack_unregister_notify()
-+ * or v4l2_memtrack_destroy_node() on the same node, as this will cause
-+ * a deadlock. The callback should be kept reasonably short to avoid
-+ * delaying other pending notifications.
-+ */
-+typedef void (*v4l2_memtrack_notify_fn)(struct v4l2_memtrack_node *node, size_t total, void *priv);
-+
-+#if IS_REACHABLE(CONFIG_V4L2_MEMTRACK)
-+
-+/**
-+ * v4l2_memtrack_create_root - Create a root tracking node
-+ * @name: Name for this tracker (shows in debugfs)
-+ *
-+ * Creates a root node that serves as the top of a tracking hierarchy.
-+ * Each root node creates its own debugfs entry under <debugfs>/v4l2-memtrack/.
-+ *
-+ * Return: Pointer to the root node, or NULL on failure
-+ */
-+struct v4l2_memtrack_node *v4l2_memtrack_create_root(const char *name);
-+
-+/**
-+ * v4l2_memtrack_create_node - Create a child tracking node
-+ * @parent: Parent node
-+ * @name: Optional name for this node
-+ *
-+ * Creates a child node under the specified parent. Child nodes
-+ * contribute to their parent's total memory count.
-+ *
-+ * Return: Pointer to the new node, or NULL on failure
-+ */
-+struct v4l2_memtrack_node *v4l2_memtrack_create_node(struct v4l2_memtrack_node *parent,
-+						     const char *name);
-+
-+/**
-+ * v4l2_memtrack_destroy_node - Destroy a tracking node
-+ * @node: Node to destroy
-+ *
-+ * Destroys the node and all its children. If this is a root node,
-+ * also removes the debugfs entry and frees all resources.
-+ */
-+void v4l2_memtrack_destroy_node(struct v4l2_memtrack_node *node);
-+
-+/**
-+ * v4l2_memtrack_add - Record a memory allocation
-+ * @node: Tracking node
-+ * @bytes: Number of bytes allocated
-+ * @name: Optional name for the allocation
-+ *
-+ * Records a memory allocation. If @name is provided, creates an internal
-+ * leaf node to track this specific allocation, which can be matched and
-+ * removed later by v4l2_memtrack_sub() with the same name and size.
-+ * If @name is NULL, adds bytes directly to the node's counter.
-+ *
-+ * Triggers notification callbacks on this node and all ancestors.
-+ */
-+void v4l2_memtrack_add(struct v4l2_memtrack_node *node, size_t bytes,
-+		       const char *name);
-+
-+/**
-+ * v4l2_memtrack_sub - Record a memory free
-+ * @node: Tracking node
-+ * @bytes: Number of bytes freed
-+ * @name: Optional name to match (must match what was passed to add)
-+ *
-+ * Records a memory deallocation. If @name is provided, searches for a
-+ * matching internal leaf node (by name and size) and removes it.
-+ * If no match is found or @name is NULL, subtracts directly from the
-+ * node's counter.
-+ *
-+ * Triggers notification callbacks on this node and all ancestors.
-+ */
-+void v4l2_memtrack_sub(struct v4l2_memtrack_node *node, size_t bytes,
-+		       const char *name);
-+
-+/**
-+ * v4l2_memtrack_set - Set memory usage directly
-+ * @node: Tracking node
-+ * @bytes: Total bytes to set
-+ *
-+ * Sets the node's memory counter to the specified value.
-+ * Allocation count is set to 1 if bytes > 0, otherwise 0.
-+ */
-+void v4l2_memtrack_set(struct v4l2_memtrack_node *node, size_t bytes);
-+
-+/**
-+ * v4l2_memtrack_read - Read total memory usage
-+ * @node: Tracking node
-+ *
-+ * Returns the total memory usage of this node plus all its children.
-+ *
-+ * Return: Total memory usage in bytes
-+ */
-+size_t v4l2_memtrack_read(struct v4l2_memtrack_node *node);
-+
-+/**
-+ * v4l2_memtrack_register_notify - Register notification callback
-+ * @node: Tracking node
-+ * @notify: Callback function
-+ * @priv: Private data passed to callback
-+ *
-+ * Register a callback that is called when memory usage changes on this
-+ * node or any of its descendants. Only one callback per node is supported.
-+ *
-+ * Return: 0 on success, -EINVAL if node is invalid, -EBUSY if callback
-+ *         already registered
-+ */
-+int v4l2_memtrack_register_notify(struct v4l2_memtrack_node *node,
-+				  v4l2_memtrack_notify_fn notify,
-+				  void *priv);
-+
-+/**
-+ * v4l2_memtrack_unregister_notify - Unregister notification callback
-+ * @node: The tracking node
-+ *
-+ * Unregisters the notification callback and waits for any in-progress
-+ * callback to complete.
-+ *
-+ * NOTE: This function MUST be called before v4l2_memtrack_destroy_node()
-+ * if a notify callback was registered. Failing to do so will trigger
-+ * a WARN and may cause use-after-free.
-+ */
-+void v4l2_memtrack_unregister_notify(struct v4l2_memtrack_node *node);
-+
-+/**
-+ * v4l2_memtrack_set_notify_delay - Set notification delay
-+ * @node: Any node in the tracking tree
-+ * @delay_ms: Delay in milliseconds
-+ *            < 0: disable notifications
-+ *            = 0: immediate notification (default)
-+ *            > 0: coalesce notifications within delay period
-+ *
-+ * Sets the notification delay for the entire tracking tree.
-+ * When delay > 0, multiple updates within the delay period are
-+ * coalesced into a single notification, reducing overhead for
-+ * batch operations.
-+ */
-+void v4l2_memtrack_set_notify_delay(struct v4l2_memtrack_node *node,
-+				    int delay_ms);
-+
-+/**
-+ * v4l2_memtrack_print_debug - Print memory usage to kernel log
-+ * @node: Tracking node
-+ *
-+ * Prints the memory usage tree starting from this node using pr_debug().
-+ * Supports dynamic debug when CONFIG_DYNAMIC_DEBUG is enabled.
-+ *
-+ * Enable output with:
-+ *   echo 'file v4l2-memtrack.c +p' > /sys/kernel/debug/dynamic_debug/control
-+ */
-+void v4l2_memtrack_print_debug(struct v4l2_memtrack_node *node);
-+
-+#else /* !CONFIG_V4L2_MEMTRACK */
-+
-+static inline struct v4l2_memtrack_node *v4l2_memtrack_create_root(const char *name)
-+{
-+	return NULL;
-+}
-+
-+static inline struct v4l2_memtrack_node *v4l2_memtrack_create_node(
-+	struct v4l2_memtrack_node *parent, const char *name)
-+{
-+	return NULL;
-+}
-+
-+static inline void v4l2_memtrack_destroy_node(struct v4l2_memtrack_node *node) {}
-+
-+static inline void v4l2_memtrack_add(struct v4l2_memtrack_node *node,
-+				     size_t bytes, const char *name) {}
-+
-+static inline void v4l2_memtrack_sub(struct v4l2_memtrack_node *node,
-+				     size_t bytes, const char *name) {}
-+
-+static inline void v4l2_memtrack_set(struct v4l2_memtrack_node *node, size_t bytes) {}
-+
-+static inline size_t v4l2_memtrack_read(struct v4l2_memtrack_node *node)
-+{
-+	return 0;
-+}
-+
-+static inline int v4l2_memtrack_register_notify(struct v4l2_memtrack_node *node,
-+						v4l2_memtrack_notify_fn notify,
-+						void *priv)
-+{
-+	return 0;
-+}
-+
-+static inline void v4l2_memtrack_unregister_notify(struct v4l2_memtrack_node *node) {}
-+static inline void v4l2_memtrack_set_notify_delay(struct v4l2_memtrack_node *node, int delay_ms) {}
-+static inline void v4l2_memtrack_print_debug(struct v4l2_memtrack_node *node) {}
-+
-+#endif /* CONFIG_V4L2_MEMTRACK */
-+
-+#endif /* _V4L2_MEMTRACK_H */
++V4L2 MEMORY USAGE TRACKER
++M:	Ming Qian <ming.qian@oss.nxp.com>
++L:	linux-media@vger.kernel.org
++S:	Maintained
++F:	Documentation/driver-api/media/v4l2-memtrack.rst
++F:	drivers/media/common/v4l2-memtrack/v4l2-memtrack.c
++F:	include/media/v4l2-memtrack.h
++
+ VF610 NAND DRIVER
+ M:	Stefan Agner <stefan@agner.ch>
+ L:	linux-mtd@lists.infradead.org
 -- 
 2.53.0
 
