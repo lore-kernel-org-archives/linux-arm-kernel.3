@@ -4,62 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 986591061B28
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 00:50:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0DCB1061B28
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 00:55:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N2b+/gMDy3SOFCYn8kaOJrP9mnI+CK2qnMZP4ds6rUs=; b=FUSS2eGM6P+gcfznKuWcE79bFC
-	XgVhnHqJ6Fvy8wEOOa4e1ABPI+5Dc9rXHPagTxu02SMRymHcj0zZzmJW4snG8PtVa/65+bbikdRt+
-	AaarLS9enw9ihYPHLLQMQtxUC8QyabE9NUD+fNc39WKIusi+0TlEWxJSspJaGwNJUIozyGGMkbTYr
-	xLk4AsfEcxdOCgvlK+94iKG9j/TTFjt0TQLJZNM46LBpMuy5W8etq/3SJcCbGd80+ObQyBOOJdBO9
-	PivS5DlyYqx6ax2vYcnAjThHB74RNXAWoGjPA4ArWJN42yuyZu7bxJQsrf5jhAp+3oKwk5s0pAThC
-	oxY3LS7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kTs9YrvrhIf+mRGvH9WSAN56MDWwC+NWv0xsBwyeppk=; b=1hYm1uQcSmbet4F66lYeymCPDd
+	kvBZaGdQSE+GeyPnq4Ve3c3sl24qbkY7HsSPTMERAcQJx4pt5V7HwRFow1M9IRGxd6/6/gwa/kV2/
+	9aU85LpCE5+dJ61xHaT5uExKKuve7lmbSF2gCVEvfSmChIf9HNLoREZ78yMLN8lWhb38hjdQQG2sT
+	jQe1o4SaZyBPxglYCq2fhkDW+tGi9ztZh9l1B0EGHgyJX8rbnsDfguXXAMMYfjK6eMz0tuTwRNnX0
+	PgycmHYhpaUzFHSoxDILFVQHLgIx8c8wVMhgvefgWGzwmu3KUq9i3c/GNdTPksmpqvKHmmyVb+LED
+	e568tBfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7NJb-0000000C62R-3jfI;
-	Tue, 31 Mar 2026 00:50:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7NO1-0000000C6Gv-32uk;
+	Tue, 31 Mar 2026 00:55:17 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7NJZ-0000000C62B-3jue
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 00:50:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F2BB460103;
-	Tue, 31 Mar 2026 00:50:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1E04C4CEF7;
-	Tue, 31 Mar 2026 00:50:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774918240;
-	bh=vOZ5ozREY8aVWVHfpkrVrUIzl1//7RR1KGfdLz9ztAc=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=s0ZIyicKnATvyDapEsaRwx/CH1SV/5pPeZaTS9qxv0BfR7Ba83+vmnKvOunbrVL+R
-	 mkrAkJYbrM1u/0m02aKj2VN5bvWl99w9GyFe9wNjehITh02pTQNc+GfVQD8tO25+lO
-	 iCB+8/IOIoG2is0q9pgouteSazBXMXlYmFdA1cG66ERMGniEZkBstALfI121OW4MTB
-	 P/9spjd+0u232s1hTi/MOQNnIuVndPhG9E+5UfgCNKXn3DuuSLoAVLpCsfag3oaBbV
-	 7Lt6Hy6zcAxFiVBUaQul28YA5UMRNC7iNjM+FiqzpGvXv74ZJMHvwv+4qk9h5NOHg1
-	 rXa482DSLQF0A==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA154392FF85;
-	Tue, 31 Mar 2026 00:50:25 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1w7NNz-0000000C6FM-2wBD;
+	Tue, 31 Mar 2026 00:55:16 +0000
+X-UUID: 4490b6362c9c11f1a6de359d7043e138-20260330
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=kTs9YrvrhIf+mRGvH9WSAN56MDWwC+NWv0xsBwyeppk=;
+	b=f/bMo6Y0rzc8RW8Nbjwb3WEmT/APDcP5Qk7WpDNHGLMcIpRkYB6rSShYEHFnQQxX2BzBskiQ0WeXWk20oimodtp6vw15KI+HaaXyY4rP8D62kM+Lqq3sns6xyLvy4oTQgt+oagqEjct+zIp7p1xEDCKd78AbVNnnsTDtKIhQ/Nw=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:fe2a96ed-ca6c-4555-8010-f9041c71bcde,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:e7bac3a,CLOUDID:9b6867a7-e101-400a-acb5-0dbb5a913469,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
+	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
+	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 4490b6362c9c11f1a6de359d7043e138-20260330
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
+	(envelope-from <jianhua.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 808255509; Mon, 30 Mar 2026 17:55:10 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Tue, 31 Mar 2026 08:55:07 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Tue, 31 Mar 2026 08:55:06 +0800
+From: Jianhua Lin <jianhua.lin@mediatek.com>
+To: <nicolas@ndufresne.ca>, <mchehab@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-media@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
+	<jh.hsu@mediatek.com>, Jianhua Lin <jianhua.lin@mediatek.com>
+Subject: [PATCH v5 1/3] dt-bindings: media: mediatek-jpeg-decoder: add MT8189 compatible string
+Date: Tue, 31 Mar 2026 08:54:56 +0800
+Message-ID: <20260331005458.24010-2-jianhua.lin@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20260331005458.24010-1-jianhua.lin@mediatek.com>
+References: <20260331005458.24010-1-jianhua.lin@mediatek.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2 00/15] net: stmmac: qcom-ethqos: more cleanups
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177491822455.2035926.9761670989228068564.git-patchwork-notify@kernel.org>
-Date: Tue, 31 Mar 2026 00:50:24 +0000
-References: <acZDEg9wdjhBTHlL@shell.armlinux.org.uk>
-In-Reply-To: <acZDEg9wdjhBTHlL@shell.armlinux.org.uk>
-To: Russell King (Oracle) <linux@armlinux.org.uk>
-Cc: andrew@lunn.ch, alexandre.torgue@foss.st.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, mohd.anwar@oss.qualcomm.com,
- netdev@vger.kernel.org, pabeni@redhat.com
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260330_175515_762646_89821C0C 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,60 +90,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Add the compatible string for the JPEG decoder block found in the
+MediaTek MT8189 SoC.
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Compared to previous generation ICs, the MT8189 JPEG decoder requires
+34-bit IOVA address space support and only needs a single clock
+("jpgdec") instead of two. Therefore, it is added as a standalone
+compatible string without falling back to older SoCs.
 
-On Fri, 27 Mar 2026 08:42:58 +0000 you wrote:
-> Further cleanups to qcom-ethqos, mainly concentrating on the RGMII
-> code, making it clearer what the differences are for each speed, thus
-> making the code more readable.
-> 
-> I'm still not really happy with this. The speed specific configuration
-> remains split between ethqos_fix_mac_speed_rgmii() and
-> ethqos_rgmii_macro_init(), where the latter is only ever called from
-> the former. So, I think further work is needed here - maybe it needs
-> restructuring into the various componenet parts of the RGMII block?
-> 
-> [...]
+Update the binding schema to include the new compatible string and add
+an `allOf` block with conditional checks. This enforces the single clock
+requirement for MT8189 while preserving the two-clock requirement
+("jpgdec-smi", "jpgdec") for older SoCs.
 
-Here is the summary with links:
-  - [net-next,v2,01/15] net: stmmac: qcom-ethqos: remove ethqos_configure()
-    https://git.kernel.org/netdev/net-next/c/c3dd3b1e76e0
-  - [net-next,v2,02/15] net: stmmac: qcom-ethqos: pass ethqos to ethqos_pcs_set_inband()
-    https://git.kernel.org/netdev/net-next/c/673416fb5b41
-  - [net-next,v2,03/15] net: stmmac: qcom-ethqos: eliminate configure_func
-    https://git.kernel.org/netdev/net-next/c/e9ed46a0b129
-  - [net-next,v2,04/15] net: stmmac: qcom-ethqos: move detection of invalid RGMII speed
-    https://git.kernel.org/netdev/net-next/c/426ce4677e81
-  - [net-next,v2,05/15] net: stmmac: qcom-ethqos: move RGMII_CONFIG_DDR_MODE
-    https://git.kernel.org/netdev/net-next/c/6be23c4c636a
-  - [net-next,v2,06/15] net: stmmac: qcom-ethqos: move 1G vs 100M/10M RGMII settings
-    https://git.kernel.org/netdev/net-next/c/82d5fdc82a33
-  - [net-next,v2,07/15] net: stmmac: qcom-ethqos: move two more RGMII_IO_MACRO_CONFIG2 out
-    https://git.kernel.org/netdev/net-next/c/dd07f2f9149a
-  - [net-next,v2,08/15] net: stmmac: qcom-ethqos: move 100M/10M speed programming
-    https://git.kernel.org/netdev/net-next/c/8b19a9184420
-  - [net-next,v2,09/15] net: stmmac: qcom-ethqos: move RGMII_CONFIG2_RSVD_CONFIG15 out
-    https://git.kernel.org/netdev/net-next/c/dae1de3df3e1
-  - [net-next,v2,10/15] net: stmmac: qcom-ethqos: move RGMII_CONFIG2_RX_PROG_SWAP
-    https://git.kernel.org/netdev/net-next/c/432c8a9f5528
-  - [net-next,v2,11/15] net: stmmac: qcom-ethqos: finally eliminate the switch
-    https://git.kernel.org/netdev/net-next/c/439a27f21ecc
-  - [net-next,v2,12/15] net: stmmac: qcom-ethqos: simplify prg_rclk_dly programming
-    https://git.kernel.org/netdev/net-next/c/3df0e86f8f8d
-  - [net-next,v2,13/15] net: stmmac: qcom-ethqos: move loopback decision next to reg update
-    https://git.kernel.org/netdev/net-next/c/67343aa24e59
-  - [net-next,v2,14/15] net: stmmac: qcom-ethqos: correct prg_rclk_dly comment
-    https://git.kernel.org/netdev/net-next/c/2d350a892aad
-  - [net-next,v2,15/15] net: stmmac: qcom-ethqos: move phase_shift to register update site
-    https://git.kernel.org/netdev/net-next/c/7f9f30166005
+Suggested-by: Rob Herring <robh@kernel.org>
+Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
+---
+ .../bindings/media/mediatek-jpeg-decoder.yaml | 44 +++++++++++++++----
+ 1 file changed, 36 insertions(+), 8 deletions(-)
 
-You are awesome, thank you!
+diff --git a/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml b/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
+index a4aacd3eb189..601fe05b73e7 100644
+--- a/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
+@@ -15,10 +15,10 @@ description: |-
+ properties:
+   compatible:
+     oneOf:
+-      - items:
+-          - enum:
+-              - mediatek,mt8173-jpgdec
+-              - mediatek,mt2701-jpgdec
++      - enum:
++          - mediatek,mt2701-jpgdec
++          - mediatek,mt8173-jpgdec
++          - mediatek,mt8189-jpgdec
+       - items:
+           - enum:
+               - mediatek,mt7623-jpgdec
+@@ -32,13 +32,22 @@ properties:
+     maxItems: 1
+ 
+   clocks:
++    minItems: 1
+     maxItems: 2
+-    minItems: 2
+ 
+   clock-names:
+-    items:
+-      - const: jpgdec-smi
+-      - const: jpgdec
++    minItems: 1
++    maxItems: 2
++    oneOf:
++      - items:
++          - const: jpgdec
++      - items:
++          - const: jpgdec-smi
++          - const: jpgdec
++
++  mediatek,larb:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: a phandle to the smi_larb node.
+ 
+   power-domains:
+     maxItems: 1
+@@ -60,6 +69,25 @@ required:
+   - power-domains
+   - iommus
+ 
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt8189-jpgdec
++    then:
++      properties:
++        clocks:
++          maxItems: 1
++        clock-names:
++          maxItems: 1
++    else:
++      properties:
++        clocks:
++          minItems: 2
++        clock-names:
++          minItems: 2
++
+ additionalProperties: false
+ 
+ examples:
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.45.2
 
 
