@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A705E1061B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 11:29:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C226D1061B32
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 11:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6y3HQpKxjRYaGQ3xgchWqZ6D8uYAKr7T5IFBIK/KRjE=; b=Yt/WuaoeSjJ6JGEtJ7PiQcuYoA
-	MhOo/S64v4XVi+b+kIEwV2EIyPARXgBAzXAENGd3+p9rO20KdGWot/oyT5h9YBVBJaVGu+lKedMql
-	OOngIBPjl4w3dHp4ukM2zxDhK3vEdXvfOOifmjmPVaZYmAgqg3ZcEFgZ/5OZbpXJxo0vk9NxvbYUE
-	ItNCGz6ogyY93HMpkzW5LuZwbP0OybjtXBScNYfKtccI8D92AAn7whm92awTh3KE+xfUSepZmLtPq
-	wl/23D/bcO8jfH6uP/Wq8r8lSWQ2z26bL7TFbewqn3oEyR7YsUaskDXKri27R75FviIoPfs7rlCck
-	NoLVrSkg==;
+	bh=Pf9Y9p6ICXZrv2WVScN5pUjaB1x+5qUjldE+EQle0AU=; b=vXgntcOFFpEcvcF18nRof/SsBQ
+	9u+p9mr9F6PI5h6hHuLCSJc9g1pcozId4tpEAdVkZ4NCc0GOLnHcTfBBTk51l8b3DL5Qhl8nJ4NcE
+	Lf6GSPuMGcaOji+z4GFdeNYKHXcyaSrgwpW06o91fje/axwoVinKTnAc5dMjlXMgixf6o5olIBrSk
+	f7P6vTgTKIXSOPXKMzYdRUf58kXqtwJZK69h/KF7DI4ggyQL4I88d2h90Wjzord1oCXU88RyXNDSm
+	pV77QAtI7Rxp9Hk+I/MBfgMfJLqmiuBGcRCjPwKQ3LYSHNpQBuxJdLqVBpfCBlc0C5my6kY51dOQd
+	IUdZJ0Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7XHR-0000000CrV5-2E68;
-	Tue, 31 Mar 2026 11:29:09 +0000
-Received: from mail-westeuropeazon11010068.outbound.protection.outlook.com ([52.101.69.68] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1w7XHb-0000000CrcJ-1gJj;
+	Tue, 31 Mar 2026 11:29:19 +0000
+Received: from mail-westeuropeazon11010040.outbound.protection.outlook.com ([52.101.69.40] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7XHK-0000000CrQn-44qj
+	id 1w7XHY-0000000CrZw-3GKj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 11:29:04 +0000
+	Tue, 31 Mar 2026 11:29:18 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RBybP0s6JPYe+YIjzYiL+jIYbrUC5Uswuw02FukoSlfbfGTjy/O9tFZggqvxnnS8IMCG79Z8G/YWzaf6rDancm06LoNvw79N7jc+jFA7/n/a/H7z5ohc5qvTGR0rHfYHb4cVVbU2e/yU35HnpmTsvUbcawRTasPg/3w4Ebll2YsZIiltm2leVdWxgKO+eaXHshys1GEls8/rQJ1TrSIVj+F98YDpWEpiPXUuFPXBKKyByEZQwLdyAHaVs40x3hhNyEhQize586Kt66EvK+hAqu1UOSy+9MC5qpaiyqEgJEsCLZdPB5iIACoEcb+680XW7uzfaPPuntu9fvRhasV80Q==
+ b=P8UXuny7gz0Ey/Yk+gqmqlElL47W91dFxxpi7Zn/xxRp8WFemJddnv1wV7EffZZ3iey5ThWmfIW6/nxDlM9AWC9c+tP3vYsSHU/cPE4exU5llg/2oUp98HD2s/dv2q9bEme/2ETN2dUynYtQGmKg4piKH2xKl3H11lCf9ZOfaFbDITxK34c2yLD6zJEKooarLHOuecetOlFob48XgGpJOFUfillG72fjvN2QEr5UCxKOom5Djzccig4qLM7x2cmgFgXy52rEZEBwloeSZ1D7t8acQm6iPMIX4ySjUxBY09V89mWACdIdW5F6kvjM7Mt5UoKHREus64KvcTBVwIIiSw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6y3HQpKxjRYaGQ3xgchWqZ6D8uYAKr7T5IFBIK/KRjE=;
- b=BeygV6BW+Bd2q9+nZcHIprEPXOia95u5wln7Lm4cVruuAqtjwJSginroWd0TkjHtGbyRCBLU7uQTrXA1KS5hhH16aQ1GMMMuepmL/HZnNh5YtuqrvldizaxG6eKr/iQ+HIqxu9lQmmY5wDhRG/oKFiMnHJFCmB43HDMcH4rt31tzCKseEkv9qTS4dTOMaUbziOwAVQWhm3GEG36LywBoqKGuzcXJAq9D7gCjl0aL6HHTNyh5OfXsk/kq1+phM9s7DUStXNsCXyILjpDiB6ZgbUucvMPyWaxWtOylRZw/ptVDMo+sVo4cyDa8bixnDBzfFbtksjK6rp0nCu4dN/T2xQ==
+ bh=Pf9Y9p6ICXZrv2WVScN5pUjaB1x+5qUjldE+EQle0AU=;
+ b=dPDXcK7LR81F5zaCCoL3rLyQAZ+W75bSvRNYjAhBgKx9irz9vlGP92SKeYphvjkBEs3JFrRmd0Dh4CWhsa4eOhnxDaCx88rOyiFztPICVfhX/xM/hHDomAmpHS/svS0XpdxhXhm5b27JOZdqwVwi81aTrTTMkqZ6wx0fOg3RpaSBld+ZGrRm71vepdlxanGWM15lFwwhe44paO+KJSBn8UcUBKyFEdKYCTUBKjySZMkS5jDeHjzxrNeib3B3qK4DHRJa+IEQMl4EsC+1qk3n86JE/fgKpyPGVO9ekwpVHQBTScf3J/GoeKSj7rbktFVyPlqBy/+c5039bLFKl8WwUQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6y3HQpKxjRYaGQ3xgchWqZ6D8uYAKr7T5IFBIK/KRjE=;
- b=LliXZDLTmio5atg5KqCbKj5OmP3zqX1J79vBZTz+31uyr2qMFuV1DhjPP3nviTsjTZ6JH/5Er3KxrSgjk4Lt0943sds9lwSqm2IY5cq1IShC507WFHAY9jGFFWXJRo0KgASk7/Gj0dCBJoFGqEcZ/DXx4byigILUDcMsk2cPj8oH/VWB5mPqWTafud5lKplaCsUe2M0JWQ4lHZXv5lB4RgUu14Aoqnea1/Ce9U/7dVzP1XiLrqzIHxfwSXo6HrWoyIuBIIyOPrg3hZ8AgFQ2hOApfqO9ULKdfAxNsmfiKAkvN7l1YKhnOfqxJkMh3zFyEEbsU5eAwmdkqfHiS7xcAQ==
+ bh=Pf9Y9p6ICXZrv2WVScN5pUjaB1x+5qUjldE+EQle0AU=;
+ b=esvgF4MB4xA6SshAQAyM1Bc6aVWTx9Yf9r6SyRHgHqPj2dk5B1n4EXVgJHSxeaDPq20FEtkAvUGAWpTVb2xkMZ+DMIyvx3WL//4SL+qZ/RVtDEsU3EpMv1Id11HUXk55UU/vvZSCsd1kwBZImoS3p+TxYY5q83nUMb+cjf/VlXlnd9AlEH1Q62Z98UpWWkmPh5F9X9qQMgSwGKg1iVUoy4mV/EVZXBPV10iRWqmzHkJ1cDZcCZMkMY1e1uVEVJoeFyFF0WhxyFqem8W90Xl4FEnalgZP9X/E+lsG/b5FM/X2ta1Iut18KU6r48RWazlEbun9nA7lABG40JC6MpIcSQ==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM8PR04MB7284.eurprd04.prod.outlook.com (2603:10a6:20b:1dc::8)
  by PA1PR04MB11406.eurprd04.prod.outlook.com (2603:10a6:102:4f1::22) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Tue, 31 Mar
- 2026 11:28:59 +0000
+ 2026 11:29:14 +0000
 Received: from AM8PR04MB7284.eurprd04.prod.outlook.com
  ([fe80::9cd6:51bd:82b:98dc]) by AM8PR04MB7284.eurprd04.prod.outlook.com
  ([fe80::9cd6:51bd:82b:98dc%5]) with mapi id 15.20.9745.027; Tue, 31 Mar 2026
- 11:28:59 +0000
+ 11:29:14 +0000
 From: Wei Fang <wei.fang@nxp.com>
 To: claudiu.manoil@nxp.com,
 	vladimir.oltean@nxp.com,
@@ -76,9 +76,9 @@ Cc: netdev@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org,
 	imx@lists.linux.dev
-Subject: [PATCH v4 net-next 04/14] net: enetc: add basic operations to the FDB table
-Date: Tue, 31 Mar 2026 19:30:15 +0800
-Message-Id: <20260331113025.1566878-5-wei.fang@nxp.com>
+Subject: [PATCH v4 net-next 06/14] net: enetc: add support for the "Update" operation to buffer pool table
+Date: Tue, 31 Mar 2026 19:30:17 +0800
+Message-Id: <20260331113025.1566878-7-wei.fang@nxp.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260331113025.1566878-1-wei.fang@nxp.com>
 References: <20260331113025.1566878-1-wei.fang@nxp.com>
@@ -90,56 +90,56 @@ X-ClientProxiedBy: MA5P287CA0151.INDP287.PROD.OUTLOOK.COM
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM8PR04MB7284:EE_|PA1PR04MB11406:EE_
-X-MS-Office365-Filtering-Correlation-Id: 58755c63-8cc0-49cb-ba62-08de8f18b3a9
+X-MS-Office365-Filtering-Correlation-Id: 028e630e-40c8-4fc8-4d50-08de8f18bc55
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|52116014|366016|7416014|1800799024|18002099003|56012099003|22082099003|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: //6us5m0xAMG5rWY/Y2oXv5YFjgopKvOlEBhlR3Bu7kHxSwcas1ZO0zjiJUBUDjGpkGUjE9LY/2JhuqXo6u/03w1sbMMhL4XZYImo4SuwdPPq4EgmBbbCOofJ6whMvIBB6m90BXkLhuMj+R3Xv4nltSuJkcr6VGQL7dQ+GvFiHZ+HmSj8n8u+HA7yLacpIQe96D9xnF3AXOx6AW538o86uaytzhFCjptQCJLrEKovytsqhkKGXpvQHysrwsapm1oCZkdFvMnjp3NtWU+euQPyDx3AfONoM0GhWQA/nxAC1UgsXNwH5td1lUimSl+94nnyyINgFnh2eQ2yfgofAE00F1KslNR0qSPJhvXoIWgM2w2qRerhqHAHqBmXAK9nhkGyaudttYgr+zyN6gQTum9N94ADtaNw+srIyMqMM4y9bIm6prD3shArewxV71uECuWsr9i1Ery2bJTx18mZIfvK1Jc489OnDG43hfS6lR+BGuTVi8MtrKOTTNChdfKPIXGLehnl7lXFS/Bs0mJJKZ7G73gBhRs7QzVYp/oCNtL1EOUIxmPiH4HoyZV01XFFO6kSFT2kZN8OERpWDXGZA7mxYPr4TfApqJ9V9GDEtdjXaf4x9D73IZ3FbqWykZMQR8eKeESyNVIMtZ3Zh69RMcUAJnJCldRLk609VAd6WPcrlod3qt4h18NIUdGQBn9V03sMcpefxwZjr5Xi9wHNdb7Uh4+pjv4bd9oqO6pkfwFoaDXgBHzEnoj+FDqDNqdaaUN6So95sf/VsXNfVQE0pGCnJOgm9+dk2iWbcy5+eFaf7ML0MlpNXjxe/Bs+9eA9QWL
+X-Microsoft-Antispam-Message-Info: MtNL2924XuAUZk+e7Ena0DDE4pxlSB9L9A37qEDXsVEcvXOODENzjqAZ/w1+XHM2Q2L98OEzDlyQujyb9OedW0v+mS0erGAplOxNPnr2yZRkfSZhpDmlZ55ccqhr/n7By4+7CN1r0WJPZiSNdHLASIoCRUminVwLXWd/sr6biHsbCwmY/TPPbTjue+a6gl1sqmsgBbMk8NbC7dqLW3oRktMLT8vic7CExOlZs6qF7hQULICete4exy9HoDtoIA9YMAf5lwgSGXKc4HPbx281vFZFG1ePXZwFZR/83K2CT4y+TL7OfzAuat7uw81eB1ZrMBKmtnUQlI1WGIzuE/XuspcVRF53Pvw1OOpu+wdEh5jlid2hn3FCgv8IyasMPDFZCwbm8zaThObqGaPaw79LYKY8GFaXVF9uHf4bbrJyFXfi/7UvIR7czdSn59YiPym8Mw6+x598cqP0mtK2IwJRt/6FsAG+nFFN4jFRJT7CWwkziK9Mx5Jh3LponleubPMd1DJVo8K1HkB/hHVbPKxhQQNpKETAcppcFqWR04UUqKPhNp15L2i/7mSz77LDWW6VfGwWtBHjw8jYZa9yJU7lR3WSeG94vX8y/fqHxUE59zgm66o5fLViidA0Lt1W+zw/DFQhl2ryMp4LHgUv0ZCN+R8z/VTAviaWLLGxoKNKLqb8tgtbpI/SSRcHnpoZymkmYzL9SRXq+zQo9uqOIUlfkFk4LCQnaLxoW2NmD8xiSq7rRpzjDObUydHYNoSTIlEmh9wPw03zOnKjdjIeaDMMiqKk1325O6eyVNk0mr4XkzCalQVBgKaTB2DgfEiuKe2p
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7284.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(52116014)(366016)(7416014)(1800799024)(18002099003)(56012099003)(22082099003)(38350700014)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ByBJZlTKl2wVfFi3KYufwUC8OzuELnQWkKvy5umf73zVjX8csDnGQGjccLp9?=
- =?us-ascii?Q?KdGGJK9r5qtuzmBXFRd8derItE8OaNjwK2nXSWvvtmYdpnzvXlpBE9MhYgef?=
- =?us-ascii?Q?VIhMazjwUfSl1Mf3RxK6JaDT2sXjE9SbmZ/I5Q3VJIi+7bggBAXr+IiIJUQJ?=
- =?us-ascii?Q?NvHuC9ljf8bq96tybnU1IGIGZst7LINV6ZHOzrIrV/EUbVL8pR70Uh7dZg45?=
- =?us-ascii?Q?p/TAFVYwKouJCAV4kc4f2/OHG3FHXjbemyjlEcQLDOcZBaFfyo5XUVBhYZbc?=
- =?us-ascii?Q?9QMpOLbPyso6GhuDzQ3C33dOQZx8rQXoOR9Jr8R07mJfTgQGrVP9WyFE++6y?=
- =?us-ascii?Q?K26VVzTM8j56TV4tugxf9Ec7B7H8e7V9gJ2Bb2XKzFHzgmD2IFj4C44ftvxp?=
- =?us-ascii?Q?q8kdFuMvLRPlq42UFBsva/1eM1haiqCaibg5+Lh0WGd/kosTftVN7RP7TWQd?=
- =?us-ascii?Q?/GR0w5t31MywROWsc2mvXAl1mdf/rEDQ3pgsYfE53NSO4IB0FnZe8Qe7nyGe?=
- =?us-ascii?Q?A9pmvspAcrhjkI7vW9laZ8Xlw7ZehAmrtVgCcgoXIuPvWp8sBVD3jX8nu5uP?=
- =?us-ascii?Q?HuM/Izt02L1J4dzB1jL6FIV3U3SUhbq5e5rsp9M9qLyH9eLSNVd3aE0mKdIm?=
- =?us-ascii?Q?NY5KGzFKwbW6RMpblrDxazNemPMlAeq1uiFTPvA+BkLuXl3PbYr3m7g8wwPc?=
- =?us-ascii?Q?L0EXs+quIVMU7t2jeCaC8xRZ/qsG9Bhl5Qr3oW2URy1scrI43GLSJDPeCnfU?=
- =?us-ascii?Q?plWpNfr27k/OI3GHIN0NjM5NlvCrbPr0VCFjJrgUPHgrqmWodlp9hJ3IjZfc?=
- =?us-ascii?Q?sNs7Vfxq/s1I4CIkNp2yquWU+9wHfnHEWB/njajkKb6hAiZCpipqtKr9NvM/?=
- =?us-ascii?Q?faqYeM+fIRn1/fMEB4YJMBmU8vu/bH2dDR5pfvNG0tdvcqkdSk6Af2L4gbEc?=
- =?us-ascii?Q?Xrju29CsSY6cPTQJLIq0tVUh7e0FciLghrQB4dIZpDtl0jCIEeMh/XV3ToWd?=
- =?us-ascii?Q?w2bndi1rTpIMyEvDsle33253vBEiHTE2Nb12FRveKtgoxH0NPLpK2I9H06n1?=
- =?us-ascii?Q?oMHWkdIdP17/zYEjayJ8M/LxjzEH99aaqDdKiJdoTNg1hDIOB/q8oHUkNyMR?=
- =?us-ascii?Q?jWNzU1lieqr1EbmtnT3PBVft2TH9VAKgyrtdYjfsJm5b26F0M9SaVjVuiMhy?=
- =?us-ascii?Q?9x+iujOe1HhDNC85PG5ZE6kSCTra9zfCeOCdnLLB1keo2YzrtMhAvMx8BC1g?=
- =?us-ascii?Q?EiR11TFlI3nUGd2ccs0eFBMw+82AlRfNbbSngPEYixd6u4UW3CeRaPWVshB8?=
- =?us-ascii?Q?z2XJDctYjsOystHR0om4p/mWHSiouxVhKF8Z/d3rIdIN7zwKq4NQyatSFy75?=
- =?us-ascii?Q?kVBrtkxkmRkMfC4gnQKew9EuhJjguaAm4zpXFN5HOW2X7fom1ZDxAy6KlN15?=
- =?us-ascii?Q?AD/ea8javTKKeZBJ0AhaG9FFOrR5R262ePc1NfrBgCtW1IuQ8Y8A3/MugKa+?=
- =?us-ascii?Q?E44kcqL3JlMVUQphfG4T3sicGd6bkuzjcq8HrpFGTUYQ08Bw7AEOb5AhuR5J?=
- =?us-ascii?Q?mh/2n+PlWYsj7S5r9Q6KiEpJoGTmKNaTF79VvseK9E8sGtadSVxItiVcjo5S?=
- =?us-ascii?Q?y8NzYqDnQW2ai68Ms4DJ+PXfI6G/smFeypdvUS12y9GSqvlEpSp1LtD7TiyF?=
- =?us-ascii?Q?nL1wxC2JC19CrQNfODbKM8SM+sItu8Di40vG+UScw6AYrDzd?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aiA/pM4HdDwykpaKiSnOFAEH++JlbmPQMaAzvoVtEPgmrSIB5gGuXbDAfxmY?=
+ =?us-ascii?Q?6mNvJVLCzyra9HjFnTM4xnfZalW146CkePzbv2hqSAK8juGeyy8ZnXfgYtIH?=
+ =?us-ascii?Q?SCjxEspaWT+wF7r/in0MJCKAvWyzDJ+DyMsqzo8+qkzeTei5SZ4TrqTA6Byv?=
+ =?us-ascii?Q?6NZjEDz1hPWiwcp+Ik0DJbyFQBnvCjuazXON/8jer5i+VIrJsEATKxncQiyJ?=
+ =?us-ascii?Q?IvHUPwEiMfCPWx105EF+bF5ByTOCTO4QbKSfIFX2iGz+wcl+Tg6KHI2kTs2/?=
+ =?us-ascii?Q?HI1E04k0NzD5tbQ/0KxTp+HRb6Ja0dUPMNmsgQt++mng1hmnAKDs9K9LKL2K?=
+ =?us-ascii?Q?Mz5P1x3xazwtYpdxxyeF+yN1+agX3g0i6zAJ/o/dKVm+Sgq03YcWTzguFq4x?=
+ =?us-ascii?Q?0umUQiKhSTJC96+qGS6SeY/yTZOJ50hXS+AqNgva2Rm4odUjXvxQci35MvJN?=
+ =?us-ascii?Q?N4q40u/hWxhp/BAYRDK+FrRM2p71MSTqFzne3t0IFu0Gcrmlo/JGwa92bAMZ?=
+ =?us-ascii?Q?LQWnQCqaO8F17g8imDYNNIGSi4lyMdJAJk9ERIsP08sxvkUmVJgIKqTM7CeT?=
+ =?us-ascii?Q?5aMIOmfNiGt7uMOA9snwxYT7J/Bhim6IEQDYtxNz3lA/IQlAQnjansfNjBHC?=
+ =?us-ascii?Q?0YW4UrihigsekwBkIUQ/R9s+rUKug3BwhPzL1/4stFtDUYVBzIiiAq4UwrsW?=
+ =?us-ascii?Q?P8yXA1I0dqA3gWtfygvEqf4Vi8cUgJT+2K+sKf6gAGW0Jw1BB2psdxbv9JsS?=
+ =?us-ascii?Q?4oS5pBRgilKU3SRYev1JSDbY1wlh/leyo9+7Zq9JClwmfAE0cOTofcR0f2fH?=
+ =?us-ascii?Q?2qC8VOnYHXRC5+cA5xJzTjfOkmTjtwJwPLFc4mFnP7RI/cCm6elBG+s212bf?=
+ =?us-ascii?Q?v5CeXJArpcC3Pdy4hxlV52IcRtEyD33tNXk1CvU4Jil2yXLfCybf7POT2XRk?=
+ =?us-ascii?Q?P1KG/xv7UzEMb0l8NXbQQA0xP9E05MSbrqt9YtCT0mx/L6maIc51ScOfo4MP?=
+ =?us-ascii?Q?xhTx2c2+6z3xk4Hk2nckNibWsJ906L1P308s/bcLPP5ZMq9NBY6lKTgRPq03?=
+ =?us-ascii?Q?HBrHi86D4K4B2kMDl15GYtVh3LNMxTFybEovLOwOlt44L7oVGEnTijMKmhom?=
+ =?us-ascii?Q?rQo+64je15tNzdnvdqDd/+fySF5rGCAUZ6BMVNlAnjiMSeki1naNRbKffj6E?=
+ =?us-ascii?Q?Qucl/6jEa7/NFEy70m4AHtX0GCYY3DMqoHAWwbUtBqW3lJ/c9cJA4HCFkFIw?=
+ =?us-ascii?Q?0EBeKM52K+KO8VRBTMCX6L9QecCPp9BopAJBfZarmHUBIWj63EUplWl5T+PW?=
+ =?us-ascii?Q?OxETXtPF6n1IbVIHoC1mfghy3Hd9VR/GWOAYNe05egKAlu283w860s0Wbbv0?=
+ =?us-ascii?Q?8WiOnIxqLqAHZsQppNNi+GpxWayOtQirLDp6UZNGZPi96BP9npjZOadWXksI?=
+ =?us-ascii?Q?HW/o1iw7UZW80I2aDh/+fok4fW/4ZzgJTVWtAYJ0JHO1rDUkibu558eiTWi6?=
+ =?us-ascii?Q?AD6bWrrZ9ZHWk5VEpy8k7dw46Rvv9SYZeguHNbiKCvAiesoPkspnZuXu3/1K?=
+ =?us-ascii?Q?MBJzCTEO+OXo5XjQb1E+AwJEZ+eZVkaFXbCmhZ0teU7uyo09/GCg47ijPak9?=
+ =?us-ascii?Q?b56z/CTFvjyPoKmgRBLWZoUuYqMYefRHC9p5BnUNS//911tiUKDhuzjUdTu7?=
+ =?us-ascii?Q?yh3hyYouPRvIdt4Un288IasmSKewMAsH2p0DYnJE9N9sntAM?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 58755c63-8cc0-49cb-ba62-08de8f18b3a9
+X-MS-Exchange-CrossTenant-Network-Message-Id: 028e630e-40c8-4fc8-4d50-08de8f18bc55
 X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7284.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 11:28:59.2254
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 11:29:14.1368
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wfBkquzPbU5xsA0i2WE6Ln2j0LbSqCqptND6FVyub6XNzfRA8BQkamJC16p2MSA85C6F93eWTgTO40HBk92VuA==
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1KAbA+pc8mIiLG1xyLL1lKVRDki9EyDCNtCx911dbLZwj27fJ9mF/sdqcAYQJRsWjRBRdC8Yo98REX7pGv0sdQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11406
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_042903_167662_897A7A49 
-X-CRM114-Status: GOOD (  23.14  )
+X-CRM114-CacheID: sfid-20260331_042916_816439_08634335 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,470 +154,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The FDB table is used for MAC learning lookups and MAC forwarding lookups.
-Each table entry includes information such as a FID and MAC address that
-may be unicast or multicast and a forwarding destination field containing
-a port bitmap identifying the associated port(s) with the MAC address.
-FDB table entries can be static or dynamic. Static entries are added from
-software whereby dynamic entries are added either by software or by the
-hardware as MAC addresses are learned in the datapath.
+The buffer pool table contains buffer pool configuration and operational
+information. Each entry corresponds to a buffer pool. The Entry ID value
+represents the buffer pool ID to access.
 
-The FDB table can only be managed by the command BD ring using table
-management protocol version 2.0. Table management command operations Add,
-Delete, Update and Query are supported. And the FDB table supports three
-access methods: Entry ID, Exact Match Key Element and Search. This patch
-adds the following basic supports to the FDB table.
-
-ntmp_fdbt_update_entry() - update the configuration element data of a
-specified FDB entry
-
-ntmp_fdbt_delete_entry() - delete a specified FDB entry
-
-ntmp_fdbt_add_entry() - add an entry into the FDB table
-
-ntmp_fdbt_search_port_entry() - Search the FDB entry on the specified
-port based on RESUME_ENTRY_ID.
+The buffer pool table is a static bounded index table, buffer pools are
+always present and enabled. It only supports Update and Query operations,
+This patch only adds ntmp_bpt_update_entry() helper to support updating
+the specified entry of the buffer pool table. Query action to the table
+will be added in the future.
 
 Signed-off-by: Wei Fang <wei.fang@nxp.com>
 ---
- drivers/net/ethernet/freescale/enetc/ntmp.c   | 201 +++++++++++++++++-
- .../ethernet/freescale/enetc/ntmp_private.h   |  61 +++++-
- include/linux/fsl/ntmp.h                      |  69 +++++-
- 3 files changed, 328 insertions(+), 3 deletions(-)
+ drivers/net/ethernet/freescale/enetc/ntmp.c   | 39 +++++++++++++++++++
+ .../ethernet/freescale/enetc/ntmp_private.h   |  6 +++
+ include/linux/fsl/ntmp.h                      | 32 +++++++++++++++
+ 3 files changed, 77 insertions(+)
 
 diff --git a/drivers/net/ethernet/freescale/enetc/ntmp.c b/drivers/net/ethernet/freescale/enetc/ntmp.c
-index 703752995e93..a4a99954baf2 100644
+index d7d8a37078d1..3c59b355c142 100644
 --- a/drivers/net/ethernet/freescale/enetc/ntmp.c
 +++ b/drivers/net/ethernet/freescale/enetc/ntmp.c
-@@ -1,7 +1,7 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
- /*
-  * NETC NTMP (NETC Table Management Protocol) 2.0 Library
-- * Copyright 2025 NXP
-+ * Copyright 2025-2026 NXP
-  */
- 
- #include <linux/dma-mapping.h>
-@@ -20,11 +20,15 @@
- /* Define NTMP Table ID */
- #define NTMP_MAFT_ID			1
+@@ -22,11 +22,15 @@
  #define NTMP_RSST_ID			3
-+#define NTMP_FDBT_ID			15
+ #define NTMP_FDBT_ID			15
+ #define NTMP_VFT_ID			18
++#define NTMP_BPT_ID			41
  
  /* Generic Update Actions for most tables */
  #define NTMP_GEN_UA_CFGEU		BIT(0)
  #define NTMP_GEN_UA_STSEU		BIT(1)
  
-+/* Query Action: 0: Full query, 1: Only query entry ID */
-+#define NTMP_QA_ENTRY_ID		1
++/* Specific Update Actions for some tables */
++#define BPT_UA_BPSEU			BIT(1)
 +
- #define NTMP_ENTRY_ID_SIZE		4
- #define RSST_ENTRY_NUM			64
- #define RSST_STSE_DATA_SIZE(n)		((n) * 8)
-@@ -225,6 +229,8 @@ static const char *ntmp_table_name(int tbl_id)
- 		return "MAC Address Filter Table";
- 	case NTMP_RSST_ID:
- 		return "RSS Table";
-+	case NTMP_FDBT_ID:
-+		return "FDB Table";
+ /* Query Action: 0: Full query, 1: Only query entry ID */
+ #define NTMP_QA_ENTRY_ID		1
+ 
+@@ -234,6 +238,8 @@ static const char *ntmp_table_name(int tbl_id)
+ 		return "FDB Table";
+ 	case NTMP_VFT_ID:
+ 		return "VLAN Filter Table";
++	case NTMP_BPT_ID:
++		return "Buffer Pool Table";
  	default:
  		return "Unknown Table";
  	}
-@@ -453,5 +459,198 @@ int ntmp_rsst_query_entry(struct ntmp_user *user, u32 *table, int count)
+@@ -702,5 +708,38 @@ int ntmp_vft_add_entry(struct ntmp_user *user, u16 vid,
  }
- EXPORT_SYMBOL_GPL(ntmp_rsst_query_entry);
+ EXPORT_SYMBOL_GPL(ntmp_vft_add_entry);
  
-+/**
-+ * ntmp_fdbt_add_entry - add an entry into the FDB table
-+ * @user: target ntmp_user struct
-+ * @entry_id: returned value, the entry ID of the new added entry
-+ * @keye: key element data
-+ * @cfge: configuration element data
-+ *
-+ * Return: 0 on success, otherwise a negative error code
-+ */
-+int ntmp_fdbt_add_entry(struct ntmp_user *user, u32 *entry_id,
-+			const struct fdbt_keye_data *keye,
-+			const struct fdbt_cfge_data *cfge)
++int ntmp_bpt_update_entry(struct ntmp_user *user, u32 entry_id,
++			  const struct bpt_cfge_data *cfge)
 +{
 +	struct ntmp_dma_buf data = {
 +		.dev = user->dev,
-+		.size = sizeof(struct fdbt_req_ua),
++		.size = sizeof(struct bpt_req_update),
 +	};
-+	struct fdbt_resp_query *resp;
-+	struct fdbt_req_ua *req;
++	struct bpt_req_update *req;
 +	union netc_cbd cbd;
-+	u32 len;
 +	int err;
 +
 +	err = ntmp_alloc_data_mem(&data, (void **)&req);
 +	if (err)
 +		return err;
 +
-+	/* Request data */
-+	ntmp_fill_crd(&req->crd, user->tbl.fdbt_ver, NTMP_QA_ENTRY_ID,
-+		      NTMP_GEN_UA_CFGEU);
-+	req->ak.exact.keye = *keye;
++	ntmp_fill_crd_eid(&req->rbe, user->tbl.bpt_ver, 0,
++			  NTMP_GEN_UA_CFGEU | BPT_UA_BPSEU, entry_id);
 +	req->cfge = *cfge;
-+
-+	len = NTMP_LEN(data.size, sizeof(*resp));
-+	/* The entry ID is allotted by hardware, so we need to perform
-+	 * a query action after the add action to get the entry ID from
-+	 * hardware.
-+	 */
-+	ntmp_fill_request_hdr(&cbd, data.dma, len, NTMP_FDBT_ID,
-+			      NTMP_CMD_AQ, NTMP_AM_EXACT_KEY);
-+	err = netc_xmit_ntmp_cmd(user, &cbd);
-+	if (err) {
-+		dev_err(user->dev, "Failed to add %s entry, err: %pe\n",
-+			ntmp_table_name(NTMP_FDBT_ID), ERR_PTR(err));
-+		goto end;
-+	}
-+
-+	if (entry_id) {
-+		resp = (struct fdbt_resp_query *)req;
-+		*entry_id = le32_to_cpu(resp->entry_id);
-+	}
-+
-+end:
-+	ntmp_free_data_mem(&data);
-+
-+	return err;
-+}
-+EXPORT_SYMBOL_GPL(ntmp_fdbt_add_entry);
-+
-+/**
-+ * ntmp_fdbt_update_entry - update the configuration element data of the
-+ * specified FDB entry
-+ * @user: target ntmp_user struct
-+ * @entry_id: the specified entry ID of the FDB table
-+ * @cfge: configuration element data
-+ *
-+ * Return: 0 on success, otherwise a negative error code
-+ */
-+int ntmp_fdbt_update_entry(struct ntmp_user *user, u32 entry_id,
-+			   const struct fdbt_cfge_data *cfge)
-+{
-+	struct ntmp_dma_buf data = {
-+		.dev = user->dev,
-+		.size = sizeof(struct fdbt_req_ua),
-+	};
-+	struct fdbt_req_ua *req;
-+	union netc_cbd cbd;
-+	u32 len;
-+	int err;
-+
-+	err = ntmp_alloc_data_mem(&data, (void **)&req);
-+	if (err)
-+		return err;
-+
-+	/* Request data */
-+	ntmp_fill_crd(&req->crd, user->tbl.fdbt_ver, 0, NTMP_GEN_UA_CFGEU);
-+	req->ak.eid.entry_id = cpu_to_le32(entry_id);
-+	req->cfge = *cfge;
-+
-+	/* Request header */
-+	len = NTMP_LEN(data.size, NTMP_STATUS_RESP_LEN);
-+	ntmp_fill_request_hdr(&cbd, data.dma, len, NTMP_FDBT_ID,
-+			      NTMP_CMD_UPDATE, NTMP_AM_ENTRY_ID);
-+	err = netc_xmit_ntmp_cmd(user, &cbd);
-+	if (err)
-+		dev_err(user->dev, "Failed to update %s entry, err: %pe\n",
-+			ntmp_table_name(NTMP_FDBT_ID), ERR_PTR(err));
-+
-+	ntmp_free_data_mem(&data);
-+
-+	return err;
-+}
-+EXPORT_SYMBOL_GPL(ntmp_fdbt_update_entry);
-+
-+/**
-+ * ntmp_fdbt_delete_entry - delete the specified FDB entry
-+ * @user: target ntmp_user struct
-+ * @entry_id: the specified ID of the FDB entry
-+ *
-+ * Return: 0 on success, otherwise a negative error code
-+ */
-+int ntmp_fdbt_delete_entry(struct ntmp_user *user, u32 entry_id)
-+{
-+	u32 req_len = sizeof(struct fdbt_req_qd);
-+
-+	return ntmp_delete_entry_by_id(user, NTMP_FDBT_ID,
-+				       user->tbl.fdbt_ver,
-+				       entry_id, req_len,
-+				       NTMP_STATUS_RESP_LEN);
-+}
-+EXPORT_SYMBOL_GPL(ntmp_fdbt_delete_entry);
-+
-+/**
-+ * ntmp_fdbt_search_port_entry - Search the FDB entry on the specified
-+ * port based on RESUME_ENTRY_ID
-+ * @user: target ntmp_user struct
-+ * @port: the specified switch port ID
-+ * @resume_entry_id: it is both an input and an output. As an input, it
-+ * represents the FDB entry ID to be searched. If it is a NULL entry ID,
-+ * it indicates that the first FDB entry for that port is being searched.
-+ * As an output, it represents the next FDB entry ID to be searched.
-+ * @entry: returned value, the response data of the searched FDB entry
-+ *
-+ * Return: 0 on success, otherwise a negative error code
-+ */
-+int ntmp_fdbt_search_port_entry(struct ntmp_user *user, int port,
-+				u32 *resume_entry_id,
-+				struct fdbt_entry_data *entry)
-+{
-+	struct ntmp_dma_buf data = {
-+		.dev = user->dev,
-+		.size = sizeof(struct fdbt_req_qd),
-+	};
-+	struct fdbt_resp_query *resp;
-+	struct fdbt_req_qd *req;
-+	union netc_cbd cbd;
-+	u32 len;
-+	int err;
-+
-+	err = ntmp_alloc_data_mem(&data, (void **)&req);
-+	if (err)
-+		return err;
-+
-+	/* Request data */
-+	ntmp_fill_crd(&req->crd, user->tbl.fdbt_ver, 0, 0);
-+	req->ak.search.resume_eid = cpu_to_le32(*resume_entry_id);
-+	req->ak.search.cfge.port_bitmap = cpu_to_le32(BIT(port));
-+	/* Match CFGE_DATA[PORT_BITMAP] field */
-+	req->ak.search.cfge_mc = FDBT_CFGE_MC_PORT_BITMAP;
-+
-+	/* Request header */
-+	len = NTMP_LEN(data.size, sizeof(*resp));
-+	ntmp_fill_request_hdr(&cbd, data.dma, len, NTMP_FDBT_ID,
-+			      NTMP_CMD_QUERY, NTMP_AM_SEARCH);
++	ntmp_fill_request_hdr(&cbd, data.dma, NTMP_LEN(data.size, 0),
++			      NTMP_BPT_ID, NTMP_CMD_UPDATE, NTMP_AM_ENTRY_ID);
 +
 +	err = netc_xmit_ntmp_cmd(user, &cbd);
-+	if (err) {
++	if (err)
 +		dev_err(user->dev,
-+			"Failed to search %s entry on port %d, err: %pe\n",
-+			ntmp_table_name(NTMP_FDBT_ID), port, ERR_PTR(err));
-+		goto end;
-+	}
++			"Failed to update %s entry 0x%x, err: %pe\n",
++			ntmp_table_name(NTMP_BPT_ID), entry_id, ERR_PTR(err));
 +
-+	if (!cbd.resp_hdr.num_matched) {
-+		entry->entry_id = NTMP_NULL_ENTRY_ID;
-+		*resume_entry_id = NTMP_NULL_ENTRY_ID;
-+		goto end;
-+	}
-+
-+	resp = (struct fdbt_resp_query *)req;
-+	*resume_entry_id = le32_to_cpu(resp->status);
-+	entry->entry_id = le32_to_cpu(resp->entry_id);
-+	entry->keye = resp->keye;
-+	entry->cfge = resp->cfge;
-+	entry->acte = resp->acte;
-+
-+end:
 +	ntmp_free_data_mem(&data);
 +
 +	return err;
 +}
-+EXPORT_SYMBOL_GPL(ntmp_fdbt_search_port_entry);
++EXPORT_SYMBOL_GPL(ntmp_bpt_update_entry);
 +
  MODULE_DESCRIPTION("NXP NETC Library");
  MODULE_LICENSE("Dual BSD/GPL");
 diff --git a/drivers/net/ethernet/freescale/enetc/ntmp_private.h b/drivers/net/ethernet/freescale/enetc/ntmp_private.h
-index 34394e40fddd..8999eafe1920 100644
+index d2a6399b0a36..7d50af7745c7 100644
 --- a/drivers/net/ethernet/freescale/enetc/ntmp_private.h
 +++ b/drivers/net/ethernet/freescale/enetc/ntmp_private.h
-@@ -1,7 +1,7 @@
- /* SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause) */
- /*
-  * NTMP table request and response data buffer formats
-- * Copyright 2025 NXP
-+ * Copyright 2025-2026 NXP
-  */
- 
- #ifndef __NTMP_PRIVATE_H
-@@ -11,6 +11,7 @@
- #include <linux/fsl/ntmp.h>
- 
- #define NTMP_EID_REQ_LEN	8
-+#define NTMP_STATUS_RESP_LEN	4
- #define NETC_CBDR_BD_NUM	256
- 
- union netc_cbd {
-@@ -27,6 +28,7 @@ union netc_cbd {
- #define NTMP_CMD_QUERY		BIT(2)
- #define NTMP_CMD_ADD		BIT(3)
- #define NTMP_CMD_QU		(NTMP_CMD_QUERY | NTMP_CMD_UPDATE)
-+#define NTMP_CMD_AQ		(NTMP_CMD_ADD | NTMP_CMD_QUERY)
- 		u8 access_method;
- #define NTMP_ACCESS_METHOD	GENMASK(7, 4)
- #define NTMP_AM_ENTRY_ID	0
-@@ -101,4 +103,61 @@ struct rsst_req_update {
- 	u8 groups[];
+@@ -179,4 +179,10 @@ struct vft_req_ua {
+ 	struct vft_cfge_data cfge;
  };
  
-+/* Access Key Format of FDB Table */
-+struct fdbt_ak_eid {
-+	__le32 entry_id;
-+	__le32 resv[7];
-+};
-+
-+struct fdbt_ak_exact {
-+	struct fdbt_keye_data keye;
-+	__le32 resv[5];
-+};
-+
-+struct fdbt_ak_search {
-+	__le32 resume_eid;
-+	struct fdbt_keye_data keye;
-+	struct fdbt_cfge_data cfge;
-+	u8 acte;
-+	u8 keye_mc;
-+#define FDBT_KEYE_MAC		GENMASK(1, 0)
-+	u8 cfge_mc;
-+#define FDBT_CFGE_MC		GENMASK(2, 0)
-+#define FDBT_CFGE_MC_ANY		0
-+#define FDBT_CFGE_MC_DYNAMIC		1
-+#define FDBT_CFGE_MC_PORT_BITMAP	2
-+#define FDBT_CFGE_MC_DYNAMIC_AND_PORT_BITMAP	3
-+	u8 acte_mc;
-+#define FDBT_ACTE_MC		BIT(0)
-+};
-+
-+union fdbt_access_key {
-+	struct fdbt_ak_eid eid;
-+	struct fdbt_ak_exact exact;
-+	struct fdbt_ak_search search;
-+};
-+
-+/* FDB Table Request Data Buffer Format of Update and Add actions */
-+struct fdbt_req_ua {
-+	struct ntmp_cmn_req_data crd;
-+	union fdbt_access_key ak;
-+	struct fdbt_cfge_data cfge;
-+};
-+
-+/* FDB Table Request Data Buffer Format of Query and Delete actions */
-+struct fdbt_req_qd {
-+	struct ntmp_cmn_req_data crd;
-+	union fdbt_access_key ak;
-+};
-+
-+/* FDB Table Response Data Buffer Format of Query action */
-+struct fdbt_resp_query {
-+	__le32 status;
-+	__le32 entry_id;
-+	struct fdbt_keye_data keye;
-+	struct fdbt_cfge_data cfge;
-+	u8 acte;
-+	u8 resv[3];
++/* Buffer Pool Table Request Data Buffer Format of Update action */
++struct bpt_req_update {
++	struct ntmp_req_by_eid rbe;
++	struct bpt_cfge_data cfge;
 +};
 +
  #endif
 diff --git a/include/linux/fsl/ntmp.h b/include/linux/fsl/ntmp.h
-index 916dc4fe7de3..a9f3e6cbf422 100644
+index 2aedea17307f..a54945dcdc61 100644
 --- a/include/linux/fsl/ntmp.h
 +++ b/include/linux/fsl/ntmp.h
-@@ -1,11 +1,13 @@
- /* SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause) */
--/* Copyright 2025 NXP */
-+/* Copyright 2025-2026 NXP */
- #ifndef __NETC_NTMP_H
- #define __NETC_NTMP_H
- 
- #include <linux/bitops.h>
- #include <linux/if_ether.h>
- 
-+#define NTMP_NULL_ENTRY_ID		0xffffffffU
-+
- struct maft_keye_data {
- 	u8 mac_addr[ETH_ALEN];
- 	__le16 resv;
-@@ -29,6 +31,7 @@ struct netc_cbdr_regs {
- struct netc_tbl_vers {
- 	u8 maft_ver;
+@@ -33,6 +33,7 @@ struct netc_tbl_vers {
  	u8 rsst_ver;
-+	u8 fdbt_ver;
+ 	u8 fdbt_ver;
+ 	u8 vft_ver;
++	u8 bpt_ver;
  };
  
  struct netc_cbdr {
-@@ -61,6 +64,36 @@ struct maft_entry_data {
- 	struct maft_cfge_data cfge;
+@@ -116,6 +117,29 @@ struct vft_cfge_data {
+ 	__le32 et_eid;
  };
  
-+struct fdbt_keye_data {
-+	u8 mac_addr[ETH_ALEN]; /* big-endian */
-+	__le16 resv0;
-+	__le16 fid;
-+#define FDBT_FID		GENMASK(11, 0)
-+	__le16 resv1;
-+};
++struct bpt_bpse_data {
++	__le32 amount_used;
++	__le32 amount_used_hwm;
++	u8 bpd_fc_state;
++#define BPT_FC_STATE		BIT(0)
++#define BPT_BPD			BIT(1)
++} __packed;
 +
-+struct fdbt_cfge_data {
-+	__le32 port_bitmap;
-+#define FDBT_PORT_BITMAP	GENMASK(23, 0)
-+	__le32 cfg;
-+#define FDBT_OETEID		GENMASK(1, 0)
-+#define FDBT_EPORT		GENMASK(6, 2)
-+#define FDBT_IMIRE		BIT(7)
-+#define FDBT_CTD		GENMASK(10, 9)
-+#define FDBT_DYNAMIC		BIT(11)
-+#define FDBT_TIMECAPE		BIT(12)
-+	__le32 et_eid;
-+};
-+
-+struct fdbt_entry_data {
-+	u32 entry_id;
-+	struct fdbt_keye_data keye;
-+	struct fdbt_cfge_data cfge;
-+	u8 acte;
-+#define FDBT_ACT_CNT		GENMASK(6, 0)
-+#define FDBT_ACT_FLAG		BIT(7)
++struct bpt_cfge_data {
++	u8 fccfg_sbpen;
++#define BPT_SBP_EN		BIT(0)
++#define BPT_FC_CFG		GENMASK(2, 1)
++#define BPT_FC_CFG_EN_BPFC	1
++	u8 pfc_vector;
++	__le16 max_thresh;
++	__le16 fc_on_thresh;
++	__le16 fc_off_thresh;
++	__le16 sbp_thresh;
++	__le16 resv;
++	__le32 sbp_eid;
++	__le32 fc_ports;
 +};
 +
  #if IS_ENABLED(CONFIG_NXP_NETC_LIB)
  int ntmp_init_cbdr(struct netc_cbdr *cbdr, struct device *dev,
  		   const struct netc_cbdr_regs *regs);
-@@ -76,6 +109,15 @@ int ntmp_rsst_update_entry(struct ntmp_user *user, const u32 *table,
- 			   int count);
- int ntmp_rsst_query_entry(struct ntmp_user *user,
- 			  u32 *table, int count);
-+int ntmp_fdbt_add_entry(struct ntmp_user *user, u32 *entry_id,
-+			const struct fdbt_keye_data *keye,
-+			const struct fdbt_cfge_data *cfge);
-+int ntmp_fdbt_update_entry(struct ntmp_user *user, u32 entry_id,
-+			   const struct fdbt_cfge_data *cfge);
-+int ntmp_fdbt_delete_entry(struct ntmp_user *user, u32 entry_id);
-+int ntmp_fdbt_search_port_entry(struct ntmp_user *user, int port,
-+				u32 *resume_entry_id,
-+				struct fdbt_entry_data *entry);
+@@ -142,6 +166,8 @@ int ntmp_fdbt_search_port_entry(struct ntmp_user *user, int port,
+ 				struct fdbt_entry_data *entry);
+ int ntmp_vft_add_entry(struct ntmp_user *user, u16 vid,
+ 		       const struct vft_cfge_data *cfge);
++int ntmp_bpt_update_entry(struct ntmp_user *user, u32 entry_id,
++			  const struct bpt_cfge_data *cfge);
  #else
  static inline int ntmp_init_cbdr(struct netc_cbdr *cbdr, struct device *dev,
  				 const struct netc_cbdr_regs *regs)
-@@ -116,6 +158,31 @@ static inline int ntmp_rsst_query_entry(struct ntmp_user *user,
+@@ -213,6 +239,12 @@ static inline int ntmp_vft_add_entry(struct ntmp_user *user, u16 vid,
  	return 0;
  }
  
-+static inline int ntmp_fdbt_add_entry(struct ntmp_user *user, u32 *entry_id,
-+				      const struct fdbt_keye_data *keye,
-+				      const struct fdbt_cfge_data *data)
-+{
-+	return 0;
-+}
-+
-+static inline int ntmp_fdbt_update_entry(struct ntmp_user *user, u32 entry_id,
-+					 const struct fdbt_cfge_data *cfge)
-+{
-+	return 0;
-+}
-+
-+static inline int ntmp_fdbt_delete_entry(struct ntmp_user *user, u32 entry_id)
-+{
-+	return 0;
-+}
-+
-+static inline int ntmp_fdbt_search_port_entry(struct ntmp_user *user, int port,
-+					      u32 *resume_entry_id,
-+					      struct fdbt_entry_data *entry)
++static inline int ntmp_bpt_update_entry(struct ntmp_user *user, u32 entry_id,
++					const struct bpt_cfge_data *cfge)
 +{
 +	return 0;
 +}
