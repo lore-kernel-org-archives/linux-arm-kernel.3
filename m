@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5595FF60F0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 15:18:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61F1D109B48D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 15:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YKPDyHEuL6bh2ruQLk25OvZMRBgR26W2PRgnkZLvzBs=; b=b6QHPI6eBBqRc4yKWgljBAJoTf
-	sI5NeE0EdtoCL72R92HdntbUWD/1FWRA7EIdw0ro54AOgwctnRm0h2Fb0urrTrbfAFy7qPZfJn0cs
-	gAKthYnUaMkDh1nn6fZv6+KUAIgAz1R67bHh5VidxiDJNc9D7qBATME9+fNhNfonklUD5lUDwqmRd
-	UGrN67mW9n6rdcgLnTltLgeEqpCD7gFEOM+Az+F5ne4YDIXLPM1y2EvfoCuzRLl7P8y3arJ/7s3ae
-	CbY9C0DzdCPi/zJrlyyn/VaYjDj2vd5K4genoP9QRS11es1xIRHkzSYDUbL/C15TVDGtI4l9jBMro
-	myBPylNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zdjkRVztLCXafPWmUPDplYA4Ao413dFylDheAfYs38Q=; b=ADERK0Yex28ckaps5FYCkg8Jtl
+	TCRqnJzO810RAOJdSJJcmXel+NzmFJOnytxvGz7VEJPPrEQNSh+4k+piG0OYz42UwZiNa55msqeF1
+	hBwMnWl+PkNfHuDoa00QSEij5/6+vqSUe2IULTieGXx9+8FgXxTL8y924ig47brPdcFB1FKe2DlTV
+	wbL0L9SmQlDy/TNN5N1CDtOMg0lnDrPFx4Q9H2a5PZebb3KUmOCaKgnKt5Hp0XYGaIsURk61Ghqj0
+	TQ1IpshXLEcKOi9Ntc84d6KQUM7CqltXwZgx1KMVMUqbQeBCmMPyoWn3+GnrCtWBVJFUAzdFVEJlN
+	tSvgZOYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7aqs-0000000DA9o-0ff3;
-	Tue, 31 Mar 2026 15:17:58 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1w7axU-0000000DAhB-44rF;
+	Tue, 31 Mar 2026 15:24:48 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7aqo-0000000DA7h-3gXz
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 15:17:56 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 04D621F8005E
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 15:17:46 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 2E241B2EFD3; Tue, 31 Mar 2026 15:17:45 +0000 (UTC)
-Received: from collins (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id 41E46B2EFC8;
-	Tue, 31 Mar 2026 15:17:43 +0000 (UTC)
-Date: Tue, 31 Mar 2026 17:17:41 +0200
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: Lucas Stach <l.stach@pengutronix.de>
-Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof =?utf-8?Q?Ha=C5=82asa?= <khalasa@piap.pl>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Liu Ying <victor.liu@nxp.com>
-Subject: Re: [PATCH 2/3] drm: lcdif: Use dedicated set/clr registers for
- polarity/edge
-Message-ID: <acvllbRTHyVFTgmS@collins>
-References: <20260330224619.2620782-1-paulk@sys-base.io>
- <20260330224619.2620782-3-paulk@sys-base.io>
- <f5b628f50def756da356184ff6febb11cc9aaa68.camel@pengutronix.de>
+	id 1w7axS-0000000DAgl-2D4q;
+	Tue, 31 Mar 2026 15:24:48 +0000
+Received: from [192.168.33.35] (185.221.143.151.nat.pool.zt.hu [185.221.143.151])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A7722244D;
+	Tue, 31 Mar 2026 17:23:18 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1774970598;
+	bh=wJqmw0G2zwGNuB+jWnj7ko4yyf1Hjero8b9MRRzk3OA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GofwKlM4YOiFcnDM8J6U43Ja2FUsQUmJt4FH+dCFiCO9KS9Ov6shk2YQX/FevwJnV
+	 cAyYGS55dtQzMf0vz8qOru3AzMUypMU8yLB9GR54nBSkc9xK/4aTjw+Cvn68ImmxHC
+	 RMJP7dlmn6LblToI/vRK2r5fxstDxccjLCDwawo0=
+Message-ID: <5a7d1894-ee12-42b6-b40c-4d0e0b370974@ideasonboard.com>
+Date: Tue, 31 Mar 2026 17:24:38 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="/Y3a12dyBXGbAn3r"
-Content-Disposition: inline
-In-Reply-To: <f5b628f50def756da356184ff6febb11cc9aaa68.camel@pengutronix.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] media: rkisp1: Add support for CAC
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Cc: Dafna Hirschfeld <dafna@fastmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260323140216.1486161-1-barnabas.pocze@ideasonboard.com>
+ <acP7qpa8TxGLKFiw@zed>
+ <6c7ffd2d-94fa-4408-ac24-1e7adac95e5d@ideasonboard.com>
+ <acu-j4hm0g8pTeAF@zed> <20260331133934.GC3357297@killaraus.ideasonboard.com>
+From: =?UTF-8?Q?Barnab=C3=A1s_P=C5=91cze?= <barnabas.pocze@ideasonboard.com>
+Content-Language: en-US, hu-HU
+In-Reply-To: <20260331133934.GC3357297@killaraus.ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_081755_246595_1F11F05E 
-X-CRM114-Status: GOOD (  33.26  )
+X-CRM114-CacheID: sfid-20260331_082446_881195_C0FADB23 
+X-CRM114-Status: GOOD (  34.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,126 +74,456 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+2026. 03. 31. 15:39 keltezéssel, Laurent Pinchart írta:
+> On Tue, Mar 31, 2026 at 02:42:33PM +0200, Jacopo Mondi wrote:
+>> On Mon, Mar 30, 2026 at 04:40:18PM +0200, Barnabás Pőcze wrote:
+>>> 2026. 03. 25. 16:21 keltezéssel, Jacopo Mondi írta:
+>>>> On Mon, Mar 23, 2026 at 03:02:16PM +0100, Barnabás Pőcze wrote:
+>>>>> The CAC block implements chromatic aberration correction. Expose it to
+>>>>> userspace using the extensible parameters format. This was tested on the
+>>>>> i.MX8MP platform, but based on available documentation it is also present
+>>>>> in the RK3399 variant (V10). Thus presumably also in later versions,
+>>>>> so no feature flag is introduced.
+>>>>>
+>>>>> Signed-off-by: Barnabás Pőcze <barnabas.pocze@ideasonboard.com>
+>>>>
+>>>> Only minors..
+>>>>
+>>>>> ---
+>>>>>    .../platform/rockchip/rkisp1/rkisp1-params.c  |  69 ++++++++++++
+>>>>>    .../platform/rockchip/rkisp1/rkisp1-regs.h    |  21 +++-
+>>>>>    include/uapi/linux/rkisp1-config.h            | 106 +++++++++++++++++-
+>>>>>    3 files changed, 193 insertions(+), 3 deletions(-)
+>>>>>
+>>>>> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+>>>>> index 6442436a5e428..b889af9dcee45 100644
+>>>>> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+>>>>> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+>>>>> @@ -64,6 +64,7 @@ union rkisp1_ext_params_config {
+>>>>>    	struct rkisp1_ext_params_compand_bls_config compand_bls;
+>>>>>    	struct rkisp1_ext_params_compand_curve_config compand_curve;
+>>>>>    	struct rkisp1_ext_params_wdr_config wdr;
+>>>>> +	struct rkisp1_ext_params_cac_config cac;
+>>>>>    };
+>>>>>
+>>>>>    enum rkisp1_params_formats {
+>>>>> @@ -1413,6 +1414,48 @@ static void rkisp1_wdr_config(struct rkisp1_params *params,
+>>>>>    				     RKISP1_CIF_ISP_WDR_TONE_CURVE_YM_MASK);
+>>>>>    }
+>>>>>
+>>>>> +static void
+>>>>> +rkisp1_cac_config(struct rkisp1_params *params,
+>>>>> +		  const struct rkisp1_cif_isp_cac_config *arg)
+>>>>
+>>>> Fits in one line without going over 80 cols
+>>>
+>>> This is what the other functions looks like, so went this this.
+>>
+>> It seems to me not all of them are broken, but only the ones that go
+>> over 80 cols
 
---/Y3a12dyBXGbAn3r
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I think I misunderstood initially. Adjusted now.
 
-Hi Lucas,
 
-Le Tue 31 Mar 26, 11:09, Lucas Stach a =C3=A9crit :
-> Hi Paul,
->=20
-> Am Dienstag, dem 31.03.2026 um 00:46 +0200 schrieb Paul Kocialkowski:
-> > The lcdif v3 hardware comes with dedicated registers to set and clear
-> > polarity bits in the CTRL register. It is unclear if there is a
-> > difference with writing to the CTRL register directly.
-> >=20
-> > Follow the NXP BSP reference by using these registers, in case there is
-> > a subtle difference caused by using them.
-> >=20
-> I don't really like that patch, as it blows up what is currently a
-> single register access to three separate ones. If there is no clear
-> benefit (as in it has been shown to fix any issue), I would prefer this
-> code to stay as-is.
+>>
+>> in example:
+>>
+>> static void rkisp1_dpf_config(struct rkisp1_params *params,
+>> 			      const struct rkisp1_cif_isp_dpf_config *arg)
+>>
+>> A detail anyway, up to you
+>>
+>>>>> +{
+>>>>> +	u32 regval;
+> 
+> All other functions in this file name similar variables "val", "value"
+> or "reg_val". Let's not introduce a fourth one. I have a small
+> preference for "val", but that's not mandatory.
 
-Well I guess the cost of a few writes vs a single one is rather
-negligible. I'm rather worried that there might be an undocumented
-reason why these registers exist in the first place and why they are
-used in the BSP.
+Adjusted.
 
-But yes this is only speculation and I could not witness any actual
-issue. My setup (lcdif3 with hdmi) uses all positive polarities which is
-the default state, so not a good way to check.
 
-It would be great if somebody from NXP could confirm whether this is
-needed or not. In the meantime I guess we can drop the patch. It'll stay
-on the list in case someone has polarity issues later :)
+> 
+>>>>> +
+>>>>> +	/*
+>>>>> +	 * The enable bit is in the same register (RKISP1_CIF_ISP_CAC_CTRL),
+>>>>> +	 * so only set the clipping mode, and do not modify the other bits.
+>>>>> +	 */
+>>>>> +	regval = rkisp1_read(params->rkisp1, RKISP1_CIF_ISP_CAC_CTRL);
+>>>>> +	regval &= ~(RKISP1_CIF_ISP_CAC_CTRL_H_CLIP_MODE |
+>>>>> +		    RKISP1_CIF_ISP_CAC_CTRL_V_CLIP_MODE);
+>>>>> +	regval |= FIELD_PREP(RKISP1_CIF_ISP_CAC_CTRL_H_CLIP_MODE, arg->h_clip_mode) |
+>>>>> +		  FIELD_PREP(RKISP1_CIF_ISP_CAC_CTRL_V_CLIP_MODE, arg->v_clip_mode);
+>>>>> +	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_CTRL, regval);
+>>>>> +
+>>>>> +	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_COUNT_START_H_MASK, arg->h_count_start) |
+>>>>> +		 FIELD_PREP(RKISP1_CIF_ISP_CAC_COUNT_START_V_MASK, arg->v_count_start);
+>>>>> +	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_COUNT_START, regval);
+>>>>> +
+>>>>> +	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_A_RED_MASK, arg->red[0]) |
+>>>>> +		 FIELD_PREP(RKISP1_CIF_ISP_CAC_A_BLUE_MASK, arg->blue[0]);
+>>>>> +	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_A, regval);
+>>>>> +
+>>>>> +	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_B_RED_MASK, arg->red[1]) |
+>>>>> +		 FIELD_PREP(RKISP1_CIF_ISP_CAC_B_BLUE_MASK, arg->blue[1]);
+>>>>> +	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_B, regval);
+>>>>> +
+>>>>> +	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_C_RED_MASK, arg->red[2]) |
+>>>>> +		 FIELD_PREP(RKISP1_CIF_ISP_CAC_C_BLUE_MASK, arg->blue[2]);
+>>>>> +	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_C, regval);
+>>>>> +
+>>>>> +	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_X_NORM_NF_MASK, arg->x_nf) |
+>>>>> +		 FIELD_PREP(RKISP1_CIF_ISP_CAC_X_NORM_NS_MASK, arg->x_ns);
+>>>>> +	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_X_NORM, regval);
+>>>>> +
+>>>>> +	regval = FIELD_PREP(RKISP1_CIF_ISP_CAC_Y_NORM_NF_MASK, arg->y_nf) |
+>>>>> +		 FIELD_PREP(RKISP1_CIF_ISP_CAC_Y_NORM_NS_MASK, arg->y_ns);
+>>>>> +	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_Y_NORM, regval);
+>>>>> +}
+>>>>> +
+>>>>>    static void
+>>>>>    rkisp1_isp_isr_other_config(struct rkisp1_params *params,
+>>>>>    			    const struct rkisp1_params_cfg *new_params)
+>>>>> @@ -2089,6 +2132,25 @@ static void rkisp1_ext_params_wdr(struct rkisp1_params *params,
+>>>>>    				      RKISP1_CIF_ISP_WDR_CTRL_ENABLE);
+>>>>>    }
+>>>>>
+>>>>> +static void rkisp1_ext_params_cac(struct rkisp1_params *params,
+>>>>> +				  const union rkisp1_ext_params_config *block)
+>>>>> +{
+>>>>> +	const struct rkisp1_ext_params_cac_config *cac = &block->cac;
+>>>>> +
+>>>>> +	if (cac->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE) {
+>>>>> +		rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_CAC_CTRL,
+>>>>> +					RKISP1_CIF_ISP_CAC_CTRL_ENABLE);
+>>>>> +		return;
+>>>>> +	}
+>>>>> +
+>>>>> +	rkisp1_cac_config(params, &cac->config);
+>>>>> +
+>>>>> +	if ((cac->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE) &&
+>>>>> +	    !(params->enabled_blocks & BIT(cac->header.type)))
+>>>>> +		rkisp1_param_set_bits(params, RKISP1_CIF_ISP_CAC_CTRL,
+>>>>> +				      RKISP1_CIF_ISP_CAC_CTRL_ENABLE);
+>>>>> +}
+>>>>> +
+>>>>>    typedef void (*rkisp1_block_handler)(struct rkisp1_params *params,
+>>>>>    			     const union rkisp1_ext_params_config *config);
+>>>>>
+>>>>> @@ -2185,6 +2247,10 @@ static const struct rkisp1_ext_params_handler {
+>>>>>    		.handler	= rkisp1_ext_params_wdr,
+>>>>>    		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
+>>>>>    	},
+>>>>> +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_CAC] = {
+>>>>> +		.handler	= rkisp1_ext_params_cac,
+>>>>> +		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
+>>>>> +	},
+>>>>>    };
+>>>>>
+>>>>>    #define RKISP1_PARAMS_BLOCK_INFO(block, data) \
+>>>>> @@ -2215,6 +2281,7 @@ rkisp1_ext_params_block_types_info[] = {
+>>>>>    	RKISP1_PARAMS_BLOCK_INFO(COMPAND_EXPAND, compand_curve),
+>>>>>    	RKISP1_PARAMS_BLOCK_INFO(COMPAND_COMPRESS, compand_curve),
+>>>>>    	RKISP1_PARAMS_BLOCK_INFO(WDR, wdr),
+>>>>> +	RKISP1_PARAMS_BLOCK_INFO(CAC, cac),
+>>>>>    };
+>>>>>
+>>>>>    static_assert(ARRAY_SIZE(rkisp1_ext_params_handlers) ==
+>>>>> @@ -2474,6 +2541,8 @@ void rkisp1_params_disable(struct rkisp1_params *params)
+>>>>>    	rkisp1_ie_enable(params, false);
+>>>>>    	rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_DPF_MODE,
+>>>>>    				RKISP1_CIF_ISP_DPF_MODE_EN);
+>>>>> +	rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_CAC_CTRL,
+>>>>> +				RKISP1_CIF_ISP_CAC_CTRL_ENABLE);
+>>>>>    }
+>>>>>
+>>>>>    static const struct rkisp1_params_ops rkisp1_v10_params_ops = {
+>>>>> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
+>>>>> index fbeb186cde0d5..8e25537459bbd 100644
+>>>>> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
+>>>>> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
+>>>>> @@ -724,6 +724,23 @@
+>>>>>    #define RKISP1_CIF_ISP_WDR_DMIN_STRENGTH_MASK		GENMASK(20, 16)
+>>>>>    #define RKISP1_CIF_ISP_WDR_DMIN_STRENGTH_MAX		16U
+>>>>>
+>>>>> +/* CAC */
+>>>>> +#define RKISP1_CIF_ISP_CAC_CTRL_ENABLE		BIT(0)
+>>>>> +#define RKISP1_CIF_ISP_CAC_CTRL_V_CLIP_MODE	GENMASK(2, 1)
+>>>>> +#define RKISP1_CIF_ISP_CAC_CTRL_H_CLIP_MODE	GENMASK(3, 3)
+> 
+> I'd go for BIT(3) as you use BIT(0) for the enable bit.
 
-All the best,
+Adjusted.
 
-Paul
 
-> Regards,
-> Lucas
->=20
-> > Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
-> > ---
-> >  drivers/gpu/drm/mxsfb/lcdif_kms.c | 23 ++++++++++++++++-------
-> >  1 file changed, 16 insertions(+), 7 deletions(-)
-> >=20
-> > diff --git a/drivers/gpu/drm/mxsfb/lcdif_kms.c b/drivers/gpu/drm/mxsfb/=
-lcdif_kms.c
-> > index a00c4f6d63f4..1aac354041c7 100644
-> > --- a/drivers/gpu/drm/mxsfb/lcdif_kms.c
-> > +++ b/drivers/gpu/drm/mxsfb/lcdif_kms.c
-> > @@ -296,18 +296,27 @@ static void lcdif_set_formats(struct lcdif_drm_pr=
-ivate *lcdif,
-> >  static void lcdif_set_mode(struct lcdif_drm_private *lcdif, u32 bus_fl=
-ags)
-> >  {
-> >  	struct drm_display_mode *m =3D &lcdif->crtc.state->adjusted_mode;
-> > -	u32 ctrl =3D 0;
-> > +	u32 ctrl;
-> > =20
-> >  	if (m->flags & DRM_MODE_FLAG_NHSYNC)
-> > -		ctrl |=3D CTRL_INV_HS;
-> > +		writel(CTRL_INV_HS, lcdif->base + LCDC_V8_CTRL + REG_SET);
-> > +	else
-> > +		writel(CTRL_INV_HS, lcdif->base + LCDC_V8_CTRL + REG_CLR);
-> > +
-> >  	if (m->flags & DRM_MODE_FLAG_NVSYNC)
-> > -		ctrl |=3D CTRL_INV_VS;
-> > +		writel(CTRL_INV_VS, lcdif->base + LCDC_V8_CTRL + REG_SET);
-> > +	else
-> > +		writel(CTRL_INV_VS, lcdif->base + LCDC_V8_CTRL + REG_CLR);
-> > +
-> >  	if (bus_flags & DRM_BUS_FLAG_DE_LOW)
-> > -		ctrl |=3D CTRL_INV_DE;
-> > -	if (bus_flags & DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE)
-> > -		ctrl |=3D CTRL_INV_PXCK;
-> > +		writel(CTRL_INV_DE, lcdif->base + LCDC_V8_CTRL + REG_SET);
-> > +	else
-> > +		writel(CTRL_INV_DE, lcdif->base + LCDC_V8_CTRL + REG_CLR);
-> > =20
-> > -	writel(ctrl, lcdif->base + LCDC_V8_CTRL);
-> > +	if (bus_flags & DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE)
-> > +		writel(CTRL_INV_PXCK, lcdif->base + LCDC_V8_CTRL + REG_SET);
-> > +	else
-> > +		writel(CTRL_INV_PXCK, lcdif->base + LCDC_V8_CTRL + REG_CLR);
-> > =20
-> >  	writel(DISP_SIZE_DELTA_Y(m->vdisplay) |
-> >  	       DISP_SIZE_DELTA_X(m->hdisplay),
->=20
+> 
+>>>>> +#define RKISP1_CIF_ISP_CAC_COUNT_START_H_MASK	GENMASK(12, 0)
+>>>>> +#define RKISP1_CIF_ISP_CAC_COUNT_START_V_MASK	GENMASK(28, 16)
+>>>>> +#define RKISP1_CIF_ISP_CAC_A_RED_MASK		GENMASK(8, 0)
+>>>>> +#define RKISP1_CIF_ISP_CAC_A_BLUE_MASK		GENMASK(24, 16)
+>>>>> +#define RKISP1_CIF_ISP_CAC_B_RED_MASK		GENMASK(8, 0)
+>>>>> +#define RKISP1_CIF_ISP_CAC_B_BLUE_MASK		GENMASK(24, 16)
+>>>>> +#define RKISP1_CIF_ISP_CAC_C_RED_MASK		GENMASK(8, 0)
+>>>>> +#define RKISP1_CIF_ISP_CAC_C_BLUE_MASK		GENMASK(24, 16)
+>>>>
+>>>> All these masks for coefficients 0, 1 and 2 are identical. Maybe
+>>>> #define RKISP1_CIF_ISP_CAC_RED_MASK		GENMASK(8, 0)
+>>>> #define RKISP1_CIF_ISP_CAC_BLUE_MASK		GENMASK(24, 16)
+>>>>
+>>>> is enough
+>>>
+>>> Adjusted.
+>>>
+>>>>> +#define RKISP1_CIF_ISP_CAC_X_NORM_NF_MASK	GENMASK(4, 0)
+>>>>> +#define RKISP1_CIF_ISP_CAC_X_NORM_NS_MASK	GENMASK(19, 16)
+>>>>> +#define RKISP1_CIF_ISP_CAC_Y_NORM_NF_MASK	GENMASK(4, 0)
+>>>>> +#define RKISP1_CIF_ISP_CAC_Y_NORM_NS_MASK	GENMASK(19, 16)
+>>>
+>>> Did the same with these as well.
+>>
+>> Ah thanks!
+>>
+>>>>> +
+>>>>>    /* =================================================================== */
+>>>>>    /*                            CIF Registers                            */
+>>>>>    /* =================================================================== */
+>>>>> @@ -1196,8 +1213,8 @@
+>>>>>    #define RKISP1_CIF_ISP_CAC_A			(RKISP1_CIF_ISP_CAC_BASE + 0x00000008)
+>>>>>    #define RKISP1_CIF_ISP_CAC_B			(RKISP1_CIF_ISP_CAC_BASE + 0x0000000c)
+>>>>>    #define RKISP1_CIF_ISP_CAC_C			(RKISP1_CIF_ISP_CAC_BASE + 0x00000010)
+>>>>> -#define RKISP1_CIF_ISP_X_NORM			(RKISP1_CIF_ISP_CAC_BASE + 0x00000014)
+>>>>> -#define RKISP1_CIF_ISP_Y_NORM			(RKISP1_CIF_ISP_CAC_BASE + 0x00000018)
+>>>>> +#define RKISP1_CIF_ISP_CAC_X_NORM		(RKISP1_CIF_ISP_CAC_BASE + 0x00000014)
+>>>>> +#define RKISP1_CIF_ISP_CAC_Y_NORM		(RKISP1_CIF_ISP_CAC_BASE + 0x00000018)
+>>>>>
+>>>>>    #define RKISP1_CIF_ISP_EXP_BASE			0x00002600
+>>>>>    #define RKISP1_CIF_ISP_EXP_CTRL			(RKISP1_CIF_ISP_EXP_BASE + 0x00000000)
+>>>>> diff --git a/include/uapi/linux/rkisp1-config.h b/include/uapi/linux/rkisp1-config.h
+>>>>> index b2d2a71f7baff..d8acccaddd0e9 100644
+>>>>> --- a/include/uapi/linux/rkisp1-config.h
+>>>>> +++ b/include/uapi/linux/rkisp1-config.h
+>>>>> @@ -967,6 +967,92 @@ struct rkisp1_cif_isp_wdr_config {
+>>>>>    	__u8 use_iref;
+>>>>>    };
+>>>>>
+>>>>> +/*
+>>>>> + * enum rkisp1_cif_isp_cac_h_clip_mode - horizontal clipping mode
+>>>>> + *
+>>>>> + * @RKISP1_CIF_ISP_CAC_H_CLIP_MODE_4PX: +/- 4 pixels
+>>>>> + * @RKISP1_CIF_ISP_CAC_H_CLIP_MODE_4_5PX: +/- 4/5 pixels depending on bayer position
+>>>>> + */
+>>>>> +enum rkisp1_cif_isp_cac_h_clip_mode {
+>>>>> +	RKISP1_CIF_ISP_CAC_H_CLIP_MODE_4PX = 0,
+>>>>> +	RKISP1_CIF_ISP_CAC_H_CLIP_MODE_4_5PX = 1,
+>>>>> +};
+>>>>> +
+>>>>> +/**
+>>>>> + * enum rkisp1_cif_isp_cac_v_clip_mode - vertical clipping mode
+>>>>> + *
+>>>>> + * @RKISP1_CIF_ISP_CAC_V_CLIP_MODE_2PX: +/- 2 pixels
+>>>>> + * @RKISP1_CIF_ISP_CAC_V_CLIP_MODE_3PX: +/- 3 pixels
+>>>>> + * @RKISP1_CIF_ISP_CAC_V_CLIP_MODE_3_4PX: +/- 3/4 pixels depending on bayer position
+>>>>> + */
+>>>>> +enum rkisp1_cif_isp_cac_v_clip_mode {
+>>>>> +	RKISP1_CIF_ISP_CAC_V_CLIP_MODE_2PX = 0,
+>>>>> +	RKISP1_CIF_ISP_CAC_V_CLIP_MODE_3PX = 1,
+>>>>> +	RKISP1_CIF_ISP_CAC_V_CLIP_MODE_3_4PX = 2,
+>>>>> +};
+>>>>> +
+>>>>> +/**
+>>>>> + * struct rkisp1_cif_isp_cac_config - chromatic aberration correction configuration
+>>>>> + *
+>>>>> + * The correction is carried out by shifting the red and blue pixels relative
+>>>>> + * to the green ones, depending on the distance from the optical center:
+>>>>
+>>>> Yes, the distance to the center is one parameter, but the shifting
+>>>> amount depends on other things. I would drop the last part of the
+>>>> sentence and move the description of the two below fields after the
+>>>> text
+>>>
+>>> That's true, but within a specific image, the only varying quantity
+>>> is the distance, so I think it is important to emphasize that.
+>>>
+>>> And I also quite like this structure of
+>>>    - description of step
+>>>    - parameters of step
+>>>    - description of step
+>>>    ...
+>>>
+>>> so I would love to keep it like this, if that's ok?
+>>
+>> Ok!
+> 
+> Ack.
+> 
+>>>>> + *
+>>>>> + * @h_count_start: horizontal coordinate of the optical center (13-bit unsigned integer; [1,8191])
+>>>>> + * @v_count_start: vertical coordinate of the optical center (13-bit unsigned integer; [1,8191])
+>>>>
+>>>> so these could go just before @x_nf
+>>>>
+>>>>> + *
+>>>>> + * For each pixel, the x/y distances from the optical center are calculated and
+>>>>
+>>>> I forgot: did we establish that the correction is applied to the
+>>>> euclidean distance or to x and y separately ?
+>>>
+>>> Given that there are two sets of "normalization" parameters, the assumption is that
+>>> at least the x/y distances are transformed separately. I see two reasonable choices
+>>> after that: (a) use the two distances separately, (b) use the radial distance. The
+>>> documentation says (b). However, testing with sensor test patterns suggests that
+>>> it is not the case (a horizontal/vertical boundary between appropriately colored
+>>> regions should have a curvature after the transformation with appropriate parameters).
+>>
+>> I now recall that you have been able to shift just one plan when using
+>> the sensor's test pattern
+> 
+> I agree about the normalization, but it sounds really weird that the
+> hardware would then shift separately in the X and Y directions. Below
+> you document the radial correction formula, which looks correct to me.
 
---=20
-Paul Kocialkowski,
+I think so, too. But if it uses the radial distance, I would expect the shifting to happen
+along the radius. But that does not appear to be the case (e.g. y_nf=0 removes all vertical
+correction). This could be explained by saying that the shifting actually happens along the
+direction determined by the sum of the normalized distance vectors, but that seemed a bit
+far fetched to me. And even with that, I would expect to be able to turn a straight line
+into a curve. Maybe I'm doing something wrong, but I can't recall ever being able to.
 
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
 
-Expert in multimedia, graphics and embedded hardware support with Linux.
+> 
+>>>>> + * then transformed into the [0,255] range based on the following formula:
+>>>>
+>>>> s/transformed/normalized ?
+>>>
+>>> To be honest I vastly prefer "transform" / "map" over "normalize" here.
+>>
+>> You're right here, the below formula doesn't normalize the
+>> distance in an interval but just re-scale it
+>>
+>>>>> + *
+>>>>> + *   (((d << 4) >> s) * f) >> 5
+>>>>> + *
+>>>>> + * where `d` is the distance, `s` and `f` are the normalization parameters:
+>>>>
+>>>> Can you use 'ns' and 'nf' to match the below ?
+>>>
+>>> Adjusted.
+>>
+>> Thanks!
+>>
+>>>>> + *
+>>>>> + * @x_nf: horizontal normalization scale parameter (5-bit unsigned integer; [0,31])
+>>>>> + * @x_ns: horizontal normalization shift parameter (4-bit unsigned integer; [0,15])
+>>>>> + *
+>>>>> + * @y_nf: vertical normalization scale parameter (5-bit unsigned integer; [0,31])
+>>>>> + * @y_ns: vertical normalization shift parameter (4-bit unsigned integer; [0,15])
+>>>>> + *
+>>>>> + * These parameters should be chosen based on the image resolution, the position
+>>>>> + * of the optical center, and the shape of pixels: so that no normalized distance
+>>>>
+>>>> s/pixels:/pixels/
+>>>
+>>> Replaced `:` with `,`.
+>>>
+>>>>> + * is larger than 255. If the pixels have square shape, the two sets of parameters
+>>>>> + * should be equal.
+> 
+> I wonder if we could have anisotropic lenses (from the point of view of
+> chromatic aberrations) with square pixels. We can deal with it later.
 
---/Y3a12dyBXGbAn3r
-Content-Type: application/pgp-signature; name=signature.asc
+Right, this is what the documentation suggests, and I believe it is probably "correct enough"
+most of the time. But should I remove it?
 
------BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmnL5ZQACgkQhP3B6o/u
-lQxgrw//a0o+aXG0xYeofhRxty58+PDTHipKdthiX6kA1F3s9h+oFSlsP7xo65CW
-Bf+q9KrUXxRmSwKbVLNwNv2rD2QgBso6MboJh1tZxgu5zfyMPe06Y2a4Dv8TLBV8
-4tKTxd8qKZ/dv3lUzkXHRilotZfDr2rktpmrI5f3Ur4bqNBWUTUyslGeE1E0jn0a
-dRDw1gbXp3AunYTca1Nuc+VN/EfvcACOra4dtzlnY5woQTOrQ8Po6GUmy3gTY/vd
-P+hEzKrIDbUG9WKym/b+eHoT/2LM1+g0QiWc2Y7mWTYnMeXwEkdPL7H0mCqeionu
-hegWBbQHvSljPBj/mZiWkHlu+ZPq4V6XsZsBEXztZ9oqVHRH3/8/6/HlBxVszgZc
-Fg3zeMvhgd8arvlz/c23BgoYjYkIIjRDluUFan/+t2hzNKBgUVDfOivdmuRsnaPg
-nejYqNEocGX/kkn8rXNg1P723L4Hwvrn9ClmTlN+ilTTpEHtIRrFnbMYJnC49bdh
-42BeP2Ne2z56Ly8r6f/uoCYKj0kQTUk+pNjGYLnE+V5sBk9TmiZVif75WTlDiqPp
-r2zFGQnbINtq3KVIe13i+yrxTVTBe5bUVtGc4qjCnQjIBDUYXXiJa599Dx78pagB
-JqdGrYggUEwWL+6Sq3YVDInit8khsTwHuoypi3/HcuRF49RMDMw=
-=YlyP
------END PGP SIGNATURE-----
+> 
+>>>>> + *
+>>>>> + * The actual amount of correction is calculated with a third degree polynomial:
+>>>>> + *
+>>>>> + *   c[0] * r + c[1] * r^2 + c[2] * r^3
+>>>>> + *
+>>>>> + * where `c` is the set of coefficients for the given color, and `r` is distance:
+>>>>> + *
+>>>>> + * @red: red coefficients (5.4 two's complement; [-16,15.9375])
+>>>>> + * @blue: blue coefficients (5.4 two's complement; [-16,15.9375])
+>>>>> + *
+>>>>> + * Finally, the amount is clipped as requested:
+>>>>> + *
+>>>>> + * @h_clip_mode: maximum horizontal shift (from enum rkisp1_cif_isp_cac_h_clip_mode)
+>>>>> + * @v_clip_mode: maximum vertical shift (from enum rkisp1_cif_isp_cac_v_clip_mode)
+>>>>> + *
+>>>>> + * A positive result will shift away from the optical center, while a negative
+>>>>> + * one will shift towards the optical center. In the latter case, the pixel
+>>>>> + * values at the edges are duplicated.
+>>>>> + */
+>>>>> +struct rkisp1_cif_isp_cac_config {
+>>>>> +	__u8 h_clip_mode;
+>>>>> +	__u8 v_clip_mode;
+>>>>> +
+>>>>> +	__u16 h_count_start;
+>>>>> +	__u16 v_count_start;
+>>>>> +
+>>>>> +	__u16 red[3];
+>>>>> +	__u16 blue[3];
+>>>>> +
+>>>>> +	__u8 x_nf;
+>>>>> +	__u8 x_ns;
+>>>>> +
+>>>>> +	__u8 y_nf;
+>>>>> +	__u8 y_ns;
+>>>>> +};
+>>>>> +
+>>>>>    /*---------- PART2: Measurement Statistics ------------*/
+>>>>>
+>>>>>    /**
+>>>>> @@ -1161,6 +1247,7 @@ enum rkisp1_ext_params_block_type {
+>>>>>    	RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_EXPAND,
+>>>>>    	RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_COMPRESS,
+>>>>>    	RKISP1_EXT_PARAMS_BLOCK_TYPE_WDR,
+>>>>> +	RKISP1_EXT_PARAMS_BLOCK_TYPE_CAC,
+>>>>>    };
+>>>>>
+>>>>>    /* For backward compatibility */
+>>>>> @@ -1507,6 +1594,22 @@ struct rkisp1_ext_params_wdr_config {
+>>>>>    	struct rkisp1_cif_isp_wdr_config config;
+>>>>>    } __attribute__((aligned(8)));
+>>>>>
+>>>>> +/**
+>>>>> + * struct rkisp1_ext_params_cac_config - RkISP1 extensible params CAC config
+>>>>> + *
+>>>>> + * RkISP1 extensible parameters CAC block.
+>>>>> + * Identified by :c:type:`RKISP1_EXT_PARAMS_BLOCK_TYPE_CAC`.
+>>>>> + *
+>>>>> + * @header: The RkISP1 extensible parameters header, see
+>>>>> + *	    :c:type:`rkisp1_ext_params_block_header`
+>>>>> + * @config: CAC configuration, see
+>>>>> + *	    :c:type:`rkisp1_cif_isp_cac_config`
+>>>>> + */
+>>>>> +struct rkisp1_ext_params_cac_config {
+>>>>> +	struct rkisp1_ext_params_block_header header;
+>>>>> +	struct rkisp1_cif_isp_cac_config config;
+>>>>> +} __attribute__((aligned(8)));
+>>>>> +
+>>>>>    /*
+>>>>>     * The rkisp1_ext_params_compand_curve_config structure is counted twice as it
+>>>>>     * is used for both the COMPAND_EXPAND and COMPAND_COMPRESS block types.
+>>>>> @@ -1532,7 +1635,8 @@ struct rkisp1_ext_params_wdr_config {
+>>>>>    	sizeof(struct rkisp1_ext_params_compand_bls_config)		+\
+>>>>>    	sizeof(struct rkisp1_ext_params_compand_curve_config)		+\
+>>>>>    	sizeof(struct rkisp1_ext_params_compand_curve_config)		+\
+>>>>> -	sizeof(struct rkisp1_ext_params_wdr_config))
+>>>>> +	sizeof(struct rkisp1_ext_params_wdr_config)			+\
+>>>>> +	sizeof(struct rkisp1_ext_params_cac_config))
+>>>>
+>>>> All minors, please add
+>>>> Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> 
+> and
+> 
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> 
+>>>>>
+>>>>>    /**
+>>>>>     * enum rksip1_ext_param_buffer_version - RkISP1 extensible parameters version
+> 
 
---/Y3a12dyBXGbAn3r--
 
