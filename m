@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9629810F9307
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 22:42:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6597410F9303
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 22:58:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DkGFZJlJJYAqiA6CSpY8yMdz52BbflMHWlhu2mJGtwo=; b=tTbQW2d9hyzPdQ/jOcpEiLw0P3
-	0NU+LdBYqUb1SmQwBEL7r4PPcx43smLoS3mkg6gtSsOuu7l158o5NWZdBhS1uVCgyihovNBm6qYFF
-	XQO78JS8kXNcYkmk2FKzn7RlnzJMNbVkTby6g2VLB3NL8m+wXsMYZLoG9NJBRLMrr6P8aunaK5vDZ
-	LoRtI43hisdHRNyM0LeVgb2FWGrCLe8paQbLfXA9TInsnN5xcMlwWXi5KV+RB7XwB52eUT4OUswBW
-	5LFvYj8bp/FKBb+vvOkDSjv2imijY4JRGst8Vxc3e1xwKo56Xpgqv6LoIaC6YUgIXIk669oLXwdqJ
-	7TGHfzMg==;
+	bh=ByyvMwMzI2+eHnci13oWFyTDCMyZWvj2JdGgTZFTlUg=; b=aE5ZtthHUyjmqd4YBB0ST54NWI
+	eSRpKQgzjpFlKDVGMo0QT6G7MQfO2Al9gI5uOBwivHJjU7rVuUjc7ZcCwdWPbEkHKAFn/Oo5Rx4eM
+	i8pHO8MDhsYFi4CRB39bYwRgf/PrYV/L158aqv7XY6w4hMc64L+cUI8j6eC8q5TrJurQXgT7e6ka+
+	JXF8qrHm2TgM+O9FlxSx7hXGiJ66L6r+nIqWNVkkqEJkWlIGYNfyoIvaMfnO22fFMH/+OsRxY0UsR
+	zwAKnoBMOLtJMhVgbF5vBiCU49be/p5NnVKk+teGzrgEPzwZ+lJI45jVeATlEFQq7Nd5wAn2Kgx7g
+	mkbRVEXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7hmd-0000000DeFk-1mnn;
-	Tue, 31 Mar 2026 22:42:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w7i2B-0000000Demp-3XSY;
+	Tue, 31 Mar 2026 22:58:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7hmb-0000000DeF0-2QNv
+	id 1w7i29-0000000DemS-3Fu4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 22:42:02 +0000
+	Tue, 31 Mar 2026 22:58:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E283340124;
-	Tue, 31 Mar 2026 22:41:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90A94C19423;
-	Tue, 31 Mar 2026 22:41:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1826443242;
+	Tue, 31 Mar 2026 22:58:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C12BFC19423;
+	Tue, 31 Mar 2026 22:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774996918;
-	bh=BIQjuY/Cy0cBjXyayPBeo180JhWYpL7ZP6b21kAEW/s=;
+	s=k20201202; t=1774997884;
+	bh=zczIin7kZzmVriuWwA6IdqbGkFkkypZCtXzWVA/npWU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UYgMVVZ+W0ar1qIEYUb2isYfPkFwRgVwZcJlDV1Z5D0ql77FSMlVyf5VMR6Qk1Why
-	 WsNwHbL4/dGfr00H/V9O4F93uCxt3g2FGoWjwHSNImsFMWIIzbVopJvsopDfgz727j
-	 spn0jldgS8EW5+p1EZxX0fXy5PB5Ecwb96zR3g/afgVtWbgYagi2DKuT2EqimNgfQX
-	 +RK+YtGbdCLM9UD0PYouQaReXFVksx2JR2DPfEWx6DA2KNfSD8YDqm9mru76JY9dbH
-	 zHOVPrd6s96yiYJciyvCAOaMLlQqaxgBvTjpZt5bl+cNfwsUV+bdVQXWwoQgkL6nUw
-	 D2JzqvSbQBb6g==
-Date: Tue, 31 Mar 2026 15:41:56 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Demian Shulhan <demyansh@gmail.com>
-Subject: Re: [PATCH 5/5] lib/crc: arm: Enable arm64's NEON intrinsics
- implementation of crc64
-Message-ID: <20260331224156.GB45047@quark>
-References: <20260330144630.33026-7-ardb@kernel.org>
- <20260330144630.33026-12-ardb@kernel.org>
+	b=CeeIgrB4xmGZH95EhehNb/l8nsUBcjNBci24DKZtaw0m1Hux87XEd5qrssWqOgBnA
+	 TU0fBlIXEuzTE9k3PtkbuvAVGJPdFAvF42aQSibna6ggb1BuR8nkV4Hr7/65JbVuWw
+	 vCGn2WsT6+FV4hh9UlwGeqcqAaV+JVeu2+Hivq5Ga3B4AOCWbD19eYbNpnD5/Mygm9
+	 /RQpYsd4N4af7L7kfahfitFdGAZFoLEnNSWmPKUgcpY961PnjzYAMCLYJMhPWAG4KZ
+	 Lh4kuuvvMiY4fpWhDWTdPaVRDEyFYOfMiv0oCHWRojXlgRosCKOIMxfA//Sv2OYPj0
+	 RrxJId4dk1KUw==
+Date: Tue, 31 Mar 2026 17:58:00 -0500
+From: Rob Herring <robh@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH V3 7/7] arm64/hw_breakpoint: Enable FEAT_Debugv8p9
+Message-ID: <20260331225800.GA2082670-robh@kernel.org>
+References: <20241216040831.2448257-1-anshuman.khandual@arm.com>
+ <20241216040831.2448257-8-anshuman.khandual@arm.com>
+ <Z2AH1SN5CipWkkE4@J2N7QTR9R3>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260330144630.33026-12-ardb@kernel.org>
+In-Reply-To: <Z2AH1SN5CipWkkE4@J2N7QTR9R3>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_154201_640499_5CD47849 
-X-CRM114-Status: UNSURE (   9.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260331_155805_870965_188DFEDF 
+X-CRM114-Status: GOOD (  31.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +80,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 04:46:36PM +0200, Ard Biesheuvel wrote:
-> Enable big-endian support only on GCC - the code generated by Clang is
-> horribly broken.
-[...]
-> +#if defined(CONFIG_ARM) && defined(CONFIG_CC_IS_CLANG)
-> +static inline uint64x2_t pmull64(uint64x2_t a, uint64x2_t b)
-> +{
-> +	uint64_t l = vgetq_lane_u64(a, 0);
-> +	uint64_t m = vgetq_lane_u64(b, 0);
-> +	uint64x2_t result;
-> +
-> +	asm("vmull.p64	%q0, %1, %2" : "=w"(result) : "w"(l), "w"(m));
-> +
-> +	return result;
-> +}
+On Mon, Dec 16, 2024 at 10:58:29AM +0000, Mark Rutland wrote:
+> On Mon, Dec 16, 2024 at 09:38:31AM +0530, Anshuman Khandual wrote:
+> > Currently there can be maximum 16 breakpoints, and 16 watchpoints available
+> > on a given platform - as detected from ID_AA64DFR0_EL1.[BRPs|WRPs] register
+> > fields. But these breakpoint, and watchpoints can be extended further up to
+> > 64 via a new arch feature FEAT_Debugv8p9.
+> > 
+> > This first enables banked access for the breakpoint and watchpoint register
+> > set via MDSELR_EL1, extended exceptions via MDSCR_EL1.EMBWE and determining
+> > available breakpoints and watchpoints in the platform from ID_AA64DFR1_EL1,
+> > when FEAT_Debugv8p9 is enabled.
+> 
+> [...]
 
-Perhaps omit big endian support, and use the inline asm implementation
-of these functions with both gcc and clang?  The more unique
-combinations need to be tested to cover all the code, the higher the
-chance of one being missed in testing.
+Well, this series has landed on my plate...
 
-Also, leaving shared code in lib/crc/arm64/ will be confusing.  How
-about lib/crc/arm-common/, and crc64_nvme_arm64_c => crc64_nvme_neon()?
-Or even just put crc64-neon.c directly in lib/crc/.
 
-- Eric
+> > +static u64 read_wb_reg(int reg, int n)
+> > +{
+> > +	unsigned long flags;
+> > +	u64 val;
+> > +
+> > +	if (!is_debug_v8p9_enabled())
+> > +		return __read_wb_reg(reg, n);
+> > +
+> > +	/*
+> > +	 * Bank selection in MDSELR_EL1, followed by an indexed read from
+> > +	 * breakpoint (or watchpoint) registers cannot be interrupted, as
+> > +	 * that might cause misread from the wrong targets instead. Hence
+> > +	 * this requires mutual exclusion.
+> > +	 */
+> > +	local_irq_save(flags);
+> > +	write_sysreg_s(SYS_FIELD_PREP(MDSELR_EL1, BANK, n / MAX_PER_BANK), SYS_MDSELR_EL1);
+> > +	isb();
+> > +	val = __read_wb_reg(reg, n % MAX_PER_BANK);
+> > +	local_irq_restore(flags);
+> > +	return val;
+> > +}
+> >  NOKPROBE_SYMBOL(read_wb_reg);
+> 
+> I don't believe that disabling interrupts here is sufficient. On the
+> last version I asked about the case of racing with a watchpoint handler:
+> 
+> | For example, what prevents watchpoint_handler() from firing in the
+> | middle of arch_install_hw_breakpoint() or
+> | arch_uninstall_hw_breakpoint()?
+> 
+> ... and disabling interrupts cannot prevent that, because
+> local_irq_{save,restore}() do not affect the behaviour of watchpoints or
+> breakpoints.
+
+I think the answer is we just need NOKPROBE_SYMBOL() annotation on 
+hw_breakpoint_control() (what arch_install_hw_breakpoint() and 
+arch_uninstall_hw_breakpoint() wrap). We also need that on __read_wb_reg 
+and __read_wb_reg though I would think those are folded into the calling 
+functions by the compiler. Interestly, the x86 code doesn't use the 
+annotation at all.
+
+I initially thought the IRQ disabling is also still needed as IRQ 
+handlers can trigger breakpoints. However, the x86 version of 
+arch_install_hw_breakpoint() contains a lockdep_assert_irqs_disabled(), 
+so it seems for that case interrupts are already disabled. And in debug 
+exceptions, we disable interrupts. So I think the interrupt disabling 
+can be dropped.
+
+
+> Please can you try to answer the questions I asked last time, i.e.
+> 
+> | What prevents a race with an exception handler? e.g. 
+> | 
+> | * Does the structure of the code prevent that somehow?
+
+If you can't set a breakpoint/watchpoint in NOKPROBE_SYMBOL() annotated 
+code, you can't race.
+
+However, there's no such annotation for data. It looks like the kernel 
+policy is "don't do that" or disable all breakpoints/watchpoints.
+
+> | 
+> | * What context(s) does this code execute in?
+> |   - Are debug exceptions always masked?
+
+No.
+
+> |   - Do we disable breakpoints/watchpoints around (some) manipulation of
+> |     the relevant registers?
+
+Yes, with NOKPROBE_SYMBOL().
+
+Rob
 
