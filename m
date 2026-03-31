@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467A2FF60CF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:25:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EEA5FF60DB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:25:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p6NUmA4qkRY/wUZ93SuhH+Y5gV/K7uEqrf1r9MuqcTE=; b=tIZ5MbpjVgOHmQKfwEzxuUksBo
-	+kQ4vDP8HvBXJYEMtlb+tQVaPes7AhydOvoa3S9F66bn3qqVf9MndClGUbHu5z562HvZs+sAsRwmq
-	RG4iXh25L5sv/Yz2M2yV62p0Ybso1wg8+hDNlOPO4N5t7STh7mUzbvEmA0wW1hgOjH6yQT1TBf37M
-	9EzqSKDp36kda6btuYyylD/Dqw/EH3hC82HfabIu2NbLwK6pqe4qQwcCPqtWzflCc5ozZ6lHfB89u
-	1gDA2ROiDa71wiyEqj6peABYdBxPmKLipI6ieZA5FYyEmuwaQq7jRyw9yRTkrbxXX9WZ1/OcmjcaN
-	/jCW3qFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r+CqmAlU+kqqhqICDrE2zbMTt0+PF9OoA98TBchEJSg=; b=Sw7wjoQIwJVz3UPW0H5bRCBpat
+	/O/PG7RAZOiAKeyrr6VU1dDwVLDCAhaLI6bM+3lCZpQkWgzqv12pQk/fQGTqPoOPRZLvGsFUwJLqA
+	8PNeuRVRCFL4il+XqDqAfQ1jhGPp+iJ50/rwyw26sblgBletOTs0k8+6LJ6nsLTZOSsfs47D71LJF
+	jb/n2iLFs+A01B4/ak1wwN0d97R3Z6PPn6fXpjncbNZONU9f/KSUaGXUtj4RLp9ir8gNtghBt8A5p
+	RhptZBLPDnh+J6PtCP0BFAVL2i8xTxBslcZDZ5BwoQpg+TylQaiferd+waAZRaGf7bXvuNOPrM0Kz
+	vTDDZivQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7TTU-0000000CTgF-1QPy;
-	Tue, 31 Mar 2026 07:25:20 +0000
-Received: from mail-northeuropeazon11012054.outbound.protection.outlook.com ([52.101.66.54] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1w7TTc-0000000CTkN-1Qll;
+	Tue, 31 Mar 2026 07:25:28 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7TTM-0000000CTc3-1fyp
+	id 1w7TTY-0000000CThd-19Xm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 07:25:13 +0000
+	Tue, 31 Mar 2026 07:25:25 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=t8V/ybwK4anaStLs4dm+4xufYtFr9bDBcDnwn6eg1DNSP/7igjdI5AhnntMXqsahIZh09Mlgq818nW9ltJ8Cx9z5BDrK0Vurv5h72BzSSe2+h2ObmZaHyb7pMGjCYSCopItZteFiTDdQqBaTagIGw7rPG6nLNgZaSK/VDu1a8shREwWBF70q+N+MhyQLm13VtpBxAeTWbEzvqUIBuN1sebDaGlhHuc28yzDYT2+SPWVvDsFgMway1wHNIv4AZILCLrnYsXDFJnmqmMsJBVML80Owp+zTuOKNhrL24mKzTIA6QvGgpUt1X2pYMvBTLDADAOFga+Rr8vJC05k/znjnBQ==
+ b=fmHzis3izGfIg2BKGqH8Ch7LDcBU9SX2oyb7Wd+loAvyKeaGTbucYn1PeIS/4otHq8yJH+uuz7JY26NN50M+GKvL0/L9BaFEHlL8U8yy7FBAXXehAmH9J6jg1g/uVMwDtXu302nS4perIZ14YuTnso7lIEdvLnCTklNcon3jfOBdJGPevw8m/GtbwTst3A0RJuyV/zJFj9+HbE4/tdlANH/mBfrss/IXD1SM9U0WXdYT71TeAGWcv+1RuOWiXQuOhXV7e7rWT7jVTYXWWAW84I4o2Yu5/nkcjh6Ci35iKx3Nesn1vTDk37DqBH3TCYgGC8DXXchwh53FUy/IGh3PDg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=p6NUmA4qkRY/wUZ93SuhH+Y5gV/K7uEqrf1r9MuqcTE=;
- b=p2vy1UBuOOesC2902ElGrx/Gv72mo9xeGsl6Fa/6S4bAEk5RjHlzJXymz5qHVuZBkbt/wXTnMb9wxxajCyWAoMTzVczTd6ONu0AIM1soRNnZNS3BN6Hy4c5CR8eCLjgTkLW8YRd4vfG6foR1y5OG3QvytKy9zmWBb7LJNIDntUurZjDG3cwm4lnaRZ+87QzvqLMVxS8rglx+0f5TzDWxaph/PnonZ2I/x9nJ5Cubtrf7uXmCQjycp4S0XHmZpH05/VqH+2sw6d4LzK9o4KxeQ9YId3Rb3CM2cYVAuhMIuk3FOa5cPa1PEdseQj85YWMgjo8pA0gcArvvf+qjiCtaGw==
+ bh=r+CqmAlU+kqqhqICDrE2zbMTt0+PF9OoA98TBchEJSg=;
+ b=ebODNttBtsVSsLE7y5rT9tzjKq4V6RyVOvn2Y9l67myM60cMzFvjR7pLItxqsjmA9IoKa6LHMnG15n/ZeKcDtkmSwdXGmrIwCOJBsEYDohREfD/am9rL3rVeUrl4PludTKpjI4hncdRi+G5k3dhxgYHpRzGXErsVZAG7OT34ezHzJLmhHQuxxXAGO+KDZ3zlPTtTFQVqQJ33W/NIsOXOhUWnsPqHYipJfAcuMKYa7D8NuJsuBh5vJ4edMyw9xvFdLkIWtgRCfvUGr0Pw2NgoNX3t27wqBn46f2tEZCkl0FipkFVPDKsTkmV0WQZyGxCWCf7PfX+eC8k64Yz3T+j0pw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=p6NUmA4qkRY/wUZ93SuhH+Y5gV/K7uEqrf1r9MuqcTE=;
- b=EjwXkK21+z0CJgThcCxdz8G+U0MuTQ0xL2EvdVf75qlBaZZ2ZuVmVaWzdnS3i7WWJNKmblrJKf4MWRecbnid1HLthYdRfZyrYD8Nc6NW5qEuTVx+qnLYW4inTyOFU/e1VeGr3QSjQujilDNZgyYjvn+dy1dQbFWmIo1qS3Z0JUBZFfZ8E60WB7MPeQFzFXmZFQQkHXAoJ+dZQJtU+JqHk4f0HkK5Kvo4a35P2MvDRg6BApqbDrnIamcygfFYRcLpOFbPTUz92jfC202dIxmSX2TfDmRCacXBYvmBOtqkMVmjlVq5dh+0CLiWno7wy3NC4p5bekCvD3FkLb+ehWQOcg==
+ bh=r+CqmAlU+kqqhqICDrE2zbMTt0+PF9OoA98TBchEJSg=;
+ b=tTZkIgi7DkUwLuaV9gM9hWsU4BIhz9QSBo3EsThrZ+LZAWTVXC18AHGw6tb/xfcYAEYYE5kT4UMVyHjb0lZ56KpzttBxEVnK/xiwHQIQINRNkIH/HhCSmPs6fT1I/HNCMfwlD+ZTqhRDgjOPZcqfF5BmAuaI1Um/fkVXGZi/kiOJJipPIoveXSbmxw3Ty1p+znAFHLi3+iEdHgW/4EUQC6sGdPIYju7BrsuMaCCCZpz4SS8UhsEDmb/lbQZyzxAKyLSt6KN3rZK5gC0jBAYE6aczpJckr522Uck/7/MAeoJYb2f5I9SKgFXILveBKMKKYIioEvaTvMCT6PTojJQnQA==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from AM6PR04MB5110.eurprd04.prod.outlook.com (2603:10a6:20b:8::21)
  by DUZPR04MB9968.eurprd04.prod.outlook.com (2603:10a6:10:4d8::22) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Tue, 31 Mar
- 2026 07:25:07 +0000
+ 2026 07:25:19 +0000
 Received: from AM6PR04MB5110.eurprd04.prod.outlook.com
  ([fe80::2866:93b6:c814:89fc]) by AM6PR04MB5110.eurprd04.prod.outlook.com
  ([fe80::2866:93b6:c814:89fc%5]) with mapi id 15.20.9632.017; Tue, 31 Mar 2026
- 07:25:07 +0000
+ 07:25:19 +0000
 From: ming.qian@oss.nxp.com
 To: linux-media@vger.kernel.org
 Cc: mchehab@kernel.org,
@@ -70,14 +70,14 @@ Cc: mchehab@kernel.org,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [RFC PATCH 2/7] docs: media: v4l2-ctrls: Add V4L2_CID_MEMORY_USAGE control
-Date: Tue, 31 Mar 2026 15:23:12 +0800
-Message-ID: <20260331072347.253-3-ming.qian@oss.nxp.com>
+Subject: [RFC PATCH 4/7] docs: media: v4l2-memtrack: Add driver API documentation
+Date: Tue, 31 Mar 2026 15:23:14 +0800
+Message-ID: <20260331072347.253-5-ming.qian@oss.nxp.com>
 X-Mailer: git-send-email 2.48.1.windows.1
 In-Reply-To: <20260331072347.253-1-ming.qian@oss.nxp.com>
 References: <20260331072347.253-1-ming.qian@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-ClientProxiedBy: MA0P287CA0014.INDP287.PROD.OUTLOOK.COM
  (2603:1096:a01:d9::16) To AM6PR04MB5110.eurprd04.prod.outlook.com
  (2603:10a6:20b:8::21)
@@ -85,58 +85,67 @@ MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM6PR04MB5110:EE_|DUZPR04MB9968:EE_
-X-MS-Office365-Filtering-Correlation-Id: 67a0fccb-ff38-4284-05b6-08de8ef6a2ad
+X-MS-Office365-Filtering-Correlation-Id: 7a67a62c-a326-4e0b-9b51-08de8ef6a96f
 X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|19092799006|18002099003|56012099003|22082099003|38350700014;
-X-Microsoft-Antispam-Message-Info: LY1F7OlDZCAmdB6fv0ndJEWmMJ0IThJUwGAnJMvKQNmpK9pjVmF9Aet3qbINZ5hpaGEKjTWpgtnHoX4EbSuQAaRKIRo2cShZ1tiE6iPRXcDp8qQJivqKOsajWSeYan4pVH1GkGDMA4IXzRMOFzgka9Zk+3/zN12HV1tlSW+XGxiuu0G1zPxAV2xHBAOxUAVT3xjA0/v3Udz/mH2Ks6H3Rf2mVnUiGOn+KfWLERD0cA0er3qkObraIWawXUvMbQu3eJX6Phb05t9JxFV+MQPKZXE/tDOeP5y2s+2SQpTDyrHwAvJZFIx+F1YPBY0v+CKG/QNJR/Qbv8Gw8T6sh7N6qoZT/ngusyAVV8avF7dr0MySv0QsZKeMqUdGZI3HsoJcFEh111GzzuTYCs8V+Nug3tT71lGCBWfWcuMUDqz8+GrJLxCaAQ1PwJghXV40Y7/VJHaadgWDl69HbGQKKDQb5ykK31VSDZkUZjN1tS8DFIQrcd0bMh2nVerUsCXNxlogMsP6craJSDsb819hHRBJcjSmKxttnLme70uf2pDLplbQYvXBbBaqU/fS/KkjrDtG3GnM6eMnW0N9CYPPBsIDiuCtJoOiCgLLHqQZ5LCw2NauPdsnJXeYKFys9DdLLcv9V1JPdKFuK6f+1h8ud5CjxAopnucKvG4qTMc/cV+qWzxVzKA59x2BKapNKCLXuxxh3rxxrwCRK5EDJU5CvMv2P+p0bUA6IeJfPFnFQtDA5lUFAgo5ZWqd2XlGJsJRq4ACVPyuMvZMwptRpNaWJna/h1RlSXSL3yZaUxRcne3eQuo=
+X-Microsoft-Antispam-Message-Info: ehENZ++LXXgf1YoRIbi3K+LSvMmfF++fUvJmdbH0GsAokKry/lOFOgp3kWg90w/4J9WxG+n2zpRXasqdEYIwQ+SIPgkbkBLamSC/CJc/NAWrynMDpqm6jnKs1vhO2gdVJiJEUjiRAI/w+YcEzS4BfSDxx48bbHBw69NOV4CQbYKrDmuhUYSVmXBMas/z8IoY8Ojt7TqhNeqzgtOm4YmvIMDhw4rsfeLZJ7VKAko4/GMRRAJKoyTpJ3r7eyDYWbTi+2CLAPJRXP0C2DFFHYkZnxex9StvVmmX0gCQd0BwDkivfLhNbJXeRY3kTT6WwkFtpV1I68+trJUjCK9Q0nhHsMOTb7Upe6YuFMlCcCE/NSacvGC6btNCgjh+w6sgUJs08k5g7vq5W1o2EM/Ms9lBK74Po0B9tpyMaBLR9on/iAddvIKlt3kDQ/EC0lEcl4xYxYj1O/q1pXk45mw+2DojI+bo+WausjCC3yyeKsX2QmnsSisWqYL4A0H2UO9RkIrHpne+3kuqzcBgmGIkZbnRc/R1w8n6auvzsSiVv6x/vDNT0lNiWRqI/SIoHhGvtke+bdpBsP0Klz3rwje2ar+i75miKDMztJCvPtezkgHMWhWa60AzIR4OOR4hsoifR8y6fxcUf4/wP/OLS9/kXvzCn50f1KERTKpzE/M5lHQbI24TEN1Oc85ww4zyG3HL6nKaN27BiEH2zvcgAdJdPZeHZnA9n55cS3TMIOEoRd1mocwPJdeCSrLq+Rj/WO3zpFYK/Kd2U5lxVA+wajdBJpUExfylX32ywBrvsraKNQYcvJ0=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM6PR04MB5110.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(19092799006)(18002099003)(56012099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HnV8ISG44Ta4yoHE55NM0hbD/D9WnWE1yC8DYVeWRpHn/IPatVMOQLm1p8Bx?=
- =?us-ascii?Q?PpL6qZY2oLv1J0oFiOPYKZfQQtzYBIO1n0x49GMc5QUjGTngqK6FqeCXGp3J?=
- =?us-ascii?Q?YokxLvYpmmhfLU9v1PAXYkd35iI5H48HPDZBFqYkw04ZrRhin6NhFYgtn73J?=
- =?us-ascii?Q?zAAKaUnRRBbhT/AXJsN/RiCKU9fLVjfjZDqgmaiQj0ZSYQvDvhyhOLTS2gx5?=
- =?us-ascii?Q?FkDPZYiFdEL3zhKfgrnZqozYyvGRwXbxEBc0E5H3Wn3meb1Oilq7sE3gq6lx?=
- =?us-ascii?Q?DqIRhTWegv9k8Ocz0UJFkNFXZEuYbc0uStI6ZgWwSouxwOq3bKBujhqbRMpg?=
- =?us-ascii?Q?H5JpG1mYQ307J+ds2voErOhN++NR8Igmdm5o2zej+jLcgGfgc+uMST9BIOaD?=
- =?us-ascii?Q?bGKk+U7ussMOKIHpJbwwsFHSjbKT/5mxfpeLgFLFstM2xIMSF2DgffsOO2lh?=
- =?us-ascii?Q?6rlPRFFAg7qmup9dJ2eeTlgi4WivtpffiQ+cmNyMTDu/KyMBS346cpv1xFAo?=
- =?us-ascii?Q?mC8II1iN7CdWSl2eFMLiH+ETJwKCYDoulIxTMcuOi83QuOCtijDiGwKdnVEW?=
- =?us-ascii?Q?LWiR2Efk/MrnwQGfzoNLGhjxb9Zc8gaie2zYvVWDqGjmphCnZ/FRnee5Hfop?=
- =?us-ascii?Q?LPsNT17oegSQUtMYcnAcMNtdI0d6vlI7k5OXPb8owLMNiwieKLJRVtJf26b3?=
- =?us-ascii?Q?QJkYxFEWqp0FCjmlllS2GCrvRFLxwJ8RwgpDyH5QiqxMyXkA0yFCjmdvdX3i?=
- =?us-ascii?Q?Mohg3IEWMF1WolzBdy/dGkvUwaYVJUCelqKCLVwghAxCE/QHSM+ellGziLmH?=
- =?us-ascii?Q?2ZsF0mC3tGCp8Xg++qAXGsEVAyfrowUKHv2zLQKR2q3sy3dpCPfhTTk7Q9Qy?=
- =?us-ascii?Q?aAMXgBQbkT12vpFb1MJkWmOwXl+KdHx3Gf/LsTdwUeTNKOP1F1t/FmOZHABt?=
- =?us-ascii?Q?RNqc8sRYuy1rBE/29rAqgaLKIf6iVkc4OaUHkv0bzauyLcJtVdbPtcMJ65/n?=
- =?us-ascii?Q?0A0mg3oV0qX/IFpiNhawgKAqk3JYOEo87IDZ26zp3ZiCDLmb/m3bkKcArXoA?=
- =?us-ascii?Q?62CG8+nSgCqZcXparrutlycLg06KPLAIqlJFSF2tNAz68AtJogVUhln8DKf4?=
- =?us-ascii?Q?/V7ZT1q5YIsBmf9Pp7GDe+fdgdGZY+YZuzDfKme8bAS/jDP4Cg5zqH/QNyt6?=
- =?us-ascii?Q?JoQMFsJEJ06trrm1L5EXv9ufjfQEnaCei4Sc5QbZ/Wd3FzEMjL4NGo7VLXG6?=
- =?us-ascii?Q?sgaPOScHIWVx4yKHEKUT13gMi8TLvkRr7myvadqEIkq1JF1oMjp3Tc7dH5Gx?=
- =?us-ascii?Q?gOW2uk0ZRLhsHgOjBhDsn5APkIljdM/AebNjEfY+dsaOKNDFK8GukHVV+9yp?=
- =?us-ascii?Q?wTi3Uh4G8c1QJjNESpXYiAsusFFgUW0nzRsV7EUridM7kLpPjuEZhEWkStKy?=
- =?us-ascii?Q?r1PIqNF942Nf1QqXpuNayIynMRRoprXEOBXcC8kdCjdporIZ8A+SJW03yq3G?=
- =?us-ascii?Q?VzNhMDOjOeFADnAiiTrThZpJFNIltUgovfQWSwQCw4uoFHjPjEKRZz9QRKoa?=
- =?us-ascii?Q?wP4O6qVcVkT4cmxWojJZiESQ7cvU3f9O3PtkQn7DsbW7uj8SaZAOX8pdrDF+?=
- =?us-ascii?Q?tIU8Ea5nJva7JFbjWZOXFz8yGxdwIOhpZVUsIrny9u+dEZ4AbfUpCqhgz/vj?=
- =?us-ascii?Q?riFyAptToOTpklg7k2/xFJuS85d68P3hQQIhRmWhOmXXK1ZkODT2w97tcon4?=
- =?us-ascii?Q?HL+1qt1Bqg=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dVVJN2pLb0JqVzBSTnppM0UwQXhsYVcrT3JaRjZQNUREYXFqVXgyUDNZQ0dy?=
+ =?utf-8?B?N3ROSXp0a1NYem8zWUswc1ZtWFA1Vm5TMVVWS2J4VC9ycFEydnVNaEFiWU1S?=
+ =?utf-8?B?dDJGRGxNVFlHeVBsdlUrbEhJMVRxdXdZN2JLdllyV1dzZnZSQ0Z1TU1sb0wz?=
+ =?utf-8?B?cXVDS0wrSG1JSGdwNjFXcU4zTjYwb29qWHVWbGp1QVNSbEU1WTB5MEZiUGRB?=
+ =?utf-8?B?UVVjWDN4bVRXcWg2eDA2VjlCYngrRzIwUGFQK2JkNHkxbkZwcCswM3BWcEVp?=
+ =?utf-8?B?QWM4RmlVdTVmblBUL0hiNXBqQVBKZTAzdDh5eldzM3NiWkNGc3BsUFJ4SzlF?=
+ =?utf-8?B?RllzUE05OUhIbFhnRGV1QzRNUlhJSG1JWEVJSHUxbFBpdG0xYTNZYjVVZEE0?=
+ =?utf-8?B?L0hGNUNPbGhyUVd5bGJtbDJQZWIwUTNmOXJWUUNybUtRaS9hZ3ZXR1hNaS96?=
+ =?utf-8?B?QitpaGFPeGZBamQ4dFdSQTJ2alNSNmwrKzB4Um5TZ0czbUxpQ0ZVTUpVRzRZ?=
+ =?utf-8?B?NnRQUDdaeW84MC9BcUsvWFRNRm4veEo1Q3ZLWDVFUmgycWQ0N0MzcjZxU1Z2?=
+ =?utf-8?B?NDB6d3BtS0l4dytTT0VraGVYQkNPWUdZK0JMcmVTMHAvUnNzV2V1UVlaOThm?=
+ =?utf-8?B?OVFFZmJoeWRKMUd6N0FrcEVBRzE5UTJCQnFCZUFPY3h5N0NEMmh0UWkrMm1I?=
+ =?utf-8?B?eXkxNzY5L3RjS0NjR21vZ2c2Tkl0aUxKNlpCU1daN2hMN0NHL0RrRnVFMzE0?=
+ =?utf-8?B?ZGJKUisyN0RnWER6eVp3V0RzMmJ2WmVvQktKUWk0L0thQk9qVjY2bVNhVG1i?=
+ =?utf-8?B?aHVaYnRlZzNBREx0OFAvcWgwcXdzandLS2NoMk9UbnpXZ01FVXlDNVowSjhP?=
+ =?utf-8?B?Wm10ZVBhdTBRQmVaWndQczl6MjRKLzJHQlYvRkdib0pvZTBpRHZqOTVSbFBN?=
+ =?utf-8?B?MEJxY0JvRno5MTUwZ2tIcEdzWlkzSVBDclhza2xvNVV3YWhIbHNoVWdGaTVX?=
+ =?utf-8?B?bFJQSnJBRXlZV1cxN3RYSnBRb25RS2tMOHpySmlhWXVIOUNHSFllSEs5bHRN?=
+ =?utf-8?B?eW5mS2JER2RRWWEvSnNTb0lxaGNSeHR2T1h5bkVweHJWS0RwajlMbHJDUG1p?=
+ =?utf-8?B?bGFITDdMTTJVa1UxNnRUS3Ztb0tZZ01pQ3N2dytiLzhUSnNZQUIwU2pkR3RN?=
+ =?utf-8?B?VGtpMjlCOWlZc05QaGRyaFdORGtacHZrcW1acHMxblBFSXgwdVh3NUxZckhU?=
+ =?utf-8?B?VThvem9RcnJuY2NGRmVJc1U3cENRYWlmRlRBM0x3WmErTGhtLzNNVExFWXhq?=
+ =?utf-8?B?cjVNaW5FTVlWWmx4Qm9QT2phT3pBWkliNFlHUWJiU0dqOEMxSmtUUzI1OER3?=
+ =?utf-8?B?YkJsMlFhK0xlMHhhUGg1UldzSm5yQloyWWV5RlVzZ2c4RUk4WGVwZmVNdU94?=
+ =?utf-8?B?d3ZqVUtJekljSEtGam1STTVhR0g0WEpzalBkYTcrRFk4ZkcwN0NHMmZqTFQ2?=
+ =?utf-8?B?VmFmcnlQRXVoU0lmTFpWNzROWFVZU2NIWEdPN2xXeXhQVHpSd0tiVDZNb0tL?=
+ =?utf-8?B?U09qUlh6cnhZTGtxV3pwNDgvNWFVelpDbXo1Q2ZuWStHd2hDQ0pmejJPaGpz?=
+ =?utf-8?B?cm11NlJVenNYQUpoSFo1Mi9nb0NUVkV5TGNTa0lXcGpZY2RKSWZmL1JpRUFL?=
+ =?utf-8?B?Z3BpSlZscy9FekJQOElZcW1VNXdXVGFaQzVHTlpnZEQvdGZBSkRvTy9rTGNS?=
+ =?utf-8?B?Wm1jam1DdlBtNnJvT2l6eFgwSHZCM3kvQmM5Rlo5SFQwOXNYS0laeEtYVThj?=
+ =?utf-8?B?WFRtbHoyZmVGSjRCL1kzNTl0S3ByOE9POXYvSUVCMzl1WlV2aFlnQ0s0MG5T?=
+ =?utf-8?B?d05EbDNoajZBVnpCUWhXQjY5dEJZSTZLcHQ2RFBjWlVsczF6RVlGL2hFYklt?=
+ =?utf-8?B?WkhTR2xCOWU4MzlhWi9hVW1FUXM0eWs2VzhvRmFNcU03N3BSaUxNTUdKOWth?=
+ =?utf-8?B?d2dic08vVTR0ZU5QdXB5ZUZiS1VXSDlIVHVYMExvTVN2YldVcFh5R0JIZnpi?=
+ =?utf-8?B?V2l0OVlFSGE1UVd3LzNEZ0VUVWJaRzAvV2dmdUUwSTBXYVRpVWxzaGx5NGdl?=
+ =?utf-8?B?OFpFRlkvSE1uMTdRZXl1eGFIc2p2eC9JTXh1WTNOM1lBaHBkUzYzZjZRMjNr?=
+ =?utf-8?B?TFpiRElteEdRMlZKR2RQaFl4RXJib2hlNk52dXdSbVUvWFRacjkzNktXZUMx?=
+ =?utf-8?B?dHl3NS9vZWdCSCtGbFQ4bzRjcEU3QTFJRGFldngvNEVra1JwQnV6MVNScFlL?=
+ =?utf-8?B?bW1MeGxvakNGUWMvSFRtTWNUV3E4Sk1QR2JOVXBFQXJYK2hadW9ndz09?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67a0fccb-ff38-4284-05b6-08de8ef6a2ad
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7a67a62c-a326-4e0b-9b51-08de8ef6a96f
 X-MS-Exchange-CrossTenant-AuthSource: AM6PR04MB5110.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 07:25:07.8187
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 07:25:19.2365
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vI6/grQU25kBrP1HTciMoh69kjWMA2wemTkHk5v1ehtRPmpAcBq43HBU0fQcJ1zVCT1CNeUSFmjV8pGkkIp2ew==
+X-MS-Exchange-CrossTenant-UserPrincipalName: HFRXqAoNadOxr8w0rt2X8K/vr85E2eCs7RC7+lpWqqptceCzZWJ8rXr2reh8gaI/tShUQTUyrrtaC1//OtoNVQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9968
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_002512_465184_2858CCC6 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20260331_002524_328322_AD1236DE 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,62 +162,186 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ming Qian <ming.qian@oss.nxp.com>
 
-Add documentation for the V4L2_CID_MEMORY_USAGE control in the
-userspace API documentation. This read-only control allows applications
-to query the total amount of memory currently used by a device instance.
+Add comprehensive documentation for the V4L2 memory tracking infrastructure
+in the driver API documentation. This documentation covers:
 
-The documentation explains:
-- The control reports memory usage in bytes for driver-managed allocations
-- It includes internal buffers, intermediate processing data, and other
-  driver allocations associated with the instance
-- Applications can use it for debugging, resource monitoring, and making
-  informed buffer allocation decisions
-- The value may change dynamically during device operation
-- It only reports driver-managed memory, not application-allocated buffers
+- Overview of the hierarchical memory tracking system
+- Basic usage examples showing root node creation and memory tracking
+- Hierarchical tracking with parent-child node relationships
+- debugfs interface for runtime memory inspection
+- Notification callback registration and usage warnings
+- Visual examples of tree structure and debugfs output
 
-Update V4L2_CID_LASTP1 definition to reflect the new control as the
-last predefined control ID.
+The documentation provides driver developers with practical examples
+of how to integrate memory tracking into their V4L2 drivers, including
+proper setup during probe/remove, buffer allocation tracking, and
+per-context memory monitoring.
+
+Add the new v4l2-memtrack documentation to the v4l2-core index to make
+it accessible in the generated documentation.
 
 Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
 ---
- .../userspace-api/media/v4l/control.rst       | 22 ++++++++++++++++++-
- 1 file changed, 21 insertions(+), 1 deletion(-)
+ Documentation/driver-api/media/v4l2-core.rst  |   1 +
+ .../driver-api/media/v4l2-memtrack.rst        | 140 ++++++++++++++++++
+ 2 files changed, 141 insertions(+)
+ create mode 100644 Documentation/driver-api/media/v4l2-memtrack.rst
 
-diff --git a/Documentation/userspace-api/media/v4l/control.rst b/Documentation/userspace-api/media/v4l/control.rst
-index 19372bb32c4b..6904c5bdbf37 100644
---- a/Documentation/userspace-api/media/v4l/control.rst
-+++ b/Documentation/userspace-api/media/v4l/control.rst
-@@ -316,9 +316,29 @@ Control IDs
-     set the alpha component value of all pixels for further processing
-     in the device.
- 
-+``V4L2_CID_MEMORY_USAGE`` ``(integer64)``
-+    This is an optional read-only control that reports the total amount of
-+    memory, in bytes, currently allocated and used by this device instance.
-+    This includes memory used for internal buffers, intermediate processing
-+    data, and any other driver-managed allocations associated with the
-+    instance.
+diff --git a/Documentation/driver-api/media/v4l2-core.rst b/Documentation/driver-api/media/v4l2-core.rst
+index a5f5102c64cc..09765d028375 100644
+--- a/Documentation/driver-api/media/v4l2-core.rst
++++ b/Documentation/driver-api/media/v4l2-core.rst
+@@ -28,3 +28,4 @@ Video4Linux devices
+     v4l2-tveeprom
+     v4l2-jpeg
+     v4l2-isp
++    v4l2-memtrack
+diff --git a/Documentation/driver-api/media/v4l2-memtrack.rst b/Documentation/driver-api/media/v4l2-memtrack.rst
+new file mode 100644
+index 000000000000..bca6954cfa0b
+--- /dev/null
++++ b/Documentation/driver-api/media/v4l2-memtrack.rst
+@@ -0,0 +1,140 @@
++.. SPDX-License-Identifier: GPL-2.0
 +
-+    Applications can use this control to monitor memory consumption for
-+    debugging purposes, resource management, or to make informed decisions
-+    about buffer allocation strategies. The value may change dynamically
-+    as the device operates, for example when buffers are allocated or
-+    released during streaming.
++V4L2 Memory Usage Tracker
++=========================
 +
-+    Note that this control only reports memory managed by the driver for
-+    this specific instance; it does not include memory allocated by the
-+    application itself (e.g., userspace buffers passed to the driver).
++Overview
++--------
 +
-+    Not all drivers support this control. Applications should query for
-+    its availability before use.
++The V4L2 memory tracking module provides hierarchical memory allocation
++tracking for V4L2 devices. It is useful for debugging memory leaks and
++monitoring buffer usage in video drivers.
 +
- ``V4L2_CID_LASTP1``
-     End of the predefined control IDs (currently
--    ``V4L2_CID_ALPHA_COMPONENT`` + 1).
-+    ``V4L2_CID_MEMORY_USAGE`` + 1).
- 
- ``V4L2_CID_PRIVATE_BASE``
-     ID of the first custom (driver specific) control. Applications
++Features:
++
++- Tree-structured memory usage monitoring
++- Per-device and per-context tracking
++- debugfs interface for runtime inspection
++- Optional notification callbacks for memory changes
++- V4L2 control integration
++
++Usage Example
++-------------
++
++Basic usage in a V4L2 driver:
++
++.. code-block:: c
++
++    #include <media/v4l2-memtrack.h>
++
++    struct my_device {
++        struct v4l2_memtrack_node *memtrack;
++        /* ... */
++    };
++
++    static int my_probe(struct platform_device *pdev)
++    {
++        struct my_device *dev;
++
++        dev->memtrack = v4l2_memtrack_create_root("my-device");
++        if (!dev->memtrack)
++            return -ENOMEM;
++
++        return 0;
++    }
++
++    static void my_remove(struct platform_device *pdev)
++    {
++        v4l2_memtrack_destroy_node(dev->memtrack);
++    }
++
++    static int my_alloc_buffer(struct my_device *dev, size_t size)
++    {
++        void *buf = dma_alloc_coherent(dev, size, &dma_addr, GFP_KERNEL);
++        if (!buf)
++            return -ENOMEM;
++
++        v4l2_memtrack_add(dev->memtrack, size);
++        return 0;
++    }
++
++    static void my_free_buffer(struct my_device *dev, size_t size)
++    {
++        dma_free_coherent(dev, size, buf, dma_addr);
++        v4l2_memtrack_sub(dev->memtrack, size);
++    }
++
++Hierarchical Tracking
++---------------------
++
++For more detailed tracking, create child nodes:
++
++.. code-block:: c
++
++    struct my_context {
++        struct v4l2_memtrack_node *memtrack;
++    };
++
++    static int my_open(struct file *file)
++    {
++        struct my_context *ctx;
++
++        ctx->memtrack = v4l2_memtrack_create_node(dev->memtrack, "context");
++        return 0;
++    }
++
++    static int my_close(struct file *file)
++    {
++        v4l2_memtrack_destroy_node(ctx->memtrack);
++        return 0;
++    }
++
++This creates a tree structure::
++
++    my-device (root)
++    ├── context (pid=1234)
++    │   ├── buffer: 4096 bytes
++    │   └── buffer: 8192 bytes
++    └── context (pid=5678)
++        └── buffer: 4096 bytes
++
++debugfs Interface
++-----------------
++
++Memory usage is exposed via debugfs at::
++
++    /sys/kernel/debug/v4l2-memtrack/<device-name>
++
++Example output::
++
++    Total memory usage: 16384 bytes
++    my-device (tgid=1000, pid=1000) usage: 16384
++      context (tgid=1234, pid=1234) usage: 12288 (count=2)
++      context (tgid=5678, pid=5678) usage: 4096 (count=1)
++
++Notification Callbacks
++----------------------
++
++Register callbacks to be notified of memory changes:
++
++.. code-block:: c
++
++    static void my_notify(struct v4l2_memtrack_node *node,
++                          size_t total, void *priv)
++    {
++        pr_info("Memory usage changed: %zu bytes\n", total);
++    }
++
++    v4l2_memtrack_register_notify(dev->memtrack, my_notify, dev);
++
++.. warning::
++
++   Callbacks are executed without holding internal locks, so most kernel
++   functions may be called safely. However, the callback MUST NOT call
++   v4l2_memtrack_unregister_notify() or v4l2_memtrack_destroy_node() on
++   the same node, as this will cause a deadlock.
++
++API Reference
++-------------
++
++.. kernel-doc:: include/media/v4l2-memtrack.h
 -- 
 2.53.0
 
