@@ -4,94 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7045CFF60E7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 08:21:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E05FF60E7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 08:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pzLIANwxZ+5V5JDtMYwIGXlBV/CrkOF0yZpzbS4Kpx4=; b=U1ghXCouo1YmfvVJzX2pMOgKrc
-	hrYjAzPnb62ozVO3BNCx7Ng072vTBk44j0tk8+osmUjRDRImVd5RRZhrdG2w95N8tC7iQ08/w30E8
-	vLaNr9/qRx4UkZMztbJSI6ZSvhn6YhPCBPwVXub0YavO7W2QhlnZZNloYofzDtiShkMcSHAl9dJXL
-	/eO8tGZjAJ5lzCyAnLiXDLNdFl20w5UlF/mOT10M0FbsEk/A3KaLIhGb05i+YmLs7a0yHkq+d6cKp
-	MSaN/Bzx/OtLJ43es0jo1tvUj4oBtPRCqGCIpkww4uGEgRiRQXf2XIV7PbRHefpsOxYrQa6ifHKYi
-	oS1hiqfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KPCB93UXppSV++8KdKwB8C+BvgLSNB2DkBl/MqGXQLc=; b=Uw4rGh9TSInD6BCn159fZnK5Ze
+	5vLS2qe60vGJVqR1QXrj3v3V6zs1eCYMvkrMZoxQ3enqy3CdZRjXuRN14eFwcaaXXIHDdDZGulJg9
+	TN6HyiFTWa2FWob5/guCXg1sRmqAa6XiD7sFoZwsmyEa4xOjTVb99fzSrGxlnF8nzuhGsSdeR9Kc2
+	gDvUYie+LV36Sr8DuvxLtcDywuBwKYIzYZV+coVD3JxIYbyJQj2Vdhn+AQoe9VSPRpnSevXuts3Ci
+	GPVFqD62m4Q3tQtfFm2qgktlI3+EPFm9kX/+Ac/3KLRAUPP9VxN1DweVmJlI1f872U3xn9dumywYs
+	S2lTRzWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ULs-0000000CZkj-3Sq4;
-	Tue, 31 Mar 2026 08:21:32 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1w7UOR-0000000CaBe-0efP;
+	Tue, 31 Mar 2026 08:24:11 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ULh-0000000CZh1-2apQ
+	id 1w7UOP-0000000CaBH-2fVg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 08:21:22 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-43b8cb81bc0so441240f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 01:21:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774945280; x=1775550080; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pzLIANwxZ+5V5JDtMYwIGXlBV/CrkOF0yZpzbS4Kpx4=;
-        b=avVf3/yQmiRACEmrM9hTCAsLuqOHL+BTbpTf0vcWaH27ONEGrPkljWOCilEJIEFmIA
-         yk2W9wSYbkcdLhgcyzg9rNCacHdRbgECDYdn3s/eE5J5ITjC+TETpKJUti248cBbtqcC
-         Z5hgWYS7G6PYXog2t8qyLnxAYkDrLC+owK24u0rVwghTngIWo480q1cNpD9QqzmQKrgS
-         9jdvZ6nwtifJtxKacVBf2TiBRwtxyEmVBVEKBMpxTj6G6T9Nt3iqwa/SSKitvIidzQqu
-         WNVAY891hAGNI5hz5HTTL/LaiHHbBpDu+ReCXItzTjHi4x+Hle7xPOAp2Z71A+5FLLQV
-         C2Kw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774945280; x=1775550080;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=pzLIANwxZ+5V5JDtMYwIGXlBV/CrkOF0yZpzbS4Kpx4=;
-        b=dOSptu/VQt+DWEj/9W673oOvaNIM0TNPl/rGP26px7X9ABtd0lkWOW9GPYrH7fOKJ6
-         kxG2K4XO08wSAP5oUNgj2kAtc4xdV34pG0nRM+8vS5DPWkPorGLwjrZMV4j/2GacXucz
-         vZf3gVyK08ELCelwwD3ya5Hx5VounI1OwRjRQyjXnhrAzbkGMOAj+YDGBRYBHIGszVHP
-         D2KXzdEtGT2XLxTh2g/JYfqpgtcXJcFk1AP+WJiKztKoGK7j3dKpxckiKq7rBY2r89vH
-         Wrv6DSk+Mo2ypCgZLBxMhMgCKJoaeZZJjbJlti3mFdAHZX/8XI5VbsxzimMY7xlddOfC
-         zjaA==
-X-Forwarded-Encrypted: i=1; AJvYcCUjvGCs4zgPV4Y5ljeSjTSj8osO68ej7X5vEyiLeTJXrU12Ha89AQnz9kyJqdHm1mVS3qzI+HOOlPBcxTDpJC2q@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYbu7oeP4l2EjzROaiAfJOA2Q6SUPWgDpKDj+ct9KXXNm96790
-	SVySeZwA8ohRQ6OaHyz2JrdgGj9aRDey1AwVD3AXQZnVJe9nDZHmwl8P
-X-Gm-Gg: ATEYQzyvIrdHv6HvDxIpE+sxMvAK2l62Xo5ixF8n3CqxsvoiK8xsSpeGv4TlloSusqA
-	Gvfzrf13fDVXplOwwqKkCNvrC5oG7iK3Iik9abrPpolJvJgZKcHj54mIk8qUJCkyCbOd79382KN
-	7U4OdtRbI/i74WGoNoNjYOit26WlhyAg13XukvW4fOksQxENP6rshVKAV5lYX15gcGSi3BPEY2o
-	buAH7rwyW/McME1u6Ud4rxtaMNJBCN1RtSgRhrU1aYJeEcYRsZvYijettTNShWID9NUUPIe6Iy8
-	Bhk4Y60pNVU2Z4+1wKZtO6a0sAX/1eXassGp/6M7WRgTbQBF1oAVm3KjyUcwd5czEW334GTt69H
-	hPNpi+XKbpgIutd9bQ522ZhAIr9Ue6OHwDsLS//Yy2jTNnpfYSC9ZcMOPz6gm4nnZZ5feRsmaP4
-	p/FZjRzxFLmr8QTigG8daA/UWSTRInPi3yCVkazev23qrz/LuhAJsi9YIPkq9sU3k=
-X-Received: by 2002:a05:600c:1d1c:b0:487:1fbb:5a28 with SMTP id 5b1f17b1804b1-48727f2d043mr122939545e9.1.1774945279542;
-        Tue, 31 Mar 2026 01:21:19 -0700 (PDT)
-Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4887ad8d28bsm14542485e9.10.2026.03.31.01.21.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Mar 2026 01:21:19 -0700 (PDT)
-From: Lothar Rubusch <l.rubusch@gmail.com>
-To: herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	ardb@kernel.org,
-	linusw@kernel.org
-Cc: linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	l.rubusch@gmail.com
-Subject: [PATCH v2 3/3] crypto: atmel-sha204a - fix non-blocking read logic
-Date: Tue, 31 Mar 2026 08:21:05 +0000
-Message-Id: <20260331082105.697468-4-l.rubusch@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260331082105.697468-1-l.rubusch@gmail.com>
-References: <20260331082105.697468-1-l.rubusch@gmail.com>
+	Tue, 31 Mar 2026 08:24:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1774945449; x=1806481449;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=KPCB93UXppSV++8KdKwB8C+BvgLSNB2DkBl/MqGXQLc=;
+  b=cfPDYxUsRoR0x9Mz7tkfw/NJBQSGFixtEk47KX8iXjDy7uP8GO8FWtxP
+   ko7kOiouftKirGLCP8X9ZtwXrGT03vKIaHX9IUZt9fDgfaog33SwY3jjB
+   AvzaAp146/zNPA3Hr8a5Z++V7tKRAgN8o8eAGMtslQp6J7lYLSGJo/ikV
+   M6cmg3o6yf3VvOrhwq1i0DhF3wlRxYQNu6HZ3ojCsCnSxH83mM0MDb2uy
+   Td/Djwy1LY4UMOrMSU0jUsmoKHaoNXUOLOhKyrJ8CVI+SoHhuy8Cre/Zj
+   /vW7FdYWK7ooOl52YDuJGpJLQAOL0Ii1Kiv9PCDx1j981wZL0PPwukaXc
+   w==;
+X-CSE-ConnectionGUID: aXlfBCYmToeuHIbl0f7zRg==
+X-CSE-MsgGUID: +gqMbBksQzqCUpG+60Ap+Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11744"; a="76060810"
+X-IronPort-AV: E=Sophos;i="6.23,151,1770624000"; 
+   d="scan'208";a="76060810"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Mar 2026 01:24:08 -0700
+X-CSE-ConnectionGUID: 1Y/v3o3LTc6ukkdrvk1lcg==
+X-CSE-MsgGUID: bsz3g1dbR+SCl2Pu44HfHQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,151,1770624000"; 
+   d="scan'208";a="226266615"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Mar 2026 01:24:08 -0700
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Tue, 31 Mar 2026 01:24:07 -0700
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Tue, 31 Mar 2026 01:24:07 -0700
+Received: from PH7PR06CU001.outbound.protection.outlook.com (52.101.201.59) by
+ edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Tue, 31 Mar 2026 01:24:07 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=F9CcDfUXM+UnOqaGhxCZutcfAuAeVqqplK0SDPBrxCmdTsBCj01BXXdyvY9it2wKQNga9IKptKfEgNqZb86SBF4o5T8re5bPyt483wJShXIed/sLy4FUWTTWomA+dis/Zje0gA00O7kbI+ewBiZglINg/AJoBbiwSY/5DVFGqVwaeq0cbQMFzj2RTqv7I6+E7WOsKDcYb+2oHqSkfxH6crPPClssjmZ2XstRUXorR5tCrJED7Jv7wvCWVtOF7GkqkHXgDthKpqPp1dFBMTxQC3v4Ava/ZQYst0xJj0SHEBZkFLo9U+ap11stZZhgkj81ouFICopo95vMB53WJ7/Bsw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KPCB93UXppSV++8KdKwB8C+BvgLSNB2DkBl/MqGXQLc=;
+ b=Qf+4nvDJSaCuQ4/G7AczrkkCWza5Rd0E8yTB8h5YPGrWRX850QHMl8hIln48CVdXPjxXq5X9H9JBTWx0YwRpuE83VXsR2JoeyLVhS3wSDyF63Sse+rv+LjfL01MHOBijf5LHQa9MFyMI+5yLxFE1qThBF2QZIdCUjosluMllWxhOziTnCueSf7aDT0hKuCsrp0qM7lMeIHn4ofkAqlxI22fD4nqWqeVJ9hP0MeDPJcr08lqueCyeC9Eqh6pFPArpPj+PeBmtccr57rdIuzglCFskINQZkn6EEWzFb5uF6eAgZ1rj9j3PrQWvNuuHdW4UjtJy46Q+9Ll6FIW0jq6FMA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by SA3PR11MB7656.namprd11.prod.outlook.com (2603:10b6:806:320::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Tue, 31 Mar
+ 2026 08:24:05 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::f997:762f:f079:134f]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::f997:762f:f079:134f%5]) with mapi id 15.20.9769.014; Tue, 31 Mar 2026
+ 08:24:04 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "bhelgaas@google.com" <bhelgaas@google.com>
+CC: "joro@8bytes.org" <joro@8bytes.org>, "praan@google.com"
+	<praan@google.com>, "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "Williams, Dan J" <dan.j.williams@intel.com>,
+	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>, Vikram Sethi
+	<vsethi@nvidia.com>, "linux-cxl@vger.kernel.org" <linux-cxl@vger.kernel.org>
+Subject: RE: [PATCH v3 2/3] PCI: Allow ATS to be always on for pre-CXL devices
+Thread-Topic: [PATCH v3 2/3] PCI: Allow ATS to be always on for pre-CXL
+ devices
+Thread-Index: AQHcrcLX65ghV9t5KkSM2KshXNxOMbXIc0uA
+Date: Tue, 31 Mar 2026 08:24:04 +0000
+Message-ID: <BN9PR11MB5276D646118E74735A0B15208C53A@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1772833963.git.nicolinc@nvidia.com>
+ <c715b10b49d50eea5429454108d4221c1a78efaf.1772833963.git.nicolinc@nvidia.com>
+In-Reply-To: <c715b10b49d50eea5429454108d4221c1a78efaf.1772833963.git.nicolinc@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|SA3PR11MB7656:EE_
+x-ms-office365-filtering-correlation-id: 9a0d306c-23c7-4fc2-b59c-08de8efedf16
+x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700021|18002099003|56012099003|22082099003;
+x-microsoft-antispam-message-info: Uc/xit0G4U2TNqCqXVTk/Drh7MMweySy1WWSVBucuMWOOlXPSLsNTDTK9ouHR7vS4y37qOAn4U1nljbR8YFtsZfJCJpRUp9QNqIuUIgUPphbYJXFHdw68wy84UYvADErThYRJV/qzrBLZ6jadNp5rlWw6m91IjRWBT+H+OjdV5r91f7s0FLhHZ7P0EoWwn21oQntua1TS8jpz3967pXOKaQgO9FlmsZoPIUXxjbfKlmpYQfPKJcZF5v1jDqyeXMUlq7u6yVQ9VMNvX5ocZ8J/xOiddz/56o/Ry5miCc47OaUGi6G+KLSNobuZkkuL14u1nprvTBaDh1YTNmcdcAuZbvDs8tNn1tZqmegW+rOmHvoWmeFb2F85nOGaGZz0oF0CS9pjI4GCqcC7CZZaXp9WJxztckrqBjgAZw7BFJ3WldOfkWIL1onjMlfBb6pNwsH8yY9G6oE+OJdRVyQ8I2Gf4JTzzpHV2IoDuGEkE7i2q8mo4WqGhIRBV1LEs/oALTHV5oB15z+xNHNr7w/puFYW236LPEXex+kgmS+iiVa/BhrtFoSMuaOaG2cdUT+773BCR0JukdDSXggM4foWaBd4wjCT7ypD4FelBwqJeVq+YEfY+ObdMM5gHtiZ0LhnsmcMKo91wS6sXpIXrtz0TZAjrSGwElBwIFCjGtfXao57FKlpByXg4kSsLbH+nmw2Kz5kidGpBky2m6JVJffgfN2Hd0i81ai1jhCTNNRmGsOiKdLS62T9XrYorsz8nxfwioQIkBDws9qYHZyEt0UpDYuEo9iVoenstafkGpn/0TkkvE=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Tty3rZPSo+KrV4C+NlcJ0CEPqG1XdB+RE3GOn/o3WDIKuUufQQmNpObDqdey?=
+ =?us-ascii?Q?oWM9Tg89GFUPK4U+kIO2RTN6cNJKGY3M9ZSbAuiO1H0Tk934JvPAykQMcqJ3?=
+ =?us-ascii?Q?mOH+5IN4nkhFnRWCmdyU/59SUvk6BI/6qsUiLv4mQccOrgn+QS1a9M5pWOPx?=
+ =?us-ascii?Q?u6H885+NcGPQm8dJVhInjHuMCOljgetiivc8CeXOhhdyo6yIHBlqu/te1sim?=
+ =?us-ascii?Q?EfkFqJMLwdYKgJfA0btIF+sKsMpc1EaBCOxaCeLydFZcAK6cjDPP49B08epm?=
+ =?us-ascii?Q?bJ5hf8TwUydDXoxyq860QWB8nFFihK9e0vmWJfIMYPHsUE7EhB30M6T5BbBI?=
+ =?us-ascii?Q?gl9YHMap5/YHXBJbvoLgP8O5ZufpvML7j/vmxnR7AggSTqy1T4c0Jqv9ECEG?=
+ =?us-ascii?Q?RkDyjHeRFMpC7o/0yl9oEHNnFX93xgfvLoUAgh2q5tl8g1pPS+bUmNyeI3OH?=
+ =?us-ascii?Q?dl0cGC95DzcGSA4Vgvx16ybXrbCWwarZMYjxXxBlg4cUW/NlGrmrFMKBbVph?=
+ =?us-ascii?Q?s2gTzAM83rYOItJc6m9tmIJ58ri0jgVypynASE7IWN5c1SHD4waV2sEFDh12?=
+ =?us-ascii?Q?1GzB+e25++2sZ80mREXB4K5OGhhNxGXqgqWdI3yYNh7mPJS6pVFxnJwek/HO?=
+ =?us-ascii?Q?JpUqVUpo/x0QpPyZ4XxMft3nxroWjTQZMJ65vCOX0YYhaX0QWXrmw+Vu51TR?=
+ =?us-ascii?Q?MHE129auadCXx8QRgs7oYHn195wamE2L+6Qd8KrmKCcp1ievMBBG2BjaGTCR?=
+ =?us-ascii?Q?Ns8ndsjIcNcpCXk+SiBE6bACIsmj4NI+hFhhio2BBAEE/DmMBdUcJKToznq7?=
+ =?us-ascii?Q?TrANHShbfM4WATFrEgIFpFKRBUJSl4iD5o+r6HLSPspiEJmC5D7i9tgF0CCF?=
+ =?us-ascii?Q?61s8kSKpVN7Thh4hdn5Uik4VmXKE9+5PsZdGwzeDxTKqk3qQlKeu+KxPHPTv?=
+ =?us-ascii?Q?Gs6HFssKR8K8BCBcwMHtf21ihpEqJKP8gxgEksw9p3teXBcz6GtufgjqlxRY?=
+ =?us-ascii?Q?lGwcYES35gO0EyXlYOEVyttP5KJU/yyJtvWs1cMEIPQL0MlPH9R2pnYDIeC/?=
+ =?us-ascii?Q?rn31kVsoMzRqgt3+sRWmT26vpNPeRTzKUmZecdIGLf16UNDyFlkYqUt1IiIz?=
+ =?us-ascii?Q?iQBkAOkqhqx9vwp0QdQUHNSypnmd62hJkSoYmjejAOCSxTymrq0lv0T/rnlD?=
+ =?us-ascii?Q?mh7n+2xJo+6p7l4Gn6NaDV+WPE4MwWyi2Zw1UATS12lmCqfspDF8tBLyr8o2?=
+ =?us-ascii?Q?MQiQuLh1vyPndyneUci0TyuVaXzSqHpcQiKHBfU41MhCc8YFvBolmy4qBdbc?=
+ =?us-ascii?Q?Z/vGOqHtHgEbGtz3xpQhZnmuqK0keVz1VUAcTIuvJcU00V3SNRGuZKNc0U6x?=
+ =?us-ascii?Q?VFDuJOSepfFcx+8dx1sz8PvS/Ir1l9i4z/6HOmmoBHIC37UBz3i0bBYYPl1n?=
+ =?us-ascii?Q?CMWkaNaBmkEOnMxtNILE+RUBX0dY3ixE77e6lkRIOqjEnRMruyibTIwqZM/P?=
+ =?us-ascii?Q?LPl9jNlJAOyreG1zWp44rKZdZuiqtPDQ+fd5WSpccqIV/mpct2nmHAtgjg6T?=
+ =?us-ascii?Q?noBIK3Wy1c9ISVkifK1AuKkpBa0yDp+2bJiO0IjghJNxTO/t5tm4VybttTRD?=
+ =?us-ascii?Q?H9wq3zcBnKhRcjltGQUa51bkym7DOwJqzcpXC70h302DrfY5SUtMuPnkS49Y?=
+ =?us-ascii?Q?qe41HKS+nPpCUSAanZGf8fn5Bff0qDdGrE0gSvW29e7jnrT1FxUeSi6WMbxE?=
+ =?us-ascii?Q?owSq47lWwg=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Exchange-RoutingPolicyChecked: grZ1Gfwz+eAw+1ewq3mNwZLlTshDW/lCvs1UxJCq/slKXHj31zT423VZ+6SEBN1Nbfl6/IPHxnkAIXvf0Xo00Z2DEPETjqsdpfopKNuTTIa2SV+JP5GV0DpvMvU0DsFFWZ1UJR4Onc+D0+qfy8I2ZwfBKPa+1ut2L/Q7zHqafo+QHutkcTCWp9gnNIDChKxgs4r3CL6v6kMHltOIhURlUhPrwAHtTZbDdU52ywrFx+3WGePXQpzPkh5XXVSEO8PV4FNQJzguStfXBDEEbUsYmDXQFZhAji2lJRjtSB9C6lumu7oVEet/Nnk+AizT7oRUG7xbxawR7pprRKs0sJfveQ==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9a0d306c-23c7-4fc2-b59c-08de8efedf16
+X-MS-Exchange-CrossTenant-originalarrivaltime: 31 Mar 2026 08:24:04.8685
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 69oa5Bvc5H95A+UIM2FhTxy0E0Yjky+9M/rIFEeCkAyq+Hf2PbblICdS2OxdqQgTgUTWNbjgnljAF8AGQ9YPuQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR11MB7656
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_012121_671317_5144D4EE 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20260331_012409_709579_ECB23F4D 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,83 +186,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The non-blocking path was (also) failing to provide valid entropy
-due to improper buffer management and a lack of hardware execution
-time.
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Saturday, March 7, 2026 7:41 AM
+>=20
+> Some NVIDIA GPU/NIC devices, although don't implement the CXL config
+> space,
+> they have many CXL-like properties. Call this kind "pre-CXL".
+>=20
+> Similar to CXL.cache capaiblity, these pre-CXL devices also require the A=
+TS
 
-Ensure cmd.msecs (30ms) and cmd.rxsize (35ms) are initialized before
-enqueuing the background work. Fix the data offset to skip the
-1-byte hardware count header when copying bits to the caller. Correctly
-return 0 (busy) to the hwrng core while hardware execution is in
-progress, preventing zero-filled buffers, which was the situation
-before.
+s/capaiblity/capability/
 
-With this fix applied, tests will look similar to this:
-$ socat -u OPEN:/dev/hwrng,nonblock - | head -c 32 | hexdump -C
-00000000  23 cc 42 3c 90 b1 38 fc  54 37 35 4b 09 c5 e1 0d  |#.B<..8.T75K....|
-2026/03/23 14:30:18 socat[858] E read(5, 0x55be363000, 8192): Resource temporarily unavailable
-00000010  73 3b af d9 02 70 76 bd  2d 59 4b 12 01 ac ae 2b  |s;...pv.-YK....+|
-00000020
+> function even when their RIDs are IOMMU bypassed, i.e. keep ATS "always
+> on"
+> v.s. "on demand" when a non-zero PASID line gets enabled in SVA use cases=
+.
+>=20
+> Introduce pci_dev_specific_ats_always_on() quirk function to scan a list =
+of
+> IDs for these device. Then, include it pci_ats_always_on().
 
-Fixes: da001fb651b0 ("crypto: atmel-i2c - add support for SHA204A random number generator")
-Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
----
- drivers/crypto/atmel-sha204a.c | 16 ++++++++++------
- 1 file changed, 10 insertions(+), 6 deletions(-)
+"include it *in* pci_ats_always_on()"
 
-diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
-index 350ba8618c69..c0a1d34bbd9e 100644
---- a/drivers/crypto/atmel-sha204a.c
-+++ b/drivers/crypto/atmel-sha204a.c
-@@ -32,7 +32,6 @@ static void atmel_sha204a_rng_done(struct atmel_i2c_work_data *work_data,
- 				     "i2c transaction failed (%d)\n",
- 				     status);
- 		kfree(work_data);
--		rng->priv = 0;
- 		atomic_dec(&i2c_priv->tfm_count);
- 		return;
- 	}
-@@ -49,20 +48,19 @@ static int atmel_sha204a_rng_read_nonblocking(struct hwrng *rng, void *data,
- 
- 	i2c_priv = container_of(rng, struct atmel_i2c_client_priv, hwrng);
- 
--	/* Verify if data available from last run */
- 	if (rng->priv) {
- 		work_data = (struct atmel_i2c_work_data *)rng->priv;
--		max = min(sizeof(work_data->cmd.data), max);
--		memcpy(data, &work_data->cmd.data, max);
-+		max = min_t(size_t, ATMEL_RNG_BLOCK_SIZE, max);
-+		memcpy(data, &work_data->cmd.data[1], max);
- 
--		/* Now, free memory */
-+		/* Free memory and clear the in-flight flag */
- 		kfree(work_data);
- 		rng->priv = 0;
- 		atomic_dec(&i2c_priv->tfm_count);
- 		return max;
- 	}
- 
--	/* When a request is still in-flight but not processed */
-+	/* If a request is still in-flight, return 0 (busy) */
- 	if (atomic_read(&i2c_priv->tfm_count) > 0)
- 		return 0;
- 
-@@ -76,8 +74,14 @@ static int atmel_sha204a_rng_read_nonblocking(struct hwrng *rng, void *data,
- 	work_data->client = i2c_priv->client;
- 
- 	atmel_i2c_init_random_cmd(&work_data->cmd);
-+
-+	/* Set the execution time for the RNG command (from datasheet) */
-+	work_data->cmd.msecs = ATMEL_RNG_EXEC_TIME;
-+	work_data->cmd.rxsize = RANDOM_RSP_SIZE;
-+
- 	atmel_i2c_enqueue(work_data, atmel_sha204a_rng_done, rng);
- 
-+	/* Return 0 to indicate 'busy', data will be ready on next call */
- 	return 0;
- }
- 
--- 
-2.39.5
+> +
+> +/* Some pre-CXL devices require ATS on the RID when it is IOMMU-
+> bypassed */
+> +bool pci_dev_specific_ats_always_on(struct pci_dev *pdev)
 
+clearer to remove "on the RID ...".=20
+
+"always on" implies no condition required. and adding IOMMU bypass
+info there is confusing.
+
+Reviewed-by: Kevin Tian <kevin.tian@intel.com>
 
