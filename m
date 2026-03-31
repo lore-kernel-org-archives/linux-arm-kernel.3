@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 688EA10F9304
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 21:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B1E810F9302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 21:55:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=T4QnNywyMGewGadpaYDCFIQRm/on7lVrc10IZ1svNYw=; b=DfFQw7c+zS6MYHHRn7rTEWrkFD
-	JOmWMaHd7409d0ceit1GUNhChXl8JTetlfOl8tTkfKoRc2ZrtPXTFLOB/kiCHjuqBx1Fyt2Mmgy0G
-	SQoPsv86UnIomeoyahxDzSr8b6j07atLjZ4F8tzC4DOKoYynxurht2HoF81hFMgw7+t/VAeqE97Vp
-	6aRnTD1XGsfKpMSm7u1wEw55RhEvmlRGNdnIDqPyT5WXtCzg+dBslZW3ZNuecfMOW7Vvs1Ag/nKj4
-	QR6mFrI4Me1fj0sIY/Ik/RmKRFSWc4aMJYKOiVhf9VLiS8JCic75VGTTTWTnYft3XOMsmA8+jsd/b
-	70k2c91A==;
+	bh=lR0TZTL4vgxqeh17aCtAUk73qw2Qnai0er/TlANgzP4=; b=dJ/735YJHPK2I0SuN+o5m9b6DV
+	JA+zIIKCbM5D76hh8fuB6ZVtstzICSCP8oxemXKfvh/ws4L9zZ2mMplRhCxcEGZRCvmiTLvZtl4VQ
+	A8r1usn3PPUKGw4PJmFKGmdpNXKhnPW3VdmvyMCWzkWB/oKYb3xBpZUXbXTgknPHqfB+GYQSTBfWh
+	bUMQUvC99UaGsF6KTk8gb+AGxITXFeh2Sgit5z02jMBGOmwXd+BDmUgHQeEmBZxOoYJEtxwkzK1uU
+	7VrgdKolu72WMmQzoVLSiEllL8ACYcYifov7i8BYylBxzCsQuf9gb1BjyPmg/GXjrkKVCmT/q3+RQ
+	6j1kWPiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7gwD-0000000DbEO-0GGR;
-	Tue, 31 Mar 2026 21:47:53 +0000
+	id 1w7h3Y-0000000DbfU-29WR;
+	Tue, 31 Mar 2026 21:55:28 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7gwA-0000000DbE2-2osN
+	id 1w7h3V-0000000DbfA-3Ay0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 21:47:51 +0000
+	Tue, 31 Mar 2026 21:55:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CF1A942E29;
-	Tue, 31 Mar 2026 21:47:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0799BC19423;
-	Tue, 31 Mar 2026 21:47:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EF2BC40BC3;
+	Tue, 31 Mar 2026 21:55:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AE9FC19423;
+	Tue, 31 Mar 2026 21:55:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774993669;
-	bh=iIuOOa8rW5wOieE9MmvxQaXBkwiQTbC9srYJ3whd+Ug=;
+	s=k20201202; t=1774994124;
+	bh=NhuFMXlvIvwXGeFlkQZ4EjJD7dqZdKtt1rvST/wuTUY=;
 	h=From:To:Cc:Subject:Date:From;
-	b=cN61ost4Z56nOhE6zwTn/RY9SSyxE2L5qtpjqfMvOTr0n0nF74Tmd3ATUOP1xrvmL
-	 dzfXbpR1n7aSusTfQVmhf9HX6+wJMlkGiLitKRhwLRYHexRnKgkUSLDczDItaDs2HM
-	 HPk632IOz1Tgzs3CSIe8s9ifLdNl6ITZNV75RqkrBALTi+TnspSNjCYCQe5y8bKfCE
-	 OqbfcnDHVIbnFunY0rn9QhL9M4Q32tSX15bwn2K18euc5jAp3JJCcR4x09tjtlBiBD
-	 qdm82ARe6lgzu3VX+SrJL5CFx5cbWFz83/IHlbx7zCUHDUGJzw2Gbh49Y1L/kjUCM9
-	 ZITNnqZFyBU4A==
+	b=efKmWD2cojixGjWSKPS4XFjSeeurzqKxFKT2Kai1csXNtIGcwLixJlLqXmHbvrwFx
+	 eEmNzdQmdzaYXxQ1cbOCDm/JrH+v5d2LcDFnJTP6j4R1xbJxx2o19LxCc/hlDJB6Mw
+	 9/NxcX+4nV+V1he4Tr47kfC33r6CkPQEoo/IqIQiCo6JNjUbTrmci3fYjBi4aCf5Aq
+	 tG65bkzjF9QoENSqfAlX6Ln+edmUcRGsFVmoUs5XyQR64cLB8BzoMEynpe37+NqOrb
+	 e8bcyJG5mgqmUtunYLjgWl1cGr6TIf6D4qEr7UsfFwzUT82QkuwfMVEfaVEIQWEHzg
+	 HGaVcy0vJhaPw==
 From: Bjorn Andersson <andersson@kernel.org>
 To: arm@kernel.org,
 	soc@kernel.org
 Cc: linux-arm-msm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-	Abel Vesa <abel.vesa@oss.qualcomm.com>,
-	Anjelique Melendez <anjelique.melendez@oss.qualcomm.com>,
-	Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
-	Aelin Reidel <aelin@mainlining.org>,
-	Alok Tiwari <alok.a.tiwari@oracle.com>,
-	Chris Lew <chris.lew@oss.qualcomm.com>,
-	Gopikrishna Garmidi <gopikrishna.garmidi@oss.qualcomm.com>,
-	Lei wang <quic_leiwan@quicinc.com>,
-	Richard Acayan <mailingradian@gmail.com>,
-	Unnathi Chalicheemala <unnathi.chalicheemala@oss.qualcomm.com>,
-	Hrishabh Rajput <hrishabh.rajput@oss.qualcomm.com>,
-	Jens Glathe <jens.glathe@oldschoolsolutions.biz>,
-	Le Qi <le.qi@oss.qualcomm.com>,
 	Luca Weiss <luca.weiss@fairphone.com>,
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Taniya Das <taniya.das@oss.qualcomm.com>,
+	Abel Vesa <abel.vesa@oss.qualcomm.com>,
+	Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>,
+	Harshal Dev <harshal.dev@oss.qualcomm.com>,
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
 	Pankaj Patil <pankaj.patil@oss.qualcomm.com>,
-	Rosen Penev <rosenp@gmail.com>,
 	Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
-	Val Packett <val@packett.cool>,
-	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-	Yijie Yang <yijie.yang@oss.qualcomm.com>
-Subject: [GIT PULL] Qualcomm driver updates for v7.1
-Date: Tue, 31 Mar 2026 16:47:41 -0500
-Message-ID: <20260331214741.966509-1-andersson@kernel.org>
+	Vishnu Saini <vishnu.saini@oss.qualcomm.com>
+Subject: [GIT PULL] Qualcomm Arm64 defconfig updates for v7.1
+Date: Tue, 31 Mar 2026 16:55:21 -0500
+Message-ID: <20260331215521.968341-1-andersson@kernel.org>
 X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_144750_775931_8E0F97D7 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20260331_145525_851119_26D4A229 
+X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,175 +90,67 @@ The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-7.1
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm64-defconfig-for-7.1
 
-for you to fetch changes up to d6e766e391ef0b2be62682e007223fc72ba7764f:
+for you to fetch changes up to fdeb077b8ae53a6ef772c5b3c4d1f3a408dac2a0:
 
-  Merge branch '20260125-iris-ubwc-v4-1-1ff30644ac81@oss.qualcomm.com' into drivers-for-7.1 (2026-03-30 12:46:14 -0500)
-
-----------------------------------------------------------------
-Qualcomm driver updates for v7.1
-
-Add ECS LIVA QC710, Glymur CRD, Mahua CRD, Purwa IoT EVK, and Asus
-Vivobook to the QSEECOM allow-list, to enable UEFI variable access
-through uefisecapp.
-
-Register the Gunyah watchdog device if the SCM driver finds itself
-running under Gunyah. Clean up some locking using guards.
-
-Handle possible cases where AOSS cooling state is given a non-boolean
-state.
-
-Replace LLCC per-slice activation bitmap with reference counting. Also
-add SDM670 support.
-
-Improve probe deferral handling in the OCMEM driver.
-
-Add Milos, QCS615, Eliza, Glymur, and Mahua support to the pd-mapper.
-
-Add support for SoCCP-based pmic-glink, as found in Glymur and
-Kaanapali.
-
-Add common QMI service ids to the main qmi headerfile, to avoid
-spreading these constants in various drivers.
-
-Add support for version 2 of SMP2P and implement the irqchip state
-reading support.
-
-Add CQ7790, SA8650P, SM7450, SM7450P, and IPQ5210 SoC and the PM7550BA
-PMIC identifiers to the socinfo driver.
-
-Add Eliza and Mahua support to the UBWC driver, introduce helpers for
-drivers to read out min_acc length and other programmable values, and
-disable bank swizzling for Glymur.
-
-Simplify the logic related to allocation of NV download request in the
-WCNSS control driver.
+  arm64: defconfig: enable pci-pwrctrl-generic as module (2026-03-23 21:40:52 -0500)
 
 ----------------------------------------------------------------
-Abel Vesa (3):
-      soc: qcom: socinfo: Add PM7550BA PMIC
-      dt-bindings: firmware: qcom,scm: document Eliza SCM Firmware Interface
-      soc: qcom: pd-mapper: Add support for Eliza
+Qualcomm Arm64 defconfig updates for v7.1
 
-Aelin Reidel (2):
-      dt-bindings: arm: qcom,ids: Add SoC IDs for SM7450 and SM7450P
-      soc: qcom: socinfo: Add SoC IDs for SM7450 and SM7450P
+Enable base drivers for booting boards based on Kaanapali, Glymur,
+Eliza, SM8750, and IPQ5210 SoCs.
 
-Alok Tiwari (2):
-      soc: qcom: llcc: fix v1 SB syndrome register offset
-      soc: qcom: aoss: compare against normalized cooling state
+Enable the Milos LPASS LPI driver. Enable the Qualcomm WCD937x headphone
+codec driver, used on QCM6490 boards.
 
-Anjelique Melendez (3):
-      dt-bindings: soc: qcom: qcom,pmic-glink: Add Glymur and Kaanapali compatibles
-      soc: qcom: pmic_glink: Add charger PDR service information to client data
-      soc: qcom: pmic_glink: Add support for Glymur and Kaanapali
+Enable the QCOMTEE driver, to support the interface found in various
+Qualcomm SoCs.
 
-Bjorn Andersson (2):
-      Merge branch '20260309230346.3584252-2-daniel.lezcano@oss.qualcomm.com' into drivers-for-7.1
-      Merge branch '20260125-iris-ubwc-v4-1-1ff30644ac81@oss.qualcomm.com' into drivers-for-7.1
+Enable ethernet and analog codecs used on the Arduino Ventuno Q.
 
-Chris Lew (2):
-      soc: qcom: smp2p: Add irqchip state support
-      soc: qcom: smp2p: Add support for smp2p v2
+Enable the Lontium LT8713sx driver, used for the Monaco EVK board.
 
-Daniel Lezcano (3):
-      soc: qcom: qmi: Enumerate the service IDs of QMI
-      soc: qcom: pdr: Use the unified QMI service ID instead of defining it locally
-      samples: qmi: Use the unified QMI service ID instead of defining it locally
+Enable the PCI pwrctrl generic driver used in a few different
+Qualcomm-based boards with USB controllers on PCI buses.
 
-Dmitry Baryshkov (6):
-      soc: qcom: ubwc: disable bank swizzling for Glymur platform
-      soc: qcom: ocmem: make the core clock optional
-      soc: qcom: ocmem: register reasons for probe deferrals
-      soc: qcom: ocmem: return -EPROBE_DEFER is ocmem is not available
-      soc: qcom: ubwc: add helper to get min_acc length
-      soc: qcom: ubwc: add helpers to get programmable values
+----------------------------------------------------------------
+Abel Vesa (1):
+      arm64: defconfig: Enable Qualcomm Eliza basic resource providers
 
-Gopikrishna Garmidi (2):
-      soc: qcom: ubwc: Add support for Mahua
-      firmware: qcom: scm: Allow QSEECOM on Mahua CRD
+Ajay Kumar Nandam (1):
+      arm64: defconfig: Enable Qualcomm WCD937x headphone codec as module
 
-Hrishabh Rajput (1):
-      firmware: qcom: scm: Register gunyah watchdog device
+Harshal Dev (1):
+      arm64: defconfig: Enable QCOMTEE module for QTEE-enabled Qualcomm SoCs
 
-Jens Glathe (1):
-      firmware: qcom: scm: allow QSEECOM on ASUS Vivobook X1P42100 variant
+Kathiravan Thirumoorthy (1):
+      arm64: defconfig: enable IPQ5210 RDP504 base configs
 
-Kathiravan Thirumoorthy (4):
-      dt-bindings: arm: qcom,ids: add SOC IDs for IPQ5210 family
-      soc: qcom: socinfo: add SoC ID for IPQ5210 family
-      dt-bindings: firmware: qcom,scm: Document ipq5210 SCM
-      dt-bindings: firmware: qcom,scm: Document ipq9650 SCM
+Krzysztof Kozlowski (1):
+      arm64: defconfig: Enable Qualcomm Eliza SoC display clock controller
 
-Krzysztof Kozlowski (7):
-      dt-bindings: arm: qcom,ids: Add SoC ID for CQ7790
-      soc: qcom: socinfo: Add SoC ID for CQ7790
-      firmware: qcom: uefisecapp: Simplify mutex with guard
-      firmware: qcom: uefisecapp: Annotate acquiring locks for context tracking
-      firmware: qcom: scom: Simplify mutex with guard
-      soc: qcom: ubwc: Remove redundant x1e80100_data
-      soc: qcom: ubwc: Add configuration Eliza SoC
+Luca Weiss (2):
+      arm64: defconfig: Enable S5KJN1 camera sensor
+      arm64: defconfig: Enable Milos LPASS LPI pinctrl driver
 
-Le Qi (1):
-      soc: qcom: pd-mapper: Add QCS615 power domain mappings
-
-Lei wang (2):
-      dt-bindings: arm: qcom,ids: Add SoC ID for SA8650P
-      soc: qcom: socinfo: Add SoC ID for SA8650P
-
-Luca Weiss (1):
-      soc: qcom: pd-mapper: Add Milos compatible
-
-Mukesh Ojha (1):
-      firmware: qcom_scm: don't opencode kmemdup
+Neil Armstrong (1):
+      arm64: defconfig: enable pci-pwrctrl-generic as module
 
 Pankaj Patil (1):
-      firmware: qcom: scm: Allow QSEECOM on Glymur CRD
-
-Richard Acayan (2):
-      dt-bindings: cache: qcom,llcc: Add SDM670 compatible
-      soc: qcom: llcc: Add configuration data for SDM670
-
-Rosen Penev (1):
-      soc: qcom: wcnss: simplify allocation of req
+      arm64: defconfig: Enable configs for Qualcomm Glymur SoC
 
 Srinivas Kandagatla (1):
-      soc: qcom: pd-mapper: Add support for Glymur and Mahua
+      arm64: defconfig: Enable configs for Arduino VENTUNO Q
 
-Unnathi Chalicheemala (2):
-      soc: qcom: llcc: Add per-slice counter and common llcc slice descriptor
-      soc: qcom: llcc: Use guards for mutex handling
+Taniya Das (2):
+      arm64: defconfig: Enable SM8750 clock controllers
+      arm64: defconfig: Enable Kaanapali clock controllers
 
-Val Packett (1):
-      firmware: qcom: scm: Allow QSEECOM on ECS LIVA QC710
+Vishnu Saini (1):
+      arm64: defconfig: Enable Lontium LT8713sx driver
 
-Vladimir Zapolskiy (1):
-      soc: qcom: pd-mapper: Simplify code using of_root to get root device tree node
-
-Yijie Yang (1):
-      firmware: qcom: scm: Allow QSEECOM on PURWA-IOT-EVK
-
- .../devicetree/bindings/cache/qcom,llcc.yaml       |   2 +
- .../devicetree/bindings/firmware/qcom,scm.yaml     |   4 +
- .../bindings/soc/qcom/qcom,pmic-glink.yaml         |   2 +
- drivers/firmware/qcom/qcom_qseecom_uefisecapp.c    |   9 +-
- drivers/firmware/qcom/qcom_scm.c                   |  70 +++++++-
- drivers/soc/qcom/llcc-qcom.c                       | 188 +++++++++++++++------
- drivers/soc/qcom/ocmem.c                           |  17 +-
- drivers/soc/qcom/pdr_interface.c                   |   4 +-
- drivers/soc/qcom/pdr_internal.h                    |   3 -
- drivers/soc/qcom/pmic_glink.c                      |  66 +++++---
- drivers/soc/qcom/qcom_aoss.c                       |   2 +-
- drivers/soc/qcom/qcom_pd_mapper.c                  |  33 +++-
- drivers/soc/qcom/smp2p.c                           | 103 ++++++++++-
- drivers/soc/qcom/socinfo.c                         |  11 ++
- drivers/soc/qcom/ubwc_config.c                     |  31 ++--
- drivers/soc/qcom/wcnss_ctrl.c                      |  17 +-
- include/dt-bindings/arm/qcom,ids.h                 |  10 ++
- include/linux/soc/qcom/llcc-qcom.h                 |   8 +-
- include/linux/soc/qcom/qmi.h                       |  12 ++
- include/linux/soc/qcom/ubwc.h                      |  25 +++
- samples/qmi/qmi_sample_client.c                    |   2 +-
- 21 files changed, 480 insertions(+), 139 deletions(-)
+ arch/arm64/configs/defconfig | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
 
