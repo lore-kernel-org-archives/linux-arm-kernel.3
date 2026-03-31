@@ -4,64 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CDCB10F92E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 16:51:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F00C210F92E6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 17:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WknxB7BlqisH6Zvww+cbKHxPeTuxJGYJCxx5qD7dZkE=; b=VG9yknlWLMLsX/xit5N1vLI1S0
-	8Iik7aLOgqXzC6y+Op3GUXlJDMI4SzZ8P5Z8OZH6UI12eNOkTI9FvcHENyDY/KUL9knAItrQHZQxQ
-	NVnmDRAm33/tkjdeMmNd+/+xL9Xn3CrO9gC1Z34gxuXHcuCHRPiIISHrVYa+prA4mBCQzF7woXU+y
-	AKSn1j2VFdsaA34tJ8/TJTJCRJz+BAB0FF3Ez3cpQDEeTY53PZZHwij6E9VySYYJ83knkcBUeEzVi
-	gvl1EI/idPnElLttU7o/zHTWzfa9qWZZBo0r38bvQbh8EW7lfAoNQqMVjKZl39/3h+yOStCmzIZ0u
-	iW/kbUYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l98tvJP33qg7yUNaZsXGxPv2Z0+17QhIZr8805RPT0Y=; b=FlKZKkZyWYQvPINCpiisxzX7l6
+	xsqNITSVkh3LosRSf8EIw77JCg5CaUy+YwFoTDJpy5vn1RoeqsUt6qdtTXBwFRJxjhDqtAkYMdAVv
+	3wgX//w7LJ6XNM34qoK5wCgf+SIyen0eLtRr/eRSG5KUPlfws/pMUH8NeLNoKz3Z787o2cSDS1Cgq
+	qgSbOCZ4jACLVyz4DlLiWz1rWC+dj7ccpgWpGbXsk6hHJpgjLwwPm6A0fYLzeJfdPt46kyOU2yXge
+	AYcHm62rzjIle92twQaAXFJyAnxh4pCwLLVUVptYyGbxh+pTImqDRGa+egFCfL/+9dM5BDelEWjlM
+	G+bQ29vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7cJl-0000000DHoo-0Rj8;
-	Tue, 31 Mar 2026 16:51:53 +0000
-Received: from fsn-vps-1.bereza.email ([162.55.44.2])
+	id 1w7cTK-0000000DIIO-4AIH;
+	Tue, 31 Mar 2026 17:01:47 +0000
+Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7cJi-0000000DHo8-2Pgm
+	id 1w7cTI-0000000DIHY-1hHQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 16:51:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=bereza.email; s=mail;
-	t=1774975460; bh=9PyHENddhGjJqQ3dIJrsaurapatYX0PZNL/WyIPsycU=;
-	h=From:Date:Subject:To:Cc:From;
-	b=0bhZXFkZ8tmu2R82WFklCpkQlIQx74k1AOnQWpeuPqlbOcibVoPZkRpHuO8a+GkZe
-	 WzUEKi0EF0WeLB6NlvJ5PG4cxnGMO827wAxQpJ0SiraVIBFwnGU0v6LwYFQFUPaEuV
-	 9XdsAfsiJP0GFVq5rWPU2xz3PHBwRymk7kr5IhrD9SekexTznbdI8fMOR8GsZnknjv
-	 Ak3LoSaagaeYqXNCScR1v8p/DsfWFcq1ztuM4gAoU4Oh/i5XXis2Jzmf1EURQFQAQs
-	 2YeTvmF+2ZtOz9qYGaUwms9V4EPFJigHvSfd84EmLFnOym0X1Qva1RDdqYW5OjnwfY
-	 b02aave3JMFZw==
-Received: from [127.0.1.1] (pd95bbad8.dip0.t-ipconnect.de [217.91.186.216])
-	by fsn-vps-1.bereza.email (Postfix) with ESMTPSA id 5FC5F60F1B;
-	Tue, 31 Mar 2026 18:44:20 +0200 (CEST)
-From: Alex Bereza <alex@bereza.email>
-Date: Tue, 31 Mar 2026 18:44:00 +0200
-Subject: [PATCH] dmaengine: xilinx_dma: Fix CPU stall in
- xilinx_dma_poll_timeout
+	Tue, 31 Mar 2026 17:01:46 +0000
+Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-126ea4e9697so11910c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 10:01:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774976503; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ed7+Js9VTzGCLuVLF75+zuXT0loKYoSOpYdPqitdr1C0NPDvfdVsjRuzPbrqExYI0R
+         fmzd1gDRIM9uj8wwfnAn6ck88mWbUU2RW2l5/zulWoHmMSZKlImSDiag7U7/76396qDj
+         AicI9VhKjnYalUWnC23nI/OTgWDRUHQM5SzhIMfIigRvouiL5ndBw2gaCSB30h4eehvh
+         ylQAuOuv+Wh+jIsSVCU8djL3BgYPGFdYq6VXu9xrUfxI4TIK/PwTNuQpTAi2nK+/YgV2
+         ujw1RNqWANMYejqAYfFwkUXs+i2UjFW6wkHev4j3XIxtbUldjhF+2SrvuRM2nYznbzDu
+         z6Zg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=l98tvJP33qg7yUNaZsXGxPv2Z0+17QhIZr8805RPT0Y=;
+        fh=UCnUn+gNo0Ste+KsJYAsPt6/zOUH4BUyXLLcwJrwjcw=;
+        b=fcHAJi2LkWB0Y4I307XwTF2Tm2Axoj1JrXRSu0JXslwjUDzM4VMEWgyaPDfaNaCnZS
+         fCR7ek6x2iTW9/xdSKr8G489Ji9id2dLcXqXtYRMUMpncq4w8U4QyWIIZ7T7BBBOv1Vg
+         ZtoVdzBicOSrPyw17JhPcmCU9G7WAAfGxdaLAHu1qvzp/v+3r03Void2uAEQvRkcJplH
+         xRnMnMABl+Gez+jzX/cIuCVkOJnpHiXDsvS1HqP7lxBlksb0Km582Pa4Icem+TmBPphE
+         Ac16cFZi5SVgdapjYONJt94EwodSACaXiLl1CCVf/QY/3kMZQH3Oix1/5edFnAHnu7O0
+         rOEw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1774976503; x=1775581303; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=l98tvJP33qg7yUNaZsXGxPv2Z0+17QhIZr8805RPT0Y=;
+        b=dt/wgGqC7ZHEQEw+Ksy98SrbFUC1Cf6lnKdycCNFfPXHhDCgkV3G6xf/D9q3qF9G67
+         iR8Poc+d10XcVc1OEfoHdgsdYT/TGRyPMbVwC1UikXmXfjRf7A54l2XPt4gGzIzipsSF
+         l4PPx0H5krAHCV0M2o0XLbpwgAzw0RApJDJ/TnBsRndKjdHKRmdOwcLogxEEADgTLnAN
+         gefOKMlsRBoC2sq81PZDXkWNMJOhtwPcws4yEar/4dtRoP10VIqAvWNitfu/UIjBMV3k
+         NOwWAwtCIfk0ieF21wp10Kh7mOpHPNYRFFliVMeILwHrsD0IFTDq0PlA+EHBIMtSWkFI
+         AVhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774976503; x=1775581303;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=l98tvJP33qg7yUNaZsXGxPv2Z0+17QhIZr8805RPT0Y=;
+        b=X2fTuLKbkb562W3ve++oCQy2Ml7/mInq+BgICwQsBZWfW3YdslyeSpVfSp4UV0uMZA
+         ejCM5tKUPfbc2BtK4SKcfXUFsvWH8ZttTT4Vq6c6FLeCLO+JA5wMJdC7PLCK564y6WXA
+         XRrQkOy/SGsmH3BNNGO+Vqjl7hRVTVLrmgAoKnnsG2wC26NCH9Ts+AgfCjqMUNdNjoux
+         7T/uqIEdnJ3tkS9k6i3/kmJE/jNraHz5sC6f+xN2TrV4V9hLJ0bfFgznb4POtDPHzjd9
+         a3RGb/o4yBYm0LH+H26z6gPYx6ux4JJHhXZfT16ZO7OiPdKPKcj9ZUL8WdEm6+2nfDI3
+         dQWw==
+X-Forwarded-Encrypted: i=1; AJvYcCWH4JRAurKzaXA7ogpmdlrqJWH0BYrkek8MNDB0rBJUnpXcZT6/pvJM1uZ/cEJscySswfnxAfXb8MlctFvV/SQU@lists.infradead.org
+X-Gm-Message-State: AOJu0YytRDfQxMnYlhAi79R6Lrhu5tA0zzAiBkYRL0t+q+nJMpkB9Q1W
+	NxgPwrnkxWRpWIwjQkuxi5+b0ysLtW0sF/p22Ww2ALp3zJXcLyhq76n/WniHqFf34bLXjPoV0jR
+	Ts9yJ75KCP/e01gRAyC/c+HY8Y3EjMwxFHf67J0fi
+X-Gm-Gg: ATEYQzyrSYEUPenllmtA+gL6s1R1WiADYAgRHsQCxMpQnjtl/WXLrPKv6hr4vQJ91VH
+	wZsK3Hol2kmWy2YRGqMKDqIaXbpuLjB5dfhUmjQk6GmuesE7K1ezhmQz/UEV4XAYj/F+DvCcl0Y
+	WAVOSsTrOS75vMcPj4SVR3p+fGxPHKPl+FkVOqY7ZjoBehAFBIQNEavCeGmFggnRq+3lWhBQYRt
+	kFzp7bRNbwJX9hLhD8Kfto4hQrOM4MmgMje0vrfcYkbiAT+UIhZ+GJPacl9pn0WxxGZR0Y3WWsR
+	lmZZjDGq4b04w1CvBSmw+EfYy8ECHEVyNSwhCQ==
+X-Received: by 2002:a05:7022:6987:b0:12a:8cf4:65d8 with SMTP id
+ a92af1059eb24-12be6159009mr19765c88.14.1774976502067; Tue, 31 Mar 2026
+ 10:01:42 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260331-fix-atomic-poll-timeout-regression-v1-1-5b7bd96eaca0@bereza.email>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWNwQqDMBAFf0X23IXUiIX+Sukhxhe7RY1sYimI/
- 95Yj3OYmY0SVJDoXm2k+EiSOBe4XiryLzcPYOkLU23q1lhrOMiXXY6TeF7iOHKWCXHNrBgU6dC
- 5CQ1s54IN/Y1KaFEU6z95PE9Oa/eGz0eZ9v0H2q6Fh4YAAAA=
-X-Change-ID: 20260330-fix-atomic-poll-timeout-regression-4f4e3baf3fd7
-To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Michal Simek <michal.simek@amd.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Ulf Hansson <ulf.hansson@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
- Tony Lindgren <tony@atomide.com>
-Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Alex Bereza <alex@bereza.email>
-X-Mailer: b4 0.15.1
+References: <CAP-5=fWVU3ktkGAnZQrjQJf+Z5AtQo73BVUhj-nr3H95GdcEJQ@mail.gmail.com>
+ <20260305221927.3237145-1-irogers@google.com> <20260305221927.3237145-3-irogers@google.com>
+ <acrln3IwOebvb6yj@x1>
+In-Reply-To: <acrln3IwOebvb6yj@x1>
+From: Ian Rogers <irogers@google.com>
+Date: Tue, 31 Mar 2026 10:01:29 -0700
+X-Gm-Features: AQROBzAxOb5Fj0tz8CFxXnvG80J893x9iFJ4Ie0P731uMqrcv3OK1B9SMHLInoA
+Message-ID: <CAP-5=fXn+uNEfZ71a5zZ5BdKw8-LfWgpzye8+eTJH32gL1=b_Q@mail.gmail.com>
+Subject: Re: [PATCH v2 2/8] perf build loongarch: Remove reference to missing file
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: 9erthalion6@gmail.com, adrian.hunter@intel.com, alex@ghiti.fr, 
+	alexander.shishkin@linux.intel.com, andrew.jones@oss.qualcomm.com, 
+	aou@eecs.berkeley.edu, atrajeev@linux.ibm.com, blakejones@google.com, 
+	ctshao@google.com, dapeng1.mi@linux.intel.com, howardchu95@gmail.com, 
+	james.clark@linaro.org, john.g.garry@oracle.com, jolsa@kernel.org, 
+	leo.yan@linux.dev, libunwind-devel@nongnu.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	mingo@redhat.com, namhyung@kernel.org, palmer@dabbelt.com, 
+	peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com, 
+	tglozar@redhat.com, tmricht@linux.ibm.com, will@kernel.org, yuzhuo@google.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_095150_788707_F2F80D70 
-X-CRM114-Status: GOOD (  19.86  )
+X-CRM114-CacheID: sfid-20260331_100144_446392_D8B3DD4F 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,121 +127,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently when calling xilinx_dma_poll_timeout with delay_us=0 and a
-condition that is never fulfilled, the CPU busy-waits for prolonged time
-and the timeout triggers only with a massive delay causing a CPU stall.
+On Mon, Mar 30, 2026 at 2:05=E2=80=AFPM Arnaldo Carvalho de Melo
+<acme@kernel.org> wrote:
+>
+> On Thu, Mar 05, 2026 at 02:19:21PM -0800, Ian Rogers wrote:
+> > The file was removed in commit e62fae9d9e85 ("perf unwind-libdw: Fix a
+> > cross-arch unwinding bug") but the Build file not updated.
+> >
+> > Fixes: commit e62fae9d9e85 ("perf unwind-libdw: Fix a cross-arch unwind=
+ing bug")
+>
+> Removing the 'commit' part.
 
-This happens due to a huge underestimation of wall clock time in
-poll_timeout_us_atomic. Commit 7349a69cf312 ("iopoll: Do not use
-timekeeping in read_poll_timeout_atomic()") changed the behavior to no
-longer use ktime_get at the expense of underestimation of wall clock
-time which appears to be very large for delay_us=0. Instead of timing
-out after approximately XILINX_DMA_LOOP_COUNT microseconds, the timeout
-takes XILINX_DMA_LOOP_COUNT * 1000 * (time that the overhead of the for
-loop in poll_timeout_us_atomic takes) which is in the range of several
-minutes for XILINX_DMA_LOOP_COUNT=1000000. Fix this by using a non-zero
-value for delay_us. Use delay_us=10 to keep the delay in the hot path of
-starting DMA transfers minimal but still avoid CPU stalls in case of
-unexpected hardware failures.
+Thanks, checkpatch caught this but somehow I missed it.
 
-One-off measurement with delay_us=0 causes the cpu to busy wait around 7
-minutes in the timeout case. After applying this patch with delay_us=10
-the measured timeout was 1053428 microseconds which is roughly
-equivalent to the expected 1000000 microseconds specified in
-XILINX_DMA_POLL_TIMEOUT_US.
+Ian
 
-Rename XILINX_DMA_LOOP_COUNT to XILINX_DMA_POLL_TIMEOUT_US because the
-former is incorrect. It is a timeout value for polling various register
-bits in microseconds. It is not a loop count. Add a constant
-XILINX_DMA_POLL_DELAY_US for delay_us value.
-
-Fixes: 7349a69cf312 ("iopoll: Do not use timekeeping in read_poll_timeout_atomic()")
-Signed-off-by: Alex Bereza <alex@bereza.email>
----
-Hi, in addition to this patch I also have a question: what is the point
-of atomically polling for the HALTED or IDLE bit in the stop_transfer
-functions? Does device_terminate_all really need to be callable from
-atomic context? If not, one could switch to polling non-atomically and
-avoid burning CPU cycles.
-
-As this is my first patch, please feel free to point me in the right
-direction if I am missing anything.
----
- drivers/dma/xilinx/xilinx_dma.c | 26 ++++++++++++++++----------
- 1 file changed, 16 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-index 02a05f215614..8556c357b665 100644
---- a/drivers/dma/xilinx/xilinx_dma.c
-+++ b/drivers/dma/xilinx/xilinx_dma.c
-@@ -165,8 +165,10 @@
- #define XILINX_DMA_FLUSH_MM2S		2
- #define XILINX_DMA_FLUSH_BOTH		1
- 
--/* Delay loop counter to prevent hardware failure */
--#define XILINX_DMA_LOOP_COUNT		1000000
-+/* Timeout for polling various registers */
-+#define XILINX_DMA_POLL_TIMEOUT_US		1000000
-+/* Delay between polls (avoid a delay of 0 to prevent CPU stalls) */
-+#define XILINX_DMA_POLL_DELAY_US		10
- 
- /* AXI DMA Specific Registers/Offsets */
- #define XILINX_DMA_REG_SRCDSTADDR	0x18
-@@ -1332,8 +1334,9 @@ static int xilinx_dma_stop_transfer(struct xilinx_dma_chan *chan)
- 
- 	/* Wait for the hardware to halt */
- 	return xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
--				       val & XILINX_DMA_DMASR_HALTED, 0,
--				       XILINX_DMA_LOOP_COUNT);
-+				       val & XILINX_DMA_DMASR_HALTED,
-+				       XILINX_DMA_POLL_DELAY_US,
-+				       XILINX_DMA_POLL_TIMEOUT_US);
- }
- 
- /**
-@@ -1347,8 +1350,9 @@ static int xilinx_cdma_stop_transfer(struct xilinx_dma_chan *chan)
- 	u32 val;
- 
- 	return xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
--				       val & XILINX_DMA_DMASR_IDLE, 0,
--				       XILINX_DMA_LOOP_COUNT);
-+				       val & XILINX_DMA_DMASR_IDLE,
-+				       XILINX_DMA_POLL_DELAY_US,
-+				       XILINX_DMA_POLL_TIMEOUT_US);
- }
- 
- /**
-@@ -1364,8 +1368,9 @@ static void xilinx_dma_start(struct xilinx_dma_chan *chan)
- 
- 	/* Wait for the hardware to start */
- 	err = xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
--				      !(val & XILINX_DMA_DMASR_HALTED), 0,
--				      XILINX_DMA_LOOP_COUNT);
-+				      !(val & XILINX_DMA_DMASR_HALTED),
-+				      XILINX_DMA_POLL_DELAY_US,
-+				      XILINX_DMA_POLL_TIMEOUT_US);
- 
- 	if (err) {
- 		dev_err(chan->dev, "Cannot start channel %p: %x\n",
-@@ -1780,8 +1785,9 @@ static int xilinx_dma_reset(struct xilinx_dma_chan *chan)
- 
- 	/* Wait for the hardware to finish reset */
- 	err = xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMACR, tmp,
--				      !(tmp & XILINX_DMA_DMACR_RESET), 0,
--				      XILINX_DMA_LOOP_COUNT);
-+				      !(tmp & XILINX_DMA_DMACR_RESET),
-+				      XILINX_DMA_POLL_DELAY_US,
-+				      XILINX_DMA_POLL_TIMEOUT_US);
- 
- 	if (err) {
- 		dev_err(chan->dev, "reset timeout, cr %x, sr %x\n",
-
----
-base-commit: b7560798466a07d9c3fb011698e92c335ab28baf
-change-id: 20260330-fix-atomic-poll-timeout-regression-4f4e3baf3fd7
-
-Best regards,
---  
-Alex Bereza <alex@bereza.email>
-
+> - Arnaldo
+>
+> > Signed-off-by: Ian Rogers <irogers@google.com>
+> > ---
+> >  tools/perf/arch/loongarch/util/Build | 1 -
+> >  1 file changed, 1 deletion(-)
+> >
+> > diff --git a/tools/perf/arch/loongarch/util/Build b/tools/perf/arch/loo=
+ngarch/util/Build
+> > index 3ad73d0289f3..8d91e78d31c9 100644
+> > --- a/tools/perf/arch/loongarch/util/Build
+> > +++ b/tools/perf/arch/loongarch/util/Build
+> > @@ -1,4 +1,3 @@
+> >  perf-util-y +=3D header.o
+> >
+> >  perf-util-$(CONFIG_LOCAL_LIBUNWIND) +=3D unwind-libunwind.o
+> > -perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) +=3D unwind-libdw.o
+> > --
+> > 2.53.0.473.g4a7958ca14-goog
 
