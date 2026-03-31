@@ -4,100 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65CA610F9302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 21:04:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC3A10F9303
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 21:16:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:References:
-	In-Reply-To:Cc:Subject:Date:To:From:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vxQdo+GsTGHOPhfZ6KDq0AqryyH8iiUIo3Vw21bj1s8=; b=lCPq8k+4D0w39gJ37wUjzmBrE4
-	s1AxUyJv4FH3U4OIL8VQaQPGldTIrc8MErk2nBDY8A6qqRWjmRxxQu9NSCyTF6EqGnJmBpsHsMG87
-	6PHpJpkAN8l4Z6bO4FJr6jsyYXrXZjg5LgLdNo1Z0xcbUKQu5PEQDCj97I93g3io/iXIjjhys4i8G
-	Dc56u5peha2Bu077fAGNr11rOnJUgewO9fPFR9DATCrXqXtrT63GCCmvG4+AMbJZX/xoqFU+8mBS8
-	kA0pO+u8mGUy6ZkNXPjE9HjmNJd5ErlBM6YkcmzCgNp2ZhhsPFFafhsFir3V49YLfct24ccqhfV2q
-	5CcJ5/Tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lQ3SaH4J67B9h2NCOtZ43yq5sIdxKCAkxJ5TjrHOuhY=; b=dP5uIpZyJoXawEvQqe0sgfTTpG
+	uzlUJmhU1O0ZIRrUZ7o6jvy3AjXYfFIUIo3Db5YjMuDM9oKvEq24oAseVwqzeBqRZkWlpf6sdF4/6
+	C2QWBYMPifH+gDhyMFQDKQhFYWB4Hoa4yDwGPjcn5qIeK9atHrPDnggJBNUfHhKF17TuOh1jYiQda
+	2hAdZ9DZQO5/0vocF7PDyw3W3e944owu/uIA/w/Sl3AcUe173HiCwbwsxhWqQQuvokPV9UqNa3X3V
+	FELgbWfaln0xX6AOk1ta0T+9tammocaAegqCNmzeOtBsy37jU8rKH6wtH4oVk3TmLOFn6ZW9gJu7S
+	Vv4oI7kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7gFu-0000000DYat-0k4J;
-	Tue, 31 Mar 2026 21:04:10 +0000
-Received: from fout-a7-smtp.messagingengine.com ([103.168.172.150])
+	id 1w7gRT-0000000DZBD-2WJE;
+	Tue, 31 Mar 2026 21:16:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7gFr-0000000DYaD-1VDM;
-	Tue, 31 Mar 2026 21:04:08 +0000
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfout.phl.internal (Postfix) with ESMTP id 83AC1EC010A;
-	Tue, 31 Mar 2026 17:04:03 -0400 (EDT)
-Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-02.internal (MEProxy); Tue, 31 Mar 2026 17:04:03 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jetm.me; h=cc:cc
-	:content-transfer-encoding:content-type:content-type:date:date
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1774991043;
-	 x=1775077443; bh=vxQdo+GsTGHOPhfZ6KDq0AqryyH8iiUIo3Vw21bj1s8=; b=
-	WbHnLidoIW2uJNemwQMLAKmulHP7ovrIKEeCf/LVykpvojSwY737G+MhZWwv+rVK
-	bC0fzvudtk/i83wzwcgmKhXDQX0DfKTkkUeD6Ht+iOWOVniyAtmgSdL40wr16J8i
-	1fp2mtQgn/n0lgl/mAevyCPcZ0t1dlbP1QdEiFfeM0o6OWm02yVkN1bubnd2sVxK
-	DxktENQz9opbwzTzQO6X9u+Fs1Y53EEFSTahss+8eXdukzlYe6E86OQXRSmO7ybf
-	9M/ybFoTdswaNhzlNBszo0TCXSNWEwqOvO9NjRrRRVGcmxPQCtPo9bb5rKlmb3u9
-	NWX7+PkywVu3IktFyKgBPA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1774991043; x=
-	1775077443; bh=vxQdo+GsTGHOPhfZ6KDq0AqryyH8iiUIo3Vw21bj1s8=; b=N
-	1rpNS0NIljt6lBHkass/SqUQKRptAEZDWmcEFRkrBKknBQU0eehYAnoD7Np7Edge
-	3mjEvEH/gDJIEHzpdZnOBscXXuOC0m+QK7C0sQrwAO7DS6gEMUKSMvM1ft7ZwZJQ
-	TrNYoFIZoScyWvgwrZWe9EV0AnbuSU3EtAbHYl7M0LAUaN/VqsEwxBImEuSwzpX3
-	ElhcQr7B075b4kcuCmDGz0yZp72bycQHfUkJkSnLFlP9MF81m13hqKLX4IGDWA5B
-	R8W9N39y12FwlZ1lYvMwtaqCM1nqeCCozxCSIeOzzshaq6gxfqGzCitaWGNYRqCB
-	iTlGHV7x1cJ7Fn+xwytLw==
-X-ME-Sender: <xms:wjbMaawEEtpRe7-HS-H1k4HgXYOa8XEupNgiH5i7bvvt8pIZIdO1KQ>
-    <xme:wjbMaRFZ_VsKThOkMj-VzSblzkhxZZXqXh46DX3qsHHRm5D0vRyxjFlHMmLnxLWZ3
-    HVNKajvhkLfjtHfSX8Mrn_Ph1DVBDvPwghrpAxA52ZZURwP0oJ0a-c>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdduvdefucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
-    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnegopfhokf
-    ffucdluddtmdenucfjughrpefotggggffhvfffufevjghfsehtkedttdertdejnecuhfhr
-    ohhmpeflrghvihgvrhcuvfhirgcuoehflhhoshhssehjvghtmhdrmhgvqeenucggtffrrg
-    htthgvrhhnpedtudejffejkeekteelueefvdejvdeuhfefteehkeevtddvleduteekleet
-    vdelhfenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
-    hflhhoshhssehjvghtmhdrmhgvpdhnsggprhgtphhtthhopeduuddpmhhouggvpehsmhht
-    phhouhhtpdhrtghpthhtoheprghnghgvlhhoghhiohgrtggthhhinhhordguvghlrhgvgh
-    hnohestgholhhlrggsohhrrgdrtghomhdprhgtphhtthhopehluhgsnhhinhdrihhvrghn
-    sehgmhgrihhlrdgtohhmpdhrtghpthhtoheplhhuihiirdguvghnthiisehgmhgrihhlrd
-    gtohhmpdhrtghpthhtohepmhgrthhthhhirghsrdgsghhgsehgmhgrihhlrdgtohhmpdhr
-    tghpthhtohepmhgrrhgtvghlsehhohhlthhmrghnnhdrohhrghdprhgtphhtthhopehlih
-    hnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdp
-    rhgtphhtthhopehlihhnuhigqdhmvgguihgrthgvkheslhhishhtshdrihhnfhhrrgguvg
-    grugdrohhrghdprhgtphhtthhopehjnhgvthhtohesmhhinhgvihhrohdrihhopdhrtghp
-    thhtohepphhmvghniigvlhesmhholhhgvghnrdhmphhgrdguvg
-X-ME-Proxy: <xmx:wjbMaaosQq4Hksquv81s7VGSNdW4bTZ8xFCZH-eBkp6CI-zCuqxB1w>
-    <xmx:wzbMaQySBGrkHaBIKT-227T9WR5RuzWhcc1IVk3ZdivdsWoeSJioag>
-    <xmx:wzbMaesE0hMsTfirkDkLlQTCGRxT0CZ7P_iI3aTxw404KrFvn8Uy8g>
-    <xmx:wzbMaZ245cWpETaqnvIXTd-wD2zx1aRU5CsSAaCSodkc_7UIFzsf2w>
-    <xmx:wzbMaX5gXIfDYnYJBNWm2F7U5cHU6zflptQYTRcz5_xWX51S638s9YCG>
-Feedback-ID: i9dde48b3:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id DCE821EA006B; Tue, 31 Mar 2026 17:04:02 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-Content-Type: text/plain; charset="utf-8"
+	id 1w7gRS-0000000DZB2-3Sxl
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 31 Mar 2026 21:16:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E019A60126;
+	Tue, 31 Mar 2026 21:16:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA640C19423;
+	Tue, 31 Mar 2026 21:16:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774991765;
+	bh=/Zuj465z+SJXeuy8BFVva/2T89KUCArNO4FegDfx9oE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=o3gTmA2S/CH8s2brCacnXtwcIc8+v4oRzecEPqcJ874UO+DZ+POF0HD8aLSYjkAr+
+	 9rTKEPtsuxZNGQlLxfeqaDwJFHxcaiqwJjE4/M6EPDgeAOsoixISqzgNaDAe7rGmdr
+	 KWXpo7IWoN8CFpQJmNnXR0fcrdDbCdUX0pwfenarZ2z5NkZC2sPVriHVQjXEIPuuZ0
+	 V84O2UD1pGTuWB3nek/enBCN613qa4csw1lkt7n/D51nIATeFh3tZmGldpNxJ5quXo
+	 +agOcmOyrLfMB/pS8hE9l11Fdc0XI363OY8VCR5WCYNdvUhK5MwdFpDRj67GyEbUaX
+	 0yl6OnKwtWdDA==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Rob Herring <robh@kernel.org>
+Subject: [GIT PULL] Qualcomm Arm32 DeviceTree updates for v7.1
+Date: Tue, 31 Mar 2026 16:16:02 -0500
+Message-ID: <20260331211602.959960-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-From: Javier Tia <floss@jetm.me>
-To: Paul Menzel <pmenzel@molgen.mpg.de>
-Date: Tue, 31 Mar 2026 14:58:59 -0600
-Subject: Re: [PATCH v5 8/8] Bluetooth: btusb: Add MT7927 ID for ASUS X870E / ProArt X870E-Creator
-Cc: Marcel Holtmann <marcel@holtmann.org>, Luiz Augusto von Dentz <luiz.dentz@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, Jose Tiburcio Ribeiro Netto <jnetto@mineiro.io>, Ivan Lubnin <lubnin.ivan@gmail.com>
-In-Reply-To: 11effdbc-4eff-4430-a22f-3320f84859fb@molgen.mpg.de
-References: 11effdbc-4eff-4430-a22f-3320f84859fb@molgen.mpg.de
-Message-Id: <20260331210402.DCE821EA006B@mailuser.phl.internal>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_140407_644430_F120B117 
-X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,26 +70,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
 
-Thank you for the review.
+The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 
-On Mon, 31 Mar 2026 Paul Menzel wrote:
-> > +	{ USB_DEVICE(0x13d3, 0x3588), .driver_info = BTUSB_MEDIATEK |
-> > +						     BTUSB_WIDEBAND_SPEECH },
->
-> This is not sorted. Is there a reason to place it here?
+  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
 
-The placement is a consequence of the series structure - each USB ID
-patch inserts after the previous one to keep patches independent and
-conflict-free. The existing 0x13d3 MediaTek entries in the table are
-also not strictly sorted (e.g. 3560, 3620, 3621, 3622, 3563, 3564),
-as they are grouped by chip generation rather than numerical order.
+are available in the Git repository at:
 
-That said, Luiz has already applied v4 of this series to
-bluetooth-next with this ordering, so any resorting would need a
-separate follow-up patch.
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm32-for-7.1
 
-Best,
-Javier
+for you to fetch changes up to 6453ad0865b68ab0de5873c1a8bb4addbbde5c19:
+
+  ARM: dts: qcom: msm8974: Drop RPM bus clocks (2026-03-31 15:59:12 -0500)
+
+----------------------------------------------------------------
+Qualcomm Arm32 DeviceTree updates for v7.1
+
+Qualcomm APQ8084 is incomplete and hasn't seen functional contributions
+since 2016, so drop the platform (for now?). Also drop a number of
+unused IPQ-related dtsi files.
+
+Lastly clean up the RPM bus clocks in MSM8974 interconnect nodes.
+
+----------------------------------------------------------------
+Dmitry Baryshkov (2):
+      ARM: dts: qcom: drop apq8084 support
+      ARM: dts: qcom: msm8974: Drop RPM bus clocks
+
+Rob Herring (Arm) (1):
+      ARM: dts: qcom: Drop unused .dtsi
+
+ arch/arm/boot/dts/qcom/Makefile                    |   2 -
+ arch/arm/boot/dts/qcom/qcom-apq8084-ifc6540.dts    |  34 -
+ arch/arm/boot/dts/qcom/qcom-apq8084-mtp.dts        |  23 -
+ arch/arm/boot/dts/qcom/qcom-apq8084.dtsi           | 852 ---------------------
+ arch/arm/boot/dts/qcom/qcom-ipq8062-smb208.dtsi    |  37 -
+ arch/arm/boot/dts/qcom/qcom-ipq8062.dtsi           |   8 -
+ arch/arm/boot/dts/qcom/qcom-ipq8064-smb208.dtsi    |  37 -
+ .../boot/dts/qcom/qcom-ipq8064-v2.0-smb208.dtsi    |  37 -
+ arch/arm/boot/dts/qcom/qcom-ipq8065-smb208.dtsi    |  37 -
+ arch/arm/boot/dts/qcom/qcom-ipq8065.dtsi           |   8 -
+ arch/arm/boot/dts/qcom/qcom-msm8974.dtsi           |  21 +-
+ 11 files changed, 3 insertions(+), 1093 deletions(-)
+ delete mode 100644 arch/arm/boot/dts/qcom/qcom-apq8084-ifc6540.dts
+ delete mode 100644 arch/arm/boot/dts/qcom/qcom-apq8084-mtp.dts
+ delete mode 100644 arch/arm/boot/dts/qcom/qcom-apq8084.dtsi
+ delete mode 100644 arch/arm/boot/dts/qcom/qcom-ipq8062-smb208.dtsi
+ delete mode 100644 arch/arm/boot/dts/qcom/qcom-ipq8062.dtsi
+ delete mode 100644 arch/arm/boot/dts/qcom/qcom-ipq8064-smb208.dtsi
+ delete mode 100644 arch/arm/boot/dts/qcom/qcom-ipq8064-v2.0-smb208.dtsi
+ delete mode 100644 arch/arm/boot/dts/qcom/qcom-ipq8065-smb208.dtsi
+ delete mode 100644 arch/arm/boot/dts/qcom/qcom-ipq8065.dtsi
 
