@@ -4,168 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BE14FF60D8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:48:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65655FF60D8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U8M+2h0PCSrkXRN0tmSN9Vsb6TVfBfSQUQY2kI+53eE=; b=nYSr0v0tFXYqRlhvAPlMxZdaP7
-	UT2+XADkRwYgTMTTNuNTHa/CPqVZNUr4LF72MWjHnkJDFrHtGiSdv7HCzUhgO+mI+8DmYH0R2SCb6
-	fNkGIPdLNSMiAEaLthGW+8Zhlr/+5TgK4BVJk1tDkHJEOFRYRsFdRca79VU9jvwdPmAdqVfPC5hHA
-	yUzABxldhSROrC6x9cSC6smld/kH+0ry8VKs0nh33x9AsCMNzePvfVHqs5k8XDGzvE4njW6ffZXks
-	20WpSRfZJS/VEtGCDkoTzv9dnevX9cfWvzb9rrKJKpBJ1TJA2uPYVFbwnqRuaFJdeF/F9ht5oxdtZ
-	+n4xgrIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZGH3ymB2jwjCiHm6wtb76PJ1E35x0Um1oAlYfSnm17o=; b=vDztiHM93kLri+tnTJimnEYP/M
+	2ThsSzONqb6Pqr8AXnYDRySNrgJpWkS00cNCCwN5EwmqveSRAoU12hBNsoor2311v/6Q4M7H2qWmt
+	VenlnFeR6FQZSbcswvqUmuKBoj5Jvn+6aH5NV92VAsupGsMynb1pYeJCRrDrOguqfQqs2xAvvonvH
+	D0zZZ1OI/t4XT071YumGfpDiPp7jsQoW98tCvrakZVtrZHibQ8j9J+SzJcbwtamtwVE/YgzqVo1PX
+	XkF0vyLnMMkbfUfnMILavDeZB+Htq2HDuLjtvZ/D5ZDuEKyH87UUJQBE/Pos46JMVcj3f39Va7azX
+	9ZA3lTCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Tpn-0000000CWEh-0oE8;
-	Tue, 31 Mar 2026 07:48:23 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1w7TrI-0000000CWOp-0K42;
+	Tue, 31 Mar 2026 07:49:56 +0000
+Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Tpk-0000000CWE7-1wyK
+	id 1w7TrF-0000000CWNs-3IFD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 07:48:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=C/hNpRyzCfnwYuJJqgG6+rI5RIyLBbEuP9EUAGUAMXEwFcKd9b7Hwj15wukyDtxPXIIbsM7rcYQBatTDVP2gAb72d4NIel5k08bVlzWgyKp9DzKXe9Tyjgg3gP9KzxNhC4l+gNwiCGAIybDrFpGV8OOV0xV8srEwFqn9P/kkSkkaN5DEx+4ehoEG/NVxd5poGlVlYLh+naI7+xHkbwvT4/2ENAidoFe7DSZwUsLZng5mjon71UeBuOFn/A63qdtjVZU4QGdsGfgHhVuPdUvKTzT9kt1VdNaXLbf8gbYQOpPHzdLRuIEpPgbou1H4ySHCPsLRVznod7TFE1VgW88TsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U8M+2h0PCSrkXRN0tmSN9Vsb6TVfBfSQUQY2kI+53eE=;
- b=yzrwAeWCQYRwYmj97SVbzvig4bSJl/N+73EAJdn3kTxOF1bMaYIzhxa2dnSGGWIb3+iCCczTLMOyX1MUiCS24kiOU780U482KkIBrRxmvboMKjZw/wnMkPkznry7fu5yT68Lg0yiXjHeJMNE9efVfu/VfYPsKHjt1XzZNoI2ub+ZqPTTJs66ePQf1Tk55PqFNdZhlS/yzEy8C1XN7+Y9rBOhpuBWAEurjTpUO1XNXOmTmlb0PyIKVcP8LbrSxuA+a2Bw1mlB5dq4LT/co6w2gtUB5xalIl74iAQWC3swMxJK7jjKu4ETAL7zoGwUThlCzaxlMUJaFGsXyg/5fRyGjA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=U8M+2h0PCSrkXRN0tmSN9Vsb6TVfBfSQUQY2kI+53eE=;
- b=V4mB7t57LUObHl+j+dQMzeuvncjdYUKWibZHAA0bcf0b/hpMuXLUHwpx7M35/k6esv0/uhne+2tWgbPwq4XsNHwJwFKfmclhwJaYeXAHJzWeY/t0GTKsBMZmvFC+/QiD/7QiZgyZtS+cF31Q9k5CRRIN4JcjdeV9hG/5lUeT4O0Oyyf2mdVniXI5+K/s+EmE2d/qFx6eBOtqu1nM6Iq8APQo2/kA9e5AwYPkspXPti0YeYL0YENDUkaHEi1LnqNuV88WvXfAngsuMZ5MKPSCNzZOiiJkXOxOHMc6vt5+UJE1fvbcsDU0LJXTBt1FavgtmaxCR5XdsWgeEOT428B4oQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
- by AS8PR04MB8039.eurprd04.prod.outlook.com (2603:10a6:20b:2a2::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Tue, 31 Mar
- 2026 07:48:13 +0000
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85%6]) with mapi id 15.20.9745.027; Tue, 31 Mar 2026
- 07:48:12 +0000
-Message-ID: <4c46909d-641b-4389-bc4a-29394cb1d46d@oss.nxp.com>
-Date: Tue, 31 Mar 2026 10:48:01 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 01/10] dt-bindings: mfd: add support for the NXP SIUL2
- module
-To: Krzysztof Kozlowski <krzk@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
- Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
- Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Aisheng Dong <aisheng.dong@nxp.com>,
- Jacky Bai <ping.bai@nxp.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>,
- devicetree@vger.kernel.org, Enric Balletbo <eballetb@redhat.com>,
- Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Vincent Guittot <vincent.guittot@linaro.org>, Rob Herring <robh@kernel.org>
-References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com>
- <20260120115923.3463866-2-khristineandreea.barbulescu@oss.nxp.com>
- <20260121021913.GA1704619-robh@kernel.org>
- <e956750b-0333-4465-b37e-5f460b5e092f@oss.nxp.com>
- <edc3a63a-8117-476f-9582-97ae31fefa96@kernel.org>
- <7d200097-51bc-4404-be8b-f536d0ecfc25@oss.nxp.com>
- <21531cdd-5ab9-493e-a722-61b98117e2c4@kernel.org>
- <22a5a072-847e-4cfd-8abd-e37163f73265@oss.nxp.com>
- <fe755e85-1558-4272-bdd4-af7a2038ab1f@kernel.org>
- <ba6140bf-237e-4099-af0c-ee404c1719cd@oss.nxp.com>
- <c7a59716-3d53-4787-b4ef-9674c2a4a9b5@kernel.org>
- <3c454da1-d949-4258-87ce-8b545000bf01@app.fastmail.com>
- <5f1b651b-1064-4280-a7e0-b7d66c396cde@oss.nxp.com>
- <f3ff461b-edd7-423a-ac99-e70145aaaaea@kernel.org>
-Content-Language: en-US
-From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-In-Reply-To: <f3ff461b-edd7-423a-ac99-e70145aaaaea@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0298.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:e7::7) To AM9PR04MB8179.eurprd04.prod.outlook.com
- (2603:10a6:20b:3b5::20)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|AS8PR04MB8039:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4be0100f-cde2-47e0-85e1-08de8ef9dc18
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|19092799006|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: p7hhkacEoSngtcylaQjdCsgb81uBi6U+LIVYYZTF+adH8nXy96SKln4VAr2/PCC3Yn3mQBkiIZDEJ86jC5nUjPQKprp/Gzu+sBMOKy2qQDl8Kxa03H39M/ciZqWEt6UdnKFLWLQISS602MJR1Wk8pXSdERzmKFYDc7LU68tc2Ax804Pr57fm8viRMh7Q1U+oRDAVYQsKKW+mPBpONxTamll6qNwUaLlWPxrrWZHVzNLAbvquR/h4+e5lXyyKeeEzCWCMTDEhtxtuqYSAj/sBzQzyhql4N3A2Q+PTR/EizDXb2meMEptGqYFOifNNkrnw4McX9lXqxHr2YM8FMQg+TEz0U4Ddy3+hKglUATQxTYoP3S7uwK2ConDSH51qDwoSgzg/Jw3Sk+HvW429s3PTEOZAnQKPUbylPtp3xrDLYN8Dihq6/BDl+DI/2xYeMSjEK8wAaJplUhE+zfJhVhjYnd7GfR7/hviY9SSiM6QKuU1XS/TVZOrDJ/1yvaCwpYwHf5rV8tywVJF/Ar8gcgHepBJU0duyAw2FDsfXsywa7q+Q0/Lk1vfzLsSWnZrkksa5XAsMkrkHXVyWDEA9CS02DaC1puGjA2zZzcaX9RnepYr+lQAsgrowLv3R0mubxNqw+Zj9KhsINO3zle8wPsc7p8L/v1oP1NR5KFAcXSAakJK8Mw4nNPkJRjnPN7tTIpLVzQXplLNjs5MF4sj/DKzjjdjoZUaGVWc86HnSZ4pap60=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(19092799006)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cVpnNnpEVUVLTURsQjNDYWQ4cWNTQi82akpyU3kzazlXYTIyS2hrMWcrYmhI?=
- =?utf-8?B?NE9nbHFleGh6dmtxMmw4NmRKdG9tbmljNGFmYWpBdUt5MVJCTERLUXpRUXgz?=
- =?utf-8?B?VEJ0dUNiR2hUWmM0dityaFZxVk1qQVF0V1NETVJrTXFJd2pnTGZBVFhtNXQ4?=
- =?utf-8?B?RHJJR3R2akFxV2NyQytmdVNrbmtCeU9ZYUQrZERBRTFhQlhLY1VlaHc3OU5J?=
- =?utf-8?B?QUJ0UEFPMUowNFFpZ09yNkUxbUZockhWL08vTEUwdUY2eTlHKzdTWWFjL2x3?=
- =?utf-8?B?SG0razFkYjVaUkZ4M0ZhckJvNFltd3NxZDRkWVR0dU40RFk0UDBBRUkzRDhQ?=
- =?utf-8?B?anpHV3ZXalNlOHpJRkdSSjU1UHJGU3BXdHlGUXNSUFlCd1Z0L2FMUDhQMU02?=
- =?utf-8?B?VjBJWGxLaUJGQmtEcTZINVUyZld0STVvdTNrdjlTZURMZTBxemFnNmVDaFJD?=
- =?utf-8?B?TUhJU0hvb1FaTnVrYnVKWUVIdndONDBWSGVYWW9seEZLdC9idjBpMUpwUzFk?=
- =?utf-8?B?dUhCZW5rRUNNVlc0b0gvMXVCK2VXOVZQeldpQWFkRklqNDUyNXN4ZlA2UmNB?=
- =?utf-8?B?OGdLTXlTUjR5MEM2TUZNajVONjZJQ2V3SDdQWitTTVNXMGVVdlJJcDJYUnEv?=
- =?utf-8?B?Z0Q3RGFPKzBNMFJBaEl5T0F2ak90anRSVmkxaDJmbDRYcmtCMlV3MlVWYkVt?=
- =?utf-8?B?TnR4YzBQb0VMeHhkc1NEZGd3bmxWY2ZPaUhndFcyNTdYNFJFWFE3WDB1NXp2?=
- =?utf-8?B?T1VjVUVoLytoem4yeVkwNWxFSEdtak1YamNSUnprRUVDeS84NVl1bHErTEZx?=
- =?utf-8?B?bXZaOTVIdjRzNzNBT3I4UTBOTHc5aUFCYmpCMWxEU1hRM1NJSDVCMzN2aHVS?=
- =?utf-8?B?V0xkUnl0NjB1RkpRd0s0anpsd3kvQnVud01sc2d3bzVCeUdmbDBuZWhFWVF3?=
- =?utf-8?B?NjE1UGFSNTltV045bitYYkRHVjBGWEJOUC9iRWQ4c1NWNnBseTRaK2g4ZlBX?=
- =?utf-8?B?V1VpSGVMUU4xN09sNmNaZGdMWDZxMWl6cXBNYnovbmlUVm5JMyt5WlJSMEpG?=
- =?utf-8?B?YVJGZm9oeFh2QTIzc1RZTnRUSThsbkl1WUlHeGxXL05zZ3ducDQrN1Z3djdU?=
- =?utf-8?B?Nm41UDUyVmtPaXZxVEphZTNlRU14Nm9VZVowd1ErTXdWQzJTN0l5bXhUdnkx?=
- =?utf-8?B?c2F5SkMzNkgzZmJqd01oOEpkdE1DNGNLc1d0Y2pHNDc2RklOUkpVaEFMcE5I?=
- =?utf-8?B?aUd0STBrZmN5a1dPTlplQmJCN1lPbi9MVzZsRFlHQlAyQms4aHlDdlNBblV2?=
- =?utf-8?B?c1lveHVIUXpkQmhOTXNXQmNZdC9DNEliUzFqdk5LVGkvZ0w1cTRyekRNbjFj?=
- =?utf-8?B?LzRnNDVuUmQ4dGZQQ0Z2K0l2clJ1WldPQlFXZFNaanJWMFUycXFUZ2hSbjJL?=
- =?utf-8?B?UVhaeW8xL0hyR3h0Q1oyRXNyRm5EbmtrbktFTFVIaGt3MEVrS2s1SzNTQzlp?=
- =?utf-8?B?VWs4c3hBRnRLQzJ5cVQ5TEQ0bWhGMmJOZ3hPdGMwaGxGeTJ0NG9NbC9BYVNs?=
- =?utf-8?B?TWt5NTBaQ01iSlFEaXp3NUdlYlJnajhrdjcxM0REcjVpN0FCVjJWcWFMeFd2?=
- =?utf-8?B?U0dBZGphS0hzVU4vMDJ4Y0pieFcyaXRKYTRIVUFiKzVtbkI1dS93OU43eCs3?=
- =?utf-8?B?RnZYd2ZQNFFkUFJReFI4SWsxZDI1Skw2WVFDVEhPU2NSNFJzOEFONGJLdGNt?=
- =?utf-8?B?TTBBNFgyeFRiRHczdG56YmM4R0g0QnhyVXhVMFJqQjlFMkNBdU9rZGxuTmkx?=
- =?utf-8?B?NlRVb01uTXZOUkFoNTBXSEVmT3oxUXpOZFg4aVNyZExGRkdlZWlma2NNc21S?=
- =?utf-8?B?WDhjYTlUVllIMjdVRHUwWDljVndrYlRGeXdER2xCT1ZiOFdJWVdCUTlFald3?=
- =?utf-8?B?dTM5K2lXbFBqUDNLTHg4MXpQblB5WGN2YXNPTjczR0syWjdvVmJXVndYc0VD?=
- =?utf-8?B?UURRWlhPLzJPUnV5dHBnNnhnZGtrK3g5RWV4QitNbFVnVFA2OFlHT3llc2p2?=
- =?utf-8?B?dk5xSmRyc0JZdWY0R3Rua2JsMC9hOXN4dTRsMmlaYng2eGZLUWpGQjE0R3E2?=
- =?utf-8?B?WjFSYXVEUzZ4ekN4b0pWclg3TGgrOVR3MC9taTFRb1R1RUZXLzUwaGM0dE8z?=
- =?utf-8?B?WFgwaDA4Tlp6UlI2RGl5czBFMmRWb0N5WGJOY2I0T3lsR1ltNGYzUWtHdXhC?=
- =?utf-8?B?dTU2TUt3MHEwa3VRTStvbm1rRXliRDdzRDBmQ0VneWVrUUxwMzlkbit4L1VO?=
- =?utf-8?B?L0xuaENNdWdsUXMrQ3g4d2txMkNOb0p1RVpqK2RIL2JJbFhBeUtrcGNDZStX?=
- =?utf-8?Q?4I3dDnY9kC2b52MMk6ZJX+VQEgDhoI6ymrrSj?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4be0100f-cde2-47e0-85e1-08de8ef9dc18
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 07:48:12.7203
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2gNtD6foV2bGa58hfsPHjyVODfcNia2lglJdmJPIt/SLaFfYNYUjzvR2r/pVFmihnkHtP47vf5i7ovYnOXbCwANPw+/AHUb2nOkb0oz4Ux8EFZBFk9fiVnqvu2wLw4ZH
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8039
+	Tue, 31 Mar 2026 07:49:54 +0000
+Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-660a48777b3so6427316a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 00:49:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1774943391; x=1775548191; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ZGH3ymB2jwjCiHm6wtb76PJ1E35x0Um1oAlYfSnm17o=;
+        b=a5eUM0ccvsm8JrzEALpN0aZkef64HrDJGGViTtuYkZN6YyoqREKbtrmMlBkGDwQGaF
+         hJUUFHYLgixAIpuGMORxTnkpi2vCl+3PjhxKJGavL4UvBi6kd+BAIOWVlHnaslh1O7yj
+         3wnjqC/UND3YryoLBmmRKbHbYmW6adW3EEck/5wwxZ2tWJqDDMaaX8h8OURad/SxXBog
+         xad/sG5BHYNx4FTWzA5bLSuKkRfUZrIjnofFZeWnXdPJBGIj4Nt++Weumx3bw2eBjfbE
+         cO5F1PNbQcBGt6Hdf1L1E+b0Ul+4BQ2Vh0HUIzBrrqZ6BvJNJ9gtYqdpwJIJ3eqc+qvu
+         mKDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774943391; x=1775548191;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ZGH3ymB2jwjCiHm6wtb76PJ1E35x0Um1oAlYfSnm17o=;
+        b=KTwH6X9/4shFoJmbJiqzoUG4b7f3wa4KtspfUr6cr2enYk2Eg+VgiRmpMvtmuSgsmm
+         vaZWYrXRSJxUp/DQ1GbC8BjdtOR5LRTjGqNuDk7l/lMp8VRfQ3bE2zgA203NKgtJJBF2
+         JAZKETGJymhTqA9x4UyvxvOOIRi/om57BnY/khcNpVxTy63nPnBUlmS5yZKeD1kK+zVo
+         REkDhoV/R18m9NchB9j+89tJOKxhWH3BtGUV7jOPLsnf7Fp2nyDGjptcp8bg9y0D42VY
+         IffC2r/TX4vF2AecL3+nybNLifG1rdQFPo3+Nz2hgoaJqSsyZndX89RM30Ghwt8Gj3nN
+         CQuA==
+X-Gm-Message-State: AOJu0YwPUy5j9pgIA71vs7Em27jfY+uZx+Ho7wqhMmnn302U/st3i14A
+	Mkr/X0iskQCZKQmZD/vBOHBwP8oeEQicIwIENEfNVMlZF36j1+pXOww1nurkqzHZxl4BrcQBQg=
+	=
+X-Received: from eday9.prod.google.com ([2002:a05:6402:4409:b0:66b:a77e:548e])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:46db:b0:661:8ccc:473
+ with SMTP id 4fb4d7f45d1cf-66b28c6ac35mr7784086a12.27.1774943391017; Tue, 31
+ Mar 2026 00:49:51 -0700 (PDT)
+Date: Tue, 31 Mar 2026 09:49:40 +0200
+Mime-Version: 1.0
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2643; i=ardb@kernel.org;
+ h=from:subject; bh=zSkjOYBXbEwftTvpZU0nBNQV37U7ijaf9h5sMhcXtdM=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIfN0zZRXt/cX/t1Uv+9+V197wPEbC1971nnN7nh85P+T4
+ myVpztKOkpZGMS4GGTFFFkEZv99t/P0RKla51myMHNYmUCGMHBxCsBEfsszMqzZ7C0+2a4gdZOy
+ cWiLnK/U7piDl4ydXjMxJzX0/53zchLD/5r6H65XFsbfEbZRyczUjHwy/Uj3tnadPSXqnX6bGEI 6WAE=
+X-Mailer: git-send-email 2.53.0.1018.g2bb0e51243-goog
+Message-ID: <20260331074940.55502-7-ardb+git@google.com>
+Subject: [PATCH v2 0/5] xor/arm: Replace vectorized version with intrinsics
+From: Ard Biesheuvel <ardb+git@google.com>
+To: linux-raid@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org, 
+	Ard Biesheuvel <ardb@kernel.org>, Christoph Hellwig <hch@lst.de>, Russell King <linux@armlinux.org.uk>, 
+	Arnd Bergmann <arnd@arndb.de>, Eric Biggers <ebiggers@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_004820_529953_2C1E1C63 
-X-CRM114-Status: GOOD (  22.60  )
+X-CRM114-CacheID: sfid-20260331_004953_873091_B63A75F2 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,113 +92,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/23/2026 10:07 AM, Krzysztof Kozlowski wrote:
-> On 23/03/2026 08:57, Khristine Andreea Barbulescu wrote:
->> On 3/14/2026 9:31 AM, Arnd Bergmann wrote:
->>> On Fri, Mar 13, 2026, at 18:10, Krzysztof Kozlowski wrote:
->>>> On 25/02/2026 10:40, Ghennadi Procopciuc wrote:
->>>>> On 2/23/2026 3:14 PM, Krzysztof Kozlowski wrote:
->>>>>>> there are no resources allocated specifically for nodes like
->>>>>>> "nxp,s32g-siul2-syscfg". Their consumers are the pinctrl/gpio
->>>>>>> driver and other drivers that read SoC‑specific information from
->>>>>>> those shared registers.
->>>>>>>  
->>>>>>> My alternative is to keep two separate syscon providers for the
->>>>>>
->>>>>> You got review already.
->>>>>>
->>>>> I still believe that nvmem is a suitable and accurate mechanism for
->>>>> describing SoC‑specific identification information, as originally
->>>>> proposed in [0], assuming the necessary adjustments are made.
->>>>>
->>>>> More specifically, instead of modeling software-defined cells, the nvmem
->>>>> layout would describe the actual hardware registers backing this
->>>>> information. One advantage of this approach is that consumer nodes (for
->>>>> example PCIe, Ethernet, or other IPs that need SoC identification data)
->>>>> can reference these registers using the standard nvmem-cells /
->>>>> nvmem-cell-names mechanism, without introducing custom, per-subsystem
->>>>> bindings.
->>>>
->>>> nvmem is applicable only if this is NVMEM. Information about the soc is
->>>> not NVMEM, unless this are blow out fuses / efuse. Does not look like,
->>>> because SoC information is set probably during design phase, not board
->>>> assembly.
->>>
->>> Agreed, nvmem clearly makes no sense here, the patch description
->>> appears to accurately describe the MMIO area as hardware registers
->>> with a fixed meaning rather than a convention for how the
->>> memory is being used.
->>>
->>> That said, there is probably room for improvement, since some of
->>> the register contents are read-only and could just be accessed
->>> by the boot firmware in order to move the information into more
->>> regular DT properties instead of defining bindings for drivers
->>> to access the information in raw form.
->>>
->>>     Arnd
->>
->> Hi Krzysztof & Arnd,
->>
->> Assuming we drop the syscon approach entirely, for the SerDes
->> presence information we could follow Arnd’s suggestion and have
->> it provided by the boot firmware instead of exposing it through SIUL2.
-> 
-> I think there is misunderstanding. By dropping syscon nodes, I meant to
-> drop the nodes. Remove them. It implies that whatever their contain must
-> go somewhere, right? Because your hardware is fixed and you cannot drop
-> it from the hardware, right?
-> 
-> So their parent node is the syscon.
-> 
-> Best regards,
-> Krzysztof
+From: Ard Biesheuvel <ardb@kernel.org>
 
+Replace the compiler vectorized XOR implementation for ARM with the
+existing NEON intrinsics implementation used by arm64. This is slightly
+faster, and allows some minor cleanups of the type hacks in the headers
+now that intrinsics are the only C code permitted to use FP/SIMD
+instructions.
 
-Hi Krzysztof & Arnd,
+Changes since v1:
+- Update kernel_mode_neon.rst to state that arm_neon.h must not be
+  included directly, but the new asm/neon-intrinsics.h should be used
+  instead
+- Avoid #include's of .c files - instead, build arm/xor-neon.c for arm64
+  as a separate compilation unit, and export the symbol that is shared
+  between the EOR and EOR3 implementations.
 
-Following your suggestions, I reworked the DT so that the SIUL2
-register regions are now described directly on the parent node, and
-the separate syscon child nodes are removed.
- 
-The node would look like this:
-    siul2: siul2@4009c000 {
-        compatible = "nxp,s32g2-siul2";
-        reg = <0x4009c000 0x179c>,
-              <0x44010000 0x17b0>;
-        reg-names = "siul20", "siul21";
- 
-        pinctrl: pinctrl {
-            compatible = "nxp,s32g-siul2-pinctrl";
-            gpio-controller;
-            #gpio-cells = <2>;
-            gpio-ranges = <&pinctrl 0 0 102>, <&pinctrl 112 112 79>;
-            interrupt-controller;
-            #interrupt-cells = <2>;
-            interrupts = <GIC_SPI 210 IRQ_TYPE_LEVEL_HIGH>;
- 
-            jtag_pins: jtag-pins {
-                ...
-            };
-        };
-    };
- 
-With the current layout, the SIUL2 node itself now contains the two
-MMIO ranges directly, while the remaining child node is only the
-pinctrl/GPIO function.
- 
-I am wondering whether it still makes sense to keep the MFD approach
-at all. In the current form, the node no longer models multiple
-separate child providers such as the previous syscon children, but
-rather a single parent node containing the whole register space
-together with the pinctrl/GPIO.
- 
-Would you recommend dropping the MFD layer entirely and having
-the pinctrl/GPIO driver bind directly to the parent `siul2@...`
-node instead?
- 
-Please let me know whether this is the direction you would prefer,
-or if you still see value in keeping the current MFD based approach.
+Performance (QEMU mach-virt VM running on Synquacer [Cortex-A53 @ 1 GHz]
 
-Best regards,
-Khristine
+Before:
+
+[    3.519687] xor: measuring software checksum speed
+[    3.521725]    neon            :  1660 MB/sec
+[    3.524733]    32regs          :  1105 MB/sec
+[    3.527751]    8regs           :  1098 MB/sec
+[    3.529911]    arm4regs        :  1540 MB/sec
+
+After:
+
+[    3.517654] xor: measuring software checksum speed
+[    3.519454]    neon            :  1896 MB/sec
+[    3.522499]    32regs          :  1090 MB/sec
+[    3.525560]    8regs           :  1083 MB/sec
+[    3.527700]    arm4regs        :  1556 MB/sec
+
+This applies onto Christoph's XOR cleanup series.
+
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Eric Biggers <ebiggers@kernel.org>
+
+Ard Biesheuvel (5):
+  ARM: Add a neon-intrinsics.h header like on arm64
+  crypto: aegis128 - Use neon-intrinsics.h on ARM too
+  xor/arm: Replace vectorized implementation with arm64's intrinsics
+  xor/arm64: Use shared NEON intrinsics implementation from 32-bit ARM
+  ARM: Remove hacked-up asm/types.h header
+
+ Documentation/arch/arm/kernel_mode_neon.rst |   4 +-
+ arch/arm/include/asm/neon-intrinsics.h      |  64 +++++++
+ arch/arm/include/uapi/asm/types.h           |  41 -----
+ crypto/aegis128-neon-inner.c                |   4 +-
+ lib/raid/xor/Makefile                       |   3 +-
+ lib/raid/xor/arm/xor-neon.c                 | 187 ++++++++++++++++++--
+ lib/raid/xor/arm/xor-neon.h                 |   7 +
+ lib/raid/xor/arm/xor_arch.h                 |   7 +-
+ lib/raid/xor/arm64/xor-neon.c               | 172 +-----------------
+ lib/raid/xor/xor-8regs.c                    |   2 -
+ 10 files changed, 251 insertions(+), 240 deletions(-)
+ create mode 100644 arch/arm/include/asm/neon-intrinsics.h
+ delete mode 100644 arch/arm/include/uapi/asm/types.h
+ create mode 100644 lib/raid/xor/arm/xor-neon.h
+
+-- 
+2.53.0.1018.g2bb0e51243-goog
+
 
