@@ -4,73 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 712B2109B477
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 14:28:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF3D109B477
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 14:29:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fPi+rGF0rYzZ+nDZLHKJl/1MAN3JGEnQt9nVv1QbgBY=; b=WPh5dqgTUmQpo3VKawVJg58N5D
-	YWLmsr7HMeLvM2AcxyVDk1m7VQ4gpTRX2TofSxqtvdMYUbMCowHxubo4K8JYsf6mrbGP9DpGnVvWY
-	zcv1gBcgPL7HcPdS8KCsjd/OZPJ6l+ndg6ql87eZW7z7+ypvl+Nsi6t3EIa3ZtkmDohdKZzRMMZ3W
-	8PWiDL4AFOvrjdLlgRKe+nRVK+S3ppQjnHE3qhP01pfhJO0ClmfpnWAFDITYThTaTUfMi82ems8NV
-	A3oFeHfNmcVgYpTmH73nhMyS5wvnIlZU1zR3prwJhbiKww6x33znvoItxFIWC9PdmJN2Sw5XNtBzy
-	5yy/6r1w==;
+	bh=gwjTKRN7CKx6VBzelTeoJWz//Z40N3ckpJ64EfpPZN4=; b=mw+OyDkslCnNuFbFT7LwvRxQKh
+	4dGpwWBbi7l96IDSN/iXwoW5xU6x1eZLMER9jZJtEgGa8M79SmJwQztp4pPUNSmUBSGEj42dwCyj1
+	99JrcJ+VINbcA6/iwg+Kv2EzurrNrFNQSuH15IbtkRmZhvy/uVjTBldQ4SV8W1jy8W3RmTBHWGtXu
+	LV60Z8zI7+CXJqSTEAwsXJtk9DBrzjsSMWLD56YkiTIKwKptp9W5AG6qr0CK8hh/9mmk2jJA8tc3G
+	Z1oxsPxcsO1eDhVs+Y3xUHCpBilMwhyaZzyapg1hfwi1A20RMwA/Mc3JHEWJ5Q3rxgUtEOr5SixCo
+	HGRMLTbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7a59-0000000D6Gz-3MEY;
-	Tue, 31 Mar 2026 14:28:39 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1w7a5Y-0000000D6KE-0rY0;
+	Tue, 31 Mar 2026 14:29:04 +0000
+Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7a56-0000000D6GP-0mZp
+	id 1w7a5V-0000000D6Ja-0Psk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 14:28:38 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 48E704E42889;
-	Tue, 31 Mar 2026 14:28:20 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 17ACB6029D;
-	Tue, 31 Mar 2026 14:28:20 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 10DD9104502A1;
-	Tue, 31 Mar 2026 16:28:13 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1774967298; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=fPi+rGF0rYzZ+nDZLHKJl/1MAN3JGEnQt9nVv1QbgBY=;
-	b=J9Biep0L71BjUoQeNlZpBX2t+clXYySmubp3Nka6bQIUW10LmpA05/t8nj4EdA4PQHqwyB
-	A/XiVWukH9O9//OPioTUSDrYHcj0AKzVfnBKnySZY5u5JhaomYVkFbXk3e1Uc14tZX9hwL
-	lzUcKg8PZECK5r25ejhn7X1YhanhSHsW5pv6gTOF0Sn9zWBX2hOmqD228ykuUzwK5h+moE
-	kWiug8Y8OEmQ/212K/a4yABEBo1NoVtL5kbfVHDmmMUlGxHUiyIBqORzvg1bgMlgbalh9v
-	QXWjwlyBrA8LwF3qKzkD2quOV7q3rShCQqIQ+uqlIqQzMaUTWdrTZrKoxdbkNw==
-Message-ID: <91077ff2-8ae5-45b3-b799-f84db16bc964@bootlin.com>
-Date: Tue, 31 Mar 2026 16:28:13 +0200
+	Tue, 31 Mar 2026 14:29:02 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id A771A7A00E8;
+	Tue, 31 Mar 2026 10:28:58 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Tue, 31 Mar 2026 10:28:59 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1774967338;
+	 x=1775053738; bh=gwjTKRN7CKx6VBzelTeoJWz//Z40N3ckpJ64EfpPZN4=; b=
+	GIyQRsgLBEUPdekUSmrKw3y2sdb9k8B56H0eto+5KHHuKLgLxNooiIV+8n1zkVXh
+	PK+Y/U141AnNdcccVG7n9IjwSAxwlP3wYwvP4EWOgxu8SuJ7qrrA6jWybMCA5Rcm
+	ixkvUub/GUbqmNsOtVUh2XO/ejs1kpWI49aosAvoltqSNmXKOqZAnDhXOgrXsTPq
+	ELOlAltwV91RL3I2cHjv1nyiT8h+o5nO3eqO9fieuaLHMzGLJfdwoyASfqZleSrS
+	IubSNfy+Jt3QbwVhEWSOPsMvMw4Wf9Gm3/NLXrNDDPWZQKgsxHY0ktwGvg3jb9Vg
+	OAHJq3ykXIuBV/7wv0gPmA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1774967338; x=
+	1775053738; bh=gwjTKRN7CKx6VBzelTeoJWz//Z40N3ckpJ64EfpPZN4=; b=J
+	x3yUZHQHmZi493P+Bypf5OpDAyDXLErp4LHLcwQ5F8rpRx25f5igK5cVLwI/M64P
+	bOs9G3iCafoQgiDE4CILBxQ/zRAy9aZbzAucwvOH0DjK0YlL8bDUde7timAiDcED
+	mg8z8KB85BqmCqo3pRpy9o5gJ8mpwACiAMNwkLB9nQv9mSDzOJ038gyBmka6K9/7
+	HOtJzBB703yxJIwCwJhRlU5Cu5cpcWyeAdtjimhBFWNWrr3sFATfBBz0iZlAO6eR
+	EKxcyRvw8Plov6LPzGkEEjy7bky1dWCfnn5B+g1QEfBIScbyhgw91C2/rF4OJhYm
+	7BT0sBH7STRbl+UxLYKnw==
+X-ME-Sender: <xms:KtrLaQSPBrym0FF0ZYzAt9huAYT-K0lY1ozO13CGTO0Jp02FF1iINQ>
+    <xme:KtrLaYlQhx63FcE-M7AX9J-mfJKcuG0jNHM3SLYLjCnPYffcMdSZTHvHJtfnB0VLJ
+    4ihpHML4BJ4mNx5eQrNoplaBv48wWW9o0SAMHCRqreaqUHv-N0_>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdeggecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegrihhl
+    ohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpe
+    foggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcuuegv
+    rhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrhhnpe
+    fhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieenucev
+    lhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrg
+    hrnhgusgdruggvpdhnsggprhgtphhtthhopedvtddpmhhouggvpehsmhhtphhouhhtpdhr
+    tghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhope
+    htohhnhiesrghtohhmihguvgdrtghomhdprhgtphhtthhopehkhhhilhhmrghnsegsrgih
+    lhhisghrvgdrtghomhdprhgtphhtthhopegujhhrshgtrghllhihsehgmhgrihhlrdgtoh
+    hmpdhrtghpthhtohepughmihhtrhihrdhtohhrohhkhhhovhesghhmrghilhdrtghomhdp
+    rhgtphhtthhopehjmhhkrhiihihsiihtsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprg
+    grrhhordhkohhskhhinhgvnhesihhkihdrfhhipdhrtghpthhtohepsghrghhlsehkvghr
+    nhgvlhdrohhrghdprhgtphhtthhopegurghkrheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:KtrLadCzLDpwew3xf9ULxZFdCUioGdiLTCHFC3kiDkY0QMU5oqvz9Q>
+    <xmx:KtrLaYvGjSiwzJzUHoUu94YNOAIMrFCh44hYhgCh7VabhHvroXMDGA>
+    <xmx:KtrLadHjmS5TgUtzGs25OUzfHPLXEPKsjZbAQkAXJrYT4YezYeYnZA>
+    <xmx:KtrLaT_NqHLFlO9u-7dljQjtLKKu9cv2kKw3eNzEotXKYe0-BHc5Gg>
+    <xmx:KtrLaVSozOKHK4qeBoQCNI6YOCaveUP1H8SnzxKeqdxn-lscZ_JgwLMW>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id ED3CA700065; Tue, 31 Mar 2026 10:28:57 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/4] firmware: ti_sci: Introduce BOARDCFG_MANAGED mode
- for Jacinto family
-To: Dhruva Gole <d-gole@ti.com>
-Cc: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
- Santosh Shilimkar <ssantosh@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Gregory CLEMENT <gregory.clement@bootlin.com>,
- richard.genoud@bootlin.com, Udit Kumar <u-kumar1@ti.com>,
- Prasanth Mantena <p-mantena@ti.com>, Abhash Kumar <a-kumar2@ti.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org
-References: <20260204-ti-sci-jacinto-s2r-restore-irq-v4-0-67820af39eac@bootlin.com>
- <20260209095159.pfcthh5a4yo4q2em@lcpd911>
-Content-Language: en-US
-From: Thomas Richard <thomas.richard@bootlin.com>
-In-Reply-To: <20260209095159.pfcthh5a4yo4q2em@lcpd911>
-Content-Type: text/plain; charset=UTF-8
+X-ThreadId: AFr_uRj1O5Ps
+Date: Tue, 31 Mar 2026 16:28:37 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>
+Cc: "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
+ "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>,
+ "Danilo Krummrich" <dakr@kernel.org>, "Daniel Scally" <djrscally@gmail.com>,
+ "Heikki Krogerus" <heikki.krogerus@linux.intel.com>,
+ "Sakari Ailus" <sakari.ailus@linux.intel.com>,
+ "Aaro Koskinen" <aaro.koskinen@iki.fi>,
+ "Janusz Krzysztofik" <jmkrzyszt@gmail.com>,
+ "Tony Lindgren" <tony@atomide.com>, "Russell King" <linux@armlinux.org.uk>,
+ "Kevin Hilman" <khilman@baylibre.com>,
+ "Bartosz Golaszewski" <brgl@kernel.org>, driver-core@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Linux-OMAP <linux-omap@vger.kernel.org>
+Message-Id: <a895905f-069b-4fc5-bbf0-34c3978b3f39@app.fastmail.com>
+In-Reply-To: <acuraLhLVgyP-LUK@ashevche-desk.local>
+References: <20260330-nokia770-gpio-swnodes-v4-0-b68592e977d0@oss.qualcomm.com>
+ <20260330-nokia770-gpio-swnodes-v4-2-b68592e977d0@oss.qualcomm.com>
+ <acrcDTPpXZ_5A4D8@ashevche-desk.local> <acruxMNdnUlyRHiy@google.com>
+ <acto3TE1AR8iTzF0@ashevche-desk.local>
+ <DDF494E5-C188-4A86-AC02-265B6169B591@gmail.com>
+ <acuMD7Oly4XWW4n8@ashevche-desk.local>
+ <9359e475-fc8e-4d32-9ab4-383710170553@app.fastmail.com>
+ <acuraLhLVgyP-LUK@ashevche-desk.local>
+Subject: Re: [PATCH v4 2/3] driver core: make software nodes available earlier
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_072836_363312_BA716247 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20260331_072901_183916_FADE1951 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,80 +132,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Dhruva,
+On Tue, Mar 31, 2026, at 13:09, Andy Shevchenko wrote:
+> On Tue, Mar 31, 2026 at 12:45:59PM +0200, Arnd Bergmann wrote:
+>> On Tue, Mar 31, 2026, at 10:55, Andy Shevchenko wrote:
+>>
+>> My best guess is that __exit_call should just use
+>> __attribute__((unused)) instead of __attribute__((used)) and
+>> have the compiler drop it from built-in code instead of the linker:
+>
+> But why do we need that at all? Can we just drop the full section for good.
+> Or i.o.w. where exactly is it being used in the current kernel?
 
-Thanks for the review.
+The main use case I see for __exit_call is for device drivers
+that can be either loadable modules or built-in: In a loadable module,
+you need the cleanup function, but for built-in code you want
+it to be dropped at build time.
 
-On 2/9/26 10:51 AM, Dhruva Gole wrote:
-> On Feb 04, 2026 at 16:03:37 +0100, Thomas Richard (TI) wrote:
->> The fourth iteration of this series adds support for two new firmware
->> capabilities:
->> - MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST: Indicates that DM-Firmware is not
->>   able to restore IRQ context during resume after suspend-to-ram.
->> - MSG_FLAG_CAPS_LPM_CLK_CONTEXT_LOST: Indicates that DM-Firmware is not
->>   able to restore clock context (rate and parent configuration) during
->>   resume after suspend-to-ram.
->>
->> Now, ti_sci driver determines whether to restore IRQs based on the
->> MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST capability rather than the
->> BOARDCFG_MANAGED mode. The same logic applies to the clock context.
->>
->> Both J784s4 and J7200 platforms support these new capabilities. A
->> corresponding pull request has been submitted on DM-Firmware side to
->> define and enable these capabilities.
->>
->> The value for the BOARDCFG_MANAGED mode has also been fixed.
->>
->> Public documentation for BOARDCFG_MANAGED mode and these new capabilities
->> is currently unavailable. I will update the series with relevant
->> documentation references as soon as they become available.
->>
->> I rebased the series on linux-next next-20260202.
->>
->> Best Regards,
->> Thomas
->>
->> Signed-off-by: Thomas Richard (TI) <thomas.richard@bootlin.com>
->> ---
->> Changes in v4:
->> - rebase on linux-next next-20260202.
->> - fix BOARDCFG_MANAGED value.
->> - add MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST firmware capability.
->> - add MSG_FLAG_CAPS_LPM_CLK_CONTEXT_LOST firmware capability.
->> - Link to v3: https://lore.kernel.org/r/20251205-ti-sci-jacinto-s2r-restore-irq-v3-0-d06963974ad4@bootlin.com
->>
->> Changes in v3:
->> - rebased on linux-next
->> - sci-clk: context_restore() operation restores also rate.
->> - Link to v2: https://lore.kernel.org/r/20251127-ti-sci-jacinto-s2r-restore-irq-v2-0-a487fa3ff221@bootlin.com
->>
->> Changes in v2:
->> - ti_sci: use hlist to store IRQs.
->> - sci-clk: add context_restore operation
->> - ti_sci: restore clock parents during resume
->> - Link to v1: https://lore.kernel.org/r/20251017-ti-sci-jacinto-s2r-restore-irq-v1-0-34d4339d247a@bootlin.com
->>
->> ---
->> Thomas Richard (TI) (4):
->>       firmware: ti_sci: add BOARDCFG_MANAGED mode support
->>       firmware: ti_sci: add support for restoring IRQs during resume
->>       clk: keystone: sci-clk: add restore_context() operation
->>       firmware: ti_sci: add support for restoring clock context during resume
-> 
-> The series looks good to me, just checking if maintainer prefers the 2/4
-> PATCH on IRQ restore to be split up. IMO similar to how you've split up
-> the clk restore support and then actually restored clk context in
-> another patch, you can do similar split up for IRQ.
-> No strong opinions from my side though.
+For the few direct callers of __exitcall, the only explanation I have
+is that these could at some point be turned into loadable modules,
+and the author wanted to be prepared for changing it later. In theory
+we could change those to module_exit(), or just remove them, but
+there is little practical benefit either way.
 
-Splitting clock part in 2 commits makes sense because two drivers are
-involved. For IRQ part you would have a first patch adding all the hlist
-logic only if MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST, and you just fill the
-hlist. Then a second path adds the missing part in resume() path. I
-think it is a bit odd, but no strong opinions.
+I've tested the __maybe_unused change on randconfig builds now and
+found no (build-time) issues with that, so I'm submitting that
+now.
 
-If someone really wants this split up please let me know.
-
-Best Regards,
-Thomas
+     Arnd
 
