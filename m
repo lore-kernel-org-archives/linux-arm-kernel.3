@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F03B5FF60E7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 08:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F80DFF60E7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 08:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rcqa3TnjaC/kK18HYVjulYXhIEuAroKOXV5TEXs03Qs=; b=NGewKU1HqBOoHwEE5ruyffaJDd
-	zTi2M2ujZAeR2U9Rn4Nk5xcgVVGve+RtYrvlYK0IVJzFSCrNe+sGDXO6YE4xKsaT+eN7tg/359hi3
-	2Gn+bOkbuJEBbKf+ykdHHoOiAvrUOHVpP4vL2Wj/0Pe4s5NKz7+9BDrZsr7nDFhEOzEB+QeWEnrLa
-	cVtG/71SEfCUfbl8PM/riamcIvVLgEe7xpeBD/qDE5y6FavtknMZ1KoBhwXmBFx1ZDx8Sen2ixuXt
-	QDJSFFFsZ2jCXMO71nwFp/wkigDU+6pW8R/icizPq0Mf0IHIBNlgk4aTLIL3GVsmCn2ABkOvyqOuZ
-	SjR02jxg==;
+	bh=M9kAiIHvRyCHNdo8mnRDLlqCYJ7U09pTO2WyByLtVzA=; b=t4uuvlZiqAQ0a19W0CZiDP2kP4
+	CC2TZ/BCa6CVFSY+u+s3G+qQoY5l3pab8qk+hdIvSgNkbby4N62iTzPI5U53zpAnbn1/ksa5dN6yI
+	DYztrZo5srjLYmrepwGD50YcEyFNyhUhNTScjbFLf7rNGsKAxZgHuaHE7AJLozkK+muoRnRj/6EEC
+	rTiV3XWuQE6MKo7LK9U002Z/sCzffAtRvHpmQzwxC4zwZxWhe/Qhm3884LiMN5sf63mG2HCiAzh0E
+	YvhEOzye9n1j+14wvikrvCkAmqqr4sqTbt2QQobJVLjESamkTZ7zEBAqwZyTCIk9lDvsRGfYmyMSW
+	zCkGXfTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7UPM-0000000CaJx-2QMC;
-	Tue, 31 Mar 2026 08:25:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7UPq-0000000CaRv-1z7D;
+	Tue, 31 Mar 2026 08:25:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7UPL-0000000CaJq-2HtS
+	id 1w7UPo-0000000CaR9-43ES
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 08:25:07 +0000
+	Tue, 31 Mar 2026 08:25:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F32E3600CB;
-	Tue, 31 Mar 2026 08:25:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31630C19423;
-	Tue, 31 Mar 2026 08:25:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 20542600CB;
+	Tue, 31 Mar 2026 08:25:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E0B6C19423;
+	Tue, 31 Mar 2026 08:25:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774945506;
-	bh=xongS++fQIVRd1oxyW57pzR32Tw90tcNAn/M31bAT94=;
+	s=k20201202; t=1774945535;
+	bh=2gJfRtSBfXj4JRuylSNVBq9hSnCvKnDG0P+NVrtq244=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jJRirDCq48fkM2xxMptBi2CLoUsPUbh+8Q7JThdmkemLdv5LrDpIVBKXqpWAoWSoE
-	 Pytilttqrvk7xiToe7yQw5zGqm68hK6dbH2hDNbndC7JIODiUQqmazbyQeIkEUvZ9b
-	 wEq+YUj/zEpsu0lalzRLkz7wejwpdQfJZV3mmHcLhs6oDeIEi5KhtS39GFxQO/8VJy
-	 qOZ4Kz5Wb2Fn9o57D5kvrpsPaWfOAyZnl3d9tX/BWpGvCuSpzP0CXmsaicK3OO/nep
-	 wqUxiqnDCul1EzGSptG87lZryhgPBH7bIIabTxHFu+yxyt9ur8nNrs2Xa40+i9FN06
-	 0WnDn2AILbbIg==
-Date: Tue, 31 Mar 2026 10:25:03 +0200
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: arm@kernel.org, soc@kernel.org, 
-	Thierry Reding <thierry.reding@gmail.com>, Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL 1/7] dt-bindings: Changes for v7.1-rc1
-Message-ID: <act9hqxjL6wZ25dP@orome>
-References: <20260329151045.1443133-1-thierry.reding@kernel.org>
- <406ca5ed-4a3e-48ba-94ad-d88c53b09299@kernel.org>
+	b=ihjnBgBXql7h/5fe93awTa+yWd+6DPMXqWIdZEg1MG2gGESxwaQEUjhFAhe/AWs9X
+	 AhKazAWnXUDgqa0S8cFAUc6Ma1jg830IWVPKdBHzXptRIVv+aHASXG9YdMQZDD3NF6
+	 +pee5dJLS35pZIM9RIBPEtOJPTg29e/Rx4wU3eHW30K1WkDNwxR7LGnILDMYvTHzcQ
+	 qzNjK6z6wko8l+WnOR9QCauH+0DhhIwnZdz6OMsBR8y7tAnIFXMPy2S1Bgi/kWQDp8
+	 QEcZbSFW9viMSxzL/cnHtdq+cVNJrqxFdmi9srjxf85RaDugNIxmtJKIV57eyM9dRt
+	 CUIIiJm8hGQBA==
+Date: Tue, 31 Mar 2026 10:25:33 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Cc: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, michal.simek@amd.com, Thinh.Nguyen@synopsys.com, 
+	p.zabel@pengutronix.de, linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, git@amd.com
+Subject: Re: [PATCH v2 1/4] dt-bindings: usb: dwc3-xilinx: Add MMI USB
+ support on Versal Gen2 platform
+Message-ID: <20260331-jellyfish-of-pragmatic-prowess-a230fc@quoll>
+References: <20260330190304.1841593-1-radhey.shyam.pandey@amd.com>
+ <20260330190304.1841593-2-radhey.shyam.pandey@amd.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="x2rr2fmu6jlvezcp"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <406ca5ed-4a3e-48ba-94ad-d88c53b09299@kernel.org>
+In-Reply-To: <20260330190304.1841593-2-radhey.shyam.pandey@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,136 +72,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Mar 31, 2026 at 12:33:01AM +0530, Radhey Shyam Pandey wrote:
+> Versal Gen2 platform multimedia integrated (MMI) module has a USB3.2 Gen
+> 2x1 Dual Role Device IP. Introduce a new compatibility string to support
+> it. The USB wrapper registers reside in the MMI UDH system-level control
+> registers (SLCR) block, so instead of a dedicated reg property, add
+> xlnx,usb-syscon phandle with four cells specifying register offsets for
+> USB2 PHY, USB3 PHY, USB DRD, and USB power configuration within the SLCR.
+> 
+> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+> ---
+> Changes for v2:
+> - Add blank line after compatible as suggested by Krzysztof.
+> - Retain the mmi suffix in the compatible string, as this USB 3.2 Gen2
+>   IP from Synopsys is part of the dedicated Multimedia Interface. The
+>   Versal Gen2 platform also includes a separate USB 2.0 controller,
+>   and the mmi suffix uniquely distinguishes between the two USB
+>   controllers. MMI is an independent subsystem particularly targeted for
+>   deployment in Multi-Media related applications. The MMI block include
+>   following submodules: UDH: USB3.2 Gen 2x1 Dual Role Device, DisplayPort
+>   Transmit Controller, Security Module (ESM) for DisplayPort and HDMI
+>   Controllers, DP AUX-I2C PHY.
+> - For MMI USB define parent address space i.e UDH block.
+> - Fix inconsistent MHz spacing to use SI convention with spaces.
+> - Move description before $ref and items in xlnx,usb-syscon property.
+> - Restore original zynqmp-dwc3 example, add new versal2-mmi-dwc3 example.
+> - Use 'usb' node name (without unit address) for versal2 example since
+>   it has no reg property.
+> - Use 1/1 address/size configuration in versal2 example, use lowercase
+>   hex in syscon offsets.
+> ---
+>  .../devicetree/bindings/usb/dwc3-xilinx.yaml  | 70 ++++++++++++++++++-
+>  1 file changed, 67 insertions(+), 3 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+> index d6823ef5f9a7..5e31b961aff7 100644
+> --- a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+> +++ b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+> @@ -15,6 +15,8 @@ properties:
+>        - enum:
+>            - xlnx,zynqmp-dwc3
+>            - xlnx,versal-dwc3
+> +          - xlnx,versal2-mmi-dwc3
 
---x2rr2fmu6jlvezcp
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [GIT PULL 1/7] dt-bindings: Changes for v7.1-rc1
-MIME-Version: 1.0
+I am not going to ask the same questions.
 
-On Mon, Mar 30, 2026 at 01:39:49PM +0200, Krzysztof Kozlowski wrote:
-> On 29/03/2026 17:10, Thierry Reding wrote:
-> > From: Thierry Reding <thierry.reding@gmail.com>
-> >=20
-> > Hi ARM SoC maintainers,
-> >=20
-> > The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5=
-f27f:
-> >=20
-> >   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
-> >=20
-> > are available in the Git repository at:
-> >=20
-> >   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/te=
-gra-for-7.1-dt-bindings
-> >=20
-> > for you to fetch changes up to bed2f5b4de6c6fd8f8928f6373ad92e8795c370f:
-> >=20
-> >   dt-bindings: arm: tegra: Document Jetson AGX Thor DevKit (2026-03-28 =
-01:05:24 +0100)
-> >=20
-> > Thanks,
-> > Thierry
-> >=20
-> > ----------------------------------------------------------------
-> > dt-bindings: Changes for v7.1-rc1
-> >=20
-> > This contains a few conversions to DT schema along with various
-> > additions and fixes to reduce the amount of validation warnings.
-> >=20
-> > Included are also a new binding for the PCIe controller found on
-> > Tegra264 as well as compatible strings for the Jetson AGX Thor
-> > Developer Kit.
-> >=20
-> > ----------------------------------------------------------------
-> > Sumit Gupta (1):
-> >       dt-bindings: arm: tegra: Add Tegra238 CBB compatible strings
-> >=20
-> > Svyatoslav Ryhel (1):
-> >       dt-bindings: display: tegra: Document Tegra20 HDMI port
-> >=20
-> > Thierry Reding (9):
-> >       dt-bindings: pci: Document the NVIDIA Tegra264 PCIe controller
->=20
-> Why are you taking subsystem patches? This was posted on 26th of March
-> and was not acked by PCI maintainers.
->=20
-> How the bindings should go is already documented, so there is no
-> question here.
+Best regards,
+Krzysztof
 
-We've discussed this in the past and I still think your rule about DT
-bindings needing to go in through the driver tree is impractical. Yes,
-it means you get around the checkpatch warning about undocumented
-compatible strings, but at the expense of a new warning in the Tegra
-tree because the bindings aren't there.
-
-> The question was whether you can take them if subsystem maintainer is
-> non-responsive and yes, you can. You gave PCI maintainers one day before
-> applying it.
-
-I did not get a response to my suggestion about creating a shared
-branch, which was included in v1 already. So I went ahead and did what
-I thought was best. PCI maintainers are free to not pull this if they
-don't want to. I also offered to address any further review comments if
-there were any.
-
-> >       dt-bindings: phy: tegra-xusb: Document Type C support
->=20
-> No acks, but that is waiting for one month so it is fine.
-
-It's got a Reviewed-by from Rob and there were no corresponding driver
-changes associated with it. There's literally no reason for this to go
-in through a subsystem tree.
-
-> >       dt-bindings: clock: tegra124-dfll: Convert to json-schema
-> >       dt-bindings: interrupt-controller: tegra: Fix reg entries
-> >       dt-bindings: arm: tegra: Add missing compatible strings
-> >       dt-bindings: phy: tegra: Document Tegra210 USB PHY
-> >       dt-bindings: memory: Add Tegra210 memory controller bindings
-> >       dt-bindings: memory: tegra210: Mark EMC as cooling device
->=20
-> That's even my subsystem and I did not ack it. You did not even sent it
-> to me as requested by MAINTAINERS file (+dt is ignore alias), so
-> obviously I did not even had a chance to ack it.
-
-Ugh... really? I was Cc'ed to you as a DT maintainer as well as the
-devicetree mailing list, so I'm sure you've seen it. This had also been
-reviewed by Rob a long time ago, and honestly, it's also quite trivial.
-It's been on the list for a month and there were no objections, so it
-does pass all of the criteria you mentioned before.
-
-> And we even had few days ago talk were I explained you how these
-> bindings must go. Seeing pull request completely ignoring that
-> discussion is just huge surprise.
->=20
-> No, it cannot go in. Send patches to proper maintainers first.
-
-Stop making these baseless accusations, Krzysztof. You were on Cc and
-DT maintainers have seen and reviewed these patches. You're grasping at
-straws to somehow try to make my life miserable and I don't know why.
-
-Thierry
-
---x2rr2fmu6jlvezcp
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmnLhNwACgkQ3SOs138+
-s6HOIhAAqdRI5jThGVEb4l0l+GYD5gSViQMZy2eh6KBPNB0GrLrpyaNKcea/tgRk
-f9zmp9O368N/19GgKiHi4jjJxvtziAWxoZlGSTObYRioRh6Nu20XMpc84c8mhc05
-CRufxMR/CCMbF6TAys39bB3iB9/l8DujxEhwzcp3KVuY7dghqTXxyv2w/feK37Kh
-bZxLpZorgzQQ+yWEbaQJnBCAbxyjMKCkU0hQR23L3Mr0GmxmVyIdSW1yvYn4zP54
-X5X9SyLPfy+cdWz49rqMFvH475gKfwgFQE9BQdo5cIxdYI3iglimam4VjMghecRn
-IrnKpaKh0nMB/Bu5UqH/xoeBd/DI2Pfk3j0aeCLnik0FBt5Mrfrswxi5xkQaHQ+r
-F5VUnWEghU0LRrYMmoxzCj/7WKo2XyPGi0Tby9fYdeZ2M9W7l+U2Bs8FUSjE4YKo
-FAP9RpsV8s6eXSJr7vJOj3z6sQB3GJXOUOGBppSrVDxa6qRlLHyjTvHlFYfynpzx
-VKtIoxbemqmbxVKPqmMa7zqkzy4t0K1U1KsdV2mpJTKfk16edI6B6OPnqjGwG2VL
-yfIeFUQ0x5Z3zRilyLR0dilDPU5hNU9w7ikjrKFdAP9pVATBOJvulI6JPr1BpOuH
-R63RQU15WE9yxYUvv+ZRtk8n6tvwQ6K7eq3ETEwvy154d6Rsh3U=
-=eP2x
------END PGP SIGNATURE-----
-
---x2rr2fmu6jlvezcp--
 
