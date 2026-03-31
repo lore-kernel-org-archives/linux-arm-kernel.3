@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B305109B489
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 15:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF01B109B489
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 15:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZOjdyc5IinqfPbQlSEmWIhjniGA13VnU5aBxynVfrms=; b=JNOESBn5hl8v5QoP0DxwS5Pzqy
-	ixxDEFT0T6Nh3ZA/TY+8QNMcdAf8SOG1ufBeCv3oUSqfZGTqW5lz7AhKGZ8WhMLo7cQmwP8s/+7AH
-	hSXpRfoo+5yDcJ8c8B/nmlFNufG2LdI3wWjWKeVqw0adeVw7+eaCjCbCPTJrOdn5L3RmLmhukvr2n
-	pN8hq7vLgLzhWe33Z3LZ7xaoH6V4f1Zz62pWEI6EB7U8lF8kQ/1Uh9pO5GrV6sSycxSPwHMspxlfp
-	NBBkiPAzEHJnjytsmR0WY5jJFYXzMYbZrYbfE3gmDslsmKC7bqlz1fgwYVwpeYTyTBND70KrcUTGn
-	jGDyNoJQ==;
+	bh=lDpExs/K1kAfh1D6reYdmnVzIcrkKbY76UdcdsW1gdk=; b=G2OqAit6ZIV+Ha59we6aBWjUWr
+	p/rjj55JkOLnirbskHdS87UvfotdmeFjJ0piGEMC1hLeQtARcVGf9bJfy18SUhsC0+nQPKPB9mBBO
+	V3Nsbk+N6jjO6y4TppSON6fE+t9bmrWmj0O5YnwapvMX6IItTX1drt50SABgGWVTz7++5Dmu8H4Yz
+	eBC3pmf+GGJ10bjKGPjKt4Ahg7PXpslkFs11umrEeiX8vzY0KOVexfEq4TxzOHxYNEs/GCfX7DwO3
+	Ls7NDMfUdtSlSggJhOAx7zQ+8fQESP8RKT74Xa2v5yjFyYzmf0gJZImkxEV7GxbZiwN8VJQJ1yeg2
+	6qrlLSiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7bNT-0000000DD3w-1uFZ;
-	Tue, 31 Mar 2026 15:51:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w7bNe-0000000DD7R-3NnZ;
+	Tue, 31 Mar 2026 15:51:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7bNP-0000000DD2p-2MP1
+	id 1w7bNT-0000000DD3L-04g4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 15:51:36 +0000
+	Tue, 31 Mar 2026 15:51:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 49DC6416E6;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8A71743BC1;
+	Tue, 31 Mar 2026 15:51:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3936C2BCB1;
 	Tue, 31 Mar 2026 15:51:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71BDCC19424;
-	Tue, 31 Mar 2026 15:51:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774972295;
-	bh=Jnvgq2pegetUjGhytI/QZI4LtPSB8jg7KrJ5nmPTBf0=;
+	s=k20201202; t=1774972298;
+	bh=GL1xt9IrccrXv3S/Wi41bhBc0pdwWweVffmPPWUmVYc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Vm7PaAYQuiVvieD+rjDmaDmoT4LLOScZiZKiUpSSOeMjjYn5ZPFQn+regAxdhMgex
-	 gd7v5781pr8h4/EM+LM+Im1fMAg3O4uCA0YNYMBeGDWXSlvGGmCoG3ODiOgJA1OO9N
-	 F+1+r1dt3WgBTP+8uiwb3gWr0yyKbRDC7M2zNTq5CdBF9Mmg/KLSLor4hE3LSAFBB9
-	 EGErZmdKzuMVNML7vqu5NDki9VBfSd4H9YCrXyWNpNf70RzkRrAum4z5Z2sbJrwdOP
-	 MNMofIBji9KZ1Z/7Dtma4kNhwvD+wXrPdzwnb+BN9VHKC0km4C+Z22eG4vCNVFxgjQ
-	 ZTA9oSijZqpog==
+	b=k+JdlVkF4Yy9bwV1wbUwaYJnX0dGFMhaXiUE7SGeQQY08XYvCOEPeA+AxWj1FaUVa
+	 RxrAzaFZnwQNsksh7370CzSDaitvvKfn1yGoVJU/0E4Q6e7Xqan3slrjCzyMOUSVOf
+	 ig3aA/+dE+yqwTU7UUJYLJuUU4XFVULh2CABNJuoblwgEx+sFoYS8yOVmr9vi92O6e
+	 UpaCzZhTH5orTbF/Z/qXMkiH5ujnw2CrvTvM32bhQYCc0xSOr/01P6UD+Afvn8PHRP
+	 IrN5+EgMnUOWNvnhDgBHaSEWVMRELhSh0fU3ssgrqsxQwjm1pDt9Q/Y2AiCPGrePxh
+	 3Xt3OFzLbg7eg==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -57,17 +57,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH 2/3] KVM: arm64: Allow get_pkvm_hyp_vm() to take a reference to a dying VM
-Date: Tue, 31 Mar 2026 16:50:54 +0100
-Message-ID: <20260331155056.28220-3-will@kernel.org>
+Subject: [PATCH 3/3] KVM: arm64: Don't hold 'vm_table_lock' across guest page reclaim
+Date: Tue, 31 Mar 2026 16:50:55 +0100
+Message-ID: <20260331155056.28220-4-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260331155056.28220-1-will@kernel.org>
 References: <20260331155056.28220-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_085135_619043_165E14E7 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20260331_085139_078563_82A87700 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,41 +82,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that completion of the teardown path requires a refcount of zero for
-the target VM, we can allow get_pkvm_hyp_vm() to take a reference on a
-dying VM, which is necessary to unshare pages with a non-protected VM
-during the teardown process itself.
-
-Note that vCPUs belonging to a dying VM cannot be loaded and pages can
-only be reclaimed from a protected VM (via
-__pkvm_reclaim_dying_guest_page()) if the target VM is in the dying
-state.
+Now that the teardown of a VM cannot be finalised as long as a reference
+is held on the VM, rework __pkvm_reclaim_dying_guest_page() to hold a
+reference to the dying VM rather than take the global 'vm_table_lock'
+during the reclaim operation.
 
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/hyp/nvhe/pkvm.c | 8 +-------
- 1 file changed, 1 insertion(+), 7 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/pkvm.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 3fd3b930beeb..b955da0e50bc 100644
+index b955da0e50bc..7ed96d64d611 100644
 --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
 +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -309,14 +309,8 @@ struct pkvm_hyp_vm *get_pkvm_hyp_vm(pkvm_handle_t handle)
+@@ -918,15 +918,16 @@ teardown_donated_memory(struct kvm_hyp_memcache *mc, void *addr, size_t size)
  
- 	hyp_spin_lock(&vm_table_lock);
- 	hyp_vm = get_vm_by_handle(handle);
--	if (!hyp_vm)
--		goto unlock;
--
--	if (hyp_vm->kvm.arch.pkvm.is_dying)
--		hyp_vm = NULL;
--	else
-+	if (hyp_vm)
- 		hyp_page_ref_inc(hyp_virt_to_page(hyp_vm));
--unlock:
- 	hyp_spin_unlock(&vm_table_lock);
+ int __pkvm_reclaim_dying_guest_page(pkvm_handle_t handle, u64 gfn)
+ {
+-	struct pkvm_hyp_vm *hyp_vm;
++	struct pkvm_hyp_vm *hyp_vm = get_pkvm_hyp_vm(handle);
+ 	int ret = -EINVAL;
  
- 	return hyp_vm;
+-	hyp_spin_lock(&vm_table_lock);
+-	hyp_vm = get_vm_by_handle(handle);
+-	if (hyp_vm && hyp_vm->kvm.arch.pkvm.is_dying)
+-		ret = __pkvm_host_reclaim_page_guest(gfn, hyp_vm);
+-	hyp_spin_unlock(&vm_table_lock);
++	if (!hyp_vm)
++		return ret;
+ 
++	if (hyp_vm->kvm.arch.pkvm.is_dying)
++		ret = __pkvm_host_reclaim_page_guest(gfn, hyp_vm);
++
++	put_pkvm_hyp_vm(hyp_vm);
+ 	return ret;
+ }
+ 
 -- 
 2.53.0.1118.gaef5881109-goog
 
