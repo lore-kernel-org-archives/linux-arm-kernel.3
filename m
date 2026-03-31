@@ -4,110 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E737AFF60EE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 09:21:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94DC1FF60EE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 09:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cE0PWmhtnEqQSnWYYYOuzSEl1gB3SuYtUjjS/Ucvahw=; b=tOJjXIEPm3amRbMfXn8OmEbmAa
-	Xm23vXG8ptTm9VjXnrLR6YlQt88pAx0yHGZE3EZSOEcsP8vc7aZ0uDo6mk6qDJJyiGWKd2nxRtUH0
-	GudRvdnBNF9fc+eFNEuVcblIMynx4vljnIqv9W6w9vfkkO+3ooG1gnQ/WCe7M42U/w7taiWw4wRjn
-	9EaQmUKwp0Ao9khb1nD6ECKY3iGB/jBXXYEDjM01DtcRBtYPaPzb/Ng9grBnW6mbPezQ26LrSmiPh
-	Y3/g0JuS/9HU8GGRhPgaSVnPePS4OqvwAjp0HxNx3YB/6DBs3CtBtCZnQdbwjoPiQNb0M1E2fYAjb
-	8483b0sQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sRqoNu4/T0A4idXwuAeIugLUOXNURLtj6A0/QlJBzQU=; b=giBZq64wgS+4YXz4Mm9Ivk4iFg
+	Hj4UHMwuUmxBLrsqKV4DzP+xo140f7PZzDQm9T8nfIuErAEjBR8bf4NiOSLZj8YuTUJXFdwRRXd3x
+	evD7Zx+ecEcftRtGjPH9nq5Uv1HpuvCJs+7rb6mQw1XD7T3rppMJQ83xEz3vQ+5CJpnfhkoYh3eSG
+	TSr8ktpYaJI0k6NI2Y9fwal/WnY2CZw4FSad7nqYQI7/jFdRa2i06dFpNJ11h++TJn+9cbnAuuVjI
+	xlhxf+pmP+T+Nxby+XRcfuVRVPxeoraxl1n5DkYofFqxS0SmDA2GhoeEO2eBpGfXXAfEB3E7dCpjP
+	axEH8eUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7VHy-0000000CgQt-49pe;
-	Tue, 31 Mar 2026 09:21:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w7VMU-0000000CgmA-49l4;
+	Tue, 31 Mar 2026 09:26:15 +0000
+Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7VHy-0000000CgQm-1YeL
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 31 Mar 2026 09:21:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=cE0PWmhtnEqQSnWYYYOuzSEl1gB3SuYtUjjS/Ucvahw=; b=UYbNKMga17hMVBwkojJ5jpj7PW
-	RB4rlWjJ8gkcG8Wabm/ySMTD0iNIavnpVQeA3biZd20QMNUOgdiW/wW1iNocqSjD3nEFnjBzzyWxL
-	YDzvd77eGaWWBSJFQan/qdxW+zNarJS35LysHOevDOAlrYBmCiiKON5Yn4bHyNdJ4bvbZ6Yopn40C
-	85flH/wNgltgWf/S5EppaVRhckvbEv1cdoq9UZIZAT2kt7AYS7wkCCdDWQb+gUKiEHYeVA1WPu2o4
-	gXQYWam18uRHt4zOtU93d/2dPGHhfYy8ZrBH8l2h3JTNjF8mJ0andvHSceSN+WpO1sJk95l3teOyI
-	ESsR5wjg==;
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7VHv-0000000FWMz-1D5C
+	id 1w7VMS-0000000CglU-18FU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 09:21:33 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-486fb14227cso72135045e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 02:21:30 -0700 (PDT)
+	Tue, 31 Mar 2026 09:26:13 +0000
+Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-7d9b21d1461so4738325a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 02:26:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774948889; x=1775553689; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=cE0PWmhtnEqQSnWYYYOuzSEl1gB3SuYtUjjS/Ucvahw=;
-        b=qJAJ12XlZ0V1CGgfgIgS+qj3eHanqri0JgLEOVtei9HXtPoqp7yd8wfBD2HLylz2cH
-         riradwuDhinukGdtssbCqgBXtSMUo0SxBaLRFPRPOGOcks/nDrCexQ0YP+CC+NPj9faD
-         qBznxLjlcm+lK6kpRWVB59yl/NXPCdNkkgE+HztuPndNI5Xz8kzzNdfLuxY7P3mqJke0
-         pUr+VxhZjfDUplZ3tL+5vDzx/ztjoDYQizip7I7Jv1ueubk0FHVJ9p2tT8AkHebOrOia
-         QmtIo5AUnlItON8kMpKIvrzQYf6ugyr2MqZrTD5LHRIInXUDYKdC1CnuhV8gaJFF2C1o
-         pqDg==
+        d=linaro.org; s=google; t=1774949171; x=1775553971; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=sRqoNu4/T0A4idXwuAeIugLUOXNURLtj6A0/QlJBzQU=;
+        b=YpsW9D6dCdIf71pjYyMnna/K/4u4vj1raLzI25qJ+la98C9eBbZ9rLB6hLpqR/O+En
+         KJLbJlm0F/Pe8GBBx+87vTtU6ObSvekqgPzFw6yZcnbha1a91vBl2p8LoceGUitdhxRk
+         CcZkQv6WJk++niWwOsEhlv4OJS4NV90A9NH2kdTY1IUkQVl1xSpBFeBdEoImnmHnxqq0
+         qc4tR9Hg5qkO+ACziyBJTB1yzX+vILFVb/82xUGDeoUaBq+dGqO3fNagGjoLXwH3IDZ9
+         hSjV/0Edq6vcwYn4Val2Pq3xQlW3bOrpS8H/WRwL/HPxbfF8mEJvuBTE0yQ1kz/XR4mI
+         ePrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774948889; x=1775553689;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cE0PWmhtnEqQSnWYYYOuzSEl1gB3SuYtUjjS/Ucvahw=;
-        b=byztbVjIB54CmUwgheAIfRzYW2IxEQVNCg6g6cstsxxZyk0gBbSqdmvwK7UasyM8JK
-         ilefDjXHRq5FVwxEZlAZkFzmh23cfiReTHLrSii0rWqmgsJKLnGuAPV+BOajhMyCKphf
-         1JkYP9iUCrNePgepxvnVbVNNsn0oc23yuNl0ZJXbUj910qFBZJ8mn4AMGwcqZR1duUxO
-         tkPoQMF8jWzkrQcG/ILrnfNZ1EyxvKaLvTV9WXLkk8Ls/BgQRcYyIt8BtK2SLBVKSows
-         aEeo3CGkQrBz2+DMkR2gNJNChmqrQpfXepSMn1W3WaQwG+4ccrDhgYUkZXfGYHvMTut/
-         0l8w==
-X-Forwarded-Encrypted: i=1; AJvYcCULOX3hhJoHQqIpD3M3g+Q4s2zZ5C+bzDi7v7wnaf1Hs7iNl5ZyVN6Qd43+xfj1datFJd78EZALcuASB/hgD/oW@lists.infradead.org
-X-Gm-Message-State: AOJu0YzU91l/EiHiwt8x4oDmwTrYj/LUFQLTdnEp/EFX0IPmU1RzWYMS
-	cnZVwnHyQc9Z5MuhHmuKZrl40XsrdIUBj6uajI39mKPa1dUIBG2I2LPp
-X-Gm-Gg: ATEYQzw1tYCiTu8RcZwJgHZaa0mjS241PBuYMDc3pJFexIFmsMhqdEj/+/JZUdpVAZY
-	F/A4drAO7qXY6uSwD9KtVwLpE4q4P/xnSFob7yMyqWN/G4OlTcNOxTMd37ePWx7nA13mdXlyov9
-	PjLCoO4Yj+F2h2a/W1sjkdk+SjLf7ok/G4L06Xspc62ctUyT+A+gYJOawhNWi/wQNLUn9ESl+AK
-	ddn2b1i06lI3k4FDL9U8vXmNR6GTdiFHbYkMgOHO6BzQKvmZ1SSraexeopeyfS6F4q0wzbsczHC
-	GEAL0zE4z6GPVPy+6a8qvNTyHUXiE54SWQLMo9f6mHnvV12cCILplf2VMDhepg/M7c4XIgayLTj
-	y8dBMLimEM4xf0/pVh4Foj28AaC9ZeoNJHccUkjd7gDR72hBXhxR99JQGBd1TxjcenA3s4bgyS0
-	smboRzWfXQhmcD0UajQzbiFAyP/lMfPO8qURESgF9k7iIWngH2F6iMee7DhblrlOKtYBXPX1wym
-	L6Xaos8niJXZcsUn5LcQMO3JQPWJzj9Ct4lo95iImv2qG0=
-X-Received: by 2002:a05:600c:4744:b0:485:4278:2558 with SMTP id 5b1f17b1804b1-48727d5a313mr266045295e9.6.1774948888897;
-        Tue, 31 Mar 2026 02:21:28 -0700 (PDT)
-Received: from Lord-Beerus.station (net-93-144-20-233.cust.dsl.teletu.it. [93.144.20.233])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4887e7e96fcsm25474495e9.2.2026.03.31.02.21.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Mar 2026 02:21:28 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH v2 1/1] arm64: dts: imx91-var-dart-sonata: add RGB enable supply for PCA6408
-Date: Tue, 31 Mar 2026 11:21:12 +0200
-Message-ID: <20260331092112.7876-1-stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
+        d=1e100.net; s=20251104; t=1774949171; x=1775553971;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sRqoNu4/T0A4idXwuAeIugLUOXNURLtj6A0/QlJBzQU=;
+        b=F5DEzCFU84Za2fYur+EnDHI0cZNtZht0GrNoPKQNWioQgOX4/eKLzBC/ucWkZ6Hu66
+         gVLOBZWNOdSE2CivZ/zpSbYiSuXqqAXgKshqrnLlxUX2z+QANj4FIQlsA9qoDeMHJT3I
+         sEuANakLUXGHJdwC5CONnlY1VJQfFDyd0v61XyGgRgSS+y27NwdpKL8bJi3TA+Y1FW1t
+         9MA1n1l7HtxC0l2/aqHLzJ0q6tPA6fIXQUNeGWbiZnsKMNFzAsFaU6nz6IC5HJMCwa/V
+         IaEsW7aw9C9kHmJNLk8P58QzZTwx+wG1srzFVu4YvbB7jwOpeXw0PdCKGLC63KjXhrfO
+         fOPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWwBzzyqXC9qs33qCdl5mFEeMDM4hri8JUO9VdVK71kaSWTGGKMFcd3233OcZnkOvZgYKfIEqWsBTlmLE5gv/t/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxg60ZwZUagqEhgxbOcPXsUbXe7Zrn1XGo6+NyQrtOlRYT64TXK
+	IioKLvUD4ep2s5HWqe5gvUMFf10DDke2l50HjuLGBSTbgWeIKoFChzNFIbJm40dsAdY=
+X-Gm-Gg: ATEYQzzB6xy1bHUA/eEnlZLuf2UP97lMeLdfdWJslfIjYWiCXhkZGm3cwDvR8+ER2ke
+	kBu+msSVmrzFZN0SwTIzGWmRzkmhE2WSCEN7OFiN4+S//AEDvF0QilMIXssBnVKAfT/9umzDs9n
+	GZXDBjQTUYiKFmTq2hsC7iKuYmBWJ93j1T8ogtgkKShYLodXvnkEK17kmwKIHLEXxnnIIZnKEXG
+	9XWsww5ODoTpPCjfdwPNlBOlrOKi0CTrG3f2bq1/wl41F3IeLsCjBJeT/Ryw86axB65GfgSbYiG
+	5o8ufjqXqEgXeyXbilSuE4Kk2rRIRN7e2ZSZYR7BanPPTzIc4VjVMTFXx+JftgVSDAiiu2QWWXJ
+	dSE9GIR4JBI0FLNSd1afsjJr5NPCNYT1l9t7zG9PucMsCSiMISXWMXMlpA3ePK9HlBeSIFCGISh
+	yI4cL5qFV12M2vGaaBAUE44A/m1L3m
+X-Received: by 2002:a05:6830:81f8:b0:7d9:ae73:2ff9 with SMTP id 46e09a7af769-7da37622aa3mr1639926a34.11.1774949170407;
+        Tue, 31 Mar 2026 02:26:10 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7da0a7b45basm7968990a34.17.2026.03.31.02.26.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 31 Mar 2026 02:26:10 -0700 (PDT)
+Message-ID: <7abe93fa-3748-4077-b75a-d28296862654@linaro.org>
+Date: Tue, 31 Mar 2026 10:26:07 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] coresight: tpdm: add traceid_show for checking traceid
+To: Jie Gan <jie.gan@oss.qualcomm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Mike Leach <mike.leach@arm.com>,
+ Leo Yan <leo.yan@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+References: <20260325-add-traceid-show-for-tpdm-v3-1-0eb836d4ec30@oss.qualcomm.com>
+ <95610981-ad68-4a31-a776-27894b7bca59@linaro.org>
+ <ca1fe6ba-ec56-47a5-99ea-017dcc7a28ed@oss.qualcomm.com>
+ <207b78e5-ed6b-4caf-b9ce-546cf33d6dfd@oss.qualcomm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <207b78e5-ed6b-4caf-b9ce-546cf33d6dfd@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_102131_579245_549F0D1B 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20260331_022612_351566_AA391659 
+X-CRM114-Status: GOOD (  30.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,57 +108,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
 
-RGB enable pin, labeled as RGBSEL, is a board-level enable signal on
-the Sonata carrier board.
 
-The two PCA6408 GPIO expanders depend on this signal being asserted, so
-model it as a fixed regulator and use it as their vcc-supply.
+On 31/03/2026 4:18 am, Jie Gan wrote:
+> Hi James,
+> 
+> On 3/31/2026 9:29 AM, Jie Gan wrote:
+>>
+>> Hi James,
+>>
+>> On 3/30/2026 10:55 PM, James Clark wrote:
+>>>
+>>>
+>>> On 25/03/2026 3:10 am, Jie Gan wrote:
+>>>> Save the trace ID in drvdata during TPDM enablement and expose it
+>>>> to userspace to support trace data parsing.
+>>>>
+>>>> The TPDM device’s trace ID corresponds to the trace ID allocated
+>>>> to the connected TPDA device.
+>>>>
+>>>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>>>> ---
+>>>> Changes in v3:
+>>>> 1. Only allow user to read the traceid while the TPDM device is 
+>>>> enabled.
+>>>> - Link to v2: https://lore.kernel.org/r/20260316-add-traceid-show- 
+>>>> for- tpdm-v2-1-1dec2a67e4ed@oss.qualcomm.com
+>>>>
+>>>> Changes in V2:
+>>>> 1. Use sysfs_emit instead of sprintf.
+>>>> Link to V1 - https://lore.kernel.org/all/20260306-add-traceid-show- 
+>>>> for-tpdm-v1-1-0658a8edb972@oss.qualcomm.com/
+>>>> ---
+>>>>   drivers/hwtracing/coresight/coresight-tpdm.c | 34 ++++++++++++++++ 
+>>>> + + +++++++++-
+>>>>   drivers/hwtracing/coresight/coresight-tpdm.h |  2 ++
+>>>>   2 files changed, 35 insertions(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/ 
+>>>> hwtracing/coresight/coresight-tpdm.c
+>>>> index da77bdaad0a4..c8339b973bfc 100644
+>>>> --- a/drivers/hwtracing/coresight/coresight-tpdm.c
+>>>> +++ b/drivers/hwtracing/coresight/coresight-tpdm.c
+>>>> @@ -481,7 +481,7 @@ static void __tpdm_enable(struct tpdm_drvdata 
+>>>> *drvdata)
+>>>>   static int tpdm_enable(struct coresight_device *csdev, struct 
+>>>> perf_event *event,
+>>>>                  enum cs_mode mode,
+>>>> -               __maybe_unused struct coresight_path *path)
+>>>> +               struct coresight_path *path)
+>>>>   {
+>>>>       struct tpdm_drvdata *drvdata = dev_get_drvdata(csdev- 
+>>>> >dev.parent);
+>>>> @@ -497,6 +497,7 @@ static int tpdm_enable(struct coresight_device 
+>>>> *csdev, struct perf_event *event,
+>>>>       }
+>>>>       __tpdm_enable(drvdata);
+>>>> +    drvdata->traceid = path->trace_id;
+>>>>       drvdata->enable = true;
+>>>>       spin_unlock(&drvdata->spinlock);
+>>>> @@ -693,6 +694,29 @@ static struct attribute_group tpdm_attr_grp = {
+>>>>       .attrs = tpdm_attrs,
+>>>>   };
+>>>> +static ssize_t traceid_show(struct device *dev,
+>>>> +                struct device_attribute *attr, char *buf)
+>>>> +{
+>>>> +    unsigned long val;
+>>>> +    struct tpdm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>>>> +
+>>>> +    if (coresight_get_mode(drvdata->csdev) == CS_MODE_DISABLED)
+>>>> +        return -EINVAL;
+>>>> +
+>>>> +    val = drvdata->traceid;
+>>>
+>>> You probably need to take the coresight_mutex here otherwise you 
+>>> could still return an invalid or stale value despite checking the mode.
+>>>
+>>
+>> Acked. I have missed this potential race condition.
+>>
+>>> There might also be some value in it returning the last used trace ID 
+>>> even if the mode isn't enabled anymore. Because you can still read 
+>>> out of the sink after disabling, so it makes more sense for a script 
+>>> to read it at that point rather than when it's enabled. Also, you 
+>>> probably don't want to be doing other things in your script in the 
+>>> point between enabling and disabling.
+>>
+>> That's making sense. I shouldnt add such restriction for the read 
+>> process.
+>>
+> 
+> I missed one point in last message.
+> 
+> Is that acceptable to export the coresight_mutex from the core module?
+> Currently, the coresight_mutex is used within the module only.
+> 
+> Thanks,
+> Jie
+> 
 
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
-v1->v2:
- - Fixed commit message and RGB pin references.
+If the plan is to only check for non-zero trace ID and not check the 
+mode any more then you don't need to lock. Maybe lets see what Suzuki 
+thinks about returning the last trace ID though as it was his idea to 
+add -EINVAL.
 
- arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts | 9 +++++++++
- 1 file changed, 9 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts b/arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts
-index afa39dab240a..3f0fd321d95f 100644
---- a/arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts
-+++ b/arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts
-@@ -90,6 +90,13 @@ reg_vref_1v8: regulator-adc-vref {
- 		regulator-max-microvolt = <1800000>;
- 	};
- 
-+	reg_rgb_sel: regulator-rgb-enable {
-+		compatible = "regulator-fixed";
-+		regulator-name = "RGBSEL";
-+		gpio = <&pca9534 7 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
- 	reg_usdhc2_vmmc: regulator-vmmc-usdhc2 {
- 		compatible = "regulator-fixed";
- 		pinctrl-names = "default";
-@@ -195,6 +202,7 @@ pca6408_1: gpio@20 {
- 		#gpio-cells = <2>;
- 		interrupt-parent = <&gpio1>;
- 		interrupts = <10 IRQ_TYPE_LEVEL_LOW>;
-+		vcc-supply = <&reg_rgb_sel>;
- 	};
- 
- 	pca6408_2: gpio@21 {
-@@ -204,6 +212,7 @@ pca6408_2: gpio@21 {
- 		#gpio-cells = <2>;
- 		interrupt-parent = <&gpio1>;
- 		interrupts = <10 IRQ_TYPE_LEVEL_LOW>;
-+		vcc-supply = <&reg_rgb_sel>;
- 	};
- 
- 	pca9534: gpio@22 {
--- 
-2.47.3
+>> Scenarios for reading:
+>> 1. device is enabled -> trace ID is valid
+>> 2. device is enabled then disabled -> trace ID is valid for the last 
+>> trace event
+>> 3. device is never enabled -> invalid trace ID (value 0)
+>>
+>> we only need to check the validation of the trace ID.
+>>
+>> mutex_lock(&coresight_mutex);
+>> val = drvdata->traceid;
+>> mutex_unlock(&coresight_mutex);
+>>
+>> if (!val)
+>>      return -EINVAL;
+>>
+>> return sysfs_emit(buf, "%#lx\n", val);
+>>
+>> Thanks,
+>> Jie
+>>
+>>>
+>>>> +    return sysfs_emit(buf, "%#lx\n", val);
+>>>> +}
+>>>> +static DEVICE_ATTR_RO(traceid);
+>>>> +
+>>>> +static struct attribute *traceid_attrs[] = {
+>>>> +    &dev_attr_traceid.attr,
+>>>> +    NULL,
+>>>> +};
+>>>> +
+>>>> +static struct attribute_group traceid_attr_grp = {
+>>>> +    .attrs = traceid_attrs,
+>>>> +};
+>>>> +
+>>>>   static ssize_t dsb_mode_show(struct device *dev,
+>>>>                    struct device_attribute *attr,
+>>>>                    char *buf)
+>>>> @@ -1367,6 +1391,12 @@ static const struct attribute_group 
+>>>> *tpdm_attr_grps[] = {
+>>>>       &tpdm_cmb_patt_grp,
+>>>>       &tpdm_cmb_msr_grp,
+>>>>       &tpdm_mcmb_attr_grp,
+>>>> +    &traceid_attr_grp,
+>>>> +    NULL,
+>>>> +};
+>>>> +
+>>>> +static const struct attribute_group *static_tpdm_attr_grps[] = {
+>>>> +    &traceid_attr_grp,
+>>>>       NULL,
+>>>>   };
+>>>> @@ -1425,6 +1455,8 @@ static int tpdm_probe(struct device *dev, 
+>>>> struct resource *res)
+>>>>       desc.access = CSDEV_ACCESS_IOMEM(base);
+>>>>       if (res)
+>>>>           desc.groups = tpdm_attr_grps;
+>>>> +    else
+>>>> +        desc.groups = static_tpdm_attr_grps;
+>>>>       drvdata->csdev = coresight_register(&desc);
+>>>>       if (IS_ERR(drvdata->csdev))
+>>>>           return PTR_ERR(drvdata->csdev);
+>>>> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.h b/drivers/ 
+>>>> hwtracing/coresight/coresight-tpdm.h
+>>>> index 2867f3ab8186..11da64e1ade8 100644
+>>>> --- a/drivers/hwtracing/coresight/coresight-tpdm.h
+>>>> +++ b/drivers/hwtracing/coresight/coresight-tpdm.h
+>>>> @@ -300,6 +300,7 @@ struct cmb_dataset {
+>>>>    * @cmb         Specifics associated to TPDM CMB.
+>>>>    * @dsb_msr_num Number of MSR supported by DSB TPDM
+>>>>    * @cmb_msr_num Number of MSR supported by CMB TPDM
+>>>> + * @traceid    Trace ID of the path.
+>>>>    */
+>>>>   struct tpdm_drvdata {
+>>>> @@ -313,6 +314,7 @@ struct tpdm_drvdata {
+>>>>       struct cmb_dataset    *cmb;
+>>>>       u32            dsb_msr_num;
+>>>>       u32            cmb_msr_num;
+>>>> +    u8            traceid;
+>>>>   };
+>>>>   /* Enumerate members of various datasets */
+>>>>
+>>>> ---
+>>>> base-commit: b84a0ebe421ca56995ff78b66307667b62b3a900
+>>>> change-id: 20260316-add-traceid-show-for-tpdm-88d040651f00
+>>>>
+>>>> Best regards,
+>>>
+>>
+> 
 
 
