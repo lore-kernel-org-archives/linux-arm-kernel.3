@@ -4,120 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF431061B37
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 12:19:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBB8F1061B3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 12:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZJkXpP31qfsrEm+q5zIu8YXx4jAqFbEaXndk6NE+lpo=; b=HnPCVrq7rzfu4UA38smscgB1aW
-	5JofQ183jpxkpzJtW9OG83kzbdEn9swUcoHZ6r4pqXfvSbQvmzrfihdxbuXPzyHJlp/cHmsqUiGuL
-	PbF4H1f2LL3eHSO9+ziaHggRpPd/IEYTCyzh4sBv01MWVzzFKblHMeDYYltjbMUaE5CUh7EQ2njLm
-	BMYb9K8BHXIDqSgTv3/OYdmBMlXwGmQ1evYbaTjIL+kwjGERV4mQaBIjR6IauXL4/KqvVSrDjKSiT
-	jVZHNUlTqpGLUPx7/8VZ4o3KCVXaJNagG6lqVAZ93CNssKyeczQjvx488ldw7Ro0pjvKd8joztR2W
-	qbOGoM1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UppyQ/xNq8mnP2lW5sR330eErTdEUcGW603koO2qfjM=; b=JNJ1sBqvSGL2RC6vQJTrv1Nicc
+	O67VRkOHusMonc2LAM2Mq9//evjYVgpO2rmlCpkAzQX+gYRgWdp2MLErrwpW0V2Tn6KIJwuzVkoTQ
+	tIC4TZ0RuAxnOxO90Q6gy5zzPF4sdktkPbP5zcVaipfHnVHa+pMfVdSZXr1/MEEgjyjJqjzVD7QNN
+	tlEVm4CX7D+1mhTS7iVdRJ2QTIzZv/qBQ8FMLD1Ab0gpuvs537ixrFfamTkBykTIJLJqg/NR5uK5X
+	KIkw3icCy2r1obaGBN7bQpOKGAHCzJcAVZA2IbzoW1BOAfl5Yw0t/1WaLSQ74yzlM2CFz6SK3P1NH
+	E0WMd5sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Y45-0000000Cvdi-2kw8;
-	Tue, 31 Mar 2026 12:19:25 +0000
-Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1w7YG5-0000000CwTh-27dr;
+	Tue, 31 Mar 2026 12:31:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Y42-0000000Cvcb-3l9G
+	id 1w7YG2-0000000CwTL-3DJP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 12:19:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=npEhU/BoNnKcpahuD0xn5vd6QeyTv9xmrpUymnVEglkckme9+9YohNGZq3nr2BHGKnn2vLSldFHP/4nv1ZiR5S+zvHf0q3kge/ovnGn2n6aCrpTkG2DM/LgeNN/DWBc64058MNG+kgkUIeXVt9pNy2LMexX/0XAwVH2zlUo3093wO8g3MDxXhyhKez1s1Y8Ysa8VmfZyGc4897evRNuuM10lGLLaGUOKmPi+X5/uSp+6Qi5bbE8VhN+pd4tfHpX+bLDP7evgzHZC/zxcglvpxm5HEh5xBCGiLK5HzHmLGADiHn4vkLutP/npwm4byF7juSuEx5cRIfNCdvpE1kUi4A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZJkXpP31qfsrEm+q5zIu8YXx4jAqFbEaXndk6NE+lpo=;
- b=GujBUK8cQIKLXkOULVG/BlbK4CKFjnkoOju8K1Z6+UamcUFDg6iby6HYyfUs6qYRegknlsXohboy+l8helZFUamOo6JPVGOMG8pO9citLq2H5RVssqovEaLN6d6JYWakq9Afjs6hUsFTeEeBMVgpvvF6g/jxGqQG1j0Ntd+LH88SlwN+Hugab9scZHZgoLVA1EQX9RstHBa4e2z+PT5wzNFMP2gp9AELQ/U4KBh9xcNrvCXtnx0AHc97Dwhj9ymw9irT2DfUbWuPajgNsmVWu1uNyYYJMQOn2GV3x1rNSboViQDwz35v8DbV1LW5/6HJGw5620Az3CRPUlb10gCbug==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZJkXpP31qfsrEm+q5zIu8YXx4jAqFbEaXndk6NE+lpo=;
- b=hujSxz4T7M6uER5kAz+lpKKW89wPATQhk4M6rIfpLYuXzzaDyJ8E4rnPe+tKavUGHhCUIi1svwmGCRClZG3TQge32ZYArqzNK4tSayBiivddSua13QePU+YJCXp0in5OhDfCcvPTGLl2HL/u355uuFLDt+0mgRb47CcEh78gU98=
-Received: from BL1PR13CA0181.namprd13.prod.outlook.com (2603:10b6:208:2be::6)
- by CYYPR10MB7625.namprd10.prod.outlook.com (2603:10b6:930:c0::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Tue, 31 Mar
- 2026 12:19:17 +0000
-Received: from BL02EPF0002992B.namprd02.prod.outlook.com
- (2603:10b6:208:2be:cafe::a2) by BL1PR13CA0181.outlook.office365.com
- (2603:10b6:208:2be::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.28 via Frontend Transport; Tue,
- 31 Mar 2026 12:19:17 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- BL02EPF0002992B.mail.protection.outlook.com (10.167.249.56) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9745.21 via Frontend Transport; Tue, 31 Mar 2026 12:19:16 +0000
-Received: from DFLE207.ent.ti.com (10.64.6.65) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 31 Mar
- 2026 07:19:14 -0500
-Received: from DFLE205.ent.ti.com (10.64.6.63) by DFLE207.ent.ti.com
- (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 31 Mar
- 2026 07:19:14 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE205.ent.ti.com
- (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 31 Mar 2026 07:19:14 -0500
-Received: from [10.24.50.20] (moteen-ubuntu-desk.dhcp.ti.com [10.24.50.20])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62VCJBLW2736751;
-	Tue, 31 Mar 2026 07:19:11 -0500
-Message-ID: <8d4a2839-5b1e-479e-a462-dbbc3d016020@ti.com>
-Date: Tue, 31 Mar 2026 17:49:10 +0530
+	Tue, 31 Mar 2026 12:31:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0640243D39;
+	Tue, 31 Mar 2026 12:31:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51F94C2BC9E;
+	Tue, 31 Mar 2026 12:31:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774960305;
+	bh=D5/3xk1fp4FeAb9Blzw/Ddwbf2aw5cJA1gRZc9Dui5o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JeZmfUXJlpPYISkPKqERcAolc05szSMZRt9nhT12TH9URKkMk+w2B+W7BZ17XItfk
+	 XcNLFtDwSyNrFBduWXcYJa5380Lf7XUX+midjgd+iyy57I57AcdLtABuxMX2KRc0bP
+	 H6d02jmzpTbhA3juTB2XvKiFeZApE487rQevjDHjhiTdcD828tkla1Nnc711b8+2pG
+	 XSdFSH/e+zhOwASztRQvEeZ8AhAMkJDE5qaVeYfHs6qlRlZmbGEpTJ+gUA6nu1DULH
+	 or0u9EGt0jrXbbr/KClkZG5ojZhOneIzPIuCNPv0y1Xr0WTA03PHlvHkZy2zZVh+dN
+	 OvaI8+vB3QwvA==
+Date: Tue, 31 Mar 2026 13:31:38 +0100
+From: Lee Jones <lee@kernel.org>
+To: amitsd@google.com
+Cc: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Badhri Jagan Sridharan <badhri@google.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Mark Brown <broonie@kernel.org>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
+Subject: Re: [PATCH v9 3/6] mfd: max77759: add register bitmasks and modify
+ irq configs for charger
+Message-ID: <20260331123138.GE3795166@google.com>
+References: <20260325-max77759-charger-v9-0-4486dd297adc@google.com>
+ <20260325-max77759-charger-v9-3-4486dd297adc@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-j721e-main: Update delay select values
- for MMC1/2 subsystems
-To: Romain Naour <romain.naour@smile.fr>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>
-CC: <conor+dt@kernel.org>, <krzk+dt@kernel.org>, <robh@kernel.org>,
-	<kristo@kernel.org>, <vigneshr@ti.com>, <nm@ti.com>, <stable@vger.kernel.org>
-References: <20260218203823.1825554-1-romain.naour@smile.fr>
-Content-Language: en-US
-From: Moteen Shah <m-shah@ti.com>
-In-Reply-To: <20260218203823.1825554-1-romain.naour@smile.fr>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF0002992B:EE_|CYYPR10MB7625:EE_
-X-MS-Office365-Filtering-Correlation-Id: 34ac821a-90b6-4091-7baf-08de8f1fba1c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700016|1800799024|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: YDZY9pS2mxUv2NlCjHnkHzMyjZFXtF8isjMajp/vKg9e9JhoVP4XWctsfL//dGLKG3IUBxtz3irQgd0ycvt97tS27uip2fPj1ZfR6blbRE2+Q1kFuASn0wb1rF4FGwgcvjXoMhZnltkARymMMTa3GmcH+UE93iKKgxi+vMrhYMQb3Rqjfxjkjw9VkZZpbf4/vBkXq3nFbIK0ul266lX7Y8knzmmZ9ykpY1YutOYYnjnbsQLbE2qI9YFM4hshcYI/y/Nnxtgx3iUbHDtjFr6sN6T6g22pdmnkMVUMIZ6p4/hIuqiJI6PbMo4N3nbdFeWhuwdGLwWTOq/msimdiG1ODOgbSOWlfsX70YV5GwD8/dRBqXcoSbF2o/c5wJ29VznFnGZzMBYLlI2IZCOTlZW6Uwen6xFRBiV/AvGhrEFDWda0tDsjgS3LYrGGYHWILbzGCUW6xMiY8BImjvBnPnXUgQPy9eizKA8gQLJAEBsxaRb6v3zLTNqF1ot/jwCwJi3gCRukTjjgRDSxaJk1ojWzXH+PFsC/e0L6VivNTyL6VjyGBxcIjU15V8+/hAccqJKfGpUks2vxTiqSrtg6HBUl52d8GVjOV3Of7RQ/3+1rj0hIKxyDy1fk72XhIQ9MTC1oH3WKx7scKpblzl0686Xb9kdvDwOF+UrahdSJdD7/iZQyj7//sXrQ3tv9foL8KLrD/bR/zT67R3eRjOM7tjeRyGnewQnjfOFJQMEZEBlDF6d9WOTILRfz0F3i3pGkiyyTf8cnd9D84TEaPe1US2V5yQ==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700016)(1800799024)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: tQqvZtFt/UtwILKsaZETGYJ1Baed85dQjXHWEe4XeoTsyPUM0+cTDtZyqWw6yDYPZagTJywNqaZFDDrYr5jyYuu7QBeIEhgUfevG2pVDy5qUwGFDDLvj6kiKOcrWoxy5I0XL0BmD8gyiCSG+HXNiId4qpJtzYk/2TH4D9c2z6cres1NVGp7txM2OP6TdDTqMk5vDxb5Pv2dt6C3Pw/rJShJp8Ba9ouPhnDneTF00q4BD0nPbPwznWVybA4X8td806hceaW2ariWdf+7Z0aykkNKQJq6C4BKjUzbwuo2gNNJ6THcTyZ9toMR2Vk+6GTLztb6/1gSsfm8ol7vc+GcaOWijFD7O2yw1MMlEt7IzLdbgpJyw3ojRmsf+c25YIncv7YAVaE/2iRS5nozRQ2wOSKSU/43f4lEpmzhud/vR6+FpMU1oFiploIwisZzPbxnc
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 12:19:16.1192
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 34ac821a-90b6-4091-7baf-08de8f1fba1c
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0002992B.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR10MB7625
+In-Reply-To: <20260325-max77759-charger-v9-3-4486dd297adc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_051923_043905_3D2F09A2 
-X-CRM114-Status: GOOD (  16.49  )
+X-CRM114-CacheID: sfid-20260331_053146_827163_7C3333F1 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,75 +90,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Romain,
+On Wed, 25 Mar 2026, Amit Sunil Dhamne via B4 Relay wrote:
 
-Thanks for the patch
-
-On 19/02/26 02:08, Romain Naour wrote:
-> The previous SPRSP36J datasheet recommends to set ti,otap-del-sel-sd-hs
-> value to 0 for MMC1 and MMC2 interfaces. These values were updated in
-> kernel 6.5. As a result we have some occasional regression with ultra
-> high speed DDR50 SDXC cards while mounting the rootfs:
-
-This error shouldn't be limited to just DDR50, were you seeing similar 
-behavior with other speed modes?
->
->    mmc1: error -110 whilst initialising SD card
->
-> A similar issue may occur with u-boot after a reboot while
-> initialising the SD card:
->
->    mmc_init: -110, time 67
->
-> Update the delay values for legacy and high speed modes, based on
-> the latest revised datasheet SPRSP36K released in April 2024 [1].
->
->    (MMC1/2 - SD/SDIO Interface): Updated/Changed the
->    "OTAPDLYENA, DELAY ENABLE" and "OTAPDLYSEL, DELAY VALUE" for the
->    Default Speed and High Speed modes from "0x0" to "0x1"
->
-> [1] Table 6-86. MMC1/2 DLL Delay Mapping for All Timing Modes, in
-> https://www.ti.com/lit/ds/symlink/tda4vm.pdf,
-> (SPRSP36K – SEPTEMBER 2021 – REVISED APRIL 2024)
->
-> Cc: stable@vger.kernel.org # 6.5+
-> Fixes: af398252d68e ("arm64: dts: ti: k3-j721e-main: Update delay select values for MMC subsystems")
-> Signed-off-by: Romain Naour <romain.naour@smile.fr>
+> From: Amit Sunil Dhamne <amitsd@google.com>
+> 
+> Add register bitmasks for charger function.
+> In addition split the charger IRQs further such that each bit represents
+> an IRQ downstream of charger regmap irq chip. In addition populate the
+> ack_base to offload irq ack to the regmap irq chip framework.
+> 
+> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+> Reviewed-by: André Draszik <andre.draszik@linaro.org>
 > ---
->   arch/arm64/boot/dts/ti/k3-j721e-main.dtsi | 8 ++++----
->   1 file changed, 4 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-> index d5fd30a01032..418e6010ef1f 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-> @@ -1643,8 +1643,8 @@ main_sdhci1: mmc@4fb0000 {
->   		clocks = <&k3_clks 92 5>, <&k3_clks 92 0>;
->   		assigned-clocks = <&k3_clks 92 0>;
->   		assigned-clock-parents = <&k3_clks 92 1>;
-> -		ti,otap-del-sel-legacy = <0x0>;
-> -		ti,otap-del-sel-sd-hs = <0x0>;
-> +		ti,otap-del-sel-legacy = <0x1>;
-> +		ti,otap-del-sel-sd-hs = <0x1>;
->   		ti,otap-del-sel-sdr12 = <0xf>;
->   		ti,otap-del-sel-sdr25 = <0xf>;
->   		ti,otap-del-sel-sdr50 = <0xc>;
-> @@ -1671,8 +1671,8 @@ main_sdhci2: mmc@4f98000 {
->   		clocks = <&k3_clks 93 5>, <&k3_clks 93 0>;
->   		assigned-clocks = <&k3_clks 93 0>;
->   		assigned-clock-parents = <&k3_clks 93 1>;
-> -		ti,otap-del-sel-legacy = <0x0>;
-> -		ti,otap-del-sel-sd-hs = <0x0>;
-> +		ti,otap-del-sel-legacy = <0x1>;
-> +		ti,otap-del-sel-sd-hs = <0x1>;
->   		ti,otap-del-sel-sdr12 = <0xf>;
->   		ti,otap-del-sel-sdr25 = <0xf>;
->   		ti,otap-del-sel-sdr50 = <0xc>;
+>  drivers/mfd/max77759.c       |  95 ++++++++++++++++++++++---
+>  include/linux/mfd/max77759.h | 166 +++++++++++++++++++++++++++++++++++--------
+>  2 files changed, 222 insertions(+), 39 deletions(-)
+> 
 
+[...]
 
-Reviewed-by: Moteen Shah <m-shah@ti.com>
+> +/*
+> + * enum max77759_chgr_chgin_dtls_status - Charger Input Status
+> + * @MAX77759_CHGR_CHGIN_DTLS_VBUS_UNDERVOLTAGE:
+> + *     Charger input voltage (Vchgin) < Under Voltage Threshold (Vuvlo)
+> + * @MAX77759_CHGR_CHGIN_DTLS_VBUS_MARGINAL_VOLTAGE: Vchgin > Vuvlo and
+> + *     Vchgin < (Battery Voltage (Vbatt) + system voltage (Vsys))
+> + * @MAX77759_CHGR_CHGIN_DTLS_VBUS_OVERVOLTAGE:
+> + *     Vchgin > Over Voltage threshold (Vovlo)
+> + * @MAX77759_CHGR_CHGIN_DTLS_VBUS_VALID:
+> + *     Vchgin > Vuvlo, Vchgin < Vovlo and Vchgin > (Vsys + Vbatt)
+> + */
 
-Regards,
-Moteen
+This comment is masquerading as a kernel-doc header, but isn't actually
+kernel-doc.  Either change the formatting or adapt the formatting to use
+/** and use W=1 to check it.
 
+> +enum max77759_chgr_chgin_dtls_status {
+> +	MAX77759_CHGR_CHGIN_DTLS_VBUS_UNDERVOLTAGE,
+> +	MAX77759_CHGR_CHGIN_DTLS_VBUS_MARGINAL_VOLTAGE,
+> +	MAX77759_CHGR_CHGIN_DTLS_VBUS_OVERVOLTAGE,
+> +	MAX77759_CHGR_CHGIN_DTLS_VBUS_VALID,
+> +};
+
+-- 
+Lee Jones [李琼斯]
 
