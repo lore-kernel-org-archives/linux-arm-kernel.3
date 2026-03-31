@@ -4,140 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F4751061B2C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 02:49:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 278AB1061B2B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 02:53:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sozgCNhtywv92zdUZwDHpgSAXrEUvj1kf8dSd6QpfRw=; b=A0yWZToSkLx5twFiTG03IzrEnk
-	tT0wv4ufo9j9qKsHnLAcRd9peIlG9va5nTOxXhS8CFOHZFXfdvA4GrEeMi+BVpLXUWbjfI2AfJYNW
-	CH0p8DZbeUOaF0sqA4MKqrEx5ciJVCott7YZHYk218/1hKXOcyDOI3MAAaVdxOFpORi6f/KJ3FUaP
-	U+HovymAjn7erUnSNT9hz2d+UuMQakedscAG7YqU8Dp4HMuePZpC5CEDukUrkBmFr2Wz218PKPB5s
-	ICugn0mA+Sb6hycquw3QRswdn5qhrmpqxBMKCeTwKMF/AUFF3xU+6ZKJY5knZbomAoBZaCReImSlm
-	QZ8cN8wQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ilhcaIS/tbQmsg6PWjrfVpOQh4yyfAhJzLT1EMbVKSo=; b=kZ0Kn0mpvApb/VChgY6yyRjPAy
+	VIJ6b6G5YLTWnz9QRqQKjNmSFwEslhNpi7w8ptrOj7/UEe5Qe5S2lS9nm3fGo2frISHu53YaGyr7I
+	t0PEt82HsEHKqnDixwM/pCxtyLrG6qXCz6TQ0be0UEGTDfVL+MYeiO72ctun0DvgsKhUd6Cljoct3
+	FJeYejgkqNtUcFuVag5bWITLrevm69GYelAYLlcnJElzPal11KBIjZBehFSX/dj+1KCf+rHOk8xzz
+	k/PF47wNrVqXubQ4ytJttMCLqHidVuxsejEffFYgYIU5lmDhziw5Xgxg7t0egGRQz1PjZyY1axdN5
+	tdMcFsoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7PA0-0000000CCSe-3tqs;
-	Tue, 31 Mar 2026 02:48:56 +0000
-Received: from mail-koreacentralazon11023099.outbound.protection.outlook.com ([40.107.44.99] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1w7PE8-0000000CCf2-1enm;
+	Tue, 31 Mar 2026 02:53:12 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7P9y-0000000CCRc-26ah;
-	Tue, 31 Mar 2026 02:48:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=j2qRYRGNrDDfjJvwA/dBVk3g1u0TYt22tlwZn0ALviBN+lcTqSOa8PIDCuwgjcyu4z5decuy0vM4D2K3lP709Nr2jxYEi8hB00z7r2Hmq8U/c4bNKUrILiwu4wxAHKa0qz9bKTRoTurFW1oKT4MB3nL+5UZ0Hrblru3QaCFOFzFkjhIcHRCk4nqR4qpBMxGLqzn2thGKMv/qwhbS3U/OqS4S0dZDpoFtXAx632u3SQnbHuwfyRMMr3oT5oTZWKj5fdtUX00Zw0J7cDOlbyLgLC7iJ52CNlQEa+uMjNjho5uaOTfgw+/Ge2ocFd+MgqA9oUKE6cr+vgDZH/4nwYCJIw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sozgCNhtywv92zdUZwDHpgSAXrEUvj1kf8dSd6QpfRw=;
- b=ikYgL5IvNyANUdzwPcuHzxrimdhvTub3plzSX65VKiy1BM5VzOctEfrP//jChrBov9628A+4PCJRwBs6ZrOz25iGNefv0IGuou7RC6nSqPGimk2QtvuEzwAPutjRm0EyNzC5KIzXZl3cjg8VwOt0ZKjz8eQtMHKGaPSHCWD60E6RW+F4ifHQkI5TeKW3+w7QLTiXUgK/IO+JBrCkjH6Kre+QNEx4UCi0HfdrmQNZS7wbx9B0SawvENzEdHAKXD35YP9/ICLRG17Wy64Elv00WmjzdVkZ6nmtuFG5orteD8+b4Rox7u9hVewmawBpEce+LHc28kYLFJjzTYpvskWkMA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sozgCNhtywv92zdUZwDHpgSAXrEUvj1kf8dSd6QpfRw=;
- b=kwTr6TCqSE5WVug89MfGtPM7UqfABVCNokbwerBHFp/ccnIDbRSNhlJmA2sx6kRwI8kUPAq3yQ11UQtQ9cC7e+war3EcwMKaHHcP0oFhSptCVGvNmYd+F4uQTx1RfSRi1jqcMbRaPG41wi7cr20KynR1UZACqp0uiHT0AWTITr0EksdM66xOOPnPVdXO1HdWTeBFGwsa9eDFVzWCQVdGC1u9+oceugOjcOMM0MSYqNI6brJBsXYsV9olhCI77GadOUM0YtoCMcOA+FTy9VDKv9+USxrxhXlvAUe7tymH18CZNQhnAjb/xr/9LZOgyym9+YseAolcLSru+Edb9eBlqw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
- by PUZPR03MB6988.apcprd03.prod.outlook.com (2603:1096:301:f7::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Tue, 31 Mar
- 2026 02:48:38 +0000
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::78d4:9dee:2e32:d1e4]) by TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::78d4:9dee:2e32:d1e4%3]) with mapi id 15.20.9745.027; Tue, 31 Mar 2026
- 02:48:38 +0000
-Message-ID: <59b5c878-dad8-4ce3-9864-f4706c993d4d@amlogic.com>
-Date: Tue, 31 Mar 2026 10:48:34 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] pwm: meson: Add support for Amlogic S7
-Content-Language: en-US
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org
-References: <20260326-s6-s7-pwm-v1-0-67e2f72b98bc@amlogic.com>
- <20260326-s6-s7-pwm-v1-2-67e2f72b98bc@amlogic.com>
- <CAFBinCD-4dwp7pmM_GHK_N1kag_5VBZbP9VAwQOxcyg6aquj3w@mail.gmail.com>
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-In-Reply-To: <CAFBinCD-4dwp7pmM_GHK_N1kag_5VBZbP9VAwQOxcyg6aquj3w@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: TP0P295CA0039.TWNP295.PROD.OUTLOOK.COM (2603:1096:910:4::8)
- To TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
+	id 1w7PE4-0000000CCeg-13cB
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 31 Mar 2026 02:53:09 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-35d8e548a05so3237864a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 19:53:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774925587; x=1775530387; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ilhcaIS/tbQmsg6PWjrfVpOQh4yyfAhJzLT1EMbVKSo=;
+        b=fqd6sHuJc8rz7aiOXRwpbXosqcyM9x67ZZTWfYleYBtlFlljdVC5wpFrn+5grJTzBW
+         G3UylNGylOCCdXJu4hS2hxI0qCV3tQWNDPyz6bAHBgArt5QBKOgX0nYzZvN8bvN0e4Q2
+         BEFCK4QiL/Rn8t3LVElQVCsrg/Uj80PIEDH+OPN9i8CfXBFKddVPRjj9Jb/JOPcV1rmO
+         SuYARJ4XubESYHSqtiT3oNZyb9x26+Mza+/WxXRM+J9iGibAThT5vVsbXwmFvCsY12E8
+         c2YdGJrkWI9PO5rmwSANDQnXUG9nxuYNDmtv8UMwv8LOh2m7fVtdcUv17f0nN0wtIqEV
+         0txQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774925587; x=1775530387;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ilhcaIS/tbQmsg6PWjrfVpOQh4yyfAhJzLT1EMbVKSo=;
+        b=VmCcy2wzzWrHI+5NWKJBA4n2FaC8mmk8dJUOxQTjgKieeI33QPkFTXRGwYSskQ6W3g
+         KhgPh5dTyfzX8B9QSyntjnFo4MMpxLPDFywREcEllb5gAcGH0SJLSnVHrABVZXweL1wO
+         /o2/eBSonVPHoXDaegrhn2qZAF/kuzq1iENW6vp/r/bD2q+XoQvCjPngP/LwWf4eE0sL
+         F2CxMquA56ebVaKLqgpCYpOTZG6UH+wllQAAI/HekhgWV94R58duhdRiMxSETWpshXVQ
+         GibLohFy+uvt2bT7kx0cxz3zFaLSdsMyIEwukRTQ6JYDq9GshaDh/KuHfT3IMwsHq7hb
+         gbiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVdbd6Q6tGlZMpxep+9LAxrusrqrC39PdAVVl+kv6g6/ThGiVOJhzYDNCZcTAD+1wIrM66Kpq9buJIBG/2NwPVK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6v4PcLWtchYy/k6L7S2XCGhWwbB8OwqeTI5u3E0Pv8eVH8RQn
+	5u3JoeZTzUUkOtvBQAMW02RaKVAv9ni+0Ygi02MScpG9OndFDp2z9Fq7
+X-Gm-Gg: ATEYQzxpeSayJ6lButOgtaDjtqkMl61Ar1DAxOz926C7ocnkLeCXobahwoMcWjZPbsn
+	UYVBY0hkfVH0IXW1hkLsGS3+BmHKd4qDGk4NlnD9359wVd7YuUNXNp2b/qIGwpNfEB2MBpw/rEm
+	HcDpZ+ZAX2t3bruxrUXGbwDcVlSuQMtMVi1SIrZWYF9gioE1liQhH5GcW4E4I7waJyfusRiKG+n
+	NEn0rM7Lm8cfO8Wd1Aj3gVSEGamsSep8h1Ja/2GxTr2ekbg+Yl0Mldzh+OhVQvQXW1Zqq0Jwq//
+	SDJulMObMAJCied3iZkFpX9Epfburrr7TXcRjl+D5ZDJU984JKuTvToYA3QSga7LZkLdqQCxk+V
+	ZrScfH04Vzc9hRIZxvqtcAlAgF6CbZoMiTCNRydQRK9wg3z6q9OfGRCZX6FI0GXk1rPuxcceijU
+	TD7/6ZsGtJ9SR+T081rVs+o8JjABiXKYrPuK01v1xgt+My96pLjJ+Gww==
+X-Received: by 2002:a17:90a:710:b0:35d:95eb:879a with SMTP id 98e67ed59e1d1-35d95eb8b32mr6542247a91.13.1774925586915;
+        Mon, 30 Mar 2026 19:53:06 -0700 (PDT)
+Received: from ZC-202510311500 ([61.185.217.216])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35dbe66fb67sm4887a91.9.2026.03.30.19.53.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Mar 2026 19:53:06 -0700 (PDT)
+From: Haoyu Lu <hechushiguitu666@gmail.com>
+To: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Len Brown <lenb@kernel.org>,
+	Ilkka Koskinen <ilkka@os.amperecomputing.com>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Haoyu Lu <hechushiguitu666@gmail.com>
+Subject: [PATCH 1/2] acpi: arm64: agdi: fix missing newline in error message
+Date: Tue, 31 Mar 2026 10:52:56 +0800
+Message-ID: <20260331025257.463-1-hechushiguitu666@gmail.com>
+X-Mailer: git-send-email 2.53.0.windows.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|PUZPR03MB6988:EE_
-X-MS-Office365-Filtering-Correlation-Id: 30a65925-24e5-4394-1921-08de8ed002ab
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: 81p4gaxQ3I3MacqJQAKKOFTms6bAPfdVJOlFs3yqHi7Y7ungsVsuuuD/wHHLgoX+zjvBDNMknCepyvy75jQ/Zn2MdKmcQcAR9yertTeZ9j1Nv9RRQQepwH1tVtxV3tpjxHd4GIPrnFwbyps6EQclGtQlT8Zelikv4S5v0OeJ8fMsaKPC4EHxILxXGbshbvGat/bxrTLasoJNeN0mjYFOSoXI4/HDcapUPoxxoZ1W6Whg2KImtI2RWHq95iuPN3Gsm319LQL7H/kOFNvnBo06x/Tsvzg6zOa2lRD1+PHaoudMZKPvcpHFkm+zvDFEryCWCgrIGFANHDIW78vxwj59J4M1fQTcjKZmuekcglpHPW4/klUFy+J6az+HfwhOyN5Ws+p+bHt0BJZ+W4dhVE9KyGP/qNUmN92cwFR6oVHCDAbQ4h1k4DN8sJzgxNeECBF8R6bl3XwJ3h5FWl4ev5wc6Ac4NG6GvNbjeYtEFBy3OIqivLNULIsLZ1lLo/pC1ZmT6khmAjtVImXm36oQ/igaCZ0J9lf0i5bnRGT/HxE/QPbdCwFE2dS/v+2DE+xI/QaV+m/6MYAGJLgawXlPp/lPyC5hsNB7ZEzV1Ak/OdUwrv9bPb03zci1laD8nRD2PEjeK1pXqDPtJqyOPUeQxWRtYZKN2XNYcJ1zXZGRTmxvbWaxGoUhl7Ne/zKYuVZzhVpiPWQnGKVKXinouk5JS/VR3ugfcH+OjEoudRHblBMNYWQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RlV1WC9GZlFNMTBNR3FNM1FITHBxTGd6TmdqdmdIUGN5NGc2N24yaHllSUVz?=
- =?utf-8?B?WTNxeXF2ODF2Y1NzUlFyRVFScEwvZDFJMlNxZXU0QmRjb3JNN1FVakQxQndP?=
- =?utf-8?B?YmJ6eUFtVmwweUxvQ0hraE5VRTRneDNOc3locHhna2xFVVZ3T0xjUHRDdXhy?=
- =?utf-8?B?eFNSdENBRGRZVzRwaFlDR0gvVkNJT1JUYWpiZytieXZXcEw5bVpUcTF6dE11?=
- =?utf-8?B?dGFxajRlN2hodVFFbWlXUXhadzcvSnB5T05YRUVUVHBVM1V1eStjRkZoTFhK?=
- =?utf-8?B?eUFkTVZBQ21NV1R0TmNlajVkcklyeWVjM01oUUpmOU1QNzN1RU1ydXJqbkRh?=
- =?utf-8?B?VHdMVG9iRXFUREo5UXNnSWtnMGFMMnVLZGFSR3kwU0FXUnViVXBSV0NRZHhC?=
- =?utf-8?B?TVpJUlBiRVdnVm0rVVhzUXF5WlcwbEVIdlRIVkh4RnlhV0pCejFuNnJiNzFq?=
- =?utf-8?B?bEpvbm5ob3JTTUhxYXg2ZFdQWVVoVlFhZGx3UW1TNlI5dFBkbXFWM01RR0E5?=
- =?utf-8?B?cWhSU0FySHN6YUFMb1J3bE5FemtBTzNWa1dYeWUvbTAxQUNNdG9FSHVDZ0c3?=
- =?utf-8?B?ZlJBSVFzQm51dVlkdmJ1Y3ZwemM5bjBEdkc0OFpSNlZUbW5oMi9hMmtLSWRM?=
- =?utf-8?B?ejZtclF1ekxXbXhmOS85WlRMT1RhQ25jTnFyUGhLdTFwYUlzaVhxQ1FMcFdq?=
- =?utf-8?B?OGphOHRackVpNHEyckJtUXZabytncFpvQzVOd2k5WUQwbGcrWVpoOEhEOEZt?=
- =?utf-8?B?eUZiUUtkcHFlN0VPRmZva1RJaHNBTDVPeDI2anFGM05KV1BkOEFJUGMwTDc3?=
- =?utf-8?B?aDJoRHB2azlSdkxiVjEzTHo3b0VXOXBMM3RXZHZxN1hJa25YbHI3a3dCL1lS?=
- =?utf-8?B?ZXFzZ0dSSStxcXMyWlQwckJLNzlCekZVeTVyY08yZXNrbnp1TTlLWEJJN3lO?=
- =?utf-8?B?REJOa0dCQ2xXMlVGUzh5YjgwWWRHYnJCc0tVMUh0S0lIM05oWjc1YmFYd3l1?=
- =?utf-8?B?cW14RERsT0U1V3JaZDBuSS9CKzRvQjdrRHlzNzRlRkVNZEFiMXljTVNMYzh2?=
- =?utf-8?B?R054ZSthUHlpb01hZUF4anU2REoyN1lLck5vOTZVS0ltdERLNDlpZ2pQNlZy?=
- =?utf-8?B?dHEvN1BuaU1RNW53MmhrdGFOZ3FTdU1DVTRkS1B5dE9iRWFaQ2VFWmtkNDh0?=
- =?utf-8?B?WkNLOUM4L3AwaXBRV3AwZ01OdDUxRzdTZVpPMEE2cFNQTVZneFdGaXlic3N6?=
- =?utf-8?B?KzVNSGtlclJIR0NDM0llV0FhbjE0NkpXS2doUmxrWXA0eTFxWlpGS3c5MTg0?=
- =?utf-8?B?d2hiL3drelpCZlRvVWlIa2xRNXlhOGRjSUIxbHZPRStCVU82aUVuVXZVQlZL?=
- =?utf-8?B?QzkrcDRIRXBZUmMxdmo3WGJ5SjY2cHhzdTBNdW91NE90cGd4VGNCaDgybVNC?=
- =?utf-8?B?VTU1UklDOWJNQzlpVnpqYTVhbmxOWSs1UVZQdlFVbmxaMzFGVXpqcHc2UFNi?=
- =?utf-8?B?ek81elJUUlpweTY3UjNURE83bmpWWm1KSjZUb0RTL3lMbW9VWmZaT1lGSWJl?=
- =?utf-8?B?aU9xYUF2QXJMYzZBaVk2Z0t0Z3FzQlc4T3VlTFo2NVhzU0cycmpqOFk4TVV2?=
- =?utf-8?B?SlEydWxLSDVvZU4xYjZoZ2RaQ2h4WUZZT0QwVG9MZ293ZDVheVk1dE9MMUtr?=
- =?utf-8?B?Zmg0WGdtc2t1am5QMDFkKy9aUmcwMEFzZjlZclNaeW9oMTNBTnNRVnZ5aU5J?=
- =?utf-8?B?UVl1d3ROTzU5NWZ6VDJiaXRhWUI0Sk1ETFltVk5BTWNrbUtPRVR0dytDZzdZ?=
- =?utf-8?B?Q1o0QnMwa09GMG5WMHNYR1k2QlVnUTEraFh3c3NmUzl5aG5DQkxtRWdHc1RY?=
- =?utf-8?B?TGx3K00vWnZnSFJ0clZNK1RSUHVEbElxRzZGMS9ZZ1E4bzYydkF6Unc0dnEx?=
- =?utf-8?B?UWhzbGUvdkh3RkhhTmJ5dk9VeHNiY05tVUZxSDJiN0MvcVhLWmRKSjVmNXFv?=
- =?utf-8?B?dGxFVFBIYU03MUNzU1JsbHh4NXNWaGNONkpibzY2b1RLd1NDWENYaGNXcmFQ?=
- =?utf-8?B?OSt6Tlc0dURxNDh5dmhCd0pRSUR3Q1ZwQXhTblRGUi9jVm1TRE9vb3FreTMw?=
- =?utf-8?B?UDA2WlBrMytOK1RZUmNyRzk5R1k1SVlkdlgrMlp6RlNJZEVWQ3cvcVV1bms0?=
- =?utf-8?B?aFA0a3hoR2VXeHpKSVlOS0xJdDJHNFBadHcraFQ4Myt3OTdTMk1WU2JPYmlB?=
- =?utf-8?B?V1ZiK1BYZzJ0NC9CdG8rQjJ6R3ZvMjZBOHlydmwzOHRSVFMyaHA1eUVXMndZ?=
- =?utf-8?B?V1p0R29CZkdnRGJLYmdTR1dJc1FkcVpqa0dKbkxwdWg0a01wRElvZz09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 30a65925-24e5-4394-1921-08de8ed002ab
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 02:48:38.3458
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VfQt1QaD6iMJZw9e89wYDrAXz53rvakNwGT4qjlFgQrLhcXR97FIKFk8U+rIz13tRk3VBJIPokWLPUg/HTHqhOq6mDu7Ky5v/gR+d2mFt7A=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR03MB6988
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_194854_550898_21611D37 
-X-CRM114-Status: GOOD (  30.74  )
+X-CRM114-CacheID: sfid-20260330_195308_362493_BB87BF7F 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,82 +105,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Martin,
-    Thanks for your review.
+Add the missing trailing newline to the dev_err() message
+printed when SDEI event registration fails.
 
-On 2026/3/31 05:44, Martin Blumenstingl wrote:
-> Hi Xianwei Zhao,
-> 
-> On Thu, Mar 26, 2026 at 7:35 AM Xianwei Zhao via B4 Relay
-> <devnull+xianwei.zhao.amlogic.com@kernel.org>  wrote:
->> From: Xianwei Zhao<xianwei.zhao@amlogic.com>
->>
->> Add support for Amlogic S7 PWM. Amlogic S7 different from the
->> previous SoCs, a controller includes one pwm, at the same time,
->> the controller has only one input clock source.
->>
->> Signed-off-by: Xianwei Zhao<xianwei.zhao@amlogic.com>
->> ---
->>   drivers/pwm/pwm-meson.c | 32 ++++++++++++++++++++++++++++++--
->>   1 file changed, 30 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/pwm/pwm-meson.c b/drivers/pwm/pwm-meson.c
->> index 8c6bf3d49753..3d16694e254e 100644
->> --- a/drivers/pwm/pwm-meson.c
->> +++ b/drivers/pwm/pwm-meson.c
->> @@ -113,6 +113,7 @@ struct meson_pwm_data {
->>          int (*channels_init)(struct pwm_chip *chip);
->>          bool has_constant;
->>          bool has_polarity;
->> +       bool single_pwm;
-> At first I wasn't sure about this and thought we should replace it
-> with a num_pwms (or similar) variable.
-> However, I think it will be hard to add a third (or even more)
-> channels to the PWM controller (not just from driver perspective but
-> also from hardware perspective). So I think this is good enough as the
-> choice will only be 1 or 2.
-> > [...]
+This keeps the error output as a properly terminated log line.
 
-This is not a third channel added here.
-Compared with the previous controller having two channels, here the 
-control has only one channel. It's equivalent to the first channel 
-before, while the second channel is reserved.
+Fixes: a2a591fb76e6f5461dfd04715b69c317e50c43a5 ("ACPI: AGDI: Add driver for Arm Generic Diagnostic Dump and Reset device")
+Signed-off-by: Haoyu Lu <hechushiguitu666@gmail.com>
+---
+ drivers/acpi/arm64/agdi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
->> +static const struct meson_pwm_data pwm_s7_data = {
->> +       .channels_init = meson_pwm_init_channels_s7,
-> I think you can use .channels_init = meson_pwm_init_channels_s4, if
-> you change the code inside that function from:
->      for (i = 0; i < MESON_NUM_PWMS; i++) {
-> to:
->      for (i = 0; i < chip->npwm; i++) {
-> 
-> [...]
+diff --git a/drivers/acpi/arm64/agdi.c b/drivers/acpi/arm64/agdi.c
+index feb4b2cb4618..0c2d9d6c160b 100644
+--- a/drivers/acpi/arm64/agdi.c
++++ b/drivers/acpi/arm64/agdi.c
+@@ -36,7 +36,7 @@ static int agdi_sdei_probe(struct platform_device *pdev,
+ 
+ 	err = sdei_event_register(adata->sdei_event, agdi_sdei_handler, pdev);
+ 	if (err) {
+-		dev_err(&pdev->dev, "Failed to register for SDEI event %d",
++		dev_err(&pdev->dev, "Failed to register for SDEI event %d\n",
+ 			adata->sdei_event);
+ 		return err;
+ 	}
+-- 
+2.17.1
 
-The method you suggested was exactly what I did in the first version, 
-but after my subsequent optimization, it's what you see now.
-
-Since initialization only involves obtaining the clock, I modify the 
-code less in this way and the logic is also simpler.
-
->> @@ -650,9 +674,13 @@ static int meson_pwm_probe(struct platform_device *pdev)
->>   {
->>          struct pwm_chip *chip;
->>          struct meson_pwm *meson;
->> +       const struct meson_pwm_data *pdata = of_device_get_match_data(&pdev->dev);
->>          int err;
->>
->> -       chip = devm_pwmchip_alloc(&pdev->dev, MESON_NUM_PWMS, sizeof(*meson));
->> +       if (pdata->single_pwm)
->> +               chip = devm_pwmchip_alloc(&pdev->dev, 1, sizeof(*meson));
->> +       else
->> +               chip = devm_pwmchip_alloc(&pdev->dev, MESON_NUM_PWMS, sizeof(*meson));
-> I don't think this code is too bad for now.
-> However, I'm wondering if you want to make "channels" from struct
-> meson_pwm a flexible array member in a future patch. In that case it
-> will be helpful to have an "unsigned int npwm = pdata->single_pwm ? 1
-> : MESON_NUM_PWMS;" (or similar) variable to future-proof your code.
-> What do you think?
-
-I considered this, but chose the current implementation. I will switch 
-to your suggestion in the next version.
 
