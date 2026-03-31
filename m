@@ -4,81 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54AA61061B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 12:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF431061B37
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 12:19:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	Content-Type:Content-Transfer-Encoding:Date:Message-ID:In-Reply-To:CC:To:From
-	:Subject:Mime-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bOk6ZEMpVwn9Sr5/ED9nqcRWuHKUVnAHgel8wrry+3Q=; b=VVHvJQLgCA3vLdWELFL5KcVvWI
-	Tsc+y4h1WfoK9FopnWczm5KctZgMRheBqDXdHR31NyBIEQYuozt9cSWbAzRfknIxhZrdOuaMdiBpH
-	GBb0e7XjN1VdhwccKVmado4Jb18hA+t+AnPIHrbltc/ZXnQEVXvSeHwIR1QO/QPReSfzcxVgVxc7h
-	hY4lDBKR/mmIpeN31wOCXT9pNSYewFyjo2yKZFAmRETGpn/gNkMKKK7izhN7JgS+LTzFrtGX4HQCM
-	po90e+DlYrjVUhwSYbRWxnqJyMfmqZTT+gif2HHojCXrl50U7J0ke8DikRJmxGWlVO8CPpVyPoYV3
-	KBP7KLew==;
+	bh=ZJkXpP31qfsrEm+q5zIu8YXx4jAqFbEaXndk6NE+lpo=; b=HnPCVrq7rzfu4UA38smscgB1aW
+	5JofQ183jpxkpzJtW9OG83kzbdEn9swUcoHZ6r4pqXfvSbQvmzrfihdxbuXPzyHJlp/cHmsqUiGuL
+	PbF4H1f2LL3eHSO9+ziaHggRpPd/IEYTCyzh4sBv01MWVzzFKblHMeDYYltjbMUaE5CUh7EQ2njLm
+	BMYb9K8BHXIDqSgTv3/OYdmBMlXwGmQ1evYbaTjIL+kwjGERV4mQaBIjR6IauXL4/KqvVSrDjKSiT
+	jVZHNUlTqpGLUPx7/8VZ4o3KCVXaJNagG6lqVAZ93CNssKyeczQjvx488ldw7Ro0pjvKd8joztR2W
+	qbOGoM1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Y1w-0000000CvMo-0NnQ;
-	Tue, 31 Mar 2026 12:17:12 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1w7Y45-0000000Cvdi-2kw8;
+	Tue, 31 Mar 2026 12:19:25 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Y1s-0000000CvLh-2c8r
+	id 1w7Y42-0000000Cvcb-3l9G
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 12:17:10 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20260331121700epoutp01a522367deb75437a61ddd7d318a858e3~h7DBDxHXf0530805308epoutp01P
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 12:17:00 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20260331121700epoutp01a522367deb75437a61ddd7d318a858e3~h7DBDxHXf0530805308epoutp01P
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1774959420;
-	bh=bOk6ZEMpVwn9Sr5/ED9nqcRWuHKUVnAHgel8wrry+3Q=;
-	h=Subject:Reply-To:From:To:CC:In-Reply-To:Date:References:From;
-	b=nheSzh6f4Aw1LQD4R7UV0nymhH1AwUj9e89uX/tzhJyfAZd6oIjjZEwbiPi9taG54
-	 pGK/4PkhJm3AR0SfWsOFRMJOjrcN5ZRKBBdCBvdlQqfR6gyiVBBg4wyhVIwoHr1M3W
-	 rY22kuVDyuw2unphCj0wgzUn+arW7Wi10ejUmuRw=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20260331121659epcas5p3823b28c5471e5945723233b94c54277e~h7DAic-UE2492324923epcas5p34;
-	Tue, 31 Mar 2026 12:16:59 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4flRtz4LSWz6B9m7; Tue, 31 Mar
-	2026 12:16:59 +0000 (GMT)
-Mime-Version: 1.0
-Subject: RE:(3) [PATCH 1/1] arm: get task_stack reference before
- dump_backtrace
-From: Maninder Singh <maninder1.s@samsung.com>
-To: "bigeasy@linutronix.de" <bigeasy@linutronix.de>
-CC: "Russell King (Oracle)" <linux@armlinux.org.uk>, "peterz@infradead.org"
-	<peterz@infradead.org>, "kees@kernel.org" <kees@kernel.org>,
-	"ardb@kernel.org" <ardb@kernel.org>, "keithpac@amazon.com"
-	<keithpac@amazon.com>, "linusw@kernel.org" <linusw@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "jpoimboe@kernel.org" <jpoimboe@kernel.org>
-X-Priority: 3
-X-Content-Kind-Code: NORMAL
-In-Reply-To: <20260331065230.9T3e_rt-@linutronix.de>
-X-Drm-Type: N,general
-X-Msg-Generator: Mail
-X-Msg-Type: PERSONAL
-X-Reply-Demand: N
-Message-ID: <20260331121659epcms5p6afd55fcc98037c6d82b3ac32c470ed1c@epcms5p6>
-Date: Tue, 31 Mar 2026 17:46:59 +0530
-X-CMS-MailID: 20260331121659epcms5p6afd55fcc98037c6d82b3ac32c470ed1c
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-X-CMS-RootMailID: 20260305070534epcas5p378bb22ef9f1a895d7736ed2272c19ec6
-References: <20260331065230.9T3e_rt-@linutronix.de>
-	<aa4Lo30Nq_t7qDqK@shell.armlinux.org.uk>
-	<20260305070527.719073-1-maninder1.s@samsung.com>
-	<20260309055328epcms5p56d16f6cb1e3a5295987c935f35be1d2e@epcms5p5>
-	<CGME20260305070534epcas5p378bb22ef9f1a895d7736ed2272c19ec6@epcms5p6>
+	Tue, 31 Mar 2026 12:19:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=npEhU/BoNnKcpahuD0xn5vd6QeyTv9xmrpUymnVEglkckme9+9YohNGZq3nr2BHGKnn2vLSldFHP/4nv1ZiR5S+zvHf0q3kge/ovnGn2n6aCrpTkG2DM/LgeNN/DWBc64058MNG+kgkUIeXVt9pNy2LMexX/0XAwVH2zlUo3093wO8g3MDxXhyhKez1s1Y8Ysa8VmfZyGc4897evRNuuM10lGLLaGUOKmPi+X5/uSp+6Qi5bbE8VhN+pd4tfHpX+bLDP7evgzHZC/zxcglvpxm5HEh5xBCGiLK5HzHmLGADiHn4vkLutP/npwm4byF7juSuEx5cRIfNCdvpE1kUi4A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZJkXpP31qfsrEm+q5zIu8YXx4jAqFbEaXndk6NE+lpo=;
+ b=GujBUK8cQIKLXkOULVG/BlbK4CKFjnkoOju8K1Z6+UamcUFDg6iby6HYyfUs6qYRegknlsXohboy+l8helZFUamOo6JPVGOMG8pO9citLq2H5RVssqovEaLN6d6JYWakq9Afjs6hUsFTeEeBMVgpvvF6g/jxGqQG1j0Ntd+LH88SlwN+Hugab9scZHZgoLVA1EQX9RstHBa4e2z+PT5wzNFMP2gp9AELQ/U4KBh9xcNrvCXtnx0AHc97Dwhj9ymw9irT2DfUbWuPajgNsmVWu1uNyYYJMQOn2GV3x1rNSboViQDwz35v8DbV1LW5/6HJGw5620Az3CRPUlb10gCbug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZJkXpP31qfsrEm+q5zIu8YXx4jAqFbEaXndk6NE+lpo=;
+ b=hujSxz4T7M6uER5kAz+lpKKW89wPATQhk4M6rIfpLYuXzzaDyJ8E4rnPe+tKavUGHhCUIi1svwmGCRClZG3TQge32ZYArqzNK4tSayBiivddSua13QePU+YJCXp0in5OhDfCcvPTGLl2HL/u355uuFLDt+0mgRb47CcEh78gU98=
+Received: from BL1PR13CA0181.namprd13.prod.outlook.com (2603:10b6:208:2be::6)
+ by CYYPR10MB7625.namprd10.prod.outlook.com (2603:10b6:930:c0::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Tue, 31 Mar
+ 2026 12:19:17 +0000
+Received: from BL02EPF0002992B.namprd02.prod.outlook.com
+ (2603:10b6:208:2be:cafe::a2) by BL1PR13CA0181.outlook.office365.com
+ (2603:10b6:208:2be::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.28 via Frontend Transport; Tue,
+ 31 Mar 2026 12:19:17 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ BL02EPF0002992B.mail.protection.outlook.com (10.167.249.56) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9745.21 via Frontend Transport; Tue, 31 Mar 2026 12:19:16 +0000
+Received: from DFLE207.ent.ti.com (10.64.6.65) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 31 Mar
+ 2026 07:19:14 -0500
+Received: from DFLE205.ent.ti.com (10.64.6.63) by DFLE207.ent.ti.com
+ (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 31 Mar
+ 2026 07:19:14 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE205.ent.ti.com
+ (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 31 Mar 2026 07:19:14 -0500
+Received: from [10.24.50.20] (moteen-ubuntu-desk.dhcp.ti.com [10.24.50.20])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 62VCJBLW2736751;
+	Tue, 31 Mar 2026 07:19:11 -0500
+Message-ID: <8d4a2839-5b1e-479e-a462-dbbc3d016020@ti.com>
+Date: Tue, 31 Mar 2026 17:49:10 +0530
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-j721e-main: Update delay select values
+ for MMC1/2 subsystems
+To: Romain Naour <romain.naour@smile.fr>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>
+CC: <conor+dt@kernel.org>, <krzk+dt@kernel.org>, <robh@kernel.org>,
+	<kristo@kernel.org>, <vigneshr@ti.com>, <nm@ti.com>, <stable@vger.kernel.org>
+References: <20260218203823.1825554-1-romain.naour@smile.fr>
+Content-Language: en-US
+From: Moteen Shah <m-shah@ti.com>
+In-Reply-To: <20260218203823.1825554-1-romain.naour@smile.fr>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF0002992B:EE_|CYYPR10MB7625:EE_
+X-MS-Office365-Filtering-Correlation-Id: 34ac821a-90b6-4091-7baf-08de8f1fba1c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700016|1800799024|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: YDZY9pS2mxUv2NlCjHnkHzMyjZFXtF8isjMajp/vKg9e9JhoVP4XWctsfL//dGLKG3IUBxtz3irQgd0ycvt97tS27uip2fPj1ZfR6blbRE2+Q1kFuASn0wb1rF4FGwgcvjXoMhZnltkARymMMTa3GmcH+UE93iKKgxi+vMrhYMQb3Rqjfxjkjw9VkZZpbf4/vBkXq3nFbIK0ul266lX7Y8knzmmZ9ykpY1YutOYYnjnbsQLbE2qI9YFM4hshcYI/y/Nnxtgx3iUbHDtjFr6sN6T6g22pdmnkMVUMIZ6p4/hIuqiJI6PbMo4N3nbdFeWhuwdGLwWTOq/msimdiG1ODOgbSOWlfsX70YV5GwD8/dRBqXcoSbF2o/c5wJ29VznFnGZzMBYLlI2IZCOTlZW6Uwen6xFRBiV/AvGhrEFDWda0tDsjgS3LYrGGYHWILbzGCUW6xMiY8BImjvBnPnXUgQPy9eizKA8gQLJAEBsxaRb6v3zLTNqF1ot/jwCwJi3gCRukTjjgRDSxaJk1ojWzXH+PFsC/e0L6VivNTyL6VjyGBxcIjU15V8+/hAccqJKfGpUks2vxTiqSrtg6HBUl52d8GVjOV3Of7RQ/3+1rj0hIKxyDy1fk72XhIQ9MTC1oH3WKx7scKpblzl0686Xb9kdvDwOF+UrahdSJdD7/iZQyj7//sXrQ3tv9foL8KLrD/bR/zT67R3eRjOM7tjeRyGnewQnjfOFJQMEZEBlDF6d9WOTILRfz0F3i3pGkiyyTf8cnd9D84TEaPe1US2V5yQ==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700016)(1800799024)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: tQqvZtFt/UtwILKsaZETGYJ1Baed85dQjXHWEe4XeoTsyPUM0+cTDtZyqWw6yDYPZagTJywNqaZFDDrYr5jyYuu7QBeIEhgUfevG2pVDy5qUwGFDDLvj6kiKOcrWoxy5I0XL0BmD8gyiCSG+HXNiId4qpJtzYk/2TH4D9c2z6cres1NVGp7txM2OP6TdDTqMk5vDxb5Pv2dt6C3Pw/rJShJp8Ba9ouPhnDneTF00q4BD0nPbPwznWVybA4X8td806hceaW2ariWdf+7Z0aykkNKQJq6C4BKjUzbwuo2gNNJ6THcTyZ9toMR2Vk+6GTLztb6/1gSsfm8ol7vc+GcaOWijFD7O2yw1MMlEt7IzLdbgpJyw3ojRmsf+c25YIncv7YAVaE/2iRS5nozRQ2wOSKSU/43f4lEpmzhud/vR6+FpMU1oFiploIwisZzPbxnc
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 12:19:16.1192
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 34ac821a-90b6-4091-7baf-08de8f1fba1c
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0002992B.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR10MB7625
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_051709_316523_FA54EDC2 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20260331_051923_043905_3D2F09A2 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,72 +129,78 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: maninder1.s@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hey Romain,
 
-> Hi,
->=20
-> > >=22otherwise if someone calls show_stack() for task=22 ... and the sta=
-ck
-> > >trace given stops at show_stack() and doesn't show the =22someone=22.
-> > >
-> > >I'd like to know _how_ this happens, and why ARM64 and now 32-bit ARM
-> > >are different from x86.
-> >=20
-> > I tried to simulate same thing on x86_64, it is also crashing.
-> >=20
-> > Just a dummy code to save task_struct to reproduce the race:
-> >=20
-> > +=C2=A0=20=C2=A0=20=C2=A0=20=20rcu_read_lock();=0D=0A>=20>=20+=C2=A0=20=
-=C2=A0=20=C2=A0=20=20for_each_process(p)=20=7B=0D=0A>=20>=20+=C2=A0=20=C2=
-=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=20if=20(=21strcmp(p->co=
-mm,=20=22sleep=22))=20=7B=0D=0A>=20>=20+=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=
-=20=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=20check_=
-task=20=3D=20p;=0D=0A>=20>=20+=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=
-=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=20get_task_struct(p)=
-;=0D=0A>=20>=20+=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=C2=
-=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=20pr_emerg(=22get=20done=20for=
-=20%s=20%d=5Cn=22,=20p->comm,=20p->pid);=0D=0A>=20>=20+=C2=A0=20=C2=A0=20=
-=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=C2=A0=20=20=7D=0D=0A>=20>=20+=C2=A0=20=
-=C2=A0=20=C2=A0=20=20=7D=0D=0A>=20>=20+=C2=A0=20=C2=A0=20=C2=A0=20=20rcu_re=
-ad_unlock();=0D=0A>=20>=20=0D=0A>=20>=20//=20in=20mean=20time=20here=20slee=
-p=20binary=20will=20be=20exited.=0D=0A>=20>=20=0D=0A>=20>=20+=C2=A0=20=C2=
-=A0=20=C2=A0=20=20show_stack(check_task,=C2=A0=20NULL,=20KERN_EMERG);=0D=0A=
->=20=0D=0A>=20The=20task's=20stack=20is=20released=20on=20its=20final=20sch=
-edule()=20invocation.=0D=0A>=20Therefore=20holding=20task_struct=20does=20n=
-ot=20hold=20the=20stack=20of=20the=20task=20if=20it=0D=0A>=20is=20separated=
-=20out=20of=20task_struct=20and=20can=20be=20gone=20if=20the=20tasks=20quit=
-s.=0D=0A>=20=0D=0A>=20Therefore=20holding=20a=20reference=20to=20the=20stac=
-k=20while=20accessing=20it,=20like=0D=0A>=20during=20a=20backtrace,=20makes=
-=20sense=20and=20is=20required=20if=20the=20task=20is=20not=0D=0A>=20curren=
-t.=0D=0A>=20=0D=0A>=20Let=20me=20add=20this=20to=20my=20list=20and=20tackle=
-=20it=20later=20today=20for=20x86.=20Then=20we=0D=0A>=20get=20probably=20Ru=
-ssell=20on=20board=20for=20ARM.=0D=0A>=20=0D=0A=0D=0AThanks=20:)=0D=0A=0D=
-=0AI=20have=20checked=20more=20details=20about=20missing=20this=20handling=
-=20from=20x86=20and=20found=20the=20reason.=0D=0AOriginally=20show_stack()=
-=20was=20calling=20show_stack_log_lvl()=0D=0Awhich=20had=20proper=20call=20=
-to=20try_get_task_stack().=0D=0A=0D=0AIt=20was=20replaced=20with=20show_tra=
-ce_log_lvl()=20later.=20Which=20removed=20this=20check.=0D=0A=0D=0ABelow=20=
-commit=20did=20that.=0D=0A=0D=0Acommit=200ee1dd9f5e7eae4e55f95935b72d4beecb=
-03de9c=20(HEAD)=0D=0AAuthor:=20Josh=20Poimboeuf=20<jpoimboe=40redhat.com>=
-=0D=0ADate:=20=20=20Tue=20Oct=2025=2009:51:13=202016=20-0500=0D=0A=0D=0A=20=
-=20=20=20x86/dumpstack:=20Remove=20raw=20stack=20dump=0D=0A...=0D=0A...=0D=
-=0A=0D=0A=0D=0A-void=20show_stack_log_lvl(struct=20task_struct=20*task,=20s=
-truct=20pt_regs=20*regs,=0D=0A-=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
-=20=20=20=20=20=20=20=20=20unsigned=20long=20*sp,=20char=20*log_lvl)=0D=0A-=
-=7B=0D=0A...=0D=0A...=0D=0A-=20=20=20=20=20=20=20if=20(=21try_get_task_stac=
-k(task))=0D=0A-=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20return;=0D=0A-=
-=0D=0A...=0D=0A=0D=0A=40=40=20-171,12=20+170,12=20=40=40=20void=20show_stac=
-k(struct=20task_struct=20*task,=20unsigned=20long=20*sp)=0D=0A=20=20=20=20=
-=20=20=20=20if=20(=21sp=20&&=20task=20=3D=3D=20current)=0D=0A=20=20=20=20=
-=20=20=20=20=20=20=20=20=20=20=20=20sp=20=3D=20get_stack_pointer(current,=
-=20NULL);=0D=0A=0D=0A-=20=20=20=20=20=20=20show_stack_log_lvl(task,=20NULL,=
-=20sp,=20KERN_DEFAULT);=0D=0A+=20=20=20=20=20=20=20show_trace_log_lvl(task,=
-=20NULL,=20sp,=20KERN_DEFAULT);=0D=0A=20=7D=0D=0A=0D=0A=0D=0A=0D=0ASo=20I=
-=20think=20x86=20patch=20shall=20also=20be=20merged=20to=20kernel:=0D=0Ahtt=
-ps://lkml.org/lkml/2026/3/11/317=0D=0A=0D=0A=0D=0AThanks=20and=20regrads=0D=
-=0AManinder=20singh=0D=0A=0D=0A=0D=0A
+Thanks for the patch
+
+On 19/02/26 02:08, Romain Naour wrote:
+> The previous SPRSP36J datasheet recommends to set ti,otap-del-sel-sd-hs
+> value to 0 for MMC1 and MMC2 interfaces. These values were updated in
+> kernel 6.5. As a result we have some occasional regression with ultra
+> high speed DDR50 SDXC cards while mounting the rootfs:
+
+This error shouldn't be limited to just DDR50, were you seeing similar 
+behavior with other speed modes?
+>
+>    mmc1: error -110 whilst initialising SD card
+>
+> A similar issue may occur with u-boot after a reboot while
+> initialising the SD card:
+>
+>    mmc_init: -110, time 67
+>
+> Update the delay values for legacy and high speed modes, based on
+> the latest revised datasheet SPRSP36K released in April 2024 [1].
+>
+>    (MMC1/2 - SD/SDIO Interface): Updated/Changed the
+>    "OTAPDLYENA, DELAY ENABLE" and "OTAPDLYSEL, DELAY VALUE" for the
+>    Default Speed and High Speed modes from "0x0" to "0x1"
+>
+> [1] Table 6-86. MMC1/2 DLL Delay Mapping for All Timing Modes, in
+> https://www.ti.com/lit/ds/symlink/tda4vm.pdf,
+> (SPRSP36K – SEPTEMBER 2021 – REVISED APRIL 2024)
+>
+> Cc: stable@vger.kernel.org # 6.5+
+> Fixes: af398252d68e ("arm64: dts: ti: k3-j721e-main: Update delay select values for MMC subsystems")
+> Signed-off-by: Romain Naour <romain.naour@smile.fr>
+> ---
+>   arch/arm64/boot/dts/ti/k3-j721e-main.dtsi | 8 ++++----
+>   1 file changed, 4 insertions(+), 4 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> index d5fd30a01032..418e6010ef1f 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> @@ -1643,8 +1643,8 @@ main_sdhci1: mmc@4fb0000 {
+>   		clocks = <&k3_clks 92 5>, <&k3_clks 92 0>;
+>   		assigned-clocks = <&k3_clks 92 0>;
+>   		assigned-clock-parents = <&k3_clks 92 1>;
+> -		ti,otap-del-sel-legacy = <0x0>;
+> -		ti,otap-del-sel-sd-hs = <0x0>;
+> +		ti,otap-del-sel-legacy = <0x1>;
+> +		ti,otap-del-sel-sd-hs = <0x1>;
+>   		ti,otap-del-sel-sdr12 = <0xf>;
+>   		ti,otap-del-sel-sdr25 = <0xf>;
+>   		ti,otap-del-sel-sdr50 = <0xc>;
+> @@ -1671,8 +1671,8 @@ main_sdhci2: mmc@4f98000 {
+>   		clocks = <&k3_clks 93 5>, <&k3_clks 93 0>;
+>   		assigned-clocks = <&k3_clks 93 0>;
+>   		assigned-clock-parents = <&k3_clks 93 1>;
+> -		ti,otap-del-sel-legacy = <0x0>;
+> -		ti,otap-del-sel-sd-hs = <0x0>;
+> +		ti,otap-del-sel-legacy = <0x1>;
+> +		ti,otap-del-sel-sd-hs = <0x1>;
+>   		ti,otap-del-sel-sdr12 = <0xf>;
+>   		ti,otap-del-sel-sdr25 = <0xf>;
+>   		ti,otap-del-sel-sdr50 = <0xc>;
+
+
+Reviewed-by: Moteen Shah <m-shah@ti.com>
+
+Regards,
+Moteen
+
 
