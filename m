@@ -4,102 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A65EFF60D5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:13:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8D48FF60D9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=luFavRrVLyuYw5Pp7Hq4J37Yw0Jet8kP6askoheBw5k=; b=170c4MSnd0FznnSayF6+aPNTB0
-	c0nOPZ1qELyrSa5D2DlY5Haggmq5MoDokDL+I87BKRN1KAD10Txl5UcHwVxWxlkg2pKk0jL+3Pe0x
-	DvBdPWEvQs782G2xwK+8jX9BumpMikt8P6c+jEPY8dgmcftsUlMdB7y0Ryblen9StDh2XNd6Mifzh
-	fEkwTyfIDOsyMbRJXxpo1ACvXU9cEgRIq6z4PbpdyCilawX2xf3At13hcdX05MKe8GbRqdWchN2Aa
-	NUjvVjdAfEINnTJyI1NNE70+hLR1WGyE/O17OMtOiSS7ZuhDFI7MR0XmytqmzZBGgdnbsUZ925WiB
-	Z3N32jTQ==;
+	bh=qkbimkF7HoXE/Jf1vzsZkAfNbNEc1Y65ZFXjx0QhOzM=; b=wRBre2aHf4JXN3jVmas3t71jGi
+	qA0d2G+1uzKY1xrGsuEo5QS+dnWX+7AOt9/KzMb2CX9DSv4W0t6+Rp4C5wnQkUxTMmJino30s5Knl
+	ynl/ntIEN6qrjrioUNx2Hhe+cigH9dZN6AoO6tjqN2OEoJr5ojawO4sWpz0YueiUWdnJXcsAPD9j/
+	gt+tIuBAws6b1992nv/T63Ih1uGVLY/28UxYWnvCWgJEBNjk78ZdrXZM05lOzZleirqn2JurK9TQf
+	BtzZrIXOpN/UG5sAD1uwJI9nDO+hHUm17K8HXEDJ6Vuirpiug9e3kYvmoLa/N4SgHIfUx9GIG3NUf
+	aNyUGQ5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7THu-0000000CRnI-2Pgv;
-	Tue, 31 Mar 2026 07:13:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w7TLx-0000000CSe9-0uo6;
+	Tue, 31 Mar 2026 07:17:33 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7THt-0000000CRmS-3W0j
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 31 Mar 2026 07:13:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:In-Reply-To:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=luFavRrVLyuYw5Pp7Hq4J37Yw0Jet8kP6askoheBw5k=; b=SguKEQKdQ+qoRjf5LXGUzsMbhF
-	949cEvKLI7GK7wzOO6hmDLXT+J6MhqZzU1zXMRn/fdvqbjyjxwRIINsbst6QdHsvV+pVNh5IO4ge7
-	//6CXBdBWcna/2Qf4JbLcthuEsb5g6I/WN8FIhg9shv/zIlJgChGQQkf7TJyPLYfHfP3WZsaKQeJ6
-	EZ3BbjTI+cxCNrpIRu7YdcbpXdZDKA2pIebxqW5Qo16Rzpk9orvnTjHLGWjGDIuQbiqK1A+VJgHVE
-	hJl3FDClehDmbVwN1jPW8A9NsMj/Tm6I/l9AE38jnPEfzH6Yn7Aa85eC70lvq7PNAaD2+Oo+S96JF
-	Ag/Sv4Mw==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7THo-0000000FFwl-0ScO
+	id 1w7TLu-0000000CSdZ-28Ct
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 07:13:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1774941186;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=luFavRrVLyuYw5Pp7Hq4J37Yw0Jet8kP6askoheBw5k=;
-	b=HiLMb1uYqMUQ5trgMTxFarHM61DnE7M5nCEKIzCqndsM8/TPS/pX2Y/5b+q/jtulPXD9VP
-	LNJZtidQYTOwXP3uvWI6HDBceZRE6PLk7n6dbT5ENDEHv9bQriY4nMCeLDRpCa+sq1lBj1
-	lRa89sA2Q/gzOmPYHfmf9pD0St+4mR4=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1774941192;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=luFavRrVLyuYw5Pp7Hq4J37Yw0Jet8kP6askoheBw5k=;
-	b=Ix0/mKi0lq/4A70gU6uYId1UMHAft9KUu9L7UwgcDbqvixY/1cKVt/G6MG4aN6+mU59GFw
-	hr8dZ+kTzUN32cep8YbaP3QlBSjqkoBj1itknhOzjvbtX7b8dOQgS8TzscGTCpI4Hs/1KQ
-	nCkw7xvrjFZtDUFZPuB2F+w4tKWB/dw=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-176-d6vwkgkuNLO4Lk1HCZw_4w-1; Tue,
- 31 Mar 2026 03:13:02 -0400
-X-MC-Unique: d6vwkgkuNLO4Lk1HCZw_4w-1
-X-Mimecast-MFC-AGG-ID: d6vwkgkuNLO4Lk1HCZw_4w_1774941180
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 256BC180061A;
-	Tue, 31 Mar 2026 07:13:00 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.177])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 843321955F42;
-	Tue, 31 Mar 2026 07:12:58 +0000 (UTC)
-Date: Tue, 31 Mar 2026 15:12:54 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Coiby Xu <coxu@redhat.com>
-Cc: kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, devicetree@vger.kernel.org,
-	kernel test robot <lkp@intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Vivek Goyal <vgoyal@redhat.com>, Dave Young <dyoung@redhat.com>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 2/3] crash: Align the declaration of
- crash_load_dm_crypt_keys with CONFIG_CRASH_DM_CRYPT
-Message-ID: <actz9u1rBnvtuBUm@fedora>
-References: <20260225060347.718905-1-coxu@redhat.com>
- <20260225060347.718905-3-coxu@redhat.com>
+	Tue, 31 Mar 2026 07:17:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1774941448;
+	bh=qkbimkF7HoXE/Jf1vzsZkAfNbNEc1Y65ZFXjx0QhOzM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=NISHE6MXoK8tfRV9S8pt+leeucFZ70wxemyKXKi9pRF+a6WzkAGIquNAVMhKf2cnG
+	 YN5MOUGglqn76zKkmoH/lrTvgp8y8TAQJXrZIOd3X/VQwwzBZWwBnHnDKY54P56KGx
+	 XcB6sQ8EvgaaZQZkMHg5IsZzaH4wlCvxsA87d9poVrwV3A8tkMtbM4j6rgTVkkVLdi
+	 TNjJawi4Hvre/DNptnvZk6d650ymJ9y+B5x7pjivv+j2W/GEJ6aEu2cemVW7T2VGaX
+	 WTpk7L2R3bDnuaKMlcpG8Ff9O4/81GyOFLTUht1LMBFiTKMMjYE7AOQxcDFQzKDG2D
+	 8CH2GwMt2fcoA==
+Received: from [192.168.72.167] (210-10-213-150.per.static-ipl.aapt.com.au [210.10.213.150])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 3163E6002E;
+	Tue, 31 Mar 2026 15:17:28 +0800 (AWST)
+Message-ID: <72517fcf99a7453841ee75243dc54e735c10238f.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v28 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
+ global-regs and enable-dma properties
+From: Jeremy Kerr <jk@codeconstruct.com.au>
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Krzysztof Kozlowski
+ <krzk@kernel.org>
+Cc: "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
+  Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
+ <andrew@codeconstruct.com.au>, Benjamin Herrenschmidt
+ <benh@kernel.crashing.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+ <linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
+ <openbmc@lists.ozlabs.org>
+Date: Tue, 31 Mar 2026 15:17:28 +0800
+In-Reply-To: <TY2PPF5CB9A1BE6EA5BABE55EB8A7003D22F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+References: <20260330-upstream_i2c-v28-0-17bdae39c5cb@aspeedtech.com>
+	 <20260330-upstream_i2c-v28-2-17bdae39c5cb@aspeedtech.com>
+	 <20260331-fanatic-certain-bustard-fb13bc@quoll>
+	 <TY2PPF5CB9A1BE6F267C60EEC34B6A75400F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+	 <09cbc12bea5707f794e139ea1bfafac82c2d2c12.camel@codeconstruct.com.au>
+	 <TY2PPF5CB9A1BE6EA5BABE55EB8A7003D22F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2+deb12u1 
 MIME-Version: 1.0
-In-Reply-To: <20260225060347.718905-3-coxu@redhat.com>
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-X-Mimecast-MFC-PROC-ID: YSK9UQtkQ_O3jHiKhxu4n9kzZzf3VTHe7PQl2DIrb7s_1774941180
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_081317_032920_B4FD1082 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20260331_001730_739530_08681BE4 
+X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,58 +89,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/25/26 at 02:03pm, Coiby Xu wrote:
-> This will prevent a compiling failure when CONFIG_CRASH_DUMP is enabled
-> but CONFIG_CRASH_DM_CRYPT is disabled,
-> 
->        arch/powerpc/kexec/elf_64.c: In function 'elf64_load':
->     >> arch/powerpc/kexec/elf_64.c:82:23: error: implicit declaration of function 'crash_load_dm_crypt_keys' [-Werror=implicit-function-declaration]
->           82 |                 ret = crash_load_dm_crypt_keys(image);
->              |                       ^~~~~~~~~~~~~~~~~~~~~~~~
->        cc1: some warnings being treated as errors
-> 
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202602120648.RgQALnnI-lkp@intel.com/
-> Signed-off-by: Coiby Xu <coxu@redhat.com>
-> ---
->  include/linux/crash_core.h | 14 +++++++-------
->  1 file changed, 7 insertions(+), 7 deletions(-)
+Hi Ryan,
 
-Acked-by: Baoquan He <bhe@redhat.com>
+> > Sounds reasonable, but before you do so, how are you planning to manage=
+ the
+> > allocation of DMA channels across multiple i2c peripherals?
+> >=20
+> The AST2600 I2C hardware has only one can use DMA at a time.
+> To avoid the complexity of managing DMA channel contention,
+> I plan to use buffer mode by default for all controllers, which still pro=
+vides
+> better performance than byte mode without requiring DMA channel allocatio=
+n.
 
-> 
-> diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
-> index d35726d6a415..c1dee3f971a9 100644
-> --- a/include/linux/crash_core.h
-> +++ b/include/linux/crash_core.h
-> @@ -34,13 +34,6 @@ static inline void arch_kexec_protect_crashkres(void) { }
->  static inline void arch_kexec_unprotect_crashkres(void) { }
->  #endif
->  
-> -#ifdef CONFIG_CRASH_DM_CRYPT
-> -int crash_load_dm_crypt_keys(struct kimage *image);
-> -ssize_t dm_crypt_keys_read(char *buf, size_t count, u64 *ppos);
-> -#else
-> -static inline int crash_load_dm_crypt_keys(struct kimage *image) {return 0; }
-> -#endif
-> -
->  #ifndef arch_crash_handle_hotplug_event
->  static inline void arch_crash_handle_hotplug_event(struct kimage *image, void *arg) { }
->  #endif
-> @@ -96,4 +89,11 @@ static inline void crash_save_cpu(struct pt_regs *regs, int cpu) {};
->  static inline int kimage_crash_copy_vmcoreinfo(struct kimage *image) { return 0; };
->  #endif /* CONFIG_CRASH_DUMP*/
->  
-> +#ifdef CONFIG_CRASH_DM_CRYPT
-> +int crash_load_dm_crypt_keys(struct kimage *image);
-> +ssize_t dm_crypt_keys_read(char *buf, size_t count, u64 *ppos);
-> +#else
-> +static inline int crash_load_dm_crypt_keys(struct kimage *image) {return 0; }
-> +#endif
-> +
->  #endif /* LINUX_CRASH_CORE_H */
-> -- 
-> 2.53.0
-> 
+OK, but your wording there ("by default") implies that DMA is still
+selectable for one controller peripheral. In which case: you still have
+the problem of managing DMA channel contention, but now it's at runtime
+instead.
 
+So my question still stands: how are you planning to enforce that DMA is
+only enabled for one controller?
+
+Or are you planning to disable I2C DMA entirely on AST2600?
+
+Cheers,
+
+
+Jeremy
 
