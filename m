@@ -4,107 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A64381061B28
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Mar 2026 23:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E4391061B28
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 00:24:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yhiu16ehHgntkDBtdCtgZRDFM0bv9Xs6BSqjwG3n/OI=; b=13h+pQtopbesC/4n/4Jaup0x8P
-	VFypOvi29fhW1SacSbhC1tpAZ5RenTby/7Kxjdr5Af21H1NUJHPvwEmYH5wZOtgIrU9+pMdwF3mNn
-	Naj83q1wpbtdk9D+5Hy2m0CJfyPyP4VjTxg2GUd4FehGwNtvkhbaVOVgJgB/wLjIbPl6O/VFDTQSE
-	lHfq9UKnTKgMJIgd2dHBzj/IykFr4f5vRr5CjTn6+PN1KmsBXuBTELZxhwL60VU/PbPUP071KcE+/
-	xNip/N9SjHqs7M9iG9Knh0x3q4GpnIfa3e6rwZEyS87nAW1PRAKNeMGB1z/m9uBZZw/pBvR7mY4QW
-	FazZ2crg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=x6KkVZ6avnq5JZYkKR1K26BH30WGfxU6tLWicybER9M=; b=Da73/wbEE3Ft1z5U0+PFWPshw3
+	nkB3Z40cfLykc7UJ9G3bmmatWzvYO4xcQktPt0Hkdm0APuX0daQyiDDQaqqF/A9Y4ep9x+BTTFHBh
+	n1n7kZFnNs/eJHNmEpvHry+bfoWCVpNTHwDEsrfmyw7F7opbxAXieZz9GxDIpfXE/zm8w2z9DqMUn
+	yplnfW+SpoH2hHj/O6GCA9LjNSVWvhpG2qVZrS7lQYU6K/afNAxFLg4ixH93pb2nFZirC7c1/MWOF
+	4JHYQOftQs2i0gNYvymf0LtzvJp1Fd0aywHW43fqDRdhxnn4jfoRw0i/sExyWuywXWmKwG8Ux8tpB
+	oZOin0hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7MTC-0000000C2jM-2x8Z;
-	Mon, 30 Mar 2026 23:56:34 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1w7Mu3-0000000C3wi-0uKN;
+	Tue, 31 Mar 2026 00:24:19 +0000
+Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7MT9-0000000C2iu-2Fc4;
-	Mon, 30 Mar 2026 23:56:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774914991; x=1806450991;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=dklYeb6DKvtegCaYdj4gHCz+iIYfrn2UIcT4Zqcb0A4=;
-  b=JFg23NMjsCqTFr0qAbqiqxKMqS7faXX49oL+UkiNkZWpJ6syNW58skDM
-   VDb3t1hc2IbxYQnhMqQA5SXH7Tk++qZsOGMXw7hE6hR/FF0FGYeVw4p9a
-   Xt/LpY8AR0QvlEKdH9ZGkompafoGwDcZlWqtxuZHlpiNbSFSsV0jLPjOz
-   Ko7cK1zrmP+sJifPA+TSXus2QCxqrXaMnYk1EiCeE5I14P4OF7q4jJHdC
-   bRiyI76LbPQwKLP5t31RKc4GO+ZYPXerMhesqzEiRWutlhxhiWUvDO9K2
-   znD27pe9iCVvJCmXW11pgiNtImrbK1IQJRVYF2oahrL0nf1p3icgqoaFA
-   g==;
-X-CSE-ConnectionGUID: OQ6ZKUkrSKO5oj+g/Lu4aA==
-X-CSE-MsgGUID: WkSKE2zORD6TvQk5EeZ0Rw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11744"; a="86612110"
-X-IronPort-AV: E=Sophos;i="6.23,150,1770624000"; 
-   d="scan'208";a="86612110"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Mar 2026 16:56:29 -0700
-X-CSE-ConnectionGUID: w6miQk9vRzC4xY3dUuwUZg==
-X-CSE-MsgGUID: oivIEBUnRoKwhtl0r8WZTw==
-X-ExtLoop1: 1
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.155])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Mar 2026 16:56:19 -0700
-Date: Tue, 31 Mar 2026 02:56:16 +0300
-From: Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Maxime Ripard <mripard@kernel.org>,
-	Harry Wentland <harry.wentland@amd.com>,
-	Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>,
-	Alex Deucher <alexander.deucher@amd.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com,
-	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org,
-	Werner Sembach <wse@tuxedocomputers.com>,
-	Andri Yngvason <andri@yngvason.is>,
-	Marius Vlad <marius.vlad@collabora.com>
-Subject: Re: [PATCH v11 03/22] drm: Add new general DRM property "color
- format"
-Message-ID: <acsNoCDsPtEhtkRn@intel.com>
-References: <20260324-color-format-v11-0-605559af4fb4@collabora.com>
- <20260326-pumpkin-goshawk-of-stamina-0ccb84@houat>
- <acVzwRyk_J24GrJ4@intel.com>
- <4153041.tdWV9SEqCh@workhorse>
- <acclgID7lSVNten2@intel.com>
+	id 1w7Mu0-0000000C3w1-1rHD
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 31 Mar 2026 00:24:18 +0000
+Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-12776bebe9fso2037844c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 17:24:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774916655; x=1775521455; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=x6KkVZ6avnq5JZYkKR1K26BH30WGfxU6tLWicybER9M=;
+        b=eOW7/xcDMiK33IuA3bnA7CLw8DBesx4x6LIuVCMrRnXb1vV7DUv6+bt80aJIOQ7ROr
+         RrOiGtkG1RvH8vfyXi6rNzxwXb1IJgoJFBUUG1kyfGMDa7BnfsBfUXozaoQn58FsFZ6J
+         DbZg0wv020b9QNwBEh5gnF8BNMIC3jefYXMXv/BuVTpX9ubyHNjqmv9EjPxHPZPqb/7/
+         iWrRlPmpTc7Swd5U+XDgWQqtZGWsehQb3J1OmYiVCCyNDT0vEcgQNtL5jvvJSDbDHGX6
+         gs9LreVf5ZjEStmncLjrgO4/CIv2wMvAFyO+jBpKe4iSChkzuZ9IEPvVLTGxKYMweo0j
+         tr1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774916655; x=1775521455;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=x6KkVZ6avnq5JZYkKR1K26BH30WGfxU6tLWicybER9M=;
+        b=NCeH6EZkIQAzBfabIrnYeIy3gQQ1rzrFoGcBkMPHK4dH3Z1ss870Nm8pf9B8y8d2Yt
+         0u93qebyvHDa355RXVkpsBbrS3Sy/jPnY2sT3bJjHZayK1PnjUWQv+vkFPDd2lMkmYwL
+         DjTd9j8RoJG6IYvQnNhXnWVTUlbXp8LLA23BsSvN3n1VkTXXNAh9hr4EF8Ryk/IgL+9K
+         gC603Ob4l7rU/RT1NEdfCGwntqOpZrh1R9pepSqXmRcCSccxJAjV6iSziu3hRGt8HCSy
+         A6f5PdMwIW8uZBCocMNIRp+WdydQ1NPzHJt6yDak2fqOcQdeC06XbOm6GjBwekfNnmXy
+         /mEA==
+X-Forwarded-Encrypted: i=1; AJvYcCWnJbd1GCh0lvEVcu3bB9eINHXMCi9DuxhiG8zmE6ms1COrAuErQDKj0hjEfHjGo0n7TRs/pR0CeOwHDRLT9D4E@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhTMvqAOzO2Q+XzCM+iiZmjpl2pPSBRoGy/XcsuSYH50ApJW30
+	obBbHiLo9unEVM4MewPiT52tym6EfYDjEeqWqT1hWikmRs1NOA4wY2eIcFGU8RCQ
+X-Gm-Gg: ATEYQzze/bmI2Sq00B1efqI+mFhv1/ixjNnNF56MDjwfv78JuJ9LDIv9N9Sc4vzgN61
+	qTHf9xYB8Jzsp36sRJGNt99JsDxpDFYacb9cWWpA+IlCyDMRATEwSlZjq0oHbjZu3o3JJoiLen/
+	wJbMMhCicnr2cAlcpfPYxyR6dLA/aIjkl4LFiMi1ST7OdWG29Bv2smyyf+TivB1hB4zNEtwXSko
+	w5Fj2e6feAdncZZO2cDbSZSR4hYPXUgDKK6b6QExYEuBwqIKjVbLi/lCh28p2OrwaBAnE9KyjmF
+	jZLWXmQRF3h+N/ww9ry7YgXwG1eHOxM6CVYC5xcBdrBwfm/V4A0cDD79My1s5dZIS7g0VgUC8yT
+	/4jV9ydzQu4yJhbhDL9m9uGDRnIRDbxxR5W0MtUkOLnExES4XBWRXCNyiKgESEoGfcEbhTlkl/a
+	er8i80viZ2z2aOj6KTBgGsOojCEOAdyTS2EMYvUqcCHfXVqz/q6nF3jK8=
+X-Received: by 2002:a05:7022:2221:b0:128:d2a5:709c with SMTP id a92af1059eb24-12ab28f3331mr8407522c88.33.1774916655278;
+        Mon, 30 Mar 2026 17:24:15 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:5b5d::8bd])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12ab983f9f3sm13195709c88.10.2026.03.30.17.24.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Mar 2026 17:24:14 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: dri-devel@lists.freedesktop.org
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-mediatek@lists.infradead.org (moderated list:DRM DRIVERS FOR MEDIATEK),
+	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
+Subject: [PATCH] drm/mediatek: simplify mtk_crtc allocation
+Date: Mon, 30 Mar 2026 17:23:57 -0700
+Message-ID: <20260331002357.7995-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <acclgID7lSVNten2@intel.com>
-X-Patchwork-Hint: comment
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_165631_598749_78506F4A 
-X-CRM114-Status: GOOD (  69.67  )
+X-CRM114-CacheID: sfid-20260330_172416_949550_122F4AA5 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,213 +102,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 28, 2026 at 02:49:04AM +0200, Ville Syrjälä wrote:
-> On Fri, Mar 27, 2026 at 01:56:06PM +0100, Nicolas Frattaroli wrote:
-> > On Thursday, 26 March 2026 18:58:25 Central European Standard Time Ville Syrjälä wrote:
-> > > On Thu, Mar 26, 2026 at 06:02:47PM +0100, Maxime Ripard wrote:
-> > > > On Wed, Mar 25, 2026 at 08:43:15PM +0200, Ville Syrjälä wrote:
-> > > > > On Wed, Mar 25, 2026 at 03:56:58PM +0100, Maxime Ripard wrote:
-> > > > > > On Wed, Mar 25, 2026 at 01:03:07PM +0200, Ville Syrjälä wrote:
-> > > > > > > On Wed, Mar 25, 2026 at 09:24:27AM +0100, Maxime Ripard wrote:
-> > > > > > > > On Tue, Mar 24, 2026 at 09:53:35PM +0200, Ville Syrjälä wrote:
-> > > > > > > > > On Tue, Mar 24, 2026 at 08:10:11PM +0100, Nicolas Frattaroli wrote:
-> > > > > > > > > > On Tuesday, 24 March 2026 18:00:45 Central European Standard Time Ville Syrjälä wrote:
-> > > > > > > > > > > On Tue, Mar 24, 2026 at 05:01:07PM +0100, Nicolas Frattaroli wrote:
-> > > > > > > > > > > > +enum drm_connector_color_format {
-> > > > > > > > > > > > +	/**
-> > > > > > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_AUTO: The driver or display protocol
-> > > > > > > > > > > > +	 * helpers should pick a suitable color format. All implementations of a
-> > > > > > > > > > > > +	 * specific display protocol must behave the same way with "AUTO", but
-> > > > > > > > > > > > +	 * different display protocols do not necessarily have the same "AUTO"
-> > > > > > > > > > > > +	 * semantics.
-> > > > > > > > > > > > +	 *
-> > > > > > > > > > > > +	 * For HDMI, "AUTO" picks RGB, but falls back to YCbCr 4:2:0 if the
-> > > > > > > > > > > > +	 * bandwidth required for full-scale RGB is not available, or the mode
-> > > > > > > > > > > > +	 * is YCbCr 4:2:0-only, as long as the mode and output both support
-> > > > > > > > > > > > +	 * YCbCr 4:2:0.
-> > > > > > > > > > > > +	 *
-> > > > > > > > > > > > +	 * For display protocols other than HDMI, the recursive bridge chain
-> > > > > > > > > > > > +	 * format selection picks the first chain of bridge formats that works,
-> > > > > > > > > > > > +	 * as has already been the case before the introduction of the "color
-> > > > > > > > > > > > +	 * format" property. Non-HDMI bridges should therefore either sort their
-> > > > > > > > > > > > +	 * bus output formats by preference, or agree on a unified auto format
-> > > > > > > > > > > > +	 * selection logic that's implemented in a common state helper (like
-> > > > > > > > > > > > +	 * how HDMI does it).
-> > > > > > > > > > > > +	 */
-> > > > > > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_AUTO = 0,
-> > > > > > > > > > > > +
-> > > > > > > > > > > > +	/**
-> > > > > > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_RGB444: RGB output format
-> > > > > > > > > > > > +	 */
-> > > > > > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_RGB444,
-> > > > > > > > > > > > +
-> > > > > > > > > > > > +	/**
-> > > > > > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR444: YCbCr 4:4:4 output format (ie.
-> > > > > > > > > > > > +	 * not subsampled)
-> > > > > > > > > > > > +	 */
-> > > > > > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR444,
-> > > > > > > > > > > > +
-> > > > > > > > > > > > +	/**
-> > > > > > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR422: YCbCr 4:2:2 output format (ie.
-> > > > > > > > > > > > +	 * with horizontal subsampling)
-> > > > > > > > > > > > +	 */
-> > > > > > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR422,
-> > > > > > > > > > > > +
-> > > > > > > > > > > > +	/**
-> > > > > > > > > > > > +	 * @DRM_CONNECTOR_COLOR_FORMAT_YCBCR420: YCbCr 4:2:0 output format (ie.
-> > > > > > > > > > > > +	 * with horizontal and vertical subsampling)
-> > > > > > > > > > > > +	 */
-> > > > > > > > > > > > +	DRM_CONNECTOR_COLOR_FORMAT_YCBCR420,
-> > > > > > > > > > > 
-> > > > > > > > > > > Seems like this should document what the quantization range
-> > > > > > > > > > > should be for each format.
-> > > > > > > > > > > 
-> > > > > > > > > > 
-> > > > > > > > > > I don't think so? If you want per-component bit depth values,
-> > > > > > > > > > DRM_FORMAT_* defines would be the appropriate values to use. This
-> > > > > > > > > > enum is more abstract than that, and is there to communicate
-> > > > > > > > > > YUV vs. RGB and chroma subsampling, with bit depth being handled
-> > > > > > > > > > by other properties.
-> > > > > > > > > > 
-> > > > > > > > > > If you mean the factor used for subsampling, then that'd only be
-> > > > > > > > > > relevant if YCBCR410 was supported where one chroma plane isn't
-> > > > > > > > > > halved but quartered in resolution. I suspect 4:1:0 will never
-> > > > > > > > > > be added; no digital display protocol standard supports it to my
-> > > > > > > > > > knowledge, and hopefully none ever will.
-> > > > > > > > > 
-> > > > > > > > > No, I mean the quantization range (16-235 vs. 0-255 etc).
-> > > > > > > > > 
-> > > > > > > > > The i915 behaviour is that YCbCr is always limited range,
-> > > > > > > > > RGB can either be full or limited range depending on the 
-> > > > > > > > > "Broadcast RGB" property and other related factors.
-> > > > > > > > 
-> > > > > > > > So far the HDMI state has both the format and quantization range as
-> > > > > > > > different fields. I'm not sure we need to document the range in the
-> > > > > > > > format field, maybe only mention it's not part of the format but has a
-> > > > > > > > field of its own?
-> > > > > > > 
-> > > > > > > I think we only have it for RGB (on some drivers only?). For YCbCr
-> > > > > > > I think the assumption is limited range everywhere.
-> > > > > > > 
-> > > > > > > But I'm not really concerned about documenting struct members.
-> > > > > > > What I'm talking about is the *uapi* docs. Surely userspace
-> > > > > > > will want to know what the new property actually does so the
-> > > > > > > uapi needs to be documented properly. And down the line some
-> > > > > > > new driver might also implement the wrong behaviour if there
-> > > > > > > is no clear specification.
-> > > > > > 
-> > > > > > Ack
-> > > > > > 
-> > > > > > > So I'm thinking (or perhaps hoping) the rule might be something like:
-> > > > > > > - YCbCr limited range 
-> > > > > > > - RGB full range if "Broadcast RGB" property is not present
-> > > > > > 
-> > > > > > Isn't it much more complicated than that for HDMI though? My
-> > > > > > recollection was that any VIC but VIC1 would be limited range, and
-> > > > > > anything else full range?
-> > > > > 
-> > > > > Do we have some driver that implements the CTA-861 CE vs. IT mode
-> > > > > logic but doesn't expose the "Broadcast RGB" property? I was hoping
-> > > > > those would always go hand in hand now.
-> > > > 
-> > > > I'm not sure. i915 and the HDMI state helpers handle it properly (I
-> > > > think?) but it looks like only vc4 registers the Broadcast RGB property
-> > > > and uses the HDMI state helpers.
-> > > > 
-> > > > And it looks like amdgpu registers Broadcast RGB but doesn't use
-> > > > drm_default_rgb_quant_range() which seems suspicious?
-> > > 
-> > > If they want just manual full vs. limited then they should
-> > > limit the property to not expose the "auto" option at all.
-> > > 
-> > > amdgpu also ties this in with the "colorspace" property, which
-> > > originally in i915 only controlled the infoframes/etc. But on
-> > > amdgpu it now controls various aspects of output color
-> > > transformation. The end result is that the property is a complete
-> > > mess with most of the values making no sense. And for whatever
-> > > reason everyone involved refused to remove/deprecate the
-> > > nonsensical values :/
-> > > 
-> > > Looks like this series should make sure the documentation for
-> > > the "colorspace" property is in sync with the new property
-> > > as well. Currently now it's giving conflicting information.
-> > > 
-> > 
-> > I take it the problematic information is in
-> > 
-> >     * DOC: standard connector properties
-> >     *
-> >     * Colorspace:
-> > 
-> > and probably specifically BT2020_YCC's (and BT2020_RGB's?) insistence
-> > that they "produce RGB content".
-> > 
-> > I think we probably just have to change the statement "The variants
-> > BT2020_RGB and BT2020_YCC are equivalent and the driver chooses between
-> > RGB and YCbCr on its own."
-> > 
-> > The "on its own" here would get turned into "based on the color format
-> > property".
-> > 
-> > Speaking of i915, that patch is one of the very few (5) patches in
-> > this series still lacking a review (hint hint nudge nudge). I'd like
-> > to get some more feedback on the remaining patches before I send out
-> > another revision, so that it's hopefully not just docs changes (I
-> > know better than to think those patches must be perfect and won't
-> > need revision.)
-> 
-> The i915 code around this is already a big mess, and I don't really
-> adding to that mess. So I think we'll need to do some refactoring before
-> we add anything there. I already started typing something and so far
-> it looks fairly straightforward, so I should have something soon.
+Use a flexible array member to combine allocations.
 
-OK, posted something
-https://lore.kernel.org/intel-gfx/20260330235339.29479-1-ville.syrjala@linux.intel.com/T/#m7c349478ca6c856fbc68d5e2178f1aa31678a05f
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ drivers/gpu/drm/mediatek/mtk_crtc.c | 13 ++++---------
+ 1 file changed, 4 insertions(+), 9 deletions(-)
 
-Are the wayland/compositor/color management folks on board with
-these new properties? I don't think I see the usual suspects on
-the cc list.
-
-> 
-> While doing that several questions came to my mind though:
-> 
-> * More interactions with the colorspace property, but I sent
->   a separate mail already about that
-> 
-> * Which conversion matrix to use, and the answer I suspect
->   should be "ask the colorspace property", as mentioned in the
->   other mail
-> 
-> * Should we flat out reject color formats (and I suppose also
->   colorspace prop values) the sink doesn't claim to support?
-> 
->   If yes, then I think we'll have to forget about adding anything 
->   to i915 MST code. The way the MST stuff works is that if one
->   stream needs a modeset then all the related streams get modeset
->   as well. Thus if the user replaces a monitor getting fed with a
->   YCbCr stream just as another stream is being modeset, then the
->   entire atomic commit could fail due to the YCbCr stream getting
->   rejected.
-> 
->   I think eventually we might have to invent some mechanism where
->   all the input into the modeset computation is cached somehow,
->   and said cache updated only on explicit userspace modesets.
->   Either that or we have to come up  with a way to skip some of
->   the calculations that depend on external factors. Either way
->   it's going to be a pain.
-> 
->   OTOH if we don't mind feeding the sink with stuff it can't
->   understand, then I suppose we might add YCbCr 4:4:4 support
->   for MST. It shouldn't be any different from RGB apart from
->   the RGB->YCbCr conversion, which is handled elsewhere. But
->   YCbCr 4:2:0 is definitely out either way, the MST code has
->   no support for that currently.
-> 
-> -- 
-> Ville Syrjälä
-> Intel
-
+diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediatek/mtk_crtc.c
+index fcb16f3f7b23..914841d2396e 100644
+--- a/drivers/gpu/drm/mediatek/mtk_crtc.c
++++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
+@@ -62,7 +62,6 @@ struct mtk_crtc {
+ 	struct device			*dma_dev;
+ 	struct mtk_mutex		*mutex;
+ 	unsigned int			ddp_comp_nr;
+-	struct mtk_ddp_comp		**ddp_comp;
+ 	unsigned int			num_conn_routes;
+ 	const struct mtk_drm_route	*conn_routes;
+ 
+@@ -71,6 +70,8 @@ struct mtk_crtc {
+ 	bool				config_updating;
+ 	/* lock for config_updating to cmd buffer */
+ 	spinlock_t			config_lock;
++
++	struct mtk_ddp_comp		*ddp_comp[];
+ };
+ 
+ struct mtk_crtc_state {
+@@ -1048,18 +1049,12 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
+ 		}
+ 	}
+ 
+-	mtk_crtc = devm_kzalloc(dev, sizeof(*mtk_crtc), GFP_KERNEL);
++	mtk_crtc = devm_kzalloc(dev, struct_size(mtk_crtc, ddp_comp, path_len + (conn_routes ? 1 : 0)), GFP_KERNEL);
+ 	if (!mtk_crtc)
+ 		return -ENOMEM;
+ 
+-	mtk_crtc->mmsys_dev = priv->mmsys_dev;
+ 	mtk_crtc->ddp_comp_nr = path_len;
+-	mtk_crtc->ddp_comp = devm_kcalloc(dev,
+-					  mtk_crtc->ddp_comp_nr + (conn_routes ? 1 : 0),
+-					  sizeof(*mtk_crtc->ddp_comp),
+-					  GFP_KERNEL);
+-	if (!mtk_crtc->ddp_comp)
+-		return -ENOMEM;
++	mtk_crtc->mmsys_dev = priv->mmsys_dev;
+ 
+ 	mtk_crtc->mutex = mtk_mutex_get(priv->mutex_dev);
+ 	if (IS_ERR(mtk_crtc->mutex)) {
 -- 
-Ville Syrjälä
-Intel
+2.53.0
+
 
