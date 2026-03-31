@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A04FF60CF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FF3BFF60D5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fmqQ6wZIRPnhYS0sd3BTzNstv85HX3Dp5CcRYcQGE7k=; b=aUJbMdRAo78dGWyiB3Og5hhCs/
-	DwsDLQDvwKv8adBHcMf1kgW4CpdRAdICZlu/lGtUEb3OAgTyqnDciQI+igxEzMbHL1PnqNwpVxuaV
-	WkBl8BeRMWrMA1vEC8uAUKkFNyA/sKu5nbsNUgDc65JFDWaTZ1OnP8CsUM5C83NUq36J9dK4wjX0Z
-	M8B74hDpkVHMQSUGBdhb87cYLWe9slDNqbO0sEYwffPjuR9MayRTcenYw7DJ3VC8d4lbgb76LFrK5
-	ze8zLlvwPbv4XIiqb7JJCBN/GuJnZF4UsCvnZq+gJiaRZnf7iC21ntzuCGW1xtOtOdre83eRP9B+l
-	/3oeq2rw==;
+	bh=Ag89dtgoFcqmRpOutS+jEo6Sj3sF5Fr9hGzc2IQBvyU=; b=ge9Jzv56v0Rg3K0NkaPgk9T+vU
+	5scFJEtm5t8ICYh8yDzji1EeSA7UlEdOlCW3s/IQz3vmzxieoeo/zDZnCwN1ZNVC7qk2Q3h3ZgdYZ
+	qywY1+erI43v8QLh5IV1iPgFk92QvLU3mprFeeAI1bIYn6tQPhCbSvongsfw3FYKag/8AytzMQeL2
+	r7YpTInvkdXLcbiziiHsNIA98Pwb7wRab8PMdIlVrqniJqw4TGCpDKA2/1cFGLQGX3/YkqWLN6j9J
+	PkouQxPNNyBSS6ifHUtmiF2/q+xn8hlNeI1Ew4ioKVsP1MyS2U/ytT1nwbM5b/CsPl7E0J92Jg3ik
+	CFf3zuqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7TAi-0000000CQhf-1WCa;
-	Tue, 31 Mar 2026 07:05:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w7TE4-0000000CQvC-42Qt;
+	Tue, 31 Mar 2026 07:09:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7TAf-0000000CQh3-2LVT
+	id 1w7TE4-0000000CQuv-0ReX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 07:05:54 +0000
+	Tue, 31 Mar 2026 07:09:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 350F740BDE;
-	Tue, 31 Mar 2026 07:05:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D92AC19424;
-	Tue, 31 Mar 2026 07:05:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 35BCD60127;
+	Tue, 31 Mar 2026 07:09:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FDF7C19423;
+	Tue, 31 Mar 2026 07:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774940753;
-	bh=KFUGUbZlt5y+7LRJYgMDfqipV4WSv3ujjJvVX13vUJU=;
+	s=k20201202; t=1774940962;
+	bh=OHjzPDaFcFaxb+w0qneX65vvad9Ig+yC3Pon7vSnMcE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GUA6qHvDM2laEodb0eD4IOrmcC3rZGCMCM+flk+jlLkIo2VcLP64tcx3DMHoHWtmJ
-	 CC1bkoskwUw1Cm0ybVon5qZ5tfIncaSAThvmvHVEjnnb/X4aGqEJKGT1545OcdBLEG
-	 LKM8yAtGiBzfhbRZNJ85XRdPRiv2y7KC/GHcbldSppKo6CucsuCECVUU0zp9zG314Y
-	 43CLIl7g4FQ07ksYyhk/Hs06lBZ2k2bJsNlqowS6IKIpUeWFHpZPhdrROYeqGI3/Ji
-	 s8C/dH9e+Z8RPiwXetH7vb0vYu0/M+3EobUMONuVVG4jjxNdW1Tq/vyHy3Gx/l9Z62
-	 pAKhM3o8jw/rQ==
-Date: Tue, 31 Mar 2026 09:05:50 +0200
+	b=qGd/Mg1VhHHqI8aq+/SuYwyLEo9n0NrsponM34Sina5tcYuWkOmNN4BiwT9wVEAWR
+	 v8M8BF8i68zI/yB6xEpnWVNKPIE5u726LARXFdtGgFINl0+5G0hNYEAKHf3ner7ZKm
+	 8zW2E8MSOvDsf6sDmyq4KjhDgomnlAMeHPqFhJA4rjG5/ULATYGkyN7FBr6OfHQU6m
+	 EksZCWHGWLG32JbAlMHbEt0gY2ZDApaeY+qhb0+iNKnBilfUO5FGJuEYuOS/F3hGlF
+	 5x9zdJKGBDyo56ZSM1jvL2rcwnlgspo7YDCOgd3p3D5LxoAEsjRHFC8md6U35SezCk
+	 R2rtZPF+e9ZyA==
+Date: Tue, 31 Mar 2026 09:09:20 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Chancel Liu <chancel.liu@nxp.com>
-Cc: lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com, shengjiu.wang@gmail.com, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4] ASoC: dt-bindings: imx-card: Complete the full list
- of supported DAI formats
-Message-ID: <20260331-notorious-messy-salmon-1acc76@quoll>
-References: <20260331012450.1298115-1-chancel.liu@nxp.com>
+To: Moteen Shah <m-shah@ti.com>
+Cc: krzk+dt@kernel.org, robh@kernel.org, conor+dt@kernel.org, nm@ti.com, 
+	vigneshr@ti.com, kristo@kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, u-kumar1@ti.com, 
+	gehariprasath@ti.com, y-abhilashchandra@ti.com
+Subject: Re: [PATCH v3 1/2] ti,j721e-system-controller.yaml: Allow
+ audio-refclk as clock-controller child
+Message-ID: <20260331-flashy-hilarious-whale-6e606c@quoll>
+References: <20260330094459.128648-1-m-shah@ti.com>
+ <20260330094459.128648-2-m-shah@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260331012450.1298115-1-chancel.liu@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_000553_612977_4F4B0571 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260330094459.128648-2-m-shah@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,29 +72,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 31, 2026 at 10:24:50AM +0900, Chancel Liu wrote:
-> Currently this binding only lists i2s and dsp_b formats that are used
-> by existing sound cards. However, DT bindings should describe the full
-> hardware capabilities rather than only the formats of current usage.
-> 
-> The SAI audio controller of i.MX audio sound card supports multiple DAI
-> formats, including:
->   - i2s
->   - left_j
->   - right_j
->   - dsp_a
->   - dsp_b
->   - pdm
->   - msb
->   - lsb
-> 
-> Complete the full list of formats supported by i.MX audio sound card to
-> ensure the binding correctly describes hardware.
-> 
-> Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
-> ---
+On Mon, Mar 30, 2026 at 03:14:58PM +0530, Moteen Shah wrote:
+> The ti,j721e-system-controller binding currently only allows
+> clock-controller@ child nodes to reference the ti,am654-ehrpwm-tbclk
+> schema. However, the system controller on J721S2 also contains audio
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+J721S2 or AM62?
+
+> reference clock controllers (ti,am62-audio-refclk) that use the same
+> clock-controller@XXXX naming pattern.
+> 
+> Hence, extend the clock-controller pattern to accept either ehrpwm-tbclk
+> or audio-refclk schemas using a oneOf constraint.
+> 
+> Signed-off-by: Moteen Shah <m-shah@ti.com>
+> ---
+>  .../bindings/soc/ti/ti,j721e-system-controller.yaml         | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
+> index f3bd0be3b279..d5d84a8f1257 100644
+> --- a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
+> +++ b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
+> @@ -53,9 +53,11 @@ patternProperties:
+>  
+>    "^clock-controller@[0-9a-f]+$":
+>      type: object
+> -    $ref: /schemas/clock/ti,am654-ehrpwm-tbclk.yaml#
+> +    oneOf:
+> +      - $ref: /schemas/clock/ti,am654-ehrpwm-tbclk.yaml#
+> +      - $ref: /schemas/clock/ti,am62-audio-refclk.yaml#
+
+Alphanumerical order.
+
+There is no ti,am62 in the top level compatibles, so why am62 is here?
+Top level has j721s2 but this ti,am62-audio-refclk.yaml only am62.
 
 Best regards,
 Krzysztof
