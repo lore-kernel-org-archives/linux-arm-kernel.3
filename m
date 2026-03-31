@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B1E810F9302
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 21:55:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5FAD10F9302
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 22:22:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lR0TZTL4vgxqeh17aCtAUk73qw2Qnai0er/TlANgzP4=; b=dJ/735YJHPK2I0SuN+o5m9b6DV
-	JA+zIIKCbM5D76hh8fuB6ZVtstzICSCP8oxemXKfvh/ws4L9zZ2mMplRhCxcEGZRCvmiTLvZtl4VQ
-	A8r1usn3PPUKGw4PJmFKGmdpNXKhnPW3VdmvyMCWzkWB/oKYb3xBpZUXbXTgknPHqfB+GYQSTBfWh
-	bUMQUvC99UaGsF6KTk8gb+AGxITXFeh2Sgit5z02jMBGOmwXd+BDmUgHQeEmBZxOoYJEtxwkzK1uU
-	7VrgdKolu72WMmQzoVLSiEllL8ACYcYifov7i8BYylBxzCsQuf9gb1BjyPmg/GXjrkKVCmT/q3+RQ
-	6j1kWPiQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zn6Tx+/yUqe1wFWE2jjPTR23b4f4dmxO8nkrQL8rqP8=; b=Xgd6HyIm8K1sfvCPDJfwalVbUI
+	D2jSxyV74YykfExMgYZqO4sLc/H0vQ6ujQ51BGEQFald12lb4gbqA7swfyLk09rgNVNDBt+yQ8yem
+	i12z85Ng3cRi7aVwjL9AupEi7csi33brOhtHQoLiCimdKWJDcN1eti77xBFL2o9IHlA5pL5CzM1IU
+	tsN9VWS2qy8Nxtlc+/yEGZN2yCQ8rE3G4xn/9u9gErhPhd9ZGZ4OStO1g0YSFnz9ewssFmHMFiulB
+	6srMfVAU1kA0UyAiarWEhaQnLGraGcqh5f5qF7T1OgSDE0bEo/v+QhGPiw996rMZtbUsbOC0GrH8U
+	Ud9QXchg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7h3Y-0000000DbfU-29WR;
-	Tue, 31 Mar 2026 21:55:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w7hTo-0000000Dd9g-02Jd;
+	Tue, 31 Mar 2026 22:22:36 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7h3V-0000000DbfA-3Ay0
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 21:55:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EF2BC40BC3;
-	Tue, 31 Mar 2026 21:55:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AE9FC19423;
-	Tue, 31 Mar 2026 21:55:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774994124;
-	bh=NhuFMXlvIvwXGeFlkQZ4EjJD7dqZdKtt1rvST/wuTUY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=efKmWD2cojixGjWSKPS4XFjSeeurzqKxFKT2Kai1csXNtIGcwLixJlLqXmHbvrwFx
-	 eEmNzdQmdzaYXxQ1cbOCDm/JrH+v5d2LcDFnJTP6j4R1xbJxx2o19LxCc/hlDJB6Mw
-	 9/NxcX+4nV+V1he4Tr47kfC33r6CkPQEoo/IqIQiCo6JNjUbTrmci3fYjBi4aCf5Aq
-	 tG65bkzjF9QoENSqfAlX6Ln+edmUcRGsFVmoUs5XyQR64cLB8BzoMEynpe37+NqOrb
-	 e8bcyJG5mgqmUtunYLjgWl1cGr6TIf6D4qEr7UsfFwzUT82QkuwfMVEfaVEIQWEHzg
-	 HGaVcy0vJhaPw==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
+	id 1w7hTl-0000000Dd8p-3hsT;
+	Tue, 31 Mar 2026 22:22:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=zn6Tx+/yUqe1wFWE2jjPTR23b4f4dmxO8nkrQL8rqP8=; b=of5TGQ3BY/0dYg1URKjyoESvBO
+	WXTk2pPyPrMCkMK4+uqn8AKjLqJs0tgkgxpPvBGgmG5MvL0wqBRI5ixxaEtVHnDc/bd12kQHGXQ+D
+	MGX+Am8QHsCVJuQhquqAC+qi0CdqFzDyrXoT+0Lt7rfGBHI3+6aboRx0JwiZ9G1eB97ifpZMm+xnM
+	f8RVfU+U0xVnXNHFYnmWPqYoWRR+zOQdljjtbzkik/e7DVX+fuHOtaboo4Ew3XUSKagsTdcV4h8ZB
+	eceTwq94vniZVWqvhCZ7fM9HLnXrcJFHjvSli50pym7lOwEdXDLMe+89t+86ZVto83iAdEjMlSOYF
+	yZatu2Ow==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	kernel@collabora.com,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Luca Weiss <luca.weiss@fairphone.com>,
-	Taniya Das <taniya.das@oss.qualcomm.com>,
-	Abel Vesa <abel.vesa@oss.qualcomm.com>,
-	Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>,
-	Harshal Dev <harshal.dev@oss.qualcomm.com>,
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Pankaj Patil <pankaj.patil@oss.qualcomm.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
-	Vishnu Saini <vishnu.saini@oss.qualcomm.com>
-Subject: [GIT PULL] Qualcomm Arm64 defconfig updates for v7.1
-Date: Tue, 31 Mar 2026 16:55:21 -0500
-Message-ID: <20260331215521.968341-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-media@vger.kernel.org,
+	Conor Dooley <conor@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: (subset) [PATCH v5 0/4] arm64: dts: rockchip: Fix vdec register blocks order on RK3576/RK3588
+Date: Wed,  1 Apr 2026 00:22:22 +0200
+Message-ID: <177499572601.2230685.5329289608304242879.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260304-vdec-reg-order-rk3576-v5-0-7006fad42c3a@collabora.com>
+References: <20260304-vdec-reg-order-rk3576-v5-0-7006fad42c3a@collabora.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_145525_851119_26D4A229 
-X-CRM114-Status: UNSURE (   7.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260331_152233_944249_DDA76515 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,73 +82,28 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+On Wed, 04 Mar 2026 23:00:39 +0200, Cristian Ciocaltea wrote:
+> When building device trees for the RK3576 based boards, DTC shows the
+> following complaint:
+> 
+>   rk3576.dtsi:1282.30-1304.5: Warning (simple_bus_reg): /soc/video-codec@27b00000: simple-bus unit address format error, expected "27b00100"
+> 
+> The first two patches updates 'reg-names' property in rockchip,vdec
+> binding to make it mandatory for RK3576 & RK3588, since this is what the
+> driver expects, as well as to allow providing the register blocks
+> following the address-based order and, consequently, ensure the video
+> decoder unit address points to the primary register range.
+> 
+> [...]
 
-  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+Applied, thanks!
 
-are available in the Git repository at:
+[3/4] arm64: dts: rockchip: Fix vdec register blocks order on RK3576
+      commit: f8fa98aa23699b7019023cc7cd8bbb8d837f2d3b
+[4/4] arm64: dts: rockchip: Update vdec register blocks order on RK3588
+      commit: 6c4a6f7f19e69bedddee87bebd4f1f1c7411b820
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm64-defconfig-for-7.1
-
-for you to fetch changes up to fdeb077b8ae53a6ef772c5b3c4d1f3a408dac2a0:
-
-  arm64: defconfig: enable pci-pwrctrl-generic as module (2026-03-23 21:40:52 -0500)
-
-----------------------------------------------------------------
-Qualcomm Arm64 defconfig updates for v7.1
-
-Enable base drivers for booting boards based on Kaanapali, Glymur,
-Eliza, SM8750, and IPQ5210 SoCs.
-
-Enable the Milos LPASS LPI driver. Enable the Qualcomm WCD937x headphone
-codec driver, used on QCM6490 boards.
-
-Enable the QCOMTEE driver, to support the interface found in various
-Qualcomm SoCs.
-
-Enable ethernet and analog codecs used on the Arduino Ventuno Q.
-
-Enable the Lontium LT8713sx driver, used for the Monaco EVK board.
-
-Enable the PCI pwrctrl generic driver used in a few different
-Qualcomm-based boards with USB controllers on PCI buses.
-
-----------------------------------------------------------------
-Abel Vesa (1):
-      arm64: defconfig: Enable Qualcomm Eliza basic resource providers
-
-Ajay Kumar Nandam (1):
-      arm64: defconfig: Enable Qualcomm WCD937x headphone codec as module
-
-Harshal Dev (1):
-      arm64: defconfig: Enable QCOMTEE module for QTEE-enabled Qualcomm SoCs
-
-Kathiravan Thirumoorthy (1):
-      arm64: defconfig: enable IPQ5210 RDP504 base configs
-
-Krzysztof Kozlowski (1):
-      arm64: defconfig: Enable Qualcomm Eliza SoC display clock controller
-
-Luca Weiss (2):
-      arm64: defconfig: Enable S5KJN1 camera sensor
-      arm64: defconfig: Enable Milos LPASS LPI pinctrl driver
-
-Neil Armstrong (1):
-      arm64: defconfig: enable pci-pwrctrl-generic as module
-
-Pankaj Patil (1):
-      arm64: defconfig: Enable configs for Qualcomm Glymur SoC
-
-Srinivas Kandagatla (1):
-      arm64: defconfig: Enable configs for Arduino VENTUNO Q
-
-Taniya Das (2):
-      arm64: defconfig: Enable SM8750 clock controllers
-      arm64: defconfig: Enable Kaanapali clock controllers
-
-Vishnu Saini (1):
-      arm64: defconfig: Enable Lontium LT8713sx driver
-
- arch/arm64/configs/defconfig | 27 +++++++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
