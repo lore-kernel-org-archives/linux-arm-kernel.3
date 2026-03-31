@@ -4,94 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30D79109B493
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 16:02:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 683FF109B493
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 16:03:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6smz/tVlVP2xa4k25TAtdUHzHsfk0EudBM++sE/hz60=; b=XOGqjE75Ya4teRUhtUXIf66+aa
-	6r95hn+zGdywLxlAUwiybjN723EKXCOaP/qBtYYdsqKJBVT6/xTspjBnTgGuJoRkcAlNValVUtya2
-	Y5wQzpNtfdgYKbHT1Hqw3MARP/4f64KuxRW8TL2bNRVKZzu9ZBiaKLD39SnkvblFa3kzAqmb1Tiz6
-	qpTatmp/ZRg9NZi0MCWwvE9U+wRa3000bjr23/XM+e6emV8o62wd2YxqRA8mue6jOHPVNZ8q3bo2v
-	OT0rXaZyKw90rPmoQs8VczaEYQOKbNd7mV1jujIjrT/erZ/LJOOLFtC9OBdcWDZNh9r2kdCMmu+ou
-	vYx0mUmQ==;
+	bh=rBdTZ4XJk/aBrMhfzRVF3zUCulaowGOaG9ZKyP9cK7U=; b=hT1yd3iDV4bwA8qt3qojYMZsjb
+	3fLqf9GNQAQ/kgkTw+mQuubwAcRPdHFj0ithX9cU9efIs5OG1kNhFutpQOvdGdODOJkH3Y5irwFG5
+	WtIyFw0Ea1t/eaJJQXcQnb3cCo/Omadas+xl8vIdxhxgS+7MwBQYxvzDh+9kDuo/FnCycjGnYLzIu
+	WVQ+tKC6KWCLWbgtR7lqYgb0AheqmTN9Vy5b/J1+LHt7x5n/assKsRLedcVDYOvIR1CYZl+iNNVFa
+	z84ilCtisbAgNK6z7cOspAw1Dlh3GWGc+n2Iv4ngwyycubkzESj1FLzinIpIALdrpgmdMAy7wBRci
+	3cXxgsuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7bXU-0000000DDvS-0j9s;
-	Tue, 31 Mar 2026 16:02:00 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1w7bZK-0000000DE7a-24Xh;
+	Tue, 31 Mar 2026 16:03:54 +0000
+Received: from mail-yx1-xb130.google.com ([2607:f8b0:4864:20::b130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7bXP-0000000DDuk-38Zn;
-	Tue, 31 Mar 2026 16:01:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774972916; x=1806508916;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=eI8SQ8hlmfnTvWkv7QAhjjIQ17PWVbfzQx5ojZvnNo4=;
-  b=YmoKJvYMScr+U6C6++if/njXNNOPiDZ84pyDRo7Bl2HhG/TTW47LStwQ
-   1758d2xd3C6ZjB9ga8WbzIHdDpF58kPxZea0SAm72NM3TA1ehbw7albRh
-   5acu/2++hzxgY3SQJ92Gfym6IxYrFTYuqK7DL2mactW3f48lHsB710AQt
-   9HeX05rsi4Jrc4nCbB+wnuKjqjrNdGw27Dz86O2y87S4M3ifHQzWZZz3D
-   d8kdyu+dem8+upZq/sCh8k7c0IQddieiWmSfBSHOjkZFwXiupDm7SYubW
-   h4MH+6cymmo9vcmfFRqwTVN7/2/XxHg33EZeZZnrgQvF2Cp5ru0v0UC4Y
-   w==;
-X-CSE-ConnectionGUID: TC3QqX2zTx60HD1DcedPrg==
-X-CSE-MsgGUID: s6vtS9/iSJ2hU2SUj3EwIQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11745"; a="75954403"
-X-IronPort-AV: E=Sophos;i="6.23,152,1770624000"; 
-   d="scan'208";a="75954403"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Mar 2026 09:01:53 -0700
-X-CSE-ConnectionGUID: W+2NdeozTVSmfTQd4l/CIQ==
-X-CSE-MsgGUID: IGnx9ev2S/KHj+cLPQVwFQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,152,1770624000"; 
-   d="scan'208";a="226270636"
-Received: from lkp-server01.sh.intel.com (HELO 283bf2e1b94a) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 31 Mar 2026 09:01:47 -0700
-Received: from kbuild by 283bf2e1b94a with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1w7bXD-000000002qT-3p6k;
-	Tue, 31 Mar 2026 16:01:43 +0000
-Date: Wed, 1 Apr 2026 00:01:12 +0800
-From: kernel test robot <lkp@intel.com>
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
-	linux-mediatek@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Fabien Parent <parent.f@gmail.com>, Val Packett <val@packett.cool>,
-	Luca Leonardo Scorcia <l.scorcia@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Gary Bisson <bisson.gary@gmail.com>,
-	Julien Massot <julien.massot@collabora.com>,
-	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
-	Chen Zhong <chen.zhong@mediatek.com>, linux-input@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v4 5/9] mfd: mt6397: Add support for MT6392 PMIC
-Message-ID: <202603312339.CMJpqhEq-lkp@intel.com>
-References: <20260330083429.359819-6-l.scorcia@gmail.com>
+	id 1w7bZH-0000000DE7A-3iEE
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 31 Mar 2026 16:03:53 +0000
+Received: by mail-yx1-xb130.google.com with SMTP id 956f58d0204a3-6500040ef83so5338878d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 09:03:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774973031; cv=none;
+        d=google.com; s=arc-20240605;
+        b=A+A7qSubJKYNt++HsM1QZ9aIfc0DpKzMWhUzJMuilpYddAcdezqPMBNaMi2SUzWjo+
+         0VoS3JGs5nVH9Cmfm4qr0cHm1Re3+2C6+g2it7c7eaqO4/PB4TmLOMOnUdxwECY17s1m
+         Cs9ASPW6BUNfJ+efuD1vEqaLGES4iOonjk6M24qLQ6wLUOBkd8fHgRnm+qe6D6uQy5aJ
+         gL3i6wi3wpU8pkc/hP3o09Nr+mQhUOzkLufc3dOMVZHu1fdgMLPY2jasLAR3fX7KIWKS
+         NRP0pG70TdpWdLU2GvDYbBauTFX8ZlaVimdhSAQFLAAGkwPfUHnuok7Xhy2LGyPZA/Oq
+         8hFA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=rBdTZ4XJk/aBrMhfzRVF3zUCulaowGOaG9ZKyP9cK7U=;
+        fh=jj7Z+JKHo44vzL+HLWxKAzvmYobFvJy8rgKWNmnWI1w=;
+        b=bXyiURiNRwqRn1NsFfgBAm+A8Y+ZSwBStr8mGE3p+xtNB9up84KT9LIfFKPUeJ43J8
+         F3tsB7oPfu0zpM7OU4coTEaiicIloY0FYAHPAUsrxoRdgNPqTxSv3LF5lbKwg12yNrIJ
+         S0CLlYXkFTBbeTACE6n+mD2Awf1u/FMix2zDUqo1V7R4+Rj4MtPiEJaj/lC85nka2eJt
+         EXeUHegbGMgjxB3jD2Zpiryuz4G3dfca+9lxRmKjDjb1Twc/w89PVQrGM680Y3igFErR
+         Gj5gbPuis9Ye0jlvqgCyi5OizfRsPlMd3f9MBD/OdEcYg/eoBuLv4q1aqspVTAjW99vF
+         XpPg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1774973031; x=1775577831; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=rBdTZ4XJk/aBrMhfzRVF3zUCulaowGOaG9ZKyP9cK7U=;
+        b=xXDXHAW2Hz6HHfb3FqWGBnqBgKABzOPQJ5QnbLgfklSlpnQf/WnspJVYsvCktjAwa+
+         OIo5VukdxQBUd1+BhdJx9lygAwH/utbYColiWHSLEEiEJlRpAbUTBxScvEDQqysPhuzv
+         /orfHNn8VjF3yFJjhIpN/WCmG7EaGMSWEH41+nk0+hVZI09yC4IiKzYzyVSIDx0/YYps
+         k+WA0Rw1Y28Devwta7+3XgvKoYqE5VisuIGCj91kz5a+z12shoS+nIihdyHUSyG82MIJ
+         HVN9hFrW4/fxmZc9kz3ebwHK8mpxWgl+hbhPkVasQVhhvwdNAX2Wz+U98cNnlqIb0m0m
+         LdHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774973031; x=1775577831;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rBdTZ4XJk/aBrMhfzRVF3zUCulaowGOaG9ZKyP9cK7U=;
+        b=i1Fw3cEbpScwjgQQljkdjWpMV2Ia4sUt/DW9tntHoWLiS7+gnPybFMoxEc1OXofPya
+         l/zlvQvCIXRdCqoi6EamuvzdmpMa40QjdEYvR/bweWcmM5mMw5AEA4IGxEWQI++D+k4E
+         mfh0fz6iTT9dsSX0N6Za2XpeSCr5R3V7FqrOiqufCmbzF0pPLwiUyIC3QnF0u7wsUEP3
+         27UFjKxwzxmRsG2KnjKsLQJYlPPAz7QDMpazUgCP5aiB9c7toIlZH584AymJcflVoHQz
+         rgI8pK4ez5i6Z71ooN4bzYJDzpAe02Ip94lliXxKhYFSG5/A1X97TGwLu/w6w257oLbZ
+         YATg==
+X-Forwarded-Encrypted: i=1; AJvYcCUam8EW3AkljgyY0UOzD7p8d5x4wvxNaWtTv4vabiMTelUzyyDwkQufFWdiuVYuWwjRec7NHIcmfHrHaNjAr3rh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHRO5CiWzpDS5oKIbpm1ZxYwLi9mwILBXBnlsbez6T+thCqdue
+	izvjWuVL2xlxq1H2+Gcd7YaEn9ArjXGPJUhu5ER3xuKHqxY2dj3BlsMz0vSBpfU0civ8JfALr85
+	Wth4DrsBnuNJtlJk+JThoBkOcS6Shy+jIIP3Riox5yw==
+X-Gm-Gg: ATEYQzxlWJIEj3Z5hMDhk8Wm7CxAX62oAOBNIFozA00Rz0AfwgErd3Yp8V/r2uPHMdZ
+	lhYpHR7Wq3VL66luhLIEbI+8Cizpusis8u4PruyqOsF/F+SEJ+SBAHzCYtTcvqt4zt8Tn2CM2AY
+	dMhFp1FKGyHI1ybbOk5uoDkcSSCkO2lSPO+CtlIcnXowFR95X48HKNuoSxysab79NQqVvJkIz9p
+	vdfoWoepzXohtgH4X4lb7RnUv+zT8RH7nfcz0uJj6zEQdldDWNBRklzA34CFRilT9xxzDx8gLEY
+	CkuFbcszEdjUnhZ6+lc=
+X-Received: by 2002:a05:690e:11c4:b0:650:2379:665a with SMTP id
+ 956f58d0204a3-650237968d3mr5493002d50.27.1774973030427; Tue, 31 Mar 2026
+ 09:03:50 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260330083429.359819-6-l.scorcia@gmail.com>
+References: <20260320-imx8mp_hdmi_hang-v1-1-ccfce0517999@nxp.com>
+In-Reply-To: <20260320-imx8mp_hdmi_hang-v1-1-ccfce0517999@nxp.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Tue, 31 Mar 2026 18:03:09 +0200
+X-Gm-Features: AQROBzC_bCTqHlcTi3-7217Va-IAxfmw49HgqDKRyv7Q0XoLPSqjyqoAOhtHuJQ
+Message-ID: <CAPDyKFo57xyjyp4C5g5PYvVj40bTXaFaEGe3kgrNi1X2HB3BUA@mail.gmail.com>
+Subject: Re: [PATCH] pmdomain: imx8mp-blk-ctrl: Keep the NOC_HDCP clock enabled
+To: Jacky Bai <ping.bai@nxp.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Peng Fan <peng.fan@nxp.com>, linux-pm@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_090157_534152_9CF2889D 
-X-CRM114-Status: GOOD (  15.06  )
+X-CRM114-CacheID: sfid-20260331_090351_928301_88161776 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,124 +117,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca,
+On Fri, 20 Mar 2026 at 09:41, Jacky Bai <ping.bai@nxp.com> wrote:
+>
+> Keep the NOC_HDCP clock always enabled to fix the potential hang
+> caused by the NoC ADB400 port power down handshake.
+>
+> Fixes: 77b0ddb42add ("soc: imx: add i.MX8MP HDMI blk ctrl HDCP/HRV_MWR")
+> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
 
-kernel test robot noticed the following build warnings:
+Applied for fixes and by adding a stable tag, thanks!
 
-[auto build test WARNING on lee-mfd/for-mfd-next]
-[also build test WARNING on broonie-regulator/for-next linusw-pinctrl/devel linusw-pinctrl/for-next lee-mfd/for-mfd-fixes linus/master v7.0-rc6 next-20260330]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Luca-Leonardo-Scorcia/dt-bindings-mfd-mt6397-Add-MT6392-PMIC/20260331-081127
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/lee/mfd.git for-mfd-next
-patch link:    https://lore.kernel.org/r/20260330083429.359819-6-l.scorcia%40gmail.com
-patch subject: [PATCH v4 5/9] mfd: mt6397: Add support for MT6392 PMIC
-config: s390-randconfig-002-20260331 (https://download.01.org/0day-ci/archive/20260331/202603312339.CMJpqhEq-lkp@intel.com/config)
-compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260331/202603312339.CMJpqhEq-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202603312339.CMJpqhEq-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/mfd/mt6397-core.c:421:16: warning: cast to smaller integer type 'enum mfd_match_data' from 'const void *' [-Wvoid-pointer-to-enum-cast]
-     421 |         device_data = (enum mfd_match_data)of_device_get_match_data(&pdev->dev);
-         |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   1 warning generated.
+Kind regards
+Uffe
 
 
-vim +421 drivers/mfd/mt6397-core.c
-
-   398	
-   399	static int mt6397_probe(struct platform_device *pdev)
-   400	{
-   401		int ret;
-   402		unsigned int id = 0;
-   403		struct mt6397_chip *pmic;
-   404		const struct chip_data *pmic_core;
-   405		enum mfd_match_data device_data;
-   406	
-   407		pmic = devm_kzalloc(&pdev->dev, sizeof(*pmic), GFP_KERNEL);
-   408		if (!pmic)
-   409			return -ENOMEM;
-   410	
-   411		pmic->dev = &pdev->dev;
-   412	
-   413		/*
-   414		 * mt6397 MFD is child device of soc pmic wrapper.
-   415		 * Regmap is set from its parent.
-   416		 */
-   417		pmic->regmap = dev_get_regmap(pdev->dev.parent, NULL);
-   418		if (!pmic->regmap)
-   419			return -ENODEV;
-   420	
- > 421		device_data = (enum mfd_match_data)of_device_get_match_data(&pdev->dev);
-   422		switch (device_data) {
-   423		case MATCH_DATA_MT6323:
-   424			pmic_core = &mt6323_core;
-   425			break;
-   426		case MATCH_DATA_MT6328:
-   427			pmic_core = &mt6328_core;
-   428			break;
-   429		case MATCH_DATA_MT6331:
-   430			pmic_core = &mt6331_mt6332_core;
-   431			break;
-   432		case MATCH_DATA_MT6357:
-   433			pmic_core = &mt6357_core;
-   434			break;
-   435		case MATCH_DATA_MT6358:
-   436			pmic_core = &mt6358_core;
-   437			break;
-   438		case MATCH_DATA_MT6359:
-   439			pmic_core = &mt6359_core;
-   440			break;
-   441		case MATCH_DATA_MT6392:
-   442			pmic_core = &mt6392_core;
-   443			break;
-   444		case MATCH_DATA_MT6397:
-   445			pmic_core = &mt6397_core;
-   446			break;
-   447		default:
-   448			dev_err(&pdev->dev, "Unknown device match data %u\n", device_data);
-   449			return -ENODEV;
-   450		}
-   451	
-   452		ret = regmap_read(pmic->regmap, pmic_core->cid_addr, &id);
-   453		if (ret) {
-   454			dev_err(&pdev->dev, "Failed to read chip id: %d\n", ret);
-   455			return ret;
-   456		}
-   457	
-   458		pmic->chip_id = (id >> pmic_core->cid_shift) & 0xff;
-   459	
-   460		platform_set_drvdata(pdev, pmic);
-   461	
-   462		pmic->irq = platform_get_irq(pdev, 0);
-   463		if (pmic->irq <= 0)
-   464			return pmic->irq;
-   465	
-   466		ret = pmic_core->irq_init(pmic);
-   467		if (ret)
-   468			return ret;
-   469	
-   470		ret = devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_NONE,
-   471					   pmic_core->cells, pmic_core->cell_size,
-   472					   NULL, 0, pmic->irq_domain);
-   473		if (ret) {
-   474			irq_domain_remove(pmic->irq_domain);
-   475			dev_err(&pdev->dev, "failed to add child devices: %d\n", ret);
-   476		}
-   477	
-   478		return ret;
-   479	}
-   480	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> ---
+>  drivers/pmdomain/imx/imx8mp-blk-ctrl.c | 8 +-------
+>  1 file changed, 1 insertion(+), 7 deletions(-)
+>
+> diff --git a/drivers/pmdomain/imx/imx8mp-blk-ctrl.c b/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
+> index 8fc79f9723f07e34fd3f5162f2c9c549dcdaeb5b..3f5b9499d30a0c8fb8ad8ba3b638d7de1fc55ab6 100644
+> --- a/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
+> +++ b/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
+> @@ -352,9 +352,6 @@ static void imx8mp_hdmi_blk_ctrl_power_on(struct imx8mp_blk_ctrl *bc,
+>                 regmap_set_bits(bc->regmap, HDMI_RTX_RESET_CTL0, BIT(12));
+>                 regmap_clear_bits(bc->regmap, HDMI_TX_CONTROL0, BIT(3));
+>                 break;
+> -       case IMX8MP_HDMIBLK_PD_HDCP:
+> -               regmap_set_bits(bc->regmap, HDMI_RTX_CLK_CTL0, BIT(11));
+> -               break;
+>         case IMX8MP_HDMIBLK_PD_HRV:
+>                 regmap_set_bits(bc->regmap, HDMI_RTX_CLK_CTL1, BIT(3) | BIT(4) | BIT(5));
+>                 regmap_set_bits(bc->regmap, HDMI_RTX_RESET_CTL0, BIT(15));
+> @@ -408,9 +405,6 @@ static void imx8mp_hdmi_blk_ctrl_power_off(struct imx8mp_blk_ctrl *bc,
+>                 regmap_clear_bits(bc->regmap, HDMI_RTX_CLK_CTL0, BIT(7));
+>                 regmap_clear_bits(bc->regmap, HDMI_RTX_CLK_CTL1, BIT(22) | BIT(24));
+>                 break;
+> -       case IMX8MP_HDMIBLK_PD_HDCP:
+> -               regmap_clear_bits(bc->regmap, HDMI_RTX_CLK_CTL0, BIT(11));
+> -               break;
+>         case IMX8MP_HDMIBLK_PD_HRV:
+>                 regmap_clear_bits(bc->regmap, HDMI_RTX_RESET_CTL0, BIT(15));
+>                 regmap_clear_bits(bc->regmap, HDMI_RTX_CLK_CTL1, BIT(3) | BIT(4) | BIT(5));
+> @@ -439,7 +433,7 @@ static int imx8mp_hdmi_power_notifier(struct notifier_block *nb,
+>         regmap_write(bc->regmap, HDMI_RTX_CLK_CTL0, 0x0);
+>         regmap_write(bc->regmap, HDMI_RTX_CLK_CTL1, 0x0);
+>         regmap_set_bits(bc->regmap, HDMI_RTX_CLK_CTL0,
+> -                       BIT(0) | BIT(1) | BIT(10));
+> +                       BIT(0) | BIT(1) | BIT(10) | BIT(11));
+>         regmap_set_bits(bc->regmap, HDMI_RTX_RESET_CTL0, BIT(0));
+>
+>         /*
+>
+> ---
+> base-commit: b84a0ebe421ca56995ff78b66307667b62b3a900
+> change-id: 20260122-imx8mp_hdmi_hang-e7c5b4bdf1bb
+>
+> Best regards,
+> --
+> Jacky Bai <ping.bai@nxp.com>
+>
 
