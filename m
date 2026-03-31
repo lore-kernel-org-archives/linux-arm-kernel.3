@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E8C4109B492
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 16:05:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85B2210F92E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 16:10:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dAd1WB+xI91F88CwqUSYddH1MQfSyW11jxpWraO3wLo=; b=T1161n5RqQUQCgz+UtYjRHKUDQ
-	QWBSaale5jzn94JFTifjgTILDnm67IqZ6oRpHdi6aaL7KG4tmAIeHiKMA1lZNB9bl4TpjxZ2uzFD+
-	/RoeyNJT4beogRGSxLWpjjCLfta6+/FYDqgqx/aKXeKwtqWtqWoRXrxwUoX37+XUY/9WkxxW4HQU+
-	cxOrozEySukNDRVbfH793ssY94WT9epn/y6GD1RCYPUbSrvfqFfJlidLKqwYomWlI/moY4OmuieBa
-	VlYHVxU0e+0AeKGfuo5NHD3KacXO3w+vuQQDtOL9nGi/QWd1FeOk0tTchzDye0Ozqd7KIMafvdlvU
-	FyWudxUA==;
+	bh=lDMDu+KQNPl9LVsfF1SGzQusDF9mr9eDLdnCQE4KcXY=; b=2LBthMseADMpsuy+bZhOI5/lTg
+	PrEv2Mv9qjwfNN8gVXw5GUPihgVokJMRBg9JO3J3ZkOw1cabnveDdxF13GtHj7TFm/CffEHcQ+BN7
+	T7PJc3mo2TMp0XppS13Y5P6An0fhalieRjtVRsZNoGLOjAgdApdsLLYSr9cPK0Gtg/Jq2oDRNMa79
+	tmSEsO8J2qXvWYBb/AaYU8BrjCSmMUnN+5iPBGNs5RPccExjVaib1KnCwbxix7MFWT7z8NwBDTXoL
+	socDWe95aGPCbFfZ1X8ngTxEWLSZgvSkxUAgPBeT/9fLy9VlGq6egR71gyq20BOCDHlZ0uQsVY8aD
+	+sulcCgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7baT-0000000DEGq-3uz0;
-	Tue, 31 Mar 2026 16:05:05 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1w7bfU-0000000DEeg-1mP5;
+	Tue, 31 Mar 2026 16:10:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7baM-0000000DEEb-1BpO
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 16:05:02 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[IPv6:::1])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <l.stach@pengutronix.de>)
-	id 1w7baE-0005BL-TH; Tue, 31 Mar 2026 18:04:50 +0200
-Message-ID: <3b221a4997c367df716bf107a7e98ce10cd6860b.camel@pengutronix.de>
-Subject: Re: [PATCH 2/3] drm: lcdif: Use dedicated set/clr registers for
- polarity/edge
-From: Lucas Stach <l.stach@pengutronix.de>
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Marek
- Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Frank Li <Frank.Li@nxp.com>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Krzysztof =?UTF-8?Q?Ha=C5=82asa?=
- <khalasa@piap.pl>, Marco Felsch <m.felsch@pengutronix.de>, Liu Ying
- <victor.liu@nxp.com>
-Date: Tue, 31 Mar 2026 18:04:48 +0200
-In-Reply-To: <acvllbRTHyVFTgmS@collins>
-References: <20260330224619.2620782-1-paulk@sys-base.io>
-	 <20260330224619.2620782-3-paulk@sys-base.io>
-	 <f5b628f50def756da356184ff6febb11cc9aaa68.camel@pengutronix.de>
-	 <acvllbRTHyVFTgmS@collins>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
+	id 1w7bfS-0000000DEeH-04hi;
+	Tue, 31 Mar 2026 16:10:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 03EA1417F5;
+	Tue, 31 Mar 2026 16:10:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 336A5C19423;
+	Tue, 31 Mar 2026 16:10:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774973412;
+	bh=ijpDo/7JDayOQ1D9eDJjCZ11/E2WfbQpZeWsZEqb6ww=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=rQI73jqXU6YI2gkO3mK+iz8h5EIxdGh44HXO3c1FtbeD3FDDwWl7IWu8703NDHEob
+	 LhJNtt5HQRbebcFdvfX7gid3ym3Lf6UOsPdBPBVRpAucPdSpc69l/qDMWpKsyM9mlS
+	 xIiF+1IR3jKxi+b81z9psAZGWpPT6XRQXSP5B1hp3/naLfjosz/ze3RkgiK9Nieqo6
+	 fK0LLxoihbzuVGdXoZKVMzuHLXfaJWHjMi+RHa2dELqC1QNjZlahKUDiOkTLoyFo6W
+	 BA7vhj+kPd7x1OWadIzRBTH3YyxIXIMcNu2LcDwA0r5V3p9SlxKB12q28gL8bgqjx9
+	 CKBur4Mj/yn5w==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew
+ Jeffery <andrew@codeconstruct.com.au>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, Ryan Chen <ryan_chen@aspeedtech.com>
+Subject: Re: [PATCH v4 2/4] irqchip/ast2700-intc: Add AST2700-A2 support
+In-Reply-To: <20260330-irqchip-v4-2-3c0f1620cc06@aspeedtech.com>
+References: <20260330-irqchip-v4-0-3c0f1620cc06@aspeedtech.com>
+ <20260330-irqchip-v4-2-3c0f1620cc06@aspeedtech.com>
+Date: Tue, 31 Mar 2026 18:10:08 +0200
+Message-ID: <87tstw7zfj.ffs@tglx>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: l.stach@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_090458_787603_F956DB0D 
-X-CRM114-Status: GOOD (  27.74  )
+X-CRM114-CacheID: sfid-20260331_091014_083394_69215BE9 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,55 +76,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, dem 31.03.2026 um 17:17 +0200 schrieb Paul Kocialkowski:
-> Hi Lucas,
->=20
-> Le Tue 31 Mar 26, 11:09, Lucas Stach a =C3=A9crit :
-> > Hi Paul,
-> >=20
-> > Am Dienstag, dem 31.03.2026 um 00:46 +0200 schrieb Paul Kocialkowski:
-> > > The lcdif v3 hardware comes with dedicated registers to set and clear
-> > > polarity bits in the CTRL register. It is unclear if there is a
-> > > difference with writing to the CTRL register directly.
-> > >=20
-> > > Follow the NXP BSP reference by using these registers, in case there =
-is
-> > > a subtle difference caused by using them.
-> > >=20
-> > I don't really like that patch, as it blows up what is currently a
-> > single register access to three separate ones. If there is no clear
-> > benefit (as in it has been shown to fix any issue), I would prefer this
-> > code to stay as-is.
->=20
-> Well I guess the cost of a few writes vs a single one is rather
-> negligible.
->=20
-Yea, a few writes don't really hurt. But I don't think there is a very
-good reason to set this register this way, see below.
+On Mon, Mar 30 2026 at 14:32, Ryan Chen wrote:
+> +static int resolve_parent_range_for_output(const struct aspeed_intc0 *intc0,
+> +					   const struct fwnode_handle *parent,
+> +					   u32 output,
+> +					   struct aspeed_intc_interrupt_range *resolved)
 
-> I'm rather worried that there might be an undocumented
-> reason why these registers exist in the first place and why they are
-> used in the BSP.
->=20
-> But yes this is only speculation and I could not witness any actual
-> issue. My setup (lcdif3 with hdmi) uses all positive polarities which is
-> the default state, so not a good way to check.
->=20
-> It would be great if somebody from NXP could confirm whether this is
-> needed or not. In the meantime I guess we can drop the patch. It'll stay
-> on the list in case someone has polarity issues later :)
+Please reduce the number of line breaks. You still have 100 characters.
 
-The separate clr/set registers are a rather common design feat found on
-Freescale/NXP IP blocks from the MXS era. On some of those IP blocks
-_all_ registers are presented as a base/clr/set triplet in the
-registers space. As far as I can tell they are mostly useful when you
-want to set/clear individual bits from a register without having to
-remember or executing a readback of the current state.
+> +{
+> +	for (size_t i = 0; i < intc0->ranges.nranges; i++) {
+> +		struct aspeed_intc_interrupt_range range =
+> +			intc0->ranges.ranges[i];
 
-In cases like the one changed in this patch, where the full register
-state is set in one go, directly writing to the base register is the
-right thing to do.
+No line break required.
 
-Regards,
-Lucas
+> +static int aspeed_intc1_irq_domain_activate(struct irq_domain *domain,
+> +					    struct irq_data *data, bool reserve)
+> +{
+> +	struct aspeed_intc1 *intc1 = irq_data_get_irq_chip_data(data);
+> +	struct aspeed_intc_interrupt_range resolved;
+> +	int rc, bank, bit;
+> +	u32 mask;
+> +
+> +	if (WARN_ON_ONCE((data->hwirq >> INTC1_ROUTE_SHIFT) >= ARRAY_SIZE(aspeed_intc1_routes)))
+> +		return -EINVAL;
+> +
+> +	/*
+> +	 * outpin may be an error if the upstream is the BootMCU APLIC node, or
+> +	 * anything except a valid intc0 driver instance
+> +	 */
+> +	rc = aspeed_intc0_resolve_route(intc1->upstream, INTC1_ROUTE_NUM,
+> +					aspeed_intc1_routes[data->hwirq >> INTC1_ROUTE_SHIFT],
+> +					intc1->ranges.nranges,
+> +					intc1->ranges.ranges, &resolved);
+
+Please test your code with CONFIG_PROVE_LOCKING=y, which is mandatory
+for submission according to documentation.
+
+This is invoked with the interrupt descriptor lock held and interrupts
+disabled.
+
+       aspeed_intc0_resolve_route()
+                ....
+                irq_find_matching_fwspec()
+                	mutex_lock(&irq_domain_mutex); <---- FAIL
+
+Thanks,
+
+        tglx
+
+        
 
