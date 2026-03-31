@@ -4,114 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3B8910F92F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 19:42:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 518B3FF60D5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 19:56:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/y5CfNmiEJ0DIyea4capDIT3MgKL12KOZPGdN7RFQc4=; b=WZJ+k0AOZrIQMGqZyzQSjRBIka
-	HQIgcUo3y8XbOmMc6HOd0vBboI/OsWMWVZgtuBqLFui8OoMYBu2vOPkikmkBZe2cKY1azHWlS4JUR
-	QsOkIhILZcohEB+/ZWe/ObPUI6YslkuvdZC9jPD36i4CJ8ks7nWFVJAVhr+VLJcEbI2F3VSTsxJQd
-	FMWHOrPAj5tACsoNZn87a21YaPotXPyyCpyQA86GuoK+MQ4X7fyd+MLVtGg9HhBb8seJVKKZvp13d
-	kU2TutHfAAfhFtAhRyuOUP9sIBtiCoAKlfHZvUFa9UF21VVHm9pj3v5sD/8dQGktSMtNWv9ewyTLm
-	um0+o9SQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PPKrF7cCCAHO5t3ubcZIHTwTCR3avdQrpYBWYawqY0A=; b=JHx346Cf/kYdOTN4z5ACQyW/dN
+	J3eZ8zaIhQD9eOGwR/a3qqQ1/GZiU6o3ISWbOBGjMWu2UX7OWf8aRKSBrvBSvBH1ROgkWvQgPQN+M
+	yt/AeBfPQmLX/bVXL5z8Rj7swXywtAc1nGpjlxVREQEbtvP5NKqQT5WCERDAUzJoH3OzGGqQdV34H
+	MJxAQ7yUChZX4btsQzxTobui0t8om4OJc1NCpkYcuvVXr/F+OWne3rIEtjMoGTwwRcFF82ufbwark
+	nJEbUCVf5++dI5b3626LZd/G3TxZJ11n8dViFcupxB2rOeCD/XYzLqQjbUEppitClv5gQtm2TOdej
+	Anda7QNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7eyW-0000000DUJQ-0H8M;
-	Tue, 31 Mar 2026 19:42:08 +0000
-Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
+	id 1w7fCZ-0000000DVAD-3XT2;
+	Tue, 31 Mar 2026 19:56:41 +0000
+Received: from mail-westusazon11010025.outbound.protection.outlook.com ([52.101.85.25] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7eyT-0000000DUIU-1A7a
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 19:42:06 +0000
-Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-89cc84c7768so74301706d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 12:42:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774986123; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Wb1cpyVSqhahh6oyPxUst1fVoy/cRv0+JB0GsJXp9Ysr7Y4oRnQzghK1xv0xUrhqAd
-         RPXLQcp/7osh+cxHDxIZr6YSblSMz8lRTClATIIoMM0lZXb5F4QlnSJwxk1bUEIVxpDC
-         tFpVr1N9oaC5sUcLeraB5CVInshBnSYHs/CcyLGpZw794xvoeTnxQk05HbqOyb1tqaA8
-         AIL7EGfdiKuTvEw7icRQ2hwryzEWj8y6H6ijr7SDUn48c9wfZeYwwtRN/mJbTKNu90/o
-         lpLuNv8+7j/3gJOMs7mXX4fJiLgogZcsG0TknAzSX4xvwjEoF9zvkBbCDipvR2kncLPc
-         K3nA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=/y5CfNmiEJ0DIyea4capDIT3MgKL12KOZPGdN7RFQc4=;
-        fh=vth4TEzaWf6/hn9ohg7N73laMf8Vppnm9F9K4CN1qdA=;
-        b=O+D4k3xLtscicsdGED73ETXx/Ms5/tZ2ZIwkFwJz1LgfhqjrGrsTaz5Y0BaRln9tfk
-         MitXnMOSxPQVhDJMRetJsmhWAVkIQBswIqPTYvixcabL8jKtwSaHbSJkegCle1zcccRc
-         skzHB6SD5U5P6kUYcVITH51Hd44mD0AkaOoJcu7K8xRWNvnfE/+heipkuU5x1gi0flnK
-         lj2COLhGR1Qfz1YAgSZu661ULZmdQrKKOH8IyHbL0ogcMWGKoTe56HsCkBZabGrLiXjV
-         TQUv5ld7I5GqE7T/Kuqr3l0qxPk1hfiZlydwfw5t5lAICxxX1AwUNC0HYW14NLtrnm0F
-         TBgg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ausil.us; s=google; t=1774986123; x=1775590923; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/y5CfNmiEJ0DIyea4capDIT3MgKL12KOZPGdN7RFQc4=;
-        b=EAxT18u80rBgpqKU0iOWoKjCxE0D4Oa0TWOInYO88epTgDlXvPLuLwzGVBB3xwjpRg
-         6Tw9s/0yiLRVcLr572KtoUpCNcjUGZoO9o/d/3sTbNhnDeSEzZJiHo+YL6j9jaA+Ycol
-         VgQ+fW/KcxU6HzeHX5Kp/LNl9wllnmO2w4LiHEFGhX9Yph0egzvDZAk1X0zDZV2VZJIh
-         Ji40rwbZ5hJuBcFFyVdZExf54NFDGFMFbLx7Mo2FD7bWJ8JNIPWGmdjUCFiEj/wMlbVK
-         nlwuX+LyNSwzAnyQRBsUxp5QyP7+gl0TkPRoYX5gKTd/b247YLkGuMr9R3AUpPNg2988
-         SoOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774986123; x=1775590923;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=/y5CfNmiEJ0DIyea4capDIT3MgKL12KOZPGdN7RFQc4=;
-        b=SIJIw9df4TTY6HK7kOk7NV1VBzT/obNXgZWsuy6lTJQyXiF0KXJd+JcAZ7IHI7h9U5
-         CmWswn3K0PiTZms4Gu9y65xoF+CYQ8B6pKNQiTDnTXl3UmliNOZxsjI+ix0noXZL1JOx
-         PI2bgSUZhdrWRY80CHywGmYNhsbrEMv5WNgjY64CDcLjCVktTF/dqdvCJxGKdpLSoI6X
-         TA4ZzHihcng29fONE77zLmS4yJRcvOrthSMoHXo6g80VRHh7YqSXvGqncc7t2sntJqm9
-         itUZt9PQXbbVxhJ7CqZG91KCnUdjeIi9SeFwrd+WVB4l/Ty460ICXFt0FI/5x4Gaj7At
-         yIBw==
-X-Forwarded-Encrypted: i=1; AJvYcCXIP8sOpQfc+4Zhp9KXuKyc3CPprE+8i9oU9VeCl2BnmJY7vWbDpLSCS0shA2Et6iOqL9u1LRsvDbxl0VM9DDf+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyhq6NPvMA7XehNxy/0NPA7f5gwa6+Zhl15C8uzUKFfLEgZF+1M
-	Yy4jcIuKqy+JpG3EHRPObGbYPFfQ8Z/IIhl4roSQ0uWx0WLJkIXWYKbH+Ew9wHUw1hYo7qr6A2x
-	Ss3u8P8QDy1umpVqgYw1ODValcf5DEMye2Yk50EaybA==
-X-Gm-Gg: ATEYQzzkDKYTJ8+T9/oupOLWlR9tycH+rwEUSANsJBVjK+rdy3iBYKNxBE0SSh50LQE
-	nVGzUBjBwLYUfzEc2ojJCmbgPESUlFES0OsEtOjsMEYrEjA8NmqMXdCkZx7MyGLYrjlfUo5WW8Z
-	l+JyZoCmAP/CNGsM72QgA6fSzE8F8khzuX/rY/a+f/RCgkRksl8RYdX/S/24OyQLFhSw2V6t4wi
-	nfWQanQMbgT5lo/PJ2hx4uTWAig3Z+U8MuZnexMQjO7M1Nx2eyAlE+R9lzHDs5aIgC9ixNLFCBk
-	wujJLWBpvlQkfapEPu3FRVQ3pqFTsEOdWViHL9T+J0vcGa1uqX3XYh/Wn7qLqBFijD4+1ws=
-X-Received: by 2002:ad4:4eef:0:b0:89a:116b:e67c with SMTP id
- 6a1803df08f44-8a43a464ea6mr12862136d6.45.1774986123445; Tue, 31 Mar 2026
- 12:42:03 -0700 (PDT)
+	id 1w7fCX-0000000DV9h-1fbS;
+	Tue, 31 Mar 2026 19:56:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yGsbJ8A9q4NGBHOZ/Tq9ar3ZKaNSHCDIyOVrgfk95BUfXiPmlyjy1xwiJq7tWmLNy5hAQTY8oDM4MekRK7QlP1phgMi2CFyNKKkPdVSCMPpQVnMjsoqea7teG1vnvOIeR6mdPa+d0wxCjSb6Hnm/stOmJ5vUfktT9yQqZrzOQ1AXsx7J6ZWkgKT4r+vdloNmzKiL1fN0iyvqnyP5TAXeHfdPfMoKsqF9DhrmPgQ8MgRiStu/Uqgf3npsDm9IGcVK0X+oJEWtpD4K0PVN8EfeKECUrTYZ7n14LaYwnMjRm5JzEoMmjqjJT0OQuRxg1Y1l7vxw5CzAfgxUdok86vE9Cg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PPKrF7cCCAHO5t3ubcZIHTwTCR3avdQrpYBWYawqY0A=;
+ b=H5aEuVKZ76KcF3lRFblgwV+QWlDtbD5p87Itbb1oC6S4T09FNg+IHYpgYhw1mMCpitIpG87gy1IwhlPw/48dgt0M7Ct6SCYaDK/EpInrKumlTpCC2l7HeV2OnENJCcGp4A+bXDUyI1ewUHPp+n1sz67hKs4Mq7QuStY5cPGRprpadMAB0YVjmFQ0YJuymRrDz3JIRTP6NSD1yb0VTjNFY5XfG0gzWJLyeEs2c3V2iLf01PKhH3vjh93yqa2HOZb7TOgXZB1MJ0P9ZrXesyd8DAD++rg9aiLdtOOHXT1JqdYm2cLaYfIPWfS4vborg2zUpIYQWGQvoxAcHMaeBhF7JQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PPKrF7cCCAHO5t3ubcZIHTwTCR3avdQrpYBWYawqY0A=;
+ b=tJUnu1FUnZ3EADTd9naYlfcNO4LedH5b8z/rcB7UZJMwi3aeUlb5AMJOP38RRuBHw6ApJn93dKxNL3E9nvsYnEYUKrkWy73NY0SBUkXE/IUFbKE+sMZJNk7mlFsusIB/M2eFi5uYVv7rTagBIg667N3Dly1/QmqiJ/pTNe6XT1zOLbuuMuoGVS3IMZqXdcnHsSu3+b+ey74cXtI8Ls0wku0oL6ZA4oSDIh40ywzLOIL5LXj+GseG6ox1GXjOzfWGusEAqadEPyGNks1wT/2BuYSNsdnW7j5OoZWKeVXJflAk9VeIBzbgkiiTzIWZWFXn6LzAUi++vfSE8XSGOLpTjQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by SA1PR12MB6823.namprd12.prod.outlook.com (2603:10b6:806:25e::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Tue, 31 Mar
+ 2026 19:56:25 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9769.014; Tue, 31 Mar 2026
+ 19:56:24 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Alexandre Ghiti <alex@ghiti.fr>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	asahi@lists.linux.dev,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	iommu@lists.linux.dev,
+	Janne Grunau <j@jannau.net>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Neal Gompa <neal@gompa.dev>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Sven Peter <sven@kernel.org>,
+	virtualization@lists.linux.dev,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>
+Cc: Lu Baolu <baolu.lu@linux.intel.com>,
+	Janusz Krzysztofik <janusz.krzysztofik@linux.intel.com>,
+	Joerg Roedel <joerg.roedel@amd.com>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	patches@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samiullah Khawaja <skhawaja@google.com>,
+	stable@vger.kernel.org,
+	Vasant Hegde <vasant.hegde@amd.com>
+Subject: [PATCH] iommu: Always fill in gather when unmapping
+Date: Tue, 31 Mar 2026 16:56:22 -0300
+Message-ID: <0-v1-664d3acaabb9+78b-iommu_gather_always_jgg@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BL1P222CA0009.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:208:2c7::14) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-References: <20260310031002.3921234-1-dennis@ausil.us> <20260310031002.3921234-4-dennis@ausil.us>
- <CALWfF7KD1=U-gC4wC9M49kEYD3ijcfr+XSmMeh_-zAvjO2JVoQ@mail.gmail.com>
- <CAABkxwtz7KjVJpSzYhUWGyEym5k4d3NJq65OS_E3NCnrNUBTZw@mail.gmail.com> <CABjd4Yz3MKOp-gE8kNc4EOt3-a0mKZsxvbVYCN4KsbqTRDtWgA@mail.gmail.com>
-In-Reply-To: <CABjd4Yz3MKOp-gE8kNc4EOt3-a0mKZsxvbVYCN4KsbqTRDtWgA@mail.gmail.com>
-From: Dennis Gilmore <dennis@ausil.us>
-Date: Tue, 31 Mar 2026 14:41:50 -0500
-X-Gm-Features: AQROBzAJGaJIP3nK18K6kC_9mEp5NIzQoY1iqunk6Z7DDcVgaVEtYTtM-9GKruU
-Message-ID: <CAABkxwsD_59G3YrpMdUi7D1fVHruSuDHn9-gQAZbwTdxGBHaBA@mail.gmail.com>
-Subject: Re: [PATCH v4 3/3] arm64: dts: rockchip: Add Orange Pi 5 Pro board support
-To: Alexey Charkov <alchark@gmail.com>
-Cc: Jimmy Hon <honyuenkwun@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki <naoki@radxa.com>, Hsun Lai <i@chainsx.cn>, 
-	Jonas Karlman <jonas@kwiboo.se>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
-	John Clark <inindev@gmail.com>, Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
-	Quentin Schulz <quentin.schulz@cherry.de>, Andrew Lunn <andrew@lunn.ch>, 
-	Chukun Pan <amadeus@jmu.edu.cn>, Peter Robinson <pbrobinson@gmail.com>, 
-	Michael Riesch <michael.riesch@collabora.com>, Mykola Kvach <xakep.amatop@gmail.com>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SA1PR12MB6823:EE_
+X-MS-Office365-Filtering-Correlation-Id: f29deb23-400f-46be-cbe2-08de8f5f9619
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|921020|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: kxi2MoOlqOzyiQUaPVavpFNinXtk2BfImZBVe5NlaTknzi927XQynUJIJaHzVDGkYaKRrvDEP6zv5X5nK6cN4gG64k/gVyL62dpK44qIIB/ruGaKtJasgIRMAiPCAZoIFLIZfirIhZxOBdrPS3+x4Sa36LI2R2iI/VONesj+xBHGsiVbugQwbU7ONWYpQFWaRWRDDgzwJk+9z0Wbgf0QlO7aD+mC+bnqUGhfMsvxCxp+sRteYkff6wXL/7JoP4gO/RXjXWjOQxOGgO7v8Wpp0XhxH0VqGp79H15JVyFAbwWsoiYDiApuIqg5wq1i+tDd9jfAqaYxDOKFJLuW2jk9vToqtMR0hUac0sddprpoRhT6HuCaNzXA56OEmsRafQbZ58yCVdakp/atxOHBrCvlGXb7byPr9lfWRjdAdUlDIB0NtFh2Dvj40LvUI/dXUwCAqpliNHQZTaKtV4zBA+vRUZ9x4puRVLssnMmMLH1b/mzg1I931qcDUZQXMsagYbyfVB6Vfqu6WSrzjzWcYEQ001JsWAUT77B5+eCAykJ6DmiA2ntmPHnVkZapBdRbjvW+dteVKgta1aDjk8tQo1EWb7QIBxEaOzs7tM2Rt0zQSD4PF5r7yOTDKRk+HT2jiK9g2O8h/MP5ewOwiI6uoPzsUlhODEUFTx/kD2nEWdUZDuupa3AGmKlLmkRu2qAc0qXWH88TWr+OM8pzTh4zdna02CAQs4HoYduKPkCZTkuxLmD+r5VzE42IwnPAd+Gs5zy2cLGAKB4ASW/YUeTn9vx5F5t50q07Sgog8fBX1/zCf00=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(921020)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?os5QxeHvKht+W4m21l7sXk86H6im4hvVLnGDPCmDV6+Tbzd4sj1lQV7ccPgh?=
+ =?us-ascii?Q?vgag2LnxrDYD0fZQVU/xg4qi9YAI2ffyfKv4LPK9gLREUeXy3TKHzlhP2PBG?=
+ =?us-ascii?Q?7FdiSxDXhpeBQK9Jh+0bpf2M1IXNy1eaKMdCiGDL39SQBNu7PmCsvlQxxVfF?=
+ =?us-ascii?Q?rlL9OD+TDGEHzkbnxlxGwEFPf6yzaS59XzZ8q2qVg3wjp4MzJ+h5vYjR/zgk?=
+ =?us-ascii?Q?6msa+2kfe9Oh2cKLvsFjBWuqRnQuZT0qvVakkIRP7MJFj0i/WOkwvm6Brxux?=
+ =?us-ascii?Q?FMUPzt4PP2d6opAGyLdzNbhTYY0fJPQ2be9+5QYZGn0zuV4qDlL8L2YQi76s?=
+ =?us-ascii?Q?Xc/nKJ9VhekoDQrHTQQsM25QXboLG+8kvx2X6HmXha4xe9QU8BzTiymZLEaS?=
+ =?us-ascii?Q?JZVnRyyiXsmIo+LhIGjK4KCioMrJnAEDNrvjbp2BFgKXUC7j/G7AkPi6+ul4?=
+ =?us-ascii?Q?8SnZ9wR/nJDkvE/7HyldqIZ4Tm27K+jtbCHrmZ4gKT9zDD8c/uWWTJeZJqHn?=
+ =?us-ascii?Q?h8nvqOCzpMcXDgApgh5nuvofTjBagQ4DK6zK+++jmhUvMUrLTVSs3s23+v0F?=
+ =?us-ascii?Q?hHDqNcRqkALuaOaT/DvtQDZhIZUC5OwAk5RNVZmQTdst76WC7hdur3kOtyaG?=
+ =?us-ascii?Q?0VwvBBvn8bVTHhFQOZwYhcvfzA0xfUHVQv0me/TpaqHQSazAHkbdbFuTDHsi?=
+ =?us-ascii?Q?EgfM0zaHsKmRbZRioztzx5sxIdaw4e9UWa2mqyoq07YRMUkToOtS5naccc5r?=
+ =?us-ascii?Q?wYeAKdZeNl4hd8NbWQGxuTCdGtLLLBze7us7oBofWFVB2molbd2Ztj2Px71f?=
+ =?us-ascii?Q?Y2nNGvHsOTeqDDY7rm/WmkCLnDRXnTplOHjV12PHkWYnAsmMvm2Lgx+gA4XW?=
+ =?us-ascii?Q?eGM6aKnMYQnmDMaeMyVmrRGqh4OawTfYTueMlcn7Yzr0es0vGBoSNQHS7VsP?=
+ =?us-ascii?Q?hc2lxggkgq06Z59utSVw0z4epooEb9mnobom6M/yztnMCBrGEUt4kksCPdIV?=
+ =?us-ascii?Q?eoonyze48aPsdZlYuDxVplQrWLB19iEgODIwzaE2+ApSsWeVlJ5GcXFkmkw+?=
+ =?us-ascii?Q?a0eL52cuIYTeXqlFjcKuZ3F9aRBciN7lnqKq4tiLxrMu2Ed251roROBHTnGS?=
+ =?us-ascii?Q?gPhnHGvKRtS6NaJJkv5gRwGRn8Ie0ngBbNpbyhg4Ve/WNqqyZ77QXeR8Yp0K?=
+ =?us-ascii?Q?fUcfn2wVUv7pG+w7qgSyM+JUbz8TeyvuQllbQpVX9fQahuY2+SYAW4gsjjNX?=
+ =?us-ascii?Q?V3jPHyLy0vjY1cvVVPCemcJNYJ69vc2Zm3y+HV0SJR4JW1XYhwflzzgXdMlD?=
+ =?us-ascii?Q?oCYhWnnHSWImXN5PQzU1/PLkZuxL/TqVQMgcoQohyDXxcw/rHplBnI+4s2At?=
+ =?us-ascii?Q?wnxLuhrvji8T88cLIVuUQFZoJNNX/CMdoCXoU9wDAQ+03/RYQQ3+UCU6I4KY?=
+ =?us-ascii?Q?5Y3zF4oLxUM6awTMz88TGthCv4D5a6PUipojd7x0Nu7UGbqJ92BAkzUNUIma?=
+ =?us-ascii?Q?o7vDlQb03+kdQDrbdtFDuQi/5qxH55BiqxFG9iOFQNWNmq4rlYHpe3KU/23r?=
+ =?us-ascii?Q?R5dFVsiDjFsyycLOYIXtkaVvRpVDn+n77sitcAgw7R1w8JDM2mnyanKEG5w8?=
+ =?us-ascii?Q?Cr56ifKBMKs9hmoOuplkWEmzZMob4OXmUyRWoRR/gXu74Xj/hb/6n6IoAJHO?=
+ =?us-ascii?Q?JWKsj27OYfsx2cjS6KbraIx8HDYh3ovsQ9d5yzeeouDCrpGo?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f29deb23-400f-46be-cbe2-08de8f5f9619
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 19:56:23.9340
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CABeFgj1DfeFa2N0cdn8V+r9HlWJPdG/SCnyO9VCdbF5qai8eGc24xm2hIAIkkHG
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6823
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_124205_334018_22A7A2B8 
-X-CRM114-Status: GOOD (  28.60  )
+X-CRM114-CacheID: sfid-20260331_125637_445550_6FACC012 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,74 +163,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 11, 2026 at 9:26=E2=80=AFAM Alexey Charkov <alchark@gmail.com> =
-wrote:
->
-> On Wed, Mar 11, 2026 at 5:29=E2=80=AFAM Dennis Gilmore <dennis@ausil.us> =
-wrote:
-> >
-> > On Tue, Mar 10, 2026 at 7:20=E2=80=AFPM Jimmy Hon <honyuenkwun@gmail.co=
-m> wrote:
-> > >
-> > > <snip>
-> > > > +
-> > > > +       vcc5v0_otg: regulator-vcc5v0-otg {
-> > > > +               compatible =3D "regulator-fixed";
-> > > > +               enable-active-high;
-> > > > +               gpios =3D <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
-> > > > +               pinctrl-names =3D "default";
-> > > > +               pinctrl-0 =3D <&vcc5v0_otg_en>;
-> > > > +               regulator-always-on;
-> > > > +               regulator-boot-on;
-> > > regulator-always-on and regulator-boot-on does not seem right.
-> > >
-> > > Why were these added? The vendor did not have them.
-> > > https://github.com/orangepi-xunlong/linux-orangepi/blob/232ed4b97b65d=
-a2b7b647c4e3c496f8594b9f3f1/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5=
--pro.dts#L216-L226
-> > >
-> > > Was this mistakenly taken from the regulator usb 20 which is powering
-> > > the onboard usb2.0 hub?
-> > > https://github.com/orangepi-xunlong/linux-orangepi/blob/232ed4b97b65d=
-a2b7b647c4e3c496f8594b9f3f1/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5=
--pro.dts#L111-L119
-> >
-> > It may have been a missreading of the schematic, but it was added to
-> > get power to the USB3 port. before I added it devices plugged into the
-> > USB 3 port would not power on
->
-> Hi Dennis,
->
-> The schematic says that this regulator supplies the VBUS voltage for
-> the USB3 part of your Type-A OTG connector. If you make it always-on,
-> you'll likely lose the possibility to use this port in device mode
-> (which you would need e.g. for flashing images over a USB cable in
-> U-boot which also takes device tree sources from Linux via
-> devicetree-rebasing).
->
-> You also link it up as the PHY supply of the USB2 controller, which
-> doesn't describe the actual hardware.
->
-> Please see if you'd rather define a connector node for your Type-A
-> port, and list this regulator as its VBUS supply explicitly. I've
-> recently submitted a patch [1] to make the "onboard_usb_dev" driver
-> take care of enabling VBUS in exactly this type of situations (it's in
-> usb-testing now and will hopefully hit -next sometime soon). If you
-> need an example for its use, please refer to [2].
->
-> Best regards,
-> Alexey
->
-> [1] https://lore.kernel.org/all/20260217-typea-vbus-v1-1-657b4e55a4c2@fli=
-pper.net/
-> [2] https://github.com/flipperdevices/flipper-linux-kernel/blob/2f814cdf0=
-7f50e901fc1b1328213e76460864c20/arch/arm64/boot/dts/rockchip/rk3576-flipper=
--one-rev-f0b0c1.dts#L303-L328
+The fixed commit assumed that the gather would always be populated if
+an iotlb_sync was required.
 
-Sorry for the delay, I am taking a look at it now. Please let me know
-when it lands in -next. In the meantime, I believe what I have is in
-good shape and is working well here. I am happy to make a change once
-support lands upstream.
+arm-smmu-v3, amd, VT-d, riscv, s390, mtk all use information from the
+gather during their iotlb_sync() and this approach works for them.
 
-Dennis
+However, arm-smmu, qcom_iommu, ipmmu-vmsa, sun50i, sprd, virtio,
+apple-dart all ignore the gather during their iotlb_sync(). They
+mostly issue a full flush.
+
+Unfortunately the latter set of drivers often don't bother to add
+anything to the gather since they don't intend on using it. Since the
+core code now blocks gathers that were never filled, this caused those
+drivers to stop getting their iotlb_sync() calls and breaks them.
+
+Since it is impossible to tell the difference between gathers that are
+empty because there is nothing to do and gathers that are empty
+because they are not used, fill in the gathers for the missing cases.
+
+io-pgtable might have intended to allow the driver to choose between
+gather or immediate flush because it passed gather to
+ops->tlb_add_page(), however no driver does anything with it.
+
+mtk uses io-pgtable-arm-v7s but added the range to the gather in the
+unmap callback. Move this into the io-pgtable-arm unmap itself. That
+will fix all the armv7 using drivers (arm-smmu, qcom_iommu,
+ipmmu-vmsa).
+
+arm-smmu uses both ARM_V7S and ARM LPAE formats. The LPAE formats
+already have the gather population because SMMUv3 requires it, so it
+becomes consistent.
+
+Add a trivial gather population to io-pgtable-dart.
+
+Add trivial populations to sprd, sun50i and virtio-iommu in their
+unmap functions.
+
+Fixes: 90c5def10bea ("iommu: Do not call drivers for empty gathers")
+Reported-by: Jon Hunter <jonathanh@nvidia.com>
+Closes: https://lore.kernel.org/r/8800a38b-8515-4bbe-af15-0dae81274bf7@nvidia.com
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+---
+ drivers/iommu/io-pgtable-arm.c  | 4 +++-
+ drivers/iommu/io-pgtable-dart.c | 3 +++
+ drivers/iommu/mtk_iommu.c       | 1 -
+ drivers/iommu/sprd-iommu.c      | 1 +
+ drivers/iommu/sun50i-iommu.c    | 1 +
+ drivers/iommu/virtio-iommu.c    | 2 ++
+ 6 files changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
+index 0208e5897c299a..8572713a42ca29 100644
+--- a/drivers/iommu/io-pgtable-arm.c
++++ b/drivers/iommu/io-pgtable-arm.c
+@@ -666,9 +666,11 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
+ 		/* Clear the remaining entries */
+ 		__arm_lpae_clear_pte(ptep, &iop->cfg, i);
+ 
+-		if (gather && !iommu_iotlb_gather_queued(gather))
++		if (gather && !iommu_iotlb_gather_queued(gather)) {
++			iommu_iotlb_gather_add_range(gather, iova, i * size);
+ 			for (int j = 0; j < i; j++)
+ 				io_pgtable_tlb_add_page(iop, gather, iova + j * size, size);
++		}
+ 
+ 		return i * size;
+ 	} else if (iopte_leaf(pte, lvl, iop->fmt)) {
+diff --git a/drivers/iommu/io-pgtable-dart.c b/drivers/iommu/io-pgtable-dart.c
+index cbc5d6aa2daa23..75d699dc28e7b0 100644
+--- a/drivers/iommu/io-pgtable-dart.c
++++ b/drivers/iommu/io-pgtable-dart.c
+@@ -330,6 +330,9 @@ static size_t dart_unmap_pages(struct io_pgtable_ops *ops, unsigned long iova,
+ 		i++;
+ 	}
+ 
++	if (i && !iommu_iotlb_gather_queued(gather))
++		iommu_iotlb_gather_add_range(gather, iova, i * pgsize);
++
+ 	return i * pgsize;
+ }
+ 
+diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
+index 2be990c108de2b..a2f80a92f51f2c 100644
+--- a/drivers/iommu/mtk_iommu.c
++++ b/drivers/iommu/mtk_iommu.c
+@@ -828,7 +828,6 @@ static size_t mtk_iommu_unmap(struct iommu_domain *domain,
+ {
+ 	struct mtk_iommu_domain *dom = to_mtk_domain(domain);
+ 
+-	iommu_iotlb_gather_add_range(gather, iova, pgsize * pgcount);
+ 	return dom->iop->unmap_pages(dom->iop, iova, pgsize, pgcount, gather);
+ }
+ 
+diff --git a/drivers/iommu/sprd-iommu.c b/drivers/iommu/sprd-iommu.c
+index c1a34445d244fb..893ea67d322644 100644
+--- a/drivers/iommu/sprd-iommu.c
++++ b/drivers/iommu/sprd-iommu.c
+@@ -340,6 +340,7 @@ static size_t sprd_iommu_unmap(struct iommu_domain *domain, unsigned long iova,
+ 	spin_lock_irqsave(&dom->pgtlock, flags);
+ 	memset(pgt_base_iova, 0, pgcount * sizeof(u32));
+ 	spin_unlock_irqrestore(&dom->pgtlock, flags);
++	iommu_iotlb_gather_add_range(iotlb_gather, iova, size);
+ 
+ 	return size;
+ }
+diff --git a/drivers/iommu/sun50i-iommu.c b/drivers/iommu/sun50i-iommu.c
+index be3f1ce696ba29..b9aa4bbc82acad 100644
+--- a/drivers/iommu/sun50i-iommu.c
++++ b/drivers/iommu/sun50i-iommu.c
+@@ -655,6 +655,7 @@ static size_t sun50i_iommu_unmap(struct iommu_domain *domain, unsigned long iova
+ 
+ 	memset(pte_addr, 0, sizeof(*pte_addr));
+ 	sun50i_table_flush(sun50i_domain, pte_addr, 1);
++	iommu_iotlb_gather_add_range(gather, iova, SZ_4K);
+ 
+ 	return SZ_4K;
+ }
+diff --git a/drivers/iommu/virtio-iommu.c b/drivers/iommu/virtio-iommu.c
+index 587fc13197f122..5865b8f6c6e67a 100644
+--- a/drivers/iommu/virtio-iommu.c
++++ b/drivers/iommu/virtio-iommu.c
+@@ -897,6 +897,8 @@ static size_t viommu_unmap_pages(struct iommu_domain *domain, unsigned long iova
+ 	if (unmapped < size)
+ 		return 0;
+ 
++	iommu_iotlb_gather_add_range(gather, iova, unmapped);
++
+ 	/* Device already removed all mappings after detach. */
+ 	if (!vdomain->nr_endpoints)
+ 		return unmapped;
+
+base-commit: fcbe430399ca5c318e99bfda6df9beee90ab051c
+-- 
+2.43.0
+
 
