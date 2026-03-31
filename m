@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66789FF60C0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 03:56:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E25EBFF60C1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 04:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=30YSwAK1yO2AXdOMPvlU9Fb0CpOoYA/G3jCUnGaulpo=; b=kOhcqOUx1qJxEmmH61ewFwJo8v
-	Cg8W+eC7OYlYKVmg9Nine+Z0WErvjzTJ0O0pioGazuec7ov/Y4tIDT/0RqSF0OdbdreFCUPu7b6it
-	1dB580tsEABYSQLpYVM6g+q6p0mi25QxzqmS7g+U06eUjN5dOhYL94N/ANPQ0FIl09ojqaLiAOBqG
-	UtfLeZFxon6rOH5nwXwXgrUL8lpmimZFxvVKvDCEvXPXhn90apy0TZwI8mRoI7XRWhtBD7PhJ8fa7
-	EDSCrElrtAsV2Zx0AF+wY6OZlUitBYGNpjEgB/UhHrV4uGGXikbCd8zewqwcb3uqhG6tmhJ5I3WBp
-	dAF2rxfA==;
+	bh=ev2939FltJmlnR4EDtNbOVsIsHCBJk7zOkYoGxZHqBM=; b=e3ddvZYqUWujyHRJ4xQqZBHZxy
+	F/6DG+foVFWfEeaxVarniYwoU3fieookJhvzoseJE8N+DXjEnKEkW7nEW3NQzruyC1DzEsOzaGQMp
+	3QfsRxVyntzAuD4nlIIVsgPOjZzmHeeMUv+xNwJnbk1hsZ2iAtlfgxCb3usC4a/ifRgkTh1rdFduN
+	sTf7c1wChxNIUlcRR2X0ERBwnjpM/MXfwxnMDukWZ+COmv+9dQ9ezxRK2bjZcFOYtz+vu++7V3IVn
+	l2u5us5Izi5AfepNn4uwn44DSNFT26PPuZBd/N+OTA+EAmMlGLVZVf0/eyHV7yMGEk/83xptEXmGk
+	cFbqrugg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7QDG-0000000CFx3-3MA7;
-	Tue, 31 Mar 2026 03:56:22 +0000
+	id 1w7QPb-0000000CGOJ-0HWa;
+	Tue, 31 Mar 2026 04:09:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7QDD-0000000CFwh-3QeT
+	id 1w7QPX-0000000CGNX-0MDt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 03:56:20 +0000
+	Tue, 31 Mar 2026 04:09:05 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C165814BF;
-	Mon, 30 Mar 2026 20:56:10 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8DD1F1F91;
+	Mon, 30 Mar 2026 21:08:53 -0700 (PDT)
 Received: from [10.57.18.211] (unknown [10.57.18.211])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 27E793F641;
-	Mon, 30 Mar 2026 20:56:11 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 535AD3F7D8;
+	Mon, 30 Mar 2026 21:08:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774929376; bh=80O4NMmB3gBu9FMGBVti7X/3T9K3gvasVuFL3fYGb24=;
+	t=1774930139; bh=eeWhzDq/g9ogPWuXGXHJA1W4KEgQE+FQiwe859PXeeo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=q134Con3DS6ptSSm/vMlMBnGJSdar55NAeFdN+buDQB+PsDZJCwKdyZXSt37066kt
-	 QezDfsjAADDdUOo/oZuiAZODm0XNIhTau/L2hOOX75zRmw9Ee681lV3CfC0dWNogq+
-	 L9jJOoq+D7tEzYvhFKPiRjV4sEd+vqa+888fwbow=
-Message-ID: <0a164ac6-fe82-4ac1-ba57-557755ee342d@arm.com>
-Date: Tue, 31 Mar 2026 09:26:08 +0530
+	b=dGlBHyFX6rFFQON99FFtMC8b5JgeE53XaS2fqDrNs/yKosEGOuW25BUbV+Lsn74F6
+	 Ef2mIF6MvvYKgttrOqX0gHAOOKIFcPqFk0XQxRZfronsbiojDatehk2kZhhS8cQtES
+	 ACVb0hMqbJK4agzMSA37QHzB+7biNB6lFJqbXp3g=
+Message-ID: <a9eeecfe-de90-4a0f-854f-0ee4e4d1c8bc@arm.com>
+Date: Tue, 31 Mar 2026 09:38:51 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/30] KVM: arm64: Simplify nested VMA shift
- calculation
+Subject: Re: [PATCH v2 08/30] KVM: arm64: Remove redundant state variables
+ from struct kvm_s2_fault
 To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
 Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
@@ -52,15 +52,15 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
  Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <tabba@google.com>,
  Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>
 References: <20260327113618.4051534-1-maz@kernel.org>
- <20260327113618.4051534-8-maz@kernel.org>
+ <20260327113618.4051534-9-maz@kernel.org>
 Content-Language: en-US
 From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20260327113618.4051534-8-maz@kernel.org>
+In-Reply-To: <20260327113618.4051534-9-maz@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_205619_923419_E490FB07 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20260330_210903_260384_F1CE21ED 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,55 +78,79 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 27/03/26 5:05 PM, Marc Zyngier wrote:
 > From: Fuad Tabba <tabba@google.com>
 > 
-> In the kvm_s2_resolve_vma_size() helper, the local variable vma_pagesize
-> is calculated from vma_shift, only to be used to bound the vma_pagesize
-> by max_map_size and subsequently convert it back to a shift via __ffs().
-> 
-> Because vma_pagesize and max_map_size are both powers of two, we can
-> simplify the logic by omitting vma_pagesize entirely and bounding the
-> vma_shift directly using the shift of max_map_size. This achieves the
-> same result while keeping the size-to-shift conversion out of the helper
-> logic.
-> 
-> Signed-off-by: Fuad Tabba <tabba@google.com>
+> Remove redundant variables vma_shift and vfio_allow_any_uc from struct
+> kvm_s2_fault as they are easily derived or checked when needed.
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
 > Signed-off-by: Marc Zyngier <maz@kernel.org>
 
 Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
 > ---
->  arch/arm64/kvm/mmu.c | 6 +-----
->  1 file changed, 1 insertion(+), 5 deletions(-)
+>  arch/arm64/kvm/mmu.c | 15 +++++----------
+>  1 file changed, 5 insertions(+), 10 deletions(-)
 > 
 > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 164f1160ea33d..5572b127f8663 100644
+> index 5572b127f8663..1b991300735be 100644
 > --- a/arch/arm64/kvm/mmu.c
 > +++ b/arch/arm64/kvm/mmu.c
-> @@ -1646,7 +1646,6 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
->  				     bool *force_pte, phys_addr_t *ipa)
->  {
->  	short vma_shift;
-> -	long vma_pagesize;
->  
->  	if (*force_pte)
->  		vma_shift = PAGE_SHIFT;
-> @@ -1677,8 +1676,6 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
->  		WARN_ONCE(1, "Unknown vma_shift %d", vma_shift);
+> @@ -1721,10 +1721,8 @@ struct kvm_s2_fault {
+>  	bool mte_allowed;
+>  	bool is_vma_cacheable;
+>  	bool s2_force_noncacheable;
+> -	bool vfio_allow_any_uc;
+>  	unsigned long mmu_seq;
+>  	phys_addr_t ipa;
+> -	short vma_shift;
+>  	gfn_t gfn;
+>  	kvm_pfn_t pfn;
+>  	bool logging_active;
+> @@ -1749,9 +1747,9 @@ static int kvm_s2_fault_get_vma_info(struct kvm_s2_fault *fault)
+>  		return -EFAULT;
 >  	}
 >  
-> -	vma_pagesize = 1UL << vma_shift;
+> -	fault->vma_shift = kvm_s2_resolve_vma_size(vma, fault->hva, fault->memslot, fault->nested,
+> -						   &fault->force_pte, &fault->ipa);
+> -	fault->vma_pagesize = 1UL << fault->vma_shift;
+> +	fault->vma_pagesize = 1UL << kvm_s2_resolve_vma_size(vma, fault->hva, fault->memslot,
+> +							     fault->nested, &fault->force_pte,
+> +							     &fault->ipa);
+>  
+>  	/*
+>  	 * Both the canonical IPA and fault IPA must be aligned to the
+> @@ -1764,8 +1762,6 @@ static int kvm_s2_fault_get_vma_info(struct kvm_s2_fault *fault)
+>  	fault->gfn = fault->ipa >> PAGE_SHIFT;
+>  	fault->mte_allowed = kvm_vma_mte_allowed(vma);
+>  
+> -	fault->vfio_allow_any_uc = vma->vm_flags & VM_ALLOW_ANY_UNCACHED;
 > -
->  	if (nested) {
->  		unsigned long max_map_size;
+>  	fault->vm_flags = vma->vm_flags;
 >  
-> @@ -1703,8 +1700,7 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
->  			max_map_size = PAGE_SIZE;
->  
->  		*force_pte = (max_map_size == PAGE_SIZE);
-> -		vma_pagesize = min_t(long, vma_pagesize, max_map_size);
-> -		vma_shift = __ffs(vma_pagesize);
-> +		vma_shift = min_t(short, vma_shift, __ffs(max_map_size));
+>  	fault->is_vma_cacheable = kvm_vma_is_cacheable(vma);
+> @@ -1796,7 +1792,7 @@ static int kvm_s2_fault_pin_pfn(struct kvm_s2_fault *fault)
+>  				       fault->write_fault ? FOLL_WRITE : 0,
+>  				       &fault->writable, &fault->page);
+>  	if (fault->pfn == KVM_PFN_ERR_HWPOISON) {
+> -		kvm_send_hwpoison_signal(fault->hva, fault->vma_shift);
+> +		kvm_send_hwpoison_signal(fault->hva, __ffs(fault->vma_pagesize));
+>  		return 0;
 >  	}
+>  	if (is_error_noslot_pfn(fault->pfn))
+> @@ -1874,7 +1870,7 @@ static int kvm_s2_fault_compute_prot(struct kvm_s2_fault *fault)
+>  		fault->prot |= KVM_PGTABLE_PROT_X;
 >  
->  	return vma_shift;
+>  	if (fault->s2_force_noncacheable) {
+> -		if (fault->vfio_allow_any_uc)
+> +		if (fault->vm_flags & VM_ALLOW_ANY_UNCACHED)
+>  			fault->prot |= KVM_PGTABLE_PROT_NORMAL_NC;
+>  		else
+>  			fault->prot |= KVM_PGTABLE_PROT_DEVICE;
+> @@ -1978,7 +1974,6 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>  		.logging_active = memslot_is_logging(memslot),
+>  		.force_pte = memslot_is_logging(memslot),
+>  		.s2_force_noncacheable = false,
+> -		.vfio_allow_any_uc = false,
+>  		.prot = KVM_PGTABLE_PROT_R,
+>  	};
+>  	struct kvm_s2_fault *fault = &fault_data;
 
 
