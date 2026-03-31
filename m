@@ -4,87 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3083BFF60CF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:28:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54CF9FF60CF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8cjngpEHQRn8jA1+OGy7uBShTFIXviPt0CW7b9FjnNg=; b=F7UqIr2MM9+iDDNs+FHBDh3AcZ
-	Y6gcqk06xht8udg4xBi5tL7MF5cuUwX2kSsQ0EXnS+9LqM6yQzs4UK9q9WEGQYapmjZk6uCBW03c2
-	MPLRInD0Wm7Z1AX+tlgQGMZALKQcMAEIwCeE7wFVd3wj75gZxL0b4C69tOv/qhqD1zyHS5uCeDJjr
-	og/dErmXASBSoiBo6qW5xGK8N3MiaHfJYiCr3m3IPkOPzOoJfkuemcV2AiWNMaYLpGAValUW3utf4
-	ZyC1fwo33yKpPp8r5ijl4Em26vIKvSnGMNWTtX7L/BhtHoIsO3/QJIxsej5wEaDft+JtyqKIPxe/Y
-	vKO20D1g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sq3T1DzoMLO9Ws69g9lTvv0Xhsch2Y9QPzTP3lTfM9g=; b=DjXoyiCWlTBfoTDaKgBd6ULC3j
+	NXBvzAP7k9xtwsEl/YOiGW2ZOF+rrhWA62n+zIbPVtllG0W4bj2JKwucO+s+j+nvP/jBfy6tF7CBB
+	1fu/CnwvWUO2O/3wOMIlrVflCGN1LwGkD4tz8bNh9clQyYGGqn6nypcXfD+u6UnxmIN4WDQ++Mdky
+	3wP/m9E1pqjSoCeHSybnam/SUrK3icZvC5z537hRFpLkpoCEprmDOOhvyAi1/K19YQGBi3pZ9v+cL
+	oojbbcXSFFvGiY8B4z4vqsKNH2XuAyvWekFsop1ps6Wzcv21HbflVoFv5btT4Pl8zKfOaKe+KonUc
+	A7jFJa8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7TWJ-0000000CURu-2CbD;
-	Tue, 31 Mar 2026 07:28:15 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7TWH-0000000CURa-3wj5
+	id 1w7TWR-0000000CUUO-1HVC;
+	Tue, 31 Mar 2026 07:28:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7TWN-0000000CUTR-11j1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 07:28:15 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-486fe655187so69780535e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 00:28:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774942092; x=1775546892; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=8cjngpEHQRn8jA1+OGy7uBShTFIXviPt0CW7b9FjnNg=;
-        b=bjQOawY5Rv8nHLdgh+0hUZKMbiS1p3UDZXPQxKwHqwWZAa5dxDvsfZghO8ZMPTzWiN
-         vO8y2hYyxLZAfSohKYKoP601T4LjqVoB8x3CVlBvd0+ORbJ36a21cfoxSLMU7l44/27r
-         9afuU18uJXLfFpoPHILATNEl7hJ+zyTuZBvrEzlCPAxBMTEE1ZisBbac/C5wiPiAdyqW
-         rhOWBjV0hbN/+46SllQLNsU5Ms/pu/Lj1tTP1HFGYnD/rSB5DHdpdpoQOPzZ3XFLF/2s
-         vp6ePln+NKf1AFqj0OPOwcyN4obycnHz1LGRSd2+5Ykhm+YSM9Cvvii+X2b2pMVwjP6B
-         I+HQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774942092; x=1775546892;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8cjngpEHQRn8jA1+OGy7uBShTFIXviPt0CW7b9FjnNg=;
-        b=Kp/mFvIY9RHX4hghO0inJqf33Fhq/uAzsn2aHAmEBnLABs8eVgI5r+e0g2ExzVgLCM
-         +JhpBz7I37oP7dBjrxdG2vYyZ9kkeL0/Uevr/Y0TVetY2a0Ku8xg7uXyeOn75kBuArJi
-         O4fxmLMGiTLubMhuYz7uGnJ73iXGXjGnyGCddkFHufceccxv8XClTittyo/TvL6Akyiz
-         SAs477KzblJrFnH+F57eHI3z7hrB0MqqG5zQDkcVfDLCgr/MuObWgq7GTraxkcTV00y1
-         q0lgQ3r+etJLJqiyZ1rJnoYl2gjmdnOtLXfcDUMaVI4NxXzZa3ZHaM3GqG1zYPgWThdz
-         ukEg==
-X-Forwarded-Encrypted: i=1; AJvYcCVIvKbUFUIdL6DT4DQHBZQuWfCw5wD8UPbPmLS2kCt5DRHOYGmEfKOFhcvo3snvuLX5Nz7DgHZbKB9mHJNw3LP4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLqekHRH6k5e07oyXXV43nJF/dwcbIsqiyIyu5LRU6Ga8xO6lQ
-	f1n7Lr6cyfPoGixuU1VsXbRHtfXnfErwbrhIDXgQMnW4ntfT75M1Tfji
-X-Gm-Gg: ATEYQzwoINNjbOhch0XcEND+vClIFpyj0YOCsgxTraWpw92DvVi+JkwZ8vGXDKxHSNf
-	rjxcQiNIrqfAyFBXnInF8PzVhy52tgLWTAqSjXhYUrQa8arZbuGOMhOpgPYbgUoOU6RCkgBOB9x
-	L+23zhViecH4eKnD/Ci8vE4+uHK9YVTJTov71Pg6/vygyj4Rc7gTkgekWFk3ko69tocKOYvMJUz
-	/sgW0GsfUVYYECWvfQZEJ7lXnCDXi61Y94WVRMxScOZHZ4aOD15b7+37Pw/YZlStcJYfRG0x6J2
-	UbkgDtZ6TOV8s4Ofs1aBTLmc5FraEx5+m3CTTxMQ4lpqjeJMXwyY9s1Ee8qB+x3+A2t5ky8NSaw
-	8Epj6+SpVkIEqBKLC+z5gO6D4QFMY+Fzfqqsrp9Mp1sl7SwOoVEsOmZQZl5Uq0gt15rf5UneT2T
-	txfRaWZr6oXn90HZhp36m3BW9FhNe+XQ==
-X-Received: by 2002:a05:600c:4e15:b0:485:2ce2:4c87 with SMTP id 5b1f17b1804b1-48727d45881mr266166975e9.4.1774942091245;
-        Tue, 31 Mar 2026 00:28:11 -0700 (PDT)
-Received: from nixos-office ([2001:8a0:e95c:5e00:f8c1:fa51:743d:7994])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4887e82e262sm15700275e9.10.2026.03.31.00.28.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Mar 2026 00:28:10 -0700 (PDT)
-From: Julian Braha <julianbraha@gmail.com>
-To: sven@kernel.org,
-	j@jannau.net,
-	neal@gompa.dev
-Cc: asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Julian Braha <julianbraha@gmail.com>
-Subject: [PATCH] soc: apple: cleanup dead code in Kconfig
-Date: Tue, 31 Mar 2026 08:28:08 +0100
-Message-ID: <20260331072808.37198-1-julianbraha@gmail.com>
-X-Mailer: git-send-email 2.51.2
+	Tue, 31 Mar 2026 07:28:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0802A495B;
+	Tue, 31 Mar 2026 00:28:12 -0700 (PDT)
+Received: from [10.57.18.211] (unknown [10.57.18.211])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8AED53F641;
+	Tue, 31 Mar 2026 00:28:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774942097; bh=kdsJ3g2eaTU1MECoZPvu7qbxM61nRqIBwKT0qvl9+ss=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cGVNBoiPOj2/VMnLTabPEgViojzmPo93OiL/bnktpqu9ikVoEnTLDlnE+CS2qsq3G
+	 5xySVo0MjOdfU81Qs7NPVclPT+EEHn5v/ayPXJKWuiwvdITGmqRG90JWKH10y1wYzr
+	 ehLh2htBIOVdb3UWpT9KB1eOZSCSJ1D8k5wOYPdY=
+Message-ID: <2f4e1c85-b124-4b4c-a3b6-c8d8784e6418@arm.com>
+Date: Tue, 31 Mar 2026 12:58:11 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 14/30] KVM: arm64: Kill fault->ipa
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>,
+ Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <tabba@google.com>,
+ Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>
+References: <20260327113618.4051534-1-maz@kernel.org>
+ <20260327113618.4051534-15-maz@kernel.org>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20260327113618.4051534-15-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_002814_014363_CA9F7EE3 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20260331_002819_420079_186750B1 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,60 +74,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is already an 'if ARCH_APPLE || COMPILE_TEST' condition wrapping
-these config options, making the 'depends on' statement for each a
-duplicate dependency (dead code).
 
-I propose leaving the outer 'if ARCH_APPLE || COMPILE_TEST...endif' and
-removing the individual 'depends on' statement from each option.
 
-This dead code was found by kconfirm, a static analysis tool for Kconfig.
+On 27/03/26 5:06 PM, Marc Zyngier wrote:
+> fault->ipa, in a nested contest, represents the output of the guest's
+> S2 translation for the fault->fault_ipa input, and is equal to
+> fault->fault_ipa otherwise,
+> 
+> Given that this is readily available from kvm_s2_trans_output(),
+> drop fault->ipa and directly compute fault->gfn instead, which
+> is really what we want.
+> 
+> Tested-by: Fuad Tabba <tabba@google.com>
+> Reviewed-by: Fuad Tabba <tabba@google.com>
+> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-Signed-off-by: Julian Braha <julianbraha@gmail.com>
----
- drivers/soc/apple/Kconfig | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
-diff --git a/drivers/soc/apple/Kconfig b/drivers/soc/apple/Kconfig
-index d0ff32182a2b..e04a60722e0b 100644
---- a/drivers/soc/apple/Kconfig
-+++ b/drivers/soc/apple/Kconfig
-@@ -7,7 +7,7 @@ menu "Apple SoC drivers"
- config APPLE_MAILBOX
- 	tristate "Apple SoC mailboxes"
- 	depends on PM
--	depends on ARCH_APPLE || (64BIT && COMPILE_TEST)
-+	depends on 64BIT
- 	help
- 	  Apple SoCs have various co-processors required for certain
- 	  peripherals to work (NVMe, display controller, etc.). This
-@@ -19,7 +19,6 @@ config APPLE_MAILBOX
- config APPLE_RTKIT
- 	tristate "Apple RTKit co-processor IPC protocol"
- 	depends on APPLE_MAILBOX
--	depends on ARCH_APPLE || COMPILE_TEST
- 	help
- 	  Apple SoCs such as the M1 come with various co-processors running
- 	  their proprietary RTKit operating system. This option enables support
-@@ -30,7 +29,6 @@ config APPLE_RTKIT
- 
- config APPLE_SART
- 	tristate "Apple SART DMA address filter"
--	depends on ARCH_APPLE || COMPILE_TEST
- 	help
- 	  Apple SART is a simple DMA address filter used on Apple SoCs such
- 	  as the M1. It is usually required for the NVMe coprocessor which does
-@@ -40,8 +38,7 @@ config APPLE_SART
- 
- config APPLE_TUNABLE
- 	tristate
--	depends on ARCH_APPLE || COMPILE_TEST
- 
- endmenu
- 
--endif
-+endif # ARCH_APPLE || COMPILE_TEST
--- 
-2.51.2
+> ---
+>  arch/arm64/kvm/mmu.c | 14 +++++---------
+>  1 file changed, 5 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index c6cd6ce5254be..67e5e867e01dc 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1643,7 +1643,7 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
+>  				     unsigned long hva,
+>  				     struct kvm_memory_slot *memslot,
+>  				     struct kvm_s2_trans *nested,
+> -				     bool *force_pte, phys_addr_t *ipa)
+> +				     bool *force_pte)
+>  {
+>  	short vma_shift;
+>  
+> @@ -1681,8 +1681,6 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
+>  
+>  		max_map_size = *force_pte ? PAGE_SIZE : PUD_SIZE;
+>  
+> -		*ipa = kvm_s2_trans_output(nested);
+> -
+>  		/*
+>  		 * If we're about to create a shadow stage 2 entry, then we
+>  		 * can only create a block mapping if the guest stage 2 page
+> @@ -1722,7 +1720,6 @@ struct kvm_s2_fault {
+>  	bool is_vma_cacheable;
+>  	bool s2_force_noncacheable;
+>  	unsigned long mmu_seq;
+> -	phys_addr_t ipa;
+>  	gfn_t gfn;
+>  	kvm_pfn_t pfn;
+>  	bool logging_active;
+> @@ -1738,6 +1735,7 @@ static int kvm_s2_fault_get_vma_info(struct kvm_s2_fault *fault)
+>  {
+>  	struct vm_area_struct *vma;
+>  	struct kvm *kvm = fault->vcpu->kvm;
+> +	phys_addr_t ipa;
+>  
+>  	mmap_read_lock(current->mm);
+>  	vma = vma_lookup(current->mm, fault->hva);
+> @@ -1748,8 +1746,7 @@ static int kvm_s2_fault_get_vma_info(struct kvm_s2_fault *fault)
+>  	}
+>  
+>  	fault->vma_pagesize = 1UL << kvm_s2_resolve_vma_size(vma, fault->hva, fault->memslot,
+> -							     fault->nested, &fault->force_pte,
+> -							     &fault->ipa);
+> +							     fault->nested, &fault->force_pte);
+>  
+>  	/*
+>  	 * Both the canonical IPA and fault IPA must be aligned to the
+> @@ -1757,9 +1754,9 @@ static int kvm_s2_fault_get_vma_info(struct kvm_s2_fault *fault)
+>  	 * mapping in the right place.
+>  	 */
+>  	fault->fault_ipa = ALIGN_DOWN(fault->fault_ipa, fault->vma_pagesize);
+> -	fault->ipa = ALIGN_DOWN(fault->ipa, fault->vma_pagesize);
+> +	ipa = fault->nested ? kvm_s2_trans_output(fault->nested) : fault->fault_ipa;
+> +	fault->gfn = ALIGN_DOWN(ipa, fault->vma_pagesize) >> PAGE_SHIFT;
+>  
+> -	fault->gfn = fault->ipa >> PAGE_SHIFT;
+>  	fault->mte_allowed = kvm_vma_mte_allowed(vma);
+>  
+>  	fault->vm_flags = vma->vm_flags;
+> @@ -1970,7 +1967,6 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>  		.memslot = memslot,
+>  		.hva = hva,
+>  		.fault_is_perm = fault_is_perm,
+> -		.ipa = fault_ipa,
+>  		.logging_active = logging_active,
+>  		.force_pte = logging_active,
+>  		.prot = KVM_PGTABLE_PROT_R,
 
 
