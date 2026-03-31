@@ -4,174 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E05FF60E7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 08:24:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F03B5FF60E7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 08:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KPCB93UXppSV++8KdKwB8C+BvgLSNB2DkBl/MqGXQLc=; b=Uw4rGh9TSInD6BCn159fZnK5Ze
-	5vLS2qe60vGJVqR1QXrj3v3V6zs1eCYMvkrMZoxQ3enqy3CdZRjXuRN14eFwcaaXXIHDdDZGulJg9
-	TN6HyiFTWa2FWob5/guCXg1sRmqAa6XiD7sFoZwsmyEa4xOjTVb99fzSrGxlnF8nzuhGsSdeR9Kc2
-	gDvUYie+LV36Sr8DuvxLtcDywuBwKYIzYZV+coVD3JxIYbyJQj2Vdhn+AQoe9VSPRpnSevXuts3Ci
-	GPVFqD62m4Q3tQtfFm2qgktlI3+EPFm9kX/+Ac/3KLRAUPP9VxN1DweVmJlI1f872U3xn9dumywYs
-	S2lTRzWQ==;
+	bh=rcqa3TnjaC/kK18HYVjulYXhIEuAroKOXV5TEXs03Qs=; b=NGewKU1HqBOoHwEE5ruyffaJDd
+	zTi2M2ujZAeR2U9Rn4Nk5xcgVVGve+RtYrvlYK0IVJzFSCrNe+sGDXO6YE4xKsaT+eN7tg/359hi3
+	2Gn+bOkbuJEBbKf+ykdHHoOiAvrUOHVpP4vL2Wj/0Pe4s5NKz7+9BDrZsr7nDFhEOzEB+QeWEnrLa
+	cVtG/71SEfCUfbl8PM/riamcIvVLgEe7xpeBD/qDE5y6FavtknMZ1KoBhwXmBFx1ZDx8Sen2ixuXt
+	QDJSFFFsZ2jCXMO71nwFp/wkigDU+6pW8R/icizPq0Mf0IHIBNlgk4aTLIL3GVsmCn2ABkOvyqOuZ
+	SjR02jxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7UOR-0000000CaBe-0efP;
-	Tue, 31 Mar 2026 08:24:11 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1w7UPM-0000000CaJx-2QMC;
+	Tue, 31 Mar 2026 08:25:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7UOP-0000000CaBH-2fVg
+	id 1w7UPL-0000000CaJq-2HtS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 08:24:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774945449; x=1806481449;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=KPCB93UXppSV++8KdKwB8C+BvgLSNB2DkBl/MqGXQLc=;
-  b=cfPDYxUsRoR0x9Mz7tkfw/NJBQSGFixtEk47KX8iXjDy7uP8GO8FWtxP
-   ko7kOiouftKirGLCP8X9ZtwXrGT03vKIaHX9IUZt9fDgfaog33SwY3jjB
-   AvzaAp146/zNPA3Hr8a5Z++V7tKRAgN8o8eAGMtslQp6J7lYLSGJo/ikV
-   M6cmg3o6yf3VvOrhwq1i0DhF3wlRxYQNu6HZ3ojCsCnSxH83mM0MDb2uy
-   Td/Djwy1LY4UMOrMSU0jUsmoKHaoNXUOLOhKyrJ8CVI+SoHhuy8Cre/Zj
-   /vW7FdYWK7ooOl52YDuJGpJLQAOL0Ii1Kiv9PCDx1j981wZL0PPwukaXc
-   w==;
-X-CSE-ConnectionGUID: aXlfBCYmToeuHIbl0f7zRg==
-X-CSE-MsgGUID: +gqMbBksQzqCUpG+60Ap+Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11744"; a="76060810"
-X-IronPort-AV: E=Sophos;i="6.23,151,1770624000"; 
-   d="scan'208";a="76060810"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Mar 2026 01:24:08 -0700
-X-CSE-ConnectionGUID: 1Y/v3o3LTc6ukkdrvk1lcg==
-X-CSE-MsgGUID: bsz3g1dbR+SCl2Pu44HfHQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,151,1770624000"; 
-   d="scan'208";a="226266615"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Mar 2026 01:24:08 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Tue, 31 Mar 2026 01:24:07 -0700
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37 via Frontend Transport; Tue, 31 Mar 2026 01:24:07 -0700
-Received: from PH7PR06CU001.outbound.protection.outlook.com (52.101.201.59) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Tue, 31 Mar 2026 01:24:07 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F9CcDfUXM+UnOqaGhxCZutcfAuAeVqqplK0SDPBrxCmdTsBCj01BXXdyvY9it2wKQNga9IKptKfEgNqZb86SBF4o5T8re5bPyt483wJShXIed/sLy4FUWTTWomA+dis/Zje0gA00O7kbI+ewBiZglINg/AJoBbiwSY/5DVFGqVwaeq0cbQMFzj2RTqv7I6+E7WOsKDcYb+2oHqSkfxH6crPPClssjmZ2XstRUXorR5tCrJED7Jv7wvCWVtOF7GkqkHXgDthKpqPp1dFBMTxQC3v4Ava/ZQYst0xJj0SHEBZkFLo9U+ap11stZZhgkj81ouFICopo95vMB53WJ7/Bsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KPCB93UXppSV++8KdKwB8C+BvgLSNB2DkBl/MqGXQLc=;
- b=Qf+4nvDJSaCuQ4/G7AczrkkCWza5Rd0E8yTB8h5YPGrWRX850QHMl8hIln48CVdXPjxXq5X9H9JBTWx0YwRpuE83VXsR2JoeyLVhS3wSDyF63Sse+rv+LjfL01MHOBijf5LHQa9MFyMI+5yLxFE1qThBF2QZIdCUjosluMllWxhOziTnCueSf7aDT0hKuCsrp0qM7lMeIHn4ofkAqlxI22fD4nqWqeVJ9hP0MeDPJcr08lqueCyeC9Eqh6pFPArpPj+PeBmtccr57rdIuzglCFskINQZkn6EEWzFb5uF6eAgZ1rj9j3PrQWvNuuHdW4UjtJy46Q+9Ll6FIW0jq6FMA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
- by SA3PR11MB7656.namprd11.prod.outlook.com (2603:10b6:806:320::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Tue, 31 Mar
- 2026 08:24:05 +0000
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::f997:762f:f079:134f]) by BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::f997:762f:f079:134f%5]) with mapi id 15.20.9769.014; Tue, 31 Mar 2026
- 08:24:04 +0000
-From: "Tian, Kevin" <kevin.tian@intel.com>
-To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
-	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "bhelgaas@google.com" <bhelgaas@google.com>
-CC: "joro@8bytes.org" <joro@8bytes.org>, "praan@google.com"
-	<praan@google.com>, "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "Williams, Dan J" <dan.j.williams@intel.com>,
-	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>, Vikram Sethi
-	<vsethi@nvidia.com>, "linux-cxl@vger.kernel.org" <linux-cxl@vger.kernel.org>
-Subject: RE: [PATCH v3 2/3] PCI: Allow ATS to be always on for pre-CXL devices
-Thread-Topic: [PATCH v3 2/3] PCI: Allow ATS to be always on for pre-CXL
- devices
-Thread-Index: AQHcrcLX65ghV9t5KkSM2KshXNxOMbXIc0uA
-Date: Tue, 31 Mar 2026 08:24:04 +0000
-Message-ID: <BN9PR11MB5276D646118E74735A0B15208C53A@BN9PR11MB5276.namprd11.prod.outlook.com>
-References: <cover.1772833963.git.nicolinc@nvidia.com>
- <c715b10b49d50eea5429454108d4221c1a78efaf.1772833963.git.nicolinc@nvidia.com>
-In-Reply-To: <c715b10b49d50eea5429454108d4221c1a78efaf.1772833963.git.nicolinc@nvidia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|SA3PR11MB7656:EE_
-x-ms-office365-filtering-correlation-id: 9a0d306c-23c7-4fc2-b59c-08de8efedf16
-x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700021|18002099003|56012099003|22082099003;
-x-microsoft-antispam-message-info: Uc/xit0G4U2TNqCqXVTk/Drh7MMweySy1WWSVBucuMWOOlXPSLsNTDTK9ouHR7vS4y37qOAn4U1nljbR8YFtsZfJCJpRUp9QNqIuUIgUPphbYJXFHdw68wy84UYvADErThYRJV/qzrBLZ6jadNp5rlWw6m91IjRWBT+H+OjdV5r91f7s0FLhHZ7P0EoWwn21oQntua1TS8jpz3967pXOKaQgO9FlmsZoPIUXxjbfKlmpYQfPKJcZF5v1jDqyeXMUlq7u6yVQ9VMNvX5ocZ8J/xOiddz/56o/Ry5miCc47OaUGi6G+KLSNobuZkkuL14u1nprvTBaDh1YTNmcdcAuZbvDs8tNn1tZqmegW+rOmHvoWmeFb2F85nOGaGZz0oF0CS9pjI4GCqcC7CZZaXp9WJxztckrqBjgAZw7BFJ3WldOfkWIL1onjMlfBb6pNwsH8yY9G6oE+OJdRVyQ8I2Gf4JTzzpHV2IoDuGEkE7i2q8mo4WqGhIRBV1LEs/oALTHV5oB15z+xNHNr7w/puFYW236LPEXex+kgmS+iiVa/BhrtFoSMuaOaG2cdUT+773BCR0JukdDSXggM4foWaBd4wjCT7ypD4FelBwqJeVq+YEfY+ObdMM5gHtiZ0LhnsmcMKo91wS6sXpIXrtz0TZAjrSGwElBwIFCjGtfXao57FKlpByXg4kSsLbH+nmw2Kz5kidGpBky2m6JVJffgfN2Hd0i81ai1jhCTNNRmGsOiKdLS62T9XrYorsz8nxfwioQIkBDws9qYHZyEt0UpDYuEo9iVoenstafkGpn/0TkkvE=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Tty3rZPSo+KrV4C+NlcJ0CEPqG1XdB+RE3GOn/o3WDIKuUufQQmNpObDqdey?=
- =?us-ascii?Q?oWM9Tg89GFUPK4U+kIO2RTN6cNJKGY3M9ZSbAuiO1H0Tk934JvPAykQMcqJ3?=
- =?us-ascii?Q?mOH+5IN4nkhFnRWCmdyU/59SUvk6BI/6qsUiLv4mQccOrgn+QS1a9M5pWOPx?=
- =?us-ascii?Q?u6H885+NcGPQm8dJVhInjHuMCOljgetiivc8CeXOhhdyo6yIHBlqu/te1sim?=
- =?us-ascii?Q?EfkFqJMLwdYKgJfA0btIF+sKsMpc1EaBCOxaCeLydFZcAK6cjDPP49B08epm?=
- =?us-ascii?Q?bJ5hf8TwUydDXoxyq860QWB8nFFihK9e0vmWJfIMYPHsUE7EhB30M6T5BbBI?=
- =?us-ascii?Q?gl9YHMap5/YHXBJbvoLgP8O5ZufpvML7j/vmxnR7AggSTqy1T4c0Jqv9ECEG?=
- =?us-ascii?Q?RkDyjHeRFMpC7o/0yl9oEHNnFX93xgfvLoUAgh2q5tl8g1pPS+bUmNyeI3OH?=
- =?us-ascii?Q?dl0cGC95DzcGSA4Vgvx16ybXrbCWwarZMYjxXxBlg4cUW/NlGrmrFMKBbVph?=
- =?us-ascii?Q?s2gTzAM83rYOItJc6m9tmIJ58ri0jgVypynASE7IWN5c1SHD4waV2sEFDh12?=
- =?us-ascii?Q?1GzB+e25++2sZ80mREXB4K5OGhhNxGXqgqWdI3yYNh7mPJS6pVFxnJwek/HO?=
- =?us-ascii?Q?JpUqVUpo/x0QpPyZ4XxMft3nxroWjTQZMJ65vCOX0YYhaX0QWXrmw+Vu51TR?=
- =?us-ascii?Q?MHE129auadCXx8QRgs7oYHn195wamE2L+6Qd8KrmKCcp1ievMBBG2BjaGTCR?=
- =?us-ascii?Q?Ns8ndsjIcNcpCXk+SiBE6bACIsmj4NI+hFhhio2BBAEE/DmMBdUcJKToznq7?=
- =?us-ascii?Q?TrANHShbfM4WATFrEgIFpFKRBUJSl4iD5o+r6HLSPspiEJmC5D7i9tgF0CCF?=
- =?us-ascii?Q?61s8kSKpVN7Thh4hdn5Uik4VmXKE9+5PsZdGwzeDxTKqk3qQlKeu+KxPHPTv?=
- =?us-ascii?Q?Gs6HFssKR8K8BCBcwMHtf21ihpEqJKP8gxgEksw9p3teXBcz6GtufgjqlxRY?=
- =?us-ascii?Q?lGwcYES35gO0EyXlYOEVyttP5KJU/yyJtvWs1cMEIPQL0MlPH9R2pnYDIeC/?=
- =?us-ascii?Q?rn31kVsoMzRqgt3+sRWmT26vpNPeRTzKUmZecdIGLf16UNDyFlkYqUt1IiIz?=
- =?us-ascii?Q?iQBkAOkqhqx9vwp0QdQUHNSypnmd62hJkSoYmjejAOCSxTymrq0lv0T/rnlD?=
- =?us-ascii?Q?mh7n+2xJo+6p7l4Gn6NaDV+WPE4MwWyi2Zw1UATS12lmCqfspDF8tBLyr8o2?=
- =?us-ascii?Q?MQiQuLh1vyPndyneUci0TyuVaXzSqHpcQiKHBfU41MhCc8YFvBolmy4qBdbc?=
- =?us-ascii?Q?Z/vGOqHtHgEbGtz3xpQhZnmuqK0keVz1VUAcTIuvJcU00V3SNRGuZKNc0U6x?=
- =?us-ascii?Q?VFDuJOSepfFcx+8dx1sz8PvS/Ir1l9i4z/6HOmmoBHIC37UBz3i0bBYYPl1n?=
- =?us-ascii?Q?CMWkaNaBmkEOnMxtNILE+RUBX0dY3ixE77e6lkRIOqjEnRMruyibTIwqZM/P?=
- =?us-ascii?Q?LPl9jNlJAOyreG1zWp44rKZdZuiqtPDQ+fd5WSpccqIV/mpct2nmHAtgjg6T?=
- =?us-ascii?Q?noBIK3Wy1c9ISVkifK1AuKkpBa0yDp+2bJiO0IjghJNxTO/t5tm4VybttTRD?=
- =?us-ascii?Q?H9wq3zcBnKhRcjltGQUa51bkym7DOwJqzcpXC70h302DrfY5SUtMuPnkS49Y?=
- =?us-ascii?Q?qe41HKS+nPpCUSAanZGf8fn5Bff0qDdGrE0gSvW29e7jnrT1FxUeSi6WMbxE?=
- =?us-ascii?Q?owSq47lWwg=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 31 Mar 2026 08:25:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F32E3600CB;
+	Tue, 31 Mar 2026 08:25:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31630C19423;
+	Tue, 31 Mar 2026 08:25:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774945506;
+	bh=xongS++fQIVRd1oxyW57pzR32Tw90tcNAn/M31bAT94=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jJRirDCq48fkM2xxMptBi2CLoUsPUbh+8Q7JThdmkemLdv5LrDpIVBKXqpWAoWSoE
+	 Pytilttqrvk7xiToe7yQw5zGqm68hK6dbH2hDNbndC7JIODiUQqmazbyQeIkEUvZ9b
+	 wEq+YUj/zEpsu0lalzRLkz7wejwpdQfJZV3mmHcLhs6oDeIEi5KhtS39GFxQO/8VJy
+	 qOZ4Kz5Wb2Fn9o57D5kvrpsPaWfOAyZnl3d9tX/BWpGvCuSpzP0CXmsaicK3OO/nep
+	 wqUxiqnDCul1EzGSptG87lZryhgPBH7bIIabTxHFu+yxyt9ur8nNrs2Xa40+i9FN06
+	 0WnDn2AILbbIg==
+Date: Tue, 31 Mar 2026 10:25:03 +0200
+From: Thierry Reding <thierry.reding@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: arm@kernel.org, soc@kernel.org, 
+	Thierry Reding <thierry.reding@gmail.com>, Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [GIT PULL 1/7] dt-bindings: Changes for v7.1-rc1
+Message-ID: <act9hqxjL6wZ25dP@orome>
+References: <20260329151045.1443133-1-thierry.reding@kernel.org>
+ <406ca5ed-4a3e-48ba-94ad-d88c53b09299@kernel.org>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: grZ1Gfwz+eAw+1ewq3mNwZLlTshDW/lCvs1UxJCq/slKXHj31zT423VZ+6SEBN1Nbfl6/IPHxnkAIXvf0Xo00Z2DEPETjqsdpfopKNuTTIa2SV+JP5GV0DpvMvU0DsFFWZ1UJR4Onc+D0+qfy8I2ZwfBKPa+1ut2L/Q7zHqafo+QHutkcTCWp9gnNIDChKxgs4r3CL6v6kMHltOIhURlUhPrwAHtTZbDdU52ywrFx+3WGePXQpzPkh5XXVSEO8PV4FNQJzguStfXBDEEbUsYmDXQFZhAji2lJRjtSB9C6lumu7oVEet/Nnk+AizT7oRUG7xbxawR7pprRKs0sJfveQ==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9a0d306c-23c7-4fc2-b59c-08de8efedf16
-X-MS-Exchange-CrossTenant-originalarrivaltime: 31 Mar 2026 08:24:04.8685
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 69oa5Bvc5H95A+UIM2FhTxy0E0Yjky+9M/rIFEeCkAyq+Hf2PbblICdS2OxdqQgTgUTWNbjgnljAF8AGQ9YPuQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR11MB7656
-X-OriginatorOrg: intel.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_012409_709579_ECB23F4D 
-X-CRM114-Status: GOOD (  11.02  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="x2rr2fmu6jlvezcp"
+Content-Disposition: inline
+In-Reply-To: <406ca5ed-4a3e-48ba-94ad-d88c53b09299@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,38 +71,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: Nicolin Chen <nicolinc@nvidia.com>
-> Sent: Saturday, March 7, 2026 7:41 AM
+
+--x2rr2fmu6jlvezcp
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [GIT PULL 1/7] dt-bindings: Changes for v7.1-rc1
+MIME-Version: 1.0
+
+On Mon, Mar 30, 2026 at 01:39:49PM +0200, Krzysztof Kozlowski wrote:
+> On 29/03/2026 17:10, Thierry Reding wrote:
+> > From: Thierry Reding <thierry.reding@gmail.com>
+> >=20
+> > Hi ARM SoC maintainers,
+> >=20
+> > The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5=
+f27f:
+> >=20
+> >   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+> >=20
+> > are available in the Git repository at:
+> >=20
+> >   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/te=
+gra-for-7.1-dt-bindings
+> >=20
+> > for you to fetch changes up to bed2f5b4de6c6fd8f8928f6373ad92e8795c370f:
+> >=20
+> >   dt-bindings: arm: tegra: Document Jetson AGX Thor DevKit (2026-03-28 =
+01:05:24 +0100)
+> >=20
+> > Thanks,
+> > Thierry
+> >=20
+> > ----------------------------------------------------------------
+> > dt-bindings: Changes for v7.1-rc1
+> >=20
+> > This contains a few conversions to DT schema along with various
+> > additions and fixes to reduce the amount of validation warnings.
+> >=20
+> > Included are also a new binding for the PCIe controller found on
+> > Tegra264 as well as compatible strings for the Jetson AGX Thor
+> > Developer Kit.
+> >=20
+> > ----------------------------------------------------------------
+> > Sumit Gupta (1):
+> >       dt-bindings: arm: tegra: Add Tegra238 CBB compatible strings
+> >=20
+> > Svyatoslav Ryhel (1):
+> >       dt-bindings: display: tegra: Document Tegra20 HDMI port
+> >=20
+> > Thierry Reding (9):
+> >       dt-bindings: pci: Document the NVIDIA Tegra264 PCIe controller
 >=20
-> Some NVIDIA GPU/NIC devices, although don't implement the CXL config
-> space,
-> they have many CXL-like properties. Call this kind "pre-CXL".
+> Why are you taking subsystem patches? This was posted on 26th of March
+> and was not acked by PCI maintainers.
 >=20
-> Similar to CXL.cache capaiblity, these pre-CXL devices also require the A=
-TS
+> How the bindings should go is already documented, so there is no
+> question here.
 
-s/capaiblity/capability/
+We've discussed this in the past and I still think your rule about DT
+bindings needing to go in through the driver tree is impractical. Yes,
+it means you get around the checkpatch warning about undocumented
+compatible strings, but at the expense of a new warning in the Tegra
+tree because the bindings aren't there.
 
-> function even when their RIDs are IOMMU bypassed, i.e. keep ATS "always
-> on"
-> v.s. "on demand" when a non-zero PASID line gets enabled in SVA use cases=
-.
+> The question was whether you can take them if subsystem maintainer is
+> non-responsive and yes, you can. You gave PCI maintainers one day before
+> applying it.
+
+I did not get a response to my suggestion about creating a shared
+branch, which was included in v1 already. So I went ahead and did what
+I thought was best. PCI maintainers are free to not pull this if they
+don't want to. I also offered to address any further review comments if
+there were any.
+
+> >       dt-bindings: phy: tegra-xusb: Document Type C support
 >=20
-> Introduce pci_dev_specific_ats_always_on() quirk function to scan a list =
-of
-> IDs for these device. Then, include it pci_ats_always_on().
+> No acks, but that is waiting for one month so it is fine.
 
-"include it *in* pci_ats_always_on()"
+It's got a Reviewed-by from Rob and there were no corresponding driver
+changes associated with it. There's literally no reason for this to go
+in through a subsystem tree.
 
-> +
-> +/* Some pre-CXL devices require ATS on the RID when it is IOMMU-
-> bypassed */
-> +bool pci_dev_specific_ats_always_on(struct pci_dev *pdev)
+> >       dt-bindings: clock: tegra124-dfll: Convert to json-schema
+> >       dt-bindings: interrupt-controller: tegra: Fix reg entries
+> >       dt-bindings: arm: tegra: Add missing compatible strings
+> >       dt-bindings: phy: tegra: Document Tegra210 USB PHY
+> >       dt-bindings: memory: Add Tegra210 memory controller bindings
+> >       dt-bindings: memory: tegra210: Mark EMC as cooling device
+>=20
+> That's even my subsystem and I did not ack it. You did not even sent it
+> to me as requested by MAINTAINERS file (+dt is ignore alias), so
+> obviously I did not even had a chance to ack it.
 
-clearer to remove "on the RID ...".=20
+Ugh... really? I was Cc'ed to you as a DT maintainer as well as the
+devicetree mailing list, so I'm sure you've seen it. This had also been
+reviewed by Rob a long time ago, and honestly, it's also quite trivial.
+It's been on the list for a month and there were no objections, so it
+does pass all of the criteria you mentioned before.
 
-"always on" implies no condition required. and adding IOMMU bypass
-info there is confusing.
+> And we even had few days ago talk were I explained you how these
+> bindings must go. Seeing pull request completely ignoring that
+> discussion is just huge surprise.
+>=20
+> No, it cannot go in. Send patches to proper maintainers first.
 
-Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+Stop making these baseless accusations, Krzysztof. You were on Cc and
+DT maintainers have seen and reviewed these patches. You're grasping at
+straws to somehow try to make my life miserable and I don't know why.
+
+Thierry
+
+--x2rr2fmu6jlvezcp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmnLhNwACgkQ3SOs138+
+s6HOIhAAqdRI5jThGVEb4l0l+GYD5gSViQMZy2eh6KBPNB0GrLrpyaNKcea/tgRk
+f9zmp9O368N/19GgKiHi4jjJxvtziAWxoZlGSTObYRioRh6Nu20XMpc84c8mhc05
+CRufxMR/CCMbF6TAys39bB3iB9/l8DujxEhwzcp3KVuY7dghqTXxyv2w/feK37Kh
+bZxLpZorgzQQ+yWEbaQJnBCAbxyjMKCkU0hQR23L3Mr0GmxmVyIdSW1yvYn4zP54
+X5X9SyLPfy+cdWz49rqMFvH475gKfwgFQE9BQdo5cIxdYI3iglimam4VjMghecRn
+IrnKpaKh0nMB/Bu5UqH/xoeBd/DI2Pfk3j0aeCLnik0FBt5Mrfrswxi5xkQaHQ+r
+F5VUnWEghU0LRrYMmoxzCj/7WKo2XyPGi0Tby9fYdeZ2M9W7l+U2Bs8FUSjE4YKo
+FAP9RpsV8s6eXSJr7vJOj3z6sQB3GJXOUOGBppSrVDxa6qRlLHyjTvHlFYfynpzx
+VKtIoxbemqmbxVKPqmMa7zqkzy4t0K1U1KsdV2mpJTKfk16edI6B6OPnqjGwG2VL
+yfIeFUQ0x5Z3zRilyLR0dilDPU5hNU9w7ikjrKFdAP9pVATBOJvulI6JPr1BpOuH
+R63RQU15WE9yxYUvv+ZRtk8n6tvwQ6K7eq3ETEwvy154d6Rsh3U=
+=eP2x
+-----END PGP SIGNATURE-----
+
+--x2rr2fmu6jlvezcp--
 
