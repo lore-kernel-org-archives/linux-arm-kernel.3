@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9774AFF60CF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D9FDFF60D5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:11:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l/cwu/SeH3SfCCgP2L8oc/DSQIQp4Zk6QaYlLaa68cA=; b=v2/WyHUMa6JmbTwzgVyzc806so
-	Jjx1MYq3Xon3glcfD07dxXtMSmpGPo6BnxRyLAYTavdl44GX6NDxsX9UNoiwm3r7WIZTbDppNFA27
-	GuMcDGohG+1Wm//h3o8rg4cyrRSj8nSgqs1UWPO5fJyef7o/Lqt7sSKbI+N8fSBywb8U0r5NpbWYh
-	AwLsaOEn0IekLnVcq8qcU5dmYsIxag8gmAMrmFBMTJ9x0LuE7lvfXXYol8/mdpF5jR5tnIo9IwcEH
-	6Kr2CYjWARDrL/3x4Kr0g/vh5v/EP7QdC6nVbr4bp0aHmq6rn0yvJOgi8g68+8UEKrnHgRgzvwCAR
-	ZzE3Ehaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t9ZBjcAr40Scjp794d8Ip/NkXgLZ8ekwp1FGYnThcmc=; b=sm+D5MLDxo75bjyA15qZBO4/Ki
+	u5Lb+yaAh+d9D1Eyz2fmcH6rkKUT8fTBZVL6VcRINzzvFyAYBDW0R6CfAv5hqFwjoy30ursTOzvgy
+	SXPj5imMQATwSMmGyKomdy6IPauAyGHQMms2CPKniwDnCWlyt7ju8jfAfJ9mEJmI6TRPMTAqt7xWI
+	5RuR1Wyo/qHPrllG3t90A7o3l+4oegzzVWndFLZ5sWSF7Srdc9nhIww/43RBkniRaeoJPAmOHmJz/
+	xvOsdqYHIaT0r2sb78tldAdH3VJYNSqFFHIA7hU93VSldhZy5cyOFpxpLXcVU3PfMJcSUVVGyzRGh
+	l3xk9kSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7TFr-0000000CRJl-0JjD;
-	Tue, 31 Mar 2026 07:11:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7TFp-0000000CRIj-23lo
+	id 1w7TG5-0000000CRNJ-1dL8;
+	Tue, 31 Mar 2026 07:11:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7TG4-0000000CRN1-0FDn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 07:11:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A09491596;
-	Tue, 31 Mar 2026 00:11:05 -0700 (PDT)
-Received: from [10.57.18.211] (unknown [10.57.18.211])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EDE0C3F641;
-	Tue, 31 Mar 2026 00:11:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774941071; bh=2SiH6CKgnh1H6NsZAZBece6LP/f2wHoqT/JSzoVa0D4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZiaxDb2imkt5mju3NjuHU0SG6oqITQ2pfgBob/9neKocePc7CZ9665498i5NzgOoH
-	 cFDfhUlmv8XEfYTvlgRM1tEuFqlHlof8sIk6WOaxvGWguO4dz5dmnnAWLyMPYAJ58J
-	 3aOpP5e/m+FjP8rF7UeKulGErUVKby0isHTXxHQA=
-Message-ID: <1c92ac00-80c3-4fb2-82ae-ab365cc0ffd8@arm.com>
-Date: Tue, 31 Mar 2026 12:41:04 +0530
+	Tue, 31 Mar 2026 07:11:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7EA1D60123;
+	Tue, 31 Mar 2026 07:11:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2919C19423;
+	Tue, 31 Mar 2026 07:11:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774941087;
+	bh=XdwZEdTlh7eUy97pvQnqE/71BTBUar0XRDwzHcXBMRk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QyRC3uPKayasDp5XbK4TcodAQFVigapbBpUw7l9SV5fn2FogMcr0+0H3k3CwEub67
+	 ut/eKMiFQW9cbDFEPtncQEvdwRLGDky5jsRNpdVTZJk2L76YBU2H8GJ5m7UxFokgeN
+	 Joa8xlffQh7E0Z4x6TX7PnXOVqLpnVFzwADKCsHY6IaW3pWEY3XweYAqXvCK5NTeT2
+	 HpaR1oiw3WuQLEIOucFlXBGQNA8CgO/Mn/O5t6qilNFgnNahLE0EnVSPD32geOl9ca
+	 nGD0YLzJIO196sqPtQRsydsJ6XIKflDTNFC93Pp87Q8RIoqlVLu3t279lE6fjAi5Mk
+	 TUokJqkNqWrjw==
+Date: Tue, 31 Mar 2026 09:11:24 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Moteen Shah <m-shah@ti.com>
+Cc: krzk+dt@kernel.org, robh@kernel.org, conor+dt@kernel.org, nm@ti.com, 
+	vigneshr@ti.com, kristo@kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, u-kumar1@ti.com, 
+	gehariprasath@ti.com, y-abhilashchandra@ti.com
+Subject: Re: [PATCH v3 2/2] arm64: dts: ti: Add audio overlay for
+ k3-j721s2-evm
+Message-ID: <20260331-fabulous-bipedal-boobook-b11a27@quoll>
+References: <20260330094459.128648-1-m-shah@ti.com>
+ <20260330094459.128648-3-m-shah@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 13/30] KVM: arm64: Clean up control flow in
- kvm_s2_fault_map()
-To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>,
- Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <tabba@google.com>,
- Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>
-References: <20260327113618.4051534-1-maz@kernel.org>
- <20260327113618.4051534-14-maz@kernel.org>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20260327113618.4051534-14-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_001113_587336_CA765AC8 
-X-CRM114-Status: GOOD (  18.65  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260330094459.128648-3-m-shah@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,74 +72,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Mar 30, 2026 at 03:14:59PM +0530, Moteen Shah wrote:
+> +	p10-hog {
+> +		/* P10 - MCASP/TRACE_MUX_S1 */
+> +		gpio-hog;
+> +		gpios = <10 GPIO_ACTIVE_HIGH>;
+> +		output-high;
+> +		line-name = "MCASP/TRACE_MUX_S1";
+> +	};
+> +};
+> +
+> +&mux0 {
+> +	idle-state = <0>;
+> +};
+> +
+> +&mux1 {
+> +	idle-state = <0>;
+> +};
+> +
+> +&scm_conf {
+> +	#address-cells = <1>;
+> +	#size-cells = <1>;
+> +
+> +	audio_refclk1: clock-controller@42e4 {
+> +		compatible = "ti,am62-audio-refclk";
 
+there is no am62 compatible or DTSI include in the parent SoC file, so
+am62n seems to be completely different device than j721s2.
 
-On 27/03/26 5:06 PM, Marc Zyngier wrote:
-> From: Fuad Tabba <tabba@google.com>
-> 
-> Clean up the KVM MMU lock retry loop by pre-assigning the error code.
-> Add clear braces to the THP adjustment integration for readability, and
-> safely unnest the transparent hugepage logic branches.
-> 
-> Signed-off-by: Fuad Tabba <tabba@google.com>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+Why does am62b appear here in this context?
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-
-> ---
->  arch/arm64/kvm/mmu.c | 20 +++++++++++---------
->  1 file changed, 11 insertions(+), 9 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index ee2a548999b1b..c6cd6ce5254be 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1897,10 +1897,9 @@ static int kvm_s2_fault_map(struct kvm_s2_fault *fault, void *memcache)
->  
->  	kvm_fault_lock(kvm);
->  	pgt = fault->vcpu->arch.hw_mmu->pgt;
-> -	if (mmu_invalidate_retry(kvm, fault->mmu_seq)) {
-> -		ret = -EAGAIN;
-> +	ret = -EAGAIN;
-> +	if (mmu_invalidate_retry(kvm, fault->mmu_seq))
->  		goto out_unlock;
-> -	}
->  
->  	/*
->  	 * If we are not forced to use page mapping, check if we are
-> @@ -1908,16 +1907,17 @@ static int kvm_s2_fault_map(struct kvm_s2_fault *fault, void *memcache)
->  	 */
->  	if (fault->vma_pagesize == PAGE_SIZE &&
->  	    !(fault->force_pte || fault->s2_force_noncacheable)) {
-> -		if (fault->fault_is_perm && fault->fault_granule > PAGE_SIZE)
-> +		if (fault->fault_is_perm && fault->fault_granule > PAGE_SIZE) {
->  			fault->vma_pagesize = fault->fault_granule;
-> -		else
-> +		} else {
->  			fault->vma_pagesize = transparent_hugepage_adjust(kvm, fault->memslot,
->  									  fault->hva, &fault->pfn,
->  									  &fault->fault_ipa);
->  
-> -		if (fault->vma_pagesize < 0) {
-> -			ret = fault->vma_pagesize;
-> -			goto out_unlock;
-> +			if (fault->vma_pagesize < 0) {
-> +				ret = fault->vma_pagesize;
-> +				goto out_unlock;
-> +			}
->  		}
->  	}
->  
-> @@ -1951,7 +1951,9 @@ static int kvm_s2_fault_map(struct kvm_s2_fault *fault, void *memcache)
->  	if (fault->writable && !ret)
->  		mark_page_dirty_in_slot(kvm, fault->memslot, fault->gfn);
->  
-> -	return ret != -EAGAIN ? ret : 0;
-> +	if (ret != -EAGAIN)
-> +		return ret;
-> +	return 0;
->  }
->  
->  static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+Best regards,
+Krzysztof
 
 
