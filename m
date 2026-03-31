@@ -4,106 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77DF710F92FF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 20:39:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C5110F92FF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 20:42:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZRCQMa9zMGlvIHkM8ghTZ/x9mDeTjIV8vVymtj5kVU4=; b=EYrQGltZsZWKBcS1VtwowIUCRy
-	AqVHm8CkilAXUMbzAfJQMCS7RT5lsjYg+lpH/fPVzY/RtTua/IrMp7Bhu43tjeW4COe5UZj18mtu3
-	WqPqBcLJfH29vud1QCsfHDeu8TQjgEbPz9Oo/qBMunSrqfVqG+VLJntPaRyWZqhSSlmF6p1QBBy4O
-	BaEk8oWMPErHBI+ZTxMDUteH4PtosdLP+IU2oeOF1M4eDuecu1r3ialVFg3L2CT40aFhuSTb/DshL
-	jk9T8I4XK3dtyl99a3l/TZxv2lHnmK430VTSbQWqMDzTF8yDrZ2fQYCdXGzxnhQ7fea+twa6fl7D2
-	kiAXlwcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WsnjsNsr/OIhcfZWzJH4xX9fiqphyAgOrmo6gsBm4g4=; b=gIQcZO64vkaBuBAqofiz8XUsQi
+	Zjv1MNvboBQU0j386squ68G+FJgn3aoYXGLkNG8GPBaqQjUwt0F5lyAdza4W+JVulJ7VFoM89cG5f
+	DfbiZIXaOPVLp3ZfZHibsNxTmT17Crtybg62hVdtFYFvLxln1KCv7mlHomv2jAdnMMs8WCC0pjoTj
+	IxolGv1RlV+34QeI7wBXs9PhL2fIfCQ6V8ElQO/Fbo4dpkX/+20d5lqmTm8fiXpMkVirtFh2qCxwW
+	Cn7+7yGafi1h0FjvCjRzbV29RH29DoNuxFD84cCx2Ppd1/nLME8J2ZSnRHPcIm9m3SAqAtQy1VPaP
+	vf61y5rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7fsG-0000000DXHb-2KLf;
-	Tue, 31 Mar 2026 20:39:44 +0000
-Received: from mail-dl1-x1236.google.com ([2607:f8b0:4864:20::1236])
+	id 1w7fv6-0000000DXYk-0Alm;
+	Tue, 31 Mar 2026 20:42:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7fsE-0000000DXGk-0PDL
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 20:39:43 +0000
-Received: by mail-dl1-x1236.google.com with SMTP id a92af1059eb24-12732165d1eso8507509c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 13:39:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1774989579; x=1775594379; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ZRCQMa9zMGlvIHkM8ghTZ/x9mDeTjIV8vVymtj5kVU4=;
-        b=oxxUiFCME9cSa69fYAb6e/FZG7KYYC8QlbJqJR1vK4y8RGW67VGLMdJpYFaYWRB+ON
-         085jUuCCWktYYTJr7iIbz6aXNLHuvQxRttllCiNVdRm+VRqwQgIFbVacsyP89PAkUT/r
-         aykmpY+i4qRjCAQIDD6/HAcIav8C4bldDh+M9ZvUD0XtyGVcCr7qNl2P7hEQzShMrlG0
-         ewvrjhCCgN+NEGIhn9wQrnT2zOO0nAhwF0tr0kuJN617z9G1UwrqaSVS4Kgl6O78EmsZ
-         bso7FMgoHNhBnNqvpeSoM7Yell+OgloyiPFpwxx7KPrXmVFdg0j+rfbfQ3mpx8CB43b8
-         4N5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774989579; x=1775594379;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZRCQMa9zMGlvIHkM8ghTZ/x9mDeTjIV8vVymtj5kVU4=;
-        b=geL7SyvJjHFizh6D8P9yIE32S/92zJY53LwLO8xCg09o6/eCYBiHkvPtG7GiCJ8Kxw
-         YRiJ/b6orGKAW+PHJoBV3AVJYaf9PACs0bYngya/Dk8JH/Wjd6T27bAjAVWFzlFD4m6G
-         kHOHLEtPhMeWoOtJ36mjbyJ7OIYwXqkFKqMDscJ7TJjr6yVw5+0A9UG+524/PJ+DsCi9
-         QeFGz1t9B6GzzGsfQ/+/aJClnQLN5t5OSnsQWaHO1kkES+HTpI25iewbiKkfjlZVJzMA
-         zrXd5pLkR8PWS7B0IL80vlS9//8HrJCfpTn6xEKVipxe5xzmuMGfbRgUsgiRIXh37LCI
-         IUAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXkllpUqIqvN02jL4DpX4slaH4b655yX/1wFFXhk0pSOVKYk/JyqIzbb2kH7iUWT/7y5gGt6rTpY2ZtMKwF6ay1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTsbu3UdHZ4Rd1QZxr0r8gRxMDzGQs+TH9qHcljerDYeO2C/Vk
-	uDoutrPZH6/2xcRg6ntji/uHla7+oftBaxJhYE2GEVEwds4k7yFap29qDsfRP4qiWg==
-X-Gm-Gg: ATEYQzxc7pjJzcTMkmXQRgwB8EwjYpRRZo34beQTmd/s85Pz0Bgg9ufu1YG636lfs1b
-	J3SAMKcBnbFbMM5DwiLXIj0PX3IdPfr2U8R3/ib/X5ztakXQssxRn+Y2cxtRSpnhkbvqwZzuXzy
-	D0rrrPen8SUb5tYwJwYMDRmY3H7ryxSYvAlgoK2eux6YvAwBmghlpMEjHI15SxyWAn0yDYq76i2
-	j4gzjrexPcUV2rsWb8HymfP6gp4TfPxS5XYyx9FkNMApZYdaVODcOPxZNhDjNTDDN7UhJiOGQAo
-	h41WXuZyI3dJYBgc7SYsBFdQvpz9zzF20Dbpja/7jAi9KfX8z++AsCERQDwnSmcVze+ILJRuaGQ
-	qU68KzxBCdnxi37OpJhqUw80Emw/uLfUe6qUOi521wwpDgpj/+9LmH7+CL/2JVTQDA+YThnVlPS
-	cKyWAF9jJYg2z7uBAq9SdLNssPGP5z4NxV+VsHQ3t5P+EmiTYERZi/CbwExYJg9zTkbfebtLpKG
-	9V36COLaxLFGdfs6/ndggvxOg==
-X-Received: by 2002:a05:7022:41aa:b0:128:d494:a1ab with SMTP id a92af1059eb24-12be649eb12mr512442c88.15.1774989578723;
-        Tue, 31 Mar 2026 13:39:38 -0700 (PDT)
-Received: from ?IPV6:2a00:79e0:2e7c:8:6a92:85c3:5cd5:d23d? ([2a00:79e0:2e7c:8:6a92:85c3:5cd5:d23d])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-12ab983f9f3sm16792226c88.10.2026.03.31.13.39.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 31 Mar 2026 13:39:38 -0700 (PDT)
-Message-ID: <e5384261-7a9d-4c24-8387-6002268f5c1d@google.com>
-Date: Tue, 31 Mar 2026 13:39:33 -0700
+	id 1w7fv4-0000000DXYV-2Tjl;
+	Tue, 31 Mar 2026 20:42:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 585D460133;
+	Tue, 31 Mar 2026 20:42:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BDFBC19423;
+	Tue, 31 Mar 2026 20:42:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774989757;
+	bh=lzItpDMUFe9IIz3v9bFnYpmMsgPI8d54FF5k3tmR9SU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QaU4OE10H056EqgLekISQyTNMKqmyYtiHbhYw/Mj0n67L4i/yoT+My5/qCjmIbN3y
+	 o6yu+46tw9DoMzXZyUXh5brNEE13qqrrr83zFHVZithqigjgUnjpVYgNJ48fCyGSIv
+	 pzSymJnWUvnRkUrftay1tRwghIyT1bcoekEnMpU1UUsWU5p5w+cHDCa66G8vJYRIrT
+	 if0NpVydS2POlOW1DMA8RndiVKGuvJh2jJ2qu/Wh+5Iq6X2zWn0gw5pgD5n+uoqurK
+	 M0drrE9Y5JiQ68bO9qEGI1FDLaRDlZsFcdjcORbwv/91cUj8DrBWAPH1Sx+F3eVHSj
+	 7eQ9fYNHmocZQ==
+Date: Tue, 31 Mar 2026 17:42:32 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: 9erthalion6@gmail.com, adrian.hunter@intel.com, alex@ghiti.fr,
+	alexander.shishkin@linux.intel.com, andrew.jones@oss.qualcomm.com,
+	aou@eecs.berkeley.edu, atrajeev@linux.ibm.com,
+	blakejones@google.com, ctshao@google.com,
+	dapeng1.mi@linux.intel.com, howardchu95@gmail.com,
+	james.clark@linaro.org, john.g.garry@oracle.com, jolsa@kernel.org,
+	leo.yan@linux.dev, libunwind-devel@nongnu.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
+	mingo@redhat.com, namhyung@kernel.org, palmer@dabbelt.com,
+	peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com,
+	tglozar@redhat.com, tmricht@linux.ibm.com, will@kernel.org,
+	yuzhuo@google.com
+Subject: Re: [PATCH v2 1/8] perf unwind: Refactor get_entries to allow
+ dynamic libdw/libunwind selection
+Message-ID: <acwxuPAo8g6C867R@x1>
+References: <CAP-5=fWVU3ktkGAnZQrjQJf+Z5AtQo73BVUhj-nr3H95GdcEJQ@mail.gmail.com>
+ <20260305221927.3237145-1-irogers@google.com>
+ <20260305221927.3237145-2-irogers@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 3/6] mfd: max77759: add register bitmasks and modify
- irq configs for charger
-To: Lee Jones <lee@kernel.org>
-Cc: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Badhri Jagan Sridharan <badhri@google.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Mark Brown <broonie@kernel.org>,
- Matti Vaittinen <mazziesaccount@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, RD Babiera <rdbabiera@google.com>,
- Kyle Tso <kyletso@google.com>
-References: <20260325-max77759-charger-v9-0-4486dd297adc@google.com>
- <20260325-max77759-charger-v9-3-4486dd297adc@google.com>
- <20260331123138.GE3795166@google.com>
-Content-Language: en-US
-From: Amit Sunil Dhamne <amitsd@google.com>
-In-Reply-To: <20260331123138.GE3795166@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_133942_204547_93E07176 
-X-CRM114-Status: GOOD (  16.06  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260305221927.3237145-2-irogers@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,52 +81,375 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lee,
+On Thu, Mar 05, 2026 at 02:19:20PM -0800, Ian Rogers wrote:
+> Currently, both libdw and libunwind define 'unwind__get_entries'. This
+> causes a duplicate symbol build failure when both are compiled into
+> perf.
+> 
+> This commit refactors the DWARF unwind post-processing to be
+> configurable at runtime via the .perfconfig file option
+> 'unwind.style', or using the argument '--unwind-style' in the commands
+> 'perf report', 'perf script' and 'perf inject', in a similar manner to
+> the addr2line or the disassembler style.
+> 
+> The file 'tools/perf/util/unwind.c' adds the top-level dispatch
+> function 'unwind__get_entries'. The backend implementations are
+> renamed to 'libdw__get_entries' and 'libunwind__get_entries'. Both are
+> attempted as fallbacks if not configured, or if the primary backend
+> fails.
+> 
+> Fixes: 2e9191573a69 ("perf build: Remove NO_LIBDW_DWARF_UNWIND option")
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>  tools/perf/builtin-inject.c        |   4 ++
+>  tools/perf/builtin-report.c        |   4 ++
+>  tools/perf/builtin-script.c        |   4 ++
+>  tools/perf/util/Build              |   1 +
+>  tools/perf/util/symbol_conf.h      |  15 +++++
+>  tools/perf/util/unwind-libdw.c     |   2 +-
+>  tools/perf/util/unwind-libunwind.c |   2 +-
+>  tools/perf/util/unwind.c           | 102 +++++++++++++++++++++++++++++
+>  tools/perf/util/unwind.h           |  40 +++++------
+>  9 files changed, 149 insertions(+), 25 deletions(-)
+>  create mode 100644 tools/perf/util/unwind.c
+> 
+> diff --git a/tools/perf/builtin-inject.c b/tools/perf/builtin-inject.c
+> index 5b29f4296861..9ad681b3c0dc 100644
+> --- a/tools/perf/builtin-inject.c
+> +++ b/tools/perf/builtin-inject.c
+> @@ -26,6 +26,7 @@
+>  #include "util/synthetic-events.h"
+>  #include "util/thread.h"
+>  #include "util/namespaces.h"
+> +#include "util/unwind.h"
+>  #include "util/util.h"
+>  #include "util/tsc.h"
+>  
+> @@ -2539,6 +2540,9 @@ int cmd_inject(int argc, const char **argv)
+>  		OPT_STRING(0, "guestmount", &symbol_conf.guestmount, "directory",
+>  			   "guest mount directory under which every guest os"
+>  			   " instance has a subdir"),
+> +		OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
+> +			     "unwind styles (libdw,libunwind)",
+> +			     unwind__option),
+>  		OPT_BOOLEAN(0, "convert-callchain", &inject.convert_callchain,
+>  			    "Generate callchains using DWARF and drop register/stack data"),
+>  		OPT_END()
+> diff --git a/tools/perf/builtin-report.c b/tools/perf/builtin-report.c
+> index 3b81f4b3dc49..ae20c0679990 100644
+> --- a/tools/perf/builtin-report.c
+> +++ b/tools/perf/builtin-report.c
+> @@ -48,6 +48,7 @@
+>  #include "util/time-utils.h"
+>  #include "util/auxtrace.h"
+>  #include "util/units.h"
+> +#include "util/unwind.h"
+>  #include "util/util.h" // perf_tip()
+>  #include "ui/ui.h"
+>  #include "ui/progress.h"
+> @@ -1455,6 +1456,9 @@ int cmd_report(int argc, const char **argv)
+>  	OPT_CALLBACK(0, "addr2line-style", NULL, "addr2line style",
+>  		     "addr2line styles (libdw,llvm,libbfd,addr2line)",
+>  		     report_parse_addr2line_config),
+> +	OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
+> +		     "unwind styles (libdw,libunwind)",
+> +		     unwind__option),
+>  	OPT_BOOLEAN(0, "demangle", &symbol_conf.demangle,
+>  		    "Symbol demangling. Enabled by default, use --no-demangle to disable."),
+>  	OPT_BOOLEAN(0, "demangle-kernel", &symbol_conf.demangle_kernel,
+> diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
+> index 9f8b0fd27a0a..b6c7c164d02d 100644
+> --- a/tools/perf/builtin-script.c
+> +++ b/tools/perf/builtin-script.c
+> @@ -63,6 +63,7 @@
+>  #include <linux/err.h>
+>  #include "util/dlfilter.h"
+>  #include "util/record.h"
+> +#include "util/unwind.h"
+>  #include "util/util.h"
+>  #include "util/cgroup.h"
+>  #include "util/annotate.h"
+> @@ -4164,6 +4165,9 @@ int cmd_script(int argc, const char **argv)
+>  			"Enable symbol demangling"),
+>  	OPT_BOOLEAN(0, "demangle-kernel", &symbol_conf.demangle_kernel,
+>  			"Enable kernel symbol demangling"),
+> +	OPT_CALLBACK(0, "unwind-style", NULL, "unwind style",
+> +		     "unwind styles (libdw,libunwind)",
+> +		     unwind__option),
+>  	OPT_STRING(0, "addr2line", &symbol_conf.addr2line_path, "path",
+>  			"addr2line binary to use for line numbers"),
+>  	OPT_STRING(0, "time", &script.time_str, "str",
+> diff --git a/tools/perf/util/Build b/tools/perf/util/Build
+> index bcccad7487a9..6190a8f5b0fa 100644
+> --- a/tools/perf/util/Build
+> +++ b/tools/perf/util/Build
+> @@ -218,6 +218,7 @@ ifndef CONFIG_SETNS
+>  perf-util-y += setns.o
+>  endif
+>  
+> +perf-util-y += unwind.o
+>  perf-util-$(CONFIG_LIBDW) += probe-finder.o
+>  perf-util-$(CONFIG_LIBDW) += dwarf-aux.o
+>  perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
+> diff --git a/tools/perf/util/symbol_conf.h b/tools/perf/util/symbol_conf.h
+> index 71bb17372a6c..25d92bbbfee7 100644
+> --- a/tools/perf/util/symbol_conf.h
+> +++ b/tools/perf/util/symbol_conf.h
+> @@ -9,6 +9,19 @@
+>  struct strlist;
+>  struct intlist;
+>  
+> +enum unwind_style {
+> +
+> +	UNWIND_STYLE_UNKNOWN = 0,
+> +
+> +	UNWIND_STYLE_LIBDW,
+> +
+> +	UNWIND_STYLE_LIBUNWIND,
+> +
+> +};
+> +
+> +#define MAX_UNWIND_STYLE (UNWIND_STYLE_LIBUNWIND + 1)
+> +
+> +
+>  enum a2l_style {
+>  	A2L_STYLE_UNKNOWN = 0,
+>  	A2L_STYLE_LIBDW,
+> @@ -80,6 +93,7 @@ struct symbol_conf {
+>  			*bt_stop_list_str;
+>  	const char		*addr2line_path;
+>  	enum a2l_style	addr2line_style[MAX_A2L_STYLE];
+> +	enum unwind_style unwind_style[MAX_UNWIND_STYLE];
+>  	unsigned long	time_quantum;
+>         struct strlist	*dso_list,
+>  			*comm_list,
+> @@ -103,3 +117,4 @@ struct symbol_conf {
+>  extern struct symbol_conf symbol_conf;
+>  
+>  #endif // __PERF_SYMBOL_CONF
+> +
+> diff --git a/tools/perf/util/unwind-libdw.c b/tools/perf/util/unwind-libdw.c
+> index 05e8e68bd49c..d8a5b7d54192 100644
+> --- a/tools/perf/util/unwind-libdw.c
+> +++ b/tools/perf/util/unwind-libdw.c
+> @@ -339,7 +339,7 @@ frame_callback(Dwfl_Frame *state, void *arg)
+>  	       DWARF_CB_ABORT : DWARF_CB_OK;
+>  }
+>  
+> -int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+> +int libdw__get_entries(unwind_entry_cb_t cb, void *arg,
+>  			struct thread *thread,
+>  			struct perf_sample *data,
+>  			int max_stack,
+> diff --git a/tools/perf/util/unwind-libunwind.c b/tools/perf/util/unwind-libunwind.c
+> index cb8be6acfb6f..a0016b897dae 100644
+> --- a/tools/perf/util/unwind-libunwind.c
+> +++ b/tools/perf/util/unwind-libunwind.c
+> @@ -79,7 +79,7 @@ void unwind__finish_access(struct maps *maps)
+>  		ops->finish_access(maps);
+>  }
+>  
+> -int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+> +int libunwind__get_entries(unwind_entry_cb_t cb, void *arg,
+>  			 struct thread *thread,
+>  			 struct perf_sample *data, int max_stack,
+>  			 bool best_effort)
+> diff --git a/tools/perf/util/unwind.c b/tools/perf/util/unwind.c
+> new file mode 100644
+> index 000000000000..9ae7d5ad246d
+> --- /dev/null
+> +++ b/tools/perf/util/unwind.c
+> @@ -0,0 +1,102 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +#include "debug.h"
+> +#include "symbol_conf.h"
+> +#include "unwind.h"
+> +#include <linux/string.h>
+> +#include <string.h>
+> +#include <stdlib.h>
+> +
+> +int unwind__get_entries(unwind_entry_cb_t cb __maybe_unused, void *arg __maybe_unused,
+> +			struct thread *thread __maybe_unused,
+> +			struct perf_sample *data __maybe_unused,
+> +			int max_stack __maybe_unused,
+> +			bool best_effort __maybe_unused)
+> +{
+> +	int ret = 0;
+> +
+> +#if defined(HAVE_LIBDW_SUPPORT) || defined(HAVE_LIBUNWIND_SUPPORT)
+> +	if (symbol_conf.unwind_style[0] == UNWIND_STYLE_UNKNOWN) {
+> +		int i = 0;
+> +#ifdef HAVE_LIBDW_SUPPORT
+> +		symbol_conf.unwind_style[i++] = UNWIND_STYLE_LIBDW;
+> +#endif
+> +#ifdef HAVE_LIBUNWIND_SUPPORT
+> +		symbol_conf.unwind_style[i++] = UNWIND_STYLE_LIBUNWIND;
+> +#endif
+> +	}
+> +#endif //defined(HAVE_LIBDW_SUPPORT) || defined(HAVE_LIBUNWIND_SUPPORT)
+> +
+> +	for (size_t i = 0; i < ARRAY_SIZE(symbol_conf.unwind_style); i++) {
+> +		switch (symbol_conf.unwind_style[i]) {
+> +		case UNWIND_STYLE_LIBDW:
+> +#ifdef HAVE_LIBDW_SUPPORT
+> +			ret = libdw__get_entries(cb, arg, thread, data, max_stack, best_effort);
+> +#endif
+> +			break;
+> +		case UNWIND_STYLE_LIBUNWIND:
+> +#ifdef HAVE_LIBUNWIND_SUPPORT
+> +			ret = libunwind__get_entries(cb, arg, thread, data, max_stack, best_effort);
+> +#endif
+> +			break;
 
-On 3/31/26 5:31 AM, Lee Jones wrote:
-> On Wed, 25 Mar 2026, Amit Sunil Dhamne via B4 Relay wrote:
->
->> From: Amit Sunil Dhamne <amitsd@google.com>
->>
->> Add register bitmasks for charger function.
->> In addition split the charger IRQs further such that each bit represents
->> an IRQ downstream of charger regmap irq chip. In addition populate the
->> ack_base to offload irq ack to the regmap irq chip framework.
->>
->> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
->> Reviewed-by: André Draszik <andre.draszik@linaro.org>
->> ---
->>   drivers/mfd/max77759.c       |  95 ++++++++++++++++++++++---
->>   include/linux/mfd/max77759.h | 166 +++++++++++++++++++++++++++++++++++--------
->>   2 files changed, 222 insertions(+), 39 deletions(-)
->>
-> [...]
->
->> +/*
->> + * enum max77759_chgr_chgin_dtls_status - Charger Input Status
->> + * @MAX77759_CHGR_CHGIN_DTLS_VBUS_UNDERVOLTAGE:
->> + *     Charger input voltage (Vchgin) < Under Voltage Threshold (Vuvlo)
->> + * @MAX77759_CHGR_CHGIN_DTLS_VBUS_MARGINAL_VOLTAGE: Vchgin > Vuvlo and
->> + *     Vchgin < (Battery Voltage (Vbatt) + system voltage (Vsys))
->> + * @MAX77759_CHGR_CHGIN_DTLS_VBUS_OVERVOLTAGE:
->> + *     Vchgin > Over Voltage threshold (Vovlo)
->> + * @MAX77759_CHGR_CHGIN_DTLS_VBUS_VALID:
->> + *     Vchgin > Vuvlo, Vchgin < Vovlo and Vchgin > (Vsys + Vbatt)
->> + */
-> This comment is masquerading as a kernel-doc header, but isn't actually
-> kernel-doc.  Either change the formatting or adapt the formatting to use
-> /** and use W=1 to check it.
-Thanks for pointing this out! I'll fix this in the next version and 
-ensure it's a proper kernel-doc block.
 
-BR,
+What if the user asks for one of the unwinders, symbol_conf.unwind_style
+will be populated with the user's choices, but then here in
+unwind__get_entries() we end up returning 0 because the user choice is
+not built-in?
 
-Amit
+Also no warning will be emitted that what was asked for is not
+available?
 
->> +enum max77759_chgr_chgin_dtls_status {
->> +	MAX77759_CHGR_CHGIN_DTLS_VBUS_UNDERVOLTAGE,
->> +	MAX77759_CHGR_CHGIN_DTLS_VBUS_MARGINAL_VOLTAGE,
->> +	MAX77759_CHGR_CHGIN_DTLS_VBUS_OVERVOLTAGE,
->> +	MAX77759_CHGR_CHGIN_DTLS_VBUS_VALID,
->> +};
+Maybe remove the ifdefs here and have a dummy libdw__get_entries() when
+HAVE_LIBDW_SUPPORT ins't defined that emits the warning and returns -1?
+Ditto for UNWIND_STYLE_LIBUNWIND?
+
+- Arnaldo
+
+> +		case UNWIND_STYLE_UNKNOWN:
+> +		default:
+> +#if !defined(HAVE_LIBDW_SUPPORT) && !defined(HAVE_LIBUNWIND_SUPPORT)
+> +			pr_warning_once(
+> +				"Error: dwarf unwinding not supported, build perf with libdw or libunwind.\n");
+> +#endif
+> +			ret = -1;
+> +			break;
+> +		}
+> +		if (ret == 0)
+> +			break;
+> +	}
+> +	return ret;
+> +}
+> +
+> +int unwind__configure(const char *var, const char *value, void *cb __maybe_unused)
+> +{
+> +	static const char * const unwind_style_names[] = {
+> +		[UNWIND_STYLE_LIBDW] = "libdw",
+> +		[UNWIND_STYLE_LIBUNWIND] = "libunwind",
+> +		NULL
+> +	};
+> +	char *s, *p, *saveptr;
+> +	size_t i = 0;
+> +
+> +	if (strcmp(var, "unwind.style"))
+> +		return 0;
+> +
+> +	if (!value)
+> +		return -1;
+> +
+> +	s = strdup(value);
+> +	if (!s)
+> +		return -1;
+> +
+> +	p = strtok_r(s, ",", &saveptr);
+> +	while (p && i < ARRAY_SIZE(symbol_conf.unwind_style)) {
+> +		bool found = false;
+> +		char *q = strim(p);
+> +
+> +		for (size_t j = UNWIND_STYLE_LIBDW; j < MAX_UNWIND_STYLE; j++) {
+> +			if (!strcasecmp(q, unwind_style_names[j])) {
+> +				symbol_conf.unwind_style[i++] = j;
+> +				found = true;
+> +				break;
+> +			}
+> +		}
+> +		if (!found)
+> +			pr_warning("Unknown unwind style: %s\n", q);
+> +		p = strtok_r(NULL, ",", &saveptr);
+> +	}
+> +
+> +	free(s);
+> +	return 0;
+> +}
+> +
+> +int unwind__option(const struct option *opt __maybe_unused,
+> +		   const char *arg,
+> +		   int unset __maybe_unused)
+> +{
+> +	return unwind__configure("unwind.style", arg, NULL);
+> +}
+> diff --git a/tools/perf/util/unwind.h b/tools/perf/util/unwind.h
+> index 9f7164c6d9aa..581d042e170a 100644
+> --- a/tools/perf/util/unwind.h
+> +++ b/tools/perf/util/unwind.h
+> @@ -7,6 +7,7 @@
+>  #include "util/map_symbol.h"
+>  
+>  struct maps;
+> +struct option;
+>  struct perf_sample;
+>  struct thread;
+>  
+> @@ -26,7 +27,9 @@ struct unwind_libunwind_ops {
+>  			   struct perf_sample *data, int max_stack, bool best_effort);
+>  };
+>  
+> -#ifdef HAVE_DWARF_UNWIND_SUPPORT
+> +int unwind__configure(const char *var, const char *value, void *cb);
+> +int unwind__option(const struct option *opt, const char *arg, int unset);
+> +
+>  /*
+>   * When best_effort is set, don't report errors and fail silently. This could
+>   * be expanded in the future to be more permissive about things other than
+> @@ -36,8 +39,20 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+>  			struct thread *thread,
+>  			struct perf_sample *data, int max_stack,
+>  			bool best_effort);
+> -/* libunwind specific */
+> +
+> +#ifdef HAVE_LIBDW_SUPPORT
+> +int libdw__get_entries(unwind_entry_cb_t cb, void *arg,
+> +		       struct thread *thread,
+> +		       struct perf_sample *data, int max_stack,
+> +		       bool best_effort);
+> +#endif
+> +
+>  #ifdef HAVE_LIBUNWIND_SUPPORT
+> +/* libunwind specific */
+> +int libunwind__get_entries(unwind_entry_cb_t cb, void *arg,
+> +			   struct thread *thread,
+> +			   struct perf_sample *data, int max_stack,
+> +			   bool best_effort);
+>  #ifndef LIBUNWIND__ARCH_REG_ID
+>  #define LIBUNWIND__ARCH_REG_ID(regnum) libunwind__arch_reg_id(regnum)
+>  #endif
+> @@ -57,26 +72,5 @@ static inline int unwind__prepare_access(struct maps *maps __maybe_unused,
+>  static inline void unwind__flush_access(struct maps *maps __maybe_unused) {}
+>  static inline void unwind__finish_access(struct maps *maps __maybe_unused) {}
+>  #endif
+> -#else
+> -static inline int
+> -unwind__get_entries(unwind_entry_cb_t cb __maybe_unused,
+> -		    void *arg __maybe_unused,
+> -		    struct thread *thread __maybe_unused,
+> -		    struct perf_sample *data __maybe_unused,
+> -		    int max_stack __maybe_unused,
+> -		    bool best_effort __maybe_unused)
+> -{
+> -	return 0;
+> -}
+> -
+> -static inline int unwind__prepare_access(struct maps *maps __maybe_unused,
+> -					 struct map *map __maybe_unused,
+> -					 bool *initialized __maybe_unused)
+> -{
+> -	return 0;
+> -}
+>  
+> -static inline void unwind__flush_access(struct maps *maps __maybe_unused) {}
+> -static inline void unwind__finish_access(struct maps *maps __maybe_unused) {}
+> -#endif /* HAVE_DWARF_UNWIND_SUPPORT */
+>  #endif /* __UNWIND_H */
+> -- 
+> 2.53.0.473.g4a7958ca14-goog
 
