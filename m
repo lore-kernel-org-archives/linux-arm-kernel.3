@@ -4,129 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16BC5FF60ED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 08:36:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F36FF60ED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 08:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L3TSuB1FbI7lqYJC1uY7y+dtfsWxR+6ey/FSJ/giDGM=; b=sJZV+kKJb0rSnUf5jgUMrfajJH
-	Nl1JxazjcfPLV+3b6miBmifEoJE323eWb934rTySFt4H7svEdvgm5+sztpLxck3pxt5tJ+9djCOyN
-	3U14BjP9hgufk3C0wfJn17Hxg/voC7PZLq5ZYcEY6aeS65CNacs92J5xK4m6GotEB6V5uE/ltSaCc
-	tDLSdT00zf+k8Ma9omEG6H6gdU8pFpneM3cZoUSv4DhSwo5CJE/S3qW29e9Z8+EyPuvupWBIRgOKN
-	djH65PJc6u0TZQ/AiWMwhGzeUPnIhDMgaZP4yFn0SyWEuoBXXm3Fzf/a1l2wk2eJYcOeiLOjCDDC9
-	1AzzKUkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vja8/KZvKfu45kSBafalby/ilVeH76f5bLsgpomH8T0=; b=r9u6ScIVGag7+56f8XDGpxxJai
+	Ren20ZojUVJz8zkWMDUlJ9+SBsR6dpzKZk0qtu93qi3myda6ppl8Snyr8RLmVr7V6qcioLp+2KODw
+	8/yw/FZoZHXe4ullhyuaAXoqjQ2d695HMhJgGuoOt2QiCDTQXvC3z6LIMhlz3tevgHYZYBzhFS4k3
+	H2C2mmixc16AVL/df84xO3UgomTM6i5kahFmYwI8dKa5DKO23W+IJQ43S8srYzNvDusDyqARV9w7g
+	4kFtQjBObt8YLnc663+kcV/BVnQJr6uWo2QPakKJkMrukf5/0Ti78cp6YWiN80LcP6ZnQ77Fd9Vus
+	7EXzCZZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7UaQ-0000000CbwA-3ed3;
-	Tue, 31 Mar 2026 08:36:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w7UaY-0000000Cbzy-0iuV;
+	Tue, 31 Mar 2026 08:36:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7UaK-0000000Cbs9-3hzP
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 31 Mar 2026 08:36:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=L3TSuB1FbI7lqYJC1uY7y+dtfsWxR+6ey/FSJ/giDGM=; b=gihvkqEMf1uLvsaq2S1cBrbtqT
-	kvLZ+eyKa+757xi8wbo9pEo3TjufzSf1b7uwjL0GuImNEcqp9ikRlTzLg4njeWa5UIng6EbVlFtY6
-	xlVs6WhAQ8mS3lc3J5ydxHda8997qq7gELWShPhBjyoQ7KLTuX6D/Velb3XfaDQjYi9vxZeOwDY6/
-	ses802/VAZY0O0nCW35OFNKlieHxXPl/XWK+ThvpF4G6KUU9CObzUxk3NFstTQ1FRpKEgqjGPttH0
-	KheUv/5nQYixgvrDGH2Z46zYT0ypKV003c/TYwzjAeokRoIpIA739C9O6t/fgjfbrHj9lSICnfkHP
-	A31bAE0g==;
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Ua7-0000000FQTF-1GQB
+	id 1w7UaQ-0000000Cbvc-1YEj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 08:36:18 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-b9b1ffbb9f5so649960066b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 01:36:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774946172; cv=none;
-        d=google.com; s=arc-20240605;
-        b=ey4K7fF7D8sFONG4S2xyfgehGE6GXOP3cOPhyHfvHPUCmEvcna2Box6jfJya3n0QmV
-         NR+EjTAKbFqt2OdTL17FqSqQ+H/Yv0hW5IjLavHwHfVy/KL0gWqT7z6Pvwsf26WDyjuJ
-         aiWPBLBuQRGKubHc4SiIvxyg6UmYCbF+cKHHs8+15C0pBLtla69RxXQSICvl31FCHq/q
-         s7mTEpEAe7BahSqBj9RTEfXvOkr+XcUmG2I7NuU1SG1iO5UuuTGeDmRf9hUC9tJOKiYg
-         kcw5Q0obN7Xa7yfONaaXWXJbqxsVBsr3PaWVIgE4lSmy/rPYvWarPU4T8rQx1lGRbaXI
-         S/jw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=L3TSuB1FbI7lqYJC1uY7y+dtfsWxR+6ey/FSJ/giDGM=;
-        fh=5duArV+d9FwaH1LOaiIYqBcD7TilqshejSDtfTyK82s=;
-        b=c3clgK4qwIzFnbXy+bQ1QT8YteBwiwXOCCPqVRRTzBsQrgbaJrjAJ9scY19jkUtqBm
-         1ZMG+bx46PPNRWiVdTHkrc4q0wS8iZ9UmdCz2THEW65Sl8jlEJgw6duIAqg+06NLh+xQ
-         GQ13dAirkR9ozTEToDVMZxHo0NqgB4s27aY3PkxfzJkqn5IKE1o5eo7LTsbutDLoX9+e
-         23ynwRAO1iFu+uRYKvp1gQpLDmpy+3uPtuFhmcCkYf6qYlZrcfkhbzefni4DlHbXcFTN
-         LYhYT9vyFb+UU72yL/uPoyP2v4/0eaQa12IDeUowSy7ItED2cWwq6x8PendmeLOYkyPB
-         3EBA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774946172; x=1775550972; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=L3TSuB1FbI7lqYJC1uY7y+dtfsWxR+6ey/FSJ/giDGM=;
-        b=K7rIfC/jyOR6qvEEH0xtGp3DPaf5osEmIC53ryprOGXdJwn91oXizrqv4A50rzy0Vj
-         VM7S8Z34qngrJWUC7R93HanaAhM2rYrLqe6ZC3JUjH/vF0caFqP8nmvI2m/qZQdXEfsJ
-         vUJdfZC0/wTCQsoqbeGE1P+NcY+QJJIBNLuv4V/wUF+7d4i0cyA+OcSOXSbcst8H6FFl
-         u/rTALmvDury4fhywAo0ItmQcP+7RJZEtlyoWg2sb+fAruFj57WMKpR4LAeQ1IbVSpol
-         8tBvlYdGAgNsQmkXftlJ+KbNTXYUdbZJi5l1302bHuhVssP20vC4fcSkafwecHqmXd1d
-         mJyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774946172; x=1775550972;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=L3TSuB1FbI7lqYJC1uY7y+dtfsWxR+6ey/FSJ/giDGM=;
-        b=DC/HQ96nd+Ke6kx8NVv5kfPGJAgNpgOKIeMgtxtiGoPdyleDl70467+w7ZzkltyzJ4
-         6uruKSiEtyy8LXNvUezz8baRWCFBVwUgLPTjspzRXrxDCfyabYu0JJyOU0l2mwz4GSuw
-         33lJEmRS60/hk8gGUxXgMyyWdWk2HGcB+rlUNwRL7B23ecu0P8x2ptCTEolnO7aqARh9
-         0S65JZM8rZY6cilczoGRRDKwzxT6cvitS29Zy/BJnL7XI/lzEdQaFLDsWelmbf/208pc
-         aLlXhyIR4cV92vme7UGqhrSsdAQ8Jsrgv5ZSlFOn92OpirpnCoeR0Kd31kT2MDquCYZq
-         D9Nw==
-X-Forwarded-Encrypted: i=1; AJvYcCXshnQNubzozd+6o6PTCh91jcst/cn5ipSAqLsDQjS14BQssqA0YFFFRAeVpFjksFeLjgnixTAGfeSx4VK2fxX/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRX5kMFHjWJGlqmvGuQkTlXu1D+UPaSS/vF2vgtRC6l/4tgpIe
-	/e0IXOXNdLS6Bt5qNhRA/aOoINZ5B0iBnInTgrOOi5/mAIAu4f+N2PAscLGqpSoA0N1jFbhySC3
-	0Ar4Mn44RRiEydDL8aSKY6EInevRJh6k=
-X-Gm-Gg: ATEYQzwtauri5SnITei4KAzcHg24xOaD9vJDhZS4eS26mTb8ie9OKlOKvuPlj6dWSRv
-	uUVcoq8WdCK55EAkjPKDzjGoRePRm8o8HscBKFjZ0mCtqiudxOToL8rKy1yi+BLyhdhPdo2xAdf
-	dRjPoFEgdXHqf/1bxO7p9/CBDKfjFt1/0tYh7wiZFGrClqelWljks46UG7xUIIx0rizwU3Q4/Nk
-	sDvtgJneDFTF0UQjLxNQ/pWUzmXAFkicq5huJtVfaeUCuBF8GkItq7Bq2lvxxT2f1iud4gj+uYt
-	beMVEA==
-X-Received: by 2002:a17:907:da7:b0:b9b:fa57:d5b2 with SMTP id
- a640c23a62f3a-b9bfa57d98amr71812766b.42.1774946171488; Tue, 31 Mar 2026
- 01:36:11 -0700 (PDT)
+	Tue, 31 Mar 2026 08:36:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C9EDA60127;
+	Tue, 31 Mar 2026 08:36:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BC1DC2BCB0;
+	Tue, 31 Mar 2026 08:36:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774946193;
+	bh=DnL/wn8OqAp+2CfNBRsbAhbshuKmA3OfJU3X1O9CUh8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=HpWe8+HihNBuyeuFMELMNnm2dwwQDMBMfFIj5GrcRQzY1hbilC9Sdwz8XWbToZ/TA
+	 0jYaqqPXUYnIPltWNfBWti5hvue6CRPqXA3JQPveC2uj87giG2Ss1YTYmenhUoWuKR
+	 ZjmRkmQMTK2gsan+EoCOmpXh4LwuwRb0QZZbpKZlJjyAr1KddjR2c7X6AXKSzGJl6Q
+	 99FpnSka1a3l1skFDetdXgW44Q3hxAsvTWGR76zEVReseiJHI3CU/Odm35epfO2ssY
+	 bHywj39L4lETi5LGIYQdVEfTY2r2xWKE8lMsoyr4HIHvM+TNoIgPjcWxOc83lFb/cr
+	 sWI5H2lYtjP6Q==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Steven Rostedt <rostedt@goodmis.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	Ian Rogers <irogers@google.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v15 4/5] ring-buffer: Add persistent ring buffer invalid-page inject test
+Date: Tue, 31 Mar 2026 17:36:30 +0900
+Message-ID: <177494619065.71933.9842685686800241005.stgit@mhiramat.tok.corp.google.com>
+X-Mailer: git-send-email 2.53.0.1118.gaef5881109-goog
+In-Reply-To: <177494615421.71933.3679132057004156013.stgit@mhiramat.tok.corp.google.com>
+References: <177494615421.71933.3679132057004156013.stgit@mhiramat.tok.corp.google.com>
+User-Agent: StGit/0.19
 MIME-Version: 1.0
-References: <20260330083429.359819-1-l.scorcia@gmail.com> <20260330083429.359819-2-l.scorcia@gmail.com>
- <20260331-flawless-bronze-lorikeet-59a6ff@quoll>
-In-Reply-To: <20260331-flawless-bronze-lorikeet-59a6ff@quoll>
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Date: Tue, 31 Mar 2026 10:36:00 +0200
-X-Gm-Features: AQROBzCHGHvki3QPtgYv0FgcoeVoJGVuIm0WEFEat61ZeqaJ2itNlZb_JB2hAws
-Message-ID: <CAORyz2+1bc9Z-opoNqyUU_WFzyXZKGQmR_Ur=4UonOC=AWtQ8w@mail.gmail.com>
-Subject: Re: [PATCH v4 1/9] dt-bindings: mfd: mt6397: Add MT6392 PMIC
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-mediatek@lists.infradead.org, Fabien Parent <parent.f@gmail.com>, 
-	Val Packett <val@packett.cool>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
-	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Linus Walleij <linusw@kernel.org>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, Gary Bisson <bisson.gary@gmail.com>, 
-	Julien Massot <julien.massot@collabora.com>, Chen Zhong <chen.zhong@mediatek.com>, 
-	linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_093616_814438_F44924DA 
-X-CRM114-Status: GOOD (  12.77  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,28 +76,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > -    required:
-> > -      - compatible
->
-> Not really, this affects existing ABI and might make the child schema
-> being applied. Basically regulators node can be anything now.
->
-> This is definitely not a binding we want. The syntax for parent schema
-> when listing only compatibles is requiring this compatible. You cannot
-> have here whatever empty node.
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
-Hi, it felt quite strange to me too, but that's what I thought you
-meant with your previous suggestion [1].
-To keep the required attribute I would be happy to reintroduce the
-compatible here, in the regulator schema and the pmic dtsi.
+Add a self-destractive test for the persistent ring buffer.
 
-Before I do that and resubmit, could you please help me understand
-what you meant before?
+This will inject erroneous value to some sub-buffer pages (where
+the index is even or multiples of 5) in the persistent ring buffer
+when kernel gets panic, and check whether the number of detected
+invalid pages and the total entry_bytes are the same as recorded
+values after reboot.
 
-Thank you!
+This can ensure the kernel correctly recover partially corrupted
+persistent ring buffer when boot.
 
-[1] https://lists.infradead.org/pipermail/linux-mediatek/2026-March/105060.html
--- 
-Luca Leonardo Scorcia
-l.scorcia@gmail.com
+The test only runs on the persistent ring buffer whose name is
+"ptracingtest". And user has to fill it up with events before
+kernel panics.
+
+To run the test, enable CONFIG_RING_BUFFER_PERSISTENT_INJECT
+and you have to setup the kernel cmdline;
+
+ reserve_mem=20M:2M:trace trace_instance=ptracingtest^traceoff@trace
+ panic=1
+
+And run following commands after the 1st boot;
+
+ cd /sys/kernel/tracing/instances/ptracingtest
+ echo 1 > tracing_on
+ echo 1 > events/enable
+ sleep 3
+ echo c > /proc/sysrq-trigger
+
+After panic message, the kernel will reboot and run the verification
+on the persistent ring buffer, e.g.
+
+ Ring buffer meta [2] invalid buffer page detected
+ Ring buffer meta [2] is from previous boot! (318 pages discarded)
+ Ring buffer testing [2] invalid pages: PASSED (318/318)
+ Ring buffer testing [2] entry_bytes: PASSED (1300476/1300476)
+
+Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+---
+ Changes in v15:
+  - Use pr_warn() for test result.
+  - Inject errors on the page index is multiples of 5 so that
+    this can reproduce contiguous empty pages.
+ Changes in v14:
+  - Rename config to CONFIG_RING_BUFFER_PERSISTENT_INJECT.
+  - Clear meta->nr_invalid/entry_bytes after testing.
+  - Add test commands in config comment.
+ Changes in v10:
+  - Add entry_bytes test.
+  - Do not compile test code if CONFIG_RING_BUFFER_PERSISTENT_SELFTEST=n.
+ Changes in v9:
+  - Test also reader pages.
+---
+ include/linux/ring_buffer.h |    1 +
+ kernel/trace/Kconfig        |   31 ++++++++++++++++++
+ kernel/trace/ring_buffer.c  |   74 +++++++++++++++++++++++++++++++++++++++++++
+ kernel/trace/trace.c        |    4 ++
+ 4 files changed, 110 insertions(+)
+
+diff --git a/include/linux/ring_buffer.h b/include/linux/ring_buffer.h
+index 994f52b34344..0670742b2d60 100644
+--- a/include/linux/ring_buffer.h
++++ b/include/linux/ring_buffer.h
+@@ -238,6 +238,7 @@ int ring_buffer_subbuf_size_get(struct trace_buffer *buffer);
+ 
+ enum ring_buffer_flags {
+ 	RB_FL_OVERWRITE		= 1 << 0,
++	RB_FL_TESTING		= 1 << 1,
+ };
+ 
+ #ifdef CONFIG_RING_BUFFER
+diff --git a/kernel/trace/Kconfig b/kernel/trace/Kconfig
+index e130da35808f..07305ed6d745 100644
+--- a/kernel/trace/Kconfig
++++ b/kernel/trace/Kconfig
+@@ -1202,6 +1202,37 @@ config RING_BUFFER_VALIDATE_TIME_DELTAS
+ 	  Only say Y if you understand what this does, and you
+ 	  still want it enabled. Otherwise say N
+ 
++config RING_BUFFER_PERSISTENT_INJECT
++	bool "Enable persistent ring buffer error injection test"
++	depends on RING_BUFFER
++	help
++	  Run a selftest on the persistent ring buffer which names
++	  "ptracingtest" (and its backup) when panic_on_reboot by
++	  invalidating ring buffer pages.
++	  To use this, boot kernel with "ptracingtest" persistent
++	  ring buffer, e.g.
++
++	   reserve_mem=20M:2M:trace trace_instance=ptracingtest@trace panic=1
++
++	  And after the 1st boot, run test command, like;
++
++	   cd /sys/kernel/tracing/instances/ptracingtest
++	   echo 1 > events/enable
++	   echo 1 > tracing_on
++	   sleep 3
++	   echo c > /proc/sysrq-trigger
++
++	  After panic message, the kernel reboots and show test results
++	  on the boot log.
++
++	  Note that user has to enable events on the persistent ring
++	  buffer manually to fill up ring buffers before rebooting.
++	  Since this invalidates the data on test target ring buffer,
++	  "ptracingtest" persistent ring buffer must not be used for
++	  actual tracing, but only for testing.
++
++	  If unsure, say N
++
+ config MMIOTRACE_TEST
+ 	tristate "Test module for mmiotrace"
+ 	depends on MMIOTRACE && m
+diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
+index 5ff632ca3858..fb098b0b4505 100644
+--- a/kernel/trace/ring_buffer.c
++++ b/kernel/trace/ring_buffer.c
+@@ -64,6 +64,10 @@ struct ring_buffer_cpu_meta {
+ 	unsigned long	commit_buffer;
+ 	__u32		subbuf_size;
+ 	__u32		nr_subbufs;
++#ifdef CONFIG_RING_BUFFER_PERSISTENT_INJECT
++	__u32		nr_invalid;
++	__u32		entry_bytes;
++#endif
+ 	int		buffers[];
+ };
+ 
+@@ -2079,6 +2083,21 @@ static void rb_meta_validate_events(struct ring_buffer_per_cpu *cpu_buffer)
+ 	if (discarded)
+ 		pr_cont(" (%d pages discarded)", discarded);
+ 	pr_cont("\n");
++
++#ifdef CONFIG_RING_BUFFER_PERSISTENT_INJECT
++	if (meta->nr_invalid)
++		pr_warn("Ring buffer testing [%d] invalid pages: %s (%d/%d)\n",
++			cpu_buffer->cpu,
++			(discarded == meta->nr_invalid) ? "PASSED" : "FAILED",
++			discarded, meta->nr_invalid);
++	if (meta->entry_bytes)
++		pr_warn("Ring buffer testing [%d] entry_bytes: %s (%ld/%ld)\n",
++			cpu_buffer->cpu,
++			(entry_bytes == meta->entry_bytes) ? "PASSED" : "FAILED",
++			(long)entry_bytes, (long)meta->entry_bytes);
++	meta->nr_invalid = 0;
++	meta->entry_bytes = 0;
++#endif
+ 	return;
+ 
+  invalid:
+@@ -2559,12 +2578,67 @@ static void rb_free_cpu_buffer(struct ring_buffer_per_cpu *cpu_buffer)
+ 	kfree(cpu_buffer);
+ }
+ 
++#ifdef CONFIG_RING_BUFFER_PERSISTENT_INJECT
++static void rb_test_inject_invalid_pages(struct trace_buffer *buffer)
++{
++	struct ring_buffer_per_cpu *cpu_buffer;
++	struct ring_buffer_cpu_meta *meta;
++	struct buffer_data_page *dpage;
++	u32 entry_bytes = 0;
++	unsigned long ptr;
++	int subbuf_size;
++	int invalid = 0;
++	int cpu;
++	int i;
++
++	if (!(buffer->flags & RB_FL_TESTING))
++		return;
++
++	guard(preempt)();
++	cpu = smp_processor_id();
++
++	cpu_buffer = buffer->buffers[cpu];
++	meta = cpu_buffer->ring_meta;
++	ptr = (unsigned long)rb_subbufs_from_meta(meta);
++	subbuf_size = meta->subbuf_size;
++
++	for (i = 0; i < meta->nr_subbufs; i++) {
++		int idx = meta->buffers[i];
++
++		dpage = (void *)(ptr + idx * subbuf_size);
++		/* Skip unused pages */
++		if (!local_read(&dpage->commit))
++			continue;
++
++		/*
++		 * Invalidate even pages or multiples of 5. This will lead 3
++		 * contiguous invalidated(empty) pages.
++		 */
++		if (!(i & 0x1) || !(i % 5)) {
++			local_add(subbuf_size + 1, &dpage->commit);
++			invalid++;
++		} else {
++			/* Count total commit bytes. */
++			entry_bytes += local_read(&dpage->commit);
++		}
++	}
++
++	pr_info("Inject invalidated %d pages on CPU%d, total size: %ld\n",
++		invalid, cpu, (long)entry_bytes);
++	meta->nr_invalid = invalid;
++	meta->entry_bytes = entry_bytes;
++}
++#else /* !CONFIG_RING_BUFFER_PERSISTENT_INJECT */
++#define rb_test_inject_invalid_pages(buffer)	do { } while (0)
++#endif
++
+ /* Stop recording on a persistent buffer and flush cache if needed. */
+ static int rb_flush_buffer_cb(struct notifier_block *nb, unsigned long event, void *data)
+ {
+ 	struct trace_buffer *buffer = container_of(nb, struct trace_buffer, flush_nb);
+ 
+ 	ring_buffer_record_off(buffer);
++	rb_test_inject_invalid_pages(buffer);
+ 	arch_ring_buffer_flush_range(buffer->range_addr_start, buffer->range_addr_end);
+ 	return NOTIFY_DONE;
+ }
+diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
+index 4189ec9df6a5..108b0d16badf 100644
+--- a/kernel/trace/trace.c
++++ b/kernel/trace/trace.c
+@@ -9366,6 +9366,8 @@ static void setup_trace_scratch(struct trace_array *tr,
+ 	memset(tscratch, 0, size);
+ }
+ 
++#define TRACE_TEST_PTRACING_NAME	"ptracingtest"
++
+ static int
+ allocate_trace_buffer(struct trace_array *tr, struct array_buffer *buf, unsigned long size)
+ {
+@@ -9378,6 +9380,8 @@ allocate_trace_buffer(struct trace_array *tr, struct array_buffer *buf, unsigned
+ 	buf->tr = tr;
+ 
+ 	if (tr->range_addr_start && tr->range_addr_size) {
++		if (!strcmp(tr->name, TRACE_TEST_PTRACING_NAME))
++			rb_flags |= RB_FL_TESTING;
+ 		/* Add scratch buffer to handle 128 modules */
+ 		buf->buffer = ring_buffer_alloc_range(size, rb_flags, 0,
+ 						      tr->range_addr_start,
+
 
