@@ -4,79 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6206010F92EB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 18:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC0C510F92EB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 19:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tXqY7D+gOPt4PmDEUzUeZP0ag7GlnVqUsaN9xSvigfE=; b=tYyKXWDeQTySnKuLkv0WWWvYxA
-	JXelTUOelyTNPxxq4/xf0dQYzbkM3g/DcPWG6B1uJFsXco2OntfVpxs49GeHuKAsoayCiTd7Hd8VH
-	NtFeN4YB5DFTtc3q55yVl06LBgMYVPONv3RQ2EWJHnilbzQaeRszcoPrq7Q8P38MFpM9r8rrG1ckG
-	bpQJVBY7/4Rggnq3XFLoPU0OaBE56w5whUg7Eqxb+W7FNUZfb/jOo2h26kZvorw6APY0sC/Z2YFLF
-	mcvvkM2Fr0ICIQ8TlFe28+YUbLUr2GCgTUqz0v2tNDnW40fPkI/0OCc5Uj2y/zEn+iCC0REj2/1aU
-	PMg9krqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0vp80+hf4c4RR3uobfIupDKZm6+jp2Pff53XYKiU32o=; b=kEUHi6hegesmNSt1TgkrkxZvCx
+	rF3dCyGIJ71zLJEfcbo4n1hKDOSF9peG3S3jyFpBOg/cdBX1hUOVOyjFk6En2AtiKS02WFGdxiIV8
+	UhG624+v16QXIUFSD3ht9a8MhXmdQfY/PCzafALJ38HoOY2Q1vUCA2Rd65IjGIV3HdO2oXf+8CjWG
+	9T9NsClydwTVD30a379SPTbJNbiB4tUyrjO69H/2J+SKZiUZ3TEN8I0jrBmb33EfPOvKRmJKpo3gk
+	wUgtai9R/l44GjhLMQZZRdJ8xuFrKOsRxCxyAJMak4h1XM3/W60N27VvdqYEEzL0wfT6YTPjKE7dY
+	nnKWwOXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7dp5-0000000DPtL-1y3c;
-	Tue, 31 Mar 2026 18:28:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w7eKt-0000000DRu2-0EFD;
+	Tue, 31 Mar 2026 19:01:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7dp4-0000000DPtD-2Q2e
+	id 1w7eKr-0000000DRtr-2LWD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 18:28:18 +0000
+	Tue, 31 Mar 2026 19:01:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 94E0B60053;
-	Tue, 31 Mar 2026 18:28:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 415DAC19424;
-	Tue, 31 Mar 2026 18:28:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 953F060138;
+	Tue, 31 Mar 2026 19:01:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14EDEC19423;
+	Tue, 31 Mar 2026 19:01:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774981697;
-	bh=8AGddt+oTchyVvnjvvBnpho8FpvEFgRCXBZxjjKcVsQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=PejUT+GMZYic55pRDV/PK2C935pBAL0wAC9Mkhl/2BVkCurENcUwKeuJ96EUeh3sI
-	 v4XuHD35b7dkynUAdvCkvBuQIGyKwXolnErCCGztFaNiqUjF9tZB+6cU73g30At9Ij
-	 pKP9Wti23Eu1YAtWBUTWKknA3ec4y3wtYfoo3k81Fmg+wNZ4RVFbxz8KfXr6XauYz4
-	 BK3K0xVlGAipsK99e9sd6PkXwbH0X1c65IBuR7CTUKQclRcI2t24eGz08CaU9lGlx2
-	 DrQBEgVKPNXSLOYFyAx692vwWN/JFWZg5lDPGcrtdo5ceZq+Rg83yy7O57zjRZy9NN
-	 b2ROrOHV3aGMg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w7dp0-00000007aEG-3i5q;
-	Tue, 31 Mar 2026 18:28:14 +0000
-Date: Tue, 31 Mar 2026 19:28:14 +0100
-Message-ID: <865x6b4zwh.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: kvmarm@lists.linux.dev,
+	s=k20201202; t=1774983668;
+	bh=SwrpfwNcoOScq1B0/gz7R0Ml2sFtOOebgapbWsaQjCw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=FXGzM2LL9pd5DI98Af8ILNoiCZ3Qe8jaDpY73+fXW2KCfPhEYerlgbC12OOfxCj6d
+	 iGJJrIvY3hTSQ/TVldtj88ym/jJFIk6TUzfR4Vm5GZqlf3KTFHviIsrzN7UgevZvtj
+	 E59SB/SHkKEzyRvp+4j3pAlSHmGc8FyVjKG4anbYc38w2fnUTkNwR7+f6G/aWvhuS5
+	 037OCQYbsKabEpTgh4JDaWXGHQFxmnvObExyekIjKGSW3D55p2ase8S9XFGwQkzVGK
+	 3wBBxaA4drKHamuVndrCmVvrj+f2921MKNRv3t+iUWOUJbQQXJ0jSd3rOlTU/qpQGM
+	 c/wil/L4kfweg==
+From: Miguel Ojeda <ojeda@kernel.org>
+To: Christian Schrrefl <chrisi.schrefl@gmail.com>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	=?UTF-8?q?Fabian=20Gr=C3=BCnbichler?= <debian@fabian.gruenbichler.email>
+Cc: Rudraksha Gupta <guptarud@gmail.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose
- <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Fuad Tabba <tabba@google.com>,
-	Will Deacon <will@kernel.org>,
-	Quentin Perret <qperret@google.com>
-Subject: Re: [PATCH v2 12/30] KVM: arm64: Hoist MTE validation check out of MMU lock path
-In-Reply-To: <8bd2b649-01b5-44f4-a034-c202e226e97c@arm.com>
-References: <20260327113618.4051534-1-maz@kernel.org>
-	<20260327113618.4051534-13-maz@kernel.org>
-	<8bd2b649-01b5-44f4-a034-c202e226e97c@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: anshuman.khandual@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, tabba@google.com, will@kernel.org, qperret@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Miguel Ojeda <ojeda@kernel.org>,
+	rust-for-linux@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: arm `rustdoc` Rust 1.85.0-only build error
+Date: Tue, 31 Mar 2026 21:00:53 +0200
+Message-ID: <20260331190053.482607-1-ojeda@kernel.org>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,57 +71,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 31 Mar 2026 07:57:48 +0100,
-Anshuman Khandual <anshuman.khandual@arm.com> wrote:
-> 
-> On 27/03/26 5:06 PM, Marc Zyngier wrote:
-> > From: Fuad Tabba <tabba@google.com>
-> > 
-> > Simplify the non-cacheable attributes assignment by using a ternary
-> > operator. Additionally, hoist the MTE validation check (mte_allowed) out
-> > of kvm_s2_fault_map() and into kvm_s2_fault_compute_prot(). This allows
-> > us to fail faster and avoid acquiring the KVM MMU lock unnecessarily
-> > when the VMM introduces a disallowed VMA for an MTE-enabled guest.
-> > 
-> > Signed-off-by: Fuad Tabba <tabba@google.com>
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > ---
-> >  arch/arm64/kvm/mmu.c | 28 ++++++++++++----------------
-> >  1 file changed, 12 insertions(+), 16 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > index 0c71e3a9af8b0..ee2a548999b1b 100644
-> > --- a/arch/arm64/kvm/mmu.c
-> > +++ b/arch/arm64/kvm/mmu.c
-> > @@ -1870,18 +1870,21 @@ static int kvm_s2_fault_compute_prot(struct kvm_s2_fault *fault)
-> >  	if (fault->exec_fault)
-> >  		fault->prot |= KVM_PGTABLE_PROT_X;
-> >  
-> > -	if (fault->s2_force_noncacheable) {
-> > -		if (fault->vm_flags & VM_ALLOW_ANY_UNCACHED)
-> > -			fault->prot |= KVM_PGTABLE_PROT_NORMAL_NC;
-> > -		else
-> > -			fault->prot |= KVM_PGTABLE_PROT_DEVICE;
-> > -	} else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC)) {
-> > +	if (fault->s2_force_noncacheable)
-> > +		fault->prot |= (fault->vm_flags & VM_ALLOW_ANY_UNCACHED) ?
-> > +			       KVM_PGTABLE_PROT_NORMAL_NC : KVM_PGTABLE_PROT_DEVICE;
-> > +	else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC))
-> >  		fault->prot |= KVM_PGTABLE_PROT_X;
-> > -	}
-> 
-> Is not the existing code block bit more cleaner though ?
+Hi Christian, Russell, arm, Fabian,
 
-What is wrong with this? Are you stating a matter of personal taste ?
+For Rust 1.85.0, for arm32, for the `rustdoc` target (i.e. all those
+combined), I am seeing:
 
-Ternary operators are great at making things more readable by reducing
-the amount of nesting, and I'm all in favour of anything that makes
-this $%^&*( code easier to parse.
+      RUSTDOC   .../1.85.0-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/lib.rs
+    error: target feature `fp-armv8` cannot be toggled with `#[target_feature]`: Rust ties `fp-armv8` to `neon`
+        --> .../1.85.0-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/../../stdarch/crates/core_arch/src/arm_shared/neon/generated.rs:7538:48
+         |
+    7538 | #[cfg_attr(target_arch = "arm", target_feature(enable = "fp-armv8,v8"))]
+         |                                                ^^^^^^^^^^^^^^^^^^^^^
 
-Or are you pointing out a technical issue?
+The issue is [1], was introduced in Rust 1.85.0 and was fixed already in
+Rust 1.85.1 [2]:
 
-	M.
+  Link: https://github.com/rust-lang/rust/issues/137366 [1]
+  Link: https://github.com/rust-lang/rust/pull/137632 [2]
 
--- 
-Without deviation from the norm, progress is not possible.
+It is unfortunate since our minimum is going to be 1.85.0 since that is
+what Debian Stable has (even if patches may be on top) -- I generally
+test the latest patch versions for each minor, but I noticed this since
+I also test the actual minimum, and I am bumping it to 1.85.0.
+
+To be clear, it is likely almost no one actually cares about this, since
+nobody complained yet, and this can easily be fixed using the already
+released Rust 1.85.1.
+
+By the way, what is Debian's policy on upstream Rust patch versions?
+
+Thanks!
+
+Cheers,
+Miguel
 
