@@ -4,89 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE9D1061B2B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 02:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 668FF1061B2C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 02:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LXnJaJoemcaiDGH1WZmG/hzLsuogYk0N7x2l4+nhrvM=; b=u/EtG2Bus5bYyzfIQuCQXpbwTI
-	XjT5r9jXxKcTBcgmuilv1Q9DFPMtbVaH0myET/sK2b+NpmLhYT+ysfd08RRYAjMqcp59pWRnriOt0
-	QziHG5j9RhnIVkK3X2daRcG/r5QcDXYuaznGO97we0SKT0/r7kWaUYdCxI9Qn61XwJkitLRPqChOg
-	q/WX0y19SpXGp945lOYJ1gKm+rGO10J2HiUz3CqZSlkiT62XhvzNDRcHtRtXgMoz2Qijxd83sq/Bq
-	Z7cBfkYxqPYc2aYC9XAmt+afpkg8GkgW+lO2XI3tGhCn2Eql0jKgm8yX/uuzLfeSoxY4vSFCkNMtH
-	1MCoVxuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Jw1x0LDOX/5NR67YnAFJ7jjKL/UvtoDbCOF3rHiXh0U=; b=nYs5O4lje5ttzAlkLQSKfO6ydQ
+	2X+X4fuVoKxXMYrl/dDRw6Al++QrRa5WHkZbQs1Ew//ZUfvQMcoz8NxtAtslMOouhLumgfGMwuP9y
+	kFKtXMt9DAafa3IYql9R0uSzvmRCMd8eX0c1eepUh0MQUTvUbzXNQiYh4347Is7v5LjZMqhLYUoOW
+	h/0G4tgbKgRqHqW6lYRCjrxw/lGYGqsOBpaUGH8eYjjlE1GMV21ykzajxlsgXxJ4ljOm6ekI++E/I
+	XT5GkoKbIj77Be6W1/eNPG5Ree9/cpXGHFSaKKTHpzByteHo/7b1v4k5g8SpM9tAf+PXQadCQsvzT
+	O+PxazjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7P2a-0000000CC3U-37rv;
-	Tue, 31 Mar 2026 02:41:16 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1w7P8e-0000000CCLM-1G9Z;
+	Tue, 31 Mar 2026 02:47:32 +0000
+Received: from mail-francesouthazon11011035.outbound.protection.outlook.com ([40.107.130.35] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7P2Y-0000000CC2k-1a5Z
+	id 1w7P8b-0000000CCKx-2icX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 02:41:15 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-486fd5360d4so68225845e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 19:41:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1774924871; x=1775529671; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LXnJaJoemcaiDGH1WZmG/hzLsuogYk0N7x2l4+nhrvM=;
-        b=P+xpesSE8vk6xsqUTk4HzTz9Z7uu46DsQea1c6ElngFHRjXpPnUOLr7ofHZPO4aQVR
-         6MQSTg8WMR9wvrBW3KQwkKEiMXIs09RdeaMDXm/GcGIfuHMlPIVdRDtENWrN43+TJPXo
-         OuSl8JoK7THKELbtvcTjhgm2PRLxC39XWMrsTEUP+wKZBXMq6J5hB9Vf3l3hGBdVAXG2
-         KnIcRPIdhDTqe9gJgSyp9z50Of56uWDQh6f6X6Or72htUiqyBOCGubkWkKychnOTe3Ow
-         m9yTPrN7NAwUWJ4F46PjDObJxkrBAmondeQx8A1cDB4vgoZYMj6bd9IKeimHTT/35yab
-         e7dg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774924871; x=1775529671;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LXnJaJoemcaiDGH1WZmG/hzLsuogYk0N7x2l4+nhrvM=;
-        b=Z8ZS771PkJUX+txKE88Km2R4w6C1FKr3ARmqs+c5ZV27q0GV20ptJte+UkHpOwBvFy
-         XsntOMT+SS2pnjVYXJer9o8xXgqo0XA0yn9cmRyWiuNiXCdw+1nyFQ9VLCE9HePrj51j
-         fxPtqPtFbjXu5p0OOqYd57EZ/fevXBWQtWKQP1zN9dDAuA5Uipj2NEBJDqDnG3mb5D0d
-         eY5Ex8jSH7qt1dlYAfwkNfYeFkMzDOVL2m4QiasZE21ZbfHgHPSIn/x+P3qb3rLgXVpN
-         ZKIe+bqNAygPIkq+xDOri30hB3Us7J8lcaZ/7ILW+Gq/rbI93JzMdmlPrbkbQoq1YZas
-         vMcA==
-X-Forwarded-Encrypted: i=1; AJvYcCU483lP57DuGsjHe60B8Kh79yYcBKpVG97LPF9U3YgZqdr/anywuOKoxwB6f8lXYCtIX0t91bZe1y9WkGynt4pP@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrIA5Zn5kzE81f1cAJUK+Ua+aiJ3ovlWFZcHnbbERa2Jx63Sbp
-	Us7hR1a6lhtZMkx55WxIJ8OfJaEvf/mNxF4j+bq6qM9zGl9iX6VHY0HwT94txUelBw==
-X-Gm-Gg: ATEYQzyQAMVUDF86PeRUpClcvSq4KjpueaaVCeKSd8aj/VtLAokHlqpbehimhAgAvtW
-	gojzgZ88kaLsMfS/KxIE4kannBQuSkiDpqNe51eIsLQ8FyObcyDUnzhC6L9eqfLkgsM9Y2KgATj
-	w5k7Kwno4R/5rdabhb+AV2cIcqKGwGRGa1fBFg/t/bRPZODuWs5IDJShETK3hBm5ccXyL3mPGLy
-	2+moy79eX8yTLk+ieQhbQgSFkEMfBdgo06+gW7geZmHiW6qxg+RE6i7Vmhk9JFJ1xWtIOHfYqlW
-	Cl9y8FCP0tp3vhJd1aUnlNsPOCpV9uc8rQ8CEWYsZEmakq8r/Z5BIjA9FhgQ5M+id9iYPOUxwh8
-	/hRQO+ZRdsOWfxyZaqXxbm8YVgH9bxNk+dKki13VT8NT1ep8fNymsXzXLs43IuZgFfbMNr4xW60
-	h/mnMpcPgLAMY8MQ1jjv4z4j0uuAO6uP9IiEnmXkMrg/+44WCHLCykMz6hcgkKkJlZKhI=
-X-Received: by 2002:a05:600c:c090:b0:487:338:b4df with SMTP id 5b1f17b1804b1-4873de6ca3dmr61799345e9.15.1774924871032;
-        Mon, 30 Mar 2026 19:41:11 -0700 (PDT)
-Received: from google.com (198.115.140.34.bc.googleusercontent.com. [34.140.115.198])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4873062ec9bsm219312745e9.7.2026.03.30.19.41.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Mar 2026 19:41:09 -0700 (PDT)
-Date: Tue, 31 Mar 2026 03:41:05 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Sebastian Ene <sebastianene@google.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, android-kvm@google.com,
-	catalin.marinas@arm.com, joey.gouly@arm.com, mark.rutland@arm.com,
-	maz@kernel.org, oupton@kernel.org, suzuki.poulose@arm.com,
-	tabba@google.com, will@kernel.org, yuzenghui@huawei.com
-Subject: Re: [PATCH v3] KVM: arm64: Prevent the host from using an smc with
- imm16 != 0
-Message-ID: <acs0Qbjfdmlkvd1e@google.com>
-References: <20260330105441.3226904-1-sebastianene@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+	Tue, 31 Mar 2026 02:47:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vNI1WgphYywYAyaUE91dY4+ZaGrjgY/BH/hqUy4TcIqxYC2xh1ivCa648qfh83IIPG431qVMpHKnHHrkV2jFL1byOD0nErmut4pyudKJXjHX9kGz3P6H/O5YnoaJj5ga54NqIwVGPjUnbxv/Z0YNy4lCxb/E9Z/Hab97XtrMAYIob7jINzqSjXHjeWi+gAWSLJmCFnaUg7z3yzP+qf+wo5wnAh/w8wtDRs1fHooQ6NIOteMg0W7vPUABD2YstbIM5vzDagg8XwKUYdCWe/2+Q0pAPlvSfaQbBgXwtFUTNGOWmPsoR0rWbuIglFOX42a/AgL3yiAQ2lG0pMHSMTR8VQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Jw1x0LDOX/5NR67YnAFJ7jjKL/UvtoDbCOF3rHiXh0U=;
+ b=tlfzrWXEO4qs7gb5UBGbC/L0/znMn0cUfDLxKTUG8OGzyOwd1VMb+Tso5clrVudO68WuU0I5TLRAZA0LCJLjmFM2yATivOTbjGVa1ojbrLaPMPpXiWS8j40EK8rYGqaxyPXr5d1auXE3R0fgCQrQmhvhcWQfqgRa7u1AH1YxMM7FZMZpt23bhqq3NdtiW4vMY37lUw9QOZg6gxzJRg8AwDyYonizNdHh1P8GEWh/hkWok1g7y6bMdzIrw/uilbKH+sFUT/EnpcRv2gp+yNOAWnT5G1rX6rkxHGb7BLprA9O+J9sQUkoMuFKbShfN2/pnQfrXwIv2IyHCyar01X6Ksw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Jw1x0LDOX/5NR67YnAFJ7jjKL/UvtoDbCOF3rHiXh0U=;
+ b=EUt3OXN9CaR4H3NzONSJYhZnJR/+IZTBQcfgtLSyI/EX4eyk0+Kf7IuKldAQ05OEh/UV2mReZb1qXNL0yK31QGQyRT5fFT/ILRbLU4uiOmYB1AJu6iHhQDmso5pyW1j1PgJryoh/DRCcBePFqx+VGJFosrSseDXRca0X6tMu+0oeq33iLHoW4tQSc0/U+va6vavrFPeG1zPTEGWp2bYX75XxthloVzQ3MhEuY0ZAKl1LlEFyE3DrRtA1FL9fNK+tp6YyRoErNi0odMu+KuNhSlU+VkMFa4Uf8TYpDE2oVnkRkhZcnfzxjN6O1l5lBKYAdgQLTnhA8iAUVvPVgJdxRQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM7PR04MB7094.eurprd04.prod.outlook.com (2603:10a6:20b:11f::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Tue, 31 Mar
+ 2026 02:47:22 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%3]) with mapi id 15.20.9723.030; Tue, 31 Mar 2026
+ 02:46:52 +0000
+Date: Tue, 31 Mar 2026 10:49:32 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v2 2/3] remoteproc: imx_rproc: Pass bootaddr to SM
+ CPU/LMM reset vector
+Message-ID: <acs2PAZq2k3zjmDW@shlinux89>
+References: <20260327-imx943-rproc-v2-0-a547a3588730@nxp.com>
+ <20260327-imx943-rproc-v2-2-a547a3588730@nxp.com>
+ <acqjS440STRl2sK2@p14s>
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260330105441.3226904-1-sebastianene@google.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <acqjS440STRl2sK2@p14s>
+X-ClientProxiedBy: MA5PR01CA0092.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1a8::13) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM7PR04MB7094:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2de3b470-27fa-467a-27ae-08de8ecfc389
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|52116014|376014|1800799024|19092799006|22082099003|56012099003|18002099003|38350700014;
+X-Microsoft-Antispam-Message-Info: v6gYBHzGaP4+eFrenahmSu1nfhMJ4j97Yb6TCv6kjHBhHy61q2FP3Fdndexq2d/LA+cnaOlbPd5sT2CgXvIwX3zPmz2d3JQC9/jgkUxPf2u4+qRq/XY11QMca5mVRZ3mbjntmgBNxOFRTL009PxoG9s5RJeowwNmyFa/O8yrdKCDSNqPoioRTHLY1LCEGRo+N/PQJ0jxcFq8K2sBVaMj867OJ48N26RgbQ5/xTjJZvM73EIQKeq3PAS1AzL9qVFNhFeKA7V2HXUMITJ+aGQJATbkSIQ3ibqr7InZ1fV/g4ET/9Ywo463/Dn7Vsfdhdlhq2ihZRzAMJNFokheysjO/eoexwbIm4dd6nY9pcQIkrVVdJ7LoOCL8WYzFnYogmge+UEnxxIFqcCfW2GWkOouOiVsO26QgBY6as3C1d2AEYTkLHllMnYreBzrokuPhoF0FxO+lkaYGKd+bauTnRB3c5oSwBPi+7L1XvWjrlkg4uwaynLL2w4XnLO8IdI6mEr7Db8CPG+qKBRCVymFE8HmXmUNm/C6pUofg6zmmyRvy3kq2jUWB+aYp/SpwVcLB1VFfVToYOUT6k8/VLhLKF42FUwTjlfjReyHZ4WENrKnPMAdXwQVh3l6OtD2yKOx2vntdFUgB58+0+jxZgRTtd4Vym4JjMAw7DLxGJuRJRSYhVeokaKdBkiNSb7GzsSitpgZyycKXcszZb16nY8KPHgPxedw05X1CelHKMB6t4vZcrkRoxmV9MoG9FbCtwdaaE74
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(52116014)(376014)(1800799024)(19092799006)(22082099003)(56012099003)(18002099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MTcwMGllYy9URlpNTE52aktyMzBVakcxdVpwdVV5TW5KdFlERlRrM0xNRHlO?=
+ =?utf-8?B?a2laMXk1NHdYV29LbThWUDdTWXIrQVVrZVVlRVkrd3MxTmZnMlVVNDBweDRQ?=
+ =?utf-8?B?NXBMN0RzdzUzN04rQ2gxUWxERWpkM3lkR09hM3VGY2NmcDcwbnJBR210T2Fh?=
+ =?utf-8?B?T0JFYzJ5ZkNKSEhDN1BCUUFNNENJSmFhM25BV3pEa2FKRnRVYUxiaUUrbDJx?=
+ =?utf-8?B?UTF4R3htREVnRHV6OTQrK2RLeWFpSHI0L1l4ZEVQSHZtZEJ3MEc0dldsS09I?=
+ =?utf-8?B?MWRKWDVmbDhVcmovdk5mNWRxZU5VVTRLQUM1eTBUN245bXhWdks1YjRiRW5E?=
+ =?utf-8?B?QTVMbEl5aUpmVWtxTEFHWUhtcmU3WnY4d1dZaC8yNkNYRlNnR3FkZmZxTGpo?=
+ =?utf-8?B?OGRlODAwbUNVQ3pBTGw5bnJYYks4azVOeUpnMXAzMGdLcGZlMnRWYUtFWVl6?=
+ =?utf-8?B?VCsyYVRYT1NGY2xodVRwaUwraDgxWlJkcktIM1pPNG5OMWlESUJNaGZvek9q?=
+ =?utf-8?B?OXIwdm5oN3BBV0U4VTdrT3B6TlQzMnRZWW81NE1UQUV6cG8vWHJvTW53cU5P?=
+ =?utf-8?B?YnFCb3dRVGRwWHEyejYzVmdlYjBzYk5yMEhUZEg1OUQ2dXFNYWtwektrZFJY?=
+ =?utf-8?B?VTY3bXFLUys3SHZPUVBQU0dMRzA4RG9HV1RYcHBVeTFGblBsQVV4M255TUVj?=
+ =?utf-8?B?Rk91S20wb2Z2TU5wRjdPaDN0YXltUlJtei9OekFlSDQyMHFBNk93Wi9HRm9h?=
+ =?utf-8?B?OFRXRmVWTkVZcnRwbDhWbEVDdGRtK212VFFkSEVXdVZIOUhvOUJkcE53TVQz?=
+ =?utf-8?B?d0pHdDlYelVKK1B6eTJkeXFQbjV3VnJscmZTdmcvUGw2TGplQXNJSHY1V09G?=
+ =?utf-8?B?Q3JvRUpRa0FqUktUb1IvWGNRRVpKeXR1Vm5QQTdxSHBFT1hqQUp5NVJUeGho?=
+ =?utf-8?B?eVpvaE52MmQxendZbnNZSjk2SmlEdktXTGUva1lycEZRdGRBbVd4MGVVMzRm?=
+ =?utf-8?B?NkYvcXF2SWYxVWMwbWdHZTVvbDhSNnBaQXVManYzVXB4enVKZ3RXelpva1RO?=
+ =?utf-8?B?MEh0dUxwalM4VEVSWU16eDFWTXR6ekJ0MXppeERrMFRLOWVqZWR6S3dmVDQx?=
+ =?utf-8?B?MG1rRmpNV3BkK2Y4eitZTkhONjdYT0thVnNPRmlYSGNNYTZBNlRKTDB5ZUVH?=
+ =?utf-8?B?eEdVNGNGVmEra1djdVJua3R0UmE4dUpxYVJhQmNkMTZoa1ZUNTBnaXh3KzhL?=
+ =?utf-8?B?TGIxOXRMYVpabXl2RDNTdVdjTGdRTTc4TlcwcVNSQ0hhYms3OGJjS3NKTXQ1?=
+ =?utf-8?B?c2toUldNdytGQU1lRk01RmZRaUJJaE9jbW9LUDhJa0lVQTNXSW5RN3hoUUxa?=
+ =?utf-8?B?a1M5RWRrK0ZuUnZiQTBmNlpZTWxZVURwenJBVjE1R2hkdFQxcWNTL0d4cG1G?=
+ =?utf-8?B?UUltdnBDN3E1eW5NaGs5RGkyVEZwNHArdHc3eVNxRFpyUk16bVpoSXpkSGpw?=
+ =?utf-8?B?U1I5QUpGTlBwRDUzT0JvWmNhQUZQK3VaUE5JQWlGREJtTTFKYTVpY0pMN2V2?=
+ =?utf-8?B?WS9EOWZjaUpXYms0TnozRHB0RkVrRE9Zek1lcndkU3packVkTmhLOWZvWHVG?=
+ =?utf-8?B?R3NCWEgxZVlrV2UxNTZMQ01hWXhJTHZSYXl0NGYzM3RNM3JVTmdYRzVpZkVZ?=
+ =?utf-8?B?S0NtRW9rUWFVbEc1dDdLK0lBc1RZNVRiajJlWkFIbEI2UnByMnIrWUpqdy9u?=
+ =?utf-8?B?ZWppdE43NHFnVHViUUZyN3lLSzJmSzhIaFM5ay9pNmFBWjYxMTZoN3JMODUz?=
+ =?utf-8?B?VVZub2RpMDA1QnZSdDFLdW5RVHZwM0x5MC80bkcvOHVzZm42OVdwZ0dMSmg1?=
+ =?utf-8?B?Yyt0cVFPQkxITWxWSU1lNEFXSG93NkZhTWx2cWRvakMvNlJNYzNrWUN4dWEw?=
+ =?utf-8?B?MnJYNmhObmhKaC82NWRGaU0wMWxHYUlaNDBZK0F3a1VEa2FPZWtUb2l6d0d6?=
+ =?utf-8?B?MERYNThybUN6czJFdndsd21SNGx3YzVBZEppUGFaUCs2L3QwRTVYeXJCR1B3?=
+ =?utf-8?B?SXU3UEF5elVQMTBnZ05qWFpZekxTRFdrLzBTQUEyWTltZHREbUhHajFlcjQ3?=
+ =?utf-8?B?WHlCaEZpY0RsK0RBUnJra2pwL3VmWUs2VXlEeXhJWWE2VUxnOXhhV1BId1M3?=
+ =?utf-8?B?OGlobnZTUmoyZzYvS2doNlJiaEZ1WE9FTGxXbFNHRjRVckpVWTI2Rk14MHV5?=
+ =?utf-8?B?QW14WDF2Z0JHLzVzZUdRa3NhQWZGaDFhcHJRRk4vTW9icW4zd3EyNlU1TVBk?=
+ =?utf-8?B?SFFKczFnOTBJWmdDUytXVnFkc1RWZVpNY3FzVm55OUhiVWZ0RVJadz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2de3b470-27fa-467a-27ae-08de8ecfc389
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 02:46:52.5741
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6fJoTkuq9Ers8kjfHB5COBVM+F2MUOHV93ZQVFaTMvKJCOZ+KjEidCqyulksRcbN9E8mT11UMN4zLHlRukQS9w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_194114_452960_68E0BD16 
-X-CRM114-Status: GOOD (  26.42  )
+X-CRM114-CacheID: sfid-20260330_194729_697257_0AD6F443 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,74 +158,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 10:54:41AM +0000, Sebastian Ene wrote:
-> The ARM Service Calling Convention (SMCCC) specifies that the function
-> identifier and parameters should be passed in registers, leaving the
-> 16-bit immediate field un-handled in pKVM when an SMC instruction is
-> trapped.
-> Since the HVC is a private interface between EL2 and the host,
-> enforce the host kernel running under pKVM to use an immediate value
-> of 0 only when using SMCs to make it clear for non-compliant software
-> talking to Trustzone that we only use SMCCC.
-> 
-> Signed-off-by: Sebastian Ene <sebastianene@google.com>
+On Mon, Mar 30, 2026 at 10:22:35AM -0600, Mathieu Poirier wrote:
+>On Fri, Mar 27, 2026 at 10:42:03AM +0800, Peng Fan (OSS) wrote:
+>> From: Peng Fan <peng.fan@nxp.com>
+>> 
+>> Cortex-M[7,33] processors use a fixed reset vector table format:
+>> 
+>>   0x00  Initial SP value
+>>   0x04  Reset vector
+>>   0x08  NMI
+>>   0x0C  ...
+>>   ...
+>>   IRQ[n]
+>> 
+>> In ELF images, the corresponding layout is:
+>> 
+>> reset_vectors:  --> hardware reset address
+>>         .word __stack_end__
+>>         .word Reset_Handler
+>>         .word NMI_Handler
+>>         .word HardFault_Handler
+>>         ...
+>>         .word UART_IRQHandler
+>>         .word SPI_IRQHandler
+>>         ...
+>> 
+>> Reset_Handler:  --> ELF entry point address
+>>         ...
+>> 
+>> The hardware fetches the first two words from reset_vectors and populates
+>> SP with __stack_end__ and PC with Reset_Handler. Execution proceeds from
+>> Reset_Handler.
+>> 
+>> However, the ELF entry point does not always match the hardware reset
+>> address. For example, on i.MX94 CM33S:
+>> 
+>>   ELF entry point:     0x0ffc211d
+>>   hardware reset base: 0x0ffc0000 (default reset value, sw programmable)
+>>
+>
+>But why?  Why can't the ELF image be set to the right reset base?
 
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+Per zephyr general link script[1]:
+ENTRY(CONFIG_KERNEL_ENTRY)
 
-> ---
-> v2 -> current:
->  - move the ESR decoding of the imm16 in the handle_host_smc where it
->    was supposed to be
->  - updated the commit message to include the reason behind while we are
->    not doing for HVCs as well
->  - updated the commit message to clarify that pKVM is not handling the
->    imm16
-> 
-> v1 -> v2:
->  - Dropped injecting an UNDEF and return an error instead
->    (SMCCC_RET_NOT_SUPPORTED)
->  - Used the mask ESR_ELx_xVC_IMM_MASK instead of masking with U16_MAX
->  - Updated the title of the commit message from:
->    "[PATCH] KVM: arm64: Inject UNDEF when host is executing an
->     smc with imm16 != 0"
-> 
-> Link to v2:
-> https://lore.kernel.org/all/20260325113138.4171430-1-sebastianene@google.com/
-> Link to v1:
-> https://lore.kernel.org/all/20260324135728.3532400-1-sebastianene@google.com/
-> 
-> ---
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index e7790097db93..461cf5cb5ac7 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -676,8 +676,14 @@ static void default_host_smc_handler(struct kvm_cpu_context *host_ctxt)
->  static void handle_host_smc(struct kvm_cpu_context *host_ctxt)
->  {
->  	DECLARE_REG(u64, func_id, host_ctxt, 0);
-> +	u64 esr = read_sysreg_el2(SYS_ESR);
->  	bool handled;
->  
-> +	if (esr & ESR_ELx_xVC_IMM_MASK) {
-> +		cpu_reg(host_ctxt, 0) = SMCCC_RET_NOT_SUPPORTED;
-> +		goto exit_skip_instr;
-> +	}
-> +
->  	func_id &= ~ARM_SMCCC_CALL_HINTS;
->  
->  	handled = kvm_host_psci_handler(host_ctxt, func_id);
-> @@ -686,6 +692,7 @@ static void handle_host_smc(struct kvm_cpu_context *host_ctxt)
->  	if (!handled)
->  		default_host_smc_handler(host_ctxt);
->  
-> +exit_skip_instr:
->  	/* SMC was trapped, move ELR past the current PC. */
->  	kvm_skip_host_instr();
->  }
-> -- 
-> 2.53.0.1018.g2bb0e51243-goog
+CONFIG_KERNEL_ENTRY(_start) is the first instruction that Cortex-M starts to
+execute.
+
+config KERNEL_ENTRY
+        string "Kernel entry symbol"
+        default "__start"
+        help
+          Code entry symbol, to be set at linking phase.
+
+The hardware reset base is different: it is the address where the hardware
+fetches the initial MSP and PC values from the vector table. Hardware uses
+this base to initialize the stack pointer and program counter, and only then
+does the Cortex‑M begin execution at the reset handler.
+
+Aligning the ELF entry point with the hardware reset base on Cortex‑M systems
+is possible, but it comes with several risks.
+1, Semantic mismatch (ELF vs. hardware behavior)
+2, Debuggers may attempt to set breakpoints or start execution at the entry symbol
+
+[1] https://elixir.bootlin.com/zephyr/v4.4.0-rc1/source/include/zephyr/arch/arm/cortex_m/scripts/linker.ld#L103
+
+Regards
+Peng.
 > 
 
