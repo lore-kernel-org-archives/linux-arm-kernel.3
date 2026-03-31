@@ -4,175 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE84FF60E9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 08:19:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA4FFF60E7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 08:20:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lkwSrrHeaTy0NZEu7oXPfH9QyLMTyoNiK6/SMFIi1jc=; b=TEBF9Ha9CzBzrKZx/BGmgg6nct
-	+Zj3IN55x15pSaRAmqR1T0CQqZMOalqaAHDsuTqB+x5h7iPUW7SpNu8D1xozPO67RiMV1MuDDD4sR
-	nBcwvXG2jsA2nkx0sMCAZr6tDM5eH2ROeMVuJv5qZONkv3RiBAAXbAwMgPUzFPwDuu9LJcFjYT6MU
-	yMN0ubnospwgm7l+jzHgyRiltGkdY96f5UlZiiBOIdARnaiyHdsx4oFB/daffg6oDqITJKYnyTzka
-	Q1lqYJNCMO1+AppdvPh0/0hQQ0WZRrLqTwUY4PwtMwbeWqoOMYC9ZR2XCqkmFeQ0uuxHJcjbEzoLS
-	cSbLvHrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X6gKS+TrxVFREJLXgKdYFS1HJsCw8TAnrzdxvehz0sI=; b=v1ADrTEWU2TKoSrrB6kd5SaRJ3
+	nYiBREpXZHDtJQfXAhQdOCZVXdTOxwW+7pZDT9IFLlSnPSf4XAV8ib3FuNMAOohXd8thf33s7/VnM
+	QdS0fna0FrCXqNiwJCuS/nsdVvXWn6Ap9ShLKl7qcYaMgvgu0N8W8l/xCVTcEw2iWIwkAD10VM/Bi
+	svgimIkK6ykmbzimJx+O7uXYO5xJysFfoptKCwtABSDa8LmDLgM+4aOgAGQDfX9yCBHW3nzTo8ayd
+	EcD9takaQMwIWjyuDjl3hg9lv2ud+Vp26YmGxoFKIkAqHJ4txFlJuX9msOwGkA/peaKe1tfnv4L5Q
+	78yeUvLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7UK0-0000000CZPB-0FhR;
-	Tue, 31 Mar 2026 08:19:36 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1w7UKo-0000000CZYz-2Szh;
+	Tue, 31 Mar 2026 08:20:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7UJy-0000000CZOl-17Z9
+	id 1w7UKn-0000000CZYk-0Pey
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 08:19:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1774945175; x=1806481175;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=lkwSrrHeaTy0NZEu7oXPfH9QyLMTyoNiK6/SMFIi1jc=;
-  b=S8EcZfT8fdnqWxcNfa600yxvv32LyGiQbJ17a/cUjfOKp1A6TmWxppoj
-   HdNyKpNvY8jFIxw1lvWuKOP4xSYpWf8P3IvwJUGvdt1Q7bABX/2Ln6DWV
-   H+Qu56QeO74/VMqYGIcfq5rVeeLTs02Imy3NMVIUFNcBQ6q42lL6Dmuqx
-   dL8hikkkrwKGU5nFNen39rAFCS2/NvlQPyF6gGtVU5JZlcaJ545EflGkV
-   nj6z8+Q6RME3l3GRJmJpq/fSDmqFRmx+9GABg8M1KXfNstEjTCHz0YMng
-   fPQLQ+0VoPbIpCXownNdKJZRWeLu5gLsu8IPSSopHSxa6ki4Z1unzexF3
-   g==;
-X-CSE-ConnectionGUID: h4Fq0t54R0GD3KPtZuf5Qw==
-X-CSE-MsgGUID: VUU3U7ceQGmd7n3BLIRmpw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11744"; a="76140303"
-X-IronPort-AV: E=Sophos;i="6.23,151,1770624000"; 
-   d="scan'208";a="76140303"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Mar 2026 01:19:25 -0700
-X-CSE-ConnectionGUID: rXxFvflZQqmcddiNlFh8FA==
-X-CSE-MsgGUID: rjcav9qSQ6az2DPLZTztQg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,151,1770624000"; 
-   d="scan'208";a="221894366"
-Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Mar 2026 01:19:24 -0700
-Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
- fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Tue, 31 Mar 2026 01:19:24 -0700
-Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
- FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37 via Frontend Transport; Tue, 31 Mar 2026 01:19:24 -0700
-Received: from DM5PR21CU001.outbound.protection.outlook.com (52.101.62.58) by
- edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Tue, 31 Mar 2026 01:19:23 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=O+w0dN6LAOH60VxXY3IXgmSE0tIuWR++iBnW6BrC/vbJlSw5kacguD3xrUsHLTt6M10eMVOr/9FeDl1AMEzrB+lHpIJrUec0teNbEwGOlt+Q0+cH1+5EuSipZY8K22hODZ4WTN9Vld7Gm2DFsSwYwAjM6PbXUzi1dlZR+HDmKOmzlHHL7odXsqsTYGK3JlSMnaf1spF80u/Hdu/yoKoe7fvSvjWacZYAoi+5qfZfno+YbTdGu4YtyXQALvil26iPI189hFEAgHnfC5HMacvY5HyqaPn5SeJ/8EiHsM2/Vq6+mIETQDB73dd9dat/gIkzIu9hWnyZA4uWyCe33l9y1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lkwSrrHeaTy0NZEu7oXPfH9QyLMTyoNiK6/SMFIi1jc=;
- b=REHvWzvUkBZ92HiVYZ1KHFnDBafPeLZGhuLUVLI4j6N6hEtmDWigA0U/luUHHaktyYDa3jqcYxUEd7XjUERLyPilIEQfpngxQzkj+2xD/6lNVdO5M1qtZJR4PvTpkhWldVqsVYeZbrf4/L+SARlFNwFHoiZlPMjqYVHZFxZ8W5zLPVNNkYbOZ/aQ7QYHdZSwfrigvMw+WKq2dmIJjrmGd9iz97j+CcsR9YxhymkayCAxph51hKJUD01Sqw8DVGXL5hKSYi9yRuLqQwRokKCdNc9zoHR5rzWG2mVuY6HGnDuyE/5yvVL0X3d97/gOF2HnquvY48dt6Hieb3PmMkBmuA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
- by DM4PR11MB6191.namprd11.prod.outlook.com (2603:10b6:8:ac::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Tue, 31 Mar
- 2026 08:19:19 +0000
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::f997:762f:f079:134f]) by BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::f997:762f:f079:134f%5]) with mapi id 15.20.9769.014; Tue, 31 Mar 2026
- 08:19:19 +0000
-From: "Tian, Kevin" <kevin.tian@intel.com>
-To: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
-	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "bhelgaas@google.com" <bhelgaas@google.com>
-CC: "joro@8bytes.org" <joro@8bytes.org>, "praan@google.com"
-	<praan@google.com>, "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "Williams, Dan J" <dan.j.williams@intel.com>,
-	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>, Vikram Sethi
-	<vsethi@nvidia.com>, "linux-cxl@vger.kernel.org" <linux-cxl@vger.kernel.org>
-Subject: RE: [PATCH v3 1/3] PCI: Allow ATS to be always on for CXL.cache
- capable devices
-Thread-Topic: [PATCH v3 1/3] PCI: Allow ATS to be always on for CXL.cache
- capable devices
-Thread-Index: AQHcrcLZlsPpC1aSZEGOkgr6dEwpTbXIca9Q
-Date: Tue, 31 Mar 2026 08:19:19 +0000
-Message-ID: <BN9PR11MB5276A6B1B103C4B0201458348C53A@BN9PR11MB5276.namprd11.prod.outlook.com>
-References: <cover.1772833963.git.nicolinc@nvidia.com>
- <a0dd3e4cc5260f55bbec5b3ed6791def33028735.1772833963.git.nicolinc@nvidia.com>
-In-Reply-To: <a0dd3e4cc5260f55bbec5b3ed6791def33028735.1772833963.git.nicolinc@nvidia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|DM4PR11MB6191:EE_
-x-ms-office365-filtering-correlation-id: 8bc76981-b911-40bc-3c96-08de8efe34e5
-x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700021|18002099003|56012099003|22082099003;
-x-microsoft-antispam-message-info: K9WYwXPvyZ17fEuP2BGm2teDw2v0UmdLlL0+7Mf169TZYnl1hQp0dZnZb5R51+GHNDB/sq2CWRv5kskXSz6DvHuEZEkZ3yOBfYQ4sdbpr7m8glGD9eh+tCsf/zptwuqxel8+ys7DgMRNGqO43Hs9TA5FI964I1TatEojp/HX7tCUpG8C3K1bBi73o9kb2MlCg9+6CQzqM64jqNI+8Q+bKkcHVxdaV0Z+u37yqNchZhw6zqikvHqo+m08pWhsWc2tGXjWHiMdjwK9W5SPRp9qkpied02UrFfGa1tZNs2ei4pqAGP7A9hrY4bNVYyOeyUgHFpOUxYA4m23KhEktnng0V97f1CLusLK917DLc1EP0cYCzVt2Hdi0lTICKg1IGHyVNQ8s5HEZNZJ3cdiWWm99GrhxeWDax+dr/LuKdKlUt/m94QVB4PKpvJqJKj3rOPP9jTcJOira9rQs233F2mTa4+hIlAJ3znxJllcEhwSNwbuDxUH3Vdn4cXOVx3KOTOy4UtxNrWIblnWryaYTqhvlPLJJXDuhtWOUeZWI1gWAPfzGTVebFKzeKcGf1LrvvyF13Wv6d3MO8ZllCT0kx+tdWq0XlLhlmoYGKhQxiRhh2/ccjDlqgD6DI/Jc2ChesAPOW0wlme4mqfb/UQMbaJNAAvJtDh2tgrZZphZ8lDjCDLLyaIrjiDorLYpMbPq1h9o4EQoAUWYH2dZzp63JbxWtW2MFWOaS6Oj7+9jIT0kYXurv98f/hM2mSq0UIoOkGsISdPH+qqX6lX6M9Y1t99tI+lsbz1HFXrvJ/yXzFr6dFQ=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?GMrrEQoDhIcBkWJ7Qzm+VNBb3KHnTxYMXf7eM7wbN1D0X7DlJZ6GIOKWQvkh?=
- =?us-ascii?Q?Zf/4TRc8VwLumQ5KEim0CHxzjLej5NRVapr5vkQBcITM4ggk+HXoP+TGaTcF?=
- =?us-ascii?Q?Jgi3gGX125iIsYCRM8mQ7zGlcpShc7BxuHIZEH6483spBtMQSmJDXrI2izEM?=
- =?us-ascii?Q?KPZ728iN1cu0cJsu3ZXWngHhtpirf2PSWyIWy8nTm9bVAREdMQQVD9/+X/di?=
- =?us-ascii?Q?rs+Zc6BGT78bcIUlof3bzv0DvQI0YU3DiA/lIGxdTSsVgriq8MXgGJ4pzVFj?=
- =?us-ascii?Q?uzJdwDxNWqdkvPtJh5z0WjqmO6VvVRgg2a7f0oqEcz3tj7nKB+iiFoulrfzN?=
- =?us-ascii?Q?zanFbPp4bGbSpyg7V/eLxTPt+b8E3rt+J9lBFsSRBCPTk3RYmPXIK+5nvFuZ?=
- =?us-ascii?Q?ntcovjPVFtjI4hPLF2XTY3SZ7ZObDjwnNq1FkXyguAIFxSsaoI1fg0q09Y3O?=
- =?us-ascii?Q?pmaV7FvsAoO/ld9SKCv7U2tGEqAVbSAGnvlftbUZr1cXLRMLxwrGDHQXpcOR?=
- =?us-ascii?Q?44/QLFEkm6KzEdNDFBF3Ru/AXiuGm6Ey1iwVS4SVX+HS2L4bAghVQo+djP5x?=
- =?us-ascii?Q?ls3j/adWjl0oxFvqdEySZJtCTO9m4c6Xj1JjteRUfkOkKpcJ/6c0Y2PgzcXB?=
- =?us-ascii?Q?V/uAHcSPz6C3qxCo5PCGpbAjwRt/RLfQZITpNlUOFWLnaDPMhnbO07oeHi8k?=
- =?us-ascii?Q?QehSygF2lXflNHOLlAfi0OrFKuKP7s5sEVeGvZ3ItieWUAEOp3230zRc22ni?=
- =?us-ascii?Q?HknZo9djCXKBUeUoJwwbxxQzwPyo28IgGwHHfRyhZ0WR1GogFfWDzO6uUQlI?=
- =?us-ascii?Q?v301QDknR9AINtBqVgl2sRVGvR+/q4x+JMx3ykFv3YCZDtoN2r9N76Bd9xgX?=
- =?us-ascii?Q?xj9uJjLFysjNwOOtmWvz3vsX5Ki3uO408DeC4q1ISTTHu8Jz8IkZKfdKVtgT?=
- =?us-ascii?Q?y3hyZP9uc9QaCGn2vf0wPMZX8imY0KcvcBbS5/9zOX7cVX13wCRzQs/BKkQY?=
- =?us-ascii?Q?zTX8jU48C7gJ26KU2P+XL1Dv5QcAbsTDGDG7IEVS11BOO1IIkTEDK6Dm9H5q?=
- =?us-ascii?Q?luQqcvx5kblUC+Yi511aQHgNpiSyF4SVcu0Trp4xGypQsDVkOGcFwHlCphdJ?=
- =?us-ascii?Q?VKSiF9wKnpeldg+ZN43d2D1KMYsCuW5dHduK235Ro24ZFaphsl6+D6S0qeJg?=
- =?us-ascii?Q?EhajoS/dIoERVPK+Heq7gWXkKiTBdqEZpgrt2ivYIP2aWNq4YGj5eLTvUANc?=
- =?us-ascii?Q?r460DJ9ZSE7uuS9hq277sRzxWqsNqdbWbJB+XLCe/U/ktvDUY6U8HiSJzir5?=
- =?us-ascii?Q?6/jrLrvGjZnNbnkhGqnJti/3xUVEFA7S3CkYRfpj5yqYDUMnvYJPOyFFkHpf?=
- =?us-ascii?Q?4RUN+Xwm1hSQ7H8VIt7B1LfhTPxZOLECu4FM8foAQF3W4lsY+rE+KmHz0LNE?=
- =?us-ascii?Q?HYY67lBWHjG3Pg7UxvMhU5gppFqEaB3PLZBVZZ4Eirdwz43Rrp/2ud3vUgv+?=
- =?us-ascii?Q?nJ6i53Use6/dN9ds9g5rBRah+Esw0QZ/dJDT0M52sRz79ZRHtl3pAyBdF33L?=
- =?us-ascii?Q?2x6lg4LLaOSEvUUhN8N+UU10RaX3Fn01fben+dVjOcVq3CYBNDRrQP20xdsO?=
- =?us-ascii?Q?8GQ/JaI/zrgld/1KUmZSelnp5khXWYWibVrU2pXbczMQMY7plsfs6jhCaiNW?=
- =?us-ascii?Q?dxzXlt8FFxkd24L10vlKSNzWiADcojnaCENlolR1vbT07+RxoApWS7NcZWx/?=
- =?us-ascii?Q?7VVAy5rRKw=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 31 Mar 2026 08:20:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8C071600CB
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 08:20:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43A43C2BCB2
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 08:20:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774945224;
+	bh=ROq3VRnEKIKK9hBJkmpGUe23U+FD0G+M72+mozJ94YI=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=FHFi78M6ZBPEw3UVs5Ouyv+sgrCxwGlGxxYHEfpy83SrgKNiaGhJ900+RBFYT0rFb
+	 f5YPxhGTKIcezQ/7GWSAUwLOdQ8hnsrcyslNpUB6SxGtP87eCzQaXAmvqD9MLAcdcE
+	 xf/ZAmbtnNEyLUqbaIfBwV/+iYM7Y8C6vrUy9aBQn/F15nfY9SHstoqD9HSvjrfTQp
+	 +xPBqsZjps4+O4fxWkOyYSiwGjjl1QGqMbyVJJw4qNKORvak4BjNfIgPzhgoKIrJ9z
+	 HHPK6Nkpu9CJFobQ0scqCZpedAwrO7t4vKLJ24mJFASYuYeN2C1AqsXQXzouzrR4R2
+	 U+6Yq7YoBTp8A==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 2C39CF4007A;
+	Tue, 31 Mar 2026 04:20:23 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Tue, 31 Mar 2026 04:20:23 -0400
+X-ME-Sender: <xms:x4PLaU7q0jl3LvEYHSHeNaV595X0lIiEosPESvcehG0-jUGP69rv5A>
+    <xme:x4PLaQurxpyd935rNMgKcbA6MP6-3XT4FDyQochN0GnmlRoEa_SpH9gUj1Gzat5SW
+    C2vyKXlANrb1nDsTU5zXZOwx8YrvJYr1zc-knCdLFqOzH8kFj-FvQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefgedufeekucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcu
+    uehivghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrg
+    htthgvrhhnpedvueehiedtvedtleekuddutefgffdtleetfeetveejveejieehfefhjeei
+    jeefudenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
+    grrhguodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieejtdehtddtjeel
+    qdeffedvudeigeduhedqrghruggspeepkhgvrhhnvghlrdhorhhgseifohhrkhhofhgrrh
+    gurdgtohhmpdhnsggprhgtphhtthhopeehpdhmohguvgepshhmthhpohhuthdprhgtphht
+    thhopeguvghmhigrnhhshhesghhmrghilhdrtghomhdprhgtphhtthhopehhtghhsehinh
+    hfrhgruggvrggurdhorhhgpdhrtghpthhtohepvggsihhgghgvrhhssehkvghrnhgvlhdr
+    ohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrih
+    hnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdgtrhihphhtohesvhhg
+    vghrrdhkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:x4PLaaERw6U4Oxd-8dQZL-H79-Eex1oKa8FVHJ3fyrfsSixyD-nj4A>
+    <xmx:x4PLaUSBTbh2ckTyRbLY_wZA6HCOejncj-weqpdQ3nSqodEfQUvcRA>
+    <xmx:x4PLaftpDJTtLpOnJrJUormyOye5j8rd7Jo44QnQj01HcdUkJUwp7g>
+    <xmx:x4PLaULjVYXS9rSw-SBeYHg5dVvhdaQTeZBJSE3U0_wkC_hF3IM4Pg>
+    <xmx:x4PLaclpWvUsiY0eSBlBBYZqteqyaWhqGoLwe1SILD7FOJJeZmjg9VH6>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 09865700069; Tue, 31 Mar 2026 04:20:23 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: drr/bBQQJXOmzM1kjDOzlcWnonI84f3LqH0z6A/xKQID0tAmv2rCDnADT89pPRI1BZJvOcTeieCwnV76ka65f1KQgQuTA2qdpjZjM6avZhj4rKpJ5wVQRoUeZXuZdtwhqXKvJvAZkrgkEmaaP5gnfVKfXwPAXmDSIUl4wCUH0YFvwoqg8Ex9miFEuEE9itWdgZPxJXJDvuDTmmrBEvuhRM9IvmFVOmIY7UoJBe48xtDiQjsFD+PvtiyEhcnrzsN373xIMGxd8/hMIOVDMf8OglxniDPsQsAIc4gX+P2EUn04WJ3lv+V2MIdsXutpDNdlW3Fl8RiqJWw4t8xEapO3fA==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8bc76981-b911-40bc-3c96-08de8efe34e5
-X-MS-Exchange-CrossTenant-originalarrivaltime: 31 Mar 2026 08:19:19.3101
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: wacubI2SU04eau/0TpfmvdbwELG3T2V4unPB/6PuoXHGtHUuYPNvnY/2bTP+cxIG9/Mdi5pt/POxBUmNLlY+5w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR11MB6191
-X-OriginatorOrg: intel.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_011934_344920_17EE2EBE 
-X-CRM114-Status: GOOD (  17.18  )
+X-ThreadId: A8AYNq7FA6_V
+Date: Tue, 31 Mar 2026 10:20:02 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Christoph Hellwig" <hch@infradead.org>
+Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ "Demian Shulhan" <demyansh@gmail.com>, "Eric Biggers" <ebiggers@kernel.org>
+Message-Id: <416ca128-715c-449f-a614-1d97d8f193f2@app.fastmail.com>
+In-Reply-To: <actuDkpYbzLj0sI8@infradead.org>
+References: <20260330144630.33026-7-ardb@kernel.org>
+ <20260330144630.33026-12-ardb@kernel.org> <actuDkpYbzLj0sI8@infradead.org>
+Subject: Re: [PATCH 5/5] lib/crc: arm: Enable arm64's NEON intrinsics implementation of
+ crc64
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,70 +103,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: Nicolin Chen <nicolinc@nvidia.com>
-> Sent: Saturday, March 7, 2026 7:41 AM
->=20
-> Controlled by the IOMMU driver, ATS is usually enabled "on demand" when
-> a
-> device requests a translation service from its associated IOMMU HW runnin=
-g
-> on the channel of a given PASID. This is working even when a device has n=
-o
-> translation on its RID (i.e., the RID is IOMMU bypassed).
 
-ATS is usually enabled "on demand" when a given PASID on the device
-is attached to an I/O page table. Above sounds like there will be a softwar=
-e
-action to enable ATS upon a device translation request.
+On Tue, 31 Mar 2026, at 08:47, Christoph Hellwig wrote:
+>>  	depends on CRC64 && CRC_OPTIMIZATIONS
+>> +	default y if ARM && KERNEL_MODE_NEON && !(CPU_BIG_ENDIAN && CC_IS_CLANG)
+>
+> It would be useful to throw in a comment here why it is disabled for
+> big-endian on clang.
+>
 
->=20
-> However, certain PCIe devices require non-PASID ATS on their RID even
-> when
-> the RID is IOMMU bypassed. Call this "always on".
->=20
-> For instance, the CXL spec notes in "3.2.5.13 Memory Type on CXL.cache":
-> "To source requests on CXL.cache, devices need to get the Host Physical
-> Address (HPA) from the Host by means of an ATS request on CXL.io."
->=20
-> In other words, the CXL.cache capability requires ATS; otherwise, it can'=
-t
-> access host physical memory.
->=20
-> Introduce a new pci_ats_always_on() helper for the IOMMU driver to scan a
-> PCI device and shift ATS policies between "on demand" and "always on".
->=20
-> Add the support for CXL.cache devices first. Pre-CXL devices will be adde=
-d
-> in quirks.c file.
->=20
-> Note that pci_ats_always_on() validates against pci_ats_supported(), so w=
-e
-> ensure that untrusted devices (e.g. external ports) will not be always on=
-.
-> This maintains the existing ATS security policy regarding potential side-
-> channel attacks via ATS.
->=20
-> Cc: linux-cxl@vger.kernel.org
-> Suggested-by: Vikram Sethi <vsethi@nvidia.com>
-> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Ack.
 
-Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+>> +#define crc64_be_arch crc64_be_generic
+>> +
+>> +static inline u64 crc64_nvme_arch(u64 crc, const u8 *p, size_t len)
+>> +{
+>> +	if (len >= 128 && static_branch_likely(&have_pmull) &&
+>> +	    likely(may_use_simd())) {
+>> +		do {
+>> +			size_t chunk = min_t(size_t, len & ~15, SZ_4K);
+>> +
+>> +			scoped_ksimd()
+>> +				crc = crc64_nvme_arm64_c(crc, p, chunk);
+>> +
+>> +			p += chunk;
+>> +			len -= chunk;
+>> +		} while (len >= 128);
+>> +	}
+>
+> From reading the earlier patches, I'll assume arm SIMD code is
+> non-preemptable and thus you want the chunking here?  Maybe add
+> a little comment explaining that?
 
-with a nit:
-
-> +/*
-> + * CXL r4.0, sec 3.2.5.13 Memory Type on CXL.cache notes: to source
-> requests on
-> + * CXL.cache, devices need to get the Host Physical Address (HPA) from t=
-he
-> Host
-> + * by means of an ATS request on CXL.io.
-> + *
-> + * In other world, CXL.cache devices cannot access host physical memory
-> without
-> + * ATS.
-> + */
-
-s/world/words/
+Indeed.
 
