@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD1410F930A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F13A710F930F
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 23:22:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oyXOvXecsbCli5fUuOAvQ69jimjkm/HRTXetPurxhOQ=; b=TQsex58+d0Antvt66OK4xT2T4c
-	khN1n2U1Vu4Dewb/1PK2NZeq2O1IKBqGsTq+qS4/QwwQA2Swr/dmiPiIq1Ftae+6s+Ht7YAMZbAd5
-	Zatob8G1Fur/PX44DSopZSXqfTcqpmpUEdM02bRGfkXDKx6fGL8NnSpAZDZF4l2uMlzm35ibwYNCb
-	ZPJRwDWQDc8Uajyff5YQISC4ml9Xyh1/BPx0mzdlNMvXi6soB6JHCJhge/Rp9Nel/b6bbJDqK+Y5l
-	le4pIh9PlEdsHHqhvaEtSlsn0Vcf0U9jk76vhLn7MbtalzBdPAwsVe1R527ozkf5+7uB7MvXWXyub
-	oWeg23/Q==;
+	bh=oGR5T5HYBMd2iNRLOKjKzhpsiAMFjmEHiLVto9mTSL8=; b=flA2RlPW/pluHhZND/byVow3LM
+	jfwMw8ugsCKHySdTV1fRrqp5SBv344qaxEd/Q5veWPz+BU6Edp/0AyEC+XZSDbUPQsuY0O07JcGgs
+	5fKIiER+WyfU7NbThwnsjRlxsb/sLdcFUO6u95LXq3TQcr2a+/SrSlNgapmeGChVuqo5qzECMltQP
+	3IKlQNP7iyN1oyDonaRqNc5R4g69hqOekswo8qQBxQnEniV4/1GaC1+N+pN1YCfE8W3mkYgt0Yp/a
+	j/q+sCESsxdCFERBsDIjTKb9kltvPOO1nUUo3JTIlxY72xRUdECszqomKtrB59SpE/JM2wZa74TUM
+	+Z9a6jFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7iQ0-0000000Dfkq-0yhM;
+	id 1w7iQ0-0000000DflW-3SOp;
 	Tue, 31 Mar 2026 23:22:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7iPr-0000000Dfhl-3Hyo
+	id 1w7iPr-0000000Dfhi-3SgB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 23:22:36 +0000
+	Tue, 31 Mar 2026 23:22:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9DAAB44558;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6DCB144515;
 	Tue, 31 Mar 2026 23:22:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0F32AC2BCC9;
-	Tue, 31 Mar 2026 23:22:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id F3ADBC2BCB6;
+	Tue, 31 Mar 2026 23:22:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1774999354;
-	bh=QC+/tqe1/wX3mgbcC+PR25ooF/RqKPuOwtdoO9U4yTM=;
+	bh=rB6BZzMbFfb9sl60RDQdBxU29i6aNtrUmn9zIByPFvQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=JuSTj4tHq2+YsBAEbcPsvI6QbbqD+H2GAvp6bE6TYbafBHZg1v0TgDIdr5obxUnVa
-	 Fh1DK8wuDW7WFRM9DO5bG23UV2HzDOd2Kq37fSwmHh0BFbT6fny4UlcAIqcuUt0qcx
-	 rY0Zpg0V0jkRyo62FEQKVjTRReYg0U/wJbFl0qMRyO7uNpVHfczbnndmm+CZLbrXEX
-	 dLMldEHr/HzAmdWk5jqL3pQb+5MlT6gjwdWZPZ7yjMMjY45HUY5TBYtYGk1prNRegq
-	 yFCJ/q+pyF2zGR5TEmjcO18FKytr4HOVVQ2jP8eef/r4fYwznKz2JGgVAZHbCXrf8p
-	 NFEhR4MPlAMlg==
+	b=XEuruQeoWKsefQhgTOjhYC6ZpKiqXGCgTjfOpAi34AIeRfOnYvKnjlNvZGuwPPS/Q
+	 Jhhv+eoLFfW0nAfTge5zCaPnEA3PaOtjbiIXDX5yjxVEdsROFa455BYAeuUnfjz2+0
+	 l2vQOKh3Iv6YKYKh6u6pRAgsS6/n7Bf5opZRj2lIYqPwuKm7BRUgJ3BhRpsbzjC/cp
+	 UrwddEMtEuKoMpfZQEcuLTBecEKpD4vqdjY4NQtQGzNNMiWBxKWbwXX6K6D/xlGPyT
+	 kgBxJlLl6GhMs9xInzztBmJLyaonTUF0efW5dFyeB+jUliapSJ32PrOwgoKP2RSjcM
+	 PYL3dqy2gfj3g==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0569910F930B;
-	Tue, 31 Mar 2026 23:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E65E410F930F;
+	Tue, 31 Mar 2026 23:22:33 +0000 (UTC)
 From: Amit Sunil Dhamne via B4 Relay <devnull+amitsd.google.com@kernel.org>
-Date: Tue, 31 Mar 2026 23:22:19 +0000
-Subject: [PATCH v10 4/6] lib/linear_ranges: Add
- linear_range_get_selector_high_array
+Date: Tue, 31 Mar 2026 23:22:18 +0000
+Subject: [PATCH v10 3/6] mfd: max77759: add register bitmasks and modify
+ irq configs for charger
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260331-max77759-charger-v10-4-76f59233c369@google.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260331-max77759-charger-v10-3-76f59233c369@google.com>
 References: <20260331-max77759-charger-v10-0-76f59233c369@google.com>
 In-Reply-To: <20260331-max77759-charger-v10-0-76f59233c369@google.com>
 To: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
@@ -73,19 +73,19 @@ Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774999353; l=3004;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774999353; l=15748;
  i=amitsd@google.com; s=20241031; h=from:subject:message-id;
- bh=EfsBhqbhWkOWcpl6lnnrrFZd6U20wlHL8pMi8geg4Dw=;
- b=8SnUCdVnNvBOuxFKx0mY+BFXadDyNmS+pNAGroFaPxnnnFjJszZYb3XPGU7KnX3Ah4iFaQ14u
- kMXZaNKamdaDxRE3d2kcAh4KMnLpP+A7JwXaKor+SxkvvBmk21k9wau
+ bh=dU/CtUSTH5F/z6+eeAxQad9XYQ8BL+9Uw1n47EgnNos=;
+ b=JY0YEmwPX0ppfpvAd0gHosE+8/D7zYH7j78xAzVu3vmpNYKibd2v5zHwlSeE6lqUFqZvdDuQd
+ HSRsiOec958A/JyvXqZmBXndXG4BUX5NF11YKxWfOARlqnK04vhaj5L
 X-Developer-Key: i=amitsd@google.com; a=ed25519;
  pk=wD+XZSST4dmnNZf62/lqJpLm7fiyT8iv462zmQ3H6bI=
 X-Endpoint-Received: by B4 Relay for amitsd@google.com/20241031 with
  auth_id=262
 X-Original-From: Amit Sunil Dhamne <amitsd@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_162235_896121_7FE78EF0 
-X-CRM114-Status: GOOD (  18.36  )
+X-CRM114-CacheID: sfid-20260331_162235_925323_3D9B3575 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,78 +103,347 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Amit Sunil Dhamne <amitsd@google.com>
 
-Add a helper function to find the selector for a given value in a linear
-range array. The selector should be such that the value it represents
-should be higher or equal to the given value.
+Add register bitmasks for charger function.
+In addition split the charger IRQs further such that each bit represents
+an IRQ downstream of charger regmap irq chip. In addition populate the
+ack_base to offload irq ack to the regmap irq chip framework.
 
 Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
-Reviewed-by: Matti Vaittinen <mazziesaccount@gmail.com>
-Acked-by: Mark Brown <broonie@kernel.org>
+Reviewed-by: André Draszik <andre.draszik@linaro.org>
 ---
- include/linux/linear_range.h |  3 +++
- lib/linear_ranges.c          | 36 ++++++++++++++++++++++++++++++++++++
- 2 files changed, 39 insertions(+)
+ drivers/mfd/max77759.c       |  95 ++++++++++++++++++++++---
+ include/linux/mfd/max77759.h | 166 +++++++++++++++++++++++++++++++++++--------
+ 2 files changed, 222 insertions(+), 39 deletions(-)
 
-diff --git a/include/linux/linear_range.h b/include/linux/linear_range.h
-index 2e4f4c3539c0..0f3037f1a94f 100644
---- a/include/linux/linear_range.h
-+++ b/include/linux/linear_range.h
-@@ -57,5 +57,8 @@ void linear_range_get_selector_within(const struct linear_range *r,
- int linear_range_get_selector_low_array(const struct linear_range *r,
- 					int ranges, unsigned int val,
- 					unsigned int *selector, bool *found);
-+int linear_range_get_selector_high_array(const struct linear_range *r,
-+					 int ranges, unsigned int val,
-+					 unsigned int *selector, bool *found);
+diff --git a/drivers/mfd/max77759.c b/drivers/mfd/max77759.c
+index a7efe233ec8c..9fa6027a92c4 100644
+--- a/drivers/mfd/max77759.c
++++ b/drivers/mfd/max77759.c
+@@ -201,8 +201,24 @@ static const struct regmap_config max77759_regmap_config_charger = {
+  *         - SYSUVLO_INT
+  *         - FSHIP_NOT_RD
+  *     - CHGR_INT: charger
+- *       - CHG_INT
+- *       - CHG_INT2
++ *       - INT1
++ *         - AICL
++ *         - CHGIN
++ *         - WCIN
++ *         - CHG
++ *         - BAT
++ *         - INLIM
++ *         - THM2
++ *         - BYP
++ *       - INT2
++ *         - INSEL
++ *         - SYS_UVLO1
++ *         - SYS_UVLO2
++ *         - BAT_OILO
++ *         - CHG_STA_CC
++ *         - CHG_STA_CV
++ *         - CHG_STA_TO
++ *         - CHG_STA_DONE
+  */
+ enum {
+ 	MAX77759_INT_MAXQ,
+@@ -228,8 +244,22 @@ enum {
+ };
  
- #endif
-diff --git a/lib/linear_ranges.c b/lib/linear_ranges.c
-index a1a7dfa881de..c85583678f6b 100644
---- a/lib/linear_ranges.c
-+++ b/lib/linear_ranges.c
-@@ -241,6 +241,42 @@ int linear_range_get_selector_high(const struct linear_range *r,
- }
- EXPORT_SYMBOL_GPL(linear_range_get_selector_high);
+ enum {
+-	MAX77759_CHARGER_INT_1,
+-	MAX77759_CHARGER_INT_2,
++	MAX77759_CHGR_INT1_AICL,
++	MAX77759_CHGR_INT1_CHGIN,
++	MAX77759_CHGR_INT1_WCIN,
++	MAX77759_CHGR_INT1_CHG,
++	MAX77759_CHGR_INT1_BAT,
++	MAX77759_CHGR_INT1_INLIM,
++	MAX77759_CHGR_INT1_THM2,
++	MAX77759_CHGR_INT1_BYP,
++	MAX77759_CHGR_INT2_INSEL,
++	MAX77759_CHGR_INT2_SYS_UVLO1,
++	MAX77759_CHGR_INT2_SYS_UVLO2,
++	MAX77759_CHGR_INT2_BAT_OILO,
++	MAX77759_CHGR_INT2_CHG_STA_CC,
++	MAX77759_CHGR_INT2_CHG_STA_CV,
++	MAX77759_CHGR_INT2_CHG_STA_TO,
++	MAX77759_CHGR_INT2_CHG_STA_DONE,
+ };
+ 
+ static const struct regmap_irq max77759_pmic_irqs[] = {
+@@ -256,8 +286,38 @@ static const struct regmap_irq max77759_topsys_irqs[] = {
+ };
+ 
+ static const struct regmap_irq max77759_chgr_irqs[] = {
+-	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_1, 0, GENMASK(7, 0)),
+-	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_2, 1, GENMASK(7, 0)),
++	REGMAP_IRQ_REG(MAX77759_CHGR_INT1_AICL, 0,
++		       MAX77759_CHGR_REG_CHG_INT_AICL),
++	REGMAP_IRQ_REG(MAX77759_CHGR_INT1_CHGIN, 0,
++		       MAX77759_CHGR_REG_CHG_INT_CHGIN),
++	REGMAP_IRQ_REG(MAX77759_CHGR_INT1_WCIN, 0,
++		       MAX77759_CHGR_REG_CHG_INT_WCIN),
++	REGMAP_IRQ_REG(MAX77759_CHGR_INT1_CHG, 0,
++		       MAX77759_CHGR_REG_CHG_INT_CHG),
++	REGMAP_IRQ_REG(MAX77759_CHGR_INT1_BAT, 0,
++		       MAX77759_CHGR_REG_CHG_INT_BAT),
++	REGMAP_IRQ_REG(MAX77759_CHGR_INT1_INLIM, 0,
++		       MAX77759_CHGR_REG_CHG_INT_INLIM),
++	REGMAP_IRQ_REG(MAX77759_CHGR_INT1_THM2, 0,
++		       MAX77759_CHGR_REG_CHG_INT_THM2),
++	REGMAP_IRQ_REG(MAX77759_CHGR_INT1_BYP, 0,
++		       MAX77759_CHGR_REG_CHG_INT_BYP),
++	REGMAP_IRQ_REG(MAX77759_CHGR_INT2_INSEL, 1,
++		       MAX77759_CHGR_REG_CHG_INT2_INSEL),
++	REGMAP_IRQ_REG(MAX77759_CHGR_INT2_SYS_UVLO1, 1,
++		       MAX77759_CHGR_REG_CHG_INT2_SYS_UVLO1),
++	REGMAP_IRQ_REG(MAX77759_CHGR_INT2_SYS_UVLO2, 1,
++		       MAX77759_CHGR_REG_CHG_INT2_SYS_UVLO2),
++	REGMAP_IRQ_REG(MAX77759_CHGR_INT2_BAT_OILO, 1,
++		       MAX77759_CHGR_REG_CHG_INT2_BAT_OILO),
++	REGMAP_IRQ_REG(MAX77759_CHGR_INT2_CHG_STA_CC, 1,
++		       MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CC),
++	REGMAP_IRQ_REG(MAX77759_CHGR_INT2_CHG_STA_CV, 1,
++		       MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CV),
++	REGMAP_IRQ_REG(MAX77759_CHGR_INT2_CHG_STA_TO, 1,
++		       MAX77759_CHGR_REG_CHG_INT2_CHG_STA_TO),
++	REGMAP_IRQ_REG(MAX77759_CHGR_INT2_CHG_STA_DONE, 1,
++		       MAX77759_CHGR_REG_CHG_INT2_CHG_STA_DONE),
+ };
+ 
+ static const struct regmap_irq_chip max77759_pmic_irq_chip = {
+@@ -297,11 +357,12 @@ static const struct regmap_irq_chip max77759_topsys_irq_chip = {
+ 	.num_irqs = ARRAY_SIZE(max77759_topsys_irqs),
+ };
+ 
+-static const struct regmap_irq_chip max77759_chrg_irq_chip = {
++static const struct regmap_irq_chip max77759_chgr_irq_chip = {
+ 	.name = "max77759-chgr",
+ 	.domain_suffix = "CHGR",
+ 	.status_base = MAX77759_CHGR_REG_CHG_INT,
+ 	.mask_base = MAX77759_CHGR_REG_CHG_INT_MASK,
++	.ack_base = MAX77759_CHGR_REG_CHG_INT,
+ 	.num_regs = 2,
+ 	.irqs = max77759_chgr_irqs,
+ 	.num_irqs = ARRAY_SIZE(max77759_chgr_irqs),
+@@ -325,8 +386,22 @@ static const struct resource max77759_gpio_resources[] = {
+ };
+ 
+ static const struct resource max77759_charger_resources[] = {
+-	DEFINE_RES_IRQ_NAMED(MAX77759_CHARGER_INT_1, "INT1"),
+-	DEFINE_RES_IRQ_NAMED(MAX77759_CHARGER_INT_2, "INT2"),
++	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT1_AICL,         "AICL"),
++	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT1_CHGIN,        "CHGIN"),
++	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT1_WCIN,         "WCIN"),
++	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT1_CHG,          "CHG"),
++	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT1_BAT,          "BAT"),
++	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT1_INLIM,        "INLIM"),
++	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT1_THM2,         "THM2"),
++	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT1_BYP,          "BYP"),
++	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT2_INSEL,        "INSEL"),
++	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT2_SYS_UVLO1,    "SYS_UVLO1"),
++	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT2_SYS_UVLO2,    "SYS_UVLO2"),
++	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT2_BAT_OILO,     "BAT_OILO"),
++	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT2_CHG_STA_CC,   "CHG_STA_CC"),
++	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT2_CHG_STA_CV,   "CHG_STA_CV"),
++	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT2_CHG_STA_TO,   "CHG_STA_TO"),
++	DEFINE_RES_IRQ_NAMED(MAX77759_CHGR_INT2_CHG_STA_DONE, "CHG_STA_DONE"),
+ };
+ 
+ static const struct mfd_cell max77759_cells[] = {
+@@ -567,7 +642,7 @@ static int max77759_add_chained_charger(struct i2c_client *client,
+ 					    max77759->regmap_charger,
+ 					    MAX77759_INT_CHGR,
+ 					    parent,
+-					    &max77759_chrg_irq_chip,
++					    &max77759_chgr_irq_chip,
+ 					    &irq_chip_data);
+ 	if (ret)
+ 		return ret;
+diff --git a/include/linux/mfd/max77759.h b/include/linux/mfd/max77759.h
+index c6face34e385..ec19be952877 100644
+--- a/include/linux/mfd/max77759.h
++++ b/include/linux/mfd/max77759.h
+@@ -59,35 +59,65 @@
+ #define MAX77759_MAXQ_REG_AP_DATAIN0            0xb1
+ #define MAX77759_MAXQ_REG_UIC_SWRST             0xe0
+ 
+-#define MAX77759_CHGR_REG_CHG_INT               0xb0
+-#define MAX77759_CHGR_REG_CHG_INT2              0xb1
+-#define MAX77759_CHGR_REG_CHG_INT_MASK          0xb2
+-#define MAX77759_CHGR_REG_CHG_INT2_MASK         0xb3
+-#define MAX77759_CHGR_REG_CHG_INT_OK            0xb4
+-#define MAX77759_CHGR_REG_CHG_DETAILS_00        0xb5
+-#define MAX77759_CHGR_REG_CHG_DETAILS_01        0xb6
+-#define MAX77759_CHGR_REG_CHG_DETAILS_02        0xb7
+-#define MAX77759_CHGR_REG_CHG_DETAILS_03        0xb8
+-#define MAX77759_CHGR_REG_CHG_CNFG_00           0xb9
+-#define MAX77759_CHGR_REG_CHG_CNFG_01           0xba
+-#define MAX77759_CHGR_REG_CHG_CNFG_02           0xbb
+-#define MAX77759_CHGR_REG_CHG_CNFG_03           0xbc
+-#define MAX77759_CHGR_REG_CHG_CNFG_04           0xbd
+-#define MAX77759_CHGR_REG_CHG_CNFG_05           0xbe
+-#define MAX77759_CHGR_REG_CHG_CNFG_06           0xbf
+-#define MAX77759_CHGR_REG_CHG_CNFG_07           0xc0
+-#define MAX77759_CHGR_REG_CHG_CNFG_08           0xc1
+-#define MAX77759_CHGR_REG_CHG_CNFG_09           0xc2
+-#define MAX77759_CHGR_REG_CHG_CNFG_10           0xc3
+-#define MAX77759_CHGR_REG_CHG_CNFG_11           0xc4
+-#define MAX77759_CHGR_REG_CHG_CNFG_12           0xc5
+-#define MAX77759_CHGR_REG_CHG_CNFG_13           0xc6
+-#define MAX77759_CHGR_REG_CHG_CNFG_14           0xc7
+-#define MAX77759_CHGR_REG_CHG_CNFG_15           0xc8
+-#define MAX77759_CHGR_REG_CHG_CNFG_16           0xc9
+-#define MAX77759_CHGR_REG_CHG_CNFG_17           0xca
+-#define MAX77759_CHGR_REG_CHG_CNFG_18           0xcb
+-#define MAX77759_CHGR_REG_CHG_CNFG_19           0xcc
++#define MAX77759_CHGR_REG_CHG_INT                      0xb0
++#define   MAX77759_CHGR_REG_CHG_INT_AICL               BIT(7)
++#define   MAX77759_CHGR_REG_CHG_INT_CHGIN              BIT(6)
++#define   MAX77759_CHGR_REG_CHG_INT_WCIN               BIT(5)
++#define   MAX77759_CHGR_REG_CHG_INT_CHG                BIT(4)
++#define   MAX77759_CHGR_REG_CHG_INT_BAT                BIT(3)
++#define   MAX77759_CHGR_REG_CHG_INT_INLIM              BIT(2)
++#define   MAX77759_CHGR_REG_CHG_INT_THM2               BIT(1)
++#define   MAX77759_CHGR_REG_CHG_INT_BYP                BIT(0)
++#define MAX77759_CHGR_REG_CHG_INT2                     0xb1
++#define   MAX77759_CHGR_REG_CHG_INT2_INSEL             BIT(7)
++#define   MAX77759_CHGR_REG_CHG_INT2_SYS_UVLO1         BIT(6)
++#define   MAX77759_CHGR_REG_CHG_INT2_SYS_UVLO2         BIT(5)
++#define   MAX77759_CHGR_REG_CHG_INT2_BAT_OILO          BIT(4)
++#define   MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CC        BIT(3)
++#define   MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CV        BIT(2)
++#define   MAX77759_CHGR_REG_CHG_INT2_CHG_STA_TO        BIT(1)
++#define   MAX77759_CHGR_REG_CHG_INT2_CHG_STA_DONE      BIT(0)
++#define MAX77759_CHGR_REG_CHG_INT_MASK                 0xb2
++#define MAX77759_CHGR_REG_CHG_INT2_MASK                0xb3
++#define MAX77759_CHGR_REG_CHG_INT_OK                   0xb4
++#define MAX77759_CHGR_REG_CHG_DETAILS_00               0xb5
++#define   MAX77759_CHGR_REG_CHG_DETAILS_00_CHGIN_DTLS  GENMASK(6, 5)
++#define MAX77759_CHGR_REG_CHG_DETAILS_01               0xb6
++#define   MAX77759_CHGR_REG_CHG_DETAILS_01_BAT_DTLS    GENMASK(6, 4)
++#define   MAX77759_CHGR_REG_CHG_DETAILS_01_CHG_DTLS    GENMASK(3, 0)
++#define MAX77759_CHGR_REG_CHG_DETAILS_02               0xb7
++#define   MAX77759_CHGR_REG_CHG_DETAILS_02_CHGIN_STS   BIT(5)
++#define MAX77759_CHGR_REG_CHG_DETAILS_03               0xb8
++#define MAX77759_CHGR_REG_CHG_CNFG_00                  0xb9
++#define   MAX77759_CHGR_REG_CHG_CNFG_00_MODE           GENMASK(3, 0)
++#define MAX77759_CHGR_REG_CHG_CNFG_01                  0xba
++#define MAX77759_CHGR_REG_CHG_CNFG_02                  0xbb
++#define   MAX77759_CHGR_REG_CHG_CNFG_02_CHGCC          GENMASK(5, 0)
++#define MAX77759_CHGR_REG_CHG_CNFG_03                  0xbc
++#define MAX77759_CHGR_REG_CHG_CNFG_04                  0xbd
++#define   MAX77759_CHGR_REG_CHG_CNFG_04_CHG_CV_PRM     GENMASK(5, 0)
++#define MAX77759_CHGR_REG_CHG_CNFG_05                  0xbe
++#define MAX77759_CHGR_REG_CHG_CNFG_06                  0xbf
++#define   MAX77759_CHGR_REG_CHG_CNFG_06_CHGPROT        GENMASK(3, 2)
++#define MAX77759_CHGR_REG_CHG_CNFG_07                  0xc0
++#define MAX77759_CHGR_REG_CHG_CNFG_08                  0xc1
++#define MAX77759_CHGR_REG_CHG_CNFG_09                  0xc2
++#define   MAX77759_CHGR_REG_CHG_CNFG_09_CHGIN_ILIM     GENMASK(6, 0)
++#define MAX77759_CHGR_REG_CHG_CNFG_10                  0xc3
++#define MAX77759_CHGR_REG_CHG_CNFG_11                  0xc4
++#define MAX77759_CHGR_REG_CHG_CNFG_12                  0xc5
++/* Wireless Charging input channel select */
++#define   MAX77759_CHGR_REG_CHG_CNFG_12_WCINSEL        BIT(6)
++/* CHGIN/USB input channel select */
++#define   MAX77759_CHGR_REG_CHG_CNFG_12_CHGINSEL       BIT(5)
++#define MAX77759_CHGR_REG_CHG_CNFG_13                  0xc6
++#define MAX77759_CHGR_REG_CHG_CNFG_14                  0xc7
++#define MAX77759_CHGR_REG_CHG_CNFG_15                  0xc8
++#define MAX77759_CHGR_REG_CHG_CNFG_16                  0xc9
++#define MAX77759_CHGR_REG_CHG_CNFG_17                  0xca
++#define MAX77759_CHGR_REG_CHG_CNFG_18                  0xcb
++#define   MAX77759_CHGR_REG_CHG_CNFG_18_WDTEN          BIT(0)
++#define MAX77759_CHGR_REG_CHG_CNFG_19                  0xcc
+ 
+ /* MaxQ opcodes for max77759_maxq_command() */
+ #define MAX77759_MAXQ_OPCODE_MAXLENGTH (MAX77759_MAXQ_REG_AP_DATAOUT32 - \
+@@ -101,6 +131,84 @@
+ #define MAX77759_MAXQ_OPCODE_USER_SPACE_READ     0x81
+ #define MAX77759_MAXQ_OPCODE_USER_SPACE_WRITE    0x82
  
 +/**
-+ * linear_range_get_selector_high_array - return linear range selector for value
-+ * @r:		pointer to array of linear ranges where selector is looked from
-+ * @ranges:	amount of ranges to scan from array
-+ * @val:	value for which the selector is searched
-+ * @selector:	address where found selector value is updated
-+ * @found:	flag to indicate that given value was in the range
-+ *
-+ * Scan array of ranges for selector for which range value matches given
-+ * input value. Value is matching if it is equal or higher than given value
-+ * If given value is found to be in a range scanning is stopped and @found is
-+ * set true. If a range with values greater than given value is found
-+ * but the range min is being greater than given value, then the range's
-+ * lowest selector is updated to @selector and scanning is stopped.
-+ *
-+ * Return: 0 on success, -EINVAL if range array is invalid or does not contain
-+ * range with a value greater or equal to given value
++ * enum max77759_chgr_chgin_dtls_status - Charger Input Status
++ * @MAX77759_CHGR_CHGIN_DTLS_VBUS_UNDERVOLTAGE:
++ *     Charger input voltage (Vchgin) < Under Voltage Threshold (Vuvlo)
++ * @MAX77759_CHGR_CHGIN_DTLS_VBUS_MARGINAL_VOLTAGE:
++ *     Vchgin > Vuvlo and Vchgin < (Battery Voltage (Vbatt) + system voltage (Vsys))
++ * @MAX77759_CHGR_CHGIN_DTLS_VBUS_OVERVOLTAGE:
++ *     Vchgin > Over Voltage threshold (Vovlo)
++ * @MAX77759_CHGR_CHGIN_DTLS_VBUS_VALID:
++ *     Vchgin > Vuvlo, Vchgin < Vovlo and Vchgin > (Vsys + Vbatt)
 + */
-+int linear_range_get_selector_high_array(const struct linear_range *r,
-+					 int ranges, unsigned int val,
-+					 unsigned int *selector, bool *found)
-+{
-+	int i;
-+	int ret;
++enum max77759_chgr_chgin_dtls_status {
++	MAX77759_CHGR_CHGIN_DTLS_VBUS_UNDERVOLTAGE,
++	MAX77759_CHGR_CHGIN_DTLS_VBUS_MARGINAL_VOLTAGE,
++	MAX77759_CHGR_CHGIN_DTLS_VBUS_OVERVOLTAGE,
++	MAX77759_CHGR_CHGIN_DTLS_VBUS_VALID,
++};
 +
-+	for (i = 0; i < ranges; i++) {
-+		ret = linear_range_get_selector_high(&r[i], val, selector,
-+						     found);
-+		if (!ret)
-+			return 0;
-+	}
++/**
++ * enum max77759_chgr_bat_dtls_states - Battery Details
++ * @MAX77759_CHGR_BAT_DTLS_NO_BATT_CHG_SUSP:	No battery and the charger suspended
++ * @MAX77759_CHGR_BAT_DTLS_DEAD_BATTERY:	Vbatt < Vtrickle
++ * @MAX77759_CHGR_BAT_DTLS_BAT_CHG_TIMER_FAULT:	Charging suspended due to timer fault
++ * @MAX77759_CHGR_BAT_DTLS_BAT_OKAY:		Battery okay and Vbatt > Min Sys Voltage (Vsysmin)
++ * @MAX77759_CHGR_BAT_DTLS_BAT_UNDERVOLTAGE:	Battery is okay. Vtrickle < Vbatt < Vsysmin
++ * @MAX77759_CHGR_BAT_DTLS_BAT_OVERVOLTAGE:	Battery voltage > Overvoltage threshold
++ * @MAX77759_CHGR_BAT_DTLS_BAT_OVERCURRENT:	Battery current exceeds overcurrent threshold
++ * @MAX77759_CHGR_BAT_DTLS_BAT_ONLY_MODE:	Battery only mode and battery level not available
++ */
++enum max77759_chgr_bat_dtls_states {
++	MAX77759_CHGR_BAT_DTLS_NO_BATT_CHG_SUSP,
++	MAX77759_CHGR_BAT_DTLS_DEAD_BATTERY,
++	MAX77759_CHGR_BAT_DTLS_BAT_CHG_TIMER_FAULT,
++	MAX77759_CHGR_BAT_DTLS_BAT_OKAY,
++	MAX77759_CHGR_BAT_DTLS_BAT_UNDERVOLTAGE,
++	MAX77759_CHGR_BAT_DTLS_BAT_OVERVOLTAGE,
++	MAX77759_CHGR_BAT_DTLS_BAT_OVERCURRENT,
++	MAX77759_CHGR_BAT_DTLS_BAT_ONLY_MODE,
++};
 +
-+	return -EINVAL;
-+}
-+EXPORT_SYMBOL_GPL(linear_range_get_selector_high_array);
++/**
++ * enum max77759_chgr_chg_dtls_states - Charger Details
++ * @MAX77759_CHGR_CHG_DTLS_PREQUAL:		Charger in prequalification mode
++ * @MAX77759_CHGR_CHG_DTLS_CC:			Charger in fast charge const curr mode
++ * @MAX77759_CHGR_CHG_DTLS_CV:			Charger in fast charge const voltage mode
++ * @MAX77759_CHGR_CHG_DTLS_TO:			Charger is in top off mode
++ * @MAX77759_CHGR_CHG_DTLS_DONE:		Charger is done
++ * @MAX77759_CHGR_CHG_DTLS_RSVD_1:		Reserved
++ * @MAX77759_CHGR_CHG_DTLS_TIMER_FAULT:		Charger is in timer fault mode
++ * @MAX77759_CHGR_CHG_DTLS_SUSP_BATT_THM:	Charger is suspended as battery removal detected
++ * @MAX77759_CHGR_CHG_DTLS_OFF:			Charger is off. Input invalid or charger disabled
++ * @MAX77759_CHGR_CHG_DTLS_RSVD_2:		Reserved
++ * @MAX77759_CHGR_CHG_DTLS_RSVD_3:		Reserved
++ * @MAX77759_CHGR_CHG_DTLS_OFF_WDOG_TIMER:	Charger is off as watchdog timer expired
++ * @MAX77759_CHGR_CHG_DTLS_SUSP_JEITA:		Charger is in JEITA control mode
++ */
++enum max77759_chgr_chg_dtls_states {
++	MAX77759_CHGR_CHG_DTLS_PREQUAL,
++	MAX77759_CHGR_CHG_DTLS_CC,
++	MAX77759_CHGR_CHG_DTLS_CV,
++	MAX77759_CHGR_CHG_DTLS_TO,
++	MAX77759_CHGR_CHG_DTLS_DONE,
++	MAX77759_CHGR_CHG_DTLS_RSVD_1,
++	MAX77759_CHGR_CHG_DTLS_TIMER_FAULT,
++	MAX77759_CHGR_CHG_DTLS_SUSP_BATT_THM,
++	MAX77759_CHGR_CHG_DTLS_OFF,
++	MAX77759_CHGR_CHG_DTLS_RSVD_2,
++	MAX77759_CHGR_CHG_DTLS_RSVD_3,
++	MAX77759_CHGR_CHG_DTLS_OFF_WDOG_TIMER,
++	MAX77759_CHGR_CHG_DTLS_SUSP_JEITA,
++};
++
++enum max77759_chgr_mode {
++	MAX77759_CHGR_MODE_OFF,
++	MAX77759_CHGR_MODE_CHG_BUCK_ON = 0x5,
++	MAX77759_CHGR_MODE_OTG_BOOST_ON = 0xA,
++};
 +
  /**
-  * linear_range_get_selector_within - return linear range selector for value
-  * @r:		pointer to linear range where selector is looked from
+  * struct max77759 - core max77759 internal data structure
+  *
 
 -- 
 2.53.0.1118.gaef5881109-goog
