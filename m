@@ -4,101 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B939F109B46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 14:05:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E21A109B46D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 14:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dF4Obv+MCSq8YX0P9fxlsKGDvf3O7jRLPn7ezaYrn94=; b=nS2gP1B2ZoDb1F
-	8zODc6y2LGcl+fGV/OwBLNHbbp9aZAXddE80xp2tOcOdTVDn3RkXcWmlgYt3/EkZLxFHnCE+Y/2rf
-	DXnEoZKik5MPEEEsqXnwKlfdwczbhNBMN73EkXWVjRxQuhDQaIrBujgZ4Z5zr5NKR4Gjxt/MmjT19
-	OjDt2Ysy6PeCy3b5bHnOBbuLIPzRNJmgn7M5RqyNxHBqFB9UwM8DkziTnoHuxFrtEIYVaLPF2IMH7
-	e2P9KFhc7fhhR3DOHLj66j5KvRtUuE44zAgu4x30epJTwvZHHGtFpRpQwHLSCd40c7vJSmtlTJjeo
-	7ARdLZi6ZTQ5iVU1T8zA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QkYW84mNfsxJu25KdM9HhqHWqHHn7yyj15gOr+bOnfo=; b=giWShysxm/QL2m5BEdRuVEE2JY
+	MELZHPFyfW33lBO+mpvid3UeICMB9c6FiHLNOZIU/mm0Pn0WJuW7wEdlyAuXY/tAGyhWE2wsPxvsz
+	WQA0kS9TMbRx9sz/ZuJRLP47B/+ADGsyKbfuwyptKHLKugqVpTAPkDmt0otb058sMkcShBtR0aFS+
+	Yxp0FfcnzMW2CU5IDzM/5p2ONxlBXjOWvGMFdS/DdwBxoWqLnFd7HE+PpPXbaDYKfRzy34zPMViOP
+	B8ULp8egCz71F+3rxMxfCJKD2dALR7e+7pLR8oQjczm3ARQHQDI/E557OetZ8nVYurlPfCqyjCXId
+	tlmr70ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ZiT-0000000D2Kc-2WcU;
-	Tue, 31 Mar 2026 14:05:13 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1w7Zie-0000000D2M9-3nqT;
+	Tue, 31 Mar 2026 14:05:24 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ZiQ-0000000D2KA-3U3y
+	id 1w7Zib-0000000D2Ld-29Rk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 14:05:12 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62V9v7uU4053792
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 14:05:09 GMT
+	Tue, 31 Mar 2026 14:05:22 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62VBZK9g1842530
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 14:05:20 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=dF4Obv+MCSq8YX0P9fxlsK
-	GDvf3O7jRLPn7ezaYrn94=; b=o+CZ3OYj5iT9TfiBJQQTNFVxOHbunQR1j75oeO
-	V3YExJ9yt3v/berszKeoWhGOTfi7pdx2GszMQHo48JYAU4vMf8NDj8Qol95WDQtj
-	kt2T2qTsSbyWa8Owfkr7utvtrdrH/tohASWBGdMgXOFCECs/gQ6G9iGT+CX3Q2Xc
-	MrxqC4EpUdV34HwujWpWIX33DvqEuY1v2ktIbSrDFlRavZFTK/mi9G45ugA5VxS2
-	4p7HP8tJJewyZqCsT3WLyCNuBgjgDqmXvj3RFLnzpkGM8rO0prd3v4Kyh2YFupV0
-	cMO3ds65t2hoqTNMhqZklxT7/1qmTsjk7AFjVByktZZBITRg==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d7xx3c298-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	QkYW84mNfsxJu25KdM9HhqHWqHHn7yyj15gOr+bOnfo=; b=RgiUSu9g7AoFyfvs
+	ptTYIVlwTLWC9JMVG87FjWuMJhT3X+bdqzD2zspSf8TGK2V23VRlvI2vJdP1tOBc
+	HGYsn6U138NuT08zss8A6YtH5ke9KV2LT3db8OARBEvAN+gXMg3+rwGDIRiGjv3G
+	qGy85z/wQ5RuHNOOBCE7VFgPS/aUfBoqz+e6VGzzcz/MmhsV5z30sAxrVwZmj8Uk
+	GOo/L9byvX/voIrGGQKM+31zAnE5mUY8jykPmvbdxjT8DkakS0FYfgqReU4pbA8V
+	drCd4Ldw5qP3KsSuZCDenW+gQWo400PINJ6i6nGUOOTmOrCePDsCGLdqMS9rffHz
+	kuplrw==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d80rskg35-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 14:05:08 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2b2471321dcso106109145ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 07:05:08 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 14:05:20 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2adef9d486bso103896925ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 07:05:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1774965908; x=1775570708; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=dF4Obv+MCSq8YX0P9fxlsKGDvf3O7jRLPn7ezaYrn94=;
-        b=Gurp7atxTe/tFt0F6kjmjqmfSAiE+7u5wWflJD40gU2euLqkCByBgayQLflQIm0M9h
-         jdU3hQd5HX3vvPUoXsFn4aXnxvKxtopCQ6O6k7Hu5MV0wM3YJaESeYJXzuH18n+CdaZ+
-         gt9w3KQayG4lD5zcjwxR2heeXuTChNL+NRODW+8gh7HNuO+4sP2wGvKdL9c4M6IRVhSE
-         KxiZf+wTRzPErT1p6C4EuZfbFkzQRir3qPnPkZEOoA+nu95Gqd2j5efAk5ZDNUF/jM7A
-         43lmyyW2e6orKGGA4NNsQfXgnl/kYbsqv6UkoTfmiRblPTcYok1WELm6YV2SC/MCYU8o
-         nDUw==
+        d=oss.qualcomm.com; s=google; t=1774965919; x=1775570719; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QkYW84mNfsxJu25KdM9HhqHWqHHn7yyj15gOr+bOnfo=;
+        b=M/PDZ/3Mhf4wRaqQm2DfXombyFzTaHcMUM00hZ12ysPvyCLb2r+v6gY8t21/cBIoG2
+         eEucb1pd18mKyhr27srAI7hNCnFV37pyBCewnZr3rpFL0QWVdimdphoA1KoCXhwvIRx8
+         8TzBK+Z4V6w/g+KroNc7GfXFdn2RqOaxuUhUGv4bg379SKY53rzHiyi1YrF5CHCiua1H
+         1Q41zTpBOtXLsAjVfSUTIOyixUn1iYjTJRRPYkZVvPeSLlRD1F9OgsLgrYYta4wZZHCL
+         nN+cEDYvp5x4yOIK8ukG/BSOJ+EfU1xbqbtSoqXxemmvIk+3LiWIL454VXnV2AYWIkMf
+         ql4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774965908; x=1775570708;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dF4Obv+MCSq8YX0P9fxlsKGDvf3O7jRLPn7ezaYrn94=;
-        b=kZSncg3FlFL4DyixoeFBKYV04wyklGWmKL/eoalyiaQ84Ihn9PdRWExT5XQujEd03c
-         kU2933sznV27ssMWpYDJAVa/Q227nb3hIIrJBdlRIM8Cg+6tOQi+9zG20tCx+2BoilV9
-         73mbEhGci6D9owsAJvdcJBUJq7xum0Puq265rHcKf7t6ku3uEQEnQLDPm9kVLXWhUrAl
-         BgymJBVdxxcpY04R9CYOWEYHEqffwc9FmAJO/jDj05JkURohi9oGUaSgok7qOiu+5JbD
-         DN5+D4R/unlfNyHOfBrUN52Iv3hWVosoiLV89w7rtcsbJCQ1fJJSm7S2jO1DuEo0nOfc
-         y/gQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV0n5cysAqwJjmlHhLPRdVuhHo43g/mKZ7yt7rZuroC075zk2/YqIt9F8ka/dZJZK1QSYjKHwOyp1TUPqLn5TsB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkeKyNEZ+7RkyijNL7TVmD18sqhcCACNzZgqkl5yzU3oOR2ApP
-	O6MhGdFcF/dvhXKjh/tRC31qoNX+d45aZ6AmNIrAMMiQYGvnfTxYsWWs2YE2rxnXevY6BTU9D6t
-	AV4YTsT1d0O34J200MUghXbqllFyO5g73Ww2B7Q70BkGfoheRGH/cXL/6RMr76VYEm66+hZT9Yr
-	AU/g==
-X-Gm-Gg: ATEYQzz4BvjSD0pkzQRQOxd/2Yp7an14hiIoFz0+1PAuDpB1ezpQvUGetG1guncOCCO
-	f/KlyfoONIQ8mqSUTaFA9shTjGhVcASyylHyO/HTR+scvNz5xIi3Ai09NbgBhnt5sGWRHaBo+Sc
-	2hcJV3PHaTyqAxgHOnMqd1FPvUI+Qq+YUh/3h7wSzEDvmm6qZrJHakQf8uwomnA3c2Yf3F01dKO
-	2SllZ0xlekzo+A10fMXy4EIFIXzZIynjpztj4vKfm4T7FXJIjTOo1KED0y8hp0QS+y6iaOl8+HC
-	erssCt34jj2Q1QUC6uUbyIce9vWLIs6akJjqWgW4Z1LKKWDj0GPX6l4FvyBpTXN0QXUhBICZzIT
-	z22nxQgnNWmfKUkFonPgsWqEwanCELxr+hTF8Io9P/418tVIFQTk8LluM
-X-Received: by 2002:a17:902:ced0:b0:2b0:c2d9:270a with SMTP id d9443c01a7336-2b0cdcf0019mr180935915ad.42.1774965908088;
-        Tue, 31 Mar 2026 07:05:08 -0700 (PDT)
-X-Received: by 2002:a17:902:ced0:b0:2b0:c2d9:270a with SMTP id d9443c01a7336-2b0cdcf0019mr180935015ad.42.1774965907346;
-        Tue, 31 Mar 2026 07:05:07 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1774965919; x=1775570719;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=QkYW84mNfsxJu25KdM9HhqHWqHHn7yyj15gOr+bOnfo=;
+        b=EXnwk0LYbvakHBx2MMC68v6d5W7bjFZHN7CO1QJ0a967jOKJ4kLhCZ8eER77A3mnqu
+         52zSbi+JUo5+mVjreRAW6+mYZRwVo2lL6+nXHdWb2BJrJseadtYvLOV2kYvb/t8vjvX4
+         RHC+GDZp2OGBDiFFSeYiGLZeWCIGk5WGvq4SwXLNREx0P+lWK8LMhrFN39V+2IXUZuYd
+         1b0XEyOIIbN11DyjRlL3AhG7urU9aIUoX6jqaiCAkDHC5DjKcjtin6fLZv/HFK//iAzf
+         npUrjnX6VCGAtCKU/vliiv+juzh/Rib6qMl+WzYa8suD8YAXL9QDqwb4MbuQBWNONUeJ
+         9/Hg==
+X-Forwarded-Encrypted: i=1; AJvYcCVcjje9G+Yk6we4/pMcctRePdSho4YTsARhDO0rbje7reem70rMb+vpb5MO2w9c9ZQuR3AS40YPlqfXJ6zjK3yV@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvRw0eaU8tMWfC6ZJZnWBlDHX3EMgOKojmwUcc45qIIRiL25/v
+	tlFGkamAWdIeECs4Ua8pQtMwlCVTkiGOvwAqkwnqGJg7ZJbewtmnB5642nT831xTYSKH7oY9XsZ
+	CWCshVhM0vnb5qj1w/C+gQIUpR4DPxRo64BVm2WMo2hwooKsdyzncrY3Zp9VPEL+2jEbefkTPaY
+	ulig==
+X-Gm-Gg: ATEYQzzkC+aFLB6K4iiA/8uy0PzelwG168j2un+SvFwIee/N93q9z6eM1hrB8M9WW8F
+	VM7HDbFLatOkTaNn5Y7GQ7lnKu9fbOXrygjsljvJQM8Nd+DxaYWwgnzd58A8Aj5jaHPqo9IhRXl
+	EMUPd3j3akV1lIvl/rwW4Ep6YHwkYUEqLLZKqnoHMj6vY1pbKMsAPanKvzGspcsBmGNBJHOykN4
+	uSwkQ4OW51xeD8RqQt6Tx0X/8vI8Z9cEXradzKUYEKsL8zDu+Pza6VRRwziBRUv2movVfu8SFGT
+	gDpMayRFxhFc6m2/GihVLVuEW+kAP7ULdEJekblz0sbqwALaBlkRx0AXRsXuakkPHhYzRpVbioC
+	QYAOzTvKVYOX3qUHeA3YIXypar0Stb0lningI7j3UQTgBN5z9bqaHDlqk
+X-Received: by 2002:a17:902:db08:b0:2ae:cb0e:fd59 with SMTP id d9443c01a7336-2b0cdc0fc5emr165601425ad.8.1774965918955;
+        Tue, 31 Mar 2026 07:05:18 -0700 (PDT)
+X-Received: by 2002:a17:902:db08:b0:2ae:cb0e:fd59 with SMTP id d9443c01a7336-2b0cdc0fc5emr165600885ad.8.1774965918166;
+        Tue, 31 Mar 2026 07:05:18 -0700 (PDT)
 Received: from hu-vjitta-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b24264292asm118311945ad.4.2026.03.31.07.04.56
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b24264292asm118311945ad.4.2026.03.31.07.05.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Mar 2026 07:05:06 -0700 (PDT)
+        Tue, 31 Mar 2026 07:05:17 -0700 (PDT)
 From: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Subject: [PATCH v12 0/3] of: parsing of multi #{iommu,msi}-cells in maps
-Date: Tue, 31 Mar 2026 19:34:45 +0530
-Message-Id: <20260331-parse_iommu_cells-v12-0-decfd305eea9@oss.qualcomm.com>
+Date: Tue, 31 Mar 2026 19:34:46 +0530
+Subject: [PATCH v12 1/3] of: Add convenience wrappers for of_map_id()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAH3Uy2kC/33NwQ6CMAwG4FchOzuyDkHw5HsYQ0opsgQBNyEaw
- rs7OHFAL03+P+3XSTi2hp04B5OwPBpnutYH0IdAUI3tnaUpfSG00omKFMgerePcdI/HkBM3jZN
- AUXRKUuSiQOHvesuVea/o9eZzbdyrs5/1x5gt7T9tzKSSxxIKYiaKGS6dc+FzwIb8VuiHWNAR1
- FbK9iRQnqJEV4QYI5TpLwo2lI53KfAUVFxhTIpTTTvUPM9fQ6NMd1ABAAA=
-X-Change-ID: 20260301-parse_iommu_cells-1c33768aebba
+Message-Id: <20260331-parse_iommu_cells-v12-1-decfd305eea9@oss.qualcomm.com>
+References: <20260331-parse_iommu_cells-v12-0-decfd305eea9@oss.qualcomm.com>
+In-Reply-To: <20260331-parse_iommu_cells-v12-0-decfd305eea9@oss.qualcomm.com>
 To: Nipun Gupta <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>,
         Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
         Robin Murphy <robin.murphy@arm.com>, Marc Zyngier <maz@kernel.org>,
@@ -126,44 +125,43 @@ Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
         linux-pci@vger.kernel.org, imx@lists.linux.dev,
         xen-devel@lists.xenproject.org, linux-arm-msm@vger.kernel.org,
-        Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>,
-        Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+        Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
 X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1774965896; l=6029;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1774965896; l=8620;
  i=vijayanand.jitta@oss.qualcomm.com; s=20260301; h=from:subject:message-id;
- bh=P2NjOwOfDO9uAKBSdnt+bXSNB/+yNSJiXlluqOTEHNk=;
- b=66lmuzH48rtm0FKXbMJnsG4s1A7Kc60A/4pJcguDLuPcx0lroADqyzlA9wif2kvUXlYq0+jLu
- KAnx76iLFtQDeoanD5WsP5LMaqzqXOX3e6iR/p1Nc5+FJv7Y4Bg5pDi
+ bh=Bsp9hT6sgzNh1NrIZ0uduUy4Yj5U0gq9szC+ECoPqVA=;
+ b=tsEE+RQ7gWHQGS4XxDdkilLUkkMXlbqEzvoPUXNHXZ53+KX3OuKmN7j4DXkq1ONE/QupEszbc
+ gIFNjHgeJiVBTFUAyAwqSBUYHZeIsBYMofr3AlrciWtlyxmdcakIFGy
 X-Developer-Key: i=vijayanand.jitta@oss.qualcomm.com; a=ed25519;
  pk=Lpi7Cs3wHe8KZtqvyci7FTOLzsKpEHKGCaPNZw+1zRI=
-X-Authority-Analysis: v=2.4 cv=ErbfbCcA c=1 sm=1 tr=0 ts=69cbd494 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+X-Proofpoint-GUID: OOuBIT6KHLQlhGpKcVcQWy-SMtEfKBVs
+X-Authority-Analysis: v=2.4 cv=VInQXtPX c=1 sm=1 tr=0 ts=69cbd4a0 cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
  a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=NEAV23lmAAAA:8 a=EUspDBNiAAAA:8
- a=w9jVfKxUgDq0yQD5sDkA:9 a=QEXdDO2ut3YA:10 a=GvdueXVYPmCkWapjIL-Q:22
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: ekm7jKe-bLdwIw1i2OPSSP9Z7sIdPJVz
-X-Proofpoint-GUID: ekm7jKe-bLdwIw1i2OPSSP9Z7sIdPJVz
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzMxMDEzNiBTYWx0ZWRfX3AbCxXLiVFP9
- qies9XH6GSGcdacKcaUQeehQVa008iPLYyAUj+fVwuI7EhVO5fs3TBkPuu+nWnnaD29GyXtSLw0
- hcQmxA9Qu0GhMj4cVGangtnE1XAuaUKkJo8zg4AOmp2lWC5BKkDyUKG6JkVOLt6oLd7/chR7Thl
- 4KcVwvK1mOQBTwGHAjh2p1x7ewcg7jydSGF4Wj2o0aO0H9oWA8DSYKUHWyGAINABTl6PFlh5Gg1
- zO8i9Jz18Psb980J9zx5szvJvn80Sqm82+JVpqxYVJQNwXff3XWL/hH2UHNfmqb7jeAxKIYW5nW
- AGIUBrC99wEu9FPCHOG6on3yFCGgG7yz2yfckGon0ogkCuVFxko+eg87jZpIkXKl6ShU2PE8pvc
- htiwt/N7EEJHmLTSQOftiXPTINL16TM7mSZuj0CoG/WnY3DQv3bwJ63p4uVn2vkD19K+UkmyBZo
- skTBtp/n24srOnSPhbA==
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=7CQSdrXTAAAA:8 a=VwQbUJbxAAAA:8 a=8AirrxEcAAAA:8 a=1XWaLZrsAAAA:8
+ a=EUspDBNiAAAA:8 a=f4O9XJQV64orvU1ydW8A:9 a=QEXdDO2ut3YA:10
+ a=1OuFwYUASf3TG4hYMiVC:22 a=a-qgeE7W1pNrGK8U0ZQC:22 a=ST-jHhOKWsTCqRlWije3:22
+X-Proofpoint-ORIG-GUID: OOuBIT6KHLQlhGpKcVcQWy-SMtEfKBVs
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzMxMDEzNyBTYWx0ZWRfX6fvqbhzKWF6I
+ vvBwkVSuMULLollkTpwavyjG6xC+rlS5/jjgzLK8rChH0TObWyRNE8KK2LCfc/tCwm6mgz/IDOz
+ ghUvAUoZl4ZXxDVUOoPwPcSU3FmDJU2k2j2PQ1nYBUqATV53NuUuwzpWCv+D8V/PWafkje/0i0b
+ lWxik+/8n6iJFR39p0Xr+zljZUsHbvj65Z97xE+dCJsZFEmuUDpZFgxMm13e8iFCmCAFZb+fxgC
+ To6BIdnAB+LEYnZuvW9HuocTc1bvK/VF6ajF2j19wzINzgx5gl4F2ol3+ePNnQp14khStoZAYsN
+ VSiLoI9MqYyP79fvUOmuQlZudPKmMjbvwtGCGQf4YRV4YgRLqcV0zx2r4rXqpakV+JTF8nVF+Hl
+ ZtmEwbn+a07wnpauUSRiVE1U0OuzCQwvkOeaOOe9oGixgRlfTDdO4vKfo9k+hFSfRZzHxPKXj7J
+ NXqs2C7pZ0TCb/aNcgw==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-03-31_03,2026-03-31_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1015 phishscore=0 spamscore=0 lowpriorityscore=0
- suspectscore=0 malwarescore=0 priorityscore=1501 impostorscore=0 bulkscore=0
+ adultscore=0 malwarescore=0 clxscore=1015 priorityscore=1501 spamscore=0
+ impostorscore=0 lowpriorityscore=0 phishscore=0 bulkscore=0 suspectscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603310136
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603310137
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_070510_907926_22439777 
-X-CRM114-Status: GOOD (  23.25  )
+X-CRM114-CacheID: sfid-20260331_070521_689996_32B9EAA9 
+X-CRM114-Status: GOOD (  21.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,159 +176,223 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-So far our parsing of {iommu,msi}-map properties has always blindly
-assumed that the output specifiers will always have exactly 1 cell.
-This typically does happen to be the case, but is not actually enforced
-(and the PCI msi-map binding even explicitly states support for 0 or 1
-cells) - as a result we've now ended up with dodgy DTs out in the field
-which depend on this behaviour to map a 1-cell specifier for a 2-cell
-provider, despite that being bogus per the bindings themselves.
+From: Robin Murphy <robin.murphy@arm.com>
 
-Since there is some potential use[1] in being able to map at least
-single input IDs to multi-cell output specifiers (and properly support
-0-cell outputs as well), add support for properly parsing and using the
-target nodes' #cells values, albeit with the unfortunate complication of
-still having to work around expectations of the old behaviour too.
-							-- Robin.
+Since we now have quite a few users parsing "iommu-map" and "msi-map"
+properties, give them some wrappers to conveniently encapsulate the
+appropriate sets of property names. This will also make it easier to
+then change of_map_id() to correctly account for specifier cells.
 
-Unlike single #{}-cell, it is complex to establish a linear relation
-between input 'id' and output specifier for multi-cell properties, thus
-it is always expected that len never going to be > 1. 
-
-These changes have been tested on QEMU for the arm64 architecture.
-
-Since, this would also need update in dt-schema, raised PR[2] for the
-same.
-
-[1] https://lore.kernel.org/all/20250627-video_cb-v3-0-51e18c0ffbce@quicinc.com/
-[2] PR for iommu-map dtschema: https://github.com/devicetree-org/dt-schema/pull/184
-
-Robin,
-
-Could this series be pulled into an immutable branch/tag, if it doesn't make
-it into the v7.1 merge window? There are client changes dependent on it,
-So it would help to get them moving forward rather than waiting another
-cycle.
-
-Thanks,
-Vijay
-
-V12:
-  - Call of_node_put() unconditionally in imx_pcie_add_lut_by_rid()
-    thereby addressing comments from Bjorn Helgaas.
-
-  Link to v11:
-  https://lore.kernel.org/r/20260325-parse_iommu_cells-v11-0-1fefa5c0e82c@oss.qualcomm.com
-
-V11:
-  - Added explicit filter_np parameter to of_map_id() and of_map_msi_id()
-    per Dmitry Baryshkov's review feedback, making the filter explicit
-    instead of overloading arg->np as both input filter and output parameter.
-  - Removed of_node_put() from inside of_map_id(), making the caller responsible
-    for reference management. Updated of_msi_xlate() to properly handle reference counting.
-  - Collected ACKed by tags, and fixed minor typos.
-  Link to v10:
-  https://lore.kernel.org/r/20260309-parse_iommu_cells-v10-0-c62fcaa5a1d8@oss.qualcomm.com
-
-V10:
-  - Move of_map_iommu_id()/of_map_msi_id() from include/linux/of.h to
-    drivers/of/base.c as out-of-line helpers per feedback from Marc Zyngier
-    and Rob Herring.
-  - Add kernel-doc to document both helpers for discoverability and
-    usage clarity.
-  - Fix of_map_msi_id() wrapper and all its callers (cdx_msi.c,
-    irq-gic-its-msi-parent.c, drivers/of/irq.c) to correctly use the new
-    struct of_phandle_args-based API with proper of_node_put() handling
-    as per feeback from Dmitry.
-  Link to v9:
-  https://lore.kernel.org/r/20260301-parse_iommu_cells-v9-0-4d1bceecc5e1@oss.qualcomm.com
-
-V9:
-  - Updated TO/CC list based on feedback to include all relevant
-    maintainers.
-  - No functional changes to the patches themselves.
-
-  Link to V8:
-  https://lore.kernel.org/all/20260226074245.3098486-1-vijayanand.jitta@oss.qualcomm.com/
-
-V8:
-  - Removed mentions of of_map_args from commit message to match code.
-
-  Link to V7:
-  https://lore.kernel.org/all/20260210101157.2145113-1-vijayanand.jitta@oss.qualcomm.com/
-
-V7:
-  - Removed of_map_id_args structure and replaced it with
-    of_phandle_args as suggested by Dmitry.
-
-  Link to V6:
-  https://lore.kernel.org/all/20260121055400.937856-1-vijayanand.jitta@oss.qualcomm.com/
-
-V6:
-  - Fixed build error reported by kernel test bot.
-
-  Link to V5:
-  https://lore.kernel.org/all/20260118181125.1436036-1-vijayanand.jitta@oss.qualcomm.com/
-
-V5:
-  - Fixed Build Warnings.
-  - Raised PR for iommu-map dtschema: https://github.com/devicetree-org/dt-schema/pull/184
-
-  Link to V4:
-  https://lore.kernel.org/all/20251231114257.2382820-1-vijayanand.jitta@oss.qualcomm.com/
-
-V4:
-  - Added Reviewed-by tag.
-  - Resolved warnings reported by kernel test bot, minor code
-    reorganization.
-
-  Link to V3:
-  https://lore.kernel.org/all/20251221213602.2413124-1-vijayanand.jitta@oss.qualcomm.com/
-
-V3:
-  - Added Reviewed-by tag.
-  - Updated of_map_id_args struct as a wrapper to of_phandle_args and
-    added comment description as suggested by Rob Herring.
-
-  Link to V2:
-  https://lore.kernel.org/all/20251204095530.8627-1-vijayanand.jitta@oss.qualcomm.com/
-
-V2:
-  - Incorporated the patches from Robin that does the clean implementation.
-  - Dropped the patches the were adding multi-map support from this series
-    as suggested.
-
-V1:
- https://lore.kernel.org/all/cover.1762235099.git.charan.kalla@oss.qualcomm.com/
-
-RFC:
- https://lore.kernel.org/all/20250928171718.436440-1-charan.kalla@oss.qualcomm.com/#r
-
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Acked-by: Marc Zyngier <maz@kernel.org>
+Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 Signed-off-by: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
 ---
-Charan Teja Kalla (1):
-      of: Factor arguments passed to of_map_id() into a struct
+ drivers/cdx/cdx_msi.c                    |  3 +--
+ drivers/iommu/of_iommu.c                 |  4 +---
+ drivers/irqchip/irq-gic-its-msi-parent.c |  2 +-
+ drivers/of/base.c                        | 38 ++++++++++++++++++++++++++++++++
+ drivers/of/irq.c                         |  3 +--
+ drivers/pci/controller/dwc/pci-imx6.c    |  6 ++---
+ drivers/pci/controller/pcie-apple.c      |  3 +--
+ drivers/xen/grant-dma-ops.c              |  3 +--
+ include/linux/of.h                       | 18 +++++++++++++++
+ 9 files changed, 64 insertions(+), 16 deletions(-)
 
-Robin Murphy (2):
-      of: Add convenience wrappers for of_map_id()
-      of: Respect #{iommu,msi}-cells in maps
+diff --git a/drivers/cdx/cdx_msi.c b/drivers/cdx/cdx_msi.c
+index 91b95422b263..63b3544ec997 100644
+--- a/drivers/cdx/cdx_msi.c
++++ b/drivers/cdx/cdx_msi.c
+@@ -128,8 +128,7 @@ static int cdx_msi_prepare(struct irq_domain *msi_domain,
+ 	int ret;
+ 
+ 	/* Retrieve device ID from requestor ID using parent device */
+-	ret = of_map_id(parent->of_node, cdx_dev->msi_dev_id, "msi-map", "msi-map-mask",
+-			NULL, &dev_id);
++	ret = of_map_msi_id(parent->of_node, cdx_dev->msi_dev_id, NULL, &dev_id);
+ 	if (ret) {
+ 		dev_err(dev, "of_map_id failed for MSI: %d\n", ret);
+ 		return ret;
+diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
+index 6b989a62def2..a511ecf21fcd 100644
+--- a/drivers/iommu/of_iommu.c
++++ b/drivers/iommu/of_iommu.c
+@@ -48,9 +48,7 @@ static int of_iommu_configure_dev_id(struct device_node *master_np,
+ 	struct of_phandle_args iommu_spec = { .args_count = 1 };
+ 	int err;
+ 
+-	err = of_map_id(master_np, *id, "iommu-map",
+-			 "iommu-map-mask", &iommu_spec.np,
+-			 iommu_spec.args);
++	err = of_map_iommu_id(master_np, *id, &iommu_spec.np, iommu_spec.args);
+ 	if (err)
+ 		return err;
+ 
+diff --git a/drivers/irqchip/irq-gic-its-msi-parent.c b/drivers/irqchip/irq-gic-its-msi-parent.c
+index d36b278ae66c..b63343a227a9 100644
+--- a/drivers/irqchip/irq-gic-its-msi-parent.c
++++ b/drivers/irqchip/irq-gic-its-msi-parent.c
+@@ -180,7 +180,7 @@ static int of_pmsi_get_msi_info(struct irq_domain *domain, struct device *dev, u
+ 
+ 	struct device_node *msi_ctrl __free(device_node) = NULL;
+ 
+-	return of_map_id(dev->of_node, dev->id, "msi-map", "msi-map-mask", &msi_ctrl, dev_id);
++	return of_map_msi_id(dev->of_node, dev->id, &msi_ctrl, dev_id);
+ }
+ 
+ static int its_pmsi_prepare(struct irq_domain *domain, struct device *dev,
+diff --git a/drivers/of/base.c b/drivers/of/base.c
+index 57420806c1a2..ae04487bd614 100644
+--- a/drivers/of/base.c
++++ b/drivers/of/base.c
+@@ -2201,3 +2201,41 @@ int of_map_id(const struct device_node *np, u32 id,
+ 	return 0;
+ }
+ EXPORT_SYMBOL_GPL(of_map_id);
++
++/**
++ * of_map_iommu_id - Translate an ID using "iommu-map" bindings.
++ * @np: root complex device node.
++ * @id: Requester ID of the device (e.g. PCI RID/BDF or a platform
++ *      stream/device ID) used as the lookup key in the iommu-map table.
++ * @target: optional pointer to a target device node.
++ * @id_out: optional pointer to receive the translated ID.
++ *
++ * Convenience wrapper around of_map_id() using "iommu-map" and "iommu-map-mask".
++ *
++ * Return: 0 on success or a standard error code on failure.
++ */
++int of_map_iommu_id(const struct device_node *np, u32 id,
++		    struct device_node **target, u32 *id_out)
++{
++	return of_map_id(np, id, "iommu-map", "iommu-map-mask", target, id_out);
++}
++EXPORT_SYMBOL_GPL(of_map_iommu_id);
++
++/**
++ * of_map_msi_id - Translate an ID using "msi-map" bindings.
++ * @np: root complex device node.
++ * @id: Requester ID of the device (e.g. PCI RID/BDF or a platform
++ *      stream/device ID) used as the lookup key in the msi-map table.
++ * @target: optional pointer to a target device node.
++ * @id_out: optional pointer to receive the translated ID.
++ *
++ * Convenience wrapper around of_map_id() using "msi-map" and "msi-map-mask".
++ *
++ * Return: 0 on success or a standard error code on failure.
++ */
++int of_map_msi_id(const struct device_node *np, u32 id,
++		  struct device_node **target, u32 *id_out)
++{
++	return of_map_id(np, id, "msi-map", "msi-map-mask", target, id_out);
++}
++EXPORT_SYMBOL_GPL(of_map_msi_id);
+diff --git a/drivers/of/irq.c b/drivers/of/irq.c
+index 6367c67732d2..e37c1b3f8736 100644
+--- a/drivers/of/irq.c
++++ b/drivers/of/irq.c
+@@ -817,8 +817,7 @@ u32 of_msi_xlate(struct device *dev, struct device_node **msi_np, u32 id_in)
+ 	 * "msi-map" or an "msi-parent" property.
+ 	 */
+ 	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent) {
+-		if (!of_map_id(parent_dev->of_node, id_in, "msi-map",
+-				"msi-map-mask", msi_np, &id_out))
++		if (!of_map_msi_id(parent_dev->of_node, id_in, msi_np, &id_out))
+ 			break;
+ 		if (!of_check_msi_parent(parent_dev->of_node, msi_np))
+ 			break;
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index a5b8d0b71677..bff8289f804a 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -1144,8 +1144,7 @@ static int imx_pcie_add_lut_by_rid(struct imx_pcie *imx_pcie, u32 rid)
+ 	u32 sid = 0;
+ 
+ 	target = NULL;
+-	err_i = of_map_id(dev->of_node, rid, "iommu-map", "iommu-map-mask",
+-			  &target, &sid_i);
++	err_i = of_map_iommu_id(dev->of_node, rid, &target, &sid_i);
+ 	if (target) {
+ 		of_node_put(target);
+ 	} else {
+@@ -1158,8 +1157,7 @@ static int imx_pcie_add_lut_by_rid(struct imx_pcie *imx_pcie, u32 rid)
+ 	}
+ 
+ 	target = NULL;
+-	err_m = of_map_id(dev->of_node, rid, "msi-map", "msi-map-mask",
+-			  &target, &sid_m);
++	err_m = of_map_msi_id(dev->of_node, rid, &target, &sid_m);
+ 
+ 	/*
+ 	 *   err_m      target
+diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
+index 2d92fc79f6dd..a0937b7b3c4d 100644
+--- a/drivers/pci/controller/pcie-apple.c
++++ b/drivers/pci/controller/pcie-apple.c
+@@ -764,8 +764,7 @@ static int apple_pcie_enable_device(struct pci_host_bridge *bridge, struct pci_d
+ 	dev_dbg(&pdev->dev, "added to bus %s, index %d\n",
+ 		pci_name(pdev->bus->self), port->idx);
+ 
+-	err = of_map_id(port->pcie->dev->of_node, rid, "iommu-map",
+-			"iommu-map-mask", NULL, &sid);
++	err = of_map_iommu_id(port->pcie->dev->of_node, rid, NULL, &sid);
+ 	if (err)
+ 		return err;
+ 
+diff --git a/drivers/xen/grant-dma-ops.c b/drivers/xen/grant-dma-ops.c
+index c2603e700178..1b7696b2d762 100644
+--- a/drivers/xen/grant-dma-ops.c
++++ b/drivers/xen/grant-dma-ops.c
+@@ -325,8 +325,7 @@ static int xen_dt_grant_init_backend_domid(struct device *dev,
+ 		struct pci_dev *pdev = to_pci_dev(dev);
+ 		u32 rid = PCI_DEVID(pdev->bus->number, pdev->devfn);
+ 
+-		if (of_map_id(np, rid, "iommu-map", "iommu-map-mask", &iommu_spec.np,
+-				iommu_spec.args)) {
++		if (of_map_iommu_id(np, rid, &iommu_spec.np, iommu_spec.args)) {
+ 			dev_dbg(dev, "Cannot translate ID\n");
+ 			return -ESRCH;
+ 		}
+diff --git a/include/linux/of.h b/include/linux/of.h
+index be6ec4916adf..fe841f3cc747 100644
+--- a/include/linux/of.h
++++ b/include/linux/of.h
+@@ -465,6 +465,12 @@ int of_map_id(const struct device_node *np, u32 id,
+ 	       const char *map_name, const char *map_mask_name,
+ 	       struct device_node **target, u32 *id_out);
+ 
++int of_map_iommu_id(const struct device_node *np, u32 id,
++		    struct device_node **target, u32 *id_out);
++
++int of_map_msi_id(const struct device_node *np, u32 id,
++		  struct device_node **target, u32 *id_out);
++
+ phys_addr_t of_dma_get_max_cpu_address(struct device_node *np);
+ 
+ struct kimage;
+@@ -934,6 +940,18 @@ static inline int of_map_id(const struct device_node *np, u32 id,
+ 	return -EINVAL;
+ }
+ 
++static inline int of_map_iommu_id(const struct device_node *np, u32 id,
++				  struct device_node **target, u32 *id_out)
++{
++	return -EINVAL;
++}
++
++static inline int of_map_msi_id(const struct device_node *np, u32 id,
++				struct device_node **target, u32 *id_out)
++{
++	return -EINVAL;
++}
++
+ static inline phys_addr_t of_dma_get_max_cpu_address(struct device_node *np)
+ {
+ 	return PHYS_ADDR_MAX;
 
- drivers/cdx/cdx_msi.c                    |   8 +-
- drivers/iommu/of_iommu.c                 |   6 +-
- drivers/irqchip/irq-gic-its-msi-parent.c |  11 +-
- drivers/of/base.c                        | 213 ++++++++++++++++++++++++-------
- drivers/of/irq.c                         |  11 +-
- drivers/pci/controller/dwc/pci-imx6.c    |  34 +++--
- drivers/pci/controller/pcie-apple.c      |   6 +-
- drivers/xen/grant-dma-ops.c              |   5 +-
- include/linux/of.h                       |  30 ++++-
- 9 files changed, 240 insertions(+), 84 deletions(-)
----
-base-commit: 3fa5e5702a82d259897bd7e209469bc06368bf31
-change-id: 20260301-parse_iommu_cells-1c33768aebba
-
-Best regards,
---  
-Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+-- 
+2.34.1
 
 
