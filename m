@@ -4,93 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 278AB1061B2B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 02:53:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94EE61061B2D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 02:59:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ilhcaIS/tbQmsg6PWjrfVpOQh4yyfAhJzLT1EMbVKSo=; b=kZ0Kn0mpvApb/VChgY6yyRjPAy
-	VIJ6b6G5YLTWnz9QRqQKjNmSFwEslhNpi7w8ptrOj7/UEe5Qe5S2lS9nm3fGo2frISHu53YaGyr7I
-	t0PEt82HsEHKqnDixwM/pCxtyLrG6qXCz6TQ0be0UEGTDfVL+MYeiO72ctun0DvgsKhUd6Cljoct3
-	FJeYejgkqNtUcFuVag5bWITLrevm69GYelAYLlcnJElzPal11KBIjZBehFSX/dj+1KCf+rHOk8xzz
-	k/PF47wNrVqXubQ4ytJttMCLqHidVuxsejEffFYgYIU5lmDhziw5Xgxg7t0egGRQz1PjZyY1axdN5
-	tdMcFsoQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	Content-Type:Content-Transfer-Encoding:Date:Message-ID:In-Reply-To:CC:To:From
+	:Subject:Mime-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vBD4ZaMYeajQlUupA2u/dnr3gLfQ/TrWH8zjCSrR4hI=; b=zwQ7ljOSNnDdXvM1V6Ppa67NPX
+	kjtnAKlhsD5Ud73iYX8DjtjOWelsGTyvLK3Yz0UMaYdAS/woBivu1wC0ru4aJ2M3jEVSf8rLAzKN9
+	2Eo5t3U4+HKdCa86Q+a9ufPdx+C6rTx0u3Ke/DjHf0Zb6K03yo7hCqv4biKlNcJd+ExZM5qFjExMo
+	Xki6UBO/gJ6jCyemkAJK5m7QQTHjM3ClCdxsUH67qg2D8+qCaTFHsRukO8pLxhHL28W6B3NNrNMx7
+	LXXruj/Os1DYoOclvkwCfAgrqwGjIhhyyXZ/vQfeIj+ojzN++UkSKt8yhZLvcy5B1Yd38lgKQZOES
+	wEIRTYjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7PE8-0000000CCf2-1enm;
-	Tue, 31 Mar 2026 02:53:12 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1w7PK2-0000000CCs7-0pna;
+	Tue, 31 Mar 2026 02:59:18 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7PE4-0000000CCeg-13cB
+	id 1w7PJx-0000000CCrh-2xZ9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 02:53:09 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-35d8e548a05so3237864a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Mar 2026 19:53:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1774925587; x=1775530387; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ilhcaIS/tbQmsg6PWjrfVpOQh4yyfAhJzLT1EMbVKSo=;
-        b=fqd6sHuJc8rz7aiOXRwpbXosqcyM9x67ZZTWfYleYBtlFlljdVC5wpFrn+5grJTzBW
-         G3UylNGylOCCdXJu4hS2hxI0qCV3tQWNDPyz6bAHBgArt5QBKOgX0nYzZvN8bvN0e4Q2
-         BEFCK4QiL/Rn8t3LVElQVCsrg/Uj80PIEDH+OPN9i8CfXBFKddVPRjj9Jb/JOPcV1rmO
-         SuYARJ4XubESYHSqtiT3oNZyb9x26+Mza+/WxXRM+J9iGibAThT5vVsbXwmFvCsY12E8
-         c2YdGJrkWI9PO5rmwSANDQnXUG9nxuYNDmtv8UMwv8LOh2m7fVtdcUv17f0nN0wtIqEV
-         0txQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774925587; x=1775530387;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ilhcaIS/tbQmsg6PWjrfVpOQh4yyfAhJzLT1EMbVKSo=;
-        b=VmCcy2wzzWrHI+5NWKJBA4n2FaC8mmk8dJUOxQTjgKieeI33QPkFTXRGwYSskQ6W3g
-         KhgPh5dTyfzX8B9QSyntjnFo4MMpxLPDFywREcEllb5gAcGH0SJLSnVHrABVZXweL1wO
-         /o2/eBSonVPHoXDaegrhn2qZAF/kuzq1iENW6vp/r/bD2q+XoQvCjPngP/LwWf4eE0sL
-         F2CxMquA56ebVaKLqgpCYpOTZG6UH+wllQAAI/HekhgWV94R58duhdRiMxSETWpshXVQ
-         GibLohFy+uvt2bT7kx0cxz3zFaLSdsMyIEwukRTQ6JYDq9GshaDh/KuHfT3IMwsHq7hb
-         gbiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVdbd6Q6tGlZMpxep+9LAxrusrqrC39PdAVVl+kv6g6/ThGiVOJhzYDNCZcTAD+1wIrM66Kpq9buJIBG/2NwPVK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6v4PcLWtchYy/k6L7S2XCGhWwbB8OwqeTI5u3E0Pv8eVH8RQn
-	5u3JoeZTzUUkOtvBQAMW02RaKVAv9ni+0Ygi02MScpG9OndFDp2z9Fq7
-X-Gm-Gg: ATEYQzxpeSayJ6lButOgtaDjtqkMl61Ar1DAxOz926C7ocnkLeCXobahwoMcWjZPbsn
-	UYVBY0hkfVH0IXW1hkLsGS3+BmHKd4qDGk4NlnD9359wVd7YuUNXNp2b/qIGwpNfEB2MBpw/rEm
-	HcDpZ+ZAX2t3bruxrUXGbwDcVlSuQMtMVi1SIrZWYF9gioE1liQhH5GcW4E4I7waJyfusRiKG+n
-	NEn0rM7Lm8cfO8Wd1Aj3gVSEGamsSep8h1Ja/2GxTr2ekbg+Yl0Mldzh+OhVQvQXW1Zqq0Jwq//
-	SDJulMObMAJCied3iZkFpX9Epfburrr7TXcRjl+D5ZDJU984JKuTvToYA3QSga7LZkLdqQCxk+V
-	ZrScfH04Vzc9hRIZxvqtcAlAgF6CbZoMiTCNRydQRK9wg3z6q9OfGRCZX6FI0GXk1rPuxcceijU
-	TD7/6ZsGtJ9SR+T081rVs+o8JjABiXKYrPuK01v1xgt+My96pLjJ+Gww==
-X-Received: by 2002:a17:90a:710:b0:35d:95eb:879a with SMTP id 98e67ed59e1d1-35d95eb8b32mr6542247a91.13.1774925586915;
-        Mon, 30 Mar 2026 19:53:06 -0700 (PDT)
-Received: from ZC-202510311500 ([61.185.217.216])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35dbe66fb67sm4887a91.9.2026.03.30.19.53.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Mar 2026 19:53:06 -0700 (PDT)
-From: Haoyu Lu <hechushiguitu666@gmail.com>
-To: "Rafael J . Wysocki" <rafael@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Len Brown <lenb@kernel.org>,
-	Ilkka Koskinen <ilkka@os.amperecomputing.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Haoyu Lu <hechushiguitu666@gmail.com>
-Subject: [PATCH 1/2] acpi: arm64: agdi: fix missing newline in error message
-Date: Tue, 31 Mar 2026 10:52:56 +0800
-Message-ID: <20260331025257.463-1-hechushiguitu666@gmail.com>
-X-Mailer: git-send-email 2.53.0.windows.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Tue, 31 Mar 2026 02:59:16 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20260331025903epoutp04ccb265fe11ce6737d740932f53e846e7~hzb3alvAZ0547205472epoutp04L
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 02:59:03 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20260331025903epoutp04ccb265fe11ce6737d740932f53e846e7~hzb3alvAZ0547205472epoutp04L
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1774925943;
+	bh=vBD4ZaMYeajQlUupA2u/dnr3gLfQ/TrWH8zjCSrR4hI=;
+	h=Subject:Reply-To:From:To:CC:In-Reply-To:Date:References:From;
+	b=A13puTKgadmv+Wtz+54/aDwnIKy2aeqiKSRw5ex26nyHHpVEpbOvGUJNw4/yzXvM+
+	 SGIvErAz6O8fE1pP9vWRbGR85SLAfbQ+DVq/cJeUYgSb2z9p6Tm8ECd6DDbybzp23O
+	 E5sgbi0LL0fe+8xRXcDMJ3qqC7yZ8WkgXmpUpyFs=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20260331025902epcas5p180487143998867ba76e637e5d2b9cb7a~hzb2_vdbR1436614366epcas5p1s;
+	Tue, 31 Mar 2026 02:59:02 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4flCWB6rkQz3hhT4; Tue, 31 Mar
+	2026 02:59:02 +0000 (GMT)
+Mime-Version: 1.0
+Subject: RE: [PATCH 1/1] arm: get task_stack reference before dump_backtrace
+From: Maninder Singh <maninder1.s@samsung.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+CC: "bigeasy@linutronix.de" <bigeasy@linutronix.de>, "peterz@infradead.org"
+	<peterz@infradead.org>, "kees@kernel.org" <kees@kernel.org>,
+	"ardb@kernel.org" <ardb@kernel.org>, "keithpac@amazon.com"
+	<keithpac@amazon.com>, "linusw@kernel.org" <linusw@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "mark.rutland@arm.com"
+	<mark.rutland@arm.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>
+X-Priority: 3
+X-Content-Kind-Code: NORMAL
+In-Reply-To: <aa4Lo30Nq_t7qDqK@shell.armlinux.org.uk>
+X-Drm-Type: N,general
+X-Msg-Generator: Mail
+X-Msg-Type: PERSONAL
+X-Reply-Demand: N
+Message-ID: <20260331025902epcms5p5cae9dc30771d4fc7e0218c28324b8ee6@epcms5p5>
+Date: Tue, 31 Mar 2026 08:29:02 +0530
+X-CMS-MailID: 20260331025902epcms5p5cae9dc30771d4fc7e0218c28324b8ee6
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+X-CMS-RootMailID: 20260305070534epcas5p378bb22ef9f1a895d7736ed2272c19ec6
+References: <aa4Lo30Nq_t7qDqK@shell.armlinux.org.uk>
+	<20260305070527.719073-1-maninder1.s@samsung.com>
+	<CGME20260305070534epcas5p378bb22ef9f1a895d7736ed2272c19ec6@epcms5p5>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_195308_362493_BB87BF7F 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20260330_195914_399361_D7A8F03D 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,34 +88,58 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: maninder1.s@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the missing trailing newline to the dev_err() message
-printed when SDEI event registration fails.
+Hi,
 
-This keeps the error output as a properly terminated log line.
+> On Thu, Mar 05, 2026 at 12:35:27PM +0530, Maninder Singh wrote:
+>> With Support of THREAD_INFO_IN_TASK, stack of task can be
+>> freed earlier than task (even if task's reference is taken),
+>> and it needs separate reference with try_get_task_stack()
+>> before using the stack.
+>> Otherwise if someone calls show_stack() for task, it can oops
+>> the kernel like below: (Tried with normal race of show_stack when
+>> task still exists, but its stack is freed)
+> 
+> Looking at x86, it also has THREAD_INFO_IN_TASK, but I see nothing like
+> this in show_stack(). How come x86 isn't similarly buggy?
+> 
 
-Fixes: a2a591fb76e6f5461dfd04715b69c317e50c43a5 ("ACPI: AGDI: Add driver for Arm Generic Diagnostic Dump and Reset device")
-Signed-off-by: Haoyu Lu <hechushiguitu666@gmail.com>
----
- drivers/acpi/arm64/agdi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thanks for your inputs.
 
-diff --git a/drivers/acpi/arm64/agdi.c b/drivers/acpi/arm64/agdi.c
-index feb4b2cb4618..0c2d9d6c160b 100644
---- a/drivers/acpi/arm64/agdi.c
-+++ b/drivers/acpi/arm64/agdi.c
-@@ -36,7 +36,7 @@ static int agdi_sdei_probe(struct platform_device *pdev,
+I sent patch for x86 also to report same issue, but no replies :)
+
+https://lkml.org/lkml/2026/3/11/317
+
+So I guess we will never know if it is buggy or not.
+and why ARM64 has done the checkings and there is no need for x86 and ARM.
+
  
- 	err = sdei_event_register(adata->sdei_event, agdi_sdei_handler, pdev);
- 	if (err) {
--		dev_err(&pdev->dev, "Failed to register for SDEI event %d",
-+		dev_err(&pdev->dev, "Failed to register for SDEI event %d\n",
- 			adata->sdei_event);
- 		return err;
- 	}
--- 
-2.17.1
+>> 8<--- cut here ---
+>> Unable to handle kernel paging request at virtual address f8aebec4 when read
+>> [f8aebec4] *pgd=83c2c811, *pte=00000000, *ppte=00000000
+>> Internal error: Oops: 7 [#1] SMP ARM
+>> ..
+>> CPU: 0 UID: 0 PID: 70 Comm: cat Not tainted 7.0.0-rc2-next-20260302+ #26 VOLUNTARY
+>> ..
+>> PC is at __read_once_word_nocheck+0x0/0x8
+>> LR is at unwind_frame+0x6b0/0xa90
+>> ...
+>> Call trace:
+>>  __read_once_word_nocheck from unwind_frame+0x6b0/0xa90
+>>  unwind_frame from unwind_backtrace+0x178/0x1e0
+>>  unwind_backtrace from show_stack+0x10/0x14
+>> ...
+>>
+>> ARM64 also takes care of it in dump_backtrace(), so same logic
+>> is added for ARM also.
+>>
+>> Fixes: 18ed1c01a7dd ("ARM: smp: Enable THREAD_INFO_IN_TASK")
+>> Signed-off-by: Maninder Singh <maninder1.s@samsung.com>
 
+
+Thanks,
+Maninder Singh
 
