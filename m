@@ -4,80 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57A1CFF60D8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:22:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86958FF60CF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LmnoTTBLN8PO+sDO7HI+E9Pr5A2qQSMLMIusL9AAp7c=; b=1E1aBznLZjYrEP2sveViFxUApC
-	56UUWSAxNkX0xxnpDbiSor0eDvP6DlMVIdOLvekDd7AAlaUj4kNew0TgRtAV+k2/60JWPC8/jLpMI
-	u/9gsDJ/ej8oijFV7VBPzeh4tWxuUXYDchpv63ijXXy6K2gPMY8oAgGA3df9Q6bPgSnNcM/4MLIze
-	PSeDn1ln5t5zLnV4nsH0lUsGxIOzq4FR5yNPDJC3zJ369/4rzjG3nWSjaxG5K1KILei3A26cAmTh8
-	uee8cg7PjBipCsVNrTozllBGaf2m8Jplh84R4OpBcYsdIxgSzt3RloRqVElXYvFCPfQz9qq8EjGj5
-	Ruoa4Twg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ojCzOytFjq9FbqhDOY0WTjoDgITSoCxrAc62GoQgR8I=; b=fi32cdWuF/DW8A8QWn5PGMT0kx
+	MH02e8RyTgqjo+VUNYITjZDZiuaCCbo51csYrtnkqHVANQtgNVYVyRTSGAwp97OhDXhlUrC455Qgc
+	tJnuZd1VOgdwTVuH3GlbyYUyxZ/q3VEyXD1DFP63VSe+9UFPket2AGDY6kwBtQkYZr76F0ttbr77Y
+	Pn6MvmGkE5YJzAfCl+5U6nWEl58FNXEomYp5hn64CvUC3SAlrmMwVCUh7FIWpDQzvE7CxEirX0aHl
+	JbayOj81LHB05rCK5SOcuAJed3dkO2qv9u/Y6Sz53uxfHiL0hB3L2K50jUTcjHM0VvXmPLCJCprik
+	vBfvPg1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7TQs-0000000CTGf-3LRh;
-	Tue, 31 Mar 2026 07:22:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w7TTF-0000000CTZW-0ig8;
+	Tue, 31 Mar 2026 07:25:05 +0000
+Received: from mail-norwayeastazon11013051.outbound.protection.outlook.com ([40.107.159.51] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7TQr-0000000CTGB-0qOe
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 31 Mar 2026 07:22:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=LmnoTTBLN8PO+sDO7HI+E9Pr5A2qQSMLMIusL9AAp7c=; b=pDz2aN4Z9cuLz4qjfuMwA6LB+O
-	eg+rT0M3qH6sJGBGF3peAXoAignXSVelm7fRleWRPORfoddiPPBCNtynMq5O6sY5RzkNan6BmQIO3
-	r5/9gwEaNHlqdmKGD8IJnqm5ZR8K6vhSBLq/g6XVt7DR2BqFXelGUv3nJyfjFg+xp8r1+enbaNfDN
-	e2BOCx/cKY0x9nuZwk9jXc10huzVmK3kRqDf/FgtoYXrCmryJAAXTEx53sEzPnQNHWLbXbePgv390
-	lHPFjnq7lNDesVfmXiKaCvvNHF+zR4bDWewWe555mA3p5SWlTYHBUYZzGkEJMd+aFlFIuEP0S5zSs
-	le9MsjAg==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7TQl-0000000FHFs-3yuf
+	id 1w7TTD-0000000CTXx-0bnO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 07:22:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3790340AE9;
-	Tue, 31 Mar 2026 07:22:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 827CFC19423;
-	Tue, 31 Mar 2026 07:22:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774941750;
-	bh=3epPlehlc3uNOp7La9rWzBwZDIqolRKO1QRk7N2tNG4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hFmCheWUiKtaDslZfGELlxYhixl1aPAcQomQTdP7jweoel1WYk/Ue2O4gnEroa7TV
-	 SM9ZFmv1h85Fkb3YYJ8YnMbbYA+8WoEIHogH4HlAuGBWeHZgHWjmMFcNoITFPaykNc
-	 bHFRIUUwkuiZ8Sr8dBndwxkb2kJfyOR4CF2QJ5k1nWHOgeIfAEGJ7JHXQDxS8eFEWn
-	 Mfe6cJj6g0kYWIJV0ibgu0aY7VgkSmB714MkMjFs5fVszOEVvtEwCexj1yYxKqnoxU
-	 x+PaURyRuJg1wbqg2nR/MvpDMXx2HMuxRnGqu6DoOqCmZLcvYt5AxFtyfWKRGMjFZ+
-	 ZuX1FnvuXVatQ==
-Date: Tue, 31 Mar 2026 09:22:27 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Khushal Chitturi <khushalchitturi@gmail.com>
-Cc: sre@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, ulli.kroll@googlemail.com, linusw@kernel.org, 
-	daniel.baluta@nxp.com, simona.toaca@nxp.com, d-gole@ti.com, m-chawdhry@ti.com, 
-	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] ARM: dts: gemini: Rename power controller node to
- poweroff
-Message-ID: <20260331-majestic-tuscan-woodlouse-7c0ed1@quoll>
-References: <20260330110135.10316-1-khushalchitturi@gmail.com>
- <20260330110135.10316-3-khushalchitturi@gmail.com>
+	Tue, 31 Mar 2026 07:25:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yMY933ypeNBCx7kRmrwC7DIf5zf1RbqctskE8caLAWmzI3Gy1PUO8U1OAuZ9wWonBI2IxKUx+tJenwleONGqN8Fm7qKs2TcDALJaKGDnkDSg8uzDuyJIEWUAdfeuk60wHwi6Q4qW6mVF/sGvkcmZRydYj7hz9Wo8PDMhHuWCv/qSvdDLSUJ5HfLDjzsxCr9pryVARA01CIX8kPKviUl5PIM1VXQZxK13yjKn467zmep8WWBF5+zNTHgzHgS7tMmRJKaOVDyGTPfUtsj7o31fdUwQhBybcM/hyOCxB/blO7wiBudDM1Xe6GcivGssjNz5mawUqDXWjlu9zf/wEeYpcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ojCzOytFjq9FbqhDOY0WTjoDgITSoCxrAc62GoQgR8I=;
+ b=tolEptZ/P/6k6Q/3+l6gz4YSFRiHVPygDXVwH27S9EEhhSwaOo8lVXbh2+8EInCg44pAFRL/W+UQG8GsnIn3Nt+zhLP1gfWVAD/b/YIxF0x8/DgKsXeMhua34oinKO993MkpAGMLH40MIdCDaWEPdeu+qNPHbB/Mb+xZj60aBwZwX97q4q1wbrDXB1d8IVlSmaaiuluiTSKrUpUQPAoQ6soV3cRr/QWc4zBzR4H9GfbrUXUFG1YGweSrd/eyXXTUpMDyez2bcQ9UnP8PjG09fFCuboSSYULoAQ0iHuN/xo1dcXM3L0dSPPnwFk0LC/awTAFDVCPzsBXmqfM3hUp7Uw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ojCzOytFjq9FbqhDOY0WTjoDgITSoCxrAc62GoQgR8I=;
+ b=UREpwd5GFuIk4qV/c/GrPLiRIUV1kTNiVZP2jfGQfNiUCl68U1Jh69r7msnQfg8lGdiE4cjlHAk1dUl28O0XMOhOlqmDDuI5oHl1NaVpkKIdWle+JWGTbVGitBHirGdWMzk2UmaY0fknYTO9uXM7V1C/OKvehVNUqj/gp0tI0AUbKdp3oXXV9fcMdcNermpcijgoCYnQkLOy4Ry0fY4We7O0hnXuWgk54eq5G4IAw+L7WZpyhltGPF8S1a3LGvsl8Z8CiGHGQ4WPSqBuZjz/GGxSgSsff6OYnWfRhPXpnWkLu806BIuyaIi8MIKMGuakkZi8kR8w4L765T/5THJoeg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM6PR04MB5110.eurprd04.prod.outlook.com (2603:10a6:20b:8::21)
+ by DUZPR04MB9968.eurprd04.prod.outlook.com (2603:10a6:10:4d8::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Tue, 31 Mar
+ 2026 07:24:56 +0000
+Received: from AM6PR04MB5110.eurprd04.prod.outlook.com
+ ([fe80::2866:93b6:c814:89fc]) by AM6PR04MB5110.eurprd04.prod.outlook.com
+ ([fe80::2866:93b6:c814:89fc%5]) with mapi id 15.20.9632.017; Tue, 31 Mar 2026
+ 07:24:56 +0000
+From: ming.qian@oss.nxp.com
+To: linux-media@vger.kernel.org
+Cc: mchehab@kernel.org,
+	hverkuil-cisco@xs4all.nl,
+	nicolas@ndufresne.ca,
+	sebastian.fricke@collabora.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-imx@nxp.com,
+	Frank.li@nxp.com,
+	xiahong.bao@nxp.com,
+	eagle.zhou@nxp.com,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [RFC PATCH 0/7] media: amphion: Add DMA memory tracking support
+Date: Tue, 31 Mar 2026 15:23:10 +0800
+Message-ID: <20260331072347.253-1-ming.qian@oss.nxp.com>
+X-Mailer: git-send-email 2.48.1.windows.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA0P287CA0014.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:d9::16) To AM6PR04MB5110.eurprd04.prod.outlook.com
+ (2603:10a6:20b:8::21)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260330110135.10316-3-khushalchitturi@gmail.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM6PR04MB5110:EE_|DUZPR04MB9968:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6e8d545a-9681-4421-8fa2-08de8ef69b9f
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|19092799006|18002099003|56012099003|38350700014;
+X-Microsoft-Antispam-Message-Info: q3wwAd9APEpUxrtJVhM/z4l5G1/Lkf9b5rgNQhhl/3JqkUzxO/sJ8ZHpSpUKfQTHB3Xw4NmgWeHyhMOcywYJR5doii8xEdzhNSdIOKkjXIw+kZybWvSfjKixOhE+majs9t7nLUB3Pn/AL/MmHqMKale71wZA4v41Gla2C44C3D/czNibbmAjfWfJjb6Uadkhw+jggp6i+Mq1GgNeKEDOdLyvBRD+DUGWPoWwHxsJk0CtB6N3tSnKhDdJOW2M2aAWXWQptaangF3vt1jH1BnQgXN2lKC87kdVtJfPYTdK9TtSACzbkVLeSVNzACCweubDf+0iSI+JsYe6P9qSgsdU0S3hIcfgUk5UH6xUL0CIfas+ZWJCtSwfYjbBf6ewp2weGwcFP31VQsosIhXwZlnid32lIfQ14cHBtPCyGWMAsZTYGLNqOe3TFUpUchKj7x2EX5DA52OPN/FXMUjSGWnGXw49mOqXRTideEHGSm6pNf4GcE4hM0HxHJprSTCPRpZIPJpC59e5Pdi5EisC05k1OdfsE3UEVn3WoLXBIhE1W1Tj0r8YabnpCxU9nPOfP1ka3a4FeAg/hWZmN/sHKG4X7rZBVdfezkZpxRRW/4ucWfYkx6Hn1sZaEEe/Be1kmcYL5H1LGi6/NxcOdMnvq4IvXUdjPp8IZjuIcE4QolPH9fQrF8u8YbZTwD1rLISt8hW9PLyKYIFEI7NmZXSW8r6eHNK1XYl2Q4vVYnkHmGsnUGbNUmLgsb++A2XtDp+/Ld4N4eocjXBjS8KRf72slGl9OEM09wXer69HrujdfuivMSY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM6PR04MB5110.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(19092799006)(18002099003)(56012099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BKz+AS8lkTfz3V+b/jX1KA0FDT1JSUpgv8uls2bXLFzEnc46FeFdvZ6/JAFD?=
+ =?us-ascii?Q?tcBQulpjxRMeAXrJt60XVWHRjA31scOF7+AJdTCOIlhrWGVwhTJK/VESGwmD?=
+ =?us-ascii?Q?BpgT2zO47B1T9rH8BPAhCSCzwuZo0rdMqktYUdP7xrKuZeKXBwn0taXVOFiQ?=
+ =?us-ascii?Q?TQswBkC8lQ0Ux8t8bCW4PCBEYRrHCxq6vvvd1x2BmW5KOGstLpuI3D0grY4H?=
+ =?us-ascii?Q?hwp4tGPUUWz7XN7zifaMkh/jFpOhJqNo/+vJShtGcSce17rqRKsjAzFz3cRx?=
+ =?us-ascii?Q?yyD5wuy6DXevdOSdqx0Pq/NN0m6gEcajHJEXQ0ISc4BqMSvhKqs83WvfPfcN?=
+ =?us-ascii?Q?v5uqNs7iU8bA0W9omO07OiPI/b/sRxoodBEdQYJp7kQtXVX/3aty0U+bWioZ?=
+ =?us-ascii?Q?jVH+EYAoBExzfXmo6NOhAXRVoBSgaWYFF0mDxAXBJb/2iKN/ixFxxPEyeeVd?=
+ =?us-ascii?Q?gEN5unodz+nH0aBMQ6iASFspSXtfUCtG0Yc68+vfLLJQQsvytf35OcFf5HVE?=
+ =?us-ascii?Q?eONtQsy2UJpkw5/1QDYEG1kK2mtSNA+LZzhFKrPBN6vodtmlnU1tDDdi4qhh?=
+ =?us-ascii?Q?+U7XPQSmy5MQY1g4OGTQDRYd6r4s7FIXR9a5TYmtFuHic2apRSbTrsXzPJIr?=
+ =?us-ascii?Q?w6PkUwFo2sFY6JTueu1zm2d1YMKC7aNJQ58AYXRzUajWLQzocyLZK275a5/c?=
+ =?us-ascii?Q?hOFkmud1gBUHXv+mtrJmF7dhk5holn91+8U7n1EvtzUUneCbPsJhocQ9evcS?=
+ =?us-ascii?Q?SCoecOIl2JphNbI6dFX071czkuUD0JT33MRHVLCh4pBxdX+SUSdv+remgRwp?=
+ =?us-ascii?Q?XXgmwsiRKZztuq/GcoFbsfm7EBRum2G1Of7CzANSA3OYrZp1unanRQGqmKA6?=
+ =?us-ascii?Q?5ZEi9b1KFulXgzUJwy18/mGnAOQ8I9LjF/wGfpyHd+ZSldStK9RFtDPCGkCv?=
+ =?us-ascii?Q?J7E+4g/Y7XyO/JLPf+C9zO59bJFiiSv4Hc1vugYKAHlRswV+HWY6V0x9dgce?=
+ =?us-ascii?Q?wSNZG3zb1GtVO/rYSVtOzdQYDg8GavdiD/i8ZPGu0Slnc8xQ35Z40fwDK+dw?=
+ =?us-ascii?Q?syScp+8JjIukKPn/6DH8AB5LE98ObraMb/68bLj5NHKfPSLJKrq19COLMBCD?=
+ =?us-ascii?Q?Jmuqm9AZC9ycndkH/CIA6srOxhY23T+oaGyeuc+d959hJSvfx6LeG1NjG4jP?=
+ =?us-ascii?Q?jYeittqcPpupNwmDVG9InCdvIQTRilQfABCGzOkTeGMcQR1L0IdreH3XUMkM?=
+ =?us-ascii?Q?404x0dxZvdV4D6eV6kEdJE8+rycv7Bzqb+1Ez9LCQYqhMqjlHtSNG/R09zT5?=
+ =?us-ascii?Q?j4L4M6ONW1GtNBWgAwenQV3m79RtfbLJvKcT4bs2i5i5sJikWldKeVfA0URd?=
+ =?us-ascii?Q?+llL4Lo/zvokpMGFR4/4fIYKp7ZA1AYahdXsXnlQBBAPVIdVmRNkeVa0hXbQ?=
+ =?us-ascii?Q?SmIdBkh8DnFIzId1sMWUpfQGCHOWNxjN75svKO9NBEw+7PIVtJFOhfC+YzZj?=
+ =?us-ascii?Q?zEagt57vveQTzUa+N2Kjfx8sqhrzxSuhyZcpdokOVImP5+myjyIYH+9eFSvs?=
+ =?us-ascii?Q?uu/Q3lO5cqyvOJQ1eECFI9R2ICY1BbaMv+jKMZmeZPooZJuQ6GdIwtoF8CHx?=
+ =?us-ascii?Q?u4yihYy8S5hn+BaPQ71khjrlEMRBK1UJCLvojzYeDwAD+ctFN8e9A6c7fu0T?=
+ =?us-ascii?Q?+60073Ke0usfcoeWL/Q286vJkdv+9qxlRBi5mt+v89NrtqNFAPMBnxaediaq?=
+ =?us-ascii?Q?VCkR8eKtCw=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6e8d545a-9681-4421-8fa2-08de8ef69b9f
+X-MS-Exchange-CrossTenant-AuthSource: AM6PR04MB5110.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 07:24:56.0399
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fngj1J3YWi9hcUCiFnxQO1k2hmSRR2WZLZAGgaRNe2uoDQOVfssgzsBRu0th13O/zzAWwTctPN1ucDECGU9Q2Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9968
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_082232_537795_B294F3A0 
-X-CRM114-Status: UNSURE (   8.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260331_002503_196542_A5D0FB13 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,16 +149,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 04:31:35PM +0530, Khushal Chitturi wrote:
-> Update the node name for the Cortina Gemini power controller from
-> power-controller to poweroff since node "power controller" is
-> reserved for power domain controller.
-> 
-> Signed-off-by: Khushal Chitturi <khushalchitturi@gmail.com>
+From: Ming Qian <ming.qian@oss.nxp.com>
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+This series adds DMA memory tracking support to the Amphion VPU driver,
+allowing userspace to monitor memory consumption of codec instances.
 
-Best regards,
-Krzysztof
+To implement this feature in a reusable way, a new V4L2 memory tracking
+infrastructure (v4l2-memtrack) is introduced, which can be adopted by
+other V4L2 drivers in the future.
+
+Background
+==========
+
+The Amphion VPU codec driver allocates various DMA buffers internally:
+
+- Firmware boot region and RPC buffers
+- Stream ring buffers
+- Codec-specific buffers (MBI, DCP, reference frames)
+- Encoder/decoder working buffers
+
+These allocations are not visible to userspace, making it difficult to
+debug memory issues or monitor resource usage in multi-instance scenarios
+(e.g., transcoding servers with multiple simultaneous streams).
+
+Solution
+========
+
+This series introduces:
+
+1. V4L2_CID_MEMORY_USAGE control
+   - New read-only control reporting memory usage in bytes
+   - Standard V4L2 interface, queryable via VIDIOC_G_CTRL
+
+2. v4l2-memtrack infrastructure
+   - Hierarchical memory tracking (device -> instance -> queue)
+   - debugfs interface at /sys/kernel/debug/v4l2-memtrack/
+   - Reusable by other V4L2 drivers
+
+3. videobuf2 integration
+   - Automatic tracking of vb2 buffer allocations
+
+4. Amphion VPU integration
+   - Tracks all internal DMA allocations
+   - Organized as: device -> instance -> buffers
+
+Ming Qian (7):
+  media: v4l2-ctrls: Add V4L2_CID_MEMORY_USAGE control
+  docs: media: v4l2-ctrls: Add V4L2_CID_MEMORY_USAGE control
+  media: v4l2-memtrack: Add V4L2 memory tracking infrastructure
+  docs: media: v4l2-memtrack: Add driver API documentation
+  MAINTAINERS: Add entry for V4L2 memory usage tracker
+  media: videobuf2: Add memory tracking support
+  media: amphion: Add V4L2 memory tracking support
+
+ Documentation/driver-api/media/v4l2-core.rst  |   1 +
+ .../driver-api/media/v4l2-memtrack.rst        | 140 +++
+ .../userspace-api/media/v4l/control.rst       |  22 +-
+ MAINTAINERS                                   |   8 +
+ drivers/media/common/Kconfig                  |   1 +
+ drivers/media/common/Makefile                 |   2 +-
+ drivers/media/common/v4l2-memtrack/Kconfig    |  19 +
+ drivers/media/common/v4l2-memtrack/Makefile   |   3 +
+ .../common/v4l2-memtrack/v4l2-memtrack.c      | 825 ++++++++++++++++++
+ .../media/common/videobuf2/videobuf2-core.c   |  13 +
+ drivers/media/platform/amphion/Kconfig        |   1 +
+ drivers/media/platform/amphion/vdec.c         |   9 +
+ drivers/media/platform/amphion/venc.c         |   9 +
+ drivers/media/platform/amphion/vpu.h          |   7 +
+ drivers/media/platform/amphion/vpu_core.c     |   6 +
+ drivers/media/platform/amphion/vpu_dbg.c      |   5 +
+ drivers/media/platform/amphion/vpu_drv.c      |   2 +
+ drivers/media/platform/amphion/vpu_v4l2.c     |  35 +-
+ drivers/media/v4l2-core/v4l2-ctrls-defs.c     |   8 +
+ include/media/v4l2-memtrack.h                 | 220 +++++
+ include/media/videobuf2-core.h                |   4 +
+ include/uapi/linux/v4l2-controls.h            |   4 +-
+ 22 files changed, 1340 insertions(+), 4 deletions(-)
+ create mode 100644 Documentation/driver-api/media/v4l2-memtrack.rst
+ create mode 100644 drivers/media/common/v4l2-memtrack/Kconfig
+ create mode 100644 drivers/media/common/v4l2-memtrack/Makefile
+ create mode 100644 drivers/media/common/v4l2-memtrack/v4l2-memtrack.c
+ create mode 100644 include/media/v4l2-memtrack.h
+
+
+base-commit: 4fbeef21f5387234111b5d52924e77757626faa5
+prerequisite-patch-id: 0000000000000000000000000000000000000000
+-- 
+2.53.0
 
 
