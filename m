@@ -4,110 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E29CFF60D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 08:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D1B6FF60D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 08:59:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Rd6dD12J+k4M0RPgh3c+Z/bVpfV1NbJVTnDkgOMtLc=; b=VvWMqT5X4x5b+VbEPfC8LnY0Sb
-	7v9NTYI+C4FARZfESBQKpS/0nlqoaWSlhM0tBqipLQ67jjYslbiMqG0OuVOSa7nQOOP4OpXiaJfV/
-	GNhH4Q9z8kRit9dppJBeC9/Sl6m/RfXGg+5Fn7rA4Awu/jp3ZDXScRUuf1cbWTzRfyVOB5qI4lVXo
-	vJzItW06qVgnWzGtgi5SuvUyhyqZDVH7Edx8dgBij6hXtDQnSN/IK5mc8ZY+apaQBsUBcGNhBJvtv
-	TH/v5Ftj+Hw5fAMdA1PTjCFs34zWbrvPCB1ffpK0uZlVxwYupaTiL2KjeSxLa8lq4RIm/U2KBmA+2
-	mzdicDFg==;
+	bh=zMIhVteMb80TWSjLMiIOxuPHfEl/B2WUUWeUcY+ePX4=; b=2DDnde/KKzv+tvvI7mjBvpL8L/
+	rcYjYMgRw9ZQsRI1qjXGZBSNmCBfTBXaKtmpsQEEpp6/KmXqhhOt3uGdeafQd9h1eiKEmcn1/kOVz
+	hn9Rkra5pSO/nPgVvCKj4mgl+xynFLRIhcbLvXAvMPWNjZIKg85vXjoz0IW3PWYPNA1oAu99CHUAE
+	eRTAYAEDmtEzGU0dbb6QWWFSSdEZWwzXNCzjNzr4xMDYeEsLusuO/F1WitO2kjYotgko1lNrRUdhi
+	emfF7hxd2J+z33HUf9iU1VooxxFzUJivgtt+I/fkH4AzjMhXY5yT5D6BaOmcIosgWWFz4ZU4+UQjO
+	Dkb7JW0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Utz-0000000Cdlv-1j3l;
-	Tue, 31 Mar 2026 08:56:47 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1w7UwJ-0000000Cdxl-2by0;
+	Tue, 31 Mar 2026 08:59:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Utw-0000000CdkY-1T09
+	id 1w7UwI-0000000Cdxe-3Da4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 08:56:45 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-50912a097b0so31330951cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 01:56:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1774947402; cv=none;
-        d=google.com; s=arc-20240605;
-        b=H5f9wwN2L49XnI/l/CuWDyuS+ESLKq/tl89d2JTMuEyfjLgcj//Jv0s6RI7RWtsO5E
-         GuyA3rlSV0uIS8ERf1MrUAqgUvBf36OVNB2cx3DlnZbqj8E4GGPATXFZnvdNMokkvgQV
-         5bQoFT3bV6fwUlB2eIWjSiG0Ijv9bcpr8BWl7sxJQet+JPSSuRQtocAlalrZdaA0YcPx
-         3j4849ULfkDo/y7+odwga7AnrSLDHAs2x+REk4EQBA7feVMCYIDpkoc/ecKWVa7jG7CP
-         L4A+njn5kh0irvFMl42Kunc7c3+r/sy3k8HEQWuITr+WsY/TAJhEMecq0BTdhfdR859Q
-         DVNQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=8Rd6dD12J+k4M0RPgh3c+Z/bVpfV1NbJVTnDkgOMtLc=;
-        fh=0jg8RiLXeVnx/IcbEbKcXLZpHEkqqolcwTOyL6xQmOY=;
-        b=NJZMX2GOP321juwZdtfQfhPN6Bu+fNl5qodI8dd/5pQ9oEE2BLuztp0xJS+cOHX0FQ
-         w5y3GnVhLGTormYi9N/r4VGA6xpzOc6XdCoGh4K4PrskzbQdaIW2bTmSJEuRxZqwovmb
-         v5rEPZorUv3RREAWxQ7B3g4Qvr8OjKK1UVbO1/BeBMEAhY2z8NxhR7vE3UDvjuDyfDL2
-         S3xZHpXBnQCcXqxDxl5wKMybfvFqYtlGzb+JSrukAs09RIGaPlPn1m5RjcYjiKihkrSS
-         JMoHwPjTPXzJms/aAjE+/I/RSVi6S6MHXL7xx2Us2O8bAY2sSYxK6/8t1hhrVElH2zws
-         wuTg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1774947402; x=1775552202; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8Rd6dD12J+k4M0RPgh3c+Z/bVpfV1NbJVTnDkgOMtLc=;
-        b=frjpYXbkuxX/2GX1GIAko2lY2GEog8b45+7eaaDIrP7HOjyOkVHIjAz0oS31iz6L+8
-         6NwYM4/hE6sKylmN/FEMhL7GQSMmVWuMJSoIwNf+43rQFymxYAwJPFUMDyDLbwvo2cyW
-         i3saA3Iq5tbQjBPwwxauNl3thfO5H9FmqQvFRY8NFEg7PUm8OOWswPoG9JJSYsmM756l
-         yY1hIg3elFH+eSdCI7A7+/9B51DT1ttW8Sx4jJ5c+6ly1uYKnnPCFoWLNCGt6znqbWv7
-         gtiDS4a+HfRs1DM6ETZEoNqYEGwED9l1R0D3VlMmvXcbXhF08XacYiIT1C0OoYT1nswu
-         udOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774947402; x=1775552202;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=8Rd6dD12J+k4M0RPgh3c+Z/bVpfV1NbJVTnDkgOMtLc=;
-        b=If3keA3vbStrlFNBrp5AhgBfwzaqEwZflgvuH8CRzjVSMRBKIAETECeKDUW+SyLCgc
-         jQ5gYfdaxZ6v+qY/G2CLyjUsMiK0B+NcofzmyxcbdHpF8zNGeoQoYhRIiQ/cPVoqBisS
-         39Bp3EuyG3qcGfID5rcjPK+AI0k6dLisyOr/hs4QQVhCcVOd9QFCGJncRvD5684wSBmg
-         +C3C1Kl9fizwb2/1qnjE+zWOxzrUIXFg6LmK2q7qNzQVRLhvHaHCyfjabEJniLrhGtDo
-         uSK/QH+L5o7haor2C6q+AP4fwdRabWyFNEFU0hReQE8ZvhoWqn6fhYiuJd8OSz875blj
-         ISpw==
-X-Forwarded-Encrypted: i=1; AJvYcCWNX08NsTGZ0CUQUHzs7oZxsSExrQOQrGmTW5wm6/0HSx4vm9cB46gTbJs5wvHKhcibodMMtYs/pAvzMhVaPfaY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw68q0lWk2iH3TdD3Jd6uefLO1ZYlvdPlnkxixDCyurzyLqcyui
-	qSsLKu52KD3pCU6Nr+L3dXOZGTpoDJT9wlqPuC30259yl/BaXmZ8d3K1SmObLLf3vSLg1Wc6306
-	k4ssDvWLggvQLKFNFCU4xxqJtX4TZ5AWxLGrtEzR+
-X-Gm-Gg: ATEYQzx/cp5uZ6jwD5OJAa78AW2vLVs5nMlDPSrae1MkNNcoIXNCAkNADCgOI7DTKBM
-	sdkRq+xKRthql9V4aF8RAc0ktU6ia2MPlwImFDz7x1PNZcIRpnCpMcFybXdY95xUKH78/2royvB
-	0BLqitY39HcBvPxwUupX9hmCEBRZKCMlvR2SgCHaanoKyrwiHNCeHlb7ek+nLrimRHFRuWzgzv0
-	EtEkGUvcph8MD1455/PxA//5IjWHub+7FTV2z8EnPJT7geXc+c69Jv8LdtkV40JUwdr3jdd0bm2
-	BnUtEA==
-X-Received: by 2002:ac8:5f0c:0:b0:50b:1adf:89c4 with SMTP id
- d75a77b69052e-50ba391e5abmr200632611cf.46.1774947401658; Tue, 31 Mar 2026
- 01:56:41 -0700 (PDT)
+	Tue, 31 Mar 2026 08:59:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DABF060103
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 08:59:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91E06C2BCB5
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 08:59:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774947549;
+	bh=IYGobMEXU13zxFV94JS8/SK88BkSPNQBTubyddj5Owk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=JGmq4onRjzaV5h7DDEpYNFw0IK/0JsivWpE6ODmyTBf7wNGUo3rFHRFRw90gAFgZW
+	 IGxaEi2XTGciKsZQCP3ZMgk6uh6IFJq8QYN2X/4ZmGj//jbaHCyjBpj7nseP71ms4R
+	 c/VW+9CDdGQfYi5TgudkKNgkCoQXINArPhD0FaJpHeouZ/wGlAD6kYemj/Fg6BgLYp
+	 5+D3bf/q4bUF0Pr/r6Wz5YWdg07Xi/zOJhTtcRMyCDeKtmumiqAFD5Vtbd7pN7mjBa
+	 5Q6RfXVbwjj0F9WYidHi6OA/xLlmnWJSsXkAGAfh+tyQhV6OJ7pltYzzvXNbAFJtdl
+	 BJg0+8DiVSSBQ==
+Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-38c620f1699so50834361fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 01:59:09 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVGuKIkFKpH7Oi9d6k5V4TA38/m7CdIa1ZU2LjeDdqPbSQJwmk/xUEYv2K/m3FHNGp4aDmL3l0qAbP2nSroX5+n@lists.infradead.org
+X-Gm-Message-State: AOJu0YxjpCopu0uGbLm35bJH2pn7GAyAKrr4ocqD4ZV+xkMOcW6FX+ZW
+	pBc91UHrvjSRwdF76A9CV1UyAfVW0daVFuf4dHNzp1DXpkVV5hFcYQU7Kya9Re9T/Yfxq7NTtBS
+	EWUhBhXaLRZ6GMFt7fbWry0RSHcSKRHjy/dkyPEnBPg==
+X-Received: by 2002:a2e:a593:0:b0:38a:8602:71aa with SMTP id
+ 38308e7fff4ca-38c731af9acmr51553271fa.16.1774947548197; Tue, 31 Mar 2026
+ 01:59:08 -0700 (PDT)
 MIME-Version: 1.0
-References: <cover.1774855883.git.zcliangcn@gmail.com> <07351f0ec47bcee289576f39f9354f4a64add6e4.1774855883.git.zcliangcn@gmail.com>
-In-Reply-To: <07351f0ec47bcee289576f39f9354f4a64add6e4.1774855883.git.zcliangcn@gmail.com>
-From: Eric Dumazet <edumazet@google.com>
-Date: Tue, 31 Mar 2026 01:56:30 -0700
-X-Gm-Features: AQROBzC1VwPhds6KUcUJYr2e4pOAOAu4WSM0cOgN26T1vLQGT08ERd_YmoRmcIM
-Message-ID: <CANn89i+-W1j9iE6+DhJTAkcWF2tC1SdREDDx9pDWtNzCFLWMfg@mail.gmail.com>
-Subject: Re: [PATCH 1/1] net: ipv6: flowlabel: defer exclusive option free
- until RCU teardown
-To: Ren Wei <n05ec@lzu.edu.cn>
-Cc: security@kernel.org, davem@davemloft.net, dsahern@kernel.org, 
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, afaerber@suse.de, 
-	mani@kernel.org, yoshfuji@linux-ipv6.org, yifanwucs@gmail.com, 
-	tomapufckgml@gmail.com, yuantan098@gmail.com, bird@lzu.edu.cn, 
-	enjou1224z@gmail.com, zcliangcn@gmail.com, netdev@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-actions@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+References: <20260330-nokia770-gpio-swnodes-v4-0-b68592e977d0@oss.qualcomm.com>
+ <20260330-nokia770-gpio-swnodes-v4-2-b68592e977d0@oss.qualcomm.com>
+ <acrcDTPpXZ_5A4D8@ashevche-desk.local> <acruxMNdnUlyRHiy@google.com>
+ <acto3TE1AR8iTzF0@ashevche-desk.local> <DDF494E5-C188-4A86-AC02-265B6169B591@gmail.com>
+ <acuMD7Oly4XWW4n8@ashevche-desk.local>
+In-Reply-To: <acuMD7Oly4XWW4n8@ashevche-desk.local>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Tue, 31 Mar 2026 10:58:55 +0200
+X-Gmail-Original-Message-ID: <CAMRc=Md-eJW4NUo7cVGDArg_MO53vfueHVqCzxrfUWJ5-MGjng@mail.gmail.com>
+X-Gm-Features: AQROBzC64iVV0opSN20lxil0szzNnss6IuetV8sn6EmP7LsMeDIFMQJ351z-AI4
+Message-ID: <CAMRc=Md-eJW4NUo7cVGDArg_MO53vfueHVqCzxrfUWJ5-MGjng@mail.gmail.com>
+Subject: Re: [PATCH v4 2/3] driver core: make software nodes available earlier
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>, 
+	Russell King <linux@armlinux.org.uk>, Kevin Hilman <khilman@baylibre.com>, 
+	Arnd Bergmann <arnd@arndb.de>, driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-omap@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_015644_424690_14D157A4 
-X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,41 +92,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 1:52=E2=80=AFAM Ren Wei <n05ec@lzu.edu.cn> wrote:
+On Tue, Mar 31, 2026 at 10:55=E2=80=AFAM Andy Shevchenko
+<andriy.shevchenko@linux.intel.com> wrote:
 >
-> From: Zhengchuan Liang <zcliangcn@gmail.com>
+> On Mon, Mar 30, 2026 at 11:52:34PM -0700, Dmitry Torokhov wrote:
+> > On March 30, 2026 11:25:33 PM PDT, Andy Shevchenko <andriy.shevchenko@l=
+inux.intel.com> wrote:
+> > >On Mon, Mar 30, 2026 at 02:46:45PM -0700, Dmitry Torokhov wrote:
+> > >> On Mon, Mar 30, 2026 at 11:24:45PM +0300, Andy Shevchenko wrote:
+> > >> > On Mon, Mar 30, 2026 at 02:40:47PM +0200, Bartosz Golaszewski wrot=
+e:
 >
-> `ip6fl_seq_show()` walks the global flowlabel hash under the seq-file
-> RCU read-side lock and prints `fl->opt->opt_nflen` when an option block
-> is present.
+> ...
 >
-> Exclusive flowlabels currently free `fl->opt` as soon as `fl->users`
-> drops to zero in `fl_release()`. However, the surrounding
-> `struct ip6_flowlabel` remains visible in the global hash table until
-> later garbage collection removes it and `fl_free_rcu()` finally tears it
-> down.
+> > >> > > -static void __exit software_node_exit(void)
+> > >> > > -{
+> > >> > > -      ida_destroy(&swnode_root_ids);
+> > >> > > -      kset_unregister(swnode_kset);
+> > >> > >  }
+> > >> > > -__exitcall(software_node_exit);
+> > >> >
+> > >> > Why? What's wrong with the __exitcall?
+> > >>
+> > >> It's dead code. Always was, always will be.
+> > >>
+> > >> Maybe split in a separate patch, but I sometimes feel the idea of "o=
+ne
+> > >> change" is taken to extreme and adds to both developer's and maintai=
+ners
+> > >> burden by needing to keep track of extra patches.
+> > >
+> > >Why does __exitcall() exist then? It's also used in other places.
+> > >I think it's generally good to have a possibility to clean up
+> > >after run.
+> >
+> > The code section will be discarded when the kernel finishes booting so =
+it
+> > only increases image size on disk.
 >
-> A concurrent `/proc/net/ip6_flowlabel` reader can therefore race that
-> early `kfree()` and dereference freed option state, triggering a crash
-> in `ip6fl_seq_show()`.
+> Almost true. Interesting microblaze case, where it's not discarded.
+> But I can't find where it's actually used on any architecture.
 >
-> Fix this by keeping `fl->opt` alive until `fl_free_rcu()`. That matches
-> the lifetime already required for the enclosing flowlabel while readers
-> can still reach it under RCU.
+> > >A bit of archaeology:
+> > >
+> > >The first time it appeared was in the bcc2152647b8 ("Import 2.4.0-test=
+3pre3").
+> > >Then somehow spread a bit (but not much).
+> >
+> > And it shows how useful it is. Maybe it had some purpose a long time ag=
+o, but
+> > at present time this code will never be executed since it cannot be bui=
+lt as
+> > a module.
 >
-> Fixes: d3aedd5ebd4b ("ipv6 flowlabel: Convert hash list to RCU.")
-> Reported-by: Yifan Wu <yifanwucs@gmail.com>
-> Reported-by: Juefei Pu <tomapufckgml@gmail.com>
-> Co-developed-by: Yuan Tan <yuantan098@gmail.com>
-> Signed-off-by: Yuan Tan <yuantan098@gmail.com>
-> Suggested-by: Xin Liu <bird@lzu.edu.cn>
-> Tested-by: Ren Wei <enjou1224z@gmail.com>
-> Signed-off-by: Zhengchuan Liang <zcliangcn@gmail.com>
-> Signed-off-by: Ren Wei <n05ec@lzu.edu.cn>
+> Are you sure about definition of __exitcall? As I read init.h the macro
+> is defined when it's not a MODULE.
+>
+> Anyways, if we going to drop that, it should be in a separate change
+> explaining all these.
+>
 
-Quite a long and confusing list of tags, and a long CC list ...
+Sure. We must drop it too because the initialization no longer happens
+in an initcall but is called from elsewhere so - were it not dead code
+- we could end up with it being called before the init function.
 
-Please trim this next time you submit a networking patch.
-
-Reviewed-by: Eric Dumazet <edumazet@google.com>
+Bart
 
