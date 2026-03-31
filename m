@@ -4,60 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8296FF60F4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 18:14:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6206010F92EB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 18:28:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jl+7GRmcKYaTDGIeR1Zzw1lCZquQYMChmSBTurInme8=; b=EfJQ1lwBwG7zAAbk97C1uHcsYU
-	ud1+dBq1Bg1nCcwp14pOykGHB4K9IK7PIYvZZmQiGjA20cYbwiYQN0No9O8OcIH3gkutn0vbKkRgG
-	3x3XhUfJBKH68GCR+OsVhnfWER2UwhxuDE8K3v8Dk5hQI0kzIuD0Ego45GSXcWkoLhfgLIGTU4SP3
-	NjOKu1CLjrpJmsN1uCx2J36LX0bypFeUqdEzPdkZe9C2qCs4mivvXDjQvQzkBDSOVBpR+ML9RMPxB
-	9V7nxsGyPrr0PkfuZRHOmc2fZCXSXsX5aDYvvmu65EEim9GxAUDj8PNk4/q7Lygh7TSGzVfl86hef
-	0V5VT4UQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tXqY7D+gOPt4PmDEUzUeZP0ag7GlnVqUsaN9xSvigfE=; b=tYyKXWDeQTySnKuLkv0WWWvYxA
+	JXelTUOelyTNPxxq4/xf0dQYzbkM3g/DcPWG6B1uJFsXco2OntfVpxs49GeHuKAsoayCiTd7Hd8VH
+	NtFeN4YB5DFTtc3q55yVl06LBgMYVPONv3RQ2EWJHnilbzQaeRszcoPrq7Q8P38MFpM9r8rrG1ckG
+	bpQJVBY7/4Rggnq3XFLoPU0OaBE56w5whUg7Eqxb+W7FNUZfb/jOo2h26kZvorw6APY0sC/Z2YFLF
+	mcvvkM2Fr0ICIQ8TlFe28+YUbLUr2GCgTUqz0v2tNDnW40fPkI/0OCc5Uj2y/zEn+iCC0REj2/1aU
+	PMg9krqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7dbc-0000000DP9h-12Ft;
-	Tue, 31 Mar 2026 18:14:24 +0000
-Received: from mx3.molgen.mpg.de ([141.14.17.11])
+	id 1w7dp5-0000000DPtL-1y3c;
+	Tue, 31 Mar 2026 18:28:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7dbZ-0000000DP7j-4101;
-	Tue, 31 Mar 2026 18:14:23 +0000
-Received: from [192.168.2.229] (p5b13a713.dip0.t-ipconnect.de [91.19.167.19])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: pmenzel)
-	by mx.molgen.mpg.de (Postfix) with ESMTPSA id 957A74C2C37D47;
-	Tue, 31 Mar 2026 20:13:52 +0200 (CEST)
-Message-ID: <11effdbc-4eff-4430-a22f-3320f84859fb@molgen.mpg.de>
-Date: Tue, 31 Mar 2026 20:13:46 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 8/8] Bluetooth: btusb: Add MT7927 ID for ASUS X870E /
- ProArt X870E-Creator
-To: Javier Tia <floss@jetm.me>
-Cc: Marcel Holtmann <marcel@holtmann.org>,
- Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Jose Tiburcio Ribeiro Netto <jnetto@mineiro.io>,
- Ivan Lubnin <lubnin.ivan@gmail.com>
-References: <20260331-mt7927-bt-support-v5-0-6f31b4342daa@jetm.me>
- <20260331-mt7927-bt-support-v5-8-6f31b4342daa@jetm.me>
-Content-Language: en-US
-From: Paul Menzel <pmenzel@molgen.mpg.de>
-In-Reply-To: <20260331-mt7927-bt-support-v5-8-6f31b4342daa@jetm.me>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_111422_144616_08159EE1 
-X-CRM114-Status: GOOD (  16.93  )
+	id 1w7dp4-0000000DPtD-2Q2e
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 31 Mar 2026 18:28:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 94E0B60053;
+	Tue, 31 Mar 2026 18:28:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 415DAC19424;
+	Tue, 31 Mar 2026 18:28:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774981697;
+	bh=8AGddt+oTchyVvnjvvBnpho8FpvEFgRCXBZxjjKcVsQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=PejUT+GMZYic55pRDV/PK2C935pBAL0wAC9Mkhl/2BVkCurENcUwKeuJ96EUeh3sI
+	 v4XuHD35b7dkynUAdvCkvBuQIGyKwXolnErCCGztFaNiqUjF9tZB+6cU73g30At9Ij
+	 pKP9Wti23Eu1YAtWBUTWKknA3ec4y3wtYfoo3k81Fmg+wNZ4RVFbxz8KfXr6XauYz4
+	 BK3K0xVlGAipsK99e9sd6PkXwbH0X1c65IBuR7CTUKQclRcI2t24eGz08CaU9lGlx2
+	 DrQBEgVKPNXSLOYFyAx692vwWN/JFWZg5lDPGcrtdo5ceZq+Rg83yy7O57zjRZy9NN
+	 b2ROrOHV3aGMg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w7dp0-00000007aEG-3i5q;
+	Tue, 31 Mar 2026 18:28:14 +0000
+Date: Tue, 31 Mar 2026 19:28:14 +0100
+Message-ID: <865x6b4zwh.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose
+ <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <tabba@google.com>,
+	Will Deacon <will@kernel.org>,
+	Quentin Perret <qperret@google.com>
+Subject: Re: [PATCH v2 12/30] KVM: arm64: Hoist MTE validation check out of MMU lock path
+In-Reply-To: <8bd2b649-01b5-44f4-a034-c202e226e97c@arm.com>
+References: <20260327113618.4051534-1-maz@kernel.org>
+	<20260327113618.4051534-13-maz@kernel.org>
+	<8bd2b649-01b5-44f4-a034-c202e226e97c@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: anshuman.khandual@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, tabba@google.com, will@kernel.org, qperret@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,74 +91,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear Javier,
-
-
-Thank you for the patches and your persistence on improving them. I 
-noticed one more thing, just in this one:
-
-Am 31.03.26 um 19:09 schrieb Javier Tia:
-> Add USB device ID 13d3:3588 (IMC Networks/Azurewave) for the MediaTek
-> MT7927 (Filogic 380) Bluetooth interface found on the ASUS ROG STRIX
-> X870E-E GAMING WIFI and ASUS ProArt X870E-Creator WiFi motherboards.
+On Tue, 31 Mar 2026 07:57:48 +0100,
+Anshuman Khandual <anshuman.khandual@arm.com> wrote:
 > 
-> Note: boards with this USB ID expose only one ISO alternate setting
-> (alt 0). Without the fix in patch 2/8 ("btmtk: fix ISO interface
-> setup for single alt setting"), this caused ~19 second initialization
-> delays. With the fix applied, initialization completes in ~2.6
-> seconds.
+> On 27/03/26 5:06 PM, Marc Zyngier wrote:
+> > From: Fuad Tabba <tabba@google.com>
+> > 
+> > Simplify the non-cacheable attributes assignment by using a ternary
+> > operator. Additionally, hoist the MTE validation check (mte_allowed) out
+> > of kvm_s2_fault_map() and into kvm_s2_fault_compute_prot(). This allows
+> > us to fail faster and avoid acquiring the KVM MMU lock unnecessarily
+> > when the VMM introduces a disallowed VMA for an MTE-enabled guest.
+> > 
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/mmu.c | 28 ++++++++++++----------------
+> >  1 file changed, 12 insertions(+), 16 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> > index 0c71e3a9af8b0..ee2a548999b1b 100644
+> > --- a/arch/arm64/kvm/mmu.c
+> > +++ b/arch/arm64/kvm/mmu.c
+> > @@ -1870,18 +1870,21 @@ static int kvm_s2_fault_compute_prot(struct kvm_s2_fault *fault)
+> >  	if (fault->exec_fault)
+> >  		fault->prot |= KVM_PGTABLE_PROT_X;
+> >  
+> > -	if (fault->s2_force_noncacheable) {
+> > -		if (fault->vm_flags & VM_ALLOW_ANY_UNCACHED)
+> > -			fault->prot |= KVM_PGTABLE_PROT_NORMAL_NC;
+> > -		else
+> > -			fault->prot |= KVM_PGTABLE_PROT_DEVICE;
+> > -	} else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC)) {
+> > +	if (fault->s2_force_noncacheable)
+> > +		fault->prot |= (fault->vm_flags & VM_ALLOW_ANY_UNCACHED) ?
+> > +			       KVM_PGTABLE_PROT_NORMAL_NC : KVM_PGTABLE_PROT_DEVICE;
+> > +	else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC))
+> >  		fault->prot |= KVM_PGTABLE_PROT_X;
+> > -	}
 > 
-> The information in /sys/kernel/debug/usb/devices about the Bluetooth
-> device is listed as the below.
-> 
-> T:  Bus=01 Lev=01 Prnt=01 Port=00 Cnt=01 Dev#=  5 Spd=480  MxCh= 0
-> D:  Ver= 2.10 Cls=ef(misc ) Sub=02 Prot=01 MxPS=64 #Cfgs=  1
-> P:  Vendor=13d3 ProdID=3588 Rev= 1.00
-> S:  Manufacturer=MediaTek Inc.
-> S:  Product=Wireless_Device
-> S:  SerialNumber=000000000
-> C:* #Ifs= 3 Cfg#= 1 Atr=e0 MxPwr=100mA
-> A:  FirstIf#= 0 IfCount= 3 Cls=e0(wlcon) Sub=01 Prot=01
-> I:* If#= 0 Alt= 0 #EPs= 3 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-> E:  Ad=81(I) Atr=03(Int.) MxPS=  16 Ivl=125us
-> E:  Ad=82(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-> E:  Ad=02(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-> I:* If#= 1 Alt= 0 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-> E:  Ad=83(I) Atr=01(Isoc) MxPS=   0 Ivl=1ms
-> E:  Ad=03(O) Atr=01(Isoc) MxPS=   0 Ivl=1ms
-> I:* If#= 2 Alt= 0 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-> E:  Ad=8a(I) Atr=03(Int.) MxPS= 512 Ivl=125us
-> E:  Ad=0a(O) Atr=03(Int.) MxPS= 512 Ivl=125us
-> 
-> Link: https://bugzilla.kernel.org/show_bug.cgi?id=221096
-> Link: https://github.com/openwrt/mt76/issues/927
-> Signed-off-by: Javier Tia <floss@jetm.me>
-> Tested-by: Jose Tiburcio Ribeiro Netto <jnetto@mineiro.io>
-> Tested-by: Ivan Lubnin <lubnin.ivan@gmail.com>
-> ---
->   drivers/bluetooth/btusb.c | 2 ++
->   1 file changed, 2 insertions(+)
-> 
-> diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
-> index 55a000540439..45ef0d008bce 100644
-> --- a/drivers/bluetooth/btusb.c
-> +++ b/drivers/bluetooth/btusb.c
-> @@ -761,6 +761,8 @@ static const struct usb_device_id quirks_table[] = {
->   						     BTUSB_WIDEBAND_SPEECH },
->   	{ USB_DEVICE(0x0489, 0xe116), .driver_info = BTUSB_MEDIATEK |
->   						     BTUSB_WIDEBAND_SPEECH },
-> +	{ USB_DEVICE(0x13d3, 0x3588), .driver_info = BTUSB_MEDIATEK |
-> +						     BTUSB_WIDEBAND_SPEECH },
+> Is not the existing code block bit more cleaner though ?
 
-This is not sorted. Is there a reason to place it here?
+What is wrong with this? Are you stating a matter of personal taste ?
 
->   	{ USB_DEVICE(0x0489, 0xe14e), .driver_info = BTUSB_MEDIATEK |
->   						     BTUSB_WIDEBAND_SPEECH },
->   	{ USB_DEVICE(0x0489, 0xe14f), .driver_info = BTUSB_MEDIATEK |
-> 
+Ternary operators are great at making things more readable by reducing
+the amount of nesting, and I'm all in favour of anything that makes
+this $%^&*( code easier to parse.
 
+Or are you pointing out a technical issue?
 
-Kind regards,
+	M.
 
-Paul
+-- 
+Without deviation from the norm, progress is not possible.
 
