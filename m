@@ -4,64 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F1EB109B47A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 14:35:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1749109B47B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 14:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p3OGKyUeGX+FBqvhuWl781mm0Ug2VtGZVSOCsdmBQik=; b=DAnWVA9EFMvM5czmV6PmahkrRA
-	LcDGHI+w5YEDXLPaDc8l3CSI3gw7w54D9nfILutZd20Jwm6tdZQ8PIxG3kVwBpibOkitPN7O18xVI
-	h4T3GLVuBWg8t7VBDWEknmdjD5qgFyhdYigvVsCpgzb1Te+2ZHuLRDm4Cb4nttyKLZ5V5ZPv/uJer
-	iRRIZwCTFgp+PuBWLfhzl/zU1QPbC+ZCtXgxTyXRHibJal64muyn+NAmbPwA0wkeHQZ4h/CJS9qgt
-	SQU7A8lDCBleSb5LX+yUfB0Q1B2j1rKJPSsU4mtxkBrQkie7g+Pky05JS1kHhqOUZZj+HjdfmBajs
-	qIAkh0aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5rjP5iBsy8kPlzbvdsL0bTiLtesZG/Q20ju5pr8bjOM=; b=OJYwfLfAoqzhwOboemRqf0cDVo
+	YFgr0BFBGtq0lgeQkERQJNX6W7KIMvQkzDfq+1KQzJ3vmdkMQo9LnaKnTOZFnb0E5oGPl+lKjig9e
+	qISffKSz/tt49agdoRhJfiKCFc2IZmIWl+uE1S3pu4xzRosbOmLIA9yk/m2YUEOYPjd0zqUZwjD40
+	wrP++qY2EnPsBHHp552KEeR/uz41R+w6hLDtkqC0Wgk3nIS2jKHdtDPzg/mouml9WAzb+EeDR8cVI
+	25SMj49M4q/bIfsNVkYRtwBWVDeLXAW0qg7jvuSYLhmvrFHj9dovvtUV/c1bUeYv9I/J6bx014sPi
+	WLsDUNXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7aBi-0000000D76p-3bOy;
-	Tue, 31 Mar 2026 14:35:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7aBg-0000000D76T-1aKd
+	id 1w7aKB-0000000D7Y4-2RaF;
+	Tue, 31 Mar 2026 14:44:11 +0000
+Received: from mail-norwayeastazon11013038.outbound.protection.outlook.com ([40.107.159.38] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7aK9-0000000D7Xe-0Pcj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 14:35:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 40A96497F;
-	Tue, 31 Mar 2026 07:35:16 -0700 (PDT)
-Received: from [10.57.17.66] (unknown [10.57.17.66])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C02E3F641;
-	Tue, 31 Mar 2026 07:35:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774967722; bh=Grl7oKLDID+CLf3qslXdDCfSH7IfOizXAxEjYRkXgHo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=coTAnRI0mY/4Z0D72BMbvQXEdeNWe1no5kS7ITjGugJlwOGUnlQQW7AqPOXZTKoEh
-	 G8XJCiNFU8cctBKsg7IF6aLoW2OuUN2IMlOJ2RKv6ICjIeVId3wSCvrtiH2U9CdQhW
-	 fKbdVTdi7he6PopG3lXGd/jjggoZk92QOs9uqaCo=
-Message-ID: <d3f6cf8c-3bfe-41a6-86ce-e6515aa5ef96@arm.com>
-Date: Tue, 31 Mar 2026 15:35:18 +0100
+	Tue, 31 Mar 2026 14:44:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AdYsGRhqRDD4FOd4IEbXR8BfmHiufSGLIQP420ghXe32R4WwVUQTVClzJ/1+7BvKQlkKk1M5TmhQWdd7XTb0XdLWeCTKGkOtKoP9dZ9wIMtC0so8EOW554J0mjzqjYGTkgqluanYZJH5fg4L64I5iN2RihtTiN/Hxll0oFs2JsbsRo+UVOWMz9WT4Jf5rbXOR/dms1uzqugkILAO1eddPho6oho3IHrIm2+VJEz7mvKW9Y0eNq2gPmvraH6pGTHYwvEcGXF5WyBOZOtEPEhrrvEweLesv3BSCkQ0ewgxGq5ddFzXrTzQhOj+aDf5ye+LgXClFDDr1PtNJ6iQ0ja3bw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5rjP5iBsy8kPlzbvdsL0bTiLtesZG/Q20ju5pr8bjOM=;
+ b=JKB1te1GuyhYGbAB2/mjOavy3vmsXHwiuME8EBLDFxIUnR8S3v9hjNEC07E2YiOeuEgYgVX+kU0ZAH4Uj+MFdzLJfpInYkeqJFzpQMM/RBk0sJ4X9bM2GAgAd6rQil7tuep5aY6cOe2CJx0Ehh8gEW8VGiymsZq2j+J9eJHqdxSAtm4t2ApAzeda74PQle4LEfArJn6cl1Dt5DnuKv1NEqoGzYYtuQTXQjisPGsDSR7wg0c0DbVsBYrcUNyHA/jgkCxahwHIpYsdbdrYqwXldl0Wx8fB+dwv7c9KNGrE4HOfq5S0/3HWQIqru2QZrmn8fOutjN6Nqh3eRyVKH33Arw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5rjP5iBsy8kPlzbvdsL0bTiLtesZG/Q20ju5pr8bjOM=;
+ b=XLm123qMbXdIcdERP9LJSClEFYgOIdUeYok6fwMk2NASndipY4t8+DWkE8m5wiUSnmExz8SKaRvcbInQr0KveVlZn+9M+psW0vtl/HJBXS8+5sCQVn72jr7UnjAOtOwqFv4okEC3clOsPGfxYwL+N3RSLDnk6xe/YBwJn6ABPVRwAVrG+IYK8IzQDVoGOBJyqWOZkLHOu/IOc3SV2YVEiGfbV4zmMeziG5/n+RWdnN298WrCq1QqVkvFjpQC4h2Fl5TItT0mkZX8VYWv5IlWgax3dRzusJe6xg+G4Ofx37lzAmo7Goac5oEMDf53m/R6QTAl9KhkWiG24s3MKxW5Ow==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by PA1PR04MB10964.eurprd04.prod.outlook.com (2603:10a6:102:490::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Tue, 31 Mar
+ 2026 14:44:03 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9745.027; Tue, 31 Mar 2026
+ 14:44:03 +0000
+Date: Tue, 31 Mar 2026 10:43:53 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+Cc: Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Juergen Gross <jgross@suse.com>,
+	Stefano Stabellini <sstabellini@kernel.org>,
+	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Prakash Gupta <prakash.gupta@oss.qualcomm.com>,
+	Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org, imx@lists.linux.dev,
+	xen-devel@lists.xenproject.org, linux-arm-msm@vger.kernel.org,
+	Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+Subject: Re: [PATCH v12 2/3] of: Factor arguments passed to of_map_id() into
+ a struct
+Message-ID: <acvdqQvcitLTCZbm@lizhi-Precision-Tower-5810>
+References: <20260331-parse_iommu_cells-v12-0-decfd305eea9@oss.qualcomm.com>
+ <20260331-parse_iommu_cells-v12-2-decfd305eea9@oss.qualcomm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260331-parse_iommu_cells-v12-2-decfd305eea9@oss.qualcomm.com>
+X-ClientProxiedBy: SA9PR13CA0007.namprd13.prod.outlook.com
+ (2603:10b6:806:21::12) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] arm64: mm: Fix rodata=full block mapping support
- for realm guests
-Content-Language: en-GB
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "David Hildenbrand (Arm)" <david@kernel.org>, Dev Jain <dev.jain@arm.com>,
- Yang Shi <yang@os.amperecomputing.com>, Jinjiang Tu <tujinjiang@huawei.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20260330161705.3349825-1-ryan.roberts@arm.com>
- <20260330161705.3349825-2-ryan.roberts@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260330161705.3349825-2-ryan.roberts@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA1PR04MB10964:EE_
+X-MS-Office365-Filtering-Correlation-Id: 238e6cc5-6b23-42b7-8b74-08de8f33f3ae
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|52116014|19092799006|7416014|366016|38350700014|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: s+KiA0MI42oQZjz97rmpPSQpWToS2IRv5hA0wHFEfQ66xgsjPtoOj9ZMmslrUM076pQAWJvYsHrvyebukhsQ4XAJM0x8O6BXX2ThzbrWO7mZoEH19gL6CoGyh0GlJFkpg6aua4BGZ6iexITGS74I7lVFSD8iryLffh+f3zIymaPL0VpY10HItZbSpNwUhBJMZrNw6jOUjQbf6rdChQYUsOtbHt7zZ6gq1tr4GqKrcP7brmUv9qY/aqXkJyZEZmRFrwBE+9qci02UHmSc2Dxb5vjbIUTDfmRYLD5DQv6J+4pQ+B7ybsJmamaaOyQySdUABFrxi39veWV7dRYlA1g3EKGxQUEy2VuGhori2AXujb41clpsUDX0ZC/LEvZv1KSeeVdE2WtYg3/775tjh6psWWIDeuWNAKXhJAlTaLgLmT772D7qNn5E9l3r8gBnwYfpd7j/Pg4Gw8+gNIw6dl+zhC7GsXYX2o0JYRYe1lHikufyEb0wf2kzwqGfaMIGu85m3JmIujt5iqX/41X5axuxKJ+Lr9HcXRXL7uS62awNx5kOmAfp+cA9mwgWxGeBgnkiRyI1dCGQQ6Y1iyDdJGWvWs1Fd2TnaCCd3jEcGgo31etGPcBr0rrZWjvLlK1S4s088ncYmX7jveSGvWeC22lnFigMWvlBl7Pv9LNo59jxDXG6JVKFYS0sMMrnGMwySLXlLo7oqTJe4CHXYAg4pNh0Vg2OxRx/xwZxX8msLiFnQPzh5UdBxoxRWGn2sRjE0QpirfG6FVA3eLQScmd8ttAH/wvXFKDHg9J203L5SbCpd10=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(52116014)(19092799006)(7416014)(366016)(38350700014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2iT9OHtHa+9bxUiNicBG0P/R6shQ/HaKVFFsEx/BcChqdn2hP08875nETbBY?=
+ =?us-ascii?Q?8YQXh8M+Lq/Dc9PmWbMKeS6gk3m76p9SutE/+pCFHdLq8eAXlwYkIhm25Yvb?=
+ =?us-ascii?Q?3k01D2Y0O+idAWzrbaTOGf4djc9rR7Hco89NznpwSSrxN7zxnQ3o0qfEy2/O?=
+ =?us-ascii?Q?ZfdmNyoV433YFVUn2gaobRCr/K2e7+etGyjEWyfbxude9W+zhDFy9vjADNW7?=
+ =?us-ascii?Q?n+6bncInM9l+tq4QUE0qQ+MYwsluE6r1pV2WAnn7EFHC1nbEo4yL+CjlgdJF?=
+ =?us-ascii?Q?LkMhcYkH6Gqnw+87spICB1Agvr8DMwBMTNcqAFcvYHErR/QFlC9dBKacUlOj?=
+ =?us-ascii?Q?fexhAH5qjYnXRRGsu2qtsIlwPKxBXmdur6LGhqi2m3qA+F/h2up6ux+9GNGK?=
+ =?us-ascii?Q?5MIcbSh2W+6BO/TGpIcyrrhA/RrCQ6RKLLod50qo+FJfnDT8S0lupzDCszhC?=
+ =?us-ascii?Q?ca0g3wxK9v+5TzwRzyobZMtze/QsZLZeeSrSN/s1u+Xr1IZWQcLSkswEGxqD?=
+ =?us-ascii?Q?dXUzom5siSa/hCgVDYPMbi1D7CySRMFO1bDfb7g5f4MyPMURfDkPJVTfrIbc?=
+ =?us-ascii?Q?DySVh8F8KTTkTzzFco0S121SLcD7hEDYIinqZVA6YatZQvu21HKik85kgKCK?=
+ =?us-ascii?Q?Qih0BGi1es8UjMnf6qVmkBjqPcGGbUt+Ab9QJ2PbuW98Bmsk1IR1qrCnU4pO?=
+ =?us-ascii?Q?A+WVAVTHUrjm+YMbp6Vj+0sugzC2+FV+IEWfGoUdlLNR8gmGh3rPAVN0vgKU?=
+ =?us-ascii?Q?x8J4l5K8tEHSDXVaAq5EFMIbuwvmdZhCkr3857r6id0jyqMYnJ+WlGOiz052?=
+ =?us-ascii?Q?6G/P4THBPjglA5biZc40FOkgZskw3TA1TG0FhRBRcWI5lcI3LKGzR0/w9yQ6?=
+ =?us-ascii?Q?PI4a/D3TL3uGVZAfSwSC7cl8hWmRdUsVg6qy6onXnCT2Gs660pFDeCIUta4R?=
+ =?us-ascii?Q?UUtIrkSGnDajFE92f8sgjKndjCIs+YSeWzXsdGrEP/Mini730vGxoLmNhuxU?=
+ =?us-ascii?Q?l7IpdFMhTWH9AJw4Aqu6esRNdRKjJda5K9QsTezbVze0MzD469dPxZmwou9W?=
+ =?us-ascii?Q?DJDjt0WfDEZJZyeaOpgR2VY6S0uk3kEsgk60LLcNm+sjPDuFwuC7CYMhOWaS?=
+ =?us-ascii?Q?RwZSO0N0YhqxRtEKbriw6UbxrJ59IIwg+d9BdhSGB3U5Omy3xTW9jANTeXvu?=
+ =?us-ascii?Q?Lpqf0UCJFae2MKBtBPHMk92yum9q/LFrIviKQzxoWszSznZ/+ZU2eYhgaNRp?=
+ =?us-ascii?Q?Nb+yFP5GsfRLNBiWCEeVeJoD+i+8qzI0z7fvN5xRV2Q7HiJGZsicyieNDR0W?=
+ =?us-ascii?Q?PJAR4hs2scosJne9NJZOlsh6KhBlcPjOyU7FUUJiaiWMeEDGG9XZb0navxRL?=
+ =?us-ascii?Q?qSkZ51JRPmtejfhBr9fknmjREAR0JyL7fqGK0idQkmeDkZ/P4ZDwR0RK6/P5?=
+ =?us-ascii?Q?qnyQUUjmF3G9gtHRp+3CmSnF0wfOLaGOUcu61W/yAVm0FMG1xURayDls+1/i?=
+ =?us-ascii?Q?XZ+8ApOEGspIXbvX2mIoP+EWiBw3XiGdx2aUm277x72oSIgOkl5PdzagQwww?=
+ =?us-ascii?Q?NJF84rfOgLEIHW91NEasYiqsE8aP43OGoD1i5gyBL5IRCi7RqdEWhhMmnQKh?=
+ =?us-ascii?Q?ezClV6M0/ZDd1lMN68+OUJjAdCQ0riWdwr9wIaCBg8jhw6axWXAMfTL9QNbQ?=
+ =?us-ascii?Q?AnKeRtx67LOv7ATbuRAP9nH19A5GPWGmH4Ypw0eShktvT4y5?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 238e6cc5-6b23-42b7-8b74-08de8f33f3ae
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 14:44:02.9815
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bivlZCOpDITUUh4tp669044ekslH3QourhUFHd2mfBsju1B1zO8ghXCYuVQ+4SwORLuIHvnCqGNFkexd92bU6Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10964
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_073524_525195_C01AF335 
-X-CRM114-Status: GOOD (  46.56  )
+X-CRM114-CacheID: sfid-20260331_074409_139792_E638C836 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,185 +162,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/03/2026 17:17, Ryan Roberts wrote:
-> Commit a166563e7ec37 ("arm64: mm: support large block mapping when
-> rodata=full") enabled the linear map to be mapped by block/cont while
-> still allowing granular permission changes on BBML2_NOABORT systems by
-> lazily splitting the live mappings. This mechanism was intended to be
-> usable by realm guests since they need to dynamically share dma buffers
-> with the host by "decrypting" them - which for Arm CCA, means marking
-> them as shared in the page tables.
-> 
-> However, it turns out that the mechanism was failing for realm guests
-> because realms need to share their dma buffers (via
-> __set_memory_enc_dec()) much earlier during boot than
-> split_kernel_leaf_mapping() was able to handle. The report linked below
-> showed that GIC's ITS was one such user. But during the investigation I
-> found other callsites that could not meet the
-> split_kernel_leaf_mapping() constraints.
-> 
-> The problem is that we block map the linear map based on the boot CPU
-> supporting BBML2_NOABORT, then check that all the other CPUs support it
-> too when finalizing the caps. If they don't, then we stop_machine() and
-> split to ptes. For safety, split_kernel_leaf_mapping() previously
-> wouldn't permit splitting until after the caps were finalized. That
-> ensured that if any secondary cpus were running that didn't support
-> BBML2_NOABORT, we wouldn't risk breaking them.
-> 
-> I've fix this problem by reducing the black-out window where we refuse
-> to split; there are now 2 windows. The first is from T0 until the page
-> allocator is inititialized. Splitting allocates memory for the page
-> allocator so it must be in use. The second covers the period between
-> starting to online the secondary cpus until the system caps are
-> finalized (this is a very small window).
-> 
-> All of the problematic callers are calling __set_memory_enc_dec() before
-> the secondary cpus come online, so this solves the problem. However, one
-> of these callers, swiotlb_update_mem_attributes(), was trying to split
-> before the page allocator was initialized. So I have moved this call
-> from arch_mm_preinit() to mem_init(), which solves the ordering issue.
-> 
-> I've added warnings and return an error if any attempt is made to split
-> in the black-out windows.
-> 
-> Note there are other issues which prevent booting all the way to user
-> space, which will be fixed in subsequent patches.
-> 
-> Reported-by: Jinjiang Tu <tujinjiang@huawei.com>
-> Closes: https://lore.kernel.org/all/0b2a4ae5-fc51-4d77-b177-b2e9db74f11d@huawei.com/
-> Fixes: a166563e7ec37 ("arm64: mm: support large block mapping when rodata=full")
-> Cc: stable@vger.kernel.org
-> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-
-I have tested with a hacked cpufeature code to enable BBML2_NOABORT
-for FVP MIDRs.
-
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Tested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-
-Suzuki
-
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+On Tue, Mar 31, 2026 at 07:34:47PM +0530, Vijayanand Jitta wrote:
+> From: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+>
+> Change of_map_id() to take a pointer to struct of_phandle_args
+> instead of passing target device node and translated IDs separately.
+> Update all callers accordingly.
+>
+> Add an explicit filter_np parameter to of_map_id() and of_map_msi_id()
+> to separate the filter input from the output. Previously, the target
+> parameter served dual purpose: as an input filter (if non-NULL, only
+> match entries targeting that node) and as an output (receiving the
+> matched node with a reference held). Now filter_np is the explicit
+> input filter and arg->np is the pure output.
+>
+> Previously, of_map_id() would call of_node_put() on the matched node
+> when a filter was provided, making reference ownership inconsistent.
+> Remove this internal of_node_put() call so that of_map_id() now always
+> transfers ownership of the matched node reference to the caller via
+> arg->np. Callers are now consistently responsible for releasing this
+> reference with of_node_put(arg->np) when done.
+>
+> Suggested-by: Rob Herring (Arm) <robh@kernel.org>
+> Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Signed-off-by: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+> Signed-off-by: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
 > ---
->   arch/arm64/include/asm/mmu.h |  2 ++
->   arch/arm64/mm/init.c         |  9 +++++++-
->   arch/arm64/mm/mmu.c          | 45 +++++++++++++++++++++++++-----------
->   3 files changed, 42 insertions(+), 14 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
-> index 137a173df1ff8..472610433aaea 100644
-> --- a/arch/arm64/include/asm/mmu.h
-> +++ b/arch/arm64/include/asm/mmu.h
-> @@ -112,5 +112,7 @@ void kpti_install_ng_mappings(void);
->   static inline void kpti_install_ng_mappings(void) {}
->   #endif
->   
-> +extern bool page_alloc_available;
-> +
->   #endif	/* !__ASSEMBLER__ */
->   #endif
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index 96711b8578fd0..b9b248d24fd10 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -350,7 +350,6 @@ void __init arch_mm_preinit(void)
->   	}
->   
->   	swiotlb_init(swiotlb, flags);
-> -	swiotlb_update_mem_attributes();
->   
->   	/*
->   	 * Check boundaries twice: Some fundamental inconsistencies can be
-> @@ -377,6 +376,14 @@ void __init arch_mm_preinit(void)
->   	}
->   }
->   
-> +bool page_alloc_available __ro_after_init;
-> +
-> +void __init mem_init(void)
-> +{
-> +	page_alloc_available = true;
-> +	swiotlb_update_mem_attributes();
-> +}
-> +
->   void free_initmem(void)
->   {
->   	void *lm_init_begin = lm_alias(__init_begin);
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index a6a00accf4f93..223947487a223 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -768,30 +768,51 @@ static inline bool force_pte_mapping(void)
->   }
->   
->   static DEFINE_MUTEX(pgtable_split_lock);
-> +static bool linear_map_requires_bbml2;
->   
->   int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
->   {
->   	int ret;
->   
-> -	/*
-> -	 * !BBML2_NOABORT systems should not be trying to change permissions on
-> -	 * anything that is not pte-mapped in the first place. Just return early
-> -	 * and let the permission change code raise a warning if not already
-> -	 * pte-mapped.
-> -	 */
-> -	if (!system_supports_bbml2_noabort())
-> -		return 0;
-> -
->   	/*
->   	 * If the region is within a pte-mapped area, there is no need to try to
->   	 * split. Additionally, CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE may
->   	 * change permissions from atomic context so for those cases (which are
->   	 * always pte-mapped), we must not go any further because taking the
-> -	 * mutex below may sleep.
-> +	 * mutex below may sleep. Do not call force_pte_mapping() here because
-> +	 * it could return a confusing result if called from a secondary cpu
-> +	 * prior to finalizing caps. Instead, linear_map_requires_bbml2 gives us
-> +	 * what we need.
->   	 */
-> -	if (force_pte_mapping() || is_kfence_address((void *)start))
-> +	if (!linear_map_requires_bbml2 || is_kfence_address((void *)start))
->   		return 0;
->   
-> +	if (!system_supports_bbml2_noabort()) {
-> +		/*
-> +		 * !BBML2_NOABORT systems should not be trying to change
-> +		 * permissions on anything that is not pte-mapped in the first
-> +		 * place. Just return early and let the permission change code
-> +		 * raise a warning if not already pte-mapped.
-> +		 */
-> +		if (system_capabilities_finalized())
-> +			return 0;
-> +
-> +		/*
-> +		 * Boot-time: split_kernel_leaf_mapping_locked() allocates from
-> +		 * page allocator. Can't split until it's available.
-> +		 */
-> +		if (WARN_ON(!page_alloc_available))
-> +			return -EBUSY;
-> +
-> +		/*
-> +		 * Boot-time: Started secondary cpus but don't know if they
-> +		 * support BBML2_NOABORT yet. Can't allow splitting in this
-> +		 * window in case they don't.
-> +		 */
-> +		if (WARN_ON(num_online_cpus() > 1))
-> +			return -EBUSY;
-> +	}
-> +
->   	/*
->   	 * Ensure start and end are at least page-aligned since this is the
->   	 * finest granularity we can split to.
-> @@ -891,8 +912,6 @@ static int range_split_to_ptes(unsigned long start, unsigned long end, gfp_t gfp
->   	return ret;
->   }
->   
-> -static bool linear_map_requires_bbml2 __initdata;
-> -
->   u32 idmap_kpti_bbml2_flag;
->   
->   static void __init init_idmap_kpti_bbml2_flag(void)
-
+>  drivers/cdx/cdx_msi.c                    |  7 ++--
+>  drivers/iommu/of_iommu.c                 |  4 +-
+>  drivers/irqchip/irq-gic-its-msi-parent.c | 11 ++++--
+>  drivers/of/base.c                        | 68 +++++++++++++++++---------------
+>  drivers/of/irq.c                         | 10 ++++-
+>  drivers/pci/controller/dwc/pci-imx6.c    | 32 +++++++--------
+>
+> for imx part.
+>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
