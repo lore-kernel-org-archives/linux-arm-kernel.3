@@ -4,97 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 298FF109B46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 14:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82170109B46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 14:32:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8XAogAQ0R+MTqU5ylu2Jm9t2irGAufgO8/6BfhUgGGs=; b=EIXHZzbgNig7LqsQoaYgGn5Yvk
-	bHT/JnncytSz/0qQgDv3GD+ps95XkJLL6WxWrZomtqFFqacHE7S7hf+tbK0lCbEXhwtcJG4fPge8+
-	fDMxGgXFMbrzVl8++cI4QGO/JLkjnXs42bXF6YvaRJcdLsrindZzR8bl7vF4vr9cJh40D0oByxKq5
-	lqlP+LiiWP++zMIGxKSDqwpyIbXa7mYQDKJlSxuHZYKlhvTW/hHjTVllj8zM6Fda36SX79zN8PH7l
-	3e/x2sHryLi2OMAFFxfx7EuRunJyFZe4vdBXS3rrnt7USup92MbyUT1Ofrc0okI38CnnRWssXhxQC
-	lewtp7gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NjsI+u5xJcmg+SDnTy5KP8QuCT4a49LMwipOJil1A94=; b=VRGcEwkCJ1kOJhNwQwIQz9JAvy
+	ECudL86kA91VXKjj9VMe9f0EHIz4Bhgto95C6fsjOXaXkQGht+bmziQQgXa5JlHgWi8fdl26ZaA/p
+	rIKmoUxyvIu2K6F//PLaF4P1xE01dN0UXMuKbxQ4Wg94f4O0IAJ+Qq0HX3ReLX45jaMhJCHoJffDK
+	8+ngPv8yXyNKAyDb41pMpGtGMZDcjAVHfS0DMk6WHWhiuxBsuR+AsuTn6P1ywDXabrav0LYndgEJ/
+	D2L0T3T5VL3yQiN4O9lGVlEiDrgE7AeHQDURzA/WB8g0u7q6IqEPJm5XJHNhThUtjGKHEdSKG1jEp
+	9XsM+HBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7a6b-0000000D6TV-2LB4;
-	Tue, 31 Mar 2026 14:30:10 +0000
-Received: from server.couthit.com ([162.240.164.96])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7a6Y-0000000D6Sw-3kXW
+	id 1w7a8h-0000000D6eH-2w3e;
+	Tue, 31 Mar 2026 14:32:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7a8e-0000000D6db-2Pzt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 14:30:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
-	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=8XAogAQ0R+MTqU5ylu2Jm9t2irGAufgO8/6BfhUgGGs=; b=CqEFWxHrEilCwY7+bJZ+AvtmEs
-	9lcu1ILBJ5Y6jQBhgKzaVCtYLH4oKY/gg9CXJFEpWepPcrdPFaqd0gLjbIzdr5Dr8AX6t2kLfVGAa
-	lOM2QVSYCVCJKKgP0nfjwIjtkW2xlXM0z3BUvuz0/rEo8l2hezAJiCBwS1f7TFjBq+BBscVlhjdrg
-	STsRfTqDE+vLk17ueZHRl0Q2FWD6FjU3vWKrrHT0ELmAkAMmI+mAtoCSEhlOcyzdOxVfQD/A24Y0I
-	jVAAQGQhfqFzTDKwkW6aQmTQq2E5O1vuZYbtH6NxCEIjLPIbZxYF1wxSSc7JMN/wNS/Gd+qKDV0s5
-	0dawqAVQ==;
-Received: from [115.246.246.98] (port=23422 helo=cypher.couthit.local)
-	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1w7ZpE-00000006wgO-2MNT;
-	Tue, 31 Mar 2026 10:12:13 -0400
-From: Parvathi Pudi <parvathi@couthit.com>
-To: nm@ti.com,
-	vigneshr@ti.com,
-	linux@armlinux.org.uk,
-	ardb@kernel.org,
-	ebiggers@kernel.org,
-	krzysztof.kozlowski@oss.qualcomm.com,
-	khilman@baylibre.com,
-	arnd@arndb.de,
-	geert+renesas@glider.be,
-	parvathi@couthit.com,
-	tiwai@suse.de,
-	kory.maincent@bootlin.com,
-	andreas@kemnade.info,
-	dmitry.baryshkov@oss.qualcomm.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	twoerner@gmail.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	pratheesh@ti.com,
-	j-rameshbabu@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	danishanwar@ti.com,
-	m-malladi@ti.com,
-	krishna@couthit.com,
-	mohan@couthit.com,
-	pmohan@couthit.com,
-	basharath@couthit.com
-Subject: [PATCH v3] arm: multi_v7_defconfig: Enable BRIDGE and DP83848_PHY for TI AM57xx, AM437x and AM335x
-Date: Tue, 31 Mar 2026 19:40:54 +0530
-Message-ID: <20260331141124.1811313-1-parvathi@couthit.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 31 Mar 2026 14:32:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F3F1E497F
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 07:32:07 -0700 (PDT)
+Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9736A3F641
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 07:32:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1774967533; bh=iNxOjW15bAhGECqyOpje5IdokDrygM3OjbtlLkrF2ss=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DkeWSNXlzMbwutLuJumoqPRO78axTcXl2UVT5saypjR3xZnQnVNMRFMQqiuYkoDR+
+	 fV6q7vYHIax06Yoy66vbHKEDwAzN49j3TMpuXev4ZKXV+aiJ2BsNRl9JF3bt+dhfDB
+	 05yShG13QAcjJNC1pQ/FpQDIZojRyQ/Ywe2ve6Vg=
+Date: Tue, 31 Mar 2026 15:31:49 +0100
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: Guangliu Ding <guangliu.ding@nxp.com>
+Cc: Daniel Almeida <daniel.almeida@collabora.com>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Boris Brezillon <boris.brezillon@collabora.com>,
+	Steven Price <steven.price@arm.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Jiyu Yang <jiyu.yang@nxp.com>
+Subject: Re: [PATCH 1/2] dt-bindings: gpu: mali-valhall-csf: Document i.MX952
+ support
+Message-ID: <acva1Xt8V4k9-uG8@e142607>
+References: <20260331-master-v1-0-65c8e318d462@nxp.com>
+ <20260331-master-v1-1-65c8e318d462@nxp.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
-X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+In-Reply-To: <20260331-master-v1-1-65c8e318d462@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_073006_949130_62DB6BD0 
-X-CRM114-Status: UNSURE (   6.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260331_073216_679752_825D863C 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,45 +86,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch enables BRIDGE and DP83848_PHY as kernel modules for AM57xx,
-AM437x and AM335x SoCs. BRIDGE is to support STP/RSTP Switch mode using
-PRU-ICSS which got recently merged and DP83848 PHY driver to support
-TI TLK10X PHY.
+On Tue, Mar 31, 2026 at 06:12:38PM +0800, Guangliu Ding wrote:
+> Add compatible string of Mali G310 GPU on i.MX952 board.
+> 
+> Signed-off-by: Guangliu Ding <guangliu.ding@nxp.com>
+> Reviewed-by: Jiyu Yang <jiyu.yang@nxp.com>
+> ---
+>  Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> index 8eccd4338a2b..6a10843a26e2 100644
+> --- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> @@ -20,6 +20,7 @@ properties:
+>            - enum:
+>                - mediatek,mt8196-mali
+>                - nxp,imx95-mali            # G310
+> +              - nxp,imx952-mali           # G310
 
-Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
----
-Changes from v2 to v3 :
-*) No changes were made, only the version was updated.
-*) Rebased the series on latest linux-next.
+Can you explain why this is needed? Can it not be covered by the existing compatible?
 
-Changes from v1 to v2 :
-*) Addressed  Krzysztof's comments on this patch.
-*) Rebased the series on latest linux-next.
+Best regards,
+Liviu
 
- arch/arm/configs/multi_v7_defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+>                - rockchip,rk3588-mali
+>            - const: arm,mali-valhall-csf   # Mali Valhall GPU model/revision is fully discoverable
+>  
+> 
+> -- 
+> 2.34.1
+> 
 
-diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index bcc9aabc1202..13362286b111 100644
---- a/arch/arm/configs/multi_v7_defconfig
-+++ b/arch/arm/configs/multi_v7_defconfig
-@@ -149,6 +149,7 @@ CONFIG_INET6_IPCOMP=m
- CONFIG_IPV6_MIP6=m
- CONFIG_IPV6_TUNNEL=m
- CONFIG_IPV6_MULTIPLE_TABLES=y
-+CONFIG_BRIDGE=m
- CONFIG_NET_DSA=m
- CONFIG_QRTR=m
- CONFIG_QRTR_SMD=m
-@@ -288,6 +289,7 @@ CONFIG_ICPLUS_PHY=y
- CONFIG_MARVELL_PHY=y
- CONFIG_AT803X_PHY=y
- CONFIG_ROCKCHIP_PHY=y
-+CONFIG_DP83848_PHY=m
- CONFIG_DP83867_PHY=y
- CONFIG_CAN_AT91=m
- CONFIG_CAN_FLEXCAN=m
 -- 
-2.43.0
-
+====================
+| I would like to |
+| fix the world,  |
+| but they're not |
+| giving me the   |
+ \ source code!  /
+  ---------------
+    ¯\_(ツ)_/¯
 
