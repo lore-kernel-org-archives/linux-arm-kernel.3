@@ -4,71 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51B221061B2C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 01:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A9021061B28
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 01:33:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YrQiw+kSXqMgKk9/7rMc6DMfPmYgtbf7tsaZvdA3/Fc=; b=pyC7aYRJIO1qKTdKeVaOrJMc4w
-	5Twrl7W0uRyxZLnANNTswGp+gKvOBmVKoAWKA9FfzuOI9E1XdRMUHhKZEhwo4IUtYJJdSthx9l+MD
-	JZ2FawrOIvfojcoV1/fVibd83Ss6/A+i9UbWgsz5ZSy5R9ag0ewF4iAXrEzqS1bL1OV/f/eQ4wlbu
-	xHTsXnKrnKJ5IQTJsDc8UQ5vs2eHDDUN/DlonrWQ+Oy6SkA8ddd1Bj8HzcjkPZb754ckzZZDCvzEp
-	a8U6+UTz0yEc5LrFGQswl9221OD2O7YeIMhZfAQc9bTRaVnE/gzdwHZQx1UWR6Bg+9k3H9b0OlrGu
-	VNpzL7Mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d3Wxl/l406jXkuYeb1L7n0ae8ENrvOFiJ4MKclBv7uo=; b=cn7YU24kfqvxpHrP6pKpy2SIxp
+	BG/gnEZzhiNLTLJ9Tqbfl8t6hZq4709e3hrZ56kudOHt4vOYrf4a0XlwKKCl8LS2YYg2sEigFriqO
+	/PKwsaZ6GCg3eslsWgbOtX3+fsoJLWNQP2uDei2phx6A0YUgSE+Q1KolhPlzdSlMY2BBtXMq5CDQJ
+	ICeAb53F6DT/Q8ocCwn5rVvW/mBl/si9F5tmI3RIExZginBAKdvF4UWicKV+43dydOBcSQcWR3d5k
+	Zv6KS39QaFY39jGrLt4XZ5POAfwStgOERGDQ8KJOUCkoVZYE04vyQNzYJFbhZr02BvEJmX+9KGdzt
+	KrFwDxng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7NwZ-0000000C8QP-0tjS;
-	Tue, 31 Mar 2026 01:30:59 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1w7NzF-0000000C8fw-2vRV;
+	Tue, 31 Mar 2026 01:33:45 +0000
+Received: from mo-csw-fb1800.securemx.jp ([210.130.202.159] helo=mo-csw-fb.securemx.jp)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7NwV-0000000C8OK-3nzT
+	id 1w7NzC-0000000C8fa-1bSz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 01:30:57 +0000
-X-UUID: 3cf8b11c2ca111f1aa26b74ffac11d73-20260331
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:1dd40214-ec31-4c13-a291-064a9144bd8c,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:194d303e2251d4e1a1e2a2b38ed01a82,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:0|15|
-	52,EDM:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 3cf8b11c2ca111f1aa26b74ffac11d73-20260331
-X-User: tianyaxiong@kylinos.cn
-Received: from [10.42.13.21] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <tianyaxiong@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 461168864; Tue, 31 Mar 2026 09:30:44 +0800
-Message-ID: <94f5b6ff-f610-44f6-90e4-2e538b4f99c9@kylinos.cn>
-Date: Tue, 31 Mar 2026 09:30:42 +0800
+	Tue, 31 Mar 2026 01:33:44 +0000
+Received: by mo-csw-fb.securemx.jp (mx-mo-csw-fb1800) id 62V16qGg2378153; Tue, 31 Mar 2026 10:06:52 +0900
+DKIM-Signature: v=1;a=rsa-sha256;c=relaxed/simple;d=mail.toshiba;h=From:To:CC:
+	Subject:Date:Message-ID:References:In-Reply-To:Content-Type:
+	Content-Transfer-Encoding:MIME-Version;i=nobuhiro.iwamatsu.x90@mail.toshiba;
+	s=key2.smx;t=1774919154;x=1776128754;bh=g+yFWPaS8N8sCwO3vQev2xbAP+tGQO9pAQSON
+	hi8718=;b=RAXOwcmIO6jcV1LhGJLNok1Ty2k3oscaoGKApshQH0G6VWVxsoi5XD4oFzpl5z3vBAJ
+	+/J4OWfUAvQNol+hMRjGCu5nR0sVksbrTU0l90FW2+eUSs7fNNUOUPzpQn7OKqX6it8bueIcvO+UM
+	cxa9KIHtcAhzBmHk4WaiurhACoUbsR6uf/uUlSz7COhNUKmISpZBTq1W/xx4bMPX9BAhhlcWoFXbl
+	e7MUmZPgdwBSdwFdSOYkTtfG6ChA+oFobf+e/1oGhHV7cAvwWETGyom9y0ogjR3M6aBaYOrUB5aiD
+	B/oaONTpAq/k5N2kBRcdkdNGniLhU/4QHSCX6D16yBNg==;
+Received: by mo-csw.securemx.jp (mx-mo-csw1802) id 62V15rLu3435177; Tue, 31 Mar 2026 10:05:53 +0900
+X-Iguazu-Qid: 2yAc1FwxhVmvYajACQ
+X-Iguazu-QSIG: v=2; s=0; t=1774919153; q=2yAc1FwxhVmvYajACQ; m=mHG58P59dgiVna2ERqrBb+dT27+VoQT6uCZFKeWZdXk=
+Received: from imx2-a.toshiba.co.jp (imx2-a.toshiba.co.jp [106.186.93.35])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	 id 4fl90c15ZHz1xnk; Tue, 31 Mar 2026 10:05:51 +0900 (JST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TIFOR6pASflmqXvlV+gEoi74b1j7VBub3i1NLO9g3d89D78TyPQzFNOHtZdlZjU22tM9D4sO6+JxSVWKasn0KOUJxb5B3ErDbNOH7PS98yDid1d4EEQbDEwjC6MbhEHAaU94jEGxfxB+M3gJulgy/ftUHgBh6kHs0aS5PkLBcyojI2hUYUpaW7NgQtw6dP2ZL+zdECdlpqB9XC844d/BvBa5tSLaaOFKmWx2gVQf33GCZ9BIzIPdtTIiB1/Z1xjMEvHS3hVaYfhwww5VojYc+7jqMyPUKEJIssMou9IL0q6b9oIu6SrJh9XwZrvsr/laOH4TGBMFfdjWcBunJciHcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=d3Wxl/l406jXkuYeb1L7n0ae8ENrvOFiJ4MKclBv7uo=;
+ b=ltWS2cmeZSSuM6UaS4FAn22K50JQa0zVFY7U3DUSeWNSbLc4TQ3m63iJb8/y9IRzchtFy383IfA1k+F2HJS2vROl4LxRIm0iOWB66iXdNlc8Wj9rO8IYZAY5STQ55rwKnRcuwhKZ2DGJdD1gtqinu1eBFS8fdLzhlNKr/Gi2GYCdiflVU2vlR3leOWQOdoO+nt0MMniNDliXNTscAlBc+n/ScmseqVr+D1lUPE7r0vfKyeKwrkUODqI0Mys2HgcIQnZzxYjUnqpWuza7EUafJRhEJfy/hBxD1tcfb0hNireNqH3H+tMT2Q5+PAwLKQs/beiQ5yYXBlQoE5x32CAX4Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mail.toshiba; dmarc=pass action=none header.from=mail.toshiba;
+ dkim=pass header.d=mail.toshiba; arc=none
+From: <nobuhiro.iwamatsu.x90@mail.toshiba>
+To: <rosenp@gmail.com>, <linux-clk@vger.kernel.org>
+CC: <mturquette@baylibre.com>, <sboyd@kernel.org>, <kees@kernel.org>,
+        <gustavoars@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <linux-hardening@vger.kernel.org>
+Subject: RE: [PATCH] clk: visconti: pll: use kzalloc_flex
+Thread-Topic: [PATCH] clk: visconti: pll: use kzalloc_flex
+Thread-Index: AQHcvNhVoBnA9y4g9EmSR0/IQttWs7XH2qCw
+Date: Tue, 31 Mar 2026 01:05:49 +0000
+X-TSB-HOP2: ON
+Message-ID: <TY7PR01MB1481865057C575A7D58BA7955CD53A@TY7PR01MB14818.jpnprd01.prod.outlook.com>
+References: <20260326042317.122536-1-rosenp@gmail.com>
+In-Reply-To: <20260326042317.122536-1-rosenp@gmail.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mail.toshiba;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY7PR01MB14818:EE_|OSCPR01MB14582:EE_
+x-ms-office365-filtering-correlation-id: 03419357-8d6b-4211-8bc7-08de8ec1a5a7
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|38070700021|22082099003|18002099003|56012099003;
+x-microsoft-antispam-message-info: nCWk98Z6z7ZAFb5oCzIWiX+1XP8obo1G28jGr9kBCiXa7tdrLYG+DoWHCBHXhoam0qo0e9jA4njKHSu7sRJ953qEr+2+QWfddYq+siZ0s0C9XOthRAA3zd6jzyWGDaYfZdOvcYwkbsQj7pWjZ86VMrnNpOVoSM2D/Ug6h8oDPh+w12RCxirMTrdihqjG4pLwoPokzgeJXuIR3PYs9a+kZ+PDOr0JJWYAW8mSzUk6bOokEjByfAG9M24fe2FDihmfAlXNUIh2AAMy1OeOFSWg7YWUPn3znVwZwc7iYWz9uBidoZ09F5c6cfPa5nR092HUM5G8lSrquHeUwJtBYd5Fwmdyl9Cqr+fM0RFQeQ/5/aMoerj23GAAJvr68SSAQN3YAY+rvG0EmCrHzxY8ttRep7zSq1cCEet0bVXF+8o6QBXDM+blmueUhELTvxwcstoj0ZqKVEYg0463uX+ItPPaxyOqlXrLStb8Zcrpae8PSSdGKJHm4bGSAnjqEyWcZzAZ4v2jQyLQuBHOst1zN+60aMdog0HWrqQkuODZoMeyQWVdrkiEBlDN5rdr7rYZ90JcUvvx5ZOaK9OlY0+bwXf3mtzO3vZTMxiNKJ/d6V7I2o2wvplw+R7hbfDpk8GUYbRmyIuBeqbElkddVxMwdPrU1EBrXmggyNrijdp9+rB4DvjsKQxpz1b6wel2RHv826YP2zIrvMrUNAds6ow6xXuvDXDkKXmLCs7fYinWEyKjH3er05ofMjOj8Zhl5LXaxoevcn6O4zRxf6GPUm/w+MFm/s4B6cevRtsr+tRQrnOaVNE=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7PR01MB14818.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700021)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?ZWNrL24yTTV4bGxnQ2FnWk54RE5ZZW93SGx6aWxpSlIvU3RIWnFPVDla?=
+ =?iso-2022-jp?B?RkJPK21PTEFnd3Yyc0FaRllOWEpSeXJhWlRrNWlMeGcyUHptcVJmZ05K?=
+ =?iso-2022-jp?B?UE5BS3dvK2NsNW5oZ0xhc0E3cmFvb25GWFlTeGxuU1ZJT3lRWDkxSEsz?=
+ =?iso-2022-jp?B?VXNBMXhneXlodDFOYmFEZzBuMVBnWEQyZ1hKcXYzOEYrdGJ2WjYraFlU?=
+ =?iso-2022-jp?B?ZWxQaVFrTE1Mc1JvQm1MenQwUndlUUVCajByKzlzNHNqN3hKb3gxaVF0?=
+ =?iso-2022-jp?B?YzFOVVZsb1FkTVR4S2FZbWhtTTcyNlhldElidnJtSDAwalRCTFVSaVNX?=
+ =?iso-2022-jp?B?VksyeVFUdkFrT0svWnkwN3VXdXlJb3NCaUJSMnc5dGI3M1dnay9Na2pS?=
+ =?iso-2022-jp?B?cHYvL2RjZE8wKy9pSXR0ZHgwcWpMeEk1K1RkaVBySGM2SWJpR1JhL1c4?=
+ =?iso-2022-jp?B?QnJMY01aaGVOZi9iVUl0MlBpb2tlRVFaZDI2T2kzM204ZENFdlRSeER5?=
+ =?iso-2022-jp?B?QTBvUVpPc2ZCRGlIenZjZTBTVHc3UEYyNDhrbTZGeTVTdmpDTFZNcHFw?=
+ =?iso-2022-jp?B?VjdHVEQ2Y3JnclRmZFN4d2k5ZHdXb0tDZkxFdk96aTNwMTdDOGZpRkYx?=
+ =?iso-2022-jp?B?R2ZKVVpFUCtBdnRoY1RVMmdMd2YrcStKdFRsRE05Y3FLN1g5VUdWV3c1?=
+ =?iso-2022-jp?B?cWhnVXA4OGFMM1RMOFdZMWtUTy9TRUZKOTZVOFpxM2lYL1VGUHZWd3dE?=
+ =?iso-2022-jp?B?UG9NYXFpYU9rL24wbWZkYjFlaDFuZlRuaEQ5UGFBWVA1RVRPOWkvSHhm?=
+ =?iso-2022-jp?B?c2Q0L1h6UVNraTFIc043V3hrekJIOWtIdVFONzI0Qk5aYmxaa1g2dUd1?=
+ =?iso-2022-jp?B?c1ZrYkRDMWFhMnVzN29oUlZRbFVTUXllN09BdW5MYmxQQlZrM3VucE0r?=
+ =?iso-2022-jp?B?OTdhNkFkMDVXdlF0SEJBQkd6bndlRUpZc21uaENtdWtQRVczMlNpQ21P?=
+ =?iso-2022-jp?B?MzdVSCs5YXJzY21aR3dBMUZtZzRjUCtJOGV5dVBPeGRiTUp2N2ZQdmRC?=
+ =?iso-2022-jp?B?WjEwQXVHY3lnQWRqVGNBU1c3Wk4yVnlZNGRUTVU1QnpuVStLakxTeDVj?=
+ =?iso-2022-jp?B?dWtZRklkcFNUcVA0MS94a3lkeDA3azNJS1JiUEtQckRyWnplRkZDQ1pP?=
+ =?iso-2022-jp?B?VTkvM25pWnlONzlQNkcyVWQ2NnZxb2V4emlGSEI2ak1BNmFRZTd5aExO?=
+ =?iso-2022-jp?B?NVIzcmlDNmZJZUlaZ0R4d2FZeUpuMGVoS0ZiMkJNSGdRNnNGT3JTVGVW?=
+ =?iso-2022-jp?B?MFZVTm5yS2U1Mng2dXVyWENIeCtTQnJPanFkaUltMnp3WlVYc0ozcFZp?=
+ =?iso-2022-jp?B?YXExSHNzR3B3c1YwaHdFTVFjRG52aStZYU00QjlMc0cvcTJPb1VKSDhC?=
+ =?iso-2022-jp?B?WjAzV1RTNlJ2cXhBblY1QlVrU0ZVNzRSY1E4dEllRXFvYm8wOVFVTFVa?=
+ =?iso-2022-jp?B?dEF2ZnZaejV5YlZZQnNyeVR1M0JwdjFjU3k1WG1MRmxyaUxRZktTMDNj?=
+ =?iso-2022-jp?B?b0JkNWoyb2l6OWp2VXh3V1BHc0lndzZDUkwzMDdZRnEvT0d1eW92TFVm?=
+ =?iso-2022-jp?B?SjlSTEtrSjIzTzNPVTlRQXh2OGhRSkVRYTlWejdMRmMwSTVBNmh2TVhJ?=
+ =?iso-2022-jp?B?N1cyL3ZuZmw0V3JjMWduSGlkTlBHOE5iUTBlOEIzUy9CR0hLN2FveEdP?=
+ =?iso-2022-jp?B?cll1VitxaEcrdm5UTmZMaEVXSC94WHh5RWhuODdRNFRYSTZiekwvbjkw?=
+ =?iso-2022-jp?B?eExodXdta2FKVTBlVkdDQ05lNUh1bGg3bis4NUhOWWtFU1dSTDFXNEd5?=
+ =?iso-2022-jp?B?T1pwMXdrdTNuZnFvajd0RktYTVVYaFdzbFdhcVJJV3lrQXFWWXE3Z2ND?=
+ =?iso-2022-jp?B?bXcyT3NvamZpek9zelFzb1NiWmM3WkordS9TT3pLdWszWEgvdTZNSEFy?=
+ =?iso-2022-jp?B?KzRSRGU0dlJTN0R6R01EUzhaMEVaZDF2TEtvUkt4S1U3RFdSTFJLajhZ?=
+ =?iso-2022-jp?B?NU1zYUNNYnpSWWY4a3NxTnZtQzZrSHBBQkN5QU4rTXJIbVJxWWtBMldi?=
+ =?iso-2022-jp?B?M2RaOUY2S0g1YVo5dFVueE1uOGRkTzRMeVVUN1FiM1BTb0s3b0UxQzY2?=
+ =?iso-2022-jp?B?Z3lvRHBOMFJqUmVsa0c0TmEyd2FOUE9PMnJEd1NsVFlvdTdUMnZYeVND?=
+ =?iso-2022-jp?B?ZEEzWWZTR1NidWt5S0dxRVQ1Mk5mcEtrU1kxKys0eVpGcGVXSDREM1JZ?=
+ =?iso-2022-jp?B?MlU0dHFjVFN0eFhGMHlpS1ZOcFVmaTdobTVLemZ0aHc5dCtUcGc5Uzcy?=
+ =?iso-2022-jp?B?QTc2djArdk1Lc0VpaVBteEhkSG93RnRTQjVSZG1ramZ5eUw4aDNlNU5F?=
+ =?iso-2022-jp?B?Vm5vUU1JZkFCY0pQWmp3amdKY0ZteHcyNlpNaEd1clRjRWNnU3hvOXc1?=
+ =?iso-2022-jp?B?TmhOclpBSmxFRXRxQlluMTUrUXBSUlZLdHFWeTNBTTdXRE1SUzJLS05B?=
+ =?iso-2022-jp?B?YmNVSUdNTT0=?=
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 00/10] devfreq: Fix NULL pointer dereference when a
- governor module is unloaded
-To: Jie Zhan <zhanjie9@hisilicon.com>, cw00.choi@samsung.com,
- myungjoo.ham@samsung.com, kyungmin.park@samsung.com
-Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linuxarm@huawei.com, jonathan.cameron@huawei.com, zhenglifeng1@huawei.com,
- zhangpengjie2@huawei.com, lihuisong@huawei.com, prime.zeng@hisilicon.com
-References: <20260326123428.800407-1-zhanjie9@hisilicon.com>
- <1774576755240654.100.seg@mailgw.kylinos.cn>
- <2f9ab345-5940-4298-87a5-bf9121fe219e@kylinos.cn>
- <1774919144945331.7.seg@mailgw.kylinos.cn>
-Content-Language: en-US
-From: Yaxiong Tian <tianyaxiong@kylinos.cn>
-In-Reply-To: <1774919144945331.7.seg@mailgw.kylinos.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-Exchange-RoutingPolicyChecked: c/3r+xmuar4k4twsaQekfvuoFW8bqqgf80t7HPzln0tGGFVtMmWoqbaQQcvzb83z98/Sr7PpvId0p1TQ50Qvdx3E+Yrt1HyPLZ/gRBp+XsUaRDvSNBJxtsPosB2y0nKo+kAebgS0ab3waw6kuTwh2ehi2sxQVKJrFEvOb9tpANHXueDJI7Ig5djuxYMnsB/A41mzC/NM05qdDjxK5iiE+ithNscD1iknhk9OuiOi1GuP9ZEejFrjKNvadgS26Q+bVKfW/+4Pbh2Mm7+cWmho2e86KC5/nwIP8AeofA8b3/zUihyBfqClRxrG2sQ6DUZkzr6fBIosmnFFspc5pNY9QQ==
+X-OriginatorOrg: mail.toshiba
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY7PR01MB14818.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 03419357-8d6b-4211-8bc7-08de8ec1a5a7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 31 Mar 2026 01:05:49.2213
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: f109924e-fb71-4ba0-b2cc-65dcdf6fbe4f
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: WdlETIVMgD8hTscbVJbuyU4h3c5T4GQ3+sT457UFd+31bCaGk4OaIGBwpTYarlHSl6J5VB9JkXdh3FKPjfm+le+shrJOvGvhn0bqjLV1tt+CCfuf5wR09a9sezcnmLPe
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSCPR01MB14582
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_183056_256391_4D06F40D 
-X-CRM114-Status: GOOD (  27.05  )
+X-CRM114-CacheID: sfid-20260330_183342_820397_9FD36FA1 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,83 +158,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Rosen,
 
-在 2026/3/30 14:29, Jie Zhan 写道:
->
-> On 3/27/2026 10:06 AM, Yaxiong Tian wrote:
->> 在 2026/3/26 21:14, Jie Zhan 写道:
->>> On 3/26/2026 8:34 PM, Jie Zhan wrote:
->>>> When compiled as a kernel module, the governor module can be dynamically
->>>> inserted or removed.  'devfreq->governor' would become NULL if the governor
->>>> module is removed when it's in use, and NULL pointer dereference would be
->>>> triggered.  A similar issue was also reported in [1].
->>>>
->>>> To address this issue:
->>>>
->>>> Patch 1-5 rework mutex, factor out a common governor setting function, and
->>>> clean up some unreachable code.
->>>>
->>>> Patch 6-8 prevent a governor module in use from being removed (except for
->>>> force unload) by getting/putting a refcount of the governor's module when
->>>> switching governors.
->>>>
->>>> Patch 9-10 allow 'governor' and 'available_governors' to work normally even
->>>> when a governor module in use is force unloaded.
->>>>
->>>> Note that this series is based on [1] or devfreq-next, otherwise code
->> Sorry, please ignore the "remember to CC me on the patches." in my previous email.
->>
->>   In my opinion, it would be better to prioritize the FIX first before proceeding with the lock mechanism optimizations and other work. This would make it easier to backport the patches to lower-version kernels. I noticed the patch is already in the devfreq-testing branch. I hope the FIX work can be moved forward smoothly to resolve the null pointer and other bugs. Thank you!
-> Hi Yaxiong,
->
-> I don't think this issue is urgent because it can only possibly happen when
-> governors are built as loadable modules, which is typically used for
-> development rather than production.
-No, loading/unloading modules is also a user operational requirement, 
-not just for development.
+Thanks for your patch.
 
->
-> For downstream kernels, feel free to go ahead with quick fixes.  For the
-> upstream kernel, however, I'd prefer to make the devfreq core clean and
-> sensible.
+> -----Original Message-----
+> From: Rosen Penev <rosenp@gmail.com>
+> Sent: Thursday, March 26, 2026 1:23 PM
+> To: linux-clk@vger.kernel.org
+> Cc: Michael Turquette <mturquette@baylibre.com>; Stephen Boyd <sboyd@kern=
+el.org>; iwamatsu nobuhiro(=1B$B4d>>=1B(B =1B$B?.MN=1B(B
+> =1B$B""#D#I#T#C!{#C#P#T=1B(B) <nobuhiro.iwamatsu.x90@mail.toshiba>; Kees =
+Cook <kees@kernel.org>; Gustavo A. R. Silva
+> <gustavoars@kernel.org>; moderated list:ARM/TOSHIBA VISCONTI ARCHITECTURE
+> <linux-arm-kernel@lists.infradead.org>; open list <linux-kernel@vger.kern=
+el.org>; open list:KERNEL HARDENING (not
+> covered by other areas):Keyword:\b__counted_by(_le|_be)?\b <linux-hardeni=
+ng@vger.kernel.org>
+> Subject: [PATCH] clk: visconti: pll: use kzalloc_flex
+>=20
+> Simplify allocation by using a flexible array member and kzalloc_flex.
+>=20
+> Add __counted_by for extra runtime analysis. Assign after allocation as r=
+equired by __counted_by.
+>=20
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
 
-I don't think code cleanup should take priority over bug fixes, 
-especially when you already know there's an issue with the 
-functionality. In fact, the version users are running is not the 
-upstream version, but rather individual stable releases.
+Acked-by: Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>
 
-Most users don't have the time or energy to research and fix kernel 
-issues themselves; they rely on upstream community patches most of the time.
+Best regards,
+  Nobuhiro
+> ---
+>  drivers/clk/visconti/pll.c | 17 +++++++----------
+>  1 file changed, 7 insertions(+), 10 deletions(-)
+>=20
+> diff --git a/drivers/clk/visconti/pll.c b/drivers/clk/visconti/pll.c inde=
+x 6fd02c4b641e..ca29d12f9316 100644
+> --- a/drivers/clk/visconti/pll.c
+> +++ b/drivers/clk/visconti/pll.c
+> @@ -21,9 +21,9 @@ struct visconti_pll {
+>  	void __iomem	*pll_base;
+>  	spinlock_t	*lock;
+>  	unsigned long flags;
+> -	const struct visconti_pll_rate_table *rate_table;
+>  	size_t rate_count;
+>  	struct visconti_pll_provider *ctx;
+> +	struct visconti_pll_rate_table rate_table[] __counted_by(rate_count);
+>  };
+>=20
+>  #define PLL_CONF_REG		0x0000
+> @@ -255,10 +255,6 @@ static struct clk_hw *visconti_register_pll(struct v=
+isconti_pll_provider *ctx,
+>  	size_t len;
+>  	int ret;
+>=20
+> -	pll =3D kzalloc_obj(*pll);
+> -	if (!pll)
+> -		return ERR_PTR(-ENOMEM);
+> -
+>  	init.name =3D name;
+>  	init.flags =3D CLK_IGNORE_UNUSED;
+>  	init.parent_names =3D &parent_name;
+> @@ -266,11 +262,13 @@ static struct clk_hw *visconti_register_pll(struct =
+visconti_pll_provider *ctx,
+>=20
+>  	for (len =3D 0; rate_table[len].rate !=3D 0; )
+>  		len++;
+> +
+> +	pll =3D kzalloc_flex(*pll, rate_table, len);
+> +	if (!pll)
+> +		return ERR_PTR(-ENOMEM);
+> +
+>  	pll->rate_count =3D len;
+> -	pll->rate_table =3D kmemdup_array(rate_table,
+> -					pll->rate_count, sizeof(*pll->rate_table),
+> -					GFP_KERNEL);
+> -	WARN(!pll->rate_table, "%s: could not allocate rate table for %s\n", __=
+func__, name);
+> +	memcpy(pll->rate_table, rate_table, len * sizeof(*pll->rate_table));
+>=20
+>  	init.ops =3D &visconti_pll_ops;
+>  	pll->hw.init =3D &init;
+> @@ -282,7 +280,6 @@ static struct clk_hw *visconti_register_pll(struct vi=
+sconti_pll_provider *ctx,
+>  	ret =3D clk_hw_register(NULL, &pll->hw);
+>  	if (ret) {
+>  		pr_err("failed to register pll clock %s : %d\n", name, ret);
+> -		kfree(pll->rate_table);
+>  		kfree(pll);
+>  		pll_hw_clk =3D ERR_PTR(ret);
+>  	}
+> --
+> 2.53.0
 
-By the way, although your patch subject says "FIX", I don't see any fix tag.
 
->
-> Your approach is to prevent kernel panics when unloading governor modules
-> before changing governors.
->
-> This patchset achieves that, and additionally let userspace get a friendly
-> warning when trying to remove a governor module in use, e.g.
-> "rmmod: ERROR: Module governor_performance is in use".
-> This requires using the module refcount stuff, and brings out a set of
-> cleanups and refactoring.  BTW, cpufreq implements a similar mechanism like
-> this.
->
-> I may carry your fourth patch that changes the return code of
-> governor_show() in v2 and address some Sashiko review comments along the
-> way.
->
-> Please let me know if this works for you?
-So I don't approve of this. Maybe you should ask for others' opinions, 
-such as Chanwoo Choi.
-
->
-> Regards,
-> Jie
->>
->>
->>> sorry, based on [2] or devfreq-next
->>>> would conflict.
->>>>
->>>> [1] https://lore.kernel.org/all/20260319091409.998397-1-tianyaxiong@kylinos.cn/
->>>> [2] https://lore.kernel.org/all/20251216031153.2242306-1-zhangpengjie2@huawei.com/
 
