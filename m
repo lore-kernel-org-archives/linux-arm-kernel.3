@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4EA1109B46D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 14:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0DDE109B476
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 14:19:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vUvf/YUOB4AwlFTFHGNktNzrfp9dJgm/1DL3JSVn+fg=; b=JRjOCQDp/mwWEcwSbxaFKe5JAn
-	YQypV8Hcia9EZsB6+5+qXBMz7DKlKKTZlmsEGsM+SK3rGaEOxjJEv3Qc2F7NO+k9yMDAtEStE0dPq
-	POIdx6yyD/bV68YKfVDy5ZJXGWNoQ60wC5SJS1RzuokxPqySr50diAhI7ZOTR9Hdo2VrIkj/iF5vB
-	pvS5ILkkOp061c3f0Ql/35NPreQfg47x6VxC1oZ+7oJMqQYxomp2n0yy4YnaRtXmNJztGJa4TPBsf
-	ntJ99oC+wMdVlyK7J2EQ3xdnxjZaU3x2UBFGj1lzowgxhCGYCx0tQbDIpd8rPMoR0WEtPFiTi2ps3
-	ML4Yx3xg==;
+	bh=fQEqfHwkrC3naEM0/BXP+vns+m8HcWwDA6Ogc9xcWQ4=; b=mdTgriz3uJAeqh5ojX0YXa/RCs
+	GooPL+Mo8tpgnht6Tqta6lknEerkCAwHGJEFUkL/XCxGUJPnlvnjy61VfUKrrkoyuVEZhxFkYb4Rj
+	VwtQxpzlCsPsIScNTnekbKrHYOLbyy7bAP+FL7Y1Snwc76Wzv+UJiOBvbhzKlU07dtOxcCjA+G/4Z
+	/M8ccqRZMMijFNqavQo+Ru7PBD/7twkcTHD7O7FKlcW4MqDaqwMQEqYKOtcni0hZAmm6RCI707W9f
+	OLeV7UzfJ12o8jGtERJmQgK4K/D6mfeXi0ydvV7FFG23HFjMAC4FdRt9nMaHroHeONRlxa0Z4A+Sz
+	fh/JssjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ZwY-0000000D4Ql-02dS;
+	id 1w7ZwY-0000000D4RD-1Eac;
 	Tue, 31 Mar 2026 14:19:46 +0000
 Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ZwJ-0000000D4Jh-1UXL
+	id 1w7ZwJ-0000000D4Jk-3Uvm
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 31 Mar 2026 14:19:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -32,24 +32,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=vUvf/YUOB4AwlFTFHGNktNzrfp9dJgm/1DL3JSVn+fg=; b=mapNTqhOtiTJbE+5kJqUHByDgi
-	1+mHPax+I/MvzywUcHl8nIcbkxzPKWkRSXgHbpEzENzmpg/sseT00UW6SOsEiX1Y+KDMx/NU037OL
-	YGzGaHgGPLzgu9I1pJIRnP0EybJ0sN5hGgA+VmhXsxxUSXWTXCAovEMQViXcHxRsNlGGZj2P2+3FS
-	byY5jWqh51LWAaG8uXF6zwgO9NHu6qpbDNXlKmazN6FcdiWw8rU2ETkLKg5XtcG74/XT+s/H6N5Mm
-	/wVFLK85n4TmAefsiOO29xOI7snFhbACxqWwWY89JOD67gxzSL3OkoWVdD4jVS2F0GOHYe8N3+zJl
-	KMJT3DIg==;
+	bh=fQEqfHwkrC3naEM0/BXP+vns+m8HcWwDA6Ogc9xcWQ4=; b=qNy4j9T8JUC9PoFmMaulR/KEAk
+	bu3lIBdRejXSuPeYnrkR5s+Ntn3xaLGVfBaabmYs1E5scJwng/Nt5qgDs17ZGIyGVFgH/Mv2cCUdG
+	rw2YJThe8X0/5Ighhv5K0Q5Sq2xEQDb+19njY8uTmUQNI6S/+0NpxNhuxgpjfg2/6ARnJcEapT374
+	rS6DmGVtg/Ye2B4TWEScGaCWwIHXseJ4D9NvfreuAAVpc6ClTbwCOoo/mbztX9Lb6gndeDM1IfpLv
+	jkIYYljgcT/AjKBZ3ow9+Druutz+9IOnR4mIVbBmF5+ReqmtLkntdZnhxKMxW25r7/G6myxniKLHj
+	ASHUpbwA==;
 Received: from sslproxy02.your-server.de ([78.47.166.47])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w7ZwD-000Js2-04;
-	Tue, 31 Mar 2026 16:19:25 +0200
+	id 1w7ZwE-000Jso-07;
+	Tue, 31 Mar 2026 16:19:26 +0200
 Received: from localhost ([127.0.0.1])
 	by sslproxy02.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1w7ZwC-000Mdz-10;
-	Tue, 31 Mar 2026 16:19:24 +0200
+	id 1w7ZwD-000Mdz-11;
+	Tue, 31 Mar 2026 16:19:25 +0200
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Frank Li <Frank.Li@nxp.com>,
 	Rob Herring <robh@kernel.org>,
@@ -62,9 +62,9 @@ Cc: Nora Schiffer <nora.schiffer@ew.tq-group.com>,
 	linux@ew.tq-group.com,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/7] arm64: dts: fsl-lx2160a-tqmlx2160a-mblx2160a: use DPMAC 17 and 18 for SGMII in SERDES2 configs 7 and 11
-Date: Tue, 31 Mar 2026 16:19:03 +0200
-Message-ID: <20260331141915.2918927-3-alexander.stein@ew.tq-group.com>
+Subject: [PATCH 5/7] arm64: dts: fsl-lx2160a-tqmlx2160a-mbls2160a: enable pcs_mdio17 and pcs_mdio18 in appropriate overlays
+Date: Tue, 31 Mar 2026 16:19:06 +0200
+Message-ID: <20260331141915.2918927-6-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260331141915.2918927-1-alexander.stein@ew.tq-group.com>
 References: <20260331141915.2918927-1-alexander.stein@ew.tq-group.com>
@@ -72,9 +72,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/27957/Tue Mar 31 08:24:30 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_071931_391604_305EE668 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260331_071931_869255_FBB55CFB 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,65 +90,71 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
 
-We have been informed that using DPMAC 17 and 18 for RGMII when SERDES2
-is configured to provide SGMII lanes for these MACs is unsupported and
-will cause errors in certain DPAA2 configurations. Update these
-configurations to use SGMII instead.
-
-The total number of available Gbit Ethernet ports does not change, but
-the PHYs and physical ports corresponding to DPMAC 17 and 18 do.
+The pcs_mdio* instances are only needed with phy-connection-type =
+"sgmii" and managed = "in-band-status". Move setting status = "okay" for
+pcs_mdio17 and pcs_mdio18 to the appropriate overlays, for consistency
+with the other pcs_mdio* instances.
 
 Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- .../fsl-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso     | 12 ++++++++++++
- .../fsl-lx2160a-tqmlx2160a-mblx2160a_x_7_x.dtso      | 12 ++++++++++++
- 2 files changed, 24 insertions(+)
+ .../dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts    | 8 --------
+ .../fsl-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso          | 8 ++++++++
+ .../freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_7_x.dtso | 8 ++++++++
+ 3 files changed, 16 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso
-index 6d0c808cd840f..0847c786dc1ca 100644
---- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso
-+++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso
-@@ -32,6 +32,18 @@ &dpmac16 {
- 	managed = "in-band-status";
+diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts
+index 431e4ed2a8b86..46a9fdc92bb56 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts
++++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dts
+@@ -545,14 +545,6 @@ i2c@3 {
+ 	};
  };
  
-+&dpmac17 {
-+	phy-handle = <&dp83867_1_2>;
-+	phy-connection-type = "sgmii";
-+	managed = "in-band-status";
-+};
-+
-+&dpmac18 {
-+	phy-handle = <&dp83867_1_3>;
-+	phy-connection-type = "sgmii";
-+	managed = "in-band-status";
-+};
-+
- &pcs_mdio12 {
+-&pcs_mdio17 {
+-	status = "okay";
+-};
+-
+-&pcs_mdio18 {
+-	status = "okay";
+-};
+-
+ &uart0 {
  	status = "okay";
  };
+diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso
+index 0847c786dc1ca..497ea4ddef3e6 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso
++++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_11_x.dtso
+@@ -59,3 +59,11 @@ &pcs_mdio14 {
+ &pcs_mdio16 {
+ 	status = "okay";
+ };
++
++&pcs_mdio17 {
++	status = "okay";
++};
++
++&pcs_mdio18 {
++	status = "okay";
++};
 diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_7_x.dtso b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_7_x.dtso
-index db88a86ff69cd..7520f105d5d8c 100644
+index 7520f105d5d8c..a51edef83317f 100644
 --- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_7_x.dtso
 +++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a-mblx2160a_x_7_x.dtso
-@@ -30,6 +30,18 @@ &dpmac16 {
- 	managed = "in-band-status";
+@@ -58,6 +58,14 @@ &pcs_mdio16 {
+ 	status = "okay";
  };
  
-+&dpmac17 {
-+	phy-handle = <&dp83867_1_2>;
-+	phy-connection-type = "sgmii";
-+	managed = "in-band-status";
++&pcs_mdio17 {
++	status = "okay";
 +};
 +
-+&dpmac18 {
-+	phy-handle = <&dp83867_1_3>;
-+	phy-connection-type = "sgmii";
-+	managed = "in-band-status";
++&pcs_mdio18 {
++	status = "okay";
 +};
 +
- &pcs_mdio12 {
+ &sfp_xfi1 {
  	status = "okay";
  };
 -- 
