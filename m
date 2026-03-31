@@ -4,148 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1630FF60F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 09:17:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91478FF60F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 09:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ccYDg7cwwXLw+3otD7WVW/2X37CRQFF/HPOHPWrVwE=; b=fhREXmtkU9Vy1nX2A3wqC0dtkw
-	3mW9RzGhzHx5v6r6XJ3ARxdXyp9o0wRLjfWJhNykIlZ7WMZIE4We2JmDsa8kbTX6wdLdVBZlSdjmk
-	4i96v5ptBSuA25T6dau7RbBDEBFTBy+TeG9o9VVU3kAdZ65LDds0PTKIRLjIlkr05tYdCO2gLBsmY
-	g8d8ZrY8Oag8wYCYiMDK8nFMXrYvn4McfqYEmitBuLDKvlOxJrWt4wUdgUtRXSqrcQozF+o1ZpPVx
-	R7tjwFsEEEbfZiMLsrVA5TIZuaTTwaR3WC5Vq9YP/7xH1FBt3coFJt4D7/OxJdyiOkUDUpZuxzGci
-	RL1wF5YQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DXHPwOOxOQLypk2rkSCJ13XhreMHR7GuNVxvkx4FgKg=; b=hTiQtHIKa5TLhlShAWUFbXPsVJ
+	CJsdk6X0QpxK9usKM6qXX/YL3EjzzMn2NmwwQMfnXRgN8kil9MVR5icbMBCcTC6kmDAlDFdsJ2uVe
+	IeAA/J9a3DGX858TZ3N1ueZdx0n1VRhTUmNuMC6uqIKcEsfeMamaJV+hB/XoE3oUCKgCN4hHAnN7d
+	Zah6Qt5Yi22/2WVv//aiCT2EGL8ZsKNVvSwWHIKLvnMLjt6Xheqi042zCu0nyj3p1CmcclzlAUQds
+	rQcam0PA0d/jI5shiM8JwLwOTdqNUWjXzSm3c2U3DZvsq9m0x8UxlfZbrSQz9hSbjd67Vsf7uaGGW
+	w+B+AjPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7VED-0000000CfgI-1wik;
-	Tue, 31 Mar 2026 09:17:41 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1w7VFk-0000000CfuZ-0DIM;
+	Tue, 31 Mar 2026 09:19:16 +0000
+Received: from mail-eastusazon11012047.outbound.protection.outlook.com ([52.101.53.47] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7VE6-0000000Cfea-0bja
+	id 1w7VFh-0000000Cft0-3uKy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 09:17:35 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62V3lRvP843027
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 09:17:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=7ccYDg7cwwX
-	Lw+3otD7WVW/2X37CRQFF/HPOHPWrVwE=; b=T4t8gOZqL3M3aAsEOjU9ydTcXLf
-	Hk+gyCVd5y4XxsUT/Ab3ubTgBjAMxZaD7yTuVnUTUT8Kq9F8nRLMdDfHrH6OhB4m
-	OXWWSINtm1jRTLkDEZdgrnAURQgav5i/Vvcmt3bIfAI97UiwpMGJltJnZb16HJt1
-	QQgL0NYKhGVx7VmxH5dhhvOTh6wSeXMV5Ag0SyL18HiVzTylMbF3d5EBZFaN9sTn
-	9SS8I9GRNTUgu4pAEWMvNrxNkrD4UKsJY5zKV1cE9kY8R+/cm9Q72kyK2lAZlwr6
-	uk4qc+prLzFucVM2MLIG7LYEzyPZtctX46EM2o6iYAJwiyD80uYV/FPMjLg==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d86nt9935-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 09:17:33 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-50b274f94f8so86379281cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 02:17:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1774948652; x=1775553452; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7ccYDg7cwwXLw+3otD7WVW/2X37CRQFF/HPOHPWrVwE=;
-        b=YAhRJI7kgqFKul5XlDhBSgcHn1QBnfYDzqkew9Pk++MuPj9j5x9yTKhxBSaH1s8/cb
-         8vnPZklptvnr6gCTujh/Ya5G7U86fGKIc+0lvd/0t55zSShole3pLGZZiVXTVyhyIKiQ
-         QtYdHITSDDX43xTA3j/ms5HSYCExD2JERDOKJUsyhM6cOEWXbirHmY2rgKwxRXtC19zz
-         DW/pESpkHA3zKHK/rkbzdxF++QeZPLJmsHgXKq094D6U3qd9PfMBz5PgjNoO6B+avKLR
-         CHQYHtYWBbCTzdlIGBiP5J5ddpbwP5upxjJerdQ7QmPZ6RZ/6L6jqxcHHosBcuCyYCQS
-         S1FQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1774948652; x=1775553452;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=7ccYDg7cwwXLw+3otD7WVW/2X37CRQFF/HPOHPWrVwE=;
-        b=Zru7F5pv800Xew5IqrWRQWPifF/Ib5uvvKVufAW/Qplad+lSbNYvVV0EFAdyLN6vbO
-         fLcNhbk/vzKUKvjHD8FCmRmUSmPU28pi+r60x5HEEh7zz3TKKOhZ8BhsbeJOF+Zj87IP
-         BdAbs5//qtFQ/o2NVlqk8aW437fkUO3mn061X8CXdUYPGPpGXwBQIA2RnFGRUtQUN4fI
-         uD+vno8elxNDCfuEUg/S2B6xz73/WXcYwgRqk2hJIO55YGuInAodA3xQCKGXvly0+pKI
-         knhx7Rq3RRwnArsrfBmGSWTxAOwSg3lzSpIcIfv0UoHAPrjBcJcbf/2yzAR/wnQV55Qa
-         u/+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV7rXXdUYQ0NDme3PAVLVvatEd2MwwkZ7ZacCBD2hh/G3fmlncGSS/iuPwSfNr7HENR67B6ZsQUBRMSVKvNWplA@lists.infradead.org
-X-Gm-Message-State: AOJu0YxoAbUJ03Qht4zwcHcETH5yJ8nsW9KHVGvm7kO0kwqCIxGjyAzn
-	FaNUHMijzoOVqvUX/txpXqDVQOieP911D94JsCfYL8M4RtpJsLsKdD3x31KeGJC2K9Qnxr1hHtY
-	71x83ftIsOoi+TVMXT/ILJ1KbcKV7G1kj2TqSHQn/hfMZ6q5nBi/Bd/oCofxdfYD5qywA0T+09Q
-	H2XQ==
-X-Gm-Gg: ATEYQzygp0TnrQTaqzPyUCNdvkZhgeSVuFCa7moAiOBJIa9yEjdOK6TmD+gB8CxE50i
-	SXhOvBjoq0295d8H426dGz+4HOeSRbLdzMEP5U0Gm6vZRT4VC1H4wxXfR0WPbhJs52x9WE8rlBJ
-	hSJgSnmvRto9/I93lRBS0vgMG0l7q2NsJq/kPiLk0OCKnX3MLFLgi6bD24Qa4pjwU7HP/oIuzcd
-	RTjA77lDwg0PzYCuIOYhMRBt+PP2QdoLnVC5SN3mbJ4i7ichKTq50mpcT2/bkDxTr4wx5p4CUyz
-	6QW5PQa6vgzVOtrXBo2RStE7KE1graxQXTZeE3NVymwZqQLU49g/AO2M+AwhIMQgo9cqCt6aCtQ
-	DHZGg0eMiEPaULdrJl8u/wcJLBZjeuVqYZSdQ
-X-Received: by 2002:ac8:58d5:0:b0:4f7:a06d:c4df with SMTP id d75a77b69052e-50d2c92fa59mr35427661cf.33.1774948651994;
-        Tue, 31 Mar 2026 02:17:31 -0700 (PDT)
-X-Received: by 2002:ac8:58d5:0:b0:4f7:a06d:c4df with SMTP id d75a77b69052e-50d2c92fa59mr35427451cf.33.1774948651495;
-        Tue, 31 Mar 2026 02:17:31 -0700 (PDT)
-Received: from quoll ([178.197.219.94])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48880946cc5sm135815e9.13.2026.03.31.02.17.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Mar 2026 02:17:30 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH 2/2] clk: qcom: Constify list of critical CBCR registers
-Date: Tue, 31 Mar 2026 11:17:23 +0200
-Message-ID: <20260331091721.61613-4-krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260331091721.61613-3-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260331091721.61613-3-krzysztof.kozlowski@oss.qualcomm.com>
+	Tue, 31 Mar 2026 09:19:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bhU+zPCEMlqWrm1yV0eFYK9E3nGX2nL1hyIRxt/D+eH0rCATzX9nMuCHBsQp+Q4soVHsgMUDwXYkfgDuZosTnPChsgA+QdmjbV2BHTz7Mbmkv0Vi9iu+35s9SR3MBRQa+6PES1mhZfEuf0jg9yfBZX8mJpmBm66tbKfe+tmijzSANSZ61tvRLKXGAIGku5STeHr28kYGRt5/j2oNs1QIqDEVSSQzbAwH+TAiNRPLo12aJLevLawKHnafK2mDYbbT+N/oKyBJQSpA3L5+tgaO3BH7OODOfepK8GDg5scDGNk8596J4lUj5NDwG2Xe3Y6kxJEtZ4GE6ctEuhcT+SuPdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DXHPwOOxOQLypk2rkSCJ13XhreMHR7GuNVxvkx4FgKg=;
+ b=as+BTjCX96b6qWQsuCWRxCQPYyP1uCuSF07BBNLhWyQ1BJQvqFbHxk0ZxFr3rItgjtoAAKhSCKzt2Q/nHhRKL80PEeeYr4QMbJfFMO6KIzw8AfzSiW7iNsNETNl3UxWvVGeFSZDn0PeAmX4RC1vc3kclGsxMzWQ30gURMihro3UaAyaU/JNeQ7lNEm/Nc+/KePKkZLKSKkK20x3yhmkG05HuWOuwMqEVbisHQ3Vr1s2ZbQImNC1SruOPdal2+7Hr8VkpaeChROpFsXsmdd+cRY2AIpqTVaafABpG0w4shgT+sGf5ie9GdISj4NBXHBM6llIj/SPawYTKEJu1GME2GA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DXHPwOOxOQLypk2rkSCJ13XhreMHR7GuNVxvkx4FgKg=;
+ b=XkfH2f/MfktynBsQ2IPH+fBAnnH6OmLqTqxBkRrbq3S77x/wbHu5bgE1zXxKN2u6IPktoAw0kJ1DO61a/9vOOOdINIiZSzhWiHXk7tkboKgw2jDUM0kxrQh7xBcPxb8JjEgXvQrQ00VVDE4ZWlWA4Hz67iKtMFQat/GRDEED8Y4=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
+ by BN7PPFCE25C719B.namprd12.prod.outlook.com (2603:10b6:40f:fc02::6e1) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Tue, 31 Mar
+ 2026 09:19:05 +0000
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d%5]) with mapi id 15.20.9769.014; Tue, 31 Mar 2026
+ 09:19:05 +0000
+Message-ID: <3d64cd29-d981-4e84-8106-8085250fc502@amd.com>
+Date: Tue, 31 Mar 2026 14:48:56 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] dt-bindings: usb: dwc3-xilinx: Add MMI USB support
+ on Versal Gen2 platform
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Cc: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, michal.simek@amd.com, Thinh.Nguyen@synopsys.com,
+ p.zabel@pengutronix.de, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, git@amd.com
+References: <20260330190304.1841593-1-radhey.shyam.pandey@amd.com>
+ <20260330190304.1841593-2-radhey.shyam.pandey@amd.com>
+ <20260331-jellyfish-of-pragmatic-prowess-a230fc@quoll>
+Content-Language: en-US
+From: "Pandey, Radhey Shyam" <radheys@amd.com>
+In-Reply-To: <20260331-jellyfish-of-pragmatic-prowess-a230fc@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0140.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1d2::10) To CY1PR12MB9697.namprd12.prod.outlook.com
+ (2603:10b6:930:107::6)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=18390; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=JSIM/1zziQ+S4js/C3wMYQlDMKpyS/ppmWTqSdiK8PQ=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpy5EivxyAXv/PseRB2rPa7IEnw7xou0qljON0A
- Hze1Xf8wRqJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCacuRIgAKCRDBN2bmhouD
- 1xUCD/99nlXXXTXtA7ePJceS+uzz9C7GynJ3Rbd6oV8g+w7QM/o3KRVElTi4PKe/i+E/Y6g4DjK
- BCA6KyVYLCi9nNfus97G/g/il4hTn1I9ZXGu52Q6RLBbPvv01ShT1qP99KM4z3Mdz7ybSxrnuAT
- KfQPW1XdMvAOAt4owtO3eR29CG/KiIWGVgNkiLag+ZBmYWZMrskhxoUhml0tr96PigGhVtVGuvQ
- 0s2ZfVzyLQtHfdbMLo6yABe3T6AW3uWoVr6ygiDIiiY+r09Ta1NZPJbUxkbf0gqnHNaF++nkk6X
- SWXRsd3y3xJFYNalL/82r7MQfo2oeGp88BZSH4zi7mjiDF+fB/Yls8fyYH2KzvGPXLtcGiiv4Yv
- 9FzFwDXlH3TdImYFLEsrAvRoSuvKaGXcukO3Z3TsEGqsYCwuwBeR76CHwTyk1QVPJGRxAch3cxE
- JU/7WacmoVHnVcQsblCkAtIMMh/pnXNbGEoG5bHOGAPnFtOktzhkI0SaGefOUzJkVcl6lf87Mdv
- U11w6Ai9QqG+RI9FyGkFlhzgyp1FvgnyLJtCJNXmka2H21WXtOo5iu37hX30u8Od6kmxoaTO+t3
- U3qYB7EZzF2qO7HVDrEGlh9rsH+Ih63qGqld57OpSCNATxXavajyfoaVF1m9xcMDX2OSHt1W6fx CVtrEPwgnOHY+cw==
-X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: _lKP74YxQtpM2YBi50tVQiWOdsWId201
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzMxMDA4OCBTYWx0ZWRfX2pc8GvVhDjgp
- MSoFrfysoLDdZZTGNhKnEp4iOwSXgvpSrb2t+hivrp81YS31Qq9E4Ka9tDfDCxU0BV2HfZXHZoa
- utm6jaWQ3Oz+HhLsK9J9RWAR1AQnBRdpwX7XgXln0m1lTHxLzBO3UfsDDxVcdL29OTE9/QjFidt
- WH0XU/ZV+ql4apYNXMrBSKQ9RzGk/esxQQ6qsI2aEir0CRIi5vb8LGb6HyRaZXe4Kf8HXqlejbQ
- BqlcrwLYjq6EHuEls69pKN1WRIRwFqtyjQ8zD3GHoObqoHP6oU1Pb2aozJEQuurIcol/v8xDRt9
- xnilxphNYuyMD72n2AVqonhsCKHf2qpu39W7H1+EuFOmx1VdVVciRtj1Tth+PntxwaPI1ElwMZA
- XvH9ZoCUpAJMGfOZi0jvAgf/XBenk/nFI8oxNKC8RtWPdYQM99YnylmpWSwejbd1cqEb4Z92Nnp
- rURe1BtQFvRvHED3QcA==
-X-Authority-Analysis: v=2.4 cv=IswTsb/g c=1 sm=1 tr=0 ts=69cb912d cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
- a=Yq5XynenixoA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=EUspDBNiAAAA:8
- a=j6FNNbI0-hDOaWdGd2EA:9 a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-ORIG-GUID: _lKP74YxQtpM2YBi50tVQiWOdsWId201
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-03-31_02,2026-03-28_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 adultscore=0 priorityscore=1501 clxscore=1015
- spamscore=0 bulkscore=0 impostorscore=0 lowpriorityscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603310088
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|BN7PPFCE25C719B:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3d58cd0b-b38b-4253-a569-08de8f068de7
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: rKCSLT+v8NB74TthA/NYYTWsvbkUB3gosirQG03/1Hy1RBIrb6zC0HvFrwq1i5HLt21Jc47zvc0cYziu90RpU/SmlNOgUPglbXL3UWqvYoCKPWXodt+MYG8L4tkLDyg8sT6ZNFSOpWtV7IFxAqkvWXPThBBaHAxPYdsR6xUNnCdU0RmodL6VtiD52ErYyVEa78s3iJOumyG1J4oPklOzuBwvafoq/5CJs1MpDWRC1EHFfSsFtCZ2zKpddy2dv93KFzLJniJQOdmy6EBil9PmVE57iUwQsraSN+QeOO3Eq77wXcVUbykaF1EcV2WI+3Jr8p9V32yBI1P9TMjQA+1ChCXIn4EHzyC1PHBjhj6q9blc+YDpvIEup28Mcu7/MEHZskzyb4mPMFM8pwo8u+FPZe0h4NZ4mj0ZbHgZ2FSt2NB2X5DziFX+LDNAqwdDHkIunEptXsbXsKiB1uites2eO+VobE7xULrhsdHfzq8sRVzY1LbXz4h/NFEoi0BAX2fYqLvGFPoD8gDfrKBUom+fIoGh3YFUZDJWHFbg5KrZ4TorcyfJ6kCp2ld/AKlA6v8Ldu/rB3ttfosqfA6FVpD+n+FyjKttZKVXmpxTVMnBdsp6RXwb82pl64lIzNOzSxSdP8P5B91/NCjMvu15rn8gBP2hs7kgURwY4vWr9P46ZZoEnF7E/5iZYN4bAJpJormhNKGUNtiTXuFyRIw44h0j3LSGUFXT0dkms1+D7KK/8qY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cUR6bmZLMG5yZnZUbFdTQzRXRk5EdG5rRDhjcWxaeEtLVkUxYmJPMXNRaHVG?=
+ =?utf-8?B?REoraVZiOHpIRmRRK0oraHU5TUluOHI2VTh2NTE3REtSekZ1M3NkOStJalor?=
+ =?utf-8?B?UDFMVW1zVTFLOEJjZTllWDdiTTMzSTVmZG9Sd2FPclMyTVVhSHZMbkdFdkZZ?=
+ =?utf-8?B?QU5pZGVvb0dMWmZMWGdaTWorWmJzOXozSTBiWUt4ZHB5NTVROU13eUx1b1c1?=
+ =?utf-8?B?MTUxQWxTYWZMK21TNlYxRjVPMy9OSkxYTFA0akpJeVNuR0VpZEdHdWZHUW1N?=
+ =?utf-8?B?NFlxQUQzekNwNGMrRm81c1BUK05weW1OYjc2eUJxdjVkLzQ5eUl0NG43Rzgy?=
+ =?utf-8?B?RGlSZUgreS92SUxBZTdiY2pMbEdZS1AvWlhtZFhsd01uKzFmWDRNa0x4dUNt?=
+ =?utf-8?B?NUNpamZJNm9Ea1Erc2p2U24vcTc2V2FZbldXNW5HazZjbFNPektDc2dlYnZB?=
+ =?utf-8?B?TThNZE1aMm4rZ0lVdVdtVFd0ZEVsQitJdzl2N0RCVXNZWDFiRHlDZ0RLS3FI?=
+ =?utf-8?B?QlJZNHZDdkM2K1QwYmFiVmNjMEUvZXVTZi8ySVQ0b1ZtWTJYUVovUmRJdVp2?=
+ =?utf-8?B?R0NQb21ZSFE4MFJreU9iL3E2RGhQY0dvdGhNNHB5K08zdHk1NUhrNnFPVjlr?=
+ =?utf-8?B?N2NVSHZia2NMUjJCblNCMllzcVBOU0FZcDlBdU8zRkZGb3ZGNHhSdENjOW1l?=
+ =?utf-8?B?dmRQQWNhYVppbytnWTI1OUNtVk5kV2V1WXBZSlBQSGFub2ZFRWtrVEMzVWg0?=
+ =?utf-8?B?Ym5aZk1hNUk4N0JONDRPRkZSV042MG1wTEFVcWR2ZzVXeldEZGdVaWEwejlp?=
+ =?utf-8?B?b1RhK0lUOG9HZmljK2FXamIvbjZIbnB0T0V1akl4S1ZrSXdDWHhnc3MwT3Bx?=
+ =?utf-8?B?NzZKZktDbERRbU4wWHlWcHUzT3RPeDdBNDNHSk0zWDlSd3hweUhZZGUrMGxt?=
+ =?utf-8?B?bjAyK0paTXBvb3NTckM1N1ROUXJqYmdDQzB4V1JqcmFaK3UrbXpCYVdteExS?=
+ =?utf-8?B?enBUT2VnelkyTmhGMlMwM21RWUFoNzZTVmpROW5OQ3A5d3ptWU1BQ0M0MEFR?=
+ =?utf-8?B?TmhzdStvcFJPUXgybXJZVHhDOGN1K0NVc1J0ZWNCNlVkeXY5NktIK3J4U2Zk?=
+ =?utf-8?B?TllaN0pmRDIzM3l4Zy8wank5bnFsVkxTRWdpNGdFYndhSEF0NkZtaFpFeWVm?=
+ =?utf-8?B?MDRDL2Rnbm1qcWNXT1hOVW5NTytSNGpoQzVFQTBiNW5tVHJwV01jU0JmTFRl?=
+ =?utf-8?B?N1JvZmlKU0FNdmp4ZUhySU0vUnhPbVN5ZUhqWThvbEowN3RuRjMzNGRzWFFQ?=
+ =?utf-8?B?QXR2TDJBWDJNQ25Nbzd1aEVyaUJ4YWJwRXV0VEh2enFKcXVkNCtlMDNveURW?=
+ =?utf-8?B?cC81ZEtDNk9ocHVud05uL2ZiZE5YRUU5OXdPVHk3NTNpZkxjYm1ScGFWWmNh?=
+ =?utf-8?B?ZHZ2ZnVYQ0Nlb0JyaElZd1VkclE0Nzc1T1hTV1BGWmd2eXJmVlp1cTB3Z0FW?=
+ =?utf-8?B?Umt0anBsbFE5TFU3RkpMWGZVWW1yZGF1TFlxdjhTalM2SUJYRjFuZEFmQ1Ev?=
+ =?utf-8?B?cEFSVFRpbXVOdnU2aEdadnQ0WURIZDNRMTZ6NUdYZmJNSkd4UXRma0NDL3hJ?=
+ =?utf-8?B?eDF1VnY5bFRlYU5PSU52alovZ2FjTkVrUHFBUHhZaHplN0pVOFVEYlFKZ1V4?=
+ =?utf-8?B?cERIM2RqVHZzVkdydlo4UHVJL3lNSnREeTN6R3U3MldTQXRnZHBqR3lQcks4?=
+ =?utf-8?B?SHRiT3A3Vmd6ZkNGWDhJeUlhNzN6MlliVkswdlpMY3dUMzhVVE5tVGtVZnUw?=
+ =?utf-8?B?VXh0a0FGMVByR3lJTDQvaUxua0w5SzFWNnBET01VWW1kSE9mN3dNNUZCMDV1?=
+ =?utf-8?B?L0E4YWxUbnBoYjRxaFNJTXlYaVAzbkFuc3hJNld0NndKWUFJZEZpcmFEeTlX?=
+ =?utf-8?B?YVZPclh4RHVJRHh0SjZoby9nT05ZQlg1WFRJNzQ4dmJENEswVUZveXFNVzgv?=
+ =?utf-8?B?TFF0bzVtUUxlT3grSFZtN0JnOHl5bmdWK05tQkVOTnkzK3hsL01pZjBJZnpY?=
+ =?utf-8?B?VXAvNVMyRGdwamtBQjlNYjJIem5lZkhMWUxPM2xjMU8wcXczaFZUQ3hJN05x?=
+ =?utf-8?B?bG1idTgxb2VMNk9tSG8yOEo4akFuVWYySXM3ZloyeTdOTTZYWmlMUFhyaUp6?=
+ =?utf-8?B?Rkd0VEp2MHlXc2dUdDVFcjlmZDdBTkZRcTFsc0FNM1RSYTBscWZNMHB0TytC?=
+ =?utf-8?B?NkRTa2pkRHNjQnh2RWkyQ2xkYUNqUDhxQ3g3Z0d3dHZ0Q1dmOFZ4OFNoWUs4?=
+ =?utf-8?B?aGVlWmUranZhaG84UnBYN09IMUlKQ3BKTm1pT0RlbWFLcTFHWUpvdz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3d58cd0b-b38b-4253-a569-08de8f068de7
+X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 09:19:04.8661
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: F1swvMXsE0CU0Gh3S42uCGbprplv7Th5vW+fE+dz/E8jQiodBcJEGYfScoFvOmg1
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN7PPFCE25C719B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_021734_188822_1EA9AE36 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20260331_021913_979548_0882789D 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,472 +153,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The static array 'xxx_critical_cbcrs' contains probe match-like data and
-is not modified: neither by the driver defining it nor by common.c code
-using it.
+> On Tue, Mar 31, 2026 at 12:33:01AM +0530, Radhey Shyam Pandey wrote:
+>> Versal Gen2 platform multimedia integrated (MMI) module has a USB3.2 Gen
+>> 2x1 Dual Role Device IP. Introduce a new compatibility string to support
+>> it. The USB wrapper registers reside in the MMI UDH system-level control
+>> registers (SLCR) block, so instead of a dedicated reg property, add
+>> xlnx,usb-syscon phandle with four cells specifying register offsets for
+>> USB2 PHY, USB3 PHY, USB DRD, and USB power configuration within the SLCR.
+>>
+>> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+>> ---
+>> Changes for v2:
+>> - Add blank line after compatible as suggested by Krzysztof.
+>> - Retain the mmi suffix in the compatible string, as this USB 3.2 Gen2
+>>    IP from Synopsys is part of the dedicated Multimedia Interface. The
+>>    Versal Gen2 platform also includes a separate USB 2.0 controller,
+>>    and the mmi suffix uniquely distinguishes between the two USB
+>>    controllers. MMI is an independent subsystem particularly targeted for
+>>    deployment in Multi-Media related applications. The MMI block include
+>>    following submodules: UDH: USB3.2 Gen 2x1 Dual Role Device, DisplayPort
+>>    Transmit Controller, Security Module (ESM) for DisplayPort and HDMI
+>>    Controllers, DP AUX-I2C PHY.
+>> - For MMI USB define parent address space i.e UDH block.
+>> - Fix inconsistent MHz spacing to use SI convention with spaces.
+>> - Move description before $ref and items in xlnx,usb-syscon property.
+>> - Restore original zynqmp-dwc3 example, add new versal2-mmi-dwc3 example.
+>> - Use 'usb' node name (without unit address) for versal2 example since
+>>    it has no reg property.
+>> - Use 1/1 address/size configuration in versal2 example, use lowercase
+>>    hex in syscon offsets.
+>> ---
+>>   .../devicetree/bindings/usb/dwc3-xilinx.yaml  | 70 ++++++++++++++++++-
+>>   1 file changed, 67 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+>> index d6823ef5f9a7..5e31b961aff7 100644
+>> --- a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+>> +++ b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+>> @@ -15,6 +15,8 @@ properties:
+>>         - enum:
+>>             - xlnx,zynqmp-dwc3
+>>             - xlnx,versal-dwc3
+>> +          - xlnx,versal2-mmi-dwc3
+> I am not going to ask the same questions.
 
-Make it const for code safety and code readability.
+I have provided the explanation in v2 changelog.
+Retain the mmi suffix in the compatible string, as this USB 3.2 Gen2
+IP from Synopsys is part of the dedicated Multimedia Interface. The
+Versal Gen2 platform also includes a separate USB 2.0 controller,
+and the mmi suffix uniquely distinguishes between the two USB
+controllers.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
----
- drivers/clk/qcom/cambistmclkcc-kaanapali.c | 2 +-
- drivers/clk/qcom/cambistmclkcc-sm8750.c    | 2 +-
- drivers/clk/qcom/camcc-kaanapali.c         | 2 +-
- drivers/clk/qcom/camcc-milos.c             | 2 +-
- drivers/clk/qcom/camcc-sc8180x.c           | 2 +-
- drivers/clk/qcom/camcc-sm8450.c            | 2 +-
- drivers/clk/qcom/camcc-sm8550.c            | 2 +-
- drivers/clk/qcom/camcc-sm8650.c            | 2 +-
- drivers/clk/qcom/camcc-sm8750.c            | 2 +-
- drivers/clk/qcom/camcc-x1e80100.c          | 2 +-
- drivers/clk/qcom/common.h                  | 2 +-
- drivers/clk/qcom/dispcc-eliza.c            | 2 +-
- drivers/clk/qcom/dispcc-glymur.c           | 2 +-
- drivers/clk/qcom/dispcc-kaanapali.c        | 2 +-
- drivers/clk/qcom/dispcc-milos.c            | 2 +-
- drivers/clk/qcom/dispcc-qcs615.c           | 2 +-
- drivers/clk/qcom/gcc-eliza.c               | 2 +-
- drivers/clk/qcom/gcc-glymur.c              | 2 +-
- drivers/clk/qcom/gcc-kaanapali.c           | 2 +-
- drivers/clk/qcom/gcc-milos.c               | 2 +-
- drivers/clk/qcom/gcc-sc8180x.c             | 2 +-
- drivers/clk/qcom/gpucc-glymur.c            | 2 +-
- drivers/clk/qcom/gpucc-kaanapali.c         | 2 +-
- drivers/clk/qcom/gpucc-milos.c             | 2 +-
- drivers/clk/qcom/gpucc-qcs615.c            | 2 +-
- drivers/clk/qcom/videocc-glymur.c          | 2 +-
- drivers/clk/qcom/videocc-kaanapali.c       | 2 +-
- drivers/clk/qcom/videocc-milos.c           | 2 +-
- drivers/clk/qcom/videocc-qcs615.c          | 2 +-
- drivers/clk/qcom/videocc-sm8450.c          | 2 +-
- drivers/clk/qcom/videocc-sm8550.c          | 4 ++--
- drivers/clk/qcom/videocc-sm8750.c          | 2 +-
- 32 files changed, 33 insertions(+), 33 deletions(-)
+Let me know if you still have reservation in this approach (using
+<vendor>,<soc>-<subsystem>-<ip>). Or any other alternative
+based on IP version etc please suggest.
 
-diff --git a/drivers/clk/qcom/cambistmclkcc-kaanapali.c b/drivers/clk/qcom/cambistmclkcc-kaanapali.c
-index 77adb453ab21..6028d8f6959c 100644
---- a/drivers/clk/qcom/cambistmclkcc-kaanapali.c
-+++ b/drivers/clk/qcom/cambistmclkcc-kaanapali.c
-@@ -383,7 +383,7 @@ static struct clk_alpha_pll *cam_bist_mclk_cc_kaanapali_plls[] = {
- 	&cam_bist_mclk_cc_pll0,
- };
- 
--static u32 cam_bist_mclk_cc_kaanapali_critical_cbcrs[] = {
-+static const u32 cam_bist_mclk_cc_kaanapali_critical_cbcrs[] = {
- 	0x40e0, /* CAM_BIST_MCLK_CC_SLEEP_CLK */
- };
- 
-diff --git a/drivers/clk/qcom/cambistmclkcc-sm8750.c b/drivers/clk/qcom/cambistmclkcc-sm8750.c
-index f0d7e3b7c532..5df12aced4a5 100644
---- a/drivers/clk/qcom/cambistmclkcc-sm8750.c
-+++ b/drivers/clk/qcom/cambistmclkcc-sm8750.c
-@@ -402,7 +402,7 @@ static struct clk_alpha_pll *cam_bist_mclk_cc_sm8750_plls[] = {
- 	&cam_bist_mclk_cc_pll0,
- };
- 
--static u32 cam_bist_mclk_cc_sm8750_critical_cbcrs[] = {
-+static const u32 cam_bist_mclk_cc_sm8750_critical_cbcrs[] = {
- 	0x40f8, /* CAM_BIST_MCLK_CC_SLEEP_CLK */
- };
- 
-diff --git a/drivers/clk/qcom/camcc-kaanapali.c b/drivers/clk/qcom/camcc-kaanapali.c
-index acf5f476955b..af5486418492 100644
---- a/drivers/clk/qcom/camcc-kaanapali.c
-+++ b/drivers/clk/qcom/camcc-kaanapali.c
-@@ -2600,7 +2600,7 @@ static struct clk_alpha_pll *cam_cc_kaanapali_plls[] = {
- 	&cam_cc_pll7,
- };
- 
--static u32 cam_cc_kaanapali_critical_cbcrs[] = {
-+static const u32 cam_cc_kaanapali_critical_cbcrs[] = {
- 	0x21398, /* CAM_CC_DRV_AHB_CLK */
- 	0x21390, /* CAM_CC_DRV_XO_CLK */
- 	0x21364, /* CAM_CC_GDSC_CLK */
-diff --git a/drivers/clk/qcom/camcc-milos.c b/drivers/clk/qcom/camcc-milos.c
-index 556c3c33c106..409d47098c10 100644
---- a/drivers/clk/qcom/camcc-milos.c
-+++ b/drivers/clk/qcom/camcc-milos.c
-@@ -2104,7 +2104,7 @@ static struct clk_alpha_pll *cam_cc_milos_plls[] = {
- 	&cam_cc_pll6,
- };
- 
--static u32 cam_cc_milos_critical_cbcrs[] = {
-+static const u32 cam_cc_milos_critical_cbcrs[] = {
- 	0x25038, /* CAM_CC_GDSC_CLK */
- 	0x2505c, /* CAM_CC_SLEEP_CLK */
- };
-diff --git a/drivers/clk/qcom/camcc-sc8180x.c b/drivers/clk/qcom/camcc-sc8180x.c
-index bd06d271928e..016f37d08468 100644
---- a/drivers/clk/qcom/camcc-sc8180x.c
-+++ b/drivers/clk/qcom/camcc-sc8180x.c
-@@ -2829,7 +2829,7 @@ static struct clk_alpha_pll *cam_cc_sc8180x_plls[] = {
- 	&cam_cc_pll6,
- };
- 
--static u32 cam_cc_sc8180x_critical_cbcrs[] = {
-+static const u32 cam_cc_sc8180x_critical_cbcrs[] = {
- 	0xc1e4, /* CAM_CC_GDSC_CLK */
- 	0xc200, /* CAM_CC_SLEEP_CLK */
- };
-diff --git a/drivers/clk/qcom/camcc-sm8450.c b/drivers/clk/qcom/camcc-sm8450.c
-index 430b436a673e..1891262a559b 100644
---- a/drivers/clk/qcom/camcc-sm8450.c
-+++ b/drivers/clk/qcom/camcc-sm8450.c
-@@ -2915,7 +2915,7 @@ static struct clk_alpha_pll *cam_cc_sm8450_plls[] = {
- 	&cam_cc_pll8,
- };
- 
--static u32 cam_cc_sm8450_critical_cbcrs[] = {
-+static const u32 cam_cc_sm8450_critical_cbcrs[] = {
- 	0x1320c, /* CAM_CC_GDSC_CLK */
- };
- 
-diff --git a/drivers/clk/qcom/camcc-sm8550.c b/drivers/clk/qcom/camcc-sm8550.c
-index 8c42ae7544aa..34d53e2ffad7 100644
---- a/drivers/clk/qcom/camcc-sm8550.c
-+++ b/drivers/clk/qcom/camcc-sm8550.c
-@@ -3517,7 +3517,7 @@ static struct clk_alpha_pll *cam_cc_sm8550_plls[] = {
- 	&cam_cc_pll12,
- };
- 
--static u32 cam_cc_sm8550_critical_cbcrs[] = {
-+static const u32 cam_cc_sm8550_critical_cbcrs[] = {
- 	0x1419c, /* CAM_CC_GDSC_CLK */
- 	0x142cc, /* CAM_CC_SLEEP_CLK */
- };
-diff --git a/drivers/clk/qcom/camcc-sm8650.c b/drivers/clk/qcom/camcc-sm8650.c
-index c0055fb08f62..9dea43e74cb6 100644
---- a/drivers/clk/qcom/camcc-sm8650.c
-+++ b/drivers/clk/qcom/camcc-sm8650.c
-@@ -3533,7 +3533,7 @@ static struct clk_alpha_pll *cam_cc_sm8650_plls[] = {
- 	&cam_cc_pll10,
- };
- 
--static u32 cam_cc_sm8650_critical_cbcrs[] = {
-+static const u32 cam_cc_sm8650_critical_cbcrs[] = {
- 	0x132ec, /* CAM_CC_GDSC_CLK */
- 	0x13308, /* CAM_CC_SLEEP_CLK */
- 	0x13314, /* CAM_CC_DRV_XO_CLK */
-diff --git a/drivers/clk/qcom/camcc-sm8750.c b/drivers/clk/qcom/camcc-sm8750.c
-index 9b6d49981267..6618b074c90e 100644
---- a/drivers/clk/qcom/camcc-sm8750.c
-+++ b/drivers/clk/qcom/camcc-sm8750.c
-@@ -2651,7 +2651,7 @@ static struct clk_alpha_pll *cam_cc_sm8750_plls[] = {
- 	&cam_cc_pll6,
- };
- 
--static u32 cam_cc_sm8750_critical_cbcrs[] = {
-+static const u32 cam_cc_sm8750_critical_cbcrs[] = {
- 	0x113c4, /* CAM_CC_DRV_AHB_CLK */
- 	0x113c0, /* CAM_CC_DRV_XO_CLK */
- 	0x1137c, /* CAM_CC_GDSC_CLK */
-diff --git a/drivers/clk/qcom/camcc-x1e80100.c b/drivers/clk/qcom/camcc-x1e80100.c
-index 387420533125..81f579ff6993 100644
---- a/drivers/clk/qcom/camcc-x1e80100.c
-+++ b/drivers/clk/qcom/camcc-x1e80100.c
-@@ -2434,7 +2434,7 @@ static struct clk_alpha_pll *cam_cc_x1e80100_plls[] = {
- 	&cam_cc_pll8,
- };
- 
--static u32 cam_cc_x1e80100_critical_cbcrs[] = {
-+static const u32 cam_cc_x1e80100_critical_cbcrs[] = {
- 	0x13a9c, /* CAM_CC_GDSC_CLK */
- 	0x13ab8, /* CAM_CC_SLEEP_CLK */
- };
-diff --git a/drivers/clk/qcom/common.h b/drivers/clk/qcom/common.h
-index 69c4b21333e5..6f2406f8839e 100644
---- a/drivers/clk/qcom/common.h
-+++ b/drivers/clk/qcom/common.h
-@@ -28,7 +28,7 @@ struct qcom_icc_hws_data {
- struct qcom_cc_driver_data {
- 	struct clk_alpha_pll **alpha_plls;
- 	size_t num_alpha_plls;
--	u32 *clk_cbcrs;
-+	const u32 *clk_cbcrs;
- 	size_t num_clk_cbcrs;
- 	const struct clk_rcg_dfs_data *dfs_rcgs;
- 	size_t num_dfs_rcgs;
-diff --git a/drivers/clk/qcom/dispcc-eliza.c b/drivers/clk/qcom/dispcc-eliza.c
-index 60de3c743621..479f26e0dde2 100644
---- a/drivers/clk/qcom/dispcc-eliza.c
-+++ b/drivers/clk/qcom/dispcc-eliza.c
-@@ -2063,7 +2063,7 @@ static struct clk_alpha_pll *disp_cc_eliza_plls[] = {
- 	&disp_cc_pll2,
- };
- 
--static u32 disp_cc_eliza_critical_cbcrs[] = {
-+static const u32 disp_cc_eliza_critical_cbcrs[] = {
- 	0xe07c, /* DISP_CC_SLEEP_CLK */
- 	0xe05c, /* DISP_CC_XO_CLK */
- 	0xc00c, /* DISP_CC_MDSS_RSCC_AHB_CLK */
-diff --git a/drivers/clk/qcom/dispcc-glymur.c b/drivers/clk/qcom/dispcc-glymur.c
-index aae60291b55e..c4bb328d432f 100644
---- a/drivers/clk/qcom/dispcc-glymur.c
-+++ b/drivers/clk/qcom/dispcc-glymur.c
-@@ -1921,7 +1921,7 @@ static struct clk_alpha_pll *disp_cc_glymur_plls[] = {
- 	&disp_cc_pll1,
- };
- 
--static u32 disp_cc_glymur_critical_cbcrs[] = {
-+static const u32 disp_cc_glymur_critical_cbcrs[] = {
- 	0xe07c, /* DISP_CC_SLEEP_CLK */
- 	0xe05c, /* DISP_CC_XO_CLK */
- };
-diff --git a/drivers/clk/qcom/dispcc-kaanapali.c b/drivers/clk/qcom/dispcc-kaanapali.c
-index ffdb4de3a33e..42912c617c31 100644
---- a/drivers/clk/qcom/dispcc-kaanapali.c
-+++ b/drivers/clk/qcom/dispcc-kaanapali.c
-@@ -1886,7 +1886,7 @@ static struct clk_alpha_pll *disp_cc_kaanapali_plls[] = {
- 	&disp_cc_pll2,
- };
- 
--static u32 disp_cc_kaanapali_critical_cbcrs[] = {
-+static const u32 disp_cc_kaanapali_critical_cbcrs[] = {
- 	0xe064, /* DISP_CC_SLEEP_CLK */
- 	0xe05c, /* DISP_CC_XO_CLK */
- 	0xc00c, /* DISP_CC_MDSS_RSCC_AHB_CLK */
-diff --git a/drivers/clk/qcom/dispcc-milos.c b/drivers/clk/qcom/dispcc-milos.c
-index 17ff10cb2f6b..dfffb6d14b0e 100644
---- a/drivers/clk/qcom/dispcc-milos.c
-+++ b/drivers/clk/qcom/dispcc-milos.c
-@@ -906,7 +906,7 @@ static struct clk_alpha_pll *disp_cc_milos_plls[] = {
- 	&disp_cc_pll0,
- };
- 
--static u32 disp_cc_milos_critical_cbcrs[] = {
-+static const u32 disp_cc_milos_critical_cbcrs[] = {
- 	0xe06c, /* DISP_CC_SLEEP_CLK */
- 	0xe04c, /* DISP_CC_XO_CLK */
- };
-diff --git a/drivers/clk/qcom/dispcc-qcs615.c b/drivers/clk/qcom/dispcc-qcs615.c
-index 21974e2574f5..637698e6dc2b 100644
---- a/drivers/clk/qcom/dispcc-qcs615.c
-+++ b/drivers/clk/qcom/dispcc-qcs615.c
-@@ -739,7 +739,7 @@ static struct clk_alpha_pll *disp_cc_qcs615_plls[] = {
- 	&disp_cc_pll0,
- };
- 
--static u32 disp_cc_qcs615_critical_cbcrs[] = {
-+static const u32 disp_cc_qcs615_critical_cbcrs[] = {
- 	0x6054, /* DISP_CC_XO_CLK */
- };
- 
-diff --git a/drivers/clk/qcom/gcc-eliza.c b/drivers/clk/qcom/gcc-eliza.c
-index 9356c5bf0a03..42a83be34e01 100644
---- a/drivers/clk/qcom/gcc-eliza.c
-+++ b/drivers/clk/qcom/gcc-eliza.c
-@@ -3005,7 +3005,7 @@ static const struct qcom_reset_map gcc_eliza_resets[] = {
- 	[GCC_VIDEO_BCR] = { 0x32000 },
- };
- 
--static u32 gcc_eliza_critical_cbcrs[] = {
-+static const u32 gcc_eliza_critical_cbcrs[] = {
- 	0xa0004, /* GCC_CAM_BIST_MCLK_AHB_CLK */
- 	0x26004, /* GCC_CAMERA_AHB_CLK */
- 	0x26034, /* GCC_CAMERA_XO_CLK */
-diff --git a/drivers/clk/qcom/gcc-glymur.c b/drivers/clk/qcom/gcc-glymur.c
-index 7a199e1bd493..2736465efdea 100644
---- a/drivers/clk/qcom/gcc-glymur.c
-+++ b/drivers/clk/qcom/gcc-glymur.c
-@@ -8538,7 +8538,7 @@ static const struct clk_rcg_dfs_data gcc_dfs_clocks[] = {
- 	DEFINE_RCG_DFS(gcc_qupv3_wrap2_s7_clk_src),
- };
- 
--static u32 gcc_glymur_critical_cbcrs[] = {
-+static const u32 gcc_glymur_critical_cbcrs[] = {
- 	0x26004, /* GCC_CAMERA_AHB_CLK */
- 	0x26040, /* GCC_CAMERA_XO_CLK */
- 	0x27004, /* GCC_DISP_AHB_CLK */
-diff --git a/drivers/clk/qcom/gcc-kaanapali.c b/drivers/clk/qcom/gcc-kaanapali.c
-index 44275bac095e..6e628b51f38c 100644
---- a/drivers/clk/qcom/gcc-kaanapali.c
-+++ b/drivers/clk/qcom/gcc-kaanapali.c
-@@ -3457,7 +3457,7 @@ static const struct clk_rcg_dfs_data gcc_dfs_clocks[] = {
- 	DEFINE_RCG_DFS(gcc_qupv3_wrap4_s4_clk_src),
- };
- 
--static u32 gcc_kaanapali_critical_cbcrs[] = {
-+static const u32 gcc_kaanapali_critical_cbcrs[] = {
- 	0xa0004, /* GCC_CAM_BIST_MCLK_AHB_CLK */
- 	0x26004, /* GCC_CAMERA_AHB_CLK */
- 	0x2603c, /* GCC_CAMERA_XO_CLK */
-diff --git a/drivers/clk/qcom/gcc-milos.c b/drivers/clk/qcom/gcc-milos.c
-index 3438fb9039ee..67d0eee8ef35 100644
---- a/drivers/clk/qcom/gcc-milos.c
-+++ b/drivers/clk/qcom/gcc-milos.c
-@@ -3152,7 +3152,7 @@ static struct gdsc *gcc_milos_gdscs[] = {
- 	[USB3_PHY_GDSC] = &usb3_phy_gdsc,
- };
- 
--static u32 gcc_milos_critical_cbcrs[] = {
-+static const u32 gcc_milos_critical_cbcrs[] = {
- 	0x26004, /* GCC_CAMERA_AHB_CLK */
- 	0x26018, /* GCC_CAMERA_HF_XO_CLK */
- 	0x2601c, /* GCC_CAMERA_SF_XO_CLK */
-diff --git a/drivers/clk/qcom/gcc-sc8180x.c b/drivers/clk/qcom/gcc-sc8180x.c
-index 35c2e9d555b8..e6b7f1a5dcef 100644
---- a/drivers/clk/qcom/gcc-sc8180x.c
-+++ b/drivers/clk/qcom/gcc-sc8180x.c
-@@ -4647,7 +4647,7 @@ static struct gdsc *gcc_sc8180x_gdscs[] = {
- 	[HLOS1_VOTE_TURING_MMU_TBU1_GDSC] = &hlos1_vote_turing_mmu_tbu1_gdsc,
- };
- 
--static u32 gcc_sc8180x_critical_cbcrs[] = {
-+static const u32 gcc_sc8180x_critical_cbcrs[] = {
- 	0xb004,  /* GCC_VIDEO_AHB_CLK */
- 	0xb008,  /* GCC_CAMERA_AHB_CLK */
- 	0xb00c,  /* GCC_DISP_AHB_CLK */
-diff --git a/drivers/clk/qcom/gpucc-glymur.c b/drivers/clk/qcom/gpucc-glymur.c
-index 824b4e09c3f9..54cc3127718a 100644
---- a/drivers/clk/qcom/gpucc-glymur.c
-+++ b/drivers/clk/qcom/gpucc-glymur.c
-@@ -560,7 +560,7 @@ static struct clk_alpha_pll *gpu_cc_glymur_plls[] = {
- 	&gpu_cc_pll0,
- };
- 
--static u32 gpu_cc_glymur_critical_cbcrs[] = {
-+static const u32 gpu_cc_glymur_critical_cbcrs[] = {
- 	0x93a4, /* GPU_CC_CB_CLK */
- 	0x9008, /* GPU_CC_CXO_AON_CLK */
- 	0x9004, /* GPU_CC_RSCC_XO_AON_CLK */
-diff --git a/drivers/clk/qcom/gpucc-kaanapali.c b/drivers/clk/qcom/gpucc-kaanapali.c
-index 94f0feb254b3..7f6013b348ad 100644
---- a/drivers/clk/qcom/gpucc-kaanapali.c
-+++ b/drivers/clk/qcom/gpucc-kaanapali.c
-@@ -423,7 +423,7 @@ static struct clk_alpha_pll *gpu_cc_kaanapali_plls[] = {
- 	&gpu_cc_pll0,
- };
- 
--static u32 gpu_cc_kaanapali_critical_cbcrs[] = {
-+static const u32 gpu_cc_kaanapali_critical_cbcrs[] = {
- 	0x9008, /* GPU_CC_CXO_AON_CLK */
- 	0x93e8, /* GPU_CC_RSCC_HUB_AON_CLK */
- 	0x9004, /* GPU_CC_RSCC_XO_AON_CLK */
-diff --git a/drivers/clk/qcom/gpucc-milos.c b/drivers/clk/qcom/gpucc-milos.c
-index 7a8a3917db9b..1448d95cb1dc 100644
---- a/drivers/clk/qcom/gpucc-milos.c
-+++ b/drivers/clk/qcom/gpucc-milos.c
-@@ -500,7 +500,7 @@ static struct clk_alpha_pll *gpu_cc_milos_plls[] = {
- 	&gpu_cc_pll0,
- };
- 
--static u32 gpu_cc_milos_critical_cbcrs[] = {
-+static const u32 gpu_cc_milos_critical_cbcrs[] = {
- 	0x93a4, /* GPU_CC_CB_CLK */
- 	0x9008, /* GPU_CC_CXO_AON_CLK */
- 	0x9010, /* GPU_CC_DEMET_CLK */
-diff --git a/drivers/clk/qcom/gpucc-qcs615.c b/drivers/clk/qcom/gpucc-qcs615.c
-index 8233136db4d8..91919cdb75ae 100644
---- a/drivers/clk/qcom/gpucc-qcs615.c
-+++ b/drivers/clk/qcom/gpucc-qcs615.c
-@@ -459,7 +459,7 @@ static struct clk_alpha_pll *gpu_cc_qcs615_plls[] = {
- 	&gpu_cc_pll1,
- };
- 
--static u32 gpu_cc_qcs615_critical_cbcrs[] = {
-+static const u32 gpu_cc_qcs615_critical_cbcrs[] = {
- 	0x1078, /* GPU_CC_AHB_CLK */
- };
- 
-diff --git a/drivers/clk/qcom/videocc-glymur.c b/drivers/clk/qcom/videocc-glymur.c
-index 4f1ad0db30e5..bbf13f4ba82d 100644
---- a/drivers/clk/qcom/videocc-glymur.c
-+++ b/drivers/clk/qcom/videocc-glymur.c
-@@ -467,7 +467,7 @@ static struct clk_alpha_pll *video_cc_glymur_plls[] = {
- 	&video_cc_pll0,
- };
- 
--static u32 video_cc_glymur_critical_cbcrs[] = {
-+static const u32 video_cc_glymur_critical_cbcrs[] = {
- 	0x80e0, /* VIDEO_CC_AHB_CLK */
- 	0x8138, /* VIDEO_CC_SLEEP_CLK */
- 	0x8110, /* VIDEO_CC_XO_CLK */
-diff --git a/drivers/clk/qcom/videocc-kaanapali.c b/drivers/clk/qcom/videocc-kaanapali.c
-index b060ee34e8a4..b29e3da465e5 100644
---- a/drivers/clk/qcom/videocc-kaanapali.c
-+++ b/drivers/clk/qcom/videocc-kaanapali.c
-@@ -741,7 +741,7 @@ static struct clk_alpha_pll *video_cc_kaanapali_plls[] = {
- 	&video_cc_pll3,
- };
- 
--static u32 video_cc_kaanapali_critical_cbcrs[] = {
-+static const u32 video_cc_kaanapali_critical_cbcrs[] = {
- 	0x817c, /* VIDEO_CC_AHB_CLK */
- 	0x81bc, /* VIDEO_CC_SLEEP_CLK */
- 	0x81b0, /* VIDEO_CC_TS_XO_CLK */
-diff --git a/drivers/clk/qcom/videocc-milos.c b/drivers/clk/qcom/videocc-milos.c
-index 012a13f8fb0b..3cce34e8c71a 100644
---- a/drivers/clk/qcom/videocc-milos.c
-+++ b/drivers/clk/qcom/videocc-milos.c
-@@ -345,7 +345,7 @@ static struct clk_alpha_pll *video_cc_milos_plls[] = {
- 	&video_cc_pll0,
- };
- 
--static u32 video_cc_milos_critical_cbcrs[] = {
-+static const u32 video_cc_milos_critical_cbcrs[] = {
- 	0x80f4, /* VIDEO_CC_AHB_CLK */
- 	0x8140, /* VIDEO_CC_SLEEP_CLK */
- 	0x8124, /* VIDEO_CC_XO_CLK */
-diff --git a/drivers/clk/qcom/videocc-qcs615.c b/drivers/clk/qcom/videocc-qcs615.c
-index 338ab803d56a..3203cb938ad1 100644
---- a/drivers/clk/qcom/videocc-qcs615.c
-+++ b/drivers/clk/qcom/videocc-qcs615.c
-@@ -283,7 +283,7 @@ static struct clk_alpha_pll *video_cc_qcs615_plls[] = {
- 	&video_pll0,
- };
- 
--static u32 video_cc_qcs615_critical_cbcrs[] = {
-+static const u32 video_cc_qcs615_critical_cbcrs[] = {
- 	0xab8, /* VIDEO_CC_XO_CLK */
- };
- 
-diff --git a/drivers/clk/qcom/videocc-sm8450.c b/drivers/clk/qcom/videocc-sm8450.c
-index acd0928be1f6..18b191f598b5 100644
---- a/drivers/clk/qcom/videocc-sm8450.c
-+++ b/drivers/clk/qcom/videocc-sm8450.c
-@@ -413,7 +413,7 @@ static struct clk_alpha_pll *video_cc_sm8450_plls[] = {
- 	&video_cc_pll1,
- };
- 
--static u32 video_cc_sm8450_critical_cbcrs[] = {
-+static const u32 video_cc_sm8450_critical_cbcrs[] = {
- 	0x80e4, /* VIDEO_CC_AHB_CLK */
- 	0x8114, /* VIDEO_CC_XO_CLK */
- 	0x8130, /* VIDEO_CC_SLEEP_CLK */
-diff --git a/drivers/clk/qcom/videocc-sm8550.c b/drivers/clk/qcom/videocc-sm8550.c
-index 32a6505abe26..4e35964f0803 100644
---- a/drivers/clk/qcom/videocc-sm8550.c
-+++ b/drivers/clk/qcom/videocc-sm8550.c
-@@ -536,13 +536,13 @@ static struct clk_alpha_pll *video_cc_sm8550_plls[] = {
- 	&video_cc_pll1,
- };
- 
--static u32 video_cc_sm8550_critical_cbcrs[] = {
-+static const u32 video_cc_sm8550_critical_cbcrs[] = {
- 	0x80f4, /* VIDEO_CC_AHB_CLK */
- 	0x8124, /* VIDEO_CC_XO_CLK */
- 	0x8140, /* VIDEO_CC_SLEEP_CLK */
- };
- 
--static u32 video_cc_sm8650_critical_cbcrs[] = {
-+static const u32 video_cc_sm8650_critical_cbcrs[] = {
- 	0x80f4, /* VIDEO_CC_AHB_CLK */
- 	0x8124, /* VIDEO_CC_XO_CLK */
- 	0x8150, /* VIDEO_CC_SLEEP_CLK */
-diff --git a/drivers/clk/qcom/videocc-sm8750.c b/drivers/clk/qcom/videocc-sm8750.c
-index 7e77822c132c..e9414390a3cc 100644
---- a/drivers/clk/qcom/videocc-sm8750.c
-+++ b/drivers/clk/qcom/videocc-sm8750.c
-@@ -392,7 +392,7 @@ static struct clk_alpha_pll *video_cc_sm8750_plls[] = {
- 	&video_cc_pll0,
- };
- 
--static u32 video_cc_sm8750_critical_cbcrs[] = {
-+static const u32 video_cc_sm8750_critical_cbcrs[] = {
- 	0x80a4, /* VIDEO_CC_AHB_CLK */
- 	0x80f8, /* VIDEO_CC_SLEEP_CLK */
- 	0x80d4, /* VIDEO_CC_XO_CLK */
--- 
-2.51.0
+Thanks,
+Radhey
 
 
