@@ -4,73 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C9171061B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 11:21:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 729041061B32
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 11:28:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:CC:To:MIME-Version:From:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fuZB++b9TMG3PcHaNcWo/qvXmPZlIGwLXm1jVsEqRAo=; b=w4odqIwuS8imkg7SFreQzLI4hW
-	dvgUSFGtPeJ33+30p9Bt+P7iWnIvwe4gIW1SiAy6oC0zyFiXy34HqQ4VCYF6QLZLzDPB4kR2t43Nn
-	dQgK/bnwFRX5C6SlYjobREZ2u9XTxZbDpiMWihDfG52YKRLsyh6jAi/j2xBbWjijJLaEUwiMBJUF5
-	uL4G0ljUwlDp5/zbFtu5mr2WLh5oZ+RraR0kzi5ECur3ntW1oPMzYK4837XVLQRirQLLPNILySzkH
-	ojc8XbTxN7cgDJ/u5jvIV7VLHx2U+YOM9cDkP+j5Lc1gvgmustjyVmt+4/uQVRl1u/f7Bo8Pl8EoH
-	wC7qsQ4A==;
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WC+B+zHx6R2ncvGdsGLHZrfIcEPvvV13o/OKlm8O9kc=; b=F0jPS73CO+dsjsVg+cmgRrTxIj
+	K6ja7WabAWezQH00miM0n9nCZ+V2XrdjYRW+9ie0eCRVF41Etx3CSz48uAQemyQwrgJty4qBho8vh
+	40LnznHyMw0v1xEo4xTHl0juJpN5ZSTNLCOVoJW+PHsxDsaNkb6SB4J5CCMpzKFWNksY2E60BALF1
+	YAeadEVXdBNrJ9odfM729DY3aV6bTjkceLpFKcsuZpQPHAkJt2QKWe0giwNIfuYIvZ7tQtzN4kOZU
+	WN8Ga8eBSDLPEON6fSrljH1283XmxAgY0dEOJqHKKRitLipIOZyZk/8MkpXzuqaOS8ocd7m1z1eaR
+	9xIB9asQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7X9t-0000000CqoN-2XqC;
-	Tue, 31 Mar 2026 11:21:22 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1w7XGt-0000000CrFj-3Q17;
+	Tue, 31 Mar 2026 11:28:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7X9o-0000000CqnI-0ES8
+	id 1w7XGs-0000000CrFL-30XQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 11:21:18 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=fuZB++b9TMG3PcHaNcWo/qvXmPZlIGwLXm1jVsEqRAo=;
-	b=bzN6K8FfxjGKKhW4fQfZ3xq4FpzFCrNkRH8rLJ7oqnQlXgc8qKlSEuyOwaLeuXYfrGCSaKPzM
-	dG2bkKJKHLqGYshOwm7+qH05x/Me7R8SVy2dgZbDsWUm7bgTmqaU1d6p/fRPQCMbkHz/IYTqfuG
-	IcRvTvfQDgM7BqISF3850LI=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4flQX806Y5z12LDF;
-	Tue, 31 Mar 2026 19:15:36 +0800 (CST)
-Received: from kwepempk100004.china.huawei.com (unknown [7.202.194.225])
-	by mail.maildlp.com (Postfix) with ESMTPS id CF55940576;
-	Tue, 31 Mar 2026 19:20:59 +0800 (CST)
-Received: from kwepemq100003.china.huawei.com (7.202.195.72) by
- kwepempk100004.china.huawei.com (7.202.194.225) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Tue, 31 Mar 2026 19:20:59 +0800
-Received: from [10.67.113.213] (10.67.113.213) by
- kwepemq100003.china.huawei.com (7.202.195.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 31 Mar 2026 19:20:58 +0800
-Message-ID: <69CBAE1A.4050509@hisilicon.com>
-Date: Tue, 31 Mar 2026 19:20:58 +0800
-From: Wei Xu <xuwei5@hisilicon.com>
-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.2.0
+	Tue, 31 Mar 2026 11:28:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D5954600CB;
+	Tue, 31 Mar 2026 11:28:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE4F4C2BC9E;
+	Tue, 31 Mar 2026 11:28:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774956513;
+	bh=B/99n7I6JcxZI/gQvjlJDqR1aT5LKFUV5LHb8PaWsK0=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=dZk0BQ2rZijhuzGkQ9dOuzDrBoCW41HkNblHO96PO6y7g2Lx/okooZmL4dsEjZj+e
+	 n4OwxacGqGo0+7uzFGBVvdHtYKkEGKCaiFnComMqopER/HwO5h3mWrqBx+JqzLrHgp
+	 vbg4i8lH6Qc9xfxuNWNstNYI4ojBtvnDQHOCUQOK6PgP+l5jeh9QUfr5NKobOWOvVW
+	 VIaoLGIZgew7eU/wbUUlbDbsU+EYuGIbA/FqsPMh7G70kXpdFvybJrJzHz6zlPf4+H
+	 pPFzaJlynp7CklBfy4PO4QEFGp1S/lqEdmms8ugPP80fFfkdfSuwimNSBPFzaFGyyl
+	 Sq+P2v09P72Fw==
+Message-ID: <6810060f-5073-4de7-9cd2-3909119e446e@kernel.org>
+Date: Tue, 31 Mar 2026 13:28:30 +0200
 MIME-Version: 1.0
-To: <soc@kernel.org>, <arm@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, Arnd Bergmann <arnd@arndb.de>,
-	<xuwei5@hisilicon.com>, <zhangyi.ac@huawei.com>, "Wuliebao (Joab, Turing
- Solution)" <wuliebao@huawei.com>, "Shenqingchun(DanielShen)"
-	<daniel.shen@huawei.com>, <huangdaode@huawei.com>, <liguozhu@hisilicon.com>,
-	"Zengtao (B)" <prime.zeng@hisilicon.com>, Jonathan Cameron
-	<Jonathan.Cameron@Huawei.com>, Bhargav Joshi <rougueprince47@gmail.com>, "Ulf
- Hansson" <ulf.hansson@linaro.org>, <xuwei5@hisilicon.com>
-Subject: [GIT,PULL] arm64: dts: hisilicon dts updates for v7.1
-Content-Type: text/plain; charset="ISO-8859-1"
+User-Agent: Mozilla Thunderbird
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [GIT PULL 1/7] dt-bindings: Changes for v7.1-rc1
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Thierry Reding <thierry.reding@kernel.org>, arm@kernel.org,
+ soc@kernel.org, Jon Hunter <jonathanh@nvidia.com>,
+ linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260329151045.1443133-1-thierry.reding@kernel.org>
+ <406ca5ed-4a3e-48ba-94ad-d88c53b09299@kernel.org> <act9hqxjL6wZ25dP@orome>
+ <1bdf911d-383a-4ea3-9a33-f8ee6e8f26e4@kernel.org> <acumPszu9kvDsebG@orome>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <acumPszu9kvDsebG@orome>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.113.213]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemq100003.china.huawei.com (7.202.195.72)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_042116_663581_3DDD9B74 
-X-CRM114-Status: UNSURE (   5.42  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,39 +116,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi ARM SoC maintainers,
+On 31/03/2026 13:09, Thierry Reding wrote:
+> On Tue, Mar 31, 2026 at 11:50:18AM +0200, Krzysztof Kozlowski wrote:
+>> On 31/03/2026 10:25, Thierry Reding wrote:
+>>>
+>>>>>       dt-bindings: phy: tegra-xusb: Document Type C support
+>>>>
+>>>> No acks, but that is waiting for one month so it is fine.
+>>>
+>>> It's got a Reviewed-by from Rob and there were no corresponding driver
+>>> changes associated with it. There's literally no reason for this to go
+>>> in through a subsystem tree.
+>>
+>> There are reasons - process and technical:
+>> 1. It's a subsystem maintainer's patch, not yours. You rather should
+>> have reason to take someone else's patches.
+>>
+>> 2. Conflict in that file.
+>>
+>>
+>>>
+>>>>>       dt-bindings: clock: tegra124-dfll: Convert to json-schema
+>>>>>       dt-bindings: interrupt-controller: tegra: Fix reg entries
+>>>>>       dt-bindings: arm: tegra: Add missing compatible strings
+>>>>>       dt-bindings: phy: tegra: Document Tegra210 USB PHY
+>>>>>       dt-bindings: memory: Add Tegra210 memory controller bindings
+>>>>>       dt-bindings: memory: tegra210: Mark EMC as cooling device
+>>>>
+>>>> That's even my subsystem and I did not ack it. You did not even sent it
+>>>> to me as requested by MAINTAINERS file (+dt is ignore alias), so
+>>>> obviously I did not even had a chance to ack it.
+>>>
+>>> Ugh... really? I was Cc'ed to you as a DT maintainer as well as the
+>>> devicetree mailing list, so I'm sure you've seen it. This had also been
+>>
+>> Really, you are supposed to use get_maintainers.pl. Not invent the CC
+>> list, not come with own filtered list.
+>>
+>> I understand that my non dt address disappears when running
+>> get_maintainers.pl on entire set.
+>>
+>> But if you sent that patch targetting subsystem instead of combining 6
+>> or 7 subsystems at once, it would pop up.
+>>
+>> And yes, you are not supposed to mix 7 different subsystems in single
+>> patchset. That's basic!
+> 
+> Pft... you're being unreasonable. These are all relatively trivial
+> changes that have at one point or another been already reviewed. Do you
+> seriously expect me to turn these into 7 different patch series so that
+> everyone gets to spend even more time dealing with these?
 
-Please consider to pull the following changes.
-Thanks!
+That's what everyone else is doing, including Qualcomm which is
+upstreaming multiple new SoCs per year, multiple patchsets, multiple
+patches.
 
-Best Regards,
-Wei
+But no, I do not expect you to split it but I expect to use
+get_maintainers.pl, unless that would cause a patchbomb cc-ing 50
+addresses (I don't suggest that you created such patchbomb -
+hypothetical). Removing maintainers from Cc list is not the way to solve
+patchbomb problem, if such arises. Splitting a hypothetical patchbomb
+would be the solution.
 
----
+> 
+>> But sure, let's skip memory controllers patch cc list and:
+>>
+>>> reviewed by Rob a long time ago, and honestly, it's also quite trivial.
+>>> It's been on the list for a month and there were no objections, so it
+>>> does pass all of the criteria you mentioned before.
+>>
+>> No objections because you did not cc people. How can you claim "no
+>> objections from person foo" if you do not cc person "foo", because you
+>> do not use get_maintainers.pl?
+>>
+>> Look, find me here phy mantainers:
+>>
+>> https://lore.kernel.org/all/20260223143305.3771383-7-thierry.reding@kernel.org/
+> 
+> It's an extremely trivial, one-line change to an existing binding. There
+> is no interaction with the driver whatsoever, why would anyone outside
+> of the DT and Tegra maintainers even want to look at this?
 
-The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+I explained in the beginning why someone could want to look:
 
-  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+1. It's a subsystem maintainer's patch, not yours.
 
-are available in the Git repository at:
+2. Conflict in that file.
 
-  https://github.com/hisilicon/linux-hisi.git tags/hisi-arm64-dt-for-7.1
+But regardless why someone would or would not want, get_maintainers.pl
+asked you to Cc them.
 
-for you to fetch changes up to f17d7a0f8ff6f9864d8f82e99c46cee1088e945b:
+> 
+>>>> And we even had few days ago talk were I explained you how these
+>>>> bindings must go. Seeing pull request completely ignoring that
+>>>> discussion is just huge surprise.
+>>>>
+>>>> No, it cannot go in. Send patches to proper maintainers first.
+>>>
+>>> Stop making these baseless accusations, Krzysztof. You were on Cc and
+>>
+>> Not using get_maintainers.pl so not ccing right address is not baseless.
+>> This is the fact.
+> 
+> I use get_maintainers.pl but filter down based on common sense.
 
-  arm64: dts: hisilicon: Rename dwmmc nodes to mmc (2026-03-27 06:53:02 +0000)
+Filtering means you don't use. Following this logic (although not
+exactly "common sense" but writing bindings point you that common sense
+for driver bindings is driver subsystem):
+1. I use get_maintainers.pl on my patch.
+2. Then I remove all addresses except linux-kernel@vger.kernel.org.
+3. All good and I claim I am using get_maintainers.pl.
 
-----------------------------------------------------------------
-ARM64: DT: HiSilicon ARM64 DT updates for v7.1
 
-- Rename dwmmc nodes to mmc to comply with the schema
+> 
+>> Neither phy, nor interrupts, nor clocks were sent to right people.
+> 
+> Again, these are patches that were all on the list previously, sent to
+> the right people at the time. They hadn't been picked up by now, so I
 
-----------------------------------------------------------------
-Bhargav Joshi (1):
-      arm64: dts: hisilicon: Rename dwmmc nodes to mmc
+No, they were not sent to the right people at the time. The right people
+at the time are pointed by get_maintainers.pl which you filtered out.
 
- arch/arm64/boot/dts/hisilicon/hi3660.dtsi | 4 ++--
- arch/arm64/boot/dts/hisilicon/hi3670.dtsi | 4 ++--
- arch/arm64/boot/dts/hisilicon/hi6220.dtsi | 6 +++---
- 3 files changed, 7 insertions(+), 7 deletions(-)
+Look again, this is the v1:
+https://lore.kernel.org/all/20260223143305.3771383-7-thierry.reding@kernel.org/
+
+Where is any phy maintainer or the phy mailing list Cc-ed?
+
+Instead of again using "baseless" arguments, please provide the actual
+fact for that claim that you cc-ed right list and right people on that
+patch.
+
+> resent them, to the DT maintainers only, to give you guys a chance to
+
+This is not a resent, this is the v1. Do you see "RESEND" in the
+subject? I don't.
+
+I am pointing out the facts now. If you disagree, please point me to the
+original posting of phy patch with the 'right' people in CC list, as
+requested by get_maintainers.pl.
+
+
+Best regards,
+Krzysztof
 
