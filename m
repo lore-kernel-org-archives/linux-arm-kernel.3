@@ -4,101 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D2C0109B48F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 15:34:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43F80109B492
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 15:51:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y4PSqneLUEeDkfVln3s0jyhbu/p+YZWIvMlwoMvls4c=; b=0nSpAR2kfZ6K7PaOELuQQMZkNU
-	46c8TZC2DCjydm+5QM/QHKO0JT5meShwbbIa5tbb4obTlVQgdUZSQPIcb02FC8HNl7RX/PRL4UoIw
-	IA6RjG2C6svJ6ETL9ctDzt9rRSJlhnBH0B8mfLXOuHl2mjI14wKgAB/4RnlE48TMysz4IPVbpfwY8
-	/+sheLtJn6xOOzm1G/lulygeTXmkuEAnGZ/leIvemcZDkeQCBvOtn9dyxwvwBtOCwTYeYhjtOnvkB
-	YPmf1/3bXNkPJfkGsCQGDnq+bKn0KWbmOsrZ88amZWNQF4l5yhiNtfO7sTKaDuhD6XEFWs0JO3ehB
-	Q+mWAR6Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=x2NhqZlEbP4csIZQcaYFum7ffnUCZ232qY6vPrwtv/I=; b=2QX/epz10QOikwukr7FoictIyO
+	PMtevjGgVDvBqcHqVQGdrS5BV+OA9ghTEWeqtGalnzfQPAKfZO5aE/LZpyPHBdGJNITEikBr8EjM9
+	l00mptilVKZLKOqZlAtvTLi/Rf7XooqKIJX7JUHa4X3D8R8ONBDSe8TM5pMwShgfRKV6DeY/RJ9db
+	5P2WErmoSZJAYTCQOPrDdLEcaGqzcHq/CUta495hyaiZVv269adjMfIZuwcptohlOp+/RZ4tn4UMO
+	3+eH/izogzdFy7BircJr+DUDa0vDgKpqEZQWTBK3OCYWXL07c5vaTGLJSijP2Hn3GWAZIh8+LD3Dv
+	43RqaGnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7b6v-0000000DBtp-0WiF;
-	Tue, 31 Mar 2026 15:34:33 +0000
-Received: from omta34.uswest2.a.cloudfilter.net ([35.89.44.33])
+	id 1w7bNL-0000000DD2A-3i88;
+	Tue, 31 Mar 2026 15:51:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7b6s-0000000DBtO-3DJP
+	id 1w7bNK-0000000DD1h-0EvZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 15:34:32 +0000
-Received: from eig-obgw-6003b.ext.cloudfilter.net ([10.0.30.175])
-	by cmsmtp with ESMTPS
-	id 7XvjwaQ6Hc7NE7b6rwMBqn; Tue, 31 Mar 2026 15:34:29 +0000
-Received: from gator4166.hostgator.com ([108.167.133.22])
-	by cmsmtp with ESMTPS
-	id 7b6lw9RQgHtqh7b6lwsFVE; Tue, 31 Mar 2026 15:34:23 +0000
-X-Authority-Analysis: v=2.4 cv=AtXu3P9P c=1 sm=1 tr=0 ts=69cbe982
- a=1YbLdUo/zbTtOZ3uB5T3HA==:117 a=k5Y5iPg+dmTXVWgYE/XtfQ==:17
- a=IkcTkHD0fZMA:10 a=Yq5XynenixoA:10 a=7T7KSl7uo7wA:10 a=VwQbUJbxAAAA:8
- a=_Wotqz80AAAA:8 a=pGLkceISAAAA:8 a=auZ1cPAoFAK5FwhZLi8A:9 a=QEXdDO2ut3YA:10
- a=buJP51TR1BpY-zbLSsyS:22 a=2aFnImwKRvkU0tJ3nQRT:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=embeddedor.com; s=default; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=y4PSqneLUEeDkfVln3s0jyhbu/p+YZWIvMlwoMvls4c=; b=rXbLle0oz15n47ZuK/Ep5LfG1u
-	dcboqrirz2TozQ3a+ojvSI9eh6MqLSjy7+4Dv7lsJ8grfQN7dTya4KV0ILn5RR3LntJxTD7UnGnep
-	1rAK/+57tP3dzCy5aSP7c67m3lWKb4B5F1bnOuT2oa+IVw5YVBspbb1BU+kumQo9F/LlIyNjuiimx
-	j5PYOZP0EtaH6ZcXipf9KnjssRO9+oQR+fdHQqGo/xwTgFX1YZTO+zmR5zUBBelnmvG42wphe/MYI
-	C2bY4coCqRTAR/hdEY2sjFRAf3eUtgtPMQHBxU6sd5JuYcMmknmAZUwu9MY+4dtq8hBqNKCcysg+Y
-	GyftIu2w==;
-Received: from [177.238.16.13] (port=53228 helo=[192.168.0.104])
-	by gator4166.hostgator.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.99.1)
-	(envelope-from <gustavo@embeddedor.com>)
-	id 1w7b6k-00000002IL2-1iz2;
-	Tue, 31 Mar 2026 10:34:23 -0500
-Message-ID: <5977a259-a7ae-43be-ad09-d09115268854@embeddedor.com>
-Date: Tue, 31 Mar 2026 09:33:13 -0600
+	Tue, 31 Mar 2026 15:51:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BE85D42B85;
+	Tue, 31 Mar 2026 15:51:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD7CAC19424;
+	Tue, 31 Mar 2026 15:51:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774972288;
+	bh=5h/uBM2muFZOCKdtTFVzBEJDVsBTI93hti/zrJ4A0Zs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=vD15Zsec7YKIv06fB6PSU9ZilFccjTHPkKbSw+EnLIdFOcoL9W/pj21x3l8hwKkKi
+	 7dzwTzQzfr5lSsZ4P9BHAbuP6fNe0SjU0mk4/24Gl7C0RqISyau5MdwFVlzZqb2m2b
+	 mMqGEXsuRaQAsds+8/L/Uft8eszCvUAo65B2kUsKDJJ63YyD8CIwAgrvP15XzPmQUh
+	 2RhjLS30GvAu1F14D48MbBa9Y0b7tyPgd9IfBct7c5SZ3ksPymAVY7LZLtEaj3Sfy1
+	 eAjXB9GjhXoX67AFKcZX/eNr1CSzFmuIdnKIoYgCD2lKeFUQDVCbqTixc/YTe47UNh
+	 p6T2Ag6cqgDgA==
+From: Will Deacon <will@kernel.org>
+To: kvmarm@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Subject: [PATCH 0/3] KVM: arm64: Fix teardown of non-protected VMs with pKVM
+Date: Tue, 31 Mar 2026 16:50:52 +0100
+Message-ID: <20260331155056.28220-1-will@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dmaengine: st_fdma: simplify allocation
-To: Rosen Penev <rosenp@gmail.com>, dmaengine@vger.kernel.org
-Cc: Patrice Chotard <patrice.chotard@foss.st.com>,
- Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- "moderated list:ARM/STI ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>,
- open "list:KERNEL" HARDENING "(not" covered by other
- "areas):Keyword:b__counted_by(_le|_be)?b" <linux-hardening@vger.kernel.org>
-References: <20260330211555.13974-1-rosenp@gmail.com>
-Content-Language: en-US
-From: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
-In-Reply-To: <20260330211555.13974-1-rosenp@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - gator4166.hostgator.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - embeddedor.com
-X-BWhitelist: no
-X-Source-IP: 177.238.16.13
-X-Source-L: No
-X-Exim-ID: 1w7b6k-00000002IL2-1iz2
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: ([192.168.0.104]) [177.238.16.13]:53228
-X-Source-Auth: gustavo@embeddedor.com
-X-Email-Count: 33
-X-Org: HG=hgshared;ORG=hostgator;
-X-Source-Cap: Z3V6aWRpbmU7Z3V6aWRpbmU7Z2F0b3I0MTY2Lmhvc3RnYXRvci5jb20=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfCVsUnk51nm0TCzCZx4NgWTzGxvQdI8AQkwiK8+PwCSV7bnpMucNHAd31gR6JUOjzFkjPAbQ6HVJbyTWfTJ12k6Wbrd9POTfyUmAkuc9VRjQnyVisYxJ
- h1a/xQRNbm/rP8d8vZ4OrORKeplGcvqWBiwZGQpg3/mkW3Ho63AtBolbHFnT7cadOqFnoq9/mwdzMHWLykut2EaPVqk+KadloPQwAlwlKS+O4LpVaOR7XetD
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_083430_832675_E42156C6 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20260331_085130_116562_5D01F464 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,106 +81,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi folks,
 
+Sashiko continues to throw rocks at me.
 
-On 3/30/26 15:15, Rosen Penev wrote:
-> Use a flexible array member to combine kzalloc and kcalloc to a single
-> allocation.
-> 
-> Add __counted_by for extra runtime analysis. 
+This time, it spotted that my fix (introduced in v5 [1] of the pKVM
+series) to prevent taking a reference on a VM in the 'is_dying' state
+also prevents unsharing of pages shared with a non-protected VM if that
+VM is torn down by its VM fd being destroyed, rather than the usual path
+via the MMU notifiers.
 
-Assign counting variable
-> after allocation as required by __counted_by.
+Rather than send a v6 of the whole series, here are three patches that
+apply on top of v5 and fix the issue by (a) preventing teardown of a
+referenced VM and (b) allowing some references to be taken on a dying
+VM. As an added bonus, this simplifies the locking on the reclaim path
+because now a VM reference is enough to stop the page-tables from going
+away.
 
-This is misinformation and should be phrased differently[1]
+Cheers,
 
--Gustavo
+Will
 
-[1] https://lore.kernel.org/linux-hardening/37378f49-437f-438b-ad6c-d60480feb306@embeddedor.com/
+[1] https://lore.kernel.org/kvmarm/20260330144841.26181-1-will@kernel.org
 
-> 
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->   drivers/dma/st_fdma.c | 27 ++++++++-------------------
->   drivers/dma/st_fdma.h |  4 ++--
->   2 files changed, 10 insertions(+), 21 deletions(-)
-> 
-> diff --git a/drivers/dma/st_fdma.c b/drivers/dma/st_fdma.c
-> index d9547017f3bd..3ec0d6731b8d 100644
-> --- a/drivers/dma/st_fdma.c
-> +++ b/drivers/dma/st_fdma.c
-> @@ -710,16 +710,6 @@ static const struct of_device_id st_fdma_match[] = {
->   };
->   MODULE_DEVICE_TABLE(of, st_fdma_match);
->   
-> -static int st_fdma_parse_dt(struct platform_device *pdev,
-> -			const struct st_fdma_driverdata *drvdata,
-> -			struct st_fdma_dev *fdev)
-> -{
-> -	snprintf(fdev->fw_name, FW_NAME_SIZE, "fdma_%s_%d.elf",
-> -		drvdata->name, drvdata->id);
-> -
-> -	return of_property_read_u32(pdev->dev.of_node, "dma-channels",
-> -				    &fdev->nr_channels);
-> -}
->   #define FDMA_DMA_BUSWIDTHS	(BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) | \
->   				 BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) | \
->   				 BIT(DMA_SLAVE_BUSWIDTH_3_BYTES) | \
-> @@ -742,27 +732,26 @@ static int st_fdma_probe(struct platform_device *pdev)
->   	struct st_fdma_dev *fdev;
->   	struct device_node *np = pdev->dev.of_node;
->   	const struct st_fdma_driverdata *drvdata;
-> +	u32 nr_channels;
->   	int ret, i;
->   
->   	drvdata = device_get_match_data(&pdev->dev);
->   
-> -	fdev = devm_kzalloc(&pdev->dev, sizeof(*fdev), GFP_KERNEL);
-> -	if (!fdev)
-> -		return -ENOMEM;
-> -
-> -	ret = st_fdma_parse_dt(pdev, drvdata, fdev);
-> +	ret = of_property_read_u32(pdev->dev.of_node, "dma-channels", &nr_channels);
->   	if (ret) {
->   		dev_err(&pdev->dev, "unable to find platform data\n");
-> -		goto err;
-> +		return ret;
->   	}
->   
-> -	fdev->chans = devm_kcalloc(&pdev->dev, fdev->nr_channels,
-> -				   sizeof(struct st_fdma_chan), GFP_KERNEL);
-> -	if (!fdev->chans)
-> +	fdev = devm_kzalloc(&pdev->dev, struct_size(fdev, chans, nr_channels), GFP_KERNEL);
-> +	if (!fdev)
->   		return -ENOMEM;
->   
-> +	fdev->nr_channels = nr_channels;
->   	fdev->dev = &pdev->dev;
->   	fdev->drvdata = drvdata;
-> +	snprintf(fdev->fw_name, FW_NAME_SIZE, "fdma_%s_%d.elf", drvdata->name, drvdata->id);
-> +
->   	platform_set_drvdata(pdev, fdev);
->   
->   	fdev->irq = platform_get_irq(pdev, 0);
-> diff --git a/drivers/dma/st_fdma.h b/drivers/dma/st_fdma.h
-> index f1e746f7bc7d..27ded555879f 100644
-> --- a/drivers/dma/st_fdma.h
-> +++ b/drivers/dma/st_fdma.h
-> @@ -136,13 +136,13 @@ struct st_fdma_dev {
->   
->   	int irq;
->   
-> -	struct st_fdma_chan *chans;
-> -
->   	spinlock_t dreq_lock;
->   	unsigned long dreq_mask;
->   
->   	u32 nr_channels;
->   	char fw_name[FW_NAME_SIZE];
-> +
-> +	struct st_fdma_chan chans[] __counted_by(nr_channels);
->   };
->   
->   /* Peripheral Registers*/
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Zenghui Yu <yuzenghui@huawei.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Quentin Perret <qperret@google.com>
+Cc: Fuad Tabba <tabba@google.com>
+Cc: Vincent Donnefort <vdonnefort@google.com>
+Cc: Mostafa Saleh <smostafa@google.com>
+Cc: Alexandru Elisei <alexandru.elisei@arm.com>
+
+--->8
+
+Will Deacon (3):
+  KVM: arm64: Prevent teardown finalisation of referenced 'hyp_vm'
+  KVM: arm64: Allow get_pkvm_hyp_vm() to take a reference to a dying VM
+  KVM: arm64: Don't hold 'vm_table_lock' across guest page reclaim
+
+ arch/arm64/kvm/hyp/nvhe/pkvm.c | 53 +++++++++++++++++-----------------
+ 1 file changed, 26 insertions(+), 27 deletions(-)
+
+-- 
+2.53.0.1118.gaef5881109-goog
 
 
