@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 082D71061B28
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 00:55:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF7651061B2B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 01:10:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b8uQQS+4NByotBm+og2yg/Ies/NbZuT0AebJns2GtMk=; b=CXm+JYf8TIOUK+9X7YT65NWmR0
-	arNwKedM4kK7jrSAu3nedK30ovi2KT3vaKv//GCXNzXn8mIAcklqMB6bmcCKpU4RqQKmVRnWV2kdt
-	ik/+clkyx1ZcEGrv740TUv8QN8FhU3JSkOhjGTUOIeESpzlpkUFyL/kQSVHAe0XTgV9aOVRmdZZ72
-	boifT+YgAJ1M52trcAdBS2uVCAMu50CtBPiPnFtWn6Dn4Z3VkV3x8teK6LLBZG3EvzdA9zaBbFnOV
-	Nm0/aIrF/gagfOAzy/e2BoetUD2KfvMlBkJBi3hC/AofCGkjLcNqGmj7PaOyYsniRO44Hs2VWJA2X
-	3KN4ZO4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zqxsAEm3zB3tx9HPvoc1xGSBviNoU0UH8MfgLojT/GU=; b=GWtmuqHE5tXW+xvGmhZ7VM6Cty
+	4hpYV1vb5F9F+Oyy+U82ZhQpKu6nbVR6VyTmHTZfFOQFf6YexR5FeA61/dYpYpSpCzrJrcQQ+7XUM
+	cH9Z/+YD3hzjIJhwSGEPSjgC2JMFEO0G0LBnBl/P6VDjX+ZWbfBF7/cEQuKCZuJ+Jt7nMsscU2B9c
+	xHIKDgxOh0954zVD7n7FL5gnkWn1PBKHWu8uQaIYWDaW/kDqVPmuoAIu8n351ke7sd2Sz0vU/srCl
+	UqCqRdLCtcHZMqhSJkc/uD9c+f9I/jXzrsqdwUsD/pKbnJHhp3K6+xX57CYRkDBBj41LJBLqRHmCF
+	L30SI3dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7NO9-0000000C6Mf-1Gf0;
-	Tue, 31 Mar 2026 00:55:25 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1w7Ncj-0000000C78I-3bTX;
+	Tue, 31 Mar 2026 01:10:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7NO1-0000000C6FP-0bEt;
-	Tue, 31 Mar 2026 00:55:18 +0000
-X-UUID: 45151b602c9c11f19e7563141e833ce8-20260330
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=b8uQQS+4NByotBm+og2yg/Ies/NbZuT0AebJns2GtMk=;
-	b=Yov3Ks3k+dfTAsz2+iqeFzPmGAkbHTnr+0PnuevhD0H+Baisda2lrhWw0AkPb6QQuoMfLO/MKzfQjwrhWOZo8GwBFmr0vXOz5TGzSFBKkeaS6NbX8XHOr34Yi+tlvAib7ApxQnpeMhJJ3Y23cSIuUtC6FHI95jP0K2js48sJ8nY=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:47e66211-9679-4048-a836-82605a856ff6,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:9031e08e-6df4-4a3d-a7a4-fbdc42d669ce,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
-	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 45151b602c9c11f19e7563141e833ce8-20260330
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
-	(envelope-from <jianhua.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 924948439; Mon, 30 Mar 2026 17:55:11 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Tue, 31 Mar 2026 08:55:08 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Tue, 31 Mar 2026 08:55:07 +0800
-From: Jianhua Lin <jianhua.lin@mediatek.com>
-To: <nicolas@ndufresne.ca>, <mchehab@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-media@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
-	<jh.hsu@mediatek.com>, Jianhua Lin <jianhua.lin@mediatek.com>
-Subject: [PATCH v5 2/3] dt-bindings: media: mediatek-jpeg-encoder: add MT8189 compatible string
-Date: Tue, 31 Mar 2026 08:54:57 +0800
-Message-ID: <20260331005458.24010-3-jianhua.lin@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20260331005458.24010-1-jianhua.lin@mediatek.com>
-References: <20260331005458.24010-1-jianhua.lin@mediatek.com>
+	id 1w7Nch-0000000C77t-2brQ;
+	Tue, 31 Mar 2026 01:10:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 08AE141879;
+	Tue, 31 Mar 2026 01:10:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBA05C4CEF7;
+	Tue, 31 Mar 2026 01:10:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1774919426;
+	bh=rFMcBYeopbsen4UF2EndeJk0OSUhO9PRv3WemTAI2lg=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=RQkykAGaQ8Hda8DjWN61ks9t9LmuKde1eVeVeGWbUzz0oHlCGDlH4H3z3Vl/ad9cJ
+	 c+PKO00Z7ZWqGD4UAjwUBlN3p0jdqz+K26VG4Mqa8MTq5VTlaU47qTruPNWjKzJe0q
+	 LxV+1phkBqKa9yc2Na470eyflxZQxt7Etu8pMcYTTXO2TNxJKWQp5/LQFLVS7TToxI
+	 rpO6+BM5ruLjphPUFO1GKDsAYzOJhOfXrAQHNSpac6QZLYyNS4LcWObYoHDMC2+dYH
+	 1L0gAcAfK7Ay3gm6ir5LHPTq+2KDzWUE5Ko+BvsDF4EXCnqDGqqhvOMN+ih+BZ4+tX
+	 rba94M3WRROCg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 0CF32392FF97;
+	Tue, 31 Mar 2026 01:10:12 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Subject: Re: [PATCH net-next v2] net: airoha: Delay offloading until all
+ net_devices are fully registered
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177491941075.2043537.8277292762892112886.git-patchwork-notify@kernel.org>
+Date: Tue, 31 Mar 2026 01:10:10 +0000
+References: <20260329-airoha-regiser-race-fix-v2-1-f4ebb139277b@kernel.org>
+In-Reply-To: <20260329-airoha-regiser-race-fix-v2-1-f4ebb139277b@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_175517_221362_2433F758 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20260330_181027_681898_CC576166 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,59 +76,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the compatible string for the JPEG encoder block found in the
-MediaTek MT8189 SoC.
+Hello:
 
-Unlike some previous SoCs, the MT8189 JPEG encoder requires 34-bit IOVA
-address space support. Therefore, it is added as a standalone compatible
-string without falling back to the generic "mediatek,mtk-jpgenc" to
-ensure the driver applies the correct hardware-specific configurations.
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Suggested-by: Rob Herring <robh@kernel.org>
-Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
----
- .../bindings/media/mediatek-jpeg-encoder.yaml | 19 +++++++++++++------
- 1 file changed, 13 insertions(+), 6 deletions(-)
+On Sun, 29 Mar 2026 12:32:27 +0200 you wrote:
+> Netfilter flowtable can theoretically try to offload flower rules as soon
+> as a net_device is registered while all the other ones are not
+> registered or initialized, triggering a possible NULL pointer dereferencing
+> of qdma pointer in airoha_ppe_set_cpu_port routine. Moreover, if
+> register_netdev() fails for a particular net_device, there is a small
+> race if Netfilter tries to offload flowtable rules before all the
+> net_devices are properly unregistered in airoha_probe() error patch,
+> triggering a NULL pointer dereferencing in airoha_ppe_set_cpu_port
+> routine. In order to avoid any possible race, delay offloading until
+> all net_devices are registered in the networking subsystem.
+> 
+> [...]
 
-diff --git a/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml b/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml
-index 5b15f8977f67..19948ed25f98 100644
---- a/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml
-+++ b/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml
-@@ -14,13 +14,16 @@ description: |-
- 
- properties:
-   compatible:
--    items:
-+    oneOf:
-       - enum:
--          - mediatek,mt2701-jpgenc
--          - mediatek,mt8183-jpgenc
--          - mediatek,mt8186-jpgenc
--          - mediatek,mt8188-jpgenc
--      - const: mediatek,mtk-jpgenc
-+          - mediatek,mt8189-jpgenc
-+      - items:
-+          - enum:
-+              - mediatek,mt2701-jpgenc
-+              - mediatek,mt8183-jpgenc
-+              - mediatek,mt8186-jpgenc
-+              - mediatek,mt8188-jpgenc
-+          - const: mediatek,mtk-jpgenc
-   reg:
-     maxItems: 1
- 
-@@ -34,6 +37,10 @@ properties:
-     items:
-       - const: jpgenc
- 
-+  mediatek,larb:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: a phandle to the smi_larb node.
-+
-   power-domains:
-     maxItems: 1
- 
+Here is the summary with links:
+  - [net-next,v2] net: airoha: Delay offloading until all net_devices are fully registered
+    https://git.kernel.org/netdev/net/c/cedc1bf327de
+
+You are awesome, thank you!
 -- 
-2.45.2
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
