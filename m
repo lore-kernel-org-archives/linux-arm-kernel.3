@@ -4,77 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8277109B46D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 14:14:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14576109B473
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 14:18:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u2fGGIf4no/o//tYkizMZzVURETL1fEqQakfZPBw6+k=; b=hHakorYKXj27obHqxNhkOh6EGp
-	6cgDdOq6HdmPu3BkndYVIFm1v8NlfmtrTWqzkiUfUzIjfTddUpRo4FA0z3ViGtIQv1sd0sFhuk8j7
-	p34pxY/lwo97t9HVcvuJexD8SXxJBtwmZtIBDWHjapkdrvGVg21aC40+heb6VuecWwEYI5Dh5y2Sp
-	Yn82Xv25WL2kpVrfCefnpzv8G8pgC8tm2uy/k/n+YHi3rQg3FwJK5HFM3JYrr0bWKG00GaS+n1JxO
-	ylKGBNENRoRpimJKVoFEJvi+NTo3Sysa3fXHmW36Br44IN3SE7GgPcmqTremUKV8vm8DdkKVsZMR6
-	QtINvd6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Wmozg0m3DQsYpGD8orkO2ipP4TyyaAJHZKLp0sbHtfk=; b=PE1KmXPv2Y9nsim8w4dimmU7Oh
+	u2bi18IS6xiTexCIPtnBAOvZAULq+j2/OpiYbuas/XPwvIfFdQskt7MoXPSgNgZ2KQiPZ52v3iEb1
+	6/fD5IqZCCkdSwg2pxomWVUY1w8ahtojVtzaAnsHJUoe1OfRMsP4lRCjTqiqFhYqAeiE5j4t28TBX
+	DwXlp/tteufFbS/aX42iZPsUDIrDbq0K0wofImUkG0POwJyaiF8AFB4Dlz7YC2BgzqDN4cg8bC8AU
+	vwZdmusNYrIKeMwZFsqiTkDq0u28NtCGwYABY4Yn8ZXqX6LiyFsBpr8RU+I/zhq9l8n4qQtaULlAA
+	vpXcjFug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Zr8-0000000D3X6-0ZyE;
-	Tue, 31 Mar 2026 14:14:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Zr4-0000000D3Ve-2Yl0
+	id 1w7Zv0-0000000D4Bd-0BWm;
+	Tue, 31 Mar 2026 14:18:10 +0000
+Received: from mail-yx1-xb12b.google.com ([2607:f8b0:4864:20::b12b])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7Zux-0000000D4B9-0Mtn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 14:14:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1565249C7;
-	Tue, 31 Mar 2026 07:13:57 -0700 (PDT)
-Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BC9EF3F641;
-	Tue, 31 Mar 2026 07:13:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774966442; bh=0WokdVZGVQOySMRtOFuViCjuFlNJiqco1s6MePa8OP0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SLROPAAq4tm06CZlvLbnK6UlSl74cbeF4PnQYHt9YVrFbK4s7f7jkSNb87VbkRboy
-	 XXkf4Lg/itNksvkyv6pSBDL/ICC5mCXYYcQ0SnbvaUsn7q3qpwFoRaJP/O5WcrtsmP
-	 3Bp268ytYRpb6dxbptQOk8QvUD84hzofzk3QHT0g=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Tian Zheng <zhengtian10@huawei.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	maz@kernel.org,
-	oupton@kernel.org,
-	catalin.marinas@arm.com,
-	corbet@lwn.net,
-	pbonzini@redhat.com,
-	will@kernel.org,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	liuyonglong@huawei.com,
-	Jonathan.Cameron@huawei.com,
-	yezhenyu2@huawei.com,
-	linuxarm@huawei.com,
-	joey.gouly@arm.com,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	skhan@linuxfoundation.org,
-	suzuki.poulose@arm.com
-Subject: Re: [PATCH v3 0/5] Support the FEAT_HDBSS introduced in Armv9.5
-Date: Tue, 31 Mar 2026 15:13:50 +0100
-Message-ID: <acvWnjG0AZBHL21q@devkitleo>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260225040421.2683931-1-zhengtian10@huawei.com>
-References: <20260225040421.2683931-1-zhengtian10@huawei.com>
+	Tue, 31 Mar 2026 14:18:08 +0000
+Received: by mail-yx1-xb12b.google.com with SMTP id 956f58d0204a3-6501c4857b2so5653909d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 07:18:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1774966685; x=1775571485; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Wmozg0m3DQsYpGD8orkO2ipP4TyyaAJHZKLp0sbHtfk=;
+        b=s0pHHTvqjAJpWe/gkJ923wEhPNKZKFMUZyL63leYr4/bcgoUfEot0jvzbN8K4heDIv
+         xb/yWPw5u5JAeqpFcFCYy8uRb1i5CMS540BPCRKRVvfRNqwntaKcZq2O0WUhkRg0IF6s
+         Tu5uLRHKFYVv8IlxGvrHiecBStJaPQkIER3Gly3Ihgyg6cEQJAPtR5on5pQcBSIuUg2G
+         68vVPkiGzV7uyI+b/GsxDUj+qVzCcNKeMEhLCfNVsaq9sYEFQPNnf09Nse2JcM4GPP8d
+         qlZv6a9wZaD7R1sTnqn6fWXiAIgReyQ3M9oYqbkGSeF6miUFhKADD6dHQxEo3pG3Q5jV
+         R+zw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774966685; x=1775571485;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Wmozg0m3DQsYpGD8orkO2ipP4TyyaAJHZKLp0sbHtfk=;
+        b=XvDAxNt5LcwN6npziqHH3pHsAVbze4pTU4Alf3fEzvyY6RTFOy77KYJtONdNM35O46
+         nq7W/LSbZAFG9GNou1BltUVkc7HJiE+QEOTPttx2BmyuliMR8rqd2E8r5aZC7NJtuC3V
+         bEhdFjp5cZaaoU8AY9oraxANEioUMDnt3+5FqdIoEpcIeX318JP/3/G4lbv+YwPId7wf
+         EqmW9M8GGYTwJpvnyKncviAZyKogBOefIzUY7cd7nF7CkirSnT2lIMdHAD3gaU7Cx9IN
+         WxKSZOaZWcWQD9TB93wRx4VdFSJWRlal9G/OqRbgnaRPoXN6B8HD4KZN29EcNzDCXT4M
+         39GA==
+X-Forwarded-Encrypted: i=1; AJvYcCUErB6YyIvv1UdZoUtYGLtXl27WwYzrIX9uMULw2EFrOZNieI401HGEW5fa8+fwomkzjvPXTpVDK4uTJ0Vb7u79@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzl784h3IhndsByldKflB5dcVZlzD64HSIwOey9rqgs2jELN0sy
+	gBgwzIBFeZl1Mh57upgufFPT07lkhZWjFNuhiFPI38e/9SjKMZ9hpr/f
+X-Gm-Gg: ATEYQzyPCig4LV4e0UWADtTpbQRY+DqFQA2xvdY/TGCVp5uC8lSC0d45PYZLW9VNSHS
+	W7P2j3YvXwDi68kb0d6nGicckpCkgJaZ4m1iGd1jhhV6YETVOyjSG5YGT1qTw7Ft7JuvDO7VjTl
+	xXHARXjQK4BlawGDGI6WhB0D5i6JkM2uEU7RrtiRmB/yh2eSr7o7+lWYGAFRN/vYylE28uRtEOu
+	gGAGW9g9ltl3/LBIp+WnCIZxrPip+EJE/uf1s/p4M1X3/cMmyK9BO3t8EdGjnzgPUC6ksqyDDUi
+	sY0VSAlZUEMz15pb1+YkWfjH2S4ipX9SQyVy6OFdfYvOyeBTY6M9lMXztRoBsmWLcmILFnwEJiZ
+	2OFh7MkLJMu0KQF7HTS84eDoLRZdRH22RrBuQ9+OiUQ2f7ssMaMHyIiIWrebLvp6b1BCGJwuHTS
+	4LJGb2uc4QjVSlo9Ug
+X-Received: by 2002:a05:690e:4408:10b0:64d:6cf8:f8c with SMTP id 956f58d0204a3-64ff73d4236mr13831172d50.40.1774966685293;
+        Tue, 31 Mar 2026 07:18:05 -0700 (PDT)
+Received: from [192.168.2.165] ([2600:1700:220:59e0::914])
+        by smtp.googlemail.com with ESMTPSA id 956f58d0204a3-65009326eddsm5590599d50.13.2026.03.31.07.18.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 31 Mar 2026 07:18:04 -0700 (PDT)
+From: Anirudh Srinivasan <anirudhsriniv@gmail.com>
+Date: Tue, 31 Mar 2026 09:18:00 -0500
+Subject: [PATCH v2] ARM: dts: aspeed: Enable networking for Asus Kommando
+ IPMI Card
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260331-asus-kommando-networking-v2-1-f7d72ae5d40d@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WOTU7DMBBGrxJ5jZF/iD3qinugLsb2JB2V2GCnA
+ VTl7pj0ACzfSPO+dxeNKlMTp+EuKm3cuOQO5mkQ8YJ5JsmpszDKOGUNSGy3Jq9lWTCnIjOtX6V
+ eOc9yjMppg+gCRNHfPypN/H2o384PrvR56wvr4ygCNpKxq3g9Dd6FF4pAU4oWwMcUJm9VQkPjC
+ KCnqFGD90r8uS7c1lJ/jupNH7L/AzcttXQuWQUBYLTudV6Q3597gTjv+/4LK7ziOQwBAAA=
+X-Change-ID: 20260328-asus-kommando-networking-5c0612aa6b8c
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+ linux-kernel@vger.kernel.org, Anirudh Srinivasan <anirudhsriniv@gmail.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_071406_803160_12378432 
-X-CRM114-Status: GOOD (  24.38  )
+X-CRM114-CacheID: sfid-20260331_071807_137078_66946146 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,84 +105,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 25, 2026 at 12:04:16PM +0800, Tian Zheng wrote:
-> This series of patches add support to the Hardware Dirty state tracking
-> Structure(HDBSS) feature, which is introduced by the ARM architecture
-> in the DDI0601(ID121123) version.
-> 
-> The HDBSS feature is an extension to the architecture that enhances
-> tracking translation table descriptors' dirty state, identified as
-> FEAT_HDBSS. This feature utilizes hardware assistance to achieve dirty
-> page tracking, aiming to significantly reduce the overhead of scanning
-> for dirty pages.
-> 
-> The purpose of this feature is to make the execution overhead of live
-> migration lower to both the guest and the host, compared to existing
-> approaches (write-protect or search stage 2 tables).
-> 
-> After these patches, users(such as qemu) can use the
-> KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl to enable or disable the HDBSS
-> feature before and after the live migration.
-> 
-> v2:
-> https://lore.kernel.org/linux-arm-kernel/20251121092342.3393318-1-zhengtian10@huawei.com/
-> 
-> v2->v3 changes:
-> - Remove the ARM64_HDBSS configuration option and ensure this feature
-> is only enabled in VHE mode.
-> - Move HDBSS-related variables to the arch-independent portion of the
-> kvm structure.
-> - Remove error messages during HDBSS enable/disable operations
-> - Change HDBSS buffer flushing from handle_exit to vcpu_put,
-> check_vcpu_requests, and kvm_handle_guest_abort.
-> - Add fault handling for HDBSS including buffer full, external abort,
-> and general protection fault (GPF).
-> - Add support for a 4KB HDBSS buffer size, mapped to the value 0b0000.
-> - Add a second argument to the ioctl to turn HDBSS on or off.
-> 
-> Tian Zheng (1):
->   KVM: arm64: Document HDBSS ioctl
-> 
-> eillon (4):
->   arm64/sysreg: Add HDBSS related register information
->   KVM: arm64: Add support to set the DBM attr during memory abort
->   KVM: arm64: Add support for FEAT_HDBSS
->   KVM: arm64: Enable HDBSS support and handle HDBSSF events
-> 
->  Documentation/virt/kvm/api.rst       |  16 +++++
->  arch/arm64/include/asm/cpufeature.h  |   5 ++
->  arch/arm64/include/asm/esr.h         |   7 ++
->  arch/arm64/include/asm/kvm_host.h    |  17 +++++
->  arch/arm64/include/asm/kvm_mmu.h     |   1 +
->  arch/arm64/include/asm/kvm_pgtable.h |   4 ++
->  arch/arm64/include/asm/sysreg.h      |  11 +++
->  arch/arm64/kernel/cpufeature.c       |  12 ++++
->  arch/arm64/kvm/arm.c                 | 102 +++++++++++++++++++++++++++
->  arch/arm64/kvm/hyp/pgtable.c         |   6 ++
->  arch/arm64/kvm/hyp/vhe/switch.c      |  19 +++++
->  arch/arm64/kvm/mmu.c                 |  70 ++++++++++++++++++
->  arch/arm64/kvm/reset.c               |   3 +
->  arch/arm64/tools/cpucaps             |   1 +
->  arch/arm64/tools/sysreg              |  29 ++++++++
->  include/uapi/linux/kvm.h             |   1 +
->  tools/include/uapi/linux/kvm.h       |   1 +
->  17 files changed, 305 insertions(+)
-> 
-> --
-> 2.33.0
-> 
+Adds the DT nodes needed for ethernet support for Asus Kommando, with
+phy mode set to rgmii-id.
 
+When this DT was originally added, the phy mode was set to rgmii (which
+was incorrect). It was suggested to remove networking support from the
+DT till the Aspeed networking driver was patched so that the correct phy
+mode could be used.
 
-Hi Tian,
+The discussion in [1] mentions that u-boot was inserting clk delays that
+weren't needed, which resulted in needing to set the phy mode in linux
+to rgmii incorrectly. The solution suggested there was to patch u-boot to
+no longer insert these clk delays and use rgmii-id as the phy mode for
+any future DTs added to linux.
 
-I was thinking: maybe instead of putting the HDBSS (and HACDBS) stuff 
-across a bunch of KVM files, we should try to focus them all on a single 
-arch/arm64/kvm/dirty_bit.c file (plus a header such as 
-arch/arm64/include/asm/kvm_dirty_bit.h).
+This DT was tested (on the OpenBMC u-boot fork [2]) with a u-boot DT
+modified to insert clk delays of 0 (instead of patching u-boot itself).
+[3] adds a u-boot DT for this device (without networking) and describes
+how to patch it to add networking support. If this patched DT is used,
+then networking works with rgmii-id phy mode in both u-boot and linux.
 
-What is your opinion on that?
+[1] https://lore.kernel.org/linux-aspeed/ef88bb50-9f2c-458d-a7e5-dc5ecb9c777a@lunn.ch/
+[2] https://github.com/openbmc/u-boot/tree/v2019.04-aspeed-openbmc
+[3] https://lore.kernel.org/openbmc/20260328-asus-kommando-v2-1-2a656f8cd314@gmail.com/
 
-Thanks!
-Leo
+Signed-off-by: Anirudh Srinivasan <anirudhsriniv@gmail.com>
+---
+This patch is based off aspeed/arm/dt from bmc tree
+---
+Changes in v2:
+- Commit message now mentions that the u-boot tested against is the
+  openbmc u-boot fork
+- Link to v1: https://lore.kernel.org/r/20260328-asus-kommando-networking-v1-1-66d308b88536@gmail.com
+---
+ .../dts/aspeed/aspeed-bmc-asus-kommando-ipmi-card.dts  | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asus-kommando-ipmi-card.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-asus-kommando-ipmi-card.dts
+index ab7ad320067c1ddc0fea9ac386fd488c8ef28184..e0f7d92efa18ccbad2c336236c3b9d01b7de1bba 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-asus-kommando-ipmi-card.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asus-kommando-ipmi-card.dts
+@@ -107,6 +107,24 @@ &gpio1 {
+ 	/*18E0 32*/ "","","","","","","","";
+ };
+ 
++&mac2 {
++	status = "okay";
++
++	phy-mode = "rgmii-id";
++	phy-handle = <&ethphy2>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_rgmii3_default>;
++};
++
++&mdio2 {
++	status = "okay";
++
++	ethphy2: ethernet-phy@0 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <0>;
++	};
++};
++
+ &vhub {
+ 	status = "okay";
+ };
+
+---
+base-commit: 76b4ec8efdc3887cdbf730da2e55881fc1a18770
+change-id: 20260328-asus-kommando-networking-5c0612aa6b8c
+
+Best regards,
+-- 
+Anirudh Srinivasan <anirudhsriniv@gmail.com>
 
 
