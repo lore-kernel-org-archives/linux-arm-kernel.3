@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD3C10F92E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 16:50:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CDCB10F92E0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 16:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mCEk1mzGPwHXI9US3EUUquhGmHolsu3eK9XGd/s4wvA=; b=rl2Cno2b1x/j1kZY4tHaX4I5L3
-	jaDu+4zSYqBqSpHy38H3DpHMqX/mBAsjJXd/N1wlqkzDrq4OPtfBy6DN0CWnOr4/SxdwmOwEUKu+z
-	S/Xws3UiPMw0U8VEYfZwVmbVd9ql+s4anfcV/1+VEzuabS0O9OduKVwNl7Lha2BmLExw5kTDluZb9
-	2O6R5dRyt5ydioH4+dvoKiSUV8l4LXOO9acUYJlYNxJAgJJSmDH6xtvh0EQ71crru7X7xsSveHJoA
-	dFe355slZ96gsiC7oGA/nimlrOeiRdDyXLtlEf2mPSSiJp52tCK7o2kmMbeOH1IbVom4DHOKnEet3
-	ZrMY0/VQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WknxB7BlqisH6Zvww+cbKHxPeTuxJGYJCxx5qD7dZkE=; b=VG9yknlWLMLsX/xit5N1vLI1S0
+	8Iik7aLOgqXzC6y+Op3GUXlJDMI4SzZ8P5Z8OZH6UI12eNOkTI9FvcHENyDY/KUL9knAItrQHZQxQ
+	NVnmDRAm33/tkjdeMmNd+/+xL9Xn3CrO9gC1Z34gxuXHcuCHRPiIISHrVYa+prA4mBCQzF7woXU+y
+	AKSn1j2VFdsaA34tJ8/TJTJCRJz+BAB0FF3Ez3cpQDEeTY53PZZHwij6E9VySYYJ83knkcBUeEzVi
+	gvl1EI/idPnElLttU7o/zHTWzfa9qWZZBo0r38bvQbh8EW7lfAoNQqMVjKZl39/3h+yOStCmzIZ0u
+	iW/kbUYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7cIR-0000000DHZj-44EP;
-	Tue, 31 Mar 2026 16:50:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w7cJl-0000000DHoo-0Rj8;
+	Tue, 31 Mar 2026 16:51:53 +0000
+Received: from fsn-vps-1.bereza.email ([162.55.44.2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7cIL-0000000DHWn-0ZR3;
-	Tue, 31 Mar 2026 16:50:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 29F5E444C7;
-	Tue, 31 Mar 2026 16:50:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0750EC19423;
-	Tue, 31 Mar 2026 16:50:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774975824;
-	bh=yPbT/W313OSJoZ8O0RXZ7diQTSAMILjsVYypreYNEew=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=VouOZYbE5mttvfHFRwlMgQzatPf1c619iwkQnBoyE8tBQw6Gk+aQ4jMdrOqblMtiW
-	 QZdHJ/pw73UBWAwwnECkyX3Vnr+yB+Ue4ND4A4JJqGxt5I8iBVmNa+N26MURipssNG
-	 w4k6bmD/pbthSrbTtao4W2Zu6PYFPdzxvTpjlaieEj2c3L3Lj4i9GKI5p0/5T7nhnH
-	 ts5BcrRKSQjWItX9d69IvvRG/XzFa8OZdteH0cC5nBLMRMz9u1zxbJqDZt3e9brxTK
-	 8HBH6qflQwpUKIkoQPawePE0mH0tpgoaj0GgY/6Xww7pTQf4i8fkxN3L+RggybC+e/
-	 QAdQN8cQSbEGQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9E4B3809A05;
-	Tue, 31 Mar 2026 16:50:08 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1w7cJi-0000000DHo8-2Pgm
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 31 Mar 2026 16:51:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=bereza.email; s=mail;
+	t=1774975460; bh=9PyHENddhGjJqQ3dIJrsaurapatYX0PZNL/WyIPsycU=;
+	h=From:Date:Subject:To:Cc:From;
+	b=0bhZXFkZ8tmu2R82WFklCpkQlIQx74k1AOnQWpeuPqlbOcibVoPZkRpHuO8a+GkZe
+	 WzUEKi0EF0WeLB6NlvJ5PG4cxnGMO827wAxQpJ0SiraVIBFwnGU0v6LwYFQFUPaEuV
+	 9XdsAfsiJP0GFVq5rWPU2xz3PHBwRymk7kr5IhrD9SekexTznbdI8fMOR8GsZnknjv
+	 Ak3LoSaagaeYqXNCScR1v8p/DsfWFcq1ztuM4gAoU4Oh/i5XXis2Jzmf1EURQFQAQs
+	 2YeTvmF+2ZtOz9qYGaUwms9V4EPFJigHvSfd84EmLFnOym0X1Qva1RDdqYW5OjnwfY
+	 b02aave3JMFZw==
+Received: from [127.0.1.1] (pd95bbad8.dip0.t-ipconnect.de [217.91.186.216])
+	by fsn-vps-1.bereza.email (Postfix) with ESMTPSA id 5FC5F60F1B;
+	Tue, 31 Mar 2026 18:44:20 +0200 (CEST)
+From: Alex Bereza <alex@bereza.email>
+Date: Tue, 31 Mar 2026 18:44:00 +0200
+Subject: [PATCH] dmaengine: xilinx_dma: Fix CPU stall in
+ xilinx_dma_poll_timeout
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v4 0/8] Bluetooth: Add MediaTek MT7927 (MT6639) support
-From: patchwork-bot+bluetooth@kernel.org
-Message-Id: <177497580753.2805862.5559231119574123982.git-patchwork-notify@kernel.org>
-Date: Tue, 31 Mar 2026 16:50:07 +0000
-References: <20260330-mt7927-bt-support-v4-0-cecc025e7062@jetm.me>
-In-Reply-To: <20260330-mt7927-bt-support-v4-0-cecc025e7062@jetm.me>
-To: Javier Tia <floss@jetm.me>
-Cc: marcel@holtmann.org, luiz.dentz@gmail.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, linux-bluetooth@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, xelnaga@gmail.com, jnetto@mineiro.io,
- melinko2003@gmail.com, chapuisdario4@gmail.com, 3193631@gmail.com,
- nitin.reddy88@gmail.com, tibo@humeurlibre.fr, lubnin.ivan@gmail.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260331-fix-atomic-poll-timeout-regression-v1-1-5b7bd96eaca0@bereza.email>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWNwQqDMBAFf0X23IXUiIX+Sukhxhe7RY1sYimI/
+ 95Yj3OYmY0SVJDoXm2k+EiSOBe4XiryLzcPYOkLU23q1lhrOMiXXY6TeF7iOHKWCXHNrBgU6dC
+ 5CQ1s54IN/Y1KaFEU6z95PE9Oa/eGz0eZ9v0H2q6Fh4YAAAA=
+X-Change-ID: 20260330-fix-atomic-poll-timeout-regression-4f4e3baf3fd7
+To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ Michal Simek <michal.simek@amd.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Ulf Hansson <ulf.hansson@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Tony Lindgren <tony@atomide.com>
+Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Alex Bereza <alex@bereza.email>
+X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_095025_204495_DC900ACB 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260331_095150_788707_F2F80D70 
+X-CRM114-Status: GOOD (  19.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,44 +76,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Currently when calling xilinx_dma_poll_timeout with delay_us=0 and a
+condition that is never fulfilled, the CPU busy-waits for prolonged time
+and the timeout triggers only with a massive delay causing a CPU stall.
 
-This series was applied to bluetooth/bluetooth-next.git (master)
-by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
+This happens due to a huge underestimation of wall clock time in
+poll_timeout_us_atomic. Commit 7349a69cf312 ("iopoll: Do not use
+timekeeping in read_poll_timeout_atomic()") changed the behavior to no
+longer use ktime_get at the expense of underestimation of wall clock
+time which appears to be very large for delay_us=0. Instead of timing
+out after approximately XILINX_DMA_LOOP_COUNT microseconds, the timeout
+takes XILINX_DMA_LOOP_COUNT * 1000 * (time that the overhead of the for
+loop in poll_timeout_us_atomic takes) which is in the range of several
+minutes for XILINX_DMA_LOOP_COUNT=1000000. Fix this by using a non-zero
+value for delay_us. Use delay_us=10 to keep the delay in the hot path of
+starting DMA transfers minimal but still avoid CPU stalls in case of
+unexpected hardware failures.
 
-On Mon, 30 Mar 2026 14:39:22 -0600 you wrote:
-> combo WiFi 7 + BT 5.4 module. The BT subsystem uses hardware variant
-> 0x6639 and connects via USB.
-> 
-> The MT7927 is shipping in motherboards and PCIe add-in cards from ASUS,
-> Gigabyte, Lenovo, MSI, and TP-Link since mid-2024. Without these patches,
-> users see "Unsupported hardware variant (00006639)" or the BT subsystem
-> hangs during firmware download.
-> 
-> [...]
+One-off measurement with delay_us=0 causes the cpu to busy wait around 7
+minutes in the timeout case. After applying this patch with delay_us=10
+the measured timeout was 1053428 microseconds which is roughly
+equivalent to the expected 1000000 microseconds specified in
+XILINX_DMA_POLL_TIMEOUT_US.
 
-Here is the summary with links:
-  - [v4,1/8] Bluetooth: btmtk: Add MT6639 (MT7927) Bluetooth support
-    https://git.kernel.org/bluetooth/bluetooth-next/c/4cdd001ff03f
-  - [v4,2/8] Bluetooth: btmtk: fix ISO interface setup for single alt setting
-    https://git.kernel.org/bluetooth/bluetooth-next/c/fe9e35d0b3f1
-  - [v4,3/8] Bluetooth: btusb: Add MT7927 ID for ASUS ROG Crosshair X870E Hero
-    https://git.kernel.org/bluetooth/bluetooth-next/c/af6731663d8f
-  - [v4,4/8] Bluetooth: btusb: Add MT7927 ID for Lenovo Legion Pro 7 16ARX9
-    https://git.kernel.org/bluetooth/bluetooth-next/c/70d2954d3051
-  - [v4,5/8] Bluetooth: btusb: Add MT7927 ID for Gigabyte Z790 AORUS MASTER X
-    https://git.kernel.org/bluetooth/bluetooth-next/c/e4fb2113d5e2
-  - [v4,6/8] Bluetooth: btusb: Add MT7927 ID for MSI X870E Ace Max
-    https://git.kernel.org/bluetooth/bluetooth-next/c/4be0c8800708
-  - [v4,7/8] Bluetooth: btusb: Add MT7927 ID for TP-Link Archer TBE550E
-    https://git.kernel.org/bluetooth/bluetooth-next/c/26308f935d23
-  - [v4,8/8] Bluetooth: btusb: Add MT7927 ID for ASUS X870E / ProArt X870E-Creator
-    https://git.kernel.org/bluetooth/bluetooth-next/c/b65fdb465d54
+Rename XILINX_DMA_LOOP_COUNT to XILINX_DMA_POLL_TIMEOUT_US because the
+former is incorrect. It is a timeout value for polling various register
+bits in microseconds. It is not a loop count. Add a constant
+XILINX_DMA_POLL_DELAY_US for delay_us value.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Fixes: 7349a69cf312 ("iopoll: Do not use timekeeping in read_poll_timeout_atomic()")
+Signed-off-by: Alex Bereza <alex@bereza.email>
+---
+Hi, in addition to this patch I also have a question: what is the point
+of atomically polling for the HALTED or IDLE bit in the stop_transfer
+functions? Does device_terminate_all really need to be callable from
+atomic context? If not, one could switch to polling non-atomically and
+avoid burning CPU cycles.
 
+As this is my first patch, please feel free to point me in the right
+direction if I am missing anything.
+---
+ drivers/dma/xilinx/xilinx_dma.c | 26 ++++++++++++++++----------
+ 1 file changed, 16 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+index 02a05f215614..8556c357b665 100644
+--- a/drivers/dma/xilinx/xilinx_dma.c
++++ b/drivers/dma/xilinx/xilinx_dma.c
+@@ -165,8 +165,10 @@
+ #define XILINX_DMA_FLUSH_MM2S		2
+ #define XILINX_DMA_FLUSH_BOTH		1
+ 
+-/* Delay loop counter to prevent hardware failure */
+-#define XILINX_DMA_LOOP_COUNT		1000000
++/* Timeout for polling various registers */
++#define XILINX_DMA_POLL_TIMEOUT_US		1000000
++/* Delay between polls (avoid a delay of 0 to prevent CPU stalls) */
++#define XILINX_DMA_POLL_DELAY_US		10
+ 
+ /* AXI DMA Specific Registers/Offsets */
+ #define XILINX_DMA_REG_SRCDSTADDR	0x18
+@@ -1332,8 +1334,9 @@ static int xilinx_dma_stop_transfer(struct xilinx_dma_chan *chan)
+ 
+ 	/* Wait for the hardware to halt */
+ 	return xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
+-				       val & XILINX_DMA_DMASR_HALTED, 0,
+-				       XILINX_DMA_LOOP_COUNT);
++				       val & XILINX_DMA_DMASR_HALTED,
++				       XILINX_DMA_POLL_DELAY_US,
++				       XILINX_DMA_POLL_TIMEOUT_US);
+ }
+ 
+ /**
+@@ -1347,8 +1350,9 @@ static int xilinx_cdma_stop_transfer(struct xilinx_dma_chan *chan)
+ 	u32 val;
+ 
+ 	return xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
+-				       val & XILINX_DMA_DMASR_IDLE, 0,
+-				       XILINX_DMA_LOOP_COUNT);
++				       val & XILINX_DMA_DMASR_IDLE,
++				       XILINX_DMA_POLL_DELAY_US,
++				       XILINX_DMA_POLL_TIMEOUT_US);
+ }
+ 
+ /**
+@@ -1364,8 +1368,9 @@ static void xilinx_dma_start(struct xilinx_dma_chan *chan)
+ 
+ 	/* Wait for the hardware to start */
+ 	err = xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
+-				      !(val & XILINX_DMA_DMASR_HALTED), 0,
+-				      XILINX_DMA_LOOP_COUNT);
++				      !(val & XILINX_DMA_DMASR_HALTED),
++				      XILINX_DMA_POLL_DELAY_US,
++				      XILINX_DMA_POLL_TIMEOUT_US);
+ 
+ 	if (err) {
+ 		dev_err(chan->dev, "Cannot start channel %p: %x\n",
+@@ -1780,8 +1785,9 @@ static int xilinx_dma_reset(struct xilinx_dma_chan *chan)
+ 
+ 	/* Wait for the hardware to finish reset */
+ 	err = xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMACR, tmp,
+-				      !(tmp & XILINX_DMA_DMACR_RESET), 0,
+-				      XILINX_DMA_LOOP_COUNT);
++				      !(tmp & XILINX_DMA_DMACR_RESET),
++				      XILINX_DMA_POLL_DELAY_US,
++				      XILINX_DMA_POLL_TIMEOUT_US);
+ 
+ 	if (err) {
+ 		dev_err(chan->dev, "reset timeout, cr %x, sr %x\n",
+
+---
+base-commit: b7560798466a07d9c3fb011698e92c335ab28baf
+change-id: 20260330-fix-atomic-poll-timeout-regression-4f4e3baf3fd7
+
+Best regards,
+--  
+Alex Bereza <alex@bereza.email>
 
 
