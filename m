@@ -4,100 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B80C1061B39
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 12:06:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA641061B37
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 12:08:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PDatyFVAiZLhLxBFtYnTIvtR7O2b1Etoyk1xIQrbCZ8=; b=eDtbcTqXkY8WBmIspgl1awJZ6x
-	37sTzfIyQQEGb7b/as08lrMMls9zb4yscE2YTbMqVMVcsrmnYLof6bzuafppthzh1Sr+TYQOkSrl1
-	ldOZ5ZdsZ6+iLuD0Ajs9YPpsqcE6+Aqk/ljfv3hCOY1YoStkidN2OiAZ8FeIM/Mn8I7CT+KDIUMVR
-	Mw+shAMbYj2l/p0LbGV4p0mIJjwuKst/ObCZDsHf8RmC4Ey1vBu/Eac42xDCxkUDnK1V6eURqU4Be
-	GgFKnSbMlZj+AUSXWQodVuL0Kaltvyeu7kUQbO8ADRDfYvZry5wPEF8960WHH+SE7ckx+rsjJjez7
-	WNqC410g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AMuiR5FANByCN2kHwFzhr8xHmsKqH7ZwueFZJt//iU0=; b=kAQOSKTccE0HLWYhEBf8Ss/w7X
+	AfbwfiFg3h4YYWr4ZsG0/dwdBEYLyFso1qHkfkVLg4qEAFCtLIG0M96b19PpdQ/krLqnAee9yfhwn
+	AAXK8vzKa6w6W4DhsY5MfHICSyH4zpoZp/lmR8h6zITEjwq5TMUJHUL2Ugq7IyOxgNjZ22ynd0C/m
+	lRn1OyuvaUnwan8X3dqrpstAEFkGvcD1PtD29hpLiX2jD8ZksOcTttGxwmFmI4YMzrvSzSJsYOFRt
+	ldyK1NGmsux4ZpQKdgZUA9CL6m/KcgHTrXdAcBuvJL9pHIzQkJ2JrUQQB3ZP1kBeMqwuIceXVl0mw
+	rH7hXfiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Xrf-0000000CuhA-1x3t;
-	Tue, 31 Mar 2026 12:06:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w7XtW-0000000CuoX-3lGz;
+	Tue, 31 Mar 2026 12:08:30 +0000
+Received: from mail-westus3azon11010046.outbound.protection.outlook.com ([52.101.201.46] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7Xrc-0000000Cugp-17SH
+	id 1w7XtT-0000000Cuo5-2TL7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 12:06:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A242C43CFD;
-	Tue, 31 Mar 2026 12:06:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31819C2BC9E;
-	Tue, 31 Mar 2026 12:06:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774958788;
-	bh=nCD/5aGuYUj4L+YCsXbJhOdKE/QuS5AuzVdRTwZBaMc=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=C9fJtmA1ePeEazZIzpwZaDNABi2ijNY7yhY2LRIymbb11/SJlEMKdiff83cReX+5i
-	 z9Kkapz5RbV6BWWkdwNgi5A6TQXRgiNkcDuWd/mCVEEChUeA8zwF32kMWHopzxMmTr
-	 yypyNXQyD9aGfpWh0JtJOeqxY2/2bIFz38qHeTNsbQAZjALN1uw8Zm5JrBOX93r5FP
-	 mSoPklkmUGclMHMFHmIGQNZs9vvfZTGodPqJdsXaQsqJ6LDAsTFZUWBTWMZOvTmfs7
-	 A1WpPiixkwMaZUYjrxoN8kMYsWVBJtYxveHt2dBZBU3mup2fJbLE/Xs19sq8QSpZYh
-	 JubhnVThwN83w==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 46EEEF4006A;
-	Tue, 31 Mar 2026 08:06:27 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Tue, 31 Mar 2026 08:06:27 -0400
-X-ME-Sender: <xms:w7jLacjFp-NImW40mgm9cxKVvAuO8MtyAj8UMSczFZgO2vS--siBAg>
-    <xme:w7jLaf25D0pPBQRzfIBBh6IZTmQoMWnFpfHwulYk-eRPwcWIaeLBF3lpQu9ou0tWd
-    zae-er7E2l2wDJunXAjfshylDxftnpqYZtoSxsPWueaJPp96jeewnY>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdduhecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegrihhl
-    ohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpe
-    foggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhguuceuihgv
-    shhhvghuvhgvlhdfuceorghruggssehkvghrnhgvlhdrohhrgheqnecuggftrfgrthhtvg
-    hrnhepfffhkefhfeefgfevvdehvedthfevvdelieekledufeeifeejvdevvddtueeilefh
-    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghdplhgushdrshgsnecuvehluhhsthgvrh
-    fuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrugdomhgvshhmthhprghu
-    thhhphgvrhhsohhnrghlihhthidqudeijedthedttdejledqfeefvdduieegudehqdgrrh
-    gusgeppehkvghrnhgvlhdrohhrghesfihorhhkohhfrghrugdrtghomhdpnhgspghrtghp
-    thhtohepuddupdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehmrghrkhdrrhhuth
-    hlrghnugesrghrmhdrtghomhdprhgtphhtthhopegrrhgusgdoghhithesghhoohhglhgv
-    rdgtohhmpdhrtghpthhtoheptghmlhhlrghmrghssehgohhoghhlvgdrtghomhdprhgtph
-    htthhopehsrghmihhtohhlvhgrnhgvnhesghhoohhglhgvrdgtohhmpdhrtghpthhtohep
-    shgvrghnjhgtsehgohhoghhlvgdrtghomhdprhgtphhtthhopeifihhllhhmtghvihgtkh
-    gvrhesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgvthgvrhiisehinhhfrhgruggv
-    rggurdhorhhgpdhrtghpthhtohepkhgvvghssehkvghrnhgvlhdrohhrghdprhgtphhtth
-    hopeifihhllheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:w7jLaaF73S-Hof8rnzcGZSs8Luzde4kM1AR-ca5kBb6eCo-nA3Z9ug>
-    <xmx:w7jLaXMcsevncWVmaI2ih1BuOcutoajiP7FQQM-vVULp_7VXQ35imQ>
-    <xmx:w7jLaRKKxz0m9dkRODUt-ax_AUVC51sI_k2AU64u0_qKQlNLQ6xgzw>
-    <xmx:w7jLaY9gyzVjEQToi-rYhCNvlVAEMeeAA9-bOeu6syMKhzmUZs9wuQ>
-    <xmx:w7jLaVHQfW42uL28EHwfdQxuBnAZZY2VVqa58lYoRXUVBRVuULC8Q13G>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 21DD370006B; Tue, 31 Mar 2026 08:06:27 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 31 Mar 2026 12:08:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bUS6xNE3XpZLEJ3AxaHhy7pfe1BCne3lL2iv37miGwQpJ+HO1rbQfHKh2zGB3Uf/vN0fFYkqSpbkiZROqIe1J/1izJfhDq4We6VOkiGw1pW33agkFGElOe57Y+EsfDPLj0IU38mI8opU4DeTgEqbRrX9O6BXAoWEEDth+TNJsRP6jAq0tf/c/YTuurncIFtaN5N+l2B93ZEcvJ8NkE1g7Rwmhf6JuznT96k+NPnPWsnMwreC7AyoRQqRGSr8a23zAXQB92H7n7wEjqZInZC/17N7mIopxUMopcFK/6nO+RT8WHB0BgysvtpJQGcxnoNUKHcq3fH2qyzehAgcG85BcA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AMuiR5FANByCN2kHwFzhr8xHmsKqH7ZwueFZJt//iU0=;
+ b=hX8E8DzEIG+GyE/B+Ghtfl+d6h/StZk3vPAYVPyCkLMEVrfSoPHZx9xNq2LLgPdim+EGTi0iOB1qhWY2rlDi+rAuxZQ48wB/zyZhG1FuRozdBxA1AIsZEcE1BMzsREhCTHZZqDC6yJVx+0U6+FggFyc2OiIaw+TS6hHjrshRviYo2FVw5vsYdb1kbZ9/UrDeTJGGmUaTfcAzyd9GecEEw6OLnt8W4czYj49UNw4C9YY2aD3fxWnMI5zakN2lVQsYF5RDmUUG5k3AK7kKnMaHCibGua2gGDjj15e5Llgcf3DL/gJ7wiyN2TSwv9GyOeEcIuOPObf63n03EpQqOqAuYg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AMuiR5FANByCN2kHwFzhr8xHmsKqH7ZwueFZJt//iU0=;
+ b=sSNXBJRClnnDQEadsZ4VjXxrd+QlR8jsiZvL/zB0FxXFO46CXobvWYyc+pTFMJCPWajDNHieUVS9Xh54Jl1KLA7wmnk9xeLAtOXXxfXxnQ5qFUEVCvfl+l4frqW/e4/rgTuz5D9K1TzW0Hurs8Q8hEDyWTZb8fhyhaAmCBrC++YQR3NT78Rg3MPTGVWPio1y3BEAHOMpMLb910fPNpu6SDgRBBI8mKMS3+W0hMf4DENVhcO390QHrW9wTqiE9in8B7AM74XyGk9endwE7sknQ5Kgc/PRht/woseRqLNUUsumMG0AKM3sw8XC6IAZpdaOISVmxGeKtOUv0MKSA/qNIg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by DM4PR12MB8560.namprd12.prod.outlook.com (2603:10b6:8:189::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.12; Tue, 31 Mar
+ 2026 12:08:18 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9769.014; Tue, 31 Mar 2026
+ 12:08:17 +0000
+Date: Tue, 31 Mar 2026 09:08:16 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: "Tian, Kevin" <kevin.tian@intel.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, "will@kernel.org" <will@kernel.org>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"praan@google.com" <praan@google.com>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"Williams, Dan J" <dan.j.williams@intel.com>,
+	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
+	Vikram Sethi <vsethi@nvidia.com>,
+	"linux-cxl@vger.kernel.org" <linux-cxl@vger.kernel.org>
+Subject: Re: [PATCH v3 3/3] iommu/arm-smmu-v3: Allow ATS to be always on
+Message-ID: <20260331120816.GW310919@nvidia.com>
+References: <cover.1772833963.git.nicolinc@nvidia.com>
+ <0e8d1ee1557c54943dd15ff836576de4c3aa58b6.1772833963.git.nicolinc@nvidia.com>
+ <BN9PR11MB52760A7F20A1CC2BC0DB018A8C53A@BN9PR11MB5276.namprd11.prod.outlook.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <BN9PR11MB52760A7F20A1CC2BC0DB018A8C53A@BN9PR11MB5276.namprd11.prod.outlook.com>
+X-ClientProxiedBy: MN0P221CA0012.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:208:52a::22) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-X-ThreadId: Anx-CxvWeZ1g
-Date: Tue, 31 Mar 2026 14:06:06 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Ard Biesheuvel" <ardb+git@google.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: linux-hardening@vger.kernel.org, "Will Deacon" <will@kernel.org>,
- "Mark Rutland" <mark.rutland@arm.com>, "Carlos Llamas" <cmllamas@google.com>,
- "Sami Tolvanen" <samitolvanen@google.com>,
- "Sean Christopherson" <seanjc@google.com>, "Kees Cook" <kees@kernel.org>,
- "Peter Zijlstra" <peterz@infradead.org>,
- "Will McVicker" <willmcvicker@google.com>
-Message-Id: <eb3fedac-7a99-4ad7-9883-832e193356f9@app.fastmail.com>
-In-Reply-To: <20260331110422.301901-2-ardb+git@google.com>
-References: <20260331110422.301901-2-ardb+git@google.com>
-Subject: Re: [PATCH v8] arm64: Use static call trampolines when kCFI is enabled
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DM4PR12MB8560:EE_
+X-MS-Office365-Filtering-Correlation-Id: 361a4fed-d852-4610-0bb3-08de8f1e3177
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 96xgR8Kn3bP1Gpg9ayb5bQ+SgZu0NTCpksW+HIX5Ljz4RHIz/jVKug5C8I8xtmpH3csyDMORl8VTXQkRENWUDGD5et7SRDdYH0UNgDfEPIn9t2OYo9igxCEGwWIn92EKWD8MKmPb9zWbUsYM3jN8WFXP+Tz6wJMIG3yRYPxPoMvgsjaGYOnyWfewaLC+AUdtkGDIE5fxgVhVGVWnuppdQs3V9+J3j0nmxD9YfIkb/o3YDV0o02qiBJ93m/64uTOO3Cu9TmTIkobyFIMxrfYGefmvxiNgfe3oq6QRpM3QRtyFQ8sBtMiHh38hC1C2PAgYkDYE92HI1wWQN7wjCYwm4GC4tqT1m3muCf3HT20CEg5FmAcNAUcHlkBOr2G8jFvkJII1gzvANM8S4XF8amu3WmD/s3tx/Go3zz1A1ugY8aZzOhvrqL00vGlS0VMp2UnvYry5YGEGKKzeWHxaNPzDPDGSq8XYZz2Du0vJybPCAiERXcIboYerc3Cp+A1623zIM9a6m5l2skDMMnUj404CkHHS+2zYSkOif3ZUk/dbOtqO/FScH5QVTixZJal44ymMJq8SF4lcol9yU1f1J/gp48OQcOj0HVeZiSUuupFUq+4k8QA/OWeMvOb5W0btYhsiBUby3nRjxb96L8D38chddh6TqPXiGf1DWBcRqCd+hEmNI/XwQLgfmNsqzn3vNPWrNKKF5Bzn2WITVMtEWaeYYTjsn9bzijT0P34E0HQvzVg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HOp/VAUYCMWLsya9kpsd8Fikr99V0m60PNBPxcD1HZlsUo2iPMzpvcpHd6KU?=
+ =?us-ascii?Q?7zFBdGEmap2CHir2GmMQ3T7puGYWGtzQ6JREcnne47rtDnGKM53FzcQkVYle?=
+ =?us-ascii?Q?//6GIeU8f1+QbXZuDjVCaB4h52frKCA1reyI1S+JZmUbX1o5rb484RY6aMJf?=
+ =?us-ascii?Q?InowfXQ2RWCxN3/1NV4sL4U1cU2F+rHtOIimv5iLibmquW5XoVcdbBTuqpAE?=
+ =?us-ascii?Q?EfXmkCpoUTgSMt5TsQ6bxJWs3n9jx+dBO4ayPZmWUdsIl+OsiUZTGtWduEt4?=
+ =?us-ascii?Q?YitBUxT+z9dgeqvWW4oRWZiAzbT6aliRGaFSqZRR6ga+EMxCFl8+PwSDAYJw?=
+ =?us-ascii?Q?C23GE0UpWFft61O+Hz/Ol4lImWWE2+UfSU9Fc7RUCC3CHhx1Br6l79vuY2qR?=
+ =?us-ascii?Q?q/Dkv53Jy5RemQtgsNj7rkFfTzkZcIP+aRjGSZxJ/0fycknCdIWvCK+btQND?=
+ =?us-ascii?Q?SYlE3mKbxEU/mmFud5ma3ZC/q2YmTrwy6ns6Ub1ALZQ7Ge12torrUGPb0jVd?=
+ =?us-ascii?Q?MAuMYVjzwVemn4YzOr1ZyGbIukSC0gpLzmPnTcwyHCZQgOr3x5K+dJD/jQ0G?=
+ =?us-ascii?Q?bICtjQqBOvgaOHusLjOryoG+TKaGPNielQ7N86+vSsCv7byqAhuYxdLc4xeC?=
+ =?us-ascii?Q?Ezjl+wpZ2MW6jm8fkrngyx9VQlKflO6XIQCnEBzSZDEsVhvq2uBCY/C6HnGx?=
+ =?us-ascii?Q?OnlTYh/k0cdlmo4RrRC8n8j3EfKTKhlkRohUxvpB0fDGbTg7ef/POIN8DBrD?=
+ =?us-ascii?Q?0G+6S8AGc4XFYgSpywCXdqCyYvD02UuDUzmu303CoId+1joVLI2MwJ1VRqwI?=
+ =?us-ascii?Q?gh6iHZ3hX4FwGHUCYKJjswhk2ItVvSYeAM/Lh+9FQz/3QHLp1uyrze4uFZxn?=
+ =?us-ascii?Q?1N20NdlVzAW0e6cIOsGLbjcw8nVrDRwaQziR6MvL7KVJJozYUI3A5nVGjwRX?=
+ =?us-ascii?Q?G9ykQUlAKdbwRlkpRzHd8RhCKrs905WaVt8r7az3Wxtxyt65OpPkM3GSzXfr?=
+ =?us-ascii?Q?8R2HRtHmn4gXOb6JQrXAt5SuR6tRff8PRWw101JBL1LyfdZvwvGMxwB5O9ej?=
+ =?us-ascii?Q?2ndhYMyQF6IDyuj9rS8dNIrfT9lffK+dCnHFvHypTOLLoTXM5ZnqpNNSWAW/?=
+ =?us-ascii?Q?HkSCJoF+VkeAVRUYWP9BdPUB/pyRBr9NAWdkjtd24SKfe7oJEMYxBAL1PdIO?=
+ =?us-ascii?Q?EiP32DK1+f/ARj7W1W/SKpnxID33OMrqKN91PGfigs9ideUZKzP+AIIfMYNg?=
+ =?us-ascii?Q?3K7gTxQ7CAlnw99zPbakdQiuJl1W00cqj2VCH3cJj0lRN5Zov4Lco5aleLh9?=
+ =?us-ascii?Q?HVnmA8VGpWagrX3zqnxkRKK4JN+VuI23YtdkTykQLu42KxFBQ4qA/zUzlkwq?=
+ =?us-ascii?Q?zYVIEePTk0c6SQP2ZNDS+XJnLBMAkjfF2KNyRoZkQzPccXv8sVzcivftVPdz?=
+ =?us-ascii?Q?XoN4X54w7DG8qmty/8YUmF5mGByPOm7xFT+6l5//JJwkH/KJQ7gpvspAljhe?=
+ =?us-ascii?Q?gXn5377VLRL2tRAAvOsVcypRPYxUC02UoWOXhLTWcQDDyjEFMq+0VWgGZkIh?=
+ =?us-ascii?Q?go5yHcMwgzbeXvKY4hsDTBo9+d7RRaSRVx6pNEY7Vbr2oZhLhmYIndxWvo0E?=
+ =?us-ascii?Q?cq+7FST4MqVjGE3XvPbLKF3arPDq1fX/1s5SEpR4UZXtEHFnZAz1nrp/NyVE?=
+ =?us-ascii?Q?Pd3FzZlWaeUQOdtQ20EDZUzNEIKwWlOVpg0jW3aZaMrrGzje?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 361a4fed-d852-4610-0bb3-08de8f1e3177
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 12:08:17.7646
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xKsDbKju1lC3qArWrKXPtkAZq+mQXk3IGbKF0Ti/m6fEI7d3MWG7d9vP+yiho5jO
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB8560
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_050632_369380_C2B06F57 
-X-CRM114-Status: GOOD (  30.52  )
+X-CRM114-CacheID: sfid-20260331_050827_708686_522A7E61 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,169 +150,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 31 Mar 2026, at 13:04, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> Implement arm64 support for the 'unoptimized' static call variety, which
-> routes all calls through a trampoline that performs a tail call to the
-> chosen function, and wire it up for use when kCFI is enabled. This works
-> around an issue with kCFI and generic static calls, where the prototypes
-> of default handlers such as __static_call_nop() and __static_call_ret0()
-> don't match the expected prototype of the call site, resulting in kCFI
-> false positives [0].
->
-> Since static call targets may be located in modules loaded out of direct
-> branching range, this needs a ADRP/ADD pair to load the branch target
-
-Sashiko correctly points out that this should say ADRP/LDR rather than
-ADRP/ADD, and this means that the sequence is in fact different from the
-one used by modules.
-
-> into R16 and a branch-to-register (BR) instruction to perform an
-> indirect call. This is the exact code sequence that is used by modules
-> when the call target is out of direct branching range.
->
-
-... so please drop this last sentence when applying.
-
-
-> Unlike on x86, there is no pressing need on arm64 to avoid indirect
-> calls at all cost, but hiding it from the compiler as is done here does
-> have some benefits:
-> - the literal is located in .rodata, which gives us the same robustness
->   advantage that code patching does;
-> - no D-cache pollution from fetching hash values from .text sections.
->
-> From an execution speed PoV, this is unlikely to make any difference at
-> all.
->
-> [0] https://lore.kernel.org/all/20260311225822.1565895-1-cmllamas@google.com/
->
-> Cc: Carlos Llamas <cmllamas@google.com>
-> Cc: Sami Tolvanen <samitolvanen@google.com>
-> Cc: Sean Christopherson <seanjc@google.com>
-> Cc: Kees Cook <kees@kernel.org>
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Cc: Will McVicker <willmcvicker@google.com>
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
-> v8: Simplify the trampoline by combining the NULL and RET0 cases, and
->     dropping the conditional branch and return
-> v7: https://lore.kernel.org/all/20260313061852.4025964-1-cmllamas@google.com/
->
->  arch/arm64/Kconfig                   |  1 +
->  arch/arm64/include/asm/static_call.h | 31 ++++++++++++++++++++
->  arch/arm64/kernel/Makefile           |  1 +
->  arch/arm64/kernel/static_call.c      | 23 +++++++++++++++
->  arch/arm64/kernel/vmlinux.lds.S      |  1 +
->  5 files changed, 57 insertions(+)
->
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 38dba5f7e4d2..9ea19b74b6c3 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -252,6 +252,7 @@ config ARM64
->  	select HAVE_RSEQ
->  	select HAVE_RUST if RUSTC_SUPPORTS_ARM64
->  	select HAVE_STACKPROTECTOR
-> +	select HAVE_STATIC_CALL if CFI
->  	select HAVE_SYSCALL_TRACEPOINTS
->  	select HAVE_KPROBES
->  	select HAVE_KRETPROBES
-> diff --git a/arch/arm64/include/asm/static_call.h 
-> b/arch/arm64/include/asm/static_call.h
-> new file mode 100644
-> index 000000000000..b73960c949e4
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/static_call.h
-> @@ -0,0 +1,31 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _ASM_STATIC_CALL_H
-> +#define _ASM_STATIC_CALL_H
-> +
-> +#define __ARCH_DEFINE_STATIC_CALL_TRAMP(name, target)		    \
-> +	asm("	.pushsection .static_call.text, \"ax\"		\n" \
-> +	    "	.align	4					\n" \
-> +	    "	.globl	" name "				\n" \
-> +	    name ":						\n" \
-> +	    "	hint	34	/* BTI C */			\n" \
-> +	    "	adrp	x16, 1f					\n" \
-> +	    "	ldr	x16, [x16, :lo12:1f]			\n" \
-> +	    "	br	x16					\n" \
-> +	    "	.type	" name ", %function			\n" \
-> +	    "	.size	" name ", . - " name "			\n" \
-> +	    "	.popsection					\n" \
-> +	    "	.pushsection .rodata, \"a\"			\n" \
-> +	    "	.align	3					\n" \
-> +	    "1:	.quad	" #target "				\n" \
-> +	    "	.popsection					\n")
-> +
-> +#define ARCH_DEFINE_STATIC_CALL_TRAMP(name, func)			\
-> +	__ARCH_DEFINE_STATIC_CALL_TRAMP(STATIC_CALL_TRAMP_STR(name), #func)
-> +
-> +#define ARCH_DEFINE_STATIC_CALL_NULL_TRAMP(name)			\
-> +	ARCH_DEFINE_STATIC_CALL_TRAMP(name, __static_call_return0)
-> +
-> +#define ARCH_DEFINE_STATIC_CALL_RET0_TRAMP(name)			\
-> +	ARCH_DEFINE_STATIC_CALL_TRAMP(name, __static_call_return0)
-> +
-> +#endif /* _ASM_STATIC_CALL_H */
-> diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-> index 76f32e424065..fe627100d199 100644
-> --- a/arch/arm64/kernel/Makefile
-> +++ b/arch/arm64/kernel/Makefile
-> @@ -46,6 +46,7 @@ obj-$(CONFIG_MODULES)			+= module.o module-plts.o
->  obj-$(CONFIG_PERF_EVENTS)		+= perf_regs.o perf_callchain.o
->  obj-$(CONFIG_HARDLOCKUP_DETECTOR_PERF)	+= watchdog_hld.o
->  obj-$(CONFIG_HAVE_HW_BREAKPOINT)	+= hw_breakpoint.o
-> +obj-$(CONFIG_HAVE_STATIC_CALL)		+= static_call.o
->  obj-$(CONFIG_CPU_PM)			+= sleep.o suspend.o
->  obj-$(CONFIG_KGDB)			+= kgdb.o
->  obj-$(CONFIG_EFI)			+= efi.o efi-rt-wrapper.o
-> diff --git a/arch/arm64/kernel/static_call.c 
-> b/arch/arm64/kernel/static_call.c
-> new file mode 100644
-> index 000000000000..8b3a19e10871
-> --- /dev/null
-> +++ b/arch/arm64/kernel/static_call.c
-> @@ -0,0 +1,23 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +#include <linux/static_call.h>
-> +#include <linux/memory.h>
-> +#include <asm/text-patching.h>
-> +
-> +void arch_static_call_transform(void *site, void *tramp, void *func, 
-> bool tail)
-> +{
-> +	u64 literal;
-> +	int ret;
-> +
-> +	if (!func)
-> +		func = __static_call_return0;
-> +
-> +	/* decode the instructions to discover the literal address */
-> +	literal = ALIGN_DOWN((u64)tramp + 4, SZ_4K) +
-> +		  aarch64_insn_adrp_get_offset(le32_to_cpup(tramp + 4)) +
-> +		  8 * aarch64_insn_decode_immediate(AARCH64_INSN_IMM_12,
-> +						    le32_to_cpup(tramp + 8));
-> +
-> +	ret = aarch64_insn_write_literal_u64((void *)literal, (u64)func);
-> +	WARN_ON_ONCE(ret);
-> +}
-> +EXPORT_SYMBOL_GPL(arch_static_call_transform);
-> diff --git a/arch/arm64/kernel/vmlinux.lds.S 
-> b/arch/arm64/kernel/vmlinux.lds.S
-> index 2964aad0362e..2d1e75263f03 100644
-> --- a/arch/arm64/kernel/vmlinux.lds.S
-> +++ b/arch/arm64/kernel/vmlinux.lds.S
-> @@ -191,6 +191,7 @@ SECTIONS
->  			LOCK_TEXT
->  			KPROBES_TEXT
->  			HYPERVISOR_TEXT
-> +			STATIC_CALL_TEXT
->  			*(.gnu.warning)
->  	}
+On Tue, Mar 31, 2026 at 08:40:17AM +0000, Tian, Kevin wrote:
+> > From: Nicolin Chen <nicolinc@nvidia.com>
+> > Sent: Saturday, March 7, 2026 7:41 AM
+> > 
+> > +
+> > +	master->ats_always_on = true;
+> > +
+> > +	ret = arm_smmu_alloc_cd_tables(master);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +out_prepare:
+> > +	pci_prepare_ats(pdev, stu);
+> > +	return 0;
 > 
-> -- 
-> 2.53.0.1018.g2bb0e51243-goog
+> is there a problem leaving ats_always_on being true while
+> allocating cd tables fails?
+
+I would expect this error flow unwinds back up to failing device
+probe?
+
+Jason
 
