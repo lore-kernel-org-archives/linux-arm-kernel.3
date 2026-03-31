@@ -4,62 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D44E4FF60EE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 08:43:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC03FF60D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 08:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=33SrgSFM5oKuf+EtGfQ42X1hrddtM4xaF+17DDZ0WQA=; b=ljqB2Ipq2X1udYb5GrL2YXoFvv
-	ne37RLKfyuitf/6Pfc7HVWfLaL+nRv+t4wq4qtsWoTOcGaenIC5dYjRGyC6CXXRaHVAbx+4se2FPa
-	M+y0CvkMBTjMR3vhRvUx1tWc1JHWMEtCoZp9DNnAI8cg7rBdu56DT4GxGmwxaHuMyq9BO/RIme8Nc
-	WIxfkuHaSSWU/Gtcc8/hCy1fZun+zxentUgkPx6nyXba8dgC2GMer/QiimTb29h6gSnedfeVSAmeT
-	w1QirOz/eg7rDzLiIJ5n5fqffiaqOhPLXwL4OGcDxYS50nLUffCs7NEjIqELqqAry9qjZi/rZ17eM
-	6czlASuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4nlAq0sErq8j6lFkQ/QG1cZ7OEglX2oyCECUl3r9THg=; b=bNYR0qzTdXb0OeABu0VklPjiVq
+	KGUacDM7/wrIB9CAV724ErURiVEIWBrI59AozLzL2cZ7TtG/CXhXpXFc2ARGXgqPsfUmBe3kWEoZt
+	J3b9uNUXvOwcRVCCKf8bhA5KT9DQR8RI6wMmkRPClqQKpjwdcd8m9ltAc85c7PoWIOwaz8+jIiYk0
+	J4cXfbKrFceYjYJGX7+98loC5JFoeS0V0YLXYzg3QoRy+kb952cCDYVrqaxozyw9M+K/WGyM0GTrL
+	cxCXg2F9RlU6ZiKEhPCu2WaOeBoiiBtTQJqYgS/U85AK3HOAELCnp1mDeo0fSqef+4vFgp1lLFkPl
+	bETBWn5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7UhR-0000000CcxR-0OF2;
-	Tue, 31 Mar 2026 08:43:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w7UpA-0000000CdPp-451t;
+	Tue, 31 Mar 2026 08:51:48 +0000
+Received: from mail-westeuropeazon11010063.outbound.protection.outlook.com ([52.101.69.63] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7UhP-0000000Ccwu-2QyO
+	id 1w7Up8-0000000CdON-34KQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 08:43:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7FE7F60145;
-	Tue, 31 Mar 2026 08:43:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAC60C19423;
-	Tue, 31 Mar 2026 08:43:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774946596;
-	bh=5rouBpWCbG9UoNdZ2vpMLgofqK8ufoMoBBsc7BuxqyU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JkDnYVFd9BXu6hp7sGrVjkTVKvXZyBIREQBbQFsGO1X9QHoFFrZYb8fVTXY/schZ2
-	 5h1d0PpG0QmAMd/ZI/dKW+LlkeDvN9r2s63KsuJGSycdCWDfl62BLb7RlhNaJAG40r
-	 gl3CW0cyl2KZpHsFplSbZD2cu1vVEPgGzm7wdE36Ftc0WRaF1Lf+RfiMwCbtssppfN
-	 nFlbuoVSzX+zyFh9RHCeE8TuFCQPu4dg9+q5tIUpYpDALb/1XER8SxB6Q/xz44xWLf
-	 jnQ4ZfyAJU449MFc3tmGaxhgiAJyMVAj3H1Cgod4Pfxrz/vQozTuqfBCSP4iagBdqC
-	 9Edpt4J+vWgSg==
-Date: Tue, 31 Mar 2026 10:43:13 +0200
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: arm@kernel.org, soc@kernel.org, 
-	Thierry Reding <thierry.reding@gmail.com>, Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL 6/7] arm64: tegra: Device tree changes for v7.1-rc1
-Message-ID: <acuE-URAuRvmtd4u@orome>
-References: <20260329151045.1443133-1-thierry.reding@kernel.org>
- <20260329151045.1443133-6-thierry.reding@kernel.org>
- <7b9bc5d1-7a1d-456c-b280-5f4dc969609d@kernel.org>
- <act77WcvwYedN0Q8@orome>
- <e5327cd9-4aa1-4e26-b748-dd1af29e6fdb@kernel.org>
+	Tue, 31 Mar 2026 08:51:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AqIOKbz0182To0k7iLTOCfBagFe3XwIfhFvXVR45hfpVqtBAe9X7xo+ngxebI2yXNHUfWY/x+Kjk/m7KHUidmj9af60bUdHMmSxt8fpbV0VDUHBQ6hfN2PqfiA6psJ3wKdyHOFgvr3gdch9uCnFHC007/EpClgOWbMu0sJBLfFhJ7OwnXJG/ApgUVhzQCKfSmVk1Vlk+FnOQEr8tMh3H3DCbr+SIKtqKtS/PdbMY9dW0EPoHdhIS69DFJXDMC0Tgi8xk3MbtKki3JgJOEQCjm/aAI4eJbKFuEtWp9MQ+tz1WCC5ZZwfdo4EN/AGouNTwWuTkX8y7etD1oYyHcirmbg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4nlAq0sErq8j6lFkQ/QG1cZ7OEglX2oyCECUl3r9THg=;
+ b=pXuynBieN/ihG/Yg0Y2NsrKSren7qMFvrIeb1FRktrvy9aHVKhl5MBw4tj/hmCm9VrDO1sUbgd2Aox28peMLEuXvjO+BSJkDadnYcUn9E3RBblLMBsQVAmm+5B58+RfzdXR1UsgHm1qChTIuBPxdIpxbweEsHBAbXSxjDAeObRGm9ZoG9+dP1G0dmo6o7HwQwTf2pzaxIq+3gaMskUvpnAQO6MHeqx/a6Q1lc6RxgmoaHAD/Auf+Fnns7CNUA7lmi9J4DWLwjnvDBe4H/Klxbz4lwkWz3HnMvGbcsZSMkRzOXrSkZb4RyHMAA6h7JdE9uHCnG+A5Z8cvsj/zKjEWQA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4nlAq0sErq8j6lFkQ/QG1cZ7OEglX2oyCECUl3r9THg=;
+ b=PByHfIoBvQstfeTz1fN3cbbA7miQQaHLtkQc78xpHrpmGWq7iio6y7rFUGpoJ5LSbEUnQatWhspD92UHIis4rhu3WJnJmoaIvXJDeryETf737VwxSaWGPEqPWOlf3tYFwdhpGO3k7OEO1PWPJ9uDvJwHe+bpm0dd2FVdObL2PxkjhW04W6mz6V8GOxEV0+BpNcTOf8i0MqFd2sadIbZ+r9BbviGRCMEI/mmXuqZ51X5/ZfMCn/vYP3OVZAwJ8XxInDMvyGhiNNxRl9qK4RMDvUB2BS+d7dMJvoDeV8enoHsNpHWUO5Nh1VXNyDyZRbsERbqRr3M0xgE7RwgKgiBePw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
+ by PAXPR04MB9220.eurprd04.prod.outlook.com (2603:10a6:102:228::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Tue, 31 Mar
+ 2026 08:51:33 +0000
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86%4]) with mapi id 15.20.9745.027; Tue, 31 Mar 2026
+ 08:51:33 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v3] PCI: imx6: Don't remove MSI capability for i.MX7D/i.MX8M
+Date: Tue, 31 Mar 2026 16:52:52 +0800
+Message-Id: <20260331085252.1243108-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2P153CA0003.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:140::20) To AS8PR04MB8833.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::19)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="efltvkno4xbepiec"
-Content-Disposition: inline
-In-Reply-To: <e5327cd9-4aa1-4e26-b748-dd1af29e6fdb@kernel.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|PAXPR04MB9220:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8df983d5-4bd5-442a-b83a-08de8f02b594
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|52116014|376014|1800799024|19092799006|56012099003|18002099003|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: GTbacI69yHDh9cb/M4tqfDVM0XY+UIEClTXO1grkSm5kMaY8XoPZJ9Am8iuL5p8NBpzoHaNRH+DeTg2F1rjBEizRuNyZZSSsy5rEuREpkE/Xe6ebu5o2mApr8NMu5KaaBVbySjhfzep/cMTqOIzMbh2JiGV0YHRLbASOJBhZXtNIV7lO/5pl6YpHyqH6H6Zk89hiKZTxxT9L9GlvW8/4fv6M8dP7GSft23GOYBCswwoR4X/DlEEGmuOZOsypgZqmmp80qziuyRdPIuQHuEFFwiqwP6EKFwE3NNAanFoUxZaEzYAJjIHyXvWe3aQ6+mdwpsL71ovHZKuuIhPZvHthqM/u+GQqaWJqzgR1uxaMUWxh33rRrySd1rikw2UyLi8Vp1WP2XpVZ6NRT0Cp4MDXizStpaUj5l93x6AfhJ9UBlVxd0pBhWBkMSutjkAaIUjcDOGxPu+0QC98iTUhEqXT56HgXzAf3tuIpeSb9Weh2+Q/bBva0ic+jOpEry6+6QQMEidHtchOFixt+79hRXwRpn3O46fdDRT181HxzWQNPAxXpCcpfqvz33RsAPBwve4qhXKhdmaMKBDu9nFOOXYk0P4jVGcu4eD+TmZq5j/Ahh2V5UsCqD0Bfme22JEuaoKfOC8k+Cb/1Fw9oRZUFVOKgmd/fSRK5bVVgpinGH06/boAhZvfDTATl7AhDVK6z5uWUdInhMSKEql/2BYN25N6EaiVB7pHo2YlUldf3v+Lwn2qY6mag7djaxvu1xJBE6ewpucN+WrZwL+MPtLgNUM7+g9++4jrZPIs2NMoZDXKWKqygqtDrImHOLoLFudw/ds3
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(52116014)(376014)(1800799024)(19092799006)(56012099003)(18002099003)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PeX+hVZ/eFwWbvB9TtgwJtNg8206lmermNQlldVL4gIv/pFhzPnA3X6vuAVF?=
+ =?us-ascii?Q?irSvtJoYqHG995qSD4ZiMksJi9NjIeeQFrJNuVwWRUw/wPE6Z+cCw6+/PYFD?=
+ =?us-ascii?Q?Zmz+JBKf7t8GJ1OewDk1aqI4EeYleU7IOMN2WSewdxs8yqKFJ2uU41/zaTeO?=
+ =?us-ascii?Q?skOmcQ64Thc7iyiRYly1N5fu/WIAlzDWP+Ai3hxxsaOn20iVIBv+Y7NpTeoa?=
+ =?us-ascii?Q?WC916NShJH/xE+F74HdxE6x17NhImC99Iozv7c9yHMpb+ikgmhU+CH7AFsnT?=
+ =?us-ascii?Q?qY2RgMEEgjr9W2Q6aLUg5zqcFtKX/TBHbze97pqtH+6MT7MdfePKOpz3fXDf?=
+ =?us-ascii?Q?ebzJ9aOU60Y4Du0lPhXDoaZVr8lJRD5q90HeyEk4qBpOybZhz6CNoNuHJeDB?=
+ =?us-ascii?Q?KWNR7A/eAKV8QRd6iVMF14YlL+AbRyGXhsZYww44qmBMPblTv2eXLwFBMDhK?=
+ =?us-ascii?Q?EK24y4i8T3KSy8znyUVWZAvHotTes57xesmUAnojL3sa6HGD0HZUYfPABo+u?=
+ =?us-ascii?Q?WYSIG3/QZKwM3wyq36mIRgoBtbZrurc3fO+8bEWCNGYvQKp8C/YRCa0NN8vb?=
+ =?us-ascii?Q?q66oJXSwx7vMxy8cHQBGgU7JRHctVLShaZGJczaljr/52NhEIMZqfhpv8yEx?=
+ =?us-ascii?Q?A0U9a1XniZl1o2Rbt9r/zgHLcPDNWPfnzkLo5tvHFgscDMbXRLHL1b9sGpec?=
+ =?us-ascii?Q?sc6M7v+gQktIJj1C4O9mSbIADWpsrAAMFAPrg10riDRKPdpz9GbFYphqqjAX?=
+ =?us-ascii?Q?kxb1ZVS/y8PV+tVGgWK9CdwpNPOXTUs7qicil5TjrocwJAl6pmFmGP5Zr1q7?=
+ =?us-ascii?Q?/rv9UD35pmV6ps5EBreF+MT0kcsUcw13P0knxf/6dopthWbrxZyHX/O9AXV2?=
+ =?us-ascii?Q?6cikOIkgk/J6moCEKGzV1+xZLSjcZGMt72DWb+DGTTpqOBVbH7F5UrKNncMJ?=
+ =?us-ascii?Q?Utn+8GlrWE5NEWH0PxgF2m05CDGED6+qihijtaKAnnGel0rmbUSezY1pM3vu?=
+ =?us-ascii?Q?/4ujL0MVp7ZSo9YMV5kZ+6GZmgFYCRG/vKcOnGoiWf5O6fUQ4kyeXdpmBc2W?=
+ =?us-ascii?Q?wLtO56r/v0FMObXGt3jMe7Ie+cDrl4OwzJrmUlm2oGPWR9jV9dFVU1FDN0gh?=
+ =?us-ascii?Q?CB+Yqdgl9d/3QmQXMT6UiSdzLCyenByvqeHc3qYlrQzjhG0CbKzK8wARAZ4F?=
+ =?us-ascii?Q?1bB8ge479mnYyKDZOnGXLLyJeC0TruQH/ZC5Ys5V4OJcf2yppQTggGSrk3Dp?=
+ =?us-ascii?Q?8ugcZM7YkLqF1dgJ7rBacBbF2DSxAQhA5lMBtfDhy0zoYrBR5gAFWe6GTA4H?=
+ =?us-ascii?Q?YXdZ8h4wnvO9sHV1rC94GrPwrRzLN3GcqHq+LXd8HEpHeHR3aRX/2iiRNbDG?=
+ =?us-ascii?Q?HJnBh1fGl09KVmSB0o8Bc/KAg/n7iOuQXFJUlyO0/FG7moOCA5kavVNFJc9n?=
+ =?us-ascii?Q?uUolvJ3LZXVR+TJdlRzUhjoqT9ZYkdFRqwEuoQ3IR52HbYHvqTo9TbbjwjBC?=
+ =?us-ascii?Q?tpIzFCyMXUJ/HaBq1/PhgWeZhZIIQrazf1TknGqy5UFXSCvYM7bZCvloZBUL?=
+ =?us-ascii?Q?L1O17zkKkIMSWkkIo0AVbkh/Dqkd/nQWrFKO7zvlqUTDkBIrTBILjINaRO/K?=
+ =?us-ascii?Q?fy80Zr8q9WS7zdmO2+r7HPY96qYCYqIL40sElqjEgx3vnPM5ArfaNoCQEW8s?=
+ =?us-ascii?Q?fiN7YsKsGNLo5to04ypdrupy3Rq0SBxFqEU9D8OIxG4b7sLyaTfYENoPp6d+?=
+ =?us-ascii?Q?W69BmqZaIg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8df983d5-4bd5-442a-b83a-08de8f02b594
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2026 08:51:33.4494
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +ngt9ggx4EsotuZDBWeDEu9pBD/mfxskOFZOYGk5nAzF0U02agE5edL8Rqkvp/5ND7gNx+tJ2Tso57E2i8NlAQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9220
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260331_015146_814224_2329BFF0 
+X-CRM114-Status: GOOD (  16.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,146 +146,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The MSI trigger mechanism for endpoint devices connected to i.MX7D,
+i.MX8MM, and i.MX8MQ PCIe root complex ports depends on the MSI
+capability register settings in the root complex. Removing the MSI
+capability breaks MSI functionality for these endpoints.
 
---efltvkno4xbepiec
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [GIT PULL 6/7] arm64: tegra: Device tree changes for v7.1-rc1
-MIME-Version: 1.0
+Add keep_rp_msi_en flag to indicate platforms (i.MX7D, i.MX8MM, i.MX8MQ)
+that should preserve the MSI capability during initialization.
 
-On Tue, Mar 31, 2026 at 10:00:01AM +0200, Krzysztof Kozlowski wrote:
-> On 31/03/2026 09:53, Thierry Reding wrote:
-> > On Mon, Mar 30, 2026 at 01:45:24PM +0200, Krzysztof Kozlowski wrote:
-> >> On 29/03/2026 17:10, Thierry Reding wrote:
-> >>> From: Thierry Reding <thierry.reding@gmail.com>
-> >>>
-> >>> Hi ARM SoC maintainers,
-> >>>
-> >>> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5=
-b5f27f:
-> >>>
-> >>>   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
-> >>>
-> >>> are available in the Git repository at:
-> >>>
-> >>>   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/=
-tegra-for-7.1-arm64-dt
-> >>>
-> >>> for you to fetch changes up to c70e6bc11d2008fbb19695394b69fd941ab390=
-30:
-> >>>
-> >>>   arm64: tegra: Add Tegra264 GPIO controllers (2026-03-28 01:36:46 +0=
-100)
-> >>>
-> >>> Thanks,
-> >>> Thierry
-> >>>
-> >>> ----------------------------------------------------------------
-> >>> arm64: tegra: Device tree changes for v7.1-rc1
-> >>>
-> >>> Various fixes and new additions across a number of devices. GPIO and =
-PCI
-> >>> are enabled on Tegra264 and the Jetson AGX Thor Developer Kit, allowi=
-ng
-> >>> it to boot via network and mass storage.
-> >>>
-> >>> ----------------------------------------------------------------
-> >>> Diogo Ivo (1):
-> >>>       arm64: tegra: smaug: Enable SPI-NOR flash
-> >>>
-> >>> Jon Hunter (1):
-> >>>       arm64: tegra: Fix RTC aliases
-> >>>
-> >>> Prathamesh Shete (1):
-> >>>       arm64: tegra: Add Tegra264 GPIO controllers
-> >>>
-> >>> Thierry Reding (6):
-> >>>       dt-bindings: pci: Document the NVIDIA Tegra264 PCIe controller
-> >>
-> >>
-> >> This is unreviewed/unacked binding where PCI maintainers had 1 day to
-> >> react to your v3.
-> >=20
-> > Rob gave a reviewed-by on this about a week ago:
-> >=20
-> >   https://lore.kernel.org/linux-tegra/177440189257.2451552.181961018302=
-35626115.robh@kernel.org/
->=20
-> Rob, although knows a lot about PCI, is not a formally a PCI subsystem
-> maintainer.
->=20
-> >=20
-> > In my experience the PCI maintainers typically defer review of the DT
-> > bindings to DT maintainers, so I considered Rob's R-b sufficient.
->=20
-> Sure and they acknowledge this, that review is done and patch can go
-> other way, with "Ack".
+Cc: stable@vger.kernel.org
+Fixes: f5cd8a929c825 ("PCI: dwc: Remove MSI/MSIX capability for Root Port if iMSI-RX is used as MSI controller")
+Suggested-by: Manivannan Sadhasivam <mani@kernel.org>
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+---
+v3 changes:
+Use a flag 'dw_pcie_rp::keep_rp_msi_en' to identify SoCs that require MSI
+capability preservation, and skip the capability removal in
+pcie-designware-host.c accordingly.
 
-No they don't. The vast majority of the PCI DT bindings patches are
-indeed applied by the PCI maintainers, but for those that aren't (there
-are, admittedly, only a handful over the last few years) there were no
-Acked-bys from the PCI maintainers.
+v2 changes:
+CC stable tree.
+---
+ drivers/pci/controller/dwc/pci-imx6.c             | 7 +++++++
+ drivers/pci/controller/dwc/pcie-designware-host.c | 2 +-
+ drivers/pci/controller/dwc/pcie-designware.h      | 1 +
+ 3 files changed, 9 insertions(+), 1 deletion(-)
 
-> Where is the Ack?
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 20dafd2710a3..fde173770933 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -117,6 +117,8 @@ enum imx_pcie_variants {
+ #define IMX_PCIE_FLAG_HAS_LUT			BIT(10)
+ #define IMX_PCIE_FLAG_8GT_ECN_ERR051586		BIT(11)
+ #define IMX_PCIE_FLAG_SKIP_L23_READY		BIT(12)
++/* Preserve MSI capability for platforms that require it */
++#define IMX_PCIE_FLAG_KEEP_MSI_CAP		BIT(13)
+ 
+ #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
+ 
+@@ -1820,6 +1822,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 	} else {
+ 		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_SKIP_L23_READY))
+ 			pci->pp.skip_l23_ready = true;
++		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_KEEP_MSI_CAP))
++			pci->pp.keep_rp_msi_en = true;
+ 		pci->pp.use_atu_msg = true;
+ 		ret = dw_pcie_host_init(&pci->pp);
+ 		if (ret < 0)
+@@ -1897,6 +1901,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 	[IMX7D] = {
+ 		.variant = IMX7D,
+ 		.flags = IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
++			 IMX_PCIE_FLAG_KEEP_MSI_CAP |
+ 			 IMX_PCIE_FLAG_HAS_APP_RESET |
+ 			 IMX_PCIE_FLAG_SKIP_L23_READY |
+ 			 IMX_PCIE_FLAG_HAS_PHY_RESET,
+@@ -1909,6 +1914,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 	[IMX8MQ] = {
+ 		.variant = IMX8MQ,
+ 		.flags = IMX_PCIE_FLAG_HAS_APP_RESET |
++			 IMX_PCIE_FLAG_KEEP_MSI_CAP |
+ 			 IMX_PCIE_FLAG_HAS_PHY_RESET |
+ 			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
+ 		.gpr = "fsl,imx8mq-iomuxc-gpr",
+@@ -1923,6 +1929,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 	[IMX8MM] = {
+ 		.variant = IMX8MM,
+ 		.flags = IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
++			 IMX_PCIE_FLAG_KEEP_MSI_CAP |
+ 			 IMX_PCIE_FLAG_HAS_PHYDRV |
+ 			 IMX_PCIE_FLAG_HAS_APP_RESET,
+ 		.gpr = "fsl,imx8mm-iomuxc-gpr",
+diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+index a74339982c24..7b5558561e15 100644
+--- a/drivers/pci/controller/dwc/pcie-designware-host.c
++++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+@@ -1171,7 +1171,7 @@ int dw_pcie_setup_rc(struct dw_pcie_rp *pp)
+ 	 * the MSI and MSI-X capabilities of the Root Port to allow the drivers
+ 	 * to fall back to INTx instead.
+ 	 */
+-	if (pp->use_imsi_rx) {
++	if (pp->use_imsi_rx && !pp->keep_rp_msi_en) {
+ 		dw_pcie_remove_capability(pci, PCI_CAP_ID_MSI);
+ 		dw_pcie_remove_capability(pci, PCI_CAP_ID_MSIX);
+ 	}
+diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+index ae6389dd9caa..b12c5334552c 100644
+--- a/drivers/pci/controller/dwc/pcie-designware.h
++++ b/drivers/pci/controller/dwc/pcie-designware.h
+@@ -421,6 +421,7 @@ struct dw_pcie_host_ops {
+ 
+ struct dw_pcie_rp {
+ 	bool			use_imsi_rx:1;
++	bool			keep_rp_msi_en:1;
+ 	bool			cfg0_io_shared:1;
+ 	u64			cfg0_base;
+ 	void __iomem		*va_cfg0_base;
+-- 
+2.37.1
 
-Again, this is where your rules start to fail to meet demands. As it is,
-the only option that we have is to get DT and drivers merged, then wait
-for an entire cycle before we can merge the DT parts, otherwise we break
-DT validation.
-
-> >=20
-> >>                   Maybe they had more time for previous versions, but
-> >> nevertheless it is also part of other patchset, so it will get into the
-> >> kernel other tree and nothing on v3 posting:
-> >> https://lore.kernel.org/all/20260326135855.2795149-4-thierry.reding@ke=
-rnel.org/
-> >> gives hints that there will be cross tree merge.
-> >=20
-> > Maybe look at the cover letter:
-> >=20
-> >   https://lore.kernel.org/all/20260326135855.2795149-1-thierry.reding@k=
-ernel.org/
-> >=20
-> > I clearly pointed out the build dependencies and suggested a shared
-> > branch to resolve them in both trees. Given that the bindings were
->=20
-> No problem, that's a valid solution. Can you point me with a lore link
-> to the shared branch posting (these tags/pull requests must be posted on
-> the lists)? Or to an ack from PCI maintainers?
->=20
-> The commit itself does not have an Ack, but maybe was just missed.
-
-Yes, the DT bindings patch does not have an Acked-by, but again, I
-didn't think that was necessary, especially since we were going to have
-a cross-merge anyway.
-
-Here's the PR for PCI:
-
-	https://lore.kernel.org/linux-tegra/20260329155040.1448158-1-thierry.redin=
-g@kernel.org/
-
-Thierry
-
---efltvkno4xbepiec
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmnLiR0ACgkQ3SOs138+
-s6G4LBAAgGRxK+lFtOn4x21DEpRTkr34pM8znEkHgV4Cz3p3BWeDHApam1q3P1f5
-+HAluqpvvDgbSK1xgAnYcChoB90//J4vmGmP5hVWNni+3lg5/LSfywTYLF8TaCbL
-mn7grnLzl4EJiDyCsRGhFp89lWkDPXYu3WT3ZZqHoLovfNWhw4tl7PANDtwfhjnZ
-fIg+b8Apg/jegTZTXuhA8AvB6mQquUgoBKDYhhoFX7657SL43ZYB/SPrTbPcIJu/
-0TlOjOD+yd9aUCE8o3u10WdzQtCmeHAS2O+lG6UYpJBRQqzfWySMuL/Fkr2XsaEf
-Dsmglp3t1HYv5ksIHklmDwP/Z1/0TpJxIIiEe8uVLaGmB9USIFE1QUwGIAtzFB4z
-8aPJnCLqLtevCZiLK8LQiusxx2WOoykEZrTjQTu2wxJlOVF0NCEbHHCL+BDFpdoc
-C9+KlFbfTfyYzXqY9j3i4sprlXjkBm3812lzCrf4StDGNI8uo+Z0TB6rY4qC0/Vn
-5+wOpZqr7TvAUXark267/ZlZfwQgwETuDWYt/8SLMqLupYYSQ9qjNOSfx9UC4Wbr
-rqjQuKtCguBpof8MQFcMh35okMBqAdyfqIQwbSraW5Fa+0y21bAjghiC183NFyVy
-fMZStfxWvo3bYmUffoVnRYON9uXN6lSTCIdA20vx7lTVoQG9REI=
-=RrIw
------END PGP SIGNATURE-----
-
---efltvkno4xbepiec--
 
