@@ -4,63 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D50AFF60DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:38:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A9C0FF60DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 07:42:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ah4aYsTQqd/mw+M+m3VmuYEWsGiyWr9G4IIk4YxqP6E=; b=imcFbqE2Srg2ZsSiHttllnnjCU
-	9xw/IanI1nXcWHW1NDkbn15CFyGW7sJrDAuHyH2aoF8z+equr0csRV5x14l39EKg1NsCiRceEtgbF
-	Ye3JEL8LPteXy4/9BCd+P02IB10qWenGsrfZ7EUxmSabHG4YwBnn8Jf+j1hT+s8Z3BihZj/cNWLj/
-	cclSKsVdaR6IyAZSMCkAA4blQ6KtJ8J8Vzia+jlc/L8yr01VyPs16dxe/EeVpQQ4DR5mr6s9LVwUu
-	5HvO1LoPwo3uBPy7N+s3/L8y0j60IleaclWIbTu7XF1hF/ZKKXwjskfvGNML92OJqINhhCnjdKaKQ
-	TOKQthFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9SxOjOTseSAn1nQ45rpdjtziv53VKsS1quP1uczHGNs=; b=uJINDO7vw1XffpPfuq45z7Ma5d
+	7uH0GgwNJiYEz+ZOBfL4saSOVvosGa5rj+lcuH6Hjc5ntloHcrqA8sbnOAMSe4lpzUJNIXtAbYbyp
+	i6HgTDnuxsPVFeTu3tE8CzM5IuyCB+zWh/cvEwlJoPS9CwEi8Q0D8IXtQqQztugNoDhnc7Rzl6hRM
+	FH2v4JMiE3iHAren0BNlzd4TzhlTMm60PLxkCvDodfxe5VAZjcHcWhSiR5PDodYdTw0luBfBBjl5u
+	//FgwXQ081xv3KDcAHPjgpwUda06RTK9bxhN/shqCG1GEpd9TX2jUPscYwoqd2pUgQT+3p9L/M2R2
+	PB2DAtVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7TgD-0000000CVcS-2Huq;
-	Tue, 31 Mar 2026 07:38:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w7Tjj-0000000CVv9-1ojn;
+	Tue, 31 Mar 2026 07:42:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7TgB-0000000CVbW-1iV3
+	id 1w7Tji-0000000CVv2-1icY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 07:38:28 +0000
+	Tue, 31 Mar 2026 07:42:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 319FC40BC0;
-	Tue, 31 Mar 2026 07:38:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF8DDC19423;
-	Tue, 31 Mar 2026 07:38:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 76E9460120;
+	Tue, 31 Mar 2026 07:42:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C601C19423;
+	Tue, 31 Mar 2026 07:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1774942706;
-	bh=G9HJmQU8SgdtwfrY1W2nRepzj5FuKeUXX3qsWHsDCvk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=esOVEi9Q1nK07gXwMY08B8PsSZHCRWRw0S/fnTeEowEFPwThZBIAtm4W7K1RZuaC1
-	 wiPgTml9x+uIEgGEc3TQAKkIVjNjSpHoelM1q5bETCLZLEo9wsQJlU4A/+R8EmTqRd
-	 8K0LnIJASz+rYrIqLI/BZUyPxJwFVWkTeNCqFC8zv5/S6Q6a7Oui+xlRIeyrLujemw
-	 jj3gzElrEHw0R7D1HH1HdDzD72sVl3sunK5JvzXMMWwaXoPjVAVrmkfAthyojba9bb
-	 zDrKhwRlSwz/i2vGBO08JIcSv+ysQ2yi1RC68j0Sn09o9aEL12f9s26upHDQbhLwMs
-	 cxSQiQXn0HAcQ==
-Date: Tue, 31 Mar 2026 09:38:23 +0200
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: arm@kernel.org, soc@kernel.org, 
-	Thierry Reding <thierry.reding@gmail.com>, Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
+	s=k20201202; t=1774942925;
+	bh=sxCsxV18jccKaal4cV6uflXT/Z+0ht7lTl01NO6s63g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jM5RUpIK+sln1wUh7C0UGjHyRDWphJEox635R8pHzUZIlgiLgZQKB1y29w/qRuLeZ
+	 eyduUQDlo9nqfKHk/kY1/HdChZ8Dpen5KFKWF0YLd2klhT2ndG1GW6ulHIQzTuSK4p
+	 SZE9IL3nv01HyxGGBlEHcm5kzptnrEBD3oS3jKFhWtBomD51qpmp45hXVlK67eFGH/
+	 14I+XHjCzncLFj5iTHJvs0aIAZHAjHs5rtCqbw4hqLGq7rpCyOqGFqJens3Qaebz8W
+	 zc9qlh0avmqV/q3SBwz3OTJOFo08op2fdZckJ/WXaEWvrWQMyQ05yNUFqf5dIQUZUZ
+	 xbabHVpz9zsYA==
+Message-ID: <0a94419d-b03e-4c8e-bd49-4a33ce6a8fd7@kernel.org>
+Date: Tue, 31 Mar 2026 09:42:01 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [GIT PULL 4/7] ARM: tegra: Device tree changes for v7.1-rc1
-Message-ID: <act5kGG-4mZl0j3p@orome>
+To: Thierry Reding <thierry.reding@kernel.org>
+Cc: arm@kernel.org, soc@kernel.org, Thierry Reding
+ <thierry.reding@gmail.com>, Jon Hunter <jonathanh@nvidia.com>,
+ linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 References: <20260329151045.1443133-1-thierry.reding@kernel.org>
  <20260329151045.1443133-4-thierry.reding@kernel.org>
- <058d79b7-3d4c-4f0a-a95f-b2e3582a4fa7@kernel.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="u64yt5slajlaoiug"
-Content-Disposition: inline
-In-Reply-To: <058d79b7-3d4c-4f0a-a95f-b2e3582a4fa7@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_003827_485583_66A7A0D5 
-X-CRM114-Status: GOOD (  16.22  )
+ <058d79b7-3d4c-4f0a-a95f-b2e3582a4fa7@kernel.org> <act5kGG-4mZl0j3p@orome>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <act5kGG-4mZl0j3p@orome>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,80 +116,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 31/03/2026 09:38, Thierry Reding wrote:
+>> Why does the DTS branch has mach code? Tag message mentions legacy
+>> cleanup only and such cleanup should not cause mixing independent
+>> hardware description (DTS) with drivers.
+> 
+> The DT additions for PAZ00 replace the legacy code, so it makes sense to
+> replace it in one patch, otherwise we'd be introducing a bisectability
+> problem.
 
---u64yt5slajlaoiug
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [GIT PULL 4/7] ARM: tegra: Device tree changes for v7.1-rc1
-MIME-Version: 1.0
+OK, please mention it in the tag message in the future.
 
-On Mon, Mar 30, 2026 at 01:46:32PM +0200, Krzysztof Kozlowski wrote:
-> On 29/03/2026 17:10, Thierry Reding wrote:
-> > ----------------------------------------------------------------
-> > ARM: tegra: Device tree changes for v7.1-rc1
-> >=20
-> > Various improvements for Tegra114 boards, as well as some legacy cleanup
-> > for PAZ00 and Transformers devices.
-> >=20
-> > ----------------------------------------------------------------
-> > Dmitry Torokhov (1):
-> >       ARM: tegra: paz00: Configure WiFi rfkill switch through device tr=
-ee
-> >=20
-> > Svyatoslav Ryhel (8):
-> >       ARM: tegra: Add SOCTHERM support on Tegra114
-> >       ARM: tn7: Adjust panel node
-> >       ARM: tegra: lg-x3: Add panel and bridge nodes
-> >       ARM: tegra: lg-x3: Add USB and power related nodes
-> >       ARM: tegra: lg-x3: Add node for capacitive buttons
-> >       ARM: tegra: Add ACTMON node to Tegra114 device tree
-> >       ARM: tegra: Add External Memory Controller node on Tegra114
-> >       ARM: tegra: transformers: Add connector node
-> >=20
-> >  arch/arm/boot/dts/nvidia/tegra114-tn7.dts        |  13 +-
-> >  arch/arm/boot/dts/nvidia/tegra114.dtsi           | 221 +++++++++++++++=
-++++++++
-> >  arch/arm/boot/dts/nvidia/tegra20-paz00.dts       |   8 +
-> >  arch/arm/boot/dts/nvidia/tegra30-asus-tf600t.dts |  21 ++-
-> >  arch/arm/boot/dts/nvidia/tegra30-lg-p880.dts     |  23 +++
-> >  arch/arm/boot/dts/nvidia/tegra30-lg-p895.dts     |  33 ++++
-> >  arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi      | 174 +++++++++++++++=
-++-
-> >  arch/arm/mach-tegra/Makefile                     |   2 -
-> >  arch/arm/mach-tegra/board-paz00.c                |  56 ------
-> >  arch/arm/mach-tegra/board.h                      |   2 -
-> >  arch/arm/mach-tegra/tegra.c                      |   4 -
->=20
-> Why does the DTS branch has mach code? Tag message mentions legacy
-> cleanup only and such cleanup should not cause mixing independent
-> hardware description (DTS) with drivers.
-
-The DT additions for PAZ00 replace the legacy code, so it makes sense to
-replace it in one patch, otherwise we'd be introducing a bisectability
-problem.
-
-Thierry
-
---u64yt5slajlaoiug
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmnLee8ACgkQ3SOs138+
-s6GasBAAqfoYj2h+7y52qfWeJW22QsUTtH9yfVzleXtd59ZqOEw2GR4p6LrZ6Uy+
-n4zg/h9yxRstb3K323jMfBhTDYLtotMPPnoeLzy5nb46PubAJD8AOTeN/aWoJWwx
-39E7lrbXEdlwJPC857AHAbVtoPTKIh46PoCO7vCQcDqBHemo7umd1CNnJ+0GfY04
-4YgCZRkGI9AMdPWzGJbzodfBd+TZvw9SfD4hl2Ey8QmAmp0E2Axs13p/4uqVIbFE
-p3HdMVyhXecVuSWGozVeViahyqZPnWNarQHBcC+xiku6QWeZF7UfjFWi2E2XiWFc
-STOrIZ7hB2Hy7BpzbVygvTVoSWD2/Rt9Duelp8glKmt+Q9t1Vn8e+dL0yLdeZPzh
-QRK8rbE9RPQfKuPYeeS8OFtsOiZPaw7+So4DxkZmauhd3VzAwoBxkrXs7WKqFkdW
-Y5m+xpsr9MFvkTlbnTPnZU0AOjFqkC1jlynKmjkbND+jzTvOnMWFdR+W4Yv2zmTV
-QMcczdXYG1CyTXkII9Rz/ZCM5TsQ5twa5Kdemk4jf+TMgS9oepr4Xr2yjfvKwoXE
-SnrnmTlTqjz10fsVsIWzC0005eG1cCKqHAX9fFByMVyYdpsMbLWydEoKvZ2Raadw
-NUP2OtA124XEqquTBxxXYrpDfyekys7qEg0ZG9DBCJWhQGZ3k0o=
-=ZBTf
------END PGP SIGNATURE-----
-
---u64yt5slajlaoiug--
+Best regards,
+Krzysztof
 
