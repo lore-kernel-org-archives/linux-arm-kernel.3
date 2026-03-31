@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C85FF60C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 04:32:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF148FF60C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Mar 2026 05:43:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ndBUhcYREwyT73swQeBsr9e9GtqbT3xqQkNm76RxoiY=; b=sFyC+NuYT23dpiNzdX8+k5Q79+
-	BlK9IH0MNFOX+a+lCGG63bYn+yM8p1pLOYub1192RRV5Rh/zkIkhXksjcZTiMNcus5dfuP8D4q2I2
-	Cpe2Lxsgk+/8XxZPNHAEt3oo4yyDghPiQ3I+z1EH45i2XPTyR1LBLafNhRkP8P0cEw1L6r2NTw+xL
-	M2Kh/NQg3MW1vu1ftmolJesmGH1ocUEhUBBALY+tkX3obMHD+6UyAbL0UXdagQOnI/Bt+xlBwBhwq
-	vnk3i/05eKO8RlypkJVvuNPe06JFOvG4HQLb4VZemhPjyE7+LTg5LyMjJsLPVkGhx33F7WhHTZAsr
-	sUV+NIcA==;
+	bh=YYKEvvECp557eH8+PIi5XxNJ+boFC+brG4+qRSDdZ3w=; b=Xs0URg9oBvk5otXSRQb2Za3QFR
+	w9KDkuntXXtXTtU3UblTj6TUHrgthjyC66o39Z/DLmrUpfZbGxnoCujWOePpU9Ozr+NAqvI5issRJ
+	fBUSCBLBS0FQdjvqUw6dQqhS5ATctDlaPvjnIqcRJFpDFbAiOVqy87rroApWfQz5ojE5oUOdMqldW
+	X6F+WdAfnGBaIuf+bYpvf/a1ecDnPTSw137tFjZ3/SrP1O65ZR32obDg322UxsjFJKlabbK9xReGh
+	0tA2xBEmTHZwOncOBmW4wtOFH9E/kXPJNREkEIRpI3KftKPhsBujxf7Tns/v/mGyDRq7HCfHu3pa/
+	hKsjm4VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7QmH-0000000CHMY-3oQU;
-	Tue, 31 Mar 2026 04:32:33 +0000
+	id 1w7Rsg-0000000CJuw-1CuU;
+	Tue, 31 Mar 2026 05:43:14 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7QmE-0000000CHM8-3YUo
+	id 1w7Rsd-0000000CJub-0L4n
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Mar 2026 04:32:32 +0000
+	Tue, 31 Mar 2026 05:43:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C8F2E1F91;
-	Mon, 30 Mar 2026 21:32:22 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7F651493B;
+	Mon, 30 Mar 2026 22:43:02 -0700 (PDT)
 Received: from [10.57.18.211] (unknown [10.57.18.211])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 813BB3F7D8;
-	Mon, 30 Mar 2026 21:32:24 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 03D1A3F641;
+	Mon, 30 Mar 2026 22:43:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1774931548; bh=iUSmJen7EHvJbWNsD+5iM8jJX4poJCJT5ye2J7z9dkI=;
+	t=1774935788; bh=vSB+ljS0jlhp1cm4eU7MyoYZxLluHbOT/8kE0YlcoaI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=d/Vl+mYCWsLfdTiQ5ngQ+k7Gurmy3gcTv3lv/p1eD2ft61bcNanUrqx+Yuw8yLenA
-	 ZskW+RkhwJtS5+/Ocx6Czyxz+CeEmV9hK4NJoY4nuN2OQtmeLquf7ty6hbUNihEFak
-	 IcFVBz8ylhZXE2uh0yYgVJtp9lA1HEqjqjOforVA=
-Message-ID: <f606d3f7-0aef-47a4-ae2f-abc4f163d69f@arm.com>
-Date: Tue, 31 Mar 2026 10:02:21 +0530
+	b=UcpTubK+EvW+7IXovLRXihaJceuFtVVv/2TbkFcvixMghUlnloG/D5wcq1cmQt/bU
+	 0gc/qT4RsaXBg/GLVxWOnhkdSiZ/M7mCCQijhg378kx6Xj+56B1lPHXAx9hgUYtvk6
+	 aZzLSM6CDWf+C0onhJJ46xM3pRi07C4BgmO5zA5o=
+Message-ID: <8deec1ce-044e-484a-9f9c-82163f3ac801@arm.com>
+Date: Tue, 31 Mar 2026 11:13:01 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/30] KVM: arm64: Simplify return logic in
- user_mem_abort()
+Subject: Re: [PATCH v2 10/30] KVM: arm64: Initialize struct kvm_s2_fault
+ completely at declaration
 To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
 Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
@@ -52,15 +52,15 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
  Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <tabba@google.com>,
  Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>
 References: <20260327113618.4051534-1-maz@kernel.org>
- <20260327113618.4051534-10-maz@kernel.org>
+ <20260327113618.4051534-11-maz@kernel.org>
 Content-Language: en-US
 From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20260327113618.4051534-10-maz@kernel.org>
+In-Reply-To: <20260327113618.4051534-11-maz@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260330_213231_023414_0609AB41 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20260330_224311_289522_E10B35FD 
+X-CRM114-Status: GOOD (  21.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,12 +78,16 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 27/03/26 5:05 PM, Marc Zyngier wrote:
 > From: Fuad Tabba <tabba@google.com>
 > 
-> With the refactoring done, the final return block of user_mem_abort()
-> can be tidied up a bit more.
+> Simplify the initialization of struct kvm_s2_fault in user_mem_abort().
 > 
-> Clean up the trailing edge by dropping the unnecessary assignment,
-> collapsing the return evaluation for kvm_s2_fault_compute_prot(), and
-> tail calling kvm_s2_fault_map() directly.
+> Instead of partially initializing the struct via designated initializers
+> and then sequentially assigning the remaining fields (like write_fault
+> and topup_memcache) further down the function, evaluate those
+> dependencies upfront.
+> 
+> This allows the entire struct to be fully initialized at declaration. It
+> also eliminates the need for the intermediate fault_data variable and
+> its associated fault pointer, reducing boilerplate.
 > 
 > Signed-off-by: Fuad Tabba <tabba@google.com>
 > Signed-off-by: Marc Zyngier <maz@kernel.org>
@@ -91,39 +95,84 @@ On 27/03/26 5:05 PM, Marc Zyngier wrote:
 Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
 > ---
->  arch/arm64/kvm/mmu.c | 17 ++++-------------
->  1 file changed, 4 insertions(+), 13 deletions(-)
+>  arch/arm64/kvm/mmu.c | 34 ++++++++++++++++------------------
+>  1 file changed, 16 insertions(+), 18 deletions(-)
 > 
 > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 1b991300735be..e77b0b60697f6 100644
+> index e77b0b60697f6..2b85daaa4426b 100644
 > --- a/arch/arm64/kvm/mmu.c
 > +++ b/arch/arm64/kvm/mmu.c
-> @@ -2005,22 +2005,13 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+> @@ -1962,8 +1962,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>  			  struct kvm_memory_slot *memslot, unsigned long hva,
+>  			  bool fault_is_perm)
+>  {
+> -	int ret = 0;
+> -	struct kvm_s2_fault fault_data = {
+> +	bool write_fault = kvm_is_write_fault(vcpu);
+> +	bool logging_active = memslot_is_logging(memslot);
+> +	struct kvm_s2_fault fault = {
+>  		.vcpu = vcpu,
+>  		.fault_ipa = fault_ipa,
+>  		.nested = nested,
+> @@ -1971,19 +1972,18 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>  		.hva = hva,
+>  		.fault_is_perm = fault_is_perm,
+>  		.ipa = fault_ipa,
+> -		.logging_active = memslot_is_logging(memslot),
+> -		.force_pte = memslot_is_logging(memslot),
+> -		.s2_force_noncacheable = false,
+> +		.logging_active = logging_active,
+> +		.force_pte = logging_active,
+>  		.prot = KVM_PGTABLE_PROT_R,
+> +		.fault_granule = fault_is_perm ? kvm_vcpu_trap_get_perm_fault_granule(vcpu) : 0,
+> +		.write_fault = write_fault,
+> +		.exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu),
+> +		.topup_memcache = !fault_is_perm || (logging_active && write_fault),
+>  	};
+> -	struct kvm_s2_fault *fault = &fault_data;
+>  	void *memcache;
+> +	int ret;
+>  
+> -	if (fault->fault_is_perm)
+> -		fault->fault_granule = kvm_vcpu_trap_get_perm_fault_granule(fault->vcpu);
+> -	fault->write_fault = kvm_is_write_fault(fault->vcpu);
+> -	fault->exec_fault = kvm_vcpu_trap_is_exec_fault(fault->vcpu);
+> -	VM_WARN_ON_ONCE(fault->write_fault && fault->exec_fault);
+> +	VM_WARN_ON_ONCE(fault.write_fault && fault.exec_fault);
+>  
+>  	/*
+>  	 * Permission faults just need to update the existing leaf entry,
+> @@ -1991,9 +1991,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>  	 * only exception to this is when dirty logging is enabled at runtime
+>  	 * and a write fault needs to collapse a block entry into a table.
+>  	 */
+> -	fault->topup_memcache = !fault->fault_is_perm ||
+> -				(fault->logging_active && fault->write_fault);
+> -	ret = prepare_mmu_memcache(fault->vcpu, fault->topup_memcache, &memcache);
+> +	ret = prepare_mmu_memcache(vcpu, fault.topup_memcache, &memcache);
+>  	if (ret)
+>  		return ret;
+>  
+> @@ -2001,17 +1999,17 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>  	 * Let's check if we will get back a huge page backed by hugetlbfs, or
+>  	 * get block mapping for device MMIO region.
+>  	 */
+> -	ret = kvm_s2_fault_pin_pfn(fault);
+> +	ret = kvm_s2_fault_pin_pfn(&fault);
 >  	if (ret != 1)
 >  		return ret;
 >  
-> -	ret = 0;
-> -
->  	ret = kvm_s2_fault_compute_prot(fault);
-> -	if (ret == 1) {
-> -		ret = 1; /* fault injected */
-> -		goto out_put_page;
-> +	if (ret) {
-> +		kvm_release_page_unused(fault->page);
-> +		return ret;
+> -	ret = kvm_s2_fault_compute_prot(fault);
+> +	ret = kvm_s2_fault_compute_prot(&fault);
+>  	if (ret) {
+> -		kvm_release_page_unused(fault->page);
+> +		kvm_release_page_unused(fault.page);
+>  		return ret;
 >  	}
-> -	if (ret)
-> -		goto out_put_page;
 >  
-> -	ret = kvm_s2_fault_map(fault, memcache);
-> -	return ret;
-> -
-> -out_put_page:
-> -	kvm_release_page_unused(fault->page);
-> -	return ret;
-> +	return kvm_s2_fault_map(fault, memcache);
+> -	return kvm_s2_fault_map(fault, memcache);
+> +	return kvm_s2_fault_map(&fault, memcache);
 >  }
 >  
 >  /* Resolve the access fault by making the page young again. */
-
 
