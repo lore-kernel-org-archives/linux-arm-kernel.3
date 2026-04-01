@@ -4,64 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58BFED35176
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 10:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F30D35171
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:01:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mbj8DRjJ6FjmIEmUsBtCSoKyYAdXduQ+Y0GSwlGLOwo=; b=eyJZGPhaZiqfETV2fohsJVPvob
-	FYH6Mvy4s4f+6xRqjOHynuKrgIqq4NhqkbDK/zjyXeA0O2hWQxdemD7ck1zLTuAd3GwctXaj03mSi
-	V1d7jUN0gzExnuvihqBKc9/pWaexI8sKLtsUpsknvZlQ9PD8knpdP5lRpxy0FLjDs2rUENhSRAIHB
-	QrRxWvWpnwCZ4S5w0rdd9yXtnsQVP2ql/tjgvbi5rF4oVAx8bUlemuMhA1Z34IK8JykpOM32yfwCl
-	zhg8Yr35jQEcb1jzLIrcUWs/SPmN0aHUFcCUbOcRUBWkOATkQwJjtud3q+L9Dzp46JEGwknYen+36
-	C3fucrJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RR7dn+wRkXt2kif0IMG3BKngE8Pj6FP/v/oBR3R5abg=; b=m5PTw30qCRZMy319ovlVh1ws9K
+	KmXDRFyo1TPgSJzX8PRDEaJOm8/R8ur0xmHRUinDHV8K7NNi3Gk9t9LxZDiVWNJulmE/anij/q8l/
+	a57d6uMOxQao613MoGZJQqF/TNlYufm2WpCVbRhyZSPMEA8LrtW76c9/naeNj1J7g3sOasNT508jK
+	2wI0Ws9bOJ6Ak7PzI8matOOy/J6PqLOVAO5DLHKZCdeGdyqUEHIU1rGCZiKCAedV2WWbHh2/oyB8o
+	uBJIfOOVVIRW9g9z8xiA+ZaLAA0EiA1j40qp2yM0cq/aYUewM7YaMZIiG0MSdmkr2AlM0YYrTCcyE
+	qMo8ZxmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tIU-0000000EaMh-2yQQ;
-	Wed, 01 Apr 2026 10:59:42 +0000
-Received: from fsn-vps-1.bereza.email ([162.55.44.2])
+	id 1w7tKE-0000000EafM-3ueP;
+	Wed, 01 Apr 2026 11:01:31 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tIR-0000000EaLV-3QiI
+	id 1w7tK9-0000000Eaen-29iw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 10:59:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=bereza.email; s=mail;
-	t=1775041178; bh=Mbj8DRjJ6FjmIEmUsBtCSoKyYAdXduQ+Y0GSwlGLOwo=;
-	h=Date:Cc:Subject:From:To:References:In-Reply-To:From;
-	b=V3z41BzUUGsB5URRuoc25DYFE706Zgjp/NYPxzKAtlxQVrQGOHYrKUNQ140FHoUvA
-	 wFoDASFqV1q8FwjJ3leJxmvLqW22IcX1BTKOu5hUFwJGoaOzjSKAFFD48dbxbvLkIC
-	 UUO+nVlP/iDOoKleOBG6ATnkQmhKxEyFNGJiwi/AcFQPfiQWtAS6NNFvRfp/z7sK53
-	 Ii+hoFfO3DLzUJpd9iJ6xdGOS/5OXY+9t609PExSKBLQf+J8QAX8Dk17UKqPjlFhmg
-	 iepz9uU+ZMedubGBsGY47kUGw873saKDvQQFu7liDLupgyddHxMUCVkGUDmhSfgqBy
-	 MrBp9lSm0cJDQ==
-Received: from localhost (pd95bbad8.dip0.t-ipconnect.de [217.91.186.216])
-	by fsn-vps-1.bereza.email (Postfix) with ESMTPSA id BAEF25DF94;
-	Wed,  1 Apr 2026 12:59:37 +0200 (CEST)
-Mime-Version: 1.0
+	Wed, 01 Apr 2026 11:01:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KR1RUfjUKIzQMcglBwyAX0Df+NtnAt/c17XDIPXbiaVsn9eKainqibGHGEHFE1MMlq0z8t3GI2IcyYuogVvaD99Lpnlq25f9PMKN6BVPpTJVrHVIKb3S7qOe+IUwDR4MuvXg5916pom4e9b4v5sUmhxYfxPuewg+U2evmUDStqiRADaPulH3/mtd6HTFHYBxIGYfGqFImvKYwc3zivT3WoTvhCEhAv+LaD3J2OzDm+DHzvisH4QjjrzOKFtaXXmrj5wyNpDP/lEwBRzpO03x2fGMwFQYw64FWZORVVnORyEPC/tn0Uzg5a9bis55dhRK3yIZ4qwiv629CgDv53FHmw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RR7dn+wRkXt2kif0IMG3BKngE8Pj6FP/v/oBR3R5abg=;
+ b=T/aHFSxLjSEqflyvY5EHD6nQo7J/YNdCl/qXhGDRhRM3gUbzl8b602GLdV01jUu66k8y1+7YnDN0q/zOHCHKX7yxATfc3g+S/UbjPC5MSuEgvxDDw8ZcurMQtiWcL0uU8BCk3z2JSCY0TxoNpat+WI0lEgeTgpO+T9+xBXQM+HD7wgGl1jIAfz8jwXaHzASfb4B7HA9P87FT2j1YzPHLHrujswpJV9oml0ACHSz0Z9al6mJjdRDkCAnTU3twdljuPutWvp3HTiCVypT8TjzPKv1KfPOhXAHE9NGKgT/Sh+wmt/qcekuyaPbLqx8MsxgBOTxhDJ89NrY6zpEVGil6nA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RR7dn+wRkXt2kif0IMG3BKngE8Pj6FP/v/oBR3R5abg=;
+ b=A4gmZPvgdIuagVR7LvHPptnpoZBCdEBJmMc51DuzAtwdESkrsq3gEHgf/s1kkzZqlgqCu/N6RvGYE92H0CZR3XvyEaTE68q+kLVIvL3qJu5VRn5X+szT1c0orva3JCb/hroIc9jehTZDhoMqvy/1ETC/w0GZWi52d22PNHqGjp1XlWxOURP/McA+o78uFCDoNoGlnevJjEf2Wnyop+BLl2IjfujXlAVvGg/xINhVI3cx+d9bzkjX3FfMzFXn3noEh6WeAYnLyJLrHrirUgII50PPkwCAFWwQJqANj/5SLLFrB7N+9LFP3/AVgNt+uLuu6A5HNIC5+77wua8Fz61j5A==
+Received: from AM0PR04MB4707.eurprd04.prod.outlook.com (2603:10a6:208:c0::29)
+ by AMBPR04MB11787.eurprd04.prod.outlook.com (2603:10a6:20b:6ee::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Wed, 1 Apr
+ 2026 11:01:18 +0000
+Received: from AM0PR04MB4707.eurprd04.prod.outlook.com
+ ([fe80::e918:eca8:f034:698f]) by AM0PR04MB4707.eurprd04.prod.outlook.com
+ ([fe80::e918:eca8:f034:698f%5]) with mapi id 15.20.9632.017; Wed, 1 Apr 2026
+ 11:01:17 +0000
+From: Guangliu Ding <guangliu.ding@nxp.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>
+CC: "Daniel Baluta (OSS)" <daniel.baluta@oss.nxp.com>, Daniel Almeida
+	<daniel.almeida@collabora.com>, Alice Ryhl <aliceryhl@google.com>, Boris
+ Brezillon <boris.brezillon@collabora.com>, Steven Price
+	<steven.price@arm.com>, David Airlie <airlied@gmail.com>, Simona Vetter
+	<simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Jiyu Yang <jiyu.yang@nxp.com>
+Subject: RE: Re: [PATCH 1/2] dt-bindings: gpu: mali-valhall-csf: Document
+ i.MX952 support
+Thread-Topic: Re: [PATCH 1/2] dt-bindings: gpu: mali-valhall-csf: Document
+ i.MX952 support
+Thread-Index: AQHcwcbd/tMXVB9tRkmqpeQn2Kc07A==
+Date: Wed, 1 Apr 2026 11:01:17 +0000
+Message-ID: <AM0PR04MB4707D758EC8B08C6D42F3A82F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+References: <20260331-master-v1-0-65c8e318d462@nxp.com>
+ <20260331-master-v1-1-65c8e318d462@nxp.com> <acva1Xt8V4k9-uG8@e142607>
+ <AM0PR04MB47073E9E8B5C704BCF5D9F72F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+ <99a1da55-d6e5-4d11-abaa-8c85283ab5f2@oss.nxp.com>
+ <AM0PR04MB4707B3E37DFE7AEE587DBA2AF350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+ <aczv0R0aQRmHKdvt@e142607>
+ <AM0PR04MB4707335CC7035232D44E6ED9F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+ <2f4c4063-daf6-48f2-b830-9f58dc7af80d@kernel.org>
+In-Reply-To: <2f4c4063-daf6-48f2-b830-9f58dc7af80d@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM0PR04MB4707:EE_|AMBPR04MB11787:EE_
+x-ms-office365-filtering-correlation-id: 4143c5a4-086a-43ba-d599-08de8fde0003
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|19092799006|38070700021|56012099003|22082099003|18002099003;
+x-microsoft-antispam-message-info: LAgccFmoZ2dccMeiWUlfBr0TFSJjJeFyxIjK3/Gq2TX/jsCKF8zMEZYRsr7IxY/9xQA2of1/OuWuUW2ZxGPnXxg43IO8cLBOGz+3xj6nppY91j9XEoLpHhJjVKXZYgo0h8E8FvF/89HuJJhwy4qg7JolE7dG0YeuMFx/YC6pX04P8vh4Mowc0mtZMMqEDCeqsXiOWHwXblJBOYHNz0AXe60h9VG2nBj1Lb/y2kbyQesABJu//MIEg6mvMBFB9B4lNN4cgeWGrqiF11sPwGlApPAGj2WXolyoRMfMD5SmTINU5U2kMvlLiPGyv/JEkQHnayU3nq157vwXaCEy893nr0ggxdHgpiC/Iox3v92QDVxK/uzB8NrNqKF7dHgR3yYZNktYpAqZNPZum16jvuJAqvi1Kk++HgoY5zmoJXmt281BbjLJwVXg22SK4TvczBfWBZ82nWHq18xeuctmRGuU+kbgQfqzHUDtbslMnB9TnjzgY9frDaSEpW+Afspa3eBjUVyxci1VyHP/k5M4LMjYJKC6WO9ZQIpG5xkHjpxlTZcnhrkkWvJ54GKx4vaKN5YLibIngL+0umaIWY8DZj1ntLg9rjQcd+Y8eaB5pKAlmznMRW2IVxvpOQmGulgmMyohd1K/9UHPslju9A0uZy8hqOVY5nWSBaiWO+cBH5o59loLGc8zafwCQLLCNcILK69njR1TAVvsoXvu+fjYr/iP9Mjnpo330E00hp03KzNPMC1sobTHy+s/G5KdUMn2KOtr9N/MO8+ifbG1oYBtLARq7Cov9PEPnFIeIy2uonX0qeI=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB4707.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(19092799006)(38070700021)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?MXYhSIuQddBjStJyuco50baT4fPWZYnBcHQDVxNKQqIdTl6jCT6D8NgjfK+G?=
+ =?us-ascii?Q?H3zY6c/TqpwEi6kBdQpPYxDUzCTR5843v+urwN2tQSgoNk/i8I+0b/wzp7c0?=
+ =?us-ascii?Q?FS3qm27P8h+Xyy6BKKkEionlXy9kfeWhHXPW+cIjep31hMPYmyfXiuxKK2tC?=
+ =?us-ascii?Q?IbUnRnXb4dC95NN6wj7RZeyfGWQrm6+OyJ/nlcUOXz1+OJgC9FN6OwTv0EUq?=
+ =?us-ascii?Q?30e/6LmnAxoHUiiisWbrMgkTmW9k0rMZoPzDxJtQKqTbCe7EM/WZvEjgiaU9?=
+ =?us-ascii?Q?5oYCjFfXjkPGm+JHFYJr6yyYevYIky6aV3qExnrG0LUP0+2vyNW4Jrrp7Z37?=
+ =?us-ascii?Q?S8g57SGvbACKubzrZsp1tMgF7vayjK5y4KUI2QGNAhXd2RTukcQL+jW/Hvro?=
+ =?us-ascii?Q?qBTIfdhgQasiCayYj/z9D0uKiQdTBERAiwQwUiAN0nTHbb0jEqIqAzqlug+j?=
+ =?us-ascii?Q?uf169I78KJpyTCI+AGyu+MCuo5eUBHGaLaxoM6XTMdUC6tap0HNeR2rDorw0?=
+ =?us-ascii?Q?KneD9XRbToRfIh5sjb+kWH8ma23/BfvTU3U07xFodE+3RnhvaDaqHMxq17C9?=
+ =?us-ascii?Q?v+jPwdZfcfnrcYDP3ROmgvARKOjHN0FAfc7271rcfrwzoqLVymOV6oirfJzr?=
+ =?us-ascii?Q?jSbx1ORkc8Tjm6BLDydtH6b6m+Y6VlZQwOgqly84XbjUYV9zzn2cX1Yhnk9r?=
+ =?us-ascii?Q?+pvphSSLbH+Gk/4c6u0jtFTHcsaUGvMbgZfqJ/8AkBdwpOazJslmT8KSMfPB?=
+ =?us-ascii?Q?Gg7FX2jEfWuZzXGlnS6mlrbAuzACGhKaUSE5aYCh1Yfy9SfWGMDoSMM5ZtNZ?=
+ =?us-ascii?Q?BxvZBw1p2kMpeNVB9e6Xi6BKPdNoFa6B6txzxSczyLq9wNJZKgkb4KpLDwKq?=
+ =?us-ascii?Q?VyoPtAV/fItDx7JHGP+GNSgeYtg4l1bGBGAgcHlA9ti6X02LGIFBMJ9gouLv?=
+ =?us-ascii?Q?h7vwe8/81morSJRkGWHnIl2n7iYlPQlQzWsK85O6bNJJO6MjQ7sLESzEdxVE?=
+ =?us-ascii?Q?itySTjCCK76YYCeY05KH2wphC3cpCvnVxYg6+6AF7BFjLrXizDbRMpNYbwvP?=
+ =?us-ascii?Q?43UnQvcPBlk5tLeM1LaSB8noYcpM6TFBFZQ/r4njroKN9rzJUlQJpWf0yWFv?=
+ =?us-ascii?Q?WteEAo55/eg1WiyGTuUol/jQQlk3YBdjA84hQDICgoqGWcLtMSAkkbjBV6rM?=
+ =?us-ascii?Q?nNZXgKwDeE1nBtN3aHY1vNK4ejN8n0fsyPlDZFDmFTVu/mVyOfTZw6b2Sfv3?=
+ =?us-ascii?Q?wb7VfXoSWevDmDVBqRWihRIukNA0D3qA7wehbvK1O9MbJKBgSts98Etj1rGW?=
+ =?us-ascii?Q?MzK0yc73HS2GwwBzp/C9iOtP2QRWegQi5lcJxHyfNi1stT7Em3KCwkxvvuZR?=
+ =?us-ascii?Q?0iLFmM8MMB0jY8mVfTF8527pJcHVFWHAZZtMsswFmCLh2yRCsHBHHvTDpeSS?=
+ =?us-ascii?Q?HPv9XeIIamt15oZtzs8GMMK1OrD2+jjclJqv/U9kbjsZsucdZbcuzFb3iERy?=
+ =?us-ascii?Q?y3RZmyhpDRoUCXw6eZ6ejy7CARSudbZCwgdbN8H7fPlwn/cL9ulbkb8DrGeG?=
+ =?us-ascii?Q?QMjJw/kg8/lVL1G+dDAmll8siHevWLD+JMmGPJbeF4yh2PyjeHWTXt2mQCW+?=
+ =?us-ascii?Q?fgQR932IxdfjSyDQu4830GehCp0rhXtDemCwlZvi8tvSIhq3EZ5oJASqEh+Q?=
+ =?us-ascii?Q?4iSrx2O8PCfnRN60nYfrfGauI80QqZ4uwshmQL0b+9MPYdYm?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 01 Apr 2026 12:59:37 +0200
-Message-Id: <DHHRKZLZFJ8Z.MKILHY9I70FK@bereza.email>
-Cc: "Vinod Koul" <vkoul@kernel.org>, "Frank Li" <Frank.Li@kernel.org>,
- "Michal Simek" <michal.simek@amd.com>, "Ulf Hansson"
- <ulf.hansson@linaro.org>, "Arnd Bergmann" <arnd@arndb.de>, "Tony Lindgren"
- <tony@atomide.com>, "Kedareswara rao Appana" <appana.durga.rao@xilinx.com>,
- <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 1/2] dmaengine: xilinx_dma: Fix CPU stall in
- xilinx_dma_poll_timeout
-From: "Alex Bereza" <alex@bereza.email>
-To: "Geert Uytterhoeven" <geert@linux-m68k.org>, "Alex Bereza"
- <alex@bereza.email>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260401-fix-atomic-poll-timeout-regression-v2-0-68a265e3770f@bereza.email> <20260401-fix-atomic-poll-timeout-regression-v2-1-68a265e3770f@bereza.email> <ZORYRaMAXzaiiK2355T-MbuQTxDy1AU40-E3g_gXEej43XUE6jjbrMSWlOxrIU1uQuvxyxBkv7hyX8OMHBvoiA==@protonmail.internalid> <CAMuHMdWGHzt8nB3EGAToxZibf-O6C5xb9bcWhQQApzL3-6pcCA@mail.gmail.com>
-In-Reply-To: <CAMuHMdWGHzt8nB3EGAToxZibf-O6C5xb9bcWhQQApzL3-6pcCA@mail.gmail.com>
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB4707.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4143c5a4-086a-43ba-d599-08de8fde0003
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Apr 2026 11:01:17.8717
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 9nrBRVidejKW8ssmd4sQXJ5X/3ShbwOQTD1wxWU5+q5QkFFzquAVhkbMN+rSX2DOGlrL2ngSTFuoE8fhs72cEw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB11787
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_035940_002968_9536EE94 
-X-CRM114-Status: UNSURE (   5.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260401_040128_204764_6E712490 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,20 +158,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
+Hi Krzysztof
 
-thank you for the quick and helpful replies.
+> On 01/04/2026 12:31, Guangliu Ding wrote:
+> >> Either add the patch(es) that use the compatible to this series in
+> >> v2, or put a comment in the commit message on where we can see the
+> driver changes.
+> >>
+> >
+> > According to discussions with the GPU vendor, this is a hardware
+> > limitation of Mali-G310 rather than a hardware bug, and it has been
+> > addressed in newer Mali GPU families.
+> >
+> > In addition, ipa_counters are not enabled in the current Panthor
+> > driver. We observed this issue with the private Mali DDK where ipa_coun=
+ters
+> were enabled.
+> > Therefore, keeping the compatible string is necessary to allow for futu=
+re
+> divergence.
+>=20
+> No one discusses here whether you need separate compatible string.
+> writing bindings and all my talks are (e.g. DTS 101) are clearly expectin=
+g you.
+>=20
+> We discuss only the lack of compatibility in terms of DT, how DT sees
+> compatible devices.
+>=20
+> And lack of driver code is clear indication that devices are compatible i=
+n terms
+> how DT understands it. Feel encouraged to bring actual arguments in commi=
+t
+> msgs in the future.
+>=20
+> Best regards,
+> Krzysztof
 
->> Fixes: 9495f2648287 ("dmaengine: xilinx_vdma: Use readl_poll_timeout ins=
-tead of do while loop's")
->> Fixes: 7349a69cf312 ("iopoll: Do not use timekeeping in read_poll_timeou=
-t_atomic()")
->>
->
-> Please no blank line between tags.
-
-Fixed. Sorry, was not aware of this formatting requirement.
-
-BR
-Alex
+So the best approach is only reserve "arm,mali-valhall-csf" for now, since =
+currently there is
+no need for an additional compatible entry from a DT compatibility perspect=
+ive.
+We can introduce "nxp,imx952-mali" in future commits if hardware or driver =
+differences
+actually require it, and include more detailed justification in the commit =
+message. Right?
 
