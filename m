@@ -4,102 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA6D3D3515F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 08:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F3E6D3515E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 08:44:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UjkBPhSq2KNJwwC5a6VjrIfS+wjdobuUB/quFKLmn9I=; b=VXQsGDvnJ/lB57OfpBXh+x283/
-	stXw/isduVsYK6CxwzSlu9FfZKiSK27+5G6fCtAj87WTQ1sxz0GLtXHi7joN8RRR7vEt0Gva0g7i2
-	hmBbuCEKQfYzf/awadVEOJb1n9WDHw/pcVcsfpKhqVPUSNqGdfvKFQbI0X1KjmnEOENIE1tIQFKAk
-	UBmErhhEHVDuPsBGlD+6wFffQoQoRTsoO2MQmnYAFX4XAIiIQxF2lIj+Dp/qxHMCDD35d61VwOmIr
-	pYMTFhqudnx8SsbIeXJwjZx0xDrrjkiJdKWB5tffvZ+7PG2vHLNWLg6TpAGvk7RJ4lgB2ylfhkTB1
-	39ywHL/Q==;
+	bh=JqH9sKLfHhmcoANcuySDjn5w/Mvt+c/3TgdLER1ogH8=; b=Bs+657YeFjL5CTeA/YK5/oy/S7
+	j/Tdbv+qDJR2i2q5oug9mGDT1/yTpB7mu9a0BHT2hbogsCMZoSAP6mRTEOvBSHvkYHgQgrVhHrVS7
+	6C+r10U6z23zNQ2VppFxGw5mXVFIDNJV0agWwepPF5JTsrKycBUojhauqnBy2loqrTMY5pdPUGmxB
+	D9mX9FwdqImXQJWov44sBrOYikLnZY37qB4dKG8RCiYJHR9uvX7EIZmNYLd9tYxjpIjN8EBxzV8NT
+	WcJR3yv7hbVi0i5yvfmxiVZlPMlnnTftunSNYnGjZpiwiSuxd7O/mSCPjU9NSwi3Chd71cHh4xjT3
+	pLv2uzYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7r7m-0000000EKi5-3SAW;
-	Wed, 01 Apr 2026 08:40:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w7rBR-0000000EL3u-3EUB;
+	Wed, 01 Apr 2026 08:44:18 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7r7j-0000000EKhU-45aL
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 01 Apr 2026 08:40:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=UjkBPhSq2KNJwwC5a6VjrIfS+wjdobuUB/quFKLmn9I=; b=kM54CCHbb0aALj1vg76idNGF/9
-	ZpQDEHgzXqOuFNdh6nObce9l1t8qYj5PGvCHXMDsIPM9+R0eZ8ngd5dNDKNTfqGDBRid3kHLF0XVU
-	/uZOBDagUS0AMc625Hk99EG0LurLJRfv5gRH6J6uPWDYftWz1X7MpwsNBoh1vjDDmA/L00Z4S+6Sm
-	yRu8+1yHuWxija9A+7Qp0/RA4sXjJ9/3rrtsuh/P4UvoCmM9Kqa59SQ2Oh9KY8YMYcj1vAR+mTLnW
-	UArOVokkkV4yrf2FLzj2BiM4Jy6y6hOqm9WegcCZ/Ez8MMRjSj/S4sVnCdM+ab+kgh8CkOnZw/Ko8
-	JJ1d0iZw==;
-Received: from mail-vk1-f179.google.com ([209.85.221.179])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7r7g-0000000HSOP-3gQB
+	id 1w7rBP-0000000EL3Z-1PyB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 08:40:26 +0000
-Received: by mail-vk1-f179.google.com with SMTP id 71dfb90a1353d-56d857af2a3so499665e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 01:40:22 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775032821; x=1775637621;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UjkBPhSq2KNJwwC5a6VjrIfS+wjdobuUB/quFKLmn9I=;
-        b=qwxCHREO0ACURIdeIUV+WmwJOw24jCmfUWAfOKMVAxElRPXvkFXI4CFIek+ilkSlHe
-         KA1EpgpnC7oBCQcFODkMVOEkAIE0/UESLMFaW33E36uhLrrE4Z8c3g3wp+pBuRYiKyqN
-         vyESJrnW4Eadh0/GhgFAhTctzSPyjS12RkvklZESizrzQibhKyHyAdKaYOcJJb5gvTZu
-         zPXxFak8nixa6NyFyRTtB9nYE+oBUVVF301ldEkfqr2Ho59qfLLKsnDY4jILV1Hl9ATN
-         MAt8EndkO9gj5ADSBfvj0Vr5BHthGwaS/c2967RgvYDT0wmWZHVIm5WlqhNugJZQQJT3
-         nGFw==
-X-Forwarded-Encrypted: i=1; AJvYcCWpmkm4pvp6wY0cH8Twd9uYwWF/xkziXFlspur1sKVtZt+DDsW1yM9Nv7/L0zjS0Qx2mX5stZjv2hZvP6pXDt/z@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNhS5ie4iLuUMnGxjoSRKne9ZccEEwG8cNdNXiLEEuSBIjA2zZ
-	a/HoizbRpvxv5qbe5WXCT9LSvNCWlVqeTVpGL5nEQnN8AFRz/qpFFRCDVM5VxHRN
-X-Gm-Gg: ATEYQzxD/Y6ltOifGv3WoQDbBkK8HS6LoDR2v0vZ4dY4KMPZV6NilwingjHB2iOxzsM
-	CTRhJEBd4hKfJ8mEHsLnubLBmfjJG8ZNqZlU0havrO0OfoQqL2lnP5hKzLSWAl9vd88Pw+255u7
-	xDDkim63BuFffK6v6sheJaIMp7EhDsdvxAH3QwKOX0nrxn8Hl3WgGyxKaJATzsPiRPoagCrJKDL
-	nIWI63Jo49+ySgs/q7rCd9hik1u49gIynmkfsaoKZeAxy7TeCvnzVfLsU3L653jr3t8EUmeBT0p
-	XY0o0gmpM2aniHvS1SOOJx0iHRf2/UMUyoMQHOBnF+6Cd3QAwFda14Y8C9kGtgpTdDjAz2gh6Gf
-	DQIZLunrN/xRRsFS6Mt72RIfDU0hwy26AIdI0yWL5ZkuyIOpfN4fi4NeCggLcbU9eqBSFXiRaUu
-	4oLlnoMLni+PCa+NX1UgLBa1kbLWjuqoXfb2LtnTgviwLqrMHREUCUg0EAvOAf
-X-Received: by 2002:a05:6122:1348:b0:566:357b:ef25 with SMTP id 71dfb90a1353d-56d8a96ff4cmr1095650e0c.15.1775032821313;
-        Wed, 01 Apr 2026 01:40:21 -0700 (PDT)
-Received: from mail-vs1-f47.google.com (mail-vs1-f47.google.com. [209.85.217.47])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56d58a46f4dsm16147808e0c.15.2026.04.01.01.40.20
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 01 Apr 2026 01:40:20 -0700 (PDT)
-Received: by mail-vs1-f47.google.com with SMTP id ada2fe7eead31-6055dffd694so440504137.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 01:40:20 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXuIuceyM1AVBN6oaxohCy2kO2GpFY59JkP7PJPKb4s9BzJIm35RFgvXyRzzvfP42wuJV3pkF7vJ/84DMRU8HfX@lists.infradead.org
-X-Received: by 2002:a05:6102:3749:b0:602:a9f3:74d8 with SMTP id
- ada2fe7eead31-60568183e55mr762941137.25.1775032820403; Wed, 01 Apr 2026
- 01:40:20 -0700 (PDT)
+	Wed, 01 Apr 2026 08:44:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QTnCJvvO6EdkNCviO5balrc29/e8ESOdepUodPKGU/MTWy8jh2TSFQWPSfUQm6VsJa3N/N2Js7psm7GUJcx8CgX0s04dn1j1ANdyiF0zqrj2RlkHAQh5jf9J4W3Aa+/p3lPi+IiwFX2gkEZ+qQNkjYlQLAq/ic1+ZrvQ/MuDB4fBwBoRCxPZSwpMHULdH6d69yeAvVt4Fq15caEata7p7047JtHA17w0Ent+MCZqNOmqhSBMjqoD2BklBCfe1H72iSaWVUFMbMe1SyysImCDKQLVB6k4atmyRVKPAt4IQUvt4mjQgcCsK34qFHRYr3vgGFoRI7ZEI9rMxGjM5DcF8A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JqH9sKLfHhmcoANcuySDjn5w/Mvt+c/3TgdLER1ogH8=;
+ b=qE/FjnLLPNPRCMk3V6+VSXtCFPMioM0zsYQN9svemfZPuXrFXCyL3NCZBOirrf1ZGyQbn8ZHyDkJlWhcg5+561CevZyazbj6q5Y8zatHQb8M7AjYg0l6f+XsW7YLbMSNghsGE5MTkumqafcjbMU+znfhrnCk00DabTIn5gyQDYrUEU76ShW6miZOylZsKdYuSGs3suYQ7NVASFSi9fqoc1FRKFkGtP+Rb9rzuXIHYxhwDv66JDobSN2nU5GcHj17RlWabijnQhtoa/b3bbUUaeYh1CnWKfzbe0lqcypOm/aL3wFfSjbRURxkfc1qiOEmJgMBBYVkqxG6hzd3Tx9p/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
+ dkim=pass header.d=kontron.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JqH9sKLfHhmcoANcuySDjn5w/Mvt+c/3TgdLER1ogH8=;
+ b=j27EHHY9yt4RSfWyEgkDY6WelEEHdgGgSDvS4k3mBwlMMNt7c1l30eJl7FiFI7/HMazY16JaIxo/ULE5ErQ3HLoi+g7YAsFCiHyIYJRiWnAff9wj2H7euvkJAWGwDvHNpwE4DiFCDH09H397nZAizcRD+zMfTOodfXPm+PgOI8WVa8njbcnv4/liwkuNSEc027sY5dI7G7dARQ8vVkZpmfRhZcSN1GXcuMF8d+oJVvJzts13oNCLasyHmqbMmm9NEYsaWfs3WFe/gC71u2TtfiY9y0UcXd30/RnkgWACltx4ahZFzgpXG8Sfyq9WqW83VVPyUaGu2J5BwTY0VAQlog==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=kontron.de;
+Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
+ by AS2PR10MB7108.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:60f::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
+ 2026 08:28:37 +0000
+Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::a276:4ad7:962:da22%3]) with mapi id 15.20.9769.016; Wed, 1 Apr 2026
+ 08:28:37 +0000
+Message-ID: <5fa79355-9dfe-4f8b-9eee-e3cd8aed932d@kontron.de>
+Date: Wed, 1 Apr 2026 10:28:36 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] arm64: dts: imx8m-kontron: Revert reading SD_VSEL
+ signal
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Peng Fan <peng.fan@nxp.com>
+References: <20260401-imx8m-ldo5-v1-0-1b1c1381babd@nxp.com>
+Content-Language: en-US, de-DE
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
+In-Reply-To: <20260401-imx8m-ldo5-v1-0-1b1c1381babd@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR4P281CA0232.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:e9::13) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:1fb::23)
 MIME-Version: 1.0
-References: <20260331-fix-atomic-poll-timeout-regression-v1-1-5b7bd96eaca0@bereza.email>
- <vA8GpbivDeKzKN1k0B6m1cvW-rZwJjKzvhksYdUJPo4fsfhLQoXtWoK59V1YX_U2U3jcVR2PAmzrleamvq8Dmw==@protonmail.internalid>
- <833bb42a-65b8-4c93-8109-d2959f8b807f@amd.com> <DHHOCNHDN27K.RIE745OFAACD@bereza.email>
-In-Reply-To: <DHHOCNHDN27K.RIE745OFAACD@bereza.email>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 1 Apr 2026 10:40:09 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdV-NOqrApQpnq9cSRD69ViAcSyyRVERnuy9FiUJXFSZpA@mail.gmail.com>
-X-Gm-Features: AQROBzBtK2awVoYZlNLRH_TxbROG8uZpU4rpSXf9Z2mSy2RwErngCSoFK_0ago8
-Message-ID: <CAMuHMdV-NOqrApQpnq9cSRD69ViAcSyyRVERnuy9FiUJXFSZpA@mail.gmail.com>
-Subject: Re: [PATCH] dmaengine: xilinx_dma: Fix CPU stall in xilinx_dma_poll_timeout
-To: Alex Bereza <alex@bereza.email>
-Cc: "Gupta, Suraj" <suraj.gupta2@amd.com>, Vinod Koul <vkoul@kernel.org>, 
-	Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>, 
-	Ulf Hansson <ulf.hansson@linaro.org>, Arnd Bergmann <arnd@arndb.de>, Tony Lindgren <tony@atomide.com>, 
-	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|AS2PR10MB7108:EE_
+X-MS-Office365-Filtering-Correlation-Id: c9f410a4-5781-459c-267d-08de8fc8ac08
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 7FhE819JAq5otNkjB5wemj0DIE/qgqLuLiW9FjdBk3cuhVUDI/+iIrw+kLhhyVMCOloFkqf7hpJ0bvllsHO1F+3ecuCDd45qHv/vT3r0aAL8AgGAMXaaqO1s+ZfRG306re3n7fJUW5MAUwpQCZ575rieeyA8DWKmA9Leh9P2GfhePmAlN+oHCKvxew386uFYr6hzoemoiRj8rvM/p0qcEWw7VqSS1r/qhO9W2X+DQY1AS49wAL4/yWDSPMHmzFYJEGR82xWieqnv65HX8ceRwqhx9uC9sfnWzhr4Q3wvVnVvA0w5qfKoiAMl5vRAGPZ9zxZsPedwNzjxzWuvcdj45Y8Qn0Cf2w5Ke3I00oCB0cTe+d1HcyKclI+Qbj7KFhkanzxZ3FpJPTbvJvE+VVBTM3hi7/juq8zUdMI9R0zr3Hc7pvRKOgxxQLkKu53EUkYcXViOcT9ATadwMgt8mTadr2zjPGBnw4ByIaBzNdIILK8ll4n4LFpvFR4CsFfzXjLINxYzBcbQfAg6Fs8rhoSRUMMukdcOl5vCNhaQUmPF9P0Hg3+2dODjfm+Cr5poAzB0s+SYy/GwrH43tB/YogrpCMVfsUG0/KOjx35k63hZX1LqX2qLxzeWlRMTF5QdgYbEFJ3EIShlPbUu2b3bnUsJaRumvZ/mJQBVytu51fmPFI78ZXzl32ERAG25SzZSib7re6Q6KSgYMPFJl80Si0Tm1JHNWUGM7xvrSliPXUfAS6o=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QkRBcW1ZVTBkRDIrR2pzZkwrYjFBc0ZsUy80SE94YnZLWjZnbEJyNWJPYlFX?=
+ =?utf-8?B?Um9mZXliTVRFSDg1enQwb2dla3A0eXF5M0E5OGF1YkduTW4xc3h3OFFIQmxk?=
+ =?utf-8?B?c3c1ZGwrM1Y5S3psYldMbTNSK2l4anFzMUxtclhiNkhJa3VDUVYzcWRRNldm?=
+ =?utf-8?B?YlJEaFEyVnV6NDJZOE52bmUvYytGQzl5eEIwVHRHaFJJaWRKZDFKZXdpTmtG?=
+ =?utf-8?B?WkdTYm90TUg1N3dKTTllcDdDbUE5MWU4VXJFUmhUbFNrZkNsZ0IvUDkwZTBR?=
+ =?utf-8?B?bG1pWEU0N2tFK1MvUWFzRDFwNXk3WWI0U2c5Y2M3ZU9wNmVUYTNKenNGR2ly?=
+ =?utf-8?B?anV3SGFaMm4xNFVyalAwK2hzUFFTWFFER3FhK2RNRGtuWXVrb3hnRFJmNEJD?=
+ =?utf-8?B?WG04LzhZNXg5OUdJQjVqRDJrK0E0dDBNZEdsOVd2cXhSeG9hZDZuVlBiYitS?=
+ =?utf-8?B?RndqVGVFK0lZNFROTnNRbGNlajhYa0Rucy9VRFlvT0dLSHRuZ0ZSUUxNdmNx?=
+ =?utf-8?B?T05hbWthbXViVjhwcmdrZllUcEVDOGJiQTRaUklIS3VaRkxIN2NHNStLMFNx?=
+ =?utf-8?B?UEVWZGpMSGNBbEpuOTBETTJlaE9ZdVpGNGorT0U2ZkVPSDlOemp5TjN4RHJa?=
+ =?utf-8?B?cVFhMmNac2FHcXJkVUVMNGFwVjFzQ2Z1T3EvS1MvMjZwRTJLNXlPeTdoaE83?=
+ =?utf-8?B?K2pEaHplR0hhV1JHdVQ2eENxWmg1VDVYZ0RhL2hGQmQxdGc4dk5raEVaaEFI?=
+ =?utf-8?B?bGVoWXlpSHBJdndQRUNzKzhULzhYTGpkbXgrM3hibkVnS1ZMUUdYZTVEREdI?=
+ =?utf-8?B?VzVIbTdUWFlEQStmTE5abTVrb0lDWDB6TWtJYjdmRGQrM2FNbWh5OVl6SEdM?=
+ =?utf-8?B?cXRHUnN6ckxnMmFPMHZYNE1hWHNuajkwbWwzMGtNdC9FTmFjN3pSRlI0TWVp?=
+ =?utf-8?B?eE1PVFFoUDN5dXdOeDNKQUVkVjhZc1F0TEM0NUhOaG5sZjkzTUhUTnl2KzFC?=
+ =?utf-8?B?UEppdmZJQVdyY3p0NkJtb3NSUEFhbUx6WW4yVWgwUWZRVXhOK1ZEcTJ4S1N2?=
+ =?utf-8?B?dWpyaTJ5dXp6YU0yWCtlM3hUbmxOSUhHUC8yb0N3Lzk3Vm5jTDJsb3B3Q3Zm?=
+ =?utf-8?B?QytFRFAyVWkxN2FpUlpDMWVneHd3WkNQcE5KSTFIQVhncUdObG4vRVBBY2ZZ?=
+ =?utf-8?B?QjNQaGN5Wkk0N3BZdHp4WlZtRjFNUUM3dGtVM2pvd2tyMXVUWWVBOXVqSFl5?=
+ =?utf-8?B?VHpTZ2F1MlVURkg4NW9ya2hGeWZjbjlXTEViZ3Q5T25UaUpqTmVkWGZRdTl6?=
+ =?utf-8?B?cnhHZ2dqZU5rYVQ1VTJsMW5oTnhXc0ErV0JFT2hLN1g5WDJYeDJkbjIra3g0?=
+ =?utf-8?B?OU4xNExySzZMU01IZzhNVkJUVEU3dHF5aVJCMDVjaUd0K2RCUGFBOTlkMXlm?=
+ =?utf-8?B?WHgvUjBSWktzelQveDJ0T2JDUzN3dWhCL21JM0xmMTdJUS9YL0xEZUlqTWgw?=
+ =?utf-8?B?Q3dVbFRnY1ZPZHBiazBJaWtVN1hYR1pYbnRBZE9TUnJRbGZPY2RNUTZmc1Jn?=
+ =?utf-8?B?Q1k1TnBGcGY2MVNWQjVkeDJLRDRGMHRQa1JpQXdkZDFlU0NWMFRZTGRJOUYy?=
+ =?utf-8?B?cW1FcDVVZGg2cVF6Sko2MGVuK1hGOVZmK0RPQWNGQ3orMnRwUnBSM2dTYTlT?=
+ =?utf-8?B?Rm1SQlhOZHNRSDk2M1Z4YzF6WTBnem1Xdnl1aFdxbWVvazkvVGxpR3VVa1lx?=
+ =?utf-8?B?eTVNNVVkRElXRWM4V0hjTkc0NVBDaTJqcHNQVy9TV0xzU3hLMnRRa3pSZGtZ?=
+ =?utf-8?B?UzhiL29aMzZHTmNNN3l4THdLWnM4YWNEdFFCRmFkZlRhMEYzb3Q1UklMczZ3?=
+ =?utf-8?B?aFlsRFkrVjBRdlVwWE94RXRwcTNKWS9KNDMwTElZS3JyMThiVDZWc2pwRHor?=
+ =?utf-8?B?eFNrSXk5T1lOM0lUdHFEVWxXL2xuaGs1b2xOU0w4c0I4TnJBU0tOb2EyQ2M5?=
+ =?utf-8?B?TTBPSVY3OE05MmlpQ2VnSWdBVTlmd2VQcTNFUTdmcitSUE5rZzByUWtscHo1?=
+ =?utf-8?B?SjRzWjFsdERidGJmTWdqNXgzVWRPUStXRDRPTVhTak5rdmJiZmZhdkxFNlNJ?=
+ =?utf-8?B?a29pOHNKQ1lMNUN1ZFJzcWdlbkdSbnNPV2ZHbndlRjQ0NXB6SUFjR2hnWHdX?=
+ =?utf-8?B?ckhKZlFPVUdHTDNCVjJyRlpZUkM1emRqd2N6LzdLNUVGNmFMSU0rYythVjUy?=
+ =?utf-8?B?K1Yxd1JqaTBZejdqeUt2SG5VcVJjQllmUS9lT25yaU9Lek4rVHByVi9HeFNQ?=
+ =?utf-8?B?L3RRTWhwOVZyd2RqbmhmRFNrSW9RdklYMHBhNGlWL0o4UmFvOStLL0xKSVQr?=
+ =?utf-8?Q?ltLoNsG74NVDvykI=3D?=
+X-OriginatorOrg: kontron.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: c9f410a4-5781-459c-267d-08de8fc8ac08
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 08:28:37.6705
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Zy4u5zu+dNKDr6/ZxI9ueoZiwB1S2nlUelzqJrRiQZoAtGYY0u7QiHCt1YETe15SqyKFzeOF/0Z7W0zOVBcAxPNrhPYAec5LG9DWltWPFGA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR10MB7108
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_094025_034744_B8ACED44 
-X-CRM114-Status: GOOD (  30.21  )
+X-CRM114-CacheID: sfid-20260401_014415_396474_777CCD4E 
+X-CRM114-Status: GOOD (  22.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,45 +154,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alex,
+On 01.04.26 04:05, Peng Fan (OSS) wrote:
+> When MUX is configured as SDHC VSELECT, enabling SION is not able
+> to read back the SD_VSEL value. SION is used for force input path,
+> not to redirect the PAD value to GPIO(the other mux).
+> 
+> This has been confirmed by reading i.MX8MP RTL. we have not check
+> i.MX8MM RTL, but it should be same.
 
-On Wed, 1 Apr 2026 at 10:27, Alex Bereza <alex@bereza.email> wrote:
-> On Wed Apr 1, 2026 at 7:23 AM CEST, Suraj Gupta wrote:
-> >> Rename XILINX_DMA_LOOP_COUNT to XILINX_DMA_POLL_TIMEOUT_US because the
-> >> former is incorrect. It is a timeout value for polling various register
-> >> bits in microseconds. It is not a loop count. Add a constant
-> >> XILINX_DMA_POLL_DELAY_US for delay_us value.
-> >
-> > Please split this change in a new patch.
->
-> Ok, will send a v2.
->
-> >> Fixes: 7349a69cf312 ("iopoll: Do not use timekeeping in read_poll_timeout_atomic()")
-> >
-> > This patch doesn't fixes anything in iopoll, please use correct fixes tag.
+It seems like you are right and I misinterpreted the documentation and
+also misinterpreted my test results. So I was probably basing my work on
+wrong assumptions.
 
-Fixes-tag are also used as guidelines, to indicate which patches
-are also needed when backporting something.  I.e. if 7349a69cf312 is
-ever backported, any other commits that contain "Fixes: 7349a69cf312"
-should be backported, too.  So having this Fixes-tag, in addition to
-another xilinx_dma-specific one, sounds fine to me.
+> 
+> Not sure whether need to add Fixes commit for the patches, just revert
+> patches.
 
-> Ok, but I'm not sure what would be the correct fixes tag then? I though I need to reference
-> 7349a69cf312 in fixes tag because this is the actual change that surfaced the CPU stall issue that I
-> want to fix in this driver. I'm fixing the call sites of xilinx_dma_poll_timeout but they were added
-> in different commits. Should I add all of them? That would be the following then:
->
-> Fixes: 9495f2648287 ("dmaengine: xilinx_vdma: Use readl_poll_timeout instead of do while loop's")
-> Fixes: 676f9c26c330 ("dmaengine: xilinx: fix device_terminate_all() callback for AXI CDMA")
+This was introduced in 6.15. I would like to add Fixes tags for the
+reverts. And can we add patches in this series that switch to GPIO
+control as done in [1] and also tag them as fixes? This should allow to
+read back the correct voltage from the regulator.
 
-Gr{oetje,eeting}s,
+> 
+> For the U-Boot support, either drop vqmmc-supply or switch to use gpio
+> control to replace vselect control.
+> 
+> And below patch should also be revisited.
 
-                        Geert
+I think we can revert this, too.
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> commit 3ce6f4f943ddd9edc03e450a2a0d89cb025b165b
+> Author: Frieder Schrempf <frieder.schrempf@kontron.de>
+> Date:   Wed Dec 18 16:27:27 2024 +0100
+> 
+>     regulator: pca9450: Fix control register for LDO5
+> 
+> To supporting read back signal, need the MUX set as GPIO and support
+> in/out, not set mux as VSELECT.
+> 
+> TBH: I have not test setting MUX as GPIO, anyway we need to fix DT.
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+If we mux as GPIO, then we don't need to read back. I think in this case
+the best solution is the one used in [1].
+
+[1]
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit?id=5245dc5
+
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+> Peng Fan (2):
+>       Revert "arm64: dts: imx8mm-kontron: Add support for reading SD_VSEL signal"
+>       Revert "arm64: dts: imx8mp-kontron: Add support for reading SD_VSEL signal"
+> 
+>  arch/arm64/boot/dts/freescale/imx8mm-kontron-bl.dts     | 10 +++-------
+>  arch/arm64/boot/dts/freescale/imx8mm-kontron-osm-s.dtsi |  7 +++----
+>  arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi |  7 +++----
+>  3 files changed, 9 insertions(+), 15 deletions(-)
+> ---
+> base-commit: 3b058d1aeeeff27a7289529c4944291613b364e9
+> change-id: 20260329-imx8m-ldo5-90e369066213
+> 
+> Best regards,
+
 
