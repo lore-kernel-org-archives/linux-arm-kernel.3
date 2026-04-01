@@ -4,109 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30294107637D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:23:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C49E8107637F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:25:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W0lpNEQ5rBu4A5r2R7AS24IexLUARAeFATM11XdMFvw=; b=EFK6oB9olZx/C7lgX22JsdQMs8
-	IXB2F+6NGfS/gmeyBinjOdI9nxRJ/2wiisxFmv8VSE7QKYLWJ6l6rPbEXNv+3Wgs1Dijd//t4Gtmv
-	/P6+yhA99ckuqEjfK5ss3b3MBH83DEW/Ug7tedlrGZ8mZX0Q1SvNnFaIZ2BEUMfAXJegELrYh6axm
-	XGsmdYTBqUWfkm361ybQ8b320A3gQer0aRnfzj9rxAm/rxayrTa0XDAsCbnpo0MfxwNMPjNNalw/b
-	7FST0hx5NaCym5DaneMNKX0NnUGJU9IaOoEk4kEIE7QXEmzsaCkGnzhIYNp3qBOZrbw9rMOwCmo2a
-	mlXACHzA==;
+	bh=gSQ6pTcuTePG32M6XmGUQnNRHQHNKydM20nRxn05ChU=; b=yIqvMleL3BWCYjwKDBOhVmZnYB
+	AOaKEDjTonC7q1mmw+ZhrqlQBdJ0COdDj5RGJhT0eEYzHH0LHOTP0MFXyBQAUzgomlk33TpHf2YpL
+	smRtFTENXOf8kMSKIpyPsGmrLlxmVChYiTaiM9tVJ/vcaN6J/OGUH8EkdfWV4buq3/87Ax8WRGtkx
+	AWdHpQDfncfwuZHJOvpLrvPmtbFlGcw1Oj0rKXig+TbmkGgsu4+Icz+xL2czNE1LgYH03XVEnWpjK
+	s/BGa5EVI3wJJ46sCerKL/6MVDN00PWD00+wJfOO3Q2qrRuZF1423hUtZAO0NpnrOcRVNMDAVI0pp
+	jZccX8Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wTt-0000000FTn2-2XCz;
-	Wed, 01 Apr 2026 14:23:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7wVK-0000000FTwE-47K1;
+	Wed, 01 Apr 2026 14:25:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wTs-0000000FTmp-1FAx
+	id 1w7wVJ-0000000FTvw-3ytg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 01 Apr 2026 14:25:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=gSQ6pTcuTePG32M6XmGUQnNRHQHNKydM20nRxn05ChU=; b=Zgegc+jjP2rTn7Zzhp5wbvWpen
+	y/oyxOXg6JJQBgsfX4CdeGQTVfIs0VSHTACairtOaIurVNB0gmZfqtdh5m1MMqhMG3aHELbOp0Zci
+	iE1j/rMbqUUIIedj7yV+GKCe/wz4oVsTEGv8X9lG8EzQlt7izSSpS8nwHS3q5NRfy6NFlRPqfgjb2
+	XobwimUcAlvT3HqnCb0ceBwk5PnzIaFn2Dy6FYojthJD/ms0GxWV9pBKOBXtBi5A+pNOrMDbxnAlJ
+	WZMQXci11jHZvSViJxCh5TPAYpxEChTCd/J7sKFGY2o3OwY0AwNr9FE+k/l8TLnyq0ROTge9g3T+y
+	H4hAHrZQ==;
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7wVF-00000000bUk-40m4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 14:23:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AB98B60128;
-	Wed,  1 Apr 2026 14:23:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7D15C4CEF7;
-	Wed,  1 Apr 2026 14:23:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775053419;
-	bh=OsjeM4lsmj7za+4+lBM4Pv5So3xWzZBMwniXvTdJdJk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lxRe/WlUHaAKVE4mdR5fgE+zG4ZLuGNYlZrTLFgflk2ok1mt5HoQ3EoUHMBclwXSl
-	 B1phxBUaSVL+f2hmqEj+LZBc/v4cQSP202n/2exkj2saxkoqvbZKPxt7OKpBBY6lLY
-	 RSEjNTfO2x/mvSXlKWR9DQ7d/O8WGkj1yEz+dZMWdmNZr3tw2S2W/KI4O0UQ39Iu6s
-	 d4+iIRPVZ0RSdxz2z5JEZXexz/Y7VDahgHX5UafyAq0VmQF2/w8hGjJ1Koz7b12IAt
-	 BW2Cbj7KU9+PQaTz22QvTIoZ7OqXjbH2ZcuzCxm9vkLmUF2ZuETXuxBWE46zB9ewyd
-	 tZjAE3z3vuhiw==
-Message-ID: <4e6913df-5a13-4732-9789-86bd0a836788@kernel.org>
-Date: Wed, 1 Apr 2026 16:23:34 +0200
+	Wed, 01 Apr 2026 14:25:08 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-38be66a9fc0so72647451fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 07:25:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775053503; cv=none;
+        d=google.com; s=arc-20240605;
+        b=euPMEALdjH3oaOKri0wwbG5AWMek9vV+D068eqjvUBj+W8DhQAU7yQzgg9uWRGpW1V
+         qKtebnA8P44CMgY67gArrU3XWLQ3Jf0zo5w/Et6DJ9zarDEIxBaK9vEj0tph0H+tnt5f
+         cmCHkDAeN66MsjWRiYds5aUwiARdoowZ94fYuDveowGvao7HlWEOHinxZbvkC7bvdqLN
+         Ewh+QYo1qniwaMV2dHJNNI9Tuq8BoMcxQZdFRF2GhMLpWdbNKdeE2wkrx9LFgUjJlXsM
+         PpdTBeH6vGaMuggcQoLujTo+n1l4RQG9zz9QwmwJNb455nwWToSk1bwNgmnG4rFQF0kP
+         rpPg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=gSQ6pTcuTePG32M6XmGUQnNRHQHNKydM20nRxn05ChU=;
+        fh=BsnOZYcGYyORKhg8HsL35QL/N27ZHVRz5i3lcFOE69A=;
+        b=loeNb6a127lOLibQAxBhXAIlUU3JzO2H+1eC7KO8pNYogLn425oSm8rhpZmazm9LTm
+         ggwrKgJRZCODcXZfl058B+EqG7OizOulBMDjRcuDQZL19DDG7nn9ZIaqp9zTgRO8IGlR
+         B2Nd0IQ4ucK3Heau+UDxYgXcqFrVXy1EXQiKUHnBRAb/Bk9ZU+0PuQHBfC2EcNSitDlv
+         GAYsgQo9faWkURlXAaHpQb4UUd5ghO4IcIZZSaGKkGzJtsiHX6kS9NqnqDl8D0qJtsb0
+         qMbq55+/lx4Kem+eqs+emw7lBKnw3nim1OOSM5pVXow7YDAD75W3P1SsOyA0xShEQ+pP
+         medg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1775053503; x=1775658303; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gSQ6pTcuTePG32M6XmGUQnNRHQHNKydM20nRxn05ChU=;
+        b=Qfhxzv2sdKWs9AqjRu9ZqOQVkILTQQgE9fDxy6XkicQCu/pRVgLkE66tg4Zo7TxI0f
+         TcpbE73lTYBW3ly9+jDbiLR04MLDyFsd6WaA5DGAjIyeZIDxd1rq1pp+9iL37LCWP+zc
+         +ZOUzel8In3zjgfj2JDL5fumcKTfGbouhKIBvNixzPkgAYNWNwAR/5kZvA2z/SCcc9VH
+         N1ZIQ8eF8792CfiTDUVem7L3qQRAO7ayfLjFhySHTO5yK5JdOHwC5VJvacewu7/EHCbN
+         dtydNm+FwMyHu2HYjuerJ06JDhDzZYGYJU1Azc2xrapgjH0MRxd7T03G2U5rroRu9cHc
+         QYIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775053503; x=1775658303;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=gSQ6pTcuTePG32M6XmGUQnNRHQHNKydM20nRxn05ChU=;
+        b=UOYD7B5rx9a7ttJsglrcmuOg/P4XJIIe+T7l16xreNOdZHawrB9Elhm7dn2NTzozV/
+         4Jogf4MT2jGebP8wIAJbHqgTe46q+H6UfQKBR6zV6ob2lL/VAZRwnfE3fIg5qv47eJFF
+         EYdDYZMc5Em9CxZcDhZmPSOrPWeYhT3Ht2mzckIVL2/dGGBPNFScQWfjDtjz3r2vqszW
+         OBbvIHN0VF3DcF9bbOdISYu+413O4XHWLrlvY0GLt1p/dIUk0hX86ZuvsPcHCaEoidl4
+         wTavv0cI+txGDBQvkXVVnYAi0rCEdg3RqILMo4AlIdW22F6X8Lo8zzg6XQr/NWq6Q61S
+         6zMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXpVe7aofVceCwsPPGBbyriAowCRu4fadqtF7B8QTQjf/X7MXuaAYnzIAB9VFrAElvavILOatUA4K9I+L7SQKi5@lists.infradead.org
+X-Gm-Message-State: AOJu0YxV0aYcksD3k3wjmbb+KLBTwiB0refGjcDwk7DC9CKDlUfIv6ya
+	9fopsBA0NQ5iDDfcLeo0s5CmSFqaB+IXR/bcJ9t2iSx3sDyz5VJLAp7Fhf8wMNj+KaqmjlM0VCU
+	a887rczshUELAhu/s2UulptDVYOgdk8c=
+X-Gm-Gg: ATEYQzxzRVK9Rvs5WrubO0LcXbsQgz/WdVI7vkBqVYocLMe1cQ+mQo28pW4jYH7Xmbd
+	SR69+ThG2TQqE4aJD7eq1rCndzm3xht/Pqn54a0Z2Yq/xWK5Z/fpc+xccDPDc98fZtjyH0/trQH
+	KGNsNYS8vb08HSegxDW3MNypLjdeOkd17UStNK+LTxZI4rT4HpfU9lFcH5CCMfFCUuu1QebaIVJ
+	ADAPGoD6Q2xZH2a5Vx4TfVxC+A1734nWccjBSosY59+baH5O33/mDip2dMUEWHdbaAT7EuwKti1
+	2JLMq3QL1d33IorzyXh5eEkrd4a679uoeyJAuWKE4AIAbtLwbxytamSchEJIQZpIsXg4onaRFze
+	2fspxm+M=
+X-Received: by 2002:a2e:a554:0:b0:38c:3e3:953a with SMTP id
+ 38308e7fff4ca-38cc30fed48mr13856341fa.29.1775053502521; Wed, 01 Apr 2026
+ 07:25:02 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/7] dt-bindings: soc: samsung: exynos-pmu: deprecate
- google,pmu-intr-gen-syscon
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- Sam Protsenko <semen.protsenko@linaro.org>,
- linux-samsung-soc@vger.kernel.org, Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260401-exynos850-cpuhotplug-v2-0-c5a760a3e259@linaro.org>
- <20260401-exynos850-cpuhotplug-v2-3-c5a760a3e259@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260401-exynos850-cpuhotplug-v2-3-c5a760a3e259@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260304090727.1800289-1-christofer.jonason@guidelinegeo.com>
+ <20260307124118.1d527749@jic23-huawei> <1166aeef-0c93-408d-b265-9037f2840074@amd.com>
+ <IA1PR12MB7736AE6EEE95D5D184A15B9F9F50A@IA1PR12MB7736.namprd12.prod.outlook.com>
+ <IA1PR12MB77361978ED21FF22F079034D9F50A@IA1PR12MB7736.namprd12.prod.outlook.com>
+ <IA1PR12MB77369F79026F7BCB1D9C64999F50A@IA1PR12MB7736.namprd12.prod.outlook.com>
+In-Reply-To: <IA1PR12MB77369F79026F7BCB1D9C64999F50A@IA1PR12MB7736.namprd12.prod.outlook.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Wed, 1 Apr 2026 17:24:24 +0300
+X-Gm-Features: AQROBzBoZ-LI1caYHqTvdlVWNWIbminA0-gaXJPHQ8leXNSCDNAFQN7WnRQJ33Y
+Message-ID: <CAHp75Vcg1u86z_TWwz+1Gk9QQ9RB63QmNcqpkGa5HQHZhSE=5Q@mail.gmail.com>
+Subject: Re: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
+ postdisable for dual mux
+To: "Erim, Salih" <Salih.Erim@amd.com>
+Cc: "Simek, Michal" <michal.simek@amd.com>, Jonathan Cameron <jic23@kernel.org>, 
+	Christofer Jonason <christofer.jonason@guidelinegeo.com>, 
+	"O'Griofa, Conall" <conall.ogriofa@amd.com>, "lars@metafoo.de" <lars@metafoo.de>, 
+	"dlechner@baylibre.com" <dlechner@baylibre.com>, "nuno.sa@analog.com" <nuno.sa@analog.com>, 
+	"andy@kernel.org" <andy@kernel.org>, 
+	"victor.jonsson@guidelinegeo.com" <victor.jonsson@guidelinegeo.com>, 
+	"linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"stable@vger.kernel.org" <stable@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260401_152506_100035_05190FBE 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,22 +145,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/04/2026 06:51, Alexey Klimov wrote:
-> The generic property samsung,pmu-intr-gen-syscon should be used
-> by default for Samsung Exynos PMU hardware blocks. Update binding
-> document to add deprecated flag for google,pmu-intr-gen-syscon
-> property.
-> While at this, also add dependency to not allow usage of both
-> above mentioned properties in the same time.
-> 
-> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
-> ---
->  Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
+On Wed, Apr 1, 2026 at 4:58=E2=80=AFPM Erim, Salih <Salih.Erim@amd.com> wro=
+te:
+> > -----Original Message-----
+> > From: Erim, Salih <Salih.Erim@amd.com>
+> > Sent: Wednesday, April 1, 2026 2:13 PM
 
-This should be squashed. Otherwise you add incorrect code - duplicated
-property - which only later you adjust/correct.
 
-Best regards,
-Krzysztof
+> > Caution: This message originated from an External Source. Use proper ca=
+ution
+> > when opening attachments, clicking links, or responding.
+> >
+> > [AMD Official Use Only - AMD Internal Distribution Only]
+>
+> I am deeply sorry about these markings. Please try to ignore them, and I =
+will do my best to escape from them.
+
+Maybe, but ignoring them might be subject to law enforcement or other
+legal actions. You must get rid of them for your OSS contributions.
+
+--=20
+With Best Regards,
+Andy Shevchenko
 
