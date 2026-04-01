@@ -4,107 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0351B10F92EC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 01:07:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE7D410F92EC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 01:14:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eWAUT5q20CbAtBOIDV7jUJ3UZPFYCYSQkrgrPRigtE0=; b=JridBXfpqMdN7FhHVneaGKCZt2
-	Xf3S6EqRWGAjR7JH4QZLo+fMzr2Zfvn4saqnRUGCUz2/wQrtsJuTV2vCCDDgtk21ngD0l0at7UL9i
-	FrOrAw2oS8/PhdwePU3fySHRUv9ZBIDhyDVtSgQchdrJcrhMfBE955RnbiP0VuH6olvPSsT8f29MC
-	Lgmw6Isnv56yGFvSwiAysB53Mzj4bKOCTh4T0sPvciF4koKCSOzxDzf9dPgB1dIrXNNo1Vlp2znrX
-	+duQmuZbNBYOSjfxibLuuIvwHNPzxHbcEYLny21D0YSUwkylIRVwDBh2V4vVRquAhvEVbdL64x6Tq
-	CLOlsolw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=37OdAUVThfrWd+qXZfpdfyKW3bXln746w3B2aKSv620=; b=eF7GUBekRvWS4OzTjXMVCW7hyn
+	pGtc+crJpaPyYokyU3t5bpvEOgYOG6pJmmfrzyp7yhEEm7VCtQ1O9YjU7MNUK7yRUADIqhYypYj1V
+	gjYsCP99EnLiBnJjappNH9NFcnPBsJiyAVvrAzOXq5qa89MqyXC4Vs8zUIxcxpg7wHcrtiR5ASQt8
+	RdI/5Y1W8tJtwk+msl/Y7v1a8MNTjtireYYIG6OQhTO6/DkZ+cojowuk4GZKmagjkcIehMEQB5Wkl
+	mzSYnfHtB6tdaXfdnu5QbFkqZOe1gY0INepo0B5vokKxwrEIcuQdwEecqjWDrpPz8oa3kCw0uG3eu
+	9lEMjTaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7k3X-0000000Dlg9-3NxV;
-	Wed, 01 Apr 2026 01:07:39 +0000
-Received: from mail-qt1-x863.google.com ([2607:f8b0:4864:20::863])
+	id 1w7k9w-0000000Dm9y-0sl5;
+	Wed, 01 Apr 2026 01:14:16 +0000
+Received: from mail-eastus2azon11020123.outbound.protection.outlook.com ([52.101.56.123] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7k3B-0000000DlSw-08r3
+	id 1w7k9u-0000000Dm9R-1LEe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 01:07:18 +0000
-Received: by mail-qt1-x863.google.com with SMTP id d75a77b69052e-50b266413fbso52928651cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 18:07:16 -0700 (PDT)
+	Wed, 01 Apr 2026 01:14:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=B4Fub6323nnU5/fkUWCGp8nUQDwQlrOFpiRF2oGmjdaITwPzGnu7XyTqpkLGml0POwctIsM7ajv3oJzDbP3mRjHLIL1GlvfsSHtgs/k0HEgwgjdn5ioxycvqr2pwWVeS2llDFupZfgMHT1lCTbb4GQErQRk/FioY2w2pXAhz6AN91Ogbi45F6WPaMfUEVD0n2oIVgnnsByy85JPYEGsqAfWgx8V936TMr441TX6LIZkvBu/qXTFVOTk+GqkO/Y9jZKqU+thCmvgBFDwZdhI5U2KsIvLe4KsD0u2VkoK/d9Aqp1x1MFwey48R4jvdT1lkINy8mg35znDlZEOpCtPPzw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=37OdAUVThfrWd+qXZfpdfyKW3bXln746w3B2aKSv620=;
+ b=khpUzKelQaSiICL/4T2Y8pePMQXQGkL3FMhdEedAOUJ/FY6/3LD3u5GfYrxZUrFU4YZiEuUNu0RrEDCqscvQknzqhv7C5UbS3e/5uTHmpgT0uyyTr7j9FXUNAJiHBCjBG38roZgJFl0eU+kvU8kAQ/XDXIEzDLqP5aR8ZHFaRgte3bNlMF+m6mMtG8s3ikMFYQ8v2DWmU/dl6wWB0DJE9tcQD/TjC3XoeQcQPdmNP4A5Q6nVRUmvhcGL5J4plYWxHoI6yZWWDlmVVPHjXVUIwTFzqRKAcWTv/sLJs9ruK1ffXj+HhESHzvTqAOogYcaHIVXxyAES1OXp1sbED4dJkw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ausil.us; s=google; t=1775005636; x=1775610436; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eWAUT5q20CbAtBOIDV7jUJ3UZPFYCYSQkrgrPRigtE0=;
-        b=V5VJKuWJCIl16Ky9CE6oJ3HZnGxAgnYhajQJvagG02x7RLHNPQllOasu506f8ZL/t7
-         djKrlRln2nsu2cgtbSEadTyecyzl4HKa2E/wGUiJ8YeW6UmWhK9Z5rdzzWnnC+hbajXe
-         98kRPsk6XDrqhtJ/xmqvCwwGe7G24eoQRtF3Q2GsezgVHUmcQGV6t2TtUTFzJtec3ve5
-         OqkuuZltOvY8EPRQaGAwlBgg2OsKEUEh/mSLkAg0ZGWjz4sqJgP8Efjk5xwVHHvc9+oF
-         uoMCUxBP0teliTWvTUHE/qbzmdY8evani7rOuxzr8cYNJ4xck/j17Kg+96yloMRXy0C7
-         YWow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775005636; x=1775610436;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=eWAUT5q20CbAtBOIDV7jUJ3UZPFYCYSQkrgrPRigtE0=;
-        b=mTJXXMaML3yw3K/FmXhwbfJ+n1inRCcu2jHUfgIeoVOI9WXjBx/Y3aV37FpM2nypPS
-         YDjhbhxsQcBvkmGNxf1Z/Gzpm/iD+hHajpVZ7ka10P46uPG8ZfPLPnSzGOIXZT0t3rCz
-         9l3WthgSQcnmVRqY6759tcpTqrxRO/EgZKXsu715NHGeIJ8odJjGwapKptiCpUGtEMB5
-         NVDfVIdq1N6uoahGgWX20ogYaqn06TfJeoe8o10+LmKL+PK+tpI70/9F85DE3n3YWY+p
-         rqqIrrjvU2UXqfRS2zhkldlreIOVqcJHthhMmt/LlaoyKXNq7CmlwWD10QBDfrCDxHzT
-         3peA==
-X-Forwarded-Encrypted: i=1; AJvYcCXc102h/oJsFkHigUmvh5cX4/egdesnL/BAAoPYW3IrYDLr4ThUfLI7tfip8VKmBCc5wPG0RSVGYV/ZkxhExqJo@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTc4VUJ/vqaxYuiAByBUogaDoS6J1DNIL96SPIHJMiAH8tiVNO
-	7xJlkCN24a4aDQCqdgxylSAmc2zmosY1ppa6k/jOgqSJ82+KBtnTC5c7ohwlcTzWkffEXeGU7a5
-	KvEDDoes97pCV81iRIiPUyzYW3wycpWm84MGk
-X-Gm-Gg: ATEYQzz9n+34eJ5XGnKci/tsqMtPnktW+KRc6UmD8Ah2T2YdpJRrMc3FoPD+1fM1fcr
-	gGsai0cM73rxZSF7gxTFJj10fqKBC5slZgwEEIEs9PNJbnq8AN5NaldKHHFIbvwUKTo8fjvqOJN
-	77/urv+AUAW/urqO/9v4GfPrOnNeE7vhjZOlYfYWM0soJiRMNSxoZbUAX3p5FEgAm/xo7skXZ56
-	FU8qt0KAS4cyxbj/2jmFacdvE4DL/6Z9V7lrFOxN77xXmH02GkD/2hkdfyLpKngvXSfu7H7gxtg
-	on8pvfW6CkGzkT5gOzhOydZ3TJ+FeNseKGdEpvkdBqsa1TILfodne3hUP07fygUsxrKAmhZlI4l
-	0QELtNEyEbsL1xAVBBZQQkEcfKcWCxX2RDxXwCqiMv4Tg
-X-Received: by 2002:a05:622a:1cc9:b0:501:1795:9d52 with SMTP id d75a77b69052e-50d3bccd161mr25815091cf.33.1775005636012;
-        Tue, 31 Mar 2026 18:07:16 -0700 (PDT)
-Received: from ryac.ausil.us (207-179-239-100.mtco.net. [207.179.239.100])
-        by smtp-relay.gmail.com with ESMTPS id 6a1803df08f44-89ecd72ecd5sm14105766d6.15.2026.03.31.18.07.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Mar 2026 18:07:16 -0700 (PDT)
-X-Relaying-Domain: ausil.us
-From: dennis@ausil.us
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: FUKAUMI Naoki <naoki@radxa.com>,
-	Hsun Lai <i@chainsx.cn>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	John Clark <inindev@gmail.com>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Alexey Charkov <alchark@gmail.com>,
-	Peter Robinson <pbrobinson@gmail.com>,
-	Dennis Gilmore <dennis@ausil.us>,
-	Michael Riesch <michael.riesch@collabora.com>,
-	Mykola Kvach <xakep.amatop@gmail.com>,
-	Jimmy Hon <honyuenkwun@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 3/3] arm64: dts: rockchip: Add Orange Pi 5 Pro board support
-Date: Tue, 31 Mar 2026 20:07:07 -0500
-Message-ID: <20260401010707.2584962-4-dennis@ausil.us>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260401010707.2584962-1-dennis@ausil.us>
-References: <20260401010707.2584962-1-dennis@ausil.us>
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=37OdAUVThfrWd+qXZfpdfyKW3bXln746w3B2aKSv620=;
+ b=TdfjkAQv3AQYLoDwatjBF8CmlgvyMwDrATo6nFCM+TKFvR+ZQh+Od1vOsXghhmix1jGcq7jP0Hjoyt0cl3ee9DzRc12Pju3qtBqlN+GxFNze7NXFO1mPA3Y/XYMRoYlfYDT+NraZzhumGgQheJoEsEiV/dsByOQfvXPJ9ET37lE=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MN2PR01MB5615.prod.exchangelabs.com (2603:10b6:208:11c::29) by
+ CH0PR01MB7033.prod.exchangelabs.com (2603:10b6:610:107::16) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.16; Wed, 1 Apr 2026 01:14:03 +0000
+Received: from MN2PR01MB5615.prod.exchangelabs.com
+ ([fe80::996f:e4f2:dbd8:120e]) by MN2PR01MB5615.prod.exchangelabs.com
+ ([fe80::996f:e4f2:dbd8:120e%4]) with mapi id 15.20.9769.015; Wed, 1 Apr 2026
+ 01:14:03 +0000
+Date: Tue, 31 Mar 2026 18:13:58 -0700 (PDT)
+From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+To: Haoyu Lu <hechushiguitu666@gmail.com>
+cc: "Rafael J . Wysocki" <rafael@kernel.org>, 
+    Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+    Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
+    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+    Len Brown <lenb@kernel.org>, Ilkka Koskinen <ilkka@os.amperecomputing.com>, 
+    Russell King <rmk+kernel@armlinux.org.uk>, linux-acpi@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] acpi: arm64: agdi: fix missing newline in error
+ message
+In-Reply-To: <20260331025257.463-1-hechushiguitu666@gmail.com>
+Message-ID: <5b7727e1-45d1-7f5e-97da-43d3af905f40@os.amperecomputing.com>
+References: <20260331025257.463-1-hechushiguitu666@gmail.com>
+Content-Type: text/plain; format=flowed; charset=US-ASCII
+X-ClientProxiedBy: MW4PR04CA0248.namprd04.prod.outlook.com
+ (2603:10b6:303:88::13) To MN2PR01MB5615.prod.exchangelabs.com
+ (2603:10b6:208:11c::29)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR01MB5615:EE_|CH0PR01MB7033:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0db10516-1a78-4440-11c1-08de8f8bf681
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|55112099003|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: pPcKweZT6hlvMsKx5TBWtV/DewLDxdlXOeMMs96/stubBFHs4LOoq8Ljaq92DrMYNx27G8GnSYeJBBYrOW7y9NB8V1FxDL1yxf54fiQWm+vkBkHWI9LSLSoPI0TKZSyCUkMC4vhFrd/DfVNGesjPl0PftcW4QlpphsFGvYRFvyqdbuWJpISfG20PZ2fr8InP9ox5aYjEZf8Egy1WoZBZAnkZF0THF+9m4wwfTiti2b2YxEFlcGzYS6BvCpLl4dfr5/zszEyMQEgejkDv7tczq+w4RRjvhO9/MMYJdkQUUbgBSLVo6I0JjWrGj13wnk5TtTEvDVtd8z/3kUcdoZJH+m9ugD+iNYsPPzYD6a002/52J0kzwP9ccIZR1M61er1vnWgWcuhwYhrHntJDs03T/XVL7Oc8iD7CnkV1wKZhK2vKigDy8KwIfR8cPQ2Y+fUJmfeTr+Vtizz0orKu+rGNJBG1zoozJ3JN+RxeBjK4RSYk6OU9O/2ldVO0Xn4Ksk13hV/8vRpLWhd2yPUJjHEdauT56P0AxfHEGEGhzQotOD2ssVCq6AJ23mYXiRb8iVmGkdUQ1zxywDhDQ1lCmZnPA0wfZwVNsGDmy1/PXPYgRavy5NJVVnpJHoYwRDMJROwwUGko+woC6KOx+e9/1WLpd5YmZyfLnelGlw0IzmVRh43jlXstBoOOTAwdQKXDveXSXW1Hj8H5BgKWwgjMyOpfec62vKcrccQxHUkEW4fjrBY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR01MB5615.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(55112099003)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5Iz/S/l/wj2MBsMheOvD1JNT5WZ5wBWb/pcH2kltcgHiQ7vqnYng709hZEov?=
+ =?us-ascii?Q?TN75F7VIc5LBhoYKYJFX95mztyAa1Zm5WhbFlttx6XydFXXLmhSzlTnuZLAP?=
+ =?us-ascii?Q?DlYF+mUOQZ8LdW6K6I9L8DIEjSuXg8FxLPJ+3Ub9MoZEXIAOCCxcAdWS8j2F?=
+ =?us-ascii?Q?dyQN4B09R9dMByymCpF2lEEtxXImnVCPKK76sG/oNn7cg6BLlZiBQWkkbm3I?=
+ =?us-ascii?Q?fwFVMNduTDfDo0Lew1mxE5pXgT+tUEUm6m50ZB+vsxJzi1FsPRLz9OSNk7fp?=
+ =?us-ascii?Q?udD+0MV/Wr/FA+comTth0ZO7nLIrZk429sP5aPAWjkIvZh479u38N+rk0ZOg?=
+ =?us-ascii?Q?8D2/dVqVdrZZvc6qcu/7cRDD72cbom18O+qXgIz8QCQbK/E6UVVMIxNVekx/?=
+ =?us-ascii?Q?nOTMTus6S38zlLA5jcsUhIHWUzObvbqc5FeABG0HeR6XEPGfb9r2+x3IBaEk?=
+ =?us-ascii?Q?y1zf/UauWSxmiA3qAJH+8nvls9kPM2MFLDUXZ/Y46iZguugonwPoPnyfmjDp?=
+ =?us-ascii?Q?37mOqjc43CNjmyO48UVrkckRy9zOx/DwcJDLARPe8Ou8ABzyP0o4s2fQThHF?=
+ =?us-ascii?Q?cLwvKq5RQID2imDgPd55ZEEM8ZcGosLSPugzZ9hz+AG6eEwSleAZ5RFCcX/b?=
+ =?us-ascii?Q?uz4KD1b1DYZ8KWefOSrGJk559v+5Bw01qHOFcJWj1BLz2zE4HdEG2awrj4z+?=
+ =?us-ascii?Q?3Ze9xrwFCNzNAecFxjLNnNMIvFK8Ymw4O3JyPfBVlft84zDFruSP0VY8ExO2?=
+ =?us-ascii?Q?k1gdRPyLBY5ao9VHKIcHWVjbRnQ5/fzNc+okBzoEd/fIMxKf+VAcoccm62Lb?=
+ =?us-ascii?Q?XZe/Yzmqp8m4LhOSbauXItkLjCp8KgVqwRbudr/fc9M0KVXe8dMJ35jf9R15?=
+ =?us-ascii?Q?YOWIJ4BXZgRuW1eRwjih4moTBa+D5et5t+fpdaBRMaSpW2h961yi7olDDXiE?=
+ =?us-ascii?Q?9s02jlR1lLQN/njYrArYOt/PTwsKsvAtIyIFJ3+A7Fds2WjFc7/53lOq3iL4?=
+ =?us-ascii?Q?YOICtHYbyXDW1gdYq+lsQ6Ie/s0ArMT97q8zcF6n+axduO9p7TgSIVa4A6Cn?=
+ =?us-ascii?Q?/IGrCZRjsf3ZPsX+tYJCnatOU87CgNAyPmuW1aTA1XE3aSCl1Rp/y9mQiIIA?=
+ =?us-ascii?Q?Dg9+BCCUctYNVdXf/LJQ0Dm9whnxRFGou3HXxltDNWRzH2qQj+xQI6FWOv1C?=
+ =?us-ascii?Q?YC0GdlML+cLl/JPRuyqjmhcP/0xfYqj1oWYXk4Raaq9xfbEYdpQ+DiSGSGvj?=
+ =?us-ascii?Q?6gnKiE25Y5PTwGBu6ul/06cnUHG9tEXFyDX1arzYZ+6WB+SggWXrgbor7ZDp?=
+ =?us-ascii?Q?9t3IfH6eEw9p/4hlK+dCZRBlP9/cWuEb5U9A1KLIkuHeSEu0i4E3pIBXyLa/?=
+ =?us-ascii?Q?ubIX6Zldp/XHzZFt7H+7rsbEXa0fZ/CYhM4mSp0450EEO70AMEvUZD24E3Mx?=
+ =?us-ascii?Q?jq3KMCluCnVw5CqNdfmcx/9WBPecAVZM7a3K2NsmLdWGS4z41C/E+Sl0i8m0?=
+ =?us-ascii?Q?7VJz85G2IMJQNBEz6F4/BZK3q1O0xYkpE76UF6Y5Xnpg54xS/j2kPPJPiVgd?=
+ =?us-ascii?Q?MnuTl9AQdjDkMc9/6mWycfDxyj69ThRh3T/iOWiyj262SznZFfwRBkFtek8B?=
+ =?us-ascii?Q?1SKFu7hLgWt4fV7OPnW+23MfSgkWmVbuxQRl/X9g37ecSlRExBwzqtiKiclr?=
+ =?us-ascii?Q?8tpd8RHC+ud6xOrzuWZsnGZwMDB7Tv4ZurIiiy5ftRYvXYTLj2Tmihlzi67r?=
+ =?us-ascii?Q?x5J137pB6zeCCUddsaeiUfkvgMeK230=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0db10516-1a78-4440-11c1-08de8f8bf681
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR01MB5615.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 01:14:03.6441
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4Ho9zcDvq11XLAZlW4Qx9x/90lYrY74CPcgVrFOhtREeGTMkG49yNF3Sj3hfM8FywEd0+O4fVtvcFfEK0eL8rRRnfKt3wSMDUcxoKRZkrT5OV3DDf2iuAqyBPC4NRcB1
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR01MB7033
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_180717_127680_FE6451A9 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20260331_181414_394580_65130BC7 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,368 +141,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dennis Gilmore <dennis@ausil.us>
 
-Add device tree for the Xunlong Orange Pi 5 Pro (RK3588S).
+On Tue, 31 Mar 2026, Haoyu Lu wrote:
+> Add the missing trailing newline to the dev_err() message
+> printed when SDEI event registration fails.
+>
+> This keeps the error output as a properly terminated log line.
+>
+> Fixes: a2a591fb76e6f5461dfd04715b69c317e50c43a5 ("ACPI: AGDI: Add driver for Arm Generic Diagnostic Dump and Reset device")
+> Signed-off-by: Haoyu Lu <hechushiguitu666@gmail.com>
 
-- eMMC module, you can optionally solder a SPI NOR in place and turn
- off the eMMC
-- PCIe-attached NIC (pcie2x1l1)
-- PCIe NVMe slot (pcie2x1l2)
-- AP6256 WiFi (BCM43456) via SDIO with mmc-pwrseq
-- BCM4345C5 Bluetooth
-- es8388 audio
-- USB 2.0 and USB 3.0
+Thanks for the patch.
 
-Vendors description and links to schematics available:
-http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html
+Would you mind changing the prefix on the subject line to match the 
+previous patches? That is, change it to "ACPI: AGDI: ....".
 
-Signed-off-by: Dennis Gilmore <dennis@ausil.us>
----
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../dts/rockchip/rk3588s-orangepi-5-pro.dts   | 320 ++++++++++++++++++
- 2 files changed, 321 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts
+With that change
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 4d384f153c13..c99dca2ae9e7 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -214,6 +214,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-nanopi-r6c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-odroid-m2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5b.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-5-pro.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-orangepi-cm5-base.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-radxa-cm5-io.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-roc-pc.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts
-new file mode 100644
-index 000000000000..7ab68245d2c6
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts
-@@ -0,0 +1,320 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include "rk3588s-orangepi-5.dtsi"
-+
-+/ {
-+	model = "Xunlong Orange Pi 5 Pro";
-+	compatible = "xunlong,orangepi-5-pro", "rockchip,rk3588s";
-+
-+	aliases {
-+		mmc0 = &sdhci;
-+		mmc1 = &sdmmc;
-+		mmc2 = &sdio;
-+	};
-+
-+	analog-sound {
-+		compatible = "simple-audio-card";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&hp_detect>;
-+		simple-audio-card,bitclock-master = <&masterdai>;
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,frame-master = <&masterdai>;
-+		simple-audio-card,hp-det-gpios = <&gpio1 RK_PD5 GPIO_ACTIVE_HIGH>;
-+		simple-audio-card,mclk-fs = <256>;
-+		simple-audio-card,name = "rockchip,es8388";
-+		simple-audio-card,routing =
-+			"Headphones", "LOUT1",
-+			"Headphones", "ROUT1",
-+			"LINPUT1", "Microphone Jack",
-+			"RINPUT1", "Microphone Jack",
-+			"LINPUT2", "Onboard Microphone",
-+			"RINPUT2", "Onboard Microphone";
-+		simple-audio-card,widgets =
-+			"Microphone", "Microphone Jack",
-+			"Microphone", "Onboard Microphone",
-+			"Headphone", "Headphones";
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&i2s2_2ch>;
-+		};
-+
-+		masterdai: simple-audio-card,codec {
-+			sound-dai = <&es8388>;
-+			system-clock-frequency = <12288000>;
-+		};
-+	};
-+
-+	pwm-leds {
-+		compatible = "pwm-leds";
-+
-+		led-0 {
-+			color = <LED_COLOR_ID_BLUE>;
-+			function = LED_FUNCTION_STATUS;
-+			linux,default-trigger = "heartbeat";
-+			max-brightness = <255>;
-+			pwms = <&pwm15 0 1000000 0>;
-+		};
-+
-+		led-1 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_ACTIVITY;
-+			linux,default-trigger = "heartbeat";
-+			max-brightness = <255>;
-+			pwms = <&pwm3 0 1000000 0>;
-+		};
-+	};
-+
-+	fan: pwm-fan {
-+		compatible = "pwm-fan";
-+		#cooling-cells = <2>;
-+		cooling-levels = <0 50 100 150 200 255>;
-+		fan-supply = <&vcc5v0_sys>;
-+		pwms = <&pwm2 0 20000000 0>;
-+	};
-+
-+	vcc3v3_phy1: regulator-vcc3v3-phy1 {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio3 RK_PB7 GPIO_ACTIVE_HIGH>;
-+		regulator-boot-on;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "vcc3v3_phy1";
-+		startup-delay-us = <50000>;
-+		vin-supply = <&vcc_3v3_s3>;
-+	};
-+
-+	vcc5v0_otg: regulator-vcc5v0-otg {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc5v0_otg_en>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-name = "vcc5v0_otg";
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	sdio_pwrseq: sdio-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		clocks = <&hym8563>;
-+		clock-names = "ext_clock";
-+		post-power-on-delay-ms = <200>;
-+		reset-gpios = <&gpio0 RK_PD0 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	typea_con: usb-a-connector {
-+		compatible = "usb-a-connector";
-+		data-role = "host";
-+		label = "USB3 Type-A";
-+		power-role = "source";
-+		vbus-supply = <&vcc5v0_otg>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+				typea_con_hs: endpoint {
-+				};
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+				typea_con_ss: endpoint {
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c1m4_xfer>;
-+	status = "okay";
-+};
-+
-+&i2c3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c3m0_xfer>;
-+	status = "okay";
-+
-+	es8388: audio-codec@11 {
-+		compatible = "everest,es8388", "everest,es8328";
-+		reg = <0x11>;
-+		#sound-dai-cells = <0>;
-+		AVDD-supply = <&vcc_3v3_s0>;
-+		DVDD-supply = <&vcc_1v8_s0>;
-+		HPVDD-supply = <&vcc_3v3_s0>;
-+		PVDD-supply = <&vcc_3v3_s0>;
-+		assigned-clock-rates = <12288000>;
-+		assigned-clocks = <&cru I2S2_2CH_MCLKOUT>;
-+		clocks = <&cru I2S2_2CH_MCLKOUT>;
-+	};
-+};
-+
-+&i2c4 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c4m3_xfer>;
-+	status = "okay";
-+};
-+
-+&i2s2_2ch {
-+	pinctrl-0 = <&i2s2m1_lrck &i2s2m1_mclk &i2s2m1_sclk
-+		     &i2s2m1_sdi &i2s2m1_sdo>;
-+	status = "okay";
-+};
-+
-+&package_thermal {
-+	polling-delay = <1000>;
-+
-+	cooling-maps {
-+		map0 {
-+			trip = <&package_fan0>;
-+			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
-+		};
-+
-+		map1 {
-+			trip = <&package_fan1>;
-+			cooling-device = <&fan 2 THERMAL_NO_LIMIT>;
-+		};
-+	};
-+
-+	trips {
-+		package_fan0: package-fan0 {
-+			hysteresis = <2000>;
-+			temperature = <55000>;
-+			type = "active";
-+		};
-+
-+		package_fan1: package-fan1 {
-+			hysteresis = <2000>;
-+			temperature = <65000>;
-+			type = "active";
-+		};
-+	};
-+};
-+
-+/* NVMe */
-+&pcie2x1l1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie30x1m1_1_clkreqn &pcie30x1m1_1_waken>;
-+	reset-gpios = <&gpio4 RK_PA2 GPIO_ACTIVE_HIGH>;
-+	supports-clkreq;
-+	vpcie3v3-supply = <&vcc_3v3_s3>;
-+	status = "okay";
-+};
-+
-+/* NIC */
-+&pcie2x1l2 {
-+	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
-+	vpcie3v3-supply = <&vcc3v3_phy1>;
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	bluetooth {
-+		bt_wake_gpio: bt-wake-pin {
-+			rockchip,pins = <0 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		bt_wake_host_irq: bt-wake-host-irq {
-+			rockchip,pins = <0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+
-+	usb {
-+		vcc5v0_otg_en: vcc5v0-otg-en {
-+			rockchip,pins = <0 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	wlan {
-+		wifi_host_wake_irq: wifi-host-wake-irq {
-+			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+};
-+
-+&pwm15 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm15m2_pins>;
-+	status = "okay";
-+};
-+
-+&pwm2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm2m1_pins>;
-+	status = "okay";
-+};
-+
-+&pwm3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm3m2_pins>;
-+	status = "okay";
-+};
-+
-+&sdhci {
-+	status = "okay";
-+};
-+
-+&sdio {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	cap-sdio-irq;
-+	keep-power-in-suspend;
-+	max-frequency = <150000000>;
-+	mmc-pwrseq = <&sdio_pwrseq>;
-+	no-mmc;
-+	no-sd;
-+	non-removable;
-+	sd-uhs-sdr104;
-+	status = "okay";
-+
-+	ap6256: wifi@1 {
-+		compatible = "brcm,bcm43456-fmac", "brcm,bcm4329-fmac";
-+		reg = <1>;
-+		interrupt-names = "host-wake";
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PA0 IRQ_TYPE_LEVEL_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&wifi_host_wake_irq>;
-+	};
-+};
-+
-+&uart9 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart9m2_xfer &uart9m2_ctsn &uart9m2_rtsn>;
-+	uart-has-rtscts;
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "brcm,bcm4345c5";
-+		clocks = <&hym8563>;
-+		clock-names = "lpo";
-+		device-wakeup-gpios = <&gpio0 RK_PC6 GPIO_ACTIVE_HIGH>;
-+		interrupt-names = "host-wakeup";
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PC5 IRQ_TYPE_LEVEL_HIGH>;
-+		max-speed = <1500000>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&bt_wake_host_irq &bt_wake_gpio>;
-+		shutdown-gpios = <&gpio0 RK_PD5 GPIO_ACTIVE_HIGH>;
-+		vbat-supply = <&vcc_3v3_s3>;
-+		vddio-supply = <&vcc_1v8_s3>;
-+	};
-+};
-+
-+&usb_host0_xhci {
-+	dr_mode = "host";
-+};
-+
-+&usbdp_phy0 {
-+	rockchip,dp-lane-mux = <0 1>;
-+};
--- 
-2.53.0
+ 	Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
 
+Cheers, Ilkka
+
+
+> ---
+> drivers/acpi/arm64/agdi.c | 2 +-
+> 1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/acpi/arm64/agdi.c b/drivers/acpi/arm64/agdi.c
+> index feb4b2cb4618..0c2d9d6c160b 100644
+> --- a/drivers/acpi/arm64/agdi.c
+> +++ b/drivers/acpi/arm64/agdi.c
+> @@ -36,7 +36,7 @@ static int agdi_sdei_probe(struct platform_device *pdev,
+>
+> 	err = sdei_event_register(adata->sdei_event, agdi_sdei_handler, pdev);
+> 	if (err) {
+> -		dev_err(&pdev->dev, "Failed to register for SDEI event %d",
+> +		dev_err(&pdev->dev, "Failed to register for SDEI event %d\n",
+> 			adata->sdei_event);
+> 		return err;
+> 	}
+> -- 
+> 2.17.1
+>
+>
 
