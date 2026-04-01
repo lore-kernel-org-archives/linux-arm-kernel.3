@@ -4,88 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D670B1076387
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 17:33:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFD041076387
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 17:36:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wUGrmWIs1eqe1Uc4sRH3g6ZJwCj+Y/CkFLvTuPn+h5I=; b=BvgyHty+qt32x6HlqK4UFk2LWZ
-	3LItzp0M6cPCrURJ5SIRov2AQXMeUHwGqE6HA2g9oUE6fuNZ003nnFD3XYdiZGFUvEbz9e0+cmqMe
-	yivamOFWHHgTh0cklqC1CceEfvOIzA6Cm3l4MQy0j19DA90tZnQg1y7Ijp/Irurk9kdYF6+5zZsI6
-	WU4u5O4VzIvwuuCsPOyGRGK0GUN+G74oWFIaoiFeAZab6RZm/I8+KjOb3nqpbUO4yRl/77sYNxVRr
-	wQQp9W4f0dlVhmUgWqvtfiK9PkB9yazpZblGb4f1d5uf4F72MpcbYHlU8pkdPPZkIoKKXoY/nApga
-	oY5oeMtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Madpyzu+7zvyLSmbgHorRXu83g1kA3bqkxQ/QKvvzXA=; b=uYliXD6Qee4JloRJuli7otqSpy
+	O7LAOSUmU2DmelewUsZnvj9zXDXMZRB6Qkaxz/dHGd1LmpKQbkrIhxyGf71gySnQacIBwoggyOWDR
+	QNAIioPGvMDGHeVcLff9nWCq9/uC842KJ71ymb0xeIXIMwe028+exqbpD0G2odiP1xWtwKCiemK64
+	mrhZ6gUqyG2uXcB74Tj5UVczWEKRK8OlpyYAYkfthrh2FR7P2sxckcpWUM1g6PLPJQQMINkvU02x1
+	8X8Z7NGnMGYtkr76+pCC9fSej4O3whmXGWkuFZ501Yg4M4T2RYlMO1fu2USTPvezVRpL5/pP/wXpC
+	YTRDgueQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7zRg-0000000Fr8Y-3P3t;
-	Wed, 01 Apr 2026 17:33:36 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1w7zUj-0000000FrQG-1XAa;
+	Wed, 01 Apr 2026 17:36:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7zRc-0000000Fr7w-14SH
+	id 1w7zUh-0000000FrPz-3hBm
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 01 Apr 2026 17:36:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Madpyzu+7zvyLSmbgHorRXu83g1kA3bqkxQ/QKvvzXA=; b=OYyc/+nzIkA2nAzuw/4g4tm5A3
+	PvGoCH0JpCdkhq5yKxtK09dAQdo2EFIYotXoCLf4Rmnu+hoEOl1pkA6L2foI/tSAkqdLRSCxDoL97
+	ZZkKaU9rgheUz/JOiT03FBvqpYvd5lxD1hkfCskoe8GofvGtLkgtu3fiQXw0Puvouol2uGSJ2R/vP
+	dQUdXx0vVcKuglM1dReHenpa2d6SYIWvSqUa/YDoq6p0eMZyvOvlOAvwe8iIMg4SKngaVQeIALcLI
+	//qT1f+CXCpE4uGtLvbvcYXmR4YqYl0SNWK3/Udd+6Xd+lOSuxuu7Yso1HIYbsNi1xgSvGvHpW7h+
+	zfVHP+pA==;
+Received: from mail-dl1-x1236.google.com ([2607:f8b0:4864:20::1236])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7zUe-000000011K8-3nel
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 17:33:36 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-35d9749c26dso3490497a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 10:33:31 -0700 (PDT)
+	Wed, 01 Apr 2026 17:36:42 +0000
+Received: by mail-dl1-x1236.google.com with SMTP id a92af1059eb24-124a7216c9cso5563c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 10:36:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775064998; cv=none;
+        d=google.com; s=arc-20240605;
+        b=jaBeNsE4AjoE1nQxc4lVvR3EPKhfj+SuwKOugOHsZyMDTZY0vq9huaZOJRr7BIgh+x
+         k3zn2cEJRDS76uHJjxFKRpMkGrepXDBRTWRtSZYmSEvhPNu1356T10+iiaAxJjnRRMUC
+         tiL9/24TbJvRBfHGME4+7u5igAtxz9sxXztZ6Q6HsMb/cIXJmzpimxbYmRQFEfe6QJm/
+         Z+kkfOz4DpINHcCRzYXQDs8C7wz851ne0MD/zxTSzD4hz//kVaF0yCpBzTlw/I69FwxT
+         q0XKt/mNGp6GzTofBtorACRQS60CrFIJYEboZp0/sBHHqAud5LRKpZon2oYxDEBjTwHR
+         Lcfg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Madpyzu+7zvyLSmbgHorRXu83g1kA3bqkxQ/QKvvzXA=;
+        fh=/DXue1TlYox+7fIAQkCwzPJegFsEDHeLDkchekJuuUI=;
+        b=HVnrsltgCL51Yk3Qll6JVryiJuFDKHQx1pa2SV58SUueVQM4sjmZ4KtrZbeLLCbIQ7
+         aDnJBV6trUwDZSG8j5XIMMaJIFymVb4yxJXFKzRDV3F+76JzFQsXbUOrsBcaB1aWBFgc
+         7i4OjMotFI2r3YsJC8jfzLAWNXTHOHfjs2M5MJ68/XDMuiPaPAFI3s4vhbx577d9CByS
+         skO+7plwq5MIJj6JRucex+Egdz4NJmqWfP7BHg1pwYxWmHp1CKlH9oF9rufBlVWb6gM3
+         9BaaZkwOehh63PEpmvMe+MP8zrHt0zJwdldAx5dA1ThjfJ63AqxqDRJ+OY6Fx39M3bu1
+         RBtQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1775064811; x=1775669611; darn=lists.infradead.org;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=wUGrmWIs1eqe1Uc4sRH3g6ZJwCj+Y/CkFLvTuPn+h5I=;
-        b=MOWqP7WOrulv9Er2I7+h9V6C7Z9WL7ueEYYlIpXM5CIVqhWmYJ36Lh5NUr74YiBNVk
-         jCByMai2sCuoveH3hyFPM+WB0oFtJH+MdZjotD9a1i7jLDDxn1dOVQutH1VjBUX0Q7EW
-         8j5lQBK6+Mku/1tbPVAA8AnsWi+sXCCYyyyduHM2ZhkZhR4nI7byJzGeVrZ4VRHdofeh
-         dQBgbGTt/PFPKzPYwf3GueoNK6U/7OudHftqiOkG4ysz/ssnK9UvVPD3QRdFlknjcTe0
-         rkNdoFeSu3qMkOSoj+Gw69SFOGoRLMfzqLuLhmH7zzm4CC18JEYNm0RYFS0LUREa1YEr
-         4q+Q==
+        d=gmail.com; s=20251104; t=1775064998; x=1775669798; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Madpyzu+7zvyLSmbgHorRXu83g1kA3bqkxQ/QKvvzXA=;
+        b=GkBCFewdTgEzJcAZ8RiLJvlTlOTXa/qqQgMztyQsMq64VdJBY4JSwtDq7Y60ow95MN
+         2V2JggLro89vqIpn7oy4R47ZWXKIP9Zg5KdBGmA/F2/KsG8Kn2i93MSbgPIz29ddpyq2
+         K4tPuXCJRnqIuYt2Kzwo9DwM2UYsvb6Td3mpWhX+vElyMk8PBsaSxUxY71y3wvLlBVzH
+         AS4yVlVFmxjsEzc2EHNZieK5BhgJKHKZEYrAbOjztP9/GT4lg2ov4yOJNRstRUynLOmO
+         K1jAwwx2I9G4cgdHyyQgBkVOqUUBWXp9dvcibI9Fk3FxK+JmK0z5PDQOZbfB4hSCpzot
+         WcLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775064811; x=1775669611;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wUGrmWIs1eqe1Uc4sRH3g6ZJwCj+Y/CkFLvTuPn+h5I=;
-        b=alhdNperIaGGVeU9Z7lYjV0x1spb/nS/0049fTnhrQX0z8MnXkfOzo2+lzZwyy6Pfs
-         /6kV/E7Mh9F41dGK/fM0EDzViVyaq8e8GZQmrsOvNM5kYnptjNXos9IV8ak7YOSfRIwL
-         ZNcW3obWwfnkVUdMgTlsEyarKHRq6JZhT284FbuwUCr266dZt7Sgkl6+mKkW4Yr81CED
-         aHsPEhpiuQZw4PJ3tG0MnU3Y5+CaLbqzdEHo7LWdO2AvZy/OVDe0YlNq5H8Vfo+yr5eb
-         oeyiYnS10AfboS01mSQQaDD3Z702+EFs/bdR7FQzJXgLneYkC9PTazj+sJjvwC9nl3+y
-         yySQ==
-X-Gm-Message-State: AOJu0YwhcW6XdsOPXkmF+lnL47U+wbbV5Uywx9wX9ZPDMqJXVWpVI2cL
-	SyAOQm81AY799tadMsayXaLHn2vna25QwRaI2EfDkQWZGRLxa3OvNNJDaSphqboE+D4=
-X-Gm-Gg: ATEYQzwqFav8Ygd/Iv+T2t9HihSOJvKm7k/Zt3XMAxZzFYED7G7BKIbzy0PWuMGfdoC
-	H+7ArIAGjLaAe81Bm4SHPQHKW1bKT62IaHY+lMQOiTGl6aipmit4GMlP90W81i6XBP/PKcS+n4R
-	0AXkTj4eZNjqcJm/IFSv9eui39GdsdpYYbwP/oLZhI8ke3ChJve1oTu8s2UsQrspPTexHBO9Sgh
-	y/NO2tA+KL7OjuuA5PtJQN/GHuSRIFNMlXbps6DdlLs/ahvksrYZ+j3+98uC3pRnWrZCfXNF/50
-	VRZ0RIVi7LR5MXPHhTjL+XtWFTVkHayg+X0wrv4KnwSHtuZmeucTXQpnT1PV0wowRDReBQ43ZW4
-	6nBs3D9LrW6iM5XXKirYq5TQXRhaZEwgVaP24+NfhdknF3pxG+PcdyNhYWMHakG3Dg5ujKPpb4x
-	DZbzYMXbvJ3VKrpMlYZbo=
-X-Received: by 2002:a17:902:f54a:b0:2b0:6e12:bb21 with SMTP id d9443c01a7336-2b269d4af02mr44706185ad.41.1775064810785;
-        Wed, 01 Apr 2026 10:33:30 -0700 (PDT)
-Received: from localhost ([97.126.187.42])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b2749cbca2sm2974705ad.73.2026.04.01.10.33.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Apr 2026 10:33:30 -0700 (PDT)
-From: Kevin Hilman <khilman@baylibre.com>
-To: Thomas Zimmermann <tzimmermann@suse.de>, linux@armlinux.org.uk,
- aaro.koskinen@iki.fi, jmkrzyszt@gmail.com, tony@atomide.com,
- andreas@kemnade.info, rogerq@kernel.org, arnd@arndb.de
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-omap@vger.kernel.org, soc@lists.linux.dev,
- linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org, Thomas
- Zimmermann <tzimmermann@suse.de>
-Subject: Re: [PATCH] arch/arm: Drop CONFIG_FIRMWARE_EDID from defconfig files
-In-Reply-To: <20260401082533.214103-1-tzimmermann@suse.de>
-References: <20260401082533.214103-1-tzimmermann@suse.de>
-Date: Wed, 01 Apr 2026 10:33:29 -0700
-Message-ID: <7hcy0ivb4m.fsf@baylibre.com>
+        d=1e100.net; s=20251104; t=1775064998; x=1775669798;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Madpyzu+7zvyLSmbgHorRXu83g1kA3bqkxQ/QKvvzXA=;
+        b=AQ+0znM3LUdhUMAGm3NxALBawLYxWymR62X1pIx/Fldu35NpoyM+Qi5oFdWSk+EhGM
+         Pxbk4HbFgREnk8hfF50/JjhzF002QgtoJrkJ9KF7srBYlhFhMVz6BDaTxRMkNKYBhnge
+         c1bbYJ+GJW3890GMwMthaJ8bGn2p2CEh3xAjQPql+xA0mjDPwpJiOLJOkEts2YkfQeWM
+         y+RtidY6YiULDldLxhMDudnpUMoAnkDaZuRcIsHa57hN2eRITS0bYpDiKOtVhGAxCP+c
+         tWUF9b62mNeUho8NCrnsGdhyvKKHDiI2BDkUuSDcGuADssOd4h8jIgI7TRSbB5dduDPZ
+         v5Jg==
+X-Forwarded-Encrypted: i=1; AJvYcCXCsNfMB7uUuuFl0xbyQnBwysIsg1wcy+T7oSnRIrI/xcxFVA0wMz23a/NvBiCnyu06bQGpW/qKNg5+K+FlbprV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzuzqc5WqtOzhRwDAlKKZpj96YG5gAInbOKLAtiXhWP7Gss8/Ai
+	3OqcWpQ7e73j42B1JtYntqQF2i4y1FL3sCENMHWV8iEMKyHTvjWsCuxJQMzYQnLq2k7jsWsZDsU
+	TpMoDYvKdvMsOr/+JDpD2XKvenx1u7Kk=
+X-Gm-Gg: ATEYQzxMxpHGGBghiqcf+mO/j7P3dlGQ7QYzs+LtzziT+bWq9Hneud0/Cec0pVQv9de
+	pgBLIQVggb2VQO5a4IcxoWTE6jMo/s/G6P5NsDuEI0Q5MNWCuJ+Dk1pVutbf5hIzIS7LznFU8vU
+	PocWvKQzNY6yWiNK3w87EP0rEdOjwCNvgPydTRlD5aO02WRuEBzdb57A90xeagq/leU5z9HNroT
+	pgXoV8TXLjgZyuuKjp1esNOipLHkAiGGvwSMIc0hlGqTfO5cMxhTSV04namS6f5pkEZFxT/C1i4
+	2Q9cUHmruwYhFs91cGb6XRNstcWyK8X93qPZmp3ykbhjwP4pizrfUWNex7DWMisLmlGgBqzYwhz
+	IBMtNSag5rft6IvJlYcRt+j0=
+X-Received: by 2002:a05:693c:2c97:b0:2c7:2cac:8162 with SMTP id
+ 5a478bee46e88-2c9326aa500mr1010168eec.5.1775064998156; Wed, 01 Apr 2026
+ 10:36:38 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20260401114540.30108-1-ojeda@kernel.org> <20260401114540.30108-9-ojeda@kernel.org>
+ <DHHVEPJHLGDW.1E6KDP9BUFG5U@garyguo.net>
+In-Reply-To: <DHHVEPJHLGDW.1E6KDP9BUFG5U@garyguo.net>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Wed, 1 Apr 2026 19:36:25 +0200
+X-Gm-Features: AQROBzBeO_yfCUmMruxpBPrHPRt9Z-RBtWsQqT4MIRVUyc-eOkOj6bAx0WG8aNs
+Message-ID: <CANiq72mnnro6UD3SYgTOG+kipwkTBvbEAGH+jXUa3kLTUNje2A@mail.gmail.com>
+Subject: Re: [PATCH 08/33] rust: kbuild: simplify `--remap-path-prefix` workaround
+To: Gary Guo <gary@garyguo.net>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Courbot <acourbot@nvidia.com>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, =?UTF-8?B?QXJ2ZSBIasO4bm5ldsOlZw==?= <arve@android.com>, 
+	Todd Kjos <tkjos@android.com>, Christian Brauner <christian@brauner.io>, 
+	Carlos Llamas <cmllamas@google.com>, Alice Ryhl <aliceryhl@google.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Boqun Feng <boqun@kernel.org>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>, rust-for-linux@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	Vlastimil Babka <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org, 
+	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>, Alexandre Ghiti <alex@ghiti.fr>, 
+	linux-riscv@lists.infradead.org, nouveau@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, Rae Moar <raemoar63@gmail.com>, 
+	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_103332_601599_0C50067E 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260401_183641_035407_30A69EBE 
+X-CRM114-Status: GOOD (  19.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,21 +153,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thomas Zimmermann <tzimmermann@suse.de> writes:
-
-> CONFIG_FIRMWARE_EDID=y depends on X86 or EFI_GENERIC_STUB. Neither is
-> true here, so drop the lines from the defconfig files.
+On Wed, Apr 1, 2026 at 3:59=E2=80=AFPM Gary Guo <gary@garyguo.net> wrote:
 >
-> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-> Suggested-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  arch/arm/configs/davinci_all_defconfig | 1 -
->  arch/arm/configs/omap1_defconfig       | 1 -
->  arch/arm/configs/omap2plus_defconfig   | 1 -
+> I'm not sure that I parse this. You do remove the filter-out completely b=
+elow?
 
-For omap*_defconfig:
+(I see you saw the other commit)
 
-Acked-by: Kevin Hilman (TI) <khilman@baylibre.com>
+> Looks like this is going to conflict with rust-fixes (which adds the
+> --remap-path-scope). Perhaps worth doing a back merge?
 
-Kevin
+It would be only a couple lines conflicting, so it should be fine.
+
+Having said that, when I was doing this, I wondered if we should even
+consider keeping the workaround. In other words, locally for
+`rust-next`, the "normal" commit would be to remove the workaround
+entirely because there the flag doesn't exist to begin with (i.e. the
+workaround should have been removed back when the revert landed).
+
+Then, when conflict happens in linux-next, we can just keep the
+addition of the flag from your commit -- the rest can say as-is, i.e.
+no workaround needed, because you only enable both flags in a version
+(1.95.0) where there is no need for the workaround (which was for <
+1.87.0).
+
+It is also why I added the second commit here, i.e. the "make it
+conditional", because I was testing that indeed we didn't need the
+workaround anymore.
+
+So it may just simpler to do that. What I thought was that perhaps the
+workaround is good even if we ourselves don't pass the flag, e.g.
+someone else may be passing it. But the chances are very low,
+restricted to a couple versions, and the error is obvious and at build
+time anyway.
+
+Cheers,
+Miguel
 
