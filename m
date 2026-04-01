@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E36610F931A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 02:54:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8A3510F9318
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 02:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=80H5YGPSD4QZRMtdUbqQCa4v5ktZP0RwN8gMrG5LT+U=; b=PFz53YNn3FftYFnqp3O1QlDg9o
-	zW4aD+BEuF53eCqzNCHUGaERJ8ryV57OYhbEbIqh6qVZit/z/bnY8Epbky9KAvOkpSQCpH8SowkPz
-	JzRplQG/3JCCAYbPIQSLOE5rRgtWbQEvkBaBH7pomncoLEcWUGNm3NXyktaHNzuGaQNI+AE5/ar8a
-	kIaIGB2iXCv6MR+SCSSg6ExLP0tqkoXp1wp1ZkyMIA3y3MjdNEUZCh2NgiCDK4iVjOCZ7HEYsFbo7
-	UQ+uGbQpcsUoNxde9NFSJrZefyYewJEBega8qh5d3d3vzs7cpB4/MrHYAz4vo90UHnLzdlUo7St9c
-	UypIG3HQ==;
+	bh=P9bx0JSQN5urEQ0kGf5GT9ZdgXv8ZZPvBz0eFEf+7pA=; b=IYPlUAlfXHqf2ETnGYW1wykkAc
+	SzcPkaZsvMeMA/9AcOGCTOhYJp238iLH/55OXRsulRXX8QSa7Weu+H05MOmvAanMn7VoklInzmod7
+	phLc4PPYU8BOvmyFXzlEBM9fjO12qCZkL/4tMb/MFFdkLWSfm/MouG+inU6I7GsqqWvy8IXPOzXu8
+	kfD4tZkiIv8gIXDtHfzFadGb7Or5oB4xlXoOgiBmfe17T2XhI9PM0dUNyrk26Ec01Bp7A80xZo6l6
+	ApVDZjJPi0FZPr/QnvORzkfIwLzlZds0Q25f9ldxS5V84iz8P7HdVoaxGrtvoQd0T3HE+yBxTgyTW
+	1sWtKjTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7liT-0000000Drln-1JUc;
-	Wed, 01 Apr 2026 02:54:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7liQ-0000000DrlK-1jTr
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 02:53:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 71DEC2381;
-	Tue, 31 Mar 2026 19:53:51 -0700 (PDT)
-Received: from [10.164.18.48] (unknown [10.164.18.48])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4E0543F7D8;
-	Tue, 31 Mar 2026 19:53:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775012037; bh=cEFgHkRRWFLpAf3maFJBj9/wRwm+ghJB8MLGzQ5GKek=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TUUiSg6GYkMSwE+R7KKegHoV5wj40cVg4Ssu+d9vaeU0golPlB3CrMzPD39AfO91o
-	 VTBaRPIrMMnuS7DudYxLAkYuo5b0OPUQLV/4qI7xwIGKPIeGOUkfWg4SXoxxnwH3/q
-	 QxWtZHyOJEQ0kK+DWDDwQbM/sK3/EWlBN47Zj6J0=
-Message-ID: <61dc67a4-3031-49a7-afb9-ac60138d53a4@arm.com>
-Date: Wed, 1 Apr 2026 08:23:51 +0530
+	id 1w7lnk-0000000Ds5e-42JI;
+	Wed, 01 Apr 2026 02:59:28 +0000
+Received: from mail-m15594.qiye.163.com ([101.71.155.94])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7lnh-0000000Ds53-3bgJ;
+	Wed, 01 Apr 2026 02:59:27 +0000
+Received: from [172.16.12.17] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 39142f724;
+	Wed, 1 Apr 2026 10:54:14 +0800 (GMT+08:00)
+Message-ID: <fc6f00fa-10b0-44c8-d8b4-694f8ff3b9ea@rock-chips.com>
+Date: Wed, 1 Apr 2026 10:54:13 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 16/30] KVM: arm64: Move fault context to const
- structure
-To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>,
- Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <tabba@google.com>,
- Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>
-References: <20260327113618.4051534-1-maz@kernel.org>
- <20260327113618.4051534-17-maz@kernel.org>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20260327113618.4051534-17-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.13.1
+Cc: shawn.lin@rock-chips.com, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, ulf.hansson@linaro.org, heiko@sntech.de
+Subject: Re: [PATCH 1/2] pmdomain/rockchip: skip QoS operations for idle-only
+ domains
+To: Daniel Bozeman <daniel@orb.net>
+References: <20260331180223.1682283-1-daniel@orb.net>
+ <5c8732a3-6cc9-5d02-f56b-fc7ba29c7ce0@rock-chips.com>
+ <CAG+Ngm+xJCCQMPddZx8AbPEeH3rUrn3GKF575zXpGPJrnELvMw@mail.gmail.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <CAG+Ngm+xJCCQMPddZx8AbPEeH3rUrn3GKF575zXpGPJrnELvMw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9d46f6852f09cckunm2fad582df958e2
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkNPTVYdT08aHk8YQh5PHUlWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=ZtfglWvVHDfRtUw1SGTqDQJJHeX/aurreDJr4KQff0OoDgR89JsUrhEFc8FCjs5g8RPp27wEGrwnqmNg0IRiYMUTxB4r9R++FGmn7rUDODjd+KScvBb8+3N5Wgfcz9rBpYzs1gcGfPI5Ia8uZTJTw/AMZD3Tm8Gf5Nt4C2LveZ0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=P9bx0JSQN5urEQ0kGf5GT9ZdgXv8ZZPvBz0eFEf+7pA=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_195358_645903_60D80BF0 
-X-CRM114-Status: GOOD (  33.17  )
+X-CRM114-CacheID: sfid-20260331_195926_100868_FD64E549 
+X-CRM114-Status: GOOD (  30.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,362 +74,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 27/03/26 5:06 PM, Marc Zyngier wrote:
-> In order to make it clearer what gets updated or not during fault
-> handling, move a set of information that losely represents the
-> fault context.
+在 2026/04/01 星期三 10:34, Daniel Bozeman 写道:
+> The NanoPi Zero2 (RK3528) kernel panics during boot when a
+> GPIO-controlled USB VBUS regulator is defined on GPIO4 (which
+> is in PD_RKVENC). The goal of this series is to make USB host
+> power work on boards that use GPIO4 for regulator control.
 > 
-> This gets populated early, from handle_mem_abort(), and gets passed
-> along as a const pointer. user_mem_abort()'s signature is majorly
-> improved in doing so, and kvm_s2_fault loses a bunch of fields.
+> The root cause is a probe ordering issue. On RK3528, the power
+> domain controller's first probe attempt fails because PD_GPU's
+> clock lookup returns -EPROBE_DEFER (CRU hasn't probed yet).
+> The driver then tears down all domains, including PD_RKVENC
+> which would have registered successfully (it has no clock
+> requirements). During this window, the USB regulator driver
+> probes and requests GPIO4, which is in the now-unregistered
+> PD_RKVENC. This triggers a synchronous external abort.
 > 
-> gmem_abort() will get a similar treatment down the line.
+> With patch 2 alone (skipping deferred domains), the idle-only
+> domains register successfully. But the genpd framework then
+> attempts to power them off via genpd_power_off_work_fn. This
+> calls rockchip_pd_power(), which does QoS save and idle
+> requests on domains with pwr_mask == 0 that cannot actually
+> be powered off.
 > 
-> Tested-by: Fuad Tabba <tabba@google.com>
-> Reviewed-by: Fuad Tabba <tabba@google.com>
-> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> To your question about why QoS registers become inaccessible
+> on idle-only domains: I have not root-caused that specifically.
+> What I can confirm is the crash trace below, which occurs when
+> patch 2 is applied without patch 1. The abort happens during
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
-> ---
->  arch/arm64/kvm/mmu.c | 133 ++++++++++++++++++++++---------------------
->  1 file changed, 69 insertions(+), 64 deletions(-)
+This sounds like a parent-child dependency which hasn't been sorted
+out. My another question will be: with patch 1 applied, how to save-
+restore qos registers during normal S2R usage?
+
+> rockchip_pmu_set_idle_request on an idle-only domain:
 > 
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 496bf5903ed3d..09e32f08028e4 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1565,6 +1565,14 @@ static void adjust_nested_exec_perms(struct kvm *kvm,
->  		*prot &= ~KVM_PGTABLE_PROT_PX;
->  }
->  
-> +struct kvm_s2_fault_desc {
-> +	struct kvm_vcpu		*vcpu;
-> +	phys_addr_t		fault_ipa;
-> +	struct kvm_s2_trans	*nested;
-> +	struct kvm_memory_slot	*memslot;
-> +	unsigned long		hva;
-> +};
-> +
->  static int gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  		      struct kvm_s2_trans *nested,
->  		      struct kvm_memory_slot *memslot, bool is_perm)
-> @@ -1640,23 +1648,20 @@ static int gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  	return ret != -EAGAIN ? ret : 0;
->  }
->  
-> -static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
-> -				     unsigned long hva,
-> -				     struct kvm_memory_slot *memslot,
-> -				     struct kvm_s2_trans *nested,
-> -				     bool *force_pte)
-> +static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
-> +				     struct vm_area_struct *vma, bool *force_pte)
->  {
->  	short vma_shift;
->  
->  	if (*force_pte)
->  		vma_shift = PAGE_SHIFT;
->  	else
-> -		vma_shift = get_vma_page_shift(vma, hva);
-> +		vma_shift = get_vma_page_shift(vma, s2fd->hva);
->  
->  	switch (vma_shift) {
->  #ifndef __PAGETABLE_PMD_FOLDED
->  	case PUD_SHIFT:
-> -		if (fault_supports_stage2_huge_mapping(memslot, hva, PUD_SIZE))
-> +		if (fault_supports_stage2_huge_mapping(s2fd->memslot, s2fd->hva, PUD_SIZE))
->  			break;
->  		fallthrough;
->  #endif
-> @@ -1664,7 +1669,7 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
->  		vma_shift = PMD_SHIFT;
->  		fallthrough;
->  	case PMD_SHIFT:
-> -		if (fault_supports_stage2_huge_mapping(memslot, hva, PMD_SIZE))
-> +		if (fault_supports_stage2_huge_mapping(s2fd->memslot, s2fd->hva, PMD_SIZE))
->  			break;
->  		fallthrough;
->  	case CONT_PTE_SHIFT:
-> @@ -1677,7 +1682,7 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
->  		WARN_ONCE(1, "Unknown vma_shift %d", vma_shift);
->  	}
->  
-> -	if (nested) {
-> +	if (s2fd->nested) {
->  		unsigned long max_map_size;
->  
->  		max_map_size = *force_pte ? PAGE_SIZE : PUD_SIZE;
-> @@ -1687,7 +1692,7 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
->  		 * can only create a block mapping if the guest stage 2 page
->  		 * table uses at least as big a mapping.
->  		 */
-> -		max_map_size = min(kvm_s2_trans_size(nested), max_map_size);
-> +		max_map_size = min(kvm_s2_trans_size(s2fd->nested), max_map_size);
->  
->  		/*
->  		 * Be careful that if the mapping size falls between
-> @@ -1706,11 +1711,6 @@ static short kvm_s2_resolve_vma_size(struct vm_area_struct *vma,
->  }
->  
->  struct kvm_s2_fault {
-> -	struct kvm_vcpu *vcpu;
-> -	phys_addr_t fault_ipa;
-> -	struct kvm_s2_trans *nested;
-> -	struct kvm_memory_slot *memslot;
-> -	unsigned long hva;
->  	bool fault_is_perm;
->  
->  	bool write_fault;
-> @@ -1732,28 +1732,28 @@ struct kvm_s2_fault {
->  	vm_flags_t vm_flags;
->  };
->  
-> -static int kvm_s2_fault_get_vma_info(struct kvm_s2_fault *fault)
-> +static int kvm_s2_fault_get_vma_info(const struct kvm_s2_fault_desc *s2fd,
-> +				     struct kvm_s2_fault *fault)
->  {
->  	struct vm_area_struct *vma;
-> -	struct kvm *kvm = fault->vcpu->kvm;
-> +	struct kvm *kvm = s2fd->vcpu->kvm;
->  
->  	mmap_read_lock(current->mm);
-> -	vma = vma_lookup(current->mm, fault->hva);
-> +	vma = vma_lookup(current->mm, s2fd->hva);
->  	if (unlikely(!vma)) {
-> -		kvm_err("Failed to find VMA for fault->hva 0x%lx\n", fault->hva);
-> +		kvm_err("Failed to find VMA for hva 0x%lx\n", s2fd->hva);
->  		mmap_read_unlock(current->mm);
->  		return -EFAULT;
->  	}
->  
-> -	fault->vma_pagesize = 1UL << kvm_s2_resolve_vma_size(vma, fault->hva, fault->memslot,
-> -							     fault->nested, &fault->force_pte);
-> +	fault->vma_pagesize = BIT(kvm_s2_resolve_vma_size(s2fd, vma, &fault->force_pte));
->  
->  	/*
->  	 * Both the canonical IPA and fault IPA must be aligned to the
->  	 * mapping size to ensure we find the right PFN and lay down the
->  	 * mapping in the right place.
->  	 */
-> -	fault->gfn = ALIGN_DOWN(fault->fault_ipa, fault->vma_pagesize) >> PAGE_SHIFT;
-> +	fault->gfn = ALIGN_DOWN(s2fd->fault_ipa, fault->vma_pagesize) >> PAGE_SHIFT;
->  
->  	fault->mte_allowed = kvm_vma_mte_allowed(vma);
->  
-> @@ -1775,31 +1775,33 @@ static int kvm_s2_fault_get_vma_info(struct kvm_s2_fault *fault)
->  	return 0;
->  }
->  
-> -static gfn_t get_canonical_gfn(struct kvm_s2_fault *fault)
-> +static gfn_t get_canonical_gfn(const struct kvm_s2_fault_desc *s2fd,
-> +			       const struct kvm_s2_fault *fault)
->  {
->  	phys_addr_t ipa;
->  
-> -	if (!fault->nested)
-> +	if (!s2fd->nested)
->  		return fault->gfn;
->  
-> -	ipa = kvm_s2_trans_output(fault->nested);
-> +	ipa = kvm_s2_trans_output(s2fd->nested);
->  	return ALIGN_DOWN(ipa, fault->vma_pagesize) >> PAGE_SHIFT;
->  }
->  
-> -static int kvm_s2_fault_pin_pfn(struct kvm_s2_fault *fault)
-> +static int kvm_s2_fault_pin_pfn(const struct kvm_s2_fault_desc *s2fd,
-> +				struct kvm_s2_fault *fault)
->  {
->  	int ret;
->  
-> -	ret = kvm_s2_fault_get_vma_info(fault);
-> +	ret = kvm_s2_fault_get_vma_info(s2fd, fault);
->  	if (ret)
->  		return ret;
->  
-> -	fault->pfn = __kvm_faultin_pfn(fault->memslot, get_canonical_gfn(fault),
-> +	fault->pfn = __kvm_faultin_pfn(s2fd->memslot, get_canonical_gfn(s2fd, fault),
->  				       fault->write_fault ? FOLL_WRITE : 0,
->  				       &fault->writable, &fault->page);
->  	if (unlikely(is_error_noslot_pfn(fault->pfn))) {
->  		if (fault->pfn == KVM_PFN_ERR_HWPOISON) {
-> -			kvm_send_hwpoison_signal(fault->hva, __ffs(fault->vma_pagesize));
-> +			kvm_send_hwpoison_signal(s2fd->hva, __ffs(fault->vma_pagesize));
->  			return 0;
->  		}
->  		return -EFAULT;
-> @@ -1808,9 +1810,10 @@ static int kvm_s2_fault_pin_pfn(struct kvm_s2_fault *fault)
->  	return 1;
->  }
->  
-> -static int kvm_s2_fault_compute_prot(struct kvm_s2_fault *fault)
-> +static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
-> +				     struct kvm_s2_fault *fault)
->  {
-> -	struct kvm *kvm = fault->vcpu->kvm;
-> +	struct kvm *kvm = s2fd->vcpu->kvm;
->  
->  	/*
->  	 * Check if this is non-struct page memory PFN, and cannot support
-> @@ -1862,13 +1865,13 @@ static int kvm_s2_fault_compute_prot(struct kvm_s2_fault *fault)
->  	 * and trigger the exception here. Since the memslot is valid, inject
->  	 * the fault back to the guest.
->  	 */
-> -	if (esr_fsc_is_excl_atomic_fault(kvm_vcpu_get_esr(fault->vcpu))) {
-> -		kvm_inject_dabt_excl_atomic(fault->vcpu, kvm_vcpu_get_hfar(fault->vcpu));
-> +	if (esr_fsc_is_excl_atomic_fault(kvm_vcpu_get_esr(s2fd->vcpu))) {
-> +		kvm_inject_dabt_excl_atomic(s2fd->vcpu, kvm_vcpu_get_hfar(s2fd->vcpu));
->  		return 1;
->  	}
->  
-> -	if (fault->nested)
-> -		adjust_nested_fault_perms(fault->nested, &fault->prot, &fault->writable);
-> +	if (s2fd->nested)
-> +		adjust_nested_fault_perms(s2fd->nested, &fault->prot, &fault->writable);
->  
->  	if (fault->writable)
->  		fault->prot |= KVM_PGTABLE_PROT_W;
-> @@ -1882,8 +1885,8 @@ static int kvm_s2_fault_compute_prot(struct kvm_s2_fault *fault)
->  	else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC))
->  		fault->prot |= KVM_PGTABLE_PROT_X;
->  
-> -	if (fault->nested)
-> -		adjust_nested_exec_perms(kvm, fault->nested, &fault->prot);
-> +	if (s2fd->nested)
-> +		adjust_nested_exec_perms(kvm, s2fd->nested, &fault->prot);
->  
->  	if (!fault->fault_is_perm && !fault->s2_force_noncacheable && kvm_has_mte(kvm)) {
->  		/* Check the VMM hasn't introduced a new disallowed VMA */
-> @@ -1899,15 +1902,16 @@ static phys_addr_t get_ipa(const struct kvm_s2_fault *fault)
->  	return gfn_to_gpa(fault->gfn);
->  }
->  
-> -static int kvm_s2_fault_map(struct kvm_s2_fault *fault, void *memcache)
-> +static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
-> +			    struct kvm_s2_fault *fault, void *memcache)
->  {
-> -	struct kvm *kvm = fault->vcpu->kvm;
-> +	struct kvm *kvm = s2fd->vcpu->kvm;
->  	struct kvm_pgtable *pgt;
->  	int ret;
->  	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
->  
->  	kvm_fault_lock(kvm);
-> -	pgt = fault->vcpu->arch.hw_mmu->pgt;
-> +	pgt = s2fd->vcpu->arch.hw_mmu->pgt;
->  	ret = -EAGAIN;
->  	if (mmu_invalidate_retry(kvm, fault->mmu_seq))
->  		goto out_unlock;
-> @@ -1921,8 +1925,8 @@ static int kvm_s2_fault_map(struct kvm_s2_fault *fault, void *memcache)
->  		if (fault->fault_is_perm && fault->fault_granule > PAGE_SIZE) {
->  			fault->vma_pagesize = fault->fault_granule;
->  		} else {
-> -			fault->vma_pagesize = transparent_hugepage_adjust(kvm, fault->memslot,
-> -									  fault->hva, &fault->pfn,
-> +			fault->vma_pagesize = transparent_hugepage_adjust(kvm, s2fd->memslot,
-> +									  s2fd->hva, &fault->pfn,
->  									  &fault->gfn);
->  
->  			if (fault->vma_pagesize < 0) {
-> @@ -1960,34 +1964,27 @@ static int kvm_s2_fault_map(struct kvm_s2_fault *fault, void *memcache)
->  
->  	/* Mark the page dirty only if the fault is handled successfully */
->  	if (fault->writable && !ret)
-> -		mark_page_dirty_in_slot(kvm, fault->memslot, get_canonical_gfn(fault));
-> +		mark_page_dirty_in_slot(kvm, s2fd->memslot, get_canonical_gfn(s2fd, fault));
->  
->  	if (ret != -EAGAIN)
->  		return ret;
->  	return 0;
->  }
->  
-> -static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
-> -			  struct kvm_s2_trans *nested,
-> -			  struct kvm_memory_slot *memslot, unsigned long hva,
-> -			  bool fault_is_perm)
-> +static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
->  {
-> -	bool write_fault = kvm_is_write_fault(vcpu);
-> -	bool logging_active = memslot_is_logging(memslot);
-> +	bool perm_fault = kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
-> +	bool write_fault = kvm_is_write_fault(s2fd->vcpu);
-> +	bool logging_active = memslot_is_logging(s2fd->memslot);
->  	struct kvm_s2_fault fault = {
-> -		.vcpu = vcpu,
-> -		.fault_ipa = fault_ipa,
-> -		.nested = nested,
-> -		.memslot = memslot,
-> -		.hva = hva,
-> -		.fault_is_perm = fault_is_perm,
-> +		.fault_is_perm = perm_fault,
->  		.logging_active = logging_active,
->  		.force_pte = logging_active,
->  		.prot = KVM_PGTABLE_PROT_R,
-> -		.fault_granule = fault_is_perm ? kvm_vcpu_trap_get_perm_fault_granule(vcpu) : 0,
-> +		.fault_granule = perm_fault ? kvm_vcpu_trap_get_perm_fault_granule(s2fd->vcpu) : 0,
->  		.write_fault = write_fault,
-> -		.exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu),
-> -		.topup_memcache = !fault_is_perm || (logging_active && write_fault),
-> +		.exec_fault = kvm_vcpu_trap_is_exec_fault(s2fd->vcpu),
-> +		.topup_memcache = !perm_fault || (logging_active && write_fault),
->  	};
->  	void *memcache;
->  	int ret;
-> @@ -2000,7 +1997,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  	 * only exception to this is when dirty logging is enabled at runtime
->  	 * and a write fault needs to collapse a block entry into a table.
->  	 */
-> -	ret = prepare_mmu_memcache(vcpu, fault.topup_memcache, &memcache);
-> +	ret = prepare_mmu_memcache(s2fd->vcpu, fault.topup_memcache, &memcache);
->  	if (ret)
->  		return ret;
->  
-> @@ -2008,17 +2005,17 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  	 * Let's check if we will get back a huge page backed by hugetlbfs, or
->  	 * get block mapping for device MMIO region.
->  	 */
-> -	ret = kvm_s2_fault_pin_pfn(&fault);
-> +	ret = kvm_s2_fault_pin_pfn(s2fd, &fault);
->  	if (ret != 1)
->  		return ret;
->  
-> -	ret = kvm_s2_fault_compute_prot(&fault);
-> +	ret = kvm_s2_fault_compute_prot(s2fd, &fault);
->  	if (ret) {
->  		kvm_release_page_unused(fault.page);
->  		return ret;
->  	}
->  
-> -	return kvm_s2_fault_map(&fault, memcache);
-> +	return kvm_s2_fault_map(s2fd, &fault, memcache);
->  }
->  
->  /* Resolve the access fault by making the page young again. */
-> @@ -2284,12 +2281,20 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->  	VM_WARN_ON_ONCE(kvm_vcpu_trap_is_permission_fault(vcpu) &&
->  			!write_fault && !kvm_vcpu_trap_is_exec_fault(vcpu));
->  
-> +	const struct kvm_s2_fault_desc s2fd = {
-> +		.vcpu		= vcpu,
-> +		.fault_ipa	= fault_ipa,
-> +		.nested		= nested,
-> +		.memslot	= memslot,
-> +		.hva		= hva,
-> +	};
-> +
->  	if (kvm_slot_has_gmem(memslot))
->  		ret = gmem_abort(vcpu, fault_ipa, nested, memslot,
->  				 esr_fsc_is_permission_fault(esr));
->  	else
-> -		ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, hva,
-> -				     esr_fsc_is_permission_fault(esr));
-> +		ret = user_mem_abort(&s2fd);
-> +
->  	if (ret == 0)
->  		ret = 1;
->  out:
-
+>    Internal error: synchronous external abort: 0000000096000010
+>    CPU: 2 PID: 60 Comm: kworker/2:3
+>    Workqueue: pm genpd_power_off_work_fn
+>    pc : regmap_mmio_read32le+0x8/0x20
+>    lr : regmap_mmio_read+0x44/0x70
+>    Call trace:
+>     regmap_mmio_read32le+0x8/0x20
+>     _regmap_bus_reg_read+0x6c/0xac
+>     _regmap_read+0x60/0xd8
+>     regmap_read+0x4c/0x7c
+>     rockchip_pmu_set_idle_request.isra.0+0x94/0x1b4
+>     rockchip_pd_power+0x37c/0x608
+>     rockchip_pd_power_off+0x14/0x38
+>     genpd_power_off.isra.0+0x1f0/0x2f0
+>     genpd_power_off_work_fn+0x34/0x54
+> 
+> The two patches work together: patch 1 prevents QoS access
+> on idle-only domains, and patch 2 prevents the full probe
+> teardown when a single domain defers.
+> 
+> Tested on NanoPi Zero2 (fixes panic) and Radxa E20C (no
+> regression).
+> 
+> On Tue, Mar 31, 2026 at 6:17 PM Shawn Lin <shawn.lin@rock-chips.com 
+> <mailto:shawn.lin@rock-chips.com>> wrote:
+> 
+>     Hi Daniel,
+> 
+>     在 2026/04/01 星期三 2:02, Daniel Bozeman 写道:
+>      > Idle-only power domains (pwr_mask == 0) cannot actually be powered
+>      > on or off. rockchip_do_pmu_set_power_domain() already returns early
+>      > for these domains, but rockchip_pd_power() still attempts QoS save
+>      > and idle requests before reaching that check.
+>      >
+>      > On RK3528, the idle-only domains (PD_RKVENC, PD_VO, PD_VPU) have
+>      > QoS registers that may be inaccessible when the generic power domain
+>      > framework attempts to power them off, leading to synchronous external
+>      > aborts.
+>      >
+> 
+>     Is it the real abort happened on your RK3528 board? I am trying to
+>     understand the problem first. Even with idle-only powerdomain, the code
+>     also save the QoS registers before set idle to the powerdomain, so
+>     how the QoS registers become inaccessible?
+> 
+>      > Return early from rockchip_pd_power() when pwr_mask is zero, matching
+>      > the existing guard in rockchip_do_pmu_set_power_domain().
+>      >
+>      > Fixes: 1fe767a56c32 ("soc: rockchip: power-domain: allow domains
+>     only handling idle requests")
+>      > Signed-off-by: Daniel Bozeman <daniel@orb.net
+>     <mailto:daniel@orb.net>>
+>      > ---
+>      >   drivers/pmdomain/rockchip/pm-domains.c | 3 +++
+>      >   1 file changed, 3 insertions(+)
+>      >
+>      > diff --git a/drivers/pmdomain/rockchip/pm-domains.c
+>     b/drivers/pmdomain/rockchip/pm-domains.c
+>      > index 490bbb1d1d..2eecae092a 100644
+>      > --- a/drivers/pmdomain/rockchip/pm-domains.c
+>      > +++ b/drivers/pmdomain/rockchip/pm-domains.c
+>      > @@ -640,6 +640,9 @@ static int rockchip_pd_power(struct
+>     rockchip_pm_domain *pd, bool power_on)
+>      >       if (rockchip_pmu_domain_is_on(pd) == power_on)
+>      >               return 0;
+>      >
+>      > +     if (pd->info->pwr_mask == 0)
+>      > +             return 0;
+>      > +
+>      >       ret = clk_bulk_enable(pd->num_clks, pd->clks);
+>      >       if (ret < 0) {
+>      >               dev_err(pmu->dev, "failed to enable clocks\n");
+>      >
+>      > base-commit: bc330699801d3b4f99110365512caed5adcfaca3
+> 
 
