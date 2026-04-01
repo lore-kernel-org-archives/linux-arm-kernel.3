@@ -4,128 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A175ED35175
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 10:39:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7851FD35175
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 10:44:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l+Vk2PwE94ZCcIgL1d3hze4YCjE7brub2751Lktb8Hw=; b=rr19lpkPryAG/v7kI+DtD6KszS
-	G04WyYK+MmSpMHkUkmsVIGpYvI/M1R+RNUKBygCysFBtAqzGU5VxFhu8t6nnwevg6I54ixi62JSxX
-	FwgoYLm8tD3cjXKx/NhUwwshfQGgI+GmKALGJtM8Kg5sQlljv1MEw5sSQHG+SRLdX0Y1pvLmgYjVs
-	gA23muDfUInzGVjllfV7cGYGTRa1KdvauLN0gpPgkXa3DNRv525q/q3kBLavzW1ljIws7XFOJZ07P
-	joD7FQjWAfq35TG5/CjIi2d1PXB/S17uvHtz4b50qsTrJHEBHGdFajyhsUpxDNliqQTKj6DcUo5Q7
-	00YTMosw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fKvoF/gYtOliH1/+tx0ZYx8nQn6dN09E18p9dXyi5Vw=; b=UG8jurhaA9HoM1WF4DMaMaqgWi
+	D5Vr/EqSNM8qI41oGcuyJ7RwkTdUFqcSEPbd+QGGhKAgu+ahtS/oQXklSRSBq8c/LnzR+UJjNheAz
+	0wBfXrKMyrHNTTlGnE8xp+g+FWNjzvn8aBYVuVqptDcjqBBombgCsMkHlrAfYiBlRy4Qykqdl1TC/
+	WMJ5w2Y/dPooC4qWZ/n28/HtLj8S1Lmzy7LZn9F7qWbVNqhfKTy9XboaXxGMW4exBtaztICzlrY9F
+	C4y4QW7d2ohyZ7V9+QPoquCLfBbauHaDoty/GYtW+4qiWD9KuUB4zaFzAmPVewjdGSe+GetuLCG2u
+	B9rw4jCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7sye-0000000EXaw-3J0O;
-	Wed, 01 Apr 2026 10:39:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7sya-0000000EXaX-3gTm
+	id 1w7t3x-0000000EXuv-0apH;
+	Wed, 01 Apr 2026 10:44:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7t3u-0000000EXub-3njF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 10:39:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 75EEF40806;
-	Wed,  1 Apr 2026 10:39:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98EF3C2BC9E;
-	Wed,  1 Apr 2026 10:38:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775039948;
-	bh=gypXeCIau+T31ayAMYAkx5DFD3q4gUaQNSeKpKpkNlQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=K7DG3XbOUuYMx5zD4tf0w/zNrZEISuaOkl0y9bsZ4ZF+eqvqQ0/krCyVMIfchfDNf
-	 7Xuk5gafjgRfYkVK39mhBM2PDIsE/ixN1liAk/eRoKmQyUGy7ZRj1enOA4NQefzUhI
-	 GLjiOnzc4Y9Zei2bor3Xg2dVwcLdWJOepFwM7wBYVvd6VJCg8PPuvvxNBtxRTTj29Y
-	 r/jcLZLUpgF2HxBl3qkmT9U5xv+UaKmhWqfZ7wP821m87phAJNBAnqkabTP3HN5ohF
-	 rtkX5shCv/WaBxEtGFpPtzvO3eboX0+Vzx+RlGHVegISQ8lNsbFVElduYjqr1+Mwkf
-	 H5tWHI+WMrmkw==
-Message-ID: <2f4c4063-daf6-48f2-b830-9f58dc7af80d@kernel.org>
-Date: Wed, 1 Apr 2026 12:38:56 +0200
+	Wed, 01 Apr 2026 10:44:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7597E168F;
+	Wed,  1 Apr 2026 03:44:31 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7DCC73F915;
+	Wed,  1 Apr 2026 03:44:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775040277; bh=vpIPJp6qKXZs2RoYHC30XBTLU8o8yKndpTBkfQ9uCE0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZoRRizeYLglzeTWg3NXrJlo14WJTIqN/m55Cvxkvhiz92W/IyUVqSTBtiJWR4Deiu
+	 LW6Wupi0xY2S7259D4eQOAbY76ZfplaFH/S99iESGJZ9FUEOAHwQKM1rGDvlWT8ES7
+	 t7zSd3BH41VQIvZz0gd5AMdunBMrD1He+F4Dm3uI=
+Date: Wed, 1 Apr 2026 11:44:31 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	bpf@vger.kernel.org, arnd@arndb.de, will@kernel.org,
+	peterz@infradead.org, akpm@linux-foundation.org,
+	mark.rutland@arm.com, harisokn@amazon.com, cl@gentwo.org,
+	ast@kernel.org, rafael@kernel.org, daniel.lezcano@linaro.org,
+	memxor@gmail.com, zhenglifeng1@huawei.com,
+	xueshuai@linux.alibaba.com, rdunlap@infradead.org,
+	david.laight.linux@gmail.com, joao.m.martins@oracle.com,
+	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
+Subject: Re: [PATCH v10 04/12] arm64: support WFET in
+ smp_cond_load_relaxed_timeout()
+Message-ID: <acz3D1SkqDqyH0Dy@arm.com>
+References: <20260316013651.3225328-1-ankur.a.arora@oracle.com>
+ <20260316013651.3225328-5-ankur.a.arora@oracle.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: gpu: mali-valhall-csf: Document i.MX952
- support
-To: Guangliu Ding <guangliu.ding@nxp.com>, Liviu Dudau <liviu.dudau@arm.com>
-Cc: "Daniel Baluta (OSS)" <daniel.baluta@oss.nxp.com>,
- Daniel Almeida <daniel.almeida@collabora.com>,
- Alice Ryhl <aliceryhl@google.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Steven Price <steven.price@arm.com>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, Jiyu Yang <jiyu.yang@nxp.com>
-References: <20260331-master-v1-0-65c8e318d462@nxp.com>
- <20260331-master-v1-1-65c8e318d462@nxp.com> <acva1Xt8V4k9-uG8@e142607>
- <AM0PR04MB47073E9E8B5C704BCF5D9F72F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
- <99a1da55-d6e5-4d11-abaa-8c85283ab5f2@oss.nxp.com>
- <AM0PR04MB4707B3E37DFE7AEE587DBA2AF350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
- <aczv0R0aQRmHKdvt@e142607>
- <AM0PR04MB4707335CC7035232D44E6ED9F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <AM0PR04MB4707335CC7035232D44E6ED9F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260316013651.3225328-5-ankur.a.arora@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_033908_963358_A4A6D7F2 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20260401_034438_987178_0E59AE47 
+X-CRM114-Status: UNSURE (   7.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,30 +79,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/04/2026 12:31, Guangliu Ding wrote:
->> Either add the patch(es) that use the compatible to this series in v2, or put a
->> comment in the commit message on where we can see the driver changes.
->>
+On Sun, Mar 15, 2026 at 06:36:43PM -0700, Ankur Arora wrote:
+> To handle WFET use __cmpwait_timeout() similarly to __cmpwait(). These
+> call out to the respective __cmpwait_case_timeout_##sz(),
+> __cmpwait_case_##sz() functions.
 > 
-> According to discussions with the GPU vendor, this is a hardware limitation 
-> of Mali-G310 rather than a hardware bug, and it has been addressed in newer
-> Mali GPU families.
-> 
-> In addition, ipa_counters are not enabled in the current Panthor driver. We observed
-> this issue with the private Mali DDK where ipa_counters were enabled.
-> Therefore, keeping the compatible string is necessary to allow for future divergence.
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
 
-No one discusses here whether you need separate compatible string.
-writing bindings and all my talks are (e.g. DTS 101) are clearly
-expecting you.
-
-We discuss only the lack of compatibility in terms of DT, how DT sees
-compatible devices.
-
-And lack of driver code is clear indication that devices are compatible
-in terms how DT understands it. Feel encouraged to bring actual
-arguments in commit msgs in the future.
-
-Best regards,
-Krzysztof
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
