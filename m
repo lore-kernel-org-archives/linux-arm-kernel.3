@@ -4,108 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A74BDD35162
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:23:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F648D35171
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:24:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+wLwW3RwfZlMNchucl4Q1BjkgKkbbVmuqcbZXsSlons=; b=eFhiq3PKq7ALA82EdB6nDdoSX8
-	S4z/XGFo4jlxt39u6yYpojFqe+3xO3JXHoshlM6IMq8e8FRrkBEDCwYOUu0gKCbsXPS1Bp+Uwu06O
-	cKk7H0zl77Gw6G/PALhLQjiXHh5zoFPgGNv/Ea2ILzWlu2ob9z9XSOlmfrwZ5oQJNL+18e7hM5Ysn
-	NTeBiGgjZz4wZu0VA4iEKkiZsXZrHeRXNTtfg2oiidUwuSOjvpN+Uq5u+vZmP5vj4KuojG7QMjD3v
-	H3VmSwg6d2QXTmuGMYg7VURRVsSzHZ4ark9KVy6zqXAtmF8mP3SdXnfbcvlfto1do46AalMqxFViB
-	o4wIPtzQ==;
+	bh=xTEOHtVIN0npoeK++K0+EY9Tl2M2s58IAW8WD3t0Ygw=; b=hP2ACAjxibReQa/x3v/ajH0067
+	HitgND+EecXYlwAIRURr/zI7aAznoB1rFNbMYoo35R6sSU0EdcV5rYELxyy9bxL1P7zunDwCzqGu0
+	9rio2aZYqlseM4+3ckfP097l/exWGJznH5vu5RaH2KP7Ni+WWYtFFvYx3q6z7n9Uym4pZelorSFA1
+	sG0Acteos/4fAzPwkD74Nx7+iok6vscspurW8KQEWIVL/egWHUm2kW54qAUs3fo1WeD4A13lkHtm4
+	GnL0rutDM/u6OiWI/XRAQC2G9dUcQ5NMaGurRxJzWd6JYFWVNb9LCxUjv1CX2oTHbBRqWElkH1y+a
+	lDLytH2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tfg-0000000EdKA-2jv9;
-	Wed, 01 Apr 2026 11:23:40 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1w7tgU-0000000Edbs-0b2S;
+	Wed, 01 Apr 2026 11:24:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tfd-0000000EdIZ-2nNh
+	id 1w7tgS-0000000Edb4-2Lcn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 11:23:39 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2b2591757fbso221805ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 04:23:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1775042616; x=1775647416; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+wLwW3RwfZlMNchucl4Q1BjkgKkbbVmuqcbZXsSlons=;
-        b=AlR96aZuenuYYNVVRaA2bkaazoK/5q4O4+sro4/1cCx1WMHL6oF+sWS8I+BMeKBruN
-         JrJher1L2PucxuhDmzwS/dg3Ur1Y5FQ4fngNxQf+WbMebB02DF/MTPWAtm0eT9QK3d0R
-         2s8TB17Vw0ZR7quIoYNTZDXk79PlyssdNyX8Ju+u/DtZyMCp4RpzuAA3uYHHIvBIThGB
-         IrSKGaX8D1BJCGGH+DIydwpNdtha+W4s/RZqWZVVBi8ZeOtfmSICrfC91m3ZGkXXS2Ni
-         ow1soaCkS0vpNACBiCoP42jltuA4mFZSG/dKITkgRXk9GAj/wgtdoCUocOj1oR9zheXh
-         Yohg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775042616; x=1775647416;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+wLwW3RwfZlMNchucl4Q1BjkgKkbbVmuqcbZXsSlons=;
-        b=KFU8H9YHyWJD8MN8IuTK11aOM4BFBiacQpj7PmPG5d3YfIFav/ESooZFllqhrjnlWH
-         lTRJtXuSKwLdDADF7QVWF1gaBVvcYe4oFjbSJot2NBtADD5wJwAveXFfCGBkxd9aEwqB
-         V1yXptIDP3J6vmQtsUKZQz7QscDhSah5IzDgQmeWHDKsvxCjuhX2v/HIG+PZOt62CZoF
-         ZHawaW0+V3GSBx1KuzkogkPlgGOuDct4pKwxxwpboHTQuXdfV3MbzHrfGBWd6biIsjDW
-         0wHegqaOmcZB/VhT2jCNZ8PB/mimf4GV9jLQ7eDN9fhYp9S79u8EvixFKnLHmhsPKcsF
-         0B1A==
-X-Forwarded-Encrypted: i=1; AJvYcCWv3mHiRtfU4/QIGDsHwpRMLAsPTA2g+uBHpp0YiQ3ELYY5pvQO29+o1kBa9gzmuJIuyurZXIX1yJIEWjA51LWo@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTG4BKCe/IMqNH9Lq4gdx/7upStH6K0fn2EANsJcyeXuEzv1rr
-	wiMG6vJ5LKEzeskzy/JwOQebC958Yvxhrrr68F2F2knA1CMqkfir5D6YbtToMbN3tA==
-X-Gm-Gg: ATEYQzykmAygYGgulaKWLEjxaKKjuBnXIOv5WkIs57SPAqeeGVZevVOokkgLneESeq8
-	cCJwcHptYGrpvQV8D3hqCnO9uXmPjaM7Id6q+nuDl37Zx50Uc6RUEb1mVAODnZy+UTheYDWsoEE
-	P9bAIcmnc7ShpTPCgDpgxgowZHmNA268TOw2ac58Vo0BzexTM/Bl8h151coFv2IaS7gpmWe8JnI
-	xQCBBo8r2THOgpkXoRBFcsWivkbyZ0oKoxyxHBJsr8WUlnN1gi0X7eTRFcQBvqTO28YaIjsiYmY
-	GRVv47jRMAr+eu64k4AWAvKAsV0Y/XYPwgt479H1Cx1CQA6lmEa0eIIulHeZR1pnlG/2JBXbR51
-	FZQPwt7tUTVV5i4ceaOoTMyNnyHRJf7eUBy3cct7PbaYp/JAMbtpuPwGR/SdUGK1yAYiQZXYMzS
-	t81W1otJH0q9MROasZkzwPClmxRw44g4ELuRM3oP3qTYwlHT3dPMjmwJIuag==
-X-Received: by 2002:a17:902:ccca:b0:2ae:44db:570c with SMTP id d9443c01a7336-2b26b2b089amr2189835ad.12.1775042615401;
-        Wed, 01 Apr 2026 04:23:35 -0700 (PDT)
-Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35dbe606dd2sm6533691a91.3.2026.04.01.04.23.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Apr 2026 04:23:34 -0700 (PDT)
-Date: Wed, 1 Apr 2026 11:23:23 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
-	Baolin Wang <baolin.wang@linux.alibaba.com>, iommu@lists.linux.dev,
-	Janne Grunau <j@jannau.net>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Neal Gompa <neal@gompa.dev>, Orson Zhai <orsonzhai@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, Sven Peter <sven@kernel.org>,
-	virtualization@lists.linux.dev, Chen-Yu Tsai <wens@kernel.org>,
-	Will Deacon <will@kernel.org>, Yong Wu <yong.wu@mediatek.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Janusz Krzysztofik <janusz.krzysztofik@linux.intel.com>,
-	Joerg Roedel <joerg.roedel@amd.com>,
-	Jon Hunter <jonathanh@nvidia.com>, patches@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samiullah Khawaja <skhawaja@google.com>, stable@vger.kernel.org,
-	Vasant Hegde <vasant.hegde@amd.com>
-Subject: Re: [PATCH] iommu: Always fill in gather when unmapping
-Message-ID: <ac0AKyvHMYHlqL5i@google.com>
-References: <0-v1-664d3acaabb9+78b-iommu_gather_always_jgg@nvidia.com>
+	Wed, 01 Apr 2026 11:24:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AE15F6013F;
+	Wed,  1 Apr 2026 11:24:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B4B2C2BC9E;
+	Wed,  1 Apr 2026 11:24:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775042667;
+	bh=y/ngwuhS2Jpyc7YPVHpxC4rTjEHqs+MNlAUE9lvy6ms=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uFKQByonYUSgTjPkV2Aykn9g5VCvZzzHo/SC8SWELW+CT47wk5/9yIzsD9e5tgW0q
+	 ikjhfUMqzGaiDJ3xfyewqYzurXovNyxW8PMZoWcae1t1qHdnBOkTsvGqXps7P0TEdX
+	 q4mu4LTbUE1qxawxTqo52soq7OtLm/uC97bOmJu/ZHPyMFi/Y8uSXI9VSyu6cWsoN0
+	 U021ThzgmwK4I3X76ee4qRsUs4KBXbFSomPFTTvGXSGoncqOIjfCilOgb3hScksV2A
+	 vfZ9gB4d2csuedAb/TTiBnHD4vqKlEqeMXKD40bUBIDfHA+Z8CxC/M8BE7Vr4eQIMr
+	 Lct2gHc9KEyoA==
+Date: Wed, 1 Apr 2026 13:24:25 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: soc@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kernel@pengutronix.de
+Subject: Re: [GIT PULL] Reset controller fixes for v7.0, part 2
+Message-ID: <20260401-imperial-hare-of-defense-8cfc87@quoll>
+References: <20260324094255.3538772-1-p.zabel@pengutronix.de>
+ <39b18202a275168eb4344a2515f7c18723eaf8b0.camel@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <0-v1-664d3acaabb9+78b-iommu_gather_always_jgg@nvidia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_042337_713797_505024F8 
-X-CRM114-Status: GOOD (  29.71  )
+In-Reply-To: <39b18202a275168eb4344a2515f7c18723eaf8b0.camel@pengutronix.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,73 +69,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 31, 2026 at 04:56:22PM -0300, Jason Gunthorpe wrote:
-> The fixed commit assumed that the gather would always be populated if
-> an iotlb_sync was required.
+On Tue, Mar 24, 2026 at 10:55:47AM +0100, Philipp Zabel wrote:
+> On Di, 2026-03-24 at 10:42 +0100, Philipp Zabel wrote:
+> > Dear arm-soc maintainers,
+> > 
+> > The following changes since commit e0cf84109bc6c6768337123f1de24ff56b41c91b:
+> > 
+> >   reset: rzg2l-usbphy-ctrl: Check pwrrdy is valid before using it (2026-02-23 17:03:28 +0100)
+> > 
+> > are available in the Git repository at:
+> > 
+> >   https://git.pengutronix.de/git/pza/linux.git tags/reset-fixes-for-v7.0-2
+> > 
+> > for you to fetch changes up to a0e0c2f8c5f32b675f58e25a9338283cedb5ad2b:
+> > 
+> >   reset: spacemit: k3: Decouple composite reset lines (2026-03-23 12:25:47 +0100)
+> > 
+> > ----------------------------------------------------------------
+> > Reset controller fixes for v7.0, part 2
+> > 
+> > * Decouple spacemit K3 reset lines that were incorrectly coupled
+> >   together as one, but are in fact separate resets in hardware.
 > 
-> arm-smmu-v3, amd, VT-d, riscv, s390, mtk all use information from the
-> gather during their iotlb_sync() and this approach works for them.
+> It is important that this makes v7.0, as it fixes an incorrect binding
+> that has not been part of a release and which has no users yet.
 > 
-> However, arm-smmu, qcom_iommu, ipmmu-vmsa, sun50i, sprd, virtio,
-> apple-dart all ignore the gather during their iotlb_sync(). They
-> mostly issue a full flush.
+> > * Fix a double free in the reset_add_gpio_aux_device() error path.
+> >   This has already been fixed on reset/next by commit a9b95ce36de4
+> >   ("reset: gpio: add a devlink between reset-gpio and its consumer").
 > 
-> Unfortunately the latter set of drivers often don't bother to add
-> anything to the gather since they don't intend on using it. Since the
-> core code now blocks gathers that were never filled, this caused those
-> drivers to stop getting their iotlb_sync() calls and breaks them.
+> Because of this, commit fbffb8c7c7bb ("reset: gpio: fix double free in
+> reset_add_gpio_aux_device() error path") introduces a merge conflict
+> with reset/next:
 > 
-> Since it is impossible to tell the difference between gathers that are
-> empty because there is nothing to do and gathers that are empty
-> because they are not used, fill in the gathers for the missing cases.
+>   https://lore.kernel.org/all/acFRVzvV9Dww47v_@sirena.org.uk/
 > 
+> Should I resolve this myself by merging this tag in to reset/next as
+> well, before submitting reset updates for v7.1?
 
-I believe the problem is a fundamental disagreement between the core
-layer and these drivers. The core assumes an empty gather means there
-is no work to do, while these drivers expect a sync regardless. With
-this, it seems we're forcing the drivers to lie to the core by 
-populating a gather they don't actually use just to trigger the sync.
+Yes, please merge the fixes to your next branch. Or base next branch on
+top of fixes commit, when starting next as new branch.
 
-I was wondering if, as a longer-term direction, having an explicit flag
-for these drivers to indicate they always require a sync would be a
-cleaner way to handle this than the trivial population?
+This merge conflict looks quite significant.
 
-Just a thought, not a hard disagreement with the current approach..
+Best regards,
+Krzysztof
 
-> io-pgtable might have intended to allow the driver to choose between
-> gather or immediate flush because it passed gather to
-> ops->tlb_add_page(), however no driver does anything with it.
-> 
-> mtk uses io-pgtable-arm-v7s but added the range to the gather in the
-> unmap callback. Move this into the io-pgtable-arm unmap itself. That
-> will fix all the armv7 using drivers (arm-smmu, qcom_iommu,
-> ipmmu-vmsa).
-> 
-> arm-smmu uses both ARM_V7S and ARM LPAE formats. The LPAE formats
-> already have the gather population because SMMUv3 requires it, so it
-> becomes consistent.
-> 
-> Add a trivial gather population to io-pgtable-dart.
-> 
-> Add trivial populations to sprd, sun50i and virtio-iommu in their
-> unmap functions.
-> 
-> Fixes: 90c5def10bea ("iommu: Do not call drivers for empty gathers")
-> Reported-by: Jon Hunter <jonathanh@nvidia.com>
-> Closes: https://lore.kernel.org/r/8800a38b-8515-4bbe-af15-0dae81274bf7@nvidia.com
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
->  drivers/iommu/io-pgtable-arm.c  | 4 +++-
->  drivers/iommu/io-pgtable-dart.c | 3 +++
->  drivers/iommu/mtk_iommu.c       | 1 -
->  drivers/iommu/sprd-iommu.c      | 1 +
->  drivers/iommu/sun50i-iommu.c    | 1 +
->  drivers/iommu/virtio-iommu.c    | 2 ++
->  6 files changed, 10 insertions(+), 2 deletions(-)
->
-
-Acked-by: Pranjal Shrivastava <praan@google.com>
-
-Thanks,
-Praan
 
