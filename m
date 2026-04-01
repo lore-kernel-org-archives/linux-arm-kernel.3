@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C51AD35166
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 09:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0478D35167
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 09:16:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZdKrlvaVo2xDGk81enZ3I3B6rbkPsZaVMW6w7Lb/Rhg=; b=LkBf8IZsio2bw3pUC7Q181Jtk2
-	RALiY2cKNk8/OVFOhAQzloWxf8EC0IVDJMNIZW9auV7W5GosKDL336uF9R4B9YntXjBPOcLmVQqRR
-	9JarE7UQ4E1ieisX6+HLAJcxO220ZQc5REcSPj833hbQ/xBmIEK/mfkJuZgieF6rXOiVv3HP5OiGM
-	KiSQAXOfco9GFgzvqMbTVKBNKVY/Z1elV/Vm30Qnh8uWTEcq+txvYxVJ/QFw1OIIP00v4MJg1arZ5
-	NXeSuCXoNta71H8wwAuMWdD8l0lvaabWe+ypFATsTPFI2gF4c6/njgGE0vVxcBNYwz8FVXGQVxi/c
-	+ZJohC1Q==;
+	bh=m9rP/6T8wS0WFvkiIQi5p+4aXm4qKKkCjrdy98mzVxk=; b=C9BwFlFwSBzCSJ2byC+qGCyMJc
+	TmqustDCyJk5yQaKTod8SVTGmTYM6W83U6rF6Sw+mAAsh8/XGsWtdzhLOd7FBs5guFmSgVvRS1rlH
+	mov72ATy6AVG0IaJ2k+s0RTSEC0xqeF5UtQ/929gkh7eqhUynVqPL2YaXBXWIUPRxZFBttcVyehNe
+	pfcGagRzUDWaGG/ERrqj0HPvaq+mdo3l6uc9mez0g5Rz66jdwjWgYT0aY22rKXeBiwKW/khaWW/4N
+	4/qNMttYDjdH9Fmyq0N8ZaFeRWlAGkg8fRVMcXKvvec0zdSkiDb8njW6nAGs49GbbscJdmvOAhqVT
+	y/j3wmbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7rfz-0000000ENLh-3tIB;
-	Wed, 01 Apr 2026 09:15:51 +0000
-Received: from mail-m3294.qiye.163.com ([220.197.32.94])
+	id 1w7rg2-0000000ENQ4-1TtJ;
+	Wed, 01 Apr 2026 09:15:54 +0000
+Received: from mail-m3291.qiye.163.com ([220.197.32.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7rfw-0000000ENEX-1f71;
-	Wed, 01 Apr 2026 09:15:50 +0000
+	id 1w7rfz-0000000ENFw-0fDd;
+	Wed, 01 Apr 2026 09:15:52 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3923a2fdb;
-	Wed, 1 Apr 2026 17:15:42 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3923a2ff5;
+	Wed, 1 Apr 2026 17:15:45 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: andrzej.hajda@intel.com,
 	neil.armstrong@linaro.org,
@@ -68,28 +68,27 @@ Cc: Laurent.pinchart@ideasonboard.com,
 	linux-samsung-soc@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v12 08/17] drm/bridge: analogix_dp: Remove unused &analogix_dp_plat_data.get_modes()
-Date: Wed,  1 Apr 2026 17:14:45 +0800
-Message-Id: <20260401091454.25730-9-damon.ding@rock-chips.com>
+Subject: [PATCH v12 09/17] drm/bridge: analogix_dp: Remove unused struct drm_connector* for &analogix_dp_plat_data.attach()
+Date: Wed,  1 Apr 2026 17:14:46 +0800
+Message-Id: <20260401091454.25730-10-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260401091454.25730-1-damon.ding@rock-chips.com>
 References: <20260401091454.25730-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9d4853c5c803a3kunm479af8c3b32dfb
+X-HM-Tid: 0a9d4853cf6903a3kunm479af8c3b32e33
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQhkYSFYZGU9PGkMYTB5DTUtWFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxlOHlYeSkhPQktCT0MaTx1WFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
 	1VSktLVUpCWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=SUJ8+mCGecAhlsfxugPFlcktwsrUG4kBnQQY4uQP96oMMqIAwNUlS822lw7+LRQVKrD41jp4lmCa24VagjcEPPzJJkxD1sFpQymZMenrl5BVvOfzM38pThVov5oE5yW8erkZz4yhx7DT+LMo4eJAeLXF2V8PaPZCfuXIBspuyhA=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=ZdKrlvaVo2xDGk81enZ3I3B6rbkPsZaVMW6w7Lb/Rhg=;
+	b=TdZvSRg6EcF1vJD2kyD0pxhffVgMz25GjNqIt6zdU/0563neVtTn22ih6teSN4FuJc6UnY4sYjxahL+YiSCSzb7p96WV327W7MXK0xtC4FMz0zJKgKcG1BL5GWpQWMYbXjsSpwzlGkDoa0qWi/W0dr07VLrab8oOzdz4bLSrU6A=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=m9rP/6T8wS0WFvkiIQi5p+4aXm4qKKkCjrdy98mzVxk=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_021548_976794_3BB32061 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260401_021551_409752_83EDEED7 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,51 +103,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The callback &analogix_dp_plat_data.get_modes() is not implemented
-by either Rockchip side or Exynos side.
+For both Rockchip and Exynos sides, the struct drm_connector* is
+never used in callback &analogix_dp_plat_data.attach(). After
+applying drm_bridge_connector helper, this parameter will no longer
+be used at all.
 
 Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-Tested-by: Heiko Stuebner <heiko@sntech.de> (on rk3588)
 
----
+-----
 
-Changes in v9:
-- Add Tested-by tag.
-
-Changes in v10:
+Changes in v11:
 - Add Reviewed-by tag.
 ---
- drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 3 ---
- include/drm/bridge/analogix_dp.h                   | 2 --
- 2 files changed, 5 deletions(-)
+ drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 2 +-
+ drivers/gpu/drm/exynos/exynos_dp.c                 | 3 +--
+ include/drm/bridge/analogix_dp.h                   | 3 +--
+ 3 files changed, 3 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index 5bf41b364aba..b0bc96693fdb 100644
+index b0bc96693fdb..3efd910ea463 100644
 --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
 +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -875,9 +875,6 @@ static int analogix_dp_get_modes(struct drm_connector *connector)
- 		}
- 	}
- 
--	if (dp->plat_data->get_modes)
--		num_modes += dp->plat_data->get_modes(dp->plat_data, connector);
--
- 	return num_modes;
+@@ -991,7 +991,7 @@ static int analogix_dp_bridge_attach(struct drm_bridge *bridge,
+ 	 * point after plat attached.
+ 	 */
+ 	if (dp->plat_data->attach) {
+-		ret = dp->plat_data->attach(dp->plat_data, bridge, connector);
++		ret = dp->plat_data->attach(dp->plat_data, bridge);
+ 		if (ret) {
+ 			DRM_ERROR("Failed at platform attach func\n");
+ 			return ret;
+diff --git a/drivers/gpu/drm/exynos/exynos_dp.c b/drivers/gpu/drm/exynos/exynos_dp.c
+index 1eeb0b15f99a..71a00ee97782 100644
+--- a/drivers/gpu/drm/exynos/exynos_dp.c
++++ b/drivers/gpu/drm/exynos/exynos_dp.c
+@@ -70,8 +70,7 @@ static int exynos_dp_poweroff(struct analogix_dp_plat_data *plat_data)
  }
  
+ static int exynos_dp_bridge_attach(struct analogix_dp_plat_data *plat_data,
+-				   struct drm_bridge *bridge,
+-				   struct drm_connector *connector)
++				   struct drm_bridge *bridge)
+ {
+ 	struct exynos_dp_device *dp = to_dp(plat_data);
+ 	enum drm_bridge_attach_flags flags = 0;
 diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/analogix_dp.h
-index f06da105d8f2..3301392eda5f 100644
+index 3301392eda5f..3428ffff24c5 100644
 --- a/include/drm/bridge/analogix_dp.h
 +++ b/include/drm/bridge/analogix_dp.h
-@@ -35,8 +35,6 @@ struct analogix_dp_plat_data {
+@@ -33,8 +33,7 @@ struct analogix_dp_plat_data {
+ 
+ 	int (*power_on)(struct analogix_dp_plat_data *);
  	int (*power_off)(struct analogix_dp_plat_data *);
- 	int (*attach)(struct analogix_dp_plat_data *, struct drm_bridge *,
- 		      struct drm_connector *);
--	int (*get_modes)(struct analogix_dp_plat_data *,
--			 struct drm_connector *);
+-	int (*attach)(struct analogix_dp_plat_data *, struct drm_bridge *,
+-		      struct drm_connector *);
++	int (*attach)(struct analogix_dp_plat_data *, struct drm_bridge *);
  };
  
  int analogix_dp_resume(struct analogix_dp_device *dp);
