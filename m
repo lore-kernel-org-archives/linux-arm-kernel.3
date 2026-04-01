@@ -4,114 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0734910F6FD9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 16:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8731FD35165
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 16:55:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ntHteolZmRp8mw0hqZwOpCeITtp0TjCPhGc0JrTRIqQ=; b=a3L51ysvufphzozVQCKbyL+oLE
-	VjT+hYjxsVxp226Lf7E/44gmoVUqCxtbF5X1jw3ZD3HOhwFseswRXZ4A0wf/Qu+mt10546qMhHOlg
-	qI9JYiv5u+FNfMmPn94adNCkTbr3xmY47EvWmJHnj/fX6uUK7HelzxCPGonFJIuE04UuLUiHuKsIS
-	pbzU6b9mNG7sYiVGuKYWSMIHsSmQ1SYvKM5c2SqtTXViYrsM+olKVvm6XYPmrDylPylxMX/TgVHoX
-	kbniApcMxriqwwQquAoStu+iyOXJnZRcYj5zXk67uxIqDbsblbBK/qmdIOAskqjknNcimWi0EGICX
-	paYb3nJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ritCHsA/eLYR3EGweodEJnzJadd/QkugcIkMpQry5Bk=; b=o96JQ968YfY+Ll3N70nGD8FYbe
+	RvQxLG7Gqd2hdxy1qJqKF9qNDGYfhsgleEXhYE+9d1aASZx3ke8z7lC1vJ9TpKHsSfNhW0ajkJi3c
+	ImkKQf8p7vat2b23QV6s4l6Xcu14tOwqFpVC690jhnA0qE2Gb8DrHmOFu3zvMhZppIA2g7MPF0KcR
+	+D6dvjIewMXbI70yyiWcEY6sSG89r86KKTiJNl7TpZMUzW26fgLsTkrnmwMuNyLN8rT4sMZ7np+wd
+	j3KZr7AH4G0qX1ipuNn8DsF8/bCqQjrYO5GVAEp0Lqt5HcjapQDz63a5yrsAFBpXwv2dEOi73awRX
+	dwbYopGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ymg-0000000Fldq-04Ex;
-	Wed, 01 Apr 2026 16:51:14 +0000
-Received: from fhigh-a6-smtp.messagingengine.com ([103.168.172.157])
+	id 1w7yqR-0000000FlwG-0364;
+	Wed, 01 Apr 2026 16:55:07 +0000
+Received: from mail-eastusazolkn19012020.outbound.protection.outlook.com ([52.103.11.20] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ymd-0000000FldR-14WD
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 16:51:12 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id B102B140025B;
-	Wed,  1 Apr 2026 12:51:09 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Wed, 01 Apr 2026 12:51:09 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1775062269;
-	 x=1775148669; bh=ntHteolZmRp8mw0hqZwOpCeITtp0TjCPhGc0JrTRIqQ=; b=
-	MOwKB051dhkWhoz3SiwZCCUL7ySvUmMUNq/WdsHwkMk5O27t0IP++AHtn3vOGcqC
-	K22Y9HB0rL3TMRbuJGWtLZSCFhDbvS+CKys0JEgdC3B8Ju2mxYyHqer9fqF0VjF4
-	XWPHqgojjYhtyxqB/LyhmGdmreL3Jvw7CXkVbr6eqO7VteYdgB0bF9ohjA0Xl4zT
-	/+AT1scIPsft0KVEcyMTAhqGSnyUjXzBpirPIskfax8Fw4jIjqrls9kI/UH2Lowi
-	1gtZ4H/9dEY4Cs76l4MjUFQFo+iJ0Pz1EoxQFr+GKB4nmXX2LLmeodNp7d5UnHPb
-	wMo6HdoDjA5Yx+5e40oF5w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1775062269; x=
-	1775148669; bh=ntHteolZmRp8mw0hqZwOpCeITtp0TjCPhGc0JrTRIqQ=; b=Y
-	8l4CbSLJUKneC6DqhBhOcfX9uEedQ1wN0qeKOxjQf/c+42iGhpPWUkVgPtARkDnt
-	fyBQwZ4fnUAficd2PvVg1svI+6hRhLwaqsNkTzZfN0yIeIF8ZisPp9y5Fbk6k6LZ
-	0PuSTg9XvM50CjhWahlsfzgOd6HbTDv1+7qrvPx9w0JTXrr/3om+MInaHobJjQy5
-	cpwy4HZj9pJJeTY6/IYd+1RMVJkvgnaINRzf4AVWfPkBko2VW7mLoN+RQVl2rGZy
-	3GgFK4I593ACzt0nbXQtD0EkW8ug86+4H/+FwH6l9X8jfuA4SFqcZI52Eybpn0RW
-	4sIR4j39qxne4DE8yWVSw==
-X-ME-Sender: <xms:_UzNabCYPDObcakokSLBKEF3s5woe-yVFMRPU0XUuZxFi-3FBt0-vg>
-    <xme:_UzNacX2yX-GNPSo0JNTpag78cRtK2yZ-gYQXk38RBOMhDqPpGf_oDoZzhhYYvK4i
-    CH7Mmzm3PBdSKqgoSsGnMcbc6Z_bQuBea27j1XOKffZjmWdSzHgnRa4>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdefieegucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
-    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
-    epofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
-    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
-    ephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdeinecu
-    vehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhguse
-    grrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddtpdhmohguvgepshhmthhpohhuthdp
-    rhgtphhtthhopegstghmqdhkvghrnhgvlhdqfhgvvggusggrtghkqdhlihhsthessghroh
-    gruggtohhmrdgtohhmpdhrtghpthhtohepfhhlohhrihgrnhdrfhgrihhnvghllhhisegs
-    rhhorggutghomhdrtghomhdprhgtphhtthhopeifrghhrhgvnhhsthesghhmgidrnhgvth
-    dprhgtphhtthhopehmtggrnhgrlhesihhgrghlihgrrdgtohhmpdhrtghpthhtohepkhhh
-    ihhlmhgrnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihksehkvghrnhgvlh
-    drohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohep
-    shhotgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepghhrvghgohhrrdhhvghrsghurh
-    hgvghrsehlihhnuhhtrhhonhhigidruggv
-X-ME-Proxy: <xmx:_UzNaWjs4pmWuFxhaFdP6_ExLaBt_p3B4B1DJRGVpTQ-IR2ToP9x1Q>
-    <xmx:_UzNaaEZWbYwsUf6J36o70YrsVtShKsNIUtvsAEaw50XavCKkO6OfA>
-    <xmx:_UzNaYtngEtOCOP3W6yIuy_i9mbmJ3wBPj3x7wsrgAC59m4UkP-Aug>
-    <xmx:_UzNabdv2VnS8BQL4f-p9sXjF7ZFRRdXH2FtllOE3qBtXMXTjx9cWw>
-    <xmx:_UzNaWRDpY7sCoU28BmkMiB3Zz1ILQJ7Era7q6vJsadVc3GKwWKd8a-9>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 330CD700065; Wed,  1 Apr 2026 12:51:09 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1w7yqO-0000000Flvg-17Sg;
+	Wed, 01 Apr 2026 16:55:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bl/SmAOACCAx2H5eJCeViZrMRV8e+EhQQMi0bm3NfE6xM0B1JBfIwsteD5/dYYZ6CsIDzJkD0SyERv5uiTFQy6TcBqynRGTVGGlaLpaMoyX/AAjGfVFz1d0kSOcZy5ymuCV0EC9V2nh5ZS9+vk1kUFCDEvCUp9PK8TYBJUM9GpkhNomWrr+3xnM7meQaeurRxqrV0GArkB1bNaXC5E9ZZJ3apremjgZsFICT9AQh+UCZvIHNAottiAsPT6DBMDaR+wdkCiGyEf0Gg95FfFfXB0ZlZvaxeXtdDIugKqDnjPCnLvU6ORsKg0pcF6wXd/YcaQLcfqGl8MNoCIemEZsukQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ritCHsA/eLYR3EGweodEJnzJadd/QkugcIkMpQry5Bk=;
+ b=xTfmFJ60tgentXAfUC9sxS7B54pOABO/OB1kDUQgm+kKcf13Mx640WQQW/ASW2jMo7QEys8Lc1ot2gxM8IGNpo27bYnrotMIZF8gYqu7jHeojuKrlc4VkTSrg7FaXHDDBsjaM0Y5DVyB2EJDllnZQaawy/v40SKYhLv4D4sThR2/liACDI/FLxIAho59NjhoQGL942ZWw4ajFrci7UPOUROzKLYhDI7kEfyFesWh4Kzqtl8t0dM19jZ5pTp61SPI/uigfBR0WuTIPEZw4FA2z3vPLxIIz8Gsfl3xI1hpXWpbW4dOGZTw00/8cmz7PH3XKvfweQ6T4FUSXDbq0UEIAQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ritCHsA/eLYR3EGweodEJnzJadd/QkugcIkMpQry5Bk=;
+ b=QlwvUqv7NJ9jH/1vKMSpEs41Mvs/OOa2FTg7QK++tnphOOvlXaQMEPRXnR6uVQ6dEZxvUUhDi/oLoyZcuGKHINF+9muSKaMfzxEwoyQui3lToRh6KJnvJENXgSkVDn5qVajlPxQTY1wF9GBoaz0zkhlQKfux1ZV8RhQH1I3KScSnhnBCa+8/CltteuAmuvurLUKiQifyCWBsXjuIVPzooqUUvO5FrXRddc5g0WeBHMPckA3XgjF7SvWO8xsUlW+vRqb+VeA5vkMxjWeib7IWTuUulsXg4ZjHEcOhB6T4rtLXJY0k8gUELNpnsQpyWO1uvLCS8USS5ukCapbz3hx7DQ==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by MN2PR02MB6701.namprd02.prod.outlook.com (2603:10b6:208:1d3::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Wed, 1 Apr
+ 2026 16:54:59 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::900:1ccf:2b1e:52b6%6]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
+ 16:54:59 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Naman Jain <namjain@linux.microsoft.com>, "K . Y . Srinivasan"
+	<kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu
+	<wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, Long Li
+	<longli@microsoft.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "H . Peter
+ Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+CC: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, mrigendrachaubey
+	<mrigendra.chaubey@gmail.com>, "ssengar@linux.microsoft.com"
+	<ssengar@linux.microsoft.com>, Michael Kelley <mhklinux@outlook.com>,
+	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
+	<linux-arch@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+Subject: RE: [PATCH 01/11] arch: arm64: Export arch_smp_send_reschedule for
+ mshv_vtl module
+Thread-Topic: [PATCH 01/11] arch: arm64: Export arch_smp_send_reschedule for
+ mshv_vtl module
+Thread-Index: AQHctT5EbNtOyKWv/EOiHTab61OuerXKhg5A
+Date: Wed, 1 Apr 2026 16:54:59 +0000
+Message-ID: <SN6PR02MB41570A9050B3EB6A905DFF56D450A@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <20260316121241.910764-1-namjain@linux.microsoft.com>
+ <20260316121241.910764-2-namjain@linux.microsoft.com>
+In-Reply-To: <20260316121241.910764-2-namjain@linux.microsoft.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|MN2PR02MB6701:EE_
+x-ms-office365-filtering-correlation-id: 0441daff-219a-43bd-5eb0-08de900f690b
+x-ms-exchange-slblob-mailprops: Vs63Iqe4sQmnDmlsl/vneQbmorDq9Hf2UGMXAmyq6JbocoBh7E6vmXsoAzvGNPbipTcETE3dUY9RcTaxTpvxRyUJEOlYQm+LYOSLBgVt5+GjVelHCZ6ksityk6n+GcVIcHWgvnz+lk4Cli3WKy4JJfF/cCjFtq+zNkqu34t2CH1AZkyfjKexkj2HZ9ls/j/La7GA8o7OQKy5fzcUq24R41e+FL4ewUDPKiq60r81lCsBZ66YIHnf/aN7TYfGN6JgI+JhfmpUrTF80Lf4+gmdTo3q9gbj57tLrCg8IsW7UYpDBOJ2GDHKLltzgfg6kEV1SHsXLRMWJziFXuP63OVg7ZofOIT3z75cHnTyt0L1nVCkYh6BqgW3Fn8d5JEBgyCV8ln/sII3XTHWzTWc4UBTrAAYSFO4XS33M47xNG0zbMNdN/0vCJZPS/glUL6PYRfpr35bGDSzthdFDHQxQw4v2i3HrcR/ETSyOrjlGSmqPLuU7kryqopuQj/mJzeGdDvqOM1upbj91jdm+cHDHQqMxsifBAZ+5pGs7hB5n4YurpzdYcIF30UkP1zbyR7DCB/QKrs17rtQ1zzcqSGQKNDkoBixHiOKYao76vBYcY+whfjEARy54POUxuFEx7IOJIW1Z3xoUBiSLe2vmJFn833yCOOEvhz9hQVKGbTRXulRIAD3nKOmZ3wFwaDSWzctFfbWgNw+G6PxJ2ayLwi1FdQ7Ws+R6WDyM1cFWPQt0dhfYw0=
+x-microsoft-antispam: BCL:0;ARA:14566002|8060799015|8062599012|19110799012|37011999003|31061999003|461199028|41001999006|51005399006|15080799012|13091999003|440099028|3412199025|26121999003|102099032|13041999003|40105399003|1710799026;
+x-microsoft-antispam-message-info: =?us-ascii?Q?oWz92/C1edlgqAYLHz+IYSqz+C2H1Vb6jhArZBeiMhkwiloyt7slKI4qZ4zl?=
+ =?us-ascii?Q?FpkMSRCbhM6ZpdsLC9J7mQGpoI4IS/zNDhvpX7IqO+IXqlHykSqCMSN1NtjS?=
+ =?us-ascii?Q?nW7wwZ1PzlpQQhncgW2LSIhKUXhLJ7HyoTrbkjAjmdcE4skCKNPVAUJ9kgkb?=
+ =?us-ascii?Q?2JIf6Go3RlBylIEGPEcHgZF6j8VeOUsVno/H5o6C5Khe6xR1MujC98QeyFt1?=
+ =?us-ascii?Q?ubYoshyJDQuB48kvwTaSv8owQCM22fG0azEqa3RwEfIFsJeFWre7ea95CUaF?=
+ =?us-ascii?Q?HdjpZl9N59AR6/Ui8TfO3EoDpelNQZMf32uyQiGw3NEduvZMIOYeLl+i5tha?=
+ =?us-ascii?Q?hZBZPpYiK74XLCbFnrrhIyYy4ynYqrwBPm2QXb7ztNToYxTdNvh85NT/g+Nb?=
+ =?us-ascii?Q?q5vx3+2X1BKKjeTTILRyNxdFUKwmWaGamYAeu5Lfv0RnrAZfTQ82ReCOPIxa?=
+ =?us-ascii?Q?kbtDOLNSYWWJXYU3VpzhVS7xdGOjoLMhIrARHuuqnjaNWPNZs5u+B/py1i97?=
+ =?us-ascii?Q?KsFRTXZdXdrtiITxCuuXJIIzmB76xSIEai6vPX0yWaPpuon+BY5ySFxE6+ti?=
+ =?us-ascii?Q?B377/96TYEdK34/XC3wwJFzBRRkIEIwkXpcAdXKYe1Scd4bCFkxliysKmC0K?=
+ =?us-ascii?Q?AIxv5LlcDBNw9cCOxU4Qyhdmi+f0/GzM4fOCmZBnaswGoNH0Jx8f9q6fkRlT?=
+ =?us-ascii?Q?H4NUWnMjRSXdaZBZQbAa5bn9mi+R2A+C2DSNIL9LfueFr16SoFoEa8G2Xnjf?=
+ =?us-ascii?Q?TjAs2b352uTsillwM5y+9fJCszDZFyL0ANgbx7H+1S5dSuW+moV62d4jvM5P?=
+ =?us-ascii?Q?o872Pluio3uYA+oAx3Zoq4xDAUJEm/jaYpvNvn5T33Hcnql9aJUEaVbFjR6M?=
+ =?us-ascii?Q?yFyYyyyR2y7HaXI5J+xteBYA/v3UOxfWi2SSzOwCniosELQ1zV6Noc3nwRq0?=
+ =?us-ascii?Q?GkDHZwowFv4ajt0pkrWn5LgQP9JOOcbdp7rz4m7jso9bCgpmspZrhhhV1odQ?=
+ =?us-ascii?Q?ySeCMWa2V2Vg7DlWhxvAt8VV9gDRNt8WhP1L9w/wDhvIFwZKECxE231u4IK7?=
+ =?us-ascii?Q?3CWTLV0lBvkPJTXNF1wdiQSO50R14IweCo/zOGAK2DRtOBP3lTo=3D?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?VPaXk+dmcfXbBvL3Dl6sIkWtF5EdF0tyG9aOyR1+bjf7QmTD5cIf6Gu2WWJz?=
+ =?us-ascii?Q?IRMPiTyaEolPTTwHINp90QBmGZW4LSwpR0f1DiBtfpHrhRcugSjGhwMzxu8z?=
+ =?us-ascii?Q?VhUrLwjxZEO9e87NFuttFQoFQKt6hRNR7kjz3WN88GDwOwFALZg840AmVhTM?=
+ =?us-ascii?Q?J99zFeLy6Fi0TffR18yvjLGtbS8b0pNvTZ7VCzsrprYw/tBZxeCDgcGPXB82?=
+ =?us-ascii?Q?cuaaZEqHO2UJm54AQ9nnrv708WuPGKfvzvluGhv0h9KORHWBWwC5wNKU60NV?=
+ =?us-ascii?Q?nwhqmFxeaiNG4tgjKGiCQxRp9JQzWIpRWK6ThmK3oB1ScxpWQdusyyE3rKcf?=
+ =?us-ascii?Q?m5d0S/6IJ42FrsV9NthFTn/lsxchxynkR+lNpi8euBSgW4SrPhisIXHRZnPD?=
+ =?us-ascii?Q?Gexo1gEvHmbrTyV9T/ko+/++cBr+J+C1siNEAHiYOFyxMxZmCOUuc0QkgRWb?=
+ =?us-ascii?Q?h8KY8BcqbVuM+s5BckGhLxomZOvq5NFfirzfybXgSqO/hvzibEpOHhKYuJzu?=
+ =?us-ascii?Q?kunAHPM7z2W8gZo/GwcNw1viB384X2nexAU9AiwckR7IMs2UqDwQC0UKWspW?=
+ =?us-ascii?Q?aYzAtQnhcxCxuHyEVzqM8tXHkH+3EbJhkwFFjY5JXbV1wt5cv/vWze1OB3gJ?=
+ =?us-ascii?Q?97iaUoRTEtThozM+nYRnV1qV3s0RzalXRnCN4Kq5RfoGK3wxMY60aRe3bFmi?=
+ =?us-ascii?Q?4Iuqph3v9Lv4SHKfafA8R3HP4lGPd1tiw07LA79vcy5PQpou4++arRGmNYrN?=
+ =?us-ascii?Q?xNweQhk/Tx9iNLDojKxbwSNndggZ0/dSOateUxHmMjO3zl6oTCWm+Voh7jUR?=
+ =?us-ascii?Q?ps+TlgnrmePNHaMc2I7Pf7F7A2aC+CPrIlblB0F9SQe7ZtZomei2oIdgWI3S?=
+ =?us-ascii?Q?7OnK5NG3DvIWvtMQvlOMZrtCEmxJRuKC4VLmFpVv3gk3f60aNakTjjkq/U8Q?=
+ =?us-ascii?Q?auUC8bQeFkbtX+V3llz3ZISc0hfzcEtOC2NBqhTo3KOvuAyIuadZBPOpclcF?=
+ =?us-ascii?Q?uhvfWVyJw4Gx0ggJeYvgo1xxmmmoDeHJvQzq8eX0v3/QcpW/bPdPzKnAGMFT?=
+ =?us-ascii?Q?gvhrkpLjfboy8ufmBpHvSya1VcunpQSOkPC/HFN9HfcIunujgV0Bq5PbWHE3?=
+ =?us-ascii?Q?DXto75Q9k5cHnFybeeDiwbNUeZHQ6Phs1qSJmn8uQcNWBnAlb0PpmVIn4xrE?=
+ =?us-ascii?Q?hQZu/jiJdj0FUtSniEqk/wBHwdt3/8/UeuvGSjFUn5d/+neDFFJC7lwsLZ1c?=
+ =?us-ascii?Q?RbINc3ifTfhuTqWTeMXJWw8V1LUh5tbHQP1YeIA2TXIDj6U45a14WCJDl9lX?=
+ =?us-ascii?Q?QKRNXVSkQubm6b3TctkRIetBgQuMYtdMwS0gEcsZ3YFPqQFsSWbiobWKdiYm?=
+ =?us-ascii?Q?pBl21r4=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-ThreadId: Au-GG9YHiX1s
-Date: Wed, 01 Apr 2026 18:50:47 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Florian Fainelli" <florian.fainelli@broadcom.com>,
- "Krzysztof Kozlowski" <krzk@kernel.org>
-Cc: soc@kernel.org, "Rob Herring" <robh@kernel.org>,
- "Gregor Herburger" <gregor.herburger@linutronix.de>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- "Stefan Wahren" <wahrenst@gmx.net>, linux-arm-kernel@lists.infradead.org,
- "Kevin Hilman" <khilman@kernel.org>, bcm-kernel-feedback-list@broadcom.com
-Message-Id: <9b120c3b-637e-47d3-aed8-62b344337344@app.fastmail.com>
-In-Reply-To: <e060307f-5c85-468f-8f5d-6101dc0a2015@broadcom.com>
-References: <20260323190239.1890505-1-florian.fainelli@broadcom.com>
- <20260323190239.1890505-2-florian.fainelli@broadcom.com>
- <20260401-rapid-lyrebird-of-emphasis-da7b13@quoll>
- <2e47f487-da04-411d-bf78-4c76ac793a91@kernel.org>
- <df52b2ae-4b8b-487a-bb6b-07bf021500b5@app.fastmail.com>
- <3f7879d0-9e5d-4c00-a5dc-4871a049afd0@kernel.org>
- <83a52edc-1d46-4eaf-996e-924ed3a00c83@app.fastmail.com>
- <8d8925ad-22eb-4b9b-b6eb-6ae7dc3b2073@kernel.org>
- <e060307f-5c85-468f-8f5d-6101dc0a2015@broadcom.com>
-Subject: Re: [GIT PULL 2/2] Broadcom devicetree-arm64 changes for 7.1
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0441daff-219a-43bd-5eb0-08de900f690b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Apr 2026 16:54:59.3844
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR02MB6701
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_095111_423711_D995456B 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20260401_095504_523814_8C9B1D47 
+X-CRM114-Status: GOOD (  20.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,21 +164,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 1, 2026, at 18:41, Florian Fainelli wrote:
-> On 4/1/26 09:38, Krzysztof Kozlowski wrote:
->> On 01/04/2026 18:33, Arnd Bergmann wrote:
->>> On Wed, Apr 1, 2026, at 16:47, Krzysztof Kozlowski wrote:
->>>
->>> Florian, I don't know if there is a Broadcom specific policy that
->>> requires you to use the corporate github account, but if you
->>> are setting up a new key already, it may be a good time to
->>> also move the hosting.
->
-> OK, I will get going with moving the hosting to kernel.org. What about 
-> this specific pull request, will it go through or is relocating the 
-> hosting mandatory for it to be accepted?
+From: Naman Jain <namjain@linux.microsoft.com> Sent: Monday, March 16, 2026=
+ 5:13 AM
+>=20
 
-I've merged both now, should push them out later tonight.
+Nit: For the patch "Subject", the most common prefix for the file
+arch/arm64/kernel/smp.c is "arm64: smp:".  I'd suggest using that
+prefix for historical consistency.
 
-     Arnd
+> mshv_vtl_main.c calls smp_send_reschedule() which expands to
+> arch_smp_send_reschedule(). When CONFIG_MSHV_VTL=3Dm, the module cannot
+> access this symbol since it is not exported on arm64.
+>=20
+> smp_send_reschedule() is used in mshv_vtl_cancel() to interrupt a vCPU
+> thread running on another CPU. When a vCPU is looping in
+> mshv_vtl_ioctl_return_to_lower_vtl(), it checks a per-CPU cancel flag
+> before each VTL0 entry. Setting cancel=3D1 alone is not enough if the
+> target CPU thread is sleeping - the IPI from smp_send_reschedule() kicks
+> the remote CPU out of idle/sleep so it re-checks the cancel flag and
+> exits the loop promptly.
+>=20
+> Other architectures (riscv, loongarch, powerpc) already export this
+> symbol. Add the same EXPORT_SYMBOL_GPL for arm64. This is required
+> for adding arm64 support in MSHV_VTL.
+>=20
+> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
+> ---
+>  arch/arm64/kernel/smp.c | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index 1aa324104afb..26b1a4456ceb 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -1152,6 +1152,7 @@ void arch_smp_send_reschedule(int cpu)
+>  {
+>  	smp_cross_call(cpumask_of(cpu), IPI_RESCHEDULE);
+>  }
+> +EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
+>=20
+>  #ifdef CONFIG_ARM64_ACPI_PARKING_PROTOCOL
+>  void arch_send_wakeup_ipi(unsigned int cpu)
+> --
+> 2.43.0
+>=20
+
+The "Subject" nit notwithstanding,
+
+Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+
 
