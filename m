@@ -4,70 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE5CBD3517C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 12:37:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6795BD35177
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 12:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p0PBCxsueUX4UGv9YP6InaaDYR85o9jiwW8JhqElfeo=; b=Vlt1vnkt7bsfdInWZdpm85l023
-	+U27eyf2dOy+Uk/lw5KTbHrQzLfIvw8spyCwAqKsIvGfRzAPxTm+5louVfRVKXhLXGfgzdITdxejE
-	RGsL66Ph/aDvF2GyriOhnR52olwh5HcMvksiq77wtPU6jO+HA6JXX4J+IuARXPzRmAYo0VTVLTgLk
-	1hh96dfWd5lXqYDmFT/0s0WWI/ge2wGaqX/VN8KAafea632LTvl++Lnx7Eo9Lrt/w1rJc1drwySXR
-	0EAk9lh3SM4szNLdaT+mJK7QG5r/CKqaEm8mBhLHBypCZIpjdd7tsbeMWupGdBDQvTu0j1mmQctBr
-	hNUXrQzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ycc6WMg7OLshR/yyfU2jpKKLPa+z0xOJ3hTWvecsxRM=; b=m3geTi+ok7neIjcm/o5prH6UEW
+	d/jJwQQVj9G6kUC7S6NK8mndhH69XuD3L5gZ1IJPTOW8Zo0+jmBh+pbv5iDMZosAYqKoc68AMVfCM
+	SUZlyYl1RTlRuOXakqWP169SJB3HgMvWmChArs0rxD+/j9NoXnnCv8MocJLRqSznsKrVI+UifBKa/
+	TjWkWOIhCq9MqVePCpZTbLElH3m87z89jZ7A974m7kO2QsS+RE6ySqrPrPKFUzoDMXHnC7M0xrRG5
+	Dtvl8zqe138GBlUje1Y5qfk7Yg03Nj334i4IAIWDVkm3se3L3smDeK0w/qrVmbJl7zep62K8iq5Q9
+	NpOhGs3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7upO-0000000FCIa-3VMP;
-	Wed, 01 Apr 2026 12:37:46 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1w7upW-0000000FCOt-1ax1;
+	Wed, 01 Apr 2026 12:37:54 +0000
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7uce-0000000F2jD-2zQW
+	id 1w7ud2-0000000F337-0pWy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 12:24:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1775046275;
- bh=p0PBCxsueUX4UGv9YP6InaaDYR85o9jiwW8JhqElfeo=;
- b=BQcJmJX3/CXRwkHtDf2WuvuB/4zF+6pi3lEKXIdfd2/EsnUVn2ajo8tl8ee9LoTQMo/ie1ptZ
- jSOv9TyoE+AdpPVo2OdP0BfxQjJNCIAvyAacKIqw1vh5PXsKgLzSwRNdyeirPbUKAPwIO7cOt48
- HtbqXIZRU150wSpnjAS11gd9cLG1ABGGU45MtGmPCVwDo8Fpf/gH1KNgyp/mVnDK5jvw1SMYJhv
- W89ZfbUgJmt2+v7ETv4+5B7Mza6wdmSjJdIefuW4F60UjLcD0/mbYZLIBwqbrPDuzR+KWGzC4TC
- NVUSQk+WSm8XCBkvztodiYcZCkNr3Swhh3/1rss61vPQ==
-X-Forward-Email-ID: 69ccd6999fd488f8629e29f7
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 2.6.64
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <8ca0a8d3-aed9-4c2a-89dd-e9029afdd279@kwiboo.se>
-Date: Wed, 1 Apr 2026 10:25:58 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] iommu/rockchip: Drop global rk_ops in favor of
- per-device ops
-To: Simon Xue <xxm@rock-chips.com>, Shawn Lin <shawn.lin@rock-chips.com>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Heiko Stuebner <heiko@sntech.de>
-References: <20260310084812.126082-1-xxm@rock-chips.com>
- <20260310105303.128859-1-xxm@rock-chips.com>
- <a586dd60-5b9c-4044-3bb1-903df863b587@rock-chips.com>
- <b046ad1c-9cfc-4399-a8df-e4fffff434f9@rock-chips.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <b046ad1c-9cfc-4399-a8df-e4fffff434f9@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+	Wed, 01 Apr 2026 12:25:01 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-b97f04b44b9so538271866b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 05:24:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1775046298; x=1775651098; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ycc6WMg7OLshR/yyfU2jpKKLPa+z0xOJ3hTWvecsxRM=;
+        b=M5WkMcl+EKvMFwXo1qHb0SV2ZheUhpewleyOhyw0g+kPB0Tpk89Cwck805J/rrF40g
+         eYovGqcGpQ3XLMDq4VNi+ivmWwZ8MAGt/ly0BqQlJca98p+/ZA41KSo9wm/f0/FHcENE
+         uM7p5UWOaKo1tJ2qan6/Um9XI1OSOXD2n5J/z05jpObqfTcU5xuctPKn1ZDjvesSOFew
+         FAplWuHMvXkJsWW7wFlg0ZHybpusSxXrsVuLBB62vjSPFXFlflpRAqxbZ3aF/wy3ax1x
+         n5grSUy+UG/J27aQ/upV1xQ1yl7r8cPzJ5bEeGyceqvSqV1ldUaIUfbQW0MIl2vCUEYI
+         rpig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775046298; x=1775651098;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ycc6WMg7OLshR/yyfU2jpKKLPa+z0xOJ3hTWvecsxRM=;
+        b=DxiWT1tRlu8l8s+R2nPx3SqoQtajljzJE0ktHc2NjpW2Ur8PFYmXD2Izui+KBOL09N
+         HWFLIk3ZE8o+5OhTQOG/i8oGVVjCYC7dakCBuI2TbLkRQUJFQIOluLlVVcSViAlrzm2f
+         LXi56X4JJDqTGTrlwy6IWeT2uANI9GahLe7RXrdsBxrCHGkoN5p963OJJxMv5HO5XCQ7
+         yKb+JMuW+MwNBBM7y+gZh2RJihLCst57IWqfId/3XvF7WpfhFS9uUz5alr1RFynGVdLd
+         s0OA20pS5bCYu7FVnG62gUvvqtGufXzmwyWHGpgkd1UvAjrMU7OAavn3rRu3EmBAYIvY
+         i8nA==
+X-Forwarded-Encrypted: i=1; AJvYcCX+JsJtVxlFONvmCNR7PeS1Rg1v6g9tlKBiy9obBugLDia0uce2wmw2IJ7/mJCkkUZcPh/eYNihH7p3LTBb0HnF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzfe/xFNhLCUnH1joISF9RG5cZ6R8DIs1ZdOilFWpEtlO2JwfXU
+	aKjbu9Yu4Z+nE5Jb3G77L46i9Ux3rt6oHFdtGDxXlPl5ZHjwNb9HztA/wX29PGnTkpPZylVau17
+	fKZTzP8JgTlqXi35ygw==
+X-Received: from ejcbp3.prod.google.com ([2002:a17:907:26c3:b0:b9b:54ac:688a])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:907:c448:b0:b99:5f69:9ee2 with SMTP id a640c23a62f3a-b9c13cf93e8mr221111666b.52.1775046297024;
+ Wed, 01 Apr 2026 05:24:57 -0700 (PDT)
+Date: Wed, 1 Apr 2026 12:24:55 +0000
+In-Reply-To: <20260401114540.30108-2-ojeda@kernel.org>
+Mime-Version: 1.0
+References: <20260401114540.30108-1-ojeda@kernel.org> <20260401114540.30108-2-ojeda@kernel.org>
+Message-ID: <ac0Ol1PaRTWNK6O9@google.com>
+Subject: Re: [PATCH 01/33] rust: bump Rust minimum supported version to 1.85.0
+ (Debian Trixie)
+From: Alice Ryhl <aliceryhl@google.com>
+To: Miguel Ojeda <ojeda@kernel.org>
+Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Courbot <acourbot@nvidia.com>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Arve =?utf-8?B?SGrDuG5uZXbDpWc=?=" <arve@android.com>, Todd Kjos <tkjos@android.com>, 
+	Christian Brauner <christian@brauner.io>, Carlos Llamas <cmllamas@google.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	"=?utf-8?B?QmrDtnJu?= Roy Baron" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Trevor Gross <tmgross@umich.edu>, rust-for-linux@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	Vlastimil Babka <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org, 
+	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>, Alexandre Ghiti <alex@ghiti.fr>, 
+	linux-riscv@lists.infradead.org, nouveau@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, Rae Moar <raemoar63@gmail.com>, 
+	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_052436_844205_BA933823 
-X-CRM114-Status: GOOD (  29.32  )
+X-CRM114-CacheID: sfid-20260401_052500_255204_D9C95670 
+X-CRM114-Status: GOOD (  16.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,313 +108,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 4/1/2026 9:59 AM, Simon Xue wrote:
-> Hi all,
+On Wed, Apr 01, 2026 at 01:45:08PM +0200, Miguel Ojeda wrote:
+> As proposed in the past in e.g. LPC 2025 and the Maintainers Summit [1],
+> we are going to follow Debian Stable's Rust versions as our minimum
+> supported version.
 > 
-> A gentle ping on this patch.
+> Debian Trixie was released with a Rust 1.85.0 toolchain [2], which it
+> still uses to this day [3] (i.e. no update to Rust 1.85.1).
+
+Debian really *should* pick up 1.85.1. It contains bugfixes serious
+enough that the Rust team decided it was reasonble to release a point
+release.
+
+> Debian Trixie's release happened on 2025-08-09 [4], which means that a
+> fair amount of time has passed since its release for kernel developers
+> to upgrade.
 > 
-> 在 2026/3/13 17:32, Shawn Lin 写道:
->> 在 2026/03/10 星期二 18:53, Simon Xue 写道:
->>> The driver currently uses a global rk_ops pointer, forcing all IOMMU
->>> instances to share the same operations. This restricts the driver from
->>> supporting SoCs that might integrate different versions of IOMMU 
->>> hardware.
->>>
->>> Since the IOMMU framework passes the master device information to
->>> iommu_paging_domain_alloc(), the global variable is no longer needed.
->>>
->>> Fix this by moving rk_ops into struct rk_iommu and struct 
->>> rk_iommu_domain.
->>> Initialize it per-device during probe via of_device_get_match_data(),
->>> and replace all global references with the instance-specific pointers.
->>>
->>
->> Thanks for the patch, Simon. I've tested it on the RK3576 EVB1 with
->> PCIe1 + IOMMU. NVMe works fine on it, and I also verified the IOVA
->> allocated in the NVMe driver, they look correct as I manually limited
->> the memblock to under 2GB, so here it is:
->>
->> nvme 0001:21:00.0: cq_dma_addr: 0x00000000f7fc7000
->>
->> Tested-by: Shawn Lin <shawn.lin@rock-chips.com>
->> Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
->>
->>> Signed-off-by: Simon Xue <xxm@rock-chips.com>
->>> ---
->>> v2:
->>>   - Remove the one-time-used 'ops' variable in rk_iommu_probe()
->>>
->>>   drivers/iommu/rockchip-iommu.c | 71 ++++++++++++++++------------------
->>>   1 file changed, 33 insertions(+), 38 deletions(-)
->>>
->>> diff --git a/drivers/iommu/rockchip-iommu.c 
->>> b/drivers/iommu/rockchip-iommu.c
->>> index 0013cf196c57..4da80136933c 100644
->>> --- a/drivers/iommu/rockchip-iommu.c
->>> +++ b/drivers/iommu/rockchip-iommu.c
->>> @@ -82,6 +82,14 @@
->>>     */
->>>   #define RK_IOMMU_PGSIZE_BITMAP 0x007ff000
->>>   +struct rk_iommu_ops {
->>> +    phys_addr_t (*pt_address)(u32 dte);
->>> +    u32 (*mk_dtentries)(dma_addr_t pt_dma);
->>> +    u32 (*mk_ptentries)(phys_addr_t page, int prot);
->>> +    u64 dma_bit_mask;
->>> +    gfp_t gfp_flags;
->>> +};
->>> +
->>>   struct rk_iommu_domain {
->>>       struct list_head iommus;
->>>       u32 *dt; /* page directory table */
->>> @@ -89,6 +97,7 @@ struct rk_iommu_domain {
->>>       spinlock_t iommus_lock; /* lock for iommus list */
->>>       spinlock_t dt_lock; /* lock for modifying page directory table */
->>>       struct device *dma_dev;
->>> +    const struct rk_iommu_ops *rk_ops;
->>>         struct iommu_domain domain;
->>>   };
->>> @@ -98,14 +107,6 @@ static const char * const rk_iommu_clocks[] = {
->>>       "aclk", "iface",
->>>   };
->>>   -struct rk_iommu_ops {
->>> -    phys_addr_t (*pt_address)(u32 dte);
->>> -    u32 (*mk_dtentries)(dma_addr_t pt_dma);
->>> -    u32 (*mk_ptentries)(phys_addr_t page, int prot);
->>> -    u64 dma_bit_mask;
->>> -    gfp_t gfp_flags;
->>> -};
->>> -
->>>   struct rk_iommu {
->>>       struct device *dev;
->>>       void __iomem **bases;
->>> @@ -117,6 +118,7 @@ struct rk_iommu {
->>>       struct iommu_device iommu;
->>>       struct list_head node; /* entry in rk_iommu_domain.iommus */
->>>       struct iommu_domain *domain; /* domain to which iommu is 
->>> attached */
->>> +    const struct rk_iommu_ops *rk_ops;
-
-Do we really need the rk_ops on both the rk_iommu and rk_iommu_domain?
-
->>>   };
->>>     struct rk_iommudata {
->>> @@ -124,7 +126,6 @@ struct rk_iommudata {
->>>       struct rk_iommu *iommu;
->>>   };
->>>   -static const struct rk_iommu_ops *rk_ops;
->>>   static struct iommu_domain rk_identity_domain;
->>>     static inline void rk_table_flush(struct rk_iommu_domain *dom, 
->>> dma_addr_t dma,
->>> @@ -510,7 +511,7 @@ static int rk_iommu_force_reset(struct rk_iommu 
->>> *iommu)
->>>        * and verifying that upper 5 (v1) or 7 (v2) nybbles are read 
->>> back.
->>>        */
->>>       for (i = 0; i < iommu->num_mmu; i++) {
->>> -        dte_addr = rk_ops->pt_address(DTE_ADDR_DUMMY);
->>> +        dte_addr = iommu->rk_ops->pt_address(DTE_ADDR_DUMMY);
-
-Maybe this patch it trying to do too much at once that makes it harder
-to review? To simplify review maybe one patch just drops the global
-rk_ops and a assigns a local version based on domain/iommu, and a second
-patch changes to use the iommu->rk_ops directly? Just a thought.
-
->>>           rk_iommu_write(iommu->bases[i], RK_MMU_DTE_ADDR, dte_addr);
->>>             if (dte_addr != rk_iommu_read(iommu->bases[i], 
->>> RK_MMU_DTE_ADDR)) {
->>> @@ -551,7 +552,7 @@ static void log_iova(struct rk_iommu *iommu, int 
->>> index, dma_addr_t iova)
->>>       page_offset = rk_iova_page_offset(iova);
->>>         mmu_dte_addr = rk_iommu_read(base, RK_MMU_DTE_ADDR);
->>> -    mmu_dte_addr_phys = rk_ops->pt_address(mmu_dte_addr);
->>> +    mmu_dte_addr_phys = iommu->rk_ops->pt_address(mmu_dte_addr);
->>>         dte_addr_phys = mmu_dte_addr_phys + (4 * dte_index);
->>>       dte_addr = phys_to_virt(dte_addr_phys);
->>> @@ -560,14 +561,14 @@ static void log_iova(struct rk_iommu *iommu, 
->>> int index, dma_addr_t iova)
->>>       if (!rk_dte_is_pt_valid(dte))
->>>           goto print_it;
->>>   -    pte_addr_phys = rk_ops->pt_address(dte) + (pte_index * 4);
->>> +    pte_addr_phys = iommu->rk_ops->pt_address(dte) + (pte_index * 4);
->>>       pte_addr = phys_to_virt(pte_addr_phys);
->>>       pte = *pte_addr;
->>>         if (!rk_pte_is_page_valid(pte))
->>>           goto print_it;
->>>   -    page_addr_phys = rk_ops->pt_address(pte) + page_offset;
->>> +    page_addr_phys = iommu->rk_ops->pt_address(pte) + page_offset;
->>>       page_flags = pte & RK_PTE_PAGE_FLAGS_MASK;
->>>     print_it:
->>> @@ -663,13 +664,13 @@ static phys_addr_t rk_iommu_iova_to_phys(struct 
->>> iommu_domain *domain,
->>>       if (!rk_dte_is_pt_valid(dte))
->>>           goto out;
->>>   -    pt_phys = rk_ops->pt_address(dte);
->>> +    pt_phys = rk_domain->rk_ops->pt_address(dte);
->>>       page_table = (u32 *)phys_to_virt(pt_phys);
->>>       pte = page_table[rk_iova_pte_index(iova)];
->>>       if (!rk_pte_is_page_valid(pte))
->>>           goto out;
->>>   -    phys = rk_ops->pt_address(pte) + rk_iova_page_offset(iova);
->>> +    phys = rk_domain->rk_ops->pt_address(pte) + 
->>> rk_iova_page_offset(iova);
->>>   out:
->>>       spin_unlock_irqrestore(&rk_domain->dt_lock, flags);
->>>   @@ -730,7 +731,7 @@ static u32 *rk_dte_get_page_table(struct 
->>> rk_iommu_domain *rk_domain,
->>>       if (rk_dte_is_pt_valid(dte))
->>>           goto done;
->>>   -    page_table = iommu_alloc_pages_sz(GFP_ATOMIC | rk_ops->gfp_flags,
->>> +    page_table = iommu_alloc_pages_sz(GFP_ATOMIC | 
->>> rk_domain->rk_ops->gfp_flags,
->>>                         SPAGE_SIZE);
->>>       if (!page_table)
->>>           return ERR_PTR(-ENOMEM);
->>> @@ -742,13 +743,13 @@ static u32 *rk_dte_get_page_table(struct 
->>> rk_iommu_domain *rk_domain,
->>>           return ERR_PTR(-ENOMEM);
->>>       }
->>>   -    dte = rk_ops->mk_dtentries(pt_dma);
->>> +    dte = rk_domain->rk_ops->mk_dtentries(pt_dma);
->>>       *dte_addr = dte;
->>>         rk_table_flush(rk_domain,
->>>                  rk_domain->dt_dma + dte_index * sizeof(u32), 1);
->>>   done:
->>> -    pt_phys = rk_ops->pt_address(dte);
->>> +    pt_phys = rk_domain->rk_ops->pt_address(dte);
->>>       return (u32 *)phys_to_virt(pt_phys);
->>>   }
->>>   @@ -790,7 +791,7 @@ static int rk_iommu_map_iova(struct 
->>> rk_iommu_domain *rk_domain, u32 *pte_addr,
->>>           if (rk_pte_is_page_valid(pte))
->>>               goto unwind;
->>>   -        pte_addr[pte_count] = rk_ops->mk_ptentries(paddr, prot);
->>> +        pte_addr[pte_count] = rk_domain->rk_ops->mk_ptentries(paddr, 
->>> prot);
->>>             paddr += SPAGE_SIZE;
->>>       }
->>> @@ -812,7 +813,7 @@ static int rk_iommu_map_iova(struct 
->>> rk_iommu_domain *rk_domain, u32 *pte_addr,
->>>                   pte_count * SPAGE_SIZE);
->>>         iova += pte_count * SPAGE_SIZE;
->>> -    page_phys = rk_ops->pt_address(pte_addr[pte_count]);
->>> +    page_phys = rk_domain->rk_ops->pt_address(pte_addr[pte_count]);
->>>       pr_err("iova: %pad already mapped to %pa cannot remap to phys: 
->>> %pa prot: %#x\n",
->>>              &iova, &page_phys, &paddr, prot);
->>>   @@ -849,7 +850,7 @@ static int rk_iommu_map(struct iommu_domain 
->>> *domain, unsigned long _iova,
->>>       pte_index = rk_iova_pte_index(iova);
->>>       pte_addr = &page_table[pte_index];
->>>   -    pte_dma = rk_ops->pt_address(dte_index) + pte_index * 
->>> sizeof(u32);
->>> +    pte_dma = rk_domain->rk_ops->pt_address(dte_index) + pte_index * 
->>> sizeof(u32);
->>>       ret = rk_iommu_map_iova(rk_domain, pte_addr, pte_dma, iova,
->>>                   paddr, size, prot);
->>>   @@ -887,7 +888,7 @@ static size_t rk_iommu_unmap(struct 
->>> iommu_domain *domain, unsigned long _iova,
->>>           return 0;
->>>       }
->>>   -    pt_phys = rk_ops->pt_address(dte);
->>> +    pt_phys = rk_domain->rk_ops->pt_address(dte);
->>>       pte_addr = (u32 *)phys_to_virt(pt_phys) + rk_iova_pte_index(iova);
->>>       pte_dma = pt_phys + rk_iova_pte_index(iova) * sizeof(u32);
->>>       unmap_size = rk_iommu_unmap_iova(rk_domain, pte_addr, pte_dma, 
->>> size);
->>> @@ -945,7 +946,7 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
->>>         for (i = 0; i < iommu->num_mmu; i++) {
->>>           rk_iommu_write(iommu->bases[i], RK_MMU_DTE_ADDR,
->>> - rk_ops->mk_dtentries(rk_domain->dt_dma));
->>> + iommu->rk_ops->mk_dtentries(rk_domain->dt_dma));
->>>           rk_iommu_base_command(iommu->bases[i], RK_MMU_CMD_ZAP_CACHE);
->>>           rk_iommu_write(iommu->bases[i], RK_MMU_INT_MASK, 
->>> RK_MMU_IRQ_MASK);
->>>       }
->>> @@ -1068,17 +1069,19 @@ static struct iommu_domain 
->>> *rk_iommu_domain_alloc_paging(struct device *dev)
->>>       if (!rk_domain)
->>>           return NULL;
->>>   +    iommu = rk_iommu_from_dev(dev);
->>> +    rk_domain->rk_ops = iommu->rk_ops;
-
-As mentioned above, this seem strange and is possible just a shortcut
-due to current call-paths? Why do we assign "iommu ops" to the domain?
-
-Regards,
-Jonas
-
->>> +
->>>       /*
->>>        * rk32xx iommus use a 2 level pagetable.
->>>        * Each level1 (dt) and level2 (pt) table has 1024 4-byte entries.
->>>        * Allocate one 4 KiB page for each table.
->>>        */
->>> -    rk_domain->dt = iommu_alloc_pages_sz(GFP_KERNEL | 
->>> rk_ops->gfp_flags,
->>> +    rk_domain->dt = iommu_alloc_pages_sz(GFP_KERNEL | 
->>> rk_domain->rk_ops->gfp_flags,
->>>                            SPAGE_SIZE);
->>>       if (!rk_domain->dt)
->>>           goto err_free_domain;
->>>   -    iommu = rk_iommu_from_dev(dev);
->>>       rk_domain->dma_dev = iommu->dev;
->>>       rk_domain->dt_dma = dma_map_single(rk_domain->dma_dev, 
->>> rk_domain->dt,
->>>                          SPAGE_SIZE, DMA_TO_DEVICE);
->>> @@ -1117,7 +1120,7 @@ static void rk_iommu_domain_free(struct 
->>> iommu_domain *domain)
->>>       for (i = 0; i < NUM_DT_ENTRIES; i++) {
->>>           u32 dte = rk_domain->dt[i];
->>>           if (rk_dte_is_pt_valid(dte)) {
->>> -            phys_addr_t pt_phys = rk_ops->pt_address(dte);
->>> +            phys_addr_t pt_phys = rk_domain->rk_ops->pt_address(dte);
->>>               u32 *page_table = phys_to_virt(pt_phys);
->>>               dma_unmap_single(rk_domain->dma_dev, pt_phys,
->>>                        SPAGE_SIZE, DMA_TO_DEVICE);
->>> @@ -1197,7 +1200,6 @@ static int rk_iommu_probe(struct 
->>> platform_device *pdev)
->>>       struct device *dev = &pdev->dev;
->>>       struct rk_iommu *iommu;
->>>       struct resource *res;
->>> -    const struct rk_iommu_ops *ops;
->>>       int num_res = pdev->num_resources;
->>>       int err, i;
->>>   @@ -1211,16 +1213,9 @@ static int rk_iommu_probe(struct 
->>> platform_device *pdev)
->>>       iommu->dev = dev;
->>>       iommu->num_mmu = 0;
->>>   -    ops = of_device_get_match_data(dev);
->>> -    if (!rk_ops)
->>> -        rk_ops = ops;
->>> -
->>> -    /*
->>> -     * That should not happen unless different versions of the
->>> -     * hardware block are embedded the same SoC
->>> -     */
->>> -    if (WARN_ON(rk_ops != ops))
->>> -        return -EINVAL;
->>> +    iommu->rk_ops = of_device_get_match_data(dev);
->>> +    if (!iommu->rk_ops)
->>> +        return -ENOENT;
->>>         iommu->bases = devm_kcalloc(dev, num_res, sizeof(*iommu->bases),
->>>                       GFP_KERNEL);
->>> @@ -1286,7 +1281,7 @@ static int rk_iommu_probe(struct 
->>> platform_device *pdev)
->>>               goto err_pm_disable;
->>>       }
->>>   -    dma_set_mask_and_coherent(dev, rk_ops->dma_bit_mask);
->>> +    dma_set_mask_and_coherent(dev, iommu->rk_ops->dma_bit_mask);
->>>         err = iommu_device_sysfs_add(&iommu->iommu, dev, NULL, 
->>> dev_name(dev));
->>>       if (err)
->>>
->>
+> Thus bump the minimum to the new version.
 > 
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+> Then, in later commits, clean up most of the workarounds and other bits
+> that this upgrade of the minimum allows us.
+> 
+> pin-init was left as-is since the patches come from upstream. And the
+> vendored crates are unmodified, since we do not want to change those.
+> 
+> Note that the minimum LLVM major version for Rust 1.85.0 is LLVM 18 (the
+> Rust upstream binaries use LLVM 19.1.7), thus e.g. `RUSTC_LLVM_VERSION`
+> tests can also be updated, but there are no suitable ones to simplify.
+> 
+> Ubuntu 25.10 also has a recent enough Rust toolchain [5], and they also
+> provide versioned packages with a Rust 1.85.1 toolchain even back to
+> Ubuntu 22.04 LTS [6].
+> 
+> Link: https://lwn.net/Articles/1050174/ [1]
+> Link: https://www.debian.org/releases/trixie/release-notes/whats-new.en.html#desktops-and-well-known-packages [2]
+> Link: https://packages.debian.org/trixie/rustc [3]
+> Link: https://www.debian.org/releases/trixie/ [4]
+> Link: https://packages.ubuntu.com/search?suite=all&searchon=names&keywords=rustc [5]
+> Link: https://launchpad.net/ubuntu/+source/rustc-1.85 [6]
+> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
+
+Acked-by: Alice Ryhl <aliceryhl@google.com>
 
 
