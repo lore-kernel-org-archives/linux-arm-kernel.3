@@ -4,79 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48C1AD2ED0A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F78D2ED0A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:11:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OuuOxL55HdAFY06SfOG3LOC3qubiad/RGrqlyB0hkLI=; b=a3VQdB4UlIxlofbPPOo54ZGtLs
-	LPQNea+N5vyRskuWENQ1WihuRVUXyj38DSjw1FO5JmF4RWDIdpc9AQ+KSooW8rj4Rdk/J6J0f93AC
-	r90sHriF2WBBbnGkxFER1VBpvbsLyKTIYOo1d7qvGseAML9AU2Qx80qehD3ZuEBl3lHq0rgu3JDG4
-	4paRMcM6sFkKPTizeU+t0k2Pm0gzCaOzPIR7aQZxUIPLY2ajUsK9xS7KYdReQQPdpcsBwBjediU9+
-	ryiRld8//RI05EecMPRHSQxU4GzghV1yc96Z/u4WcFYlEV87QtfJw9+liv2Lwf+3dlPdQaxCGm8Iu
-	f9V/Howw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
+	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FTAOait/Ei6XeI9JIrslmORBpM1kCqoz1yiKsUX9CwA=; b=azdwb+qb8o1ogkh6i4302UGw9G
+	BYaG0/2SjLa7FUewfzvsbfJNkXyvWuK1N49ww3QIbbDAzjQp+JMCh625sM050sZVYZJCuOC04Ea4f
+	muyXFKEmfOCwhY7W+wnw3oATuwli2jm9L7oOJe3p/z2Qo4lYE2N9UB6t9d6fLQTZHsQ6EiElDRTgr
+	GwCSpYiFQwph2pijYrebna8h24aC7N40GVFl68hhDemReWfFGfF/JxhuuB7Tb522QQGqS6wM8J4eL
+	BDJPT8IWGwaqXIU5GH0s6dHMfP4kbkflaVy3tEA2VY74Jky3q6iRu2GATWI3NU758p1VMBw7K7aJf
+	U9OvS0QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wCi-0000000FNW0-31dJ;
-	Wed, 01 Apr 2026 14:05:56 +0000
-Received: from smtp.forwardemail.net ([121.127.44.66])
+	id 1w7wHm-0000000FRix-1tMd;
+	Wed, 01 Apr 2026 14:11:10 +0000
+Received: from mail-uksouthazon11020128.outbound.protection.outlook.com ([52.101.196.128] helo=LO3P265CU004.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wCc-0000000FNVZ-0YiU
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 14:05:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1775052348;
- bh=OuuOxL55HdAFY06SfOG3LOC3qubiad/RGrqlyB0hkLI=;
- b=AGJgc02OXQjbMrUMtMMYzghrOXuC5Ga2oqdwaPHrYDlSarhl/qCeV4FSqo3LJmRJ9BcdiqYKO
- yCuuTaxrXCGvxkfCioZdtfegFg0cDMCe+n/TjanqCdEpjEjlehrt5xpr4ctvxB+f+pY+9W4L7B0
- szodGmtqgXk1rsNcctdSdRhTBjhyrAW7tuCMDSkZmMsEIFmBv6jmQUUyTKxua2NboBJJ3gKBQbP
- xyHabaZ4K3WBrO8x3v3la6AlBNxjGZxeOgRxSwqQ25Jm8fXtW4AiL0n/UQ8bV8zWsaInlh8fSHo
- CflW+45h0ehCkZGhCKD7Bv8OP520CxomKupEztTArHCg==
-X-Forward-Email-ID: 69cd2639c44eae2b77aac006
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.66
-X-Forward-Email-Version: 2.6.64
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <d7e235c0-425e-4da6-a51e-5efdcac5a5f0@kwiboo.se>
-Date: Wed, 1 Apr 2026 16:05:40 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/3] arm64: dts: rockchip: refactor items from Orange
- Pi 5/b to prep for Pro
-To: "dennis@ausil.us" <dennis@ausil.us>
-Cc: FUKAUMI Naoki <naoki@radxa.com>, Hsun Lai <i@chainsx.cn>,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, John Clark <inindev@gmail.com>,
- Michael Opdenacker <michael.opdenacker@rootcommit.com>,
- Quentin Schulz <quentin.schulz@cherry.de>, Andrew Lunn <andrew@lunn.ch>,
- Chukun Pan <amadeus@jmu.edu.cn>, Alexey Charkov <alchark@gmail.com>,
- Peter Robinson <pbrobinson@gmail.com>,
- Michael Riesch <michael.riesch@collabora.com>,
- Mykola Kvach <xakep.amatop@gmail.com>, Jimmy Hon <honyuenkwun@gmail.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-References: <20260401010707.2584962-1-dennis@ausil.us>
- <20260401010707.2584962-3-dennis@ausil.us>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20260401010707.2584962-3-dennis@ausil.us>
+	id 1w7wHg-0000000FReu-02MF;
+	Wed, 01 Apr 2026 14:11:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lzLFrawO7ITAXuj81RrPgIbhl8yrRfvMgYTgdmwA4CfoVRWqD+rhoXh3d4VMV7DnY+3gpaoU8x7xSQpwjte4GSG35ENtStmGG0NZC/L462FbUO5iMYYBSw0Vu0UX3yiDnxwtheKXKy0dt295sQ4gACRpi5skxgGs5Y3ehTvfizTOxlaowpRMtfAYGxcZG4CDmLCgqbLY8DKOaQZDcnhvqHayra1p3cfW1EoQ0iydokaW+cyYMzMYgIBK6AXBzS6JCun9jdrunh9DQhgFe/QS6DYc3ZFluCgK+BmJzewtMysrIEOz9PiBYmVsJ49p37AgAm1pU+/X85wzJnuoveiWkg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FTAOait/Ei6XeI9JIrslmORBpM1kCqoz1yiKsUX9CwA=;
+ b=knE0w9iqJVJLYEfxS1LpTBxeQcoI7wTLDscajvMwb7Xw+NJIkvhJQ9QpEEMA6VUo550gnEYrezNEnuaD/8VR2/voKwX38994yPxSwQHqI0c0MQ/R5GR/hh+LuwZEQnJxrSA9zu+JeKaSfKhgqXs2RtFl3AJw5HSdnhYlwZad1aLKTmoKsibdjItQuCZucU1Yuolouk8Jea+NwyoB6vl9koqmFu8ptqcJwkMcIDyVaUI+2v8kvtd72VTu1qfC0UlOEBm5fsa/dxLasQ5+BMuSunh2XVPrj6R4oWsUA3q+nyZ1tjbqtfSLcFmeCBBV+mwlqCrFibsi0gKQ4hHod3UPEQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FTAOait/Ei6XeI9JIrslmORBpM1kCqoz1yiKsUX9CwA=;
+ b=zd9VqGr0q5lMIgS13UBxtIdSrJqMERwYyZgCI9iglAk6deb1itqWg4HRvbbTVERNkOiyM10etI8jazF/oJm86svr+zfrbUO9ukrVUDRcz6okoTn0Q1e/9topOm3aiFt0P044KWbtiyq9dn2PMvo4dwjxDNiE8Nnd166cPBSArHg=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
+ by LO2P265MB3423.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:199::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
+ 2026 14:10:59 +0000
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
+ 14:10:59 +0000
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Date: Wed, 01 Apr 2026 15:10:58 +0100
+Message-Id: <DHHVNHVHWO9O.1NCHKQ8SDVNAF@garyguo.net>
+Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
+ <rust-for-linux@vger.kernel.org>, <linux-kbuild@vger.kernel.org>, "Lorenzo
+ Stoakes" <lorenzo.stoakes@oracle.com>, "Vlastimil Babka"
+ <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ "Uladzislau Rezki" <urezki@gmail.com>, <linux-block@vger.kernel.org>,
+ "moderated for non-subscribers" <linux-arm-kernel@lists.infradead.org>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>,
+ <nouveau@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>, "Rae
+ Moar" <raemoar63@gmail.com>, <linux-kselftest@vger.kernel.org>,
+ <kunit-dev@googlegroups.com>, "Nick Desaulniers"
+ <nick.desaulniers+lkml@gmail.com>, "Bill Wendling" <morbo@google.com>,
+ "Justin Stitt" <justinstitt@google.com>, <llvm@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, "Shuah Khan" <skhan@linuxfoundation.org>,
+ <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH 10/33] rust: transmute: simplify code with Rust 1.80.0
+ `split_at_*checked()`
+From: "Gary Guo" <gary@garyguo.net>
+To: "Miguel Ojeda" <ojeda@kernel.org>, "Nathan Chancellor"
+ <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Danilo Krummrich"
+ <dakr@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Paul
+ Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
+ Ou" <aou@eecs.berkeley.edu>, "Alexandre Courbot" <acourbot@nvidia.com>,
+ "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
+ "Brendan Higgins" <brendan.higgins@linux.dev>, "David Gow"
+ <david@davidgow.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, "Todd Kjos"
+ <tkjos@android.com>, "Christian Brauner" <christian@brauner.io>, "Carlos
+ Llamas" <cmllamas@google.com>, "Alice Ryhl" <aliceryhl@google.com>,
+ "Jonathan Corbet" <corbet@lwn.net>
+X-Mailer: aerc 0.21.0
+References: <20260401114540.30108-1-ojeda@kernel.org>
+ <20260401114540.30108-11-ojeda@kernel.org>
+In-Reply-To: <20260401114540.30108-11-ojeda@kernel.org>
+X-ClientProxiedBy: LO4P123CA0303.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:196::20) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:488::16)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LO2P265MB3423:EE_
+X-MS-Office365-Filtering-Correlation-Id: d4f41b4f-3584-4030-0fae-08de8ff87fd5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|10070799003|366016|921020|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: oUwFZpcO8JmYscJk93cfsLhQD8ZjFrOMoVhbY6FGw8fx2cfqaAIEWlYi56sY2iI3LCmIhOv7Xtq0KVXrdGxQ8JXuMrI4eBqipgEtyMgV5IpohzHh4lzCFDRo+NalkpkdlVk9IuzaCvXB6gbhUbSAAPTRt3bve9pzaZg9aePdRuOJKL5lyMRjKh+tQQz2iuuRwtRocaMYfWeeMQ7gzW1+D9H51mt79xfE8fet54cBEyTvULAXUa6AA14X9OzM9sZ9LXFklb0gsGHAMxvoYXgTJdt6i14bi9uV5Fo+HsjDWbJsSTIWWULf33HD0yhWiIT3x38QpvBDyhC31q7zVifQV46/PhoOAVtoT78hXThqbm8aM/vESq3WJtV/cORDpyqDe5QVoLzoV5LOE/Lm7P3wumU8kTARy4FFzOpMKa4CJXmtcAvEq+WXLWLlPufc1AL/+ljeofSv6UqQCjW8ahKf/LdeJ99TnsbfWLFY7FM4r6GRB/Y1QzJL7+JNud9Cth3l9GglYQYtERGKtyPp5xJ2/Fs9hPpq2+Ntir7bh7gJdTps25wAFIUSyuhC2bY6FVuy/9ad5wPLQf4Hoks2UUyQraDOICFMHdMq84vqT0caZRwJQeVLA/y9YOW2U7hk7qKK4s672FjDOEp3+Sd5nL4PkHuq6m0xgu214F2ltRTmR9tDEI4UOsuj//CN2+3O/MgL2OD6eb2Fw1AKtUlohEEK8ZU5cgavXxmwCusTrZgDj1xPg83CWVRDS0hX1P7yCR31exTLg7fvmh3NB86mn2OcDg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(10070799003)(366016)(921020)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YlBXSmJQUkJQTm1vQlR6LzlhTmEvZWVkNkVLUXZsNGpDaHRFVEsyMHd6RW9Y?=
+ =?utf-8?B?a3JEbG5tb3ZpUXhicXE4MGVVWmx6ZEVpdW83ZHJCNmRWdWtiV2VNSi9UTmRU?=
+ =?utf-8?B?ZHNUZ1RMb0VKMmp1dkRXUDBDV3o4VnhDQmNubUtVNmJoK3g4bGZMaDdUS1U4?=
+ =?utf-8?B?blhmWW9kVGp6dW12UFB0emdDUUQ5dGo4QW40cU5FKzZqa1VMUm04aDI0MVdu?=
+ =?utf-8?B?TnRXSUgxQWMwTm9KWnM2NjhLV2JvR2JhR3dhaUZOeVNCYURCb2VqK3dhcXNC?=
+ =?utf-8?B?MXRIVHVyRHJITXlQWGV3aHJWT3ZyMFp0dExldno3STliVGt4SXJyQnpLazFu?=
+ =?utf-8?B?U1VJNEJucTBKN1hPa00zckRhWUZXK050UGViaTlqVHZSWjRCK0lmbHAzeFg2?=
+ =?utf-8?B?VXM4UFRSWU8wVG50VE1OOGduUDRydFQwYVJNL0c3dWxsUkJIL2kveC9wbU10?=
+ =?utf-8?B?WGhLRmZMTjRBNWN3dTllaVVDSHVhTTVad1ZpZlJESHF4MEVxWEJ0bnNBYi9S?=
+ =?utf-8?B?S2FTV3B2ZXdxZXgxZjFBaUpyaGFWbGU1UTAxdzRnR2tNc0c5WUJMSDNreXRG?=
+ =?utf-8?B?dWFHa3llai9GVjNvRklvWS9zREI2T2lFM0duS0cwbGVEVjFpSUprQ0o3cmk4?=
+ =?utf-8?B?b0tTbWh5ejY3ak1pdmhMcytzbjJ1WGEvcmxsVjlGT3FmY2VUcW9yWERqbjV5?=
+ =?utf-8?B?dmlId1k1aXB1L1dHK3BJd2ZTU1ZYekFvLzY3RE1KOE1TWHNkTGZuSk5vQUty?=
+ =?utf-8?B?ekR5YnZRbWJqQ2duWlFFNjh5MXg0dUZlYUgvNVF1Y2N6T1BaajlmdVgrOVE1?=
+ =?utf-8?B?N1pFeXdQSVQvbG1BcGk4dExxcTV5ZVRuOEs4TFhTSW5Kd1Zta09nWVpHcXM2?=
+ =?utf-8?B?VjZQa2N2YkdwbDNXRExJMjNoUVhoZ0tJMm9saVhUQVhGa1FTK09KUmZReHpl?=
+ =?utf-8?B?L3pzd0k0Q1BQYStBcnI0SmhQcnJpSytyeGZscFFhL1FUWU5QYWl3b3NOYUEy?=
+ =?utf-8?B?WVRCMEhMWGpEYit3TThOLzVXVlZmc2FMR05Rd2owaCs5d05nTUhMZGlNMDh0?=
+ =?utf-8?B?QTNWd2NOUHZpRFVrTGVXM0RqQ1JPdHM2ZkRtbFdnYW54SzlXVlNrVk5QRXJI?=
+ =?utf-8?B?MWJjWm4vSFg3aldRVzZkemZDam9YSHNZK0JWSFJRMjh2cTcycm1LTVZIZUVD?=
+ =?utf-8?B?eitkZVd3QVBsTnpJK0V1dUpWVmE5VllDQlYvdm14bFdSbjlvVWtUenJUUTNt?=
+ =?utf-8?B?OTNHcXorNVlZYnFPbjBBMzY1OUh2Um1hVUF3Y2hHT3NEbzRWVFRrc2ZEU2FU?=
+ =?utf-8?B?ZzZzSnJtNDJ6Zmg1OVY1YmsvaXNtengrVDJOMVVoY3VwalUyNVZua05JTkpY?=
+ =?utf-8?B?M3hjSGVHYi9iUUJ0SVpKQzZvTHJ3ZWFjQk1odUdMSEV2TFlCMjhqdjk0VUQ0?=
+ =?utf-8?B?NkxLSjZrVGZ6bFFnSnJTMk1KVlVvRGY0bGxHV0t6Sjl2SFhDRzBPZkZrbEgx?=
+ =?utf-8?B?VFJ4NHYyUVpHUTZVNFJKUGFVNE5XbFpzdDN0a1lXbEo5VnhYTzZ3RFRYcml3?=
+ =?utf-8?B?eXI0eE5zVmwvOWNqVkJmU2ljUDVxNXRvTDNKSkJJT0tIaFQ4VVdybmJ4T3Bx?=
+ =?utf-8?B?c1ZqcEhRcm5TNktRdU9DTGY3bU5aNTFCVnJXd0xuZGdXRTNObGJvV243TlVx?=
+ =?utf-8?B?Z2gzYmt2NTIwYkx0VFpIalI3L1VOdG52djRjb1d4TW1MbzVrak5nL1NzaVVR?=
+ =?utf-8?B?aTd0WUV3UjV2T2tLOUx6QU1Ib3RGMjRVUEVlUDM1ZE1XZ2t4RHhzeDM4R25Q?=
+ =?utf-8?B?Yi9JR1pveE1zUXozUS9OWTlRSTFuTXRIb2ZHcXBRVlR1UElrZEd1eERCVjJK?=
+ =?utf-8?B?VmtHT01udTNncU9QaXpic2ZmK2dFUTcxeEhNOC80QmJmSlBYcUR1VURtaVU2?=
+ =?utf-8?B?LzA0b0Y0czBSM0x5ZExBTzRCY1BsQUpNcVhCMmREUGRuU0VrRmYzZzd2ZE1J?=
+ =?utf-8?B?RmIxN3cyUVgxYWpodmtmMzB3NUxxZEUyV2lKZTZ0UC81eTI3QSttS1lkOG1D?=
+ =?utf-8?B?TUJUM1RxUTRmYS9LMlNhY3VpL2RmTGFVRXlyWTVCVnZKN2g3U2NLalRod1Ry?=
+ =?utf-8?B?TXpBclBRSVVtM2drS296YmNtYWwzaHdsRU9QTGxuaVg5UmdYWGp5VEdPUkd6?=
+ =?utf-8?B?NURyY3J3ZSt1ejFpcjU4YjRxdmZNSHlpYTl3WFNsMEdMSG8rZXcwQWY0anRX?=
+ =?utf-8?B?eC8vdEhVVjNzaUk5NFJ2bEtFRGJ2S2cwSXc4ZTdvYnM0V3RoNFlzNkNXLzB3?=
+ =?utf-8?B?dXRUSURadGg2R21vbDVwb05TN0Q0Zk5aRkVXRjdtanlvMHhWSW85UT09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: d4f41b4f-3584-4030-0fae-08de8ff87fd5
+X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 14:10:59.3333
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wjMx10W9Vb+bESz+ezSQ5YMIm9X7Bippdaq6R6jKLekvr5BkMfovlNBVK1T5rrPl8q/bReAcgaNWYrLS2M3+JQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO2P265MB3423
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_070550_572557_D93C9375 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20260401_071104_252350_2F5B34BA 
+X-CRM114-Status: UNSURE (   8.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,31 +173,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dennis,
+On Wed Apr 1, 2026 at 12:45 PM BST, Miguel Ojeda wrote:
+> `feature(split_at_checked)` [1] has been stabilized in Rust 1.80.0 [2],
+> which is beyond our new minimum Rust version (Rust 1.85.0).
+>=20
+> Thus simplify the code using `split_at_*checked()`.
+>=20
+> Link: https://github.com/rust-lang/rust/issues/119128 [1]
+> Link: https://github.com/rust-lang/rust/pull/124678 [2]
+> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 
-On 4/1/2026 3:07 AM, dennis@ausil.us wrote:
-> From: Dennis Gilmore <dennis@ausil.us>
-> 
-> The Orange Pi 5 Pro uses the same SoC and base as the Orange Pi 5 and
-> Orange Pi 5B but has had sound, USB, and leds wired up differently. The
-> boards also use gmac for ethernet where thre Pro has a PCIe attached NIC
-> 
-> Signed-off-by: Dennis Gilmore <dennis@ausil.us>
+Reviewed-by: Gary Guo <gary@garyguo.net>
+
 > ---
->  .../boot/dts/rockchip/rk3588s-orangepi-5.dts  | 184 ++++++++++++++++
->  .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi | 202 ++----------------
->  .../boot/dts/rockchip/rk3588s-orangepi-5b.dts | 181 ++++++++++++++++
->  3 files changed, 378 insertions(+), 189 deletions(-)
+>  rust/kernel/transmute.rs | 33 ++++++---------------------------
+>  1 file changed, 6 insertions(+), 27 deletions(-)
 
-This patch seem to reintroduce a lot of duplication for the 5 and 5b
-.dts-files. Please reduce the added duplication caused by this patch.
-
-Maybe it is better to create a rk3588s-orangepi-5-base.dtsi or similar
-where everything that is shared for all three boards is moved. Or the 5
-an 5b specific parts are moved into a rk3588s-orangepi-5-5b.dtsi or
-similar. Then the change in 5 and 5b board .dts-files are kept to a
-minimum.
-
-Regards,
-Jonas
 
