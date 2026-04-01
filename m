@@ -4,105 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8381076368
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 05:08:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4426D1076369
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 05:23:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sIWNE/RAkZ7ajOJ8PPae7L4AdvTk4JaPCBjSXOIrGz8=; b=qfdP8bXe3DxavMh4vOKgdA+dXa
-	+snTzfmDCSdEUgxRzTcjBvaDvoKmSj/vdyjnOlkXect1aPZWWOmzbxcZib8yBK/NOigP+4ff1jHxK
-	tULYKGkNpaSmvrN+kXxf/R3l5ZRGxca2o/REf7vWtdL9CLMXQBHA4Qt047qZfiXNMOmHM8stGzYHi
-	HERsjmm5fVp8DtADlXJWT6iYPHUvasK2aRzyzCc/+VD8WFyPWgfPVGp7yYv0yiKIYX/ryiAa4s+cV
-	LvVaiKs9tNnwteltsjLSgp/L/wK+z2nTvnbV61Omy+TOTnyJIBjKknvAKeLoPaYkieud3CNs0bdXF
-	3d5cAcnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QwBzC1rJSolNNb0WcV7HRYZ2eqJBWIe1/OMmdYLPSew=; b=iKZoeZIzJBkjtjYKGjVjT5KAcl
+	hndiodk2M+FE+Ll3PaO9bxhEgcC3fBrdhCulRjN4fIlL3qwOfASq/UqqwIlwTpyz9TKMMl7VT36eX
+	9EKafbh6Y+3RDv+SV6Mkzi+Pgoop9NMtoTYVKJXIXYqTH5U2m/k5htaXa58848nVoHRvTSosL9Xap
+	tD+h9kGWJsclCq26j1Ff4c6EMDaa3XoFYiaKJ++tCpF38buSva6EhvWm7n0RelM3IhsuzgLHvTtHP
+	4oVbw7X7NJgLQKYnieDLqnEHmjNn8cEkTOu6AIUQyKN8nJYCsrYlrimBN09CVrDJsuU9EwylltoDM
+	S/pxPdEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7noD-0000000DyWR-31Ri;
-	Wed, 01 Apr 2026 05:08:05 +0000
-Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
+	id 1w7o3P-0000000DzUD-2rf1;
+	Wed, 01 Apr 2026 05:23:47 +0000
+Received: from mail-westus2azon11012047.outbound.protection.outlook.com ([52.101.48.47] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7noA-0000000DyW4-4Awd
+	id 1w7o3M-0000000DzTs-0edA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 05:08:04 +0000
-Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-7d7c77fd31cso5995922a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 22:08:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1775020081; cv=none;
-        d=google.com; s=arc-20240605;
-        b=LR0P+nCYU30qsLZKQ1c1/HYDY57P4AaqqKCqrMk7Qodtjb4MOZMIMTjFM9gO+fcT3g
-         9CsSDhYAn6FvPVAF41zwoJCUJc8M+WCtwTH3hPhyY/YMoEzUV6lqoKdV2cEEQLawnhvf
-         +UJ0ZUsXxccH5c6PP+s6EwKOvdGpzGaRCod5HKFy4LYoXS8J1Ohkjpw/Wja4U9vkAcOX
-         zVUfrj4td6dA5w/lzZVXNAWb6z+goLuMJ5N2wOpfaMl0p2YytkzTblcOnSrhsNsZrq6r
-         0WOsQqKYg+clrfx4h9Xn0fUSI0lshpP8JStgDm637rVu5CQBcML7rxTdGKrIZLc8MYhn
-         hdkQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=sIWNE/RAkZ7ajOJ8PPae7L4AdvTk4JaPCBjSXOIrGz8=;
-        fh=qy7wLyAThUQIqEyenimld37twO3yfUVdjoy/l1p0sP4=;
-        b=OApES5TMNrqLIsIvjITAjBvJvs76iH10vhQe7OQoVpJWdj8zMiL4PgJm9lEubq71iF
-         88NeyOp7IFQdoZZfHowCwh5uCay3nfceM6u12TBV/HiaKj2RjjdgFCiQR427SvTvmMkE
-         fcYV9SJUY4nTMRkT8iAwb2ych8RjyyCvLM/Hu1LRu2/7Fyk+CdRIuc5jb+UFe/9z1nTv
-         jNElfIbOGaT7E2T0m1IFIPINilbtf5w128sUVNwo1T5N4GHGc36OnslhvGINkLG7MkDT
-         kdiEHQjKsQx5a3MSEJLYPsAt+oT6vNv2T8AOjgZcmOT5g62KfM985Px30s2SKSF+YUdD
-         7edA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775020081; x=1775624881; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sIWNE/RAkZ7ajOJ8PPae7L4AdvTk4JaPCBjSXOIrGz8=;
-        b=EMhV/i0lM0l/brgtgugjLTEaZ00+D/6xSAeJ2alIEa56goyAfS0JaSmdnv6VQSUO2n
-         DyVgQTxVIGbqOMYUhEbTI3V03vZ4bZ7M+X9oEO0X5etfgg+TMAZw4CDEWSzT2PsQwDHJ
-         Tz+uMEh6ciofmM392sShGR0TtYjbsG5Pyg0rCO1WbqxQC2CsOZal7v+q1NPJhF43Jh6r
-         JEgi2so2otlYw43yXYllGqxQ/hL9YOvA4gTM25fJYUDAInDKmD3uM4Jka4QxdfTLqe4X
-         xrGWMVWQPVVwIFjUUnJUh38Sc/TK6PIIJ62y7JOCmWJzgiCcxnJvdWFspzerHn/E8CbI
-         Ko6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775020081; x=1775624881;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=sIWNE/RAkZ7ajOJ8PPae7L4AdvTk4JaPCBjSXOIrGz8=;
-        b=O5m5t+zwHmzle5DZxbF8pnM7xqytYFzqH31RUwBUiR3y1rst31jYtXjQZBGddiO6YW
-         TIWLmBb8vo6D7xmOsh7/ofTReD2790T3c5q/VXk0gt4uhqfZIV7yWzKHLZxO5Tzod0AK
-         0IdTddp3xHXWJfFgt3WLghl81PqFALoV0QsrE4Gd097aTDjEcTFmJ3eCeK4z8TQ0d0Ey
-         FS4BbUheJe/DCDXI78s3GxxrG3OoyU+Ep2TTWT4DQtZMb4mR2PlYDvGVjLTdmnUGvQd/
-         T3oMOXa2so67nerx+FaHz0nlWXPG8ysZy5dlBRqHxvVWxqVu1y+pxejE7F0VMum/ETnc
-         MayA==
-X-Forwarded-Encrypted: i=1; AJvYcCXwgFyDEGOc0WUgIyjuL5Iw0PFz36Z3hJprfE89jAOL5O8q11HoKKkaHCZRUJAnaYej7C/7metlq0Wz3Ya3n2qZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLMv96xY6Z35o5BpQP8hypBWlrayF3yZBzFxY5axhWURq8DP2q
-	dMmElKwWJ0BHBW9F6mT/I1slZJIVGHCNWGImiImLNAP4fhK7vPzV4Ou1REdzaj2C7Cwox7UruIg
-	StjkfWVSiOD5INgE/BjtT2vlURGVjuho=
-X-Gm-Gg: ATEYQzw3yu/eCRCQwS0JijRJPVPlqUXZsXYnyfYUMWE0N5ImcIoQpyHXSs0hx+gTSvn
-	oqcZrmgF8riKhl8F1DqRGcI0Rt4dkcsOlIoy4XLEs4Ci5Pu3mxiVW0rQDTYL+GBwZbyg3rucTFw
-	J88QWZ0CW0U6ZLQ6MDByby/6JGb+4W4FtyXLTe8QydiiNdh9StRH3Ua/cr/b0vBf4fZV7qUKl9Q
-	dLCILhq/VFYNKS7Zex3j2helH4BzRq9WqlqxQq/5NPHZ+r70UGem7c4CPSiRvkkgD9ShcsQyf8A
-	AquCDmuf
-X-Received: by 2002:a05:6820:339c:10b0:67f:c06c:a5fa with SMTP id
- 006d021491bc7-67fc06cbd7bmr215078eaf.41.1775020081458; Tue, 31 Mar 2026
- 22:08:01 -0700 (PDT)
+	Wed, 01 Apr 2026 05:23:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VBFRXl8yMhYrABx/9nWgOMiC2ztFkMPNTjaEcwRih7jvYftJQYbM+QDLF7hieequmHewDdn99AokKKIPYWCj9TCKlNZtVRa9MzA52sUIwx5gWvQi01EleX0Cz4YhoXgYwUejOegFshE+Xcxy2dhA9HSFnHAv91kGIF5E78Bexz6QlZ2ZG5XYmRF9mocprtBzzRI9f2X5l0ockqmLpbNDml9anB2LAil2nU7spSpXYfNchjsW7kJ09/KqQvbwR9eNfNui0qopZ9RFm12EijRtF636yS0G7wU0Ft72+cRP8kln+3AkTfwwj8HY7QMiFzCOdnIiwdt6z2X0PMTuoqWh/g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QwBzC1rJSolNNb0WcV7HRYZ2eqJBWIe1/OMmdYLPSew=;
+ b=RK3F8wXNgq7+Rvwv1XPAHECICqCYg7zGBxVxCP4Ai5tG1iJ4TVVv11T9ggYagiTUAxkyV3jLwSMCWOPLHwmP076/U7IJDdYlhovoPJKof1QoEDdQu9SZ+7iJ3yf+UYzmUtW/YbWVqFVoqdXzGowjEgAl+C8I0Oc1IUCKFh3B2nTU9/EoH02GlmrOuN+O9uO1mZVBcT7P6Oy0oXAmGu0vzYCwDCXnsXof/4/6Xo7fyINx8dMlhk+EJjvWSiqKG594imHOGRvxejkGAMDx2FL52Da7KWk5O8uUvQsRK3lZuTofhHcwJUBjAX79Bo2azitipSUI1g0p89ng58pvQVxYLg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QwBzC1rJSolNNb0WcV7HRYZ2eqJBWIe1/OMmdYLPSew=;
+ b=ePt7vatpkECpG1RWNyFwNNnZrQ8Jfxo81d+DyBud8hADleGcdt/Fw89p1WjngS/EPpMfeLUmIpPoBycf+PkSpshpjVswIL8x0Fu2GCg6ey3cCS6yV08PLuHJe4VMNaAozpmAuY6KqXdJPjSvHku8Qh36KC7fu5y+1id0VR3Zl1A=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SA1PR12MB6798.namprd12.prod.outlook.com (2603:10b6:806:25a::22)
+ by CH0PR12MB8580.namprd12.prod.outlook.com (2603:10b6:610:192::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.16; Wed, 1 Apr
+ 2026 05:23:39 +0000
+Received: from SA1PR12MB6798.namprd12.prod.outlook.com
+ ([fe80::e317:e4a3:6ae9:8c54]) by SA1PR12MB6798.namprd12.prod.outlook.com
+ ([fe80::e317:e4a3:6ae9:8c54%4]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
+ 05:23:39 +0000
+Message-ID: <833bb42a-65b8-4c93-8109-d2959f8b807f@amd.com>
+Date: Wed, 1 Apr 2026 10:53:28 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dmaengine: xilinx_dma: Fix CPU stall in
+ xilinx_dma_poll_timeout
+To: Alex Bereza <alex@bereza.email>, Vinod Koul <vkoul@kernel.org>,
+ Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Arnd Bergmann <arnd@arndb.de>,
+ Tony Lindgren <tony@atomide.com>
+Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260331-fix-atomic-poll-timeout-regression-v1-1-5b7bd96eaca0@bereza.email>
+Content-Language: en-US
+From: "Gupta, Suraj" <suraj.gupta2@amd.com>
+In-Reply-To: <20260331-fix-atomic-poll-timeout-regression-v1-1-5b7bd96eaca0@bereza.email>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: BM1PR01CA0160.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:b00:68::30) To SA1PR12MB6798.namprd12.prod.outlook.com
+ (2603:10b6:806:25a::22)
 MIME-Version: 1.0
-References: <20260327220040.53326-1-jassisinghbrar@gmail.com> <20260331100816.2222507-1-joonwonkang@google.com>
-In-Reply-To: <20260331100816.2222507-1-joonwonkang@google.com>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Wed, 1 Apr 2026 00:07:50 -0500
-X-Gm-Features: AQROBzBgRboNX7aeGBEGAkPjchrPljvkbxkg14i7EEsCKIYbKjwbOLwSwn_gDD4
-Message-ID: <CABb+yY1ZTjnsumoBPYeeuJSNMFoNvz7ktZR-zk287M-Y6cjR6A@mail.gmail.com>
-Subject: Re: [PATCH] mailbox: Fix NULL message support in mbox_send_message()
-To: Joonwon Kang <joonwonkang@google.com>
-Cc: andersson@kernel.org, dianders@chromium.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	maz@kernel.org, shawn.guo@linaro.org, tglx@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA1PR12MB6798:EE_|CH0PR12MB8580:EE_
+X-MS-Office365-Filtering-Correlation-Id: 85aa5261-9cd1-46b3-22d6-08de8faed4a5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: VJlrzjKAszkrq7T/ilfAuDvIqCLlkGegXuDX52KJM8gRgi6icL/j9oalfBz6Ml5yi9zIAjL9dwKIifxJox3DNMhXLbil+Qm1+bwVempR7h8XtS7ns+axOGl6Kf4NW2MDxXfXOAnXs8AKTxsYeklsfQ6Ftz/UZ6a28lAyzSpFXkqNQWD2a8FAD63SBYzGyBiSYnu5UHrBjlbVLqu0xPpCqyOaoVk2xSMkxPbhB7/JhWHdiicc+PHKDZkc0YB+WW++aGScOFIjLM+mZpM5D92qLKQhu4IhUx53kuf6ar2R3tFINCkBlSQ4wiFZ1+8vW+g0szL8z4yep+tqXow+hrE6iZ33Ofecmzp2Bmr27GfYNmzvbHloR6/vZRaV8kXoZYt0XWnLRRtyeQK+BDXNgauSQ9ECR8yu6WAK3Ir3LmRhBUaDHeNIRhL6ElcGq1pR/UL7d0VWyMsLeU3BYHQp5SrBXPNJ5hJMfzCGJr65NdTUhw1wiTfnxWe3XX4tG3Djz6EJm0iVgjZpinBb8sxGM/SUicsMgClLlys1TV/ce4O9PLutZ6foIUn05uBPtkr1VanEcQYHxnt+mzjCt9IUsmHAWuSTdaRD+8BrRJsm+ycDElv/PI5W2zPVKnaTMA5ZpsqfpZ6muhYqpMrCDtoD46Uk2pC5IPOlSuMJqZNQms0LZjZG85XdTdutbGv6SqkNgTOpaVsF8+nFrJqP9k5KbzgK+pnPQu1K++N1nrw6opyuSHw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB6798.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dDd3RVNRaVRzcDZvcmdHTGlHdEV1ejRxQ1QwTTRBZFN5M05JSnJQUTF0SUM1?=
+ =?utf-8?B?YkFzZjhMR2pOeTVPa2llMXBSbTU2V3MwOFp5bWFnY0l0MXpwOWtPV1N2eFdM?=
+ =?utf-8?B?YlR4NlhKMWVaRjNWcUNEbDUyYW1tSlNZUHpycldyRG9ERGNwb3NVZnpHRnBM?=
+ =?utf-8?B?QkI4aHh1UGZ0ekJ6NTlLSC9xZkN6TGxxMDYyaURldFlmOVcydkdxd0xpcWlr?=
+ =?utf-8?B?c01Vam1EZTRud2xHSkNoNXZqeEpwaUpFSzJaOXg3azUzVHJwckFOR0NxMkgz?=
+ =?utf-8?B?T2trMFFMTExlR3lTWHk0em9xT1hnbWVCZm1LSlR2RnArQWk4eW90dFdsSDhm?=
+ =?utf-8?B?OUltNmtmc2pSSXU2eDJTV0pSQ1lmdFBIOGFPZEt4MmlBdzNhTTBhVlNzcm0z?=
+ =?utf-8?B?VjdQU1JodTZRRU4wdi8xZ21FTUM1UmcvVEw3WDI4R0xsdXZrV0d1cDdXa1R4?=
+ =?utf-8?B?OTQ4bWd0U0ZIYlplYVE0VnowM2tNV0h3anlRRytKSVIweVg0UkpQYkFhdGxo?=
+ =?utf-8?B?cEF4Qm9LTm1VRHNqcXdKbDRKdjBtMjBuT2VTSWNoUURSMnljaHorNy9mTGwy?=
+ =?utf-8?B?MjV0cExqWVFSUHZjNWxpYTYvcEdwOGQ0TUlQb2pVZUlqNVlsam9XY0J3SHZw?=
+ =?utf-8?B?a1NGK044eDRvbDVSaEVEeFhIc0lKUWp1MUJBZlJNeThtZUxYcjhWR0k5NUdF?=
+ =?utf-8?B?TkZ2cG1ZZVlEdnhtUlAxeTNnN3UvdktvVUozRUxOUU9iTHdzVVNNb2NUVDUv?=
+ =?utf-8?B?ejVMaGt2OWY3WnExU1dxYTJYMEtNZ0I5S2lqWnkyejFIVUdCZTJaVXpoY2pS?=
+ =?utf-8?B?MjR5RWd0TmZwdlJNbWhrNUlLcEs3bjhFU0FlSkdZWlk0NHdQZjAxckNiVzBM?=
+ =?utf-8?B?d1BEV2pqOUEvVnpFQnZ1dzhBZ0lyV2dsdkNtaVRkV0RIMThoQzVBbXpod3h2?=
+ =?utf-8?B?MEF1dDRTeHkwUzg5NitiNk9QeUpVamM2SUhBdGFvNlpiYzMvenNUeFdvL3lU?=
+ =?utf-8?B?NjZVVVQ0ZVlkUkVvZlRhOTBsOHFDTFpydnhkR0pxZDloTEFtVDE5U1UxODNt?=
+ =?utf-8?B?YjMrOFl0elNNc3ZRdjZmdW1EZHBQRTMvRjZxYW01a3g1ZlEyMjlpSWJXQWpY?=
+ =?utf-8?B?cFdmVkNiQjAvOXFBVVdsT25USEJ5cm9LODA1UXV3ZXQrRllUZkhpWHBubzNu?=
+ =?utf-8?B?YlZ2bmNjR2VFcHBmY3YxL0JRQ00wMTZpZnQ4MlgzVG5GeUNBOVEyZVdXa2Jo?=
+ =?utf-8?B?aFRnbk1OOU1SeXFKTExncVNLM1dDc3VNamsxdnQ4Zm1hcWJpclhsR3hCTHVx?=
+ =?utf-8?B?YzFYTXJuMCtHT1poMG8yeGRTNzNOZHpPVHBWcXdIOW9PZlJIcG92eVYwY25k?=
+ =?utf-8?B?RVpTNG5ZZ2s2RXBWTFNpNXFNd3RXSjNPUi8raStqSENMUUdsQkJpR1hoNlZ4?=
+ =?utf-8?B?M3FaM2dVV3B4Vnl4ZEtvWkY4SG9tWkJlMXNIYXBEblhZcHgxZG1SRDA5dm5s?=
+ =?utf-8?B?aCtEcDc1SmRZSDN5Mko5SE1tR2V1YnRQc2NROFlqelgvVW85QTNrazJlMTVl?=
+ =?utf-8?B?QzVhVERvWHVuZ1U0VmpSVE9ocHA0WDkvOE5rb1psWkUzL2pxdnBQZStSaWll?=
+ =?utf-8?B?V2EyeEt6VTUzU0F6dXlGemtFZXJXaFNabkwvWXR2UFhBNEpTTGJOYk81ZVJQ?=
+ =?utf-8?B?RUo1TmNGZVU0LzBmWTVCZDU5enVncXpEb1pIa1lqK1lxNk1YL08yVnZVb0w3?=
+ =?utf-8?B?NmNqcGtOOW8wNE1WdGhNaDc2aFlzTXhKd2xDbUNiNkVYRE11VkdqT3RUWEhz?=
+ =?utf-8?B?N1QwajBtNDcwbjlqaFcrQkluNDZTQmNvNE55WGxodkxQN0pYNWpPQ203ejk2?=
+ =?utf-8?B?Z0diZm5UaFpjdURtL1BXS0tzYVhnQS9ld25aQUVUYXY4MEZEbXY2ZGlkR3Va?=
+ =?utf-8?B?R0I2VDJQRTZOZ3NlbzMzS3g0dXBRZFp4aFgrT1JNelVNalpNZ2xUVmZIaUxJ?=
+ =?utf-8?B?RW5EWnJxQmFWY0YycWc5cmlOc3dUMHkxaUk3N1NQTjBsZVl3aDZscWdqbGsw?=
+ =?utf-8?B?UUFzNEdvWXoyeDZvMGswaWhOYnAvb2lNbXRFYzVpTG9SRmI3QkhnckV4N0R5?=
+ =?utf-8?B?MGliVDlSV05ybzc2VklyNGNBcTlzYUtpS3o0UFJZU2ZwQWE3U2R4c2NuaGlI?=
+ =?utf-8?B?TXJsM0p4dnFhZUhQV1I1eEpzMkxkcnQ5NGgrV0huVitzS2pIVlZzd0psRFNl?=
+ =?utf-8?B?WEpQTEp4VGVyMTQvTlBFeGxMSVY0ajVTWFpLeWRxbytXVndNWkEyaFBxWEFv?=
+ =?utf-8?B?bFJ5VktHUytWditSZU1MK2NnMEF4aHV3bTVYZEIrM2lZM0tJek5Kdz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 85aa5261-9cd1-46b3-22d6-08de8faed4a5
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB6798.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 05:23:39.1253
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9nH7iBkG1xXW3Ndej8WZVPGd8izQtoCHJQFAT/Mu9+1PXWnuQJKEX1l8xLuQeC5Y6vHe1Qq2ykVXjmnKuFTX3w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR12MB8580
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_220803_067119_464C4B35 
-X-CRM114-Status: GOOD (  24.93  )
+X-CRM114-CacheID: sfid-20260331_222344_382192_661CC703 
+X-CRM114-Status: GOOD (  36.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,62 +150,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 31, 2026 at 5:08=E2=80=AFAM Joonwon Kang <joonwonkang@google.co=
-m> wrote:
->
-> > The active_req field serves double duty as both the "is a TX in
-> > flight" flag (NULL means idle) and the storage for the in-flight
-> > message pointer. When a client sends NULL via mbox_send_message(),
-> > active_req is set to NULL, which the framework misinterprets as
-> > "no active request". This breaks the TX state machine by:
-> >
-> >  - tx_tick() short-circuits on (!mssg), skipping the tx_done
-> >    callback and the tx_complete completion
-> >  - txdone_hrtimer() skips the channel entirely since active_req
-> >    is NULL, so poll-based TX-done detection never fires.
-> >
-> > Fix this by introducing a MBOX_NO_MSG sentinel value that means
-> > "no active request," freeing NULL to be valid message data. The
-> > sentinel is defined in the subsystem-internal mailbox.h so that
-> > controller drivers within drivers/mailbox/ can reference it, but
-> > it is not exposed to clients outside the subsystem.
-> >
-> > Fifteen in-tree callers send NULL (doorbell-style IPCs on Qualcomm,
-> > Tegra, TI, Xilinx, i.MX, SCMI, and PCC platforms). All were
-> > audited for regression:
-> >
-> >  - Most already work around the bug via knows_txdone=3Dtrue with a
-> >    manual mbox_client_txdone() call, making the framework's
-> >    tracking irrelevant. These are unaffected.
-> >
-> >  - Poll-based callers (Xilinx zynqmp/r5) are strictly better off:
-> >    the poll timer now correctly detects NULL-active channels
-> >    instead of silently skipping them.
-> >
-> >  - irq-qcom-mpm.c was a pre-existing bug -- the only Qualcomm
-> >    caller that omitted the knows_txdone + mbox_client_txdone()
-> >    pattern. Fixed in a companion commit ("irqchip/qcom-mpm: Fix
-> >    missing mailbox TX done acknowledgment").
-> >
-> >  - No caller sets both a tx_done callback and sends NULL, nor
-> >    combines tx_block=3Dtrue with NULL sends, so the newly reachable
-> >    callback/completion paths are never exercised.
-> >
-> > Also update tegra-hsp's flush callback, which directly inspects
-> > active_req to wait for the channel to drain: the old "!=3D NULL"
-> > check becomes "!=3D MBOX_NO_MSG", otherwise flush spins until
-> > timeout since the sentinel is non-NULL.
-> >
-> > The only tradeoff is that 'MBOX_NO_MSG' can not be used as a message
-> > by clients.
-> >
-> > Reported-by: Joonwon Kang <joonwonkang@google.com>
-> > Reviewed-by: Douglas Anderson <dianders@chromium.org>
-> > Signed-off-by: Jassi Brar <jassisinghbrar@gmail.com>
->
-> Do you have plans to backport this patch to other stable versions?
-> If not, I can send the backport for you to the stable versions that are i=
-n my needs.
->
-Please feel free to do so. Thanks for the help.
+
+
+On 3/31/2026 10:14 PM, Alex Bereza wrote:
+> [You don't often get email from alex@bereza.email. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+> 
+> Caution: This message originated from an External Source. Use proper caution when opening attachments, clicking links, or responding.
+> 
+> 
+> Currently when calling xilinx_dma_poll_timeout with delay_us=0 and a
+> condition that is never fulfilled, the CPU busy-waits for prolonged time
+> and the timeout triggers only with a massive delay causing a CPU stall.
+> 
+> This happens due to a huge underestimation of wall clock time in
+> poll_timeout_us_atomic. Commit 7349a69cf312 ("iopoll: Do not use
+> timekeeping in read_poll_timeout_atomic()") changed the behavior to no
+> longer use ktime_get at the expense of underestimation of wall clock
+> time which appears to be very large for delay_us=0. Instead of timing
+> out after approximately XILINX_DMA_LOOP_COUNT microseconds, the timeout
+> takes XILINX_DMA_LOOP_COUNT * 1000 * (time that the overhead of the for
+> loop in poll_timeout_us_atomic takes) which is in the range of several
+> minutes for XILINX_DMA_LOOP_COUNT=1000000. Fix this by using a non-zero
+> value for delay_us. Use delay_us=10 to keep the delay in the hot path of
+> starting DMA transfers minimal but still avoid CPU stalls in case of
+> unexpected hardware failures.
+> 
+> One-off measurement with delay_us=0 causes the cpu to busy wait around 7
+> minutes in the timeout case. After applying this patch with delay_us=10
+> the measured timeout was 1053428 microseconds which is roughly
+> equivalent to the expected 1000000 microseconds specified in
+> XILINX_DMA_POLL_TIMEOUT_US.
+> 
+> Rename XILINX_DMA_LOOP_COUNT to XILINX_DMA_POLL_TIMEOUT_US because the
+> former is incorrect. It is a timeout value for polling various register
+> bits in microseconds. It is not a loop count. Add a constant
+> XILINX_DMA_POLL_DELAY_US for delay_us value.
+
+Please split this change in a new patch.
+
+> 
+> Fixes: 7349a69cf312 ("iopoll: Do not use timekeeping in read_poll_timeout_atomic()")
+
+This patch doesn't fixes anything in iopoll, please use correct fixes tag.
+
+> Signed-off-by: Alex Bereza <alex@bereza.email>
+> ---
+> Hi, in addition to this patch I also have a question: what is the point
+> of atomically polling for the HALTED or IDLE bit in the stop_transfer
+> functions? Does device_terminate_all really need to be callable from
+> atomic context? If not, one could switch to polling non-atomically and
+> avoid burning CPU cycles.
+> 
+
+dmaengine_terminate_async(), which directly calls device_terminate_all 
+can be called from atomic context.
+
+Regards,
+Suraj
+
+> As this is my first patch, please feel free to point me in the right
+> direction if I am missing anything.
+> ---
+>   drivers/dma/xilinx/xilinx_dma.c | 26 ++++++++++++++++----------
+>   1 file changed, 16 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+> index 02a05f215614..8556c357b665 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -165,8 +165,10 @@
+>   #define XILINX_DMA_FLUSH_MM2S          2
+>   #define XILINX_DMA_FLUSH_BOTH          1
+> 
+> -/* Delay loop counter to prevent hardware failure */
+> -#define XILINX_DMA_LOOP_COUNT          1000000
+> +/* Timeout for polling various registers */
+> +#define XILINX_DMA_POLL_TIMEOUT_US             1000000
+> +/* Delay between polls (avoid a delay of 0 to prevent CPU stalls) */
+> +#define XILINX_DMA_POLL_DELAY_US               10
+> 
+>   /* AXI DMA Specific Registers/Offsets */
+>   #define XILINX_DMA_REG_SRCDSTADDR      0x18
+> @@ -1332,8 +1334,9 @@ static int xilinx_dma_stop_transfer(struct xilinx_dma_chan *chan)
+> 
+>          /* Wait for the hardware to halt */
+>          return xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
+> -                                      val & XILINX_DMA_DMASR_HALTED, 0,
+> -                                      XILINX_DMA_LOOP_COUNT);
+> +                                      val & XILINX_DMA_DMASR_HALTED,
+> +                                      XILINX_DMA_POLL_DELAY_US,
+> +                                      XILINX_DMA_POLL_TIMEOUT_US);
+>   }
+> 
+>   /**
+> @@ -1347,8 +1350,9 @@ static int xilinx_cdma_stop_transfer(struct xilinx_dma_chan *chan)
+>          u32 val;
+> 
+>          return xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
+> -                                      val & XILINX_DMA_DMASR_IDLE, 0,
+> -                                      XILINX_DMA_LOOP_COUNT);
+> +                                      val & XILINX_DMA_DMASR_IDLE,
+> +                                      XILINX_DMA_POLL_DELAY_US,
+> +                                      XILINX_DMA_POLL_TIMEOUT_US);
+>   }
+> 
+>   /**
+> @@ -1364,8 +1368,9 @@ static void xilinx_dma_start(struct xilinx_dma_chan *chan)
+> 
+>          /* Wait for the hardware to start */
+>          err = xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
+> -                                     !(val & XILINX_DMA_DMASR_HALTED), 0,
+> -                                     XILINX_DMA_LOOP_COUNT);
+> +                                     !(val & XILINX_DMA_DMASR_HALTED),
+> +                                     XILINX_DMA_POLL_DELAY_US,
+> +                                     XILINX_DMA_POLL_TIMEOUT_US);
+> 
+>          if (err) {
+>                  dev_err(chan->dev, "Cannot start channel %p: %x\n",
+> @@ -1780,8 +1785,9 @@ static int xilinx_dma_reset(struct xilinx_dma_chan *chan)
+> 
+>          /* Wait for the hardware to finish reset */
+>          err = xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMACR, tmp,
+> -                                     !(tmp & XILINX_DMA_DMACR_RESET), 0,
+> -                                     XILINX_DMA_LOOP_COUNT);
+> +                                     !(tmp & XILINX_DMA_DMACR_RESET),
+> +                                     XILINX_DMA_POLL_DELAY_US,
+> +                                     XILINX_DMA_POLL_TIMEOUT_US);
+> 
+>          if (err) {
+>                  dev_err(chan->dev, "reset timeout, cr %x, sr %x\n",
+> 
+> ---
+> base-commit: b7560798466a07d9c3fb011698e92c335ab28baf
+> change-id: 20260330-fix-atomic-poll-timeout-regression-4f4e3baf3fd7
+> 
+> Best regards,
+> --
+> Alex Bereza <alex@bereza.email>
+> 
+> 
+
 
