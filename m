@@ -4,60 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C42A210F9311
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 01:18:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F41E10F9315
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 01:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=84tddcSLoInqnr4qLcDW/JZ/jewF+U0Wxnidmb7LaMs=; b=I4QNnFtvWWxLwH/PIcMyzFmDCH
-	V0AWiGLuCKI3sLVtkXP/mgUlrDwZLL++xfzFzJtUSrtqlo+xkkJ1ko74JpqElmEJ9C7mjDz9h1v+i
-	+pOc5+UmTu4rVuecp5SzcymJkNXngnkf6QjfKA0w2ryIKFlWpa474Qecup+/hifpj/AIjq2nfIizA
-	HytMUZmeARJRIizoew81QrjpisNsnDtACeZ+Zr5t2J7dmEW+7rjw2ngDBYd27url6r0xM+LsUWidY
-	Rvd3nFJipJE8yTdSXg7ic3/H1fUkAbeMyNnmh0DWHI2m4AhP/Y1AjSx+1gxZazAiq7bWZwDMUkQNq
-	sYjsPWmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cc8X+evmSW2GvriYn2tcPlQ6m5YeoX1kIdk1sd4Bupk=; b=pbgNR5sB/T6a8D43/oJFr0R4r/
+	09AVXI9Zq6UAo09f6lsIrGi1/WIY8Tq7MxJz45qOuUq0WqCeeVbcmWnixhYaBiilufcF7bVk13PwF
+	Wp42QmSrLDvDTrdCR9uPsaAcqFMktCzr8289W3aEMjPGHVGPlfzTL+vE08rvJUp3BW6hBX30XKgDn
+	xjUsSXrE0ZWyPozbVSBIs2WCWfOSHbYCgshkbhgaI9YijMRC2dHZsoLLcFd+PNmA48Qs+xXspPCIT
+	0Z35It0IWbEP2wau2ybGSXW4ruoC/7bkNyUxDH3gWOvl+U/qPnSheKiaqQb4vV23EeEbaOyDA/ymr
+	EzRvAW/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7kDn-0000000Dmit-0ZLv;
-	Wed, 01 Apr 2026 01:18:15 +0000
-Received: from mail-m32107.qiye.163.com ([220.197.32.107])
+	id 1w7kHd-0000000DmyS-2Ut1;
+	Wed, 01 Apr 2026 01:22:13 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7kDg-0000000Dmht-43Wl;
-	Wed, 01 Apr 2026 01:18:10 +0000
-Received: from [172.16.12.17] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 39100b138;
-	Wed, 1 Apr 2026 09:17:48 +0800 (GMT+08:00)
-Message-ID: <5c8732a3-6cc9-5d02-f56b-fc7ba29c7ce0@rock-chips.com>
-Date: Wed, 1 Apr 2026 09:17:45 +0800
+	id 1w7kHa-0000000Dmxy-1yEe;
+	Wed, 01 Apr 2026 01:22:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1775006530; x=1806542530;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=IV/ezrq2wJekwozwDxi/VB18Q8hzC5mhy/g8CQQwaXc=;
+  b=hq7puzR+eHev2QNZUSeOeL8l1B2CsfRmYOMfsG9qN2YFQO2ERVwB13uA
+   VHvyJDmtCN7hBWjHaQAmq5AM687R35JoYxOwoNidkMfT0X4EY/RCV4iRg
+   2BKbywEnyGvUvhHYVIj/pWzudLbCxGW4eCsULMP3rgj8Ts9PemVbKoj2f
+   VBkuR+OwCsIfW7swEC17oGd5Z3pXHWMUacrTTvJvVvFMrJgiML1hY6sd5
+   fo4zsOJFOVKHc8x9b1jkMDsbhBrVdSO8JqdjgDv8D0eqWYIJwgaRRuDfD
+   nv9LAxV7pssc74YUHDuh9TXg/b3+gGO7k+xg9GlwIO6XVYJD+5C9i6LAV
+   w==;
+X-CSE-ConnectionGUID: +5CrZ3EZQ+OhHFpkYeoUOA==
+X-CSE-MsgGUID: gxzXnbOXQWyKR21+CHLtdw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11745"; a="75073332"
+X-IronPort-AV: E=Sophos;i="6.23,152,1770624000"; 
+   d="scan'208";a="75073332"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Mar 2026 18:22:06 -0700
+X-CSE-ConnectionGUID: tC+gR6JkSHirq2rGvZGdwg==
+X-CSE-MsgGUID: k10tL47EQp29KSvB8kLdpw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,152,1770624000"; 
+   d="scan'208";a="230596232"
+Received: from lkp-server01.sh.intel.com (HELO 283bf2e1b94a) ([10.239.97.150])
+  by orviesa003.jf.intel.com with ESMTP; 31 Mar 2026 18:22:00 -0700
+Received: from kbuild by 283bf2e1b94a with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1w7kHN-000000004XR-0wJY;
+	Wed, 01 Apr 2026 01:21:57 +0000
+Date: Wed, 1 Apr 2026 09:21:46 +0800
+From: kernel test robot <lkp@intel.com>
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	linux-mediatek@lists.infradead.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Fabien Parent <parent.f@gmail.com>, Val Packett <val@packett.cool>,
+	Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Julien Massot <julien.massot@collabora.com>,
+	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+	Gary Bisson <bisson.gary@gmail.com>,
+	Chen Zhong <chen.zhong@mediatek.com>, linux-input@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v4 7/9] regulator: Add MediaTek MT6392 regulator
+Message-ID: <202604010924.UuETwSKZ-lkp@intel.com>
+References: <20260330083429.359819-8-l.scorcia@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.13.1
-Cc: shawn.lin@rock-chips.com, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, ulf.hansson@linaro.org, heiko@sntech.de
-Subject: Re: [PATCH 1/2] pmdomain/rockchip: skip QoS operations for idle-only
- domains
-To: Daniel Bozeman <daniel@orb.net>
-References: <20260331180223.1682283-1-daniel@orb.net>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20260331180223.1682283-1-daniel@orb.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9d469e3dd509cckunmbd42e9a8f80c51
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGU5OTFYeQ0pNTkpCH08dS05WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=NoDHYN/y933X4usXs+vkbBkTesgf6cA+1duQalmTmx8Gn1TlLa2iKxI9gxB2vzmj/EpBNVcqd2LwvQdVxfUI7IitMgL0RgSAQD273Zo83qkzWNQeo8Zr2LzW2FU09PAtpMH7/oXcg/HAIEyH9Ioq942sWk7KYCzlTLjwk6dyDZA=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=84tddcSLoInqnr4qLcDW/JZ/jewF+U0Wxnidmb7LaMs=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260330083429.359819-8-l.scorcia@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_181809_553053_A2FA462F 
-X-CRM114-Status: GOOD (  17.68  )
+X-CRM114-CacheID: sfid-20260331_182210_524476_251D0F61 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,48 +106,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+Hi Luca,
 
-在 2026/04/01 星期三 2:02, Daniel Bozeman 写道:
-> Idle-only power domains (pwr_mask == 0) cannot actually be powered
-> on or off. rockchip_do_pmu_set_power_domain() already returns early
-> for these domains, but rockchip_pd_power() still attempts QoS save
-> and idle requests before reaching that check.
-> 
-> On RK3528, the idle-only domains (PD_RKVENC, PD_VO, PD_VPU) have
-> QoS registers that may be inaccessible when the generic power domain
-> framework attempts to power them off, leading to synchronous external
-> aborts.
-> 
+kernel test robot noticed the following build warnings:
 
-Is it the real abort happened on your RK3528 board? I am trying to
-understand the problem first. Even with idle-only powerdomain, the code
-also save the QoS registers before set idle to the powerdomain, so
-how the QoS registers become inaccessible?
+[auto build test WARNING on lee-mfd/for-mfd-next]
+[also build test WARNING on broonie-regulator/for-next linusw-pinctrl/devel linusw-pinctrl/for-next lee-mfd/for-mfd-fixes linus/master v7.0-rc6 next-20260330]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-> Return early from rockchip_pd_power() when pwr_mask is zero, matching
-> the existing guard in rockchip_do_pmu_set_power_domain().
-> 
-> Fixes: 1fe767a56c32 ("soc: rockchip: power-domain: allow domains only handling idle requests")
-> Signed-off-by: Daniel Bozeman <daniel@orb.net>
-> ---
->   drivers/pmdomain/rockchip/pm-domains.c | 3 +++
->   1 file changed, 3 insertions(+)
-> 
-> diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
-> index 490bbb1d1d..2eecae092a 100644
-> --- a/drivers/pmdomain/rockchip/pm-domains.c
-> +++ b/drivers/pmdomain/rockchip/pm-domains.c
-> @@ -640,6 +640,9 @@ static int rockchip_pd_power(struct rockchip_pm_domain *pd, bool power_on)
->   	if (rockchip_pmu_domain_is_on(pd) == power_on)
->   		return 0;
->   
-> +	if (pd->info->pwr_mask == 0)
-> +		return 0;
-> +
->   	ret = clk_bulk_enable(pd->num_clks, pd->clks);
->   	if (ret < 0) {
->   		dev_err(pmu->dev, "failed to enable clocks\n");
-> 
-> base-commit: bc330699801d3b4f99110365512caed5adcfaca3
+url:    https://github.com/intel-lab-lkp/linux/commits/Luca-Leonardo-Scorcia/dt-bindings-mfd-mt6397-Add-MT6392-PMIC/20260331-081127
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/lee/mfd.git for-mfd-next
+patch link:    https://lore.kernel.org/r/20260330083429.359819-8-l.scorcia%40gmail.com
+patch subject: [PATCH v4 7/9] regulator: Add MediaTek MT6392 regulator
+config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20260401/202604010924.UuETwSKZ-lkp@intel.com/config)
+compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260401/202604010924.UuETwSKZ-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202604010924.UuETwSKZ-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/regulator/mt6392-regulator.c:181:18: warning: unused variable 'ldo_volt_table1b' [-Wunused-const-variable]
+     181 | static const u32 ldo_volt_table1b[] = {
+         |                  ^~~~~~~~~~~~~~~~
+   1 warning generated.
+
+
+vim +/ldo_volt_table1b +181 drivers/regulator/mt6392-regulator.c
+
+   180	
+ > 181	static const u32 ldo_volt_table1b[] = {
+   182		1500000, 1800000, 2500000, 2800000,
+   183	};
+   184	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
