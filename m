@@ -4,115 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D12DCD2ED0A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:37:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04451D2ED0A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OF/Wc7TK+OsFr31ZdtePyiprlbzI65l7D2fgL0og7g8=; b=Wmf1CDS/99E6n/TR773v+oe9tK
-	xnbL/1l12xyRlVQM++TAR3/p9tVi+1Y7mY3BeGivfvrxEArDNHxNsqJCVC5Z2fU/rlpfQIxtUmSyx
-	6Stes6etoZQo8tJmAMnSpGjdzCm1gPSPThL9aKspChlL+7pTeD8qTePK7IYfXWIu1/ljJ/Yqx1to0
-	D+y+6rLCWRaOeEtU5GwKFALZCfFXhZK7q4aaK/R4LEH+ZKx8nsM3XLRb/Ine04ItXS/m/HCzLRVIg
-	7djzcF9G98D6pfy1KyRtTzSJpL/AeS1Z9xL/Z2AzPC8fAHF5/Uy9WccJbnyJGTlxLZa+TiL82lR+u
-	5QDGYykQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
+	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TjRn4EzOh7HkP7tfYe2eSZejWt9ikfWqt3074xu5+kc=; b=AohAe16ONpXffx8q/AnNBFs+13
+	QMgV/NjBaHpSNwN6Vks6rUzAI65oAMu7Ptg5b8/sXf+kFDWkTUkW4s8vyHH24WsEN5CKba+nJIVAV
+	0gAoHxSTfBZJGjx0WLOeXmXUUReftALKsuHhNLw0SdGfV4Mo/K3TPpMMRyiujpjZpllLFnEqNXDan
+	iUXGM8ZYXPmaFn3AK4G04QCZKc9oahgLRmqqRDd+A1zhHUzoRck4qunNWpGGM892mHQFKe1GVQZZc
+	VDHg3NX+6w9+a8Xzp78xLtfOlzLQxBdz/eH6gV+OU3NR2GIDtzuOpnfQ7OKWp4HxRnty3Gpcxxx1U
+	Fhkvjtyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vl1-0000000FKeC-0Rrh;
-	Wed, 01 Apr 2026 13:37:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w7vrh-0000000FLbw-0aF7;
+	Wed, 01 Apr 2026 13:44:13 +0000
+Received: from mail-ukwestazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c206::3] helo=CWXP265CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vky-0000000FKYO-0AfH;
-	Wed, 01 Apr 2026 13:37:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=OF/Wc7TK+OsFr31ZdtePyiprlbzI65l7D2fgL0og7g8=; b=SkZrreu3f57WL6eHkFrUO5JOHl
-	qhkHztoi5vs8qGnyCrYXazjPEjZ6fTWT2oJEkvAQyyfURYwd9T1Nrd4Y7LrmbDQQX/dh7LAN5zhMo
-	frqLMG1UMzbUUxbIkX7rhavXii/mtBYV+HCFJWS/77sMDyg/0AvU1EpTtfhE4yK65HvkjhS4po8tq
-	98muIBnwRtac/ksTbcb2ZnffFMeWx6L/SxVtbRgRFScL+wxQOVe+md3ZWRW8IpwbQMbGYwEjmwXY5
-	3wgODql/GC8b1lO5oW8V1FggoammhUeitNZHEtVchJbmtuv0S+K56O831kA8XgrqoOjzVwkH+/sLR
-	BofhfpVg==;
-Received: from iad-out-005.esa.us-east-1.outbound.mail-perimeter.amazon.com ([3.211.80.218])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vku-00000000TiQ-0xG4;
-	Wed, 01 Apr 2026 13:37:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
-  t=1775050632; x=1806586632;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:mime-version:content-transfer-encoding;
-  bh=OF/Wc7TK+OsFr31ZdtePyiprlbzI65l7D2fgL0og7g8=;
-  b=DRN4B/AzEq9OCPB4Hh7gxPmIFT/2dgYE8xbJA3/zeTaSvc59/JNk3BSB
-   927J5zhkpd+0dGlkcSXZ0HidS0m1zJij8bMjF/GkizUAuJyRQ1lh+rVQF
-   uP5BF+iOdYeCLw2CPZwSGMSgKDqZeh5fPWHvyX1nCt6X4XcCKUIfmfIz1
-   8xs6dQ+VzInYGgh/hKSgcczGBogdSmVAm5GRAOpPY6aQGC4PAuMPZQJZn
-   ppeF3nWAbxp/Pg/FQ7Svl4Kxh+1enSqpvpJytTuVVQxrb0Xv2M6VwMRrg
-   UmE0a+biRO5+sGHAg0ptNoMjnvUzcrp7qPxnqJ6upfeXAhOUZuGjqLSCF
-   w==;
-X-CSE-ConnectionGUID: UMssy2gNTFW+S4U/A5mK4A==
-X-CSE-MsgGUID: j2rWxdH+QcqQjtHpTDJFrQ==
-X-IronPort-AV: E=Sophos;i="6.23,153,1770595200"; 
-   d="scan'208";a="15275470"
-Received: from ip-10-4-7-229.ec2.internal (HELO smtpout.naws.us-east-1.prod.farcaster.email.amazon.dev) ([10.4.7.229])
-  by internal-iad-out-005.esa.us-east-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Apr 2026 13:37:04 +0000
-Received: from EX19MTAUEC002.ant.amazon.com [72.21.198.66:5147]
- by smtpin.naws.us-east-1.prod.farcaster.email.amazon.dev [10.0.8.197:2525] with esmtp (Farcaster)
- id 5da5a075-cb06-4684-aedc-ecbaf014acc0; Wed, 1 Apr 2026 13:37:04 +0000 (UTC)
-X-Farcaster-Flow-ID: 5da5a075-cb06-4684-aedc-ecbaf014acc0
-Received: from EX19D012UEC001.ant.amazon.com (10.252.135.206) by
- EX19MTAUEC002.ant.amazon.com (10.252.135.253) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Wed, 1 Apr 2026 13:37:03 +0000
-Received: from EX19D012UEC003.ant.amazon.com (10.252.135.160) by
- EX19D012UEC001.ant.amazon.com (10.252.135.206) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Wed, 1 Apr 2026 13:37:03 +0000
-Received: from EX19D012UEC003.ant.amazon.com ([fe80::67ea:859:1e17:25a9]) by
- EX19D012UEC003.ant.amazon.com ([fe80::67ea:859:1e17:25a9%3]) with mapi id
- 15.02.2562.037; Wed, 1 Apr 2026 13:37:03 +0000
-From: "Heyne, Maximilian" <mheyne@amazon.de>
-To: "stable@vger.kernel.org" <stable@vger.kernel.org>
-CC: "Heyne, Maximilian" <mheyne@amazon.de>, Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>, Sven Peter <sven@svenpeter.dev>, "Chaitanya
- Kulkarni" <kch@nvidia.com>, Keith Busch <kbusch@kernel.org>, Jens Axboe
-	<axboe@kernel.dk>, Hector Martin <marcan@marcan.st>, Alyssa Rosenzweig
-	<alyssa@rosenzweig.io>, "James E.J. Bottomley" <jejb@linux.ibm.com>, "Martin
- K. Petersen" <martin.petersen@oracle.com>, Alim Akhtar
-	<alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>, Bart Van Assche
-	<bvanassche@acm.org>, Sasha Levin <sashal@kernel.org>, Peter Wang
-	<peter.wang@mediatek.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Seunghui Lee <sh043.lee@samsung.com>, Sanjeev Yadav <sanjeev.y@mediatek.com>,
-	Wonkon Kim <wkon.kim@samsung.com>, Brian Kao <powenkao@google.com>, "Hannes
- Reinecke" <hare@suse.de>, Ming Lei <ming.lei@redhat.com>,
-	"linux-block@vger.kernel.org" <linux-block@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"asahi@lists.linux.dev" <asahi@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-nvme@lists.infradead.org"
-	<linux-nvme@lists.infradead.org>, "linux-scsi@vger.kernel.org"
-	<linux-scsi@vger.kernel.org>
-Subject: [PATCH 6.1.y 5/8] nvme-apple: remove an extra queue reference
-Thread-Topic: [PATCH 6.1.y 5/8] nvme-apple: remove an extra queue reference
-Thread-Index: AQHcwdyfxKwQXg5Z9kGUiGR8yB37yw==
-Date: Wed, 1 Apr 2026 13:37:03 +0000
-Message-ID: <20260401-pliny-ashley-ff03a0b6@mheyne-amazon>
-References: <20260401-defer-gleam-5226cb65@mheyne-amazon>
-In-Reply-To: <20260401-defer-gleam-5226cb65@mheyne-amazon>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.13.235.223]
-Content-Type: text/plain; charset="iso-8859-1"
-MIME-Version: 1.0
+	id 1w7vrf-0000000FLb6-13io;
+	Wed, 01 Apr 2026 13:44:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Nmm2x4HpWC8bXMReExX6oLjACA+Ntwkmzfw3uI3z4+txNe9s27Ph6vlMqKpAk3IgBh51eWjtrYd9GU22DX5bBxgiNjb8YqCtmKUaQ6XdVpaXI1LdInXzEAHXmTEMMJq0M0Wp77LnhBzokCHe8zEVNfK7R0yI4fQ7mxRKqrdR8IedUVMawrooEciTbAh2pFS1YtkAKYaHzSVftLOgRC3pOyRvG1OwpaGYq5mK5OLaFah/2wKZ41q5I7WGiPH+o6d+7hBDD6jLD19wphYsRnCfGcfypd9wd6FQ1vKMB8dufMY70/PPAWz43UqNcsV7XCOIkvf56HDxM5M9a9XzC1/RKg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TjRn4EzOh7HkP7tfYe2eSZejWt9ikfWqt3074xu5+kc=;
+ b=phvsLXqkDiYRpB0j9AcIZ0eWZo8zY+X3P+vNiOz19COmEvoyiK9HFa1XsYE+fCiv9SQDiNIxjieEceDyQesn9wVESlwSPXyPTF00je+SDeZxpxFm7QZxvG/Mey+Tt7quOeoVbajBTKG2nhIBbj5V91zk9MmjBwiIPZ4ysUBb5kmzUbieH6Cp1zwPp/XxE22ZAEdWtCPG2ifRRN6vmeF1n0poWe8CbH4Kn7437xTBoe5mdjUeihF2qyEFxBWpsEj/n5q6eFSWMglLxBkipkHfJYJYb+X7N9DZmK8XaJbkpbr132pHemSYfF8C0oFZnCPyZkNgrYmRZnXwJBoCu4iruQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TjRn4EzOh7HkP7tfYe2eSZejWt9ikfWqt3074xu5+kc=;
+ b=FoFDH+k356z7LfNUDRMDzJYA9rZWq0PnRcZpIAHiDLUXomGrvYvoFTviVhhW//ycOqqNGzSzQT2ZHTyUJqcrZAyy1dg6QkhQjcQeOpf340cYGaVKTOcSXGEioDpEqX7xGstKZYCrGz4oI9/sRe0aZSpdi/Ea5mRQ8SNCZzPXHEQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
+ by LO8P265MB7687.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:3cb::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
+ 2026 13:44:05 +0000
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
+ 13:44:05 +0000
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 01 Apr 2026 14:44:04 +0100
+Message-Id: <DHHV2WHMUS8E.2UVRYJW75PXUG@garyguo.net>
+Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
+ <rust-for-linux@vger.kernel.org>, <linux-kbuild@vger.kernel.org>, "Lorenzo
+ Stoakes" <lorenzo.stoakes@oracle.com>, "Vlastimil Babka"
+ <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ "Uladzislau Rezki" <urezki@gmail.com>, <linux-block@vger.kernel.org>,
+ "moderated for non-subscribers" <linux-arm-kernel@lists.infradead.org>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>,
+ <nouveau@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>, "Rae
+ Moar" <raemoar63@gmail.com>, <linux-kselftest@vger.kernel.org>,
+ <kunit-dev@googlegroups.com>, "Nick Desaulniers"
+ <nick.desaulniers+lkml@gmail.com>, "Bill Wendling" <morbo@google.com>,
+ "Justin Stitt" <justinstitt@google.com>, <llvm@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, "Shuah Khan" <skhan@linuxfoundation.org>,
+ <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH 05/33] rust: remove `RUSTC_HAS_COERCE_POINTEE` and
+ simplify code
+From: "Gary Guo" <gary@garyguo.net>
+To: "Miguel Ojeda" <ojeda@kernel.org>, "Nathan Chancellor"
+ <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Danilo Krummrich"
+ <dakr@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Paul
+ Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
+ Ou" <aou@eecs.berkeley.edu>, "Alexandre Courbot" <acourbot@nvidia.com>,
+ "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
+ "Brendan Higgins" <brendan.higgins@linux.dev>, "David Gow"
+ <david@davidgow.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, "Todd Kjos"
+ <tkjos@android.com>, "Christian Brauner" <christian@brauner.io>, "Carlos
+ Llamas" <cmllamas@google.com>, "Alice Ryhl" <aliceryhl@google.com>,
+ "Jonathan Corbet" <corbet@lwn.net>
+X-Mailer: aerc 0.21.0
+References: <20260401114540.30108-1-ojeda@kernel.org>
+ <20260401114540.30108-6-ojeda@kernel.org>
+In-Reply-To: <20260401114540.30108-6-ojeda@kernel.org>
+X-ClientProxiedBy: LO4P302CA0044.GBRP302.PROD.OUTLOOK.COM
+ (2603:10a6:600:317::10) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:488::16)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LO8P265MB7687:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5643830c-c5d4-44af-47a2-08de8ff4bdec
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|10070799003|1800799024|376014|7416014|921020|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: v21NZrSrfvtq2tcr7x4HQBrB6EAbPyv5yNXUMUUXLUimWS/+upcNjwGfL5Dsxd0vvD71wkTdSXl6/ezI4FdKUlfmBDS5eTViQTrbEwYEIVA01pc9wN+u2Aisgufy295DR3N4ICbA13AUGTCDn3GB1gm8HkNrgxVe9pF6b3Tj9q7cN87BHpH7z4zuTPFjdLCyFxvMRzYHr5qDGNvKMQ2A9ik2guoNs39R4PoOXpdeuQ+atOOQHvuLO+ZjPR9QM8KPBymDUbaPi/ZEwm2sj/BQv16U/0gsPkUsIMC686pB7+zzArCzFXNzZLeEaR75EEN/2DUYlyVZBXtAHGhSIxPeo49BHAicparsLOAmJKGLCagU98NZMLwvBeCMmXsvVrLHns/bKF0HRmBUVMT3mzipbShPPK/ZK6Hj4qXeTT5PS7qXupv7UYbDDEb/sMwa/CNYXMntG9RgDjpURLQG3qLJat8XOOT2P2XKfFivv7OxKUCjQIwvlAGAe38zV6+UTrzfpxjuhLGHN7x2tKBd316D4UhkN2a/mUMcwO6fmU9ubVbaq3t/B+qfAG9PPuTbZysL/rqF9ZZs1l7N/mCRYJE+ZVolfhzNiL1byb+z0djreKW6BXQfzYEwJZ9xn4fHjfFgb9uW9w3rCRAPiY8UGSgBrHNu48elAu0fqyXJgbmEB71sltBCkskckRzZm29rygtfa9Zc0CruWJY8nYNuOV4xNciFN+EilmTTITtDcCd9Wv/RtoH2vfN9ij4+1Zi0qGTAkq7YH6scWeggr9p3IOeWKg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(10070799003)(1800799024)(376014)(7416014)(921020)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YnV0MTZRSTdPVll0VGJKMW9EMUlPSW9WK0hrWmorTEVxTGJHOG5UZkZGdGI1?=
+ =?utf-8?B?cUhDeUF6NzNkSXZQYWp5VHAyUUJveTlUWTB5SXMxS3RURUFNK255YWhuTXZ3?=
+ =?utf-8?B?ajU2emFYS1JXZWlpT056dGtoUm81ZmthRFdVODhlQVJCZEZKVnR4QlJ4cVJU?=
+ =?utf-8?B?bURmWDRFblZXYjJMai9wVE05MUdGQnB2ckxrNWt1QmgvVUlkYlVGNnpWZDU2?=
+ =?utf-8?B?dFdGSURWRUM3bkdudE5jT2Q0UGtFYjYrNURTSXhnUmxqSGRkSXFJREdTdmFI?=
+ =?utf-8?B?T0FEZnJGZEdGR3pFcGhYQU40ZUVBVlJRK2tZZ05sdTRRaHl3NFpYNkIyMTM1?=
+ =?utf-8?B?SG9GeTJrak5RWU1SZ3VqQitSVlc2WUl2ckp3UFh3WURjSmkyaFRzd01TcWsr?=
+ =?utf-8?B?aTZpM1l5SWdLY1RVRWczaUo3OWhkRGRxdWhXSjk0OTB4VWU4OEFjaWx0Zmls?=
+ =?utf-8?B?d1ZUei9OUHVNNktXVHIwY0RXdEVzTm0rSUZXWExhQ3pUQTdiWGpVNUZhT0tJ?=
+ =?utf-8?B?NHl2Q0U0dG9RYjVueC9vVTdJVkF0NFk1clF4anRYK2RmbzR2WXhEUjZlT01J?=
+ =?utf-8?B?TzFDcm1lZnpiUy9xY1Q2Zkg2UGJ1a21xWTlDbzRrVjgvSjd6VVBkM3BtcDVy?=
+ =?utf-8?B?Z1BmUHQyWitkb0J1eHY3VkV1Vm9XV3hVMStiZ0FFWEZHTUxsMmpMeXNvd2pv?=
+ =?utf-8?B?cnVLalVCVk5vYnQzOXM3N2JmRURuUis1MjU1aDB3OTdxVzRLalhhaDRCQlVk?=
+ =?utf-8?B?MCtGZVRkaG5wSjlPcVowdE1KVGUxR1U2RHc2WUMvNFNWRjBzekNlckM3ZWY5?=
+ =?utf-8?B?R2xJWHB0UStWOGlhbHV2WnpWSjlsUEN6azBNUk1LZnR4Z29GUEY5emJMQSti?=
+ =?utf-8?B?aWlTMkU4R3V5bU82WVlQQXJrd1o3VEc4a1h2cUVab0VDeXJNTmxBcVFUamh5?=
+ =?utf-8?B?SmJNRnYzTmtOdkI1ZjdTZHNpazNIVmVCTC8zdXNPL1dRMjBZU2I1TzM1YTVm?=
+ =?utf-8?B?WWlVZXpTZ0NLQWZYUnFmN0twZmZiU1U2ZExUODBaUHcxU0swMXFCV1I2OE5k?=
+ =?utf-8?B?a3JPL2xnTDMvbWZsc21jbjEzQld1aHFrUG14U1ZCUmhCNzN1ZDJIL2VtN2Z5?=
+ =?utf-8?B?OHk4dDBwZWtVN0o3eFhoVWdPZ2E1ZVFPbG1HMm5sSmRsOGttc3p4Q2t3a0lD?=
+ =?utf-8?B?cys2MTl6eDRmWUMrYS9jdjdIK0NUTytWemkxMW44bk1PSjNMdXRnVWtaLzJV?=
+ =?utf-8?B?dE5pWnZIUXNZUTk5bnBrYWpGdDhaM3o0SmxUdEM2bkZIenk5dmZyYm5zOElB?=
+ =?utf-8?B?TWVlNTgrT01DaVNEYzlTbk9Ba1lDWVcrbE5uNFgzRDBkclJqQjhJZ2J0Z0ha?=
+ =?utf-8?B?YkpmazN3bnpoUEtUQk5kNjdkZ2hScldwb2JzVEE2TEh6ckkzcE1zamR5MlZP?=
+ =?utf-8?B?TTdwMjBPbEZzMDcyOSttcnNyVXNrSUpKaFplUGpjMm9QdnBoMXJQS2RSYUdV?=
+ =?utf-8?B?b1V1NXcxRWEwcWwxZE43SDlzZ1hSNnpsWk9rdDVaVk9MWlFsbzlGMU9JeG56?=
+ =?utf-8?B?WlJwbjdnTzNkdklwRFlIcmMrb2JkdFo4QlRhYk1qYWVVdEg4WkdzUUZqZlJQ?=
+ =?utf-8?B?elNISWlLYVlMYVZMWXZmK2ZsVGFsOVVjNG43Z091Z2hZbS9VM2t0QjYzZHBZ?=
+ =?utf-8?B?dkNERlVBdGtjRmlRQld6Qy9ScmZ5NEc3RHUvMitNYmdTYWhrclJqTUxxcG51?=
+ =?utf-8?B?NDhsUlcxZmlDQTA4eE5YOVBCSnpDRUF2UlJraGVhUDV6S3VKUkpaUVJBcUZ4?=
+ =?utf-8?B?VVFOdmI3bk5SeGh3VkRtSTRXTm9kRkplZmxUTFBMMU5uV1IzTDcvV2NLRmJM?=
+ =?utf-8?B?aDdUaEYvNVlRNGtWdXZlS3B0NHhMZEpOUGVNaEpjUTFRdVdLVm10d29jdlc3?=
+ =?utf-8?B?YmMyd0cxdmNwNkpEWFFJOE1IekZuSERLZ2FWTmdrS3dVWnpNblByWmsyTE8w?=
+ =?utf-8?B?b2kyaWl1YkxFZ1J3ZkMyTzBraDVucW80aWUrQk5Uak1rcGRrMVpFeG5lM0ZY?=
+ =?utf-8?B?SjVYd2VtejI1aStxNkdLa1ZyWGxVY2svTzczNXVVcHRMVzBkMDFiZ0Z0ZEZH?=
+ =?utf-8?B?ekxsT245NHB0S3cwYVBJSE9iMUVmeEJ3QmtNQjBTS2lRbFB2Ymk4RXZ2SnNw?=
+ =?utf-8?B?VUNCV3ZtaDV3UGIxZWJWZWQvZ2J1cFhPRVpWNTNidDdHY1VQYnR2SDl1VitZ?=
+ =?utf-8?B?VDBDa2NvaFZnL2JaTno0aHZLYjllWFU2N1lyQW1KQUVLYWp3eDhrcHo1Zkxk?=
+ =?utf-8?B?VDhkcUg2Z0JiK3FaVHBIWDR4Zlp2Z2YxcnFaUTcxZ3paM0UvVWRyUT09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5643830c-c5d4-44af-47a2-08de8ff4bdec
+X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 13:44:05.5207
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OHZ+Vq/Cl/Fxa6b8zJlMLN3OgAh/JS8pZmmbSQR2sR78k0mEQUKKVBZEQe1WqJJU0YN3LgywGGbT6UTM6yBNAQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO8P265MB7687
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_143712_532258_542D5A25 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20260401_064411_314196_70C8B9DA 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,62 +172,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Christoph Hellwig <hch@lst.de>
+On Wed Apr 1, 2026 at 12:45 PM BST, Miguel Ojeda wrote:
+> With the Rust version bump in place, the `RUSTC_HAS_COERCE_POINTEE`
+> Kconfig (automatic) option is always true.
+>=20
+> Thus remove the option and simplify the code.
+>=20
+> In particular, this includes removing our use of the predecessor unstable
+> features we used with Rust < 1.84.0 (`coerce_unsized`, `dispatch_from_dyn=
+`
+> and `unsize`).
+>=20
+> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 
-[ Upstream commit 941f7298c70c7668416e7845fa76eb72c07d966b ]
+Reviewed-by: Gary Guo <gary@garyguo.net>
 
-Now that blk_mq_destroy_queue does not release the queue reference, there
-is no need for a second admin queue reference to be held by the
-apple_nvme structure.
-
-Signed-off-by: Christoph Hellwig <hch@lst.de>
-Reviewed-by: Sagi Grimberg <sagi@grimberg.me>
-Reviewed-by: Sven Peter <sven@svenpeter.dev>
-Reviewed-by: Chaitanya Kulkarni <kch@nvidia.com>
-Reviewed-by: Keith Busch <kbusch@kernel.org>
-Link: https://lore.kernel.org/r/20221018135720.670094-5-hch@lst.de
-Signed-off-by: Jens Axboe <axboe@kernel.dk>
-Signed-off-by: Maximilian Heyne <mheyne@amazon.de>
----
- drivers/nvme/host/apple.c | 9 ---------
- 1 file changed, 9 deletions(-)
-
-diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
-index c5fc293c22123..c84ebfcfdeb88 100644
---- a/drivers/nvme/host/apple.c
-+++ b/drivers/nvme/host/apple.c
-@@ -1507,15 +1507,6 @@ static int apple_nvme_probe(struct platform_device *=
-pdev)
- 		goto put_dev;
- 	}
- =
-
--	if (!blk_get_queue(anv->ctrl.admin_q)) {
--		nvme_start_admin_queue(&anv->ctrl);
--		blk_mq_destroy_queue(anv->ctrl.admin_q);
--		blk_put_queue(anv->ctrl.admin_q);
--		anv->ctrl.admin_q =3D NULL;
--		ret =3D -ENODEV;
--		goto put_dev;
--	}
--
- 	nvme_reset_ctrl(&anv->ctrl);
- 	async_schedule(apple_nvme_async_probe, anv);
- =
-
--- =
-
-2.50.1
-
-
-
-
-Amazon Web Services Development Center Germany GmbH
-Tamara-Danz-Str. 13
-10243 Berlin
-Geschaeftsfuehrung: Christof Hellmis, Andreas Stieger
-Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
-Sitz: Berlin
-Ust-ID: DE 365 538 597
+> ---
+>  init/Kconfig              |  3 ---
+>  rust/kernel/alloc/kbox.rs | 29 ++---------------------------
+>  rust/kernel/lib.rs        |  8 +-------
+>  rust/kernel/list/arc.rs   | 22 +---------------------
+>  rust/kernel/sync/arc.rs   | 21 ++-------------------
+>  5 files changed, 6 insertions(+), 77 deletions(-)
 
 
