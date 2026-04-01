@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BADF107636B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 555EB107636A
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 04:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,72 +12,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kOW9GJE9Tg53d/rO4Iwsh1y7xwv14EVejMuPlQ8bsTY=; b=lPcqcQOoPTwq5Jy0hhVYvSZEtZ
-	07fQZtCESP/LYWBhAOh88CiuUwLd6V6UEtoCfgie7ykbdP1WCEKNWBSk+Hou7tvDl60OlQ21fIEcn
-	FiD7h7/G4Tfls+r0UZyO/qb11UXWY7XY4ObP7ctGFf8ZXlcAqNeB1ToOeH0bfzkQsAzUKE+MGmMeS
-	tLQv2HrxfCykizr5BuZGq2j3g1mCTt/vikjwy7SN406F8NcV/zm5aj04dUFY0IkiWLcbF8SHgIVj3
-	y2/A7Sbt8zJ1IdTKxHTYJZyikqBJwqq0x33Z15I7d+NVxUd8MgcJ9qMWsnbBElrUWtfXuc4ehhESn
-	Oq1+C0LQ==;
+	bh=CTNQgtcGgWusaEhxSP7vJ5UQwxZZkpM6k5bEc+uCqNI=; b=d+82PQycm8S7RRDtHzvYB4fnaw
+	+CflwKt8Ky87m+ZsvWlNPG1W0OlAq7xeuUQpa7x8xwb2+MqMqFAdLk0/Xj8rvB4ge69RVn1LLBT22
+	sjChp1kQ+VFIV74+cnNNtbY1Xv5eF7asZC/cYCcB3lPzoutNvSWEmGBGvOq7J49Kax/023LcFgklg
+	Gj619EXBmk/0+UKh2qKOZ6mhZmxvDHCxhnFo0lH6Mdu9o9Bo//nuyoBA7gg/qBEx+rRNVcIJYvDiA
+	XCiM2OwEPxiY56E4+eMn/5eZbaTxlxBRrGUs+oetbGg9qSuGFNbIS/l5tqsZPyl7q5ylVOHUDpiIw
+	Zl00g46Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7nYu-0000000DxTc-41Re;
+	id 1w7nYu-0000000DxSW-0w24;
 	Wed, 01 Apr 2026 04:52:16 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7nYk-0000000DxOk-0bXy
+	id 1w7nYi-0000000DxNa-0Nn6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 04:52:07 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4887f49ec5aso18127835e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 21:52:05 -0700 (PDT)
+	Wed, 01 Apr 2026 04:52:05 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-43ccda008cdso323214f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 21:52:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1775019124; x=1775623924; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1775019122; x=1775623922; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=kOW9GJE9Tg53d/rO4Iwsh1y7xwv14EVejMuPlQ8bsTY=;
-        b=ZHhFnWC4HTt6CC32Tr5aj43I7IbhA4wxPE1xohXtgDEs3Mcow5U3JmLt2NXkfDUrWY
-         MyuLIBkI93JTZwcbSVXvH3f+sSNqmTN8jZF5U82UmGRbiciqbP9pU3nesJA+wZ2BMcih
-         AkyX5JiukCdhcLzaa6eZiOjGHuBAUz29sHoNXU7gbrRjAFErbyERSy4BZpWswPU34m3d
-         NwqWAVD+jfUFkh13YU2sR0MsSkvvV4EiSGjSNGNkTwUw0sgSfljhIZL8bHk4Bdw1t9ah
-         hwsWEUkgpbL8qV8sThj0jVy5bQyMRr4j/qMcBA8WVLSq+Q0B9jU+Kad7T22GPbX2/6FZ
-         hAEQ==
+        bh=CTNQgtcGgWusaEhxSP7vJ5UQwxZZkpM6k5bEc+uCqNI=;
+        b=iqDOXp6X+T7MadEkhhnpk0TSGMq8jbZvtKAjN+XWhkmZLGqVUfBLlotA9fAKE5FWYg
+         g7EdxsXgKdWaw3m5srLYNOm31uEns0CvYrwMbVkFCqEBT0xFreXCK+vP3vrH6BYg99dZ
+         ygAEa6WoQSyuOFzOtJU3mPU1acqdmDXna85Pt0Y5IaAYBwqiuNTrhxDCUZYeVJGF3kL0
+         /blk9+MYs690JniG6FkWimrmvx8GjhYSQLkHfjXHPQ2FqFQuN1lGjBZE1/F6bWq+rGo0
+         f7yFIUiA2Q9Q2ht8XAst9M69LxElgfmDJh3E06+j76rPtfDfi1ig1Ji0Iedw4Sc4JHrd
+         Skmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775019124; x=1775623924;
+        d=1e100.net; s=20251104; t=1775019122; x=1775623922;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=kOW9GJE9Tg53d/rO4Iwsh1y7xwv14EVejMuPlQ8bsTY=;
-        b=aJNb9q4k1K+mJPQenhW6FpczlSrI1iRsjvqI1TpjFp5+gdijOeWhfwoQfJWEF68Exw
-         pKZnu9nEojOuG9VxshacMH+s3VXwzh4kfGF/Qu7nWtkJfkZNuS5ZblkS62deQIJd2Pfh
-         5ZejnUOOBr5RAKQ12V7YCs6OaQVzTOY9JwhVuwwovcT9JjfX6ciZ0cjqdWMeISZlqs5c
-         c7RaRGtR+Tw5WMRZIWeYUjVGwIzi7515Ap7mb2jRWTLBEQxUcDiwiU5HE94ZLCZkS145
-         3ZTa4LC7xUS3/IoLSNlOQ9oWYWxaQpZPJuNS3ffI3rIOqwRXzz5VlDiR6JcOAUthuYF5
-         JTUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWTxDKYVrXfXQr0RTITbhq6EzLYJUESwoBqlhsLje4N8LfOcgPZq+Uz/6VtQ/1ffIRrf8g37H1BAJYWc9VzwkcA@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFdOSOxgpyWSsdGB4Nyt/nhQqy9Ph2PECGG8xLAkCZkSA0KJ5t
-	Nzb0gy5gaoZqs4TYqtdxRA2shPHdPnNilGfrYIFFFLrUMQyOdj/UU0akW6FQhbHW3C8=
-X-Gm-Gg: ATEYQzyfHoMkIhUpZ0ZtP7gI67+X2wZHJt3iVDvAUeh+JvdrAu2INr4yFSXh+tP5uk1
-	UUCoolnMjO156TRLHyYRWAufczYnJejmAtU5IdUD3tte/gfIhIAq16XqGOktuN9m8RdEfspECCo
-	E84ezP5g+IlLyFKwSFfbjT0vNEd5gTnl8Lnm3anBxd+UGrZkZLKZ0PxO2p5JoJ3Rknq+CyxdNC7
-	NOa7G+MaY1g/DC6MTRaiP/XdyXt5jFjxep6gZXnkGR7v0cxno+B9xNbkSqjBivyGCKp/bkfUuv1
-	TSm1KhRWfOHKGbIfleG4q2asgnr7dOTbOv1F6+A/e0yNaSp+OWXj/V5F8YhC9Sfm0WLdzG42NRG
-	qeKI6YqLElx/ZVSr8pCNthKCvzVJcPRcdWiOJS7KjUZ6mQ8J5/C6/ExKxHla9Wz3s4hQP4qftu/
-	XZnY+5PAisEaApj24gRoeLVGsOsHawPxDBd+SUkh2LY85x+gSlH5wIRR1XxxFXMBnLVJCuEqxrb
-	yuHmoitPM5y8w8i
-X-Received: by 2002:a05:600c:8708:b0:485:3dfc:57d with SMTP id 5b1f17b1804b1-488835a59bbmr29153805e9.30.1775019124159;
-        Tue, 31 Mar 2026 21:52:04 -0700 (PDT)
+        bh=CTNQgtcGgWusaEhxSP7vJ5UQwxZZkpM6k5bEc+uCqNI=;
+        b=NGJAVPfx1ZvH4MsJ1Stl1KnMHrX8ZvQ1OhnGm4Wm74IQZPQ6HBeFQArkWeyl0RTtS1
+         giPkv+fnGx8VGlb8KSrOL0g/NsEct3SaCuz7FcftnZRp26X8bqcVOjj18xZCQEzj6r7y
+         jS+NTC3n8kblOMyr0dsCyLpw66UmqE7jxceSNwK3DrdFGY/LDY2ncLxR+73kPMC4jgF0
+         0aF7qEkUFQd+JWqDUBX4bs4F69YzKTP8B560vgjE2mJpos9MvPK1tp8upXveCpc19FfM
+         1+3zvuRRsn6btdV1Cal4B8wOHMgQGeS9mL9Ss1qYJ3inOr4N4lvmX0ZAax/f2Ch5MuZV
+         /sLA==
+X-Forwarded-Encrypted: i=1; AJvYcCVVPoqcqh2+yX/gK1IvyPptB2y7hcWluUw3F4rJa67RPewuPKYskchmwOcAFC7KkSnmIn/julZlS7fsbqV9//EH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/66tXihwiURfowsDxdZnrWhu931Bswcd/vWwBHiz5KXmzI41h
+	+Xx8Fu8NTfT+hFTk73B0n9IFOSQqbIydl1pNgExKxZrwTZ7Ca1Pqk9yrwp4OCv2mtZU=
+X-Gm-Gg: ATEYQzzPde14YduJf6+jGlOPuvi1xs0Z7vSoDTZvhqFwMbjcwREptABMu1VBlbqPFPo
+	qBhun2lapKMv4Q7RJn5k5qF1HsZ3AvDAYtceLA0DotwOCozyu39uU4GEU4BIxEgb+qPYqkTxspJ
+	3lewRwsMh+Zlb0TlDyX6EVnhRDfazn/2JFFjQ816JcK7GfgmROMvxj0QRScvKaAcGYOiWnJYgMW
+	wvAz2t1HoE06vNGBm00W+CTrH2EuNHkaV2SPERnEXoi4+j/IIaGhzP/Awaz3S+V/5ujE4L6tjDz
+	W9hgNOVtOoes0oTELafQuNbsJMvQq38AA06plztatxpWbcmK3p+TjsLvpowyiRt/X+otlCGKzFP
+	mY1W6aOsCwhHp1F4r/KrsYFvFmjky7Lv95EwiQcCtySwS/5ZIAd680dli9fsYq4s1SbEbw5ErAM
+	K86ApKq5dOO1OiLKZOprHEcNFqg7JsSFTi+G2oHYjXDILW/IrS6XB+Emjo3d/lJwZgHN83AaIr/
+	5vElgBcQT0Q4MLq
+X-Received: by 2002:a05:6000:2383:b0:43b:5462:1807 with SMTP id ffacd0b85a97d-43d155d0020mr3170506f8f.11.1775019122073;
+        Tue, 31 Mar 2026 21:52:02 -0700 (PDT)
 Received: from [127.0.1.1] ([94.4.195.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43cf2463dc2sm32986442f8f.23.2026.03.31.21.52.03
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43cf2463dc2sm32986442f8f.23.2026.03.31.21.52.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Mar 2026 21:52:03 -0700 (PDT)
+        Tue, 31 Mar 2026 21:52:01 -0700 (PDT)
 From: Alexey Klimov <alexey.klimov@linaro.org>
-Date: Wed, 01 Apr 2026 05:52:00 +0100
-Subject: [PATCH v2 7/7] arm64: dts: exynos850: add PMU interrupt generation
- node
+Date: Wed, 01 Apr 2026 05:51:58 +0100
+Subject: [PATCH v2 5/7] soc: samsung: exynos-pmu: add Exynos850 CPU hotplug
+ support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260401-exynos850-cpuhotplug-v2-7-c5a760a3e259@linaro.org>
+Message-Id: <20260401-exynos850-cpuhotplug-v2-5-c5a760a3e259@linaro.org>
 References: <20260401-exynos850-cpuhotplug-v2-0-c5a760a3e259@linaro.org>
 In-Reply-To: <20260401-exynos850-cpuhotplug-v2-0-c5a760a3e259@linaro.org>
 To: Sam Protsenko <semen.protsenko@linaro.org>, 
@@ -91,8 +91,8 @@ Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
  linux-kernel@vger.kernel.org, Alexey Klimov <alexey.klimov@linaro.org>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_215206_207702_268642D4 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20260331_215204_218913_E97AAFF7 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,40 +107,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pmu_intr_gen node for Exynos850. This hw block is required
-for different power management routines like CPU hotplug and
-different sleep and idle states.
-Also reference this node from main PMU node.
+Add cpuhotplug support for Exynos850 platforms. This SoC requires
+its own specific set of writes/updates to PMU and PMU interrupts
+generation block in order to put a CPU or a group of CPUs into
+a different sleep states or prepare these entities for a CPU_OFF
+or wake-up out of idle state or after CPU online.
+Without these writes/updates the CPU(s) wake-up or online fails.
+While at this, also add description of Exynos850 PMU registers.
 
 Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
 ---
- arch/arm64/boot/dts/exynos/exynos850.dtsi | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/soc/samsung/Makefile                |  2 +-
+ drivers/soc/samsung/exynos-pmu.c            |  1 +
+ drivers/soc/samsung/exynos-pmu.h            |  1 +
+ drivers/soc/samsung/exynos850-pmu.c         | 78 +++++++++++++++++++++++++++++
+ include/linux/soc/samsung/exynos-regs-pmu.h |  5 ++
+ 5 files changed, 86 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos850.dtsi b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-index cb55015c8dce..f5cbd4d86226 100644
---- a/arch/arm64/boot/dts/exynos/exynos850.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos850.dtsi
-@@ -214,6 +214,7 @@ gic: interrupt-controller@12a01000 {
- 		pmu_system_controller: system-controller@11860000 {
- 			compatible = "samsung,exynos850-pmu", "syscon";
- 			reg = <0x11860000 0x10000>;
-+			samsung,pmu-intr-gen-syscon = <&pmu_intr_gen>;
+diff --git a/drivers/soc/samsung/Makefile b/drivers/soc/samsung/Makefile
+index 636a762608c9..7f544e3c1fcc 100644
+--- a/drivers/soc/samsung/Makefile
++++ b/drivers/soc/samsung/Makefile
+@@ -7,7 +7,7 @@ exynos_chipid-y			+= exynos-chipid.o exynos-asv.o
+ obj-$(CONFIG_EXYNOS_USI)	+= exynos-usi.o
  
- 			reboot: syscon-reboot {
- 				compatible = "syscon-reboot";
-@@ -224,6 +225,11 @@ reboot: syscon-reboot {
- 			};
- 		};
+ obj-$(CONFIG_EXYNOS_PMU)	+= exynos_pmu.o
+-exynos_pmu-y			+= exynos-pmu.o gs101-pmu.o
++exynos_pmu-y			+= exynos-pmu.o gs101-pmu.o exynos850-pmu.o
  
-+		pmu_intr_gen: syscon@11870000 {
-+			compatible = "samsung,exynos850-pmu-intr-gen", "syscon";
-+			reg = <0x11870000 0x10000>;
-+		};
+ obj-$(CONFIG_EXYNOS_PMU_ARM_DRIVERS)	+= exynos3250-pmu.o exynos4-pmu.o \
+ 					exynos5250-pmu.o exynos5420-pmu.o
+diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
+index 4e5fcc01e5e0..daa870ba88f5 100644
+--- a/drivers/soc/samsung/exynos-pmu.c
++++ b/drivers/soc/samsung/exynos-pmu.c
+@@ -133,6 +133,7 @@ static const struct of_device_id exynos_pmu_of_device_ids[] = {
+ 		.compatible = "samsung,exynos7-pmu",
+ 	}, {
+ 		.compatible = "samsung,exynos850-pmu",
++		.data = &exynos850_pmu_data,
+ 	},
+ 	{ /*sentinel*/ },
+ };
+diff --git a/drivers/soc/samsung/exynos-pmu.h b/drivers/soc/samsung/exynos-pmu.h
+index 186299a049a8..4202d3cd94c9 100644
+--- a/drivers/soc/samsung/exynos-pmu.h
++++ b/drivers/soc/samsung/exynos-pmu.h
+@@ -102,6 +102,7 @@ extern const struct exynos_pmu_data exynos5250_pmu_data;
+ extern const struct exynos_pmu_data exynos5420_pmu_data;
+ #endif
+ extern const struct exynos_pmu_data gs101_pmu_data;
++extern const struct exynos_pmu_data exynos850_pmu_data;
+ 
+ extern void pmu_raw_writel(u32 val, u32 offset);
+ extern u32 pmu_raw_readl(u32 offset);
+diff --git a/drivers/soc/samsung/exynos850-pmu.c b/drivers/soc/samsung/exynos850-pmu.c
+new file mode 100644
+index 000000000000..b3841547577a
+--- /dev/null
++++ b/drivers/soc/samsung/exynos850-pmu.c
+@@ -0,0 +1,78 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright 2026 Linaro Ltd.
++ *
++ * Exynos850 PMU support
++ */
 +
- 		watchdog_cl0: watchdog@10050000 {
- 			compatible = "samsung,exynos850-wdt";
- 			reg = <0x10050000 0x100>;
++#include <linux/soc/samsung/exynos-pmu.h>
++#include <linux/soc/samsung/exynos-regs-pmu.h>
++#include <linux/regmap.h>
++
++#include "exynos-pmu.h"
++
++static int exynos850_cpu_pmu_offline(struct exynos_pmu_context *pmu_context, unsigned int cpu)
++	__must_hold(&pmu_context->cpupm_lock)
++{
++	u32 this_cluster = MPIDR_AFFINITY_LEVEL(read_cpuid_mpidr(), 2);
++	u32 cluster_cpu = MPIDR_AFFINITY_LEVEL(read_cpuid_mpidr(), 1);
++	unsigned int cpuhint = smp_processor_id();
++	u32 reg, mask;
++
++	/* set cpu inform hint */
++	regmap_write(pmu_context->pmureg, EXYNOS850_CPU_INFORM(cpuhint),
++		     CPU_INFORM_C2);
++
++	mask = BIT(cpu);
++	regmap_update_bits(pmu_context->pmuintrgen, EXYNOS_GRP2_INTR_BID_ENABLE,
++			   mask, BIT(cpu));
++
++	regmap_read(pmu_context->pmuintrgen, EXYNOS_GRP1_INTR_BID_UPEND, &reg);
++	regmap_write(pmu_context->pmuintrgen, EXYNOS_GRP1_INTR_BID_CLEAR,
++		     reg & mask);
++
++	mask = (BIT(cpu + 8));
++	regmap_read(pmu_context->pmuintrgen, EXYNOS_GRP1_INTR_BID_UPEND, &reg);
++	regmap_write(pmu_context->pmuintrgen, EXYNOS_GRP1_INTR_BID_CLEAR,
++		     reg & mask);
++
++	regmap_update_bits(pmu_context->pmureg,
++			   EXYNOS850_CLUSTER_CPU_INT_EN(this_cluster, cluster_cpu),
++			   1 << 3, 1 << 3);
++	return 0;
++}
++
++static int exynos850_cpu_pmu_online(struct exynos_pmu_context *pmu_context, unsigned int cpu)
++	__must_hold(&pmu_context->cpupm_lock)
++{
++	u32 this_cluster = MPIDR_AFFINITY_LEVEL(read_cpuid_mpidr(), 2);
++	u32 cluster_cpu = MPIDR_AFFINITY_LEVEL(read_cpuid_mpidr(), 1);
++	unsigned int cpuhint = smp_processor_id();
++	u32 reg, mask;
++
++	/* clear cpu inform hint */
++	regmap_write(pmu_context->pmureg, EXYNOS850_CPU_INFORM(cpuhint),
++		     CPU_INFORM_CLEAR);
++
++	mask = BIT(cpu);
++
++	regmap_update_bits(pmu_context->pmuintrgen, EXYNOS_GRP2_INTR_BID_ENABLE,
++			   mask, (0 << cpu));
++
++	regmap_read(pmu_context->pmuintrgen, EXYNOS_GRP2_INTR_BID_UPEND, &reg);
++
++	regmap_write(pmu_context->pmuintrgen, EXYNOS_GRP2_INTR_BID_CLEAR,
++		     reg & mask);
++
++	regmap_update_bits(pmu_context->pmureg,
++			   EXYNOS850_CLUSTER_CPU_INT_EN(this_cluster, cluster_cpu),
++			   1 << 3, 0 << 3);
++	return 0;
++}
++
++const struct exynos_pmu_data exynos850_pmu_data = {
++	.pmu_cpuhp = true,
++	.cpu_pmu_offline = exynos850_cpu_pmu_offline,
++	.cpu_pmu_online = exynos850_cpu_pmu_online,
++};
++
+diff --git a/include/linux/soc/samsung/exynos-regs-pmu.h b/include/linux/soc/samsung/exynos-regs-pmu.h
+index 9c4d3da41dbf..93c4d724c8ea 100644
+--- a/include/linux/soc/samsung/exynos-regs-pmu.h
++++ b/include/linux/soc/samsung/exynos-regs-pmu.h
+@@ -1015,6 +1015,11 @@
+ #define EXYNOS_GRP2_INTR_BID_UPEND				(0x0208)
+ #define EXYNOS_GRP2_INTR_BID_CLEAR				(0x020c)
+ 
++/* Exynos850 PMU Alive */
++#define EXYNOS850_CPU_INFORM(cpu)		(0x0860 + ((cpu) & 7) * 4)
++#define EXYNOS850_CLUSTER_CPU_OFFSET(cl, cpu)	(0x1000 + ((cl * 0x400) + ((cpu) * 0x80)))
++#define EXYNOS850_CLUSTER_CPU_INT_EN(cl, cpu)	(EXYNOS850_CLUSTER_CPU_OFFSET(cl, cpu) + 0x44)
++
+ /* exynosautov920 */
+ #define EXYNOSAUTOV920_PHY_CTRL_USB20				(0x0710)
+ #define EXYNOSAUTOV920_PHY_CTRL_USB31				(0x0714)
 
 -- 
 2.51.0
