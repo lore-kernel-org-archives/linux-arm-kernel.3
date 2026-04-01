@@ -4,174 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7665D3517D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:12:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 537C7D3517D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
-	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VRe6BWFx3OJaQCJOjVLECkujwRpjZedzEYsv0GD0Xac=; b=3hXDWf2wmSPiceMvFszayAGSZh
-	EFEd+/w0NEVaAOOzVSZrebdKt5izykoMxOSIgG8fSLsZsHdL1OenQg/qcM3pr1g/0lr+kwD6k2Zf+
-	6RlF5XGAUW+d+2v0jssOtrZQi92RZXxNmzEMB/TtTi8g4A4KoytRiR5uRz12iseChhouEcIWj2714
-	AWq7jPQyK/z+ehu1442bLtRVaMAFS0UaGTjqtREjZrVrrjksxstu57qY5ME/YvJJsmIQALuI6c6we
-	uMDaZY1vaNdvrxsfydHoeCl95phyp4ML6nqhm9HxLtxkWpCbbe1Q+gv3Z/Nd23JOUlYnk5XSQZlb3
-	4TP36KeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1705mp9qP5lp1ejyR3nOSjroMhpKmvsYjC6kwCyl31k=; b=3jegJhBCgG04JbzAuMHNrwh9Qh
+	FCFrouPsQEPeD41Z72XIr30Nh9JB5Hv+pBudwC53kDiW4opKAEuAofKKrNrZbbjiVbwOQaCt19xVy
+	dWGCXjZtCpIsSTedcgrO4cW1EaCQBPJN9aUMdMiQ9ShP6EIxx/WYby2PfPDmYJUTmqEdFlUSZmNiv
+	QNqcITo+QTvhRcKYKHUFr1gDnqmc+OYPL/oGo2oLhqkK8jySYbmawxeOPbtvU7mcAjZZ3zsClbw2O
+	BF2cTLu67BcU0Teh9Qcyk3G85R7TQlw+Y4NjeZGqBMyWqhcOK3kuAmny/uLj/qQ+r85s0mgebYAhx
+	XI3DMnSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vMi-0000000FH7w-1u16;
-	Wed, 01 Apr 2026 13:12:12 +0000
+	id 1w7vNd-0000000FHIT-0XaK;
+	Wed, 01 Apr 2026 13:13:09 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vMg-0000000FH7Z-1IJo;
-	Wed, 01 Apr 2026 13:12:10 +0000
+	id 1w7vNc-0000000FHIC-0mcZ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 01 Apr 2026 13:13:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:References:To
-	:From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=VRe6BWFx3OJaQCJOjVLECkujwRpjZedzEYsv0GD0Xac=; b=Xd7F5PhhXgGWLo3QTBE+Om+6Zk
-	WbALts4NYCoDyVWoWpEW0ViOyuD4btoEH2slILxHDAALCTKMVmxlYHgOqvNRYzNoKf8OYHH0nKBG+
-	NZNdXEvxCtQ2QrUSWLHkPFoEf82viy0+LqE6TJjU2ZEy6d97YmlLvPFBb2N4l2ZbJWstsYSWQYVEo
-	QdPro+docy6JsWPaVbbchX93JQ/CEBX1yvkHe97t34e1knhYyHpvqxmyzb41MgKDQPH1qkFNzDyJZ
-	qrjee4ucle0NIFPd/M16BiA/I2e6kh/LaPSRjXbBSa0Xkwp1yzo1u0r/He535pOYSbem7Tv8Y/UpI
-	WgqsiinQ==;
-Received: from mail-ukwestazon11022120.outbound.protection.outlook.com ([52.101.101.120] helo=CWXP265CU010.outbound.protection.outlook.com)
+	bh=1705mp9qP5lp1ejyR3nOSjroMhpKmvsYjC6kwCyl31k=; b=T2o/xeuxGslKc3aVf1JwmCW4qA
+	eLiVgVnseTWAS0MsjmwVInIEG2Vj+t5nnwFiqPGOFSZ3bDJCMWAytCCbi2lGeftKKLrlnkN1w+xI8
+	ThSiBTFuejkv83sUZVy/ST7IiyCFWINmxgDTtWxQ+VTc1gecLaoOeFVg+eqrPACDqNVadLsMYGNF/
+	Ivr79f6k1McflaYDjZpa7H8emrrQe3J9G2/nP5oDLu4ZqOpuWNqlDxmwfmKWPcpgsHagDGisPN5ja
+	AlSULnicHxh363oStewEgL66RbU6gTmO0CRKN+GpE1YqQR/M3icoigocuIyyIxYoTyBfAnKvGVmcB
+	Q83tCqpQ==;
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vMb-00000000QSb-1G16;
-	Wed, 01 Apr 2026 13:12:08 +0000
+	id 1w7vNZ-00000000Qd0-0pAq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Apr 2026 13:13:06 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JzrT5PFISsJeeudpdwl+yluCFEjSvF4fzNUxM5fXWB072zeY6tYv36qk3VHMGyfw59x89K5380PFkVPXJXL/Zt1lWOR5owQjonm07VTSS+72vqfT2oT511UaOCnbC4GibJ1OV3yq8hZ2DzvVAuC3xTOWmd2pmkRk3Ta1m1u81uV1QVPx0MPly+HUCbQZX/ckC+8ouPkv3tNX3u2mGK6if84itbj1AWNXs9shgOoP7oy613rTkVHf4qrD9OKZiu+FdZrjX+voqmxCZmsPC90tEqy7yvANCNhX3HrLDWG1sj6F7NJywbCcRdQam0jnXNSJPcrP9pywRQTWl9UWYRNWsg==
+ b=UkXKbEFAFGoXgZ5KJhkAW1lNNWcrDnSiMGK01XCUZjvYfFjGiSlzgiWfr0NXqEMxCo4exC/T4KY49l/KhpWJl9vfOH5/zyIbXtiveK1nIf63hazc/CZpXWKpnmLWJdXEBcqXvWhbI6x1yPfnqcqc4wmVnbdH7vUXnbT1RX9n6/sGr/ERONpGNb1t6yhRprEVHe2T0GpDdVw9rnUrAdYENTOOP/lu13UuMcc2E0/u27f2fakpkebSUaZFjG11H59wba+qhMLfV7h2mXQdWyrtf7Qysy4uO5VEWrVqyrN4nJiN9pS2fq+R0KREZvfZtTjYXGBaIAUDPn8xtRMfmwGk6w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VRe6BWFx3OJaQCJOjVLECkujwRpjZedzEYsv0GD0Xac=;
- b=U2ei/Pvpcpaw0jXcQwYR6iP7KhwUbN/sQ0nG+tNflndq5JMlApWknnqWe8ULe1QHb6jCwVBoI7ssXBfLk+4xf49qdslDEOGuEPqLa3NH/vHZ6pIf+SEI98SymBdQANE/ou/5jpOPcNMHUxwKFwDsdihg7HB3fMt8NCG8KvH+HV696rtgzoaYlTt+SaIsh/T7eBbauiBM5uMsT8IAymzLFj4r/tnJxBNs/0G+/l3vM0KwBlPhUn90F0LebnBrjZPatwLlWP6vbM3jmwR+j4eHtqtYsM5lltabvMi1xhRkZUqagRNdhctlQVWG9vPRSQeSq5MqNZdgCgTx9+epvPyjXQ==
+ bh=1705mp9qP5lp1ejyR3nOSjroMhpKmvsYjC6kwCyl31k=;
+ b=F6xrBverCichO34ReMg9LthHONCpc0zJ7apmtiv7dyAhyEOY3PNhNaEtgSOrSHYAJHgbVknQL7x3p4tKY+BBcuvZNevQH8v677Q5tXp9C7xqLuUXRnf4icsBCDeSmSFzgO45syAKNCJDRBCfrFIAQFs1EPu1rRMEbmlDc3mfEsqMCWURr8bHHWf3lYzfoYmL67pEXpF7hw9z2I1nPrqfm5W/w5ZV07Bsj2Lcp3d6L3ua54xghWB0MevFGOUTZUBdQGWZb0uxbRh7mgPull+d9Er8zrFbaV+FqCYYqN6MWbzE5lBBQADGxxjEuQElfAyNVj6yU7TPXSclptztm+BeLQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VRe6BWFx3OJaQCJOjVLECkujwRpjZedzEYsv0GD0Xac=;
- b=iXuBq52TOEpwPII18iZiVgEDJ0vD7Slqg+yCpdIw/rBtxM/HZNXX2Rc8bv8IlrhMF1bX6oeDaN3GonOE0veiz8AjjCf3DuUlkSEWxTMr2YcQxnBaEbOXYtypyKsu7nvW5cGdSdCEdfgoeu671DXtDj2KiNKz6+MfKrpR1hHTnUM=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
- by LO2P265MB3390.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:198::8) with
+ bh=1705mp9qP5lp1ejyR3nOSjroMhpKmvsYjC6kwCyl31k=;
+ b=FPz/hPQbvHDz3j0II5ZqV6JL5YretkRLgl0T/t0uE/5qa1XW3RomW5DKFabAylDg2E86sFAsQQItdIZEJm4cyqoTHoi5DajrYdgRIaD1bjFY5RGo38k8lyihMtm5sp6Lp+qPwU4VZ/fkau/Ga6Oz4g2dUu3OMkm8I4oU8PqHwx8=
+Received: from IA1PR12MB7736.namprd12.prod.outlook.com (2603:10b6:208:420::15)
+ by DM6PR12MB4332.namprd12.prod.outlook.com (2603:10b6:5:21e::23) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
- 2026 13:11:58 +0000
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
- 13:11:58 +0000
+ 2026 13:12:57 +0000
+Received: from IA1PR12MB7736.namprd12.prod.outlook.com
+ ([fe80::2274:9fed:8f3:8550]) by IA1PR12MB7736.namprd12.prod.outlook.com
+ ([fe80::2274:9fed:8f3:8550%5]) with mapi id 15.20.9769.015; Wed, 1 Apr 2026
+ 13:12:57 +0000
+From: "Erim, Salih" <Salih.Erim@amd.com>
+To: "Simek, Michal" <michal.simek@amd.com>, Jonathan Cameron
+	<jic23@kernel.org>, Christofer Jonason <christofer.jonason@guidelinegeo.com>,
+	"O'Griofa, Conall" <conall.ogriofa@amd.com>
+CC: "lars@metafoo.de" <lars@metafoo.de>, "dlechner@baylibre.com"
+	<dlechner@baylibre.com>, "nuno.sa@analog.com" <nuno.sa@analog.com>,
+	"andy@kernel.org" <andy@kernel.org>, "victor.jonsson@guidelinegeo.com"
+	<victor.jonsson@guidelinegeo.com>, "linux-iio@vger.kernel.org"
+	<linux-iio@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>
+Subject: RE: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
+ postdisable for dual mux
+Thread-Topic: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
+ postdisable for dual mux
+Thread-Index: AQHcq7dnEu4MVLVXG06oIZXnf3P2bbWjB/QAgARjkoCAIuly8IAABfbw
+Date: Wed, 1 Apr 2026 13:12:57 +0000
+Message-ID: <IA1PR12MB77361978ED21FF22F079034D9F50A@IA1PR12MB7736.namprd12.prod.outlook.com>
+References: <20260304090727.1800289-1-christofer.jonason@guidelinegeo.com>
+ <20260307124118.1d527749@jic23-huawei>
+ <1166aeef-0c93-408d-b265-9037f2840074@amd.com>
+ <IA1PR12MB7736AE6EEE95D5D184A15B9F9F50A@IA1PR12MB7736.namprd12.prod.outlook.com>
+In-Reply-To: <IA1PR12MB7736AE6EEE95D5D184A15B9F9F50A@IA1PR12MB7736.namprd12.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=True;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2026-04-01T12:51:04.0000000Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
+ Internal Distribution
+ Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=3;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: IA1PR12MB7736:EE_|DM6PR12MB4332:EE_
+x-ms-office365-filtering-correlation-id: 3b7e58a0-0a16-49d9-d623-08de8ff0648c
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700021|22082099003|18002099003|56012099003;
+x-microsoft-antispam-message-info: icqrRrYEBlI+4WjAoeo95HiIPh4iDYYWZ+fLgynEquO/Z5IbKWwSKtHCRrOD5FtgVd+ezh6Kkfi94O57AbdQ56yY3XJyUFVhk4woiJMQc4wtIGiH7tIIdJN0x83KCaw1Zn2e+LX/oiHCIR73Fv3vjPORgCZmrbNwVr/GeX6FaAhBIEuL+DHHZJhF4cxCR9Nk8OjUuUb/fB/nIdftefoN6P+kwO7ahRilHnruEN46qmvwpWBmJC8cv8AV/WlEMYCvfWMdVAbKcAvvM/yBSwjnAn9MfjvQQ+T6z4U0LELdbyrL13riSRy+fjIK5nRJyuvEco/5W9YVRF80aRCrMeOzHeEpKpptZ/x1rDcppAitUujHIGquO973+WpPDD0Mku3lS0lR8k1UPbAQ4DE5uPDafZkqa5lJ0W0fJwR7nOfLP4muM3RfyWjcGbyLv9OWOw6+GR7DJVSkA5mML6wmrmH2sR4LRUH8drbZVLUmYKfYPQCq//nleSUkKm7BNOOO7Hz7dcoVZVSNFxwy4zrav74gcnhxCjJsRqfaSNlJDb1MxTLR5MmHOL2uCsswA1i03JQW9gKK+jLv7LzLARlCvglDAqXVAg3wSbA23/Cu0BHdr981TLudIL25fHA0MaybRSHo05ShzdxPJtOhjKJRc1huUhUU6iGgiuwAF8NCqPnYhES26G6cZohNH7KNs/qc0BMY2zKRg/CiyATzGB4ClnaFzH4u42BGdAoGTJwn1CbFYRCZ+olUxCbsymRNeD7ivTwaB/IdIKgmoSZs5Xp06n4StbVxAM6dMAHYOb1Lti9EvrE=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB7736.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700021)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?JasSGEDlbT/ACqudqn9KcGhaJxLpUEiUlRaviY/niYo/AGGfevUSdptkPA1y?=
+ =?us-ascii?Q?XMmN3uTU8lR0r9lm9csTC+pR7OcqDtVdsqe0XwyWZ0VPR0m31n4LD4LH4Vx9?=
+ =?us-ascii?Q?jym0TiF4jendXsXXPF9rgSDmrEGKjP7/1S9TGuHcM7t4FbLlKMwKLTDuUEeS?=
+ =?us-ascii?Q?Dpn2O0DaItICcCCxPdeagp7OSN3lgEwWq+v7CW/2vDT2L6ArZv4hCXOUjxoq?=
+ =?us-ascii?Q?p14Swgooh1o9qF6rCYD/ye3pIil6PzK36VVOrh+tR+n8/Uf6vgLIt0LQRFHI?=
+ =?us-ascii?Q?m4TK2I/eP3R+uUT3kxyj6benexO5Np+8/X6yn1W5jNYgqk3yo0s/ixToJ5UY?=
+ =?us-ascii?Q?7xfc4BF0EjNLxhLv1DsNXPind4HtJrImBdrsrHImmuq7gfUjVhzXHDjVwX5H?=
+ =?us-ascii?Q?FiclhVVixRZcis2ps80Dxek/hTG78SILRNDF6lT1xOx7Swn3qXrntA9kHHzW?=
+ =?us-ascii?Q?zFfh1IvJWpAaCT2BXZ2gG42BDdCDF2CcZ9z4fA9tD3/ybU+haE0cNyULUFKk?=
+ =?us-ascii?Q?Q8WYZKi+qRkdaEU3jVz53ftzkLXmJQ6JGqYqJfdqUDVChoTDyqyR7H7ECeNx?=
+ =?us-ascii?Q?qbjTfxBsZaco4mGGE8IvNp9zI/pyqG6moN2luwdvc2Uz4ch+1sBMQ1ceg168?=
+ =?us-ascii?Q?ml6rZ5xa+VEhmhOvKWxvqjUrBLXvQo0SjzEVqmfjQsbOi7ecVR6fHyPLEEBw?=
+ =?us-ascii?Q?zKmvpyKJFC4sPZuQgQ1ubF1lochfP2Y0PyvzZ540b3KNwDi2EI5JtGnjERbo?=
+ =?us-ascii?Q?ml4fZC6BUDJNtJpNhhNy8XrPTjNV+8Uiy8pTukcPPwCanO6I/dedC+cr6Qes?=
+ =?us-ascii?Q?uE2rAH4HPNlJpqMszI34vjDdWlta5WfsBILCdUpBDdyr5ZNwk+h1lUK22JM6?=
+ =?us-ascii?Q?wX7R8b+ypupRj52lU2KQkAECuJacatoBen6MMH/d4aCJV6+diPBTe1ElNbOn?=
+ =?us-ascii?Q?oZAzCpHJ5PKk7FFcXm/3hSun141qhz33qjK5y3QGiB6xHWup47D/LoERSs6z?=
+ =?us-ascii?Q?M5P52G+KavVaQx4PzKlyk4FiPOccnx370ECH/Yv+xAiI6EpYScMV/ePaaY4q?=
+ =?us-ascii?Q?sXGLzPVhfIX/fLk60MABJ7rQmtsdsPpMd+ei2AAtNOE3rO2u1yLzKR5lV6y0?=
+ =?us-ascii?Q?sUFaJrDjv0FsE8rUOM1Fsd+PyWC9eZ+8FF5Jv1Po08smrMF/gRIMfai2Buou?=
+ =?us-ascii?Q?AcJ9vS0ozTLCERYnAujpAQ9bnjW7gIu3AFSfQAoqVO9QvN33Fv9vomu18m6X?=
+ =?us-ascii?Q?pudGG+KKZpdIe/gToEp79VXpPTjf0oGHie/xqRnwcxWGN/hFCPSraAC64tS2?=
+ =?us-ascii?Q?MF1H0TBT8IBfJuZ6zbKcIvpKKM462FtdAg7ieS/F2Q0U2o4UBCFSWJfd1yMW?=
+ =?us-ascii?Q?smLzzIVpYuUL7yQ2spgcEYA0wJ16GyGB0JFFRzLP5amh8QQdl09yaX3D9xNd?=
+ =?us-ascii?Q?eGYx2sryrY9c+GYE74UpQ+yy7VRhyFSBwUTvceD6WnJm094yIRH7cQ3qjaFE?=
+ =?us-ascii?Q?pcylyK2uReU2rUdC0TnVP8q7X+7dgZls7ppKcaH1yu3FKz29l/SeiK7KyEMi?=
+ =?us-ascii?Q?AYp9CKpFzILR/zRU52+7GNvY4sbBLytZYGguT44qv9ErCkoPuZ0ZIc4mH1hL?=
+ =?us-ascii?Q?GPFXWirpYIuXLHth6YU+9PfYOMtstXiiCiBbAFFtRolli4JITy3JWODNrUh3?=
+ =?us-ascii?Q?tRtlHPrR5ZFRUeRXd+0IsFzf234cqEvzygIyXr2D9uqSP5MC?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 01 Apr 2026 14:11:57 +0100
-Message-Id: <DHHUEB0VHJUN.3GRAJAJXWUTTS@garyguo.net>
-Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
- <rust-for-linux@vger.kernel.org>, <linux-kbuild@vger.kernel.org>, "Lorenzo
- Stoakes" <lorenzo.stoakes@oracle.com>, "Vlastimil Babka"
- <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
- "Uladzislau Rezki" <urezki@gmail.com>, <linux-block@vger.kernel.org>,
- "moderated for non-subscribers" <linux-arm-kernel@lists.infradead.org>,
- "Alexandre Ghiti" <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>,
- <nouveau@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>, "Rae
- Moar" <raemoar63@gmail.com>, <linux-kselftest@vger.kernel.org>,
- <kunit-dev@googlegroups.com>, "Nick Desaulniers"
- <nick.desaulniers+lkml@gmail.com>, "Bill Wendling" <morbo@google.com>,
- "Justin Stitt" <justinstitt@google.com>, <llvm@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>, "Shuah Khan" <skhan@linuxfoundation.org>,
- <linux-doc@vger.kernel.org>
-Subject: Re: [PATCH 01/33] rust: bump Rust minimum supported version to
- 1.85.0 (Debian Trixie)
-From: "Gary Guo" <gary@garyguo.net>
-To: "Miguel Ojeda" <ojeda@kernel.org>, "Nathan Chancellor"
- <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Danilo Krummrich"
- <dakr@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Catalin
- Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Paul
- Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, "Alexandre Courbot" <acourbot@nvidia.com>,
- "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
- "Brendan Higgins" <brendan.higgins@linux.dev>, "David Gow"
- <david@davidgow.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, "Todd Kjos"
- <tkjos@android.com>, "Christian Brauner" <christian@brauner.io>, "Carlos
- Llamas" <cmllamas@google.com>, "Alice Ryhl" <aliceryhl@google.com>,
- "Jonathan Corbet" <corbet@lwn.net>
-X-Mailer: aerc 0.21.0
-References: <20260401114540.30108-1-ojeda@kernel.org>
- <20260401114540.30108-2-ojeda@kernel.org>
-In-Reply-To: <20260401114540.30108-2-ojeda@kernel.org>
-X-ClientProxiedBy: LO4P123CA0004.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:150::9) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:488::16)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LO2P265MB3390:EE_
-X-MS-Office365-Filtering-Correlation-Id: ddc8c23e-a9a1-47c0-7caf-08de8ff04112
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|10070799003|366016|1800799024|921020|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: skft0gZtrgyaB/OMfTcR5syYq0VeLL33ToBSXOG8VDCY+xkFzUhR/8kBih6c9mOsalaaA0B4U92DeOn1/ZPeL77KQ+xfm5aos+b5B/Fm2HPWPnS53f3U5rNw96UshWEE7qYHKydKWqvxB32Em3lySMAM+HwJIgyezeHdgPeDupA43Icui101qjtHmjuos8fgCT/1o/QD6nOxPo9rH6uwmX/3GX2zMLuZ9br4xrtXqIEJvsOCOE5+OpZPwY/namg9QPNOvafIVE76xylsZfYsYPfElFr5dxQLqOXKBtQMRmLMq9i+kj8rA21tz9MnBmaeRi2Wyh/NrjXEaHhFMlN/2hgR81RrSQ/gP7yfegmbF/+iqWxc3k0PEvr/SnYEVxtygda3HUkIF/4NMwNIiKIr3QsAoyV+8dc5IPhGbhmtdvEeXR9QsSvQ2GBBD/pOXSzGCO3kJ0ohz9gFT5nIoRTYV0tMygv7OJJNKP5EnAXpQAMoZ6/2pGjYfty0Ze2gQKw16GyypbCiZfe1rP74JUO0wl1ndDgseHeh+9Bttf5C/NBJ3U8zKbJyXd5Z68mJIQNrIDhXZCNAHB160M2dM+dYzQeGVx5L4Rf2PbV9/SPO2pU1YFhkCZowLJCm5esCGUraFCY0JBQxwouWNhaESDoQTKa7qAKBf5b6AOKAiEqwv0UFpwm+yosEMDW+VN0LTwqHaUfCZf4LUg19vPcvh7U9utC/hFO98R0JFtV/BWHhRbc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(10070799003)(366016)(1800799024)(921020)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NDEyejRGZmNRMExJQnlOUzBodVJ6enlzNm15Uy8xYWl4RlVqellyM2tQako3?=
- =?utf-8?B?L0c0N3JXZTg5Ky95dTFiR2FzQTF0MjRPNWppaDFEcG8rcGZ5NkFFR21BY1Z4?=
- =?utf-8?B?Q1N1c0pCZ2RmdXJrend2QklhYkUwc2VSZGVqWXNtQmJhVkFkVGJxaXNzWmF1?=
- =?utf-8?B?K1kxWE11YUJVTnpKWE9rbysyMEs4cG1hNmJ0eU96TmoxQ3lENVppWkYxamU5?=
- =?utf-8?B?WW95YlNQZHM3N1JzZGo5UzFRck4ydHpZbWJaMDhjekNVZ016QXNXMFlTVnNw?=
- =?utf-8?B?MWhWTEVQUElmV3BrNlNySFVsZFl6VXg4NVk1d1N5NnR3U3huL1ZkU0lDOFpv?=
- =?utf-8?B?cGh2MFdMNm1aQzYxU3BhZEJMZ09jTUZuVGxaL3I3YnJ1ZXNJZjE0Yk9PbmVM?=
- =?utf-8?B?MTlXU2dvV0V5M2U4V2UvNjhxL3lnWkRrd3djNjYyT3NVaFlVdWdBOWkzVmlP?=
- =?utf-8?B?T0lBRTJ3SExML1VUbXhjKzdIYmRNSVY0Vk1pdnp0UmI4Y3ZHWkdKeUNuQkpF?=
- =?utf-8?B?aVJaVUx0YmRQbVZ0QUpFNTVvRWRvNVAxNjlHQkU4SnhoU2JjNFUwT3A0QmY0?=
- =?utf-8?B?WjF6NFVKd0RnMzN0dWxxc1lYMG9HeVVQRWJYejJTS1BSRUdVSnNsZ0ZRUXZp?=
- =?utf-8?B?SjZ1U2N3WmFEN0RMemlLT2h3TWNVWTdnaTk5NXdZRnV0dm1XVUdCSVBFL1dj?=
- =?utf-8?B?UkRFOVYvQWNsOTlDZ2xHNDdQQnE3Yk9LS3UyMmhqVnRMbWhkVE5aTGpVNmM1?=
- =?utf-8?B?UTlYa3o1WkRid1RCZDg2OWwvMjg3ejRmZytleVFTSjdadEFnb2FUUHhuTDNw?=
- =?utf-8?B?d0JwanhNcnc0SFh5THlDZnY2RXF1d2FONUVxNDdYODRIbmF3TTB5YkJxTEpq?=
- =?utf-8?B?TUVlZWVMNE5uMEErT00vVE5QWkNaVjBRVGV3cXJJaGZYQ282YlhRcmRrRnJ3?=
- =?utf-8?B?VXhkaW9pR3ZMOGo2dTh1UVFtQ2VYbWtBZWpHbEwwekw2eTRmZGpaYUlIRU1q?=
- =?utf-8?B?ZFpVVjFmZ1BFZVk1U0syRm1leTVRZElXVmw1NFVYNVZDZXRobThGTUtNaUJC?=
- =?utf-8?B?eHNXakdXMzMwako3eFJRQnl6UVB4YW1RVmswZncyZXV4cVI0N1g1NTRFUStw?=
- =?utf-8?B?N0JHMGFIdnhtSmZOT0JReXNPa2RHbkQzUmh3TGthSTUvVi8yd3BmSm8xTG9B?=
- =?utf-8?B?QkxOek8yL2xIbTVBV0JsQjJSSEZaclhXN2lvWHRRSS9CQXZ4RHdhVHRob0la?=
- =?utf-8?B?c1c1WVNDSXJhSUJzdHh5NSs4eXJaYXY5TTk0MWk1am9BRFVCK0dZT2JQcHpY?=
- =?utf-8?B?ZU0zL3Z1eHNMTFFEdElPOHF4am53NjhpTzdWWDJtL1ZoU3dybkpEZ3FpZ3ZR?=
- =?utf-8?B?Ukg3RUFWRXUwRUxYUHZIL1hzZWVEQUJUcU5vYlkvaFQzTzR4Tk9tdW14dDZB?=
- =?utf-8?B?TGtrRTBQYUpiV0hrMUZ5SWl2YlI4bWdnWFJuSnZpNVlVWTl0U2tUbE5KOHlN?=
- =?utf-8?B?dm8vNEtjMFNwSk8vUXU0c3BSNE16VFAzbUN1ZDNQZUlieTJReW1LdENzTnUy?=
- =?utf-8?B?Q1VEWDkzZysvN05LZmNEbDF4RWpGT3ZsMVI4Q2hXZFJVVVU0bVlDSEpVREE3?=
- =?utf-8?B?YzNJL0h3MUx0TlA1VGEvcnlmaVRuTGN1TDAydnUxUjhRUzFxVjhVOHNRRUxY?=
- =?utf-8?B?cEpiNHhPb2FFR0hUMVpTQ1RnYVErSk01UE02aWFyTjlVTmdZQjhod0o3S3U3?=
- =?utf-8?B?eDVkbnYrOFVTUDdGQmh0SXNwS3A3VWpBR2JlRTh2U1VYb3MrZ3puVE5YRStX?=
- =?utf-8?B?SWg1ZllJbVlVM1F3ZGgydHI3a1FUOW93M3VOYVZLMDZING9aVXJJS0xZRndx?=
- =?utf-8?B?K1BpamZRUTRac1JvODhUVjRmWlRLSnF5TGdvbFJnck9pSDBMdFM1alFVQU9G?=
- =?utf-8?B?cjdMR2htTy9NZHk4L2hFZmlqQ1p1aTdTL2R1cFB2RERBNHQzT2Q5dFlsSmg2?=
- =?utf-8?B?eWRZcG5tc1U1enNlR1R5d2VzT2psT1BMbFZwMThaaFRSa1NmYUZzSGcxa3lZ?=
- =?utf-8?B?dk1STkhsZ2VnK2RnNm5WYmkxaGhiV2lLbmdoNURrWHZkUW40dUpPRGYzUVJl?=
- =?utf-8?B?eW1sZ3dGRnM5MERhdk52UzUzNWtkT2lzemdzMmxBdDBqeHgrcmhQcVhZS082?=
- =?utf-8?B?QVBtUld3bFN6ZXRER3N2VVRUL0hwMy9PZXU4d0tON1RyZ1NzTHlzRUoycUlR?=
- =?utf-8?B?SE1WYkZLU0ROSEx1NWdkNGpYSjVUeVNkN1JDTE5scEVlSWxQd1hYUHJLampK?=
- =?utf-8?B?eFJlL01mTE5EdDcwQ1JUT21wL2sxNEJzTHJkQ1FsMW1GNmxHK3JoQT09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: ddc8c23e-a9a1-47c0-7caf-08de8ff04112
-X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+X-OriginatorOrg: amd.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 13:11:58.0852
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR12MB7736.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b7e58a0-0a16-49d9-d623-08de8ff0648c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Apr 2026 13:12:57.4793
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hdnlOuEOAmqqhTGmpIJkJrsH/P98TN9Q0x/arNTWezDET/2VkZaThY7iZg+XxLzJhuVnKp4Fc+oh+8OwjDeuog==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO2P265MB3390
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: dkKGYlrMRzvmSJYUPL+mZid1/6rfvMiojjHSgPHE+vvl/bKW/QkviIwOiu39igFM
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4332
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_141205_630729_81E6426B 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20260401_141305_284239_F9A7AF6E 
+X-CRM114-Status: GOOD (  25.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,49 +167,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Apr 1, 2026 at 12:45 PM BST, Miguel Ojeda wrote:
-> As proposed in the past in e.g. LPC 2025 and the Maintainers Summit [1],
-> we are going to follow Debian Stable's Rust versions as our minimum
-> supported version.
->=20
-> Debian Trixie was released with a Rust 1.85.0 toolchain [2], which it
-> still uses to this day [3] (i.e. no update to Rust 1.85.1).
->=20
-> Debian Trixie's release happened on 2025-08-09 [4], which means that a
-> fair amount of time has passed since its release for kernel developers
-> to upgrade.
->=20
-> Thus bump the minimum to the new version.
->=20
-> Then, in later commits, clean up most of the workarounds and other bits
-> that this upgrade of the minimum allows us.
->=20
-> pin-init was left as-is since the patches come from upstream. And the
-> vendored crates are unmodified, since we do not want to change those.
->=20
-> Note that the minimum LLVM major version for Rust 1.85.0 is LLVM 18 (the
-> Rust upstream binaries use LLVM 19.1.7), thus e.g. `RUSTC_LLVM_VERSION`
-> tests can also be updated, but there are no suitable ones to simplify.
->=20
-> Ubuntu 25.10 also has a recent enough Rust toolchain [5], and they also
-> provide versioned packages with a Rust 1.85.1 toolchain even back to
-> Ubuntu 22.04 LTS [6].
->=20
-> Link: https://lwn.net/Articles/1050174/ [1]
-> Link: https://www.debian.org/releases/trixie/release-notes/whats-new.en.h=
-tml#desktops-and-well-known-packages [2]
-> Link: https://packages.debian.org/trixie/rustc [3]
-> Link: https://www.debian.org/releases/trixie/ [4]
-> Link: https://packages.ubuntu.com/search?suite=3Dall&searchon=3Dnames&key=
-words=3Drustc [5]
-> Link: https://launchpad.net/ubuntu/+source/rustc-1.85 [6]
-> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
+[AMD Official Use Only - AMD Internal Distribution Only]
 
-Acked-by: Gary Guo <gary@garyguo.net>
+Reviewed-by: Salih Erim <salih.erim@amd.com>
 
-> ---
->  Documentation/process/changes.rst | 2 +-
->  scripts/min-tool-version.sh       | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
-
+> -----Original Message-----
+> From: Erim, Salih
+> Sent: Wednesday, April 1, 2026 2:12 PM
+> To: Simek, Michal <michal.simek@amd.com>; Jonathan Cameron
+> <jic23@kernel.org>; Christofer Jonason <christofer.jonason@guidelinegeo.c=
+om>;
+> O'Griofa, Conall <conall.ogriofa@amd.com>
+> Cc: lars@metafoo.de; dlechner@baylibre.com; nuno.sa@analog.com;
+> andy@kernel.org; victor.jonsson@guidelinegeo.com; linux-iio@vger.kernel.o=
+rg;
+> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
+> stable@vger.kernel.org
+> Subject: RE: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in post=
+disable
+> for dual mux
+>
+> Hi Christofer,
+>
+> The code change looks correct to me - it aligns postdisable with preenabl=
+e by
+> reusing xadc_get_seq_mode(), and the scope is limited to dual external mu=
+x
+> configurations.
+>
+> Since this is targeting stable, could you please share what hardware/boar=
+d this was
+> tested on and how you verified that VAUX[8-15] channels return correct da=
+ta with
+> the fix applied?
+>
+> Reviewed-by: Salih Emin <salih.emin@amd.com>
+>
+> Thanks,
+> Salih
+>
+>
+> > -----Original Message-----
+> > From: Simek, Michal <michal.simek@amd.com>
+> > Sent: Tuesday, March 10, 2026 7:43 AM
+> > To: Jonathan Cameron <jic23@kernel.org>; Christofer Jonason
+> > <christofer.jonason@guidelinegeo.com>; Erim, Salih
+> > <Salih.Erim@amd.com>; O'Griofa, Conall <conall.ogriofa@amd.com>
+> > Cc: lars@metafoo.de; dlechner@baylibre.com; nuno.sa@analog.com;
+> > andy@kernel.org; victor.jonsson@guidelinegeo.com;
+> > linux-iio@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+> > linux-kernel@vger.kernel.org; stable@vger.kernel.org
+> > Subject: Re: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
+> > postdisable for dual mux
+> >
+> > +Salih, Conall,
+> >
+> > On 3/7/26 13:41, Jonathan Cameron wrote:
+> > > On Wed,  4 Mar 2026 10:07:27 +0100
+> > > Christofer Jonason <christofer.jonason@guidelinegeo.com> wrote:
+> > >
+> > >> xadc_postdisable() unconditionally sets the sequencer to continuous
+> > >> mode. For dual external multiplexer configurations this is incorrect=
+:
+> > >> simultaneous sampling mode is required so that ADC-A samples
+> > >> through the mux on VAUX[0-7] while ADC-B simultaneously samples
+> > >> through the mux on VAUX[8-15]. In continuous mode only ADC-A is
+> > >> active, so VAUX[8-15] channels return incorrect data.
+> > >>
+> > >> Since postdisable is also called from xadc_probe() to set the
+> > >> initial idle state, the wrong sequencer mode is active from the
+> > >> moment the driver loads.
+> > >>
+> > >> The preenable path already uses xadc_get_seq_mode() which returns
+> > >> SIMULTANEOUS for dual mux. Fix postdisable to do the same.
+> > >>
+> > >> Fixes: bdc8cda1d010 ("iio:adc: Add Xilinx XADC driver")
+> > >> Cc: stable@vger.kernel.org
+> > >> Signed-off-by: Christofer Jonason
+> > >> <christofer.jonason@guidelinegeo.com>
+> > >
+> > > I'll leave this on list for a little longer as I'd really like a
+> > > confirmation of this one from the AMD Xilinx folk.
+> >
+> > Salih/Conall: Please look at this patch and provide your comment or tag=
+.
+> >
+> > Thanks,
+> > Michal
 
