@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CB74D2ED08
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:37:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DF57107637B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:37:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yyrWPY5Ev1YqXQNI936Pi4tZz7GWIXsbdLr6GEho4RU=; b=XCIAF8WaDLCOZzZ8RSA6ljrHVA
-	8RRty1mX+5tfrP5WPHld6LOr9v06WyczesCgqBQXzTwF4YA6ULBtgVz6pJLOJ4ORUjdUPQpASw9nc
-	pQ0kLm3qktSapR2EVVrR8fMM0DLUa/Q/1A/uxz7RI7JuMCm3yUah5wWu1T1aAeCBCUkBf/TmXZcor
-	aHxfK1XIRudXCoTGwGfzL+2FIn3nX9DGpbJ0mp6Fc3mM9JvfNOxMLhlj5dAwuG/r8b3ATArhvdu1t
-	WSsdAcpuGyzp0tmTEgvQfhni9VWoNaogi3p2B2+pl3eY8f68JWCnnkslSPmy9GfqT0CCK7QwEjIKv
-	2ywyIWWw==;
+	bh=wuthZuZJNuIVCbef4TvR92fybPm79mBQ8LikDhPWnf0=; b=JCHMOhv3KqWeM5YxohycjCVIpp
+	OJL6Ar6EbiujlIa0yiH8nGuouFyVaHD/4vlUtL42kKt/5HYWi6QSqXCMRW5w8QS2q0/2U1+koMY24
+	xg9JSxdp+FDDv0/0FLFcHAKfN2Hm/t7qd5Guh6vxH82Qdt9zCHtot22RUvzBUUrGmMI/oPNYyLJrt
+	mY5/kV9qkA1UEhat6vFfp92gUktRycp7JBcM1zjJIRrQQmQ2JfuQFgXP/oBpngWXQf3RG9AniQ23U
+	9I3XkaE3XHKFPVO+FtdTF3AynST1186EySVoy893TZZ9CV/j1jlYXiIUEfZGNNCcJjDZj+/4gBP1R
+	SQH8V/Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vkw-0000000FKXD-1sDd;
-	Wed, 01 Apr 2026 13:37:14 +0000
+	id 1w7vky-0000000FKZX-0kmg;
+	Wed, 01 Apr 2026 13:37:16 +0000
 Received: from iad-out-013.esa.us-east-1.outbound.mail-perimeter.amazon.com ([34.198.218.121])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vkr-0000000FKQ5-2Unf;
-	Wed, 01 Apr 2026 13:37:10 +0000
+	id 1w7vkt-0000000FKQ5-0KAO;
+	Wed, 01 Apr 2026 13:37:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
-  t=1775050629; x=1806586629;
+  t=1775050631; x=1806586631;
   h=from:to:cc:subject:date:message-id:references:
    in-reply-to:mime-version:content-transfer-encoding;
-  bh=yyrWPY5Ev1YqXQNI936Pi4tZz7GWIXsbdLr6GEho4RU=;
-  b=BwpzhtCQVG0cV/BmOeiiu6RCeSyWNJUKj9Im6b5K26dU0hwjM3qA2suR
-   Z2wibIsqFd4rzajxFalL9Su0bFfvTdbKu7OYLaYckbCSVEh0pCNz40BAb
-   O2TRx4P+5dKRGUIjYPOKAeTygkBvOxR6pmpX3+fexXV7DP9VNr2vxKUf2
-   WUouKvxOBvZBQHvqF7B/0f8LELEUDfOfUzO8cAlE1m6T9WBibNwKvo2Nx
-   mbPXt5FowwxA3CNqXMrbEgkF2TgpOtiQoMu2aiK6sMH8Oklf0W+R3En9N
-   sdE1keq8AGEHvRz+qzmm7eFCxQ1S3gC3fLp1ek6xKFIb/E0lfSlualIbh
-   Q==;
-X-CSE-ConnectionGUID: 3S/LPCjRSD6mXfvS8BfF4Q==
-X-CSE-MsgGUID: U7tph4hZTj+7Zz7buNfCIQ==
+  bh=wuthZuZJNuIVCbef4TvR92fybPm79mBQ8LikDhPWnf0=;
+  b=ECm7LhN9wN0h5TTJm67izOrMnbcbLjijWaQuKTHr1ieFRv2CWMjiqChD
+   bNWidDs18jIZZmGFYK8vV7PmbL7lmGrkXPS0xv7y6Yc/+43wpr1kcPvzT
+   nAhYyUSXjfg4fIvbXye3RTvRFT3cflNY2Qd75K5Qf5qUtVzz7eTsE5AAH
+   y0fDzwRPdDYQbvMLrAtu2QYD/7iRzQCsRapqbPmZfL6IuxQ/eB+uKrW4T
+   6MLz0yDfX/ZfSrcQzQx9d+1lSUlhgzpvnPjCaYnTEcTl2W8KPr67Pi2SO
+   xBLRsZej4sy81SAu8BqTo2t8/D5VdEVmAx0OvEwvY57JULBnEJguj8Toa
+   w==;
+X-CSE-ConnectionGUID: Y52wK3WyQnCQaxue3N9eZw==
+X-CSE-MsgGUID: BvBLo81GSHqURNQ2EZY2FQ==
 X-IronPort-AV: E=Sophos;i="6.23,153,1770595200"; 
-   d="scan'208";a="14740616"
-Received: from ip-10-4-13-79.ec2.internal (HELO smtpout.naws.us-east-1.prod.farcaster.email.amazon.dev) ([10.4.13.79])
-  by internal-iad-out-013.esa.us-east-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Apr 2026 13:37:06 +0000
-Received: from EX19MTAUEC001.ant.amazon.com [52.94.133.134:17575]
- by smtpin.naws.us-east-1.prod.farcaster.email.amazon.dev [10.0.17.255:2525] with esmtp (Farcaster)
- id d5b417ca-06c6-438e-9b58-67511adcf066; Wed, 1 Apr 2026 13:37:05 +0000 (UTC)
-X-Farcaster-Flow-ID: d5b417ca-06c6-438e-9b58-67511adcf066
-Received: from EX19D012UEC002.ant.amazon.com (10.252.135.254) by
- EX19MTAUEC001.ant.amazon.com (10.252.135.222) with Microsoft SMTP Server
+   d="scan'208";a="14740612"
+Received: from ip-10-4-7-229.ec2.internal (HELO smtpout.naws.us-east-1.prod.farcaster.email.amazon.dev) ([10.4.7.229])
+  by internal-iad-out-013.esa.us-east-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Apr 2026 13:37:04 +0000
+Received: from EX19MTAUEB002.ant.amazon.com [72.21.198.67:21684]
+ by smtpin.naws.us-east-1.prod.farcaster.email.amazon.dev [10.0.8.197:2525] with esmtp (Farcaster)
+ id b3ce9a85-508e-4dd2-9849-9f140f408e54; Wed, 1 Apr 2026 13:37:03 +0000 (UTC)
+X-Farcaster-Flow-ID: b3ce9a85-508e-4dd2-9849-9f140f408e54
+Received: from EX19D012UEC004.ant.amazon.com (10.252.135.219) by
+ EX19MTAUEB002.ant.amazon.com (10.252.135.47) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Wed, 1 Apr 2026 13:37:05 +0000
+ Wed, 1 Apr 2026 13:37:02 +0000
 Received: from EX19D012UEC003.ant.amazon.com (10.252.135.160) by
- EX19D012UEC002.ant.amazon.com (10.252.135.254) with Microsoft SMTP Server
+ EX19D012UEC004.ant.amazon.com (10.252.135.219) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Wed, 1 Apr 2026 13:37:05 +0000
+ Wed, 1 Apr 2026 13:37:01 +0000
 Received: from EX19D012UEC003.ant.amazon.com ([fe80::67ea:859:1e17:25a9]) by
  EX19D012UEC003.ant.amazon.com ([fe80::67ea:859:1e17:25a9%3]) with mapi id
- 15.02.2562.037; Wed, 1 Apr 2026 13:37:05 +0000
+ 15.02.2562.037; Wed, 1 Apr 2026 13:37:01 +0000
 From: "Heyne, Maximilian" <mheyne@amazon.de>
 To: "stable@vger.kernel.org" <stable@vger.kernel.org>
 CC: "Heyne, Maximilian" <mheyne@amazon.de>, Christoph Hellwig <hch@lst.de>,
-	Keith Busch <kbusch@kernel.org>, Sagi Grimberg <sagi@grimberg.me>, "Chaitanya
- Kulkarni" <kch@nvidia.com>, Jens Axboe <axboe@kernel.dk>, Hector Martin
+	Sagi Grimberg <sagi@grimberg.me>, Chaitanya Kulkarni <kch@nvidia.com>, "Keith
+ Busch" <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>, Hector Martin
 	<marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig
 	<alyssa@rosenzweig.io>, "James E.J. Bottomley" <jejb@linux.ibm.com>, "Martin
  K. Petersen" <martin.petersen@oracle.com>, Alim Akhtar
 	<alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>, Bart Van Assche
 	<bvanassche@acm.org>, Sasha Levin <sashal@kernel.org>, Peter Wang
 	<peter.wang@mediatek.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Seunghui Lee <sh043.lee@samsung.com>, Brian Kao <powenkao@google.com>, Adrian
- Hunter <adrian.hunter@intel.com>, Sanjeev Yadav <sanjeev.y@mediatek.com>,
-	Wonkon Kim <wkon.kim@samsung.com>, Hannes Reinecke <hare@suse.de>, Ming Lei
+	Bean Huo <beanhuo@micron.com>, Brian Kao <powenkao@google.com>, Wonkon Kim
+	<wkon.kim@samsung.com>, Seunghui Lee <sh043.lee@samsung.com>, Sanjeev Yadav
+	<sanjeev.y@mediatek.com>, Hannes Reinecke <hare@suse.de>, Ming Lei
 	<ming.lei@redhat.com>, "linux-block@vger.kernel.org"
 	<linux-block@vger.kernel.org>, "linux-kernel@vger.kernel.org"
 	<linux-kernel@vger.kernel.org>, "asahi@lists.linux.dev"
@@ -81,13 +81,11 @@ CC: "Heyne, Maximilian" <mheyne@amazon.de>, Christoph Hellwig <hch@lst.de>,
 	<linux-arm-kernel@lists.infradead.org>, "linux-nvme@lists.infradead.org"
 	<linux-nvme@lists.infradead.org>, "linux-scsi@vger.kernel.org"
 	<linux-scsi@vger.kernel.org>
-Subject: [PATCH 6.1.y 6/8] nvme-pci: put the admin queue in
- nvme_dev_remove_admin
-Thread-Topic: [PATCH 6.1.y 6/8] nvme-pci: put the admin queue in
- nvme_dev_remove_admin
-Thread-Index: AQHcwdygkRu0MfiJH0aFifOxHgnywA==
-Date: Wed, 1 Apr 2026 13:37:05 +0000
-Message-ID: <20260401-fugue-granite-a4156254@mheyne-amazon>
+Subject: [PATCH 6.1.y 4/8] nvme-pci: remove an extra queue reference
+Thread-Topic: [PATCH 6.1.y 4/8] nvme-pci: remove an extra queue reference
+Thread-Index: AQHcwdyeS0oU7vvtXEuRvFkEk0UbGA==
+Date: Wed, 1 Apr 2026 13:37:01 +0000
+Message-ID: <20260401-oat-connect-4976b717@mheyne-amazon>
 References: <20260401-defer-gleam-5226cb65@mheyne-amazon>
 In-Reply-To: <20260401-defer-gleam-5226cb65@mheyne-amazon>
 Accept-Language: en-US
@@ -99,8 +97,8 @@ Content-Type: text/plain; charset="iso-8859-1"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_063709_770752_9A661DA8 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20260401_063711_251945_61B93D99 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,48 +115,50 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Christoph Hellwig <hch@lst.de>
 
-[ Upstream commit 96ef1be53663a9343dffcf106e2f1b59da4b8799 ]
+[ Upstream commit 7dcebef90d35de13a326f765dd787538880566f9 ]
 
-Once the controller is shutdown no one can access the admin queue.  Tear
-it down in nvme_dev_remove_admin, which matches the flow in the other
-drivers.
+Now that blk_mq_destroy_queue does not release the queue reference, there
+is no need for a second admin queue reference to be held by the nvme_dev.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
-Reviewed-by: Keith Busch <kbusch@kernel.org>
 Reviewed-by: Sagi Grimberg <sagi@grimberg.me>
 Reviewed-by: Chaitanya Kulkarni <kch@nvidia.com>
-Tested-by Gerd Bayer <gbayer@linxu.ibm.com>
+Reviewed-by: Keith Busch <kbusch@kernel.org>
+Link: https://lore.kernel.org/r/20221018135720.670094-4-hch@lst.de
+Signed-off-by: Jens Axboe <axboe@kernel.dk>
 Stable-dep-of: 03b3bcd319b3 ("nvme: fix admin request_queue lifetime")
-[ Context change due to missing commit 94cc781f69f4 ("nvme: move OPAL
-  setup from PCIe to core")]
 Signed-off-by: Maximilian Heyne <mheyne@amazon.de>
 ---
- drivers/nvme/host/pci.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/nvme/host/pci.c | 6 ------
+ 1 file changed, 6 deletions(-)
 
 diff --git a/drivers/nvme/host/pci.c b/drivers/nvme/host/pci.c
-index 13c0098939ec0..38732c0c28bbb 100644
+index 727585f580362..13c0098939ec0 100644
 --- a/drivers/nvme/host/pci.c
 +++ b/drivers/nvme/host/pci.c
-@@ -1782,6 +1782,7 @@ static void nvme_dev_remove_admin(struct nvme_dev *de=
+@@ -1782,7 +1782,6 @@ static void nvme_dev_remove_admin(struct nvme_dev *de=
 v)
  		 */
  		nvme_start_admin_queue(&dev->ctrl);
  		blk_mq_destroy_queue(dev->ctrl.admin_q);
-+		blk_put_queue(dev->ctrl.admin_q);
+-		blk_put_queue(dev->ctrl.admin_q);
  		blk_mq_free_tag_set(&dev->admin_tagset);
  	}
  }
-@@ -2831,8 +2832,6 @@ static void nvme_pci_free_ctrl(struct nvme_ctrl *ctrl)
+@@ -1811,11 +1810,6 @@ static int nvme_pci_alloc_admin_tag_set(struct nvme_=
+dev *dev)
+ 		dev->ctrl.admin_q =3D NULL;
+ 		return -ENOMEM;
+ 	}
+-	if (!blk_get_queue(dev->ctrl.admin_q)) {
+-		nvme_dev_remove_admin(dev);
+-		dev->ctrl.admin_q =3D NULL;
+-		return -ENODEV;
+-	}
+ 	return 0;
+ }
  =
 
- 	nvme_dbbuf_dma_free(dev);
- 	nvme_free_tagset(dev);
--	if (dev->ctrl.admin_q)
--		blk_put_queue(dev->ctrl.admin_q);
- 	free_opal_dev(dev->ctrl.opal_dev);
- 	mempool_destroy(dev->iod_mempool);
- 	put_device(dev->dev);
 -- =
 
 2.50.1
