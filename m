@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84D00D35174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 10:36:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79926D35175
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 10:36:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0O8XFL2evGRG+Y5TbQ5tyevmBSWmfCu4MukWhGVrRrw=; b=OwW00eTpkKHnr1mc+ni4wVTQRM
-	QdFDsXzN4teD9FSCeIayQZPFZHNO12mmFr0A+Cds/x/Qh2ghTFwK/FnvMsVZ9O4U36InaEvovMinC
-	YryRNZOUhl2N3srZ0QXrRJU7jdKSUbZGYII0W3OtPXWjnPat4sajq5zHxnY+yn9sLgMwXDOBTii5W
-	SHfjM6Ta4F2fcQmb2MGu8yy3pfw9tRKqwBuwY41HT/9IO9ACOHD3DKYchsFVH1wP13+TQ/9zho0j6
-	Wu1ubfNwVTLosXUQStDfYrzKQ7BZHbKHbQlyalbIl+h5i63LhZuLnxQFno7qcLtsAUvG7Se7c4j4n
-	wRoTg2cQ==;
+	bh=b83TMPIGbewn5MMBylg3tsf9PKZdJXdFCxeUTPW1vRU=; b=Ku0BCOiXSHtOFyC1NxjElRMJ2D
+	sAvSf3lNevEDtE4jdbdNYf9M5VvQzsnc4wTmb7x+m63rVkdeyGYNQIYPqP8NtYyh89a6PhVg+a6rg
+	N0mBw/KL978qYaxYKfyq1CuKB+Mrc6e4Fu2MHDnnZO0Sa/MKzAjEuulkug9n0prwjy7wiYaKcbcwQ
+	9VoxXQidNtUie7gQMJ9g6Ae+ZldjGzi9OPTJfDY6aOXpTvM+UqiG8X4DjuMxAvGaGrGRPl8QGVQSH
+	nnjO3isHEpl2JPN4spyyEV0MlmUPIDhVu3S//Dh1L9Y0Zo7N0NkjqTz77sLhvpx8Aa+M2N04+XeOf
+	MKjUEwZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7sw8-0000000EWFf-0CPt;
-	Wed, 01 Apr 2026 10:36:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w7sw6-0000000EWDM-0xbw;
+	Wed, 01 Apr 2026 10:36:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7sw5-0000000EWBW-0eNR
+	id 1w7sw4-0000000EWBT-3POV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 10:36:33 +0000
+	Wed, 01 Apr 2026 10:36:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 839A46013F;
-	Wed,  1 Apr 2026 10:36:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 498B6C4CEF7;
-	Wed,  1 Apr 2026 10:36:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F2DB46012B;
+	Wed,  1 Apr 2026 10:36:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A202CC2BCB2;
+	Wed,  1 Apr 2026 10:36:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775039792;
-	bh=fhCTNACn4ib4srYZ0jtgAsaLQBYsRgwflH0SpEJscMk=;
+	s=k20201202; t=1775039791;
+	bh=9SSNf2eTb88mADUo0OsqGQAQIhImdgzxoY2EMuClaX0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ObJ7WvUoNO9EitaoZSZPfNBs/5tVMgZkwjmPceFdRUPpmtOKynyFZbY7wfyAHp28k
-	 eYQ+VDaVfobKTHVUk4bZAWFR747xQaaqm1hS3PvueDnheqUA7iQaPx8xrlQFw5ZzdQ
-	 HTZKiE5EqXukXBA+zk7oelwYBRzeHJYxtiNA35XlQdwjRTc1n1y+vFQaPIdRiukxp3
-	 X3315YYUjwfcGITjWlEmLQqEkV8MKMHYxZ5NjhEDad3RGnORx810GIpy57o2WHfidR
-	 qih3N50ZzUTW5UaIUGMp9yvwXcQ+bVfjE5RYejZdFhbhtoqXQwAMiVLW0ziEn9a4ys
-	 QHeNlOnEc4EvQ==
+	b=XYJitCajkUzG0xP5mvm+XDaqcV639Mxf5q85t9u5hKr8uC72VEtDCN/TNm1FqkmXp
+	 Iq2PmMb7Yf6zRhiLD7s72nzFO6iO0imBr5quTOv2ggl51DrR34JgdJ20Z+34kigRkH
+	 ILXZ2ZkrxoUv5lvOGuNIIQjix6datJaJmzEZQLF5P4856F+kL0thCtljj2ij5M2cpq
+	 l5jFLfXtaMF2EfyO8fPLEuBiiMbCmOZJTkbhjmghH4S6WMfSBq1yybu7vOqTMWnVZu
+	 JrarA1KjmB0L6jBqmlJDrUKdcDnyq9EVGY6EaqlFBmiR+J31vN8F+YLduWYP00PJ6m
+	 pKaXi8oZP215Q==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1w7sw2-00000007oRQ-28Fs;
-	Wed, 01 Apr 2026 10:36:30 +0000
+	id 1w7sw1-00000007oRQ-2jBx;
+	Wed, 01 Apr 2026 10:36:29 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Sascha Bischoff <sascha.bischoff@arm.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v2 06/16] KVM: arm64: vgic-v5: Hold config_lock while finalizing GICv5 PPIs
-Date: Wed,  1 Apr 2026 11:36:01 +0100
-Message-ID: <20260401103611.357092-7-maz@kernel.org>
+Subject: [PATCH v2 02/16] KVM: arm64: Don't skip per-vcpu NV initialisation
+Date: Wed,  1 Apr 2026 11:35:57 +0100
+Message-ID: <20260401103611.357092-3-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260401103611.357092-1-maz@kernel.org>
 References: <20260401103611.357092-1-maz@kernel.org>
@@ -84,45 +84,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Finalizing the PPI state is done without holding any lock, which
-means that two vcpus can race against each other and have one zeroing
-the state while another one is setting it, or even maybe using it.
+Some GICv5-related rework have resulted in the NV sanitisation of
+registers being skipped for secondary vcpus, which is a pretty bad
+idea.
 
-Fixing this is done by:
-
-- holding the config lock while performing the initialisation
-
-- checking if SW_PPI has already been advertised, meaning that
-  we have already completed the initialisation once
+Hoist the NV init early so that it is always executed.
 
 Reviewed-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Fixes: 8f1fbe2fd2792 ("KVM: arm64: gic-v5: Finalize GICv5 PPIs and generate mask")
+Fixes: cbd8c958be54a ("KVM: arm64: Return early from kvm_finalize_sys_regs() if guest has run")
 Link: https://sashiko.dev/#/patchset/20260319154937.3619520-1-sascha.bischoff%40arm.com
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-v5.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ arch/arm64/kvm/sys_regs.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-index 2b6cd5c3f9c2f..119d7d01d0e77 100644
---- a/arch/arm64/kvm/vgic/vgic-v5.c
-+++ b/arch/arm64/kvm/vgic/vgic-v5.c
-@@ -172,6 +172,16 @@ int vgic_v5_finalize_ppi_state(struct kvm *kvm)
- 	if (!vgic_is_v5(kvm))
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index e1001544d4f40..18e2d2fccedb8 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -5772,6 +5772,12 @@ int kvm_finalize_sys_regs(struct kvm_vcpu *vcpu)
+ 
+ 	guard(mutex)(&kvm->arch.config_lock);
+ 
++	if (vcpu_has_nv(vcpu)) {
++		int ret = kvm_init_nv_sysregs(vcpu);
++		if (ret)
++			return ret;
++	}
++
+ 	if (kvm_vm_has_ran_once(kvm))
  		return 0;
  
-+	guard(mutex)(&kvm->arch.config_lock);
-+
-+	/*
-+	 * If SW_PPI has been advertised, then we know we already
-+	 * initialised the whole thing, and we can return early. Yes,
-+	 * this is pretty hackish as far as state tracking goes...
-+	 */
-+	if (test_bit(GICV5_ARCH_PPI_SW_PPI, kvm->arch.vgic.gicv5_vm.vgic_ppi_mask))
-+		return 0;
-+
- 	/* The PPI state for all VCPUs should be the same. Pick the first. */
- 	vcpu0 = kvm_get_vcpu(kvm, 0);
+@@ -5820,12 +5826,6 @@ int kvm_finalize_sys_regs(struct kvm_vcpu *vcpu)
+ 		kvm_vgic_finalize_idregs(kvm);
+ 	}
+ 
+-	if (vcpu_has_nv(vcpu)) {
+-		int ret = kvm_init_nv_sysregs(vcpu);
+-		if (ret)
+-			return ret;
+-	}
+-
+ 	return 0;
+ }
  
 -- 
 2.47.3
