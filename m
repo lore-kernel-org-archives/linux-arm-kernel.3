@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0F6107639C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 19:15:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55F1F10FCAC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 19:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=a53m1M0yPC+0hsBR8rulFA+iVXVX4Qv0HU8oZpgQDvA=; b=ibjYHwyxk4d61w3UspBko7zPFG
-	52LM5Eaw4JdC6JFlCcoxp98JSdsbkX/9x66BLGANyfoJd2i//HipQ+uWh5WQIDvF/uRLqz+7dYQgP
-	ZDKtNm0Js6RjcMwgNde/FnJL5AahmpTCa6VNX0Dpym4sVV7sliDuU6uj80uXpPMEsVjm5A0sLM378
-	vF9KfAhn3n/V0+CDzG5smQCDW9S27cuWyCjMO08YCH9fXr63Eun3t0Mzvt9hAdkhDKuExX+M5/z1f
-	Y4luRzrMqWotbffDKFAtDsuYAYDZpM5nE+VfKNlNTprWRfOOYmZMD7knpxHQol0z+xKQwiHJIBN5u
-	pO176mNQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r8KcYzflmFoH6kQuwH+mgkFuRmADtPPTvOe6lcVTKSM=; b=qDYnGyqDyq3nH+Ob7e2jeZ80dG
+	ja+RA4d0HsNpvjq4PjxI4YhDuU+Vim6Fmr38eRG5asSrb3NacA5AmTUUXSu2ToadxvEi4+24VYrVA
+	MdrdvE1mkPb4L59DN07ER/lCbSAI7IxcS6SoNUV5eG3IYkG3+Tmue4S8AeDYTvwe/HpjknM8G2oAe
+	9tt/QuRg/m4x5rgbiI1tCTwuJ0HSx3xsUjb4TK56zUf9bbsXGpAPRYAzVnksiO0b5OBB4rdv2ovme
+	IrM56P8N3EQ3MRgJlB4nuWZcn9ZJt1TaEKaHmQ9Ktug6oGaVtpCvWEAvlXfiD8ei0GUgxTUosvI33
+	k2/Y6a8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w811s-0000000G0Un-06Hy;
-	Wed, 01 Apr 2026 19:15:04 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1w8125-0000000G0XA-04v4;
+	Wed, 01 Apr 2026 19:15:17 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w811p-0000000G0U0-3h88
+	id 1w8122-0000000G0WZ-2AeQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 19:15:03 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5a2967e5de4so154190e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 12:15:00 -0700 (PDT)
+	Wed, 01 Apr 2026 19:15:15 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5a2c3dfb4a1so183506e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 12:15:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775070899; x=1775675699; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=a53m1M0yPC+0hsBR8rulFA+iVXVX4Qv0HU8oZpgQDvA=;
-        b=NX17om7aMHXX3c//45zxRfAhTBwogNrsmtVW/m/VeTrpK2vN20w10vt1mmtI4QDa1d
-         fdWc7lnHhgSAwRHIwaFuJGgg8/NGU+j+4C4OEZtC42w0zr4k3zIJE7iZZ8MDBSgHnxlA
-         a478jYY/5q8xX/HyG/2ccyE+0eEBgxM6tjkXf6oXfIW3sfdAZ1AGrawMVXA+myK0wYFf
-         3LdlR6xFCqwqjTiFsGUOdZhk15fbsvO+ohmzi71Ogk1REriHKOBafgnGTAytZTdPF9L9
-         t2Ooi7Rj9b0Ja18iIcfFdlkgE/4NQuQyXYRlE5cWtQpqrUbuBcRqbt+X7uJDOEcj9zpV
-         pl8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775070899; x=1775675699;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1775070912; x=1775675712; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=a53m1M0yPC+0hsBR8rulFA+iVXVX4Qv0HU8oZpgQDvA=;
-        b=HPPOD3CxIiqceRBEVXKccp5ZDSWAi+DuWxOeN3La60BZBpp5+RyxaGC9IOMp5ZmYM8
-         9WK8g0PqPVOAlNdIpkz1sytbrU5BALIsB2jhLBpRt+3cO1jkyBqshX012FLFHh3DbiUQ
-         Gmfs0LV3stNIaoMP7aVmw152euX+N5DbvqsH1nMBCxoRJ2VYFpEiIafMf1BWSp3jdMLX
-         SAoMWsu8JEVGyXYtShvGVpVMZqZ6PGUVrod3YqGJQY1XpoJ0b18lDLULsjyK0xEa4aBG
-         MN85iByDzQC0T4pNs7+rQ536g35yVr6Yu/tbMVcgVxheFbxgI9OKwBl6ZAAl1QhG1EQw
-         lajw==
-X-Forwarded-Encrypted: i=1; AJvYcCWBVb8gcjkxdR2DSc3IwoHR9SouRWukQSLCUzGXyVbtRgDa5B0k10hzrnhgXpu3XXMaka8IRhrCdleHgGxd0Db+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwX6HBKi3TqTwkrUFDi3MCc5TBQjkZ+ClDffjS6EqAGIh0cIiGY
-	7o4lewdikh3woBauxVSl8lXdToATkc9thOJJSvDrG0sLaeFyw7rNbmkG
-X-Gm-Gg: ATEYQzx/j7e4iB+n9vJrNoG70bLFWbM1AlXCxOB5hcUWGNTg63KtW49Q1ahMCHX7em/
-	tSUTpC1SqcgLhM3KhUcOs0iP5iFt7R5ma2O3bYzMayEVOWS7caCsZuAMsII85E2mEhdCZ5oV+/+
-	zHOtE340L2G11k3rmJEGy1j83jJ2D1/4W01Hu3kZBCq+y7qpYCIohUTrDsqS+g5dcANa2pnXK75
-	O8OkjX8OC4chUV3ZDpA2nQWwYd4J8IszIH4Cm17l0K2KkHbyOj4hvebdxDbxpW7fnSojdEGgxi0
-	/Q9jiveJOxPmUc0OQevEOrBDh1FKr4P3bxVnJtWwAWHhfXKRPkQ5j0MUdSboBAJHhAx3ABTtJTg
-	8aDcAwdAmJm+0SDhk7Rb8qpBGkPaKp+iQ4KzVIgqtGk4W+gDecdkg9wQPWaAVyoNTLL3j4PU9LK
-	9yCdkaRv3K8vevx+6EKSHnaAiyWA==
-X-Received: by 2002:a05:6512:3b87:b0:5a2:78fa:2700 with SMTP id 2adb3069b0e04-5a2c1f3c4d5mr1943599e87.23.1775070898394;
-        Wed, 01 Apr 2026 12:14:58 -0700 (PDT)
+        bh=r8KcYzflmFoH6kQuwH+mgkFuRmADtPPTvOe6lcVTKSM=;
+        b=pKMa34sKYUs0xp1DRHbzKUsYscLikQAx8YNkaX0EwEUuKazzkRZNleCiHwq6BcfRjf
+         zhs1azC1aj6BxOZrd67xts+8hRnFUxdhdM1j2nHdGHfP3KkrpD4LlRdrJkvk1DQ/SYen
+         QmLO+2PeOS9tJ1aJBIG7Pluv6e5tsSdb7FEjkBTvtj1imtT/AjghLK558Me+Ip9OB4vj
+         j5AVLrGs2OMMnIdUrPn8Mij6S1cdTvwfqRUyZ7e0IprUbFau0G9dm1qQ9+g+hr5hpaCY
+         xxt3HzqIcYjIXpfCQ7KJRK0t2/2XfKIkwDoH9XcHZrmZCT7Thn+YD/zjZYve0S+wHVM2
+         Wsqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775070912; x=1775675712;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=r8KcYzflmFoH6kQuwH+mgkFuRmADtPPTvOe6lcVTKSM=;
+        b=CGLB3MAVV4uyFncNvh/Yi9qXsQt85shN1PEeh6Y0d7UCzx+iiva6+PwFQDB3fr0Bmq
+         y3cqq1jgo9oDKW3cYWvoHtURe8PtFW6EBEyqeTMtrrryWwrwkfCmCpRpMoOZ3ImhZH6d
+         8y0Es+gekaw/mcLbD+nBJB6Ekk+XsFcFIJn5i41j/OW3S6U2VLS/yoEeeCUjj3FTChGK
+         RItpL7lbOKgi9Jj+wTGmUaO6wm/pHrDxNGJuWIE14a6Z+0DvI5Fpchq/JPwPtQVvstAa
+         KZumALNQ2e6QUKyFO+v4jgaoo+TkMA13JrvNLcJCZI6iI1xnQUFPgrONZAPZzq4UHCyx
+         UFAg==
+X-Forwarded-Encrypted: i=1; AJvYcCVisJji1jm1OKWewgGrtaYRYN03GbqpjHcFSbp7LqkMXP6t19KSZ4tkRf9quJpRO8kGxo/OzEWJQ6S7ZtZAvmqr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6yYBibbisCJy58ae/Tavdx+63z1e3mEq+TpAdg/ruQtNdzkXW
+	EXqb7ikHI4anUigsvwrl59iGzvOX5umJAShd+ZQDPbf5HtE3HGUdGA0g
+X-Gm-Gg: ATEYQzyuOivzJRNdD8OEq7WOeUKb7iVZ5cL+/JdtoE6U2Xm8RZhlAA5V4eB7nmQc9vt
+	dPFgFvRlaB5GAsSqsLmhOTdhKer0CNtjl6mdJiWfah4ezb9C6S8A4+ro/pUfUjbCMVvixd0q2Sy
+	ZB0mEhEuH8eaoCtau5Qj5RePht10COWs9AayZjpeb//r/0J38KC4jnfKYTTQugQ79HXQ1mNqdoN
+	262L5CjYE4jYr+cTVFCm+I0NfqFiUPvnJ0lK/cYplHNAYlY9LNZ0RxUv0pfEtiWrgcYQjW1E6o4
+	lNOQlBIaxG6R5ehMDl/K4RGRyPKWzk1/zlkZs4sAkWEKxAth71ROBqzAEvLNeoX01JOk8XLJZIK
+	4A0+mKyAr2N4tqQ4aOn6h3uBHECo5pYDNMd4XaVAJtK6GNlmYwQy68ohpWWfZzsZ+Ar+8DsWQOD
+	/w67g03nNImOQU/JmC8/KzYhf+jecn8RthBaG1
+X-Received: by 2002:a05:6512:318e:b0:5a2:961a:f7c7 with SMTP id 2adb3069b0e04-5a2c7676402mr92043e87.21.1775070912245;
+        Wed, 01 Apr 2026 12:15:12 -0700 (PDT)
 Received: from new-nest ([94.19.228.143])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a2c6ccca2dsm141855e87.60.2026.04.01.12.14.57
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a2c6ccca2dsm141855e87.60.2026.04.01.12.15.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Apr 2026 12:14:57 -0700 (PDT)
+        Wed, 01 Apr 2026 12:15:11 -0700 (PDT)
 From: Andrey Skvortsov <andrej.skvortzov@gmail.com>
 To: Maxime Ripard <mripard@kernel.org>,
 	Paul Kocialkowski <paulk@sys-base.io>,
@@ -83,15 +84,17 @@ To: Maxime Ripard <mripard@kernel.org>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
 Cc: Andrey Skvortsov <andrej.skvortzov@gmail.com>
-Subject: [PATCH 1/2] media: cedrus: Fix missing cleanup in error path
-Date: Wed,  1 Apr 2026 22:14:40 +0300
-Message-ID: <20260401191441.1217646-1-andrej.skvortzov@gmail.com>
+Subject: [PATCH 2/2] media: cedrus: Fix failure to clean up hardware on probe failure
+Date: Wed,  1 Apr 2026 22:14:41 +0300
+Message-ID: <20260401191441.1217646-2-andrej.skvortzov@gmail.com>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260401191441.1217646-1-andrej.skvortzov@gmail.com>
+References: <20260401191441.1217646-1-andrej.skvortzov@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_121501_955973_7AF684EA 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20260401_121514_595720_4D2213B8 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,30 +113,38 @@ From: Samuel Holland <samuel@sholland.org>
 
 From: Samuel Holland <samuel@sholland.org>
 
-According to the documentation struct v4l2_fh has to be cleaned up with
-v4l2_fh_exit() before being freed. [1]
-
-1. https://docs.kernel.org/driver-api/media/v4l2-fh.html
+cedrus_hw_remove undoes, that was done by cedrus_hw_probe previously,
+like disabling runtime power management, releasing claimed sram.
 
 Signed-off-by: Samuel Holland <samuel@sholland.org>
 Signed-off-by: Andrey Skvortsov <andrej.skvortzov@gmail.com>
 Fixes: 50e761516f2b ("media: platform: Add Cedrus VPU decoder driver")
 ---
- drivers/staging/media/sunxi/cedrus/cedrus.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/staging/media/sunxi/cedrus/cedrus.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.c b/drivers/staging/media/sunxi/cedrus/cedrus.c
-index 6600245dff0e2..1d2130f35fffc 100644
+index 1d2130f35fffc..ee0e286add67d 100644
 --- a/drivers/staging/media/sunxi/cedrus/cedrus.c
 +++ b/drivers/staging/media/sunxi/cedrus/cedrus.c
-@@ -391,6 +391,7 @@ static int cedrus_open(struct file *file)
- err_m2m_release:
- 	v4l2_m2m_ctx_release(ctx->fh.m2m_ctx);
- err_free:
-+	v4l2_fh_exit(&ctx->fh);
- 	kfree(ctx);
- 	mutex_unlock(&dev->dev_mutex);
+@@ -477,7 +477,7 @@ static int cedrus_probe(struct platform_device *pdev)
+ 	ret = v4l2_device_register(&pdev->dev, &dev->v4l2_dev);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "Failed to register V4L2 device\n");
+-		return ret;
++		goto err_hw;
+ 	}
  
+ 	vfd = &dev->vfd;
+@@ -538,6 +538,8 @@ static int cedrus_probe(struct platform_device *pdev)
+ 	v4l2_m2m_release(dev->m2m_dev);
+ err_v4l2:
+ 	v4l2_device_unregister(&dev->v4l2_dev);
++err_hw:
++	cedrus_hw_remove(dev);
+ 
+ 	return ret;
+ }
 -- 
 2.51.0
 
