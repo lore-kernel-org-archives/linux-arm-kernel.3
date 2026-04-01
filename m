@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF7BCD35162
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:46:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B175D35177
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:46:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xBJme/iO4lVm0G6mcV1TudUP3n0IE2OofKlHIR5mlyw=; b=D5mwrUuHJ4YULP81kLz+Nz2gwf
-	UPQpRZbrzV3tO07FNdokgDCZe6rE0FEzftHQQR76wpsMSgy5FDhvh1imnBR6iiQNa15hqw2eS158d
-	E0+EyLfjUwIRBr+Lp2F9tTkLJYZWt7NJErAI6ECfQ/ckSUcNduEPiUgQbpKyAOfMu72jbfarXHY16
-	qr5JvrYODEQzBiZtLGY1HqXLcpMvOW31mikRV/qtDbsYFm4RDGRE7avUiB38ykuKC3GCjo4hW0xnF
-	zXqE4Kx8zJ6Zbbw3BYDJukfx3QjTA2uMYned52t4T+nA6kHHYeVfZvKdvYquAqNtKAnHkHN55OUx7
-	bXDIKDvg==;
+	bh=Hwco8P8PAG3MAADo2ltX10PuJl9uc/57LCX1/bJL/8M=; b=mHaUF5katrWVYPyHjmUoojuYPP
+	ovBgBs5lXRgODDBVMa15sw1Rne9ozfRwy1Gf/UTxewousKVw9AGWGSeQmq2TdtNzV9vbDsMu9fDYb
+	JySWJfEmMCRiKOppdt+kUodJBRz6iRHa2/G/yL6mtHfaJSXJZWp6AFsBr8SH1I5WHYD6jsphmeHKT
+	XBAF1RH65tcC6lk+HoNWO/+nmZb5fv994cHRkgKyZPchquxTVF3GvgUpNvGn7cuTQq26Yj06OyE85
+	dqxyXBBh8HZKteJnHvSFqCsnuLgb96tFcRJf3e56X2O3hi8//+ZN8OKEuIM30x+FZX1rYKicOKbJh
+	Kkf2tGQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u1p-0000000Efxd-0AKw;
-	Wed, 01 Apr 2026 11:46:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w7u1y-0000000Eg2L-2lUW;
+	Wed, 01 Apr 2026 11:46:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u1k-0000000Efvp-0Kw2;
-	Wed, 01 Apr 2026 11:46:29 +0000
+	id 1w7u1v-0000000Eg0x-2nTk;
+	Wed, 01 Apr 2026 11:46:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6868440912;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3A2904091B;
+	Wed,  1 Apr 2026 11:46:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA9D4C116C6;
 	Wed,  1 Apr 2026 11:46:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 065A7C4CEF7;
-	Wed,  1 Apr 2026 11:46:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775043987;
-	bh=bANzQfGdC4IAbhvKXuBQNZWwfHWEIkonTSD/l3eSFWo=;
+	s=k20201202; t=1775043999;
+	bh=mx6ZzwYZD/l+CT6smdZwRkePe/ogwpikx6oQbCZtXnE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hL4sHbvEsNWJiay38u1aNlo7H43VBJ1sQkn95Zz3Zvo78hQs4urrxoY3PVbkzKt0l
-	 lwmTMIaJi+qiU2KMGU6vLKoGsiBAHAkiLOEOtbt9u9OHlSIILM04QabgoVY8JAqGM2
-	 ktOh+LvLdSPlD4TAGMErsb3sfuWdamUxchSdksVBIJ38zHPuP7Z3j73xQdW7tKiEjL
-	 3P1B2oMo9xQQOERf8nSXdYHlAeXuO4SJJzjQaIXxzPUJD3XBzD1RAtErQhOQJcGTnV
-	 k195Z2x0u87K/wOQvxUzbhoRq0DOWDo6GjE0Ys09MiK0M4d5vrYQEjsZvmtaKni/FB
-	 Nn2gr6YtVmP8w==
+	b=IC7ucAQnVkndR7ChPPc0lrrY93rjZt8+FXlKYow5FhPAUcgRIJ6vkDf1B97slIFSF
+	 rjhuIH7tqMm7bMjMtan4SHkTNIYJO4WYYQsOdwTJQaA2JEj8puX36B/Jv6MvnDT+Jj
+	 FyETPXeepd1WLVhdSUOO/mLj/ukokooeVmCujRO5BPBFgA6K3rftlGfEbR+ZOgh8iX
+	 diigcnBbQUlQcWklv2ABotZPDZct8rOw9kSKePGAwqiC89bbfWfMFV3jp29aCp47R0
+	 sWWBc17mT0LMstHWxRcNniaUHF/vI1dTtIZL59bASZjnri6+Om3XyWc14QOHjUyxZQ
+	 o2GgSZLrfRn/A==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -91,16 +91,16 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org
-Subject: [PATCH 02/33] rust: bump Clippy's MSRV and clean `incompatible_msrv` allows
-Date: Wed,  1 Apr 2026 13:45:09 +0200
-Message-ID: <20260401114540.30108-3-ojeda@kernel.org>
+Subject: [PATCH 03/33] rust: simplify `RUSTC_VERSION` Kconfig conditions
+Date: Wed,  1 Apr 2026 13:45:10 +0200
+Message-ID: <20260401114540.30108-4-ojeda@kernel.org>
 In-Reply-To: <20260401114540.30108-1-ojeda@kernel.org>
 References: <20260401114540.30108-1-ojeda@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_044628_173417_D03BA688 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20260401_044640_581581_88A683F5 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,87 +115,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Following the Rust compiler bump, we can now update Clippy's MSRV we
-set in the configuration, which will improve the diagnostics it generates.
+With the Rust version bump in place, several Kconfig conditions based on
+`RUSTC_VERSION` are always true.
 
-Thus do so and clean a few of the `allow`s that are not needed anymore.
+Thus simplify them.
+
+The minimum supported major LLVM version by our new Rust minimum version
+is now LLVM 18, instead of LLVM 16. However, there are no possible
+cleanups for `RUSTC_LLVM_VERSION`.
 
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
- .clippy.toml                      | 2 +-
- drivers/gpu/nova-core/gsp/cmdq.rs | 6 +-----
- rust/kernel/ptr.rs                | 1 -
- rust/kernel/transmute.rs          | 2 --
- 4 files changed, 2 insertions(+), 9 deletions(-)
+ arch/Kconfig       | 3 +--
+ arch/arm64/Kconfig | 8 --------
+ arch/riscv/Kconfig | 3 ---
+ init/Kconfig       | 2 --
+ 4 files changed, 1 insertion(+), 15 deletions(-)
 
-diff --git a/.clippy.toml b/.clippy.toml
-index a51de9a46380..b0a78cc8be20 100644
---- a/.clippy.toml
-+++ b/.clippy.toml
-@@ -1,6 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
+diff --git a/arch/Kconfig b/arch/Kconfig
+index 102ddbd4298e..84089e80584b 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -968,10 +968,9 @@ config HAVE_CFI_ICALL_NORMALIZE_INTEGERS
+ config HAVE_CFI_ICALL_NORMALIZE_INTEGERS_RUSTC
+ 	def_bool y
+ 	depends on HAVE_CFI_ICALL_NORMALIZE_INTEGERS
+-	depends on RUSTC_VERSION >= 107900
+ 	depends on ARM64 || X86_64
+ 	# With GCOV/KASAN we need this fix: https://github.com/rust-lang/rust/pull/129373
+-	depends on (RUSTC_LLVM_VERSION >= 190103 && RUSTC_VERSION >= 108200) || \
++	depends on RUSTC_LLVM_VERSION >= 190103 || \
+ 		(!GCOV_KERNEL && !KASAN_GENERIC && !KASAN_SW_TAGS)
  
--msrv = "1.78.0"
-+msrv = "1.85.0"
+ config CFI_PERMISSIVE
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 38dba5f7e4d2..c91130c7fba1 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -291,14 +291,6 @@ config ARM64
+ config RUSTC_SUPPORTS_ARM64
+ 	def_bool y
+ 	depends on CPU_LITTLE_ENDIAN
+-	# Shadow call stack is only supported on certain rustc versions.
+-	#
+-	# When using the UNWIND_PATCH_PAC_INTO_SCS option, rustc version 1.80+ is
+-	# required due to use of the -Zfixed-x18 flag.
+-	#
+-	# Otherwise, rustc version 1.82+ is required due to use of the
+-	# -Zsanitizer=shadow-call-stack flag.
+-	depends on !SHADOW_CALL_STACK || RUSTC_VERSION >= 108200 || RUSTC_VERSION >= 108000 && UNWIND_PATCH_PAC_INTO_SCS
  
- check-private-items = true
+ config CLANG_SUPPORTS_DYNAMIC_FTRACE_WITH_ARGS
+ 	def_bool CC_IS_CLANG
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 90c531e6abf5..ddc534402400 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -232,9 +232,6 @@ config RISCV
+ config RUSTC_SUPPORTS_RISCV
+ 	def_bool y
+ 	depends on 64BIT
+-	# Shadow call stack requires rustc version 1.82+ due to use of the
+-	# -Zsanitizer=shadow-call-stack flag.
+-	depends on !SHADOW_CALL_STACK || RUSTC_VERSION >= 108200
  
-diff --git a/drivers/gpu/nova-core/gsp/cmdq.rs b/drivers/gpu/nova-core/gsp/cmdq.rs
-index 46819a82a51a..d9f69366642a 100644
---- a/drivers/gpu/nova-core/gsp/cmdq.rs
-+++ b/drivers/gpu/nova-core/gsp/cmdq.rs
-@@ -281,7 +281,6 @@ fn allocate_command(&mut self, size: usize) -> Result<GspCommand<'_>> {
-         let (slice_1, slice_2) = {
-             let (slice_1, slice_2) = self.driver_write_area();
+ config CLANG_SUPPORTS_DYNAMIC_FTRACE
+ 	def_bool CC_IS_CLANG
+diff --git a/init/Kconfig b/init/Kconfig
+index 36d32ea44594..b8a1ab0d49d4 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -2193,9 +2193,7 @@ config RUST
+ 	depends on !DEBUG_INFO_BTF || (PAHOLE_HAS_LANG_EXCLUDE && !LTO)
+ 	depends on !CFI || HAVE_CFI_ICALL_NORMALIZE_INTEGERS_RUSTC
+ 	select CFI_ICALL_NORMALIZE_INTEGERS if CFI
+-	depends on !CALL_PADDING || RUSTC_VERSION >= 108100
+ 	depends on !KASAN_SW_TAGS
+-	depends on !(MITIGATION_RETHUNK && KASAN) || RUSTC_VERSION >= 108300
+ 	help
+ 	  Enables Rust support in the kernel.
  
--            #[allow(clippy::incompatible_msrv)]
-             (slice_1.as_flattened_mut(), slice_2.as_flattened_mut())
-         };
- 
-@@ -572,10 +571,7 @@ fn wait_for_msg(&self, timeout: Delta) -> Result<GspMessage<'_>> {
-             Delta::from_millis(1),
-             timeout,
-         )
--        .map(|(slice_1, slice_2)| {
--            #[allow(clippy::incompatible_msrv)]
--            (slice_1.as_flattened(), slice_2.as_flattened())
--        })?;
-+        .map(|(slice_1, slice_2)| (slice_1.as_flattened(), slice_2.as_flattened()))?;
- 
-         // Extract the `GspMsgElement`.
-         let (header, slice_1) = GspMsgElement::from_bytes_prefix(slice_1).ok_or(EIO)?;
-diff --git a/rust/kernel/ptr.rs b/rust/kernel/ptr.rs
-index 512e2eabe3ad..bd669e74e1cc 100644
---- a/rust/kernel/ptr.rs
-+++ b/rust/kernel/ptr.rs
-@@ -81,7 +81,6 @@ pub const fn new_checked(align: usize) -> Option<Self> {
-     /// This is equivalent to [`align_of`], but with the return value provided as an [`Alignment`].
-     #[inline(always)]
-     pub const fn of<T>() -> Self {
--        #![allow(clippy::incompatible_msrv)]
-         // This cannot panic since alignments are always powers of two.
-         //
-         // We unfortunately cannot use `new` as it would require the `generic_const_exprs` feature.
-diff --git a/rust/kernel/transmute.rs b/rust/kernel/transmute.rs
-index 5711580c9f9b..b9e6eadc08f5 100644
---- a/rust/kernel/transmute.rs
-+++ b/rust/kernel/transmute.rs
-@@ -49,7 +49,6 @@ fn from_bytes(bytes: &[u8]) -> Option<&Self>
-         let slice_ptr = bytes.as_ptr().cast::<Self>();
-         let size = size_of::<Self>();
- 
--        #[allow(clippy::incompatible_msrv)]
-         if bytes.len() == size && slice_ptr.is_aligned() {
-             // SAFETY: Size and alignment were just checked.
-             unsafe { Some(&*slice_ptr) }
-@@ -92,7 +91,6 @@ fn from_bytes_mut(bytes: &mut [u8]) -> Option<&mut Self>
-         let slice_ptr = bytes.as_mut_ptr().cast::<Self>();
-         let size = size_of::<Self>();
- 
--        #[allow(clippy::incompatible_msrv)]
-         if bytes.len() == size && slice_ptr.is_aligned() {
-             // SAFETY: Size and alignment were just checked.
-             unsafe { Some(&mut *slice_ptr) }
 -- 
 2.53.0
 
