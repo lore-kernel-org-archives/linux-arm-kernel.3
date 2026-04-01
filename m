@@ -4,79 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F3EDD35145
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA3CCD3517D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g9ydFqbwdCGJ7LRZTrnA9AUz17TQxDwNxo5bRSg0N6o=; b=EPgRWRUu9mOo4od/FgZl6ZqHXf
-	x7vvPLNtTar5MCCQXTtOVLY6sHn97lsqtAGmw9sEsDnLynLX4dXcw4X15Ai4oGHysD05P1myCMwMC
-	/NRK/64Pidg6MMU5RROuDpQMkR8t7iOfNlGX+NbhU6TJTwfmeLietQxpvC3rnLKcGmmKbMbWE1DT6
-	cltzMs9QrNExKkstj/6IhbCzhi4Pl5h2CNgeG3V+2ViUdWF5ZAESgR1FcJclNyIIq+/yFz5bideEa
-	G1iGBe37VsnyvbIhCY4mGoMbWxFyy5dUraVzkDAk40YlRx+hvxIHC+FUQvYfTEu5DTNwtPlM2l4AZ
-	KAD9qoLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
+	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JDnCpM9lVS61RJWFs8BQRWmSZ2Orzft1WPMP/GrUDvc=; b=zj72sYsJrMyPNaHH967HYvIlSc
+	Ub0z+QZ/+9hP9dVNBB5rMaXXCE2/xk7mYB7A4YkvcfK0ABA9ZS+pA6qRn6lCePnX2hx8OTsrI/MLG
+	7fA3mSZELqaa2cH77G4BmsqSTZZchbYPHc1yi0b3NyZbExSpm5eahL+YCJB5Wi80/3cEW1SaNsXJD
+	3okfTXaCdZPleIejS0sqjq5q1wOQyhB+BaeyLechAfqnTfFx3ILbMhhmIMlEvyxlgNgsFX5ZpxM3w
+	RV4oewIJh5PtvH/b+4+KMOk2I4el57pH8lFdTce0aZ5VaDMSRq/ALO1eExkfzkCcxleQtHrR8zinG
+	MjDEZkcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vRS-0000000FI5Z-1L6N;
-	Wed, 01 Apr 2026 13:17:06 +0000
+	id 1w7vSU-0000000FIIs-1bPT;
+	Wed, 01 Apr 2026 13:18:10 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vRR-0000000FI4i-1yf6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 01 Apr 2026 13:17:05 +0000
+	id 1w7vSS-0000000FIIe-14wj;
+	Wed, 01 Apr 2026 13:18:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=g9ydFqbwdCGJ7LRZTrnA9AUz17TQxDwNxo5bRSg0N6o=; b=pYJEGYigR7YsYXPaGUwZipYPA5
-	eRlw83/hM/+wx8KXtdCs0eDc3shWQscm6k52uwtUitStxP6MtPYTQzTepV6ldt75+PDIEgCnx8B1V
-	zZtyP090oFjPmE9LAfdTCjdi0lnqMqdKgDlCVm0sGFRwbaABdaax4NAxD1vhqQcc2nyQUSYuj+Yeh
-	nG+7BBnjbl8Jxk2u/Czyka8IJFN5wi+tTp5uLumkLLmbhSjMJE8FARd1dnk5M3sYJbbO+iWKrZdG/
-	72Xe4KnTlkvdB44nyuTF3qZ9uDDxizpHE0yIdeoFqf9Ikb3tRghNa8Qr3N++cmWycAi+MkbjMp3R1
-	rhIgjrAw==;
-Received: from out-177.mta1.migadu.com ([95.215.58.177])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:References:To
+	:From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=JDnCpM9lVS61RJWFs8BQRWmSZ2Orzft1WPMP/GrUDvc=; b=aLW7J0WaCPFWEaAbrW+eSMPvIf
+	8IJfyjcUZd/gallyyrtx0AwCPBAQoxsn+bpGzhm0GIgbGV6zu2bqZnCDJyavTqvzLCqBdzgiqXY7t
+	+PP5EkOKZbJ3E8YTBsUEjFft9aPDQdrd8e0tNDxdUR6Ad1jeaZc5we2zZP+BdvhR7lR+xsBJ5Cx6s
+	kv9MVSeVTS+61MMq8SREY+GEL3012Ofhnozus1HitRkLPFN64mW1KMr8ao9i5uBOCd0Y9R5ISjXvw
+	sdBvwv6IIh6ndFl95aJ9f6X/NQlnCsUSWEUkAAPiXJ3GfP/ny4dos3MFvcQMRqjerKOh6pjM8bbF1
+	MVGfcoXg==;
+Received: from mail-uksouthazon11022129.outbound.protection.outlook.com ([52.101.96.129] helo=LO0P265CU003.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vRN-00000000R9W-4B9o
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 13:17:04 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1775049384;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=g9ydFqbwdCGJ7LRZTrnA9AUz17TQxDwNxo5bRSg0N6o=;
-	b=dhJO1h+Ww8MQKzUtbpNaLyCXn73u3UbmH5Tl74THeoTvoSR0HGHXD3AnR3AVAeS8jq1RXl
-	Obgk9v2DuAQOoI88zttsNkO5HNt/M4Qta4fBOWA4ik2lS2sCZBCYlFIY3HYNnHqbvNN0r8
-	Slh8ksHgkVJhkK1gQGRhtkRtglLvyQVayXovep6Ge5VoOHb67WfG9WdF9Qiqs2+Od7i4lY
-	D6wuEyBjxg7QdGX9JwB9SFW4P/XKjLosWz18iJ6Y1FUMsQrnZtVXueppuovRXdSfi+G2s2
-	BJrzdqMNfHybzgeRnXwBojP/hsyO1SOwYSEI+2W673rdvufpQy8cdAfk4TDewA==
-From: Diederik de Haas <diederik@cknow-tech.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Diederik de Haas <diederik@cknow-tech.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] arm64: dts: rockchip: Fix gmac0 reset pin for NanoPi R5S
-Date: Wed,  1 Apr 2026 15:11:38 +0200
-Message-ID: <20260401131551.734456-2-diederik@cknow-tech.com>
-In-Reply-To: <20260401131551.734456-1-diederik@cknow-tech.com>
-References: <20260401131551.734456-1-diederik@cknow-tech.com>
+	id 1w7vSO-00000000RKb-31te;
+	Wed, 01 Apr 2026 13:18:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XyD+a2Vo7hivtBuXazA8rSVvcv7MCJZ1isi33WflQ9hZxcZBGpKw+I/wQaMtSj5CElU60V6Dnz4x9tWrBIr55nKpqpDiJU2Id7DVr3aghxnxXKYV6sBNXbc7G6OezEb9Vd3EgvYKHayQQXSogAPnneXmCpSj3lxBVUnH+21Mo1K3Zf+AQ03gaM/yTX9+FzuuvxWyWAje7qfXC2OzjvjSUP+IE4GFS8pVfKljg7nWFIR5SZSAb+ZdAXg5tQZAnSai9uduh8tGKd4IxAbdlnVsqwjeNQNkA0KvJ2KFGZOtPNcP6303JD55jDA+HdIt/cJLC15/s4SXeoUyw9WC3iX3uA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JDnCpM9lVS61RJWFs8BQRWmSZ2Orzft1WPMP/GrUDvc=;
+ b=iRon6jS0a3vB0ijunxgfJVHOO4U1GDt8jOIEaQu2UL0hsklxw52UDlxpgtivP0I2deEYDrQwYJdnmC17bI1KXe4m/2j7/pEJsqrHhjxjbkMKI78lIJT0DwgkhsDFQB2Q3u3n83NvTEaI+wRIk+4RFHlxaCX0YCaOjgmWaFmu4RGSqE9u0Snz25km2+KMUxJlZglDW/t3YyVC1dGd8aLAy04JHLLuesOCxWoos0Y/xoJjBytrPKUTZfK2Di/l9vvhBPwvK4o4DrfmsqXEoENnTxFBA7qLJhDjNG4v8DtXhks68bBwBK8lm5Mvk3L5t9YYkXh4R3QhLQJw1rXsOMGYCA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JDnCpM9lVS61RJWFs8BQRWmSZ2Orzft1WPMP/GrUDvc=;
+ b=j5hGQ/mqUovBLQr5ciiAccd/Ru92ohrL5Ytb8u5id2Zd00xreX3vXJPBh/F++eSUKsmJ47OWbeN071hjLPYB73glVGWUJq7eJ/+ABZwy5McgdATyDhlsP4hpalQki5jRd32tt7YKVu9ffmy8PzEFamNwIGJvAg0+B6xIAivOZfk=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
+ by LO0P265MB9164.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:49f::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
+ 2026 13:18:01 +0000
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
+ 13:18:01 +0000
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 01 Apr 2026 14:18:00 +0100
+Message-Id: <DHHUIXWLCGT4.G653WGEB8KMT@garyguo.net>
+Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
+ <rust-for-linux@vger.kernel.org>, <linux-kbuild@vger.kernel.org>, "Lorenzo
+ Stoakes" <lorenzo.stoakes@oracle.com>, "Vlastimil Babka"
+ <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ "Uladzislau Rezki" <urezki@gmail.com>, <linux-block@vger.kernel.org>,
+ "moderated for non-subscribers" <linux-arm-kernel@lists.infradead.org>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>,
+ <nouveau@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>, "Rae
+ Moar" <raemoar63@gmail.com>, <linux-kselftest@vger.kernel.org>,
+ <kunit-dev@googlegroups.com>, "Nick Desaulniers"
+ <nick.desaulniers+lkml@gmail.com>, "Bill Wendling" <morbo@google.com>,
+ "Justin Stitt" <justinstitt@google.com>, <llvm@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, "Shuah Khan" <skhan@linuxfoundation.org>,
+ <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH 03/33] rust: simplify `RUSTC_VERSION` Kconfig conditions
+From: "Gary Guo" <gary@garyguo.net>
+To: "Miguel Ojeda" <ojeda@kernel.org>, "Nathan Chancellor"
+ <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Danilo Krummrich"
+ <dakr@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Paul
+ Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
+ Ou" <aou@eecs.berkeley.edu>, "Alexandre Courbot" <acourbot@nvidia.com>,
+ "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
+ "Brendan Higgins" <brendan.higgins@linux.dev>, "David Gow"
+ <david@davidgow.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, "Todd Kjos"
+ <tkjos@android.com>, "Christian Brauner" <christian@brauner.io>, "Carlos
+ Llamas" <cmllamas@google.com>, "Alice Ryhl" <aliceryhl@google.com>,
+ "Jonathan Corbet" <corbet@lwn.net>
+X-Mailer: aerc 0.21.0
+References: <20260401114540.30108-1-ojeda@kernel.org>
+ <20260401114540.30108-4-ojeda@kernel.org>
+In-Reply-To: <20260401114540.30108-4-ojeda@kernel.org>
+X-ClientProxiedBy: LO6P265CA0009.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:339::14) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:488::16)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LO0P265MB9164:EE_
+X-MS-Office365-Filtering-Correlation-Id: 203fd42c-9cef-4a9b-b04f-08de8ff11996
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|7416014|376014|366016|1800799024|921020|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: gO+dYv8youB8/Kxnl39dpescYv7ovVxLiYSDElhvRkuBlAj27MjycVbrbGjsJmCql9BZVza4OIQEWXn+g0EEf7GqKVjr9flUuzYvdNuPSHc78vAcFgV6UwFiegpx7UFjDw+3ag5aRgg5xmWd/1GGUeWnChpv2TtXJERSvQ3uN3d/7JGklDH0w/NsezHzte0U6JJ6RwO0kEFG1M/U6fmSAKC5uL15BNzDOL3JlWcWfyh562brc0g+Y7prgbdqkr6Q1nyxzwv0XrJx5HXwY3gh65s/0L5tKqS5YFS4YlMSOc3Ka6wBerGl2akE7wQGYrDQSnQ6UXhX6oYmCajB63aLmET/wRg/kyTdsBi37w4z46HaWv9YN/BylEc6d/y4RHlNkmqhFFH7dAlUVZxtF8xlNpMH2SIatMr6bLdbw6Pla0VGLhVAxnIsl+U47VWf61R6foojhLXSlpREHLSuu0vjofI2gs3PhtHBXhqu5yRFhlDrBEu4CxL8gqEqoKyL3GMCloRoTgbau7kGH9V4fmWsMshsvJsAQmLsat2kihR5P6A8lFqpo0Yyy0OWUFbzi9ffwFUdH1G6XvxzSpgauIuRTQg8FW8VwqDDbI49qbxPTYUVMXtSypDQ1LnmwWHIMsTBtApLDDM216xTQR8q0z9fIuXU+GK3+8K0V7ZyadyW4c2z/p5fdaLskyes7tARNNP4i3SfFPbxDM3bPF+mSit5houBgJQ+wkho9eXiTo1j97+Y07DXreccWOGtKwb9cml3uus0jkGQ+WfL763d+PPHhA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(7416014)(376014)(366016)(1800799024)(921020)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RkpITmJJdHZrTTZqQXVHYXprbldGZzdhcVhJekRmQUp0a0xvcytwQWxoRG9L?=
+ =?utf-8?B?eGJpYnYwL1IxcUh2UGw1dXBpS29OM2V3T0JzOWJhSVJkU0dLRFhheDBEaTZU?=
+ =?utf-8?B?Y3lZUmJQaTJiMS9tMHZTZkVkZ1hPVGhnWmxndVdId2xwYTYrWk05ZlhxMEJw?=
+ =?utf-8?B?NUV3M1VZQkdaT3BsNUFtcEk0WkI1bENBREhsR2M3YWFlSEIrcENrakoxSStE?=
+ =?utf-8?B?NXhLdll0L3RsN3BiU05kSzVpektnSkZVQTdPZkI2dEY1Nk1TOXNEc2pmMDJx?=
+ =?utf-8?B?MnFCSWZ0ckdXY2RFL3ozbTQ5QXN5RTFyeE1iSlhBQUI1ek5ET3dCMVUzT1Z1?=
+ =?utf-8?B?anNaRG9MZGN0VXBjUGQ4b0syUGhsMkZicDMrcFRjRkJUY0x1a09yeVVIMFVj?=
+ =?utf-8?B?bXhaV0M2c1BLc2Vpb2hlTm5QbitoYTJRU3BNdjhHU2szMHViUUhISVI1akV5?=
+ =?utf-8?B?MDd0UG15L1E0RElVSyt1dlloWkhnMjd1TWUxRFR1VExQZWczZm5OdVhMVURM?=
+ =?utf-8?B?cmw4U2VyT1FkbWlKdGFKTW1Nb2lSZ2I1Q1pxRThPNDQxQitoU0swbVJ3ZE04?=
+ =?utf-8?B?RXA5Vm14QmMzOVU1Q0trd2Y0alQrOGloYW9EZFVTbjFQZkJBVXlWcmUydVVO?=
+ =?utf-8?B?MWMwend0YTNDNitMRmdybGszQjVEMk5IUlZaWlVpNWx4THcyWjRkM29tOEdo?=
+ =?utf-8?B?d3UyemdLck0zdk5jMUk0T25sNnBWU1RyNVNHSWEyY2RvZE1TM1pRRFJRV1NM?=
+ =?utf-8?B?cXU2SlhrV3pYcUhiaVZnMU9LeDdreVIwbEFMSnB3R21zTWdraGR6U0VkRWd4?=
+ =?utf-8?B?MEtZTHVtci9qZnYzaGRpamFIakR3anVRQVFTMyt4SGh5VSt0SVczWUpVY21F?=
+ =?utf-8?B?RnZOcy9Zc2FKV1plMHN0S2NrTmJPd2djZlhxVHRKK1I5d1JISWNDRUg0bi8x?=
+ =?utf-8?B?NDVIZXBHdytCVU1kV09yMVBLZ2lJa0M4NXRNWFNiY0lUbi9NVVZ5cm40eWMx?=
+ =?utf-8?B?SWJNcnVUM2p6YjAvYjRIWmROUU9GTFJHdVlLM0xEVFU4Nk5ISEtDdm9EZzNo?=
+ =?utf-8?B?bHhoRUdNdXpnUnQ3VjhRNVc5OS9kMkNtY1BTUlgrcklibmVkQTFzazNab0xs?=
+ =?utf-8?B?dmUyeklrYldTU3JXOEZEWm5YNlZ4NCs2WEQzWEp0Y3F4UVB5WjhPVFVsVFc5?=
+ =?utf-8?B?WnJPa0x6cStXWGlTTHQzRnZsbm1BcUlEVCt5ditXVjJRdFQrck80TjljbFFS?=
+ =?utf-8?B?UnRMQlIrRlc2YUpnWlhsbURaUHRpSG56cmFseTBJL1hsOUF6TGVieWhvdnA0?=
+ =?utf-8?B?UDlwZGxBMHhJaW1MTTdqRWs4cUtTaUd1Rk9ndi9jWjg1N2VQNGw2RVRpbVJH?=
+ =?utf-8?B?UXdzNFhTTnowaGxTK1ZpM00xbTBzY0l3dHRQUkF0Y0kvbkxPYzRsOUpYd0xn?=
+ =?utf-8?B?RFlKcjd0TnhHaS9meTE1VllWSDBHM0dSSW96SmdVbEsvcWRXMDc2SWRxaklx?=
+ =?utf-8?B?WnN5aXREQ0F1aDJOUFJNcEdPVWdDQVUvVjd2eTdOTkFmZEliZ0ZwcWRVbWtJ?=
+ =?utf-8?B?RDBYRzhkTTJDSHBWSGJIa3lBZjlpT2lVZjcvRWdGejI1UVo5QThqS1lBYkNp?=
+ =?utf-8?B?SmRXR1h6VTUxV3BveHZBWHp6c0YvMjRVSmxuZTI2ek1PSlpjL29QT2tjQ3ln?=
+ =?utf-8?B?dENVOGl6VndjUVZVVVJxajVqSy9iUVVyamljdG1TSXBuOUpoTkxlL0V0SnNn?=
+ =?utf-8?B?azFLWTk5K2ZqYmJSeDJ1eHM1OUNabEhGWENWaHNaUDE4SkxxQ0NyQng4SlVB?=
+ =?utf-8?B?RzBJaG1DbWl3T3BQVjhpSlEreU9aSjZUMWVrUzFFbm5NL25tZmZHeGZ2dnhs?=
+ =?utf-8?B?eDVIZ21XTGQzSm5JRVFsV1hmVlNDaUg2YTkvbnJqYmdRdDBadThQRmg2WThU?=
+ =?utf-8?B?YzV5V1dHTUREa21tREhUZUowRFJLK0NyM3BWbTFUaklUSitxK1l2SWplNG8w?=
+ =?utf-8?B?QVNOeXpGcS9qdlU1QXlreCsyUjZPMEpxRmpJbXQ4M1RteTlvaEVRZXBlbWxh?=
+ =?utf-8?B?TDJMdnRKZmtWamZPL2JEdDVrSmxtMEtzV0Rnd2JWZTl4ZWxKUEE5OFMrR2hJ?=
+ =?utf-8?B?YjFDUStYdXprU1F2Rk5nQmJwcEV3ZVB3RjFnNVJLcERNQXE5S294UzRRNmZ1?=
+ =?utf-8?B?dG5hcWMwYmR4SEFoMHgxQkhBVW5jT1FBeXV6b0M3eTNDZ2lxMUJROGcvL3Rl?=
+ =?utf-8?B?T0plTEtGL2ErbG5FRnJIT2thOStHdURxSE82N1JnMTJzZzNIQk9lMUVhdVNM?=
+ =?utf-8?B?L084NFZNcnRkVUtqQUpTQW5seWxkdExhNVhFQTZ5OW16OU9LSDhJUT09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 203fd42c-9cef-4a9b-b04f-08de8ff11996
+X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 13:18:01.3199
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fiRuxGURMiJdFsZZ+5VdMS46QErt+WgZnru1Act4iWPdfIJhxVU//96fIi9dpccSvlqWYYsKP3fLQOE3GX38EA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO0P265MB9164
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_141702_171467_7374D20E 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20260401_141804_841455_A6FD1BD1 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,45 +186,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to the NanoPi R5S 2204 schematic on page 6, GPIO0_C4 is for
-GMAC0_INT/PMEB_GPIO0_C4, while GPIO0_C5 is for GMAC0_RSTn_GPIO0_C5.
-While the 'reset-gpios' property was set correctly, the corresponding
-pinctrl didn't match that.
+On Wed Apr 1, 2026 at 12:45 PM BST, Miguel Ojeda wrote:
+> With the Rust version bump in place, several Kconfig conditions based on
+> `RUSTC_VERSION` are always true.
+>=20
+> Thus simplify them.
+>=20
+> The minimum supported major LLVM version by our new Rust minimum version
+> is now LLVM 18, instead of LLVM 16. However, there are no possible
+> cleanups for `RUSTC_LLVM_VERSION`.
+>=20
+> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 
-Next to fixing the pinctrl definition, also change the node name and
-phandle to match what is used in the schematic.
+Reviewed-by: Gary Guo <gary@garyguo.net>
 
-Fixes: c6629b9a6738 ("arm64: dts: rockchip: Add FriendlyElec Nanopi R5S")
-Signed-off-by: Diederik de Haas <diederik@cknow-tech.com>
----
- arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts b/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
-index 718d1a2da8e5..90ce6f0e1dcf 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
-@@ -98,7 +98,7 @@ &mdio0 {
- 	rgmii_phy0: ethernet-phy@1 {
- 		compatible = "ethernet-phy-ieee802.3-c22";
- 		reg = <1>;
--		pinctrl-0 = <&eth_phy0_reset_pin>;
-+		pinctrl-0 = <&gmac0_rstn_gpio0_c5_pin>;
- 		pinctrl-names = "default";
- 	};
- };
-@@ -132,8 +132,8 @@ &pcie3x2 {
- 
- &pinctrl {
- 	gmac0 {
--		eth_phy0_reset_pin: eth-phy0-reset-pin {
--			rockchip,pins = <0 RK_PC4 RK_FUNC_GPIO &pcfg_pull_up>;
-+		gmac0_rstn_gpio0_c5_pin: gmac0-rstn-gpio0-c5-pin {
-+			rockchip,pins = <0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_up>;
- 		};
- 	};
- 
--- 
-2.53.0
+> ---
+>  arch/Kconfig       | 3 +--
+>  arch/arm64/Kconfig | 8 --------
+>  arch/riscv/Kconfig | 3 ---
+>  init/Kconfig       | 2 --
+>  4 files changed, 1 insertion(+), 15 deletions(-)
 
 
