@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1812710F9311
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C477B10F930F
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 00:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Pz1ewBkKZ6SAKR0ZmeyKKnBifHoLSU+aVr8M6HCcao=; b=0bMKaXBWMoPipVPazf0SFagRxM
-	SdAVjD5WkrBdauLY5nXD8XOX2E/jKF3Cwc3ukw7DDQhr9+SijlJkbTZAx2q6wayNZ8okz/1FxWZkD
-	zdpYCjKgTdrWvTYy8fx1wfG3r9JYWWaAOrnZpFiBllelrjcDLWGbiHUaI+l1JdExRUkWqinObHIuS
-	GJCe1xPySgXFxxSnWHlzIJ4zDAhJ0tN5mcr7M4mOZ4cLqLCa3tTc7gpjW5nd6UOx4RKwA9q0AF9kj
-	rkeJlnFvWo/wZIJBLm9yJfD7mAE0oI5NmqPVSgpnqiXjeUnsmgtaYtcqoGZ4tZQGXr6epmUrGVzbN
-	M/Iq8OpA==;
+	bh=FpVpIsk71t330qjd8SOiWobWhqfNi1tR4W1JMOVUsL4=; b=dbxfIJD4+FqvGQpAEgE57PQxru
+	ibkhrirpL+ttQCOIjWnnsdc9Cko7fVXj+mDgPqcFvFPy4kvbb7VOjCIQG1NJlKLc8uVn/ZSGp4LiX
+	PfRnS01lZ0bpmtPAxJoXOMu6VuINWhSj/429j2OGe5ujWLhlTFwmvKuExScLhRpNZnygrH7MVtx4w
+	3ehlaTpHCQjaXMC+9Tf1ag7TvOQWDlzZ+g+tJyGSjMZjuOHbDHRv4aeKcHpHVI9I06dhG8UcvrhBD
+	hwUPPfziwJ+0zKpYFGVZM+MUXnikN72C0A+VeHYmYe3oikmIU9JyXuPKI7/tmeQwuC5Nv+qGOHu5y
+	9sDq/erA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7j7m-0000000DiEY-0Ebw;
-	Wed, 01 Apr 2026 00:07:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w7j7n-0000000DiGI-1AVA;
+	Wed, 01 Apr 2026 00:07:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7j7d-0000000DiAl-3mFV
+	id 1w7j7g-0000000DiCE-1L4M
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 00:07:51 +0000
+	Wed, 01 Apr 2026 00:07:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1880740687;
-	Wed,  1 Apr 2026 00:07:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9A12C2BCB0;
-	Wed,  1 Apr 2026 00:07:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C0E4A6012A;
+	Wed,  1 Apr 2026 00:07:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39FBBC2BCB0;
+	Wed,  1 Apr 2026 00:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775002069;
-	bh=QQ5mFKI5+uBNS64ELsUrgq6oqh/+Q+BmfI0QIv2/GuM=;
+	s=k20201202; t=1775002071;
+	bh=CAC+qe7Z/7a3GD63JAT9HC8eCyiKaVWZzQ/HUGxe4cI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aqjb0dqGJVSdbX84cN3kcRLDWKnpsqEutYUmzk2VWkQ1HxO+/cWz7jD0nZ8R20CQi
-	 /ai8DJSkK9Q7jCRTan2YBsl6kRpeW7Efc2O26yT9l9Zl8qn8Hd99kUiYnCOeNd4O0M
-	 rGwLz4WeTTT4/9kixddS/iB/pHnXZUtlyy/wq01qwZd0pvpFj0Rw9NLP8TCHUA5vWe
-	 P3/RqWKkvs8pCUUaLCUwWDOlJUzDrLkjjOXnivDXGDWSY5kRWngnaef8lfexYA/2dr
-	 EghDBbuGLMCmrGkfQTe1SvFs93Cmc6Vth6toFWDyVgUBs80BLlvqo5bTF7WKUzphPc
-	 /6BWsJhgQjTwg==
+	b=VZ9K754Lb9Mn8acJgg8xXygVIgFVgCsEu0WSKlrDoqPc+oJmZADyrnyGot+A4tQYL
+	 e6FIk6AaPSQLKatwj5hdQuC/e7vptVT2X94JvAi95l8BZOMa4ab82cvrhlhC3DHEZl
+	 waBKkLqjrt94Snwpxm3GMEKnAIb1+RzO9GJztMwQGaSXK23XMgqPsXeFd6VWst/DC4
+	 Txi+ECzcEPZg33nWyU7fl3ybs6mzWdrFdLvSmhcL+++lWYtXaksOKTv/WYMe7T+yj4
+	 CYykjpmjrcSOZL2v0B2jJsjrVkWG3dSGOTyGeNiCTOakRuf5qnURmOOkqc4GmQU1nY
+	 1hcjJRa8UULoA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -50,17 +50,14 @@ Cc: linux-kernel@vger.kernel.org,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	linux-arm-kernel@lists.infradead.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 1/9] lib/crypto: arm64/aes: Remove obsolete chunking logic
-Date: Tue, 31 Mar 2026 17:05:40 -0700
-Message-ID: <20260401000548.133151-2-ebiggers@kernel.org>
+Subject: [PATCH 7/9] lib/crypto: arm64/sha512: Remove obsolete chunking logic
+Date: Tue, 31 Mar 2026 17:05:46 -0700
+Message-ID: <20260401000548.133151-8-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260401000548.133151-1-ebiggers@kernel.org>
 References: <20260401000548.133151-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_170749_979237_4CFDB370 
-X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,170 +79,90 @@ restrict the preemption modes"), voluntary preemption is no longer
 supported on arm64 either.  Therefore, there's no longer any need to
 limit the length of kernel-mode NEON sections on arm64.
 
-Simplify the AES-CBC-MAC code accordingly.
+Simplify the SHA-512 code accordingly.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/arm64/crypto/aes-ce-ccm-glue.c | 13 ++++-------
- include/crypto/aes.h                |  6 ++---
- lib/crypto/arm64/aes-modes.S        |  8 +++----
- lib/crypto/arm64/aes.h              | 35 +++++++++++------------------
- 4 files changed, 23 insertions(+), 39 deletions(-)
+ lib/crypto/arm64/sha512-ce-core.S | 12 +++++-------
+ lib/crypto/arm64/sha512.h         | 15 ++++-----------
+ 2 files changed, 9 insertions(+), 18 deletions(-)
 
-diff --git a/arch/arm64/crypto/aes-ce-ccm-glue.c b/arch/arm64/crypto/aes-ce-ccm-glue.c
-index 45aed0073283..a304375ce724 100644
---- a/arch/arm64/crypto/aes-ce-ccm-glue.c
-+++ b/arch/arm64/crypto/aes-ce-ccm-glue.c
-@@ -99,20 +99,15 @@ static u32 ce_aes_ccm_auth_data(u8 mac[], u8 const in[], u32 abytes,
+diff --git a/lib/crypto/arm64/sha512-ce-core.S b/lib/crypto/arm64/sha512-ce-core.S
+index ffd51acfd1ee..26834921e8d6 100644
+--- a/lib/crypto/arm64/sha512-ce-core.S
++++ b/lib/crypto/arm64/sha512-ce-core.S
+@@ -91,15 +91,15 @@
+ 	add		v\i4\().2d, v\i1\().2d, v\i3\().2d
+ 	sha512h2	q\i3, q\i1, v\i0\().2d
+ 	.endm
  
- 	do {
- 		u32 blocks = abytes / AES_BLOCK_SIZE;
- 
- 		if (macp == AES_BLOCK_SIZE || (!macp && blocks > 0)) {
--			u32 rem = ce_aes_mac_update(in, rk, rounds, blocks, mac,
--						    macp, enc_after);
--			u32 adv = (blocks - rem) * AES_BLOCK_SIZE;
--
-+			ce_aes_mac_update(in, rk, rounds, blocks, mac, macp,
-+					  enc_after);
- 			macp = enc_after ? 0 : AES_BLOCK_SIZE;
--			in += adv;
--			abytes -= adv;
--
--			if (unlikely(rem))
--				macp = 0;
-+			in += blocks * AES_BLOCK_SIZE;
-+			abytes -= blocks * AES_BLOCK_SIZE;
- 		} else {
- 			u32 l = min(AES_BLOCK_SIZE - macp, abytes);
- 
- 			crypto_xor(&mac[macp], in, l);
- 			in += l;
-diff --git a/include/crypto/aes.h b/include/crypto/aes.h
-index 3feb4105c2a2..16fbfd93e2bd 100644
---- a/include/crypto/aes.h
-+++ b/include/crypto/aes.h
-@@ -228,13 +228,13 @@ asmlinkage void ce_aes_essiv_cbc_encrypt(u8 out[], u8 const in[],
- 					 u32 const rk1[], int rounds,
- 					 int blocks, u8 iv[], u32 const rk2[]);
- asmlinkage void ce_aes_essiv_cbc_decrypt(u8 out[], u8 const in[],
- 					 u32 const rk1[], int rounds,
- 					 int blocks, u8 iv[], u32 const rk2[]);
--asmlinkage size_t ce_aes_mac_update(u8 const in[], u32 const rk[], int rounds,
--				    size_t blocks, u8 dg[], int enc_before,
--				    int enc_after);
-+asmlinkage void ce_aes_mac_update(u8 const in[], u32 const rk[], int rounds,
-+				  size_t blocks, u8 dg[], int enc_before,
-+				  int enc_after);
- #elif defined(CONFIG_PPC)
- void ppc_expand_key_128(u32 *key_enc, const u8 *key);
- void ppc_expand_key_192(u32 *key_enc, const u8 *key);
- void ppc_expand_key_256(u32 *key_enc, const u8 *key);
- void ppc_generate_decrypt_key(u32 *key_dec, u32 *key_enc, unsigned int key_len);
-diff --git a/lib/crypto/arm64/aes-modes.S b/lib/crypto/arm64/aes-modes.S
-index fc89cd02b642..10e537317eaf 100644
---- a/lib/crypto/arm64/aes-modes.S
-+++ b/lib/crypto/arm64/aes-modes.S
-@@ -815,13 +815,13 @@ AES_FUNC_START(aes_xts_decrypt)
- 	b		.Lxtsdecctsout
- AES_FUNC_END(aes_xts_decrypt)
- 
- #if IS_ENABLED(CONFIG_CRYPTO_LIB_AES_CBC_MACS)
  	/*
--	 * size_t aes_mac_update(u8 const in[], u32 const rk[], int rounds,
--	 *			 size_t blocks, u8 dg[], int enc_before,
--	 *			 int enc_after);
-+	 * void aes_mac_update(u8 const in[], u32 const rk[], int rounds,
-+	 *		       size_t blocks, u8 dg[], int enc_before,
-+	 *		       int enc_after);
+-	 * size_t __sha512_ce_transform(struct sha512_block_state *state,
+-	 *				const u8 *data, size_t nblocks);
++	 * void sha512_ce_transform(struct sha512_block_state *state,
++	 *			    const u8 *data, size_t nblocks);
  	 */
- AES_FUNC_START(aes_mac_update)
- 	ld1		{v0.16b}, [x4]			/* get dg */
- 	enc_prepare	w2, x1, x7
- 	cbz		w5, .Lmacloop4x
-@@ -842,11 +842,10 @@ AES_FUNC_START(aes_mac_update)
- 	cmp		x3, xzr
- 	csinv		w5, w6, wzr, eq
- 	cbz		w5, .Lmacout
- 	encrypt_block	v0, w2, x1, x7, w8
- 	st1		{v0.16b}, [x4]			/* return dg */
--	cond_yield	.Lmacout, x7, x8
- 	b		.Lmacloop4x
- .Lmac1x:
- 	add		x3, x3, #4
- .Lmacloop:
- 	cbz		x3, .Lmacout
-@@ -861,9 +860,8 @@ AES_FUNC_START(aes_mac_update)
- 	encrypt_block	v0, w2, x1, x7, w8
- 	b		.Lmacloop
+ 	.text
+-SYM_FUNC_START(__sha512_ce_transform)
++SYM_FUNC_START(sha512_ce_transform)
+ 	/* load state */
+ 	ld1		{v8.2d-v11.2d}, [x0]
  
- .Lmacout:
- 	st1		{v0.16b}, [x4]			/* return dg */
--	mov		x0, x3
+ 	/* load first 4 round constants */
+ 	adr_l		x3, .Lsha512_rcon
+@@ -184,14 +184,12 @@ CPU_LE(	rev64		v19.16b, v19.16b	)
+ 	add		v8.2d, v8.2d, v0.2d
+ 	add		v9.2d, v9.2d, v1.2d
+ 	add		v10.2d, v10.2d, v2.2d
+ 	add		v11.2d, v11.2d, v3.2d
+ 
+-	cond_yield	3f, x4, x5
+ 	/* handled all input blocks? */
+ 	cbnz		x2, 0b
+ 
+ 	/* store new state */
+-3:	st1		{v8.2d-v11.2d}, [x0]
+-	mov		x0, x2
++	st1		{v8.2d-v11.2d}, [x0]
  	ret
- AES_FUNC_END(aes_mac_update)
- #endif /* CONFIG_CRYPTO_LIB_AES_CBC_MACS */
-diff --git a/lib/crypto/arm64/aes.h b/lib/crypto/arm64/aes.h
-index 135d3324a30a..9e9e45a6f787 100644
---- a/lib/crypto/arm64/aes.h
-+++ b/lib/crypto/arm64/aes.h
-@@ -27,13 +27,13 @@ asmlinkage void __aes_ce_encrypt(const u32 rk[], u8 out[AES_BLOCK_SIZE],
- asmlinkage void __aes_ce_decrypt(const u32 inv_rk[], u8 out[AES_BLOCK_SIZE],
- 				 const u8 in[AES_BLOCK_SIZE], int rounds);
- asmlinkage u32 __aes_ce_sub(u32 l);
- asmlinkage void __aes_ce_invert(struct aes_block *out,
- 				const struct aes_block *in);
--asmlinkage size_t neon_aes_mac_update(u8 const in[], u32 const rk[], int rounds,
--				      size_t blocks, u8 dg[], int enc_before,
--				      int enc_after);
-+asmlinkage void neon_aes_mac_update(u8 const in[], u32 const rk[], int rounds,
-+				    size_t blocks, u8 dg[], int enc_before,
-+				    int enc_after);
+-SYM_FUNC_END(__sha512_ce_transform)
++SYM_FUNC_END(sha512_ce_transform)
+diff --git a/lib/crypto/arm64/sha512.h b/lib/crypto/arm64/sha512.h
+index d978c4d07e90..5da27e6e23ea 100644
+--- a/lib/crypto/arm64/sha512.h
++++ b/lib/crypto/arm64/sha512.h
+@@ -10,27 +10,20 @@
  
- /*
-  * Expand an AES key using the crypto extensions if supported and usable or
-  * generic code otherwise.  The expanded key format is compatible between the
-  * two cases.  The outputs are @rndkeys (required) and @inv_rndkeys (optional).
-@@ -190,29 +190,20 @@ static bool aes_cbcmac_blocks_arch(u8 h[AES_BLOCK_SIZE],
- 				   const struct aes_enckey *key, const u8 *data,
- 				   size_t nblocks, bool enc_before,
- 				   bool enc_after)
+ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_sha512_insns);
+ 
+ asmlinkage void sha512_block_data_order(struct sha512_block_state *state,
+ 					const u8 *data, size_t nblocks);
+-asmlinkage size_t __sha512_ce_transform(struct sha512_block_state *state,
+-					const u8 *data, size_t nblocks);
++asmlinkage void sha512_ce_transform(struct sha512_block_state *state,
++				    const u8 *data, size_t nblocks);
+ 
+ static void sha512_blocks(struct sha512_block_state *state,
+ 			  const u8 *data, size_t nblocks)
  {
- 	if (static_branch_likely(&have_neon) && likely(may_use_simd())) {
+ 	if (static_branch_likely(&have_sha512_insns) &&
+ 	    likely(may_use_simd())) {
 -		do {
 -			size_t rem;
 -
--			scoped_ksimd() {
--				if (static_branch_likely(&have_aes))
--					rem = ce_aes_mac_update(
--						data, key->k.rndkeys,
--						key->nrounds, nblocks, h,
--						enc_before, enc_after);
--				else
--					rem = neon_aes_mac_update(
--						data, key->k.rndkeys,
--						key->nrounds, nblocks, h,
--						enc_before, enc_after);
--			}
--			data += (nblocks - rem) * AES_BLOCK_SIZE;
+-			scoped_ksimd()
+-				rem = __sha512_ce_transform(state, data, nblocks);
+-
+-			data += (nblocks - rem) * SHA512_BLOCK_SIZE;
 -			nblocks = rem;
--			enc_before = false;
 -		} while (nblocks);
-+		scoped_ksimd() {
-+			if (static_branch_likely(&have_aes))
-+				ce_aes_mac_update(data, key->k.rndkeys,
-+						  key->nrounds, nblocks, h,
-+						  enc_before, enc_after);
-+			else
-+				neon_aes_mac_update(data, key->k.rndkeys,
-+						    key->nrounds, nblocks, h,
-+						    enc_before, enc_after);
-+		}
- 		return true;
++		scoped_ksimd()
++			sha512_ce_transform(state, data, nblocks);
+ 	} else {
+ 		sha512_block_data_order(state, data, nblocks);
  	}
- 	return false;
  }
- #endif /* CONFIG_CRYPTO_LIB_AES_CBC_MACS */
+ 
 -- 
 2.53.0
 
