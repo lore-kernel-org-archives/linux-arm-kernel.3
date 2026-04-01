@@ -4,78 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6CB710F6FBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 15:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8624D35173
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 15:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=38oje6xHumPx2p+ftcaQgXk2+cuWYXZ5dQCL3nzKIQg=; b=T6zG6+nIibpMNvQCm4mWdTKhi4
-	wK8UforG7AypO+C04/N30bKQdfBhmZWGMYMHzEbbACyklDkUNMIgy7BSQsPoY18/hC6fytgotVj+z
-	d8yOyt9kYvdOiKz6vwGE6D/tGF39C7iF/9dGLJJB2OtkKGp919xZy/HQrrWvE2UfF7pvirlH1SW1U
-	O3IWjvZdHiwaPwmh/OfrlJe5LNGcHRe13FFBl0PvAJRXK6PQEccUZqwxhNGh0A7UN2Ybz6WXg0mH1
-	o26K0APlUaQBOK4DHtL590M9rZa8790+57Q1yAJdlvqpkkxN3/ub5Y7aPVA4O7UtFcN1jvVfRxYG6
-	w3n/5fcA==;
+	bh=AufkUEahOgBfy397S/uJsQKFUxpcd3i2DL06g/yFGEg=; b=gno9LEza0n07LnF0nnJw/6ocrm
+	grdmfbNSZajj6dVRl2XjHsHlgk3BPq2ON6RP1Rm5cEvR1MN9rEvN6WRpd8T/lmE+23RFcZSXEaTud
+	WuwLI9EqIZ4SrW0TFYLnkqcCSrA9n/xwSDuMHy4crvzHN9acgFiHTA7T45Ucg5NXYPo/AqnaNggkV
+	EKy48+SYkRdVv3zedk+sxVzXpcE5r+s0qGKG+3tkGe5D2dq8Oq0Gx7xKzo9p2hJ5ESeptGBmya5oZ
+	Lj8aA+jH5L8iw/OmjzIAjcujg5y862ua1dSRYYOc1oBRTt7/drOj1mrM3K1neOnox4UXkHBMk4qH5
+	F2lOKVxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7xb2-0000000Fe6x-2NlY;
-	Wed, 01 Apr 2026 15:35:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w7xer-0000000FeTz-0ov3;
+	Wed, 01 Apr 2026 15:39:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7xaz-0000000Fe6a-3wbt
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 15:35:07 +0000
+	id 1w7xen-0000000FeSz-3iQv;
+	Wed, 01 Apr 2026 15:39:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 30F3340C41;
-	Wed,  1 Apr 2026 15:35:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04B7BC4CEF7;
-	Wed,  1 Apr 2026 15:35:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 14B4940C25;
+	Wed,  1 Apr 2026 15:39:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46536C4CEF7;
+	Wed,  1 Apr 2026 15:38:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775057705;
-	bh=QgTT44z0NxNCrsnzVjVQsYysuC3wHT4k/C7Gkmdg7OM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kKaR5u3X7DgnIy5ki+PaykDZ3pqyRkcKAT0154uuKjx/U0gWQadZQvKqzqt7XcXlk
-	 EmrsUHIlngNc6fv1MkgkIQHVEbMW3e/BehXcXuaJIeO4e/oD0BY/9Z4J/FTvh5c/Wd
-	 tAlIgZHZBHyv3DUaABZITLlbAwlpQ72pe0YTXA8kbwC+9KqD1/HjBbCRM3ZbtO14gF
-	 iwCmQoNHXC0r6UnFn9nUF0DYBbiojHNMHrhu4niqKy2ajTY2MOedZW8pY5gLJffHlF
-	 6tnoKYJ6119Vm0dUOLLCBkgBhPM4OS9PuBZvenYi77yluFMh5gnS+84B4+CW36lixI
-	 A5ysy9GFD9FtQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1w7xax-00000007vQP-0EBN;
-	Wed, 01 Apr 2026 15:35:03 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Fuad Tabba <tabba@google.com>,
-	Will Deacon <will@kernel.org>,
-	Quentin Perret <qperret@google.com>
-Subject: Re: [PATCH v2 00/30] KVM: arm64: Combined user_mem_abort() rework
-Date: Wed,  1 Apr 2026 16:34:53 +0100
-Message-ID: <177505767869.364380.5690355355277236875.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260327113618.4051534-1-maz@kernel.org>
-References: <20260327113618.4051534-1-maz@kernel.org>
+	s=k20201202; t=1775057940;
+	bh=fJdFksYvhu2QBW2xM51tNuc3BCiB5YiBhlwDrUJiUZk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qr3SSI6oBvZ+JpJTYcUXaAZU4g6rvIYySeCjiEK8in3tDiXKQOwN9w9IL7MV0KfHr
+	 VDj7jDg2y+ZEbMEPm58bDK0HBWdunouxBWnX/uEhokekEjMfPAfx/mgiAYSs361378
+	 vesh0G4OfMCBIJSWzUZP190/CSoWuGdO/ZLsZovBbn5oGwM56T7tGXH1I2+YiQEGv9
+	 7RALUg9V6caWS7Z1FWU8E+XllK8kNKPYaZaRLpq42UvvjNXEvxqdhZQhqVHotZNlvd
+	 qCKhuASrauwkg82oTq6DRtUHC0wtKP145B0lkKILpqf6FQdYOVSEf0A2873+txIRkd
+	 olz30NccPaUEw==
+Message-ID: <1f88e7ff-eb91-4601-a549-cddcb06b87e7@kernel.org>
+Date: Wed, 1 Apr 2026 17:38:50 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, tabba@google.com, will@kernel.org, qperret@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 05/33] rust: remove `RUSTC_HAS_COERCE_POINTEE` and
+ simplify code
+To: Miguel Ojeda <ojeda@kernel.org>
+Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
+ Andreas Hindborg <a.hindborg@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Courbot <acourbot@nvidia.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ =?UTF-8?Q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>,
+ Todd Kjos <tkjos@android.com>, Christian Brauner <christian@brauner.io>,
+ Carlos Llamas <cmllamas@google.com>, Alice Ryhl <aliceryhl@google.com>,
+ Jonathan Corbet <corbet@lwn.net>, Boqun Feng <boqun@kernel.org>,
+ Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
+ <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
+ Trevor Gross <tmgross@umich.edu>, rust-for-linux@vger.kernel.org,
+ linux-kbuild@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Vlastimil Babka <vbabka@kernel.org>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org,
+ moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>,
+ Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
+ nouveau@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ Rae Moar <raemoar63@gmail.com>, linux-kselftest@vger.kernel.org,
+ kunit-dev@googlegroups.com,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ llvm@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
+References: <20260401114540.30108-1-ojeda@kernel.org>
+ <20260401114540.30108-6-ojeda@kernel.org>
+From: Danilo Krummrich <dakr@kernel.org>
+Content-Language: en-US
+In-Reply-To: <20260401114540.30108-6-ojeda@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_083506_049725_ED3DB04C 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20260401_083901_955067_C0F6119E 
+X-CRM114-Status: UNSURE (   5.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,86 +101,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 27 Mar 2026 11:35:48 +0000, Marc Zyngier wrote:
-> Fuad and I have been working on this "put a stick of dynamite in
-> user_mem_abort() and watch the resulting firework" project, and it
-> looks surprisingly OK so far. Disappointingly so, I'd even say.
-> 
-> This v2 is has very few changes from the original posting (cleaning up
-> the comments in Fuad's series [1], and some minor restructuring in
-> mine [2]), but I wanted to post the combined series for people's
-> awareness and for the sake of running it through sashiko.
-> 
-> [...]
+On 4/1/26 1:45 PM, Miguel Ojeda wrote:
+>  rust/kernel/alloc/kbox.rs | 29 ++---------------------------
 
-Applied to next, thanks!
-
-[01/30] KVM: arm64: Extract VMA size resolution in user_mem_abort()
-        commit: 66fcf492008db407e8d600ceaefd2c8a8070c5ae
-[02/30] KVM: arm64: Introduce struct kvm_s2_fault to user_mem_abort()
-        commit: 0b236c72c02df36992b7d6ff29cbe5abef973250
-[03/30] KVM: arm64: Extract PFN resolution in user_mem_abort()
-        commit: bae99813c6a9ce474cbb7b6553dc6e379b2f4375
-[04/30] KVM: arm64: Isolate mmap_read_lock inside new kvm_s2_fault_get_vma_info() helper
-        commit: f5a5bb8de11863bd92f4188b7e823e3fca4d68e6
-[05/30] KVM: arm64: Extract stage-2 permission logic in user_mem_abort()
-        commit: a6e11bd6e1bd9ea9a42738c5a6ac12881b5fcb36
-[06/30] KVM: arm64: Extract page table mapping in user_mem_abort()
-        commit: 5557a3f843bcef3de9a1237020348b2859812170
-[07/30] KVM: arm64: Simplify nested VMA shift calculation
-        commit: 2175ca5384ba9f3d1f45745522cdeb5865488400
-[08/30] KVM: arm64: Remove redundant state variables from struct kvm_s2_fault
-        commit: 9a57bc1b3c6b1f583f43acf7719d66e6b30ef2a9
-[09/30] KVM: arm64: Simplify return logic in user_mem_abort()
-        commit: 3825373b91b0fbedc65205a59f95379aaf596aad
-[10/30] KVM: arm64: Initialize struct kvm_s2_fault completely at declaration
-        commit: 975bad4bb21e4eea7ecc0f32f4cbbb91a9c8d48f
-[11/30] KVM: arm64: Optimize early exit checks in kvm_s2_fault_pin_pfn()
-        commit: 3456943e8786d56aa2bd3f99e9ad2d735a9879c8
-[12/30] KVM: arm64: Hoist MTE validation check out of MMU lock path
-        commit: 84699747aa554197f6d5b4f4c9d1bcb6cb28e21f
-[13/30] KVM: arm64: Clean up control flow in kvm_s2_fault_map()
-        commit: 11f8f1b8a97b63b180f7aa021ec9abdead283025
-[14/30] KVM: arm64: Kill fault->ipa
-        commit: 5729560e2c3cb67a22a1d72688e0bb8e96798313
-[15/30] KVM: arm64: Make fault_ipa immutable
-        commit: f583a53c2b8a4bd77f090bb76512eb87bc80f2c4
-[16/30] KVM: arm64: Move fault context to const structure
-        commit: c6f4d84643498bc855e2f6719a3233ded0e2dc63
-[17/30] KVM: arm64: Replace fault_is_perm with a helper
-        commit: fe4b6f824f267739ef2c5f2f047c317eceb587c3
-[18/30] KVM: arm64: Constrain fault_granule to kvm_s2_fault_map()
-        commit: 31571929e8a894d06291a9501b2be22cffe14443
-[19/30] KVM: arm64: Kill write_fault from kvm_s2_fault
-        commit: 49902d7e010614888253a90252f4704edb2fe3e3
-[20/30] KVM: arm64: Kill exec_fault from kvm_s2_fault
-        commit: c0d699915a835364b1c8d1eca11e11e7b82f0705
-[21/30] KVM: arm64: Kill topup_memcache from kvm_s2_fault
-        commit: 1a3cd7cb5547979f96ec2a0920b8e39939c58db3
-[22/30] KVM: arm64: Move VMA-related information to kvm_s2_fault_vma_info
-        commit: 4ff2ce512063ae79976c23b6fe2130611bcbae62
-[23/30] KVM: arm64: Kill logging_active from kvm_s2_fault
-        commit: 18e1312879db0af5bfd1b1a8b6771d314ccd3ca9
-[24/30] KVM: arm64: Restrict the scope of the 'writable' attribute
-        commit: 08abf09f4d763565ee9ed084401b7ac92f8b4952
-[25/30] KVM: arm64: Move kvm_s2_fault.{pfn,page} to kvm_s2_vma_info
-        commit: f8dad9602ff305b879fa23688becd578102ba547
-[26/30] KVM: arm64: Replace force_pte with a max_map_size attribute
-        commit: 29a5681843a52570ca9597bf355be33fe8753eb0
-[27/30] KVM: arm64: Move device mapping management into kvm_s2_fault_pin_pfn()
-        commit: e314a4dbdb8b29b7e9a69afb8831a15a6d15c1ed
-[28/30] KVM: arm64: Directly expose mapping prot and kill kvm_s2_fault
-        commit: adb70b3a8b31e9eb05f2ec3c76d85f9a7a8c8cbc
-[29/30] KVM: arm64: Simplify integration of adjust_nested_*_perms()
-        commit: fb9888fdfada0b5ad977f08f7550432a08aacbb1
-[30/30] KVM: arm64: Convert gmem_abort() to struct kvm_s2_fault_desc
-        commit: e9550374d13a4bfd0b8a711733f5d423c2e56b96
-
-Cheers,
-
-	M.
--- 
-Without deviation from the norm, progress is not possible.
-
-
+Acked-by: Danilo Krummrich <dakr@kernel.org>
 
