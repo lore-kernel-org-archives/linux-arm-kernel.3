@@ -4,161 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 556EC10F6FA3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:37:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A69610F6FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
-	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m8ENkD2ZBN5tsrwmpnHmuI5h2ivnqwx24Oea14ybxhc=; b=MFU+WCAsLOtT/5I3P1xMq5UaeK
-	WKOhB/7EULH7RLOOOooAJzTZIgC4/rD1iynYHS3eMqy5yRQiDwMKXa5Bmz8fdpM4RuLTpNgATeCpX
-	oz94NYytFpKrlrgNAxQRBOKEKpxKHHbcc0t9d2uZCrCp4upssKnSLy/yyV1orpEyNAr6vYcv/U9IN
-	t31dVfhdKTgAR2px181HeEXXYUHkdoouE+6x7wCgMtMA5j+lG7++Aowh8LQxhO/JeGfJ5MssyRIWg
-	eVTUT/csXzIfGpCRGfEbWzCzKl3lEuIL+Kl6WpXdVkHq/XJiMJxKgASaA3rz2LzhEPTArd7WsRyrL
-	cLG4sBLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6vJIgeP71LJJTZlL0OeVFzkjYckNvSX0R1O1T1Ee3gc=; b=MIcOSidalNw+QpFCEKYBTOaBPd
+	EHqBj9dB0eRxn4I0NZ+jIeG/kIYxWVP00MfS62go6PV6yGRvABzE+khW0z0p4QK7USKXT60sfKQGC
+	5YtznLZetTLgFZZAX0Vj2GfA8y3mSpOqJDgnJhmxtGN17SJFYFhTb9cnFXxghX/uBTrlKuy3mHmEe
+	7vZePDHNCG7+6tkJjKJdU3RFhZuXCgXfP4sWXDb4WtUlfTsDMtUil8A8UZonB+4U3P5Ho4DyqZqbL
+	G7Tj869/KtXi3ieUBsIJbu7uV6/vQLO3gJvjKxnNvc5IBYF4lPG0CxRIHE6uI8308jbwLw/dBSnSd
+	XTmgwtUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7whF-0000000FVbQ-0Yx9;
-	Wed, 01 Apr 2026 14:37:29 +0000
-Received: from mail-uksouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c205::3] helo=LO2P265CU024.outbound.protection.outlook.com)
+	id 1w7whV-0000000FVf0-38Kr;
+	Wed, 01 Apr 2026 14:37:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7whD-0000000FVay-0y6b;
-	Wed, 01 Apr 2026 14:37:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YOFnmxm8cPBjmWoJBhe5beDLqSKJ2QCnTOcQzQYf9Bx+jH3LNi5sSkDEmqebMLLdIDJOHhtgNhkHDfJX3tDB51SIW+FbvrlVu3ETtYzD4RuGPANhiLw4XuhCDW0AVnA961CjBSXRkb15MtjWrzYtWZ7aCe15saRMmh27UZcgU/JP0OeOYrov87A0oeHcYMRn/MPcEkwKbMhIUdieWVapx5iFsDurbSih0xLe4QVZJsS32UvWQeWN3DN1RfgeI4d2QjvMls/5ajHdTreGJ38BiY76+JLaq/0d8xTxbB3rAMlkne/ZmPOSIRMd+awn6uyzIA+8MuBxjtTRmdn3LHAdIA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=m8ENkD2ZBN5tsrwmpnHmuI5h2ivnqwx24Oea14ybxhc=;
- b=MP/8P1qTt8CwlD2gogws2Mj22Oxy4F/nN05FeJT23z5uLEDE8n54Wv+IXC4rn21kRJdM+EPIDhAxcyl0yA55ChMO95na9ChbKSAJllyMb8rPBFGCMa1Mz0D9ymbbgC7FwhNJGDclzktg6RJ7m8ySZ6sI+CzL7R5jy8Hzfpn1UFmTSCOK3p6poUhW2JO63u51QIhqko+LmOGZmn6CfoCi0Wnyqt1crNdQo5CywLPvrHYSb97e7LDoC41HhhQTsvuPDXObc/K459WEaC0PtdgNFb0xqiYl4LBxWz8TKE30+kdnGpXCmHKGhVeGTGMbPMfcHen/6puj+RvjiOv+m03H0Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=m8ENkD2ZBN5tsrwmpnHmuI5h2ivnqwx24Oea14ybxhc=;
- b=ivsu9j+mhHK1V0RD1FKKQ0Zs2j82K7L6ybPsAf6sSo0oQ00z6EiBFqha7MYwjvrYExKoy7zbUH3dCmrEzwfolsK0kSbz8vC9t3IooCVr75Zmw/iU9QpYqkVbSsyC+5vrGx+fG5E7jtqULuTTga+/xYJbf0VTnv6gnmOE+VtQvxo=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
- by CWXP265MB1959.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:83::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.18; Wed, 1 Apr
- 2026 14:37:21 +0000
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
- 14:37:21 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 01 Apr 2026 15:37:20 +0100
-Message-Id: <DHHW7OT205K1.2N2RSOB4SU8DY@garyguo.net>
-Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
- <rust-for-linux@vger.kernel.org>, <linux-kbuild@vger.kernel.org>, "Lorenzo
- Stoakes" <lorenzo.stoakes@oracle.com>, "Vlastimil Babka"
- <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
- "Uladzislau Rezki" <urezki@gmail.com>, <linux-block@vger.kernel.org>,
- "moderated for non-subscribers" <linux-arm-kernel@lists.infradead.org>,
- "Alexandre Ghiti" <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>,
- <nouveau@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>, "Rae
- Moar" <raemoar63@gmail.com>, <linux-kselftest@vger.kernel.org>,
- <kunit-dev@googlegroups.com>, "Nick Desaulniers"
- <nick.desaulniers+lkml@gmail.com>, "Bill Wendling" <morbo@google.com>,
- "Justin Stitt" <justinstitt@google.com>, <llvm@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>, "Shuah Khan" <skhan@linuxfoundation.org>,
- <linux-doc@vger.kernel.org>
-Subject: Re: [PATCH 13/33] rust: block: update `const_refs_to_static` MSRV
- TODO comment
-From: "Gary Guo" <gary@garyguo.net>
-To: "Miguel Ojeda" <ojeda@kernel.org>, "Nathan Chancellor"
- <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Danilo Krummrich"
- <dakr@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Catalin
- Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Paul
- Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, "Alexandre Courbot" <acourbot@nvidia.com>,
- "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
- "Brendan Higgins" <brendan.higgins@linux.dev>, "David Gow"
- <david@davidgow.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, "Todd Kjos"
- <tkjos@android.com>, "Christian Brauner" <christian@brauner.io>, "Carlos
- Llamas" <cmllamas@google.com>, "Alice Ryhl" <aliceryhl@google.com>,
- "Jonathan Corbet" <corbet@lwn.net>
-X-Mailer: aerc 0.21.0
-References: <20260401114540.30108-1-ojeda@kernel.org>
- <20260401114540.30108-14-ojeda@kernel.org>
-In-Reply-To: <20260401114540.30108-14-ojeda@kernel.org>
-X-ClientProxiedBy: LO4P123CA0654.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:296::12) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:488::16)
+	id 1w7whS-0000000FVeM-44u2
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Apr 2026 14:37:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1329160121;
+	Wed,  1 Apr 2026 14:37:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C98A8C2BCAF;
+	Wed,  1 Apr 2026 14:37:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775054261;
+	bh=CxbPEO+4DAO+Jl4a/M7Wk4mQ6ScP+ITjFt/YJGyNw9Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=e+EO+2uROruo+PFMmYimQMkP1+/PyUsudXzfHZAKiCRi6Jdd0Sv0VYOcU5FqrXIEa
+	 Wh1b6S39TSJ4QlnbiPybrmtvbPMdgyjUgczWW/bdydo8au3peDrZEFKEb97SV5l8+A
+	 65XqHfdqfley5hZJ80RUqPXUREGRKI3IZUMx8zYFOs2+kFuKnSBjzan76dBGKXFPPx
+	 /qJtAvOsJ+nCj3ENG7tgQ7ijsG6IleIX0yWniHAZXzfwSoiyFIavsW9/ZQDefSBUqF
+	 Xg7aLwzOeX7OX8i1jqYEkWBqidbr8tt4gomQhvugE4j1UHXDnMVXjs83B6DosGPDna
+	 56FAwJZmiMa8Q==
+Date: Wed, 1 Apr 2026 16:37:33 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Bjorn Andersson <andersson@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	John Stultz <john.stultz@linaro.org>,
+	Moritz Fischer <moritz.fischer@ettus.com>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Andre Draszik <andre.draszik@linaro.org>,
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org, Srinivas Kandagatla <srini@kernel.org>
+Subject: Re: [PATCH v20 06/10] power: reset: Add psci-reboot-mode driver
+Message-ID: <ac0trUGsRBLPS+ux@lpieralisi>
+References: <20260304-arm-psci-system_reset2-vendor-reboots-v20-0-cf7d346b8372@oss.qualcomm.com>
+ <20260304-arm-psci-system_reset2-vendor-reboots-v20-6-cf7d346b8372@oss.qualcomm.com>
+ <acaMPgRALnoUIHMC@lpieralisi>
+ <93a78bc2-4fd1-41bd-bf4a-b433b06fc218@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|CWXP265MB1959:EE_
-X-MS-Office365-Filtering-Correlation-Id: 06c6a804-657d-40ec-45e2-08de8ffc2f0f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|10070799003|366016|1800799024|22082099003|921020|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: Uyv22NCIVevIrZH5BSTmyPcqNVeXnnPx12uFtx9jXhkL3DK+Ew+YTRXUBUa7b2RVcgtfTZ3GG+G/5/gLO+aayjJ4S9ZjYKQbWGlo3c4ujBHPQdRrUSJZe7TtwUSFSCXVtJzJmPfiJ3AZzjr2EBG6t/4l2N4XjMpOcsRrcRYsWG41q3E9iBvOnGnk8hWrlO/laA7XeU3S+Ez8P51z4GsOuGXQRAG2YligsCIn63lwrg1WD5nnKVklMuXJangkbTq4wTd7k4C1iUrqWjnkx5ccPhn1LNAQ7oaJXVMqAnp4SXWG1kiKfYQPZg5cHJiEUZcH7dV1hcIZsaWaOAiNvhLrRGnqmYYsiIIqE2CkSS7rr1pEsy0L95IA5seFNyzt6Jqz3gW4AdWRN0tn+7mBlr0NgvpirS42EQah1ZD5MMG8GZRd8RuxPhA6/l83wmbmvWKzRy9Kz5Cqi2uM+tEY0kRN4orlVMfQZaL+zURm6iwSIJbqhnrpDZxD1ny1fI67vTlx+YwKy5SiUvLbPvo6hCCdObdjV5cUaXAxQW0Ygmu/ILca19QNeUOyIMH62qFBco19QX9LpCHfmiAsD0KE/yxIzPUN0wzgcifPVCq4v9IUrijgD8LczloZiOghNDP5Fwx7OtJviuT6XcMrMYPDTG7UizEhH/fAedTPRvo/sAomg1TZBvDb8y37Dcbtmg8UXsrdU9t3KiaHWdXxkUwjQ6Xxu3EJKs2PZtsUj6ipmZU4mU1nNLyachNPoWG1TknmbAKFg6Gt9aYTpaAAAQb8czgg2g==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(10070799003)(366016)(1800799024)(22082099003)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VHFKZ0IwU2VMVVY2NFZRWkFiQ0xsYVNNMGVLVFdacXZDN2lPTEVTUEVQRm9P?=
- =?utf-8?B?SXYxU0FIeFVRT25XQWdHYjE3dFB5bUc4Tkw3bzBOUU1Tam91ZzNIbzBpVzUz?=
- =?utf-8?B?cis1M1pGamdPNVY3WGdBaEMxRXVCelR6MFhIcElVT1BDNTljK0hiMEx4OTR4?=
- =?utf-8?B?Qk81WTAxUmFBK3lkSlpoZWZPTEJhd2d2M1lFY1Z2djZNRmZPc0Z3L3E2d0wv?=
- =?utf-8?B?L0d2UUdaV3NBSzNTZy9aeUhScEZEUklWNG8yT0lscUxmZ1p0eEZqWW9wNnQy?=
- =?utf-8?B?S2g2UFpjWEF4K3F1ejk4ZGJLRHc4UVczV1ZjYVltNVpNK2JTNGJSa1Z0VE0v?=
- =?utf-8?B?dHhXbStxamJHL3JvMFpLdi80MEJ6U3BkMjVEK1ZjY2Z1dnJubWt2Wm1EeURZ?=
- =?utf-8?B?ZmJXMm1JVzhsTDJRSzVnYTlGbEh4WlBMeGc3VXhSeDE0WE1acjNuWnhxUTQ3?=
- =?utf-8?B?VnViU3E3Y25zTGZKOHo2dlhqa0UxeWxCWEVvdXBmSXJKR0liZzBESDlhdGpy?=
- =?utf-8?B?UHNSejlQbVEweEtOc25UUDJ6THdtOG9xcFRvY3QxK2tBcVJNbTRqUjNDbWdi?=
- =?utf-8?B?YjFxbTUwMUFrQVcrZUx3OWs1cHhlMUxmMTdDYmpDdzBTckUxOW5OTUR5VEZT?=
- =?utf-8?B?eXVac05kc0tNNVd0ME50RGo3R0Z3QzdDUWhQQzlaMGVPQ2hqemxWakJzblB1?=
- =?utf-8?B?K2hSWGJUdjN2eHUyeEd4S1FGYWlLL2w2WWkvL3VKbk5ISEEvZ1lmdlRIWWVO?=
- =?utf-8?B?UTZnY2R2V2xzREZDTWxPRmRoYzdNNXVVZXZRYnJxMld6V2NrYmg4OCtwbUtU?=
- =?utf-8?B?Y1JtQzBpeWQvcXVNUGVFS2w2OWtpT2RsQ1dUQXMrRCs2ci9OaTNLUUZxSHJ0?=
- =?utf-8?B?UFRFeS9mQ05DMGlnR0k3Y05SSjlBWjJEMkYvNTFpVU9LQWFaODZFKzM3OG8x?=
- =?utf-8?B?T0pESFdZOVRjTmw4eGJURmNOdVVaaitVRk5HcmtpOGRjaGVuL01LT29RMCt0?=
- =?utf-8?B?UWFocktxSHByVkVUY3J1Sm5TVUpSYnhwY3Npd25MVmxVSCtoL0ZHOHBZcnVO?=
- =?utf-8?B?Ui90eVl5NVk4U3krYVF6U29pd3NuNEZjb0RhcUVhYmVSOG9qdmRVcmJXSHZM?=
- =?utf-8?B?VEVvZU9Sd3lrai9EYzdEZ2VQMVhiZzFKNmhpdVYwbUs3L1NZb1FCTmYrRno3?=
- =?utf-8?B?VFliMDQxWmowbDd5NnZSLzJDWWNNbzh1WUZ3QWxJdDU5dUVxWk5qcmNnd1Fw?=
- =?utf-8?B?Z1pSeGZIRW1OOGZDU0orQ1hyZjRiNkFkL04vL3F4WEo4TmpUVEZXbDJoZ1A2?=
- =?utf-8?B?c25EMmpCYzlxWUhHeHdqRVJVT1paakdwc2Z0QWNoVTZzMG1wQ05SeDZCQmdw?=
- =?utf-8?B?cWduV29iakxSYkREUEhSUUJaemVIZU9ocDdmSWcxRHRSRHBLdmlwVXRQSWRX?=
- =?utf-8?B?Rk03cUtTWFJzakY1UlQrWVQxdjkyUnQ3WUhDS3NXNlA2TW9yVXUxZnZhZy93?=
- =?utf-8?B?bHJ5T1NUZm5RQWlnZDU2SGxxUEdJaHlnb2FZNXoxSWs5OHBRMmZMb1JJOVdh?=
- =?utf-8?B?ajhvNlFVd0RxbFIxV015NWh4Qjg4NlFwbkxtdFpKWUFTd00wVmFwbm9vanRi?=
- =?utf-8?B?TlhKMC83aENuZ0VOeW1jaTdjNnBOaG13L29mcTZ3MHRrNkVGUXVCZ2w3ZVhU?=
- =?utf-8?B?YjRFYllYbVdCUUdUMVRwcWJPYjg5Y2twZDgvT1hiU0o2d1FoYWF3RHRudTFz?=
- =?utf-8?B?bGErOVIzWHc4c0VTYlJlYnp1cWs5VTB3b2tOaU5sWjl3aW5GUXFqRnBFWVNM?=
- =?utf-8?B?RVNHZnRNQ1U1UlFGVGkwYkRxUkFxUVRKdFFhNzlLZVNnVnVrSmJwZm9nM0dy?=
- =?utf-8?B?cUdUL2g5OTZHcXltdWl5K3MvS29qN29La2gvY2FPckZpV2JDdllFN2plY0pG?=
- =?utf-8?B?eWM4R1pJbXJnY3o2a09yVEd6VDc5NjZsWE5abjJvOGx2ZXFCdHNHRjBIZThG?=
- =?utf-8?B?YmxEdXUyaUNkdHJuTHVHNmN5RjZsWGpCd1pYcVlOK0xuMnk0VXJSdU1EUS8w?=
- =?utf-8?B?a3k0VnpqUEMwQmptRkFxSTZBc1ZsRlRZZUJkOEZ3VWs2dHliSmFoaVU1WkQ5?=
- =?utf-8?B?ck1xNTdFaDQrellmNVk0Tzd3M1dZajhwRG0za1BsMGJ4WVVGV3FwcjFITHY1?=
- =?utf-8?B?RXFTWE9VaGYrK1RIQjVjTFFlYW5sWGpoL0hORm1TdmhmZXdVRHp0MUNZV0JL?=
- =?utf-8?B?MEdMc0tkZWFsT1JycVdmczVHY0VmR3hyU01lLzl4THpkdGEwK2hVUlVvUE04?=
- =?utf-8?B?bHBZemUvZzZ4cjlSdnlFV2VHbGx2MlBrN3dzeEtNY0daNDVGaUcrUT09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 06c6a804-657d-40ec-45e2-08de8ffc2f0f
-X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 14:37:21.8015
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: q9NCti9ClndDU5+1dO6169pkbV7TCJWpuV9jinx6/ztzwu3JS7vPQf2QzbJ5s/C0l8e4W46K2OJu8Xzxc6q+sg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CWXP265MB1959
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_073727_276584_29659806 
-X-CRM114-Status: UNSURE (   7.38  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <93a78bc2-4fd1-41bd-bf4a-b433b06fc218@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,18 +91,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Apr 1, 2026 at 12:45 PM BST, Miguel Ojeda wrote:
-> `feature(const_refs_to_static)` was stabilized in Rust 1.83.0 [1].
->=20
-> Thus update the comment to reflect that.
->=20
-> Link: https://github.com/rust-lang/rust/pull/129759 [1]
-> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
+On Tue, Mar 31, 2026 at 11:30:09PM +0530, Shivendra Pratap wrote:
+> 
+> 
+> On 27-03-2026 19:25, Lorenzo Pieralisi wrote:
+> > On Wed, Mar 04, 2026 at 11:33:06PM +0530, Shivendra Pratap wrote:
+> > > PSCI supports different types of resets like COLD reset, ARCH WARM
+> > > reset, vendor-specific resets. Currently there is no common driver that
+> > > handles all supported psci resets at one place. Additionally, there is
+> > > no common mechanism to issue the supported psci resets from userspace.
+> > > 
+> > > Add a PSCI reboot mode driver and define two types of PSCI resets in the
+> > > driver as reboot-modes: predefined resets controlled by Linux
+> > > reboot_mode and customizable resets defined by SoC vendors in their
+> > > device tree under the psci:reboot-mode node.
+> > > 
+> > > Register the driver with the reboot-mode framework to interface these
+> > > resets to userspace. When userspace initiates a supported command, pass
+> > > the reset arguments to the PSCI driver to enable command-based reset.
+> > > 
+> > > This change allows userspace to issue supported PSCI reset commands
+> > > using the standard reboot system calls while enabling SoC vendors to
+> > > define their specific resets for PSCI.
+> > > 
+> > > Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> > > ---
+> > >   drivers/power/reset/Kconfig            |  10 +++
+> > >   drivers/power/reset/Makefile           |   1 +
+> > >   drivers/power/reset/psci-reboot-mode.c | 119 +++++++++++++++++++++++++++++++++
+> > >   3 files changed, 130 insertions(+)
+> > > 
+> > > diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
+> > > index f6c1bcbb57deff3568d6b1b326454add3b3bbf06..529d6c7d3555601f7b7e6199acd29838030fcef2 100644
+> > > --- a/drivers/power/reset/Kconfig
+> > > +++ b/drivers/power/reset/Kconfig
+> > > @@ -348,6 +348,16 @@ config NVMEM_REBOOT_MODE
+> > >   	  then the bootloader can read it and take different
+> > >   	  action according to the mode.
+> > > +config PSCI_REBOOT_MODE
+> > > +	bool "PSCI reboot mode driver"
+> > > +	depends on OF && ARM_PSCI_FW
+> > > +	select REBOOT_MODE
+> > > +	help
+> > > +	  Say y here will enable PSCI reboot mode driver. This gets
+> > > +          the PSCI reboot mode arguments and passes them to psci
+> > > +	  driver. psci driver uses these arguments for issuing
+> > > +	  device reset into different boot states.
+> > > +
+> > >   config POWER_MLXBF
+> > >   	tristate "Mellanox BlueField power handling driver"
+> > >   	depends on (GPIO_MLXBF2 || GPIO_MLXBF3) && ACPI
+> > > diff --git a/drivers/power/reset/Makefile b/drivers/power/reset/Makefile
+> > > index 0e4ae6f6b5c55729cf60846d47e6fe0fec24f3cc..49774b42cdf61fd57a5b70f286c65c9d66bbc0cb 100644
+> > > --- a/drivers/power/reset/Makefile
+> > > +++ b/drivers/power/reset/Makefile
+> > > @@ -40,4 +40,5 @@ obj-$(CONFIG_REBOOT_MODE) += reboot-mode.o
+> > >   obj-$(CONFIG_SYSCON_REBOOT_MODE) += syscon-reboot-mode.o
+> > >   obj-$(CONFIG_POWER_RESET_SC27XX) += sc27xx-poweroff.o
+> > >   obj-$(CONFIG_NVMEM_REBOOT_MODE) += nvmem-reboot-mode.o
+> > > +obj-$(CONFIG_PSCI_REBOOT_MODE) += psci-reboot-mode.o
+> > >   obj-$(CONFIG_POWER_MLXBF) += pwr-mlxbf.o
+> > > diff --git a/drivers/power/reset/psci-reboot-mode.c b/drivers/power/reset/psci-reboot-mode.c
+> > > new file mode 100644
+> > > index 0000000000000000000000000000000000000000..86bef195228b0924704c2936b99f6801c14ff1b1
+> > > --- /dev/null
+> > > +++ b/drivers/power/reset/psci-reboot-mode.c
+> > > @@ -0,0 +1,119 @@
+> > > +// SPDX-License-Identifier: GPL-2.0-only
+> > > +/*
+> > > + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+> > > + */
+> > > +
+> > > +#include <linux/device/faux.h>
+> > > +#include <linux/device.h>
+> > 
+> > Nit: swap the two.
+> 
+> Ack. thanks.
+> 
+> 
+> > > +#include <linux/err.h>
+> > > +#include <linux/of.h>
+> > > +#include <linux/psci.h>
+> > > +#include <linux/reboot.h>
+> > > +#include <linux/reboot-mode.h>
+> > > +#include <linux/types.h>
+> > > +
+> > > +/*
+> > > + * Predefined reboot-modes are defined as per the values
+> > > + * of enum reboot_mode defined in the kernel: reboot.c.
+> > > + */
+> > > +static struct mode_info psci_resets[] = {
+> > > +	{ .mode = "warm", .magic = REBOOT_WARM},
+> > > +	{ .mode = "soft", .magic = REBOOT_SOFT},
+> > > +	{ .mode = "cold", .magic = REBOOT_COLD},
 
-Reviewed-by: Gary Guo <gary@garyguo.net>
+These strings match the command userspace issue right ? I think that we
+should make them match the corresponding PSCI reset types, the list above
+maps command to reboot_mode values and those can belong to any reboot
+mode driver to be honest they don't make much sense in a PSCI reboot
+mode driver only.
 
-> ---
->  rust/kernel/block/mq/gen_disk.rs | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
+It is a question for everyone here: would it make sense to make these
+predefined resets a set of strings, eg:
 
+psci-system-reset
+psci-system-reset2-arch-warm-reset
+
+and then vendor resets:
+
+psci-system-reset2-vendor-reset
+
+at least we know what a string maps to ?
+
+We can export a function from the PSCI driver to detect whether PSCI
+SYSTEM_RESET2 is supported, an equivalent of psci_has_osi_support() for
+instance that we can call from this driver to detect its presence.
+
+> > > +};
+> > > +
+> > > +static void psci_reboot_mode_set_predefined_modes(struct reboot_mode_driver *reboot)
+> > > +{
+> > > +	INIT_LIST_HEAD(&reboot->predefined_modes);
+> > > +	for (u32 i = 0; i < ARRAY_SIZE(psci_resets); i++) {
+> > > +		/* Prepare the magic with arg1 as 0 and arg2 as per pre-defined mode */
+> > > +		psci_resets[i].magic = REBOOT_MODE_MAGIC(0, psci_resets[i].magic);
+> > 
+> > This looks weird to me, why can't we just initialize the array with the values
+> > directly ?
+> 
+> Ack. The idea was to avoid Typecasting. Will check on this.
+> 
+> > > +		INIT_LIST_HEAD(&psci_resets[i].list);
+> > > +		list_add_tail(&psci_resets[i].list, &reboot->predefined_modes);
+> > > +	}
+> > > +}
+> > > +
+> > > +/*
+> > > + * arg1 is reset_type(Low 32 bit of magic).
+> > > + * arg2 is cookie(High 32 bit of magic).
+> > > + * If reset_type is 0, cookie will be used to decide the reset command.
+> > > + */
+> > > +static int psci_reboot_mode_write(struct reboot_mode_driver *reboot, u64 magic)
+> > > +{
+> > > +	u32 reset_type = REBOOT_MODE_ARG1(magic);
+> > > +	u32 cookie = REBOOT_MODE_ARG2(magic);
+> > > +
+> > > +	if (reset_type == 0) {
+> > > +		if (cookie == REBOOT_WARM || cookie == REBOOT_SOFT)
+> > > +			psci_set_reset_cmd(true, 0, 0);
+> > > +		else
+> > > +			psci_set_reset_cmd(false, 0, 0);
+> > > +	} else {
+> > > +		psci_set_reset_cmd(true, reset_type, cookie);
+> > > +	}
+> > 
+> > I don't think that psci_set_reset_cmd() has the right interface (and this
+> > nested if is too complicated for my taste). All we need to pass is reset-type
+> > and cookie (and if the reset is one of the predefined ones, reset-type is 0
+> > and cookie is the REBOOT_* cookie).
+> > 
+> > Then the PSCI firmware driver will take the action according to what
+> > resets are available.
+> > 
+> > How does it sound ?
+> 
+> So we mean these checks will move to the psci driver? Sorry for re-iterating
+> the question.
+
+Given what I say above, I believe that something we can do is mapping the magic
+to an enum like:
+
+PSCI_SYSTEM_RESET
+PSCI_SYSTEM_RESET2_ARCH_SYSTEM_WARM_RESET
+PSCI_SYSTEM_RESET2_VENDOR_RESET
+
+and can add a probe function into PSCI driver similar to psci_has_osi_support() but
+to probe for SYSTEM_RESET2 and initialize the predefined strings accordingly,
+depending on its presence.
+
+It is getting a bit hairy, agreed, but I am not sure there is cleaner ways
+of pulling this off.
+
+Lorenzo
+
+> 
+> > > +
+> > > +	return NOTIFY_DONE;
+> > > +}
+> > > +
+> > > +static int psci_reboot_mode_register_device(struct faux_device *fdev)
+> > > +{
+> > > +	struct reboot_mode_driver *reboot;
+> > > +	int ret;
+> > > +
+> > > +	reboot = devm_kzalloc(&fdev->dev, sizeof(*reboot), GFP_KERNEL);
+> > > +	if (!reboot)
+> > > +		return -ENOMEM;
+> > > +
+> > > +	psci_reboot_mode_set_predefined_modes(reboot);
+> > > +	reboot->write = psci_reboot_mode_write;
+> > > +	reboot->dev = &fdev->dev;
+> > > +
+> > > +	ret = devm_reboot_mode_register(&fdev->dev, reboot);
+> > > +	if (ret) {
+> > > +		dev_err_probe(&fdev->dev, ret, "devm_reboot_mode_register failed %d\n", ret);
+> > > +		return ret;
+> > > +	}
+> > > +
+> > > +	return 0;
+> > > +}
+> > > +
+> > > +static int __init psci_reboot_mode_init(void)
+> > > +{
+> > > +	struct device_node *psci_np;
+> > > +	struct faux_device *fdev;
+> > > +	struct device_node *np;
+> > > +	int ret;
+> > > +
+> > > +	psci_np = of_find_compatible_node(NULL, NULL, "arm,psci-1.0");
+> > > +	if (!psci_np)
+> > > +		return -ENODEV;
+> > > +	/*
+> > > +	 * Look for reboot-mode in the psci node. Even if the reboot-mode
+> > > +	 * node is not defined in psci, continue to register with the
+> > > +	 * reboot-mode driver and let the dev.ofnode be set as NULL.
+> > > +	 */
+> > > +	np = of_find_node_by_name(psci_np, "reboot-mode");
+> > > +
+> > > +	fdev = faux_device_create("psci-reboot-mode", NULL, NULL);
+> > 
+> > Same comment as Bartosz (have you picked up his work and working towards
+> > a solution) ?
+> Working on this via MFD. Some issue as again MFD framework does not allows a
+> fwnode based driver registration. Will update.
+> 
+> thanks,
+> Shivendra
 
