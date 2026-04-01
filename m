@@ -4,124 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D45CD35162
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 10:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58BFED35176
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 10:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gsfG1dMeG0hhAXuMQ/NSl1g0hyNKoLGtnSe3H3JbBAs=; b=NxyKe8nQFR1ciEbQpc8AbHJCGs
-	O87vbpBeK9kkOi3vfkvLYrcB2ST0yp1CnWAGtRK0qar7Bbgg5wqkSwaXUhNM8RPARmx7BKWVdnPli
-	34mQJNPffEuHRCHOlw6+zK9V9/OS2Qr0E0oW0b68SG/UvZWys/UEVHt0QhH0PYiV6FpQMO3xpLOhw
-	g6ibT9i+7BS+ffgYsHYgSqxHKsHvj6mXC9b/GQ9n9bzWau2JnaE7OcNTIBrlm3ARCu9Pk68xtzW9x
-	8DJjmwGFgFyZFBB4Sa/kZQV+mr03aXw4HZynzwTFShImWCaIatSe2YkdvHAtgED9YO8ACCsAV5doY
-	1A0of5FQ==;
+	bh=Mbj8DRjJ6FjmIEmUsBtCSoKyYAdXduQ+Y0GSwlGLOwo=; b=eyJZGPhaZiqfETV2fohsJVPvob
+	FYH6Mvy4s4f+6xRqjOHynuKrgIqq4NhqkbDK/zjyXeA0O2hWQxdemD7ck1zLTuAd3GwctXaj03mSi
+	V1d7jUN0gzExnuvihqBKc9/pWaexI8sKLtsUpsknvZlQ9PD8knpdP5lRpxy0FLjDs2rUENhSRAIHB
+	QrRxWvWpnwCZ4S5w0rdd9yXtnsQVP2ql/tjgvbi5rF4oVAx8bUlemuMhA1Z34IK8JykpOM32yfwCl
+	zhg8Yr35jQEcb1jzLIrcUWs/SPmN0aHUFcCUbOcRUBWkOATkQwJjtud3q+L9Dzp46JEGwknYen+36
+	C3fucrJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tI5-0000000EaIm-1Bpz;
-	Wed, 01 Apr 2026 10:59:17 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1w7tIU-0000000EaMh-2yQQ;
+	Wed, 01 Apr 2026 10:59:42 +0000
+Received: from fsn-vps-1.bereza.email ([162.55.44.2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tI3-0000000EaHy-0OUf
+	id 1w7tIR-0000000EaLV-3QiI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 10:59:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rtbZu5riXutThZ/ko+61fq5A4/M5/jkpvgaSER3osg5edZdR90L9XAUCfN8j01jXIvdIQNZqzhsUdYsmGcOzCfQ4wF7s0Gmg9jD+sdRR3YsmnJtPSqDixSaDuYLxi72W/BLt2HWcMTY2aHgvXJ7wegmLlKLYZEPIYxBwymvulRKWElfHFFR+zTe7g71/y2q9twg8rlQMuYOv0c/BDlRvlxInxNVfCEKVeemaoeqWljRp6vCI5lnMDKLSc0NRxllzNUQmrXVCjzTOwvu0LTc5F+phmDU1mnrJt/hoembCxhc8CsEwRreOY3flojvfj5QoVlIx/SfgpJq/9Tuyp5PHyg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gsfG1dMeG0hhAXuMQ/NSl1g0hyNKoLGtnSe3H3JbBAs=;
- b=CIWRyIBXMt8+leRL0K0+I/0NU/uZhkRDOJzP0shwYxBSpSHeoIF+JMyWhsC9T5H73xAOmT75fonhdsdL1JcQy6+KkPyuxBc3LBegeigvIDU7v7DJZlK/6Yx94UDVxzZeJFA3QLFGCTUNVFrrZZ5p006uGbEIZCDAfRZrjKPI4RFC/ZJ/e1xnTJxQY75dpNJEwWHHD7EMOGURrS9IqBaS5rHwWXkfdW229bipfVeN1IzI1/LPWsSmNMSSfjmhd0HlZ7SLqRU0mQanieQJiDEhqk2ONoNmw//WM3mom0y0WV9gmf5HJ+1ugPqI9k2svsqlkLFqk7/+cymatSYdx5fpog==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gsfG1dMeG0hhAXuMQ/NSl1g0hyNKoLGtnSe3H3JbBAs=;
- b=O/zwHBXf8/FDHLvHf/cswvELBfnDPlODzIsRZk1wyZI78ZXlBwqTqJdjjqV0ubGxGujTO5HBqQYYbYoePHcKzdKwkQ/0zDjZeY20jQhH97azZyynk2C2jacxTE/+Rr49ObSlTlZWVIpg2k8v6crwXKcNgWXDBuxUpq8HzhsdIu0=
-Received: from BYAPR11CA0094.namprd11.prod.outlook.com (2603:10b6:a03:f4::35)
- by CYYPR10MB7606.namprd10.prod.outlook.com (2603:10b6:930:c4::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Wed, 1 Apr
- 2026 10:59:11 +0000
-Received: from SJ1PEPF000023CF.namprd02.prod.outlook.com
- (2603:10b6:a03:f4:cafe::e9) by BYAPR11CA0094.outlook.office365.com
- (2603:10b6:a03:f4::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.29 via Frontend Transport; Wed,
- 1 Apr 2026 10:59:02 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SJ1PEPF000023CF.mail.protection.outlook.com (10.167.244.11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9745.21 via Frontend Transport; Wed, 1 Apr 2026 10:59:08 +0000
-Received: from DFLE205.ent.ti.com (10.64.6.63) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 1 Apr
- 2026 05:59:07 -0500
-Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE205.ent.ti.com
- (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 1 Apr
- 2026 05:59:07 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE213.ent.ti.com
- (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 1 Apr 2026 05:59:07 -0500
-Received: from [10.24.68.91] (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.91])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 631Ax2u34137901;
-	Wed, 1 Apr 2026 05:59:02 -0500
-Message-ID: <f8937c11-1416-42cc-b5ce-0fd97e8aa53e@ti.com>
-Date: Wed, 1 Apr 2026 16:29:01 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] cpufreq: ti: Add device link to k3-socinfo
-To: Krzysztof Kozlowski <krzk@kernel.org>, <praneeth@ti.com>, <nm@ti.com>,
-	<vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <rafael@kernel.org>,
-	<viresh.kumar@linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-pm@vger.kernel.org>, <d-gole@ti.com>
-CC: <vishalm@ti.com>, <sebin.francis@ti.com>, <k-willis@ti.com>
-References: <20260330120105.2985200-1-a-kaur@ti.com>
- <20260330120105.2985200-6-a-kaur@ti.com>
- <da225ab1-d659-455d-b3c9-e7ff4864119e@kernel.org>
-Content-Language: en-US
-From: Akashdeep Kaur <a-kaur@ti.com>
-In-Reply-To: <da225ab1-d659-455d-b3c9-e7ff4864119e@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CF:EE_|CYYPR10MB7606:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0904af6d-0138-4a41-4338-08de8fddb331
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|7416014|82310400026|1800799024|921020|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: +VlxdLbBI60DtOFJwYUQ7n1f47Syg0rUJHNm0Ft1xxXOt5mwr7Av6qx8vsCab2/DmRsoHHgJj66V12kKNYeKCqeU3qH1JP/yEn5Nxxtni+Q0Q3KBKYJhliVr8Vej2eVtzLRv2SERD02fF0xX9M5Rt4qVUYT9Zuec4rlFWFOV0N/8uRdbLF/zvwjuq2JT+v4/+7AloTcSMsLNbhaUM4/wS85ZyS/+2VfEInuNBUheOnXMSrN2YbG2wKscKr790xznzf2H6scb79NU3Aql4JSqJMk+REkwhBZ/b1Oq8B3LW2QGwmS2Kf4oANzHkzITsjuXqq9/H7pmoTdYtRq49ez5QbE9rcY+t5zHqb9BqX0WZM19LGyQbj0J9n2zdY1VDV/xUyhNnWRBgkVWgGDdKh9cKN2WPzkPMq7oMcPGCTx6LLRMe74kbCnCRs14+3eUFE5t6REUnp2GLpoZcoeW4p2Zs/zqR9hGIvrL4gzlA2BWg7BrbFOUbNbUigct9rEUKv6oQCNT9Jblg0GLb8dVhsP8NS2vwRCkOQx9H0Pk7jTnzmj7dNMmaY0Rlhs/fZaBr9yUisdogCh0kyFzMlg52BCn2ZzIys64VeBra50jYXZWT0mMG48hW3kKy1kxWrzFQtn0KfOApK1XiCKfHnv2DYWUuAT9s+pCkSeTAXFNuSU40uGvA7QCgWYu7QNolr3x7c2B9v4BDVe3lqqfEKC4EizsJb+e/2kCSiYaJe+YEXdcHCuJGQFVlCKHm3+wI2UQjwf9pIlHDpMJFs/KZ1LNROZruOEJsTKzKSN9eSk3JXcuSEnKSctb68ZvEOcsCcE5Rryl
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(36860700016)(7416014)(82310400026)(1800799024)(921020)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: QyYJHFZzmoiFvfEwMdlX+hdI/Av1fSillChzaFruWlYfUjFQHJALwqxWU1Tgh3Ze+cqMXiHg25jDoef9gjE5/v1k1w7frWlCDAvjuOfekZ6PCyFXCd016WiQ/O/mdPU8booGhueJ+xT1PTuKva0pqHs8i68Xv+ty7eYVsrvicZw6TJnm6DuvXJR1z1aVqs+8VpdBVC6aJAG0jwCVGrBywYefLUdSW57fFE4lIV49JgUSSdzHHMBaGju7+gFAVXpxMlxQgJUo6Qmvkm3b+OqphFbxuYLn0ronxG6bf7Tlk+C/UmiE8FguTmSQOJUcp7GQqKd/9L6+ZQJ/UWrboQYzbnn7azXpzPzqd199tOb9jhFNh4FCAWYidiKT3sFAiuA/0ekIUGW68kESw84+9/ikT49gURM9tJgsTfoAyUZrxlozrOAFYzrFyGHwNorJSDMF
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 10:59:08.8869
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0904af6d-0138-4a41-4338-08de8fddb331
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CF.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR10MB7606
+	Wed, 01 Apr 2026 10:59:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=bereza.email; s=mail;
+	t=1775041178; bh=Mbj8DRjJ6FjmIEmUsBtCSoKyYAdXduQ+Y0GSwlGLOwo=;
+	h=Date:Cc:Subject:From:To:References:In-Reply-To:From;
+	b=V3z41BzUUGsB5URRuoc25DYFE706Zgjp/NYPxzKAtlxQVrQGOHYrKUNQ140FHoUvA
+	 wFoDASFqV1q8FwjJ3leJxmvLqW22IcX1BTKOu5hUFwJGoaOzjSKAFFD48dbxbvLkIC
+	 UUO+nVlP/iDOoKleOBG6ATnkQmhKxEyFNGJiwi/AcFQPfiQWtAS6NNFvRfp/z7sK53
+	 Ii+hoFfO3DLzUJpd9iJ6xdGOS/5OXY+9t609PExSKBLQf+J8QAX8Dk17UKqPjlFhmg
+	 iepz9uU+ZMedubGBsGY47kUGw873saKDvQQFu7liDLupgyddHxMUCVkGUDmhSfgqBy
+	 MrBp9lSm0cJDQ==
+Received: from localhost (pd95bbad8.dip0.t-ipconnect.de [217.91.186.216])
+	by fsn-vps-1.bereza.email (Postfix) with ESMTPSA id BAEF25DF94;
+	Wed,  1 Apr 2026 12:59:37 +0200 (CEST)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 01 Apr 2026 12:59:37 +0200
+Message-Id: <DHHRKZLZFJ8Z.MKILHY9I70FK@bereza.email>
+Cc: "Vinod Koul" <vkoul@kernel.org>, "Frank Li" <Frank.Li@kernel.org>,
+ "Michal Simek" <michal.simek@amd.com>, "Ulf Hansson"
+ <ulf.hansson@linaro.org>, "Arnd Bergmann" <arnd@arndb.de>, "Tony Lindgren"
+ <tony@atomide.com>, "Kedareswara rao Appana" <appana.durga.rao@xilinx.com>,
+ <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 1/2] dmaengine: xilinx_dma: Fix CPU stall in
+ xilinx_dma_poll_timeout
+From: "Alex Bereza" <alex@bereza.email>
+To: "Geert Uytterhoeven" <geert@linux-m68k.org>, "Alex Bereza"
+ <alex@bereza.email>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260401-fix-atomic-poll-timeout-regression-v2-0-68a265e3770f@bereza.email> <20260401-fix-atomic-poll-timeout-regression-v2-1-68a265e3770f@bereza.email> <ZORYRaMAXzaiiK2355T-MbuQTxDy1AU40-E3g_gXEej43XUE6jjbrMSWlOxrIU1uQuvxyxBkv7hyX8OMHBvoiA==@protonmail.internalid> <CAMuHMdWGHzt8nB3EGAToxZibf-O6C5xb9bcWhQQApzL3-6pcCA@mail.gmail.com>
+In-Reply-To: <CAMuHMdWGHzt8nB3EGAToxZibf-O6C5xb9bcWhQQApzL3-6pcCA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_035915_164525_9B6A86EE 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20260401_035940_002968_9536EE94 
+X-CRM114-Status: UNSURE (   5.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,34 +76,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Geert,
 
-On 30/03/26 18:52, Krzysztof Kozlowski wrote:
-> On 30/03/2026 14:01, Akashdeep Kaur wrote:
->>   	opp_data->cpu_dev = get_cpu_device(0);
->>   	if (!opp_data->cpu_dev) {
->> @@ -560,6 +563,42 @@ static int ti_cpufreq_probe(struct platform_device *pdev)
->>   	if (ret)
->>   		goto fail_put_node;
->>   
->> +	/* Create device link to k3-socinfo if specified in DT */
->> +	if (opp_data->soc_data == &am625_soc_data ||
->> +	    opp_data->soc_data == &am62a7_soc_data ||
->> +	    opp_data->soc_data == &am62l3_soc_data ||
->> +	    opp_data->soc_data == &am62p5_soc_data) {
->> +		struct device_node *socinfo_np;
->> +
->> +		socinfo_np = of_parse_phandle(opp_data->opp_node, "ti,soc-info", 0);
-> 
-> Undocumented ABI.
+thank you for the quick and helpful replies.
 
-Added missing patch in next version, thanks for pointing this out.
+>> Fixes: 9495f2648287 ("dmaengine: xilinx_vdma: Use readl_poll_timeout ins=
+tead of do while loop's")
+>> Fixes: 7349a69cf312 ("iopoll: Do not use timekeeping in read_poll_timeou=
+t_atomic()")
+>>
+>
+> Please no blank line between tags.
 
-Regards,
-Akashdeep Kaur
+Fixed. Sorry, was not aware of this formatting requirement.
 
-> 
-> Best regards,
-> Krzysztof
-
+BR
+Alex
 
