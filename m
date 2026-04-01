@@ -4,91 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A880D35162
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 09:16:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E990D35160
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 09:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SjS5hoz5lALYwIBYUHhAR12nD30o7Vp6mbmnlUx69mY=; b=Xzgj2s1nLRAvrTTwB4gHQvzDDc
-	R480LnaYE/4CyUQIRsjNnmhHnQkbkSG+jgsVnfsWBFDcmLXxBJ6xwEIGfeuE3l7EksHj32NNDVUhS
-	+9ehbIQftb99Y5t9JGQFDfNhfo1sv8VEFQbx58NjY5+6VN6R+8cmIBzd4ByO8s9JCmXUksi0Nx58G
-	vjfejJ2wLgAKWIMicTzyUNAjXtfOaAgouiQ5b5MhZ9kgXCSsZZG5BiCr2dWsy5luShzXMiKf2FN2n
-	x+DmeBiv2SNFjtO5qf653za53iwEk4XlpBWVdsMZw4dckRJ5G8H4c4I9R+ovUmBoJjCmla0YFdYvS
-	oFPruEmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=75U3RpUJe+FVu9VwkhE9IsRV47CguUBmni07peFtbCY=; b=N/lQ6b9k60ksRy92mM9InYecl9
+	cbhiyPmAX54X5C/SzJHEvX4LEJm4Mrds2lP/DvQDzFcAmCLyo1G8+ejMZxP+Uzwcn3vH1Fvfg+91u
+	2N6ybtOHUBd/vGfk03Ogx84THEWm4y8ZYhpTg7VHbRim2Ik1C02bPzYxI9556YBeiZ2674xy0fyRz
+	uL/76+nDs2PmcMnZQRH4yCZKU3T0bYm89bINY/eoW+YqQRBAB5ufqPYZULMIteBLP76hyBGxiJ57E
+	syMIA6lm76jt3nuWeuUG4zfqh/rcZkqZbxs0xBR5x3jhgYyawmf1CU+0+WfagTsefJv+S5BPrje23
+	sucb0wKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7rg9-0000000ENbd-1DBR;
-	Wed, 01 Apr 2026 09:16:01 +0000
-Received: from mail-m3297.qiye.163.com ([220.197.32.97])
+	id 1w7rh0-0000000EOEY-2yIo;
+	Wed, 01 Apr 2026 09:16:54 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7rg5-0000000ENSX-1psd;
-	Wed, 01 Apr 2026 09:15:58 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3923a3025;
-	Wed, 1 Apr 2026 17:15:52 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	victor.liu@nxp.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	inki.dae@samsung.com,
-	sw0312.kim@samsung.com,
-	kyungmin.park@samsung.com,
-	krzk@kernel.org,
-	jingoohan1@gmail.com,
-	p.zabel@pengutronix.de,
-	hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com
-Cc: Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	alim.akhtar@samsung.com,
-	dmitry.baryshkov@oss.qualcomm.com,
-	luca.ceresoli@bootlin.com,
-	nicolas.frattaroli@collabora.com,
-	dianders@chromium.org,
-	m.szyprowski@samsung.com,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v12 12/17] drm/bridge: analogix_dp: Add new API analogix_dp_finish_probe()
-Date: Wed,  1 Apr 2026 17:14:49 +0800
-Message-Id: <20260401091454.25730-13-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260401091454.25730-1-damon.ding@rock-chips.com>
-References: <20260401091454.25730-1-damon.ding@rock-chips.com>
+	id 1w7rgx-0000000EOCZ-3gBy
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Apr 2026 09:16:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RLjDVwdUURAO7YEc69+zPU1cc0w42BKiTGwEfTL3Huf7W1AxOOVp9ydlyHX1S1754me6XSAk4s1z0emZmvRp7TM6mMJ+T493PAofzuLbQlqAtphIK5JuX05QGZtiO3xOWVndnDtqsO1Gt9xzyLZCY7nJg4IIqqSTXZ2JvZWA26B7dTmj23qbPqwhF4r1k0ioYYVt/fALhS2axF6wT+Jz8X5mMTsl6jFy3uAFHF0usGKAluYts4pMId8KNqatIJVLJzFc9A3P1fwssVx0Gb2rPEorsXOibZ7+IBRKmDmbjSV6Eyqi0CZ2frxdyO9TE2qg5crWs2kIm4D0Pkdn8vGcXw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=75U3RpUJe+FVu9VwkhE9IsRV47CguUBmni07peFtbCY=;
+ b=kvlji6GLu9xFdyKreMZ3ZTyaYPGeoGKZm/HyNgBrODiZcDwGysc5iPnxvcSlowknUZ7YCgGNPp9XxS5PmJkyj2S2cHeuO5dTOXBlCckPQ3NMcIhTmyTRpAO3Ctu2+jM2RdKrpFBErp6y2KdL0BUrHiqTzHLYEh0OuALFr3OG5+KBBRMZm1CD3Auk8lEXQBvEUIBh4ql1TOXazuPZ9ZAykJDQSloHiex6xbkFAGQTmjb4xHwb9nj3f3ar8D14+bxJRpiPaTZYGF/eTbb1oZwbsd8Qpk9eU/RmfUjx40isI97M3XyNAzFNx6ngHMs6cAPHo5k9f1t/udR5vo+9/sEgrA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=75U3RpUJe+FVu9VwkhE9IsRV47CguUBmni07peFtbCY=;
+ b=WOIAKrrk4NZn0a0aBOght78yEMOnVDlYylCE/HjHsxGv4RVxWIQz1thnRz1vDiKkcBrj5mdVHltWi23/rKwdm74kakmgPUfHQtmHXYAi0mbJZqhxsbj4OepkpSGMnZy3BNjwjmfqSmh7jw1GTtvkME4zbWoFAl5AmScxCcsmV0fr+UDfXL8P5XAzyUTj+8JWRHXUh+il/2Jry8G1YdxVJ7iEs0PC8M2qQVUPphTFh6ZR4icsR3VDbW2nUKv8cQL9f2AQQ9UiDDZm3tdyrhDzxU82Rdjpwp46n9z8aAobKThmfVqnFgYIvuJnWzEqtyD65E3Xj6p/0otCgYl6jJ/Mfg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
+ by PAXPR04MB9188.eurprd04.prod.outlook.com (2603:10a6:102:222::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
+ 2026 09:16:45 +0000
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9769.016; Wed, 1 Apr 2026
+ 09:16:45 +0000
+Message-ID: <99a1da55-d6e5-4d11-abaa-8c85283ab5f2@oss.nxp.com>
+Date: Wed, 1 Apr 2026 12:19:48 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [EXT] Re: [PATCH 1/2] dt-bindings: gpu: mali-valhall-csf:
+ Document i.MX952 support
+To: Guangliu Ding <guangliu.ding@nxp.com>, Liviu Dudau <liviu.dudau@arm.com>
+Cc: Daniel Almeida <daniel.almeida@collabora.com>,
+ Alice Ryhl <aliceryhl@google.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, Jiyu Yang <jiyu.yang@nxp.com>
+References: <20260331-master-v1-0-65c8e318d462@nxp.com>
+ <20260331-master-v1-1-65c8e318d462@nxp.com> <acva1Xt8V4k9-uG8@e142607>
+ <AM0PR04MB47073E9E8B5C704BCF5D9F72F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+Content-Language: en-US
+From: Daniel Baluta <daniel.baluta@oss.nxp.com>
+In-Reply-To: <AM0PR04MB47073E9E8B5C704BCF5D9F72F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AS9PR06CA0626.eurprd06.prod.outlook.com
+ (2603:10a6:20b:46e::35) To GVXPR04MB12316.eurprd04.prod.outlook.com
+ (2603:10a6:150:2c6::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9d4853ec2b03a3kunm479af8c3b32e98
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ05MS1YZSBgZGEhKGh0dTxpWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=IRz54cGRL/K84H5dxtRmFIntCy1YXSjPXozF0BREETkPWVaqYAXwgBQRQD8pnR27hKBItI7fsfnbcX5koLE//ddN0nlGwl0MtsNGWYnh0GrAz0XfFM5PeYRzW8aFW/Y29mYD5L5+Kk2BFVdE/7GBL6G5hWKly745kRgX8Wbz5Bo=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=SjS5hoz5lALYwIBYUHhAR12nD30o7Vp6mbmnlUx69mY=;
-	h=date:mime-version:subject:message-id:from;
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|PAXPR04MB9188:EE_
+X-MS-Office365-Filtering-Correlation-Id: 49620847-da81-4d2e-1e8c-08de8fcf64e6
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|7416014|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: Ri/bgjsw3fiRj9P2mC9KHYlkzXw3mSGsPKSWQXOUdJJarbLHVBiCHTxNNgJHrrm5yhD9cqbF9G0LVI8rIavmvHEMuO/BkWvZJkJp39Bb9XTFNI2ad2Vpn+p0L65wOHa/TAU/eqUJPro5JQO0UtQ4RYXZ8nfbusuy0dqz3USv5lLH76bZPme6g6MFyaT9C13dsFUQoloR0DNA9i+R1w9/Fr7UOmGxtZErJ02wlg9LLQPi4WNsuUipMBEyyS9mnRGW1ROY6//P7x+9Ws/VUE3qps94NarsjIj/3yqCOnmB2y0jxIjfiSn2JK4kIbTplyxK6GjB03yzavVrxWoaUK8aeRXMJNpTtUICS8sfrXSsVZqA/XnCzs3+DCvetjGoMNhUbW2tcsMFLfkCR93LYtsWFEezxoyHYUM3LWW7/Y1HlXEBMBewgZ8a/NjvAUUt1Dvk5WW3i6jOGcPNiDLfIk35T83fddlvCbkrZ74RtJZ3R7R7m0H45riS5YXb4J4lJs2KdMN+peJwU/UbZ3UDNcKX5zmzIgX+IO/5oZQFkow6O2fC/k9t+uKlE1yF5kzdz0slsPhvdqWRMYjzooh0Ib9QQIQ/xiOnsFDlPn6NVuMC/sfmTk+VwskwjZ8G6tpVGZnTJ0j6Yym2iLmpcNo2C4RWCYc8JhdLI2pw40dwEPUgJdnp1w9AIe+bjxEqwFI8vh+V3q5BTf1FtQhdcdu+s+UQHxwij2XrSAXdeatN8OYx2mw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(7416014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VHM2QjY0ZGhkNzNRMDhLTmNVMVlINlFyNlNpN1NTbmxQeFBYRDJ1UHRtRWVn?=
+ =?utf-8?B?bTBEUlUvczZsU1pMU3FHTGs5NkdHZ3gwMElraVNkYWozQjQ1V0FZZlNsblkz?=
+ =?utf-8?B?QWJxT0RNbVZOWEQyOXJUTkgrekttTGZKVWFWYlVMNjhIaGc0L25GYU9scStj?=
+ =?utf-8?B?bHZMdzhOdzUxeCs4K2dQQUJqbVdsUVl2V21yY1d0dDJ6alkvWFpNWXZzQlhO?=
+ =?utf-8?B?UWVDaHREbFltRUtYdUZHK3ZJVmlQZklHNlFINCs2bmZqNzh5WlFFYWNHNUtI?=
+ =?utf-8?B?RkpEUGZxKzJOeHg2WDVRdytKcnR0aFhpQVVEa2xGOGxoUWhQaFg1S0dhTTVW?=
+ =?utf-8?B?QmRmUGZZdklqQnlWUUJQSG9ORzlmNDQzSkRaUGZTdmdNUEt3eE50emFwYm1u?=
+ =?utf-8?B?anp3VTlnMHZ2Mk5VdjB4Q3BFalc4Wkx5SUdZdmhQMmRpSGNrMkJONmFkWE96?=
+ =?utf-8?B?RDlSVmtwMjJsTENpVlNmMlZOM0FlNVVSRWlZQXhYdUV1OUFkZXQ4Z0dydDlW?=
+ =?utf-8?B?UXRadGF4M3NiMWhlOSt3Rlc4TGUzRWtOWjRUY1pubWE1bGxxWE9oYU9PSEZu?=
+ =?utf-8?B?UlRBcEJ0UW1aRTR1Z0dFNjB2K0ZUNVNOZGF4Ni9rdlVueCt5YkJaSHU1SnVV?=
+ =?utf-8?B?TWM5UW55QkhtK2NiU25GUEhwZFM5OGM0cXRqbEFhZDZrTVZiY0ZsQVNCenFw?=
+ =?utf-8?B?NlJxWnNqNmw2azdKSGUzY2pBcnFKaGVPRUc0SUg5VHhBOExpZ1M2RVUxK1k4?=
+ =?utf-8?B?bUFuM0NBTlgrZVBJMCs3UWNBTXVUKzRJeVVPdUErUGs2OGd6Y2xjS0IvS1RD?=
+ =?utf-8?B?cDFWbHpTZUVwcGZOanRuQ3lhTHNncWFKL1lpUW5iSzU2MTdxU3c0SVFHUmph?=
+ =?utf-8?B?Z0pWK01KNjQxOXlueTFibFpBNERCR0NpMm9KUVVzeHIwNm9oeGJLTFJGbTZ0?=
+ =?utf-8?B?dXZubDFaRWRCYWgyZTNyUEk3ZlBkVnoxdTBZYlM0OW5tWWxVdlAwVC9RK2NW?=
+ =?utf-8?B?dHFYRWFyUU80S3ZwUmZrcUoyYXJMOVJQYVR6MnRPQ05ISWJyWS9wZ3Q0VjNy?=
+ =?utf-8?B?SnlLWEpmSTFCb0tHNGpFT3FINldhdmRQbTIvellMM1UwV2N3UjJqdFJ6ZS81?=
+ =?utf-8?B?U1BQWEFZTmFGMzhtK1dkQTl6RTJ1RlFBVWppdk1JTTBOdXUxaThvRUdIUnR0?=
+ =?utf-8?B?M1lNVTBVYmFQMWZ3cGNFT0JPcFhKdHJRVHpoK3hPSWhqbWR0L3o4bGhSMndH?=
+ =?utf-8?B?azZhbmxQTFAwLzIrei9qOWNMQXdWVG40YmViOGU2c21VOXJLUVFNSStBUDh6?=
+ =?utf-8?B?UWozeUlXOHdtN3pUUWFSSEUvejF5VUMxaDFTTEEzWWRnSFlkOFJBcGtidm1H?=
+ =?utf-8?B?L3NUeTNDUHNlRzRZSVlaVnJ6T3BrdkhlSFVjOEozWVVINHdWWVVkaS9qclNL?=
+ =?utf-8?B?ZTh3dmZnaHduOFNjRkt3SjBvTm1jdWVqME5LeGVFZE84ZmNnN3hhM2R0bzFL?=
+ =?utf-8?B?Q2pOUERqcDQ5emJsbFg3dkdicnMzSUFRLzJFdGpKTGRrY0JJRUZSWm5JKzN4?=
+ =?utf-8?B?cnFYTmVRd0lYaVpSRWx4RksvRzRPTVFvdlJBYVVvK3RBRFlpNkVrQnZ1b1Za?=
+ =?utf-8?B?MDhIOVBkTk0rNXpha3BDa3ZCTmpjT0RkN0ZHbjZQdUE4UDlucFR4NjVVYTVk?=
+ =?utf-8?B?Tjl3Z0xWZkRtNUJZOHo4M2MxR21pWklvMEFNeUFhQXhneHNvenFzMUprQjZY?=
+ =?utf-8?B?RENLUlY0RmFpT1JmSjJWdXBJTjRLNGlkRnVzTFJkcVRuS3p0QmIzMHlZK3Br?=
+ =?utf-8?B?dllEV0o3NWFuci9qaW5kQ1grcHdvNFRRbVFQakxUU0ZoeTU3YWp1QUtPeHFt?=
+ =?utf-8?B?RWZoUC8yUWtjSHMwVlhaTUhQa2VaUG5kSkZaeDBXTGZObFZzanM4cklJZkgw?=
+ =?utf-8?B?Z2JLV2tTejAxQUtnNGl1L0w3bGR5RWt5YmpZMDBHWGNmY2I1M1lNNUN6b1NG?=
+ =?utf-8?B?V2J3R3UxWGJOb3ZwQ0ZpSVpLNTljcVpWWmxHbmw2dEM3ZGRHdjlibEQwam84?=
+ =?utf-8?B?SmxUUHlwS0R1aUl0dS9tVnRmUGFPTW9rL3JscXhzL1phVnpUaVBsVE1KZVdm?=
+ =?utf-8?B?aEdpb1ZEK2lTTU1RcURFYjh1NXNyVHNGcExQWDNtNngxR09nVWZQeG5QbG9W?=
+ =?utf-8?B?MWlLVHVUenQ4Zm1sdi9mTy9QdU5rdUpmUHpzVm5CdTRISzhyMG5UTDNrSS90?=
+ =?utf-8?B?Mk5uOHA1cEtDZGlwdDNSSnNScm51b0Y3U2h2dFZtVnFVSHpoL0l1R0h4RkF3?=
+ =?utf-8?B?bzNzZk4rWE9pWUVybUQ5b2tpbGZUSmlEZWlXc3pUWVdDaHdhVnFDUT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 49620847-da81-4d2e-1e8c-08de8fcf64e6
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 09:16:44.9363
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: uVGb3GtzmMomaVg26r0LoxCc9rWTVSRh5Lc+D1XoRPoXBAGG4QsMXT31YsMjLanaX6v3JJ5pRY1I6rvq95OsEw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9188
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_021557_664279_DCBB0CEB 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20260401_021651_924905_781843FA 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,147 +167,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the panel/bridge should logically be positioned behind the
-Analogix bridge in the display pipeline, it makes sense to handle
-the panel/bridge parsing on the Analogix side. Therefore, we add
-a new API analogix_dp_finish_probe(), which combines the panel/bridge
-parsing with component addition, to do it.
+On 4/1/26 11:48, Guangliu Ding wrote:
+> [You don't often get email from guangliu.ding@nxp.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> Hi Liviu
+>
+> Thanks for your review. Please refer to my comments below:
+>
+>> On Tue, Mar 31, 2026 at 06:12:38PM +0800, Guangliu Ding wrote:
+>>> Add compatible string of Mali G310 GPU on i.MX952 board.
+>>>
+>>> Signed-off-by: Guangliu Ding <guangliu.ding@nxp.com>
+>>> Reviewed-by: Jiyu Yang <jiyu.yang@nxp.com>
+>>> ---
+>>>  Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml | 1 +
+>>>  1 file changed, 1 insertion(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+>> b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+>>> index 8eccd4338a2b..6a10843a26e2 100644
+>>> --- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+>>> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+>>> @@ -20,6 +20,7 @@ properties:
+>>>            - enum:
+>>>                - mediatek,mt8196-mali
+>>>                - nxp,imx95-mali            # G310
+>>> +              - nxp,imx952-mali           # G310
+>> Can you explain why this is needed? Can it not be covered by the existing
+>> compatible?
+> There are functional differences in GPU module (GPUMIX) between i.MX95
+> and i.MX952. So they cannot be fully covered by a single existing compatible.
+> On i.MX952, The GPU clock is controlled by hardware GPU auto clock-gating
+> mechanism, while the GPU clock is managed explicitly by the driver on i.MX95.
+> Because of these behavioral differences, separate compatible strings
+> "nxp,imx95-mali" and "nxp,imx952-mali" are needed to allow the driver to handle
+> the two variants independently and to keep room for future divergence.
 
-In order to process component binding right after the probe completes,
-the &analogix_dp_plat_data.ops is newly added to pass &component_ops,
-for which the &dp_aux_ep_device_with_data.done_probing() of DP AUX bus
-only supports passing &drm_dp_aux.
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-Tested-by: Heiko Stuebner <heiko@sntech.de> (on rk3588)
+This information should be added in the commit message explaining why
 
----
+the change is needed.
 
-Changes in v4:
-- Rename the &analogix_dp_plat_data.bridge to
-  &analogix_dp_plat_data.next_bridge.
-- Remame API analogix_dp_find_panel_or_bridge() to
-  analogix_dp_finish_probe().
 
-Changes in v5:
-- Select DRM_DISPLAY_DP_AUX_BUS for DRM_ANALOGIX_DP.
+But then where is the driver code taking care of these diferences?
 
-Changes in v9:
-- Add Tested-by tag.
-
-Changes in v10:
-- Fix to use dev_err_probe() in analogix_dp_finish_probe().
-- Expand the commit message.
----
- drivers/gpu/drm/bridge/analogix/Kconfig       |  1 +
- .../drm/bridge/analogix/analogix_dp_core.c    | 46 +++++++++++++++++++
- include/drm/bridge/analogix_dp.h              |  2 +
- 3 files changed, 49 insertions(+)
-
-diff --git a/drivers/gpu/drm/bridge/analogix/Kconfig b/drivers/gpu/drm/bridge/analogix/Kconfig
-index 4846b2e9be7c..964122b5bd39 100644
---- a/drivers/gpu/drm/bridge/analogix/Kconfig
-+++ b/drivers/gpu/drm/bridge/analogix/Kconfig
-@@ -29,6 +29,7 @@ config DRM_ANALOGIX_ANX78XX
- config DRM_ANALOGIX_DP
- 	tristate
- 	depends on DRM
-+	select DRM_DISPLAY_DP_AUX_BUS
- 
- config DRM_ANALOGIX_ANX7625
- 	tristate "Analogix Anx7625 MIPI to DP interface support"
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index 81c6e81dd352..b112df52cabf 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -20,12 +20,14 @@
- #include <linux/platform_device.h>
- 
- #include <drm/bridge/analogix_dp.h>
-+#include <drm/display/drm_dp_aux_bus.h>
- #include <drm/drm_atomic.h>
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_bridge.h>
- #include <drm/drm_crtc.h>
- #include <drm/drm_device.h>
- #include <drm/drm_edid.h>
-+#include <drm/drm_of.h>
- #include <drm/drm_panel.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
-@@ -1581,6 +1583,50 @@ struct drm_dp_aux *analogix_dp_get_aux(struct analogix_dp_device *dp)
- }
- EXPORT_SYMBOL_GPL(analogix_dp_get_aux);
- 
-+static int analogix_dp_aux_done_probing(struct drm_dp_aux *aux)
-+{
-+	struct analogix_dp_device *dp = to_dp(aux);
-+	struct analogix_dp_plat_data *plat_data = dp->plat_data;
-+	int port = plat_data->dev_type == EXYNOS_DP ? 0 : 1;
-+	int ret;
-+
-+	/*
-+	 * If drm_of_find_panel_or_bridge() returns -ENODEV, there may be no valid panel
-+	 * or bridge nodes. The driver should go on for the driver-free bridge or the DP
-+	 * mode applications.
-+	 */
-+	ret = drm_of_find_panel_or_bridge(dp->dev->of_node, port, 0,
-+					  &plat_data->panel, &plat_data->next_bridge);
-+	if (ret && ret != -ENODEV)
-+		return ret;
-+
-+	return component_add(dp->dev, plat_data->ops);
-+}
-+
-+int analogix_dp_finish_probe(struct analogix_dp_device *dp)
-+{
-+	int ret;
-+
-+	ret = devm_of_dp_aux_populate_bus(&dp->aux, analogix_dp_aux_done_probing);
-+	if (ret) {
-+		/*
-+		 * If devm_of_dp_aux_populate_bus() returns -ENODEV, the done_probing() will
-+		 * not be called because there are no EP devices. Then the callback function
-+		 * analogix_dp_aux_done_probing() will be called directly in order to support
-+		 * the other valid DT configurations.
-+		 *
-+		 * NOTE: The devm_of_dp_aux_populate_bus() is allowed to return -EPROBE_DEFER.
-+		 */
-+		if (ret != -ENODEV)
-+			return dev_err_probe(dp->dev, ret, "failed to populate aux bus\n");
-+
-+		return analogix_dp_aux_done_probing(&dp->aux);
-+	}
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(analogix_dp_finish_probe);
-+
- MODULE_AUTHOR("Jingoo Han <jg1.han@samsung.com>");
- MODULE_DESCRIPTION("Analogix DP Core Driver");
- MODULE_LICENSE("GPL v2");
-diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/analogix_dp.h
-index 3428ffff24c5..bae969dec63a 100644
---- a/include/drm/bridge/analogix_dp.h
-+++ b/include/drm/bridge/analogix_dp.h
-@@ -30,6 +30,7 @@ struct analogix_dp_plat_data {
- 	struct drm_bridge *next_bridge;
- 	struct drm_encoder *encoder;
- 	struct drm_connector *connector;
-+	const struct component_ops *ops;
- 
- 	int (*power_on)(struct analogix_dp_plat_data *);
- 	int (*power_off)(struct analogix_dp_plat_data *);
-@@ -49,5 +50,6 @@ int analogix_dp_stop_crc(struct drm_connector *connector);
- 
- struct analogix_dp_plat_data *analogix_dp_aux_to_plat_data(struct drm_dp_aux *aux);
- struct drm_dp_aux *analogix_dp_get_aux(struct analogix_dp_device *dp);
-+int analogix_dp_finish_probe(struct analogix_dp_device *dp);
- 
- #endif /* _ANALOGIX_DP_H_ */
--- 
-2.34.1
 
 
