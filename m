@@ -4,129 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE7D410F92EC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 01:14:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C42A210F9311
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 01:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=37OdAUVThfrWd+qXZfpdfyKW3bXln746w3B2aKSv620=; b=eF7GUBekRvWS4OzTjXMVCW7hyn
-	pGtc+crJpaPyYokyU3t5bpvEOgYOG6pJmmfrzyp7yhEEm7VCtQ1O9YjU7MNUK7yRUADIqhYypYj1V
-	gjYsCP99EnLiBnJjappNH9NFcnPBsJiyAVvrAzOXq5qa89MqyXC4Vs8zUIxcxpg7wHcrtiR5ASQt8
-	RdI/5Y1W8tJtwk+msl/Y7v1a8MNTjtireYYIG6OQhTO6/DkZ+cojowuk4GZKmagjkcIehMEQB5Wkl
-	mzSYnfHtB6tdaXfdnu5QbFkqZOe1gY0INepo0B5vokKxwrEIcuQdwEecqjWDrpPz8oa3kCw0uG3eu
-	9lEMjTaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=84tddcSLoInqnr4qLcDW/JZ/jewF+U0Wxnidmb7LaMs=; b=I4QNnFtvWWxLwH/PIcMyzFmDCH
+	V0AWiGLuCKI3sLVtkXP/mgUlrDwZLL++xfzFzJtUSrtqlo+xkkJ1ko74JpqElmEJ9C7mjDz9h1v+i
+	+pOc5+UmTu4rVuecp5SzcymJkNXngnkf6QjfKA0w2ryIKFlWpa474Qecup+/hifpj/AIjq2nfIizA
+	HytMUZmeARJRIizoew81QrjpisNsnDtACeZ+Zr5t2J7dmEW+7rjw2ngDBYd27url6r0xM+LsUWidY
+	Rvd3nFJipJE8yTdSXg7ic3/H1fUkAbeMyNnmh0DWHI2m4AhP/Y1AjSx+1gxZazAiq7bWZwDMUkQNq
+	sYjsPWmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7k9w-0000000Dm9y-0sl5;
-	Wed, 01 Apr 2026 01:14:16 +0000
-Received: from mail-eastus2azon11020123.outbound.protection.outlook.com ([52.101.56.123] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1w7kDn-0000000Dmit-0ZLv;
+	Wed, 01 Apr 2026 01:18:15 +0000
+Received: from mail-m32107.qiye.163.com ([220.197.32.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7k9u-0000000Dm9R-1LEe
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 01:14:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=B4Fub6323nnU5/fkUWCGp8nUQDwQlrOFpiRF2oGmjdaITwPzGnu7XyTqpkLGml0POwctIsM7ajv3oJzDbP3mRjHLIL1GlvfsSHtgs/k0HEgwgjdn5ioxycvqr2pwWVeS2llDFupZfgMHT1lCTbb4GQErQRk/FioY2w2pXAhz6AN91Ogbi45F6WPaMfUEVD0n2oIVgnnsByy85JPYEGsqAfWgx8V936TMr441TX6LIZkvBu/qXTFVOTk+GqkO/Y9jZKqU+thCmvgBFDwZdhI5U2KsIvLe4KsD0u2VkoK/d9Aqp1x1MFwey48R4jvdT1lkINy8mg35znDlZEOpCtPPzw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=37OdAUVThfrWd+qXZfpdfyKW3bXln746w3B2aKSv620=;
- b=khpUzKelQaSiICL/4T2Y8pePMQXQGkL3FMhdEedAOUJ/FY6/3LD3u5GfYrxZUrFU4YZiEuUNu0RrEDCqscvQknzqhv7C5UbS3e/5uTHmpgT0uyyTr7j9FXUNAJiHBCjBG38roZgJFl0eU+kvU8kAQ/XDXIEzDLqP5aR8ZHFaRgte3bNlMF+m6mMtG8s3ikMFYQ8v2DWmU/dl6wWB0DJE9tcQD/TjC3XoeQcQPdmNP4A5Q6nVRUmvhcGL5J4plYWxHoI6yZWWDlmVVPHjXVUIwTFzqRKAcWTv/sLJs9ruK1ffXj+HhESHzvTqAOogYcaHIVXxyAES1OXp1sbED4dJkw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=37OdAUVThfrWd+qXZfpdfyKW3bXln746w3B2aKSv620=;
- b=TdfjkAQv3AQYLoDwatjBF8CmlgvyMwDrATo6nFCM+TKFvR+ZQh+Od1vOsXghhmix1jGcq7jP0Hjoyt0cl3ee9DzRc12Pju3qtBqlN+GxFNze7NXFO1mPA3Y/XYMRoYlfYDT+NraZzhumGgQheJoEsEiV/dsByOQfvXPJ9ET37lE=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from MN2PR01MB5615.prod.exchangelabs.com (2603:10b6:208:11c::29) by
- CH0PR01MB7033.prod.exchangelabs.com (2603:10b6:610:107::16) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9769.16; Wed, 1 Apr 2026 01:14:03 +0000
-Received: from MN2PR01MB5615.prod.exchangelabs.com
- ([fe80::996f:e4f2:dbd8:120e]) by MN2PR01MB5615.prod.exchangelabs.com
- ([fe80::996f:e4f2:dbd8:120e%4]) with mapi id 15.20.9769.015; Wed, 1 Apr 2026
- 01:14:03 +0000
-Date: Tue, 31 Mar 2026 18:13:58 -0700 (PDT)
-From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-To: Haoyu Lu <hechushiguitu666@gmail.com>
-cc: "Rafael J . Wysocki" <rafael@kernel.org>, 
-    Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-    Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
-    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-    Len Brown <lenb@kernel.org>, Ilkka Koskinen <ilkka@os.amperecomputing.com>, 
-    Russell King <rmk+kernel@armlinux.org.uk>, linux-acpi@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] acpi: arm64: agdi: fix missing newline in error
- message
-In-Reply-To: <20260331025257.463-1-hechushiguitu666@gmail.com>
-Message-ID: <5b7727e1-45d1-7f5e-97da-43d3af905f40@os.amperecomputing.com>
-References: <20260331025257.463-1-hechushiguitu666@gmail.com>
-Content-Type: text/plain; format=flowed; charset=US-ASCII
-X-ClientProxiedBy: MW4PR04CA0248.namprd04.prod.outlook.com
- (2603:10b6:303:88::13) To MN2PR01MB5615.prod.exchangelabs.com
- (2603:10b6:208:11c::29)
+	id 1w7kDg-0000000Dmht-43Wl;
+	Wed, 01 Apr 2026 01:18:10 +0000
+Received: from [172.16.12.17] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 39100b138;
+	Wed, 1 Apr 2026 09:17:48 +0800 (GMT+08:00)
+Message-ID: <5c8732a3-6cc9-5d02-f56b-fc7ba29c7ce0@rock-chips.com>
+Date: Wed, 1 Apr 2026 09:17:45 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR01MB5615:EE_|CH0PR01MB7033:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0db10516-1a78-4440-11c1-08de8f8bf681
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|55112099003|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: pPcKweZT6hlvMsKx5TBWtV/DewLDxdlXOeMMs96/stubBFHs4LOoq8Ljaq92DrMYNx27G8GnSYeJBBYrOW7y9NB8V1FxDL1yxf54fiQWm+vkBkHWI9LSLSoPI0TKZSyCUkMC4vhFrd/DfVNGesjPl0PftcW4QlpphsFGvYRFvyqdbuWJpISfG20PZ2fr8InP9ox5aYjEZf8Egy1WoZBZAnkZF0THF+9m4wwfTiti2b2YxEFlcGzYS6BvCpLl4dfr5/zszEyMQEgejkDv7tczq+w4RRjvhO9/MMYJdkQUUbgBSLVo6I0JjWrGj13wnk5TtTEvDVtd8z/3kUcdoZJH+m9ugD+iNYsPPzYD6a002/52J0kzwP9ccIZR1M61er1vnWgWcuhwYhrHntJDs03T/XVL7Oc8iD7CnkV1wKZhK2vKigDy8KwIfR8cPQ2Y+fUJmfeTr+Vtizz0orKu+rGNJBG1zoozJ3JN+RxeBjK4RSYk6OU9O/2ldVO0Xn4Ksk13hV/8vRpLWhd2yPUJjHEdauT56P0AxfHEGEGhzQotOD2ssVCq6AJ23mYXiRb8iVmGkdUQ1zxywDhDQ1lCmZnPA0wfZwVNsGDmy1/PXPYgRavy5NJVVnpJHoYwRDMJROwwUGko+woC6KOx+e9/1WLpd5YmZyfLnelGlw0IzmVRh43jlXstBoOOTAwdQKXDveXSXW1Hj8H5BgKWwgjMyOpfec62vKcrccQxHUkEW4fjrBY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR01MB5615.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(55112099003)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5Iz/S/l/wj2MBsMheOvD1JNT5WZ5wBWb/pcH2kltcgHiQ7vqnYng709hZEov?=
- =?us-ascii?Q?TN75F7VIc5LBhoYKYJFX95mztyAa1Zm5WhbFlttx6XydFXXLmhSzlTnuZLAP?=
- =?us-ascii?Q?DlYF+mUOQZ8LdW6K6I9L8DIEjSuXg8FxLPJ+3Ub9MoZEXIAOCCxcAdWS8j2F?=
- =?us-ascii?Q?dyQN4B09R9dMByymCpF2lEEtxXImnVCPKK76sG/oNn7cg6BLlZiBQWkkbm3I?=
- =?us-ascii?Q?fwFVMNduTDfDo0Lew1mxE5pXgT+tUEUm6m50ZB+vsxJzi1FsPRLz9OSNk7fp?=
- =?us-ascii?Q?udD+0MV/Wr/FA+comTth0ZO7nLIrZk429sP5aPAWjkIvZh479u38N+rk0ZOg?=
- =?us-ascii?Q?8D2/dVqVdrZZvc6qcu/7cRDD72cbom18O+qXgIz8QCQbK/E6UVVMIxNVekx/?=
- =?us-ascii?Q?nOTMTus6S38zlLA5jcsUhIHWUzObvbqc5FeABG0HeR6XEPGfb9r2+x3IBaEk?=
- =?us-ascii?Q?y1zf/UauWSxmiA3qAJH+8nvls9kPM2MFLDUXZ/Y46iZguugonwPoPnyfmjDp?=
- =?us-ascii?Q?37mOqjc43CNjmyO48UVrkckRy9zOx/DwcJDLARPe8Ou8ABzyP0o4s2fQThHF?=
- =?us-ascii?Q?cLwvKq5RQID2imDgPd55ZEEM8ZcGosLSPugzZ9hz+AG6eEwSleAZ5RFCcX/b?=
- =?us-ascii?Q?uz4KD1b1DYZ8KWefOSrGJk559v+5Bw01qHOFcJWj1BLz2zE4HdEG2awrj4z+?=
- =?us-ascii?Q?3Ze9xrwFCNzNAecFxjLNnNMIvFK8Ymw4O3JyPfBVlft84zDFruSP0VY8ExO2?=
- =?us-ascii?Q?k1gdRPyLBY5ao9VHKIcHWVjbRnQ5/fzNc+okBzoEd/fIMxKf+VAcoccm62Lb?=
- =?us-ascii?Q?XZe/Yzmqp8m4LhOSbauXItkLjCp8KgVqwRbudr/fc9M0KVXe8dMJ35jf9R15?=
- =?us-ascii?Q?YOWIJ4BXZgRuW1eRwjih4moTBa+D5et5t+fpdaBRMaSpW2h961yi7olDDXiE?=
- =?us-ascii?Q?9s02jlR1lLQN/njYrArYOt/PTwsKsvAtIyIFJ3+A7Fds2WjFc7/53lOq3iL4?=
- =?us-ascii?Q?YOICtHYbyXDW1gdYq+lsQ6Ie/s0ArMT97q8zcF6n+axduO9p7TgSIVa4A6Cn?=
- =?us-ascii?Q?/IGrCZRjsf3ZPsX+tYJCnatOU87CgNAyPmuW1aTA1XE3aSCl1Rp/y9mQiIIA?=
- =?us-ascii?Q?Dg9+BCCUctYNVdXf/LJQ0Dm9whnxRFGou3HXxltDNWRzH2qQj+xQI6FWOv1C?=
- =?us-ascii?Q?YC0GdlML+cLl/JPRuyqjmhcP/0xfYqj1oWYXk4Raaq9xfbEYdpQ+DiSGSGvj?=
- =?us-ascii?Q?6gnKiE25Y5PTwGBu6ul/06cnUHG9tEXFyDX1arzYZ+6WB+SggWXrgbor7ZDp?=
- =?us-ascii?Q?9t3IfH6eEw9p/4hlK+dCZRBlP9/cWuEb5U9A1KLIkuHeSEu0i4E3pIBXyLa/?=
- =?us-ascii?Q?ubIX6Zldp/XHzZFt7H+7rsbEXa0fZ/CYhM4mSp0450EEO70AMEvUZD24E3Mx?=
- =?us-ascii?Q?jq3KMCluCnVw5CqNdfmcx/9WBPecAVZM7a3K2NsmLdWGS4z41C/E+Sl0i8m0?=
- =?us-ascii?Q?7VJz85G2IMJQNBEz6F4/BZK3q1O0xYkpE76UF6Y5Xnpg54xS/j2kPPJPiVgd?=
- =?us-ascii?Q?MnuTl9AQdjDkMc9/6mWycfDxyj69ThRh3T/iOWiyj262SznZFfwRBkFtek8B?=
- =?us-ascii?Q?1SKFu7hLgWt4fV7OPnW+23MfSgkWmVbuxQRl/X9g37ecSlRExBwzqtiKiclr?=
- =?us-ascii?Q?8tpd8RHC+ud6xOrzuWZsnGZwMDB7Tv4ZurIiiy5ftRYvXYTLj2Tmihlzi67r?=
- =?us-ascii?Q?x5J137pB6zeCCUddsaeiUfkvgMeK230=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0db10516-1a78-4440-11c1-08de8f8bf681
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR01MB5615.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 01:14:03.6441
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4Ho9zcDvq11XLAZlW4Qx9x/90lYrY74CPcgVrFOhtREeGTMkG49yNF3Sj3hfM8FywEd0+O4fVtvcFfEK0eL8rRRnfKt3wSMDUcxoKRZkrT5OV3DDf2iuAqyBPC4NRcB1
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR01MB7033
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.13.1
+Cc: shawn.lin@rock-chips.com, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, ulf.hansson@linaro.org, heiko@sntech.de
+Subject: Re: [PATCH 1/2] pmdomain/rockchip: skip QoS operations for idle-only
+ domains
+To: Daniel Bozeman <daniel@orb.net>
+References: <20260331180223.1682283-1-daniel@orb.net>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <20260331180223.1682283-1-daniel@orb.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9d469e3dd509cckunmbd42e9a8f80c51
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGU5OTFYeQ0pNTkpCH08dS05WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=NoDHYN/y933X4usXs+vkbBkTesgf6cA+1duQalmTmx8Gn1TlLa2iKxI9gxB2vzmj/EpBNVcqd2LwvQdVxfUI7IitMgL0RgSAQD273Zo83qkzWNQeo8Zr2LzW2FU09PAtpMH7/oXcg/HAIEyH9Ioq942sWk7KYCzlTLjwk6dyDZA=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=84tddcSLoInqnr4qLcDW/JZ/jewF+U0Wxnidmb7LaMs=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_181414_394580_65130BC7 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20260331_181809_553053_A2FA462F 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,47 +72,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Daniel,
 
-On Tue, 31 Mar 2026, Haoyu Lu wrote:
-> Add the missing trailing newline to the dev_err() message
-> printed when SDEI event registration fails.
->
-> This keeps the error output as a properly terminated log line.
->
-> Fixes: a2a591fb76e6f5461dfd04715b69c317e50c43a5 ("ACPI: AGDI: Add driver for Arm Generic Diagnostic Dump and Reset device")
-> Signed-off-by: Haoyu Lu <hechushiguitu666@gmail.com>
+在 2026/04/01 星期三 2:02, Daniel Bozeman 写道:
+> Idle-only power domains (pwr_mask == 0) cannot actually be powered
+> on or off. rockchip_do_pmu_set_power_domain() already returns early
+> for these domains, but rockchip_pd_power() still attempts QoS save
+> and idle requests before reaching that check.
+> 
+> On RK3528, the idle-only domains (PD_RKVENC, PD_VO, PD_VPU) have
+> QoS registers that may be inaccessible when the generic power domain
+> framework attempts to power them off, leading to synchronous external
+> aborts.
+> 
 
-Thanks for the patch.
+Is it the real abort happened on your RK3528 board? I am trying to
+understand the problem first. Even with idle-only powerdomain, the code
+also save the QoS registers before set idle to the powerdomain, so
+how the QoS registers become inaccessible?
 
-Would you mind changing the prefix on the subject line to match the 
-previous patches? That is, change it to "ACPI: AGDI: ....".
-
-With that change
-
- 	Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-
-Cheers, Ilkka
-
-
+> Return early from rockchip_pd_power() when pwr_mask is zero, matching
+> the existing guard in rockchip_do_pmu_set_power_domain().
+> 
+> Fixes: 1fe767a56c32 ("soc: rockchip: power-domain: allow domains only handling idle requests")
+> Signed-off-by: Daniel Bozeman <daniel@orb.net>
 > ---
-> drivers/acpi/arm64/agdi.c | 2 +-
-> 1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/acpi/arm64/agdi.c b/drivers/acpi/arm64/agdi.c
-> index feb4b2cb4618..0c2d9d6c160b 100644
-> --- a/drivers/acpi/arm64/agdi.c
-> +++ b/drivers/acpi/arm64/agdi.c
-> @@ -36,7 +36,7 @@ static int agdi_sdei_probe(struct platform_device *pdev,
->
-> 	err = sdei_event_register(adata->sdei_event, agdi_sdei_handler, pdev);
-> 	if (err) {
-> -		dev_err(&pdev->dev, "Failed to register for SDEI event %d",
-> +		dev_err(&pdev->dev, "Failed to register for SDEI event %d\n",
-> 			adata->sdei_event);
-> 		return err;
-> 	}
-> -- 
-> 2.17.1
->
->
+>   drivers/pmdomain/rockchip/pm-domains.c | 3 +++
+>   1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
+> index 490bbb1d1d..2eecae092a 100644
+> --- a/drivers/pmdomain/rockchip/pm-domains.c
+> +++ b/drivers/pmdomain/rockchip/pm-domains.c
+> @@ -640,6 +640,9 @@ static int rockchip_pd_power(struct rockchip_pm_domain *pd, bool power_on)
+>   	if (rockchip_pmu_domain_is_on(pd) == power_on)
+>   		return 0;
+>   
+> +	if (pd->info->pwr_mask == 0)
+> +		return 0;
+> +
+>   	ret = clk_bulk_enable(pd->num_clks, pd->clks);
+>   	if (ret < 0) {
+>   		dev_err(pmu->dev, "failed to enable clocks\n");
+> 
+> base-commit: bc330699801d3b4f99110365512caed5adcfaca3
 
