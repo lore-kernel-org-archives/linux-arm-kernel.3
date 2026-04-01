@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6AC0D35175
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7673CD35177
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 10:36:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gp6relFoxzaNyCVCyxhiYfpD1OI++tp8JtWG/Q5TMyI=; b=vu+xMFpLRkXYMO4FsOhH6pmSrn
-	bAGg5av0W6MRlhZPNlU7cr5Q1KqkQtPdZRbYPYynluwV8+Yj4mgCrGx1ZxP5DBwXIC5v13ag5rRdW
-	O8rI/vLDNE+NNodgRcJqRCe477rsQHN+K6IVGSk8yPfFKXyFqbvan/pkXKIHtxMADIRgyyblR1EPR
-	gITDpGMxMaXnm+Elkl60ePUoZG8ywM9h1UL/cI/T82xxOUEpj1N6CIjZlN4JSeijOvPbHhAJ8Lsac
-	Np8vIFSW9QQSO+KoqLWGr5U2fc7H8nOmJuuiIwkc8wyaqWiK6w9INzUygV+IOXQewPESaFzo/gPBV
-	+2GlDMxw==;
+	bh=IsK6EJr+a6Y4cWaCeixgjD8N1PP3rlwUA5YezfIhGv8=; b=rJhAsxxnrSguUYvpdgTsjDpJrR
+	Z2IIJP5ccn0v3PW1mL5AvbgTHK+7h5GASRJAbs8QCLQulgvwnnQdtRKeC4uyKEodrm6XmFmqMCmuI
+	VBiaHj+1ie9s98SFljUCZfaUKcuh3p3ikZOdL/A9BEs/Qm/0hsuHerd+suPem7ukNR6VjZF3/8miT
+	AckeCM06iB+h9Lgd0W4MzXTDI34xwKE1zxRsNGgisKa7pLmfACIKARoaKefyEASWyw1wFYOb8edQe
+	WqGBVdn/5Rr9+Zz7WmBoF92vCx38hhXOzU8Y57QeMDOL+myReD8BKTrW3MDwednYBuzq+TMAcrKSB
+	88EdHFZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7swA-0000000EWJ9-2CqE;
-	Wed, 01 Apr 2026 10:36:38 +0000
+	id 1w7swB-0000000EWKH-0hgJ;
+	Wed, 01 Apr 2026 10:36:39 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7sw6-0000000EWD8-1bQv
+	id 1w7sw6-0000000EWBx-3Hgp
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 01 Apr 2026 10:36:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CBD4860126;
-	Wed,  1 Apr 2026 10:36:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C83AC2BCB5;
-	Wed,  1 Apr 2026 10:36:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 989AF60135;
+	Wed,  1 Apr 2026 10:36:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A029C4CEF7;
+	Wed,  1 Apr 2026 10:36:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775039793;
-	bh=H6jm/RYaSFrmN5gb3D/jhBBnlIwUM3w23KPKgkQu2iA=;
+	s=k20201202; t=1775039794;
+	bh=GQhFrmkuyWUBaXsD29CDtR+HCaiJ41YoBp5ffynPz3U=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Ci5WlcT7A+fThmLbBA3Q3bdbAEnVfj0eh2s187ofpuwyjNfCNKx3TNPJDIlpUswhV
-	 jq/yhtfSgIRhvNF93KD8BQ3a7KmVsrmhNjLuEifAFKGlOWCFywLmgh9odXZ83CukrT
-	 lYGy88XXlvNMQDMOSB0wxQDFFuVkKKOUkZ71bdw+k8RzagS6sUnEP88w/i4F/K8gN5
-	 gyJuAt1kLvi+2TBQiuWLZxwhnY8NR8fXYEPzsw4z2ByKIR+ZVx1RtN1zKPynFcaH87
-	 aGltsiOBK0bGieeWxzvH54aktyG0sTaujZLrYZaYdLd87KMbuUjjhtZNVjhPKEmVUN
-	 0zOUdGz9Zggxw==
+	b=JoH93mRj7hRRZQ+3C5XX8xFim4jSlKld2WsdPtMW5ufufOeyZpxSBZFNw4Am2PbfL
+	 2DlfXAGOgw3peRP9LRQGkec151DGEo8TrsUOK74gisdvB1/rwp+LEf81mbw2m8YLE5
+	 Cp9aEJ+bqoJWKeEEE61qYQBNi/OKSEZYeamdbRpj4hQFfT0OJnaqlMA78fc3AFvP6Q
+	 uSwePCjUemZwrhM/Axic7txDr7F5u0sVseXpsHAX36N+PmrLzLED0jmAcBMKEfaK/h
+	 oI9XADuHGDwrfUWoME21vSTe8ExF3itLWT8TDk/YZJHCFKNedZL0dg1MS8yAnHKgLx
+	 Jc/vpQc3T59RA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1w7sw3-00000007oRQ-3bHI;
-	Wed, 01 Apr 2026 10:36:31 +0000
+	id 1w7sw4-00000007oRQ-2Cxs;
+	Wed, 01 Apr 2026 10:36:32 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Sascha Bischoff <sascha.bischoff@arm.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v2 12/16] KVM: arm64: Remove evaluation of timer state in kvm_cpu_has_pending_timer()
-Date: Wed,  1 Apr 2026 11:36:07 +0100
-Message-ID: <20260401103611.357092-13-maz@kernel.org>
+Subject: [PATCH v2 15/16] KVM: arm64: Don't advertises GICv3 in ID_PFR1_EL1 if AArch32 isn't supported
+Date: Wed,  1 Apr 2026 11:36:10 +0100
+Message-ID: <20260401103611.357092-16-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260401103611.357092-1-maz@kernel.org>
 References: <20260401103611.357092-1-maz@kernel.org>
@@ -84,65 +84,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vgic-v5 code added some evaluations of the timers in a helper funtion
-(kvm_cpu_has_pending_timer()) that is called to determine whether
-the vcpu can wake-up.
+Although the AArch32 ID regs are architecturally UNKNOWN when AArch32
+isn't supported at any EL, KVM makes a point in making them RAZ.
 
-But looking at the timer there is wrong:
+Therefore, advertising GICv3 in ID_PFR1_EL1 must be gated on AArch32
+being supported at least at EL0.
 
-- we want to see timers that are signalling an interrupt to the
-  vcpu, and not just that have a pending interrupt
-
-- we already have kvm_arch_vcpu_runnable() that evaluates the
-  state of interrupts
-
-- kvm_cpu_has_pending_timer() really is about WFIT, as the timeout
-  does not generate an interrupt, and is therefore distinct from
-  the point above
-
-As a consequence, revert these changes and teach vgic_v5_has_pending_ppi()
-about checking for pending HW interrupts instead.
-
-Fixes: 9491c63b6cd7b ("KVM: arm64: gic-v5: Enlighten arch timer for GICv5")
-Link: https://sashiko.dev/#/patchset/20260319154937.3619520-1-sascha.bischoff%40arm.com
+Reviewed-by: Sascha Bischoff <sascha.bischoff@arm.com>
+Fixes: a258a383b9177 ("KVM: arm64: gic-v5: Sanitize ID_AA64PFR2_EL1.GCIE")
+Reported-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/arch_timer.c   | 6 +-----
- arch/arm64/kvm/vgic/vgic-v5.c | 4 ++--
- 2 files changed, 3 insertions(+), 7 deletions(-)
+ arch/arm64/kvm/vgic/vgic-init.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index 37279f8748695..6608c47d1f628 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -402,11 +402,7 @@ static bool kvm_timer_should_fire(struct arch_timer_context *timer_ctx)
- 
- int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu)
- {
--	struct arch_timer_context *vtimer = vcpu_vtimer(vcpu);
--	struct arch_timer_context *ptimer = vcpu_ptimer(vcpu);
--
--	return kvm_timer_should_fire(vtimer) || kvm_timer_should_fire(ptimer) ||
--	       (vcpu_has_wfit_active(vcpu) && wfit_delay_ns(vcpu) == 0);
-+	return vcpu_has_wfit_active(vcpu) && wfit_delay_ns(vcpu) == 0;
- }
- 
- /*
-diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-index 31040cfb61fc7..8680a8354db9d 100644
---- a/arch/arm64/kvm/vgic/vgic-v5.c
-+++ b/arch/arm64/kvm/vgic/vgic-v5.c
-@@ -366,8 +366,8 @@ bool vgic_v5_has_pending_ppi(struct kvm_vcpu *vcpu)
- 		irq = vgic_get_vcpu_irq(vcpu, intid);
- 
- 		scoped_guard(raw_spinlock_irqsave, &irq->irq_lock)
--			has_pending = (irq->enabled && irq_is_pending(irq) &&
--				       irq->priority < priority_mask);
-+			if (irq->enabled && irq->priority < priority_mask)
-+				has_pending = irq->hw ? vgic_get_phys_line_level(irq) : irq_is_pending(irq);
- 
- 		vgic_put_irq(vcpu->kvm, irq);
- 
+diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+index ecb0aea180327..5c684ecf79e66 100644
+--- a/arch/arm64/kvm/vgic/vgic-init.c
++++ b/arch/arm64/kvm/vgic/vgic-init.c
+@@ -700,7 +700,8 @@ void kvm_vgic_finalize_idregs(struct kvm *kvm)
+ 		break;
+ 	case KVM_DEV_TYPE_ARM_VGIC_V3:
+ 		aa64pfr0 |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, GIC, IMP);
+-		pfr1 |= SYS_FIELD_PREP_ENUM(ID_PFR1_EL1, GIC, GICv3);
++		if (kvm_supports_32bit_el0())
++			pfr1 |= SYS_FIELD_PREP_ENUM(ID_PFR1_EL1, GIC, GICv3);
+ 		break;
+ 	case KVM_DEV_TYPE_ARM_VGIC_V5:
+ 		aa64pfr2 |= SYS_FIELD_PREP_ENUM(ID_AA64PFR2_EL1, GCIE, IMP);
 -- 
 2.47.3
 
