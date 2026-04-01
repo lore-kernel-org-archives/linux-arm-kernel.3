@@ -4,77 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBAB5D35145
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:18:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD132D3517D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9UaMByuKxJg2XW8Oo+4duZlT7gZR6+JMQgkqheTXBYk=; b=aiqpns3if1gqu2gNVnkJYNQGGG
-	rMBlADON1IEtogPvotDlNqqQXAvMW06BKLvMBjtnQuutTHdPRg4YE1Af9NFmi+lc1ZjMgl+RIDc51
-	mSSMITSJj9Dvo9JpLJA+xFEM+qXIH8lPjhzTbQCTiJUzQZKJJ+tyAeA3Rjn9AAbaE1hvtsL3MmT6F
-	SZfum+yVfw//KdguYRsw+4CHNJCHZeClU+6CAovJTMhvkDi/flqt6InUU2ajZzrc5QGtM2lKcSNiO
-	reWjvDSWxONFvnYi6Jq9OThLO+xT+iiiHuSZbxrj5ol9BQCNDoscIQErZELeOoTY9g54nHjzVBCW+
-	GKPhVO+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
+	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kQ4NfFHgcekBbX16iaW90Rs39I0/P19I92XrA6UoFx8=; b=GJX08yZRUe5JYxkAyBsrdCF9Lf
+	WemrJXpJxID9lFNUr138cqd+5feUni8ED29kIyFcZU6y0AknKs6B2EkonQYagbC1w8rmTbb3v1l9T
+	IzaiJE/ABMBumz3+16XmNZA3tkd9HCibcC10nQspMIUHxkrkIEaq+HrY1WEclZvuU1LVLShlh6acC
+	2TWr3MXWwgNVAEB2Wv1q9yTHtbMNlRo8wDGKbQ3GQ/5iJ8Z6eaguUukkWVJwqjaMsK5nTM/+DW13Z
+	2HzYvazruKM7izwsWuHV7dw0XfF0+NpXp2KwCqPsLZy2kUCLzAKzEq01wa+BHdBu5niBFtIYs4txx
+	yba2/Gjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vSt-0000000FINX-0CDX;
-	Wed, 01 Apr 2026 13:18:35 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1w7vT6-0000000FIT9-0N5C;
+	Wed, 01 Apr 2026 13:18:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vSq-0000000FIMI-1EXG
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 13:18:34 +0000
-Received: from ubuntu.. (unknown [202.112.113.208])
-	by APP-01 (Coremail) with SMTP id qwCowACnT2sVG81pSvbdCw--.49770S2;
-	Wed, 01 Apr 2026 21:18:21 +0800 (CST)
-From: Ma Ke <make24@iscas.ac.cn>
-To: vz@mleia.com
-Cc: alexandre.belloni@bootlin.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	make24@iscas.ac.cn,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	piotr.wojtaszczyk@timesys.com,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] net: lpc_eth: Fix a possible memory leak in lpc_mii_probe()
-Date: Wed,  1 Apr 2026 21:18:13 +0800
-Message-ID: <20260401131813.139167-1-make24@iscas.ac.cn>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <b44db9e6-f820-439d-a7ed-c1e2514579a8@mleia.com>
-References: <b44db9e6-f820-439d-a7ed-c1e2514579a8@mleia.com>
+	id 1w7vT4-0000000FIS1-3yZo;
+	Wed, 01 Apr 2026 13:18:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:References:To
+	:From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=kQ4NfFHgcekBbX16iaW90Rs39I0/P19I92XrA6UoFx8=; b=m1sLeFoB+2DA7Qm0+taPCmPFY7
+	NjeZupkSpkTjji4nzsPOFcYESqMWDKh3pr4HdlfXilyYxT66fKy+6/c5loYZIPZITKdehhWlfxI1d
+	Zq3WcYnq90kQ5oPBI3g1OfSWCOQmueA1evpIr8CqtRuRlbCIgOaqzx9B69G0mu2dpmEanYUnlh8Z6
+	FyiQ/S+RmbmEvO4XB7eV4fPzoGM2znKhefRIFYY4maloBMUb4mN/xenutRaseamtK/p4Afh7MS/1V
+	j67tmesqs6xapitzuH6tmcY8z/f6ARhMaHlHpCYZ6CGCJHt18UMkAFesens5n3Ortarz7bnU8Ited
+	iqAj8edg==;
+Received: from mail-uksouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c205::3] helo=LO2P265CU024.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7vT1-00000000RPA-2o6w;
+	Wed, 01 Apr 2026 13:18:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Bc/ZQ9afvyZW5Xu/1TwwrN96ttjK3qbo4hbkSNRQTEeoaX5ZIs9+ME3lli08BAU3AhBaH5IdVaz6VT5O40eCM+svL1LxPgro1D7IcRqIU3xIDhfHmHS7ESB28lebEbg5LMW2h/wqBRl29XAYnQcOZ3Mf3pMRVQkK+X0aPo8341Fzk0ZsajeEnqqXhMbg0Ho/mppi3DhnMD5QUFG38Nbtp8zAzogSQMxvhO+Rbumb4xkgtiYGmvdZS9ThhrlswerwTJU3ZTu34Ie5H2CZRhw8euWq3pXL5Cnrfez8wfs10BsuFSQuOxjiN2IWRmDrGtaz7vdiVNvUNpavhDiyiy2vRA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kQ4NfFHgcekBbX16iaW90Rs39I0/P19I92XrA6UoFx8=;
+ b=MRK0F+MAkcTpEzRsQH7myCeBvJxfEE14HloEOSoyld6hK7Qo6QeXaNrn4IVSuSlJttej3tAAyYTuLwVYVL/txdIKYzyH6sQyHGxoZ9MZBG0/OeatIzaaYv6u9i8Rh8DsK66JtwlTwSfrodsT9UqL96wGIZo81jf4zZbFMyYklKSOPdy3bKep+FGRX+KzCOCe8w93l0JF73wA04v1sAy9dfXL0QOQ7h49kIYtPE2fDpb2LhVyfNBFjpng+e3uDiCV4107HCM6a6uhDh1ifbSPdzYcUmxagDhK7PxSRE2I7jHPz/CaNoi6LuNI2lN+Gck9xiEiIGIkzYD1dUtgkgcm4g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kQ4NfFHgcekBbX16iaW90Rs39I0/P19I92XrA6UoFx8=;
+ b=MavsocaMT1DLghXdDnnm08FVjyT+Sq0B+Q2LGlXElLPA8LNqK7YGuJAlX64J0r++71vO2QlKh/KetYBCXVF0CHAamN3a5M9Y5inS5QmiCEpfeXzHOyKqhd067axfXXskC2DV6sUvw7rE/6BV2SI3PBJuN/FkzSLCagy5JXFiI8U=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
+ by LO0P265MB5572.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:274::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
+ 2026 13:18:38 +0000
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
+ 13:18:38 +0000
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 01 Apr 2026 14:18:37 +0100
+Message-Id: <DHHUJF4R0YBA.1SN13R4WRTBUE@garyguo.net>
+Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
+ <rust-for-linux@vger.kernel.org>, <linux-kbuild@vger.kernel.org>, "Lorenzo
+ Stoakes" <lorenzo.stoakes@oracle.com>, "Vlastimil Babka"
+ <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ "Uladzislau Rezki" <urezki@gmail.com>, <linux-block@vger.kernel.org>,
+ "moderated for non-subscribers" <linux-arm-kernel@lists.infradead.org>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>,
+ <nouveau@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>, "Rae
+ Moar" <raemoar63@gmail.com>, <linux-kselftest@vger.kernel.org>,
+ <kunit-dev@googlegroups.com>, "Nick Desaulniers"
+ <nick.desaulniers+lkml@gmail.com>, "Bill Wendling" <morbo@google.com>,
+ "Justin Stitt" <justinstitt@google.com>, <llvm@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, "Shuah Khan" <skhan@linuxfoundation.org>,
+ <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH 04/33] rust: remove `RUSTC_HAS_SLICE_AS_FLATTENED` and
+ simplify code
+From: "Gary Guo" <gary@garyguo.net>
+To: "Miguel Ojeda" <ojeda@kernel.org>, "Nathan Chancellor"
+ <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Danilo Krummrich"
+ <dakr@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Paul
+ Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
+ Ou" <aou@eecs.berkeley.edu>, "Alexandre Courbot" <acourbot@nvidia.com>,
+ "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
+ "Brendan Higgins" <brendan.higgins@linux.dev>, "David Gow"
+ <david@davidgow.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, "Todd Kjos"
+ <tkjos@android.com>, "Christian Brauner" <christian@brauner.io>, "Carlos
+ Llamas" <cmllamas@google.com>, "Alice Ryhl" <aliceryhl@google.com>,
+ "Jonathan Corbet" <corbet@lwn.net>
+X-Mailer: aerc 0.21.0
+References: <20260401114540.30108-1-ojeda@kernel.org>
+ <20260401114540.30108-5-ojeda@kernel.org>
+In-Reply-To: <20260401114540.30108-5-ojeda@kernel.org>
+X-ClientProxiedBy: LO4P265CA0300.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:391::10) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:488::16)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowACnT2sVG81pSvbdCw--.49770S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXw4ktw18AFWfWw1kWF4DJwb_yoW5Kw4Dp3
-	y5GaySkFykGry7K395Za1UAryavw42yw1rGFy2yan0g3Z8XryrAryUKrWj93s8AFWkWF40
-	vr1ayF93Xa1kXaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBE14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAG
-	YxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwV
-	W5GwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v2
-	6r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2
-	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
-	Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMI
-	IF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUgvtAUUUUU
-	=
-X-Originating-IP: [202.112.113.208]
-X-CM-SenderInfo: ppdnvj2u6l2u1dvotugofq/
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LO0P265MB5572:EE_
+X-MS-Office365-Filtering-Correlation-Id: 851d6403-873e-4c26-2ada-08de8ff12fee
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|10070799003|366016|1800799024|22082099003|921020|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 1uyspV4XV9zrGbQH5nzrQowgVVKI5rWFA3HWqIYdwhUOwQqks0FC35g4cRbPcuUYGri38KqPN9hNGBFrmFJHSExEboV5UY0rssb/ZGfrolotaAsHXHRGSNrDfOK+dzG+v2zk6etrbwAI+wXtBme8bp7QZRYTygWLsPRTVmmPn78+f3hB8kcpMX5uVC5B7/8Kq4tv2HpLoBUsXQzppGr4o+Bzvs2faPJAOvsHFtYGHAudLPNZfxAX9iG2CxHZ6KACUXs8kWMrpkjTzb4s+lCZ6VzTIQunc21r1UhZEDTfV9GTYDiVQ/MDTR6S/L0gYIOARP5ly7jsybqRNIJ/qq0vn2oObI/fm6atSW67tz6eqFliCbc1E9WOLWz5PSXKR45THTz0JmOkZ3RLKAHZ+20c89SsBZcq99fW34CCLn7pXwmiNMrK03jrY71rYuEJ3C/gkHa3bjtVwtquAbIT/EBwkCB1uwNfjOyHFxo0erFFRxsEqcUpwrRIaQPPEtWd8K3o6l6ESpcihNf7VVTsJS3bmnmudL8Bic4OrOF5pIRZzaPzgnd6eraqY4+a6IKohfsdXNVtuHheDVs7WsXQyYaXBnQQkCDnGfE5RMkYUVdWMNT3CWW2qRnxH8L9mvtJVuV2gjQx/wBNvabI0c6FrCvs2FLUeOxuVmJUCllo13++BgjzgaB0nn+umAyoBH+VeYJRhnP0MjdBxnpWr3927k+gB/CU4XxBvEyeAm8e+j/4xemCKTZWQIP6up19RJjg/dPB72jISZJXqjEmYWyicGZHCw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(10070799003)(366016)(1800799024)(22082099003)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YnlHNU5neHFRa3pxWXFYaXdMcmtCU0EwR3c5R2N3M3lSdjQ0Z2xkb3ltRGxv?=
+ =?utf-8?B?L2NpMnVteFA3U05zNmE0aUYrYXpaREdPNHh2NTN4N2QrYXY0Z0FENmhoZWJp?=
+ =?utf-8?B?K0d0b2tzdFVJZTZ4T2NidFVuMDRnYmFnTGFEb2JIaU44WUlyYUVxaEVGRUJ1?=
+ =?utf-8?B?bTlTdWc0R0RFRUROeTdaV1pJcWVwVHRWTFRjd2w0SjVOalU2RzIrbVE1amlO?=
+ =?utf-8?B?WDVvTGZIcVRRbnYvQitFRExOMkgwZDFvNFRFbklzUHA3WDFoQXV2d0ZPbkY4?=
+ =?utf-8?B?SjlTcVYvUmhPUkxZZWlWbm9kMkdySjJ6VEFqOHpuRUcyK1orR3JMOUtlWXE2?=
+ =?utf-8?B?VUFWbVZDeE14NWRRUTlzckFJVDFPTG9FZTNSdVFkNGR5N3pKR1dhaHkzalJW?=
+ =?utf-8?B?OE5hZXBIRTJka0lzamswR01VVmtWYVB4c3V2eWowaGJLSkUxUkZTRkpiVVEz?=
+ =?utf-8?B?OUltQmNjZmFUYVdHNE94MURCVHpaczc2SkhBdlQ5WWoxc0R5VC9oVHJrSTI4?=
+ =?utf-8?B?SkNuSkJ6cnQzYStiQkoxaXRyempsUS8yMFNSc1JSa2s4aXc1VmlzL0dKMjY1?=
+ =?utf-8?B?bENUTFFYUTdDZkIyREtzTnFHTU1VMlhzbWw3cVBhakpJVGdLV3ZndmtYZ0RY?=
+ =?utf-8?B?bHE4RE9yR3cxTEt0bG1hZFBlbTVFUS9FczI3MEtsYUdORzNBQW1SVWdDQnV0?=
+ =?utf-8?B?NHhRdW1aK21vd2RGZnB3cXJudHBiQjZvejk1dU9BNDBwSDQrUlI0bjhxYlo2?=
+ =?utf-8?B?eWYxcy9XSTNDVWtzdlFxRUREMXhzLzJydU9IU1ovUU9TZTVhVVRuRy8wSUpo?=
+ =?utf-8?B?Q3VvbjFtS2VMVVBGbWJEUmhwQjE5TGc3NlRzMkRoWExsT0dZQzY3bWdpU1px?=
+ =?utf-8?B?TENkWDNFVkxzb2tLUUl0QmNuTmRna0NoU3JoZTZPeExLM3gvamZHWko5Wld4?=
+ =?utf-8?B?S0NlMjQ4MmE4Y2k0YkRjd2gwTG5yRUZaeTNQOFhPR01RTEVYK1FRdXV0a1N5?=
+ =?utf-8?B?enVLYUhyY0FiajVURWFNaitlUHU2KzIvNGRFajRaUHo1a21rRzVGa1B2dm9u?=
+ =?utf-8?B?Qjc2MXdXdXNaZXc2VXAyYmFsREhhZHpjU1J0VWlzSFRIVFA1Wk1MT21hTHNs?=
+ =?utf-8?B?QzFjL2lNcFJSaXpTczZPaHhyWU00VWQ2VWkvVW5aZVZWZTZ1WG1lZ1R5TFdQ?=
+ =?utf-8?B?d1hHaGJYVjNmQngzNTA0bCtXSkVoL2VpcFh2cUJuUTlhcmsyQTMzVkluVHg4?=
+ =?utf-8?B?MVBVK1lwQUZZRzM0emg1LzB1MlJnU1h2UWhIbzVxQ2pEY2lUN1hqV3VHbzgw?=
+ =?utf-8?B?bDVMQjNBWkt5a25pM1BvUERzdTJwdnNnbDNqempsRzRRd0JsRDFCTEdQZC9Z?=
+ =?utf-8?B?emZITi9qaUZUeWpzRlEvVXh3NmN5Y2ptMzFoeENmWHF2TkNqWS85azJtMk9J?=
+ =?utf-8?B?cTM4QUxMSFJROTZIeWFGdFdPL1ZvOTRzOVg0N2lQL2NhcjY1TDJCQW5saVpM?=
+ =?utf-8?B?OEpQUG9wMVkvdXN1L05Yako4WU9Qa2tReHY2THJJbTlKVzM4c0FiOGt4NzRp?=
+ =?utf-8?B?OS9kOHBCRkIxaUN5NDREZTUxYTBUZHhPVFpaeW9OM056U3RiUUl2NTg0amRD?=
+ =?utf-8?B?ZkprZXlldm9LVHBrU214bThJR05ScW4xVEk1U09ON2ZEUzdUMCtMQ1VhWGov?=
+ =?utf-8?B?RkU3NkhRdFU2eFJZYklhMHBHekVsU0oweTJHcUtKNGsyMkx3MmhDcEE1Vzk3?=
+ =?utf-8?B?QnUydDlzVFViSkpVTXV4K3FRMi9nNmdleTg1VTZpT0IrMFJGanlhRkJCdUVn?=
+ =?utf-8?B?V0pxQUlJR1FseWxTbUQ2K2FEWGpWbGJUU3diVjJIVU54YSt5aGN3SVBFeWpy?=
+ =?utf-8?B?M2x0ZWliYXBBMk9Jb0dReENGSUVtOStrRVFmb3lTUWM0azRtcU9IUWNEMndp?=
+ =?utf-8?B?d0laWmx1MFN6S001MGYxdGdjOG5BSEpPTHRJK084eE1GK29iZ04rSkJGVDdN?=
+ =?utf-8?B?djBDMUNBM2xvZkxMUFp0VkNHUndmUjNKUjVRdW05M3k4Qlc3VWdyMkR4SEVu?=
+ =?utf-8?B?MnlvVmNQakZkb0dacUp5S3pXY2NETnN3MGJYNW8ranQ5dXhxcWR6VVdiM01p?=
+ =?utf-8?B?Vjk0Vnp4WXRnUXFZYWhvOXJ4Q0hXRVpMbVczUVA4V1NrMytFSHh0akdUZEkr?=
+ =?utf-8?B?WHdnbllOYnF0bXFxbTlUZEkySEw5eUtFTjVlQlozVHdlbTc0eGVHYWh4UFpa?=
+ =?utf-8?B?Z2F3NHhvYkNjV043WVRub3F5cU12TVUrc0I0K1FDR0FLSDRVdWs4S2c4NjVv?=
+ =?utf-8?B?WWVrTVg5alpKK0FFdE4yZ0E4ZnV4L1JUbW1qUndrNGpxaFlMdGhCUT09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 851d6403-873e-4c26-2ada-08de8ff12fee
+X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 13:18:38.7974
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: y+wDEMd1QVjfLxes2tOj/x080c8nxr+U1lMVV1V1aG/MRT/0yRnT9BHBu7Ul4dld2oyEJHc5bEYcG08X21rzVw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO0P265MB5572
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_061832_714151_171AAA97 
-X-CRM114-Status: GOOD (  33.26  )
+X-CRM114-CacheID: sfid-20260401_141843_799787_3A7CACD3 
+X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,106 +187,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/30/26 13:04, Vladimir Zapolskiy wrote:
-> On 3/30/26 11:16, Ma Ke wrote:
-> > lpc_mii_probe() calls of_phy_find_device() to obtain a phy_device
-> > pointer. of_phy_find_device() increments the refcount of the device.
-> > The current implementation does not decrement the refcount after using
-> > the pointer, which leads to a memory leak.
-> 
-> this is correct, there is an actual detected bug.
-> 
-> > 
-> > Add phy_device_free() to balance the refcount.
-> 
-> But this does not sound right, you shoud use of_node_put(pldat->phy_node).
-> 
-> > 
-> > Found by code review.
-> > 
-> > Signed-off-by: Ma Ke <make24@iscas.ac.cn>
-> > Cc: stable@vger.kernel.org
-> > Fixes: 3503bf024b3e ("net: lpc_eth: parse phy nodes from device tree")
-> > ---
-> >   drivers/net/ethernet/nxp/lpc_eth.c | 11 ++++++-----
-> >   1 file changed, 6 insertions(+), 5 deletions(-)
-> > 
-> > diff --git a/drivers/net/ethernet/nxp/lpc_eth.c b/drivers/net/ethernet/nxp/lpc_eth.c
-> > index 8b9a3e3bba30..8ce7c9bb6dd6 100644
-> > --- a/drivers/net/ethernet/nxp/lpc_eth.c
-> > +++ b/drivers/net/ethernet/nxp/lpc_eth.c
-> > @@ -751,7 +751,7 @@ static void lpc_handle_link_change(struct net_device *ndev)
-> >   static int lpc_mii_probe(struct net_device *ndev)
-> >   {
-> >   	struct netdata_local *pldat = netdev_priv(ndev);
-> > -	struct phy_device *phydev;
-> > +	struct phy_device *phydev, *phydev_tmp;
-> >   
-> >   	/* Attach to the PHY */
-> >   	if (lpc_phy_interface_mode(&pldat->pdev->dev) == PHY_INTERFACE_MODE_MII)
-> > @@ -760,17 +760,18 @@ static int lpc_mii_probe(struct net_device *ndev)
-> >   		netdev_info(ndev, "using RMII interface\n");
-> >   
-> >   	if (pldat->phy_node)
-> > -		phydev =  of_phy_find_device(pldat->phy_node);
-> > +		phydev_tmp =  of_phy_find_device(pldat->phy_node);
-> >   	else
-> > -		phydev = phy_find_first(pldat->mii_bus);
-> > -	if (!phydev) {
-> > +		phydev_tmp = phy_find_first(pldat->mii_bus);
-> > +	if (!phydev_tmp) {
-> 
-> I didn't get it, why the new phydev_tmp is needed above, please
-> restore the original code above.
-> 
-> >   		netdev_err(ndev, "no PHY found\n");
-> >   		return -ENODEV;
-> >   	}
-> >   
-> > -	phydev = phy_connect(ndev, phydev_name(phydev),
-> > +	phydev = phy_connect(ndev, phydev_name(phydev_tmp),
-> >   			     &lpc_handle_link_change,
-> >   			     lpc_phy_interface_mode(&pldat->pdev->dev));
-> > +	phy_device_free(phydev_tmp);
-> 
-> This is plainly wrong and has to be dropped or changed to
-> 
-> 	if (pldat->phy_node)
-> 		of_node_put(pldat->phy_node);
-> 
-> >   	if (IS_ERR(phydev)) {
-> >   		netdev_err(ndev, "Could not attach to PHY\n");
-> >   		return PTR_ERR(phydev);
-> 
-> Is it AI generated fix or what?.. The change looks bad, it introduces
-> more severe issues than it fixes.
-> 
-> If you think you cannot create a proper change, let me know.
-> 
-> -- 
-> Best wishes,
-> Vladimir
-Thank you very much for your detailed review and guidance.
+On Wed Apr 1, 2026 at 12:45 PM BST, Miguel Ojeda wrote:
+> With the Rust version bump in place, the `RUSTC_HAS_SLICE_AS_FLATTENED`
+> Kconfig (automatic) option is always true.
+>=20
+> Thus remove the option and simplify the code.
+>=20
+> In particular, this includes removing the `slice` module which contained
+> the temporary slice helpers, i.e. the `AsFlattened` extension trait and
+> its `impl`s.
+>=20
+> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 
-Now I think your point probably is: you are saying that the real leak 
-is not from of_phy_find_device(), but from the device node 
-pldat->phy_node which was obtained earlier (probably by 
-of_parse_phandle()) and never freed by of_node_put(). And you suggest 
-to add of_node_put(pldat->phy_node) instead of my wrong 
-phy_device_free().
+Reviewed-by: Gary Guo <gary@garyguo.net>
 
-However, I am still a little confused. In lpc_mii_probe(), 
-of_phy_find_device() is called. From my understanding, this function 
-increases the reference count of the device. To balance it, I thought
-phy_device_free() (which calls put_device()) should be used.
-
-Could you please kindly advise the correct patch? I will follow your
-guidance and submit a proper fix.
-
-I apologize again for my previous wrong patch. Thank you very much for
-your help.
-
-Best regards,
-Ma Ke
+> ---
+>  init/Kconfig           |  3 ---
+>  rust/kernel/lib.rs     |  1 -
+>  rust/kernel/prelude.rs |  3 ---
+>  rust/kernel/slice.rs   | 49 ------------------------------------------
+>  4 files changed, 56 deletions(-)
+>  delete mode 100644 rust/kernel/slice.rs
 
 
