@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81F82D35177
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 12:35:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 050E8D35177
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 12:35:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xz26XmtLPh8Q2Btds6GvvjYzsY1TXEbe251OyLODAwU=; b=PRknD4ILLGo6bATi/RtmYOgB2B
-	udHcizT2r7XN5VDUHwfOfuNIbRwYMNBdKP9B/jv9CR6NwGFETJaFg+hNuW0Ajd+Vj08RIls8S3yXu
-	j20gQ0cON6ZTHAWc4I/hpSrLXLyqSjFV2T1yalTg26CohbDEgoadIH+Sg3LQjhXsNVKw319/HiFk1
-	sPyas4gH5NR1FT8lkLnsfgHZQNQK7jVijYY9sUVxmo4AXyASRhyIqw/jB2H5O5r1MqdFXvtrnhg8y
-	x9TScTzBeW752lzXtjs1kVl0rYrczm7vkIATrJWJrs0vXtrH0xcB36VJmF2eMGPGDcucI/mkH0trr
-	WA+n/MHQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=047O0Bnm7X7eFxP7dbf2lFni3tJL8l/+lwR4gP4mP0c=; b=KVigYZcN10PkZXhw4/kutjh538
+	4hyMt4zqOyw8wwfUwPIiWpSLwJo1dVIaPRolX1RXfSvKufVInu8PVs2pGhfqsL7ov6sQLU4g/BYV7
+	325t9ulW3SJemV1XadvFG/ecM1vXTTBrirTmCudNn4B560LOlhPW3hZFDrZ4Ik+HX8fpMBdNqHjxF
+	i3tC7o3lqFdOVGbWIlvZwPszt5M9a99b4trVWqk5kwXonHyu+rgxrD7N4A6Fk6tNC82dBRCDW1BXy
+	EUCQ+TqRCoUZ9PKfGXRSQeyS8Dv2tbPNaaRY53qGvaauJEbCWRqSYDKV4WEueOKH5OhcCF9IIH8t9
+	VdMYaLZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7unR-0000000FAoF-2SGF;
+	id 1w7unR-0000000FAok-3xcO;
 	Wed, 01 Apr 2026 12:35:45 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7uLV-0000000Epn4-2fYv
+	id 1w7uLV-0000000Epn3-2fYQ
 	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 01 Apr 2026 12:06:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Xz26XmtLPh8Q2Btds6GvvjYzsY1TXEbe251OyLODAwU=; b=Rks/msBUoPQn3ZKtiXGBnm6VXQ
-	Yay7T6oPt6tlYAbDrk9wbA6smDVZ3h2xGWLZZMuB/W4++p0YkuOF2hrUG4F5XBqtICJYwni3Rb1Qq
-	sB7J8kga98d6cCTlr6WGDiYnGhCnfAiA96aCk//FeC0IXVMXmAutxjtgnDW19c/d0Nz6+prIG8GPS
-	ZYlJTy0KtdiVHZbkQdQPCy8mDKP4XQJo7BdetSckZ9kGSXa7Ndwr9TIkK1CtleEhGXqz+cTwKkNAZ
-	yvuBE/Y0wSGOcBXJptpHTWkO+81Gjza8vuhmOneGHDhlLedEhws3fZmznrIRi0bOTchhnqvdHkRuA
-	SvkJaSUA==;
+	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=047O0Bnm7X7eFxP7dbf2lFni3tJL8l/+lwR4gP4mP0c=; b=iRXnHYMss+jhCCG0aZNDSFEmY0
+	FO4oldENKJFBbHV+4sfW28xG133Svmu6M/K5ii+1PyNMqRdqYUOUyL++nwRx6g05vOLjJ25iW5J4I
+	mejuUoXLlysU/fmgSDQl+y/g4O1/I2Cy/BCGow/JjRqSDDmUCIvFQ+8pIc9YZ+1rRn1wU6AiG7dKo
+	La4vl7rmINLvUoP5qhg4X/7586HMbgFiTeR0QDB6d//6ril4ls/WA2Tww/o+F/E7U4XxwW1MJAQr0
+	wlGF4W6sfA1inSkCjE/KX8UiTzj/NOnq2ZgGWwIMNlO0YVqMqzoCLkxH9ddfJFl7K/WHZ8Qi43c/o
+	UTeRsoCw==;
 Received: from www537.your-server.de ([188.40.3.216])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7uLR-00000000IDa-0nMn
+	id 1w7uLQ-00000000IDZ-34ot
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 01 Apr 2026 12:06:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:Content-Type:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=Xz26XmtLPh8Q2Btds6GvvjYzsY1TXEbe251OyLODAwU=; b=brDjBLXn/qdmzEzVOCUUZqcQ8B
-	c611c7W5boiORR/heLJgtZPx6iK6ej3Us/6D6DYXUcf0IyxHpvL+oO06G8TftLKTmSNCKpaicdGFy
-	vFoYZUT0/p4Wi8QxuTGq5bzG74yD6uqP4U+8rJP0oWSnLYvKt+VeQNriSavl8mClgZsCJ0akiT+wT
-	45yR5Ryp31PxjE13ahZbJW1MTryHgFplznyycLTUAgrgvJ/A07qltrnrANgR4O+0ZkAA5/oO7D26v
-	lTtjibK1ts6JIu8+E+hvRcAXw2fYNVMu1zEogQvCWGY6bOZhk1DuyRuZxdC/DDrhSvDRHnHFYU4SH
-	d2x0PA8A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=047O0Bnm7X7eFxP7dbf2lFni3tJL8l/+lwR4gP4mP0c=; b=fnuKjJIash0Ly3Blm7dlknBg/R
+	tJyMWI2S9H7Ak8KNXtF4BV4SVuzswduPWcxnXRpDKmQzb+Vbx6toOQKI5DDCQR5CwWB7+gs++rg40
+	p/5BB+JcZFqvcdmF5K0CqwJrQ4NKWgUw91YsqNPxDHB+xt7W1bw1VoKtDoLy6DW9W939yhIUpy/BF
+	/HZ/BjpcrcLbHVfapirJ9S/YChNH9T2C2WIDZLafFLGPkBXuiBlRF2ESIimaWLtqZTAzoJ9qED0/o
+	9uTycrK52cXBM/3gdEOXAerUgGJ1PzfwwyK59ADYfD4cUTuSygNjsYOnxW5KyeMNTdQLuf8OKpEeb
+	TvbA5+JQ==;
 Received: from sslproxy07.your-server.de ([78.47.199.104])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <nora.schiffer@ew.tq-group.com>)
-	id 1w7uLI-000FD0-13;
-	Wed, 01 Apr 2026 14:06:40 +0200
+	id 1w7uLH-000FCz-2X;
+	Wed, 01 Apr 2026 14:06:39 +0200
 Received: from localhost ([127.0.0.1])
 	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <nora.schiffer@ew.tq-group.com>)
-	id 1w7uLH-000JGT-2r;
+	id 1w7uLH-000JGT-1D;
 	Wed, 01 Apr 2026 14:06:39 +0200
 From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -85,19 +85,18 @@ Cc: Nishanth Menon <nm@ti.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux@ew.tq-group.com,
 	Nora Schiffer <nora.schiffer@ew.tq-group.com>
-Subject: [PATCH net-next v3 2/2] net: ethernet: ti: am65-cpsw: add support for J722S SoC family
-Date: Wed,  1 Apr 2026 14:05:43 +0200
-Message-ID: <a6e31f3bf2f540d3c97574fbfdc0f2a4c1db72ce.1774958552.git.nora.schiffer@ew.tq-group.com>
+Subject: [PATCH net-next v3 1/2] dt-bindings: net: ti: k3-am654-cpsw-nuss: Add ti,j722s-cpsw-nuss compatible
+Date: Wed,  1 Apr 2026 14:05:42 +0200
+Message-ID: <e7ec1b928357d1240a962a88dc6ac67fd2c92357.1774958552.git.nora.schiffer@ew.tq-group.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <e7ec1b928357d1240a962a88dc6ac67fd2c92357.1774958552.git.nora.schiffer@ew.tq-group.com>
-References: <e7ec1b928357d1240a962a88dc6ac67fd2c92357.1774958552.git.nora.schiffer@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/27958/Wed Apr  1 08:24:34 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_130649_325561_44E9A663 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20260401_130648_936496_BDDCAE47 
+X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,47 +112,49 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 The J722S CPSW3G is mostly identical to the AM64's, but additionally
-supports SGMII.
+supports SGMII. The AM64 compatible ti,am642-cpsw-nuss is used as a
+fallback.
 
 Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
 ---
 
-v2: drop AM64_CPSW_QUIRK_CUT_THRU flag, which is a downstream ti-linux feature
+v2: keep ti,am642-cpsw-nuss as a fallback
 v3: resubmission for net-next, no changes
 
-SGMII operation also requires changes to the phy-j721e-wiz and gmii-sel drivers.
-The full series was previously posted here:
-https://lore.kernel.org/lkml/cover.1774354734.git.nora.schiffer@ew.tq-group.com/
+ .../bindings/net/ti,k3-am654-cpsw-nuss.yaml   | 20 ++++++++++++-------
+ 1 file changed, 13 insertions(+), 7 deletions(-)
 
- drivers/net/ethernet/ti/am65-cpsw-nuss.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/drivers/net/ethernet/ti/am65-cpsw-nuss.c b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-index d9400599e80a4..7ac75fc8cdcf4 100644
---- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-+++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-@@ -3468,6 +3468,13 @@ static const struct am65_cpsw_pdata am64x_cpswxg_pdata = {
- 	.fdqring_mode = K3_RINGACC_RING_MODE_RING,
- };
+diff --git a/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml b/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
+index a959c1d7e643a..70d25f5ff1cfe 100644
+--- a/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
++++ b/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
+@@ -53,13 +53,19 @@ properties:
+   "#size-cells": true
  
-+static const struct am65_cpsw_pdata j722s_cpswxg_pdata = {
-+	.quirks = AM64_CPSW_QUIRK_DMA_RX_TDOWN_IRQ,
-+	.ale_dev_id = "am64-cpswxg",
-+	.fdqring_mode = K3_RINGACC_RING_MODE_RING,
-+	.extra_modes = BIT(PHY_INTERFACE_MODE_SGMII),
-+};
-+
- static const struct am65_cpsw_pdata j7200_cpswxg_pdata = {
- 	.quirks = 0,
- 	.ale_dev_id = "am64-cpswxg",
-@@ -3495,6 +3502,7 @@ static const struct of_device_id am65_cpsw_nuss_of_mtable[] = {
- 	{ .compatible = "ti,am654-cpsw-nuss", .data = &am65x_sr1_0},
- 	{ .compatible = "ti,j721e-cpsw-nuss", .data = &j721e_pdata},
- 	{ .compatible = "ti,am642-cpsw-nuss", .data = &am64x_cpswxg_pdata},
-+	{ .compatible = "ti,j722s-cpsw-nuss", .data = &j722s_cpswxg_pdata},
- 	{ .compatible = "ti,j7200-cpswxg-nuss", .data = &j7200_cpswxg_pdata},
- 	{ .compatible = "ti,j721e-cpswxg-nuss", .data = &j721e_cpswxg_pdata},
- 	{ .compatible = "ti,j784s4-cpswxg-nuss", .data = &j784s4_cpswxg_pdata},
+   compatible:
+-    enum:
+-      - ti,am642-cpsw-nuss
+-      - ti,am654-cpsw-nuss
+-      - ti,j7200-cpswxg-nuss
+-      - ti,j721e-cpsw-nuss
+-      - ti,j721e-cpswxg-nuss
+-      - ti,j784s4-cpswxg-nuss
++    oneOf:
++      - items:
++          - enum:
++              - ti,am642-cpsw-nuss
++              - ti,am654-cpsw-nuss
++              - ti,j7200-cpswxg-nuss
++              - ti,j721e-cpsw-nuss
++              - ti,j721e-cpswxg-nuss
++              - ti,j784s4-cpswxg-nuss
++      - items:
++          - enum:
++              - ti,j722s-cpsw-nuss
++          - const: ti,am642-cpsw-nuss
+ 
+   reg:
+     maxItems: 1
 -- 
 TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
 Amtsgericht München, HRB 105018
