@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A6FAD3514A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B63B3D3514B
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 07:00:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m68R+jbSgcypj3+TrwecZgemGcanx1vXvIkFRCeWPfY=; b=GcsPiA014a/Itau7FFxAV2nj3/
-	Kl30w8s1em4vGVlB30jjK0QFZ9j/6QFJeqxTojh/mDGHJKc4En9xg4D4T3yQng8gFh0uBI/rXZzHi
-	/ZMV6faPBPoOicnxXFRNs1kTzF5y/uvP0m6x0krAND0KjtpPZKjs+Iwwti3ozNWWMkfHCOWgMWay6
-	rBEPUjHwEWgUZjyvIJaJEMhlTPib3JeMPr1neyLzxhDIwEyiTTijfH7Ja6y+fRGsXWpiCQEJM/CdF
-	r51dTiXmjtKrF9N8cKfjMp4HtYT8/zqHYO/xI6F7PWGxOcx5ihjjqsK+qP5wJNNAJFUWm7ak4nVag
-	iupVq6jg==;
+	bh=7xRrqKsMUNLfTRInkBJ/FobkXs7k6wmq7ioaLYEIWlY=; b=t8bJuq/ePCwimJ5H8TwqYHtFRd
+	AdOK0yVE/MGFC5tXNf7wMzAcL3O0oQRtRDQOt+GZdNuBLVSqImN9e1KAs34hDFa5mL72E007rj6Zf
+	NnCO9EOKVLxAwUZ/4AvzeAxqh7X5hiwj6DzTINRKW+3j3DFYPDCMN8cWBt9NhqFt4WESEiQOXQIC6
+	Q/ci5yYofXK2NZrc3WwdX7doQwg8YMAg5FT8Ix81huZVFAuYOALzvgjRXgTYHIZa0kidun02gEHNV
+	Evh3GYQSYPMHEEHYe+jUIDD8+7y+U5ie3ZPvIocQtOB1AUxbSW+59GsWpBnQUt/OjkVBR2t4hiiRJ
+	rUa28OrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7pYq-0000000E98q-0Z1I;
-	Wed, 01 Apr 2026 07:00:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w7pYo-0000000E961-1RQ8;
+	Wed, 01 Apr 2026 07:00:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7pYl-0000000E94T-0p7T;
-	Wed, 01 Apr 2026 07:00:16 +0000
+	id 1w7pYd-0000000E90x-2tdG;
+	Wed, 01 Apr 2026 07:00:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BE7F04024A;
-	Wed,  1 Apr 2026 07:00:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47B1FC19423;
-	Wed,  1 Apr 2026 07:00:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CF0E5404DB;
+	Wed,  1 Apr 2026 07:00:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E36FC2BCB2;
+	Wed,  1 Apr 2026 07:00:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775026814;
-	bh=2PkbsYIwmUHdckZLGVCyi116+qlNmGcTmfepf86eHCY=;
+	s=k20201202; t=1775026806;
+	bh=LoKILA/pw4fFDtdnNkPqQt1xHR87BfHMh1ltAx29UpA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZYUE6o86wv0JYOb53jWGI5pNHkm9JkEDN/T640nihAeM4RwN3rIERqcgg9va240rc
-	 eZeMKFlGV14oKBB6QHjOEHQdayKe4FmB0mOsevOSC8FlEr96DvCwag2mKZpA6OBUwU
-	 9eFJ+vFcA+mqskJFzCi7X9gzPa18SZ4AGVjD869BcS9Yym9nKQOUCf68Fky+bM3Hkm
-	 4v0q8ut5DKKxmhjj/u5EZVWb8FKdPD7TkFCY4JUo/H31n7wrQBi4HQ20DpiadHCw4A
-	 9913jdLccvTMTr8QgpH9Q7Z8O/RR5ds8D+ypRFu8iCEKr77qC2koiico1cGveDiuv4
-	 Gd+2ePyovQUsw==
+	b=l2DVLH+m2w+jJIBfF9rERoSA2bH2lYnGH+BRnaawtv6O+HvhlFFTepw3wsd6YY2Dj
+	 Qqt/oDz98nHlPQ3TUJXTRFBC2upB9L0Emr7/hIPy+4CtMOtvqxIAwlPMdasj4dsBdH
+	 p0S70Fnhy/hmq78FpsWt/RK+7hFn+QXzsAKMvuAUHBWEBaEi8oGo6nx0e++nHOpPAx
+	 fiU4jnqqLYQAexT2Emh/9/aU9HjBrhb2jxhY0KU+ZRMCPUWEKl2P944VQf4TjXAStm
+	 kn6qIVGDqf2Jk5omMHeDByFfrxtAioy6R/HTSCjKztYCIfYOH0VOIgsqa8Ts5latyX
+	 q1O7svsE1c7ag==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 01 Apr 2026 08:59:23 +0200
-Subject: [PATCH net-next v2 05/11] net: airoha: Rely on net_device pointer
- in ETS callbacks
+Date: Wed, 01 Apr 2026 08:59:20 +0200
+Subject: [PATCH net-next v2 02/11] net: airoha: Set PPE cpu port for GDM2
+ if loopback is enabled
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260401-airoha-eth-multi-serdes-v2-5-ac427ae4beeb@kernel.org>
+Message-Id: <20260401-airoha-eth-multi-serdes-v2-2-ac427ae4beeb@kernel.org>
 References: <20260401-airoha-eth-multi-serdes-v2-0-ac427ae4beeb@kernel.org>
 In-Reply-To: <20260401-airoha-eth-multi-serdes-v2-0-ac427ae4beeb@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -59,12 +59,11 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
 Cc: Christian Marangi <ansuelsmth@gmail.com>, 
  Benjamin Larsson <benjamin.larsson@genexis.eu>, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- Xuegang Lu <xuegang.lu@airoha.com>
+ netdev@vger.kernel.org, devicetree@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_000015_293442_A8729098 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20260401_000007_785692_68028BDE 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,113 +78,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove airoha_gdm_port dependency in ETS tc callback signatures and rely
-on net_device pointer instead. Please note this patch does not introduce
-any logical change and it is a preliminary patch in order to support
-multiple net_devices connected to the same GDM3 or GDM4 port via an
-external hw arbiter.
+Add missing PPE cpu port configuration for GDM2 if QoS loopback is enabled
+for GDM3 or GDM4 ports. Similar to commit 'f44218cd5e6a ("net: airoha:
+Reset PPE cpu port configuration in airoha_ppe_hw_init()"), this patch is
+fixing an issue not visible to the user (so we do not need to backport it)
+since airoha_eth driver currently supports just the internal phy available
+via the MT7530 DSA switch and there are no WAN interfaces officially
+supported since PCS/external phy is not merged mainline yet (it will be
+posted with following patches).
 
-Tested-by: Xuegang Lu <xuegang.lu@airoha.com>
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 30 ++++++++++++++----------------
- 1 file changed, 14 insertions(+), 16 deletions(-)
+ drivers/net/ethernet/airoha/airoha_eth.c | 8 ++++++--
+ drivers/net/ethernet/airoha/airoha_eth.h | 3 ++-
+ drivers/net/ethernet/airoha/airoha_ppe.c | 6 +++---
+ 3 files changed, 11 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 52599ebe85e6a74002c290edb82c55ba9fdfcc69..268f4e34f38d2df128f0be52ae00fec07e46b1bf 100644
+index 2beba017e791d20f142e754edafcd402d8cc496f..ff5fc852d7dc3960fdcf6ae7465896340c3f43a0 100644
 --- a/drivers/net/ethernet/airoha/airoha_eth.c
 +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2126,10 +2126,11 @@ airoha_ethtool_get_rmon_stats(struct net_device *dev,
- 	} while (u64_stats_fetch_retry(&port->stats.syncp, start));
- }
- 
--static int airoha_qdma_set_chan_tx_sched(struct airoha_gdm_port *port,
-+static int airoha_qdma_set_chan_tx_sched(struct net_device *netdev,
- 					 int channel, enum tx_sched_mode mode,
- 					 const u16 *weights, u8 n_weights)
+@@ -1713,7 +1713,7 @@ static int airoha_set_gdm2_loopback(struct airoha_gdm_port *port)
  {
-+	struct airoha_gdm_port *port = netdev_priv(netdev);
- 	int i;
+ 	struct airoha_eth *eth = port->qdma->eth;
+ 	u32 val, pse_port, chan, nbq;
+-	int src_port;
++	int i, src_port;
  
- 	for (i = 0; i < AIROHA_NUM_TX_RING; i++)
-@@ -2161,17 +2162,15 @@ static int airoha_qdma_set_chan_tx_sched(struct airoha_gdm_port *port,
- 	return 0;
- }
+ 	/* Forward the traffic to the proper GDM port */
+ 	pse_port = port->id == AIROHA_GDM3_IDX ? FE_PSE_PORT_GDM3
+@@ -1757,6 +1757,9 @@ static int airoha_set_gdm2_loopback(struct airoha_gdm_port *port)
+ 		      SP_CPORT_MASK(val),
+ 		      __field_prep(SP_CPORT_MASK(val), FE_PSE_PORT_CDM2));
  
--static int airoha_qdma_set_tx_prio_sched(struct airoha_gdm_port *port,
--					 int channel)
-+static int airoha_qdma_set_tx_prio_sched(struct net_device *dev, int channel)
- {
- 	static const u16 w[AIROHA_NUM_QOS_QUEUES] = {};
- 
--	return airoha_qdma_set_chan_tx_sched(port, channel, TC_SCH_SP, w,
-+	return airoha_qdma_set_chan_tx_sched(dev, channel, TC_SCH_SP, w,
- 					     ARRAY_SIZE(w));
- }
- 
--static int airoha_qdma_set_tx_ets_sched(struct airoha_gdm_port *port,
--					int channel,
-+static int airoha_qdma_set_tx_ets_sched(struct net_device *dev, int channel,
- 					struct tc_ets_qopt_offload *opt)
- {
- 	struct tc_ets_qopt_offload_replace_params *p = &opt->replace_params;
-@@ -2212,14 +2211,15 @@ static int airoha_qdma_set_tx_ets_sched(struct airoha_gdm_port *port,
- 	else if (nstrict < AIROHA_NUM_QOS_QUEUES - 1)
- 		mode = nstrict + 1;
- 
--	return airoha_qdma_set_chan_tx_sched(port, channel, mode, w,
-+	return airoha_qdma_set_chan_tx_sched(dev, channel, mode, w,
- 					     ARRAY_SIZE(w));
- }
- 
--static int airoha_qdma_get_tx_ets_stats(struct airoha_gdm_port *port,
--					int channel,
-+static int airoha_qdma_get_tx_ets_stats(struct net_device *netdev, int channel,
- 					struct tc_ets_qopt_offload *opt)
- {
-+	struct airoha_gdm_port *port = netdev_priv(netdev);
++	for (i = 0; i < eth->soc->num_ppe; i++)
++		airoha_ppe_set_cpu_port(port, i, AIROHA_GDM2_IDX);
 +
- 	u64 cpu_tx_packets = airoha_qdma_rr(port->qdma,
- 					    REG_CNTR_VAL(channel << 1));
- 	u64 fwd_tx_packets = airoha_qdma_rr(port->qdma,
-@@ -2234,7 +2234,7 @@ static int airoha_qdma_get_tx_ets_stats(struct airoha_gdm_port *port,
+ 	if (port->id == AIROHA_GDM4_IDX && airoha_is_7581(eth)) {
+ 		u32 mask = FC_ID_OF_SRC_PORT_MASK(nbq);
+ 
+@@ -1795,7 +1798,8 @@ static int airoha_dev_init(struct net_device *dev)
+ 	}
+ 
+ 	for (i = 0; i < eth->soc->num_ppe; i++)
+-		airoha_ppe_set_cpu_port(port, i);
++		airoha_ppe_set_cpu_port(port, i,
++					airoha_get_fe_port(port));
+ 
  	return 0;
  }
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index 7df4dbcd8861856c54c2a38bc89c69180ac2f6dc..f04b8d8cfc09f74f288c347d03e18b4f4f3aa893 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -650,7 +650,8 @@ int airoha_get_fe_port(struct airoha_gdm_port *port);
+ bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
+ 			      struct airoha_gdm_port *port);
  
--static int airoha_tc_setup_qdisc_ets(struct airoha_gdm_port *port,
-+static int airoha_tc_setup_qdisc_ets(struct net_device *dev,
- 				     struct tc_ets_qopt_offload *opt)
+-void airoha_ppe_set_cpu_port(struct airoha_gdm_port *port, u8 ppe_id);
++void airoha_ppe_set_cpu_port(struct airoha_gdm_port *port, u8 ppe_id,
++			     u8 fport);
+ bool airoha_ppe_is_enabled(struct airoha_eth *eth, int index);
+ void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *skb,
+ 			  u16 hash, bool rx_wlan);
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index 58b14aea7c2f33ebce11c51d892eefff692378ca..0f42247a2ef3d67b7dadb6201079ff2c2defbf0d 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -85,10 +85,9 @@ static u32 airoha_ppe_get_timestamp(struct airoha_ppe *ppe)
+ 	return FIELD_GET(AIROHA_FOE_IB1_BIND_TIMESTAMP, timestamp);
+ }
+ 
+-void airoha_ppe_set_cpu_port(struct airoha_gdm_port *port, u8 ppe_id)
++void airoha_ppe_set_cpu_port(struct airoha_gdm_port *port, u8 ppe_id, u8 fport)
  {
- 	int channel;
-@@ -2247,12 +2247,12 @@ static int airoha_tc_setup_qdisc_ets(struct airoha_gdm_port *port,
+ 	struct airoha_qdma *qdma = port->qdma;
+-	u8 fport = airoha_get_fe_port(port);
+ 	struct airoha_eth *eth = qdma->eth;
+ 	u8 qdma_id = qdma - &eth->qdma[0];
+ 	u32 fe_cpu_port;
+@@ -174,7 +173,8 @@ static void airoha_ppe_hw_init(struct airoha_ppe *ppe)
+ 			if (!port)
+ 				continue;
  
- 	switch (opt->command) {
- 	case TC_ETS_REPLACE:
--		return airoha_qdma_set_tx_ets_sched(port, channel, opt);
-+		return airoha_qdma_set_tx_ets_sched(dev, channel, opt);
- 	case TC_ETS_DESTROY:
- 		/* PRIO is default qdisc scheduler */
--		return airoha_qdma_set_tx_prio_sched(port, channel);
-+		return airoha_qdma_set_tx_prio_sched(dev, channel);
- 	case TC_ETS_STATS:
--		return airoha_qdma_get_tx_ets_stats(port, channel, opt);
-+		return airoha_qdma_get_tx_ets_stats(dev, channel, opt);
- 	default:
- 		return -EOPNOTSUPP;
+-			airoha_ppe_set_cpu_port(port, i);
++			airoha_ppe_set_cpu_port(port, i,
++						airoha_get_fe_port(port));
+ 		}
  	}
-@@ -2797,11 +2797,9 @@ static int airoha_tc_setup_qdisc_htb(struct net_device *dev,
- static int airoha_dev_tc_setup(struct net_device *dev, enum tc_setup_type type,
- 			       void *type_data)
- {
--	struct airoha_gdm_port *port = netdev_priv(dev);
--
- 	switch (type) {
- 	case TC_SETUP_QDISC_ETS:
--		return airoha_tc_setup_qdisc_ets(port, type_data);
-+		return airoha_tc_setup_qdisc_ets(dev, type_data);
- 	case TC_SETUP_QDISC_HTB:
- 		return airoha_tc_setup_qdisc_htb(dev, type_data);
- 	case TC_SETUP_BLOCK:
+ }
 
 -- 
 2.53.0
