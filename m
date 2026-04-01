@@ -4,107 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3C8AD35171
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:22:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC8CD35171
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:23:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TKKyVgRbT8ZQmFZ5cHYxfFQ/zLfhlVOIzYDKTTzTLLA=; b=ASaIhT17+4LtF8vFQqLA2XlzQw
-	tGIJTo/SGmNUc1+3cy51CXxozkroi0IvZqtBlSyfpyw3L+jNr3RPkkXANx/MzBTHeHGYCyx7i++lS
-	9vUh2MNDEtusBR57fnlaKi1PGLj4qAbq7uuIbaE4m6YHYck1GGGXkUBr3WewOpa+Uc6e8yKinuOWR
-	NFXq01DBNiyesdfXna2osdsj2Qy2r52fB8QMXaioaV3Yuo4rm1nWDYL6NDIn/cGAYRRZSI1i3ZiwX
-	YSGzRt7QpArGwOeYCIxxfHlzwipX6vnT3mWbIDwc7pGJUPqgv82xf4U/nfhMnV3kw7PLL5+Nk1TCa
-	bn5GYHCA==;
+	bh=XV/XQrnPKsdZ45NNgsrK3n7v8TXq7shL8pgsC2bU8IM=; b=MBEbUV4wnTxz10f10NRQpttLgr
+	F0ACSXCvHLynU2Ms3+TVOVyIwc76KMN+/LTPQMTDdj32z05de3sJ/7xNAcuJQW86YeaOnJsREsqNA
+	qetx0OQTXmfLBeImXO7aJwqkc5yRmnw/fGeiM44zt5tAyrwuvfnKN23nsLkx7yL/AHzuyCNcPM8og
+	olZ98KAbOotwO1i8CSC/gDdL/Gk2V5pEzsfXCSe0AEj4co19vyX0pT2yap9rg2NO+E+nYYimrHQvs
+	UUXg4uTFob/RKOqmVnw2iVOhIaCwqJJWe05mxRW/UAgpvjCkuR/+i2YLRJgBrwapsGYWuFYwqzFtj
+	CxocPy+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7teh-0000000Ed51-0eYV;
-	Wed, 01 Apr 2026 11:22:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w7tf7-0000000EdAf-39Cj;
+	Wed, 01 Apr 2026 11:23:05 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tef-0000000Ed4q-3OBD;
-	Wed, 01 Apr 2026 11:22:37 +0000
+	id 1w7tf5-0000000Ed96-0Krq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Apr 2026 11:23:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=TKKyVgRbT8ZQmFZ5cHYxfFQ/zLfhlVOIzYDKTTzTLLA=; b=GSwl8mIVz2gc7e5Bh2QCOq+SuQ
-	CYWzShPAp+flfSmQfmwC4hXP827AubF53xOIEZKX7EqgIkmFJXxoqAaCJTiXG8/Sld88MNUbWcyS1
-	yF3ATpFo0EXQ/Fkd10LtTiOPKMqBEEe0jfByrKZv/kY7PPtarnUnXX7iNby8ay88jlzK4cYaYMeKL
-	MHF0RqROQynYQikVwoHtYxV4KF5JIY7Jgd3Etfl1dXOK34AjGL6jXd9gS+PSaYPKtwk3CVNAhKjSu
-	x+gRa9CyWjMhL7z+XpRlv5ycZ1WsoDFU7nyrEJdDbg+V0qcJnmyJZekvqgtfIv0TkSS5bOOoDnyA4
-	Gs4pTyhw==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tec-00000000BJO-1QXd;
-	Wed, 01 Apr 2026 11:22:36 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 631BMPTu8982246, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1775042545; bh=TKKyVgRbT8ZQmFZ5cHYxfFQ/zLfhlVOIzYDKTTzTLLA=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=d99bD+lhhtv0hG4fWeVAMmk0di6uFDri3ryIAcrY+vIGRf1Q9jIwYG2VBBkua+kQ9
-	 7Ii96fB8cge6Ymiy0t3be+4K7+C/KaVzhl9XU9MxQntTTXn6n0LlzNQTFswFNvyrB5
-	 GHAlTICPsmYnAdhEvNOPDYuPH0/SN0a0IaRVUETKbrZrkc9ltSaFWv1MdwSUpyNmca
-	 eweSGN+J0nKUKXkS72DvPr7oKNEDrR9RE/5Lu1BxJVMNDLVErDQKl2CR5Z8wtijzt9
-	 Kqc3RhhZYZbMC0ztkLSb4pJrO1p10kSAqLptnZhwNjnoT/jM0DtTnVyejCp6kb/b9k
-	 DKzlY+rJEIP4g==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.26/5.94) with ESMTPS id 631BMPTu8982246
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 1 Apr 2026 19:22:25 +0800
-Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Wed, 1 Apr 2026 19:22:09 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Wed, 1 Apr 2026 19:21:01 +0800
-Received: from RTKEXHMBS05.realtek.com.tw ([fe80::5e14:1ddb:ee82:82d6]) by
- RTKEXHMBS05.realtek.com.tw ([fe80::5e14:1ddb:ee82:82d6%4]) with mapi id
- 15.02.1748.010; Wed, 1 Apr 2026 19:21:01 +0800
-From: =?utf-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: "linusw@kernel.org" <linusw@kernel.org>,
-        "brgl@kernel.org"
-	<brgl@kernel.org>,
-        "robh@kernel.org" <robh@kernel.org>,
-        "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>,
-        "conor+dt@kernel.org" <conor+dt@kernel.org>,
-        "afaerber@suse.com" <afaerber@suse.com>,
-        =?utf-8?B?VFlfQ2hhbmdb5by15a2Q6YC4XQ==?= <tychang@realtek.com>,
-        "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        "linux-realtek-soc@lists.infradead.org"
-	<linux-realtek-soc@lists.infradead.org>,
-        =?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
-        =?utf-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>,
-        =?utf-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>
-Subject: RE: [PATCH 2/3] arm64: dts: realtek: Add GPIO support for RTD1625
-Thread-Topic: [PATCH 2/3] arm64: dts: realtek: Add GPIO support for RTD1625
-Thread-Index: AQHcwQz9j/2I4l8xeUaIBgUHywOH77XJT8wAgAC+dwA=
-Date: Wed, 1 Apr 2026 11:21:01 +0000
-Message-ID: <fbf40f58d38a451883d064f258ec9ce4@realtek.com>
-References: <20260331113835.3510341-1-eleanor.lin@realtek.com>
- <20260331113835.3510341-3-eleanor.lin@realtek.com>
- <20260401-liberal-nondescript-muskrat-0ebe93@quoll>
-In-Reply-To: <20260401-liberal-nondescript-muskrat-0ebe93@quoll>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-x-originating-ip: [172.21.6.42]
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	d=ew.tq-group.com; s=default2602; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=XV/XQrnPKsdZ45NNgsrK3n7v8TXq7shL8pgsC2bU8IM=; b=SlLRU6Ar8ftyOpmtaUHioFJByQ
+	BDc63ICNTUXEg7HHqGDFuJ/h1cvJBbOL1lMYW50+rZ8gZ/+G2PYqD0Swya9dCSsgL1ACgi95lop5y
+	klI9fbByaQx8YN1yPQDlQwcQBm78FDT/o4ACnwqivC0S2xuJ2HRfGptV0H2WaIFJKguBdcdCydeWR
+	7G6uqotFeExEF5xbozhAFIE+wl2E6wmgoTDm7p8eUOSFhWx1US+qQQt1XOTZRrOuNz/PMP5mGr21b
+	BdFv0aanfDbzo0cuzg5LHk591ccd7XWaOvFIBeirnCRND6wKtNfogZmsgpQUSGwz2OtE0lR/8MZBz
+	gBdIM4vQ==;
+Received: from sslproxy06.your-server.de ([78.46.172.3])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <nora.schiffer@ew.tq-group.com>)
+	id 1w7tew-0008Tt-0q;
+	Wed, 01 Apr 2026 13:22:54 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <nora.schiffer@ew.tq-group.com>)
+	id 1w7teO-000CHU-1m;
+	Wed, 01 Apr 2026 13:22:53 +0200
+Message-ID: <0bcf160f0ebcf0904d3fc60853fddf1103da8f0e.camel@ew.tq-group.com>
+Subject: Re: [PATCH v6 0/2] TQ-Systems TQMa62xx SoM and MBa62xx board
+From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero
+ Kristo <kristo@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>, Kees Cook <kees@kernel.org>, Tony Luck
+ <tony.luck@intel.com>,  "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+ linux-arm-kernel@lists.infradead.org,  devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux@ew.tq-group.com
+Date: Wed, 01 Apr 2026 13:22:53 +0200
+In-Reply-To: <6e34ecefae8e2f187c5ecfdfd343fb717711c21d.camel@ew.tq-group.com>
+References: <cover.1772443991.git.nora.schiffer@ew.tq-group.com>
+	 <6e34ecefae8e2f187c5ecfdfd343fb717711c21d.camel@ew.tq-group.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 MIME-Version: 1.0
+X-Virus-Scanned: Clear (ClamAV 1.4.3/27958/Wed Apr  1 08:24:34 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_122235_209086_98375D90 
-X-CRM114-Status: GOOD (  21.59  )
+X-CRM114-CacheID: sfid-20260401_042303_234008_88E9A44D 
+X-CRM114-Status: GOOD (  24.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,94 +86,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBPbiBUdWUsIE1hciAzMSwgMjAyNiBhdCAwNzozODozNFBNICswODAwLCBZdS1DaHVuIExpbiB3
-cm90ZToNCj4gPiBBZGQgdGhlIEdQSU8gbm9kZSBmb3IgdGhlIFJlYWx0ZWsgUlREMTYyNSBTb0Mu
-DQo+ID4NCj4gPiBTaWduZWQtb2ZmLWJ5OiBZdS1DaHVuIExpbiA8ZWxlYW5vci5saW5AcmVhbHRl
-ay5jb20+DQo+ID4gLS0tDQo+ID4gIGFyY2gvYXJtNjQvYm9vdC9kdHMvcmVhbHRlay9rZW50LmR0
-c2kgICAgfCA0Mw0KPiArKysrKysrKysrKysrKysrKysrKysrKysNCj4gPiAgYXJjaC9hcm02NC9i
-b290L2R0cy9yZWFsdGVrL3J0ZDE1MDEuZHRzaSB8ICA4ICsrKysrDQo+ID4gYXJjaC9hcm02NC9i
-b290L2R0cy9yZWFsdGVrL3J0ZDE4NjEuZHRzaSB8ICA4ICsrKysrDQo+ID4gYXJjaC9hcm02NC9i
-b290L2R0cy9yZWFsdGVrL3J0ZDE5MjAuZHRzaSB8ICA4ICsrKysrDQo+ID4gIDQgZmlsZXMgY2hh
-bmdlZCwgNjcgaW5zZXJ0aW9ucygrKQ0KPiA+DQo+IA0KPiBXaHkgdGhlIERUUyBpcyBpbiB0aGUg
-bWlkZGxlPyBEcml2ZXJzIGNhbm5vdCBkZXBlbmQgb24gaXQuIFBsZWFzZSByZWFkDQo+IHN1Ym1p
-dHRpbmcgcGF0Y2hlcyAoYm90aCBkb2N1bWVudHMpLg0KPiANCg0KSSB3aWxsIG1vdmUgRFRTIHRv
-IHRoZSBlbmQgaW4gdjIuDQoNCj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm02NC9ib290L2R0cy9y
-ZWFsdGVrL2tlbnQuZHRzaQ0KPiA+IGIvYXJjaC9hcm02NC9ib290L2R0cy9yZWFsdGVrL2tlbnQu
-ZHRzaQ0KPiA+IGluZGV4IDhkNDI5M2NkNGMwMy4uNzQ2OTMyYzI2NzI0IDEwMDY0NA0KPiA+IC0t
-LSBhL2FyY2gvYXJtNjQvYm9vdC9kdHMvcmVhbHRlay9rZW50LmR0c2kNCj4gPiArKysgYi9hcmNo
-L2FybTY0L2Jvb3QvZHRzL3JlYWx0ZWsva2VudC5kdHNpDQo+ID4gQEAgLTE1MSw2ICsxNTEsMzkg
-QEAgdWFydDA6IHNlcmlhbEA3ODAwIHsNCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICBzdGF0dXMgPSAiZGlzYWJsZWQiOw0KPiA+ICAgICAgICAgICAgICAgICAgICAgICB9Ow0KPiA+
-DQo+ID4gKyAgICAgICAgICAgICAgICAgICAgIGdwaW86IGdwaW9AMzExMDAgew0KPiA+ICsgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIGNvbXBhdGlibGUgPSAicmVhbHRlayxydGQxNjI1LWlz
-by1ncGlvIjsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZWcgPSA8MHgzMTEw
-MCAweDM5OD4sDQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPDB4MzEw
-MDAgMHgxMDA+Ow0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdwaW8tY29udHJv
-bGxlcjsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICBncGlvLXJhbmdlcyA9IDwm
-aXNvbV9waW5jdHJsIDAgMCAyPiwNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIDwmdmU0X3BpbmN0cmwgMiAwIDY+LA0KPiA+ICsgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgPCZpc29fcGluY3RybCA4IDAgND4sDQo+ID4gKyAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8JnZlNF9waW5jdHJsIDEy
-IDYgMj4sDQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8
-Jm1haW4yX3BpbmN0cmwgMTQgMA0KPiAyPiwNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIDwmdmU0X3BpbmN0cmwgMTYgOCA0PiwNCj4gPiArICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwmbWFpbjJfcGluY3RybCAyMCAyDQo+
-IDM+LA0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPCZ2
-ZTRfcGluY3RybCAyMyAxMg0KPiAzPiwNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIDwmaXNvX3BpbmN0cmwgMjYgNCAyPiwNCj4gPiArICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwmaXNvbV9waW5jdHJsIDI4IDINCj4gMj4s
-DQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8JnZlNF9w
-aW5jdHJsIDMwIDE1DQo+IDY+LA0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgPCZtYWluMl9waW5jdHJsIDM2IDUNCj4gNj4sDQo+ID4gKyAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8JnZlNF9waW5jdHJsIDQyIDIxDQo+IDM+
-LA0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPCZpc29f
-cGluY3RybCA0NSA2IDY+LA0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgPCZ2ZTRfcGluY3RybCA1MSAyNA0KPiAxPiwNCj4gPiArICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwmaXNvX3BpbmN0cmwgNTIgMTINCj4gMT4sDQo+
-ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8JnZlNF9waW5j
-dHJsIDUzIDI1DQo+IDExPiwNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgIDwmbWFpbjJfcGluY3RybCA2NA0KPiAxMSAyOD4sDQo+ID4gKyAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8JnZlNF9waW5jdHJsIDkyIDM2DQo+IDI+
-LA0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPCZpc29f
-cGluY3RybCA5NCAxMw0KPiAxOT4sDQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICA8Jmlzb19waW5jdHJsIDEyOCAzMg0KPiA0PiwNCj4gPiArICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwmdmU0X3BpbmN0cmwgMTMyIDM4DQo+
-IDEzPiwNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwm
-aXNvX3BpbmN0cmwgMTQ1IDM2DQo+IDE5PiwNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIDwmdmU0X3BpbmN0cmwgMTY0IDUxDQo+IDI+Ow0KPiA+ICsgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICNncGlvLWNlbGxzID0gPDI+Ow0KPiA+ICsgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgIHN0YXR1cyA9ICJkaXNhYmxlZCI7DQo+IA0KPiBXaHkgaXMg
-aXQgZGlzYWJsZWQ/IFdoYXQgaXMgbWlzc2luZyBpbiB0aGUgU29DPyBXaGljaCByZXNvdXJjZXMg
-YXJlIG1pc3Npbmc/DQo+IA0KDQpOb3RoaW5nIGlzIG1pc3NpbmcsIHNvIEkgd2lsbCByZW1vdmUg
-c3RhdHVzID0gImRpc2FibGVkIi4NCg0KPiA+ICsgICAgICAgICAgICAgICAgICAgICB9Ow0KPiA+
-ICsNCj4gPiAgICAgICAgICAgICAgICAgICAgICAgaXNvX3BpbmN0cmw6IHBpbmN0cmxANGUwMDAg
-ew0KPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbXBhdGlibGUgPQ0KPiAicmVh
-bHRlayxydGQxNjI1LWlzby1waW5jdHJsIjsNCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICByZWcgPSA8MHg0ZTAwMCAweDFhND47IEBAIC0xNjEsNg0KPiArMTk0LDE2DQo+ID4gQEAg
-bWFpbjJfcGluY3RybDogcGluY3RybEA0ZjIwMCB7DQo+ID4gICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgcmVnID0gPDB4NGYyMDAgMHg1MD47DQo+ID4gICAgICAgICAgICAgICAgICAgICAg
-IH07DQo+ID4NCj4gPiArICAgICAgICAgICAgICAgICAgICAgaXNvX21fZ3BpbzogZ3Bpb0A4OTEy
-MCB7DQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29tcGF0aWJsZSA9DQo+ICJy
-ZWFsdGVrLHJ0ZDE2MjUtaXNvbS1ncGlvIjsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICByZWcgPSA8MHg4OTEyMCAweDEwPiwNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICA8MHg4OTEwMCAweDIwPjsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICBncGlvLWNvbnRyb2xsZXI7DQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-Z3Bpby1yYW5nZXMgPSA8Jmlzb21fcGluY3RybCAwIDAgND47DQo+ID4gKyAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgI2dwaW8tY2VsbHMgPSA8Mj47DQo+ID4gKyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgc3RhdHVzID0gImRpc2FibGVkIjsNCj4gPiArICAgICAgICAgICAgICAgICAg
-ICAgfTsNCj4gPiArDQo+ID4gICAgICAgICAgICAgICAgICAgICAgIGlzb21fcGluY3RybDogcGlu
-Y3RybEAxNDYyMDAgew0KPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbXBhdGli
-bGUgPQ0KPiAicmVhbHRlayxydGQxNjI1LWlzb20tcGluY3RybCI7DQo+ID4gICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgcmVnID0gPDB4MTQ2MjAwIDB4MzQ+OyBkaWZmIC0tZ2l0DQo+ID4g
-YS9hcmNoL2FybTY0L2Jvb3QvZHRzL3JlYWx0ZWsvcnRkMTUwMS5kdHNpDQo+ID4gYi9hcmNoL2Fy
-bTY0L2Jvb3QvZHRzL3JlYWx0ZWsvcnRkMTUwMS5kdHNpDQo+ID4gaW5kZXggNjVmN2VkZTNkZjcz
-Li5hZTI0NmEwMWYxMjYgMTAwNjQ0DQo+ID4gLS0tIGEvYXJjaC9hcm02NC9ib290L2R0cy9yZWFs
-dGVrL3J0ZDE1MDEuZHRzaQ0KPiA+ICsrKyBiL2FyY2gvYXJtNjQvYm9vdC9kdHMvcmVhbHRlay9y
-dGQxNTAxLmR0c2kNCj4gPiBAQCAtMTAsMyArMTAsMTEgQEANCj4gPiAgJnVhcnQwIHsNCj4gPiAg
-ICAgICBzdGF0dXMgPSAib2theSI7DQo+ID4gIH07DQo+ID4gKw0KPiA+ICsmZ3BpbyB7DQo+IA0K
-PiBXaHkgYXJlbid0IHlvdSBmb2xsb3dpbmcgRFRTIGNvZGluZyBzdHlsZT8gV2hhdCBzdHlsZSBp
-cyBhcHBsaWNhYmxlIGZvcg0KPiBSZWFsdGVrPw0KPiANCj4gQmVzdCByZWdhcmRzLA0KPiBLcnp5
-c3p0b2YNCg0KSSBzaG91bGQgc29ydCB0aGVtIGluIGFscGhhYmV0aWNhbCBvcmRlci4gQnV0IGFm
-dGVyIHJlbW92aW5nIHRoZSBzdGF0dXMgcHJvcGVydHksDQp0aGUgYm9hcmQtbGV2ZWwgbm9kZSB3
-aWxsIGJlIHJlbW92ZWQgZW50aXJlbHkuDQoNCkJlc3QgcmVnYXJkcywNCll1LUNodW4NCg0K
+On Tue, 2026-03-17 at 10:08 +0100, Nora Schiffer wrote:
+> On Mon, 2026-03-02 at 11:14 +0100, Nora Schiffer wrote:
+> > This adds Device Trees for our AM62x-based SoM TQMa62xx and its
+> > reference carrier board MBa62xx.
+> >=20
+> > Not yet included are overlays to enable LVDS display output and MIPI-CS=
+I
+> > camera input.
+>=20
+> Hi Nishanth,
+>=20
+> do you have any further comments on these patches? Can we get the series =
+into
+> v7.1?
+>=20
+> Best,
+> Nora
+
+Hi Vignesh,
+
+ti-k3-dt-for-v7.1 is tagged now, does that mean we missed the window to get=
+ this
+series applied again? If there are still any issues, I'll gladly fix them u=
+p,
+but we have not received any review comments on this last revision of the
+patches.
+
+Best,
+Nora
+
+
+
+>=20
+>=20
+>=20
+>=20
+> >=20
+> > Changed in v6:
+> > - Update author information following name change
+> > - Rebase onto latest ti-k3-dts-next
+> > - Disable incomplete panel node
+> > - Add various comments to explain why nodes are disabled
+> > - Extend comment explaining disabled 1400MHz OPP
+> > - Use consistent comment style for pinmux
+> >=20
+> > Changes in v5:
+> > - Rebase onto latest ti-k3-dts-next
+> >=20
+> > Changes in v4:
+> > - Rebase onto latest ti-k3-dts-next
+> > - Reorder boot phase tags after other standard DT properties
+> > - Add missing supply regulators in SPI-NOR flash and USB hub
+> > - Set status =3D "okay" in &cpsw3g, as it is disabled in k3-am62-main.d=
+tsi
+> >   now
+> > - Add disabled 1400MHz OPP entry (will be enabled by bootloader if
+> >   supported by PMIC configuration)
+> > - Update copyright years in new files
+> >=20
+> > Changes in v3:
+> > - Rebased onto ti-k3-dt-for-v6.18
+> > - 3 of the 5 patches in v2 have been applied already and are dropped
+> > - Include k3-am62-ti-ipc-firmware.dtsi, drop now redundant configuratio=
+n
+> > - Change node name for MCU reserved memory to 'memory'
+> > - Use rgmii-id PHY mode
+> > - Drop now redundant ti,rx-internal-delay
+> > - Update simple-audio-card,name to match other TQ SOMs with compatible
+> >   configuration
+> > - Reference dss_pins in dss node (actual display support will be added
+> >   in a follow-up patch series)
+> > - Consistently use GPIO_ACTIVE_HIGH define
+> > - Drop unneeded usb0 quirk flags
+> > - Add boot phase tags
+> >=20
+> > Changes in v2:
+> > - Collected acks and reviews
+> > - Rebased onto v6.13-rc1
+> >=20
+> >=20
+> > Nora Schiffer (2):
+> >   dt-bindings: arm: ti: Add compatible for AM625-based TQMa62xx SOM
+> >     family and carrier board
+> >   arm64: dts: ti: Add TQ-Systems TQMa62xx SoM and MBa62xx carrier board
+> >     Device Trees
+> >=20
+> >  .../devicetree/bindings/arm/ti/k3.yaml        |    7 +
+> >  arch/arm64/boot/dts/ti/Makefile               |    1 +
+> >  .../boot/dts/ti/k3-am625-tqma62xx-mba62xx.dts | 1034 +++++++++++++++++
+> >  arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi |  360 ++++++
+> >  4 files changed, 1402 insertions(+)
+> >  create mode 100644 arch/arm64/boot/dts/ti/k3-am625-tqma62xx-mba62xx.dt=
+s
+> >  create mode 100644 arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi
+> >=20
+>=20
+
+--=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+https://www.tq-group.com/
 
