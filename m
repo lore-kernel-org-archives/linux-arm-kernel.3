@@ -4,174 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 728D4D2ED0A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:18:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30294107637D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:23:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:From:Subject:Cc:To:Message-Id:Date:Content-Type:
-	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BAMvE2QoED5iAgDx/VxI4LBZlWbNprhR8PoRpJ/45pI=; b=dM4ycvQ2sR2ShH/Gl8IySm59jp
-	CHYyDF3eKAl6dMpVr8fK66/SRqivW9qHDpAsj8BeVGMO+2meudeGu9wNTPLsGrRySJmNjUKVCKczX
-	lE3lrw86Am4LlIccsNRoGgKt1ioEoDIssi2SH3TMGvWbdFzuR3JYDXBEBBsSoJNtMmoqlhJjm1NHd
-	qlw7Jf8iZcFwQCIVg3bhRryL9HAkqP3a9oiVB0KgT/NsS/RGnHZGgqkaAcz9YQcjsiLOfjCa/d9WL
-	HhQ1eRh4rC9oNKa7y9Cg6ZqMgyW36VUpQcVLwsLB7B4eAYvT7QaZmQWk8ngPZRkL3rRZXhiJjH1IW
-	OHFIYdlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W0lpNEQ5rBu4A5r2R7AS24IexLUARAeFATM11XdMFvw=; b=EFK6oB9olZx/C7lgX22JsdQMs8
+	IXB2F+6NGfS/gmeyBinjOdI9nxRJ/2wiisxFmv8VSE7QKYLWJ6l6rPbEXNv+3Wgs1Dijd//t4Gtmv
+	/P6+yhA99ckuqEjfK5ss3b3MBH83DEW/Ug7tedlrGZ8mZX0Q1SvNnFaIZ2BEUMfAXJegELrYh6axm
+	XGsmdYTBqUWfkm361ybQ8b320A3gQer0aRnfzj9rxAm/rxayrTa0XDAsCbnpo0MfxwNMPjNNalw/b
+	7FST0hx5NaCym5DaneMNKX0NnUGJU9IaOoEk4kEIE7QXEmzsaCkGnzhIYNp3qBOZrbw9rMOwCmo2a
+	mlXACHzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wOa-0000000FT9c-3LTH;
-	Wed, 01 Apr 2026 14:18:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w7wTt-0000000FTn2-2XCz;
+	Wed, 01 Apr 2026 14:23:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wOa-0000000FT9E-0Mua;
-	Wed, 01 Apr 2026 14:18:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:References:
-	From:Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=BAMvE2QoED5iAgDx/VxI4LBZlWbNprhR8PoRpJ/45pI=; b=QD1dKWjQvs6zC/+Guv7S1P7Yg3
-	A6NNCDJr+7319O/2XDKMxYE2aHCvMXzCapXqt3Hf2yYpC0KhDMq6gvRhG4lQ60GyuXMhEcALip0PA
-	6I80F7vxOjG3nxfGf6SYYxqpsvmUfVmfnKM0PXkBATFKxtcyPA93KmlhclSONtIe8pYEY99nhrDm9
-	RfsSZ7sWSy9uq3vrtpyfjyFZKeTvefk0J3zto+jYLXaW5PQIy6PwqC4whGwby2vCLc/RI563H/ndA
-	a426rqyaTaU6OZMoPgaGv/f/QIyzzVp/NIzwf0Iy+y21JCLE+FAkl+C5DiejHyp267NAqBG0edd1r
-	M6KaxoZg==;
-Received: from mail-uksouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c205::3] helo=LO2P265CU024.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wOW-00000000aP7-3SK6;
-	Wed, 01 Apr 2026 14:18:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EDCW/jzcMAHQdPWLXT5Jl1nK3P0fFTJ1MYVkLmpl0rZAHZj3CE5MRR+CZkIsnjhLVwd3XaXWNKHTy5YO/QSKpM2LKriWtSdXhQSDwWjsj2ykojjgfhMNB//P1rHUg80wHbRdOWIbaU+zPpgAyzqQT0N8iK2zIfkUwRobXmv5FQLIavfG6f9lVo8zSXtRQCUYtFrrpj+6O9CsPLLuB7uugdG+fvwVws+mHsExE3vUJUolZT2xzAzYqAz4G9jKCs5phKGWuA+qlbx7MrL30g6vTTr3a92bORQ9v1CdW9NKmwOl3tyw7lEtO9x628D25GdwH5XIWoyokPoaWTd37Wi/OQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BAMvE2QoED5iAgDx/VxI4LBZlWbNprhR8PoRpJ/45pI=;
- b=Jr5+dK1fTYCKkfQGxmhwv/Pb8vwu9AZuqL1JPXGhQcUUi78D4nwvojAD8vOtvn3zzhRRRM32YyYflka48/nUMJ4f9oIvG00VzIDjHvzcmDFpeoLxYniaornmLG0jBmMZOx/Wsri1C6udzx5dbw/bRnYuUrBOHUMKtN0uKP9RpMXUOgQrl89yh6sTxljlWRCj56m41lsGMmHTbA4zhduotL4WyLtEbpvj+WBnySTuXyevKtqDtwG6n5x78HihYifg6Lp0kzK6gYch5wR57mF2Mw9qJdNVmzqELk0WmO3IhfScuZRd7e9JvPZQatytOenv2jGq+/hfbSIO/LGvltNc8A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BAMvE2QoED5iAgDx/VxI4LBZlWbNprhR8PoRpJ/45pI=;
- b=D4SdYS5yvZc+HuWglM1ponIKoZ+M2RHkVjBP1MHlx/sKyoKRgmplflLzbJi58sJ5houct8vhIJG0AKp81ek3xbXAwFlWQ7lNfW5FqvDbpWYcwQIlneQ9FhqElrD62xVt4Zipb2MgS/fMlv51XWYwwvcBdN7BZQY39qnFrmQ/RSA=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
- by LO9P265MB7843.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:3a0::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
- 2026 14:18:04 +0000
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
- 14:18:04 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 01 Apr 2026 15:18:03 +0100
-Message-Id: <DHHVSX66206Y.3E7I9QUNTCJ8I@garyguo.net>
-To: "Miguel Ojeda" <ojeda@kernel.org>, "Nathan Chancellor"
- <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Danilo Krummrich"
- <dakr@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Catalin
- Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Paul
- Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, "Alexandre Courbot" <acourbot@nvidia.com>,
- "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
- "Brendan Higgins" <brendan.higgins@linux.dev>, "David Gow"
- <david@davidgow.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, "Todd Kjos"
- <tkjos@android.com>, "Christian Brauner" <christian@brauner.io>, "Carlos
- Llamas" <cmllamas@google.com>, "Alice Ryhl" <aliceryhl@google.com>,
- "Jonathan Corbet" <corbet@lwn.net>
-Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
- <rust-for-linux@vger.kernel.org>, <linux-kbuild@vger.kernel.org>, "Lorenzo
- Stoakes" <lorenzo.stoakes@oracle.com>, "Vlastimil Babka"
- <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
- "Uladzislau Rezki" <urezki@gmail.com>, <linux-block@vger.kernel.org>,
- "moderated for non-subscribers" <linux-arm-kernel@lists.infradead.org>,
- "Alexandre Ghiti" <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>,
- <nouveau@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>, "Rae
- Moar" <raemoar63@gmail.com>, <linux-kselftest@vger.kernel.org>,
- <kunit-dev@googlegroups.com>, "Nick Desaulniers"
- <nick.desaulniers+lkml@gmail.com>, "Bill Wendling" <morbo@google.com>,
- "Justin Stitt" <justinstitt@google.com>, <llvm@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>, "Shuah Khan" <skhan@linuxfoundation.org>,
- <linux-doc@vger.kernel.org>
-Subject: Re: [PATCH 12/33] rust: macros: update `extract_if` MSRV TODO
- comment
-From: "Gary Guo" <gary@garyguo.net>
-X-Mailer: aerc 0.21.0
-References: <20260401114540.30108-1-ojeda@kernel.org>
- <20260401114540.30108-13-ojeda@kernel.org>
-In-Reply-To: <20260401114540.30108-13-ojeda@kernel.org>
-X-ClientProxiedBy: LO4P123CA0647.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:296::22) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:488::16)
+	id 1w7wTs-0000000FTmp-1FAx
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Apr 2026 14:23:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AB98B60128;
+	Wed,  1 Apr 2026 14:23:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7D15C4CEF7;
+	Wed,  1 Apr 2026 14:23:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775053419;
+	bh=OsjeM4lsmj7za+4+lBM4Pv5So3xWzZBMwniXvTdJdJk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lxRe/WlUHaAKVE4mdR5fgE+zG4ZLuGNYlZrTLFgflk2ok1mt5HoQ3EoUHMBclwXSl
+	 B1phxBUaSVL+f2hmqEj+LZBc/v4cQSP202n/2exkj2saxkoqvbZKPxt7OKpBBY6lLY
+	 RSEjNTfO2x/mvSXlKWR9DQ7d/O8WGkj1yEz+dZMWdmNZr3tw2S2W/KI4O0UQ39Iu6s
+	 d4+iIRPVZ0RSdxz2z5JEZXexz/Y7VDahgHX5UafyAq0VmQF2/w8hGjJ1Koz7b12IAt
+	 BW2Cbj7KU9+PQaTz22QvTIoZ7OqXjbH2ZcuzCxm9vkLmUF2ZuETXuxBWE46zB9ewyd
+	 tZjAE3z3vuhiw==
+Message-ID: <4e6913df-5a13-4732-9789-86bd0a836788@kernel.org>
+Date: Wed, 1 Apr 2026 16:23:34 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LO9P265MB7843:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1f272f27-5956-45fe-68b4-08de8ff97d49
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|10070799003|7416014|376014|366016|921020|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: qajhMNOwurwD6X7vL+RZ5MwuHioIwBNF7Us/MzXI1oTT8jgwt1nU0EorWNwlb1ZWYwyBW15Zivv4l8Q/GqUJ2uQNr3yp2oFevp5Hftik8lg8/Bkv57ocvFj+hM7amep2RG5XwUaUWtZKuz7E9IrvC1pyR9hkAueSDv5JQmrjSEsYcCI6UCJnG0HGSztWTLC6Eb3XAz2iyXf6Gc+k67B3Dt8/U/ERhvW+m01NI+FarEVEw/gKNCz6uk5b0DZVWaZdbJCaod3V8aC468FgJQi+KbBuyZt1bNlherUnaDeSi0F1iqqs1q2WL1h192KZ0wNENEuRDz876NTpDdtqeUiuXNf+rBtolKcxV7uNBWwfK/Lbs3GQXlsxvhWhU68o2P0jWbrpqIZ2Lh5p7jper7LIL+KCBrsW5fgiDWfD7ovHd2FwPXySMXeuyjkEiC10/k8hZKrKrL22MrfKNUV3rCy1ln77ngtVsWoYE5bK4aqhNlJ1MQZuTuf37K15Ste5sRaZOgFUz3skSBUuAnw5RzjhY+SNP8JRThIlphd7sRk8Kjdv/CWHQkduN44Pdd6gjNgTcjetcekUuIOMWupNU5XEiCyXWUKvadG5PzwSGz1aglPhhpKQN72/y6SVEO/KWwDAEKIKKQFU7oraQzMbmgoDaXGiVKa5cKPc5c+OzwahrYfXkF4Cnrm/bppXtwSWEJbMp4TTy1ZZWHfHGy0mc9zwAa1xTE5f3HSWlwzxMGlixNVaT9eM1V6EpdwndXqBHnOYEmMWYdMeHNAgto4eYPzevw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(10070799003)(7416014)(376014)(366016)(921020)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K2xSRHZYeS9JbTRVMEhFK0pZT0ZPRm1sQ3E4emZQOVcvZmFsOHJQdG9hSENB?=
- =?utf-8?B?V2ZnY2I3ampRU29ETzA0bHlnaEh5R2xhZHRlODNjcWE4RlVpZXI5WDNQVFlk?=
- =?utf-8?B?aC9VWGtVLzN3M3dBcmJKb2xKSkxKSm8yQzB1UW1jeVNRUTNCOHZtTk90WTBh?=
- =?utf-8?B?cjhaYldIaGw1YSsxT1RNRnZGUjV6aXlZQlNrTWZrQ0IzZlFwalBOOS81Qy9r?=
- =?utf-8?B?R1pDNGJwZlR0dEVZSUJ3bm5Ma2JTRCtjajFNOWRQdGtBS1Vqd3NnNE81RCtD?=
- =?utf-8?B?cUNpSzJETC9IVGxTUjk0OHRPcDg2eWtBWVUvVTZKOVFzMFV1d0RZV0p0RFB2?=
- =?utf-8?B?RENydHhiamQ2ajhJRzJOM2QyRjhPU21FRnhic2NwTnFyNHJEU3pQalptd2R4?=
- =?utf-8?B?S0wvY3liZHp0ZXluRWdYUUpwNys2cTdGV241bmNndGRFY0hiYU4vSlFtVnB0?=
- =?utf-8?B?ZmZiS3NZd29oTEZ0d2dBeXFZd1Y4dzIxVFM0TG9sZ2UxdzZ1WnZOS3c0ZktZ?=
- =?utf-8?B?UWRBUDhReEp3UzBoWjkzSHJsdU1tZ3dXNDFQcnZRMHNqS3NUMVJUcnZROWU3?=
- =?utf-8?B?OGhPQmVlbTJlZ2VpaDlRemU2NHZJMUtualFabnRiTFZYN1VUckFkVlkrcmto?=
- =?utf-8?B?Qnl2Vi8wanpmWUwrb0wxYm9qbHROQng2R29sVmtIOXMvbjF2R1doalZaNTh1?=
- =?utf-8?B?bFVFU3NvYW5zUjVoZE92S0RMZ3R6RTlsQ2J4QmlqTzYwYWg1bXdjZG1YU2hI?=
- =?utf-8?B?ZGJUcUdHYXl1MDlPUExSMy9LczJuZHZ0Q3JNTEpsMDFTSER4ckpod09tMjlp?=
- =?utf-8?B?cDQwS2pSMW0zbWk4V3loSzlrc2xabjNOZXlYTm4wWG5nTXAxTTJPRUIvYlhB?=
- =?utf-8?B?NVpFeTdXQ0hpdHhxK1dkL0FkeHlOMEVJN0pjamhUQTZHdXg1VUZtOXA1NjNa?=
- =?utf-8?B?SXg3TStUVWM0OFVHT3B2Zjh4Y3UyejFldWJqMEJsblhWTTBva2FNTG1haWUy?=
- =?utf-8?B?UnFsdmJxL0lEb3VDZVNWMjNGTEVvRVNOOStBMWN4anFZUXRKWGZRVjkreFZ4?=
- =?utf-8?B?NHpwN1hEdE9lcEpoN0ZtdmdmbXRHdnJndlJiWitXeldlbUNLY2MxZmRWT2ZJ?=
- =?utf-8?B?Q2E1ZTZoT2txYW1Xa1BUT1FDNDFvYUFHWTY0MGZJRXhVRWFNNzJSL281M0Jh?=
- =?utf-8?B?MHlkMU1yR3hQUFRJQy8zR1hRVlRBZ0t4QkUxemZ2dzhwdWJhKzlZM0VtdWpl?=
- =?utf-8?B?S3RLZWJBLzU1ZnBCZGV4WDg2aXA3aHViSGVhSnhvaWh1R3p5UDVnVTBhVVhw?=
- =?utf-8?B?Y1dwSjhUZ283V3g0cnRySTFoUzQyRnBIWWtqeEQxclR1NWVqTHF5Q3IvQ2pj?=
- =?utf-8?B?SW9sZzVmaFR6Nk5oYUZRY2tKQ09oTXRZTzhJc0w4YVJYd2htNWlSM0VrSzl4?=
- =?utf-8?B?dG4rZGpaU2pNNmtwQ1BHVml6WFhTcWZiUHNFNVRuUk9mNnJJaDFXZGIwV01q?=
- =?utf-8?B?eldNRGIrTC9XOHdHSzc1bXQya2VseHczVkNqRi9KclowWEMyUmNZNGdmRHlI?=
- =?utf-8?B?MnBScEd2eUpTUU42WWgxMkxzcmsxQmtiek5wZ1Jnc2xSdXpkaEM5YnczejdO?=
- =?utf-8?B?UitZQjhJWGRRUmJ1cktCeTlsOGhMdTZEQm0wSTExbllqTngrVmxNVnA5TXJB?=
- =?utf-8?B?cGpabi9jVDMxWUNWSno3ZmI2TVRoMTZrcFgxdTBYa0pLVTlaL0RJSmJDRUkw?=
- =?utf-8?B?NnpiQklKdXZRRk9xVy9NTEoySWpKN2ZXMWNmWGZBcVZXNmFXc28rT3UzTzF6?=
- =?utf-8?B?UzVWd1BkNS9uRTFTVFlIcFRyVlpVOEFRMkZieVhtd3EyYUlrNW5lTTRmNk1l?=
- =?utf-8?B?OVIxUU5jN0w0UUx6d1czNkJrd3duY3l3RGdTMUJWSFpMRTRyNFF4ampRWFRQ?=
- =?utf-8?B?QnhEY000TExpOFZEZ3FLb0VUcmttQUl0bzROWDUxVENhb3RqdEtRajVpcm5k?=
- =?utf-8?B?WkZBUDVEMjZzcWUwY25HQStPaURyRlJ6d09QRjcrcWZoSFN2c1dXb2N4UWpi?=
- =?utf-8?B?NTdmN0pFVnlFcEUvMlNsRHovbkpCbEx1MUNQam5NTHhZWU1lM0MvL2RsNkUr?=
- =?utf-8?B?dGlVaklQL2lwRXFnYTNhekIzVFA4SzZpNGN6L3dqOGl2clltaHptZ1NnN1ZS?=
- =?utf-8?B?YS9SZGJOV2diSzhJcVRjbE1pVWNEdDhqQngvK3RWbTgrVC9iZlB5SFdicE9x?=
- =?utf-8?B?bUo3YVlhMTVEWmFMS29WWEtnaGZ4Y1JUMGU0NDVyRFhXM3ZTRFNkN2hCaGI0?=
- =?utf-8?B?OHVsU01wbnUzYW0xdGovNjNuNTRRa0wrTzVnN2tjK1NXWFBDaUhpUT09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1f272f27-5956-45fe-68b4-08de8ff97d49
-X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 14:18:04.5551
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: A/9ttGVpoxDGKgU6NRg2HY0gGDlRZsjtjgKPwUac6j8HpTBErW+2HMoG57Vz/LXTvb3ynXN/OuiTsGahuduMRQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO9P265MB7843
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_151808_974250_7D02AB21 
-X-CRM114-Status: GOOD (  17.18  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/7] dt-bindings: soc: samsung: exynos-pmu: deprecate
+ google,pmu-intr-gen-syscon
+To: Alexey Klimov <alexey.klimov@linaro.org>,
+ Sam Protsenko <semen.protsenko@linaro.org>,
+ linux-samsung-soc@vger.kernel.org, Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260401-exynos850-cpuhotplug-v2-0-c5a760a3e259@linaro.org>
+ <20260401-exynos850-cpuhotplug-v2-3-c5a760a3e259@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260401-exynos850-cpuhotplug-v2-3-c5a760a3e259@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,79 +121,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Apr 1, 2026 at 12:45 PM BST, Miguel Ojeda wrote:
-> `feature(extract_if)` was stabilized in Rust 1.87.0 [1].
->
-> Thus update the comment to reflect that.
->
-> Alternatively, we could use it unstably already.
->
-> Link: https://github.com/rust-lang/rust/pull/137109 [1]
-> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
+On 01/04/2026 06:51, Alexey Klimov wrote:
+> The generic property samsung,pmu-intr-gen-syscon should be used
+> by default for Samsung Exynos PMU hardware blocks. Update binding
+> document to add deprecated flag for google,pmu-intr-gen-syscon
+> property.
+> While at this, also add dependency to not allow usage of both
+> above mentioned properties in the same time.
+> 
+> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
 > ---
->  rust/macros/kunit.rs | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/rust/macros/kunit.rs b/rust/macros/kunit.rs
-> index 6be880d634e2..6f6d746b8dbb 100644
-> --- a/rust/macros/kunit.rs
-> +++ b/rust/macros/kunit.rs
-> @@ -87,7 +87,7 @@ pub(crate) fn kunit_tests(test_suite: Ident, mut module=
-: ItemMod) -> Result<Toke
->              continue;
->          };
-> =20
-> -        // TODO: Replace below with `extract_if` when MSRV is bumped abo=
-ve 1.85.
-> +        // TODO: Replace with `extract_if` when MSRV is >=3D 1.87.0.
->          let before_len =3D f.attrs.len();
->          f.attrs.retain(|attr| !attr.path().is_ident("test"));
->          if f.attrs.len() =3D=3D before_len {
+>  Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
 
-When I write the comment the intention is to enable the unstable feature an=
-d
-switch.
+This should be squashed. Otherwise you add incorrect code - duplicated
+property - which only later you adjust/correct.
 
-Best,
-Gary
-
-diff --git a/rust/macros/kunit.rs b/rust/macros/kunit.rs
-index 6be880d634e2..ae20ed6768f1 100644
---- a/rust/macros/kunit.rs
-+++ b/rust/macros/kunit.rs
-@@ -87,10 +87,11 @@ pub(crate) fn kunit_tests(test_suite: Ident, mut module=
-: ItemMod) -> Result<Toke
-             continue;
-         };
-=20
--        // TODO: Replace below with `extract_if` when MSRV is bumped above=
- 1.85.
--        let before_len =3D f.attrs.len();
--        f.attrs.retain(|attr| !attr.path().is_ident("test"));
--        if f.attrs.len() =3D=3D before_len {
-+        if f.attrs
-+            .extract_if(.., |attr| attr.path().is_ident("test"))
-+            .count()
-+            =3D=3D 0
-+        {
-             processed_items.push(Item::Fn(f));
-             continue;
-         }
-diff --git a/rust/macros/lib.rs b/rust/macros/lib.rs
-index 0c36194d9971..2cfd59e0f9e7 100644
---- a/rust/macros/lib.rs
-+++ b/rust/macros/lib.rs
-@@ -6,6 +6,9 @@
- // and thus add a dependency on `include/config/RUSTC_VERSION_TEXT`, which=
- is
- // touched by Kconfig when the version string from the compiler changes.
-=20
-+// Stable since Rust 1.87.0.
-+#![feature(extract_if)]
-+//
- // Stable since Rust 1.88.0 under a different name, `proc_macro_span_file`=
-,
- // which was added in Rust 1.88.0. This is why `cfg_attr` is used here, i.=
-e.
- // to avoid depending on the full `proc_macro_span` on Rust >=3D 1.88.0.
+Best regards,
+Krzysztof
 
