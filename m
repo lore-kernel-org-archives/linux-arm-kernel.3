@@ -4,91 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6D6F10F931A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 03:01:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81EADFF4937
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 03:18:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pAhQRpBpSmCBJe7SZDFc/utVWYKkz+s/X4+iBM+yncU=; b=x4VuRFcSf7+k1JZSmyT1q58GOV
-	wIKok+VY9MIsKpBqq9qQ28bcff4FTehkw+PZy5dEOCKOWnoUeR3NAUXFOWf8dSTtNCA0eTygJ+yFS
-	4qp8JBMTvqHGKyfbZub7crKbAdAiDJb8NbqxFHFftsGngLKU+UiXmdWFt1tUj4W7bW/b07hhvjhhu
-	sw1fVhiH1n0MbUBJAc1r4VmY+CTQCNts6vWiEn+PAHF6NiJAXn0mm1KjdA/RGshlos7RpdqwL1ZBc
-	OOg/IW4ROQHt6eSc4iT+w47Bt0XTde7F/wKAUe96p19yC4HjgA3uIBhZkJuntvuEIXNWvGUu7MQ1C
-	J+Avj+hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pTv29Vnp2mYwxve5owJHC/KKzZqLuMvjhSdKDQpyHms=; b=QU+dOctYJzy7hw9qR8wclcAnof
+	nWr6F+TmElDYVO5YFgR2jrBkSQkwuaHnfOZfpAN2ixQBg9FWnO+PEs0Q0CLHQsPmCE3Mx0w/uz3/n
+	CIMhlrKtROuaCy72PLexGvIAADStP1R5cE+lkH+nax9osQHgCsqPvHqiM76wzR3kwP8nIXRloEzHH
+	mm3GUiuhIhF0p/5QCas+CwN5cV8Hp7iOKIbaKpsOrwOMa4f+e8DvnZ3Jq2dCeFl92MapobDOuyz/E
+	w+frwsR2IONVuHina8VysqtA+eCTnobgsNe31haOIXymZaJDG525HPK5dlC0USuGejUKehq8hir4p
+	uwGtnKkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7lpm-0000000DsMc-18Ph;
-	Wed, 01 Apr 2026 03:01:34 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7lpk-0000000DsMC-2O3K
+	id 1w7m61-0000000Dszy-3EKC;
+	Wed, 01 Apr 2026 03:18:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7m5z-0000000Dszb-0DkX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 03:01:33 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4887fd35e60so7084215e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Mar 2026 20:01:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1775012490; x=1775617290; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pAhQRpBpSmCBJe7SZDFc/utVWYKkz+s/X4+iBM+yncU=;
-        b=AoJngaVER8/biIPe6XkwtDCQvd0UxhW3FXjNDhQ+kpbk6eomuGpspMMDzd+MHtYTgA
-         HM44lKuotKr3rTyt2OcTrca37K6Q9FRYdaOq5pSpgOoVcQfpHlE/xsx0ntoLqsxJyE/P
-         gSJvT5fZhSFScyEUxVG/O4gC6obF74SZCdCBTMkSq3M5DVO9t0DtlpHagTBwtdT6iogN
-         OCD1d2cmyHu4YXzoge1xi+TmsODjDWd3fC2dZhpx7+Y7wX51qGqlo1uQMDJr/eOP1PJN
-         z80d9BVHAnNJow4fE3P1hpZZvgtw1ZOuswp+Vsjjy8UrL+TFpXnsN33kQYju+cqlHap4
-         9fbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775012490; x=1775617290;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pAhQRpBpSmCBJe7SZDFc/utVWYKkz+s/X4+iBM+yncU=;
-        b=XVBPK+M6Mrl8u8VabzVL/flNJqWGOd3NG1K52AW+gnmDe0aycKEjSgLyoqfrjhDTb4
-         IK4fgYLlNk5eqjjBipDuuxrhawaAmVZxJqwSH5LUy8Y7EF+wZhB1px15zHf1V17KFMYI
-         e5uH14GkMYXMhDxYoS9fPWKBEr0ZzImn/xc5r2+2QEa7Pe3ZiCYetqfM+ddjBTJE6drL
-         X6nmx64Gua2CL5jSlMruRQc14FzRgmq46X+0LieuuM3ALdFM7hTZKxl6k0V2keZxvsta
-         omFdTEtgFipGXl57oSlacWHIcXQnyIr4wEKxK6yxobaBx9IP4Z+SgjN8rCXKHg9oIv4E
-         Y5tw==
-X-Forwarded-Encrypted: i=1; AJvYcCUcssgn/glVqj7v8rPQAOPfMFdaBF4TzSjVkFdEVJHfdjlFJaTya9DdzcOci2RnTpgScyLsjypJZmPdh2HYB7uN@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUhnYzleAIWLWO96ddMwEbFYRAgF6ufRmg6pQg1oJ/IzPg55TR
-	a2mVttYN+M0JftJgwAWmWfH5WA/DBp4MX7OVOTsJMPsRU85ygW88dH9haZrOfo+oxQ==
-X-Gm-Gg: ATEYQzwHM+VHVqXpLJ/q0UjuQoEOm8jHVplfThaA27iW1WuUJmBLBG8cd5SBmd4UFk9
-	HvsKD6ZdpbQ/Rc/+2mjPsLp2b2a9cQTyHrzLXD2jwGt5elvlS5AXFUg7CepGmJgZuysLwo1oz4i
-	EPshU2eLGUjUYFoc+rPTEIkYwNr6EpVeuoWwnE7uYTZkpQGOyNCll8qdZfmT4wYX8Jaiee8H8iM
-	+/qXtobvTwkWRez4gmoCNPO04QtGb7xpVIQdP1AK86RMmNB7xum/BlYmf9Hw7bslt71jaUWhyZp
-	hOBfUjQ332giP6OfEI3ZkuGwNI8JSXQJmwnJyooQFAMaOcNBp9imxvSznuLiIlQSUnmXWpLzOK1
-	QRy28fXYx/kyWVVad3Xde32tyKRW6DRtkCBkDZFAsvWECeI2FKIDmJpBgBhKucrkYvEBvNrBfOj
-	zR2GS/ytgIwRhTk5Xl0iAYu7nm7rlx7iXm9G0I/EtmVOB4MhhRdXMdeMdCyiJoKwPOu2vTRQpkk
-	/tJeg==
-X-Received: by 2002:a05:600c:c178:b0:486:f8e9:add5 with SMTP id 5b1f17b1804b1-48883591777mr27188255e9.19.1775012489318;
-        Tue, 31 Mar 2026 20:01:29 -0700 (PDT)
-Received: from google.com (198.115.140.34.bc.googleusercontent.com. [34.140.115.198])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4887e80140esm76029395e9.4.2026.03.31.20.01.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Mar 2026 20:01:28 -0700 (PDT)
-Date: Wed, 1 Apr 2026 04:01:25 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Quentin Perret <qperret@google.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kernel-team@android.com
-Subject: Re: [PATCH] KVM: arm64: pkvm: Rollback refcount on hyp share/unshare
- error
-Message-ID: <acyKhZL2di_QQ9xm@google.com>
-References: <20260324172757.2147153-1-vdonnefort@google.com>
- <acpCq1qZCMFqocs3@google.com>
+	Wed, 01 Apr 2026 03:18:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC0712E99;
+	Tue, 31 Mar 2026 20:18:11 -0700 (PDT)
+Received: from [10.164.18.48] (unknown [10.164.18.48])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9313C3F915;
+	Tue, 31 Mar 2026 20:18:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775013497; bh=ffCwt7tLZzRDrhNmFIilVOdNcywEiho2JhdBiZv7pXI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GRP1Cq94GtnROBZ9zfMNV5opZ7cwxhg70F8oVYaFLJq/c4KPnS/dnn7jRp2E1vjIH
+	 a3FEnk4RPX2Yr2BsdLpUZm9hEx7JOTWCwJCTPM9VfrCrNH9Ay09Cb63q05hw3QUeba
+	 1bxp6gCAzFJ7txvh8b+tpTY9E1pFqKQFSAgPRXoM=
+Message-ID: <ee8eaa98-fe0d-4c13-b441-f6e8ba1aac5f@arm.com>
+Date: Wed, 1 Apr 2026 08:48:11 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <acpCq1qZCMFqocs3@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 17/30] KVM: arm64: Replace fault_is_perm with a helper
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>,
+ Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <tabba@google.com>,
+ Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>
+References: <20260327113618.4051534-1-maz@kernel.org>
+ <20260327113618.4051534-18-maz@kernel.org>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20260327113618.4051534-18-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_200132_630442_C402C558 
-X-CRM114-Status: GOOD (  23.80  )
+X-CRM114-CacheID: sfid-20260331_201819_192991_AB85842D 
+X-CRM114-Status: GOOD (  21.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,82 +74,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 09:41:01AM +0000, Quentin Perret wrote:
-> Hey Vincent,
+On 27/03/26 5:06 PM, Marc Zyngier wrote:
+> Carrying a boolean to indicate that a given fault is a permission fault
+> is slightly odd, as this is a property of the fault itself, and we'd
+> better avoid duplicating state.
 > 
-> On Tuesday 24 Mar 2026 at 17:27:57 (+0000), Vincent Donnefort wrote:
-> > If one of the HVC __pkvm_host_share_hyp or __pkvm_host_unshare_hyp fails,
-> > rollback the refcount to ensure the hyp_shared_pfns tracking reflects
-> > the actual sharing status.
+> For this purpose, introduce a kvm_s2_fault_is_perm() predicate that
+> can take a fault descriptor as a parameter. fault_is_perm is therefore
+> dropped from kvm_s2_fault.
 > 
-> If any of these hypercalls fail I think we're still in trouble as
-> kvm_{un}share_hyp() work on multi-page ranges and we could leak pages in
-> a borked state if we fail halfway through. And failing any of these
-> hypercalls is also sign of a bigger problem somewhere else so I wasn't
-> too worried.
+> Tested-by: Fuad Tabba <tabba@google.com>
+> Reviewed-by: Fuad Tabba <tabba@google.com>
+> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
 
-Yes, my bad, I haven't made that clear in the commit message: a failed HVC
-right now is very much unlikely. I meant more to future proof and this isn't
-fixing an existing corner case. 
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
+>  arch/arm64/kvm/mmu.c | 17 ++++++++++-------
+>  1 file changed, 10 insertions(+), 7 deletions(-)
 > 
-> But if we're going to fix this properly, I'd suggest also improving the
-> error handling in kvm_share_hyp(). 'Fixing' kvm_unshare_hyp() is a bit
-> harder because we must tell the caller to leak the data structure that
-> was shared I presume, so maybe we just keep the WARN and cross our
-> fingers :)
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 09e32f08028e4..1e0d93d6d265a 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1711,8 +1711,6 @@ static short kvm_s2_resolve_vma_size(const struct kvm_s2_fault_desc *s2fd,
+>  }
+>  
+>  struct kvm_s2_fault {
+> -	bool fault_is_perm;
+> -
+>  	bool write_fault;
+>  	bool exec_fault;
+>  	bool writable;
+> @@ -1732,6 +1730,11 @@ struct kvm_s2_fault {
+>  	vm_flags_t vm_flags;
+>  };
+>  
+> +static bool kvm_s2_fault_is_perm(const struct kvm_s2_fault_desc *s2fd)
+> +{
+> +	return kvm_vcpu_trap_is_permission_fault(s2fd->vcpu);
+> +}
+> +
+>  static int kvm_s2_fault_get_vma_info(const struct kvm_s2_fault_desc *s2fd,
+>  				     struct kvm_s2_fault *fault)
+>  {
+> @@ -1888,7 +1891,7 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
+>  	if (s2fd->nested)
+>  		adjust_nested_exec_perms(kvm, s2fd->nested, &fault->prot);
+>  
+> -	if (!fault->fault_is_perm && !fault->s2_force_noncacheable && kvm_has_mte(kvm)) {
+> +	if (!kvm_s2_fault_is_perm(s2fd) && !fault->s2_force_noncacheable && kvm_has_mte(kvm)) {
+>  		/* Check the VMM hasn't introduced a new disallowed VMA */
+>  		if (!fault->mte_allowed)
+>  			return -EFAULT;
+> @@ -1905,6 +1908,7 @@ static phys_addr_t get_ipa(const struct kvm_s2_fault *fault)
+>  static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+>  			    struct kvm_s2_fault *fault, void *memcache)
+>  {
+> +	bool fault_is_perm = kvm_s2_fault_is_perm(s2fd);
+>  	struct kvm *kvm = s2fd->vcpu->kvm;
+>  	struct kvm_pgtable *pgt;
+>  	int ret;
+> @@ -1922,7 +1926,7 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+>  	 */
+>  	if (fault->vma_pagesize == PAGE_SIZE &&
+>  	    !(fault->force_pte || fault->s2_force_noncacheable)) {
+> -		if (fault->fault_is_perm && fault->fault_granule > PAGE_SIZE) {
+> +		if (fault_is_perm && fault->fault_granule > PAGE_SIZE) {
+>  			fault->vma_pagesize = fault->fault_granule;
+>  		} else {
+>  			fault->vma_pagesize = transparent_hugepage_adjust(kvm, s2fd->memslot,
+> @@ -1936,7 +1940,7 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+>  		}
+>  	}
+>  
+> -	if (!fault->fault_is_perm && !fault->s2_force_noncacheable && kvm_has_mte(kvm))
+> +	if (!fault_is_perm && !fault->s2_force_noncacheable && kvm_has_mte(kvm))
+>  		sanitise_mte_tags(kvm, fault->pfn, fault->vma_pagesize);
+>  
+>  	/*
+> @@ -1944,7 +1948,7 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+>  	 * permissions only if fault->vma_pagesize equals fault->fault_granule. Otherwise,
+>  	 * kvm_pgtable_stage2_map() should be called to change block size.
+>  	 */
+> -	if (fault->fault_is_perm && fault->vma_pagesize == fault->fault_granule) {
+> +	if (fault_is_perm && fault->vma_pagesize == fault->fault_granule) {
+>  		/*
+>  		 * Drop the SW bits in favour of those stored in the
+>  		 * PTE, which will be preserved.
+> @@ -1977,7 +1981,6 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+>  	bool write_fault = kvm_is_write_fault(s2fd->vcpu);
+>  	bool logging_active = memslot_is_logging(s2fd->memslot);
+>  	struct kvm_s2_fault fault = {
+> -		.fault_is_perm = perm_fault,
+>  		.logging_active = logging_active,
+>  		.force_pte = logging_active,
+>  		.prot = KVM_PGTABLE_PROT_R,
 
-ack
-
-> 
-> Cheers,
-> Quentin
-> 
-> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-> > 
-> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > index 17d64a1e11e5..0fb41d2c8b44 100644
-> > --- a/arch/arm64/kvm/mmu.c
-> > +++ b/arch/arm64/kvm/mmu.c
-> > @@ -493,11 +493,17 @@ static int share_pfn_hyp(u64 pfn)
-> >  		goto unlock;
-> >  	}
-> >  
-> > +	ret = kvm_call_hyp_nvhe(__pkvm_host_share_hyp, pfn);
-> > +	if (ret) {
-> > +		kfree(this);
-> > +		goto unlock;
-> > +	}
-> > +
-> >  	this->pfn = pfn;
-> >  	this->count = 1;
-> >  	rb_link_node(&this->node, parent, node);
-> >  	rb_insert_color(&this->node, &hyp_shared_pfns);
-> > -	ret = kvm_call_hyp_nvhe(__pkvm_host_share_hyp, pfn);
-> > +
-> >  unlock:
-> >  	mutex_unlock(&hyp_shared_pfns_lock);
-> >  
-> > @@ -521,9 +527,15 @@ static int unshare_pfn_hyp(u64 pfn)
-> >  	if (this->count)
-> >  		goto unlock;
-> >  
-> > +	ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_hyp, pfn);
-> > +	if (ret) {
-> > +		this->count++;
-> > +		goto unlock;
-> > +	}
-> > +
-> >  	rb_erase(&this->node, &hyp_shared_pfns);
-> >  	kfree(this);
-> > -	ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_hyp, pfn);
-> > +
-> >  unlock:
-> >  	mutex_unlock(&hyp_shared_pfns_lock);
-> >  
-> > 
-> > base-commit: c369299895a591d96745d6492d4888259b004a9e
-> > -- 
-> > 2.53.0.1018.g2bb0e51243-goog
-> > 
 
