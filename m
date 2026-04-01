@@ -4,90 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C5B4D3514B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 07:31:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 626B3D3514B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 07:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NlKK0mE0kByg4FpbHO0iG7V6Nu7sKdiTDFEF6LZav4E=; b=kPm4sGiYQzf/MsiZQAaymxP2uW
-	GAG1aOeN7oCwMQyDzetxZptpCNE6ZJ8zQYxpGw3ZZGXsSRieVC8XlkX65srBJYADHdnSNKfQHkLZi
-	pWcwKboK9++6MztdE2R7ntCgCBYQ7WkfT7C9tY7iZgw5QtHbQiQBeL5d5+U+SYoczJI0GUB0u61ME
-	GijX8pad0Gl2daGYfPkLHdjkEWCVYz87JciALRjFX1YfacFbC7sOvcvRynFAJ+42K6co3sIB6N5rl
-	5dInv8UeAYr7OSbEXTsAn1QLEzkPCl1A+XhQdvGa1Ox8hronBU2S5ZG8++BrJkKJC9v7V2ROsXfp1
-	NDHbbQ5Q==;
+	bh=i16X/VMBLM2HmH1EkKusbLWyKu5DYBLsRolq6C1/VZI=; b=vijZBCHugN5Q6U9Mmi1DnU2enc
+	X64oxB4NuRdwoc8+OCC8sv7HOH38o1SOk1GMlEZBV6IvU7mbE2EkSd/SjC0nFeZZZqSaCk52Ml3fz
+	e1e56alpZVvZEuZLPa/XRuqDzjSAlfQCrLyuJ+P2Gqwl8cU1jnYJKBDdExVaKESo0zgsk8oxl9P5P
+	jijUheL1KvI7GtsYi8TdHYEFTZDubh+FQhCnjdfTqpf573KSBRZ6PsqCO9nIs5QhDbuhUoSGI2Lcn
+	mejlPGA5P79Wolz7S2CYsuLPQAJzlC2r5DNOlcxwqEfgVzizwXJ2VmfVtBSx69ieM1l/lP7Kfjo3g
+	kYQoglPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7q3B-0000000EECp-2fAr;
-	Wed, 01 Apr 2026 07:31:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w7q3L-0000000EEG5-44cq;
+	Wed, 01 Apr 2026 07:31:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7q38-0000000EEB1-0k3D
+	id 1w7q3L-0000000EEFZ-0CDJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 07:31:40 +0000
+	Wed, 01 Apr 2026 07:31:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5128C40019
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Apr 2026 07:31:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18531C4CEF7
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Apr 2026 07:31:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E9AD0600C4;
+	Wed,  1 Apr 2026 07:31:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B974C19423;
+	Wed,  1 Apr 2026 07:31:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775028697;
-	bh=vZvf/vVpL0TiY5ZKgcWYM5rS1YoFp9IzxhJ2gXiagmE=;
+	s=k20201202; t=1775028709;
+	bh=IZ+lq6z/zre6b9tz3T6OUxgEWHImu6aX2Wtg9rskWfk=;
 	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=SYWV9S9JOPdd0lRec0HSUQlsyrtHtgjk9ef7Y/ilneC6WVni+PhPr030HUFgwjBNh
-	 rsfG1WtYG3ba6OmFqFTIo7ySCbJbH9sL6aCW8D4WK8VHAKv4XNN3ec/rmqoxqkmIUK
-	 yYDPsnJy0RzlceOoZfRW45UQxpVxRRgf+aNyct5T3RoJxqqCJJED80/Ak7iqS1HsHd
-	 YQ1qpyCj/+KUloYuxhfAW4UCxxNJiFDmO/pXFO2LsRU7+6KE8+riH5TxS4bAlE61OZ
-	 0h7ZP3C1DYhokVHrtDzcxqmUPPUQ24wxi+2taXd0qQPsRLzjNBsKJJuUSyyuFvfE6h
-	 HdkhncYE4RhaA==
+	b=UlUJKOsRldvU9XmGgo4G4xKaAeCvD+h6hEQ9jwYGt8/ewvbqTcQ2q9AiMCYkCqYK5
+	 +KJLSWWNprt8ry+D1z5mmyjP8+RQcM8LH2c7aN2e4DpfKAQMo+1gf4yQ1V98OpgRxr
+	 qHzZUwm88dj5806tiqSfgnBRDYMJETmPF1KoWzLS6b1b2PbDYdKObCnUrCkEKHXDz1
+	 wpK2850kxt3Aw0Tzf0HRvO9kBZadTlNcieS4ol1YlttXPS5Dz4DBgKh18QmYTOFbJe
+	 2uOMiIJ4kbAsKZIiW+NAoZX52X9YvYOj1pzVU/etfK0fnFZAGYgns939c5vE4u7/sK
+	 SY1/6GTJJkn0Q==
 Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 259D1F40068;
-	Wed,  1 Apr 2026 03:31:36 -0400 (EDT)
+	by mailfauth.phl.internal (Postfix) with ESMTP id 65A5FF40068;
+	Wed,  1 Apr 2026 03:31:48 -0400 (EDT)
 Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Wed, 01 Apr 2026 03:31:36 -0400
-X-ME-Sender: <xms:2MnMaaHm4T4QYRopeb_k0u-IP72s0FjMw8re_yTLtXQq5vF4en4ubw>
-    <xme:2MnMaWKsXtEwH49ab1VjovzsCSsh_fzhZ4_n1FvxJYmTWAbfaS3Y4zG5TyqmBcsgJ
-    u3yZfxEs990g1tgOvV11lPOXo8jwjyU2_aDGo1DS9Ev6uoiXTl3a-A>
+  by phl-compute-01.internal (MEProxy); Wed, 01 Apr 2026 03:31:48 -0400
+X-ME-Sender: <xms:5MnMaeKg8A1q61tCZsM8venvrnLAz-sbzqWepjRwBedys6pwX81JYg>
+    <xme:5MnMaQ9g5kfMHRttn6gGr7HTAlHIV0M5Qp0T-qvHNOH7AVPy695SPPm-3l_AhKdoN
+    9pj0xELjZ6HXJc3MrgUvX0d1Qfps-LMEg1iYn-3tTHS3VI8siRUow8>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddvheduucetufdoteggodetrfdotf
     fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
     lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
     epofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcuuehi
     vghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrghtth
     gvrhhnpedvueehiedtvedtleekuddutefgffdtleetfeetveejveejieehfefhjeeijeef
-    udenucevlhhushhtvghrufhiiigvpedunecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
+    udenucevlhhushhtvghrufhiiigvpedvnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
     guodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieejtdehtddtjeelqdef
     fedvudeigeduhedqrghruggspeepkhgvrhhnvghlrdhorhhgseifohhrkhhofhgrrhgurd
-    gtohhmpdhnsggprhgtphhtthhopeegpdhmohguvgepshhmthhpohhuthdprhgtphhtthho
-    pegvsghighhgvghrsheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrg
-    hrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthht
-    oheplhhinhhugidqtghrhihpthhosehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpth
-    htoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:2MnMabzlLuIOMdDHdnsjklbTZHXD0_RQEbTiNq8Q267ZF-wY43t-Jg>
-    <xmx:2MnMaaKf21xJI8X8a0i4PYRgx4ukZRjpUvVtpQLYv4ywyI9wyE1vVA>
-    <xmx:2MnMadoWWSNl-3NhLzvw-Z_zO0m7WiH9AsaoqQkd9SQy6IgeMUKDqg>
-    <xmx:2MnMaRLBD7oT2YPQoBFMhNFu0gnyT-E-ztvRpU-ZcCOYtqYNnQ0p2A>
-    <xmx:2MnMaaQd2S26f81LOu27D9Oc3j_AM9QP7RDgoWPyVlNKcCbERNk-SNVk>
+    gtohhmpdhnsggprhgtphhtthhopeeipdhmohguvgepshhmthhpohhuthdprhgtphhtthho
+    pehhvghrsggvrhhtsehgohhnughorhdrrghprghnrgdrohhrghdrrghupdhrtghpthhtoh
+    epvggsihhgghgvrhhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgr
+    rhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtth
+    hopehlihhnuhigqdgtrhihphhtohesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphht
+    thhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtph
+    htthhopehjrghsohhnseiigidvtgegrdgtohhm
+X-ME-Proxy: <xmx:5MnMaby4mtw-gACOFsUupxx4Pkwx1rFt_0YnBoUPOLjKwcjPoI4Hsg>
+    <xmx:5MnMadXvdpfwQXqSJAWR3u_Ug0hX1IzdZY3pKg5gAFlU937gkyqElw>
+    <xmx:5MnMaVPXU5v8oUnjZmyXXXM6pHTpbWiorTTciQiaQMef8iMKKrG9ZQ>
+    <xmx:5MnMaXA7FH-ZnmRw-7YZ8vU7vYQxglgEODEFaHgPASd74M7bJ7tHWQ>
+    <xmx:5MnMaaes0MfeYHxl76zBapdvrxOqz63mNr3G8aulUFUWgNP3Q8XJwVfg>
 Feedback-ID: ice86485a:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 0A850700065; Wed,  1 Apr 2026 03:31:36 -0400 (EDT)
+	id 48FA2700065; Wed,  1 Apr 2026 03:31:48 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-ThreadId: AYwEts-iKrmF
-Date: Wed, 01 Apr 2026 09:31:15 +0200
+X-ThreadId: AbuMglSPIfTN
+Date: Wed, 01 Apr 2026 09:31:28 +0200
 From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Eric Biggers" <ebiggers@kernel.org>, linux-kernel@vger.kernel.org
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Message-Id: <d44355c5-51fe-4d69-a347-a97f6ccb7d14@app.fastmail.com>
-In-Reply-To: <20260401004431.151432-1-ebiggers@kernel.org>
-References: <20260401004431.151432-1-ebiggers@kernel.org>
-Subject: Re: [PATCH] lib/crc: arm64: Assume a little-endian kernel
+To: "Eric Biggers" <ebiggers@kernel.org>, linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, "Jason A . Donenfeld" <Jason@zx2c4.com>,
+ "Herbert Xu" <herbert@gondor.apana.org.au>,
+ linux-arm-kernel@lists.infradead.org
+Message-Id: <dd3a1dbb-4426-49e4-899c-a9377ec0939d@app.fastmail.com>
+In-Reply-To: <20260401003331.144065-1-ebiggers@kernel.org>
+References: <20260401003331.144065-1-ebiggers@kernel.org>
+Subject: Re: [PATCH] lib/crypto: arm64: Assume a little-endian kernel
 Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_003138_270502_87FD16D4 
-X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,21 +105,26 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On Wed, 1 Apr 2026, at 02:44, Eric Biggers wrote:
+On Wed, 1 Apr 2026, at 02:33, Eric Biggers wrote:
 > Since support for big-endian arm64 kernels was removed, the CPU_LE()
 > macro now unconditionally emits the code it is passed, and the CPU_BE()
 > macro now unconditionally discards the code it is passed.
 >
-> Simplify the assembly code in lib/crc/arm64/ accordingly.
+> Simplify the assembly code in lib/crypto/arm64/ accordingly.
 >
 > Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 > ---
 >
-> This patch is targeting crc-next
+> This patch is targeting libcrypto-next
 >
->  lib/crc/arm64/crc-t10dif-core.S | 56 ++++++++++++++++-----------------
->  lib/crc/arm64/crc32-core.S      |  9 ++----
->  2 files changed, 30 insertions(+), 35 deletions(-)
+>  lib/crypto/arm64/aes-cipher-core.S  | 10 -------
+>  lib/crypto/arm64/chacha-neon-core.S | 16 -----------
+>  lib/crypto/arm64/ghash-neon-core.S  |  2 +-
+>  lib/crypto/arm64/sha1-ce-core.S     |  8 +++---
+>  lib/crypto/arm64/sha256-ce.S        | 41 +++++++++++++----------------
+>  lib/crypto/arm64/sha512-ce-core.S   | 16 +++++------
+>  lib/crypto/arm64/sm3-ce-core.S      |  8 +++---
+>  7 files changed, 36 insertions(+), 65 deletions(-)
 >
 
 Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
