@@ -4,71 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE86E10F6FDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 17:19:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8CD91076386
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 17:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ragPkrrOg+mHLs4WKUh1hkaNx7TsPhv/WcjyvHcNnBo=; b=uq0yo3wox/9wQZnguOUx2uchAY
-	+OWIZuBs8B4ev8Gcysi2pHcXsGHWHyZwVN9kCWXNO2g43znl61JUkKtuhcB7DLqeCwAxveTBMuTC2
-	NlK6fq+pNdJsoqPv6I5LkwSji4X5H5YJ+tR/5xs2kOEQcRJWoVMaL8Dk6siwCjU2DB9V+qyfQ/T0z
-	aPi43nwaTvGzdoRVHrsPaup/IgxqV24o67S6s6OUQ32buLBZXkEzvP0YX4dpRY8BqVgDTtjRt+T6v
-	DMSH+tNCL+zOHxoptcrrj+it9Ew9/VN0WNvswV0k1ypKZRijugLTLUrVa2HXaqfDAdB7nALk/vKq1
-	pKeyYu/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xRjgi7X8w6QRX0cUFldVO+VrLC3dS8dmIIbxga6CDgE=; b=Jqph6bDRyVjiFE/reHHB764tBF
+	0ZN58mFsla+bh9EGZAcoErzJtx+w9fq9QHiZ343FRKkundD60rQ4+jboBX5qvhh0h8+T4e5Fk2Q1R
+	0t22d5qWdLw/7AhgAySB0fP7P6xiXqEQTl6uHsGJodn4lD2Wr5Zlf9CHdIgY/KKjgVm/YfquDPQZa
+	0IsrMAGDG26IlZwe443XrUzUQ3zkbu07nScPNPc1Y2PzPmDP3une3UnCKNZYd+pI0QUE+JyRsptBR
+	a9MJ8eENeliVjG4C+666cAyl8z9C2IklXgJ2ItWy21Slq9AnldWtgo+ZRI0j/9uRH8UR1PybM+Dse
+	/elYgrLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7zEA-0000000FptD-0FST;
-	Wed, 01 Apr 2026 17:19:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w7zFT-0000000Fq2C-1lSl;
+	Wed, 01 Apr 2026 17:20:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7zE8-0000000Fpt1-39GY
+	id 1w7zFR-0000000Fq24-31bn
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 01 Apr 2026 17:20:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=xRjgi7X8w6QRX0cUFldVO+VrLC3dS8dmIIbxga6CDgE=; b=isgHHngOXDFNsg2Rq6xMQrKuBx
+	4P+IH07dnv8637nhd1WUMZE6M46wtdhQWV5JrmuSLMWJw4uItEYb65s/6TomQiFxw2woouxcA/FoH
+	DaIlWRyDBh3Z4uM0ZjvfDLbfwK9sx1iP2hVIcffMMu2809ViywrhyjexqT+6uuHEQU1eRok975Mpi
+	n1e1qeNcdcyKDEBUBDWEDOe8sZ398nhjCsp8AT2Dxgup9pC/fG4Dm0CyPTUniNB0nSQbYHh3mfabi
+	2kQhIeGJGmI0Z5kzwxzhi9jzu7huRQWz4FA+hKrlKRt6X7i4Z0uI2+Sb7xF04nYr3d9NRGX06pztX
+	xJkfJWDA==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7zFO-00000000zot-1Z5T
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 17:19:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B98D56013E;
-	Wed,  1 Apr 2026 17:19:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4386DC4CEF7;
-	Wed,  1 Apr 2026 17:19:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775063975;
-	bh=gZZ3am2l2BZrbiJy//1SPjpK35+k5Zv9qYgrBQJqKfk=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=rxc8VVB8Y2b8ArlnVIh0Ip6lECvk0z+d3G6zra5HxDQF70vpRvd7yvmotx6O9rHpq
-	 pcNoaW18ncjKuq6k+npNR9LOv/EywxO5Zlyvw+zc6PzBLQgMDCyMGmOiEZ2lHG6m9E
-	 0FhbmxNJkEzqtGXP/Ivxk/GIDzsgognu/+0ESERuCrYyGby0M1K8u+RwS4dclGDXeg
-	 ErhBoF307y0jZyTxMKG990fP38ZTsWW/GKVUAQiY3mTcTulXXHtWa2wy0xvcLCUaUa
-	 yDqsSEPVm1zn3z4pKJAygaZKelv0jVgy156NPjuE+Az248kAhCybA8kz+rmPEX2WhD
-	 4ZyvvcFrGBVsg==
-From: Mark Brown <broonie@kernel.org>
-To: lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, 
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
- festevam@gmail.com, Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
-Cc: linux-sound@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260401053051.586290-1-lihaoxiang@isrc.iscas.ac.cn>
-References: <20260401053051.586290-1-lihaoxiang@isrc.iscas.ac.cn>
-Subject: Re: [PATCH] ASoC: mxs-sgtl5000: disable MCLK on error paths of
- mxs_sgtl5000_probe()
-Message-Id: <177504863830.145704.3305961263269290101.b4-ty@b4>
-Date: Wed, 01 Apr 2026 14:03:58 +0100
+	Wed, 01 Apr 2026 17:20:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2F1132C7
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Apr 2026 10:20:46 -0700 (PDT)
+Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5BF273FAF5
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Apr 2026 10:20:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775064052; bh=jso9ol/BwsazpOhcwBaDQGk6Irh//4G6BIQJqtlE/t4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=T0AaxZgcHcloo6AoLwRZGmEHa/b4NXtbei2iQbdjioqYAreChqIbvDJ0U4rmknt0b
+	 3cTWXmpOF8enQBkl4xSkPXuZBRjTznnJTnKKxFtbThisxo1Upbep2LmM9NRaMyjmCW
+	 OUalBVLmXKMQxOV7KEWIrZqs6PNZhGWkrwEmYacY=
+Date: Wed, 1 Apr 2026 18:20:27 +0100
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: Guangliu Ding <guangliu.ding@nxp.com>
+Cc: "Daniel Baluta (OSS)" <daniel.baluta@oss.nxp.com>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Boris Brezillon <boris.brezillon@collabora.com>,
+	Steven Price <steven.price@arm.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Jiyu Yang <jiyu.yang@nxp.com>
+Subject: Re: Re: Re: Re: [PATCH 1/2] dt-bindings: gpu: mali-valhall-csf:
+ Document i.MX952 support
+Message-ID: <ac1T282yvpdAp_TP@e142607>
+References: <20260331-master-v1-0-65c8e318d462@nxp.com>
+ <20260331-master-v1-1-65c8e318d462@nxp.com>
+ <acva1Xt8V4k9-uG8@e142607>
+ <AM0PR04MB47073E9E8B5C704BCF5D9F72F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+ <99a1da55-d6e5-4d11-abaa-8c85283ab5f2@oss.nxp.com>
+ <AM0PR04MB4707B3E37DFE7AEE587DBA2AF350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+ <aczv0R0aQRmHKdvt@e142607>
+ <AM0PR04MB4707335CC7035232D44E6ED9F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+ <ac05OpEMjKMd8CXy@e142607>
+ <AM0PR04MB4707604AF2C445971C7474EFF350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16-dev-7777e
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1159; i=broonie@kernel.org;
- h=from:subject:message-id; bh=gZZ3am2l2BZrbiJy//1SPjpK35+k5Zv9qYgrBQJqKfk=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpzVOkBGbGoFLNrIZfgTyoGw/FNHf79QE2+b+ia
- PY0vB4V+yuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCac1TpAAKCRAk1otyXVSH
- 0PiMB/9gG2mtCNah85dcETfLIead592r338DaI7w8bdBS1zRFuo7pfDm5jNzx/33fSrOR9JCLHO
- 1DAVogc2cRmWiOTK76gvHSj/iuWK18b4dT5Dx0wSgh136R+OPQKzWmdmK9qTbIjwwa1LnJbBuzM
- xjLow55F0ile4twIeWrw3MgCes0ECjfa8y3VHo1wYijIDjSToE+ThtyF8JNOVhttFOzqsVYL+R3
- CQvorE04EgvEdBZL4BlzaYHFfap2byflbmBFTvQe1/p3kfx72S0bKAUq/fzAA+hUyKCS2J4ByzD
- uj1iQFOobXaCd9R9/tgtTRyU+6JjdKIjVcfz58vxjdpgkFor
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <AM0PR04MB4707604AF2C445971C7474EFF350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260401_182054_747959_5534CCB5 
+X-CRM114-Status: GOOD (  54.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,35 +113,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 01 Apr 2026 13:30:51 +0800, Haoxiang Li wrote:
-> ASoC: mxs-sgtl5000: disable MCLK on error paths of mxs_sgtl5000_probe()
+On Wed, Apr 01, 2026 at 03:59:23PM +0000, Guangliu Ding wrote:
+> Hi Liviu
+> 
+> > On Wed, Apr 01, 2026 at 10:31:01AM +0000, Guangliu Ding wrote:
+> > > Hi Liviu
+> > >
+> > > > On Wed, Apr 01, 2026 at 09:43:12AM +0000, Guangliu Ding wrote:
+> > > > > Hi Daniel
+> > > > >
+> > > > > > On 4/1/26 11:48, Guangliu Ding wrote:
+> > > > > > > [You don't often get email from guangliu.ding@nxp.com. Learn
+> > > > > > > why this is important at
+> > > > > > > https://aka.ms/LearnAboutSenderIdentification
+> > > > > > > ]
+> > > > > > >
+> > > > > > > Hi Liviu
+> > > > > > >
+> > > > > > > Thanks for your review. Please refer to my comments below:
+> > > > > > >
+> > > > > > >> On Tue, Mar 31, 2026 at 06:12:38PM +0800, Guangliu Ding wrote:
+> > > > > > >>> Add compatible string of Mali G310 GPU on i.MX952 board.
+> > > > > > >>>
+> > > > > > >>> Signed-off-by: Guangliu Ding <guangliu.ding@nxp.com>
+> > > > > > >>> Reviewed-by: Jiyu Yang <jiyu.yang@nxp.com>
+> > > > > > >>> ---
+> > > > > > >>>
+> > > > > > >>> Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.y
+> > > > > > >>> aml
+> > > > > > >>> | 1
+> > > > > > >>> +
+> > > > > > >>>  1 file changed, 1 insertion(+)
+> > > > > > >>>
+> > > > > > >>> diff --git
+> > > > > > >>> a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf
+> > > > > > >>> .yam
+> > > > > > >>> l
+> > > > > > >> b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.
+> > > > > > >> yaml
+> > > > > > >>> index 8eccd4338a2b..6a10843a26e2 100644
+> > > > > > >>> ---
+> > > > > > >>> a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf
+> > > > > > >>> .yam
+> > > > > > >>> l
+> > > > > > >>> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall
+> > > > > > >>> +++ -csf
+> > > > > > >>> +++ .yam
+> > > > > > >>> +++ l
+> > > > > > >>> @@ -20,6 +20,7 @@ properties:
+> > > > > > >>>            - enum:
+> > > > > > >>>                - mediatek,mt8196-mali
+> > > > > > >>>                - nxp,imx95-mali            # G310
+> > > > > > >>> +              - nxp,imx952-mali           # G310
+> > > > > > >> Can you explain why this is needed? Can it not be covered by
+> > > > > > >> the existing compatible?
+> > > > > > > There are functional differences in GPU module (GPUMIX)
+> > > > > > > between
+> > > > > > > i.MX95 and i.MX952. So they cannot be fully covered by a
+> > > > > > > single existing
+> > > > compatible.
+> > > > > > > On i.MX952, The GPU clock is controlled by hardware GPU auto
+> > > > > > > clock-gating mechanism, while the GPU clock is managed
+> > > > > > > explicitly by the
+> > > > > > driver on i.MX95.
+> > > > > > > Because of these behavioral differences, separate compatible
+> > > > > > > strings "nxp,imx95-mali" and "nxp,imx952-mali" are needed to
+> > > > > > > allow the driver to handle the two variants independently and
+> > > > > > > to keep room for future
+> > > > > > divergence.
+> > > > > >
+> > > > > >
+> > > > > > This information should be added in the commit message
+> > > > > > explaining why
+> > > > > >
+> > > > > > the change is needed.
+> > > > > >
+> > > > > >
+> > > > > > But then where is the driver code taking care of these diferences?
+> > > > > >
+> > > > >
+> > > > > Yes. Currently the driver does not require "nxp,imx952-mali" string.
+> > > > > However, when GPU ipa_counters are enabled to calculate the GPU
+> > > > > busy_time/idle_time for GPU DVFS feature, they will conflict with
+> > > > > the hardware GPU auto clock‑gating mechanism, causing GPU clock to
+> > > > > remain
+> > > > always on.
+> > > > > In such cases, ipa_counters need to be disabled so that the GPU
+> > > > > auto clock‑gating mechanism can operate normally, using
+> > "nxp,imx952-mali"
+> > > > string.
+> > > >
+> > > > OK, I understand that you're following guidance from some other
+> > > > senior people on how to upstream patches so you've tried to create
+> > > > the smallest patchset to ensure that it gets reviewed and accepted,
+> > > > but in this case we need to see the other patches as well to decide
+> > > > if your approach is the right one and we do need a separate compatible
+> > string.
+> > > >
+> > > > If enabling GPU ipa_counters causes the clocks to get stuck active,
+> > > > that feels like a hardware bug, so figuring out how to handle that
+> > > > is more important than adding a compatible string.
+> > > >
+> > > > Either add the patch(es) that use the compatible to this series in
+> > > > v2, or put a comment in the commit message on where we can see the
+> > driver changes.
+> > > >
+> > >
+> > > According to discussions with the GPU vendor, this is a hardware
+> > > limitation of Mali-G310 rather than a hardware bug, and it has been
+> > > addressed in newer Mali GPU families.
+> > 
+> > I represent the said GPU vendor and I think I know what you're talking about,
+> > but you're taking the wrong approach. All G310s have a problem where in
+> > order to enable access to the ipa_counters the automatic clock gating gets
+> > disabled. So the solution that needs to be implemented when we add support
+> > for IPA_COUNTERs will apply to all GPUs, not just MX952.
+> 
+> Yes. We have bring-up G310 (V2) GPU on both i.MX95 and i.MX952. And auto clock 
+> gating mechanism is firstly introduced in i.MX952 (not supported on i.MX95).
+> According to your update, solution needs to be implemented to all GPUs which support 
+> auto clock gating mechanism after IPA_COUNTERs are supported in the driver, right?
 
-Applied to
+A solution is needed, yes.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.1
+> What's your suggestions for 952 gpu dtb node?
 
-Thanks!
+There is no IPA_COUNTER use in Panthor at the moment. Unless your DVFS controller uses
+that, I would suggest that we don't introduce a compatible for 952 until the time we
+add support for reading the counters.
 
-[1/1] ASoC: mxs-sgtl5000: disable MCLK on error paths of mxs_sgtl5000_probe()
-      https://git.kernel.org/broonie/sound/c/c8ef13d692f1
+It helps if you think in terms of what is already in upstream, rather than mixing with
+the tests that uses kbase code. Does your hardware need extra code in upstream in order
+to function? If so, where is that code? If not, then let's not introduce the compatible
+until we are absolutely sure we need it because we have code specific to that SoC. For
+everything else we will implement an architecture fix if needed.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+Best regards,
+Liviu
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+-- 
+====================
+| I would like to |
+| fix the world,  |
+| but they're not |
+| giving me the   |
+ \ source code!  /
+  ---------------
+    ¯\_(ツ)_/¯
 
