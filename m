@@ -4,150 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02521D35175
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 10:55:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE413D35173
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 10:55:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XWDClyu3F4h/MmxH6W5dAq9CKeXmVZtCO9GbkSYOTUY=; b=NGv6SD6sNw0HRGKKMN5mBYV2LX
-	J2Ghj/Pv33TUhLAocx8JKoHVOhe3aBO8q753RSutDqa5wdTPZmE/Ew6zy3WMGLpyS9t8253oAf1wy
-	SS8wTpxVN7+09R2Rz6e51AtnQHOaWT1fvR20OQiNrW7V0jZ637974CJH7jwkh0v5NILLNMT23cQsD
-	sS+MtlhNl8I/+uBDhqMik34gfzTMaGI0WU1ZYDZX8VWHbfPIczhHETL7+/+MzIY7hP/OLQNmcHn8O
-	O66LhVmwrO6x0WFQOB5150JzmVs/cRllK4iVUtftOORpeMOUfa/ZmJn+ivcCAs5SCR+CWLOyMEHJH
-	UvE8s6sA==;
+	bh=IW0PASnMVAjlBLEguxjOPUC3IAQErNlq4jA16yKJ0mU=; b=qBe13P427Vsq1BUZyPafWVnQo1
+	OSq2qTAQhJIBTj3EfMdMvmLNip7+7l4bOqZDFQD3PCOOnzY8/wV3UghKWd7XfDN0QILUfe0Tlm1Ec
+	FMWZqBIe2LHqoWtANk5zVh3KreArJQXzWRcRqhaZyxNQ9dKYt+13KRhu0M4egZHqCqjUDLGOvu4vS
+	vHXaHL24Abce5C9vhDHwWCks7oyL7hMBrQ7pt2c7MfJ37t9erx9+V4CRIJnPNygA9wL1mJSrM8x4U
+	MNpYi+bKs3+DHumwiaRQUoeBMpCAEF4OiJxZvvJ9YNl3e6tlxVFMKrG/VPEhFL9GWJVMbZT3HfxoJ
+	OuEszCog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tE9-0000000EYvU-3Cur;
-	Wed, 01 Apr 2026 10:55:13 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tE7-0000000EYt2-2mWd
+	id 1w7tER-0000000EZ8M-2wDo;
+	Wed, 01 Apr 2026 10:55:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7tEO-0000000EZ69-3gmZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 10:55:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ab1/d+/ney8gKqM8lqloEwl2+hkJnBXGAbMrgOVoOYhksZ4HhomSgGRTH5hlHCnhePwXeurmREnq15MlOP4HKRKAv+I/2/DUPWHIBBW6CUL4WN23bLiMqmPBHiIfbZoFTdog6A4nEPyX/Zj3u/irktqDgP/CCXFyhJcU7lvqI/W5TWZG+6wBodx38xI+YARkt6RpLIF4cho1480DiSdz58Od7shwiTrZPONzbxGzoXEui1xJS0k8m22DXqXl5QP+t/E+/rlzrDkHyBy7YkjKwzGeb0742c2qZwtbbVWMW0R4O6tW5TawF1Pla95Oai4qq7sNd7FFdX8uLUNaGQ1mgQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XWDClyu3F4h/MmxH6W5dAq9CKeXmVZtCO9GbkSYOTUY=;
- b=WcxysJfDnjNH/LmUFePqVpqpXEdIjnxGVFKeLpDZuYsQU0Jbs/RgNLTQ9C+2EE88lgm3gsMb+LS8BPd7cpeVteil06ZUPldWqZNn7eJSeIynrWTQfy3EVIpOjieL9zHwKtpM0uTGrneN+bVv+hkoUfxy0xbGD6M1ztVdL02gBSX8zT748JN6G+fcfWL0/yurTW2yiggLkjYQGKqlFgn2s2oITN8QUSFb9rMEFId1UKXBQn4c/VJpqznbUYZwKl64tP9VcNWnrS3oMu/5UlGZ4O2thWAA1EuY7Nu0C4MZlQsHSXH1rd93fCAdhrv+3JVg9MZgu/C+JuQWnrClq4PZMw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XWDClyu3F4h/MmxH6W5dAq9CKeXmVZtCO9GbkSYOTUY=;
- b=j4yMFQ4282bnl80+fo+72IVEiqANLclV7ts+DPRc4ra/nYna8P7FXxzlPQkYDlA57iEHinIXubsSbUJMsA6tw3IzmVcgFIWrb7DJOMEAJSyrDraKV8yMxLtPiZ62wl0rsF0hXZR7l3dCQ3JmMik3un4q0fwCwKRu36gF0mcSTNgSjYfOhDKzqW/TfaCPFwTEEtztgNg6iDJuiP5BCQD8DlM9mdsEWqMx+G8TnTadlssprLRqGnAPlYNikV0ytyVyfZ2ketkstvQppY8ZnvzQP8K9q0GLXwQ7bQdbQ/SgPHb1eK+X8j01DGy7mE4cEitmDJ8VXDyGlIatsr/1tJFWEA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
- by AM9PR04MB8972.eurprd04.prod.outlook.com (2603:10a6:20b:40b::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
- 2026 10:55:07 +0000
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9769.016; Wed, 1 Apr 2026
- 10:55:06 +0000
-Message-ID: <bfaab7b4-9e0f-49a5-b1e4-6b5cfed8e069@oss.nxp.com>
-Date: Wed, 1 Apr 2026 13:58:09 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] Enable Mali G310 GPU support on i.MX952 board
-To: Guangliu Ding <guangliu.ding@nxp.com>,
- Daniel Almeida <daniel.almeida@collabora.com>,
- Alice Ryhl <aliceryhl@google.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20260401-master-v2-0-20d3fbcd19d6@nxp.com>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <20260401-master-v2-0-20d3fbcd19d6@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AM8P189CA0009.EURP189.PROD.OUTLOOK.COM
- (2603:10a6:20b:218::14) To GVXPR04MB12316.eurprd04.prod.outlook.com
- (2603:10a6:150:2c6::8)
+	Wed, 01 Apr 2026 10:55:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43486288E;
+	Wed,  1 Apr 2026 03:55:22 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8B90D3F915;
+	Wed,  1 Apr 2026 03:55:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775040928; bh=2UQIkCCHHnYMJL08xGfBrcE6awkfKjIUqvN58fjiAvQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TRSFkRwVSzNZv1EfCfPXSKYVmxX06QSVIiXB2oC0ctF9sgb4BPVkTz4/bL14wnBvP
+	 tl/+mjzRctRS3PPkAAMR8vWfJH17iSvGYZ9S6iCow39/5NMpdbDUSVX7JsWwj0Vlqi
+	 NDVqY+hrLmqDreFqsDGT4UNSUnA0+gRm1bAfF/Nk=
+Date: Wed, 1 Apr 2026 11:55:20 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: will@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name,
+	hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
+	borntraeger@linux.ibm.com, svens@linux.ibm.com, oleg@redhat.com,
+	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, hpa@zytor.com, arnd@arndb.de,
+	shuah@kernel.org, kevin.brodsky@arm.com, yeoreum.yun@arm.com,
+	anshuman.khandual@arm.com, thuth@redhat.com, ryan.roberts@arm.com,
+	mark.rutland@arm.com, song@kernel.org, ziyao@disroot.org,
+	linusw@kernel.org, schuster.simon@siemens-energy.com,
+	jremus@linux.ibm.com, akpm@linux-foundation.org,
+	mathieu.desnoyers@efficios.com, kmal@cock.li, dvyukov@google.com,
+	reddybalavignesh9979@gmail.com, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-s390@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v14 3/4] arm64: Use generic TIF bits for common thread
+ flags
+Message-ID: <acz5mOrm6_E1UBwV@arm.com>
+References: <20260320104222.1381274-1-ruanjinjie@huawei.com>
+ <20260320104222.1381274-4-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|AM9PR04MB8972:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6744c99c-56e2-4b99-3484-08de8fdd22aa
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|19092799006|921020|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: YRziH3gUln1320tJaLa0hVW6PeKSJzHRo+QEiIVflbowVt5YSHJy5PiOQfTDkmSun1a3VAMUGamtTlz8wB/NPXNdzXKg9si6VS/At9hLzwEfLOZ1Y1g72E+YmqxghcejQAAB2d0mI4H5GiXjLQe5Vs3v+dG5wZaAH1MQ8XAxF7HRbogVXe7kE2OELBaGFCgTPUwJECwHQoa0O/evL+XwqR8EGilZvOAbOl2kdRmpqTvpPVu6B6kzThxNq4HojWxDKN71r6ixLVdk/q3BBfU4OILSIuQYet/o5ZA5IzsNs8Ey2vZFHq4gzmKY7/5RHMtVKET0Cfupttcx7drcUahjyYQkLdiYaCR/CsoclpMq7TIBnhBhyzFOpUjE5/kSe+seBJjcV1e0Q30e7GJz7KXJfA9xaWu7ijtCco86w7NC9XJ6YLRypxaySW8BNtxIk/+CIQRpkWSe4QAdYu+vCUzPvH08QQ9QdRNanOYG7alh2k/m3o92eIUlsmjeLIQ9iOraf3qJeGmvvwlynEKHPdKgxjuiB5ev7xtiZ6fjGPDhlpXYZImRScqqjhB8PVC65SqRlxWsEY8jHUe/CbuxMjGBM+gN8W5YlHURiUA/1hfWAK1VepXaF6H0mdjbJ7AX5TAgi6Qdc8LUIILZcfCeV87ijCG2v0Pja1UNAQHYCIN3Ywnj+biS9uL5lgr7X33T3tQ/BRQcQR0451eG6Fg2yq1GyxYwMAg9bA0W915KcH7PcAgWWleSu6QNBzSL7X07HxP6+2LGgpz62j6+LVfWGi96TQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(19092799006)(921020)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bjB4TXlkNTNPTmRFVFRlSGs2RTBNWTh4MFpNTFBwMUdKZ0tkQ2tLbkJlNUZ2?=
- =?utf-8?B?K3B1NnNBcE92RjFMbEU5YW45eUdoYXJsdXg0Tkp6U2hadTVtb1RRR0JpQkJy?=
- =?utf-8?B?U0txdHpja2NtbnM1cUZxeExiN3loc1RuNC9zR1pmUm9MazhrVEdJVkN3bjBO?=
- =?utf-8?B?OHBab3l2ZVNZNmhQUlZ2aTdkRlpqNGtWSU1rZmIwUEVqY01HTHExTzRtN1Mv?=
- =?utf-8?B?ZlQwVEM5cnNNenpyeTRtTW1mRTZGNmtxSS9tOXNOeFNLTGc3ZTFPbklmMUtM?=
- =?utf-8?B?MGR5RFpxYnd6ODNQRldxamlBOXNoQ0FsbmxNUUpzeFZ4QmRMNm1vS296aCt6?=
- =?utf-8?B?L004RWZJM0JpWW5xbXpVSWlLdEZjNW1UQkNRcGtrMXBRQWNZMUx3SEdMaTFh?=
- =?utf-8?B?bWVvdmVqZ2JSNXJBV3hhQ0VhRjU2NHM4WHpGTWpTNlJLdVJOWTRRN05UM2Jx?=
- =?utf-8?B?Y2ljdVFMc1JZOFd0MWhaMXl2dFpWMksxVFZrMHJZYWRLMlI1U3MrV2cxWGFt?=
- =?utf-8?B?MFpld3QrQVpIbzU2UHkwTVlnbHM5VDlvS3dTTG5nd0hWbUpzcVFjVUUyYVd1?=
- =?utf-8?B?cWg5c0kyM3VlbE41K05jQ2NwQlB4dGFCTGh5aTVzekJZanBsWHNBTG9ucXVT?=
- =?utf-8?B?Qm1lTHBleVZNUHNXaEEvUTlpa0UvNERMMUZHemdiNWdvRmF2ajlkZkFOWG9D?=
- =?utf-8?B?a1RoK01pbUJBbTl1RTVZb2t5UjA0bXRKS1VFMlNNaWQ5NURPWHFwa3RFREtU?=
- =?utf-8?B?VGo0YXBCc0YrYm9URVJSUlU3emF2TXI3VWdnSGhwZE9IaVZGbS9ITWY4MEI3?=
- =?utf-8?B?dGxzeWwrSGVMVmZTQjVsK1ZTR2J5aURPUDcrNUVOQnpOQm8wdlUyMDR1TVpJ?=
- =?utf-8?B?dnI1Z1BnU0x5ZUVDTUlvYllPRDE3SEJlMTh3SWJ5aEpIQWs2SVl3a0R3YjBO?=
- =?utf-8?B?VUplM2VWSnVjN0pDYk1vaWJBWEVNTnF6RTBjNDBDZWNlNVNaWmtCS3o4ZTVv?=
- =?utf-8?B?TlJMVDM3eGZsRTl1WGNQTEh0V0JFako3bkVVdWNVWjhvemNqM2ZGUlI5K3BQ?=
- =?utf-8?B?U3k2VEk0ZHdYS0JyUllTWjZYMHdMQVZTK1FrNGVUanBlbDA2Um42d2FPMER3?=
- =?utf-8?B?UnBEcnRxM2Z5cFBFQ2ZhN1Nsb081cEFDWVFreFUwWjBJMlVTUTFOZ3YzbU1E?=
- =?utf-8?B?ZFhQYXV5bmJRQWFpNit1KzkyQkpUNjU4VCtBUFZ2REtMcmhMYjl6TklxSWts?=
- =?utf-8?B?d0NFUDNGZDJYOHpDNGxSU210Snk0WlNnYnVQcS9lQlBqc0N6eHU1Ykg2SG5X?=
- =?utf-8?B?VHhiaTVaajdZLzBTdkJlOFpsQ2NkaG05b25rQW90VEhNMmM5b05GYlFSaUNE?=
- =?utf-8?B?c3JrVHJqUmYyL1ZNbkVqajlCOFp6dWJMclU0WnZVWUtJMDBDbTF4Z25Rd0dG?=
- =?utf-8?B?dXhnaFJOWTA0aFF5SFJ4aEUvYS9mbWFOV3RvWXRJTkdRaWd3YUs5YjRLRHM3?=
- =?utf-8?B?c0c5M2NlNk1VSXp2VkFLYmVob1FUZVpZMGZYWGxGZFM3U3U5Rk5wMnVsdWl1?=
- =?utf-8?B?T0I1bXpsOCtUeUJ0cy9KSlNmZEV3VG9nNys5R2ErVUJSTDVLSmpVbzNjM0Iv?=
- =?utf-8?B?RXNabVZSd2ZaQzRCRGx1Q0FBRklvenpEakZvQVA1UWJXYXhFL2tRcCtWSFVR?=
- =?utf-8?B?TzkvcDFtL3Q2U2VrUEpqRVZjMlRQT1JvNHhzZ1htVnpRZ0p5cWh4ZU1SNTRk?=
- =?utf-8?B?aDQyREZ1RnZRaCt5UXRqWWtaaXJtYUxHZGhsUnBJSHBjTSszaXBjZWhqWG5R?=
- =?utf-8?B?YlA2enZDZkd4aThvcGRiNmRQTDVZSkxRVzYvVE5iR1FzMzFpVGNFUERnKzdV?=
- =?utf-8?B?OVppanBYb0tVZGNpei91TDZNOUl4ajFUcU5uRWd5VzA1WjkvRzVTWURLUzRM?=
- =?utf-8?B?NnlLR3pNYS9ZK2w1dnhMS21xTHJMbU1MTndYbU5WUlRIMVZpQmwzeXlQUzBQ?=
- =?utf-8?B?R3IxV1dYb1NYOHhmM3ZGM1pqb0dsNzB2clI3ZDloK2R2eEllNXpPQWpyS2Za?=
- =?utf-8?B?N1lUVUhXTEV3REg4R1RvR3RRc1VPSUhiSG1OdWNoZERpOEZxYVUzd2FXM2tp?=
- =?utf-8?B?azkwWGZjMWduaXNOR0xIVHZRc2x5cjB6UkNOcHdtSVA3cHM0aWtOMWF6Q054?=
- =?utf-8?B?eDM3S25pb3o2cGFOMkFkelZmYnBUZFpEUmEzaENONUJIT3dYODVTMU1RWCtI?=
- =?utf-8?B?eGowUk52WWk1b0lQcncrSVJiZTJnczJWWHozcW5tMHJSZ1ArazBXNE5telJo?=
- =?utf-8?B?aEhramFUSENqa2E4WkcrUFJOV3Jya0JTaGZVa01yWnJnQ3dkR1dVQT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6744c99c-56e2-4b99-3484-08de8fdd22aa
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 10:55:06.7657
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7Mpelm2CGJNma+KoclF/K4ffX1q4hjw9SluM1PSsKxTCn4Ru0qupFggWecpYkb6C1UWnboEPwvPsTXtLqogzmw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8972
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260320104222.1381274-4-ruanjinjie@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_035511_733271_14E2FF06 
-X-CRM114-Status: UNSURE (   7.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260401_035528_966692_40B56DCE 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,16 +83,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/1/26 13:19, Guangliu Ding wrote:
-> This series enable Mali G310 GPU support on i.MX952 boards, the same GPU
-> IP as the instance on i.MX95 boards.
->
-> Signed-off-by: Guangliu Ding <guangliu.ding@nxp.com>
+On Fri, Mar 20, 2026 at 06:42:21PM +0800, Jinjie Ruan wrote:
+> Use the generic TIF bits defined in <asm-generic/thread_info_tif.h> for
+> standard thread flags (TIF_SIGPENDING, TIF_NEED_RESCHED, TIF_NOTIFY_RESUME,
+> TIF_RESTORE_SIGMASK, TIF_SINGLESTEP, etc.) instead of defining
+> them locally.
+> 
+> Arm64-specific bits (TIF_FOREIGN_FPSTATE, TIF_MTE_ASYNC_FAULT, TIF_SVE,
+> TIF_SSBD, etc.) are renumbered to start at bit 16 to avoid conflicts.
+> 
+> This enables RSEQ optimizations which require CONFIG_HAVE_GENERIC_TIF_BITS
+> combined with the generic entry infrastructure (already used by arm64).
+> 
+> By the way, remove TIF_FREEZE because this flag became unused since
+> commit d88e4cb67197 ("freezer: remove now unused TIF_FREEZE").
+> 
+> Cc: Thomas Gleixner <tglx@kernel.org>
+> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
+> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-Please wait until there is a resolution to all the questions asked
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
-by reviewers.
+Given that it's touching multiple trees, I guess it's a series for
+Andrew?
 
-Otherwise, this v2 is just useless.
-
+-- 
+Catalin
 
