@@ -4,57 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F648D35171
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3382D35162
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:24:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xTEOHtVIN0npoeK++K0+EY9Tl2M2s58IAW8WD3t0Ygw=; b=hP2ACAjxibReQa/x3v/ajH0067
-	HitgND+EecXYlwAIRURr/zI7aAznoB1rFNbMYoo35R6sSU0EdcV5rYELxyy9bxL1P7zunDwCzqGu0
-	9rio2aZYqlseM4+3ckfP097l/exWGJznH5vu5RaH2KP7Ni+WWYtFFvYx3q6z7n9Uym4pZelorSFA1
-	sG0Acteos/4fAzPwkD74Nx7+iok6vscspurW8KQEWIVL/egWHUm2kW54qAUs3fo1WeD4A13lkHtm4
-	GnL0rutDM/u6OiWI/XRAQC2G9dUcQ5NMaGurRxJzWd6JYFWVNb9LCxUjv1CX2oTHbBRqWElkH1y+a
-	lDLytH2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I5SwRznjOIzFqX5tQ+S5rUxTQmhua/QB7+aWnyAX/50=; b=ubcNDwpX+zV7Z1oGS4wM97wgIt
+	9iOLyCAGSlt+lEoLJDbZmRJg+mkSWyZuLPwNWrxSsu3vpHOsVxrjLupaoWHkepRaKVwdbeaLdZOp+
+	hedrWF/I2ypHwVTTGBncWHN96X8by1PykMHoWtobc8+5yMRh/ZGsbx2+iqGkTvC4rmkqi8QLRzWW7
+	m2z+B/Z5ZRi+Kul2OrJL6PKI6mXOEv5noghqxcYeA46vD9QaySNY2tC1dCn2O6RfUh9fa4p6wdjMk
+	kWjWGnZ7WqSettQDvLRnOi/ECYlajy1AvgPq4C5mrUYEUIs0F0gsAdnDLNtCGDO/ZN6dQXdurexcA
+	fTwhBtcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tgU-0000000Edbs-0b2S;
-	Wed, 01 Apr 2026 11:24:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7tgS-0000000EdbO-3UTZ;
+	Wed, 01 Apr 2026 11:24:28 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tgS-0000000Edb4-2Lcn
+	id 1w7tgQ-0000000Edaa-2XA9
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 01 Apr 2026 11:24:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AE15F6013F;
-	Wed,  1 Apr 2026 11:24:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B4B2C2BC9E;
-	Wed,  1 Apr 2026 11:24:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775042667;
-	bh=y/ngwuhS2Jpyc7YPVHpxC4rTjEHqs+MNlAUE9lvy6ms=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uFKQByonYUSgTjPkV2Aykn9g5VCvZzzHo/SC8SWELW+CT47wk5/9yIzsD9e5tgW0q
-	 ikjhfUMqzGaiDJ3xfyewqYzurXovNyxW8PMZoWcae1t1qHdnBOkTsvGqXps7P0TEdX
-	 q4mu4LTbUE1qxawxTqo52soq7OtLm/uC97bOmJu/ZHPyMFi/Y8uSXI9VSyu6cWsoN0
-	 U021ThzgmwK4I3X76ee4qRsUs4KBXbFSomPFTTvGXSGoncqOIjfCilOgb3hScksV2A
-	 vfZ9gB4d2csuedAb/TTiBnHD4vqKlEqeMXKD40bUBIDfHA+Z8CxC/M8BE7Vr4eQIMr
-	 Lct2gHc9KEyoA==
-Date: Wed, 1 Apr 2026 13:24:25 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: soc@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kernel@pengutronix.de
-Subject: Re: [GIT PULL] Reset controller fixes for v7.0, part 2
-Message-ID: <20260401-imperial-hare-of-defense-8cfc87@quoll>
-References: <20260324094255.3538772-1-p.zabel@pengutronix.de>
- <39b18202a275168eb4344a2515f7c18723eaf8b0.camel@pengutronix.de>
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GqikWOoO2sRrDB0ywTYCIi8xUCZdA3gcCL5C3wQYoCqNMrJ+HsOya24uq/JoRTzMtP5Uf+ogMlrLsKAuTJRFnvARmOvNZTYygx+6lD1XiLBHawcjQcu2kBDmEi1iuEfZH5ofoOa3GNZfLyrj9X28FmilJ1G3udlnh/snOV8zIlW1SwYl99QOwCx9g8Gwc9hMMpw6PjE4+i/yTH9Ho/ozNHQ9+hPb5PC00c4X1ABEUXQorck5eETZPw5e+acDsln2GEcRtwKa/AaRKbsXpYbqQlWOW+juoXCkLYukNBcoBKMda2+ycbYtJXvo0Jck8zyOgpgcglibSOkClQhfEX8HOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=I5SwRznjOIzFqX5tQ+S5rUxTQmhua/QB7+aWnyAX/50=;
+ b=R9lgLMD3vSsohVIvOsLQXYvAIjVZfTQuij1o7LTmsljWEgxsQE5hiGUSoooO0lIQY9hCC5HyGkwJYd2G7hG99hMdwm9D9GBCNfHQpzX17Yk5DiIUFzmsTLTRzBpmsmRlYx/T5M9pvTxvTH/dBmyBRNjaDBP0bQAe/eA6MAlVDx41GXfC1MH46NBrYNGDxe+0xzzwQtVQPdSG5wadbYq6wtYKa5/AcVrEWtUrE0CGAS4bchjkAcZ5zXR9RgRhrR2w/Cw6p0Pahed1KEPR7NMecNyh8nhffsSqELSYF5LOvhgAUmtnLUBulCjGGO7sYdOZpHMWHQ8Fl47GKFKhH8YFBw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=I5SwRznjOIzFqX5tQ+S5rUxTQmhua/QB7+aWnyAX/50=;
+ b=Sr6MHadH5HZGA/2UmjmZrnZUn3EAuj9llyK31+RzU4/iDwo3o/it/V2T9WUGw0cnNr1qnNy1lCIiCHmVXl3yNZe3ZO8Xda8Ve27OBBvOkSrqfnp3d9xcjgeV0ZcplSKz52BEFPciFvnJRS5addjfRYu11bmHxn8Xawh5af4SnqM=
+Received: from DS7PR03CA0201.namprd03.prod.outlook.com (2603:10b6:5:3b6::26)
+ by CY8PR10MB6873.namprd10.prod.outlook.com (2603:10b6:930:84::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Wed, 1 Apr
+ 2026 11:24:21 +0000
+Received: from CY4PEPF0000FCC2.namprd03.prod.outlook.com
+ (2603:10b6:5:3b6:cafe::3f) by DS7PR03CA0201.outlook.office365.com
+ (2603:10b6:5:3b6::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.29 via Frontend Transport; Wed,
+ 1 Apr 2026 11:24:21 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ CY4PEPF0000FCC2.mail.protection.outlook.com (10.167.242.104) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.17 via Frontend Transport; Wed, 1 Apr 2026 11:24:19 +0000
+Received: from DFLE200.ent.ti.com (10.64.6.58) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 1 Apr
+ 2026 06:24:19 -0500
+Received: from DFLE208.ent.ti.com (10.64.6.66) by DFLE200.ent.ti.com
+ (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 1 Apr
+ 2026 06:24:19 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE208.ent.ti.com
+ (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 1 Apr 2026 06:24:19 -0500
+Received: from [10.24.68.91] (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.91])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 631BOCKq4172212;
+	Wed, 1 Apr 2026 06:24:13 -0500
+Message-ID: <ebac1ef0-8be5-4147-bb29-ce1912905dc8@ti.com>
+Date: Wed, 1 Apr 2026 16:54:12 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <39b18202a275168eb4344a2515f7c18723eaf8b0.camel@pengutronix.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] mfd: tps65219: Make poweroff handler conditional
+ on system-power-controller
+To: Lee Jones <lee@kernel.org>
+CC: <praneeth@ti.com>, <nm@ti.com>, <afd@ti.com>, <vigneshr@ti.com>,
+	<kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <aaro.koskinen@iki.fi>, <andreas@kemnade.info>,
+	<khilman@baylibre.com>, <rogerq@kernel.org>, <tony@atomide.com>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-omap@vger.kernel.org>,
+	<s-ramamoorthy@ti.com>, <vishalm@ti.com>, <sebin.francis@ti.com>,
+	<d-gole@ti.com>, <k-willis@ti.com>
+References: <20260324101419.95616-1-a-kaur@ti.com>
+ <20260324101419.95616-3-a-kaur@ti.com> <20260331101203.GA3795166@google.com>
+Content-Language: en-US
+From: Akashdeep Kaur <a-kaur@ti.com>
+In-Reply-To: <20260331101203.GA3795166@google.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC2:EE_|CY8PR10MB6873:EE_
+X-MS-Office365-Filtering-Correlation-Id: eedb88dd-cfd0-4f34-4c72-08de8fe1379f
+X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|36860700016|376014|1800799024|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: Vza0iptrnzbkQ6dpqlIKG9yq03ri78/3YxGcJXPEL2t43ZHX8YOWyuozCa/vL7tG72UerrqtxOmkkPHZk8nt4H1J/u8brLkDJ2JGivQ75IXEQkBmQWpc5A29jj/uvN20ELxqKoZC/wojvUnL+YNzE1WjsnPoC+0tW4EeoXyIWX7sJuqWCUHFjn+EOpsPExoiigMw4OlftufpOpkZgiCJdUJ+HQqkm8iihPFccXJsDx2oJLVJe2jTGG2X2NEeCDqIL2PfEmROAYlnQjtCCBHrLnGPJpF3hQaLaAV2MeM7vv0vXRpbEcIxCMg3Pe/8ek2IVmyGG11uosanaDRtPSDKs/N5nv+WTP+Fka+iduowsTpwG3wsdemiHvG4XyDvV30t+ICYfU6+ALiO9CiR5X5AepJd8nXzzUjGD1u0zpFnX9KmN0bQ7tM/2dK3d7RiKawFtjcdL9s4U+M5OvIn8ToQlkdS2lFk5FEj472lsUqkdeZ8eqZ1clfYtn88jkEal7xaPSG99P9NLsOxLixp0Ml21na0lQePQTXi0r+pcQ3ftagWSsdHcpnvGAHoHN0zFXyrrEIeY3n4Xvi6IlNK/z4/eWm+WOHNMF2L9i7+CT7kJMa+EEd4tatFioOy5CHQWFXu7acrHdjovU8TMuxk1BU3rCbbjyF6/0N0HtFpFO5XcGHQ/bkXemtmBUrsZF0BIz8amsiIuvDccWWmahWcMExv6sR5Lx3/JH59MHlNiGRKcW9RkyIq4g+FWSqBsklODqYfTxH3XyJoVg1zoi8Ni36VXA==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(36860700016)(376014)(1800799024)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: jq4SWjN+Xpig0S4n9cAqwHrmn5F0hInNMlWQTml1hjfaz5aEw+9Qfg+Zuhvy/MpkhwtHHCZFoppNs8n+BW8DxewefNRVw8FJ65l36GKEAWss7vGN/M/7Cy4OH14ycmPiP8IGGAhTUuInAQ5U3iGk5z8GInBxEY/D5/9RbdDX+IGJWQFimaJzXvh8PAazwuW2Ke4NYSFW/T/JOUHvbVOyCR+1JH61M6eSGuyDs7ohNfXYavDoz3UYz/xJKbng8K57FC0wkpPAo7+h0lc5gQ/t5gdS5sb3Zsch3undgrH8KkIZ4UnsexeCsge2Fwh6DQ1WVdaz2bISQ0TbXhwACO46PeS5pPZ7/asoYJHtz1OO/YTA/4KoB/j6fIASv1LA5GJUar9BWVllheOX9192bv4PrQpkLdaAqUwmvIeJFrpRh7oWa7cZZcKoRVrBzdJ89MVH
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 11:24:19.5892
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: eedb88dd-cfd0-4f34-4c72-08de8fe1379f
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCC2.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR10MB6873
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260401_042426_659313_94E6FD2D 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,50 +139,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 10:55:47AM +0100, Philipp Zabel wrote:
-> On Di, 2026-03-24 at 10:42 +0100, Philipp Zabel wrote:
-> > Dear arm-soc maintainers,
-> > 
-> > The following changes since commit e0cf84109bc6c6768337123f1de24ff56b41c91b:
-> > 
-> >   reset: rzg2l-usbphy-ctrl: Check pwrrdy is valid before using it (2026-02-23 17:03:28 +0100)
-> > 
-> > are available in the Git repository at:
-> > 
-> >   https://git.pengutronix.de/git/pza/linux.git tags/reset-fixes-for-v7.0-2
-> > 
-> > for you to fetch changes up to a0e0c2f8c5f32b675f58e25a9338283cedb5ad2b:
-> > 
-> >   reset: spacemit: k3: Decouple composite reset lines (2026-03-23 12:25:47 +0100)
-> > 
-> > ----------------------------------------------------------------
-> > Reset controller fixes for v7.0, part 2
-> > 
-> > * Decouple spacemit K3 reset lines that were incorrectly coupled
-> >   together as one, but are in fact separate resets in hardware.
-> 
-> It is important that this makes v7.0, as it fixes an incorrect binding
-> that has not been part of a release and which has no users yet.
-> 
-> > * Fix a double free in the reset_add_gpio_aux_device() error path.
-> >   This has already been fixed on reset/next by commit a9b95ce36de4
-> >   ("reset: gpio: add a devlink between reset-gpio and its consumer").
-> 
-> Because of this, commit fbffb8c7c7bb ("reset: gpio: fix double free in
-> reset_add_gpio_aux_device() error path") introduces a merge conflict
-> with reset/next:
-> 
->   https://lore.kernel.org/all/acFRVzvV9Dww47v_@sirena.org.uk/
-> 
-> Should I resolve this myself by merging this tag in to reset/next as
-> well, before submitting reset updates for v7.1?
+Hi Lee,
 
-Yes, please merge the fixes to your next branch. Or base next branch on
-top of fixes commit, when starting next as new branch.
+On 31/03/26 15:42, Lee Jones wrote:
+> ---
+> 
+> On Tue, 24 Mar 2026, Akashdeep Kaur wrote:
+> 
+>> Currently, the TPS65219 driver unconditionally registers a poweroff
+>> handler. This causes issues on systems where a different component
+>> (such as TF-A firmware) should handle system poweroff instead.
+>>
+>> Make the poweroff handler registration conditional based on the
+>> "system-power-controller" device tree property. This follows the
+>> standard kernel pattern where only the designated power controller
+>> registers for system poweroff operations.
+>>
+>> On systems where the property is absent, the PMIC will not register
+>> a poweroff handler, allowing other poweroff mechanisms to function.
+>>
+>> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
+>> ---
+>>   drivers/mfd/tps65219.c | 14 ++++++++------
+>>   1 file changed, 8 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/drivers/mfd/tps65219.c b/drivers/mfd/tps65219.c
+>> index 7275dcdb7c44..6fa202339a0c 100644
+>> --- a/drivers/mfd/tps65219.c
+>> +++ b/drivers/mfd/tps65219.c
+>> @@ -541,13 +541,15 @@ static int tps65219_probe(struct i2c_client *client)
+>>   		return ret;
+>>   	}
+>>   
+>> -	ret = devm_register_power_off_handler(tps->dev,
+>> -					      tps65219_power_off_handler,
+>> -					      tps);
+>> -	if (ret) {
+>> -		dev_err(tps->dev, "failed to register power-off handler: %d\n", ret);
+>> -		return ret;
+>> +	if (of_device_is_system_power_controller(tps->dev->of_node)) {
+>> +		ret = devm_register_power_off_handler(tps->dev,
+>> +						      tps65219_power_off_handler,
+>> +						      tps);
+>> +		if (ret)
+>> +			return dev_err_probe(tps->dev, ret,
+>> +					"failed to register power-off handler\n");
+> 
+> Couple of nits to fix.
+> 
+> The `"` should be aligned with the `(` and the `failed` should be capitalised.
 
-This merge conflict looks quite significant.
-
-Best regards,
-Krzysztof
+Fixed the formatting issues.
+> 
+>>   	}
+>> +
+>>   	return 0;
+>>   }
+>>   
+>> -- 
+>> 2.34.1
+>>
+> 
+Regards,
+Akashdeep Kaur
 
 
