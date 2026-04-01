@@ -4,90 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0236610F6FD9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 16:48:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F9A8D35165
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 16:49:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eZYDMra8MoYZEjEdeOlMT6GlZ/T6YvcsPcFSeDCnMVw=; b=iMuvZqvWOJTtJMA58Q0O8XYxtq
-	WMMAvSyfy7Pe0RmW0HXOdg10b2tmnR9SEwyj7nzBKWKlu3+JNkNBka9fipp1Oxkhs/BZ8APDtrC3C
-	Vxjh8LlPlkaWMbuYShy2Y+/hGWCFNj8DTb16m3dnvSHvL4Ia914AWu0z8AHHK2TtuDn8AmQkHMkVE
-	Jf0IBd6isLRSoUbDUNe170dDRyKWsfOljoGCw9Foqh/ITqZd2wnOauMt3PndNOhHTN38L3pPFBFdu
-	VgxaV1KKKntg5T6R2PH8jP/AQv0IR2RfWE5KPwRuFBGdcrvZAelzKO9Lm1pYymYSFSoLQocRRgEK6
-	o6lC3Qig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DSZwO5Mif+Vhwk6ofKHhQfQlLyhs9TiQOThWjRWUT/I=; b=UF1KDRWyIsCTq7yQ6N23O6Lt/H
+	Y2066xhk9l7H05kYHj2TGzrlnsjU1OWyUeTvjp+OJ/oxLMplK1UDKxJCbBFaz0nSANQoftLVbyiCm
+	tHsVGNEkVgJUqh1s+pf83Ozv48UBZ+0Xqp7uhnZOjkp0PZamjjvGiwOFp5mESdCA9E0NXKka10bGA
+	/a6jmCAuaPibgCAyZIgrwHVwS0al1WzlvePph5DDUq6ZbYbdSJOzYuhc650fKDat/2Ieu1YBanaWh
+	zzA1oXi0hGh8L7qpyd8FxxUoihvFQ68txPjpXKuWLoHhk7wE/9Bz4tS6clTNY0R0ZS85sQTxSFFJL
+	bHLP2YuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ykP-0000000FlGz-1ATM;
-	Wed, 01 Apr 2026 16:48:53 +0000
+	id 1w7ykg-0000000FlKC-2UFv;
+	Wed, 01 Apr 2026 16:49:10 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ykN-0000000FlGg-3USt
+	id 1w7ykf-0000000FlK2-0B83
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 16:48:51 +0000
+	Wed, 01 Apr 2026 16:49:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 189E360120
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Apr 2026 16:48:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 854D7C19421;
-	Wed,  1 Apr 2026 16:48:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7C1A960120;
+	Wed,  1 Apr 2026 16:49:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF837C4CEF7;
+	Wed,  1 Apr 2026 16:49:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775062130;
-	bh=gQj+QgzcJJQt8oGoQE05yGLbjAMd3D2jR9zdzGyP7VQ=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=WOkCEne4MKb3ffUPUTYBMtcBemO8LVSwA4luETTlhoNlwQd4IP8iCp54clr7Q4KfN
-	 kaShlDIhOeNIldAqh8RUK+ZoEgLHnmhQvgvTWRIZeTNtykZC8+KQaIWwcifMesdCDD
-	 LLAtCoGqL7HqSSzw1YasXd0kO6YCoU06f1TdMzyfItmNpE18fgMyO04po9nPnM+h2s
-	 VeVv5YsMffmx2c4E5MLDADPX5lXjfCfeeJLMEew6v+GxdWTPIdaKXtaB2Fq5FjPVZf
-	 pp+mIPsptV68J4UGumhFYMWUf1mEtre8M8jlQQbJDLeqqN0sKkuYeWM3gBeChI+DiK
-	 RdQqeFYszwf1A==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 6E6BFF4006A;
-	Wed,  1 Apr 2026 12:48:49 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Wed, 01 Apr 2026 12:48:49 -0400
-X-ME-Sender: <xms:cUzNaaFOzwFEV3Zclvi8j3J7RxPbaxlhgxcDhpulXgrjerTov9Fw5Q>
-    <xme:cUzNaWL04_vqDWaQnIJctHOjv9bJCJFI9QeVaVbPHor2USwNjUbJhsx1teU06UCHl
-    JR_IgBIiGQEH9KaBhaVCi_tFDuO7rAsaXFBMQLgsJgTMTqvsCd70CcK>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdefieegucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
-    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
-    epofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcuuehi
-    vghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrghtth
-    gvrhhnpedvueehiedtvedtleekuddutefgffdtleetfeetveejveejieehfefhjeeijeef
-    udenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
-    guodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieejtdehtddtjeelqdef
-    fedvudeigeduhedqrghruggspeepkhgvrhhnvghlrdhorhhgseifohhrkhhofhgrrhgurd
-    gtohhmpdhnsggprhgtphhtthhopeegpdhmohguvgepshhmthhpohhuthdprhgtphhtthho
-    peguvghmhigrnhhshhesghhmrghilhdrtghomhdprhgtphhtthhopegvsghighhgvghrsh
-    eskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghl
-    sehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqtg
-    hrhihpthhosehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:cUzNaZMOJKK4YGzwooSGw8QYTQFKqCsAvr6z5KrxmaSDGKUWolZA-Q>
-    <xmx:cUzNaXaUjKYZPZXrmb-XePklSx8yuI9UY0XbB5IYEbXYbm-D6GapCw>
-    <xmx:cUzNabxN8O-05KqrlF5bsH6sw9gb0GT5qEXuqphVrtUZkju5pYOuuA>
-    <xmx:cUzNaaLnpNsxT-sV8oK5YrpVXuAIp_a9pxQOUgHHoujrMufs2amyug>
-    <xmx:cUzNadq-vFV0hhkvISmW5Nlt2HO9Ls58wkdZiV7rxFMuUStlUhS0Oh-1>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 4DACB700065; Wed,  1 Apr 2026 12:48:49 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	s=k20201202; t=1775062148;
+	bh=DSZwO5Mif+Vhwk6ofKHhQfQlLyhs9TiQOThWjRWUT/I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GWS3l2pam6A5zd7/u5kCi+AOJ1e8nRxmkx6ILbMw2YJqwT0GyxSw8pwOpQ/UEZAYK
+	 +gYucg9IxUD1Z58js0N8YqPmoHV95J5USJbr3/DDLz+ECtNsX8ANq64pzMbR9BfAbd
+	 LiRgwn4CeJBbGXLkUOlnP6Jmi08FZLzzzId4AtLpafiXK4UnsuPKoUeaogyy1SVbOr
+	 WroaajTS08hCSmd1HTZuQcGfveMIutSGC/SIzTY3vNFp257oepqbONx/u1xGn1bZE3
+	 gT5YUTAQLKYhOSt9CY9q5CJmZ30GUWrt/HVuiraJXe17syjelL7l7509EtOAbQ8SZl
+	 b3ypXgvAe2h+g==
+Date: Wed, 1 Apr 2026 17:49:03 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	soc@kernel.org, Rob Herring <robh@kernel.org>,
+	Gregor Herburger <gregor.herburger@linutronix.de>,
+	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	linux-arm-kernel@lists.infradead.org,
+	Kevin Hilman <khilman@kernel.org>,
+	bcm-kernel-feedback-list@broadcom.com
+Subject: Re: [GIT PULL 2/2] Broadcom devicetree-arm64 changes for 7.1
+Message-ID: <510f1ba7-ce05-4e9c-9405-c49903357916@sirena.org.uk>
+References: <20260323190239.1890505-1-florian.fainelli@broadcom.com>
+ <20260323190239.1890505-2-florian.fainelli@broadcom.com>
+ <20260401-rapid-lyrebird-of-emphasis-da7b13@quoll>
+ <2e47f487-da04-411d-bf78-4c76ac793a91@kernel.org>
+ <df52b2ae-4b8b-487a-bb6b-07bf021500b5@app.fastmail.com>
+ <3f7879d0-9e5d-4c00-a5dc-4871a049afd0@kernel.org>
+ <83a52edc-1d46-4eaf-996e-924ed3a00c83@app.fastmail.com>
+ <8d8925ad-22eb-4b9b-b6eb-6ae7dc3b2073@kernel.org>
+ <e060307f-5c85-468f-8f5d-6101dc0a2015@broadcom.com>
 MIME-Version: 1.0
-X-ThreadId: A8AYNq7FA6_V
-Date: Wed, 01 Apr 2026 18:48:28 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Eric Biggers" <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- "Demian Shulhan" <demyansh@gmail.com>
-Message-Id: <e3f27e82-604c-4744-a2e9-bbf72dbafa44@app.fastmail.com>
-In-Reply-To: <20260331224156.GB45047@quark>
-References: <20260330144630.33026-7-ardb@kernel.org>
- <20260330144630.33026-12-ardb@kernel.org> <20260331224156.GB45047@quark>
-Subject: Re: [PATCH 5/5] lib/crc: arm: Enable arm64's NEON intrinsics implementation of
- crc64
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="mE/kOQCX78MoT/V7"
+Content-Disposition: inline
+In-Reply-To: <e060307f-5c85-468f-8f5d-6101dc0a2015@broadcom.com>
+X-Cookie: "Yo baby yo baby yo."
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,36 +85,33 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--mE/kOQCX78MoT/V7
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On Wed, 1 Apr 2026, at 00:41, Eric Biggers wrote:
-> On Mon, Mar 30, 2026 at 04:46:36PM +0200, Ard Biesheuvel wrote:
->> Enable big-endian support only on GCC - the code generated by Clang is
->> horribly broken.
-> [...]
->> +#if defined(CONFIG_ARM) && defined(CONFIG_CC_IS_CLANG)
->> +static inline uint64x2_t pmull64(uint64x2_t a, uint64x2_t b)
->> +{
->> +	uint64_t l = vgetq_lane_u64(a, 0);
->> +	uint64_t m = vgetq_lane_u64(b, 0);
->> +	uint64x2_t result;
->> +
->> +	asm("vmull.p64	%q0, %1, %2" : "=w"(result) : "w"(l), "w"(m));
->> +
->> +	return result;
->> +}
->
-> Perhaps omit big endian support, and use the inline asm implementation
-> of these functions with both gcc and clang?  The more unique
-> combinations need to be tested to cover all the code, the higher the
-> chance of one being missed in testing.
->
+On Wed, Apr 01, 2026 at 09:41:03AM -0700, Florian Fainelli wrote:
 
-Yeah that should work.
+> OK, I will get going with moving the hosting to kernel.org. What about this
+> specific pull request, will it go through or is relocating the hosting
+> mandatory for it to be accepted?
 
-> Also, leaving shared code in lib/crc/arm64/ will be confusing.  How
-> about lib/crc/arm-common/, and crc64_nvme_arm64_c => crc64_nvme_neon()?
-> Or even just put crc64-neon.c directly in lib/crc/.
->
+Whenever you get round to it please remember to let me know so I can
+update where -next is fetching from (this is a common gotcha!).
 
-Yeah the latter seems the most straight-forward.
+--mE/kOQCX78MoT/V7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnNTH4ACgkQJNaLcl1U
+h9Brcgf/RNCkNU/dCgw0ggR/qjiCIvomgcPtbhBSuAnknPjymUhUE6ohNzvfwsWL
+Lls/qmxzVRMnVGABFsGyHB7pTeW6SPvAM3cvYm2vzvPMuG606pMqhvl+5Hwi52ty
++3qG5xBFYJIwrHHqMFnglFmFrbJyZ5ns0iBX4PUA6Mu9MA5rGFp/Sfxy3wP/trJC
+UMYhwz68AOwbtitqCnwQrQnysyWboyzn8mT0IZANtDbiuOkNujRoVpLxlsbeh8rJ
+Nm0a3LM/mR6Vmr9Ie1Ndx3YSia3kK6XXLP+w3OOvYCLynNqPpwaV1mXfb8ztg+rI
+j80tfY5Qcm7+JHDtXtGE4FXNvlddtA==
+=Daaf
+-----END PGP SIGNATURE-----
+
+--mE/kOQCX78MoT/V7--
 
