@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68410D3517A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:50:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DADD0D3517A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:51:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yl4kaUo5EhUy76Kcecx7vXM9xwtxsuf0q/t4EkT8+jE=; b=UVQdD0uY4RjuHA8il68PFbMfbW
-	hqOyxC1wtySKBsIqtz2bCItPgRL9HRhnx6Z4aB+5XcL4QCYjEpKTMq9Fic1kX90Qa7J9AtOd1f7Bb
-	C9ZTLa6uClOB3I2UocnVm9NB7i9NzhRmw6sB1q3jVpXjb18VOrTTu/0d5kcpX71TlGNE3IPsRlN9w
-	yR7NJ+KCfLL1ztQfi9QZYY+9CXjDR2Nl7zjz8Be97yQ9x5lKUIrOnY9Qgx3RISZZ4RqpZwa7HEBmY
-	uX49OcdBdb6pnKQuiTHaKM7hKeAMcqAOIrX/+ePd83OcHGIBTW32oNYVtLpD7r0ajuCfnQgyTajy2
-	hICm1o8g==;
+	bh=BU4NwWDia/vOxJ1aLikEN7w3TbIx4erGZnWp+4ITe+0=; b=4WzhfNtw/jVt6iPE/MUiv4jRik
+	AekrPFY+C1/WleKNQLokhUYvnaUUNsaZyNrpU2xzgMX6X6N5vOdOTVL5HYeI5rgAcpLz42rC5pIGT
+	QiAhUjX0l03P5nxJo5rEm9xPE1w2nIz1/yXi/abIClO+B/2P8f1qrCr4TKobrA8MEk7v4RaewdWaJ
+	uvA4J9OpMUDImzK+7mBiRUIIuWIB1fR38d19237YS4U7sfsFmRE5Ux1Jnfz4Dv+8afrubXXdy3X4/
+	gtDLxLbrsn/mDa+B2PbCwH9P2XIvXlu3DN/iEzgKW/OFjC4l7jRl3wmeBAvYkkHwUGp81AKD/wtUv
+	cpkHxnTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u5w-0000000EjCr-30wy;
-	Wed, 01 Apr 2026 11:50:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w7u6D-0000000EjSX-3iow;
+	Wed, 01 Apr 2026 11:51:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u5v-0000000EjBg-3g2T;
-	Wed, 01 Apr 2026 11:50:47 +0000
+	id 1w7u6C-0000000EjQF-1RAS;
+	Wed, 01 Apr 2026 11:51:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=BU4NwWDia/vOxJ1aLikEN7w3TbIx4erGZnWp+4ITe+0=; b=DjMKHv5etX9bH5cvM+3/1EkNij
+	96Mp1JuvsjP8BLjZ8vdJFIXvMoJliQ7EubfaINiAMFVYHqxKb4zgHLJNvE5Wkt7sShN6ow9tM5dsg
+	bG3/m+z3N2ZObQfQ1D8Vklr0RuQF6oyN0wrOkQKKEJ5WZFobjNKd9HQEURwPPmG8f7yeoxlfueNkl
+	HfKYJkcihMM5WPIeWxh3+qE38kSmy7ew8fwSXtuP9kN7WziOr5Yln8SteZuUT5NlIhg5qskYMFR8l
+	+BdBecBx8lHV0z+TFeNWW3aqIVNdMinDH0BfPY8X6goq3QJs92+ZDYxva5hU1EMH31v+qfmob3RaL
+	xPsJ1REQ==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7u68-00000000Ffu-0sqf;
+	Wed, 01 Apr 2026 11:51:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4EB9760180;
+	by sea.source.kernel.org (Postfix) with ESMTP id E972E40552;
+	Wed,  1 Apr 2026 11:50:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A793C4CEF7;
 	Wed,  1 Apr 2026 11:50:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7DB0C4CEF7;
-	Wed,  1 Apr 2026 11:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775044247;
-	bh=gdqep/CIy3f2tHlGVIduJ54heItiKNgLxJWrndWddZg=;
+	s=k20201202; t=1775044258;
+	bh=ZrS7YCyshnbs/lG/9j9L7W/ZUrAuF338JPwI0nwq6Ho=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=O+Hhh1anJc+19GFocBbrXlmEQQSkj943VY8/0XHji23fuRQZsWqQAH+1TSazaKmiL
-	 qIo6GTr7gQXcIVZ17+Mt5jLGu8cpZaFYiedii3pg0W6olOnWbfza9XhlEVRwZ98yx0
-	 LcXVWwJgYRdsT/s5pj5faIm2xA8SiH42BTO7/qQTMkiUf3alp8Cdu8qqXXHghDJdG/
-	 ZqKeehF27SbWaYSWGlBEsyIr+orFdLth2J7uIk+9AfP92IrtdGMKAQRdG/dhvr8O8B
-	 TOGYY/rqEnbd4s7uEUlRNJC+4aYbShoioRKpA/J5CM4OvzM/TxjoPZsAOk1Hqu0iFq
-	 UYI5ugbEIjfxg==
+	b=fYUKktNtjBtnO2jEekVdFzAXCPxvMmq8cOZ/wimER2kJOuz26TYi2q5bk91NF6CFY
+	 V3uRQuToa4yd5/BlRrJuDUAvl/Ng8LmL71ojncQB2XFtcInSO8RsXWX1UcDolbNEKf
+	 Vr7CCsu4JLP8hJ8Kq7urO0JEocaF0r6VbZa+42Sdln5aiR3/s6R5CaAOkIYDTOBYFN
+	 jQ19XQq/9YUv1eHqK24bolOhTgYGxRPfjpfeAX42W17zK+3HMCGkzXRWdt2m3/51bF
+	 jzN98RjCjBcK57ESqOPlvU09ERPYNtXiyClFAHc+QnLlv5x2uSLTqHwOePbncyE2kZ
+	 tpwl4A5SNvXTg==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -91,13 +105,16 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org
-Subject: [PATCH 24/33] docs: rust: quick-start: update minimum Ubuntu version
-Date: Wed,  1 Apr 2026 13:45:31 +0200
-Message-ID: <20260401114540.30108-25-ojeda@kernel.org>
+Subject: [PATCH 25/33] docs: rust: quick-start: add Ubuntu 26.04 LTS and remove subsection title
+Date: Wed,  1 Apr 2026 13:45:32 +0200
+Message-ID: <20260401114540.30108-26-ojeda@kernel.org>
 In-Reply-To: <20260401114540.30108-1-ojeda@kernel.org>
 References: <20260401114540.30108-1-ojeda@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260401_125100_657472_301C4EDE 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,34 +129,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ubuntu 25.04 is out of support [1], and Ubuntu 25.10 is the latest
-supported one.
+Ubuntu 26.04 LTS (Resolute Raccoon) is scheduled to be released in a few
+weeks [1], and it has a recent enough Rust toolchain, just like Ubuntu
+25.10 has [2][3].
 
-Moreover, Ubuntu 25.10 is the first that provides a recent enough Rust
-given the minimum bump -- they provide 1.85.1 [2].
+We could update the title and the paragraph, but to simplify and to
+make it more consistent with the other distributions' sections, let's
+instead just remove that title. It will also reduce the differences
+later on to keep it updated. Eventually, when we remove the remaining
+subsection for older LTSs, Ubuntu should be a small section like the
+other distributions.
 
-Thus update it.
+Thus remove the title and add the mention of Ubuntu 26.04 LTS.
 
-Link: https://ubuntu.com/about/release-cycle [1]
+Link: https://documentation.ubuntu.com/release-notes/26.04/schedule/#resolute-raccoon-schedule [1]
 Link: https://packages.ubuntu.com/search?keywords=rustc&searchon=names&exact=1&suite=all&section=all [2]
+Link: https://packages.ubuntu.com/search?keywords=bindgen&searchon=names&exact=1&suite=all&section=all [3]
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
- Documentation/rust/quick-start.rst | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/rust/quick-start.rst | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
 diff --git a/Documentation/rust/quick-start.rst b/Documentation/rust/quick-start.rst
-index 54fe491deb7d..34c39f208333 100644
+index 34c39f208333..db08c3a03a4f 100644
 --- a/Documentation/rust/quick-start.rst
 +++ b/Documentation/rust/quick-start.rst
-@@ -90,7 +90,7 @@ they should generally work out of the box, e.g.::
+@@ -90,10 +90,7 @@ they should generally work out of the box, e.g.::
  Ubuntu
  ******
  
--25.04
-+25.10
- ~~~~~
+-25.10
+-~~~~~
+-
+-The latest Ubuntu releases provide recent Rust releases and thus they should
++Ubuntu 25.10 and 26.04 LTS provide recent Rust releases and thus they should
+ generally work out of the box, e.g.::
  
- The latest Ubuntu releases provide recent Rust releases and thus they should
+ 	apt install rustc rust-src bindgen rustfmt rust-clippy
 -- 
 2.53.0
 
