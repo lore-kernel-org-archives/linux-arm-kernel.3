@@ -4,97 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55F1F10FCAC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 19:15:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD7210FCAC9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 19:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r8KcYzflmFoH6kQuwH+mgkFuRmADtPPTvOe6lcVTKSM=; b=qDYnGyqDyq3nH+Ob7e2jeZ80dG
-	ja+RA4d0HsNpvjq4PjxI4YhDuU+Vim6Fmr38eRG5asSrb3NacA5AmTUUXSu2ToadxvEi4+24VYrVA
-	MdrdvE1mkPb4L59DN07ER/lCbSAI7IxcS6SoNUV5eG3IYkG3+Tmue4S8AeDYTvwe/HpjknM8G2oAe
-	9tt/QuRg/m4x5rgbiI1tCTwuJ0HSx3xsUjb4TK56zUf9bbsXGpAPRYAzVnksiO0b5OBB4rdv2ovme
-	IrM56P8N3EQ3MRgJlB4nuWZcn9ZJt1TaEKaHmQ9Ktug6oGaVtpCvWEAvlXfiD8ei0GUgxTUosvI33
-	k2/Y6a8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w2uw4evRo6JNFyYESoQnF2PDXwA6jNSxktZVnH97twc=; b=0Vz2P+MoV5SgXvihn4jnKczr0E
+	Inen8zwfp3gDXhIYd7MDjk0LBgqLZ5bGALUVGp2R6LqHXQqjS+K7TX9gdsmP+MgVj9zKSWf5s3U0Q
+	6UadnpZscihZdW3yY41XH4xvnzQ8neztipvDX0R59V888m4tC0DvrnQsdfZcdYDunsfQhA0mcUtTr
+	/nylwDjoohmAWYfcPah4uYuo+EGrfcgOI+BCeB+q8BoAQ9hXgeuKSgNVPIeuBxPzYiqzzFfsRZq+6
+	F7wGlUr1jfhkVMTkwtHtJ5/X9rrhkc+9ToM7/BG2X5PdfJDHKQ7dd9rbQdhvv0hbOuQh2rQQzNwoe
+	+5MZybxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8125-0000000G0XA-04v4;
-	Wed, 01 Apr 2026 19:15:17 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1w81jB-0000000G2Tz-0s26;
+	Wed, 01 Apr 2026 19:59:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8122-0000000G0WZ-2AeQ
+	id 1w81j7-0000000G2Ta-3wSH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 19:15:15 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5a2c3dfb4a1so183506e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 12:15:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775070912; x=1775675712; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=r8KcYzflmFoH6kQuwH+mgkFuRmADtPPTvOe6lcVTKSM=;
-        b=pKMa34sKYUs0xp1DRHbzKUsYscLikQAx8YNkaX0EwEUuKazzkRZNleCiHwq6BcfRjf
-         zhs1azC1aj6BxOZrd67xts+8hRnFUxdhdM1j2nHdGHfP3KkrpD4LlRdrJkvk1DQ/SYen
-         QmLO+2PeOS9tJ1aJBIG7Pluv6e5tsSdb7FEjkBTvtj1imtT/AjghLK558Me+Ip9OB4vj
-         j5AVLrGs2OMMnIdUrPn8Mij6S1cdTvwfqRUyZ7e0IprUbFau0G9dm1qQ9+g+hr5hpaCY
-         xxt3HzqIcYjIXpfCQ7KJRK0t2/2XfKIkwDoH9XcHZrmZCT7Thn+YD/zjZYve0S+wHVM2
-         Wsqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775070912; x=1775675712;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=r8KcYzflmFoH6kQuwH+mgkFuRmADtPPTvOe6lcVTKSM=;
-        b=CGLB3MAVV4uyFncNvh/Yi9qXsQt85shN1PEeh6Y0d7UCzx+iiva6+PwFQDB3fr0Bmq
-         y3cqq1jgo9oDKW3cYWvoHtURe8PtFW6EBEyqeTMtrrryWwrwkfCmCpRpMoOZ3ImhZH6d
-         8y0Es+gekaw/mcLbD+nBJB6Ekk+XsFcFIJn5i41j/OW3S6U2VLS/yoEeeCUjj3FTChGK
-         RItpL7lbOKgi9Jj+wTGmUaO6wm/pHrDxNGJuWIE14a6Z+0DvI5Fpchq/JPwPtQVvstAa
-         KZumALNQ2e6QUKyFO+v4jgaoo+TkMA13JrvNLcJCZI6iI1xnQUFPgrONZAPZzq4UHCyx
-         UFAg==
-X-Forwarded-Encrypted: i=1; AJvYcCVisJji1jm1OKWewgGrtaYRYN03GbqpjHcFSbp7LqkMXP6t19KSZ4tkRf9quJpRO8kGxo/OzEWJQ6S7ZtZAvmqr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6yYBibbisCJy58ae/Tavdx+63z1e3mEq+TpAdg/ruQtNdzkXW
-	EXqb7ikHI4anUigsvwrl59iGzvOX5umJAShd+ZQDPbf5HtE3HGUdGA0g
-X-Gm-Gg: ATEYQzyuOivzJRNdD8OEq7WOeUKb7iVZ5cL+/JdtoE6U2Xm8RZhlAA5V4eB7nmQc9vt
-	dPFgFvRlaB5GAsSqsLmhOTdhKer0CNtjl6mdJiWfah4ezb9C6S8A4+ro/pUfUjbCMVvixd0q2Sy
-	ZB0mEhEuH8eaoCtau5Qj5RePht10COWs9AayZjpeb//r/0J38KC4jnfKYTTQugQ79HXQ1mNqdoN
-	262L5CjYE4jYr+cTVFCm+I0NfqFiUPvnJ0lK/cYplHNAYlY9LNZ0RxUv0pfEtiWrgcYQjW1E6o4
-	lNOQlBIaxG6R5ehMDl/K4RGRyPKWzk1/zlkZs4sAkWEKxAth71ROBqzAEvLNeoX01JOk8XLJZIK
-	4A0+mKyAr2N4tqQ4aOn6h3uBHECo5pYDNMd4XaVAJtK6GNlmYwQy68ohpWWfZzsZ+Ar+8DsWQOD
-	/w67g03nNImOQU/JmC8/KzYhf+jecn8RthBaG1
-X-Received: by 2002:a05:6512:318e:b0:5a2:961a:f7c7 with SMTP id 2adb3069b0e04-5a2c7676402mr92043e87.21.1775070912245;
-        Wed, 01 Apr 2026 12:15:12 -0700 (PDT)
-Received: from new-nest ([94.19.228.143])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a2c6ccca2dsm141855e87.60.2026.04.01.12.15.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Apr 2026 12:15:11 -0700 (PDT)
-From: Andrey Skvortsov <andrej.skvortzov@gmail.com>
-To: Maxime Ripard <mripard@kernel.org>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: Andrey Skvortsov <andrej.skvortzov@gmail.com>
-Subject: [PATCH 2/2] media: cedrus: Fix failure to clean up hardware on probe failure
-Date: Wed,  1 Apr 2026 22:14:41 +0300
-Message-ID: <20260401191441.1217646-2-andrej.skvortzov@gmail.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260401191441.1217646-1-andrej.skvortzov@gmail.com>
-References: <20260401191441.1217646-1-andrej.skvortzov@gmail.com>
+	Wed, 01 Apr 2026 19:59:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 19EA8407EA;
+	Wed,  1 Apr 2026 19:59:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9C4AC4CEF7;
+	Wed,  1 Apr 2026 19:59:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775073585;
+	bh=1E8S6zwaRhyrQHTY9xCDgGhQPsQKm8RgNaujalA9hRM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ki3d4th3VNz5G1xa/d0ahz6QHzFVoF/mhM44pFM6iK83NRb/m8dYExRRC6fiEAX+V
+	 sb/t5rSk05ApDpyS97AX+q1ysvgv1zZ06ErmpxiFtGTSlspYL8qf32yXqKxAzQQ6pC
+	 nS6gZTE7Bsb9GdjLNOWmgiZRh6nm4qodl99MaVcZJ0mXRyS8Ja4Ouv8E9dnk6NL1U0
+	 TbTeuc4yG575e69ea1subPgc8UJhTzeLnnhuVoJejIv+7jIrrbKmK33opVZeRRq4gT
+	 rz5fUDta5oqXeZ7c0eDMH/52b3bq+GtttuucqRFzUckddPyoEjXBqMld761GFQwEbs
+	 YxaeohEV/adRA==
+Date: Wed, 1 Apr 2026 12:59:43 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Demian Shulhan <demyansh@gmail.com>
+Subject: Re: [PATCH 0/5] crc64: Tweak intrinsics code and enable it for ARM
+Message-ID: <20260401195943.GA2466@quark>
+References: <20260330144630.33026-7-ardb@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260330144630.33026-7-ardb@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_121514_595720_4D2213B8 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20260401_125945_999313_B6E58179 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,43 +71,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Samuel Holland <samuel@sholland.org>
+On Mon, Mar 30, 2026 at 04:46:31PM +0200, Ard Biesheuvel wrote:
+> Apply some tweaks to the new arm64 crc64 NEON intrinsics code, and wire
+> it up for the 32-bit ARM build. Note that true 32-bit ARM CPUs usually
+> don't implement the prerequisite 64x64 PMULL instructions, but 32-bit
+> kernels are commonly used on 64-bit capable hardware too, which do
+> implement the 32-bit versions of the crypto instructions if they are
+> implemented for the 64-bit ISA (as per the architecture).
+> 
+> Cc: Demian Shulhan <demyansh@gmail.com>
+> Cc: Eric Biggers <ebiggers@kernel.org>
+> 
+> Ard Biesheuvel (5):
+>   lib/crc: arm64: Drop unnecessary chunking logic from crc64
+>   lib/crc: arm64: Use existing macros for kernel-mode FPU cflags
+>   ARM: Add a neon-intrinsics.h header like on arm64
+>   lib/crc: arm64: Simplify intrinsics implementation
+>   lib/crc: arm: Enable arm64's NEON intrinsics implementation of crc64
 
-From: Samuel Holland <samuel@sholland.org>
+I think patches 3 and 4 should be swapped, so it's cleanups first (which
+make sense regardless of the 32-bit ARM support) and then the 32-bit ARM
+support.
 
-cedrus_hw_remove undoes, that was done by cedrus_hw_probe previously,
-like disabling runtime power management, releasing claimed sram.
+I do think we should be aware that even with the code mostly shared
+using the NEON intrinsics, the 32-bit ARM support (which works only on
+CPUs that support PMULL, i.e. are also 64-bit capable) doesn't come for
+free.  We should expect to deal with occasional issues related to the
+intrinsics with certain compiler versions, compiler flags, etc.
 
-Signed-off-by: Samuel Holland <samuel@sholland.org>
-Signed-off-by: Andrey Skvortsov <andrej.skvortzov@gmail.com>
-Fixes: 50e761516f2b ("media: platform: Add Cedrus VPU decoder driver")
----
- drivers/staging/media/sunxi/cedrus/cedrus.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+I assume that "32-bit kernels on ARMv8 CPUs" is currently still a big
+enough niche to bother with this, despite that niche getting smaller
+over time.  But as I mentioned I do think we should try to simplify it
+as much as possible, e.g. by supporting little-endian only and avoiding
+#ifdefs based on things like the compiler whenever possible.
 
-diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.c b/drivers/staging/media/sunxi/cedrus/cedrus.c
-index 1d2130f35fffc..ee0e286add67d 100644
---- a/drivers/staging/media/sunxi/cedrus/cedrus.c
-+++ b/drivers/staging/media/sunxi/cedrus/cedrus.c
-@@ -477,7 +477,7 @@ static int cedrus_probe(struct platform_device *pdev)
- 	ret = v4l2_device_register(&pdev->dev, &dev->v4l2_dev);
- 	if (ret) {
- 		dev_err(&pdev->dev, "Failed to register V4L2 device\n");
--		return ret;
-+		goto err_hw;
- 	}
- 
- 	vfd = &dev->vfd;
-@@ -538,6 +538,8 @@ static int cedrus_probe(struct platform_device *pdev)
- 	v4l2_m2m_release(dev->m2m_dev);
- err_v4l2:
- 	v4l2_device_unregister(&dev->v4l2_dev);
-+err_hw:
-+	cedrus_hw_remove(dev);
- 
- 	return ret;
- }
--- 
-2.51.0
-
+- Eric
 
