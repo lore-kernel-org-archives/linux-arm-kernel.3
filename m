@@ -4,183 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7801B10FCAF0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 22:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0951C10FCAE8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 22:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:In-reply-to:Subject:Cc:To:From:References:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n/sfOuHOoe8DbYlWSBTHtuWabD7HqWEKs10KtBsWAHA=; b=N+TnOFgu6IRLY95tBzHP4d0Gey
-	arc7q/qF/kOw56eGcO2foFTWyiPRtux5alo2/oyfm4VVgqwZaemQBijCD6pORqYtntAKVFX0xXNP0
-	AGzn4bF5uBoo/3OTK/0kVYuGTpSpUcDhQvXr4NZCAJfIT5j4hPeG+yGQvfAYDhzEOKcyt/902bnt1
-	Oz8VMGGJBOjIB3XfkuHqTpWNlqMjmTtzID6hP7/XRwBCG3xig7h5s5fHFbHe68aNjFFyqmTXp53D6
-	YVGPfh6zLumL1zwc5VpQcZJjHT/IHWkgIMzhokTANOiEUG6nN8oJmFoRPyamJ0lGnRQ1c8RuMDeXU
-	oLDWaZBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I3bwGumRbDmzIFSzMdzb43hR+4wh37KK3mBzHGH/rfg=; b=V78CPjQhJnHfEdYqwYuBRIpa4d
+	J81cH2woq5h/PF2OjTa5a0U0cUuFgHBC1xIFRlf1+EGvfj8GKnEBLL+vGAp6h1W9KbF0k+DaFCDdm
+	opDtLnVL4leN0KeUF2RVx3pBLvGn8RsAR9qSi+iFYqVlkHO4/QNANvadtnLmgL+7Hj25pz5DdrbCX
+	1N+ksV+y4Db68YKZPHItaHjcX3Uijm7VP80JCqyxe6Lso3JEplDzbG8vecUKKKnpD/KCftlJexqYL
+	Ex+gaxcTHEF+XC8j77lWh20j5eINdKfDckmaq898pe2LdiQIE5ZS+rp7uMy0b1DU9vKEuPTemHwcm
+	IwPFaRZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w846n-0000000GJpN-3EUV;
-	Wed, 01 Apr 2026 22:32:21 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1w84EH-0000000GKD1-2lRe;
+	Wed, 01 Apr 2026 22:40:05 +0000
+Received: from smtprelay0010.hostedemail.com ([216.40.44.10] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w846k-0000000GJp3-2TWt
+	id 1w84EF-0000000GKCE-0E5f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 22:32:20 +0000
-Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 631LEXxV050281;
-	Wed, 1 Apr 2026 22:31:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2025-04-25; bh=n/sfOuHOoe8DbYlWSB
-	THtuWabD7HqWEKs10KtBsWAHA=; b=kp2eSY1l6ttI1YgOlHu2ZhCRWE0hAI3dKO
-	ZYLkzyJ6yZo+9cI/Wr/dDc6M10ZXZXCQrB4CMr2Infw8fMnHoaByGT6CL9K50JQX
-	0OUnRd7PdBG0dWykm3C2IHTkYs9DtbaJ8Z+DoObzsD/B8tngWV7E53rtyBXCzhEX
-	krYvgR2JWbzk+7i0hQymrjSavkvR378v7PF0Z42t8AxI6iwvrMr6YgcKS80+e80H
-	RH1S7Rn3WC0abOPpIIWZm6ET4ENCTtwCMji4x5HGL0i6qzwbENdqQxSzTC7gs1Eh
-	47XekjaHrYHosxGsChcTFQXRDUq/RtHtlwnDZzWNkyUaaUQHoVMQ==
-Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4d66v5qg62-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 01 Apr 2026 22:31:46 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 631KuK99023597;
-	Wed, 1 Apr 2026 22:31:45 GMT
-Received: from sj2pr03cu001.outbound.protection.outlook.com (mail-westusazon11012038.outbound.protection.outlook.com [52.101.43.38])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 4d65ejh5qj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 01 Apr 2026 22:31:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wtAvPS0PdI5pM7kCdenccwFob8hPgsV5hK8Nu4pNyhkMWhmmoypn6xyeWEDp+elCF174rEK6Wbxb8SojtEZ/iYiqo+DyvDMWq0SmUJVoXqrvl6IXOv5jRVs4Ewlf/BUkJRp8ajaWLUqPqHFODBAfz7Wx1/o5H8EfpJx7BSrVtNSwBn/Ia3FER3458I/wkNuPEffl+7/c4QivWtEw2Hh3cjS+wWeheiq5DOhdO+xCISStZDdv5puxjqlEKS5uUnuaU6qAaMNzzUMMF3GX2EhIfXdKdb842LuVrlWs/immLldxyug3mRZMGG2XOLDD2i9w++vryRS/q5HxsZ6w8Temng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=n/sfOuHOoe8DbYlWSBTHtuWabD7HqWEKs10KtBsWAHA=;
- b=AEDjc5a5STlCKC2GZVFAswT5BjjWd63ob9ldAyOVMwqFLBLz44Xq6rZDCd5HTDmHG/iCwjatwX1jJF+DZKuLCFfhKhOPgRyS8JhtYNvob2W5yef7FPyqr397EJQ9Vvx7qUns9cjOGJB/y+X+p1ot2neK9vgHJiN7dEz0/sy0qqKCST0NLp8SilI5t/lSEXKZYEV4smDz+IZ8jJt9Y8n1YRCpRhnIeFaUvNIM+szZerNrw/7qYKuguRfsQr67W5b9bJ1DcY0ZEmTMdlkFUqicsnvdMGcrE0FIxTk95SvmE/8QvQkqNKS0LkqjDqI46II38gV4SVatMgaKMmMMs1BK9g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=n/sfOuHOoe8DbYlWSBTHtuWabD7HqWEKs10KtBsWAHA=;
- b=UX+E6/qHuKG7lOlisBIyOwvmthx+qRstGU6vyESKRudTLJavSDOvlT4Zm2MV0w5deyZPxbMYQoPg8lxXtTcwvWI/m48MIDpAA+vReFlfll6aFhzB8k8GQ63BNHbVWbRbmXshxJne4DUeDn2KTJm2GS1wAQpnS9uVsYamNClrOgs=
-Received: from DM8PR10MB5416.namprd10.prod.outlook.com (2603:10b6:8:3f::19) by
- DM4PR10MB6743.namprd10.prod.outlook.com (2603:10b6:8:10d::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9769.16; Wed, 1 Apr 2026 22:31:40 +0000
-Received: from DM8PR10MB5416.namprd10.prod.outlook.com
- ([fe80::c8c3:861e:be9b:fa6]) by DM8PR10MB5416.namprd10.prod.outlook.com
- ([fe80::c8c3:861e:be9b:fa6%6]) with mapi id 15.20.9745.024; Wed, 1 Apr 2026
- 22:31:40 +0000
-References: <20260316013651.3225328-1-ankur.a.arora@oracle.com>
- <20260316013651.3225328-5-ankur.a.arora@oracle.com>
- <acz3D1SkqDqyH0Dy@arm.com>
-User-agent: mu4e 1.4.10; emacs 27.2
-From: Ankur Arora <ankur.a.arora@oracle.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Ankur Arora <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
-        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-pm@vger.kernel.org, bpf@vger.kernel.org, arnd@arndb.de,
-        will@kernel.org, peterz@infradead.org, akpm@linux-foundation.org,
-        mark.rutland@arm.com, harisokn@amazon.com, cl@gentwo.org,
-        ast@kernel.org, rafael@kernel.org, daniel.lezcano@linaro.org,
-        memxor@gmail.com, zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com,
-        rdunlap@infradead.org, david.laight.linux@gmail.com,
-        joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
-        konrad.wilk@oracle.com
-Subject: Re: [PATCH v10 04/12] arm64: support WFET in
- smp_cond_load_relaxed_timeout()
-In-reply-to: <acz3D1SkqDqyH0Dy@arm.com>
-Date: Wed, 01 Apr 2026 15:31:37 -0700
-Message-ID: <87h5puqpme.fsf@oracle.com>
-Content-Type: text/plain
-X-ClientProxiedBy: YT4PR01CA0333.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:10a::21) To DM8PR10MB5416.namprd10.prod.outlook.com
- (2603:10b6:8:3f::19)
+	Wed, 01 Apr 2026 22:40:04 +0000
+Received: from omf04.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay01.hostedemail.com (Postfix) with ESMTP id 81D2FE0352;
+	Wed,  1 Apr 2026 22:39:58 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf04.hostedemail.com (Postfix) with ESMTPA id 7438620023;
+	Wed,  1 Apr 2026 22:39:56 +0000 (UTC)
+Date: Wed, 1 Apr 2026 18:40:55 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Ian
+ Rogers <irogers@google.com>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v15 4/5] ring-buffer: Add persistent ring buffer
+ invalid-page inject test
+Message-ID: <20260401184055.2f932674@gandalf.local.home>
+In-Reply-To: <177494619065.71933.9842685686800241005.stgit@mhiramat.tok.corp.google.com>
+References: <177494615421.71933.3679132057004156013.stgit@mhiramat.tok.corp.google.com>
+	<177494619065.71933.9842685686800241005.stgit@mhiramat.tok.corp.google.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM8PR10MB5416:EE_|DM4PR10MB6743:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9ca4f179-b08e-4d0d-924d-08de903e716b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: OJBxXHz5yllWiTWKTjF2zIJZLtzBH2h1AJgjXW/3L6+XFeqYk0rcBS772I30a8DgClaU4b4dKPu4VRqRrYaduCIlbHpz1kTB8PpJEYQ4ZW1Bxv7aXchSWQ7t+BeAtE76GGdvTE4gsNMyFP5jEZFwMBcDwH1hX19gQnYYkeaHdOyIgAHfLBLgAxgdcLzz2NA3lQ9i2TbJTaC1S2ey5PQkzU5LLrB4AO1J/pvCebp3Ss44wHUwVBwd25W1oJ24q1c4xbOQGxYn5/DpYfdrXMgkMjB47BGeEUs7+y3ialOlf0TU8Gu7XWjgtB6EFSU7Et8yOqjcd4OOa9JSy9W+aS3x+c3zNfDuFbQ4sfZPp3KyPFJfsS/Akx0NhlOWv/e0SSPS9WlBbvOurzX/NWAQj5eIZwRSOFlGgscM1HRCHVACqUmBchAfzpDDyzqiABLyLYFgXqaS/ebqGC+/30Jrnt7ZtygSvMqbhpZZX9jv7PqMbpfD7/o66J/yzfLqKPbKXu28BOyW9R9eSX/Nei/UzbynredynTvTtsI4LzgZRYazTLsobKnPMKQzaq3EeX9Y25BOdj54v7JuWd60MZrGM+8XL5p+LwFOxtsWRRpzEC1Bt81ynLzpE/E4hLjjiop/aAkLNJq4J51yT1dX8uFSOAR4NMZQPsSspT7lIaWgqILMi7JGtjwETYGr812smQRYCeSM8EkHH6rebN5gUyL7ul+rD9mqA5Ac5GY4v40gb6e/OLk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM8PR10MB5416.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?crIi/5M+h10v1SKTXJYcka3odbdgcJHUU8cHLGfPU+gy/diz+2d/aPcc/GAG?=
- =?us-ascii?Q?QGO+CtZ9ggNVz3ZmV1UQYLOAqB7FS5RCLhdqahF1n3MVkkjkFl1kmwHlicvq?=
- =?us-ascii?Q?oOMWU9hOAD8lHdSVzQrBPWUk8015gHPzYMAEu3INwwdp63nDnrpYnn4D3Qn5?=
- =?us-ascii?Q?qO9YO29KmX/hZn5/r/AauQfP7qNNbnI//rHS5spYeTkMxTFoPZCuDaj6fSpO?=
- =?us-ascii?Q?N2awTet/AYDL7gCwILcK+08tUkSbmt2YHP4cOeRp+CkEwJZVKdCkwDciDKGZ?=
- =?us-ascii?Q?U1+Q2rvQU4vEWySoFVvoMFiWKfF4famT6ktmlqwwcGQsxhvpZnQNWfRrqXan?=
- =?us-ascii?Q?paiZ1JmttV4QAsQy20ZVdw/F6foDF26TY5TV0z7LJmZ98vK3OAB4cPuKmj2l?=
- =?us-ascii?Q?ADQMWEf0fudpJwbv4dEmHQoVbsP3tH3jA+FIntaYN7JLJ0W8p1JDb/6bRUIx?=
- =?us-ascii?Q?AUChXWD8xbx+aFgmvDZG1lD9FaKdH0BDJsJkS0gdp4yz8e2x1lGM3Ul4K1sA?=
- =?us-ascii?Q?8SVjTisxye6tLmNsCEKlq6n39ALrKnHs7CxnRecyIikZTR4tgd9A7f/IQgXQ?=
- =?us-ascii?Q?tRwPpwYieGNivtA8fBIaNHVvTbvUvfP3FVPmykwd+ox5DWaqMv6ZvZmagwAh?=
- =?us-ascii?Q?9qBeroLVV4Hvttt+Cu/wCREbRI7aWOi+PVPONPKLyRNenNz8m22hNqsOBIRF?=
- =?us-ascii?Q?M2atCRPCwMrZ9+8d2UIb7nbUll+jr+/Rei+ZPL8aLeF3TJ8wBu9pYyw2SSpa?=
- =?us-ascii?Q?uH7P55l3Pk4mgfDboe4DzduT4Sijd+Wsj2ts9vWxCBLduS+3L1m+aK6N1L61?=
- =?us-ascii?Q?SssNx+0y4i7eF8YiHHDjDboGnpfCAdv9/lPEVTjYoWctiPblAtj9nLWB1/67?=
- =?us-ascii?Q?4uvx6wJl8Z62S9cc87oQw3qJJfIM1pnFUN/N0Cd81NlqWeQHbmbc8ea0vOgP?=
- =?us-ascii?Q?Bwn/icHR7jWzYEptK47RS9SEYaiHiNS/F8NHkdnGIlCvJGmHjVHqf0AigAkH?=
- =?us-ascii?Q?fgk3EPUhhDOuJmiosSsGElAJsECF8cJf656tf2amY1KVBMjnkQv8Js2GHwI6?=
- =?us-ascii?Q?vojFBgdd9+ec5tANnty1S0xtq4wqFKI4zMyfVHn160PCkKaKvQdzfN/A451t?=
- =?us-ascii?Q?6TF1PmyHOnT1eoSaDhwoOabny2AUlN8lnKtgxJKSn5bpn8iAZYxWw1gNZHTa?=
- =?us-ascii?Q?bZMQzJ5ySywJUMP3Tf+l9sl0tCKTXB2Oxmg82fQMndQ4mR54/1R+a4jZK5Vi?=
- =?us-ascii?Q?JHsG/NMktobRechtIaZX3F3bzBVjL8yh9hOxqcvFWvybe1XDCS5XgjXWcvE8?=
- =?us-ascii?Q?QCtbVI/cKTTqsL7a2cclpsRLLQIrEv3iWkXpu1BsL9x28xZjtC1slGEhCG6a?=
- =?us-ascii?Q?fVjPDtSQhKtEY7ySUM6R2R7IilpIAtqVkva5jJPF5Sd791Ols45ROI8x/KwD?=
- =?us-ascii?Q?18alxVIivRAGZPLxsp5nZe6/ysRWPGr3G+nq4fvGian4nOppL0q5Y0+jByZw?=
- =?us-ascii?Q?di9D27te5n7KG3S1okxuJ0jSHz6jnCGbJ0Wfz838F9DW3zaWVkMZ7rirnHKf?=
- =?us-ascii?Q?tZ2POuaFY8pxZZvlZD/Dmn2ElduxTi6f7Iqii9gRzVINC9+BUl46FR7ga/Nh?=
- =?us-ascii?Q?L4sjgMQvlMJAXlLyik+XkXs4vI1Sbw4HGWaD9rVHjWMgn02BwJTNVvj7IOfY?=
- =?us-ascii?Q?VcGvE3HdomniELsDoUB7Z2hhfDL3nPB6zYMquqLa65LNggcmvgDhnFa5H7oh?=
- =?us-ascii?Q?WtigGfpE8MlC6zz5pMzI8mNhICZ+kuE=3D?=
-X-Exchange-RoutingPolicyChecked: tYCcCRDyKBd8lC5W5yO5S3bIESSoXd0Fv+XQ5SSEs6raFVLOKmSPA1kdM9w+iHnBwntJWFpOppqkwatCRLngpTP2vKM2Me9bYa0i2mLsuyT6Dp06NEb3JJN9VsjaxQ8frj2VC3ClMcPwJ8IatYJoJbUJpu4Z1XLxdxeD2xYSuEfl8kzNAoBJpxrDS4r240h4lLPaEvMidqYq6CkR7lfrr4eqN2VuVA5hVQbP9oOlJUTEAKADjexnmUBKsqswmBu/d5nMiDXYBgEoXHiERN8riBb2gIt6vE+W0se008SxotbsvhlPEsWFJZKVD+ZW/pC/UJ9LfGL5/iziH0Yh9yVesQ==
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: S3Jv4yQJfUMvBGcb6Ew2LE1ptX0h4Qrp88Fih5D6rn17Z4hUfcDfk+ph8s66swc8ikegLzSF/o7S2+NBVFxfjr0+0xPKfl3No7W3Bg8JjzsYNhdbOll5LCSTMr5iKLk9MCnrsgVS0O0kgI1uOPFDf7iz/4fXDzOELt9oOC2G1xf51dIfiQcoYnBiqVrNTSDIBUEy4r4w7XLqIWJacf5YQbOSd7qVD2WARxkA0Sci0URWekNMyJ/PECIm+SMt17jPT+pmHWUbuzLdPvxOzcjLLIk1aAtf0/YvKFgIXyDbmB1A8Ea6sabLlTWN6cKE/Smrx/q7pG0QimR0j06+LAmAc+C2dKFcydB3+us1raEjia1sZtCTxrfrWpdlDUm32VGDoSm9AB3PVyCR9VS4+20dPOPY1ChisLlbPgHXkNPXDqIkqyifjqS/qMdpWy+kNo1Rxwj9EfWANvBQXZOoL7nlsO5+iRrpBcJ28QlCov08cFCrymUHmBnfd26NYJnnMDPsU/I1MfkAt71Sc1B1eEEMWyru6MXi09Ef+ycMCn7FRM5YPKMxaTc6xi26a9V712PmdtfrAvAzD+IvgZyqVMTIXck3jtDPGhMjj5rX3tbtYhc=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9ca4f179-b08e-4d0d-924d-08de903e716b
-X-MS-Exchange-CrossTenant-AuthSource: DM8PR10MB5416.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 22:31:40.2128
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: p9x+4YAIm8lRWNYgXdOwmdEnt72bJwrubNjF5LHN6oaRlzjBxzGTO8AtTxSu3QIGxsW4JJi+VF9wFc3CuijPuH3VatHEkigULwrCEGQd48A=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB6743
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-01_04,2026-04-01_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=999 spamscore=0
- suspectscore=0 bulkscore=0 malwarescore=0 adultscore=0 phishscore=0
- mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2603050001 definitions=main-2604010212
-X-Proofpoint-GUID: j2mqLq9iqQh_Mcl3O-ZMH3vBzwKo-4_I
-X-Authority-Analysis: v=2.4 cv=G7cR0tk5 c=1 sm=1 tr=0 ts=69cd9cd2 b=1 cx=c_pps
- a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=A5OVakUREuEA:10
- a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22 a=jiCTI4zE5U7BLdzWsZGv:22
- a=EIcjfB9IiI4px24ztqRk:22 a=7CQSdrXTAAAA:8 a=VwQbUJbxAAAA:8 a=JfrnYn6hAAAA:8
- a=yPCof4ZbAAAA:8 a=pnmuM6TG8pbiPne0lAMA:9 a=a-qgeE7W1pNrGK8U0ZQC:22
- a=1CNFftbPRP8L7MoqJWF3:22 cc=ntf awl=host:13825
-X-Proofpoint-ORIG-GUID: j2mqLq9iqQh_Mcl3O-ZMH3vBzwKo-4_I
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAxMDIxMSBTYWx0ZWRfXwYjBCb3npq1f
- F+SuJAZqZpxaQGciZx7ygZ6887K5DK0GChUqB+Ae8gNpRYPKk7NtPeXNetbkUotiTDrrvTjnIg3
- /gDrlN7y/ZA6jju6BycONuZo6e5pkiFeFp+eCpmUmi4K23wEYjWciKGr63i81S38YaK5/GMCI+O
- jV4uWK/r7/j8idAQD4Z/ouXbTYEkaXg+wdkSWQwz72cOqbmpVaryL5bolDHWxojVUMdvNUZERU9
- UHA7V3WwmCyqhYPicVduWGuIKlDtQ1wnABIAL7CIFJ/fNN0Zwpp5y9ZCuW9m5RZTL4HpukLbZ/N
- cPitAVCOlYCxF7s0Iu1hQeM4hMFlZ8NeG19MuXyeZ9cXglzisf0q+TyVLURereURa+zODH3cNCo
- z1FGQq4DK65AuaS8gnzaHjZ7MUnwXVCk/Wigp6GMw8r6AcCS+S24q1U+C7KGFS6Yx3KbVjbt+LA
- DTSMF8Z72byjxWOquVMOmXV5kak7FY5H7FDrRbxA=
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: 4epogobj18rrgh3gykjen88bgr7uq4u3
+X-Rspamd-Server: rspamout04
+X-Rspamd-Queue-Id: 7438620023
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1+9loO0uPQcdRrACGcallEQYGbxIHK2BJA=
+X-HE-Tag: 1775083196-868687
+X-HE-Meta: U2FsdGVkX1+DtxZ6fGh5PSCmac8SvXwgJMF+ah6/6elT9kqKlWpaklv4XEO8u9LjMnf0tQmnp6I8DfpcgzBMeCouBjJzqYip3Mk4eSz4Pa9CE/dxp9Bdm+UAvfR/9M4oUlunCCZ1d1SEu41IteuuzvNGV9mlmTPS66akoL/aQcm8ULR91oOF+x1Cos3xzAXorXhTOdjRSSEjv9Yz6XQsXC66+N3z+wpiPR/B5/LKGlUE9xPqUkYc6MmKPZqpKrqmW/xzPwRZ6adWKuOH1VD0Dh1q9ktlNwIKafAZckq/WWCwad0uzpGVs3/JM3BGjc2DjtghlvaD9wwxmO588lAnJ1L8ehUWZUjJ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_153218_641244_8A858163 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260401_154003_209799_86F7917B 
+X-CRM114-Status: GOOD (  44.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,23 +74,285 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-Catalin Marinas <catalin.marinas@arm.com> writes:
+I replied with mostly grammar fixes and some rewrites of text.
 
-> On Sun, Mar 15, 2026 at 06:36:43PM -0700, Ankur Arora wrote:
->> To handle WFET use __cmpwait_timeout() similarly to __cmpwait(). These
->> call out to the respective __cmpwait_case_timeout_##sz(),
->> __cmpwait_case_##sz() functions.
->>
->> Cc: Arnd Bergmann <arnd@arndb.de>
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: linux-arm-kernel@lists.infradead.org
->> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
->
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+On Tue, 31 Mar 2026 17:36:30 +0900
+"Masami Hiramatsu (Google)" <mhiramat@kernel.org> wrote:
 
-Great. Thanks Catalin.
+> From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+> 
+> Add a self-destractive test for the persistent ring buffer.
 
---
-ankur
+  "self-destractive"? Do you mean "self-destructive"?
+
+Probably better to call it a "self-corrupting test".
+
+> 
+> This will inject erroneous value to some sub-buffer pages (where
+
+            inject an erroneous
+
+> the index is even or multiples of 5) in the persistent ring buffer
+> when kernel gets panic, and check whether the number of detected
+
+  when the kernel panics, and checks whether
+
+> invalid pages and the total entry_bytes are the same as recorded
+
+                                                  same as the recorded
+
+> values after reboot.
+> 
+> This can ensure the kernel correctly recover partially corrupted
+
+  This ensures that the kernel can correctly recover a partially corrupted
+
+> persistent ring buffer when boot.
+
+                         after a reboot or panic.
+
+> 
+> The test only runs on the persistent ring buffer whose name is
+> "ptracingtest". And user has to fill it up with events before
+
+                  The user has to fill it with events before a kernel panic.
+
+> kernel panics.
+> 
+> To run the test, enable CONFIG_RING_BUFFER_PERSISTENT_INJECT
+> and you have to setup the kernel cmdline;
+
+  and add the following kernel cmdline:
+
+Note, it's more proper to use a colon (:) than a semi-colon (;) when
+referencing an example on the next line.
+
+> 
+>  reserve_mem=20M:2M:trace trace_instance=ptracingtest^traceoff@trace
+>  panic=1
+> 
+> And run following commands after the 1st boot;
+
+  Run the following commands after the 1st boot:
+
+> 
+>  cd /sys/kernel/tracing/instances/ptracingtest
+>  echo 1 > tracing_on
+>  echo 1 > events/enable
+>  sleep 3
+>  echo c > /proc/sysrq-trigger
+> 
+> After panic message, the kernel will reboot and run the verification
+> on the persistent ring buffer, e.g.
+> 
+>  Ring buffer meta [2] invalid buffer page detected
+>  Ring buffer meta [2] is from previous boot! (318 pages discarded)
+>  Ring buffer testing [2] invalid pages: PASSED (318/318)
+>  Ring buffer testing [2] entry_bytes: PASSED (1300476/1300476)
+> 
+> Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+> ---
+>  Changes in v15:
+>   - Use pr_warn() for test result.
+>   - Inject errors on the page index is multiples of 5 so that
+>     this can reproduce contiguous empty pages.
+>  Changes in v14:
+>   - Rename config to CONFIG_RING_BUFFER_PERSISTENT_INJECT.
+>   - Clear meta->nr_invalid/entry_bytes after testing.
+>   - Add test commands in config comment.
+>  Changes in v10:
+>   - Add entry_bytes test.
+>   - Do not compile test code if CONFIG_RING_BUFFER_PERSISTENT_SELFTEST=n.
+>  Changes in v9:
+>   - Test also reader pages.
+> ---
+>  include/linux/ring_buffer.h |    1 +
+>  kernel/trace/Kconfig        |   31 ++++++++++++++++++
+>  kernel/trace/ring_buffer.c  |   74 +++++++++++++++++++++++++++++++++++++++++++
+>  kernel/trace/trace.c        |    4 ++
+>  4 files changed, 110 insertions(+)
+> 
+> diff --git a/include/linux/ring_buffer.h b/include/linux/ring_buffer.h
+> index 994f52b34344..0670742b2d60 100644
+> --- a/include/linux/ring_buffer.h
+> +++ b/include/linux/ring_buffer.h
+> @@ -238,6 +238,7 @@ int ring_buffer_subbuf_size_get(struct trace_buffer *buffer);
+>  
+>  enum ring_buffer_flags {
+>  	RB_FL_OVERWRITE		= 1 << 0,
+> +	RB_FL_TESTING		= 1 << 1,
+>  };
+>  
+>  #ifdef CONFIG_RING_BUFFER
+> diff --git a/kernel/trace/Kconfig b/kernel/trace/Kconfig
+> index e130da35808f..07305ed6d745 100644
+> --- a/kernel/trace/Kconfig
+> +++ b/kernel/trace/Kconfig
+> @@ -1202,6 +1202,37 @@ config RING_BUFFER_VALIDATE_TIME_DELTAS
+>  	  Only say Y if you understand what this does, and you
+>  	  still want it enabled. Otherwise say N
+>  
+> +config RING_BUFFER_PERSISTENT_INJECT
+> +	bool "Enable persistent ring buffer error injection test"
+> +	depends on RING_BUFFER
+> +	help
+> +	  Run a selftest on the persistent ring buffer which names
+> +	  "ptracingtest" (and its backup) when panic_on_reboot by
+
+  Does this do anything with the backup?
+
+> +	  invalidating ring buffer pages.
+
+ 	  This option will have the kernel check if the persistent ring
+ 	  buffer is named "ptracingtest", and if so, it will corrupt some
+ 	  of its pages on a kernel panic. This is used to test if the
+ 	  persistent ring buffer can recover from some of its sub-buffers
+ 	  being corrupted.
+
+[space]
+
+> +	  To use this, boot kernel with "ptracingtest" persistent
+
+                     , boot a kernel with a "ptracingtest" persistent
+
+> +	  ring buffer, e.g.
+> +
+> +	   reserve_mem=20M:2M:trace trace_instance=ptracingtest@trace panic=1
+> +
+> +	  And after the 1st boot, run test command, like;
+
+                               , run the following commands:
+
+> +
+> +	   cd /sys/kernel/tracing/instances/ptracingtest
+> +	   echo 1 > events/enable
+> +	   echo 1 > tracing_on
+> +	   sleep 3
+> +	   echo c > /proc/sysrq-trigger
+> +
+> +	  After panic message, the kernel reboots and show test results
+> +	  on the boot log.
+
+          After the panic message, the kernel will reboot and will show the
+          test results in the console output.
+
+> +
+> +	  Note that user has to enable events on the persistent ring
+> +	  buffer manually to fill up ring buffers before rebooting.
+
+	  Note that events for the ring buffer needs to be enabled prior to
+	  crashing the kernel so that the ring buffer has content that the
+	  test will corrupt.
+
+> +	  Since this invalidates the data on test target ring buffer,
+> +	  "ptracingtest" persistent ring buffer must not be used for
+> +	  actual tracing, but only for testing.
+
+	  As the test will corrupt events in the "ptracingtest" persistent
+	  ring buffer, it should not be used for any other purpose other
+	  than his test.
+
+
+> +
+> +	  If unsure, say N
+> +
+>  config MMIOTRACE_TEST
+>  	tristate "Test module for mmiotrace"
+>  	depends on MMIOTRACE && m
+> diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
+> index 5ff632ca3858..fb098b0b4505 100644
+> --- a/kernel/trace/ring_buffer.c
+> +++ b/kernel/trace/ring_buffer.c
+> @@ -64,6 +64,10 @@ struct ring_buffer_cpu_meta {
+>  	unsigned long	commit_buffer;
+>  	__u32		subbuf_size;
+>  	__u32		nr_subbufs;
+> +#ifdef CONFIG_RING_BUFFER_PERSISTENT_INJECT
+> +	__u32		nr_invalid;
+> +	__u32		entry_bytes;
+> +#endif
+>  	int		buffers[];
+>  };
+>  
+> @@ -2079,6 +2083,21 @@ static void rb_meta_validate_events(struct
+> 	  ring_buffer_per_cpu *cpu_buffer) if (discarded)
+>  		pr_cont(" (%d pages discarded)", discarded);
+>  	pr_cont("\n");
+> +
+> +#ifdef CONFIG_RING_BUFFER_PERSISTENT_INJECT
+> +	if (meta->nr_invalid)
+> +		pr_warn("Ring buffer testing [%d] invalid pages: %s (%d/%d)\n",
+> +			cpu_buffer->cpu,
+> +			(discarded == meta->nr_invalid) ? "PASSED" : "FAILED",
+> +			discarded, meta->nr_invalid);
+> +	if (meta->entry_bytes)
+> +		pr_warn("Ring buffer testing [%d] entry_bytes: %s (%ld/%ld)\n",
+> +			cpu_buffer->cpu,
+> +			(entry_bytes == meta->entry_bytes) ? "PASSED" : "FAILED",
+> +			(long)entry_bytes, (long)meta->entry_bytes);
+> +	meta->nr_invalid = 0;
+> +	meta->entry_bytes = 0;
+> +#endif
+>  	return;
+>  
+>   invalid:
+> @@ -2559,12 +2578,67 @@ static void rb_free_cpu_buffer(struct
+> 	  ring_buffer_per_cpu *cpu_buffer) kfree(cpu_buffer);
+>  }
+>  
+> +#ifdef CONFIG_RING_BUFFER_PERSISTENT_INJECT
+> +static void rb_test_inject_invalid_pages(struct trace_buffer *buffer)
+> +{
+> +	struct ring_buffer_per_cpu *cpu_buffer;
+> +	struct ring_buffer_cpu_meta *meta;
+> +	struct buffer_data_page *dpage;
+> +	u32 entry_bytes = 0;
+> +	unsigned long ptr;
+> +	int subbuf_size;
+> +	int invalid = 0;
+> +	int cpu;
+> +	int i;
+> +
+> +	if (!(buffer->flags & RB_FL_TESTING))
+> +		return;
+> +
+> +	guard(preempt)();
+> +	cpu = smp_processor_id();
+> +
+> +	cpu_buffer = buffer->buffers[cpu];
+> +	meta = cpu_buffer->ring_meta;
+> +	ptr = (unsigned long)rb_subbufs_from_meta(meta);
+> +	subbuf_size = meta->subbuf_size;
+> +
+> +	for (i = 0; i < meta->nr_subbufs; i++) {
+> +		int idx = meta->buffers[i];
+> +
+> +		dpage = (void *)(ptr + idx * subbuf_size);
+> +		/* Skip unused pages */
+> +		if (!local_read(&dpage->commit))
+> +			continue;
+> +
+> +		/*
+> +		 * Invalidate even pages or multiples of 5. This will lead 3
+
+							    This will cause 3
+
+-- Steve
+
+> +		 * contiguous invalidated(empty) pages.
+> +		 */
+> +		if (!(i & 0x1) || !(i % 5)) {
+> +			local_add(subbuf_size + 1, &dpage->commit);
+> +			invalid++;
+> +		} else {
+> +			/* Count total commit bytes. */
+> +			entry_bytes += local_read(&dpage->commit);
+> +		}
+> +	}
+> +
+> +	pr_info("Inject invalidated %d pages on CPU%d, total size: %ld\n",
+> +		invalid, cpu, (long)entry_bytes);
+> +	meta->nr_invalid = invalid;
+> +	meta->entry_bytes = entry_bytes;
+> +}
 
