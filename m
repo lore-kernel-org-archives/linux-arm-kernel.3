@@ -4,161 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA092D2ED08
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BA6A107637B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:48:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:From:Subject:Cc:To:Message-Id:Date:Content-Type:
-	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cjQ03GN1cGoxVTQiR37x/WF81BNH9NkMfAVaF/ln54E=; b=wHW2VVfZtqFuyoVfZa+uSJnMP2
-	aH6GZ8FNLSFoOXtTa9MNUuNEOVpB2nSm9YkBAmVWIadxsr/WvbsoiN0Gkgf779Rn2NpAiKYTQ4Vkw
-	CqbVI2Tjo+6XszJWHdsNRcae2rEyPK8kxV6ToylCV4SQUZ5Khl+SCiXjcdvrR8IKRTCGSKlqMoghB
-	X/zPa2pC8Z+AIiyUDwZTyk/0F7E0UJDqTr1I3eQr3BsBaNPGo5BarFQF0FnkEFpFWcc3PsUf5bzeZ
-	ZrGKjliXRLP+Gw9tiQCxb2gOq6rDu1TFHqoF/vHMIIyio6Dc/lhvbJi+qJeB3p34w5rTqg2BMBBRF
-	FD/y4o+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HoWKSnsKLtxY9sRG37q7JopC8BGz/Pr3NVh3r3H0wtg=; b=qLU0ru7q/MDabCt7OTARum8Wi5
+	4egb5+szmKCklYGctF0cqfsLj6RqJZhTYaKiBt0TAV4bgTcs/oMnqcXD/x1v9BCsFzGa/RmgHxAXf
+	ZVl/oi/dYWx3Oi3rNGiAwj7IptA8yq2bfli6i2CDUIxUT2AnIqyqVLP4FS8i6xKFhoGaABUNzp8WH
+	hbtNw3qV6fTqVRzRe/JRfdsnsnu3NpqwR3a3VM67/bM576SoXpyMcqp3hdiDslmXPo0xnvhnsbDsh
+	ux+XMKagz1vavZR1RqSfnHSukbhL91uMzC0aEFRy4Rh1FHEbG5A5OF694QUDKUskE05neqq9za9cs
+	tDzFcVbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vsG-0000000FLhq-3Hv7;
-	Wed, 01 Apr 2026 13:44:48 +0000
-Received: from mail-uksouthazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c205::1] helo=LO3P265CU004.outbound.protection.outlook.com)
+	id 1w7vvk-0000000FM7r-3aHH;
+	Wed, 01 Apr 2026 13:48:24 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vsE-0000000FLh0-0kbY;
-	Wed, 01 Apr 2026 13:44:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hhYBqqc625m2MuxcNUcCm1EE2jjthg5Z79o2zG7+8OkeiqOuxnos7hfOyJw9xp9IuD8qrn0zo6a0+BAtL+4jl1CzAfuM6DCz469W6g+qqp/1LYLOSriIlGtfa/zSR8c1QKuitkI4jnWo6ve/gU2zQnukfcdYKpXd5sivXsUeWcp6WEMbQ4uiR+6gcrUK1iTNeNH73iwiCcAkJOpEe7xq0G47U2KOgq86XVh7WEOc1kvnfzPvHPUgnQw+pwiqx6M9Fx0YVgxoNJMurR6qMdQgBQYnYw0CLW+77EuRdLrWa+RsR2hVakL8RkdfpNFDFfQ0U4ibIdvGmPgYmSKoG3ssdA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cjQ03GN1cGoxVTQiR37x/WF81BNH9NkMfAVaF/ln54E=;
- b=M/DA0nqB06nvRay7yukT5JJ5s0MXT0JOz7/x3uJwteExaKmPkGG/L16ApoEiaSYHaASbMMkaPPPewJXAthXkHJpM8iMKrokx1os9kGY37OkedL/xJla2RcZN8lWDvijpPE311U+XIUvJeVH0t/lSHctuxdfvZwn4aGBWwtiA+4Z2Ak/Pmlb7Oxs0CrIL5dy7nRFJFiE2JhRmc0Tbbz40e01kJnKDhgm+j5Gu+5KbN276f6NwbNKBqgtjgOKZJDjAujzXQxW48ZivWeek5oWQl9hsTXHiKtftyZTfzOFobMZbdClczTMHrhVUiIkUnF23ClHv5IduRjepqpWN9y4jUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cjQ03GN1cGoxVTQiR37x/WF81BNH9NkMfAVaF/ln54E=;
- b=unY+yv52v8x0pKHs5oExakc0Y/jKIhJeIy3vV1uB0fvee5oVzQZIdEWt05AqNVwIFtJJGB9qe8HW0GDVfNdTN55L09arGlk9QdZfmjFPYuJCAG7h4WYkoe0g80vegd/SILGSZi5RfFhPUrbBTNQWSIYnmt+RaMr6hYgR96WVJeU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
- by LO0P265MB5811.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:265::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
- 2026 13:44:41 +0000
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
- 13:44:41 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 01 Apr 2026 14:44:40 +0100
-Message-Id: <DHHV3D4H9Y0W.22GPYL889NZ4K@garyguo.net>
-To: "Miguel Ojeda" <ojeda@kernel.org>, "Nathan Chancellor"
- <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Danilo Krummrich"
- <dakr@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Catalin
- Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Paul
- Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, "Alexandre Courbot" <acourbot@nvidia.com>,
- "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
- "Brendan Higgins" <brendan.higgins@linux.dev>, "David Gow"
- <david@davidgow.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, "Todd Kjos"
- <tkjos@android.com>, "Christian Brauner" <christian@brauner.io>, "Carlos
- Llamas" <cmllamas@google.com>, "Alice Ryhl" <aliceryhl@google.com>,
- "Jonathan Corbet" <corbet@lwn.net>
-Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
- <rust-for-linux@vger.kernel.org>, <linux-kbuild@vger.kernel.org>, "Lorenzo
- Stoakes" <lorenzo.stoakes@oracle.com>, "Vlastimil Babka"
- <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
- "Uladzislau Rezki" <urezki@gmail.com>, <linux-block@vger.kernel.org>,
- "moderated for non-subscribers" <linux-arm-kernel@lists.infradead.org>,
- "Alexandre Ghiti" <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>,
- <nouveau@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>, "Rae
- Moar" <raemoar63@gmail.com>, <linux-kselftest@vger.kernel.org>,
- <kunit-dev@googlegroups.com>, "Nick Desaulniers"
- <nick.desaulniers+lkml@gmail.com>, "Bill Wendling" <morbo@google.com>,
- "Justin Stitt" <justinstitt@google.com>, <llvm@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>, "Shuah Khan" <skhan@linuxfoundation.org>,
- <linux-doc@vger.kernel.org>
-Subject: Re: [PATCH 06/33] rust: kbuild: remove skipping of
- `-Wrustdoc::unescaped_backticks`
-From: "Gary Guo" <gary@garyguo.net>
-X-Mailer: aerc 0.21.0
-References: <20260401114540.30108-1-ojeda@kernel.org>
- <20260401114540.30108-7-ojeda@kernel.org>
-In-Reply-To: <20260401114540.30108-7-ojeda@kernel.org>
-X-ClientProxiedBy: LO4P265CA0158.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:2c7::17) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:488::16)
+	id 1w7vvg-0000000FM7F-0rVJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Apr 2026 13:48:22 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 0041DC59965;
+	Wed,  1 Apr 2026 13:48:46 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E9686602BF;
+	Wed,  1 Apr 2026 13:48:15 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DB74A10450A06;
+	Wed,  1 Apr 2026 15:48:09 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1775051294; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references:autocrypt;
+	bh=HoWKSnsKLtxY9sRG37q7JopC8BGz/Pr3NVh3r3H0wtg=;
+	b=tkyzk5+bcmjJPZWDQVYYUF6MQeyeC3EoCrpJN+CU5Qyq50wiRJGECWFhjdgQzapypJqxYE
+	oCslFr2SxiUnS5Q3TFEv1i+XuIsIYnJoQ6pVcK/UmOc9TOFO4/Hxkk5usw2SAB2ow9warh
+	hiz2tbnra9fG2YNoBe8gVJLwLYAQ191WjyUtZaIFfCQGEq2b16SFqJOI6yEl94mk/5P6UK
+	pqOZJ4SEmbZJK0hb7h7QZA2GUXPdePGBXh3TP4VugoH2GhPA9/GubbFeMgrTnxm3yUr20u
+	U2cg3A6aYvxiFLp4UJ2gqWIYP3ggIuNVuK64l7c2FjjPphrPlXeNjZt3uCcD9g==
+Message-ID: <9a66f7612a8d96d7c44e86a9426a8c553329580b.camel@bootlin.com>
+Subject: Re: [PATCH v4 3/5] mfd: aaeon: Add SRG-IMX8P MCU driver
+From: Thomas Perrot <thomas.perrot@bootlin.com>
+To: Lee Jones <lee@kernel.org>
+Cc: thomas.perrot@bootlin.com, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Linus
+ Walleij <linusw@kernel.org>,  Bartosz Golaszewski	 <brgl@kernel.org>, Shawn
+ Guo <shawnguo@kernel.org>, Sascha Hauer	 <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,  Fabio Estevam
+ <festevam@gmail.com>, =?ISO-8859-1?Q?J=E9r=E9mie?= Dautheribes
+ <jeremie.dautheribes@bootlin.com>,  Wim Van Sebroeck
+ <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>,
+ devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Miquel Raynal
+ <miquel.raynal@bootlin.com>
+Date: Wed, 01 Apr 2026 15:48:08 +0200
+In-Reply-To: <20260331130848.GG3795166@google.com>
+References: <20260324-dev-b4-aaeon-mcu-driver-v4-0-afb011df4794@bootlin.com>
+	 <20260324-dev-b4-aaeon-mcu-driver-v4-3-afb011df4794@bootlin.com>
+	 <20260331130848.GG3795166@google.com>
+Autocrypt: addr=thomas.perrot@bootlin.com; prefer-encrypt=mutual;
+ keydata=mQGNBF+/ZOUBDAC2DghCjZvmgYcve02OG7dGZ7Iy58uEwne3LB7w7nRwdAxKw7ZaiVqwY
+ O+yNGVi+GVx7oA6Wn4pv46z+QDRLQiq6OseuXhkSGCg7U/yBCUq12B/GRGO1Qt2Qi1mJJT1s+1qZ5
+ Gxv6Nypz9qKVn94GM2bR1hXBga0t87vBpebThOHmX5d/0dqIcVxRCM7onNb0dDyRoVgLS5rBhQzrL
+ CMrJaCy39xZUy0J1SOlH4Mgk6EhJIPYY4wlzikGX6urg+Tc9EjGd78ry0e0p5U5qgjFR5QGJDy1Gn
+ U3CfwbT9sowdCASDbQDUoltlv2iWJCLa0xl97KVchCa0pr7HKbFA3J5SLKqFYUBCkFL+5WudYlz2n
+ XxiUgyviMQxyK+ij66kEi6/2zFDAecd43pHV7790ptqZBC3Jc67Emj7Vo3ShX6RXPPxxbeCTOF2uk
+ I45aJ9XcVFH/MFE96NjXj8uahnIsiTPyuCUoJu8tj7TSQyue874qJqVQvqlFyt2aZYJZ8ruq8AEQE
+ AAbQpVGhvbWFzIFBlcnJvdCA8dGhvbWFzLnBlcnJvdEBib290bGluLmNvbT6JAc4EEwEIADgCGwMF
+ CwkIBwIGFQoJCAsCBBYCAwECHgECF4AWIQSHQHfGpqMKIwOoEiGfwAsFcf4K7QUCX79mdwAKCRCfw
+ AsFcf4K7fhbC/wP0kSl6id2E/K3+UdXk6CLMVRbCFLCREzQs5WFpQ6l/I0WGOamhrOgegdszheiVF
+ orlUP8d37XSpFAqydhKGaN78V5Dps0Wmwm4lIlS4MtQXJtSLUHXDJLIZLW0pw8tiPLKsd1o/yDkXE
+ dnpsjJTRG6SdDSHnyOB2/gh4p+yTaLytFdARk/r4/P26+L+FiH0fFl+RnBt19LPklfKgeDc7GwIif
+ ja+nIWpp3W23DAUuI6xduEut25Q89yu7Ci8CliLfAiLy9bIGjBQWU2Y+1/j/7KuPj6VbBsZWLTZY0
+ hUmpJSTnWAqc9SMsNxo7NSQuddgviz5e2tqucaRqxP02FGzNa8U4NAKdWaXrlHG5Dglj9XH0DK+SH
+ +c96qqFewYD8VPQ6XAGxQcXbrtJmiMor1R2DfziispLRvJcfYs8xqabbCtoS3ouXB9XRi8hn7A2kh
+ ME1ryS+Oh63JshXHnw6bmjCpVd/p+fGLIGU6A47pJOpviKR4jEO84pl2ejtDZ3Tc=
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-qAFYFdvVYExu7LPUqa+z"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LO0P265MB5811:EE_
-X-MS-Office365-Filtering-Correlation-Id: eba49220-1b3c-4171-7cce-08de8ff4d37c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|10070799003|366016|921020|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: i40V8I5W8QazNsIi0ZpFRwWH1cv+AhNVn9DwazbnE7QXOaNiGSwljACMcYtYPGRhkj4quWyZU9Lz/Xj+gIrzXRJSfmyyl72vO5mViJmR+ur+E9Oy8GwAJoM33imAlavpqxJQp1aKbI0iAGKG1OXKYYBubQR2b8MFjfKyHFwERxCXY4/rUgtwBg7hpqoxFi90LYXAf36S9Fi7dO5HvLPMg8H5MoVzo1Gi0Kr3l1Nc+dQYVgGgiAcA7vr3NcpcBCiVEu/YhfIZ1C0CI9vaBvjix0R0E5jifYr+FniwqiaIuCT4hn0xizcg701MOgBx6lSt1eT7pSDe6dtPKuJfDG+LMqq0SyxYM9tyJrSmBbHjfWRy7B27iESxMquIngfHWxI6Bgt149gCFrrPI9zw8xG6YOgvilv5uRBoyEI5mnnC2t9PXjsPvOUWOKJH4YL+OguF1B3EAlYMOUh32ZitYLQA/7hHHZLYARL93nxm7hGmn8rrUMOhJSKr4YMn6MYJmbGeabd1+uGAQ40/3MBCcMpaP4ihy/Y0HJr4uq2rHDOHs7rGveFcKjeGFyrV8cvEwYiSHEnggBNA41Gj1AuII9lUfgs2IYKGGWqasahq+hb6FZ86FTUWnzToQPsAN8OqvCdUH2ohlnPjnY/bHryIM7CBmAbr6EEe3qn9ntjvZUA+LWenX0IdAaUFN38fpNuh8UMwOHIvH6yacX2h9QhzBTLuVXdy4cOD/QFNpBukANa8M8hXF0TFDZmsHfGcXYE0f3PB/DVpo9+3gjrHKFEYp0wdUg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(10070799003)(366016)(921020)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NGpSN1ZRZVV0K0xuR3hGT1MwN2t5aUJScjUxcENPaGFxQmFvN2xDMmFoT05z?=
- =?utf-8?B?bE0xbS85bjF2cXNWOVgvZFJLQmpkK1c4cUVDVGtGVkJ4Y1phZ3ZOcEQ5WENN?=
- =?utf-8?B?ZE5EMHhGU1FVUGVHTUl1NWtTZHllTXVHTGtsNlFUa21PY3lnOG80T3lpRm1h?=
- =?utf-8?B?VS9KTkRlZ1BRdDh6ZDh1NUpaTW1KU21kczZOcW9aUTZZbk53RVNTeTk5U2wx?=
- =?utf-8?B?MlFyRk96THJZRS8rdTQyTkhXdm15Q0hmS0RKTzFZSzFYTjVPUlJUYUM2MTh2?=
- =?utf-8?B?aXlGZitaRmkzbzBHWEszWVZnNXJOcWlCS2pFWmdoNWJQUXpTdnQwOFRMKzkx?=
- =?utf-8?B?NHNvdWhpMk5BeDZBN1BHdHAxc3V0NDQxcXA4ZVNsYTZ2bVM4eFA5bGZJbUNX?=
- =?utf-8?B?L3ZZMnVOQnBObEhsd0piSjNjcDhvQ2RVSGxSWklxUEc2VHhrdDJqd3pHRGpM?=
- =?utf-8?B?STJOUG9VSzFrWllZdTNRUkFPNlVFVzR1bWw2dkdKVTluaHF1T2VnUlU4WWRH?=
- =?utf-8?B?TE1Ybi9Hb3JRblg4WnhhUXdDc0ZzQzFnU0FvRUpMUHp6NXZSRG1yazdORmxF?=
- =?utf-8?B?STMvMGQrOStBMmdCS1BxWElicVEzVDk4MWQxa2Z2M2c4Z1JzYzc3aUI1cUNl?=
- =?utf-8?B?VEpZclBRWmFGeUpnU1FSK2M4RFF3eFpSYmVvRVdWeDRnNXkvdVRYaGtTbGNM?=
- =?utf-8?B?ZmdnVFphaVBOUjFFeUF2Wm5ubWM5eEtjVWFqejc1VWlCSmJOb3g2NlVwcVZp?=
- =?utf-8?B?YjVCVGdRRzl0RStxQ1RmU2haV0RKWFlNUDNlcXEyOUpmNkZ3QnNEekU0RWVU?=
- =?utf-8?B?aGw5MGFIV2xNNGtUTFhzR1pXUVdEczJsR1kwWXpVaEZkaDlwRWRnNk5Ca0Fl?=
- =?utf-8?B?aUxRSnI0R0RQcmRmSE5vcFZ4OFBHT1NhemtlbDJXNGdQRkIrNWh1UnYrRHNI?=
- =?utf-8?B?c2JsdGVxZVBWamg1MXhzb1AxMGdhbExDeUxHaytiNmVIWUpDamRsaitNUzl0?=
- =?utf-8?B?NzAxRncwZWtERC9VZGw3ZklpNjVMRHdodHJoa1BtR2RqNEx0NCtOdC81SFRY?=
- =?utf-8?B?UVVnSkE1NUlpQk9OTnFMcE9xV2k3Smh1QXdGN01ueTdRUGMyTktLRzhBb0d0?=
- =?utf-8?B?a2g0SGRpUUNYeCtlMHFuVldMZUJyRHgvT0lmRXdya0dsRjdIZ3Zwckt1TUtn?=
- =?utf-8?B?SjFKc2VheWVHc3hUQngydlZVaHRGcXB4ZmUxRE1ZWHBDcEJZYXYrZ0ZMUGQ3?=
- =?utf-8?B?aFRWdHpnbnkvdXdQTkl6Vm1ZYXdycFFjZnRobzZqWkJqRDdyUk5ubGh1ZjU2?=
- =?utf-8?B?eHN0dnFuWlZzVVl4dVI1M1lDNjd6bXcxc3pSL2phY1o1SDIzeDg2MDFBWXhR?=
- =?utf-8?B?T2JjNmpOM21ENCtKVjZ6WlNlelpLZXU3K3ZmVUlFaFVXUG0zSndmaGJhWkc3?=
- =?utf-8?B?RUk5SjI1UzVwYllMOWtLNCs5cmpTSDBrWEJCYXYrU3FmaUVabHNpNlpjR2ov?=
- =?utf-8?B?ZTEwbDJ0RW1JdGVLWkF1NGxHZEVKUTlwcXM0aXNEVndPUmFvSjNkWTNkL3FL?=
- =?utf-8?B?WGR2Q2dPSHVFYzh1ZlE2dUMzVmJ0RUVGY2p2WnlhbFozOHNDbTkxMWJpbXdK?=
- =?utf-8?B?aEdodVdCVnEwU3FURUp5MWl4a3dGL3BLOG44elJZeGpnUVFvSXc2RmZJN2V2?=
- =?utf-8?B?R0V3cFpEcUdVcnZRdE95b0JuRnhHVURzcGZkRGQrd3RpRlJpQTh5MVE4MTBF?=
- =?utf-8?B?aVkrSDFKWjNidVVUOC83WFVNMTZ4SCs2cDZPckxEZHFtbmxLWnRpbDkrbjhn?=
- =?utf-8?B?MUZ5K2hUQmJKaTQrR3pOSkR3Rk04VU1pS3VjV2pDSi9aT1Fnc1BXTlBUR3cw?=
- =?utf-8?B?dnZXYkxERWRvU09yZDlqOEFrZHpOakJzVDhDTGRPNVIzOEF2bDhITjRhWGNN?=
- =?utf-8?B?N1hMQkxBWCtxdy9yYTA5TkJzdUNpeU9KYkxYQ0w3MEhyM3E0U01VTEVRZEJs?=
- =?utf-8?B?TnhwN1R2N2kxYlJQbmNRSGVJT1k3c2VKWlJQQTFIUDB6MmFTS0lBNmplYmg3?=
- =?utf-8?B?eUo3VmdiTHU3bCtQKzJYSFFJcG5INGxUSkJydE85dkFmdFNQcDJ3eHYwMjQ1?=
- =?utf-8?B?bXNxaUtvK21MWjQ0RDVVSG43R3dZUXN5NHluNVhxWXhxcmI1WElPdlIwbmhT?=
- =?utf-8?B?bFJoYjRDRjUvVm80d0o3N05odHR3eUVvcm1xV3hnVWZsNU51SUxTeGtIUGlH?=
- =?utf-8?B?QTErT2pZVW4vVENPVHloR0VFVzJiQ3FPZlRtZjlIRE0yeDI5cVRDL0pldkJN?=
- =?utf-8?B?eUZyc1IwRjRISnBXTUhScUFldDdNdENzL0RXeFpyT2VFelBscTBUQT09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: eba49220-1b3c-4171-7cce-08de8ff4d37c
-X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 13:44:41.6949
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 87lJJSuAg7hy8Nq3Qzj4KnBP2l/3dhgMlEkT4f9mODpVoArZ8PR8d0c1clwKyhtIYfkYrjgMD3h7MK9jePdLuQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO0P265MB5811
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_064446_221434_A8ED870C 
-X-CRM114-Status: UNSURE (   7.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260401_064820_555476_5E9CA0FA 
+X-CRM114-Status: GOOD (  41.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,19 +105,418 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Apr 1, 2026 at 12:45 PM BST, Miguel Ojeda wrote:
-> Back in Rust 1.82.0, I cleaned the `rustdoc::unescaped_backticks` lint in
-> upstream Rust and added tests so that hopefully it would not regress [1].
+
+--=-qAFYFdvVYExu7LPUqa+z
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hello Lee,
+
+Thank you for the review. Please find answers to your questions inline,
+and the remaining items will be addressed in v5.
+
+On Tue, 2026-03-31 at 14:08 +0100, Lee Jones wrote:
+> On Tue, 24 Mar 2026, Thomas Perrot (Schneider Electric) wrote:
 >=20
-> Thus we can remove it from our side given the Rust minimum version bump.
+> > Add Multi-Function Device (MFD) driver for the Aaeon SRG-IMX8P
+> > embedded controller. This driver provides the core I2C
+> > communication
+> > interface and registers child devices (GPIO and watchdog
+> > controllers).
+> >=20
+> > The driver implements a custom regmap bus over I2C to match the
+> > MCU's
+> > fixed 3-byte command format [opcode, arg, value]. Register
+> > addresses
+> > are encoded as 16-bit values (opcode << 8 | arg) using the
+> > AAEON_MCU_REG() macro defined in the shared header. The regmap
+> > instance is shared with child drivers via dev_get_regmap().
+> > Concurrent
+> > I2C accesses from child drivers are serialized by regmap's built-in
+> > locking.
+> >=20
+> > Co-developed-by: J=C3=A9r=C3=A9mie Dautheribes (Schneider Electric)
+> > <jeremie.dautheribes@bootlin.com>
+> > Signed-off-by: J=C3=A9r=C3=A9mie Dautheribes (Schneider Electric)
+> > <jeremie.dautheribes@bootlin.com>
+> > Signed-off-by: Thomas Perrot (Schneider Electric)
+> > <thomas.perrot@bootlin.com>
+> > ---
+> > =C2=A0MAINTAINERS=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 2 +
+> > =C2=A0drivers/mfd/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 |=C2=A0 10 +++
+> > =C2=A0drivers/mfd/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 |=C2=A0=C2=A0 1 +
+> > =C2=A0drivers/mfd/aaeon-mcu.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 155
+> > ++++++++++++++++++++++++++++++++++++++++++
+> > =C2=A0include/linux/mfd/aaeon-mcu.h |=C2=A0 20 ++++++
+> > =C2=A05 files changed, 188 insertions(+)
+> >=20
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index
+> > ea9d55f76f3509c7f6ba6d1bc86ca2e2e71aa954..f91b6a1826d04bef8a0f88221
+> > f6c8e8a3652cd77 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -191,6 +191,8 @@ M:	Thomas Perrot <thomas.perrot@bootlin.com>
+> > =C2=A0R:	J=C3=A9r=C3=A9mie Dautheribes <jeremie.dautheribes@bootlin.com=
+>
+> > =C2=A0S:	Maintained
+> > =C2=A0F:	Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-
+> > mcu.yaml
+> > +F:	drivers/mfd/aaeon-mcu.c
+> > +F:	include/linux/mfd/aaeon-mcu.h
+> > =C2=A0
+> > =C2=A0AAEON UPBOARD FPGA MFD DRIVER
+> > =C2=A0M:	Thomas Richard <thomas.richard@bootlin.com>
+> > diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+> > index
+> > aace5766b38aa5e46e32a8a7b42eea238159fbcf..7a1ceedece899faad7a03a1fe
+> > 7b1c91b72253c05 100644
+> > --- a/drivers/mfd/Kconfig
+> > +++ b/drivers/mfd/Kconfig
+> > @@ -1574,6 +1574,16 @@ config AB8500_CORE
+> > =C2=A0	=C2=A0 the irq_chip parts for handling the Mixed Signal chip
+> > events.
+> > =C2=A0	=C2=A0 This chip embeds various other multimedia
+> > functionalities as well.
+> > =C2=A0
+> > +config MFD_AAEON_MCU
+> > +	tristate "Aaeon SRG-IMX8P MCU Driver"
+> > +	depends on I2C || COMPILE_TEST
+> > +	select MFD_CORE
+> > +	help
+> > +	=C2=A0 Select this option to enable support for the Aaeon SRG-
+> > IMX8P
+> > +	=C2=A0 onboard microcontroller (MCU). This driver provides the
+> > core
+> > +	=C2=A0 functionality to communicate with the MCU over I2C. The
+> > MCU
+> > +	=C2=A0 provides GPIO and watchdog functionality.
+> > +
+> > =C2=A0config MFD_DB8500_PRCMU
+> > =C2=A0	bool "ST-Ericsson DB8500 Power Reset Control Management
+> > Unit"
+> > =C2=A0	depends on UX500_SOC_DB8500
+> > diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
+> > index
+> > e75e8045c28afae975ac61d282b3b85af5440119..34db5b033584368b7a269b1ee
+> > f12528a74baf8f5 100644
+> > --- a/drivers/mfd/Makefile
+> > +++ b/drivers/mfd/Makefile
+> > @@ -8,6 +8,7 @@ obj-$(CONFIG_MFD_88PM860X)	+=3D 88pm860x.o
+> > =C2=A0obj-$(CONFIG_MFD_88PM800)	+=3D 88pm800.o 88pm80x.o
+> > =C2=A0obj-$(CONFIG_MFD_88PM805)	+=3D 88pm805.o 88pm80x.o
+> > =C2=A0obj-$(CONFIG_MFD_88PM886_PMIC)	+=3D 88pm886.o
+> > +obj-$(CONFIG_MFD_AAEON_MCU)	+=3D aaeon-mcu.o
+> > =C2=A0obj-$(CONFIG_MFD_ACT8945A)	+=3D act8945a.o
+> > =C2=A0obj-$(CONFIG_MFD_SM501)		+=3D sm501.o
+> > =C2=A0obj-$(CONFIG_ARCH_BCM2835)	+=3D bcm2835-pm.o
+> > diff --git a/drivers/mfd/aaeon-mcu.c b/drivers/mfd/aaeon-mcu.c
+> > new file mode 100644
+> > index
+> > 0000000000000000000000000000000000000000..5a969890d201c027eb25c324b
+> > 4d4d89b1f8c563e
+> > --- /dev/null
+> > +++ b/drivers/mfd/aaeon-mcu.c
+> > @@ -0,0 +1,155 @@
+> > +// SPDX-License-Identifier: GPL-2.0-or-later
+> > +/*
+> > + * Aaeon MCU driver
+> > + *
+> > + * Copyright (C) 2025 Bootlin
+> > + * Author: J=C3=A9r=C3=A9mie Dautheribes <jeremie.dautheribes@bootlin.=
+com>
+> > + * Author: Thomas Perrot <thomas.perrot@bootlin.com>
+> > + */
 >=20
-> Link: https://github.com/rust-lang/rust/pull/128307 [1]
-> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
+> Consider updating the Copyright date - we're pretty deep into 2026 at
+> this point.
+>=20
+> > +#include <linux/err.h>
+> > +#include <linux/i2c.h>
+> > +#include <linux/mfd/core.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/regmap.h>
+> > +
+> > +static const struct mfd_cell aaeon_mcu_devs[] =3D {
+> > +	{
+> > +		.name =3D "aaeon-mcu-wdt",
+> > +	},
+> > +	{
+> > +		.name =3D "aaeon-mcu-gpio",
+> > +	},
+> > +};
+>=20
+> MFD_CELL_BASIC()
+>=20
+> > +/*
+> > + * Custom regmap bus for the Aaeon MCU I2C protocol.
+> > + *
+> > + * The MCU uses a fixed 3-byte command format [opcode, arg, value]
+> > followed
+> > + * by a 1-byte response.=C2=A0 It requires a STOP condition between th=
+e
+> > command
+> > + * write and the response read, so two separate i2c_transfer()
+> > calls are
+> > + * issued.=C2=A0 The regmap lock serialises concurrent accesses from
+> > the GPIO
+> > + * and watchdog child drivers.
+> > + *
+> > + * Register addresses are encoded as a 16-bit big-endian value
+> > where the
+> > + * high byte is the opcode and the low byte is the argument,
+> > matching the
+> > + * wire layout produced by regmap for reg_bits=3D16.
+> > + */
+> > +
+> > +static int aaeon_mcu_regmap_write(void *context, const void *data,
+> > size_t count)
+> > +{
+> > +	struct i2c_client *client =3D context;
+> > +	/* data =3D [opcode, arg, value] as formatted by regmap */
+> > +	struct i2c_msg write_msg =3D {
+> > +		.addr=C2=A0 =3D client->addr,
+> > +		.flags =3D 0,
+> > +		.buf=C2=A0=C2=A0 =3D (u8 *)data,
+> > +		.len=C2=A0=C2=A0 =3D count,
+> > +	};
+> > +	u8 rsp;
+> > +	/* The MCU always sends a response byte after each
+> > command; discard it. */
+> > +	struct i2c_msg rsp_msg =3D {
+>=20
+> Assuming 'rsp' means response, let's just write that out in full.
+>=20
+> Readability wins over brevity every time.
+>=20
+> > +		.addr=C2=A0 =3D client->addr,
+> > +		.flags =3D I2C_M_RD,
+> > +		.buf=C2=A0=C2=A0 =3D &rsp,
+> > +		.len=C2=A0=C2=A0 =3D 1,
+> > +	};
+> > +	int ret;
+>=20
+> Since some I2C host controllers might use DMA, should we ensure that
+> the
+> 'rsp' buffer is allocated in DMA-safe memory rather than on the stack
+> to
+> prevent potential cache-line corruption?
+>=20
+> Also allocation of structs during in declaration statements is rough!
+>=20
+> And adding that u8 in the middle is just rubbing it in.
+>=20
+> > +	ret =3D i2c_transfer(client->adapter, &write_msg, 1);
+> > +	if (ret < 0)
+> > +		return ret;
+> > +	if (ret !=3D 1)
+> > +		return -EIO;
+> > +
+> > +	ret =3D i2c_transfer(client->adapter, &rsp_msg, 1);
+> > +	if (ret < 0)
+> > +		return ret;
+> > +	if (ret !=3D 1)
+> > +		return -EIO;
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int aaeon_mcu_regmap_read(void *context, const void
+> > *reg_buf,
+> > +				 size_t reg_size, void *val_buf,
+> > size_t val_size)
+> > +{
+> > +	struct i2c_client *client =3D context;
+> > +	/*
+> > +	 * reg_buf holds the 2-byte big-endian register address
+> > [opcode, arg].
+> > +	 * Append a trailing 0x00 to form the full 3-byte MCU
+> > command.
+> > +	 */
+> > +	u8 cmd[3] =3D { ((u8 *)reg_buf)[0], ((u8 *)reg_buf)[1], 0x00
+> > };
+> > +	struct i2c_msg write_msg =3D {
+> > +		.addr=C2=A0 =3D client->addr,
+> > +		.flags =3D 0,
+> > +		.buf=C2=A0=C2=A0 =3D cmd,
+> > +		.len=C2=A0=C2=A0 =3D sizeof(cmd),
+> > +	};
+> > +	struct i2c_msg read_msg =3D {
+> > +		.addr=C2=A0 =3D client->addr,
+> > +		.flags =3D I2C_M_RD,
+> > +		.buf=C2=A0=C2=A0 =3D val_buf,
+> > +		.len=C2=A0=C2=A0 =3D val_size,
+> > +	};
+> > +	int ret;
+> > +
+> > +	ret =3D i2c_transfer(client->adapter, &write_msg, 1);
+> > +	if (ret < 0)
+> > +		return ret;
+> > +	if (ret !=3D 1)
+> > +		return -EIO;
+> > +
+> > +	ret =3D i2c_transfer(client->adapter, &read_msg, 1);
+> > +	if (ret < 0)
+> > +		return ret;
+> > +	if (ret !=3D 1)
+> > +		return -EIO;
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static const struct regmap_bus aaeon_mcu_regmap_bus =3D {
+> > +	.write =3D aaeon_mcu_regmap_write,
+> > +	.read=C2=A0 =3D aaeon_mcu_regmap_read,
+> > +};
+> > +
+> > +static const struct regmap_config aaeon_mcu_regmap_config =3D {
+> > +	.reg_bits=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =3D 1=
+6,
+> > +	.val_bits=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =3D 8=
+,
+> > +	.reg_format_endian =3D REGMAP_ENDIAN_BIG,
+> > +	.cache_type=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =3D REGCACHE_NO=
+NE,
+>=20
+> Are you sure?=C2=A0 Why none?
 
-Reviewed-by: Gary Guo <gary@garyguo.net>
+The GPIO and watchdog states are managed entirely by the MCU firmware,
+which makes the design safer because every access goes directly to the
+hardware. I will look into adding a cache; otherwise I will add a
+comment in v5.
 
-> ---
->  rust/Makefile | 5 +----
->  1 file changed, 1 insertion(+), 4 deletions(-)
+>=20
+> > +};
+> > +
+> > +static int aaeon_mcu_probe(struct i2c_client *client)
+> > +{
+> > +	struct regmap *regmap;
+> > +
+> > +	regmap =3D devm_regmap_init(&client->dev,
+> > &aaeon_mcu_regmap_bus,
+> > +				=C2=A0 client,
+> > &aaeon_mcu_regmap_config);
+> > +	if (IS_ERR(regmap))
+> > +		return PTR_ERR(regmap);
+>=20
+> dev_err_probe()
+>=20
+> > +
+> > +	return devm_mfd_add_devices(&client->dev,
+> > PLATFORM_DEVID_NONE,
+> > +				=C2=A0=C2=A0=C2=A0 aaeon_mcu_devs,
+> > ARRAY_SIZE(aaeon_mcu_devs),
+> > +				=C2=A0=C2=A0=C2=A0 NULL, 0, NULL);
+>=20
+> Why PLATFORM_DEVID_NONE over AUTO here?
 
+No strong reason, it was an oversight. Since multiple instances of this
+MCU could theoretically be present, AUTO is the safer choice and avoids
+potential ID collisions.
+Fixed in v5.
+
+>=20
+> > +}
+> > +
+> > +static const struct of_device_id aaeon_mcu_of_match[] =3D {
+> > +	{ .compatible =3D "aaeon,srg-imx8p-mcu" },
+> > +	{},
+> > +};
+> > +MODULE_DEVICE_TABLE(of, aaeon_mcu_of_match);
+> > +
+> > +static struct i2c_driver aaeon_mcu_driver =3D {
+> > +	.driver =3D {
+> > +		.name =3D "aaeon_mcu",
+> > +		.of_match_table =3D aaeon_mcu_of_match,
+> > +	},
+> > +	.probe =3D aaeon_mcu_probe,
+> > +};
+> > +module_i2c_driver(aaeon_mcu_driver);
+> > +
+> > +MODULE_DESCRIPTION("Aaeon MCU Driver");
+> > +MODULE_AUTHOR("J=C3=A9r=C3=A9mie Dautheribes
+> > <jeremie.dautheribes@bootlin.com>");
+> > +MODULE_LICENSE("GPL");
+> > diff --git a/include/linux/mfd/aaeon-mcu.h
+> > b/include/linux/mfd/aaeon-mcu.h
+> > new file mode 100644
+> > index
+> > 0000000000000000000000000000000000000000..861003f6dfd20424c3785008b
+> > d2cf89aaa1715b9
+> > --- /dev/null
+> > +++ b/include/linux/mfd/aaeon-mcu.h
+> > @@ -0,0 +1,20 @@
+> > +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> > +/*
+> > + * Aaeon MCU driver definitions
+> > + *
+> > + * Copyright (C) 2025 Bootlin
+> > + * Author: J=C3=A9r=C3=A9mie Dautheribes <jeremie.dautheribes@bootlin.=
+com>
+> > + * Author: Thomas Perrot <thomas.perrot@bootlin.com>
+> > + */
+>=20
+> As above.
+>=20
+> > +
+> > +#ifndef __LINUX_MFD_AAEON_MCU_H
+> > +#define __LINUX_MFD_AAEON_MCU_H
+> > +
+> > +/*
+> > + * MCU register address: the high byte is the command opcode, the
+> > low
+> > + * byte is the argument.=C2=A0 This matches the 3-byte wire format
+> > + * [opcode, arg, value] used by the MCU I2C protocol.
+> > + */
+> > +#define AAEON_MCU_REG(op, arg)	(((op) << 8) | (arg))
+>=20
+> Where else is this used?
+
+It is used by both child drivers:                                    =20
+  - drivers/gpio/gpio-aaeon-mcu.c
+  - drivers/watchdog/aaeon_mcu_wdt.c                                 =20
+                                                           =20
+This macro encodes the regmap register address from the opcode and
+argument that form the first two bytes of the MCU's 3-byte wire
+command, so keeping it in the shared header avoids duplicating that
+encoding in each child.
+
+Kind regards,
+Thomas Perrot
+
+>=20
+> > +#endif /* __LINUX_MFD_AAEON_MCU_H */
+> >=20
+> > --=20
+> > 2.53.0
+> >=20
+
+--=20
+Thomas Perrot, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
+
+--=-qAFYFdvVYExu7LPUqa+z
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAABCAAdFiEEh0B3xqajCiMDqBIhn8ALBXH+Cu0FAmnNIhgACgkQn8ALBXH+
+Cu172gv9GgIfxJvzrGHi2oit23sgeO0wrp0sinvt75UMb7cK+Tp/HJ38Hx/DxbBr
+kmTXzIBJV5tKZW47P0CTzLcawF933hiIgB5h5A296VD9q+cg/ngaMw64PckNKk3q
+/1WCifNYu2V1N4x4D3KCsM1OpIn85BNvb4tPEVsFQJY4qr4V3G5+Q1RvD2iAX1wr
+1tSvD7CQeMJehtGLxAmP9tvJlO2YjBg+eRwfh+flXe29IegWBTrbcSNTX1NIkCDG
+1ep1bfKA+Nrr8lecc1+9gYp5LI7GmPOgyy3XQsGTuDOze+zoUV+S3+FQgEvWJrZ5
+mkwx8vtm/eKgyn8ukfdHgTgRm2ys2Ar3FuzcdNivI6cv7JgF73/cAbHVxVf8ygs3
+W70ljvXUqXj0AyK82UACVPShzjO/I75gSruJ0ky9G5GUqaKPatQIsY8k/l88hnzO
+ndL4wh4cjZsGKLZyZ+MTk7LxYomoOvGXnAj/SJaLYKe/YCxjOF3KLYrWF9NP+4gh
+YGKXXyXB
+=Mf4x
+-----END PGP SIGNATURE-----
+
+--=-qAFYFdvVYExu7LPUqa+z--
 
