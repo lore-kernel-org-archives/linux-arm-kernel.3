@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94D13D35162
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989FCD35162
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+w4qnxaxNF4UkF5f+6eww3gwEqpGt1R6YnsZcsAzacU=; b=TRUCJ9DFOeUEn/rwj15pLCc9so
-	KZ7BuovazZtrJYxABonZ+hJGD4psQLldz6PssCKNyEKUAZAkRaCxZqCpUAa0leiKwvOjm3IX1faeZ
-	7v3AQh4b3rsO+gEQAgHwbfquGZvUeuyFfh68QvwVLFldwS+rrfcINs1E8oOoOMqGkIkYO3fD60ew7
-	pVH3SDJwsxIGMglfe9P1dSnMgsBduuG2wSnhV2Z1bTmOLMi2VXFOQ7P9a9rv9gDDC+zpA0o+cCq89
-	1AdYcJUwaugxmwfS3nZdbFwELyCR+XU+Q/rmE0gINQgeHneuSwWpW+uCR+n1mfjrnj0rGfAwJCzeo
-	/gt396tQ==;
+	bh=GVUhObsMIuARmw6rit5F0KuwYbrwJWJRugI2kGdJxPw=; b=awQ+x8v6KzdNGeLgKzRTidzzDr
+	Rc1pmYQ99Yr2G15gUPVkv4ufnSnQbp8ViMBZzDxzz/SI1usTnbOTEDk05p3gjjkXuA3cKz2hq3nWi
+	zGekABupAyr8oDi5fqHf/RuaFWv79X/8nI+iboEgVvphx+0r3ZGD1ZrDYLsK1BOsNMpAqQlkNlqnD
+	45lfBR+RdymD+KksQrrXcvnutqdn/op8f7H8/HN/HCGFocMJStbJcajHMVLKiuR92Fewz0sYQcwQb
+	oku/2MX2DfPMKMWhhhyGGEry8j2oiFG8qXNGa757fD2UsrNMWaghiMw1eEQS1eZzDBdmXIIsg5WBN
+	i8tEAniw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u4S-0000000EhvB-2753;
-	Wed, 01 Apr 2026 11:49:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w7u4b-0000000Ei3E-4Anx;
+	Wed, 01 Apr 2026 11:49:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u4O-0000000Ehso-40Az;
-	Wed, 01 Apr 2026 11:49:15 +0000
+	id 1w7u4a-0000000Ei25-4Azx;
+	Wed, 01 Apr 2026 11:49:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 70062407BD;
+	by tor.source.kernel.org (Postfix) with ESMTP id 6734E60142;
+	Wed,  1 Apr 2026 11:49:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC956C4CEF7;
 	Wed,  1 Apr 2026 11:49:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F511C4CEF7;
-	Wed,  1 Apr 2026 11:49:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775044152;
-	bh=AX5z3xpzFua6mAQIK+U/8xMTb4ZIuLJsG4n5Y91N4RI=;
+	s=k20201202; t=1775044164;
+	bh=6xM/90y2+9K2QK1MXod17VOVsEz3ItyuSJ/mYMv3Drg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DVz4TB/VU+zyZ2i/W6mzrSFi2feuGR6qmqoAvmg2H+aTnIrx+rI9QbMhxIGO0Fy4d
-	 XEUrIjhZb1p4mHwos1ynOfsPYSKde1p0FX+M1Sy2SPqq2wYJ6sjVhPoccfaZVduWbn
-	 wrrNGXFWfNEkrtdQ/i2hpujBUGZziz/KixuYY2LjLo97z5Dk4nuqnde2AEIcecPZq7
-	 GaKGi955ChQdu/AiuzZxLwHqBt1S71Q7OAJpI2N3lXFXqySy73PaDukQke2WGFgjjS
-	 PONEdcAu9t8e6olmo0f30HBhqmyw+l+pebpQt/3V8sgHdUpeCZ8WS4h4OvaSsKvE0l
-	 4LcqeuoQH8epQ==
+	b=V+OxZYCFK/c+WvN/8/uOPoU8cAIkSEfrgXW012jcw/dHW9HOkQ6wsGFDWswV5/fG3
+	 B0v0LpVBICRBJRwhLcK22UNCpDeTVTz+otKNFY+bq42zA8C8SUT8eSa1TFfGqDTxZB
+	 nTODkVCQiBhlpeCieK0XT3k7C5zp8u0nP4rLD82LlBz9Y/xfcAU7TJG690uB/2PHds
+	 RK8eWxpPbkIam179mN9OeSs4s+oG15cb5Q0wUo46IzCRVHLWdbbP/e1PSThZYL6/sj
+	 B+l7o2/JFT40jMHsCpebNWLL1wHDkZfzANZ7s+SGh48/K8TUDw4qSBv5D/fytpVz03
+	 jqBcyNZwn2UQA==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -91,16 +91,13 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org
-Subject: [PATCH 16/33] rust: rust_is_available: remove warning for < 0.69.5 && libclang >= 19.1
-Date: Wed,  1 Apr 2026 13:45:23 +0200
-Message-ID: <20260401114540.30108-17-ojeda@kernel.org>
+Subject: [PATCH 17/33] rust: kbuild: update `bindgen --rust-target` version and replace comment
+Date: Wed,  1 Apr 2026 13:45:24 +0200
+Message-ID: <20260401114540.30108-18-ojeda@kernel.org>
 In-Reply-To: <20260401114540.30108-1-ojeda@kernel.org>
 References: <20260401114540.30108-1-ojeda@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_044913_973056_0295766B 
-X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,115 +112,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It is not possible anymore to fall into the issue that this warning was
-alerting about given the `bindgen` version bump.
+As the comment in the `Makefile` explains, previously, we needed to
+limit ourselves to the list of Rust versions known by `bindgen` for its
+`--rust-target` option.
 
-Thus simplify by removing the machinery behind it, including tests.
+In other words, we needed to consult the versions known by the minimum
+version of `bindgen` that we supported.
+
+Now that we bumped the minimum version of `bindgen`, that limitation
+does not apply anymore.
+
+Thus replace the comment and simply write our minimum supported Rust
+version there, which is much simpler.
 
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
- scripts/rust_is_available.sh                  | 15 --------
- ...ust_is_available_bindgen_libclang_concat.h |  3 --
- scripts/rust_is_available_test.py             | 34 +------------------
- 3 files changed, 1 insertion(+), 51 deletions(-)
- delete mode 100644 scripts/rust_is_available_bindgen_libclang_concat.h
+ rust/Makefile | 16 ++--------------
+ 1 file changed, 2 insertions(+), 14 deletions(-)
 
-diff --git a/scripts/rust_is_available.sh b/scripts/rust_is_available.sh
-index 77896e31dab5..cefc456c2503 100755
---- a/scripts/rust_is_available.sh
-+++ b/scripts/rust_is_available.sh
-@@ -214,21 +214,6 @@ if [ "$bindgen_libclang_cversion" -lt "$bindgen_libclang_min_cversion" ]; then
- 	exit 1
- fi
+diff --git a/rust/Makefile b/rust/Makefile
+index 163d2258e93f..34f21b735993 100644
+--- a/rust/Makefile
++++ b/rust/Makefile
+@@ -446,22 +446,10 @@ endif
+ # architecture instead of generating `usize`.
+ bindgen_c_flags_final = $(bindgen_c_flags_lto) -fno-builtin -D__BINDGEN__
  
--if [ "$bindgen_libclang_cversion" -ge 1900100 ] &&
--	[ "$rust_bindings_generator_cversion" -lt 6905 ]; then
--	# Distributions may have patched the issue (e.g. Debian did).
--	if ! "$BINDGEN" $(dirname $0)/rust_is_available_bindgen_libclang_concat.h | grep -q foofoo; then
--		echo >&2 "***"
--		echo >&2 "*** Rust bindings generator '$BINDGEN' < 0.69.5 together with libclang >= 19.1"
--		echo >&2 "*** may not work due to a bug (https://github.com/rust-lang/rust-bindgen/pull/2824),"
--		echo >&2 "*** unless patched (like Debian's)."
--		echo >&2 "***   Your bindgen version:  $rust_bindings_generator_version"
--		echo >&2 "***   Your libclang version: $bindgen_libclang_version"
--		echo >&2 "***"
--		warning=1
--	fi
--fi
--
- # If the C compiler is Clang, then we can also check whether its version
- # matches the `libclang` version used by the Rust bindings generator.
- #
-diff --git a/scripts/rust_is_available_bindgen_libclang_concat.h b/scripts/rust_is_available_bindgen_libclang_concat.h
-deleted file mode 100644
-index efc6e98d0f1d..000000000000
---- a/scripts/rust_is_available_bindgen_libclang_concat.h
-+++ /dev/null
-@@ -1,3 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--#define F(x) int x##x
--F(foo);
-diff --git a/scripts/rust_is_available_test.py b/scripts/rust_is_available_test.py
-index b66fa5933844..d6d54b7ea42a 100755
---- a/scripts/rust_is_available_test.py
-+++ b/scripts/rust_is_available_test.py
-@@ -54,23 +54,16 @@ else:
- """)
- 
-     @classmethod
--    def generate_bindgen(cls, version_stdout, libclang_stderr, libclang_concat_patched=False):
-+    def generate_bindgen(cls, version_stdout, libclang_stderr):
-         if libclang_stderr is None:
-             libclang_case = f"raise SystemExit({cls.bindgen_default_bindgen_libclang_failure_exit_code})"
-         else:
-             libclang_case = f"print({repr(libclang_stderr)}, file=sys.stderr)"
- 
--        if libclang_concat_patched:
--            libclang_concat_case = "print('pub static mut foofoo: ::std::os::raw::c_int;')"
--        else:
--            libclang_concat_case = "pass"
--
-         return cls.generate_executable(f"""#!/usr/bin/env python3
- import sys
- if "rust_is_available_bindgen_libclang.h" in " ".join(sys.argv):
-     {libclang_case}
--elif "rust_is_available_bindgen_libclang_concat.h" in " ".join(sys.argv):
--    {libclang_concat_case}
- else:
-     print({repr(version_stdout)})
- """)
-@@ -255,31 +248,6 @@ else:
-         result = self.run_script(self.Expected.FAILURE, { "BINDGEN": bindgen })
-         self.assertIn(f"libclang (used by the Rust bindings generator '{bindgen}') is too old.", result.stderr)
- 
--    def test_bindgen_bad_libclang_concat(self):
--        for (bindgen_version, libclang_version, expected_not_patched) in (
--            ("0.69.4", "18.0.0", self.Expected.SUCCESS),
--            ("0.69.4", "19.1.0", self.Expected.SUCCESS_WITH_WARNINGS),
--            ("0.69.4", "19.2.0", self.Expected.SUCCESS_WITH_WARNINGS),
--
--            ("0.69.5", "18.0.0", self.Expected.SUCCESS),
--            ("0.69.5", "19.1.0", self.Expected.SUCCESS),
--            ("0.69.5", "19.2.0", self.Expected.SUCCESS),
--
--            ("0.70.0", "18.0.0", self.Expected.SUCCESS),
--            ("0.70.0", "19.1.0", self.Expected.SUCCESS),
--            ("0.70.0", "19.2.0", self.Expected.SUCCESS),
--        ):
--            with self.subTest(bindgen_version=bindgen_version, libclang_version=libclang_version):
--                cc = self.generate_clang(f"clang version {libclang_version}")
--                libclang_stderr = f"scripts/rust_is_available_bindgen_libclang.h:2:9: warning: clang version {libclang_version} [-W#pragma-messages], err: false"
--                bindgen = self.generate_bindgen(f"bindgen {bindgen_version}", libclang_stderr)
--                result = self.run_script(expected_not_patched, { "BINDGEN": bindgen, "CC": cc })
--                if expected_not_patched == self.Expected.SUCCESS_WITH_WARNINGS:
--                    self.assertIn(f"Rust bindings generator '{bindgen}' < 0.69.5 together with libclang >= 19.1", result.stderr)
--
--                bindgen = self.generate_bindgen(f"bindgen {bindgen_version}", libclang_stderr, libclang_concat_patched=True)
--                result = self.run_script(self.Expected.SUCCESS, { "BINDGEN": bindgen, "CC": cc })
--
-     def test_clang_matches_bindgen_libclang_different_bindgen(self):
-         bindgen = self.generate_bindgen_libclang("scripts/rust_is_available_bindgen_libclang.h:2:9: warning: clang version 999.0.0 [-W#pragma-messages], err: false")
-         result = self.run_script(self.Expected.SUCCESS_WITH_WARNINGS, { "BINDGEN": bindgen })
+-# Each `bindgen` release may upgrade the list of Rust target versions. By
+-# default, the highest stable release in their list is used. Thus we need to set
+-# a `--rust-target` to avoid future `bindgen` releases emitting code that
+-# `rustc` may not understand. On top of that, `bindgen` does not support passing
+-# an unknown Rust target version.
+-#
+-# Therefore, the Rust target for `bindgen` can be only as high as the minimum
+-# Rust version the kernel supports and only as high as the greatest stable Rust
+-# target supported by the minimum `bindgen` version the kernel supports (that
+-# is, if we do not test the actual `rustc`/`bindgen` versions running).
+-#
+-# Starting with `bindgen` 0.71.0, we will be able to set any future Rust version
+-# instead, i.e. we will be able to set here our minimum supported Rust version.
++# `--rust-target` points to our minimum supported Rust version.
+ quiet_cmd_bindgen = BINDGEN $@
+       cmd_bindgen = \
+-	$(BINDGEN) $< $(bindgen_target_flags) --rust-target 1.68 \
++	$(BINDGEN) $< $(bindgen_target_flags) --rust-target 1.85 \
+ 		--use-core --with-derive-default --ctypes-prefix ffi --no-layout-tests \
+ 		--no-debug '.*' --enable-function-attribute-detection \
+ 		-o $@ -- $(bindgen_c_flags_final) -DMODULE \
 -- 
 2.53.0
 
