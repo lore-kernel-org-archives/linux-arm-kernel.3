@@ -4,160 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7459CD3517D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:28:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FAD3D3517E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
-	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bD5QxgfQNuk28UyZBunkjD2cuPT3HwKYLpY8sumN+QU=; b=JJ8duKnnUgELsXT0vIzudmbz8Z
-	a51wnz3LtQdB3joMLeFgoi/D8VycESHy/hVuJFnpYcfBHEU3Sf332JhmwqdWyLujTvf/qgUNE7t6E
-	dpjHck0b7doBqx/Aiz+Ov/GJZK6up8LiIpEZ3QQEy8KDGA2T9pRUc5+x7FrHzY348wuep1UDlGgGN
-	BXJH9qs3EXKkAjDKDWtm474dz2u+gQNQMI2tWlnxslBi8toQue7d1oJptuPfcubhW9kUjw94cQ5Qa
-	/+aQyZ/0A34EqQCpmspuTv2WszVL+xx3xEyS6xa2e4J3dK/y0o8JV+LaqviAzQ57vI/xnnhu0suEW
-	sAtAIzFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VddJqdW/ivYdJwKAv4x/MZN1YGeGSQIg3wJqceIORIA=; b=fMoKp/OQSLhzPuaKM43FnLivSY
+	1lPub99MMvKDF1nEZeJg4ZTXioU6FXacISQKfNe3UpCjL5YRdRAr8t8ng1cCmsKFZpM3XvIIyILhZ
+	Uee4ohoEdbr7IRAB/5uu+MGs0/ghfQrvxfTTPLX8Aw80dl1KLWUcRaFbfpKy1WCpcT0tyMLuotl3E
+	jJ+Os6VUuas1Gm718nJJcMHrtiiJuUYXQYmXBP0jxH3s2cLkfDV2h9lYLQco28tVx01ruG97W3Jxt
+	NsfYXH0hlfckWvf52KQ20aGvaMp47za7y5gt/oam3b7Mixe3Pt/LclKID3jiewBNLoSV7VsOtqu09
+	bJb4MeHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vcN-0000000FJBt-2CMR;
-	Wed, 01 Apr 2026 13:28:23 +0000
-Received: from mail-uksouthazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c205::1] helo=LO3P265CU004.outbound.protection.outlook.com)
+	id 1w7vdl-0000000FJRL-12Gm;
+	Wed, 01 Apr 2026 13:29:49 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vcK-0000000FJAs-2edz;
-	Wed, 01 Apr 2026 13:28:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ONAMzrYdTF5D1mj99HKr6E5VWiTeq5eJkeNOHm1RfHuZ+OhDTcTk3TCkWCkd7oZTKDluRRdtv7pYJQiup4kcpzdloUG/0K99jR1UuQhmU6VFy6+ztWofq7Vrs8/fOHrDGGw6SnhToDJR2wu1dI9GrYAiuFPztm18K0HXkotOdV63Jo48zueZju7L1LXbcAJTzBTenpWusEOCpO14/2KQAY0Pd2CJtj3YuHFQwUyIVFuwdqHMZZGDQamP4toq2u7MipI/hd6gkfGu0QoMXYX5pAkUO/OrLGdyatOtpuXpItn9Qo8IKMYWpfMVxMm5eaPk98OW8lBB5yczKZUYDnu1Sw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bD5QxgfQNuk28UyZBunkjD2cuPT3HwKYLpY8sumN+QU=;
- b=gYrmmxUsoIBlbxn126wOnqJes0NnKE0iJCUqfbYYIXcyieo9BU8cMlZJ6Gvrz/px/Gi7JHtGXYXKHiAtkd3mc/QLxjM4Rexw5kMKcs0NlF2Yem1ZCM1J4EfLev4eH3mJWBrvUe/46AUEyIN9bwvlePxmql1nh/5PpBhLaZ4L9ct+6TdTh1ZzKv6r46WKoFHVxW3pf8oHmfq9EcEm0XUtr2G8IdyRLqoj2UzsiqGhA/jVhnggad144YR95je1mzJ95E4DVoQwv6QiXaAle/toOBZtGLNZ72AHwgO6fIv6Q8aaIHpEdTi7bwsZQ9g6E/UgbvrckLfXyFE8Zus1ILbmOw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bD5QxgfQNuk28UyZBunkjD2cuPT3HwKYLpY8sumN+QU=;
- b=NcWiwd7VAVl74dMjp/EemsevBNIMM4qz7iS1Cy37qfVXkPkwCJH63jPRRetxlI6bx4a4hh6ZP7CiLwfB+n/7sTMkG0oJszGuycXyoLu3BsWuMXGQD12Jj7PJ4iWE0bNceG5Oc6nY7v4O1dsx/bgHLcmNEvccM/ZBNmBRwOy7l8Y=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
- by LO4P265MB6837.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:34b::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
- 2026 13:28:14 +0000
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
- 13:28:14 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 01 Apr 2026 14:28:12 +0100
-Message-Id: <DHHUQRB9ZL54.VQZ7OUZNSYDS@garyguo.net>
-Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
- <rust-for-linux@vger.kernel.org>, <linux-kbuild@vger.kernel.org>, "Lorenzo
- Stoakes" <lorenzo.stoakes@oracle.com>, "Vlastimil Babka"
- <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
- "Uladzislau Rezki" <urezki@gmail.com>, <linux-block@vger.kernel.org>,
- "moderated for non-subscribers" <linux-arm-kernel@lists.infradead.org>,
- "Alexandre Ghiti" <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>,
- <nouveau@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>, "Rae
- Moar" <raemoar63@gmail.com>, <linux-kselftest@vger.kernel.org>,
- <kunit-dev@googlegroups.com>, "Nick Desaulniers"
- <nick.desaulniers+lkml@gmail.com>, "Bill Wendling" <morbo@google.com>,
- "Justin Stitt" <justinstitt@google.com>, <llvm@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>, "Shuah Khan" <skhan@linuxfoundation.org>,
- <linux-doc@vger.kernel.org>
-Subject: Re: [PATCH 01/33] rust: bump Rust minimum supported version to
- 1.85.0 (Debian Trixie)
-From: "Gary Guo" <gary@garyguo.net>
-To: "Miguel Ojeda" <ojeda@kernel.org>, "Nathan Chancellor"
- <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Danilo Krummrich"
- <dakr@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Catalin
- Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Paul
- Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, "Alexandre Courbot" <acourbot@nvidia.com>,
- "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
- "Brendan Higgins" <brendan.higgins@linux.dev>, "David Gow"
- <david@davidgow.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, "Todd Kjos"
- <tkjos@android.com>, "Christian Brauner" <christian@brauner.io>, "Carlos
- Llamas" <cmllamas@google.com>, "Alice Ryhl" <aliceryhl@google.com>,
- "Jonathan Corbet" <corbet@lwn.net>
-X-Mailer: aerc 0.21.0
-References: <20260401114540.30108-1-ojeda@kernel.org>
- <20260401114540.30108-2-ojeda@kernel.org>
-In-Reply-To: <20260401114540.30108-2-ojeda@kernel.org>
-X-ClientProxiedBy: LO4P123CA0520.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:272::16) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:488::16)
+	id 1w7vdj-0000000FJR3-3In6
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 01 Apr 2026 13:29:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=VddJqdW/ivYdJwKAv4x/MZN1YGeGSQIg3wJqceIORIA=; b=C1kjtqpJqoV5e+3XeGFWDWgpOY
+	ZlFgv806ogcGKLMwCjnKNeaYFaeMDmK3Dc1ALqZRLe4M/bq/i4cuji6kt0h+vL0+Y7IybXox5KZGe
+	PyKdJ+fL9T/cmJKw+FQ4UwxAnQ6nhdkjKPGoF/zIFmwp0Ps8YzUoj+a7vsS7xopLCCllclou9rj27
+	2grwT9l4MCCjoMb35mcacSyUxBZtyOceHGcyLHU0ij2BuMrmbOeBn0A7OXFgaQk4NUiboJaq8kYPT
+	6tZ7Z/3pB82FGesT4wLpBQ+FcBE8jw7k8Ef1VcARfEy0uO7xYLCrIECETVoKv70O1N3Gs6T+DVoLr
+	wGshjxqQ==;
+Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7vdg-00000000Sod-3MBw
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Apr 2026 13:29:46 +0000
+Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-8a093c784b0so7652806d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 06:29:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775050183; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Kh9zDL3qbyO8SLD8U8HdD0Twy8z0Az6kdXklBB9Cg+w+XmlPFQrFSaikSfgfE2dWif
+         oS8d8ixlBvdmH9M0Lpeu7nTi33+AG4OHgx2y2EVH+qWss8hqCKan5KP7qKZL2bsFqRKb
+         45JycKOglT6bcxk6C8QhrssslMjLJYviXVej+IpndkYdME6jHvW9nxfVZ6HIH6AXnJ6G
+         5ORPUXbpUY/fn+dlYHeGZDwXuP2ztlpILBurxg/xZOkZD7QpYtRjlaWzbhlQ3m5EdusF
+         75E9K5c6NXEQQNiv4prUgTvX4COnppY2oW35I3YR9mJ2VszTCsYOAS+sMiSa1LXV6hgo
+         jrgw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=VddJqdW/ivYdJwKAv4x/MZN1YGeGSQIg3wJqceIORIA=;
+        fh=Gy0ZJRXlK9cHMlRDi3Cew5/i5W93QEUEhBOhwDFSfRw=;
+        b=QbeET60Pkw0x3gfU597WS1XAHh6xcM0i0lT3a+jRx4oBBESnfDrJhY/oPhUTRht8l5
+         +6XGa88HR4QoG59cByQvPkCkxJ9XC7N3Ih7gvfubLoXjprVUkJCg3+0H3r+rL25KosnI
+         uqtBHqtHEil9uLhvTl5oP14L5jL+VRPl8ssp94IxA6JlTb/et1qlfBeR8om/r59/T+SR
+         +0YBKco32WLluAcKtgWfOaohbx5ENP8/OGw9cYSkbZmxl9MejwHd+PqPuaNXF0RDL4N6
+         W6sf/bXlTTsM0NN0OoHBMb76o/Rh3soskg4+Fy+dWIXyBCrW2MM+XtrYhHUrEw7d4Lyx
+         H6EA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ausil.us; s=google; t=1775050183; x=1775654983; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VddJqdW/ivYdJwKAv4x/MZN1YGeGSQIg3wJqceIORIA=;
+        b=ho72NLrgbW+dBMLbPpl6pRC58LV7+bvnd791F2QfbHDEeu8QW+R9ae0Ap9z93S1zRA
+         GGfNxtxGllECOnrtfDTdMy8lB7GaOx0rPEJL7vlM+F2v4auTTYHsef5xS/ysaWHAfO/V
+         hxUEcZEM6EBdNE3wdJSksHy2H8xwy9gA/SsJ/rYqsmDPgYgiBRbCxfuqaR9X+EDnsaxC
+         J5Amrahi/SOtK0F2mh4Dted6BNXU3cPZqrbYkIKXIaJV9ZZciY5fsMwU3ivqKFMiCR34
+         d4Gro6nrTf+1MQUPQ4DKThsg4a9chjSCf+77x9HMpJ9IN/U8+uwtNK3WRwjLxf2idZmd
+         j4vw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775050183; x=1775654983;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=VddJqdW/ivYdJwKAv4x/MZN1YGeGSQIg3wJqceIORIA=;
+        b=dR1UGfynCqbNq2WFnxqCW9yEFmyRKiW7mnKcHhPV+Vvm3YPwVgonlGD/Qmvo4ghPlM
+         f8C1npT1RHz5Bfyw279Kf983eAveOqEBMKeEyt9rwCaTCl4noViEnlw/y5VKKnuUggxD
+         usAV4EinJQw0NVoctvi8G1NtwHSCusrh2bv9u65In9sLccO8aYCTrL0SoHqB9A+IuLYa
+         kRF+Y0tmPzIv1Y3rJ5gp2feqazNa3piZfQPeTuwf770wJnfkApctkbS9AC5RJfoUqugu
+         fvRASozbRnFJBgKMcbc8hBbhdLLi9161EVGwFJMDAxM79tM2aQS49ilQ5MlU5ybzh74m
+         xbMg==
+X-Forwarded-Encrypted: i=1; AJvYcCX6IKkuC66ImMda9i12DpnO5UjCOwyy4q2mgMFW4pxXxZuUzztUJnIimWf8YDcOJ3qW+nYgFSRMJ3rXoBtUoHsj@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwtmNr7ELG5GMISpLxrRR/jumiCYSjIgJYsQXF93M9PYf1GEV3
+	Vyipc2JGGyRpNiete1dBcjMZnwzN8ewLc0GB+JnJt3DwfYcarLQAakzwXOhHC38gkFfr3oUGfgW
+	K7pP9gYLz8CDU6JlIOhmXPcB2sXrJryAdi3bf/oD40w==
+X-Gm-Gg: ATEYQzz7zZoTakEIPkIkhhOSxyXQBXg/H1Y6enyd9gFgdXOSu7VXh1AFAUp6h3xoXvK
+	ZOqQLuXybSXh961dtAx/117Q4JiriIrcZwptnxemErDGMEKpYX/rMzkasdAS0EaMdUoWmJmWPHO
+	UtxZn1Pd7bqAtEooovs4aBDOBH0gOA+7svunl01pvlZxx8ewTJcTucryPqY49wrrEzvDGx6qSNU
+	1jwBcR7qMP0tq9/ECKjdA40RsN9IFBj8AFzDWLCiV0GHt71Qy3EHrigAZLmAsPgBpy6ISdri2YQ
+	iTsO3sf7a952fJaaIWWR0PqDBNrLp0PyiIAAEyMpRZ6ZJRn2kjbjHMIMwKoX9p5M8+DLoxA=
+X-Received: by 2002:a05:6214:1304:b0:89a:14c5:f4e with SMTP id
+ 6a1803df08f44-8a43a273786mr51708376d6.52.1775050182430; Wed, 01 Apr 2026
+ 06:29:42 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LO4P265MB6837:EE_
-X-MS-Office365-Filtering-Correlation-Id: c7052c31-f176-4839-abee-08de8ff286bd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|10070799003|366016|1800799024|22082099003|921020|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: 3IV4a9u4tY+Sm6e3Bc9NS2Cl1vDT3wtenBA97zbBmC16TLVc/WCSZkRWAqLj+Aodz/iKqnpwFIdTv9R9pUkB/n4RRrz8yjWa3tolZ7+GGa6XB5jpciz7GJtd/Z3lxR9DkbPMOALT5/lvyRM4IKMAdDUywq+kyG4ncrOCRa2zh/ZgLWFsm3CGyWJssSUrdzJCd6EJhhSUFVwdItTGXs7kfKmRRSrTHkmxKFH2pOWEUakGkku1aLBHhBxKhg53f3Yn+rAUrhHWaYm7Dt4OWBv4iKPMojW0uBMewHWi+X7HaDe152Mdq4GyVh0c21bjZKkcWV+J88t12UJiONsd83U4f0TbyoKNcTocNRlfJI1kRlKF1UkFEzRAtgoSifpYzgOWUbYQKzTMMHs3Qak9UEOZCONWriVp29dU6Q2Se9xKuy9wmBmuXzzUfuqxeFsgCo19P5Jd8gbEg88W1sVx+HSOMGToQCMvKD/uSu1pxosQUnilMKE3GXBceVe1n2sv3/b3GFue9zevHi/002RmeChr4NbRAnPXfeZM7g30/9XI7cNan77wyxbI2d5Kvrcj+eKAj0r4tMV7+syoy/5I/a9ICFMPxKbEyc6W8rqVy6hvU2XGkUiRJxn+icqtUW6dZzt/srt6Py3QJbmPG0vxhTyPsUW420UGhBnqTc6Ki9zsaohPFzNcpxd6GrLLW+WslWhLUJbdpEMpoKriaTbWVmuh8d2eg9JYzk3GJFVqCEIuC5o=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(10070799003)(366016)(1800799024)(22082099003)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WXJyczc5MmFhVzFyaFhlYVNYMlFDa1p3WlNaRStHT0lrVllEUVlVZHlXNDNI?=
- =?utf-8?B?V1hhWWRxdSt6Y3ZZemFGTGNsamdqeDlRSk5BeURzZFUxTFp3Vi8wdnlBOE1U?=
- =?utf-8?B?WFlFdk9wQXowdUNRTTBybGowV3hsemhYc1orWFl4WXlVWWxFTmR4dG0rbUNY?=
- =?utf-8?B?bG5LWFN2VEFIQlZnNEFodWRUM2NvVHNlL1BZYk5OejJ0TnVrWlZSUmx4aDdO?=
- =?utf-8?B?OHVSUVZiSVZIaXdXUUlJcVVwc1ZOY1hMeWI0RUNPTVdQTVdxNDVrVVlBb2o5?=
- =?utf-8?B?TFRUWWdCSmFRdDRJSEZJN0xBMExlL1Jkd2Jwd2tNb0F4MEJOdll5SHUxT243?=
- =?utf-8?B?NnJTblhxdnFuVWs1c3NRRmlBakM3TStIUWZaR2prT3BQNDZBR0o5blBjNU0y?=
- =?utf-8?B?aS84RGd2cXdVMmFuRVpBeU9VSjhWcGU0ZFFOSTVtckE4eGFLM05NczVpNXpY?=
- =?utf-8?B?bTFhZkwveTJsVFp3ZlVPaUoyWHZQOW5tSzd2Z0Z2QjI2dllGUGRLeTJvSXFo?=
- =?utf-8?B?Wkp4MjNGOWl1RFRMajd3c1dVUkd5SU1GWHFseWJIU1BkMVFTNksvQ0U1Y2pk?=
- =?utf-8?B?QldzQXUzdnZqOHQrbUtyRUg2R1pXOGl2dVZVd1NWcjZWdEFZRThTUjR5UXdD?=
- =?utf-8?B?UmE2REl2akxhb0I1UHBFdUI3dkhWa2JHNVc5QlZJQ21ZaFZ4UEZsK0JOSjJm?=
- =?utf-8?B?ZE1aaEllN1d5QmlZSEFzeUtiUXRqV0dxbjhzMVFKc242QVR3MTB1bmQ0QXBK?=
- =?utf-8?B?aHFzSTdkRDllbG1aWWgvZlluSDN3RTlFYTcrNXNvRWhrSTJhYlFRNjVLVDFu?=
- =?utf-8?B?ZC9QVnJaTDBiVjZlK3g3dW9pMXJRVU8rWXlKR0lPRjJrNnlzeVREVWFqK2lK?=
- =?utf-8?B?LzNQVThBMUNURWVJQWNQbFFzTlBRbWxNNy8zVFRwaVNaVnd0Wms0UGpaY1VC?=
- =?utf-8?B?aUhFMlNVdVM3WnVWcVZaN3RyZ0JqMENkQzRGWG0ybjVIVHp6a0psblRzbzhR?=
- =?utf-8?B?M21kUDJidHJlRkxud0dGdU5Ic3F4YTg2YUhNNkN2dVlQK0VOYU1zbXF2VVpG?=
- =?utf-8?B?UnJUUjBPblNJT0JxRm8xM095OXEwcFZHR1h2RFZ6M0xna0dKN041OUpXUk9P?=
- =?utf-8?B?aVh2bWVIc3B5SW8xR1lnQkhhK1VuNGtuNjYxYzVMZWlacTIrQmlJUktuRDcz?=
- =?utf-8?B?MGx2OG9FRksraFNyelpjVkNBWU5KRnlpajA1b1lBbUdQWEQyaE5ZbDJ3c0ZY?=
- =?utf-8?B?UGwwcHhHbFBYaVJ4WENBWUZYM2dVOEdqaTR4OU80RStoU3gzaDhMaTJoQ0pj?=
- =?utf-8?B?eHpBQjBkZXhtTWpralQ0bGpaTE5CZy81Q0VnOHpZRmR2Yi9rOGNnSDJlT3FQ?=
- =?utf-8?B?ZXhURmQySkZyMVRkRFJRZC9DSTJUVHFoZk96ai9rWG9WSmRKVnRndCtyclhU?=
- =?utf-8?B?NWk5eUdrYW9HeXd3QU1vTHNuRHdIaG9FZDdJTVNnWXlhL3luR1RaRmpRZVRC?=
- =?utf-8?B?N1ArOHFaMHZLRjJOcEF1cm4yN3pZcVZGcGFMQ1p4TVZHOU5DZ2FKS0VVY3FC?=
- =?utf-8?B?Tlhxb2tTWmxXTFRwc0VoL2grY0M1YTJVWmwxb3h4QUo4SDVKTW00cHg3anZX?=
- =?utf-8?B?NWh0c1M5Z09rNGRzY3VybHZ6ajFqTEdqM2RERldtVTNUSXhwYVR1aGcwMmVR?=
- =?utf-8?B?L2ZSS2U5WmdvM0lSdDhEQUxTTDBLQWkxTlVBai82eWFwWlYyL25NTEI5ekpG?=
- =?utf-8?B?K2xLMnR0eWVRQ1l6UWlGSmJtQlhLYW1BUG92c0JmNi94c0ZIaG5CU2NxelV6?=
- =?utf-8?B?TnZ6YktxWnhZR0xtaTFTQTFhY2RtY2syWkdqZ1daRW40V1NJSXR5N3ZGNHBw?=
- =?utf-8?B?SGFOeXY1L2Q3UEpIMHpmMlZkdXFRdm1SRkJhRWR1Tm9XYlZjUTd6YjNYTjJ1?=
- =?utf-8?B?NmZhVndodzE5Tks3VWNXWlJRWGpTV0tDMDdTWCtNbjZFYlQ4bGh6TTdPcFhl?=
- =?utf-8?B?Vy8wR21GUTFmSDMzWURxOXE0SUowRUtCT0FnWVZWR2RCdGR1RDRqbzlYVzd3?=
- =?utf-8?B?d0w3ajJGUUhNbW9FVjdLTktqSjJOT3RWajZaR016NU15SnNlYzBlNHVRK2V3?=
- =?utf-8?B?bjh2aW52MHdWeTZBRjhGYzNPNEJ6d2tGbyttT01laFJnZTBiWmZyUjM0dlF5?=
- =?utf-8?B?SFJRUFlJT3crZVVDbFB2Z3k4SDliUU90eW9ZanQ5bmRqVitFTXAyRkZLUzRk?=
- =?utf-8?B?V24zcStldG5yT2JISnh1VGRVWjhiMHp3Y1c3MW1pdTdRVFRmeWtsQmowTnI3?=
- =?utf-8?B?Q1Y5RnBkeWIzRjZFSGZTaUlYaE5KTjNSU2JQaWZUeStJdGNUMUVzZz09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: c7052c31-f176-4839-abee-08de8ff286bd
-X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 13:28:13.9409
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NH7Z09LyQ6eDsKc5pS2JBl++0iejE+oFHhupkoHi53BqIVHONGa0erT2BaLIi2lK/vgqE9FxUiOuwrlo+W2JCg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO4P265MB6837
+References: <20260401010707.2584962-1-dennis@ausil.us> <20260401010707.2584962-4-dennis@ausil.us>
+ <7c4791e9-6621-4afb-a166-55211b18fb08@lunn.ch>
+In-Reply-To: <7c4791e9-6621-4afb-a166-55211b18fb08@lunn.ch>
+From: Dennis Gilmore <dennis@ausil.us>
+Date: Wed, 1 Apr 2026 08:29:31 -0500
+X-Gm-Features: AQROBzAu4N-C5ikXx_bUWzY21o8WyoQ0kn_i1gnmUiRPmbCXX-sUt6a9jBTZs-8
+Message-ID: <CAABkxwvfCYqN1y+aVUPVP05uzoGNEitC-BVjvAXL8ZPgRHav1g@mail.gmail.com>
+Subject: Re: [PATCH v5 3/3] arm64: dts: rockchip: Add Orange Pi 5 Pro board support
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki <naoki@radxa.com>, 
+	Hsun Lai <i@chainsx.cn>, Jonas Karlman <jonas@kwiboo.se>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	John Clark <inindev@gmail.com>, Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
+	Quentin Schulz <quentin.schulz@cherry.de>, Chukun Pan <amadeus@jmu.edu.cn>, 
+	Alexey Charkov <alchark@gmail.com>, Peter Robinson <pbrobinson@gmail.com>, 
+	Michael Riesch <michael.riesch@collabora.com>, Mykola Kvach <xakep.amatop@gmail.com>, 
+	Jimmy Hon <honyuenkwun@gmail.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_062820_675666_29875F5A 
-X-CRM114-Status: GOOD (  19.14  )
+X-CRM114-CacheID: sfid-20260401_142945_124636_7CF27EA6 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,84 +140,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Apr 1, 2026 at 12:45 PM BST, Miguel Ojeda wrote:
-> As proposed in the past in e.g. LPC 2025 and the Maintainers Summit [1],
-> we are going to follow Debian Stable's Rust versions as our minimum
-> supported version.
->
-> Debian Trixie was released with a Rust 1.85.0 toolchain [2], which it
-> still uses to this day [3] (i.e. no update to Rust 1.85.1).
->
-> Debian Trixie's release happened on 2025-08-09 [4], which means that a
-> fair amount of time has passed since its release for kernel developers
-> to upgrade.
->
-> Thus bump the minimum to the new version.
->
-> Then, in later commits, clean up most of the workarounds and other bits
-> that this upgrade of the minimum allows us.
->
-> pin-init was left as-is since the patches come from upstream. And the
-> vendored crates are unmodified, since we do not want to change those.
->
-> Note that the minimum LLVM major version for Rust 1.85.0 is LLVM 18 (the
-> Rust upstream binaries use LLVM 19.1.7), thus e.g. `RUSTC_LLVM_VERSION`
-> tests can also be updated, but there are no suitable ones to simplify.
->
-> Ubuntu 25.10 also has a recent enough Rust toolchain [5], and they also
-> provide versioned packages with a Rust 1.85.1 toolchain even back to
-> Ubuntu 22.04 LTS [6].
->
-> Link: https://lwn.net/Articles/1050174/ [1]
-> Link: https://www.debian.org/releases/trixie/release-notes/whats-new.en.h=
-tml#desktops-and-well-known-packages [2]
-> Link: https://packages.debian.org/trixie/rustc [3]
-> Link: https://www.debian.org/releases/trixie/ [4]
-> Link: https://packages.ubuntu.com/search?suite=3Dall&searchon=3Dnames&key=
-words=3Drustc [5]
-> Link: https://launchpad.net/ubuntu/+source/rustc-1.85 [6]
-> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
-> ---
->  Documentation/process/changes.rst | 2 +-
->  scripts/min-tool-version.sh       | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/Documentation/process/changes.rst b/Documentation/process/ch=
-anges.rst
-> index 6b373e193548..474594bd4831 100644
-> --- a/Documentation/process/changes.rst
-> +++ b/Documentation/process/changes.rst
+Hi Andrew,
 
-This diff fails to apply on linux-next, due to conflict with ece7e57afd51
-("docs: changes.rst and ver_linux: sort the lists").
+On Wed, Apr 1, 2026 at 6:56=E2=80=AFAM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+> On Tue, Mar 31, 2026 at 08:07:07PM -0500, dennis@ausil.us wrote:
+> > From: Dennis Gilmore <dennis@ausil.us>
+> >
+> > Add device tree for the Xunlong Orange Pi 5 Pro (RK3588S).
+> >
+> > - eMMC module, you can optionally solder a SPI NOR in place and turn
+> >  off the eMMC
+> > - PCIe-attached NIC (pcie2x1l1)
+> > - PCIe NVMe slot (pcie2x1l2)
+> > - AP6256 WiFi (BCM43456) via SDIO with mmc-pwrseq
+> > - BCM4345C5 Bluetooth
+> > - es8388 audio
+> > - USB 2.0 and USB 3.0
+>
+> You said in patch 0/X that the Ethernet driver had just been
+> accepted. So i was expecting a node for it here?
+>
+>           Andrew
 
-Best,
-Gary
+On the Orange Pi 5 Pro, Ethernet is connected to PCIe; there is no
+need to define anything
 
-> @@ -31,7 +31,7 @@ you probably needn't concern yourself with pcmciautils.
->  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D
->  GNU C                  8.1              gcc --version
->  Clang/LLVM (optional)  15.0.0           clang --version
-> -Rust (optional)        1.78.0           rustc --version
-> +Rust (optional)        1.85.0           rustc --version
->  bindgen (optional)     0.65.1           bindgen --version
->  GNU make               4.0              make --version
->  bash                   4.2              bash --version
-> diff --git a/scripts/min-tool-version.sh b/scripts/min-tool-version.sh
-> index 99b5575c1ef7..a270ec761f64 100755
-> --- a/scripts/min-tool-version.sh
-> +++ b/scripts/min-tool-version.sh
-> @@ -31,7 +31,7 @@ llvm)
->  	fi
->  	;;
->  rustc)
-> -	echo 1.78.0
-> +	echo 1.85.0
->  	;;
->  bindgen)
->  	echo 0.65.1
-
+Dennis
 
