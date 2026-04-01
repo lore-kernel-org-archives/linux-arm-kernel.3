@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE3BBD2ED08
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E334BD2ED0A
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 12:38:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,57 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fdD+gNdnYJuuk/C6povOAz6skeNjsbW/eErWFsyNXSU=; b=jriEf9n8zpxUlMW4k8AyCUYAQV
-	cAtxZaA1acWWjOibInPYQ5VOV132zwVL4+JtCMxgiUJo+BPDrZtQzqLjxskbEbpkGR7QJv4YvsvlA
-	4YRn/lGwLpkaLd/P1VdpdpyjqrZghzi1a3mZORK+SVoNGtad7zvQVxoLvdcn8fr/i1nWOR7Gp1cwM
-	hNXOIO4vVSPKYqsKHbgUokGnGJqtZtbqRdsOjP1B66xVgdM3x5q7PN8h1L3LAxVh+onTe3j7/5W/H
-	BHW2YXiDsK/f9vuwubFGdGqrYGQFy+6UeLoE+iEql35DbH/x40caH/qgCcCnS4dAAYNt/tDBV7a60
-	YYEOqspg==;
+	bh=HXjqylECdGDFHUiyugySRrfNFcwy5NMDZ6un9XJQF4g=; b=K6/yFgQRdbQfv/4uHZdLRIDZW0
+	XteEXJ8Yqvq6KVo9Sc/wDRW7/8Cpl+zuXuHLA7Tb3/rQJS8fB+3pub5c3MPILll3IHsS6uZiGa9en
+	CLKO/gqOLT06bIhqbljICLJRLasb3tRQ4WwfNo498pqPNO4m2MXqzKnjYAJDfLrC6mppXz5d56MH2
+	p4D6ka/vnjUn4GSdJSXt+Yfhv0grnX6IsF57MWp7oICLWIWM3jToD5XX12ubClQCP7Vl+9Vm31VMO
+	iYJLxWyMtTW4Z/2zNeu/tQjKzRko8Fjq1ZurCHjJNoPPEXcD0dUhYPUmTFmHrA7xm8wztxvEgQz6q
+	Vwx9BnCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7upm-0000000FCcw-0cye;
-	Wed, 01 Apr 2026 12:38:10 +0000
+	id 1w7upp-0000000FCii-16Iv;
+	Wed, 01 Apr 2026 12:38:13 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ueC-0000000F3pd-13cV;
-	Wed, 01 Apr 2026 12:26:12 +0000
+	id 1w7ueG-0000000F3t4-0QFk;
+	Wed, 01 Apr 2026 12:26:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=fdD+gNdnYJuuk/C6povOAz6skeNjsbW/eErWFsyNXSU=; b=KjOoKEVIhI1C4t63rT3fPYQD8o
-	1W0lKz86BvQBqMHooVhYM0Puo5C6V/qN36y8ECgx5SGseuPyQolSB6O2SumcUi2A8j6PbPDU3GU6E
-	Fe+kas1dZhlzxxcv9l/bhla4tY+O5kGauhu5Ncskt/IOd2Eixe7M4qjZZ7wXIg6yJHoC5vPLDduvx
-	iWokpKMX8G276GOA77VYE2l7MOVFxXoXGiE0PG8VNWOgVsEyaDzVZV5FRzW4NjqpPX+s7aVaNZovr
-	p6/kz+FWZ5cqIPMEt8MwhcbfUCbr4WoWK4GntGoqtXKJIdUxnkS4eEInUmAqqph0QpjVo6pW+cugt
-	6Mq/3uqw==;
+	bh=HXjqylECdGDFHUiyugySRrfNFcwy5NMDZ6un9XJQF4g=; b=quFpSU/1GK66ukHf8jteXi40qJ
+	zmmrKTeJutf9PfRwEljqLg6G67VH24EKKqq3EWX7Pc4+KLYrV1mxuh3LT/mIczDBbXBgFuUcChTYZ
+	CBpJyT2dmE+BcPeWsX8450iIDXqsJ1zBYCvaey3nhrFo323uhkD8/NSwwqp8Y6zjud4gS7D6q5be7
+	cVg+ye3u6eQ7/kxDjZR4rqj6m9taL2iOxteDovGA8ItJEzIvynZMeAtXexp8sF+0Qzyra5TX6AlrD
+	de7zFM2lTuMug20kbCqxe7cK1p8FEkA0t4xS7+blmytSdF5p7elEABp4Jhiv6iCy1po1q+rkBEXpk
+	/ydKOW6g==;
 Received: from www537.your-server.de ([188.40.3.216])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ue7-00000000Ktr-1NgN;
-	Wed, 01 Apr 2026 12:26:11 +0000
+	id 1w7ueB-00000000KvX-3hes;
+	Wed, 01 Apr 2026 12:26:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:Content-Type:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
 	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=fdD+gNdnYJuuk/C6povOAz6skeNjsbW/eErWFsyNXSU=; b=daEpk33GuNEpIhAxxg/M583qNc
-	xZWuid1EuT5B0Id7XqbOvBCBMy+BWiuLdr9rgf98OwOcp/qmQRYbH3x5pqgab5r2HZjKtCqRxrT0a
-	XUnQxyIr7RMT1t5qMgZvPOgZQG1rK51G0UVDTPE4Hm1bUzUZsYGyRilME6gBG4TD9X+Mw17eGOX5I
-	N+2MvqoVxJq5rtdajdn1GpjRroPlHpdUmkJ27e9TM4woV4ox1WwDw3FPfGfwuNMr4/0YfOtnt39X5
-	31cNM3TCHqhk8DBieX0U+/S46J9cwS+RKyTSQr0/qt6aBDPFp5qd7ZO0VQ7s2cscT/awBU7UWQBpE
-	c7NZL8GA==;
+	bh=HXjqylECdGDFHUiyugySRrfNFcwy5NMDZ6un9XJQF4g=; b=h6kxBhb+t/yRyIf9XD0uFBqw0E
+	BMmiQpL+SoEgqb6viTrEzrmea6LtF6+wsrfHplUl7my4eWHobKNK/jIrR5M9AxagZASYJwANlnLv0
+	5mfuW0Mi12TdkaOJCUg+AUDOS1TWMfknTHj4gcyrCaJKh1YLwvkOyXiIslNUAfSsdYMJjutSDnU5U
+	HCjEZGVo13Cj2B2WE7fE/OqfKamb35EsmZYMxkxtSxzJmUTwxkM8NHF02Tw4ufEOvomKvoygjGx32
+	n6mjeW6yb9SMb0cWwwAABOvC8hjJzsQbNdrDLbHfJ/Jn5H0bI1O18+58NAu3WdKeOL5gHbvUnLn0H
+	XVVG1Lgg==;
 Received: from sslproxy07.your-server.de ([78.47.199.104])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <nora.schiffer@ew.tq-group.com>)
-	id 1w7ue4-000IR7-2k;
-	Wed, 01 Apr 2026 14:26:04 +0200
+	id 1w7ue3-000IQX-0A;
+	Wed, 01 Apr 2026 14:26:03 +0200
 Received: from localhost ([127.0.0.1])
 	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <nora.schiffer@ew.tq-group.com>)
-	id 1w7ue4-00089b-1B;
-	Wed, 01 Apr 2026 14:26:04 +0200
+	id 1w7ue2-00089b-1p;
+	Wed, 01 Apr 2026 14:26:02 +0200
 From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
 To: Nishanth Menon <nm@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>,
@@ -86,9 +86,9 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-arm-kernel@lists.infradead.org,
 	linux@ew.tq-group.com,
 	Nora Schiffer <nora.schiffer@ew.tq-group.com>
-Subject: [PATCH v3 4/5] phy: ti: gmii-sel: add support for J722S SoC family
-Date: Wed,  1 Apr 2026 14:25:24 +0200
-Message-ID: <25a07fea53b0f7de3cef41866e208036ef1de0d9.1775045279.git.nora.schiffer@ew.tq-group.com>
+Subject: [PATCH v3 1/5] dt-bindings: phy: ti: phy-j721e-wiz: Add ti,j722s-wiz-10g compatible
+Date: Wed,  1 Apr 2026 14:25:21 +0200
+Message-ID: <b9d6a9322ce4f7dc3363dc00d93ab0256e12a8af.1775045279.git.nora.schiffer@ew.tq-group.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1775045279.git.nora.schiffer@ew.tq-group.com>
 References: <cover.1775045279.git.nora.schiffer@ew.tq-group.com>
@@ -97,8 +97,9 @@ Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/27958/Wed Apr  1 08:24:34 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_132607_502766_4C9C701C 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20260401_132613_283297_E2E7CBD2 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,45 +114,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The J722S gmii-sel is mostly identical to the AM64's, but additionally
-supports SGMII.
+The J722S WIZ is mostly identical to the AM64's, but additionally supports
+SGMII. The AM64 compatible ti,am64-wiz-10g is used as a fallback.
 
 Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
 ---
- drivers/phy/ti/phy-gmii-sel.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ .../bindings/phy/ti,phy-j721e-wiz.yaml        | 20 ++++++++++++-------
+ 1 file changed, 13 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/phy/ti/phy-gmii-sel.c b/drivers/phy/ti/phy-gmii-sel.c
-index 6213c2b6005a5..c2865a6b1d7fb 100644
---- a/drivers/phy/ti/phy-gmii-sel.c
-+++ b/drivers/phy/ti/phy-gmii-sel.c
-@@ -251,6 +251,15 @@ struct phy_gmii_sel_soc_data phy_gmii_sel_soc_am654 = {
- 	.regfields = phy_gmii_sel_fields_am654,
- };
+diff --git a/Documentation/devicetree/bindings/phy/ti,phy-j721e-wiz.yaml b/Documentation/devicetree/bindings/phy/ti,phy-j721e-wiz.yaml
+index 3f16ff14484d2..283e3eedc0f31 100644
+--- a/Documentation/devicetree/bindings/phy/ti,phy-j721e-wiz.yaml
++++ b/Documentation/devicetree/bindings/phy/ti,phy-j721e-wiz.yaml
+@@ -12,13 +12,19 @@ maintainers:
  
-+static const
-+struct phy_gmii_sel_soc_data phy_gmii_sel_soc_j722s = {
-+	.use_of_data = true,
-+	.features = BIT(PHY_GMII_SEL_RGMII_ID_MODE) |
-+		    BIT(PHY_GMII_SEL_FIXED_TX_DELAY),
-+	.regfields = phy_gmii_sel_fields_am654,
-+	.extra_modes = BIT(PHY_INTERFACE_MODE_SGMII),
-+};
-+
- static const
- struct phy_gmii_sel_soc_data phy_gmii_sel_cpsw5g_soc_j7200 = {
- 	.use_of_data = true,
-@@ -307,6 +316,10 @@ static const struct of_device_id phy_gmii_sel_id_table[] = {
- 		.compatible	= "ti,am654-phy-gmii-sel",
- 		.data		= &phy_gmii_sel_soc_am654,
- 	},
-+	{
-+		.compatible	= "ti,j722s-phy-gmii-sel",
-+		.data		= &phy_gmii_sel_soc_j722s,
-+	},
- 	{
- 		.compatible	= "ti,j7200-cpsw5g-phy-gmii-sel",
- 		.data		= &phy_gmii_sel_cpsw5g_soc_j7200,
+ properties:
+   compatible:
+-    enum:
+-      - ti,j721e-wiz-16g
+-      - ti,j721e-wiz-10g
+-      - ti,j721s2-wiz-10g
+-      - ti,am64-wiz-10g
+-      - ti,j7200-wiz-10g
+-      - ti,j784s4-wiz-10g
++    oneOf:
++      - items:
++          - enum:
++              - ti,j721e-wiz-16g
++              - ti,j721e-wiz-10g
++              - ti,j721s2-wiz-10g
++              - ti,am64-wiz-10g
++              - ti,j7200-wiz-10g
++              - ti,j784s4-wiz-10g
++      - items:
++          - enum:
++              - ti,j722s-wiz-10g
++          - const: ti,am64-wiz-10g
+ 
+   power-domains:
+     maxItems: 1
 -- 
 TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
 Amtsgericht München, HRB 105018
