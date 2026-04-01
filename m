@@ -4,69 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385021076382
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:34:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 556EC10F6FA3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:37:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MCHnenR6Ib7syOkj1tXbhYhuLdr55jYGJnqFLe3B7GQ=; b=WEOASJHahPsx2l1SfA+uHZyGx7
-	qrHn4SLQjChNeM4EBzV430v9NCC7lPTwKJQMKpjeqXxSJ38H9wLaRtkaOc3n1w1CZT5hoIhSX82dl
-	0A/vZLuiefsqFIaRfq2nloCVlJSWarVhjjpkSgNYdWwcV5WF9q+0Eu7gcoqOdWFLk0rmxuh2RV6ip
-	rHy2JzP6CBcuYXwas0kobiRSNqFgbQ/V7AIMJNSkfFhIRcnB1aq1h69zdp/KpMqKhERPIghNidIOU
-	CswC95oGTjzP0p6Q9uDL2RsOuje8TQp0psqzUwJ/eDbSu7klDBgg1S5g8MVUxZN0sQe1wLKpc0vXU
-	a7xWI8Rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
+	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m8ENkD2ZBN5tsrwmpnHmuI5h2ivnqwx24Oea14ybxhc=; b=MFU+WCAsLOtT/5I3P1xMq5UaeK
+	WKOhB/7EULH7RLOOOooAJzTZIgC4/rD1iynYHS3eMqy5yRQiDwMKXa5Bmz8fdpM4RuLTpNgATeCpX
+	oz94NYytFpKrlrgNAxQRBOKEKpxKHHbcc0t9d2uZCrCp4upssKnSLy/yyV1orpEyNAr6vYcv/U9IN
+	t31dVfhdKTgAR2px181HeEXXYUHkdoouE+6x7wCgMtMA5j+lG7++Aowh8LQxhO/JeGfJ5MssyRIWg
+	eVTUT/csXzIfGpCRGfEbWzCzKl3lEuIL+Kl6WpXdVkHq/XJiMJxKgASaA3rz2LzhEPTArd7WsRyrL
+	cLG4sBLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7weU-0000000FVIa-3XdU;
-	Wed, 01 Apr 2026 14:34:38 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1w7whF-0000000FVbQ-0Yx9;
+	Wed, 01 Apr 2026 14:37:29 +0000
+Received: from mail-uksouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c205::3] helo=LO2P265CU024.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7weS-0000000FVHm-2IMm
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 14:34:37 +0000
-Date: Wed, 1 Apr 2026 16:34:32 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1775054074;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MCHnenR6Ib7syOkj1tXbhYhuLdr55jYGJnqFLe3B7GQ=;
-	b=Jf/WHRxtccht21BMrKLYosvhoTBD2eaH5n+lztcgEnfhR45jQrjBO9OQHGbufXPBi5j7DR
-	W+rbb/1SHdtZZe9fgDrpQWehx2TjM19orlJT3zWO0imq0xz+DbhB2dBHhT/YCzRzr8tPNq
-	ISVXXY9LHjDIRqthAnKscXARjSzlCJgdChJW+Q1XtmYO0fmF3EvwiVZ3sSmmIn9R5Swnrs
-	YgZbk3DC0+4F2x4YlPFAT7qi8IxlX5ikkR9UlUhHLVa4Z4A/qykU05WQjbzs2lnrdeKY2w
-	Cqp4V6W3yQbdoBmFHHt9EbTkaASlrY50yESPnRqX8A7WF1idOJ4WK3gdaGaxYg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1775054074;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MCHnenR6Ib7syOkj1tXbhYhuLdr55jYGJnqFLe3B7GQ=;
-	b=b/ycmL2nVM5345ysspzJmig9GcBxx3K/OgdCg2OMwBpaIJOTfl2x8HYfbTNBfd21gQ0sVF
-	fi1oPH1rEk0JVNCg==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Michael Kelley <mhklinux@outlook.com>
-Cc: Thomas Gleixner <tglx@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Jan Kiszka <jan.kiszka@siemens.com>
-Subject: Re: RE: Question: interrupt randomness and handle_percpu_devid_irq()
-Message-ID: <20260401143432.AfQo--uu@linutronix.de>
-References: <SN6PR02MB41577F8265CA23C3027364F7D44FA@SN6PR02MB4157.namprd02.prod.outlook.com>
- <87bjgik042.ffs@tglx>
- <20260401141417.6uJk69i9@linutronix.de>
- <SN6PR02MB4157BC5ADA592D8D6084C6DED450A@SN6PR02MB4157.namprd02.prod.outlook.com>
+	id 1w7whD-0000000FVay-0y6b;
+	Wed, 01 Apr 2026 14:37:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YOFnmxm8cPBjmWoJBhe5beDLqSKJ2QCnTOcQzQYf9Bx+jH3LNi5sSkDEmqebMLLdIDJOHhtgNhkHDfJX3tDB51SIW+FbvrlVu3ETtYzD4RuGPANhiLw4XuhCDW0AVnA961CjBSXRkb15MtjWrzYtWZ7aCe15saRMmh27UZcgU/JP0OeOYrov87A0oeHcYMRn/MPcEkwKbMhIUdieWVapx5iFsDurbSih0xLe4QVZJsS32UvWQeWN3DN1RfgeI4d2QjvMls/5ajHdTreGJ38BiY76+JLaq/0d8xTxbB3rAMlkne/ZmPOSIRMd+awn6uyzIA+8MuBxjtTRmdn3LHAdIA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=m8ENkD2ZBN5tsrwmpnHmuI5h2ivnqwx24Oea14ybxhc=;
+ b=MP/8P1qTt8CwlD2gogws2Mj22Oxy4F/nN05FeJT23z5uLEDE8n54Wv+IXC4rn21kRJdM+EPIDhAxcyl0yA55ChMO95na9ChbKSAJllyMb8rPBFGCMa1Mz0D9ymbbgC7FwhNJGDclzktg6RJ7m8ySZ6sI+CzL7R5jy8Hzfpn1UFmTSCOK3p6poUhW2JO63u51QIhqko+LmOGZmn6CfoCi0Wnyqt1crNdQo5CywLPvrHYSb97e7LDoC41HhhQTsvuPDXObc/K459WEaC0PtdgNFb0xqiYl4LBxWz8TKE30+kdnGpXCmHKGhVeGTGMbPMfcHen/6puj+RvjiOv+m03H0Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=m8ENkD2ZBN5tsrwmpnHmuI5h2ivnqwx24Oea14ybxhc=;
+ b=ivsu9j+mhHK1V0RD1FKKQ0Zs2j82K7L6ybPsAf6sSo0oQ00z6EiBFqha7MYwjvrYExKoy7zbUH3dCmrEzwfolsK0kSbz8vC9t3IooCVr75Zmw/iU9QpYqkVbSsyC+5vrGx+fG5E7jtqULuTTga+/xYJbf0VTnv6gnmOE+VtQvxo=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
+ by CWXP265MB1959.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:83::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.18; Wed, 1 Apr
+ 2026 14:37:21 +0000
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
+ 14:37:21 +0000
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 01 Apr 2026 15:37:20 +0100
+Message-Id: <DHHW7OT205K1.2N2RSOB4SU8DY@garyguo.net>
+Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
+ <rust-for-linux@vger.kernel.org>, <linux-kbuild@vger.kernel.org>, "Lorenzo
+ Stoakes" <lorenzo.stoakes@oracle.com>, "Vlastimil Babka"
+ <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ "Uladzislau Rezki" <urezki@gmail.com>, <linux-block@vger.kernel.org>,
+ "moderated for non-subscribers" <linux-arm-kernel@lists.infradead.org>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>,
+ <nouveau@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>, "Rae
+ Moar" <raemoar63@gmail.com>, <linux-kselftest@vger.kernel.org>,
+ <kunit-dev@googlegroups.com>, "Nick Desaulniers"
+ <nick.desaulniers+lkml@gmail.com>, "Bill Wendling" <morbo@google.com>,
+ "Justin Stitt" <justinstitt@google.com>, <llvm@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, "Shuah Khan" <skhan@linuxfoundation.org>,
+ <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH 13/33] rust: block: update `const_refs_to_static` MSRV
+ TODO comment
+From: "Gary Guo" <gary@garyguo.net>
+To: "Miguel Ojeda" <ojeda@kernel.org>, "Nathan Chancellor"
+ <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Danilo Krummrich"
+ <dakr@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Paul
+ Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
+ Ou" <aou@eecs.berkeley.edu>, "Alexandre Courbot" <acourbot@nvidia.com>,
+ "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
+ "Brendan Higgins" <brendan.higgins@linux.dev>, "David Gow"
+ <david@davidgow.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, "Todd Kjos"
+ <tkjos@android.com>, "Christian Brauner" <christian@brauner.io>, "Carlos
+ Llamas" <cmllamas@google.com>, "Alice Ryhl" <aliceryhl@google.com>,
+ "Jonathan Corbet" <corbet@lwn.net>
+X-Mailer: aerc 0.21.0
+References: <20260401114540.30108-1-ojeda@kernel.org>
+ <20260401114540.30108-14-ojeda@kernel.org>
+In-Reply-To: <20260401114540.30108-14-ojeda@kernel.org>
+X-ClientProxiedBy: LO4P123CA0654.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:296::12) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:488::16)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <SN6PR02MB4157BC5ADA592D8D6084C6DED450A@SN6PR02MB4157.namprd02.prod.outlook.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|CWXP265MB1959:EE_
+X-MS-Office365-Filtering-Correlation-Id: 06c6a804-657d-40ec-45e2-08de8ffc2f0f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|10070799003|366016|1800799024|22082099003|921020|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: Uyv22NCIVevIrZH5BSTmyPcqNVeXnnPx12uFtx9jXhkL3DK+Ew+YTRXUBUa7b2RVcgtfTZ3GG+G/5/gLO+aayjJ4S9ZjYKQbWGlo3c4ujBHPQdRrUSJZe7TtwUSFSCXVtJzJmPfiJ3AZzjr2EBG6t/4l2N4XjMpOcsRrcRYsWG41q3E9iBvOnGnk8hWrlO/laA7XeU3S+Ez8P51z4GsOuGXQRAG2YligsCIn63lwrg1WD5nnKVklMuXJangkbTq4wTd7k4C1iUrqWjnkx5ccPhn1LNAQ7oaJXVMqAnp4SXWG1kiKfYQPZg5cHJiEUZcH7dV1hcIZsaWaOAiNvhLrRGnqmYYsiIIqE2CkSS7rr1pEsy0L95IA5seFNyzt6Jqz3gW4AdWRN0tn+7mBlr0NgvpirS42EQah1ZD5MMG8GZRd8RuxPhA6/l83wmbmvWKzRy9Kz5Cqi2uM+tEY0kRN4orlVMfQZaL+zURm6iwSIJbqhnrpDZxD1ny1fI67vTlx+YwKy5SiUvLbPvo6hCCdObdjV5cUaXAxQW0Ygmu/ILca19QNeUOyIMH62qFBco19QX9LpCHfmiAsD0KE/yxIzPUN0wzgcifPVCq4v9IUrijgD8LczloZiOghNDP5Fwx7OtJviuT6XcMrMYPDTG7UizEhH/fAedTPRvo/sAomg1TZBvDb8y37Dcbtmg8UXsrdU9t3KiaHWdXxkUwjQ6Xxu3EJKs2PZtsUj6ipmZU4mU1nNLyachNPoWG1TknmbAKFg6Gt9aYTpaAAAQb8czgg2g==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(10070799003)(366016)(1800799024)(22082099003)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VHFKZ0IwU2VMVVY2NFZRWkFiQ0xsYVNNMGVLVFdacXZDN2lPTEVTUEVQRm9P?=
+ =?utf-8?B?SXYxU0FIeFVRT25XQWdHYjE3dFB5bUc4Tkw3bzBOUU1Tam91ZzNIbzBpVzUz?=
+ =?utf-8?B?cis1M1pGamdPNVY3WGdBaEMxRXVCelR6MFhIcElVT1BDNTljK0hiMEx4OTR4?=
+ =?utf-8?B?Qk81WTAxUmFBK3lkSlpoZWZPTEJhd2d2M1lFY1Z2djZNRmZPc0Z3L3E2d0wv?=
+ =?utf-8?B?L0d2UUdaV3NBSzNTZy9aeUhScEZEUklWNG8yT0lscUxmZ1p0eEZqWW9wNnQy?=
+ =?utf-8?B?S2g2UFpjWEF4K3F1ejk4ZGJLRHc4UVczV1ZjYVltNVpNK2JTNGJSa1Z0VE0v?=
+ =?utf-8?B?dHhXbStxamJHL3JvMFpLdi80MEJ6U3BkMjVEK1ZjY2Z1dnJubWt2Wm1EeURZ?=
+ =?utf-8?B?ZmJXMm1JVzhsTDJRSzVnYTlGbEh4WlBMeGc3VXhSeDE0WE1acjNuWnhxUTQ3?=
+ =?utf-8?B?VnViU3E3Y25zTGZKOHo2dlhqa0UxeWxCWEVvdXBmSXJKR0liZzBESDlhdGpy?=
+ =?utf-8?B?UHNSejlQbVEweEtOc25UUDJ6THdtOG9xcFRvY3QxK2tBcVJNbTRqUjNDbWdi?=
+ =?utf-8?B?YjFxbTUwMUFrQVcrZUx3OWs1cHhlMUxmMTdDYmpDdzBTckUxOW5OTUR5VEZT?=
+ =?utf-8?B?eXVac05kc0tNNVd0ME50RGo3R0Z3QzdDUWhQQzlaMGVPQ2hqemxWakJzblB1?=
+ =?utf-8?B?K2hSWGJUdjN2eHUyeEd4S1FGYWlLL2w2WWkvL3VKbk5ISEEvZ1lmdlRIWWVO?=
+ =?utf-8?B?UTZnY2R2V2xzREZDTWxPRmRoYzdNNXVVZXZRYnJxMld6V2NrYmg4OCtwbUtU?=
+ =?utf-8?B?Y1JtQzBpeWQvcXVNUGVFS2w2OWtpT2RsQ1dUQXMrRCs2ci9OaTNLUUZxSHJ0?=
+ =?utf-8?B?UFRFeS9mQ05DMGlnR0k3Y05SSjlBWjJEMkYvNTFpVU9LQWFaODZFKzM3OG8x?=
+ =?utf-8?B?T0pESFdZOVRjTmw4eGJURmNOdVVaaitVRk5HcmtpOGRjaGVuL01LT29RMCt0?=
+ =?utf-8?B?UWFocktxSHByVkVUY3J1Sm5TVUpSYnhwY3Npd25MVmxVSCtoL0ZHOHBZcnVO?=
+ =?utf-8?B?Ui90eVl5NVk4U3krYVF6U29pd3NuNEZjb0RhcUVhYmVSOG9qdmRVcmJXSHZM?=
+ =?utf-8?B?VEVvZU9Sd3lrai9EYzdEZ2VQMVhiZzFKNmhpdVYwbUs3L1NZb1FCTmYrRno3?=
+ =?utf-8?B?VFliMDQxWmowbDd5NnZSLzJDWWNNbzh1WUZ3QWxJdDU5dUVxWk5qcmNnd1Fw?=
+ =?utf-8?B?Z1pSeGZIRW1OOGZDU0orQ1hyZjRiNkFkL04vL3F4WEo4TmpUVEZXbDJoZ1A2?=
+ =?utf-8?B?c25EMmpCYzlxWUhHeHdqRVJVT1paakdwc2Z0QWNoVTZzMG1wQ05SeDZCQmdw?=
+ =?utf-8?B?cWduV29iakxSYkREUEhSUUJaemVIZU9ocDdmSWcxRHRSRHBLdmlwVXRQSWRX?=
+ =?utf-8?B?Rk03cUtTWFJzakY1UlQrWVQxdjkyUnQ3WUhDS3NXNlA2TW9yVXUxZnZhZy93?=
+ =?utf-8?B?bHJ5T1NUZm5RQWlnZDU2SGxxUEdJaHlnb2FZNXoxSWs5OHBRMmZMb1JJOVdh?=
+ =?utf-8?B?ajhvNlFVd0RxbFIxV015NWh4Qjg4NlFwbkxtdFpKWUFTd00wVmFwbm9vanRi?=
+ =?utf-8?B?TlhKMC83aENuZ0VOeW1jaTdjNnBOaG13L29mcTZ3MHRrNkVGUXVCZ2w3ZVhU?=
+ =?utf-8?B?YjRFYllYbVdCUUdUMVRwcWJPYjg5Y2twZDgvT1hiU0o2d1FoYWF3RHRudTFz?=
+ =?utf-8?B?bGErOVIzWHc4c0VTYlJlYnp1cWs5VTB3b2tOaU5sWjl3aW5GUXFqRnBFWVNM?=
+ =?utf-8?B?RVNHZnRNQ1U1UlFGVGkwYkRxUkFxUVRKdFFhNzlLZVNnVnVrSmJwZm9nM0dy?=
+ =?utf-8?B?cUdUL2g5OTZHcXltdWl5K3MvS29qN29La2gvY2FPckZpV2JDdllFN2plY0pG?=
+ =?utf-8?B?eWM4R1pJbXJnY3o2a09yVEd6VDc5NjZsWE5abjJvOGx2ZXFCdHNHRjBIZThG?=
+ =?utf-8?B?YmxEdXUyaUNkdHJuTHVHNmN5RjZsWGpCd1pYcVlOK0xuMnk0VXJSdU1EUS8w?=
+ =?utf-8?B?a3k0VnpqUEMwQmptRkFxSTZBc1ZsRlRZZUJkOEZ3VWs2dHliSmFoaVU1WkQ5?=
+ =?utf-8?B?ck1xNTdFaDQrellmNVk0Tzd3M1dZajhwRG0za1BsMGJ4WVVGV3FwcjFITHY1?=
+ =?utf-8?B?RXFTWE9VaGYrK1RIQjVjTFFlYW5sWGpoL0hORm1TdmhmZXdVRHp0MUNZV0JL?=
+ =?utf-8?B?MEdMc0tkZWFsT1JycVdmczVHY0VmR3hyU01lLzl4THpkdGEwK2hVUlVvUE04?=
+ =?utf-8?B?bHBZemUvZzZ4cjlSdnlFV2VHbGx2MlBrN3dzeEtNY0daNDVGaUcrUT09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 06c6a804-657d-40ec-45e2-08de8ffc2f0f
+X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 14:37:21.8015
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: q9NCti9ClndDU5+1dO6169pkbV7TCJWpuV9jinx6/ztzwu3JS7vPQf2QzbJ5s/C0l8e4W46K2OJu8Xzxc6q+sg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CWXP265MB1959
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_073436_720762_33F801B0 
-X-CRM114-Status: UNSURE (   5.91  )
+X-CRM114-CacheID: sfid-20260401_073727_276584_29659806 
+X-CRM114-Status: UNSURE (   7.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,14 +173,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-04-01 14:33:34 [+0000], Michael Kelley wrote:
-> I'm planning to submit patches to do that, and remove the
-> add_interrupt_randomness() calls from the VMBus ISRs.  Hopefully will
-> get the patches out today or tomorrow.
+On Wed Apr 1, 2026 at 12:45 PM BST, Miguel Ojeda wrote:
+> `feature(const_refs_to_static)` was stabilized in Rust 1.83.0 [1].
+>=20
+> Thus update the comment to reflect that.
+>=20
+> Link: https://github.com/rust-lang/rust/pull/129759 [1]
+> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 
-Thank you.
+Reviewed-by: Gary Guo <gary@garyguo.net>
 
-> Michael
+> ---
+>  rust/kernel/block/mq/gen_disk.rs | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
 
-Sebastian
 
