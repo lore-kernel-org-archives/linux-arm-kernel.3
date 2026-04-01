@@ -4,67 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3771ED35162
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 10:57:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D45CD35162
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 10:59:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vE0nZ70+TvEitK1omkNigwlp7kb9dZrac89hYfLgeI4=; b=AjIvPix+bHeyEt
-	dRky7a1X6dT5WMWrWtOTo2MhMqKJkzkcjRpfTy0+H5Wm2D2Hzp/G6AxvIrMsfPT2rMavybnJclUeQ
-	9cCVcGtmtIFFq0ZGzCJseX2etSUGTOG5l1Zws4/KIYkDyxdsJyR4K0DCsDBTCDGmANcEwAr3E+UJ0
-	ZVqbU2xi5lJlZZpvo/P4s/e58Ujb/OpkLtbXNIH1xdUFE6NAokV16h1RMOMjFPA05vtplf3Vx3AEp
-	8rYN5AVir8YtOg03th++9tZyRFUNURar2WYZurysSRQGsADFZepfDmzOKrHxU/f3HzIPt0UcY8nXn
-	9LzsYQikJkPiSOmDsf9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gsfG1dMeG0hhAXuMQ/NSl1g0hyNKoLGtnSe3H3JbBAs=; b=NxyKe8nQFR1ciEbQpc8AbHJCGs
+	O87vbpBeK9kkOi3vfkvLYrcB2ST0yp1CnWAGtRK0qar7Bbgg5wqkSwaXUhNM8RPARmx7BKWVdnPli
+	34mQJNPffEuHRCHOlw6+zK9V9/OS2Qr0E0oW0b68SG/UvZWys/UEVHt0QhH0PYiV6FpQMO3xpLOhw
+	g6ibT9i+7BS+ffgYsHYgSqxHKsHvj6mXC9b/GQ9n9bzWau2JnaE7OcNTIBrlm3ARCu9Pk68xtzW9x
+	8DJjmwGFgFyZFBB4Sa/kZQV+mr03aXw4HZynzwTFShImWCaIatSe2YkdvHAtgED9YO8ACCsAV5doY
+	1A0of5FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tFz-0000000EZkx-0KBi;
-	Wed, 01 Apr 2026 10:57:07 +0000
-Received: from fsn-vps-1.bereza.email ([162.55.44.2])
+	id 1w7tI5-0000000EaIm-1Bpz;
+	Wed, 01 Apr 2026 10:59:17 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tFu-0000000EZfr-2gl2
+	id 1w7tI3-0000000EaHy-0OUf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 10:57:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=bereza.email; s=mail;
-	t=1775041020; bh=nGbJMc1SpopSWDrpbU5L/1qQ3V8loe6NC9n1u7UtYqQ=;
-	h=From:Subject:Date:To:Cc:From;
-	b=CKWmFr4I7JiMChW8VHJ8G9FCq32dAXo4dBaKsG3gpsEqRn2pY8f2xnH8aOLKf10V0
-	 wVjqP5Yc+dfdiYJHANjUVrIuJMI8iZgSzvq3jsA1KG7UviGk8Nnz4A8Pje3nFJMosP
-	 aVsxkwCnecl5rCnDQSleGqlGhqUqRRR3h2lEZuxsp43dqa2iXimje3vBLmpr8X5kHp
-	 1UZOeM7//4lVkoozqkj1GvAeAqODXd7cs0Zt7y2VDVoFK/BCwZoMwDqPYCudERZvHM
-	 1MtF8W/5g82whwwJV5ENR+dO62x0eOSU2x0VEVa47RpLvJDBaDrovL+J+IxwxxjBKA
-	 S8IOtroz5qoRA==
-Received: from [127.0.1.1] (pd95bbad8.dip0.t-ipconnect.de [217.91.186.216])
-	by fsn-vps-1.bereza.email (Postfix) with ESMTPSA id B95EC5DF94;
-	Wed,  1 Apr 2026 12:56:59 +0200 (CEST)
-From: Alex Bereza <alex@bereza.email>
-Subject: [PATCH v3 0/2] Fix CPU stall in xilinx_dma_poll_timeout caused by
- passing delay_us=0
-Date: Wed, 01 Apr 2026 12:56:31 +0200
-Message-Id: <20260401-fix-atomic-poll-timeout-regression-v3-0-85508f0aedde@bereza.email>
+	Wed, 01 Apr 2026 10:59:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rtbZu5riXutThZ/ko+61fq5A4/M5/jkpvgaSER3osg5edZdR90L9XAUCfN8j01jXIvdIQNZqzhsUdYsmGcOzCfQ4wF7s0Gmg9jD+sdRR3YsmnJtPSqDixSaDuYLxi72W/BLt2HWcMTY2aHgvXJ7wegmLlKLYZEPIYxBwymvulRKWElfHFFR+zTe7g71/y2q9twg8rlQMuYOv0c/BDlRvlxInxNVfCEKVeemaoeqWljRp6vCI5lnMDKLSc0NRxllzNUQmrXVCjzTOwvu0LTc5F+phmDU1mnrJt/hoembCxhc8CsEwRreOY3flojvfj5QoVlIx/SfgpJq/9Tuyp5PHyg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gsfG1dMeG0hhAXuMQ/NSl1g0hyNKoLGtnSe3H3JbBAs=;
+ b=CIWRyIBXMt8+leRL0K0+I/0NU/uZhkRDOJzP0shwYxBSpSHeoIF+JMyWhsC9T5H73xAOmT75fonhdsdL1JcQy6+KkPyuxBc3LBegeigvIDU7v7DJZlK/6Yx94UDVxzZeJFA3QLFGCTUNVFrrZZ5p006uGbEIZCDAfRZrjKPI4RFC/ZJ/e1xnTJxQY75dpNJEwWHHD7EMOGURrS9IqBaS5rHwWXkfdW229bipfVeN1IzI1/LPWsSmNMSSfjmhd0HlZ7SLqRU0mQanieQJiDEhqk2ONoNmw//WM3mom0y0WV9gmf5HJ+1ugPqI9k2svsqlkLFqk7/+cymatSYdx5fpog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gsfG1dMeG0hhAXuMQ/NSl1g0hyNKoLGtnSe3H3JbBAs=;
+ b=O/zwHBXf8/FDHLvHf/cswvELBfnDPlODzIsRZk1wyZI78ZXlBwqTqJdjjqV0ubGxGujTO5HBqQYYbYoePHcKzdKwkQ/0zDjZeY20jQhH97azZyynk2C2jacxTE/+Rr49ObSlTlZWVIpg2k8v6crwXKcNgWXDBuxUpq8HzhsdIu0=
+Received: from BYAPR11CA0094.namprd11.prod.outlook.com (2603:10b6:a03:f4::35)
+ by CYYPR10MB7606.namprd10.prod.outlook.com (2603:10b6:930:c4::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.20; Wed, 1 Apr
+ 2026 10:59:11 +0000
+Received: from SJ1PEPF000023CF.namprd02.prod.outlook.com
+ (2603:10b6:a03:f4:cafe::e9) by BYAPR11CA0094.outlook.office365.com
+ (2603:10b6:a03:f4::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.29 via Frontend Transport; Wed,
+ 1 Apr 2026 10:59:02 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ SJ1PEPF000023CF.mail.protection.outlook.com (10.167.244.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9745.21 via Frontend Transport; Wed, 1 Apr 2026 10:59:08 +0000
+Received: from DFLE205.ent.ti.com (10.64.6.63) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 1 Apr
+ 2026 05:59:07 -0500
+Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE205.ent.ti.com
+ (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 1 Apr
+ 2026 05:59:07 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE213.ent.ti.com
+ (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 1 Apr 2026 05:59:07 -0500
+Received: from [10.24.68.91] (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.91])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 631Ax2u34137901;
+	Wed, 1 Apr 2026 05:59:02 -0500
+Message-ID: <f8937c11-1416-42cc-b5ce-0fd97e8aa53e@ti.com>
+Date: Wed, 1 Apr 2026 16:29:01 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] cpufreq: ti: Add device link to k3-socinfo
+To: Krzysztof Kozlowski <krzk@kernel.org>, <praneeth@ti.com>, <nm@ti.com>,
+	<vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <rafael@kernel.org>,
+	<viresh.kumar@linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-pm@vger.kernel.org>, <d-gole@ti.com>
+CC: <vishalm@ti.com>, <sebin.francis@ti.com>, <k-willis@ti.com>
+References: <20260330120105.2985200-1-a-kaur@ti.com>
+ <20260330120105.2985200-6-a-kaur@ti.com>
+ <da225ab1-d659-455d-b3c9-e7ff4864119e@kernel.org>
+Content-Language: en-US
+From: Akashdeep Kaur <a-kaur@ti.com>
+In-Reply-To: <da225ab1-d659-455d-b3c9-e7ff4864119e@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42OywrCMBREf0Wy9kqa9KGu/A9xkbQ39krbSBKDW
- vrvNooIrrocmDlnRubREXq2X43MYSRPdpiDXK9Y3arhjEDNnJngouRScjB0BxVsTzVcbddBoB7
- tLYDDs0Of5pCbHKVWRpqmYjPo6nBevSXH0yf7m75gHRI5NVrywbrH+0XMUu8rzJYIYwYZFLrSz
- a5EVSt+0OjwqTbYK+pYckbxo+Z8GVUAh3KrRFmgrCpu/qjTNL0AlEIB9D8BAAA=
-X-Change-ID: 20260330-fix-atomic-poll-timeout-regression-4f4e3baf3fd7
-To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Michal Simek <michal.simek@amd.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Ulf Hansson <ulf.hansson@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
- Tony Lindgren <tony@atomide.com>, 
- Kedareswara rao Appana <appana.durga.rao@xilinx.com>
-Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Alex Bereza <alex@bereza.email>
-X-Mailer: b4 0.15.1
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CF:EE_|CYYPR10MB7606:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0904af6d-0138-4a41-4338-08de8fddb331
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|7416014|82310400026|1800799024|921020|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: +VlxdLbBI60DtOFJwYUQ7n1f47Syg0rUJHNm0Ft1xxXOt5mwr7Av6qx8vsCab2/DmRsoHHgJj66V12kKNYeKCqeU3qH1JP/yEn5Nxxtni+Q0Q3KBKYJhliVr8Vej2eVtzLRv2SERD02fF0xX9M5Rt4qVUYT9Zuec4rlFWFOV0N/8uRdbLF/zvwjuq2JT+v4/+7AloTcSMsLNbhaUM4/wS85ZyS/+2VfEInuNBUheOnXMSrN2YbG2wKscKr790xznzf2H6scb79NU3Aql4JSqJMk+REkwhBZ/b1Oq8B3LW2QGwmS2Kf4oANzHkzITsjuXqq9/H7pmoTdYtRq49ez5QbE9rcY+t5zHqb9BqX0WZM19LGyQbj0J9n2zdY1VDV/xUyhNnWRBgkVWgGDdKh9cKN2WPzkPMq7oMcPGCTx6LLRMe74kbCnCRs14+3eUFE5t6REUnp2GLpoZcoeW4p2Zs/zqR9hGIvrL4gzlA2BWg7BrbFOUbNbUigct9rEUKv6oQCNT9Jblg0GLb8dVhsP8NS2vwRCkOQx9H0Pk7jTnzmj7dNMmaY0Rlhs/fZaBr9yUisdogCh0kyFzMlg52BCn2ZzIys64VeBra50jYXZWT0mMG48hW3kKy1kxWrzFQtn0KfOApK1XiCKfHnv2DYWUuAT9s+pCkSeTAXFNuSU40uGvA7QCgWYu7QNolr3x7c2B9v4BDVe3lqqfEKC4EizsJb+e/2kCSiYaJe+YEXdcHCuJGQFVlCKHm3+wI2UQjwf9pIlHDpMJFs/KZ1LNROZruOEJsTKzKSN9eSk3JXcuSEnKSctb68ZvEOcsCcE5Rryl
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(36860700016)(7416014)(82310400026)(1800799024)(921020)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: QyYJHFZzmoiFvfEwMdlX+hdI/Av1fSillChzaFruWlYfUjFQHJALwqxWU1Tgh3Ze+cqMXiHg25jDoef9gjE5/v1k1w7frWlCDAvjuOfekZ6PCyFXCd016WiQ/O/mdPU8booGhueJ+xT1PTuKva0pqHs8i68Xv+ty7eYVsrvicZw6TJnm6DuvXJR1z1aVqs+8VpdBVC6aJAG0jwCVGrBywYefLUdSW57fFE4lIV49JgUSSdzHHMBaGju7+gFAVXpxMlxQgJUo6Qmvkm3b+OqphFbxuYLn0ronxG6bf7Tlk+C/UmiE8FguTmSQOJUcp7GQqKd/9L6+ZQJ/UWrboQYzbnn7azXpzPzqd199tOb9jhFNh4FCAWYidiKT3sFAiuA/0ekIUGW68kESw84+9/ikT49gURM9tJgsTfoAyUZrxlozrOAFYzrFyGHwNorJSDMF
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 10:59:08.8869
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0904af6d-0138-4a41-4338-08de8fddb331
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CF.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR10MB7606
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_035702_932303_DBA3F2AE 
-X-CRM114-Status: UNSURE (   7.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260401_035915_164525_9B6A86EE 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,33 +136,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Alex Bereza <alex@bereza.email>
----
-Changes in v3:
-- patch 1/2:
-  - Fix commit message: remove blank line between tags
-- patch 2/2: nothing
-- Link to v2: https://patch.msgid.link/20260401-fix-atomic-poll-timeout-regression-v2-0-68a265e3770f@bereza.email
+Hi Krzysztof,
 
-Changes in v2:
-- Fixed the Fixes: tags as suggested by Geert Uytterhoeven
-  <geert+renesas@glider.be> - thanks!
-- Split the renaming of XILINX_DMA_LOOP_COUNT into separate commit
-- Link to v1: https://patch.msgid.link/20260331-fix-atomic-poll-timeout-regression-v1-1-5b7bd96eaca0@bereza.email
+On 30/03/26 18:52, Krzysztof Kozlowski wrote:
+> On 30/03/2026 14:01, Akashdeep Kaur wrote:
+>>   	opp_data->cpu_dev = get_cpu_device(0);
+>>   	if (!opp_data->cpu_dev) {
+>> @@ -560,6 +563,42 @@ static int ti_cpufreq_probe(struct platform_device *pdev)
+>>   	if (ret)
+>>   		goto fail_put_node;
+>>   
+>> +	/* Create device link to k3-socinfo if specified in DT */
+>> +	if (opp_data->soc_data == &am625_soc_data ||
+>> +	    opp_data->soc_data == &am62a7_soc_data ||
+>> +	    opp_data->soc_data == &am62l3_soc_data ||
+>> +	    opp_data->soc_data == &am62p5_soc_data) {
+>> +		struct device_node *socinfo_np;
+>> +
+>> +		socinfo_np = of_parse_phandle(opp_data->opp_node, "ti,soc-info", 0);
+> 
+> Undocumented ABI.
 
----
-Alex Bereza (2):
-      dmaengine: xilinx_dma: Fix CPU stall in xilinx_dma_poll_timeout
-      dmaengine: xilinx_dma: Rename XILINX_DMA_LOOP_COUNT
+Added missing patch in next version, thanks for pointing this out.
 
- drivers/dma/xilinx/xilinx_dma.c | 26 ++++++++++++++++----------
- 1 file changed, 16 insertions(+), 10 deletions(-)
----
-base-commit: b7560798466a07d9c3fb011698e92c335ab28baf
-change-id: 20260330-fix-atomic-poll-timeout-regression-4f4e3baf3fd7
+Regards,
+Akashdeep Kaur
 
-Best regards,
---  
-Alex Bereza <alex@bereza.email>
+> 
+> Best regards,
+> Krzysztof
 
 
