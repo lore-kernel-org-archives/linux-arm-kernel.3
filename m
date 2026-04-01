@@ -4,174 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA3CCD3517D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:18:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBAB5D35145
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:18:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
-	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JDnCpM9lVS61RJWFs8BQRWmSZ2Orzft1WPMP/GrUDvc=; b=zj72sYsJrMyPNaHH967HYvIlSc
-	Ub0z+QZ/+9hP9dVNBB5rMaXXCE2/xk7mYB7A4YkvcfK0ABA9ZS+pA6qRn6lCePnX2hx8OTsrI/MLG
-	7fA3mSZELqaa2cH77G4BmsqSTZZchbYPHc1yi0b3NyZbExSpm5eahL+YCJB5Wi80/3cEW1SaNsXJD
-	3okfTXaCdZPleIejS0sqjq5q1wOQyhB+BaeyLechAfqnTfFx3ILbMhhmIMlEvyxlgNgsFX5ZpxM3w
-	RV4oewIJh5PtvH/b+4+KMOk2I4el57pH8lFdTce0aZ5VaDMSRq/ALO1eExkfzkCcxleQtHrR8zinG
-	MjDEZkcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9UaMByuKxJg2XW8Oo+4duZlT7gZR6+JMQgkqheTXBYk=; b=aiqpns3if1gqu2gNVnkJYNQGGG
+	rMBlADON1IEtogPvotDlNqqQXAvMW06BKLvMBjtnQuutTHdPRg4YE1Af9NFmi+lc1ZjMgl+RIDc51
+	mSSMITSJj9Dvo9JpLJA+xFEM+qXIH8lPjhzTbQCTiJUzQZKJJ+tyAeA3Rjn9AAbaE1hvtsL3MmT6F
+	SZfum+yVfw//KdguYRsw+4CHNJCHZeClU+6CAovJTMhvkDi/flqt6InUU2ajZzrc5QGtM2lKcSNiO
+	reWjvDSWxONFvnYi6Jq9OThLO+xT+iiiHuSZbxrj5ol9BQCNDoscIQErZELeOoTY9g54nHjzVBCW+
+	GKPhVO+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vSU-0000000FIIs-1bPT;
-	Wed, 01 Apr 2026 13:18:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w7vSt-0000000FINX-0CDX;
+	Wed, 01 Apr 2026 13:18:35 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vSS-0000000FIIe-14wj;
-	Wed, 01 Apr 2026 13:18:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:References:To
-	:From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=JDnCpM9lVS61RJWFs8BQRWmSZ2Orzft1WPMP/GrUDvc=; b=aLW7J0WaCPFWEaAbrW+eSMPvIf
-	8IJfyjcUZd/gallyyrtx0AwCPBAQoxsn+bpGzhm0GIgbGV6zu2bqZnCDJyavTqvzLCqBdzgiqXY7t
-	+PP5EkOKZbJ3E8YTBsUEjFft9aPDQdrd8e0tNDxdUR6Ad1jeaZc5we2zZP+BdvhR7lR+xsBJ5Cx6s
-	kv9MVSeVTS+61MMq8SREY+GEL3012Ofhnozus1HitRkLPFN64mW1KMr8ao9i5uBOCd0Y9R5ISjXvw
-	sdBvwv6IIh6ndFl95aJ9f6X/NQlnCsUSWEUkAAPiXJ3GfP/ny4dos3MFvcQMRqjerKOh6pjM8bbF1
-	MVGfcoXg==;
-Received: from mail-uksouthazon11022129.outbound.protection.outlook.com ([52.101.96.129] helo=LO0P265CU003.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vSO-00000000RKb-31te;
-	Wed, 01 Apr 2026 13:18:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XyD+a2Vo7hivtBuXazA8rSVvcv7MCJZ1isi33WflQ9hZxcZBGpKw+I/wQaMtSj5CElU60V6Dnz4x9tWrBIr55nKpqpDiJU2Id7DVr3aghxnxXKYV6sBNXbc7G6OezEb9Vd3EgvYKHayQQXSogAPnneXmCpSj3lxBVUnH+21Mo1K3Zf+AQ03gaM/yTX9+FzuuvxWyWAje7qfXC2OzjvjSUP+IE4GFS8pVfKljg7nWFIR5SZSAb+ZdAXg5tQZAnSai9uduh8tGKd4IxAbdlnVsqwjeNQNkA0KvJ2KFGZOtPNcP6303JD55jDA+HdIt/cJLC15/s4SXeoUyw9WC3iX3uA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JDnCpM9lVS61RJWFs8BQRWmSZ2Orzft1WPMP/GrUDvc=;
- b=iRon6jS0a3vB0ijunxgfJVHOO4U1GDt8jOIEaQu2UL0hsklxw52UDlxpgtivP0I2deEYDrQwYJdnmC17bI1KXe4m/2j7/pEJsqrHhjxjbkMKI78lIJT0DwgkhsDFQB2Q3u3n83NvTEaI+wRIk+4RFHlxaCX0YCaOjgmWaFmu4RGSqE9u0Snz25km2+KMUxJlZglDW/t3YyVC1dGd8aLAy04JHLLuesOCxWoos0Y/xoJjBytrPKUTZfK2Di/l9vvhBPwvK4o4DrfmsqXEoENnTxFBA7qLJhDjNG4v8DtXhks68bBwBK8lm5Mvk3L5t9YYkXh4R3QhLQJw1rXsOMGYCA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JDnCpM9lVS61RJWFs8BQRWmSZ2Orzft1WPMP/GrUDvc=;
- b=j5hGQ/mqUovBLQr5ciiAccd/Ru92ohrL5Ytb8u5id2Zd00xreX3vXJPBh/F++eSUKsmJ47OWbeN071hjLPYB73glVGWUJq7eJ/+ABZwy5McgdATyDhlsP4hpalQki5jRd32tt7YKVu9ffmy8PzEFamNwIGJvAg0+B6xIAivOZfk=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
- by LO0P265MB9164.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:49f::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
- 2026 13:18:01 +0000
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
- 13:18:01 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 01 Apr 2026 14:18:00 +0100
-Message-Id: <DHHUIXWLCGT4.G653WGEB8KMT@garyguo.net>
-Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
- <rust-for-linux@vger.kernel.org>, <linux-kbuild@vger.kernel.org>, "Lorenzo
- Stoakes" <lorenzo.stoakes@oracle.com>, "Vlastimil Babka"
- <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
- "Uladzislau Rezki" <urezki@gmail.com>, <linux-block@vger.kernel.org>,
- "moderated for non-subscribers" <linux-arm-kernel@lists.infradead.org>,
- "Alexandre Ghiti" <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>,
- <nouveau@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>, "Rae
- Moar" <raemoar63@gmail.com>, <linux-kselftest@vger.kernel.org>,
- <kunit-dev@googlegroups.com>, "Nick Desaulniers"
- <nick.desaulniers+lkml@gmail.com>, "Bill Wendling" <morbo@google.com>,
- "Justin Stitt" <justinstitt@google.com>, <llvm@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>, "Shuah Khan" <skhan@linuxfoundation.org>,
- <linux-doc@vger.kernel.org>
-Subject: Re: [PATCH 03/33] rust: simplify `RUSTC_VERSION` Kconfig conditions
-From: "Gary Guo" <gary@garyguo.net>
-To: "Miguel Ojeda" <ojeda@kernel.org>, "Nathan Chancellor"
- <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Danilo Krummrich"
- <dakr@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Catalin
- Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Paul
- Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
- Ou" <aou@eecs.berkeley.edu>, "Alexandre Courbot" <acourbot@nvidia.com>,
- "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
- "Brendan Higgins" <brendan.higgins@linux.dev>, "David Gow"
- <david@davidgow.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, "Todd Kjos"
- <tkjos@android.com>, "Christian Brauner" <christian@brauner.io>, "Carlos
- Llamas" <cmllamas@google.com>, "Alice Ryhl" <aliceryhl@google.com>,
- "Jonathan Corbet" <corbet@lwn.net>
-X-Mailer: aerc 0.21.0
-References: <20260401114540.30108-1-ojeda@kernel.org>
- <20260401114540.30108-4-ojeda@kernel.org>
-In-Reply-To: <20260401114540.30108-4-ojeda@kernel.org>
-X-ClientProxiedBy: LO6P265CA0009.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:339::14) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:488::16)
+	id 1w7vSq-0000000FIMI-1EXG
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Apr 2026 13:18:34 +0000
+Received: from ubuntu.. (unknown [202.112.113.208])
+	by APP-01 (Coremail) with SMTP id qwCowACnT2sVG81pSvbdCw--.49770S2;
+	Wed, 01 Apr 2026 21:18:21 +0800 (CST)
+From: Ma Ke <make24@iscas.ac.cn>
+To: vz@mleia.com
+Cc: alexandre.belloni@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	make24@iscas.ac.cn,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	piotr.wojtaszczyk@timesys.com,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] net: lpc_eth: Fix a possible memory leak in lpc_mii_probe()
+Date: Wed,  1 Apr 2026 21:18:13 +0800
+Message-ID: <20260401131813.139167-1-make24@iscas.ac.cn>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <b44db9e6-f820-439d-a7ed-c1e2514579a8@mleia.com>
+References: <b44db9e6-f820-439d-a7ed-c1e2514579a8@mleia.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LO0P265MB9164:EE_
-X-MS-Office365-Filtering-Correlation-Id: 203fd42c-9cef-4a9b-b04f-08de8ff11996
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|7416014|376014|366016|1800799024|921020|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: gO+dYv8youB8/Kxnl39dpescYv7ovVxLiYSDElhvRkuBlAj27MjycVbrbGjsJmCql9BZVza4OIQEWXn+g0EEf7GqKVjr9flUuzYvdNuPSHc78vAcFgV6UwFiegpx7UFjDw+3ag5aRgg5xmWd/1GGUeWnChpv2TtXJERSvQ3uN3d/7JGklDH0w/NsezHzte0U6JJ6RwO0kEFG1M/U6fmSAKC5uL15BNzDOL3JlWcWfyh562brc0g+Y7prgbdqkr6Q1nyxzwv0XrJx5HXwY3gh65s/0L5tKqS5YFS4YlMSOc3Ka6wBerGl2akE7wQGYrDQSnQ6UXhX6oYmCajB63aLmET/wRg/kyTdsBi37w4z46HaWv9YN/BylEc6d/y4RHlNkmqhFFH7dAlUVZxtF8xlNpMH2SIatMr6bLdbw6Pla0VGLhVAxnIsl+U47VWf61R6foojhLXSlpREHLSuu0vjofI2gs3PhtHBXhqu5yRFhlDrBEu4CxL8gqEqoKyL3GMCloRoTgbau7kGH9V4fmWsMshsvJsAQmLsat2kihR5P6A8lFqpo0Yyy0OWUFbzi9ffwFUdH1G6XvxzSpgauIuRTQg8FW8VwqDDbI49qbxPTYUVMXtSypDQ1LnmwWHIMsTBtApLDDM216xTQR8q0z9fIuXU+GK3+8K0V7ZyadyW4c2z/p5fdaLskyes7tARNNP4i3SfFPbxDM3bPF+mSit5houBgJQ+wkho9eXiTo1j97+Y07DXreccWOGtKwb9cml3uus0jkGQ+WfL763d+PPHhA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(7416014)(376014)(366016)(1800799024)(921020)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RkpITmJJdHZrTTZqQXVHYXprbldGZzdhcVhJekRmQUp0a0xvcytwQWxoRG9L?=
- =?utf-8?B?eGJpYnYwL1IxcUh2UGw1dXBpS29OM2V3T0JzOWJhSVJkU0dLRFhheDBEaTZU?=
- =?utf-8?B?Y3lZUmJQaTJiMS9tMHZTZkVkZ1hPVGhnWmxndVdId2xwYTYrWk05ZlhxMEJw?=
- =?utf-8?B?NUV3M1VZQkdaT3BsNUFtcEk0WkI1bENBREhsR2M3YWFlSEIrcENrakoxSStE?=
- =?utf-8?B?NXhLdll0L3RsN3BiU05kSzVpektnSkZVQTdPZkI2dEY1Nk1TOXNEc2pmMDJx?=
- =?utf-8?B?MnFCSWZ0ckdXY2RFL3ozbTQ5QXN5RTFyeE1iSlhBQUI1ek5ET3dCMVUzT1Z1?=
- =?utf-8?B?anNaRG9MZGN0VXBjUGQ4b0syUGhsMkZicDMrcFRjRkJUY0x1a09yeVVIMFVj?=
- =?utf-8?B?bXhaV0M2c1BLc2Vpb2hlTm5QbitoYTJRU3BNdjhHU2szMHViUUhISVI1akV5?=
- =?utf-8?B?MDd0UG15L1E0RElVSyt1dlloWkhnMjd1TWUxRFR1VExQZWczZm5OdVhMVURM?=
- =?utf-8?B?cmw4U2VyT1FkbWlKdGFKTW1Nb2lSZ2I1Q1pxRThPNDQxQitoU0swbVJ3ZE04?=
- =?utf-8?B?RXA5Vm14QmMzOVU1Q0trd2Y0alQrOGloYW9EZFVTbjFQZkJBVXlWcmUydVVO?=
- =?utf-8?B?MWMwend0YTNDNitMRmdybGszQjVEMk5IUlZaWlVpNWx4THcyWjRkM29tOEdo?=
- =?utf-8?B?d3UyemdLck0zdk5jMUk0T25sNnBWU1RyNVNHSWEyY2RvZE1TM1pRRFJRV1NM?=
- =?utf-8?B?cXU2SlhrV3pYcUhiaVZnMU9LeDdreVIwbEFMSnB3R21zTWdraGR6U0VkRWd4?=
- =?utf-8?B?MEtZTHVtci9qZnYzaGRpamFIakR3anVRQVFTMyt4SGh5VSt0SVczWUpVY21F?=
- =?utf-8?B?RnZOcy9Zc2FKV1plMHN0S2NrTmJPd2djZlhxVHRKK1I5d1JISWNDRUg0bi8x?=
- =?utf-8?B?NDVIZXBHdytCVU1kV09yMVBLZ2lJa0M4NXRNWFNiY0lUbi9NVVZ5cm40eWMx?=
- =?utf-8?B?SWJNcnVUM2p6YjAvYjRIWmROUU9GTFJHdVlLM0xEVFU4Nk5ISEtDdm9EZzNo?=
- =?utf-8?B?bHhoRUdNdXpnUnQ3VjhRNVc5OS9kMkNtY1BTUlgrcklibmVkQTFzazNab0xs?=
- =?utf-8?B?dmUyeklrYldTU3JXOEZEWm5YNlZ4NCs2WEQzWEp0Y3F4UVB5WjhPVFVsVFc5?=
- =?utf-8?B?WnJPa0x6cStXWGlTTHQzRnZsbm1BcUlEVCt5ditXVjJRdFQrck80TjljbFFS?=
- =?utf-8?B?UnRMQlIrRlc2YUpnWlhsbURaUHRpSG56cmFseTBJL1hsOUF6TGVieWhvdnA0?=
- =?utf-8?B?UDlwZGxBMHhJaW1MTTdqRWs4cUtTaUd1Rk9ndi9jWjg1N2VQNGw2RVRpbVJH?=
- =?utf-8?B?UXdzNFhTTnowaGxTK1ZpM00xbTBzY0l3dHRQUkF0Y0kvbkxPYzRsOUpYd0xn?=
- =?utf-8?B?RFlKcjd0TnhHaS9meTE1VllWSDBHM0dSSW96SmdVbEsvcWRXMDc2SWRxaklx?=
- =?utf-8?B?WnN5aXREQ0F1aDJOUFJNcEdPVWdDQVUvVjd2eTdOTkFmZEliZ0ZwcWRVbWtJ?=
- =?utf-8?B?RDBYRzhkTTJDSHBWSGJIa3lBZjlpT2lVZjcvRWdGejI1UVo5QThqS1lBYkNp?=
- =?utf-8?B?SmRXR1h6VTUxV3BveHZBWHp6c0YvMjRVSmxuZTI2ek1PSlpjL29QT2tjQ3ln?=
- =?utf-8?B?dENVOGl6VndjUVZVVVJxajVqSy9iUVVyamljdG1TSXBuOUpoTkxlL0V0SnNn?=
- =?utf-8?B?azFLWTk5K2ZqYmJSeDJ1eHM1OUNabEhGWENWaHNaUDE4SkxxQ0NyQng4SlVB?=
- =?utf-8?B?RzBJaG1DbWl3T3BQVjhpSlEreU9aSjZUMWVrUzFFbm5NL25tZmZHeGZ2dnhs?=
- =?utf-8?B?eDVIZ21XTGQzSm5JRVFsV1hmVlNDaUg2YTkvbnJqYmdRdDBadThQRmg2WThU?=
- =?utf-8?B?YzV5V1dHTUREa21tREhUZUowRFJLK0NyM3BWbTFUaklUSitxK1l2SWplNG8w?=
- =?utf-8?B?QVNOeXpGcS9qdlU1QXlreCsyUjZPMEpxRmpJbXQ4M1RteTlvaEVRZXBlbWxh?=
- =?utf-8?B?TDJMdnRKZmtWamZPL2JEdDVrSmxtMEtzV0Rnd2JWZTl4ZWxKUEE5OFMrR2hJ?=
- =?utf-8?B?YjFDUStYdXprU1F2Rk5nQmJwcEV3ZVB3RjFnNVJLcERNQXE5S294UzRRNmZ1?=
- =?utf-8?B?dG5hcWMwYmR4SEFoMHgxQkhBVW5jT1FBeXV6b0M3eTNDZ2lxMUJROGcvL3Rl?=
- =?utf-8?B?T0plTEtGL2ErbG5FRnJIT2thOStHdURxSE82N1JnMTJzZzNIQk9lMUVhdVNM?=
- =?utf-8?B?L084NFZNcnRkVUtqQUpTQW5seWxkdExhNVhFQTZ5OW16OU9LSDhJUT09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 203fd42c-9cef-4a9b-b04f-08de8ff11996
-X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 13:18:01.3199
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fiRuxGURMiJdFsZZ+5VdMS46QErt+WgZnru1Act4iWPdfIJhxVU//96fIi9dpccSvlqWYYsKP3fLQOE3GX38EA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO0P265MB9164
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowACnT2sVG81pSvbdCw--.49770S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxXw4ktw18AFWfWw1kWF4DJwb_yoW5Kw4Dp3
+	y5GaySkFykGry7K395Za1UAryavw42yw1rGFy2yan0g3Z8XryrAryUKrWj93s8AFWkWF40
+	vr1ayF93Xa1kXaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBE14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAG
+	YxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwV
+	W5GwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v2
+	6r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2
+	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
+	Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMI
+	IF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUgvtAUUUUU
+	=
+X-Originating-IP: [202.112.113.208]
+X-CM-SenderInfo: ppdnvj2u6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_141804_841455_A6FD1BD1 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260401_061832_714151_171AAA97 
+X-CRM114-Status: GOOD (  33.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,25 +89,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Apr 1, 2026 at 12:45 PM BST, Miguel Ojeda wrote:
-> With the Rust version bump in place, several Kconfig conditions based on
-> `RUSTC_VERSION` are always true.
->=20
-> Thus simplify them.
->=20
-> The minimum supported major LLVM version by our new Rust minimum version
-> is now LLVM 18, instead of LLVM 16. However, there are no possible
-> cleanups for `RUSTC_LLVM_VERSION`.
->=20
-> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
+On 3/30/26 13:04, Vladimir Zapolskiy wrote:
+> On 3/30/26 11:16, Ma Ke wrote:
+> > lpc_mii_probe() calls of_phy_find_device() to obtain a phy_device
+> > pointer. of_phy_find_device() increments the refcount of the device.
+> > The current implementation does not decrement the refcount after using
+> > the pointer, which leads to a memory leak.
+> 
+> this is correct, there is an actual detected bug.
+> 
+> > 
+> > Add phy_device_free() to balance the refcount.
+> 
+> But this does not sound right, you shoud use of_node_put(pldat->phy_node).
+> 
+> > 
+> > Found by code review.
+> > 
+> > Signed-off-by: Ma Ke <make24@iscas.ac.cn>
+> > Cc: stable@vger.kernel.org
+> > Fixes: 3503bf024b3e ("net: lpc_eth: parse phy nodes from device tree")
+> > ---
+> >   drivers/net/ethernet/nxp/lpc_eth.c | 11 ++++++-----
+> >   1 file changed, 6 insertions(+), 5 deletions(-)
+> > 
+> > diff --git a/drivers/net/ethernet/nxp/lpc_eth.c b/drivers/net/ethernet/nxp/lpc_eth.c
+> > index 8b9a3e3bba30..8ce7c9bb6dd6 100644
+> > --- a/drivers/net/ethernet/nxp/lpc_eth.c
+> > +++ b/drivers/net/ethernet/nxp/lpc_eth.c
+> > @@ -751,7 +751,7 @@ static void lpc_handle_link_change(struct net_device *ndev)
+> >   static int lpc_mii_probe(struct net_device *ndev)
+> >   {
+> >   	struct netdata_local *pldat = netdev_priv(ndev);
+> > -	struct phy_device *phydev;
+> > +	struct phy_device *phydev, *phydev_tmp;
+> >   
+> >   	/* Attach to the PHY */
+> >   	if (lpc_phy_interface_mode(&pldat->pdev->dev) == PHY_INTERFACE_MODE_MII)
+> > @@ -760,17 +760,18 @@ static int lpc_mii_probe(struct net_device *ndev)
+> >   		netdev_info(ndev, "using RMII interface\n");
+> >   
+> >   	if (pldat->phy_node)
+> > -		phydev =  of_phy_find_device(pldat->phy_node);
+> > +		phydev_tmp =  of_phy_find_device(pldat->phy_node);
+> >   	else
+> > -		phydev = phy_find_first(pldat->mii_bus);
+> > -	if (!phydev) {
+> > +		phydev_tmp = phy_find_first(pldat->mii_bus);
+> > +	if (!phydev_tmp) {
+> 
+> I didn't get it, why the new phydev_tmp is needed above, please
+> restore the original code above.
+> 
+> >   		netdev_err(ndev, "no PHY found\n");
+> >   		return -ENODEV;
+> >   	}
+> >   
+> > -	phydev = phy_connect(ndev, phydev_name(phydev),
+> > +	phydev = phy_connect(ndev, phydev_name(phydev_tmp),
+> >   			     &lpc_handle_link_change,
+> >   			     lpc_phy_interface_mode(&pldat->pdev->dev));
+> > +	phy_device_free(phydev_tmp);
+> 
+> This is plainly wrong and has to be dropped or changed to
+> 
+> 	if (pldat->phy_node)
+> 		of_node_put(pldat->phy_node);
+> 
+> >   	if (IS_ERR(phydev)) {
+> >   		netdev_err(ndev, "Could not attach to PHY\n");
+> >   		return PTR_ERR(phydev);
+> 
+> Is it AI generated fix or what?.. The change looks bad, it introduces
+> more severe issues than it fixes.
+> 
+> If you think you cannot create a proper change, let me know.
+> 
+> -- 
+> Best wishes,
+> Vladimir
+Thank you very much for your detailed review and guidance.
 
-Reviewed-by: Gary Guo <gary@garyguo.net>
+Now I think your point probably is: you are saying that the real leak 
+is not from of_phy_find_device(), but from the device node 
+pldat->phy_node which was obtained earlier (probably by 
+of_parse_phandle()) and never freed by of_node_put(). And you suggest 
+to add of_node_put(pldat->phy_node) instead of my wrong 
+phy_device_free().
 
-> ---
->  arch/Kconfig       | 3 +--
->  arch/arm64/Kconfig | 8 --------
->  arch/riscv/Kconfig | 3 ---
->  init/Kconfig       | 2 --
->  4 files changed, 1 insertion(+), 15 deletions(-)
+However, I am still a little confused. In lpc_mii_probe(), 
+of_phy_find_device() is called. From my understanding, this function 
+increases the reference count of the device. To balance it, I thought
+phy_device_free() (which calls put_device()) should be used.
+
+Could you please kindly advise the correct patch? I will follow your
+guidance and submit a proper fix.
+
+I apologize again for my previous wrong patch. Thank you very much for
+your help.
+
+Best regards,
+Ma Ke
 
 
