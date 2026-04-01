@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6141C10F9312
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA09F10F9315
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 00:08:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VFGZ1KSl8cyzlCha+VJ5ryRukBYh13GZXh92bRIoPxA=; b=xiLR2r1bhOj52AT3kAIX+nlL3M
-	3kVT0tEdV2l4uOrIiAdW1CF7IZRDS4YeidCUlmu8SRzi9BgsNGdvZthgjdqNmKb9N8oimvlPYs6A+
-	8inYvA5gMSa8XevSM/BtHy4+eKcr1jp2KPGLaAE/JGK1ZTkSsEkfaNTtvvMp9qsyLeoW69viVm2gq
-	jOWvlffwGHjQ+714JhcokXK9i+8LHRyJdoGFBeFo51Axe72qeDilXcR/H6XrbvX8q1cuPfsvqYtje
-	OCxAlj42j2D3oxIn1VdU8ttv+l37AUBbENgl1WgTZBlNlWwGjHPVBoPIi3bJYpjzd5vCu0qYG3CWY
-	J50yWz1w==;
+	bh=S1nhQATRq7biQrrGMQK3ToeODei4RCKBpa0UhKvUJms=; b=SmO+07yzt43RcuDGHlNWHqaR1l
+	FvRsTuPyNka+iMmJCXtD5dLrfuNzTYh/0rJjnD4btZNrwWgXCGGGgHbOsXadALtvnzXp9hZvGBNOD
+	ebw6DQQqZOmrUA6Fkn6olrorVP2S+NfuO1LI69dQN4kq/I2sjPmbr53BktIDkJn6t0GgeFOo/fkEg
+	zTjVaHjxyinvWtqv76ULwmP5B+By+E/lNp53/g+iZU4Z5xy8NoIys477jawZbNF14bALLmd+P8DE7
+	Ce9pJ//ajhydDjJ0zVwkz5tg4S2rmxx7P01LjO5z1RCGetPdoDSXJOexuaO40ZbmWUc3bv7ZzWCWZ
+	c7is8JGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7j7l-0000000DiEF-3CtG;
-	Wed, 01 Apr 2026 00:07:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7j7n-0000000DiHI-3jeM;
+	Wed, 01 Apr 2026 00:07:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7j7e-0000000DiBO-3xE4
+	id 1w7j7g-0000000DiCN-2XjT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 00:07:51 +0000
+	Wed, 01 Apr 2026 00:07:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1B1B560130;
-	Wed,  1 Apr 2026 00:07:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82D76C19423;
-	Wed,  1 Apr 2026 00:07:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0D71140687;
+	Wed,  1 Apr 2026 00:07:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DE63C19423;
+	Wed,  1 Apr 2026 00:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775002069;
-	bh=Xl+MsNWe1/r1+hTDGoE1qKiqas9gp7xrKlVQjVUdCyU=;
+	s=k20201202; t=1775002071;
+	bh=07ofvOpbjy7Rvwy7/y+ptg/LOHhp6n7ORQdHYjZws/0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IHCmaKJnLmp8V/FAp6FPJYNBZjtGPcpCLhe/EPJAX/ErJ9mrsrR4bH+PtTECPSDQ7
-	 VtVox40YNbtQ4mSLUgeDVtJzRU9/o5p/B2Ni9x0yb+l8aFFVJxKCV4OBF5FweuKeSU
-	 A8JkWfVi+pFwRvLsBohwrVDy6MpSNBPL6kbmw5l/tZ+azQAGqCd+H2PYW1rG+hUEWY
-	 VRWnz+dY56ME2qUUwYCFtOnsshwg86V5LCvEL+xQ5PeI5d6zVbbpEUZ4s3kWfhJnnU
-	 k3Sh0vpSqpxN8F4rtoqlEUeBzbSnG72unkrZwYpF84hqfMMvnxfjbsmBhE/Xzjnw+8
-	 UUHFjmaB5I3wQ==
+	b=CCTICZVm5Xek9G7SrzaQRLeTtYiCK2S8jTgni2L9zEre5E/hNHHe0G0r5BKyKKsBQ
+	 8su2oWId/cDBZrb8PihZ4wlC4Ac+nRiCWw+1LxhfViVGIWYY1icoXdLeqVK3g+FkBk
+	 P0yrqKIyWvZVB8mGQ8DuE8EOCmCScQnIMzOziVA5frx4YczjVAvnFFBFKpWfLTG023
+	 q8TcH0TbNobEHDIDB7Z+twjZCqMhogkSVZVDaYZqQogaimEHgJSgQlca67UfaVop4t
+	 8fDcs/RlYsUuhCvb4Az988H0Ee8WzbBZ1vMFIVv6Me66kbvftzVGlnqUEvK2SQGZys
+	 raP8llq4AjL+Q==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -50,14 +50,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	linux-arm-kernel@lists.infradead.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 3/9] lib/crypto: arm64/gf128hash: Remove obsolete chunking logic
-Date: Tue, 31 Mar 2026 17:05:42 -0700
-Message-ID: <20260401000548.133151-4-ebiggers@kernel.org>
+Subject: [PATCH 8/9] lib/crypto: arm64/sha3: Remove obsolete chunking logic
+Date: Tue, 31 Mar 2026 17:05:47 -0700
+Message-ID: <20260401000548.133151-9-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260401000548.133151-1-ebiggers@kernel.org>
 References: <20260401000548.133151-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260331_170752_681406_80B94E2C 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,63 +82,92 @@ restrict the preemption modes"), voluntary preemption is no longer
 supported on arm64 either.  Therefore, there's no longer any need to
 limit the length of kernel-mode NEON sections on arm64.
 
-Simplify the GHASH and POLYVAL code accordingly.
+Simplify the SHA-3 code accordingly.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- lib/crypto/arm64/gf128hash.h | 24 ++++--------------------
- 1 file changed, 4 insertions(+), 20 deletions(-)
+ lib/crypto/arm64/sha3-ce-core.S |  8 +++-----
+ lib/crypto/arm64/sha3.h         | 15 ++++-----------
+ 2 files changed, 7 insertions(+), 16 deletions(-)
 
-diff --git a/lib/crypto/arm64/gf128hash.h b/lib/crypto/arm64/gf128hash.h
-index b2c85585b758..1d1179f87f8d 100644
---- a/lib/crypto/arm64/gf128hash.h
-+++ b/lib/crypto/arm64/gf128hash.h
-@@ -87,20 +87,12 @@ static void polyval_mul_arch(struct polyval_elem *acc,
- static void ghash_blocks_arch(struct polyval_elem *acc,
- 			      const struct ghash_key *key,
- 			      const u8 *data, size_t nblocks)
+diff --git a/lib/crypto/arm64/sha3-ce-core.S b/lib/crypto/arm64/sha3-ce-core.S
+index ace90b506490..b8ab01987ae0 100644
+--- a/lib/crypto/arm64/sha3-ce-core.S
++++ b/lib/crypto/arm64/sha3-ce-core.S
+@@ -35,12 +35,12 @@
+ 	.macro	xar, rd, rn, rm, imm6
+ 	.inst	0xce800000 | .L\rd | (.L\rn << 5) | ((\imm6) << 10) | (.L\rm << 16)
+ 	.endm
+ 
+ 	/*
+-	 * size_t sha3_ce_transform(struct sha3_state *state, const u8 *data,
+-	 *			    size_t nblocks, size_t block_size)
++	 * void sha3_ce_transform(struct sha3_state *state, const u8 *data,
++	 *			  size_t nblocks, size_t block_size)
+ 	 *
+ 	 * block_size is assumed to be one of 72 (SHA3-512), 104 (SHA3-384), 136
+ 	 * (SHA3-256 and SHAKE256), 144 (SHA3-224), or 168 (SHAKE128).
+ 	 */
+ 	.text
+@@ -183,22 +183,20 @@ SYM_FUNC_START(sha3_ce_transform)
+ 	bcax	 v2.16b,  v2.16b, v28.16b, v27.16b
+ 
+ 	eor	 v0.16b,  v0.16b, v31.16b
+ 
+ 	cbnz	w8, 3b
+-	cond_yield 4f, x8, x9
+ 	cbnz	x2, 0b
+ 
+ 	/* save state */
+-4:	st1	{ v0.1d- v3.1d}, [x0], #32
++	st1	{ v0.1d- v3.1d}, [x0], #32
+ 	st1	{ v4.1d- v7.1d}, [x0], #32
+ 	st1	{ v8.1d-v11.1d}, [x0], #32
+ 	st1	{v12.1d-v15.1d}, [x0], #32
+ 	st1	{v16.1d-v19.1d}, [x0], #32
+ 	st1	{v20.1d-v23.1d}, [x0], #32
+ 	st1	{v24.1d}, [x0]
+-	mov	x0, x2
+ 	ret
+ SYM_FUNC_END(sha3_ce_transform)
+ 
+ 	.section	".rodata", "a"
+ 	.align		8
+diff --git a/lib/crypto/arm64/sha3.h b/lib/crypto/arm64/sha3.h
+index b602f1b3b282..eaaba3224acc 100644
+--- a/lib/crypto/arm64/sha3.h
++++ b/lib/crypto/arm64/sha3.h
+@@ -10,26 +10,19 @@
+ #include <asm/simd.h>
+ #include <linux/cpufeature.h>
+ 
+ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_sha3);
+ 
+-asmlinkage size_t sha3_ce_transform(struct sha3_state *state, const u8 *data,
+-				    size_t nblocks, size_t block_size);
++asmlinkage void sha3_ce_transform(struct sha3_state *state, const u8 *data,
++				  size_t nblocks, size_t block_size);
+ 
+ static void sha3_absorb_blocks(struct sha3_state *state, const u8 *data,
+ 			       size_t nblocks, size_t block_size)
  {
- 	if (static_branch_likely(&have_asimd) && may_use_simd()) {
+ 	if (static_branch_likely(&have_sha3) && likely(may_use_simd())) {
 -		do {
--			/* Allow rescheduling every 4 KiB. */
--			size_t n = min_t(size_t, nblocks,
--					 4096 / GHASH_BLOCK_SIZE);
+-			size_t rem;
 -
 -			scoped_ksimd()
--				pmull_ghash_update_p8(n, acc, data, &key->h);
--			data += n * GHASH_BLOCK_SIZE;
--			nblocks -= n;
+-				rem = sha3_ce_transform(state, data, nblocks,
+-							block_size);
+-			data += (nblocks - rem) * block_size;
+-			nblocks = rem;
 -		} while (nblocks);
 +		scoped_ksimd()
-+			pmull_ghash_update_p8(nblocks, acc, data, &key->h);
++			sha3_ce_transform(state, data, nblocks, block_size);
  	} else {
- 		ghash_blocks_generic(acc, &key->h, data, nblocks);
+ 		sha3_absorb_blocks_generic(state, data, nblocks, block_size);
  	}
  }
  
-@@ -108,20 +100,12 @@ static void ghash_blocks_arch(struct polyval_elem *acc,
- static void polyval_blocks_arch(struct polyval_elem *acc,
- 				const struct polyval_key *key,
- 				const u8 *data, size_t nblocks)
- {
- 	if (static_branch_likely(&have_pmull) && may_use_simd()) {
--		do {
--			/* Allow rescheduling every 4 KiB. */
--			size_t n = min_t(size_t, nblocks,
--					 4096 / POLYVAL_BLOCK_SIZE);
--
--			scoped_ksimd()
--				polyval_blocks_pmull(acc, key, data, n);
--			data += n * POLYVAL_BLOCK_SIZE;
--			nblocks -= n;
--		} while (nblocks);
-+		scoped_ksimd()
-+			polyval_blocks_pmull(acc, key, data, nblocks);
- 	} else {
- 		polyval_blocks_generic(acc, &key->h_powers[NUM_H_POWERS - 1],
- 				       data, nblocks);
- 	}
- }
 -- 
 2.53.0
 
