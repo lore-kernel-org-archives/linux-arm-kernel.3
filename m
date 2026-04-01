@@ -4,98 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE071076387
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 17:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84E7F107638D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 17:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jYUaVSUk5Sb3SOTuQeoUN5R4tL+13WiT/Hvm7LoUgnk=; b=xpIxKDSCsuVhT9DwCsIk1nCRk4
-	BL5ewK9uPFilOPRuVQRQYt4JXyOw5Yz75R25RfYpWBrbrHqw6jvVn6n0Wojx+e4LZGKRjiC/apbDH
-	3nlZ5ooxPQ0plXPeIe9m463C4P4DCLZ1Wz/rNfL9Xv3ebeAQ8jFTZtsmGBXqbR/cEl7o2BKToJXrd
-	ci/3LYrQLiXgBR+iHIiYBz7ZLA0G1NolRLhwoeOdAuONPl2jHzsqIiHTSilTnQyfhtm0RTEn1vyk9
-	2hpwV/A0nuYkfa+M8+wYNcuVsyJNTjz4T9hQ7sypi0V41MHbIRn0AnDcRIGCPv6Z14jiZlE50faY7
-	7fSqq2WQ==;
+	bh=QI4ZvYmbpYFMS5F4DxWr2Qtcv3EtByJoEsfGF8Isxow=; b=ufH6FHfllAs5UunXCRSBnLRPOg
+	+pnd2Q7OxZBjbibV70B1nCPmoIrRY6IlAHSBHbgRAXTnhg5sNCocGgLiqWY6jpMVoMYQWgfrG6a7w
+	UOpCAkqOG4qi29GxQwYImDi1LqH1O95BqLYwEEJggawxLPEsQnfmVZSvrpnz3AIhsP/vlxgglzGxD
+	LpS/myGeqxG/KccPX1t4Q+HCC0YnWaQrOuSq6C2fyj1m4gxlWpM02TnzphsGYwuXGryV/h9u21NrR
+	wGsDk/UtDSexorW9OElQD81Eb6M1BgK4NcUiOXekUcfC6M7Mktwd4shIrgVtuyIzo0gEv/TivxCbO
+	cnLjN2Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7zXj-0000000Fs5R-0GMp;
-	Wed, 01 Apr 2026 17:39:51 +0000
-Received: from mail-dy1-x1329.google.com ([2607:f8b0:4864:20::1329])
+	id 1w7zdj-0000000FspJ-0m6R;
+	Wed, 01 Apr 2026 17:46:03 +0000
+Received: from mail-dy1-x132e.google.com ([2607:f8b0:4864:20::132e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7zXf-0000000Fs4c-2key
+	id 1w7zdg-0000000FsoX-3QS0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 17:39:49 +0000
-Received: by mail-dy1-x1329.google.com with SMTP id 5a478bee46e88-2c98928e4bfso4501eec.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 10:39:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1775065187; cv=none;
+	Wed, 01 Apr 2026 17:46:02 +0000
+Received: by mail-dy1-x132e.google.com with SMTP id 5a478bee46e88-2bda3b4318dso5598eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 10:46:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775065560; cv=none;
         d=google.com; s=arc-20240605;
-        b=hz5seC+ndRPSMARmEbkOqB0LhYDEgwB7OEw+hEC7vHGjXwuCR0cfScVtbzJiUfmSSb
-         k/a1KBNIWPmX7RPRUkxYyNLCP9eFpJy5b0IXRKaYr2FQPOIkUJvJtHXr0IYzNbanI3Gi
-         RYHg5FaSvZiCeovYWTulvIKbUDvENkZjpveSHuOD6EEIvh+qsS9YV0cp0z+19cFApWNk
-         D1hOuBq76BykHEaZB4WbMtesN7an8YAWUJHg1WEzUCNi2SJxXfmToin8hD1ek1K1hT8S
-         OIJcNCsVCVBWlHQlIAekBbKoZC2hgfXK9cwOC0c3SGNUD0D20Cg2lMWSY2vMh/cy7hiM
-         3RVQ==
+        b=dmOBrqsbzgAKhLwQFp+q4Z5J0VeNsXenZcp3hOnve5uO0mHFH5JEGxRVD3lXXnrZjv
+         EOLOGWJy2YI//hv3keVatujfB/94fbTVAYrtsdO7eoLykk7BfaJ3sZGIV4wEJQ4ipkgR
+         pYLVL3O2mKKUgwC/bhLO8H5L0iOBy4iRSOIf7mmLjlj5xDHbpAwxoSJUMCn2He8zuOdV
+         dnGjIoB248jOlnfRQ4FGAbhhwpu55iGLsgEXORyYs99bpEumiVbqnx0q0eu07y8TWDq6
+         2J0sKx5UX6l9/X8NeS38tNHR4FoqSQdH5IZhCVGW2D6lJEqJSCG+2pkxnK5SYpOlPaVd
+         jyEg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=jYUaVSUk5Sb3SOTuQeoUN5R4tL+13WiT/Hvm7LoUgnk=;
-        fh=RqrtISE5LLbqwNmNah0aNAGtd+vh7CaVLqNUaYXypp0=;
-        b=kWFAXOEQfM/NW587Y2Mjc8LgmeaGGo/BfKbUIsbF4bLYHuyP3cr9Hxz49/TdZa0aSA
-         SoTTbXFeEaNkvuP2yYeexsuSqWKDS1LdotZRoHZmMXM/ChMg8b+5nqu9e5TvAOb+7uZ+
-         ORouLzgK1R9dmXXzddF6ZAPdKehX7lZ1MltrGzxG9aMyo7ypnkB4oAEfxO/VwOJgDDYa
-         uwNnE5SZPteHMOM14qi/ze/VIGtIYaOhLSh9ZIE/Uqq7ege55RvBd7P7DsEMRXnRcXqu
-         JMQK4c1RA89u8J4OebSmJuwNPObtO/I1gB9g1QfYcqpDsmWFz+kKGnDuAKaGJCDg3vIE
-         /9lw==;
+        bh=QI4ZvYmbpYFMS5F4DxWr2Qtcv3EtByJoEsfGF8Isxow=;
+        fh=Qkzr0EGokZQnl/tXzYm/CJxpcPv+K/freCH97xxD2XM=;
+        b=MTbDoaIrDiP23kpztLQdGDZdcmLIs7/zSYa1Xag5+WEKEhaaOlQDjrEKzxegEQssTd
+         H2/c7SrRkZ4m6npOL2GOhSDqOINWsa8ZPjzmL9QRdwLoevqkCEOFQ55id1Ma4zoKUiCk
+         P3ZaDGZmZ8/Qvh1dpDL5hSCq4KAKHNRmZ8YqaT6dfBT8QHTd2HoDsdQDdHn7SVggyzmt
+         lQPUguEbcUvuom4FoP6PbX4YuJPW3Y++/X0kv12jzOeyVf4xG11q667Hw+O99ihzEd5H
+         wiCOrAAGZCw3ith8BayvaP76lt7nSFhPRs5XTI7YRngz0RuCeSJCDg3Nm4CW1LZTE3Uz
+         uMRw==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775065187; x=1775669987; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1775065560; x=1775670360; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=jYUaVSUk5Sb3SOTuQeoUN5R4tL+13WiT/Hvm7LoUgnk=;
-        b=rVUWDRuo6zrj2cBi/BUAn/ncUD29vRzv420zKrchwhZNHY6w2rbOwUXUUL6I0Y061n
-         6c8sysQiIDemLPw5U14Q0YRiQS6/RIuYbLYZWLiH49aLUgHe/ON8oV9aOtQkkWKEBpyl
-         2rLxAOzq+b5yTKcTb7MGas9Nh1GckPqyQhnN3jPObvjLOjdqlMdUqrJFhSoguFHwgSq+
-         jHBrRjTNVXRuhnKY9IrFuta5+kI9ByU54HEq/kJYLdeZn7CEPjwVd+X72JRRDCuS3iyP
-         /OhHGxH8tMcMd2VEdibs5kQDdvFZ8fGrdoSrku6AquSYlG5HdctW1J5kX2+3qi/ZGx3O
-         HNjw==
+        bh=QI4ZvYmbpYFMS5F4DxWr2Qtcv3EtByJoEsfGF8Isxow=;
+        b=Er1sJ3DoQvvVHidqEv5JK29LEsVCrhyCQDeQHToCvlQJDXUcwk/zDt9UL/AgCy82vN
+         SN57bRaCSl1EXyPcHqqp6SnEtrwAIbdYlFOByMlRmFvL+jwWZ6RUFIapavVGS+bPawzt
+         goVVaNLimX2uHEhutyrTAzRBmBzg9R+CNfL1o7mIJ3k4q3hAIksp4Rtg9nW8jqOoqbru
+         keibLA0kSSsb0sD7p5TfBfncxmDcjlU/fQpdMXQN9KP83avX3eFmPLS5gLyFpPzGBCEz
+         gnuqGDJSg/cF/Tn0vW5229ZwuxPBCHz2rjYcKYBsH5hQPnc4fFYV3jR4tq5obn+4rll1
+         XL2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775065187; x=1775669987;
+        d=1e100.net; s=20251104; t=1775065560; x=1775670360;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=jYUaVSUk5Sb3SOTuQeoUN5R4tL+13WiT/Hvm7LoUgnk=;
-        b=Jc9xTa4D5MyLV6hUUEeUDkbrX9PGhdu54puTnDXU15PWJ1sX+aHs1BA8522bfsUgd2
-         FH78m81FH3/dwOsNqfqxI9fNZLrWE0Y0NrliHmjBq8pulhF8hCXGfkkxCuq0BVz8qRWg
-         a63gurokt+fwe56+8xdDTIZ+FJizmdDZZvyRAJblKY/8cHX3GqoFQpuOHtleoWbPwTZh
-         W13sQ9bCXZZRKQZ3WCzSoIdUPwQkKXC+D8Lxhk/nZ4f2qEMI7tCjI6vsU3OGG4rds48i
-         hr+pGnpAs1x0rXwRVqkGMlym4U7PPwujURMzPtBAB7s+1EaqKRG56tHAwzQBNI9gSE4x
-         qy8A==
-X-Forwarded-Encrypted: i=1; AJvYcCUYlpwthT7Ueh+HsvUgHXizeESXyQiq1fpLLYZvsqSRPen4099AUa1TS7cB64R4ETfSQG2uaDZaZ1iZEXOklslA@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzSDmKCIBi6b/rrKWxOrFPHVDPX6t2JynQkX2sZcIaXCmFIyxE
-	zmlCUhQKg8MkZJkEGckGS0HVzg0PV5NgtNK8Lkh/axQAi+oa0osZqrN+DEaacTOFgkixn9kSGEB
-	BQljZeYb9nZDvBnCwWAMxR2yXcjF4feo=
-X-Gm-Gg: ATEYQzw2hxgwWY9xCBwX9a74zhpg3tXYcb0IrYFHOcq2oPfTssYlD6QcUtM/d8asVnH
-	r/2vuhYS+fefKEOISlmmmuJLP0VxK8VSiB8VtBxuVF5LYQJHiigumV/O0nAhaOS5bww9jWBMDNV
-	yjllV8A/1F4a730gJwiUHJlWyijezcUBJmF2puIwBEQQnw7SK+k0mnbJhoAV8rmz7Nn0iBBHjqG
-	GqkFirYsvbdEw2NKS8VuesLPLjz+Cfk132kAUhj0RgVXYpFkLTMXwNblgG/OtVfvkGcBeJhMsp0
-	YHcqPehDLuzgDMAvc3xm4cD/Sk0syvqVaTEArbbnzFbp8BMyS5Wf4upIv1peRRRPG94synzlX9C
-	9gkYuKEHsEN5mxf5FZ5lfA3tSuXEdHruQQA==
-X-Received: by 2002:a05:7301:4586:b0:2c7:2cac:8147 with SMTP id
- 5a478bee46e88-2c932cb3abamr970192eec.5.1775065186457; Wed, 01 Apr 2026
- 10:39:46 -0700 (PDT)
+        bh=QI4ZvYmbpYFMS5F4DxWr2Qtcv3EtByJoEsfGF8Isxow=;
+        b=AECrGLcVGflWvPgMG1ojgyRwM9NwiY4bM75Jcox16McT9Md6Nq3iKgze7RfY74dYr+
+         u7e8Rj+bM7wRoa/cB3CwA/nH4vLQweOu8CIgFOU1Ci/24q4hgZKBQkh6JxqPwNihG+rf
+         A11Cjx2R9T3yJ0G1UslqzKxZHlMQOYoqhnt5nMmj8C9/WMgJV1A4vBCrF53o9f77iITI
+         rZTU2ZEczcXCGlj9PhFejSeLwgkSrDsOxNSPicxGrePba6EvUoVrRo8/wFlC3C8qRQ9E
+         cdBzihUTC8ECjpiINzpU3Y5LpaJKCLMO0nQAaAwqQK9DVAwdOLX0v4m/gsdf/HdxX8cp
+         cIrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVSjrHjv2NFUUJ3g+Wv6fJ7m3+SVS9DYPkNNC1TfNUQ7FbDHVuqhQCjBBuYfW/i9LTsCv6qXUeUGfmFVhXEJPmI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaKCMIcEaalMaPsykOZWVXMRBAOHwz8/yO7nh46NuXOIhLtEN5
+	yRfCNtJPHd5gnQADOZS7JQSSgYYeL1jaal5M53W7LcriiJZCMG4t/YkiRgZlPkp1WcQLPKH1ryg
+	JZmWlE4ULMOoHe6deFhQ4HGba/yOpo9E=
+X-Gm-Gg: ATEYQzxe+/YgaLQ2JO9sBo24bqOi1+VvtprLs3chxhk0uBKO5d1yiOLCMhkYkS7DKgH
+	cY8Pv3M6OaOFuAx6jMAItq3745dDJpx83IeXBqE7yNnD1PcjVtCqk4i13LsyxTznfZAc6uf5dF8
+	FvmG1Ld63KM6QlY0JyGbvgvCnPQ04iqTHpXhPWym12h+zxbzsCY4Jt0A5N1+LyWG1QLbd7qJUko
+	a4qwkATls2h9EsfIqnoxpEtiaE0A16HwGS5lwP+8JfDMV+c53FVAxDImdhYYjLvFIG7YTsKfx7l
+	1JPTy/1eNC+TQNMpBS0aEKr+Vop/aB8cO0oSjIQjseLq/SfI3dzX6VvnadzkqwSM61FA6eGdnDH
+	xnLcKR726fJuYtW7tPIbYqVftxeW+fuQBwg==
+X-Received: by 2002:a05:7301:2c05:b0:2c6:7f49:a840 with SMTP id
+ 5a478bee46e88-2c930798a4dmr1033595eec.1.1775065559731; Wed, 01 Apr 2026
+ 10:45:59 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260401114540.30108-1-ojeda@kernel.org> <20260401114540.30108-10-ojeda@kernel.org>
- <DHHVLQAOMLWB.3FHHSYKNM5TNP@garyguo.net>
-In-Reply-To: <DHHVLQAOMLWB.3FHHSYKNM5TNP@garyguo.net>
+References: <20260401114540.30108-1-ojeda@kernel.org> <20260401114540.30108-13-ojeda@kernel.org>
+ <DHHVSX66206Y.3E7I9QUNTCJ8I@garyguo.net>
+In-Reply-To: <DHHVSX66206Y.3E7I9QUNTCJ8I@garyguo.net>
 From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Wed, 1 Apr 2026 19:39:33 +0200
-X-Gm-Features: AQROBzBO7Aafw_pbzha_JEZl4Ht2QE7dpytXYa0WjnL8RQv-FxGnezpSMqEOLn0
-Message-ID: <CANiq72kSYFiS6zN+VLs2URhAeHy8_-aEXki1pyR0qoj7jO-qSQ@mail.gmail.com>
-Subject: Re: [PATCH 09/33] rust: kbuild: make `--remap-path-prefix` workaround conditional
+Date: Wed, 1 Apr 2026 19:45:44 +0200
+X-Gm-Features: AQROBzDasvNfwm3irNcxLclKgLrVzocIHNQudR_c4deB-93-CSbalwIa-aYY_TU
+Message-ID: <CANiq72=8eVKk0gqyvgWM_-VSsRZY1s2e7gx9AbAg+q0dRRYO=Q@mail.gmail.com>
+Subject: Re: [PATCH 12/33] rust: macros: update `extract_if` MSRV TODO comment
 To: Gary Guo <gary@garyguo.net>
 Cc: Miguel Ojeda <ojeda@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
 	Danilo Krummrich <dakr@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
@@ -122,8 +122,8 @@ Cc: Miguel Ojeda <ojeda@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nico
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_103947_714574_690A1461 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20260401_104600_877621_F471358E 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,18 +138,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 1, 2026 at 4:08=E2=80=AFPM Gary Guo <gary@garyguo.net> wrote:
+On Wed, Apr 1, 2026 at 4:18=E2=80=AFPM Gary Guo <gary@garyguo.net> wrote:
 >
-> Okay, I see what the comments mean now. Perhaps squash this to the previo=
-us
-> commit?
+> When I write the comment the intention is to enable the unstable feature =
+and
+> switch.
 
-This one was mostly to ensure the workaround was not needed anymore,
-i.e. it is more "optional" than the other.
+Yeah, that is what I meant as the alternative in the commit message.
 
-In fact, we may want to just not have neither of the patches, i.e. we
-could just remove the workaround given the timelines of the branches
--- please see my reply on the previous one on this.
+I am OK with either.
+
+(By the way, I wondered why you mentioned 1.85 in the comment, I guess
+it was supposed to be 1.86 instead originally, i.e. "above" as in >
+1.86)
 
 Cheers,
 Miguel
