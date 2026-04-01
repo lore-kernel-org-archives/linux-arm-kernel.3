@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EEFED35174
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4F49D35171
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 10:36:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F4mDh0j/d1ggPUbgMWwMmi3/NLfkn4A8iM2ZfTlX4uk=; b=h8H1p7l3SEvPeqWSbKyNiEmubN
-	RY+G5KCza9fvcZ8NJuhpBkEZlDwTHGtj1awyAPKRot4PlzJclgPNmN+6F0BJgbS2+EfwhYh336Bdx
-	0aNiJXvKxQNQXLEJ2LennYjy1Q0ePWmMJjKnBZqxNJjQHjXzU85zIjOjCnGoevobJI+0qtl2WbIOl
-	EvxVToftLStRn8tbFpEbKfzvyOKLF4o8YEDjDLWGGSMBMdwiyr6Tp1W43caw2rcp1cVxBYCmmzd4J
-	kQl+sT6SDoLqzSINNCT4IdRjbwXbe8/45gqeZQ53BIrO0461AlQeCYSvt/Wrb2a/6fRcboTzUzKva
-	FhCNmRTA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sN3GnIYIjpDV/fhQySPbfE2V+jV2yPIjCPVkvSRzjLs=; b=ThKgJKOhXbsmbgppTiLTNVMWv/
+	iwMl5qetqUN+CMPBz97eRL8xjyLL3YuCQyZRbEYGYcUab8E2yzEytHLQlYAh7p3v3TIHg0EbNeNK+
+	vtavtFXRXgdAeJQKSmQW3k20VXEw0oFwBIw5OJ7/KA4MK98AiIhkJGuQsnYNbJT7mYXFFWaWWbFl2
+	kaVqPSamEBDTOsKLU0b8nPnKxTcrSbmhdMn0EETo03hHgsZiKqijeuXANQMqH9nbk+QTsi6zIjMeE
+	BSvP8kXZuTfCznD3UImL3FuuP5JLgz4PmlXnAjPg02wxtXTTlBJjRteGfaTPn8XJ2wl/RcLO0BKt+
+	z5MbsjXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7sw5-0000000EWCw-3qFc;
-	Wed, 01 Apr 2026 10:36:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7sw6-0000000EWEM-31Yn;
+	Wed, 01 Apr 2026 10:36:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7sw4-0000000EWBS-3POd
+	id 1w7sw4-0000000EWBR-3XSI
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 01 Apr 2026 10:36:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DD43C6012A;
+	by tor.source.kernel.org (Postfix) with ESMTP id A0B4A60120;
 	Wed,  1 Apr 2026 10:36:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A99ACC2BCB4;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FE9AC4CEF7;
 	Wed,  1 Apr 2026 10:36:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1775039791;
-	bh=w1fPDoEy+oy5xwwPakENiPrrfB6YomaGgYQhWWBLZ28=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UOM3cFCV64rMtE5hNq8o3dDdcXx1cOQDxnDTb1pGvqzkCpTLppnGis9Rwftwgi6Kb
-	 KHPk9WFE2wYA068y2Gy0y9qXOHulmnnTKZ+yeHPe4SBYnqiC7Qwv8eIFGyhUYjN0At
-	 /u2IVQ4vrhWavSOHluTjDhefJNgn08fBd4P+/qDQkZlN3Dyf46lCsaz+kOHm/fi0eP
-	 xHU1Q6pstfIjj7l0MCUuJRPrNXQIK4qn2p5z9xhcKA7QeUbNWrswHjtdG4/ZiS5U0x
-	 05XeRcbvzMZilzN760IJtUevishKUPXVhAT9jD8ktShNHBbvRY9xMOJnsTCYsTcuH7
-	 v8RkPAhPeVjgg==
+	bh=+QCbdHNHmHFia4f4ihvIccWXyxvqGeamB1Ak1UNFefk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=HUtTc+qdBZnLXKPylb0z1+68iCLw5jkX1/ut0r6g/SMeABYvS+8ZmNqnA0AFwuA37
+	 A/D46LyZvWkT2WkTX3s/Mm70TO6LslwBShA5UOhSK3fg7PW2O0Csg+PqsiZthfyAat
+	 KBtKcLv1xeEa/AF4n67RfIylxJswxIDwS+9QlVTo228wmSuefAXQWKom0TRAfxVfCY
+	 k8c+FiN25qiNwqTGWOU4taEH/W2mMd14FwaF64ZblEUZXNtk/sSnfZDzPzGxmK5vb3
+	 jglbWUv6YN04xPQ1LsbD10tKpeoGXVIr0JDi98lpg6KljUmmNWFFG8IT+HRvFTUNYI
+	 f6rvptv5L7pHA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1w7sw1-00000007oRQ-3fzO;
+	id 1w7sw1-00000007oRQ-0SVj;
 	Wed, 01 Apr 2026 10:36:29 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -58,12 +58,10 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Sascha Bischoff <sascha.bischoff@arm.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v2 03/16] arm64: Fix field references for ICH_PPI_DVIR[01]_EL2
-Date: Wed,  1 Apr 2026 11:35:58 +0100
-Message-ID: <20260401103611.357092-4-maz@kernel.org>
+Subject: [PATCH v2 00/16] KVM: arm64: First batch of vgic-v5 related fixes
+Date: Wed,  1 Apr 2026 11:35:55 +0100
+Message-ID: <20260401103611.357092-1-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260401103611.357092-1-maz@kernel.org>
-References: <20260401103611.357092-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -84,35 +82,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ICH_PPI_DVIR[01]_EL2 registers should refer to the ICH_PPI_DVIRx_EL2
-fields, instead of ICH_PPI_DVIx_EL2.
+This is the second revision of this series attempting to fix a number
+of issues reported on the vgic-v5 PPI series.
 
-Reviewed-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Fixes: 2808a8337078f ("arm64/sysreg: Add remaining GICv5 ICC_ & ICH_ sysregs for KVM support")
-Link: https://sashiko.dev/#/patchset/20260319154937.3619520-1-sascha.bischoff%40arm.com
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/tools/sysreg | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+* From v1 [1]:
 
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 51dcca5b2fa6e..3b57cb692c5be 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -4888,11 +4888,11 @@ Field	0	DVI0
- EndSysregFields
- 
- Sysreg	ICH_PPI_DVIR0_EL2	3	4	12	10	0
--Fields ICH_PPI_DVIx_EL2
-+Fields ICH_PPI_DVIRx_EL2
- EndSysreg
- 
- Sysreg	ICH_PPI_DVIR1_EL2	3	4	12	10	1
--Fields ICH_PPI_DVIx_EL2
-+Fields ICH_PPI_DVIRx_EL2
- EndSysreg
- 
- SysregFields	ICH_PPI_ENABLERx_EL2
+  - Partially reverted the effective priority mask fix, as Sascha
+    pointed out the crucial difference in the way GICv5 manages the
+    PCR compared to GICv[234]'s PMR.
+
+  - Added a fix for dealing with the pending HW-backed PPIs.
+
+  - Added a workaround for the set_id_regs selftest, already posted
+    separately, but included here for completeness (and ease of
+    merging).
+
+Patches on top of my kvm-arm64/vgic-v5-ppi branch.
+
+[1] https://lore.kernel.org/r/20260326153530.3981879-1-maz@kernel.org
+
+Marc Zyngier (16):
+  KVM: arm64: vgic: Don't reset cpuif/redist addresses at finalize time
+  KVM: arm64: Don't skip per-vcpu NV initialisation
+  arm64: Fix field references for ICH_PPI_DVIR[01]_EL2
+  KVM: arm64: Fix writeable mask for ID_AA64PFR2_EL1
+  KVM: arm64: Account for RESx bits in __compute_fgt()
+  KVM: arm64: vgic-v5: Hold config_lock while finalizing GICv5 PPIs
+  KVM: arm64: vgic-v5: Transfer edge pending state to ICH_PPI_PENDRx_EL2
+  KVM: arm64: vgic-v5: Cast vgic_apr to u32 to avoid undefined
+    behaviours
+  KVM: arm64: vgic-v5: Make the effective priority mask a strict limit
+  KVM: arm64: vgic-v5: Correctly set dist->ready once initialised
+  KVM: arm64: Kill arch_timer_context::direct field
+  KVM: arm64: Remove evaluation of timer state in
+    kvm_cpu_has_pending_timer()
+  KVM: arm64: Move GICv5 timer PPI validation into
+    timer_irqs_are_valid()
+  KVM: arm64: Correctly plumb ID_AA64PFR2_EL1 into pkvm idreg handling
+  KVM: arm64: Don't advertises GICv3 in ID_PFR1_EL1 if AArch32 isn't
+    supported
+  KVM: arm64: set_id_regs: Allow GICv3 support to be set at runtime
+
+ arch/arm64/kvm/arch_timer.c                   | 32 +++++-------
+ arch/arm64/kvm/config.c                       |  4 +-
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c            |  2 +-
+ arch/arm64/kvm/sys_regs.c                     | 20 +++----
+ arch/arm64/kvm/vgic/vgic-init.c               | 32 ++++++++----
+ arch/arm64/kvm/vgic/vgic-v5.c                 | 24 +++++++--
+ arch/arm64/tools/sysreg                       |  4 +-
+ include/kvm/arm_arch_timer.h                  |  3 --
+ .../testing/selftests/kvm/arm64/set_id_regs.c | 52 ++++++++++++++++---
+ 9 files changed, 115 insertions(+), 58 deletions(-)
+
+
+base-commit: ce29261ec6482de54320c03398eb30e9615aee40
 -- 
 2.47.3
 
