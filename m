@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9D471112242
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 23:00:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 229591112243
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 23:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
 	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JvGjkd7xOwKr9LPSDq39hiyQcJLp2mIOYd00gU2wFro=; b=da0pcWdxWfbGQfaUVbLEwge1SN
-	TbMbnTtb5lUOgm6LtCQQJFSO/fFPBoGfV2xckfHzyEEfB4/WLXpLom83kbNB9V1Izbl2YEKR1R/0y
-	+1wW2WJMsfmbrCqWl+nraVBdp+1LKpJbFL+0JTeeBUmdb+kX9soSDaprUT/IP3BUiwQqyLEkcDvb7
-	Yw0ETCzuCYN+iQ8HTx0tMu0OAReEJ2JXGMJHUCeb8BGKKr/uhKq/BqGS7gYjTxZs6XQqbHsDbdLkF
-	VC+Wm1J/KuFuE2zyc3VCs+bIhJNP/sclqrgJSV7awjxFGU4w8CwQNtUnKZ5YE7wKnh/ps/Ry0So5e
-	Rd8aAKPA==;
+	bh=p6JpffBRR7v7TPIcdjPK+lmgyv35PebkTTYtaqTWCzg=; b=fjCfqfJfVqCf12C9/w9ZuqX576
+	iT4BIGzxdY2d+0X7EE7OM0l9PqaJ6hz2nVrzoM8zygFQTem4hj1q4l3rqPmOCSOrIIpc0Kdf1M3Jk
+	e+FKmQZIw9VDH9pfR0M/GVbxAqCixLwP703eWe3uGHjkP9XetfzyAnoT92h9CkMpKJ8XuFp2zs30T
+	byR7zM/IsYKOewc1lK+yUMclgVhJVFMgGdkMKFIll2j81sxlFFeHfbQcXAPIpq82jf1ymgmE8g75U
+	r1ioafDLvFfh0vELvPO2YaJA9ZnI059WV1396MhrX3J+FE1Hv2aA4DaDnrDpQBPD+s2CQHq4t6y6V
+	JpH9rk5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w84Xs-0000000GMEa-1Ovn;
-	Wed, 01 Apr 2026 23:00:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w84Y7-0000000GMQT-42y8;
+	Wed, 01 Apr 2026 23:00:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w84Xo-0000000GM97-0Kyp;
-	Wed, 01 Apr 2026 23:00:16 +0000
+	id 1w84Xy-0000000GMKw-143Z;
+	Wed, 01 Apr 2026 23:00:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 453B56013C;
-	Wed,  1 Apr 2026 23:00:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F50EC116C6;
-	Wed,  1 Apr 2026 23:00:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6BDCE61340;
+	Wed,  1 Apr 2026 23:00:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56866C4CEF7;
+	Wed,  1 Apr 2026 23:00:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775084415;
-	bh=ia5mGWpgejay0TUoFhZWSGjPJlCIjCy7gnhJSD9JF6Q=;
+	s=k20201202; t=1775084425;
+	bh=9r+j9aJtexiSdsnA3tlntaKZ+10b/6Dtb9uN5qz0dUA=;
 	h=Subject:From:To:Cc:In-Reply-To:References:Date:From;
-	b=oWdOCY6xhFFRq21639GOywl5mcK+3l2bcc/AdHZPPYO6CRTwcz96vqxvC+KTvE5ZX
-	 krjDtv05WjJwIOmMxt5/X5E3aUbo7NPZLUhECXRbhCX2WuZOC4CBt0EuBdlmaQZs5/
-	 gN2+t4Oz31J5PUxyGyzowwR/Vbt4laFgc21dnxb7OIGWE8SY2IDDteRBlv7DvNTZaf
-	 ztSAxYpCQItFlyOLdRSjZCA42hg9cS3w6tGLK9fpQFGQL6OHHwcSPNtmKIS1A/IwMB
-	 XASAS2QZagyeAGlUdw49EUuloCHZv4iUn5ycn2HLFRAbB6+Z6JTAboFozDAt285/TL
-	 qUneNo60Yk0GA==
+	b=TNCiRvfRAoSiNwWajo6d0tXBALrIB8uy30x62v/7vE1DSF0tGUGBWvB9FNsMOGiOL
+	 r088gtwia8jZfrou5153siQUWg+QidfxbyYB4Ypow5AdBNPcZhSf05qfgKMPzQ41a9
+	 ZXJJmDCivwRwYQbl0M8qhWW5DfT1+KZpXMWTHvGtTkPFHjox09+X+JH6M8f8ul03/R
+	 bfWcSI1kXTIk26Acc7x2QdVjBUaonzABDS6685jJZTEk+a1LrIQVA/Fz+zAzT95oPw
+	 IRSzJuq6+jnD9s7fnI9D/EamdCfX7ZbISJfeRtyPKPcuVCXdSxdB5slSxvZxxG9joo
+	 AfLBw3t3VswhA==
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH 11/33] rust: alloc: simplify with `NonNull::add()` now
- that it is stable
+Subject: Re: [PATCH 13/33] rust: block: update `const_refs_to_static` MSRV
+ TODO comment
 From: Tamir Duberstein <tamird@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>
 Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
@@ -77,18 +77,18 @@ Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
  Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
  llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
  Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
-In-Reply-To: <20260401114540.30108-12-ojeda@kernel.org>
+In-Reply-To: <20260401114540.30108-14-ojeda@kernel.org>
 References: <20260401114540.30108-1-ojeda@kernel.org>
- <20260401114540.30108-12-ojeda@kernel.org>
+ <20260401114540.30108-14-ojeda@kernel.org>
 Date: Wed, 01 Apr 2026 18:59:04 -0400
-Message-Id: <177508434445.73816.7873322235592463050.b4-review@b4>
+Message-Id: <177508434450.73816.3437422593454602087.b4-review@b4>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=691; i=tamird@kernel.org;
- h=from:subject:message-id; bh=ia5mGWpgejay0TUoFhZWSGjPJlCIjCy7gnhJSD9JF6Q=;
- b=owGbwMvMwCV2wYdPVfy60HTG02pJDJlnFzvPuHEjKvFO5+VrNduvOUh+UWvVz6xhvRQbWe3eK
- jmV4RtXx0QWBjEuBksxRZZE0UN701Nv75HNfHccZg4rE8gQaZEGBiBgYeDLTcwrNdIx0jPVNtQz
- NNIx0DFm4OIUgKk+0c3wP3DK1NZ9J2X0vh53N4r9cO6ijvPRY2WpSV4Hgy+fyihnTWb47znt+rS
- Ytk06m2W2Pu7xLbnZePUbY3xIs8yBz5mdSutX8wMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=862; i=tamird@kernel.org;
+ h=from:subject:message-id; bh=9r+j9aJtexiSdsnA3tlntaKZ+10b/6Dtb9uN5qz0dUA=;
+ b=owGbwMvMwCV2wYdPVfy60HTG02pJDJlnFzvbH589QYvn/4oPv4Xey3uvd0h7plq9692z5dJ5b
+ wRSd+gWd0xkYRDjYrAUU2RJFD20Nz319h7ZzHfHYeawMoEMkRZpYAACFga+3MS8UiMdIz1TbUM9
+ QyMdAx1jBi5OAZjqgpMM/6NnThCWnqBawfDCSNE+6vHTZwuXfX7lr3Th9K4XsjobdTYzMrS9mlI
+ WcW7lHu1jfq8uugXyGtpkcCwxlc5QjlVaIdopxQAA
 X-Developer-Key: i=tamird@kernel.org; a=openpgp;
  fpr=5A6714204D41EC844C50273C19D6FF6092365380
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -105,17 +105,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 01 Apr 2026 13:45:18 +0200, Miguel Ojeda <ojeda@kernel.org> wrote:
-> Currently we need to go through raw pointers and then re-create the
-> `NonNull` from the result of offsetting the raw pointer.
-> 
-> Thus, now that we bump the Rust minimum version, simplify using
-> `NonNull::add()` and clean the TODO note.
+On Wed, 01 Apr 2026 13:45:20 +0200, Miguel Ojeda <ojeda@kernel.org> wrote:
+> diff --git a/rust/kernel/block/mq/gen_disk.rs b/rust/kernel/block/mq/gen_disk.rs
+> index c8b0ecb17082..912cb805caf5 100644
+> --- a/rust/kernel/block/mq/gen_disk.rs
+> +++ b/rust/kernel/block/mq/gen_disk.rs
+> @@ -140,9 +140,7 @@ pub fn build<T: Operations>(
+>              devnode: None,
+>              alternative_gpt_sector: None,
+>              get_unique_id: None,
+> -            // TODO: Set to THIS_MODULE. Waiting for const_refs_to_static feature to
+> -            // be merged (unstable in rustc 1.78 which is staged for linux 6.10)
+> -            // <https://github.com/rust-lang/rust/issues/119618>
+> +            // TODO: Set to `THIS_MODULE`.
 
-This description is inconsistent with the previous one which had
-citations for both the feature (function in this case) and the feature
-in which it became stable (available in this case). I don't prefer
-either style in particular, just that things are consistent.
+Good first issue?
 
 Reviewed-by: Tamir Duberstein <tamird@kernel.org>
 
