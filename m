@@ -4,141 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31CAD35162
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 09:11:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F606D35160
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 09:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=awCqBOF5GsbAqasZJdiecFhkmotk8E2OwpDkaSuIvk0=; b=pDNb2j0k8+kVoxA1VanFeoFalZ
-	DssGOMfOx1MX0V322YV/FCo+AIDAhqckSIc93WQtjrCrstZ9es9wvIf1UiF/NU9k7SUVssRPy9dZr
-	FhYJCh8Pwfd61wt6xR/XC+joVi2Xl3h4hVsfDNmKSQj3aWaj2CcqU0L5Glz3rkhfqQdgjyc1nizNp
-	+cjVPtTntZyQA8OxyZ936w4ztJRLBk6geNUZRxOO51dR516uG3vNtdS0KIAgqaJnq9s4/fMOkkATY
-	lt4+UmpfgX6vKKUM5PIoo5dZD9uHxtgle9z7Ysj1ytA5/p/hz/rf+O0tGNQW2kpJNqPDKOxxjjq2y
-	VaRzBDBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d5GS5vfwTVfAl23/CtmQinQG9E3Zp0oDflrp1gqCYsc=; b=0drNlvlrTsgbPJrmGOgTP8lzEr
+	uZp81yI7Y/xpK3KTAk0cFf6DG7zBne25YMtN0HxBNmcS58X5BAQ8yLK5gk/t8QiOf9cGsDXNOcr/w
+	/pZ5lNnKz3fQq5Ng9opsv0iXchq4qkjCrN/aU3LOtLxT5NGp6bffekvFpNIsZvD2zN/4Adf+ffsHU
+	qz50TLqveNfvaXI6GjnOl5P9PloH3GH+53zpgEz5wTPDzwQRa1gi2Ai8a0paTsHqcLwvxqGhJh5vb
+	7tVct3YzDMLlfLzppCPW+kHX1m87+rfjPMMeS0Ntsy371nqKluGhfwY6YqjGts4IvoYq8TKrwhPe5
+	fgvyW5sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7rbe-0000000EMoA-0Rl3;
-	Wed, 01 Apr 2026 09:11:22 +0000
-Received: from mail-norwayeastazon11013049.outbound.protection.outlook.com ([40.107.159.49] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1w7rfo-0000000EN8T-3jAU;
+	Wed, 01 Apr 2026 09:15:40 +0000
+Received: from mail-m3296.qiye.163.com ([220.197.32.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7rbb-0000000EMni-05fL
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 09:11:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NuznjFPlq8NbktN1y3fU4lJgRsAtrKV31LNMj0ngpSQxOy9GCay3SFW8T0dh/VlLHBYhj9ShXpZyxj/5vWz2yGAeNkNbods2fr2OmZuy9JBBw3CMIWKBuJbsPd7U2tJ5VZUdDORi/71MAlTLvsAB5esiUSOAM+JVNNnWcsNg4LOVWA80/KO4vRqS830wFWMWuH+Wvg+4RnnDOq84Nf3s9c1MsvnvmVTx494t9F1LjM9fOKIOdTPkqhvoTHWJlz0fjBaY5ryS6OTHbKZa0g89/viBznWS0YRz4xsnRnwibiFnOVdM5aRHXrGxUnGRtQgO1s4PUE7ka4Om3vLhvfKegw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=awCqBOF5GsbAqasZJdiecFhkmotk8E2OwpDkaSuIvk0=;
- b=t+VbTMLk/O7jPkzDpjAQ/wE0a7SvHt9u/gGPX2xNjXPcfDl6E/jeWHzrz3h4pQz6jZqVnw+By2hA/lOBloqKtyQLYQ0w3X5RO4/UwTBmTIrtAxrm/d17AO6fTFX36zhZMQ4ps38bJpI38ujw95vNovwuMUMHY9RwOOgchIxxB9D+PfLgQXojZ8CB+eWIMQ0DB+Ur8jG9DK2hr8H1U292dJUF/YHwki7OB2llMy8iQgfO13M3yaPxPXNFqg5n7y7AYyZJ55baxbE5NHma0Kn6+3fEu40Ubps+sP+1VzgwyazekTdnUMaK5piLqv1NpucqPZHxQMHpyJJFa7hzOBE8oQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=awCqBOF5GsbAqasZJdiecFhkmotk8E2OwpDkaSuIvk0=;
- b=HeWytHG1M2aOU5DBYHcy7xZcu4yuZ7yhT7FBe8GsmZ/VA51ri/vmNa4zPqsyX+7EFXpgmf0z9mRyqOkretMhYKV0sJC/5qz64Bwkk3xRKdb4vZRX3E5e48OzuB3eAYu0TQ7XRNT5fNPV37rpl6R+c6t5xU3PJpM9cVtBpky8T+zvG1+qZFG0GBfkVNGB99rsm03jqGLSEaKCgK0cYgNeJqqdS1Q3tNZv+Xa9h3W0cgw+hzYC9IihXLvjfz4CwNr3VRDmYIh4b5Wx4/syGBzsNRWk8Nkir4ngbD8sTXtSLIuo45EsKk8WT2uAyxtgpQgWeh9xJF8rSpco+CMuOHJj1g==
-Received: from AM0PR04MB4707.eurprd04.prod.outlook.com (2603:10a6:208:c0::29)
- by DU4PR04MB11962.eurprd04.prod.outlook.com (2603:10a6:10:617::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
- 2026 09:11:13 +0000
-Received: from AM0PR04MB4707.eurprd04.prod.outlook.com
- ([fe80::e918:eca8:f034:698f]) by AM0PR04MB4707.eurprd04.prod.outlook.com
- ([fe80::e918:eca8:f034:698f%5]) with mapi id 15.20.9632.017; Wed, 1 Apr 2026
- 09:11:12 +0000
-From: Guangliu Ding <guangliu.ding@nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Daniel Almeida <daniel.almeida@collabora.com>, Alice Ryhl
-	<aliceryhl@google.com>, Boris Brezillon <boris.brezillon@collabora.com>,
-	Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>, David
- Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Jiyu Yang <jiyu.yang@nxp.com>
-Subject: RE: Re: [PATCH 1/2] dt-bindings: gpu: mali-valhall-csf: Document
- i.MX952 support
-Thread-Topic: Re: [PATCH 1/2] dt-bindings: gpu: mali-valhall-csf: Document
- i.MX952 support
-Thread-Index: AQHcwbd8KHaYJQuy102Hh0xMmBlXdQ==
-Date: Wed, 1 Apr 2026 09:11:12 +0000
-Message-ID: <AM0PR04MB4707CFEB0D2BEB83174E205AF350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
-References: <20260331-master-v1-0-65c8e318d462@nxp.com>
- <20260331-master-v1-1-65c8e318d462@nxp.com>
- <20260401-weightless-mule-of-opportunity-57f45e@quoll>
-In-Reply-To: <20260401-weightless-mule-of-opportunity-57f45e@quoll>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM0PR04MB4707:EE_|DU4PR04MB11962:EE_
-x-ms-office365-filtering-correlation-id: 87f8bbad-e2e6-4650-e29d-08de8fce9f28
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014|38070700021|22082099003|56012099003|18002099003;
-x-microsoft-antispam-message-info: RbRWrOu2/zgfW9h50AP/yrHY73zLlNIOpPNnHY63gjlrdhTXH6NilpjgVqY2H4qbP+WqmU8WgDgKWNwn4I4FpqiwQm5yiJ4+KgjjoCVL4o68u/BFJWdlaBtogzEIBugWaKOfQh89YFZhRccKWqNRDkGbz6TmyKqdGApjh3qVaHhyXRB5yaYYl+/k3hCc1Hv0VqVqYzj6vhcWuYO42EJAzYEx1OyIfe2N0E+EZDjqeuG+kczKu0BEPNjjrZcXnP4DCowtNA3EjrfmBUlqVYY4fX1fvVnT5cbit1Jfswj3JBYKpCBf9J+txZZs9/cWjiRrtEoMj2P4s1rxc15Otzf0Qf9MIt5q6Zn1/P5hFqh/xrxK+QIUU3GGvXcnPI7VfUgglqYWzIGtvPX/hLalGSnWbZIQdaS0IhsgZRiQwQlPWkd+qGAuVI041VpaivvBf2seZF5ZOa2I4tsu+G0YfVjX7x9adZvrCDVPPSklaaRqPpiJMh33l0Aobk1LutK5zjdjl3Wvt4grNOXEJpQEg56IAqu8NgirmGUUzDJGLUwnzQxjEXBceN3FiV6+rWYVoxg0n9b5VdDAsMDNmDsTThYFprpsi+pftJ32r66oi49dx9Y6i7i75U/jXqow4e1YEiRUwBuCVfKt/htn7O5tTwbIo9/KrOGQ9SK4yVJAyGf8I8uuZ5ggbE1iRTqnfdM4uBp5KIKmJeF+hlcC0FSVP/L7vOkYIYCTrFRSliljN4oAc5HfMhLFq7wqKxZCWrLjDxQIhNQm2PbNvXy8Wn4DjIjOknMfwrybBkqc2Iw/WGkvqQk=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB4707.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014)(38070700021)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?piGp+lEQBaK/Zd87ASCZNtojupfQYVtzUnSdCjs9vDrt+ms0VSymAkCfGxOC?=
- =?us-ascii?Q?wYNziYd+1K5zoF8cE6spwVsxblan+FTAPQTk+HHuloNpflgJM+ROqeqaT5Xl?=
- =?us-ascii?Q?1UylTO2lZfwvXsv7WhTZMsM1odcspmwsc9PDLRpcn1bz9UTsupD8unu5t3lE?=
- =?us-ascii?Q?f3c4n+EgpJtYRbqKYvWg5YPG99zo8tKSgbR9dT21wQE9hslDVNuxZHG8msNk?=
- =?us-ascii?Q?Fqlnnk9JFs403Ol7QPa2sdy86Z65gpufzKPOzlXfIafH891rz43paMzvvwCP?=
- =?us-ascii?Q?5RegeDzA7ZNLqnjzzsc0EkXfZoGVresXLg0BKINNpSZGRXfElHJ+pxv6l1aq?=
- =?us-ascii?Q?pXiEmu/mvmRI/gGn3oSXhzx/f1U++eU/x4mQBuImHsnlWS2nXMhDE/zM6XJu?=
- =?us-ascii?Q?/NlCRYVD5RompeS1H56eDy5+w2GZkF0VeQB6BQj3at4O1TwRcj/lmkyEexhF?=
- =?us-ascii?Q?ol4EtS2c6exmT9WIymkMkVV6wOPC2T8/SAOZY8nHa3uzwY30m2D65yGVxZNl?=
- =?us-ascii?Q?BOutYEKyMVSk3rjj43neIyXKmrJGJQnAPf6BI3IGO67isIGwc+CgrmHlv/aH?=
- =?us-ascii?Q?/LwfxPGPId5f2xtNj5N6jcsm2JaZnim/oMLeonzrkXQ3BmEr5OK2wC4mFbO1?=
- =?us-ascii?Q?lz7XcCTJsYwD+/gpCfbbk8mrf342B5aFGXhfv4+NkX50e4lsRG8TwbSnR6op?=
- =?us-ascii?Q?RPwxQuQnt0+sLahqyHlSUi5hGO1pdCmE8dVCSnhKk6UQpIyrfDOJ6vngmNdO?=
- =?us-ascii?Q?7bAV+2lUL+Hfx/wbC+pG2UYGaIwZpaJE5cerkTqk05XT593ZPdYGbiEIgApo?=
- =?us-ascii?Q?lOqPtIBsX/Ga4ZhO8NbW5i2v3gfrlAldtKg5EqooPemYi3rHMt9ne/ju1IA+?=
- =?us-ascii?Q?caAqc6LS7fYxXZW3X00IUVjk5xn1LGLR1Cr+nBBw05RekZHWKP3UPeFd7kmC?=
- =?us-ascii?Q?39hWeKMQJu/TMXt2nzY3MvkmLhAsnKtN6RRFNsYPR2pfo0ocCgBdIsQoAFvS?=
- =?us-ascii?Q?WGVuk4+xCP5H5V5og17aUWeLVs/qjJflWOjYWeClbTXbW3J1klY4n9xmTJ1J?=
- =?us-ascii?Q?7c9UO7Utk7pH3QlEsUIuunlCr0irSQiuYvycK7t/q8cYbduI0dN9W0aAu8ZH?=
- =?us-ascii?Q?3z/vwTmw657C9TksHYhxzxkNtNxz0OwodPNOIV6TnoNVoUHb58oc7f1JuGap?=
- =?us-ascii?Q?05sW4X/LwmKSJGjig+HNahmH9UxQHX42wvx89QftS93LrrkP33/Ob6BziD+a?=
- =?us-ascii?Q?MNM5ILJxHxvjOcMxGKkni9wIbmCadrQqAY42FzjZcSQxKmTL+99KMh8Ua0ts?=
- =?us-ascii?Q?qMj7SqBzHXlmrqMi6ktd0okeI0QZxfL1PPxlbh3BCjKTDdkicq7JO44j3JtL?=
- =?us-ascii?Q?1Cblvlooy2KvDmA3l5Dnc+2XzdPozwoti+Coc7Q2hvZ/F5KSdpCC+S0POFe3?=
- =?us-ascii?Q?Q2aC3EdbmsVa0c3hYqtmklaw51uzUlVnaPk29tMtd42Pz6zIRn9CnuYe3lqw?=
- =?us-ascii?Q?jMTbpuWDwjGwOBbh2zf0aAkH+l0L7b3flUytOvlxdWazS2pWy45f5NAELWfa?=
- =?us-ascii?Q?ktpTa++TMr9v3A9QJYfcFlV59beCSqA4V5zPRfiudKSAROV86zKBZp+j8OdV?=
- =?us-ascii?Q?12ujZlE0QiCnFQL5S23oh5eneIP4K8We2z5eApvIf2Jq8R9LCcXOwwQ/UJVI?=
- =?us-ascii?Q?oBYT4Q6UZ28/1ZR7dRAVTaaB/oSfYXsnXkMsrgOgjiyjXwQP?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1w7rfl-0000000EN6a-2KXp;
+	Wed, 01 Apr 2026 09:15:39 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3923a2f9b;
+	Wed, 1 Apr 2026 17:15:30 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	victor.liu@nxp.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	inki.dae@samsung.com,
+	sw0312.kim@samsung.com,
+	kyungmin.park@samsung.com,
+	krzk@kernel.org,
+	jingoohan1@gmail.com,
+	p.zabel@pengutronix.de,
+	hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com
+Cc: Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	alim.akhtar@samsung.com,
+	dmitry.baryshkov@oss.qualcomm.com,
+	luca.ceresoli@bootlin.com,
+	nicolas.frattaroli@collabora.com,
+	dianders@chromium.org,
+	m.szyprowski@samsung.com,
+	linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v12 03/17] drm/exynos: exynos_dp: Remove &exynos_dp_device.ptn_bridge
+Date: Wed,  1 Apr 2026 17:14:40 +0800
+Message-Id: <20260401091454.25730-4-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260401091454.25730-1-damon.ding@rock-chips.com>
+References: <20260401091454.25730-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB4707.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 87f8bbad-e2e6-4650-e29d-08de8fce9f28
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Apr 2026 09:11:12.9275
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: hXRf3dDeipqII1+hUr1d6TMFrgGC2TxB2xEl6SdKZ17CF/mGLLGoG1T+s58n7G6Uj9k8XOw31BI72BZ2NEUvmw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11962
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9d4853952a03a3kunm479af8c3b32d5f
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGh4YSFYeS0pNGEwZSEtDQk9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
+	1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=Z2evYRarBYnsewpMvfKG1JU+CKIAu1GKmNnp5ltIOdFn2gOPxAHydgVQYAbcZR4ZNWBjWR2ocuwF6WbTEvC7IxZO/zflH2Ba9JzpjvubJHLGgQO/ScHvf2OVXj5LXkcC4izI5IN9CLkQuqCsuyePxDUHP7+d1IzMf8X8l9gnwz0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=d5GS5vfwTVfAl23/CtmQinQG9E3Zp0oDflrp1gqCYsc=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_021119_064373_2654A19A 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20260401_021538_079368_C7C70451 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,30 +103,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof
+Use &analogix_dp_plat_data.bridge instead of &exynos_dp_device.ptn_bridge
+directly.
 
-This is my first upstream contribution. I will improve the patch in v2.
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Tested-by: Heiko Stuebner <heiko@sntech.de> (on rk3588)
 
-> On Tue, Mar 31, 2026 at 06:12:38PM +0800, Guangliu Ding wrote:
-> > Add compatible string of Mali G310 GPU on i.MX952 board.
->=20
-> We see this from the diff. Say something useful.
+------
 
-I will improve the description in v2.
+Changes in v3:
+- Fix the typographical error for &dp->plat_data.bridge.
 
->=20
-> >
-> > Signed-off-by: Guangliu Ding <guangliu.ding@nxp.com>
-> > Reviewed-by: Jiyu Yang <jiyu.yang@nxp.com>
->=20
-> And the review should tell you that. Did that review even happen? That's =
-a v1
-> and a single liner patch, so how basics could be missed?
+Changes in v4:
+- Rename the &analogix_dp_plat_data.bridge to
+  &analogix_dp_plat_data.next_bridge.
 
-Yes, it's v1. I will remove the Reviewed-by tag in v2.
+Changes in v9:
+- Add Reviewed-by and Tested-by tags.
+---
+ drivers/gpu/drm/exynos/exynos_dp.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
->=20
-> Best regards,
-> Krzysztof
+diff --git a/drivers/gpu/drm/exynos/exynos_dp.c b/drivers/gpu/drm/exynos/exynos_dp.c
+index 5bcf41e0bd04..f469ac5b3c2a 100644
+--- a/drivers/gpu/drm/exynos/exynos_dp.c
++++ b/drivers/gpu/drm/exynos/exynos_dp.c
+@@ -36,7 +36,6 @@
+ struct exynos_dp_device {
+ 	struct drm_encoder         encoder;
+ 	struct drm_connector       *connector;
+-	struct drm_bridge          *ptn_bridge;
+ 	struct drm_device          *drm_dev;
+ 	struct device              *dev;
+ 
+@@ -106,8 +105,8 @@ static int exynos_dp_bridge_attach(struct analogix_dp_plat_data *plat_data,
+ 	dp->connector = connector;
+ 
+ 	/* Pre-empt DP connector creation if there's a bridge */
+-	if (dp->ptn_bridge) {
+-		ret = drm_bridge_attach(&dp->encoder, dp->ptn_bridge, bridge,
++	if (plat_data->next_bridge) {
++		ret = drm_bridge_attach(&dp->encoder, plat_data->next_bridge, bridge,
+ 					0);
+ 		if (ret)
+ 			return ret;
+@@ -155,7 +154,7 @@ static int exynos_dp_bind(struct device *dev, struct device *master, void *data)
+ 
+ 	dp->drm_dev = drm_dev;
+ 
+-	if (!dp->plat_data.panel && !dp->ptn_bridge) {
++	if (!dp->plat_data.panel && !dp->plat_data.next_bridge) {
+ 		ret = exynos_dp_dt_parse_panel(dp);
+ 		if (ret)
+ 			return ret;
+@@ -232,6 +231,7 @@ static int exynos_dp_probe(struct platform_device *pdev)
+ 
+ 	/* The remote port can be either a panel or a bridge */
+ 	dp->plat_data.panel = panel;
++	dp->plat_data.next_bridge = bridge;
+ 	dp->plat_data.dev_type = EXYNOS_DP;
+ 	dp->plat_data.power_on = exynos_dp_poweron;
+ 	dp->plat_data.power_off = exynos_dp_poweroff;
+@@ -239,8 +239,6 @@ static int exynos_dp_probe(struct platform_device *pdev)
+ 	dp->plat_data.get_modes = exynos_dp_get_modes;
+ 	dp->plat_data.skip_connector = !!bridge;
+ 
+-	dp->ptn_bridge = bridge;
+-
+ out:
+ 	dp->adp = analogix_dp_probe(dev, &dp->plat_data);
+ 	if (IS_ERR(dp->adp))
+-- 
+2.34.1
 
 
