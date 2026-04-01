@@ -4,48 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34606107639C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 18:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18DE910F9313
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 18:06:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M4tTu3qvNIk0Zd0pHUMp6PcLs/3guYAtRPLVzmQRoTw=; b=F2GqAvy2/FIjPcqGRxPACd+y9M
-	CwGFip69pm93nKdBnTRzmvsSpbbxDvV+erxkjEeMtnZCVm3FfAsigoDcXuR5xVYA0orENNbKmp/Hl
-	aKwjyN1uKYsbxRj/ay2Xe80WOMHBGUXG4g83W313DyNFtM6pwtIaEbVpgCjG2xyNe4Ig6TusOW42i
-	NBAGKszA/6+orn1FH1IP5AflA8eOqmT1tYMgO8urR7r+6TrkHfIaOSQA0E09NLrhTdHtyt98J1oqN
-	MVUGIH+KFKIx0N0fmXsKEDjK5I+E1P5edRSc+p/xgqNtMLJ0QIUSXy1y0r6tNc/oGsP9vlGIK2mwD
-	s1/u9rsg==;
+	bh=Gj9w1pdK3hGyhmGEDNh2cGv4l3vzTihI5FF4g7PAUmo=; b=KnWvc5s3XiBgm/vVllcD4b8n3e
+	/Z7r9bQoiB3H2otgKKccpIO3lFJxfKN0ZMgQLaSn8NaeSKzzeSPhqYXCAiEx9D6HIDShJDALd6f+1
+	NUC5TA+tAJu/iNtisS6rNZ26e8mshgYTDw+ZELNKTcufXLDGg+nYBZDSW3/FB9AzbmTWsGWFr5Sqx
+	NVdtoA+LfJjL8PppVOXcENvpUD1y5QZb+4ZwzOYIGvANAkBYnK8iiMsXyfLamXwrPkglW6Vo7y3Ek
+	+GMe6TC48PAhBGznsO0J/ZcFb9NZ4dVML+C8SLmS40tORJHtcsQz/LEIwqvPEHOlea/s9Kso+Ry1G
+	Rvc+kFQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7zx9-0000000Fucy-18Py;
-	Wed, 01 Apr 2026 18:06:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7zx2-0000000FuXj-0nXX
-	for linux-arm-kernel@lists.infradead.org;
+	id 1w7zx8-0000000Fuc6-131D;
+	Wed, 01 Apr 2026 18:06:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7zx3-0000000FuYE-0lRe
+	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 01 Apr 2026 18:06:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=Gj9w1pdK3hGyhmGEDNh2cGv4l3vzTihI5FF4g7PAUmo=; b=c/t5jGD0zpHqMasQuh/FgzrTxa
+	py6L4N8ICvUPi6atcVMtCGdG38CcJ4Iz7/yaPSS4R304DrMwddvgrcS0QeIdk1oYpXkeFG74i8ew8
+	0DV91GmrQZ2DV646tNHeD56muw+x0EULsZTmdz14o+hXRp+wrOSAf2x9Wrh9bbmHRJtEkU9NzQY9q
+	TBSJ6+OZZFUqZ1Gbpyibv+xdP9Mm2BU61Kj6ylxLn/x75H/bOAnxrytV6ssFVgRa09SadQ5IjygN7
+	34kpsFD922hh3XY6zRXrEAyJc79SzQ/JNw26S27MtG9ZPnBD4+g32ZrN/z0wzOV/zdMtLv2U7cPEb
+	dBUTvcVw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7zwz-000000014Vp-3ATL
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Apr 2026 18:05:59 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E60381A25;
-	Wed,  1 Apr 2026 11:05:52 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 98A422E99;
+	Wed,  1 Apr 2026 11:05:50 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C13F93F7D8;
-	Wed,  1 Apr 2026 11:05:56 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 731AF3F7D8;
+	Wed,  1 Apr 2026 11:05:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775066758; bh=WdcTte650M77YokXGamFSD8DnutzZbOYv7TJTefCO3I=;
+	t=1775066756; bh=MT1dk/0jPwSmw0bMkT7qbR0UK3rqCqczPzlAyC5ku6w=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=T8UC9rrOBg9vm/3RouSb/cYyfxrTX0oeV5ymMuS+F6vVuKnnt+kgBlpVdMVcO7s84
-	 U8qp62utzm+zTmhwc88LzvdNm9lttmGeT7wHbVdavMogLxhKVO7eX5LUpY8r7CMJAZ
-	 o/aBeWsRtkOGS9mKs0wLKPXnXXPzXdUfTsF+0+Vw=
+	b=d4JxskEmgBEHVvw5IfYM3ygwujuMHSMm+fIxxbULN6kvPfuvO2V0Tsd1FH5R86eyk
+	 Nh184oTu2zdx6gLtRUjgMWrMnZW7w+IUTPH5hYn/5Nxm+wb1fRzFxoktJICLPDVu2L
+	 3oEn9LQEVAMRMnl192AmEUplPmMeum4pF8TJFiag=
 From: Leo Yan <leo.yan@arm.com>
-Date: Wed, 01 Apr 2026 19:05:35 +0100
-Subject: [PATCH v9 06/20] coresight: etm3x: Set per-CPU path on local CPU
+Date: Wed, 01 Apr 2026 19:05:34 +0100
+Subject: [PATCH v9 05/20] coresight: etm4x: Set per-CPU path on local CPU
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260401-arm_coresight_path_power_management_improvement-v9-6-091d73e44072@arm.com>
+Message-Id: <20260401-arm_coresight_path_power_management_improvement-v9-5-091d73e44072@arm.com>
 References: <20260401-arm_coresight_path_power_management_improvement-v9-0-091d73e44072@arm.com>
 In-Reply-To: <20260401-arm_coresight_path_power_management_improvement-v9-0-091d73e44072@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -60,16 +75,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775066742; l=2497;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775066742; l=4460;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=WdcTte650M77YokXGamFSD8DnutzZbOYv7TJTefCO3I=;
- b=QLV1Ommk+wqdeR8mRCTpIp3ZZGxGJGQHpDSxs4OLyycJnoIb0KCSM5zAa+r5/KaWVvLSbmkw2
- bAYlbkUhnO3Acbrl6Pa2AMzSlQuTVAEv6gYo2UoVRsPQcidf4Yj/ss6
+ bh=MT1dk/0jPwSmw0bMkT7qbR0UK3rqCqczPzlAyC5ku6w=;
+ b=NntVBVRqp06nppzYLTDdLYpu4uIQmdqAbMP0l/VmiNSkLVhzZlcNFhZDIKqsfWpCBO3GcQb3v
+ X5CD6RDWfguB5zyxRCRR2VHULM5Ek7X3XMWNjIRzlKjzg3dLo4qHAhy
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_110600_354642_3C7C56E9 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20260401_190558_265395_FD40BB18 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,31 +99,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set the path pointer on the local CPU during ETMv3 enable and disable
-operations.
+Introduce the coresight_set_percpu_local_path() helper to set the path
+pointer on the local CPU.  This helper is used during ETMv4 enable and
+disable operations.
 
 Tested-by: James Clark <james.clark@linaro.org>
 Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 Reviewed-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-etm3x-core.c | 17 ++++++++++++++---
- 1 file changed, 14 insertions(+), 3 deletions(-)
+ drivers/hwtracing/coresight/coresight-core.c       |  8 ++++++++
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 18 +++++++++++++++---
+ drivers/hwtracing/coresight/coresight-priv.h       |  1 +
+ 3 files changed, 24 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index aeeb284abdbe4b6a0960da45baa1138e203f3e3c..46ea66b5cf1985bd7129688f175f6f92372d04ad 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -441,6 +441,7 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 6907da35ed02fa58f8d30f5576627a6ce3b88362..74c9f0dd43784dd735885249c1e50fc86f610582 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -35,6 +35,8 @@
+ DEFINE_MUTEX(coresight_mutex);
+ static DEFINE_PER_CPU(struct coresight_device *, csdev_sink);
  
- struct etm_enable_arg {
- 	struct etm_drvdata *drvdata;
++static DEFINE_PER_CPU(struct coresight_path *, percpu_path);
++
+ /**
+  * struct coresight_node - elements of a path, from source to sink
+  * @csdev:	Address of an element.
+@@ -423,6 +425,12 @@ int coresight_resume_source(struct coresight_device *csdev)
+ }
+ EXPORT_SYMBOL_GPL(coresight_resume_source);
+ 
++void coresight_set_percpu_local_path(struct coresight_path *path)
++{
++	this_cpu_write(percpu_path, path);
++}
++EXPORT_SYMBOL_GPL(coresight_set_percpu_local_path);
++
+ /*
+  * coresight_disable_path_from : Disable components in the given path beyond
+  * @nd in the list. If @nd is NULL, all the components, except the SOURCE are
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index a776ebb3b2b0360c99a8dadacfde4c2303dd59d6..7b91fab9895d7b2a65ebb1161b117d9d3f5fca1b 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -234,6 +234,7 @@ void etm4_release_trace_id(struct etmv4_drvdata *drvdata)
+ 
+ struct etm4_enable_arg {
+ 	struct etmv4_drvdata *drvdata;
 +	struct coresight_path *path;
  	int rc;
  };
  
-@@ -462,8 +463,12 @@ static void etm_enable_sysfs_smp_call(void *info)
- 	arg->rc = etm_enable_hw(arg->drvdata);
+@@ -621,8 +622,12 @@ static void etm4_enable_sysfs_smp_call(void *info)
+ 	arg->rc = etm4_enable_hw(arg->drvdata);
  
  	/* The tracer didn't start */
 -	if (arg->rc)
@@ -120,47 +164,58 @@ index aeeb284abdbe4b6a0960da45baa1138e203f3e3c..46ea66b5cf1985bd7129688f175f6f92
 +	coresight_set_percpu_local_path(arg->path);
  }
  
- void etm_release_trace_id(struct etm_drvdata *drvdata)
-@@ -492,10 +497,13 @@ static int etm_enable_perf(struct coresight_device *csdev,
- 	ret = etm_enable_hw(drvdata);
+ /*
+@@ -890,9 +895,13 @@ static int etm4_enable_perf(struct coresight_device *csdev,
  
+ out:
  	/* Failed to start tracer; roll back to DISABLED mode */
 -	if (ret)
 +	if (ret) {
  		coresight_set_mode(csdev, CS_MODE_DISABLED);
+-	return ret;
 +		return ret;
 +	}
- 
--	return ret;
++
 +	coresight_set_percpu_local_path(path);
 +	return 0;
  }
  
- static int etm_enable_sysfs(struct coresight_device *csdev, struct coresight_path *path)
-@@ -514,6 +522,7 @@ static int etm_enable_sysfs(struct coresight_device *csdev, struct coresight_pat
+ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_path *path)
+@@ -922,6 +931,7 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+ 	 * ensures that register writes occur when cpu is powered.
  	 */
- 	if (cpu_online(drvdata->cpu)) {
- 		arg.drvdata = drvdata;
-+		arg.path = path;
- 		ret = smp_call_function_single(drvdata->cpu,
- 					       etm_enable_sysfs_smp_call, &arg, 1);
- 		if (!ret)
-@@ -583,6 +592,7 @@ static void etm_disable_sysfs_smp_call(void *info)
+ 	arg.drvdata = drvdata;
++	arg.path = path;
+ 	ret = smp_call_function_single(drvdata->cpu,
+ 				       etm4_enable_sysfs_smp_call, &arg, 1);
+ 	if (!ret)
+@@ -1063,6 +1073,7 @@ static void etm4_disable_sysfs_smp_call(void *info)
  
- 	etm_disable_hw(drvdata);
+ 	etm4_disable_hw(drvdata);
  
 +	coresight_set_percpu_local_path(NULL);
  	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
  }
  
-@@ -607,6 +617,7 @@ static void etm_disable_perf(struct coresight_device *csdev)
- 
- 	CS_LOCK(drvdata->csa.base);
+@@ -1092,6 +1103,7 @@ static int etm4_disable_perf(struct coresight_device *csdev,
+ 	/* TRCVICTLR::SSSTATUS, bit[9] */
+ 	filters->ssstatus = (control & BIT(9));
  
 +	coresight_set_percpu_local_path(NULL);
  	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
  
  	/*
+diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
+index 1ea882dffd703b2873e41b4ce0c2564d2ce9bbad..ff8a720339deb854ac3b4eb916f49e844f442d34 100644
+--- a/drivers/hwtracing/coresight/coresight-priv.h
++++ b/drivers/hwtracing/coresight/coresight-priv.h
+@@ -251,5 +251,6 @@ struct coresight_device *coresight_get_percpu_sink(int cpu);
+ void coresight_disable_source(struct coresight_device *csdev, void *data);
+ void coresight_pause_source(struct coresight_device *csdev);
+ int coresight_resume_source(struct coresight_device *csdev);
++void coresight_set_percpu_local_path(struct coresight_path *path);
+ 
+ #endif
 
 -- 
 2.34.1
