@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75CF5D35165
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 16:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1600D35165
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 16:57:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1/56vbd50/S2G5XwmM0gupmOEUC9e7pvBVjABTjG+4o=; b=DzTx7iDJb+Zz6EOCvhPN4pqPPW
-	0uO15udekiGg4eKNRf3ui7s52qnsM07MFcYcRiwXzOOqsT/CpCxHTv2MpiqcSf7hxGsy9YCaxu4AS
-	AnlaEZTsbj96YwiIU9Xmu0SswcjcT+OowIG5LnArl7X+KjJkUiywyO5QaOcMj73Mx2ATFj2HRC0Ay
-	z1leO6t3CGRAszZgaDpjIHiqLKyFO9UrVdi9IvRjQr5tyrKzXb+JDrrf1sztZNg3Y1ii3aTbvkXDE
-	9zANynOQPE7NT7ITQJu+u/43x2gPp6C8vAYRa2M5AfKdIa+X69Jja5+gEEr/7tEWfGrEfW5uNAUh2
-	qW5iR+5Q==;
+	bh=ghbt2VdipRb8TFXGc6+GiKsJdIAO++j4XglnEhSRYYo=; b=frV5R8E3ASNF2k3vxk3GX6j/A7
+	Wsx2PGMp5zT3To7ebOu/M4DQDcQS9JCnnKnyRc6Aoi+mKw+U4MiTAYRG4CfDmPPubaqayeZUByxsg
+	9u5tZ1crskzBmIrzERQsvv6CjPd2GPAixwju+zD9JQEBUCMzmOa0FPvL8W9k1hN4Q2KsKhjOoJnCc
+	ioO3VudzIHDXZT/iXY1/rP3eJtQejEwnDKyj2oOUlrfswQ99xc64vTgzckIsq4jVQauc5X9+cgUzm
+	VONzAiMvfLVhx9h2pJ+bPdkFUbRid+rkaCxB0Zz6Ma9WP8gh6cGkRaURcsBQbxjoYrRRBjOfl3Js8
+	CKp2U6Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7yrL-0000000FmCu-1o6K;
-	Wed, 01 Apr 2026 16:56:03 +0000
-Received: from mail-northcentralusazolkn19012054.outbound.protection.outlook.com ([52.103.20.54] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1w7ysM-0000000FmaG-2kA2;
+	Wed, 01 Apr 2026 16:57:06 +0000
+Received: from mail-northcentralusazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d111::] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7yrI-0000000FmB2-1J6o;
-	Wed, 01 Apr 2026 16:56:01 +0000
+	id 1w7ysJ-0000000FmYs-3jsk;
+	Wed, 01 Apr 2026 16:57:05 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cdxfzLFPWr2EgOzEey0cSXyDwqkQojY4L6IMX4PhM5IozobO5tIv/JPGF8YuUXwc5CwyJX/09guY+UeaMa8dc9Jkbo/kUBYlcG9wfcI1qMnfUypiXZJ5a5OApXZo7IajOm//nFQdZ+SJWH7uAQpv8D//nio3kY3ju3pTVaLEwlDz++KHigOmbZb9ZNfwqOVGGNAYSBsejmExwrSIscbzGkHFoumlt2MPbbbLfZIbgsILQJeup4DOgazTCd4ka0u7BVpMau04FUwNPx2WccEx7tZKvgkZxIGvb6q00/dJWORZkspYqJzyRqhXDG4nObcBm+PiyAKfNcHYIhLApHqVlg==
+ b=TDGprBLYo5xZIFjpfBlWBD5f0ZrG13OG0wOrN5Z58nqHAfTGl/Of5M93FZiDYYAJS2dP5p+ZCZYX1HZG/y4TqbrdiZgef/6vSvqMbO1nIt48hV0lsADoSsZQtofL7p80M+Pl8T6x8ErKfEJFdbmQGeidKW1X+M5JuvLtHYYuujplLx+wLYZgPmHPaU9x5/DoblSyLK0AvIm4K4UAmYBIe9lgxCKRga3KfsMnp1gUfYrNy1R60WRmYsDHJS9EISgq3P6rLI69+xRJpdi1+TwBRD3F2K/MY2qm4Z31peLNlx5rQKcxV6M6UH6AorRRnLlyuOl0NdU8ZFmXwlyQ6rWuoQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1/56vbd50/S2G5XwmM0gupmOEUC9e7pvBVjABTjG+4o=;
- b=eb5ujgAeBnxYZgY6flA9pXQjIp1ZnDlWX4gvvOK78eaiZXMwXWLOASIt/3AKzAAC1jnbyYFLtUAFwIEzYAGppEbBL0E9NpWLTHpt3f6Oi8/Pg0ZAZdMNxjz1eNV2s9hrH9u8VAXl2r1zegAmiNLr/onjdRSO7MlslAjJ9STmNhL+6JoWIMMwwWwLEM2dbiL/0F7x5AC5T8pA0SkiJQ17FbbsIaP2Ao+xQ07o4TsiELb9I/wvB2kFQP8O7iK70Ktr+3nMMFRdc4pHrFUbItP91KAqqV8v43Ak7aYYHsZDnxLnr6oUIIsq3MBuXl+34SaLXRqmVaWwuXX9KtE20h46sA==
+ bh=ghbt2VdipRb8TFXGc6+GiKsJdIAO++j4XglnEhSRYYo=;
+ b=UVI1uzM3Meu5cFjhOQG9+zvm27M+IogDGoaG3/Puo4FxSGOUms/9+WaEJNS5fAJo3PL5dRB1T+hOhQ4BbRRaEKIdRrmQZHWT5AmaChsXN2p4D2puTNDo+YN8Fej7R4B5CrA9tTI7M1VEHFEJ8C66xZIvIiohdM70hV0YlzxIctC+UE0Ep8q4Sb46SWRdZYBb8vjiiviRX1dCxELd2XpdJlQ/MTnP/rq8iXZyxc8wucmTP6VSgu4hWKhQ9Zmi6+aynBWa42tOuzIiifjBQA3kYERkHKfm9dJ5WNw74fag//D2S+vltEe7gooRQLA2Wl7oShv8m8eNcDTEjkT4O3ietw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1/56vbd50/S2G5XwmM0gupmOEUC9e7pvBVjABTjG+4o=;
- b=o6tWMH0jykMR8KUN7Ru0W48iVSYZ9P4w5IqCZ+xAr2yp63kavnq48Bc47TaE/klBqbHdZWJ2ysOUSA9CWUIVLkJlzpgeOZNaKxrJ2dkp/+QnUHMAapSmE8J4Qzxgowfh6cDkCOduhaHzBbY6rsIAF1yFrc7ubvzDpgmhDOe41nyXVqyR9LTNfvNlgdPqbUrpSg7G2LaHOHuKyMEKkRhkm+K+GE4+lrfn1DTfj+JsJVCgP4keP3HUv2h0t90Kt2zKoQq/sYpKjZ9XACSmO/pK3gzz0pOaKoP9Jg3fzbxaffor57QAckRNXJjrLHj9+XgITD1dwILB4o6gsRgqSEHmEw==
+ bh=ghbt2VdipRb8TFXGc6+GiKsJdIAO++j4XglnEhSRYYo=;
+ b=S4EJdkJRbEib0022KGt8Fk0DC3Qmv0DERIS1F637bVy3EHpcvzTCsXDcdYgZjslQj0XKolgyIlHVyvZjnLmNVvGCMAdfFQhOdtlB9W5LxlsjZAi2PWgRO3LcsmaWwbu4usRMeggCftCO9/DlUhmuH79AD1/s4eD8XGKC50mRtRgP7m3DvNBKYf1eBehbb+3yXtY+sLmOMwxTxtfARxpe+TmfKsacw91WQMm0j9guoo5swW4FTlSXG2NSSATQEKIsbzCNUVWrm23AKK3WCzAfes2tUH6fUTwn50aNUnb8Yjz2X7UDaIN3FC3XVc+oB9hZpSGSuRvBWCQE5Yfv5xPRcA==
 Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
  by MN2PR02MB6701.namprd02.prod.outlook.com (2603:10b6:208:1d3::19) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Wed, 1 Apr
- 2026 16:55:55 +0000
+ 2026 16:56:58 +0000
 Received: from SN6PR02MB4157.namprd02.prod.outlook.com
  ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
  ([fe80::900:1ccf:2b1e:52b6%6]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
- 16:55:55 +0000
+ 16:56:58 +0000
 From: Michael Kelley <mhklinux@outlook.com>
 To: Naman Jain <namjain@linux.microsoft.com>, "K . Y . Srinivasan"
 	<kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu
@@ -70,69 +70,69 @@ CC: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
 	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
 	<linux-arch@vger.kernel.org>, "linux-riscv@lists.infradead.org"
 	<linux-riscv@lists.infradead.org>
-Subject: RE: [PATCH 03/11] Drivers: hv: Add support to setup percpu vmbus
- handler
-Thread-Topic: [PATCH 03/11] Drivers: hv: Add support to setup percpu vmbus
- handler
-Thread-Index: AQHctT5Hjs5rHz3eBUaZw+/VWpjENLXKhlFg
-Date: Wed, 1 Apr 2026 16:55:55 +0000
-Message-ID: <SN6PR02MB41570E0F113FE28CFC839476D450A@SN6PR02MB4157.namprd02.prod.outlook.com>
+Subject: RE: [PATCH 05/11] drivers: hv: Export vmbus_interrupt for mshv_vtl
+ module
+Thread-Topic: [PATCH 05/11] drivers: hv: Export vmbus_interrupt for mshv_vtl
+ module
+Thread-Index: AQHctT5mUv6AM/ETtUiLCr1EkP66FLXKhpww
+Date: Wed, 1 Apr 2026 16:56:58 +0000
+Message-ID: <SN6PR02MB4157F1DAEF3BC14A67D59FB8D450A@SN6PR02MB4157.namprd02.prod.outlook.com>
 References: <20260316121241.910764-1-namjain@linux.microsoft.com>
- <20260316121241.910764-4-namjain@linux.microsoft.com>
-In-Reply-To: <20260316121241.910764-4-namjain@linux.microsoft.com>
+ <20260316121241.910764-6-namjain@linux.microsoft.com>
+In-Reply-To: <20260316121241.910764-6-namjain@linux.microsoft.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
 x-ms-publictraffictype: Email
 x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|MN2PR02MB6701:EE_
-x-ms-office365-filtering-correlation-id: 569c7f60-e15c-4ea1-6cd7-08de900f8a58
-x-ms-exchange-slblob-mailprops: znQPCv1HvwXZ5XHxNrJCjRnjimRBgM6Sx+ZRCqilbxDKy9VOhGuGmkcbu31i/uIJ1tkVlc8WqRpWA7c1bcFL/geL4TZFSbZvkgl7tt5Dzm1bzAicix+MJ/5s0v3Lavh+ecFzg0eNlpxp2J2ytdiyII2KqoTm+mZTYh0n+XLJgN/XOxmmO6F8sWLPrCkdNxran03JOjRWjw5Y479aZKEX9yueqMqrJbQ0ghdQlwb4nW2EKg8Efh33AMJNUUXYWTmo79HXox45lEUg24SfqLvDlTxJVFSTdCoB3zaw3ZmXre5ksAvkpaBjEDINJpexhT7UUWCkwVJH+CZ0T0rUqEnms151ToZy1RKhvTS8iwoQePJjB4oAHp9lNfRlv5kTrWzqWGUtGUXkRuNWsKBZJUqLvQO7mDiRcPTA+0tvfaifmx03WlTGL7wi0EqyN7G2y/NDHQPuc0ayQIRcLlVJuzhfr4J42Y36S97KWDliWLQqqK5BdgOBUb+CVzYe/0ie9QRfMLbap3EWM/jNH64wWWLOTEj/5QZVBezgVJJfRK4VPM0Ehoz2EjNHOlFMwgwccPgUP4OYFGjrZy9xYtoVLjllBBJxM0p6OmmXoykuQx6z1cfz4w8MZrotbqkcVhiPJPacCz813i9FlYAfyMI+TkZrsZvTU9POgH2pyV1jEtTmyT2lZBBk2zHvEJZm6wvcbLLZ6Tgh0qEz2pdy3sQiuWGjn963VNrqAW+C+0xz8QvQSGRC1t+cGSBm1MBJupvCeBJRVY/FYJPDRyM=
-x-microsoft-antispam: BCL:0;ARA:14566002|8060799015|8062599012|19110799012|37011999003|31061999003|461199028|41001999006|51005399006|15080799012|13091999003|440099028|3412199025|26121999003|102099032|40105399003|1710799026;
-x-microsoft-antispam-message-info: =?us-ascii?Q?wPUhV66vaVe1MfsbCbgDj2TgXcOvFYQOQm0zZ2R/NLuDl4+QwYXDOHd7mp+j?=
- =?us-ascii?Q?963VfFgiScCCPbOBM0x+ysZm5IeC+btQflKuG/VlK/Z2GLGXHwjJRRJMtOTL?=
- =?us-ascii?Q?P4flzhUMP66XkRdJuo2La0FJYb91PIGM1V9C/ChwEzGLlfFAybVhtuZMEEZ8?=
- =?us-ascii?Q?u9IPBS9lPgbYwxTjjkO/0PZp54emEaUYwXwbfJjTs2jP6fr64itCUQz8mwo5?=
- =?us-ascii?Q?5QJio2Z99nBjDGzors12xGLEw+btVCPAec3rlVYO73ea3Z5F5Af4ie9p9t0+?=
- =?us-ascii?Q?cTbwaXvzqkHmqKWqBSLdl3j3wlP5j97FepsYXEicnTnHJTBXqXOvg52E5kxO?=
- =?us-ascii?Q?OlUfbpaHI9c6QsBpKzyoVkVku+umeCtLdwo8J+kbKnfsgDnsaut2WmcLUQO8?=
- =?us-ascii?Q?S3EphDwxhoP2ZKSGi0yWcNUhnVV9UzHI192Wyv7Cij94mg1eTTrI5O5soHmJ?=
- =?us-ascii?Q?v5PFkDkiFy5Ya/jvFjb7enDqIU/FHGV7McSPHQFvJrAk55820wc/xcyZSajs?=
- =?us-ascii?Q?fSBQIxFSYlP9rihUqzZivKx/iYsykpRXg2JNi4Rr/q0O6bJmx5gGSJlL9vrA?=
- =?us-ascii?Q?2Dh6A9v28xD0P/Q868m13Aphc5xYxVHpyqCJwh+QwM0pCguprPmB+ByhMsZZ?=
- =?us-ascii?Q?Ls2Mhyxtqks6xfWYOGFswKt49i+VxEEdOxz3+8/nNBGER678s0i+Av3dkT8t?=
- =?us-ascii?Q?Kf4SYqXchko9aUyVLVp1Msv199Of/bP1sGqK/ta9efLluhbrsyXyHAIFREkT?=
- =?us-ascii?Q?cp2JxODS8zzd0sv2wpsam3egvuEQiOjyDtYxxa85XrysLFlVIrAPBnVOO5iB?=
- =?us-ascii?Q?eZD2c1kT0WPhK+D9UlJXzqp+zgUk6emYO0NSl9p4wgoicdwaumhv1DBaKBy5?=
- =?us-ascii?Q?vMPInYrfAOWzIbQV009Zl7x8DBJMpinVJnkKsMZyDCBdZG6VDLq/s2VJ2qGW?=
- =?us-ascii?Q?4otKrboUgmSnc0m0ORH0TBdWmhFItQBL9Pk5cbkxTTZyD9H6SJVcP46izG4T?=
- =?us-ascii?Q?bzJl/0qtrmYRj1Fi468BAP27Y9aFgG98yMLOj0/fqmNtC8YxYTOYyoJqAGl6?=
- =?us-ascii?Q?qOfKsWQ1?=
+x-ms-office365-filtering-correlation-id: a508b18e-3ab1-4898-1e1c-08de900fb01c
+x-ms-exchange-slblob-mailprops: znQPCv1HvwXZ5XHxNrJCjRnjimRBgM6SUba4mmvjuVNbpPRxAAKFvTnIYe6zqalYW6bjVnsiXvFUlRT1pbo1HaRpvlm2AKlviLCAFeIX7FzZZgnMBWDrHLl5s0NhWvKoJdDvytvaEwKdFb1YWpEmblM851yTfErkyN8eNcxfV45XxvgU8c0QXx3BWsgDrlDi0k7ZUt+FoeEBrFUxbIZanWWdxeYMa0/xwgPEu6F7cmtLZhZtn2cr3ucsJi+WuJ5meihL3QuWD8m/EsG/ubOfWQjvpPKhzcKhoUkctinSXan4wQQO0azmICqbE6lzvLC6+z8uIhupwPyhNPgEIR7l0vAMFAh4MVYr4ysgRKUKpJ0UxWnaII91I4B9VwXOCyAMJlvG3g/McQS+G+kVF+8oOO8eHAASnechSdOWPGit2aVzKUMUBYaeZRn3DIB9tPn/iksbzhD2hizGa8u/lW3sgBHWpe5z+GsCMRpyW4roswwzge7kfDT+lGZc/UxYuHJb/C9cBAVFYmHztT6udl1f/mQR2/1sfWobt2b8H5tScX5VIjGr6H+ciwi65mSNQ3hqe53ETuRsGvSeT7F/RFufy+I7WJIONXyWs0M8ekt0M6bL8VxZyJZAmWpLANNpfptei5DPma4ITMGlmiXvI2DZNMB4O7lNSO8IlP6MKWl4/ju1F1+LFgCgvUUUuvistUeDQI65LEntzeYRYOD2E+sFTp91jyp7OmaJg+7MOWU1PCGpX0oZkBR2NMuiIjyNQ398/iV0oMdfabg=
+x-microsoft-antispam: BCL:0;ARA:14566002|8060799015|8062599012|19110799012|12121999013|37011999003|31061999003|461199028|51005399006|15080799012|13091999003|440099028|3412199025|26121999003|102099032|40105399003|1710799026;
+x-microsoft-antispam-message-info: =?us-ascii?Q?6RNA41ZjYrN0Ub2NLjMfEkTfbUZShT5xcgvvcfobv+tuZbavQ9KxiXQnttx5?=
+ =?us-ascii?Q?2M5gejviFbG5Djl7U8pbpkppb49M6T5CW9zdDg96O3gc6lYVq+j3OALmy3Ym?=
+ =?us-ascii?Q?UXgz9ljLEDfOvop1xymEd2YHhP8QsubyQoWh+5H+h7bozcg1OaYlxE7P0tiC?=
+ =?us-ascii?Q?wzjX2DhoKqa72/5HTCnBlcAryOWMiFVsBbGjFKyqM0DTwb0QAkRfn9OumdXX?=
+ =?us-ascii?Q?BWb06nz2tkrrFI9R/+uAH565zH0ZOBQL1wRJNVbLLgpuyMvD03FxesfsedR8?=
+ =?us-ascii?Q?pFx3B5WgoQf54TaL7X6rCzeULgkjzb0jZ0X+fGhRAreT3bemj8WmsBd/2reZ?=
+ =?us-ascii?Q?USbE06COZGjQ4HOt0uVr+VnTA8BVaMRbo3Z/0gfjQOB5r4kbhoA0o8mzvqCo?=
+ =?us-ascii?Q?sHnzvInS+dxdktKbwXIInMmJfAawwURmlfyceGcCbh8qw1UAx9YkVy8jjztz?=
+ =?us-ascii?Q?kfdJt0qmi4SBxWvZNyQqPsvn1RyZmRfbQW2pxQef2+8Jumke9cLry0t+49FS?=
+ =?us-ascii?Q?LUBst7jHiPtZbwB+JEdsRngQtt2cWmHoF6C8GSBO2PJQJxsi99kYpDGfdN9g?=
+ =?us-ascii?Q?uBd0Z5IzyF5yfP0BYQrzFP5k4ChJfRGfDqU6pOTLqPT36InNerUqwSbsj1v4?=
+ =?us-ascii?Q?6XVdhBUNa/FRhcU6u6LLEVPP5LceNlY+B5HvcUgqyHUwHX5xnXEDN1Q1Hslg?=
+ =?us-ascii?Q?uODDKldDZKBUkzMPtfKTV2IXzAg517m37lA4OCDSb/0NvS29XzTHdPIL0V5k?=
+ =?us-ascii?Q?xrQDUMvxRmpgNNSHNAPVwGUEYDCqEubBP1+b2BwAwqV1mLiyHoZ0wPwI6nAt?=
+ =?us-ascii?Q?DNMVvRnWwuXMD4EdLcoIy1Wcsguz2vwz+OZltlaIekyDOkkbCtPpbGiSet3j?=
+ =?us-ascii?Q?Yv254FuHmBXd2x8Z+yHFMq/K/DzANhkWEPsp3bejX0Ak9hUvHS8QsMIyOagK?=
+ =?us-ascii?Q?uzqhFWmc4e5CiQhQaHTrXkUgYqLCxVTMi0s79GstMrcnzVcDk8YrI14uhpQj?=
+ =?us-ascii?Q?x6zcvVRVbGYbdS6f0PkepHrceG/zVKKrBvWK7dMz9yfB/pSaX+jwjPBytcxN?=
+ =?us-ascii?Q?zNPT9C98?=
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?LE/BT6kgZwTo6xg/EZqkym4h5ZBirr0FGf8+qAQxOtvmiVRPzBNEB17kjgcE?=
- =?us-ascii?Q?Jvcw0pSsBhzVZ8Bz/nZdPb+6wxhHro7qPwK5pccVIPZHBRcahd5xZweRavGg?=
- =?us-ascii?Q?qYZVVG9tH3IqwaJwzpal8gBH9G+o5w5K3q2RpRHFjbDnyIqtevxuM7ltfccO?=
- =?us-ascii?Q?2/1bUigJSjm7Y9saj0fnMq5dFGdqP3RqbNM9BZ+Jri+5D38OLjdDHspc0h7n?=
- =?us-ascii?Q?Vf+NMZGAE8pvC8M70ZTSl0RNNsLyE7ci5OR/S6lzZq6JyzFDYR/UXQqOHGqA?=
- =?us-ascii?Q?v3ogfDtA6APJ1e+sxCrgEcwvi7vSYB7U85lAiX8jB+kxbc9zE+2qUdtEtQpP?=
- =?us-ascii?Q?28w8ugFdHm/F2fOZpx5f+u2AZfZ6jVFS/Ms6H2RLKA8Io7SD+UMM7ZpQVefh?=
- =?us-ascii?Q?YJ40xZEWHSyh9eLg6VyFmrEOVOea4GzR061/lxkAS6ZTHv5I2hlFOvBfyaRr?=
- =?us-ascii?Q?yIjLLmgvS66GuYi8OPZPHScVNNsKH8+t1l6Qi9PBoDSI3xrILN9LJ4x8MZII?=
- =?us-ascii?Q?z56H7BEp4gLGaGMiVnaAeyvnSL13vKDcR0SKqRtck+EJsbUvh/ehcCWaf3oZ?=
- =?us-ascii?Q?42HJe/StUtjCEYT+3+B5g6CmLkzJ6kedfg2wu3GeKxKw/NvHuefTv7ibVsb7?=
- =?us-ascii?Q?ASl8RPkdkLB49yxZoKUJxQQaSZe8iOHPKiwk4XIgTC0z8AnPEF/UDJfPzBPh?=
- =?us-ascii?Q?M5HEKlR9adET+Z9iN/PSek8PBnUDz8P7hrSRZTI0sAwtgNjlOQ7B3kJPCFrR?=
- =?us-ascii?Q?Xnc3tPa4GLj+erjFAWlik9LyA25wYEK/q0VyORRxENMintj1YxmKtdO4Bmhm?=
- =?us-ascii?Q?VLjy8L41ZzC21kBujS/7jWaBQ/3J2QnpIdcLMjNyu7YQd/fMLLmAQFmurFzJ?=
- =?us-ascii?Q?5Bc85Gsh+/QuyuJVBOc114FH/Cna/g05dTAenl/eC+xT3R3Z5/ZFOhTKncIz?=
- =?us-ascii?Q?nl7pNdb9Fsan6kcrf4S/4l6Xj1oNF+YCuJkCW7+NYybb5VhSLEZZl9q70r6J?=
- =?us-ascii?Q?dqSPlUkJeaL0JiqbEb3H7K+Qfad9DQ+3vEn7N6bZI9i2OTAD8C1Y5xvkgOE2?=
- =?us-ascii?Q?hHWibx8BxPTmNhYPCJAO5Kd8qWGPr72BssJ+4V4hMcsnlSJb5oH4QjnrNnUo?=
- =?us-ascii?Q?2zdfwVjRxDPaXljZYJlx7dXJDIdDSl+g9yxxettGEkvi1ZEMxpTwVroa6N9J?=
- =?us-ascii?Q?48nRSICHvQbWBrRE7qn7EWzEi9OqTr6nI8c7LRgn5fmdKhvMzbMNpr1pP+lp?=
- =?us-ascii?Q?X8sgZsca3OeaAXXzP5M6WWY9FzKb4J2/7L34C02z7ycaOYjTFKowN+ABxoFl?=
- =?us-ascii?Q?B3hL3sVwKBlAB4+Q7TZIH+qZNLdXKbW2DlrogZJX1KzbpoJd6XS7EiXQjwmH?=
- =?us-ascii?Q?ZSOnXzM=3D?=
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?6E4AZHnwGlpzNaUJfG2lME7ia+kQukF+2wW4CyNWKd5A4XbmBiPj/NFZeUvr?=
+ =?us-ascii?Q?VR+whJaBaYG7bDZruJmVPC4DKQzHk/KR9MtbRhhubTKBHCTg1FLNy0vxjATm?=
+ =?us-ascii?Q?lmNDj8ryEK4664oShgNxNrPtlJ/PriZUyxnjsnFH+CHibKgd0MkseR71vru7?=
+ =?us-ascii?Q?dwBtKngbzRofwGIlIfewZOE6UiVkaO8opejTmXgHnwzdidxAGizxmNudSX8Y?=
+ =?us-ascii?Q?F0kqX8ZubcvayenRWUZwXSp4TBKWCJCminx82caOOkJdNaoEIGIk8fBPXH8q?=
+ =?us-ascii?Q?8Hq9lbEJUsvMwbcU30qaZKzINCMrMF7WdLEjYRRGM+KzjHGgllDLvuco9ouE?=
+ =?us-ascii?Q?xkxu3wOpBYNEwyL/FhZCy61wMe6n8sX3VZ4M3rly0ArGQ0k3SktvzAhCmC+h?=
+ =?us-ascii?Q?urRpnMsd5P/XuGs4yILe1h6AreOaz3xTG5rMe7zAntYi1U/eb4fivi3uUe3o?=
+ =?us-ascii?Q?ponrjlyoeNB1Na8zqqA++ykui9Bp8FxZZyw1mQewBmDM7tRgPDT/XZZOcOIU?=
+ =?us-ascii?Q?4gpWzg3zSDleG9LfRr6mo0YXcDgCVHClW9Ee8qgZ1dhC04tCzfaRIHvHUtY9?=
+ =?us-ascii?Q?dyN8QVAG0ajwP2/Ll9zBaW8zB4irsg8wUZDSa6rjHX8MI1yXwFEmQoQkBTeb?=
+ =?us-ascii?Q?OoEYg/KDxt4qNQ87vBUIGFpBKlil1tIEQk4OjxGCvvvocyXL+/PqOOv86a1z?=
+ =?us-ascii?Q?atYOtaitn+a81brZf2F6cMj1Yb0Vu8A5QKGcnz/fgBJkrv9/G06q0GzRDAUh?=
+ =?us-ascii?Q?fE+/6xb1EWHuzrQR4+4VzGt5VesGjFw1mck4WSbKY5Gs3fUfwAHl/8lABk4K?=
+ =?us-ascii?Q?U5UE8/3w9a6CWkq8O0D/jMxLuJPWBCgJCqg5iYzJHn67q48atKBgjt8eQc6A?=
+ =?us-ascii?Q?abLYS6F4ypROu3jjSHi2PWxYc4DbA0JDrW3B6F1Tyw1HhQJLeBXyOhrbv3Hr?=
+ =?us-ascii?Q?dwT8B2U11bz2rcv2PKRtr8B1zjc55iigtWnq6g0zOLFa3HGDelWzf8F4Kp8j?=
+ =?us-ascii?Q?3b+4WzXIeAlu6iIEOKsmLeXTPCjHiO1Zaj2Sdp8SMnwnpQYm48JsYPw+5QID?=
+ =?us-ascii?Q?72eJ7gzDetZCI311CNsP8eHiCnOu8CCH5SJt5KNUCfPUfRoYWduwunPPamSa?=
+ =?us-ascii?Q?b1lJGzQQkiVxTGfSCxRt7m874lVdLmWYtK+8rAuKAlfCTFtkdFkwk32cZUW1?=
+ =?us-ascii?Q?Po61jPN0dRdSUKIQS4e0WFWQT31xyCF3hi+KXDIAMUvXsYPZY45NyBpYe2gp?=
+ =?us-ascii?Q?bh0bus9OfDdABMy8peuqeO7XpmKgFGq0G2mAFB+3GddOs3+RtANkYAENPIWz?=
+ =?us-ascii?Q?QAUCi8TD706tHG29ulgava2NT+NOZ6htZi61GNan9Ie7XFIpfFjMtuM/OguT?=
+ =?us-ascii?Q?tQpbyiU=3D?=
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
@@ -140,16 +140,16 @@ X-OriginatorOrg: outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 569c7f60-e15c-4ea1-6cd7-08de900f8a58
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Apr 2026 16:55:55.2648
+X-MS-Exchange-CrossTenant-Network-Message-Id: a508b18e-3ab1-4898-1e1c-08de900fb01c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Apr 2026 16:56:58.6068
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR02MB6701
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_095600_408841_3E205057 
-X-CRM114-Status: GOOD (  29.91  )
+X-CRM114-CacheID: sfid-20260401_095703_941838_4D0806F2 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,162 +167,38 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 From: Naman Jain <namjain@linux.microsoft.com> Sent: Monday, March 16, 2026=
  5:13 AM
 >=20
-> Add a wrapper function - hv_setup_percpu_vmbus_handler(), similar to
-> hv_setup_vmbus_handler() to allow setting up custom per-cpu VMBus
-> interrupt handler. This is required for arm64 support, to be added
-> in MSHV_VTL driver, where per-cpu VMBus interrupt handler will be
-> set to mshv_vtl_vmbus_isr() for VTL2 (Virtual Trust Level 2).
 
-Needing both hv_setup_vmbus_handler() and
-hv_setup_percpu_vmbus_handler() seems unfortunate. Here's an
-alternate approach to consider:
+Nit:  For the patch Subject, capitalize "Drivers:" in the prefix.
 
-1. I think the x86 VMBus sysvec handler and the vmbus_percpu_isr()
-functions could both use the same vmbus_handler global variable.
-Looking at your changes in this patch set, hv_setup_vmbus_handler()
-and hv_setup_percpu_vmbus_handler() are used together and always
-set the same value.
-
-2. So move the global variable vmbus_handler out from arch/x86
-and into hv_common.c, and export it. The x86 sysvec handler can
-still reference it, and vmbus_percpu_isr() in vmbus_drv.c can
-also reference it.  No need to have vmbus_percpu_isr() under
-arch/arm64 or have a stub in hv_common.c.
-
-3. hv_setup_vmbus_handler() and hv_remove_vmbus_handler()
-also move to hv_common.c.  The __weak stubs go away.
-
-With these changes, only hv_setup_vmbus_handler() needs to
-be called, and it works for both x86 with the sysvec handler and
-for arm64 with vmbus_percpu_isr().
-
-I haven't coded this up, so maybe there's some problematic detail,
-but the idea seems like it would work. If it does work, some of my
-comments below are no longer applicable.
-
+> vmbus_interrupt is used in mshv_vtl_main.c to set the SINT vector.
+> When CONFIG_MSHV_VTL=3Dm and CONFIG_HYPERV_VMBUS=3Dy (built-in), the modu=
+le
+> cannot access vmbus_interrupt at load time since it is not exported.
 >=20
-> Signed-off-by: Saurabh Sengar <ssengar@linux.microsoft.com>
+> Export it using EXPORT_SYMBOL_FOR_MODULES consistent with the existing
+> pattern used for vmbus_isr.
+>=20
 > Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
 > ---
->  arch/arm64/hyperv/mshyperv.c   | 13 +++++++++++++
->  drivers/hv/hv_common.c         | 11 +++++++++++
->  drivers/hv/vmbus_drv.c         |  7 +------
->  include/asm-generic/mshyperv.h |  3 +++
->  4 files changed, 28 insertions(+), 6 deletions(-)
+>  drivers/hv/vmbus_drv.c | 1 +
+>  1 file changed, 1 insertion(+)
 >=20
-> diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
-> index 4fdc26ade1d7..d4494ceeaad0 100644
-> --- a/arch/arm64/hyperv/mshyperv.c
-> +++ b/arch/arm64/hyperv/mshyperv.c
-> @@ -134,3 +134,16 @@ bool hv_is_hyperv_initialized(void)
->  	return hyperv_initialized;
->  }
->  EXPORT_SYMBOL_GPL(hv_is_hyperv_initialized);
-> +
-> +static void (*vmbus_percpu_handler)(void);
-> +void hv_setup_percpu_vmbus_handler(void (*handler)(void))
-> +{
-> +	vmbus_percpu_handler =3D handler;
-> +}
-> +
-> +irqreturn_t vmbus_percpu_isr(int irq, void *dev_id)
-> +{
-> +	if (vmbus_percpu_handler)
-> +		vmbus_percpu_handler();
-> +	return IRQ_HANDLED;
-> +}
-> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
-> index d1ebc0ebd08f..a5064f558bf6 100644
-> --- a/drivers/hv/hv_common.c
-> +++ b/drivers/hv/hv_common.c
-> @@ -759,6 +759,17 @@ void __weak hv_setup_vmbus_handler(void (*handler)(v=
-oid))
->  }
->  EXPORT_SYMBOL_GPL(hv_setup_vmbus_handler);
->=20
-> +irqreturn_t __weak vmbus_percpu_isr(int irq, void *dev_id)
-> +{
-> +	return IRQ_HANDLED;
-> +}
-> +EXPORT_SYMBOL_GPL(vmbus_percpu_isr);
-> +
-> +void __weak hv_setup_percpu_vmbus_handler(void (*handler)(void))
-> +{
-> +}
-> +EXPORT_SYMBOL_GPL(hv_setup_percpu_vmbus_handler);
-
-You've implemented hv_setup_percpu_vmbus_handler() following
-the pattern of hv_setup_vmbus_handler(), which is reasonable.
-But that turns out to be unnecessarily complicated. The existing
-hv_setup_vmbus_handler() has a portion in
-arch/x86/kernel/cpu/mshyperv.c as a special case because it uses a
-hard-coded interrupt vector on x86/x64, and has its own custom
-sysvec code. And there's a need for a __weak stub in hv_common.c
-so that vmbus_drv.c will compile on arm64.
-
-But hv_setup_percpu_vmbus_handler() does not have the same
-requirements. It could be implemented entirely in vmbus_drv.c,
-with no code under arch/x86 or arch/arm64, and no __weak stub
-in hv_common.c.  vmbus_drv.c would just need to
-EXPORT_SYMBOL_FOR_MODULES, like it already does with vmbus_isr.
-I didn't code it up, but I think that approach would be simpler with
-fewer piece-parts scattered all over. If so, it would be worth
-breaking the symmetry with hv_setup_vmbus_handler().
-
-> +
->  void __weak hv_remove_vmbus_handler(void)
->  {
->  }
 > diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
-> index bc4fc1951ae1..f99d4f2d3862 100644
+> index f99d4f2d3862..de191799a8f6 100644
 > --- a/drivers/hv/vmbus_drv.c
 > +++ b/drivers/hv/vmbus_drv.c
-> @@ -1413,12 +1413,6 @@ void vmbus_isr(void)
->  }
->  EXPORT_SYMBOL_FOR_MODULES(vmbus_isr, "mshv_vtl");
+> @@ -57,6 +57,7 @@ static DEFINE_PER_CPU(long, vmbus_evt);
+>  /* Values parsed from ACPI DSDT */
+>  int vmbus_irq;
+>  int vmbus_interrupt;
+> +EXPORT_SYMBOL_FOR_MODULES(vmbus_interrupt, "mshv_vtl");
 >=20
-> -static irqreturn_t vmbus_percpu_isr(int irq, void *dev_id)
-> -{
-> -	vmbus_isr();
-> -	return IRQ_HANDLED;
-> -}
-> -
->  static void vmbus_percpu_work(struct work_struct *work)
->  {
->  	unsigned int cpu =3D smp_processor_id();
-> @@ -1520,6 +1514,7 @@ static int vmbus_bus_init(void)
->  	if (vmbus_irq =3D=3D -1) {
->  		hv_setup_vmbus_handler(vmbus_isr);
->  	} else {
-> +		hv_setup_percpu_vmbus_handler(vmbus_isr);
->  		ret =3D request_percpu_irq(vmbus_irq, vmbus_percpu_isr,
->  				"Hyper-V VMbus", &vmbus_evt);
->  		if (ret) {
-> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyper=
-v.h
-> index 108f135d4fd9..b147a12085e4 100644
-> --- a/include/asm-generic/mshyperv.h
-> +++ b/include/asm-generic/mshyperv.h
-> @@ -22,6 +22,7 @@
->  #include <linux/bitops.h>
->  #include <acpi/acpi_numa.h>
->  #include <linux/cpumask.h>
-> +#include <linux/interrupt.h>
->  #include <linux/nmi.h>
->  #include <asm/ptrace.h>
->  #include <hyperv/hvhdk.h>
-> @@ -179,6 +180,8 @@ static inline u64 hv_generate_guest_id(u64 kernel_ver=
-sion)
->=20
->  int hv_get_hypervisor_version(union hv_hypervisor_version_info *info);
->=20
-> +irqreturn_t vmbus_percpu_isr(int irq, void *dev_id);
-> +void hv_setup_percpu_vmbus_handler(void (*handler)(void));
->  void hv_setup_vmbus_handler(void (*handler)(void));
->  void hv_remove_vmbus_handler(void);
->  void hv_setup_stimer0_handler(void (*handler)(void));
+>  /*
+>   * If the Confidential VMBus is used, the data on the "wire" is not
 > --
 > 2.43.0
 >=20
+
+Reviewed-by: Michael Kelley <mhklinux@outlook.com>
 
 
