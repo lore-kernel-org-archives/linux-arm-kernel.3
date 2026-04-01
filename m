@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D90A10FCAC0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 18:06:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AD58109B497
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 18:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=teTm0hXZ+EJ96ZrytNL3IVxRFUuU9/VkwSUJzzWNOD8=; b=NTkljAy6uu86+gx9P0n9fW2KHx
-	5Sjan80IaiWeFwvRkMS25JB4QNFU+bIGv31vWCSn4K4BHMqtN6WfLW0VGV7QJIY+9Vvtj+PgNHuS1
-	AarfwTCDzCgR9ENKRrtN1/9FkPb6ulFPy1H+10zMfBuKiEVwmZu045t00kdEnp/xjFfNM+PPhPqaA
-	K+wWr1WOHkLvlI++UAbzdH7A8n5p9X/v64sg/vef8RjGp2kG8FGs/YTE6CZT4e4444+mwlwBXQaPP
-	HT2ELJariTN6IukOMC8h/KNmbl2wPmTz8XrPKnYA/pt6aI6D8pouOsLuJ527crWVvtTsS7AZbdYNx
-	G4VpP4GA==;
+	bh=Ic0VQVlvqzP9swiyCE/ktySpg8l+fHo2UEcEXx1Lee0=; b=txHaqKmlZxdV3uCzCsFcQPpd2O
+	was4rQY9lQSf5jB9YiuHOXtSbDKtnBhvOYXzwyEGMqQ4ofTypF2SKhIYiIpWqMkYPE9eH0GLZjxOs
+	xEKcq/OHKkqhOjKJ7glqM5E78x71CLj4/X1ApWcjDMLLvTR98cipPAqxiFvaR6SJLvT2PJ4eH0v2d
+	hgPJMpXT8yvZ+q124ezogA4S+FWLGZ9kZOdROTHOsE4RRJh33zgdkYB0u2B7qTcJf6zu+y7AFLJtW
+	8VQ9m8NHp4L4FlZQ2ziYErAYmt5QZFEHU+lVxDblHVMB/AGGk1qv57o6EVEU6M88rMJhK4a9VZzLQ
+	PppeeneA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7zxI-0000000Fuo4-1tP5;
-	Wed, 01 Apr 2026 18:06:18 +0000
+	id 1w7zxP-0000000Fuxp-33NZ;
+	Wed, 01 Apr 2026 18:06:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7zxD-0000000FueI-22Pr
+	id 1w7zxM-0000000Fusv-46Q8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 18:06:12 +0000
+	Wed, 01 Apr 2026 18:06:22 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7F81A16F2;
-	Wed,  1 Apr 2026 11:06:04 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C1BF216F2;
+	Wed,  1 Apr 2026 11:06:13 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 58E553F7D8;
-	Wed,  1 Apr 2026 11:06:08 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 991533F7D8;
+	Wed,  1 Apr 2026 11:06:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775066770; bh=SAIVwmf3BBkZYcduqxSHulY5xG5dG+7XHDWyZ/F2Pek=;
+	t=1775066779; bh=vXcQLnQkNZP4PC6Csc+eanODUb4h5iGqZFtFktzvnZc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=U32VRrvR2HpQvikDGReMwSAk0OAtgGwAaBFkNasPuacxzYRWPAjDg8cwihholvny2
-	 Co2/poHflrFdR/uIE6dSR0vu2ZWRyBwePZQmDLd9+RWiGrf4hAz/Kvg+Euo0g1yA0M
-	 OUDoKqIHQ74+jZ72+eZkVsstk+mFK5608fhpkSBs=
+	b=CUCRyvxLVc55klpx3Lpp14KxfcbD3PdlUGngP/6+g5oinIdBdQsKmFnPwAoqh3T8c
+	 iDrlfYZKdNewvyV8+ehz9BdrvwqbCdGQswakqxBX4PIwFmj/jQ4vhxVVQZAG2cpT4/
+	 ST6DwtEFo0+djPw0ZM7FckB4m73yPd9/JF8jKw10=
 From: Leo Yan <leo.yan@arm.com>
-Date: Wed, 01 Apr 2026 19:05:40 +0100
-Subject: [PATCH v9 11/20] coresight: Move source helper disabling to
- coresight_disable_path()
+Date: Wed, 01 Apr 2026 19:05:44 +0100
+Subject: [PATCH v9 15/20] coresight: Control path during CPU idle
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260401-arm_coresight_path_power_management_improvement-v9-11-091d73e44072@arm.com>
+Message-Id: <20260401-arm_coresight_path_power_management_improvement-v9-15-091d73e44072@arm.com>
 References: <20260401-arm_coresight_path_power_management_improvement-v9-0-091d73e44072@arm.com>
 In-Reply-To: <20260401-arm_coresight_path_power_management_improvement-v9-0-091d73e44072@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -61,16 +60,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775066742; l=3756;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775066742; l=1985;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=SAIVwmf3BBkZYcduqxSHulY5xG5dG+7XHDWyZ/F2Pek=;
- b=LrMRp+2wAXt3dGix7gOyeZLHBGNj2sf0C+FOyGrBEimc6WNYq+MVdUpkxzvp9nIzBLMTZQjla
- iGDCiY23bZlCpz/lbOruGWuJtiE2cz/t5B4eWHrWs6n5XJ80ztR8DZd
+ bh=vXcQLnQkNZP4PC6Csc+eanODUb4h5iGqZFtFktzvnZc=;
+ b=RvaamOgZMihFWyGsKKFO3K5hnnu0rd0bjUAiAFE/D+ITfeM2Fgghi7xDvtugxp4BcuPS93qiF
+ oseOVZ5Ki9KAAK2PZwfj0N3FHPPzZne8/HgreDQ5V/8FtipDw+Syh3o
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_110611_616867_451EA311 
-X-CRM114-Status: GOOD (  19.52  )
+X-CRM114-CacheID: sfid-20260401_110621_156850_FB8FD532 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,101 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move source helper disabling to coresight_disable_path() to pair it with
-coresight_enable_path().
+Control links and helpers on an active path during CPU idle.
 
-In coresight_enable_path(), if enabling a node fails, iterate to the
-next node (which is the last successfully enabled node) and pass it to
-coresight_disable_path() for rollback.  If the failed node is the last
-node on the path, no device is actually enabled, so bail out directly.
-
-As a result, coresight_disable_source() only controls the source,
-leaving the associated helpers to be managed as part of path.  Update
-the comment to reflect this change.
+Retrieves the per-CPU path pointer.  Since the path pointer is only set
+via an SMP call on the local CPU, which is serialized with CPU PM
+notifiers.  If the CPU PM notifier retrieves a non-NULL path pointer, it
+is safe to iterate over the path and control it up to the node before
+the sink to avoid latency.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c | 32 ++++++++++++----------------
- 1 file changed, 14 insertions(+), 18 deletions(-)
+ drivers/hwtracing/coresight/coresight-core.c | 21 ++++++++++++++++++++-
+ 1 file changed, 20 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 8384d1466b4cc74f7e463388862c58c86b74be79..e9fcb82a2abcd52d23a3bed14ca14823dc49df6b 100644
+index c0f76ea7857e2bf368f9e5abbb023d7a34b4caf5..7fafec04de3e8262b7ca66671c6de635b671ceba 100644
 --- a/drivers/hwtracing/coresight/coresight-core.c
 +++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -388,19 +388,12 @@ static void coresight_disable_helpers(struct coresight_device *csdev,
+@@ -1768,13 +1768,32 @@ static void coresight_pm_device_restore(struct coresight_device *csdev)
+ static int coresight_pm_save(struct coresight_path *path)
+ {
+ 	struct coresight_device *source = coresight_get_source(path);
++	struct coresight_node *from, *to;
++	int ret;
++
++	ret = coresight_pm_device_save(source);
++	if (ret)
++		return ret;
+ 
+-	return coresight_pm_device_save(source);
++	from = coresight_path_first_node(path);
++	/* Up to the node before sink to avoid latency */
++	to = list_prev_entry(coresight_path_last_node(path), link);
++	coresight_disable_path_from_to(path, from, to);
++
++	return 0;
  }
  
- /*
-- * Helper function to call source_ops(csdev)->disable and also disable the
-- * helpers.
-- *
-- * There is an imbalance between coresight_enable_path() and
-- * coresight_disable_path(). Enabling also enables the source's helpers as part
-- * of the path, but disabling always skips the first item in the path (which is
-- * the source), so sources and their helpers don't get disabled as part of that
-- * function and we need the extra step here.
-+ * coresight_disable_source() only disables the source, but do nothing for
-+ * the associated helpers, which are controlled as part of the path.
-  */
- void coresight_disable_source(struct coresight_device *csdev, void *data)
+ static void coresight_pm_restore(struct coresight_path *path)
  {
- 	source_ops(csdev)->disable(csdev, data);
--	coresight_disable_helpers(csdev, NULL);
- }
- EXPORT_SYMBOL_GPL(coresight_disable_source);
- 
-@@ -451,7 +444,7 @@ static void coresight_disable_path_from(struct coresight_path *path,
- 	if (!nd)
- 		nd = list_first_entry(&path->path_list, struct coresight_node, link);
- 
--	list_for_each_entry_continue(nd, &path->path_list, link) {
-+	list_for_each_entry_from(nd, &path->path_list, link) {
- 		csdev = nd->csdev;
- 		type = csdev->type;
- 
-@@ -471,12 +464,6 @@ static void coresight_disable_path_from(struct coresight_path *path,
- 			coresight_disable_sink(csdev);
- 			break;
- 		case CORESIGHT_DEV_TYPE_SOURCE:
--			/*
--			 * We skip the first node in the path assuming that it
--			 * is the source. So we don't expect a source device in
--			 * the middle of a path.
--			 */
--			WARN_ON(1);
- 			break;
- 		case CORESIGHT_DEV_TYPE_LINK:
- 			parent = list_prev_entry(nd, link)->csdev;
-@@ -523,12 +510,16 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode)
- {
- 	int ret = 0;
- 	u32 type;
--	struct coresight_node *nd;
-+	struct coresight_node *nd, *last;
- 	struct coresight_device *csdev, *parent, *child;
- 	struct coresight_device *source;
- 
- 	source = coresight_get_source(path);
--	list_for_each_entry_reverse(nd, &path->path_list, link) {
+ 	struct coresight_device *source = coresight_get_source(path);
++	struct coresight_node *from, *to;
 +
-+	last = list_last_entry(&path->path_list, struct coresight_node, link);
-+
-+	nd = last;
-+	list_for_each_entry_from_reverse(nd, &path->path_list, link) {
- 		csdev = nd->csdev;
- 		type = csdev->type;
++	from = coresight_path_first_node(path);
++	/* Up to the node before sink to avoid latency */
++	to = list_prev_entry(coresight_path_last_node(path), link);
++	if (coresight_enable_path_from_to(path, coresight_get_mode(source),
++					  from, to))
++		return;
  
-@@ -582,6 +573,11 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode)
- err_disable_helpers:
- 	coresight_disable_helpers(csdev, path);
- err_disable_path:
-+	/* No device is actually enabled */
-+	if (nd == last)
-+		goto out;
-+
-+	nd = list_next_entry(nd, link);
- 	coresight_disable_path_from(path, nd);
- 	goto out;
+ 	coresight_pm_device_restore(source);
  }
 
 -- 
