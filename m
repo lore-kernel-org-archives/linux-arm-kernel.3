@@ -4,57 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B9F6D35177
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:49:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0146DD35162
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:49:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7LbfzB8uuVItCglxYpXiO+JyX9OGIlx3aDng3MITtwo=; b=mA9Qk8MTDQPMMW0L23FoiWWyYn
-	LX7xCw71D62VLvQ4p8CrwQSMhHEB2a+H0x/tcYpT7ttR/e3SuHgan+9e0LWhYG8UoCslvsPvdUsXj
-	EU7VA/PugzmpopkkVU1TYS9ndSVoa5zyHpq/KL2/f8MaRz9x/B/kH4VPHI3DS0ZkSnjpgVav9VMaH
-	a5ZOLhTKHtWIi2wtQpNMj6OJZjkTBy+FftJtSEM3/WlizgnXcwCBVnYYqA9UqfGfLrZebTYyA3E7b
-	G/nRFbruIAMnU7QAAk+Ad+GEdTlK2W4+lZhUxUSYZso/X8QsyZeY6T1nujI/8nxFCPWX96dIILPHk
-	a2xRHGFA==;
+	bh=nT56jk4vfcqSGTZLXA0+BHbxfEKA58OQh64flbfVi5I=; b=sfzHjryczpqXmUPobIwA2+pzRx
+	g7Q+R1YuxS9bD6tEqwgHhJvadX3N4jh26Z4njRa6UWXph6biiq3esUlg+RUWLs6K9Wg25Sy/50rGp
+	OPUZ3eU/SIXO9x7viqxoxH2GayiruEaczLY0k4VidPSMdb84Gv/qu23vwvOJSeevJs89X2kTgBlh/
+	nRt6/M8iQOiCrpybNfKT2+ALPlEqkn1WjsKl5cKhFu+H0QbguRk7ShIsn4MC8i+ihUcY64c8C5OaX
+	m0yg7SHN3kebdEc+fdwNY5f6RmXUR/C2XDm3kiQjUd9PItJiwcvqHBgpx5ZuWxjPdiDxpongplT2w
+	LtWUZdKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u4s-0000000EiIa-3BB8;
-	Wed, 01 Apr 2026 11:49:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w7u4z-0000000EiPW-2IU9;
+	Wed, 01 Apr 2026 11:49:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u4q-0000000EiG8-3TNf;
-	Wed, 01 Apr 2026 11:49:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=7LbfzB8uuVItCglxYpXiO+JyX9OGIlx3aDng3MITtwo=; b=gXYeOhHcfYTEU6znEUyTQfBGy9
-	AaXMfQK8Voxtok6GgPpTv2453/HblwC8Prpka6if3yhEOTnNlpWJCU3d9Mi0KKDsqDVVJknDNVd8B
-	2gph45aoOWGB7o2K3jz17qhFuTIjBohkE+mmfyoZgTUBWyJQSwIjdSTW0UAau5Elxi7tP4K1lJyc0
-	Q+QiGoCiIk1vF7oYT+NbpusZWgaFJ2RafSaVb2zKIc5byUHrXQAQqfMJZHUbbJFoK15BHvc4IiVXw
-	fBjoy/Y0CBxTcO7n2KkYFngBj4sgimvMrKUy+4uS3XhFaOJVy41K3LQvahbJcQ/asgO9jBocqYNYn
-	dzEzC+5Q==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u4n-00000000F9D-1xLB;
-	Wed, 01 Apr 2026 11:49:39 +0000
+	id 1w7u4y-0000000EiOV-2WG6;
+	Wed, 01 Apr 2026 11:49:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0B1A540914;
+	by tor.source.kernel.org (Postfix) with ESMTP id 0ADA660154;
+	Wed,  1 Apr 2026 11:49:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70ED1C4CEF7;
 	Wed,  1 Apr 2026 11:49:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A46ECC4CEF7;
-	Wed,  1 Apr 2026 11:49:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775044175;
-	bh=xz1grsgb4QE1o4cHB9GesAE8qhJ6lQQFIqn/KID5vfw=;
+	s=k20201202; t=1775044187;
+	bh=F0SYtjFbh6kBuMGsAC3B+F39gCPSuEhNtbzMf6XGsWU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Tnllc7x6zEKN9F7U+bg8ySDzkF9jSdpxTfoTnbvmk/kuzJ/sYG/NjwfDZ6inHO1Oc
-	 /EhJNuqVo+qFFcjj/fjTG4t7FvH7/73DVMk3rItWld3VOFc3hPShkq57juJbvm4yFK
-	 OuOjBa/ib79Lo40yyq9wodqBoUB9J2VLVSXnXzelLqcvbIhRvjrsNQYPkeVyJ/hhWe
-	 MR9qiIFeLCqngv8TClBhUW1JlJbS5mLTIFM9Ywbs9gwbFcQAsxgy9/WZUAoO8kcySG
-	 DH2hQ+Pe5WAD4+4iByp79KxYyFthjqcvoT6ilEd5BiUE6UVqgy7mAfJFJVA5UZvOT/
-	 PKMFODChfa0KQ==
+	b=bjWiQDPS7KU8dGTln8W81nRJSDxVd935z9qep1PRx54VbkqUXW/NAm70R8Hb3bcsR
+	 8kFWrBfwoF6D3u90VQt9gfnLw+5MkYjBrLJXy59CfwzSQzbJ9ghvKmP0T6jqh07qPX
+	 nZgsxUNmMLQsOvMX+rmKU3cgAlYC8M5VsyLNlSoNCF1/ehwDrZSSxWO/ZDc9AkNKOl
+	 dYN2s9Ca/uJe6eLXRE8O15eARgij9XreonoLWpWBUt7AKmqzZWMSIV0sfB6T/jdTcH
+	 +x5bDQUczhl7SyXgJ6FO0IyhyMs4MyB6F3wzluhQW+3OP5KL9D3tvpD1rv5UJ4jY5I
+	 xOkZx8Uz53dQA==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -105,16 +91,13 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org
-Subject: [PATCH 18/33] rust: kbuild: remove "dummy parameter" workaround for `bindgen` < 0.71.1
-Date: Wed,  1 Apr 2026 13:45:25 +0200
-Message-ID: <20260401114540.30108-19-ojeda@kernel.org>
+Subject: [PATCH 19/33] rust: kbuild: remove "`try` keyword" workaround for `bindgen` < 0.59.2
+Date: Wed,  1 Apr 2026 13:45:26 +0200
+Message-ID: <20260401114540.30108-20-ojeda@kernel.org>
 In-Reply-To: <20260401114540.30108-1-ojeda@kernel.org>
 References: <20260401114540.30108-1-ojeda@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_124938_109323_6531C880 
-X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,55 +112,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Until the version bump of `bindgen`, we needed to pass a dummy parameter
-to avoid failing the `--version` call.
+There is a workaround that has not been needed, even already after commit
+08ab786556ff ("rust: bindgen: upgrade to 0.65.1"), but it does not hurt.
 
 Thus remove it.
 
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
- init/Kconfig                 | 7 +------
- scripts/rust_is_available.sh | 8 +-------
- 2 files changed, 2 insertions(+), 13 deletions(-)
+ rust/bindgen_parameters | 4 ----
+ 1 file changed, 4 deletions(-)
 
-diff --git a/init/Kconfig b/init/Kconfig
-index f9fac458e4d4..d9b795f70a38 100644
---- a/init/Kconfig
-+++ b/init/Kconfig
-@@ -2211,12 +2211,7 @@ config RUSTC_VERSION_TEXT
- config BINDGEN_VERSION_TEXT
- 	string
- 	depends on RUST
--	# The dummy parameter `workaround-for-0.69.0` is required to support 0.69.0
--	# (https://github.com/rust-lang/rust-bindgen/pull/2678) and 0.71.0
--	# (https://github.com/rust-lang/rust-bindgen/pull/3040). It can be removed
--	# when the minimum version is upgraded past the latter (0.69.1 and 0.71.1
--	# both fixed the issue).
--	default "$(shell,$(BINDGEN) --version workaround-for-0.69.0 2>/dev/null)"
-+	default "$(shell,$(BINDGEN) --version 2>/dev/null)"
+diff --git a/rust/bindgen_parameters b/rust/bindgen_parameters
+index fd2fd1c3cb9a..112ec197ef0a 100644
+--- a/rust/bindgen_parameters
++++ b/rust/bindgen_parameters
+@@ -15,10 +15,6 @@
+ --opaque-type x86_msi_data
+ --opaque-type x86_msi_addr_lo
  
- #
- # Place an empty function call at each tracepoint site. Can be
-diff --git a/scripts/rust_is_available.sh b/scripts/rust_is_available.sh
-index cefc456c2503..551f1ebd0dcb 100755
---- a/scripts/rust_is_available.sh
-+++ b/scripts/rust_is_available.sh
-@@ -121,14 +121,8 @@ fi
- # Check that the Rust bindings generator is suitable.
- #
- # Non-stable and distributions' versions may have a version suffix, e.g. `-dev`.
--#
--# The dummy parameter `workaround-for-0.69.0` is required to support 0.69.0
--# (https://github.com/rust-lang/rust-bindgen/pull/2678) and 0.71.0
--# (https://github.com/rust-lang/rust-bindgen/pull/3040). It can be removed when
--# the minimum version is upgraded past the latter (0.69.1 and 0.71.1 both fixed
--# the issue).
- rust_bindings_generator_output=$( \
--	LC_ALL=C "$BINDGEN" --version workaround-for-0.69.0 2>/dev/null
-+	LC_ALL=C "$BINDGEN" --version 2>/dev/null
- ) || rust_bindings_generator_code=$?
- if [ -n "$rust_bindings_generator_code" ]; then
- 	echo >&2 "***"
+-# `try` is a reserved keyword since Rust 2018; solved in `bindgen` v0.59.2,
+-# commit 2aed6b021680 ("context: Escape the try keyword properly").
+---opaque-type kunit_try_catch
+-
+ # If SMP is disabled, `arch_spinlock_t` is defined as a ZST which triggers a Rust
+ # warning. We don't need to peek into it anyway.
+ --opaque-type spinlock
 -- 
 2.53.0
 
