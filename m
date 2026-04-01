@@ -4,109 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD17107637E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:30:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50FFE107637E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:32:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gi5a3ZvsYJKNxaZGYIF8I6g1kLoINPfjo0xrEvU8gbc=; b=QEOY6o9huEXDnS7sYsn7ZKsCHp
-	dhpEKO+xRRAqiuh2ZRpGTg5konbeGIp3txXRAGwdRdmSaoSQV6hWt8JhPTReHx09mlVgad5rezPRi
-	pNnIfELfqjDtpEFZ+10V3iIBIahsVZRg6ueIu8Q2nRlNeXtVET3hHkUrmjx/0FDOMLJuQnNs7A50u
-	OcrKytL2B0XlkVwq8YMYUF3Fnu6WexfNbfM7HZQmt9xK+Bvj2GN2OhZhdn3koCozeRTpMf0CDQTAp
-	+gVAgh2Q43gNpqZc4/R6yhFhTjyGpOf9NQEP6BN0txKPEcNOkG5eRFse2ucv1brv7z+KzujGAZ8i6
-	BXFeii0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UupDMjAJp4yzINA6QJU8md4qmWt8WCECZVr4ci6ye1I=; b=VGwRAf6dKuq9syfLTbM9AgNQT+
+	/m9eHONNK6c9hTzUjj7JmyhiK8W0a2Xr3OUQaCBp4KZaaod9BI6HDO4qoakfrOKpDcnw/fpLem5HE
+	WJdvFVLiZtLc509fwd70A4B/g0Ou3HFtyyff1WYGFd60FuytYmD7PafGIHHH/xFlJp4A3sfm7GnCa
+	cheM8uV2iMj6x3TV0Gyf4HXsLrnrn9FrSp0PdnOF5cUsHVHGG6FTKYlGFTbFs5TwQBKGfmHzngBcZ
+	iDeQyl6IjcbI+zJonwSjCNA+r25lEFLwnctrQb3rCh6EEPKXEHFq4H11KCbBwI+Pcb6hIlFNoP/n8
+	ehvA8ZYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wa1-0000000FUr5-1YB9;
-	Wed, 01 Apr 2026 14:30:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wZz-0000000FUqb-2MR4
+	id 1w7wc9-0000000FV2k-048I;
+	Wed, 01 Apr 2026 14:32:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7wc6-0000000FV2P-1bXF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 14:29:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0252A600C4;
-	Wed,  1 Apr 2026 14:29:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3E16C4CEF7;
-	Wed,  1 Apr 2026 14:29:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775053798;
-	bh=JsxK3FX8Gr9mTtm5icOkzAnPmDBiUWIhTViwcWk3SA8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mHv3PzjSdQDg45+pPp7+viX/Zi5C603I0Qox/ybtuNlM5GLG5BUF7pQWDxoNssPIB
-	 MdkKDx/WLa7QQmLrcgIdBygpEGD1ZHN8rte83plHD4VZTU4VtGHKEIbBNEIqLHXTSf
-	 xHx/IoAV69E2jAHfLEMT5ZH1UnWHYZ72dYa9NPZJ1JsNyVuKH2idbphSFFvBkKshny
-	 WuZaVjHzHkJZaM/HxrILXI5YJYLqlzvpc7QWtUwSyBGiNyQ0mrJNUTZ4un59//WG3E
-	 Ix6nFaXh21v164w2626nogLlggnQIZiRkLifXiSzY7vvZCaNb8QoxsxwkwTTVDm2ky
-	 +ckPghY9q4T5Q==
-Message-ID: <58903faa-9812-49f5-ae84-258b00387586@kernel.org>
-Date: Wed, 1 Apr 2026 16:29:54 +0200
+	Wed, 01 Apr 2026 14:32:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 45B7931DB;
+	Wed,  1 Apr 2026 07:32:02 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 575E33F641;
+	Wed,  1 Apr 2026 07:32:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775053927; bh=Q5Skf/Q0cN2o/FcGvISUP7ojEcZPEcIVT4XxZbbG56U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ocjoGJEIuL/I405PfYBiKYb3mKbyYL+3xOsmXuBWe0APxYaSuqgvVZoVmazTed82h
+	 BV4doXjYNU9Ujd1jqab/F4/Xg9rCDNWb1SnLoJde/jRnIwzo/7NSKNPEBTlreoPo9x
+	 BZA/EdfxOqa48ogaOFhzyRSJ335fUzjHABgnuyWA=
+Date: Wed, 1 Apr 2026 15:31:59 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	Ard Biesheuvel <ardb+git@google.com>, kernel-team@android.com,
+	linux-hardening@vger.kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Carlos Llamas <cmllamas@google.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Kees Cook <kees@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+	Will McVicker <willmcvicker@google.com>
+Subject: Re: [PATCH v8] arm64: Use static call trampolines when kCFI is
+ enabled
+Message-ID: <ac0sX46TwAQAChWG@arm.com>
+References: <20260331110422.301901-2-ardb+git@google.com>
+ <177503506493.2514486.12265333685036392947.b4-ty@kernel.org>
+ <2b0b9c69-650c-46bb-8579-4af85c17b8ab@app.fastmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 7/7] arm64: dts: exynos850: add PMU interrupt
- generation node
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- Sam Protsenko <semen.protsenko@linaro.org>,
- linux-samsung-soc@vger.kernel.org, Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260401-exynos850-cpuhotplug-v2-0-c5a760a3e259@linaro.org>
- <20260401-exynos850-cpuhotplug-v2-7-c5a760a3e259@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260401-exynos850-cpuhotplug-v2-7-c5a760a3e259@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2b0b9c69-650c-46bb-8579-4af85c17b8ab@app.fastmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260401_073210_662239_28190130 
+X-CRM114-Status: GOOD (  23.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,22 +78,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/04/2026 06:52, Alexey Klimov wrote:
-> Add pmu_intr_gen node for Exynos850. This hw block is required
-> for different power management routines like CPU hotplug and
-> different sleep and idle states.
-> Also reference this node from main PMU node.
+On Wed, Apr 01, 2026 at 02:03:22PM +0200, Ard Biesheuvel wrote:
 > 
-> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
-> ---
->  arch/arm64/boot/dts/exynos/exynos850.dtsi | 6 ++++++
->  1 file changed, 6 insertions(+)
+> On Wed, 1 Apr 2026, at 12:03, Will Deacon wrote:
+> > On Tue, 31 Mar 2026 13:04:23 +0200, Ard Biesheuvel wrote:
+> >> Implement arm64 support for the 'unoptimized' static call variety, which
+> >> routes all calls through a trampoline that performs a tail call to the
+> >> chosen function, and wire it up for use when kCFI is enabled. This works
+> >> around an issue with kCFI and generic static calls, where the prototypes
+> >> of default handlers such as __static_call_nop() and __static_call_ret0()
+> >> don't match the expected prototype of the call site, resulting in kCFI
+> >> false positives [0].
+> >> 
+> >> [...]
+> >
+> > Applied to arm64 (for-next/fixes), thanks!
+> >
+> > [1/1] arm64: Use static call trampolines when kCFI is enabled
+> >       https://git.kernel.org/arm64/c/e70c2335f889
+> >
 > 
+> Thanks,
+> 
+> I just spotted that the function name gets stringified twice inadvertently.
+> 
+> E.g., the assembler may see
+> 
+> .quad "__static_call_return0"
+> 
+> rather than the intended
+> 
+> .quad __static_call_return0
+> 
+> The assembler does not seem to care, and still emits an ABS64 relocation against the correct symbol, but it is definitely unintentional.
+> 
+> I can send a follow-up fix if you prefer, or you could just tweak the patch in place:
+> 
+> --- a/arch/arm64/include/asm/static_call.h
+> +++ b/arch/arm64/include/asm/static_call.h
+> @@ -16,7 +16,7 @@
+>             "   .popsection                                     \n" \
+>             "   .pushsection .rodata, \"a\"                     \n" \
+>             "   .align  3                                       \n" \
+> -           "1: .quad   " #target "                             \n" \
+> +           "1: .quad   " target "                              \n" \
+>             "   .popsection                                     \n")
 
-I took a brief look at other patches and seemed fine. Anyway, my tree is
-currently closed for new features till the end of the merge window so I
-will probably take a more detailed look after it.
+Not sure Will is going to look at this until next week. I folded it into
+the arm64 for-next/fixes branch and pushed out.
 
-Best regards,
-Krzysztof
+-- 
+Catalin
 
