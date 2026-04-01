@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA0C5D35177
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE5CBD3517C
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 12:37:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,32 +12,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SqAh8+J+p74P/kyDkkVzKjpnfMDd7XwXqLzKDtTGffs=; b=xEj7JIT4pY5tVMXdleEeMSlwfN
-	qLJG96/NV+JKd5EwnPjoxho+RElzaLSqh36GWpaT/BWKVg7EKBWtgXEyrW572zuyxKkxJ3A2lUG/J
-	3HFetZdbk8E8bpeC3igtyOJQT0P8W+IhW9uzHcsdcJvHmM+WSTIAD2deNyyDZYVP7Fa5xAZ/R6Pg/
-	Q8cGha2WFYTmHiciq8RqRHwKAHN0kxVwiluiGdvm5Zxd7Zt4ToT5chiTG/Ncv8iOPinxia+Rf4D9I
-	S9bwa8V35EtdKbR4dLnF6lA9/fOwH7Orarj2Z6q/xJbS7JVeAJwn8tBx3pIuvSaV7qN0j6VfF8xgn
-	zRhAn7yQ==;
+	bh=p0PBCxsueUX4UGv9YP6InaaDYR85o9jiwW8JhqElfeo=; b=Vlt1vnkt7bsfdInWZdpm85l023
+	+U27eyf2dOy+Uk/lw5KTbHrQzLfIvw8spyCwAqKsIvGfRzAPxTm+5louVfRVKXhLXGfgzdITdxejE
+	RGsL66Ph/aDvF2GyriOhnR52olwh5HcMvksiq77wtPU6jO+HA6JXX4J+IuARXPzRmAYo0VTVLTgLk
+	1hh96dfWd5lXqYDmFT/0s0WWI/ge2wGaqX/VN8KAafea632LTvl++Lnx7Eo9Lrt/w1rJc1drwySXR
+	0EAk9lh3SM4szNLdaT+mJK7QG5r/CKqaEm8mBhLHBypCZIpjdd7tsbeMWupGdBDQvTu0j1mmQctBr
+	hNUXrQzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7upN-0000000FCHk-1Wpp;
+	id 1w7upO-0000000FCIa-3VMP;
 	Wed, 01 Apr 2026 12:37:46 +0000
 Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7uce-0000000F2j5-3C56
+	id 1w7uce-0000000F2jD-2zQW
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 01 Apr 2026 12:24:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
  Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
  s=fe-e1b5cab7be; t=1775046275;
- bh=SqAh8+J+p74P/kyDkkVzKjpnfMDd7XwXqLzKDtTGffs=;
- b=FQ9oOky/PQf60NrvvsUnsYxWSLbTXCu9+DwT7Klcq4FXq37Q5nE/AeVAfyIztx12pvDM5Dy5j
- oyRK1wYLXhcY30QaOkW697YuxFO3hhp0PXOtPYNP4e8QqXlOQSHfRl5R0NSMYj0KaV0zBfgioac
- PCkwXBZslzBzKAMSuyUkLLWvARgK2XPZDWdC/FWDXuLoDno20J44PDdQ4TVAv1uNKaDmUQU9AeK
- YcnqvHMhCCDocyupD9UyY7BB9blBx2jvcLED+6bMuI2gEYKBh+KC66mOzGGxloRtT41MPByk149
- iYymjx4aVrcH6s2WdBu4IfJZB6FyvjxuozMx2GcQcAlw==
-X-Forward-Email-ID: 69ccda55842394fec82951f9
+ bh=p0PBCxsueUX4UGv9YP6InaaDYR85o9jiwW8JhqElfeo=;
+ b=BQcJmJX3/CXRwkHtDf2WuvuB/4zF+6pi3lEKXIdfd2/EsnUVn2ajo8tl8ee9LoTQMo/ie1ptZ
+ jSOv9TyoE+AdpPVo2OdP0BfxQjJNCIAvyAacKIqw1vh5PXsKgLzSwRNdyeirPbUKAPwIO7cOt48
+ HtbqXIZRU150wSpnjAS11gd9cLG1ABGGU45MtGmPCVwDo8Fpf/gH1KNgyp/mVnDK5jvw1SMYJhv
+ W89ZfbUgJmt2+v7ETv4+5B7Mza6wdmSjJdIefuW4F60UjLcD0/mbYZLIBwqbrPDuzR+KWGzC4TC
+ NVUSQk+WSm8XCBkvztodiYcZCkNr3Swhh3/1rss61vPQ==
+X-Forward-Email-ID: 69ccd6999fd488f8629e29f7
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
  121.127.44.73
 X-Forward-Email-Version: 2.6.64
@@ -45,27 +45,29 @@ X-Forward-Email-Website: https://forwardemail.net
 X-Complaints-To: abuse@forwardemail.net
 X-Report-Abuse: abuse@forwardemail.net
 X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <e622cc9e-8fb0-454a-b88e-dc13cf2ff507@kwiboo.se>
-Date: Wed, 1 Apr 2026 10:41:54 +0200
+Message-ID: <8ca0a8d3-aed9-4c2a-89dd-e9029afdd279@kwiboo.se>
+Date: Wed, 1 Apr 2026 10:25:58 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/rockchip: fix page table allocation flags for v2
- IOMMU
-To: Simon <xxm@rock-chips.com>, Midgy BALON <midgy971@gmail.com>
-Cc: iommu@lists.linux.dev, joro@8bytes.org, will@kernel.org,
- robin.murphy@arm.com, heiko@sntech.de, linux-arm-kernel@lists.infradead.org,
+Subject: Re: [PATCH v2] iommu/rockchip: Drop global rk_ops in favor of
+ per-device ops
+To: Simon Xue <xxm@rock-chips.com>, Shawn Lin <shawn.lin@rock-chips.com>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20260331075010.1463-1-midgy971@gmail.com>
- <0f285782-b12a-4abd-bca7-b6c549bed59f@rock-chips.com>
+ Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Heiko Stuebner <heiko@sntech.de>
+References: <20260310084812.126082-1-xxm@rock-chips.com>
+ <20260310105303.128859-1-xxm@rock-chips.com>
+ <a586dd60-5b9c-4044-3bb1-903df863b587@rock-chips.com>
+ <b046ad1c-9cfc-4399-a8df-e4fffff434f9@rock-chips.com>
 Content-Language: en-US
 From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <0f285782-b12a-4abd-bca7-b6c549bed59f@rock-chips.com>
+In-Reply-To: <b046ad1c-9cfc-4399-a8df-e4fffff434f9@rock-chips.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_052436_887115_291481E6 
-X-CRM114-Status: GOOD (  22.49  )
+X-CRM114-CacheID: sfid-20260401_052436_844205_BA933823 
+X-CRM114-Status: GOOD (  29.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,90 +82,313 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Simon,
+Hi,
 
-On 4/1/2026 9:48 AM, Simon wrote:
-> Hi Midgy,
+On 4/1/2026 9:59 AM, Simon Xue wrote:
+> Hi all,
 > 
-> 在 2026/3/31 15:50, Midgy BALON 写道:
->> commit 2a7e6400f72b ("iommu: rockchip: Allocate tables from all
->> available memory for IOMMU v2") removed GFP_DMA32 from
->> iommu_data_ops_v2, reasoning that RK356x and RK3588 IOMMU v2 hardware
->> supports up to 40-bit physical addresses for page tables.  However, the
->> RK3568 IOMMU page-table walker uses a 32-bit AXI bus: it cannot access
->> physical addresses above 4 GB regardless of the address encoding range.
+> A gentle ping on this patch.
+> 
+> 在 2026/3/13 17:32, Shawn Lin 写道:
+>> 在 2026/03/10 星期二 18:53, Simon Xue 写道:
+>>> The driver currently uses a global rk_ops pointer, forcing all IOMMU
+>>> instances to share the same operations. This restricts the driver from
+>>> supporting SoCs that might integrate different versions of IOMMU 
+>>> hardware.
+>>>
+>>> Since the IOMMU framework passes the master device information to
+>>> iommu_paging_domain_alloc(), the global variable is no longer needed.
+>>>
+>>> Fix this by moving rk_ops into struct rk_iommu and struct 
+>>> rk_iommu_domain.
+>>> Initialize it per-device during probe via of_device_get_match_data(),
+>>> and replace all global references with the instance-specific pointers.
+>>>
 >>
->> On boards with more than 4 GB of RAM (e.g. 8 GB LPDDR4X), removing
->> GFP_DMA32 causes two distinct failure modes:
+>> Thanks for the patch, Simon. I've tested it on the RK3576 EVB1 with
+>> PCIe1 + IOMMU. NVMe works fine on it, and I also verified the IOVA
+>> allocated in the NVMe driver, they look correct as I manually limited
+>> the memblock to under 2GB, so here it is:
 >>
->> 1. Direct allocation above 4 GB: iommu_alloc_pages_sz() may return
->>     memory above 0x100000000.  The hardware page-table walker issues a
->>     bus error trying to dereference those addresses, causing an IOMMU
->>     fault on the first DMA transaction.
->
-> Which IP block is hitting this? We'd like to take a look on our end.
+>> nvme 0001:21:00.0: cq_dma_addr: 0x00000000f7fc7000
+>>
+>> Tested-by: Shawn Lin <shawn.lin@rock-chips.com>
+>> Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
+>>
+>>> Signed-off-by: Simon Xue <xxm@rock-chips.com>
+>>> ---
+>>> v2:
+>>>   - Remove the one-time-used 'ops' variable in rk_iommu_probe()
+>>>
+>>>   drivers/iommu/rockchip-iommu.c | 71 ++++++++++++++++------------------
+>>>   1 file changed, 33 insertions(+), 38 deletions(-)
+>>>
+>>> diff --git a/drivers/iommu/rockchip-iommu.c 
+>>> b/drivers/iommu/rockchip-iommu.c
+>>> index 0013cf196c57..4da80136933c 100644
+>>> --- a/drivers/iommu/rockchip-iommu.c
+>>> +++ b/drivers/iommu/rockchip-iommu.c
+>>> @@ -82,6 +82,14 @@
+>>>     */
+>>>   #define RK_IOMMU_PGSIZE_BITMAP 0x007ff000
+>>>   +struct rk_iommu_ops {
+>>> +    phys_addr_t (*pt_address)(u32 dte);
+>>> +    u32 (*mk_dtentries)(dma_addr_t pt_dma);
+>>> +    u32 (*mk_ptentries)(phys_addr_t page, int prot);
+>>> +    u64 dma_bit_mask;
+>>> +    gfp_t gfp_flags;
+>>> +};
+>>> +
+>>>   struct rk_iommu_domain {
+>>>       struct list_head iommus;
+>>>       u32 *dt; /* page directory table */
+>>> @@ -89,6 +97,7 @@ struct rk_iommu_domain {
+>>>       spinlock_t iommus_lock; /* lock for iommus list */
+>>>       spinlock_t dt_lock; /* lock for modifying page directory table */
+>>>       struct device *dma_dev;
+>>> +    const struct rk_iommu_ops *rk_ops;
+>>>         struct iommu_domain domain;
+>>>   };
+>>> @@ -98,14 +107,6 @@ static const char * const rk_iommu_clocks[] = {
+>>>       "aclk", "iface",
+>>>   };
+>>>   -struct rk_iommu_ops {
+>>> -    phys_addr_t (*pt_address)(u32 dte);
+>>> -    u32 (*mk_dtentries)(dma_addr_t pt_dma);
+>>> -    u32 (*mk_ptentries)(phys_addr_t page, int prot);
+>>> -    u64 dma_bit_mask;
+>>> -    gfp_t gfp_flags;
+>>> -};
+>>> -
+>>>   struct rk_iommu {
+>>>       struct device *dev;
+>>>       void __iomem **bases;
+>>> @@ -117,6 +118,7 @@ struct rk_iommu {
+>>>       struct iommu_device iommu;
+>>>       struct list_head node; /* entry in rk_iommu_domain.iommus */
+>>>       struct iommu_domain *domain; /* domain to which iommu is 
+>>> attached */
+>>> +    const struct rk_iommu_ops *rk_ops;
 
-I have seen reports that the NPU MMU on RK3568/RK3566 is having some
-issue using DTE/PTE with >32-bit addresses, maybe it uses a different
-MMU hw revision or has some hw errata?
+Do we really need the rk_ops on both the rk_iommu and rk_iommu_domain?
 
-From my own testing at least the VOP2 MMU on RK3568 (and RK3588) was
-able to handle 40-bit addressable DTE/PTE, hence the original commit
-2a7e6400f72b ("iommu: rockchip: Allocate tables from all available
-memory for IOMMU v2").
+>>>   };
+>>>     struct rk_iommudata {
+>>> @@ -124,7 +126,6 @@ struct rk_iommudata {
+>>>       struct rk_iommu *iommu;
+>>>   };
+>>>   -static const struct rk_iommu_ops *rk_ops;
+>>>   static struct iommu_domain rk_identity_domain;
+>>>     static inline void rk_table_flush(struct rk_iommu_domain *dom, 
+>>> dma_addr_t dma,
+>>> @@ -510,7 +511,7 @@ static int rk_iommu_force_reset(struct rk_iommu 
+>>> *iommu)
+>>>        * and verifying that upper 5 (v1) or 7 (v2) nybbles are read 
+>>> back.
+>>>        */
+>>>       for (i = 0; i < iommu->num_mmu; i++) {
+>>> -        dte_addr = rk_ops->pt_address(DTE_ADDR_DUMMY);
+>>> +        dte_addr = iommu->rk_ops->pt_address(DTE_ADDR_DUMMY);
 
-As also mentioned in my reply at [1], maybe the NPU MMU has some hw
-limitation or errata and may need to use a different compatible.
+Maybe this patch it trying to do too much at once that makes it harder
+to review? To simplify review maybe one patch just drops the global
+rk_ops and a assigns a local version based on domain/iommu, and a second
+patch changes to use the iommu->rk_ops directly? Just a thought.
 
-[1] https://lore.kernel.org/r/3cd63b3d-1c5e-4a11-856e-c4aeb5d97d55@kwiboo.se/
+>>>           rk_iommu_write(iommu->bases[i], RK_MMU_DTE_ADDR, dte_addr);
+>>>             if (dte_addr != rk_iommu_read(iommu->bases[i], 
+>>> RK_MMU_DTE_ADDR)) {
+>>> @@ -551,7 +552,7 @@ static void log_iova(struct rk_iommu *iommu, int 
+>>> index, dma_addr_t iova)
+>>>       page_offset = rk_iova_page_offset(iova);
+>>>         mmu_dte_addr = rk_iommu_read(base, RK_MMU_DTE_ADDR);
+>>> -    mmu_dte_addr_phys = rk_ops->pt_address(mmu_dte_addr);
+>>> +    mmu_dte_addr_phys = iommu->rk_ops->pt_address(mmu_dte_addr);
+>>>         dte_addr_phys = mmu_dte_addr_phys + (4 * dte_index);
+>>>       dte_addr = phys_to_virt(dte_addr_phys);
+>>> @@ -560,14 +561,14 @@ static void log_iova(struct rk_iommu *iommu, 
+>>> int index, dma_addr_t iova)
+>>>       if (!rk_dte_is_pt_valid(dte))
+>>>           goto print_it;
+>>>   -    pte_addr_phys = rk_ops->pt_address(dte) + (pte_index * 4);
+>>> +    pte_addr_phys = iommu->rk_ops->pt_address(dte) + (pte_index * 4);
+>>>       pte_addr = phys_to_virt(pte_addr_phys);
+>>>       pte = *pte_addr;
+>>>         if (!rk_pte_is_page_valid(pte))
+>>>           goto print_it;
+>>>   -    page_addr_phys = rk_ops->pt_address(pte) + page_offset;
+>>> +    page_addr_phys = iommu->rk_ops->pt_address(pte) + page_offset;
+>>>       page_flags = pte & RK_PTE_PAGE_FLAGS_MASK;
+>>>     print_it:
+>>> @@ -663,13 +664,13 @@ static phys_addr_t rk_iommu_iova_to_phys(struct 
+>>> iommu_domain *domain,
+>>>       if (!rk_dte_is_pt_valid(dte))
+>>>           goto out;
+>>>   -    pt_phys = rk_ops->pt_address(dte);
+>>> +    pt_phys = rk_domain->rk_ops->pt_address(dte);
+>>>       page_table = (u32 *)phys_to_virt(pt_phys);
+>>>       pte = page_table[rk_iova_pte_index(iova)];
+>>>       if (!rk_pte_is_page_valid(pte))
+>>>           goto out;
+>>>   -    phys = rk_ops->pt_address(pte) + rk_iova_page_offset(iova);
+>>> +    phys = rk_domain->rk_ops->pt_address(pte) + 
+>>> rk_iova_page_offset(iova);
+>>>   out:
+>>>       spin_unlock_irqrestore(&rk_domain->dt_lock, flags);
+>>>   @@ -730,7 +731,7 @@ static u32 *rk_dte_get_page_table(struct 
+>>> rk_iommu_domain *rk_domain,
+>>>       if (rk_dte_is_pt_valid(dte))
+>>>           goto done;
+>>>   -    page_table = iommu_alloc_pages_sz(GFP_ATOMIC | rk_ops->gfp_flags,
+>>> +    page_table = iommu_alloc_pages_sz(GFP_ATOMIC | 
+>>> rk_domain->rk_ops->gfp_flags,
+>>>                         SPAGE_SIZE);
+>>>       if (!page_table)
+>>>           return ERR_PTR(-ENOMEM);
+>>> @@ -742,13 +743,13 @@ static u32 *rk_dte_get_page_table(struct 
+>>> rk_iommu_domain *rk_domain,
+>>>           return ERR_PTR(-ENOMEM);
+>>>       }
+>>>   -    dte = rk_ops->mk_dtentries(pt_dma);
+>>> +    dte = rk_domain->rk_ops->mk_dtentries(pt_dma);
+>>>       *dte_addr = dte;
+>>>         rk_table_flush(rk_domain,
+>>>                  rk_domain->dt_dma + dte_index * sizeof(u32), 1);
+>>>   done:
+>>> -    pt_phys = rk_ops->pt_address(dte);
+>>> +    pt_phys = rk_domain->rk_ops->pt_address(dte);
+>>>       return (u32 *)phys_to_virt(pt_phys);
+>>>   }
+>>>   @@ -790,7 +791,7 @@ static int rk_iommu_map_iova(struct 
+>>> rk_iommu_domain *rk_domain, u32 *pte_addr,
+>>>           if (rk_pte_is_page_valid(pte))
+>>>               goto unwind;
+>>>   -        pte_addr[pte_count] = rk_ops->mk_ptentries(paddr, prot);
+>>> +        pte_addr[pte_count] = rk_domain->rk_ops->mk_ptentries(paddr, 
+>>> prot);
+>>>             paddr += SPAGE_SIZE;
+>>>       }
+>>> @@ -812,7 +813,7 @@ static int rk_iommu_map_iova(struct 
+>>> rk_iommu_domain *rk_domain, u32 *pte_addr,
+>>>                   pte_count * SPAGE_SIZE);
+>>>         iova += pte_count * SPAGE_SIZE;
+>>> -    page_phys = rk_ops->pt_address(pte_addr[pte_count]);
+>>> +    page_phys = rk_domain->rk_ops->pt_address(pte_addr[pte_count]);
+>>>       pr_err("iova: %pad already mapped to %pa cannot remap to phys: 
+>>> %pa prot: %#x\n",
+>>>              &iova, &page_phys, &paddr, prot);
+>>>   @@ -849,7 +850,7 @@ static int rk_iommu_map(struct iommu_domain 
+>>> *domain, unsigned long _iova,
+>>>       pte_index = rk_iova_pte_index(iova);
+>>>       pte_addr = &page_table[pte_index];
+>>>   -    pte_dma = rk_ops->pt_address(dte_index) + pte_index * 
+>>> sizeof(u32);
+>>> +    pte_dma = rk_domain->rk_ops->pt_address(dte_index) + pte_index * 
+>>> sizeof(u32);
+>>>       ret = rk_iommu_map_iova(rk_domain, pte_addr, pte_dma, iova,
+>>>                   paddr, size, prot);
+>>>   @@ -887,7 +888,7 @@ static size_t rk_iommu_unmap(struct 
+>>> iommu_domain *domain, unsigned long _iova,
+>>>           return 0;
+>>>       }
+>>>   -    pt_phys = rk_ops->pt_address(dte);
+>>> +    pt_phys = rk_domain->rk_ops->pt_address(dte);
+>>>       pte_addr = (u32 *)phys_to_virt(pt_phys) + rk_iova_pte_index(iova);
+>>>       pte_dma = pt_phys + rk_iova_pte_index(iova) * sizeof(u32);
+>>>       unmap_size = rk_iommu_unmap_iova(rk_domain, pte_addr, pte_dma, 
+>>> size);
+>>> @@ -945,7 +946,7 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
+>>>         for (i = 0; i < iommu->num_mmu; i++) {
+>>>           rk_iommu_write(iommu->bases[i], RK_MMU_DTE_ADDR,
+>>> - rk_ops->mk_dtentries(rk_domain->dt_dma));
+>>> + iommu->rk_ops->mk_dtentries(rk_domain->dt_dma));
+>>>           rk_iommu_base_command(iommu->bases[i], RK_MMU_CMD_ZAP_CACHE);
+>>>           rk_iommu_write(iommu->bases[i], RK_MMU_INT_MASK, 
+>>> RK_MMU_IRQ_MASK);
+>>>       }
+>>> @@ -1068,17 +1069,19 @@ static struct iommu_domain 
+>>> *rk_iommu_domain_alloc_paging(struct device *dev)
+>>>       if (!rk_domain)
+>>>           return NULL;
+>>>   +    iommu = rk_iommu_from_dev(dev);
+>>> +    rk_domain->rk_ops = iommu->rk_ops;
+
+As mentioned above, this seem strange and is possible just a shortcut
+due to current call-paths? Why do we assign "iommu ops" to the domain?
 
 Regards,
 Jonas
 
->
->> 2. SWIOTLB bounce-buffer poisoning: without GFP_DMA32, page tables land
->>     above the SWIOTLB window.  dma_map_single() with DMA_BIT_MASK(32)
->>     then bounces them into a buffer below 4 GB.  rk_dte_get_page_table()
->>     returns phys_to_virt() of the bounce buffer address; PTEs are written
->>     there; the next dma_sync_single_for_device(DMA_TO_DEVICE) copies the
->>     original (zero) data back over the bounce buffer, silently erasing the
->>     freshly written PTEs.  The IOMMU faults because every PTE reads as zero.
->
-> This probably need a separate patch. One way to fix it would be to track the
-> original L2 page table base addresses in struct rk_iommu_domain,
-> then have rk_dte_get_page_table() return the tracked address instead of
-> deriving it from the DTE.
->
->> Restore GFP_DMA32 (and DMA_BIT_MASK(32)) for iommu_data_ops_v2, which
->> currently only serves "rockchip,rk3568-iommu" in mainline.
+>>> +
+>>>       /*
+>>>        * rk32xx iommus use a 2 level pagetable.
+>>>        * Each level1 (dt) and level2 (pt) table has 1024 4-byte entries.
+>>>        * Allocate one 4 KiB page for each table.
+>>>        */
+>>> -    rk_domain->dt = iommu_alloc_pages_sz(GFP_KERNEL | 
+>>> rk_ops->gfp_flags,
+>>> +    rk_domain->dt = iommu_alloc_pages_sz(GFP_KERNEL | 
+>>> rk_domain->rk_ops->gfp_flags,
+>>>                            SPAGE_SIZE);
+>>>       if (!rk_domain->dt)
+>>>           goto err_free_domain;
+>>>   -    iommu = rk_iommu_from_dev(dev);
+>>>       rk_domain->dma_dev = iommu->dev;
+>>>       rk_domain->dt_dma = dma_map_single(rk_domain->dma_dev, 
+>>> rk_domain->dt,
+>>>                          SPAGE_SIZE, DMA_TO_DEVICE);
+>>> @@ -1117,7 +1120,7 @@ static void rk_iommu_domain_free(struct 
+>>> iommu_domain *domain)
+>>>       for (i = 0; i < NUM_DT_ENTRIES; i++) {
+>>>           u32 dte = rk_domain->dt[i];
+>>>           if (rk_dte_is_pt_valid(dte)) {
+>>> -            phys_addr_t pt_phys = rk_ops->pt_address(dte);
+>>> +            phys_addr_t pt_phys = rk_domain->rk_ops->pt_address(dte);
+>>>               u32 *page_table = phys_to_virt(pt_phys);
+>>>               dma_unmap_single(rk_domain->dma_dev, pt_phys,
+>>>                        SPAGE_SIZE, DMA_TO_DEVICE);
+>>> @@ -1197,7 +1200,6 @@ static int rk_iommu_probe(struct 
+>>> platform_device *pdev)
+>>>       struct device *dev = &pdev->dev;
+>>>       struct rk_iommu *iommu;
+>>>       struct resource *res;
+>>> -    const struct rk_iommu_ops *ops;
+>>>       int num_res = pdev->num_resources;
+>>>       int err, i;
+>>>   @@ -1211,16 +1213,9 @@ static int rk_iommu_probe(struct 
+>>> platform_device *pdev)
+>>>       iommu->dev = dev;
+>>>       iommu->num_mmu = 0;
+>>>   -    ops = of_device_get_match_data(dev);
+>>> -    if (!rk_ops)
+>>> -        rk_ops = ops;
+>>> -
+>>> -    /*
+>>> -     * That should not happen unless different versions of the
+>>> -     * hardware block are embedded the same SoC
+>>> -     */
+>>> -    if (WARN_ON(rk_ops != ops))
+>>> -        return -EINVAL;
+>>> +    iommu->rk_ops = of_device_get_match_data(dev);
+>>> +    if (!iommu->rk_ops)
+>>> +        return -ENOENT;
+>>>         iommu->bases = devm_kcalloc(dev, num_res, sizeof(*iommu->bases),
+>>>                       GFP_KERNEL);
+>>> @@ -1286,7 +1281,7 @@ static int rk_iommu_probe(struct 
+>>> platform_device *pdev)
+>>>               goto err_pm_disable;
+>>>       }
+>>>   -    dma_set_mask_and_coherent(dev, rk_ops->dma_bit_mask);
+>>> +    dma_set_mask_and_coherent(dev, iommu->rk_ops->dma_bit_mask);
+>>>         err = iommu_device_sysfs_add(&iommu->iommu, dev, NULL, 
+>>> dev_name(dev));
+>>>       if (err)
+>>>
 >>
->> Tested on Radxa ROCK 3B (RK3568, 8 GB LPDDR4X):
->>    - MobileNetV1 via RKNN: 5.8 ms/inference (IOMMU mode)
->>    - YOLOv5s 640x640 via RKNN: ~57 ms/inference (IOMMU mode)
->>    - No IOMMU faults, correct inference results
->>
->> Fixes: 2a7e6400f72b ("iommu: rockchip: Allocate tables from all available memory for IOMMU v2")
->> Cc: stable@vger.kernel.org
->> Cc: Jonas Karlman <jonas@kwiboo.se>
->> Signed-off-by: Midgy BALON <midgy971@gmail.com>
->> ---
->>   drivers/iommu/rockchip-iommu.c | 4 ++--
->>   1 file changed, 2 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
->> index 85f3667e797..8b45db29471 100644
->> --- a/drivers/iommu/rockchip-iommu.c
->> +++ b/drivers/iommu/rockchip-iommu.c
->> @@ -1358,8 +1358,8 @@ static struct rk_iommu_ops iommu_data_ops_v2 = {
->>   	.pt_address = &rk_dte_pt_address_v2,
->>   	.mk_dtentries = &rk_mk_dte_v2,
->>   	.mk_ptentries = &rk_mk_pte_v2,
->> -	.dma_bit_mask = DMA_BIT_MASK(40),
->> -	.gfp_flags = 0,
->> +	.dma_bit_mask = DMA_BIT_MASK(32),
->> +	.gfp_flags = GFP_DMA32,
->>   };
->>   
->>   static const struct of_device_id rk_iommu_dt_ids[] = {
+> 
+> _______________________________________________
+> Linux-rockchip mailing list
+> Linux-rockchip@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-rockchip
 
 
