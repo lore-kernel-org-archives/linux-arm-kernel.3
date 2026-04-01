@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA0F1112242
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 22:59:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 384D61112245
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 22:59:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
 	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qEfVtKe2dtJy7va4j9UwEbQQ4Lq6WN20hysSgq/MgJo=; b=Cf+f+9Ec0AqhirKzcqDPnZ1rYp
-	qAqwJgATyda4YtXp0aXhsdjqOPCoFAbGVyk4yKT81xkaFqiWw/GW1i4QMtx3s2hgF303khxC1JIqx
-	xTcx/THjf5LEPt2KcwhnGWoJeeYmjEx1tZw7qjpw8ZbPghDjqh3u31Kjrfswit2OAFuQnQCUqn7qW
-	m5mM1M4uEQ8LTrDfz7Eqg4iD1wK+hYSa9rmd1Kpryl8wHWg2TQvrrFltFl84KOkJLM1QSC9gf24lF
-	PknPmVo2S+LG9PME5qhNICD4QwW7Ug4N5hgw4oGPn1V9Owh0bah4GEPOp/l3d0NG7fvhUh6n7cYzL
-	Xs2nOi7g==;
+	bh=YEcJrPgZyc/UWW/p+aF/QXCo+fSirWWH6itFr3NT/78=; b=y9pP+qbmgD1NfI5A33I8N2X9VD
+	ZYXhnU4WJQH69kr+Ty0ZdbnEeVDk3SmcsAik0SYQI34nOADHdKwh8Y66ZZHgdJk6Sv3UmKx2t2hoX
+	oKdo5CAiQ0XAIm13e4rVtNtpMviL/fBVLblPfznCKybbeWeldDjKJA/iSJzG+x7mrEH+DK2AciOGa
+	6wZlPoA6NHOWjeippzSS1yRwlw1Wz0ks8BUCavigtNNOHtZ5AK8ndxCV2GZ63LYK2T7pg7yXmDivc
+	s0aiQANTQkdbQMm26xN1+KJc7uWEHPyyJC4kgInN5ygVM4cuAk2SKnRlE6yIQcX6oaRXSvOnNYvVL
+	Pg0jDg/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w84XG-0000000GLWF-051O;
-	Wed, 01 Apr 2026 22:59:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w84XJ-0000000GLZv-2pSG;
+	Wed, 01 Apr 2026 22:59:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w84XC-0000000GLUN-42tT;
-	Wed, 01 Apr 2026 22:59:41 +0000
+	id 1w84XI-0000000GLXp-2DjP;
+	Wed, 01 Apr 2026 22:59:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6896B440FA;
+	by tor.source.kernel.org (Postfix) with ESMTP id A8BB96183C;
+	Wed,  1 Apr 2026 22:59:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EA88C4CEF7;
 	Wed,  1 Apr 2026 22:59:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B8A9C116C6;
-	Wed,  1 Apr 2026 22:59:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775084378;
-	bh=kNWPNZPv5AJZXsbuPes0ElScqifYmuQXsRJThydCrms=;
+	s=k20201202; t=1775084383;
+	bh=0MM8/3CTNZDnO2QJpUmaXqxHB1Rvcg/ziIyw641Wqc0=;
 	h=Subject:From:To:Cc:In-Reply-To:References:Date:From;
-	b=SpxQlYzd4uQJCDoo3G1uLsZbGWv+MIW76Y01oAor/ISn8VhAzL8ca8LVPPgm5wJ7k
-	 1IYnRaDxl6TCtaogMicQwqVu7t6a3KtRtWMRwk3Z3UF1PihJzRQvVHikJNsU6/8BLF
-	 N2f3V437pqOD0OyYPS1JBD6eSIuqHQyNGr0yfJ/NRWdtzqXHnXADkmhAzYJGTOXadZ
-	 oFSgKCzeUx0R3N30L0LXacIoJjkcRCSUKJLk/krBOBS4njzvdxSOEArxX/zs9G8Z4S
-	 PcS7uUCx73rsiwR7sv0/kZgJQF/7hZETY3nE7bJFU9unkvdaW6MtX/vDRJ0IcCFGEn
-	 mdj7JT6ErlYwg==
+	b=EGRYhbV4HQSbzNtKzfTww5lA+Uerrsg7IL+49jk5/fWwiQGmws0MFMhs8KmPYz0bF
+	 3hpRw9q7h5+2vsLnlgC8jieG/3JmIARlD8LqGGxCtDEsOdOBbWTv/En/Z/2cYLAJ/g
+	 KFjsHZnFL9/lOaqiBVjiOUmt3S211fe3JvmErJhlpKeBwep4sg/58vKaN+T1X2ZJIj
+	 IXfJxWhpfJRuYHAo5iZpPOMvh3OuelV4yFlkJ3iT397bKazKJdSXENYbbXIHAdGnHU
+	 ada09pio/4900X3hmHEj0e1yW+yEOAoruxQR92rFOFjCm6P7F+vzIHw2KdG6BFCIQS
+	 SUk7ZWvKLfHKg==
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH 04/33] rust: remove `RUSTC_HAS_SLICE_AS_FLATTENED` and
+Subject: Re: [PATCH 05/33] rust: remove `RUSTC_HAS_COERCE_POINTEE` and
  simplify code
 From: Tamir Duberstein <tamird@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>
@@ -77,24 +77,20 @@ Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
  Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
  llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
  Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
-In-Reply-To: <20260401114540.30108-5-ojeda@kernel.org>
+In-Reply-To: <20260401114540.30108-6-ojeda@kernel.org>
 References: <20260401114540.30108-1-ojeda@kernel.org>
- <20260401114540.30108-5-ojeda@kernel.org>
+ <20260401114540.30108-6-ojeda@kernel.org>
 Date: Wed, 01 Apr 2026 18:59:04 -0400
-Message-Id: <177508434435.73816.12811715375635165629.b4-review@b4>
+Message-Id: <177508434436.73816.122481804122122631.b4-review@b4>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=532; i=tamird@kernel.org;
- h=from:subject:message-id; bh=kNWPNZPv5AJZXsbuPes0ElScqifYmuQXsRJThydCrms=;
- b=owGbwMvMwCV2wYdPVfy60HTG02pJDJlnFzttDbkgadD08O8m0yXvWGMrZpq9En74+dEvzrtLE
- 43n3bq0v2MiC4MYF4OlmCJLouihvempt/fIZr47DjOHlQlkiLRIAwMQsDDw5SbmlRrpGOmZahvq
- GRrpGOgYM3BxCsBUW7UyMjxtd/0svceDyUvuQs3pRdufG7m33rbc+6V4s6KZhq1voDkjw09uhYk
- nbhzsP8oqPW9PSdojxgrtssiDOicvCrqdmD0xjAcA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=534; i=tamird@kernel.org;
+ h=from:subject:message-id; bh=0MM8/3CTNZDnO2QJpUmaXqxHB1Rvcg/ziIyw641Wqc0=;
+ b=owGbwMvMwCV2wYdPVfy60HTG02pJDJlnFzsVnH0zxWC9R/ANvpJUecsms4XCUiWnE8NnXbaJM
+ e9U1snrmMjCIMbFYCmmyJIoemhveurtPbKZ747DzGFlAhkiLdLAAAQsDHy5iXmlRjpGeqbahnqG
+ RjoGOsYMXJwCMNX+LAx/uJbsjFg3f+LhiIYgi5c3D9v0XNCTe7U7u0BV8Zd9a8apLwz/K5gL3IJ
+ uV04KNozfPuWL62X+Tw3F2+5yhDU41dklfM9lAAA=
 X-Developer-Key: i=tamird@kernel.org; a=openpgp;
  fpr=5A6714204D41EC844C50273C19D6FF6092365380
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_155939_991953_66AD45A5 
-X-CRM114-Status: UNSURE (   8.48  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,15 +105,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 01 Apr 2026 13:45:11 +0200, Miguel Ojeda <ojeda@kernel.org> wrote:
-> With the Rust version bump in place, the `RUSTC_HAS_SLICE_AS_FLATTENED`
+On Wed, 01 Apr 2026 13:45:12 +0200, Miguel Ojeda <ojeda@kernel.org> wrote:
+> With the Rust version bump in place, the `RUSTC_HAS_COERCE_POINTEE`
 > Kconfig (automatic) option is always true.
 > 
 > Thus remove the option and simplify the code.
 > 
-> In particular, this includes removing the `slice` module which contained
-> the temporary slice helpers, i.e. the `AsFlattened` extension trait and
-> its `impl`s.
+> In particular, this includes removing our use of the predecessor unstable
+> features we used with Rust < 1.84.0 (`coerce_unsized`, `dispatch_from_dyn`
+> and `unsize`).
 > 
 > [...]
 
