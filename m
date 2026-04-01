@@ -4,42 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94AE0D35145
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0730D3517E
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:16:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e9VA8VLKfLTkWm9X+V2yaryP/HfItXGzqwbDwkHn4B0=; b=ZltUszIgZ/3kdjMGbB3aOWtqJz
-	lHng1RraUOYQ2equl3APKMJ9H+6eQ02itIxFoub+g8J/lsNY3e9vZmpmqfFG4pG8ctXb2a0lVYPyg
-	7xjvxkkNRjldYSpVM2OMYVp8QKpZTyDDd6Z4bMCJeu01HNGx7ZjLQeORbV2ByGfFBTsUynA5+9RqS
-	fJebVAFyGtXfpwDd+XRwvqsTdamMWVSoTMPiRVmBZEXxJjuaXrQx9ZzFN3enVTXf2NFU993MZS2zP
-	ahtygIHzqWTKMamCJFFi7mxuJVicloT+AiUU4c5idIYD0AjofrNam4OyVsqn5uB7wbmkpg0mt4+w8
-	zZUN7qYw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hA1ON1KrKFmuynktbmS/7CrrbUp1WQrtm6ccdkoVF2w=; b=clg4uWF5nbvx14NEA4eLyJBS8G
+	2XlCAZvTyPMlVvnI8DYam301vIKUbxbPRSOM7BMHUMSazeVcCCr5vKgAR9CI3J0POExOPJv5zjXex
+	NBdp/p6x1Is5ULx6aiDP042QcxrXyElsaKXN5oIiaq7FJaShzHvvWfhkhIjvsGDLWKThhoArHv3r3
+	XPTjuMjV3b12AC8noiMhohzG8vDNtTe8Hkuf5y9ugmhheFDQRI/WmvNThQ2Ad5aGSFPmtf2VaCYnD
+	aVDVWh/onh1di6Mq3c7bpgWE5FWSDy+VwprVnl+hfWFqtketFevyvNB5gM3vb1YBVexOIEoOApPMB
+	rQNv3eQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vR2-0000000FHsJ-1Tjr;
-	Wed, 01 Apr 2026 13:16:40 +0000
-Received: from out-174.mta1.migadu.com ([95.215.58.174])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7vQu-0000000FHor-16CS
-	for linux-arm-kernel@lists.infradead.org;
+	id 1w7vR0-0000000FHqz-2Iew;
 	Wed, 01 Apr 2026 13:16:38 +0000
+Received: from out-171.mta1.migadu.com ([95.215.58.171])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7vQu-0000000FHoi-1CiS
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Apr 2026 13:16:37 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1775049385;
+	s=key1; t=1775049383;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=e9VA8VLKfLTkWm9X+V2yaryP/HfItXGzqwbDwkHn4B0=;
-	b=ammDxO/PijDpoQqzj7DQwMpkueSX1AAj0WsOe7zd8RKA61V9PJ9IjhIOodiQ98QJqWjrEH
-	TeW6Uh8+HMDkXJ1rToold42E93cc/4gbmvNB6f6u9KrRudAUhIrmQQWO3e4PQOGWmaIxk7
-	TRp5u7WnNYE5sj7gwj4mhUx0GHAZLS5pZKhc4oPfPMggQcVy2up0KbKCaoLpP5inacSVmC
-	l6Q6ytydUzH3ID+rCClNIUNNiL1OctH8H99vAaZArQOaeGVOicU/7/3Dt/2BI5exguZpwV
-	iUQyJ26h2whaam+y5gTxbzDyWdyVdMBrLrGXd97u69N2rdXJJyEXsCNH8FWSqw==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=hA1ON1KrKFmuynktbmS/7CrrbUp1WQrtm6ccdkoVF2w=;
+	b=Q9CwM/oXd6o2d1UrsrE7d/ftoEoJyQ4aMNUcnz7xLhhBfmtcDo2DN/htknOV8YYkKqhPpf
+	Q3o4cAzlep6DIyDGiAq/ccNM8wcr75OpxVzsOYNOC4Z3q33eB1nqngcl2rROIJlEkXn1gs
+	ZCXBNL5ByXU5FvhbQ8/8iXmiJhSDJxvTFCxTXOgCtSg06Z6t6OGMbPdP8Ovzov4sJLc73b
+	82luSB3MmQK5mJQJD0ObpGfWASDAYM3/aHFBg0I09K3tsNMJ0K33Ez8v5Os2RypNDBMj0G
+	x0KScUtfaBYy6Liio8bs14Ie5Z9prC7aFxXn7iLXA1NNM5O5Qm51Dbh2i1fQQg==
 From: Diederik de Haas <diederik@cknow-tech.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -51,17 +50,15 @@ Cc: Diederik de Haas <diederik@cknow-tech.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] arm64: dts: rockchip: Replace deprecated snps,* props for NanoPi R5S
-Date: Wed,  1 Apr 2026 15:11:39 +0200
-Message-ID: <20260401131551.734456-3-diederik@cknow-tech.com>
-In-Reply-To: <20260401131551.734456-1-diederik@cknow-tech.com>
-References: <20260401131551.734456-1-diederik@cknow-tech.com>
+Subject: [PATCH 0/2] Improve gmac0 DT config for NanoPi R5S
+Date: Wed,  1 Apr 2026 15:11:37 +0200
+Message-ID: <20260401131551.734456-1-diederik@cknow-tech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_061636_620688_16E5387D 
-X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-CacheID: sfid-20260401_061636_612560_EFF04B6D 
+X-CRM114-Status: UNSURE (   6.39  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,39 +74,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The various snps,reset-* properties are deprecated, so convert them into
-their replacements.
+These 2 patches contain a fix for an incorrect pinctlr definition and
+replaces several deprecated snps,reset* properties with their
+non-deprecated replacements.
 
-Signed-off-by: Diederik de Haas <diederik@cknow-tech.com>
----
- arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+Diederik de Haas (2):
+  arm64: dts: rockchip: Fix gmac0 reset pin for NanoPi R5S
+  arm64: dts: rockchip: Replace deprecated snps,* props for NanoPi R5S
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts b/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
-index 90ce6f0e1dcf..92d044ec696b 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
-@@ -85,10 +85,6 @@ &gmac0_tx_bus2
- 		     &gmac0_rx_bus2
- 		     &gmac0_rgmii_clk
- 		     &gmac0_rgmii_bus>;
--	snps,reset-gpio = <&gpio0 RK_PC5 GPIO_ACTIVE_LOW>;
--	snps,reset-active-low;
--	/* Reset time is 15ms, 50ms for rtl8211f */
--	snps,reset-delays-us = <0 15000 50000>;
- 	tx_delay = <0x3c>;
- 	rx_delay = <0x2f>;
- 	status = "okay";
-@@ -100,6 +96,9 @@ rgmii_phy0: ethernet-phy@1 {
- 		reg = <1>;
- 		pinctrl-0 = <&gmac0_rstn_gpio0_c5_pin>;
- 		pinctrl-names = "default";
-+		reset-assert-us = <15000>;
-+		reset-deassert-us = <50000>;
-+		reset-gpios = <&gpio0 RK_PC5 GPIO_ACTIVE_LOW>;
- 	};
- };
- 
+ arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts | 13 ++++++-------
+ 1 file changed, 6 insertions(+), 7 deletions(-)
+
 -- 
 2.53.0
 
