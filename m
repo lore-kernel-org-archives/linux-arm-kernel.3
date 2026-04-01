@@ -4,50 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D01B10FCADC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 21:28:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74BA410FCAE8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 21:28:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CgQ0riG099Ng810rA77pJLFLouGFW6v9pWnuuSLHYA8=; b=exhn3j5BQ+OMqysWQvMON5E723
-	bar+0eZR6BsqZxVWjBHb8oAzS4ugqpOfB7Q57A0Ti38FBg4IVgWosgLopTQyh93xFc/aZiLDoyD2t
-	iEGKMduU+N12tL5J53hOXVAPcE4DWNHjLW97I03FhgWw1auwGVA2GVeoE+XAn1j3vze//Wk/6w5Vb
-	DvE37Cj6/LAY0xEkhh2XZJGbWk2dp7HjvSoSnMcpf5PH3cJTiYBihqiH2HgTcrMXWVG3+tHelU066
-	JjT4zOpZfoua4tTIFngNMGyWT9lzaej7BLPZWhJyGiLo5ZGNqTQmAtRv3TgCnZFrrJAsIQ4IzgSrQ
-	u8XxC9Lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AYPEpP1b00lX0zsw7xL3leAQo4zY3t6/Feqga7nFICY=; b=xBEXqCJeSAyjnhbO+3xk04A9FF
+	h7xKQsoN/N7NyOTZ5KDGni8XxESrY4oI0OBcU2l9Gs7AVLJGTjXkbTgvhN37Lf/n2bAAL9/ZJGF6L
+	1uAaOWm0LhAB+iv2zb94mkcB0K6habDI7P++Fcok1g3gEN/8tH8t+Gp/kXoGgvNTQc8RrupmaQajj
+	gRRSXTIl/K+hb6vtMLf2BuZXZkP3nQ8DuJKCCLbcxDQoyz2+D7J0q/9x8SgYL72O2Ew8GTMACMR8B
+	pavRBUcyjOMufSdyHLR9UQ2fdIzJ5OkFpTuQgmbsdqwXMMgwyUF16V7W4o+pyR2gXmMTMHUo+V9ia
+	N3mSSPug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w836V-0000000G6wP-14JV;
-	Wed, 01 Apr 2026 21:27:59 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1w8374-0000000G71W-2OUn;
+	Wed, 01 Apr 2026 21:28:34 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w836O-0000000G6vj-12PX;
-	Wed, 01 Apr 2026 21:27:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
-	bh=CgQ0riG099Ng810rA77pJLFLouGFW6v9pWnuuSLHYA8=; b=1ZSAu4a8MGgxzMttGWd2CqVwMd
-	8VwEeDUgh9p9DdHxy4k9NgO2VAXOB0faNqM8TSPtxZkEZMXSxOTnRxONOHygabn7Cr/EZN0W4+DhY
-	H/HPaLy78lVS3F9bWYMjg7IW5QD9uFHMXoKU+knwpch+orC7Jn14rhhmW5ff8cGM12aqUqaqzgHja
-	xG6oBLxjZlMbT/O+YqTTd9JvKo0i0Ar2XnAtvtttXlw22HS2u6g39ZMpfZZYtFdhwzTK2h4uuT08C
-	dDnuxnc2ACyI2wa6Naoa9Xf06cuKQQeGDw7moWvdRV0Wlk62sWdZaf4tNenfrcHhx+3mT5ErN7U02
-	MFT9KzwQ==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: arm@kernel.org
-Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Rockchip dts64 changes for 7.1 #2
-Date: Wed, 01 Apr 2026 23:27:47 +0200
-Message-ID: <2902697.BEx9A2HvPv@phil>
+	id 1w8371-0000000G70f-0xif
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Apr 2026 21:28:33 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-35d9f68d011so97435a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 14:28:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1775078910; x=1775683710; darn=lists.infradead.org;
+        h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=AYPEpP1b00lX0zsw7xL3leAQo4zY3t6/Feqga7nFICY=;
+        b=KI1kpBTYDYtWsEnZP8m0+DYCykmgr69874HNdiigw2tvkkHq6wbas3XsgNVgsvkZuw
+         X5Mbt4gCeQ0z96+WAwmluzQ/63icMDO1Gbs5/jvzE6KYC9TRn/258rljbVDrIP3X6Dqs
+         PTJx0aKg+ZjqDUXR5phTnFo5b1uGzUxRw+ORUDvYpFij/RQKTrwDiDomXnQgPark110y
+         nMkKXaNNyFum6SDhULpBFLEhiuz5hVh49vTfAWRuLyEd+gjOBhK3GjRWwpADddErhbkT
+         LwobFK3YpiYpnJQ+2XJXSMq6jZF+qcoAEYuV2HNvojYt5DX049tU5tGlBWhCWvK7GSZr
+         fYWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775078910; x=1775683710;
+        h=mime-version:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=AYPEpP1b00lX0zsw7xL3leAQo4zY3t6/Feqga7nFICY=;
+        b=QbRRBXIpoPuwO/LeePC5Uom8vYBcoUGDDZqSw8+SbdDA8QlS57QGgAINLY8+WYmpD5
+         bvPUzFPGGwRUGOufbZ6UupcUDKw8UvkNUk3ERS3t3SDbMrb1haMJGpFIwttl6zOdnh4s
+         3hAYITWrtQElJsSFOI574LN4X7YdZqzsGWW+wXLuB/nVMrPE/3pm9RdiLAHxILWhMGtn
+         6yymkT0rYb05utukblRDEewkZ9934zDE9OzGcUBLhaWDdidV4HF84+K6S713mnlsDo+n
+         0erSkIu0EVjMw5pjTwT1J6yALElKoPEoYPSMyaPhQB1x/idh5RKjcI2u+poH9hz3pVaI
+         uA+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUcGt/RhZ7J2KGz46DuLukjrPrupzlwde3M51vvPdAoQH2y7mVy9GhbvQqn7d5bXxNxhCgecp4zEk64uXsNh/L6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2wC6+FCjJsSShXSlxgFx4mqHKtYyiYUayDHD2WqmTD+e5/Q1k
+	1ZcvG0SuHs+bPJlfQbvF2v9mef+DZ+AzuAAmAhfBvgdbLJ7HDxU9sJS72nCn0uHyPmph750G1PT
+	YwJUbkJ8=
+X-Gm-Gg: ATEYQzzkNrmqCl0ghJ1cu5HHWeohyqJozfZY/pEvSbrbkvKgmzwHJVOpyPKrtd+5Tee
+	mpKPL16/jpA67R7veNHbnZi8+38QOY3QtBtzcvaA+4OJaZxgqa6NjOzLYC4MdpQPVexptH9NY6N
+	dhRpoVx+hEfHBBK6jZnDcr2++TIUOh1Ke8Hwb1IEuqffkHkEySZrG4/ilZTu5Tjsu+W0gUzwHEV
+	eCt2LQGMTI0Y+cSJCkH5aBD3gbZ4OE22Tp1sH37Uks75ijX8P4wunCrYrRMlfO6oKwAKwbdgrmS
+	3/I6yBkUVfngTH0TFb5aX4mzomy0f+N4CrRDSKWblWQPYxGjJuqBtiyD+WuttG8ptPODTVJkyPl
+	xUVNZmTA8exu7n0iF9a4gDMnWcbwHfWs/utejf0kewETzG3MkBaHh1ZTP1+KSPDBwYVUavuxUn8
+	/EcM3hEFMeSrQCT7XDD+nt1n7M6UIISQ==
+X-Received: by 2002:a17:90b:3f0b:b0:35d:9f7c:142c with SMTP id 98e67ed59e1d1-35dc7052e98mr4367414a91.26.1775078910328;
+        Wed, 01 Apr 2026 14:28:30 -0700 (PDT)
+Received: from localhost ([97.126.187.42])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35dbe5e519dsm5918706a91.2.2026.04.01.14.28.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Apr 2026 14:28:29 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: soc@lists.linux.dev
+Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] ARM: soc/omap updates for v7.1
+Date: Wed, 01 Apr 2026 14:28:29 -0700
+Message-ID: <7hzf3mtloi.fsf@baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_142752_332844_804FD9A8 
-X-CRM114-Status: GOOD (  13.31  )
+X-CRM114-CacheID: sfid-20260401_142831_557200_FCE17556 
+X-CRM114-Status: UNSURE (   9.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,104 +94,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi soc maintainers,
+The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 
-please find below some more Rockchip DT changes for the merge-window
-for 7.1 .
-
-This time they have also marinated longer in next without complaints.
-
-
-Please pull.
-Thanks
-Heiko
-
-
-The following changes since commit d7787a77cf8b129304f590233032556dec10dfc6:
-
-  arm64: dts: rockchip: enable vicap dvp on wolfvision pf5 io expander (202=
-6-03-13 21:39:34 +0100)
+  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git =
-tags/v7.1-rockchip-dts64-2
+  git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap.git tags/omap-for-v7.1/soc-signed
 
-for you to fetch changes up to 6cb4ec63ba9a5831621cf951b7af55c67beeb97b:
+for you to fetch changes up to 9ceb17ccd15ea32f19c9066f5f1b340d8340bd0b:
 
-  arm64: dts: rockchip: configure hdmirx in Rock 5 ITX (2026-03-26 00:34:54=
- +0100)
+  ARM: omap2: dead code cleanup in kconfig for ARCH_OMAP4 (2026-03-30 14:21:20 -0700)
 
-=2D---------------------------------------------------------------
-New board, the Khadas Edge 2L. Newly added peripherals are the
-OTP nvmem controllers for RK3528, RK3562 and RK3566/8, SPDIF on RK3576.
-The RK3566/8 SoCs now also control the Pipe-clocks on their PCIe
-controllers and UFSHC controller on RK3576 got an additional reset line.
+----------------------------------------------------------------
+ARM: soc/omap updates for v7.1
 
-Apart from that are of course individual board changes and fixes for
-older issues that are not specific to the current development cycle.
+----------------------------------------------------------------
+Aaro Koskinen (1):
+      ARM: OMAP1: Fix DEBUG_LL and earlyprintk on OMAP16XX
 
-=2D---------------------------------------------------------------
-Anand Moon (1):
-      arm64: dts: rockchip: Enable PCIe CLKREQ# for RK3588 on Rock 5b-5bp-5=
-t series
+Julian Braha (1):
+      ARM: omap2: dead code cleanup in kconfig for ARCH_OMAP4
 
-Chris Morgan (2):
-      arm64: dts: rockchip: Correct Fan Supply for Gameforce Ace
-      arm64: dts: rockchip: Correct Joystick Axes on Gameforce Ace
+Randy Dunlap (1):
+      ARM: omap: fix all kernel-doc warnings
 
-David Heidelberg (1):
-      arm64: dts: rockchip: assign pipe clock to rk356x PCIe lanes
+Thorsten Blum (1):
+      ARM: omap2: Replace scnprintf with strscpy in omap3_cpuinfo
 
-Gray Huang (2):
-      dt-bindings: arm: rockchip: Add Khadas Edge 2L board
-      arm64: dts: rockchip: Add Khadas Edge 2L board
-
-Heiko Stuebner (2):
-      arm64: dts: rockchip: Enable OTP controller for RK3562
-      arm64: dts: rockchip: Enable OTP controller for RK356x
-
-Jonas Karlman (1):
-      arm64: dts: rockchip: Enable OTP controller for RK3528
-
-Ming Wang (1):
-      arm64: dts: rockchip: Fix Bluetooth stability on LCKFB TaiShan Pi
-
-Pedro Alves (1):
-      arm64: dts: rockchip: configure hdmirx in Rock 5 ITX
-
-Robin Murphy (1):
-      Revert "arm64: dts: rockchip: add SPDIF audio to Beelink A1"
-
-Sebastian Reichel (2):
-      arm64: dts: rockchip: Add SPDIF nodes to RK3576 device tree
-      arm64: dts: rockchip: add SD/eMMC aliases for ArmSom Sige5
-
-Shawn Lin (1):
-      arm64: dts: rockchip: Add mphy reset to ufshc node
-
-=E8=B0=A2=E8=87=B4=E9=82=A6 (XIE Zhibang) (1):
-      arm64: dts: rockchip: Fix RK3562 EVB2 model name
-
- .../devicetree/bindings/arm/rockchip.yaml          |  5 ++
- arch/arm64/boot/dts/rockchip/Makefile              |  1 +
- arch/arm64/boot/dts/rockchip/rk3328-a1.dts         | 23 ------
- arch/arm64/boot/dts/rockchip/rk3528.dtsi           | 47 ++++++++++++
- arch/arm64/boot/dts/rockchip/rk3562-evb2-v10.dts   |  2 +-
- arch/arm64/boot/dts/rockchip/rk3562.dtsi           | 46 ++++++++++++
- arch/arm64/boot/dts/rockchip/rk3566-lckfb-tspi.dts |  4 +-
- arch/arm64/boot/dts/rockchip/rk3568.dtsi           | 12 ++-
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi      | 52 ++++++++++++-
- .../boot/dts/rockchip/rk3576-armsom-sige5.dts      |  2 +
- .../boot/dts/rockchip/rk3576-khadas-edge-2l.dts    | 34 +++++++++
- arch/arm64/boot/dts/rockchip/rk3576.dtsi           | 87 ++++++++++++++++++=
-+++-
- arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts | 12 +++
- .../boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi   |  6 +-
- .../boot/dts/rockchip/rk3588s-gameforce-ace.dts    | 12 +--
- 15 files changed, 303 insertions(+), 42 deletions(-)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-khadas-edge-2l.dts
-
-
-
+ arch/arm/mach-omap1/clock_data.c           | 4 ++--
+ arch/arm/mach-omap2/Kconfig                | 1 -
+ arch/arm/mach-omap2/id.c                   | 3 ++-
+ include/linux/platform_data/voltage-omap.h | 4 ++--
+ 4 files changed, 6 insertions(+), 6 deletions(-)
 
