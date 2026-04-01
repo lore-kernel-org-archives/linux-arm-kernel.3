@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7611010F9313
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6141C10F9312
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 00:08:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=unHewld+dJt798Jq9li9R8/1g9BFw1ZhXfesj7v0xS8=; b=XscZTDIboglUezcyW1SatG61wS
-	oOGAS36dWk5+qk4bAGxHUPKx+0YAaIh+TGzg4iFAzMFJplF6AOLVkRGChyC0Xab2gg4CNhwr+ff7/
-	O9FthGmjPA3K8bAYK+ZFnMYomFbRMN2kGrnC6eVngQiIFR4QEK5MtqIYRTjHSOxBHfr92h0Wt84IF
-	peoUZNVNr51F8QOO/X0OHcI+p57XAfm8tE1YdgawRruP8C0l9t0BFQr4WQpsMCI8vHEXh7Omtuohy
-	hj24Q+WFbasCDmlxGA8EhuxetLFPXeORiJItIRKMh0MWE6FmlQdK1ZT5QT7WBRjpBtwChuULKAvrN
-	PDpe9JpQ==;
+	bh=VFGZ1KSl8cyzlCha+VJ5ryRukBYh13GZXh92bRIoPxA=; b=xiLR2r1bhOj52AT3kAIX+nlL3M
+	3kVT0tEdV2l4uOrIiAdW1CF7IZRDS4YeidCUlmu8SRzi9BgsNGdvZthgjdqNmKb9N8oimvlPYs6A+
+	8inYvA5gMSa8XevSM/BtHy4+eKcr1jp2KPGLaAE/JGK1ZTkSsEkfaNTtvvMp9qsyLeoW69viVm2gq
+	jOWvlffwGHjQ+714JhcokXK9i+8LHRyJdoGFBeFo51Axe72qeDilXcR/H6XrbvX8q1cuPfsvqYtje
+	OCxAlj42j2D3oxIn1VdU8ttv+l37AUBbENgl1WgTZBlNlWwGjHPVBoPIi3bJYpjzd5vCu0qYG3CWY
+	J50yWz1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7j7m-0000000DiEs-1VuE;
-	Wed, 01 Apr 2026 00:07:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w7j7l-0000000DiEF-3CtG;
+	Wed, 01 Apr 2026 00:07:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7j7e-0000000DiBP-2k4q
+	id 1w7j7e-0000000DiBO-3xE4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 00:07:52 +0000
+	Wed, 01 Apr 2026 00:07:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5BC6C44517;
+	by tor.source.kernel.org (Postfix) with ESMTP id 1B1B560130;
 	Wed,  1 Apr 2026 00:07:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8D7EC2BCB4;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82D76C19423;
 	Wed,  1 Apr 2026 00:07:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775002070;
-	bh=IDxofDV1l6itbnGBXpDqaJyt+/X6blNaQzeWk25J7Ts=;
+	s=k20201202; t=1775002069;
+	bh=Xl+MsNWe1/r1+hTDGoE1qKiqas9gp7xrKlVQjVUdCyU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MLnFZ9ZGjNSPQd/8I/31b5XsbGh4co6ArbnJCiY8mDm0jMZkPalDqjTX5wNAnkBNo
-	 hjJnO+ANvexDSdzaAxZhxTYJT4F61XpgLpkvVPd++oiCnG57LPEr22T2+SeYSLVSel
-	 +nxzysiwnMsFChEc1Ho0QgXp9yeVk/usNn8bz9/UWDc6YeZz/6eQ2Zsj8UPVCTyG9s
-	 L+pFRYyUMQBPa8wRe89v3DROFp5Njl2tucohO6Y4LV9uzwAnal0dfP3mAtew+i9cn1
-	 9VFc6z+HXIUkGapBP9Oq/Da6Eszzw0zImOdMXcqwYswJQtxXFqzM6ehAQcwbB4FP5V
-	 yX1vWGuxuQibQ==
+	b=IHCmaKJnLmp8V/FAp6FPJYNBZjtGPcpCLhe/EPJAX/ErJ9mrsrR4bH+PtTECPSDQ7
+	 VtVox40YNbtQ4mSLUgeDVtJzRU9/o5p/B2Ni9x0yb+l8aFFVJxKCV4OBF5FweuKeSU
+	 A8JkWfVi+pFwRvLsBohwrVDy6MpSNBPL6kbmw5l/tZ+azQAGqCd+H2PYW1rG+hUEWY
+	 VRWnz+dY56ME2qUUwYCFtOnsshwg86V5LCvEL+xQ5PeI5d6zVbbpEUZ4s3kWfhJnnU
+	 k3Sh0vpSqpxN8F4rtoqlEUeBzbSnG72unkrZwYpF84hqfMMvnxfjbsmBhE/Xzjnw+8
+	 UUHFjmaB5I3wQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -50,17 +50,14 @@ Cc: linux-kernel@vger.kernel.org,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	linux-arm-kernel@lists.infradead.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 4/9] lib/crypto: arm64/poly1305: Remove obsolete chunking logic
-Date: Tue, 31 Mar 2026 17:05:43 -0700
-Message-ID: <20260401000548.133151-5-ebiggers@kernel.org>
+Subject: [PATCH 3/9] lib/crypto: arm64/gf128hash: Remove obsolete chunking logic
+Date: Tue, 31 Mar 2026 17:05:42 -0700
+Message-ID: <20260401000548.133151-4-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260401000548.133151-1-ebiggers@kernel.org>
 References: <20260401000548.133151-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_170750_732350_57212A3E 
-X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,43 +79,63 @@ restrict the preemption modes"), voluntary preemption is no longer
 supported on arm64 either.  Therefore, there's no longer any need to
 limit the length of kernel-mode NEON sections on arm64.
 
-Simplify the Poly1305 code accordingly.
+Simplify the GHASH and POLYVAL code accordingly.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- lib/crypto/arm64/poly1305.h | 14 ++++----------
- 1 file changed, 4 insertions(+), 10 deletions(-)
+ lib/crypto/arm64/gf128hash.h | 24 ++++--------------------
+ 1 file changed, 4 insertions(+), 20 deletions(-)
 
-diff --git a/lib/crypto/arm64/poly1305.h b/lib/crypto/arm64/poly1305.h
-index b77669767cd6..3d4bde857699 100644
---- a/lib/crypto/arm64/poly1305.h
-+++ b/lib/crypto/arm64/poly1305.h
-@@ -25,21 +25,15 @@ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
- 
- static void poly1305_blocks(struct poly1305_block_state *state, const u8 *src,
- 			    unsigned int len, u32 padbit)
+diff --git a/lib/crypto/arm64/gf128hash.h b/lib/crypto/arm64/gf128hash.h
+index b2c85585b758..1d1179f87f8d 100644
+--- a/lib/crypto/arm64/gf128hash.h
++++ b/lib/crypto/arm64/gf128hash.h
+@@ -87,20 +87,12 @@ static void polyval_mul_arch(struct polyval_elem *acc,
+ static void ghash_blocks_arch(struct polyval_elem *acc,
+ 			      const struct ghash_key *key,
+ 			      const u8 *data, size_t nblocks)
  {
- 	if (static_branch_likely(&have_neon) && likely(may_use_simd())) {
+ 	if (static_branch_likely(&have_asimd) && may_use_simd()) {
 -		do {
--			unsigned int todo = min_t(unsigned int, len, SZ_4K);
+-			/* Allow rescheduling every 4 KiB. */
+-			size_t n = min_t(size_t, nblocks,
+-					 4096 / GHASH_BLOCK_SIZE);
 -
 -			scoped_ksimd()
--				poly1305_blocks_neon(state, src, todo, padbit);
--
--			len -= todo;
--			src += todo;
--		} while (len);
--	} else
+-				pmull_ghash_update_p8(n, acc, data, &key->h);
+-			data += n * GHASH_BLOCK_SIZE;
+-			nblocks -= n;
+-		} while (nblocks);
 +		scoped_ksimd()
-+			poly1305_blocks_neon(state, src, len, padbit);
-+	} else {
- 		poly1305_blocks_arm64(state, src, len, padbit);
-+	}
++			pmull_ghash_update_p8(nblocks, acc, data, &key->h);
+ 	} else {
+ 		ghash_blocks_generic(acc, &key->h, data, nblocks);
+ 	}
  }
  
- #define poly1305_mod_init_arch poly1305_mod_init_arch
- static void poly1305_mod_init_arch(void)
+@@ -108,20 +100,12 @@ static void ghash_blocks_arch(struct polyval_elem *acc,
+ static void polyval_blocks_arch(struct polyval_elem *acc,
+ 				const struct polyval_key *key,
+ 				const u8 *data, size_t nblocks)
  {
+ 	if (static_branch_likely(&have_pmull) && may_use_simd()) {
+-		do {
+-			/* Allow rescheduling every 4 KiB. */
+-			size_t n = min_t(size_t, nblocks,
+-					 4096 / POLYVAL_BLOCK_SIZE);
+-
+-			scoped_ksimd()
+-				polyval_blocks_pmull(acc, key, data, n);
+-			data += n * POLYVAL_BLOCK_SIZE;
+-			nblocks -= n;
+-		} while (nblocks);
++		scoped_ksimd()
++			polyval_blocks_pmull(acc, key, data, nblocks);
+ 	} else {
+ 		polyval_blocks_generic(acc, &key->h_powers[NUM_H_POWERS - 1],
+ 				       data, nblocks);
+ 	}
+ }
 -- 
 2.53.0
 
