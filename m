@@ -4,67 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E2A0107637E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:14:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 728D4D2ED0A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sIwkuLiJTh+pp8wK5KW2JfDaTVf1TkmPvAzw2AK7DuA=; b=f7gt/jQ5xyyMQgWEr22Y/gvlcr
-	RNSXWhuTiy8J/ginb4fceqhFgADvFITXiPRWgFuulHKum10M+pQk9FtYrhgKBSYCDsFT6D3Z1cQ3R
-	JKtqLPJYWu3VTj+IELMdsIQ+0MGiMUGYuorjy+6hyAO+0oMswLfv9LA2xROaAl+H74Fd5Bvlu0H0q
-	bRla2JdnIXKTewcnxyp+e2xPIYli2WZtLn0Jg6rC4OJd3IOAQb8Mn9jBJjJ95VDnekvm0NgDYRcMB
-	nS4V9z3fi2A37mzYfyiMF8MU5vaaIpHoEbB8It6f0V7FGMJy1bG0nyP3QfcCYDQS/UEDqrCQeSInB
-	QRq4h5OQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	References:From:Subject:Cc:To:Message-Id:Date:Content-Type:
+	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BAMvE2QoED5iAgDx/VxI4LBZlWbNprhR8PoRpJ/45pI=; b=dM4ycvQ2sR2ShH/Gl8IySm59jp
+	CHYyDF3eKAl6dMpVr8fK66/SRqivW9qHDpAsj8BeVGMO+2meudeGu9wNTPLsGrRySJmNjUKVCKczX
+	lE3lrw86Am4LlIccsNRoGgKt1ioEoDIssi2SH3TMGvWbdFzuR3JYDXBEBBsSoJNtMmoqlhJjm1NHd
+	qlw7Jf8iZcFwQCIVg3bhRryL9HAkqP3a9oiVB0KgT/NsS/RGnHZGgqkaAcz9YQcjsiLOfjCa/d9WL
+	HhQ1eRh4rC9oNKa7y9Cg6ZqMgyW36VUpQcVLwsLB7B4eAYvT7QaZmQWk8ngPZRkL3rRZXhiJjH1IW
+	OHFIYdlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wKw-0000000FSie-1AY8;
-	Wed, 01 Apr 2026 14:14:26 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1w7wOa-0000000FT9c-3LTH;
+	Wed, 01 Apr 2026 14:18:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wKs-0000000FSiF-3mxd
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 14:14:24 +0000
-Date: Wed, 1 Apr 2026 16:14:17 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1775052859;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sIwkuLiJTh+pp8wK5KW2JfDaTVf1TkmPvAzw2AK7DuA=;
-	b=BFYbdsIV7JKFtMJDsvAe5MwTK33wkr9TQovFoK+nJmVBpBywy5VAywv//KWkmCe+Nwp9HU
-	/ZrGv3CChp6qNd+wmWYcvNf6A4zcv2BO0D45332zZSPshpoFkCoT+aOrgHl4DyumbbBIyQ
-	2Knb+oLQJpqaXhqoxtxOHx6Dk5OpcozB/sNCDBpjJta8RA45pkPTR0qJS0/hVHadU54xva
-	fKflKqLo+5jp/Cekx0Mv15WskkQky6UNl8sVbSWw4HaTbd0PtBM3Ntrygen43T6pGAzRI/
-	K3ZJq6orSIgVAuFnCiE+QItq491LYf3Wi3F130YD/YhLfWp2dhOqJpgkHrRlMQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1775052859;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sIwkuLiJTh+pp8wK5KW2JfDaTVf1TkmPvAzw2AK7DuA=;
-	b=6kJ1ZgFk1QoWp7KCcvZ69B0cUHYCaCYbDkB/NJfxNVQcYeCJBTy3uhBypeEC+zNLcJLcHp
-	eQ2XzX9wUPsyqeBg==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: Michael Kelley <mhklinux@outlook.com>, Marc Zyngier <maz@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Jan Kiszka <jan.kiszka@siemens.com>
-Subject: Re: Question: interrupt randomness and handle_percpu_devid_irq()
-Message-ID: <20260401141417.6uJk69i9@linutronix.de>
-References: <SN6PR02MB41577F8265CA23C3027364F7D44FA@SN6PR02MB4157.namprd02.prod.outlook.com>
- <87bjgik042.ffs@tglx>
+	id 1w7wOa-0000000FT9E-0Mua;
+	Wed, 01 Apr 2026 14:18:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:References:
+	From:Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=BAMvE2QoED5iAgDx/VxI4LBZlWbNprhR8PoRpJ/45pI=; b=QD1dKWjQvs6zC/+Guv7S1P7Yg3
+	A6NNCDJr+7319O/2XDKMxYE2aHCvMXzCapXqt3Hf2yYpC0KhDMq6gvRhG4lQ60GyuXMhEcALip0PA
+	6I80F7vxOjG3nxfGf6SYYxqpsvmUfVmfnKM0PXkBATFKxtcyPA93KmlhclSONtIe8pYEY99nhrDm9
+	RfsSZ7sWSy9uq3vrtpyfjyFZKeTvefk0J3zto+jYLXaW5PQIy6PwqC4whGwby2vCLc/RI563H/ndA
+	a426rqyaTaU6OZMoPgaGv/f/QIyzzVp/NIzwf0Iy+y21JCLE+FAkl+C5DiejHyp267NAqBG0edd1r
+	M6KaxoZg==;
+Received: from mail-uksouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c205::3] helo=LO2P265CU024.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7wOW-00000000aP7-3SK6;
+	Wed, 01 Apr 2026 14:18:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EDCW/jzcMAHQdPWLXT5Jl1nK3P0fFTJ1MYVkLmpl0rZAHZj3CE5MRR+CZkIsnjhLVwd3XaXWNKHTy5YO/QSKpM2LKriWtSdXhQSDwWjsj2ykojjgfhMNB//P1rHUg80wHbRdOWIbaU+zPpgAyzqQT0N8iK2zIfkUwRobXmv5FQLIavfG6f9lVo8zSXtRQCUYtFrrpj+6O9CsPLLuB7uugdG+fvwVws+mHsExE3vUJUolZT2xzAzYqAz4G9jKCs5phKGWuA+qlbx7MrL30g6vTTr3a92bORQ9v1CdW9NKmwOl3tyw7lEtO9x628D25GdwH5XIWoyokPoaWTd37Wi/OQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BAMvE2QoED5iAgDx/VxI4LBZlWbNprhR8PoRpJ/45pI=;
+ b=Jr5+dK1fTYCKkfQGxmhwv/Pb8vwu9AZuqL1JPXGhQcUUi78D4nwvojAD8vOtvn3zzhRRRM32YyYflka48/nUMJ4f9oIvG00VzIDjHvzcmDFpeoLxYniaornmLG0jBmMZOx/Wsri1C6udzx5dbw/bRnYuUrBOHUMKtN0uKP9RpMXUOgQrl89yh6sTxljlWRCj56m41lsGMmHTbA4zhduotL4WyLtEbpvj+WBnySTuXyevKtqDtwG6n5x78HihYifg6Lp0kzK6gYch5wR57mF2Mw9qJdNVmzqELk0WmO3IhfScuZRd7e9JvPZQatytOenv2jGq+/hfbSIO/LGvltNc8A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BAMvE2QoED5iAgDx/VxI4LBZlWbNprhR8PoRpJ/45pI=;
+ b=D4SdYS5yvZc+HuWglM1ponIKoZ+M2RHkVjBP1MHlx/sKyoKRgmplflLzbJi58sJ5houct8vhIJG0AKp81ek3xbXAwFlWQ7lNfW5FqvDbpWYcwQIlneQ9FhqElrD62xVt4Zipb2MgS/fMlv51XWYwwvcBdN7BZQY39qnFrmQ/RSA=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
+ by LO9P265MB7843.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:3a0::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
+ 2026 14:18:04 +0000
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
+ 14:18:04 +0000
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 01 Apr 2026 15:18:03 +0100
+Message-Id: <DHHVSX66206Y.3E7I9QUNTCJ8I@garyguo.net>
+To: "Miguel Ojeda" <ojeda@kernel.org>, "Nathan Chancellor"
+ <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Danilo Krummrich"
+ <dakr@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Paul
+ Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
+ Ou" <aou@eecs.berkeley.edu>, "Alexandre Courbot" <acourbot@nvidia.com>,
+ "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
+ "Brendan Higgins" <brendan.higgins@linux.dev>, "David Gow"
+ <david@davidgow.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, "Todd Kjos"
+ <tkjos@android.com>, "Christian Brauner" <christian@brauner.io>, "Carlos
+ Llamas" <cmllamas@google.com>, "Alice Ryhl" <aliceryhl@google.com>,
+ "Jonathan Corbet" <corbet@lwn.net>
+Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
+ <rust-for-linux@vger.kernel.org>, <linux-kbuild@vger.kernel.org>, "Lorenzo
+ Stoakes" <lorenzo.stoakes@oracle.com>, "Vlastimil Babka"
+ <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ "Uladzislau Rezki" <urezki@gmail.com>, <linux-block@vger.kernel.org>,
+ "moderated for non-subscribers" <linux-arm-kernel@lists.infradead.org>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>,
+ <nouveau@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>, "Rae
+ Moar" <raemoar63@gmail.com>, <linux-kselftest@vger.kernel.org>,
+ <kunit-dev@googlegroups.com>, "Nick Desaulniers"
+ <nick.desaulniers+lkml@gmail.com>, "Bill Wendling" <morbo@google.com>,
+ "Justin Stitt" <justinstitt@google.com>, <llvm@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, "Shuah Khan" <skhan@linuxfoundation.org>,
+ <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH 12/33] rust: macros: update `extract_if` MSRV TODO
+ comment
+From: "Gary Guo" <gary@garyguo.net>
+X-Mailer: aerc 0.21.0
+References: <20260401114540.30108-1-ojeda@kernel.org>
+ <20260401114540.30108-13-ojeda@kernel.org>
+In-Reply-To: <20260401114540.30108-13-ojeda@kernel.org>
+X-ClientProxiedBy: LO4P123CA0647.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:296::22) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:488::16)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <87bjgik042.ffs@tglx>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LO9P265MB7843:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1f272f27-5956-45fe-68b4-08de8ff97d49
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|10070799003|7416014|376014|366016|921020|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: qajhMNOwurwD6X7vL+RZ5MwuHioIwBNF7Us/MzXI1oTT8jgwt1nU0EorWNwlb1ZWYwyBW15Zivv4l8Q/GqUJ2uQNr3yp2oFevp5Hftik8lg8/Bkv57ocvFj+hM7amep2RG5XwUaUWtZKuz7E9IrvC1pyR9hkAueSDv5JQmrjSEsYcCI6UCJnG0HGSztWTLC6Eb3XAz2iyXf6Gc+k67B3Dt8/U/ERhvW+m01NI+FarEVEw/gKNCz6uk5b0DZVWaZdbJCaod3V8aC468FgJQi+KbBuyZt1bNlherUnaDeSi0F1iqqs1q2WL1h192KZ0wNENEuRDz876NTpDdtqeUiuXNf+rBtolKcxV7uNBWwfK/Lbs3GQXlsxvhWhU68o2P0jWbrpqIZ2Lh5p7jper7LIL+KCBrsW5fgiDWfD7ovHd2FwPXySMXeuyjkEiC10/k8hZKrKrL22MrfKNUV3rCy1ln77ngtVsWoYE5bK4aqhNlJ1MQZuTuf37K15Ste5sRaZOgFUz3skSBUuAnw5RzjhY+SNP8JRThIlphd7sRk8Kjdv/CWHQkduN44Pdd6gjNgTcjetcekUuIOMWupNU5XEiCyXWUKvadG5PzwSGz1aglPhhpKQN72/y6SVEO/KWwDAEKIKKQFU7oraQzMbmgoDaXGiVKa5cKPc5c+OzwahrYfXkF4Cnrm/bppXtwSWEJbMp4TTy1ZZWHfHGy0mc9zwAa1xTE5f3HSWlwzxMGlixNVaT9eM1V6EpdwndXqBHnOYEmMWYdMeHNAgto4eYPzevw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(10070799003)(7416014)(376014)(366016)(921020)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K2xSRHZYeS9JbTRVMEhFK0pZT0ZPRm1sQ3E4emZQOVcvZmFsOHJQdG9hSENB?=
+ =?utf-8?B?V2ZnY2I3ampRU29ETzA0bHlnaEh5R2xhZHRlODNjcWE4RlVpZXI5WDNQVFlk?=
+ =?utf-8?B?aC9VWGtVLzN3M3dBcmJKb2xKSkxKSm8yQzB1UW1jeVNRUTNCOHZtTk90WTBh?=
+ =?utf-8?B?cjhaYldIaGw1YSsxT1RNRnZGUjV6aXlZQlNrTWZrQ0IzZlFwalBOOS81Qy9r?=
+ =?utf-8?B?R1pDNGJwZlR0dEVZSUJ3bm5Ma2JTRCtjajFNOWRQdGtBS1Vqd3NnNE81RCtD?=
+ =?utf-8?B?cUNpSzJETC9IVGxTUjk0OHRPcDg2eWtBWVUvVTZKOVFzMFV1d0RZV0p0RFB2?=
+ =?utf-8?B?RENydHhiamQ2ajhJRzJOM2QyRjhPU21FRnhic2NwTnFyNHJEU3pQalptd2R4?=
+ =?utf-8?B?S0wvY3liZHp0ZXluRWdYUUpwNys2cTdGV241bmNndGRFY0hiYU4vSlFtVnB0?=
+ =?utf-8?B?ZmZiS3NZd29oTEZ0d2dBeXFZd1Y4dzIxVFM0TG9sZ2UxdzZ1WnZOS3c0ZktZ?=
+ =?utf-8?B?UWRBUDhReEp3UzBoWjkzSHJsdU1tZ3dXNDFQcnZRMHNqS3NUMVJUcnZROWU3?=
+ =?utf-8?B?OGhPQmVlbTJlZ2VpaDlRemU2NHZJMUtualFabnRiTFZYN1VUckFkVlkrcmto?=
+ =?utf-8?B?Qnl2Vi8wanpmWUwrb0wxYm9qbHROQng2R29sVmtIOXMvbjF2R1doalZaNTh1?=
+ =?utf-8?B?bFVFU3NvYW5zUjVoZE92S0RMZ3R6RTlsQ2J4QmlqTzYwYWg1bXdjZG1YU2hI?=
+ =?utf-8?B?ZGJUcUdHYXl1MDlPUExSMy9LczJuZHZ0Q3JNTEpsMDFTSER4ckpod09tMjlp?=
+ =?utf-8?B?cDQwS2pSMW0zbWk4V3loSzlrc2xabjNOZXlYTm4wWG5nTXAxTTJPRUIvYlhB?=
+ =?utf-8?B?NVpFeTdXQ0hpdHhxK1dkL0FkeHlOMEVJN0pjamhUQTZHdXg1VUZtOXA1NjNa?=
+ =?utf-8?B?SXg3TStUVWM0OFVHT3B2Zjh4Y3UyejFldWJqMEJsblhWTTBva2FNTG1haWUy?=
+ =?utf-8?B?UnFsdmJxL0lEb3VDZVNWMjNGTEVvRVNOOStBMWN4anFZUXRKWGZRVjkreFZ4?=
+ =?utf-8?B?NHpwN1hEdE9lcEpoN0ZtdmdmbXRHdnJndlJiWitXeldlbUNLY2MxZmRWT2ZJ?=
+ =?utf-8?B?Q2E1ZTZoT2txYW1Xa1BUT1FDNDFvYUFHWTY0MGZJRXhVRWFNNzJSL281M0Jh?=
+ =?utf-8?B?MHlkMU1yR3hQUFRJQy8zR1hRVlRBZ0t4QkUxemZ2dzhwdWJhKzlZM0VtdWpl?=
+ =?utf-8?B?S3RLZWJBLzU1ZnBCZGV4WDg2aXA3aHViSGVhSnhvaWh1R3p5UDVnVTBhVVhw?=
+ =?utf-8?B?Y1dwSjhUZ283V3g0cnRySTFoUzQyRnBIWWtqeEQxclR1NWVqTHF5Q3IvQ2pj?=
+ =?utf-8?B?SW9sZzVmaFR6Nk5oYUZRY2tKQ09oTXRZTzhJc0w4YVJYd2htNWlSM0VrSzl4?=
+ =?utf-8?B?dG4rZGpaU2pNNmtwQ1BHVml6WFhTcWZiUHNFNVRuUk9mNnJJaDFXZGIwV01q?=
+ =?utf-8?B?eldNRGIrTC9XOHdHSzc1bXQya2VseHczVkNqRi9KclowWEMyUmNZNGdmRHlI?=
+ =?utf-8?B?MnBScEd2eUpTUU42WWgxMkxzcmsxQmtiek5wZ1Jnc2xSdXpkaEM5YnczejdO?=
+ =?utf-8?B?UitZQjhJWGRRUmJ1cktCeTlsOGhMdTZEQm0wSTExbllqTngrVmxNVnA5TXJB?=
+ =?utf-8?B?cGpabi9jVDMxWUNWSno3ZmI2TVRoMTZrcFgxdTBYa0pLVTlaL0RJSmJDRUkw?=
+ =?utf-8?B?NnpiQklKdXZRRk9xVy9NTEoySWpKN2ZXMWNmWGZBcVZXNmFXc28rT3UzTzF6?=
+ =?utf-8?B?UzVWd1BkNS9uRTFTVFlIcFRyVlpVOEFRMkZieVhtd3EyYUlrNW5lTTRmNk1l?=
+ =?utf-8?B?OVIxUU5jN0w0UUx6d1czNkJrd3duY3l3RGdTMUJWSFpMRTRyNFF4ampRWFRQ?=
+ =?utf-8?B?QnhEY000TExpOFZEZ3FLb0VUcmttQUl0bzROWDUxVENhb3RqdEtRajVpcm5k?=
+ =?utf-8?B?WkZBUDVEMjZzcWUwY25HQStPaURyRlJ6d09QRjcrcWZoSFN2c1dXb2N4UWpi?=
+ =?utf-8?B?NTdmN0pFVnlFcEUvMlNsRHovbkpCbEx1MUNQam5NTHhZWU1lM0MvL2RsNkUr?=
+ =?utf-8?B?dGlVaklQL2lwRXFnYTNhekIzVFA4SzZpNGN6L3dqOGl2clltaHptZ1NnN1ZS?=
+ =?utf-8?B?YS9SZGJOV2diSzhJcVRjbE1pVWNEdDhqQngvK3RWbTgrVC9iZlB5SFdicE9x?=
+ =?utf-8?B?bUo3YVlhMTVEWmFMS29WWEtnaGZ4Y1JUMGU0NDVyRFhXM3ZTRFNkN2hCaGI0?=
+ =?utf-8?B?OHVsU01wbnUzYW0xdGovNjNuNTRRa0wrTzVnN2tjK1NXWFBDaUhpUT09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1f272f27-5956-45fe-68b4-08de8ff97d49
+X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 14:18:04.5551
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: A/9ttGVpoxDGKgU6NRg2HY0gGDlRZsjtjgKPwUac6j8HpTBErW+2HMoG57Vz/LXTvb3ynXN/OuiTsGahuduMRQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO9P265MB7843
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_071423_084280_F87DFCB6 
-X-CRM114-Status: GOOD (  21.22  )
+X-CRM114-CacheID: sfid-20260401_151808_974250_7D02AB21 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,39 +186,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-03-20 16:10:37 [+0100], Thomas Gleixner wrote:
-> On Thu, Mar 19 2026 at 19:34, Michael Kelley wrote:
-> > The function header comment for handle_percpu_devid_irq() says that it is the
-> > same as handle_percpu_irq(), but with the addition of a pointer to a percpu
-> > variable with the real device id. That makes sense. But there's another difference:
-> > handle_percpu_irq() calls add_interrupt_randomness() [via handle_irq_event_percpu()],
-> > while handle_percpu_devid_irq() does not.
-> >
-> > Question: Is there a reason for this difference in handling interrupt randomness?
-> > Or is it just an oversight? handle_percpu_devid_irq() is used, for example, for the
-> > SGIs and PPIs on the GICv3 chip, so I wondered if IPIs (as built on SGIs) & PPIs
-> > specifically did not want the overhead of add_interrupt_randomness(). But then
-> > GICv5 is doing IPIs using LPIs, which use handle_percpu_irq() and hence *do*
-> > add interrupt randomness. That seemed inconsistent, which didn't help provide
-> > an answer.
-> >
-> > The question arises in the context of Linux guests running on Hyper-V. Hyper-V
-> > VMBus interrupts to the guest are per-CPU interrupts in Linux, using a PPI on
-> > arm64. So these interrupts do not call add_interrupt_randomness(), which is a
-> > problem because these guests don't have much other way to get entropy. To
-> > fix this, the VMBus ISR has always had an explicit call to
-> > add_interrupt_randomness(). But maybe that's not the best approach, and
-> > handle_percpu_devid_irq() should be fixed to call add_interrupt_randomness().
-> 
-> I don't think there is a real good reason unless any of those interrupts
-> is NMI like.
+On Wed Apr 1, 2026 at 12:45 PM BST, Miguel Ojeda wrote:
+> `feature(extract_if)` was stabilized in Rust 1.87.0 [1].
+>
+> Thus update the comment to reflect that.
+>
+> Alternatively, we could use it unstably already.
+>
+> Link: https://github.com/rust-lang/rust/pull/137109 [1]
+> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
+> ---
+>  rust/macros/kunit.rs | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/rust/macros/kunit.rs b/rust/macros/kunit.rs
+> index 6be880d634e2..6f6d746b8dbb 100644
+> --- a/rust/macros/kunit.rs
+> +++ b/rust/macros/kunit.rs
+> @@ -87,7 +87,7 @@ pub(crate) fn kunit_tests(test_suite: Ident, mut module=
+: ItemMod) -> Result<Toke
+>              continue;
+>          };
+> =20
+> -        // TODO: Replace below with `extract_if` when MSRV is bumped abo=
+ve 1.85.
+> +        // TODO: Replace with `extract_if` when MSRV is >=3D 1.87.0.
+>          let before_len =3D f.attrs.len();
+>          f.attrs.retain(|attr| !attr.path().is_ident("test"));
+>          if f.attrs.len() =3D=3D before_len {
 
-So we could wire up the generic/ arch code here and feed the
-"randomness" from there and it from the driver bits.
+When I write the comment the intention is to enable the unstable feature an=
+d
+switch.
 
-> Thanks,
-> 
->         tglx
+Best,
+Gary
 
-Sebastian
+diff --git a/rust/macros/kunit.rs b/rust/macros/kunit.rs
+index 6be880d634e2..ae20ed6768f1 100644
+--- a/rust/macros/kunit.rs
++++ b/rust/macros/kunit.rs
+@@ -87,10 +87,11 @@ pub(crate) fn kunit_tests(test_suite: Ident, mut module=
+: ItemMod) -> Result<Toke
+             continue;
+         };
+=20
+-        // TODO: Replace below with `extract_if` when MSRV is bumped above=
+ 1.85.
+-        let before_len =3D f.attrs.len();
+-        f.attrs.retain(|attr| !attr.path().is_ident("test"));
+-        if f.attrs.len() =3D=3D before_len {
++        if f.attrs
++            .extract_if(.., |attr| attr.path().is_ident("test"))
++            .count()
++            =3D=3D 0
++        {
+             processed_items.push(Item::Fn(f));
+             continue;
+         }
+diff --git a/rust/macros/lib.rs b/rust/macros/lib.rs
+index 0c36194d9971..2cfd59e0f9e7 100644
+--- a/rust/macros/lib.rs
++++ b/rust/macros/lib.rs
+@@ -6,6 +6,9 @@
+ // and thus add a dependency on `include/config/RUSTC_VERSION_TEXT`, which=
+ is
+ // touched by Kconfig when the version string from the compiler changes.
+=20
++// Stable since Rust 1.87.0.
++#![feature(extract_if)]
++//
+ // Stable since Rust 1.88.0 under a different name, `proc_macro_span_file`=
+,
+ // which was added in Rust 1.88.0. This is why `cfg_attr` is used here, i.=
+e.
+ // to avoid depending on the full `proc_macro_span` on Rust >=3D 1.88.0.
 
