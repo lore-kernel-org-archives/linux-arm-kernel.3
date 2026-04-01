@@ -4,63 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEFB510F9316
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 00:08:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C44E910F9310
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 00:09:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B4yXrfGPm8zPPoTQNcjBrtov6wyDACyl7e9xrdBso4o=; b=sRgJXFEPhkW2PYpPHjZ+uBANGy
-	dbugDnYCUGAP3315Nn6QzisiW3JMh0QzkpxfP4ioS1FwbgpLZywUWYeJupE5roRxJuRz7llwAgzWL
-	tewyj21g3/nNMjaNaNiO9c7QFDVP4O7+667ZcfpytGSTZe7Ax0Q74hxigFAwq2teKBB3YkUtEGI1t
-	5AuFxoVzqd5Br6CakLbPoVu0NeqM/ceeJBIswodQYx+24EPBtc/Zh0omJ2XV5xHbhPyr5fsEi5ywz
-	QULrfdkjLhRR4whnK3jwEVVb8GNZQSGk4E4XduRZ2Qb3XkE2BPH+br+yqCZczpVKjOgCRXUHNaFB1
-	MVkqk6fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yxE/uTHNggKqsVDRxd2Yl/Y20+mquer1aD/Tya2nh5Q=; b=HPIz/a6zbVub+jWIeseWDcAUr4
+	T3kwUlT0UqSOggiE3yjYg9c/zvEgUxkkno4CdJE8rd67fVOu9cab2SbaF+6Gmyi8GBBFGUAxiwxbK
+	OTWd2aJPjYROUnN6XWJDmof43wGRdR4aUscRrlSvbNSI4vDmXnDMuT9vn/8FWw9rS2yNGh+XO1iAX
+	FnQ+YMIb0u5Ff6nKKMq9f3kANvddENlckWQIB2DMadzPnHjBUNESsSirZIGcmp1ehsNheivbOWQYr
+	YX2XvmU2IscKpe03l712U3kY2AG/yyH72wUopDU0uIUkFz5viBR7v6yD2rgNEfBWRHwX5Gfopl4ds
+	8m6/2eDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7j7m-0000000DiFv-3uJ7;
-	Wed, 01 Apr 2026 00:07:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w7j9D-0000000Dj51-1xXo;
+	Wed, 01 Apr 2026 00:09:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7j7f-0000000DiBd-0Db9
+	id 1w7j9B-0000000Dj4V-2XOM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 00:07:52 +0000
+	Wed, 01 Apr 2026 00:09:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C037243E4B;
-	Wed,  1 Apr 2026 00:07:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B457C2BCB3;
-	Wed,  1 Apr 2026 00:07:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 10530600AD;
+	Wed,  1 Apr 2026 00:09:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96BF9C19423;
+	Wed,  1 Apr 2026 00:09:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775002070;
-	bh=lMl6Llb6SKdL6D1zgOk+w6G/KGWKdefJM1MFe8cedTY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=d2PAyarZnxFpl6bvbCZYNUP1+rkfXxWgt+4MxWncO6fhwgsOwE0CXriXvLc61Szij
-	 dJETPQA9L+XuNjEWDoShv+7YLByys1tmpYDprg9gI0AAIysOozOoItbBgdnwFO3+gf
-	 v4cAKKnTtHLNmcNSTAEgXuaaXnKXsgPGvYcN6yGQxFj8mMxSuzOSMnwoonoyEytV8L
-	 YmhkDE/F71A/Jon5LY7To5UGsD2tPacVEUrmIa27jDukiHbrisVrvlX+Ba+RtwvfpJ
-	 EbAQ6FxbglMwrf+IdHlvOLgvUZ+otsqBgN/zcpKPPO8T+ihi1sHAaTePb29Pegbxet
-	 LVnHbHCPmhAwA==
+	s=k20201202; t=1775002164;
+	bh=GCE2Iy2Cf2s4vV7nVwqM/zJG/HopInTkOxOf/7UB944=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ApIPjtg5DEEu0NfbtsYKAtrvs0IK0oJ3NFlUTbX1V6fVpkKEZ3ikqxMG1pfuFh8Yu
+	 MJ2e8KpRMARuZbuAd7AkP4GRvefP4uHxuC0MtETVGNg8nGEHIYQukFcF+G0SIbjAHI
+	 RwR7VyqHlwHKybMNolxt0iXzaVhlgAQFcdIPyYX3lHFZ+OCcAudq12ykLG05KNi9ln
+	 zg7TbhhSeBe+ujv3tCYyv2sMdgdWsXobA/xnyr8D6mOyH0qUQ4hp9eqKqxXgZtMkhD
+	 ZIzZat+80ZK44ZOgjZoMDFPhdBlZHe2gaxRBN3t8AVwg6J1IEgs8vn7kYrAtiHvvpc
+	 titUmUquNDnTQ==
+Date: Tue, 31 Mar 2026 17:09:22 -0700
 From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 5/9] lib/crypto: arm64/sha1: Remove obsolete chunking logic
-Date: Tue, 31 Mar 2026 17:05:44 -0700
-Message-ID: <20260401000548.133151-6-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260401000548.133151-1-ebiggers@kernel.org>
-References: <20260401000548.133151-1-ebiggers@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Demian Shulhan <demyansh@gmail.com>
+Subject: Re: [PATCH 1/5] lib/crc: arm64: Drop unnecessary chunking logic from
+ crc64
+Message-ID: <20260401000922.GC45047@quark>
+References: <20260330144630.33026-7-ardb@kernel.org>
+ <20260330144630.33026-8-ardb@kernel.org>
+ <20260331223300.GA45047@quark>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_170751_175191_8EE40DC1 
-X-CRM114-Status: GOOD (  11.35  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260331223300.GA45047@quark>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,99 +71,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit aefbab8e77eb ("arm64: fpsimd: Preserve/restore kernel mode
-NEON at context switch"), kernel-mode NEON sections have been
-preemptible on arm64.  And since commit 7dadeaa6e851 ("sched: Further
-restrict the preemption modes"), voluntary preemption is no longer
-supported on arm64 either.  Therefore, there's no longer any need to
-limit the length of kernel-mode NEON sections on arm64.
+On Tue, Mar 31, 2026 at 03:33:00PM -0700, Eric Biggers wrote:
+> On Mon, Mar 30, 2026 at 04:46:32PM +0200, Ard Biesheuvel wrote:
+> > On arm64, kernel mode NEON executes with preemption enabled, so there is
+> > no need to chunk the input by hand.
+> > 
+> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> 
+> There's still similar "chunking" in other arm64 code:
+> 
+>     $ git grep -E 'SZ_4K|cond_yield' lib/crypto/arm64
+>     lib/crypto/arm64/chacha.h:              unsigned int todo = min_t(unsigned int, bytes, SZ_4K);
+>     lib/crypto/arm64/poly1305.h:                    unsigned int todo = min_t(unsigned int, len, SZ_4K);
+>     lib/crypto/arm64/sha1-ce-core.S:        cond_yield      1f, x5, x6
+>     lib/crypto/arm64/sha256-ce.S:   cond_yield      1f, x5, x6
+>     lib/crypto/arm64/sha3-ce-core.S:        cond_yield 4f, x8, x9
+>     lib/crypto/arm64/sha512-ce-core.S:      cond_yield      3f, x4, x5
+> 
+> I thought it was still sticking around, despite kernel-mode NEON now
+> being preemptible on arm64, because of CONFIG_PREEMPT_VOLUNTARY.
+> 
+> However, I see that support for CONFIG_PREEMPT_VOLUNTARY was recently
+> removed on arm64.  So that's what finally makes this no longer needed,
+> and we can now clean up these other cases too, right?
+> 
+> (Though, I can't find where the voluntary preemption points actually
+> were.  So maybe they weren't actually there anyway.)
 
-Simplify the SHA-1 code accordingly.
+https://lore.kernel.org/linux-crypto/20260401000548.133151-1-ebiggers@kernel.org/
+cleans up all the similar code in lib/crypto/arm64/.
 
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
----
- lib/crypto/arm64/sha1-ce-core.S | 14 +++++---------
- lib/crypto/arm64/sha1.h         | 15 ++++-----------
- 2 files changed, 9 insertions(+), 20 deletions(-)
-
-diff --git a/lib/crypto/arm64/sha1-ce-core.S b/lib/crypto/arm64/sha1-ce-core.S
-index 8fbd4767f0f0..59d27fda0714 100644
---- a/lib/crypto/arm64/sha1-ce-core.S
-+++ b/lib/crypto/arm64/sha1-ce-core.S
-@@ -60,14 +60,14 @@
- 	movk		\tmp, :abs_g1:\val
- 	dup		\k, \tmp
- 	.endm
- 
- 	/*
--	 * size_t __sha1_ce_transform(struct sha1_block_state *state,
--	 *			      const u8 *data, size_t nblocks);
-+	 * void sha1_ce_transform(struct sha1_block_state *state,
-+	 *			  const u8 *data, size_t nblocks);
- 	 */
--SYM_FUNC_START(__sha1_ce_transform)
-+SYM_FUNC_START(sha1_ce_transform)
- 	/* load round constants */
- 	loadrc		k0.4s, 0x5a827999, w6
- 	loadrc		k1.4s, 0x6ed9eba1, w6
- 	loadrc		k2.4s, 0x8f1bbcdc, w6
- 	loadrc		k3.4s, 0xca62c1d6, w6
-@@ -114,17 +114,13 @@ CPU_LE(	rev32		v11.16b, v11.16b	)
- 
- 	/* update state */
- 	add		dgbv.2s, dgbv.2s, dg1v.2s
- 	add		dgav.4s, dgav.4s, dg0v.4s
- 
--	/* return early if voluntary preemption is needed */
--	cond_yield	1f, x5, x6
--
- 	/* handled all input blocks? */
- 	cbnz		x2, 0b
- 
- 	/* store new state */
--1:	st1		{dgav.4s}, [x0]
-+	st1		{dgav.4s}, [x0]
- 	str		dgb, [x0, #16]
--	mov		x0, x2
- 	ret
--SYM_FUNC_END(__sha1_ce_transform)
-+SYM_FUNC_END(sha1_ce_transform)
-diff --git a/lib/crypto/arm64/sha1.h b/lib/crypto/arm64/sha1.h
-index bc7071f1be09..112c5d443c56 100644
---- a/lib/crypto/arm64/sha1.h
-+++ b/lib/crypto/arm64/sha1.h
-@@ -7,26 +7,19 @@
- #include <asm/simd.h>
- #include <linux/cpufeature.h>
- 
- static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_ce);
- 
--asmlinkage size_t __sha1_ce_transform(struct sha1_block_state *state,
--				      const u8 *data, size_t nblocks);
-+asmlinkage void sha1_ce_transform(struct sha1_block_state *state,
-+				  const u8 *data, size_t nblocks);
- 
- static void sha1_blocks(struct sha1_block_state *state,
- 			const u8 *data, size_t nblocks)
- {
- 	if (static_branch_likely(&have_ce) && likely(may_use_simd())) {
--		do {
--			size_t rem;
--
--			scoped_ksimd()
--				rem = __sha1_ce_transform(state, data, nblocks);
--
--			data += (nblocks - rem) * SHA1_BLOCK_SIZE;
--			nblocks = rem;
--		} while (nblocks);
-+		scoped_ksimd()
-+			sha1_ce_transform(state, data, nblocks);
- 	} else {
- 		sha1_blocks_generic(state, data, nblocks);
- 	}
- }
- 
--- 
-2.53.0
-
+- Eric
 
