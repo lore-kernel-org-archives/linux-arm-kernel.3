@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A5AD35167
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 09:58:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C7B1D3516C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 10:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R2ZvFN2d7JwVdevVALuYUQYVS9g+DjcOdU43fVNx86M=; b=QzszVlWP8oo5FyI6RDjXE2SmOY
-	DFS9ftihdy974NbXy38/lRqDPch1AE+OfKzEDNJZ7tRwr4R/1jhTzs6t6r1xEEKXqYr6HhcO8tnoY
-	nvI84K4tlTC5z9sXfGMkBm8svoTlkwKULuHSoD6ZZGl9SQqFjwWCHS6ZgAIekLNM2ILzy+HahlmbU
-	3rtFNYBD8CtMnjSr9dLHghrim/hTvibJHDh1BD+AeMAMUWPHmZxjc5oH4wGitdhGxl9KxVXX8A4LB
-	ulpuf6Yyn+D1D3mUDfJMnjH5JVVabRVxfvWPr0+y2h2VPfcvXZWCh9JLMfD/dT4ZmXYam3duQs3aj
-	9OsxToAg==;
+	bh=n9c+BlymEyJiEgefwlkww3iT06Svesx7RK4CgdK3KBI=; b=JBv8RR/Fh6tw/GD3oRr06qOECM
+	TllS6GNqleNbkbDCaWB8TUDOwjSAo4kfYP1U/RyxpEoIC3u2dk8TMDMQjrMjWeMtfJRI31AZq9SeY
+	lqkrqbzJb+iY2L91Gjm8YbxdxBAQZLkPfyC0Rjkzsq0iw6T1Iwew1FSgkLdqRV3IhPhNwlnwotCUj
+	uvV5SRPG9pu/TK8jkVtDmhqLrkBOBoChFfCkFyXgNpZPInNuwGU64mRmGgGe6y2meIE0Uu9aJ/7MJ
+	zwfDc0iXVC6Q+umK7GwJD1rSw/0eGNRHPkrYjk909hYEl/F3FuLN5jAJ39VsLOGkyHy6AL0+yybRe
+	u3DME+sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7sL7-0000000ESwh-49NB;
-	Wed, 01 Apr 2026 09:58:21 +0000
-Received: from fsn-vps-1.bereza.email ([162.55.44.2])
+	id 1w7sQV-0000000ETNV-3Bob;
+	Wed, 01 Apr 2026 10:03:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7sL2-0000000ESuE-41Fn
+	id 1w7sQT-0000000ETNP-3Sn2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 09:58:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=bereza.email; s=mail;
-	t=1775037494; bh=Kl6JmqCrf42hfpt3PEtmRDalCUj2fSnXQP8BtsdNym0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=lEMN2Vetn19zRwFR3/mmnYzbtt60PYOcpvEJCSlF2upw0QfiFB1uHFv4WjcBrcsIB
-	 WULJiugDTyk//DbvZtgKBrmHYm4m++VmDBduSz/URcKv2AUY0z6vPR/4ACbPMfhXHf
-	 1Bcn7xHcndX2sTXMlBs9SsBxhlLG5mShYais9Wf0pVkb4U7O8W6KxXZUDLMUKr8sZo
-	 mXTN6VapiGmt5Pt2kbOj2+YGhisuB8vp+Qn3RGWazJN7TPC1mr68Sf8lqfRD8j92NH
-	 3Fjn0FcxASqs/QjDFg3ldMIPWfwH2i5r/hjxQzzCq5/N5lkQmTyo8TqSK9NIK8l6wf
-	 Fy68n0AF0yl1w==
-Received: from [127.0.1.1] (pd95bbad8.dip0.t-ipconnect.de [217.91.186.216])
-	by fsn-vps-1.bereza.email (Postfix) with ESMTPSA id 377515DF95;
-	Wed,  1 Apr 2026 11:58:14 +0200 (CEST)
-From: Alex Bereza <alex@bereza.email>
-Date: Wed, 01 Apr 2026 11:57:47 +0200
-Subject: [PATCH v2 1/2] dmaengine: xilinx_dma: Fix CPU stall in
- xilinx_dma_poll_timeout
+	Wed, 01 Apr 2026 10:03:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8491660130;
+	Wed,  1 Apr 2026 10:03:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 772CDC2BCB0;
+	Wed,  1 Apr 2026 10:03:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775037832;
+	bh=L47v1qYcYUJeT2CaqpGyEU8mGhhYz5fMVzs69xNtNCk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=WbtKx9JID1o8Afdksqhd51oIWlCK09+RbBMr4J36pVRCnxUfPkqOF/IHN9+vndjOP
+	 NwYQZ2ng/y26oqDKDqtB3oXYoxuM6FhDF4mf5WM7VyycrBcgq0AfA9+89rLlT5Hf2K
+	 q0k5z4XWER9GEoMx0YOrDNitlkTou5yScn+rrgqVqjS12kd+OGm2TdNNunNPz5gtRo
+	 /TZRz7e91iolCyyQhuBzhQ+TOh+KzHeUlckDXIve8xdvWxyAC3diys9psf6WCVwooy
+	 QcrhG25aU4jP9piqjA6wK2yuIcJsgXfjv/3WICqJujTwvStzxlfpD95LSu3IlX6MeN
+	 LnWf7DCItGzpA==
+From: Will Deacon <will@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	Ard Biesheuvel <ardb+git@google.com>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	linux-hardening@vger.kernel.org,
+	mark.rutland@arm.com,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Carlos Llamas <cmllamas@google.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Kees Cook <kees@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Will McVicker <willmcvicker@google.com>
+Subject: Re: [PATCH v8] arm64: Use static call trampolines when kCFI is enabled
+Date: Wed,  1 Apr 2026 11:03:43 +0100
+Message-ID: <177503506493.2514486.12265333685036392947.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260331110422.301901-2-ardb+git@google.com>
+References: <20260331110422.301901-2-ardb+git@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260401-fix-atomic-poll-timeout-regression-v2-1-68a265e3770f@bereza.email>
-References: <20260401-fix-atomic-poll-timeout-regression-v2-0-68a265e3770f@bereza.email>
-In-Reply-To: <20260401-fix-atomic-poll-timeout-regression-v2-0-68a265e3770f@bereza.email>
-To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Michal Simek <michal.simek@amd.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Ulf Hansson <ulf.hansson@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
- Tony Lindgren <tony@atomide.com>, 
- Kedareswara rao Appana <appana.durga.rao@xilinx.com>
-Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Alex Bereza <alex@bereza.email>
-X-Mailer: b4 0.15.1
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_025817_219695_1BF9379E 
-X-CRM114-Status: GOOD (  15.99  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,94 +80,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently when calling xilinx_dma_poll_timeout with delay_us=0 and a
-condition that is never fulfilled, the CPU busy-waits for prolonged time
-and the timeout triggers only with a massive delay causing a CPU stall.
+On Tue, 31 Mar 2026 13:04:23 +0200, Ard Biesheuvel wrote:
+> Implement arm64 support for the 'unoptimized' static call variety, which
+> routes all calls through a trampoline that performs a tail call to the
+> chosen function, and wire it up for use when kCFI is enabled. This works
+> around an issue with kCFI and generic static calls, where the prototypes
+> of default handlers such as __static_call_nop() and __static_call_ret0()
+> don't match the expected prototype of the call site, resulting in kCFI
+> false positives [0].
+> 
+> [...]
 
-This happens due to a huge underestimation of wall clock time in
-poll_timeout_us_atomic. Commit 7349a69cf312 ("iopoll: Do not use
-timekeeping in read_poll_timeout_atomic()") changed the behavior to no
-longer use ktime_get at the expense of underestimation of wall clock
-time which appears to be very large for delay_us=0. Instead of timing
-out after approximately XILINX_DMA_LOOP_COUNT microseconds, the timeout
-takes XILINX_DMA_LOOP_COUNT * 1000 * (time that the overhead of the for
-loop in poll_timeout_us_atomic takes) which is in the range of several
-minutes for XILINX_DMA_LOOP_COUNT=1000000. Fix this by using a non-zero
-value for delay_us. Use delay_us=10 to keep the delay in the hot path of
-starting DMA transfers minimal but still avoid CPU stalls in case of
-unexpected hardware failures.
+Applied to arm64 (for-next/fixes), thanks!
 
-One-off measurement with delay_us=0 causes the cpu to busy wait around 7
-minutes in the timeout case. After applying this patch with delay_us=10
-the measured timeout was 1053428 microseconds which is roughly
-equivalent to the expected 1000000 microseconds specified in
-XILINX_DMA_LOOP_COUNT.
+[1/1] arm64: Use static call trampolines when kCFI is enabled
+      https://git.kernel.org/arm64/c/e70c2335f889
 
-Add a constant XILINX_DMA_POLL_DELAY_US for delay_us value.
-
-Fixes: 9495f2648287 ("dmaengine: xilinx_vdma: Use readl_poll_timeout instead of do while loop's")
-Fixes: 7349a69cf312 ("iopoll: Do not use timekeeping in read_poll_timeout_atomic()")
-
-Signed-off-by: Alex Bereza <alex@bereza.email>
----
- drivers/dma/xilinx/xilinx_dma.c | 14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-index 02a05f215614..345a738bab2c 100644
---- a/drivers/dma/xilinx/xilinx_dma.c
-+++ b/drivers/dma/xilinx/xilinx_dma.c
-@@ -167,6 +167,8 @@
- 
- /* Delay loop counter to prevent hardware failure */
- #define XILINX_DMA_LOOP_COUNT		1000000
-+/* Delay between polls (avoid a delay of 0 to prevent CPU stalls) */
-+#define XILINX_DMA_POLL_DELAY_US	10
- 
- /* AXI DMA Specific Registers/Offsets */
- #define XILINX_DMA_REG_SRCDSTADDR	0x18
-@@ -1332,7 +1334,8 @@ static int xilinx_dma_stop_transfer(struct xilinx_dma_chan *chan)
- 
- 	/* Wait for the hardware to halt */
- 	return xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
--				       val & XILINX_DMA_DMASR_HALTED, 0,
-+				       val & XILINX_DMA_DMASR_HALTED,
-+				       XILINX_DMA_POLL_DELAY_US,
- 				       XILINX_DMA_LOOP_COUNT);
- }
- 
-@@ -1347,7 +1350,8 @@ static int xilinx_cdma_stop_transfer(struct xilinx_dma_chan *chan)
- 	u32 val;
- 
- 	return xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
--				       val & XILINX_DMA_DMASR_IDLE, 0,
-+				       val & XILINX_DMA_DMASR_IDLE,
-+				       XILINX_DMA_POLL_DELAY_US,
- 				       XILINX_DMA_LOOP_COUNT);
- }
- 
-@@ -1364,7 +1368,8 @@ static void xilinx_dma_start(struct xilinx_dma_chan *chan)
- 
- 	/* Wait for the hardware to start */
- 	err = xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
--				      !(val & XILINX_DMA_DMASR_HALTED), 0,
-+				      !(val & XILINX_DMA_DMASR_HALTED),
-+				      XILINX_DMA_POLL_DELAY_US,
- 				      XILINX_DMA_LOOP_COUNT);
- 
- 	if (err) {
-@@ -1780,7 +1785,8 @@ static int xilinx_dma_reset(struct xilinx_dma_chan *chan)
- 
- 	/* Wait for the hardware to finish reset */
- 	err = xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMACR, tmp,
--				      !(tmp & XILINX_DMA_DMACR_RESET), 0,
-+				      !(tmp & XILINX_DMA_DMACR_RESET),
-+				      XILINX_DMA_POLL_DELAY_US,
- 				      XILINX_DMA_LOOP_COUNT);
- 
- 	if (err) {
-
+Cheers,
 -- 
-2.53.0
+Will
 
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
