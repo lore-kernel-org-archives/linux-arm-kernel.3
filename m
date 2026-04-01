@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C62910FCAD2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 22:40:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0AF810F6FDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 22:45:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V1D8LkzJOKrTgF/54gdXPEABGIdLijqyrtx0OyL22Ag=; b=RtYl9yYsajkW3R/hz1WM6s3TTR
-	oSc+DYn9Tfz2wTgcThjTz3sZ6zHt2LUUOpuxax53DEFw7oOgyckOtOYXcBMzVlA/1zIol37swzrwE
-	lMUOtB9y6yaUY71j/+8CVE+RzZ5uGl3JAkbZ/SaJJgMr+Drk3/bKyMvXsvd21Bbjv2X+l7kYQydYS
-	2Y9tdMlc53ezbvF8vdrDs8PTsA6I/01sOq2WXFLbBCK34nZ6P9tJLdfpmb5moBKRBFo2QIFqhTmIK
-	HNGgNyB5CAqN0v1RGJBAKhh7GWDdGyX6M2+xfq9CeVojyWzuZa5LMSq6JLL5IoIq09zGd/AxxxVCk
-	J4FB0/yA==;
+	bh=kBNo02HE+cB6L+spzkDhAluBu18nzaLYJ5piMktZMpo=; b=37b+Xtd/tMB5dZ/4kqapez1bTd
+	ybAIHIR7+r9YoLkVR+HjPPoUOejlAk/GJVZwRk1OuMQXJcOy5uYC3QS4x6t7oBaKLEn80NmHBdDtm
+	KBTzDrcCSOdd6DfVpTyMIJpbU12Woo4nhnym8VgBBz4CH/LdvmEOodl1TpVPfPI2Xa9V0o5n580UO
+	uoGXeq/xgxEb1GwoNKkS0ym050ecM/8B1Q9y1JFmbYbZkoY/98Ez41/E4s398YAPq6JFgMXnEFlQy
+	ZrNTRj5bgJIwu9dQKxHh0+Tn9OTWcoJVvHas18SFmw4lCeAtXVS1mIuCrZwhstMgKQ6gqWpxmxcbY
+	zRfY649Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w84F3-0000000GKLI-2AUc;
-	Wed, 01 Apr 2026 22:40:53 +0000
-Received: from mail-northeuropeazon11012064.outbound.protection.outlook.com ([52.101.66.64] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1w84JU-0000000GKeX-4675;
+	Wed, 01 Apr 2026 22:45:29 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w84F0-0000000GKKF-11ba
+	id 1w84JR-0000000GKdr-30RC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 22:40:51 +0000
+	Wed, 01 Apr 2026 22:45:26 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RpASIBNbLzYNI0U+cyTnG9tTP6Zx9skpeEo8sNJd8Hk0nQfYedaEvDYh/n8fmya9Hpgyayngl3gUcUmm1AfoPYfnn/3GAuqkbZhMrNzPbXD14UzYGmpmmPyg/cwcdqObwo8sN6geWvHigSd7Fmd32IeVp5iOFGYAVTGrLFyy1Os8HNSWJuSErAd3UKmZJ/Jd95DYUv3/qsMch0exUwmQNBRjAO4//RVpHNhsM5yMcSFSfsfaGfh+nYEVT4OhOgXYn7yYEZTgqfo2nw+WvzYy7fE6E2yplXWAlGUpB3zfKoMt959ph40LrgMgGnwpPzDkFy9y01Sm0CIKeYmd/S81Zg==
+ b=GNynOyzx6FpJFM6/YOI7yqniul3TGSPofCum44lvQICi0O6Mcfn7OThf7bZDOHd9RgM1Mki0n9xS0/hsQCovTYUXNPbvNFsJL47V5sLh3XMa3TaCvHcDrafeQTqW/XBunAlHztYkQXa9NW8Bai8h2r+FWaWQ6Ma33mMTm/aW3Qhj23WKX9HuZGh7o3CG4JEe3fCPHMYvEd+NWgs7eYAY/+wB21wWbGHvui6cvwbpk1OzcZJDtImlDn2L/oA1H5zoJwwQsF6BCEUYy+h4TOKAnzJBlU69EYtlqj4Kqt9XlMmmce5FVBn971kLGFXLRzM7b4FaCoQl8pGmHmNdkzK9NQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=V1D8LkzJOKrTgF/54gdXPEABGIdLijqyrtx0OyL22Ag=;
- b=QsEK56TCAJ2fQGzOckpGpUvLsJtSDU/OmEVDIKyl+4ZetTyRdQz14bT0wn9gPlJAWkAxUfgyP1o2Zx+ZoWK/wx2QEHunV2E4N1KG5h+TSQWAeeu3O1IXhLf1J280J4yLSUiHrNiw9lMUmGwJP8aKA3WQuoGyj3RgIb9V1bXkf2CUDH9wDB4FFMhe1ZFQVHKZcRbI86eJ2ZBXPS3LPWUsBpdvnotv8sPrSHMvNEEMipy5IdsZKCnv9oBnyblDYg/rNGwgDFuqTwWQ6D5/7lKGtuLgZ7hwDrKp4YOuUYz8g953Ul5c6OogQqmdZg4RqIJu/N8Zza4nVlw//mgqGVP79w==
+ bh=kBNo02HE+cB6L+spzkDhAluBu18nzaLYJ5piMktZMpo=;
+ b=ZE4CZgROIN4JxLrgkvGMk0OczDxiW/j0+4135xr4x4dePBch23aEhFRgfWhyF/GY6zM2hwvLQhKfZUXGS4kkbJKrLX/GbxydEct9IocD73X/7OqpQVK7aUbQn4niMfAdnCW8epxHzGEpLwmybABDrvBwBFXd2+g+iDbIbWqq5iqoD1ZuaAjZJz4O1xd5oLmqvsYSnRuImRPAlNUNa+bi/cvIClgkckAKJtSQ6pioeyIx0N6ftM93dRibVFG+NaEtOhTIu5lbwd/yqwEgMSodldk1filcb30it6J4wKFKpOMRgXLYXThggNcpysqG1AwEhhnIa/QxQC6gPJEjJCOSyQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=V1D8LkzJOKrTgF/54gdXPEABGIdLijqyrtx0OyL22Ag=;
- b=Z/YAdp3fCjnVwDw+5If2kYbT5K/98K3hJiCp243PAOW0kEBd49MUv83K4nq9GOWbJRPl7FbldQEfU6D0ITVm/g0xB45yIfVnpnlAJqSqJFm/tEwPovVDIEqRSlekZH1K4vLNwvBt9bA3VQgayHo0CofLE96IpFUOT1vt1LPQ5J4cHwRbdGo2OZQbfczAZsqfVaDL4GWoE2ykqocF8KTc4ctTDSM8DkaXxoqQklouf2+EWhvioqh2Lvto/kW5r5hpXbC90NhhXtGX8OXtoAi9ETXimUywJABDiy8aZSoa3xzjRLG89uRYsl0MQWhy4puDjVuNmL6/jalrYo1k3Te1Dw==
+ bh=kBNo02HE+cB6L+spzkDhAluBu18nzaLYJ5piMktZMpo=;
+ b=aQgpDe/kkIpQrrdFiYbSCxbgVZ6ZogNJ7IkxqzFUoQFJkCiyYlU91P/L9IER+tcXON5pjePx8uXGxxV2pyKbudnsNSZonihAGfAwE/k+N4gsriXoqbTYyxUmE0/BFHCnisN/Wz2zt3Pxd52ltjtG0U7iyQwXoQbxESjDtWOXRrZgSF5OhvXnMaRBEe4nkNiGjRdklbb+pJTTAmwQ64Ysm89eqJ94JuWy5wLA9x/s6doj7L94YH4kRPgpDr5g4PyBsP1g/eJnwTk54uSOpPzURCfpghTToWThypISavrFOiNGjluVTg8fFt+RdxWjNVNvMqqIINsgHFRuuSguN3TPEw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
  by VI0PR04MB12234.eurprd04.prod.outlook.com (2603:10a6:800:332::12) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
- 2026 22:40:40 +0000
+ 2026 22:45:20 +0000
 Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
  ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
  ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9769.016; Wed, 1 Apr 2026
- 22:40:40 +0000
-Date: Wed, 1 Apr 2026 18:40:33 -0400
+ 22:45:20 +0000
+Date: Wed, 1 Apr 2026 18:45:12 -0400
 From: Frank Li <Frank.li@nxp.com>
 To: Alex Bereza <alex@bereza.email>
 Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
@@ -63,71 +63,70 @@ Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
 	Kedareswara rao Appana <appana.durga.rao@xilinx.com>,
 	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] dmaengine: xilinx_dma: Rename
- XILINX_DMA_LOOP_COUNT
-Message-ID: <ac2e4ZupU6W0Ik5B@lizhi-Precision-Tower-5810>
+Subject: Re: [PATCH v3 1/2] dmaengine: xilinx_dma: Fix CPU stall in
+ xilinx_dma_poll_timeout
+Message-ID: <ac2f-HV3cmNeQdBb@lizhi-Precision-Tower-5810>
 References: <20260401-fix-atomic-poll-timeout-regression-v3-0-85508f0aedde@bereza.email>
- <20260401-fix-atomic-poll-timeout-regression-v3-2-85508f0aedde@bereza.email>
+ <20260401-fix-atomic-poll-timeout-regression-v3-1-85508f0aedde@bereza.email>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260401-fix-atomic-poll-timeout-regression-v3-2-85508f0aedde@bereza.email>
-X-ClientProxiedBy: SA0PR13CA0006.namprd13.prod.outlook.com
- (2603:10b6:806:130::11) To PA4PR04MB9366.eurprd04.prod.outlook.com
+In-Reply-To: <20260401-fix-atomic-poll-timeout-regression-v3-1-85508f0aedde@bereza.email>
+X-ClientProxiedBy: SJ0PR13CA0138.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c6::23) To PA4PR04MB9366.eurprd04.prod.outlook.com
  (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI0PR04MB12234:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2a12f6fa-09c5-444e-c94a-08de903fb3b7
+X-MS-Office365-Filtering-Correlation-Id: e292f762-d4ea-405b-bc1f-08de90405a5d
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|1800799024|52116014|7416014|18002099003|22082099003|56012099003|38350700014;
-X-Microsoft-Antispam-Message-Info: c8vB3dn5EACX+87z5g/OpihxdosIdSd9sHuVZfbPTw17MPG+tnaXEXojoUmwWnosMWuXIqNmMHaY8RBakGQpJiybEcEUyG6TFkrLWvS88jhXrPqBqfR3W9pUwjHyHWRkORVq1bzEjKMZ4cRxFtf4n+ojgTKidD16SoGK4k7PBjeh+WDUWSUwrx+p+6ukdSmiTuYWDRLOlWPAA0yd30jdvg4Q7c27flG6Ev3XQxCOB3WGbOZEnhqbsPHGUqWPiYVDgE+NCNgnPWJrMYJVbVZwq+Q+PBHknP+tmhKg2ZKwAZDHDuP5dNcRovCesej4XfYmtMyBlXG30aZpOMkvWgZpP8M3KlOiCJCHYO5I2mq6wqMH06KLTvG/af6/E61EfxKi9GoESjtD0i0m7VDYxm0PDdPqupHooOGlyOR610gEabMgbwmBiUMDiodTMmCOOE0EdExAU+7+4Zd3sv86xZbdhAk3OCfmbuMWthWZbX/fVti3ViQsVgc9iBysXQp+vwC9wZRQaPMAZv1GTuLghfob/2knEffqMz/6zfOhqsAhzq/SOU84aEPs5wYtF5H+bdgbD8RO8FesD+PJh3gElTTdiv3JbhyeS6MpQkuVfb+GGHvjedomSKwqgm/Xq1LdBUQr96UwIZJNOfDOelwWW4LGJjkrdgkisezt7//HuRGezCCZGsv2dY30SpuqdZykG2xqk5qtThliOxMX3jBughBGn7OJs3tVoKSiQ8nW1606rdqWag78XC7LW/3ExJtBde0a0CZH/Qhu/TR7Gyl1pu8JxcyG86Qwrfri7iSSWshpvTc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(1800799024)(52116014)(7416014)(18002099003)(22082099003)(56012099003)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|19092799006|7416014|52116014|366016|38350700014|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 0Emf8DrmMQ74R9R3JV2wxSxD2V5Z5Ss1ZuKic/S6Mm0xeed+uZYwVI/lSO5HCWTEDLXMl8s5bRheEcgbuwmsLOzsGLTR4D6HMr+rTS+5a32LlXT39S8618lpDtuWtKSZ0+vn84Ziox1xkNKQ/mwdL6E3bw9c+9s05mp63wj3mDve77k8EMIhzwSsYB1vSpon2zd7JQN0ZuXSM2pBvAKLys1alGgInwCxQnkB/iLP18a/OZjlB1+I/0qWTr0qkzyxJNOLnRig04LzHJjNljJJwGIcFw7GkmphOK3/x1VV6hgVi7kcPCM3o9W1di7QH6kVPOrZzgCdnpyxn/phvY5jt28gW8BOhcIx8HWRIY0MRKRlh7JBYy6l+day3P8oAD6PgwHIPdfKeJfJQRgkPb8VtGS68bwdrbFfee3IMIluk2zzCGVROlmy0g8A1/cEbtQwNkVDAwKCqlkQz/l+meP8Ho5zV9JWKiTM+sJntdP0OFDSdjmrVyOUfLoAWr8yIbIBBdNy1dI7Mj+szDthrfU5ak5sXtKo5HUA4dJCV1TsqaD1NmlNpD/W5bshAskgXb48qL3eeqleF1WFjlIhkSuysZmrpfW6KKX9ySfDcEQsxfJo7U0A1UwzgUz1XLTqkmvOLA8gRPLvAJxQ6sT9wnue4t8dYopNEan3P4dZe5YOrZk51w5ZlBFl8EfbD+s2rkumkiqZtncBSRiI9myxqPWWLHBLddQUsQsRIL5M6ITV//WCKh2nOzNpr38lnJ/A/5PlKgCoNFjYhp4Yn01S54fnoM+VpYKZMJxWIQQbG2bquiQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(19092799006)(7416014)(52116014)(366016)(38350700014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IKI97u5CA+ehwOFLslt7ZS0qtHkDDsZjCpt66YU+bYtCRrjHjeZw8GTQctYg?=
- =?us-ascii?Q?eIJKoMYn0mffvqV+rccF5xzlwemZNjhROoCW12dZJWqcrkUgtvQOcJWio/Ws?=
- =?us-ascii?Q?uBMH7zTT/fRvL9z6Q6f3IGbRDsNyVCvVHUaIZHH3SApS8+zKzZIqAgxrYWQc?=
- =?us-ascii?Q?vVrZ4nLSEpBJROqSfd4KqQPgDylM9aA7+7un4iXCH67M+ACglw5A2TYug/S5?=
- =?us-ascii?Q?Jc6UyGiFsoCkPKPpKqTSnzhj853Fuz2Z2nONYcjU4DPlZeDTGwmf7rrBxv6c?=
- =?us-ascii?Q?AoQu/xhUcJxsQQZyN+ga/Eh9kuL3l6fDh8jx9tLNvqW0y57fgphryrJoxYvR?=
- =?us-ascii?Q?bIF6eQpUjLJy0CqNxcJDN9vfhakN94oPNnDGJNaBbkqjlZWmiXKW6WYhVfpT?=
- =?us-ascii?Q?u+DT7eQLVPZ9jBQF9c2uiDyOxy34TumXIs4IBQmUxF6egoP6C5Flruq2xulf?=
- =?us-ascii?Q?+vXoNiTIGKSv/QDcoJ9TrL/fyUUcPbrGbXJ8tGAf9wpyadCEbiDaOOhi0zrS?=
- =?us-ascii?Q?CXzqDWwzPDe2ncei1QblN90ZZcJzcgmQgDCNrvA4n8NqyhxigQ397703JufQ?=
- =?us-ascii?Q?XxprXDiQSRIFR5GBFyVknGhWXT5EaYfhTF/af+gFAOtI11+fyQZxy81MAdHk?=
- =?us-ascii?Q?Yn1IhAyFFihSmomFOQJn3KImE1gSvXUrAojzBApm0uCRz7M6MYwbFHBNOdnp?=
- =?us-ascii?Q?vJxfK9BVTqeri7RKip2lWXnqAh1kZfVeVWPH+YXYzYZc6kuhgt9DTut61Rdh?=
- =?us-ascii?Q?eURsLsY2ZFb25CAUl0sUecgvoWD2/W/qu5SyVyTTqaG9g3xx64O4WvhBKj0k?=
- =?us-ascii?Q?EEzcUbL4i4uhTuzxeUAzSAmJ4LEuE+8Q4z7bAVvrRsjQnqKTZrME8F4gEMFA?=
- =?us-ascii?Q?W9ynzI4L5wicxhKqcqJ44aItIQBdqxM3T7iDvLqBzTQccxF3nCviESabB0Kl?=
- =?us-ascii?Q?o7NyoUzTPJNhkT3dm5t7RAMCoNxAd0w35cj+H5ak6Ifq7GF57t6vtjD6s1BZ?=
- =?us-ascii?Q?MkRawGlh9KSNPaFUNejIwetml7zMG9jTIATCni0HNXC7OgU/cMin5XyaKjgW?=
- =?us-ascii?Q?YAhdHvbuRjMOUFgSHS7lS6rUQVUXajR1tVrMVcbip4OXjAoYlF+27G51E+mb?=
- =?us-ascii?Q?lUlc8UnBA+QF4/cXfRVOI3TucP04Y1sieYKvWb4dItuUIMWfsm/P9TUqPitp?=
- =?us-ascii?Q?As29uqa2FjLVDVYpkZ1tcC0M0Ff/ChYWPa6FLEptbsQaLKYD8Yabw5KkAHpv?=
- =?us-ascii?Q?TGxsCVhoIST/EtvdTGAJ05usRBmyEEmEqFh/L+M84hXBsVA8XZFn/1u9/1pT?=
- =?us-ascii?Q?2QtfL0A37FSD0G6zrWIeOTrGceDTwxlnSKuze88wscCEBWbczY3wZ71wpFdg?=
- =?us-ascii?Q?lF/NqNTokTPAr9sJbe4q/bBA/+RyLiq5Ymrsvg+Rid5Y9uWymNOPbZzG0Xnv?=
- =?us-ascii?Q?slN1o70ZXDL3HD0fIc7ajfATi2R6OXEjFVksFKgYeLgrGSZEpIzyE6usu5Gw?=
- =?us-ascii?Q?YoKLCyTTQMZkHkILg8bfJacxJYGB9Aw9Bh6Li5g3giW8g1lBV4Y5FaP3B2G9?=
- =?us-ascii?Q?1eiDY2FkWPsYHLhsxSh0MeW0EmCo771Bbhq01+7eizSArubyDndULqbQfOcz?=
- =?us-ascii?Q?HJEiR+g0E0HDu7rNnmN7jWfq8g++r7lJlL/Ozcyrw87Ma1yOvXwgTsM3DiCd?=
- =?us-ascii?Q?Q0UkcEDbeA1TUcWGcpEJkVXNsOQfTqGe+2mf9Dmo92j+6eq/0E7rdPeqokLY?=
- =?us-ascii?Q?EzuFaAaIvg=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DXyUznHNkMLXLFA2KysToq855vQK6D+I2UDK2ZDhnLZ7FY/orKzLU7Zm6WQQ?=
+ =?us-ascii?Q?JZZQuuwzoulJgg/soS0SXuK91WoRTD3bdZfitoqe3OIfuYDJBXW9j82/9ilE?=
+ =?us-ascii?Q?i9FSsRTJUg2o+SrhVcANouk5p5tTwkJKl2tIbO9hOqwxqH6LBJdIqAtemGGC?=
+ =?us-ascii?Q?vaMomT2IGOkWH5nz/KfDDO5jam8A6ewTmVA5Z1nktk5xWFj01Jtd6SBlQh+F?=
+ =?us-ascii?Q?Xen7Qhs9/z9JsiyxlL+lKjjc/nJTnKsxxNrrIAMf2W5QtcvmellI+xp2EHsr?=
+ =?us-ascii?Q?+i6StVqm/p6ZiTPL7Ji2UBb/9KgUKUqYrmhnKgtKknRm6yK7Yft3yPJSF+Ss?=
+ =?us-ascii?Q?WrMZ4fYM+oR7twD2mC2KI8oJVvA+NPFyDjunG7pBdfkyW387ihQI1EMRDOEu?=
+ =?us-ascii?Q?wafJKVzuE8gdaXg2RtMYxZJTGEOGOPwR+EjCpLKClkjOF1eWhRFlu/UZEpe/?=
+ =?us-ascii?Q?TqrDZJM5DKEfxUAF960dBz8HhyzoyWpr5L0EoaARygc/pMTki0e2Aw1TX2ew?=
+ =?us-ascii?Q?FHXcE8tvUYBxED7wxXvH8tMoBl3pCLhcdAhkp1W0QRIiabg8kh/MJQ9KFfjt?=
+ =?us-ascii?Q?53OVBfoqpEH1MsBIchX17I99MWEit5XWtpdcweEPCU9xrv8tqgCwMcdYl64V?=
+ =?us-ascii?Q?Vnmk7t5aTW74IbOUfHngnVNUmPRDMaezpmrJaz/+VsagfcngUE0dDupbcy33?=
+ =?us-ascii?Q?kweOLdbqF5gzNX0mO1dRc+sOwNBqGt2eE0kejMqM4QvfK0R8YipPsX+0r72H?=
+ =?us-ascii?Q?tVmDrFNrw66Xga3ljxGoAaP88avLgyaXs2ezV5+oH7cA3O7YHi0CwIqAZM9i?=
+ =?us-ascii?Q?/eQ/Sw3rBjnhY6y4VTyTFQ0NlCxVUCVF7WsKvwp/fJ5RthStm1pPAz1bgaeQ?=
+ =?us-ascii?Q?AtCLGnGwjBKnYaFFMtjTcVPDcbJEv5hYZJtA2nLP6Z+4ebphzvC2Q7nM1++a?=
+ =?us-ascii?Q?xUqzYEZqy+ygKo3jPEQiRxuK++llNgJcg6FOeFiwKDfVZ4/giAC6SMWeh7ZG?=
+ =?us-ascii?Q?xiWEhAh5Gg5lWCICbbu1mQDU7eACwuRfhXreofVzpQLNuUwgbGaeSfmlOLP5?=
+ =?us-ascii?Q?TLZ1c42a0UtUdkGWFu3bd4mI+NHyUp6ZvYuIwHc7V97TROcIc7IZFInO88rW?=
+ =?us-ascii?Q?kAqO4ApdsFQCEFDS6IjYe7nGpvQr8DwKKBDYUidfEEgCSxiERrbBNRiOgdUr?=
+ =?us-ascii?Q?zYuNzRbqGtQMbj2DobTGANf8ByECsIlsamdci9vCOFN6QcJBnGj1UylLWP59?=
+ =?us-ascii?Q?HEeN/0XT1M35gyKQhcOT9SQhxtNeKZspQ6qXAKZ5lbg4uvQ4L6vHVOpkzXuJ?=
+ =?us-ascii?Q?CLIfskRmnXXYby2pcnLzbETe/+W+Tushw0wK1A+onric9lOoLS096Ieqzh6R?=
+ =?us-ascii?Q?L1yXzoRcchanAcd15yVOfr4Y5lq+vLhnSNM40R4UA8Y/3JOdm2K+yi4jwF8+?=
+ =?us-ascii?Q?TahSpgnNMFiZpdJep31pSgg+bih+LFXu9lozYUD3SVBf2rW5VIVprSzo8EUy?=
+ =?us-ascii?Q?b386t6XG+jz7sjoiGJJy5Q42HImy8CrW+jhgvkDTB1K3WladBTdXlkYcAek3?=
+ =?us-ascii?Q?izq+ELX+OaLS9UfmkOcnNIpZ8gbPqBdC5bOh3sR6O1MqPbGUc4YNapzKw1s+?=
+ =?us-ascii?Q?D7w4PgF+Y632dAngpTjW09dijiZ6hP021DnfQbJ1B3BPWbJl/5BvMOrQpncW?=
+ =?us-ascii?Q?r9rW0TOjWuvKgqJdmD7P6xbeb+mffzN6MgIGBqf8dhoByxB8?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2a12f6fa-09c5-444e-c94a-08de903fb3b7
+X-MS-Exchange-CrossTenant-Network-Message-Id: e292f762-d4ea-405b-bc1f-08de90405a5d
 X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 22:40:40.7310
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 22:45:20.4510
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: s7Dwqeodpzn0938i22kqtZFe/pp2rBMezDx1iB0jsCsLLIkVb9n4NUxHHp9dVmuTm8DDCJJ4JIz3QUoYWl53OQ==
+X-MS-Exchange-CrossTenant-UserPrincipalName: Qz98cOvoQLDTzRk0GD0IJnFzWYOn+V4+7HyvvuI+ZvsypX0WAIjEivEisfcN9HBYvatHvQTf3z1LISiuV6VZEg==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12234
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_154050_291877_B9EA522C 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20260401_154525_763685_64BB9B70 
+X-CRM114-Status: GOOD (  27.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,75 +141,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 01, 2026 at 12:56:33PM +0200, Alex Bereza wrote:
-> Rename XILINX_DMA_LOOP_COUNT to XILINX_DMA_POLL_TIMEOUT_US because the
-> former is incorrect. It is a timeout value for polling various register
-> bits in microseconds. It is not a loop count.
-
-Rename XILINX_DMA_LOOP_COUNT to XILINX_DMA_POLL_TIMEOUT_US because it is a
-timeout value, not a loop count for polling register in microseconds.
-
-No functional changes.
-
-Frank
-
+On Wed, Apr 01, 2026 at 12:56:32PM +0200, Alex Bereza wrote:
+> Currently when calling xilinx_dma_poll_timeout with delay_us=0 and a
+> condition that is never fulfilled, the CPU busy-waits for prolonged time
+> and the timeout triggers only with a massive delay causing a CPU stall.
 >
+> This happens due to a huge underestimation of wall clock time in
+> poll_timeout_us_atomic. Commit 7349a69cf312 ("iopoll: Do not use
+> timekeeping in read_poll_timeout_atomic()") changed the behavior to no
+> longer use ktime_get at the expense of underestimation of wall clock
+> time which appears to be very large for delay_us=0. Instead of timing
+> out after approximately XILINX_DMA_LOOP_COUNT microseconds, the timeout
+> takes XILINX_DMA_LOOP_COUNT * 1000 * (time that the overhead of the for
+> loop in poll_timeout_us_atomic takes) which is in the range of several
+> minutes for XILINX_DMA_LOOP_COUNT=1000000. Fix this by using a non-zero
+> value for delay_us. Use delay_us=10 to keep the delay in the hot path of
+> starting DMA transfers minimal but still avoid CPU stalls in case of
+> unexpected hardware failures.
+>
+> One-off measurement with delay_us=0 causes the cpu to busy wait around 7
+> minutes in the timeout case. After applying this patch with delay_us=10
+> the measured timeout was 1053428 microseconds which is roughly
+> equivalent to the expected 1000000 microseconds specified in
+> XILINX_DMA_LOOP_COUNT.
+>
+> Add a constant XILINX_DMA_POLL_DELAY_US for delay_us value.
+>
+> Fixes: 9495f2648287 ("dmaengine: xilinx_vdma: Use readl_poll_timeout instead of do while loop's")
+> Fixes: 7349a69cf312 ("iopoll: Do not use timekeeping in read_poll_timeout_atomic()")
 > Signed-off-by: Alex Bereza <alex@bereza.email>
 > ---
->  drivers/dma/xilinx/xilinx_dma.c | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>  drivers/dma/xilinx/xilinx_dma.c | 14 ++++++++++----
+>  1 file changed, 10 insertions(+), 4 deletions(-)
 >
 > diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-> index 345a738bab2c..253c27fd1a0e 100644
+> index 02a05f215614..345a738bab2c 100644
 > --- a/drivers/dma/xilinx/xilinx_dma.c
 > +++ b/drivers/dma/xilinx/xilinx_dma.c
-> @@ -165,8 +165,8 @@
->  #define XILINX_DMA_FLUSH_MM2S		2
->  #define XILINX_DMA_FLUSH_BOTH		1
+> @@ -167,6 +167,8 @@
 >
-> -/* Delay loop counter to prevent hardware failure */
-> -#define XILINX_DMA_LOOP_COUNT		1000000
-> +/* Timeout for polling various registers */
-> +#define XILINX_DMA_POLL_TIMEOUT_US	1000000
->  /* Delay between polls (avoid a delay of 0 to prevent CPU stalls) */
->  #define XILINX_DMA_POLL_DELAY_US	10
+>  /* Delay loop counter to prevent hardware failure */
+>  #define XILINX_DMA_LOOP_COUNT		1000000
+> +/* Delay between polls (avoid a delay of 0 to prevent CPU stalls) */
+> +#define XILINX_DMA_POLL_DELAY_US	10
 >
-> @@ -1336,7 +1336,7 @@ static int xilinx_dma_stop_transfer(struct xilinx_dma_chan *chan)
+>  /* AXI DMA Specific Registers/Offsets */
+>  #define XILINX_DMA_REG_SRCDSTADDR	0x18
+> @@ -1332,7 +1334,8 @@ static int xilinx_dma_stop_transfer(struct xilinx_dma_chan *chan)
+>
+>  	/* Wait for the hardware to halt */
 >  	return xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
->  				       val & XILINX_DMA_DMASR_HALTED,
->  				       XILINX_DMA_POLL_DELAY_US,
-> -				       XILINX_DMA_LOOP_COUNT);
-> +				       XILINX_DMA_POLL_TIMEOUT_US);
+> -				       val & XILINX_DMA_DMASR_HALTED, 0,
+> +				       val & XILINX_DMA_DMASR_HALTED,
+> +				       XILINX_DMA_POLL_DELAY_US,
+>  				       XILINX_DMA_LOOP_COUNT);
 >  }
 >
->  /**
-> @@ -1352,7 +1352,7 @@ static int xilinx_cdma_stop_transfer(struct xilinx_dma_chan *chan)
+> @@ -1347,7 +1350,8 @@ static int xilinx_cdma_stop_transfer(struct xilinx_dma_chan *chan)
+>  	u32 val;
+>
 >  	return xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
->  				       val & XILINX_DMA_DMASR_IDLE,
->  				       XILINX_DMA_POLL_DELAY_US,
-> -				       XILINX_DMA_LOOP_COUNT);
-> +				       XILINX_DMA_POLL_TIMEOUT_US);
+> -				       val & XILINX_DMA_DMASR_IDLE, 0,
+> +				       val & XILINX_DMA_DMASR_IDLE,
+> +				       XILINX_DMA_POLL_DELAY_US,
+>  				       XILINX_DMA_LOOP_COUNT);
 >  }
 >
->  /**
-> @@ -1370,7 +1370,7 @@ static void xilinx_dma_start(struct xilinx_dma_chan *chan)
+> @@ -1364,7 +1368,8 @@ static void xilinx_dma_start(struct xilinx_dma_chan *chan)
+>
+>  	/* Wait for the hardware to start */
 >  	err = xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
->  				      !(val & XILINX_DMA_DMASR_HALTED),
->  				      XILINX_DMA_POLL_DELAY_US,
-> -				      XILINX_DMA_LOOP_COUNT);
-> +				      XILINX_DMA_POLL_TIMEOUT_US);
+> -				      !(val & XILINX_DMA_DMASR_HALTED), 0,
+> +				      !(val & XILINX_DMA_DMASR_HALTED),
+> +				      XILINX_DMA_POLL_DELAY_US,
+>  				      XILINX_DMA_LOOP_COUNT);
 >
 >  	if (err) {
->  		dev_err(chan->dev, "Cannot start channel %p: %x\n",
-> @@ -1787,7 +1787,7 @@ static int xilinx_dma_reset(struct xilinx_dma_chan *chan)
+> @@ -1780,7 +1785,8 @@ static int xilinx_dma_reset(struct xilinx_dma_chan *chan)
+>
+>  	/* Wait for the hardware to finish reset */
 >  	err = xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMACR, tmp,
->  				      !(tmp & XILINX_DMA_DMACR_RESET),
->  				      XILINX_DMA_POLL_DELAY_US,
-> -				      XILINX_DMA_LOOP_COUNT);
-> +				      XILINX_DMA_POLL_TIMEOUT_US);
+> -				      !(tmp & XILINX_DMA_DMACR_RESET), 0,
+> +				      !(tmp & XILINX_DMA_DMACR_RESET),
+> +				      XILINX_DMA_POLL_DELAY_US,
+>  				      XILINX_DMA_LOOP_COUNT);
 >
 >  	if (err) {
->  		dev_err(chan->dev, "reset timeout, cr %x, sr %x\n",
 >
 > --
 > 2.53.0
