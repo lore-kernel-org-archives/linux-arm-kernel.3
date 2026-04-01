@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FDF5D3514B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 07:11:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F655D3514A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 07:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0zcBsm8z4cMHDPon/rz6xzH1cvFqqtoHNP+rhk3J0VU=; b=gNQz4yF6VoFvNcS4nFy8uysUJX
-	NPmIS+1J5efjAhG8IwMsz5uhrE/8ztTntp2mtIFnyWEkcwm/evQIvNrMH6PrO5KLqDpb/cY2l8E02
-	PwHfQi3mdYG+koawf0H/1gdu2loFt/ZNoWDdxDXHNLeKdzhXd+qDoPp0naeIhNG5f8/6n4HS47IYG
-	5raiCLnyCkq6RB35EUUc1D/K6ubqLsB1cy8Ji2JWWG4GkxKWKrWLMZz2oF2UPJ5RWn83465vqDbtJ
-	/Nq2wOQwDDvuOzKuC/YUSpIUpzpj334roFQqaJvGKUvrwCZKJ9/J6Km+Zd5ks6bNFDHns9n7N1nq+
-	6zLyRfNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dtZ756YY08U7bg9gCLlbHxheqzmQ87Emq5OyGQIx0cI=; b=IzQ290DTOyIsymLamwhlcCiCKZ
+	003F3HG7EWbNNj/KCfl2ctiHkopa8fTw/yMELQ/97F55wClqVHdHDwnupdF+WWVT4gRPSoh5fLtSF
+	EPJiXgrmUgZAdTrkTj4NvQL9T80Efn7qyqlQCl4D1uZbH257SWeNCl3jAJ/qrd0asx/Vkm9Zp8TPI
+	wjEg61Gc+TEJYhsPYhOF7CsBjcThZxiGQNCqgdBVP2zeQG+lo7oxEXzMwX/UB7m0YyAG9PazxQDKC
+	6I73pTnnq8Nb9dm+SFBz1++SOz55Hf/hVkhhoZ3eSDp3zL/pkVaJ7CZnX9Ci/7PzF4N9DiagXf3F1
+	9kmBWtuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7pk3-0000000EAz5-38uH;
-	Wed, 01 Apr 2026 07:11:55 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1w7psu-0000000EC6m-28Bm;
+	Wed, 01 Apr 2026 07:21:04 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7pjy-0000000EAwA-0KFZ
+	id 1w7psr-0000000EC6Q-2z6d
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 07:11:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=from:to:cc:subject:date:message-id
-	:in-reply-to:references:mime-version:content-transfer-encoding;
-	 s=k1; bh=0zcBsm8z4cMHDPon/rz6xzH1cvFqqtoHNP+rhk3J0VU=; b=Y6oWJD
-	Phsy8eUKEmtIcLpXW+mTNxHPHR5y2v5jEniG/iLqTvL6AOXtjuLt4oTF7UUXvR6/
-	KUOOovhU4ZJmQTu1KbRvR6X0nzNFW0zRgTJ3459rqcjCMrLnYiB9wAOPNKtJCzcc
-	OGaAd80jO5C8LvADh4sDu5bYtscGcyxmyt7xPvMekFneMu1lgrek7EJY4DcP7NMH
-	JnW4Hq/HZuZB7C7yajRpzDcrq9B56W11eM8rPz2s9Ntk0HPdg/9rlhYPa9ASKewT
-	jOlN29YGiYgSDG9y+/TxB/P8NKVgOCjFmaaH8VRH0agh4GvyRaizsRcZNC0iTIVC
-	Hpc5Wa9031oXoL6A==
-Received: (qmail 1986510 invoked from network); 1 Apr 2026 09:11:44 +0200
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 1 Apr 2026 09:11:44 +0200
-X-UD-Smtp-Session: l3s3148p1@31Ley2BOUNEujnuR
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: linux-renesas-soc@vger.kernel.org,
-	Bjorn Andersson <andersson@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	linux-remoteproc@vger.kernel.org
-Subject: [PATCH 1/2] hwspinlock: u8500: delete driver
-Date: Wed,  1 Apr 2026 09:11:39 +0200
-Message-ID: <20260401071141.4718-2-wsa+renesas@sang-engineering.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260401071141.4718-1-wsa+renesas@sang-engineering.com>
-References: <20260401071141.4718-1-wsa+renesas@sang-engineering.com>
+	Wed, 01 Apr 2026 07:21:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=dtZ756YY08U7bg9gCLlbHxheqzmQ87Emq5OyGQIx0cI=; b=LKFiCl0RCjhzJ3C+P5IS8FxFBb
+	3BHkBjOpVXcISPhGwNG5h60PeNLqYYn9vKChFdm4c6MLX0tdzHkrNlHVb2hvz+orK1b74B1MhxJdU
+	7i9Sm1uXrovvajmGSMAa5BvNlXfJk619PVxp5PfPkq4duZtjBKRxF7EWWrwADc6XK4ZykcLSCAhjm
+	iMpBsDrjqXuwa+6EZjxqlh849Vm1cXwP8NA7ES/MTyxPsLqZQt1MRqHIJtYORUUYxbxO9gXc++R5j
+	tgXlSJ81IL/dzjic9fnGN/f8hFfKZ6BEaoV0if/9PeTQbVfeEss3GupRLcsdfbtpRsX1+wgwFSxIW
+	xllbjzZw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:48410)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w7psl-000000002fC-40Ef;
+	Wed, 01 Apr 2026 08:20:56 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w7psi-000000004be-2FE0;
+	Wed, 01 Apr 2026 08:20:52 +0100
+Date: Wed, 1 Apr 2026 08:20:52 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Ong Boon Leong <boon.leong.ong@intel.com>,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next v2 00/14] net: stmmac: TSO fixes/cleanups
+Message-ID: <aczHVF04LIGq_lYO@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_001150_904477_874D200D 
-X-CRM114-Status: GOOD (  22.90  )
+X-CRM114-CacheID: sfid-20260401_002101_779609_27B78859 
+X-CRM114-Status: GOOD (  20.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,237 +83,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The U8500 platform was converted to DT around 2013 and is DT only
-meanwhile. This driver has never been converted to a DT driver, so it
-clearly hasn't been used since then. To ease upcoming refactoring in the
-hwspinlock subsystem, remove this obsolete driver.
+This is a more refined version of the previous patch series fixing
+and cleaning up the TSO code.
 
-Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Acked-by: Andy Shevchenko <andriy.shevchenko@intel.com>
----
- MAINTAINERS                      |   1 -
- arch/arm/configs/u8500_defconfig |   1 -
- drivers/hwspinlock/Kconfig       |  10 --
- drivers/hwspinlock/Makefile      |   1 -
- drivers/hwspinlock/u8500_hsem.c  | 155 -------------------------------
- 5 files changed, 168 deletions(-)
- delete mode 100644 drivers/hwspinlock/u8500_hsem.c
+I'm not sure whether "TSO" or "GSO" should be used to describe this
+feature - although it primarily handles TCP, dwmac4 appears to also
+be able to handle UDP.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index c3fe46d7c4bc..7dc65fd62b6b 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3155,7 +3155,6 @@ F:	drivers/clocksource/clksrc-dbx500-prcmu.c
- F:	drivers/dma/ste_dma40*
- F:	drivers/pmdomain/st/ste-ux500-pm-domain.c
- F:	drivers/gpio/gpio-nomadik.c
--F:	drivers/hwspinlock/u8500_hsem.c
- F:	drivers/i2c/busses/i2c-nomadik.c
- F:	drivers/iio/adc/ab8500-gpadc.c
- F:	drivers/mfd/ab8500*
-diff --git a/arch/arm/configs/u8500_defconfig b/arch/arm/configs/u8500_defconfig
-index e88533b78327..ba6ddaf82344 100644
---- a/arch/arm/configs/u8500_defconfig
-+++ b/arch/arm/configs/u8500_defconfig
-@@ -148,7 +148,6 @@ CONFIG_RTC_DRV_PL031=y
- CONFIG_DMADEVICES=y
- CONFIG_STE_DMA40=y
- CONFIG_HWSPINLOCK=y
--CONFIG_HSEM_U8500=y
- CONFIG_EXTCON_FSA9480=y
- CONFIG_IIO=y
- CONFIG_IIO_SW_TRIGGER=y
-diff --git a/drivers/hwspinlock/Kconfig b/drivers/hwspinlock/Kconfig
-index 3874d15b0e9b..d84e00084ee2 100644
---- a/drivers/hwspinlock/Kconfig
-+++ b/drivers/hwspinlock/Kconfig
-@@ -53,14 +53,4 @@ config HWSPINLOCK_SUN6I
- 
- 	  If unsure, say N.
- 
--config HSEM_U8500
--	tristate "STE Hardware Semaphore functionality"
--	depends on ARCH_U8500 || COMPILE_TEST
--	help
--	  Say y here to support the STE Hardware Semaphore functionality, which
--	  provides a synchronisation mechanism for the various processor on the
--	  SoC.
--
--	  If unsure, say N.
--
- endif # HWSPINLOCK
-diff --git a/drivers/hwspinlock/Makefile b/drivers/hwspinlock/Makefile
-index a0f16c9aaa82..3a740805949d 100644
---- a/drivers/hwspinlock/Makefile
-+++ b/drivers/hwspinlock/Makefile
-@@ -9,4 +9,3 @@ obj-$(CONFIG_HWSPINLOCK_QCOM)		+= qcom_hwspinlock.o
- obj-$(CONFIG_HWSPINLOCK_SPRD)		+= sprd_hwspinlock.o
- obj-$(CONFIG_HWSPINLOCK_STM32)		+= stm32_hwspinlock.o
- obj-$(CONFIG_HWSPINLOCK_SUN6I)		+= sun6i_hwspinlock.o
--obj-$(CONFIG_HSEM_U8500)		+= u8500_hsem.o
-diff --git a/drivers/hwspinlock/u8500_hsem.c b/drivers/hwspinlock/u8500_hsem.c
-deleted file mode 100644
-index 5a2d8c3e0d80..000000000000
---- a/drivers/hwspinlock/u8500_hsem.c
-+++ /dev/null
-@@ -1,155 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--/*
-- * u8500 HWSEM driver
-- *
-- * Copyright (C) 2010-2011 ST-Ericsson
-- *
-- * Implements u8500 semaphore handling for protocol 1, no interrupts.
-- *
-- * Author: Mathieu Poirier <mathieu.poirier@linaro.org>
-- * Heavily borrowed from the work of :
-- *   Simon Que <sque@ti.com>
-- *   Hari Kanigeri <h-kanigeri2@ti.com>
-- *   Ohad Ben-Cohen <ohad@wizery.com>
-- */
--
--#include <linux/module.h>
--#include <linux/delay.h>
--#include <linux/io.h>
--#include <linux/slab.h>
--#include <linux/spinlock.h>
--#include <linux/hwspinlock.h>
--#include <linux/platform_device.h>
--
--#include "hwspinlock_internal.h"
--
--/*
-- * Implementation of STE's HSem protocol 1 without interrutps.
-- * The only masterID we allow is '0x01' to force people to use
-- * HSems for synchronisation between processors rather than processes
-- * on the ARM core.
-- */
--
--#define U8500_MAX_SEMAPHORE		32	/* a total of 32 semaphore */
--#define RESET_SEMAPHORE			(0)	/* free */
--
--/*
-- * CPU ID for master running u8500 kernel.
-- * Hswpinlocks should only be used to synchonise operations
-- * between the Cortex A9 core and the other CPUs.  Hence
-- * forcing the masterID to a preset value.
-- */
--#define HSEM_MASTER_ID			0x01
--
--#define HSEM_REGISTER_OFFSET		0x08
--
--#define HSEM_CTRL_REG			0x00
--#define HSEM_ICRALL			0x90
--#define HSEM_PROTOCOL_1			0x01
--
--static int u8500_hsem_trylock(struct hwspinlock *lock)
--{
--	void __iomem *lock_addr = lock->priv;
--
--	writel(HSEM_MASTER_ID, lock_addr);
--
--	/* get only first 4 bit and compare to masterID.
--	 * if equal, we have the semaphore, otherwise
--	 * someone else has it.
--	 */
--	return (HSEM_MASTER_ID == (0x0F & readl(lock_addr)));
--}
--
--static void u8500_hsem_unlock(struct hwspinlock *lock)
--{
--	void __iomem *lock_addr = lock->priv;
--
--	/* release the lock by writing 0 to it */
--	writel(RESET_SEMAPHORE, lock_addr);
--}
--
--/*
-- * u8500: what value is recommended here ?
-- */
--static void u8500_hsem_relax(struct hwspinlock *lock)
--{
--	ndelay(50);
--}
--
--static const struct hwspinlock_ops u8500_hwspinlock_ops = {
--	.trylock	= u8500_hsem_trylock,
--	.unlock		= u8500_hsem_unlock,
--	.relax		= u8500_hsem_relax,
--};
--
--static int u8500_hsem_probe(struct platform_device *pdev)
--{
--	struct hwspinlock_pdata *pdata = pdev->dev.platform_data;
--	struct hwspinlock_device *bank;
--	struct hwspinlock *hwlock;
--	void __iomem *io_base;
--	int i, num_locks = U8500_MAX_SEMAPHORE;
--	ulong val;
--
--	if (!pdata)
--		return -ENODEV;
--
--	io_base = devm_platform_ioremap_resource(pdev, 0);
--	if (IS_ERR(io_base))
--		return PTR_ERR(io_base);
--
--	/* make sure protocol 1 is selected */
--	val = readl(io_base + HSEM_CTRL_REG);
--	writel((val & ~HSEM_PROTOCOL_1), io_base + HSEM_CTRL_REG);
--
--	/* clear all interrupts */
--	writel(0xFFFF, io_base + HSEM_ICRALL);
--
--	bank = devm_kzalloc(&pdev->dev, struct_size(bank, lock, num_locks),
--			    GFP_KERNEL);
--	if (!bank)
--		return -ENOMEM;
--
--	platform_set_drvdata(pdev, bank);
--
--	for (i = 0, hwlock = &bank->lock[0]; i < num_locks; i++, hwlock++)
--		hwlock->priv = io_base + HSEM_REGISTER_OFFSET + sizeof(u32) * i;
--
--	return devm_hwspin_lock_register(&pdev->dev, bank,
--					 &u8500_hwspinlock_ops,
--					 pdata->base_id, num_locks);
--}
--
--static void u8500_hsem_remove(struct platform_device *pdev)
--{
--	struct hwspinlock_device *bank = platform_get_drvdata(pdev);
--	void __iomem *io_base = bank->lock[0].priv - HSEM_REGISTER_OFFSET;
--
--	/* clear all interrupts */
--	writel(0xFFFF, io_base + HSEM_ICRALL);
--}
--
--static struct platform_driver u8500_hsem_driver = {
--	.probe		= u8500_hsem_probe,
--	.remove		= u8500_hsem_remove,
--	.driver		= {
--		.name	= "u8500_hsem",
--	},
--};
--
--static int __init u8500_hsem_init(void)
--{
--	return platform_driver_register(&u8500_hsem_driver);
--}
--/* board init code might need to reserve hwspinlocks for predefined purposes */
--postcore_initcall(u8500_hsem_init);
--
--static void __exit u8500_hsem_exit(void)
--{
--	platform_driver_unregister(&u8500_hsem_driver);
--}
--module_exit(u8500_hsem_exit);
--
--MODULE_LICENSE("GPL v2");
--MODULE_DESCRIPTION("Hardware Spinlock driver for u8500");
--MODULE_AUTHOR("Mathieu Poirier <mathieu.poirier@linaro.org>");
+In essence, this series adds a .ndo_features_check() method to handle
+whether TSO/GSO can be used for a particular skbuff - checking which
+queue the skbuff is destined for and whether that has TBS available
+which precludes TSO being enabled on that channel.
+
+I'm also adding a check that the header is smaller than 1024 bytes,
+as documented in those sources which have TSO support - this is due
+to the hardware buffering the header in "TSO memory" which I guess
+is limited to 1KiB. I expect this test never to trigger, but if
+the headers ever exceed that size, the hardware will likely fail.
+While IPv4 headers are unlikely to be anywhere near this, there is
+nothing in the protocol which prevents IPv6 headers up to 64KiB.
+
+As we now have a .ndo_features_check() method, I'm moving the VLAN
+insertion for TSO packets into core code by unpublishing the VLAN
+insertion features when we use TSO. Another move is for checksumming,
+which is required for TSO, but stmmac's requirements for offloading
+checksums are more strict - and this seems to be a bug in the TSO
+path.
+
+I've changed the hardware initialisation to always enable TSO support
+on the channels even if the user requests TSO/GSO to be disabled -
+this fixes another issue as pointed out by Jakub in a previous review.
+
+I'm moving the setup of the GSO features, cleaning those up, and
+adding a warning if platform glue requests this to be enabled but the
+hardware has no support. Hopefully this will never trigger if everyone
+got the STMMAC_FLAG_TSO_EN flag correct. Also adding a check for TxPBL
+value.
+
+Finally, moving the "TSO supported" message to the new
+stmmac_set_gso_features() function so keep all this TSO stuff together.
+
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h      |   3 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 214 +++++++++++++++-------
+ 2 files changed, 150 insertions(+), 67 deletions(-)
+
 -- 
-2.51.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
