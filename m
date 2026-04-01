@@ -4,99 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 518D210F6FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 15:27:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 395E610F6FD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 15:29:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=19WL8u/FtwADOPiw/Q8BZVbKe3GSxsmUiIiiOWNEybY=; b=dsJOMHDh8O31mceKxWm40wlmoP
-	udHu/4GpERNsnkLIkhT80UdxncRvG8tNVM5ZDPYFFRtJJBNALM9xK+tZHQWOIvGBSwVh86hrM5WwU
-	yptXCU89jAHtU9a21Be4q92k/PfyQZT5qkb+pnx+oHNkfZfvgkUz7TSkthbqNeM6SX2b6i/oWctXO
-	z66Mv6peIjTRxPPw9nG5BFkhsmS8ny+bfHMeAGVT6Uq5gYlqvtOe/HQgppDXW56WlA1A6Xop0wmL1
-	6lmb0KOSQpdvo+Ea7szjs2DINOw7/brGLCw5sK1OT1OUuzjH2xXmbi0kZnfPfmQkIVXlhc8MunrDl
-	XsyPEzfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e9ZDQP+IQE1w+OXDVmu7LWReUW12pW+KGyF/GDU70jY=; b=X9OaZRYoUY/q6uiPOQqwnUfpaT
+	9nx6AHgHnGiqLA/IzEY39+Er5MEpGJPffuXfgZVAiMK7pLrqzLdng5LkjtYm9Fa5+Dz/oqg63vSTK
+	PJRvb0/M1yKWFUPeG/UPl5WhAlxUfxpdMLkLYkphMF2/qcL3W8EPyrcOYQlmjOm1xwZ/51ak1yWaa
+	6O6Sb8sNSTqRaWxwFpwL8i4SaBIuUlO/LVRP1BI2AlJ3NzmIfg2o691X2iDveias7CzPJO3X7z/UG
+	Q/1090fXoyHhjKJM/F8VwfKi4h71dhQlpVdRgbAnSjvqvdaEu8dJ8GJ08EhoELe/v61RJpmsbHTAF
+	Am/EfQVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7xTW-0000000FdJH-0AtF;
-	Wed, 01 Apr 2026 15:27:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w7xVE-0000000FdZ4-1uMI;
+	Wed, 01 Apr 2026 15:29:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7xTV-0000000FdIo-0OVA
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 01 Apr 2026 15:27:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=19WL8u/FtwADOPiw/Q8BZVbKe3GSxsmUiIiiOWNEybY=; b=j6ARsSn/0C7K19tfKZsSlyEQ7e
-	KPDAn2Xes96T6oRKqCBgRerNN9dELZ247Ia0kWklzKfjXF4SvfPDoNcopbxLU1yyLmzOrQUWTRNv1
-	aD3x2ScwVV6nTkGllPsWrmAF3vBWiczgz0lns5SXrolb1/KHbUj6G5trBxvrZy3EcsRPCgTaShPGD
-	hfg1QzeYrz4KwgFRtG9/o1CPC15hQPmAAbKXXnbdAKrmDN6PE6B0Mq4BeE+gMKLkSZS1OKgkOo7cU
-	jlAZtc/bNxFe94fSqB1UwDZN9bwQHId9o82saLe6x/Va1KwPSB50SSPwjYpdi7RQeQptvat1wAqQq
-	ghKAjRBA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7xTR-00000000lJW-3rnh
+	id 1w7xVC-0000000FdYZ-13pO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 15:27:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6923832AC
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Apr 2026 08:27:10 -0700 (PDT)
-Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 068573F641
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Apr 2026 08:27:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775057236; bh=y+MhPjsu8qOsmSPWBWTYc0aedsaAPB/kfVjv0IQGfi4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Yeb/1CDq0iPMwi9ea05PTfH88DUfOwPLAEH2XMfimw84CF2SLdL/gaNgJRwebTqYu
-	 YfVUABfzLeTknhOo40M64IV4DLW5GGp10LDfKiLlKHVGBm2bp5xwXWq++BxEu8+lsz
-	 0NI9IHrip1PIBTrs8aNtnnCwpVQiLSw5O/N2LoVo=
-Date: Wed, 1 Apr 2026 16:26:50 +0100
-From: Liviu Dudau <liviu.dudau@arm.com>
-To: Guangliu Ding <guangliu.ding@nxp.com>
-Cc: "Daniel Baluta (OSS)" <daniel.baluta@oss.nxp.com>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Steven Price <steven.price@arm.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Jiyu Yang <jiyu.yang@nxp.com>
-Subject: Re: Re: Re: [PATCH 1/2] dt-bindings: gpu: mali-valhall-csf: Document
- i.MX952 support
-Message-ID: <ac05OpEMjKMd8CXy@e142607>
-References: <20260331-master-v1-0-65c8e318d462@nxp.com>
- <20260331-master-v1-1-65c8e318d462@nxp.com>
- <acva1Xt8V4k9-uG8@e142607>
- <AM0PR04MB47073E9E8B5C704BCF5D9F72F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
- <99a1da55-d6e5-4d11-abaa-8c85283ab5f2@oss.nxp.com>
- <AM0PR04MB4707B3E37DFE7AEE587DBA2AF350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
- <aczv0R0aQRmHKdvt@e142607>
- <AM0PR04MB4707335CC7035232D44E6ED9F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+	Wed, 01 Apr 2026 15:29:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9E29640C18;
+	Wed,  1 Apr 2026 15:29:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 769AEC4CEF7;
+	Wed,  1 Apr 2026 15:29:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775057345;
+	bh=IaCA/kZ80YYXWVDTy6lh/1UaevH/FmkPA5jaCCQnUis=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=EMWcaQskzytX1U7u06gePZeJndGPhO1wrbeObnA9DOXPtxAu1TJF1Z6fWCAMpyHvi
+	 0OYEMRfiTFRnwM5NkahyfkT6gS/n5hulpEWHJT1PnfJsTQPw+dIJwTL4uFJkgOTGCV
+	 OnjQ5JLltn3N3g9N0UP8GeQSOWWdv1NZRXGzE+/pN7XNarCg0hgOLEhPmdNcrBuFPD
+	 /Mji1zbxqHLNLejWu/w4RzELO37rjR/lF6TW5fNn8MmKxu58D8Ke3rAd5458AjB6Jo
+	 oU7g99TcewP7PaXqTTptXkMHyeAxk0ZohboatOlWDSrhuMkDaMkm+SoKvEKsB5ZZG8
+	 L1V+DWh67npkA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w7xV9-00000007v9s-1Gdj;
+	Wed, 01 Apr 2026 15:29:03 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Subject: Re: [PATCH v5 00/38] KVM: arm64: Add support for protected guest memory with pKVM
+Date: Wed,  1 Apr 2026 16:28:55 +0100
+Message-ID: <177505732748.363663.16964917665296494635.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260330144841.26181-1-will@kernel.org>
+References: <20260330144841.26181-1-will@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <AM0PR04MB4707335CC7035232D44E6ED9F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, will@kernel.org, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, qperret@google.com, tabba@google.com, vdonnefort@google.com, smostafa@google.com, alexandru.elisei@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_162718_211442_B29D2E4B 
-X-CRM114-Status: GOOD (  46.25  )
+X-CRM114-CacheID: sfid-20260401_082906_345944_2776C870 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,124 +92,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 01, 2026 at 10:31:01AM +0000, Guangliu Ding wrote:
-> Hi Liviu
+On Mon, 30 Mar 2026 15:48:01 +0100, Will Deacon wrote:
+> As promised on Friday, here's v5 of the pKVM protected memory patches
+> previously posted here:
 > 
-> > On Wed, Apr 01, 2026 at 09:43:12AM +0000, Guangliu Ding wrote:
-> > > Hi Daniel
-> > >
-> > > > On 4/1/26 11:48, Guangliu Ding wrote:
-> > > > > [You don't often get email from guangliu.ding@nxp.com. Learn why
-> > > > > this is important at https://aka.ms/LearnAboutSenderIdentification
-> > > > > ]
-> > > > >
-> > > > > Hi Liviu
-> > > > >
-> > > > > Thanks for your review. Please refer to my comments below:
-> > > > >
-> > > > >> On Tue, Mar 31, 2026 at 06:12:38PM +0800, Guangliu Ding wrote:
-> > > > >>> Add compatible string of Mali G310 GPU on i.MX952 board.
-> > > > >>>
-> > > > >>> Signed-off-by: Guangliu Ding <guangliu.ding@nxp.com>
-> > > > >>> Reviewed-by: Jiyu Yang <jiyu.yang@nxp.com>
-> > > > >>> ---
-> > > > >>>  Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-> > > > >>> | 1
-> > > > >>> +
-> > > > >>>  1 file changed, 1 insertion(+)
-> > > > >>>
-> > > > >>> diff --git
-> > > > >>> a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yam
-> > > > >>> l
-> > > > >> b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-> > > > >>> index 8eccd4338a2b..6a10843a26e2 100644
-> > > > >>> ---
-> > > > >>> a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yam
-> > > > >>> l
-> > > > >>> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf
-> > > > >>> +++ .yam
-> > > > >>> +++ l
-> > > > >>> @@ -20,6 +20,7 @@ properties:
-> > > > >>>            - enum:
-> > > > >>>                - mediatek,mt8196-mali
-> > > > >>>                - nxp,imx95-mali            # G310
-> > > > >>> +              - nxp,imx952-mali           # G310
-> > > > >> Can you explain why this is needed? Can it not be covered by the
-> > > > >> existing compatible?
-> > > > > There are functional differences in GPU module (GPUMIX) between
-> > > > > i.MX95 and i.MX952. So they cannot be fully covered by a single existing
-> > compatible.
-> > > > > On i.MX952, The GPU clock is controlled by hardware GPU auto
-> > > > > clock-gating mechanism, while the GPU clock is managed explicitly
-> > > > > by the
-> > > > driver on i.MX95.
-> > > > > Because of these behavioral differences, separate compatible
-> > > > > strings "nxp,imx95-mali" and "nxp,imx952-mali" are needed to allow
-> > > > > the driver to handle the two variants independently and to keep
-> > > > > room for future
-> > > > divergence.
-> > > >
-> > > >
-> > > > This information should be added in the commit message explaining
-> > > > why
-> > > >
-> > > > the change is needed.
-> > > >
-> > > >
-> > > > But then where is the driver code taking care of these diferences?
-> > > >
-> > >
-> > > Yes. Currently the driver does not require "nxp,imx952-mali" string.
-> > > However, when GPU ipa_counters are enabled to calculate the GPU
-> > > busy_time/idle_time for GPU DVFS feature, they will conflict with the
-> > > hardware GPU auto clock‑gating mechanism, causing GPU clock to remain
-> > always on.
-> > > In such cases, ipa_counters need to be disabled so that the GPU auto
-> > > clock‑gating mechanism can operate normally, using "nxp,imx952-mali"
-> > string.
-> > 
-> > OK, I understand that you're following guidance from some other senior
-> > people on how to upstream patches so you've tried to create the smallest
-> > patchset to ensure that it gets reviewed and accepted, but in this case we need
-> > to see the other patches as well to decide if your approach is the right one and
-> > we do need a separate compatible string.
-> > 
-> > If enabling GPU ipa_counters causes the clocks to get stuck active, that feels
-> > like a hardware bug, so figuring out how to handle that is more important than
-> > adding a compatible string.
-> > 
-> > Either add the patch(es) that use the compatible to this series in v2, or put a
-> > comment in the commit message on where we can see the driver changes.
-> > 
+>   v1: https://lore.kernel.org/kvmarm/20260105154939.11041-1-will@kernel.org/
+>   v2: https://lore.kernel.org/kvmarm/20260119124629.2563-1-will@kernel.org/
+>   v3: https://lore.kernel.org/r/20260305144351.17071-1-will@kernel.org
+>   v4: https://lore.kernel.org/r/20260327140039.21228-1-will@kernel.org
 > 
-> According to discussions with the GPU vendor, this is a hardware limitation 
-> of Mali-G310 rather than a hardware bug, and it has been addressed in newer
-> Mali GPU families.
+> [...]
 
-I represent the said GPU vendor and I think I know what you're talking about, but you're
-taking the wrong approach. All G310s have a problem where in order to enable access to
-the ipa_counters the automatic clock gating gets disabled. So the solution that needs
-to be implemented when we add support for IPA_COUNTERs will apply to all GPUs, not just
-MX952.
+Applied to next, thanks!
 
-> 
-> In addition, ipa_counters are not enabled in the current Panthor driver. We observed
-> this issue with the private Mali DDK where ipa_counters were enabled.
-> Therefore, keeping the compatible string is necessary to allow for future divergence.
+[01/38] KVM: arm64: Remove unused PKVM_ID_FFA definition
+        commit: 660b208e8b5ea0f5a68a8333e18960d89d484a27
+[02/38] KVM: arm64: Don't leak stage-2 page-table if VM fails to init under pKVM
+        commit: 5e66f723d4de432a5acb481293d81dc88c7f61a4
+[03/38] KVM: arm64: Move handle check into pkvm_pgtable_stage2_destroy_range()
+        commit: 9f02deef471e1b6637a6641ce6bf9e2a1dd7d2c1
+[04/38] KVM: arm64: Rename __pkvm_pgtable_stage2_unmap()
+        commit: ff1e7f9897947ea79ece7eb587c8d93957af5ee8
+[05/38] KVM: arm64: Don't advertise unsupported features for protected guests
+        commit: be3473c338d23c87485d7728818005f32b58009f
+[06/38] KVM: arm64: Expose self-hosted debug regs as RAZ/WI for protected guests
+        commit: 3a81a814437d187ac893b3d937985d6503ff3841
+[07/38] KVM: arm64: Remove is_protected_kvm_enabled() checks from hypercalls
+        commit: 733774b5204553ab5524c0330f262184d9d573f6
+[08/38] KVM: arm64: Ignore MMU notifier callbacks for protected VMs
+        commit: 7250533ad2c1f0e49567077e9b0f66b0349b357e
+[09/38] KVM: arm64: Prevent unsupported memslot operations on protected VMs
+        commit: f0877a1455cc6a93be14e4da741ce26ac0d6ca6d
+[10/38] KVM: arm64: Ignore -EAGAIN when mapping in pages for the pKVM host
+        commit: 73c55be08932a348f8b0a44f561c33eaa2cf1ad2
+[11/38] KVM: arm64: Split teardown hypercall into two phases
+        commit: 6c58f914eb9c4ce5225d03183ae1290d72b5f639
+[12/38] KVM: arm64: Introduce __pkvm_host_donate_guest()
+        commit: 1e579adca1774b3713d1efa67d92a88ec86c04fa
+[13/38] KVM: arm64: Hook up donation hypercall to pkvm_pgtable_stage2_map()
+        commit: 5fef16ef49126b0f71fb3e401aae4dca1865e6f9
+[14/38] KVM: arm64: Handle aborts from protected VMs
+        commit: ea03466e806fea942841a41cfaab8db8c851aa71
+[15/38] KVM: arm64: Introduce __pkvm_reclaim_dying_guest_page()
+        commit: 0bf5f4d400cd11ab86b25a56b101726e35f3e7cb
+[16/38] KVM: arm64: Hook up reclaim hypercall to pkvm_pgtable_stage2_destroy()
+        commit: 4e6e03f9eaddb6be5ca8477dc5642e94ddece47e
+[17/38] KVM: arm64: Factor out pKVM host exception injection logic
+        commit: 90c59c4d920f3ea6e7b4dd8702b87b38c7162755
+[18/38] KVM: arm64: Support translation faults in inject_host_exception()
+        commit: be9ed3529e0599f036a425d83ecc6dd4a085c9d2
+[19/38] KVM: arm64: Inject SIGSEGV on illegal accesses
+        commit: 9ff714a09222128da16900fc7c15dea65692fc26
+[20/38] KVM: arm64: Avoid pointless annotation when mapping host-owned pages
+        commit: 664d61690357ac2154cd01d859d97455aa49a81d
+[21/38] KVM: arm64: Generalise kvm_pgtable_stage2_set_owner()
+        commit: c6ba94640cf7b6da902d1d8a1383c7cf2303ca1f
+[22/38] KVM: arm64: Introduce host_stage2_set_owner_metadata_locked()
+        commit: afa72d207e6b5d49ac597fcd04f0865af63cf589
+[23/38] KVM: arm64: Change 'pkvm_handle_t' to u16
+        commit: 44887977ab0fdaa0af4d1cc97cda413884c0ef86
+[24/38] KVM: arm64: Annotate guest donations with handle and gfn in host stage-2
+        commit: 70346d632b4d98dd33391fa263ab8bed7d9d934f
+[25/38] KVM: arm64: Introduce hypercall to force reclaim of a protected page
+        commit: 56080f53a6ad779b971eb7f4f7a232498805d867
+[26/38] KVM: arm64: Reclaim faulting page from pKVM in spurious fault handler
+        commit: 281a38ad2920b5ccfbbc2a0ca0caeee110ad5d6b
+[27/38] KVM: arm64: Return -EFAULT from VCPU_RUN on access to a poisoned pte
+        commit: 5991916392d844ba6ed6c0d320ac6578f52e39b6
+[28/38] KVM: arm64: Add hvc handler at EL2 for hypercalls from protected VMs
+        commit: 94c525051542c54907e2d3e9d2b008575829cdc8
+[29/38] KVM: arm64: Implement the MEM_SHARE hypercall for protected VMs
+        commit: 03313efed5e2ca55e862bf514b907a431ebf642a
+[30/38] KVM: arm64: Implement the MEM_UNSHARE hypercall for protected VMs
+        commit: 246c976c370de9380660e2bb641758dc0aae8c5c
+[31/38] KVM: arm64: Allow userspace to create protected VMs when pKVM is enabled
+        commit: 8800dbf6614aad1013ea5f348520a2ce5ba4b6c8
+[32/38] KVM: arm64: Add some initial documentation for pKVM
+        commit: 287c6981f12a008bafc46f18a3e48540a1172a52
+[33/38] KVM: arm64: Extend pKVM page ownership selftests to cover guest donation
+        commit: c290df5278fe8c9844b93751620664c3ca3b6e00
+[34/38] KVM: arm64: Register 'selftest_vm' in the VM table
+        commit: 8972a991606bc021249ae53a95c131a79fdeda4a
+[35/38] KVM: arm64: Extend pKVM page ownership selftests to cover forced reclaim
+        commit: f4a5a6770af9b87a8e87717e1b97af052979f4ec
+[36/38] KVM: arm64: Extend pKVM page ownership selftests to cover guest hvcs
+        commit: feae58b6ee45096b1d8c29076f0d8098d9788e57
+[37/38] KVM: arm64: Rename PKVM_PAGE_STATE_MASK
+        commit: 5bae7bc6360a7297e0be2c37017fe863b965646d
+[38/38] drivers/virt: pkvm: Add Kconfig dependency on DMA_RESTRICTED_POOL
+        commit: 61135967fa76d37883d90ccccc5a1cb73e90b94d
 
-This is not an MX952 issue only. You might be aware of it on your SoC, but it's not just
-for it.
+Cheers,
 
-Best regards,
-Liviu
-
+	M.
 -- 
-====================
-| I would like to |
-| fix the world,  |
-| but they're not |
-| giving me the   |
- \ source code!  /
-  ---------------
-    ¯\_(ツ)_/¯
+Without deviation from the norm, progress is not possible.
+
+
 
