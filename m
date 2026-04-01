@@ -4,105 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C320DD35179
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3B65D35177
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 12:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x5+gDhg1XlwzrBWGWyIFSZCjRbW4GuySJMp4zk3Gshk=; b=yM24AkTFOioRWKlHo1X1ML8XzU
-	iC5fTEgaSqw538hiBAoEokCXt4Y55BsqnomwPUVUNB1a9BXWDY8wfsyi3Eg51PawMo+aRXzjnrI7j
-	tGNwe2TT0Usas6iA+uNQVDMlY6j6HZ92iei653CGp0uSEV5iiaKqNOpcTeHNc5RGGMOeaKoWIy2FI
-	rhkObW6O6BVri1o0NuYGHJ5l4ptZltyEWp9S50wtr2cX81sCaCnLxmazm9MgD5Ei2PZXGrvU22Rfc
-	VncGlD1ixyDiFdKCtSxGSDKa5FegLHrEQswJo6xCWO8IbJf819UhL2U/ozETbKRAiyb5uQZVol55i
-	cLGO6XGg==;
+	bh=o+W6wxejuhQWu+8gkrXK9GhcqdkTUJi7B+7n+/aOO8w=; b=JUkw1CYNWkd9LLFULjHaqTv0Xo
+	/3HnivskEjy7dQRdFdlFRdJLWGR/XvngjcaWV2VjNCD84QVb4nSPVClUw0YCFTQ9dL5NSSyTCYh+Z
+	WTCohZDZ4pWdKKPjLBgkNLMP6enQ8Nq9fzBa19zfUunUZD5aM5x1j4ICwrQ9e15iwzxFaiUg53Rdm
+	VmpjpJRQzkrYuhAYe0cqAde45w7+dFd3Ud/+4gR3D6ra5LwPsoXR9D5F8HZ/zfy8XjIoI4D8jA4W1
+	B0/O1VQD9GQfokNDVVTTcfhD/0P29Uq1Gi0FyNyFWhlwfmSNr51QmM2NRbVbY47XBUF84zZ8g9rJN
+	sG2ojGUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7unB-0000000FAe3-1r21;
-	Wed, 01 Apr 2026 12:35:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7unD-0000000FAfg-21wu;
+	Wed, 01 Apr 2026 12:35:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7uHY-0000000EnHg-1oto
+	id 1w7uIT-0000000Ennh-0mTZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 12:02:48 +0000
+	Wed, 01 Apr 2026 12:03:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 73B4F60125;
-	Wed,  1 Apr 2026 12:02:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F19A9C4CEF7;
-	Wed,  1 Apr 2026 12:02:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4FB6360125;
+	Wed,  1 Apr 2026 12:03:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF52CC4CEF7;
+	Wed,  1 Apr 2026 12:03:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775044967;
-	bh=/siQRAeOvaDNSVzhc4TOJm3C/+fGkOsvtxOYVqTpsss=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=XFAOilF9U+0LQX/Cts12aU1aCksHUfVmS5/ApqXc0lEnc9EVufEw7NJ7Cke1a4l8C
-	 aAq8tPVDJmZJHWS4FruoNDFsNpmXfnJycm/Ulwr6Ng319NnOpnnPkidHsuH67V2zTi
-	 1gpSHxd9zA+T+AsL6HXhRH/ddOtIEaKPk2j4urhMBl89ulrmVia5KoHX/y3CnEI453
-	 R//n9827srAnSeXTgY9nZIQU1umGoTKcnn2gNzXyF0cE1BZ11g033azQ5Bzl0tWIYs
-	 9FDzKj+qlvfmTQGMT//j+oXHpOSmVovUuuy5H0XLqqrsN9Ydr7xo7QTWiKJiOYg492
-	 M402h0pdkgFNQ==
-Message-ID: <2e47f487-da04-411d-bf78-4c76ac793a91@kernel.org>
-Date: Wed, 1 Apr 2026 14:02:43 +0200
+	s=k20201202; t=1775045024;
+	bh=hCs3gNjx+jcXSRozFFYMPzrJYE5HyYdfubfGLgAk+s8=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=Zz3yXk85z+ao70V4KUJhdaAwcRYYpiW9NcE9wlBqutL0QtAJm3hh92OBa+hjnmUCD
+	 W33ZYpHndN8R8lRTjhMdD3xNvBNHE5ceMkHknh6OHWirwXmQl3QKvsGfhqQg9V1msl
+	 NKq0SYnU3zvDHeO2JrXVbzvpLnHqdLiZ6g5fMeF9fa7iHwJ5tnyiX4c+AITPo9it7d
+	 RRCwXHv+uoVkx4aiGa3bsYbFyTbA9hLQHhSdfqOVeFlj0LXsZ6dVGLSmg1usXIi6jS
+	 S/VCNy0QgVsKftYl80SQvrv6yAfP2EnTD2w0d6Gc8dSvCoNUrauoqpOkjCpzS4PlVP
+	 2HGdl52tBqHYA==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id D03F0F40076;
+	Wed,  1 Apr 2026 08:03:42 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Wed, 01 Apr 2026 08:03:42 -0400
+X-ME-Sender: <xms:ngnNaZew9n3oO_T4gpuqodYV61O69qIRzRfLBeCIEaN1KRV2QYJnnw>
+    <xme:ngnNaSCuc91kCAbgI70eyCaXE_QbgaHCOfakieo6F9ywNFNV6jOWHaotycb16GkAh
+    42wWGKbt2zJQgRSRJsH1nJPeoIa2dxHi-iAXJTZJPBta7m7KuGp_bA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdeftdeiucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
+    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
+    epofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcuuehi
+    vghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrghtth
+    gvrhhnpeekvdffkefhgfegveekfedtieffhfelgeetiedvieffhfekfeeikeetueegteet
+    teenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptd
+    enucfrrghrrghmpehmrghilhhfrhhomheprghrugdomhgvshhmthhprghuthhhphgvrhhs
+    ohhnrghlihhthidqudeijedthedttdejledqfeefvdduieegudehqdgrrhgusgeppehkvg
+    hrnhgvlhdrohhrghesfihorhhkohhfrghrugdrtghomhdpnhgspghrtghpthhtohepudef
+    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehkvghrnhgvlhdqthgvrghmsegrnh
+    gurhhoihgurdgtohhmpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghr
+    mhdrtghomhdprhgtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprh
+    gtphhtthhopegrrhgusgdoghhithesghhoohhglhgvrdgtohhmpdhrtghpthhtoheptghm
+    lhhlrghmrghssehgohhoghhlvgdrtghomhdprhgtphhtthhopehsrghmihhtohhlvhgrnh
+    gvnhesghhoohhglhgvrdgtohhmpdhrtghpthhtohepshgvrghnjhgtsehgohhoghhlvgdr
+    tghomhdprhgtphhtthhopeifihhllhhmtghvihgtkhgvrhesghhoohhglhgvrdgtohhmpd
+    hrtghpthhtohepphgvthgvrhiisehinhhfrhgruggvrggurdhorhhg
+X-ME-Proxy: <xmx:ngnNaTdtZD2b1koNUV8Sso6dxU7WASN8T8ZQKnEKWy16A48-MCCG7Q>
+    <xmx:ngnNaWvNgzi93JclnfMD8cfwbZADrUNsoVnr8wNhlTxgcTxnaf-4NA>
+    <xmx:ngnNafKLFkHFXeR4eiYn9Y3cFtSrsgzgmr2nEgL6HIWtTv-VMgGjTQ>
+    <xmx:ngnNaaZP5J6-abYSW4yZILL-NTXEX21-zhaeF3zQOW53q6QXOq2vPQ>
+    <xmx:ngnNaSlVTVhxco218T8XnSqITbDl0WyHDNlq_QeUfEIvG1Q_h87FX3W_>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id AC5C8700065; Wed,  1 Apr 2026 08:03:42 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL 2/2] Broadcom devicetree-arm64 changes for 7.1
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: soc@kernel.org, Rob Herring <robh@kernel.org>,
- Gregor Herburger <gregor.herburger@linutronix.de>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Stefan Wahren <wahrenst@gmx.net>, linux-arm-kernel@lists.infradead.org,
- arnd@arndb.de, khilman@kernel.org, bcm-kernel-feedback-list@broadcom.com
-References: <20260323190239.1890505-1-florian.fainelli@broadcom.com>
- <20260323190239.1890505-2-florian.fainelli@broadcom.com>
- <20260401-rapid-lyrebird-of-emphasis-da7b13@quoll>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260401-rapid-lyrebird-of-emphasis-da7b13@quoll>
-Content-Type: text/plain; charset=UTF-8
+X-ThreadId: Anx-CxvWeZ1g
+Date: Wed, 01 Apr 2026 14:03:22 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Will Deacon" <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ "Ard Biesheuvel" <ardb+git@google.com>,
+ "Catalin Marinas" <catalin.marinas@arm.com>
+Cc: kernel-team@android.com, linux-hardening@vger.kernel.org,
+ "Mark Rutland" <mark.rutland@arm.com>, "Carlos Llamas" <cmllamas@google.com>,
+ "Sami Tolvanen" <samitolvanen@google.com>,
+ "Sean Christopherson" <seanjc@google.com>, "Kees Cook" <kees@kernel.org>,
+ "Peter Zijlstra" <peterz@infradead.org>,
+ "Will McVicker" <willmcvicker@google.com>
+Message-Id: <2b0b9c69-650c-46bb-8579-4af85c17b8ab@app.fastmail.com>
+In-Reply-To: <177503506493.2514486.12265333685036392947.b4-ty@kernel.org>
+References: <20260331110422.301901-2-ardb+git@google.com>
+ <177503506493.2514486.12265333685036392947.b4-ty@kernel.org>
+Subject: Re: [PATCH v8] arm64: Use static call trampolines when kCFI is enabled
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,42 +111,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/04/2026 13:18, Krzysztof Kozlowski wrote:
-> On Mon, Mar 23, 2026 at 12:02:39PM -0700, Florian Fainelli wrote:
->> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
->>
->>   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
->>
->> are available in the Git repository at:
->>
->>   https://github.com/Broadcom/stblinux.git tags/arm-soc/for-7.1/devicetree-arm64
->>
->> for you to fetch changes up to 0acb1de2b4df426a62dba33bcd80f3939636f97b:
->>
->>   arm64: dts: broadcom: bcm2712: Move non simple-bus nodes to root level (2026-03-20 10:17:30 -0700)
-> 
-> Patches were good, I wanted to merge them, but then merge complained:
-> 
-> 	Can't check signature: No public key
-> 
-> I refreshed now my keyring with kernel.org and the same.
-> 
-> I think the same issue was last time and repo is non korg, so nothing
-> seems to improve.
 
+On Wed, 1 Apr 2026, at 12:03, Will Deacon wrote:
+> On Tue, 31 Mar 2026 13:04:23 +0200, Ard Biesheuvel wrote:
+>> Implement arm64 support for the 'unoptimized' static call variety, which
+>> routes all calls through a trampoline that performs a tail call to the
+>> chosen function, and wire it up for use when kCFI is enabled. This works
+>> around an issue with kCFI and generic static calls, where the prototypes
+>> of default handlers such as __static_call_nop() and __static_call_ret0()
+>> don't match the expected prototype of the call site, resulting in kCFI
+>> false positives [0].
+>> 
+>> [...]
+>
+> Applied to arm64 (for-next/fixes), thanks!
+>
+> [1/1] arm64: Use static call trampolines when kCFI is enabled
+>       https://git.kernel.org/arm64/c/e70c2335f889
+>
 
-Maybe last time I mentioned this only internally or on IRC, so could get
-lost. Please get your key in to the kernel keyring, to solve above. Pull
-is not rejected, but I leave it to Arnd who might have your key.
+Thanks,
 
-How to get key signed? Obviously conferences are the easiest way, but
-other is to find people around you or on your travel itinerary via
-ksmap. Eventually many people do video call cross signing, so even
-travel is not needed. I video signed twice, but that was an exception
-because I prefer to meet in person. Kernel wiki has guideline on all
-this, so I am not saying anything new here.
+I just spotted that the function name gets stringified twice inadvertently.
 
-Best regards,
-Krzysztof
+E.g., the assembler may see
+
+.quad "__static_call_return0"
+
+rather than the intended
+
+.quad __static_call_return0
+
+The assembler does not seem to care, and still emits an ABS64 relocation against the correct symbol, but it is definitely unintentional.
+
+I can send a follow-up fix if you prefer, or you could just tweak the patch in place:
+
+--- a/arch/arm64/include/asm/static_call.h
++++ b/arch/arm64/include/asm/static_call.h
+@@ -16,7 +16,7 @@
+            "   .popsection                                     \n" \
+            "   .pushsection .rodata, \"a\"                     \n" \
+            "   .align  3                                       \n" \
+-           "1: .quad   " #target "                             \n" \
++           "1: .quad   " target "                              \n" \
+            "   .popsection                                     \n")
+ 
 
 
