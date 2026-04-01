@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11CA0D3514B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 07:22:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B1B8D3514A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 07:22:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9/5jetOXR4x4aaSx1QBWBlZ8VD7jqIHKoH/Y1tbFC5A=; b=4MjF422AnzoKXHoTEZ20AzTZZA
-	HJVy/M0hXStPMCT7VIwL8E6PEmxqo7b837bzNNLoZl4nbIv85IefRFl9V8n5ml5vWZ+HVFk8U9/tg
-	tJk7Yfm5FxaXdyk05WK6VZFuB2IQKcKg0LxKI/4W11711dLsAGylvO8Xtys28X6vCYjifoFGPXgdQ
-	gD/xhnb4e8LyZ+T9/0HRG5ch2GSfGkYcm9WOe0PqWPAPZE4cDvW1tbPWi06R+K8Rz3AZYdvA58Zck
-	OVaNElbEw+7/K+Fk7YzYyCzq1argG/AhARubnHgztgB4ajghsZYd9bSrhAR8vGkofz1TSSJZQ0jJh
-	R8IRb/DA==;
+	bh=obyR8ec27qCSiO/J/J/rtAZWsF0bTjTDR8UxLRlkwlA=; b=a3oy625fUQnu2OVcHFdN5P7Aik
+	XrYeVk2fCbGT+9QGkQ5rIQY4CymX+j/nAm1T0tsYN9RWxvBYTEyoltognCqF/N5A+/T7ty5j3M3Vc
+	bZ2vyhWojHJS0YtZZJCYan9YQp2+Pc6QrM7Xs2GCubOZaajZSe9ml6WSDfhlivTT6pC27aX8rgLxO
+	zmgrFE9LXy0dcoE7K7FX8mWJFL37XfZ3K6aMogryDVyBCOqTGEGF/6rvBQx02L0AQl8BPWOZdag0j
+	rEvGrde9jtSQBqk8xzmniERfYHfTiI5tUCAZ4cRrvcQkm9m1whJrOU4vq/HWFrrj5vGOqRCP71JVp
+	s+UBqmmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ptg-0000000ECMI-0AXP;
-	Wed, 01 Apr 2026 07:21:52 +0000
+	id 1w7ptk-0000000ECPr-3i8A;
+	Wed, 01 Apr 2026 07:21:56 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ptd-0000000ECJt-11rD
+	id 1w7pti-0000000ECMJ-15V5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 07:21:50 +0000
+	Wed, 01 Apr 2026 07:21:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=9/5jetOXR4x4aaSx1QBWBlZ8VD7jqIHKoH/Y1tbFC5A=; b=GqNvIqZoA5gd71eKX/QcHVN/Ne
-	6vOstvxdHEkR/WksCL4ZEG5MFw6rLXC3FFX0/h+IBaVRdWl1AlzdHSFwYyhCBGNtb259KPE8NJR2e
-	H1vMmv5rkqBJ3vd0TSNKIgCndWc4kKAA4KWtk18fMzNkxf0xOrsIFEs0p9c8OY1jdUfw5Z9Nps5Wq
-	OZZijREV9nIu4j+hwJ5g+lj3r1FpAPd5injy3CSH2Gfn4r9NiVrZpzrAK4WH+0fCDQ6xsSTDx3P6q
-	7wjAIfwazR6WjigZwtDfCoMzlPAwlljRxzole+14iAraJKnTuq3E6kCT7Vcr+gcFzmAlhgd9i2GOH
-	yV+9zWlA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:41312 helo=rmk-PC.armlinux.org.uk)
+	bh=obyR8ec27qCSiO/J/J/rtAZWsF0bTjTDR8UxLRlkwlA=; b=GD+4iJgY3j7MqFWwgm6hsHb8Qt
+	PdOzNsVoknKOQmaXD0WUEv8yJgSs5KRx/O1MIe3MKVotRreYEm9ZVQb9sdnu6idoal9aMPnrEv3Qh
+	gsdi8Fi/Zx+wJ/DQ6E2G2PyxuTt1CXLHmwC37K9PSoRdJ5eUkMyRutQejVHtJ8Iv7QSp3mvssw7d5
+	vS24aVM3Ii9FCX+u2/AlJwfBPBTlyORwHOalb5NP336oGUP6giO0Af2/+Ye/yTOAMVLshS5/owoQx
+	BvVeqhJqHmpGbY0YXxyDnDO7bcA+OhejEYl0RVdz/5hTOk791FMun9ZWgx8dcYzktqzQrTR5KzFVm
+	GZvQIgOQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:41322 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1w7ptU-000000002gu-3v66;
-	Wed, 01 Apr 2026 08:21:41 +0100
+	id 1w7pta-000000002hD-49Kw;
+	Wed, 01 Apr 2026 08:21:47 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1w7ptT-0000000EatI-3feh;
-	Wed, 01 Apr 2026 08:21:39 +0100
+	id 1w7ptY-0000000EatO-42Qv;
+	Wed, 01 Apr 2026 08:21:44 +0100
 In-Reply-To: <aczHVF04LIGq_lYO@shell.armlinux.org.uk>
 References: <aczHVF04LIGq_lYO@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -63,16 +63,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	netdev@vger.kernel.org,
 	Ong Boon Leong <boon.leong.ong@intel.com>,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v2 06/14] net: stmmac: add GSO MSS checks
+Subject: [PATCH net-next v2 07/14] net: stmmac: move TSO VLAN tag insertion to
+ core code
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1w7ptT-0000000EatI-3feh@rmk-PC.armlinux.org.uk>
-Date: Wed, 01 Apr 2026 08:21:39 +0100
+Message-Id: <E1w7ptY-0000000EatO-42Qv@rmk-PC.armlinux.org.uk>
+Date: Wed, 01 Apr 2026 08:21:44 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_002149_284990_B55A2DD3 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20260401_002154_299633_083EA57C 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,38 +88,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add GSO MSS checks to stmmac_features_check().
+stmmac_tso_xmit() checks whether the skbuff is trying to offload
+vlan tag insertion to hardware, which from the comment in the code
+appears to be buggy when the TSO feature is used.
+
+Rather than stmmac_tso_xmit() inserting the VLAN tag, handle this
+in stmmac_features_check() which will then use core net code to
+handle this. See net/core/dev.c::validate_xmit_skb()
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 23 ++++++++-----------
+ 1 file changed, 10 insertions(+), 13 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 031ffb78f40d..b4cc34dd0d76 100644
+index b4cc34dd0d76..c67f042a90af 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4391,12 +4391,19 @@ static size_t stmmac_tso_header_size(struct sk_buff *skb)
-  *
-  * While IPv4 is limited to MAC+VLAN+IPv4+ext+TCP+ext = 138 bytes, the IPv6
-  * extension headers aren't similarly limited.
-+ *
-+ * Fall back to software GSO for these skbs. Also check that the MSS is >=
-+ * the recommended 64 bytes (documented in ETH_DMACxCR register description),
-+ * and that a the header plus MSS is not larger than 16383 (documented in
-+ * "Building the Descriptor and the packet for the TSO feature").
-  */
- static bool stmmac_tso_valid_packet(struct sk_buff *skb)
- {
- 	size_t header_len = stmmac_tso_header_size(skb);
-+	unsigned int gso_size = skb_shinfo(skb)->gso_size;
+@@ -4456,19 +4456,6 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	u8 proto_hdr_len, hdr;
+ 	dma_addr_t des;
  
--	return header_len <= 1023;
-+	return header_len <= 1023 && gso_size >= 64 &&
-+	       header_len + gso_size < 16383;
- }
+-	/* Always insert VLAN tag to SKB payload for TSO frames.
+-	 *
+-	 * Never insert VLAN tag by HW, since segments split by
+-	 * TSO engine will be un-tagged by mistake.
+-	 */
+-	if (skb_vlan_tag_present(skb)) {
+-		skb = __vlan_hwaccel_push_inside(skb);
+-		if (unlikely(!skb)) {
+-			priv->xstats.tx_dropped++;
+-			return NETDEV_TX_OK;
+-		}
+-	}
+-
+ 	nfrags = skb_shinfo(skb)->nr_frags;
+ 	queue = skb_get_queue_mapping(skb);
  
- /**
+@@ -4969,6 +4956,16 @@ static netdev_features_t stmmac_features_check(struct sk_buff *skb,
+ 		if (!stmmac_tso_channel_permitted(netdev_priv(dev), queue) ||
+ 		    !stmmac_tso_valid_packet(skb))
+ 			features &= ~NETIF_F_GSO_MASK;
++
++		/* If we are going to be using hardware TSO, always insert
++		 * VLAN tag to SKB payload for TSO frames.
++		 *
++		 * Never insert VLAN tag by HW, since segments split by
++		 * TSO engine will be un-tagged by mistake.
++		 */
++		if (features & NETIF_F_GSO_MASK)
++			features &= ~(NETIF_F_HW_VLAN_STAG_TX |
++				      NETIF_F_HW_VLAN_CTAG_TX);
+ 	}
+ 
+ 	return vlan_features_check(skb, features);
 -- 
 2.47.3
 
