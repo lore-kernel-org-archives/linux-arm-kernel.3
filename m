@@ -4,152 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 205EF1076387
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 17:12:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C07B1076387
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 17:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xo6+N6+VCrJRYzXtm6SF+5TNIUrSiBCHYfB9eXITMCA=; b=VLpdTfaNBv32ylb9kvWD0fNRgU
-	shecRLni1Anevz6nU94nNYynKb9TDnNP2Tt/BvcKMap8stQA6egps0NbdhW+4RBnZ9S18Fby1Jz2h
-	OKwpmINN5T94rL+sl72FY1x/8c/i4dYFbksKoOZHFVt0OiTQJzrW/CUaAbc2TW+OoM+knkYZ9t/2I
-	jcai+rrHAiim9S9YVBT5UcCW8+t7WAbwsPg8l4VfkpakeCDo0qRz+4PAh0w4j+wPldNMuECXc+Ylz
-	wSknwd3Efhybv3MR2WXW8B8GJgDEu/i0kkH9X/rI0Hgwhv5sV4/JvFG2xTmvyCOp475EEARYzSI4w
-	wT/doQqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Subject:CC:To:
+	From:MIME-Version:Date:Message-ID:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ke0Czr+9JwECKr26r+t4hBxTTGmkR++JdoyMiqb6rNk=; b=xcpHDmtGoUIlmJkmLLQNX5ewxQ
+	C4A87f0UlHlGy1+608wyhUBMWob8vYVRsU5bIpA/FLVqKhg+LBnrCLncf6zemc4r7qVm4w6b1aSsZ
+	+4UvMUVflIyidtj6xv/7g/rd4Q80NS/VLZeS3yvC7/UfuzbcDS8WNME+ywh6XXv1ZUoJlj/zT6gR0
+	G52voOwWL6kSDFz8c3x4Ws/wFS5HpiXQMaSU416J/xJcRAWwQSPVL3yULNWCVQWFYn0PhwHhDucA2
+	kPmwYzKCEXAFFhnozBTWJRYrnOCb3Yzx5guOYzwNcqN5mTQaU+TBPsqQmatssVPMkvELarodfmL5r
+	EfvgVgzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7z6y-0000000Fp4r-1hTR;
-	Wed, 01 Apr 2026 17:12:12 +0000
-Received: from mail-westusazolkn190120001.outbound.protection.outlook.com ([2a01:111:f403:d001::1] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1w7z90-0000000FpLp-1jGb;
+	Wed, 01 Apr 2026 17:14:18 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7z6v-0000000Fp44-1UOq;
-	Wed, 01 Apr 2026 17:12:11 +0000
+	id 1w7z8x-0000000FpLG-0Qj7
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Apr 2026 17:14:17 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fz2Vwo6t4m2PCCb3fLado9rjYZnD2KMwGqlzhCnvi0XU8SrK6fvC73UX4t99XoDiAFt4vtuVMKfS0VE3HJ8bMv9MGdkKoCIVru5izh5z9yPBbHqYyv2Y5iJfKLjZpRIyPXuUv0XtbsUNz1xfjgntt3utKEJRCTp2W4swLl51wiVLdwU1wnS+84K844Cu3quAx8g4TjLljnCFAWsdCQ4WjXNc4l9DHJhesSD30pxCrqVt6lqBAsAW9vuqlj3QlUp3zRKwAYJrYKXLxei7u0nk+DqODJmd4P4HXN9rll6aLrmH4KbyZcNZXtboGSrOokuRFdUop4cCtDfiYVlurfZyNQ==
+ b=utiNJ8IxCIZD3h3Z39kGcF6pOkMRts3+uQ/JwWuy/s0bKrJP5eo40sQB7TT3EY3YVbSxbxqsXWrB5wqYxZYBMutl2ZmRlSQmP0VqN3F5UeVqKIUoORnV5LIk4olOa5nnxg65P16U9HTM1m2KT1bHrBFXZcTbmp/l+jdIMn2Mr+IE2ixHqOVOQcFFFL3lRY/WfujQQWLw4VIV3MUnd1Lct1y5ArsveLes1gQeMeZBcF4FnE4ZfCUp2DEob8T3FgpMzsUwMCkDEA11N/v/6LuaETxu8vkV0e/iphkWMCqdeUT8bt2MngYW1HgNMhGs5YaoNgYQzYQpuz2xhoGB/Osdlg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Xo6+N6+VCrJRYzXtm6SF+5TNIUrSiBCHYfB9eXITMCA=;
- b=VesAVe8U2J4w0L+m7ZJ8LeKm0SFeFvDqs+QXr5LLsktWcOIaHxCo7GYgGah3wLUNToaTlr70CP/IsxwYlEPWra4pkdUVnod3OJcXuBtPl97Ibd6ipRU2B7GAiLANneNTX9YiHGcOL3LzCvkiRokbVypI7yLF4LzVkjhSD8fOXtzbFA6xv+LpU6PJJCtzPeEV+C4h2giV9X1trzykRPwZJNDImwRqsTEurhX3v/Fegi8j13VjD61M5/+7sQIZbDVTwTxd8W2F78V2l+T8kGMMSXjUTaEB/tJQdqy3q1QvnP6X1puvaHZ1y8sx2osHAUBiDascIJKcN74//P7cB8jkiQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
+ bh=ke0Czr+9JwECKr26r+t4hBxTTGmkR++JdoyMiqb6rNk=;
+ b=JdLow0LdCE5FxCn00kJ0Q5QRsAE4hWdGh1fL/uBxaxARTzbzMcMayPO5rJssTPGOHRu69OzShjuz8HkXw55yx2SPfpYzTnjKKOrXlAtG9FbQ1biE/giHmHVZ5qEBAAzRW1WaOmersapnlTSx/yxiKi1LEgpMLmz6KBlWI6w8/koBYiD1t4PHPLFt6MiUaly3Zv9bI5eYaPnk5OYQe+2R5nyYgjh0hwDS9fMJM2qWiWtZpmACsV2j3b25BvkiYZWaBYLonRDt+pKGnIWJiRDmbzaQ79GsM8qUEIC2UkB5bGiLNTDCvHuiTIIU/Rx1chwUCQngx3k0mhcnYp2UVjAb0Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Xo6+N6+VCrJRYzXtm6SF+5TNIUrSiBCHYfB9eXITMCA=;
- b=JWwB0+Vr4f9QBpD84/xmJONnuy9NTg95mZtBhT2k2z7CYJ8brvYNEZIZsemjYxPEOJ+F5HC1JSIWiWbrT2smNI6gGqfo6uD808lKdYqGK3zGgIY3yqhvdY3KLz1sTuCV7T90Gl7vvTsBwfQpqImJV2eY2a79fBUkQ4Ccd7h+xG5HgzBBTtSizDw+JmUcX8SBl6bijheSG+R6lh7l3Pxkvbqa3i9W49+ZSORj3eDDofB1nXL5kisxm7kcvJ4FKxlzb/uqFjK2l9hIVABEqDHXjtV34Af4cA1eApAj4NpsOPF3R3B2UnMP+xONmwRhbzhzhs8T9FCjNb8dvISkVTJGNQ==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by MN2PR02MB6701.namprd02.prod.outlook.com (2603:10b6:208:1d3::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Wed, 1 Apr
- 2026 16:56:34 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6%6]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
- 16:56:34 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Naman Jain <namjain@linux.microsoft.com>, "K . Y . Srinivasan"
-	<kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu
-	<wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, Long Li
-	<longli@microsoft.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
-	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "H . Peter
- Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-CC: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, mrigendrachaubey
-	<mrigendra.chaubey@gmail.com>, "ssengar@linux.microsoft.com"
-	<ssengar@linux.microsoft.com>, Michael Kelley <mhklinux@outlook.com>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
-	<linux-arch@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>
-Subject: RE: [PATCH 04/11] Drivers: hv: Refactor mshv_vtl for ARM64 support to
- be added
-Thread-Topic: [PATCH 04/11] Drivers: hv: Refactor mshv_vtl for ARM64 support
- to be added
-Thread-Index: AQHctT5V2BuRVBWyKkCpWfaIbANGJbXKhn/g
-Date: Wed, 1 Apr 2026 16:56:34 +0000
-Message-ID: <SN6PR02MB41573C4A21BA96A534E5429CD450A@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <20260316121241.910764-1-namjain@linux.microsoft.com>
- <20260316121241.910764-5-namjain@linux.microsoft.com>
-In-Reply-To: <20260316121241.910764-5-namjain@linux.microsoft.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|MN2PR02MB6701:EE_
-x-ms-office365-filtering-correlation-id: c79b5d5b-b5ba-4c3a-3ba4-08de900fa175
-x-ms-exchange-slblob-mailprops: znQPCv1HvwXZ5XHxNrJCjRnjimRBgM6SHOTtrW+lBXVoS+Ao++RiO/3/Eqn5LMb+M6lQ2y8Pje8T9KuKx8ZL0u93Ez8xcbLpP+D5aHB7SmBY7rffJWax9HDOjGf9mqYNHkF6bJDk9p1TRChZxgdpIPmJRW2ljBzy8h38NzMxgTNxLcdRUPkg+SeBw5ovDamYMldcLXFJdTEYiUpUlcjo4xZ7Wmf9SbasJn2mMbsK3aEWkUYzzNcyr0YL+sAAkm26phxMsuXiCZ7FohngeIz3KIOQmGcdqGNTB6PINs+kDy2qYXFRG5rjcUi5XEAbw3jvRUFTaG1gd9ZpIGpySTNPu2B+YT0UX8Y65LLZZKxFVy/uj/7up5NrwKyxHWRtphxTpl5XYyi8lXaCtFjdYBbi++uwZln42ZnwrNNtWRYDw2NkKPkDP/Wiz3cvc4fzrgj8EukBnnHNInYz9ilAYUdNeKo5bKEynuRu1c2Ak4uf/BoI23u9wyI+qe6+tN3ZgFb9LFllqv5rYAv8ZthxmbpQU9EF+eEPa8n+eXr9cmDtsaT5kM+26IGjzjWJ2BDT+KDWXv6/ORDKlCLIO6pIbEn9Taa8zRJaE+/RCa+27EUlgCNuOloRB1NYGYpGDa0b6TWYHDs/0r5Hs7VOpg+ZBdnXQWTLNeHxMWfPhsK1ZgVjOsziswwhacBGF0aAMTMDwxYr2aX2AqAy7E5WuxibC51nYKRy0ubSdjvYjfY2+lKRht5/WruvyUOJvv4QKowQueUYgt4n7iFV4fw=
-x-microsoft-antispam: BCL:0;ARA:14566002|8060799015|8062599012|19110799012|37011999003|31061999003|461199028|41001999006|51005399006|15080799012|13091999003|440099028|3412199025|26121999003|102099032|40105399003|1710799026;
-x-microsoft-antispam-message-info: =?us-ascii?Q?Ne+eZC/tVYEGQBa4rGD6c/xp3ZCwrRwbXNsUftwgBsdTXlLV6+2AGBRWAQdN?=
- =?us-ascii?Q?UWUwST4ml0KLfeJyLF2usMU6h/e5QxSjFiKX0cZanONA2bUqM4cjsWELv7Od?=
- =?us-ascii?Q?Lnx4j3HXUc4i0/p2lmcVmC+hKLulDU7CCL7xqQ8KTHDRStT0Chuz+gQzCJAs?=
- =?us-ascii?Q?svBG6w9lgb4KrK1IXy5fWSoz/8vPuuD1Z/HCUXRPZjqk0MwqJOUXwXcMuD6E?=
- =?us-ascii?Q?bodbs0CC7kKCzAxh+8dwAvJGVcvU3EgfBHuv6V0bJl+DII1FzD/9cFrTknoK?=
- =?us-ascii?Q?in1/Z4ece5F25c5PakPZL5JJPo0LExirPyxMIws/m8BxE6llzlGrKBOqqZFd?=
- =?us-ascii?Q?wSlergAph/OSZlJ9F5hPWGW4X+LSFuvMZKe2afuLKaZJCqekXiT2UcYEvyO8?=
- =?us-ascii?Q?eHDoDZjeFUfYZyFepgE5PQqPp7hZKcXLh2lNggqcqBfrVXm6TMJCv6M/CT8h?=
- =?us-ascii?Q?588O+Ewo7+LJsBkLsrn1ov5OjQ+nHWQjuPeQV1PVvdPk1RlApXwgFlxakrYp?=
- =?us-ascii?Q?F2aK0kn8hEFAArpN06SlYbcUH9PlcietxQMrM3jPeBne3NmahwvAAelZDdLq?=
- =?us-ascii?Q?zmmAPU2vHewDILx8lr5RucTZPgYwyqpGcJcVX1WV99Tvsvh2a9Az6ijTvHTv?=
- =?us-ascii?Q?+KOAEO4C2WmGPrUY95kOj4leU5XAgn05SnaOMPO1ZLB/1/g/eN3OM/Y09qse?=
- =?us-ascii?Q?H9fXmFm2P8xs6YEEtDzw4JOUvr97h6czK0rYyrOuD/SBr2Ymta1jgGIz5AGC?=
- =?us-ascii?Q?hHeSPm2GlBFdmeRCuglpfVSdxOOyIFk0Jyfpm4EJOndHfzrTM9U4JvcTkQ0Y?=
- =?us-ascii?Q?AO3x5H5WBBMsrTQWZs7IcHvaSV0aYKx3pIiS58PRPrx3Hoer9ib5OMfCuZ+l?=
- =?us-ascii?Q?TAYkQTCfaB7rMmiKVoTgvlnq1+fJuVSuUjo4SgKWBn2cQfDnHZJDV1AHZlC8?=
- =?us-ascii?Q?WTMCciV9wpXDEaXIisCZGghVxX8DwIap1RC4T7pfMfmhFFWWB9IJgg0ODiTD?=
- =?us-ascii?Q?Z+r81D55edWxYpYRAjvD4cF1LHrakxQ4vx24wdFnS5z5tqqjHgWO+VRcr4Y7?=
- =?us-ascii?Q?k1cxcnLq?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Po8XvPk2QSNGDAN/4h7XtNAJsdNtrp7pxW0OaE0UE7PsBMWhC3iv5t4gUDlU?=
- =?us-ascii?Q?eE+l0FLRIKZz8/rHwnCTQgR4qHQi3DCXPmoqwM6Z2sQm/PnCCMK8dd0HTHQO?=
- =?us-ascii?Q?vaziy+7YNyurywODBrwsIVg4N9gsapxW7ICpwri2ablAY6XsicbueksTK3YZ?=
- =?us-ascii?Q?28XWQbbj4yNeChGVduNbqG7fMhYUKAfMFFCcMmk771y8z8DewHL1MgzIjiFa?=
- =?us-ascii?Q?SWE5OtfvvoA1Jw16+k0U+7HYqOh0nTDnyrtro0G7QeKEebFDIuMCOPBp9Bi7?=
- =?us-ascii?Q?Ue7/ufL1IRIrFiQiZiNqUGOoLKPf7mDpbNHtFcfHX6+xnGLtJrCRkSoP90gP?=
- =?us-ascii?Q?7Zm+qxIJlK2ek1NTEZGR3Pz7Yl6FBKllLDFVzmR2KSg5g6hq+rEd4LmFuprf?=
- =?us-ascii?Q?6EVE3bNu4XjCeHg8XZdxc8NglvxdbrQjfqFd59PWjhBC8xprm969gxhE0hsW?=
- =?us-ascii?Q?AAI57bSKjaMwY0uVP6UH4eOfoCEmlE7ttNxRLXj8MLp+FQTHtdOjeIOa9/CW?=
- =?us-ascii?Q?2qhEWiHDfJOEIZc0dO5bzH1MPf1Y9Mr+ba9XzXn3gm8rDRT46TW9xxRpj3LR?=
- =?us-ascii?Q?MCq5MR5nGwDfL8Fvf8aFVGSL+JrZ32HLPEhsvP0zI99F/2pBmYmOZ7UACnJy?=
- =?us-ascii?Q?84BZjn8ZUNHpcp4Kl9HYdgH1c2ZaKBhZhWMVeiQ8InrW/BM8g21WEmwL0ctF?=
- =?us-ascii?Q?bcU3V3ZfJdouT27evHn/8ThgagkO+HTEIOV84WEhG6JPwXaTlqJjTBq4dz+2?=
- =?us-ascii?Q?ClRrtHH9RAa5yZBDg7SHi9GhEGfdV+iEKsG/zjlojZ1sJj4Gs4fReQcmI+Lf?=
- =?us-ascii?Q?8qPesWx7Iz46tH5lr8EKziK6Slrg8A2a+uRP430F5iFyd40AgA1wszz2ViG8?=
- =?us-ascii?Q?S/ZoIh32TuYqoy92eExWIgGtHGt41PRyErGWXRY/ZJEvtB08xlH8mphs/SwI?=
- =?us-ascii?Q?UFF9wHjtVibo1gmMIPnuiIj/W3oAeMgfnmFzBHkK4lcpIpEv7Cs1l2jnOc8G?=
- =?us-ascii?Q?mTQOxTQzcvawH01i6v1lizEDa71dP47yHY8hRq07Zpuuu4OSXx5BWg1P/DYb?=
- =?us-ascii?Q?aOWlnv+0jVqpa3yC0ENDCViTTRwSbwlTJs0jnbbHDPbIWOM6ZoWa8WjgASmL?=
- =?us-ascii?Q?+CE0opPQHKEwPOJFUrBPrecHaLJ1XM/rk30irMLNnDSRVpUkD6TKP7xER53t?=
- =?us-ascii?Q?Agb4hRHk3MSiU+rd7Glr9oSo2j7oBYQRdKkWULc78kzH4QTk+uvCioH5oZMK?=
- =?us-ascii?Q?lLf7OUNxWzfs9xpXNalxwve8IvY1SG3lPxX4WLiTBlOEuGvrBtO4g9LEiKKt?=
- =?us-ascii?Q?9veO2Kipj4KUHM6Fr61t7W0dcxLY7G21henQb1PGYJDgpxUIndhuXjoYiK9W?=
- =?us-ascii?Q?2FkNXfs=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ bh=ke0Czr+9JwECKr26r+t4hBxTTGmkR++JdoyMiqb6rNk=;
+ b=d0CU/3YXH7Km5y+ByPlipwZ4exnD/6mLXI3NjUwdPoCp5Bfzh4lRnA550ETn/F/4R+CyQKLkMDrJfNPsxFVN0romZtvufU/qF1R4yQ1oZpbanU0AW4+SOUJN+t4kvTNT4v8PjrixLwtq7MmMyE8Xc1Jt2Cm3ZakR747FjR1F4aI=
+Received: from MN2PR01CA0025.prod.exchangelabs.com (2603:10b6:208:10c::38) by
+ MN0PR10MB5912.namprd10.prod.outlook.com (2603:10b6:208:3cc::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.18; Wed, 1 Apr 2026 17:14:07 +0000
+Received: from BL6PEPF0001AB59.namprd02.prod.outlook.com
+ (2603:10b6:208:10c:cafe::28) by MN2PR01CA0025.outlook.office365.com
+ (2603:10b6:208:10c::38) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9745.30 via Frontend Transport; Wed,
+ 1 Apr 2026 17:14:07 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ BL6PEPF0001AB59.mail.protection.outlook.com (10.167.241.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.17 via Frontend Transport; Wed, 1 Apr 2026 17:14:07 +0000
+Received: from DLEE204.ent.ti.com (157.170.170.84) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 1 Apr
+ 2026 12:14:06 -0500
+Received: from DLEE212.ent.ti.com (157.170.170.114) by DLEE204.ent.ti.com
+ (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 1 Apr
+ 2026 12:14:06 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE212.ent.ti.com
+ (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 1 Apr 2026 12:14:06 -0500
+Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 631HE3b5475624;
+	Wed, 1 Apr 2026 12:14:04 -0500
+Message-ID: <e724f95d-09d0-4ede-9ed4-0ce782d81058@ti.com>
+Date: Wed, 1 Apr 2026 22:44:03 +0530
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: c79b5d5b-b5ba-4c3a-3ba4-08de900fa175
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Apr 2026 16:56:34.0290
+User-Agent: Mozilla Thunderbird
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Content-Language: en-US
+To: SoC <soc@kernel.org>, <arm@kernel.org>
+CC: SoC list <soc@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Tero Kristo <kristo@kernel.org>, "Nishanth
+ Menon" <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
+Subject: [GIT PULL 1/2] arm64: dts: ti: K3 updates for v7.1
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature";
+	boundary="------------T8uAc3ICRv90EsD0lIaStzoB"
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB59:EE_|MN0PR10MB5912:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8498dd94-3a5e-4d96-5eb7-08de9012155a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700016|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: +Z1f0RLBZJFD6vai1FHLGQ1fDRomO0kOPzzvkhrrRtmSo+NCfmnc3I3Specj9sZ8wzUs4twIV7oOdfTO50GStczMhI9VSkmlU2qZGZIHWkgLZrbaBtH6iUf8viECZiYrUx5vsajhxiD4twoJjR22rnqBHey/90SKVykdGWWxhleAOHV+RRrAlz3cAMp1dfwn7qy0VRh8FIXB7ASi28Hk5o3KqJyscnkEaqLQtdeJrWExjKO7VXOusKDL7SpkYqd9Cq5/G4CfNz1UC/vBDm/GxjpAbWyh1FlKr8pQOu3XzFTVm7Sf/HNPG1xxeA8L9UdpfF8K8mz+XMUqkl/6PjJEHiLOvcktmFwt87LtiVPAArbCQRpYasJ3RrCuSQjrbAyoB4MFWeaILEwCfAGaZ+4VaBMR4qvt+OuYeSkbk+Ii8KsXcoRNGuL/H7ShtA9djWVhQu0AUQivqi5rN+yaxrme8ejh5+9rt+u2ens7TmEafCcqv7EAqF0F/ldosBLfVzJ/I8NrcNC/PgijOc/AsRwrLpk1Yi9OPJCtaR+u+Fx1v9E2GTXuRcqGcRUK49MIq3uB5xVr8xnIjSoK9jmRzeWQb3SFuwRcn/L6W+j/9lIvPp97dADNvt0BmVnihwAUWokDZ1K7ZbVSYO40SwjTY4jOfA8OUtArc3FDRy9NFjroAY2Ml3XK8r5caZyGlS9EfTA++8YspsA6B49Gs6McRodRCtRgbHcGdQCYjFbWnz7Hk0BeEbDQqq1F3PQt8rdrxfAENxUQl/wYh3kJHXmYTbpVJg==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700016)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: DznccOXUVfxFxc+F6OE4r96tz5FMb2Dl4DMl37KAPOuSgoT4g3Ii/+diuENOjxLe5sQXlKOrWrK7+6+YP9gRgiz91tNw1y1YphVIbQw9uJsQbOuKgLVhZTEmjAeMHZcJl9HKhUJQJsFvZyAWqfqjyAb00QtJx//a9njj2RTwAyYw1rTpMw7l1tXHloGfKqAh7x1xdungdONEpF78RmNd5a5/3sfJXfloBloAlioIZtE5dCr1HTQyRXdOB6TVIitM3w+V/ajEL5SBOPajXCQcS45RtkImCP0le7Z5MZzCgk1GX3wKOFcfRG/wai6d+cX17vE4NJJGCJc5M/1gtKU2KenicI26HFUpg1rqxsJkdOehuM3atQacq3Mw/0ViBLrNAZvL/iTJ0lBoItZC+tZxIrKaBF8ST793f/lCQCPdbDQvd5pBxTXAM9dBbtUyIca4
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 17:14:07.3971
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR02MB6701
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8498dd94-3a5e-4d96-5eb7-08de9012155a
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB59.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR10MB5912
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_101209_398690_7A2CB778 
-X-CRM114-Status: GOOD (  21.41  )
+X-CRM114-CacheID: sfid-20260401_101415_274622_0FC0C77C 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,325 +130,289 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Naman Jain <namjain@linux.microsoft.com> Sent: Monday, March 16, 2026=
- 5:13 AM
->=20
-> Refactor MSHV_VTL driver to move some of the x86 specific code to arch
-> specific files, and add corresponding functions for arm64.
->=20
-> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
-> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
-> ---
->  arch/arm64/include/asm/mshyperv.h |  10 +++
->  arch/x86/hyperv/hv_vtl.c          |  98 ++++++++++++++++++++++++++++
->  arch/x86/include/asm/mshyperv.h   |   1 +
->  drivers/hv/mshv_vtl_main.c        | 102 +-----------------------------
->  4 files changed, 111 insertions(+), 100 deletions(-)
->=20
-> diff --git a/arch/arm64/include/asm/mshyperv.h
-> b/arch/arm64/include/asm/mshyperv.h
-> index b721d3134ab6..804068e0941b 100644
-> --- a/arch/arm64/include/asm/mshyperv.h
-> +++ b/arch/arm64/include/asm/mshyperv.h
-> @@ -60,6 +60,16 @@ static inline u64 hv_get_non_nested_msr(unsigned int r=
-eg)
->  				ARM_SMCCC_SMC_64,		\
->  				ARM_SMCCC_OWNER_VENDOR_HYP,	\
->  				HV_SMCCC_FUNC_NUMBER)
-> +#ifdef CONFIG_HYPERV_VTL_MODE
-> +/*
-> + * Get/Set the register. If the function returns `1`, that must be done =
-via
-> + * a hypercall. Returning `0` means success.
-> + */
-> +static inline int hv_vtl_get_set_reg(struct hv_register_assoc *regs, boo=
-l set, u64 shared)
-> +{
-> +	return 1;
-> +}
-> +#endif
->=20
->  #include <asm-generic/mshyperv.h>
->=20
-> diff --git a/arch/x86/hyperv/hv_vtl.c b/arch/x86/hyperv/hv_vtl.c
-> index 9b6a9bc4ab76..72a0bb4ae0c7 100644
-> --- a/arch/x86/hyperv/hv_vtl.c
-> +++ b/arch/x86/hyperv/hv_vtl.c
-> @@ -17,6 +17,8 @@
->  #include <asm/realmode.h>
->  #include <asm/reboot.h>
->  #include <asm/smap.h>
-> +#include <uapi/asm/mtrr.h>
-> +#include <asm/debugreg.h>
->  #include <linux/export.h>
->  #include <../kernel/smpboot.h>
->  #include "../../kernel/fpu/legacy.h"
-> @@ -281,3 +283,99 @@ void mshv_vtl_return_call(struct mshv_vtl_cpu_contex=
-t *vtl0)
->  	kernel_fpu_end();
->  }
->  EXPORT_SYMBOL(mshv_vtl_return_call);
-> +
-> +/* Static table mapping register names to their corresponding actions */
-> +static const struct {
-> +	enum hv_register_name reg_name;
-> +	int debug_reg_num;  /* -1 if not a debug register */
-> +	u32 msr_addr;       /* 0 if not an MSR */
-> +} reg_table[] =3D {
-> +	/* Debug registers */
-> +	{HV_X64_REGISTER_DR0, 0, 0},
-> +	{HV_X64_REGISTER_DR1, 1, 0},
-> +	{HV_X64_REGISTER_DR2, 2, 0},
-> +	{HV_X64_REGISTER_DR3, 3, 0},
-> +	{HV_X64_REGISTER_DR6, 6, 0},
-> +	/* MTRR MSRs */
-> +	{HV_X64_REGISTER_MSR_MTRR_CAP, -1, MSR_MTRRcap},
-> +	{HV_X64_REGISTER_MSR_MTRR_DEF_TYPE, -1, MSR_MTRRdefType},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE0, -1, MTRRphysBase_MSR(0)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE1, -1, MTRRphysBase_MSR(1)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE2, -1, MTRRphysBase_MSR(2)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE3, -1, MTRRphysBase_MSR(3)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE4, -1, MTRRphysBase_MSR(4)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE5, -1, MTRRphysBase_MSR(5)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE6, -1, MTRRphysBase_MSR(6)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE7, -1, MTRRphysBase_MSR(7)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE8, -1, MTRRphysBase_MSR(8)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE9, -1, MTRRphysBase_MSR(9)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEA, -1, MTRRphysBase_MSR(0xa)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEB, -1, MTRRphysBase_MSR(0xb)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEC, -1, MTRRphysBase_MSR(0xc)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASED, -1, MTRRphysBase_MSR(0xd)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEE, -1, MTRRphysBase_MSR(0xe)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEF, -1, MTRRphysBase_MSR(0xf)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK0, -1, MTRRphysMask_MSR(0)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK1, -1, MTRRphysMask_MSR(1)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK2, -1, MTRRphysMask_MSR(2)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK3, -1, MTRRphysMask_MSR(3)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK4, -1, MTRRphysMask_MSR(4)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK5, -1, MTRRphysMask_MSR(5)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK6, -1, MTRRphysMask_MSR(6)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK7, -1, MTRRphysMask_MSR(7)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK8, -1, MTRRphysMask_MSR(8)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK9, -1, MTRRphysMask_MSR(9)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKA, -1, MTRRphysMask_MSR(0xa)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKB, -1, MTRRphysMask_MSR(0xb)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKC, -1, MTRRphysMask_MSR(0xc)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKD, -1, MTRRphysMask_MSR(0xd)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKE, -1, MTRRphysMask_MSR(0xe)},
-> +	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKF, -1, MTRRphysMask_MSR(0xf)},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX64K00000, -1, MSR_MTRRfix64K_00000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX16K80000, -1, MSR_MTRRfix16K_80000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX16KA0000, -1, MSR_MTRRfix16K_A0000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KC0000, -1, MSR_MTRRfix4K_C0000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KC8000, -1, MSR_MTRRfix4K_C8000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KD0000, -1, MSR_MTRRfix4K_D0000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KD8000, -1, MSR_MTRRfix4K_D8000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KE0000, -1, MSR_MTRRfix4K_E0000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KE8000, -1, MSR_MTRRfix4K_E8000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KF0000, -1, MSR_MTRRfix4K_F0000},
-> +	{HV_X64_REGISTER_MSR_MTRR_FIX4KF8000, -1, MSR_MTRRfix4K_F8000},
-> +};
-> +
-> +int hv_vtl_get_set_reg(struct hv_register_assoc *regs, bool set, u64 sha=
-red)
-> +{
-> +	u64 *reg64;
-> +	enum hv_register_name gpr_name;
-> +	int i;
-> +
-> +	gpr_name =3D regs->name;
-> +	reg64 =3D &regs->value.reg64;
-> +
-> +	/* Search for the register in the table */
-> +	for (i =3D 0; i < ARRAY_SIZE(reg_table); i++) {
-> +		if (reg_table[i].reg_name !=3D gpr_name)
-> +			continue;
-> +		if (reg_table[i].debug_reg_num !=3D -1) {
-> +			/* Handle debug registers */
-> +			if (gpr_name =3D=3D HV_X64_REGISTER_DR6 && !shared)
-> +				goto hypercall;
-> +			if (set)
-> +				native_set_debugreg(reg_table[i].debug_reg_num, *reg64);
-> +			else
-> +				*reg64 =3D native_get_debugreg(reg_table[i].debug_reg_num);
-> +		} else {
-> +			/* Handle MSRs */
-> +			if (set)
-> +				wrmsrl(reg_table[i].msr_addr, *reg64);
-> +			else
-> +				rdmsrl(reg_table[i].msr_addr, *reg64);
-> +		}
-> +		return 0;
-> +	}
-> +
-> +hypercall:
-> +	return 1;
-> +}
-> +EXPORT_SYMBOL(hv_vtl_get_set_reg);
-> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyp=
-erv.h
-> index f64393e853ee..d5355a5b7517 100644
-> --- a/arch/x86/include/asm/mshyperv.h
-> +++ b/arch/x86/include/asm/mshyperv.h
-> @@ -304,6 +304,7 @@ void mshv_vtl_return_call(struct mshv_vtl_cpu_context=
- *vtl0);
->  void mshv_vtl_return_call_init(u64 vtl_return_offset);
->  void mshv_vtl_return_hypercall(void);
->  void __mshv_vtl_return_call(struct mshv_vtl_cpu_context *vtl0);
-> +int hv_vtl_get_set_reg(struct hv_register_assoc *regs, bool set, u64 sha=
-red);
+--------------T8uAc3ICRv90EsD0lIaStzoB
+Content-Type: multipart/mixed; boundary="------------oAW5J7hdI1PCiXsPU00w0Ax0";
+ protected-headers="v1"
+From: Vignesh Raghavendra <vigneshr@ti.com>
+To: SoC <soc@kernel.org>, arm@kernel.org
+Cc: SoC list <soc@lists.linux.dev>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Tero Kristo <kristo@kernel.org>,
+ Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
+Message-ID: <e724f95d-09d0-4ede-9ed4-0ce782d81058@ti.com>
+Subject: [GIT PULL 1/2] arm64: dts: ti: K3 updates for v7.1
 
-Can this move to asm-generic/mshyperv.h?  The function is no longer specifi=
-c
-to x86/x64, so one would want to not declare it in the arch/x86 version
-of mshyperv.h. But maybe moving it to asm-generic/mshyperv.h breaks
-compilation on arm64 because there's also the static inline stub there.
+--------------oAW5J7hdI1PCiXsPU00w0Ax0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
->  #else
->  static inline void __init hv_vtl_init_platform(void) {}
->  static inline int __init hv_vtl_early_init(void) { return 0; }
-> diff --git a/drivers/hv/mshv_vtl_main.c b/drivers/hv/mshv_vtl_main.c
-> index 5856975f32e1..b607b6e7e121 100644
-> --- a/drivers/hv/mshv_vtl_main.c
-> +++ b/drivers/hv/mshv_vtl_main.c
-> @@ -19,10 +19,8 @@
->  #include <linux/poll.h>
->  #include <linux/file.h>
->  #include <linux/vmalloc.h>
-> -#include <asm/debugreg.h>
->  #include <asm/mshyperv.h>
->  #include <trace/events/ipi.h>
-> -#include <uapi/asm/mtrr.h>
->  #include <uapi/linux/mshv.h>
->  #include <hyperv/hvhdk.h>
->=20
-> @@ -505,102 +503,6 @@ static int mshv_vtl_ioctl_set_poll_file(struct mshv=
-_vtl_set_poll_file __user *us
->  	return 0;
->  }
->=20
-> -/* Static table mapping register names to their corresponding actions */
-> -static const struct {
-> -	enum hv_register_name reg_name;
-> -	int debug_reg_num;  /* -1 if not a debug register */
-> -	u32 msr_addr;       /* 0 if not an MSR */
-> -} reg_table[] =3D {
-> -	/* Debug registers */
-> -	{HV_X64_REGISTER_DR0, 0, 0},
-> -	{HV_X64_REGISTER_DR1, 1, 0},
-> -	{HV_X64_REGISTER_DR2, 2, 0},
-> -	{HV_X64_REGISTER_DR3, 3, 0},
-> -	{HV_X64_REGISTER_DR6, 6, 0},
-> -	/* MTRR MSRs */
-> -	{HV_X64_REGISTER_MSR_MTRR_CAP, -1, MSR_MTRRcap},
-> -	{HV_X64_REGISTER_MSR_MTRR_DEF_TYPE, -1, MSR_MTRRdefType},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE0, -1, MTRRphysBase_MSR(0)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE1, -1, MTRRphysBase_MSR(1)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE2, -1, MTRRphysBase_MSR(2)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE3, -1, MTRRphysBase_MSR(3)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE4, -1, MTRRphysBase_MSR(4)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE5, -1, MTRRphysBase_MSR(5)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE6, -1, MTRRphysBase_MSR(6)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE7, -1, MTRRphysBase_MSR(7)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE8, -1, MTRRphysBase_MSR(8)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASE9, -1, MTRRphysBase_MSR(9)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEA, -1, MTRRphysBase_MSR(0xa)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEB, -1, MTRRphysBase_MSR(0xb)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEC, -1, MTRRphysBase_MSR(0xc)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASED, -1, MTRRphysBase_MSR(0xd)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEE, -1, MTRRphysBase_MSR(0xe)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_BASEF, -1, MTRRphysBase_MSR(0xf)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK0, -1, MTRRphysMask_MSR(0)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK1, -1, MTRRphysMask_MSR(1)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK2, -1, MTRRphysMask_MSR(2)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK3, -1, MTRRphysMask_MSR(3)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK4, -1, MTRRphysMask_MSR(4)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK5, -1, MTRRphysMask_MSR(5)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK6, -1, MTRRphysMask_MSR(6)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK7, -1, MTRRphysMask_MSR(7)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK8, -1, MTRRphysMask_MSR(8)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASK9, -1, MTRRphysMask_MSR(9)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKA, -1, MTRRphysMask_MSR(0xa)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKB, -1, MTRRphysMask_MSR(0xb)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKC, -1, MTRRphysMask_MSR(0xc)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKD, -1, MTRRphysMask_MSR(0xd)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKE, -1, MTRRphysMask_MSR(0xe)},
-> -	{HV_X64_REGISTER_MSR_MTRR_PHYS_MASKF, -1, MTRRphysMask_MSR(0xf)},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX64K00000, -1, MSR_MTRRfix64K_00000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX16K80000, -1, MSR_MTRRfix16K_80000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX16KA0000, -1, MSR_MTRRfix16K_A0000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KC0000, -1, MSR_MTRRfix4K_C0000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KC8000, -1, MSR_MTRRfix4K_C8000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KD0000, -1, MSR_MTRRfix4K_D0000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KD8000, -1, MSR_MTRRfix4K_D8000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KE0000, -1, MSR_MTRRfix4K_E0000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KE8000, -1, MSR_MTRRfix4K_E8000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KF0000, -1, MSR_MTRRfix4K_F0000},
-> -	{HV_X64_REGISTER_MSR_MTRR_FIX4KF8000, -1, MSR_MTRRfix4K_F8000},
-> -};
-> -
-> -static int mshv_vtl_get_set_reg(struct hv_register_assoc *regs, bool set=
-)
-> -{
-> -	u64 *reg64;
-> -	enum hv_register_name gpr_name;
-> -	int i;
-> -
-> -	gpr_name =3D regs->name;
-> -	reg64 =3D &regs->value.reg64;
-> -
-> -	/* Search for the register in the table */
-> -	for (i =3D 0; i < ARRAY_SIZE(reg_table); i++) {
-> -		if (reg_table[i].reg_name !=3D gpr_name)
-> -			continue;
-> -		if (reg_table[i].debug_reg_num !=3D -1) {
-> -			/* Handle debug registers */
-> -			if (gpr_name =3D=3D HV_X64_REGISTER_DR6 &&
-> -			    !mshv_vsm_capabilities.dr6_shared)
-> -				goto hypercall;
-> -			if (set)
-> -				native_set_debugreg(reg_table[i].debug_reg_num, *reg64);
-> -			else
-> -				*reg64 =3D native_get_debugreg(reg_table[i].debug_reg_num);
-> -		} else {
-> -			/* Handle MSRs */
-> -			if (set)
-> -				wrmsrl(reg_table[i].msr_addr, *reg64);
-> -			else
-> -				rdmsrl(reg_table[i].msr_addr, *reg64);
-> -		}
-> -		return 0;
-> -	}
-> -
-> -hypercall:
-> -	return 1;
-> -}
-> -
->  static void mshv_vtl_return(struct mshv_vtl_cpu_context *vtl0)
->  {
->  	struct hv_vp_assist_page *hvp;
-> @@ -720,7 +622,7 @@ mshv_vtl_ioctl_get_regs(void __user *user_args)
->  			   sizeof(reg)))
->  		return -EFAULT;
->=20
-> -	ret =3D mshv_vtl_get_set_reg(&reg, false);
-> +	ret =3D hv_vtl_get_set_reg(&reg, false, mshv_vsm_capabilities.dr6_share=
-d);
->  	if (!ret)
->  		goto copy_args; /* No need of hypercall */
->  	ret =3D vtl_get_vp_register(&reg);
-> @@ -751,7 +653,7 @@ mshv_vtl_ioctl_set_regs(void __user *user_args)
->  	if (copy_from_user(&reg, (void __user *)args.regs_ptr, sizeof(reg)))
->  		return -EFAULT;
->=20
-> -	ret =3D mshv_vtl_get_set_reg(&reg, true);
-> +	ret =3D hv_vtl_get_set_reg(&reg, true, mshv_vsm_capabilities.dr6_shared=
-);
->  	if (!ret)
->  		return ret; /* No need of hypercall */
->  	ret =3D vtl_set_vp_register(&reg);
-> --
-> 2.43.0
->=20
+Hi ARM SoC maintainers
 
+Please pull DT updates for K3 Platforms for v7.1.
+Note there is a patch touching embedded-controller/kontron,sl28cpld.yaml =
+as it is part of=20
+series that removes of Kontron SMARC-sAM67 board support.
+
+
+The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f2=
+7f:
+
+  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git tags/ti-k3=
+-dt-for-v7.1
+
+for you to fetch changes up to 47c806de9e9cf171d197f2f0df86df7f2bd1aa56:
+
+  arm64: dts: ti: k3-pinctrl: sort shift values numerically (2026-03-27 1=
+9:55:06 +0530)
+
+----------------------------------------------------------------
+TI K3 device tree updates for v7.1
+
+Generic Fixes/Cleanups:
+- k3-pinctrl: Cleanup alignment and reorder macros
+- ti,min-output-impedance addition to all K3 board DT files
+
+SoC Specific Features and Fixes:
+AM62L:
+- Add RNG node
+- Support cpufreq scaling
+
+J721S2:
+- Make MAIN domain system control bus a simple-bus
+- Add second DSI node
+
+J722S:
+- Add main_i2c4 device node
+
+J7200:
+- Make MAIN domain system control bus a simple-bus
+
+Board Specific Features and Fixes:
+AM642 EVM:
+- Add ICSSG0 overlay for dual EMAC support
+
+AM62:
+- LP-SK: Enable internal pulls for MMC0 data pins
+- SK: Enable Main UART wakeup
+- phycore-som: Add 128MiB of global CMA
+- Verdin: Add Zinnia board support and misc cleanup
+
+AM62A7-SK:
+- Enable Main UART wakeup
+- Fix pin name in comment from M19 to N22
+
+AM62D2 EVM:
+- Enable Main UART wakeup and set wakeup-source system-states
+
+AM62L3 EVM:
+- Disable MMC1 internal pulls on data pins
+- Enable Main UART wakeup and enable wkup_uart0 pins/target node
+
+AM62P:
+- SK: Disable MMC1 internal pulls on data pins and enable Main UART
+  wakeup
+- Verdin: Add Zinnia support and misc cleanup
+
+AM68 PHYBoard:
+- Add DSI->LVDS bridge, LVDS-Display overlay and PEB-AV-15 overlay
+
+AM69 Aquila:
+- Fix DP regulator enable GPIO
+
+J721S2 CPB:
+- Add QSPI flash partition details
+
+Removal of SMARC-sAM67 board:
+- Kontron SMARC-sAM67 board support along with all bindings
+  are dropped as board is no longer planned for production
+
+----------------------------------------------------------------
+Andrew Davis (2):
+      arm64: dts: ti: k3-j7200: Make MAIN domain system control bus a sim=
+ple-bus
+      arm64: dts: ti: k3-j721s2: Make MAIN domain system control bus a si=
+mple-bus
+
+Aniket Limaye (1):
+      arm64: dts: ti: k3-j722s: Add main_i2c4 device node
+
+Anurag Dutta (1):
+      arm64: dts: ti: k3-j721s2-common-proc-board: Add QSPI flash partiti=
+on details
+
+Dhruva Gole (1):
+      arm64: dts: ti: k3-am62l: support cpufreq scaling
+
+Dominik Haller (5):
+      arm64: dts: ti: k3-am68-phyboard-izar: Assign dss clocks
+      arm64: dts: ti: k3-am68-phycore-som: Add DSI->LVDS bridge
+      arm64: dts: ti: k3-am68-phyboard-izar: Add LVDS-Display
+      arm64: dts: ti: k3-j721s2-main: Add DSI1
+      arm64: dts: ti: k3-am68-phyboard-izar: Add PEB-AV-15 overlay
+
+Francesco Dolcini (8):
+      arm64: dts: ti: am62-verdin: Enable pullup for eMMC data pins
+      dt-bindings: arm: ti: Add verdin am62/am62p zinnia board
+      arm64: dts: ti: k3-am62-verdin: Fix SPI_1 GPIO CS pinctrl label
+      arm64: dts: ti: k3-am62-verdin: Split UART_2 pinctrl group
+      arm64: dts: ti: k3-am62-verdin: Add Zinnia
+      arm64: dts: ti: k3-am62p-verdin: Split UART_2 pinctrl group
+      arm64: dts: ti: k3-am62p-verdin: Add SPI_1_CS as GPIO
+      arm64: dts: ti: k3-am62p-verdin: Add Zinnia
+
+Franz Schnyder (2):
+      arm64: dts: ti: k3-am69-aquila-dev: Fix DP regulator enable GPIO
+      arm64: dts: ti: k3-am69-aquila-clover: Fix DP regulator enable GPIO=
+
+
+Judith Mendez (3):
+      arm64: dts: ti: k3-am62p5-sk: Disable MMC1 internal pulls on data p=
+ins
+      arm64: dts: ti: k3-am62l3-evm: Disable MMC1 internal pulls on data =
+pins
+      arm64: dts: ti: k3-am62-lp-sk: Enable internal pulls for MMC0 data =
+pins
+
+Kendall Willis (10):
+      arm64: dts: ti: k3-am62d2-evm: Set wakeup-source system-states
+      arm64: dts: ti: k3-am62l: include WKUP_UART0 in wakeup peripheral w=
+indow
+      arm64: boot: dts: ti: k3-am62l-wakeup: create label for wkup_uart0 =
+target-module
+      arm64: boot: dts: ti: k3-am62l3-evm: define wkup_uart0 pins
+      arm64: boot: dts: ti: k3-am62l3-evm: enable wkup_uart0_target node
+      arm64: dts: ti: k3-am62x-sk-common: Enable Main UART wakeup
+      arm64: dts: ti: k3-am62a7-sk: Enable Main UART wakeup
+      arm64: dts: ti: k3-am62p5-sk: Enable Main UART wakeup
+      arm64: dts: ti: k3-am62l3-evm: Enable Main UART wakeup
+      arm64: dts: ti: k3-am62d2-evm: Enable Main UART wakeup
+
+Meghana Malladi (1):
+      arm64: dts: ti: k3-am642-evm: Add ICSSG0 overlay for dual EMAC supp=
+ort
+
+Michael Walle (3):
+      arm64: dts: ti: remove the Kontron SMARC-sAM67
+      dt-bindings: mfd: sl28cpld: Drop sa67mcu compatible
+      dt-bindings: arm: ti: Drop Kontron SMARC-sAM67 module
+
+Rasmus Villemoes (2):
+      arm64: dts: ti: k3-pinctrl: consistently use tabs for alignment
+      arm64: dts: ti: k3-pinctrl: sort shift values numerically
+
+Shiva Tripathi (1):
+      arm64: dts: ti: k3-am62l-main: Add RNG node
+
+Siddharth Vadapalli (5):
+      arm64: dts: ti: k3-am642-{evm,sk}: add ti,min-output-impedance
+      arm64: dts: ti: k3-am654-base-board: add ti,min-output-impedance
+      arm64: dts: ti: k3-j7200-common-proc-board: add ti,min-output-imped=
+ance
+      arm64: dts: ti: k3-j721e-common-proc-board: add ti,min-output-imped=
+ance
+      arm64: dts: ti: k3-am62a7-sk: Fix pin name in comment from M19 to N=
+22
+
+Thomas Richard (TI) (1):
+      arm64: dts: ti: k3-j721s2: Use ti,j7200-padconf compatible
+
+Wadim Egorov (1):
+      arm64: dts: ti: k3-am62-phycore-som: Add 128MiB of global CMA
+
+ Documentation/devicetree/bindings/arm/ti/k3.yaml             |    5 +-
+ .../bindings/embedded-controller/kontron,sl28cpld.yaml       |    7 +-
+ arch/arm64/boot/dts/ti/Makefile                              |   27 +-
+ arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts                     |   14 +-
+ arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi              |    7 +
+ arch/arm64/boot/dts/ti/k3-am62-verdin-zinnia.dtsi            |  493 ++++=
++
+ arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi                   |   42 +-
+ arch/arm64/boot/dts/ti/k3-am625-verdin-nonwifi-zinnia.dts    |   22 +
+ arch/arm64/boot/dts/ti/k3-am625-verdin-wifi-zinnia.dts       |   22 +
+ arch/arm64/boot/dts/ti/k3-am62a7-sk.dts                      |   15 +-
+ arch/arm64/boot/dts/ti/k3-am62d2-evm.dts                     |   82 +-
+ arch/arm64/boot/dts/ti/k3-am62l-main.dtsi                    |    7 +
+ arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi                  |    7 +-
+ arch/arm64/boot/dts/ti/k3-am62l.dtsi                         |    5 +-
+ arch/arm64/boot/dts/ti/k3-am62l3-evm.dts                     |   32 +-
+ arch/arm64/boot/dts/ti/k3-am62l3.dtsi                        |   47 +
+ arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi       |   13 +-
+ arch/arm64/boot/dts/ti/k3-am62p-verdin-zinnia.dtsi           |  469 ++++=
+
+ arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi                  |   29 +-
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts                      |   19 +-
+ arch/arm64/boot/dts/ti/k3-am62p5-verdin-nonwifi-zinnia.dts   |   22 +
+ arch/arm64/boot/dts/ti/k3-am62p5-verdin-wifi-zinnia.dts      |   22 +
+ arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi               |   13 +-
+ arch/arm64/boot/dts/ti/k3-am642-evm-icssg0.dtso              |  168 ++
+ arch/arm64/boot/dts/ti/k3-am642-evm.dts                      |    1 +
+ arch/arm64/boot/dts/ti/k3-am642-sk.dts                       |    2 +
+ arch/arm64/boot/dts/ti/k3-am654-base-board.dts               |    1 +
+ arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-ads2.dtso       |  146 --
+ arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts        | 1091 ----=
+------
+ arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-gbe1.dtso       |   26 -
+ arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-gpios.dtso      |   61 -
+ arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-rtc-rv8263.dtso |   31 -
+ .../boot/dts/ti/k3-am68-phyboard-izar-lvds-ph128800t006.dtso |  125 ++
+ arch/arm64/boot/dts/ti/k3-am68-phyboard-izar-peb-av-15.dtso  |  191 ++
+ arch/arm64/boot/dts/ti/k3-am68-phyboard-izar.dts             |   17 +
+ arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi              |   17 +
+ arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts             |    2 +-
+ arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts                |    2 +-
+ arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts        |    1 +
+ arch/arm64/boot/dts/ti/k3-j7200-main.dtsi                    |    5 +-
+ arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts        |    1 +
+ arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts       |   42 +
+ arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi                   |   50 +-
+ arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi             |   12 +-
+ arch/arm64/boot/dts/ti/k3-j722s-main.dtsi                    |   13 +
+ arch/arm64/boot/dts/ti/k3-j722s.dtsi                         |    3 +-
+ arch/arm64/boot/dts/ti/k3-pinctrl.h                          |   82 +-
+ 47 files changed, 2030 insertions(+), 1481 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62-verdin-zinnia.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-nonwifi-zinnia=
+=2Edts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-wifi-zinnia.dt=
+s
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p-verdin-zinnia.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-nonwifi-zinni=
+a.dts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-verdin-wifi-zinnia.d=
+ts
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am642-evm-icssg0.dtso
+ delete mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-ads2.dts=
+o
+ delete mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts=
+
+ delete mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-gbe1.dts=
+o
+ delete mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-gpios.dt=
+so
+ delete mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-rtc-rv82=
+63.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am68-phyboard-izar-lvds-ph1=
+28800t006.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am68-phyboard-izar-peb-av-1=
+5.dtso
+
+--------------oAW5J7hdI1PCiXsPU00w0Ax0--
+
+--------------T8uAc3ICRv90EsD0lIaStzoB
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wnsEABYIACMWIQRQBrqaOmQ441h4YbUDQj8NV+8d1wUCac1SWwUDAAAAAAAKCRADQj8NV+8d15Az
+AP9/E7nWmBzLcgEvzyFtprNTh2HJDtB5xe34vIA7o0DKLwEA0S/GKbQ2fVCqw7MwGw66YiWmBI4Q
+x9cV1/BYoVxw5AQ=
+=F0Sy
+-----END PGP SIGNATURE-----
+
+--------------T8uAc3ICRv90EsD0lIaStzoB--
 
