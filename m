@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48A7A1112243
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 23:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E0F51112244
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 23:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
 	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GqQcTvNUQ2AKRTjj6isrBxzdmhfADGZQTOmZJu03FBc=; b=0dwjAYUqMqfeWy5nVzcU+wmQ9w
-	CjcWGo4k6zNmHEPPLDYTZ8gCt3XZacSMn/9h1bmKRxcHlBI84wvnWf4MjC2zVo+Mf+AiSWPL3Jn7v
-	Sx8DV/T89xiUZn59IFId6FILco2BTEdAxns4p3nVIiEjJKNxJioZBG0MzM9eYRDPwVWvolvqjni/M
-	fft2/ugDJlZp+BI/DLGdTDqEJWWyF2RoifDWMX5rv40834ZzQnY3riRFuA2y3SkqXL9s6B4Xkr1iq
-	Hd/S7GIiSv15WPWO6jJ90B6D36pfnluGs4VSednOfT4gkv0l7hq4BNmwQ4ieR1+ffuzVYMTJSBCn8
-	ZJPZWghQ==;
+	bh=DmzSTc/sA/5qEuM86BeT0nVTNjD436k7YY4cdofpLeA=; b=nQB6ctg5csbIqFSqM5a9QXXoZ9
+	HUxZk/DuG13bJsclsO39JtYW2JHy4x8hyS0HhAPBjnEhbD/X9P9QSsD5LGa+/L8biqqt3TezCxg3z
+	7hJ+gsvF4ACqNXoXa68AyaFFw37JOiPT8poZdCJcp4gIh7hluWElNNlEzL/FBG8O9LZQeHPdh2WXp
+	3Q8W+P8d0R3oLDMS3sLCoK76USptwbmQLFEvOfmW5tw9jl37eEZayITf8kP3mKbwlue8dohbKtut/
+	N0FwvV7bOm+EdCCPNRC+Ke38aqJwTa2djWQ/pGkH2bL6izgnc2JY4v/3RRbLXV1LFLx0IkmEfdRgn
+	8F1z2rXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w84YB-0000000GMUr-0wJD;
-	Wed, 01 Apr 2026 23:00:39 +0000
+	id 1w84YF-0000000GMd9-3Zck;
+	Wed, 01 Apr 2026 23:00:43 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w84Y3-0000000GMLs-1hOE;
-	Wed, 01 Apr 2026 23:00:33 +0000
+	id 1w84YD-0000000GMY3-3g13;
+	Wed, 01 Apr 2026 23:00:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7C78161344;
-	Wed,  1 Apr 2026 23:00:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65AE7C116C6;
-	Wed,  1 Apr 2026 23:00:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BB37C61340;
+	Wed,  1 Apr 2026 23:00:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 913FAC2BCB0;
+	Wed,  1 Apr 2026 23:00:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775084430;
-	bh=07RYmc68kwWSWXlQHk2byVEKgYJe5lGIx1f5DfAeNR8=;
+	s=k20201202; t=1775084440;
+	bh=f7bNWvbCaip5KR3t+m8FlzJxucJCS9MuU3xmUxzRBQQ=;
 	h=Subject:From:To:Cc:In-Reply-To:References:Date:From;
-	b=oQYA3r0dixjm9P3ZtxnbQd5Qm7hyROO+WINura1cRHdUPhRA7R3yadcP3RfFPj8/C
-	 VxdVfpNuao1M98yeOweVob0wX7hSjpdZnAkdUUSMxxZHq7/Ho4aEEbvHXx2NzbMw+r
-	 ngeKEPtWKPoglM5x3QXxyZd2FilyiQMxvUqGET4JqdEgDwemFUKon6+OPpCVN3k1st
-	 YYX9c0Fz4JJUjLgctF+IxiuBaFUIVSWCpmCHfBib/EzS1ySslb1waFcGTPEvkZu72B
-	 Sc69/XHEhnunRgcEBsXdBvhB/7Bfax8vnWVBXIMvKmUoDyhqrFUDNM1BZwqGd5tGym
-	 78v5bJAkafldQ==
+	b=rkTpKuHxraABNs1iEnA7t8UmKYzqxbWf+Jo7sSf786NUHHgtjfod4j1ucj9XE9rl/
+	 9L2/jfkoa9sm7RSunu0xi5wD33s9o6R5Jr/xSE0XcCGp8LMiSNCt8VUyEJhByOr8Su
+	 Vdfz7Y6rzEWt1SDHoLOQzOR9HviU2Pa5MdI9YtqtfyjbXSu1nFiVfCEpA0yqoWW0wh
+	 awJ2CSdVhDvszgoD8DH6+443tm0kOXKY6gyHD7Hqe1RPXs78e3MZDWh6U5iyfGDxW5
+	 epEyO1osOP/fc2tlGquwpEvdyUYd8XfAw3QX4Fssplgqh4uOpwBmJEt+O7STb5JnpK
+	 pFJtKQuy3rZ5g==
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH 14/33] rust: bump `bindgen` minimum supported version
- to 0.71.1 (Debian Trixie)
+Subject: Re: [PATCH 16/33] rust: rust_is_available: remove warning for <
+ 0.69.5 && libclang >= 19.1
 From: Tamir Duberstein <tamird@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>
 Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
@@ -77,18 +77,18 @@ Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
  Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
  llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
  Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
-In-Reply-To: <20260401114540.30108-15-ojeda@kernel.org>
+In-Reply-To: <20260401114540.30108-17-ojeda@kernel.org>
 References: <20260401114540.30108-1-ojeda@kernel.org>
- <20260401114540.30108-15-ojeda@kernel.org>
+ <20260401114540.30108-17-ojeda@kernel.org>
 Date: Wed, 01 Apr 2026 18:59:04 -0400
-Message-Id: <177508434452.73816.1986421844891352038.b4-review@b4>
+Message-Id: <177508434453.73816.10916207587615828409.b4-review@b4>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=455; i=tamird@kernel.org;
- h=from:subject:message-id; bh=07RYmc68kwWSWXlQHk2byVEKgYJe5lGIx1f5DfAeNR8=;
- b=owGbwMvMwCV2wYdPVfy60HTG02pJDJlnFzuHGq5eNNeDNfy/YX5tXUT8+rxFB1c9WKVtk9V+6
- 59d8PcNHRNZGMS4GCzFFFkSRQ/tTU+9vUc2891xmDmsTCBDpEUaGICAhYEvNzGv1EjHSM9U21DP
- 0EjHQMeYgYtTAKZa8zDDP/WDMQ2dy+9seaB/Ozs88+d6jkCrt8I5tjybTXZznZ2vacHw38l5SlM
- qh5u4yn6brzm9hmd1kk5d3H3k2ad/9kWHPKKX8gMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=376; i=tamird@kernel.org;
+ h=from:subject:message-id; bh=f7bNWvbCaip5KR3t+m8FlzJxucJCS9MuU3xmUxzRBQQ=;
+ b=owGbwMvMwCV2wYdPVfy60HTG02pJDJlnFztr6e84qpsT/++mRlR2t/qbE/usuXPUTVRyhJO7L
+ BdHNqp3TGRhEONisBRTZEkUPbQ3PfX2HtnMd8dh5rAygQyRFmlgAAIWBr7cxLxSIx0jPVNtQz1D
+ Ix0DHWMGLk4BmGr9ewz/IyM+1b7K7069LKgepa47J1xv3pKIzifnphmXTnun9+l1HSPDGyHpEBf
+ OuMe8frM3vXTbcFryepnsjdPfr2669ZRrgtlXZgA=
 X-Developer-Key: i=tamird@kernel.org; a=openpgp;
  fpr=5A6714204D41EC844C50273C19D6FF6092365380
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -105,17 +105,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 01 Apr 2026 13:45:21 +0200, Miguel Ojeda <ojeda@kernel.org> wrote:
-> As proposed in the past in e.g. LPC 2025 and the Maintainers Summit [1],
-> we are going to follow Debian Stable's `bindgen` versions as our minimum
-> supported version.
+On Wed, 01 Apr 2026 13:45:23 +0200, Miguel Ojeda <ojeda@kernel.org> wrote:
+> It is not possible anymore to fall into the issue that this warning was
+> alerting about given the `bindgen` version bump.
 > 
-> Debian Trixie was released with `bindgen` 0.71.1, which it still uses
-> to this day [2].
-> 
-> [...]
+> Thus simplify by removing the machinery behind it, including tests.
 
-Acked-by: Tamir Duberstein <tamird@kernel.org>
+Reviewed-by: Tamir Duberstein <tamird@kernel.org>
 
 -- 
 Tamir Duberstein <tamird@kernel.org>
