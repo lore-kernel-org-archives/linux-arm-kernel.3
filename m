@@ -4,57 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1156D35162
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:48:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D69FD35177
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:48:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4NeP3MH2AtPdcWLmckwtGvj7Vmo/dD7G6Ej9iUZzn4s=; b=jF2LGicu1YyJWbGzUQwea/z1JX
-	wjK/BGHGtkqNPb5FozHCrk1iijB+MG2O0Prpzy8JZil+YzuPJzOwlpGW9fJ25uJG5V6MyS8dXo2tx
-	XuK6YoUZfLCb9vnpjGf6A4QtPA6jQPzaQogzLSDFzj5HX+eKmwDXZ2M+/46o9Do2kQoEDHuEGacHw
-	SnTF5ygOdTsHP2BH5VaBJiPDI9AWCBn8MUqF9PzH7lw5DnBwQ4HEOdEv9qyfvxb7Pb8WDTzcRFVie
-	iQfMulr7PJG493QfuI6Z7X6vQJNhuhuYkH0kUNyXy93DU/IQqW5fKyKKWIqHPHjZA4nsrtMA4TbxF
-	IP0hx3Dw==;
+	bh=gLKzVlrt8yDZKpzjcFvol0wwGymoBUesBbQpwWfGgug=; b=0K2Sm9niCuMRAyCCWYcZvP5cdV
+	uKTO91d5kahsMTSNhM/Dx8KIulCBvBvmawuaBcod6VumQOkOaRliUCoVZkPO5SkKoQSF68lEujtqd
+	coI9vGrQX3OYhtyQJFkxR930A1W4Ge2FmYgGLYUU6rGePEwnfAgmNk3i3xl2AStqMb7lMa36qZZO9
+	JT8Wf0UDpi7gEJb1drBWQ7KDG6PRVGypvKPwiRPuiipwk4EnhuWQHxmKXZYSBJqAEa2p6umLvYbrb
+	GN4SnhIBodBtbZrjuLWFfYd0eU2bA8gBZTaW7iHLDPjlSm5n+J4krND3c8+Hza/G3nuPGd7Zj5Qgw
+	h+K0XcQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u3m-0000000EhMn-2Z9g;
-	Wed, 01 Apr 2026 11:48:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w7u3s-0000000EhQr-18VN;
+	Wed, 01 Apr 2026 11:48:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u3l-0000000EhLM-426L;
-	Wed, 01 Apr 2026 11:48:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=4NeP3MH2AtPdcWLmckwtGvj7Vmo/dD7G6Ej9iUZzn4s=; b=eTaOF1B/kuhy8mnrUoNfuE2sB+
-	3Rb12mUTZaC09BRVY/897T+cqGp/+6TOaIg0V5wRdB+7viNhNCGd6TbV+3XE8DCXtIdWVtPs9e4/X
-	aLH3/6aCOSffpuVoM6jESCuGbz79sj5w2puV/Ct8oZkxY4KG++YrJgXW2qlbWR8LEGA+v0xklKnpA
-	mjge4+hvVVbcXsZT9LErJT5Xhf4s3XCXWHmMvsQeC3nfxDzhjKfUbVx8iXZe77THBVVELgZYLMrrQ
-	TwnEo8O+qSya1Ph3AWPgDWAz9Si0b7t1Ijqmc0Y8w05RfPWInnK44aRVLgFlR1Ukyb93KaS7t40eX
-	R6XW/Sbg==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7u3f-00000000Ehd-1m0Y;
-	Wed, 01 Apr 2026 11:48:32 +0000
+	id 1w7u3p-0000000EhOh-3i71;
+	Wed, 01 Apr 2026 11:48:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 48326408F5;
+	by tor.source.kernel.org (Postfix) with ESMTP id 36E8760142;
+	Wed,  1 Apr 2026 11:48:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADE8FC4CEF7;
 	Wed,  1 Apr 2026 11:48:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F04AFC4CEF7;
-	Wed,  1 Apr 2026 11:48:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775044105;
-	bh=oCOOGcyyszcaXC31455V0be0QqdPMZoxWheuEK3ZCSA=;
+	s=k20201202; t=1775044116;
+	bh=ljnXuX5HwPO9n952btUletHJHOtBVyk1Xf5y47SLQh0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GoxIk+02vJe18xjAgrD81txVK4wtRlTfUWrhHLGDRSQiV+me/fjnLC+7phHDlesuL
-	 J7Hq1xhTdOPfCfF8DlMkdOt8rrbVHMirjmXItItYHfBPD25cX4fMo/GBYwdrbRu7fZ
-	 0AkU4tct54K8WMu16YFOTGOQcGE3qx2fKQnsmkDzl/vyf61S0QPF9vcb0C1gkRPnMR
-	 e+5uOE14VQelGq2Cq0xHw4LUMkQ9WlkXANUH0HKCMdNXt3l1xPhuNuUmuYpg9lJb/A
-	 TRD5Link8UuZH9tLBuJ6KDPuIvaQ52PV5omvSLGJvk5BLHki1ajJnBJ5vuJsGi1ltQ
-	 c73r0TDlYXWnA==
+	b=D7CRYS4IETw0CEZ0NBFJ9NJ7Srw9Q9SJGBqB5dx9NagMuyqc8NAQ7QI2LNuDqTtsU
+	 cXTdniFrOXotXLNiYoIzv8/FMc6rjp6Y9iXHw6ytzNYDyy7kY3i5pz5PnDeYZJ42+q
+	 k2jEvdGxqyQrAlfbok54A0BLe7rt8A0yaS6MmErdKMwP/VqrnqKQrd3eneqJSPBmjc
+	 I22A+exN4GmReO/dkLfFCgCVorndbUnr4Y8X3K18TdefNFRwsg0z/MSWzMqqu0Ugjm
+	 4uwsza3aByQxj2gKMRIC+jyTTFP8zqXpD23dJHCcbI0oNlhL7k6OePQoJ+l2j/j1NC
+	 vn7gNIS5m0nxg==
 From: Miguel Ojeda <ojeda@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -105,17 +91,13 @@ Cc: Boqun Feng <boqun@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-doc@vger.kernel.org
-Subject: [PATCH 12/33] rust: macros: update `extract_if` MSRV TODO comment
-Date: Wed,  1 Apr 2026 13:45:19 +0200
-Message-ID: <20260401114540.30108-13-ojeda@kernel.org>
+Subject: [PATCH 13/33] rust: block: update `const_refs_to_static` MSRV TODO comment
+Date: Wed,  1 Apr 2026 13:45:20 +0200
+Message-ID: <20260401114540.30108-14-ojeda@kernel.org>
 In-Reply-To: <20260401114540.30108-1-ojeda@kernel.org>
 References: <20260401114540.30108-1-ojeda@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_124827_917946_E990A7F5 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,31 +112,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-`feature(extract_if)` was stabilized in Rust 1.87.0 [1].
+`feature(const_refs_to_static)` was stabilized in Rust 1.83.0 [1].
 
 Thus update the comment to reflect that.
 
-Alternatively, we could use it unstably already.
-
-Link: https://github.com/rust-lang/rust/pull/137109 [1]
+Link: https://github.com/rust-lang/rust/pull/129759 [1]
 Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 ---
- rust/macros/kunit.rs | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ rust/kernel/block/mq/gen_disk.rs | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/rust/macros/kunit.rs b/rust/macros/kunit.rs
-index 6be880d634e2..6f6d746b8dbb 100644
---- a/rust/macros/kunit.rs
-+++ b/rust/macros/kunit.rs
-@@ -87,7 +87,7 @@ pub(crate) fn kunit_tests(test_suite: Ident, mut module: ItemMod) -> Result<Toke
-             continue;
-         };
- 
--        // TODO: Replace below with `extract_if` when MSRV is bumped above 1.85.
-+        // TODO: Replace with `extract_if` when MSRV is >= 1.87.0.
-         let before_len = f.attrs.len();
-         f.attrs.retain(|attr| !attr.path().is_ident("test"));
-         if f.attrs.len() == before_len {
+diff --git a/rust/kernel/block/mq/gen_disk.rs b/rust/kernel/block/mq/gen_disk.rs
+index c8b0ecb17082..912cb805caf5 100644
+--- a/rust/kernel/block/mq/gen_disk.rs
++++ b/rust/kernel/block/mq/gen_disk.rs
+@@ -140,9 +140,7 @@ pub fn build<T: Operations>(
+             devnode: None,
+             alternative_gpt_sector: None,
+             get_unique_id: None,
+-            // TODO: Set to THIS_MODULE. Waiting for const_refs_to_static feature to
+-            // be merged (unstable in rustc 1.78 which is staged for linux 6.10)
+-            // <https://github.com/rust-lang/rust/issues/119618>
++            // TODO: Set to `THIS_MODULE`.
+             owner: core::ptr::null_mut(),
+             pr_ops: core::ptr::null_mut(),
+             free_disk: None,
 -- 
 2.53.0
 
