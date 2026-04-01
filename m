@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86478D3517C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 12:36:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA0C5D35177
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 12:37:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pcxQWoLJn9G0dptO93Z+OY78wD/jANP0+W3nIgxkSVw=; b=wvOwNqEDnS/rqrHNcHcId1UQIJ
-	HAKye4oizfK7cljGr4nr6zf4op6JCzKufHfVwU9/In9oR2UAOvZY5uSSM/k3++Zf8U+0PJRdRHIz0
-	I8JJndD5L+qrZrbqjekSLuYFWxFUOLujNvQJA0e3ap5XNSjmuVtC8tFpZXksXSVfyQsPDmjb9lnaq
-	bX4uhxTETnaXrEcY4HYE9yNYUUEf5S09UT11GRenlXoN/NEGQ66LJhYohOvo/uKpFXDphQ2i8+qGP
-	T2NSDgguC9MwEZ+UKZPyLwV5eaBXseubVe55OJfL9uEmm5jakN+N9yeY9Zzh9JwwiB3c81+slyLWJ
-	WRIKFO2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SqAh8+J+p74P/kyDkkVzKjpnfMDd7XwXqLzKDtTGffs=; b=xEj7JIT4pY5tVMXdleEeMSlwfN
+	qLJG96/NV+JKd5EwnPjoxho+RElzaLSqh36GWpaT/BWKVg7EKBWtgXEyrW572zuyxKkxJ3A2lUG/J
+	3HFetZdbk8E8bpeC3igtyOJQT0P8W+IhW9uzHcsdcJvHmM+WSTIAD2deNyyDZYVP7Fa5xAZ/R6Pg/
+	Q8cGha2WFYTmHiciq8RqRHwKAHN0kxVwiluiGdvm5Zxd7Zt4ToT5chiTG/Ncv8iOPinxia+Rf4D9I
+	S9bwa8V35EtdKbR4dLnF6lA9/fOwH7Orarj2Z6q/xJbS7JVeAJwn8tBx3pIuvSaV7qN0j6VfF8xgn
+	zRhAn7yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7uoU-0000000FBfu-01fW;
-	Wed, 01 Apr 2026 12:36:50 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1w7upN-0000000FCHk-1Wpp;
+	Wed, 01 Apr 2026 12:37:46 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7uXp-0000000EyrY-185V
+	id 1w7uce-0000000F2j5-3C56
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 12:19:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=pcxQWoLJn9G0dptO93Z+OY78wD/jANP0+W3nIgxkSVw=; b=qNEW2nQKRTDZc2S5ljnvrwFD2S
-	ynwfBvwdcAUg9wB9O2BQNo3gsYQBmZWC8+uiTL/bKTKBxga2nWKqXPIxb022Mtqb1OBj0ktBqfItp
-	9zPLZJy1ZZlSRAZ2HEbzBs6x5maVTqWMfCM3b+e0uhiaUzx8BfBnLQxfqUtlE2lYy8eY=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1w7uXf-00ELhN-8m; Wed, 01 Apr 2026 14:19:27 +0200
-Date: Wed, 1 Apr 2026 14:19:27 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Ong Boon Leong <boon.leong.ong@intel.com>,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next v2 00/14] net: stmmac: TSO fixes/cleanups
-Message-ID: <420f910f-523d-4a74-a255-2fe48909283a@lunn.ch>
-References: <aczHVF04LIGq_lYO@shell.armlinux.org.uk>
+	Wed, 01 Apr 2026 12:24:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1775046275;
+ bh=SqAh8+J+p74P/kyDkkVzKjpnfMDd7XwXqLzKDtTGffs=;
+ b=FQ9oOky/PQf60NrvvsUnsYxWSLbTXCu9+DwT7Klcq4FXq37Q5nE/AeVAfyIztx12pvDM5Dy5j
+ oyRK1wYLXhcY30QaOkW697YuxFO3hhp0PXOtPYNP4e8QqXlOQSHfRl5R0NSMYj0KaV0zBfgioac
+ PCkwXBZslzBzKAMSuyUkLLWvARgK2XPZDWdC/FWDXuLoDno20J44PDdQ4TVAv1uNKaDmUQU9AeK
+ YcnqvHMhCCDocyupD9UyY7BB9blBx2jvcLED+6bMuI2gEYKBh+KC66mOzGGxloRtT41MPByk149
+ iYymjx4aVrcH6s2WdBu4IfJZB6FyvjxuozMx2GcQcAlw==
+X-Forward-Email-ID: 69ccda55842394fec82951f9
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 2.6.64
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <e622cc9e-8fb0-454a-b88e-dc13cf2ff507@kwiboo.se>
+Date: Wed, 1 Apr 2026 10:41:54 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aczHVF04LIGq_lYO@shell.armlinux.org.uk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/rockchip: fix page table allocation flags for v2
+ IOMMU
+To: Simon <xxm@rock-chips.com>, Midgy BALON <midgy971@gmail.com>
+Cc: iommu@lists.linux.dev, joro@8bytes.org, will@kernel.org,
+ robin.murphy@arm.com, heiko@sntech.de, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260331075010.1463-1-midgy971@gmail.com>
+ <0f285782-b12a-4abd-bca7-b6c549bed59f@rock-chips.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <0f285782-b12a-4abd-bca7-b6c549bed59f@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_051937_339954_AB7D109B 
-X-CRM114-Status: UNSURE (   8.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260401_052436_887115_291481E6 
+X-CRM114-Status: GOOD (  22.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,54 +80,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> I'm moving the setup of the GSO features, cleaning those up, and
-> adding a warning if platform glue requests this to be enabled but the
-> hardware has no support. Hopefully this will never trigger if everyone
-> got the STMMAC_FLAG_TSO_EN flag correct.
+Hi Simon,
 
-Is this:
+On 4/1/2026 9:48 AM, Simon wrote:
+> Hi Midgy,
+> 
+> 在 2026/3/31 15:50, Midgy BALON 写道:
+>> commit 2a7e6400f72b ("iommu: rockchip: Allocate tables from all
+>> available memory for IOMMU v2") removed GFP_DMA32 from
+>> iommu_data_ops_v2, reasoning that RK356x and RK3588 IOMMU v2 hardware
+>> supports up to 40-bit physical addresses for page tables.  However, the
+>> RK3568 IOMMU page-table walker uses a 32-bit AXI bus: it cannot access
+>> physical addresses above 4 GB regardless of the address encoding range.
+>>
+>> On boards with more than 4 GB of RAM (e.g. 8 GB LPDDR4X), removing
+>> GFP_DMA32 causes two distinct failure modes:
+>>
+>> 1. Direct allocation above 4 GB: iommu_alloc_pages_sz() may return
+>>     memory above 0x100000000.  The hardware page-table walker issues a
+>>     bus error trying to dereference those addresses, causing an IOMMU
+>>     fault on the first DMA transaction.
+>
+> Which IP block is hitting this? We'd like to take a look on our end.
 
-  snps,tso:
-    $ref: /schemas/types.yaml#/definitions/flag
-    description:
-      Enables the TSO feature otherwise it will be managed by MAC HW capability
-      register.
+I have seen reports that the NPU MMU on RK3568/RK3566 is having some
+issue using DTE/PTE with >32-bit addresses, maybe it uses a different
+MMU hw revision or has some hw errata?
 
-I would not be too surprised if there is cargo cult copy/paste going
-on and some do get it wrong.
+From my own testing at least the VOP2 MMU on RK3568 (and RK3588) was
+able to handle 40-bit addressable DTE/PTE, hence the original commit
+2a7e6400f72b ("iommu: rockchip: Allocate tables from all available
+memory for IOMMU v2").
 
-arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi:			snps,tso;
-arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi:			snps,tso;
-arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi:			snps,tso;
-arch/arm64/boot/dts/toshiba/tmpv7708.dtsi:			snps,tso;
-arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi:		snps,tso;
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:		snps,tso;
-arch/arm64/boot/dts/rockchip/rk3576.dtsi:			snps,tso;
-arch/arm64/boot/dts/rockchip/rk3576.dtsi:			snps,tso;
-arch/arm64/boot/dts/rockchip/rk3568.dtsi:		snps,tso;
-arch/arm64/boot/dts/rockchip/rk3528.dtsi:			snps,tso;
-arch/arm64/boot/dts/rockchip/rk3528.dtsi:			snps,tso;
-arch/arm64/boot/dts/rockchip/rk356x-base.dtsi:		snps,tso;
-arch/arm64/boot/dts/qcom/qcs404.dtsi:			snps,tso;
-arch/arm64/boot/dts/qcom/lemans.dtsi:			snps,tso;
-arch/arm64/boot/dts/qcom/lemans.dtsi:			snps,tso;
-arch/arm64/boot/dts/qcom/sm8150.dtsi:			snps,tso;
-arch/arm64/boot/dts/qcom/sc8280xp.dtsi:			snps,tso;
-arch/arm64/boot/dts/qcom/sc8280xp.dtsi:			snps,tso;
-arch/arm64/boot/dts/qcom/monaco.dtsi:			snps,tso;
-arch/arm64/boot/dts/st/stm32mp253.dtsi:		snps,tso;
-arch/arm64/boot/dts/st/stm32mp233.dtsi:		snps,tso;
-arch/arm64/boot/dts/st/stm32mp231.dtsi:				snps,tso;
-arch/arm64/boot/dts/st/stm32mp251.dtsi:				snps,tso;
-arch/riscv/boot/dts/sophgo/sg2042.dtsi:			snps,tso;
-arch/riscv/boot/dts/sophgo/sg2044.dtsi:			snps,tso;
-arch/riscv/boot/dts/starfive/jh7110.dtsi:			snps,tso;
-arch/riscv/boot/dts/starfive/jh7110.dtsi:			snps,tso;
-arch/arm/boot/dts/axis/artpec6.dtsi:			snps,tso;
-arch/arm/boot/dts/rockchip/rv1126.dtsi:		snps,tso;
-arch/arm/boot/dts/st/stm32mp131.dtsi:				snps,tso;
-arch/arm/boot/dts/st/stm32mp133.dtsi:		snps,tso;
-arch/arm/boot/dts/st/stm32mp151.dtsi:				snps,tso;
+As also mentioned in my reply at [1], maybe the NPU MMU has some hw
+limitation or errata and may need to use a different compatible.
 
-   Andrew
+[1] https://lore.kernel.org/r/3cd63b3d-1c5e-4a11-856e-c4aeb5d97d55@kwiboo.se/
+
+Regards,
+Jonas
+
+>
+>> 2. SWIOTLB bounce-buffer poisoning: without GFP_DMA32, page tables land
+>>     above the SWIOTLB window.  dma_map_single() with DMA_BIT_MASK(32)
+>>     then bounces them into a buffer below 4 GB.  rk_dte_get_page_table()
+>>     returns phys_to_virt() of the bounce buffer address; PTEs are written
+>>     there; the next dma_sync_single_for_device(DMA_TO_DEVICE) copies the
+>>     original (zero) data back over the bounce buffer, silently erasing the
+>>     freshly written PTEs.  The IOMMU faults because every PTE reads as zero.
+>
+> This probably need a separate patch. One way to fix it would be to track the
+> original L2 page table base addresses in struct rk_iommu_domain,
+> then have rk_dte_get_page_table() return the tracked address instead of
+> deriving it from the DTE.
+>
+>> Restore GFP_DMA32 (and DMA_BIT_MASK(32)) for iommu_data_ops_v2, which
+>> currently only serves "rockchip,rk3568-iommu" in mainline.
+>>
+>> Tested on Radxa ROCK 3B (RK3568, 8 GB LPDDR4X):
+>>    - MobileNetV1 via RKNN: 5.8 ms/inference (IOMMU mode)
+>>    - YOLOv5s 640x640 via RKNN: ~57 ms/inference (IOMMU mode)
+>>    - No IOMMU faults, correct inference results
+>>
+>> Fixes: 2a7e6400f72b ("iommu: rockchip: Allocate tables from all available memory for IOMMU v2")
+>> Cc: stable@vger.kernel.org
+>> Cc: Jonas Karlman <jonas@kwiboo.se>
+>> Signed-off-by: Midgy BALON <midgy971@gmail.com>
+>> ---
+>>   drivers/iommu/rockchip-iommu.c | 4 ++--
+>>   1 file changed, 2 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
+>> index 85f3667e797..8b45db29471 100644
+>> --- a/drivers/iommu/rockchip-iommu.c
+>> +++ b/drivers/iommu/rockchip-iommu.c
+>> @@ -1358,8 +1358,8 @@ static struct rk_iommu_ops iommu_data_ops_v2 = {
+>>   	.pt_address = &rk_dte_pt_address_v2,
+>>   	.mk_dtentries = &rk_mk_dte_v2,
+>>   	.mk_ptentries = &rk_mk_pte_v2,
+>> -	.dma_bit_mask = DMA_BIT_MASK(40),
+>> -	.gfp_flags = 0,
+>> +	.dma_bit_mask = DMA_BIT_MASK(32),
+>> +	.gfp_flags = GFP_DMA32,
+>>   };
+>>   
+>>   static const struct of_device_id rk_iommu_dt_ids[] = {
+
 
