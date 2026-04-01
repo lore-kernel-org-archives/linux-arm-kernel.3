@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12A7FD35177
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 12:38:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66430D3517F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 12:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=l0q4mDPNZn9d2zngjDTeDMoVQBeBADZn5IY9XJjSkRU=; b=ZAKNc7yjGH6VPpp1UC+6X5wmHm
-	nhFjDsGQYKjeMhx437Hw2aNLNz2UN+bJfvDcJnCPUh1hg1gpuZkvnAGlOWx33y0XRGBbLGr0GjpSW
-	fSlRfA6n0/SCYQOiCrBZKUSEdurZYMIZSM+BGT1s/yimBpYEPIkWPlSU8GYolxdC47pHups8J0Wx3
-	NMudzZrCGA2xgNO9ItZriEcllloVe0kBHp/Lm/0JHOkyWnaOnkGRxhTW4M8atJcwZEK4JMpSHVW51
-	KcDlzOUMku+rmgrrbRDabRehvv30hs0mytuKwUWKl9Jfo9k6cJGloOGU/3FbBnVZrMW2yWTxi1yBq
-	GFAqcc3A==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ri29mMECTRLPmj/f28VKUr01MxVHN14NYrO0oRv5ApA=; b=alefdLd9RuHKpw7SHlb7/NLbCG
+	EQM71cGfXCtWr/b2W9W4z+SGy0W1+zfDj6CxfWiCgEUSxdNRuThY5N5dfTvTegNyg3BxobxRxhoBU
+	U/bKQILQdaFzEZZu6qngUjc1NsrQeISfpr2ZfQotx7klUbF2gP0YJVj8BOSoD7NbN1gNnK9zlhOOM
+	zrQOQrwQbz12cKUJwt3KrGq98esw5HPgwOZ/kMpCenxjZ35PEowtVAdOMtsj63SK/ylYkoTFeTwJX
+	LX298no+CGjxIf4Yk5dn+UHuUSPV7XXo3Nc4ESe1O3OSsILkyQ/1af9D2EOATxWJUS3qJzpNfy4x1
+	zYFlpn2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7upn-0000000FCeZ-05Ht;
-	Wed, 01 Apr 2026 12:38:11 +0000
+	id 1w7upj-0000000FCZL-0D0U;
+	Wed, 01 Apr 2026 12:38:08 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ueC-0000000F3pf-1Ajw;
-	Wed, 01 Apr 2026 12:26:12 +0000
+	id 1w7ueA-0000000F3o2-1p9w;
+	Wed, 01 Apr 2026 12:26:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=l0q4mDPNZn9d2zngjDTeDMoVQBeBADZn5IY9XJjSkRU=; b=iEGHgMgeYqPh0A64moQzGLm9TN
-	DCzmKsewhjd+Hku2KIjdTMNjrNMFSe3fbF2LxKXyWbjiBIgEOYn/AlNr1NCCjVYxzwGJ66Yn9TECj
-	ZDogHalWRZRsS/SxjKCZDnTQLm0crOP1dakikYEj3gckcAeBaq6HqPMWbDHU9/2JjGp/+96EMeetW
-	PPfEuLvOxkG2VutOJZiqzcvcZSMF3a1VseRq66w9LFuN+g1FFZ/eN0AeoUZ0D8LFwFVEVJ0y7BGCz
-	+btObLj+odMZzo3FayecUmY8IpNK6vcnYOKA+SrAklfVfYfMkp1ohOddHwzg6+eoe0DidMvfkJOBj
-	40dttiCw==;
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Ri29mMECTRLPmj/f28VKUr01MxVHN14NYrO0oRv5ApA=; b=lKxiby4m25UBk/HEC8lcqjsFXs
+	nCFR7VSkefWypi7f0r0ETOhpQJuDcpYkRjpI26Brs3/BK1JOOjzkmNIcbMpRM8eJZLt2A1quJWhrW
+	js0V06HtEDX8sU0VE+GroupYnjSXDsXv1E5TCMvCf7+cMg05JLgOT9V6qHfnBQLczY+DTGefeIQNu
+	PuFKh/svxs3hGeKkPykqEAHbckmCAVRpyvt99gqUtRxhQxKrcHoZUgDli+mw0bZC9CNn0smxprDjX
+	KEMpQme/ZcX7yn/I2rENRRnFqKNNHtkyJ0tR7bMcKn/QG6H5UNvIpwG6hD7LhREaBMT1k7c9VTcFd
+	ZrP/nKvQ==;
 Received: from www537.your-server.de ([188.40.3.216])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7ue7-00000000Ktq-1NUp;
-	Wed, 01 Apr 2026 12:26:11 +0000
+	id 1w7ue7-00000000Ktt-1NpB;
+	Wed, 01 Apr 2026 12:26:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=l0q4mDPNZn9d2zngjDTeDMoVQBeBADZn5IY9XJjSkRU=; b=Voah0Piiz36h8FePLR/6Apla9L
-	94vZXyylBhu3oMrpPw+a+M6YSjVWi7/ls26IleNSIgkTg0Jt821RJg9voO/mWuj8z5ZEjrKr+WsLp
-	/qieh7YXXxuCbBrhWDrAWJM+Wj2mMiCxFC3PzciBOF6iFhzAGjXDkgT9jOFgB+Zwf9tFKv/dAEJLV
-	oQ12t9MB6tJZBUMUb6MTlJVxzbayjES0Yx1d/by0nrpU+OUxe+mEEQtbq/4+elbj9nP+H8V/ftVTh
-	eUz8zzrGRBgg2/VY5eDFYvUo9sr9+vkXdv6iOpE34p38j/PrTFTAlNQYKQ+ZXvMNYBpL43xmy68cb
-	FKmJOEpw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=Ri29mMECTRLPmj/f28VKUr01MxVHN14NYrO0oRv5ApA=; b=HZ2L4lL7AGedirOqb9tjtBdAlV
+	1qJiVnnR+Yi01Pq4ofNg0n9DUg4j5WAldI9fdZdPGYA/gvzdaDF9VJF24lSWA1zFhRYwzyu9C11PP
+	NwglrqTzTIxGd2/fwobjTI0i/BTxUfqi+nHYtczInCJok2TQd7k4UFcC1KwpAMcSxvRo/vXAa/iSe
+	zW5vR7bYYoWOFx44AijBiBBkCf29z9wYD9+AjmiskBJ4qhG75etHcuW9OHcTGjqEk3Lir0hcMdNIV
+	/ja3zYgNngwI0ORPqr/U7edKYst61l3GpFO+R+4Gsw02LQySL9vRQsgva+BDc0LVWrKtevRhLhQvv
+	AB93wUrA==;
 Received: from sslproxy07.your-server.de ([78.47.199.104])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <nora.schiffer@ew.tq-group.com>)
-	id 1w7ue2-000IQS-1Z;
-	Wed, 01 Apr 2026 14:26:02 +0200
+	id 1w7ue4-000IQz-0t;
+	Wed, 01 Apr 2026 14:26:04 +0200
 Received: from localhost ([127.0.0.1])
 	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <nora.schiffer@ew.tq-group.com>)
-	id 1w7ue1-00089b-38;
-	Wed, 01 Apr 2026 14:26:01 +0200
+	id 1w7ue3-00089b-2W;
+	Wed, 01 Apr 2026 14:26:03 +0200
 From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
 To: Nishanth Menon <nm@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>,
@@ -86,17 +86,19 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-arm-kernel@lists.infradead.org,
 	linux@ew.tq-group.com,
 	Nora Schiffer <nora.schiffer@ew.tq-group.com>
-Subject: [PATCH v3 0/5] J722S SGMII support
-Date: Wed,  1 Apr 2026 14:25:20 +0200
-Message-ID: <cover.1775045279.git.nora.schiffer@ew.tq-group.com>
+Subject: [PATCH v3 3/5] phy: ti: phy-j721e-wiz: add support for J722S SoC family
+Date: Wed,  1 Apr 2026 14:25:23 +0200
+Message-ID: <feb36d4077a57767572b72d8a47c0e582d3e358f.1775045279.git.nora.schiffer@ew.tq-group.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <cover.1775045279.git.nora.schiffer@ew.tq-group.com>
+References: <cover.1775045279.git.nora.schiffer@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/27958/Wed Apr  1 08:24:34 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_132607_506247_CC0C56B6 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20260401_132607_497006_87BE3175 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,52 +113,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The J722S CPSW and SERDES are very similar to the variants found on the
-AM64, but they additionally support SGMII. Introduce new compatible
-strings for the J722S to add this support to the drivers.
+The J722S WIZ is mostly identical to the AM64's, but additionally supports
+SGMII.
 
-This is a prerequisite for the Single-Pair Ethernet interface of the
-TQ-Systems MBa67xx baseboard for the TQMa67xx SoM, which will be
-submitted separately.
+Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+---
+ drivers/phy/ti/phy-j721e-wiz.c | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-For SGMII to actually work on the J722S, the am65-cpsw needs to be extended
-as well, which has been submitted for net-next:
-https://patchwork.kernel.org/project/netdevbpf/list/?series=1075806
-
-Fallback compatible strings allow for the patches to be applied in any
-order and to go through different trees without breaking existing
-functionality.
-
-v3:
-- Drop am65-cpsw changes from this series, they need to go through net-next
-- Fix missing PHY_GMII_SEL_RGMII_ID_MODE and PHY_GMII_SEL_FIXED_TX_DELAY in
-  gmii-sel driver for RGMII delay mode configuration
-
-v2:
-- Keep support for the AM64 compatible strings as a fallback, adjust commit
-  messages
-- Drop reference to AM64_CPSW_QUIRK_CUT_THRU flag, which only exists in the
-  TI vendor kernel
-
-Nora Schiffer (5):
-  dt-bindings: phy: ti: phy-j721e-wiz: Add ti,j722s-wiz-10g compatible
-  dt-bindings: phy: ti: phy-gmii-sel: Add ti,j722s-phy-gmii-sel
-    compatible
-  phy: ti: phy-j721e-wiz: add support for J722S SoC family
-  phy: ti: gmii-sel: add support for J722S SoC family
-  arm64: dts: ti: k3-j722s-main: use J722S compatibles for WIZ, gmii-sel
-    and CPSW3G
-
- .../bindings/phy/ti,phy-gmii-sel.yaml         | 24 ++++++++++++-------
- .../bindings/phy/ti,phy-j721e-wiz.yaml        | 20 ++++++++++------
- arch/arm64/boot/dts/ti/k3-j722s-main.dtsi     | 12 ++++++++--
- drivers/phy/ti/phy-gmii-sel.c                 | 13 ++++++++++
- drivers/phy/ti/phy-j721e-wiz.c                | 24 +++++++++++++++++++
- 5 files changed, 75 insertions(+), 18 deletions(-)
-
+diff --git a/drivers/phy/ti/phy-j721e-wiz.c b/drivers/phy/ti/phy-j721e-wiz.c
+index 6e9ecb88dc8b7..99a80740cdc6b 100644
+--- a/drivers/phy/ti/phy-j721e-wiz.c
++++ b/drivers/phy/ti/phy-j721e-wiz.c
+@@ -331,6 +331,7 @@ enum wiz_type {
+ 	J721E_WIZ_16G,
+ 	J721E_WIZ_10G,	/* Also for J7200 SR1.0 */
+ 	AM64_WIZ_10G,
++	J722S_WIZ_10G,
+ 	J7200_WIZ_10G,  /* J7200 SR2.0 */
+ 	J784S4_WIZ_10G,
+ 	J721S2_WIZ_10G,
+@@ -1020,6 +1021,7 @@ static void wiz_clock_cleanup(struct wiz *wiz, struct device_node *node)
+ 
+ 	switch (wiz->type) {
+ 	case AM64_WIZ_10G:
++	case J722S_WIZ_10G:
+ 	case J7200_WIZ_10G:
+ 	case J784S4_WIZ_10G:
+ 	case J721S2_WIZ_10G:
+@@ -1089,6 +1091,7 @@ static void wiz_clock_init(struct wiz *wiz)
+ 
+ 	switch (wiz->type) {
+ 	case AM64_WIZ_10G:
++	case J722S_WIZ_10G:
+ 	case J7200_WIZ_10G:
+ 		switch (rate) {
+ 		case REF_CLK_100MHZ:
+@@ -1158,6 +1161,7 @@ static int wiz_clock_probe(struct wiz *wiz, struct device_node *node)
+ 
+ 	switch (wiz->type) {
+ 	case AM64_WIZ_10G:
++	case J722S_WIZ_10G:
+ 	case J7200_WIZ_10G:
+ 	case J784S4_WIZ_10G:
+ 	case J721S2_WIZ_10G:
+@@ -1246,6 +1250,14 @@ static int wiz_phy_fullrt_div(struct wiz *wiz, int lane)
+ 		if (wiz->lane_phy_type[lane] == PHY_TYPE_SGMII)
+ 			return regmap_field_write(wiz->p0_fullrt_div[lane], 0x2);
+ 		break;
++
++	case J722S_WIZ_10G:
++		if (wiz->lane_phy_type[lane] == PHY_TYPE_PCIE)
++			return regmap_field_write(wiz->p0_fullrt_div[lane], 0x1);
++		if (wiz->lane_phy_type[lane] == PHY_TYPE_SGMII)
++			return regmap_field_write(wiz->p0_fullrt_div[lane], 0x2);
++		break;
++
+ 	default:
+ 		return 0;
+ 	}
+@@ -1350,6 +1362,15 @@ static struct wiz_data am64_10g_data = {
+ 	.clk_div_sel_num = WIZ_DIV_NUM_CLOCKS_10G,
+ };
+ 
++static struct wiz_data j722s_10g_data = {
++	.type = J722S_WIZ_10G,
++	.pll0_refclk_mux_sel = &pll0_refclk_mux_sel,
++	.pll1_refclk_mux_sel = &pll1_refclk_mux_sel,
++	.refclk_dig_sel = &refclk_dig_sel_10g,
++	.clk_mux_sel = clk_mux_sel_10g,
++	.clk_div_sel_num = WIZ_DIV_NUM_CLOCKS_10G,
++};
++
+ static struct wiz_data j7200_pg2_10g_data = {
+ 	.type = J7200_WIZ_10G,
+ 	.pll0_refclk_mux_sel = &sup_pll0_refclk_mux_sel,
+@@ -1389,6 +1410,9 @@ static const struct of_device_id wiz_id_table[] = {
+ 	{
+ 		.compatible = "ti,am64-wiz-10g", .data = &am64_10g_data,
+ 	},
++	{
++		.compatible = "ti,j722s-wiz-10g", .data = &j722s_10g_data,
++	},
+ 	{
+ 		.compatible = "ti,j7200-wiz-10g", .data = &j7200_pg2_10g_data,
+ 	},
 -- 
 TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
 Amtsgericht München, HRB 105018
 Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
 https://www.tq-group.com/
+
 
