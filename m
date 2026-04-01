@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7673CD35177
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5A10D35178
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 10:36:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IsK6EJr+a6Y4cWaCeixgjD8N1PP3rlwUA5YezfIhGv8=; b=rJhAsxxnrSguUYvpdgTsjDpJrR
-	Z2IIJP5ccn0v3PW1mL5AvbgTHK+7h5GASRJAbs8QCLQulgvwnnQdtRKeC4uyKEodrm6XmFmqMCmuI
-	VBiaHj+1ie9s98SFljUCZfaUKcuh3p3ikZOdL/A9BEs/Qm/0hsuHerd+suPem7ukNR6VjZF3/8miT
-	AckeCM06iB+h9Lgd0W4MzXTDI34xwKE1zxRsNGgisKa7pLmfACIKARoaKefyEASWyw1wFYOb8edQe
-	WqGBVdn/5Rr9+Zz7WmBoF92vCx38hhXOzU8Y57QeMDOL+myReD8BKTrW3MDwednYBuzq+TMAcrKSB
-	88EdHFZQ==;
+	bh=0JLmw3xeGP+PbSi4/a0DecoDUs2oTv/d5qeQasXJ7hY=; b=yqWA2vDl0lbfWFfegWFLgxgO/Y
+	YRTWCVzGpTEwUBqwT5CtNEExZInXZzZ2jGuBzySe+ENquUumq5tyK+yjx9Xhu95WfbOGeuRdrz+5B
+	vOaOfnU20Xy61gd2wrD8pJIbriJpBwLBmTCC7vKmSov9nJMy+xT4aXfqg7A1F3jY3aeTnXXrypqUi
+	ZWk7A0oZd2G8Su2FVgVShzJjJb6TmQNTKQWiEMmz7OwW5zrYOBgUSVPCey+iut/JSeFCJFD76oyvi
+	Fq5A4xccbjNdG4ca2LmQktHmvupXIaVd1jjtoQLsviYImQFONyDmat4fILXnid8DZMAKgyWoDBp6A
+	hjL4U4Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7swB-0000000EWKH-0hgJ;
-	Wed, 01 Apr 2026 10:36:39 +0000
+	id 1w7sw9-0000000EWHh-2QRm;
+	Wed, 01 Apr 2026 10:36:37 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7sw6-0000000EWBx-3Hgp
+	id 1w7sw6-0000000EWBx-1k76
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 01 Apr 2026 10:36:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 989AF60135;
+	by tor.source.kernel.org (Postfix) with ESMTP id 3F66560139;
 	Wed,  1 Apr 2026 10:36:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A029C4CEF7;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DB13C2BCB4;
 	Wed,  1 Apr 2026 10:36:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1775039794;
-	bh=GQhFrmkuyWUBaXsD29CDtR+HCaiJ41YoBp5ffynPz3U=;
+	bh=u28flmvfVSoY5WGICQjmC96Uju6XrphbLe7PuSo52T0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JoH93mRj7hRRZQ+3C5XX8xFim4jSlKld2WsdPtMW5ufufOeyZpxSBZFNw4Am2PbfL
-	 2DlfXAGOgw3peRP9LRQGkec151DGEo8TrsUOK74gisdvB1/rwp+LEf81mbw2m8YLE5
-	 Cp9aEJ+bqoJWKeEEE61qYQBNi/OKSEZYeamdbRpj4hQFfT0OJnaqlMA78fc3AFvP6Q
-	 uSwePCjUemZwrhM/Axic7txDr7F5u0sVseXpsHAX36N+PmrLzLED0jmAcBMKEfaK/h
-	 oI9XADuHGDwrfUWoME21vSTe8ExF3itLWT8TDk/YZJHCFKNedZL0dg1MS8yAnHKgLx
-	 Jc/vpQc3T59RA==
+	b=elt7qCMR3qVxj3RtKj0rM7ZVy9Jg2NPbEtSyZ7n2U/QotZu+EjEZq29KfhFKGu2K9
+	 T10ieEKMaY+f4MolbnDyVJnygPvXdetRuiwmYSYyEs6YvGoyRTbYYjemuV9GJEz1WG
+	 HRYstlrK4EpoMfiQDfKPtWmuU8RpeM4NiGzrWvR28Tb9wWfRulUKd/hSn9xzzcK3D5
+	 ZxrNy8+aghDruPKfj+pKzmLiB05XZnGZOzMUuhxS2/22FXGNM7Aduv06yOz3fcwgpr
+	 Kr25Fgq+TV3plpfGyM31N4584p94mAZxCcV78hJKsMBIz/Q9XQCTxlvguvnXl/B1Xo
+	 ZFKz5icKJJZVQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1w7sw4-00000007oRQ-2Cxs;
+	id 1w7sw4-00000007oRQ-1Enw;
 	Wed, 01 Apr 2026 10:36:32 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Sascha Bischoff <sascha.bischoff@arm.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v2 15/16] KVM: arm64: Don't advertises GICv3 in ID_PFR1_EL1 if AArch32 isn't supported
-Date: Wed,  1 Apr 2026 11:36:10 +0100
-Message-ID: <20260401103611.357092-16-maz@kernel.org>
+Subject: [PATCH v2 14/16] KVM: arm64: Correctly plumb ID_AA64PFR2_EL1 into pkvm idreg handling
+Date: Wed,  1 Apr 2026 11:36:09 +0100
+Message-ID: <20260401103611.357092-15-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260401103611.357092-1-maz@kernel.org>
 References: <20260401103611.357092-1-maz@kernel.org>
@@ -84,34 +84,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Although the AArch32 ID regs are architecturally UNKNOWN when AArch32
-isn't supported at any EL, KVM makes a point in making them RAZ.
-
-Therefore, advertising GICv3 in ID_PFR1_EL1 must be gated on AArch32
-being supported at least at EL0.
+While we now compute ID_AA64PFR2_EL1 to a glorious 0, we never use
+that data and instead return the 0 that corresponds to an allocated
+idreg. Not a big deal, but we might as well be consistent.
 
 Reviewed-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Fixes: a258a383b9177 ("KVM: arm64: gic-v5: Sanitize ID_AA64PFR2_EL1.GCIE")
-Reported-by: Mark Brown <broonie@kernel.org>
+Fixes: 5aefaf11f9af5 ("KVM: arm64: gic: Hide GICv5 for protected guests")
+Link: https://sashiko.dev/#/patchset/20260319154937.3619520-1-sascha.bischoff%40arm.com
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-init.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-index ecb0aea180327..5c684ecf79e66 100644
---- a/arch/arm64/kvm/vgic/vgic-init.c
-+++ b/arch/arm64/kvm/vgic/vgic-init.c
-@@ -700,7 +700,8 @@ void kvm_vgic_finalize_idregs(struct kvm *kvm)
- 		break;
- 	case KVM_DEV_TYPE_ARM_VGIC_V3:
- 		aa64pfr0 |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, GIC, IMP);
--		pfr1 |= SYS_FIELD_PREP_ENUM(ID_PFR1_EL1, GIC, GICv3);
-+		if (kvm_supports_32bit_el0())
-+			pfr1 |= SYS_FIELD_PREP_ENUM(ID_PFR1_EL1, GIC, GICv3);
- 		break;
- 	case KVM_DEV_TYPE_ARM_VGIC_V5:
- 		aa64pfr2 |= SYS_FIELD_PREP_ENUM(ID_AA64PFR2_EL1, GCIE, IMP);
+diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+index b40fd01ebf329..be6f420388a14 100644
+--- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
++++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+@@ -439,7 +439,7 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
+ 	/* CRm=4 */
+ 	AARCH64(SYS_ID_AA64PFR0_EL1),
+ 	AARCH64(SYS_ID_AA64PFR1_EL1),
+-	ID_UNALLOCATED(4,2),
++	AARCH64(SYS_ID_AA64PFR2_EL1),
+ 	ID_UNALLOCATED(4,3),
+ 	AARCH64(SYS_ID_AA64ZFR0_EL1),
+ 	ID_UNALLOCATED(4,5),
 -- 
 2.47.3
 
