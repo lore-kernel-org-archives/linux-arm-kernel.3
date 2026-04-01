@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF35107637E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:28:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD17107637E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:30:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4qvw7gSpCJ/IesNPxt/Dq1RsT/9LtR1Y5w41YU4e2Jw=; b=2O2a/BYc3Wh1Wz3xXDaaqgLD/B
-	JruMWmNl7tBei1s+faqNdnxbWsV5vozY/nNy6cIWQyktwtG1Fur5KVRHS5ge3Gs+BOOrZsG2HW6fu
-	SLSCgjHaR4wsqu61ny9HLt1DG/gQIvwoKj4QZOfZleNkr3p0oYKw2CI0LkM2d3OYF/n0i0hzEeriD
-	vfogFk0KvloRXyw9BMhjbXQeskJ9dHDeDmHbIrdpNKpEnEvUS9FwZDGXLJNH4iWRKfNtO+zKJqXJO
-	Z9sKiRdqKfMSQXR1VsS+rIG3qpy2Q5mfzj7q4d3x98YnLAVN9SngMS14otPwDfWcob4ZG0DCFeb+t
-	aKPQailQ==;
+	bh=Gi5a3ZvsYJKNxaZGYIF8I6g1kLoINPfjo0xrEvU8gbc=; b=QEOY6o9huEXDnS7sYsn7ZKsCHp
+	dhpEKO+xRRAqiuh2ZRpGTg5konbeGIp3txXRAGwdRdmSaoSQV6hWt8JhPTReHx09mlVgad5rezPRi
+	pNnIfELfqjDtpEFZ+10V3iIBIahsVZRg6ueIu8Q2nRlNeXtVET3hHkUrmjx/0FDOMLJuQnNs7A50u
+	OcrKytL2B0XlkVwq8YMYUF3Fnu6WexfNbfM7HZQmt9xK+Bvj2GN2OhZhdn3koCozeRTpMf0CDQTAp
+	+gVAgh2Q43gNpqZc4/R6yhFhTjyGpOf9NQEP6BN0txKPEcNOkG5eRFse2ucv1brv7z+KzujGAZ8i6
+	BXFeii0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wYD-0000000FUfL-1oWq;
-	Wed, 01 Apr 2026 14:28:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w7wa1-0000000FUr5-1YB9;
+	Wed, 01 Apr 2026 14:30:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wYB-0000000FUey-15Co
+	id 1w7wZz-0000000FUqb-2MR4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 14:28:08 +0000
+	Wed, 01 Apr 2026 14:29:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CEED640ACB;
-	Wed,  1 Apr 2026 14:28:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE4AFC4CEF7;
-	Wed,  1 Apr 2026 14:28:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0252A600C4;
+	Wed,  1 Apr 2026 14:29:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3E16C4CEF7;
+	Wed,  1 Apr 2026 14:29:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775053686;
-	bh=QG9O4ZfL5Zg9AKp+sYOMsrUsn0jNocGGOvxQbb6EijE=;
+	s=k20201202; t=1775053798;
+	bh=JsxK3FX8Gr9mTtm5icOkzAnPmDBiUWIhTViwcWk3SA8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kGIsjTl2RZ8iuE9vmtGX/pWw73L+PK8hWgAqUprHybULOne9UnzA040UVUn9KZxAI
-	 +7tRAIie3sGJVhA3UEBbcfKdzQldS7jlbvsAGrKhU9Eh3Czy9Sx9yG52VCvSwU7DTR
-	 1JeMwWrnQJHL8Oyfl+n2jSDI1/BJeIqg8KwLvUg0da7cwtUjuj8mxYTFlrOv1ZW70h
-	 Bwakq0BhIKzYPhxIE8As8BCV6XiKL6Bp3OmjAKYRYWxkBy6JHpG1c9W7Xig3B9Cspa
-	 Z8rtzsaNhcOq1bxCyzHNsd0u6DXs+1OsCUi9cxFJ8eqKHGlIyOnOAY5dnplRm7kwbN
-	 d1h3nqsx1jYMg==
-Message-ID: <f73173b4-f44a-4d01-abec-3366b6561332@kernel.org>
-Date: Wed, 1 Apr 2026 16:28:02 +0200
+	b=mHv3PzjSdQDg45+pPp7+viX/Zi5C603I0Qox/ybtuNlM5GLG5BUF7pQWDxoNssPIB
+	 MdkKDx/WLa7QQmLrcgIdBygpEGD1ZHN8rte83plHD4VZTU4VtGHKEIbBNEIqLHXTSf
+	 xHx/IoAV69E2jAHfLEMT5ZH1UnWHYZ72dYa9NPZJ1JsNyVuKH2idbphSFFvBkKshny
+	 WuZaVjHzHkJZaM/HxrILXI5YJYLqlzvpc7QWtUwSyBGiNyQ0mrJNUTZ4un59//WG3E
+	 Ix6nFaXh21v164w2626nogLlggnQIZiRkLifXiSzY7vvZCaNb8QoxsxwkwTTVDm2ky
+	 +ckPghY9q4T5Q==
+Message-ID: <58903faa-9812-49f5-ae84-258b00387586@kernel.org>
+Date: Wed, 1 Apr 2026 16:29:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/7] MAINTAINERS: add exynos850-pmu.c to Exynos850
- entry
+Subject: Re: [PATCH v2 7/7] arm64: dts: exynos850: add PMU interrupt
+ generation node
 To: Alexey Klimov <alexey.klimov@linaro.org>,
  Sam Protsenko <semen.protsenko@linaro.org>,
  linux-samsung-soc@vger.kernel.org, Peter Griffin <peter.griffin@linaro.org>,
@@ -58,7 +58,7 @@ Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
 References: <20260401-exynos850-cpuhotplug-v2-0-c5a760a3e259@linaro.org>
- <20260401-exynos850-cpuhotplug-v2-6-c5a760a3e259@linaro.org>
+ <20260401-exynos850-cpuhotplug-v2-7-c5a760a3e259@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +104,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260401-exynos850-cpuhotplug-v2-6-c5a760a3e259@linaro.org>
+In-Reply-To: <20260401-exynos850-cpuhotplug-v2-7-c5a760a3e259@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_072807_339869_443D4463 
-X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,31 +121,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/04/2026 06:51, Alexey Klimov wrote:
-> Update Exynos850 entry to include new file
-> drivers/soc/samsung/exynos850-pmu.c. Add myself as M
-> there.
+On 01/04/2026 06:52, Alexey Klimov wrote:
+> Add pmu_intr_gen node for Exynos850. This hw block is required
+> for different power management routines like CPU hotplug and
+> different sleep and idle states.
+> Also reference this node from main PMU node.
 > 
 > Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
 > ---
->  MAINTAINERS | 2 ++
->  1 file changed, 2 insertions(+)
+>  arch/arm64/boot/dts/exynos/exynos850.dtsi | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index e14e6f874e05..4b28e92b4d9b 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -23601,6 +23601,7 @@ F:	include/dt-bindings/clock/samsung,exynos2200-cmu.h
->  
->  SAMSUNG EXYNOS850 SoC SUPPORT
->  M:	Sam Protsenko <semen.protsenko@linaro.org>
-> +M:	Alexey Klimov <alexey.klimov@linaro.org>
 
-I am surprised to see this because I did not find many reviews from your
-side before.
-
-Please first engage in reviewing of this platform, before assigning
-yourself as a maintainer.
+I took a brief look at other patches and seemed fine. Anyway, my tree is
+currently closed for new features till the end of the merge window so I
+will probably take a more detailed look after it.
 
 Best regards,
 Krzysztof
