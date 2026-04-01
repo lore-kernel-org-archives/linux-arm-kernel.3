@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDCEDD35166
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 09:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A5AD35167
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 09:58:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+KrphrASz/LZy5/eA2d5JSQFpKV8L1kMJakAzyQ2k1c=; b=ePq16trBk2+LiPdp5cDabazec8
-	6uWgaPuIewj+Wl57ACXsfXJSCBJWCPbqMAGpt+l/8+yabd2LkHDu++kVavdJWxfhwxV2y8t9TgiNU
-	7bSQQGKRmuKUWiLnwoHs2ybI8dpLmoAvYk/rrR+Cp0wyU0EeWkz5oqe2cCZnLmnOmQ3cUaEM9u3BZ
-	tiKWF7neqr54WJOVxQSQacGqnLfttCTl7V6EJ4hxWEnEF3K4Qx1Lm783I2lq/kmgMsziONtp0PrsS
-	2zT27UrSZiBorLO1GV9WdS9VtIveI1APvomKwlPF/341p88D/2VTSf89ATr7C2xxgr3NZvp8mw8Jr
-	EiqMENUQ==;
+	bh=R2ZvFN2d7JwVdevVALuYUQYVS9g+DjcOdU43fVNx86M=; b=QzszVlWP8oo5FyI6RDjXE2SmOY
+	DFS9ftihdy974NbXy38/lRqDPch1AE+OfKzEDNJZ7tRwr4R/1jhTzs6t6r1xEEKXqYr6HhcO8tnoY
+	nvI84K4tlTC5z9sXfGMkBm8svoTlkwKULuHSoD6ZZGl9SQqFjwWCHS6ZgAIekLNM2ILzy+HahlmbU
+	3rtFNYBD8CtMnjSr9dLHghrim/hTvibJHDh1BD+AeMAMUWPHmZxjc5oH4wGitdhGxl9KxVXX8A4LB
+	ulpuf6Yyn+D1D3mUDfJMnjH5JVVabRVxfvWPr0+y2h2VPfcvXZWCh9JLMfD/dT4ZmXYam3duQs3aj
+	9OsxToAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7sL5-0000000ESvN-3Mbl;
-	Wed, 01 Apr 2026 09:58:19 +0000
+	id 1w7sL7-0000000ESwh-49NB;
+	Wed, 01 Apr 2026 09:58:21 +0000
 Received: from fsn-vps-1.bereza.email ([162.55.44.2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7sL2-0000000ESuF-41HW
+	id 1w7sL2-0000000ESuE-41Fn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 09:58:18 +0000
+	Wed, 01 Apr 2026 09:58:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=bereza.email; s=mail;
-	t=1775037494; bh=9YI3mR7RGj+FXV1f08vFjbtn+zYBmLDDNzXU0ekoR44=;
+	t=1775037494; bh=Kl6JmqCrf42hfpt3PEtmRDalCUj2fSnXQP8BtsdNym0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qnPx37+0TNVDny7/nGN5hUlJkMnseQqbJuK47zIsFbQ1/+qjfBk0eiBEt/m8r2NdU
-	 XK38rHoyvenFIzWfmeZ73bdpnfF1XsUi4DpXne0tR2uTGCW5KPwNNRWaGDgam1jpqQ
-	 azDFlOHNx4zoc6G4XAzbfn5koStwWRGwwPkaPvN2beI8LXmVccJLHUl1obrYVmLFR2
-	 0bRbJ1YgzWYDz7yo2rpgJBNyHxRQpvZ/8Ve0XJJexG+cuvTROTOlogg7rzXIKUBxuT
-	 xprgEJEBvJnIfSwVae7/pGcIpp5igcu/QQmrO38sCe54oFqF8UYZWxWUeOco/L6KJ8
-	 EABDOVxFs3CRQ==
+	b=lEMN2Vetn19zRwFR3/mmnYzbtt60PYOcpvEJCSlF2upw0QfiFB1uHFv4WjcBrcsIB
+	 WULJiugDTyk//DbvZtgKBrmHYm4m++VmDBduSz/URcKv2AUY0z6vPR/4ACbPMfhXHf
+	 1Bcn7xHcndX2sTXMlBs9SsBxhlLG5mShYais9Wf0pVkb4U7O8W6KxXZUDLMUKr8sZo
+	 mXTN6VapiGmt5Pt2kbOj2+YGhisuB8vp+Qn3RGWazJN7TPC1mr68Sf8lqfRD8j92NH
+	 3Fjn0FcxASqs/QjDFg3ldMIPWfwH2i5r/hjxQzzCq5/N5lkQmTyo8TqSK9NIK8l6wf
+	 Fy68n0AF0yl1w==
 Received: from [127.0.1.1] (pd95bbad8.dip0.t-ipconnect.de [217.91.186.216])
-	by fsn-vps-1.bereza.email (Postfix) with ESMTPSA id 9383A5DF96;
+	by fsn-vps-1.bereza.email (Postfix) with ESMTPSA id 377515DF95;
 	Wed,  1 Apr 2026 11:58:14 +0200 (CEST)
 From: Alex Bereza <alex@bereza.email>
-Date: Wed, 01 Apr 2026 11:57:48 +0200
-Subject: [PATCH v2 2/2] dmaengine: xilinx_dma: Rename XILINX_DMA_LOOP_COUNT
+Date: Wed, 01 Apr 2026 11:57:47 +0200
+Subject: [PATCH v2 1/2] dmaengine: xilinx_dma: Fix CPU stall in
+ xilinx_dma_poll_timeout
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260401-fix-atomic-poll-timeout-regression-v2-2-68a265e3770f@bereza.email>
+Message-Id: <20260401-fix-atomic-poll-timeout-regression-v2-1-68a265e3770f@bereza.email>
 References: <20260401-fix-atomic-poll-timeout-regression-v2-0-68a265e3770f@bereza.email>
 In-Reply-To: <20260401-fix-atomic-poll-timeout-regression-v2-0-68a265e3770f@bereza.email>
 To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
@@ -58,8 +59,8 @@ Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, Alex Bereza <alex@bereza.email>
 X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_025817_219715_98BA95C8 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20260401_025817_219695_1BF9379E 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,66 +75,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename XILINX_DMA_LOOP_COUNT to XILINX_DMA_POLL_TIMEOUT_US because the
-former is incorrect. It is a timeout value for polling various register
-bits in microseconds. It is not a loop count.
+Currently when calling xilinx_dma_poll_timeout with delay_us=0 and a
+condition that is never fulfilled, the CPU busy-waits for prolonged time
+and the timeout triggers only with a massive delay causing a CPU stall.
+
+This happens due to a huge underestimation of wall clock time in
+poll_timeout_us_atomic. Commit 7349a69cf312 ("iopoll: Do not use
+timekeeping in read_poll_timeout_atomic()") changed the behavior to no
+longer use ktime_get at the expense of underestimation of wall clock
+time which appears to be very large for delay_us=0. Instead of timing
+out after approximately XILINX_DMA_LOOP_COUNT microseconds, the timeout
+takes XILINX_DMA_LOOP_COUNT * 1000 * (time that the overhead of the for
+loop in poll_timeout_us_atomic takes) which is in the range of several
+minutes for XILINX_DMA_LOOP_COUNT=1000000. Fix this by using a non-zero
+value for delay_us. Use delay_us=10 to keep the delay in the hot path of
+starting DMA transfers minimal but still avoid CPU stalls in case of
+unexpected hardware failures.
+
+One-off measurement with delay_us=0 causes the cpu to busy wait around 7
+minutes in the timeout case. After applying this patch with delay_us=10
+the measured timeout was 1053428 microseconds which is roughly
+equivalent to the expected 1000000 microseconds specified in
+XILINX_DMA_LOOP_COUNT.
+
+Add a constant XILINX_DMA_POLL_DELAY_US for delay_us value.
+
+Fixes: 9495f2648287 ("dmaengine: xilinx_vdma: Use readl_poll_timeout instead of do while loop's")
+Fixes: 7349a69cf312 ("iopoll: Do not use timekeeping in read_poll_timeout_atomic()")
 
 Signed-off-by: Alex Bereza <alex@bereza.email>
 ---
- drivers/dma/xilinx/xilinx_dma.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ drivers/dma/xilinx/xilinx_dma.c | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-index 345a738bab2c..253c27fd1a0e 100644
+index 02a05f215614..345a738bab2c 100644
 --- a/drivers/dma/xilinx/xilinx_dma.c
 +++ b/drivers/dma/xilinx/xilinx_dma.c
-@@ -165,8 +165,8 @@
- #define XILINX_DMA_FLUSH_MM2S		2
- #define XILINX_DMA_FLUSH_BOTH		1
+@@ -167,6 +167,8 @@
  
--/* Delay loop counter to prevent hardware failure */
--#define XILINX_DMA_LOOP_COUNT		1000000
-+/* Timeout for polling various registers */
-+#define XILINX_DMA_POLL_TIMEOUT_US	1000000
- /* Delay between polls (avoid a delay of 0 to prevent CPU stalls) */
- #define XILINX_DMA_POLL_DELAY_US	10
+ /* Delay loop counter to prevent hardware failure */
+ #define XILINX_DMA_LOOP_COUNT		1000000
++/* Delay between polls (avoid a delay of 0 to prevent CPU stalls) */
++#define XILINX_DMA_POLL_DELAY_US	10
  
-@@ -1336,7 +1336,7 @@ static int xilinx_dma_stop_transfer(struct xilinx_dma_chan *chan)
+ /* AXI DMA Specific Registers/Offsets */
+ #define XILINX_DMA_REG_SRCDSTADDR	0x18
+@@ -1332,7 +1334,8 @@ static int xilinx_dma_stop_transfer(struct xilinx_dma_chan *chan)
+ 
+ 	/* Wait for the hardware to halt */
  	return xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
- 				       val & XILINX_DMA_DMASR_HALTED,
- 				       XILINX_DMA_POLL_DELAY_US,
--				       XILINX_DMA_LOOP_COUNT);
-+				       XILINX_DMA_POLL_TIMEOUT_US);
+-				       val & XILINX_DMA_DMASR_HALTED, 0,
++				       val & XILINX_DMA_DMASR_HALTED,
++				       XILINX_DMA_POLL_DELAY_US,
+ 				       XILINX_DMA_LOOP_COUNT);
  }
  
- /**
-@@ -1352,7 +1352,7 @@ static int xilinx_cdma_stop_transfer(struct xilinx_dma_chan *chan)
+@@ -1347,7 +1350,8 @@ static int xilinx_cdma_stop_transfer(struct xilinx_dma_chan *chan)
+ 	u32 val;
+ 
  	return xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
- 				       val & XILINX_DMA_DMASR_IDLE,
- 				       XILINX_DMA_POLL_DELAY_US,
--				       XILINX_DMA_LOOP_COUNT);
-+				       XILINX_DMA_POLL_TIMEOUT_US);
+-				       val & XILINX_DMA_DMASR_IDLE, 0,
++				       val & XILINX_DMA_DMASR_IDLE,
++				       XILINX_DMA_POLL_DELAY_US,
+ 				       XILINX_DMA_LOOP_COUNT);
  }
  
- /**
-@@ -1370,7 +1370,7 @@ static void xilinx_dma_start(struct xilinx_dma_chan *chan)
+@@ -1364,7 +1368,8 @@ static void xilinx_dma_start(struct xilinx_dma_chan *chan)
+ 
+ 	/* Wait for the hardware to start */
  	err = xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
- 				      !(val & XILINX_DMA_DMASR_HALTED),
- 				      XILINX_DMA_POLL_DELAY_US,
--				      XILINX_DMA_LOOP_COUNT);
-+				      XILINX_DMA_POLL_TIMEOUT_US);
+-				      !(val & XILINX_DMA_DMASR_HALTED), 0,
++				      !(val & XILINX_DMA_DMASR_HALTED),
++				      XILINX_DMA_POLL_DELAY_US,
+ 				      XILINX_DMA_LOOP_COUNT);
  
  	if (err) {
- 		dev_err(chan->dev, "Cannot start channel %p: %x\n",
-@@ -1787,7 +1787,7 @@ static int xilinx_dma_reset(struct xilinx_dma_chan *chan)
+@@ -1780,7 +1785,8 @@ static int xilinx_dma_reset(struct xilinx_dma_chan *chan)
+ 
+ 	/* Wait for the hardware to finish reset */
  	err = xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMACR, tmp,
- 				      !(tmp & XILINX_DMA_DMACR_RESET),
- 				      XILINX_DMA_POLL_DELAY_US,
--				      XILINX_DMA_LOOP_COUNT);
-+				      XILINX_DMA_POLL_TIMEOUT_US);
+-				      !(tmp & XILINX_DMA_DMACR_RESET), 0,
++				      !(tmp & XILINX_DMA_DMACR_RESET),
++				      XILINX_DMA_POLL_DELAY_US,
+ 				      XILINX_DMA_LOOP_COUNT);
  
  	if (err) {
- 		dev_err(chan->dev, "reset timeout, cr %x, sr %x\n",
 
 -- 
 2.53.0
