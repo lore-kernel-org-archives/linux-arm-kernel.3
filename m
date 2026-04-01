@@ -4,82 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CE3AD3516F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 10:14:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1C14D35172
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 10:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QNA6Js2/CYJC7x62xGwp/gUVc0QiXbpzm8Nvny2UvWA=; b=R34istDYHHJko7LUfHQA9zgkju
-	UITvqokWpIq9iKxtp8xp2okyDK7VtJcIzEtbeg1WsZBSMe/CFmSXNBYD3c/3mSZEQ2KnL1VP0Vp+t
-	6gRQH9LIY8+YxK/NqPc/roc6ULdxWBWm4jeob4dSj+46rhlmbvnXBLT375bBy/F57+QVKDCvzrMry
-	/CstxTMKroSD/YLSEpt7g2hftVuQigAx7fJGJ2ag1Iznou2sXDPzEr7bdsoyNWhDBvW/D1cBoRYvm
-	Cx13y9YhjvnZ4Fz0l5QQWuXUqSH0edgFIoM37QrTTfBOywDm38M/AcH3w/LrBMPSuKVrz4YF37g0c
-	mjlDJo9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NXQT496PYS36KJp6vCAGj5npGg3wNXTk4VoH64MRv4g=; b=iix+FO2Boy6mg3QjBx1mCTtLov
+	iOl6/vYnIxMrGpUVJMqNzoHaUfoCHKpD7lnLTZBeI5fE+xlvJ8l7mLHeviU5hukegTY19ILL/l5nA
+	vUhV9pHQih9dTFl0V/Be9erLI7/L7GjGkD9YaavwbfdMgLGxh7TX7nM4TJXKDLBfx5HUfb0paZiox
+	aVrhvfgjQVPt1lC1DrctUPQqqcEEfJKwZw2qXfSbefqEYIDiBZdDX3XiUi7RRKWo1+U4608WGBOFi
+	4AcMzCNPdAwInGaPYvgSE7sZSpbaqtqzprSqSI9KVKXOOjxFSVaJjD8qt2GfRuWIhR26+IYY2kIJ2
+	Kx+wle9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7saN-0000000EU88-0tuj;
-	Wed, 01 Apr 2026 10:14:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7saK-0000000EU7a-3sKa
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 10:14:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4D4242E99
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Apr 2026 03:13:57 -0700 (PDT)
-Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EDEF93F915
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Apr 2026 03:14:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775038443; bh=ibTH3sWjZiLJtyCy3tNu+QfkvXCL/kQDVncyZ3rCsCs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qrH5Kmu6DLUtAVcCJxZmu3G131zO46tlh5RY4fmSDtAYmJbROCbxNKsGzbzRMzx+I
-	 +8n/WPXgNj6KOYqqijbMBm5AKADlnYZT32TtmNidBVl9hqDsTSD1E2TacjSDiyklh/
-	 4LYuHXn4qJM99tc3LM20r5q1fJX0cfUTgBtrDeHo=
-Date: Wed, 1 Apr 2026 11:13:37 +0100
-From: Liviu Dudau <liviu.dudau@arm.com>
-To: Guangliu Ding <guangliu.ding@nxp.com>
-Cc: "Daniel Baluta (OSS)" <daniel.baluta@oss.nxp.com>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Steven Price <steven.price@arm.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Jiyu Yang <jiyu.yang@nxp.com>
-Subject: Re: Re: [PATCH 1/2] dt-bindings: gpu: mali-valhall-csf: Document
- i.MX952 support
-Message-ID: <aczv0R0aQRmHKdvt@e142607>
-References: <20260331-master-v1-0-65c8e318d462@nxp.com>
- <20260331-master-v1-1-65c8e318d462@nxp.com>
- <acva1Xt8V4k9-uG8@e142607>
- <AM0PR04MB47073E9E8B5C704BCF5D9F72F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
- <99a1da55-d6e5-4d11-abaa-8c85283ab5f2@oss.nxp.com>
- <AM0PR04MB4707B3E37DFE7AEE587DBA2AF350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+	id 1w7sj6-0000000EVGO-3pU3;
+	Wed, 01 Apr 2026 10:23:08 +0000
+Received: from mail-m3272.qiye.163.com ([220.197.32.72])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7sj3-0000000EVFn-3GET;
+	Wed, 01 Apr 2026 10:23:07 +0000
+Received: from [192.168.31.31] (gy-adaptive-ssl-proxy-3-entmail-virt135.gy.ntes [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 39264eeb0;
+	Wed, 1 Apr 2026 18:22:55 +0800 (GMT+08:00)
+Message-ID: <89ed223d-1a2c-447d-9f21-76969e668855@rock-chips.com>
+Date: Wed, 1 Apr 2026 18:22:55 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/rockchip: fix page table allocation flags for v2
+ IOMMU
+To: Jonas Karlman <jonas@kwiboo.se>, Midgy BALON <midgy971@gmail.com>
+Cc: iommu@lists.linux.dev, joro@8bytes.org, will@kernel.org,
+ robin.murphy@arm.com, heiko@sntech.de, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260331075010.1463-1-midgy971@gmail.com>
+ <0f285782-b12a-4abd-bca7-b6c549bed59f@rock-chips.com>
+ <e622cc9e-8fb0-454a-b88e-dc13cf2ff507@kwiboo.se>
+From: Simon Xue <xxm@rock-chips.com>
+In-Reply-To: <e622cc9e-8fb0-454a-b88e-dc13cf2ff507@kwiboo.se>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <AM0PR04MB4707B3E37DFE7AEE587DBA2AF350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+X-HM-Tid: 0a9d48914e3b03ackunm4823f0772adc63b
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGhpIS1ZJH0NOHUpPQh5CTE1WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUJCSU5LVU
+	pLS1VKQktCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=kzDcT7RnWwCk3Y4o8m+2cHyGHq1Rr0VD9cWbOCUL21H0mBhESMrWBYP1wKZIoIpdD5uMzURuDWWH3P3UA4u2BccWXVWun59thPVe+xElZDcfmpvQi/JQPDpD5V7wT5lFXB6gb8IvjXGLixl+VFSAspHMBeDpn2ymh+TtVaZt/ak=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=NXQT496PYS36KJp6vCAGj5npGg3wNXTk4VoH64MRv4g=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_031405_044220_B7FDA8A4 
-X-CRM114-Status: GOOD (  36.28  )
+X-CRM114-CacheID: sfid-20260401_032306_368842_89B8B93A 
+X-CRM114-Status: GOOD (  20.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,90 +74,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 01, 2026 at 09:43:12AM +0000, Guangliu Ding wrote:
-> Hi Daniel
-> 
-> > On 4/1/26 11:48, Guangliu Ding wrote:
-> > > [You don't often get email from guangliu.ding@nxp.com. Learn why this
-> > > is important at https://aka.ms/LearnAboutSenderIdentification ]
-> > >
-> > > Hi Liviu
-> > >
-> > > Thanks for your review. Please refer to my comments below:
-> > >
-> > >> On Tue, Mar 31, 2026 at 06:12:38PM +0800, Guangliu Ding wrote:
-> > >>> Add compatible string of Mali G310 GPU on i.MX952 board.
-> > >>>
-> > >>> Signed-off-by: Guangliu Ding <guangliu.ding@nxp.com>
-> > >>> Reviewed-by: Jiyu Yang <jiyu.yang@nxp.com>
-> > >>> ---
-> > >>>  Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml | 1
-> > >>> +
-> > >>>  1 file changed, 1 insertion(+)
-> > >>>
-> > >>> diff --git
-> > >>> a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-> > >> b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-> > >>> index 8eccd4338a2b..6a10843a26e2 100644
-> > >>> ---
-> > >>> a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-> > >>> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yam
-> > >>> +++ l
-> > >>> @@ -20,6 +20,7 @@ properties:
-> > >>>            - enum:
-> > >>>                - mediatek,mt8196-mali
-> > >>>                - nxp,imx95-mali            # G310
-> > >>> +              - nxp,imx952-mali           # G310
-> > >> Can you explain why this is needed? Can it not be covered by the
-> > >> existing compatible?
-> > > There are functional differences in GPU module (GPUMIX) between i.MX95
-> > > and i.MX952. So they cannot be fully covered by a single existing compatible.
-> > > On i.MX952, The GPU clock is controlled by hardware GPU auto
-> > > clock-gating mechanism, while the GPU clock is managed explicitly by the
-> > driver on i.MX95.
-> > > Because of these behavioral differences, separate compatible strings
-> > > "nxp,imx95-mali" and "nxp,imx952-mali" are needed to allow the driver
-> > > to handle the two variants independently and to keep room for future
-> > divergence.
-> > 
-> > 
-> > This information should be added in the commit message explaining why
-> > 
-> > the change is needed.
-> > 
-> > 
-> > But then where is the driver code taking care of these diferences?
-> > 
-> 
-> Yes. Currently the driver does not require "nxp,imx952-mali" string.
-> However, when GPU ipa_counters are enabled to calculate the GPU busy_time/idle_time for 
-> GPU DVFS feature, they will conflict with the hardware GPU auto clock‑gating mechanism, 
-> causing GPU clock to remain always on.
-> In such cases, ipa_counters need to be disabled so that the GPU auto clock‑gating 
-> mechanism can operate normally, using "nxp,imx952-mali" string.
+Hi Jonas,
 
-OK, I understand that you're following guidance from some other senior people on how
-to upstream patches so you've tried to create the smallest patchset to ensure that
-it gets reviewed and accepted, but in this case we need to see the other patches as well
-to decide if your approach is the right one and we do need a separate compatible string.
+在 2026/4/1 16:41, Jonas Karlman 写道:
+> Hi Simon,
+>
+> On 4/1/2026 9:48 AM, Simon wrote:
+>> Hi Midgy,
+>>
+>> 在 2026/3/31 15:50, Midgy BALON 写道:
+>>> commit 2a7e6400f72b ("iommu: rockchip: Allocate tables from all
+>>> available memory for IOMMU v2") removed GFP_DMA32 from
+>>> iommu_data_ops_v2, reasoning that RK356x and RK3588 IOMMU v2 hardware
+>>> supports up to 40-bit physical addresses for page tables.  However, the
+>>> RK3568 IOMMU page-table walker uses a 32-bit AXI bus: it cannot access
+>>> physical addresses above 4 GB regardless of the address encoding range.
+>>>
+>>> On boards with more than 4 GB of RAM (e.g. 8 GB LPDDR4X), removing
+>>> GFP_DMA32 causes two distinct failure modes:
+>>>
+>>> 1. Direct allocation above 4 GB: iommu_alloc_pages_sz() may return
+>>>      memory above 0x100000000.  The hardware page-table walker issues a
+>>>      bus error trying to dereference those addresses, causing an IOMMU
+>>>      fault on the first DMA transaction.
+>> Which IP block is hitting this? We'd like to take a look on our end.
+> I have seen reports that the NPU MMU on RK3568/RK3566 is having some
+> issue using DTE/PTE with >32-bit addresses, maybe it uses a different
+> MMU hw revision or has some hw errata?
+>
+>  From my own testing at least the VOP2 MMU on RK3568 (and RK3588) was
+> able to handle 40-bit addressable DTE/PTE, hence the original commit
+> 2a7e6400f72b ("iommu: rockchip: Allocate tables from all available
+> memory for IOMMU v2").
+>
+> As also mentioned in my reply at [1], maybe the NPU MMU has some hw
+> limitation or errata and may need to use a different compatible.
 
-If enabling GPU ipa_counters causes the clocks to get stuck active, that feels like a
-hardware bug, so figuring out how to handle that is more important than adding a compatible
-string.
+Yes,  We are checking internally whether different IOMMU versions 
+integrated.
 
-Either add the patch(es) that use the compatible to this series in v2, or put a comment in
-the commit message on where we can see the driver changes.
+I will share what we find once we have results.
 
-Best regards,
-Liviu
-
--- 
-====================
-| I would like to |
-| fix the world,  |
-| but they're not |
-| giving me the   |
- \ source code!  /
-  ---------------
-    ¯\_(ツ)_/¯
+> [1] https://lore.kernel.org/r/3cd63b3d-1c5e-4a11-856e-c4aeb5d97d55@kwiboo.se/
+>
+> Regards,
+> Jonas
+>
+>>> 2. SWIOTLB bounce-buffer poisoning: without GFP_DMA32, page tables land
+>>>      above the SWIOTLB window.  dma_map_single() with DMA_BIT_MASK(32)
+>>>      then bounces them into a buffer below 4 GB.  rk_dte_get_page_table()
+>>>      returns phys_to_virt() of the bounce buffer address; PTEs are written
+>>>      there; the next dma_sync_single_for_device(DMA_TO_DEVICE) copies the
+>>>      original (zero) data back over the bounce buffer, silently erasing the
+>>>      freshly written PTEs.  The IOMMU faults because every PTE reads as zero.
+>> This probably need a separate patch. One way to fix it would be to track the
+>> original L2 page table base addresses in struct rk_iommu_domain,
+>> then have rk_dte_get_page_table() return the tracked address instead of
+>> deriving it from the DTE.
+>>
+>>> Restore GFP_DMA32 (and DMA_BIT_MASK(32)) for iommu_data_ops_v2, which
+>>> currently only serves "rockchip,rk3568-iommu" in mainline.
+>>>
+>>> Tested on Radxa ROCK 3B (RK3568, 8 GB LPDDR4X):
+>>>     - MobileNetV1 via RKNN: 5.8 ms/inference (IOMMU mode)
+>>>     - YOLOv5s 640x640 via RKNN: ~57 ms/inference (IOMMU mode)
+>>>     - No IOMMU faults, correct inference results
+>>>
+>>> Fixes: 2a7e6400f72b ("iommu: rockchip: Allocate tables from all available memory for IOMMU v2")
+>>> Cc: stable@vger.kernel.org
+>>> Cc: Jonas Karlman <jonas@kwiboo.se>
+>>> Signed-off-by: Midgy BALON <midgy971@gmail.com>
+>>> ---
+>>>    drivers/iommu/rockchip-iommu.c | 4 ++--
+>>>    1 file changed, 2 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
+>>> index 85f3667e797..8b45db29471 100644
+>>> --- a/drivers/iommu/rockchip-iommu.c
+>>> +++ b/drivers/iommu/rockchip-iommu.c
+>>> @@ -1358,8 +1358,8 @@ static struct rk_iommu_ops iommu_data_ops_v2 = {
+>>>    	.pt_address = &rk_dte_pt_address_v2,
+>>>    	.mk_dtentries = &rk_mk_dte_v2,
+>>>    	.mk_ptentries = &rk_mk_pte_v2,
+>>> -	.dma_bit_mask = DMA_BIT_MASK(40),
+>>> -	.gfp_flags = 0,
+>>> +	.dma_bit_mask = DMA_BIT_MASK(32),
+>>> +	.gfp_flags = GFP_DMA32,
+>>>    };
+>>>    
+>>>    static const struct of_device_id rk_iommu_dt_ids[] = {
+>
 
