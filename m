@@ -4,79 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E3F2D35176
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:03:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B471D35176
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 11:12:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6YpwsptX1awA8ujy0eaUsfbVkv5IbPERf9ttL5zaPyc=; b=HoxaWhhsdroRn+ffiFAZCZLv7v
-	tqdRfKHxIoZgKmpuGi7mxxXJW/+47OkpwDw234d+fOOMobHe8WyxQuFD6//ZgQ7bYbMD21s8hXIkU
-	1E+BwHLHc49Oxv/Ni4fTl5V8AszAYVGHDfpUNyw3lkj4/11ZxMzu2bl4jL4tmtT0/sJJYAXlb1n5v
-	XXZJ7GOmLY0sEq1WtEbxASPuuYNwSon/Fh1nJ2nLfcSvHARH7Eem9RqyomotN7o/cL/H/2CVMJqIo
-	8p7z3yZc5vKc2ojFwNtdpPZ/w0RhzOgc4Bh4voo3EaginDW//gVee5DRBOe6G9Ltkv2R3cg9VL8+b
-	u7haQT9w==;
+	bh=DslbQGTQKM1qHJ7IFL4oNkn1arbd7SzYzF19HmMaIBg=; b=qjYdyn0XOxu4LMJzwuO2dUZBJz
+	NsuFUfyL8C40kJSNNWuRFAuW7DZzFXgen9CeejqWwJLt0BEiuo5lGwP5L6PGA1Kjk5cY5EoxL5luy
+	j92marn+VlTMPEIqmxfwS/Enj/jpzOFvE4yq6+2XHRUmqKLgbY2OfZ3gPTWZIUjgoz4nTPluv872c
+	GLhJzJXkwcCJMoTvoeDZAm1+pgVyP9NilbYUf56VsMiQuyA4mhSMzQ7ZYYRvFXQaqCgbd0giiW/Xd
+	oiAR7qrK+InWfBoUqcqDuRtrQfbeij6d+mDpSg20Lf/rXHq5sW63GA7lfC4NrPIio9sm2oX9uPFjN
+	0mi7WeIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tLw-0000000EapI-3Hop;
-	Wed, 01 Apr 2026 11:03:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w7tUV-0000000EbMw-30QJ;
+	Wed, 01 Apr 2026 11:12:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7tLv-0000000Eap9-0BtX
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 11:03:15 +0000
+	id 1w7tUU-0000000EbMl-2Dhq;
+	Wed, 01 Apr 2026 11:12:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6E1E56013B;
-	Wed,  1 Apr 2026 11:03:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29CD7C4CEF7;
-	Wed,  1 Apr 2026 11:03:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 989C560131;
+	Wed,  1 Apr 2026 11:12:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D904C4CEF7;
+	Wed,  1 Apr 2026 11:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775041394;
-	bh=oCEaxN73eSvvxvMxeBnhyZYSHteZ4hIRlfxN2j/YYyw=;
+	s=k20201202; t=1775041925;
+	bh=jTXpRJTGTwjdBfI8YJDTXs4lWCR6O8qhMC5E9thSUyE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=b0md1H/bwbTF6mvFV32llO23OmSxd/7rtsSD6KNBdw+dD6cx/eZjCVYRLs+lC+OA8
-	 BLx8wcM89G/4b5PXsyGthneTFM7H4ahHA+CfNr172wxkSNVpsb8rdqYaLHX2rEHLJD
-	 bpzmGfqwHtHTroS1duDKvzqxz9MNqjUnwxxjZ51/rdrijRVS1fOlKWombiJwg7xHwV
-	 HSRhD7+PB3sBgT+W9TSSSh/JKaJyeElCtDraZhseNtG8yLsMXEVbOqR43VMzvUysJX
-	 ZFutLo1LSVGJejshfD7ot27Cxy74tAb1iapbFpGZDgK9kJ7QmXYkiBi0JCJo0GCCrJ
-	 ZGfOlFCbsXUgg==
-Message-ID: <253608f3-8b47-428d-a703-97dcd9731628@kernel.org>
-Date: Wed, 1 Apr 2026 13:03:07 +0200
+	b=HwQG4AHdgt37OUARhs2dBxQ+8Qq4CObPGHmu28Q4i+kQ+B8yqPn0gtOubtzVQXY8E
+	 EcrcFMoM8EndqNSctV2CYdcxugFVP/2jN6KT+qTeL3oxhpQkiWcFW+H6W53LCacNUo
+	 SF0l2kIOoHOpiOOZ2qTL/251CT29ovgwHaUFbn8NYNhGscpmrhrNIWBrbEliUqaVPN
+	 zkJDzK7r0hWxtAT4RegihobmAfLWKc+3PEzUI4+iCFs+Y/ZatmRgDYVeFgTEQzg/pG
+	 BFqL/JqdadzqJOkizKPaWwgVuzGPYIWN2XCODe4RnHMRxNMwaKVJF5sxzfh60Rnql8
+	 JlJnQWhsudXcA==
+Message-ID: <961f8b71-4424-44f1-9c7a-63d626cb0503@kernel.org>
+Date: Wed, 1 Apr 2026 13:12:00 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: gpu: mali-valhall-csf: Document i.MX952
- support
-To: Guangliu Ding <guangliu.ding@nxp.com>, Liviu Dudau <liviu.dudau@arm.com>
-Cc: "Daniel Baluta (OSS)" <daniel.baluta@oss.nxp.com>,
- Daniel Almeida <daniel.almeida@collabora.com>,
- Alice Ryhl <aliceryhl@google.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Steven Price <steven.price@arm.com>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+Subject: Re: [PATCH 1/3] dt-bindings: gpio: realtek: Add realtek,rtd1625-gpio
+To: =?UTF-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
+Cc: "linusw@kernel.org" <linusw@kernel.org>, "brgl@kernel.org"
+ <brgl@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "afaerber@suse.com" <afaerber@suse.com>, =?UTF-8?B?VFlfQ2hhbmdb5by15a2Q6YC4?=
+ =?UTF-8?Q?=5D?= <tychang@realtek.com>,
+ "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
  "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
  "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, Jiyu Yang <jiyu.yang@nxp.com>
-References: <20260331-master-v1-0-65c8e318d462@nxp.com>
- <20260331-master-v1-1-65c8e318d462@nxp.com> <acva1Xt8V4k9-uG8@e142607>
- <AM0PR04MB47073E9E8B5C704BCF5D9F72F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
- <99a1da55-d6e5-4d11-abaa-8c85283ab5f2@oss.nxp.com>
- <AM0PR04MB4707B3E37DFE7AEE587DBA2AF350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
- <aczv0R0aQRmHKdvt@e142607>
- <AM0PR04MB4707335CC7035232D44E6ED9F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
- <2f4c4063-daf6-48f2-b830-9f58dc7af80d@kernel.org>
- <AM0PR04MB4707D758EC8B08C6D42F3A82F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-realtek-soc@lists.infradead.org"
+ <linux-realtek-soc@lists.infradead.org>, =?UTF-8?B?Q1lfSHVhbmdb6buD6Ymm5pmP?=
+ =?UTF-8?Q?=5D?= <cy.huang@realtek.com>,
+ =?UTF-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>,
+ =?UTF-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>
+References: <20260331113835.3510341-1-eleanor.lin@realtek.com>
+ <20260331113835.3510341-2-eleanor.lin@realtek.com>
+ <20260401-idealistic-grinning-wallaby-8c3cd5@quoll>
+ <8a4f558fdc6649be8c6239403e706621@realtek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -122,9 +112,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <AM0PR04MB4707D758EC8B08C6D42F3A82F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+In-Reply-To: <8a4f558fdc6649be8c6239403e706621@realtek.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,44 +129,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/04/2026 13:01, Guangliu Ding wrote:
-> Hi Krzysztof
-> 
->> On 01/04/2026 12:31, Guangliu Ding wrote:
->>>> Either add the patch(es) that use the compatible to this series in
->>>> v2, or put a comment in the commit message on where we can see the
->> driver changes.
->>>>
->>>
->>> According to discussions with the GPU vendor, this is a hardware
->>> limitation of Mali-G310 rather than a hardware bug, and it has been
->>> addressed in newer Mali GPU families.
->>>
->>> In addition, ipa_counters are not enabled in the current Panthor
->>> driver. We observed this issue with the private Mali DDK where ipa_counters
->> were enabled.
->>> Therefore, keeping the compatible string is necessary to allow for future
->> divergence.
+On 01/04/2026 13:10, Yu-Chun Lin [林祐君] wrote:
+>>> +      compatible = "realtek,rtd1625-isom-gpio";
+>>> +      reg = <0x89120 0x10>,
 >>
->> No one discusses here whether you need separate compatible string.
->> writing bindings and all my talks are (e.g. DTS 101) are clearly expecting you.
+>> 0x10 feels very short range.
 >>
->> We discuss only the lack of compatibility in terms of DT, how DT sees
->> compatible devices.
+>>> +            <0x89100 0x20>;
 >>
->> And lack of driver code is clear indication that devices are compatible in terms
->> how DT understands it. Feel encouraged to bring actual arguments in commit
->> msgs in the future.
+>> And this means it's continuous. Are you sure these are two separate address
+>> spaces?
 >>
 >> Best regards,
 >> Krzysztof
 > 
-> So the best approach is only reserve "arm,mali-valhall-csf" for now, since currently there is
-> no need for an additional compatible entry from a DT compatibility perspective.
-> We can introduce "nxp,imx952-mali" in future commits if hardware or driver differences
-> actually require it, and include more detailed justification in the commit message. Right?
+> Agreed, they are continuous. I will merge them into a single region in v2.
 
-So does that mean you decided not to read writing bindings document?
+I assume you checked in the datasheet/manual.
 
 Best regards,
 Krzysztof
