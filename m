@@ -4,98 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 050E8D35177
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 12:35:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86478D3517C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 12:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=047O0Bnm7X7eFxP7dbf2lFni3tJL8l/+lwR4gP4mP0c=; b=KVigYZcN10PkZXhw4/kutjh538
-	4hyMt4zqOyw8wwfUwPIiWpSLwJo1dVIaPRolX1RXfSvKufVInu8PVs2pGhfqsL7ov6sQLU4g/BYV7
-	325t9ulW3SJemV1XadvFG/ecM1vXTTBrirTmCudNn4B560LOlhPW3hZFDrZ4Ik+HX8fpMBdNqHjxF
-	i3tC7o3lqFdOVGbWIlvZwPszt5M9a99b4trVWqk5kwXonHyu+rgxrD7N4A6Fk6tNC82dBRCDW1BXy
-	EUCQ+TqRCoUZ9PKfGXRSQeyS8Dv2tbPNaaRY53qGvaauJEbCWRqSYDKV4WEueOKH5OhcCF9IIH8t9
-	VdMYaLZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pcxQWoLJn9G0dptO93Z+OY78wD/jANP0+W3nIgxkSVw=; b=wvOwNqEDnS/rqrHNcHcId1UQIJ
+	HAKye4oizfK7cljGr4nr6zf4op6JCzKufHfVwU9/In9oR2UAOvZY5uSSM/k3++Zf8U+0PJRdRHIz0
+	I8JJndD5L+qrZrbqjekSLuYFWxFUOLujNvQJA0e3ap5XNSjmuVtC8tFpZXksXSVfyQsPDmjb9lnaq
+	bX4uhxTETnaXrEcY4HYE9yNYUUEf5S09UT11GRenlXoN/NEGQ66LJhYohOvo/uKpFXDphQ2i8+qGP
+	T2NSDgguC9MwEZ+UKZPyLwV5eaBXseubVe55OJfL9uEmm5jakN+N9yeY9Zzh9JwwiB3c81+slyLWJ
+	WRIKFO2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7unR-0000000FAok-3xcO;
-	Wed, 01 Apr 2026 12:35:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w7uoU-0000000FBfu-01fW;
+	Wed, 01 Apr 2026 12:36:50 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7uLV-0000000Epn3-2fYQ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 01 Apr 2026 12:06:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=047O0Bnm7X7eFxP7dbf2lFni3tJL8l/+lwR4gP4mP0c=; b=iRXnHYMss+jhCCG0aZNDSFEmY0
-	FO4oldENKJFBbHV+4sfW28xG133Svmu6M/K5ii+1PyNMqRdqYUOUyL++nwRx6g05vOLjJ25iW5J4I
-	mejuUoXLlysU/fmgSDQl+y/g4O1/I2Cy/BCGow/JjRqSDDmUCIvFQ+8pIc9YZ+1rRn1wU6AiG7dKo
-	La4vl7rmINLvUoP5qhg4X/7586HMbgFiTeR0QDB6d//6ril4ls/WA2Tww/o+F/E7U4XxwW1MJAQr0
-	wlGF4W6sfA1inSkCjE/KX8UiTzj/NOnq2ZgGWwIMNlO0YVqMqzoCLkxH9ddfJFl7K/WHZ8Qi43c/o
-	UTeRsoCw==;
-Received: from www537.your-server.de ([188.40.3.216])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7uLQ-00000000IDZ-34ot
+	id 1w7uXp-0000000EyrY-185V
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 12:06:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=047O0Bnm7X7eFxP7dbf2lFni3tJL8l/+lwR4gP4mP0c=; b=fnuKjJIash0Ly3Blm7dlknBg/R
-	tJyMWI2S9H7Ak8KNXtF4BV4SVuzswduPWcxnXRpDKmQzb+Vbx6toOQKI5DDCQR5CwWB7+gs++rg40
-	p/5BB+JcZFqvcdmF5K0CqwJrQ4NKWgUw91YsqNPxDHB+xt7W1bw1VoKtDoLy6DW9W939yhIUpy/BF
-	/HZ/BjpcrcLbHVfapirJ9S/YChNH9T2C2WIDZLafFLGPkBXuiBlRF2ESIimaWLtqZTAzoJ9qED0/o
-	9uTycrK52cXBM/3gdEOXAerUgGJ1PzfwwyK59ADYfD4cUTuSygNjsYOnxW5KyeMNTdQLuf8OKpEeb
-	TvbA5+JQ==;
-Received: from sslproxy07.your-server.de ([78.47.199.104])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <nora.schiffer@ew.tq-group.com>)
-	id 1w7uLH-000FCz-2X;
-	Wed, 01 Apr 2026 14:06:39 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <nora.schiffer@ew.tq-group.com>)
-	id 1w7uLH-000JGT-1D;
-	Wed, 01 Apr 2026 14:06:39 +0200
-From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	Wed, 01 Apr 2026 12:19:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=pcxQWoLJn9G0dptO93Z+OY78wD/jANP0+W3nIgxkSVw=; b=qNEW2nQKRTDZc2S5ljnvrwFD2S
+	ynwfBvwdcAUg9wB9O2BQNo3gsYQBmZWC8+uiTL/bKTKBxga2nWKqXPIxb022Mtqb1OBj0ktBqfItp
+	9zPLZJy1ZZlSRAZ2HEbzBs6x5maVTqWMfCM3b+e0uhiaUzx8BfBnLQxfqUtlE2lYy8eY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1w7uXf-00ELhN-8m; Wed, 01 Apr 2026 14:19:27 +0200
+Date: Wed, 1 Apr 2026 14:19:27 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
 	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com,
-	Nora Schiffer <nora.schiffer@ew.tq-group.com>
-Subject: [PATCH net-next v3 1/2] dt-bindings: net: ti: k3-am654-cpsw-nuss: Add ti,j722s-cpsw-nuss compatible
-Date: Wed,  1 Apr 2026 14:05:42 +0200
-Message-ID: <e7ec1b928357d1240a962a88dc6ac67fd2c92357.1774958552.git.nora.schiffer@ew.tq-group.com>
-X-Mailer: git-send-email 2.53.0
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Ong Boon Leong <boon.leong.ong@intel.com>,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next v2 00/14] net: stmmac: TSO fixes/cleanups
+Message-ID: <420f910f-523d-4a74-a255-2fe48909283a@lunn.ch>
+References: <aczHVF04LIGq_lYO@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: Clear (ClamAV 1.4.3/27958/Wed Apr  1 08:24:34 2026)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aczHVF04LIGq_lYO@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_130648_936496_BDDCAE47 
-X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-CacheID: sfid-20260401_051937_339954_AB7D109B 
+X-CRM114-Status: UNSURE (   8.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,53 +75,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The J722S CPSW3G is mostly identical to the AM64's, but additionally
-supports SGMII. The AM64 compatible ti,am642-cpsw-nuss is used as a
-fallback.
+> I'm moving the setup of the GSO features, cleaning those up, and
+> adding a warning if platform glue requests this to be enabled but the
+> hardware has no support. Hopefully this will never trigger if everyone
+> got the STMMAC_FLAG_TSO_EN flag correct.
 
-Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
----
+Is this:
 
-v2: keep ti,am642-cpsw-nuss as a fallback
-v3: resubmission for net-next, no changes
+  snps,tso:
+    $ref: /schemas/types.yaml#/definitions/flag
+    description:
+      Enables the TSO feature otherwise it will be managed by MAC HW capability
+      register.
 
- .../bindings/net/ti,k3-am654-cpsw-nuss.yaml   | 20 ++++++++++++-------
- 1 file changed, 13 insertions(+), 7 deletions(-)
+I would not be too surprised if there is cargo cult copy/paste going
+on and some do get it wrong.
 
-diff --git a/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml b/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
-index a959c1d7e643a..70d25f5ff1cfe 100644
---- a/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
-+++ b/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
-@@ -53,13 +53,19 @@ properties:
-   "#size-cells": true
- 
-   compatible:
--    enum:
--      - ti,am642-cpsw-nuss
--      - ti,am654-cpsw-nuss
--      - ti,j7200-cpswxg-nuss
--      - ti,j721e-cpsw-nuss
--      - ti,j721e-cpswxg-nuss
--      - ti,j784s4-cpswxg-nuss
-+    oneOf:
-+      - items:
-+          - enum:
-+              - ti,am642-cpsw-nuss
-+              - ti,am654-cpsw-nuss
-+              - ti,j7200-cpswxg-nuss
-+              - ti,j721e-cpsw-nuss
-+              - ti,j721e-cpswxg-nuss
-+              - ti,j784s4-cpswxg-nuss
-+      - items:
-+          - enum:
-+              - ti,j722s-cpsw-nuss
-+          - const: ti,am642-cpsw-nuss
- 
-   reg:
-     maxItems: 1
--- 
-TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht München, HRB 105018
-Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-https://www.tq-group.com/
+arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi:			snps,tso;
+arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi:			snps,tso;
+arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi:			snps,tso;
+arch/arm64/boot/dts/toshiba/tmpv7708.dtsi:			snps,tso;
+arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi:		snps,tso;
+arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:		snps,tso;
+arch/arm64/boot/dts/rockchip/rk3576.dtsi:			snps,tso;
+arch/arm64/boot/dts/rockchip/rk3576.dtsi:			snps,tso;
+arch/arm64/boot/dts/rockchip/rk3568.dtsi:		snps,tso;
+arch/arm64/boot/dts/rockchip/rk3528.dtsi:			snps,tso;
+arch/arm64/boot/dts/rockchip/rk3528.dtsi:			snps,tso;
+arch/arm64/boot/dts/rockchip/rk356x-base.dtsi:		snps,tso;
+arch/arm64/boot/dts/qcom/qcs404.dtsi:			snps,tso;
+arch/arm64/boot/dts/qcom/lemans.dtsi:			snps,tso;
+arch/arm64/boot/dts/qcom/lemans.dtsi:			snps,tso;
+arch/arm64/boot/dts/qcom/sm8150.dtsi:			snps,tso;
+arch/arm64/boot/dts/qcom/sc8280xp.dtsi:			snps,tso;
+arch/arm64/boot/dts/qcom/sc8280xp.dtsi:			snps,tso;
+arch/arm64/boot/dts/qcom/monaco.dtsi:			snps,tso;
+arch/arm64/boot/dts/st/stm32mp253.dtsi:		snps,tso;
+arch/arm64/boot/dts/st/stm32mp233.dtsi:		snps,tso;
+arch/arm64/boot/dts/st/stm32mp231.dtsi:				snps,tso;
+arch/arm64/boot/dts/st/stm32mp251.dtsi:				snps,tso;
+arch/riscv/boot/dts/sophgo/sg2042.dtsi:			snps,tso;
+arch/riscv/boot/dts/sophgo/sg2044.dtsi:			snps,tso;
+arch/riscv/boot/dts/starfive/jh7110.dtsi:			snps,tso;
+arch/riscv/boot/dts/starfive/jh7110.dtsi:			snps,tso;
+arch/arm/boot/dts/axis/artpec6.dtsi:			snps,tso;
+arch/arm/boot/dts/rockchip/rv1126.dtsi:		snps,tso;
+arch/arm/boot/dts/st/stm32mp131.dtsi:				snps,tso;
+arch/arm/boot/dts/st/stm32mp133.dtsi:		snps,tso;
+arch/arm/boot/dts/st/stm32mp151.dtsi:				snps,tso;
+
+   Andrew
 
