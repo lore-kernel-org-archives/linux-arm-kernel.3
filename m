@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 142DA107637F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:26:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF35107637E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:28:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q0gkFnBG2oUFfsrSmrtklw6DIkW2Jfzou7WkurlVB08=; b=vJVKpUZ8gD5O+M6fmCAmGqyysR
-	QX9Mzbx6QDXCr4jCROj4c4xs1RsE6ciLEQv0/YOXcPaqH0jIVZeEpI2IdG/VBIJYmDN4NkxjUfnxF
-	owkAm6ddmXzE+YVqg0adELGop3cUb1FSxLpG4/xvK/hffPagXeD39v87mg4ICzB2q6QYc9NW8478/
-	Er1WSOTcB0qN4qBPjWNG/bNSgPtnHQKe7hc8v5dOknvmn456bix0zRd1Pxq2QlCnnTzDOu3FQFz7p
-	395ubd3XSd4hiiBG3y2KfrJx7y3quH8EH5xXJldWO8yKoCv8QVvdwYZsCvH70OWmZSZuOZlQUuq/D
-	TRs/cKyA==;
+	bh=4qvw7gSpCJ/IesNPxt/Dq1RsT/9LtR1Y5w41YU4e2Jw=; b=2O2a/BYc3Wh1Wz3xXDaaqgLD/B
+	JruMWmNl7tBei1s+faqNdnxbWsV5vozY/nNy6cIWQyktwtG1Fur5KVRHS5ge3Gs+BOOrZsG2HW6fu
+	SLSCgjHaR4wsqu61ny9HLt1DG/gQIvwoKj4QZOfZleNkr3p0oYKw2CI0LkM2d3OYF/n0i0hzEeriD
+	vfogFk0KvloRXyw9BMhjbXQeskJ9dHDeDmHbIrdpNKpEnEvUS9FwZDGXLJNH4iWRKfNtO+zKJqXJO
+	Z9sKiRdqKfMSQXR1VsS+rIG3qpy2Q5mfzj7q4d3x98YnLAVN9SngMS14otPwDfWcob4ZG0DCFeb+t
+	aKPQailQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wWm-0000000FUGe-44pE;
-	Wed, 01 Apr 2026 14:26:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w7wYD-0000000FUfL-1oWq;
+	Wed, 01 Apr 2026 14:28:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wWm-0000000FUFx-0s4c
+	id 1w7wYB-0000000FUey-15Co
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 14:26:40 +0000
+	Wed, 01 Apr 2026 14:28:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6DBDC600C4;
-	Wed,  1 Apr 2026 14:26:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F7F9C19421;
-	Wed,  1 Apr 2026 14:26:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CEED640ACB;
+	Wed,  1 Apr 2026 14:28:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE4AFC4CEF7;
+	Wed,  1 Apr 2026 14:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775053599;
-	bh=ZGWzdnKgMsboETVWlPiCa0cazcIv2YHx3DbAU8ORuHA=;
+	s=k20201202; t=1775053686;
+	bh=QG9O4ZfL5Zg9AKp+sYOMsrUsn0jNocGGOvxQbb6EijE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jDboP/eFwygzeYT4mc7EtjE0rOdhYdq+t/S7uf6f6HPJiQzbGFcUFndzd75FLyF4w
-	 UluPdrjVuxMSIYpmk778ZkamFiywN/lGMK5JAPkU66Q9RYw70L+ZhngTxeIb6BdM+W
-	 AhKFP+v92d4AtgflklZwHwrFmT9vPDoZsVD7pFjKvl+WrKfVoWSDtdEbGFx00z4/05
-	 MFZrMOItqSrdVHRCFEkOYdTBmMG1WmPNjgclDULYWQdugiDTq3O5njt9pjt8/F68Pe
-	 HcQLAk1AV8lrLEHx3C9rnNrUNjv9Dar7QyHiT6F6IIhoHiI++xTm2CtVfjuql9nMJ4
-	 ALvIM8MmKw5ZQ==
-Message-ID: <9b7aed42-154c-4ef7-aff2-b05d038ffea0@kernel.org>
-Date: Wed, 1 Apr 2026 16:26:34 +0200
+	b=kGIsjTl2RZ8iuE9vmtGX/pWw73L+PK8hWgAqUprHybULOne9UnzA040UVUn9KZxAI
+	 +7tRAIie3sGJVhA3UEBbcfKdzQldS7jlbvsAGrKhU9Eh3Czy9Sx9yG52VCvSwU7DTR
+	 1JeMwWrnQJHL8Oyfl+n2jSDI1/BJeIqg8KwLvUg0da7cwtUjuj8mxYTFlrOv1ZW70h
+	 Bwakq0BhIKzYPhxIE8As8BCV6XiKL6Bp3OmjAKYRYWxkBy6JHpG1c9W7Xig3B9Cspa
+	 Z8rtzsaNhcOq1bxCyzHNsd0u6DXs+1OsCUi9cxFJ8eqKHGlIyOnOAY5dnplRm7kwbN
+	 d1h3nqsx1jYMg==
+Message-ID: <f73173b4-f44a-4d01-abec-3366b6561332@kernel.org>
+Date: Wed, 1 Apr 2026 16:28:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/7] soc: samsung: exynos-pmu: add Exynos850 CPU
- hotplug support
+Subject: Re: [PATCH v2 6/7] MAINTAINERS: add exynos850-pmu.c to Exynos850
+ entry
 To: Alexey Klimov <alexey.klimov@linaro.org>,
  Sam Protsenko <semen.protsenko@linaro.org>,
  linux-samsung-soc@vger.kernel.org, Peter Griffin <peter.griffin@linaro.org>,
@@ -58,7 +58,7 @@ Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
 References: <20260401-exynos850-cpuhotplug-v2-0-c5a760a3e259@linaro.org>
- <20260401-exynos850-cpuhotplug-v2-5-c5a760a3e259@linaro.org>
+ <20260401-exynos850-cpuhotplug-v2-6-c5a760a3e259@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,9 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260401-exynos850-cpuhotplug-v2-5-c5a760a3e259@linaro.org>
+In-Reply-To: <20260401-exynos850-cpuhotplug-v2-6-c5a760a3e259@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260401_072807_339869_443D4463 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,30 +125,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 01/04/2026 06:51, Alexey Klimov wrote:
-> +	regmap_update_bits(pmu_context->pmuintrgen, EXYNOS_GRP2_INTR_BID_ENABLE,
-> +			   mask, (0 << cpu));
-> +
-> +	regmap_read(pmu_context->pmuintrgen, EXYNOS_GRP2_INTR_BID_UPEND, &reg);
-> +
-> +	regmap_write(pmu_context->pmuintrgen, EXYNOS_GRP2_INTR_BID_CLEAR,
-> +		     reg & mask);
-> +
-> +	regmap_update_bits(pmu_context->pmureg,
-> +			   EXYNOS850_CLUSTER_CPU_INT_EN(this_cluster, cluster_cpu),
-> +			   1 << 3, 0 << 3);
-> +	return 0;
-> +}
-> +
-> +const struct exynos_pmu_data exynos850_pmu_data = {
-> +	.pmu_cpuhp = true,
-> +	.cpu_pmu_offline = exynos850_cpu_pmu_offline,
-> +	.cpu_pmu_online = exynos850_cpu_pmu_online,
-> +};
-> +
+> Update Exynos850 entry to include new file
+> drivers/soc/samsung/exynos850-pmu.c. Add myself as M
+> there.
+> 
+> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+> ---
+>  MAINTAINERS | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index e14e6f874e05..4b28e92b4d9b 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -23601,6 +23601,7 @@ F:	include/dt-bindings/clock/samsung,exynos2200-cmu.h
+>  
+>  SAMSUNG EXYNOS850 SoC SUPPORT
+>  M:	Sam Protsenko <semen.protsenko@linaro.org>
+> +M:	Alexey Klimov <alexey.klimov@linaro.org>
 
-Unnecessary blank line.
+I am surprised to see this because I did not find many reviews from your
+side before.
 
-
+Please first engage in reviewing of this platform, before assigning
+yourself as a maintainer.
 
 Best regards,
 Krzysztof
