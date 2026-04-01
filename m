@@ -4,63 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A9ACD35144
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 07:01:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A871FD35144
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 07:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UrkFsLKIX2f88NcAiZCmJmcVyJyMz8+p7lKis3Rh/9Q=; b=Vwbzmn2Vgz3pWe1c3F0sjl6uyf
-	ATp7YWaGQN6GLsZyXR2cw/OSIAClFW0i6aST1t0dsjJEd6AeOfAkVzPtthHUKldyfOsBoKJKfXW5+
-	twzxoKeV22tewO2rbru2pIEawW/loLxMVGwHp+PMvFRj7fwdPHRVXjovyFW7L0/6WN/A24MHn+N3a
-	WV7amrENVwcOXGmdTwDiSKk9cDPNUh5lLAgScoMcx/WQBH5GAH1AwFBTWQo8WV1JE5dViSvsOfYs0
-	Gqx+P4d6eZuXf/j5lc2YIBLUP/T34seAxmmekkHlzw3j0Q17ezAcSsW9GDGFoBAchmmi1A+Z3Qeot
-	XZWiUk4w==;
+	bh=QgY7Dg2wdZKod9lpN0cghi4LcrEelYHJpjbkfLWJrBc=; b=ShAvwIsgflQGsvuxPwPdH/n+V2
+	igS+175WPt3Ffvn9dcm6DXRV/XQ8jIi7eFhaTstRdNx9X1Fjv0PEg47t5iKO1BtU0KwLMxbiosHm6
+	H1J+KNecJu2eeexitrApvgsJaJFO9KWkvUfIKNWSQ+5mL/vkq306eJs0OdWPnY7zepr50RMtpiteu
+	ReFGzm9CcpTimQoE6zgkWWG2pzBSE4JuRzQAj2VfQRCcn/A/pS1Bc+seP0r6gSLVEsotWz83fQwCN
+	LFbTXwjSU+X74mTtJ0cAnhc+8alK2HCiMb9h04oHOxR5+4sjvlGX2Z4saIDRRWQn+rF85e72cMZcV
+	NgmcEPDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7pZP-0000000E9fq-4Abu;
-	Wed, 01 Apr 2026 07:00:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w7pZv-0000000EA6G-2410;
+	Wed, 01 Apr 2026 07:01:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7pZ1-0000000E9L4-2hz7;
-	Wed, 01 Apr 2026 07:00:31 +0000
+	id 1w7pZn-0000000EA1N-3SP2
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Apr 2026 07:01:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1375E60121;
-	Wed,  1 Apr 2026 07:00:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FDF1C2BCB2;
-	Wed,  1 Apr 2026 07:00:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 385AA404DC;
+	Wed,  1 Apr 2026 07:01:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B794CC4CEF7;
+	Wed,  1 Apr 2026 07:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775026830;
-	bh=zot45+s4jeVdAguxss4LYuLtmhR3y6kpT1CAA1uASco=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=rm4zgsjp66OmWKDxKb+cbYUgPP6BpbKod/CPq8WZDAtuGd2VjljIsq+jW79GCyRL0
-	 bJLxHgxybJXdGsRcffN5m5QC2HdH1rWtg/JqZxCkceA2mSnUuK7XRsOqp9vlIrn0vi
-	 Hp97akhbi/2WvCKGdeo6rOfQ3W2rWeoV2D3TrIN3BD0ViGMKgYTh0rGPW7jOBSyZ+/
-	 kjf8ikAnYIRK3tOVvbfwK5FPGqVtOGUsn0AhaT++CGdVvjcm+mHB1QdSF4X1R3cGaG
-	 PUnRv87zg1Y99EzrRnGquoyw3q0NG4cL8n8r13s8ot/dwN+C4g3sUhYsKkuevgjLxH
-	 dRI0zeEng9b9w==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 01 Apr 2026 08:59:29 +0200
-Subject: [PATCH net-next v2 11/11] net: airoha: Rename get_src_port_id
- callback in get_sport
+	s=k20201202; t=1775026879;
+	bh=Bwy9wfZVxlaokc+KfkVhltejvIhjmBP86LTsX8ZfOas=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=j4JYGGEcBg7LF3ms6EQ/NMTfsrXfiCl38v9cn3ApM4rvtteVdR/pUF+/v2vJ9nByF
+	 +TuWqJwzEHg420L+Vznghf54sQ56O8XZBwL4CYVpHk8I8yswkYoT6HEu2uRAGh2a2E
+	 s5aB3ppxLphII3yXnEY6skMdO8VYiFVUBm0jERB9497EJpmGHxxkDkUzsRrZDWZHp6
+	 6sYYEUMx9wPqeqToYvLDds4ylUJgijOgzkAwTvDZ5Jdn2pP7dXYpBefO08h5WDSELj
+	 4nw+PWzq2jXLw//9+79vpUENeyjs0Ffh9kO8fNpGoCMZUXmW4zLGpXPALWX0iWGcbL
+	 zj2nwNTtI9WVQ==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id BC8A1F40081;
+	Wed,  1 Apr 2026 03:01:17 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Wed, 01 Apr 2026 03:01:17 -0400
+X-ME-Sender: <xms:vcLMaVY8FL-o1qcxYn795HpiD7LgdWdCSPSfA53u46BTBgQQgF_dRQ>
+    <xme:vcLMaXPIqZg7IRQvwUo6jazmaB_SXir3YUbY5IBi-Qr9HgfMlps0qWMuoE40cgUui
+    gROuQg8mSkP7bHQlDkK6ESMkNa48tYKnyoTv9-NYTA2FUFghH1aVbE>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddvgeehucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
+    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
+    epofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcuuehi
+    vghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrghtth
+    gvrhhnpedvueehiedtvedtleekuddutefgffdtleetfeetveejveejieehfefhjeeijeef
+    udenucevlhhushhtvghrufhiiigvpedunecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
+    guodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieejtdehtddtjeelqdef
+    fedvudeigeduhedqrghruggspeepkhgvrhhnvghlrdhorhhgseifohhrkhhofhgrrhgurd
+    gtohhmpdhnsggprhgtphhtthhopeeipdhmohguvgepshhmthhpohhuthdprhgtphhtthho
+    pehhvghrsggvrhhtsehgohhnughorhdrrghprghnrgdrohhrghdrrghupdhrtghpthhtoh
+    epvggsihhgghgvrhhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgr
+    rhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtth
+    hopehlihhnuhigqdgtrhihphhtohesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphht
+    thhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtph
+    htthhopehjrghsohhnseiigidvtgegrdgtohhm
+X-ME-Proxy: <xmx:vcLMaTBjCSZpfBVI6o_vYGMNibhNdbffHOlv7cVvEUpP8t2-0bqltg>
+    <xmx:vcLMaTm7qQPTSk0lQgJWrtcWG7-_3fM7CSv75CsWbizCSHgt8nzOxw>
+    <xmx:vcLMaedI4IcBkLT9ktjBs16bBdWxECms9QGFv5gO_n34mxkmm5eI7g>
+    <xmx:vcLMaXSPW3HslaxkXbpjEL9_qxZZew-M5ubEsWXcLheJf5GBOyleBA>
+    <xmx:vcLMaVsKW_F23UINJL9xdKQhpIVGWW80qxTvgW2mWX2dhbBOjkod3yqk>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 9C02370006A; Wed,  1 Apr 2026 03:01:17 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+X-ThreadId: A2hVHX09Hs_c
+Date: Wed, 01 Apr 2026 09:00:57 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Eric Biggers" <ebiggers@kernel.org>, linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, "Jason A . Donenfeld" <Jason@zx2c4.com>,
+ "Herbert Xu" <herbert@gondor.apana.org.au>,
+ linux-arm-kernel@lists.infradead.org
+Message-Id: <55da45c4-4f06-430e-a14b-ecfeeb8d22d1@app.fastmail.com>
+In-Reply-To: <20260401000548.133151-1-ebiggers@kernel.org>
+References: <20260401000548.133151-1-ebiggers@kernel.org>
+Subject: Re: [PATCH 0/9] lib/crypto: arm64: Remove obsolete chunking logic
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260401-airoha-eth-multi-serdes-v2-11-ac427ae4beeb@kernel.org>
-References: <20260401-airoha-eth-multi-serdes-v2-0-ac427ae4beeb@kernel.org>
-In-Reply-To: <20260401-airoha-eth-multi-serdes-v2-0-ac427ae4beeb@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Christian Marangi <ansuelsmth@gmail.com>, 
- Benjamin Larsson <benjamin.larsson@genexis.eu>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org
-X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260401_000120_001563_0F799425 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,80 +107,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For code consistency, rename get_src_port_id callback in get_sport.
-Please note this patch does not introduce any logical change and it is
-just a cosmetic patch.
+On Wed, 1 Apr 2026, at 02:05, Eric Biggers wrote:
+> Since commit aefbab8e77eb ("arm64: fpsimd: Preserve/restore kernel mode
+> NEON at context switch"), kernel-mode NEON sections have been
+> preemptible on arm64.  And since commit 7dadeaa6e851 ("sched: Further
+> restrict the preemption modes"), voluntary preemption is no longer
+> supported on arm64 either.  Therefore, there's no longer any need to
+> limit the length of kernel-mode NEON sections on arm64.
+>
+> This series simplifies the code in lib/crypto/arm64/ accordingly by
+> using longer kernel-mode NEON sections instead of multiple shorter ones.
+>
+> This series is targeting libcrypto-next.
+>
+> Eric Biggers (9):
+>   lib/crypto: arm64/aes: Remove obsolete chunking logic
+>   lib/crypto: arm64/chacha: Remove obsolete chunking logic
+>   lib/crypto: arm64/gf128hash: Remove obsolete chunking logic
+>   lib/crypto: arm64/poly1305: Remove obsolete chunking logic
+>   lib/crypto: arm64/sha1: Remove obsolete chunking logic
+>   lib/crypto: arm64/sha256: Remove obsolete chunking logic
+>   lib/crypto: arm64/sha512: Remove obsolete chunking logic
+>   lib/crypto: arm64/sha3: Remove obsolete chunking logic
+>   arm64: fpsimd: Remove obsolete cond_yield macro
+>
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 10 +++++-----
- drivers/net/ethernet/airoha/airoha_eth.h |  2 +-
- 2 files changed, 6 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 3f9bce8c537081756aff276009c77670ec5915f4..5fe48601bb623f9dba9d3a4d2c1fd6c8276aba88 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1751,7 +1751,7 @@ static int airoha_set_gdm2_loopback(struct airoha_gdm_dev *dev)
- 	airoha_fe_clear(eth, REG_FE_VIP_PORT_EN, BIT(AIROHA_GDM2_IDX));
- 	airoha_fe_clear(eth, REG_FE_IFC_PORT_EN, BIT(AIROHA_GDM2_IDX));
- 
--	src_port = eth->soc->ops.get_src_port_id(port, dev->nbq);
-+	src_port = eth->soc->ops.get_sport(port, dev->nbq);
- 	if (src_port < 0)
- 		return src_port;
- 
-@@ -3228,7 +3228,7 @@ static const char * const en7581_xsi_rsts_names[] = {
- 	"xfp-mac",
- };
- 
--static int airoha_en7581_get_src_port_id(struct airoha_gdm_port *port, int nbq)
-+static int airoha_en7581_get_sport(struct airoha_gdm_port *port, int nbq)
- {
- 	switch (port->id) {
- 	case AIROHA_GDM3_IDX:
-@@ -3292,7 +3292,7 @@ static const char * const an7583_xsi_rsts_names[] = {
- 	"xfp-mac",
- };
- 
--static int airoha_an7583_get_src_port_id(struct airoha_gdm_port *port, int nbq)
-+static int airoha_an7583_get_sport(struct airoha_gdm_port *port, int nbq)
- {
- 	switch (port->id) {
- 	case AIROHA_GDM3_IDX:
-@@ -3350,7 +3350,7 @@ static const struct airoha_eth_soc_data en7581_soc_data = {
- 	.num_xsi_rsts = ARRAY_SIZE(en7581_xsi_rsts_names),
- 	.num_ppe = 2,
- 	.ops = {
--		.get_src_port_id = airoha_en7581_get_src_port_id,
-+		.get_sport = airoha_en7581_get_sport,
- 		.get_dev_from_sport = airoha_en7581_get_dev_from_sport,
- 	},
- };
-@@ -3361,7 +3361,7 @@ static const struct airoha_eth_soc_data an7583_soc_data = {
- 	.num_xsi_rsts = ARRAY_SIZE(an7583_xsi_rsts_names),
- 	.num_ppe = 1,
- 	.ops = {
--		.get_src_port_id = airoha_an7583_get_src_port_id,
-+		.get_sport = airoha_an7583_get_sport,
- 		.get_dev_from_sport = airoha_an7583_get_dev_from_sport,
- 	},
- };
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 337bb2d1b59fac6d7bed216e7d7dbbe1ca89d3c5..bbd83d7b6453ae5e45b2e324bbee47883978675f 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -585,7 +585,7 @@ struct airoha_eth_soc_data {
- 	int num_xsi_rsts;
- 	int num_ppe;
- 	struct {
--		int (*get_src_port_id)(struct airoha_gdm_port *port, int nbq);
-+		int (*get_sport)(struct airoha_gdm_port *port, int nbq);
- 		int (*get_dev_from_sport)(struct airoha_qdma_desc *desc,
- 					  u16 *port, u16 *dev);
- 	} ops;
-
--- 
-2.53.0
-
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
 
