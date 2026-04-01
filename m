@@ -4,77 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 248B310F9313
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 18:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C67A910F9313
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 18:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TxUAsrfsXuu7Y+QFoGYJYIzbo+xO3Ql1RR0QzEM3dHU=; b=iRXh7D6O9fm2TGud/dRmxhQ5N8
-	cveNT/Jn3oJ7lGX7ZpBM9UiMpMJdhCYxJzJQUZOhtanloGXRX8uI3F+3ZsifTSxHQrcNq+qB9EQjb
-	JCCgl7b8A/PJghVGQ5xAQH5zawXVjOLH+cVUcz03/8WTe0wZiolg8R5hlH23DkzCR9A1ijiJATacc
-	/pku8YcYUaGkVKd+WMWX1EO6QDNgL0JEPCiWpKnwALJ6yCPiGlQKYCRkI/tEL8ueEPAfkuBW0Eq2r
-	t7DSyYmQJyHFPZMHd1wlwzGmHz86+sBICvtutAmCB1a1yLZssdDwgaLk7K7ZHHth54H4rY9KemJRU
-	mqiMm4aw==;
+	bh=U1AoRf9YGyRQiBnvI/wVmLr8lMEHsVttW5yfw98kgu4=; b=JbQTJnjRnUFT9qiQUUO7BBlMMc
+	zg/DD7RP8f6+pH7NdgkXeKKf8OKANBiqzDQRcgKqUo3OviwEZb5qcMxpKrJBCypQi36/d0+iDkyh0
+	eOU8dZV8VrFaXKBRYNcjuFduv6THMst3YDLyLRfvnT/vdAXkKtnJTCcaOXhwQGc1L2X8VBNueCdqn
+	PKz4uA8ONBLQrW35Sg7gk5Ei9BYOjUAkeQ8uJALhQ6aah7m26Z4vYjfVRPRQdAE46mlo89w72MkGA
+	vXpmHg9NO4HgzFqe64IF8jnutp4jp64hR8kLTo3MSckDok0bVpp1tuCZ9SPQE/9DxSZxDODWxR74j
+	y0n0FXbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w804A-0000000FwUU-04vY;
-	Wed, 01 Apr 2026 18:13:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8049-0000000FwTx-2fOB
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 01 Apr 2026 18:13:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=TxUAsrfsXuu7Y+QFoGYJYIzbo+xO3Ql1RR0QzEM3dHU=; b=F4kaVeLXj1pUNs5D/EzwAdZ6AQ
-	KFt6pfr01nF4bOljUE1eURLBj9Z4szAgw5h7++rBy7rXRsMG2CC/dG+Z4cn6GlDMNqPooQJZ3RT/a
-	qUmfgJz1QvKSJkPe3hz75c3T3Nrf2F4O6ZyiEAVzWW5EELvqV1KAGCFBisQjWesydIyiY2NZZXTaR
-	8seqXi8fYFO11cVDEQP3mKSIqKLp6DKw0YFTWwPhG7ETqsoXrbGj8awpHTKxn38VfGZo/hXx8FuS5
-	pQ5FM+LUOdGnY3FrFI0BS9vzkEAjOiJFx7gy5VdH3dK74/wHMGDACUqBfvkivUh6xi2dBBNNBwaUN
-	nLjikvOA==;
+	id 1w804L-0000000FwXW-1IGi;
+	Wed, 01 Apr 2026 18:13:36 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8043-000000015Lr-2HwD
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w804E-0000000FwVd-43au
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 18:13:19 +0000
+	Wed, 01 Apr 2026 18:13:30 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D41F932CF;
-	Wed,  1 Apr 2026 11:13:07 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6355C16F2;
+	Wed,  1 Apr 2026 11:13:18 -0700 (PDT)
 Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7E7D23F7D8;
-	Wed,  1 Apr 2026 11:13:12 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 378963F7D8;
+	Wed,  1 Apr 2026 11:13:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775067193; bh=xO+oNGapxnpIxH7G9eLSajTym0rjg8WUOulNd4jDDj8=;
+	t=1775067204; bh=HCk6QnqGWq/tjI6gryKqQx9wBLjxKwloB0kknnpGj2c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aa7rUyo8guBjnAI7GaGn7R8L8gWMzmhIDqE+bfDsUaauQPjV7MtHyd9sl5JIH2O0W
-	 EmnejY6y7YP6cN6QcycAffkM7hvu7YpRYmgaqgKs/9zRQq/cCQxzOvgSnGYjCuoDER
-	 InW9IRbWbm3NqySxtY80y2msDifqHyeNtti4xWcU=
+	b=kQqXxlYEXJiHynomqH66L6Dhq85FyzDJThtM69+GdEXCIr13dzT7IqWO82fmo4Ndi
+	 99MPogBcwyURp9iAwW2TSs3W2GSRd3LDD1TcuwkilXV2tLvs0DCu6SB9LqCySB2oPq
+	 KLO2zx/RdBMtzLdD9uCguQ2xyHC5UwKRDNuHNxAQ=
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
-	Anshuman Khandual <anshuman.khandual@arm.com>
+	Kevin Brodsky <kevin.brodsky@arm.com>
 Cc: Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Christoph Lameter <cl@gentwo.org>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V5 0/2] arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
-Date: Wed,  1 Apr 2026 19:13:04 +0100
-Message-ID: <177506718416.2865936.16472759188021766964.b4-ty@arm.com>
+	linux-kernel@vger.kernel.org,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>
+Subject: Re: [PATCH v2] arm64: mm: Use generic enum pgtable_level
+Date: Wed,  1 Apr 2026 19:13:15 +0100
+Message-ID: <177506719514.2866065.11621334581206746232.b4-ty@arm.com>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260309025725.455004-1-anshuman.khandual@arm.com>
-References: <20260309025725.455004-1-anshuman.khandual@arm.com>
+In-Reply-To: <20260318092543.73331-1-kevin.brodsky@arm.com>
+References: <20260318092543.73331-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_191315_755047_6B11F76D 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20260401_111329_223418_7B91C73D 
+X-CRM114-Status: UNSURE (   9.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,23 +73,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 09 Mar 2026 02:57:23 +0000, Anshuman Khandual wrote:
-> This series enables batched TLB flush in unmap_hotplug_range() which avoids
-> individual page TLB flush for potential CONT blocks in linear mapping while
-> also improving performance due to range based TLB operation along with less
-> synchronization barrier instructions.
+On Wed, 18 Mar 2026 09:25:43 +0000, Kevin Brodsky wrote:
+> enum pgtable_type was introduced for arm64 by commit c64f46ee1377
+> ("arm64: mm: use enum to identify pgtable level instead of
+> *_SHIFT"). In the meantime, the generic enum pgtable_level got
+> introduced by commit b22cc9a9c7ff ("mm/rmap: convert "enum
+> rmap_level" to "enum pgtable_level"").
 > 
-> It also now rejects memory removal that might split a leaf entry in kernel
-> mapping, which would have otherwise required re-structuring using the break
-> before make (BBM) semantics. But kernel cannot tolerate BBM, so remapping to
-> fine grained leaves would not be possible on systems without BBML2_NOABORT.
+> Let's switch to the generic enum pgtable_level. The only difference
+> is that it also includes PGD level; __pgd_pgtable_alloc() isn't
+> expected to create PGD tables so we add a VM_WARN_ON() for that
+> case.
 > 
 > [...]
 
-Applied to arm64 (for-next/hotplug-batched-tlbi), thanks!
+Applied to arm64 (for-next/misc), thanks!
 
-[1/2] arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
-      https://git.kernel.org/arm64/c/48478b9f7913
-[2/2] arm64/mm: Reject memory removal that splits a kernel leaf mapping
-      https://git.kernel.org/arm64/c/95a58852b0e5
+[1/1] arm64: mm: Use generic enum pgtable_level
+      https://git.kernel.org/arm64/c/5e0deb0a6b4e
 
