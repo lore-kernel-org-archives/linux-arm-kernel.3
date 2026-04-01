@@ -4,101 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8CD91076386
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 17:21:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01BB010F6FDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 17:22:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xRjgi7X8w6QRX0cUFldVO+VrLC3dS8dmIIbxga6CDgE=; b=Jqph6bDRyVjiFE/reHHB764tBF
-	0ZN58mFsla+bh9EGZAcoErzJtx+w9fq9QHiZ343FRKkundD60rQ4+jboBX5qvhh0h8+T4e5Fk2Q1R
-	0t22d5qWdLw/7AhgAySB0fP7P6xiXqEQTl6uHsGJodn4lD2Wr5Zlf9CHdIgY/KKjgVm/YfquDPQZa
-	0IsrMAGDG26IlZwe443XrUzUQ3zkbu07nScPNPc1Y2PzPmDP3une3UnCKNZYd+pI0QUE+JyRsptBR
-	a9MJ8eENeliVjG4C+666cAyl8z9C2IklXgJ2ItWy21Slq9AnldWtgo+ZRI0j/9uRH8UR1PybM+Dse
-	/elYgrLA==;
+	bh=8FK7OAZJnMRvfLsIQNwvSj1elKc0MV4FPgcgTqTFOq0=; b=fyfNzZJTheDwl7kHUGpqkSrmm9
+	CmmMxW82MpLvpL418ON9BINc55uAEBHgIwI1lOIaY5CkYWc9bWf1gsSaozpohz9YxrUKqfseuy8Vb
+	q3aW6eJwGrVZOXwZupCslZxaepNGZ82U+WMnqo/5axmhZLemYSC1Br633PTNp7G0sVvPdY9zflBm9
+	7yaXBbsSZcPD7fOc1mFS7mByu14knFWu3oLNP0aoi3mqgMnqECdgCWYu0Z5RYjmN0aK4yDkRTfUv8
+	wveKOXnVYFXXnNpAjsQfqMspUrKof0rO4OOhtCtzhnUPmGR0X2RMKMrIyJAZOOaSf/8ZtNntL2kxV
+	mEtnPx+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7zFT-0000000Fq2C-1lSl;
-	Wed, 01 Apr 2026 17:20:59 +0000
+	id 1w7zGc-0000000Fq8Q-42fD;
+	Wed, 01 Apr 2026 17:22:10 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7zFR-0000000Fq24-31bn
+	id 1w7zGb-0000000Fq8G-48t2
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 01 Apr 2026 17:20:57 +0000
+	Wed, 01 Apr 2026 17:22:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=xRjgi7X8w6QRX0cUFldVO+VrLC3dS8dmIIbxga6CDgE=; b=isgHHngOXDFNsg2Rq6xMQrKuBx
-	4P+IH07dnv8637nhd1WUMZE6M46wtdhQWV5JrmuSLMWJw4uItEYb65s/6TomQiFxw2woouxcA/FoH
-	DaIlWRyDBh3Z4uM0ZjvfDLbfwK9sx1iP2hVIcffMMu2809ViywrhyjexqT+6uuHEQU1eRok975Mpi
-	n1e1qeNcdcyKDEBUBDWEDOe8sZ398nhjCsp8AT2Dxgup9pC/fG4Dm0CyPTUniNB0nSQbYHh3mfabi
-	2kQhIeGJGmI0Z5kzwxzhi9jzu7huRQWz4FA+hKrlKRt6X7i4Z0uI2+Sb7xF04nYr3d9NRGX06pztX
-	xJkfJWDA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7zFO-00000000zot-1Z5T
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=8FK7OAZJnMRvfLsIQNwvSj1elKc0MV4FPgcgTqTFOq0=; b=fi1PEGfXS5pSWO7HRXIUzKiGwb
+	XCO03nYh93giyuQLfn5H2/mUvGSW4AFPliuKz0pWIvneiL/M7rzY8FEV0NiHLLMh6cKCD019Teh78
+	e1MTxQrPK6gj0hLUZ6gJJE3vlBto81C43GAn7ExoKVPWHIcImhsycQz08vW5wUCYRgZbUFiN07rGk
+	hjMLx7wClThvKH8dhLMT7p7GgqiZybuhlOwxRRTfq4fUSShuSKiAD0hWPT1T6xGSmg9qnVME+IED2
+	2+gQz6S44v8rjhfdKNySDmChxxIV5nAn1RMG9dMwsXrq/zhT5+qlNZ8GxmPzip1Z8z5E6RBPMfd56
+	aufHvBYw==;
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w7zGZ-00000000zyg-0GN9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 17:20:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2F1132C7
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Apr 2026 10:20:46 -0700 (PDT)
-Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5BF273FAF5
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Apr 2026 10:20:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775064052; bh=jso9ol/BwsazpOhcwBaDQGk6Irh//4G6BIQJqtlE/t4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T0AaxZgcHcloo6AoLwRZGmEHa/b4NXtbei2iQbdjioqYAreChqIbvDJ0U4rmknt0b
-	 3cTWXmpOF8enQBkl4xSkPXuZBRjTznnJTnKKxFtbThisxo1Upbep2LmM9NRaMyjmCW
-	 OUalBVLmXKMQxOV7KEWIrZqs6PNZhGWkrwEmYacY=
-Date: Wed, 1 Apr 2026 18:20:27 +0100
-From: Liviu Dudau <liviu.dudau@arm.com>
-To: Guangliu Ding <guangliu.ding@nxp.com>
-Cc: "Daniel Baluta (OSS)" <daniel.baluta@oss.nxp.com>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Steven Price <steven.price@arm.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Jiyu Yang <jiyu.yang@nxp.com>
-Subject: Re: Re: Re: Re: [PATCH 1/2] dt-bindings: gpu: mali-valhall-csf:
- Document i.MX952 support
-Message-ID: <ac1T282yvpdAp_TP@e142607>
-References: <20260331-master-v1-0-65c8e318d462@nxp.com>
- <20260331-master-v1-1-65c8e318d462@nxp.com>
- <acva1Xt8V4k9-uG8@e142607>
- <AM0PR04MB47073E9E8B5C704BCF5D9F72F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
- <99a1da55-d6e5-4d11-abaa-8c85283ab5f2@oss.nxp.com>
- <AM0PR04MB4707B3E37DFE7AEE587DBA2AF350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
- <aczv0R0aQRmHKdvt@e142607>
- <AM0PR04MB4707335CC7035232D44E6ED9F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
- <ac05OpEMjKMd8CXy@e142607>
- <AM0PR04MB4707604AF2C445971C7474EFF350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+	Wed, 01 Apr 2026 17:22:08 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-488879dcbc3so6255e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 10:22:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1775064125; x=1775668925; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=8FK7OAZJnMRvfLsIQNwvSj1elKc0MV4FPgcgTqTFOq0=;
+        b=GIV+t3Q+UtWB9t0Uj8Gh9d8LWIicoKwzj26ltGLAnCb4r/w4rIePRPab4XVfFh4AY+
+         3PnltCWWD1VUMZVCXVV+2eZvf9CGETcdZ4nGC2uZPIVr8dPzOomGhBui/S5U3LFKyZiI
+         jO1BXS59+YUzTJ8fHGCYOcNsQ5twnVSC/vx9CuFB3BoA/hnDaSnBrmNdQ65gesk0Ui4H
+         1Wmn/p3LnM0rWv+9LmPs+NHcng8MyS4mfEdL6kKouqCcZFyALIjRjCiEeCUNb4jTfGZB
+         xYHO09BEu0zmKhM30uNbKW/9r5Dfv/KCF16T1f8V44YhkOF3bJM2DLtPNnbL/oGDGA/5
+         6NsA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775064125; x=1775668925;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8FK7OAZJnMRvfLsIQNwvSj1elKc0MV4FPgcgTqTFOq0=;
+        b=Hq9ptGt9/UC/UiUreTIOADq1XEtgzPZAZq9L/nivi/oxOaMC8404vOAnVJwMzWGS1C
+         rWFvcvktrsbsf2KaN11rJiCM+5Fllp0zGO9s4s55SJQXzhd8oQMAgXvOej5wGA/bPa+T
+         A3aHPB7Mrfx4rTg4xiCgj2W6bsukMuJ0KA72izpvZojuQ71RofIwdn6weSmy3EGYaUN9
+         zS5yLVNGGJOt3FrFeW3ZexhIdENlMHF43uHiXg8vPqVjUY/vnTQNr1XjJmU8vJa0xU/y
+         5T0uEuOiHoTd64sHMbGmsWtptFM4l4SV/LK2eEXkPp3jG2BfFmbVU7f6YeloouTBXmEv
+         9Vag==
+X-Forwarded-Encrypted: i=1; AJvYcCX6WMoJHaJW7dJBpFWkmDi1JH10nZi0g5GRNyZUL7PcWjwgxQ2ETv/UtoDaQCVQsco0pSjnFck45xFSJAAv1dAN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz148WlOMyIa3Rqw26XX0LjQDg56uIBQV6y1aKpmYyP04WP7Arq
+	ytLJwEor4/EfjG+tJZbOzAZBGTqm8tPjrJI0BAN7T5zoHqMOIheON7L0mnYGNI6tRA==
+X-Gm-Gg: ATEYQzxgePLfhOpS+LORVLiHcuRVopZgchZrQ5B4rRSe1DB/fbtLLHk9s+OMqlZQSHs
+	mjb8s7lPPwun/mXY2yy0C5+O5+1YapYydr6Z+kJabKphYu7YbacocHYEyDWl/tDjQxnu78ZhpKB
+	1KFXdsrEz+seeb4y16WZazYN9ozh1JQ+C5L5IPSsaDsfFz8mJETPqOq6MvcZ2nCaXgJDNEywnXj
+	TFoHgQPlXhpl9fY/IAKTyNqrJu2b1FfXRp4CTWP6GAQraodzj95eEcmC1zrahpyzoXTlDJjALk9
+	ivRJaeEG+20YcQgjbNhAukLUucgt3PZuhCQwcpv1pfravSC1kFWXqbsXfrW2C69fxI6dh7kQa2/
+	0EwxSPQgUSW24bas0dFPCLHFJ6K5ABcQGl7JGT2lbnL84/OSEZEZeV9TjeiYrHKkn70LgUASWhd
+	7tiogDKbDDUNJMtDKEK5N2hKiU3ubrhiqDQcEsMUSyVg+2zqgy3SzjDCMbp9+0jrHvTS8=
+X-Received: by 2002:a05:600c:d8:b0:486:fd5a:18db with SMTP id 5b1f17b1804b1-4888b7a1471mr37475e9.11.1775064124308;
+        Wed, 01 Apr 2026 10:22:04 -0700 (PDT)
+Received: from google.com (209.13.205.35.bc.googleusercontent.com. [35.205.13.209])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4887c8ee2d3sm49918275e9.32.2026.04.01.10.22.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Apr 2026 10:22:03 -0700 (PDT)
+Date: Wed, 1 Apr 2026 17:21:58 +0000
+From: Sebastian Ene <sebastianene@google.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: catalin.marinas@arm.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	android-kvm@google.com, joey.gouly@arm.com, korneld@google.com,
+	mrigendra.chaubey@gmail.com, oupton@kernel.org,
+	perlarsen@google.com, suzuki.poulose@arm.com, will@kernel.org,
+	yuzenghui@huawei.com
+Subject: Re: [PATCH] KVM: arm64: Pass a 64bit function-id in the SMC handlers
+Message-ID: <ac1UNj7Z1uVL4Nf6@google.com>
+References: <20260401123201.389906-1-sebastianene@google.com>
+ <86341e4to0.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <AM0PR04MB4707604AF2C445971C7474EFF350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+In-Reply-To: <86341e4to0.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_182054_747959_5534CCB5 
-X-CRM114-Status: GOOD (  54.63  )
+X-CRM114-CacheID: sfid-20260401_182207_259708_C09A784F 
+X-CRM114-Status: GOOD (  20.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,151 +117,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 01, 2026 at 03:59:23PM +0000, Guangliu Ding wrote:
-> Hi Liviu
-> 
-> > On Wed, Apr 01, 2026 at 10:31:01AM +0000, Guangliu Ding wrote:
-> > > Hi Liviu
-> > >
-> > > > On Wed, Apr 01, 2026 at 09:43:12AM +0000, Guangliu Ding wrote:
-> > > > > Hi Daniel
-> > > > >
-> > > > > > On 4/1/26 11:48, Guangliu Ding wrote:
-> > > > > > > [You don't often get email from guangliu.ding@nxp.com. Learn
-> > > > > > > why this is important at
-> > > > > > > https://aka.ms/LearnAboutSenderIdentification
-> > > > > > > ]
-> > > > > > >
-> > > > > > > Hi Liviu
-> > > > > > >
-> > > > > > > Thanks for your review. Please refer to my comments below:
-> > > > > > >
-> > > > > > >> On Tue, Mar 31, 2026 at 06:12:38PM +0800, Guangliu Ding wrote:
-> > > > > > >>> Add compatible string of Mali G310 GPU on i.MX952 board.
-> > > > > > >>>
-> > > > > > >>> Signed-off-by: Guangliu Ding <guangliu.ding@nxp.com>
-> > > > > > >>> Reviewed-by: Jiyu Yang <jiyu.yang@nxp.com>
-> > > > > > >>> ---
-> > > > > > >>>
-> > > > > > >>> Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.y
-> > > > > > >>> aml
-> > > > > > >>> | 1
-> > > > > > >>> +
-> > > > > > >>>  1 file changed, 1 insertion(+)
-> > > > > > >>>
-> > > > > > >>> diff --git
-> > > > > > >>> a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf
-> > > > > > >>> .yam
-> > > > > > >>> l
-> > > > > > >> b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.
-> > > > > > >> yaml
-> > > > > > >>> index 8eccd4338a2b..6a10843a26e2 100644
-> > > > > > >>> ---
-> > > > > > >>> a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf
-> > > > > > >>> .yam
-> > > > > > >>> l
-> > > > > > >>> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall
-> > > > > > >>> +++ -csf
-> > > > > > >>> +++ .yam
-> > > > > > >>> +++ l
-> > > > > > >>> @@ -20,6 +20,7 @@ properties:
-> > > > > > >>>            - enum:
-> > > > > > >>>                - mediatek,mt8196-mali
-> > > > > > >>>                - nxp,imx95-mali            # G310
-> > > > > > >>> +              - nxp,imx952-mali           # G310
-> > > > > > >> Can you explain why this is needed? Can it not be covered by
-> > > > > > >> the existing compatible?
-> > > > > > > There are functional differences in GPU module (GPUMIX)
-> > > > > > > between
-> > > > > > > i.MX95 and i.MX952. So they cannot be fully covered by a
-> > > > > > > single existing
-> > > > compatible.
-> > > > > > > On i.MX952, The GPU clock is controlled by hardware GPU auto
-> > > > > > > clock-gating mechanism, while the GPU clock is managed
-> > > > > > > explicitly by the
-> > > > > > driver on i.MX95.
-> > > > > > > Because of these behavioral differences, separate compatible
-> > > > > > > strings "nxp,imx95-mali" and "nxp,imx952-mali" are needed to
-> > > > > > > allow the driver to handle the two variants independently and
-> > > > > > > to keep room for future
-> > > > > > divergence.
-> > > > > >
-> > > > > >
-> > > > > > This information should be added in the commit message
-> > > > > > explaining why
-> > > > > >
-> > > > > > the change is needed.
-> > > > > >
-> > > > > >
-> > > > > > But then where is the driver code taking care of these diferences?
-> > > > > >
-> > > > >
-> > > > > Yes. Currently the driver does not require "nxp,imx952-mali" string.
-> > > > > However, when GPU ipa_counters are enabled to calculate the GPU
-> > > > > busy_time/idle_time for GPU DVFS feature, they will conflict with
-> > > > > the hardware GPU auto clock‑gating mechanism, causing GPU clock to
-> > > > > remain
-> > > > always on.
-> > > > > In such cases, ipa_counters need to be disabled so that the GPU
-> > > > > auto clock‑gating mechanism can operate normally, using
-> > "nxp,imx952-mali"
-> > > > string.
-> > > >
-> > > > OK, I understand that you're following guidance from some other
-> > > > senior people on how to upstream patches so you've tried to create
-> > > > the smallest patchset to ensure that it gets reviewed and accepted,
-> > > > but in this case we need to see the other patches as well to decide
-> > > > if your approach is the right one and we do need a separate compatible
-> > string.
-> > > >
-> > > > If enabling GPU ipa_counters causes the clocks to get stuck active,
-> > > > that feels like a hardware bug, so figuring out how to handle that
-> > > > is more important than adding a compatible string.
-> > > >
-> > > > Either add the patch(es) that use the compatible to this series in
-> > > > v2, or put a comment in the commit message on where we can see the
-> > driver changes.
-> > > >
-> > >
-> > > According to discussions with the GPU vendor, this is a hardware
-> > > limitation of Mali-G310 rather than a hardware bug, and it has been
-> > > addressed in newer Mali GPU families.
+On Wed, Apr 01, 2026 at 03:55:11PM +0100, Marc Zyngier wrote:
+> On Wed, 01 Apr 2026 13:32:01 +0100,
+> Sebastian Ene <sebastianene@google.com> wrote:
 > > 
-> > I represent the said GPU vendor and I think I know what you're talking about,
-> > but you're taking the wrong approach. All G310s have a problem where in
-> > order to enable access to the ipa_counters the automatic clock gating gets
-> > disabled. So the solution that needs to be implemented when we add support
-> > for IPA_COUNTERs will apply to all GPUs, not just MX952.
+> > Make the SMC handlers accept a 64bit value for the function-id to keep
+> > it uniform with the rest of the code and prevent a u64 -> u32 -> u64
+> > conversion as it currently happens when we handle PSCI.
 > 
-> Yes. We have bring-up G310 (V2) GPU on both i.MX95 and i.MX952. And auto clock 
-> gating mechanism is firstly introduced in i.MX952 (not supported on i.MX95).
-> According to your update, solution needs to be implemented to all GPUs which support 
-> auto clock gating mechanism after IPA_COUNTERs are supported in the driver, right?
+> That seems overly creative. The spec says (2.5, from ARM DEN 0028 1.6
+> G):
 
-A solution is needed, yes.
+I'm not plannig to be *overly creative*. Thanks for pointing out the ARM
+spec.
 
-> What's your suggestions for 952 gpu dtb node?
+> 
+> "The Function Identifier is passed on W0 on every SMC and HVC
+> call. Its 32-bit integer value indicates which function is being
+> requested by the caller. It is always passed as the first argument to
+> every SMC or HVC call in R0 or W0."
+> 
+> which indicates that it is *always* a 32bit value.
+> 
+> So if you have a 64bit value somewhere, *that* should be fixed, not
+> propagated arbitrarily.
 
-There is no IPA_COUNTER use in Panthor at the moment. Unless your DVFS controller uses
-that, I would suggest that we don't introduce a compatible for 952 until the time we
-add support for reading the counters.
+If you have a non SMCCC call that happen to have the first 32-bits of
+the function-id matching either PSCI or FF-A you will end up handling
+them instead of forwarding it to Trustzone because func_id is declared as:
 
-It helps if you think in terms of what is already in upstream, rather than mixing with
-the tests that uses kbase code. Does your hardware need extra code in upstream in order
-to function? If so, where is that code? If not, then let's not introduce the compatible
-until we are absolutely sure we need it because we have code specific to that SoC. For
-everything else we will implement an architecture fix if needed.
+DECLARE_REG(u64, func_id, host_ctxt, 0);
 
-Best regards,
-Liviu
+> 
+> Thanks,
+> 
+> 	M.
+>
+> -- 
+> Without deviation from the norm, progress is not possible.
 
--- 
-====================
-| I would like to |
-| fix the world,  |
-| but they're not |
-| giving me the   |
- \ source code!  /
-  ---------------
-    ¯\_(ツ)_/¯
+
+Thanks,
+Sebastian
 
