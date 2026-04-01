@@ -4,92 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 301A6D35144
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 06:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989EED3514D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 07:00:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xxkp1ZlgbWnhqpwUcYGXNeQglKO+uFOaAFqFyvLy394=; b=Sb0ib8X2zmPJvLXjyLPPe5oQAj
-	btQubSDG7xcpriCIy1Xovr07YB4EmsADkzQ4cbhJeM9FISzBod/OKfOI2IY/d9IN49iRm1Qn9y9tY
-	qk6vIF0VZM0SIJYH09KP8mqSwTUiOhVOzAg3q5B0jVy+ajrGQ34efS5EdrEY0C/gJuhsOR5zXdGcY
-	fuLTMNk5il53Tl282dae4nxh55apeLuQdEdiav6EVCvCLReqEv6suHlB+hVqXtbythnKtayywV4Zn
-	Nw5FhwbH1HNF45l2dzWmL/dBuSpbskb2lRokKw5z93oOWQtzGPFcYO6cGFcuKQOPVrRF6qbwVExOe
-	OIDbtkjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=le+EgAUwDVQurs9zi9zKKtauIBjk9pzxlau65VU9EC0=; b=AESLviDrrrv1H4
+	bbcmL8QS1oaIfa6vuSftzUW8RN2zQx0O8V0/qrw8gjPjFXPZRhoBOukCiTUV9D+gGMsMvMcyq2xvY
+	age8RKDsRKht6MrOlehO4REp7Ft61qGGSy5+efvFVZnS0hXamj+wsRLeJp26JXXQgBLqwY//ASJlv
+	9cQ0hhlhLLztyomR5YUBKLrNfLCm7shs7q0EmUCfE4YwrYF2iwIZWmeVccaZuyccDNO4IXk8+sJy7
+	hsedknXyRrI5QBkmbWdjQ//hj5pLlc2bjYzVueNoKf67KeDiONbxM8TLHbVIusfdvuQnfs95RTm0n
+	W3ABaIs84ErOVdczvDXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7pWO-0000000E8qZ-2gPx;
-	Wed, 01 Apr 2026 06:57:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w7pYa-0000000E8zU-0FzB;
+	Wed, 01 Apr 2026 07:00:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7pWL-0000000E8qE-42n8
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 06:57:47 +0000
+	id 1w7pYY-0000000E8zL-3RWS;
+	Wed, 01 Apr 2026 07:00:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 29C48404D1
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Apr 2026 06:57:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3520C19423;
-	Wed,  1 Apr 2026 06:57:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 848DC600AD;
+	Wed,  1 Apr 2026 07:00:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DFC6C4CEF7;
+	Wed,  1 Apr 2026 06:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775026665;
-	bh=RNdUik6TjbyGhb6unGHczt6oHQzdTiA5XXduOoNpS6M=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=t5dMmES7g+Yo0xGsg9xg6PzGk1qKTSHD8FKn6ImpnF6Q28onXkAMa8kCpTQlzkYxk
-	 EwZkuJ9lbrGSlU60/hui1S6oFD0ROoL24YTYSSBBfWGN5qyLADizbeMi3SaT4HAX3e
-	 3sF6gYo0ThApX/eyzcrZdOSdTocBRkCMmewIiW/ZCkbTjDolTf+25o1xE7U1SBGfL7
-	 hkclV2i2djRnIC4HYMYY77Ic/ngCbdkE6eeSPwTjEVdn4yk6Lj6q+0d3TsxvHdcFKj
-	 MB5BKReQ1Drao8RB/BGeQEQK+sWag+tlBim86xoflkRrdficFYkvTBga2qbC/zlBff
-	 S2IVLG7ETvVKw==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id BC705F40080;
-	Wed,  1 Apr 2026 02:57:43 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Wed, 01 Apr 2026 02:57:43 -0400
-X-ME-Sender: <xms:58HMaaX3BvCkhu4E7btKqvpqeBRBTkkEK6BbQt2vDrKF9Sno8JvReQ>
-    <xme:58HMaRaDILMdGvCpw_h7-AfE8w1n7QftxparP40_-n-3knykbk1Mmag-HDwuEPoSW
-    SnoEXVYcahEQqPNvau057g_YptkAnm4P0Lf2Aqb1-jxxP8K1Q9wJ20>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddvgeehucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
-    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
-    epofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcuuehi
-    vghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrghtth
-    gvrhhnpedvueehiedtvedtleekuddutefgffdtleetfeetveejveejieehfefhjeeijeef
-    udenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
-    guodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieejtdehtddtjeelqdef
-    fedvudeigeduhedqrghruggspeepkhgvrhhnvghlrdhorhhgseifohhrkhhofhgrrhgurd
-    gtohhmpdhnsggprhgtphhtthhopeegpdhmohguvgepshhmthhpohhuthdprhgtphhtthho
-    peguvghmhigrnhhshhesghhmrghilhdrtghomhdprhgtphhtthhopegvsghighhgvghrsh
-    eskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghl
-    sehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqtg
-    hrhihpthhosehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:58HMaffov1of8JNuHMN4oOxsHFNxSxWtDF3-qvRP1QWE_I-HptSNww>
-    <xmx:58HMaQppTlMbBH2euTNr0rKhLClv-OxbZzZFM5tmg71hN90MXYhP6w>
-    <xmx:58HMacDI5PMUgwJHLm-NvmSMoDoJcWk7plETcj4gWsuXaeGcpcZZ8g>
-    <xmx:58HMaVbg8hCTBb-N592BhE8KskDO9brbEXrFJrdSXOtP9LsAspaLGQ>
-    <xmx:58HMaX5bUXNzsaX815sclL6u6prvohGQto4K0BBKWez3iEeF78XHt6zv>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 9D820700065; Wed,  1 Apr 2026 02:57:43 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	s=k20201202; t=1775026801;
+	bh=4HoH/phdBrc8oyL9BAmfrv1hLzyLn1XUdnpO9xKGt0A=;
+	h=From:Subject:Date:To:Cc:From;
+	b=KMHR94DgfRfOsfxuCdVVQP2+x0xQMgUCkKVaQ81WrDYnarnEtMItaUpDVYAYil9tF
+	 DXanx74oixguSoHPe8XgMxIpsWv2hz/L2eckJm7zW7r9couPmi8qJL4Uw1zdhDnuM9
+	 mdk/l2Lcw9gvPUrS+6JKCltA/PSW+2AERYiHyy87dq0ynJvZ7aLB5JIjJHWpaYYDoB
+	 bFHTu4EHd+hnpXEHWdQ2rSdyURSpvJV3l2I4zuMqmysnGKIaBRzrUYO/oqN6bGkXeH
+	 W4B3k5YSUEQaFzD1fbzdsVQiYsYETySEdt3NsD4tHAfrFRpXx434u71PxTmv9pc4p9
+	 aCrfz3qi1Wh8A==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH net-next v2 00/11] net: airoha: Support multiple
+ net_devices connected to the same GDM port
+Date: Wed, 01 Apr 2026 08:59:18 +0200
+Message-Id: <20260401-airoha-eth-multi-serdes-v2-0-ac427ae4beeb@kernel.org>
 MIME-Version: 1.0
-X-ThreadId: Aics4N9pNpZs
-Date: Wed, 01 Apr 2026 08:57:23 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Eric Biggers" <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- "Demian Shulhan" <demyansh@gmail.com>
-Message-Id: <232d35ea-433b-4eef-86e7-5cfb9f033bf5@app.fastmail.com>
-In-Reply-To: <20260331223300.GA45047@quark>
-References: <20260330144630.33026-7-ardb@kernel.org>
- <20260330144630.33026-8-ardb@kernel.org> <20260331223300.GA45047@quark>
-Subject: Re: [PATCH 1/5] lib/crc: arm64: Drop unnecessary chunking logic from crc64
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260331_235746_065600_D409F8F6 
-X-CRM114-Status: GOOD (  12.73  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNQQ6CMBBFr0Jm7ZhSaI2uvIdhUWCgE7ElbSUYw
+ t1tiFuXLy///Q0iBaYIt2KDQAtH9i6DPBXQWeNGQu4zgxRSi0rWaDh4a5CSxdd7Sow50FPEoa1
+ bpTTRRWnI6znQwOtRfoCjhI7WBE02lmPy4XNcLuXhf/Xr3/pSokAhBiX7rtKiM/cnBUfT2YcRm
+ n3fv5vISCTJAAAA
+X-Change-ID: 20260324-airoha-eth-multi-serdes-fb4b556ee756
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Christian Marangi <ansuelsmth@gmail.com>, 
+ Benjamin Larsson <benjamin.larsson@genexis.eu>, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ Xuegang Lu <xuegang.lu@airoha.com>
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,34 +79,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+EN7581 or AN7583 SoCs support connecting multiple external SerDes (e.g.
+Ethernet or USB SerDes) to GDM3 or GDM4 ports via a hw arbiter that
+manages the traffic in a TDM manner. As a result multiple net_devices can
+connect to the same GDM{3,4} port and there is a theoretical "1:n"
+relation between GDM ports and net_devices.
 
+           ┌─────────────────────────────────┐
+           │                                 │    ┌──────┐
+           │                         P1 GDM1 ├────►MT7530│
+           │                                 │    └──────┘
+           │                                 │      ETH0 (DSA conduit)
+           │                                 │
+           │              PSE/FE             │
+           │                                 │
+           │                                 │
+           │                                 │    ┌─────┐
+           │                         P0 CDM1 ├────►QDMA0│
+           │  P4                     P9 GDM4 │    └─────┘
+           └──┬─────────────────────────┬────┘
+              │                         │
+           ┌──▼──┐                 ┌────▼────┐
+           │ PPE │                 │   ARB   │
+           └─────┘                 └─┬─────┬─┘
+                                     │     │
+                                  ┌──▼──┐┌─▼───┐
+                                  │ ETH ││ USB │
+                                  └─────┘└─────┘
+                                   ETH1   ETH2
 
-On Wed, 1 Apr 2026, at 00:33, Eric Biggers wrote:
-> On Mon, Mar 30, 2026 at 04:46:32PM +0200, Ard Biesheuvel wrote:
->> On arm64, kernel mode NEON executes with preemption enabled, so there is
->> no need to chunk the input by hand.
->> 
->> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
->
-> There's still similar "chunking" in other arm64 code:
->
->     $ git grep -E 'SZ_4K|cond_yield' lib/crypto/arm64
->     lib/crypto/arm64/chacha.h:              unsigned int todo = 
-> min_t(unsigned int, bytes, SZ_4K);
->     lib/crypto/arm64/poly1305.h:                    unsigned int todo = 
-> min_t(unsigned int, len, SZ_4K);
->     lib/crypto/arm64/sha1-ce-core.S:        cond_yield      1f, x5, x6
->     lib/crypto/arm64/sha256-ce.S:   cond_yield      1f, x5, x6
->     lib/crypto/arm64/sha3-ce-core.S:        cond_yield 4f, x8, x9
->     lib/crypto/arm64/sha512-ce-core.S:      cond_yield      3f, x4, x5
->
-> I thought it was still sticking around, despite kernel-mode NEON now
-> being preemptible on arm64, because of CONFIG_PREEMPT_VOLUNTARY.
->
-> However, I see that support for CONFIG_PREEMPT_VOLUNTARY was recently
-> removed on arm64.  So that's what finally makes this no longer needed,
-> and we can now clean up these other cases too, right?
->
+This series introduces support for multiple net_devices connected to the
+same Frame Engine (FE) GDM port (GDM3 or GDM4) via an external hw
+arbiter. Please note GDM1 or GDM2 does not support the connection with
+the external arbiter.
 
-Indeed.
+---
+Changes in v2:
+- Rename multiplexer in arbiter in the commit logs.
+- Rebase on top of net-next main branch.
+- Add missing PPE cpu port configuration for GDM2 when loopback is
+  enabled.
+- Link to v1: https://lore.kernel.org/r/20260329-airoha-eth-multi-serdes-v1-0-00f52dc360ca@kernel.org
+
+---
+Lorenzo Bianconi (11):
+      dt-bindings: net: airoha: Add EN7581 ethernet-ports properties
+      net: airoha: Set PPE cpu port for GDM2 if loopback is enabled
+      net: airoha: Rely on net_device pointer in airoha_dev_setup_tc_block signature
+      net: airoha: Rely on net_device pointer in HTB callbacks
+      net: airoha: Rely on net_device pointer in ETS callbacks
+      net: airoha: Introduce airoha_gdm_dev struct
+      net: airoha: Move airoha_qdma pointer in airoha_gdm_dev struct
+      net: airoha: Rely on airoha_gdm_dev pointer in airhoa_is_lan_gdm_port()
+      net: airoha: Support multiple net_devices for a single FE GDM port
+      net: airoha: Do not stop GDM port if it is shared
+      net: airoha: Rename get_src_port_id callback in get_sport
+
+ .../devicetree/bindings/net/airoha,en7581-eth.yaml |  44 +-
+ drivers/net/ethernet/airoha/airoha_eth.c           | 631 +++++++++++++--------
+ drivers/net/ethernet/airoha/airoha_eth.h           |  30 +-
+ drivers/net/ethernet/airoha/airoha_ppe.c           |  43 +-
+ 4 files changed, 502 insertions(+), 246 deletions(-)
+---
+base-commit: f1359c240191e686614847905fc861cbda480b47
+change-id: 20260324-airoha-eth-multi-serdes-fb4b556ee756
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
