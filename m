@@ -4,142 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4594E107637E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35228107637E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 13:59:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=10CUdlbAGV6Rnwg/S/TLG48/vXqrrLOUYdNzSEllSW0=; b=1OezdqDuRuXlVBq8p2u7Or2Jzb
-	MyswdRYyNv4xzfFa1/pFjb8s5BAgXGH26Yn020aR8oTg0T+woqhswokYGSK7Gy953JfTvzH+QeXbS
-	ZCTZ0WJEyIzM64ls1P0oB0E1kJpOXo86d80/Zj1UMzQVv4GmahJSTtdRSlMwztZ6Z/PQ1Qo12/eP8
-	MgBYXJUxQ4yqHlu0OuKIEE00flNRvSeT7+OCDxA4hhyzdE4YWMMohE/drWEjiF2n9S00nnsf93flP
-	AJ8L0vjQA+QTG3ruDvwf7tpO2ZHcqBKrf3OimEEAcbwHOoocOB/Hfr4lag1iWPH/nPA5nvrpHfHn/
-	Q8g16l7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	References:From:Subject:Cc:To:Message-Id:Date:Content-Type:
+	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IcB1TXDB3R4KqMqU/4Qj98B3Elk+KRtdA5bl2TAPotE=; b=m60s0MiiPY59QjytuvRkO+FwHQ
+	cs3/H0rklyAg5xDQuXwrtzr6Pmdn/fB+wlQ+Rp+8/5Rdx8pFekIxWsAPMpVkGfkXqeJLIH14oXhkd
+	MEejlck/EnxcpnrJ1buvDTEW3WAydH54cibK+aOFWPFaeq1HLZL7cNwShhMsLda4n/B+tsqnZ19Vu
+	pp38UDQxemKsCOpcUBetXDkdwgoYSPr1SYJVOhiH2ulgxZscUXNKAyI5gsAnZ7UjPH278nPkClBYR
+	T/FN4GUOWmleycL/QYPX+tmwGxgkrSujNLRhewLO27VVBrcmGDVmShQgnvvqMMxIfSebO97Eez7h1
+	xTOdIIVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7w57-0000000FMrh-3Yi3;
-	Wed, 01 Apr 2026 13:58:05 +0000
-Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1w7w6e-0000000FN5A-49vE;
+	Wed, 01 Apr 2026 13:59:41 +0000
+Received: from mail-ukwestazlp170120004.outbound.protection.outlook.com ([2a01:111:f403:c206::4] helo=CWXP265CU010.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7w55-0000000FMrJ-0PqO
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 13:58:04 +0000
+	id 1w7w6b-0000000FN3m-2oZQ;
+	Wed, 01 Apr 2026 13:59:38 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=l955zDDRQwxjwFqe1908rciCY4MoMQfIT9H6rIDz0VsQdvaj75O+9RNZTI1SLuHLfypgW6hkd5fhbf6uwIWk4l2ff0oB76VScMCEW65naoezcjnUKtJN9kOaYX46NuSj1TorQ/DLRh/yWkUlMEM9Erm34cpP0U1oz2jFEI8uY9o8NtR2iktAkRCaI7iJhILbElrXHGSA8P5fH6FQGa6LDv32/AoAajfN1Y93aomhS5N9hdmV/ff6ZwZI83gAKxl5DeeD3ptg2Pk+Ts8zoQzwl8NTusA9VDapSiDmU/B7rgHMYAPdQLjtnfMvOe/ERS666CuRdNOv5n5g+9NT4+0huQ==
+ b=TLe+oZzULe9FPMkkVQFnjCObZVF9eI5RM8vC0wH8ybXiUdnhVpzfrnjKkqzJ0pICAktWWDTKWPYAbcmrhGd9TdbiaxQUk3Q2Iu5Me94VVz/ZVekMPTLu/8jXHepW6+tUZBvnDLzbmQf98prGIdLdcF/emxHyMtFXgYzHm5keSRbQts7rBd/lP+aFAd+qxXQWZnSqwyTaSXWifY2R9HxIjXDh6/fORlW0XU9lE6IcNLG/WXJVNeHxQpfYDqH6uC/QNBiVpFSMeiqcRT7NTeplDlfTnvKpmJl2v/LLJxLMW1HpzA46K5jRYIVolkrt4Pf7sUgtr7v1kB1NvclKdEfuDA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=10CUdlbAGV6Rnwg/S/TLG48/vXqrrLOUYdNzSEllSW0=;
- b=l0KxT5IDvnT1p/wJ00NgbZblBZ/iknJiulXXegQWKYcf7IwZ+UbTeEJzw4csEZUVlMBHJb0d0dZ0PfgAOTWvA9wyb0YE7wZaYVSpvG7sP3fHAS5yW+HsMEAmSiEI1owHUcfVmPO4VDCs0laQ9dhvEfoIfp8L+N+pOjXjIq7h3V/WlsFfiKw75FxF3QXgAaGFbUywOVMsZvP0BhhO4f3vT3RRDdkEoKLLgSQPvOjS06yRqrMqgYrRBmSy/W1gUm8RgjTT7hap5K1cOD0LcDB8ETQllJmsCqmsEUZ1lAskWq3a2v+PvlaBVqE0sK1dZPd7aERRkhPgbaWS46tyPWcq9g==
+ bh=IcB1TXDB3R4KqMqU/4Qj98B3Elk+KRtdA5bl2TAPotE=;
+ b=UDpGsrEyT5iyDCjAk4/Nsp31qbDFGF6SwEtk4FvVT0AKVNk7UuHxJ645BDg1k8NroDzyz8eSPNjFHtUnQviQPvZhhz9VyLl+f+n4uM1qQo46zWHD9COUQ1LlCwxmDSKark7hfK1r9ZVO1xj+F/+qVa6JK/PXPZz73F7pNaOau06/25fapG90tzOaOFi066pbI7B6Ja1rzhS5Ao/Welwx5NZh1iT+4zLAyAItuxMRUISt3w0BTd9HDbBAp147u68qMmMguxGtIIf57rnwANVoWL3lwBJoEAF99OfvSITRYAPCDHZxuI+G+Ql7irptaQq5SKuB8YkbWLKwuGUdwMrOYw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=10CUdlbAGV6Rnwg/S/TLG48/vXqrrLOUYdNzSEllSW0=;
- b=Sh7rv5ZLILCFHFSEGeSRVus9IHUuJ/Fyn5s2rb8SPrvtP4cRKA2uG1l1RWQ6ItJZIvzRyyXR92C9a1y7Z2en2JtXoHv7yHV7srMYKBevwFY+efGZSURn0emrmMXphu+g8asGknBZdJzQuSyZpUtwTYL3we8pIVG1dYagQdvlTyw=
-Received: from IA1PR12MB7736.namprd12.prod.outlook.com (2603:10b6:208:420::15)
- by DM6PR12MB4122.namprd12.prod.outlook.com (2603:10b6:5:214::17) with
+ bh=IcB1TXDB3R4KqMqU/4Qj98B3Elk+KRtdA5bl2TAPotE=;
+ b=CR/yjg0C4FSD9sGmQmQRe+6hSjARo+4fpGpxNOExnhsYmfTXyIloHcpbQ60qFlqOPM73NFX6wnP+Fc0A6uOzxCuzR/vAqizW6tjRGNXStNgJ3ffx6ctBIgvlnMV3X4x9131wZ/78Bom7s/R35Q1mfz/2S7TY/z1DANYaN+k5VVw=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
+ by CWLP265MB3059.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:cb::6) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
- 2026 13:57:55 +0000
-Received: from IA1PR12MB7736.namprd12.prod.outlook.com
- ([fe80::2274:9fed:8f3:8550]) by IA1PR12MB7736.namprd12.prod.outlook.com
- ([fe80::2274:9fed:8f3:8550%5]) with mapi id 15.20.9769.015; Wed, 1 Apr 2026
- 13:57:55 +0000
-From: "Erim, Salih" <Salih.Erim@amd.com>
-To: "Erim, Salih" <Salih.Erim@amd.com>, "Simek, Michal"
-	<michal.simek@amd.com>, Jonathan Cameron <jic23@kernel.org>, Christofer
- Jonason <christofer.jonason@guidelinegeo.com>, "O'Griofa, Conall"
-	<conall.ogriofa@amd.com>
-CC: "lars@metafoo.de" <lars@metafoo.de>, "dlechner@baylibre.com"
-	<dlechner@baylibre.com>, "nuno.sa@analog.com" <nuno.sa@analog.com>,
-	"andy@kernel.org" <andy@kernel.org>, "victor.jonsson@guidelinegeo.com"
-	<victor.jonsson@guidelinegeo.com>, "linux-iio@vger.kernel.org"
-	<linux-iio@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
-	<stable@vger.kernel.org>
-Subject: RE: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
- postdisable for dual mux
-Thread-Topic: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
- postdisable for dual mux
-Thread-Index: AQHcq7dnEu4MVLVXG06oIZXnf3P2bbWjB/QAgARjkoCAIuly8IAABfbwgAALDKA=
-Date: Wed, 1 Apr 2026 13:57:55 +0000
-Message-ID: <IA1PR12MB77369F79026F7BCB1D9C64999F50A@IA1PR12MB7736.namprd12.prod.outlook.com>
-References: <20260304090727.1800289-1-christofer.jonason@guidelinegeo.com>
- <20260307124118.1d527749@jic23-huawei>
- <1166aeef-0c93-408d-b265-9037f2840074@amd.com>
- <IA1PR12MB7736AE6EEE95D5D184A15B9F9F50A@IA1PR12MB7736.namprd12.prod.outlook.com>
- <IA1PR12MB77361978ED21FF22F079034D9F50A@IA1PR12MB7736.namprd12.prod.outlook.com>
-In-Reply-To: <IA1PR12MB77361978ED21FF22F079034D9F50A@IA1PR12MB7736.namprd12.prod.outlook.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_7ab537de-9a15-4e91-8150-78a9f873b18c_ActionId=ca8e4a71-3c93-45d8-8ffd-d61afaf2e605;MSIP_Label_7ab537de-9a15-4e91-8150-78a9f873b18c_ContentBits=0;MSIP_Label_7ab537de-9a15-4e91-8150-78a9f873b18c_Enabled=true;MSIP_Label_7ab537de-9a15-4e91-8150-78a9f873b18c_Method=Privileged;MSIP_Label_7ab537de-9a15-4e91-8150-78a9f873b18c_Name=Third
- Party_New;MSIP_Label_7ab537de-9a15-4e91-8150-78a9f873b18c_SetDate=2026-04-01T13:52:28Z;MSIP_Label_7ab537de-9a15-4e91-8150-78a9f873b18c_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_7ab537de-9a15-4e91-8150-78a9f873b18c_Tag=10,
- 0, 1, 1;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: IA1PR12MB7736:EE_|DM6PR12MB4122:EE_
-x-ms-office365-filtering-correlation-id: 074e620f-5969-420c-74d4-08de8ff6acda
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700021|18002099003|56012099003|22082099003;
-x-microsoft-antispam-message-info: hOeER5+wj939gPVP8evTqgTDpA54jL1LWDLxxHBsRcOJfI5WaeiFM3qeArSCGEQakWY9LUax271XLHNyU994JNoG/KNlYtqYXzBm+LQFWzJLbS9mOZ9OgaDNK2y6fr5DS/u5qkvnOu/hVcEsOF0OynIrzJmn8lijReRVJMmuuU+juihFRZ/t5uDDpeh0PlhRzXzqZYwt+Z5PgFrDyZOHkjMQKgKM7U3jE0+cHKO7XLnhS7cdrW/91peKR2068tTLmoQYtiHosjCTyPqZEliuVQLYl/LGt8j5AB212jpPnVyG/6McK8NPbGo6VchpTihJCmFDzjn37ksR7ZeYBVIn4RGT+YrIbtHksUp+qxAYnZn+XJIRlUJSGe2N2zOD2tuUoa0G9nEhg6aGdvahhqjYNvI5Imn67STXpen8T9F5BrP1ggFzWXAmiaa0pId0TAEkS4ncpdcAfPyCSrWpx6gVb/o6tl/MQsQdI7jKuM1DXBXS+dcPfgmj2PrMCVgmuaOBQpQQpQKJAqZ07ordp1BvWTwYK33GoWa1qKUzuue8iVR6tdmZVmxScyr6vXFJYLIlQ8J/Oh39hzRaZSFZQTwXtS0XGTrUbolvYWIkp/lPj6msuxJv6bVu99VfsPIM/nARgI/GbBpeVGBZrgk2f8w5/CfB8qY5o1sK8jf5SlmQizFcxBKKRjnzZOWjdOxszI5ODFYHvlPRNvP2N/5VM1RY67dvwjkR28Ie0QEhu0xzaBQgGa8vYuE/HGp2J/1qXuu5P0R8/y8ytMeJZ8lksQgB691feObz2MBZp2SuqU1qK+k=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB7736.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?c+r0M6/mMCl+e/Z8h5goCm4KosKF/OOUBmj/GDQq38d8lhr7WJYw4N+viem5?=
- =?us-ascii?Q?perQ+svqL6nWUjvFPd+i2Y62HgakKbP3tWEHrg/Bpts3mCGCpECf13LxvFS8?=
- =?us-ascii?Q?tPCyrdzdDk7GVIuRSsLrF3rV0/olZQcCmFxmDqRPhPSe4rjP4ZcWLyM2/Yj9?=
- =?us-ascii?Q?rSBUMjkdS/+FRsFdTymbwSWEKmJFJGjSg/ZUalRcRbEsJbvPv40hLV8j+GhH?=
- =?us-ascii?Q?30+fp1cIkD5GMXp7u8IcQ9qLFsE2L9zVCMiOIungZFv/5B4EV+raF5bpilIB?=
- =?us-ascii?Q?2pq4K3GhCB3gqcJmsdO7n+OnnjYTIXNTeNuAvCD2ZUFLAyEGAHPM9+UqBFtp?=
- =?us-ascii?Q?Jfv3mbm9lbCcoZTSxMo/x7oRxi+1paidgv6B8PixGve5DVwTKSmgmrdzD+tb?=
- =?us-ascii?Q?zzgsRFwjyjMChM4Rr5/t0mh1AEB2O3t11cK+Ns9dsHzjuVHKsTcnhetJpSW4?=
- =?us-ascii?Q?ihsR0JZpL+5htBmjb9b79VBInBN+w76qvldhUi1+SCCCSHsarwArXE5bRsHv?=
- =?us-ascii?Q?pCrdfUNtBaKQtw/vHXoRK25SyFpVRgHbFO6GKt67GlfS4Pu50L3WL9gzy2D4?=
- =?us-ascii?Q?OPqVdXg0+k4gbCsRj5mSZaYTva9sfREgxHsLVHGfFuZQzMHCEi6YARsIZDun?=
- =?us-ascii?Q?PVI280OPUiXKpwSY4kBqPN5lKlVvbOKFETmHj9BmIEAZoE5FMlAJYgjbd0l4?=
- =?us-ascii?Q?zDNb5wzl66sIKvbuNGPk5xCBy0dDqhEwzOL/2uVOlWUKa42vLy3K66nOgMYl?=
- =?us-ascii?Q?/8BgWdT3A7lSzd/2GYPbaIWDpiubI6EJcEGbWwX9R3tb3TZ5CJJPxDv6P6px?=
- =?us-ascii?Q?z1JDxywwP+htcy++OaV61jC6SGiZ8IOdKNV0gUr4wacsZEkHTiBlo5qeOww4?=
- =?us-ascii?Q?EBkY8DtynWGQSaCuyUhc0KEMT4DYFY3V0cW+Zl03K6mbUaKMx0jiWiQeB7sh?=
- =?us-ascii?Q?1fie0AYHMMSNuGY4cGpPl+DfaBB9VpzTdeELQxUReojUUO2fF0zb5x1ni1kd?=
- =?us-ascii?Q?UZxmB7T+9ACF5SpzdmZjPHke15fFhffTtoPFVmEu8ys4T47u1ilDkiek/BS3?=
- =?us-ascii?Q?HIs0UFPwU6wA0no+PQAR1NMC7rDsgus3YTRLxY8LFMmx+GoiRZaOcVoHfR/D?=
- =?us-ascii?Q?z3+nSPnwGwDjKe3LYTz7CVWPVg6Q7PXzYUyEIyn/MLG4rcU87sc73ctkOP2C?=
- =?us-ascii?Q?7VQ1ogfNui1tCFIA/Q2f5vQC8EW4FKoCcYJx4UgjYCT5OnKgKZUxOhp778X0?=
- =?us-ascii?Q?OUxuQqPcTARTcnZZ9z1YFTsd/Ds/F01kSdYUq3QkrTfoIQBeNOxy5FLPjoh2?=
- =?us-ascii?Q?0P+gFWJMTbgW8vq36jhJs4asv2d3ohz6t70KRvKuZuS53c/7A2Hbt4wBKMJe?=
- =?us-ascii?Q?VhexRcoT7b4mo/sMIwy+uUeB9TlKHbC3O1BywikVYd3I+5lX/ZUbp9cbvKju?=
- =?us-ascii?Q?38U699Jb5QOjRnjSzY++meJf3SXeTbl4O2cHh69P73XQsPLu0XTyVIQsKBFk?=
- =?us-ascii?Q?AuRg3ciskUAp7Fyr/VmmrPXnwwBUSo4ICAsPTn8NpAWYTndVsSQtNr6TtnuU?=
- =?us-ascii?Q?hWGvdwJObHr+/nVSaujIhdOkeVW6wYRhS7eDmPORwHfEUEaLjhar8OUTQ3lY?=
- =?us-ascii?Q?a+w6rZ7yiHAMSnrF5T+OVJtKEFMjDy7T65arXbDoQjykGCsn9+ECEK6uWr0P?=
- =?us-ascii?Q?wxkZzKx4MFtyDBzNOOCn4z0ptTIkVsJl/k0OOojnvD5lFxOb?=
-Content-Type: text/plain; charset="us-ascii"
+ 2026 13:59:30 +0000
+Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1c3:ceba:21b4:9986%4]) with mapi id 15.20.9769.014; Wed, 1 Apr 2026
+ 13:59:30 +0000
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 01 Apr 2026 14:59:29 +0100
+Message-Id: <DHHVEPJHLGDW.1E6KDP9BUFG5U@garyguo.net>
+To: "Miguel Ojeda" <ojeda@kernel.org>, "Nathan Chancellor"
+ <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Danilo Krummrich"
+ <dakr@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Paul
+ Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
+ Ou" <aou@eecs.berkeley.edu>, "Alexandre Courbot" <acourbot@nvidia.com>,
+ "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
+ "Brendan Higgins" <brendan.higgins@linux.dev>, "David Gow"
+ <david@davidgow.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, "Todd Kjos"
+ <tkjos@android.com>, "Christian Brauner" <christian@brauner.io>, "Carlos
+ Llamas" <cmllamas@google.com>, "Alice Ryhl" <aliceryhl@google.com>,
+ "Jonathan Corbet" <corbet@lwn.net>
+Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
+ <rust-for-linux@vger.kernel.org>, <linux-kbuild@vger.kernel.org>, "Lorenzo
+ Stoakes" <lorenzo.stoakes@oracle.com>, "Vlastimil Babka"
+ <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ "Uladzislau Rezki" <urezki@gmail.com>, <linux-block@vger.kernel.org>,
+ "moderated for non-subscribers" <linux-arm-kernel@lists.infradead.org>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>,
+ <nouveau@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>, "Rae
+ Moar" <raemoar63@gmail.com>, <linux-kselftest@vger.kernel.org>,
+ <kunit-dev@googlegroups.com>, "Nick Desaulniers"
+ <nick.desaulniers+lkml@gmail.com>, "Bill Wendling" <morbo@google.com>,
+ "Justin Stitt" <justinstitt@google.com>, <llvm@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, "Shuah Khan" <skhan@linuxfoundation.org>,
+ <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH 08/33] rust: kbuild: simplify `--remap-path-prefix`
+ workaround
+From: "Gary Guo" <gary@garyguo.net>
+X-Mailer: aerc 0.21.0
+References: <20260401114540.30108-1-ojeda@kernel.org>
+ <20260401114540.30108-9-ojeda@kernel.org>
+In-Reply-To: <20260401114540.30108-9-ojeda@kernel.org>
+X-ClientProxiedBy: LO4P265CA0157.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:2c7::14) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:488::16)
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|CWLP265MB3059:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5402742a-fe9a-4239-c8f6-08de8ff6e57c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|10070799003|13003099007|921020|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: lJLHUhEuXuBUra1C2X2buN4XN4SEaPuxxGVCL+yUAfb+4Qf34e97t5m4t+Au5la7hkzi813vDD+GtkZpLuHSlREzWE3cQ2XKFqJ0okEEy2rD4T6OuyuKYJZvFWYg87heKp8TQd3ovfzSaxHavpmkWbZoWTQOdJlvV8j33iAgPv9s+Ecdl7r34nNDQ6Sw8E76WzlflgjTx8HcwbBCn0wTSi16DROgFaDhwS6JATs/cUCGfgKdDSqqq2orFaeYZ79PoGY14e+RtyL2OtSW8+8XcsxO1FX5CdBzEu/9AVXwv01s5HI3sop5Busb9ul4J3iDr+Dq/q5ABFIFoYp3QMRMoHXMwNTHQ+1GlHYJWKDrWOD6TNPGwGi0MPT44877UNhogISbxaB6wBMHqnFvVZHr9e9/5+0cbmu46CfH3gUx2eb2WEdHl8/lcQhKa67sBHBVFAQjQeiv+urMV3fKR+4iLmoyWMWx4K/Sx1B+AcIFIJBx6MZoMYduE2xJqADoFIay6ax7LDE998obTzPehrV9h4XRr8imnY2VSiYgAUN9ysPACpRKgjz50559qUioj+O8JIj9nYzFUwDB2UynL41HgSg/64qXEjDkGR4yHlLCdMm2Elx46qvC4W3wFTo1fQ5E2hfCxfFmFXyGeaPzGBV34beaSWjQKYievMpRk4ENE3dJkdIonGZD4LIPcXTLfLsNaCpdM5hNUk4Ar58AcSw7gjoUMbcchE2Zzh5lrwkMEBothJPowZkRrA6RaAj/7VSEG/Uq1e+zUlCaUowH3t0j0w==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(10070799003)(13003099007)(921020)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S2VNWEl2d0NnSWdiMmcvd3ZVQnE5ZEJVYTFhQU8vekFIZmdWRWdtYnREdFRD?=
+ =?utf-8?B?NEx0MmNwWnBUT1V5MlVnYmdXUWlXMnZFWmF4N3Nlak9yYVl3eVg5MmtPejdi?=
+ =?utf-8?B?Qk1nbHluSno2Uktja1lqb1o3ZStMQml4aHNDRlRVcmdtSDdDNFBuRllSbUJx?=
+ =?utf-8?B?UHRYZnJjNnZXV0xxYk94SzV0VW9SM3UzSG1MejlUTUVtTHZWMEhpSUlmOUtU?=
+ =?utf-8?B?Z0t4cVZ0U3l3TFVKdHA0RDQxZllZYmE0VlJvd1pSQU9LQjQ1VzFmSUtZcmlB?=
+ =?utf-8?B?VnphRUhiczRtS2RLS3VnaHB3NUhZd1UzZlJUT3MrTENYcjA3L1RaWkNad0RF?=
+ =?utf-8?B?VjkrcEZHVDhaNlRHZEJPZzh5Y3hISUVINFdzK21UWktPZW9jVVRjT2xlS2RZ?=
+ =?utf-8?B?UnNuMHF5TWIrWTlhamw1RGRwb2tkYml4d3czNGRLNXlDeFpFUVA0bk5PVHVm?=
+ =?utf-8?B?L2FtUXluNzJOTEY5RGI3bW9nT0Zyb1VkbytDclJ1YXVuOTRhc0JQZFNjQy93?=
+ =?utf-8?B?SkMzM0thMjdLRmNORDNLRXUrRURaYk5TS2JJZCtPd0dta3p2NXBjc3NnVUJR?=
+ =?utf-8?B?eVY3dE9VcmlYV2JqcERrenYyYk9hZzNFLzI4TVVsTDI3ZnhwNjdHSXNWYi9n?=
+ =?utf-8?B?S2cwK1BudHVIaUFJM0tvQnFlWHJrZU11bkNjUGxUV0JqeFpSaWt5dGVLSVRQ?=
+ =?utf-8?B?WElPSVpEZzEvek9kdmZkM0duV2kyajNxZjlrUlhUVFdJTHZGUkpkUm50S2hE?=
+ =?utf-8?B?VzZqSnlZRlFscmxDRnU5bWt2VUluTUxwK0F6STFucWJHOGRzakZ6SG5tcWNs?=
+ =?utf-8?B?a3pVWWNpem1RMUdTUUlTU2E0K2RiM0NlckVtcW1tL3VmVjNoTVNOT2FXTWF3?=
+ =?utf-8?B?MWx5WUVNNmU2eGVISGJhOU5aSU1lMVY2Z2V2NVgxcE9XSjdlL3NBME9kcDdB?=
+ =?utf-8?B?anBDZ09UTTB3OXM5YzRyL3RnUmtmQmEybitMV01iZTNCU2JpK0hBUW1QbG9i?=
+ =?utf-8?B?SVVSYXIxb1lMSklVUUpuejM5RXNPMWRWejB1R1NqMi9GRXdpM1hsMDd4UUcx?=
+ =?utf-8?B?Z2o4MTMwak5VRStHV2JEV2NHWVJHM3BkQ1RHTC9RZU9tVWlkTUpBK1RNcUVh?=
+ =?utf-8?B?UW9lM2xrR0dwaUJDREVZc2RjQlBGZ1RoZXNmL1pCY0ptZkFoZC9hd1lYbGR2?=
+ =?utf-8?B?WFpqbVpUcFRWdUUrcEU4cStPL2MzTGpNcmpmVFFCaGJ3RmtQbU13YStZWFNZ?=
+ =?utf-8?B?NTdnazl3MWZyeHhWTFNSODRoVWJxNWN4RzIzNW9ISmRhYTY3RWQyYzk1MDhY?=
+ =?utf-8?B?clBsZXMvV1VkMTBEM1YwOWVEU1k4Vi96VVNzL1I0RXV2MDFTN2d0NjNDcWRu?=
+ =?utf-8?B?VmowdmR4bmZWREMva3FFOWtiR1RSaExweFpyay80ZHJpZ21EcEk2NWpmSndk?=
+ =?utf-8?B?Y2JyTzlSNmlyYW4xcHJnZjVJVHh2SlFFVFZRTlpVd3lFdkIrRnRSaVRXa0RU?=
+ =?utf-8?B?ZXRwU3lZUDBtK3hueEU5bFU3aHYzSnhsWWYwUFVlZXJkVmo3bTVNQzdLN3F6?=
+ =?utf-8?B?T0NmWUcvbzk1VUdCMVIrTzJhTmhOOTJYYVhBLzJEMVZlWFY3RGk2MFMrUE5a?=
+ =?utf-8?B?M2huZGtFbXFiSHdLMWx1ZFdVcVp5TVcweVlSaVhaT2lmZC95Wk42cDFEdnNW?=
+ =?utf-8?B?S0RIRkYrcDU0VzJaT1psSzVnQlVVTEcyQWJvRk5sYTlvdit0NUF2RlJRT3M0?=
+ =?utf-8?B?V1VmRXNuWWFnajhQaDFqb3hhcGtZL2xjSzdlT3dKWDBTSnJhcm5ObHpGejk0?=
+ =?utf-8?B?ZHFiWEJVeXFlODBQQWVJTE9YZG5LMzFkVnRnM1J3L2dKV1ljeDVIVC8rQzBx?=
+ =?utf-8?B?OWpFZmRHVWxadFVoV1dFME1MQm4wNDcrSkthcnN4ZGUreTdRZ0sxQUkvbXFO?=
+ =?utf-8?B?c0VWbXkwTkRYcTVHb0dLaDNHcWs2dERrZlQvdFVrQzFNZUlxYjNGeHBRTEwx?=
+ =?utf-8?B?LzFaVTZzRE13QTFxVjh6U1dsQmo3ZUNIMVRiaCtlLzdaWklCTGduWE0xbUJy?=
+ =?utf-8?B?NEwrWXJwMkFMcTRtV0pHY1pZalJwZVhNQ0luMmFWcm9scGtSN2UxMEJCWDBN?=
+ =?utf-8?B?RnRlODE4MjVUVEY4SThOdW1KMGx2c1BrMlUzOHo2VXFSQUF1MGMzd3JyR3Ex?=
+ =?utf-8?B?UU1yaGtHNzcvdFIvcGppN2drWFJmVE1lOWUyUmVpMFpndWdZbmZyUmFzYXRr?=
+ =?utf-8?B?YWpIOUdqMjRkNHZicnVwUEsvLzhUbnlHOHpCQ0RsNGpScm1tcUdvT3lTMVpP?=
+ =?utf-8?B?VVNIWkJiTXFHaEpzdWVqNUcwUlFaY0ZaT1M4Q2x3ZUVHSDFpYjhSQT09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5402742a-fe9a-4239-c8f6-08de8ff6e57c
+X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR12MB7736.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 074e620f-5969-420c-74d4-08de8ff6acda
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Apr 2026 13:57:55.7821
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 13:59:30.8987
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: pceztFl6813RXfZBojX5UnEkaq+xXfBsQdh9Er+KHopgd3QX0xAYzukkxVdA5Vuf
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4122
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bT2HFVNStRc+G2k4L8oaNUUlDGnMfmd/IDyJFZShyWYAZWqTaAMMN+rjSHdMhu5dmuDgaaYsHn+72Kd9nFmBtQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CWLP265MB3059
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_065803_146175_9AEB1F38 
-X-CRM114-Status: GOOD (  29.59  )
+X-CRM114-CacheID: sfid-20260401_065937_714445_2F36F92E 
+X-CRM114-Status: GOOD (  19.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,123 +172,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,=20
+On Wed Apr 1, 2026 at 12:45 PM BST, Miguel Ojeda wrote:
+> With the minimum version bump in place, `rustdoc` now always recognizes
+> the `--remap-path-prefix` flag.
+>
+> In addition, the Internal Compiler Error that the comment mentions [1]
+> was fixed in Rust 1.87.0 [2], so we still need to skip the flag for
+> the normal `rustdoc` case, but not for `--test` since the ICE does not
+> reproduce there -- please see commit 2c8725c1dca3 ("rust: kbuild: skip
+> `--remap-path-prefix` for `rustdoc`").
+>
+> Thus update the comment and remove the skipping of the flag for the
+> `--test` case.
+>
+> Note that commit dda135077ecc ("rust: build: remap path to avoid
+> absolute path") re-landed the `--remap-path-prefix` flag (together with
+> `--remap-path-scope`), so we keep the workaround, i.e. an alternative
+> could have been to simply delete the skip entirely, but since we still
+> have it and it will be needed when this gets merged, let's keep it.
 
-> -----Original Message-----
-> From: Erim, Salih <Salih.Erim@amd.com>
-> Sent: Wednesday, April 1, 2026 2:13 PM
-> To: Simek, Michal <michal.simek@amd.com>; Jonathan Cameron
-> <jic23@kernel.org>; Christofer Jonason <christofer.jonason@guidelinegeo.c=
-om>;
-> O'Griofa, Conall <conall.ogriofa@amd.com>
-> Cc: lars@metafoo.de; dlechner@baylibre.com; nuno.sa@analog.com;
-> andy@kernel.org; victor.jonsson@guidelinegeo.com; linux-iio@vger.kernel.o=
-rg;
-> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
-> stable@vger.kernel.org
-> Subject: RE: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in post=
-disable
-> for dual mux
->=20
-> Caution: This message originated from an External Source. Use proper caut=
-ion
-> when opening attachments, clicking links, or responding.
->=20
->=20
-> [AMD Official Use Only - AMD Internal Distribution Only]
+I'm not sure that I parse this. You do remove the filter-out completely bel=
+ow?
 
-I am deeply sorry about these markings. Please try to ignore them, and I wi=
-ll do my best to escape from them.
+>
+> Link: https://github.com/rust-lang/rust/issues/138520 [1]
+> Link: https://github.com/rust-lang/rust/pull/138556 [2]
+> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
+> ---
+>  rust/Makefile | 9 ++++-----
+>  1 file changed, 4 insertions(+), 5 deletions(-)
+>
+> diff --git a/rust/Makefile b/rust/Makefile
+> index 193cf06eea64..708530ee3613 100644
+> --- a/rust/Makefile
+> +++ b/rust/Makefile
+> @@ -142,10 +142,9 @@ rustdoc_modifiers_workaround :=3D $(if $(call rustc-=
+min-version,108800),-Cunsafe-a
+>  # Similarly, for doctests (https://github.com/rust-lang/rust/issues/1464=
+65).
+>  doctests_modifiers_workaround :=3D $(rustdoc_modifiers_workaround)$(if $=
+(call rustc-min-version,109100),$(comma)sanitizer)
+> =20
+> -# `rustc` recognizes `--remap-path-prefix` since 1.26.0, but `rustdoc` o=
+nly
+> -# since Rust 1.81.0. Moreover, `rustdoc` ICEs on out-of-tree builds sinc=
+e Rust
+> -# 1.82.0 (https://github.com/rust-lang/rust/issues/138520). Thus workaro=
+und both
+> -# issues skipping the flag. The former also applies to `RUSTDOC TK`.
+> +# `rustdoc` ICEs on out-of-tree builds in Rust < 1.87.0
+> +# (https://github.com/rust-lang/rust/issues/138520). Thus workaround the
+> +# issue skipping the flag.
+>  quiet_cmd_rustdoc =3D RUSTDOC $(if $(rustdoc_host),H, ) $<
+>        cmd_rustdoc =3D \
+>  	OBJTREE=3D$(abspath $(objtree)) \
+> @@ -333,7 +332,7 @@ quiet_cmd_rustdoc_test_kernel =3D RUSTDOC TK $<
+>  	rm -rf $(objtree)/$(obj)/test/doctests/kernel; \
+>  	mkdir -p $(objtree)/$(obj)/test/doctests/kernel; \
+>  	OBJTREE=3D$(abspath $(objtree)) \
+> -	$(RUSTDOC) --test $(filter-out --remap-path-prefix=3D%,$(rust_flags)) \
 
->=20
-> Reviewed-by: Salih Erim <salih.erim@amd.com>
->=20
-> > -----Original Message-----
-> > From: Erim, Salih
-> > Sent: Wednesday, April 1, 2026 2:12 PM
-> > To: Simek, Michal <michal.simek@amd.com>; Jonathan Cameron
-> > <jic23@kernel.org>; Christofer Jonason
-> > <christofer.jonason@guidelinegeo.com>;
-> > O'Griofa, Conall <conall.ogriofa@amd.com>
-> > Cc: lars@metafoo.de; dlechner@baylibre.com; nuno.sa@analog.com;
-> > andy@kernel.org; victor.jonsson@guidelinegeo.com;
-> > linux-iio@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
-> > linux-kernel@vger.kernel.org; stable@vger.kernel.org
-> > Subject: RE: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
-> > postdisable for dual mux
-> >
-> > Hi Christofer,
-> >
-> > The code change looks correct to me - it aligns postdisable with
-> > preenable by reusing xadc_get_seq_mode(), and the scope is limited to
-> > dual external mux configurations.
-> >
-> > Since this is targeting stable, could you please share what
-> > hardware/board this was tested on and how you verified that VAUX[8-15]
-> > channels return correct data with the fix applied?
-> >
-> > Reviewed-by: Salih Emin <salih.emin@amd.com>
-> >
-> > Thanks,
-> > Salih
-> >
-> >
-> > > -----Original Message-----
-> > > From: Simek, Michal <michal.simek@amd.com>
-> > > Sent: Tuesday, March 10, 2026 7:43 AM
-> > > To: Jonathan Cameron <jic23@kernel.org>; Christofer Jonason
-> > > <christofer.jonason@guidelinegeo.com>; Erim, Salih
-> > > <Salih.Erim@amd.com>; O'Griofa, Conall <conall.ogriofa@amd.com>
-> > > Cc: lars@metafoo.de; dlechner@baylibre.com; nuno.sa@analog.com;
-> > > andy@kernel.org; victor.jonsson@guidelinegeo.com;
-> > > linux-iio@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
-> > > linux-kernel@vger.kernel.org; stable@vger.kernel.org
-> > > Subject: Re: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
-> > > postdisable for dual mux
-> > >
-> > > +Salih, Conall,
-> > >
-> > > On 3/7/26 13:41, Jonathan Cameron wrote:
-> > > > On Wed,  4 Mar 2026 10:07:27 +0100 Christofer Jonason
-> > > > <christofer.jonason@guidelinegeo.com> wrote:
-> > > >
-> > > >> xadc_postdisable() unconditionally sets the sequencer to
-> > > >> continuous mode. For dual external multiplexer configurations this=
- is
-> incorrect:
-> > > >> simultaneous sampling mode is required so that ADC-A samples
-> > > >> through the mux on VAUX[0-7] while ADC-B simultaneously samples
-> > > >> through the mux on VAUX[8-15]. In continuous mode only ADC-A is
-> > > >> active, so VAUX[8-15] channels return incorrect data.
-> > > >>
-> > > >> Since postdisable is also called from xadc_probe() to set the
-> > > >> initial idle state, the wrong sequencer mode is active from the
-> > > >> moment the driver loads.
-> > > >>
-> > > >> The preenable path already uses xadc_get_seq_mode() which returns
-> > > >> SIMULTANEOUS for dual mux. Fix postdisable to do the same.
-> > > >>
-> > > >> Fixes: bdc8cda1d010 ("iio:adc: Add Xilinx XADC driver")
-> > > >> Cc: stable@vger.kernel.org
-> > > >> Signed-off-by: Christofer Jonason
-> > > >> <christofer.jonason@guidelinegeo.com>
-> > > >
-> > > > I'll leave this on list for a little longer as I'd really like a
-> > > > confirmation of this one from the AMD Xilinx folk.
-> > >
-> > > Salih/Conall: Please look at this patch and provide your comment or t=
-ag.
-> > >
-> > > Thanks,
-> > > Michal
+Looks like this is going to conflict with rust-fixes (which adds the
+--remap-path-scope). Perhaps worth doing a back merge?
 
-As I mentioned earlier, I have reviewed and it looks correct to me.=20
-It would be good if Christopher could share testing environment and results=
-.
+Best,
+Gary
 
-Reviewed-by: Salih Emin <salih.emin@amd.com>
 
-Thanks,=20
-Salih.
+> +	$(RUSTDOC) --test $(rust_flags) \
+>  		-L$(objtree)/$(obj) --extern ffi --extern pin_init \
+>  		--extern kernel --extern build_error --extern macros \
+>  		--extern bindings --extern uapi \
 
 
