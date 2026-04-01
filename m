@@ -4,94 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F51D107637F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:26:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA02A107637F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oqas3u7UM5z91PWtBVrB+LRpDVECVVS14S5CCLaW82w=; b=i3QyNnRuWCAnqm+fXT+ldpdZmF
-	MSXvtwl+bvhZ8GBWkd0yBuTSNiGex2xhG0x6RstxUg6SRyv5j+1rM4Lic01ycv/C3C4eQdYwuPcc+
-	VbP+BX8PTSI9Q5oTdjTqtjIG6sp+0xCIAMSDB+bVXSuWtvY01b6Dl/lfEifMQ47GRdWaRIW00ujNo
-	zxnwmHBAhalR4jdIKkZJkLCLrPXR6AZtzdsh9sFBGOk4BFSMK2+jBCeG1KufXzXMjMjfecxCIZ6v6
-	XaWJHvEhltTbQRqlN5zbr0cCv32W2yTz6ag24AUE2D58rEQHWrjeYsE5KqHL4GLiKk49ODcsU0G+X
-	4i/uHsXw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Udgig4ZoLsgYEXfdhxnO9tijZ1Z50sbtiQsa0q8gYbA=; b=FSJoI5p3koTQ6o
+	TBT9rUgt54gEgdPY+XXER9Mb0hbZYjkdzeyV8jjB82EzxgrujvChm4mDno1NtMpkvmJLdaVPoW4Ty
+	VUIqsqmdsizfbaNVeVdCTMcvgpzroYjUf2PPW8udXQqIJvRkWRR1M3L5cSOrpqcZODGy1Gd4GM9op
+	Sw04K6XD+cXn5clWhEtJFVbg1Sh8/6LLoFPPzGVmctg3JWGJLgPOF1tkz/jK0YG4x8iEAE+yOLdFV
+	Apy9ABYyK6yPVfpN2Qf20EBTwRdWeWlL3rq4eUr3H/+4N8qeHQtlIwLsVLv35pJUM+sGoYpEmdRmV
+	/YSKYrIGMtvWQZFHlwPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wWP-0000000FU5x-0hBD;
-	Wed, 01 Apr 2026 14:26:17 +0000
+	id 1w7wWO-0000000FU5h-3dA7;
+	Wed, 01 Apr 2026 14:26:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wWM-0000000FU5F-3o2d
+	id 1w7wWM-0000000FU5G-3oDd
 	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 01 Apr 2026 14:26:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Oqas3u7UM5z91PWtBVrB+LRpDVECVVS14S5CCLaW82w=; b=ot9sK+MSbF4cYg0kwTgey+aikK
-	F7YkkngfMVN5NbpgPWLjuHSz84Ylv8lrqHl7Yjq0F6Tie0WWEE4U6U9z2kn9jex0CCeKkc39eLmCc
-	Vavq40nTsI2AVJQr1CcPnoyscEpK/8+RZbgseVKmbkuQBGJkRJvpygGyHSkbLc3LoLSc9cGh+6LIm
-	8BUbMlnCyj3gxCaNyjNGsw09EEvUkUGqzMu9GQHJMhkiycXn9lt11zqQRSK+AII11ZPzWkBnLe/H0
-	l/XCmqLLRwNqigThD7eQ2MkDtdLb6bUmJO6vS5dDEib0iOeQ4HWJJvOkjaPcacDfpil+RiRG3xD7c
-	19QINS9A==;
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=Udgig4ZoLsgYEXfdhxnO9tijZ1Z50sbtiQsa0q8gYbA=; b=CTyUbSnW65UIo3nPycAePY8lsJ
+	UBTmPdwxVfSYZH99earAU3OGUvIZPYgqAWHFe+OPzYF4vGHOw5t+4fXt8G9zktXeJshRSllDPAcLt
+	F597K7D09bwXeqIb/oV5yc7oug8oES6gorxC7G14SwYgnqlhTBIMVLYVZ9RTL92fZnAOZ8hd7cGhj
+	Cx6sOdoK/ZC5Xd3zezAb7RNGFfV1+GSecn/QQIPHbE0ZO4Nh9x/oHvY3M7eU6OxpaaV7aGjJ57c5p
+	kJk+nqLI+esixwlZMBp9DI6zcBWd/9ZYDBZx0P79KR0cKWzq6qgOfCJ8oUyAASsh14MIMJXJThb5M
+	WfRR6dlA==;
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7wWJ-00000000bfW-3mPj
+	id 1w7wWI-00000000beo-22Bh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 14:26:13 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-486fb439299so65359695e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 07:26:11 -0700 (PDT)
+	Wed, 01 Apr 2026 14:26:12 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4887f49ec5aso26055885e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 07:26:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1775053570; x=1775658370; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Oqas3u7UM5z91PWtBVrB+LRpDVECVVS14S5CCLaW82w=;
-        b=Y7gNwjRE1QysZOYDXnp4YiXrHKyIbPxXiOO0HUgPMjm46/n/bsyvkM6lIQ0KKgMggR
-         VESthnemdwVnnyiOt8lij02mvphwr3fZ1VThyxCJl7QLTkdrZ7jDZLtuV51Ih9zSjxLm
-         6QjkUgDjV4v6vv5jHuiyJ+09rXsOE3bO6TywQn+XdX/n8ZXNHeiKT8lRvidLz9DGV/DV
-         eph46hu9hPoyoLpV1in+fuGmsZPrJO9QdjPywQaYHFXtdmhuqx6q4t+Np/DCbcA5+1M8
-         y4IZ/hvx7JCTe8PTAH45jgXyHR3cUFQ6gNT2NOlWERlpNUDPC0221jk+jsHOyOe5WydW
-         dKwA==
+        d=linaro.org; s=google; t=1775053569; x=1775658369; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Udgig4ZoLsgYEXfdhxnO9tijZ1Z50sbtiQsa0q8gYbA=;
+        b=cvg2OPWSD4cDkmYym4oZmaj6WzDiN8vvWa7kwNaHs8N1VUxYDETsLiuU/Oj01hxL0W
+         QDJQYiJUsA00gYauMN1WXA+WCIzAnKgpEVED1l1bh4l7y5kNBZo99RkqMEY4NIqvexsi
+         bpWnUe0QY6SGTwLuU5W3uP6R1fo3W8cohDHiDAhRxLqLfSAVlXWZ8upensDyglbdTHP1
+         SXPfLHzyVdJGU1WlGDIViy+1z+EgBD7i5lF051CAzwhFe7jEO737c/ci2karEyKtSbzh
+         lF4a4jKGNwOVWskAFrwFqNDAxrrTIFl6irW4FL2PD6IsvVFs3xzVblrN4PJDtcIMCoSe
+         kT6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775053570; x=1775658370;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Oqas3u7UM5z91PWtBVrB+LRpDVECVVS14S5CCLaW82w=;
-        b=DL3HbHlhnoikoJWFUwlSP4no8Sr9BC+gmT04wYtmbv66phpt2N34aiDgfJHn7H5m87
-         W/yiBp6lyTSmUz2hhHUo0sloKCh6G2rBIQjPDXjo6JibWzPJGxvA3w4EvOZwAwvJkV9Q
-         lFXT6bLxY72+r4L+1a9ErFuCw7y4YluyIfaTQkas3wSpZm1mSML5z7tVXkri+uwHp+FK
-         TyMaMZfi2LzaeE06NxiU5mFwW3mYoYVyJSeabEY/ANYrJOdl9/N40+4YJ7v4xBOfWGdo
-         QjxRdMzzSBliKBoJ6EdULn/8NmHaBIG+wFc7fo+kgFJpdR/XcDBxo0nXrLlLkxpGI0qW
-         Ep0g==
-X-Gm-Message-State: AOJu0Yw3xrpvXO2Gu7k5eyn70Dz10ADpWWBauZua2Atg/0fMw55+OOAu
-	bDBPuCA4VIP6XPh2bfM9YFqAGBaNNnuJZ0Ii/0z9rFADJQKxXfCIgu3EvRfh2a/FHqg=
-X-Gm-Gg: ATEYQzw0vzuylErR/b7D8/F5RfpdQrz/+YUjiEDbougBGkZP3FsL+ADVix4QCFjYhsX
-	tKpHhlOb/Wc5DMlLBxcpBsO5OhMEh7deb+2aCM7EcVUYbMcQObFrj5RwbqkDoMKUSlNS1ImoJwk
-	Od7xNuqTKCkqRkezyL9FbXDCS9PKwB4KCiB80lZ0WK+8sG5mMvDF+nwPmUJrm8R6nLfpIh5DbOW
-	bfOGkJZjm4dwpSJJBkaEsUmqD36WYBuIxooJa71zPpkl2Iq+lWKhJqJV0AX2INUvcE48HnRH+vc
-	uk9g0jDv6yLaXqB8IMiwjeJYGLukvunVEhyl4UneSz7W1CamZwx/QDnB3Qute9G9QRfzib3PRIW
-	SEY5m9LTwILROV5qpMGIOtEnlGr0i38uecFTrBGEi/w5Hz8hUBk0Gl0wwDWQCaJZsswDq+RJGM6
-	JORuMCo6Unqg5itH8Y4RyXhQM7dPYnqXPx
-X-Received: by 2002:a05:600c:c04a:b0:486:f9aa:2b57 with SMTP id 5b1f17b1804b1-48883597e39mr46789365e9.16.1775053570170;
-        Wed, 01 Apr 2026 07:26:10 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1775053569; x=1775658369;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Udgig4ZoLsgYEXfdhxnO9tijZ1Z50sbtiQsa0q8gYbA=;
+        b=qia6Vq12stU+5OD+5yX1kKg2k2uqWZ+aJ6hKvbCiJPLN5mzu3z1NQS8Sq2srk6hdWB
+         lUu0JW/svaIuX+FmU3itkr/02LlreAt93FP+fvoWTsOV4Tf88oZwwzsV6l0DrOkTMVXW
+         6RVrrEeSEo+xXLTvUl/BX/ZfI++zmGKUd+xTshLf0EoLR0lUZzN1O3U/RB+lqLkGpDb2
+         6gS1zoYOME8wc4g3bWyNN1RKEnVmmhnfSCGm6TA5SWWZhetIKpUA0Lw7EEKpz0S1Poya
+         jr5T4ogX0OSbDCPRXqgtBXs5WAztOeOz0gI2FhWmXY/MGDQDFgHQWbwv+Snhz9TrYdvN
+         p6Nw==
+X-Gm-Message-State: AOJu0YxkstrZ3AezTyKMaw+4hKNzWSCR7CrpAh21Uxaai6YacPmjgnaI
+	Ty1zsXyE2EuWy5nXSye4VlT/LCEAqBwEbO/j2xRqEKj9FhGSvDBiWmueYcrvCnTPzqQ=
+X-Gm-Gg: ATEYQzztdsmIVT6rYvVi9KPD9kDFz5vZTGnhhXvTlvdug6In4REjcqn5FFnZicDvfiM
+	3XaBbpRKiQLqpL/WprA7UqZDsREW+RbQZQCgQX6QidTst2brf9tR4ZuR3cE/hk0IJOOrQSIu5+W
+	0aHqYoP6lPJqaNXYATZQNlN8l2TBPrEqv4YUuXog0HQJoCg1XuyI3AYv6eq1IPhxD29vOKiZ+lJ
+	5ZgaXRvUMOGy+7Xi1XyulEMAaTM1WxpU6IQp0wYdLh8+MAz63SFf0+HU8t4wr3vWo3GR6THH6PC
+	zBUOvM4wcJufMXwpcsK5UD7UYEc8X8t4cVDu2C5p993bhRIhn2ekf4HP3t538RyINd9rQdPq0RZ
+	Ap0GraWQLJmIVZGXzkTv2ep6YkKg7QsDZQT/Za54sRiY+5WJfv9DSpVLgYjGVavIYmjHKFd663d
+	2mjcubkhR2w0l+/Y/bNx35R3ZTZdRUKGc+
+X-Received: by 2002:a05:600c:6986:b0:477:b642:9dc1 with SMTP id 5b1f17b1804b1-48883595078mr63909095e9.20.1775053568664;
+        Wed, 01 Apr 2026 07:26:08 -0700 (PDT)
 Received: from ho-tower-lan.lan ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4888a63c9b1sm2305595e9.5.2026.04.01.07.26.08
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4888a63c9b1sm2305595e9.5.2026.04.01.07.26.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Apr 2026 07:26:09 -0700 (PDT)
+        Wed, 01 Apr 2026 07:26:08 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Date: Wed, 01 Apr 2026 15:25:49 +0100
-Subject: [PATCH 1/4] perf arm_spe: Make a function to get the MIDR
+Subject: [PATCH 0/4] perf arm_spe: Dump IMPDEF events
+Date: Wed, 01 Apr 2026 15:25:48 +0100
+Message-Id: <20260401-james-spe-impdef-decode-v1-0-ad0d372c220c@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260401-james-spe-impdef-decode-v1-1-ad0d372c220c@linaro.org>
-References: <20260401-james-spe-impdef-decode-v1-0-ad0d372c220c@linaro.org>
-In-Reply-To: <20260401-james-spe-impdef-decode-v1-0-ad0d372c220c@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAOwqzWkC/x2MzQqDQAwGX0VybsCfxdK+Sulh2XzRFNRlA0UQ3
+ 93F4zDMHOQoBqd3c1DB39y2tUL3aCjNcZ3AJpWpb/uxHYaOf3GBs+cqlixQFqRNwPIKQYNKUn1
+ SrXOB2n6fP9/zvADz6bhjaQAAAA==
 To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
  Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
  Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -104,8 +104,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
  linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_152611_988148_9A9B6C29 
-X-CRM114-Status: GOOD (  17.59  )
+X-CRM114-CacheID: sfid-20260401_152610_618650_2D5F097A 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,75 +120,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We'll need the MIDR to dump IMPDEF events in the next commits so extract
-a function for it.
+In the Arm SPE raw data dump, IMPDEF events aren't printed. Add the
+ability to add names for some known events or print the raw event number
+for unknown events.
 
-No functional changes intended.
+For example:
+
+  $ perf report -D
+
+  ... ARM SPE data: size 0xd000 bytes
+  00000000: b0 18 c6 32 80 00 80 ff a0  PC 0xff80008032c618 el1 ns=1
+  00000009: 64 e7 42 00 00              CONTEXT 0x42e7 el1
+  0000000e: 00 00 00 00 00              PAD
+  00000013: 49 00                       LD GP-REG
+  00000015: 52 16 10               	EV RETIRED L1D-ACCESS TLB-ACCESS
+
+On N1 the event line becomes:
+
+  00000015: 52 16 10                    EV RETIRED L1D-ACCESS TLB-ACCESS LATE-PREFETCH
+
+Or on other cores it becomes:
+
+  00000015: 52 16 10                    EV RETIRED L1D-ACCESS TLB-ACCESS IMPDEF:12
 
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/util/arm-spe.c | 36 ++++++++++++++++++++++--------------
- 1 file changed, 22 insertions(+), 14 deletions(-)
+James Clark (4):
+      perf arm_spe: Make a function to get the MIDR
+      perf arm_spe: Turn event name mappings into an array
+      perf arm_spe: Decode Arm N1 IMPDEF events
+      perf arm_spe: Print remaining IMPDEF event numbers
 
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 70dd9bee47c7..7447b000f9cd 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -958,14 +958,9 @@ static void arm_spe__synth_memory_level(struct arm_spe_queue *speq,
- 	}
- }
- 
--static void arm_spe__synth_ds(struct arm_spe_queue *speq,
--			      const struct arm_spe_record *record,
--			      union perf_mem_data_src *data_src)
-+static int arm_spe__get_midr(struct arm_spe *spe, int cpu, u64 *midr)
- {
--	struct arm_spe *spe = speq->spe;
--	u64 *metadata = NULL;
--	u64 midr;
--	unsigned int i;
-+	u64 *metadata;
- 
- 	/* Metadata version 1 assumes all CPUs are the same (old behavior) */
- 	if (spe->metadata_ver == 1) {
-@@ -973,15 +968,28 @@ static void arm_spe__synth_ds(struct arm_spe_queue *speq,
- 
- 		pr_warning_once("Old SPE metadata, re-record to improve decode accuracy\n");
- 		cpuid = perf_env__cpuid(perf_session__env(spe->session));
--		midr = strtol(cpuid, NULL, 16);
--	} else {
--		metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
--		if (!metadata)
--			return;
--
--		midr = metadata[ARM_SPE_CPU_MIDR];
-+		*midr = strtol(cpuid, NULL, 16);
-+		return 0;
- 	}
- 
-+	metadata = arm_spe__get_metadata_by_cpu(spe, cpu);
-+	if (!metadata)
-+		return -EINVAL;
-+
-+	*midr = metadata[ARM_SPE_CPU_MIDR];
-+	return 0;
-+}
-+
-+static void arm_spe__synth_ds(struct arm_spe_queue *speq,
-+			      const struct arm_spe_record *record,
-+			      union perf_mem_data_src *data_src)
-+{
-+	u64 midr;
-+	unsigned int i;
-+
-+	if (arm_spe__get_midr(speq->spe, speq->cpu, &midr))
-+		return;
-+
- 	for (i = 0; i < ARRAY_SIZE(data_source_handles); i++) {
- 		if (is_midr_in_range_list(midr, data_source_handles[i].midr_ranges)) {
- 			return data_source_handles[i].ds_synth(record, data_src);
+ tools/perf/util/arm-spe-decoder/Build              |   2 +
+ .../util/arm-spe-decoder/arm-spe-pkt-decoder.c     | 147 ++++++++++++++-------
+ .../util/arm-spe-decoder/arm-spe-pkt-decoder.h     |   5 +-
+ tools/perf/util/arm-spe.c                          |  49 ++++---
+ 4 files changed, 135 insertions(+), 68 deletions(-)
+---
+base-commit: 74e2dbe7be5037a5e5eed6bc1ad562747ac88566
+change-id: 20260331-james-spe-impdef-decode-d944f4fdcff7
 
+Best regards,
 -- 
-2.34.1
+James Clark <james.clark@linaro.org>
 
 
