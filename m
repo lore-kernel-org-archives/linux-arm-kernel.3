@@ -4,61 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0951C10FCAE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 22:40:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C62910FCAD2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 22:40:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I3bwGumRbDmzIFSzMdzb43hR+4wh37KK3mBzHGH/rfg=; b=V78CPjQhJnHfEdYqwYuBRIpa4d
-	J81cH2woq5h/PF2OjTa5a0U0cUuFgHBC1xIFRlf1+EGvfj8GKnEBLL+vGAp6h1W9KbF0k+DaFCDdm
-	opDtLnVL4leN0KeUF2RVx3pBLvGn8RsAR9qSi+iFYqVlkHO4/QNANvadtnLmgL+7Hj25pz5DdrbCX
-	1N+ksV+y4Db68YKZPHItaHjcX3Uijm7VP80JCqyxe6Lso3JEplDzbG8vecUKKKnpD/KCftlJexqYL
-	Ex+gaxcTHEF+XC8j77lWh20j5eINdKfDckmaq898pe2LdiQIE5ZS+rp7uMy0b1DU9vKEuPTemHwcm
-	IwPFaRZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V1D8LkzJOKrTgF/54gdXPEABGIdLijqyrtx0OyL22Ag=; b=RtYl9yYsajkW3R/hz1WM6s3TTR
+	oSc+DYn9Tfz2wTgcThjTz3sZ6zHt2LUUOpuxax53DEFw7oOgyckOtOYXcBMzVlA/1zIol37swzrwE
+	lMUOtB9y6yaUY71j/+8CVE+RzZ5uGl3JAkbZ/SaJJgMr+Drk3/bKyMvXsvd21Bbjv2X+l7kYQydYS
+	2Y9tdMlc53ezbvF8vdrDs8PTsA6I/01sOq2WXFLbBCK34nZ6P9tJLdfpmb5moBKRBFo2QIFqhTmIK
+	HNGgNyB5CAqN0v1RGJBAKhh7GWDdGyX6M2+xfq9CeVojyWzuZa5LMSq6JLL5IoIq09zGd/AxxxVCk
+	J4FB0/yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w84EH-0000000GKD1-2lRe;
-	Wed, 01 Apr 2026 22:40:05 +0000
-Received: from smtprelay0010.hostedemail.com ([216.40.44.10] helo=relay.hostedemail.com)
+	id 1w84F3-0000000GKLI-2AUc;
+	Wed, 01 Apr 2026 22:40:53 +0000
+Received: from mail-northeuropeazon11012064.outbound.protection.outlook.com ([52.101.66.64] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w84EF-0000000GKCE-0E5f
+	id 1w84F0-0000000GKKF-11ba
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 22:40:04 +0000
-Received: from omf04.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay01.hostedemail.com (Postfix) with ESMTP id 81D2FE0352;
-	Wed,  1 Apr 2026 22:39:58 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf04.hostedemail.com (Postfix) with ESMTPA id 7438620023;
-	Wed,  1 Apr 2026 22:39:56 +0000 (UTC)
-Date: Wed, 1 Apr 2026 18:40:55 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Ian
- Rogers <irogers@google.com>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v15 4/5] ring-buffer: Add persistent ring buffer
- invalid-page inject test
-Message-ID: <20260401184055.2f932674@gandalf.local.home>
-In-Reply-To: <177494619065.71933.9842685686800241005.stgit@mhiramat.tok.corp.google.com>
-References: <177494615421.71933.3679132057004156013.stgit@mhiramat.tok.corp.google.com>
-	<177494619065.71933.9842685686800241005.stgit@mhiramat.tok.corp.google.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Wed, 01 Apr 2026 22:40:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RpASIBNbLzYNI0U+cyTnG9tTP6Zx9skpeEo8sNJd8Hk0nQfYedaEvDYh/n8fmya9Hpgyayngl3gUcUmm1AfoPYfnn/3GAuqkbZhMrNzPbXD14UzYGmpmmPyg/cwcdqObwo8sN6geWvHigSd7Fmd32IeVp5iOFGYAVTGrLFyy1Os8HNSWJuSErAd3UKmZJ/Jd95DYUv3/qsMch0exUwmQNBRjAO4//RVpHNhsM5yMcSFSfsfaGfh+nYEVT4OhOgXYn7yYEZTgqfo2nw+WvzYy7fE6E2yplXWAlGUpB3zfKoMt959ph40LrgMgGnwpPzDkFy9y01Sm0CIKeYmd/S81Zg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=V1D8LkzJOKrTgF/54gdXPEABGIdLijqyrtx0OyL22Ag=;
+ b=QsEK56TCAJ2fQGzOckpGpUvLsJtSDU/OmEVDIKyl+4ZetTyRdQz14bT0wn9gPlJAWkAxUfgyP1o2Zx+ZoWK/wx2QEHunV2E4N1KG5h+TSQWAeeu3O1IXhLf1J280J4yLSUiHrNiw9lMUmGwJP8aKA3WQuoGyj3RgIb9V1bXkf2CUDH9wDB4FFMhe1ZFQVHKZcRbI86eJ2ZBXPS3LPWUsBpdvnotv8sPrSHMvNEEMipy5IdsZKCnv9oBnyblDYg/rNGwgDFuqTwWQ6D5/7lKGtuLgZ7hwDrKp4YOuUYz8g953Ul5c6OogQqmdZg4RqIJu/N8Zza4nVlw//mgqGVP79w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=V1D8LkzJOKrTgF/54gdXPEABGIdLijqyrtx0OyL22Ag=;
+ b=Z/YAdp3fCjnVwDw+5If2kYbT5K/98K3hJiCp243PAOW0kEBd49MUv83K4nq9GOWbJRPl7FbldQEfU6D0ITVm/g0xB45yIfVnpnlAJqSqJFm/tEwPovVDIEqRSlekZH1K4vLNwvBt9bA3VQgayHo0CofLE96IpFUOT1vt1LPQ5J4cHwRbdGo2OZQbfczAZsqfVaDL4GWoE2ykqocF8KTc4ctTDSM8DkaXxoqQklouf2+EWhvioqh2Lvto/kW5r5hpXbC90NhhXtGX8OXtoAi9ETXimUywJABDiy8aZSoa3xzjRLG89uRYsl0MQWhy4puDjVuNmL6/jalrYo1k3Te1Dw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by VI0PR04MB12234.eurprd04.prod.outlook.com (2603:10a6:800:332::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 1 Apr
+ 2026 22:40:40 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9769.016; Wed, 1 Apr 2026
+ 22:40:40 +0000
+Date: Wed, 1 Apr 2026 18:40:33 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Alex Bereza <alex@bereza.email>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Ulf Hansson <ulf.hansson@linaro.org>, Arnd Bergmann <arnd@arndb.de>,
+	Tony Lindgren <tony@atomide.com>,
+	Kedareswara rao Appana <appana.durga.rao@xilinx.com>,
+	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] dmaengine: xilinx_dma: Rename
+ XILINX_DMA_LOOP_COUNT
+Message-ID: <ac2e4ZupU6W0Ik5B@lizhi-Precision-Tower-5810>
+References: <20260401-fix-atomic-poll-timeout-regression-v3-0-85508f0aedde@bereza.email>
+ <20260401-fix-atomic-poll-timeout-regression-v3-2-85508f0aedde@bereza.email>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260401-fix-atomic-poll-timeout-regression-v3-2-85508f0aedde@bereza.email>
+X-ClientProxiedBy: SA0PR13CA0006.namprd13.prod.outlook.com
+ (2603:10b6:806:130::11) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: 4epogobj18rrgh3gykjen88bgr7uq4u3
-X-Rspamd-Server: rspamout04
-X-Rspamd-Queue-Id: 7438620023
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1+9loO0uPQcdRrACGcallEQYGbxIHK2BJA=
-X-HE-Tag: 1775083196-868687
-X-HE-Meta: U2FsdGVkX1+DtxZ6fGh5PSCmac8SvXwgJMF+ah6/6elT9kqKlWpaklv4XEO8u9LjMnf0tQmnp6I8DfpcgzBMeCouBjJzqYip3Mk4eSz4Pa9CE/dxp9Bdm+UAvfR/9M4oUlunCCZ1d1SEu41IteuuzvNGV9mlmTPS66akoL/aQcm8ULR91oOF+x1Cos3xzAXorXhTOdjRSSEjv9Yz6XQsXC66+N3z+wpiPR/B5/LKGlUE9xPqUkYc6MmKPZqpKrqmW/xzPwRZ6adWKuOH1VD0Dh1q9ktlNwIKafAZckq/WWCwad0uzpGVs3/JM3BGjc2DjtghlvaD9wwxmO588lAnJ1L8ehUWZUjJ
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI0PR04MB12234:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2a12f6fa-09c5-444e-c94a-08de903fb3b7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|1800799024|52116014|7416014|18002099003|22082099003|56012099003|38350700014;
+X-Microsoft-Antispam-Message-Info: c8vB3dn5EACX+87z5g/OpihxdosIdSd9sHuVZfbPTw17MPG+tnaXEXojoUmwWnosMWuXIqNmMHaY8RBakGQpJiybEcEUyG6TFkrLWvS88jhXrPqBqfR3W9pUwjHyHWRkORVq1bzEjKMZ4cRxFtf4n+ojgTKidD16SoGK4k7PBjeh+WDUWSUwrx+p+6ukdSmiTuYWDRLOlWPAA0yd30jdvg4Q7c27flG6Ev3XQxCOB3WGbOZEnhqbsPHGUqWPiYVDgE+NCNgnPWJrMYJVbVZwq+Q+PBHknP+tmhKg2ZKwAZDHDuP5dNcRovCesej4XfYmtMyBlXG30aZpOMkvWgZpP8M3KlOiCJCHYO5I2mq6wqMH06KLTvG/af6/E61EfxKi9GoESjtD0i0m7VDYxm0PDdPqupHooOGlyOR610gEabMgbwmBiUMDiodTMmCOOE0EdExAU+7+4Zd3sv86xZbdhAk3OCfmbuMWthWZbX/fVti3ViQsVgc9iBysXQp+vwC9wZRQaPMAZv1GTuLghfob/2knEffqMz/6zfOhqsAhzq/SOU84aEPs5wYtF5H+bdgbD8RO8FesD+PJh3gElTTdiv3JbhyeS6MpQkuVfb+GGHvjedomSKwqgm/Xq1LdBUQr96UwIZJNOfDOelwWW4LGJjkrdgkisezt7//HuRGezCCZGsv2dY30SpuqdZykG2xqk5qtThliOxMX3jBughBGn7OJs3tVoKSiQ8nW1606rdqWag78XC7LW/3ExJtBde0a0CZH/Qhu/TR7Gyl1pu8JxcyG86Qwrfri7iSSWshpvTc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(1800799024)(52116014)(7416014)(18002099003)(22082099003)(56012099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IKI97u5CA+ehwOFLslt7ZS0qtHkDDsZjCpt66YU+bYtCRrjHjeZw8GTQctYg?=
+ =?us-ascii?Q?eIJKoMYn0mffvqV+rccF5xzlwemZNjhROoCW12dZJWqcrkUgtvQOcJWio/Ws?=
+ =?us-ascii?Q?uBMH7zTT/fRvL9z6Q6f3IGbRDsNyVCvVHUaIZHH3SApS8+zKzZIqAgxrYWQc?=
+ =?us-ascii?Q?vVrZ4nLSEpBJROqSfd4KqQPgDylM9aA7+7un4iXCH67M+ACglw5A2TYug/S5?=
+ =?us-ascii?Q?Jc6UyGiFsoCkPKPpKqTSnzhj853Fuz2Z2nONYcjU4DPlZeDTGwmf7rrBxv6c?=
+ =?us-ascii?Q?AoQu/xhUcJxsQQZyN+ga/Eh9kuL3l6fDh8jx9tLNvqW0y57fgphryrJoxYvR?=
+ =?us-ascii?Q?bIF6eQpUjLJy0CqNxcJDN9vfhakN94oPNnDGJNaBbkqjlZWmiXKW6WYhVfpT?=
+ =?us-ascii?Q?u+DT7eQLVPZ9jBQF9c2uiDyOxy34TumXIs4IBQmUxF6egoP6C5Flruq2xulf?=
+ =?us-ascii?Q?+vXoNiTIGKSv/QDcoJ9TrL/fyUUcPbrGbXJ8tGAf9wpyadCEbiDaOOhi0zrS?=
+ =?us-ascii?Q?CXzqDWwzPDe2ncei1QblN90ZZcJzcgmQgDCNrvA4n8NqyhxigQ397703JufQ?=
+ =?us-ascii?Q?XxprXDiQSRIFR5GBFyVknGhWXT5EaYfhTF/af+gFAOtI11+fyQZxy81MAdHk?=
+ =?us-ascii?Q?Yn1IhAyFFihSmomFOQJn3KImE1gSvXUrAojzBApm0uCRz7M6MYwbFHBNOdnp?=
+ =?us-ascii?Q?vJxfK9BVTqeri7RKip2lWXnqAh1kZfVeVWPH+YXYzYZc6kuhgt9DTut61Rdh?=
+ =?us-ascii?Q?eURsLsY2ZFb25CAUl0sUecgvoWD2/W/qu5SyVyTTqaG9g3xx64O4WvhBKj0k?=
+ =?us-ascii?Q?EEzcUbL4i4uhTuzxeUAzSAmJ4LEuE+8Q4z7bAVvrRsjQnqKTZrME8F4gEMFA?=
+ =?us-ascii?Q?W9ynzI4L5wicxhKqcqJ44aItIQBdqxM3T7iDvLqBzTQccxF3nCviESabB0Kl?=
+ =?us-ascii?Q?o7NyoUzTPJNhkT3dm5t7RAMCoNxAd0w35cj+H5ak6Ifq7GF57t6vtjD6s1BZ?=
+ =?us-ascii?Q?MkRawGlh9KSNPaFUNejIwetml7zMG9jTIATCni0HNXC7OgU/cMin5XyaKjgW?=
+ =?us-ascii?Q?YAhdHvbuRjMOUFgSHS7lS6rUQVUXajR1tVrMVcbip4OXjAoYlF+27G51E+mb?=
+ =?us-ascii?Q?lUlc8UnBA+QF4/cXfRVOI3TucP04Y1sieYKvWb4dItuUIMWfsm/P9TUqPitp?=
+ =?us-ascii?Q?As29uqa2FjLVDVYpkZ1tcC0M0Ff/ChYWPa6FLEptbsQaLKYD8Yabw5KkAHpv?=
+ =?us-ascii?Q?TGxsCVhoIST/EtvdTGAJ05usRBmyEEmEqFh/L+M84hXBsVA8XZFn/1u9/1pT?=
+ =?us-ascii?Q?2QtfL0A37FSD0G6zrWIeOTrGceDTwxlnSKuze88wscCEBWbczY3wZ71wpFdg?=
+ =?us-ascii?Q?lF/NqNTokTPAr9sJbe4q/bBA/+RyLiq5Ymrsvg+Rid5Y9uWymNOPbZzG0Xnv?=
+ =?us-ascii?Q?slN1o70ZXDL3HD0fIc7ajfATi2R6OXEjFVksFKgYeLgrGSZEpIzyE6usu5Gw?=
+ =?us-ascii?Q?YoKLCyTTQMZkHkILg8bfJacxJYGB9Aw9Bh6Li5g3giW8g1lBV4Y5FaP3B2G9?=
+ =?us-ascii?Q?1eiDY2FkWPsYHLhsxSh0MeW0EmCo771Bbhq01+7eizSArubyDndULqbQfOcz?=
+ =?us-ascii?Q?HJEiR+g0E0HDu7rNnmN7jWfq8g++r7lJlL/Ozcyrw87Ma1yOvXwgTsM3DiCd?=
+ =?us-ascii?Q?Q0UkcEDbeA1TUcWGcpEJkVXNsOQfTqGe+2mf9Dmo92j+6eq/0E7rdPeqokLY?=
+ =?us-ascii?Q?EzuFaAaIvg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2a12f6fa-09c5-444e-c94a-08de903fb3b7
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Apr 2026 22:40:40.7310
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: s7Dwqeodpzn0938i22kqtZFe/pp2rBMezDx1iB0jsCsLLIkVb9n4NUxHHp9dVmuTm8DDCJJ4JIz3QUoYWl53OQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12234
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_154003_209799_86F7917B 
-X-CRM114-Status: GOOD (  44.94  )
+X-CRM114-CacheID: sfid-20260401_154050_291877_B9EA522C 
+X-CRM114-Status: GOOD (  19.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,286 +142,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Apr 01, 2026 at 12:56:33PM +0200, Alex Bereza wrote:
+> Rename XILINX_DMA_LOOP_COUNT to XILINX_DMA_POLL_TIMEOUT_US because the
+> former is incorrect. It is a timeout value for polling various register
+> bits in microseconds. It is not a loop count.
 
-I replied with mostly grammar fixes and some rewrites of text.
+Rename XILINX_DMA_LOOP_COUNT to XILINX_DMA_POLL_TIMEOUT_US because it is a
+timeout value, not a loop count for polling register in microseconds.
 
-On Tue, 31 Mar 2026 17:36:30 +0900
-"Masami Hiramatsu (Google)" <mhiramat@kernel.org> wrote:
+No functional changes.
 
-> From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-> 
-> Add a self-destractive test for the persistent ring buffer.
+Frank
 
-  "self-destractive"? Do you mean "self-destructive"?
-
-Probably better to call it a "self-corrupting test".
-
-> 
-> This will inject erroneous value to some sub-buffer pages (where
-
-            inject an erroneous
-
-> the index is even or multiples of 5) in the persistent ring buffer
-> when kernel gets panic, and check whether the number of detected
-
-  when the kernel panics, and checks whether
-
-> invalid pages and the total entry_bytes are the same as recorded
-
-                                                  same as the recorded
-
-> values after reboot.
-> 
-> This can ensure the kernel correctly recover partially corrupted
-
-  This ensures that the kernel can correctly recover a partially corrupted
-
-> persistent ring buffer when boot.
-
-                         after a reboot or panic.
-
-> 
-> The test only runs on the persistent ring buffer whose name is
-> "ptracingtest". And user has to fill it up with events before
-
-                  The user has to fill it with events before a kernel panic.
-
-> kernel panics.
-> 
-> To run the test, enable CONFIG_RING_BUFFER_PERSISTENT_INJECT
-> and you have to setup the kernel cmdline;
-
-  and add the following kernel cmdline:
-
-Note, it's more proper to use a colon (:) than a semi-colon (;) when
-referencing an example on the next line.
-
-> 
->  reserve_mem=20M:2M:trace trace_instance=ptracingtest^traceoff@trace
->  panic=1
-> 
-> And run following commands after the 1st boot;
-
-  Run the following commands after the 1st boot:
-
-> 
->  cd /sys/kernel/tracing/instances/ptracingtest
->  echo 1 > tracing_on
->  echo 1 > events/enable
->  sleep 3
->  echo c > /proc/sysrq-trigger
-> 
-> After panic message, the kernel will reboot and run the verification
-> on the persistent ring buffer, e.g.
-> 
->  Ring buffer meta [2] invalid buffer page detected
->  Ring buffer meta [2] is from previous boot! (318 pages discarded)
->  Ring buffer testing [2] invalid pages: PASSED (318/318)
->  Ring buffer testing [2] entry_bytes: PASSED (1300476/1300476)
-> 
-> Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+>
+> Signed-off-by: Alex Bereza <alex@bereza.email>
 > ---
->  Changes in v15:
->   - Use pr_warn() for test result.
->   - Inject errors on the page index is multiples of 5 so that
->     this can reproduce contiguous empty pages.
->  Changes in v14:
->   - Rename config to CONFIG_RING_BUFFER_PERSISTENT_INJECT.
->   - Clear meta->nr_invalid/entry_bytes after testing.
->   - Add test commands in config comment.
->  Changes in v10:
->   - Add entry_bytes test.
->   - Do not compile test code if CONFIG_RING_BUFFER_PERSISTENT_SELFTEST=n.
->  Changes in v9:
->   - Test also reader pages.
-> ---
->  include/linux/ring_buffer.h |    1 +
->  kernel/trace/Kconfig        |   31 ++++++++++++++++++
->  kernel/trace/ring_buffer.c  |   74 +++++++++++++++++++++++++++++++++++++++++++
->  kernel/trace/trace.c        |    4 ++
->  4 files changed, 110 insertions(+)
-> 
-> diff --git a/include/linux/ring_buffer.h b/include/linux/ring_buffer.h
-> index 994f52b34344..0670742b2d60 100644
-> --- a/include/linux/ring_buffer.h
-> +++ b/include/linux/ring_buffer.h
-> @@ -238,6 +238,7 @@ int ring_buffer_subbuf_size_get(struct trace_buffer *buffer);
->  
->  enum ring_buffer_flags {
->  	RB_FL_OVERWRITE		= 1 << 0,
-> +	RB_FL_TESTING		= 1 << 1,
->  };
->  
->  #ifdef CONFIG_RING_BUFFER
-> diff --git a/kernel/trace/Kconfig b/kernel/trace/Kconfig
-> index e130da35808f..07305ed6d745 100644
-> --- a/kernel/trace/Kconfig
-> +++ b/kernel/trace/Kconfig
-> @@ -1202,6 +1202,37 @@ config RING_BUFFER_VALIDATE_TIME_DELTAS
->  	  Only say Y if you understand what this does, and you
->  	  still want it enabled. Otherwise say N
->  
-> +config RING_BUFFER_PERSISTENT_INJECT
-> +	bool "Enable persistent ring buffer error injection test"
-> +	depends on RING_BUFFER
-> +	help
-> +	  Run a selftest on the persistent ring buffer which names
-> +	  "ptracingtest" (and its backup) when panic_on_reboot by
-
-  Does this do anything with the backup?
-
-> +	  invalidating ring buffer pages.
-
- 	  This option will have the kernel check if the persistent ring
- 	  buffer is named "ptracingtest", and if so, it will corrupt some
- 	  of its pages on a kernel panic. This is used to test if the
- 	  persistent ring buffer can recover from some of its sub-buffers
- 	  being corrupted.
-
-[space]
-
-> +	  To use this, boot kernel with "ptracingtest" persistent
-
-                     , boot a kernel with a "ptracingtest" persistent
-
-> +	  ring buffer, e.g.
-> +
-> +	   reserve_mem=20M:2M:trace trace_instance=ptracingtest@trace panic=1
-> +
-> +	  And after the 1st boot, run test command, like;
-
-                               , run the following commands:
-
-> +
-> +	   cd /sys/kernel/tracing/instances/ptracingtest
-> +	   echo 1 > events/enable
-> +	   echo 1 > tracing_on
-> +	   sleep 3
-> +	   echo c > /proc/sysrq-trigger
-> +
-> +	  After panic message, the kernel reboots and show test results
-> +	  on the boot log.
-
-          After the panic message, the kernel will reboot and will show the
-          test results in the console output.
-
-> +
-> +	  Note that user has to enable events on the persistent ring
-> +	  buffer manually to fill up ring buffers before rebooting.
-
-	  Note that events for the ring buffer needs to be enabled prior to
-	  crashing the kernel so that the ring buffer has content that the
-	  test will corrupt.
-
-> +	  Since this invalidates the data on test target ring buffer,
-> +	  "ptracingtest" persistent ring buffer must not be used for
-> +	  actual tracing, but only for testing.
-
-	  As the test will corrupt events in the "ptracingtest" persistent
-	  ring buffer, it should not be used for any other purpose other
-	  than his test.
-
-
-> +
-> +	  If unsure, say N
-> +
->  config MMIOTRACE_TEST
->  	tristate "Test module for mmiotrace"
->  	depends on MMIOTRACE && m
-> diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
-> index 5ff632ca3858..fb098b0b4505 100644
-> --- a/kernel/trace/ring_buffer.c
-> +++ b/kernel/trace/ring_buffer.c
-> @@ -64,6 +64,10 @@ struct ring_buffer_cpu_meta {
->  	unsigned long	commit_buffer;
->  	__u32		subbuf_size;
->  	__u32		nr_subbufs;
-> +#ifdef CONFIG_RING_BUFFER_PERSISTENT_INJECT
-> +	__u32		nr_invalid;
-> +	__u32		entry_bytes;
-> +#endif
->  	int		buffers[];
->  };
->  
-> @@ -2079,6 +2083,21 @@ static void rb_meta_validate_events(struct
-> 	  ring_buffer_per_cpu *cpu_buffer) if (discarded)
->  		pr_cont(" (%d pages discarded)", discarded);
->  	pr_cont("\n");
-> +
-> +#ifdef CONFIG_RING_BUFFER_PERSISTENT_INJECT
-> +	if (meta->nr_invalid)
-> +		pr_warn("Ring buffer testing [%d] invalid pages: %s (%d/%d)\n",
-> +			cpu_buffer->cpu,
-> +			(discarded == meta->nr_invalid) ? "PASSED" : "FAILED",
-> +			discarded, meta->nr_invalid);
-> +	if (meta->entry_bytes)
-> +		pr_warn("Ring buffer testing [%d] entry_bytes: %s (%ld/%ld)\n",
-> +			cpu_buffer->cpu,
-> +			(entry_bytes == meta->entry_bytes) ? "PASSED" : "FAILED",
-> +			(long)entry_bytes, (long)meta->entry_bytes);
-> +	meta->nr_invalid = 0;
-> +	meta->entry_bytes = 0;
-> +#endif
->  	return;
->  
->   invalid:
-> @@ -2559,12 +2578,67 @@ static void rb_free_cpu_buffer(struct
-> 	  ring_buffer_per_cpu *cpu_buffer) kfree(cpu_buffer);
+>  drivers/dma/xilinx/xilinx_dma.c | 12 ++++++------
+>  1 file changed, 6 insertions(+), 6 deletions(-)
+>
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+> index 345a738bab2c..253c27fd1a0e 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -165,8 +165,8 @@
+>  #define XILINX_DMA_FLUSH_MM2S		2
+>  #define XILINX_DMA_FLUSH_BOTH		1
+>
+> -/* Delay loop counter to prevent hardware failure */
+> -#define XILINX_DMA_LOOP_COUNT		1000000
+> +/* Timeout for polling various registers */
+> +#define XILINX_DMA_POLL_TIMEOUT_US	1000000
+>  /* Delay between polls (avoid a delay of 0 to prevent CPU stalls) */
+>  #define XILINX_DMA_POLL_DELAY_US	10
+>
+> @@ -1336,7 +1336,7 @@ static int xilinx_dma_stop_transfer(struct xilinx_dma_chan *chan)
+>  	return xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
+>  				       val & XILINX_DMA_DMASR_HALTED,
+>  				       XILINX_DMA_POLL_DELAY_US,
+> -				       XILINX_DMA_LOOP_COUNT);
+> +				       XILINX_DMA_POLL_TIMEOUT_US);
 >  }
->  
-> +#ifdef CONFIG_RING_BUFFER_PERSISTENT_INJECT
-> +static void rb_test_inject_invalid_pages(struct trace_buffer *buffer)
-> +{
-> +	struct ring_buffer_per_cpu *cpu_buffer;
-> +	struct ring_buffer_cpu_meta *meta;
-> +	struct buffer_data_page *dpage;
-> +	u32 entry_bytes = 0;
-> +	unsigned long ptr;
-> +	int subbuf_size;
-> +	int invalid = 0;
-> +	int cpu;
-> +	int i;
-> +
-> +	if (!(buffer->flags & RB_FL_TESTING))
-> +		return;
-> +
-> +	guard(preempt)();
-> +	cpu = smp_processor_id();
-> +
-> +	cpu_buffer = buffer->buffers[cpu];
-> +	meta = cpu_buffer->ring_meta;
-> +	ptr = (unsigned long)rb_subbufs_from_meta(meta);
-> +	subbuf_size = meta->subbuf_size;
-> +
-> +	for (i = 0; i < meta->nr_subbufs; i++) {
-> +		int idx = meta->buffers[i];
-> +
-> +		dpage = (void *)(ptr + idx * subbuf_size);
-> +		/* Skip unused pages */
-> +		if (!local_read(&dpage->commit))
-> +			continue;
-> +
-> +		/*
-> +		 * Invalidate even pages or multiples of 5. This will lead 3
-
-							    This will cause 3
-
--- Steve
-
-> +		 * contiguous invalidated(empty) pages.
-> +		 */
-> +		if (!(i & 0x1) || !(i % 5)) {
-> +			local_add(subbuf_size + 1, &dpage->commit);
-> +			invalid++;
-> +		} else {
-> +			/* Count total commit bytes. */
-> +			entry_bytes += local_read(&dpage->commit);
-> +		}
-> +	}
-> +
-> +	pr_info("Inject invalidated %d pages on CPU%d, total size: %ld\n",
-> +		invalid, cpu, (long)entry_bytes);
-> +	meta->nr_invalid = invalid;
-> +	meta->entry_bytes = entry_bytes;
-> +}
+>
+>  /**
+> @@ -1352,7 +1352,7 @@ static int xilinx_cdma_stop_transfer(struct xilinx_dma_chan *chan)
+>  	return xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
+>  				       val & XILINX_DMA_DMASR_IDLE,
+>  				       XILINX_DMA_POLL_DELAY_US,
+> -				       XILINX_DMA_LOOP_COUNT);
+> +				       XILINX_DMA_POLL_TIMEOUT_US);
+>  }
+>
+>  /**
+> @@ -1370,7 +1370,7 @@ static void xilinx_dma_start(struct xilinx_dma_chan *chan)
+>  	err = xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
+>  				      !(val & XILINX_DMA_DMASR_HALTED),
+>  				      XILINX_DMA_POLL_DELAY_US,
+> -				      XILINX_DMA_LOOP_COUNT);
+> +				      XILINX_DMA_POLL_TIMEOUT_US);
+>
+>  	if (err) {
+>  		dev_err(chan->dev, "Cannot start channel %p: %x\n",
+> @@ -1787,7 +1787,7 @@ static int xilinx_dma_reset(struct xilinx_dma_chan *chan)
+>  	err = xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMACR, tmp,
+>  				      !(tmp & XILINX_DMA_DMACR_RESET),
+>  				      XILINX_DMA_POLL_DELAY_US,
+> -				      XILINX_DMA_LOOP_COUNT);
+> +				      XILINX_DMA_POLL_TIMEOUT_US);
+>
+>  	if (err) {
+>  		dev_err(chan->dev, "reset timeout, cr %x, sr %x\n",
+>
+> --
+> 2.53.0
+>
 
