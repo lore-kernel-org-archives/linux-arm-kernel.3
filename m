@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C626CD35167
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 09:54:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B302D35164
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 09:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3rRCaI2Y74VEIAatFcMFWmKLXof8MaMvzrnxvM3DWuI=; b=aWISBa79kVwh1/HT6pfZZlXRRK
-	33l6c5MrDtLeQYY0FyCyVQufbmDU44TwXIA8Yvwt1l9Vtv4EJS4kTstFliu4epaZbJaUHMmoUejWd
-	XUUs9CQnqUM4F26cocjlIDETziQ7ghji7DMPkH4FUItP2NV0MKEHCy1BWcziJ668XrcDpVpJ3XgFg
-	mx54IIctbOaAd4dkYrXH54F58X0S0rO8rpgPTOys1I1UIMiWQk5cTcCHP5xQn5rWpM6EONYb20+TW
-	v4efFFPJai0f3d9qVfApYJPeM6r8peDmtmszjT4lPaNSVfq09wszYgVCtb8jHkfV9u4ObIGBsN+IS
-	wTEeuZqA==;
+	bh=1Tyq/TdkbXHuaN7s+1clF70q58/VY98xMQ3JAFKvc8I=; b=1wBMkYVX2SylEsNOsX0dIhE/ov
+	t5OywDhbmsoDTYhh+E2Dw/UHNVKZDzIGUJLvItOXWO3G5DgiY4OcJlIWHGx1YgwieAmR3bJMVYGly
+	LWpI0WlgflFtDKWzySB1YzsycQmOyDrULc4Nec0CP5NGt0xgf1Hs4prSr0tcEn2pxe3R0wgaDpdNr
+	+pXoMkWiX3o13F1hI6fvMJBqXP5bUIHlwjH3aD3NNOpg6i1o+McNzNJ+2/oXjp2RSzWSdMpyx3bWa
+	Lzp3v8JE5q1QfKgx39pQireoxgZGKZ6VtrLceWkM1uEHFTLl00eSp+tX6OkZsSxlMK8L/jg/Vu1L8
+	B6T0cQLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7sHH-0000000ERzl-1rgo;
-	Wed, 01 Apr 2026 09:54:24 +0000
+	id 1w7sHM-0000000ES4n-0SoC;
+	Wed, 01 Apr 2026 09:54:28 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7sHE-0000000ERvy-2goS
+	id 1w7sHJ-0000000ES1g-3puy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 09:54:21 +0000
+	Wed, 01 Apr 2026 09:54:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4FC7416F2;
-	Wed,  1 Apr 2026 02:54:14 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AE1E62F60;
+	Wed,  1 Apr 2026 02:54:18 -0700 (PDT)
 Received: from donnerap.manchester.arm.com (donnerap.manchester.arm.com [10.33.8.81])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0842E3F7D8;
-	Wed,  1 Apr 2026 02:54:17 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9E34E3F7D8;
+	Wed,  1 Apr 2026 02:54:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775037260; bh=8lUyUOq00JGsWx3czpAN4XQFBIjun29IuQSs3tMDFHI=;
+	t=1775037264; bh=0catYH8MP7g4V0ZHjfDpu8smhUmiJwvdHfntcdSFuCM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=c5ykb1TPFggd8gJfEXs3XQ9lVzqZtuTyhCj5dnunCKMCy/Z1RGvbVaOR6e0qkOC9H
-	 GZHpyP4tgSfXrAJh0+HOQ68oUSUSDPO6BCsS2wdja94cp67is0Z/G/13qFXxuM/FG0
-	 J+z/1U6FX/Ui378HHJXJaFeMUBQQiTZhewk0yT9U=
+	b=XSw2NBUL0DG778Qf+BudmNSKpYZIUw8y3kTrDbR04yL2n63KUBKqLVLQ6JDAtsVRX
+	 w5lnSVckTMO8vmzpJzgA2Rbig6CMXfyKjbXeGjWQRuHAmTIBWg5bGdaT0bbhOiAGkM
+	 61LSSeyHC4YTOAd/ZsGXA6C/8Kk4KiUJNv4ttyk0=
 From: Philip Radford <philip.radford@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -55,20 +55,18 @@ Cc: sudeep.holla@arm.com,
 	dan.carpenter@linaro.org,
 	d-gole@ti.com,
 	souvik.chakravarty@arm.com,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
 	Philip Radford <philip.radford@arm.com>
-Subject: [PATCH v4 08/11] powercap: arm_scmi: Enable multiple constraints support
-Date: Wed,  1 Apr 2026 10:53:46 +0100
-Message-ID: <20260401095349.2217840-9-philip.radford@arm.com>
+Subject: [PATCH v4 10/11] powercap: arm_scmi: Create synthetic parent node for multi-instance
+Date: Wed,  1 Apr 2026 10:53:48 +0100
+Message-ID: <20260401095349.2217840-11-philip.radford@arm.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260401095349.2217840-1-philip.radford@arm.com>
 References: <20260401095349.2217840-1-philip.radford@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_025420_731293_297E7A8F 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20260401_025426_058928_A946EB55 
+X-CRM114-Status: GOOD (  17.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,43 +81,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cristian Marussi <cristian.marussi@arm.com>
+SCMI powercap domains are exposed as a flat list and may include
+multiple top-level domains without a parent. When registered with
+the powercap framework, these appear as independent root zones
+with no common hierarchy. The driver probes domains per SCMI
+instance, but when registering with the powercap framework, these
+would be combined into a single tree. This is particularly evident
+in multi-instance setups where zone IDs and parent zones can only
+coexist with other zones and parents from the same instance.
 
-Initialize the domains with all the discovered available constraints,
-making available multiple per-domain constraints when the platform has
-advertised support for multiple concurrent power limits.
+Create a synthetic root zone to act as a common parent for all
+top-level domains. Creates a single hierarchy and unified entry
+point per-instance for userspace.
 
-CC: "Rafael J. Wysocki" <rafael@kernel.org>
-CC: linux-pm@vger.kernel.org
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-[Philip: Amended Copyright]
 Signed-off-by: Philip Radford <philip.radford@arm.com>
 ---
- drivers/powercap/arm_scmi_powercap.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+---
+ drivers/powercap/arm_scmi_powercap.c | 67 ++++++++++++++++++++++++++--
+ 1 file changed, 64 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
-index be3007206a74..7f2bb162f96c 100644
+index 7f2bb162f96c..6fc2cab30b05 100644
 --- a/drivers/powercap/arm_scmi_powercap.c
 +++ b/drivers/powercap/arm_scmi_powercap.c
-@@ -2,7 +2,7 @@
- /*
-  * SCMI Powercap support.
-  *
-- * Copyright (C) 2022 ARM Ltd.
-+ * Copyright (C) 2022-2026 ARM Ltd.
-  */
+@@ -36,6 +36,7 @@ struct scmi_powercap_root {
+ 	struct scmi_powercap_zone *spzones;
+ 	struct list_head *registered_zones;
+ 	struct list_head scmi_zones;
++	struct scmi_powercap_zone instance_root;
+ };
  
- #include <linux/device.h>
-@@ -311,7 +311,7 @@ static int scmi_powercap_register_zone(struct scmi_powercap_root *pr,
+ static struct powercap_control_type *scmi_top_pcntrl;
+@@ -263,12 +264,47 @@ static const struct powercap_zone_constraint_ops constraint_ops  = {
+ 	.get_name = scmi_powercap_get_name,
+ };
  
- 	z = powercap_register_zone(&spz->zone, scmi_top_pcntrl, spz->info->name,
++/* Multi-agent constraints to meet driver requrements */
++static int instance_root_release(struct powercap_zone *pz)
++{
++	return 0;
++}
++
++static int instance_root_get_power_uw(struct powercap_zone *pz, u64 *v)
++{
++	*v = 0;
++	return 0;
++}
++
++static int instance_root_set_constraint(struct powercap_zone *pz, int cid, u64 v)
++{
++	return -EOPNOTSUPP;
++}
++
++static int instance_root_get_constraint(struct powercap_zone *pz, int cid, u64 *v)
++{
++	return -EOPNOTSUPP;
++}
++
++static const struct powercap_zone_ops instance_root_ops = {
++	.get_max_power_range_uw = scmi_powercap_get_max_power_range_uw,
++	.get_power_uw = instance_root_get_power_uw,
++	.release = instance_root_release,
++};
++
++static const struct powercap_zone_constraint_ops instance_root_const_ops = {
++	.set_power_limit_uw = instance_root_set_constraint,
++	.get_power_limit_uw = instance_root_get_constraint,
++	.set_time_window_us = instance_root_set_constraint,
++	.get_time_window_us = instance_root_get_constraint,
++};
++
+ static void scmi_powercap_unregister_all_zones(struct scmi_powercap_root *pr)
+ {
+ 	int i;
+ 
+ 	/* Un-register children zones first starting from the leaves */
+-	for (i = pr->num_zones - 1; i >= 0; i--) {
++	for (i = pr->num_zones; i >= 0; i--) {
+ 		if (!list_empty(&pr->registered_zones[i])) {
+ 			struct scmi_powercap_zone *spz;
+ 
+@@ -313,7 +349,6 @@ static int scmi_powercap_register_zone(struct scmi_powercap_root *pr,
  				   parent ? &parent->zone : NULL,
--				   &zone_ops, 1, &constraint_ops);
-+				   &zone_ops, spz->info->num_cpli, &constraint_ops);
+ 				   &zone_ops, spz->info->num_cpli, &constraint_ops);
  	if (!IS_ERR(z)) {
- 		spz->height = scmi_powercap_get_zone_height(spz);
+-		spz->height = scmi_powercap_get_zone_height(spz);
  		spz->registered = true;
+ 		list_move(&spz->node, &pr->registered_zones[spz->height]);
+ 		dev_dbg(spz->dev, "Registered node %s - parent %s - height:%d\n",
+@@ -384,6 +419,8 @@ static int scmi_zones_register(struct device *dev,
+ 		struct scmi_powercap_zone *parent;
+ 
+ 		parent = scmi_powercap_get_parent_zone(spz);
++		if (!parent)
++			parent = &pr->instance_root;
+ 		if (parent && !parent->registered) {
+ 			zones_stack[sp++] = spz;
+ 			spz = parent;
+@@ -424,8 +461,11 @@ static int scmi_powercap_probe(struct scmi_device *sdev)
+ 	int ret, i;
+ 	struct scmi_powercap_root *pr;
+ 	struct scmi_powercap_zone *spz;
++	struct scmi_powercap_zone *ir;
+ 	struct scmi_protocol_handle *ph;
+ 	struct device *dev = &sdev->dev;
++	char *instance_name;
++	struct powercap_zone *z;
+ 
+ 	if (!sdev->handle)
+ 		return -ENODEV;
+@@ -453,7 +493,7 @@ static int scmi_powercap_probe(struct scmi_device *sdev)
+ 		return -ENOMEM;
+ 
+ 	/* Allocate for worst possible scenario of maximum tree height. */
+-	pr->registered_zones = devm_kcalloc(dev, pr->num_zones,
++	pr->registered_zones = devm_kcalloc(dev, pr->num_zones + 1,
+ 					    sizeof(*pr->registered_zones),
+ 					    GFP_KERNEL);
+ 	if (!pr->registered_zones)
+@@ -491,6 +531,27 @@ static int scmi_powercap_probe(struct scmi_device *sdev)
+ 		}
+ 	}
+ 
++	ir = &pr->instance_root;
++	ir->dev = dev;
++	INIT_LIST_HEAD(&ir->node);
++	instance_name = devm_kasprintf(dev, GFP_KERNEL, "instance_%s", dev_name(dev));
++	if (!instance_name)
++		return -ENOMEM;
++
++	z = powercap_register_zone(&ir->zone, scmi_top_pcntrl,
++				   instance_name, NULL, &instance_root_ops, 0,
++				   &instance_root_const_ops);
++
++	if (IS_ERR(z)) {
++		ret = PTR_ERR(z);
++		dev_err(dev, "Failed to register sysnthetic instance root: %d\n", ret);
++		return ret;
++	}
++
++	ir->registered = true;
++	ir->height = 0;
++	list_add_tail(&ir->node, &pr->registered_zones[0]);
++
+ 	/*
+ 	 * Scan array of retrieved SCMI powercap domains and register them
+ 	 * recursively starting from the root domains.
 -- 
 2.47.3
 
