@@ -4,127 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6813510F6FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:57:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14BE110F6FB9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Apr 2026 14:57:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wx9uFPxK7aoYVYlvEoqTCO23k72vx9XaFJAGMTz8G/k=; b=JXXAspR8W9bMU99PTaFwMaR3uP
-	coVLm4iV7/+LQbZcEDAuNkQB3vOOGMERMo2SoSIUUwGr1ZYH7G6Jz7CF5FR9gfEUJWS7l6ncAxtYY
-	lqMvOD61KMSzJvDAa0U2ptCxdvC8tP03wEIf+R4TwReIcx4/fPp4+Nrq5KgSfVUSLD3fyLzF41bmO
-	D/u7vMMzUVIDXdNF16dpk7oYBkqqgZGcUp2Ocnhv3K8EInGTTxkNRxAXJUj/7pHWMMgkmkn105ChL
-	QWap7pAIjkEZ7DLLYvRODAH9bpt+Vbv3KZYRokpBMXpeakIyqCaPSK60AQ8rbU0Nj0bd34k8OdRD2
-	dZd4XELQ==;
+	bh=08+HF169tzom4TGvVoXRoMnpukSRm4ySOp8JpJoHgb4=; b=4IoWGCJJjW/m8oFV63iwgxhK4f
+	fXvUn7SxwLBe2TXqduQ62GRjAZS2tIx4lusqyly9K3HxONkpgLaYjiIjg2Fvw98cnN7z3/0ZoTjSv
+	SJrcNKqMGfBTJAVEc/oFA4D3+Kz9RSdDmX5iFo3V4siD6qVxuTBYcZ34RAP3baHpbYrfLQtvTQLQr
+	I57XvaU47hFAlImZBddwmL6iceK0QQqMxwYHjGoIJVk4IpzKMfUUnDA7HorRbHQEmjrJ6JkV0hU4R
+	q9P7NGgpvxtOBKDjTntsgvWZmAMZWy8a0CeHSteU0ktddMLgxu1L2PMeLRVuh+7LWX85hjQy1mZpg
+	HKIsdi+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7x0R-0000000FXNp-0Ii5;
-	Wed, 01 Apr 2026 14:57:19 +0000
-Received: from fout-a2-smtp.messagingengine.com ([103.168.172.145])
+	id 1w7x0k-0000000FXSV-0mAr;
+	Wed, 01 Apr 2026 14:57:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w7x0O-0000000FXN2-2yPA
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Apr 2026 14:57:18 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id 881C3EC0268;
-	Wed,  1 Apr 2026 10:57:13 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Wed, 01 Apr 2026 10:57:13 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1775055433;
-	 x=1775141833; bh=wx9uFPxK7aoYVYlvEoqTCO23k72vx9XaFJAGMTz8G/k=; b=
-	EBdBmhy8ush2I8l5uv7vjLGXV75AY92vQWxjmCPyEYY8SJ83SQnF3L14Vicw51NQ
-	FF7gvwNjihLBoZoPAPfH5I3LfsQ0KNJogIRzsAbTWdU+XGuKF751BZaLASMT/tAj
-	hR4TXU5NmhLWaOyIcbiSQ7m9J3rFx/MuuZoY5pTi2MM6a6SZT3kgblN+gL+k8sym
-	j1nf9P/WSt2jGzIfYHTJL1ngpouJ0DKSSsYSBYAQvmV6uNruDtGa/LH+fs7jo8Cm
-	+6tQJtuy0aGgC7A6EA6QHZcXqrgzaJUmJJBuxN+CXI/lO9b2jXbXvFnaymzD9UE4
-	digK44vT3m53pAZJAr7ukw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1775055433; x=
-	1775141833; bh=wx9uFPxK7aoYVYlvEoqTCO23k72vx9XaFJAGMTz8G/k=; b=N
-	fWaPNdVuR1mCv/d2Wu5O8fNJtzKsmx6tfjmxEShfy+qyzQ7kTBBXp2hg1yGjVQoL
-	IRIxSfEux4jgrb9kGa3ix5DTfQnIuohbJN9tvl4c7B/4TH/CoAprnh7wkK5hvpXu
-	NalbROKZrhJkP+TM0HMNh4jkY3n27VoYFZkg5HpLfBKLeOE2ndyutLKepeeo9qtz
-	49h9PsCzlfz1mXQouLensFZ4a83AMHVLvh0lnDzK38p42B7Ka1K8n/pgTTCNPJhv
-	1kD3AM2BuD6wKS7mc9tJGAAZopAOssvGg0Lo59k118uYXuBEr1a7swGiSKjGH1w+
-	EDr3p8a4QXq0j1uWSaVLQ==
-X-ME-Sender: <xms:SDLNafoWFO00-QQIK3gpd96_o3xq4ItpLl-cGJxwCcpDOyoK17MZLw>
-    <xme:SDLNaUc4OdTKOi__4sC0iCw1NVGbCfWje7trf88s1EVGpoQmCDsWMJFLkI4_wk31L
-    KxmDBnHR9wYHgqh5VxwEiBmuOsalQvbRcXgIFGCFMjrY8aFr1jTyNQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdefgedvucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
-    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
-    epofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
-    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
-    ephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdeinecu
-    vehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhguse
-    grrhhnuggsrdguvgdpnhgspghrtghpthhtohepvdekpdhmohguvgepshhmthhpohhuthdp
-    rhgtphhtthhopehsohhuvhhikhdrtghhrghkrhgrvhgrrhhthiesrghrmhdrtghomhdprh
-    gtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopehf
-    lhhorhhirghnrdhfrghinhgvlhhlihessghrohgruggtohhmrdgtohhmpdhrtghpthhtoh
-    epmhhorhhithiirdhfihhstghhvghrsegvthhtuhhsrdgtohhmpdhrtghpthhtohepmhgr
-    thhthhhirghsrdgsghhgsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghnuggvrhhssh
-    honheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepsghrghhlsehkvghrnhgvlhdrohhr
-    ghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
-    epkhhonhhrrgguhigstghioheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:SDLNaRsQoJjEHEh6BjlT9J7fg0cDlw67Z6gzAFTSrS7tQgpPXwwm1w>
-    <xmx:SDLNaSMRCb2AGtL3ZwYrT-br7Fx6lQyFnd7p-gywCyVnBCDgQ2cCUg>
-    <xmx:SDLNaTXk96uxoMM2wYMUw7wCd0aeCKnui6e1E129kqAWwmSbEexovg>
-    <xmx:SDLNaSjKAkD7DqhFGGw036g2Y6NYQaDPd7Qzm4IkKkNtZHXSx_q8Sw>
-    <xmx:STLNacH8t54amPEHZvYFE30Eb81SbY22TSlc7KrXA6P9Jw3Oq9jPahOH>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id BB713700065; Wed,  1 Apr 2026 10:57:12 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: ALgIkaxq5xRN
-Date: Wed, 01 Apr 2026 16:56:49 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- "Shivendra Pratap" <shivendra.pratap@oss.qualcomm.com>
-Cc: "Bjorn Andersson" <andersson@kernel.org>,
- "Sebastian Reichel" <sre@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Souvik Chakravarty" <Souvik.Chakravarty@arm.com>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Andy Yan" <andy.yan@rock-chips.com>,
- "Matthias Brugger" <matthias.bgg@gmail.com>,
- "Mark Rutland" <mark.rutland@arm.com>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Konrad Dybcio" <konradybcio@kernel.org>,
- "John Stultz" <john.stultz@linaro.org>,
- "Moritz Fischer" <moritz.fischer@ettus.com>,
- "Bartosz Golaszewski" <brgl@kernel.org>,
- "Sudeep Holla" <sudeep.holla@kernel.org>,
- "Florian Fainelli" <florian.fainelli@broadcom.com>,
- "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>,
- "Mukesh Ojha" <mukesh.ojha@oss.qualcomm.com>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- "Kathiravan Thirumoorthy" <kathiravan.thirumoorthy@oss.qualcomm.com>,
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, "Srinivas Kandagatla" <srini@kernel.org>
-Message-Id: <f6ed07b1-8bfc-49ea-951e-b590bf8b299a@app.fastmail.com>
-In-Reply-To: <ac0trUGsRBLPS+ux@lpieralisi>
-References: <20260304-arm-psci-system_reset2-vendor-reboots-v20-0-cf7d346b8372@oss.qualcomm.com>
- <20260304-arm-psci-system_reset2-vendor-reboots-v20-6-cf7d346b8372@oss.qualcomm.com>
- <acaMPgRALnoUIHMC@lpieralisi>
- <93a78bc2-4fd1-41bd-bf4a-b433b06fc218@oss.qualcomm.com>
- <ac0trUGsRBLPS+ux@lpieralisi>
-Subject: Re: [PATCH v20 06/10] power: reset: Add psci-reboot-mode driver
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_075717_081540_8BB625C9 
-X-CRM114-Status: GOOD (  22.37  )
+	id 1w7x0i-0000000FXS6-2h6R;
+	Wed, 01 Apr 2026 14:57:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B0A3060132;
+	Wed,  1 Apr 2026 14:57:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74290C19421;
+	Wed,  1 Apr 2026 14:57:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775055455;
+	bh=8e2oNK+RNa0NzKd4ZlabYjd8IqP/GM5sHzXlyJGAd+w=;
+	h=Date:Cc:Subject:From:To:References:In-Reply-To:From;
+	b=mUKes+mMPs5iX2Viqpl9YEl86lcLJksX1Gm+Yr6B8QPMTf30lx89O2N4j4uuRrsBt
+	 /WvZPEZXGvjv5HHYWLRMgt89uNfXGP2JoNEUA5+6vWs31qT6KXWzmOepYAC6w3/ykq
+	 65Mfexkf/2wemcaMM77IqDmD9DJaj3yY175CnUJa1sC+ANoroZ4twvbzpIYHfpWSOs
+	 2Zjfn4ErkryA82DEigqSFP4d/XQVInePh1+SDffXkjaaFz1OU76sLVrNgbh2ehMITL
+	 vuBN0C9PQLVQShwJWA4kjUmjBbYNtiYIsifnmGW7kksVSKd/ea83EEwhf/sQ9cN1MW
+	 b64kr4qjr5Q1w==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 01 Apr 2026 16:57:24 +0200
+Message-Id: <DHHWN1TBVAZS.2EAX0F648ULPU@kernel.org>
+Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Trevor Gross"
+ <tmgross@umich.edu>, <rust-for-linux@vger.kernel.org>,
+ <linux-kbuild@vger.kernel.org>, "Lorenzo Stoakes"
+ <lorenzo.stoakes@oracle.com>, "Vlastimil Babka" <vbabka@kernel.org>, "Liam
+ R . Howlett" <Liam.Howlett@oracle.com>, "Uladzislau Rezki"
+ <urezki@gmail.com>, <linux-block@vger.kernel.org>, "moderated for
+ non-subscribers" <linux-arm-kernel@lists.infradead.org>, "Alexandre Ghiti"
+ <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>,
+ <nouveau@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>, "Rae
+ Moar" <raemoar63@gmail.com>, <linux-kselftest@vger.kernel.org>,
+ <kunit-dev@googlegroups.com>, "Nick Desaulniers"
+ <nick.desaulniers+lkml@gmail.com>, "Bill Wendling" <morbo@google.com>,
+ "Justin Stitt" <justinstitt@google.com>, <llvm@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, "Shuah Khan" <skhan@linuxfoundation.org>,
+ <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH 01/33] rust: bump Rust minimum supported version to
+ 1.85.0 (Debian Trixie)
+From: "Benno Lossin" <lossin@kernel.org>
+To: "Miguel Ojeda" <ojeda@kernel.org>, "Nathan Chancellor"
+ <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Danilo Krummrich"
+ <dakr@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Paul
+ Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
+ Ou" <aou@eecs.berkeley.edu>, "Alexandre Courbot" <acourbot@nvidia.com>,
+ "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
+ "Brendan Higgins" <brendan.higgins@linux.dev>, "David Gow"
+ <david@davidgow.net>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, "Todd Kjos"
+ <tkjos@android.com>, "Christian Brauner" <christian@brauner.io>, "Carlos
+ Llamas" <cmllamas@google.com>, "Alice Ryhl" <aliceryhl@google.com>,
+ "Jonathan Corbet" <corbet@lwn.net>
+X-Mailer: aerc 0.21.0
+References: <20260401114540.30108-1-ojeda@kernel.org>
+ <20260401114540.30108-2-ojeda@kernel.org>
+In-Reply-To: <20260401114540.30108-2-ojeda@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,57 +96,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 1, 2026, at 16:37, Lorenzo Pieralisi wrote:
-> On Tue, Mar 31, 2026 at 11:30:09PM +0530, Shivendra Pratap wrote:
->> 
->> > > +#include <linux/err.h>
->> > > +#include <linux/of.h>
->> > > +#include <linux/psci.h>
->> > > +#include <linux/reboot.h>
->> > > +#include <linux/reboot-mode.h>
->> > > +#include <linux/types.h>
->> > > +
->> > > +/*
->> > > + * Predefined reboot-modes are defined as per the values
->> > > + * of enum reboot_mode defined in the kernel: reboot.c.
->> > > + */
->> > > +static struct mode_info psci_resets[] = {
->> > > +	{ .mode = "warm", .magic = REBOOT_WARM},
->> > > +	{ .mode = "soft", .magic = REBOOT_SOFT},
->> > > +	{ .mode = "cold", .magic = REBOOT_COLD},
+On Wed Apr 1, 2026 at 1:45 PM CEST, Miguel Ojeda wrote:
+> As proposed in the past in e.g. LPC 2025 and the Maintainers Summit [1],
+> we are going to follow Debian Stable's Rust versions as our minimum
+> supported version.
 >
-> These strings match the command userspace issue right ? I think that we
-> should make them match the corresponding PSCI reset types, the list above
-> maps command to reboot_mode values and those can belong to any reboot
-> mode driver to be honest they don't make much sense in a PSCI reboot
-> mode driver only.
+> Debian Trixie was released with a Rust 1.85.0 toolchain [2], which it
+> still uses to this day [3] (i.e. no update to Rust 1.85.1).
 >
-> It is a question for everyone here: would it make sense to make these
-> predefined resets a set of strings, eg:
+> Debian Trixie's release happened on 2025-08-09 [4], which means that a
+> fair amount of time has passed since its release for kernel developers
+> to upgrade.
 >
-> psci-system-reset
-> psci-system-reset2-arch-warm-reset
+> Thus bump the minimum to the new version.
 >
-> and then vendor resets:
+> Then, in later commits, clean up most of the workarounds and other bits
+> that this upgrade of the minimum allows us.
 >
-> psci-system-reset2-vendor-reset
+> pin-init was left as-is since the patches come from upstream. And the
+> vendored crates are unmodified, since we do not want to change those.
 >
-> at least we know what a string maps to ?
+> Note that the minimum LLVM major version for Rust 1.85.0 is LLVM 18 (the
+> Rust upstream binaries use LLVM 19.1.7), thus e.g. `RUSTC_LLVM_VERSION`
+> tests can also be updated, but there are no suitable ones to simplify.
 >
-> We can export a function from the PSCI driver to detect whether PSCI
-> SYSTEM_RESET2 is supported, an equivalent of psci_has_osi_support() for
-> instance that we can call from this driver to detect its presence.
+> Ubuntu 25.10 also has a recent enough Rust toolchain [5], and they also
+> provide versioned packages with a Rust 1.85.1 toolchain even back to
+> Ubuntu 22.04 LTS [6].
+>
+> Link: https://lwn.net/Articles/1050174/ [1]
+> Link: https://www.debian.org/releases/trixie/release-notes/whats-new.en.h=
+tml#desktops-and-well-known-packages [2]
+> Link: https://packages.debian.org/trixie/rustc [3]
+> Link: https://www.debian.org/releases/trixie/ [4]
+> Link: https://packages.ubuntu.com/search?suite=3Dall&searchon=3Dnames&key=
+words=3Drustc [5]
+> Link: https://launchpad.net/ubuntu/+source/rustc-1.85 [6]
+> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 
-Sorry I've been out of the loop for this series for a while, but
-can someone refresh me on why we got back to mixing in
-the 'enum reboot_mode' from legacy i386 and arm32 into the new
-interface?
+Very happy to see this!
 
-I don't mind having whichever strings are defined for PSCI present
-in the user interface, but this seems like a mistake to me.
-If at all possible, lets define your own magic constants that
-are not tied to "enum reboot_mode" or the legacy reboot= command
-line argument.
+Acked-by: Benno Lossin <lossin@kernel.org>
 
-       Arnd
+Cheers,
+Benno
+
+> ---
+>  Documentation/process/changes.rst | 2 +-
+>  scripts/min-tool-version.sh       | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
 
