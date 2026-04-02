@@ -4,109 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 845C5D6AAF2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:36:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA47AD6AAF2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:39:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bf6BzcH0R5MqYrtbezlfhIwcA+5shdZfk2Lj/kv9sQw=; b=D/1DcmFR7mtosid18+QpN9RKGB
-	hKWryuEiU8YLIFHo7vFxczThwZEkj9Ut9tzq+1743v/9gUjoxCK6xfGrjnzgHjmG/5Ojx5vyhpej5
-	vScJEirOTTpSJgBIl+G9Q48jaPVUke/M9v08LuFwqfhhamBTlII0Y5pmTrGQbos+niTR1O8hHRC56
-	vBG1XnilmfEYEVyHnE7gVmaT+1fFGoq14AkAjprdbr39F3a9NBJkxEiQGVT+GBJhD7aFqV/POhb63
-	1kDVz3D2YqmswxfOAbLhGuriEhdhi8VP1V/Evn7evlVDzYS7jd+T1IJCsNj2kuI/XgUAw3b7vT8US
-	O8aG/VmQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jZjcwMAJltdpwZlNUWZF9WLsgEQmZVEKWtmvzomSe5U=; b=bzypv+Bap+x0T4YswcMoAsnVxe
+	UudVCOkJwSj7ZfUtOdvc7jBVv287YNg+vUBUn1+SR2RCkLAGM+pUMUvALTNITwLrZvpsgkmQVYJeq
+	36MnlPkIjJO59tLWf7C/C21/WIplHQ46k4iYqaVLCni1D3S7xVMvBcEHLdzbfm6+ekxVtAR41HFXk
+	2EH9rT5cuwmA6wEG92+CbIyAJMx3VN4PuWgp8Uot9vr9BMcRx2isonIbxrM68VmG8iBeVNDdvnCe0
+	678JXSqgEeVDo+JiJExz/Feth7cruub4jjYe4zf0lQJBlaUVcSIrI8xuq9w7onAYtHcWVTW9hVT+P
+	9vf33Y5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8L2L-00000000WKg-3iwn;
-	Thu, 02 Apr 2026 16:36:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w8L4Q-00000000Wdy-1TVe;
+	Thu, 02 Apr 2026 16:39:02 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8L2I-00000000WIn-0b1t
+	id 1w8L4O-00000000WdS-0AWo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 16:36:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 48EEF60128;
-	Thu,  2 Apr 2026 16:36:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01F82C116C6;
-	Thu,  2 Apr 2026 16:36:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775147809;
-	bh=ZziQI+L2TPJPg9vzRV+c96lmFlIjt5A3GhQ/nKXHWTg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=o74/Yl2vwckDQCqDswuI2eZoPtoMfkyoF/DjNlbERA7Vd06FDP5GZ3aJrgnjgadGL
-	 KsBsubE+NUZDFO+9i86lMoQT6reVgwozlVnz5Lod1tKM47lqemfW6MHDTvcaNcKich
-	 pJE0kaXKFZQTN9jvQfE/d+NG5MLWlAQNd+OUXPCXC3Ts8+i34SW9Kyd/ADrluAqf7a
-	 9YH4RL6ys3DWE9qhgAhwEOQX0pBKNdouXe/NpOw+o7J1RJYORnSeQFloxxYPN2ouui
-	 qy3irQ2Yozh0oKlsPcEvc4Kz2xUSdvHeZhK6DlEEJ2HzAEkm7sOuAqRtYT2L6vPglF
-	 NOwiPpwJECdOQ==
-Message-ID: <6cee7587-a7f6-4e69-893f-4c89dd0aa2bf@kernel.org>
-Date: Thu, 2 Apr 2026 18:36:43 +0200
+	Thu, 02 Apr 2026 16:39:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wuzTf4DdvXg+Yp9VLRR3g2lJmXOVZZTOWpMZyVLh/HdDqbehfvMX4XX7cJKcAYxq/7sw1piuE1sAfpxUAPgXrhpC/Fx1A4GOXRaBByhVxdUAW6ahtXXsviQZdSdcemimbFR8A+8DXMu4xPkjpYNJOlUBCtvhpsk0d13ICj5FriFzyJoji23t/t8wmjfJgJ8vrMOsaaaRxPu5fmphJN+6lVh4NDB8Tn95ih78gYIUVOGnmvqNNIo83ERoLCyHf/IUCSxozjBE+ypZNgRexy4BOj4JHVbM1ymZJPuxyNySn6/xKFU6tqPflz7AtaSQuorqsSFNJB72sEPFLZKxjO29YQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jZjcwMAJltdpwZlNUWZF9WLsgEQmZVEKWtmvzomSe5U=;
+ b=DLPgmE/xMT8WG4gE15cbvQihbrdtyFwh183EBjyTgaNJpg/WmSGUet5gxCfEdqOk7AXL7fgz5cnS+m+vDjK82LU2vC/6q1rrWvOFv/xpi6HIiX+kswM28IH2t/mxfnZKbo/YLwUWDOMJgwxsjdqKLRR+NiZtFGfHgUjaZd060nz0o7NmjgS3pCTT8jjlj2Ezto01ZrcZ+pLm3sIyoouLDLRbB/bzkI0HsSpciVQB+nX6RbcBCUlXTE6aaSSRMN42qEUoO+v5c7YZ2fQPzg5HurHs8I6Kmunahh54yr/zVOfEZFR1MARSbO+BCDaChYLmzboaQD1dBuLW0e/tppd9Nw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jZjcwMAJltdpwZlNUWZF9WLsgEQmZVEKWtmvzomSe5U=;
+ b=1p/cHN/d7JrQufGeesYrtwBO9mLd/z7b4b27v3RVdWWId+nRJFQs50r05irUi3i2dpW+S+ICa9MbyDTzXFJxn/PTkPlH1aE+yG8s/UIODbhA76akrj0XsOnsPcZB0mW+10Ec7j4tMhYHRraez83WyIHIP3H1OfrIheFHxE9PzeU=
+Received: from DS7PR03CA0358.namprd03.prod.outlook.com (2603:10b6:8:55::7) by
+ PH8PR12MB8608.namprd12.prod.outlook.com (2603:10b6:510:1bc::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.15; Thu, 2 Apr 2026 16:38:51 +0000
+Received: from DS3PEPF0000C37E.namprd04.prod.outlook.com
+ (2603:10b6:8:55:cafe::b1) by DS7PR03CA0358.outlook.office365.com
+ (2603:10b6:8:55::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.18 via Frontend Transport; Thu,
+ 2 Apr 2026 16:38:51 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ DS3PEPF0000C37E.mail.protection.outlook.com (10.167.23.8) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.17 via Frontend Transport; Thu, 2 Apr 2026 16:38:51 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 2 Apr
+ 2026 11:38:49 -0500
+Received: from xhdshubhraj40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Thu, 2 Apr 2026 11:38:46 -0500
+From: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+To: <linux-kernel@vger.kernel.org>
+CC: <git@amd.com>, <shubhrajyoti.datta@gmail.com>, Shubhrajyoti Datta
+	<shubhrajyoti.datta@amd.com>, Srinivas Neeli <srinivas.neeli@amd.com>,
+	"Michal Simek" <michal.simek@amd.com>, Linus Walleij <linusw@kernel.org>,
+	"Bartosz Golaszewski" <brgl@kernel.org>, Rob Herring <robh@kernel.org>,
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, <linux-gpio@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH 0/2] gpio: Add EIO GPIO support
+Date: Thu, 2 Apr 2026 22:08:38 +0530
+Message-ID: <20260402163840.938417-1-shubhrajyoti.datta@amd.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: usb: dwc3-xilinx: Add MMI USB support
- on Versal Gen2 platform
-To: "Pandey, Radhey Shyam" <radheys@amd.com>,
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Cc: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, michal.simek@amd.com, Thinh.Nguyen@synopsys.com,
- p.zabel@pengutronix.de, linux-usb@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, git@amd.com
-References: <20260330190304.1841593-1-radhey.shyam.pandey@amd.com>
- <20260330190304.1841593-2-radhey.shyam.pandey@amd.com>
- <20260331-jellyfish-of-pragmatic-prowess-a230fc@quoll>
- <3d64cd29-d981-4e84-8106-8085250fc502@amd.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <3d64cd29-d981-4e84-8106-8085250fc502@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS3PEPF0000C37E:EE_|PH8PR12MB8608:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5e9f30a5-1577-441d-b0c5-08de90d65274
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|82310400026|1800799024|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: vo5n9DYqIeyHbJM/xm+xNO62nOZ1v4UR8np+OzKd3q0XA/vMUlEa4u/jYlrm2bF531XGnjBvt8CZE+HxhIRly9d/AVvicRyCfYzBIpbBIbpVLNFVNQDwClJfudKFfJGeYfMHJhwLgWFa11s4EedpXt5LlNtwf04KyamOu9QpsTJ8FmDUWuWKI597eBfo1VwEDgUbqGeqJJkENI8j4WrcEy9pe+dU4Eg1cTZYigsGTsguT1B4tvhDrpU1KSAzlORIDOCI7G4wCVg7jGH5BNA+37qF2TUSwWYNI4DPVfZPsTo09pDMxGm2ZsBOZsqpzeenSjFC63g7K74L40CcsJWC+TJW7hRpu94WXmmrr8O55kcIpBKumonHcKBHoYl9J00O3A4lQHokZXRx/LCuMxYOeuCRHlAPEIIoy1PHmHOM5E61upf3rdrrcEdHqwL9sd+1Fk5DoJKn0B0EgaphxHz8YAdXJEwt4WYFgEr2v3t07FAe88Gl/sndeprIevrcMFS2Qhqa9YttoINdUC5rVN5aa+fjlRPtxHd9Ud0nQSNoxSf82mrkig/gpBtuEehydzv7GLpCpDAZn8svFCsRrYsptDln3lAD2+Er+RLUgkV+3Oq5EyTW9vlblr3TfnG2TII6cyDCI5Wcml1uqfIkSTFc5qjeGeBdW5FRz2+d2IgjSLJoLROvsuN5m+m72F9GPB/lMxURF3wRcTMIhUmK5Dcgp4NmoZ8nfMXiQWE1qWtWr3uNB5+Z/aGuD8jRfWds0iby34AOF9gG8HXRw3JGqlbCew==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(82310400026)(1800799024)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: mMsD/w5WfRjar1w0lHBEua41JXi+O1BcAdYOsiy2pcOtuF1sv00Yeg2uTnek8bTs1eKpBczkfxI5aiM7VQR1lUvc3Lwz4UtUz7hZFgQ5u6rYd9zRkoMMOKhR/j/LW1ezZ5o9f75vWhsBX0dwFpzC8pyvhQGorLev8VHCRXABSKOmnWQgtRihkxuL/PPBumcZ3LAX4CT/LwXcCVoj8tjBE9R9q9wEFWN91PldSKQWL1Snsvkn/IZWvepHVxC1WzeXzYg1oCZC0ZExch6e5QVQ7Mosd4tjvj6D1k0+TvefE5HFqf/KPwWKAPGZ7vIHnM6iF2BWLl4JNlZjG8y42i7WVUPCyMIZ3f2/xw3OT86S3wqkQu6D9gK7RnFvQtrkUUqbM3qSnHW2wIwkyLftBkSt1bUVZbMM8Y2yM4i0H9VYOU2AaBwMYkSpQoJJAe1tjPxG
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2026 16:38:51.3177
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5e9f30a5-1577-441d-b0c5-08de90d65274
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF0000C37E.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB8608
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260402_093900_291215_014A23BD 
+X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,65 +123,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/03/2026 11:18, Pandey, Radhey Shyam wrote:
->> On Tue, Mar 31, 2026 at 12:33:01AM +0530, Radhey Shyam Pandey wrote:
->>> Versal Gen2 platform multimedia integrated (MMI) module has a USB3.2 Gen
->>> 2x1 Dual Role Device IP. Introduce a new compatibility string to support
->>> it. The USB wrapper registers reside in the MMI UDH system-level control
->>> registers (SLCR) block, so instead of a dedicated reg property, add
->>> xlnx,usb-syscon phandle with four cells specifying register offsets for
->>> USB2 PHY, USB3 PHY, USB DRD, and USB power configuration within the SLCR.
->>>
->>> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
->>> ---
->>> Changes for v2:
->>> - Add blank line after compatible as suggested by Krzysztof.
->>> - Retain the mmi suffix in the compatible string, as this USB 3.2 Gen2
->>>    IP from Synopsys is part of the dedicated Multimedia Interface. The
->>>    Versal Gen2 platform also includes a separate USB 2.0 controller,
->>>    and the mmi suffix uniquely distinguishes between the two USB
->>>    controllers. MMI is an independent subsystem particularly targeted for
->>>    deployment in Multi-Media related applications. The MMI block include
->>>    following submodules: UDH: USB3.2 Gen 2x1 Dual Role Device, DisplayPort
->>>    Transmit Controller, Security Module (ESM) for DisplayPort and HDMI
->>>    Controllers, DP AUX-I2C PHY.
->>> - For MMI USB define parent address space i.e UDH block.
->>> - Fix inconsistent MHz spacing to use SI convention with spaces.
->>> - Move description before $ref and items in xlnx,usb-syscon property.
->>> - Restore original zynqmp-dwc3 example, add new versal2-mmi-dwc3 example.
->>> - Use 'usb' node name (without unit address) for versal2 example since
->>>    it has no reg property.
->>> - Use 1/1 address/size configuration in versal2 example, use lowercase
->>>    hex in syscon offsets.
->>> ---
->>>   .../devicetree/bindings/usb/dwc3-xilinx.yaml  | 70 ++++++++++++++++++-
->>>   1 file changed, 67 insertions(+), 3 deletions(-)
->>>
->>> diff --git a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
->>> index d6823ef5f9a7..5e31b961aff7 100644
->>> --- a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
->>> +++ b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
->>> @@ -15,6 +15,8 @@ properties:
->>>         - enum:
->>>             - xlnx,zynqmp-dwc3
->>>             - xlnx,versal-dwc3
->>> +          - xlnx,versal2-mmi-dwc3
->> I am not going to ask the same questions.
-> 
-> I have provided the explanation in v2 changelog.
-> Retain the mmi suffix in the compatible string, as this USB 3.2 Gen2
-> IP from Synopsys is part of the dedicated Multimedia Interface. The
-> Versal Gen2 platform also includes a separate USB 2.0 controller,
-> and the mmi suffix uniquely distinguishes between the two USB
-> controllers.
-> 
-> Let me know if you still have reservation in this approach (using
-> <vendor>,<soc>-<subsystem>-<ip>). Or any other alternative
-> based on IP version etc please suggest.
+Add the EIO GPIO support.
+Add the dt description and the compatible to the driver.
 
-Commit msg must explain that you have two different devices. And then
-explain what is the difference between versal2-dwc3 and versal2-mmi-dwc3.
 
-Best regards,
-Krzysztof
+Shubhrajyoti Datta (2):
+  dt-bindings: gpio: Add eio gpio node to gpio-zynq
+  gpio: zynq: Add eio gpio support
+
+ .../devicetree/bindings/gpio/gpio-zynq.yaml        | 14 +++++++++++++-
+ drivers/gpio/gpio-zynq.c                           | 12 ++++++++++++
+ 2 files changed, 25 insertions(+), 1 deletion(-)
+
+-- 
+2.34.1
+
 
