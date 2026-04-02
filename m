@@ -4,58 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1F691112246
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 00:37:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53AA6111224A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 00:58:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WwsexIiTzE/Lt5vtwbs50H95ipvLQnSTZ1Y33LxdZXg=; b=Uf2k6w4mQbB+QjpO1baQykpns0
-	Vu6FB0etmtK5tpk860qntE+YyJVFwiUDI/h+1Xa1VM9l33451+XEStwNZoCl7XgSwlE7Zh12HbQY6
-	cp44E4veSCfSGcpLUK2KgAn5PPdE54ZuI5EC1Dr3FmmEivi7V8NYd7y5gaAw2TOh0XBqUttKVh7QJ
-	/Rew2mz15jYTcQb0OLIXrVeKLFSdmHs6h+87nNkcucoZpAaRnE84eHPpdG9IsaFS04PdzFs3YMSSM
-	TnF0ZQbrJHHBt2GhPzTus5N2jStPiflS6g5T5AL/Cj8MMg4kRmUp0Jypy5UwUX5BrBYKcPLaB6AbH
-	unlhIaZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eV7onX4EwOCJSxQsUDdK9gDHDGjaNekPfyy2hCQ1leQ=; b=FCCFQE+k9q9G9yuA8Km7iuhcHI
+	BbC5AGZsatMMJTrDuQCn3urL9brGWGKA0BhrHsYqPXmGvqpMtitcGG6K0Q4WmRjjbp+Dl4alVjZMr
+	2V8zUWJyOsRoYsMWJ/o+Z0C1DdJ8PmA63E1gliynl7OzKYk59ZEOECMVGLHId/1rQJyD+ND75bYDc
+	4h3p7YHrgUBd0lXnVeTwDs81zy4wJ8HywIg2JGxTaEuCb1eEUWJJWZmF/7ZEAvuMJ8cEZVzxt/HdK
+	zc2huG+3BP6ClhNRruDqasgUIprcuD5zz/bn8mv2nih2EbFBNJSymDu5Doz0njzqDfD1T9TR8W26X
+	lvgA2c/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w863y-0000000GV4G-0XWk;
-	Thu, 02 Apr 2026 00:37:34 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1w86O3-0000000GWGI-3JY4;
+	Thu, 02 Apr 2026 00:58:19 +0000
+Received: from mail-southcentralusazon11012036.outbound.protection.outlook.com ([40.93.195.36] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w863t-0000000GV28-0hD7;
-	Thu, 02 Apr 2026 00:37:30 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.99)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1w863c-000000006dQ-3Wcy;
-	Thu, 02 Apr 2026 00:37:12 +0000
-Date: Thu, 2 Apr 2026 01:37:10 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Olivia Mackall <olivia@selenic.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Daniel Golle <daniel@makrotopia.org>, linux-crypto@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 2/2] hwrng: mtk - add support for hw access via SMCC
-Message-ID: <674c4e1d7f3501d2563d07ea685c4a4b9ba30b65.1775090165.git.daniel@makrotopia.org>
-References: <0a951e34b7030e514091d6c0922c5982ae349221.1775090165.git.daniel@makrotopia.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+	id 1w86O0-0000000GWFn-1GvY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Apr 2026 00:58:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MD0JxQTq5WxM3IpmbOJHxwTZfS4N5Xa0Rl5Eex5GvkeRRrrH9lw+LmTorjSfhLkHglcD0tm67/hLJH+lYh8YbK8dvsJZxqJi/u0lHcCIr9MDKRu5hlVhcQUbjJT8Es+NQPb2X2TzZ2LVxUB5Mkar5KrFdsBDS1oFR6i10CpHTAomjCaRolFKYUm98+0fHyTo6rADlLzmrRH+67L6nHI6o6v7hRGJeBuFnOB5JfnugBfVS90xZEqPZg5dRgsXjbFZfsdjpaySSi+s8SUhZbd1jG48Iph3T3w1JV4nkqWuO0RzI3S8VXXrZzY0LUBLXWmjvSAxNFLGdEVBIAtdTU+QWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ifn36VFfyzXSvTV7efGqmjR0xXkb9bUu8w+GaSSol28=;
+ b=Of/39V7SReDMD9q0RkgdFUwBT6qomJL3otPrvt9uNvss9vxinpi8GdIgd/wtTPjzfERBJYPO5xXsydaICGr3LoRkNvsTzcUWXtM6Y1APVvEQUWvVVgJKzBYMtsMWlV5l1NwkuIAjUzwhZtj0lIsSmVWwUZ1ycAOrAiOPBlOCB81OR6nyopwBa/Aa8iB2AreCOR+BVOGrvr3ggT6WJxVA44U9SrzOAz6bGVNH7TyLUacp98A1EhhuLvDUYMuwpm2DPwX2sPIYO3AFUSOPuRCxEiNqc3ylEKXZms2xcPFQUIyilVp0WG67j5skCZA825f2LBp7UXv55lL98pOmba6CZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ifn36VFfyzXSvTV7efGqmjR0xXkb9bUu8w+GaSSol28=;
+ b=rg3uVTT2GKR9dHQ5twLUudHh1QTUY30GbBy78ToS/94D2X9eYKAYJgBT2PIScVyGvAyRBbXvFM69BquX5EFblUCYuMxAZWOgJCWLD9Ww77zJVnkLWeSXwIMfuqkqtpo+1fLW4ADjVtwnHL+ptKV0OhN0eXr643HWoxEnTk1nyWB2tehmNIDBUThIWgsNqN2LX1BAfM7x10FH9jxLrGNTW1do5xz6ouKdGM+OrQAY8X/dDZDSmECtACPq3lwRHgy6eEdQuVyOSAVzeu3FvzVAoW+zO5MAz10/gqK01hqQ+fBCGGVyh9dR4hb7EoETZelycauCS6/izLOdL74x7Aza1g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CY8PR12MB7171.namprd12.prod.outlook.com (2603:10b6:930:5c::20)
+ by SN7PR12MB7787.namprd12.prod.outlook.com (2603:10b6:806:347::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Thu, 2 Apr
+ 2026 00:57:58 +0000
+Received: from CY8PR12MB7171.namprd12.prod.outlook.com
+ ([fe80::4487:395f:3abf:ad9]) by CY8PR12MB7171.namprd12.prod.outlook.com
+ ([fe80::4487:395f:3abf:ad9%4]) with mapi id 15.20.9769.011; Thu, 2 Apr 2026
+ 00:57:58 +0000
+Date: Wed, 1 Apr 2026 20:57:55 -0400
+From: Yury Norov <ynorov@nvidia.com>
+To: linux-kernel@vger.kernel.org,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Ingo Molnar <mingo@kernel.org>,
+	James Clark <james.clark@linaro.org>, Kees Cook <kees@kernel.org>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Mike Leach <mike.leach@linaro.org>, Moritz Fischer <mdf@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Russ Weight <russ.weight@linux.dev>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Suki K Poulose <suzuki.poulose@arm.com>, Tom Rix <trix@redhat.com>,
+	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
+	Xu Yilun <yilun.xu@intel.com>, Yury Norov <yury.norov@gmail.com>,
+	Zhang Rui <rui.zhang@intel.com>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-fpga@vger.kernel.org,
+	linux-pm@vger.kernel.org, linuxppc-dev@lists.ozlabs.org
+Cc: Jakub Kicinski <kuba@kernel.org>
+Subject: Re: [PATCH RESEND 0/5] bitmap: cleanup bitmaps printing
+Message-ID: <ac2_EzO-uCaLqTlg@yury>
+References: <20260303200842.124996-1-ynorov@nvidia.com>
+ <abxaIMi55N4X9JWz@yury>
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <0a951e34b7030e514091d6c0922c5982ae349221.1775090165.git.daniel@makrotopia.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <abxaIMi55N4X9JWz@yury>
+X-ClientProxiedBy: BN9PR03CA0304.namprd03.prod.outlook.com
+ (2603:10b6:408:112::9) To CY8PR12MB7171.namprd12.prod.outlook.com
+ (2603:10b6:930:5c::20)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY8PR12MB7171:EE_|SN7PR12MB7787:EE_
+X-MS-Office365-Filtering-Correlation-Id: fc516c93-9f93-4211-e3ee-08de9052e1b4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|10070799003|366016|7416014|376014|921020|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: cuGDWBX4a/9oiYAILesXGogd+8k5Lijg5XS/2H2TuDsFQVqDSpttZR6hU0yRUL02NqY53K1lDqSlBLG6if9fhuXvzUyJImsZIajBOVctOStZccDayzL1anxYuC5lxUmJ8VG0i/ApuT226bdFjHGX9u0XV9aymm3sMjjvHYmz1YiQpDxcmQPklld0a42VncZBmq8aoGMeshXcZfWafnvImOqFNkYeG57z/hlRPay5fn8Z6HFQz621pvgUVAIauDgANgYLSQ8kpUly9eqLanZq0iuugZAMBOzDFO/xNlpAAoeqL3i75U+YEa+FPUmUhEOjhxsBBu6reLtRz6MbAORLT1IO3ptP2aTR8wrKkcYJZ0IPZSfWOqEJH973ysIJNdNdKqTUOkL56Rqk8vIv0hedXKUJF8CjUXhNidFCAtQTKcGFH/A7X0puKrzgIEs0hcVKpVwW3Q2BNk7yDEs+D9O0x7ozVYR5GMLtHbuEC7gjNxabiBnwdTr/j69bqVa0Q3D6ZX130zNSDlttPMXoONHdS6X77a8pc247zLyFWvnuyTINrqE1Uykhei6YcMTnR8ti6QDEzCBZpqwMdWnXsiVSaqZnpx7urZ9wV6rRhg19mnEiMF0DyuTeiBzKW06LK4fssTWkw3ul+UjJ/DUEO08j80oWf+VJMy/vrSdsP/7/wXYZmXRmnsN0P5KPV1SGOs5fKk7VXrGuUtLH47X85JnLSabuKwglvCmpFnUp7ofaQUvD3cv9tcd/JpgWg+ZYn8+pUZRUJqyt0xs1Q752eRh/AqV+qP8thsvvO1L5sOPc3/o=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB7171.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(10070799003)(366016)(7416014)(376014)(921020)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?7WjV3WGDb5+tvquAh5XrZW7Vc4EdNLVIJBTkSYGzuSxBH6XP22zj7gc2id?=
+ =?iso-8859-1?Q?KcaanR9+4PjS44fMVX0WT2SV2O24lYlZtjOgCi1lIIV67eRYOQiSLjPwYH?=
+ =?iso-8859-1?Q?0DTjhGyzm3OkICD3MgUk8AERW0r7wINI/rNaxxcJ3V0O4DcL/IoYIeIHT2?=
+ =?iso-8859-1?Q?vXgHiTrvlnxO3FRPeFP8GgibNZz8M5fTpBPis3PrY+/yM2jRva1dZQJs5t?=
+ =?iso-8859-1?Q?TAwQ95l3KKUkkDkDAlTus0HMO4RbvK3+CPp6pYCOye0nTkMOorTyQdVPVh?=
+ =?iso-8859-1?Q?YarJH2tp3NU8DaAhDxoo0MmxyV2UD6E1eOW3pw7gUsaAL5W/P3kfPYJhdf?=
+ =?iso-8859-1?Q?d7pUS4qhizCcmHz2OR0qYXV9KKPrioqljSmfCVJJx+2q/FTIe9TeSaiaSV?=
+ =?iso-8859-1?Q?EicOH8IYraKOJ1WABD3V67a4pc9NWCPkHHVwmEOBhFMzWdVZ3jV3ZPn/jH?=
+ =?iso-8859-1?Q?CIT6qjElCJpfDTHx99/ewT1WLx+fUni+r2t8+ZbwguY8rPD2WsCXnbVrci?=
+ =?iso-8859-1?Q?udO6v6iEmCS22xgn7Z3B8tLSxn0KH0zozjJmdEmOByoOhsk0UAyTtQjqAt?=
+ =?iso-8859-1?Q?UPokiyNd9aFC0w956atr3bnxueYG8LsMQGzoOgePCGif7I0l4SAIn6gIfi?=
+ =?iso-8859-1?Q?PizfISwn9mulZRpXcC6K/vo3lU3GBOCT8kW7ieuMfxSiN7lM4KpyPsChdu?=
+ =?iso-8859-1?Q?xR3gSWCbXNvee8pdpXR8oB5nmwqLGDI8oxPz0qL4Ij+C5zr2kl7s6fu//B?=
+ =?iso-8859-1?Q?r4rFea2+x0PTjP8f45TO/tSfYFr/t7v0MkVO3Wb3byE2VbNyuPCwPsgOs6?=
+ =?iso-8859-1?Q?Er4X+9MBt0gbiDM0sE7exDvDWi7MwnPczYnnPWBuzNLp+CDVgWYgRtKYPh?=
+ =?iso-8859-1?Q?vQBsBJc5WTmibzbwB+cCsIt386TUUi+T/e4yR6JqX8LNZki3pTjKD8R+Bc?=
+ =?iso-8859-1?Q?6wYda0CSWWYlzBjGP3D+Mj1OLGrZ6E7Oa1YNG0JYGdgbwe4Da6N+Z/LHpy?=
+ =?iso-8859-1?Q?EoFjWpY3wMi9yS/axOqWEKnTS0BDhFIG7uX8d8sV7gqKU0I0Tx/C4PPr1D?=
+ =?iso-8859-1?Q?g2keLrAh/y/JedY6WHhxsLl7VeerOEUskbwrQJbctpSGDT0bgWC+lYvcJ+?=
+ =?iso-8859-1?Q?FdY/qRniePvo1Aw8i2/AtY7ArDT/tciRPQZGE7TVXdg+4J5cfyn+MnrQP+?=
+ =?iso-8859-1?Q?Y3140dnJRm3o9gji/rxovqVYMZkog9jXzQ8jK4hY/VSaMTA+3BQomJ6ueB?=
+ =?iso-8859-1?Q?JDTyih3P9Mc6BaMLyJboztoVN4QG1Brqi2Uhy0Vv+Hc21H0ApZMGDaNzoc?=
+ =?iso-8859-1?Q?g9d0UjQPg+3ORDsVe4mLRCVH3Z8+I+i4WqXe+ATM5cZx0OinK93EVwhGLQ?=
+ =?iso-8859-1?Q?fM736vBARJAPN9EsRVwJsYUQvTNWhcBM/gMSIVYyrXKiFl/QQQh5O4U2tW?=
+ =?iso-8859-1?Q?ayICFN2/o5XiM4BhnolKWnbJ3J96N8ScX/hlQW3+MTs3HQdlaZCTUboqls?=
+ =?iso-8859-1?Q?7HzH8y9CmbgJlllLldYYyRUmiPDUn7o4G3tRyQF0inbWKFlchyqdedbqz1?=
+ =?iso-8859-1?Q?eQD5xWjrPg1mHXpChGq80bw3/aJlI0UdlwyXSIrumAVzhgnVuwo6CwGEDe?=
+ =?iso-8859-1?Q?CRkcdQHk/3am4zZ7l2sgwUWayI4T7RQDftS8AAgX3mlS/R3lIF7GgvAxll?=
+ =?iso-8859-1?Q?xsRWntLUDoeTsgfImB8im1Y+4/J/9MS/iXGUNqnEL8ecCKQmTfOiwUQUbW?=
+ =?iso-8859-1?Q?nRjQgJNCnEyhJ4aylWwcahjG6G6hORApSXbAIXocBSiQCcxB4svNLIx0x/?=
+ =?iso-8859-1?Q?/F767MYFm6TtIIJZbGmXbaOYvMBlUzADiAzEApiiDfuFTDPhru41?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fc516c93-9f93-4211-e3ee-08de9052e1b4
+X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB7171.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2026 00:57:58.6176
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FoxwnWxCyFj098z1Yfy5myG4+lceVzdORUFKYLpK3IKTus2N6uO23cQpwIfzcGX0bKQD3TQJU2ZezuilsMukpw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7787
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_173729_216981_A2F42EE1 
-X-CRM114-Status: GOOD (  22.55  )
+X-CRM114-CacheID: sfid-20260401_175816_367954_1F90994A 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,220 +157,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Newer versions of ARM TrustedFirmware-A on MediaTek's ARMv8 SoCs no longer
-allow accessing the TRNG from outside of the trusted firmware.
-Instead, a vendor-defined custom Secure Monitor Call can be used to
-acquire random bytes.
+On Thu, Mar 19, 2026 at 04:18:40PM -0400, Yury Norov wrote:
+> Ping?
 
-Add support for newer SoCs (MT7981, MT7987, MT7988).
+OK, taking 1-4 in bitmap-for-next.
 
-As TF-A for the MT7986 may either follow the old or the new
-convention, the best bet is to test if firmware blocks direct access
-to the hwrng and if so, expect the SMCC interface to be usable.
-
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
----
-v2: unchanged
-
- drivers/char/hw_random/mtk-rng.c | 127 ++++++++++++++++++++++++++-----
- 1 file changed, 106 insertions(+), 21 deletions(-)
-
-diff --git a/drivers/char/hw_random/mtk-rng.c b/drivers/char/hw_random/mtk-rng.c
-index 5808d09d12c45..8f5856b59ad66 100644
---- a/drivers/char/hw_random/mtk-rng.c
-+++ b/drivers/char/hw_random/mtk-rng.c
-@@ -3,6 +3,7 @@
-  * Driver for Mediatek Hardware Random Number Generator
-  *
-  * Copyright (C) 2017 Sean Wang <sean.wang@mediatek.com>
-+ * Copyright (C) 2026 Daniel Golle <daniel@makrotopia.org>
-  */
- #define MTK_RNG_DEV KBUILD_MODNAME
+Thanks,
+Yury
  
-@@ -17,6 +18,8 @@
- #include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-+#include <linux/arm-smccc.h>
-+#include <linux/soc/mediatek/mtk_sip_svc.h>
- 
- /* Runtime PM autosuspend timeout: */
- #define RNG_AUTOSUSPEND_TIMEOUT		100
-@@ -30,6 +33,11 @@
- 
- #define RNG_DATA			0x08
- 
-+/* Driver feature flags */
-+#define MTK_RNG_SMC			BIT(0)
-+
-+#define MTK_SIP_KERNEL_GET_RND		MTK_SIP_SMC_CMD(0x550)
-+
- #define to_mtk_rng(p)	container_of(p, struct mtk_rng, rng)
- 
- struct mtk_rng {
-@@ -37,6 +45,7 @@ struct mtk_rng {
- 	struct clk *clk;
- 	struct hwrng rng;
- 	struct device *dev;
-+	unsigned long flags;
- };
- 
- static int mtk_rng_init(struct hwrng *rng)
-@@ -103,6 +112,56 @@ static int mtk_rng_read(struct hwrng *rng, void *buf, size_t max, bool wait)
- 	return retval || !wait ? retval : -EIO;
- }
- 
-+static int mtk_rng_read_smc(struct hwrng *rng, void *buf, size_t max,
-+			    bool wait)
-+{
-+	struct arm_smccc_res res;
-+	int retval = 0;
-+
-+	while (max >= sizeof(u32)) {
-+		arm_smccc_smc(MTK_SIP_KERNEL_GET_RND, 0, 0, 0, 0, 0, 0, 0,
-+			      &res);
-+		if (res.a0)
-+			break;
-+
-+		*(u32 *)buf = res.a1;
-+		retval += sizeof(u32);
-+		buf += sizeof(u32);
-+		max -= sizeof(u32);
-+	}
-+
-+	return retval || !wait ? retval : -EIO;
-+}
-+
-+static bool mtk_rng_hw_accessible(struct mtk_rng *priv)
-+{
-+	u32 val;
-+	int err;
-+
-+	err = clk_prepare_enable(priv->clk);
-+	if (err)
-+		return false;
-+
-+	val = readl(priv->base + RNG_CTRL);
-+	val |= RNG_EN;
-+	writel(val, priv->base + RNG_CTRL);
-+
-+	val = readl(priv->base + RNG_CTRL);
-+
-+	if (val & RNG_EN) {
-+		/* HW is accessible, clean up: disable RNG and clock */
-+		writel(val & ~RNG_EN, priv->base + RNG_CTRL);
-+		clk_disable_unprepare(priv->clk);
-+		return true;
-+	}
-+
-+	/*
-+	 * If TF-A blocks direct access, the register reads back as 0.
-+	 * Leave the clock enabled as TF-A needs it.
-+	 */
-+	return false;
-+}
-+
- static int mtk_rng_probe(struct platform_device *pdev)
- {
- 	int ret;
-@@ -114,23 +173,42 @@ static int mtk_rng_probe(struct platform_device *pdev)
- 
- 	priv->dev = &pdev->dev;
- 	priv->rng.name = pdev->name;
--#ifndef CONFIG_PM
--	priv->rng.init = mtk_rng_init;
--	priv->rng.cleanup = mtk_rng_cleanup;
--#endif
--	priv->rng.read = mtk_rng_read;
- 	priv->rng.quality = 900;
--
--	priv->clk = devm_clk_get(&pdev->dev, "rng");
--	if (IS_ERR(priv->clk)) {
--		ret = PTR_ERR(priv->clk);
--		dev_err(&pdev->dev, "no clock for device: %d\n", ret);
--		return ret;
-+	priv->flags = (unsigned long)device_get_match_data(&pdev->dev);
-+
-+	if (!(priv->flags & MTK_RNG_SMC)) {
-+		priv->clk = devm_clk_get(&pdev->dev, "rng");
-+		if (IS_ERR(priv->clk)) {
-+			ret = PTR_ERR(priv->clk);
-+			dev_err(&pdev->dev, "no clock for device: %d\n", ret);
-+			return ret;
-+		}
-+
-+		priv->base = devm_platform_ioremap_resource(pdev, 0);
-+		if (IS_ERR(priv->base))
-+			return PTR_ERR(priv->base);
-+
-+		if (IS_ENABLED(CONFIG_HAVE_ARM_SMCCC) &&
-+		    of_device_is_compatible(pdev->dev.of_node,
-+					    "mediatek,mt7986-rng") &&
-+		    !mtk_rng_hw_accessible(priv)) {
-+			priv->flags |= MTK_RNG_SMC;
-+			dev_info(&pdev->dev,
-+				 "HW RNG not MMIO accessible, using SMC\n");
-+		}
- 	}
- 
--	priv->base = devm_platform_ioremap_resource(pdev, 0);
--	if (IS_ERR(priv->base))
--		return PTR_ERR(priv->base);
-+	if (priv->flags & MTK_RNG_SMC) {
-+		if (!IS_ENABLED(CONFIG_HAVE_ARM_SMCCC))
-+			return -ENODEV;
-+		priv->rng.read = mtk_rng_read_smc;
-+	} else {
-+#ifndef CONFIG_PM
-+		priv->rng.init = mtk_rng_init;
-+		priv->rng.cleanup = mtk_rng_cleanup;
-+#endif
-+		priv->rng.read = mtk_rng_read;
-+	}
- 
- 	ret = devm_hwrng_register(&pdev->dev, &priv->rng);
- 	if (ret) {
-@@ -139,12 +217,15 @@ static int mtk_rng_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
--	dev_set_drvdata(&pdev->dev, priv);
--	pm_runtime_set_autosuspend_delay(&pdev->dev, RNG_AUTOSUSPEND_TIMEOUT);
--	pm_runtime_use_autosuspend(&pdev->dev);
--	ret = devm_pm_runtime_enable(&pdev->dev);
--	if (ret)
--		return ret;
-+	if (!(priv->flags & MTK_RNG_SMC)) {
-+		dev_set_drvdata(&pdev->dev, priv);
-+		pm_runtime_set_autosuspend_delay(&pdev->dev,
-+						 RNG_AUTOSUSPEND_TIMEOUT);
-+		pm_runtime_use_autosuspend(&pdev->dev);
-+		ret = devm_pm_runtime_enable(&pdev->dev);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	dev_info(&pdev->dev, "registered RNG driver\n");
- 
-@@ -181,8 +262,11 @@ static const struct dev_pm_ops mtk_rng_pm_ops = {
- #endif	/* CONFIG_PM */
- 
- static const struct of_device_id mtk_rng_match[] = {
--	{ .compatible = "mediatek,mt7986-rng" },
- 	{ .compatible = "mediatek,mt7623-rng" },
-+	{ .compatible = "mediatek,mt7981-rng", .data = (void *)MTK_RNG_SMC },
-+	{ .compatible = "mediatek,mt7986-rng" },
-+	{ .compatible = "mediatek,mt7987-rng", .data = (void *)MTK_RNG_SMC },
-+	{ .compatible = "mediatek,mt7988-rng", .data = (void *)MTK_RNG_SMC },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mtk_rng_match);
-@@ -200,4 +284,5 @@ module_platform_driver(mtk_rng_driver);
- 
- MODULE_DESCRIPTION("Mediatek Random Number Generator Driver");
- MODULE_AUTHOR("Sean Wang <sean.wang@mediatek.com>");
-+MODULE_AUTHOR("Daniel Golle <daniel@makrotopia.org>");
- MODULE_LICENSE("GPL");
--- 
-2.53.0
+> On Tue, Mar 03, 2026 at 03:08:36PM -0500, Yury Norov wrote:
+> > Bitmap API has a bitmap_print_to_pagebuf() function that is intended to
+> > print bitmap into a human readable format, making sure that the output
+> > string will not get big enough to cross the current page limit.
+> > 
+> > Some drivers use this function immediately before passing the result to
+> > scnprintf() with no modification. This is useless because scnprintf(),
+> > and helpers based on it like seq_pritf() and sysfs_emit(), take care of
+> > not overflowing the buffer by itself, and perfectly print bitmaps with
+> > "%*pb[l]".
+> > 
+> > This is a resend of non-networking part of [1]. Patches #3,5 switch from
+> > plain scnprintf() to sysfs_emit(), as pointed out by Thomas Weißschuh.
+> > 
+> > [1] https://lore.kernel.org/all/20260219181407.290201-1-ynorov@nvidia.com/
+> > 
+> > The networking part, for reference:
+> > 
+> > https://lore.kernel.org/all/20260303185507.111841-1-ynorov@nvidia.com/
+> > 
+> > Each patch can be applied individually per corresponding subsystem.
+> > 
+> > Yury Norov (5):
+> >   powerpc/xive: simplify xive_spapr_debug_show()
+> >   thermal: intel: switch cpumask_get() to using
+> >     cpumask_print_to_pagebuf()
+> >   coresight: don't use bitmap_print_to_pagebuf()
+> >   lib/prime_numbers: drop temporary buffer in dump_primes()
+> >   fpga: m10bmc-sec: switch show_canceled_csk() to using sysfs_emit()
+> > 
+> >  arch/powerpc/sysdev/xive/spapr.c              | 12 ++-----
+> >  drivers/fpga/intel-m10-bmc-sec-update.c       |  3 +-
+> >  .../hwtracing/coresight/coresight-cti-sysfs.c | 32 ++++++++-----------
+> >  drivers/thermal/intel/intel_powerclamp.c      |  3 +-
+> >  lib/math/tests/prime_numbers_kunit.c          |  6 ++--
+> >  5 files changed, 21 insertions(+), 35 deletions(-)
+> > 
+> > -- 
+> > 2.43.0
 
