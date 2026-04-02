@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA54DD6AAE9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:09:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90850D6AAE9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:13:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VUzutaoUGfk5BxYsbgUd+nfhxGnVqvYrkXneBf/GhJY=; b=nDroOVw48xyvLU74So/Yizs6fj
-	EwqtqNgdZyZz4gsptiIlBbFXAk80mOvMkRtHfDJroNwRQoRfa8eQHMfgJfXi2iLMoU6ECfROEvSsW
-	2oZ/VEd1NIS/VHhshrilYC+PRTsymqaxvhAt5HuWj+lhm87o+wevDLqO2n44KWDMnzQwX9IQsbJxf
-	Vd/A3Kd41bZc+KidsWKQyeGM5K4ZQuEc8iuFbbY7SeH1VltzO3LbQ83Sn4QFq3PN9rk593QkbjWfp
-	3E1RhwKpN+WRRSUr4wSVjFL1Fikdk2F71nP5wU17vYBgshx9uhkprVK/CO97hJOqtjnbC/y46A1U8
-	FvvlI+yg==;
+	bh=Mlba9zC+fU66rw56b6RFKQtSCojB8zTtDcm7/kpWvW0=; b=iI0jnQ+/po+Zs1PVyd1cAnq4rT
+	hW2+X3XLvHfijC8ByF1esX2luuIoac1yp5P3LQrim5G+l+OMuVtKcBV9c5XzOsikMCAv4IargEP28
+	sz+RlQPRXTPDNJl115e6npqyBSPq7eZwEs50aQNiEAQ19NbtW6mHNJ678VwbRb+H87PkoeZLtrG1x
+	zEdrukGRcI8aIFcWyp3GG8okT1eXyPfbTARf9DqXDPu8r95BlmwaDssvfQvn7xlY4NVkGy2QS8CXV
+	ETzqe4exEjwAa4sO9zdxYOY2sbv9+HlJtgfKcuqjKPXjZPr4oWPiNZVpB1pb2Sq/sq5NVR+jg53mI
+	czyGjpqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Kbf-00000000Ucw-22Kw;
-	Thu, 02 Apr 2026 16:09:19 +0000
+	id 1w8Kf7-00000000Urw-05PJ;
+	Thu, 02 Apr 2026 16:12:53 +0000
 Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Kbb-00000000UcQ-0j8S
+	id 1w8Kf4-00000000UrV-1w2P
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 16:09:17 +0000
+	Thu, 02 Apr 2026 16:12:52 +0000
 Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 4DC831F8005E
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Apr 2026 16:09:02 +0000 (UTC)
+	by leonov.paulk.fr (Postfix) with ESMTPS id 38C661F8004D
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Apr 2026 16:12:48 +0000 (UTC)
 Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 8E8C6B40125; Thu,  2 Apr 2026 16:09:00 +0000 (UTC)
+	id 7D6ACB40120; Thu,  2 Apr 2026 16:12:47 +0000 (UTC)
 Received: from shepard (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id C045FB40114;
-	Thu,  2 Apr 2026 16:08:58 +0000 (UTC)
-Date: Thu, 2 Apr 2026 18:08:56 +0200
+	by laika.paulk.fr (Postfix) with ESMTPSA id ABBCDB40114;
+	Thu,  2 Apr 2026 16:12:46 +0000 (UTC)
+Date: Thu, 2 Apr 2026 18:12:44 +0200
 From: Paul Kocialkowski <paulk@sys-base.io>
-To: Lucas Stach <l.stach@pengutronix.de>
-Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+To: Yannic Moog <Y.Moog@phytec.de>
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof =?utf-8?Q?Ha=C5=82asa?= <khalasa@piap.pl>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Liu Ying <victor.liu@nxp.com>
-Subject: Re: [PATCH 2/3] drm: lcdif: Use dedicated set/clr registers for
- polarity/edge
-Message-ID: <ac6UmHl86ax5eSVv@shepard>
-References: <20260330224619.2620782-1-paulk@sys-base.io>
- <20260330224619.2620782-3-paulk@sys-base.io>
- <f5b628f50def756da356184ff6febb11cc9aaa68.camel@pengutronix.de>
- <acvllbRTHyVFTgmS@collins>
- <3b221a4997c367df716bf107a7e98ce10cd6860b.camel@pengutronix.de>
+	Fabio Estevam <festevam@gmail.com>
+Subject: Re: [PATCH] arm64: dts: imx8mp-phyboard-pollux: Add HDMI support
+Message-ID: <ac6VfJCKMZghi8My@shepard>
+References: <20260330223712.2615273-1-paulk@sys-base.io>
+ <573e4ebd9679517086a6b4acb162d72463429f35.camel@phytec.de>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="er1C6Ur3KOqFT3zW"
+	protocol="application/pgp-signature"; boundary="1hlZwKtrqdPSeKCX"
 Content-Disposition: inline
-In-Reply-To: <3b221a4997c367df716bf107a7e98ce10cd6860b.camel@pengutronix.de>
+In-Reply-To: <573e4ebd9679517086a6b4acb162d72463429f35.camel@phytec.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_090915_564751_3FB4345A 
-X-CRM114-Status: GOOD (  39.80  )
+X-CRM114-CacheID: sfid-20260402_091250_861302_4D938A95 
+X-CRM114-Status: GOOD (  25.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,73 +75,125 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---er1C6Ur3KOqFT3zW
+--1hlZwKtrqdPSeKCX
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hi Lucas,
+Hi Yannic,
 
-On Tue 31 Mar 26, 18:04, Lucas Stach wrote:
-> Am Dienstag, dem 31.03.2026 um 17:17 +0200 schrieb Paul Kocialkowski:
-> > Le Tue 31 Mar 26, 11:09, Lucas Stach a =C3=A9crit :
-> > > Am Dienstag, dem 31.03.2026 um 00:46 +0200 schrieb Paul Kocialkowski:
-> > > > The lcdif v3 hardware comes with dedicated registers to set and cle=
-ar
-> > > > polarity bits in the CTRL register. It is unclear if there is a
-> > > > difference with writing to the CTRL register directly.
-> > > >=20
-> > > > Follow the NXP BSP reference by using these registers, in case ther=
-e is
-> > > > a subtle difference caused by using them.
-> > > >=20
-> > > I don't really like that patch, as it blows up what is currently a
-> > > single register access to three separate ones. If there is no clear
-> > > benefit (as in it has been shown to fix any issue), I would prefer th=
-is
-> > > code to stay as-is.
-> >=20
-> > Well I guess the cost of a few writes vs a single one is rather
-> > negligible.
-> >=20
-> Yea, a few writes don't really hurt. But I don't think there is a very
-> good reason to set this register this way, see below.
+On Wed 01 Apr 26, 12:06, Yannic Moog wrote:
+> On Tue, 2026-03-31 at 00:37 +0200, Paul Kocialkowski wrote:
+> > The PHYTEC phyBOARD Pollux comes with a HDMI port on the base board.
+> > Add the required device-tree nodes to enable support for it.
 >=20
-> > I'm rather worried that there might be an undocumented
-> > reason why these registers exist in the first place and why they are
-> > used in the BSP.
-> >=20
-> > But yes this is only speculation and I could not witness any actual
-> > issue. My setup (lcdif3 with hdmi) uses all positive polarities which is
-> > the default state, so not a good way to check.
-> >=20
-> > It would be great if somebody from NXP could confirm whether this is
-> > needed or not. In the meantime I guess we can drop the patch. It'll stay
-> > on the list in case someone has polarity issues later :)
->=20
-> The separate clr/set registers are a rather common design feat found on
-> Freescale/NXP IP blocks from the MXS era. On some of those IP blocks
-> _all_ registers are presented as a base/clr/set triplet in the
-> registers space.
+> "Only" video is supported, but it does work. You could add that to the de=
+scription since audio is
+> also supported upstream and part of HDMI.
 
-Ah yes I vaguely remember seeing this with units used in the imx6.
-
-> As far as I can tell they are mostly useful when you
-> want to set/clear individual bits from a register without having to
-> remember or executing a readback of the current state.
->=20
-> In cases like the one changed in this patch, where the full register
-> state is set in one go, directly writing to the base register is the
-> right thing to do.
-
-Okay then if you're confident these registers are just here for
-convenience purposes we can continue writing the full register value.
-
-I'll drop this patch in the next iteration.
+You're right, I didn't think about the audio part.
+I'll add it in the next iteration.
 
 All the best,
 
 Paul
+=20
+> Yannic
+>=20
+> >=20
+> > Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
+>=20
+> Reviewed-by: Yannic Moog <y.moog@phytec.de>
+> Tested-by: Yannic Moog <y.moog@phytec.de>
+>=20
+> > ---
+> > =C2=A0.../freescale/imx8mp-phyboard-pollux-rdk.dts=C2=A0 | 47 +++++++++=
+++++++++++
+> > =C2=A01 file changed, 47 insertions(+)
+> >=20
+> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.d=
+ts
+> > b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts
+> > index 0fe52c73fc8f..0d52f29813f1 100644
+> > --- a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts
+> > +++ b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts
+> > @@ -38,6 +38,18 @@ fan0: fan {
+> > =C2=A0		#cooling-cells =3D <2>;
+> > =C2=A0	};
+> > =C2=A0
+> > +	hdmi-connector {
+> > +		compatible =3D "hdmi-connector";
+> > +		label =3D "hdmi";
+> > +		type =3D "a";
+> > +
+> > +		port {
+> > +			hdmi_connector_in: endpoint {
+> > +				remote-endpoint =3D <&hdmi_tx_out>;
+> > +			};
+> > +		};
+> > +	};
+> > +
+> > =C2=A0	panel_lvds1: panel-lvds1 {
+> > =C2=A0		/* compatible panel in overlay */
+> > =C2=A0		backlight =3D <&backlight_lvds1>;
+> > @@ -201,6 +213,28 @@ &flexcan2 {
+> > =C2=A0	status =3D "okay";
+> > =C2=A0};
+> > =C2=A0
+> > +&hdmi_pvi {
+> > +	status =3D "okay";
+> > +};
+> > +
+> > +&hdmi_tx {
+> > +	pinctrl-names =3D "default";
+> > +	pinctrl-0 =3D <&pinctrl_hdmi>;
+> > +	status =3D "okay";
+> > +
+> > +	ports {
+> > +		port@1 {
+> > +			hdmi_tx_out: endpoint {
+> > +				remote-endpoint =3D <&hdmi_connector_in>;
+> > +			};
+> > +		};
+> > +	};
+> > +};
+> > +
+> > +&hdmi_tx_phy {
+> > +	status =3D "okay";
+> > +};
+> > +
+> > =C2=A0&i2c2 {
+> > =C2=A0	clock-frequency =3D <400000>;
+> > =C2=A0	pinctrl-names =3D "default", "gpio";
+> > @@ -244,6 +278,10 @@ &i2c3 {
+> > =C2=A0	scl-gpios =3D <&gpio5 19 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> > =C2=A0};
+> > =C2=A0
+> > +&lcdif3 {
+> > +	status =3D "okay";
+> > +};
+> > +
+> > =C2=A0&ldb_lvds_ch1 {
+> > =C2=A0	remote-endpoint =3D <&panel1_in>;
+> > =C2=A0};
+> > @@ -444,6 +482,15 @@ MX8MP_IOMUXC_SAI5_RXD0__GPIO3_IO21	0x154
+> > =C2=A0		>;
+> > =C2=A0	};
+> > =C2=A0
+> > +	pinctrl_hdmi: hdmigrp {
+> > +		fsl,pins =3D <
+> > +			MX8MP_IOMUXC_HDMI_DDC_SCL__HDMIMIX_HDMI_SCL			0x1c3
+> > +			MX8MP_IOMUXC_HDMI_DDC_SDA__HDMIMIX_HDMI_SDA			0x1c3
+> > +			MX8MP_IOMUXC_HDMI_HPD__HDMIMIX_HDMI_HPD				0
+> > x19
+> > +			MX8MP_IOMUXC_HDMI_CEC__HDMIMIX_HDMI_CEC				0
+> > x19
+> > +		>;
+> > +	};
+> > +
+> > =C2=A0	pinctrl_i2c2: i2c2grp {
+> > =C2=A0		fsl,pins =3D <
+> > =C2=A0			MX8MP_IOMUXC_I2C2_SCL__I2C2_SCL		0x400001c2
 
 --=20
 Paul Kocialkowski,
@@ -158,25 +203,25 @@ Free software developer - https://www.paulk.fr/
 
 Expert in multimedia, graphics and embedded hardware support with Linux.
 
---er1C6Ur3KOqFT3zW
+--1hlZwKtrqdPSeKCX
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmnOlJgACgkQhP3B6o/u
-lQwjGBAAgtXGu1cSXbuSJ7KwVOiUjwsE8Gah6EoF7+WVg7J7uIvfKh3riBOJIhBS
-yfzd2AJAH6Wl254sb0XyM78TVShcsTHJxDj8nixyiTUK3IoKeA3pqptePsmcBpp4
-gLMLJA6P7f952A2e1Zydtru5y2h9J+mDiIxi2Oy04bahk10xiCC3PeYksX4brVDn
-gwXiqQr3CHipcPJ3dSC4LEv5IUnrsuuVfa3q+zCUEmTWKnapjyLhUoilpZWQMW/a
-nuOcWeubp2NjdWeJJqFup1F7v2hr5/mwqCzkrF8gvS2QaQGwn9zlDoaZdvieX5I5
-Lu/kvYxDAcDEASaU+woFh6aBJZqOTgIHPp35386Ia2sJh88uYyO7ZDsvUvIv69tl
-WaWmRqrfjEkORxEOUnXM1cj+Zs5VRIHRbGG1zVCuId0xMKCVSNoDIy0BE7deI2j8
-Xilddjk6pV/0Y0NCc7aErn9CMf6DdkiAr+YxzDSxe7UzR93nXxmqXs0Yr1iP0Ben
-B0aSIAG+TTxUwOou7VH1qVs1ElFe1E9EnUcJdnpVXiqij2J8kGVaFDBkyES0nuxw
-CTGtSFgWCAIQWu3HBgATw1v299f0yVoFpZAzV2JxqWDhszqusdxerv5ccrj+qrA4
-e+TSkc/ogX7+e7bMSZro1wozZ1endJJmc+C072FaVLBC98OWUdA=
-=gk11
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmnOlXwACgkQhP3B6o/u
+lQykoBAAkQMdwVAx4iApkjsn7iiLIKHgM8rSRnLI9+6JuBEa1OG3dQLatwrrlUMq
+xVCg0QnKlPG9nfAa8a+Lvu8AjvgkhWtH3hFWM2+Z+r4lEvn/zDlVYXnkhRmBD5q0
+1Ce02KsovrQf3wQOZHDz59NqDo4Fl4XBTYy0BL/fch1FcxvHJS7u81C7hkk2jvbD
+nkYb2HKtHb8vn+RUhJnuTIiRZlKuAi0K55Yll83ZiMjZ8rcgA3kLXjplcbv8TJek
+CafJy0FowM7L1Op0PuctMc7UJVtzqo2NXYHNfTUrwEOu+0WI72zncRLJ3TcsMRYK
+6Dq+mjJeh8pRRn7hW+tEHv3dqXYi+TzzLVKLNXTxDChGzuH/tSjuFVuJHZfEB7t8
+PfNp3lGbjKJVDhoU65269u3pkhQx5lh649tC6OYZZQSuVYvj37bH6b6JopP6gwGX
+8ELTqVxatgwKJ/oZ7U6pgvTzHAkXBzSZQKoOpw0ImRaT+WJO2hHk0WbkqUCltqcJ
+XGAUkyaQwhnD6SC82jCrO3M4fjdx5VVvlFy62kOJx70V43Azh1oL3RgTIeP34hN6
+TPF/xTXmnnf8vLJLTYMjJCfP/HvXkLmN5gJJJnL5Sj1xWlybN9Xr1nayj4LHOqcR
+bqrhfWvNUH8rG2lqbRB0qgcvX6f6+aYxq3K5wyyW3VL+Fhgx92A=
+=1jgm
 -----END PGP SIGNATURE-----
 
---er1C6Ur3KOqFT3zW--
+--1hlZwKtrqdPSeKCX--
 
