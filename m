@@ -4,161 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A03D2D3943B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 14:43:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BF39D3943C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 14:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1QP3yia4CdU5PX7yrF+zFl8JFATM5bcCf24XnEBdAEY=; b=Seo9LIapiixkMWik+QxlAoou07
-	G+j7Aj8v2Sd0Wv3hlYHc+MqCJEVwNRTqNduG0iAK4VEZBS9kRBwf+N6W9bvBFhTtLty15cbG7BXoC
-	/HQ6SE2/zrbKJn0liuDTHNNNqhVwNWGAyn2eIzgyHdD6sFLtUOGUzoSBJChVQUjZpdEF5e1uGd+6t
-	ogkY5FfcumsvdoZVJPrxXKJXeuGARJNEgsH1dBxkXw7GWWsXcTxavmyBmXZTkOZOMu3THxwn3o90N
-	5tN6B51xC+Fq3kw9RbnUoHa8GHzJmHmhpiMkLmbGeKEaQeGYdSsMkaMegNCoqnw1FsTYUb2RfmIGI
-	v86xBrBA==;
+	bh=syQhn3FKDSt7aahom2Cd5r2lVp93DM2NQ4SMHj+9K0s=; b=kuC1+6VVGGHe3dL5Zs5oYJdtiV
+	v1sBptIrno6t+WeLgfREpsRm335Emac7ieBp8BtgjPH5gyn0S4038Q6e/vaYJt0YkvgUsIjZtXWaN
+	gXNYAq1pbp+oOXn+m/PneXMu7EbT8Njm3DUo6QJiHr3+VWO01cSiYalhcz1/dyB/ZCNjSZ/wcoDK8
+	2ZLxVCYN43Nn1edzxwXnwBqOhyjOgMW1W7iyxDe1Ow1Ja3YNazDGY/oWuIdcPfnlhVT59fNLEYLOT
+	HpwbAgwEzfzMA02gobDtq8Akgj9XWW9k8LTQn7x53nnQdyX1P/OZZYolyUlUYqTMf+BHF3cA7I0mJ
+	+HCGnndw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8JGj-00000000Mnu-2z0c;
-	Thu, 02 Apr 2026 14:43:37 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1w8JKW-00000000N5M-00KY;
+	Thu, 02 Apr 2026 14:47:32 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8JGh-00000000MnN-0bBO
+	id 1w8JKT-00000000N4z-1vhY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 14:43:36 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 632CCf7k3956485
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 2 Apr 2026 14:15:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	1QP3yia4CdU5PX7yrF+zFl8JFATM5bcCf24XnEBdAEY=; b=ZJ9HwgEw3XRIYWXB
-	5Dy0Wpj5dn+FGEp441qjsC2bPEzYqQzvcRCFp2TTSuP68RwkhbqNAvZA70PHDvBn
-	eGfBeQet+Z0Kx/hasgTcjeAiMJJ+ftCYY+DPISLN1C+Q9ZW5iEsZyC84njmCX+Oj
-	iaoD50pu+JIiNtP0wZ/1d2ZoF/2uLPBzdcwRYXzLCx/oPNfikHn9kkWNiQjWJV0l
-	uyOtjlLm+YMd18I/aO+OQxhGwl9Q09DcsODECgPhtYTgFobVJrD1TmEgdkfnF3eP
-	9WBPqvQKDx9EN2qdHhDxjj4wswEx9iRpmMsoVcqWL66sxbvfDYC87b/Z9xC3ODHD
-	1Jgv+w==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d9aw5km6n-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 14:15:21 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-50b274f94f8so3114071cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 07:15:21 -0700 (PDT)
+	Thu, 02 Apr 2026 14:47:30 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-486ff3a0fc1so8931775e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 07:47:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1775139321; x=1775744121; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1QP3yia4CdU5PX7yrF+zFl8JFATM5bcCf24XnEBdAEY=;
-        b=ji/YmeemZRX8gjdOohuHyWhNEzTnZkClhWw6vl5cQ8zx+HI2UjZg7Hro4qrklftzzU
-         9P6tPqD7RpV8GM57Z5tw/dNRC13RLPeKwLyPFihP67hEJmnQz6B2KN+aPyYLXwRhSBE7
-         lbZr5j2AlGP8zxCoyDQtIj6Y0BA+dcJ8yTnHl+gg6pJjNUsMTXus3ODwqFR5DIaPS4uo
-         M1u11IMlsZft7cjqpPhj+flOnr8GCdpDJ2IaTYw78gJHyombGsTEvgUq2eOcTNbePbcI
-         fu97SQOBNaz80c0lzVa7m7DmyBpV7QASNlb+iVXrp940YeB4Vj3LH2oLAaCxt9SGPP4s
-         cvKw==
+        d=gmail.com; s=20251104; t=1775141246; x=1775746046; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=syQhn3FKDSt7aahom2Cd5r2lVp93DM2NQ4SMHj+9K0s=;
+        b=EZL++3T4xebsucUd7+wrzgIy20211QYoJbD630WpNCmoehXu9m/nlYn1iE3U+bz1lN
+         KxJXb8cPpEq+jajuX7/C/kT+e9170zApmCFOaMRcA6WHoXbn4Qr9+3iJTLgXA+RoWZKR
+         jGm2jdDfYks92P2pcVEy9Ct18YX6N2LA8pUB0sL49IBVgORX62cAAEhhqV5HMAtH39M1
+         MAnxfl31dKJ0dviA0ltJZ8M4EzltH+IXnWY4LDDbVEvZEN5NSkTFQ+MdUo9mF9dBBEa/
+         ywDuvznrDWARCHzWQp/8OxknSkKa0SAGiJFNuaLIWd1ruAzzMx5FTvsZgN+Yphaxpp9K
+         Ly7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775139321; x=1775744121;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=1QP3yia4CdU5PX7yrF+zFl8JFATM5bcCf24XnEBdAEY=;
-        b=qgwi/PGQL1iCFeEmVHbtG9lG1ITReLicvNa30swWWVe3x/4jg/f4T2pUblJMF5ls3R
-         lhC7RU1UIntO8EZ8OyDbvble/K6pcIHWqn9+ulKuQcMUaeJ6Wh8Eg82fUfdSHhw2hwoH
-         YInpQmeyy3C9xnnpLLgQ+5kmHmfF/bRzfzW2AmzV0jj3WaRl1KxXiEZjPCzs5PlltFFM
-         UCHzlgkevuxPbdMB7rDppM5z/Z9OimNGJ1VR5QaBhq5FaR3KPF0g7PEwyhEHRL7t1uay
-         H9IjT5KJNa1YkSflufrZfbZvpB4Ka5fRiTlnTpqZErl7izTk26bUFZfT/pXy21iiSIgj
-         Y4+w==
-X-Forwarded-Encrypted: i=1; AJvYcCX4WbR+eScr2hSDn6JU0vzaktzCzJJXxrPJCsQ85b8xuIB55GcL0ypLTXLu5QAM8G54zDcZRgvsAVqdO2+Ybiju@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCOwd53v58VXQUfWRgWnYymf10aE2TVkeKxcU/oqNXQlpBzE+b
-	ZJoFjnCY6gEj8/Nu5tEX3rY336g1HLoUDEaYM0KqzJ2qW391VLzsfZN9fdahT4eEEDr3U4w8bO5
-	fhTYNmiUm6bXy49ohFWYyy9aZEsThI7uWQgHxjCtkhDCVn4kOyt9Q/jhvadAQa6+7p4ogPH3ubd
-	BpHw==
-X-Gm-Gg: ATEYQzw0m5X775mTSjsLuU6cf6fcOuhUx0SPXfnyhLQ+j13H31ivJg5wUYOKJB1u/qw
-	0SHrHGkZ9UFVhsH9AjO2w9gGMroZGVMOu20+dNwo+obw3Vr8beYw9SU/E26893K27bu+L1htwP8
-	RxX8NHKCiB6qsGSu1fRNNUYXAr3FeLQXwX/sLMoYNtyF957mzLOewxhQcBAlF0YJbJSAgehonkt
-	7S9j5uxZd1Rk+mQ8L4rOedijtCBUBv/oXImzyQlLL9r39jWmz6slJXIqDYAo/QtOQ7g/3pnr1m8
-	QP+JTXXwPxrA07KdTQ8vZEfFtKjTDrbXYeId9VCbSWhGGgAY6ESwSxauRFdayauIQx/jManZZzM
-	0gQpt5RSCTeqLbYEbViqcJsd0jTXDXqlgjYCkpzQmP9u/qteZNIAW
-X-Received: by 2002:a05:622a:e:b0:50b:893f:7d89 with SMTP id d75a77b69052e-50d4fcf5467mr29566581cf.36.1775139320152;
-        Thu, 02 Apr 2026 07:15:20 -0700 (PDT)
-X-Received: by 2002:a05:622a:e:b0:50b:893f:7d89 with SMTP id d75a77b69052e-50d4fcf5467mr29564051cf.36.1775139318611;
-        Thu, 02 Apr 2026 07:15:18 -0700 (PDT)
-Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:4ff1:3e57:22ec:dadc])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4887e80a5e2sm192824885e9.1.2026.04.02.07.15.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Apr 2026 07:15:17 -0700 (PDT)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Thu, 02 Apr 2026 16:15:02 +0200
-Subject: [PATCH v5 1/4] kernel: ksysfs: initialize kernel_kobj earlier
+        d=1e100.net; s=20251104; t=1775141246; x=1775746046;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=syQhn3FKDSt7aahom2Cd5r2lVp93DM2NQ4SMHj+9K0s=;
+        b=oqhpdgJl0dRmzRPL/ChAW2YrhbpwiDFDbkCmfZJ3YF9a7OEebSfmZERSsWcF3BuhW8
+         0hAXCvLyLk8NDnhTNCoLZpgwV26nYV6GaAOW32xX3FTKC9c+t5Bico7kTLw/RA5mBDQq
+         nS7V7ZqfA7WynLIfXJW3GHOKqto/nU+CWLIRNNNi5ahvLO85NiSCMZi5MqaaZG1CJzKw
+         1zNOuvZSvkz+qPbg75/Hom0f8INlGML8KCwk/D02YF4f2d7K0HWUHJmE3kPZq7X6DJ9b
+         L6demB/08AVs46H6qNbx3PJZDOBAANeMwP+Go2tRuoajN3msWIfEpcLeaXP/aZURaPEM
+         MXmA==
+X-Forwarded-Encrypted: i=1; AJvYcCX9utEFtKf3WO8WPBQAJLYgvigLzStt4X72ji9pQk4Z4B4iezKh6u93795ebqumLM0Rrmp23aoFiVNFm+FLHV9e@lists.infradead.org
+X-Gm-Message-State: AOJu0YxnZqYNQfaGWg3ahOay4woEFpp/yY5WsXZj9un52iCUkeRrIEWP
+	eUbIoECpLKXrftxIBxH0ckxB8VW4m9hkoxpnaY4BNTJyNL3ELmTFiqBy
+X-Gm-Gg: ATEYQzysVtpVBxyiEfnqPF6c8X/5926z/1uQnVeyao5OMs/zjny+vphJzQjQXv15aLD
+	IBeztLqBtTf8gYkV9LZjK4rR88xmwjgDH2iZbd2SQCpt3B1FGxIbWpEkRhxGmlfaLHDX5lASxDZ
+	6pK0eZJjaO5dqRU7OgpvsAj5wpriyCm0f36RZG+Z6dmijKq/6LXnAtkqxvTcMsr+yjtgFD3+23/
+	JcFfLKDLfZdOJEYjUycTxGHLSC3Bhst1hrGPnSUAdcXYLF+jxiNqgPe46v/onJNV0pDX+YcSNaG
+	5JcW3tdU7eFhcDcDAe56IrMkKTHpltJsWgYB1lZwIA1rpqEFwZX4MdocdWfSSGskqBMwbKqY5Q8
+	lhCW5UNZz1N0hvuuadZOUd0Fd5wRI0NpaeVZgNrlnRKWHCzT81oju+6FpkAtvVAmzhv6Yyi2/9s
+	CqkqP0t4OaWcJkk9JbxsYnd5omb/56+EOBdpJ1/2ZCzI9+OAG/pUqgC4mjXw==
+X-Received: by 2002:a05:600c:4f08:b0:487:1826:d89b with SMTP id 5b1f17b1804b1-4888b6f7f8emr56182235e9.9.1775141245586;
+        Thu, 02 Apr 2026 07:47:25 -0700 (PDT)
+Received: from [10.128.11.51] (195-23-151-163.net.novis.pt. [195.23.151.163])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4887ad8d28bsm87489185e9.10.2026.04.02.07.47.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 02 Apr 2026 07:47:25 -0700 (PDT)
+Message-ID: <cec5001d-7ac7-4b21-a3d6-6052e1d8fc87@gmail.com>
+Date: Thu, 2 Apr 2026 15:47:24 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] stmmac: cleanup dead dependencies on STMMAC_PLATFORM and
+ STMMAC_ETH in Kconfig
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: manabian@gmail.com, davem@davemloft.net, peppe.cavallaro@st.com,
+ alexandre.torgue@foss.st.com, mcoquelin.stm32@gmail.com,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260331125817.117091-1-julianbraha@gmail.com>
+ <20260401185814.45dfc444@kernel.org>
+Content-Language: en-US
+From: Julian Braha <julianbraha@gmail.com>
+In-Reply-To: <20260401185814.45dfc444@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260402-nokia770-gpio-swnodes-v5-1-d730db3dd299@oss.qualcomm.com>
-References: <20260402-nokia770-gpio-swnodes-v5-0-d730db3dd299@oss.qualcomm.com>
-In-Reply-To: <20260402-nokia770-gpio-swnodes-v5-0-d730db3dd299@oss.qualcomm.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Danilo Krummrich <dakr@kernel.org>,
-        Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-        Daniel Scally <djrscally@gmail.com>,
-        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-        Sakari Ailus <sakari.ailus@linux.intel.com>,
-        Aaro Koskinen <aaro.koskinen@iki.fi>,
-        Janusz Krzysztofik <jmkrzyszt@gmail.com>,
-        Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>,
-        Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-        Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>
-Cc: brgl@kernel.org, driver-core@lists.linux.dev, linux-kernel@vger.kernel.org,
-        linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-omap@vger.kernel.org,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2976;
- i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=biv+GH+fROKOSl4fjZqd21aT3c4FLHEhSXzFKMuT8pQ=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBpznnu7om+n7+rbJOz3z08q9B8Y3FEV7dYeTCln
- OZLROiB7lWJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCac557gAKCRAFnS7L/zaE
- w+WKEACdYAfS2DGORcLixPHvLig3V48ch0qzhA4/SOrOeb8/L90oRYwHpVF3FIN8XJzcj+sXrqR
- mlvTnt8vY4kXOYEKWN8M9ozIXntN3nD5cBV970wYhYxNEddy/g6xcFc2D7MLu/vKNsU18jaLRG2
- uUqYfq1288iNrwpEa20YD8fdUsTj68e4RHXkBiG1F0WsNOEx4fJJGeAbiQkB26B09EfDCSkvZxx
- ItkmsL/OjanSVB+1Wad3WZWFE5g8Dwx6PbqCZXp8oja4Xrpo7opxeKIF1dr5YFMwKvCjlZR9TvQ
- 332efEH7bJT0Tov0H/xOSgTKMOezKuVG+EN+cODZ+CsZrOSyCtMYBENElpyfAf9vV8SB60tGFGa
- BpJ2VG/WASYT54LNTh+sopX5OYCnYlCEDRZFIlatE6Y4WgPGovNHUKI8I0R2e+RUME1wSggR6p/
- HTLsIgc8Fq1kTvZL3ep+ygvuwb7eV0fBtv2KR0Hsb4gTnePyZSnwVeFxfCR4Zi2HIWAE1OZKOBP
- mkH6cVwt35lSDpumJverYjHAkR7wJRlqMZemeZDsWnjW8+NU3920MVWAUGAJ0MbCHUAqTVuYIL9
- GLLpdx7e48FFJh6X8e8ShyK6edBvSrsYGdzeN/5jZcUgZ+LBlWFgWWQN0SDMd1lC0xe6hL+gyz5
- LMEtq/0VCF+he0g==
-X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Authority-Analysis: v=2.4 cv=Q9jfIo2a c=1 sm=1 tr=0 ts=69ce79f9 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=EUspDBNiAAAA:8
- a=cUGsBi5UaGteNmT5bNcA:9 a=QEXdDO2ut3YA:10 a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-GUID: elYAwmBClKHsNro7KcRwnVWiQvj8ji0x
-X-Proofpoint-ORIG-GUID: elYAwmBClKHsNro7KcRwnVWiQvj8ji0x
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAyMDEyOSBTYWx0ZWRfXyqsafei7DPNl
- XTU7RN3TbLcIaDh/EK0u1M/3vvPm2x+K5vv3o2tOJC3hprQASG47Xx0DJOJzOABDr7W0bKLcLtC
- EpoNd5grR2Do6Qrvh/3X9lza1+V7l6FTRdmplZ4aVVjuGLTHiFAC4hI5sFUbwdQx1It//rn664p
- +EnfEvNMVhscG0MSStSks7hWO9gaEW2/OqwFEZyWaWeCUVLpWgbS0IC8ZHSSQ74Jp0xM8iCuC+y
- 1ejfIy9mK5cstobBkt889oINwOErDwhxGpe3010GJGKK7/jLGgXZuPJFxj0rIuRHtZMsgiJxsq/
- Xq0LNcYKXQRsN25P5U5zz6O6XyPKlvc6s3aLW3Tiq7oKIS3u6ZnN8oSfoHmnNq8cSAfIG+7yqto
- TC0fwKHXHFSree4MWQI2qLkTyxRqs11OoLrZHaQ6vQXcPu20vnVXsKuLB9qd7tNKd/5s0cCkX0o
- ykfhs43hZ8f1yBtyvXw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-02_02,2026-04-02_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 bulkscore=0 malwarescore=0 spamscore=0 phishscore=0
- priorityscore=1501 lowpriorityscore=0 adultscore=0 suspectscore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
- definitions=main-2604020129
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_074335_304621_8AAC980F 
-X-CRM114-Status: GOOD (  21.80  )
+X-CRM114-CacheID: sfid-20260402_074729_512862_800B9026 
+X-CRM114-Status: UNSURE (   5.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,108 +106,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Software nodes depend on kernel_kobj which is initialized pretty late
-into the boot process - as a core_initcall(). Ahead of moving the
-software node initialization to driver_init() we must first make
-kernel_kobj available before it.
+Whoops! You're right, good catch. Looks like I've been staring at too
+many 'depends on' lately...
 
-Make ksysfs_init() visible in a new header - ksysfs.h - and call it in
-do_basic_setup() right before driver_init().
-
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
----
- MAINTAINERS            | 1 +
- include/linux/ksysfs.h | 8 ++++++++
- init/main.c            | 2 ++
- kernel/ksysfs.c        | 9 ++++-----
- 4 files changed, 15 insertions(+), 5 deletions(-)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 0f258aeeacba184d2025b932d90280cf2aabf4b0..8bc934162e712cf8ddf033e53bf3481054cfb7fe 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -7843,6 +7843,7 @@ F:	include/linux/debugfs.h
- F:	include/linux/device.h
- F:	include/linux/fwnode.h
- F:	include/linux/kobj*
-+F:	include/linux/ksysfs.h
- F:	include/linux/property.h
- F:	include/linux/sysfs.h
- F:	lib/kobj*
-diff --git a/include/linux/ksysfs.h b/include/linux/ksysfs.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..c7dc6e18f28e8a12a66d64ffffb13749d424a881
---- /dev/null
-+++ b/include/linux/ksysfs.h
-@@ -0,0 +1,8 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef _KSYSFS_H_
-+#define _KSYSFS_H_
-+
-+void ksysfs_init(void);
-+
-+#endif /* _KSYSFS_H_ */
-diff --git a/init/main.c b/init/main.c
-index 8b7633b7ab720b9c13a231d64291d35d3852602c..96f93bb06c49013bae8d3d6b7afca13d6277a868 100644
---- a/init/main.c
-+++ b/init/main.c
-@@ -36,6 +36,7 @@
- #include <linux/kmod.h>
- #include <linux/kprobes.h>
- #include <linux/kmsan.h>
-+#include <linux/ksysfs.h>
- #include <linux/vmalloc.h>
- #include <linux/kernel_stat.h>
- #include <linux/start_kernel.h>
-@@ -1482,6 +1483,7 @@ static void __init do_initcalls(void)
- static void __init do_basic_setup(void)
- {
- 	cpuset_init_smp();
-+	ksysfs_init();
- 	driver_init();
- 	init_irq_proc();
- 	do_ctors();
-diff --git a/kernel/ksysfs.c b/kernel/ksysfs.c
-index a9e6354d9e2579317d3b1bcb54223432d3ce0950..f45ade718054af4eb72fba88dab10c86287986ee 100644
---- a/kernel/ksysfs.c
-+++ b/kernel/ksysfs.c
-@@ -8,6 +8,7 @@
- 
- #include <asm/byteorder.h>
- #include <linux/kobject.h>
-+#include <linux/ksysfs.h>
- #include <linux/string.h>
- #include <linux/sysfs.h>
- #include <linux/export.h>
-@@ -213,7 +214,7 @@ static const struct attribute_group kernel_attr_group = {
- 	.attrs = kernel_attrs,
- };
- 
--static int __init ksysfs_init(void)
-+void __init ksysfs_init(void)
- {
- 	int error;
- 
-@@ -234,14 +235,12 @@ static int __init ksysfs_init(void)
- 			goto group_exit;
- 	}
- 
--	return 0;
-+	return;
- 
- group_exit:
- 	sysfs_remove_group(kernel_kobj, &kernel_attr_group);
- kset_exit:
- 	kobject_put(kernel_kobj);
- exit:
--	return error;
-+	pr_err("failed to initialize the kernel kobject: %d\n", error);
- }
--
--core_initcall(ksysfs_init);
-
--- 
-2.47.3
-
+I'll send out a v2 - thanks for reviewing Jakub!
 
