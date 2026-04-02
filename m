@@ -4,93 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30027D39420
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 13:09:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD421D39422
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 13:20:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LBHNBVUFUCJBpW5DUWaq2VhnmG86vXoZK/pVSYZwtz0=; b=3is6TMT5zc/soLc31elyn3NRXH
-	2Db1ZxOZ+IIE1vrJHhYbzg0lqML+z6fym4zlpa/E7YDvZqjNS6qWhYbMzI6QbExGM++CW7La/Cuto
-	EhQJD6NzzmWVuYvPeSRlQpCYqHoWlYsp+2+vy3r61X/ADlZhpnCyMXFYlck35KN1ZLjO8wGOCTzug
-	f8JF/i1NBIhZF3H1KY11jRnUuwh1KncIOb8vGvU20tK0oF+JuIEhAcxTOKMWk94lcCceHrYk47ciG
-	dRzN7tsWkH23uLmBCqI+C/SrUbDgXLh+BwVuRAwr/cbELNRV+vaqar+rxnT4KiZ+JNPGrh+cq2y8s
-	I2brdruw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IOW0L3XaVV3vYFTMqc4EpsZV2dtS9rU8WQqx5KOjvYI=; b=PirOOBQgpY1OBJC98x3PI91SoF
+	0su/z2jx4FjTTZyk7+aJeGZdUzOOyGBoyFGRk74WKmvXrZDOQmybEyP+hAg+6ouXZo6vGVJgRaays
+	UOymuAYZcnLHNAIJXKPWDUDQ79FAKhHnH/yBAOKtyzrEKCo5qnm/vyQkrTd1M6nNsMCVR+zQUNpzD
+	UzA3wdpecH3YC0YdmP0m3SbZVOnFR6n6DTrUThA4RsZYnvMB0CWRQNyj4h/wOpbtYE5V2/OqV+Zqt
+	AtF0J2ALdsSsRutEXBoe6umoR3ZLaXu1dNXcs9aYFTw4oJyxCT3VtJ996I1cSMJBn1X5cV5Y9pdcl
+	zr3DgbcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Hnj-000000008yO-3Gf4;
-	Thu, 02 Apr 2026 13:09:35 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1w8HyS-00000000AAz-2mSO;
+	Thu, 02 Apr 2026 13:20:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Hnh-000000008wD-0gyT
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 13:09:34 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4887fd35e60so5479585e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 06:09:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775135371; x=1775740171; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LBHNBVUFUCJBpW5DUWaq2VhnmG86vXoZK/pVSYZwtz0=;
-        b=AViwSjyz/Ao26wKbd5e6NClOd43+4nDG+PdyVQJfmvk8ax+otnEq1YNfDv0se0mKuo
-         un+Oxc9L3P5zgc8DfeYnMKpHqZx6AMr7SBoSx4K2ntUaDFxA2+OEb1jjFp64pvy8eYI8
-         CtNiKHkEByxF2AIwYiG+JcHttHVMi4pRQ5aSCRAMADqAQhoDM0hdZCe800PIwoBMPxh9
-         /lKG4C7/xjAUGVNfYf/ghxX6f/COnXk2PDbL9ZpBlx/ho+buL3unObsvPCFxWyT+ql4u
-         9m66xNIxRA1GMJ648+ss5ysinnswHKnVGdCnsJ2jumd8KWSAx6gPD3g3MlUDmIgrcqEm
-         N7RA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775135371; x=1775740171;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LBHNBVUFUCJBpW5DUWaq2VhnmG86vXoZK/pVSYZwtz0=;
-        b=dKH8LvFZDGHs+Mo1teaqnQQ6r/A+AbnQBzZ9Mq8CWFSNMDyQTOD6+Adf+w2Zde3gE5
-         +ONruf2FtuOgqtg4+RbueEOtiXHAtmKegN7Bjr+A7o2pHH75hvr6aIcfgWJ7f+hPSX38
-         2G2CaXQ/UvtvT/12YQJE5DgJUSLjOCCf+QOdXY6FaMtHGY65sMfcXaAMHeTEVJH+2S01
-         jHmLUSDZ3RDuw++2BiNe767ism2M3ZdscrjurfkSZkpzKsI50/6D8vBaL9HtNloMsZ00
-         mV69bjSg7+XYr5Vh3u4IWUSOQBYISzhbduegdFgjrdZruwxGUdZJwIC5C2COCspLvcXb
-         P6rQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWMpCJUNOLb97qrVk7GXSSnJI+qylm+qTav41SZZPEUEh+wJHHbiWMXwsW73nCrRWL1VCOZA6oSMtnzVmmUS30p@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfPGRFpc42YKUQWZGGBnw+FdrBkGpJxzsUFCrxAVvWmEgRyfQX
-	84Uc9fq3g1B2KgbijCnVNEzRKXNC7G3QMld9uDAZm7mfaUJcWr30AwuM
-X-Gm-Gg: ATEYQzzUzXCq8vlcGOx9fdKW4cWuhkJj9A2w+ILeOHxITvH+zMoEZTutESSX1KDFI7Y
-	JOclx+SPKBQXQGFXB5/SDJ6Qr3L+s0Gd2DYEkFqPVmB+DAM0Ig8dFUCbJf4ncqUQX/qUpac+7Rc
-	/KHbwRU7xLCN5/XbDqg7rjeSkOE813vim7IIBIUKDC12eeZ0XZvN/KwUTW9BlL9XMxWr6LHybQw
-	DZZSEraKt96r3eDYPn0ItQZi7F+zGLXF53jw69fxxQ2LepBrIvN9RlnxSh3KCzD6exrmSxyrAmC
-	RFVqw8+VgvXQM3lxRS7TWRjRhzP9WajpGLWP6FLE4NReOs0UNGnqNNOaEyG3kUYoEYs+aNpSY+6
-	fQpOhXN8bP3f7yxK6BPjBUTatRLkgYiHfCjG1BNyavjXhmNt/gs0wiD2PHrkANpZx95WyV8vQUB
-	27ERVERyg1Z03u3S0zue0=
-X-Received: by 2002:a05:600d:11:b0:485:3ff1:d5ed with SMTP id 5b1f17b1804b1-4888355df72mr134713795e9.1.1775135371137;
-        Thu, 02 Apr 2026 06:09:31 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4887e829c43sm175553955e9.5.2026.04.02.06.09.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Apr 2026 06:09:30 -0700 (PDT)
-Date: Thu, 2 Apr 2026 16:09:27 +0300
-From: Dan Carpenter <error27@gmail.com>
-To: Andrey Skvortsov <andrej.skvortzov@gmail.com>
-Cc: Maxime Ripard <mripard@kernel.org>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] media: cedrus: Fix missing cleanup in error path
-Message-ID: <ac5qhwdZLNe628eW@stanley.mountain>
-References: <20260401191441.1217646-1-andrej.skvortzov@gmail.com>
+	id 1w8HyR-00000000AAp-2aXA;
+	Thu, 02 Apr 2026 13:20:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=IOW0L3XaVV3vYFTMqc4EpsZV2dtS9rU8WQqx5KOjvYI=; b=Vg1AP2g+3BfskFSjJrzi4h98QD
+	IXnfFEvtbhmz8RtOcitNnCSI/NsdqWjl2c6VnSVwQiewMxnPMr+dnwGT3PfqY2uDtrDDD3beoknjR
+	xT/RaeVnTphf1F2zMlF0H8HtJ8mFC8lzUA7CbqLIeXVYk2B//T0PB2ULDWjisi33ZNcjagqosVVBR
+	N5wqTFdtKkLsy0Pks3Zu1kuP9wxrB6UjKqc7M9Rt/UHjq5HTsOD2E2qMhhFZ6U09pj+fblpH36oU5
+	NiyEkk3nI1r9jxYfLaeoM8f6VI63LN0q7neBC34ES/bTmE9n55zYqIh9xMgTQWg/DkAMagx2S6fbL
+	rSbA0DmA==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8HyO-00000002Wj6-1sMR;
+	Thu, 02 Apr 2026 13:20:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BBFAD43D66;
+	Thu,  2 Apr 2026 13:20:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A345C116C6;
+	Thu,  2 Apr 2026 13:20:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775136032;
+	bh=bdM5CpBSGBUjea2E0M0inYXAS7dXwzD2DrU4yvZg14g=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=LBPMJ4aKdUI5AFsTq8Jerr5MFJ0I7h5UqvC/VIkXr/u2gA++PjVmemeLAg1r7OYto
+	 wVUfkBU0DMWIiFG4wjjTq8G9zge/ZBFOKBPTGDN8JI4/cL6TuCiSyCxIhCaURdVKiZ
+	 nUSXg6t0FF0bN++7wPOGZe5Wj5EtXR8rHRpDtwdqPEDogopv2mrA7mws3N7cnfnFqn
+	 9nors6N0UjocQo+nX9S5KH7fahpyIVSlj1CrOegvjjmvV/J32RNhykormoFOkRGK/b
+	 E46PbUbDJ1AJ9bvAhs74MX+a6ul2BsDgNNwpaE6xhhdpzBbPUw1s7O3Py/qQjnSoQM
+	 P6F6PizKqsJzw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FDC23809A05;
+	Thu,  2 Apr 2026 13:20:16 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260401191441.1217646-1-andrej.skvortzov@gmail.com>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next] net: airoha: Set REG_RX_CPU_IDX() once in
+ airoha_qdma_fill_rx_queue()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177513601478.26443.18083192170217288880.git-patchwork-notify@kernel.org>
+Date: Thu, 02 Apr 2026 13:20:14 +0000
+References: <20260331-airoha-cpu-idx-out-off-loop-v1-1-75c66b428f50@kernel.org>
+In-Reply-To: <20260331-airoha-cpu-idx-out-off-loop-v1-1-75c66b428f50@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_060933_215583_571D0A2A 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20260402_142036_694344_3AB624B5 
+X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,26 +90,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 01, 2026 at 10:14:40PM +0300, Andrey Skvortsov wrote:
-> From: Samuel Holland <samuel@sholland.org>
-> 
-> From: Samuel Holland <samuel@sholland.org>
-> 
-> According to the documentation struct v4l2_fh has to be cleaned up with
-> v4l2_fh_exit() before being freed. [1]
-> 
-> 1. https://docs.kernel.org/driver-api/media/v4l2-fh.html
-> 
+Hello:
 
-I wish the commit message would say what the use visible effect of the
-bug is.  I looked at it and I don't think this patch hurts but I also
-didn't necessarily see a that the original code had a user visible bug.
+This patch was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-I read the documentation but it wasn't as unambiguous as I'd prefer.
+On Tue, 31 Mar 2026 12:33:24 +0200 you wrote:
+> It is not necessary to update REG_RX_CPU_IDX register for each iteration
+> of the descriptor loop in airoha_qdma_fill_rx_queue routine.
+> Move REG_RX_CPU_IDX configuration out of the descriptor loop and rely on
+> the last queue head value updated in the descriptor loop.
+> 
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> 
+> [...]
 
-But I'm not a subsystem expert.
+Here is the summary with links:
+  - [net-next] net: airoha: Set REG_RX_CPU_IDX() once in airoha_qdma_fill_rx_queue()
+    https://git.kernel.org/netdev/net-next/c/269389ba5398
 
-regards,
-dan carpenter
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
