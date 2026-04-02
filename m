@@ -4,66 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 091BBCC6B25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 08:13:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0191CC6B26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 08:13:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=88lXO6LhSwNx1CgLSD4DNHau8+gUae1fs/ET3pHof00=; b=MQcwm3p7rLOyMkxLbPb+tT8Z8V
-	WRcCbH9cRWRyrKyZm8gkz12YbYMVpyVRAb+zcT8iJK9EPJGCk7Ba6HhhouvEMvDdF6D4joUpxHjfx
-	h78K4EUQhC5/YHCw3+sPAHtZJV3ULyGF1H5kt2cLkGwVf9bz2/DtJh0r/+MWmSsmRem2VtK5sugt/
-	6n2KmHMJCZ4oNiY0q3YQ6i1ubS4XOcq53n0npsjpRDkWHD8UZy5R1EAuCoq9TvSj34e4i/99MtYzt
-	npjQzKARz/5ywfagmNuQNmo9ZQ4vdfE6mIG6M8xKEf9MUYg9R5+Wm1eOHxy4GfQODLU07SEjElvOF
-	j95k8zGA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kUg2Jim7sS5njPFwuf0pR9raeORW1EJTi4tWZ67JQSk=; b=H/FAWJR47prX4DkKKIz9pELOWq
+	io8vy1JRiKlLXlCAaB6OECcVIUnh22yEVY/kg+HGyKhRjnrOpSN6tQzWAQ67AeCE0ct8EvBy6D5m0
+	4FcJSFo3qMFQDyAbzBpy5w/i6dAq5sOeRQUvi3QWckCJMb5vvslvCSsEloAC0gdQcGcDLoBahQpzJ
+	qhAhBSiKBgb7vOXdlsaAQ+wLmdKHHEpkFvdUEWsFiC/0pG/rcUvzNAK50Lpi4XWTVoJmM+mVQc3GM
+	JJVkgYKJh+cYER4zwunzcd6a2+pkYbQp3IsvyUPns0xfDfPSus1cS53oGoXxCRJ7gLPxr8K0fuJlr
+	e3lo25dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8DAg-0000000H9pY-0VwY;
-	Thu, 02 Apr 2026 08:12:58 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1w8DBD-0000000H9tJ-2Qop;
+	Thu, 02 Apr 2026 08:13:31 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8DAa-0000000H9no-0GRM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 08:12:55 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=88lXO6LhSwNx1CgLSD4DNHau8+gUae1fs/ET3pHof00=;
-	b=t4chdBYsj8B1MT94tozt+07G7Od8Mwf/4vOxamXoYdKfye/leF0OGjSM3cuaBTVjOTYH/Tt2t
-	uxMHImbAR/Or6w8uf8NP/xSb+pvixZlQLk+TsXeuWpmoA0GURYJl7fzZjrcbWRLJFn8pRxKnEVy
-	N5EqEa97wEVkVrlVpXrsLbY=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4fmZF11BDKzmVVm;
-	Thu,  2 Apr 2026 16:06:29 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 08BB44056E;
-	Thu,  2 Apr 2026 16:12:41 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 2 Apr
- 2026 16:12:40 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <thuth@redhat.com>,
-	<masahiroy@kernel.org>, <mark.rutland@arm.com>, <nsc@kernel.org>,
-	<maz@kernel.org>, <bhe@redhat.com>, <rppt@kernel.org>, <ardb@kernel.org>,
-	<kees@kernel.org>, <leitao@debian.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH] arm64/crash: Add crash hotplug support
-Date: Thu, 2 Apr 2026 16:14:59 +0800
-Message-ID: <20260402081459.635022-1-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
+	id 1w8DBB-0000000H9sV-30wJ;
+	Thu, 02 Apr 2026 08:13:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=kUg2Jim7sS5njPFwuf0pR9raeORW1EJTi4tWZ67JQSk=; b=AN/P92SMImlCZOSdE68AjW6jMb
+	JMRZ7lyx1h8MeCF6lgntFULNUGhyDZAxHHHLrrzErheNhI7dIhavpUq2n1uAdewz2dcvLsvX1zMu+
+	Dj57h1BBsSQu9mHSFaDwougvUPAYB/8s6cNT93vVzrfqyPvhw07HaK7sco2aGJ2v+yFbG74hlRLW2
+	lk2W+8NIGTnZySGk9NG7/73TJ9/t40H+EdP1vd3CS1fa0cxtI/yt90y/tPjVOoafyhYEdqbOJwvv5
+	9obQ/DlPPaAlR7vVs0WApmijJiPjpk8PA5Zst1qP2tyuHnEnkqsAGzoUS/GXF8XvNBm4Dz08PRYxy
+	WsNxAD2A==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8D9K-00000001zMi-1AAL;
+	Thu, 02 Apr 2026 08:13:24 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6327e3fK52695627, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1775115603; bh=kUg2Jim7sS5njPFwuf0pR9raeORW1EJTi4tWZ67JQSk=;
+	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	b=H7iNMibvu9OiOYIpQ5OCMxxe8Gwu9xpOsJoZwR2EXuh/IyBlTsJ7OUYVph2ldiNDy
+	 qNw0JJk+0swDbWrxJMbYK+jAKoij4apKHrsK5k4453umv1ldPJCzZpqiIXUEhl83hL
+	 u1H/nB0CGtl5Kg9FR0kOqnHF3uEhRrKKUlbZ0G4ZwPohH4AkzbNkC7dkNml/zzNYqj
+	 du1hXVN066s/6sf+dpE/TdGOQLFc862mVpVfu+ksiZ68sysh++KSj74kRxRJ/S/k0K
+	 AV8cSFFdipXvNolNvU08wEUmG1oD52bFltQXF3lfVz44MPelbQ+y+OmcWDq0Tm3zbp
+	 Ug14KVgBpIAcA==
+Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
+	by rtits2.realtek.com.tw (8.15.2/3.26/5.94) with ESMTPS id 6327e3fK52695627
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 2 Apr 2026 15:40:03 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Thu, 2 Apr 2026 15:40:03 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Thu, 2 Apr 2026 15:40:02 +0800
+Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS05.realtek.com.tw
+ (10.21.1.55) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Thu, 2 Apr 2026 15:40:02 +0800
+From: Yu-Chun Lin <eleanor.lin@realtek.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
+        <cylee12@realtek.com>, <afaerber@suse.com>, <jyanchou@realtek.com>
+CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
+        <cy.huang@realtek.com>, <stanley_chang@realtek.com>,
+        <eleanor.lin@realtek.com>
+Subject: [PATCH v6 09/10] clk: realtek: Add RTD1625-ISO clock controller driver
+Date: Thu, 2 Apr 2026 15:39:56 +0800
+Message-ID: <20260402073957.2742459-10-eleanor.lin@realtek.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260402073957.2742459-1-eleanor.lin@realtek.com>
+References: <20260402073957.2742459-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_011252_765978_BC3DE094 
-X-CRM114-Status: GOOD (  35.42  )
+X-CRM114-CacheID: sfid-20260402_091210_867336_9E1606CD 
+X-CRM114-Status: GOOD (  23.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,357 +101,304 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Due to CPU/Memory hotplug or online/offline events, the elfcorehdr
-(which describes the CPUs and memory of the crashed kernel) of kdump
-image becomes outdated. Consequently, attempting dump collection with
-an outdated elfcorehdr can lead to inaccurate dump collection.
+From: Cheng-Yu Lee <cylee12@realtek.com>
 
-The current solution to address the above issue involves monitoring
-the CPU/Memory add/remove events in userspace using udev rules and
-whenever there are changes in CPU and memory resources, the entire
-kdump image is loaded again. The kdump image includes kernel, initrd,
-elfcorehdr, FDT, purgatory. Given that only elfcorehdr gets outdated
-due to CPU/Memory add/remove events, reloading the entire kdump image
-is inefficient. More importantly, kdump remains inactive for a
-substantial amount of time until the kdump reload completes.
+Add support for the ISO (Isolation) domain clock controller on the Realtek
+RTD1625 SoC. This controller manages clocks in the always-on power domain,
+ensuring essential services remain functional even when the main system
+power is gated.
 
-To address the aforementioned issue, commit 247262756121 ("crash: add
-generic infrastructure for crash hotplug support") added a generic
-infrastructure that allows architectures to selectively update the
-kdump image component during CPU or memory add/remove events within
-the kernel itself.
+Since the reset controller shares the same register space with the ISO
+clock controller, it is instantiated as an auxiliary device by the core
+clock driver. This patch also includes the corresponding auxiliary reset
+driver to handle the ISO domain resets.
 
-In the event of a CPU or memory add/remove events, the generic crash
-hotplug event handler, crash_handle_hotplug_event(), is triggered. It
-then acquires the necessary locks to update the kdump image and invokes
-the architecture-specific crash hotplug handler,
-arch_crash_handle_hotplug_event(), to update the required kdump image
-components.
-
-[1] has supported virtual CPU hotplug in virtual machines for ARM64,
-allowing vCPUs to be added or removed at runtime to meet Kubernetes
-demands.
-
-On ARM64, only memory add/remove events are handled. Here's why:
-
-1. Physical CPU hotplug: Not supported on ARM64 hardware.
-
-2. ACPI vCPU hotplug (KVM virtual machine):
-   - vCPU hotplug is implemented as a static firmware policy where all
-     possible vCPUs are pre-described in the MADT table at boot.
-   - The vCPU status will be automatically updated after vCPU hotplug.
-   - No FDT or elfcorehdr update needed.
-
-3. Device tree booted Virtual Machine vCPU hotplug:
-  - The elfcorehdr is built using for_each_possible_cpu(), so it
-    already includes all possible CPUs and doesn't need updates.
-
-For memory add/remove events, the elfcorehdr is updated to reflect
-the current memory layout.
-
-This patch adds the ARCH_SUPPORTS_CRASH_HOTPLUG config option and
-implements:
-- arch_crash_hotplug_support(): Check if hotplug update is supported
-- arch_crash_get_elfcorehdr_size(): Return elfcorehdr buffer size
-- arch_crash_handle_hotplug_event(): Handle memory hotplug events
-
-This follows the same approach as x86 commit
-ea53ad9cf73b ("x86/crash: add x86 crash hotplug support") and powerpc
-commit b741092d5976 ("powerpc/crash: add crash CPU hotplug support")
-and commit 849599b702ef ("powerpc/crash: add crash memory hotplug
-support").
-
-The test is based on the following QEMU version:
-	https://github.com/salil-mehta/qemu.git virt-cpuhp-armv8/rfc-v2
-
-Replace your '-smp' argument with something like:
- | -smp cpus=1,maxcpus=3,cores=3,threads=1,sockets=1
-
-then feed the following to the Qemu montior to hotplug vCPU;
- | (qemu) device_add driver=host-arm-cpu,core-id=1,id=cpu1
- | (qemu) device_del cpu1
-
-feed the following to the Qemu montior to hotplug memory;
- | (qemu) object_add memory-backend-ram,id=mem1,size=256M
- | (qemu) device_add pc-dimm,id=dimm1,memdev=mem1
- | (qemu) device_del dimm1
-
-The qemu startup configuration is as follows:
-qemu-system-aarch64 \
-		-M virt,gic-version=3,acpi=on,highmem=on \
-		-enable-kvm \
-		-cpu host \
-		-kernel Image \
-		-smp cpus=1,maxcpus=3,cores=3,threads=1,sockets=1 \
-		-bios /usr/share/edk2/aarch64/QEMU_EFI.fd \
-		-m 2G,slots=64,maxmem=16G \
-		-nographic \
-		-no-reboot \
-		-device virtio-rng-pci \
-		-append "root=/dev/vda rw console=ttyAMA0 kgdboc=ttyAMA0,115200 \
-			earlycon acpi=on crashkernel=512M" \
-		-drive if=none,file=images/rootfs.ext4,format=raw,id=hd0 \
-		-device virtio-blk-device,drive=hd0 \
-
-There are two system calls, `kexec_file_load` and `kexec_load`, used to
-load the kdump image. Only kexec_file_load syscall way is tested now.
-
-This patch is based on following rework:
-	https://lore.kernel.org/all/20260328074013.3589544-1-ruanjinjie@huawei.com/
-
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Baoquan He <bhe@redhat.com>
-Cc: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Breno Leitao <leitao@debian.org>
-Cc: Kees Cook <kees@kernel.org>
-[1]: https://lore.kernel.org/all/20240529133446.28446-1-Jonathan.Cameron@huawei.com/
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 ---
- arch/arm64/Kconfig                     |   3 +
- arch/arm64/include/asm/kexec.h         |  11 +++
- arch/arm64/kernel/Makefile             |   1 +
- arch/arm64/kernel/crash.c              | 125 +++++++++++++++++++++++++
- arch/arm64/kernel/machine_kexec_file.c |  24 ++++-
- 5 files changed, 162 insertions(+), 2 deletions(-)
- create mode 100644 arch/arm64/kernel/crash.c
+Changes in v6:
+- Add the headers used in c file to follow the "Include What You Use" principle.
+- Move struct rtk_reset_desc arrays from the clock driver to the dedicated reset driver.
+- Implement and register a dedicated reset auxiliary driver.
+---
+ drivers/clk/realtek/Makefile              |   1 +
+ drivers/clk/realtek/clk-rtd1625-iso.c     | 144 ++++++++++++++++++++++
+ drivers/reset/realtek/Makefile            |   2 +-
+ drivers/reset/realtek/reset-rtd1625-iso.c |  96 +++++++++++++++
+ 4 files changed, 242 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/clk/realtek/clk-rtd1625-iso.c
+ create mode 100644 drivers/reset/realtek/reset-rtd1625-iso.c
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 38dba5f7e4d2..518bb59e7c19 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1630,6 +1630,9 @@ config ARCH_DEFAULT_CRASH_DUMP
- config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
- 	def_bool CRASH_RESERVE
+diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
+index c992f97dfbc7..1680435e1e0f 100644
+--- a/drivers/clk/realtek/Makefile
++++ b/drivers/clk/realtek/Makefile
+@@ -10,3 +10,4 @@ clk-rtk-y += freq_table.o
  
-+config ARCH_SUPPORTS_CRASH_HOTPLUG
-+	def_bool y
-+
- config TRANS_TABLE
- 	def_bool y
- 	depends on HIBERNATION || KEXEC_CORE
-diff --git a/arch/arm64/include/asm/kexec.h b/arch/arm64/include/asm/kexec.h
-index 892e5bebda95..f165c094b32e 100644
---- a/arch/arm64/include/asm/kexec.h
-+++ b/arch/arm64/include/asm/kexec.h
-@@ -130,6 +130,17 @@ extern int load_other_segments(struct kimage *image,
- 		char *cmdline);
- #endif
- 
-+#ifdef CONFIG_CRASH_HOTPLUG
-+void arch_crash_handle_hotplug_event(struct kimage *image, void *arg);
-+#define arch_crash_handle_hotplug_event arch_crash_handle_hotplug_event
-+
-+int arch_crash_hotplug_support(struct kimage *image, unsigned long kexec_flags);
-+#define arch_crash_hotplug_support arch_crash_hotplug_support
-+
-+unsigned int arch_crash_get_elfcorehdr_size(void);
-+#define crash_get_elfcorehdr_size arch_crash_get_elfcorehdr_size
-+#endif
-+
- #endif /* __ASSEMBLER__ */
- 
- #endif
-diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-index 76f32e424065..f66737bed1cf 100644
---- a/arch/arm64/kernel/Makefile
-+++ b/arch/arm64/kernel/Makefile
-@@ -64,6 +64,7 @@ obj-$(CONFIG_KEXEC_FILE)		+= machine_kexec_file.o kexec_image.o
- obj-$(CONFIG_ARM64_RELOC_TEST)		+= arm64-reloc-test.o
- arm64-reloc-test-y := reloc_test_core.o reloc_test_syms.o
- obj-$(CONFIG_CRASH_DUMP)		+= crash_dump.o
-+obj-$(CONFIG_CRASH_HOTPLUG)		+= crash.o
- obj-$(CONFIG_VMCORE_INFO)		+= vmcore_info.o
- obj-$(CONFIG_ARM_SDE_INTERFACE)		+= sdei.o
- obj-$(CONFIG_ARM64_PTR_AUTH)		+= pointer_auth.o
-diff --git a/arch/arm64/kernel/crash.c b/arch/arm64/kernel/crash.c
+ clk-rtk-$(CONFIG_RTK_CLK_PLL_MMC) += clk-pll-mmc.o
+ obj-$(CONFIG_COMMON_CLK_RTD1625) += clk-rtd1625-crt.o
++obj-$(CONFIG_COMMON_CLK_RTD1625) += clk-rtd1625-iso.o
+diff --git a/drivers/clk/realtek/clk-rtd1625-iso.c b/drivers/clk/realtek/clk-rtd1625-iso.c
 new file mode 100644
-index 000000000000..2114375820da
+index 000000000000..027a131363f9
 --- /dev/null
-+++ b/arch/arm64/kernel/crash.c
-@@ -0,0 +1,125 @@
++++ b/drivers/clk/realtek/clk-rtd1625-iso.c
+@@ -0,0 +1,144 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * Architecture specific functions for kexec based crash dumps.
++ * Copyright (C) 2024 Realtek Semiconductor Corporation
++ * Author: Cheng-Yu Lee <cylee12@realtek.com>
 + */
 +
-+#define pr_fmt(fmt)	"crash hp: " fmt
++#include <dt-bindings/clock/realtek,rtd1625-clk.h>
++#include <linux/array_size.h>
++#include <linux/init.h>
++#include <linux/module.h>
++#include <linux/of_device.h>
++#include <linux/platform_device.h>
++#include "clk-regmap-gate.h"
 +
-+#include <linux/kexec.h>
-+#include <linux/elf.h>
-+#include <linux/vmalloc.h>
-+#include <linux/crash_core.h>
++#define RTD1625_ISO_CLK_MAX	19
++#define RTD1625_ISO_RSTN_MAX	29
++#define RTD1625_ISO_S_CLK_MAX	5
++#define RTD1625_ISO_S_RSTN_MAX	5
 +
-+#include <asm/kexec.h>
++static CLK_REGMAP_GATE_NO_PARENT(clk_en_usb_p4, 0, 0x4, 0, 0);
++static CLK_REGMAP_GATE_NO_PARENT(clk_en_usb_p3, 0, 0x4, 1, 0);
++static CLK_REGMAP_GATE(clk_en_misc_cec0, "clk_en_misc", 0, 0x4, 2, 0);
++static CLK_REGMAP_GATE_NO_PARENT(clk_en_cbusrx_sys, 0, 0x4, 3, 0);
++static CLK_REGMAP_GATE_NO_PARENT(clk_en_cbustx_sys, 0, 0x4, 4, 0);
++static CLK_REGMAP_GATE_NO_PARENT(clk_en_cbus_sys, 0, 0x4, 5, 0);
++static CLK_REGMAP_GATE_NO_PARENT(clk_en_cbus_osc, 0, 0x4, 6, 0);
++static CLK_REGMAP_GATE_NO_PARENT(clk_en_i2c0, 0, 0x4, 9, 0);
++static CLK_REGMAP_GATE_NO_PARENT(clk_en_i2c1, 0, 0x4, 10, 0);
++static CLK_REGMAP_GATE_NO_PARENT(clk_en_etn_250m, 0, 0x4, 11, 0);
++static CLK_REGMAP_GATE_NO_PARENT(clk_en_etn_sys, 0, 0x4, 12, 0);
++static CLK_REGMAP_GATE_NO_PARENT(clk_en_usb_drd, 0, 0x4, 13, 0);
++static CLK_REGMAP_GATE_NO_PARENT(clk_en_usb_host, 0, 0x4, 14, 0);
++static CLK_REGMAP_GATE_NO_PARENT(clk_en_usb_u3_host, 0, 0x4, 15, 0);
++static CLK_REGMAP_GATE_NO_PARENT(clk_en_usb, 0, 0x4, 16, 0);
++static CLK_REGMAP_GATE_NO_PARENT(clk_en_vtc, 0, 0x4, 17, 0);
++static CLK_REGMAP_GATE(clk_en_misc_vfd, "clk_en_misc", 0, 0x4, 18, 0);
 +
-+#ifdef CONFIG_CRASH_HOTPLUG
++static struct clk_regmap *rtd1625_clk_regmap_list[] = {
++	&clk_en_usb_p4.clkr,
++	&clk_en_usb_p3.clkr,
++	&clk_en_misc_cec0.clkr,
++	&clk_en_cbusrx_sys.clkr,
++	&clk_en_cbustx_sys.clkr,
++	&clk_en_cbus_sys.clkr,
++	&clk_en_cbus_osc.clkr,
++	&clk_en_i2c0.clkr,
++	&clk_en_i2c1.clkr,
++	&clk_en_etn_250m.clkr,
++	&clk_en_etn_sys.clkr,
++	&clk_en_usb_drd.clkr,
++	&clk_en_usb_host.clkr,
++	&clk_en_usb_u3_host.clkr,
++	&clk_en_usb.clkr,
++	&clk_en_vtc.clkr,
++	&clk_en_misc_vfd.clkr,
++};
 +
-+int arch_crash_hotplug_support(struct kimage *image, unsigned long kexec_flags)
++static struct clk_hw_onecell_data rtd1625_iso_clk_data = {
++	.num = RTD1625_ISO_CLK_MAX,
++	.hws = {
++		[RTD1625_ISO_CLK_EN_USB_P4]      = &__clk_regmap_gate_hw(&clk_en_usb_p4),
++		[RTD1625_ISO_CLK_EN_USB_P3]      = &__clk_regmap_gate_hw(&clk_en_usb_p3),
++		[RTD1625_ISO_CLK_EN_MISC_CEC0]   = &__clk_regmap_gate_hw(&clk_en_misc_cec0),
++		[RTD1625_ISO_CLK_EN_CBUSRX_SYS]  = &__clk_regmap_gate_hw(&clk_en_cbusrx_sys),
++		[RTD1625_ISO_CLK_EN_CBUSTX_SYS]  = &__clk_regmap_gate_hw(&clk_en_cbustx_sys),
++		[RTD1625_ISO_CLK_EN_CBUS_SYS]    = &__clk_regmap_gate_hw(&clk_en_cbus_sys),
++		[RTD1625_ISO_CLK_EN_CBUS_OSC]    = &__clk_regmap_gate_hw(&clk_en_cbus_osc),
++		[RTD1625_ISO_CLK_EN_I2C0]        = &__clk_regmap_gate_hw(&clk_en_i2c0),
++		[RTD1625_ISO_CLK_EN_I2C1]        = &__clk_regmap_gate_hw(&clk_en_i2c1),
++		[RTD1625_ISO_CLK_EN_ETN_250M]    = &__clk_regmap_gate_hw(&clk_en_etn_250m),
++		[RTD1625_ISO_CLK_EN_ETN_SYS]     = &__clk_regmap_gate_hw(&clk_en_etn_sys),
++		[RTD1625_ISO_CLK_EN_USB_DRD]     = &__clk_regmap_gate_hw(&clk_en_usb_drd),
++		[RTD1625_ISO_CLK_EN_USB_HOST]    = &__clk_regmap_gate_hw(&clk_en_usb_host),
++		[RTD1625_ISO_CLK_EN_USB_U3_HOST] = &__clk_regmap_gate_hw(&clk_en_usb_u3_host),
++		[RTD1625_ISO_CLK_EN_USB]         = &__clk_regmap_gate_hw(&clk_en_usb),
++		[RTD1625_ISO_CLK_EN_VTC]         = &__clk_regmap_gate_hw(&clk_en_vtc),
++		[RTD1625_ISO_CLK_EN_MISC_VFD]    = &__clk_regmap_gate_hw(&clk_en_misc_vfd),
++		[RTD1625_ISO_CLK_MAX] = NULL,
++	},
++};
++
++static const struct rtk_clk_desc rtd1625_iso_desc = {
++	.clk_data = &rtd1625_iso_clk_data,
++	.clks     = rtd1625_clk_regmap_list,
++	.num_clks = ARRAY_SIZE(rtd1625_clk_regmap_list),
++};
++
++static CLK_REGMAP_GATE_NO_PARENT(clk_en_irda, 0, 0x4, 6, 1);
++static CLK_REGMAP_GATE_NO_PARENT(clk_en_ur10, 0, 0x4, 8, 1);
++
++static struct clk_regmap *rtd1625_iso_s_clk_regmap_list[] = {
++	&clk_en_irda.clkr,
++	&clk_en_ur10.clkr,
++};
++
++static struct clk_hw_onecell_data rtd1625_iso_s_clk_data = {
++	.num = RTD1625_ISO_S_CLK_MAX,
++	.hws = {
++		[RTD1625_ISO_S_CLK_EN_IRDA] = &__clk_regmap_gate_hw(&clk_en_irda),
++		[RTD1625_ISO_S_CLK_EN_UR10] = &__clk_regmap_gate_hw(&clk_en_ur10),
++		[RTD1625_ISO_S_CLK_MAX] = NULL,
++	},
++};
++
++static const struct rtk_clk_desc rtd1625_iso_s_desc = {
++	.clk_data = &rtd1625_iso_s_clk_data,
++	.clks     = rtd1625_iso_s_clk_regmap_list,
++	.num_clks = ARRAY_SIZE(rtd1625_iso_s_clk_regmap_list),
++};
++
++static int rtd1625_iso_probe(struct platform_device *pdev)
 +{
-+#ifdef CONFIG_KEXEC_FILE
-+	if (image->file_mode)
-+		return 1;
-+#endif
-+	/*
-+	 * For kexec_load syscall, crash hotplug support requires
-+	 * KEXEC_CRASH_HOTPLUG_SUPPORT flag to be passed by userspace.
-+	 */
-+	return kexec_flags & KEXEC_CRASH_HOTPLUG_SUPPORT;
++	const struct rtk_clk_desc *desc;
++
++	desc = of_device_get_match_data(&pdev->dev);
++	if (!desc)
++		return -EINVAL;
++	return rtk_clk_probe(pdev, desc, "iso_rst");
 +}
 +
-+unsigned int arch_crash_get_elfcorehdr_size(void)
++static const struct of_device_id rtd1625_iso_match[] = {
++	{.compatible = "realtek,rtd1625-iso-clk", .data = &rtd1625_iso_desc},
++	{.compatible = "realtek,rtd1625-iso-s-clk", .data = &rtd1625_iso_s_desc},
++	{ /* sentinel */ }
++};
++
++static struct platform_driver rtd1625_iso_driver = {
++	.probe = rtd1625_iso_probe,
++	.driver = {
++		.name = "rtk-rtd1625-iso-clk",
++		.of_match_table = rtd1625_iso_match,
++	},
++};
++
++static int __init rtd1625_iso_init(void)
 +{
-+	unsigned int phdr_cnt;
-+
-+	/* A program header for possible CPUs, vmcoreinfo and kernel_map */
-+	phdr_cnt = 2 + num_possible_cpus();
-+	if (IS_ENABLED(CONFIG_MEMORY_HOTPLUG))
-+		phdr_cnt += CONFIG_CRASH_MAX_MEMORY_RANGES;
-+
-+	return sizeof(Elf64_Ehdr) + phdr_cnt * sizeof(Elf64_Phdr);
++	return platform_driver_register(&rtd1625_iso_driver);
 +}
++subsys_initcall(rtd1625_iso_init);
 +
-+/**
-+ * update_crash_elfcorehdr() - Recreate the elfcorehdr and replace it with old
-+ *			       elfcorehdr in the kexec segment array.
-+ * @image: the active struct kimage
++MODULE_DESCRIPTION("Realtek RTD1625 ISO Controller Driver");
++MODULE_AUTHOR("Cheng-Yu Lee <cylee12@realtek.com>");
++MODULE_LICENSE("GPL");
++MODULE_IMPORT_NS("REALTEK_CLK");
+diff --git a/drivers/reset/realtek/Makefile b/drivers/reset/realtek/Makefile
+index 8ca1fa939f10..26b3ddc75ada 100644
+--- a/drivers/reset/realtek/Makefile
++++ b/drivers/reset/realtek/Makefile
+@@ -1,2 +1,2 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+-obj-$(CONFIG_RESET_RTK_COMMON) += common.o reset-rtd1625-crt.o
++obj-$(CONFIG_RESET_RTK_COMMON) += common.o reset-rtd1625-crt.o reset-rtd1625-iso.o
+diff --git a/drivers/reset/realtek/reset-rtd1625-iso.c b/drivers/reset/realtek/reset-rtd1625-iso.c
+new file mode 100644
+index 000000000000..f2a0478382ae
+--- /dev/null
++++ b/drivers/reset/realtek/reset-rtd1625-iso.c
+@@ -0,0 +1,96 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2026 Realtek Semiconductor Corporation
 + */
-+static void update_crash_elfcorehdr(struct kimage *image)
++
++#include <dt-bindings/reset/realtek,rtd1625.h>
++#include <linux/auxiliary_bus.h>
++#include <linux/device.h>
++#include <linux/errno.h>
++#include <linux/of.h>
++#include <linux/slab.h>
++#include "common.h"
++
++#define RTD1625_ISO_RSTN_MAX	29
++#define RTD1625_ISO_S_RSTN_MAX	5
++
++static struct rtk_reset_desc rtd1625_iso_reset_descs[] = {
++	[RTD1625_ISO_RSTN_VFD]                 = { .ofs = 0x88, .bit = 0 },
++	[RTD1625_ISO_RSTN_CEC0]                = { .ofs = 0x88, .bit = 2 },
++	[RTD1625_ISO_RSTN_CEC1]                = { .ofs = 0x88, .bit = 3 },
++	[RTD1625_ISO_RSTN_CBUSTX]              = { .ofs = 0x88, .bit = 5 },
++	[RTD1625_ISO_RSTN_CBUSRX]              = { .ofs = 0x88, .bit = 6 },
++	[RTD1625_ISO_RSTN_USB3_PHY2_XTAL_POW]  = { .ofs = 0x88, .bit = 7 },
++	[RTD1625_ISO_RSTN_UR0]                 = { .ofs = 0x88, .bit = 8 },
++	[RTD1625_ISO_RSTN_GMAC]                = { .ofs = 0x88, .bit = 9 },
++	[RTD1625_ISO_RSTN_GPHY]                = { .ofs = 0x88, .bit = 10 },
++	[RTD1625_ISO_RSTN_I2C_0]               = { .ofs = 0x88, .bit = 11 },
++	[RTD1625_ISO_RSTN_I2C_1]               = { .ofs = 0x88, .bit = 12 },
++	[RTD1625_ISO_RSTN_CBUS]                = { .ofs = 0x88, .bit = 13 },
++	[RTD1625_ISO_RSTN_USB_DRD]             = { .ofs = 0x88, .bit = 14 },
++	[RTD1625_ISO_RSTN_USB_HOST]            = { .ofs = 0x88, .bit = 15 },
++	[RTD1625_ISO_RSTN_USB_PHY_0]           = { .ofs = 0x88, .bit = 16 },
++	[RTD1625_ISO_RSTN_USB_PHY_1]           = { .ofs = 0x88, .bit = 17 },
++	[RTD1625_ISO_RSTN_USB_PHY_2]           = { .ofs = 0x88, .bit = 18 },
++	[RTD1625_ISO_RSTN_USB]                 = { .ofs = 0x88, .bit = 19 },
++	[RTD1625_ISO_RSTN_TYPE_C]              = { .ofs = 0x88, .bit = 20 },
++	[RTD1625_ISO_RSTN_USB_U3_HOST]         = { .ofs = 0x88, .bit = 21 },
++	[RTD1625_ISO_RSTN_USB3_PHY0_POW]       = { .ofs = 0x88, .bit = 22 },
++	[RTD1625_ISO_RSTN_USB3_P0_MDIO]        = { .ofs = 0x88, .bit = 23 },
++	[RTD1625_ISO_RSTN_USB3_PHY1_POW]       = { .ofs = 0x88, .bit = 24 },
++	[RTD1625_ISO_RSTN_USB3_P1_MDIO]        = { .ofs = 0x88, .bit = 25 },
++	[RTD1625_ISO_RSTN_VTC]                 = { .ofs = 0x88, .bit = 26 },
++	[RTD1625_ISO_RSTN_USB3_PHY2_POW]       = { .ofs = 0x88, .bit = 27 },
++	[RTD1625_ISO_RSTN_USB3_P2_MDIO]        = { .ofs = 0x88, .bit = 28 },
++	[RTD1625_ISO_RSTN_USB_PHY_3]           = { .ofs = 0x88, .bit = 29 },
++	[RTD1625_ISO_RSTN_USB_PHY_4]           = { .ofs = 0x88, .bit = 30 },
++};
++
++static struct rtk_reset_desc rtd1625_iso_s_reset_descs[] = {
++	[RTD1625_ISO_S_RSTN_ISOM_MIS] = { .ofs = 0x310, .bit = 0, .write_en = 1 },
++	[RTD1625_ISO_S_RSTN_GPIOM]    = { .ofs = 0x310, .bit = 2, .write_en = 1 },
++	[RTD1625_ISO_S_RSTN_TIMER7]   = { .ofs = 0x310, .bit = 4, .write_en = 1 },
++	[RTD1625_ISO_S_RSTN_IRDA]     = { .ofs = 0x310, .bit = 6, .write_en = 1 },
++	[RTD1625_ISO_S_RSTN_UR10]     = { .ofs = 0x310, .bit = 8, .write_en = 1 },
++};
++
++static int rtd1625_iso_reset_probe(struct auxiliary_device *adev,
++				   const struct auxiliary_device_id *id)
 +{
-+	void *elfbuf = NULL, *old_elfcorehdr;
-+	unsigned long mem, memsz;
-+	unsigned long elfsz = 0;
++	struct device *dev = &adev->dev;
++	struct device *parent = dev->parent;
++	struct rtk_reset_data *data;
 +
-+	/*
-+	 * Create the new elfcorehdr reflecting the changes to CPU and/or
-+	 * memory resources.
-+	 */
-+	if (crash_prepare_headers(true, &elfbuf, &elfsz, NULL)) {
-+		pr_err("unable to create new elfcorehdr");
-+		goto out;
++	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
++	if (!data)
++		return -ENOMEM;
++
++	if (of_device_is_compatible(parent->of_node, "realtek,rtd1625-iso-s-clk")) {
++		data->descs           = rtd1625_iso_s_reset_descs;
++		data->rcdev.nr_resets = RTD1625_ISO_S_RSTN_MAX;
++	} else {
++		data->descs           = rtd1625_iso_reset_descs;
++		data->rcdev.nr_resets = RTD1625_ISO_RSTN_MAX;
 +	}
-+
-+	/*
-+	 * Obtain address and size of the elfcorehdr segment, and
-+	 * check it against the new elfcorehdr buffer.
-+	 */
-+	mem = image->segment[image->elfcorehdr_index].mem;
-+	memsz = image->segment[image->elfcorehdr_index].memsz;
-+	if (elfsz > memsz) {
-+		pr_err("update elfcorehdr elfsz %lu > memsz %lu",
-+			elfsz, memsz);
-+		goto out;
-+	}
-+
-+	/*
-+	 * Copy new elfcorehdr over the old elfcorehdr at destination.
-+	 */
-+	old_elfcorehdr = (void *)__va(mem);
-+	if (!old_elfcorehdr) {
-+		pr_err("mapping elfcorehdr segment failed\n");
-+		goto out;
-+	}
-+
-+	/*
-+	 * Temporarily invalidate the crash image while the
-+	 * elfcorehdr is updated.
-+	 */
-+	xchg(&kexec_crash_image, NULL);
-+	memcpy_flushcache(old_elfcorehdr, elfbuf, elfsz);
-+	xchg(&kexec_crash_image, image);
-+	pr_debug("updated elfcorehdr\n");
-+
-+out:
-+	vfree(elfbuf);
++	return rtk_reset_controller_add(dev, data);
 +}
 +
-+/**
-+ * arch_crash_handle_hotplug_event() - Handle hotplug elfcorehdr changes
-+ * @image: a pointer to kexec_crash_image
-+ * @arg: struct memory_notify handler for memory hotplug case and
-+ *       NULL for CPU hotplug case.
-+ *
-+ * Update the kdump image based on the type of hotplug event:
-+ * - CPU add and remove: No action is needed.
-+ * - Memory add/remove: Update the elfcorehdr to reflect the current memory layout.
-+ *
-+ * Prepare the new elfcorehdr and replace the existing elfcorehdr.
-+ */
-+void arch_crash_handle_hotplug_event(struct kimage *image, void *arg)
-+{
-+	switch (image->hp_action) {
-+	case KEXEC_CRASH_HP_ADD_CPU:
-+		fallthrough;
-+	case KEXEC_CRASH_HP_REMOVE_CPU:
-+		if (image->file_mode || image->elfcorehdr_updated)
-+			return;
-+		fallthrough;
-+	case KEXEC_CRASH_HP_ADD_MEMORY:
-+	case KEXEC_CRASH_HP_REMOVE_MEMORY:
-+		update_crash_elfcorehdr(image);
-+		return;
-+	default:
-+		pr_warn_once("Unknown hotplug action\n");
-+	}
-+}
-+#endif /* CONFIG_CRASH_HOTPLUG */
-diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
-index a8fe7e65ef75..a40ca37f3d55 100644
---- a/arch/arm64/kernel/machine_kexec_file.c
-+++ b/arch/arm64/kernel/machine_kexec_file.c
-@@ -85,6 +85,9 @@ int load_other_segments(struct kimage *image,
- 	void *dtb = NULL;
- 	unsigned long initrd_load_addr = 0, dtb_len,
- 		      orig_segments = image->nr_segments;
-+#ifdef CONFIG_CRASH_HOTPLUG
-+	unsigned long pnum = 0;
-+#endif
- 	int ret = 0;
- 
- 	kbuf.image = image;
-@@ -96,7 +99,7 @@ int load_other_segments(struct kimage *image,
- 	void *headers;
- 	unsigned long headers_sz;
- 	if (image->type == KEXEC_TYPE_CRASH) {
--		ret = crash_prepare_headers(true, &headers, &headers_sz, NULL);
-+		ret = crash_prepare_headers(true, &headers, &headers_sz, &pnum);
- 		if (ret) {
- 			pr_err("Preparing elf core header failed\n");
- 			goto out_err;
-@@ -106,6 +109,23 @@ int load_other_segments(struct kimage *image,
- 		kbuf.bufsz = headers_sz;
- 		kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
- 		kbuf.memsz = headers_sz;
++static const struct auxiliary_device_id rtd1625_iso_reset_ids[] = {
++	{
++		.name = "clk_rtk.iso_rst",
++	},
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(auxiliary, rtd1625_iso_reset_ids);
 +
-+#ifdef CONFIG_CRASH_HOTPLUG
-+		/*
-+		 * The elfcorehdr segment size accounts for VMCOREINFO, kernel_map
-+		 * maximum CPUs and maximum memory ranges.
-+		 */
-+		if (IS_ENABLED(CONFIG_MEMORY_HOTPLUG))
-+			pnum = 2 + num_possible_cpus() + CONFIG_CRASH_MAX_MEMORY_RANGES;
-+		else
-+			pnum += 2 + num_possible_cpus();
++static struct auxiliary_driver rtd1625_iso_driver = {
++	.probe = rtd1625_iso_reset_probe,
++	.id_table = rtd1625_iso_reset_ids,
++	.driver = {
++		.name = "rtd1625-iso-reset",
++	},
++};
++module_auxiliary_driver(rtd1625_iso_driver);
 +
-+		if (pnum < (unsigned long)PN_XNUM)
-+			kbuf.memsz = pnum * sizeof(Elf64_Phdr) + sizeof(Elf64_Ehdr);
-+		else
-+			pr_err("number of Phdrs %lu exceeds max\n", pnum);
-+#endif
-+
- 		kbuf.buf_align = SZ_64K; /* largest supported page size */
- 		kbuf.buf_max = ULONG_MAX;
- 		kbuf.top_down = true;
-@@ -117,7 +137,7 @@ int load_other_segments(struct kimage *image,
- 		}
- 		image->elf_headers = headers;
- 		image->elf_load_addr = kbuf.mem;
--		image->elf_headers_sz = headers_sz;
-+		image->elf_headers_sz = kbuf.memsz;
- 
- 		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
- 			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
++MODULE_LICENSE("GPL");
++MODULE_IMPORT_NS("REALTEK_RESET");
 -- 
 2.34.1
 
