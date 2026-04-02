@@ -4,153 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73789D39406
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 09:50:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1646ED39408
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 09:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=us2i9/XZYQBXzF0fg4ZZNTrZNnRkfoACTnSN+q/XuQ8=; b=0xsolkEdWQw7Kib1P7Tg65KZ1t
-	Ms8WVbEhMxI2IhHHmBWjvXQuZBPaOTb6xD0skObb13plwTcSE+2YYSgndK6fDp7ghpore7WPmQXIg
-	rwXjvvSMmW3YJNI4r11H/CVHybGNAWnS2Q27tqpLHMYyFJx+gsIk2TyCdlI0jRvJeBaOrkDIuYWDd
-	E3sbaGbdnFhSXcyA6jZatBVKjgrnA/B2oCP0f2uPFD6HwtXPV35BImC9VeSYF2DV4Pce+DpJKX+Wk
-	sPWtFGuXka+aUTcCnNxtO+oltqVJp23BPBWYnfnN5ppt8T1qevoQd/tQMu1UliicU7oVUXVKT+MVQ
-	A7PyZmng==;
+	bh=j/xYMmjVgEXgdxV48wdb3wGntOFFuiUnKCT2/b5NadA=; b=cax0fo0UmfMmXx6YcEAQJadqRQ
+	dgeLpV18z419oZ5QN7yxLOn4aXhYJ2At7UcVyOsecdvM9jLKlW3aP/WCo/EPekPVdNdGs2z9LyCwn
+	8eJMRHeE5TWlgheCEozAwlsGnXpSe4UpucsYlMjqPhyYKagdws98SgSYwYXBAMwm7UKeIyYwoqyEU
+	7AK3goFR46uwYs99q96v18uzhVsnQcjUIdEyKQIbA0p/KsVUL9ebxLw33U/CUOPrHE3Pej2TpT47/
+	/k1ilF8y3l0sR/2CK61pRbxkyEy1A7ypQJJ8W71yW4jyGq85a4wzmPGsslbzzvcbuqMDjaq/LwiMD
+	bSwUyWpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Eh9-0000000HIkc-01MT;
-	Thu, 02 Apr 2026 09:50:35 +0000
+	id 1w8EhD-0000000HIok-48pa;
+	Thu, 02 Apr 2026 09:50:39 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Eh7-0000000HIjB-3LTN
+	id 1w8EhC-0000000HImY-0sJV
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 02 Apr 2026 09:50:34 +0000
+	Thu, 02 Apr 2026 09:50:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=us2i9/XZYQBXzF0fg4ZZNTrZNnRkfoACTnSN+q/XuQ8=; b=gfjj5dQQWUG58uukKCOhcnfrYw
-	5MdPQBnMQphO+x2tM6iIqGWYlPFVq8rmsnm/ACn0tMYe6/htBDXLO9MJfOGMb51ivDP6R48MlqsqL
-	Crq0jjiAGoI8FyvttTYqtRGuIKloQyqIgmlsy7FROdClpcmQuOmuifvtoeMYWukC1Xi+MvV2rIZoG
-	ATY/fyTQ6UlK+PJBzoVEh/f+e6BI6kcrF2Kx0SWJi2SyeWvjQwMCT03G22jvR7+ATWSpXrsxF0BCb
-	J4FddTSRHcvMgHM54LVYp1+KO87cmNhacuKRYe13NRFhlspU8SRWpthuFqlTg1SkKvRjaPNbhTcOz
-	0gNpCZlQ==;
-Received: from mail-norwayeastazon11013046.outbound.protection.outlook.com ([40.107.159.46] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=j/xYMmjVgEXgdxV48wdb3wGntOFFuiUnKCT2/b5NadA=; b=CY9wEbr7QTuEQjM7WmqT8S3hmr
+	HrBUg2J11mcXTEAbnyB3AaMv8ICeMYnwom+aMtw/m4xvN570w8LdvaqQHiAWeQQDbWbC0E0Gmif0+
+	A8t1j8Vwp019ud5E8De/tzxNqTNYhqd77cOecRLKyIE5CXsoEpRXCKwttGh2dGIidhVdAx3Xm1fag
+	gUz/qJE1FdiFMHr5K7CDPmG3QpJ4z318lW5k7u5q88GUY0js/z9uVMQ9ov5U7E+omPZeDi9moXzmm
+	0NYwyHYTFfqwo1rtS7xt+kBIFiInAzrIQIacRO+aMNW/pb6lZIy8ZdcQ5K1uc7FLffCfqF9Ws1foC
+	8KymuJyw==;
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Eh3-00000002A9E-3KJS
+	id 1w8Eh7-00000002AEB-3VnG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 09:50:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=m77lpsuMBPC+f2DMLnkgQZxW6+sIDJt2GSun5SESnHQo0UlBEiu1Gdjn6SwPD2FYApRs3WMo2hcf3aTy60+aR65MYZrR6+78G3JYn1gbzscRnkBHCj1XwftbnWzCqVQjOZ2vhN9XeE9EiL3yuJioRWT432X6MxvZlJlNHYGGgp3GJQM1L6cVO2feT2jbE6wtxSqbG0mnC0Tx7b/SKR0NVGwl23J1v54om9pPa/Iw4ZXT7KZE+iF37I4ZiInF35NU3iO936aYO0s0e3s87KZ2ZEUR/i5Ebbv/xnxWXmSwtv+R5uXTRQNoPxZZcw9ngNuXcVdpQ+BnzlF8R1jnWtx1LQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=us2i9/XZYQBXzF0fg4ZZNTrZNnRkfoACTnSN+q/XuQ8=;
- b=Fi2+3mZGiNBZRuiQ+h04bk5ROUMxzU40nZod+jLaAqjxTOll+Et6lRU8FNeSY10KzfR7cj6YwOa+f3ZWLEuE70IQzWDlqFT8FvlEUtQbd5hnCjJyl5ke+cTi8FShtu8GRwjuvd1MjeL6tpiF98pgYplDj6/VnOh/OFHV3KJEPo7inuWypdgc8AiGQvaHICoDwoybLPQKgA4J+lAdLWiZb9Tv1ga7Pk8OhSfeQomeeeuGyyWNRgVtMZWy7R2hEl8riHJkPPCkbgLGdl0xDM53YsDYW6DOUDGkyj4QLklQ04odMcm3ou7QMuhb+J/0EELyvo2cGuEDOoTMhkavHeN9kw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=us2i9/XZYQBXzF0fg4ZZNTrZNnRkfoACTnSN+q/XuQ8=;
- b=lZ2NHj8JYlnRpSkKSvl5kzSdfF/gqLSAvgVqA+Tmh2Ar2Muptkb8KtX+WsanHlN8+mWDUlnv5qBOYe4CzEZ071VsYspL9Jz07VXDX8QqjWPZCd6pHlGb74pOkA/p/0HBCv7ezkZdvf7N4SELGrRmFAoWH1zy5mgrnG1mZzPSm42PhBor55hupNYDLGo8GTh/YBsfumZTwBoHiMtDjuU/BnT4GKde/ijk5rZvzf+juUuov8y/go6v+OpBVaD6xLGgiwBpxqNIYojjuPvhRJyLA77K72FAQPdjvsQ0hTh/W0PF1I8RcVeJN16Ibsk4iYARrDR/UsSv4qYMv90SDkMgsA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13) by AM9PR04MB8471.eurprd04.prod.outlook.com
- (2603:10a6:20b:416::22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.25; Thu, 2 Apr
- 2026 09:50:26 +0000
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994%6]) with mapi id 15.20.9769.018; Thu, 2 Apr 2026
- 09:50:26 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	bhelgaas@google.com,
-	hongxing.zhu@nxp.com,
-	l.stach@pengutronix.de
-Cc: imx@lists.linux.dev,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH V10 04/13] PCI: imx6: Assert PERST# before enabling regulators
-Date: Thu,  2 Apr 2026 17:50:58 +0800
-Message-Id: <20260402095107.205439-5-sherry.sun@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20260402095107.205439-1-sherry.sun@nxp.com>
-References: <20260402095107.205439-1-sherry.sun@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5P287CA0163.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1ba::11) To VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13)
+	Thu, 02 Apr 2026 09:50:36 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6327HGXH3044207;
+	Thu, 2 Apr 2026 09:50:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=j/xYMmjVgEX
+	gdxV48wdb3wGntOFFuiUnKCT2/b5NadA=; b=FfWf84ZJUaRx87TkgVJsW5G/YLD
+	N0QdrBImTt05FEXTE6o9VASqAD4exqXh1uM+MNfZnxWDGmXrrjr1SYfP+gjQ7vRE
+	hOpacvDZ9wCY8XxXaUpVcr1xF6Bwm0EX2WADCwQWJC+28k1rLUWLRd2SpwmJ3E5s
+	3S2tpbO3ZXJCDesH0qx1JNeLCFb//7Ing19X5pxKPERDzlwDI6UWzF7wt1FdMnwP
+	KvWodcIj1tOILslAaCZak5nVka1Styxb9o4U5HrjwWmmfzGe5HNG+dxDw4K00z/1
+	sr40ytrniBQ9Q9wCcpioFRYew3fwlNbpANCWoKwCIp/kPbPMozN3uytqXvQ==
+Received: from apblrppmta02.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d9483v8fn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 02 Apr 2026 09:50:19 +0000 (GMT)
+Received: from pps.filterd (APBLRPPMTA02.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA02.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTP id 6329oGU9004382;
+	Thu, 2 Apr 2026 09:50:16 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 4d6qk2m86k-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 02 Apr 2026 09:50:16 +0000 (GMT)
+Received: from APBLRPPMTA02.qualcomm.com (APBLRPPMTA02.qualcomm.com [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.1.12) with ESMTP id 6329oGHC004362;
+	Thu, 2 Apr 2026 09:50:16 GMT
+Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-mkuntuma-hyd.qualcomm.com [10.213.97.145])
+	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 6329oGYd004354
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 02 Apr 2026 09:50:16 +0000 (GMT)
+Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 4582077)
+	id B402F5ED; Thu,  2 Apr 2026 15:20:15 +0530 (+0530)
+From: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
+To: dmitry.baryshkov@oss.qualcomm.com, marijn.suijten@somainline.org,
+        swboyd@chromium.org, mripard@kernel.org, abel.vesa@linaro.org,
+        andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
+        krzk+dt@kernel.org, conor+dt@kernel.org, robin.clark@oss.qualcomm.com,
+        jessica.zhang@oss.qualcomm.com, abhinav.kumar@linux.dev,
+        sean@poorly.run, airlied@gmail.com, simona@ffwll.ch,
+        alex.vinarskis@gmail.com
+Cc: Vishnu Saini <vishnu.saini@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        freedreno@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+        quic_rajeevny@quicinc.com, quic_vproddut@quicinc.com,
+        quic_riteshk@quicinc.com,
+        Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
+Subject: [PATCH v5 3/3] arm64: dts: qcom: lemans-evk-ifp-mezzanine: Enable mdss1 display Port
+Date: Thu,  2 Apr 2026 15:20:03 +0530
+Message-Id: <20260402095003.3758176-4-quic_mkuntuma@quicinc.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260402095003.3758176-1-quic_mkuntuma@quicinc.com>
+References: <20260402095003.3758176-1-quic_mkuntuma@quicinc.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|AM9PR04MB8471:EE_
-X-MS-Office365-Filtering-Correlation-Id: 41cf5e8a-8ebe-4eb0-bfd0-08de909d443b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|52116014|38350700014|56012099003|22082099003|921020|18002099003;
-X-Microsoft-Antispam-Message-Info: GgFj3+6sweJqP+KUH2uxuCmlwz8eQeaFRckKfOtYhA/j1dw/6rNx2y7ayc+y2TLaiQ67enIMKCKuyqMD0VoionDCIOOXI7LOtF6x1RYNB7zXCUnHWyTwQBxGA3/64MvPh5KhK+lHzIW+J5XLN/x034Q2AZOiZOuRKrCXNz/hzPjPmbu0XorcdzTeUSS26U7TVDiex3MO0svHu70HOKNJNwfNlDXq/fYFUZ50Nhefp2dxg+0EPFNPa0ZiXO4NexCSIpoNTMy5zOi/KirKrLZeE0qkmuFv1sSQVB86fjTnaUHNiHaNvYNkT7NWFhvW6bHwzLakuq1ODtI1CF/XIxHw9PJqCUfD22XaUqesIuBUn8m81WrSLseBIiJ0w+bfY4kaYNkOQOaR/HtdyTlra82ydoyMH07e+UyfD5aIVH/t2pdgTrEDhUbBn+cofLufClUYgFzbVVeNyFK2dpzR5xGPCBqv9/2xnkxXqMbJ4/tmyZds/MRTcM51MlvnGGmWEj7e/R4YhXH/nBe3AyNN6bm+zwYnIELomK8023261hsipaEMShptz6zEvU27neKzicKv2OxeCz8uKVYRB2BmlGgZvIDu8vNPh7YhR74rg/n+B/PtqPF1hzEjLcQ40e7IxP4iiygrn3nl8seMM0816rLXdmFQbFuGryWglbX+bQn0WFwErkKOaOs59J34RFyqN5gPlzHxPlEndkJ9I2NYf+WMek3pbgjluydOHhqwlkTkLQjoKgzdMiXzK8dFhKbxLMVLg/ZzpI3ZLgYUMeg1OoWCzii4Kuao427x6WIXykCKnw+nD28CuC63gcz9kVVGhkKx
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(52116014)(38350700014)(56012099003)(22082099003)(921020)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JuaZ8FMGFsTmXb65XOIqsxygeNG2YfCismdC8bbVHTzQcYTr7Db/RW9rh9Ia?=
- =?us-ascii?Q?k/+y9R0ChWLvciWfVNq2ZJqcDlqZ90Lwj89eISgxcmyT2mvyLIRBerTy/lEv?=
- =?us-ascii?Q?YBl3JhCD98y1L9jRQFScbwGqHXw7m2xALGrolWG8LSw+wzP76XnvjOQC9Pbu?=
- =?us-ascii?Q?Rp76E7rZv1ITDq6JjMcth1GMRHLx2mDvWUOjz4ZJx3eHPuHJO7A5rFPv5Mvq?=
- =?us-ascii?Q?h2yHfeNJk6Y0QMHQnViixQXz2bUiEFyKuhoIZPMOoW8NlR/yO9kM4OEu63+p?=
- =?us-ascii?Q?O7e/mfTodIjJ6pyYouaLK9v5qrIsqqsA1/JXP0UrpKdDeQDjKYG4K0aglq71?=
- =?us-ascii?Q?JkDKesOHLLGcTPdvvSbz5z20myKucKMozLjRhqmdw8BM5lJW1NFrqg/IsoLs?=
- =?us-ascii?Q?E1bukzFPBc9vWYNVtOMcCgPAb9t3pQJDNs2+X0nTZMAmF8ySFAAziWSGsSeG?=
- =?us-ascii?Q?gnIkW3H0c4eKMG0WA16ENGZjRSXoRVXW8kbZ4c3NrWRBwlA21WQ8A2ed1C6d?=
- =?us-ascii?Q?YIMcr7wbKNsJSojzh5z5ECI+yvkLRWGFaxIK6IourNXsZae1c99U//IBSD24?=
- =?us-ascii?Q?zQAE8gip5u1FWgQ2KAbtWZRrHqYy8Oda9twim7PN7X7BemMCjNxRNh22RTo5?=
- =?us-ascii?Q?5wZpRlmzC6uqY2vMnZ+TEI8Yejgup+Rxp4Uc5UBlbWCd/cPjKU9S6EtafFnx?=
- =?us-ascii?Q?MkhfOvJsAoAbVgy0nt6NK2sA513ai722b+3PZcHBr4FK0QFs0AtFh7LTy0fr?=
- =?us-ascii?Q?2TanAOwX3ie9blWHoPYqoVmKyx4iyCJJDST/m6hCd+yCC4kcmQedAR0x2XOZ?=
- =?us-ascii?Q?vIGbFyfcU6hKii9KLdIlyLtsrgEXftYue+hHGI0NCOpiz7LokbdXUfefQirH?=
- =?us-ascii?Q?wYW0ZsJ9qOov8se2P5g8dETJM1Cn5eUkT3siCv1Fo6v5stCDc942zZsTTVsk?=
- =?us-ascii?Q?xuw330O6q7NV0xMhMCIPIuWLk+sHmSEj5ll3PFVPfM4ETtC/qLOR9XKb+MoE?=
- =?us-ascii?Q?C3daJi698OXQCB0ySXLb1ROYD+fFLkc23JRIJusGlzKNSvBRa3fyAJnApPh1?=
- =?us-ascii?Q?5s+c+Oj3FuHnmOknyKz/sXXtGf44VLMB6gy0ukEt8WHaBHZId1l0+VyCljWS?=
- =?us-ascii?Q?UybJ1YdzsuqMHqEx9HgOXrdHEn2Dc6yriu8eGILs52YLEfvl2r9dOMbLEI58?=
- =?us-ascii?Q?B3Ov7wbhih6u+YjPK+qgSUsnHF8vNUpBUhqOa8sgcjnxZkKyPcDzyMv0ZWV9?=
- =?us-ascii?Q?TOJ0FC6u21lEW96CIWhU/zd2F8JdvCK9QxlxtL+05ML2nSDjprYBfu7lWEHh?=
- =?us-ascii?Q?w6v20MzfmO/LYxlJ7ApeCrGNQGQIesUc+xH+V2ip8SmAx8T7fefBs0os1tcT?=
- =?us-ascii?Q?vP/jPCWX3uAYiIz3PZkcn6OfpZSD7wVqQ5+eio3t7j/cFnUCJlmGEJ3+humb?=
- =?us-ascii?Q?GgNPN5IVXjUigTh/9XiAMxYuBNYOpok8CpJxlSf3xaVVe5kRolrOXbXy1WMf?=
- =?us-ascii?Q?M43/R/Zj81ggf7uUL+7hnST+nZWIXeLmibK9GJWsCfUEnxv21Cse3i/JuF6y?=
- =?us-ascii?Q?BB3rmqX8+NKt5Z/o8+zcRpfCc9cg9ofJKLfo0F49Bch3V/H5ODJrQd+z/9Q4?=
- =?us-ascii?Q?6llR84qRvVPX0dKMYVL56avJEeuPON5AxR5YjHljsNJ0o9H5CBQHyQjC+ajK?=
- =?us-ascii?Q?G9WsLskc3yZxEYxYz0czOm20sLnoeteO1ns2gVjOXy3DiqiXk4np0J35LsBp?=
- =?us-ascii?Q?jZdP41YTJQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 41cf5e8a-8ebe-4eb0-bfd0-08de909d443b
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2026 09:50:26.3211
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Ae9/P6rK3rhnn6WEezZ9jhZtN/wCcalg5Yeagwvc3HJN8b2lzDvh817b7Yrifz2sIEtjeD4FL9nVYURS4K9Z3g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8471
+Content-Transfer-Encoding: 8bit
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Authority-Analysis: v=2.4 cv=RYydyltv c=1 sm=1 tr=0 ts=69ce3bdc cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=yOCtJkima9RkubShWh1s:22 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8
+ a=0voD-ITsHmux3e9IgYMA:9 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAyMDA4OCBTYWx0ZWRfX1hsR09aS5PFY
+ h6bJ7zyEy1VJKQ4pHwNZhEM512SKuAZ1zILLsdKWeZKUZmUph3Kd9yCAecJQs6Sd8sEb4vLD9iA
+ emJcDbPIFavK8/4WVR7cEGmzmwkNIRNcctw7QtXA6CVK7aoLxtAng4JAvW7RVTK6C5mi1GJN1BR
+ ON/ZJVIr650BiXvSiaJWASSKjMyuyVwCJXIEuRX2n+BmzJQ2XpnKQCOZ1LDqbe6cr711fVntmnI
+ T6RuJYU2z3iRaWDAioFNyfOe1s/TpszvKuCxcIRz3MD7bR6VF+vhghlcBPl23kKqoML967eOJDk
+ j/7XPjphj9XGDKFeFwatt0s31Zq7mleDIR7vn5eCpbeT/lb21kp+vNLykmL5b57FJcqbT6zqY8Q
+ sKWy6jQC9+49Dzt3RmXHD8ZvFShEzpWIpKdJT9hhlpIZC4E8J+odVv+JG5CWrIHBQ/3wCvXl2ID
+ 18zku2RR+9hgR30EuDA==
+X-Proofpoint-ORIG-GUID: f6XuQancGbzBxrIPkTdPrUqEW_W-HNuu
+X-Proofpoint-GUID: f6XuQancGbzBxrIPkTdPrUqEW_W-HNuu
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-02_01,2026-04-02_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 clxscore=1015 adultscore=0 bulkscore=0
+ spamscore=0 phishscore=0 impostorscore=0 lowpriorityscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2604020088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_105030_836691_DB9BCF5D 
-X-CRM114-Status: GOOD (  18.45  )
+X-CRM114-CacheID: sfid-20260402_105034_823120_5EB7E611 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,137 +139,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to the PCIe initialization requirements, PERST# signal should
-be asserted before applying power to the PCIe device, and deasserted
-after power and reference clock are stable.
+From: Vishnu Saini <vishnu.saini@oss.qualcomm.com>
 
-Currently, the driver enables the vpcie3v3aux regulator in
-imx_pcie_probe() before PERST# is asserted in imx_pcie_host_init(),
-which violates the PCIe power sequencing requirements. However, there
-is no issue so far because PERST# is requested as GPIOD_OUT_HIGH in
-imx_pcie_probe(), which guarantees that PERST# is asserted before
-enabling the vpcie3v3aux regulator.
+Enable DP controllers, DPTX0 and DPTX1 alongside
+their corresponding PHYs of mdss1 which corresponds to eDP2
+and eDP3.
 
-This is prepare for the upcoming changes that will parse the reset
-property using the new Root Port binding, which will use GPIOD_ASIS
-when requesting the reset GPIO. With GPIOD_ASIS, the GPIO state is not
-guaranteed, so explicit sequencing is required.
-
-Fix the power sequencing by:
-1. Moving vpcie3v3aux regulator enable from probe to
-   imx_pcie_host_init(), where it can be properly sequenced with PERST#.
-2. Moving imx_pcie_assert_perst() before regulator and clock enable to
-   ensure correct ordering.
-
-The vpcie3v3aux regulator is kept enabled for the entire PCIe controller
-lifecycle and automatically disabled on device removal via devm cleanup.
-
-Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+Signed-off-by: Vishnu Saini <vishnu.saini@oss.qualcomm.com>
+Signed-off-by: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
 ---
- drivers/pci/controller/dwc/pci-imx6.c | 49 +++++++++++++++++++++------
- 1 file changed, 39 insertions(+), 10 deletions(-)
+ .../dts/qcom/lemans-evk-ifp-mezzanine.dtso    | 74 +++++++++++++++++++
+ 1 file changed, 74 insertions(+)
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 45d70ae7e04f..948ffb75d122 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -166,6 +166,8 @@ struct imx_pcie {
- 	u32			tx_swing_full;
- 	u32			tx_swing_low;
- 	struct regulator	*vpcie;
-+	struct regulator	*vpcie_aux;
-+	bool			vpcie_aux_enabled;
- 	struct regulator	*vph;
- 	void __iomem		*phy_base;
+diff --git a/arch/arm64/boot/dts/qcom/lemans-evk-ifp-mezzanine.dtso b/arch/arm64/boot/dts/qcom/lemans-evk-ifp-mezzanine.dtso
+index 268fc6b05d4b..44bd9b1a1765 100644
+--- a/arch/arm64/boot/dts/qcom/lemans-evk-ifp-mezzanine.dtso
++++ b/arch/arm64/boot/dts/qcom/lemans-evk-ifp-mezzanine.dtso
+@@ -11,6 +11,30 @@
+ &{/} {
+ 	model = "Qualcomm Technologies, Inc. Lemans-evk IFP Mezzanine";
  
-@@ -1220,6 +1222,13 @@ static void imx_pcie_disable_device(struct pci_host_bridge *bridge,
- 	imx_pcie_remove_lut(imx_pcie, pci_dev_id(pdev));
- }
- 
-+static void imx_pcie_vpcie_aux_disable(void *data)
-+{
-+	struct regulator *vpcie_aux = data;
++	dp2-connector {
++		compatible = "dp-connector";
++		label = "eDP2";
++		type = "full-size";
 +
-+	regulator_disable(vpcie_aux);
-+}
++		port {
++			dp2_connector_in: endpoint {
++				remote-endpoint = <&mdss1_dp0_out>;
++			};
++		};
++	};
 +
- static void imx_pcie_assert_perst(struct imx_pcie *imx_pcie, bool assert)
- {
- 	if (assert) {
-@@ -1240,6 +1249,24 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
- 	struct imx_pcie *imx_pcie = to_imx_pcie(pci);
- 	int ret;
- 
-+	imx_pcie_assert_perst(imx_pcie, true);
++	dp3-connector {
++		compatible = "dp-connector";
++		label = "eDP3";
++		type = "full-size";
 +
-+	/* Keep 3.3Vaux supply enabled for the entire PCIe controller lifecycle */
-+	if (imx_pcie->vpcie_aux && !imx_pcie->vpcie_aux_enabled) {
-+		ret = regulator_enable(imx_pcie->vpcie_aux);
-+		if (ret) {
-+			dev_err(dev, "failed to enable vpcie_aux regulator: %d\n",
-+				ret);
-+			return ret;
-+		}
-+		imx_pcie->vpcie_aux_enabled = true;
++		port {
++			dp3_connector_in: endpoint {
++				remote-endpoint = <&mdss1_dp1_out>;
++			};
++		};
++	};
 +
-+		ret = devm_add_action_or_reset(dev, imx_pcie_vpcie_aux_disable,
-+					       imx_pcie->vpcie_aux);
-+		if (ret)
-+			return ret;
-+	}
+ 	vreg_0p9: regulator-0v9 {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "VREG_0P9";
+@@ -141,6 +165,44 @@ mac_addr1: mac-addr@0 {
+ 	};
+ };
+ 
++&mdss1 {
++	status = "okay";
++};
 +
- 	if (imx_pcie->vpcie) {
- 		ret = regulator_enable(imx_pcie->vpcie);
- 		if (ret) {
-@@ -1249,25 +1276,24 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
- 		}
- 	}
- 
-+	ret = imx_pcie_clk_enable(imx_pcie);
-+	if (ret) {
-+		dev_err(dev, "unable to enable pcie clocks: %d\n", ret);
-+		goto err_reg_disable;
-+	}
++&mdss1_dp0 {
++	pinctrl-0 = <&dp2_hot_plug_det>;
++	pinctrl-names = "default";
 +
- 	if (pp->bridge && imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_LUT)) {
- 		pp->bridge->enable_device = imx_pcie_enable_device;
- 		pp->bridge->disable_device = imx_pcie_disable_device;
- 	}
++	status = "okay";
++};
++
++&mdss1_dp1 {
++	pinctrl-0 = <&dp3_hot_plug_det>;
++	pinctrl-names = "default";
++
++	status = "okay";
++};
++
++&mdss1_dp0_out {
++	data-lanes = <0 1 2 3>;
++	link-frequencies = /bits/ 64 <1620000000 2700000000 5400000000 8100000000>;
++	remote-endpoint = <&dp2_connector_in>;
++};
++
++&mdss1_dp1_out {
++	data-lanes = <0 1 2 3>;
++	link-frequencies = /bits/ 64 <1620000000 2700000000 5400000000 8100000000>;
++	remote-endpoint = <&dp3_connector_in>;
++};
++
++&mdss1_dp0_phy {
++	status = "okay";
++};
++
++&mdss1_dp1_phy {
++	status = "okay";
++};
++
+ &pcie0 {
+ 	iommu-map = <0x0 &pcie_smmu 0x0 0x1>,
+ 		    <0x100 &pcie_smmu 0x1 0x1>,
+@@ -235,6 +297,18 @@ &serdes1 {
+ };
  
- 	imx_pcie_assert_core_reset(imx_pcie);
--	imx_pcie_assert_perst(imx_pcie, true);
- 
- 	if (imx_pcie->drvdata->init_phy)
- 		imx_pcie->drvdata->init_phy(imx_pcie);
- 
- 	imx_pcie_configure_type(imx_pcie);
- 
--	ret = imx_pcie_clk_enable(imx_pcie);
--	if (ret) {
--		dev_err(dev, "unable to enable pcie clocks: %d\n", ret);
--		goto err_reg_disable;
--	}
--
- 	if (imx_pcie->phy) {
- 		ret = phy_init(imx_pcie->phy);
- 		if (ret) {
-@@ -1780,9 +1806,12 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 	of_property_read_u32(node, "fsl,max-link-speed", &pci->max_link_speed);
- 	imx_pcie->supports_clkreq = of_property_read_bool(node, "supports-clkreq");
- 
--	ret = devm_regulator_get_enable_optional(&pdev->dev, "vpcie3v3aux");
--	if (ret < 0 && ret != -ENODEV)
--		return dev_err_probe(dev, ret, "failed to enable Vaux supply\n");
-+	imx_pcie->vpcie_aux = devm_regulator_get_optional(&pdev->dev, "vpcie3v3aux");
-+	if (IS_ERR(imx_pcie->vpcie_aux)) {
-+		if (PTR_ERR(imx_pcie->vpcie_aux) != -ENODEV)
-+			return PTR_ERR(imx_pcie->vpcie_aux);
-+		imx_pcie->vpcie_aux = NULL;
-+	}
- 
- 	imx_pcie->vpcie = devm_regulator_get_optional(&pdev->dev, "vpcie");
- 	if (IS_ERR(imx_pcie->vpcie)) {
+ &tlmm {
++	dp2_hot_plug_det: dp2-hot-plug-det-state {
++		pins = "gpio104";
++		function = "edp2_hot";
++		bias-disable;
++	};
++
++	dp3_hot_plug_det: dp3-hot-plug-det-state {
++		pins = "gpio103";
++		function = "edp3_hot";
++		bias-disable;
++	};
++
+ 	ethernet1_default: ethernet1-default-state {
+ 		ethernet1-mdc-pins {
+ 			pins = "gpio20";
 -- 
-2.37.1
+2.34.1
 
 
