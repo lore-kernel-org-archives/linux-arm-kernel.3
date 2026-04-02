@@ -4,105 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C674111224B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 01:26:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E1B21112246
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 01:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w0TTSvzfniH028lzX8No8jAcQ7PnQHkFWjL5CrlFmII=; b=qe2bWJ0+ZnieSGsNiIgb5qdaB8
-	b/m0G5ID9AZ7mL01dJcqisZ84YLvRUyNLewIKaFmMnv+AjmXEYXjOvEl7jwZMEDUa0FMbcg9t50Xx
-	gDYJXPmojeE/doaq9rfVgn4tJnvT+TVr0s0lCgULNs+gU8KG4uIQ1avYTuW6M3p4qClJuuESs6Olk
-	fBzb4nkfWTMx8Whhbi5xv1/sj8rueQtiovTGnwiEL7MtjVb+9CVdjV/ct4DtdATw1vRzBGtMPU8CF
-	aTBDZGgRgmS12sG57xvRbtMcIjNNAprwThtAack3Y54/AHDOpZ/+p6rVBlltMVLTXENS+uG4N44NE
-	tvmTNDZQ==;
+	bh=cLdczJYdweiDTR4k8RfWxcCkbFm9C4zs52yHWSQ3P04=; b=I0fD1ol33CskitS6jHF0DIjj//
+	J3rBZ6kPxM8XLtT3zLW6Y+sVtASiJA1mW1kMMSBl9ErNLq5AYwrHUb9eHHF9zvhropdEXgwPHe9/G
+	dxPpNwQckXyfWVW0n38APUiCMpnoIQkvtimC0I2cfYo5z2O8iI3wdEG4cvVY3LDdaQur7u1oRhRYM
+	tuxw+YoinMaIzsW9z/KJFZHidPF+cIuFpCt8I1Zqv8vP3HYHJSo1QHLzHoxW/0/Zqr8cz2IHMazSk
+	TDGNHqVckqupTecv9Y4e4DWqVUvsdIrLbgmvstLJEEPBlwNw5celCDoGmZbtipdZOjOzd9sycEd0D
+	k0AYQhVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w86ot-0000000GXlG-1pJm;
-	Thu, 02 Apr 2026 01:26:03 +0000
-Received: from mail-dy1-x132c.google.com ([2607:f8b0:4864:20::132c])
+	id 1w873u-0000000GYuN-1R4G;
+	Thu, 02 Apr 2026 01:41:35 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w86oq-0000000GXkr-42He
+	id 1w873q-0000000GYr9-0gss
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 01:26:02 +0000
-Received: by mail-dy1-x132c.google.com with SMTP id 5a478bee46e88-2c5b3d8eab1so1118481eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 18:25:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1775093159; x=1775697959; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=w0TTSvzfniH028lzX8No8jAcQ7PnQHkFWjL5CrlFmII=;
-        b=V+PYAKeYroH+/WQ0oojzVvHnu89EkmJ+YI2+BMQRJafgVxY1DP4cTn8s5xS+9Yjv/Y
-         dcdefi9gaubN+c6lEucrlIaWuNEZKM7s9x4p28gVWrX5DXWOKY/V8V/E0wdOvanfmhbf
-         baCXb3QLfUnRma2Rnct48UlFvVVCLFrgWzYweKwxgoWdPPv9kaqGW4Mi4OzOFW6wonDb
-         3wEqR2i8XEAfUfo+0g09Sh36sOcI1qq54dqnKc4N5LQ2fom7aYq7BjvRHi+Up16PYIJS
-         G9wGL7kG1OCUui194dj/tULK77sL0mtH7spwBVXTLamGDFhi9nO9S41JXlXaoxYkHjrW
-         s4kg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775093159; x=1775697959;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=w0TTSvzfniH028lzX8No8jAcQ7PnQHkFWjL5CrlFmII=;
-        b=DmA9Q5htL1IWZlCa5Dvr1Et9r4bHJNelbB9pWRbJxgvoPtLvf5rmYOW+n0m95HbgN5
-         7q3nMfzunkGsEtbcd9QM9CQgiuSnV5rAxbxVSBnWsjJfeO6wKyavbvjsNlYEd2wZLUmO
-         FG17IuXF7edmnKDH6cAOxFWFFl8sTE6TTQBR43kWNggJwvZFq3efVU/9xgFhPqG7lFXA
-         zaE1YKTJcHY6zduRPHKH7EGqab/tq1K8adVS+V6DV7oh3G/2f+h9GDC0D+LEVJNSPo6c
-         eTtfziPVvUjAVnHTkDU6fm4bqsXcDQbT8YHSn/Pxt0WycK5Azfy3IaDqmu6RNvi2/thH
-         7+0A==
-X-Forwarded-Encrypted: i=1; AJvYcCVNFhsD2E+WQYXps3G6QajVlfWAPAOlO4epIznX5IE2S+fwBU/NAgeYa20NEmzrsnWm1tYPw3omsgw3y6Wc8TL8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqwlO9rPcj2tJ8u1m+GH4tDYJKfkrsxdXrItgL3kt/4N8qSoGB
-	PKTDoo3+mahg/OxcxHb0TYZS4sEETNzixFtGTgjvNcTgBXwZbDu2K7o3sAW1NBBVFQ==
-X-Gm-Gg: ATEYQzzXHrB66Oy5qVK9Ti/LYHbDxQFGrFr1hvZVISLjX4DUp+cvGnX66GUxoSNNtJs
-	WOeC9QsOzqUIrEVi2YM0CiQHZb7JKiCFMXTCCh5BoVaIeo7KDgNzobQirTR6NWyco39mS8URaM8
-	Gi1L6tgkrB/ofuXgJnkr01BiILsDXzI64N2cFIaX6E5wIP9pLknmaDVuTpXWSan7ML48tpBjifK
-	5T+BEVqcno6kLFF7I+HK3eQKS1cTdWf+bKgW05R/Tzv1PFm7XQjOccO9L7M9+UcwC58NfbVPpkz
-	EO7BChdxTFvFkGacFFr1FCdwKryk6sCA9Fq7Vyy1MKAImqBH1RgqLueJbNXNRFcvC947tk9zPgt
-	W0DDJSGBax/xcLo/h3r1d2QRhtnBY8VXbmp8XcJ9j0IpKVrJjG2HJezW4TLWBlO0kDJgdVG5z0s
-	2jXpZdnhbN9USVohVjZ+HVtHvtXvHyDK0ILQeqtakH7ViloNx9NwQ60A37QDJ3AYxMIFpnTqrTw
-	oRNBWyjmkGZTtDJZWrktbQbyg==
-X-Received: by 2002:a05:7301:fa0d:b0:2c1:6676:5ebd with SMTP id 5a478bee46e88-2c930e6b1fbmr3100327eec.10.1775093158301;
-        Wed, 01 Apr 2026 18:25:58 -0700 (PDT)
-Received: from ?IPV6:2a00:79e0:2e7c:9:862b:f392:67fb:ffb1? ([2a00:79e0:2e7c:9:862b:f392:67fb:ffb1])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2ca7cf1271asm1676362eec.26.2026.04.01.18.25.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 01 Apr 2026 18:25:57 -0700 (PDT)
-Message-ID: <dc670de4-2dae-4d5e-bf15-ac52c5a0868a@google.com>
-Date: Wed, 1 Apr 2026 18:25:55 -0700
+	Thu, 02 Apr 2026 01:41:32 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=cLdczJYdweiDTR4k8RfWxcCkbFm9C4zs52yHWSQ3P04=;
+	b=i0naMR9w04jGCrCibz1QpTYUhPTuY7iux05gGMK9OFaMfxlmSa7ATYNv3hCbz5tRSIo6iRQcu
+	XVq9K1Etj+PvKfocDXdznvishGbYpJDXYsTaKic+8y9AKj0FIbaMo2KSJwzioj8ZvT/E3OzEr5d
+	1qXQG41oOqb5dstsqF+2Qws=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4fmPY40Wncz12LJV;
+	Thu,  2 Apr 2026 09:34:48 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id B11FC40569;
+	Thu,  2 Apr 2026 09:41:13 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 2 Apr 2026 09:41:10 +0800
+Message-ID: <adf2b4a8-27d6-59ad-74f3-ea43e07fe84f@huawei.com>
+Date: Thu, 2 Apr 2026 09:41:01 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 5/6] power: supply: max77759: add charger driver
-To: Sebastian Reichel <sre@kernel.org>
-Cc: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jagan Sridharan <badhri@google.com>, Mark Brown <broonie@kernel.org>,
- Matti Vaittinen <mazziesaccount@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, RD Babiera <rdbabiera@google.com>,
- Kyle Tso <kyletso@google.com>
-References: <20260331-max77759-charger-v10-0-76f59233c369@google.com>
- <20260331-max77759-charger-v10-5-76f59233c369@google.com>
- <ac2jYUA2F5oQsA2g@venus>
-From: Amit Sunil Dhamne <amitsd@google.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH v14 3/4] arm64: Use generic TIF bits for common thread
+ flags
 Content-Language: en-US
-In-Reply-To: <ac2jYUA2F5oQsA2g@venus>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+To: Catalin Marinas <catalin.marinas@arm.com>
+CC: <will@kernel.org>, <chenhuacai@kernel.org>, <kernel@xen0n.name>,
+	<hca@linux.ibm.com>, <gor@linux.ibm.com>, <agordeev@linux.ibm.com>,
+	<borntraeger@linux.ibm.com>, <svens@linux.ibm.com>, <oleg@redhat.com>,
+	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <arnd@arndb.de>,
+	<shuah@kernel.org>, <kevin.brodsky@arm.com>, <yeoreum.yun@arm.com>,
+	<anshuman.khandual@arm.com>, <thuth@redhat.com>, <ryan.roberts@arm.com>,
+	<mark.rutland@arm.com>, <song@kernel.org>, <ziyao@disroot.org>,
+	<linusw@kernel.org>, <schuster.simon@siemens-energy.com>,
+	<jremus@linux.ibm.com>, <akpm@linux-foundation.org>,
+	<mathieu.desnoyers@efficios.com>, <kmal@cock.li>, <dvyukov@google.com>,
+	<reddybalavignesh9979@gmail.com>, <x86@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<loongarch@lists.linux.dev>, <linux-s390@vger.kernel.org>,
+	<linux-arch@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
+References: <20260320104222.1381274-1-ruanjinjie@huawei.com>
+ <20260320104222.1381274-4-ruanjinjie@huawei.com> <acz5mOrm6_E1UBwV@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <acz5mOrm6_E1UBwV@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_182601_007439_DF020EED 
-X-CRM114-Status: GOOD (  22.92  )
+X-CRM114-CacheID: sfid-20260401_184130_937470_95F26D7C 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,93 +95,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
-
-Thanks for the review!
-
-On 4/1/26 4:17 PM, Sebastian Reichel wrote:
-> Hi,
->
-> On Tue, Mar 31, 2026 at 11:22:20PM +0000, Amit Sunil Dhamne via B4 Relay wrote:
->> +/* Charge Termination Voltage Limits (in mV) */
->> +static const struct linear_range chg_cv_prm_ranges[] = {
->> +	LINEAR_RANGE(3800, 0x38, 0x39, 100),
->> +	LINEAR_RANGE(4000, 0x0, 0x32, 10),
->> +};
-> Let me quote from include/linux/power_supply.h:
->
->  * All voltages, currents, charges, energies, time and temperatures in uV,
->  * µA, µAh, µWh, seconds and tenths of degree Celsius unless otherwise
->  * stated. It's driver's job to convert its raw values to units in which
->  * this class operates.
->
-> What makes you think that CONSTANT_CHARGE_VOLTAGE_MAX is
-> special?
->
-> [...]
-
-It was an oversight, I will fix it.
 
 
->
->> +static int max77759_charger_get_property(struct power_supply *psy,
->> +					 enum power_supply_property psp,
->> +					 union power_supply_propval *pval)
->> +{
->> +	struct max77759_charger *chg = power_supply_get_drvdata(psy);
->> +	int ret;
->> +
->> +	switch (psp) {
->> +	case POWER_SUPPLY_PROP_ONLINE:
->> +		ret = get_online(chg);
->> +		break;
->> +	case POWER_SUPPLY_PROP_PRESENT:
->> +		ret = charger_input_valid(chg);
->> +		break;
->> +	case POWER_SUPPLY_PROP_STATUS:
->> +		ret = get_status(chg);
->> +		break;
->> +	case POWER_SUPPLY_PROP_CHARGE_TYPE:
->> +		ret = get_charge_type(chg);
->> +		break;
->> +	case POWER_SUPPLY_PROP_HEALTH:
->> +		ret = get_health(chg);
->> +		break;
->> +	case POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT_MAX:
->> +		ret = get_fast_charge_current(chg);
->> +		break;
->> +	case POWER_SUPPLY_PROP_CONSTANT_CHARGE_VOLTAGE_MAX:
->> +		ret = get_float_voltage(chg);
->> +		break;
->> +	case POWER_SUPPLY_PROP_INPUT_CURRENT_LIMIT:
->> +		ret = get_input_current_limit(chg);
->> +		break;
->> +	default:
->> +		ret = -EINVAL;
->> +	}
->> +
->> +	pval->intval = ret;
->> +	return ret < 0 ? ret : 0;
-> As people like to use existing drivers as reference this definitely
-> needs a comment, that none of the properties used by this driver
-> support negative values. This is not a general thing as e.g. the
-> CHARGE current may be negative depending on the battery being
-> charged or discharged (OTG mode).
+On 2026/4/1 18:55, Catalin Marinas wrote:
+> On Fri, Mar 20, 2026 at 06:42:21PM +0800, Jinjie Ruan wrote:
+>> Use the generic TIF bits defined in <asm-generic/thread_info_tif.h> for
+>> standard thread flags (TIF_SIGPENDING, TIF_NEED_RESCHED, TIF_NOTIFY_RESUME,
+>> TIF_RESTORE_SIGMASK, TIF_SINGLESTEP, etc.) instead of defining
+>> them locally.
+>>
+>> Arm64-specific bits (TIF_FOREIGN_FPSTATE, TIF_MTE_ASYNC_FAULT, TIF_SVE,
+>> TIF_SSBD, etc.) are renumbered to start at bit 16 to avoid conflicts.
+>>
+>> This enables RSEQ optimizations which require CONFIG_HAVE_GENERIC_TIF_BITS
+>> combined with the generic entry infrastructure (already used by arm64).
+>>
+>> By the way, remove TIF_FREEZE because this flag became unused since
+>> commit d88e4cb67197 ("freezer: remove now unused TIF_FREEZE").
+>>
+>> Cc: Thomas Gleixner <tglx@kernel.org>
+>> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+>> Reviewed-by: Linus Walleij <linusw@kernel.org>
+>> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> 
+> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+> 
+> Given that it's touching multiple trees, I guess it's a series for
+> Andrew?
 
-Ah okay, thanks for letting me know. I will add a comment.
+Yes, this series touches x86, arm64, s390 and loongarch. It's best for
+Andrew to help merge this in the -mm tree.
 
+Moreover, the latter two arm64-related patches depend on patch serise
+"arm64:
+entry: Convert to Generic Entry" v14 being merged first, while the first
+two patches can be merged in advance.
 
-As these patches are already in flight and part of usb-next of the usb
-tree, I can send the suggested improvements as a separate patch, if that
-works for you and Greg.
-
-
-BR,
-
-Amit
-
->
-> Greetings,
->
-> -- Sebastian
+> 
 
