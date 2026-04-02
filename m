@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BDF8CC6B04
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 04:22:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91BE2CC6B00
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 04:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s1hb1VGQS8/9FYvANszclJqm6Mks9FoXDv/veAaMD2s=; b=VznmPLa3wdzqYf3lZVSW0TmoyV
-	XoHk5TRKFy6Htw5ud9nfehGLC5Hw2s6UAbBiFFRWLUu2NUvpC0T29OI8uUaoMA/42CnT4rkvCVwwI
-	qgLHOVqd67C8iwo1Wy+3tUkvikML13oSYPQxp/y4AuvIsbUk2wYLGo0abO8gQKtJdwHSKisWca2F5
-	gOn62aPsmMCuBzgIUOqs3164taxdrrBQQovJUuNtjiex8y4OD9KYyrbifFi/12odL2yt6Gcndqitt
-	nTg1aPHEtHXpHfzCRqPGH3RLIS07v269W72NyHMQD8k4na/XriXJtHuqorVMvW2HWwdS0E1foqy36
-	pYRsZslA==;
+	bh=pk88CTrbw0xE/m+yVYw+gA+Oshb0YV/HLun58YTC1vo=; b=nYupJUg+/z/J6wo0Cj76WOtDEA
+	wKViF1+JxcNybc8KuNn3lwlSFV2GcrVuBRFw4Q2xhRFAHvIyaG7NooNFtobKUOa6s4g19+SUaH196
+	0+QZ8Xcwo0VnvA7eSmJsqoFFXMKAmGzqiK9tC0QklDxrk1GDnP9pLnHy2ghpeuxjpIhmTAFpRHe/B
+	6uAfRh4kvsI07ins2yCZDp2IUO3Hsku2OFO7KKuK2tQtucMy8EsS8uqy69pyW53a5gwbBLXTGvUwH
+	RdaVgfsURaUZaEqvi4GRAp5UA4jhkhd7BaV2eEHwkBVqveV5SJnXM6O+aq2F0n5n32Pttj+vMbrxw
+	DXIUcoFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w89Z1-0000000GijP-3VoE;
-	Thu, 02 Apr 2026 04:21:51 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1w89ZD-0000000GiwY-0UA6;
+	Thu, 02 Apr 2026 04:22:03 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w89Yx-0000000GieZ-08k2
+	id 1w89Z1-0000000Giij-42ka
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 04:21:48 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6320nItl449675;
-	Thu, 2 Apr 2026 04:21:35 GMT
+	Thu, 02 Apr 2026 04:21:53 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 631J1LD73905677;
+	Thu, 2 Apr 2026 04:21:38 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=s1hb1V
-	GQS8/9FYvANszclJqm6Mks9FoXDv/veAaMD2s=; b=CTK1sH9SnwLmHRehDWhrhg
-	bm6K/yRRhx5wSo1lFwTU0tE1zz/m/5Y7TXHPV80bgvQilBu3MfO8ve4rzDmnJE+z
-	whuj1sPtvlwczWIE2k4XqM1lqKILN/AtUD1WZzZ7fc2pooABSNhhF0J/1GU7EXMj
-	EEGNjY6+aP1YPmMm76x1t+iMH5lYTA3BiUIw2mW1Wi6MWsaPGnKr7Snd60y4fK4t
-	DKuUXsDMzDuZdtFtuJXo9mw7vF/2W6q2Nhvk86JqF1lgctiZdFSocHW0OvRFmTRN
-	2aomlfpMyFXIWM2+Ci8s4pbZ/1CTmPibtNeSEgY1m7DMMIQdM5yWdaiuBpC1OlnA
-	==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4d66g23a59-1
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=pk88CTrbw0xE/m+yV
+	Yw+gA+Oshb0YV/HLun58YTC1vo=; b=IwA1LLT9XQjFKyNZf5MCrZr/RzmhV2cQY
+	2N8Kwt/vtheIgIfOTFfGee7er1zlxFohW0MTGH6xNTRfeilq8vZaueW95y2Wsaat
+	QmnJ6P9NkKOq96Wn1ghVkBb2Svnuo50g3NFmdWrjBtjJ0Ow3mkpKiVvKlz5ZdPnD
+	HayYu4g/SYL3EB7+I5f3Ey+17jCMJisjnBXIfB92eMX+vMDCo3RBJL+r1VjB17y5
+	Svy9Y53iahXaLfG0hH/1w8yO7NeLRMq/fXqR4WoebIFpQY9HFppBHC2WIM1FJdJ5
+	KuR+vZMOhe8E5bq9OaQOwjtLz0ibNsaPNNmzQYhk27ch906lgvR8g==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4d64dgtjgx-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 02 Apr 2026 04:21:34 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 6322PK8D008689;
-	Thu, 2 Apr 2026 04:21:34 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4d6v11rd0n-1
+	Thu, 02 Apr 2026 04:21:38 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 6321E7Ao030952;
+	Thu, 2 Apr 2026 04:21:37 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4d6uhk0eea-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 02 Apr 2026 04:21:33 +0000
+	Thu, 02 Apr 2026 04:21:37 +0000
 Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6324LSBe30540532
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6324LXxx51052830
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 2 Apr 2026 04:21:30 GMT
+	Thu, 2 Apr 2026 04:21:33 GMT
 Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C751220040;
-	Thu,  2 Apr 2026 04:21:28 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 9B2D42004B;
+	Thu,  2 Apr 2026 04:21:33 +0000 (GMT)
 Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6B90520043;
-	Thu,  2 Apr 2026 04:21:28 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 44CA52004E;
+	Thu,  2 Apr 2026 04:21:33 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Thu,  2 Apr 2026 04:21:28 +0000 (GMT)
+	Thu,  2 Apr 2026 04:21:33 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -83,42 +82,40 @@ Cc: Andreas Grapentin <Andreas.Grapentin@ibm.com>,
         Suzuki K Poulose <suzuki.poulose@arm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v1 07/27] KVM: arm64: Provide arm64 KVM API for non-native architectures
-Date: Thu,  2 Apr 2026 06:21:03 +0200
-Message-ID: <20260402042125.3948963-8-seiden@linux.ibm.com>
+Subject: [PATCH v1 20/27] KVM: s390: arm64: Introduce host definitions
+Date: Thu,  2 Apr 2026 06:21:16 +0200
+Message-ID: <20260402042125.3948963-21-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260402042125.3948963-1-seiden@linux.ibm.com>
 References: <20260402042125.3948963-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=Fdo6BZ+6 c=1 sm=1 tr=0 ts=69cdeecf cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
- a=ToiqtPC-Cde57ptAIbMA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: JsAEO8hCcUTdqIlW1IPPKvKSe3ihVPeH
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAyMDAzNCBTYWx0ZWRfXzJ0sC+sa+URx
- i01XWEKFFK5FYUOnbuI1DY+YEntcyed01fZ05k8HAV/0bQJz2Tx2dktveiZda1majf/NW2KfBvR
- k0xYZhQki85RpmeX/KnSuHEdgax0AO86igr9Z3I+X73VI5EPP4QxnyAFkL6xdTn3sv48RwCql6t
- 1rvtkYushq5PANKTqsxyvue9V5jsu5kNypPXCVtAaFEHKCGGYYWm5EGIi0c6b2RNRRcxrCsjY7M
- nFjcy0vkarRHvBlzBFYkBaNStaWdYldQ0AGVXnAPu9RVuRji+EjebV462HpbCuvSa7lBCEEyPqj
- VUZOm+X0QqX/4pRgqRdtwrQyCYyKHVumkFmI9E5qru5XUoRTppf5tEha9d9HLAoojzo65wRxrmt
- ShDhYXJMHTcux3DP11j5R1hFfpCDpFHdsUHsIGLRqJJqbwpNE8JBaGBPDbGABg1SsFCxMUaJR6I
- Bmgh/9JvpQsbpMvoZTw==
-X-Proofpoint-GUID: JsAEO8hCcUTdqIlW1IPPKvKSe3ihVPeH
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAyMDAzNCBTYWx0ZWRfX1engdWKV1r2c
+ ct/0BsvQ0xenbWTkPosQulIZ58VMAweb4QV9G+6rU0DMw0aEknvpZzjPHJmJYgT3gp/axMh8J0s
+ eSW7qymzWj+fRTrfrTPkgCzoUwjZs3Qa0iKS7Wmjv5w0yCDi3OBDlIR7BBQ7OKdPcB6btczbFmF
+ 2pzVKrWMM7b28jnOgQxFxN2CY/c6KZ9sPbj2NgsX2GFtaGYf0hWXQYx2dBt8mPx+CS0Ofjqfe2a
+ pLLvNobf7OJW1lTIv0KXdstNMKcgKmHDa6Vf9XiUI/txcH45diAhZcn7gxbhKQnrs92Ljmottqw
+ N6B71aAuQxOEK4mFnH2Cr945+SfAuMhqRle7VicLX5DTQ4uqUFAuJGiqbhvFJUIkJugFePU0xdF
+ IcyxQXfqiK6YFOV2MVsdvjIS4NjWr45LeVhWY3LZaY9BM5dS8/h8u/AWFJuSBD9TkvrfitbLKkn
+ /8C51LcXp4PbhBJkBmA==
+X-Authority-Analysis: v=2.4 cv=QKZlhwLL c=1 sm=1 tr=0 ts=69cdeed2 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=B7VBJslARfhn5cFe4oQA:9
+X-Proofpoint-GUID: JEYXJ_K9Bg6Odbr3JUL-XbgipHVntgfo
+X-Proofpoint-ORIG-GUID: JEYXJ_K9Bg6Odbr3JUL-XbgipHVntgfo
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-02_01,2026-04-01_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 clxscore=1011 bulkscore=0 suspectscore=0 priorityscore=1501
- adultscore=0 malwarescore=0 phishscore=0 spamscore=0 lowpriorityscore=0
+ lowpriorityscore=0 phishscore=0 adultscore=0 impostorscore=0 clxscore=1015
+ spamscore=0 bulkscore=0 priorityscore=1501 suspectscore=0 malwarescore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2604020034
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_212147_094159_092EE091 
-X-CRM114-Status: GOOD (  24.13  )
+X-CRM114-CacheID: sfid-20260401_212152_133734_5349578D 
+X-CRM114-Status: GOOD (  24.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,777 +130,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The KVM‑related headers are moved to include/kvm/arm64/, decoupling them from
-the arm64 architecture directory. The design convention is that
-architecture‑specific headers under <arch>/include/asm/ include from this
-shared location, allowing non‑native hosts to consume the arm64 KVM
-infrastructure without duplicating code.
+Add all basic definitions the arm on s390 KVM host requires.
+Including, but not limited to:
+	- struct kvm*arch definitions
+	- various functions (to be implemented in the following patches)
+	- various defines required to run arm64 guests
 
-This refactoring enables non-native hosts to include and utilize arm64
-KVM infrastructure without duplicating code or creating architecture
-specific dependencies.
-
+Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
+Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
+Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- MAINTAINERS                                   |   1 +
- arch/arm64/include/asm/el2_setup.h            |   2 +-
- arch/arm64/include/asm/hardirq.h              |   2 +-
- arch/arm64/include/asm/kvm_emulate.h          |   3 +-
- arch/arm64/include/asm/kvm_host.h             |  99 +--------------
- arch/arm64/include/asm/kvm_mmu.h              |  41 +------
- arch/arm64/kernel/head.S                      |   2 +-
- arch/arm64/kernel/hyp-stub.S                  |   2 +-
- arch/arm64/kvm/arm.c                          |   6 +-
- arch/arm64/kvm/debug.c                        |   2 +-
- arch/arm64/kvm/guest.c                        |   2 +
- arch/arm64/kvm/hyp/entry.S                    |   2 +-
- arch/arm64/kvm/hyp/hyp-entry.S                |   2 +-
- arch/arm64/kvm/hyp/nvhe/host.S                |   2 +-
- arch/arm64/kvm/hyp/nvhe/hyp-init.S            |   2 +-
- arch/arm64/kvm/mmu.c                          |   2 +-
- arch/arm64/kvm/nested.c                       |   2 +-
- arch/arm64/kvm/reset.c                        |   2 +-
- arch/arm64/kvm/sys_regs.c                     |   2 +-
- arch/arm64/kvm/vgic/vgic-its.c                |   2 +-
- arch/arm64/kvm/vgic/vgic-mmio-v3.c            |   2 +-
- arch/arm64/kvm/vgic/vgic-v3-nested.c          |   2 +-
- include/kvm/arm64/guest.h                     |  10 ++
- .../asm => include/kvm/arm64}/kvm_arm.h       |   5 +-
- include/kvm/arm64/kvm_host.h                  | 113 ++++++++++++++++++
- include/kvm/arm64/kvm_mmu.h                   |  47 ++++++++
- 26 files changed, 203 insertions(+), 156 deletions(-)
- create mode 100644 include/kvm/arm64/guest.h
- rename {arch/arm64/include/asm => include/kvm/arm64}/kvm_arm.h (99%)
- create mode 100644 include/kvm/arm64/kvm_host.h
- create mode 100644 include/kvm/arm64/kvm_mmu.h
+ arch/s390/include/asm/kvm.h            |   6 +
+ arch/s390/include/asm/kvm_host.h       |   9 ++
+ arch/s390/include/asm/kvm_host_arm64.h | 199 +++++++++++++++++++++++++
+ 3 files changed, 214 insertions(+)
+ create mode 100644 arch/s390/include/asm/kvm.h
+ create mode 100644 arch/s390/include/asm/kvm_host_arm64.h
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e0a101fe05ce..075463117c2b 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -13995,6 +13995,7 @@ F:	Documentation/virt/kvm/arm/
- F:	Documentation/virt/kvm/devices/arm*
- F:	arch/arm64/include/asm/kvm*
- F:	arch/arm64/include/uapi/asm/kvm*
-+F:	include/kvm/arm64/
- F:	include/uapi/arch/arm64/asm/kvm*
- F:	arch/arm64/kvm/
- F:	include/kvm/arm_*
-diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index 85f4c1615472..dfe3e85759f6 100644
---- a/arch/arm64/include/asm/el2_setup.h
-+++ b/arch/arm64/include/asm/el2_setup.h
-@@ -11,7 +11,7 @@
- #error Assembly-only header
- #endif
- 
--#include <asm/kvm_arm.h>
-+#include <kvm/arm64/kvm_arm.h>
- #include <asm/ptrace.h>
- #include <asm/sysreg.h>
- #include <linux/irqchip/arm-gic-v3.h>
-diff --git a/arch/arm64/include/asm/hardirq.h b/arch/arm64/include/asm/hardirq.h
-index 77d6b8c63d4e..0eceb8ab6abb 100644
---- a/arch/arm64/include/asm/hardirq.h
-+++ b/arch/arm64/include/asm/hardirq.h
-@@ -10,7 +10,7 @@
- #include <linux/threads.h>
- #include <asm/barrier.h>
- #include <asm/irq.h>
--#include <asm/kvm_arm.h>
-+#include <kvm/arm64/kvm_arm.h>
- #include <asm/sysreg.h>
- 
- #define ack_bad_irq ack_bad_irq
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 5bf3d7e1d92c..822f6077b107 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -16,13 +16,14 @@
- 
- #include <asm/debug-monitors.h>
- #include <asm/esr.h>
--#include <asm/kvm_arm.h>
- #include <asm/kvm_hyp.h>
- #include <asm/kvm_nested.h>
- #include <asm/ptrace.h>
- #include <asm/cputype.h>
- #include <asm/virt.h>
- 
-+#include <kvm/arm64/kvm_arm.h>
-+
- #define CURRENT_EL_SP_EL0_VECTOR	0x0
- #define CURRENT_EL_SP_ELx_VECTOR	0x200
- #define LOWER_EL_AArch64_VECTOR		0x400
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 70cb9cfd760a..ae9e507f2c7c 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -37,25 +37,12 @@
- #include <kvm/arm_arch_timer.h>
- #include <kvm/arm_pmu.h>
- 
-+#include <kvm/arm64/kvm_host.h>
-+
- #define KVM_MAX_VCPUS VGIC_V3_MAX_CPUS
- 
--#define KVM_VCPU_MAX_FEATURES 9
- #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
- 
--#define KVM_REQ_SLEEP \
--	KVM_ARCH_REQ_FLAGS(0, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
--#define KVM_REQ_IRQ_PENDING		KVM_ARCH_REQ(1)
--#define KVM_REQ_VCPU_RESET		KVM_ARCH_REQ(2)
--#define KVM_REQ_RECORD_STEAL		KVM_ARCH_REQ(3)
--#define KVM_REQ_RELOAD_GICv4		KVM_ARCH_REQ(4)
--#define KVM_REQ_RELOAD_PMU		KVM_ARCH_REQ(5)
--#define KVM_REQ_SUSPEND			KVM_ARCH_REQ(6)
--#define KVM_REQ_RESYNC_PMU_EL0		KVM_ARCH_REQ(7)
--#define KVM_REQ_NESTED_S2_UNMAP		KVM_ARCH_REQ(8)
--#define KVM_REQ_GUEST_HYP_IRQ_PENDING	KVM_ARCH_REQ(9)
--#define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
--#define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
--
- #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
- 				     KVM_DIRTY_LOG_INITIALLY_SET)
- 
-@@ -324,35 +311,7 @@ struct kvm_arch {
- 	/* Protects VM-scoped configuration data */
- 	struct mutex config_lock;
- 
--	/*
--	 * If we encounter a data abort without valid instruction syndrome
--	 * information, report this to user space.  User space can (and
--	 * should) opt in to this feature if KVM_CAP_ARM_NISV_TO_USER is
--	 * supported.
--	 */
--#define KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER	0
--	/* Memory Tagging Extension enabled for the guest */
--#define KVM_ARCH_FLAG_MTE_ENABLED			1
--	/* At least one vCPU has ran in the VM */
--#define KVM_ARCH_FLAG_HAS_RAN_ONCE			2
--	/* The vCPU feature set for the VM is configured */
--#define KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED		3
--	/* PSCI SYSTEM_SUSPEND enabled for the guest */
--#define KVM_ARCH_FLAG_SYSTEM_SUSPEND_ENABLED		4
--	/* VM counter offset */
--#define KVM_ARCH_FLAG_VM_COUNTER_OFFSET			5
--	/* Timer PPIs made immutable */
--#define KVM_ARCH_FLAG_TIMER_PPIS_IMMUTABLE		6
--	/* Initial ID reg values loaded */
--#define KVM_ARCH_FLAG_ID_REGS_INITIALIZED		7
--	/* Fine-Grained UNDEF initialised */
--#define KVM_ARCH_FLAG_FGU_INITIALIZED			8
--	/* SVE exposed to guest */
--#define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
--	/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
--#define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
--	/* Unhandled SEAs are taken to userspace */
--#define KVM_ARCH_FLAG_EXIT_SEA				11
-+	/* VM-wide vCPU feature set */
- 	unsigned long flags;
- 
- 	/* VM-wide vCPU feature set */
-@@ -812,13 +771,6 @@ extern s64 kvm_nvhe_sym(hyp_physvirt_offset);
- extern u64 kvm_nvhe_sym(hyp_cpu_logical_map)[NR_CPUS];
- #define hyp_cpu_logical_map CHOOSE_NVHE_SYM(hyp_cpu_logical_map)
- 
--struct vcpu_reset_state {
--	unsigned long	pc;
--	unsigned long	r0;
--	bool		be;
--	bool		reset;
--};
--
- struct vncr_tlb;
- 
- struct kvm_vcpu_arch {
-@@ -1020,41 +972,6 @@ struct kvm_vcpu_arch {
- /* pKVM VCPU setup completed */
- #define VCPU_PKVM_FINALIZED	__vcpu_single_flag(cflags, BIT(2))
- 
--/* Exception pending */
--#define PENDING_EXCEPTION	__vcpu_single_flag(iflags, BIT(0))
--/*
-- * PC increment. Overlaps with EXCEPT_MASK on purpose so that it can't
-- * be set together with an exception...
-- */
--#define INCREMENT_PC		__vcpu_single_flag(iflags, BIT(1))
--/* Target EL/MODE (not a single flag, but let's abuse the macro) */
--#define EXCEPT_MASK		__vcpu_single_flag(iflags, GENMASK(3, 1))
--
--/* Helpers to encode exceptions with minimum fuss */
--#define __EXCEPT_MASK_VAL	unpack_vcpu_flag(EXCEPT_MASK)
--#define __EXCEPT_SHIFT		__builtin_ctzl(__EXCEPT_MASK_VAL)
--#define __vcpu_except_flags(_f)	iflags, (_f << __EXCEPT_SHIFT), __EXCEPT_MASK_VAL
--
--/*
-- * When PENDING_EXCEPTION is set, EXCEPT_MASK can take the following
-- * values:
-- *
-- * For AArch32 EL1:
-- */
--#define EXCEPT_AA32_UND		__vcpu_except_flags(0)
--#define EXCEPT_AA32_IABT	__vcpu_except_flags(1)
--#define EXCEPT_AA32_DABT	__vcpu_except_flags(2)
--/* For AArch64: */
--#define EXCEPT_AA64_EL1_SYNC	__vcpu_except_flags(0)
--#define EXCEPT_AA64_EL1_IRQ	__vcpu_except_flags(1)
--#define EXCEPT_AA64_EL1_FIQ	__vcpu_except_flags(2)
--#define EXCEPT_AA64_EL1_SERR	__vcpu_except_flags(3)
--/* For AArch64 with NV: */
--#define EXCEPT_AA64_EL2_SYNC	__vcpu_except_flags(4)
--#define EXCEPT_AA64_EL2_IRQ	__vcpu_except_flags(5)
--#define EXCEPT_AA64_EL2_FIQ	__vcpu_except_flags(6)
--#define EXCEPT_AA64_EL2_SERR	__vcpu_except_flags(7)
--
- /* Physical CPU not in supported_cpus */
- #define ON_UNSUPPORTED_CPU	__vcpu_single_flag(sflags, BIT(0))
- /* WFIT instruction trapped */
-@@ -1215,7 +1132,6 @@ struct kvm_vcpu_stat {
- };
- 
- unsigned long kvm_arm_num_regs(struct kvm_vcpu *vcpu);
--int kvm_arm_copy_reg_indices(struct kvm_vcpu *vcpu, u64 __user *indices);
- int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg);
- int kvm_arm_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg);
- 
-@@ -1299,13 +1215,6 @@ int __init populate_nv_trap_config(void);
- 
- void kvm_calculate_traps(struct kvm_vcpu *vcpu);
- 
--/* MMIO helpers */
--void kvm_mmio_write_buf(void *buf, unsigned int len, unsigned long data);
--unsigned long kvm_mmio_read_buf(const void *buf, unsigned int len);
--
--int kvm_handle_mmio_return(struct kvm_vcpu *vcpu);
--int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa);
--
- /*
-  * Returns true if a Performance Monitoring Interrupt (PMI), a.k.a. perf event,
-  * arrived in guest context.  For arm64, any event that arrives while a vCPU is
-@@ -1480,8 +1389,6 @@ struct kvm *kvm_arch_alloc_vm(void);
- 
- #define kvm_vm_is_protected(kvm)	(is_protected_kvm_enabled() && (kvm)->arch.pkvm.is_protected)
- 
--#define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
--
- int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
- bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
- 
-diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-index d968aca0461a..6a990aa63622 100644
---- a/arch/arm64/include/asm/kvm_mmu.h
-+++ b/arch/arm64/include/asm/kvm_mmu.h
-@@ -100,6 +100,8 @@ alternative_cb_end
- #include <asm/kvm_host.h>
- #include <asm/kvm_nested.h>
- 
-+#include <kvm/arm64/kvm_mmu.h>
-+
- void kvm_update_va_mask(struct alt_instr *alt,
- 			__le32 *origptr, __le32 *updptr, int nr_inst);
- void kvm_compute_layout(void);
-@@ -142,12 +144,6 @@ static __always_inline unsigned long __kern_hyp_va(unsigned long v)
- 
- extern u32 __hyp_va_bits;
- 
--/*
-- * We currently support using a VM-specified IPA size. For backward
-- * compatibility, the default IPA size is fixed to 40bits.
-- */
--#define KVM_PHYS_SHIFT	(40)
--
- #define kvm_phys_shift(mmu)		VTCR_EL2_IPA((mmu)->vtcr)
- #define kvm_phys_size(mmu)		(_AC(1, ULL) << kvm_phys_shift(mmu))
- #define kvm_phys_mask(mmu)		(kvm_phys_size(mmu) - _AC(1, ULL))
-@@ -161,9 +157,6 @@ int create_hyp_mappings(void *from, void *to, enum kvm_pgtable_prot prot);
- int __create_hyp_mappings(unsigned long start, unsigned long size,
- 			  unsigned long phys, enum kvm_pgtable_prot prot);
- int hyp_alloc_private_va_range(size_t size, unsigned long *haddr);
--int create_hyp_io_mappings(phys_addr_t phys_addr, size_t size,
--			   void __iomem **kaddr,
--			   void __iomem **haddr);
- int create_hyp_exec_mappings(phys_addr_t phys_addr, size_t size,
- 			     void **haddr);
- int create_hyp_stack(phys_addr_t phys_addr, unsigned long *haddr);
-@@ -178,8 +171,6 @@ void stage2_unmap_vm(struct kvm *kvm);
- int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long type);
- void kvm_uninit_stage2_mmu(struct kvm *kvm);
- void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu);
--int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
--			  phys_addr_t pa, unsigned long size, bool writable);
- 
- int kvm_handle_guest_sea(struct kvm_vcpu *vcpu);
- int kvm_handle_guest_abort(struct kvm_vcpu *vcpu);
-@@ -267,34 +258,6 @@ static inline unsigned int kvm_get_vmid_bits(void)
- 
- 	return get_vmid_bits(reg);
- }
--
--/*
-- * We are not in the kvm->srcu critical section most of the time, so we take
-- * the SRCU read lock here. Since we copy the data from the user page, we
-- * can immediately drop the lock again.
-- */
--static inline int kvm_read_guest_lock(struct kvm *kvm,
--				      gpa_t gpa, void *data, unsigned long len)
--{
--	int srcu_idx = srcu_read_lock(&kvm->srcu);
--	int ret = kvm_read_guest(kvm, gpa, data, len);
--
--	srcu_read_unlock(&kvm->srcu, srcu_idx);
--
--	return ret;
--}
--
--static inline int kvm_write_guest_lock(struct kvm *kvm, gpa_t gpa,
--				       const void *data, unsigned long len)
--{
--	int srcu_idx = srcu_read_lock(&kvm->srcu);
--	int ret = kvm_write_guest(kvm, gpa, data, len);
--
--	srcu_read_unlock(&kvm->srcu, srcu_idx);
--
--	return ret;
--}
--
- #define kvm_phys_to_vttbr(addr)		phys_to_ttbr(addr)
- 
- /*
-diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-index 87a822e5c4ca..853952be8021 100644
---- a/arch/arm64/kernel/head.S
-+++ b/arch/arm64/kernel/head.S
-@@ -25,7 +25,7 @@
- #include <asm/elf.h>
- #include <asm/image.h>
- #include <asm/kernel-pgtable.h>
--#include <asm/kvm_arm.h>
-+#include <kvm/arm64/kvm_arm.h>
- #include <asm/memory.h>
- #include <asm/pgtable-hwdef.h>
- #include <asm/page.h>
-diff --git a/arch/arm64/kernel/hyp-stub.S b/arch/arm64/kernel/hyp-stub.S
-index 085bc9972f6b..bf3a541fc076 100644
---- a/arch/arm64/kernel/hyp-stub.S
-+++ b/arch/arm64/kernel/hyp-stub.S
-@@ -11,7 +11,7 @@
- 
- #include <asm/assembler.h>
- #include <asm/el2_setup.h>
--#include <asm/kvm_arm.h>
-+#include <kvm/arm64/kvm_arm.h>
- #include <asm/kvm_asm.h>
- #include <asm/ptrace.h>
- #include <asm/virt.h>
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 410ffd41fd73..47630730260f 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -32,7 +32,7 @@
- #include <asm/cacheflush.h>
- #include <asm/cpufeature.h>
- #include <asm/virt.h>
--#include <asm/kvm_arm.h>
-+#include <kvm/arm64/kvm_arm.h>
- #include <asm/kvm_asm.h>
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_mmu.h>
-@@ -46,6 +46,8 @@
- #include <kvm/arm_pmu.h>
- #include <kvm/arm_psci.h>
- 
-+#include <kvm/arm64/guest.h>
-+
- #include "sys_regs.h"
- 
- static enum kvm_mode kvm_mode = KVM_MODE_DEFAULT;
-@@ -1489,7 +1491,7 @@ int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irq_level,
- 	return -EINVAL;
- }
- 
--static unsigned long system_supported_vcpu_features(void)
-+unsigned long system_supported_vcpu_features(void)
- {
- 	unsigned long features = KVM_VCPU_VALID_FEATURES;
- 
-diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
-index 3ad6b7c6e4ba..349fea6e3e51 100644
---- a/arch/arm64/kvm/debug.c
-+++ b/arch/arm64/kvm/debug.c
-@@ -12,7 +12,7 @@
- 
- #include <asm/debug-monitors.h>
- #include <asm/kvm_asm.h>
--#include <asm/kvm_arm.h>
-+#include <kvm/arm64/kvm_arm.h>
- #include <asm/kvm_emulate.h>
- 
- static int cpu_has_spe(u64 dfr0)
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index 332c453b87cf..557c380ffa37 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -27,6 +27,8 @@
- #include <asm/kvm_nested.h>
- #include <asm/sigcontext.h>
- 
-+#include <kvm/arm64/guest.h>
-+
- #include "trace.h"
- 
- const struct kvm_stats_desc kvm_vm_stats_desc[] = {
-diff --git a/arch/arm64/kvm/hyp/entry.S b/arch/arm64/kvm/hyp/entry.S
-index 11a10d8f5beb..b1694f738208 100644
---- a/arch/arm64/kvm/hyp/entry.S
-+++ b/arch/arm64/kvm/hyp/entry.S
-@@ -10,7 +10,7 @@
- #include <asm/assembler.h>
- #include <asm/fpsimdmacros.h>
- #include <asm/kvm.h>
--#include <asm/kvm_arm.h>
-+#include <kvm/arm64/kvm_arm.h>
- #include <asm/kvm_asm.h>
- #include <asm/kvm_mmu.h>
- #include <asm/kvm_mte.h>
-diff --git a/arch/arm64/kvm/hyp/hyp-entry.S b/arch/arm64/kvm/hyp/hyp-entry.S
-index 03f97d71984c..dfec4e6e5d62 100644
---- a/arch/arm64/kvm/hyp/hyp-entry.S
-+++ b/arch/arm64/kvm/hyp/hyp-entry.S
-@@ -10,7 +10,7 @@
- #include <asm/alternative.h>
- #include <asm/assembler.h>
- #include <asm/cpufeature.h>
--#include <asm/kvm_arm.h>
-+#include <kvm/arm64/kvm_arm.h>
- #include <asm/kvm_asm.h>
- #include <asm/mmu.h>
- #include <asm/spectre.h>
-diff --git a/arch/arm64/kvm/hyp/nvhe/host.S b/arch/arm64/kvm/hyp/nvhe/host.S
-index eef15b374abb..3f5093387f5a 100644
---- a/arch/arm64/kvm/hyp/nvhe/host.S
-+++ b/arch/arm64/kvm/hyp/nvhe/host.S
-@@ -7,7 +7,7 @@
- #include <linux/linkage.h>
- 
- #include <asm/assembler.h>
--#include <asm/kvm_arm.h>
-+#include <kvm/arm64/kvm_arm.h>
- #include <asm/kvm_asm.h>
- #include <asm/kvm_mmu.h>
- #include <asm/kvm_ptrauth.h>
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-init.S b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-index 0d42eedc7167..8677f4da7a2f 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
-@@ -11,7 +11,7 @@
- #include <asm/alternative.h>
- #include <asm/assembler.h>
- #include <asm/el2_setup.h>
--#include <asm/kvm_arm.h>
-+#include <kvm/arm64/kvm_arm.h>
- #include <asm/kvm_asm.h>
- #include <asm/kvm_mmu.h>
- #include <asm/pgtable-hwdef.h>
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 17d64a1e11e5..e19ff77b3cd5 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -14,7 +14,7 @@
- #include <asm/acpi.h>
- #include <asm/pgalloc.h>
- #include <asm/cacheflush.h>
--#include <asm/kvm_arm.h>
-+#include <kvm/arm64/kvm_arm.h>
- #include <asm/kvm_mmu.h>
- #include <asm/kvm_pgtable.h>
- #include <asm/kvm_pkvm.h>
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 2c43097248b2..1a3bd7bf6bf4 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -9,7 +9,7 @@
- #include <linux/kvm_host.h>
- 
- #include <asm/fixmap.h>
--#include <asm/kvm_arm.h>
-+#include <kvm/arm64/kvm_arm.h>
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_mmu.h>
- #include <asm/kvm_nested.h>
-diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-index b963fd975aac..036bf2dff976 100644
---- a/arch/arm64/kvm/reset.c
-+++ b/arch/arm64/kvm/reset.c
-@@ -23,7 +23,7 @@
- #include <asm/cputype.h>
- #include <asm/fpsimd.h>
- #include <asm/ptrace.h>
--#include <asm/kvm_arm.h>
-+#include <kvm/arm64/kvm_arm.h>
- #include <asm/kvm_asm.h>
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_mmu.h>
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 1b4cacb6e918..a7564ee0fd15 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -24,7 +24,7 @@
- #include <asm/cputype.h>
- #include <asm/debug-monitors.h>
- #include <asm/esr.h>
--#include <asm/kvm_arm.h>
-+#include <kvm/arm64/kvm_arm.h>
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_hyp.h>
- #include <asm/kvm_mmu.h>
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index 2ea9f1c7ebcd..076877db9243 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -17,7 +17,7 @@
- #include <linux/irqchip/arm-gic-v3.h>
- 
- #include <asm/kvm_emulate.h>
--#include <asm/kvm_arm.h>
-+#include <kvm/arm64/kvm_arm.h>
- #include <asm/kvm_mmu.h>
- 
- #include "vgic.h"
-diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-index 89edb84d1ac6..009e52a16c25 100644
---- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-@@ -12,7 +12,7 @@
- #include <kvm/arm_vgic.h>
- 
- #include <asm/kvm_emulate.h>
--#include <asm/kvm_arm.h>
-+#include <kvm/arm64/kvm_arm.h>
- #include <asm/kvm_mmu.h>
- 
- #include "vgic.h"
-diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgic-v3-nested.c
-index 5c69fa615823..a2070a637f51 100644
---- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
-@@ -9,7 +9,7 @@
- 
- #include <kvm/arm_vgic.h>
- 
--#include <asm/kvm_arm.h>
-+#include <kvm/arm64/kvm_arm.h>
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_nested.h>
- 
-diff --git a/include/kvm/arm64/guest.h b/include/kvm/arm64/guest.h
+diff --git a/arch/s390/include/asm/kvm.h b/arch/s390/include/asm/kvm.h
 new file mode 100644
-index 000000000000..fa67d992e8fd
+index 000000000000..d9e727d2378c
 --- /dev/null
-+++ b/include/kvm/arm64/guest.h
-@@ -0,0 +1,10 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+
-+#ifndef __KVM_ARM64_GUEST_H__
-+#define __KVM_ARM64_GUEST_H__
-+
-+/* Implemented by virt/kvm/arm64/guest.c */
-+unsigned long kvm_arm_num_regs(struct kvm_vcpu *vcpu);
-+int kvm_arm_copy_reg_indices(struct kvm_vcpu *vcpu, u64 __user *indices);
-+
-+#endif /* __KVM_ARM64_GUEST_H__ */
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/include/kvm/arm64/kvm_arm.h
-similarity index 99%
-rename from arch/arm64/include/asm/kvm_arm.h
-rename to include/kvm/arm64/kvm_arm.h
-index 3f9233b5a130..b9c45e4dad72 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/include/kvm/arm64/kvm_arm.h
-@@ -8,8 +8,9 @@
- #define __ARM64_KVM_ARM_H__
++++ b/arch/s390/include/asm/kvm.h
+@@ -0,0 +1,6 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifdef KVM_S390_ARM64
++#include <uapi/arch/arm64/asm/kvm.h>
++#else
++#include <uapi/asm/kvm.h>
++#endif
+diff --git a/arch/s390/include/asm/kvm_host.h b/arch/s390/include/asm/kvm_host.h
+index 1c20168a3ef5..0330d3e503d8 100644
+--- a/arch/s390/include/asm/kvm_host.h
++++ b/arch/s390/include/asm/kvm_host.h
+@@ -3,7 +3,16 @@
+ #ifndef ASM_KVM_HOST_H
+ #define ASM_KVM_HOST_H
  
- #include <asm/esr.h>
--#include <asm/memory.h>
--#include <asm/sysreg.h>
-+#include <linux/const.h>
-+#include <linux/bits.h>
-+#include <asm/sysreg-defs.h>
- #include <asm/types.h>
- 
- /*
-diff --git a/include/kvm/arm64/kvm_host.h b/include/kvm/arm64/kvm_host.h
-new file mode 100644
-index 000000000000..3a434f47497b
---- /dev/null
-+++ b/include/kvm/arm64/kvm_host.h
-@@ -0,0 +1,113 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
++#ifdef KVM_S390_ARM64
++#include <asm/kvm_host_arm64.h>
++#else
+ #include <asm/kvm_host_s390.h>
++#endif
 +
-+#ifndef __KVM_ARM64_KVM_HOST_H
-+#define __KVM_ARM64_KVM_HOST_H
-+
-+#include <linux/types.h>
-+
-+#define KVM_VCPU_MAX_FEATURES 9
-+
-+#define KVM_REQ_SLEEP \
-+	KVM_ARCH_REQ_FLAGS(0, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
-+#define KVM_REQ_IRQ_PENDING		KVM_ARCH_REQ(1)
-+#define KVM_REQ_VCPU_RESET		KVM_ARCH_REQ(2)
-+#define KVM_REQ_RECORD_STEAL		KVM_ARCH_REQ(3)
-+#define KVM_REQ_RELOAD_GICv4		KVM_ARCH_REQ(4)
-+#define KVM_REQ_RELOAD_PMU		KVM_ARCH_REQ(5)
-+#define KVM_REQ_SUSPEND			KVM_ARCH_REQ(6)
-+#define KVM_REQ_RESYNC_PMU_EL0		KVM_ARCH_REQ(7)
-+#define KVM_REQ_NESTED_S2_UNMAP		KVM_ARCH_REQ(8)
-+#define KVM_REQ_GUEST_HYP_IRQ_PENDING	KVM_ARCH_REQ(9)
-+#define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
-+#define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
-+
-+struct vcpu_reset_state {
-+	unsigned long	pc;
-+	unsigned long	r0;
-+	bool		be;
-+	bool		reset;
-+};
-+
-+/* MMIO helpers */
-+void kvm_mmio_write_buf(void *buf, unsigned int len, unsigned long data);
-+unsigned long kvm_mmio_read_buf(const void *buf, unsigned int len);
-+
-+int kvm_handle_mmio_return(struct kvm_vcpu *vcpu);
-+int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa);
-+
-+/* Exception pending */
-+#define PENDING_EXCEPTION	__vcpu_single_flag(iflags, BIT(0))
-+/*
-+ * PC increment. Overlaps with EXCEPT_MASK on purpose so that it can't
-+ * be set together with an exception...
-+ */
-+#define INCREMENT_PC		__vcpu_single_flag(iflags, BIT(1))
-+/* Target EL/MODE (not a single flag, but let's abuse the macro) */
-+#define EXCEPT_MASK		__vcpu_single_flag(iflags, GENMASK(3, 1))
-+
-+/* Helpers to encode exceptions with minimum fuss */
-+#define __EXCEPT_MASK_VAL	unpack_vcpu_flag(EXCEPT_MASK)
-+#define __EXCEPT_SHIFT		__builtin_ctzl(__EXCEPT_MASK_VAL)
-+#define __vcpu_except_flags(_f)	iflags, (_f << __EXCEPT_SHIFT), __EXCEPT_MASK_VAL
-+
-+/*
-+ * When PENDING_EXCEPTION is set, EXCEPT_MASK can take the following
-+ * values:
-+ *
-+ * For AArch32 EL1:
-+ */
-+#define EXCEPT_AA32_UND		__vcpu_except_flags(0)
-+#define EXCEPT_AA32_IABT	__vcpu_except_flags(1)
-+#define EXCEPT_AA32_DABT	__vcpu_except_flags(2)
-+/* For AArch64: */
-+#define EXCEPT_AA64_EL1_SYNC	__vcpu_except_flags(0)
-+#define EXCEPT_AA64_EL1_IRQ	__vcpu_except_flags(1)
-+#define EXCEPT_AA64_EL1_FIQ	__vcpu_except_flags(2)
-+#define EXCEPT_AA64_EL1_SERR	__vcpu_except_flags(3)
-+/* For AArch64 with NV: */
-+#define EXCEPT_AA64_EL2_SYNC	__vcpu_except_flags(4)
-+#define EXCEPT_AA64_EL2_IRQ	__vcpu_except_flags(5)
-+#define EXCEPT_AA64_EL2_FIQ	__vcpu_except_flags(6)
-+#define EXCEPT_AA64_EL2_SERR	__vcpu_except_flags(7)
-+
-+static inline bool kvm_supports_32bit_el0(void)
++static inline  bool kvm_arch_pmi_in_guest(struct kvm_vcpu *vcpu)
 +{
 +	return false;
 +}
-+
-+#define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
-+
-+/*
-+ * If we encounter a data abort without valid instruction syndrome
-+ * information, report this to user space.  User space can (and
-+ * should) opt in to this feature if KVM_CAP_ARM_NISV_TO_USER is
-+ * supported.
-+ */
-+#define KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER	0
-+/* Memory Tagging Extension enabled for the guest */
-+#define KVM_ARCH_FLAG_MTE_ENABLED			1
-+/* At least one vCPU has ran in the VM */
-+#define KVM_ARCH_FLAG_HAS_RAN_ONCE			2
-+/* The vCPU feature set for the VM is configured */
-+#define KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED		3
-+/* PSCI SYSTEM_SUSPEND enabled for the guest */
-+#define KVM_ARCH_FLAG_SYSTEM_SUSPEND_ENABLED		4
-+/* VM counter offset */
-+#define KVM_ARCH_FLAG_VM_COUNTER_OFFSET			5
-+/* Timer PPIs made immutable */
-+#define KVM_ARCH_FLAG_TIMER_PPIS_IMMUTABLE		6
-+/* Initial ID reg values loaded */
-+#define KVM_ARCH_FLAG_ID_REGS_INITIALIZED		7
-+/* Fine-Grained UNDEF initialised */
-+#define KVM_ARCH_FLAG_FGU_INITIALIZED			8
-+/* SVE exposed to guest */
-+#define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
-+/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
-+#define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
-+/* Unhandled SEAs are taken to userspace */
-+#define KVM_ARCH_FLAG_EXIT_SEA				11
-+
-+/* Implemented in architecture specific code */
-+unsigned long system_supported_vcpu_features(void);
-+
-+#endif /* __KVM_ARM64_KVM_HOST_H */
-diff --git a/include/kvm/arm64/kvm_mmu.h b/include/kvm/arm64/kvm_mmu.h
+ 
+ #define PGM_PROTECTION			0x04
+ #define PGM_ADDRESSING			0x05
+diff --git a/arch/s390/include/asm/kvm_host_arm64.h b/arch/s390/include/asm/kvm_host_arm64.h
 new file mode 100644
-index 000000000000..91607105eaf6
+index 000000000000..5a694c835dbb
 --- /dev/null
-+++ b/include/kvm/arm64/kvm_mmu.h
-@@ -0,0 +1,47 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
++++ b/arch/s390/include/asm/kvm_host_arm64.h
+@@ -0,0 +1,199 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef ASM_KVM_HOST_ARM64_H
++#define ASM_KVM_HOST_ARM64_H
 +
-+#ifndef KVM_ARM64_KVM_MMU_H__
-+#define KVM_ARM64_KVM_MMU_H__
++#include <linux/bug.h>
 +
-+/*
-+ * We currently support using a VM-specified IPA size. For backward
-+ * compatibility, the default IPA size is fixed to 40bits.
-+ */
-+#define KVM_PHYS_SHIFT	(40)
++#include <asm/kvm_host_arm64_types.h>
++#include "asm/debug.h"
 +
-+/*
-+ * We are not in the kvm->srcu critical section most of the time, so we take
-+ * the SRCU read lock here. Since we copy the data from the user page, we
-+ * can immediately drop the lock again.
-+ */
-+static inline int kvm_read_guest_lock(struct kvm *kvm,
-+				      gpa_t gpa, void *data, unsigned long len)
++#include <kvm/arm_vgic.h>
++
++#define vcpu_gp_regs(v)		((v)->arch.sae_block.gpr)
++
++#define HAVE_KVM_MMIO
++
++#include <kvm/arm64/kvm_host.h>
++#include <asm/sae.h>
++
++#define KVM_HAVE_MMU_RWLOCK
++#define KVM_MAX_VCPUS 1
++
++#define KVM_VCPU_VALID_FEATURES 0
++
++#define KVM_HALT_POLL_NS_DEFAULT 50000
++
++#define __ctxt_sys_reg(ctx, reg) NULL
++struct kvm_cpu_context {
++	/*
++	 * These are just for 32 bit, which we don't have, making them RES0.
++	 * They are exposed to user space.
++	 * Arm KVM seemingly does not enforce RES0.
++	 */
++	u64	spsr_abt;
++	u64	spsr_und;
++	u64	spsr_irq;
++	u64	spsr_fiq;
++
++	__vector128 __aligned(16) vregs[32];
++};
++
++struct kvm_vcpu_arch {
++	struct kvm_sae_block sae_block;
++	struct kvm_sae_save_area save_area;
++	struct kvm_cpu_context ctxt;
++
++	u32 host_acrs[NUM_ACRS];
++
++	/* Hypervisor Configuration Register */
++	u64 hcr_elz;
++
++	/* Configuration flags, set once and for all before the vcpu can run */
++	u8 cflags;
++
++	/* Input flags to the hypervisor code, potentially cleared after use */
++	u8 iflags;
++
++	/* State flags for kernel bookkeeping, unused by the hypervisor code */
++	u8 sflags;
++
++	/*
++	 * Don't run the guest (internal implementation need).
++	 *
++	 * Contrary to the flags above, this is set/cleared outside of
++	 * a vcpu context, and thus cannot be mixed with the flags
++	 * themselves (or the flag accesses need to be made atomic).
++	 */
++	bool pause;
++
++	/* vcpu power state */
++	struct kvm_mp_state mp_state;
++	/* lock for mp_state & reset_state.reset */
++	spinlock_t mp_state_lock;
++
++	/* vcpu reset state */
++	struct vcpu_reset_state reset_state;
++
++	/* GMAP */
++	struct gmap *gmap;
++	struct kvm_s390_mmu_cache *mc;
++
++	void *debugfs_state_data;
++};
++
++struct kvm_vcpu_stat {
++	struct kvm_vcpu_stat_generic generic;
++	/* ARM64 stats */
++	u64 hvc_exit_stat;
++	u64 wfe_exit_stat;
++	u64 wfi_exit_stat;
++	u64 mmio_exit_user;
++	u64 mmio_exit_kernel;
++	u64 signal_exits;
++	u64 exits;
++	/* GMAP stats */
++	u64 pfault_sync;
++};
++
++#define kvm_vcpu_get_sp_el1(__vcpu) (&((__vcpu)->arch.sae_block.sp_el1))
++#define kvm_vcpu_get_vreg(__vcpu, _off) (&(__vcpu)->arch.ctxt.vregs[_off])
++#define kvm_vcpu_get_vregs(__vcpu) (&(__vcpu)->arch.ctxt.vregs)
++#define kvm_vcpu_get_fpsr(__vcpu) (&(__vcpu)->arch.sae_block.fpsr)
++#define kvm_vcpu_get_fpcr(__vcpu) (&(__vcpu)->arch.sae_block.fpcr)
++
++#define __vcpu_flags_preempt_disable()	preempt_disable()
++#define __vcpu_flags_preempt_enable()	preempt_enable()
++
++#define _vcpu_get_flag(v, flagset, ...)	\
++	__vcpu_get_flag(&(v)->arch.flagset, __VA_ARGS__)
++#define _vcpu_set_flag(v, flagset, ...)	\
++	__vcpu_set_flag(&(v)->arch.flagset, __VA_ARGS__)
++#define _vcpu_clear_flag(v, flagset, ...)	\
++	__vcpu_clear_flag(&(v)->arch.flagset, __VA_ARGS__)
++#define _vcpu_test_and_clear_flag(v, flagset, ...)	\
++	__vcpu_test_and_clear_flag(&(v)->arch.flagset, __VA_ARGS__)
++
++#define kvm_has_mte(_kvm) false
++#define vcpu_has_sve(vcpu) false
++
++struct kvm_arch_memory_slot {
++};
++
++struct kvm_arch {
++	struct gmap *gmap;
++	u64 guest_phys_size;
++
++	/* VM-wide vCPU feature set */
++	unsigned long flags;
++
++	/* Protects VM-scoped configuration data */
++	struct mutex config_lock;
++
++	debug_info_t *dbf;
++
++	DECLARE_BITMAP(vcpu_features, KVM_VCPU_MAX_FEATURES);
++
++	unsigned long mem_limit;
++};
++
++struct kvm_vm_stat {
++	struct kvm_vm_stat_generic generic;
++};
++
++#define kvm_vm_is_protected(_kvm)	false
++
++#define KVM_HVA_ERR_BAD		-1UL
++#define KVM_HVA_ERR_RO_BAD	-2UL
++
++#define kvm_phys_size(__kvm) ((__kvm)->arch.guest_phys_size)
++static inline bool kvm_is_error_hva(unsigned long addr)
 +{
-+	int srcu_idx = srcu_read_lock(&kvm->srcu);
-+	int ret = kvm_read_guest(kvm, gpa, data, len);
-+
-+	srcu_read_unlock(&kvm->srcu, srcu_idx);
-+
-+	return ret;
++	return IS_ERR_VALUE(addr);
 +}
 +
-+static inline int kvm_write_guest_lock(struct kvm *kvm, gpa_t gpa,
-+				       const void *data, unsigned long len)
++u32 get_kvm_ipa_limit(void);
++
++static inline void kvm_arch_sync_events(struct kvm *kvm) {}
++static inline void kvm_arch_sched_in(struct kvm_vcpu *vcpu, int cpu) {}
++
++int kvm_handle_guest_abort(struct kvm_vcpu *vcpu);
++
++/* arm64 guests do not use async-pf. Defined because Kbuild requires it as s390 kvm turns it on. */
++#define ASYNC_PF_PER_VCPU 0
++struct kvm_arch_async_pf {
++	unsigned long pfault_token;
++};
++
++#define __unsupp_async_call(fn) WARN_ONCE(true, "async not supported on kvm-arm64 %s", fn)
++
++static inline bool kvm_arch_can_dequeue_async_page_present(struct kvm_vcpu *vcpu)
 +{
-+	int srcu_idx = srcu_read_lock(&kvm->srcu);
-+	int ret = kvm_write_guest(kvm, gpa, data, len);
++	__unsupp_async_call(__func__);
++	return false;
++};
 +
-+	srcu_read_unlock(&kvm->srcu, srcu_idx);
++static inline void kvm_arch_async_page_ready(struct kvm_vcpu *vcpu,
++					     struct kvm_async_pf *work)
++{
++	__unsupp_async_call(__func__);
++};
 +
-+	return ret;
-+}
++static inline bool kvm_arch_async_page_not_present(struct kvm_vcpu *vcpu,
++						   struct kvm_async_pf *work)
++{
++	__unsupp_async_call(__func__);
++	return false;
++};
 +
-+/* Implemented by each architecture */
-+int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
-+			  phys_addr_t pa, unsigned long size, bool writable);
++static inline void kvm_arch_async_page_present(struct kvm_vcpu *vcpu,
++					       struct kvm_async_pf *work)
++{
++	__unsupp_async_call(__func__);
++};
 +
-+int create_hyp_io_mappings(phys_addr_t phys_addr, size_t size,
-+			   void __iomem **kaddr,
-+			   void __iomem **haddr);
++static inline void kvm_arch_async_page_present_queued(struct kvm_vcpu *vcpu)
++{
++	__unsupp_async_call(__func__);
++};
 +
-+#endif /* KVM_ARM64_KVM_MMU_H__ */
++#endif /* ASM_KVM_HOST_ARM64_H */
 -- 
 2.51.0
 
