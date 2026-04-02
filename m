@@ -4,55 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3AFDD3942D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 14:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C087D3942E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 14:07:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZFPGr2vHfLN0oelwoMVUCIsI6AJ/2lQYMAVc2+yuKqE=; b=ItpfT0CLPg5R+d9FgpiJbZO4a+
-	Id9so1ReWx1QmlDEOwl87jafD3u1nsgaiBKsHHy8pHoSIA3Lhe9rwokj9zckgz7rEIl6FM49uHTVw
-	wTTBWT+Vmo3kzzkpKMvB03L1yRxMPpHp5xdX8TcwqrS2WP2BSxfwPp14dGaSpccTY6AbBKGDry7zo
-	M3EX6T9lwVD2N8P+PISvEdsRcNP2MZdRIEZg7pqVDBBFvGWC5/ou22pleXZ3enBJC9IPa+nhbicy6
-	Q1RBF2fsD4FmclebLUgeLkm5W6JrJzUmAF3wYvB2sevNJi9cdczfaAeZWjhKNUh9zVel/NHXWfXJB
-	He6A15EA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nFd9jIu7oCg8zWjsPLajZf3hoUIOyxi5ZuP6KD1xE0M=; b=EXsRwKgpYbrgXz
+	3Akyhda6m+VNDE/fRc1V+EFbKVUyfUqbW1iIDxNCqwdZzZmZUo3HT19TVZRIQ1pMQ88frgS/nkCdP
+	qqWpiyy3PKsqkDS6vRGAVrESdM+3X06AEX9851jL34AAuyx8I2BYLF89FBVWnyOCXJMijKWbE01cd
+	zMiPBD43qLTkD4OGOgXrThAZaPLNdoOtHaSAOVrz1xSEHXLKXZKkIsEgfobhhz0ho6xbkir0jk91I
+	xK/Bq1EgNd5LBmwFdRRKHhDp6163B1cYrENbRBCAWu5+dTnTYp2err/AVSa67OYeYmsG9v/t/gRDB
+	7fXZ3arm/OmeHsfcHqdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8IhH-00000000F0U-4535;
-	Thu, 02 Apr 2026 14:06:59 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1w8IhL-00000000F3K-1SjI;
+	Thu, 02 Apr 2026 14:07:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8IhF-00000000Ezc-2M2j;
-	Thu, 02 Apr 2026 14:06:59 +0000
+	id 1w8IhJ-00000000F0p-2n2F;
+	Thu, 02 Apr 2026 14:07:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=nFd9jIu7oCg8zWjsPLajZf3hoUIOyxi5ZuP6KD1xE0M=; b=goV7VbG2kxcN3leV03D/4P/pXz
+	9r14DSWIT+SGTQBkoB4IvfHVgGMvC7/L9rhz4G9hBRWGghi2dy7UqbEnFoBF5AlA1x0RWJMTgF2fb
+	TR2C9889O/o+ZPnAExCx+Dowr7yievTsjFHAzAbGT0fFfG2AknISBX+hJwO/Jfj3+LjrIzqQ5452A
+	7ine93fuHgBxu/4HLSr2j8RtX1tlfp+iP79H/Geu1gfq2Ih1SQEgbksK/n27NyAj+jhGSmJCztU5n
+	ZGXU0XCMuL4I6WtvrBqzn4TRqnZnc0IJTjMeKk3fvMy/KlsHqNd1WN/3N9OCxqyXd0Kk5GMWDRiw+
+	vGpQQBaA==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8IhG-00000002ctk-1IqA;
+	Thu, 02 Apr 2026 14:07:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1775138814;
-	bh=ztdOpe1+N7AYJi9ZYllZm3LlSnBDs1ybZtX80GDvQQA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=nrebVlydtOn5w60RvAt5xUxxpwn1bEmiKyPMNB90/mHLTJPACi3SNte1OWAjykx/B
-	 hB9EPUWve6RmsTIdl7pQWziQGqswdEAeQGjPQlMhIj27Y0bp0cQTsU/9lzG/z4LEkj
-	 fyDcg+oWdKFbamWkOu9joUJfmjHEzdDW+XwreMu+7IRKtyEcA1sRZZWKFrdqaJKugf
-	 kOWz8cExo8LeWMQC56/VP+MTPAk4DweulUYxCS5x62l+qWSdbWbHmnaKXRCNIHxVlm
-	 9Zjzj92aD2PkfOF3LAu3TugtCWhPjeVWFFt9lz42PPCHiOYdm7HoY5R94KgCgiUBLL
-	 ed6aE63jLy8wg==
+	s=mail; t=1775138810;
+	bh=QK06DeIrGJLo+skpQxZiMaOTbSFroKiAVBO1zjQLL8s=;
+	h=From:Subject:Date:To:Cc:From;
+	b=LFogEVTIizHA9dz8cc7MtMaY27t1BL8kIFa3b2Dah2VYrBHqYyeWwlhC9njLL/YwN
+	 CYzUAxIrgSTmwkSLCGwmJvhnrgiIXEs4hFf4M/8lVRe3B+k4XR5whz0A9QX4gDvr7F
+	 /VfWhjLBiZSyw4eU6pslcWytUeG7/GW92jdigFhln/PQyLhlfY46zvoSAE7TLFuWYy
+	 h5okdLGQdiXV2Derhst7wleIeWhSHR8k0WB6e39hs6r9O8hbD2qoM0dCQlRzzCBxjf
+	 eqoO+YzAzGvbRKp5gIolZYwnQQNGhA28QYAaLMSBFN6gklMqwORefb7AZbwCnnGFre
+	 PVs9V1yfe8MQQ==
 Received: from [192.168.0.15] (modemcable014.2-22-96.mc.videotron.ca [96.22.2.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id DDA0717E79E8;
-	Thu,  2 Apr 2026 16:06:52 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 71C5D17E7827;
+	Thu,  2 Apr 2026 16:06:48 +0200 (CEST)
 From: Detlev Casanova <detlev.casanova@collabora.com>
-Date: Thu, 02 Apr 2026 10:06:37 -0400
-Subject: [PATCH v3 2/4] media: rkvdec: Use the global bitwriter instead of
- local one
+Subject: [PATCH v3 0/4] media: rkvdec: Switch to using a bitwriter
+Date: Thu, 02 Apr 2026 10:06:35 -0400
+Message-Id: <20260402-rkvdec-use-bitwriter-v3-0-2072474ceaf4@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260402-rkvdec-use-bitwriter-v3-2-2072474ceaf4@collabora.com>
-References: <20260402-rkvdec-use-bitwriter-v3-0-2072474ceaf4@collabora.com>
-In-Reply-To: <20260402-rkvdec-use-bitwriter-v3-0-2072474ceaf4@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42NQQ7CIBQFr9KwFgO02NaV9zAugH4sWosBipqmd
+ xfqzo0uJ3lvZkYenAGP9sWMHETjjR0TlJsCqV6MZ8CmS4wYYTtSshq7a+xA4ckDliY8nAngsKY
+ drVpZKl0rlK53B9o8V+3x9GE/yQuokF150RsfrHut3Ujz7kciUkxw2zClm5pJ3pKDssMgpHViq
+ +wN5Uxk/4hYEgkuqppXknDafIuWZXkD4F6jABcBAAA=
+X-Change-ID: 20260327-rkvdec-use-bitwriter-f1d149b3cf7c
 To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
  Mauro Carvalho Chehab <mchehab@kernel.org>, 
  Heiko Stuebner <heiko@sntech.de>, Nathan Chancellor <nathan@kernel.org>, 
@@ -66,8 +82,8 @@ Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
  Detlev Casanova <detlev.casanova@collabora.com>
 X-Mailer: b4 0.15.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_070657_967302_BF632E95 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20260402_150658_481812_C9178CFE 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,374 +98,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both rkvdec-h264.c and rkvdec-hevc.c use their own bitwriter
-function and macros.
+Using bitfields in large structures where fields are mostly unaligned can
+be hard on the compiler.
 
-Move to using the global one introduced before.
+Issues have been reported with clang ([1], [2]) and, even though those
+issues are addressed by clang devs, some setup can't or won't update clang
+just to compile a driver.
+
+Even when fixed, the compiler still might have to allocate a bigger stack
+frame to manage misalignement. Coupled with other features like KASAN, the
+stack becomes larger than the kernel's maximum [3].
+
+To avoid this, let's drop the bitfield implementation and switch to a
+bitwriter. There is already one for the older variants, so make it global
+and use it in other variants.
+
+Note that only buffer structures are switched to the bitwriter. The
+registers representation structures are kept with bitfields, as they are
+properly aligned every 32 bits and don't require heavy stack overhead.
+
+Also note that the VDPU381 SPS and PPS structs are kept with bitfields,
+for the same reason that they are small and aligned enough not to require
+heavy stack overhead.
+
+[1]: https://lore.kernel.org/oe-kbuild-all/202601211924.rqKS2Ihm-lkp@intel.com/
+[2]: https://github.com/llvm/llvm-project/issues/178535
+[3]: https://yhbt.net/lore/llvm/20260121230406.GA2625738@ax162/T/#mad878ec24a8224e1387ef5e73cb77b9ada55e3f2
 
 Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
- .../media/platform/rockchip/rkvdec/rkvdec-h264.c   | 109 ++++++-------
- .../media/platform/rockchip/rkvdec/rkvdec-hevc.c   | 171 +++++++++------------
- 2 files changed, 119 insertions(+), 161 deletions(-)
+Changes in v3:
+- Change bitwriter function to static inline instead of its own object
+- Link to v2: https://patch.msgid.link/20260327-rkvdec-use-bitwriter-v2-0-a5a4754b0518@collabora.com
 
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
-index d3202cecb988..ffa606038192 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
-@@ -16,6 +16,7 @@
- #include "rkvdec-regs.h"
- #include "rkvdec-cabac.h"
- #include "rkvdec-h264-common.h"
-+#include "rkvdec-bitwriter.h"
- 
- /* Size with u32 units. */
- #define RKV_CABAC_INIT_BUFFER_SIZE	(3680 + 128)
-@@ -25,56 +26,48 @@ struct rkvdec_sps_pps_packet {
- 	u32 info[8];
- };
- 
--struct rkvdec_ps_field {
--	u16 offset;
--	u8 len;
--};
--
--#define PS_FIELD(_offset, _len) \
--	((struct rkvdec_ps_field){ _offset, _len })
--
--#define SEQ_PARAMETER_SET_ID				PS_FIELD(0, 4)
--#define PROFILE_IDC					PS_FIELD(4, 8)
--#define CONSTRAINT_SET3_FLAG				PS_FIELD(12, 1)
--#define CHROMA_FORMAT_IDC				PS_FIELD(13, 2)
--#define BIT_DEPTH_LUMA					PS_FIELD(15, 3)
--#define BIT_DEPTH_CHROMA				PS_FIELD(18, 3)
--#define QPPRIME_Y_ZERO_TRANSFORM_BYPASS_FLAG		PS_FIELD(21, 1)
--#define LOG2_MAX_FRAME_NUM_MINUS4			PS_FIELD(22, 4)
--#define MAX_NUM_REF_FRAMES				PS_FIELD(26, 5)
--#define PIC_ORDER_CNT_TYPE				PS_FIELD(31, 2)
--#define LOG2_MAX_PIC_ORDER_CNT_LSB_MINUS4		PS_FIELD(33, 4)
--#define DELTA_PIC_ORDER_ALWAYS_ZERO_FLAG		PS_FIELD(37, 1)
--#define PIC_WIDTH_IN_MBS				PS_FIELD(38, 9)
--#define PIC_HEIGHT_IN_MBS				PS_FIELD(47, 9)
--#define FRAME_MBS_ONLY_FLAG				PS_FIELD(56, 1)
--#define MB_ADAPTIVE_FRAME_FIELD_FLAG			PS_FIELD(57, 1)
--#define DIRECT_8X8_INFERENCE_FLAG			PS_FIELD(58, 1)
--#define MVC_EXTENSION_ENABLE				PS_FIELD(59, 1)
--#define NUM_VIEWS					PS_FIELD(60, 2)
--#define VIEW_ID(i)					PS_FIELD(62 + ((i) * 10), 10)
--#define NUM_ANCHOR_REFS_L(i)				PS_FIELD(82 + ((i) * 11), 1)
--#define ANCHOR_REF_L(i)				PS_FIELD(83 + ((i) * 11), 10)
--#define NUM_NON_ANCHOR_REFS_L(i)			PS_FIELD(104 + ((i) * 11), 1)
--#define NON_ANCHOR_REFS_L(i)				PS_FIELD(105 + ((i) * 11), 10)
--#define PIC_PARAMETER_SET_ID				PS_FIELD(128, 8)
--#define PPS_SEQ_PARAMETER_SET_ID			PS_FIELD(136, 5)
--#define ENTROPY_CODING_MODE_FLAG			PS_FIELD(141, 1)
--#define BOTTOM_FIELD_PIC_ORDER_IN_FRAME_PRESENT_FLAG	PS_FIELD(142, 1)
--#define NUM_REF_IDX_L_DEFAULT_ACTIVE_MINUS1(i)		PS_FIELD(143 + ((i) * 5), 5)
--#define WEIGHTED_PRED_FLAG				PS_FIELD(153, 1)
--#define WEIGHTED_BIPRED_IDC				PS_FIELD(154, 2)
--#define PIC_INIT_QP_MINUS26				PS_FIELD(156, 7)
--#define PIC_INIT_QS_MINUS26				PS_FIELD(163, 6)
--#define CHROMA_QP_INDEX_OFFSET				PS_FIELD(169, 5)
--#define DEBLOCKING_FILTER_CONTROL_PRESENT_FLAG		PS_FIELD(174, 1)
--#define CONSTRAINED_INTRA_PRED_FLAG			PS_FIELD(175, 1)
--#define REDUNDANT_PIC_CNT_PRESENT			PS_FIELD(176, 1)
--#define TRANSFORM_8X8_MODE_FLAG			PS_FIELD(177, 1)
--#define SECOND_CHROMA_QP_INDEX_OFFSET			PS_FIELD(178, 5)
--#define SCALING_LIST_ENABLE_FLAG			PS_FIELD(183, 1)
--#define SCALING_LIST_ADDRESS				PS_FIELD(184, 32)
--#define IS_LONG_TERM(i)				PS_FIELD(216 + (i), 1)
-+#define SEQ_PARAMETER_SET_ID				BW_FIELD(0, 4)
-+#define PROFILE_IDC					BW_FIELD(4, 8)
-+#define CONSTRAINT_SET3_FLAG				BW_FIELD(12, 1)
-+#define CHROMA_FORMAT_IDC				BW_FIELD(13, 2)
-+#define BIT_DEPTH_LUMA					BW_FIELD(15, 3)
-+#define BIT_DEPTH_CHROMA				BW_FIELD(18, 3)
-+#define QPPRIME_Y_ZERO_TRANSFORM_BYPASS_FLAG		BW_FIELD(21, 1)
-+#define LOG2_MAX_FRAME_NUM_MINUS4			BW_FIELD(22, 4)
-+#define MAX_NUM_REF_FRAMES				BW_FIELD(26, 5)
-+#define PIC_ORDER_CNT_TYPE				BW_FIELD(31, 2)
-+#define LOG2_MAX_PIC_ORDER_CNT_LSB_MINUS4		BW_FIELD(33, 4)
-+#define DELTA_PIC_ORDER_ALWAYS_ZERO_FLAG		BW_FIELD(37, 1)
-+#define PIC_WIDTH_IN_MBS				BW_FIELD(38, 9)
-+#define PIC_HEIGHT_IN_MBS				BW_FIELD(47, 9)
-+#define FRAME_MBS_ONLY_FLAG				BW_FIELD(56, 1)
-+#define MB_ADAPTIVE_FRAME_FIELD_FLAG			BW_FIELD(57, 1)
-+#define DIRECT_8X8_INFERENCE_FLAG			BW_FIELD(58, 1)
-+#define MVC_EXTENSION_ENABLE				BW_FIELD(59, 1)
-+#define NUM_VIEWS					BW_FIELD(60, 2)
-+#define VIEW_ID(i)					BW_FIELD(62 + ((i) * 10), 10)
-+#define NUM_ANCHOR_REFS_L(i)				BW_FIELD(82 + ((i) * 11), 1)
-+#define ANCHOR_REF_L(i)				BW_FIELD(83 + ((i) * 11), 10)
-+#define NUM_NON_ANCHOR_REFS_L(i)			BW_FIELD(104 + ((i) * 11), 1)
-+#define NON_ANCHOR_REFS_L(i)				BW_FIELD(105 + ((i) * 11), 10)
-+#define PIC_PARAMETER_SET_ID				BW_FIELD(128, 8)
-+#define PPS_SEQ_PARAMETER_SET_ID			BW_FIELD(136, 5)
-+#define ENTROPY_CODING_MODE_FLAG			BW_FIELD(141, 1)
-+#define BOTTOM_FIELD_PIC_ORDER_IN_FRAME_PRESENT_FLAG	BW_FIELD(142, 1)
-+#define NUM_REF_IDX_L_DEFAULT_ACTIVE_MINUS1(i)		BW_FIELD(143 + ((i) * 5), 5)
-+#define WEIGHTED_PRED_FLAG				BW_FIELD(153, 1)
-+#define WEIGHTED_BIPRED_IDC				BW_FIELD(154, 2)
-+#define PIC_INIT_QP_MINUS26				BW_FIELD(156, 7)
-+#define PIC_INIT_QS_MINUS26				BW_FIELD(163, 6)
-+#define CHROMA_QP_INDEX_OFFSET				BW_FIELD(169, 5)
-+#define DEBLOCKING_FILTER_CONTROL_PRESENT_FLAG		BW_FIELD(174, 1)
-+#define CONSTRAINED_INTRA_PRED_FLAG			BW_FIELD(175, 1)
-+#define REDUNDANT_PIC_CNT_PRESENT			BW_FIELD(176, 1)
-+#define TRANSFORM_8X8_MODE_FLAG			BW_FIELD(177, 1)
-+#define SECOND_CHROMA_QP_INDEX_OFFSET			BW_FIELD(178, 5)
-+#define SCALING_LIST_ENABLE_FLAG			BW_FIELD(183, 1)
-+#define SCALING_LIST_ADDRESS				BW_FIELD(184, 32)
-+#define IS_LONG_TERM(i)				BW_FIELD(216 + (i), 1)
- 
- /* Data structure describing auxiliary buffer format. */
- struct rkvdec_h264_priv_tbl {
-@@ -91,20 +84,6 @@ struct rkvdec_h264_ctx {
- 	struct rkvdec_regs regs;
- };
- 
--static void set_ps_field(u32 *buf, struct rkvdec_ps_field field, u32 value)
--{
--	u8 bit = field.offset % 32, word = field.offset / 32;
--	u64 mask = GENMASK_ULL(bit + field.len - 1, bit);
--	u64 val = ((u64)value << bit) & mask;
--
--	buf[word] &= ~mask;
--	buf[word] |= val;
--	if (bit + field.len > 32) {
--		buf[word + 1] &= ~(mask >> 32);
--		buf[word + 1] |= val >> 32;
--	}
--}
--
- static void assemble_hw_pps(struct rkvdec_ctx *ctx,
- 			    struct rkvdec_h264_run *run)
- {
-@@ -128,7 +107,7 @@ static void assemble_hw_pps(struct rkvdec_ctx *ctx,
- 	hw_ps = &priv_tbl->param_set[pps->pic_parameter_set_id];
- 	memset(hw_ps, 0, sizeof(*hw_ps));
- 
--#define WRITE_PPS(value, field) set_ps_field(hw_ps->info, field, value)
-+#define WRITE_PPS(value, field) rkvdec_set_bw_field(hw_ps->info, field, value)
- 	/* write sps */
- 	WRITE_PPS(sps->seq_parameter_set_id, SEQ_PARAMETER_SET_ID);
- 	WRITE_PPS(sps->profile_idc, PROFILE_IDC);
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-index ac8b825d080a..87abf93dfd5e 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-@@ -18,6 +18,7 @@
- #include "rkvdec-regs.h"
- #include "rkvdec-cabac.h"
- #include "rkvdec-hevc-common.h"
-+#include "rkvdec-bitwriter.h"
- 
- /* Size in u8/u32 units. */
- #define RKV_SCALING_LIST_SIZE		1360
-@@ -34,80 +35,72 @@ struct rkvdec_rps_packet {
- 	u32 info[RKV_RPS_SIZE];
- };
- 
--struct rkvdec_ps_field {
--	u16 offset;
--	u8 len;
--};
--
--#define PS_FIELD(_offset, _len) \
--	((struct rkvdec_ps_field){ _offset, _len })
--
- /* SPS */
--#define VIDEO_PARAMETER_SET_ID				PS_FIELD(0, 4)
--#define SEQ_PARAMETER_SET_ID				PS_FIELD(4, 4)
--#define CHROMA_FORMAT_IDC				PS_FIELD(8, 2)
--#define PIC_WIDTH_IN_LUMA_SAMPLES			PS_FIELD(10, 13)
--#define PIC_HEIGHT_IN_LUMA_SAMPLES			PS_FIELD(23, 13)
--#define BIT_DEPTH_LUMA					PS_FIELD(36, 4)
--#define BIT_DEPTH_CHROMA				PS_FIELD(40, 4)
--#define LOG2_MAX_PIC_ORDER_CNT_LSB			PS_FIELD(44, 5)
--#define LOG2_DIFF_MAX_MIN_LUMA_CODING_BLOCK_SIZE	PS_FIELD(49, 2)
--#define LOG2_MIN_LUMA_CODING_BLOCK_SIZE			PS_FIELD(51, 3)
--#define LOG2_MIN_TRANSFORM_BLOCK_SIZE			PS_FIELD(54, 3)
--#define LOG2_DIFF_MAX_MIN_LUMA_TRANSFORM_BLOCK_SIZE	PS_FIELD(57, 2)
--#define MAX_TRANSFORM_HIERARCHY_DEPTH_INTER		PS_FIELD(59, 3)
--#define MAX_TRANSFORM_HIERARCHY_DEPTH_INTRA		PS_FIELD(62, 3)
--#define SCALING_LIST_ENABLED_FLAG			PS_FIELD(65, 1)
--#define AMP_ENABLED_FLAG				PS_FIELD(66, 1)
--#define SAMPLE_ADAPTIVE_OFFSET_ENABLED_FLAG		PS_FIELD(67, 1)
--#define PCM_ENABLED_FLAG				PS_FIELD(68, 1)
--#define PCM_SAMPLE_BIT_DEPTH_LUMA			PS_FIELD(69, 4)
--#define PCM_SAMPLE_BIT_DEPTH_CHROMA			PS_FIELD(73, 4)
--#define PCM_LOOP_FILTER_DISABLED_FLAG			PS_FIELD(77, 1)
--#define LOG2_DIFF_MAX_MIN_PCM_LUMA_CODING_BLOCK_SIZE	PS_FIELD(78, 3)
--#define LOG2_MIN_PCM_LUMA_CODING_BLOCK_SIZE		PS_FIELD(81, 3)
--#define NUM_SHORT_TERM_REF_PIC_SETS			PS_FIELD(84, 7)
--#define LONG_TERM_REF_PICS_PRESENT_FLAG			PS_FIELD(91, 1)
--#define NUM_LONG_TERM_REF_PICS_SPS			PS_FIELD(92, 6)
--#define SPS_TEMPORAL_MVP_ENABLED_FLAG			PS_FIELD(98, 1)
--#define STRONG_INTRA_SMOOTHING_ENABLED_FLAG		PS_FIELD(99, 1)
-+#define VIDEO_PARAMETER_SET_ID				BW_FIELD(0, 4)
-+#define SEQ_PARAMETER_SET_ID				BW_FIELD(4, 4)
-+#define CHROMA_FORMAT_IDC				BW_FIELD(8, 2)
-+#define PIC_WIDTH_IN_LUMA_SAMPLES			BW_FIELD(10, 13)
-+#define PIC_HEIGHT_IN_LUMA_SAMPLES			BW_FIELD(23, 13)
-+#define BIT_DEPTH_LUMA					BW_FIELD(36, 4)
-+#define BIT_DEPTH_CHROMA				BW_FIELD(40, 4)
-+#define LOG2_MAX_PIC_ORDER_CNT_LSB			BW_FIELD(44, 5)
-+#define LOG2_DIFF_MAX_MIN_LUMA_CODING_BLOCK_SIZE	BW_FIELD(49, 2)
-+#define LOG2_MIN_LUMA_CODING_BLOCK_SIZE			BW_FIELD(51, 3)
-+#define LOG2_MIN_TRANSFORM_BLOCK_SIZE			BW_FIELD(54, 3)
-+#define LOG2_DIFF_MAX_MIN_LUMA_TRANSFORM_BLOCK_SIZE	BW_FIELD(57, 2)
-+#define MAX_TRANSFORM_HIERARCHY_DEPTH_INTER		BW_FIELD(59, 3)
-+#define MAX_TRANSFORM_HIERARCHY_DEPTH_INTRA		BW_FIELD(62, 3)
-+#define SCALING_LIST_ENABLED_FLAG			BW_FIELD(65, 1)
-+#define AMP_ENABLED_FLAG				BW_FIELD(66, 1)
-+#define SAMPLE_ADAPTIVE_OFFSET_ENABLED_FLAG		BW_FIELD(67, 1)
-+#define PCM_ENABLED_FLAG				BW_FIELD(68, 1)
-+#define PCM_SAMPLE_BIT_DEPTH_LUMA			BW_FIELD(69, 4)
-+#define PCM_SAMPLE_BIT_DEPTH_CHROMA			BW_FIELD(73, 4)
-+#define PCM_LOOP_FILTER_DISABLED_FLAG			BW_FIELD(77, 1)
-+#define LOG2_DIFF_MAX_MIN_PCM_LUMA_CODING_BLOCK_SIZE	BW_FIELD(78, 3)
-+#define LOG2_MIN_PCM_LUMA_CODING_BLOCK_SIZE		BW_FIELD(81, 3)
-+#define NUM_SHORT_TERM_REF_PIC_SETS			BW_FIELD(84, 7)
-+#define LONG_TERM_REF_PICS_PRESENT_FLAG			BW_FIELD(91, 1)
-+#define NUM_LONG_TERM_REF_PICS_SPS			BW_FIELD(92, 6)
-+#define SPS_TEMPORAL_MVP_ENABLED_FLAG			BW_FIELD(98, 1)
-+#define STRONG_INTRA_SMOOTHING_ENABLED_FLAG		BW_FIELD(99, 1)
- /* PPS */
--#define PIC_PARAMETER_SET_ID				PS_FIELD(128, 6)
--#define PPS_SEQ_PARAMETER_SET_ID			PS_FIELD(134, 4)
--#define DEPENDENT_SLICE_SEGMENTS_ENABLED_FLAG		PS_FIELD(138, 1)
--#define OUTPUT_FLAG_PRESENT_FLAG			PS_FIELD(139, 1)
--#define NUM_EXTRA_SLICE_HEADER_BITS			PS_FIELD(140, 13)
--#define SIGN_DATA_HIDING_ENABLED_FLAG			PS_FIELD(153, 1)
--#define CABAC_INIT_PRESENT_FLAG				PS_FIELD(154, 1)
--#define NUM_REF_IDX_L0_DEFAULT_ACTIVE			PS_FIELD(155, 4)
--#define NUM_REF_IDX_L1_DEFAULT_ACTIVE			PS_FIELD(159, 4)
--#define INIT_QP_MINUS26					PS_FIELD(163, 7)
--#define CONSTRAINED_INTRA_PRED_FLAG			PS_FIELD(170, 1)
--#define TRANSFORM_SKIP_ENABLED_FLAG			PS_FIELD(171, 1)
--#define CU_QP_DELTA_ENABLED_FLAG			PS_FIELD(172, 1)
--#define LOG2_MIN_CU_QP_DELTA_SIZE			PS_FIELD(173, 3)
--#define PPS_CB_QP_OFFSET				PS_FIELD(176, 5)
--#define PPS_CR_QP_OFFSET				PS_FIELD(181, 5)
--#define PPS_SLICE_CHROMA_QP_OFFSETS_PRESENT_FLAG	PS_FIELD(186, 1)
--#define WEIGHTED_PRED_FLAG				PS_FIELD(187, 1)
--#define WEIGHTED_BIPRED_FLAG				PS_FIELD(188, 1)
--#define TRANSQUANT_BYPASS_ENABLED_FLAG			PS_FIELD(189, 1)
--#define TILES_ENABLED_FLAG				PS_FIELD(190, 1)
--#define ENTROPY_CODING_SYNC_ENABLED_FLAG		PS_FIELD(191, 1)
--#define PPS_LOOP_FILTER_ACROSS_SLICES_ENABLED_FLAG	PS_FIELD(192, 1)
--#define LOOP_FILTER_ACROSS_TILES_ENABLED_FLAG		PS_FIELD(193, 1)
--#define DEBLOCKING_FILTER_OVERRIDE_ENABLED_FLAG		PS_FIELD(194, 1)
--#define PPS_DEBLOCKING_FILTER_DISABLED_FLAG		PS_FIELD(195, 1)
--#define PPS_BETA_OFFSET_DIV2				PS_FIELD(196, 4)
--#define PPS_TC_OFFSET_DIV2				PS_FIELD(200, 4)
--#define LISTS_MODIFICATION_PRESENT_FLAG			PS_FIELD(204, 1)
--#define LOG2_PARALLEL_MERGE_LEVEL			PS_FIELD(205, 3)
--#define SLICE_SEGMENT_HEADER_EXTENSION_PRESENT_FLAG	PS_FIELD(208, 1)
--#define NUM_TILE_COLUMNS				PS_FIELD(212, 5)
--#define NUM_TILE_ROWS					PS_FIELD(217, 5)
--#define COLUMN_WIDTH(i)					PS_FIELD(256 + ((i) * 8), 8)
--#define ROW_HEIGHT(i)					PS_FIELD(416 + ((i) * 8), 8)
--#define SCALING_LIST_ADDRESS				PS_FIELD(592, 32)
-+#define PIC_PARAMETER_SET_ID				BW_FIELD(128, 6)
-+#define PPS_SEQ_PARAMETER_SET_ID			BW_FIELD(134, 4)
-+#define DEPENDENT_SLICE_SEGMENTS_ENABLED_FLAG		BW_FIELD(138, 1)
-+#define OUTPUT_FLAG_PRESENT_FLAG			BW_FIELD(139, 1)
-+#define NUM_EXTRA_SLICE_HEADER_BITS			BW_FIELD(140, 13)
-+#define SIGN_DATA_HIDING_ENABLED_FLAG			BW_FIELD(153, 1)
-+#define CABAC_INIT_PRESENT_FLAG				BW_FIELD(154, 1)
-+#define NUM_REF_IDX_L0_DEFAULT_ACTIVE			BW_FIELD(155, 4)
-+#define NUM_REF_IDX_L1_DEFAULT_ACTIVE			BW_FIELD(159, 4)
-+#define INIT_QP_MINUS26					BW_FIELD(163, 7)
-+#define CONSTRAINED_INTRA_PRED_FLAG			BW_FIELD(170, 1)
-+#define TRANSFORM_SKIP_ENABLED_FLAG			BW_FIELD(171, 1)
-+#define CU_QP_DELTA_ENABLED_FLAG			BW_FIELD(172, 1)
-+#define LOG2_MIN_CU_QP_DELTA_SIZE			BW_FIELD(173, 3)
-+#define PPS_CB_QP_OFFSET				BW_FIELD(176, 5)
-+#define PPS_CR_QP_OFFSET				BW_FIELD(181, 5)
-+#define PPS_SLICE_CHROMA_QP_OFFSETS_PRESENT_FLAG	BW_FIELD(186, 1)
-+#define WEIGHTED_PRED_FLAG				BW_FIELD(187, 1)
-+#define WEIGHTED_BIPRED_FLAG				BW_FIELD(188, 1)
-+#define TRANSQUANT_BYPASS_ENABLED_FLAG			BW_FIELD(189, 1)
-+#define TILES_ENABLED_FLAG				BW_FIELD(190, 1)
-+#define ENTROPY_CODING_SYNC_ENABLED_FLAG		BW_FIELD(191, 1)
-+#define PPS_LOOP_FILTER_ACROSS_SLICES_ENABLED_FLAG	BW_FIELD(192, 1)
-+#define LOOP_FILTER_ACROSS_TILES_ENABLED_FLAG		BW_FIELD(193, 1)
-+#define DEBLOCKING_FILTER_OVERRIDE_ENABLED_FLAG		BW_FIELD(194, 1)
-+#define PPS_DEBLOCKING_FILTER_DISABLED_FLAG		BW_FIELD(195, 1)
-+#define PPS_BETA_OFFSET_DIV2				BW_FIELD(196, 4)
-+#define PPS_TC_OFFSET_DIV2				BW_FIELD(200, 4)
-+#define LISTS_MODIFICATION_PRESENT_FLAG			BW_FIELD(204, 1)
-+#define LOG2_PARALLEL_MERGE_LEVEL			BW_FIELD(205, 3)
-+#define SLICE_SEGMENT_HEADER_EXTENSION_PRESENT_FLAG	BW_FIELD(208, 1)
-+#define NUM_TILE_COLUMNS				BW_FIELD(212, 5)
-+#define NUM_TILE_ROWS					BW_FIELD(217, 5)
-+#define COLUMN_WIDTH(i)					BW_FIELD(256 + ((i) * 8), 8)
-+#define ROW_HEIGHT(i)					BW_FIELD(416 + ((i) * 8), 8)
-+#define SCALING_LIST_ADDRESS				BW_FIELD(592, 32)
- 
- /* Data structure describing auxiliary buffer format. */
- struct rkvdec_hevc_priv_tbl {
-@@ -123,20 +116,6 @@ struct rkvdec_hevc_ctx {
- 	struct rkvdec_regs regs;
- };
- 
--static void set_ps_field(u32 *buf, struct rkvdec_ps_field field, u32 value)
--{
--	u8 bit = field.offset % 32, word = field.offset / 32;
--	u64 mask = GENMASK_ULL(bit + field.len - 1, bit);
--	u64 val = ((u64)value << bit) & mask;
--
--	buf[word] &= ~mask;
--	buf[word] |= val;
--	if (bit + field.len > 32) {
--		buf[word + 1] &= ~(mask >> 32);
--		buf[word + 1] |= val >> 32;
--	}
--}
--
- static void assemble_hw_pps(struct rkvdec_ctx *ctx,
- 			    struct rkvdec_hevc_run *run)
- {
-@@ -159,7 +138,7 @@ static void assemble_hw_pps(struct rkvdec_ctx *ctx,
- 	hw_ps = &priv_tbl->param_set[pps->pic_parameter_set_id];
- 	memset(hw_ps, 0, sizeof(*hw_ps));
- 
--#define WRITE_PPS(value, field) set_ps_field(hw_ps->info, field, value)
-+#define WRITE_PPS(value, field) rkvdec_set_bw_field(hw_ps->info, field, value)
- 	/* write sps */
- 	WRITE_PPS(sps->video_parameter_set_id, VIDEO_PARAMETER_SET_ID);
- 	WRITE_PPS(sps->seq_parameter_set_id, SEQ_PARAMETER_SET_ID);
-@@ -321,17 +300,17 @@ static void assemble_sw_rps(struct rkvdec_ctx *ctx,
- 	int i, j;
- 	unsigned int lowdelay;
- 
--#define WRITE_RPS(value, field) set_ps_field(hw_ps->info, field, value)
-+#define WRITE_RPS(value, field) rkvdec_set_bw_field(hw_ps->info, field, value)
- 
--#define REF_PIC_LONG_TERM_L0(i)			PS_FIELD((i) * 5, 1)
--#define REF_PIC_IDX_L0(i)			PS_FIELD(1 + ((i) * 5), 4)
--#define REF_PIC_LONG_TERM_L1(i)			PS_FIELD(((i) < 5 ? 75 : 132) + ((i) * 5), 1)
--#define REF_PIC_IDX_L1(i)			PS_FIELD(((i) < 4 ? 76 : 128) + ((i) * 5), 4)
-+#define REF_PIC_LONG_TERM_L0(n)			BW_FIELD((n) * 5, 1)
-+#define REF_PIC_IDX_L0(n)			BW_FIELD(1 + ((n) * 5), 4)
-+#define REF_PIC_LONG_TERM_L1(n)			BW_FIELD(((n) < 5 ? 75 : 132) + ((n) * 5), 1)
-+#define REF_PIC_IDX_L1(n)			BW_FIELD(((n) < 4 ? 76 : 128) + ((n) * 5), 4)
- 
--#define LOWDELAY				PS_FIELD(182, 1)
--#define LONG_TERM_RPS_BIT_OFFSET		PS_FIELD(183, 10)
--#define SHORT_TERM_RPS_BIT_OFFSET		PS_FIELD(193, 9)
--#define NUM_RPS_POC				PS_FIELD(202, 4)
-+#define LOWDELAY				BW_FIELD(182, 1)
-+#define LONG_TERM_RPS_BIT_OFFSET		BW_FIELD(183, 10)
-+#define SHORT_TERM_RPS_BIT_OFFSET		BW_FIELD(193, 9)
-+#define NUM_RPS_POC				BW_FIELD(202, 4)
- 
- 	for (j = 0; j < run->num_slices; j++) {
- 		uint st_bit_offset = 0;
+Changes in v2:
+- Don't use BW_FIELD to compute buffer size
+- Use correct size for buffers
+- Fix missed indentation issues
+- Link to v1: https://patch.msgid.link/20260327-rkvdec-use-bitwriter-v1-0-982cf872b590@collabora.com
 
--- 
-2.53.0
+---
+Detlev Casanova (4):
+      media: rkvdec: Introduce a global bitwriter helper
+      media: rkvdec: Use the global bitwriter instead of local one
+      media: rkvdec: common: Drop bitfields for the bitwriter
+      media: rkvdec: vdpu383: Drop bitfields for the bitwriter
+
+ .../platform/rockchip/rkvdec/rkvdec-bitwriter.h    |  39 ++
+ .../platform/rockchip/rkvdec/rkvdec-h264-common.c  |  51 +--
+ .../platform/rockchip/rkvdec/rkvdec-h264-common.h  |  40 +-
+ .../media/platform/rockchip/rkvdec/rkvdec-h264.c   | 109 ++---
+ .../platform/rockchip/rkvdec/rkvdec-hevc-common.c  |  93 +---
+ .../platform/rockchip/rkvdec/rkvdec-hevc-common.h  |  57 +--
+ .../media/platform/rockchip/rkvdec/rkvdec-hevc.c   | 171 +++----
+ .../platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c | 351 ++++++--------
+ .../platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c | 502 +++++++++------------
+ 9 files changed, 562 insertions(+), 851 deletions(-)
+---
+base-commit: d0c3bcd5b8976159d835a897254048e078f447e6
+change-id: 20260327-rkvdec-use-bitwriter-f1d149b3cf7c
+
+Best regards,
+--  
+Detlev Casanova <detlev.casanova@collabora.com>
 
 
