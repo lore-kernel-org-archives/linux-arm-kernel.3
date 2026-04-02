@@ -4,47 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74C03D3940D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 10:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52088D39410
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 10:57:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LftVk3p+D1lpNfbkKE4+KpyUeAmiTsBUQjaiRU8yqnw=; b=v77weGbl2ld/pkjY9P7eu+Q6bb
-	ig/KK3u/BBVB33xb6aRDX0duDEQA9aC0C6ggB5GItWrdKPO6ATNhGYlxULtnt81GCU2r9xq9WPgFk
-	n2W0nGXze08daKayEWobM7n5agsTY5lojXdZKh1yefKwMWmKyFuRdc8g//TQBVwELRbvX8kxbejTK
-	JEDcVm4H9f5PMXDtTRor1CvXlcHL+yjpszxju+ui2H2Zhhmg/AmWVD8IekyyGklfluoVDBP84DkoO
-	dFMAkuBWFv4jwrDUj5nQv3YzZ1LWSecPDuIomGzTp2AsfgrQmDywDz8FjQrvFX6bzfxtAy5Tn8LBX
-	rC3nWGJg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+BoXlgipnNG+DuSePjmrCMzbqdgrmzoaZUj/nX6RrCU=; b=qq5Q+CxxDiCUOzW8Ix8EB9YbxH
+	GWhCBFAF08aSR+yyXq/KkHiXkiPvELU7BuoaIQ1TUvVZRqwpUkr1BkddtwsaAep0RhLw7xzxFuM4l
+	VjIxij4p1tYu1Q8HedobO8hYX4kMUh0hpU0NubTaPQgqp8DzMROleeN3jI7XGMzKeUMnOU49bewaI
+	ALLTLGtAh4xx7MrMfqU2tAhZBuQvJpP5qRw27oyP90c4ZFI/Q+RtIh+Q7NN+65JjTmyuyt7YBqckw
+	iMqfF2M9V3TA86nSnEjlIgkGaH3Jz4oG5e9ftjeFA/KTikm5csEEc3KJKYdeGD6vCHlt4VKLXkPQe
+	/0NpvYQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8FjR-0000000HSbV-1XMD;
-	Thu, 02 Apr 2026 10:57:01 +0000
-Received: from cp2.siel.si ([46.19.12.180])
+	id 1w8FjV-0000000HSgk-3M6m;
+	Thu, 02 Apr 2026 10:57:05 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8FjO-0000000HRir-31Us
+	id 1w8FjU-0000000HSeE-2d0g
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 02 Apr 2026 10:57:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=+BoXlgipnNG+DuSePjmrCMzbqdgrmzoaZUj/nX6RrCU=; b=PLwNciwETSzAPN4pjoIh6s9FnG
+	MI8pO4RI3C0Yh28clRCgb8p0vVK5xjefW7HZ8VO4YFUfCM3BBTA2Z8KptoOOfYQIlqJ1iMZuvzJxx
+	WUoK65UGP2W84rUsHZFoqrKgNzUXKa7MkhtZQTLf0JBfP2y9W1ug4sCuKzvZdciMDGfVL1bIE0fVJ
+	f60rvJ2fB0mv6t2w9pvrUIYK9yCQXmhP6aKKK1SGla8dLmLqlMIeqYwKLqjnwYhbeU9DAwE4bNn7F
+	iLEckIIsEsMwzh8MxqfVFLD7TH8Yf2fJzkQLXmRLj4sRoYMk8GEiPY6aupUHCUPaWLC0gQVJJQq4k
+	e87Mx4+A==;
+Received: from cp2.siel.si ([46.19.12.180])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8FjQ-0000000CADl-2IQw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 10:57:00 +0000
+	Thu, 02 Apr 2026 10:57:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:
-	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=LftVk3p+D1lpNfbkKE4+KpyUeAmiTsBUQjaiRU8yqnw=; b=a35zriNzqF4F5VQ4nKIZhr2URy
-	fWXHFkdz6aQg6BoTWFEjt1/VNjhyATDc69e/UPvPNv0rA0gTVTxyQJFlSyDes1M8jfluU6GRs8gvW
-	sp8y641h7dZcNHzHiGJXrAjkOIWZLua53kEaCDonL4jrwSauxbqfKXkbW7O4ciN3TzB7LHkJTp5KA
-	5cfCFa4oMMkuB8ObZ777K6msb66My2QamtC8S+sYZVyKxsWl+PFCgqGmhzqHdpVvLs8LkCYDpabDX
-	JsRoNyY8abCkzeORiFHD628JJk3jQZHyyAV07ymP9c/GOO1LpRE7Y6hibt30g+v/pdVtYCmyJIrfw
-	n+1EyOWQ==;
+	bh=+BoXlgipnNG+DuSePjmrCMzbqdgrmzoaZUj/nX6RrCU=; b=V0CLWWY/sLKZOW2STEH4RHVwE5
+	lJ6E+w2HmPYIM1EE63oh4TJY8ytqInDyDJQUSRz7tCH4PC4p8+97rtCDGi6YU4lrzNcXI4eUCFHTG
+	nthOkKpkN4rgKQzG7FIHX3BZyfR2eVX4W72Q2r02PFnn3oZAHo1lil+oRmWICWezomRWpXTgiTnye
+	TlvSbl/iVm+2ato1WcY75+2qn7PiJyNeF7umexTr/E8noK42Buq6hVCqQ0AXJVynkSNvQ0cvWveZg
+	avFwqOnUemws9/jGto7K/UyUOejlkabJjyM1becDskHnwbV1huaUGKll/zCAMpXNemkzWMy5eZL5/
+	ni9TaIOg==;
 Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:52086 helo=florijan-nb..)
 	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.99.1)
 	(envelope-from <florijan.plohl@norik.com>)
-	id 1w8Fig-00000009fYO-2Q1h;
-	Thu, 02 Apr 2026 12:56:13 +0200
+	id 1w8Fig-00000009fYO-3jLJ;
+	Thu, 02 Apr 2026 12:56:14 +0200
 From: Florijan Plohl <florijan.plohl@norik.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -58,10 +73,12 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH 1/5] arm64: dts: freescale: imx91-phycore-som: Add gpio-line-names
-Date: Thu,  2 Apr 2026 12:56:09 +0200
-Message-ID: <20260402105613.1303871-1-florijan.plohl@norik.com>
+Subject: [PATCH 4/5] arm64: dts: freescale: imx93-phyboard-nash: Add gpio-line-names
+Date: Thu,  2 Apr 2026 12:56:12 +0200
+Message-ID: <20260402105613.1303871-4-florijan.plohl@norik.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260402105613.1303871-1-florijan.plohl@norik.com>
+References: <20260402105613.1303871-1-florijan.plohl@norik.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -75,8 +92,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_035659_232866_1A1344EB 
-X-CRM114-Status: UNSURE (   4.92  )
+X-CRM114-CacheID: sfid-20260402_115700_735346_D0B7E481 
+X-CRM114-Status: UNSURE (   4.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,45 +110,54 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Add gpio-line-names for GPIOs with a defined board-level
-function on the PHYTEC phyCORE-i.MX91 SoM.
+function on the PHYTEC phyBOARD-Nash-i.MX93.
 
 Signed-off-by: Florijan Plohl <florijan.plohl@norik.com>
 ---
- .../boot/dts/freescale/imx91-phycore-som.dtsi | 22 +++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ .../dts/freescale/imx93-phyboard-nash.dts     | 31 +++++++++++++++++++
+ 1 file changed, 31 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi
-index 29a428a052b0..b9a453f6b290 100644
---- a/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi
-@@ -88,6 +88,28 @@ ethphy1: ethernet-phy@1 {
- 	};
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts
+index eac389ed30f3..b82192f25498 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts
+@@ -141,6 +141,37 @@ &flexcan1 {
+ 	status = "okay";
  };
  
 +&gpio1 {
-+	gpio-line-names = "", "USER_LED";
++	gpio-line-names = "", "USER_LED", "I2C2_SCL", "I2C2_SDA";
 +};
 +
 +&gpio2 {
-+	gpio-line-names = "", "", "", "", "",
++	gpio-line-names = "SPI6_CS0", "", "", "", "",
 +			  "", "", "", "", "",
 +			  "", "", "", "", "",
-+			  "", "", "", "", "",
++			  "", "", "TPM_nIRQ", "", "",
 +			  "", "", "", "", "",
 +			  "", "", "", "I2C3_SDA", "I2C3_SCL";
++};
++
++&gpio3 {
++	gpio-line-names = "SD2_nCD", "", "", "", "",
++			  "", "", "SD2_nRESET", "", "",
++			  "", "", "", "", "",
++			  "", "", "", "", "",
++			  "", "", "", "", "",
++			  "", "nENET1_INT";
 +};
 +
 +&gpio4 {
 +	gpio-line-names = "", "", "", "", "",
 +			  "", "", "", "", "",
 +			  "", "", "", "", "",
-+			  "", "", "", "", "",
++			  "", "nCAN_EN", "", "", "",
 +			  "", "", "", "RESET_PHY", "",
-+			  "", "", "PMIC_IRQ_B";
++			  "", "RTC_nINT", "PMIC_IRQ_B";
 +};
 +
- /* I2C3 */
- &lpi2c3 {
+ /* I2C2 */
+ &lpi2c2 {
  	clock-frequency = <400000>;
 -- 
 2.43.0
