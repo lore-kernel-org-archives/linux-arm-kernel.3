@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9A80D6AAE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 15:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA54DD6AAE9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:09:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7R//yxfyaP6JJBWZl6kkmgSntHXxSk8U82+TLVoin/0=; b=Gm3ch7s4YhtfvJCWIAAdyitXF2
-	+xqUJw1l3KOeX3+Y6hDgl6j6+249Lq3JAVrBkkx5bhC8JT4YcVlCCSTXRVnY0F05UI48XgK2ZUBx5
-	lOxOAze4MXPupzO8BO0DjErrAO660QWIw/mpylnr0HdfuLFOh4tr30AettYlSB4EXZVRaBoRzZD2x
-	Tklfa2uw9dv9sn+2nmfPasvoMIDjA5rOVdrQ4fVrKkP13GsjLTnacO8UlD/izbBK/FmaviUBrLtEu
-	AVq3rhpUFLO1G2708BJlVfKepYYv94j7PWP+lcF+//rP4PhDtUOE+NZc0bgjmreGYocp0AuwkYdju
-	2/dIaL9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VUzutaoUGfk5BxYsbgUd+nfhxGnVqvYrkXneBf/GhJY=; b=nDroOVw48xyvLU74So/Yizs6fj
+	EwqtqNgdZyZz4gsptiIlBbFXAk80mOvMkRtHfDJroNwRQoRfa8eQHMfgJfXi2iLMoU6ECfROEvSsW
+	2oZ/VEd1NIS/VHhshrilYC+PRTsymqaxvhAt5HuWj+lhm87o+wevDLqO2n44KWDMnzQwX9IQsbJxf
+	Vd/A3Kd41bZc+KidsWKQyeGM5K4ZQuEc8iuFbbY7SeH1VltzO3LbQ83Sn4QFq3PN9rk593QkbjWfp
+	3E1RhwKpN+WRRSUr4wSVjFL1Fikdk2F71nP5wU17vYBgshx9uhkprVK/CO97hJOqtjnbC/y46A1U8
+	FvvlI+yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8KSO-00000000TmJ-0ZDT;
-	Thu, 02 Apr 2026 15:59:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8KSL-00000000Tli-0jGI;
-	Thu, 02 Apr 2026 15:59:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AF68119F6;
-	Thu,  2 Apr 2026 08:59:31 -0700 (PDT)
-Received: from [10.57.75.194] (unknown [10.57.75.194])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE0733F7D8;
-	Thu,  2 Apr 2026 08:59:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775145577; bh=i132jaYTi+ixjxc06WKFSsZBQkYSpy9Al36njUn136A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=X1fFpyjZioXy4emzPkjym3elHmat0r+NzfnNyuFOL1OkZZkHFO799zWiDOc+QsG89
-	 RvckoTATbUkXYGvBcdbyyGatOV5TQ8U7m5+c3/BHSMv29HSpGqfCfDH9T1FFCyGT6l
-	 ixQ85owst4jhClEz/N9TGMke5/DtJjAEVGacLBjw=
-Message-ID: <70a128f9-d6f0-41b6-8fef-e249c0507149@arm.com>
-Date: Thu, 2 Apr 2026 16:59:29 +0100
+	id 1w8Kbf-00000000Ucw-22Kw;
+	Thu, 02 Apr 2026 16:09:19 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8Kbb-00000000UcQ-0j8S
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Apr 2026 16:09:17 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 4DC831F8005E
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Apr 2026 16:09:02 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id 8E8C6B40125; Thu,  2 Apr 2026 16:09:00 +0000 (UTC)
+Received: from shepard (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id C045FB40114;
+	Thu,  2 Apr 2026 16:08:58 +0000 (UTC)
+Date: Thu, 2 Apr 2026 18:08:56 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Lucas Stach <l.stach@pengutronix.de>
+Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof =?utf-8?Q?Ha=C5=82asa?= <khalasa@piap.pl>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Liu Ying <victor.liu@nxp.com>
+Subject: Re: [PATCH 2/3] drm: lcdif: Use dedicated set/clr registers for
+ polarity/edge
+Message-ID: <ac6UmHl86ax5eSVv@shepard>
+References: <20260330224619.2620782-1-paulk@sys-base.io>
+ <20260330224619.2620782-3-paulk@sys-base.io>
+ <f5b628f50def756da356184ff6febb11cc9aaa68.camel@pengutronix.de>
+ <acvllbRTHyVFTgmS@collins>
+ <3b221a4997c367df716bf107a7e98ce10cd6860b.camel@pengutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] iommu: Always fill in gather when unmapping
-To: Jason Gunthorpe <jgg@nvidia.com>, Alexandre Ghiti <alex@ghiti.fr>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
- Baolin Wang <baolin.wang@linux.alibaba.com>, iommu@lists.linux.dev,
- Janne Grunau <j@jannau.net>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Joerg Roedel <joro@8bytes.org>, Jean-Philippe Brucker <jpb@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev,
- Matthias Brugger <matthias.bgg@gmail.com>, Neal Gompa <neal@gompa.dev>,
- Orson Zhai <orsonzhai@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <pjw@kernel.org>, Samuel Holland <samuel@sholland.org>,
- Sven Peter <sven@kernel.org>, virtualization@lists.linux.dev,
- Chen-Yu Tsai <wens@kernel.org>, Will Deacon <will@kernel.org>,
- Yong Wu <yong.wu@mediatek.com>, Chunyan Zhang <zhang.lyra@gmail.com>
-Cc: Lu Baolu <baolu.lu@linux.intel.com>,
- Janusz Krzysztofik <janusz.krzysztofik@linux.intel.com>,
- Joerg Roedel <joerg.roedel@amd.com>, Jon Hunter <jonathanh@nvidia.com>,
- patches@lists.linux.dev, Pranjal Shrivastava <praan@google.com>,
- Samiullah Khawaja <skhawaja@google.com>, stable@vger.kernel.org,
- Vasant Hegde <vasant.hegde@amd.com>
-References: <0-v2-b24668f107b2+11bbe-iommu_gather_always_jgg@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <0-v2-b24668f107b2+11bbe-iommu_gather_always_jgg@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="er1C6Ur3KOqFT3zW"
+Content-Disposition: inline
+In-Reply-To: <3b221a4997c367df716bf107a7e98ce10cd6860b.camel@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_085941_410028_D7A30521 
-X-CRM114-Status: GOOD (  42.47  )
+X-CRM114-CacheID: sfid-20260402_090915_564751_3FB4345A 
+X-CRM114-Status: GOOD (  39.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,284 +81,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-04-02 3:25 pm, Jason Gunthorpe wrote:
-> The fixed commit assumed that the gather would always be populated if an
-> iotlb_sync was required.
-> 
-> arm-smmu-v3, amd, VT-d, riscv, s390, and mtk all use information from the
-> gather during their iotlb_sync() and this approach works for them.
-> 
-> However, arm-smmu, qcom_iommu, ipmmu-vmsa, sun50i, sprd, virtio, and
-> apple-dart all ignore the gather during their iotlb_sync(). They mostly
-> issue a full flush.
-> 
-> Unfortunately the latter set of drivers often don't bother to add anything
-> to the gather since they don't intend on using it. Since the core code now
-> blocks gathers that were never filled, this caused those drivers to stop
-> getting their iotlb_sync() calls and breaks them.
-> 
-> Since it is impossible to tell the difference between gathers that are
-> empty because there is nothing to do and gathers that are empty because
-> they are not used, fill in the gathers for the missing cases.
-> 
-> mtk uses io-pgtable-arm-v7s but added the range to the gather in the unmap
-> callback. Move this into the io-pgtable-arm-v7s unmap itself. That will
-> fix all the armv7 using drivers (arm-smmu, qcom_iommu, ipmmu-vmsa).
-> 
-> io-pgtable-arm needs to accommodate drivers like arm-smmu that don't want
-> to use the gather by just adding a simple range, and drivers like SMMUv3
-> that need to use gather->pgsize and also have a disjoint check. Move
-> SMMUv3 to a new tlb_add_range() op which replaces calling
-> iommu_iotlb_gather_add_page() in a loop with a single call to update the
-> gather with the range and required pgsize.
-> 
-> iommu_iotlb_gather_add_page() is repurposed since nothing but SMMUv3 uses it
-> now that amd, VT-d and riscv are using iommupt.
-> 
-> Add a trivial gather population to io-pgtable-dart.
-> 
-> Add trivial populations to sprd, sun50i and virtio-iommu in their unmap
-> functions.
-> 
-> Fixes: 90c5def10bea ("iommu: Do not call drivers for empty gathers")
-> Reported-by: Jon Hunter <jonathanh@nvidia.com>
-> Closes: https://lore.kernel.org/r/8800a38b-8515-4bbe-af15-0dae81274bf7@nvidia.com
-> Tested-by: Jon Hunter <jonathanh@nvidia.com>
-> Acked-by: Pranjal Shrivastava <praan@google.com>
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 11 ++++++-----
->   drivers/iommu/io-pgtable-arm-v7s.c          |  4 ++++
->   drivers/iommu/io-pgtable-arm.c              | 19 ++++++++++++++++---
->   drivers/iommu/io-pgtable-dart.c             |  3 +++
->   drivers/iommu/mtk_iommu.c                   |  1 -
->   drivers/iommu/sprd-iommu.c                  |  1 +
->   drivers/iommu/sun50i-iommu.c                |  1 +
->   drivers/iommu/virtio-iommu.c                |  2 ++
->   include/linux/io-pgtable.h                  |  3 +++
->   include/linux/iommu.h                       | 19 ++++++++++---------
->   10 files changed, 46 insertions(+), 18 deletions(-)
-> 
-> v2:
->   - Add missed hunk for io-pgtable-armv7
->   - Revise the commit message to fix the miss about smmuv3's gather flow
->   - Make smmuv3 push its gather with a range instead of per-page
-> v1: https://patch.msgid.link/r/0-v1-664d3acaabb9+78b-iommu_gather_always_jgg@nvidia.com
-> 
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index e8d7dbe495f030..97e78a351cf35b 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -2775,14 +2775,15 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
->   	rcu_read_unlock();
->   }
->   
-> -static void arm_smmu_tlb_inv_page_nosync(struct iommu_iotlb_gather *gather,
-> -					 unsigned long iova, size_t granule,
-> -					 void *cookie)
-> +static void arm_smmu_tlb_inv_range_nosync(struct iommu_iotlb_gather *gather,
-> +					  unsigned long iova, size_t size,
-> +					  size_t granule, void *cookie)
->   {
->   	struct arm_smmu_domain *smmu_domain = cookie;
->   	struct iommu_domain *domain = &smmu_domain->domain;
->   
-> -	iommu_iotlb_gather_add_page(domain, gather, iova, granule);
-> +	iommu_iotlb_gather_add_range_pgsize(domain, gather, iova, size,
-> +					    granule);
->   }
->   
->   static void arm_smmu_tlb_inv_walk(unsigned long iova, size_t size,
-> @@ -2796,7 +2797,7 @@ static void arm_smmu_tlb_inv_walk(unsigned long iova, size_t size,
->   static const struct iommu_flush_ops arm_smmu_flush_ops = {
->   	.tlb_flush_all	= arm_smmu_tlb_inv_context,
->   	.tlb_flush_walk = arm_smmu_tlb_inv_walk,
-> -	.tlb_add_page	= arm_smmu_tlb_inv_page_nosync,
-> +	.tlb_add_range	= arm_smmu_tlb_inv_range_nosync,
->   };
->   
->   static bool arm_smmu_dbm_capable(struct arm_smmu_device *smmu)
-> diff --git a/drivers/iommu/io-pgtable-arm-v7s.c b/drivers/iommu/io-pgtable-arm-v7s.c
-> index 40e33257d3c2c5..87292a7f094687 100644
-> --- a/drivers/iommu/io-pgtable-arm-v7s.c
-> +++ b/drivers/iommu/io-pgtable-arm-v7s.c
-> @@ -596,6 +596,10 @@ static size_t __arm_v7s_unmap(struct arm_v7s_io_pgtable *data,
->   
->   		__arm_v7s_set_pte(ptep, 0, num_entries, &iop->cfg);
->   
-> +		if (!iommu_iotlb_gather_queued(gather))
-> +			iommu_iotlb_gather_add_range(gather, iova,
-> +						     num_entries * blk_size);
-> +
->   		for (i = 0; i < num_entries; i++) {
->   			if (ARM_V7S_PTE_IS_TABLE(pte[i], lvl)) {
->   				/* Also flush any partial walks */
-> diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-> index 0208e5897c299a..d51531330f8dea 100644
-> --- a/drivers/iommu/io-pgtable-arm.c
-> +++ b/drivers/iommu/io-pgtable-arm.c
-> @@ -666,9 +666,22 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
->   		/* Clear the remaining entries */
->   		__arm_lpae_clear_pte(ptep, &iop->cfg, i);
->   
-> -		if (gather && !iommu_iotlb_gather_queued(gather))
-> -			for (int j = 0; j < i; j++)
-> -				io_pgtable_tlb_add_page(iop, gather, iova + j * size, size);
-> +		if (gather && !iommu_iotlb_gather_queued(gather)) {
-> +			if (iop->cfg.tlb && iop->cfg.tlb->tlb_add_range) {
-> +				iop->cfg.tlb->tlb_add_range(gather, iova,
-> +							    i * size, size,
-> +							    iop->cookie);
-> +
-> +			} else {
-> +				iommu_iotlb_gather_add_range(gather, iova,
-> +							     i * size);
-> +
-> +				for (int j = 0; j < i; j++)
-> +					io_pgtable_tlb_add_page(iop, gather,
-> +								iova + j * size,
-> +								size);
-> +			}
-> +		}
 
-NAK, this is insane.
+--er1C6Ur3KOqFT3zW
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-If you'd rather make gathers mandatory for all drivers than fix it in 
-the core code, then for goodness' sake just add the trivial one-liner to 
-the handful of .unamp_pages implementations which need it, consistenly 
-with those which already exist, plus the ones you're also adding here 
-anyway. The entire diff should still be smaller than this absurd hunk 
-alone...
+Hi Lucas,
 
-Thanks,
-Robin.
+On Tue 31 Mar 26, 18:04, Lucas Stach wrote:
+> Am Dienstag, dem 31.03.2026 um 17:17 +0200 schrieb Paul Kocialkowski:
+> > Le Tue 31 Mar 26, 11:09, Lucas Stach a =C3=A9crit :
+> > > Am Dienstag, dem 31.03.2026 um 00:46 +0200 schrieb Paul Kocialkowski:
+> > > > The lcdif v3 hardware comes with dedicated registers to set and cle=
+ar
+> > > > polarity bits in the CTRL register. It is unclear if there is a
+> > > > difference with writing to the CTRL register directly.
+> > > >=20
+> > > > Follow the NXP BSP reference by using these registers, in case ther=
+e is
+> > > > a subtle difference caused by using them.
+> > > >=20
+> > > I don't really like that patch, as it blows up what is currently a
+> > > single register access to three separate ones. If there is no clear
+> > > benefit (as in it has been shown to fix any issue), I would prefer th=
+is
+> > > code to stay as-is.
+> >=20
+> > Well I guess the cost of a few writes vs a single one is rather
+> > negligible.
+> >=20
+> Yea, a few writes don't really hurt. But I don't think there is a very
+> good reason to set this register this way, see below.
+>=20
+> > I'm rather worried that there might be an undocumented
+> > reason why these registers exist in the first place and why they are
+> > used in the BSP.
+> >=20
+> > But yes this is only speculation and I could not witness any actual
+> > issue. My setup (lcdif3 with hdmi) uses all positive polarities which is
+> > the default state, so not a good way to check.
+> >=20
+> > It would be great if somebody from NXP could confirm whether this is
+> > needed or not. In the meantime I guess we can drop the patch. It'll stay
+> > on the list in case someone has polarity issues later :)
+>=20
+> The separate clr/set registers are a rather common design feat found on
+> Freescale/NXP IP blocks from the MXS era. On some of those IP blocks
+> _all_ registers are presented as a base/clr/set triplet in the
+> registers space.
 
->   		return i * size;
->   	} else if (iopte_leaf(pte, lvl, iop->fmt)) {
-> diff --git a/drivers/iommu/io-pgtable-dart.c b/drivers/iommu/io-pgtable-dart.c
-> index cbc5d6aa2daa23..75d699dc28e7b0 100644
-> --- a/drivers/iommu/io-pgtable-dart.c
-> +++ b/drivers/iommu/io-pgtable-dart.c
-> @@ -330,6 +330,9 @@ static size_t dart_unmap_pages(struct io_pgtable_ops *ops, unsigned long iova,
->   		i++;
->   	}
->   
-> +	if (i && !iommu_iotlb_gather_queued(gather))
-> +		iommu_iotlb_gather_add_range(gather, iova, i * pgsize);
-> +
->   	return i * pgsize;
->   }
->   
-> diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
-> index 2be990c108de2b..a2f80a92f51f2c 100644
-> --- a/drivers/iommu/mtk_iommu.c
-> +++ b/drivers/iommu/mtk_iommu.c
-> @@ -828,7 +828,6 @@ static size_t mtk_iommu_unmap(struct iommu_domain *domain,
->   {
->   	struct mtk_iommu_domain *dom = to_mtk_domain(domain);
->   
-> -	iommu_iotlb_gather_add_range(gather, iova, pgsize * pgcount);
->   	return dom->iop->unmap_pages(dom->iop, iova, pgsize, pgcount, gather);
->   }
->   
-> diff --git a/drivers/iommu/sprd-iommu.c b/drivers/iommu/sprd-iommu.c
-> index c1a34445d244fb..893ea67d322644 100644
-> --- a/drivers/iommu/sprd-iommu.c
-> +++ b/drivers/iommu/sprd-iommu.c
-> @@ -340,6 +340,7 @@ static size_t sprd_iommu_unmap(struct iommu_domain *domain, unsigned long iova,
->   	spin_lock_irqsave(&dom->pgtlock, flags);
->   	memset(pgt_base_iova, 0, pgcount * sizeof(u32));
->   	spin_unlock_irqrestore(&dom->pgtlock, flags);
-> +	iommu_iotlb_gather_add_range(iotlb_gather, iova, size);
->   
->   	return size;
->   }
-> diff --git a/drivers/iommu/sun50i-iommu.c b/drivers/iommu/sun50i-iommu.c
-> index be3f1ce696ba29..b9aa4bbc82acad 100644
-> --- a/drivers/iommu/sun50i-iommu.c
-> +++ b/drivers/iommu/sun50i-iommu.c
-> @@ -655,6 +655,7 @@ static size_t sun50i_iommu_unmap(struct iommu_domain *domain, unsigned long iova
->   
->   	memset(pte_addr, 0, sizeof(*pte_addr));
->   	sun50i_table_flush(sun50i_domain, pte_addr, 1);
-> +	iommu_iotlb_gather_add_range(gather, iova, SZ_4K);
->   
->   	return SZ_4K;
->   }
-> diff --git a/drivers/iommu/virtio-iommu.c b/drivers/iommu/virtio-iommu.c
-> index 587fc13197f122..5865b8f6c6e67a 100644
-> --- a/drivers/iommu/virtio-iommu.c
-> +++ b/drivers/iommu/virtio-iommu.c
-> @@ -897,6 +897,8 @@ static size_t viommu_unmap_pages(struct iommu_domain *domain, unsigned long iova
->   	if (unmapped < size)
->   		return 0;
->   
-> +	iommu_iotlb_gather_add_range(gather, iova, unmapped);
-> +
->   	/* Device already removed all mappings after detach. */
->   	if (!vdomain->nr_endpoints)
->   		return unmapped;
-> diff --git a/include/linux/io-pgtable.h b/include/linux/io-pgtable.h
-> index e19872e37e067f..b109c95b5ff53d 100644
-> --- a/include/linux/io-pgtable.h
-> +++ b/include/linux/io-pgtable.h
-> @@ -42,6 +42,9 @@ struct iommu_flush_ops {
->   			       void *cookie);
->   	void (*tlb_add_page)(struct iommu_iotlb_gather *gather,
->   			     unsigned long iova, size_t granule, void *cookie);
-> +	void (*tlb_add_range)(struct iommu_iotlb_gather *gather,
-> +			      unsigned long iova, size_t size, size_t granule,
-> +			      void *cookie);
->   };
->   
->   /**
-> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-> index e587d4ac4d3310..d8fcdb61e44c42 100644
-> --- a/include/linux/iommu.h
-> +++ b/include/linux/iommu.h
-> @@ -1034,30 +1034,31 @@ static inline void iommu_iotlb_gather_add_range(struct iommu_iotlb_gather *gathe
->   }
->   
->   /**
-> - * iommu_iotlb_gather_add_page - Gather for page-based TLB invalidation
-> + * iommu_iotlb_gather_add_range_pgsize - Include pgsize in the gather
->    * @domain: IOMMU domain to be invalidated
->    * @gather: TLB gather data
->    * @iova: start of page to invalidate
->    * @size: size of page to invalidate
-> + * @pgsize: page granularity of the invalidation
->    *
-> - * Helper for IOMMU drivers to build invalidation commands based on individual
-> - * pages, or with page size/table level hints which cannot be gathered if they
-> - * differ.
-> + * Helper for IOMMU drivers to build invalidation commands when using the pgsize
-> + * hint. Unlike iommu_iotlb_gather_add_range() this also flushes if the range is
-> + * disjoint.
->    */
-> -static inline void iommu_iotlb_gather_add_page(struct iommu_domain *domain,
-> -					       struct iommu_iotlb_gather *gather,
-> -					       unsigned long iova, size_t size)
-> +static inline void iommu_iotlb_gather_add_range_pgsize(
-> +	struct iommu_domain *domain, struct iommu_iotlb_gather *gather,
-> +	unsigned long iova, size_t size, size_t pgsize)
->   {
->   	/*
->   	 * If the new page is disjoint from the current range or is mapped at
->   	 * a different granularity, then sync the TLB so that the gather
->   	 * structure can be rewritten.
->   	 */
-> -	if ((gather->pgsize && gather->pgsize != size) ||
-> +	if ((gather->pgsize && gather->pgsize != pgsize) ||
->   	    iommu_iotlb_gather_is_disjoint(gather, iova, size))
->   		iommu_iotlb_sync(domain, gather);
->   
-> -	gather->pgsize = size;
-> +	gather->pgsize = pgsize;
->   	iommu_iotlb_gather_add_range(gather, iova, size);
->   }
->   
-> 
-> base-commit: 23f3682fd3605da81b90738ad3d2a30f18c46e98
+Ah yes I vaguely remember seeing this with units used in the imx6.
 
+> As far as I can tell they are mostly useful when you
+> want to set/clear individual bits from a register without having to
+> remember or executing a readback of the current state.
+>=20
+> In cases like the one changed in this patch, where the full register
+> state is set in one go, directly writing to the base register is the
+> right thing to do.
+
+Okay then if you're confident these registers are just here for
+convenience purposes we can continue writing the full register value.
+
+I'll drop this patch in the next iteration.
+
+All the best,
+
+Paul
+
+--=20
+Paul Kocialkowski,
+
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--er1C6Ur3KOqFT3zW
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmnOlJgACgkQhP3B6o/u
+lQwjGBAAgtXGu1cSXbuSJ7KwVOiUjwsE8Gah6EoF7+WVg7J7uIvfKh3riBOJIhBS
+yfzd2AJAH6Wl254sb0XyM78TVShcsTHJxDj8nixyiTUK3IoKeA3pqptePsmcBpp4
+gLMLJA6P7f952A2e1Zydtru5y2h9J+mDiIxi2Oy04bahk10xiCC3PeYksX4brVDn
+gwXiqQr3CHipcPJ3dSC4LEv5IUnrsuuVfa3q+zCUEmTWKnapjyLhUoilpZWQMW/a
+nuOcWeubp2NjdWeJJqFup1F7v2hr5/mwqCzkrF8gvS2QaQGwn9zlDoaZdvieX5I5
+Lu/kvYxDAcDEASaU+woFh6aBJZqOTgIHPp35386Ia2sJh88uYyO7ZDsvUvIv69tl
+WaWmRqrfjEkORxEOUnXM1cj+Zs5VRIHRbGG1zVCuId0xMKCVSNoDIy0BE7deI2j8
+Xilddjk6pV/0Y0NCc7aErn9CMf6DdkiAr+YxzDSxe7UzR93nXxmqXs0Yr1iP0Ben
+B0aSIAG+TTxUwOou7VH1qVs1ElFe1E9EnUcJdnpVXiqij2J8kGVaFDBkyES0nuxw
+CTGtSFgWCAIQWu3HBgATw1v299f0yVoFpZAzV2JxqWDhszqusdxerv5ccrj+qrA4
+e+TSkc/ogX7+e7bMSZro1wozZ1endJJmc+C072FaVLBC98OWUdA=
+=gk11
+-----END PGP SIGNATURE-----
+
+--er1C6Ur3KOqFT3zW--
 
