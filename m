@@ -4,88 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4442DD6AAE6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:23:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 889DDD6AAEE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:30:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XM3cpHUUcyNLCB/nYmaJKHDEnGYf34Fg0cTwoWs1xoM=; b=xk36xg7KbZzZiZ3JOZ2rp4ZVO/
-	93PFQ1yibSbK4xF+LyiZGkOXKYhOlXr2LbUoJ5N+ND+ySWUNH9noAcG0y7WDY01NXvUfAJxXY8jAj
-	8ecLkGi7FokYtOyCIFkMFcIIQ9KKqLGpQwo+N6n0XLrtiPxEty4wCXT6nN855eyL6m1DU5h2FMw0v
-	0Bx64WRJolq7ZS9Qyzv7p49UKCJatkxmlyQX4ptjapxTS62ILvN3IlgCOMivkMRCosfuYLgl7Mnbt
-	WmQ2qBaEjfpHJvsJkRRmdzDdmD9KNBaFMbva2thd4ryEctT9m5XVKQbNGpCjURq+Dn+Ujf4SZF9MS
-	FSECeqCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dqMIcQ51E1sQeKxBU9RN0BSEUB1PBlGsNnfvKutGTvw=; b=M85z4CnjwW/x3dl2MlJOC522Ii
+	xGBgWsQUA2uWbwmRjvZg49Qo94hLbdA/9pOd0nKIQMtvNyGbmFITWzefu5z3lHTHpLfChKeqE64VK
+	t7/u3cgk0LSPIqdfP27g8MQ32cG2/fVJZPR812OHgOksenJqMRwkYMps5Fw5GK+GdabhLXxXIpKij
+	823ZezV+8jj9CgJCTMcc/DXMpfp6+h2kxjmNYfwGJYiho51cBYaVl70AwbZXy9tuCbK72L0+wBDIP
+	MFUbfFwPPJh02QKnR2f5nkpK/n/kkTy1x9vsegWh8kXh2DAizCeJhWB6xeKF7slnQLFBFxyfKHuO7
+	xhWX5glg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Kpk-00000000VcP-2KGi;
-	Thu, 02 Apr 2026 16:23:52 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1w8Kvk-00000000W0r-45Mi;
+	Thu, 02 Apr 2026 16:30:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Kpi-00000000Vc2-3Bkq
+	id 1w8Kvi-00000000W0F-0kJa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 16:23:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1775147031; x=1806683031;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=jubyS2m2QjhM1wFy1HfygIjKkKElTV1Ix6KF2Q4kQlc=;
-  b=IRxht+fe6dniiH2vT5iQKBjUyzqrWRvM3TYTOKBb0n8tYyeh5y9/o/XP
-   5PkDzPP8woN5aWGglxRyN42DJFlu0ISFLzPzg/vtX+fB0N9eDUfllDADm
-   eIZjh6JQ4Vc9gCBAZ74XbfBtU+5w+fx/8XQTwWx+25+/R1bq8ZWO8Etdt
-   Gm9A7JhdMj/Mi36cEotiXSyCrrZ9THABwkAPWuM50rglkH8Mbu9GqoxcQ
-   CSzMbQ/W57GXIzspxSATfdUd2hMqwZ9KXM5wPQ/51PI+WbaVfXi0s7hCq
-   raJRh0yvdcegwjNoAOg9gYlE2Yfo4tShizJDUckPLVvnYywYXQyUkhiC/
-   A==;
-X-CSE-ConnectionGUID: SGSX2f7URXqwxD7lEAp/EA==
-X-CSE-MsgGUID: w3a8ax1+S0K/cFROIsWJrQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11747"; a="87283608"
-X-IronPort-AV: E=Sophos;i="6.23,156,1770624000"; 
-   d="scan'208";a="87283608"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Apr 2026 09:23:50 -0700
-X-CSE-ConnectionGUID: D0KNrGtMRbC6uGrHszmO3A==
-X-CSE-MsgGUID: XhnFx+ziTluokXI1j+c2NA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,156,1770624000"; 
-   d="scan'208";a="231060363"
-Received: from amilburn-desk.amilburn-desk (HELO localhost) ([10.245.245.31])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Apr 2026 09:23:46 -0700
-Date: Thu, 2 Apr 2026 19:23:43 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>,
-	brgl@kernel.org, driver-core@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
-Subject: Re: [PATCH v5 4/4] ARM: omap1: enable real software node lookup of
+	Thu, 02 Apr 2026 16:30:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E26EA44467;
+	Thu,  2 Apr 2026 16:30:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 198D7C116C6;
+	Thu,  2 Apr 2026 16:29:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775147400;
+	bh=w1dW8AZk4reCHACcRL/0+eMefcFQIN8mzWpVA8G3YSI=;
+	h=Date:Cc:To:From:Subject:References:In-Reply-To:From;
+	b=KHOyIcuzguDroW3VbA8bQHdLBILXZSpffvP320Gcop3G5/+HewMrRub0Hx4dBP8Ks
+	 iDZHmCQD7FnOjeaaWJq49GeqWXgFEnDdcJpq4VQrI+zI8lz/6SjsVFidu0RoIURTts
+	 70rLx9nJyQEb2tR8Y63JVX9V/El/5pKBQu7AYUmwpD/Xok/5ilw62F0JwwDME1ldzL
+	 zkWXlo7UAgPyn8Ou0yBdlTAHOfA0b5ApTwbiO8KwS124kHhZ0iQNCygnZph6filT0I
+	 rLBwc81Dcg0gyCYg/spGCS0zfg/tLbZW/38xh0jL3JKznlOTP6F/IsXyS6n/39UMFl
+	 dtNAN9+0M47yg==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 02 Apr 2026 18:29:55 +0200
+Message-Id: <DHIT8FGUNBB6.3JBUXPIVOP6GU@kernel.org>
+Cc: "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
+ "Daniel Scally" <djrscally@gmail.com>, "Heikki Krogerus"
+ <heikki.krogerus@linux.intel.com>, "Sakari Ailus"
+ <sakari.ailus@linux.intel.com>, "Aaro Koskinen" <aaro.koskinen@iki.fi>,
+ "Janusz Krzysztofik" <jmkrzyszt@gmail.com>, "Tony Lindgren"
+ <tony@atomide.com>, "Russell King" <linux@armlinux.org.uk>, "Dmitry
+ Torokhov" <dmitry.torokhov@gmail.com>, "Kevin Hilman"
+ <khilman@baylibre.com>, "Arnd Bergmann" <arnd@arndb.de>, <brgl@kernel.org>,
+ <driver-core@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+ <linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-omap@vger.kernel.org>
+To: "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+Subject: Re: [PATCH v5 0/4] ARM: omap1: use real firmware node lookup for
  GPIOs on Nokia 770
-Message-ID: <ac6YD0Zr46YjNdr5@ashevche-desk.local>
 References: <20260402-nokia770-gpio-swnodes-v5-0-d730db3dd299@oss.qualcomm.com>
- <20260402-nokia770-gpio-swnodes-v5-4-d730db3dd299@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260402-nokia770-gpio-swnodes-v5-4-d730db3dd299@oss.qualcomm.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <20260402-nokia770-gpio-swnodes-v5-0-d730db3dd299@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_092350_881492_05297B98 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20260402_093002_258995_25600D5B 
+X-CRM114-Status: UNSURE (   5.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,32 +83,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 02, 2026 at 04:15:05PM +0200, Bartosz Golaszewski wrote:
-> Currently the board file for Nokia 770 creates dummy software nodes not
-> attached in any way to the actual GPIO controller devices and uses the
-> fact that GPIOLIB matching swnode's name to the GPIO chip's label during
-> software node lookup. This behavior is wrong and we want to remove it.
-> To that end, we need to first convert all existing users to creating
-> actual fwnode links.
-> 
-> Create real software nodes for GPIO controllers on OMAP16xx and
-> reference them from the software nodes in the nokia board file.
+On Thu Apr 2, 2026 at 4:15 PM CEST, Bartosz Golaszewski wrote:
+> Bartosz Golaszewski (4):
+>       kernel: ksysfs: initialize kernel_kobj earlier
+>       software node: remove software_node_exit()
+>       driver core: make software nodes available earlier
 
-...
+Looks good to me now; I will give it a few more days on the list and then p=
+ull
+it in for v7.1-rc1 if no one else raises concerns.
 
-> +static const struct software_node omap16xx_gpio2_swnode = { };
-
-No need to have {} for statically defined variables.
-OTOH, if you want to have same style over exported and static,
-perhaps it's okay.
-
-> +static const struct software_node omap16xx_gpio3_swnode = { };
-
-> +static const struct software_node omap16xx_gpio4_swnode = { };
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+>       ARM: omap1: enable real software node lookup of GPIOs on Nokia 770
 
