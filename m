@@ -4,67 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8578CC6B24
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 08:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED7E6CC6B1F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 08:11:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wuun7QraMRs9Rxn68mbPknbZKo3brZLnFtyz9T2HNHk=; b=tTCHlQHy7NVrY2R6RcdLXBMoZh
-	TQuGywRbqqm/8/V8fUABCZqSDVT/BG/2ZPiPN5j63vxkAw5C/JkzufkIU1eK6ovt4DpK5eSef5Khy
-	C6ZawdSigRiaO5apIFtt8CaV6d3O0SlN3OqmFpM6VjXL1H3eD1s161xMzZ5cYBifqqFhmC+0JmRvA
-	zJYHmwwBMqIcXJf8oOjw9owDB9ayco7igEyLPfE38bmA3okBWRoghG9zvHB+jagb5tr2RBZciEBEd
-	9GPdfnNeGg6hOgFrpDGH4/kEeSdf1ue79WwOiKD1lj3vgAVwbm+BT6znMba+kjbn0p+VeS40D+Aus
-	wo4dtVIQ==;
+	bh=BJ0U5leuNpT+x7t9YPGO2C7AKeGOlIRyILg9lIOmw6A=; b=bOxuRGMZAOQDaqOQNzHlorlriF
+	WrXe/htay4qjPzmIgdg2plYSa+Trt55/0XXBefYoVHjAezirpK/5YayP03bRkVYUQBzRBRYuX4z0g
+	vsfiIn0B5uX/Tx3+3dfvNX7VWVLhTN7UrNA5yNO5j+FdjUCh2EKwQBMwV3/G5YdBpY87tkUvoyawW
+	YeuocuHNuvzrOCtAzpZPNavA6ozeT0uhWln2dgvO5fhuXpcaQEllsw7zbm9O5a5SpsK2VoWdxS8o5
+	+CmhMqcepz9YjRnHK+TWBdpC/6kLYU7qUJu3oqqR6z2nfxNx+wImgtBIpdPdXWpT6wsgzqCJYeDsM
+	v/e5c0Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8D90-0000000H95D-2taf;
-	Thu, 02 Apr 2026 08:11:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w8D9A-0000000H97V-35rx;
+	Thu, 02 Apr 2026 08:11:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8D8s-0000000H94q-36Qu
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 08:11:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 02B9140871;
-	Thu,  2 Apr 2026 08:11:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A1C3C19423;
-	Thu,  2 Apr 2026 08:11:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775117465;
-	bh=/eYR7q28xOoXfwKdKZH1Svo/Q1tCKLQF1NwcRaM91MI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TiNp3uLe2VcqWA2YbxCsUinUlHj1nuZqBm9IMQsarSrZ5H8cPF6TR1rXOLu4tdznp
-	 jCSJg4lXdCyHQYf+PPL/h+Jt2K+UDi8D6rT9wcIiq+0vULPC/Rza+1V9YZNqkTOdVQ
-	 A0N4j7y1TU+vKOijYInEnr0bGYWu/z9U7oodbLOEeDpouvrjao9XMeVy0XtoW0sFSy
-	 BlU6ffHIvsaopfiARHj5WIDDsm0z3QcnAukF7npVSDFrFuNuWOmcfKRhSXfjOMLekv
-	 KL3qioieyVDzZqDKIoHBTplPv+6uKp0Q3rdCkqLRrkHHZj5UFUM5G0Q3x9f/FhV8++
-	 WTRBeaC+i1v6w==
-Date: Thu, 2 Apr 2026 10:11:02 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Alexey Klimov <alexey.klimov@linaro.org>
-Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
-	Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Sam Protsenko <semen.protsenko@linaro.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Jassi Brar <jassisinghbrar@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, linux-samsung-soc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] mailbox: exynos: Add support for Exynos850 mailbox
-Message-ID: <20260402-lively-magpie-of-apotheosis-3caab1@quoll>
-References: <20260402-exynos850-ap2apm-mailbox-v2-0-ca5ffdff99d4@linaro.org>
- <20260402-exynos850-ap2apm-mailbox-v2-2-ca5ffdff99d4@linaro.org>
+	id 1w8D98-0000000H96E-2gCs;
+	Thu, 02 Apr 2026 08:11:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=BJ0U5leuNpT+x7t9YPGO2C7AKeGOlIRyILg9lIOmw6A=; b=EW533LpWXwiv8Sfz4pGGrIrCYR
+	3NnSETyhb07KdOagfoQNNz6XA+AkSrjKKuSCqUf6QqW1cWk4Um1RIo4QaUZ/o3+mK6qN7dIs70uZc
+	R1yjM1j1HsVZSEKyckbAV+IE+y0kB7oMv0UcOjTWdyFT1PdXANppypvREe6LzTJk8pA6BM2Tf3WKk
+	jDhdNnCmgLLic8z9MtyBPEqKvIhzuQsWPKygYePPEf9C66KqV6tMlXFoSRiqgjCmKokt1tlWghbvH
+	zVPnGayJIcHA2YwdMnt1nMcWDPbSFuiEBGxpZDHlSb8rbx2jhnKmduYQySq5L2hsYOyYxVpn4FTgA
+	cp/vOINg==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8D7W-00000001zMI-3s1t;
+	Thu, 02 Apr 2026 08:10:27 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6327e3frD2695631, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1775115603; bh=BJ0U5leuNpT+x7t9YPGO2C7AKeGOlIRyILg9lIOmw6A=;
+	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	b=Q83HqeFTZw1YMOMbfhsgyrcztowy7RVcvlrt0d6Wp+l1BSNUUm2/G5YVM4R5jf5EX
+	 mh01Ofs7FNjLTHYLk8H6TPJ4R69SvmbR5jGwgf8e5/cF0IpukTMu5a6+d3mfrX650R
+	 6ADj2oQ9vanqVom5U2vcWV0ixwPTtTeyQbVADfg04HeC8Au8tG2Xcxapdb3gPbXlGn
+	 R92AIchYAcrnoMPpbQiZz9PMV+/+xO0CbyOIiQqoTZqWHMsWxyq1aK1oh3GBrJKYBW
+	 PIjylM3oJ2zx4MCxEZr5iilUzFb1W4EdAk3BimejyKPyV4qOp8+nOLuM4t/tAOotIR
+	 ewHLKX6IPKFjw==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.26/5.94) with ESMTPS id 6327e3frD2695631
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 2 Apr 2026 15:40:03 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Thu, 2 Apr 2026 15:40:03 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Thu, 2 Apr 2026 15:40:03 +0800
+Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS05.realtek.com.tw
+ (10.21.1.55) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Thu, 2 Apr 2026 15:40:02 +0800
+From: Yu-Chun Lin <eleanor.lin@realtek.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
+        <cylee12@realtek.com>, <afaerber@suse.com>, <jyanchou@realtek.com>
+CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
+        <cy.huang@realtek.com>, <stanley_chang@realtek.com>,
+        <eleanor.lin@realtek.com>
+Subject: [PATCH v6 10/10] arm64: dts: realtek: Add clock support for RTD1625
+Date: Thu, 2 Apr 2026 15:39:57 +0800
+Message-ID: <20260402073957.2742459-11-eleanor.lin@realtek.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260402073957.2742459-1-eleanor.lin@realtek.com>
+References: <20260402073957.2742459-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260402-exynos850-ap2apm-mailbox-v2-2-ca5ffdff99d4@linaro.org>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_011111_831643_68EEDBCD 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20260402_091022_824978_55451B99 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,24 +102,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 02, 2026 at 03:20:15AM +0100, Alexey Klimov wrote:
-> Exynos850-based platforms support ACPM and has similar workflow
-> of communicating with ACPM via mailbox, however mailbox controller
-> registers are located at different offsets and writes/reads could be
-> different. To distinguish between such different behaviours,
-> the registers offsets for Exynos850 and the platform-specific data
-> structs are introduced and configuration is described in such structs
-> for gs101 and exynos850 based SoCs. Probe routine now selects the
-> corresponding platform-specific data via device_get_match_data().
-> 
-> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
-> ---
->  drivers/mailbox/exynos-mailbox.c | 67 ++++++++++++++++++++++++++++++++++++++--
->  1 file changed, 64 insertions(+), 3 deletions(-)
+Add the clock controller nodes and osc27m fixed clock for the
+Realtek RTD1625 SoC.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+---
+ arch/arm64/boot/dts/realtek/kent.dtsi | 33 +++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
 
-Best regards,
-Krzysztof
+diff --git a/arch/arm64/boot/dts/realtek/kent.dtsi b/arch/arm64/boot/dts/realtek/kent.dtsi
+index ae006ce24420..4722337a143d 100644
+--- a/arch/arm64/boot/dts/realtek/kent.dtsi
++++ b/arch/arm64/boot/dts/realtek/kent.dtsi
+@@ -26,6 +26,15 @@ timer {
+ 			     <GIC_PPI  9 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
+ 
++	clocks {
++		osc27m: osc {
++			compatible = "fixed-clock";
++			clock-frequency = <27000000>;
++			clock-output-names = "osc27m";
++			#clock-cells = <0>;
++		};
++	};
++
+ 	cpus {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+@@ -141,6 +150,14 @@ rbus: bus@98000000 {
+ 			#address-cells = <1>;
+ 			#size-cells = <1>;
+ 
++			cc: clock-controller@0 {
++				compatible = "realtek,rtd1625-crt-clk";
++				reg = <0x0 0x900>;
++				clocks = <&osc27m>;
++				#clock-cells = <1>;
++				#reset-cells = <1>;
++			};
++
+ 			uart0: serial@7800 {
+ 				compatible = "snps,dw-apb-uart";
+ 				reg = <0x7800 0x100>;
+@@ -150,6 +167,22 @@ uart0: serial@7800 {
+ 				reg-shift = <2>;
+ 				status = "disabled";
+ 			};
++
++			ic: clock-controller@7088 {
++				compatible = "realtek,rtd1625-iso-clk";
++				reg = <0x7088 0x8>;
++				clocks = <&osc27m>;
++				#clock-cells = <1>;
++				#reset-cells = <1>;
++			};
++
++			iso_s_cc: clock-controller@146310 {
++				compatible = "realtek,rtd1625-iso-s-clk";
++				reg = <0x146310 0x8>;
++				clocks = <&osc27m>;
++				#clock-cells = <1>;
++				#reset-cells = <1>;
++			};
+ 		};
+ 
+ 		gic: interrupt-controller@ff100000 {
+-- 
+2.34.1
 
 
