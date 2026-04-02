@@ -4,86 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAAC5D3943A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 15:15:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B33E1D3943A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 15:27:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AhcJVHZyNFQb3nZyBfse2MK1yfvE79Qa3OawoKkrZ3g=; b=GFAi+WoBJFaq0SdSCiia9oBbXJ
-	mAwwenkWHNnjQdiymSqJtkrThvkt3AnJMFuTWMOEf0aXT3Y06F8H0/vSXYZC/y/jyHNltgT7D0+jl
-	m5z6BmiHZjjAbhG48NdpGbO43gtg422t+3K6LKJh2nMdYiHIg0++BILBp2ckTsCDn71kxQu2d8SNU
-	VA8CgwnDeCVPz0Vd6q6Yd6Qc8DS4X3M/LTy7dVRi9BMcFK7OpOJ66hzPTHtMRlbf6Z8oTxxRpggdQ
-	g0f21qLJ+GNCtnvi+Eb7nIe9Cf5TRjcU4Kid8oiWd5Q3SaINDLONK2j/Nb0GV+HyvIlrxVdy9zjCR
-	ZsMQrMmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IIJkyZ4vqVqocU0260kV/9e9mxp7Nf7GppVgKAYDdSY=; b=Q+A/5+2ptGHl4FN5iNwVR+BM0C
+	DSl9GnRJRKdmRYbNSUXZuDocV1eoQ4+j+y60FizaXXEm+CcFUhopIRDfy7vo6Y01dd7VV3tWId4KV
+	zm+8m65Zq9njwnHTlpxh9oWm0xgFfRdz7fHo3qZ4c3GxGOJuvS/ybJvwCgD1gNr8ux2gjEo3tsKrk
+	XU8IbGupsxglYIw6BVXwGZFZh+b9fpEEYu9fxVgbFPebM4kOUdgfOF0XkzweMYSdpT5sJse2fSLQF
+	sqEWmZiKjqHbiOXmyN2VDavc0/dYzgg59UgY3qdguSJGgkKurjMz2J8y1y+KLF5vpmbqlOv/7JPw/
+	4So48lXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8JlH-00000000QbF-1HhV;
-	Thu, 02 Apr 2026 15:15:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8JlF-00000000Qap-092U
+	id 1w8Jx0-00000000RHU-46JU;
+	Thu, 02 Apr 2026 15:27:18 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8Jwx-00000000RFZ-2EOo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 15:15:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D8BE1764
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Apr 2026 08:15:00 -0700 (PDT)
-Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3A77D3F7D8
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Apr 2026 08:15:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775142906; bh=Wus51/A5TXZ0C83VrwImP/P+7klhk6dGV/W8j6rkqYo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OyQv2yJzt0xNzYSrZepUNsFyPtmQRnWt3uDigK4vOwXwumRbO2LErqRRZXAfrzFYi
-	 Ois+1XTzXDZjvGBkkalR37W15Jw2uQr+sfUrKo2kREo5lmCi7jGpuv0evGIP+blk1O
-	 KykOnZPSJ/yB20ZgXP0wqUAGiOrhIjJ1146zCf5o=
-Date: Thu, 2 Apr 2026 16:14:41 +0100
-From: Liviu Dudau <liviu.dudau@arm.com>
-To: Guangliu Ding <guangliu.ding@nxp.com>
-Cc: "Daniel Baluta (OSS)" <daniel.baluta@oss.nxp.com>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Steven Price <steven.price@arm.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Jiyu Yang <jiyu.yang@nxp.com>
-Subject: Re: Re: Re: Re: Re: [PATCH 1/2] dt-bindings: gpu: mali-valhall-csf:
- Document i.MX952 support
-Message-ID: <ac6H4SHdNqKEXgIK@e142607>
-References: <acva1Xt8V4k9-uG8@e142607>
- <AM0PR04MB47073E9E8B5C704BCF5D9F72F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
- <99a1da55-d6e5-4d11-abaa-8c85283ab5f2@oss.nxp.com>
- <AM0PR04MB4707B3E37DFE7AEE587DBA2AF350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
- <aczv0R0aQRmHKdvt@e142607>
- <AM0PR04MB4707335CC7035232D44E6ED9F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
- <ac05OpEMjKMd8CXy@e142607>
- <AM0PR04MB4707604AF2C445971C7474EFF350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
- <ac1T282yvpdAp_TP@e142607>
- <AM0PR04MB470716BD5A538CFBB6685C87F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+	Thu, 02 Apr 2026 15:27:16 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 71E825BE1C;
+	Thu,  2 Apr 2026 15:27:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1775143633; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=IIJkyZ4vqVqocU0260kV/9e9mxp7Nf7GppVgKAYDdSY=;
+	b=NcND9pxl0yg+bfnMPz3DZPhuSNTO7WXGIqZ2SRslgy6FRLaAKFjKfkltXIT8wMKtvaQMat
+	wdr7zHgc3mhpRKS/hH180m35ntqkHAutmXyxaqyjx+/Z6WXlp6SuMsGmLMtgtv9Lppw1la
+	YAbd3oISpYzHZJ1J85SjGAqbskJUCUk=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1775143633;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=IIJkyZ4vqVqocU0260kV/9e9mxp7Nf7GppVgKAYDdSY=;
+	b=+XN1aYgEZxrW4VREe8WxPTgskOQKj2Mh89mLE/+Ni4A5KzK+ErobJbFr7AepIrMve9+sA3
+	rF1W61MS7QyQnIDg==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=NcND9pxl;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=+XN1aYgE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1775143633; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=IIJkyZ4vqVqocU0260kV/9e9mxp7Nf7GppVgKAYDdSY=;
+	b=NcND9pxl0yg+bfnMPz3DZPhuSNTO7WXGIqZ2SRslgy6FRLaAKFjKfkltXIT8wMKtvaQMat
+	wdr7zHgc3mhpRKS/hH180m35ntqkHAutmXyxaqyjx+/Z6WXlp6SuMsGmLMtgtv9Lppw1la
+	YAbd3oISpYzHZJ1J85SjGAqbskJUCUk=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1775143633;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=IIJkyZ4vqVqocU0260kV/9e9mxp7Nf7GppVgKAYDdSY=;
+	b=+XN1aYgEZxrW4VREe8WxPTgskOQKj2Mh89mLE/+Ni4A5KzK+ErobJbFr7AepIrMve9+sA3
+	rF1W61MS7QyQnIDg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id DC57A4A0B0;
+	Thu,  2 Apr 2026 15:27:12 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 6UFUNNCKzmnZUwAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Thu, 02 Apr 2026 15:27:12 +0000
+Message-ID: <001efe27-9cbb-4a89-8d2d-a1f3ae15e505@suse.de>
+Date: Thu, 2 Apr 2026 17:27:12 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/8] firmware: sysfb: Make CONFIG_SYSFB a user-selectable
+ option
+To: Arnd Bergmann <arnd@arndb.de>,
+ Javier Martinez Canillas <javierm@redhat.com>,
+ Ard Biesheuvel <ardb@kernel.org>,
+ Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Dave Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, "K. Y. Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, longli@microsoft.com,
+ Helge Deller <deller@gmx.de>
+Cc: linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
+ linux-fbdev@vger.kernel.org
+References: <20260402092305.208728-1-tzimmermann@suse.de>
+ <20260402092305.208728-4-tzimmermann@suse.de>
+ <78f76717-8f1e-41d6-92f7-261df96b84b6@app.fastmail.com>
+ <3e466158-c2e5-4e23-934f-dcdbb71ad41f@suse.de>
+ <d3d7c545-3b07-4881-a16d-45b6f039de19@app.fastmail.com>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <d3d7c545-3b07-4881-a16d-45b6f039de19@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <AM0PR04MB470716BD5A538CFBB6685C87F350A@AM0PR04MB4707.eurprd04.prod.outlook.com>
+X-Spamd-Result: default: False [-4.51 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FREEMAIL_TO(0.00)[arndb.de,redhat.com,kernel.org,linaro.org,xen0n.name,linux.intel.com,gmail.com,ffwll.ch,microsoft.com,gmx.de];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	ARC_NA(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCPT_COUNT_TWELVE(0.00)[23];
+	MIME_TRACE(0.00)[0:+];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:dkim,suse.de:mid]
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Queue-Id: 71E825BE1C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_081509_166074_86EB2AFF 
-X-CRM114-Status: GOOD (  61.82  )
+X-CRM114-CacheID: sfid-20260402_082715_724523_F2B7828A 
+X-CRM114-Status: GOOD (  29.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,176 +184,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 01, 2026 at 06:03:28PM +0000, Guangliu Ding wrote:
-> Hi Liviu
-> 
-> Thanks a lot for your sharing.
-> 
-> > On Wed, Apr 01, 2026 at 03:59:23PM +0000, Guangliu Ding wrote:
-> > > Hi Liviu
-> > >
-> > > > On Wed, Apr 01, 2026 at 10:31:01AM +0000, Guangliu Ding wrote:
-> > > > > Hi Liviu
-> > > > >
-> > > > > > On Wed, Apr 01, 2026 at 09:43:12AM +0000, Guangliu Ding wrote:
-> > > > > > > Hi Daniel
-> > > > > > >
-> > > > > > > > On 4/1/26 11:48, Guangliu Ding wrote:
-> > > > > > > > > [You don't often get email from guangliu.ding@nxp.com.
-> > > > > > > > > Learn why this is important at
-> > > > > > > > > https://aka.ms/LearnAboutSenderIdentification
-> > > > > > > > > ]
-> > > > > > > > >
-> > > > > > > > > Hi Liviu
-> > > > > > > > >
-> > > > > > > > > Thanks for your review. Please refer to my comments below:
-> > > > > > > > >
-> > > > > > > > >> On Tue, Mar 31, 2026 at 06:12:38PM +0800, Guangliu Ding
-> > wrote:
-> > > > > > > > >>> Add compatible string of Mali G310 GPU on i.MX952 board.
-> > > > > > > > >>>
-> > > > > > > > >>> Signed-off-by: Guangliu Ding <guangliu.ding@nxp.com>
-> > > > > > > > >>> Reviewed-by: Jiyu Yang <jiyu.yang@nxp.com>
-> > > > > > > > >>> ---
-> > > > > > > > >>>
-> > > > > > > > >>> Documentation/devicetree/bindings/gpu/arm,mali-valhall-c
-> > > > > > > > >>> sf.y
-> > > > > > > > >>> aml
-> > > > > > > > >>> | 1
-> > > > > > > > >>> +
-> > > > > > > > >>>  1 file changed, 1 insertion(+)
-> > > > > > > > >>>
-> > > > > > > > >>> diff --git
-> > > > > > > > >>> a/Documentation/devicetree/bindings/gpu/arm,mali-valhall
-> > > > > > > > >>> -csf
-> > > > > > > > >>> .yam
-> > > > > > > > >>> l
-> > > > > > > > >> b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.
-> > > > > > > > >> yaml
-> > > > > > > > >>> index 8eccd4338a2b..6a10843a26e2 100644
-> > > > > > > > >>> ---
-> > > > > > > > >>> a/Documentation/devicetree/bindings/gpu/arm,mali-valhall
-> > > > > > > > >>> -csf
-> > > > > > > > >>> .yam
-> > > > > > > > >>> l
-> > > > > > > > >>> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-val
-> > > > > > > > >>> +++ hall
-> > > > > > > > >>> +++ -csf
-> > > > > > > > >>> +++ .yam
-> > > > > > > > >>> +++ l
-> > > > > > > > >>> @@ -20,6 +20,7 @@ properties:
-> > > > > > > > >>>            - enum:
-> > > > > > > > >>>                - mediatek,mt8196-mali
-> > > > > > > > >>>                - nxp,imx95-mali            # G310
-> > > > > > > > >>> +              - nxp,imx952-mali           # G310
-> > > > > > > > >> Can you explain why this is needed? Can it not be covered
-> > > > > > > > >> by the existing compatible?
-> > > > > > > > > There are functional differences in GPU module (GPUMIX)
-> > > > > > > > > between
-> > > > > > > > > i.MX95 and i.MX952. So they cannot be fully covered by a
-> > > > > > > > > single existing
-> > > > > > compatible.
-> > > > > > > > > On i.MX952, The GPU clock is controlled by hardware GPU
-> > > > > > > > > auto clock-gating mechanism, while the GPU clock is
-> > > > > > > > > managed explicitly by the
-> > > > > > > > driver on i.MX95.
-> > > > > > > > > Because of these behavioral differences, separate
-> > > > > > > > > compatible strings "nxp,imx95-mali" and "nxp,imx952-mali"
-> > > > > > > > > are needed to allow the driver to handle the two variants
-> > > > > > > > > independently and to keep room for future
-> > > > > > > > divergence.
-> > > > > > > >
-> > > > > > > >
-> > > > > > > > This information should be added in the commit message
-> > > > > > > > explaining why
-> > > > > > > >
-> > > > > > > > the change is needed.
-> > > > > > > >
-> > > > > > > >
-> > > > > > > > But then where is the driver code taking care of these diferences?
-> > > > > > > >
-> > > > > > >
-> > > > > > > Yes. Currently the driver does not require "nxp,imx952-mali" string.
-> > > > > > > However, when GPU ipa_counters are enabled to calculate the
-> > > > > > > GPU busy_time/idle_time for GPU DVFS feature, they will
-> > > > > > > conflict with the hardware GPU auto clock‑gating mechanism,
-> > > > > > > causing GPU clock to remain
-> > > > > > always on.
-> > > > > > > In such cases, ipa_counters need to be disabled so that the
-> > > > > > > GPU auto clock‑gating mechanism can operate normally, using
-> > > > "nxp,imx952-mali"
-> > > > > > string.
-> > > > > >
-> > > > > > OK, I understand that you're following guidance from some other
-> > > > > > senior people on how to upstream patches so you've tried to
-> > > > > > create the smallest patchset to ensure that it gets reviewed and
-> > > > > > accepted, but in this case we need to see the other patches as
-> > > > > > well to decide if your approach is the right one and we do need
-> > > > > > a separate compatible
-> > > > string.
-> > > > > >
-> > > > > > If enabling GPU ipa_counters causes the clocks to get stuck
-> > > > > > active, that feels like a hardware bug, so figuring out how to
-> > > > > > handle that is more important than adding a compatible string.
-> > > > > >
-> > > > > > Either add the patch(es) that use the compatible to this series
-> > > > > > in v2, or put a comment in the commit message on where we can
-> > > > > > see the
-> > > > driver changes.
-> > > > > >
-> > > > >
-> > > > > According to discussions with the GPU vendor, this is a hardware
-> > > > > limitation of Mali-G310 rather than a hardware bug, and it has
-> > > > > been addressed in newer Mali GPU families.
-> > > >
-> > > > I represent the said GPU vendor and I think I know what you're
-> > > > talking about, but you're taking the wrong approach. All G310s have
-> > > > a problem where in order to enable access to the ipa_counters the
-> > > > automatic clock gating gets disabled. So the solution that needs to
-> > > > be implemented when we add support for IPA_COUNTERs will apply to all
-> > GPUs, not just MX952.
-> > >
-> > > Yes. We have bring-up G310 (V2) GPU on both i.MX95 and i.MX952. And
-> > > auto clock gating mechanism is firstly introduced in i.MX952 (not supported
-> > on i.MX95).
-> > > According to your update, solution needs to be implemented to all GPUs
-> > > which support auto clock gating mechanism after IPA_COUNTERs are
-> > supported in the driver, right?
-> > 
-> > A solution is needed, yes.
-> > 
-> > > What's your suggestions for 952 gpu dtb node?
-> > 
-> > There is no IPA_COUNTER use in Panthor at the moment. Unless your DVFS
-> > controller uses that, I would suggest that we don't introduce a compatible for
-> > 952 until the time we add support for reading the counters.
-> > 
-> > It helps if you think in terms of what is already in upstream, rather than mixing
-> > with the tests that uses kbase code. Does your hardware need extra code in
-> > upstream in order to function? If so, where is that code? If not, then let's not
-> > introduce the compatible until we are absolutely sure we need it because we
-> > have code specific to that SoC. For everything else we will implement an
-> > architecture fix if needed.
-> > 
-> 
-> Got it. The following compatible string is the correct choice since the GPU on
-> i.MX952 is fully compatible with the GPU on i.MX95 now.
-> compatible = "nxp,imx95-mali", "arm,mali-valhall-csf";
-> 
-> I will not mix tests with kbase code in the following upstream patches for panthor driver.
+Hi
 
-OK. I think if you drop patch 2/3 from your series you can send a v3.
+Am 02.04.26 um 16:59 schrieb Arnd Bergmann:
+> On Thu, Apr 2, 2026, at 16:10, Thomas Zimmermann wrote:
+>> Am 02.04.26 um 15:08 schrieb Arnd Bergmann:
+>>> On Thu, Apr 2, 2026, at 11:09, Thomas Zimmermann wrote:
+>>> I don't really like this part of the series and would prefer
+>>> to keep CONFIG_SYSFB hidden as much as possible as an x86
+>>> (and EFI) specific implementation detail, with the hope
+>>> of eventually seperating out the x86 bits from the EFI ones.
+>> You mean, you want to use the EFI-provided framebuffers without the
+>> intermediate step of going through sysfb_primary_display?
+>>
+>> In that case, CONFIG_SYSFB would become an x86-internal thing, right?
+> The part that is still needed from sysfb is the arbitration
+> between DRM_EFI and the PCI device driver for the same hardware,
+> so I think some part of sysfb is clearly needed, in particular
+> the sysfb_disable() function that removes the EFI framebuffer
+> when there is a conflicting simpledrm or hardware specific
+> driver.
 
-Best regards,
-Liviu
+We do most of that in the aperture-helper module. (see 
+<linux/aperture.h>). Calling sysfb_disable() from there is a workaround 
+for some corner cases. We can have an EFI-specific function that does 
+the same.
+
+BTW, simpledrm-on-EFI/VESA is considered obsolete and should preferably 
+be removed from that driver. Simpledrm should become a driver for 
+Devicetree nodes of type simple-framebuffer (as it originally has been 
+intended).
+
+>
+> The parts that I want to keep out of that is anything
+> related to the x86 boot protocol, non-EFI framebuffers,
+> text console, and kexec handoff, which we don't need on
+> non-x86 UEFI systems.
+>
+> I don't mind the idea of having a sysfb_primary_display
+> in the EFI code if that helps keep EFI sane on x86,
+> but it would be good to make that local to
+> drivers/firmware/efi and (eventually) detached from
+> include/uapi/linux/screen_info.h.
+
+Efidrm retrieves the framebuffer settings from the contained struct 
+screen_info. Disconnecting from screen_info would require separate 
+graphics drivers for x86 and non-x86. If we split off EFI from sysfb, 
+we'd likely need a sysfbdrm driver of some sort. Just saying.
+
+I think we'd also have to duplicate the framebuffer-relocation code that 
+currently works on anything using struct screen_info (see patch 5).
+
+>
+>>> In general, I am always in favor of properly using Kconfig
+>>> dependencies over 'select' statements, for the same reasons
+>>> you describe, but I don't want the the x86 logic for
+>>> the legacy VESA and VGA console handling to leak into more
+>>> architectures than necessary.
+>>>
+>>> Do you think we could instead move the sysfb_init()
+>>> function into the same two places that contain the
+>>> sysfb_primary_display definition (arch/x86/kernel/setup.c,
+>>> drivers/firmware/efi/efi-init.c) and simplify the efi version
+>>> to take out the x86 bits? That would reduce the rest
+>>> of sysfb-primary.c to the logic to unregister the device,
+>>> and that could then be selected by both x86 and EFI.
+>> No, I'm more than happy that sysfb finally consolidates all the
+>> init-framebuffer setup and detection that floated around in the kernel.
+>> I would not want it to be duplicated again.
+>>
+>> For now, we could certainly keep CONFIG_SYSFB hidden and autoselected.
+>> Although I think this will require soem sort of solution at a later point.
+> Can you clarify which problem you are trying to solve
+> with that?
+
+One thing is that some users simply what control over their kernel build.
+
+I also think that there might be systems that want to use 
+sysfb_primary_display (plus the relocation feature), but not create the 
+framebuffer device. Say for efi-earlycon. It needs user-control over the 
+SYSFB option to do that.
+
+As a side-effect, user-configurable SYSFB gives us a nice place to put 
+SYSFB_SIMPLEFB and FIRMWARE_EDID; two options that currently float 
+around in the config somewhat arbitrarily.
+
+Best regards
+Thomas
+
+>
+>       Arnd
 
 -- 
-====================
-| I would like to |
-| fix the world,  |
-| but they're not |
-| giving me the   |
- \ source code!  /
-  ---------------
-    ¯\_(ツ)_/¯
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
+
+
 
