@@ -4,82 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC141112259
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 02:42:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26817111227B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 03:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ROWEGxqksQxFZs46Z6UIzyFf3Gnn2DH3A2REbgNnCmE=; b=eQHPkhU+3kaiGpa8HTA7YSHPUM
-	cQWNQo6E0ZZcWghrWnOgPA42wG6GLnpUSVkY5jYzqNzqSN4j9pwemwg9Bu0pkr5umqw23mhNUP/5W
-	0pUsJqLCqx9kF4iNfW40F5Y0/7mU9173YBIbeJHKqGxTahe1+P0y5NWkRCeKS4shqZfmUyCdiSwgy
-	X7Pr6e2aTb4OdN5NHb4rUmuqK6EYwmM//aCudCYksRIuNEb5PHbAUwr90p+vjluY2ItRavfuSJ0iB
-	Zmz9dXJnTRzQw+bvgFDvlvBElCphzDnekS6Ji6oKw3cYNGtD13nh0WOstq7kiHjzEGatWg2BwBnI7
-	aZimUFeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6w6c9zgbkjZBuwY8jMwB+fmTCD6I5ocwNz3RIE36JC8=; b=eMNArW4/K7H24c4vmOj+cyry0I
+	7iXU+proWbs64UE5vo374TEqbhDbkrHoQ6rHXEGu/xLeOo7ItgUcZLibpJTJimysWuHp3qKZr10aa
+	++fTVPC0BWC/YFI8gMjO2omPokNK5aQeRrTm6ugrEMIQ77ZiQy+ruiJ4Oduxr8F6oKu1YynECYcy9
+	Aggv/dr4Pp/BdwSjAKRQa9zgN0HgrYhDdCyvhsUhB7L9YOtqxFNRsNAjMPOHHWb2F57ql6ymyBOh5
+	JLi9/I1XUM+qABn0JWFaHlQbs+JGL1JDGsgKtsqYnr7kOr1BQ40u+qoWfIju/LA4WUjqYJYTMaTH+
+	A5xKZ1Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w880S-0000000GckM-0E7D;
-	Thu, 02 Apr 2026 02:42:04 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1w88Wg-0000000Gegw-1pov;
+	Thu, 02 Apr 2026 03:15:22 +0000
+Received: from mail-northeuropeazon11011006.outbound.protection.outlook.com ([52.101.65.6] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w880E-0000000GcfG-0UZC
+	id 1w88We-0000000GegO-1LB0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 02:42:03 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=ROWEGxqksQxFZs46Z6UIzyFf3Gnn2DH3A2REbgNnCmE=;
-	b=KvW2XnycR1GXkgXBNFAHBb0gyzZiFhJQ1L52/ao+6KhBQewLy9Mo/i4RrsyZ1J8Axtygqbm2e
-	IrfQxZm1MbH4Z4AURBg1of8D3Ft8qgiVHpBhGIKf6aPQPlk4i2Sp3Be/EsWqkYd3HpYcVMErRvp
-	s5emz2sM9i+TvRTc/EUacX8=
-Received: from canpmsgout06.his.huawei.com (unknown [172.19.92.157])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTPS id 4fmR212mq0z1BGH4
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Apr 2026 10:41:29 +0800 (CST)
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=ROWEGxqksQxFZs46Z6UIzyFf3Gnn2DH3A2REbgNnCmE=;
-	b=KvW2XnycR1GXkgXBNFAHBb0gyzZiFhJQ1L52/ao+6KhBQewLy9Mo/i4RrsyZ1J8Axtygqbm2e
-	IrfQxZm1MbH4Z4AURBg1of8D3Ft8qgiVHpBhGIKf6aPQPlk4i2Sp3Be/EsWqkYd3HpYcVMErRvp
-	s5emz2sM9i+TvRTc/EUacX8=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4fmQsv6QHCzRhQZ;
-	Thu,  2 Apr 2026 10:34:27 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2317E40561;
-	Thu,  2 Apr 2026 10:40:38 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Thu, 2 Apr 2026 10:40:37 +0800
-Message-ID: <730aaffa-9dfd-40c3-a372-c774d203b6e1@huawei.com>
-Date: Thu, 2 Apr 2026 10:40:37 +0800
-MIME-Version: 1.0
+	Thu, 02 Apr 2026 03:15:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eRENulPASCq3vUab3McJcSbR5dC+7fXM4MsN5FGCua0sUwYvYTt6eT2qVLKPUbEK3RAm+u+Fsu09eS3l25sKOrPV7mPVMVu1ePx0sjfYsqn4k73MRvAYqyx4CdeJtKoLQtlP2lbyEMhknuCHxgX+zl2TX/O3dIzS9rV3gPni0z5khaAcv4ues3SKa3j+HnhErHpeBYJUbnRniuBVhpuyZmMu9MuW6dKjb0ketwFvFqWvCxpEGhdvstV3FNShS1jCERZdnQSCLZwDIQJhohO7gVxB8TZe7tD8OiXdtrms0HxcpHU/N2N5Je+e2MtxFK64pQqT4RyYWpPk9KggSgBNhg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6w6c9zgbkjZBuwY8jMwB+fmTCD6I5ocwNz3RIE36JC8=;
+ b=ortdV8iknMNrrrz5e521Di/xvqYuSQTICXKgSRIFmhUQ3eDsQe1UOnw+JyHJdWCxckBLSDFFB0FmnEXW1z27QOXbPU78N8ygj35jO+AgauA8MECpvnfuvW69Pq0qz4y7dLXcDGiFWioS99gM5SM7ZKw6m5u6oBMJNDoIw1BUIc/eJskC5fAVuC/sqzI3XTWzqRjTFY3acTCQcEvok3tnxeoSGV8IQudLiqT5Zcj7Qj0dZv43D7oxHeHUyEDnfK2QjJeRsZmM/yBgHZzXMQ2EbwkYxclR44nmaAxi1G94YEy251kKgtF3gs3CSVB46uDNbQ/Bw15+QXKEzwY9WoEvpA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6w6c9zgbkjZBuwY8jMwB+fmTCD6I5ocwNz3RIE36JC8=;
+ b=YCGttx+CJXmDM0/WQ8Bk/dEXCVmzA/qN1iEw7QjSzdFmvfHdQll9tElO0+CDDZ6avgLyQEPt4QpaE1EDhhV6Y6wl8nyRibnkP22o7PvLXDFsx0O59hnw4d88RXe50Zd3vhI9QaEGl1xexhumezf7Gs4wdINH0T7ecKtDEQYgEtmFYyKQk571wIvg6REDpJU+xOyjdaBAwc38bT12HoeNqgGlVYCO3qq6ESuQRktgVhmraxjmGWC5KblmeHeoa6oAEwgBr/k2o3ZB8i8USsOf88FtYowq09C+6kSPLatLWd4QucOxqNvDOsipKSy+zPgaj17XJAwguaz6qQ0wDpmDvg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from VI1PR04MB5118.eurprd04.prod.outlook.com (2603:10a6:803:5f::18)
+ by DU0PR04MB9299.eurprd04.prod.outlook.com (2603:10a6:10:356::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Thu, 2 Apr
+ 2026 03:15:11 +0000
+Received: from VI1PR04MB5118.eurprd04.prod.outlook.com
+ ([fe80::c885:a48:57e4:d4f9]) by VI1PR04MB5118.eurprd04.prod.outlook.com
+ ([fe80::c885:a48:57e4:d4f9%6]) with mapi id 15.20.9678.034; Thu, 2 Apr 2026
+ 03:15:15 +0000
+Message-ID: <5c24fe3f-a1c7-4fd6-b5e6-c920bc3e7fcb@oss.nxp.com>
+Date: Thu, 2 Apr 2026 11:14:53 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/5] Support the FEAT_HDBSS introduced in Armv9.5
-To: Leonardo Bras <leo.bras@arm.com>
-CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
-	<corbet@lwn.net>, <pbonzini@redhat.com>, <will@kernel.org>,
-	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <liuyonglong@huawei.com>,
-	<Jonathan.Cameron@huawei.com>, <yezhenyu2@huawei.com>, <linuxarm@huawei.com>,
-	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <skhan@linuxfoundation.org>,
-	<suzuki.poulose@arm.com>
-References: <20260225040421.2683931-1-zhengtian10@huawei.com>
- <acvWnjG0AZBHL21q@devkitleo>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <acvWnjG0AZBHL21q@devkitleo>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+Subject: Re: [RFC PATCH 1/7] media: v4l2-ctrls: Add V4L2_CID_MEMORY_USAGE
+ control
+From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
+To: Nicolas Dufresne <nicolas@ndufresne.ca>, Frank Li <Frank.li@nxp.com>
+Cc: linux-media@vger.kernel.org, mchehab@kernel.org,
+ hverkuil-cisco@xs4all.nl, sebastian.fricke@collabora.com,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, linux-imx@nxp.com, xiahong.bao@nxp.com,
+ eagle.zhou@nxp.com, imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260331072347.253-1-ming.qian@oss.nxp.com>
+ <20260331072347.253-2-ming.qian@oss.nxp.com>
+ <acvbOo17tU-s20BS@lizhi-Precision-Tower-5810>
+ <079b1630abe5dd22e032797fc12925c9c79ea305.camel@ndufresne.ca>
+ <d8c12ba1-5004-4a51-8a2b-3d500184778b@oss.nxp.com>
+In-Reply-To: <d8c12ba1-5004-4a51-8a2b-3d500184778b@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MA5P287CA0083.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1d8::15) To VI1PR04MB5118.eurprd04.prod.outlook.com
+ (2603:10a6:803:5f::18)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI1PR04MB5118:EE_|DU0PR04MB9299:EE_
+X-MS-Office365-Filtering-Correlation-Id: 83698512-9cc6-4579-e07f-08de90660eee
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: uZv/hjKm4Wxs6j6ZnHMn7jD09ysNdfoKCMTTqO/MdvIUQUzgWkTmSrbCuSuSN9Jh4YmzWWvLrDh7dthc/cXRkevr6N4f/xb8oQUR8m3povGAW9z6a1ZPvn2FpMv766Z+pCpK5C/uQy/XnRHztLlkURyDrzXZ/LlQlSUBcxV6Fuo2eJTU+MQBaWqglKvMl1j2ilufVPAt/M9xZkPoyH3ctvOOyGPU7tMu/JtrhCG8ftsD/OzfdJQAh+EyUvjWF+Aty7QdZYBoOJT4J7yo+s/8EooIgDm7UDImakF5wFbFgEOFTZXSBuiGceewsKve8taKENJPNymewlvGaXWt4A6QLhdxVsroPXvI+8xUnwsGKujppmo6dEbTmve0oUMDneGXU+nOInMACfG6lFOGJ5J+AxhaavpjAdTo87CZVW8xrUFUF4j8pV//xuP7sPeIWMKtTVDeoSCFIno0yV0aeH6826/jKKUJBca90rXPvqRWCh9CI77Ik8gibSiN8PE1/2OyhNFTno0VO80teWJmEUq9MXmUGvQlONLHqHR8SwDhiQJAUKs2yxQrm0eBGGtMPE4nzIXjyORAS1KRTQ3itiTlgivAodHd83Dsofr0Lq6OGYPTFZ7eg3kdNHWBsV1YIJ/A/z+V1/J2JHLGxs15cy7CDohHLd1gvqwBJjbA/8v/Y6Z4tAu68YgxyM2NA0pHUSDdjxSqPuo5AOwwop81MPQi2JFffS7qfVAFCl6dDJ8HlgA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR04MB5118.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K3FnVVZUa1NsSlI5ZGVDTWp2TVQ2MUFzZXVDZjYvVFIvUmlkVi9qOVEwWWRU?=
+ =?utf-8?B?d3QzOFY2QU9VbTE0NzFqVDBPb2tsdXJ5RXBhbkZ1SW9OaWEyVEI2MEp6R0My?=
+ =?utf-8?B?M1NZTEVwdXNxQjc1am9tQittY1g5WVRWM0J2TnB6TlhrcHEyNW5NVk9Tb2hu?=
+ =?utf-8?B?V0sycFM0aExaaHJaMklUZW1RcGF4MHNMc3pTOCsvOEFybHV4RG0zVjRROXlJ?=
+ =?utf-8?B?Qm1kOHd2THRIaEgvNUV5S0lZTWNhU1BXb0lZSk1qcFZvSE1wQ0dyZUUyVHJZ?=
+ =?utf-8?B?N080SkxhTEEzbDR6L3I1dk9DalhuVWZjRFhPZ1lVZnhraGwwL29veFI4ZUNs?=
+ =?utf-8?B?ZC9odFBGN1h2andKYy9VVnlMTDQ4cjhmS1paZlFhWFhpM0dPSXN1L1paMTcz?=
+ =?utf-8?B?SGZJM2lDZGJYSmJEVWNsa3dmT1VTR2tibmkzS2hwOXRVNUxqRGRaY2JaeVZj?=
+ =?utf-8?B?UXlhSkFBUjIyVGpJcEtCTm5Ca3hiWVY3U3FNMHo5OGVGVE1OVHRCcHplc2tp?=
+ =?utf-8?B?dVVxRWhwTUxQS0RCMi9OL3RPNXdxWVQ2anpvLzRQcUFzNjVITCswYUxWUUZy?=
+ =?utf-8?B?bDdXS2lRLy9EcXdxdWVNUDJNQjlnN3ltU2N5WXk1ZlNtSkI2cFAxMlB4SzZx?=
+ =?utf-8?B?a2MvTGpFaW52bDV1WEgwSk5EZHBlL1cwOHc3a3NYK3lOc3U1QWJ5SG5jeDJu?=
+ =?utf-8?B?bFNreUN2MEZEd3U5TW1VNHhWMUhyMk9TNm03dUdzS3RleUhWUWtSZVVYTWxM?=
+ =?utf-8?B?RFdzN3JFMk9oOWwydzA3ODNuZWhvcXpQMFErTG5NR2FoSFZldTBzYTl1UmJq?=
+ =?utf-8?B?dGEvaGxhUFZrY1p5NlduSEFBaFppKzVPajhid3UyektKK2RFWHIwdmt0aHpm?=
+ =?utf-8?B?RURDZ0gwbExuOHJmUUpvdUVzSExvR3ZrLy9iZGJSRDZPREZGN1FxR0R6cTh0?=
+ =?utf-8?B?K05kOGcvWHh1T09RTEg2M2t1WXRZa2lTQ2w4a3hIYzl3Zk14bjJ4VHVCeHdS?=
+ =?utf-8?B?dEFXSmhGY1A1S3ZkcHA0QThOci8ydkg4SWIreFhSQXBpUjdmUnVqUUhtanJM?=
+ =?utf-8?B?VTlzSkdKRUJ0RHFVcU01aFpmcUc2RkZGSjZRRFhoQ1dycDZqZTU5YjNDSlAv?=
+ =?utf-8?B?amZuc3FOVTA3QU9EOHN4SVhpbGhqT0FwN2huWjNUay9ZdktWM0ZoSFhkQlFH?=
+ =?utf-8?B?ZDljeUFLTnFTQXY3ekMvVU9SNlBjUVZuNTlpYi9tWHM5VHk1aTcwdjJQQUtz?=
+ =?utf-8?B?TnZmQUxZOU5XaTNOVWoyUXRXOGMxYmlZdXFEamNnYlg5c2IzeHB4UzY0Yjcv?=
+ =?utf-8?B?OFMrNXFaaktsVHMrUGJrYjlFbXRKbUtZTVdyTnA3V2x4WWpocmtwTENTOTV5?=
+ =?utf-8?B?VUIwRGJqWnZUWXllZm12NE5CL1FxY1JWQWNRK1oxTHJqRmYyWTQxNEx1dGpH?=
+ =?utf-8?B?VUtMYXY2MFd6cTRUQkxac3lGdlo5Vm5YWThVdHpBeWZacmUzSEJtOHBhWDJG?=
+ =?utf-8?B?b0l0WnEyTGM2VEpMUkw5bnpUZjRGOThueWVqVjRhVk1jQnFMdzBaaEVpMmY5?=
+ =?utf-8?B?QXpJallqYXpaT2pHRk5tV3JPRmJSRThqYUlNR0V4YW9yeHNVVm1KWUJOdGNR?=
+ =?utf-8?B?YVhqandKcmtPVWJZcXJvRGlGNWlDTXkxazJhSTRaZkpLVml1Zk5aOWl5ajBM?=
+ =?utf-8?B?cHZzMnV5WkpaYjJrd2JRQVBoR1B3TmxIZFF2cE03NklBYTZKQk5pRDhlT2kr?=
+ =?utf-8?B?R2Mxc2pQaXk0WDhiMUVzN2xtd25nZVhSY3JDNEpTNktITXBTYzIvOTlHdytp?=
+ =?utf-8?B?R1JnSnk2dFpZdFNoOE5EQlFRS0h4VUhONDhjME1tUm9KdFY5clZyemJRZ0Ex?=
+ =?utf-8?B?TjlmV3U5Mi9wOGRLdXg4ekxDTy8zVmFnQWFHNXZ2TXF6U3RDZGN5TktqeElI?=
+ =?utf-8?B?bUVzNWYrQ1pUcjNQUllEWXJkRGdjZ3JFNU5BV2VtdEw1Sm9qbmpaeU5nKzVX?=
+ =?utf-8?B?UmEzWjlpMDZmWmFZM0U2ZDBmV21wSlA3OW1YOE9NR1lOZm4zZ2JnZTJPdjNO?=
+ =?utf-8?B?UlpHNVpxL2pMU0ZlaHlkRXpXcTd2WXpjTndIR1RaNXFyM3NXQVJFSnp0WStZ?=
+ =?utf-8?B?WTNRZC82Q2NsWW5WcjN3R3dQSUxlT0RXbUNUOENNZnYyVmRrWjJBaU1oSG1S?=
+ =?utf-8?B?U04rUEVZdGdvd3lMeGJ0eEV4a0lsL0cvWG1pbWJRdHhoWkRKRzViQVUwYjBD?=
+ =?utf-8?B?dzZ4cG5UQlBnNmJrcEl2N21pWHJ5K1ZKYktNWnpScllLRkJMOXlnVDUzb09Y?=
+ =?utf-8?B?ZzdzUHFGYktXWW4vYUpOWFZ1T296Ri9Cem02bXY2RGhUU3NuVzVkUT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 83698512-9cc6-4579-e07f-08de90660eee
+X-MS-Exchange-CrossTenant-AuthSource: VI1PR04MB5118.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2026 03:15:14.9784
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: v3F991rWYU/4aQLzo18DGCAcyrNmMxq7WCiwfeY5sU73TIVPSkIidV7W0iC5khan2cc1npUFW/V2xT0BKkqilg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9299
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_194156_111338_61285A35 
-X-CRM114-Status: GOOD (  24.19  )
+X-CRM114-CacheID: sfid-20260401_201520_377114_3114A44B 
+X-CRM114-Status: GOOD (  21.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,100 +156,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Nicolas,
 
-On 3/31/2026 10:13 PM, Leonardo Bras wrote:
-> On Wed, Feb 25, 2026 at 12:04:16PM +0800, Tian Zheng wrote:
->> This series of patches add support to the Hardware Dirty state tracking
->> Structure(HDBSS) feature, which is introduced by the ARM architecture
->> in the DDI0601(ID121123) version.
+On 4/1/2026 10:23 AM, Ming Qian(OSS) wrote:
+> Hi Nicolas,
+> 
+> On 3/31/2026 10:54 PM, Nicolas Dufresne wrote:
+>> Le mardi 31 mars 2026 à 10:33 -0400, Frank Li a écrit :
+>>> On Tue, Mar 31, 2026 at 03:23:11PM +0800, ming.qian@oss.nxp.com wrote:
+>>>> From: Ming Qian <ming.qian@oss.nxp.com>
+>>>>
+>>>> Add a new read-only control V4L2_CID_MEMORY_USAGE that allows
+>>>> applications to query the total amount of memory currently used
+>>>> by a device instance.
+>>>>
+>>>> This control reports the memory consumption in bytes, including
+>>>> internal buffers, intermediate processing data, and other
+>>>> driver-managed allocations. Applications can use this information
+>>>> for debugging, resource monitoring, or making informed decisions
+>>>> about buffer allocation strategies.
+>>>>
+>>>> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+>>>> ---
+>>>
+>>> Not sure why not export these information by debugfs, or any benefit vs
+>>> debugfs?
 >>
->> The HDBSS feature is an extension to the architecture that enhances
->> tracking translation table descriptors' dirty state, identified as
->> FEAT_HDBSS. This feature utilizes hardware assistance to achieve dirty
->> page tracking, aiming to significantly reduce the overhead of scanning
->> for dirty pages.
+>> There is also a on-going proposal that uses fdinfo.
 >>
->> The purpose of this feature is to make the execution overhead of live
->> migration lower to both the guest and the host, compared to existing
->> approaches (write-protect or search stage 2 tables).
+>> Nicolas
 >>
->> After these patches, users(such as qemu) can use the
->> KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl to enable or disable the HDBSS
->> feature before and after the live migration.
->>
->> v2:
->> https://lore.kernel.org/linux-arm-kernel/20251121092342.3393318-1-zhengtian10@huawei.com/
->>
->> v2->v3 changes:
->> - Remove the ARM64_HDBSS configuration option and ensure this feature
->> is only enabled in VHE mode.
->> - Move HDBSS-related variables to the arch-independent portion of the
->> kvm structure.
->> - Remove error messages during HDBSS enable/disable operations
->> - Change HDBSS buffer flushing from handle_exit to vcpu_put,
->> check_vcpu_requests, and kvm_handle_guest_abort.
->> - Add fault handling for HDBSS including buffer full, external abort,
->> and general protection fault (GPF).
->> - Add support for a 4KB HDBSS buffer size, mapped to the value 0b0000.
->> - Add a second argument to the ioctl to turn HDBSS on or off.
->>
->> Tian Zheng (1):
->>    KVM: arm64: Document HDBSS ioctl
->>
->> eillon (4):
->>    arm64/sysreg: Add HDBSS related register information
->>    KVM: arm64: Add support to set the DBM attr during memory abort
->>    KVM: arm64: Add support for FEAT_HDBSS
->>    KVM: arm64: Enable HDBSS support and handle HDBSSF events
->>
->>   Documentation/virt/kvm/api.rst       |  16 +++++
->>   arch/arm64/include/asm/cpufeature.h  |   5 ++
->>   arch/arm64/include/asm/esr.h         |   7 ++
->>   arch/arm64/include/asm/kvm_host.h    |  17 +++++
->>   arch/arm64/include/asm/kvm_mmu.h     |   1 +
->>   arch/arm64/include/asm/kvm_pgtable.h |   4 ++
->>   arch/arm64/include/asm/sysreg.h      |  11 +++
->>   arch/arm64/kernel/cpufeature.c       |  12 ++++
->>   arch/arm64/kvm/arm.c                 | 102 +++++++++++++++++++++++++++
->>   arch/arm64/kvm/hyp/pgtable.c         |   6 ++
->>   arch/arm64/kvm/hyp/vhe/switch.c      |  19 +++++
->>   arch/arm64/kvm/mmu.c                 |  70 ++++++++++++++++++
->>   arch/arm64/kvm/reset.c               |   3 +
->>   arch/arm64/tools/cpucaps             |   1 +
->>   arch/arm64/tools/sysreg              |  29 ++++++++
->>   include/uapi/linux/kvm.h             |   1 +
->>   tools/include/uapi/linux/kvm.h       |   1 +
->>   17 files changed, 305 insertions(+)
->>
->> --
->> 2.33.0
->>
->
-> Hi Tian,
->
-> I was thinking: maybe instead of putting the HDBSS (and HACDBS) stuff
-> across a bunch of KVM files, we should try to focus them all on a single
-> arch/arm64/kvm/dirty_bit.c file (plus a header such as
-> arch/arm64/include/asm/kvm_dirty_bit.h).
->
-> What is your opinion on that?
->
-> Thanks!
-> Leo
+> 
+> Thanks for the reminder about the ongoing fdinfo proposal.
+> 
+> Just to confirm, you are referring to Detlev’s ongoing fdinfo proposal,
+> specifically this series:
+> https://lore.kernel.org/lkml/20260212162328.192217-1- 
+> detlev.casanova@collabora.com/
+> 
+> I will align my work with it and switch to using fdinfo.
+> Once the show_fdinfo support from that series is merged, I will prepare
+> the next revision of my patch accordingly.
+> 
+> Regards,
+> Ming
+> 
+
+Regarding the discussion about using fdinfo instead of a V4L2 control, I
+have two questions:
+
+	1. Key consistency in fdinfo
+	fdinfo uses key–value pairs, which is flexible, but if multiple
+	drivers want to expose the same “memory usage” information,
+	they need to agree on a common key name and meaning. Otherwise
+	user‑space must handle each driver differently. A V4L2 control
+	naturally provides a unified interface without this coordination
+	effort.
 
 
-Sorry for the late reply. Yes, I had the same thought before. In the 
-next version, I will
+	2. Lack of notification in fdinfo
+	With a control, user‑space can subscribe to control events and
+	receive notifications when the memory usage changes. fdinfo does
+	not have a built‑in event mechanism, so users must either poll
+	or rely on additional eventfd‑like or custom event mechanisms.
 
-move all the HDBSS-related content into the same file, such as 
-arch/arm64/kvm/dirty_bit.c
+Do you have any suggestions or existing practices to address these two
+issues when using fdinfo?
 
-and arch/arm64/include/asm/kvm_dirty_bit.h.
+Thanks again for your time and comments.
 
+Regards,
+Ming
 
-Tian
-
-
->
->
+>>>
+>>> Generanlly document should be first patch, then driver change.
+>>>
+>>> Frank
+>>>
+>>>>   drivers/media/v4l2-core/v4l2-ctrls-defs.c | 8 ++++++++
+>>>>   include/uapi/linux/v4l2-controls.h        | 4 +++-
+>>>>   2 files changed, 11 insertions(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/drivers/media/v4l2-core/v4l2-ctrls-defs.c b/drivers/ 
+>>>> media/v4l2-core/v4l2-ctrls-defs.c
+>>>> index 551426c4cd01..053db78ff661 100644
+>>>> --- a/drivers/media/v4l2-core/v4l2-ctrls-defs.c
+>>>> +++ b/drivers/media/v4l2-core/v4l2-ctrls-defs.c
+>>>> @@ -831,6 +831,7 @@ const char *v4l2_ctrl_get_name(u32 id)
+>>>>       case V4L2_CID_ALPHA_COMPONENT:        return "Alpha Component";
+>>>>       case V4L2_CID_COLORFX_CBCR:        return "Color Effects, CbCr";
+>>>>       case V4L2_CID_COLORFX_RGB:              return "Color Effects, 
+>>>> RGB";
+>>>> +    case V4L2_CID_MEMORY_USAGE:        return "Memory Usage";
+>>>>
+>>>>       /*
+>>>>        * Codec controls
+>>>> @@ -1476,6 +1477,13 @@ void v4l2_ctrl_fill(u32 id, const char 
+>>>> **name, enum v4l2_ctrl_type *type,
+>>>>           *min = 0;
+>>>>           *max = 0xffff;
+>>>>           break;
+>>>> +    case V4L2_CID_MEMORY_USAGE:
+>>>> +        *type = V4L2_CTRL_TYPE_INTEGER64;
+>>>> +        *flags |= V4L2_CTRL_FLAG_READ_ONLY;
+>>>> +        *min = 0;
+>>>> +        *max = S64_MAX;
+>>>> +        *step = 1;
+>>>> +        break;
+>>>>       case V4L2_CID_FLASH_FAULT:
+>>>>       case V4L2_CID_JPEG_ACTIVE_MARKER:
+>>>>       case V4L2_CID_3A_LOCK:
+>>>> diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/ 
+>>>> linux/v4l2-controls.h
+>>>> index 68dd0c4e47b2..02c6f960d38e 100644
+>>>> --- a/include/uapi/linux/v4l2-controls.h
+>>>> +++ b/include/uapi/linux/v4l2-controls.h
+>>>> @@ -110,8 +110,10 @@ enum v4l2_colorfx {
+>>>>   #define V4L2_CID_COLORFX_CBCR            (V4L2_CID_BASE+42)
+>>>>   #define V4L2_CID_COLORFX_RGB            (V4L2_CID_BASE+43)
+>>>>
+>>>> +#define V4L2_CID_MEMORY_USAGE            (V4L2_CID_BASE+44)
+>>>> +
+>>>>   /* last CID + 1 */
+>>>> -#define V4L2_CID_LASTP1                         (V4L2_CID_BASE+44)
+>>>> +#define V4L2_CID_LASTP1                         (V4L2_CID_BASE+45)
+>>>>
+>>>>   /* USER-class private control IDs */
+>>>>
+>>>> -- 
+>>>> 2.53.0
+>>>>
+> 
 
