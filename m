@@ -4,144 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A701D39410
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 10:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B92D6D39411
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 10:54:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VI2MSTo9zpN6C28iFiXOn3n95MKHT5Mpuz7NBG5gLPA=; b=IGUVePw826RxPr8riv7368FCPQ
-	a21DTLDs65/cJJ36V/NJc4iCs09m9V0GBEs3jtghTyDmGSC5aNKJnjajoGDlkkTDH/5Ml4S56mCzu
-	bWilD88aIjvkpLr5dpgKJ4ggslPmeBKviai95pM9oBLayCvSV5kuXapzWxieUe4amYw3znKcoYKlL
-	Q2bRO0m667X2Zi2SHvW0wjGt7DOsGBmkeZ0wWlxAx1q98UAd2OowzIlX/VbIiXIjt7T5CQvQQMev/
-	SpdmZ4gMBBA5zYVEyc1hi5PVOir2/HSIZOkgoQE7kI1gRb9K8vnqG8oCyphc5eBVGRiOjGNNRN9sV
-	sm9rOR2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0RVIWJ4ylqtORZ1L+Mwi1bTJovcNPY/rDERTjKhDyF4=; b=2C8lCEsWV/067N5jweDxZ85Wn8
+	0KzJek/nx8HtwAfIKi522O8Ppg1vS07A2iwHOkZyL6klaY2wJAaEM3OrZfB10HmmTrXRFsKoC2+FD
+	C69hJB833/NAVAxmsEXL3oxhMuxDLueNNWiYXp5G4djIUCnAl2F23WxRmFYUsXTeklmsFOv73tFqU
+	lINh+9DEPhFM04IFdZJG0yfZWooGkNOTmfAPj38KBMi/P894/KC+e4s54kczb7HQtlaStgorpFnwt
+	Kmv8NYXz7e1NR7pTEUMEMnvfbXl7MMTJqsDjsJrHA1+X+vkq6X/UfPfBwqi3ln0HZ5WEbIuCGgyBL
+	O0SkeqMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Fdn-0000000HR5o-3Ekr;
-	Thu, 02 Apr 2026 10:51:11 +0000
-Received: from mail-japaneastazon11022072.outbound.protection.outlook.com ([52.101.126.72] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1w8FhI-0000000HRMk-41BP;
+	Thu, 02 Apr 2026 10:54:48 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Fdk-0000000HR5O-0fRF;
-	Thu, 02 Apr 2026 10:51:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MkFixaGDdw+uTFKzwxSY9Kb5aELrFTcs03Wy3+L1SdHtduivZEJYA8bMEvKzK9qd+iL9P6jhIm13DeUKAM1pCArW1pNiUFsYeJx6Kj/wqkmPa+BLK+DpNGNLL5YgZRvWRrdyc5Ht54bXXyGJtdVKBOOU09rAFNcCERD5M9cXO2OrMXQmTDeV9hM1cPwoF4pI2ftIxhNSgjUuWxe48BBXq7I4LHIdf0iuKwxwlafnsuwhh9S+Bf7KK9yPhyGupK+GktIDMnxMyGLVFnHbHjY3HCjsss47mWyzdICP5dTKS2P7dWYXX87ISn6lXco5remSHPjCDh4wd9DHziFPSgNCSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VI2MSTo9zpN6C28iFiXOn3n95MKHT5Mpuz7NBG5gLPA=;
- b=mxTkHIR6+cI+0veIwg27GEDYlL5PRwYNGHRlt9hEno3+7gOgAthQTVF6JDhMFCMlAxQb7FyBEsVwQ3JogqaF7xk+ZOl15o14WotdmWRJSX0W6zhA6LRnOX15gxH6N526FWvdcPPwdL2IO9U9G2BTocvm4BvTvzItBs3iJP2YoxjMYxzt0fXMvlWXKtd8r8R4M8k06VUjUf3LLCH7znHOGNOWyTObhLFYdg1LaCMIU7Hi6/wuan3c8V8UpMdcBzLJUgX+37IdeRf0V5oSfquYu2VGyuZwL93KROTEtr70LiBNfM/v0SLugL/23U1TnVnw0yDdHusnPDgcIZ4cqlttxA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microsoft.com; dmarc=pass action=none
- header.from=microsoft.com; dkim=pass header.d=microsoft.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VI2MSTo9zpN6C28iFiXOn3n95MKHT5Mpuz7NBG5gLPA=;
- b=CFJ+T+BTM4FykVb9JcpOI5xDujnEFWsvvScrbLjFSqrEILRWAL60CWNxv7HT2NraEnWE5nw+bqfnwLUyKWaDyCQOLByqvITSnu6ARD0wX2LLtuxR5UKvNPfzRc/PJmoFET8RXxEuGva13ZUNyv+ayNMxtxHdA6hjmhc5f1kXm1A=
-Received: from KUZP153MB1444.APCP153.PROD.OUTLOOK.COM (2603:1096:d10:36::22)
- by SEZP153MB0695.APCP153.PROD.OUTLOOK.COM (2603:1096:101:92::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Thu, 2 Apr
- 2026 10:50:56 +0000
-Received: from KUZP153MB1444.APCP153.PROD.OUTLOOK.COM
- ([fe80::c9fa:b931:702:dbac]) by KUZP153MB1444.APCP153.PROD.OUTLOOK.COM
- ([fe80::c9fa:b931:702:dbac%5]) with mapi id 15.20.9791.007; Thu, 2 Apr 2026
- 10:50:56 +0000
-From: Saurabh Singh Sengar <ssengar@microsoft.com>
-To: Thomas Zimmermann <tzimmermann@suse.de>, "javierm@redhat.com"
-	<javierm@redhat.com>, "arnd@arndb.de" <arnd@arndb.de>, "ardb@kernel.org"
-	<ardb@kernel.org>, "ilias.apalodimas@linaro.org"
-	<ilias.apalodimas@linaro.org>, "chenhuacai@kernel.org"
-	<chenhuacai@kernel.org>, "kernel@xen0n.name" <kernel@xen0n.name>,
-	"maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
-	"mripard@kernel.org" <mripard@kernel.org>, "airlied@gmail.com"
-	<airlied@gmail.com>, "simona@ffwll.ch" <simona@ffwll.ch>, KY Srinivasan
-	<kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>,
-	"wei.liu@kernel.org" <wei.liu@kernel.org>, Dexuan Cui <DECUI@microsoft.com>,
-	Long Li <longli@microsoft.com>, "deller@gmx.de" <deller@gmx.de>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "loongarch@lists.linux.dev"
-	<loongarch@lists.linux.dev>, "linux-efi@vger.kernel.org"
-	<linux-efi@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, "linux-hyperv@vger.kernel.org"
-	<linux-hyperv@vger.kernel.org>, "linux-fbdev@vger.kernel.org"
-	<linux-fbdev@vger.kernel.org>, Michael Kelley <mhklinux@outlook.com>, Saurabh
- Sengar <ssengar@linux.microsoft.com>, "stable@vger.kernel.org"
-	<stable@vger.kernel.org>
-Subject: RE: [PATCH 1/8] hv: Select CONFIG_SYSFB only for CONFIG_HYPERV_VMBUS
-Thread-Topic: [PATCH 1/8] hv: Select CONFIG_SYSFB only for CONFIG_HYPERV_VMBUS
-Thread-Index: AQHcwo6UUBvHYaEr8EK6Q8BbiI9woQ==
-Date: Thu, 2 Apr 2026 10:50:55 +0000
-Message-ID: <KUZP153MB14449BBE44CBAEEA7621A4A0BE51A@KUZP153MB1444.APCP153.PROD.OUTLOOK.COM>
-References: <20260402092305.208728-1-tzimmermann@suse.de>
- <20260402092305.208728-2-tzimmermann@suse.de>
-In-Reply-To: <20260402092305.208728-2-tzimmermann@suse.de>
-Accept-Language: en-IN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_ActionId=18bb24b4-8011-4e12-840f-c00cb01f033d;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_ContentBits=0;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Enabled=true;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Method=Standard;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Name=Internal;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_SetDate=2026-04-02T10:50:33Z;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_SiteId=72f988bf-86f1-41af-91ab-2d7cd011db47;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Tag=10,
- 3, 0, 1;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microsoft.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KUZP153MB1444:EE_|SEZP153MB0695:EE_
-x-ms-office365-filtering-correlation-id: e877716d-0112-41b9-009e-08de90a5b777
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|18002099003|22082099003|56012099003|38070700021|921020;
-x-microsoft-antispam-message-info: SdvUNrGWjKzVIi0jcfhE88EgvkVPpvZjp5M7KULTg6vT9b35NBZ8AEqaVT0Tkk9vdyBpCxmtOkwcKfVkbWXdN0PUsAMIQOp640wFoCk+Og76/j5cs7ZPp2v2w7ZtiLMhXYKek4MDOVpMHs7ua+YHuDZxbfPyjxDwnipZIj+ViN+owrZF6iP5IlqmV9DrfOdW9LDK+lW1yaE3w5TkN6HbFBW8XdMoHU39a+ayo7Bojgl2kY2sRXZGOFSTr6cCMbaWhxDmUKUnhYhIvfF1Wnw74jGG52tnYxibb6x1jc3PFli1lS0tTOkRgDWg7cQfX3cKhHnDORsARR7xsc4cVAeBpk6WfqVtpU6pQOPr5G72mNnRr5IbaSYX4pXnkfdvUuT6+bkDE9+eQqadNQ5/SC/AsJ5nbr1eTyD/iYNzDNb55B3a4kKrEMOFbKiQIh1xFSYmwKJX2uBhMFacJJ3Zk3/ReUegHjUEX54zd+YEIO46Yh7NEP6HJ9FbVpPT5zmgrs84FCqs9iuuYaxHCEdano71Z5sTZofNhusZHi0SQXz4HgKfR+eK06Pq1NGOXO6iz6B3jl6X64jDqszQBtGWLj0xikzq57buLHyioV0rjB4KNj9/rNqptMQHWIbLit57pAGhm1ibyYBM+KsXSdIcutrAmSFXAUIxTVmsqG8SghYp+CT5Gjyj3FCZMye1gQX36+OsQwQHIP0xO9qdjmMR4aWKbh+K16NgPy/XGIuiJjnN5Eh54yE7MWsX8f12uyCujmwNXj8ZDk5kCJ+LxH9nEBdmn59YJ/dyrYEKhLYTOhSd/iqy9g+4Pxv57b7o6tQIVPhh
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KUZP153MB1444.APCP153.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(18002099003)(22082099003)(56012099003)(38070700021)(921020);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?iSJG7Ki3w/6dKAPOpBCKrVR/kp2H/0uLYC04t5WwHmON41CSLhBEJjwbX7yc?=
- =?us-ascii?Q?AgzW9ZOP4ZJuKXfWVwmLd5ypp2jYq90uWNGza+TbZ7d8BnP9lnJqYW7KfLXF?=
- =?us-ascii?Q?meDgY/tMXVEG9kwG5vHWqSWwSUU40BJUjsxFdKz7dlQq/raMld3rxijHFUiN?=
- =?us-ascii?Q?OoyniSC+OyPvmXU7sHkqp6PNnOFzusH25mIzlMh54x0hAE5b3KKAVg5Euv7/?=
- =?us-ascii?Q?uaBpStNA8Ma2KwxN8e4sy2b44NzZz+RR4wXU33LiyHmiP3zjAwznw044MgdA?=
- =?us-ascii?Q?aYFst3K1AA2vtZffdDzFqJQ4qcF+WslTiOffOS4/e8cUtjIx9YdWKjBpWPw5?=
- =?us-ascii?Q?lcZz3J1cA9c3+HAyRCueoO2BOvVVN4n1bk2jq644hA7ZDOfRkJZ1lun59JkD?=
- =?us-ascii?Q?90rbaJGH7yoeV2N15LYFJLPIFgb/bI4tjfSFbJfe/5DCaNhYnDDXcA1nsu5w?=
- =?us-ascii?Q?4Q7o9f2LxdLjfEyKGpfOCmuyU3KnAmU5Di413oMjdZEZFju77tnpfgO29MSE?=
- =?us-ascii?Q?09+L0M4HWrX5NgzFKxlN8gOaUX2ShqhHj66fz9R4y64+Cs0KJ5nDzy8rNn/8?=
- =?us-ascii?Q?y0erizoNJ7DjX+YbU9kJyyu1K0mHx+zzmxAYxeVTL34uWn2B7lxma3prBgOy?=
- =?us-ascii?Q?yLUV1krIAalsVm7Z58q21aYrNYR6ORwhScAzEDkuE/L3En3wz8leHMq5luiK?=
- =?us-ascii?Q?xKfcrv0RVxGHq4+xfDkS+j18SV2z242itwOfJTuxehsTktAjKKd/nsa5TMSB?=
- =?us-ascii?Q?SfpgQyL/j46qm8DXgyismp84cqn5QXSt04d82FvcOdOIyEBNz8ZwuuoIl1kD?=
- =?us-ascii?Q?Eca/8YgO81o4mo9lrmAOlLONhPTyrpkcJQfqZHzcoxwKfr//tHnFWz8FLmMb?=
- =?us-ascii?Q?wyzrus7RIwpaa5+l4d7P0oopfUyI+l0JlyTC3aUPSt9GWxRi3YJ5oAHrfWoB?=
- =?us-ascii?Q?ncy7f2ruU3K6EJFdaS8Zxn12FnIahFlHZtLZDowRxgm1pBJjivKeWUaJHY1b?=
- =?us-ascii?Q?biEk6vKep1X2Gw6Nia22TpfuRJKRvCi2ZlFnUBM1PZ3qEJi9emB4if3Xw49/?=
- =?us-ascii?Q?vhDX2yj9YvtdvTSpQG9nQD4WZLkdTcCkF2Q1qLLmW+Fl7gqjmAcdumGcFVjn?=
- =?us-ascii?Q?L/6kdohQWqUe5/uihCnl3kaejbZZ/WgiW6smK13ETt5KQiGl+RWLFoRsUhji?=
- =?us-ascii?Q?DiMnVR5ZdmLYMtEYAKJGOBoCL8V+cjzzOe/ytyLHxsd/tUvogGqQlSSNR2Ma?=
- =?us-ascii?Q?0R9kEVP1Ajy0vEkwYyEjiLKPjm+kZibnmxm30Gyrh8StJ14VncvMaE49FuYE?=
- =?us-ascii?Q?G+Ff6z5b0INzFNBNpktu1ST2Je3UYL7Vkzl4rIt52cklVc18IgSyI8omSRZr?=
- =?us-ascii?Q?9JUwTCeDmXx2KkeKB2BimaMA+XJGDhrLVjHhuVDEEEQhiG7DsYSxodL3TrBm?=
- =?us-ascii?Q?WOLxye8t9fyh7B1nCHg3/+2B3zvJv3Lb7+JzhbWyWfUaeBUwtSzybGz9QCor?=
- =?us-ascii?Q?KSaJskktcf/eWSe2hKA+RPndW4NZNPJj/GQrMpHnRwBZOl+WivaVNbCo/XZ9?=
- =?us-ascii?Q?oK+y/EkdnJM0yE0/2ZmV9c7iZu0sL/9oWBzEcCmp+8w1NV/QZX3ziKtUAFOC?=
- =?us-ascii?Q?rL5hAV0Fhn+ObMf+C1I9nzWxozBclwuSH+c876KnyuDP?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1w8FhG-0000000HRLk-1qij;
+	Thu, 02 Apr 2026 10:54:47 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 631M9oxR115373;
+	Thu, 2 Apr 2026 10:54:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=0RVIWJ
+	4ylqtORZ1L+Mwi1bTJovcNPY/rDERTjKhDyF4=; b=a/t6YWtepXkgy3HnC1LPNl
+	NR+Sa0T2m4F5OUreTADI9RhCPsGdkaq2wKrdARBIMfuSA4P3rIph73h5RWyUHcy0
+	vYl6+ty77D+/tt99X7WPZDxLhObX+/xdhalR/HkVr2Y2FlQXpP9MXCCy6F4Xe/1t
+	QiF3hzYQqahWCGn7Qjlm2QEhZbi4N8E2Fdn+H4BRg2qwa2cvFUdcL+JWnNTe6Nlf
+	XVNv7IZjqcNrzu9yObzkou48pXnS8lfA6b5Cy/0MtNlQWh5RWesV3xnFTUTXDzDX
+	OoyGhs/Hq0hNeXpVtXUV5h0JJQopD2GLU818VVJ8mI/3VIaPgFokCSoEYCp4QRUw
+	==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4d66q3ccfd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 02 Apr 2026 10:54:25 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 6327koKJ008685;
+	Thu, 2 Apr 2026 10:54:24 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4d6v11sfrv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 02 Apr 2026 10:54:24 +0000
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 632AsKD952298136
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 2 Apr 2026 10:54:20 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4C46B2004E;
+	Thu,  2 Apr 2026 10:54:20 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 789E220040;
+	Thu,  2 Apr 2026 10:54:15 +0000 (GMT)
+Received: from [9.123.14.142] (unknown [9.123.14.142])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu,  2 Apr 2026 10:54:15 +0000 (GMT)
+Message-ID: <51761fcf-955f-45e2-97a5-2b49d8e79d04@linux.ibm.com>
+Date: Thu, 2 Apr 2026 16:24:14 +0530
 MIME-Version: 1.0
-X-OriginatorOrg: microsoft.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KUZP153MB1444.APCP153.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: e877716d-0112-41b9-009e-08de90a5b777
-X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Apr 2026 10:50:55.5076
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 72f988bf-86f1-41af-91ab-2d7cd011db47
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: DIiXXMppZYPpOHdRHZ+nRFdZXYEpZs5V01ntxE7smqq1+dJGbx3NWf0fQz1aklgukmKcm3EdTfP6h0Aoox3ycg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZP153MB0695
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 3/3] arm64,ppc64le/kdump: pass dm-crypt keys to kdump
+ kernel
+To: Coiby Xu <coxu@redhat.com>, kexec@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+        devicetree@vger.kernel.org
+Cc: Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>,
+        Baoquan he <bhe@redhat.com>, Dave Young <dyoung@redhat.com>,
+        Kairui Song <ryncsn@gmail.com>, Pingfan Liu <kernelfans@gmail.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+        Thomas Staudt <tstaudt@de.ibm.com>, Will Deacon <will@kernel.org>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Saravana Kannan <saravanak@kernel.org>,
+        open list <linux-kernel@vger.kernel.org>
+References: <20260225060347.718905-1-coxu@redhat.com>
+ <20260225060347.718905-4-coxu@redhat.com>
+Content-Language: en-US
+From: Sourabh Jain <sourabhjain@linux.ibm.com>
+In-Reply-To: <20260225060347.718905-4-coxu@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: 1IJpf8nhQkcVXt5GniLlCr3XWgW66IQM
+X-Authority-Analysis: v=2.4 cv=frzRpV4f c=1 sm=1 tr=0 ts=69ce4ae1 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8
+ a=20KFwNOVAAAA:8 a=NEAV23lmAAAA:8 a=b2T7Ds_qAAAA:8 a=pGLkceISAAAA:8
+ a=Z4Rwk6OoAAAA:8 a=VnNF1IyMAAAA:8 a=CgUfrdhd2qi-7wTTnboA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=thWvoDmNLqknv6kuXhLH:22 a=HkZW87K1Qel5hWWM3VKY:22
+X-Proofpoint-ORIG-GUID: x_IWhrErDeETCiTEFlITfxiDIXysEuLj
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAyMDA5NyBTYWx0ZWRfX4FDLit6NpI3L
+ shC2rKHIH4E6HToakFkgZdHxWXdbkbPhbeADWr0jBlBnA5PNnlA7MfMtUl8VyQk5+vLGbLfZ82Z
+ fMEhRxMXapCTYXQUzQw8z3uBrDVdmEOeYrDLjR3ZDkkAlgpJ/EpseC2rxJCCw4T4MALgUtFvSpi
+ rkpL2TCWdgvkaOZUWdQABxYoXOvIirYnjQBDxcjrjT3bCxWtrdT4AgGSi0bpn1h32jQCkeRMNkO
+ 8ycQMVRnS4Kz8Nx8XDtY1QdhUQ9eO4RePsUBiNd0hVeH1x5UepoLHv/YZQPm40io7TiKUjOLBkf
+ 7rDk2GXzJhphRwRJzGScyjFo0rg+fHeriBkLeXUw7wpJ5L7G7PfND2ADZKSaaYZIW9U9MzXzKEg
+ rhoSnAlIKyZOEE94DL3ZLYiXUkRjpIzLFxvXh6Osg/59lN6LpVl8yTLgny/Vnj/oQyvpbSxi+c0
+ bkZ0+M4Dq/Uk/a8tQqA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-02_01,2026-04-02_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 priorityscore=1501 malwarescore=0 clxscore=1011
+ lowpriorityscore=0 bulkscore=0 adultscore=0 suspectscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2604020097
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_035108_208163_D044B2D8 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20260402_035446_492936_1695A3D8 
+X-CRM114-Status: GOOD (  34.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,51 +136,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Hyperv's sysfb access only exists in the VMBUS support. Therefore only se=
-lect
-> CONFIG_SYSFB for CONFIG_HYPERV_VMBUS. Avoids sysfb code on systems
-> that don't need it.
->=20
-> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-> Fixes: 96959283a58d ("Drivers: hv: Always select CONFIG_SYSFB for Hyper-V
-> guests")
-> Cc: Michael Kelley <mhklinux@outlook.com>
-> Cc: Saurabh Sengar <ssengar@linux.microsoft.com>
-> Cc: Wei Liu <wei.liu@kernel.org>
-> Cc: "K. Y. Srinivasan" <kys@microsoft.com>
-> Cc: Haiyang Zhang <haiyangz@microsoft.com>
-> Cc: Dexuan Cui <decui@microsoft.com>
-> Cc: Long Li <longli@microsoft.com>
-> Cc: linux-hyperv@vger.kernel.org
-> Cc: <stable@vger.kernel.org> # v6.16+
-> ---
->  drivers/hv/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/drivers/hv/Kconfig b/drivers/hv/Kconfig index
-> 7937ac0cbd0f..2d0b3fcb0ff8 100644
-> --- a/drivers/hv/Kconfig
-> +++ b/drivers/hv/Kconfig
-> @@ -9,7 +9,6 @@ config HYPERV
->  	select PARAVIRT
->  	select X86_HV_CALLBACK_VECTOR if X86
->  	select OF_EARLY_FLATTREE if OF
-> -	select SYSFB if EFI && !HYPERV_VTL_MODE
->  	select IRQ_MSI_LIB if X86
->  	help
->  	  Select this option to run Linux as a Hyper-V client operating @@ -62,=
-6
-> +61,7 @@ config HYPERV_VMBUS
->  	tristate "Microsoft Hyper-V VMBus driver"
->  	depends on HYPERV
->  	default HYPERV
-> +	select SYSFB if EFI && !HYPERV_VTL_MODE
->  	help
->  	  Select this option to enable Hyper-V Vmbus driver.
->=20
-> --
-> 2.53.0
 
-Reviewed-by: Saurabh Sengar <ssengar@linux.microsoft.com>
+
+On 25/02/26 11:33, Coiby Xu wrote:
+> CONFIG_CRASH_DM_CRYPT has been introduced to support LUKS-encrypted
+> device dump target by addressing two challenges [1],
+>   - Kdump kernel may not be able to decrypt the LUKS partition. For some
+>     machines, a system administrator may not have a chance to enter the
+>     password to decrypt the device in kdump initramfs after the 1st kernel
+>     crashes
+>
+>   - LUKS2 by default use the memory-hard Argon2 key derivation function
+>     which is quite memory-consuming compared to the limited memory reserved
+>     for kdump.
+>
+> To also enable this feature for ARM64 and PowerPC, the missing piece is
+> to let the kdump kernel know where to find the dm-crypt keys which are
+> randomly stored in memory reserved for kdump. Introduce a new device
+> tree property dmcryptkeys [2] as similar to elfcorehdr to pass the
+> memory address of the stored info of dm-crypt keys to the kdump kernel.
+> Since this property is only needed by the kdump kernel, it won't be
+> exposed to user space.
+>
+> [1] https://lore.kernel.org/all/20250502011246.99238-1-coxu@redhat.com/
+> [2] https://github.com/devicetree-org/dt-schema/pull/181
+>
+> Cc: Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>
+> Cc: Baoquan he <bhe@redhat.com>
+> Cc: Dave Young <dyoung@redhat.com>
+> Cc: Kairui Song <ryncsn@gmail.com>
+> Cc: Pingfan Liu <kernelfans@gmail.com>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Krzysztof Kozlowski <krzk@kernel.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Thomas Staudt <tstaudt@de.ibm.com>
+> Cc: Sourabh Jain <sourabhjain@linux.ibm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+> Signed-off-by: Coiby Xu <coxu@redhat.com>
+> ---
+>   arch/arm64/kernel/machine_kexec_file.c |  4 ++++
+>   arch/powerpc/kexec/elf_64.c            |  4 ++++
+>   drivers/of/fdt.c                       | 21 +++++++++++++++++++++
+>   drivers/of/kexec.c                     | 19 +++++++++++++++++++
+>   4 files changed, 48 insertions(+)
+>
+> diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
+> index fba260ad87a9..e31fabed378a 100644
+> --- a/arch/arm64/kernel/machine_kexec_file.c
+> +++ b/arch/arm64/kernel/machine_kexec_file.c
+> @@ -134,6 +134,10 @@ int load_other_segments(struct kimage *image,
+>   
+>   		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+>   			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
+> +
+> +		ret = crash_load_dm_crypt_keys(image);
+> +		if (ret)
+> +			goto out_err;
+>   	}
+>   #endif
+>   
+> diff --git a/arch/powerpc/kexec/elf_64.c b/arch/powerpc/kexec/elf_64.c
+> index 5d6d616404cf..ea50a072debf 100644
+> --- a/arch/powerpc/kexec/elf_64.c
+> +++ b/arch/powerpc/kexec/elf_64.c
+> @@ -79,6 +79,10 @@ static void *elf64_load(struct kimage *image, char *kernel_buf,
+>   			goto out;
+>   		}
+>   
+> +		ret = crash_load_dm_crypt_keys(image);
+> +		if (ret)
+> +			goto out;
+> +
+>   		/* Setup cmdline for kdump kernel case */
+>   		modified_cmdline = setup_kdump_cmdline(image, cmdline,
+>   						       cmdline_len);
+> diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
+> index 331646d667b9..2967e4aff807 100644
+> --- a/drivers/of/fdt.c
+> +++ b/drivers/of/fdt.c
+> @@ -866,6 +866,26 @@ static void __init early_init_dt_check_for_elfcorehdr(unsigned long node)
+>   		 elfcorehdr_addr, elfcorehdr_size);
+>   }
+>   
+> +static void __init early_init_dt_check_for_dmcryptkeys(unsigned long node)
+> +{
+> +	const char *prop_name = "linux,dmcryptkeys";
+> +	const __be32 *prop;
+> +
+> +	if (!IS_ENABLED(CONFIG_CRASH_DM_CRYPT))
+> +		return;
+> +
+> +	pr_debug("Looking for dmcryptkeys property... ");
+> +
+> +	prop = of_get_flat_dt_prop(node, prop_name, NULL);
+> +	if (!prop)
+> +		return;
+> +
+> +	dm_crypt_keys_addr = dt_mem_next_cell(dt_root_addr_cells, &prop);
+> +
+> +	/* Property only accessible to crash dump kernel */
+> +	fdt_delprop(initial_boot_params, node, prop_name);
+> +}
+> +
+>   static unsigned long chosen_node_offset = -FDT_ERR_NOTFOUND;
+>   
+>   /*
+> @@ -1097,6 +1117,7 @@ int __init early_init_dt_scan_chosen(char *cmdline)
+>   
+>   	early_init_dt_check_for_initrd(node);
+>   	early_init_dt_check_for_elfcorehdr(node);
+> +	early_init_dt_check_for_dmcryptkeys(node);
+>   
+>   	rng_seed = of_get_flat_dt_prop(node, "rng-seed", &l);
+>   	if (rng_seed && l > 0) {
+> diff --git a/drivers/of/kexec.c b/drivers/of/kexec.c
+> index c4cf3552c018..fbd253f0d3c5 100644
+> --- a/drivers/of/kexec.c
+> +++ b/drivers/of/kexec.c
+> @@ -423,6 +423,25 @@ void *of_kexec_alloc_and_setup_fdt(const struct kimage *image,
+>   		if (ret)
+>   			goto out;
+>   
+> +		if (image->dm_crypt_keys_addr != 0) {
+> +			ret = fdt_appendprop_addrrange(fdt, 0, chosen_node,
+> +						       "linux,dmcryptkeys",
+> +						       image->dm_crypt_keys_addr,
+> +						       image->dm_crypt_keys_sz);
+> +
+> +			if (ret)
+> +				goto out;
+> +
+> +			/*
+> +			 * Avoid dmcryptkeys from being stomped on in kdump kernel by
+> +			 * setting up memory reserve map.
+> +			 */
+> +			ret = fdt_add_mem_rsv(fdt, image->dm_crypt_keys_addr,
+> +					      image->dm_crypt_keys_sz);
+> +			if (ret)
+> +				goto out;
+> +		}
+> +
+>   #ifdef CONFIG_CRASH_DUMP
+>   		/* add linux,usable-memory-range */
+>   		ret = fdt_appendprop_addrrange(fdt, 0, chosen_node,
+
+The above changes look good to me.
+
+Feel free to add:
+Reviewed-by: Sourabh Jain <sourabhjain@linux.ibm.com>
+
+But while reading crash_load_dm_crypt_keys() I noticed a possibility of a
+double free at the address pointed by `keys_header`:
+
+In crash_load_dm_crypt_keys()/crash_dump_dm_crypt.c
+     snip...
+
+     kbuf.buffer = keys_header;
+
+     snip....
+
+     r = kexec_add_buffer(&kbuf);
+     if (r) {
+         pr_err("Failed to call kexec_add_buffer, ret=%d\n", r);
+         kvfree((void *)kbuf.buffer);                           <--- 
+First Free
+         return r;
+     }
+
+Since `keys_header` is not reset, the next call to build_keys_header()
+will cause a double free at `keys_header`.
+
+static int build_keys_header(void)
+{
+
+     snip...
+
+     if (keys_header != NULL)
+         kvfree(keys_header);
+
+     snip...
+}
+
+What do you think?
+
+- Sourabh Jain
 
 
