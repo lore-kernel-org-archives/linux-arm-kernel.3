@@ -4,66 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A7BD3940B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 10:37:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A701D39410
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 10:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yv1R77h6z/OrsXahXxMWU+urCmfnJZMfmy6c8C3VLaw=; b=Ff0ZjL5wBmhgj6++wb95G4/+Fh
-	kEncwbasBZCQBKGnVD/msaqMVXoBinsauy+yWjmPA+ecB/whgV5tXz/SSqk+sE7t15S2GdtCQYnF3
-	ho9+0IZwzBuKLl8fWQUTPLsGNcEsIyFXjGu4/wvsuvl7OovwbcXcRdzxYhjQPfGD1qhC9K2Wx1VND
-	XsjAGvA/PDLayeT/8ZPG3OwJbFC3O93VtIk/vvRbnRmXMUMB1liLgTmlmjpCh6NyrwzacQEh9je+q
-	poffp0wJJUDzCcJx/rizev64o70IPFZQAssYoiP25VChIoc8kip5WxLLgUUIWss+KcHyDKDfkgViP
-	R/bcrhQA==;
+	bh=VI2MSTo9zpN6C28iFiXOn3n95MKHT5Mpuz7NBG5gLPA=; b=IGUVePw826RxPr8riv7368FCPQ
+	a21DTLDs65/cJJ36V/NJc4iCs09m9V0GBEs3jtghTyDmGSC5aNKJnjajoGDlkkTDH/5Ml4S56mCzu
+	bWilD88aIjvkpLr5dpgKJ4ggslPmeBKviai95pM9oBLayCvSV5kuXapzWxieUe4amYw3znKcoYKlL
+	Q2bRO0m667X2Zi2SHvW0wjGt7DOsGBmkeZ0wWlxAx1q98UAd2OowzIlX/VbIiXIjt7T5CQvQQMev/
+	SpdmZ4gMBBA5zYVEyc1hi5PVOir2/HSIZOkgoQE7kI1gRb9K8vnqG8oCyphc5eBVGRiOjGNNRN9sV
+	sm9rOR2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8FQs-0000000HPz2-0slS;
-	Thu, 02 Apr 2026 10:37:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8FQp-0000000HPyb-1rVF
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 10:37:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2C8EB2C43;
-	Thu,  2 Apr 2026 03:37:38 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2EA953F915;
-	Thu,  2 Apr 2026 03:37:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775126263; bh=GQzaBMwghl8XYidHwNNmgxTe21K2DfaqjQnm40MyiGg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HveKKtNGZYStMde8mysfVmmrzu0eDZAc6sG/X6uBcJ/WIJ/j2pEF54jrBgaiecdcx
-	 W2c7UBqIdHhbXUqRnU0lrHh4npDO0UiZDDUENxFTq7rLHlbk+bLeTRJvawN2WrPq7M
-	 gg60OtPpvOXkdBvisy3B/dvw6XgHomN2sEGqWukE=
-Date: Thu, 2 Apr 2026 11:37:37 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH V3 7/7] arm64/hw_breakpoint: Enable FEAT_Debugv8p9
-Message-ID: <ac5G8e4zWTdicDBs@J2N7QTR9R3>
-References: <20241216040831.2448257-1-anshuman.khandual@arm.com>
- <20241216040831.2448257-8-anshuman.khandual@arm.com>
- <Z2AH1SN5CipWkkE4@J2N7QTR9R3>
- <20260331225800.GA2082670-robh@kernel.org>
+	id 1w8Fdn-0000000HR5o-3Ekr;
+	Thu, 02 Apr 2026 10:51:11 +0000
+Received: from mail-japaneastazon11022072.outbound.protection.outlook.com ([52.101.126.72] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8Fdk-0000000HR5O-0fRF;
+	Thu, 02 Apr 2026 10:51:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MkFixaGDdw+uTFKzwxSY9Kb5aELrFTcs03Wy3+L1SdHtduivZEJYA8bMEvKzK9qd+iL9P6jhIm13DeUKAM1pCArW1pNiUFsYeJx6Kj/wqkmPa+BLK+DpNGNLL5YgZRvWRrdyc5Ht54bXXyGJtdVKBOOU09rAFNcCERD5M9cXO2OrMXQmTDeV9hM1cPwoF4pI2ftIxhNSgjUuWxe48BBXq7I4LHIdf0iuKwxwlafnsuwhh9S+Bf7KK9yPhyGupK+GktIDMnxMyGLVFnHbHjY3HCjsss47mWyzdICP5dTKS2P7dWYXX87ISn6lXco5remSHPjCDh4wd9DHziFPSgNCSg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VI2MSTo9zpN6C28iFiXOn3n95MKHT5Mpuz7NBG5gLPA=;
+ b=mxTkHIR6+cI+0veIwg27GEDYlL5PRwYNGHRlt9hEno3+7gOgAthQTVF6JDhMFCMlAxQb7FyBEsVwQ3JogqaF7xk+ZOl15o14WotdmWRJSX0W6zhA6LRnOX15gxH6N526FWvdcPPwdL2IO9U9G2BTocvm4BvTvzItBs3iJP2YoxjMYxzt0fXMvlWXKtd8r8R4M8k06VUjUf3LLCH7znHOGNOWyTObhLFYdg1LaCMIU7Hi6/wuan3c8V8UpMdcBzLJUgX+37IdeRf0V5oSfquYu2VGyuZwL93KROTEtr70LiBNfM/v0SLugL/23U1TnVnw0yDdHusnPDgcIZ4cqlttxA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microsoft.com; dmarc=pass action=none
+ header.from=microsoft.com; dkim=pass header.d=microsoft.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VI2MSTo9zpN6C28iFiXOn3n95MKHT5Mpuz7NBG5gLPA=;
+ b=CFJ+T+BTM4FykVb9JcpOI5xDujnEFWsvvScrbLjFSqrEILRWAL60CWNxv7HT2NraEnWE5nw+bqfnwLUyKWaDyCQOLByqvITSnu6ARD0wX2LLtuxR5UKvNPfzRc/PJmoFET8RXxEuGva13ZUNyv+ayNMxtxHdA6hjmhc5f1kXm1A=
+Received: from KUZP153MB1444.APCP153.PROD.OUTLOOK.COM (2603:1096:d10:36::22)
+ by SEZP153MB0695.APCP153.PROD.OUTLOOK.COM (2603:1096:101:92::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Thu, 2 Apr
+ 2026 10:50:56 +0000
+Received: from KUZP153MB1444.APCP153.PROD.OUTLOOK.COM
+ ([fe80::c9fa:b931:702:dbac]) by KUZP153MB1444.APCP153.PROD.OUTLOOK.COM
+ ([fe80::c9fa:b931:702:dbac%5]) with mapi id 15.20.9791.007; Thu, 2 Apr 2026
+ 10:50:56 +0000
+From: Saurabh Singh Sengar <ssengar@microsoft.com>
+To: Thomas Zimmermann <tzimmermann@suse.de>, "javierm@redhat.com"
+	<javierm@redhat.com>, "arnd@arndb.de" <arnd@arndb.de>, "ardb@kernel.org"
+	<ardb@kernel.org>, "ilias.apalodimas@linaro.org"
+	<ilias.apalodimas@linaro.org>, "chenhuacai@kernel.org"
+	<chenhuacai@kernel.org>, "kernel@xen0n.name" <kernel@xen0n.name>,
+	"maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+	"mripard@kernel.org" <mripard@kernel.org>, "airlied@gmail.com"
+	<airlied@gmail.com>, "simona@ffwll.ch" <simona@ffwll.ch>, KY Srinivasan
+	<kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>,
+	"wei.liu@kernel.org" <wei.liu@kernel.org>, Dexuan Cui <DECUI@microsoft.com>,
+	Long Li <longli@microsoft.com>, "deller@gmx.de" <deller@gmx.de>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "loongarch@lists.linux.dev"
+	<loongarch@lists.linux.dev>, "linux-efi@vger.kernel.org"
+	<linux-efi@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "linux-hyperv@vger.kernel.org"
+	<linux-hyperv@vger.kernel.org>, "linux-fbdev@vger.kernel.org"
+	<linux-fbdev@vger.kernel.org>, Michael Kelley <mhklinux@outlook.com>, Saurabh
+ Sengar <ssengar@linux.microsoft.com>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>
+Subject: RE: [PATCH 1/8] hv: Select CONFIG_SYSFB only for CONFIG_HYPERV_VMBUS
+Thread-Topic: [PATCH 1/8] hv: Select CONFIG_SYSFB only for CONFIG_HYPERV_VMBUS
+Thread-Index: AQHcwo6UUBvHYaEr8EK6Q8BbiI9woQ==
+Date: Thu, 2 Apr 2026 10:50:55 +0000
+Message-ID: <KUZP153MB14449BBE44CBAEEA7621A4A0BE51A@KUZP153MB1444.APCP153.PROD.OUTLOOK.COM>
+References: <20260402092305.208728-1-tzimmermann@suse.de>
+ <20260402092305.208728-2-tzimmermann@suse.de>
+In-Reply-To: <20260402092305.208728-2-tzimmermann@suse.de>
+Accept-Language: en-IN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_ActionId=18bb24b4-8011-4e12-840f-c00cb01f033d;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_ContentBits=0;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Enabled=true;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Method=Standard;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Name=Internal;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_SetDate=2026-04-02T10:50:33Z;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_SiteId=72f988bf-86f1-41af-91ab-2d7cd011db47;MSIP_Label_f42aa342-8706-4288-bd11-ebb85995028c_Tag=10,
+ 3, 0, 1;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microsoft.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: KUZP153MB1444:EE_|SEZP153MB0695:EE_
+x-ms-office365-filtering-correlation-id: e877716d-0112-41b9-009e-08de90a5b777
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|18002099003|22082099003|56012099003|38070700021|921020;
+x-microsoft-antispam-message-info: SdvUNrGWjKzVIi0jcfhE88EgvkVPpvZjp5M7KULTg6vT9b35NBZ8AEqaVT0Tkk9vdyBpCxmtOkwcKfVkbWXdN0PUsAMIQOp640wFoCk+Og76/j5cs7ZPp2v2w7ZtiLMhXYKek4MDOVpMHs7ua+YHuDZxbfPyjxDwnipZIj+ViN+owrZF6iP5IlqmV9DrfOdW9LDK+lW1yaE3w5TkN6HbFBW8XdMoHU39a+ayo7Bojgl2kY2sRXZGOFSTr6cCMbaWhxDmUKUnhYhIvfF1Wnw74jGG52tnYxibb6x1jc3PFli1lS0tTOkRgDWg7cQfX3cKhHnDORsARR7xsc4cVAeBpk6WfqVtpU6pQOPr5G72mNnRr5IbaSYX4pXnkfdvUuT6+bkDE9+eQqadNQ5/SC/AsJ5nbr1eTyD/iYNzDNb55B3a4kKrEMOFbKiQIh1xFSYmwKJX2uBhMFacJJ3Zk3/ReUegHjUEX54zd+YEIO46Yh7NEP6HJ9FbVpPT5zmgrs84FCqs9iuuYaxHCEdano71Z5sTZofNhusZHi0SQXz4HgKfR+eK06Pq1NGOXO6iz6B3jl6X64jDqszQBtGWLj0xikzq57buLHyioV0rjB4KNj9/rNqptMQHWIbLit57pAGhm1ibyYBM+KsXSdIcutrAmSFXAUIxTVmsqG8SghYp+CT5Gjyj3FCZMye1gQX36+OsQwQHIP0xO9qdjmMR4aWKbh+K16NgPy/XGIuiJjnN5Eh54yE7MWsX8f12uyCujmwNXj8ZDk5kCJ+LxH9nEBdmn59YJ/dyrYEKhLYTOhSd/iqy9g+4Pxv57b7o6tQIVPhh
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KUZP153MB1444.APCP153.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(18002099003)(22082099003)(56012099003)(38070700021)(921020);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?iSJG7Ki3w/6dKAPOpBCKrVR/kp2H/0uLYC04t5WwHmON41CSLhBEJjwbX7yc?=
+ =?us-ascii?Q?AgzW9ZOP4ZJuKXfWVwmLd5ypp2jYq90uWNGza+TbZ7d8BnP9lnJqYW7KfLXF?=
+ =?us-ascii?Q?meDgY/tMXVEG9kwG5vHWqSWwSUU40BJUjsxFdKz7dlQq/raMld3rxijHFUiN?=
+ =?us-ascii?Q?OoyniSC+OyPvmXU7sHkqp6PNnOFzusH25mIzlMh54x0hAE5b3KKAVg5Euv7/?=
+ =?us-ascii?Q?uaBpStNA8Ma2KwxN8e4sy2b44NzZz+RR4wXU33LiyHmiP3zjAwznw044MgdA?=
+ =?us-ascii?Q?aYFst3K1AA2vtZffdDzFqJQ4qcF+WslTiOffOS4/e8cUtjIx9YdWKjBpWPw5?=
+ =?us-ascii?Q?lcZz3J1cA9c3+HAyRCueoO2BOvVVN4n1bk2jq644hA7ZDOfRkJZ1lun59JkD?=
+ =?us-ascii?Q?90rbaJGH7yoeV2N15LYFJLPIFgb/bI4tjfSFbJfe/5DCaNhYnDDXcA1nsu5w?=
+ =?us-ascii?Q?4Q7o9f2LxdLjfEyKGpfOCmuyU3KnAmU5Di413oMjdZEZFju77tnpfgO29MSE?=
+ =?us-ascii?Q?09+L0M4HWrX5NgzFKxlN8gOaUX2ShqhHj66fz9R4y64+Cs0KJ5nDzy8rNn/8?=
+ =?us-ascii?Q?y0erizoNJ7DjX+YbU9kJyyu1K0mHx+zzmxAYxeVTL34uWn2B7lxma3prBgOy?=
+ =?us-ascii?Q?yLUV1krIAalsVm7Z58q21aYrNYR6ORwhScAzEDkuE/L3En3wz8leHMq5luiK?=
+ =?us-ascii?Q?xKfcrv0RVxGHq4+xfDkS+j18SV2z242itwOfJTuxehsTktAjKKd/nsa5TMSB?=
+ =?us-ascii?Q?SfpgQyL/j46qm8DXgyismp84cqn5QXSt04d82FvcOdOIyEBNz8ZwuuoIl1kD?=
+ =?us-ascii?Q?Eca/8YgO81o4mo9lrmAOlLONhPTyrpkcJQfqZHzcoxwKfr//tHnFWz8FLmMb?=
+ =?us-ascii?Q?wyzrus7RIwpaa5+l4d7P0oopfUyI+l0JlyTC3aUPSt9GWxRi3YJ5oAHrfWoB?=
+ =?us-ascii?Q?ncy7f2ruU3K6EJFdaS8Zxn12FnIahFlHZtLZDowRxgm1pBJjivKeWUaJHY1b?=
+ =?us-ascii?Q?biEk6vKep1X2Gw6Nia22TpfuRJKRvCi2ZlFnUBM1PZ3qEJi9emB4if3Xw49/?=
+ =?us-ascii?Q?vhDX2yj9YvtdvTSpQG9nQD4WZLkdTcCkF2Q1qLLmW+Fl7gqjmAcdumGcFVjn?=
+ =?us-ascii?Q?L/6kdohQWqUe5/uihCnl3kaejbZZ/WgiW6smK13ETt5KQiGl+RWLFoRsUhji?=
+ =?us-ascii?Q?DiMnVR5ZdmLYMtEYAKJGOBoCL8V+cjzzOe/ytyLHxsd/tUvogGqQlSSNR2Ma?=
+ =?us-ascii?Q?0R9kEVP1Ajy0vEkwYyEjiLKPjm+kZibnmxm30Gyrh8StJ14VncvMaE49FuYE?=
+ =?us-ascii?Q?G+Ff6z5b0INzFNBNpktu1ST2Je3UYL7Vkzl4rIt52cklVc18IgSyI8omSRZr?=
+ =?us-ascii?Q?9JUwTCeDmXx2KkeKB2BimaMA+XJGDhrLVjHhuVDEEEQhiG7DsYSxodL3TrBm?=
+ =?us-ascii?Q?WOLxye8t9fyh7B1nCHg3/+2B3zvJv3Lb7+JzhbWyWfUaeBUwtSzybGz9QCor?=
+ =?us-ascii?Q?KSaJskktcf/eWSe2hKA+RPndW4NZNPJj/GQrMpHnRwBZOl+WivaVNbCo/XZ9?=
+ =?us-ascii?Q?oK+y/EkdnJM0yE0/2ZmV9c7iZu0sL/9oWBzEcCmp+8w1NV/QZX3ziKtUAFOC?=
+ =?us-ascii?Q?rL5hAV0Fhn+ObMf+C1I9nzWxozBclwuSH+c876KnyuDP?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260331225800.GA2082670-robh@kernel.org>
+X-OriginatorOrg: microsoft.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: KUZP153MB1444.APCP153.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: e877716d-0112-41b9-009e-08de90a5b777
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Apr 2026 10:50:55.5076
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 72f988bf-86f1-41af-91ab-2d7cd011db47
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: DIiXXMppZYPpOHdRHZ+nRFdZXYEpZs5V01ntxE7smqq1+dJGbx3NWf0fQz1aklgukmKcm3EdTfP6h0Aoox3ycg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZP153MB0695
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_033747_573340_9A0FE1D6 
-X-CRM114-Status: GOOD (  46.04  )
+X-CRM114-CacheID: sfid-20260402_035108_208163_D044B2D8 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,142 +156,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 31, 2026 at 05:58:00PM -0500, Rob Herring wrote:
-> On Mon, Dec 16, 2024 at 10:58:29AM +0000, Mark Rutland wrote:
-> > On Mon, Dec 16, 2024 at 09:38:31AM +0530, Anshuman Khandual wrote:
-> > > Currently there can be maximum 16 breakpoints, and 16 watchpoints available
-> > > on a given platform - as detected from ID_AA64DFR0_EL1.[BRPs|WRPs] register
-> > > fields. But these breakpoint, and watchpoints can be extended further up to
-> > > 64 via a new arch feature FEAT_Debugv8p9.
-> > > 
-> > > This first enables banked access for the breakpoint and watchpoint register
-> > > set via MDSELR_EL1, extended exceptions via MDSCR_EL1.EMBWE and determining
-> > > available breakpoints and watchpoints in the platform from ID_AA64DFR1_EL1,
-> > > when FEAT_Debugv8p9 is enabled.
-> > 
-> > [...]
-> 
-> Well, this series has landed on my plate...
+> Hyperv's sysfb access only exists in the VMBUS support. Therefore only se=
+lect
+> CONFIG_SYSFB for CONFIG_HYPERV_VMBUS. Avoids sysfb code on systems
+> that don't need it.
+>=20
+> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+> Fixes: 96959283a58d ("Drivers: hv: Always select CONFIG_SYSFB for Hyper-V
+> guests")
+> Cc: Michael Kelley <mhklinux@outlook.com>
+> Cc: Saurabh Sengar <ssengar@linux.microsoft.com>
+> Cc: Wei Liu <wei.liu@kernel.org>
+> Cc: "K. Y. Srinivasan" <kys@microsoft.com>
+> Cc: Haiyang Zhang <haiyangz@microsoft.com>
+> Cc: Dexuan Cui <decui@microsoft.com>
+> Cc: Long Li <longli@microsoft.com>
+> Cc: linux-hyperv@vger.kernel.org
+> Cc: <stable@vger.kernel.org> # v6.16+
+> ---
+>  drivers/hv/Kconfig | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/hv/Kconfig b/drivers/hv/Kconfig index
+> 7937ac0cbd0f..2d0b3fcb0ff8 100644
+> --- a/drivers/hv/Kconfig
+> +++ b/drivers/hv/Kconfig
+> @@ -9,7 +9,6 @@ config HYPERV
+>  	select PARAVIRT
+>  	select X86_HV_CALLBACK_VECTOR if X86
+>  	select OF_EARLY_FLATTREE if OF
+> -	select SYSFB if EFI && !HYPERV_VTL_MODE
+>  	select IRQ_MSI_LIB if X86
+>  	help
+>  	  Select this option to run Linux as a Hyper-V client operating @@ -62,=
+6
+> +61,7 @@ config HYPERV_VMBUS
+>  	tristate "Microsoft Hyper-V VMBus driver"
+>  	depends on HYPERV
+>  	default HYPERV
+> +	select SYSFB if EFI && !HYPERV_VTL_MODE
+>  	help
+>  	  Select this option to enable Hyper-V Vmbus driver.
+>=20
+> --
+> 2.53.0
 
-Sorry about that; thanks for taking a look!
+Reviewed-by: Saurabh Sengar <ssengar@linux.microsoft.com>
 
-> > > +static u64 read_wb_reg(int reg, int n)
-> > > +{
-> > > +	unsigned long flags;
-> > > +	u64 val;
-> > > +
-> > > +	if (!is_debug_v8p9_enabled())
-> > > +		return __read_wb_reg(reg, n);
-> > > +
-> > > +	/*
-> > > +	 * Bank selection in MDSELR_EL1, followed by an indexed read from
-> > > +	 * breakpoint (or watchpoint) registers cannot be interrupted, as
-> > > +	 * that might cause misread from the wrong targets instead. Hence
-> > > +	 * this requires mutual exclusion.
-> > > +	 */
-> > > +	local_irq_save(flags);
-> > > +	write_sysreg_s(SYS_FIELD_PREP(MDSELR_EL1, BANK, n / MAX_PER_BANK), SYS_MDSELR_EL1);
-> > > +	isb();
-> > > +	val = __read_wb_reg(reg, n % MAX_PER_BANK);
-> > > +	local_irq_restore(flags);
-> > > +	return val;
-> > > +}
-> > >  NOKPROBE_SYMBOL(read_wb_reg);
-> > 
-> > I don't believe that disabling interrupts here is sufficient. On the
-> > last version I asked about the case of racing with a watchpoint handler:
-> > 
-> > | For example, what prevents watchpoint_handler() from firing in the
-> > | middle of arch_install_hw_breakpoint() or
-> > | arch_uninstall_hw_breakpoint()?
-> > 
-> > ... and disabling interrupts cannot prevent that, because
-> > local_irq_{save,restore}() do not affect the behaviour of watchpoints or
-> > breakpoints.
-> 
-> I think the answer is we just need NOKPROBE_SYMBOL() annotation on 
-> hw_breakpoint_control() (what arch_install_hw_breakpoint() and 
-> arch_uninstall_hw_breakpoint() wrap).
-
-Ok. I couldn'y spot where we prevent placing HW breakpoints on
-NOKPROBE_SYMBOL() functions, but if we do enforce that, something like
-that sounds ok.
-
-I suspect we'd need to make that noinstr to also prevent ftrace
-instrumentation, unless ftrace also inhibits itself for
-NOKPROBE_SYMBOL() functions.
-
-> We also need that on __read_wb_reg 
-> and __read_wb_reg though I would think those are folded into the calling 
-> functions by the compiler. Interestly, the x86 code doesn't use the 
-> annotation at all.
-
-IIUC, it looks like they *can* take debug NMIs during
-arch_install_hw_breakpoint() and arch_uninstall_hw_breakpoint(), which
-is why they have ordering constraints for modifying the percpu 'cpu_dr7'
-variable, and their actual DR7 register (which IIUC has the enable
-controls for each HW breakpoint).
-
-That said, the use of 'bp_per_reg' looks suspect given their
-arch_install_hw_breakpoint() and arch_uninstall_hw_breakpoint() modify
-that non-atomically.
-
-We could consider allowing breakpoints on those functions, but I'm not
-sure whether that's possible for us, and (as noted below) it might be
-better to transiently disable breakpoints/watchpoints.
-
-IIRC on x86, breakpoint exceptions are taken *after* execution of the
-instruction that triggered them, so the handler doesn't have to
-manipulate single-step, and can safely ignore a breakpoint exception
-without the risk of getting stuck taking the breakpoint repeatedly.
-
-> I initially thought the IRQ disabling is also still needed as IRQ 
-> handlers can trigger breakpoints. However, the x86 version of 
-> arch_install_hw_breakpoint() contains a lockdep_assert_irqs_disabled(), 
-> so it seems for that case interrupts are already disabled. And in debug 
-> exceptions, we disable interrupts. So I think the interrupt disabling 
-> can be dropped.
-
-I'd expect that the core perf code disables interrupts before calling
-arch_install_hw_breakpoint() or arch_uninstall_hw_breakpoint(), and this
-would be necessary for perf to serialise against IPIs that manipulate
-the perf_event_context.
-
-I agree that when we actually take the breakpoint, we'll mask all
-exceptions, and so it's not necessary to mask IRQs there.
-
-So a first step is probably to add that lockdep assert.
-
-> > Please can you try to answer the questions I asked last time, i.e.
-> > 
-> > | What prevents a race with an exception handler? e.g. 
-> > | 
-> > | * Does the structure of the code prevent that somehow?
-> 
-> If you can't set a breakpoint/watchpoint in NOKPROBE_SYMBOL() annotated 
-> code, you can't race.
-
-As above, I agree (with caveats), but I couldn't spot where this is
-enforced.
-
-> However, there's no such annotation for data. It looks like the kernel 
-> policy is "don't do that" or disable all breakpoints/watchpoints.
-
-If we have to transiently disable watchpoints/breakpoints when
-manipulating the relevant HW registers, that sounds fine to me.
-
-> > | 
-> > | * What context(s) does this code execute in?
-> > |   - Are debug exceptions always masked?
-> 
-> No.
-> 
-> > |   - Do we disable breakpoints/watchpoints around (some) manipulation of
-> > |     the relevant registers?
-> 
-> Yes, with NOKPROBE_SYMBOL().
-
-Thanks for digging into this; much appreciated!
-
-Mark.
 
