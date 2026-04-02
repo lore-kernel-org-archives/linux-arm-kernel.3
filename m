@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B02CFD3941B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 12:00:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F68ED3941B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 12:02:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+LHFyx3EO2ajciseUYuPtgxDF1AOBPZ91rH+yienjnI=; b=D7xVC937mCjAlp03F1/eItAidR
-	yFSN04RVesFFNBiKiaUVkFL4hT9rJMfCvkfe68U11yraJFugdQeMGlexvziTYCSblfkTVg3+CfQZa
-	Ru9avHpft5sW80ZpdHMMwdLZjfyNebN5Gzq7W6OYFKobjkQLsnhzqoHVrvThAsGVTj+EiVcienRtW
-	X1sS6swsYNehuXIAP+0+SQJVtQ24GlNPN/8Ar4XtUpKjqLrLfdU1RXAI1eO+WJWPA/z/f6OMNpAIu
-	kvnfYytxfIk49b7PNHdaeB260l1J7Wge0WXz/EoCxJ9xIz50zls27RyrVLE7T4pjH6kDhJf9yIX2g
-	sYc/l0mA==;
+	bh=n//STxBnA6wotyi/UADbqWAfuqaEKGfP+JNuZYWly2Q=; b=gbbaPyIOUol5RH7VfEq/MFItzC
+	CzmyjcnSvQKQNoASsaTrfNw5+r32Q38zfZFnEQzi+qsZqYmfByB5HqsQLwF/dBsYSa6v1c+GBg17d
+	B16LvThaiXo071+BGBh4y7QcbfU6GWbaEzf3xlcUVzMZfjidWF+vyveIOmZOWCWNxtwlou/fUnI/i
+	/0xeh4Pc4r2Dgumff4wNDNprbj6vPB9gK1Utz0EelXji8YsqDK9jFwMFSav/IrPDm7SoffS1z+cOh
+	WUqrGlJ1AxZiWxU7L9z/+//FLdCraPPNIXQZBSNO8qdRXjvlLphVMxNDjHh7ejbaMRXif8+Xlbub7
+	+l6N0PsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Gj5-0000000HYOK-1fmC;
-	Thu, 02 Apr 2026 12:00:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w8Gl4-0000000HYWD-3RPQ;
+	Thu, 02 Apr 2026 12:02:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Gj3-0000000HYOE-30ms
+	id 1w8Gl2-0000000HYVo-13Yz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 12:00:41 +0000
+	Thu, 02 Apr 2026 12:02:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CCB586012B;
-	Thu,  2 Apr 2026 12:00:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04B17C116C6;
-	Thu,  2 Apr 2026 12:00:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CCD5543859;
+	Thu,  2 Apr 2026 12:02:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F056C19423;
+	Thu,  2 Apr 2026 12:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775131240;
-	bh=ierkfmJympD62JiwLSPMCTfDznTkU9sslkcFOZra98c=;
+	s=k20201202; t=1775131362;
+	bh=VtSexpkAeTcEr816mi3bsaOoish9Xihb19NxtfkqEIo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RJ/aLQndMAr/mh4Fzg3UMjzw+xcA+nRmdm58VaAr8hFyuR0z3GOmprTideMyEHRy6
-	 5x6bjRVmZK2FVPAM7sgcqVGXJwgShwBabqSJbvi0aEzKqJanT8QQRG00wxHltInbEj
-	 dLke3PC7B6ZoSkG9d5zReUMJ/o/JxHafJ1/t4zwBkF3htWk7EpcWz2y49QUmgjDyKQ
-	 x94hGWiswsRXPt3bfxwDOO5KJ9uCNd6HPjENtuM73r8uCp6vlhqRdq5fSnjziskMcB
-	 8DlQMFIsXrhvGdiQKP3IQ1q7VbjWBlUgbVAKNcvixgUUYIQv//zmfo9XMNSxGyOIYX
-	 oYePVPdNTH8UQ==
-Date: Thu, 2 Apr 2026 14:00:37 +0200
+	b=gXFVmZN9njolG5Q04B9Dt3MGpPNu0B2m9h+frpYlQok9ue0qz5Q4DqpOwK7tETDKA
+	 K39eq56Zs9O28oZCoQ+G6aWNaD7B63a3/iHNWkD56riFQD2A+1tavWOsWSyH3dhL0Z
+	 kAucddrfTLhGxPRsAe8PGDgpnGafBib81DFL2sxGc1F+qf3UsDWt7MfSdzw0kgxJDy
+	 VipNSzmt4IrGkY7Z/Dk6dXlt4yLxDG5XWW8MoA4jcC1WXwZaw98ZRp+IYIJ+kGhgJQ
+	 KQnO6r3mZF88sAdJG/bjekFu9DDUNpAynZ50qoicexzwcjvnLm3SILCdSeKZP0dmQ8
+	 xrFmLHW7usyuA==
+Date: Thu, 2 Apr 2026 14:02:40 +0200
 From: Thierry Reding <thierry.reding@kernel.org>
 To: arm@kernel.org, soc@kernel.org
 Cc: Thierry Reding <thierry.reding@gmail.com>, 
 	Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL 1/7] dt-bindings: Changes for v7.1-rc1
-Message-ID: <ac5aLzMyfnxa-LLi@orome>
+Subject: Re: [GIT PULL 6/7] arm64: tegra: Device tree changes for v7.1-rc1
+Message-ID: <ac5ahWb1I-qnaK_Y@orome>
 References: <20260329151045.1443133-1-thierry.reding@kernel.org>
+ <20260329151045.1443133-6-thierry.reding@kernel.org>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="73fopvxzga67awj4"
+	protocol="application/pgp-signature"; boundary="kvqhrzlj2b7g3m5j"
 Content-Disposition: inline
-In-Reply-To: <20260329151045.1443133-1-thierry.reding@kernel.org>
+In-Reply-To: <20260329151045.1443133-6-thierry.reding@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260402_050244_336382_F5C46798 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,14 +75,14 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---73fopvxzga67awj4
+--kvqhrzlj2b7g3m5j
 Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [GIT PULL 1/7] dt-bindings: Changes for v7.1-rc1
+Subject: Re: [GIT PULL 6/7] arm64: tegra: Device tree changes for v7.1-rc1
 MIME-Version: 1.0
 
-On Sun, Mar 29, 2026 at 05:10:38PM +0200, Thierry Reding wrote:
+On Sun, Mar 29, 2026 at 05:10:43PM +0200, Thierry Reding wrote:
 > From: Thierry Reding <thierry.reding@gmail.com>
 >=20
 > Hi ARM SoC maintainers,
@@ -91,94 +95,86 @@ On Sun, Mar 29, 2026 at 05:10:38PM +0200, Thierry Reding wrote:
 > are available in the Git repository at:
 >=20
 >   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegr=
-a-for-7.1-dt-bindings
+a-for-7.1-arm64-dt
 >=20
-> for you to fetch changes up to bed2f5b4de6c6fd8f8928f6373ad92e8795c370f:
+> for you to fetch changes up to c70e6bc11d2008fbb19695394b69fd941ab39030:
 >=20
->   dt-bindings: arm: tegra: Document Jetson AGX Thor DevKit (2026-03-28 01=
-:05:24 +0100)
+>   arm64: tegra: Add Tegra264 GPIO controllers (2026-03-28 01:36:46 +0100)
 >=20
 > Thanks,
 > Thierry
 >=20
 > ----------------------------------------------------------------
-> dt-bindings: Changes for v7.1-rc1
+> arm64: tegra: Device tree changes for v7.1-rc1
 >=20
-> This contains a few conversions to DT schema along with various
-> additions and fixes to reduce the amount of validation warnings.
->=20
-> Included are also a new binding for the PCIe controller found on
-> Tegra264 as well as compatible strings for the Jetson AGX Thor
-> Developer Kit.
+> Various fixes and new additions across a number of devices. GPIO and PCI
+> are enabled on Tegra264 and the Jetson AGX Thor Developer Kit, allowing
+> it to boot via network and mass storage.
 >=20
 > ----------------------------------------------------------------
-> Sumit Gupta (1):
->       dt-bindings: arm: tegra: Add Tegra238 CBB compatible strings
+> Diogo Ivo (1):
+>       arm64: tegra: smaug: Enable SPI-NOR flash
 >=20
-> Svyatoslav Ryhel (1):
->       dt-bindings: display: tegra: Document Tegra20 HDMI port
+> Jon Hunter (1):
+>       arm64: tegra: Fix RTC aliases
 >=20
-> Thierry Reding (9):
+> Prathamesh Shete (1):
+>       arm64: tegra: Add Tegra264 GPIO controllers
+>=20
+> Thierry Reding (6):
 >       dt-bindings: pci: Document the NVIDIA Tegra264 PCIe controller
->       dt-bindings: phy: tegra-xusb: Document Type C support
->       dt-bindings: clock: tegra124-dfll: Convert to json-schema
->       dt-bindings: interrupt-controller: tegra: Fix reg entries
->       dt-bindings: arm: tegra: Add missing compatible strings
->       dt-bindings: phy: tegra: Document Tegra210 USB PHY
->       dt-bindings: memory: Add Tegra210 memory controller bindings
->       dt-bindings: memory: tegra210: Mark EMC as cooling device
->       dt-bindings: arm: tegra: Document Jetson AGX Thor DevKit
+>       Merge branch for-7.1/dt-bindings into for-7.1/pci
+>       arm64: tegra: Fix snps,blen properties
+>       arm64: tegra: Drop redundant clock and reset names for TSEC
+>       arm64: tegra: Add PCI controllers on Tegra264
+>       arm64: tegra: Add Jetson AGX Thor Developer Kit support
 >=20
->  Documentation/devicetree/bindings/arm/tegra.yaml   |  56 +++-
->  .../bindings/arm/tegra/nvidia,tegra234-cbb.yaml    |   4 +
->  .../bindings/clock/nvidia,tegra124-dfll.txt        | 155 -----------
->  .../bindings/clock/nvidia,tegra124-dfll.yaml       | 290 +++++++++++++++=
-++++++
->  .../display/tegra/nvidia,tegra20-hdmi.yaml         |  13 +-
->  .../interrupt-controller/nvidia,tegra20-ictlr.yaml |  23 +-
->  .../memory-controllers/nvidia,tegra210-emc.yaml    |   6 +-
->  .../memory-controllers/nvidia,tegra210-mc.yaml     |  77 ++++++
->  .../bindings/pci/nvidia,tegra264-pcie.yaml         | 149 +++++++++++
->  .../bindings/phy/nvidia,tegra194-xusb-padctl.yaml  |  39 ++-
->  .../bindings/phy/nvidia,tegra20-usb-phy.yaml       |   1 +
->  11 files changed, 649 insertions(+), 164 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/clock/nvidia,tegra1=
-24-dfll.txt
->  create mode 100644 Documentation/devicetree/bindings/clock/nvidia,tegra1=
-24-dfll.yaml
->  create mode 100644 Documentation/devicetree/bindings/memory-controllers/=
-nvidia,tegra210-mc.yaml
+>  .../bindings/pci/nvidia,tegra264-pcie.yaml         | 149 +++++++++
+>  arch/arm64/boot/dts/nvidia/Makefile                |   2 +
+>  arch/arm64/boot/dts/nvidia/tegra210-smaug.dts      |  12 +
+>  arch/arm64/boot/dts/nvidia/tegra210.dtsi           |   2 -
+>  arch/arm64/boot/dts/nvidia/tegra234-p3701.dtsi     |   1 +
+>  arch/arm64/boot/dts/nvidia/tegra234-p3767.dtsi     |   1 +
+>  arch/arm64/boot/dts/nvidia/tegra234.dtsi           |   6 +-
+>  .../dts/nvidia/tegra264-p4071-0000+p3834-0008.dts  |  11 +
+>  .../boot/dts/nvidia/tegra264-p4071-0000+p3834.dtsi |  12 +
+>  arch/arm64/boot/dts/nvidia/tegra264.dtsi           | 336 +++++++++++++++=
+++++--
+>  10 files changed, 500 insertions(+), 32 deletions(-)
 >  create mode 100644 Documentation/devicetree/bindings/pci/nvidia,tegra264=
 -pcie.yaml
+>  create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p4071-0000+p3834-=
+0008.dts
+>  create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p4071-0000+p3834.=
+dtsi
 
 Hi ARM SoC maintainers,
 
-Please ignore this for now. I'm dropping my set of patches from this
-because they upset the DT maintainers. I'll send another version with
-only Sumit and Svyatoslav's patches.
+DT maintainers objected to the way I wanted to handle the DT bindings
+dependency here, so I'll drop the whole PCI stuff from this and redo the
+PR.
 
 Thierry
 
-
---73fopvxzga67awj4
+--kvqhrzlj2b7g3m5j
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmnOWmUACgkQ3SOs138+
-s6HY9w//U1wmg6pZhB3XeSjKp1fsxhWV7HXitwfDidINbkUf6yxfXkBbk0VNz9C6
-Dnp7Gzo8Z6DV5+QNN16Bo1KBZ4qzAZhC6tWWiflp3DgXOk1kGKTlKjdLRQ+EP94Z
-P2vhYhySfu7JhPYmTisbUSe0cIRFTMpEm/r4acKKcBulXbwN82jNc+vfbFINMoR2
-pNWIkLFKYAvE5g4PKX5SO/XDml8OfH+rMc916W+aCX7XewdVIrelrclRMomxn9J7
-7J3AbuokctTHMUs2QI8j+R/2a9HY5bRuMZP2f2thsvXLc9Fb4Ew2hF505X1/Ua2/
-TCrF80KB74JW9LfZKoBxbs1MNRvDWYVZbxZmAd8CulHkhkbfRVjZs8c++fzhXK+r
-NtnifB7OHi+zerqpPgAQCGRze5Ju+inIwzHQBAGjP87LPN9e8PTAgrc1A8E48HBY
-HkfVe6NhJxwJHKMLYW9JI9ZHKOqEjI+eALVBj5DHMM+euWGgfV3bJsAYPp/VJtuI
-b9Q9N4HwLQ/RC3lEuGmBAdYYLCRkDuMeC62U4CMdVu5yIKrMeR+iln+ziMB9yv2j
-15eftq4chM3B7snbM1KpYZsvoMMINlN4uASrHe7BWerXm2focWfx9Cpm++bZ5yab
-W9E6cQA4sYZ28EFv/piLhxlO8P1AOH5be1lxQrjCkcILSEkBtgA=
-=MTeZ
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmnOWuAACgkQ3SOs138+
+s6EWdBAAu9sQun8NBxkNHrqi1zIzoZakofv0v3tzIIayEiLRmYnGFuf5ycVobK0T
+X/jraQ0uvtVcUQkbMNOrth/PeZS+8//deSJJUQBAH8+x+fNWm/JH3/si+dQRREaL
+btyUJhLsdFn4WoimJa05q/lvl0lbnFWcYkiuGSHt14l3GW3huxrcqguqbkfMXP1D
+/RTOWdJViVMpBonIBkQllaoiSqACVsGVoip/enn4lquI6z0nFDemBT7DPd3J//CV
+T+ftdUQKZ7EKA+w3HOeWCgzYMGidzV/+EZY7LrpjiUmZNT6ffM9Ycws0l4u0Lyds
+K+UUV3hxqD7F8IONqdByjwN5+vSVVD24LiiT78P9MXUvAcM3zAEqKMnkCL8Nu05V
+0bZ6mteFNxe4WedQ8pyfNYihwhFmTSqR76g4Mv70DH4/5voAW0o0IPxp8MCbvges
+6ccM8lz7jsGNY2K0YqjJt9M3aeg7KMycKvo4W6GQLzIcb/UmMxncleXWoR6NHT9s
+/+YQMZEekNguCmEKx/RpBtOgpshfp56t6ecAALRXSn9fyoP8ffpYeuQ429/0rnWM
+kfGrwRzgS3UaXSSRgb6kI2a9vkxiXEwcy94KDBFUhLsWQoY3uYlTyl8HwcEQJ8lX
+V5ulj4q13qnBBBtd2CHrC/FR9mSJ/4bYOUfi5sLqPNQR3/9E9kw=
+=qAuN
 -----END PGP SIGNATURE-----
 
---73fopvxzga67awj4--
+--kvqhrzlj2b7g3m5j--
 
