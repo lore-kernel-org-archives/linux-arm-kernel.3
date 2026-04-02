@@ -4,144 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26817111227B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 03:15:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D838111227A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 03:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6w6c9zgbkjZBuwY8jMwB+fmTCD6I5ocwNz3RIE36JC8=; b=eMNArW4/K7H24c4vmOj+cyry0I
-	7iXU+proWbs64UE5vo374TEqbhDbkrHoQ6rHXEGu/xLeOo7ItgUcZLibpJTJimysWuHp3qKZr10aa
-	++fTVPC0BWC/YFI8gMjO2omPokNK5aQeRrTm6ugrEMIQ77ZiQy+ruiJ4Oduxr8F6oKu1YynECYcy9
-	Aggv/dr4Pp/BdwSjAKRQa9zgN0HgrYhDdCyvhsUhB7L9YOtqxFNRsNAjMPOHHWb2F57ql6ymyBOh5
-	JLi9/I1XUM+qABn0JWFaHlQbs+JGL1JDGsgKtsqYnr7kOr1BQ40u+qoWfIju/LA4WUjqYJYTMaTH+
-	A5xKZ1Ng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/J2uF2/Ma2hV+2GrDKzcXv6J/tpkVJTVgjFT4h2TI+k=; b=xN41U0eTIMhFkYh1AmT1jJfWzb
+	qHwQpzAccb2x5wqiEg8l1YWqzOj5rnOWYzPLWgJxwff6Oj2UvxGwKcMK6XyUS4wl16c1+7vud6R+k
+	xT7G2TkTWRZhPVo6D5HsmBqs2xJWLgGhHJitg2pZT9Mz/oihuYEa6JO1UuUSjVNebRPH9bhJcSfxt
+	u2HgZi9dBKGs6pH1MIM14BnQg54ExvrmMgt5qNgrNj5zVjLeQMc4xCnGt/gtp31i7g1xURywpGGBi
+	EM7tFR4o1rDzAijGYXi6WWLx4CCRhu2UqJDl0Bf6cr1BhUc+mamqqwCU//umY/GCU2gUqOYNkjBT4
+	j5zQAuUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w88Wg-0000000Gegw-1pov;
-	Thu, 02 Apr 2026 03:15:22 +0000
-Received: from mail-northeuropeazon11011006.outbound.protection.outlook.com ([52.101.65.6] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1w88or-0000000Gfei-0ovN;
+	Thu, 02 Apr 2026 03:34:09 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w88We-0000000GegO-1LB0
+	id 1w88oo-0000000GfeF-0rgl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 03:15:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eRENulPASCq3vUab3McJcSbR5dC+7fXM4MsN5FGCua0sUwYvYTt6eT2qVLKPUbEK3RAm+u+Fsu09eS3l25sKOrPV7mPVMVu1ePx0sjfYsqn4k73MRvAYqyx4CdeJtKoLQtlP2lbyEMhknuCHxgX+zl2TX/O3dIzS9rV3gPni0z5khaAcv4ues3SKa3j+HnhErHpeBYJUbnRniuBVhpuyZmMu9MuW6dKjb0ketwFvFqWvCxpEGhdvstV3FNShS1jCERZdnQSCLZwDIQJhohO7gVxB8TZe7tD8OiXdtrms0HxcpHU/N2N5Je+e2MtxFK64pQqT4RyYWpPk9KggSgBNhg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6w6c9zgbkjZBuwY8jMwB+fmTCD6I5ocwNz3RIE36JC8=;
- b=ortdV8iknMNrrrz5e521Di/xvqYuSQTICXKgSRIFmhUQ3eDsQe1UOnw+JyHJdWCxckBLSDFFB0FmnEXW1z27QOXbPU78N8ygj35jO+AgauA8MECpvnfuvW69Pq0qz4y7dLXcDGiFWioS99gM5SM7ZKw6m5u6oBMJNDoIw1BUIc/eJskC5fAVuC/sqzI3XTWzqRjTFY3acTCQcEvok3tnxeoSGV8IQudLiqT5Zcj7Qj0dZv43D7oxHeHUyEDnfK2QjJeRsZmM/yBgHZzXMQ2EbwkYxclR44nmaAxi1G94YEy251kKgtF3gs3CSVB46uDNbQ/Bw15+QXKEzwY9WoEvpA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6w6c9zgbkjZBuwY8jMwB+fmTCD6I5ocwNz3RIE36JC8=;
- b=YCGttx+CJXmDM0/WQ8Bk/dEXCVmzA/qN1iEw7QjSzdFmvfHdQll9tElO0+CDDZ6avgLyQEPt4QpaE1EDhhV6Y6wl8nyRibnkP22o7PvLXDFsx0O59hnw4d88RXe50Zd3vhI9QaEGl1xexhumezf7Gs4wdINH0T7ecKtDEQYgEtmFYyKQk571wIvg6REDpJU+xOyjdaBAwc38bT12HoeNqgGlVYCO3qq6ESuQRktgVhmraxjmGWC5KblmeHeoa6oAEwgBr/k2o3ZB8i8USsOf88FtYowq09C+6kSPLatLWd4QucOxqNvDOsipKSy+zPgaj17XJAwguaz6qQ0wDpmDvg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from VI1PR04MB5118.eurprd04.prod.outlook.com (2603:10a6:803:5f::18)
- by DU0PR04MB9299.eurprd04.prod.outlook.com (2603:10a6:10:356::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Thu, 2 Apr
- 2026 03:15:11 +0000
-Received: from VI1PR04MB5118.eurprd04.prod.outlook.com
- ([fe80::c885:a48:57e4:d4f9]) by VI1PR04MB5118.eurprd04.prod.outlook.com
- ([fe80::c885:a48:57e4:d4f9%6]) with mapi id 15.20.9678.034; Thu, 2 Apr 2026
- 03:15:15 +0000
-Message-ID: <5c24fe3f-a1c7-4fd6-b5e6-c920bc3e7fcb@oss.nxp.com>
-Date: Thu, 2 Apr 2026 11:14:53 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 1/7] media: v4l2-ctrls: Add V4L2_CID_MEMORY_USAGE
- control
-From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
-To: Nicolas Dufresne <nicolas@ndufresne.ca>, Frank Li <Frank.li@nxp.com>
-Cc: linux-media@vger.kernel.org, mchehab@kernel.org,
- hverkuil-cisco@xs4all.nl, sebastian.fricke@collabora.com,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, linux-imx@nxp.com, xiahong.bao@nxp.com,
- eagle.zhou@nxp.com, imx@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260331072347.253-1-ming.qian@oss.nxp.com>
- <20260331072347.253-2-ming.qian@oss.nxp.com>
- <acvbOo17tU-s20BS@lizhi-Precision-Tower-5810>
- <079b1630abe5dd22e032797fc12925c9c79ea305.camel@ndufresne.ca>
- <d8c12ba1-5004-4a51-8a2b-3d500184778b@oss.nxp.com>
-In-Reply-To: <d8c12ba1-5004-4a51-8a2b-3d500184778b@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA5P287CA0083.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1d8::15) To VI1PR04MB5118.eurprd04.prod.outlook.com
- (2603:10a6:803:5f::18)
+	Thu, 02 Apr 2026 03:34:07 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-358e3cc5e7eso166259a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 20:34:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775100845; cv=none;
+        d=google.com; s=arc-20240605;
+        b=gjeSvB9rzSi0Cc8bcDRdG8XZ0y4akWoAShaNLxP0k7wCNiJEHWXQLz/gLeWxGtdi2u
+         Z9eBryELp8D5fP6/axvDeCNBkoPsitY+BZWmJz2INzIkeiyMuDEO7CvxosTtsbCgq4rz
+         StQsj5RZhZz37cqjU2i+sNTImClMa27qh/mt0UovUotG4zfRYiGF2hQ06M3XceLcbxZq
+         e1pr/fmoPdsTyOoy4iCLmp2ydf8Dvm91Bi7FtbjTdPy32JP2LedwkZKKfbTilFeBr1L6
+         AD8h2mydjW9YqJA555rXLxo8Oqim6jerVP4fj59owXelOIxvc0cQU9rPGQuP9Oxdjq+Q
+         XUUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=/J2uF2/Ma2hV+2GrDKzcXv6J/tpkVJTVgjFT4h2TI+k=;
+        fh=omNekI1MwvO0OFmh5Vd0ivHlY4kv5TIECiCWuclBZew=;
+        b=H+3WZiDa6wUZPJz4DJgf/4TRM7Bh4UVsN7SsuvyMJjaIE1+K08ksIM8dsmJc3YYmpV
+         nkqUFTHlF1LvLqMop+pEdn8WedmqiwMKkcLBL7hwAGkWZcK0A2OnmDihJcrpNxEeAdx5
+         +ZSgFKrsb2kdVKCu8xCTkk8jS7FXJGk5X9HBgSxfsykl0irxnohewFDln2UUAJXFE0VP
+         n3CRkytziImhM+C602TWYdJZnoZaP3iC+tMtapQsN+nONM8c4xf0JTGedWB8UtAwqzQO
+         wpCUb8Wu281fYg/htXCP10kS//exGPKoDu5eWaUUDwf2guSspCpX4IiZt/Qp8h3VLXga
+         Ek6A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1775100845; x=1775705645; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/J2uF2/Ma2hV+2GrDKzcXv6J/tpkVJTVgjFT4h2TI+k=;
+        b=cIHd23juLjTQ55j6eWmykIYvAlS3C+YarZv5EaoYvVPwIUAhLgu/Eb3X3M4nC54KB3
+         +0Ss5K9KCiJYw2bVgD1diV0hfrnhveikB5FV6HFcWlYReFgpIUgEAK9kp5AP0hK3m1rE
+         y2VkPeGwKSljGzGvDsN9d0iMyMJO5bLYqbOul6FsqQQP/WkkHSI4ceKEn7pZybYQayou
+         hxBeW5hjuTvKptLAbQ+9pPRn2hkZbrCKAVz5hmOmQI5xxgw2MK3uwpdc0X2KHP5VfaRc
+         6s/Ajfn6jzkU8AM2aZXmjDWfFr+w9hbrNzxqAMIz0VgTxtdylcIN2dISq2oxxDaEFNQE
+         VHLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775100845; x=1775705645;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=/J2uF2/Ma2hV+2GrDKzcXv6J/tpkVJTVgjFT4h2TI+k=;
+        b=KdNdpMfPa2qzagTUcSrm6Sg3O73JYd6VSsxgo+tglyBnRNCUdJpSB1T2z0TRl6/Pat
+         kszY/TFoL05jDd075qH3GMzbVhIzGZe38EMbWgcIqCqXlIvqUpZr89dbQebJO891LdWL
+         ZxMGbF7515mPtKc3BbS3Vc6hn8xrhkbU3156fpEdCvtYe1M9iHdIgN8dYzioFfPiBHWU
+         HAIQ82PnqqejTYTtmOPOHUNpyfqWqgb5zEu7lD2qTgGVNDk/t9gv77JMVaAj+AHBw/MY
+         CIT48eg9SfEphRfi1PSAMkGg/FQ1oKBL+r8t99nkU/nP/RPmpqpp/61Au+FMHBOLVwnb
+         EEtA==
+X-Forwarded-Encrypted: i=1; AJvYcCX1sMurF6cjLkKuyCQo/3NdKKplyHIaitbfLmt6c92XJPLHEROMravC2uuWcePDYgATPz5lJkIN7MUVo5wGpukP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgKRbtjnwKQaW4b0hWkndAOjMjC1ZQMiJ7vHyjDL7q+IBeM9sE
+	ueX8tmxro8cJ+iDyb7lziU5uZyWiJFXIAviofqqrrAJwlfF9EBX6IqJE5lTY33JEvjFKbhXoR//
+	jb/UtfMKm+Dkqtxyug4TVagzPkb54TEPi+4K3
+X-Gm-Gg: ATEYQzz7msIp8M4P/sD+y9mtp7smHvSKvu+jgpuNU7QSCxfX9u/vGERO6T9znWg0Ira
+	o1kNwW/v1TJOWFEmsBIFn21yKvgcxVCA20DEFwpWpHNAKn7l+pDur2jHkU9t6uAxC3DONBEYMa7
+	ocj0Uq7CGMHTXSLfkP+aAqv4pAdLXmGilpECHfjtAMYDqRqvesT+1zUZzlk6hNk9Nq36U9k8G7O
+	vcbvS+n5APMZgizbxdPWvPAJLbEYJaQG9IgN57rAjHE5iLmM6M2+qGgZ6uDnew/V3LyIclRY19Y
+	oSWzF54=
+X-Received: by 2002:a17:903:32cc:b0:2b0:5990:cf1e with SMTP id
+ d9443c01a7336-2b269c80fd2mr58675965ad.33.1775100844939; Wed, 01 Apr 2026
+ 20:34:04 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI1PR04MB5118:EE_|DU0PR04MB9299:EE_
-X-MS-Office365-Filtering-Correlation-Id: 83698512-9cc6-4579-e07f-08de90660eee
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: uZv/hjKm4Wxs6j6ZnHMn7jD09ysNdfoKCMTTqO/MdvIUQUzgWkTmSrbCuSuSN9Jh4YmzWWvLrDh7dthc/cXRkevr6N4f/xb8oQUR8m3povGAW9z6a1ZPvn2FpMv766Z+pCpK5C/uQy/XnRHztLlkURyDrzXZ/LlQlSUBcxV6Fuo2eJTU+MQBaWqglKvMl1j2ilufVPAt/M9xZkPoyH3ctvOOyGPU7tMu/JtrhCG8ftsD/OzfdJQAh+EyUvjWF+Aty7QdZYBoOJT4J7yo+s/8EooIgDm7UDImakF5wFbFgEOFTZXSBuiGceewsKve8taKENJPNymewlvGaXWt4A6QLhdxVsroPXvI+8xUnwsGKujppmo6dEbTmve0oUMDneGXU+nOInMACfG6lFOGJ5J+AxhaavpjAdTo87CZVW8xrUFUF4j8pV//xuP7sPeIWMKtTVDeoSCFIno0yV0aeH6826/jKKUJBca90rXPvqRWCh9CI77Ik8gibSiN8PE1/2OyhNFTno0VO80teWJmEUq9MXmUGvQlONLHqHR8SwDhiQJAUKs2yxQrm0eBGGtMPE4nzIXjyORAS1KRTQ3itiTlgivAodHd83Dsofr0Lq6OGYPTFZ7eg3kdNHWBsV1YIJ/A/z+V1/J2JHLGxs15cy7CDohHLd1gvqwBJjbA/8v/Y6Z4tAu68YgxyM2NA0pHUSDdjxSqPuo5AOwwop81MPQi2JFffS7qfVAFCl6dDJ8HlgA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR04MB5118.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K3FnVVZUa1NsSlI5ZGVDTWp2TVQ2MUFzZXVDZjYvVFIvUmlkVi9qOVEwWWRU?=
- =?utf-8?B?d3QzOFY2QU9VbTE0NzFqVDBPb2tsdXJ5RXBhbkZ1SW9OaWEyVEI2MEp6R0My?=
- =?utf-8?B?M1NZTEVwdXNxQjc1am9tQittY1g5WVRWM0J2TnB6TlhrcHEyNW5NVk9Tb2hu?=
- =?utf-8?B?V0sycFM0aExaaHJaMklUZW1RcGF4MHNMc3pTOCsvOEFybHV4RG0zVjRROXlJ?=
- =?utf-8?B?Qm1kOHd2THRIaEgvNUV5S0lZTWNhU1BXb0lZSk1qcFZvSE1wQ0dyZUUyVHJZ?=
- =?utf-8?B?N080SkxhTEEzbDR6L3I1dk9DalhuVWZjRFhPZ1lVZnhraGwwL29veFI4ZUNs?=
- =?utf-8?B?ZC9odFBGN1h2andKYy9VVnlMTDQ4cjhmS1paZlFhWFhpM0dPSXN1L1paMTcz?=
- =?utf-8?B?SGZJM2lDZGJYSmJEVWNsa3dmT1VTR2tibmkzS2hwOXRVNUxqRGRaY2JaeVZj?=
- =?utf-8?B?UXlhSkFBUjIyVGpJcEtCTm5Ca3hiWVY3U3FNMHo5OGVGVE1OVHRCcHplc2tp?=
- =?utf-8?B?dVVxRWhwTUxQS0RCMi9OL3RPNXdxWVQ2anpvLzRQcUFzNjVITCswYUxWUUZy?=
- =?utf-8?B?bDdXS2lRLy9EcXdxdWVNUDJNQjlnN3ltU2N5WXk1ZlNtSkI2cFAxMlB4SzZx?=
- =?utf-8?B?a2MvTGpFaW52bDV1WEgwSk5EZHBlL1cwOHc3a3NYK3lOc3U1QWJ5SG5jeDJu?=
- =?utf-8?B?bFNreUN2MEZEd3U5TW1VNHhWMUhyMk9TNm03dUdzS3RleUhWUWtSZVVYTWxM?=
- =?utf-8?B?RFdzN3JFMk9oOWwydzA3ODNuZWhvcXpQMFErTG5NR2FoSFZldTBzYTl1UmJq?=
- =?utf-8?B?dGEvaGxhUFZrY1p5NlduSEFBaFppKzVPajhid3UyektKK2RFWHIwdmt0aHpm?=
- =?utf-8?B?RURDZ0gwbExuOHJmUUpvdUVzSExvR3ZrLy9iZGJSRDZPREZGN1FxR0R6cTh0?=
- =?utf-8?B?K05kOGcvWHh1T09RTEg2M2t1WXRZa2lTQ2w4a3hIYzl3Zk14bjJ4VHVCeHdS?=
- =?utf-8?B?dEFXSmhGY1A1S3ZkcHA0QThOci8ydkg4SWIreFhSQXBpUjdmUnVqUUhtanJM?=
- =?utf-8?B?VTlzSkdKRUJ0RHFVcU01aFpmcUc2RkZGSjZRRFhoQ1dycDZqZTU5YjNDSlAv?=
- =?utf-8?B?amZuc3FOVTA3QU9EOHN4SVhpbGhqT0FwN2huWjNUay9ZdktWM0ZoSFhkQlFH?=
- =?utf-8?B?ZDljeUFLTnFTQXY3ekMvVU9SNlBjUVZuNTlpYi9tWHM5VHk1aTcwdjJQQUtz?=
- =?utf-8?B?TnZmQUxZOU5XaTNOVWoyUXRXOGMxYmlZdXFEamNnYlg5c2IzeHB4UzY0Yjcv?=
- =?utf-8?B?OFMrNXFaaktsVHMrUGJrYjlFbXRKbUtZTVdyTnA3V2x4WWpocmtwTENTOTV5?=
- =?utf-8?B?VUIwRGJqWnZUWXllZm12NE5CL1FxY1JWQWNRK1oxTHJqRmYyWTQxNEx1dGpH?=
- =?utf-8?B?VUtMYXY2MFd6cTRUQkxac3lGdlo5Vm5YWThVdHpBeWZacmUzSEJtOHBhWDJG?=
- =?utf-8?B?b0l0WnEyTGM2VEpMUkw5bnpUZjRGOThueWVqVjRhVk1jQnFMdzBaaEVpMmY5?=
- =?utf-8?B?QXpJallqYXpaT2pHRk5tV3JPRmJSRThqYUlNR0V4YW9yeHNVVm1KWUJOdGNR?=
- =?utf-8?B?YVhqandKcmtPVWJZcXJvRGlGNWlDTXkxazJhSTRaZkpLVml1Zk5aOWl5ajBM?=
- =?utf-8?B?cHZzMnV5WkpaYjJrd2JRQVBoR1B3TmxIZFF2cE03NklBYTZKQk5pRDhlT2kr?=
- =?utf-8?B?R2Mxc2pQaXk0WDhiMUVzN2xtd25nZVhSY3JDNEpTNktITXBTYzIvOTlHdytp?=
- =?utf-8?B?R1JnSnk2dFpZdFNoOE5EQlFRS0h4VUhONDhjME1tUm9KdFY5clZyemJRZ0Ex?=
- =?utf-8?B?TjlmV3U5Mi9wOGRLdXg4ekxDTy8zVmFnQWFHNXZ2TXF6U3RDZGN5TktqeElI?=
- =?utf-8?B?bUVzNWYrQ1pUcjNQUllEWXJkRGdjZ3JFNU5BV2VtdEw1Sm9qbmpaeU5nKzVX?=
- =?utf-8?B?UmEzWjlpMDZmWmFZM0U2ZDBmV21wSlA3OW1YOE9NR1lOZm4zZ2JnZTJPdjNO?=
- =?utf-8?B?UlpHNVpxL2pMU0ZlaHlkRXpXcTd2WXpjTndIR1RaNXFyM3NXQVJFSnp0WStZ?=
- =?utf-8?B?WTNRZC82Q2NsWW5WcjN3R3dQSUxlT0RXbUNUOENNZnYyVmRrWjJBaU1oSG1S?=
- =?utf-8?B?U04rUEVZdGdvd3lMeGJ0eEV4a0lsL0cvWG1pbWJRdHhoWkRKRzViQVUwYjBD?=
- =?utf-8?B?dzZ4cG5UQlBnNmJrcEl2N21pWHJ5K1ZKYktNWnpScllLRkJMOXlnVDUzb09Y?=
- =?utf-8?B?ZzdzUHFGYktXWW4vYUpOWFZ1T296Ri9Cem02bXY2RGhUU3NuVzVkUT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 83698512-9cc6-4579-e07f-08de90660eee
-X-MS-Exchange-CrossTenant-AuthSource: VI1PR04MB5118.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2026 03:15:14.9784
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: v3F991rWYU/4aQLzo18DGCAcyrNmMxq7WCiwfeY5sU73TIVPSkIidV7W0iC5khan2cc1npUFW/V2xT0BKkqilg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9299
+References: <20250911-v6-16-topic-sdma-v2-0-d315f56343b5@pengutronix.de> <20250911-v6-16-topic-sdma-v2-2-d315f56343b5@pengutronix.de>
+In-Reply-To: <20250911-v6-16-topic-sdma-v2-2-d315f56343b5@pengutronix.de>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Thu, 2 Apr 2026 11:33:52 +0800
+X-Gm-Features: AQROBzCSdKcZaLbfDao98j_I1toGLvfE9bJe_Lqq7ufOyEXTyqcaETde8D_cryk
+Message-ID: <CAA+D8APVK8SUSK7_mQ0Rr5EYSSkxaWG52KYRKN=XpBV-dZTskg@mail.gmail.com>
+Subject: Re: [PATCH v2 02/10] dmaengine: imx-sdma: fix spba-bus handling for i.MX8M
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Vinod Koul <vkoul@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Jiada Wang <jiada_wang@mentor.com>, dmaengine@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_201520_377114_3114A44B 
-X-CRM114-Status: GOOD (  21.61  )
+X-CRM114-CacheID: sfid-20260401_203406_276297_04404C83 
+X-CRM114-Status: GOOD (  27.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,135 +119,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+On Fri, Sep 12, 2025 at 6:05=E2=80=AFAM Marco Felsch <m.felsch@pengutronix.=
+de> wrote:
+>
+> Starting with i.MX8M* devices there are multiple spba-busses so we can't
+> just search the whole DT for the first spba-bus match and take it.
+> Instead we need to check for each device to which bus it belongs and
+> setup the spba_{start,end}_addr accordingly per sdma_channel.
+>
+> While on it, don't ignore errors from of_address_to_resource() if they
+> are valid.
+>
+> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> ---
+>  drivers/dma/imx-sdma.c | 58 ++++++++++++++++++++++++++++++++++----------=
+------
+>  1 file changed, 40 insertions(+), 18 deletions(-)
+>
+> diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
+> index 3ecb917214b1268b148a29df697b780bc462afa4..56daaeb7df03986850c9c7427=
+3d0816700581dc0 100644
+> --- a/drivers/dma/imx-sdma.c
+> +++ b/drivers/dma/imx-sdma.c
+> @@ -429,6 +429,8 @@ struct sdma_desc {
+>   * @event_mask:                event mask used in p_2_p script
+>   * @watermark_level:   value for gReg[7], some script will extend it fro=
+m
+>   *                     basic watermark such as p_2_p
+> + * @spba_start_addr:   SDMA controller SPBA bus start address
+> + * @spba_end_addr:     SDMA controller SPBA bus end address
+>   * @shp_addr:          value for gReg[6]
+>   * @per_addr:          value for gReg[2]
+>   * @status:            status of dma channel
+> @@ -461,6 +463,8 @@ struct sdma_channel {
+>         dma_addr_t                      per_address, per_address2;
+>         unsigned long                   event_mask[2];
+>         unsigned long                   watermark_level;
+> +       u32                             spba_start_addr;
+> +       u32                             spba_end_addr;
+>         u32                             shp_addr, per_addr;
+>         enum dma_status                 status;
+>         struct imx_dma_data             data;
+> @@ -534,8 +538,6 @@ struct sdma_engine {
+>         u32                             script_number;
+>         struct sdma_script_start_addrs  *script_addrs;
+>         const struct sdma_driver_data   *drvdata;
+> -       u32                             spba_start_addr;
+> -       u32                             spba_end_addr;
+>         unsigned int                    irq;
+>         dma_addr_t                      bd0_phys;
+>         struct sdma_buffer_descriptor   *bd0;
+> @@ -1236,8 +1238,6 @@ static void sdma_channel_synchronize(struct dma_cha=
+n *chan)
+>
+>  static void sdma_set_watermarklevel_for_p2p(struct sdma_channel *sdmac)
+>  {
+> -       struct sdma_engine *sdma =3D sdmac->sdma;
+> -
+>         int lwml =3D sdmac->watermark_level & SDMA_WATERMARK_LEVEL_LWML;
+>         int hwml =3D (sdmac->watermark_level & SDMA_WATERMARK_LEVEL_HWML)=
+ >> 16;
+>
+> @@ -1263,12 +1263,12 @@ static void sdma_set_watermarklevel_for_p2p(struc=
+t sdma_channel *sdmac)
+>                 swap(sdmac->event_mask[0], sdmac->event_mask[1]);
+>         }
+>
+> -       if (sdmac->per_address2 >=3D sdma->spba_start_addr &&
+> -                       sdmac->per_address2 <=3D sdma->spba_end_addr)
+> +       if (sdmac->per_address2 >=3D sdmac->spba_start_addr &&
+> +                       sdmac->per_address2 <=3D sdmac->spba_end_addr)
+>                 sdmac->watermark_level |=3D SDMA_WATERMARK_LEVEL_SP;
+>
+> -       if (sdmac->per_address >=3D sdma->spba_start_addr &&
+> -                       sdmac->per_address <=3D sdma->spba_end_addr)
+> +       if (sdmac->per_address >=3D sdmac->spba_start_addr &&
+> +                       sdmac->per_address <=3D sdmac->spba_end_addr)
+>                 sdmac->watermark_level |=3D SDMA_WATERMARK_LEVEL_DP;
+>
+>         sdmac->watermark_level |=3D SDMA_WATERMARK_LEVEL_CONT;
+> @@ -1447,6 +1447,31 @@ static void sdma_desc_free(struct virt_dma_desc *v=
+d)
+>         kfree(desc);
+>  }
+>
+> +static int sdma_config_spba_slave(struct dma_chan *chan)
+> +{
+> +       struct sdma_channel *sdmac =3D to_sdma_chan(chan);
+> +       struct device_node *spba_bus;
+> +       struct resource spba_res;
+> +       int ret;
+> +
+> +       spba_bus =3D of_get_parent(chan->slave->of_node);
 
-On 4/1/2026 10:23 AM, Ming Qian(OSS) wrote:
-> Hi Nicolas,
-> 
-> On 3/31/2026 10:54 PM, Nicolas Dufresne wrote:
->> Le mardi 31 mars 2026 à 10:33 -0400, Frank Li a écrit :
->>> On Tue, Mar 31, 2026 at 03:23:11PM +0800, ming.qian@oss.nxp.com wrote:
->>>> From: Ming Qian <ming.qian@oss.nxp.com>
->>>>
->>>> Add a new read-only control V4L2_CID_MEMORY_USAGE that allows
->>>> applications to query the total amount of memory currently used
->>>> by a device instance.
->>>>
->>>> This control reports the memory consumption in bytes, including
->>>> internal buffers, intermediate processing data, and other
->>>> driver-managed allocations. Applications can use this information
->>>> for debugging, resource monitoring, or making informed decisions
->>>> about buffer allocation strategies.
->>>>
->>>> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
->>>> ---
->>>
->>> Not sure why not export these information by debugfs, or any benefit vs
->>> debugfs?
->>
->> There is also a on-going proposal that uses fdinfo.
->>
->> Nicolas
->>
-> 
-> Thanks for the reminder about the ongoing fdinfo proposal.
-> 
-> Just to confirm, you are referring to Detlev’s ongoing fdinfo proposal,
-> specifically this series:
-> https://lore.kernel.org/lkml/20260212162328.192217-1- 
-> detlev.casanova@collabora.com/
-> 
-> I will align my work with it and switch to using fdinfo.
-> Once the show_fdinfo support from that series is merged, I will prepare
-> the next revision of my patch accordingly.
-> 
-> Regards,
-> Ming
-> 
+if the chan is requested by __dma_request_channel(),  the chan->slave =3D N=
+ULL
+Then there will be an issue here.
 
-Regarding the discussion about using fdinfo instead of a V4L2 control, I
-have two questions:
+Best regards
+Shengjiu Wang
 
-	1. Key consistency in fdinfo
-	fdinfo uses key–value pairs, which is flexible, but if multiple
-	drivers want to expose the same “memory usage” information,
-	they need to agree on a common key name and meaning. Otherwise
-	user‑space must handle each driver differently. A V4L2 control
-	naturally provides a unified interface without this coordination
-	effort.
-
-
-	2. Lack of notification in fdinfo
-	With a control, user‑space can subscribe to control events and
-	receive notifications when the memory usage changes. fdinfo does
-	not have a built‑in event mechanism, so users must either poll
-	or rely on additional eventfd‑like or custom event mechanisms.
-
-Do you have any suggestions or existing practices to address these two
-issues when using fdinfo?
-
-Thanks again for your time and comments.
-
-Regards,
-Ming
-
->>>
->>> Generanlly document should be first patch, then driver change.
->>>
->>> Frank
->>>
->>>>   drivers/media/v4l2-core/v4l2-ctrls-defs.c | 8 ++++++++
->>>>   include/uapi/linux/v4l2-controls.h        | 4 +++-
->>>>   2 files changed, 11 insertions(+), 1 deletion(-)
->>>>
->>>> diff --git a/drivers/media/v4l2-core/v4l2-ctrls-defs.c b/drivers/ 
->>>> media/v4l2-core/v4l2-ctrls-defs.c
->>>> index 551426c4cd01..053db78ff661 100644
->>>> --- a/drivers/media/v4l2-core/v4l2-ctrls-defs.c
->>>> +++ b/drivers/media/v4l2-core/v4l2-ctrls-defs.c
->>>> @@ -831,6 +831,7 @@ const char *v4l2_ctrl_get_name(u32 id)
->>>>       case V4L2_CID_ALPHA_COMPONENT:        return "Alpha Component";
->>>>       case V4L2_CID_COLORFX_CBCR:        return "Color Effects, CbCr";
->>>>       case V4L2_CID_COLORFX_RGB:              return "Color Effects, 
->>>> RGB";
->>>> +    case V4L2_CID_MEMORY_USAGE:        return "Memory Usage";
->>>>
->>>>       /*
->>>>        * Codec controls
->>>> @@ -1476,6 +1477,13 @@ void v4l2_ctrl_fill(u32 id, const char 
->>>> **name, enum v4l2_ctrl_type *type,
->>>>           *min = 0;
->>>>           *max = 0xffff;
->>>>           break;
->>>> +    case V4L2_CID_MEMORY_USAGE:
->>>> +        *type = V4L2_CTRL_TYPE_INTEGER64;
->>>> +        *flags |= V4L2_CTRL_FLAG_READ_ONLY;
->>>> +        *min = 0;
->>>> +        *max = S64_MAX;
->>>> +        *step = 1;
->>>> +        break;
->>>>       case V4L2_CID_FLASH_FAULT:
->>>>       case V4L2_CID_JPEG_ACTIVE_MARKER:
->>>>       case V4L2_CID_3A_LOCK:
->>>> diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/ 
->>>> linux/v4l2-controls.h
->>>> index 68dd0c4e47b2..02c6f960d38e 100644
->>>> --- a/include/uapi/linux/v4l2-controls.h
->>>> +++ b/include/uapi/linux/v4l2-controls.h
->>>> @@ -110,8 +110,10 @@ enum v4l2_colorfx {
->>>>   #define V4L2_CID_COLORFX_CBCR            (V4L2_CID_BASE+42)
->>>>   #define V4L2_CID_COLORFX_RGB            (V4L2_CID_BASE+43)
->>>>
->>>> +#define V4L2_CID_MEMORY_USAGE            (V4L2_CID_BASE+44)
->>>> +
->>>>   /* last CID + 1 */
->>>> -#define V4L2_CID_LASTP1                         (V4L2_CID_BASE+44)
->>>> +#define V4L2_CID_LASTP1                         (V4L2_CID_BASE+45)
->>>>
->>>>   /* USER-class private control IDs */
->>>>
->>>> -- 
->>>> 2.53.0
->>>>
-> 
+> +       /* Device doesn't belong to the spba-bus */
+> +       if (!of_device_is_compatible(spba_bus, "fsl,spba-bus"))
+> +               return 0;
+> +
+> +       ret =3D of_address_to_resource(spba_bus, 0, &spba_res);
+> +       of_node_put(spba_bus);
+> +       if (ret) {
+> +               dev_err(sdmac->sdma->dev, "Failed to get spba-bus resourc=
+es\n");
+> +               return -EINVAL;
+> +       }
+> +
+> +       sdmac->spba_start_addr =3D spba_res.start;
+> +       sdmac->spba_end_addr =3D spba_res.end;
+> +
+> +       return 0;
+> +}
+> +
+>  static int sdma_alloc_chan_resources(struct dma_chan *chan)
+>  {
+>         struct sdma_channel *sdmac =3D to_sdma_chan(chan);
+> @@ -1527,6 +1552,8 @@ static void sdma_free_chan_resources(struct dma_cha=
+n *chan)
+>
+>         sdmac->event_id0 =3D 0;
+>         sdmac->event_id1 =3D 0;
+> +       sdmac->spba_start_addr =3D 0;
+> +       sdmac->spba_end_addr =3D 0;
+>
+>         sdma_set_channel_priority(sdmac, 0);
+>
+> @@ -1837,6 +1864,7 @@ static int sdma_config(struct dma_chan *chan,
+>  {
+>         struct sdma_channel *sdmac =3D to_sdma_chan(chan);
+>         struct sdma_engine *sdma =3D sdmac->sdma;
+> +       int ret;
+>
+>         memcpy(&sdmac->slave_config, dmaengine_cfg, sizeof(*dmaengine_cfg=
+));
+>
+> @@ -1867,6 +1895,10 @@ static int sdma_config(struct dma_chan *chan,
+>                 sdma_event_enable(sdmac, sdmac->event_id1);
+>         }
+>
+> +       ret =3D sdma_config_spba_slave(chan);
+> +       if (ret)
+> +               return ret;
+> +
+>         return 0;
+>  }
+>
+> @@ -2235,11 +2267,9 @@ static struct dma_chan *sdma_xlate(struct of_phand=
+le_args *dma_spec,
+>  static int sdma_probe(struct platform_device *pdev)
+>  {
+>         struct device_node *np =3D pdev->dev.of_node;
+> -       struct device_node *spba_bus;
+>         const char *fw_name;
+>         int ret;
+>         int irq;
+> -       struct resource spba_res;
+>         int i;
+>         struct sdma_engine *sdma;
+>         s32 *saddr_arr;
+> @@ -2375,14 +2405,6 @@ static int sdma_probe(struct platform_device *pdev=
+)
+>                         dev_err(&pdev->dev, "failed to register controlle=
+r\n");
+>                         goto err_register;
+>                 }
+> -
+> -               spba_bus =3D of_find_compatible_node(NULL, NULL, "fsl,spb=
+a-bus");
+> -               ret =3D of_address_to_resource(spba_bus, 0, &spba_res);
+> -               if (!ret) {
+> -                       sdma->spba_start_addr =3D spba_res.start;
+> -                       sdma->spba_end_addr =3D spba_res.end;
+> -               }
+> -               of_node_put(spba_bus);
+>         }
+>
+>         /*
+>
+> --
+> 2.47.3
+>
+>
 
