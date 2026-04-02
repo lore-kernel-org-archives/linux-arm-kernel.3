@@ -4,87 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8533CD39426
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 14:28:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2278AD39426
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 14:31:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o8qd2ihEfkSLHEnqsYKHM+hIHCHx/nv/3NqWPOpbCAo=; b=jWbN7zNiQp9ZDQiJWvwsMUbCgS
-	RLIz74+BMwkesvXPhX43F02piFC4nShZQqnMDfFWY4v7ra0PbNB2zR+U/UYg/Tm0V9d31hijhGf7a
-	gkAZ6AWzOMnnf0+GWJk+5pNng2+PBHp0y7YxNYB7FVkeccwXn684uxEMsSBmpEfPe6AoN6zaI0+hg
-	rWsjfy4etyJ5g9mzo+ZdCT2EpmvL7wN2ZlUVJMjIBIbIYThe8FZbcRiKtQV3HZ75snRDdRnzCJDU2
-	2GQovFk5EG+7RcYMRb0SM3AzdLsNOhamyeziderO0Lb8DrCgYPwB3udlf84OPRZe1WJLBjZoa94dK
-	aL3lWnCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y6Kmczm5goBgm57ZNtN80xIw5gHePM04YwgJBnY9te8=; b=NLhlDIfHZtgWKsPrURiR0adMhX
+	31yYseLPbC+WxGi0nnh4sYTEGLHBF8/dHzzb1ZrAgeX7unxSPfi4yDyyB8Yau74T/ZOg6smMQ3f9E
+	ittkYGC8TJoJKeK3QVjdKEb5+4a/p1rmN6Wu4+aDG8wvsFUhE51BjMFAG/KCWek1Zl4qrMlW5Q1EG
+	ZI5ku+bbrdmqmO59FP8D8WIBP2yla6Uc6iJnPk1XoHCU+Z5RtLMA7BK0fNZKOABQXqN4WvxUSSNWk
+	Oeq28y/2rmIZGRyy2JBWijmPobUKlJpaMKh0zA8BOZ8DGlH1GnKphcQ4sB1gNDUYWmePb+NMKwNWN
+	mypeA/XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8J1o-00000000LAa-1bmm;
-	Thu, 02 Apr 2026 14:28:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w8J4k-00000000Ly5-38Ix;
+	Thu, 02 Apr 2026 14:31:14 +0000
+Received: from mail-westeuropeazon11010018.outbound.protection.outlook.com ([52.101.69.18] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8J1g-00000000L0J-3JJd
+	id 1w8J4i-00000000LxV-0Qg4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 14:28:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 00B196013D;
-	Thu,  2 Apr 2026 14:28:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 244ECC19424;
-	Thu,  2 Apr 2026 14:28:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775140083;
-	bh=llmRBy1aBXXwmOsvxjdhBvAxyAsC1o5N0ii6aNpBplY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=OKy1rO3lNruc8F/hojUIW82wICF8cHR4vJe7w7/RA8Liwe8djPFWWQgs7x+G1+yfc
-	 xzV3ZxWRMNcxV0A1FYKdK57Rn+fv4AbIdn7BsyzfBqjGY/AZ4RcWhs7OBKDmc5nt3O
-	 B5Dzp8nI0kZRmWi8YBGeLGetBBCBcZq8B4g0eeW3qBw/0vqSq88ffTOEuONrUwXyIW
-	 PBuKAUND+i47Mz78hsXn0XqqFktL/Gx1E+BE6vGFXjwETXIi3Y2oXS/bu+jKAGtfCv
-	 1EmiipZ48N3U9uASuTcEnV068+0HwrOrGqnvUusBNKtrg2CJvRZz2MZ1+3Wis4uGxP
-	 OXmZNM+A1147Q==
-From: Thierry Reding <thierry.reding@kernel.org>
-Date: Thu, 02 Apr 2026 16:27:37 +0200
-Subject: [PATCH v4 3/4] PCI: tegra: Add Tegra264 support
+	Thu, 02 Apr 2026 14:31:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rJrZpKohiip0rC6byOcskk05ZZdZNqlyuBX5qH7KyJUb1GzlQau1/Pe62NdveUKFY+GdqJUaXxcfxUuz0Ia0Hnx5r94kCwNTkp1HVYDZsLqOKTSsKy1X2brmh1XLg0dK5Y5CutUW7pV31yNDikPLARzsY3SYZVS70UqLiys1EyD4iQzaEoz8A4C1NqI0MXPsFRCfJAH76mIDL8V1qyjLuEFUcv681GEPQCJxn8SJfPyFYoHrsVYNmxqJ6k7A10GDg+dpaTSbZK/eR+Pcm71Ulfq0T1h0sp0zdaQ/t1lAZmP/cU6QpnlBxlwpQbUe/VJr19P853+5WzFQ6caMGhE4kA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=y6Kmczm5goBgm57ZNtN80xIw5gHePM04YwgJBnY9te8=;
+ b=PH1kcU6GZ1JYscgQKonIBx6CvKq4QT7RRDQ4X1l7qk80Y95SJCbhKamIpRUDeAB74qDr50VYCH5EAKU/y/E38zT4HyliqHjhcr9pj9kHHrFtrC27T7p8Vnkmy6Xrcl3tckeDzFHs0caSczzPUG/dUhrYJb8PY5alPidsiIFAm0MmjoBSAbOMk8igxZs3N9w+6RjIrmqrZEIru2ZxOYJkuzvF2FbKfhBpk7V4r/5JU6UwOFv1GYm7zEG2s1/2TQf41PT0BT1fBqGyjkO7zLaTNmam+SivzjkHXyePKSgEpIU9gJKCAul1ikufhY6/33gfvkCovgSRrq/pmSBGTNUNiw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=y6Kmczm5goBgm57ZNtN80xIw5gHePM04YwgJBnY9te8=;
+ b=lk1w95qCxtH+6qsz47ppaTE4aSGCvx9WK/qmDV7YWQjPM8b9N5XEVBSaPaTKTTRpkqeR0QI0bxSeMrkHrpRcziXHxs5y6uEgo0sZkA8xo2t4v5uVm95anBYHZFZeGvByrbqKyFjNrv+DkKgPAUmc5dsA3e0iZOH8Ldv2ZPa62MQxXS/0AwyXzQzBvSSNlwqOjbnwAJwPIx+1S9gHAnyUP/qLRBhGKyTxEZvLozxVzjps9kCLoQwyInlCgRxnaQLgSoI4Sdg98boNpyVqAbNWYyn6GivrM3amAPO0/yoJBRdkXpYOLKidKS18rLlMbUgstewYIo8q20Hye/Z2UCYCwA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by GV2PR04MB11562.eurprd04.prod.outlook.com (2603:10a6:150:2c8::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Thu, 2 Apr
+ 2026 14:31:06 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9769.016; Thu, 2 Apr 2026
+ 14:31:06 +0000
+Date: Thu, 2 Apr 2026 10:30:59 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: l.stach@pengutronix.de, lpieralisi@kernel.org, kwilczynski@kernel.org,
+	mani@kernel.org, robh@kernel.org, bhelgaas@google.com,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v3] PCI: imx6: Don't remove MSI capability for
+ i.MX7D/i.MX8M
+Message-ID: <ac59o5IEef9oyx0U@lizhi-Precision-Tower-5810>
+References: <20260331085252.1243108-1-hongxing.zhu@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260331085252.1243108-1-hongxing.zhu@nxp.com>
+X-ClientProxiedBy: SN7PR04CA0100.namprd04.prod.outlook.com
+ (2603:10b6:806:122::15) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260402-tegra264-pcie-v4-3-21e2e19987e8@nvidia.com>
-References: <20260402-tegra264-pcie-v4-0-21e2e19987e8@nvidia.com>
-In-Reply-To: <20260402-tegra264-pcie-v4-0-21e2e19987e8@nvidia.com>
-To: Bjorn Helgaas <bhelgaas@google.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thierry Reding <thierry.reding@gmail.com>, 
- Jonathan Hunter <jonathanh@nvidia.com>, 
- Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
- Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
- Michal Simek <michal.simek@amd.com>, Kevin Xie <kevin.xie@starfivetech.com>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>, 
- Manikanta Maddireddy <mmaddireddy@nvidia.com>
-X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=17760; i=treding@nvidia.com;
- h=from:subject:message-id; bh=XAv6ON8Tk23dt9XBaJ6T+ZZ8de7q2/yRx/rtD4s2sTI=;
- b=owEBbQKS/ZANAwAKAd0jrNd/PrOhAcsmYgBpznzo41g7HE0MxM71XG3nHCqxM+ivApYZSocqM
- VXHPKjSVlSJAjMEAAEKAB0WIQSI6sMIAUnM98CNyJ/dI6zXfz6zoQUCac586AAKCRDdI6zXfz6z
- ofW8D/9DnArq+QPTRtevH7Nb7fBjJMLqeMZ2yjBwT/SCwwPYwQ6u/gVAiHHW2sXhC8igkqD+b9h
- T4QWWp1aydFr2e1O0i7AaXzbuJr4ExiXiJpmtSXb+f/Qq70bWt50SID+ResKO20EoG4C7Vl7lKf
- T8elXEZ+dwUvI+d5wdRuiIewGYl24+VeDmH1yEwDYKNn2XW2iY7lnGV04PhxIp7W/Cr50wynbg7
- IatzTKb92JCtibYCV6smBIu0EdblysepWJrkVh5BzcbWEAUzRN9RVPLcgKwb5NnFMutIndprmGe
- Bcj6b6BhsMeb8C2jtJDFGZZ9wEq+n53XIT4h1MaYwdPESfE14YK4xuK28MplCN1VZtCCKyXB1UM
- 8yLP2DiVxSa2GX3e+UEVeDOa1B86GvpGk/eQdJEvdWb9wsOlioXfUjRVIDtaVZgObm7FvPmP5qU
- I9CkqVBf2dtY6xJpwwTBHlxvPTQucDXjlDCVl3EbRuUEu4v4+Z1w6eCQW5hjpB8P5xLGkz6FmXU
- 61r4rb75ZOWKS63MydMX/Zgdui3+DmzF+fJ8Lo/o8XHLDfpE4xcfFzl4wrBIBFY4wnO9Z+ztCdr
- EQwogY+JDRfZH/pfb5Ctrfu13xIUQpNkSC3Aas37/4dd5f6AOnpZQvBang6L3r3dfdSvtgKldK0
- j34y0bSQVxEUYUA==
-X-Developer-Key: i=treding@nvidia.com; a=openpgp;
- fpr=88EAC3080149CCF7C08DC89FDD23ACD77F3EB3A1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV2PR04MB11562:EE_
+X-MS-Office365-Filtering-Correlation-Id: d142c6bf-fe3c-49a8-eb32-08de90c4797b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|19092799006|38350700014|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: Q/ssONlkbpj+L45E9w1o5URIaRCKClYlxfADqHN2E77aa7jro9aNDVc9giAHDL2vEOhxh0Ij58h6QqrGfeFoOP6+jhI9Iyqn+Igonh0D4PYmUohROwACTbwyMU6j04yWhPCNaMN7sEzq+25HVmaQrPqAOralNNknMZO/d6lQFT+YFGhRJ6NfWTOcT8QQCaFyHL2detlCFmvN+qD3XVWK0xYTe8obCoOw3pI8cE6dG2OOdsSHhxsJAByhcQP9n7Iy94BE4r8DAjdpXO6JQurVnVTPx8uV3wgU85adfRc1GVFUDE/NAR+9+IVimnes7QuruuENv5vkY5gqgvbQln80NVjc8ijyHdF1ic7H8NkM/ELCvaMej4Cz0/kCmLo/VBDnbFONsdAewry3y7rOOAqVQTFHsw3Sf5i07zmtLd77SkTpTmOuu9CYYaQ+TqQfRmJwxCc9ZPUhMsQxyHVNqxA4s2cAalhcAeG/wPgwPqvduThcxNZ6ZuOlQvaOza3TV6G8DAlY3BmOewrwYMK/cMgHR0r25ZUdtiHSAPbevB8WkbPHAHFConH3cQWLAbpw7Mm7JGxO3M/HAGILi9XXinTIUgsVAVg4w3eOc+TT8jlxr4JcnLMtVqVdypHINxARo99RdqCDro1Ro1P7XRWPYXy6jUvOFGpS18iAmDQE2VBrboNeKBEeQLtfp6tdmGhs2Rg/XvlBrSu8banMmVIq2kdPaV2ZzvL5uPuFCBewDEAW2S3AsZLgTE8h+Lm15vIecaLgq8kUXBnzuHMO0ImxL/DZOtPSMLsIF9hJF6kkxd8kvg0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(19092799006)(38350700014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?SonnrpC4nMlbFxTd9i3t3LvGByPS+u9BV7G6KqKCXu4SkED+HQ8QhBp36tiJ?=
+ =?us-ascii?Q?QNNaoHjvte1KdVa2e2R7/o9OwnyH6/7mIRnEpYeO5luQ/ZjzQ9b5zjQ6xkKM?=
+ =?us-ascii?Q?t/8mo0hooJrDLfr8Irjjj6IyB72o+lLYF+PRq/It2xd+zSom9IG18IGtGvpW?=
+ =?us-ascii?Q?dDY7ULI/F7EI3/YEvSDmB7YUbmaphJ4TkE8lrmwa32jiHEH1Ow5d5UcRzgop?=
+ =?us-ascii?Q?scJF9iw9WqbBkNQlooZvcxIxxydTOQ9YDuo+aKLY2foqEIxgTBnKFHvwLVoN?=
+ =?us-ascii?Q?NZjvgbwn0BqsOl3Psg7eIKO+owyje7r3nKdS+EvzUT+AJ2d0jSoUpd2GKp0e?=
+ =?us-ascii?Q?Dko0kHJTpe96UweU7VyrOrHKHTg8tapo1+g6kz31pQdmyOQXyvJrR98KpeJk?=
+ =?us-ascii?Q?30iR7sOJQOQaAaptWaT5DWh/EPpGPJOnbbw7dFj0GGpf02SpSnl1qZGvPaua?=
+ =?us-ascii?Q?2KM4xDc0vS13DryFpAILd8b0Uju/FXcBpZCzwjAlAG9jzM/vUZMQNDPs/ONk?=
+ =?us-ascii?Q?eafeIEgleKCXu8RKFUIW8VsMi4r3c6uc/gCZ8//+dtt/wDQ6kCmexmSPJiVu?=
+ =?us-ascii?Q?BGeH+H/ma6/HWb9f2cj3a5YaaCpv13cvKyxtfmxKRAyLQnCqOPRMzh2w/xfA?=
+ =?us-ascii?Q?O0dGWuhPiC917KCoYDTxd6AgnFVzLZS7edOgT/evq2aduyDgqz7HNyMQcQnv?=
+ =?us-ascii?Q?w6H2JcC0Gd4WVjhW/M09QaMlecsdL1N2+91x+YSFD2whrrxPDbRGkRu8nueN?=
+ =?us-ascii?Q?guoSlg+8RR/Bgt8oIzAAPL/9sJE5LjzrYA8DwfEfFOpdZS4AW2l5Kx842EZV?=
+ =?us-ascii?Q?gD8mJQ82bgmW/RG3CX1Nj4cH2MyvzNVUjh1n0RzvjSesi4TXqJwc56ymP8w9?=
+ =?us-ascii?Q?Pv7iBaYXMXQBlDQc05akUss9Yu9rfXLfCm1Bl06lzPar0hbLAMOKKvf2CyXi?=
+ =?us-ascii?Q?Ud48PZy6TeF6ImNcsBi0yv/5slwiSNDphrY4W+FllxfhknT7j3IHfZdEeMPi?=
+ =?us-ascii?Q?/nHVmrOlKpH+bLbIpUl2C/+IdHGzKOsNKezNKMuPchjvt3uO0x+NbSL3ptdv?=
+ =?us-ascii?Q?zL8Wqx0Q2UJEo2ngnZlZYshK/DEAbuqGr/wRMG1tlNZ8xjAdwzBhtQCy08eS?=
+ =?us-ascii?Q?7wlhW8MD8lVkr35rKJP2HZw/+k80ifk1jYpKUefjMBq+tSahAo3Fm5MvFwnm?=
+ =?us-ascii?Q?PEI/X+CFGelp30PP/dC5DJOdFtp3MTHg1Gfsjl8veXnCph7aVDx8ubzugBV0?=
+ =?us-ascii?Q?Ompr9Zh0VqdV3Mhr5mz12drZrmivMQJ71bX+NQUy1R+KqR3NA29tchzf4Hr2?=
+ =?us-ascii?Q?bq0omMwqmc51y+imRyIPxvx4klrsQVxWsNH0ETP+3nLBASWKAXDXdg6Rxprs?=
+ =?us-ascii?Q?DHOp0iczU+I//2INw/iNeY92EItuiV0+L2hdBpFqJKA27K0Asj2ASzeRwE11?=
+ =?us-ascii?Q?9qG9E/7YM92f/iab3i2QFTdxlDUjWzt239TZOFkjhViB7HHtqtfArM3N0zYU?=
+ =?us-ascii?Q?x/YNiP51nLMMurP/VYFTtLXQYklWr+x6ClKxRs45ng/jo4+gIMgD1EPyT6GN?=
+ =?us-ascii?Q?4ZDai/DUEzD2Nm5NsUlBUU7bnqc6SuoH8FnBWUWFjBUJnp55Ij4DUzmNrN/3?=
+ =?us-ascii?Q?OpX3zMI/n+bVKEIFia2TC1Rh13VovEUUOfkZFo8rvFFjCWlva54DEKungYdu?=
+ =?us-ascii?Q?syse8+Gy9jyPiGfJcXa4BoY28GcQgTTyg9snrcLKXQnJBd4G?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d142c6bf-fe3c-49a8-eb32-08de90c4797b
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2026 14:31:06.1145
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Kr2rivrCfIkP3uJutVnD2PTZ55JVJNh7801RPzIEUo0j2BSzEqsNbKG9nUEqRCNQufuH2P0m/vCblBzImnYOew==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11562
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260402_073112_147022_E2BC0A2B 
+X-CRM114-Status: GOOD (  25.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,606 +138,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thierry Reding <treding@nvidia.com>
+On Tue, Mar 31, 2026 at 04:52:52PM +0800, Richard Zhu wrote:
+> The MSI trigger mechanism for endpoint devices connected to i.MX7D,
+> i.MX8MM, and i.MX8MQ PCIe root complex ports depends on the MSI
+> capability register settings in the root complex. Removing the MSI
+> capability breaks MSI functionality for these endpoints.
+>
+> Add keep_rp_msi_en flag to indicate platforms (i.MX7D, i.MX8MM, i.MX8MQ)
+> that should preserve the MSI capability during initialization.
 
-Add a driver for the PCIe controller found on NVIDIA Tegra264 SoCs. The
-driver is very small, with its main purpose being to set up the address
-translation registers and then creating a standard PCI host using ECAM.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Signed-off-by: Manikanta Maddireddy <mmaddireddy@nvidia.com>
-Signed-off-by: Thierry Reding <treding@nvidia.com>
----
-Changes in v2:
-- specify generations applicable for PCI_TEGRA driver to avoid confusion
-- drop SPDX-FileCopyrightText tag
-- rename link_state to link_up to clarify meaning
-- replace memset() by an empty initializer
-- sanity-check only enable BAR regions
-- bring PCI link out of reset in case firmware didn't
-- use common wait times instead of defining our own
-- use core helpers to parse and print PCI link speed
-- fix multi-line comment
-- use dev_err_probe() more ubiquitously
-- fix probe sequence and error cleanup
-- use DEFINE_NOIRQ_DEV_PM_OPS() to avoid warnings for !PM_SUSPEND
-- reuse more standard registers and remove unused register definitions
-- use %pe and ERR_PTR() to print symbolic errors
-- add signed-off-by from Manikanta as the original author
-- add myself as author after significantly modifying the driver
----
- drivers/pci/controller/Kconfig         |  10 +-
- drivers/pci/controller/Makefile        |   1 +
- drivers/pci/controller/pcie-tegra264.c | 527 +++++++++++++++++++++++++++++++++
- 3 files changed, 537 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
-index 5aaed8ac6e44..6ead04f7bd6e 100644
---- a/drivers/pci/controller/Kconfig
-+++ b/drivers/pci/controller/Kconfig
-@@ -254,7 +254,15 @@ config PCI_TEGRA
- 	select IRQ_MSI_LIB
- 	help
- 	  Say Y here if you want support for the PCIe host controller found
--	  on NVIDIA Tegra SoCs.
-+	  on NVIDIA Tegra SoCs (Tegra20 through Tegra186).
-+
-+config PCIE_TEGRA264
-+	bool "NVIDIA Tegra264 PCIe controller"
-+	depends on ARCH_TEGRA || COMPILE_TEST
-+	depends on PCI_MSI
-+	help
-+	  Say Y here if you want support for the PCIe host controller found
-+	  on NVIDIA Tegra264 SoCs.
- 
- config PCIE_RCAR_HOST
- 	bool "Renesas R-Car PCIe controller (host mode)"
-diff --git a/drivers/pci/controller/Makefile b/drivers/pci/controller/Makefile
-index ac8db283f0fe..d478743b5142 100644
---- a/drivers/pci/controller/Makefile
-+++ b/drivers/pci/controller/Makefile
-@@ -7,6 +7,7 @@ obj-$(CONFIG_PCI_HYPERV_INTERFACE) += pci-hyperv-intf.o
- obj-$(CONFIG_PCI_MVEBU) += pci-mvebu.o
- obj-$(CONFIG_PCI_AARDVARK) += pci-aardvark.o
- obj-$(CONFIG_PCI_TEGRA) += pci-tegra.o
-+obj-$(CONFIG_PCIE_TEGRA264) += pcie-tegra264.o
- obj-$(CONFIG_PCI_RCAR_GEN2) += pci-rcar-gen2.o
- obj-$(CONFIG_PCIE_RCAR_HOST) += pcie-rcar.o pcie-rcar-host.o
- obj-$(CONFIG_PCIE_RCAR_EP) += pcie-rcar.o pcie-rcar-ep.o
-diff --git a/drivers/pci/controller/pcie-tegra264.c b/drivers/pci/controller/pcie-tegra264.c
-new file mode 100644
-index 000000000000..3ce1ad971bdb
---- /dev/null
-+++ b/drivers/pci/controller/pcie-tegra264.c
-@@ -0,0 +1,527 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * PCIe host controller driver for Tegra264 SoC
-+ *
-+ * Copyright (c) 2022-2026, NVIDIA CORPORATION. All rights reserved.
-+ */
-+
-+#include <linux/delay.h>
-+#include <linux/gpio/consumer.h>
-+#include <linux/init.h>
-+#include <linux/interconnect.h>
-+#include <linux/interrupt.h>
-+#include <linux/iopoll.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/of_address.h>
-+#include <linux/of_device.h>
-+#include <linux/of.h>
-+#include <linux/of_pci.h>
-+#include <linux/of_platform.h>
-+#include <linux/pci-ecam.h>
-+#include <linux/pci.h>
-+#include <linux/pinctrl/consumer.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+
-+#include <soc/tegra/bpmp.h>
-+#include <soc/tegra/bpmp-abi.h>
-+#include <soc/tegra/fuse.h>
-+
-+#include "../pci.h"
-+
-+/* XAL registers */
-+#define XAL_RC_ECAM_BASE_HI			0x00
-+#define XAL_RC_ECAM_BASE_LO			0x04
-+#define XAL_RC_ECAM_BUSMASK			0x08
-+#define XAL_RC_IO_BASE_HI			0x0c
-+#define XAL_RC_IO_BASE_LO			0x10
-+#define XAL_RC_IO_LIMIT_HI			0x14
-+#define XAL_RC_IO_LIMIT_LO			0x18
-+#define XAL_RC_MEM_32BIT_BASE_HI		0x1c
-+#define XAL_RC_MEM_32BIT_BASE_LO		0x20
-+#define XAL_RC_MEM_32BIT_LIMIT_HI		0x24
-+#define XAL_RC_MEM_32BIT_LIMIT_LO		0x28
-+#define XAL_RC_MEM_64BIT_BASE_HI		0x2c
-+#define XAL_RC_MEM_64BIT_BASE_LO		0x30
-+#define XAL_RC_MEM_64BIT_LIMIT_HI		0x34
-+#define XAL_RC_MEM_64BIT_LIMIT_LO		0x38
-+#define XAL_RC_BAR_CNTL_STANDARD		0x40
-+#define XAL_RC_BAR_CNTL_STANDARD_IOBAR_EN	BIT(0)
-+#define XAL_RC_BAR_CNTL_STANDARD_32B_BAR_EN	BIT(1)
-+#define XAL_RC_BAR_CNTL_STANDARD_64B_BAR_EN	BIT(2)
-+
-+/* XTL registers */
-+#define XTL_RC_PCIE_CFG_LINK_STATUS		0x5a
-+
-+#define XTL_RC_MGMT_PERST_CONTROL		0x218
-+#define XTL_RC_MGMT_PERST_CONTROL_PERST_O_N	BIT(0)
-+
-+#define XTL_RC_MGMT_CLOCK_CONTROL		0x47c
-+#define XTL_RC_MGMT_CLOCK_CONTROL_PEX_CLKREQ_I_N_PIN_USE_CONV_TO_PRSNT	BIT(9)
-+
-+struct tegra264_pcie {
-+	struct device *dev;
-+	bool link_up;
-+
-+	/* I/O memory */
-+	void __iomem *xal;
-+	void __iomem *xtl;
-+	void __iomem *ecam;
-+
-+	/* bridge configuration */
-+	struct pci_config_window *cfg;
-+	struct pci_host_bridge *bridge;
-+
-+	/* wake IRQ */
-+	struct gpio_desc *wake_gpio;
-+	unsigned int wake_irq;
-+
-+	/* BPMP and bandwidth management */
-+	struct icc_path *icc_path;
-+	struct tegra_bpmp *bpmp;
-+	u32 ctl_id;
-+};
-+
-+static int tegra264_pcie_parse_dt(struct tegra264_pcie *pcie)
-+{
-+	int err;
-+
-+	pcie->wake_gpio = devm_gpiod_get_optional(pcie->dev, "nvidia,pex-wake",
-+						  GPIOD_IN);
-+	if (IS_ERR(pcie->wake_gpio))
-+		return PTR_ERR(pcie->wake_gpio);
-+
-+	if (pcie->wake_gpio) {
-+		device_init_wakeup(pcie->dev, true);
-+
-+		err = gpiod_to_irq(pcie->wake_gpio);
-+		if (err < 0) {
-+			dev_err(pcie->dev, "failed to get wake IRQ: %pe\n",
-+				ERR_PTR(err));
-+			return err;
-+		}
-+
-+		pcie->wake_irq = (unsigned int)err;
-+	}
-+
-+	return 0;
-+}
-+
-+static void tegra264_pcie_bpmp_set_rp_state(struct tegra264_pcie *pcie)
-+{
-+	struct tegra_bpmp_message msg = {};
-+	struct mrq_pcie_request req = {};
-+	int err;
-+
-+	req.cmd = CMD_PCIE_RP_CONTROLLER_OFF;
-+	req.rp_ctrlr_off.rp_controller = pcie->ctl_id;
-+
-+	msg.mrq = MRQ_PCIE;
-+	msg.tx.data = &req;
-+	msg.tx.size = sizeof(req);
-+
-+	err = tegra_bpmp_transfer(pcie->bpmp, &msg);
-+	if (err)
-+		dev_info(pcie->dev, "failed to turn off PCIe #%u: %pe\n",
-+			 pcie->ctl_id, ERR_PTR(err));
-+
-+	if (msg.rx.ret)
-+		dev_info(pcie->dev, "failed to turn off PCIe #%u: %d\n",
-+			 pcie->ctl_id, msg.rx.ret);
-+}
-+
-+static void tegra264_pcie_icc_set(struct tegra264_pcie *pcie)
-+{
-+	u32 value, speed, width, bw;
-+	int err;
-+
-+	value = readw(pcie->ecam + XTL_RC_PCIE_CFG_LINK_STATUS);
-+	speed = FIELD_GET(PCI_EXP_LNKSTA_CLS, value);
-+	width = FIELD_GET(PCI_EXP_LNKSTA_NLW, value);
-+
-+	bw = width * (PCIE_SPEED2MBS_ENC(speed) / BITS_PER_BYTE);
-+	value = MBps_to_icc(bw);
-+
-+	err = icc_set_bw(pcie->icc_path, bw, bw);
-+	if (err < 0)
-+		dev_err(pcie->dev,
-+			"failed to request bandwidth (%u MBps): %pe\n",
-+			bw, ERR_PTR(err));
-+}
-+
-+/*
-+ * The various memory regions used by the controller (I/O, memory, ECAM) are
-+ * set up during early boot and have hardware-level protections in place. If
-+ * the DT ranges don't match what's been setup, the controller won't be able
-+ * to write the address endpoints properly, so make sure to validate that DT
-+ * and firmware programming agree on these ranges.
-+ */
-+static bool tegra264_pcie_check_ranges(struct platform_device *pdev)
-+{
-+	struct tegra264_pcie *pcie = platform_get_drvdata(pdev);
-+	struct device_node *np = pcie->dev->of_node;
-+	struct of_pci_range_parser parser;
-+	phys_addr_t phys, limit, hi, lo;
-+	struct of_pci_range range;
-+	struct resource *res;
-+	bool status = true;
-+	u32 value;
-+	int err;
-+
-+	err = of_pci_range_parser_init(&parser, np);
-+	if (err < 0)
-+		return false;
-+
-+	for_each_of_pci_range(&parser, &range) {
-+		unsigned int addr_hi, addr_lo, limit_hi, limit_lo, enable;
-+		unsigned long type = range.flags & IORESOURCE_TYPE_BITS;
-+		phys_addr_t start, end, mask;
-+		const char *region = NULL;
-+
-+		end = range.cpu_addr + range.size - 1;
-+		start = range.cpu_addr;
-+
-+		switch (type) {
-+		case IORESOURCE_IO:
-+			addr_hi = XAL_RC_IO_BASE_HI;
-+			addr_lo = XAL_RC_IO_BASE_LO;
-+			limit_hi = XAL_RC_IO_LIMIT_HI;
-+			limit_lo = XAL_RC_IO_LIMIT_LO;
-+			enable = XAL_RC_BAR_CNTL_STANDARD_IOBAR_EN;
-+			mask = SZ_64K - 1;
-+			region = "I/O";
-+			break;
-+
-+		case IORESOURCE_MEM:
-+			if (range.flags & IORESOURCE_PREFETCH) {
-+				addr_hi = XAL_RC_MEM_64BIT_BASE_HI;
-+				addr_lo = XAL_RC_MEM_64BIT_BASE_LO;
-+				limit_hi = XAL_RC_MEM_64BIT_LIMIT_HI;
-+				limit_lo = XAL_RC_MEM_64BIT_LIMIT_LO;
-+				enable = XAL_RC_BAR_CNTL_STANDARD_64B_BAR_EN;
-+				region = "prefetchable memory";
-+			} else {
-+				addr_hi = XAL_RC_MEM_32BIT_BASE_HI;
-+				addr_lo = XAL_RC_MEM_32BIT_BASE_LO;
-+				limit_hi = XAL_RC_MEM_32BIT_LIMIT_HI;
-+				limit_lo = XAL_RC_MEM_32BIT_LIMIT_LO;
-+				enable = XAL_RC_BAR_CNTL_STANDARD_32B_BAR_EN;
-+				region = "memory";
-+			}
-+
-+			mask = SZ_1M - 1;
-+			break;
-+		}
-+
-+		/* not interested in anything that's not I/O or memory */
-+		if (!region)
-+			continue;
-+
-+		/* don't check regions that haven't been enabled */
-+		value = readl(pcie->xal + XAL_RC_BAR_CNTL_STANDARD);
-+		if ((value & enable) == 0)
-+			continue;
-+
-+		hi = readl(pcie->xal + addr_hi);
-+		lo = readl(pcie->xal + addr_lo);
-+		phys = hi << 32 | lo;
-+
-+		hi = readl(pcie->xal + limit_hi);
-+		lo = readl(pcie->xal + limit_lo);
-+		limit = hi << 32 | lo | mask;
-+
-+		if (phys != start || limit != end) {
-+			dev_err(pcie->dev,
-+				"%s region mismatch: %pap-%pap -> %pap-%pap\n",
-+				region, &phys, &limit, &start, &end);
-+			status = false;
-+		}
-+	}
-+
-+	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "ecam");
-+	if (!res)
-+		return false;
-+
-+	hi = readl(pcie->xal + XAL_RC_ECAM_BASE_HI);
-+	lo = readl(pcie->xal + XAL_RC_ECAM_BASE_LO);
-+	phys = hi << 32 | lo;
-+
-+	value = readl(pcie->xal + XAL_RC_ECAM_BUSMASK);
-+	limit = phys + ((value + 1) << 20) - 1;
-+
-+	if (phys != res->start || limit != res->end) {
-+		dev_err(pcie->dev,
-+			"ECAM region mismatch: %pap-%pap -> %pap-%pap\n",
-+			&phys, &limit, &res->start, &res->end);
-+		status = false;
-+	}
-+
-+	return status;
-+}
-+
-+static bool tegra264_pcie_link_up(struct tegra264_pcie *pcie,
-+				  enum pci_bus_speed *speed)
-+{
-+	u16 value = readw(pcie->ecam + XTL_RC_PCIE_CFG_LINK_STATUS);
-+
-+	if (value & PCI_EXP_LNKSTA_DLLLA) {
-+		if (speed)
-+			*speed = pcie_link_speed[FIELD_GET(PCI_EXP_LNKSTA_CLS,
-+							   value)];
-+
-+		return true;
-+	}
-+
-+	return false;
-+}
-+
-+static void tegra264_pcie_init(struct tegra264_pcie *pcie)
-+{
-+	enum pci_bus_speed speed;
-+	unsigned int i;
-+	u32 value;
-+
-+	/* bring the link out of reset */
-+	value = readl(pcie->xtl + XTL_RC_MGMT_PERST_CONTROL);
-+	value |= XTL_RC_MGMT_PERST_CONTROL_PERST_O_N;
-+	writel(value, pcie->xtl + XTL_RC_MGMT_PERST_CONTROL);
-+
-+	if (!tegra_is_silicon()) {
-+		dev_info(pcie->dev,
-+			 "skipping link state for PCIe #%u in simulation\n",
-+			 pcie->ctl_id);
-+		pcie->link_up = true;
-+		return;
-+	}
-+
-+	for (i = 0; i < PCIE_LINK_WAIT_MAX_RETRIES; i++) {
-+		if (tegra264_pcie_link_up(pcie, NULL))
-+			break;
-+
-+		usleep_range(PCIE_LINK_WAIT_US_MIN, PCIE_LINK_WAIT_US_MAX);
-+	}
-+
-+	if (tegra264_pcie_link_up(pcie, &speed)) {
-+		/* Per PCIe r5.0, 6.6.1 wait for 100ms after DLL up */
-+		msleep(PCIE_RESET_CONFIG_WAIT_MS);
-+
-+		dev_info(pcie->dev, "PCIe #%u link is up (speed: %s)\n",
-+			 pcie->ctl_id, pci_speed_string(speed));
-+		tegra264_pcie_icc_set(pcie);
-+		pcie->link_up = true;
-+	} else {
-+		dev_info(pcie->dev, "PCIe #%u link is down\n", pcie->ctl_id);
-+
-+		value = readl(pcie->xtl + XTL_RC_MGMT_CLOCK_CONTROL);
-+
-+		/*
-+		 * Set link state only when link fails and no hot-plug feature
-+		 * is present.
-+		 */
-+		if ((value & XTL_RC_MGMT_CLOCK_CONTROL_PEX_CLKREQ_I_N_PIN_USE_CONV_TO_PRSNT) == 0) {
-+			dev_info(pcie->dev,
-+				 "PCIe #%u link is down and not hotplug-capable, turning off\n",
-+				 pcie->ctl_id);
-+			tegra264_pcie_bpmp_set_rp_state(pcie);
-+			pcie->link_up = false;
-+		} else {
-+			pcie->link_up = true;
-+		}
-+	}
-+}
-+
-+static int tegra264_pcie_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct pci_host_bridge *bridge;
-+	struct tegra264_pcie *pcie;
-+	struct resource_entry *bus;
-+	struct resource *res;
-+	int err;
-+
-+	bridge = devm_pci_alloc_host_bridge(dev, sizeof(struct tegra264_pcie));
-+	if (!bridge)
-+		return dev_err_probe(dev, -ENOMEM,
-+				     "failed to allocate host bridge\n");
-+
-+	pcie = pci_host_bridge_priv(bridge);
-+	platform_set_drvdata(pdev, pcie);
-+	pcie->bridge = bridge;
-+	pcie->dev = dev;
-+
-+	err = pinctrl_pm_select_default_state(dev);
-+	if (err < 0)
-+		return dev_err_probe(dev, err,
-+				     "failed to configure sideband pins\n");
-+
-+	err = tegra264_pcie_parse_dt(pcie);
-+	if (err < 0)
-+		return dev_err_probe(dev, err, "failed to parse device tree");
-+
-+	pcie->xal = devm_platform_ioremap_resource_byname(pdev, "xal");
-+	if (IS_ERR(pcie->xal))
-+		return dev_err_probe(dev, PTR_ERR(pcie->xal),
-+				     "failed to map XAL memory\n");
-+
-+	pcie->xtl = devm_platform_ioremap_resource_byname(pdev, "xtl-pri");
-+	if (IS_ERR(pcie->xtl))
-+		return dev_err_probe(dev, PTR_ERR(pcie->xtl),
-+				     "failed to map XTL-PRI memory\n");
-+
-+	bus = resource_list_first_type(&bridge->windows, IORESOURCE_BUS);
-+	if (!bus)
-+		return dev_err_probe(dev, -ENODEV,
-+				     "failed to get bus resources\n");
-+
-+	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "ecam");
-+	if (!res)
-+		return dev_err_probe(dev, -ENXIO,
-+				     "failed to get ECAM resource\n");
-+
-+	pcie->icc_path = devm_of_icc_get(&pdev->dev, "write");
-+	if (IS_ERR(pcie->icc_path))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(pcie->icc_path),
-+				     "failed to get ICC");
-+
-+	/*
-+	 * Parse BPMP property only for silicon, as interaction with BPMP is
-+	 * not needed for other platforms.
-+	 */
-+	if (tegra_is_silicon()) {
-+		pcie->bpmp = tegra_bpmp_get_with_id(dev, &pcie->ctl_id);
-+		if (IS_ERR(pcie->bpmp))
-+			return dev_err_probe(dev, PTR_ERR(pcie->bpmp),
-+					     "failed to get BPMP\n");
-+	}
-+
-+	pm_runtime_enable(dev);
-+	pm_runtime_get_sync(dev);
-+
-+	/* sanity check that programmed ranges match what's in DT */
-+	if (!tegra264_pcie_check_ranges(pdev)) {
-+		err = -EINVAL;
-+		goto put_pm;
-+	}
-+
-+	pcie->cfg = pci_ecam_create(dev, res, bus->res, &pci_generic_ecam_ops);
-+	if (IS_ERR(pcie->cfg)) {
-+		err = dev_err_probe(dev, PTR_ERR(pcie->cfg),
-+				    "failed to create ECAM\n");
-+		goto put_pm;
-+	}
-+
-+	bridge->ops = (struct pci_ops *)&pci_generic_ecam_ops.pci_ops;
-+	bridge->sysdata = pcie->cfg;
-+	pcie->ecam = pcie->cfg->win;
-+
-+	tegra264_pcie_init(pcie);
-+
-+	if (!pcie->link_up)
-+		goto free;
-+
-+	err = pci_host_probe(bridge);
-+	if (err < 0) {
-+		dev_err(dev, "failed to register host: %pe\n", ERR_PTR(err));
-+		goto free;
-+	}
-+
-+	return err;
-+
-+free:
-+	pci_ecam_free(pcie->cfg);
-+put_pm:
-+	pm_runtime_put_sync(dev);
-+	pm_runtime_disable(dev);
-+
-+	if (tegra_is_silicon())
-+		tegra_bpmp_put(pcie->bpmp);
-+
-+	return err;
-+}
-+
-+static void tegra264_pcie_remove(struct platform_device *pdev)
-+{
-+	struct tegra264_pcie *pcie = platform_get_drvdata(pdev);
-+
-+	/*
-+	 * If we undo tegra264_pcie_init() then link goes down and need
-+	 * controller reset to bring up the link again. Remove intention is
-+	 * to clean up the root bridge and re-enumerate during bind.
-+	 */
-+	pci_lock_rescan_remove();
-+	pci_stop_root_bus(pcie->bridge->bus);
-+	pci_remove_root_bus(pcie->bridge->bus);
-+	pci_unlock_rescan_remove();
-+
-+	pm_runtime_put_sync(&pdev->dev);
-+	pm_runtime_disable(&pdev->dev);
-+
-+	if (tegra_is_silicon())
-+		tegra_bpmp_put(pcie->bpmp);
-+
-+	pci_ecam_free(pcie->cfg);
-+}
-+
-+static int tegra264_pcie_suspend_noirq(struct device *dev)
-+{
-+	struct tegra264_pcie *pcie = dev_get_drvdata(dev);
-+	int err;
-+
-+	if (pcie->wake_gpio && device_may_wakeup(dev)) {
-+		err = enable_irq_wake(pcie->wake_irq);
-+		if (err < 0)
-+			dev_err(dev, "failed to enable wake IRQ: %pe\n",
-+				ERR_PTR(err));
-+	}
-+
-+	return 0;
-+}
-+
-+static int tegra264_pcie_resume_noirq(struct device *dev)
-+{
-+	struct tegra264_pcie *pcie = dev_get_drvdata(dev);
-+	int err;
-+
-+	if (pcie->wake_gpio && device_may_wakeup(dev)) {
-+		err = disable_irq_wake(pcie->wake_irq);
-+		if (err < 0)
-+			dev_err(dev, "failed to disable wake IRQ: %pe\n",
-+				ERR_PTR(err));
-+	}
-+
-+	if (pcie->link_up == false)
-+		return 0;
-+
-+	tegra264_pcie_init(pcie);
-+
-+	return 0;
-+}
-+
-+static DEFINE_NOIRQ_DEV_PM_OPS(tegra264_pcie_pm_ops,
-+			       tegra264_pcie_suspend_noirq,
-+			       tegra264_pcie_resume_noirq);
-+
-+static const struct of_device_id tegra264_pcie_of_match[] = {
-+	{
-+		.compatible = "nvidia,tegra264-pcie",
-+	},
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, tegra264_pcie_of_match);
-+
-+static struct platform_driver tegra264_pcie_driver = {
-+	.probe = tegra264_pcie_probe,
-+	.remove = tegra264_pcie_remove,
-+	.driver = {
-+		.name = "tegra264-pcie",
-+		.pm = &tegra264_pcie_pm_ops,
-+		.of_match_table = tegra264_pcie_of_match,
-+	},
-+};
-+module_platform_driver(tegra264_pcie_driver);
-+
-+MODULE_AUTHOR("Manikanta Maddireddy <mmaddireddy@nvidia.com>");
-+MODULE_AUTHOR("Thierry Reding <treding@nvidia.com>");
-+MODULE_DESCRIPTION("NVIDIA Tegra264 PCIe host controller driver");
-+MODULE_LICENSE("GPL");
-
--- 
-2.52.0
-
+>
+> Cc: stable@vger.kernel.org
+> Fixes: f5cd8a929c825 ("PCI: dwc: Remove MSI/MSIX capability for Root Port if iMSI-RX is used as MSI controller")
+> Suggested-by: Manivannan Sadhasivam <mani@kernel.org>
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> ---
+> v3 changes:
+> Use a flag 'dw_pcie_rp::keep_rp_msi_en' to identify SoCs that require MSI
+> capability preservation, and skip the capability removal in
+> pcie-designware-host.c accordingly.
+>
+> v2 changes:
+> CC stable tree.
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c             | 7 +++++++
+>  drivers/pci/controller/dwc/pcie-designware-host.c | 2 +-
+>  drivers/pci/controller/dwc/pcie-designware.h      | 1 +
+>  3 files changed, 9 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 20dafd2710a3..fde173770933 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -117,6 +117,8 @@ enum imx_pcie_variants {
+>  #define IMX_PCIE_FLAG_HAS_LUT			BIT(10)
+>  #define IMX_PCIE_FLAG_8GT_ECN_ERR051586		BIT(11)
+>  #define IMX_PCIE_FLAG_SKIP_L23_READY		BIT(12)
+> +/* Preserve MSI capability for platforms that require it */
+> +#define IMX_PCIE_FLAG_KEEP_MSI_CAP		BIT(13)
+>
+>  #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
+>
+> @@ -1820,6 +1822,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  	} else {
+>  		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_SKIP_L23_READY))
+>  			pci->pp.skip_l23_ready = true;
+> +		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_KEEP_MSI_CAP))
+> +			pci->pp.keep_rp_msi_en = true;
+>  		pci->pp.use_atu_msg = true;
+>  		ret = dw_pcie_host_init(&pci->pp);
+>  		if (ret < 0)
+> @@ -1897,6 +1901,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  	[IMX7D] = {
+>  		.variant = IMX7D,
+>  		.flags = IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
+> +			 IMX_PCIE_FLAG_KEEP_MSI_CAP |
+>  			 IMX_PCIE_FLAG_HAS_APP_RESET |
+>  			 IMX_PCIE_FLAG_SKIP_L23_READY |
+>  			 IMX_PCIE_FLAG_HAS_PHY_RESET,
+> @@ -1909,6 +1914,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  	[IMX8MQ] = {
+>  		.variant = IMX8MQ,
+>  		.flags = IMX_PCIE_FLAG_HAS_APP_RESET |
+> +			 IMX_PCIE_FLAG_KEEP_MSI_CAP |
+>  			 IMX_PCIE_FLAG_HAS_PHY_RESET |
+>  			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
+>  		.gpr = "fsl,imx8mq-iomuxc-gpr",
+> @@ -1923,6 +1929,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  	[IMX8MM] = {
+>  		.variant = IMX8MM,
+>  		.flags = IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
+> +			 IMX_PCIE_FLAG_KEEP_MSI_CAP |
+>  			 IMX_PCIE_FLAG_HAS_PHYDRV |
+>  			 IMX_PCIE_FLAG_HAS_APP_RESET,
+>  		.gpr = "fsl,imx8mm-iomuxc-gpr",
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> index a74339982c24..7b5558561e15 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> @@ -1171,7 +1171,7 @@ int dw_pcie_setup_rc(struct dw_pcie_rp *pp)
+>  	 * the MSI and MSI-X capabilities of the Root Port to allow the drivers
+>  	 * to fall back to INTx instead.
+>  	 */
+> -	if (pp->use_imsi_rx) {
+> +	if (pp->use_imsi_rx && !pp->keep_rp_msi_en) {
+>  		dw_pcie_remove_capability(pci, PCI_CAP_ID_MSI);
+>  		dw_pcie_remove_capability(pci, PCI_CAP_ID_MSIX);
+>  	}
+> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+> index ae6389dd9caa..b12c5334552c 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware.h
+> +++ b/drivers/pci/controller/dwc/pcie-designware.h
+> @@ -421,6 +421,7 @@ struct dw_pcie_host_ops {
+>
+>  struct dw_pcie_rp {
+>  	bool			use_imsi_rx:1;
+> +	bool			keep_rp_msi_en:1;
+>  	bool			cfg0_io_shared:1;
+>  	u64			cfg0_base;
+>  	void __iomem		*va_cfg0_base;
+> --
+> 2.37.1
+>
 
