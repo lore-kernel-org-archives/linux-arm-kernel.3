@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A4CBD39409
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CB2ED39403
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 09:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,68 +12,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BdEbr56r+VHuQauUpjjRhRHLeI675xbXEe9pFgGKcMM=; b=LUI7sl/y0oxFGcmjcFt0qHhggG
-	yaXbxNT2+R5fEigmhm3+YLkAtSs89ZNhNDgkM8jStet10pE6ZqI9hUnzDhhsaYh9w6dtk/4PScCpT
-	wA48gCjSryZsaw+Kes8Sm6Gku16mpyg3DRDxh++6C/J6O39WB//sPlgCnkhtmppZ59M8BMCNqIoBa
-	5zXDgR3ZYD4Tq1UM0+/Sn5XFDCqonSdgj3Xt2KUgSFKfcpWLOXsZExXW0nmqB2jbbPtc47JYSDEpF
-	hg1hWlPXrN3mXxeChwXkV50kPvZq5u5ch4/QMUG0b8C3otZG4UoUfKswSQmLdrG1SQ/puAQidBIYz
-	O/0xciEg==;
+	bh=1t+cSXgbPOtugAcLyoc7h7gL+0nsGdMe61/bSuxOYW4=; b=2ON8bfPrlz2RT5w9twNlTPBZmR
+	+SGtjCdUiK2N4MD8+ZJkOdapyDiV4ZUG6b5NqQrGt1jYDGsp7n7N/hQFfuQXDlprLZdLl2PpsZYDI
+	KtAze0lN1zCgA8MGfPbXQ0NYcwDoeyfKePEN0Ja3ooEJemR0BSb49f5Ujqjp8wDMbPFThQ1a5XRag
+	7AXcRfeUxHQLU3iadS0xrKIoiNkGIH2ditUffcKdtv0Hm/iCD6a1nf1gEM4uaM4jP2fqtjgDFx0Pj
+	qcjaAbUmc84uT6q4iG2VF7+hTCJhLviWy0WupNIlgJ4ie3uCyP32JLnyM+GnBiBWl8tbAorJeXLrC
+	fI4z0gsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EhD-0000000HIoB-2ktb;
-	Thu, 02 Apr 2026 09:50:39 +0000
+	id 1w8EhC-0000000HIn3-1WnI;
+	Thu, 02 Apr 2026 09:50:38 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EhC-0000000HImW-0iw7
+	id 1w8EhB-0000000HIlo-0k5V
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 02 Apr 2026 09:50:38 +0000
+	Thu, 02 Apr 2026 09:50:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=BdEbr56r+VHuQauUpjjRhRHLeI675xbXEe9pFgGKcMM=; b=AVFh4C9MY7wnkuHdube2PEl/ME
-	J0PmU5thTHpNCGdjCeYlzujwjqr6gMW/MbJlBCH+r/FPFqHH5OXla9jZ4wN+Yledmz8WmPB6QoyRt
-	VuIGVCDAXDxGuNmofos/RYaH+pxQUGpsfF6Z0rA2J5lY2HI+rUNIFMYow8jQVJ7oVjsFVNoVb7ug8
-	bbGDYZYue8yL0dufyesgqJh6wQG3TghUmZ32PHHYl0p0rOx2AdfTquJCOU26JX5156NxixhgKxgzA
-	VAlf/XOHh/SgBaLcyzEGgt90El++zamGGllkBgJU4QN1KAgv4Jyu3mNpAugZbJRhNMOQVZUXvC3dt
-	s2uZocfQ==;
+	bh=1t+cSXgbPOtugAcLyoc7h7gL+0nsGdMe61/bSuxOYW4=; b=oVco53uS2+/uD/JHDL94TWTS8R
+	Shw6W9yO6Nc4qBjr1BOghasWKu/iSoD8osBlVSGV7w037fxUbTUROpEOtwcJCdHkHhej17XLAkCz8
+	XNGDex9x3ftKFYgRcn8xwsBcXa8CdFmGnfhZZ7gBvH8qpHnZ9o7FhGgWhtlwXjTGW28oQhlWmjEn3
+	KiUXL6v0vuIh5V5xGUcunWYi+ai9tojAp0mJYtDyjsZmScaelz0Tx608yp8GoIelTao+/ilVtGHX0
+	O6Foecdq61HzAreEzh77SfAR5cVZVxmvyuz+b91wCgHVVYFx4SBrWS5NEpS9i6Oy9ZQGYaGoUOd+w
+	TcGarRHw==;
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Eh7-00000002AEE-348y
+	id 1w8Eh7-00000002AEC-2iD7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 09:50:36 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6328dADt1249516;
-	Thu, 2 Apr 2026 09:50:21 GMT
+	Thu, 02 Apr 2026 09:50:35 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6326BuGJ1965398;
+	Thu, 2 Apr 2026 09:50:20 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=BdEbr56r+VH
-	uQauUpjjRhRHLeI675xbXEe9pFgGKcMM=; b=H3qzhEf53fmB0HqZlGgwyZSdUrg
-	2PiTUXporSax9/GPq/4OfZ2GqdltxPlRVgz1rEhyiAUi46L9G8Jl4AxlxrHvjfoy
-	oijzSaBNlUyNZOMMCqajwPoe/SdSAn76BobBfKK0qua1GWBvUhdLrf6WTpJEyLj0
-	bsThBlWZ1rJPic1Q2Z+BoT5yQJuNT6xooRNwC0ccpIfbRGVcF0/aK03oLzI6X1FI
-	mNlD+OS2RHmSW1d+JtxCrLvvZy7caGSs0yvwQph/JHrSfIpzJRAiLiMObBegzLDg
-	Rdy6XQhGvf2sFaz8NWNexXnHvqAJ6DWqvawSlzQS3d8o4cofWpoilVw7EzQ==
+	:mime-version:references:subject:to; s=qcppdkim1; bh=1t+cSXgbPOt
+	ugAcLyoc7h7gL+0nsGdMe61/bSuxOYW4=; b=VMxNaDSXpNEOGop9XUOKKfzV4+J
+	TIRspHK+wBXE2DkuPisH4iDkRZumDoviwrUq1k3RBi2RxTtSHwAALchnW9HVzJ6Z
+	1Epq/sJtm51/dRuPupXQYdo5GO6qewrW+/x+4N5/JCc4EdjFjRYLbtUFONamVLiY
+	EX7YA+caua0KliQ2JSIW+CEgq4bqwgTWrOlbsaK3X6jLJKtGnAI6FU3OqtqabWGe
+	BdaiUy0wfvrRAu+wR3rCMta+ZLegmqSZiWl4vFiPyfzlga7BM1ngnSGkd7XV8Hga
+	sixIZDpHuCuvQHFiLZX/ce5C5sf4rkFrgAg2DFlBc8phtuXd+Znd0klEYQQ==
 Received: from apblrppmta02.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d9n4t09gx-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d9b9h2g36-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Thu, 02 Apr 2026 09:50:20 +0000 (GMT)
 Received: from pps.filterd (APBLRPPMTA02.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA02.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTP id 6329oGm6004383;
+	by APBLRPPMTA02.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTP id 6329oGj5004381;
 	Thu, 2 Apr 2026 09:50:16 GMT
 Received: from pps.reinject (localhost [127.0.0.1])
-	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 4d6qk2m86p-1
+	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 4d6qk2m86n-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Thu, 02 Apr 2026 09:50:16 +0000 (GMT)
 Received: from APBLRPPMTA02.qualcomm.com (APBLRPPMTA02.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.1.12) with ESMTP id 6329oGCa004360;
+	by pps.reinject (8.18.1.12/8.18.1.12) with ESMTP id 6329oGat004361;
 	Thu, 2 Apr 2026 09:50:16 GMT
 Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-mkuntuma-hyd.qualcomm.com [10.213.97.145])
-	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 6329oGpo004356
+	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 6329oGwc004357
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Thu, 02 Apr 2026 09:50:16 +0000 (GMT)
 Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 4582077)
-	id AE7975EC; Thu,  2 Apr 2026 15:20:15 +0530 (+0530)
+	id A8CFA3E5; Thu,  2 Apr 2026 15:20:15 +0530 (+0530)
 From: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
 To: dmitry.baryshkov@oss.qualcomm.com, marijn.suijten@somainline.org,
         swboyd@chromium.org, mripard@kernel.org, abel.vesa@linaro.org,
@@ -87,10 +87,10 @@ Cc: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>,
         linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         freedreno@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
         quic_rajeevny@quicinc.com, quic_vproddut@quicinc.com,
-        quic_riteshk@quicinc.com
-Subject: [PATCH v5 2/3] arm64: dts: qcom: lemans-ride: Enable mdss1 display Port
-Date: Thu,  2 Apr 2026 15:20:02 +0530
-Message-Id: <20260402095003.3758176-3-quic_mkuntuma@quicinc.com>
+        quic_riteshk@quicinc.com, Mahadevan P <mahadevan.p@oss.qualcomm.com>
+Subject: [PATCH v5 1/3] arm64: dts: qcom: lemans: add mdss1 display device nodes
+Date: Thu,  2 Apr 2026 15:20:01 +0530
+Message-Id: <20260402095003.3758176-2-quic_mkuntuma@quicinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260402095003.3758176-1-quic_mkuntuma@quicinc.com>
 References: <20260402095003.3758176-1-quic_mkuntuma@quicinc.com>
@@ -98,32 +98,33 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-QCInternal: smtphost
 X-QCInternal: smtphost
-X-Proofpoint-ORIG-GUID: 5LQZ4oTKzDfbUDmMnpDGeSUVqL4iXpyj
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAyMDA4NyBTYWx0ZWRfX/NeZ2V/lY4a2
- oskx+ufC5sYx/29rfpJlctGVQlvl3la9hxgXaV4EDGaYASKrGVCCeZviCZLv1S0JflpwXsw77Af
- lJXnK1OTi4atJXpmV8sjd4hdQaYoWBJm4Rl+nO409omsqAYziDU2zUP85m4H/kuvOgfb7Kvi2IC
- k0tPp/Urc7xTQwnpMw4tGgHeREugs29RWVMjoZAbIAjyM188a9nWW5thUK8bov02SkoGD4TVxGd
- qfd6GoEl+4FWVPkoKIIZC7Slgofse3PpWTZsHdcaN90AbpeDK1x8pef98+G6Etmmn4BldqQGOzV
- v2uNvcLFRznaaOCn/RqNh+5UTeX6nJIxVnrqs9utYDP20iH/butsWqxOiWrLhTkhnL0dLT5W7ny
- PkMm2VY4n5sPSCrAEZWKqu8eWMeGg1Ee0bHbkznk3L0yyhhvtWsvmcIRSh8E4NJzKjdRQPFZYjv
- 9YMG+nndNYciVKdyzXA==
-X-Proofpoint-GUID: 5LQZ4oTKzDfbUDmMnpDGeSUVqL4iXpyj
-X-Authority-Analysis: v=2.4 cv=Ap/jHe9P c=1 sm=1 tr=0 ts=69ce3bdc cx=c_pps
+X-Authority-Analysis: v=2.4 cv=TqLrRTXh c=1 sm=1 tr=0 ts=69ce3bdc cx=c_pps
  a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
  a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=Um2Pa8k9VHT-vaBCBUpS:22 a=COk6AnOGAAAA:8 a=lcgM4KOETyTTvZj5T8AA:9
- a=TjNXssC_j7lpFel5tvFf:22
+ a=YMgV9FUhrdKAYTUUvYB2:22 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8
+ a=QB79VSau0zwNiicQFnEA:9 a=mKziBQOQ0kVx0287:21 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: 0VPfT5Yq6xN2QhzJQjdji1q9iyh9m8dE
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAyMDA4NyBTYWx0ZWRfX4YKMDC0wnLOg
+ fxJ2p28Gbce7pSA8D0mq2OpFY/RBVT6hP5VmGv+QXPjX6BQRWea/2Wk8bb/yRH3QeZEuA/dV20W
+ iLMGxPwGuzJS3BL79mfAnz9qAvd/A4eKYI03J94LIeaYVOggNiYbbAKwqJZkCZHspPi1D8+tPPq
+ M9JL0r3/R4WGJVwL6ptmGspDWBXSOHCc+RRa1gMNBhYzKVLxGKxTBnT/rzf97tKFGpARZ3dBzTl
+ nWQho76jZfbj0pU/IcCxTbJcoePgNaXmgfEiJjKS4SCg7qLRB9QLP1eN34u0SgDzETn59GDwNA/
+ HoznJwTd4I83DL5Kp5jS4Y/hTVtQ+vpDP2+HMkdVplfinLDa+j1tTo4gkapYc0+b6BLtM+UpHJs
+ rv1Knf/X859cT+iDUrgGgPIMMFwrA8wYxaP6RT6PHGlLkYRjqkPQAv0D99jXWLV8zCAqNEkudy4
+ dskJ9FHuwVHHA9l1gXw==
+X-Proofpoint-GUID: 0VPfT5Yq6xN2QhzJQjdji1q9iyh9m8dE
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-02_01,2026-04-02_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 malwarescore=0 spamscore=0 clxscore=1015
- bulkscore=0 impostorscore=0 adultscore=0 lowpriorityscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2604020087
+ impostorscore=0 lowpriorityscore=0 suspectscore=0 priorityscore=1501
+ clxscore=1015 malwarescore=0 spamscore=0 adultscore=0 phishscore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
+ definitions=main-2604020087
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_105034_496419_C1EFA94F 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20260402_105034_108175_8A527872 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,120 +139,342 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This change enables DP controllers, DPTX0 and DPTX1 alongside
-their corresponding PHYs of mdss1 which corresponds to edp2
-and edp3.
+Add devicetree changes to enable second Mobile Display Subsystem (mdss1),
+Display Processing Unit(DPU), Display Port(DP), Display clock controller
+(dispcc1) and eDP PHYs on the Qualcomm Lemans platform.
 
+Signed-off-by: Mahadevan P <mahadevan.p@oss.qualcomm.com>
 Signed-off-by: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
 ---
- .../boot/dts/qcom/lemans-ride-common.dtsi     | 80 +++++++++++++++++++
- 1 file changed, 80 insertions(+)
+ arch/arm64/boot/dts/qcom/lemans.dtsi | 289 ++++++++++++++++++++++++---
+ 1 file changed, 262 insertions(+), 27 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi b/arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi
-index 31bd00546d55..9b48e6134ff9 100644
---- a/arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi
-+++ b/arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi
-@@ -154,6 +154,30 @@ dp1_connector_in: endpoint {
+diff --git a/arch/arm64/boot/dts/qcom/lemans.dtsi b/arch/arm64/boot/dts/qcom/lemans.dtsi
+index bc0ec9a80284..4e608bd6486c 100644
+--- a/arch/arm64/boot/dts/qcom/lemans.dtsi
++++ b/arch/arm64/boot/dts/qcom/lemans.dtsi
+@@ -5474,7 +5474,7 @@ mdss0_dp1: displayport-controller@af5c000 {
+ 				phys = <&mdss0_dp1_phy>;
+ 				phy-names = "dp";
+ 
+-				operating-points-v2 = <&dp1_opp_table>;
++				operating-points-v2 = <&dp_opp_table>;
+ 				power-domains = <&rpmhpd SA8775P_MMCX>;
+ 
+ 				#sound-dai-cells = <0>;
+@@ -5499,30 +5499,6 @@ port@1 {
+ 						mdss0_dp1_out: endpoint { };
+ 					};
+ 				};
+-
+-				dp1_opp_table: opp-table {
+-					compatible = "operating-points-v2";
+-
+-					opp-162000000 {
+-						opp-hz = /bits/ 64 <162000000>;
+-						required-opps = <&rpmhpd_opp_low_svs>;
+-					};
+-
+-					opp-270000000 {
+-						opp-hz = /bits/ 64 <270000000>;
+-						required-opps = <&rpmhpd_opp_svs>;
+-					};
+-
+-					opp-540000000 {
+-						opp-hz = /bits/ 64 <540000000>;
+-						required-opps = <&rpmhpd_opp_svs_l1>;
+-					};
+-
+-					opp-810000000 {
+-						opp-hz = /bits/ 64 <810000000>;
+-						required-opps = <&rpmhpd_opp_nom>;
+-					};
+-				};
+ 			};
  		};
- 	};
  
-+	dp2-connector {
-+		compatible = "dp-connector";
-+		label = "eDP2";
-+		type = "full-size";
+@@ -7055,6 +7031,265 @@ compute-cb@3 {
+ 			};
+ 		};
+ 
++		mdss1: display-subsystem@22000000 {
++			compatible = "qcom,sa8775p-mdss";
++			reg = <0x0 0x22000000 0x0 0x1000>;
++			reg-names = "mdss";
 +
-+		port {
-+			dp2_connector_in: endpoint {
-+				remote-endpoint = <&mdss1_dp0_out>;
++			interconnects = <&mmss_noc MASTER_MDP_CORE1_0 QCOM_ICC_TAG_ALWAYS
++					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
++					<&mmss_noc MASTER_MDP_CORE1_1 QCOM_ICC_TAG_ALWAYS
++					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
++					<&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
++					 &config_noc SLAVE_DISPLAY_CFG QCOM_ICC_TAG_ACTIVE_ONLY>;
++			interconnect-names = "mdp0-mem",
++					     "mdp1-mem",
++					     "cpu-cfg";
++
++			resets = <&dispcc1 MDSS_DISP_CC_MDSS_CORE_BCR>;
++
++			power-domains = <&dispcc1 MDSS_DISP_CC_MDSS_CORE_GDSC>;
++
++			clocks = <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
++				 <&gcc GCC_DISP1_HF_AXI_CLK>,
++				 <&dispcc1 MDSS_DISP_CC_MDSS_MDP_CLK>;
++
++			interrupts = <GIC_SPI 865 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-controller;
++			#interrupt-cells = <1>;
++
++			iommus = <&apps_smmu 0x1800 0x402>;
++
++			#address-cells = <2>;
++			#size-cells = <2>;
++			ranges;
++
++			status = "disabled";
++
++			display-controller@22001000 {
++				compatible = "qcom,sa8775p-dpu";
++				reg = <0x0 0x22001000 0x0 0x8f000>,
++				      <0x0 0x220b0000 0x0 0x3000>;
++				reg-names = "mdp", "vbif";
++
++				clocks = <&gcc GCC_DISP1_HF_AXI_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_MDP_LUT_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_MDP_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_VSYNC_CLK>;
++				clock-names = "nrt_bus",
++					      "iface",
++					      "lut",
++					      "core",
++					      "vsync";
++
++				assigned-clocks = <&dispcc1 MDSS_DISP_CC_MDSS_VSYNC_CLK>;
++				assigned-clock-rates = <19200000>;
++
++				operating-points-v2 = <&mdss0_mdp_opp_table>;
++				power-domains = <&rpmhpd SA8775P_MMCX>;
++
++				interrupt-parent = <&mdss1>;
++				interrupts = <0>;
++
++				ports {
++					#address-cells = <1>;
++					#size-cells = <0>;
++
++					port@0 {
++						reg = <0>;
++
++						dpu1_intf0_out: endpoint {
++							remote-endpoint = <&mdss1_dp0_in>;
++						};
++					};
++
++					port@1 {
++						reg = <1>;
++
++						dpu1_intf4_out: endpoint {
++							remote-endpoint = <&mdss1_dp1_in>;
++						};
++					};
++				};
++			};
++
++			mdss1_dp0_phy: phy@220c2a00 {
++				compatible = "qcom,sa8775p-edp-phy";
++				reg = <0x0 0x220c2a00 0x0 0x200>,
++				      <0x0 0x220c2200 0x0 0xd0>,
++				      <0x0 0x220c2600 0x0 0xd0>,
++				      <0x0 0x220c2000 0x0 0x1c8>;
++
++				clocks = <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_AUX_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
++					 <&gcc GCC_EDP_REF_CLKREF_EN>;
++				clock-names = "aux",
++					      "cfg_ahb",
++					      "ref";
++
++				#clock-cells = <1>;
++				#phy-cells = <0>;
++
++				status = "disabled";
++			};
++
++			mdss1_dp1_phy: phy@220c5a00 {
++				compatible = "qcom,sa8775p-edp-phy";
++				reg = <0x0 0x220c5a00 0x0 0x200>,
++				      <0x0 0x220c5200 0x0 0xd0>,
++				      <0x0 0x220c5600 0x0 0xd0>,
++				      <0x0 0x220c5000 0x0 0x1c8>;
++
++				clocks = <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_AUX_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
++					 <&gcc GCC_EDP_REF_CLKREF_EN>;
++				clock-names = "aux",
++					      "cfg_ahb",
++					      "ref";
++
++				#clock-cells = <1>;
++				#phy-cells = <0>;
++
++				status = "disabled";
++			};
++
++			mdss1_dp0: displayport-controller@22154000 {
++				compatible = "qcom,sa8775p-dp";
++				reg = <0x0 0x22154000 0x0 0x104>,
++				      <0x0 0x22154200 0x0 0x0c0>,
++				      <0x0 0x22155000 0x0 0x770>,
++				      <0x0 0x22156000 0x0 0x09c>,
++				      <0x0 0x22157000 0x0 0x09c>,
++				      <0x0 0x22158000 0x0 0x09c>,
++				      <0x0 0x22159000 0x0 0x09c>,
++				      <0x0 0x2215a000 0x0 0x23c>,
++				      <0x0 0x2215b000 0x0 0x23c>;
++
++				interrupt-parent = <&mdss1>;
++				interrupts = <12>;
++
++				clocks = <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_AUX_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_LINK_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_LINK_INTF_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL0_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL1_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL2_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL3_CLK>;
++				clock-names = "core_iface",
++					      "core_aux",
++					      "ctrl_link",
++					      "ctrl_link_iface",
++					      "stream_pixel",
++					      "stream_1_pixel",
++					      "stream_2_pixel",
++					      "stream_3_pixel";
++				assigned-clocks = <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_LINK_CLK_SRC>,
++						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL0_CLK_SRC>,
++						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL1_CLK_SRC>,
++						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL2_CLK_SRC>,
++						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL3_CLK_SRC>;
++				assigned-clock-parents = <&mdss1_dp0_phy 0>,
++							 <&mdss1_dp0_phy 1>,
++							 <&mdss1_dp0_phy 1>,
++							 <&mdss1_dp0_phy 1>,
++							 <&mdss1_dp0_phy 1>;
++				phys = <&mdss1_dp0_phy>;
++				phy-names = "dp";
++
++				operating-points-v2 = <&dp_opp_table>;
++				power-domains = <&rpmhpd SA8775P_MMCX>;
++
++				#sound-dai-cells = <0>;
++
++				status = "disabled";
++
++				ports {
++					#address-cells = <1>;
++					#size-cells = <0>;
++
++					port@0 {
++						reg = <0>;
++
++						mdss1_dp0_in: endpoint {
++							remote-endpoint = <&dpu1_intf0_out>;
++						};
++					};
++
++					port@1 {
++						reg = <1>;
++
++						mdss1_dp0_out: endpoint { };
++					};
++				};
++			};
++
++			mdss1_dp1: displayport-controller@2215c000 {
++				compatible = "qcom,sa8775p-dp";
++				reg = <0x0 0x2215c000 0x0 0x104>,
++				      <0x0 0x2215c200 0x0 0x0c0>,
++				      <0x0 0x2215d000 0x0 0x770>,
++				      <0x0 0x2215e000 0x0 0x09c>,
++				      <0x0 0x2215f000 0x0 0x09c>,
++				      <0x0 0x22160000 0x0 0x09c>,
++				      <0x0 0x22161000 0x0 0x09c>,
++				      <0x0 0x22162000 0x0 0x23c>,
++				      <0x0 0x22163000 0x0 0x23c>;
++
++				interrupt-parent = <&mdss1>;
++				interrupts = <13>;
++
++				clocks = <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_AUX_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_LINK_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_LINK_INTF_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_PIXEL0_CLK>,
++					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_PIXEL1_CLK>;
++				clock-names = "core_iface",
++					      "core_aux",
++					      "ctrl_link",
++					      "ctrl_link_iface",
++					      "stream_pixel",
++					      "stream_1_pixel";
++				assigned-clocks = <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_LINK_CLK_SRC>,
++						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_PIXEL0_CLK_SRC>,
++						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_PIXEL1_CLK_SRC>;
++				assigned-clock-parents = <&mdss1_dp1_phy 0>,
++							 <&mdss1_dp1_phy 1>,
++							 <&mdss1_dp1_phy 1>;
++				phys = <&mdss1_dp1_phy>;
++				phy-names = "dp";
++
++				operating-points-v2 = <&dp_opp_table>;
++				power-domains = <&rpmhpd SA8775P_MMCX>;
++
++				#sound-dai-cells = <0>;
++
++				status = "disabled";
++
++				ports {
++					#address-cells = <1>;
++					#size-cells = <0>;
++
++					port@0 {
++						reg = <0>;
++
++						mdss1_dp1_in: endpoint {
++							remote-endpoint = <&dpu1_intf4_out>;
++						};
++					};
++
++					port@1 {
++						reg = <1>;
++
++						mdss1_dp1_out: endpoint { };
++					};
++				};
++
 +			};
 +		};
-+	};
 +
-+	dp3-connector {
-+		compatible = "dp-connector";
-+		label = "eDP3";
-+		type = "full-size";
-+
-+		port {
-+			dp3_connector_in: endpoint {
-+				remote-endpoint = <&mdss1_dp1_out>;
-+			};
-+		};
-+	};
-+
- 	dp-dsi0-connector {
- 		compatible = "dp-connector";
- 		label = "DSI0";
-@@ -613,6 +637,50 @@ &mdss0_dsi1_phy {
- 	status = "okay";
- };
+ 		dispcc1: clock-controller@22100000 {
+ 			compatible = "qcom,sa8775p-dispcc1";
+ 			reg = <0x0 0x22100000 0x0 0x20000>;
+@@ -7062,13 +7297,13 @@ dispcc1: clock-controller@22100000 {
+ 				 <&rpmhcc RPMH_CXO_CLK>,
+ 				 <&rpmhcc RPMH_CXO_CLK_A>,
+ 				 <&sleep_clk>,
+-				 <0>, <0>, <0>, <0>,
++				 <&mdss1_dp0_phy 0>, <&mdss1_dp0_phy 1>,
++				 <&mdss1_dp1_phy 0>, <&mdss1_dp1_phy 1>,
+ 				 <0>, <0>, <0>, <0>;
+ 			power-domains = <&rpmhpd SA8775P_MMCX>;
+ 			#clock-cells = <1>;
+ 			#reset-cells = <1>;
+ 			#power-domain-cells = <1>;
+-			status = "disabled";
+ 		};
  
-+&mdss1 {
-+	status = "okay";
-+};
-+
-+&mdss1_dp0 {
-+	pinctrl-0 = <&dp2_hot_plug_det>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&mdss1_dp0_out {
-+	data-lanes = <0 1 2 3>;
-+	link-frequencies = /bits/ 64 <1620000000 2700000000 5400000000 8100000000>;
-+	remote-endpoint = <&dp2_connector_in>;
-+};
-+
-+&mdss1_dp0_phy {
-+	vdda-phy-supply = <&vreg_l1c>;
-+	vdda-pll-supply = <&vreg_l4a>;
-+
-+	status = "okay";
-+};
-+
-+&mdss1_dp1 {
-+	pinctrl-0 = <&dp3_hot_plug_det>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&mdss1_dp1_out {
-+	data-lanes = <0 1 2 3>;
-+	link-frequencies = /bits/ 64 <1620000000 2700000000 5400000000 8100000000>;
-+	remote-endpoint = <&dp3_connector_in>;
-+};
-+
-+&mdss1_dp1_phy {
-+	vdda-phy-supply = <&vreg_l1c>;
-+	vdda-pll-supply = <&vreg_l4a>;
-+
-+	status = "okay";
-+};
-+
- &pmm8654au_0_gpios {
- 	gpio-line-names = "DS_EN",
- 			  "POFF_COMPLETE",
-@@ -790,6 +858,18 @@ dp1_hot_plug_det: dp1-hot-plug-det-state {
- 		bias-disable;
- 	};
- 
-+	dp2_hot_plug_det: dp2-hot-plug-det-state {
-+		pins = "gpio104";
-+		function = "edp2_hot";
-+		bias-disable;
-+	};
-+
-+	dp3_hot_plug_det: dp3-hot-plug-det-state {
-+		pins = "gpio103";
-+		function = "edp3_hot";
-+		bias-disable;
-+	};
-+
- 	io_expander_intr_active: io-expander-intr-active-state {
- 		pins = "gpio98";
- 		function = "gpio";
+ 		ethernet1: ethernet@23000000 {
 -- 
 2.34.1
 
