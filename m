@@ -4,118 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 580BFD39418
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 12:32:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB85FD3941D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 12:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:
-	Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6w3HUVHSmjm01LKzbzqMd/c0WGfyb9c7ge6p63vHYQI=; b=A9U9fTrV6Xc6ufyNN//YNpZzhK
-	hO3adcHXtPabac42iPtWyT0IGkLsplphFEazJAyKti1qkL4UCyZ578zlE2aV/aC4krXVnjvuAGMSM
-	q/pNjXzJf2OKlDskTW3DAxKydXh5aNrFWJ/CNekYhm2r65zDQy2vGaK9nMfzrrNcX/BwFIYghauM1
-	++D+yCJV+Yahm4NGXEOojw2hu0n+y9pJV5UIw+R2o7LzVxgfSlzq74WlFoj+9bG+L3FtfEJR1tX6G
-	9KRBFsp/PkMdUiP0rUBmb750cVTwxXwssnf0IxAFdKqONwewQF7iNQ85WjiTu1CVWkRCmvQQLGKx0
-	lIpsq9iw==;
+	bh=Liea33ZiAixoJJgrSxmZrM3eaD0U9yoorf62adWMFCQ=; b=NINTlCQ1XrxyNxWbczcjWRx5Hw
+	6881B4+qVHNKVlAjFN84q5r6uialP2L4zdX26X3RavMfOmy2MH6RbHSrADg5dArd6N4vwjRK7qx19
+	xykzmMXfM5hEcOXOcRsj/uqv0MJqZ/mJx2jR9tlZFNf3zq6ZlBQG5D30DpWI95gXqm5XfEBw4Ohnz
+	Aq0gJox7tT6UoUItQExcSRZwW0TR+6c5pw2LDSXrYyLFPUgiuPHL10IT9Dv4w6JHb1pZFYuJJzHE4
+	OAI1F+HKw+6KtShpwwhb3rkK3L727wjWhqVcRFvlHdH4szyzpBG+sxOSCsoftiojU2W0thrEBTQoY
+	xvAKAKLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8HDa-000000003aA-1S7K;
-	Thu, 02 Apr 2026 12:32:14 +0000
+	id 1w8HNe-0000000069g-0Jbf;
+	Thu, 02 Apr 2026 12:42:38 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8HDX-000000003Zb-3xyo;
-	Thu, 02 Apr 2026 12:32:12 +0000
+	id 1w8HNc-0000000069R-1eiK
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 02 Apr 2026 12:42:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To
-	:From:Sender:Reply-To:Content-Description;
-	bh=6w3HUVHSmjm01LKzbzqMd/c0WGfyb9c7ge6p63vHYQI=; b=JoUB0mt2XGL8nvLPEw1No/WYku
-	Dn26sytuINi8eseG2cDlYjlVdey9/4Q4A30TEiW8lOjMTZ8nUXv8NmZwKkkDCDgVpV+ub8RnH4RoQ
-	PBT9Ww/1cV2lFhtUBIkoKP3LLUIaWPCX7E+5aWQPe6EU/4u5LMvkks2pJ7ZcAqOSVWUdG1OkNwPfD
-	2it5Ke+pxlvm/DOS5x6R5jVoYYWYoypk2IUFLZSkDaYWLltqBSvk5ZQkxARG64oJAfEHKrET4PMbz
-	JH8GSGFDm0nkb22aE5dbod9sbfLLHPVu5DheZUKpeFnQVwhg/V0Qnx9M9CwwlHHpwyeDQkwbfeBMD
-	F+Jrf1Aw==;
-Received: from iad-out-010.esa.us-east-1.outbound.mail-perimeter.amazon.com ([34.197.254.9])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8HDU-00000002Rdn-0zEd;
-	Thu, 02 Apr 2026 12:32:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
-  t=1775133128; x=1806669128;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:mime-version:
-   content-transfer-encoding;
-  bh=6w3HUVHSmjm01LKzbzqMd/c0WGfyb9c7ge6p63vHYQI=;
-  b=r7WUhpubgIut92bChOLlKprPBia/wOrvR2vPuycflDJ9tlfnfqIIJppp
-   eDDbRONr1gXnIYWaLrXAGqE3FoURF2g9bUGs0x2y3XeMDK+uBcNWXWfET
-   oOCeL4vl3+ycR7WO0sdZnduUFsuIAhMv4PtSyvuwVCoS5uIpQmR4KDP1u
-   dyeqRVceiK31IVz5dfBcf3ieI+Scj2McdWixSyPTUpZXlxn/VJyhf4nt8
-   JRXDMJvlj1Yk0OoXg5TSu7NqEVpLFr7SUTIt1413fQ7arUbGJ9W7iyV20
-   cKHjh9Pya7KM+srjP04PQbQLlJ7uQaMViSGAsmKC7kNcCrJS+LponkGIC
-   Q==;
-X-CSE-ConnectionGUID: DdekA+7kT0eMkTYJA1rRng==
-X-CSE-MsgGUID: /6glz+8BSwe83yXe9ZoY8A==
-X-IronPort-AV: E=Sophos;i="6.23,155,1770595200"; 
-   d="scan'208";a="15095409"
-Received: from ip-10-4-10-75.ec2.internal (HELO smtpout.naws.us-east-1.prod.farcaster.email.amazon.dev) ([10.4.10.75])
-  by internal-iad-out-010.esa.us-east-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Apr 2026 12:32:00 +0000
-Received: from EX19MTAUEC002.ant.amazon.com [72.21.196.66:23526]
- by smtpin.naws.us-east-1.prod.farcaster.email.amazon.dev [10.0.8.197:2525] with esmtp (Farcaster)
- id aa9e9018-8b88-44d4-9916-7172c14268fc; Thu, 2 Apr 2026 12:32:00 +0000 (UTC)
-X-Farcaster-Flow-ID: aa9e9018-8b88-44d4-9916-7172c14268fc
-Received: from EX19D012UEC003.ant.amazon.com (10.252.135.160) by
- EX19MTAUEC002.ant.amazon.com (10.252.135.253) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Thu, 2 Apr 2026 12:32:00 +0000
-Received: from EX19D012UEC003.ant.amazon.com (10.252.135.160) by
- EX19D012UEC003.ant.amazon.com (10.252.135.160) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Thu, 2 Apr 2026 12:31:59 +0000
-Received: from EX19D012UEC003.ant.amazon.com ([fe80::67ea:859:1e17:25a9]) by
- EX19D012UEC003.ant.amazon.com ([fe80::67ea:859:1e17:25a9%3]) with mapi id
- 15.02.2562.037; Thu, 2 Apr 2026 12:31:59 +0000
-From: "Heyne, Maximilian" <mheyne@amazon.de>
-To: Fedor Pchelkin <pchelkin@ispras.ru>
-CC: Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
-	"stable@vger.kernel.org" <stable@vger.kernel.org>, Sven Peter
-	<sven@svenpeter.dev>, Chaitanya Kulkarni <kch@nvidia.com>, Keith Busch
-	<kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>, Hector Martin
-	<marcan@marcan.st>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, "James E.J.
- Bottomley" <jejb@linux.ibm.com>, "Martin K. Petersen"
-	<martin.petersen@oracle.com>, Alim Akhtar <alim.akhtar@samsung.com>, "Avri
- Altman" <avri.altman@wdc.com>, Bart Van Assche <bvanassche@acm.org>, "Sasha
- Levin" <sashal@kernel.org>, Peter Wang <peter.wang@mediatek.com>, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>, Seunghui Lee
-	<sh043.lee@samsung.com>, Sanjeev Yadav <sanjeev.y@mediatek.com>, Wonkon Kim
-	<wkon.kim@samsung.com>, Brian Kao <powenkao@google.com>, Hannes Reinecke
-	<hare@suse.de>, Ming Lei <ming.lei@redhat.com>, "linux-block@vger.kernel.org"
-	<linux-block@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "asahi@lists.linux.dev"
-	<asahi@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-nvme@lists.infradead.org"
-	<linux-nvme@lists.infradead.org>, "linux-scsi@vger.kernel.org"
-	<linux-scsi@vger.kernel.org>
-Subject: Re: [PATCH 6.1.y 5/8] nvme-apple: remove an extra queue reference
-Thread-Topic: [PATCH 6.1.y 5/8] nvme-apple: remove an extra queue reference
-Thread-Index: AQHcwpyzTCv4ZXIhp0SsQfFW9ZSeHw==
-Date: Thu, 2 Apr 2026 12:31:59 +0000
-Message-ID: <20260402-anti-cuba-1ea02cea@mheyne-amazon>
-References: <20260401-pliny-ashley-ff03a0b6@mheyne-amazon>
- <20260401232116-53765a086f3855a30962fb81-pchelkin@ispras>
-In-Reply-To: <20260401232116-53765a086f3855a30962fb81-pchelkin@ispras>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.13.235.223]
-Content-Type: text/plain; charset="us-ascii"
-Content-ID: <772100EB31401D4090226323D02A6503@amazon.com>
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Liea33ZiAixoJJgrSxmZrM3eaD0U9yoorf62adWMFCQ=; b=fAIf0+HvYEKb5if3GpQaojkbjD
+	zVrcC5wNIFQ+Aj4UQtMrwn1lRz0sydOM50BOn+tVXL0N65qreRkn/JXgQabSMvJuDdzzFNN8W/Sp0
+	+x1CtguJOmIhSl00NL309BCAS7Ta4hO1GYAc0naahalfLKAjFYQTtVl5LKrGfZSJJNAMWdxZ/KjFo
+	lTrw+U0T3AIrW0Gj0DCNfDgtBPVjb217nGQe3qpL/FKlRrWaFZnmmDRoh2VTB1TooTMYs3bNpQoLJ
+	F7NDMy7zVWIHpd3mJOk/nk9ZkIEpGCQcZNJ4F4KMyMXss62VQQWiofG1w7iOh7t3k+ICQkahMv+WQ
+	FQDCBptw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8HNW-00000002SsW-1Waf
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Apr 2026 12:42:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2B312C43;
+	Thu,  2 Apr 2026 05:42:21 -0700 (PDT)
+Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 534263F915;
+	Thu,  2 Apr 2026 05:42:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775133747; bh=eXuiAgdKHKGDwjhMoJPybkXIHLyx2xl4IR43FDNFuXQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Mjn/K6kuBcKdeIR3d/RDCeq8IGk9fAR4uLseX84J6PK0lk7X6fvW7GsGpxYK69NPz
+	 TagyLFaP67hiiK+hPeAtNGk5rtn59RNu2q84pljWIfC0qxjiqqLoVRn17vHnIWfIIm
+	 xNx6D9GvNhQE/O10koxyjTdCvO9Xx4q/DRG6csNA=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Tian Zheng <zhengtian10@huawei.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	maz@kernel.org,
+	oupton@kernel.org,
+	catalin.marinas@arm.com,
+	corbet@lwn.net,
+	pbonzini@redhat.com,
+	will@kernel.org,
+	yuzenghui@huawei.com,
+	wangzhou1@hisilicon.com,
+	liuyonglong@huawei.com,
+	Jonathan.Cameron@huawei.com,
+	yezhenyu2@huawei.com,
+	linuxarm@huawei.com,
+	joey.gouly@arm.com,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	skhan@linuxfoundation.org,
+	suzuki.poulose@arm.com
+Subject: Re: [PATCH v3 0/5] Support the FEAT_HDBSS introduced in Armv9.5
+Date: Thu,  2 Apr 2026 13:42:17 +0100
+Message-ID: <ac5kKQZEnS93qdDm@devkitleo>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <730aaffa-9dfd-40c3-a372-c774d203b6e1@huawei.com>
+References: <20260225040421.2683931-1-zhengtian10@huawei.com> <acvWnjG0AZBHL21q@devkitleo> <730aaffa-9dfd-40c3-a372-c774d203b6e1@huawei.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_133208_619301_8AB97E8A 
-X-CRM114-Status: GOOD (  27.41  )
+X-CRM114-CacheID: sfid-20260402_134230_775117_6B852765 
+X-CRM114-Status: GOOD (  33.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,111 +104,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 01, 2026 at 11:45:57PM +0300, Fedor Pchelkin wrote:
-> Hello,
-> =
+On Thu, Apr 02, 2026 at 10:40:37AM +0800, Tian Zheng wrote:
+> 
+> On 3/31/2026 10:13 PM, Leonardo Bras wrote:
+> > On Wed, Feb 25, 2026 at 12:04:16PM +0800, Tian Zheng wrote:
+> > > This series of patches add support to the Hardware Dirty state tracking
+> > > Structure(HDBSS) feature, which is introduced by the ARM architecture
+> > > in the DDI0601(ID121123) version.
+> > > 
+> > > The HDBSS feature is an extension to the architecture that enhances
+> > > tracking translation table descriptors' dirty state, identified as
+> > > FEAT_HDBSS. This feature utilizes hardware assistance to achieve dirty
+> > > page tracking, aiming to significantly reduce the overhead of scanning
+> > > for dirty pages.
+> > > 
+> > > The purpose of this feature is to make the execution overhead of live
+> > > migration lower to both the guest and the host, compared to existing
+> > > approaches (write-protect or search stage 2 tables).
+> > > 
+> > > After these patches, users(such as qemu) can use the
+> > > KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl to enable or disable the HDBSS
+> > > feature before and after the live migration.
+> > > 
+> > > v2:
+> > > https://lore.kernel.org/linux-arm-kernel/20251121092342.3393318-1-zhengtian10@huawei.com/
+> > > 
+> > > v2->v3 changes:
+> > > - Remove the ARM64_HDBSS configuration option and ensure this feature
+> > > is only enabled in VHE mode.
+> > > - Move HDBSS-related variables to the arch-independent portion of the
+> > > kvm structure.
+> > > - Remove error messages during HDBSS enable/disable operations
+> > > - Change HDBSS buffer flushing from handle_exit to vcpu_put,
+> > > check_vcpu_requests, and kvm_handle_guest_abort.
+> > > - Add fault handling for HDBSS including buffer full, external abort,
+> > > and general protection fault (GPF).
+> > > - Add support for a 4KB HDBSS buffer size, mapped to the value 0b0000.
+> > > - Add a second argument to the ioctl to turn HDBSS on or off.
+> > > 
+> > > Tian Zheng (1):
+> > >    KVM: arm64: Document HDBSS ioctl
+> > > 
+> > > eillon (4):
+> > >    arm64/sysreg: Add HDBSS related register information
+> > >    KVM: arm64: Add support to set the DBM attr during memory abort
+> > >    KVM: arm64: Add support for FEAT_HDBSS
+> > >    KVM: arm64: Enable HDBSS support and handle HDBSSF events
+> > > 
+> > >   Documentation/virt/kvm/api.rst       |  16 +++++
+> > >   arch/arm64/include/asm/cpufeature.h  |   5 ++
+> > >   arch/arm64/include/asm/esr.h         |   7 ++
+> > >   arch/arm64/include/asm/kvm_host.h    |  17 +++++
+> > >   arch/arm64/include/asm/kvm_mmu.h     |   1 +
+> > >   arch/arm64/include/asm/kvm_pgtable.h |   4 ++
+> > >   arch/arm64/include/asm/sysreg.h      |  11 +++
+> > >   arch/arm64/kernel/cpufeature.c       |  12 ++++
+> > >   arch/arm64/kvm/arm.c                 | 102 +++++++++++++++++++++++++++
+> > >   arch/arm64/kvm/hyp/pgtable.c         |   6 ++
+> > >   arch/arm64/kvm/hyp/vhe/switch.c      |  19 +++++
+> > >   arch/arm64/kvm/mmu.c                 |  70 ++++++++++++++++++
+> > >   arch/arm64/kvm/reset.c               |   3 +
+> > >   arch/arm64/tools/cpucaps             |   1 +
+> > >   arch/arm64/tools/sysreg              |  29 ++++++++
+> > >   include/uapi/linux/kvm.h             |   1 +
+> > >   tools/include/uapi/linux/kvm.h       |   1 +
+> > >   17 files changed, 305 insertions(+)
+> > > 
+> > > --
+> > > 2.33.0
+> > > 
+> > 
+> > Hi Tian,
+> > 
+> > I was thinking: maybe instead of putting the HDBSS (and HACDBS) stuff
+> > across a bunch of KVM files, we should try to focus them all on a single
+> > arch/arm64/kvm/dirty_bit.c file (plus a header such as
+> > arch/arm64/include/asm/kvm_dirty_bit.h).
+> > 
+> > What is your opinion on that?
+> > 
+> > Thanks!
+> > Leo
+> 
+> 
+> Sorry for the late reply. Yes, I had the same thought before. In the next
+> version, I will
+> 
+> move all the HDBSS-related content into the same file, such as
+> arch/arm64/kvm/dirty_bit.c
+> 
+> and arch/arm64/include/asm/kvm_dirty_bit.h.
+> 
+> 
+> Tian
+> 
+> 
+> > 
+> > 
 
-> "Heyne, Maximilian" <mheyne@amazon.de> wrote:
-> > From: Christoph Hellwig <hch@lst.de>
-> > =
 
-> > [ Upstream commit 941f7298c70c7668416e7845fa76eb72c07d966b ]
-> > =
+Awesome! Then I will work my HACDBS enablement that way as well.
 
-> > Now that blk_mq_destroy_queue does not release the queue reference, the=
-re
-> > is no need for a second admin queue reference to be held by the
-> > apple_nvme structure.
-> =
-
-> This patch is probably buggy in upstream.  It removes extra reference
-> ->get, but doesn't remove the corresponding ->put which is located
-> inside apple_nvme_free_ctrl().
-
-Now I'm seeing this as well. Has the same problem as the pci driver in
-6.1 where blk_put_queue is called from nvme_free_ctrl() and again from
-apple_nvme_free_ctrl(). Thank you for catching this. I don't have the
-hardware to test this.
-
-Are you going to send a fix upstream? It's looks to be broken on master,
-too.
-
-> =
-
-> I'm reporting here currently just for the heads up - was looking at the
-> same nvme regression problem at 6.1.y, found this thread, and the
-> nvme-apple changes appeared suspicious.
-> =
-
-> nvme-apple patch is not required to fix the regression (this also holds
-> true for [PATCH 6.1.y 3/8] scsi: remove an extra queue reference).  Maybe
-> they shouldn't go to stable.
-
-I think, I'll send a v2 of the patch set without these 2 patches. It's
-probably easier for Greg to apply.
-
-> =
-
-> That said, the other part of the backport series FWIW looks good to me,
-> and I've also verified it resolves the 6.1.y regression.
-
-You may leave a Tested-by if you want ;-)
-
-> =
-
-> Thanks.
-> =
-
-> > =
-
-> > Signed-off-by: Christoph Hellwig <hch@lst.de>
-> > Reviewed-by: Sagi Grimberg <sagi@grimberg.me>
-> > Reviewed-by: Sven Peter <sven@svenpeter.dev>
-> > Reviewed-by: Chaitanya Kulkarni <kch@nvidia.com>
-> > Reviewed-by: Keith Busch <kbusch@kernel.org>
-> > Link: https://lore.kernel.org/r/20221018135720.670094-5-hch@lst.de
-> > Signed-off-by: Jens Axboe <axboe@kernel.dk>
-> > Signed-off-by: Maximilian Heyne <mheyne@amazon.de>
-> > ---
-> >  drivers/nvme/host/apple.c | 9 ---------
-> >  1 file changed, 9 deletions(-)
-> > =
-
-> > diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
-> > index c5fc293c22123..c84ebfcfdeb88 100644
-> > --- a/drivers/nvme/host/apple.c
-> > +++ b/drivers/nvme/host/apple.c
-> > @@ -1507,15 +1507,6 @@ static int apple_nvme_probe(struct platform_devi=
-ce *pdev)
-> >  		goto put_dev;
-> >  	}
-> >  =
-
-> > -	if (!blk_get_queue(anv->ctrl.admin_q)) {
-> > -		nvme_start_admin_queue(&anv->ctrl);
-> > -		blk_mq_destroy_queue(anv->ctrl.admin_q);
-> > -		blk_put_queue(anv->ctrl.admin_q);
-> > -		anv->ctrl.admin_q =3D NULL;
-> > -		ret =3D -ENODEV;
-> > -		goto put_dev;
-> > -	}
-> > -
-> >  	nvme_reset_ctrl(&anv->ctrl);
-> >  	async_schedule(apple_nvme_async_probe, anv);
-> >  =
-
-> > -- =
-
-> > 2.50.1
-
-
-
-Amazon Web Services Development Center Germany GmbH
-Tamara-Danz-Str. 13
-10243 Berlin
-Geschaeftsfuehrung: Christof Hellmis, Andreas Stieger
-Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
-Sitz: Berlin
-Ust-ID: DE 365 538 597
-
+Thanks!
+Leo
 
