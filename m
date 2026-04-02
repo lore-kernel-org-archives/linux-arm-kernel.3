@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF19D6AB06
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 20:00:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12120D6AB13
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 20:44:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UUgPRGwhGuVx9fxdmRO+QdcBa9rcwVFF1MqUbmSIZHk=; b=SPkA1z4KhEwuWElblJqAIZJowV
-	g7ZnJfq8qrfKvPJrTNKo1z/AAcWzXd1y4OPH4oxW06mpGedhUP+T1yeXox/BmjuC3zUA6Bcv1vh8m
-	HR+pUAVtVXNp9iNaR8BPqi1b/FEWVoRxXA3CdQoL7K3/dvpx4lQyhdz6CEqaxkqqKhCMwkdVBORo2
-	UE/JKBkl4dGuW7fOLk5jkO4eh0M6yfBAtHl5D4HGr3xkNdNl/cWimC2aXjjxH6KSdMpPCWo5Yi5KM
-	/Puu91aMZn0gu/WFX/dl8XU4Bs8B2UoDDfl+u9+l2/XiLH3QkvAlDuQG6xQvtBiksfAkqrktezEbg
-	ZgxcFd7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XtVsTEkrUECjJRD7aGi/0e7Hl5IiiR2QyYRJQgcmHRU=; b=QXgHqtKXrY1dIGkw71GsKFIFw9
+	gr1ieReLlReMWBuzRhVyzf62XVxXTfcCceGJFaazvfDCbzFagcGkYTH07OzEuuTU2rEIGzkKDe84z
+	vxboQjV6aXfdqTEFueEcdYOhxVabPldg2gb7CMSgd0M7JWly3REsQaWexAVJJzkzdqu41R9exEO4I
+	q783yxU3m3OJt3QR05b+Gc3awLOppEOFdxczR0qeFpjUhlwEkIsqe/ilCI5ZhU1Pq/gxmbIdg0Adb
+	ZfGeEDomBmlHx2uQQ0wHkTft+6z2aA3+EBs8cCt0mBSlGjQfYtzWKO8nlaGPY1h0FxSF3HF8AxBaH
+	Sg38EvsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8ODk-00000000jzr-2Ziu;
-	Thu, 02 Apr 2026 20:00:52 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8ODh-00000000jzW-3MQY
+	id 1w8Otf-00000000lTb-0ssP;
+	Thu, 02 Apr 2026 20:44:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8Otb-00000000lT9-3oL3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 20:00:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1775160050; x=1806696050;
-  h=date:from:to:cc:subject:message-id;
-  bh=RZP+6mg0KFphZxglZUJN4lMX/DCsgf0CywH2+z2Fevo=;
-  b=Fc6pr8tJDLAlh5bt3ub+NcyQZCTsk1CXRoLtqLliP8NYgv2q0m+UR6DP
-   H+6/p+UngPI5W5AlkrDlHajrLNiZrWeN5mCCBLHEHWhTvANDRvT6hiE1T
-   2zr1D6IX+9MF2NlkeFWHDzxJrjro0PWzxS+UL5nhxiR/tP9ilwRqHHZVq
-   h8hOSme0wKHXs3+aEI5JRWrBgmT2Wdr+qGY2/PKMhnBlUtalRpJB7D2Ua
-   YPtl71qrrYDS8D21DojeNiijXGxMkONmYOneNwPxkOrFVlzRvthe0KXrt
-   zQlx+KZFDGR+4cUSgycWFXjIn7j6nYdyEO7YLHBzsXirgjw/9Ullfux1l
-   w==;
-X-CSE-ConnectionGUID: 4HEkpZslTQSy3qK9mh3yVA==
-X-CSE-MsgGUID: DQIKC5fcQVWpLvpDlT9c2Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11747"; a="93623480"
-X-IronPort-AV: E=Sophos;i="6.23,156,1770624000"; 
-   d="scan'208";a="93623480"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Apr 2026 13:00:48 -0700
-X-CSE-ConnectionGUID: tdxSezgZRlK0ZJgKj5Ze3g==
-X-CSE-MsgGUID: h9prR/7fQh2rLUPtzAba6A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,156,1770624000"; 
-   d="scan'208";a="228694333"
-Received: from lkp-server01.sh.intel.com (HELO 064ad336901d) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 02 Apr 2026 13:00:46 -0700
-Received: from kbuild by 064ad336901d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1w8ODc-000000000Od-1n5H;
-	Thu, 02 Apr 2026 20:00:44 +0000
-Date: Fri, 03 Apr 2026 04:00:26 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:for-next] BUILD SUCCESS
- ae68bfb2cfda020996e0ce41f1af0e54ac9d549f
-Message-ID: <202604030417.R0BK3Jlm-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Thu, 02 Apr 2026 20:44:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 192EA176B;
+	Thu,  2 Apr 2026 13:43:58 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3ED233F915;
+	Thu,  2 Apr 2026 13:44:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775162643; bh=cjEZkKQ+ODVU3DKbmEDkBuKAPPbwImPNm5BnHCLYCdA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rMISpFzgJPXbGvKghDviAPSjcuME2BDYXFgSL9AnIbxA4cAcDMShJErC2ayBI5Wdz
+	 4AXjfquKWnELfq3rw5MB99YKMgHGZNzxLt9DFqQHuEXzExkBF9z5zR0fl/jfkORk1r
+	 1hkhnj8rf6S/kx7qKb9lbVJe0u0k8T0CUysryFhI=
+Date: Thu, 2 Apr 2026 21:43:59 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Dev Jain <dev.jain@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Jinjiang Tu <tujinjiang@huawei.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] arm64: mm: Fix rodata=full block mapping support
+ for realm guests
+Message-ID: <ac7VD4Z85nS30GCp@arm.com>
+References: <20260330161705.3349825-1-ryan.roberts@arm.com>
+ <20260330161705.3349825-2-ryan.roberts@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260330161705.3349825-2-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_130049_950070_B8EA5591 
-X-CRM114-Status: UNSURE (   5.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260402_134408_159950_97FEBD1E 
+X-CRM114-Status: GOOD (  27.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,227 +76,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-branch HEAD: ae68bfb2cfda020996e0ce41f1af0e54ac9d549f  soc: document merges
+On Mon, Mar 30, 2026 at 05:17:02PM +0100, Ryan Roberts wrote:
+>  int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
+>  {
+>  	int ret;
+>  
+> -	/*
+> -	 * !BBML2_NOABORT systems should not be trying to change permissions on
+> -	 * anything that is not pte-mapped in the first place. Just return early
+> -	 * and let the permission change code raise a warning if not already
+> -	 * pte-mapped.
+> -	 */
+> -	if (!system_supports_bbml2_noabort())
+> -		return 0;
+> -
+>  	/*
+>  	 * If the region is within a pte-mapped area, there is no need to try to
+>  	 * split. Additionally, CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE may
+>  	 * change permissions from atomic context so for those cases (which are
+>  	 * always pte-mapped), we must not go any further because taking the
+> -	 * mutex below may sleep.
+> +	 * mutex below may sleep. Do not call force_pte_mapping() here because
+> +	 * it could return a confusing result if called from a secondary cpu
+> +	 * prior to finalizing caps. Instead, linear_map_requires_bbml2 gives us
+> +	 * what we need.
+>  	 */
+> -	if (force_pte_mapping() || is_kfence_address((void *)start))
+> +	if (!linear_map_requires_bbml2 || is_kfence_address((void *)start))
+>  		return 0;
+>  
+> +	if (!system_supports_bbml2_noabort()) {
+> +		/*
+> +		 * !BBML2_NOABORT systems should not be trying to change
+> +		 * permissions on anything that is not pte-mapped in the first
+> +		 * place. Just return early and let the permission change code
+> +		 * raise a warning if not already pte-mapped.
+> +		 */
+> +		if (system_capabilities_finalized())
+> +			return 0;
+> +
+> +		/*
+> +		 * Boot-time: split_kernel_leaf_mapping_locked() allocates from
+> +		 * page allocator. Can't split until it's available.
+> +		 */
+> +		if (WARN_ON(!page_alloc_available))
+> +			return -EBUSY;
+> +
+> +		/*
+> +		 * Boot-time: Started secondary cpus but don't know if they
+> +		 * support BBML2_NOABORT yet. Can't allow splitting in this
+> +		 * window in case they don't.
+> +		 */
+> +		if (WARN_ON(num_online_cpus() > 1))
+> +			return -EBUSY;
+> +	}
 
-elapsed time: 761m
+I think sashiko is over cautions here
+(https://sashiko.dev/#/patchset/20260330161705.3349825-1-ryan.roberts@arm.com)
+but it has a somewhat valid point from the perspective of
+num_online_cpus() semantics. We have have num_online_cpus() == 1 while
+having a secondary CPU just booted and with its MMU enabled. I don't
+think we can have any asynchronous tasks running at that point to
+trigger a spit though. Even async_init() is called after smp_init().
 
-configs tested: 207
-configs skipped: 2
+An option may be to attempt cpus_read_trylock() as this lock is taken by
+_cpu_up(). If it fails, return -EBUSY, otherwise check num_online_cpus()
+and unlock (and return -EBUSY if secondaries already started).
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+Another thing I couldn't get my head around - IIUC is_realm_world()
+won't return true for map_mem() yet (if in a realm). Can we have realms
+on hardware that does not support BBML2_NOABORT? We may not have
+configuration with rodata_full set (it should be complementary to realm
+support).
 
-tested configs:
-alpha                             allnoconfig    gcc-15.2.0
-alpha                            allyesconfig    gcc-15.2.0
-alpha                               defconfig    gcc-15.2.0
-arc                              allmodconfig    clang-16
-arc                              allmodconfig    gcc-15.2.0
-arc                               allnoconfig    gcc-15.2.0
-arc                              allyesconfig    clang-23
-arc                              allyesconfig    gcc-15.2.0
-arc                                 defconfig    gcc-15.2.0
-arc                   randconfig-001-20260402    gcc-11.5.0
-arc                   randconfig-002-20260402    gcc-11.5.0
-arm                               allnoconfig    clang-23
-arm                               allnoconfig    gcc-15.2.0
-arm                              allyesconfig    clang-16
-arm                              allyesconfig    gcc-15.2.0
-arm                                 defconfig    gcc-15.2.0
-arm                         orion5x_defconfig    clang-23
-arm                   randconfig-001-20260402    gcc-11.5.0
-arm                   randconfig-002-20260402    gcc-11.5.0
-arm                   randconfig-003-20260402    gcc-11.5.0
-arm                   randconfig-004-20260402    gcc-11.5.0
-arm                       spear13xx_defconfig    gcc-15.2.0
-arm64                            allmodconfig    clang-19
-arm64                            allmodconfig    clang-23
-arm64                             allnoconfig    gcc-15.2.0
-arm64                               defconfig    gcc-15.2.0
-arm64                 randconfig-001-20260402    gcc-15.2.0
-arm64                 randconfig-002-20260402    gcc-15.2.0
-arm64                 randconfig-003-20260402    gcc-15.2.0
-arm64                 randconfig-004-20260402    gcc-15.2.0
-csky                             allmodconfig    gcc-15.2.0
-csky                              allnoconfig    gcc-15.2.0
-csky                                defconfig    gcc-15.2.0
-csky                  randconfig-001-20260402    gcc-15.2.0
-csky                  randconfig-002-20260402    gcc-15.2.0
-hexagon                          allmodconfig    clang-17
-hexagon                          allmodconfig    gcc-15.2.0
-hexagon                           allnoconfig    clang-23
-hexagon                           allnoconfig    gcc-15.2.0
-hexagon                             defconfig    gcc-15.2.0
-hexagon               randconfig-001-20260402    clang-18
-hexagon               randconfig-001-20260403    clang-23
-hexagon               randconfig-002-20260402    clang-18
-hexagon               randconfig-002-20260403    clang-23
-i386                             allmodconfig    clang-20
-i386                             allmodconfig    gcc-14
-i386                              allnoconfig    gcc-14
-i386                              allnoconfig    gcc-15.2.0
-i386                             allyesconfig    clang-20
-i386                             allyesconfig    gcc-14
-i386        buildonly-randconfig-001-20260402    clang-20
-i386        buildonly-randconfig-001-20260403    gcc-14
-i386        buildonly-randconfig-002-20260402    clang-20
-i386        buildonly-randconfig-002-20260403    gcc-14
-i386        buildonly-randconfig-003-20260402    clang-20
-i386        buildonly-randconfig-003-20260403    gcc-14
-i386        buildonly-randconfig-004-20260402    clang-20
-i386        buildonly-randconfig-004-20260403    gcc-14
-i386        buildonly-randconfig-005-20260402    clang-20
-i386        buildonly-randconfig-005-20260403    gcc-14
-i386        buildonly-randconfig-006-20260402    clang-20
-i386        buildonly-randconfig-006-20260403    gcc-14
-i386                                defconfig    gcc-15.2.0
-i386                  randconfig-001-20260402    clang-20
-i386                  randconfig-002-20260402    clang-20
-i386                  randconfig-003-20260402    clang-20
-i386                  randconfig-004-20260402    clang-20
-i386                  randconfig-005-20260402    clang-20
-i386                  randconfig-006-20260402    clang-20
-i386                  randconfig-007-20260402    clang-20
-i386                  randconfig-011-20260402    clang-20
-i386                  randconfig-012-20260402    clang-20
-i386                  randconfig-013-20260402    clang-20
-i386                  randconfig-014-20260402    clang-20
-i386                  randconfig-015-20260402    clang-20
-i386                  randconfig-016-20260402    clang-20
-i386                  randconfig-017-20260402    clang-20
-loongarch                        allmodconfig    clang-19
-loongarch                        allmodconfig    clang-23
-loongarch                         allnoconfig    clang-23
-loongarch                         allnoconfig    gcc-15.2.0
-loongarch                           defconfig    clang-19
-loongarch             randconfig-001-20260402    clang-18
-loongarch             randconfig-001-20260403    clang-23
-loongarch             randconfig-002-20260402    clang-18
-loongarch             randconfig-002-20260403    clang-23
-m68k                             allmodconfig    gcc-15.2.0
-m68k                              allnoconfig    gcc-15.2.0
-m68k                             allyesconfig    clang-16
-m68k                             allyesconfig    gcc-15.2.0
-m68k                                defconfig    clang-19
-microblaze                        allnoconfig    gcc-15.2.0
-microblaze                       allyesconfig    gcc-15.2.0
-microblaze                          defconfig    clang-19
-mips                             allmodconfig    gcc-15.2.0
-mips                              allnoconfig    gcc-15.2.0
-mips                             allyesconfig    gcc-15.2.0
-nios2                            allmodconfig    clang-23
-nios2                             allnoconfig    clang-23
-nios2                             allnoconfig    gcc-11.5.0
-nios2                               defconfig    clang-19
-nios2                 randconfig-001-20260402    clang-18
-nios2                 randconfig-001-20260403    clang-23
-nios2                 randconfig-002-20260402    clang-18
-nios2                 randconfig-002-20260403    clang-23
-openrisc                         allmodconfig    clang-23
-openrisc                          allnoconfig    clang-23
-openrisc                          allnoconfig    gcc-15.2.0
-openrisc                            defconfig    gcc-15.2.0
-parisc                           allmodconfig    gcc-15.2.0
-parisc                            allnoconfig    clang-23
-parisc                            allnoconfig    gcc-15.2.0
-parisc                           allyesconfig    clang-19
-parisc                           allyesconfig    gcc-15.2.0
-parisc                              defconfig    gcc-15.2.0
-parisc                randconfig-001-20260402    clang-20
-parisc                randconfig-002-20260402    clang-20
-parisc64                            defconfig    clang-19
-powerpc                          allmodconfig    gcc-15.2.0
-powerpc                           allnoconfig    clang-23
-powerpc                           allnoconfig    gcc-15.2.0
-powerpc               randconfig-001-20260402    clang-20
-powerpc               randconfig-002-20260402    clang-20
-powerpc64             randconfig-001-20260402    clang-20
-powerpc64             randconfig-002-20260402    clang-20
-riscv                            allmodconfig    clang-23
-riscv                             allnoconfig    clang-23
-riscv                             allnoconfig    gcc-15.2.0
-riscv                            allyesconfig    clang-16
-riscv                               defconfig    gcc-15.2.0
-riscv                 randconfig-001-20260402    clang-23
-riscv                 randconfig-002-20260402    clang-23
-s390                             allmodconfig    clang-18
-s390                             allmodconfig    clang-19
-s390                              allnoconfig    clang-23
-s390                             allyesconfig    gcc-15.2.0
-s390                                defconfig    gcc-15.2.0
-s390                  randconfig-001-20260402    clang-23
-s390                  randconfig-002-20260402    clang-23
-sh                               allmodconfig    gcc-15.2.0
-sh                                allnoconfig    clang-23
-sh                                allnoconfig    gcc-15.2.0
-sh                               allyesconfig    clang-19
-sh                               allyesconfig    gcc-15.2.0
-sh                                  defconfig    gcc-14
-sh                    randconfig-001-20260402    clang-23
-sh                    randconfig-002-20260402    clang-23
-sparc                             allnoconfig    clang-23
-sparc                             allnoconfig    gcc-15.2.0
-sparc                               defconfig    gcc-15.2.0
-sparc                 randconfig-001-20260402    gcc-14
-sparc                 randconfig-002-20260402    gcc-14
-sparc64                          allmodconfig    clang-23
-sparc64                             defconfig    gcc-14
-sparc64               randconfig-001-20260402    gcc-14
-sparc64               randconfig-002-20260402    gcc-14
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-23
-um                               allyesconfig    gcc-14
-um                               allyesconfig    gcc-15.2.0
-um                                  defconfig    gcc-14
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20260402    gcc-14
-um                    randconfig-002-20260402    gcc-14
-um                           x86_64_defconfig    gcc-14
-x86_64                           allmodconfig    clang-20
-x86_64                            allnoconfig    clang-20
-x86_64                            allnoconfig    clang-23
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20260402    clang-20
-x86_64      buildonly-randconfig-002-20260402    clang-20
-x86_64      buildonly-randconfig-003-20260402    clang-20
-x86_64      buildonly-randconfig-004-20260402    clang-20
-x86_64      buildonly-randconfig-005-20260402    clang-20
-x86_64      buildonly-randconfig-006-20260402    clang-20
-x86_64                              defconfig    gcc-14
-x86_64                                  kexec    clang-20
-x86_64                randconfig-001-20260402    gcc-14
-x86_64                randconfig-002-20260402    gcc-14
-x86_64                randconfig-003-20260402    gcc-14
-x86_64                randconfig-004-20260402    gcc-14
-x86_64                randconfig-005-20260402    gcc-14
-x86_64                randconfig-006-20260402    gcc-14
-x86_64                randconfig-011-20260402    clang-20
-x86_64                randconfig-012-20260402    clang-20
-x86_64                randconfig-013-20260402    clang-20
-x86_64                randconfig-014-20260402    clang-20
-x86_64                randconfig-015-20260402    clang-20
-x86_64                randconfig-016-20260402    clang-20
-x86_64                randconfig-071-20260402    clang-20
-x86_64                randconfig-072-20260402    clang-20
-x86_64                randconfig-073-20260402    clang-20
-x86_64                randconfig-074-20260402    clang-20
-x86_64                randconfig-075-20260402    clang-20
-x86_64                randconfig-076-20260402    clang-20
-x86_64                               rhel-9.4    clang-20
-x86_64                           rhel-9.4-bpf    gcc-14
-x86_64                          rhel-9.4-func    clang-20
-x86_64                    rhel-9.4-kselftests    clang-20
-x86_64                         rhel-9.4-kunit    gcc-14
-x86_64                           rhel-9.4-ltp    gcc-14
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                            allnoconfig    clang-23
-xtensa                            allnoconfig    gcc-15.2.0
-xtensa                           allyesconfig    clang-23
-xtensa                randconfig-001-20260402    gcc-14
-xtensa                randconfig-002-20260402    gcc-14
+I'll add the patches to for-next/core to give them a bit of time in
+-next but let's see next week if we ignore this (with an updated
+comment) or we try to avoid the issue altogether.
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+-- 
+Catalin
 
