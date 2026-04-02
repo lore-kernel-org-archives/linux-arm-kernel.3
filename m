@@ -4,62 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F68ED3941B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 12:02:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE8AD39418
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 12:10:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n//STxBnA6wotyi/UADbqWAfuqaEKGfP+JNuZYWly2Q=; b=gbbaPyIOUol5RH7VfEq/MFItzC
-	CzmyjcnSvQKQNoASsaTrfNw5+r32Q38zfZFnEQzi+qsZqYmfByB5HqsQLwF/dBsYSa6v1c+GBg17d
-	B16LvThaiXo071+BGBh4y7QcbfU6GWbaEzf3xlcUVzMZfjidWF+vyveIOmZOWCWNxtwlou/fUnI/i
-	/0xeh4Pc4r2Dgumff4wNDNprbj6vPB9gK1Utz0EelXji8YsqDK9jFwMFSav/IrPDm7SoffS1z+cOh
-	WUqrGlJ1AxZiWxU7L9z/+//FLdCraPPNIXQZBSNO8qdRXjvlLphVMxNDjHh7ejbaMRXif8+Xlbub7
-	+l6N0PsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y2YXifkFC+3/4Y22+2TCCF8YroMJKfrI7mLTpHW6hYM=; b=UvtOVzDsm++avl7z/t+mOWL7th
+	RrV2fkAONh9lBObBsjzOEWTZGdkA3sYVdSM3Xzya1Ee0uS76kVZ17II6bqVoVGiEvZ8FzQFJN5Tsy
+	ZTKPE5nwUvjn791apuaxM7r79BSdgRtJhAnF816U/aJbTjz7wksSC6MwYtDtuTvVH+CdffcDBlnL2
+	Vm7C9Zy+54rXqV6pcsIkTPa51cjiR91YHtdQz46X4SefA+AjsPD4Q1bf+bF/vIB8I9AI858HUb6OE
+	Ihkm7n4syGE0/M1oZThFOV3tzcOLqyVMDgs0eZ54WWu9nGPhm1n4D85OSjPLTHKWB0z6pv0Y6HBrb
+	8kbdjW6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Gl4-0000000HYWD-3RPQ;
-	Thu, 02 Apr 2026 12:02:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w8Gs4-0000000HYt7-150o;
+	Thu, 02 Apr 2026 12:10:00 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Gl2-0000000HYVo-13Yz
+	id 1w8Gs2-0000000HYrx-1yNK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 12:02:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CCD5543859;
-	Thu,  2 Apr 2026 12:02:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F056C19423;
-	Thu,  2 Apr 2026 12:02:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775131362;
-	bh=VtSexpkAeTcEr816mi3bsaOoish9Xihb19NxtfkqEIo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gXFVmZN9njolG5Q04B9Dt3MGpPNu0B2m9h+frpYlQok9ue0qz5Q4DqpOwK7tETDKA
-	 K39eq56Zs9O28oZCoQ+G6aWNaD7B63a3/iHNWkD56riFQD2A+1tavWOsWSyH3dhL0Z
-	 kAucddrfTLhGxPRsAe8PGDgpnGafBib81DFL2sxGc1F+qf3UsDWt7MfSdzw0kgxJDy
-	 VipNSzmt4IrGkY7Z/Dk6dXlt4yLxDG5XWW8MoA4jcC1WXwZaw98ZRp+IYIJ+kGhgJQ
-	 KQnO6r3mZF88sAdJG/bjekFu9DDUNpAynZ50qoicexzwcjvnLm3SILCdSeKZP0dmQ8
-	 xrFmLHW7usyuA==
-Date: Thu, 2 Apr 2026 14:02:40 +0200
-From: Thierry Reding <thierry.reding@kernel.org>
-To: arm@kernel.org, soc@kernel.org
-Cc: Thierry Reding <thierry.reding@gmail.com>, 
-	Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL 6/7] arm64: tegra: Device tree changes for v7.1-rc1
-Message-ID: <ac5ahWb1I-qnaK_Y@orome>
-References: <20260329151045.1443133-1-thierry.reding@kernel.org>
- <20260329151045.1443133-6-thierry.reding@kernel.org>
+	Thu, 02 Apr 2026 12:09:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uPqzt+7cAMFbtWCfeG1zHPBfj1rZYUXMX6LrCCTLlcDdvqHwF+uvzr3Tt3vgoeEw3lmdHanmV2Q2QlFeYjivNvJQhuDevCJiU1DeOqL7a7jwW+Qgiu0UcOc5CYD7NwBf9veWnlv7y+u7fjfLMzHab+iVbNtjRUes6MXcHTAyc88krB4MCHsrwLGVYgBTC7sDvvjDboBcA/N9ijyRO2z9ds9MsT01lIiOJr+QYJrSZ/wl8GmO5J1VgiZVSq467PkMmUMtR3365b9nZxwLBAYdomc/rNdTtGO6dLL4ZlyFspqGGB6jnyMcmZJt89/wIxRRPl3UwfVKnIb949aZBbbt2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=y2YXifkFC+3/4Y22+2TCCF8YroMJKfrI7mLTpHW6hYM=;
+ b=d0w8xOWdj9NIUlG4U7fVMopipbOOn4/cctmpk5tKLC87O7CZJZY+11vISkVGvTWZeyED/UO9Sue4MlTPrpde7qV52spOxleYRTpnMJ+8IGKJN+NrEZt8uUriOU6HZPcIwQOFGQ6xO8wQiA9vkDvIDDxZOrBxv8mElHFClDFmU4IgFuxohfqxpIRZzxvJIZGG0zb+CnA5jw00AyOEweHWcdY2+I7b7ahKgYcVVGWjmZ6PI9GG8Ys6G8GT/O6XF57lKhMrrPmNQPGEneJ+6c7d8xBISmmBSurYBzm3kbtTXDfoBvCN3KlRW022hU3HDoRAfYNcMrLyFY5TFfdY5mYAIQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=y2YXifkFC+3/4Y22+2TCCF8YroMJKfrI7mLTpHW6hYM=;
+ b=PZ9ElgozJqnIvMdaY0rFM6GP11nZkkOsrfau78e9mdjGwLW0069AJaZS053RGtBaZeb/OGi/fxP/gg/+3DRwc8D9Y+VuYCtvTHvbwKh7hqCQZvvmw33Vbs8O8hSFwmo1f3p31I+bfJ736ZOuMp2BCBWx2TvEgg1yEuMjCxmqektc2DhL0vew6tctelPrUaNwD7PbQCME8nWk9zsJ7PRTcXeCcEDmcPQdviRUWlqrZWBa4KlZmvc/sg4FqbSEUiTjnBs2oH9bYkIoeimt0LZAslxUdC4oOyzgSabYcU02GyzHQj/x3eDlgAK+Lpc1rP9R5c2ldyMW4175c60PRo6/Dw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU7PR04MB11163.eurprd04.prod.outlook.com (2603:10a6:10:5b3::14)
+ by AM8PR04MB7457.eurprd04.prod.outlook.com (2603:10a6:20b:1d9::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Thu, 2 Apr
+ 2026 12:09:49 +0000
+Received: from DU7PR04MB11163.eurprd04.prod.outlook.com
+ ([fe80::93f5:4ff3:2f4c:183a]) by DU7PR04MB11163.eurprd04.prod.outlook.com
+ ([fe80::93f5:4ff3:2f4c:183a%5]) with mapi id 15.20.9769.018; Thu, 2 Apr 2026
+ 12:09:49 +0000
+From: florin.leotescu@oss.nxp.com
+To: Guenter Roeck <linux@roeck-us.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Shych <michaelsh@nvidia.com>,
+	linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: daniel.baluta@nxp.com,
+	viorel.suman@nxp.com,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	festevam@gmail.com,
+	Florin Leotescu <florin.leotescu@nxp.com>
+Subject: [PATCH v6 0/3]  hwmon: emc2305: Support configurable fan PWM at shutdown
+Date: Thu,  2 Apr 2026 15:25:11 +0300
+Message-Id: <20260402122514.1811737-1-florin.leotescu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0310.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:f6::15) To DU7PR04MB11163.eurprd04.prod.outlook.com
+ (2603:10a6:10:5b3::14)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kvqhrzlj2b7g3m5j"
-Content-Disposition: inline
-In-Reply-To: <20260329151045.1443133-6-thierry.reding@kernel.org>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU7PR04MB11163:EE_|AM8PR04MB7457:EE_
+X-MS-Office365-Filtering-Correlation-Id: 04ad7846-1a34-4cfb-a47c-08de90b0bcc5
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|19092799006|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 0RI/9Fw9v3mHVd4nx/xAyV1s1Kp2r2VxDICRZBx4IydeBZkTdCx/e3mep37OfFtF7Zci0wtxrKpR6V/W47WuBzV8wXDMlzA+W+SDL+fVM6+Lj45NiJAW+iiP9aK123XTvCsXmh/Fq5eEnK46qUqDAmnm7mU9kVW502edhtZnim7IvEvI0NwQ4BK6maq0lQSCLSv5Nk6/T17nDr0YFMKRfx38rLNiYBx0KE5RXN3Ykd52EXGxQceKdYPuHfVqKR43CXtnte272il2acTyFL90ugqd4ea00NmhvHBS7Em31Ly458RRnhCDMHC9JD2sbi2TcZ7lWMCQZJNnm5ADdQTGS78SuabEsKFubqxPyNEzkiyDAk7XElz399/OvWZ5qHalt+aH6wYfPk8eZ5a7hgWsBmoivg2gZO7suu7qTk35cES9R/7NnsGYsyb5LYlNWFOP1h7q59SpjXLDbBWE1DHhw0x/YzwnyTJUUV0UkT0G2LTv57mp0nXE2YK73lJQcB+ntz9nLy78NEblox7jP0YAQd/H7Xu0QW4JysBjRtmWB7AS1wwvEQPoPsQaby1MWaOUwTxUoe83adTaGTXO/VRT4XJjf1knBOZmLRovuImmP1PA3DkyOL2fPj36Y3NUKcMQql773n1dOFbjsGbZcntmDKPfZ+8Y5Fq3PwHvLMnQHQskmzqm6wDmAWUC7lQ1NwosvzKjNA9xdZ+zYz3STQ70MZY/XPmq8+GBeh5rBhMfjZw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU7PR04MB11163.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(19092799006)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?MxCycyQvkvw/JCGF9BkhY36ySKNkeHn4MsCbakzkDQ+29rDFWVHgTh32cH?=
+ =?iso-8859-1?Q?B7AKNEbQkFCLR8KoVpDWEEQmnWpc2HGxrQ+udGwiOA4OeZWSnMmbBzbvK+?=
+ =?iso-8859-1?Q?AVccCNC0J3ERjRzWWSrBAdcFFQWq/h7Cg45zgryOrjS56Ub93nCaveeuH+?=
+ =?iso-8859-1?Q?uhuOoPgbvxlD0lspAaDA8LoYrkAIK3HUov70MwhMZiRIg2fg0C7ptv623M?=
+ =?iso-8859-1?Q?gkZOpXGAa9gRTbebu4tLFvLoAES9x8WD1RzQ3ozGNYzqMCsiEW83/ZKAOd?=
+ =?iso-8859-1?Q?rcMrl7C+Iz4ILsv39iYILgZCi6TLamom8j9NKmTL8PmA4tKF2OAhcYVev+?=
+ =?iso-8859-1?Q?zANbwFoy5n+wsyuodhME41N7TwCZVQS8ZRnfmSJ36GB3qmADx49EneGIgl?=
+ =?iso-8859-1?Q?tjq43nKpvH9nDa0WEXv8nghIrxVTECRiSxKKB5WUr66Auk1KKwCIU9tOVu?=
+ =?iso-8859-1?Q?utzT2AVESM7IMg658cDi2lRe+GfNN5tj9KF8VimzGrr0PgoreVt2GPN6fT?=
+ =?iso-8859-1?Q?DEaE0H5iNjIgIpHgS3Vzv8fyDyHNiKxEEhkFGMGAuu31iNHMIYrdnlJ9SQ?=
+ =?iso-8859-1?Q?qci9a0t12t++8Hv+dVNQcXxSs3M5hQ3CZHLozuL0CFKPKpOg/WEUHE/6+d?=
+ =?iso-8859-1?Q?/inscRqR/GuPRRcKkB+qye0D1OeHyUu5D9UojQe+FveGDRIB11tHhI8kUT?=
+ =?iso-8859-1?Q?BtN6ICo4AyJ/ohRzyl0w51tgj2YBpaIF53QqT+W6W/UED5C+3wFc1Vzfeq?=
+ =?iso-8859-1?Q?u/qeQqvMxo/rJZ4ZiJKqy6S2+vKpLzlbqAp2eVJUfGWnmsH5Vjwq6CwhdY?=
+ =?iso-8859-1?Q?lGZEZr2OzR8XqNGNFXyiZsBy/ok9si4/2RyE3pNESw+aMmzaTR8CvjxpAr?=
+ =?iso-8859-1?Q?a3k+N2ECgvTUxa7A/W3dDck173sXPwWAKzMe5JSI680AOMJTYMKDjd404Q?=
+ =?iso-8859-1?Q?LD90bG2nGU2rW0+qtsQSjvNB63uN6qJwchQfyW5ngAeN8RE08bjff+YyhT?=
+ =?iso-8859-1?Q?VAVR53YxMpbg/gh6zdTsFD+Fa5y2+XZv3yupU77dk84qhCpwJn47NV1haL?=
+ =?iso-8859-1?Q?sS56lM+fA9AI/tMaWS09DZoZlXJZY5Dhdn/uXOO3AEMr/fk95TiXQoFzLD?=
+ =?iso-8859-1?Q?x3C0xizgY9TCYEvaihllw/oWJaAY2NDmzqexiMewTwunFCc+w/Ug73Y3JB?=
+ =?iso-8859-1?Q?xH+T6GI/fYOKBgZ44qk6OiwCJwzaAfH+bIm6yUPaxeORjMB23yTdJ2hU86?=
+ =?iso-8859-1?Q?cBs9wY2Dr/Njxkz/A6MCtL9y4Dl72xGMFBG25OG8xnp+xRqD6Tq9YbVw+L?=
+ =?iso-8859-1?Q?ILg8rnlemIcytwI9r2vpRpZokgO5NbxP3FRB/6uQsRZq8UL/it6am+dWb6?=
+ =?iso-8859-1?Q?VbXttRDS1wuD6GwIk9/yhNBlkbrvRoPP8TWlnWM5nm5doIeyODIc0JQddo?=
+ =?iso-8859-1?Q?ATUKwJTgBlkjINgG/kJiJj8HagkFaCbRjPoQvPm/sNoMt4FX+isxDcIrDQ?=
+ =?iso-8859-1?Q?424+fLlJiPZ2vOw8O3Ac6+ttoztv83S/A9Pw/24vogNLNgUaG7gSzDOmqo?=
+ =?iso-8859-1?Q?vYQX7ShN9qTn4/qS+o7Hcd5maCdZl+LT1KGFBh0W9E0Eg0YZuyEfQzJ9ym?=
+ =?iso-8859-1?Q?Me5cqeyz4N8euAXzDFNsVochuytbjaJx9IRl5gIM9Pu9G7TFlVULkzL8aD?=
+ =?iso-8859-1?Q?ixIODn2NDw9pF2R8PkKDc2mlpzB8R+j51DBjhIIvtbcFbEVn4kKCc9Eti0?=
+ =?iso-8859-1?Q?CZMdzkbAGk8H7NPE7LBcFTkhZKUMUypMwx9Dj0IaEeKO7C4iT4uTpBjtgg?=
+ =?iso-8859-1?Q?rwVZXpp0IA=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 04ad7846-1a34-4cfb-a47c-08de90b0bcc5
+X-MS-Exchange-CrossTenant-AuthSource: DU7PR04MB11163.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2026 12:09:49.1575
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CPfN7JqP3k/BI2kftDUnxl15ndr7EgP3rENfeSrPsWK85UIvw3U5+KiBQ9cg27sy5UvsrOTWPOx8x0uejfKKmQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7457
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_050244_336382_F5C46798 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20260402_050958_519868_B55725FE 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,107 +149,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Florin Leotescu <florin.leotescu@nxp.com>
 
---kvqhrzlj2b7g3m5j
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [GIT PULL 6/7] arm64: tegra: Device tree changes for v7.1-rc1
-MIME-Version: 1.0
+This series adds support for configuring the fan PWM duty cycle applied
+during system shutdown for the EMC2305 fan controller.
 
-On Sun, Mar 29, 2026 at 05:10:43PM +0200, Thierry Reding wrote:
-> From: Thierry Reding <thierry.reding@gmail.com>
->=20
-> Hi ARM SoC maintainers,
->=20
-> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f2=
-7f:
->=20
->   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
->=20
-> are available in the Git repository at:
->=20
->   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegr=
-a-for-7.1-arm64-dt
->=20
-> for you to fetch changes up to c70e6bc11d2008fbb19695394b69fd941ab39030:
->=20
->   arm64: tegra: Add Tegra264 GPIO controllers (2026-03-28 01:36:46 +0100)
->=20
-> Thanks,
-> Thierry
->=20
-> ----------------------------------------------------------------
-> arm64: tegra: Device tree changes for v7.1-rc1
->=20
-> Various fixes and new additions across a number of devices. GPIO and PCI
-> are enabled on Tegra264 and the Jetson AGX Thor Developer Kit, allowing
-> it to boot via network and mass storage.
->=20
-> ----------------------------------------------------------------
-> Diogo Ivo (1):
->       arm64: tegra: smaug: Enable SPI-NOR flash
->=20
-> Jon Hunter (1):
->       arm64: tegra: Fix RTC aliases
->=20
-> Prathamesh Shete (1):
->       arm64: tegra: Add Tegra264 GPIO controllers
->=20
-> Thierry Reding (6):
->       dt-bindings: pci: Document the NVIDIA Tegra264 PCIe controller
->       Merge branch for-7.1/dt-bindings into for-7.1/pci
->       arm64: tegra: Fix snps,blen properties
->       arm64: tegra: Drop redundant clock and reset names for TSEC
->       arm64: tegra: Add PCI controllers on Tegra264
->       arm64: tegra: Add Jetson AGX Thor Developer Kit support
->=20
->  .../bindings/pci/nvidia,tegra264-pcie.yaml         | 149 +++++++++
->  arch/arm64/boot/dts/nvidia/Makefile                |   2 +
->  arch/arm64/boot/dts/nvidia/tegra210-smaug.dts      |  12 +
->  arch/arm64/boot/dts/nvidia/tegra210.dtsi           |   2 -
->  arch/arm64/boot/dts/nvidia/tegra234-p3701.dtsi     |   1 +
->  arch/arm64/boot/dts/nvidia/tegra234-p3767.dtsi     |   1 +
->  arch/arm64/boot/dts/nvidia/tegra234.dtsi           |   6 +-
->  .../dts/nvidia/tegra264-p4071-0000+p3834-0008.dts  |  11 +
->  .../boot/dts/nvidia/tegra264-p4071-0000+p3834.dtsi |  12 +
->  arch/arm64/boot/dts/nvidia/tegra264.dtsi           | 336 +++++++++++++++=
-++++--
->  10 files changed, 500 insertions(+), 32 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/pci/nvidia,tegra264=
--pcie.yaml
->  create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p4071-0000+p3834-=
-0008.dts
->  create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p4071-0000+p3834.=
-dtsi
+Some platforms require fans to transition to a predefined safe state
+during shutdown or reboot handoff until firmware or the next boot stage
+reconfigures the controller.
 
-Hi ARM SoC maintainers,
+The new optional Device Tree property "fan-shutdown-percent" allows the
+shutdown PWM duty cycle to be configured per fan output.
 
-DT maintainers objected to the way I wanted to handle the DT bindings
-dependency here, so I'll drop the whole PCI stuff from this and redo the
-PR.
+Changes in v6:
+- Split fan channel index validation into a separate patch.
+  Validate fan channel index agains the number of available channels.
+- Refine dt-binding commit message to refer to PWM duty cycle
+  instead of fan speed.
+Changes in v5:
+- Add fan channel index bound check after reg property read 
+  to prevent out-of-bounds access.
+- Refine fan-shutdown-percent description.
+Changes in v4:
+- Initialize pwm_shudown array to EMC2305_PWM_SHUTDOWN_UNSET in probe,
+  to avoid treating unconfigured channels as valid and written 0
+  during shutdown
+Changes in v3:
+- Rebased on current upstream
+- Dropped already upstreamed of_node_put(child) fix
+Changes in v2:
+- Address feedback from Guenter Roeck
+- Make shutdown behavior configurable via Device Tree
+- Add optional fan-shutdown-percent property
+- Apply shutdown PWM only for channels defining the property
 
-Thierry
+Florin Leotescu (3):
+  hwmon: emc2305: Validate fan channel index
+  dt-bindings: hwmon: emc2305: Add fan-shutdown-percent property
+  hwmon: emc2305: Support configurable fan PWM at shutdown
 
---kvqhrzlj2b7g3m5j
-Content-Type: application/pgp-signature; name="signature.asc"
+ .../bindings/hwmon/microchip,emc2305.yaml     |  8 ++++
+ drivers/hwmon/emc2305.c                       | 41 +++++++++++++++++++
+ 2 files changed, 49 insertions(+)
 
------BEGIN PGP SIGNATURE-----
+-- 
+2.34.1
 
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmnOWuAACgkQ3SOs138+
-s6EWdBAAu9sQun8NBxkNHrqi1zIzoZakofv0v3tzIIayEiLRmYnGFuf5ycVobK0T
-X/jraQ0uvtVcUQkbMNOrth/PeZS+8//deSJJUQBAH8+x+fNWm/JH3/si+dQRREaL
-btyUJhLsdFn4WoimJa05q/lvl0lbnFWcYkiuGSHt14l3GW3huxrcqguqbkfMXP1D
-/RTOWdJViVMpBonIBkQllaoiSqACVsGVoip/enn4lquI6z0nFDemBT7DPd3J//CV
-T+ftdUQKZ7EKA+w3HOeWCgzYMGidzV/+EZY7LrpjiUmZNT6ffM9Ycws0l4u0Lyds
-K+UUV3hxqD7F8IONqdByjwN5+vSVVD24LiiT78P9MXUvAcM3zAEqKMnkCL8Nu05V
-0bZ6mteFNxe4WedQ8pyfNYihwhFmTSqR76g4Mv70DH4/5voAW0o0IPxp8MCbvges
-6ccM8lz7jsGNY2K0YqjJt9M3aeg7KMycKvo4W6GQLzIcb/UmMxncleXWoR6NHT9s
-/+YQMZEekNguCmEKx/RpBtOgpshfp56t6ecAALRXSn9fyoP8ffpYeuQ429/0rnWM
-kfGrwRzgS3UaXSSRgb6kI2a9vkxiXEwcy94KDBFUhLsWQoY3uYlTyl8HwcEQJ8lX
-V5ulj4q13qnBBBtd2CHrC/FR9mSJ/4bYOUfi5sLqPNQR3/9E9kw=
-=qAuN
------END PGP SIGNATURE-----
-
---kvqhrzlj2b7g3m5j--
 
