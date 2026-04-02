@@ -4,138 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D192D3940B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 10:10:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2589D3940B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 10:13:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vxTWuUbiz3HjMwyD2pkoFeUpebgO7CXzXTE/LOIBP9M=; b=2Tkw2ko9pAwrPJmAqTBUsZBs6e
-	80ABxZtuguOhfohuGeE9v0zXvwpZVUc64hivDTEv0PXE3AYiZMJd//4AeoINA8tZDELwZoABnazwe
-	aUlOhdSTTdkinbAbmiC3v3Po7CToRWQFzKeh/kDwrSTFCCi1DNBqj4OUZnxK8WoLX2ioHyTHIqJh1
-	/KJyUsk5Rp04ucdu5WLnQaJSG4AlKDVm7swK1MqsQTF2VeoB6g3u4TPrMD/+4CTZIsDpKAq4TwVkr
-	6cDyG0SjARRvPZv/KgWuDGyIjMwKSPwGRMnwgIfC+boGIyivi2+qG44BMockSbk7mm3sLp5Fz/YVD
-	unGcRCHA==;
+	bh=UUGIsze2ZM1sMAlycpNpVpAjTScRX8yxh6ClH5yDmko=; b=LJl0OPvADhTzxLoFFjWijyhZzy
+	ESsSghwoWUKR/SBgNTmLahpBcXs1Xdsyn/x6GxhIDxh3qqc4O+vXAaJIBtHsZlHYdLpRgzd2IULDK
+	f/8pce51S2q5GKkRn2Tsb/oo/LBD6lxSskjhOWNLxlGUOGFkgua3bbNCcDK8TCRSYpsY1CpfARUdm
+	f9nx6/+GDimelv6KOYe9xrWkkUUIQKOm4NZXzMD58FuahgRQIs9zj6Qb2rmPq0Ak3qvr/swk6cDD5
+	W03TL5AibaAkRfXJHt9d/sUi+umCSHHtj1pwMfA2VpUAUudejMSGitothsn5jonZ/2F1Fkh5seWSP
+	HAIi/AqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8F0C-0000000HMnw-2Rb4;
-	Thu, 02 Apr 2026 10:10:16 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8F09-0000000HMk3-1x9X
+	id 1w8F2k-0000000HNay-3aLw;
+	Thu, 02 Apr 2026 10:12:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8F2i-0000000HNYd-1tK2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 10:10:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ySLzSTBc+kGiygDCas9EaU75IwqlprqxNmngUdLR1Csf0qH6vQ8kNG5IHbh/60ShNU81AUdflFPClpllgGRv1nhld383Nz6StzThTBBcl+n8O+Joy76zXxcrsKNyeODwBis655+j5/cNUb8/WBK9LYgxXc9qCX432gr8yfOOJE4svsefFVRrcwUrNS0P2CNoPUX3yfaVaKPbALpRsoJ053PhwJXPz5NX3Xt1vTGGdFejZs2Y7b6MFy17mt7CgXLQz6Soxm+KFmEqdtCa/akKT06b/iPfNHnyytL4kjE5EJzXiMbF5K7EPOHSljOQLxILK7Hp8RElpbI0hYfusNDyBA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vxTWuUbiz3HjMwyD2pkoFeUpebgO7CXzXTE/LOIBP9M=;
- b=kU7cBV5CQFsMvb/cWKaiiURciEQNYzLkX1a1qbsmVlVgOKJLhS7BmmpX4yTSyv0TuBJqMi45opb+QI/A5tsIuCNGDYS1PWNezVJcYxeq5Tt/wzha3He8IPY0g+qdCV4awPEkuPFZt8LnOCw0VClZcFkul+aexsD7xJpNHhdJkcx9ccWGwyLkOwfj9mTCZyLueYzHybqCfKzpHO0Myw2DPKiCsfJQIByPpe17uba1hCppHjrhGgTxmeImu4OoGdAUPo1WO0ER8WigovYG5Xp4LDtxetcM/BwiTuTs3/EYTf02ruImFmRRyXcqhlmVYPZUgLrz0WEqer1aaDKt0Q/n0A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vxTWuUbiz3HjMwyD2pkoFeUpebgO7CXzXTE/LOIBP9M=;
- b=MmMGQki6GBO0ieKq2sFCf8dZJU5cYRcQGVg+jrv+FaRaDM0spRWEfj/uglzcfdJ/Xcuh0Cb2RGHqZHDCWMRdc+QC7fR9mhAKUsDyx5q4mQLLGaBaxA7qDsHFp9jIs4HBbardsibF4a2XvJTTY9yTUcpQzT9AiXSicoWa69/hLlyeDo2QX6kMjdQUnATiRW9a6aPyLifudGODR2ndJrylylE8Q5gVAVeRxmitIgJfGeayR4IpULYLyrX9qwFa3GayaA+ztqAlj0JqtW1NewQn41AgT7AIretKCjpJWArrXmZbmxqBSgLMVG8brHOJ0tlccNdcTZWZPIAb7tfblfjDIA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13) by GV4PR04MB11944.eurprd04.prod.outlook.com
- (2603:10a6:150:2ec::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Thu, 2 Apr
- 2026 10:10:08 +0000
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994%6]) with mapi id 15.20.9769.018; Thu, 2 Apr 2026
- 10:10:07 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	bhelgaas@google.com,
-	hongxing.zhu@nxp.com,
-	l.stach@pengutronix.de
-Cc: imx@lists.linux.dev,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH V2 8/8] arm64: dts: imx95: Move power supply properties to Root Port node
-Date: Thu,  2 Apr 2026 18:10:07 +0800
-Message-Id: <20260402101007.208419-9-sherry.sun@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20260402101007.208419-1-sherry.sun@nxp.com>
-References: <20260402101007.208419-1-sherry.sun@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR01CA0114.apcprd01.prod.exchangelabs.com
- (2603:1096:4:40::18) To VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13)
+	Thu, 02 Apr 2026 10:12:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 79F6032E3;
+	Thu,  2 Apr 2026 03:12:45 -0700 (PDT)
+Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 44E853F915;
+	Thu,  2 Apr 2026 03:12:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775124771; bh=dTATCCNsPeqserIF3s6JVimXK6Cxpv5jGTnuaTnnMGc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=n3xtds1FlvSp63GqDTziZndoU49yOPs4CnwTUzuHKDN7f5jNBEY8+r46Mue8ZCTZV
+	 svLi1bxbAIu7BlB7svIE/YhHcvTl8RrhqB0dfZKXhVHDRzs8VNuBXQzPruJtKPYbKM
+	 hUJQfb9YlmFZJrXrnoAtmM2uNJvvDYSh8xEW7aUw=
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>
+Subject: [PATCH v4 1/4] arm64: tlb: Introduce __tlbi_sync_s1ish_{kernel,batch}() for TLB maintenance
+Date: Thu,  2 Apr 2026 11:12:41 +0100
+Message-ID: <20260402101246.3870036-2-catalin.marinas@arm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260402101246.3870036-1-catalin.marinas@arm.com>
+References: <20260402101246.3870036-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|GV4PR04MB11944:EE_
-X-MS-Office365-Filtering-Correlation-Id: f5ec2e29-d2a7-419d-9ba6-08de90a00451
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|52116014|7416014|376014|366016|921020|38350700014|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: V+PZBfwNUS62VOgc6uqWq1vNrbHfqb8LaLw6gIqSJrOuTn9LlARpBYFxBodfvyVrXzB8etAcXi53XAm0bn0UaxIbdM+Lg5J096YK3Lzr1lJJq9G6erAtkiME0lVfGIXbKxbnCM+1fglM1q4auehEM5YyZPQdGDW3xN6Uqm/UchnuUcpNOayzv5+vvifdgIeibmwVZjzkvdAzpMinCLStmfRaqxN1kiu3+tejc/lTjFBcBB5/772di2TstIgNiqDXnWDECGnodFuWysTcQMx71/A0tJqb58Vgi388MKgqm6Vs5+LDZKagMKefXqcb45SV29dEwKQIlWQbua0ostzMdufnSS/x5Wi+rH1W9PftHqBA9wiQOiop3mD2byZPPj884Sv1NpbbyJYDzB8ud/k+63feLgoVIa/DPVte8lCDjl7UUDXO6aeOG1BY4R0gCEURHXdgjHS8bNH+DYpE/69E2gADkVEEh8OskaqFoLYqGJGhrV3WpokYlV6bvRCerGWF50M4yLBHJkv54Y57BTZrXW9mufIllxxRYsuRVdUcVJC5IFrZ5AHKC3/X3yt+95QlDX/IxK2L4zOvCG5uLxyzlFKEmAGpi/wtHzll2Q9ilSaZeHhEoOM3rIvC5FXgATQwFg0k9XlXyVvaarQR+xSkOARjNxmiwZf0d7D2ug01wQV/lwLtwFj4YuRM6wucjwVdgjQZUwAbGzg1+f6ZI/1r0mTc1vvhszy5CNEuED1794ujVmOP9C/WLw6DxxPwIjdf/j5szZR2y9y8zuMF8bm4ww3Ny5N4OsrzqXoiIUO4LrE9ywU4aDCRcFpwK4GffTmk
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(52116014)(7416014)(376014)(366016)(921020)(38350700014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KH7ZEpMlfvzgSln2nrJ1dorA/slA5vpPXGfGCqnWpNgZLDWCEMTtzfzV0wOD?=
- =?us-ascii?Q?O6NoK9ffn3DdZgdGB+XopLwtxxHkTUAK/DxAwI/GRRv0rsbn8Mbx/hKjTTOp?=
- =?us-ascii?Q?g0dwp7iikQ8HQn3ysP53WXL4rMImEyl1hcs6nhjjXDxJmgFtSph8TuzCHHH8?=
- =?us-ascii?Q?DKiWwCDwVvjvFyxx2PjDE7rY0U9IeqKdQ9TPASuM8InNCA56NTQYuifbyKAr?=
- =?us-ascii?Q?pOdxJqYtw3A/kEg7948lj4nuZr7uYOO58OSB4feZwFSCpCwd66p88eoPMAf7?=
- =?us-ascii?Q?mR2p+NzH8cSKYwXi+isIu0FI30p78D7JXrpP8sLCq0fSxcBLjibz8l0o5oUH?=
- =?us-ascii?Q?FcK4NXnSqDsj72Coq9v0USpO7R3RE53COCyA6R9Ves2yFMXJJVKSH8gt/jWi?=
- =?us-ascii?Q?+E5sfY7Tp4D+OXB7PMeQxnFUibXlYWrsGE357ihdWF3KNL7BeqpiyFwD2jlv?=
- =?us-ascii?Q?V30GgEfflbs/dEYbFnUgxp8fbG5zAaC/EvQjCn7AxcNwlXRGXrinhY0D5yz5?=
- =?us-ascii?Q?l0bNHb2Ne4USHC40uhwHEtGY/X/UdfJg5f2pCzwxyoIE0y9g/siZuMRPkV9a?=
- =?us-ascii?Q?agCFYmTx7ec0Mnuw5jJB3+BWaTZ6C6m2cVEJgxfrxW15eNVtpmEyMM3UdK2L?=
- =?us-ascii?Q?EKyUHHpeDATfYK+l0IbMsu0OO9Be51zTmKsGBwouJz6cMOhxbYfsGNOl3MR1?=
- =?us-ascii?Q?fBbag2ffg1drWd65p4lAmPmYkdTGuFicCQiyPKE3euqwxdZNd6OVZkf/8fy4?=
- =?us-ascii?Q?Xft8Fb0yGDxpI2RKVvfB9YnDLKDaE5PxF6zFOkN7K+yzp9upOdzrnut2+qfw?=
- =?us-ascii?Q?X3/1zPtrPXgGTCotumBh5JuBsNTFTAfXWA0yNU33260p6flQdTPwS+L2Zrlp?=
- =?us-ascii?Q?Ondn1b+odD3W3I6ZLfFJCrLyBeKJvJoMangh61vHdxyfys13dK/w4atex4N6?=
- =?us-ascii?Q?6F5j4cvCO0iaUSjt2XQ7W2JK7QJfg15gJMgBBnO8Y7BwbnwQASJKDbRHAMLk?=
- =?us-ascii?Q?U+UAUZksxyf0O/iVPYIkt6wQbkQFBaZBRTU0LDEeP8UQ6IzlTVvCYNOJ/VIU?=
- =?us-ascii?Q?jFriYKmTF+2fLvM6Z3irkAvFSGB5U30V1KBc+c7whBdgTDk2E4RHwhfe7fs8?=
- =?us-ascii?Q?29+LVBmcrM41ajq/CaIt95q0Z5Vfeh3ZjG1MzrMCnD90RnC7L8MSq4lUQsap?=
- =?us-ascii?Q?1Xh8rFL6rgNU/yOqVQ2Wj8yff5DskxpG+FK+lIteBoGbv4ZqywBru+PCpFR8?=
- =?us-ascii?Q?dn8GZQBaGmIGnZAw6WtJX1CvpfHom9/FFFJ9TQ9EgjwsIUXYRSNm8uNsnfNo?=
- =?us-ascii?Q?m/Ux2PQRQ3Lg/znpLWUjMyGRqnNNCLxCdJjgbgrbf+r8PuTLomgC5rUE+MKK?=
- =?us-ascii?Q?/h9y5eWtpQ9Fg60K3+g7/9GBQtm+aHmPZX+JNdMOt/XWyDDHeauzbClxwX0g?=
- =?us-ascii?Q?2YYjhdIKJ2OH3ygzFVg6Sgaq4IgfNbh1cQz+CPPGhld0gEIxQWYkHGuqstpA?=
- =?us-ascii?Q?q4lxSojwz+9Lgqwzu4IJlMSUrgL6qZllUy166jo4GYbcNo/Gx/Yi+X6epyTX?=
- =?us-ascii?Q?wDa73m3S5VctAVqLNVMsA1O8+y1HZAXVQXURwZGtAgAZWVJ+YiaoqtI96Mk5?=
- =?us-ascii?Q?30I23vUh7ukBhCq/lSxkld5Xj0IXBQn/CogbrxiKZ0kgwhwwYkpk9fJxAIzB?=
- =?us-ascii?Q?7Srjr6qOnMzu8UYo7Oj8ifXCOrHJ08MkEZLXa7rU06Grxutw2+V4k81BPxRi?=
- =?us-ascii?Q?EfAh8OPdCA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f5ec2e29-d2a7-419d-9ba6-08de90a00451
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2026 10:10:07.5568
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: B475eztOhF/TeCNPNzjYalKOIWp36QttmXOnpFfC3EBa7TWbV2b9NWt3mDOthDrjRHUKd35sXlMSmUBYcw8RNg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11944
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_031013_511948_AE9CE4E9 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20260402_031252_575980_B54F2647 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,79 +70,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the vpcie-supply and vpcie3v3aux-supply properties from the PCIe
-controller nodes to the Root Port child nodes to support the new PCI
-pwrctrl framework.
+Add __tlbi_sync_s1ish_kernel() similar to __tlbi_sync_s1ish() and use it
+for kernel TLB maintenance. Also use this function in flush_tlb_all()
+which is only used in relation to kernel mappings. Subsequent patches
+can differentiate between workarounds that apply to user only or both
+user and kernel.
 
-Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+A subsequent patch will add mm_struct to __tlbi_sync_s1ish(). Since
+arch_tlbbatch_flush() is not specific to an mm, add a corresponding
+__tlbi_sync_s1ish_batch() helper.
+
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Acked-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Will Deacon <will@kernel.org>
 ---
- arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts | 4 ++--
- arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts | 8 ++++----
- 2 files changed, 6 insertions(+), 6 deletions(-)
+ arch/arm64/include/asm/tlbflush.h | 20 ++++++++++++++++----
+ 1 file changed, 16 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-index 7d820a0f80b2..0d1cdfd54cce 100644
---- a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-@@ -555,8 +555,6 @@ &pcie0 {
- 	pinctrl-names = "default";
- 	/* This property is deprecated, use reset-gpios from the Root Port node. */
- 	reset-gpio = <&gpio5 13 GPIO_ACTIVE_LOW>;
--	vpcie-supply = <&reg_m2_pwr>;
--	vpcie3v3aux-supply = <&reg_m2_pwr>;
- 	supports-clkreq;
- 	status = "disabled";
- };
-@@ -570,6 +568,8 @@ &pcie0_ep {
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index 1416e652612b..f41eebf00990 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -191,6 +191,18 @@ static inline void __tlbi_sync_s1ish(void)
+ 	__repeat_tlbi_sync(vale1is, 0);
+ }
  
- &pcie0_port0 {
- 	reset-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
-+	vpcie-supply = <&reg_m2_pwr>;
-+	vpcie3v3aux-supply = <&reg_m2_pwr>;
- };
++static inline void __tlbi_sync_s1ish_batch(void)
++{
++	dsb(ish);
++	__repeat_tlbi_sync(vale1is, 0);
++}
++
++static inline void __tlbi_sync_s1ish_kernel(void)
++{
++	dsb(ish);
++	__repeat_tlbi_sync(vale1is, 0);
++}
++
+ /*
+  * Complete broadcast TLB maintenance issued by hyp code which invalidates
+  * stage 1 translation information in any translation regime.
+@@ -299,7 +311,7 @@ static inline void flush_tlb_all(void)
+ {
+ 	dsb(ishst);
+ 	__tlbi(vmalle1is);
+-	__tlbi_sync_s1ish();
++	__tlbi_sync_s1ish_kernel();
+ 	isb();
+ }
  
- &sai1 {
-diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-index 6f193cf04119..77c3a87d9065 100644
---- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-@@ -542,8 +542,6 @@ &pcie0 {
- 	pinctrl-names = "default";
- 	/* This property is deprecated, use reset-gpios from the Root Port node. */
- 	reset-gpio = <&i2c7_pcal6524 5 GPIO_ACTIVE_LOW>;
--	vpcie-supply = <&reg_pcie0>;
--	vpcie3v3aux-supply = <&reg_pcie0>;
- 	supports-clkreq;
- 	status = "okay";
- };
-@@ -557,6 +555,8 @@ &pcie0_ep {
+@@ -385,7 +397,7 @@ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+  */
+ static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+ {
+-	__tlbi_sync_s1ish();
++	__tlbi_sync_s1ish_batch();
+ }
  
- &pcie0_port0 {
- 	reset-gpios = <&i2c7_pcal6524 5 GPIO_ACTIVE_LOW>;
-+	vpcie-supply = <&reg_pcie0>;
-+	vpcie3v3aux-supply = <&reg_pcie0>;
- };
+ /*
+@@ -568,7 +580,7 @@ static inline void flush_tlb_kernel_range(unsigned long start, unsigned long end
+ 	dsb(ishst);
+ 	__flush_tlb_range_op(vaale1is, start, pages, stride, 0,
+ 			     TLBI_TTL_UNKNOWN, false, lpa2_is_enabled());
+-	__tlbi_sync_s1ish();
++	__tlbi_sync_s1ish_kernel();
+ 	isb();
+ }
  
- &pcie1 {
-@@ -564,8 +564,6 @@ &pcie1 {
- 	pinctrl-names = "default";
- 	/* This property is deprecated, use reset-gpios from the Root Port node. */
- 	reset-gpio = <&i2c7_pcal6524 16 GPIO_ACTIVE_LOW>;
--	vpcie-supply = <&reg_slot_pwr>;
--	vpcie3v3aux-supply = <&reg_slot_pwr>;
- 	status = "okay";
- };
+@@ -582,7 +594,7 @@ static inline void __flush_tlb_kernel_pgtable(unsigned long kaddr)
  
-@@ -578,6 +576,8 @@ &pcie1_ep {
+ 	dsb(ishst);
+ 	__tlbi(vaae1is, addr);
+-	__tlbi_sync_s1ish();
++	__tlbi_sync_s1ish_kernel();
+ 	isb();
+ }
  
- &pcie1_port0 {
- 	reset-gpios = <&i2c7_pcal6524 16 GPIO_ACTIVE_LOW>;
-+	vpcie-supply = <&reg_slot_pwr>;
-+	vpcie3v3aux-supply = <&reg_slot_pwr>;
- };
- 
- &sai1 {
--- 
-2.37.1
-
 
