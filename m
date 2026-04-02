@@ -4,94 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BE94D6AAF5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 17:32:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC5FD6AAF6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 17:39:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zz8YcwWkdWOvxMK3RVth/0rCZCw77MdxTEXEAAB58s4=; b=Hy9rlxGwMjqnljtgLe2EgGbFC9
-	HThU66a2DG+J6hgeXxdiqfwGBFVar+rGBkuveCvm0GkjY7K0Q9Ez5Jk1JF9USq1trGYImWgtvJi3B
-	JsnzGy3E945g7bwUr7eAdfx21Q+795IDfsHevJ4ST8xbxBboHKFcVz6xKHgV90r7EkGrYVbhwdt0t
-	k9gwbRQ2tr54CNCjUntJMr7FJ6BcwNhBcDQVgfjzizwWrJQtG3MeygouPbEOuzUZWALR06uroPsNe
-	6Zr1ESA1Bz+hrWlOYqa/CzfOLzbG+WqO1k47y53CwXpWJQwLgaAKyXUg910HOFVUEbLP2BfouG8ls
-	vfzwBUTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+uPvnhmls11jZMJXidvzLVFFEk2TWAWWR3yks90JsY8=; b=yfZPfbSfa82TyGpcSXChL7krtA
+	4/8ux3kMt3UT5dpaV5T6sLnfYd4HuaNZOqg8eOUse8SsjMOOzS7LekUiSnYxdImI/SqYH/TA41q7s
+	0KYydSP64qXUclfiORupgKGZp6CSrz9SHE8N78vWT1tgNJ3+y1PXBkzGnenttQ4Y39DGbMuv4L3YS
+	UCqh5ErwQLBRgvZ3fTgp6Qwh15dpqvSFEuF1vKe6xKeaqz4UZtFPQY/lZzBbuwHWtQAcC8mAmtJsL
+	cxUrJ1Z4rUS7u1h3NKsL2/2PTDYwtuqbYMezLtkBNQ9amP1JWoVIlSwUVvXyHCxHSvk3SDcqHy66U
+	stxVzc4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Lu5-00000000b4h-3rXD;
-	Thu, 02 Apr 2026 17:32:25 +0000
-Received: from mail-dy1-x1333.google.com ([2607:f8b0:4864:20::1333])
+	id 1w8M1H-00000000bUU-0Qkt;
+	Thu, 02 Apr 2026 17:39:51 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Lu3-00000000b47-3oFb
+	id 1w8M1D-00000000bU3-3T31
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 17:32:24 +0000
-Received: by mail-dy1-x1333.google.com with SMTP id 5a478bee46e88-2c156c4a9efso1393163eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 10:32:23 -0700 (PDT)
+	Thu, 02 Apr 2026 17:39:48 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-486b9675d36so9755205e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 10:39:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775151586; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QsDXn7wfqrWncJUqvxTuABW4M+EnvqRomP6Zeri50b+rRNNIOX2ahQhLcwMf7JQ4IX
+         KeNrquAqTo1uG0tzdU4uRHSpxwmIVj6pMme+GTWuWBUa3RGJ6OEnDWd3zBEXvvMHhgqC
+         6vXGrHdbv9fV62pTFseseZMZS+sxkbBN4gk55MjmeF3K8Rg1I+9sJ99TRaSFCZgvw0ko
+         KgEhqAbIY2cWpuLBkX0ICJxIg1Eh7susmoBcazAeSmBc3hSRM+XnitFnHEZ4ClxeuMkR
+         8su5ZEwnVaSeAqEgi2iQHECp+hTrLm16UPghXMjvzuVMK+2EDP6E2qa9pHsvGWkeCtdh
+         C1PA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=+uPvnhmls11jZMJXidvzLVFFEk2TWAWWR3yks90JsY8=;
+        fh=ieK2B2A4OrwSMT9QOe9Gxu6qufxJ/gvMzvLzhvPkflY=;
+        b=juYHkqJL29BidRBnwGJjgOgob8B5IcTzyrNvyV5piB2rKfdfUeWIzM8u2JK885uMGf
+         JIbsyWORXjz3QyQF7GBwvhD+Ex39H0ydntTl9dBj9mFUmNGQkv0hQMU99NXql2B5zFXB
+         MCIxFYqzWEXa4g0xJ1SMcCwUFyaEsW6MY6MNW2K1rOrdHM1v5nGA6XxMXm1mRHh+31/R
+         KcKxitqX6kWPT4EQYR+X+BeVOnh4gwvEaIX6AgCE0AbkES/FxAvSk6N21C4dhXZTWNca
+         9nH8IEQrx+9wd/xBGhabRmcM663lFwoXVpd2o3bXF+a+1ogSrVFRQyYd7WZkL0VYmjIv
+         d6hQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775151143; x=1775755943; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Zz8YcwWkdWOvxMK3RVth/0rCZCw77MdxTEXEAAB58s4=;
-        b=dixOl8AeRMzVirmvDfiGzTnRnA6vroaGBWX0aS9J6+JV+kC7dRwEKvM6X01NGm6oAY
-         Gx0iSB6rNIVDyQPjg6naC9QE3XeBCnAcwG4zuFq5dA7huRUzJhYFoIwbKd+/FkZ/NW+D
-         eebg8eaMW73DCcbQuzGsdvIDnmyquD9cDMnLPbmQD0cLjLMdZhiX2OlYAg055yii/ufd
-         JOQTXwkmPoqgLRIp7RhcC2LSF0kkcDRLgMmaR1FarqqYWYY+/PY1L9gMB0w1Vv/qCl+e
-         wd1yJabayeV2LBAkmgG4guO8KIp5HBKL7aD6KoNSSMLvLqG1oAVd2ijL2PDJnws6fSNh
-         cgEw==
+        d=gmail.com; s=20251104; t=1775151586; x=1775756386; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+uPvnhmls11jZMJXidvzLVFFEk2TWAWWR3yks90JsY8=;
+        b=TVq4U0YiJQ5ai0OtUYoA2X2RFNt0GG0vk27tDe+iDO8NOpzzJ1GdVT4bkxTVZXgMGW
+         J5mOaq1MzZY0795+3yH/mDGHysTFzRqA1aiCrLjKhpjooTvzjr3WG/VhmByEdN9cRpys
+         zQuQc+1B/KmGMoLjAAaTn5Rx0dobaUyH6PzXd5pM9FMZNaG5gVQvQprdYy5CZyvRydyu
+         vsUedqDtm0eQREaLPy5zDb7fhlm0DPxk5uZdhNIWbhga0hX1RvhMgRQaM2c564NnuPYk
+         FaH3wGaAPffFtI90/XqdpzOsSS9tStd/mDZgeuLw77VwT8OZd7pDlB3U88FT+zrGULoP
+         oV3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775151143; x=1775755943;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Zz8YcwWkdWOvxMK3RVth/0rCZCw77MdxTEXEAAB58s4=;
-        b=D8Yz39Eky2jKGrwLX0ELSckeGXyoaehlhay4hknjPWVEbONEZ4AnjDlNcZ0bYw2l5X
-         096jm158V2dGP0PV44+4mcyuRmmcfy2MiUeixOgCX+7qDWeIVPgkJH2On4C4YYr3Q+gA
-         O2N6LONzYGc+TYM1+F6X8Mmo3TVqs9j7DEZOrFAPA/u8M9CDU4MLKBtR8RR65P27ddD8
-         VaHLsjQMI1L7amXemDu9vWd3OD+3+92UgsVSXKNWaXrAASGpB/jpuFA8tx25/C4lBOKy
-         EIX+QE2iVhZ4ulWhkCT3iQGyJ+VZXoAFv981+231TM725f8IhH+4tNoRK+ryeZFyMoQD
-         x4eg==
-X-Forwarded-Encrypted: i=1; AJvYcCWZRLf8Ts5zajkr/GPNCjU2THFWVVUqQMRzQRiLfAsptgFl4MiJix/ZFHnrb075ZGLc38m2mbm5nrsFWAdO7ISe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzcoq+vA7+zq2Fp/csxOuQwI36FW2n1mSSVcmtILNtiXYHGRcRJ
-	s2BarQT6f/H4xWQ+zbpw2B9uv4QT/w8I8rtMcHaLytpNbtmvcq0JPFr6
-X-Gm-Gg: AeBDiett/WsFqfPTCZmNWi5tKAswBioJ/FLN+kQbYDqitJ/8qwQ1dtoJhkzVYvI8KOA
-	N34pKJJqzqZD6qmta2c5oPLctGgW0pYB7c++d2X+FxxayXSyDRP1rnELpYvjKY+aeeOAYjmWelk
-	3GOyYiB+rKzuyPKGL3BpK52U5LvqxCtYxbp1gvM9HcT2XJCZ41coMHqquxTaNKVMSpDss4YpeL+
-	RJVNCzmQ9HNQy5cpsVeQUvp/8lcUvmEO7ITNSSu4ZPEUzXdlvtbAWefssHloAEQZtLbv/8HGSKa
-	iefBhH1xhhlQzMhS9TXWc72vLlpdSkiCyLaE1NtHazp/6PrxgPSgCNj/pwT9d6QVjTURD3HYkou
-	Fc7zuoaK6C+HfeUM9P++YRmh/3tyh+ojn/bGg2WZOSninYbMCL+5abT7UWumin+8UIWHq7qksVE
-	VGLTQSi9hg3nCdCKOIBSYt3mliU0JzEKTuSdkHzXgsrzK/HTuKwHY7vfvkn49FMXR3
-X-Received: by 2002:a05:7300:6da8:b0:2c0:ba91:48b6 with SMTP id 5a478bee46e88-2cbfc073927mr1038eec.26.1775151142569;
-        Thu, 02 Apr 2026 10:32:22 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2ebe:8:902a:cd8d:1c0d:8926])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2ca760b0518sm3001257eec.0.2026.04.02.10.32.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Apr 2026 10:32:21 -0700 (PDT)
-Date: Thu, 2 Apr 2026 10:32:18 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Aaro Koskinen <aaro.koskinen@iki.fi>, Janusz Krzysztofik <jmkrzyszt@gmail.com>, 
-	Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, 
-	Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>, brgl@kernel.org, 
-	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
-Subject: Re: [PATCH v5 4/4] ARM: omap1: enable real software node lookup of
- GPIOs on Nokia 770
-Message-ID: <ac6n1p3eLVFzumbt@google.com>
-References: <20260402-nokia770-gpio-swnodes-v5-0-d730db3dd299@oss.qualcomm.com>
- <20260402-nokia770-gpio-swnodes-v5-4-d730db3dd299@oss.qualcomm.com>
+        d=1e100.net; s=20251104; t=1775151586; x=1775756386;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=+uPvnhmls11jZMJXidvzLVFFEk2TWAWWR3yks90JsY8=;
+        b=iZr7Wj81MKkWtkqoG19YWJ8GZdSn2rMQBRcx7jE77K1Yk0VCgpI3qBhVscWBIJR45E
+         r7epPnbshHHxotrfhgjm+vNsoEBcVPAzm6AIqIrHwmImYu7ZuDLER4lKDRO5RdZqbrqf
+         HcVpsNajhRvqtoxXjq1Do2jk0loOCJdZqj0dsD6O+co3diQZMP6p+YTbG4d+1cDI4QPW
+         fVp8xBwkEV+lrN3krrvvNd/PSYfaKdhymIYVc0P59FTBWYAyk6p1awezSOQ819RQKe7R
+         jXYzRNlzrPt4yuLt6vgbtEYWU58ne2XBXEh2i9dClt84IYqAFk9nwrjMoKR94nxpPkvS
+         alrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUepGWaPBqAh174BLcuyfHS3BoD74UjiO0PkRgU0aULTFQGb7kqJuh/l5fzOnGs5TN+pFXWBI5BWhdFtb/Fp8Jm@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgvzbtHo9/5GPAdcg9eDFa9b29YX8z40DkPE+C3aRb5J4v+nXq
+	pwl5lycK0+LkRzPZ3PBR8+CRNH66NEv82/HqDbjywJOZLt7F6LN0p7LYv2y15hwzQmH6517sKI2
+	6hmIh6ms7IvSNuYN6Dc0Hfku63m6jkng=
+X-Gm-Gg: ATEYQzwOEw7vhrYlAAwZG4s0KofTldRVAAbU1O+Kcr3osu5I3aZFEBGcahuRNELhUyL
+	1or2RDgGL09CCPTRt8bWK4YINsBBT0mnWHYTDhRNBaEX6lhuaJ2lhE42LHbJ56LHqdDF0oDQRfY
+	gXqNElOT007eF7Y5cfeYeTTFasvwFkRJmoyE8k8zp8g0eyHwg0XFBCMEVyz1gVziCfAPpFqq0uh
+	tqSuCOruoCa9QRF5forxTjA7fVHeU38PVtNC6BWWDjB2ZpS2wxND6G9hQ2rcswPsDX5EoNMnwHu
+	G7un/9LDqzSNwuFy6CaAJLhGgIlwrUWGKxoCcWP3
+X-Received: by 2002:a05:600c:68a:b0:488:90ac:8f8d with SMTP id
+ 5b1f17b1804b1-48890ac90fcmr32178355e9.16.1775151585540; Thu, 02 Apr 2026
+ 10:39:45 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260402-nokia770-gpio-swnodes-v5-4-d730db3dd299@oss.qualcomm.com>
+References: <20260401041929.12392-1-CFSworks@gmail.com> <ac6kfQ98Xjt3dCGj@shell.armlinux.org.uk>
+In-Reply-To: <ac6kfQ98Xjt3dCGj@shell.armlinux.org.uk>
+From: Sam Edwards <cfsworks@gmail.com>
+Date: Thu, 2 Apr 2026 10:39:32 -0700
+X-Gm-Features: AQROBzDUcpqQpe24gMH4zeWd5eqMpRIPwUS0ch-pgokIhwXtjepCY0luOnTMD-k
+Message-ID: <CAH5Ym4g3pbU_bWzMwJMdhEFv4K2sp3pty3g04=0=9Z80_LzW1w@mail.gmail.com>
+Subject: Re: [PATCH net v4 0/2] stmmac crash/stall fixes when under memory pressure
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, 
+	Baruch Siach <baruch@tkos.co.il>, Serge Semin <fancer.lancer@gmail.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, netdev@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_103223_947620_0CA9C8C7 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20260402_103947_882786_22A65423 
+X-CRM114-Status: GOOD (  15.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,25 +123,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 02, 2026 at 04:15:05PM +0200, Bartosz Golaszewski wrote:
-> @@ -244,6 +263,13 @@ static int __init omap16xx_gpio_init(void)
->  		iounmap(base);
->  
->  		platform_device_register(omap16xx_gpio_dev[i]);
-> +
-> +		ret = device_add_software_node(&omap16xx_gpio_dev[i]->dev,
-> +					       omap16xx_gpio_swnodes[i]);
-> +		if (ret) {
-> +			dev_err(&pdev->dev, "Failed to add software node.\n");
-> +			return ret;
-> +		}
+On Thu, Apr 2, 2026 at 10:16=E2=80=AFAM Russell King (Oracle)
+<linux@armlinux.org.uk> wrote:
+> I've tested this on my Jetson Xavier platform. One of the issues I've
+> had is that running iperf3 results in the receive side stalling because
+> it runs out of descriptors. However, despite the receive ring
+> eventually being re-filled and the hardware appropriately prodded, it
+> steadfastly refuses to restart, despite the descriptors having been
+> updated.
 
-I think the best and safest way is to convert to using
-platform_driver_register_full() and set swnode in the relevant "info"
-instance.
+Hi Russell,
 
-Thanks.
+Just to make sure I understand correctly: before my patches, you've
+been observing this problem on Xavier for a while (no interrupts, ring
+goes dry); with my patches, the ring is refilled, but the dwmac5
+doesn't resume DMA. (Ah, just saw your follow-up email.)
 
--- 
-Dmitry
+> Any ideas?
+
+Off the top of my head, my hypothesis is that dwmac5 has an additional
+tripwire when the receive DMA is exhausted, and the
+stmmac_set_rx_tail_ptr()/stmmac_enable_dma_reception() at the end of
+stmmac_rx_refill() aren't sufficient to wake it back up.
+
+I think this is new to dwmac5, because my RK3588 (dwmac4.20 iirc)
+happily resumes after the same condition.
+
+You gave a lot of info; thanks! I'll try to scrape up some
+documentation on dwmac5 to see if there's something more
+stmmac_rx_refill() ought to be doing. I think I have a Xavier NX
+around here somewhere, I'll see if I can repro the problem.
+
+Cheers,
+Sam
 
