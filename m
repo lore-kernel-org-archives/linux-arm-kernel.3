@@ -4,127 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CB2ED39403
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 09:50:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 150A2D39406
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 09:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1t+cSXgbPOtugAcLyoc7h7gL+0nsGdMe61/bSuxOYW4=; b=2ON8bfPrlz2RT5w9twNlTPBZmR
-	+SGtjCdUiK2N4MD8+ZJkOdapyDiV4ZUG6b5NqQrGt1jYDGsp7n7N/hQFfuQXDlprLZdLl2PpsZYDI
-	KtAze0lN1zCgA8MGfPbXQ0NYcwDoeyfKePEN0Ja3ooEJemR0BSb49f5Ujqjp8wDMbPFThQ1a5XRag
-	7AXcRfeUxHQLU3iadS0xrKIoiNkGIH2ditUffcKdtv0Hm/iCD6a1nf1gEM4uaM4jP2fqtjgDFx0Pj
-	qcjaAbUmc84uT6q4iG2VF7+hTCJhLviWy0WupNIlgJ4ie3uCyP32JLnyM+GnBiBWl8tbAorJeXLrC
-	fI4z0gsw==;
+	bh=q+/4iNXAH2Vuhz/GgTRpfoMMfLPcLnPEqw2X2iiifgM=; b=OekKtK9molXRiukaC0HatZQ1dD
+	VkC0JcEl4MoTZdbUHNp7VNcNqCyGR/AGPkqnCXPoexmXCelPeku18+C4DsnIDZwo2pXfaFmYCEyWv
+	j9AdDLLM684CwMIcBJIM0XZhNK/O/FoLAOmtFP3vOFpTaaJonNiGrYN27TmslpHGN08q84WiTGOGr
+	HS0cPG0Sr6ETqXUuVCYpHIq8KX9YTe8TbOWs9SCBJgnIXO7xytFtOf+hJYqpNUOLbdXqcZ7qL2GEZ
+	K7jJ8gi4z8nAowd+bLpxJM0GjawmXEiK+H5tTtDo6tnjKAG1hmxVeXCI96TGvGJJR7IkU4NZtfixT
+	0GxlGIwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EhC-0000000HIn3-1WnI;
-	Thu, 02 Apr 2026 09:50:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w8EhF-0000000HIrD-3Z42;
+	Thu, 02 Apr 2026 09:50:41 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EhB-0000000HIlo-0k5V
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 02 Apr 2026 09:50:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=1t+cSXgbPOtugAcLyoc7h7gL+0nsGdMe61/bSuxOYW4=; b=oVco53uS2+/uD/JHDL94TWTS8R
-	Shw6W9yO6Nc4qBjr1BOghasWKu/iSoD8osBlVSGV7w037fxUbTUROpEOtwcJCdHkHhej17XLAkCz8
-	XNGDex9x3ftKFYgRcn8xwsBcXa8CdFmGnfhZZ7gBvH8qpHnZ9o7FhGgWhtlwXjTGW28oQhlWmjEn3
-	KiUXL6v0vuIh5V5xGUcunWYi+ai9tojAp0mJYtDyjsZmScaelz0Tx608yp8GoIelTao+/ilVtGHX0
-	O6Foecdq61HzAreEzh77SfAR5cVZVxmvyuz+b91wCgHVVYFx4SBrWS5NEpS9i6Oy9ZQGYaGoUOd+w
-	TcGarRHw==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Eh7-00000002AEC-2iD7
+	id 1w8EhC-0000000HIkP-47yz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 09:50:35 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6326BuGJ1965398;
-	Thu, 2 Apr 2026 09:50:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=1t+cSXgbPOt
-	ugAcLyoc7h7gL+0nsGdMe61/bSuxOYW4=; b=VMxNaDSXpNEOGop9XUOKKfzV4+J
-	TIRspHK+wBXE2DkuPisH4iDkRZumDoviwrUq1k3RBi2RxTtSHwAALchnW9HVzJ6Z
-	1Epq/sJtm51/dRuPupXQYdo5GO6qewrW+/x+4N5/JCc4EdjFjRYLbtUFONamVLiY
-	EX7YA+caua0KliQ2JSIW+CEgq4bqwgTWrOlbsaK3X6jLJKtGnAI6FU3OqtqabWGe
-	BdaiUy0wfvrRAu+wR3rCMta+ZLegmqSZiWl4vFiPyfzlga7BM1ngnSGkd7XV8Hga
-	sixIZDpHuCuvQHFiLZX/ce5C5sf4rkFrgAg2DFlBc8phtuXd+Znd0klEYQQ==
-Received: from apblrppmta02.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d9b9h2g36-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 02 Apr 2026 09:50:20 +0000 (GMT)
-Received: from pps.filterd (APBLRPPMTA02.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA02.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTP id 6329oGj5004381;
-	Thu, 2 Apr 2026 09:50:16 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 4d6qk2m86n-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 02 Apr 2026 09:50:16 +0000 (GMT)
-Received: from APBLRPPMTA02.qualcomm.com (APBLRPPMTA02.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.1.12) with ESMTP id 6329oGat004361;
-	Thu, 2 Apr 2026 09:50:16 GMT
-Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-mkuntuma-hyd.qualcomm.com [10.213.97.145])
-	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 6329oGwc004357
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 02 Apr 2026 09:50:16 +0000 (GMT)
-Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 4582077)
-	id A8CFA3E5; Thu,  2 Apr 2026 15:20:15 +0530 (+0530)
-From: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
-To: dmitry.baryshkov@oss.qualcomm.com, marijn.suijten@somainline.org,
-        swboyd@chromium.org, mripard@kernel.org, abel.vesa@linaro.org,
-        andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
-        krzk+dt@kernel.org, conor+dt@kernel.org, robin.clark@oss.qualcomm.com,
-        jessica.zhang@oss.qualcomm.com, abhinav.kumar@linux.dev,
-        sean@poorly.run, airlied@gmail.com, simona@ffwll.ch,
-        alex.vinarskis@gmail.com
-Cc: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        freedreno@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-        quic_rajeevny@quicinc.com, quic_vproddut@quicinc.com,
-        quic_riteshk@quicinc.com, Mahadevan P <mahadevan.p@oss.qualcomm.com>
-Subject: [PATCH v5 1/3] arm64: dts: qcom: lemans: add mdss1 display device nodes
-Date: Thu,  2 Apr 2026 15:20:01 +0530
-Message-Id: <20260402095003.3758176-2-quic_mkuntuma@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260402095003.3758176-1-quic_mkuntuma@quicinc.com>
-References: <20260402095003.3758176-1-quic_mkuntuma@quicinc.com>
-MIME-Version: 1.0
+	Thu, 02 Apr 2026 09:50:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tN7SgY8IM3Lp64Vycy9BQTnF56Gmj56BCbNA2UpXcQ2XEuF7hZhw2rVIIz+B/PwyaR92CNBW0TATpjgBAsqQtpd4wWUdqk6sBULPcxHKCndoZzUnKHBiMXNdJoOZDKhfCy3NzPuZwdsM9wh1d2vkSvdikkqCBhNv77rU1NADBgiyqgjuLvPLWrKbIrpiMfIFpfhRxp/h+LHPVSjRVbnMo+OK4HTCmF6LgIywUJXt05ZLZ6mgGbPC4v5/3jxg135SHVHTnAV0OTj8E1+MeNLtjXbBL0p2PWD9ixKEU0KZP34sTRU/rsSyosMCvhTMJHyPOup5Zkuqm8Skzu4NcC87mQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=q+/4iNXAH2Vuhz/GgTRpfoMMfLPcLnPEqw2X2iiifgM=;
+ b=K4Vl8x+PknAQMdfXE5JtHK0Xb2j7d/DDiQUHR0rLW2qNdwi80Mo/1hhsqF84M31DZn2eSZu4ja8ZNQDQr4m4iDvtOjS8iz7K7W7lSpO9Q8+b7ZlKVMbNqVBYjO5ymleCwLlY8W0DSQLIfg9w5eHRUO/DuImiekxbQVqJ6UZfSVWzQiUFlAr3/CUkcLR6UH9abEKlbUVUn0hbwLdg2RkeqXInWnxRRE8G2O1MZnvzvW5sRQYD7aJ+CiFcJzuOuES4g7C5OfdoLHV50j77HHEiXH8FFEdCrdUXqD3hLWhnYYRzJLHKR2jHu9arEuJ8asldCQlPCsn39QHlrhF3TZfVhQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=q+/4iNXAH2Vuhz/GgTRpfoMMfLPcLnPEqw2X2iiifgM=;
+ b=HPPWCaDH83AkVpSg6BfpCchkhTSBJaf4C8BujnPYeplFWmSsht+9+XF3Q7FEng86E3qP75PJuVpypHaLHbUlI/jYC5ymST9RGK8ZyQ3cxPGaIvdwkDHWiEtIHoyeORxO0ZWRRj3ePo+YiKvZm5uhqqEulQHLb+iVTyWoSnk5GxgdVVSpl83vddJDcGk1r3/5/vIMCrfjDBQsc81gF7RqO07WDxiublR27h02JuI4D5HrNwIJ7oA1EXa5YqFAzPdn6QYtiEF04UsmyVS54KjjYhNQEHO5hxy4buvigNBsGIOghyrzXwnyNUAIh2GNQ9lA1i9aq7+Qbr0KU+tlwgsB+w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by AM9PR04MB8471.eurprd04.prod.outlook.com
+ (2603:10a6:20b:416::22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.25; Thu, 2 Apr
+ 2026 09:50:32 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994%6]) with mapi id 15.20.9769.018; Thu, 2 Apr 2026
+ 09:50:32 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	bhelgaas@google.com,
+	hongxing.zhu@nxp.com,
+	l.stach@pengutronix.de
+Cc: imx@lists.linux.dev,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH V10 05/13] PCI: imx6: Add support for parsing the reset property in new Root Port binding
+Date: Thu,  2 Apr 2026 17:50:59 +0800
+Message-Id: <20260402095107.205439-6-sherry.sun@nxp.com>
+X-Mailer: git-send-email 2.37.1
+In-Reply-To: <20260402095107.205439-1-sherry.sun@nxp.com>
+References: <20260402095107.205439-1-sherry.sun@nxp.com>
 Content-Transfer-Encoding: 8bit
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Authority-Analysis: v=2.4 cv=TqLrRTXh c=1 sm=1 tr=0 ts=69ce3bdc cx=c_pps
- a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=YMgV9FUhrdKAYTUUvYB2:22 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8
- a=QB79VSau0zwNiicQFnEA:9 a=mKziBQOQ0kVx0287:21 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: 0VPfT5Yq6xN2QhzJQjdji1q9iyh9m8dE
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAyMDA4NyBTYWx0ZWRfX4YKMDC0wnLOg
- fxJ2p28Gbce7pSA8D0mq2OpFY/RBVT6hP5VmGv+QXPjX6BQRWea/2Wk8bb/yRH3QeZEuA/dV20W
- iLMGxPwGuzJS3BL79mfAnz9qAvd/A4eKYI03J94LIeaYVOggNiYbbAKwqJZkCZHspPi1D8+tPPq
- M9JL0r3/R4WGJVwL6ptmGspDWBXSOHCc+RRa1gMNBhYzKVLxGKxTBnT/rzf97tKFGpARZ3dBzTl
- nWQho76jZfbj0pU/IcCxTbJcoePgNaXmgfEiJjKS4SCg7qLRB9QLP1eN34u0SgDzETn59GDwNA/
- HoznJwTd4I83DL5Kp5jS4Y/hTVtQ+vpDP2+HMkdVplfinLDa+j1tTo4gkapYc0+b6BLtM+UpHJs
- rv1Knf/X859cT+iDUrgGgPIMMFwrA8wYxaP6RT6PHGlLkYRjqkPQAv0D99jXWLV8zCAqNEkudy4
- dskJ9FHuwVHHA9l1gXw==
-X-Proofpoint-GUID: 0VPfT5Yq6xN2QhzJQjdji1q9iyh9m8dE
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-02_01,2026-04-02_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 suspectscore=0 priorityscore=1501
- clxscore=1015 malwarescore=0 spamscore=0 adultscore=0 phishscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
- definitions=main-2604020087
+Content-Type: text/plain
+X-ClientProxiedBy: MA5P287CA0163.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1ba::11) To VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|AM9PR04MB8471:EE_
+X-MS-Office365-Filtering-Correlation-Id: cf032d08-5110-4c00-9c13-08de909d47ed
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|52116014|38350700014|56012099003|22082099003|921020|18002099003;
+X-Microsoft-Antispam-Message-Info: vyLJghb+VJxKn8KI5q+ymIk7WZiumY3WgKF1g7okBdtU7Tfc4F+g+JqRmNso8jPbdAUYMIaIHEH6aYZIaLGJ19qMM3DnMW4W1ZdcHThE7vWaH+VfvDiy9w82REcrjJPzmIfA2aOAO9/KUVBjKH0NXsrb9E/292v+WgcO5nYpz74kBBua5ueQjqLjeL1JEwSPCYSu/H5TJgZujBH8bZBJsEPP0GZALvzLe33Cl+afDHd0+wn3hMxrIb1/VovME6jy+ZgkAVCPUOOaWRvN/44IJhPcq/FuvrEcf6S7EDLqOAjdcZF2SqfRtu5zbWIt8fRPyh/mjtT7Rm3DOfBaUP41I4TtlkIjf2DL3G/8C5Gou5U6awRv/mXucWVtnrr+ZPLuYCSnvpqmW2SHx9cGuq4hT12iDHDVfhid/VLr8RhQzJYbckRtUVermBed+6DbzemEyhS7JsZD7+/+zGsRr1WE/qVYsLq18fk4YExdUcDKj5kkqIw/c2IjZ+AgNCe03A0vzZBUXObONofiMG42iFJuKmGSc5j93iIzwXLVuBVvcTQT/6CrFSIpV9HFQSX5QeI0kBDVA3QCI8wuN3/zO3uchKYNsSMC8ytLXp/se+qksdAaBDka+wrqtVA/idK9maJEcxp91L37IxQqMYXPJWljH7BaCdAhxI6feljW5ZKgEK3Pd6lsg/N/5V3PL8txDMrxR65x8VUJAVZTR6drMgffdtPdL+EPalWWLn5fomoir73HiWmUE45ryfnptA1b7Cq4NBO7C2RmljIlj1ljqZpZl4a1MLwS6rmslvjaoE+fPCEgDVyzzhOzecQWW4I35ZfA
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(52116014)(38350700014)(56012099003)(22082099003)(921020)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Tj41lA27r9qsjDnHisScfkLXEZNwCHjFzpzOP2YV2vcyjp71Neukfll4e4ri?=
+ =?us-ascii?Q?KBPVlkXhQbVew/AhkIoFlbSm3VrBFQaBhukUASzDOJ7Fzbqjjs4yfCTRK5h7?=
+ =?us-ascii?Q?rzI6yyMHKqhlTHibcQu5eYP4Gbe8nzo0SwKWg3bBAy+hiVCA6bui7uLk5hfh?=
+ =?us-ascii?Q?us40e4LFk/HRqDtdvgeojAvR6WiaEAxVvBxJUkLopqHX7wwWO9OHQLUk9YVz?=
+ =?us-ascii?Q?/B5Xhu2V/12AqyMpUnf514Ra/sRRealYVBckUG0r661hATOC8C4vbdRjgGXZ?=
+ =?us-ascii?Q?bkAKwLeXikh6iWWAOxbwOV1dxUTNtQ9p8BtCWZ7qXyuYPOEVu4FepKZdWa17?=
+ =?us-ascii?Q?6joIsIDpM8/OcssTOslKP89h+OHy6b6mor3j3Gnae6juZp5DhQKLMEkMyaYO?=
+ =?us-ascii?Q?x9yt890gN7BHbv0+yOWWU97eOclmSuZdJEzOq2jo5M2ojnocpbka5eI4Bmex?=
+ =?us-ascii?Q?FwGByAewdEamBO2kcyVSJUUx0I64QcyNyMFOpM+tj01B7X4ENs/dvrJOsgiX?=
+ =?us-ascii?Q?e6VdB29CNfvJgcIKfWZ1IyhLSwhGgQVTJyp25kOJ7FEKoHboR4BsJeY6Fg12?=
+ =?us-ascii?Q?8CEiSKcjy7waA6OsT37JNXmex/4/t3qtcPYkyXuUXwNpuTVf03eyEoed8GGO?=
+ =?us-ascii?Q?6p7k7/mE4w8PUXxOBRaS6o7aCjGUj51JfvCc78PjLju6N/2nDvmlzXHMHaZa?=
+ =?us-ascii?Q?fduhPQbXK5Dyr2aZhoGv+tq+reynvG+nadPLo8581Gn/sKVuiIadY7qske0u?=
+ =?us-ascii?Q?7l0Ud2Bh98psPPzrKkmwMUNpg76h5pzaBO+XNhwzysVc6y3b9iTX995vzDU+?=
+ =?us-ascii?Q?2nKmE3iK9MiDVSbigsOEQShpQiEme4mKFynOIEvehqtEALBGXWYU2CZjIeqq?=
+ =?us-ascii?Q?vhdugF1khuUIVV/M+iGudQn1F9/4/HmxgbmswrtfgikcsQnAPXweXDiFyPiv?=
+ =?us-ascii?Q?x4k1oL+oSsg4zjMdUTfWHq6hDfYtGjSV7ljeM/AhUrNFpS+974ENO9Ezr5JR?=
+ =?us-ascii?Q?Sfq9BVona49kOMqTfyGZVPVYog/GCOplj84PKegOFxEyW2xYYWLoXyVGIbDD?=
+ =?us-ascii?Q?2mXJutIDJ15smg1NbTkO5Kq7PEoL/gooxCft/n1ckYHpOtpwdIC0H9T/Hp9L?=
+ =?us-ascii?Q?HJNOa8Iq7TZllbjx7xibrrXSq13keKymy6AcgIgeUyfh10Uq+UYNl1RPHd4u?=
+ =?us-ascii?Q?OQPIydSqqK2xqtkojUcG038n3SpN0/rk1KmKmVl3FhNb/4HSxQF4g1xGE76+?=
+ =?us-ascii?Q?FAe+FwURSz+PNGtyBVkd7BeW64+yRfO4NrhggGGhXRY5yC/c6KWue6rqKYtT?=
+ =?us-ascii?Q?KMYUl9teGNMKW5842fw0CWGWPB6/3mwvEbCB9TgCktFPxTbnyY4Cy578vrrY?=
+ =?us-ascii?Q?7Ixsa3hZ3dYbXUWE/ukObJK7c6b6wA6n1BziwTlCW4Li6JYvCa50/l99L/ed?=
+ =?us-ascii?Q?XuSGObmNH1ToAWWbxK/gK8IWM8UNDVITpoGEBghgqeKvIrdovAgVj7XVfFqs?=
+ =?us-ascii?Q?6hPJJYSyASi3V/EdcqJpw2STDTevqfi1F4ZHq72rbbh3CTOTcV37QnN0OET1?=
+ =?us-ascii?Q?fPOEIcWvl/RGdZV/2farRmdA99lVxHEM4kyZ06VpnoCmnaPjyyp43tt6goor?=
+ =?us-ascii?Q?Nd456mAQKDQmLBirZpfIjzQO0GBvpzwS3heRNGxkeDBJDHMUTQpRBLkzyt3p?=
+ =?us-ascii?Q?xw+BiBqp6PtzKemEAVUDr4RVYOathsflqrYoFafJh9qO1B17JVN2Kx7zUiB5?=
+ =?us-ascii?Q?owyK0Z+Isw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cf032d08-5110-4c00-9c13-08de909d47ed
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2026 09:50:32.8620
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0KZFxcaoFWYuY4FA5lEuvAgj/2vOybU4NIZpJ+vWtFiY9u0XG8Akq7UqQjywfvOJ+3Jl7ACtQJ16TjFYl++KJg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8471
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_105034_108175_8A527872 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20260402_025039_640205_B7584893 
+X-CRM114-Status: GOOD (  20.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,343 +150,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add devicetree changes to enable second Mobile Display Subsystem (mdss1),
-Display Processing Unit(DPU), Display Port(DP), Display clock controller
-(dispcc1) and eDP PHYs on the Qualcomm Lemans platform.
+The current DT binding for pci-imx6 specifies the 'reset-gpios' property
+in the host bridge node. However, the PERST# signal logically belongs to
+individual Root Ports rather than the host bridge itself. This becomes
+important when supporting PCIe KeyE connector and PCI power control
+framework for pci-imx6 driver, which requires properties to be specified
+in Root Port nodes.
 
-Signed-off-by: Mahadevan P <mahadevan.p@oss.qualcomm.com>
-Signed-off-by: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
+With the common Root Port parsing now handled in dw_pcie_host_init(),
+update the reset GPIO handling to use the parsed port list from
+bridge->ports. To maintain DT backwards compatibility, fallback to the
+legacy method of parsing the host bridge node if the reset property is
+not present in the Root Port node (indicated by an empty ports list).
+
+Since now the reset GPIO is obtained with GPIOD_ASIS flag, it may be in
+input mode, using gpiod_direction_output() instead of
+gpiod_set_value_cansleep() to ensure the reset GPIO is properly
+configured as output before setting its value.
+
+Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
 ---
- arch/arm64/boot/dts/qcom/lemans.dtsi | 289 ++++++++++++++++++++++++---
- 1 file changed, 262 insertions(+), 27 deletions(-)
+ drivers/pci/controller/dwc/pci-imx6.c | 70 +++++++++++++++++++++------
+ 1 file changed, 55 insertions(+), 15 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/lemans.dtsi b/arch/arm64/boot/dts/qcom/lemans.dtsi
-index bc0ec9a80284..4e608bd6486c 100644
---- a/arch/arm64/boot/dts/qcom/lemans.dtsi
-+++ b/arch/arm64/boot/dts/qcom/lemans.dtsi
-@@ -5474,7 +5474,7 @@ mdss0_dp1: displayport-controller@af5c000 {
- 				phys = <&mdss0_dp1_phy>;
- 				phy-names = "dp";
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 948ffb75d122..b44563309d40 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -34,6 +34,7 @@
+ #include <linux/pm_runtime.h>
  
--				operating-points-v2 = <&dp1_opp_table>;
-+				operating-points-v2 = <&dp_opp_table>;
- 				power-domains = <&rpmhpd SA8775P_MMCX>;
+ #include "../../pci.h"
++#include "../pci-host-common.h"
+ #include "pcie-designware.h"
  
- 				#sound-dai-cells = <0>;
-@@ -5499,30 +5499,6 @@ port@1 {
- 						mdss0_dp1_out: endpoint { };
- 					};
- 				};
--
--				dp1_opp_table: opp-table {
--					compatible = "operating-points-v2";
--
--					opp-162000000 {
--						opp-hz = /bits/ 64 <162000000>;
--						required-opps = <&rpmhpd_opp_low_svs>;
--					};
--
--					opp-270000000 {
--						opp-hz = /bits/ 64 <270000000>;
--						required-opps = <&rpmhpd_opp_svs>;
--					};
--
--					opp-540000000 {
--						opp-hz = /bits/ 64 <540000000>;
--						required-opps = <&rpmhpd_opp_svs_l1>;
--					};
--
--					opp-810000000 {
--						opp-hz = /bits/ 64 <810000000>;
--						required-opps = <&rpmhpd_opp_nom>;
--					};
--				};
- 			};
- 		};
+ #define IMX8MQ_GPR_PCIE_REF_USE_PAD		BIT(9)
+@@ -150,7 +151,6 @@ struct imx_lut_data {
  
-@@ -7055,6 +7031,265 @@ compute-cb@3 {
- 			};
- 		};
+ struct imx_pcie {
+ 	struct dw_pcie		*pci;
+-	struct gpio_desc	*reset_gpiod;
+ 	struct clk_bulk_data	*clks;
+ 	int			num_clks;
+ 	bool			supports_clkreq;
+@@ -1222,6 +1222,32 @@ static void imx_pcie_disable_device(struct pci_host_bridge *bridge,
+ 	imx_pcie_remove_lut(imx_pcie, pci_dev_id(pdev));
+ }
  
-+		mdss1: display-subsystem@22000000 {
-+			compatible = "qcom,sa8775p-mdss";
-+			reg = <0x0 0x22000000 0x0 0x1000>;
-+			reg-names = "mdss";
++static int imx_pcie_parse_legacy_binding(struct imx_pcie *pcie)
++{
++	struct device *dev = pcie->pci->dev;
++	struct pci_host_bridge *bridge = pcie->pci->pp.bridge;
++	struct pci_host_port *port;
++	struct gpio_desc *reset;
 +
-+			interconnects = <&mmss_noc MASTER_MDP_CORE1_0 QCOM_ICC_TAG_ALWAYS
-+					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
-+					<&mmss_noc MASTER_MDP_CORE1_1 QCOM_ICC_TAG_ALWAYS
-+					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
-+					<&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
-+					 &config_noc SLAVE_DISPLAY_CFG QCOM_ICC_TAG_ACTIVE_ONLY>;
-+			interconnect-names = "mdp0-mem",
-+					     "mdp1-mem",
-+					     "cpu-cfg";
++	reset = devm_gpiod_get_optional(dev, "reset", GPIOD_ASIS);
++	if (IS_ERR(reset))
++		return PTR_ERR(reset);
 +
-+			resets = <&dispcc1 MDSS_DISP_CC_MDSS_CORE_BCR>;
++	if (!reset)
++		return 0;
 +
-+			power-domains = <&dispcc1 MDSS_DISP_CC_MDSS_CORE_GDSC>;
++	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
++	if (!port)
++		return -ENOMEM;
 +
-+			clocks = <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
-+				 <&gcc GCC_DISP1_HF_AXI_CLK>,
-+				 <&dispcc1 MDSS_DISP_CC_MDSS_MDP_CLK>;
++	port->reset = reset;
++	INIT_LIST_HEAD(&port->list);
++	list_add_tail(&port->list, &bridge->ports);
 +
-+			interrupts = <GIC_SPI 865 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+			#interrupt-cells = <1>;
++	return devm_add_action_or_reset(dev, pci_host_common_delete_ports,
++					&bridge->ports);
++}
 +
-+			iommus = <&apps_smmu 0x1800 0x402>;
-+
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+			ranges;
-+
-+			status = "disabled";
-+
-+			display-controller@22001000 {
-+				compatible = "qcom,sa8775p-dpu";
-+				reg = <0x0 0x22001000 0x0 0x8f000>,
-+				      <0x0 0x220b0000 0x0 0x3000>;
-+				reg-names = "mdp", "vbif";
-+
-+				clocks = <&gcc GCC_DISP1_HF_AXI_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_MDP_LUT_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_MDP_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_VSYNC_CLK>;
-+				clock-names = "nrt_bus",
-+					      "iface",
-+					      "lut",
-+					      "core",
-+					      "vsync";
-+
-+				assigned-clocks = <&dispcc1 MDSS_DISP_CC_MDSS_VSYNC_CLK>;
-+				assigned-clock-rates = <19200000>;
-+
-+				operating-points-v2 = <&mdss0_mdp_opp_table>;
-+				power-domains = <&rpmhpd SA8775P_MMCX>;
-+
-+				interrupt-parent = <&mdss1>;
-+				interrupts = <0>;
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+
-+						dpu1_intf0_out: endpoint {
-+							remote-endpoint = <&mdss1_dp0_in>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+
-+						dpu1_intf4_out: endpoint {
-+							remote-endpoint = <&mdss1_dp1_in>;
-+						};
-+					};
-+				};
-+			};
-+
-+			mdss1_dp0_phy: phy@220c2a00 {
-+				compatible = "qcom,sa8775p-edp-phy";
-+				reg = <0x0 0x220c2a00 0x0 0x200>,
-+				      <0x0 0x220c2200 0x0 0xd0>,
-+				      <0x0 0x220c2600 0x0 0xd0>,
-+				      <0x0 0x220c2000 0x0 0x1c8>;
-+
-+				clocks = <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_AUX_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
-+					 <&gcc GCC_EDP_REF_CLKREF_EN>;
-+				clock-names = "aux",
-+					      "cfg_ahb",
-+					      "ref";
-+
-+				#clock-cells = <1>;
-+				#phy-cells = <0>;
-+
-+				status = "disabled";
-+			};
-+
-+			mdss1_dp1_phy: phy@220c5a00 {
-+				compatible = "qcom,sa8775p-edp-phy";
-+				reg = <0x0 0x220c5a00 0x0 0x200>,
-+				      <0x0 0x220c5200 0x0 0xd0>,
-+				      <0x0 0x220c5600 0x0 0xd0>,
-+				      <0x0 0x220c5000 0x0 0x1c8>;
-+
-+				clocks = <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_AUX_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
-+					 <&gcc GCC_EDP_REF_CLKREF_EN>;
-+				clock-names = "aux",
-+					      "cfg_ahb",
-+					      "ref";
-+
-+				#clock-cells = <1>;
-+				#phy-cells = <0>;
-+
-+				status = "disabled";
-+			};
-+
-+			mdss1_dp0: displayport-controller@22154000 {
-+				compatible = "qcom,sa8775p-dp";
-+				reg = <0x0 0x22154000 0x0 0x104>,
-+				      <0x0 0x22154200 0x0 0x0c0>,
-+				      <0x0 0x22155000 0x0 0x770>,
-+				      <0x0 0x22156000 0x0 0x09c>,
-+				      <0x0 0x22157000 0x0 0x09c>,
-+				      <0x0 0x22158000 0x0 0x09c>,
-+				      <0x0 0x22159000 0x0 0x09c>,
-+				      <0x0 0x2215a000 0x0 0x23c>,
-+				      <0x0 0x2215b000 0x0 0x23c>;
-+
-+				interrupt-parent = <&mdss1>;
-+				interrupts = <12>;
-+
-+				clocks = <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_AUX_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_LINK_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_LINK_INTF_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL0_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL1_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL2_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL3_CLK>;
-+				clock-names = "core_iface",
-+					      "core_aux",
-+					      "ctrl_link",
-+					      "ctrl_link_iface",
-+					      "stream_pixel",
-+					      "stream_1_pixel",
-+					      "stream_2_pixel",
-+					      "stream_3_pixel";
-+				assigned-clocks = <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_LINK_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL0_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL1_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL2_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL3_CLK_SRC>;
-+				assigned-clock-parents = <&mdss1_dp0_phy 0>,
-+							 <&mdss1_dp0_phy 1>,
-+							 <&mdss1_dp0_phy 1>,
-+							 <&mdss1_dp0_phy 1>,
-+							 <&mdss1_dp0_phy 1>;
-+				phys = <&mdss1_dp0_phy>;
-+				phy-names = "dp";
-+
-+				operating-points-v2 = <&dp_opp_table>;
-+				power-domains = <&rpmhpd SA8775P_MMCX>;
-+
-+				#sound-dai-cells = <0>;
-+
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+
-+						mdss1_dp0_in: endpoint {
-+							remote-endpoint = <&dpu1_intf0_out>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+
-+						mdss1_dp0_out: endpoint { };
-+					};
-+				};
-+			};
-+
-+			mdss1_dp1: displayport-controller@2215c000 {
-+				compatible = "qcom,sa8775p-dp";
-+				reg = <0x0 0x2215c000 0x0 0x104>,
-+				      <0x0 0x2215c200 0x0 0x0c0>,
-+				      <0x0 0x2215d000 0x0 0x770>,
-+				      <0x0 0x2215e000 0x0 0x09c>,
-+				      <0x0 0x2215f000 0x0 0x09c>,
-+				      <0x0 0x22160000 0x0 0x09c>,
-+				      <0x0 0x22161000 0x0 0x09c>,
-+				      <0x0 0x22162000 0x0 0x23c>,
-+				      <0x0 0x22163000 0x0 0x23c>;
-+
-+				interrupt-parent = <&mdss1>;
-+				interrupts = <13>;
-+
-+				clocks = <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_AUX_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_LINK_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_LINK_INTF_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_PIXEL0_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_PIXEL1_CLK>;
-+				clock-names = "core_iface",
-+					      "core_aux",
-+					      "ctrl_link",
-+					      "ctrl_link_iface",
-+					      "stream_pixel",
-+					      "stream_1_pixel";
-+				assigned-clocks = <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_LINK_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_PIXEL0_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_PIXEL1_CLK_SRC>;
-+				assigned-clock-parents = <&mdss1_dp1_phy 0>,
-+							 <&mdss1_dp1_phy 1>,
-+							 <&mdss1_dp1_phy 1>;
-+				phys = <&mdss1_dp1_phy>;
-+				phy-names = "dp";
-+
-+				operating-points-v2 = <&dp_opp_table>;
-+				power-domains = <&rpmhpd SA8775P_MMCX>;
-+
-+				#sound-dai-cells = <0>;
-+
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+
-+						mdss1_dp1_in: endpoint {
-+							remote-endpoint = <&dpu1_intf4_out>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+
-+						mdss1_dp1_out: endpoint { };
-+					};
-+				};
-+
-+			};
-+		};
-+
- 		dispcc1: clock-controller@22100000 {
- 			compatible = "qcom,sa8775p-dispcc1";
- 			reg = <0x0 0x22100000 0x0 0x20000>;
-@@ -7062,13 +7297,13 @@ dispcc1: clock-controller@22100000 {
- 				 <&rpmhcc RPMH_CXO_CLK>,
- 				 <&rpmhcc RPMH_CXO_CLK_A>,
- 				 <&sleep_clk>,
--				 <0>, <0>, <0>, <0>,
-+				 <&mdss1_dp0_phy 0>, <&mdss1_dp0_phy 1>,
-+				 <&mdss1_dp1_phy 0>, <&mdss1_dp1_phy 1>,
- 				 <0>, <0>, <0>, <0>;
- 			power-domains = <&rpmhpd SA8775P_MMCX>;
- 			#clock-cells = <1>;
- 			#reset-cells = <1>;
- 			#power-domain-cells = <1>;
--			status = "disabled";
- 		};
+ static void imx_pcie_vpcie_aux_disable(void *data)
+ {
+ 	struct regulator *vpcie_aux = data;
+@@ -1231,13 +1257,22 @@ static void imx_pcie_vpcie_aux_disable(void *data)
  
- 		ethernet1: ethernet@23000000 {
+ static void imx_pcie_assert_perst(struct imx_pcie *imx_pcie, bool assert)
+ {
+-	if (assert) {
+-		gpiod_set_value_cansleep(imx_pcie->reset_gpiod, 1);
+-	} else {
+-		if (imx_pcie->reset_gpiod) {
+-			msleep(PCIE_T_PVPERL_MS);
+-			gpiod_set_value_cansleep(imx_pcie->reset_gpiod, 0);
+-			msleep(PCIE_RESET_CONFIG_WAIT_MS);
++	struct dw_pcie *pci = imx_pcie->pci;
++	struct pci_host_bridge *bridge = pci->pp.bridge;
++	struct pci_host_port *port;
++
++	if (!bridge)
++		return;
++
++	list_for_each_entry(port, &bridge->ports, list) {
++		if (assert) {
++			gpiod_direction_output(port->reset, 1);
++		} else {
++			if (port->reset) {
++				msleep(PCIE_T_PVPERL_MS);
++				gpiod_direction_output(port->reset, 0);
++				msleep(PCIE_RESET_CONFIG_WAIT_MS);
++			}
+ 		}
+ 	}
+ }
+@@ -1247,8 +1282,20 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+ 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+ 	struct device *dev = pci->dev;
+ 	struct imx_pcie *imx_pcie = to_imx_pcie(pci);
++	struct pci_host_bridge *bridge = pp->bridge;
+ 	int ret;
+ 
++	/*
++	 * For DT backward compatibility: if no Root Port nodes were parsed
++	 * (indicated by empty ports list), parse reset-gpios from the host
++	 * bridge node.
++	 */
++	if (bridge && list_empty(&bridge->ports)) {
++		ret = imx_pcie_parse_legacy_binding(imx_pcie);
++		if (ret)
++			return ret;
++	}
++
+ 	imx_pcie_assert_perst(imx_pcie, true);
+ 
+ 	/* Keep 3.3Vaux supply enabled for the entire PCIe controller lifecycle */
+@@ -1702,13 +1749,6 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 			return PTR_ERR(imx_pcie->phy_base);
+ 	}
+ 
+-	/* Fetch GPIOs */
+-	imx_pcie->reset_gpiod = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
+-	if (IS_ERR(imx_pcie->reset_gpiod))
+-		return dev_err_probe(dev, PTR_ERR(imx_pcie->reset_gpiod),
+-				     "unable to get reset gpio\n");
+-	gpiod_set_consumer_name(imx_pcie->reset_gpiod, "PCIe reset");
+-
+ 	/* Fetch clocks */
+ 	imx_pcie->num_clks = devm_clk_bulk_get_all(dev, &imx_pcie->clks);
+ 	if (imx_pcie->num_clks < 0)
 -- 
-2.34.1
+2.37.1
 
 
