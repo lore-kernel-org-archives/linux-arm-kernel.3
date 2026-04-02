@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 990C0D6AAEC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 17:07:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C323D6AAF4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 17:17:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xtS1OkkhTmC+kJWduMT9+PxAc4KJJ2D34QZmfUPxalo=; b=UPDnanO3uT5ZUWB7dsP1x/1k6j
-	qQ7MQQ6s9tcN2CLa9Nw5kI0bcldfP5SHUvZxvF+Uv+4ePEnlwQzyOtrK4PfRCp/wKA+8c8tJDxF58
-	6QqeFHMfHDAuLBBqUOE79t4WRgPsUJPU/BJxxPFBAwjDqRw3Xa1/x5SV5P2USOYIFTtdYGCaY86Br
-	GVtgB68J7vGqySrpTXEcr+in+dbKp/VdBcLukOlDYqoVTq6TmsybJldOqSy0KiPieBlTwGutQoPdE
-	/xnbGyGQKXaW8BxGipsykqC5V1YSByf0ac7zLlCeT3xhD40yrjywcMz0S05fg9SnVAIa98Fh/YoCg
-	Cn/FgG2A==;
+	bh=OBUNBOUtPI/k+VSXotfbt5ddiQ0C3Y6bmoMp5MELPG0=; b=AqgmC9hleiR7gOxnvFBm/MrVer
+	NNToO7hTRysosHDHEtJMIm577FUPFw3JNCB/efmiRZa7oPI/LTxw1chOXC54gT21GwuqmAV2bHy3l
+	INsJVWDpBdB/ytggQHAHov2VsqQjWqNAzAt5uaM2m54txPqoDB9xlI2OXXMJcM7F2C366ZhEq7GlU
+	AMDSGw6UdXDMBHtij1NJY7DNYrSBmsvc38DiTeJw50bmZFQ5Lvna9rOCWMeYbLbESrBqigxSa/gi0
+	bygX+YSLVAptyRgjnnPGuNPRca94gI+rZ2eGbnbGvOGUG8hKiRt7hkpdZw8fNbgMpS2qk6+HAFXDH
+	2KJHdp9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8LWJ-00000000Zop-1Xvu;
-	Thu, 02 Apr 2026 17:07:51 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1w8LfI-00000000aMf-49lX;
+	Thu, 02 Apr 2026 17:17:09 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8LWG-00000000Zma-2urL
+	id 1w8LfG-00000000aLv-0PRq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 17:07:50 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2b2497cc190so15166055ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 10:07:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1775149667; x=1775754467; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xtS1OkkhTmC+kJWduMT9+PxAc4KJJ2D34QZmfUPxalo=;
-        b=agpxmsfsFKjaphV8EfcDPxQqCcuy7cApC0GIP+b14BiPibR7Fg1ue2f3CS49bYSJkO
-         OE+nKjv9NiqGNkDZne4OWcTWUGxS8X69AZLcqMUZj/oTsHjWAV2WDPOIwMVqALUC7vOE
-         Qevy+VzM6040tQvchkkzl9f6qcRarLKaGMnUiuoxgpfQ7lt5pSZCkxFAjX9XOh9maF3t
-         x49IDGHQxB0hUqa5DbjzaTR72x7f7bU3E55ASi6WhGgAWFIYac56W2WgczxFRaZGgeNt
-         cWmc49iaiofpe6q4eh4q1imwUv2CFUnn/OO708NW/3235MGmsWoQe4vcupXG1PIUAPYx
-         BNfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775149667; x=1775754467;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xtS1OkkhTmC+kJWduMT9+PxAc4KJJ2D34QZmfUPxalo=;
-        b=caRHog9rR3xxCFUU5BqZIIIy3GV7MJ0RgwKJr0OdXe5fFhaGPn0ArSS3cXEd4tU5uo
-         FsfCpmdeYnfTU6YrubtZLZAXAFca86adfxwmmVNPtOGm8M2vlcknvETXtH004hBZjPNi
-         2eh3NE3cNC3ZOxyu0nL374XqbTgi51jnfAdlVywqzXrsB8ZEFXz7hKZyTMKT6D7wUEtL
-         Qf1FqKoWpTecV8+AKgn4Zifo1VTGiWFUhdD0aEp77GapUwBUcKllf4YHeQMslZNXZB14
-         ZC1zrOOaOJbnILv6tzENJyASLmJGDLOmvR+OajJUVzGR7s62lPto/ajVZ03XggVOQpWC
-         mmdA==
-X-Forwarded-Encrypted: i=1; AJvYcCV7L7xFZOWvXY9CPtWboaJBv3cpaQuKa4mJODUkBn3ArhVyW7YNj1h3EEjme6xcfM1J+U8r3gBHTcnIodDau8G4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNcHScbghmndYre53ieDVn0/r4I9EU+36iq5uRcaFXf8nd3LxV
-	/xx0XxSoFYSUqD59hyfddk63Zq4Y/MfO410G340i8HwMTkvgM2CLwu7E7hyt8Y0HxkFYIcMR/Q9
-	Yfibx2hBTM3CBbzjQC6eqzUKMXg==
-X-Received: from plse12.prod.google.com ([2002:a17:902:b78c:b0:2b0:537d:70cc])
- (user=joonwonkang job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:902:e850:b0:2b2:4f43:b49a with SMTP id d9443c01a7336-2b277e52d1dmr29085885ad.22.1775149666599;
- Thu, 02 Apr 2026 10:07:46 -0700 (PDT)
-Date: Thu,  2 Apr 2026 17:06:41 +0000
-In-Reply-To: <20260402170641.2082547-1-joonwonkang@google.com>
-Mime-Version: 1.0
-References: <20260402170641.2082547-1-joonwonkang@google.com>
-X-Mailer: git-send-email 2.53.0.1213.gd9a14994de-goog
-Message-ID: <20260402170641.2082547-3-joonwonkang@google.com>
-Subject: [PATCH v3 2/2] mailbox: Make mbox_send_message() return error code
- when tx fails
-From: Joonwon Kang <joonwonkang@google.com>
-To: jassisinghbrar@gmail.com, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, thierry.reding@gmail.com, 
-	jonathanh@nvidia.com
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org, 
-	Joonwon Kang <joonwonkang@google.com>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 02 Apr 2026 17:17:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=OBUNBOUtPI/k+VSXotfbt5ddiQ0C3Y6bmoMp5MELPG0=; b=jhQTOP6FbSgr96iF6NQ9PpTjPG
+	AMS8+vlXjAla1qlHlpYHs5nczppotue/hndP1ILMlgEIPAG9yuQxsYS3xiqtFL62ks9jszKXB/Ynj
+	AuDOmaI8uNBDjn05w5PCtk7+AL0k4mp3kEaMZ2rz9Y4IG1emsEK77XPZTA8euj7WpkcpCeyWN523Q
+	Tl0vm6hYqwLU3qV+7GICIKlCoM6ObHoFB9XK3zo/tAl1yjqeS0/TZJW5bSp7Jzd5ipTttcA9VLMVq
+	1gWirMUKBSmjLVn4PDvmaWHRTnYLdRyA5o1ycnuYBZLKTiXLE/E/QEcdeYdku9dF51cvqMz+IMbET
+	Zcel0E+Q==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:52218)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w8Lf0-000000004kJ-2mdR;
+	Thu, 02 Apr 2026 18:16:50 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w8Lew-000000005wN-0dmu;
+	Thu, 02 Apr 2026 18:16:46 +0100
+Date: Thu, 2 Apr 2026 18:16:45 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Sam Edwards <cfsworks@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Baruch Siach <baruch@tkos.co.il>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v4 0/2] stmmac crash/stall fixes when under memory
+ pressure
+Message-ID: <ac6kfQ98Xjt3dCGj@shell.armlinux.org.uk>
+References: <20260401041929.12392-1-CFSworks@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260401041929.12392-1-CFSworks@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_100748_752514_F6AC041F 
-X-CRM114-Status: GOOD (  19.42  )
+X-CRM114-CacheID: sfid-20260402_101706_296606_606DE47C 
+X-CRM114-Status: GOOD (  20.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,116 +91,282 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the mailbox controller failed transmitting message, the error code
-was only passed to the client's tx done handler and not to
-mbox_send_message(). For this reason, the function could return a false
-success. This commit resolves the issue by introducing the tx status and
-checking it before mbox_send_message() returns.
+On Tue, Mar 31, 2026 at 09:19:27PM -0700, Sam Edwards wrote:
+> Hi netdev,
+> 
+> This is v4 of my series containing a pair of bugfixes for the stmmac driver's
+> receive pipeline. These issues occur when stmmac_rx_refill() does not (fully)
+> succeed, which happens more frequently when free memory is low.
+> 
+> The first patch closes Bugzilla bug #221010 [1], where stmmac_rx() can circle
+> around to a still-dirty descriptor (with a NULL buffer pointer), mistake it for
+> a filled descriptor (due to OWN=0), and attempt to dereference the buffer.
+> 
+> In testing that patch, I discovered a second issue: starvation of available RX
+> buffers causes the NIC to stop sending interrupts; if the driver stops polling,
+> it will wait indefinitely for an interrupt that will never come. (Note: the
+> first patch makes this issue more prominent -- mostly because it lets the
+> system survive long enough to exhibit it -- but doesn't *cause* it.) The second
+> patch addresses that problem as well.
+> 
+> Both patches are minimal, appropriate for stable, and designated to `net`. My
+> focus is on small, obviously-correct, easy-to-explain changes: I'll follow up
+> with another patch/series (something like [2]) for `net-next` that fixes the
+> ring in a more robust way.
+> 
+> The tx and zc paths seem to have similar low-memory bugs, to be addressed in
+> separate series.
 
-Cc: stable@vger.kernel.org
-Signed-off-by: Joonwon Kang <joonwonkang@google.com>
----
- drivers/mailbox/mailbox.c          | 20 +++++++++++++++-----
- include/linux/mailbox_controller.h |  2 ++
- 2 files changed, 17 insertions(+), 5 deletions(-)
+I've tested this on my Jetson Xavier platform. One of the issues I've
+had is that running iperf3 results in the receive side stalling because
+it runs out of descriptors. However, despite the receive ring
+eventually being re-filled and the hardware appropriately prodded, it
+steadfastly refuses to restart, despite the descriptors having been
+updated.
 
-diff --git a/drivers/mailbox/mailbox.c b/drivers/mailbox/mailbox.c
-index d63386468982..ea9aec9dc947 100644
---- a/drivers/mailbox/mailbox.c
-+++ b/drivers/mailbox/mailbox.c
-@@ -21,7 +21,10 @@
- static LIST_HEAD(mbox_cons);
- static DEFINE_MUTEX(con_mutex);
- 
--static int add_to_rbuf(struct mbox_chan *chan, void *mssg, struct completion *tx_complete)
-+static int add_to_rbuf(struct mbox_chan *chan,
-+		       void *mssg,
-+		       struct completion *tx_complete,
-+		       int *tx_status)
- {
- 	int idx;
- 
-@@ -34,6 +37,7 @@ static int add_to_rbuf(struct mbox_chan *chan, void *mssg, struct completion *tx
- 	idx = chan->msg_free;
- 	chan->msg_data[idx].data = mssg;
- 	chan->msg_data[idx].tx_complete = tx_complete;
-+	chan->msg_data[idx].tx_status = tx_status;
- 	chan->msg_count++;
- 
- 	if (idx == MBOX_TX_QUEUE_LEN - 1)
-@@ -91,12 +95,13 @@ static void msg_submit(struct mbox_chan *chan)
- 
- static void tx_tick(struct mbox_chan *chan, int r, int idx)
- {
--	struct mbox_message mssg = {MBOX_NO_MSG, NULL};
-+	struct mbox_message mssg = {MBOX_NO_MSG, NULL, NULL};
- 
- 	scoped_guard(spinlock_irqsave, &chan->lock) {
- 		if (idx >= 0 && idx != chan->active_req) {
- 			chan->msg_data[idx].data = MBOX_NO_MSG;
- 			chan->msg_data[idx].tx_complete = NULL;
-+			chan->msg_data[idx].tx_status = NULL;
- 			return;
- 		}
- 
-@@ -116,8 +121,10 @@ static void tx_tick(struct mbox_chan *chan, int r, int idx)
- 	if (chan->cl->tx_done)
- 		chan->cl->tx_done(chan->cl, mssg.data, r);
- 
--	if (r != -ETIME && chan->cl->tx_block)
-+	if (r != -ETIME && chan->cl->tx_block) {
-+		*mssg.tx_status = r;
- 		complete(mssg.tx_complete);
-+	}
- }
- 
- static enum hrtimer_restart txdone_hrtimer(struct hrtimer *hrtimer)
-@@ -286,15 +293,16 @@ int mbox_send_message(struct mbox_chan *chan, void *mssg)
- 	int t;
- 	int idx;
- 	struct completion tx_complete;
-+	int tx_status = 0;
- 
- 	if (!chan || !chan->cl || mssg == MBOX_NO_MSG)
- 		return -EINVAL;
- 
- 	if (chan->cl->tx_block) {
- 		init_completion(&tx_complete);
--		t = add_to_rbuf(chan, mssg, &tx_complete);
-+		t = add_to_rbuf(chan, mssg, &tx_complete, &tx_status);
- 	} else {
--		t = add_to_rbuf(chan, mssg, NULL);
-+		t = add_to_rbuf(chan, mssg, NULL, NULL);
- 	}
- 
- 	if (t < 0) {
-@@ -318,6 +326,8 @@ int mbox_send_message(struct mbox_chan *chan, void *mssg)
- 			idx = t;
- 			t = -ETIME;
- 			tx_tick(chan, t, idx);
-+		} else if (tx_status < 0) {
-+			t = tx_status;
- 		}
- 	}
- 
-diff --git a/include/linux/mailbox_controller.h b/include/linux/mailbox_controller.h
-index 912499ad08ed..890da97bcb50 100644
---- a/include/linux/mailbox_controller.h
-+++ b/include/linux/mailbox_controller.h
-@@ -117,10 +117,12 @@ struct mbox_controller {
-  * struct mbox_message - Internal representation of a mailbox message
-  * @data:		Data packet
-  * @tx_complete:	Pointer to the transmission completion
-+ * @tx_status:		Pointer to the transmission status
-  */
- struct mbox_message {
- 	void *data;
- 	struct completion *tx_complete;
-+	int *tx_status;
- };
- 
- /**
+What I can see is there's 40 packets in the internal FIFOs via the
+PRXQ[13:0] field of the ETH_MTLRXQxDR register.
+
+With your patches applied:
+
+root@tegra-ubuntu:~# iperf3 -c 192.168.248.1 -R
+Connecting to host 192.168.248.1, port 5201
+Reverse mode, remote host 192.168.248.1 is sending
+[  5] local 192.168.248.174 port 43728 connected to 192.168.248.1 port 5201
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.00   sec  30.3 MBytes   254 Mbits/sec
+[  5]   1.00-2.00   sec  0.00 Bytes  0.00 bits/sec
+[  5]   2.00-3.00   sec  0.00 Bytes  0.00 bits/sec
+[  5]   3.00-4.00   sec  0.00 Bytes  0.00 bits/sec
+[  5]   4.00-5.00   sec  0.00 Bytes  0.00 bits/sec
+[  5]   5.00-6.00   sec  0.00 Bytes  0.00 bits/sec
+...
+
+The remote system says:
+
+Accepted connection from 192.168.248.174, port 43720
+[  5] local 192.168.248.1 port 5201 connected to 192.168.248.174 port 43728
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec  31.8 MBytes   266 Mbits/sec    1   1.41 KBytes
+[  5]   1.00-2.00   sec  0.00 Bytes  0.00 bits/sec    1   1.41 KBytes
+[  5]   2.00-3.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
+
+This is a dwmac v5.0. I think the relevant registers are:
+
+ETH_MTLQxICSR: Value at address 0x02490d2c: 0x00000002
+
+ETH_MTLRXQxDR: Value at address 0x02490d38: 0x00280020
+
+ PRXQ[13:0]: Number of Packets in Receive Queue = 40
+ RXQSTS[1:0]: MTL Rx Queue Fill-Level status = 2 (Rx queue fill-level
+ above flow-control activate threshold)
+ RRXSTS[1:0]: MTL Rx Queue Read Controller State = 0 (Idle)
+ RWCSTS: MTL Rx Queue Write Controller Active Status = 0
+
+ETH_DMADS1R: Value at address 0x0249100c: 0x00006300
+
+ RPS0[3:0]: DMA Channel Receive Process State = Running (Waiting for Rx
+ packet)
+
+ETH_DMACxRXDTPR: Value at address 0x02491128: 0xffffe7d0
+
+ RDT[31:0]: Receive Descriptor Tail Pointer (writes should apparently
+ trigger DMA to start, but doesn't seem to)
+
+ETH_DMACxCARXDR: Value at address 0x0249114c: 0xffffe7d0
+
+ CURRDESAPTR[31:0]: Application receive descriptor address pointer
+
+ETH_DMACxCARXBR: Value at address 0x0249115c: 0xffb55040
+
+ CURRBUFAPTR[31:0]: Application receive buffer address pointer
+
+ This makes it look like it's read the descriptor at 0x7fffffe7d0.
+
+ETH_DMAC0SR: Value at address 0x02491160: 0x00000484
+
+ ETI (early transmit interrupt)=1 RBU (receive buffer unavailable)=1
+ TBU (transmit buffer unavailable)=1
+
+ Clearing RBU doesn't seem to help.
+
+Descriptors:
+
+123 [0x0000007fffffe7b0]: 0xffbba040 0x7f 0x0 0x81000000
+124 [0x0000007fffffe7c0]: 0xffbb9040 0x7f 0x0 0x81000000
+125 [0x0000007fffffe7d0]: 0xffb55040 0x7f 0x0 0x81000000 <---
+126 [0x0000007fffffe7e0]: 0xffc26040 0x7f 0x0 0x81000000
+127 [0x0000007fffffe7f0]: 0xfff95040 0x7f 0x0 0x81000000
+
+So they're all refilled.
+
+Any ideas?
+
+
+Full register dump via devmem2 (ethtool -d doesn't dump all registers):
+
+Value at address 0x02490000: 0x08072203
+Value at address 0x02490004: 0x00200000
+Value at address 0x02490008: 0x00010404
+Value at address 0x0249000c: 0x00000000
+Value at address 0x02490010: 0x00040008
+Value at address 0x02490014: 0x20000008
+Value at address 0x02490018: 0x00000001
+Value at address 0x0249001c: 0x00000001
+Value at address 0x02490020: 0x00000000
+Value at address 0x02490024: 0x00000000
+Value at address 0x02490028: 0x00000000
+Value at address 0x0249002c: 0x00000000
+Value at address 0x02490030: 0x00000000
+Value at address 0x02490034: 0x00000000
+Value at address 0x02490038: 0x00000000
+Value at address 0x0249003c: 0x00000000
+Value at address 0x02490040: 0x00000000
+Value at address 0x02490044: 0x00000000
+Value at address 0x02490048: 0x00000000
+Value at address 0x0249004c: 0x00000000
+Value at address 0x02490050: 0x01600000
+Value at address 0x02490054: 0x00000000
+Value at address 0x02490058: 0x00000000
+Value at address 0x0249005c: 0x00000000
+Value at address 0x02490060: 0x00120000
+Value at address 0x02490064: 0x00000000
+Value at address 0x02490068: 0x00000000
+Value at address 0x0249006c: 0x00000000
+Value at address 0x02490070: 0xffff0002
+Value at address 0x02490074: 0x00000000
+Value at address 0x02490078: 0x00000000
+Value at address 0x0249007c: 0x00000000
+Value at address 0x02490080: 0x00000000
+Value at address 0x02490084: 0x00000000
+Value at address 0x02490088: 0x00000000
+Value at address 0x0249008c: 0x00000000
+Value at address 0x02490090: 0x00000001
+Value at address 0x02490094: 0x00000000
+Value at address 0x02490098: 0x00000000
+Value at address 0x0249009c: 0x00000000
+Value at address 0x024900a0: 0x00000002
+Value at address 0x024900a4: 0x00000000
+Value at address 0x024900a8: 0x00000000
+Value at address 0x024900ac: 0x00000000
+Value at address 0x024900b0: 0x00000001
+Value at address 0x024900b4: 0x00001030
+Value at address 0x024900b8: 0x00000000
+Value at address 0x024900bc: 0x00000000
+Value at address 0x024900c0: 0x00000000
+Value at address 0x024900c4: 0x00000000
+Value at address 0x024900c8: 0x00000000
+Value at address 0x024900cc: 0x00000000
+Value at address 0x024900d0: 0x003b0200
+Value at address 0x024900d4: 0x03e8001e
+Value at address 0x024900d8: 0x000f4240
+Value at address 0x024900dc: 0x0000007c
+Value at address 0x024900e0: 0x00000000
+Value at address 0x024900e4: 0x00000000
+Value at address 0x024900e8: 0x00000000
+Value at address 0x024900ec: 0x00000000
+Value at address 0x024900f0: 0x00000000
+Value at address 0x024900f4: 0x00000000
+Value at address 0x024900f8: 0x000d0000
+Value at address 0x024900fc: 0x00000000
+Value at address 0x02490100: 0x00000000
+Value at address 0x02490104: 0x00000000
+Value at address 0x02490108: 0x00000000
+Value at address 0x0249010c: 0x00000000
+Value at address 0x02490110: 0x00001050
+Value at address 0x02490114: 0x00000000
+Value at address 0x02490118: 0x00000000
+Value at address 0x0249011c: 0x1bfd73f7
+Value at address 0x02490120: 0x421e7a49
+Value at address 0x02490124: 0x100c30c3
+Value at address 0x02490128: 0x00320220
+Value at address 0x02490200: 0x000e010c
+Value at address 0x02490204: 0x00000006
+Value at address 0x02490208: 0x00000000
+Value at address 0x0249020c: 0x00000000
+Value at address 0x02490210: 0x00000000
+Value at address 0x02490214: 0x00000000
+Value at address 0x02490218: 0x00000000
+Value at address 0x0249021c: 0x00000000
+Value at address 0x02490220: 0x00000000
+Value at address 0x02490224: 0x00000000
+Value at address 0x02490228: 0x00000000
+Value at address 0x0249022c: 0x00000000
+Value at address 0x02490230: 0x00000000
+Value at address 0x02490234: 0x00000000
+Value at address 0x02490238: 0x00000102
+Value at address 0x02490d00: 0x00ff000a
+Value at address 0x02490d04: 0x00000000
+Value at address 0x02490d08: 0x00000000
+Value at address 0x02490d0c: 0x00000000
+Value at address 0x02490d10: 0x00000000
+Value at address 0x02490d14: 0x00000030
+Value at address 0x02490d18: 0x00000000
+Value at address 0x02490d1c: 0x00000000
+Value at address 0x02490d20: 0x00000000
+Value at address 0x02490d24: 0x00000000
+Value at address 0x02490d28: 0x00000000
+Value at address 0x02490d2c: 0x00000002
+Value at address 0x02490d30: 0x0ff1c4e0
+Value at address 0x02490d34: 0x00000000
+Value at address 0x02490d38: 0x00280020
+Value at address 0x02490d3c: 0x00000000
+Value at address 0x02491000: 0x00000000
+Value at address 0x02491004: 0x0002180e
+Value at address 0x02491008: 0x00000000
+Value at address 0x0249100c: 0x00006300
+Value at address 0x02491010: 0x00000000
+Value at address 0x02491014: 0x00000000
+Value at address 0x02491018: 0x00000000
+Value at address 0x0249101c: 0x00000000
+Value at address 0x02491020: 0x00000000
+Value at address 0x02491024: 0x00000000
+Value at address 0x02491028: 0x00000000
+Value at address 0x0249102c: 0x00000000
+Value at address 0x02491030: 0x00000000
+Value at address 0x02491034: 0x00000000
+Value at address 0x02491038: 0x00000000
+Value at address 0x0249103c: 0x00000000
+Value at address 0x02491040: 0x00000000
+Value at address 0x02491044: 0x00000000
+Value at address 0x02491048: 0x00000000
+Value at address 0x0249104c: 0x00000000
+Value at address 0x02491050: 0x00000000
+Value at address 0x02491054: 0x00000000
+Value at address 0x02491100: 0x00010000
+Value at address 0x02491104: 0x00101011
+Value at address 0x02491108: 0x00080c01
+Value at address 0x0249110c: 0x00000000
+Value at address 0x02491110: 0x0000007f
+Value at address 0x02491114: 0xffffc000
+Value at address 0x02491118: 0x0000007f
+Value at address 0x0249111c: 0xffffe000
+Value at address 0x02491120: 0xffffc500
+Value at address 0x02491124: 0x00000000
+Value at address 0x02491128: 0xffffe7d0
+Value at address 0x0249112c: 0x000001ff
+Value at address 0x02491130: 0x000001ff
+Value at address 0x02491134: 0x0000d041
+Value at address 0x02491138: 0x000000a0
+Value at address 0x0249113c: 0x000d07c0
+Value at address 0x02491140: 0x00000000
+Value at address 0x02491144: 0xffffc500
+Value at address 0x02491148: 0x00000000
+Value at address 0x0249114c: 0xffffe7d0
+Value at address 0x02491150: 0x0000007f
+Value at address 0x02491154: 0xffc45b02
+Value at address 0x02491158: 0x0000007f
+Value at address 0x0249115c: 0xffb55040
+Value at address 0x02491160: 0x00000484
+Value at address 0x02491164: 0x00000000
+Value at address 0x02491168: 0x00000000
+Value at address 0x0249116c: 0x00000000
+Value at address 0x02491170: 0x00000000
+Value at address 0x02491174: 0x00000000
+Value at address 0x02491178: 0x00000000
+Value at address 0x0249117c: 0x00000000
+
 -- 
-2.53.0.1185.g05d4b7b318-goog
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
