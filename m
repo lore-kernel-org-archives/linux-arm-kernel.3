@@ -4,50 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5212CC6B00
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 07:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5791ECC6B1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 07:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d3iOn4TA5Xaky86RaAqEhxLIVyS4Ci8QTLshB5nOVoQ=; b=c8CZfBq/ooIwHGL8qSrP3C3bB0
-	25S+LgR+FE6RFL+jZg82Lix0LC8u4n5Ft7sefc50SZroG0A9sDx/Hc8u3BP/lu/19+Fa50HY7nN0y
-	ib+gMpMr5wzUAfwcN6ZjnMXcl3hA9OMocsofjY8VkU2dcVrPV5X9Bmp55uAceh+m/GBA1yFSs4Fb1
-	NNcH3WytvyM0FeoHmhw1CCY4ovhaB6key1eAf7WTbm3gCzlVjvjGpyLbGDAr7s0feyKdkYfmisetI
-	cPctekXy468Xfx+YFc03IWZEoHK7ECRtrVeLiw+emwAF1inAjvae9BSnmMWZ/0BNGDQYwGpYQCv6K
-	yeiCBY3g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=klZQfB1DTM8kc6bDQRQMuxrdgTXFAHcqYpTG+swy6ZY=; b=EftFSy3lOP39Be
+	QtbcEyPz7sayY5sezKuKc/5kCQqeBs8IuJyRmYbFHqNc35L2lZG97ZqxADkZqNzjUUSQqOBDvn28X
+	zUt5LGMZm77PY024T7RnZIq2X0E299a7wBOOtBEsK90UjhjViyRgk676frKtc3Ai8MA48iXktN3pk
+	jp479QqPhpWccYM0Ei6P5UUXiBQD1Z72CCwj6OzIoFlhZmmFNsX4YrqApK3OjSggUMYy0CKZvAMWR
+	YJkwqilRphwu3Qg6jMPyG+I1lXWHfQG4YkA85Sj/dAQvnUCAIfUPi48NO9OQ3rR90Y7NxqxhKrO7x
+	k0uspykpSJkaVZPopp6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Clk-0000000H74X-3qrl;
-	Thu, 02 Apr 2026 07:47:12 +0000
+	id 1w8Clm-0000000H74e-03fP;
+	Thu, 02 Apr 2026 07:47:14 +0000
 Received: from fsn-vps-1.bereza.email ([162.55.44.2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Cli-0000000H73X-19Ib
+	id 1w8Cli-0000000H73F-1JDZ
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 02 Apr 2026 07:47:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=bereza.email; s=mail;
-	t=1775116026; bh=CF7O3i7wHSzlyimOTIc/kLCwdu7hGG6ESx7aNHgmZKQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=YO+fG+cHociVuiNRfv2Aquhhm8HO/hcJjZnR2tL8+48Asp/a9n01WNjJA5zLEk+D0
-	 Yqj9zL0MqleqT6hVkSIT5gejgqXG5KbHlxQVHE9flxDRkq4LpSm9xnzTQoo6Cuao5R
-	 LUdPgW4StDCpyo1EoJXT8D6CqMEDoupZyg6EbPqH0hSiwoBZ5lAV4L9N8N6lm1mnZ7
-	 9oiJFRx4TD5z+/9IqR5UiVT1VNtGUrrh761E9AJi+qxINcVEt5taHBXLuPyY4OyxOz
-	 j2N4NUnHyAcGyUrm4R+plaZv9NilFcihhDKfp6ZaeVipsG7OBW2XZnYSx1k1cmNW0W
-	 s+9LzQNJKYwpQ==
+	t=1775116025; bh=kKR2O7P62uxmTg8li99pkBO69vG62/hHAn5Al/w8yRc=;
+	h=From:Subject:Date:To:Cc:From;
+	b=wKf4lofwVj/5LiOvxW8MOO3Sj+08MFUReRQRj/JgoZ4/kR/JQ6Reft5WgXQAVenWO
+	 oCks7Nb0Bwb+D/EiusGMcH2N5Rz7X++a6cT/0p2riRCjlBcuzrwWpHMjxa8MFlwyHy
+	 GMPw2QVJZXp0BYYoBvnhTJjm1vxov3DPLJbgOQoVpNu004/iDRUqq4nnEk9mGZNxYq
+	 UGrIuMgmaSQAPEsMprngTh6+Fc0A4d+rgxbZJDvU9cWhgl9nrAg4ggDftZlG+KZW3s
+	 Lmhi4x2tClDShMmHV9jvNfDkVCpa24bQg4oVMorJW+MYVhTj6FGEJJ4V0rwkDJ108e
+	 g4X0xp6z70nGg==
 Received: from [127.0.1.1] (pd95bbad8.dip0.t-ipconnect.de [217.91.186.216])
-	by fsn-vps-1.bereza.email (Postfix) with ESMTPSA id 67B966025A;
-	Thu,  2 Apr 2026 09:47:06 +0200 (CEST)
+	by fsn-vps-1.bereza.email (Postfix) with ESMTPSA id 8AFC360258;
+	Thu,  2 Apr 2026 09:47:05 +0200 (CEST)
 From: Alex Bereza <alex@bereza.email>
-Date: Thu, 02 Apr 2026 09:46:23 +0200
-Subject: [PATCH v4 2/2] dmaengine: xilinx_dma: Rename XILINX_DMA_LOOP_COUNT
+Subject: [PATCH v4 0/2] Fix CPU stall in xilinx_dma_poll_timeout caused by
+ passing delay_us=0
+Date: Thu, 02 Apr 2026 09:46:21 +0200
+Message-Id: <20260402-fix-atomic-poll-timeout-regression-v4-0-f30d6a6c13cb@bereza.email>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260402-fix-atomic-poll-timeout-regression-v4-2-f30d6a6c13cb@bereza.email>
-References: <20260402-fix-atomic-poll-timeout-regression-v4-0-f30d6a6c13cb@bereza.email>
-In-Reply-To: <20260402-fix-atomic-poll-timeout-regression-v4-0-f30d6a6c13cb@bereza.email>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5XOTU4DMQwF4KtUWWPkSeYPVtwDsXAmTms001RJO
+ gKquTtJEUJCLMrySc/f80UljsJJPe4uKvIqScKxhPZup6YDHfcM4kpWGnWPxiB4eQPKYZEJTmG
+ eIcvC4Zwh8j5yqufQ+paNJW+8G1SBTpHL1XXk+eUrp7N95SlXuTYOknKI79cv1qb2vgebWwbXB
+ hro7GDdQ880ET5ZjvxB97yQzKpurvpHbfE2VQNCP5LuOzbDgP4P1fxfNUUduw5Hj8TO8S9127Z
+ PzyXjHZUBAAA=
+X-Change-ID: 20260330-fix-atomic-poll-timeout-regression-4f4e3baf3fd7
 To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
  Michal Simek <michal.simek@amd.com>, 
  Geert Uytterhoeven <geert+renesas@glider.be>, 
@@ -56,11 +61,12 @@ To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
  Kedareswara rao Appana <appana.durga.rao@xilinx.com>
 Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Alex Bereza <alex@bereza.email>, 
- Suraj Gupta <suraj.gupta2@amd.com>
+ Suraj Gupta <suraj.gupta2@amd.com>, Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_004710_534672_F44E69E8 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20260402_004710_535112_24CD89BE 
+X-CRM114-Status: UNSURE (   7.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,70 +81,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename XILINX_DMA_LOOP_COUNT to XILINX_DMA_POLL_TIMEOUT_US because it is
-a timeout value, not a loop count for polling register in microseconds.
-
-No functional changes.
-
-Reviewed-by: Suraj Gupta <suraj.gupta2@amd.com>
 Signed-off-by: Alex Bereza <alex@bereza.email>
 ---
- drivers/dma/xilinx/xilinx_dma.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+Changes in v4:
+- patch 1/2: nothing
+- patch 2/2:
+  - Fix commit message: reword as suggested by Frank Li
+    <Frank.Li@nxp.com> - thanks!
+- Link to v3: https://patch.msgid.link/20260401-fix-atomic-poll-timeout-regression-v3-0-85508f0aedde@bereza.email
 
-diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-index 345a738bab2c..253c27fd1a0e 100644
---- a/drivers/dma/xilinx/xilinx_dma.c
-+++ b/drivers/dma/xilinx/xilinx_dma.c
-@@ -165,8 +165,8 @@
- #define XILINX_DMA_FLUSH_MM2S		2
- #define XILINX_DMA_FLUSH_BOTH		1
- 
--/* Delay loop counter to prevent hardware failure */
--#define XILINX_DMA_LOOP_COUNT		1000000
-+/* Timeout for polling various registers */
-+#define XILINX_DMA_POLL_TIMEOUT_US	1000000
- /* Delay between polls (avoid a delay of 0 to prevent CPU stalls) */
- #define XILINX_DMA_POLL_DELAY_US	10
- 
-@@ -1336,7 +1336,7 @@ static int xilinx_dma_stop_transfer(struct xilinx_dma_chan *chan)
- 	return xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
- 				       val & XILINX_DMA_DMASR_HALTED,
- 				       XILINX_DMA_POLL_DELAY_US,
--				       XILINX_DMA_LOOP_COUNT);
-+				       XILINX_DMA_POLL_TIMEOUT_US);
- }
- 
- /**
-@@ -1352,7 +1352,7 @@ static int xilinx_cdma_stop_transfer(struct xilinx_dma_chan *chan)
- 	return xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
- 				       val & XILINX_DMA_DMASR_IDLE,
- 				       XILINX_DMA_POLL_DELAY_US,
--				       XILINX_DMA_LOOP_COUNT);
-+				       XILINX_DMA_POLL_TIMEOUT_US);
- }
- 
- /**
-@@ -1370,7 +1370,7 @@ static void xilinx_dma_start(struct xilinx_dma_chan *chan)
- 	err = xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMASR, val,
- 				      !(val & XILINX_DMA_DMASR_HALTED),
- 				      XILINX_DMA_POLL_DELAY_US,
--				      XILINX_DMA_LOOP_COUNT);
-+				      XILINX_DMA_POLL_TIMEOUT_US);
- 
- 	if (err) {
- 		dev_err(chan->dev, "Cannot start channel %p: %x\n",
-@@ -1787,7 +1787,7 @@ static int xilinx_dma_reset(struct xilinx_dma_chan *chan)
- 	err = xilinx_dma_poll_timeout(chan, XILINX_DMA_REG_DMACR, tmp,
- 				      !(tmp & XILINX_DMA_DMACR_RESET),
- 				      XILINX_DMA_POLL_DELAY_US,
--				      XILINX_DMA_LOOP_COUNT);
-+				      XILINX_DMA_POLL_TIMEOUT_US);
- 
- 	if (err) {
- 		dev_err(chan->dev, "reset timeout, cr %x, sr %x\n",
+Changes in v3:
+- patch 1/2:
+  - Fix commit message: remove blank line between tags
+- patch 2/2: nothing
+- Link to v2: https://patch.msgid.link/20260401-fix-atomic-poll-timeout-regression-v2-0-68a265e3770f@bereza.email
 
--- 
-2.53.0
+Changes in v2:
+- Fixed the Fixes: tags as suggested by Geert Uytterhoeven
+  <geert+renesas@glider.be> - thanks!
+- Split the renaming of XILINX_DMA_LOOP_COUNT into separate commit
+- Link to v1: https://patch.msgid.link/20260331-fix-atomic-poll-timeout-regression-v1-1-5b7bd96eaca0@bereza.email
+
+---
+Alex Bereza (2):
+      dmaengine: xilinx_dma: Fix CPU stall in xilinx_dma_poll_timeout
+      dmaengine: xilinx_dma: Rename XILINX_DMA_LOOP_COUNT
+
+ drivers/dma/xilinx/xilinx_dma.c | 26 ++++++++++++++++----------
+ 1 file changed, 16 insertions(+), 10 deletions(-)
+---
+base-commit: b7560798466a07d9c3fb011698e92c335ab28baf
+change-id: 20260330-fix-atomic-poll-timeout-regression-4f4e3baf3fd7
+
+Best regards,
+--  
+Alex Bereza <alex@bereza.email>
 
 
