@@ -4,118 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FBE3CC6B01
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 04:23:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3068CC6B00
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 04:46:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fD1TTBBAaZWpV5o+UE2XEa0yqcF+08G1LVCR89fnulE=; b=kYCm4Mdwfabtp1Lc61IgVGcA8G
-	jM6tOZFLN5f7DQcCNcQzaBKZe4MA+X0V4HoPfl4gjQbWGIHEz8lZg+aQWkzrZFbM3j6DABFIBUKgd
-	vl9oPzrGYSPm66TGqoR7hZKa2cksXCxQSPXksdHDVEbeZYQKlzL6q6K7oMR16RNCm2ufcLPdUBoGK
-	MrTPDASXXRKPjTulRpvxMoYdC/2Hnfx0BY83JAdOSFNn+FTlZS9uCzUuHtGnddZ2efJZH063mKPe3
-	s6tgFfuGGtqnihktJSuWFJaRfrxbemyRaot8vMd4lhdRPWs905WSmwjeixaZBD/hQVXXa4kCpVPe1
-	OgU9KYGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ye8ggPnRGdOHXMQYE2mEMQaf4+h2GkijZg4ZxahkCt4=; b=NWiJeLt0Bs/LedeutMVsviaCF2
+	HrBxFKh12nXisHTJj2WMXtixnJRde/9//I96PWkmnXQNRtOmSR3MFRBqXobe6/LwO2We+e9MS2XJz
+	uxX7/y3VW+A9OY/63fELrhhcVxF12KiwFre5TlE5n0FsJim8MfkUatfDGHR6oHuP7at+knX1dNVkQ
+	IMhWQtpClI0MfA9hrYMuRs0rKTfiPM4lqrEk+r57ZTiYk4s+/ebXtV3+5nEH5fcE43B9j37GE9tal
+	XYSDRCvUbAJdFYFakyF4gEH9Ly4Y86KZ4Mz+FRx8zkcuWdGJPDSyG8JptuK4RQG67ZP7vA/ZifuBX
+	a3AROaLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w89aG-0000000Gk9w-0taJ;
-	Thu, 02 Apr 2026 04:23:08 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1w89wr-0000000GmIW-2YSw;
+	Thu, 02 Apr 2026 04:46:29 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w89a1-0000000Gjqx-2KNM
+	id 1w89wq-0000000GmIJ-0YgR
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 02 Apr 2026 04:46:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=ye8ggPnRGdOHXMQYE2mEMQaf4+h2GkijZg4ZxahkCt4=; b=SAO1CddG7gS8xgPxww7d82FpHx
+	A1YmhGx3v4fW7u6ae0HSKCvQUTLWbzaYbomIZNwV1da+4xbZn9NfXt2zG3lCj83dzZSD7JYwiMyhM
+	QUZb6zoDet1daQPudHUQYmah59x/eSI6ho7CBnQt9S4mcYjOH3jwRZLSTgXK3zQ4rpaOfS6FjPed/
+	zuQU5IueKULSpDppRfNuk22sRvRygRuD368eQjNEcqqNRr2+ItagiNJV4eMs9Rv8Ke3ISd5zYDc+k
+	NDKPNmIChY40Mxwt3ve/zzHragMESAYgVn8h1ENXbgqf6oIWQyRU+rT58hp7j5ayWr8z+7pX7CLUD
+	vp5s1ypQ==;
+Received: from mo-csw-fb1801.securemx.jp ([210.130.202.160] helo=mo-csw-fb.securemx.jp)
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w89wl-0000000BbN5-47sD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 04:23:02 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 631GcAQ32736917;
-	Thu, 2 Apr 2026 04:21:35 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=fD1TTBBAaZWpV5o+U
-	E2XEa0yqcF+08G1LVCR89fnulE=; b=cPMtE2Hyrp5n4rdS6um4KWFcf/1EXvVSN
-	f25I63U8zdMK6KbtVQL/Bldy+dyC4rEE6V9UitXbD+X9bpcuoZwCe4WPLJlRIg7W
-	Q+SKluddpE1LnjbLiPH9/bq6S1YsNy3HSwdchHr00tQSlgx+jBaEVPbDR+VU9rcI
-	1QnxO7oOUX8FqyCdALTMHQgrsVYUix7zVuNDltnvXjU++dc+gxmrtRooXcSZSBWg
-	9MT3ZvRi2bSM3w+5zLfCV2Q8HYdzH55RNonLExz3W6V5IBaAO1A9nTgTVH1Ja6Rv
-	UU+tbXiuDFOIKjeXSzYyYCQRX/YOs0Ji3nOpGuDs4OHr+Ndtl7HzA==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4d64dgtjgs-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 02 Apr 2026 04:21:35 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 631NdoeG005980;
-	Thu, 2 Apr 2026 04:21:34 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4d6spy8q9d-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 02 Apr 2026 04:21:34 +0000
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6324LUNq18481482
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 2 Apr 2026 04:21:30 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5D60420040;
-	Thu,  2 Apr 2026 04:21:30 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0B7802005A;
-	Thu,  2 Apr 2026 04:21:30 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Thu,  2 Apr 2026 04:21:29 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Andreas Grapentin <Andreas.Grapentin@ibm.com>,
-        Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v1 11/27] KVM: arm64: Access elements of vcpu_gp_regs individually
-Date: Thu,  2 Apr 2026 06:21:07 +0200
-Message-ID: <20260402042125.3948963-12-seiden@linux.ibm.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260402042125.3948963-1-seiden@linux.ibm.com>
-References: <20260402042125.3948963-1-seiden@linux.ibm.com>
+	Thu, 02 Apr 2026 04:46:27 +0000
+Received: by mo-csw-fb.securemx.jp (mx-mo-csw-fb1801) id 6324NIi62789399; Thu, 2 Apr 2026 13:23:19 +0900
+DKIM-Signature: v=1;a=rsa-sha256;c=relaxed/simple;d=mail.toshiba;h=From:To:CC:
+	Subject:Date:Message-ID:References:In-Reply-To:Content-Type:
+	Content-Transfer-Encoding:MIME-Version;i=nobuhiro.iwamatsu.x90@mail.toshiba;
+	s=key2.smx;t=1775103756;x=1776313356;bh=ye8ggPnRGdOHXMQYE2mEMQaf4+h2GkijZg4Zx
+	ahkCt4=;b=bV0AOOtlXdDfHXsMgsO41kERQwCFeNlSQj85mu0WQ2MoEwsU3D+wiXOzIcI4BecAVbY
+	M7EBjxjNqauvSbvLauc6qAG6q5IMZS7zXH+aObZCK0TuR8sH0jKkVe5xhHlXhe6iCKgWXDH3xSGU6
+	i3zUjh4LACt/GqjBmnG1fe35Z2vz78QSob/i3vu/V3h6kRudS9uXGA9Fpd7OhtKJEftFoD5IPqCYl
+	byxfOdYZQYIuxPTI/DO6b9g/MpqozDaU6fDE6mOAQxPeRgRPYR4ql7/ehze5igknxn1ec8BWKryTr
+	GGHoYaOkbcEkQnJJ82AHHqop+QUseUWfrPbGjtmhkU7g==;
+Received: by mo-csw.securemx.jp (mx-mo-csw1802) id 6324MZ982295551; Thu, 2 Apr 2026 13:22:35 +0900
+X-Iguazu-Qid: 2yAbEdUNObgh6pNvhx
+X-Iguazu-QSIG: v=2; s=0; t=1775103755; q=2yAbEdUNObgh6pNvhx; m=RdkoZWakRrwq/Dto5niliutZSjQYmHqfyvhGWCmPQOM=
+Received: from imx2-a.toshiba.co.jp (imx2-a.toshiba.co.jp [106.186.93.35])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	 id 4fmTGf16XrzyPZ; Thu,  2 Apr 2026 13:22:33 +0900 (JST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=c+bnGweZFLNXCYPE5vvsmo/Q9uWpnbfR+iNsQbPV0h81DzL/VjiZMjPTILaLqAHdZGrQp8vly9/yKcZ7I9WmQAFBcVjAGwxJn3RU/XDZpnEQtUAFt4qo/oTMjwukFrWI2RKiwXUmO3KEw7DFJpC44Lbk+sTdG4+IIAjZBEqigQ22GUoYH0AFKoO4nekZrdqQSfszg30aOqewsAnwGwNzaLkEF8e1P05SVSrki+ja/2f0aZvwaXS0MyV3PcITZ+zLQ0GQOCrR0nhhVSeEaYjJifW7LmnAep/x2fA6O4Zw9kbHGpjS2BqqJ5B+g8V7nvcuNP9jU3VgPZt2ciVBt2qVTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ye8ggPnRGdOHXMQYE2mEMQaf4+h2GkijZg4ZxahkCt4=;
+ b=Fafd8rO4ADWxxITmReT1rfGm2xIDqhwATOlHNf6wjEscl7aAxXqPVZw5JYJa5tf4ffz1E2DqJufO9Skn6CkqPP849uyYOfEtPLRQN7LcoecnPjOOvABeIC43+Eh9kb5IL+bmojp/E22F3m6iz8wIVp9+WWgqccLtwYEhVX/OqDaDHj58y/vG3ZkNMopxtIfzqiQSLE/zSHdtBVy2BGPV0dcf4yJVAdRfCoORYPxuZRVd1WZz4bGmce+ePJKLAgSVHnmDsIqpoQSZ9KZLT17z5T7PECsGqczg3yhaZiuE5M8wn5KSLl25/uuSdEWZUtuNSpJQsOqh9SUkKHY8y+rLUQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mail.toshiba; dmarc=pass action=none header.from=mail.toshiba;
+ dkim=pass header.d=mail.toshiba; arc=none
+From: <nobuhiro.iwamatsu.x90@mail.toshiba>
+To: <benoit.monin@bootlin.com>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
+        <rosenp@gmail.com>, <bmasney@redhat.com>
+CC: <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] clk: visconti: pll: initialize clk_init_data to zero
+Thread-Topic: [PATCH] clk: visconti: pll: initialize clk_init_data to zero
+Thread-Index: AQHcwFImnMFSXBeIq0CCUhVteUxzabXKJeYAgAEJuLA=
+Date: Thu, 2 Apr 2026 04:22:31 +0000
+X-TSB-HOP2: ON
+Message-ID: <TY7PR01MB148187E763784C1664C287A6DCD51A@TY7PR01MB14818.jpnprd01.prod.outlook.com>
+References: <20260330-clk-visconti-init-v1-1-ac3e825e54b5@redhat.com>
+ <2787121.vuYhMxLoTh@benoit.monin>
+In-Reply-To: <2787121.vuYhMxLoTh@benoit.monin>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mail.toshiba;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY7PR01MB14818:EE_|TY7PR01MB14832:EE_
+x-ms-office365-filtering-correlation-id: 8b3755eb-a55c-47df-c646-08de906f74f7
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|38070700021|56012099003|18002099003|22082099003;
+x-microsoft-antispam-message-info: PK+B1nCVQr9cbv5qtf/C+PCCtaSaFHrH6x00eIVX93aKTwzeTX3DdLggUXZqv12q4xadaXRsH0H9C7nxskFF70O3Q55YrS5f98X42MhrOiK1+hIBcTYfAGbTwKbBXp4e3KKg9XW4JOgl7YxoYHDBh246L52EW4+VFi40cQ1WagnPVrrRDt5KaJ6eOPjjLsPTDbsmksDe48+/x4bFnE7uFrv5H9nQ4DMvUu+OdU//GeXWniSLL0mYS6IrXxAPVOuDU+dU4UVQ7p3co7Izv52rj7Dgumoru7Wqh+wQnJ1PkKlTDSgZr1BhohYk60hQmrDvh69sd2lKwP1yAp80m2kPY18QYaQV44lt2xY/rVv2ppX+uG67BqWWBjEPYYmbm7Fqnl4W2igssp4TKJy8ytxTfa4rHx3IHBEd9GBt5h5nrh2W0IODFe+XQtYVmhiqCpP3HvVD/OCrUkUqn5o7vdNUwhWyAv3L4F5SNVr96WGeSH/2YZ3Eq15NEs5vmDFP7VMUEzReVJ+MUVgAU106FdkXOMywxTf2u1oQyobh+a56wyu4XN0wpHmSZ1FyGKhSt+lOn5HMTFqYdZxJqSznZseC4LAqpgdoUCQom/O3+Is79fy/OdWr/G0y4vBQRbWfS69xrjX2A8xp+faV79MuSfKftkKvvjKVs1RfU0jCkJlGZU8urL4gGMhH/Uh50sc6toofYlIe9paU6SjWBUCLwUJ9/YqhRFetyiG+X9SoGBZz6+g=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7PR01MB14818.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(38070700021)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?YmlQWUg4VDhCUzFOK3NHMDlMc29BRWxsRTE5cTU5eWlab0lpby9PN3VtM1I3?=
+ =?utf-8?B?eW85aDN2UkVFRFI1YU1TUkV2QjlUOWlwckpuSWN1SGc3QU1FK0krc3N6Vlc1?=
+ =?utf-8?B?SzdYOFlJMTFXK2xycFluUzdLcThPS1FWejJDMUdoWFFzNEcvck9VM3BxNnFn?=
+ =?utf-8?B?MWtIZEltaHNPVTR2eTBSL2pwVngrNG5xYmlLbTBIcEovWHJsMCt0YVZYZW10?=
+ =?utf-8?B?T2RtU01OeThHRm5jOThMbDBTRjlMS3l6SCs3dTNuQzNwQ2tybDF4OFl1SVQ4?=
+ =?utf-8?B?dW00MklXSXdYeGlOZE5YOXZvN3h0OU4xWlo5OXZiTVFWZklaKzJMdEMzcS81?=
+ =?utf-8?B?dlo0bVFwVHUvTkNqQnZ4ZWtNLzVWa3V5RWxYVVJiY1NBQ1dYS2lvenFDYkg3?=
+ =?utf-8?B?U2lyQTd0WXNtUU9iUHR3WlN1WmNlM2c4bGdTMzRHbEhCODlCZ09TeVBBWFZV?=
+ =?utf-8?B?QW9GcTVVZ1ZzekdUdGR4TWpocWdEdEN6cVVBdk9hbU5tUVcxNGl4Y2VXNFlT?=
+ =?utf-8?B?SEs5Rldwa0NhaVEyRWZCcTBWOGJFSjBybGFJTU5oTlJSbVl2Z2NkVXIwa3FZ?=
+ =?utf-8?B?NlFVQ2loUHhvclBaTVhCQkJaa0NvU09YU1V1bGNKQ0pSRUNjeStjeE00MG52?=
+ =?utf-8?B?S0p3MjdlNEUrL3Y1QzlwUmRldE5GazhYb00wQnMrM1BjbGNaelI0VDRuQisy?=
+ =?utf-8?B?bmVhZm5YVi9tK1JxYkI1ZmtURnJqSUZWQUtob250STI3a2tlWVBtakl2NHJB?=
+ =?utf-8?B?M3JVN1ZkUTJuVnpHRGdqalRtT1lSb280dmtNRzJUOUlENm8xWWhBbk5SbVg5?=
+ =?utf-8?B?QitYN3pXODlHWVk2UitORnBjdlhTbkVsUUU1dG84aFJVckVoV1pmcTA0UnNj?=
+ =?utf-8?B?RjJFOGdrQWFSTlUzRk5JNGdZb0lMbDlnRUNYYTdndThkZXVhYy9JRHQrL2Vi?=
+ =?utf-8?B?dW9yenV5Rmt3U0JzcEdQd2YxVnJhM0xEbmpmWm9VOVJTcGtvdHM1OTNtK1da?=
+ =?utf-8?B?RUJvazQwbUhsTVhMNE1tOXlUQW96OEJiZTNDdkQ5K3M3Wi9ad1oxVnBFU3lO?=
+ =?utf-8?B?d1Y2enBqODI5cVA3YzJqNUJlL0tvWjMvbEpoQnF2anRZSlk1eGhLWHFtamZu?=
+ =?utf-8?B?elJodGU3K0xvQ21jWDN5YmhzUFdmWmhpUjVoQXpydnU0TTF1TUhId2x3c0NC?=
+ =?utf-8?B?NEtuNGZPRnUxR3BQNnZEVkljV3dUZ2p5TEd5ZFBPN2xrUXBLSHdSOW5DU3Ry?=
+ =?utf-8?B?R0VqbFhMb25hZjJsWFBXZGRTa3k4NEVadjlnSFB4dld0cjNWejVURXI1b3Nl?=
+ =?utf-8?B?TTNITDFoT3lrODNRR3dpcjNQVnRFVkZiTm40c2NFQkZ5Ry8xQ2thOVRnay92?=
+ =?utf-8?B?dnh5aFdoUW9FU3dkUXljeXRWMjUwbmJFd0lJYWZuWHFpM0plZXVGeHBkckxT?=
+ =?utf-8?B?ZVdlcG1qdm9SVDhDWFpqUFdkNHBEKzZ1dzhqT3p5Rm91QTdCQ3c3bGw1ajd4?=
+ =?utf-8?B?em96VXc3ci9EOG41ZDczWWxZYVhtZjZkQlY2eUh4N0xtdmIzLzFoNzdGWmhG?=
+ =?utf-8?B?QmViREJ4QWgrdnp6b0trT0dOVGQ3TFVnUDA3VnlzWFJSV2c1YVdTWWtwYUtH?=
+ =?utf-8?B?ZXg0TWwrQXcyREQwYkZnam81WnN2ZmpsNStObkRTVDVyalVpVnN1TFNYcXA2?=
+ =?utf-8?B?ekVTMGhxM25jaHRZSStBbXJBUGFsbTVRaklzbnhWUUp1N1hickQ0WmI0Y1ZU?=
+ =?utf-8?B?MVB2WEVkOWxFblZEM2JoREVuWkIzcnpaSUVmN3c1UTlLOTBTU0dzTVJqVjZY?=
+ =?utf-8?B?MmVuKzgwdTkvNDlsUkxTOXZDYnlBMmpyQUtuMGd1TUIzbjB2RnZMMExkd0E3?=
+ =?utf-8?B?enpYaUwxdmNKclBLWFcxWTdqZWJLaGR0TzVpQUNXZEtYMmVhZW9UTHZQa0ti?=
+ =?utf-8?B?aTBQRStQZm9aQjlGYmNvbGtkV0pjOW1NYUQrQ1dKS3M0bDFBUlVXdzU3Q1Bm?=
+ =?utf-8?B?YTZRTzF2YUVCZjVWNlladU9ReUxyMmQrNDdVSVcydFVUOENvTlRCTFdYQ2lK?=
+ =?utf-8?B?dldSckRxTkdKY1E3NE04MnVxbW5CV2hWS3FmMTdZOTNRZ3lmdEZQQ1c3cUJK?=
+ =?utf-8?B?WHJsUnBCQURSR2tkakU0dzRpSWlRamR5clM0MzVyNzNnc3B3SzFienFFT012?=
+ =?utf-8?B?dEJkSnVVV0NjUjJZRmEyTDJxY21iWlU5VTBEZjdTbjNZcDk5S1kwaW9PcWtX?=
+ =?utf-8?B?M0ZEY3VFbnJNNnNRWWtlWk9pQlJQc2MyNENYR24xNUpkUDQxVjBENTBZalVa?=
+ =?utf-8?B?bU9GT2FvSklZSHVoc2djSC9PYk5ac21uU1NEUWR0bUNEQTJ2S1VCdU9UMGty?=
+ =?utf-8?Q?b91lsx8E91CaeJfk=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAyMDAzNCBTYWx0ZWRfXwnXo7rk54/lj
- ZRJmse7Koyq21A5W4w1YfJLUv2mJQBW6g4/RmH99dTidA+0/TLdu+QrMYCrV7dFcobo5YEONj+4
- EmbsIOENEr6iPrtj7EBaP9vt3FdpEUsPhbPYA6xFY6ooLKWeAoEHJ3LwHETYgNyv4NceMdQfB5C
- 3z8tjSB04sflSkM4iKRKZjTCyuKZrkNR+X8SUCpbFsu8v8w03rQS06AMFtSQAwsuRJpXauW1O4T
- YVFmsqLa9GQsBQmIrk7WNW7+vFwyl6RRfWu5N7KMHpIHPpHzMB69pcU8eR2tNdyTyvoBbP2/FIz
- JgRvVMrue9jGIhurseeDEAzmaQX06JDYTiYkKjoTokp7WQ99pZMwz9ntXdnviykT8vcyEpa9fOu
- 8fiZAIj25C66SC1VHsX6FAfbGC67FmZpaPXdWYvqWhXa4UAp8WyN8ToCZ4IQlynAjfr98FBkoA1
- TvcRWKyAxamPHSXQ/Xw==
-X-Authority-Analysis: v=2.4 cv=QKZlhwLL c=1 sm=1 tr=0 ts=69cdeecf cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=MeYYmaBpUeygDV1_9ykA:9
-X-Proofpoint-GUID: IY5dAn9zvF4cuCpuYfMr0mA_YuRnqvol
-X-Proofpoint-ORIG-GUID: IY5dAn9zvF4cuCpuYfMr0mA_YuRnqvol
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-02_01,2026-04-01_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 phishscore=0 adultscore=0 impostorscore=0 clxscore=1015
- spamscore=0 bulkscore=0 priorityscore=1501 suspectscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2604020034
+X-Exchange-RoutingPolicyChecked: b4w5+j5qGyCZ0m1sYT5iKNDc2k4VZll/UbHi9jeYB18ZKrZERXxLny4DFamkIg4baeJLqZ7xvGO65Z6EZb83wEE/ADbUvUClAbvnUh//X8yZQKg6KyQ4Hqcu3R+JEm89TtGAhIS7rGyjTmxEo44cb4SUPMyG3qhHq89fPZhrmCyHF0xiKZF786jKNRaDVJb3N6BMN3c/4snfTyYiaUFoDq1xOhwh63SjJqhVfYd3ECujGtqgq6SPBmIcD+y3FJEGmL/QCyJK4+IZokVs1Fz6GwqixUQS/Jkl54MjyFvFiFexJbAxTTE/1cPdv9JRc+tl72vtWYvUa1J/0LlE/GSs3Q==
+X-OriginatorOrg: mail.toshiba
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY7PR01MB14818.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8b3755eb-a55c-47df-c646-08de906f74f7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Apr 2026 04:22:31.1199
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: f109924e-fb71-4ba0-b2cc-65dcdf6fbe4f
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: s1uGjR5wCC4ByPELsEr2I3Elzx9qOtXIjofGR5begv3r8Ps5+JQPo0aJ6vtexT8JHZuU9cH442egpS8iOUt3Jm/aGr/DSbZYaY7e5WXG1ntJ7QvCFPGpHyxuVfNgcPht
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY7PR01MB14832
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_212253_924259_7B15962A 
-X-CRM114-Status: GOOD (  21.59  )
+X-CRM114-CacheID: sfid-20260402_054624_542712_E147C0AA 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,207 +171,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While for arm64 the members of vcpu_gp_regs are allocated continuous
-this is not necessarily true for other architectures implementing ARM.
-
-Let vcpu_gp_regs() no longer return the address of the user_pt_regs in
-the vcpu context but the address of the gp-register array field in the
-user_pt_reg struct.
-
-Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
----
- arch/arm64/include/asm/kvm_emulate.h       | 9 +++++++--
- arch/arm64/include/asm/kvm_host.h          | 2 +-
- arch/arm64/kvm/hyp/exception.c             | 7 +++++--
- arch/arm64/kvm/hyp/include/hyp/adjust_pc.h | 4 ++--
- arch/arm64/kvm/hyp/include/hyp/switch.h    | 6 +++---
- arch/arm64/kvm/reset.c                     | 3 ++-
- include/kvm/arm64/kvm_emulate.h            | 4 ++--
- virt/kvm/arm64/guest.c                     | 6 +++---
- 8 files changed, 25 insertions(+), 16 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 39fa3a12730c..41eac2b5de14 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -95,12 +95,17 @@ static inline void vcpu_set_vsesr(struct kvm_vcpu *vcpu, u64 vsesr)
- 
- static __always_inline unsigned long *vcpu_pc(const struct kvm_vcpu *vcpu)
- {
--	return (unsigned long *)&vcpu_gp_regs(vcpu)->pc;
-+	return (unsigned long *)&vcpu->arch.ctxt.regs.pc;
- }
- 
- static __always_inline unsigned long *vcpu_cpsr(const struct kvm_vcpu *vcpu)
- {
--	return (unsigned long *)&vcpu_gp_regs(vcpu)->pstate;
-+	return (unsigned long *)&vcpu->arch.ctxt.regs.pstate;
-+}
-+
-+static __always_inline unsigned long *vcpu_sp_el0(const struct kvm_vcpu *vcpu)
-+{
-+	return (unsigned long *)&vcpu->arch.ctxt.regs.sp;
- }
- 
- static __always_inline bool vcpu_mode_is_32bit(const struct kvm_vcpu *vcpu)
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index ae9e507f2c7c..7e473b895740 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1050,7 +1050,7 @@ struct kvm_vcpu_arch {
- #define vcpu_clear_on_unsupported_cpu(vcpu)				\
- 	vcpu_clear_flag(vcpu, ON_UNSUPPORTED_CPU)
- 
--#define vcpu_gp_regs(v)		(&(v)->arch.ctxt.regs)
-+#define vcpu_gp_regs(v)		((v)->arch.ctxt.regs.regs)
- 
- /*
-  * Only use __vcpu_sys_reg/ctxt_sys_reg if you know you want the
-diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
-index bef40ddb16db..82611442a2d1 100644
---- a/arch/arm64/kvm/hyp/exception.c
-+++ b/arch/arm64/kvm/hyp/exception.c
-@@ -277,6 +277,9 @@ static const u8 return_offsets[8][2] = {
- 	[7] = { 4, 4 },		/* FIQ, unused */
- };
- 
-+#define OFFSETOF_PT_REG(__r) offsetof(struct user_pt_regs, __r)
-+#define COMPAT_IDX(__c) ((OFFSETOF_PT_REG(__c) - OFFSETOF_PT_REG(regs[0])) / sizeof(u64))
-+
- static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
- {
- 	unsigned long spsr = *vcpu_cpsr(vcpu);
-@@ -292,12 +295,12 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
- 	switch(mode) {
- 	case PSR_AA32_MODE_ABT:
- 		__vcpu_write_spsr_abt(vcpu, host_spsr_to_spsr32(spsr));
--		vcpu_gp_regs(vcpu)->compat_lr_abt = return_address;
-+		vcpu_gp_regs(vcpu)[COMPAT_IDX(compat_lr_abt)] = return_address;
- 		break;
- 
- 	case PSR_AA32_MODE_UND:
- 		__vcpu_write_spsr_und(vcpu, host_spsr_to_spsr32(spsr));
--		vcpu_gp_regs(vcpu)->compat_lr_und = return_address;
-+		vcpu_gp_regs(vcpu)[COMPAT_IDX(compat_lr_und)] = return_address;
- 		break;
- 	}
- 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h b/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-index 15e1e5db73e1..4e4cb67824c0 100644
---- a/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-@@ -20,11 +20,11 @@
- static inline void __kvm_skip_instr(struct kvm_vcpu *vcpu)
- {
- 	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
--	vcpu_gp_regs(vcpu)->pstate = read_sysreg_el2(SYS_SPSR);
-+	*vcpu_cpsr(vcpu) = read_sysreg_el2(SYS_SPSR);
- 
- 	kvm_skip_instr(vcpu);
- 
--	write_sysreg_el2(vcpu_gp_regs(vcpu)->pstate, SYS_SPSR);
-+	write_sysreg_el2(*vcpu_cpsr(vcpu), SYS_SPSR);
- 	write_sysreg_el2(*vcpu_pc(vcpu), SYS_ELR);
- }
- 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 2597e8bda867..79e6e6cc9f81 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -416,7 +416,7 @@ static inline bool __populate_fault_info(struct kvm_vcpu *vcpu)
- static inline bool kvm_hyp_handle_mops(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
- 	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
--	arm64_mops_reset_regs(vcpu_gp_regs(vcpu), vcpu->arch.fault.esr_el2);
-+	arm64_mops_reset_regs(&vcpu->arch.ctxt.regs, vcpu->arch.fault.esr_el2);
- 	write_sysreg_el2(*vcpu_pc(vcpu), SYS_ELR);
- 
- 	/*
-@@ -857,7 +857,7 @@ static inline void synchronize_vcpu_pstate(struct kvm_vcpu *vcpu)
- 	/*
- 	 * Check for the conditions of Cortex-A510's #2077057. When these occur
- 	 * SPSR_EL2 can't be trusted, but isn't needed either as it is
--	 * unchanged from the value in vcpu_gp_regs(vcpu)->pstate.
-+	 * unchanged from the value in vcpu_gp_cpsr(vcpu).
- 	 * Are we single-stepping the guest, and took a PAC exception from the
- 	 * active-not-pending state?
- 	 */
-@@ -867,7 +867,7 @@ static inline void synchronize_vcpu_pstate(struct kvm_vcpu *vcpu)
- 	    ESR_ELx_EC(read_sysreg_el2(SYS_ESR)) == ESR_ELx_EC_PAC)
- 		write_sysreg_el2(*vcpu_cpsr(vcpu), SYS_SPSR);
- 
--	vcpu->arch.ctxt.regs.pstate = read_sysreg_el2(SYS_SPSR);
-+	*vcpu_cpsr(vcpu) = read_sysreg_el2(SYS_SPSR);
- }
- 
- /*
-diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-index 036bf2dff976..d039f1d7116a 100644
---- a/arch/arm64/kvm/reset.c
-+++ b/arch/arm64/kvm/reset.c
-@@ -219,12 +219,13 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
- 
- 	/* Reset core registers */
- 	memset(vcpu_gp_regs(vcpu), 0, sizeof(*vcpu_gp_regs(vcpu)));
-+	*vcpu_pc(vcpu) = 0;
- 	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
- 	vcpu->arch.ctxt.spsr_abt = 0;
- 	vcpu->arch.ctxt.spsr_und = 0;
- 	vcpu->arch.ctxt.spsr_irq = 0;
- 	vcpu->arch.ctxt.spsr_fiq = 0;
--	vcpu_gp_regs(vcpu)->pstate = pstate;
-+	*vcpu_cpsr(vcpu) = pstate;
- 
- 	/* Reset system registers */
- 	kvm_reset_sys_regs(vcpu);
-diff --git a/include/kvm/arm64/kvm_emulate.h b/include/kvm/arm64/kvm_emulate.h
-index 25322b95af21..0e16d18e53d2 100644
---- a/include/kvm/arm64/kvm_emulate.h
-+++ b/include/kvm/arm64/kvm_emulate.h
-@@ -77,14 +77,14 @@ static inline void kvm_skip_instr(struct kvm_vcpu *vcpu)
- static __always_inline unsigned long vcpu_get_reg(const struct kvm_vcpu *vcpu,
- 						  u8 reg_num)
- {
--	return (reg_num == 31) ? 0 : vcpu_gp_regs(vcpu)->regs[reg_num];
-+	return (reg_num == 31) ? 0 : vcpu_gp_regs(vcpu)[reg_num];
- }
- 
- static __always_inline void vcpu_set_reg(struct kvm_vcpu *vcpu, u8 reg_num,
- 					 unsigned long val)
- {
- 	if (reg_num != 31)
--		vcpu_gp_regs(vcpu)->regs[reg_num] = val;
-+		vcpu_gp_regs(vcpu)[reg_num] = val;
- }
- 
- static inline u32 kvm_vcpu_hvc_get_imm(const struct kvm_vcpu *vcpu)
-diff --git a/virt/kvm/arm64/guest.c b/virt/kvm/arm64/guest.c
-index 83e33e0143b9..e283a4456df8 100644
---- a/virt/kvm/arm64/guest.c
-+++ b/virt/kvm/arm64/guest.c
-@@ -81,16 +81,16 @@ static void *core_reg_addr(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	     KVM_REG_ARM_CORE_REG(regs.regs[30]):
- 		off -= KVM_REG_ARM_CORE_REG(regs.regs[0]);
- 		off /= 2;
--		return &vcpu_gp_regs(vcpu)->regs[off];
-+		return &vcpu_gp_regs(vcpu)[off];
- 
- 	case KVM_REG_ARM_CORE_REG(regs.sp):
--		return &vcpu_gp_regs(vcpu)->sp;
-+		return vcpu_sp_el0(vcpu);
- 
- 	case KVM_REG_ARM_CORE_REG(regs.pc):
- 		return vcpu_pc(vcpu);
- 
- 	case KVM_REG_ARM_CORE_REG(regs.pstate):
--		return &vcpu_gp_regs(vcpu)->pstate;
-+		return vcpu_cpsr(vcpu);
- 
- 	case KVM_REG_ARM_CORE_REG(sp_el1):
- 		return __ctxt_sys_reg(&vcpu->arch.ctxt, SP_EL1);
--- 
-2.51.0
+SGksDQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogQmVub8OudCBNb25p
+biA8YmVub2l0Lm1vbmluQGJvb3RsaW4uY29tPg0KPiBTZW50OiBXZWRuZXNkYXksIEFwcmlsIDEs
+IDIwMjYgOTozMCBQTQ0KPiBUbzogTWljaGFlbCBUdXJxdWV0dGUgPG10dXJxdWV0dGVAYmF5bGli
+cmUuY29tPjsgU3RlcGhlbiBCb3lkIDxzYm95ZEBrZXJuZWwub3JnPjsgaXdhbWF0c3Ugbm9idWhp
+cm8o5bKp5p2+IOS/oea0iw0KPiDilqHvvKTvvKnvvLTvvKPil4vvvKPvvLDvvLQpIDxub2J1aGly
+by5pd2FtYXRzdS54OTBAbWFpbC50b3NoaWJhPjsgUm9zZW4gUGVuZXYgPHJvc2VucEBnbWFpbC5j
+b20+OyBCcmlhbiBNYXNuZXkNCj4gPGJtYXNuZXlAcmVkaGF0LmNvbT4NCj4gQ2M6IGxpbnV4LWNs
+a0B2Z2VyLmtlcm5lbC5vcmc7IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZzsg
+bGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZw0KPiBTdWJqZWN0OiBSZTogW1BBVENIXSBjbGs6
+IHZpc2NvbnRpOiBwbGw6IGluaXRpYWxpemUgY2xrX2luaXRfZGF0YSB0byB6ZXJvDQo+IA0KPiBP
+biBNb25kYXksIDMwIE1hcmNoIDIwMjYgYXQgMTY6MzI6MzcgQ0VTVCwgQnJpYW4gTWFzbmV5IHdy
+b3RlOg0KPiA+IFNhc2hpa28gcmVwb3J0ZWQgdGhlIGZvbGxvd2luZzoNCj4gPg0KPiA+ID4gVGhl
+IHN0cnVjdCBjbGtfaW5pdF9kYXRhIGluaXQgaXMgZGVjbGFyZWQgb24gdGhlIHN0YWNrIHdpdGhv
+dXQgYmVpbmcNCj4gPiA+IGZ1bGx5IHplcm8taW5pdGlhbGl6ZWQuIFdoaWxlIGZpZWxkcyBsaWtl
+IG5hbWUsIGZsYWdzLCBwYXJlbnRfbmFtZXMsDQo+ID4gPiBudW1fcGFyZW50cywgYW5kIG9wcyBh
+cmUgZXhwbGljaXRseSBhc3NpZ25lZCwgdGhlIHBhcmVudF9kYXRhIGFuZA0KPiA+ID4gcGFyZW50
+X2h3cyBmaWVsZHMgYXJlIGxlZnQgY29udGFpbmluZyBzdGFjayBnYXJiYWdlLg0KPiA+DQo+ID4g
+Y2xrX2NvcmVfcG9wdWxhdGVfcGFyZW50X21hcCgpIGN1cnJlbnRseSBwcmVmZXJzIHRoZSBwYXJl
+bnQgbmFtZXMgb3Zlcg0KPiA+IHRoZSBwYXJlbnQgZGF0YSBhbmQgaHdzLCBzbyB0aGlzIGlzbid0
+IGEgcHJvYmxlbSBhdCB0aGUgbW9tZW50LiBJZg0KPiA+IHRoYXQgb3JkZXJpbmcgZXZlciBjaGFu
+Z2VkIGluIHRoZSBmdXR1cmUsIHRoZW4gdGhpcyBjb3VsZCBsZWFkIHRvIHNvbWUNCj4gPiB1bmV4
+cGVjdGVkIGNyYXNoZXMuIExldCdzIGp1c3QgZ28gYWhlYWQgYW5kIG1ha2Ugc3VyZSB0aGF0IHRo
+ZSBzdHJ1Y3QNCj4gPiBjbGtfaW5pdF9kYXRhIGlzIGluaXRpYWxpemVkIHRvIHplcm8gYXMgYSBn
+b29kIHByYWN0aWNlLg0KPiA+DQo+ID4gRml4ZXM6IGI0Y2JlNjA2ZGMzNjcgKCJjbGs6IHZpc2Nv
+bnRpOiBBZGQgc3VwcG9ydCBjb21tb24gY2xvY2sgZHJpdmVyDQo+ID4gYW5kIHJlc2V0IGRyaXZl
+ciIpDQo+ID4gTGluazoNCj4gPiBodHRwczovL3Nhc2hpa28uZGV2LyMvcGF0Y2hzZXQvMjAyNjAz
+MjYwNDIzMTcuMTIyNTM2LTEtcm9zZW5wJTQwZ21haWwuDQo+ID4gY29tDQo+ID4gU2lnbmVkLW9m
+Zi1ieTogQnJpYW4gTWFzbmV5IDxibWFzbmV5QHJlZGhhdC5jb20+DQo+IA0KPiBSZXZpZXdlZC1i
+eTogQmVub8OudCBNb25pbiA8YmVub2l0Lm1vbmluQGJvb3RsaW4uY29tPg0KPiANCg0KUmV2aWV3
+ZWQtYnk6IE5vYnVoaXJvIEl3YW1hdHN1IDxub2J1aGlyby5pd2FtYXRzdS54OTBAbWFpbC50b3No
+aWJhPg0KDQpCZXN0IHJlZ2FyZHMsDQogIE5vYnVoaXJvDQo=
 
 
