@@ -4,140 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB3E4D39410
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 11:27:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF863D39417
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 11:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=134Al/W95knRgbclnuh/o+ul0rtxFJ1H52x/sjCobRs=; b=hk1vNRqcUi2PIphztm+uPSZwSs
-	FAHJzyC6KnUivkc7caScu9jyAmzKpt+xwFOgAFq6D966EuM38FYDQ7Kyn8FEelHWxwREjjhWqiTvn
-	svA/MLOU2SQ+XdrJuW7PUjf8Gg5uCsBIO8uzFL5pXr25Ti/NVu5+eXmCcLKJcF8zzdpgWVW+Cj375
-	IWyfAKtCADYAM3QnEyPBRQtpvmaN7yk/eoP1bfMH3e2ERJjCQJkCxb5tkhPhNzwZZzj+A7sX67sXH
-	V4eVACIIrxunYa5cBt+sxsKp3pK1XoboUqFkN5MGomWgm+nuVfGbTYJeBU3K0GPlTQf8rF/X0F0hn
-	qqJGyMWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/wh742VMTWlWH+slgubSz+moLYFABAfaF0AWY39n6Iw=; b=onIUAcMZW8H0wSdbHTFmRbD2gB
+	SY4hHmy+krKirKxN6gvOWFE15UGb5ajzu13XfXnF7neJwKKjvKkvPTqLlp+dJ8kTxItgOxaTzfLrL
+	IkirWXzkVdoRpAvNkyz5Wh6NA8qZLtikPUglc1RySgvH5AQzG//Cy3+JDU0eBWhITutqMV/gIZHPF
+	Q7IlGziTXrncFZwhWMsDl/Dv36mYdtKrt4tvNE96xEsl8bivEdyFK+/nuMrnk1ZyvhbbYiMTh1NwF
+	CpdhlIFpXEL4QGUvUUSV7augptjcrETjaa42ATMPlQy0Zx6C+VOgI/QAfR2fNErOldjBuMsj1FC5y
+	ms0ZN3Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8GCj-0000000HWhf-1wvr;
-	Thu, 02 Apr 2026 11:27:17 +0000
+	id 1w8GOt-0000000HXQe-025s;
+	Thu, 02 Apr 2026 11:39:51 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8GCi-0000000HWhR-0vft
+	id 1w8GOr-0000000HXQV-2Wqz
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 02 Apr 2026 11:27:16 +0000
+	Thu, 02 Apr 2026 11:39:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=134Al/W95knRgbclnuh/o+ul0rtxFJ1H52x/sjCobRs=; b=TP1KHTbwMT+k01V0VZnyC6XHrH
-	IasDkAWQsq8eFesbp+hq0Q6570WOo1er0Uenl9RhJjd3zZBwXu8+1ch3Jq1IpNMIhIpULVXlNWmW7
-	QPmtPaSVctxU+uo4S8skrBYVARNshR/cpO7RxVDGIXlcFzDYgbR8u344MeK9CJLvy4siye0LkX1CN
-	Xz3NM7ABv3xqc3T4yKAxIvUwiuBr8ouzmt/6rK6cMTdmk9tqYqo9+eW9FCmMkLJWyjyOHKNr96pdX
-	11JUmz9LGbQ1/gJ9/9jnCDNrWYqxjL9GjmJAtc0345Phc5O+LjSnS3QjPklJWkWWvd3PeeNCPGhV6
-	gCAwnkxQ==;
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:Mime-Version:Date:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=/wh742VMTWlWH+slgubSz+moLYFABAfaF0AWY39n6Iw=; b=UghsYfkLma4cEYsE3mF5vplGh4
+	h1eQbOPU9GFqofyMYoTEnGzO+uGQHg4yogA81nUOt25i7y6Q/fhLnTLrOd8mixbwJkhQPQ6TvHj51
+	8+Af98SY7RcyfnYp8w1sOwAusx63V9QDuxZvozkrTaJCa/t8l7f3uVJzdOEbb/gOHQGK9pHWiNLhM
+	RPEPGYjL8WGq9p1QO3XQiGxgvbho8ma7/bb5WE+9Ad+HPmlKoahytXVbfWVcRqMDHzkPG3+Y0egXQ
+	NqQ8Dj5cLR9TFBeeDCLwWis7TEt1w88TfQGiRBn5mPym2qG8iMpoNsC+IdthKQog68tkl6BuHgRSY
+	JKs0/1yw==;
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8GCe-00000002KA0-3mnD
+	id 1w8GOo-00000002LTY-1Q56
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 11:27:15 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 631K0WS7351518;
-	Thu, 2 Apr 2026 11:26:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=134Al/
-	W95knRgbclnuh/o+ul0rtxFJ1H52x/sjCobRs=; b=YgF6jzFipfEyAM6zl5a9Gx
-	VzeJCcS4/lv3Djnz20DaNE7SeZZ/o4F0zBHs8qcfU8R+A4XbnHDonEorOHLKLd/Z
-	kju5XBFDccNDppwQbDtzpjg7kAgvQPul7NckWK8cupN/675jwZsnZr06hwuHhkyd
-	+c/gNiQsMoiK8GscB1oFx2cLrQ+1g6wSVmazTkPC9Kuh86vR9xLaSCF1X8d978n5
-	EPGQfQS5goZAl2KiYAnGGvnsLXcBBV765e/zfNi40tCmWSmqg0h1nFhmDKroog04
-	c1BxkHhaGfcOdL34LQ8Ngz82zCKTPKjvBfxhT8oES2RK5x6U4+NmkTzA/Vkh0ItQ
-	==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4d66g24jr0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 02 Apr 2026 11:26:59 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 632ArD3G021651;
-	Thu, 2 Apr 2026 11:26:58 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4d6sassy7a-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 02 Apr 2026 11:26:57 +0000
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 632BQscG47448446
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 2 Apr 2026 11:26:54 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 2CE7820043;
-	Thu,  2 Apr 2026 11:26:54 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id CB71920040;
-	Thu,  2 Apr 2026 11:26:53 +0000 (GMT)
-Received: from [9.52.200.39] (unknown [9.52.200.39])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Thu,  2 Apr 2026 11:26:53 +0000 (GMT)
-Message-ID: <c251ca9c-6fae-4f64-8e10-792f42872582@linux.ibm.com>
-Date: Thu, 2 Apr 2026 13:26:53 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 07/27] KVM: arm64: Provide arm64 KVM API for non-native
- architectures
-To: Marc Zyngier <maz@kernel.org>, Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org,
-        Andreas Grapentin <Andreas.Grapentin@ibm.com>,
-        Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-References: <20260402042125.3948963-1-seiden@linux.ibm.com>
- <20260402042125.3948963-8-seiden@linux.ibm.com>
- <86y0j53caf.wl-maz@kernel.org>
-Content-Language: en-US
-From: Christian Borntraeger <borntraeger@linux.ibm.com>
-In-Reply-To: <86y0j53caf.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=Fdo6BZ+6 c=1 sm=1 tr=0 ts=69ce5283 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=z1V4dRcsYzbvUw6_Kx8A:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: HI2DK5H5wC6ad5B9YnVOxaWLprzdU9gx
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAyMDEwMSBTYWx0ZWRfX3nF5lxvZ6dE7
- FksS0fkJJanzuKM/mt/NzGShaEpUwNpTTBXziUvh2Pow3kPl5764MGt4zfosBudNpv24oVRUgYm
- jsbDHWcjLBJbNZk3kJ7PVY8LXySqOGWIOAm+PZn2Aovr1NWSyzfYZhTcAenA3VqwSS6JUGKKGm+
- NNEbXsLSHWEtDhn10yivwV2WYfTvDee6b/kMbb5xKbjJ2G2XTGbMVJ7bmespGf2xVMg9dfL3arj
- WDU1Iwx3DufEC6KPvPDIro2YCFANpGSJUbFflqHm3N1xR4l2AOIbXrrSQw0RaqGRaPXpuaWTt20
- JpmIB05IXepBc/StFDQ4V4HA3cDs6NT7lMbpjCaop0BAVPvKsyDeRZ33jTgElh8zGAWHLUevM0c
- kNgyp6gBYPStJwHraQ5Lte2qhmrtY7AEVjkaAgnAlRB66GpJQjJNwn1Hy7w4j+PKSfKoJPeFNX5
- 1VEz6vTWPXj07uBaw7Q==
-X-Proofpoint-GUID: HI2DK5H5wC6ad5B9YnVOxaWLprzdU9gx
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-02_01,2026-04-02_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 clxscore=1015 bulkscore=0 suspectscore=0 priorityscore=1501
- adultscore=0 malwarescore=0 phishscore=0 spamscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2604020101
+	Thu, 02 Apr 2026 11:39:48 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-486f830f4e4so7654555e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 04:39:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1775129982; x=1775734782; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=/wh742VMTWlWH+slgubSz+moLYFABAfaF0AWY39n6Iw=;
+        b=WBUYyrdEkYdrfpUNJELPgZ1xuFFf0tahR3xZCje4VyUNBgrO8T6R9DNVxzF93xHxkU
+         SWi9c/yfupr4/XJcH9aNjpDOIGpuqUQMaMgKgwhxPz+dAcDmFR2EY40CJyu022ZvbOeu
+         eaBT3Tv27VhBZKBRgpUfRx7JW5LYYLBDcTGacvg0YedI76VjF+F01Hc0UboQvuKr1vQK
+         bBEc/uVhQYdx7FfAjuBZFc/mPHm5gWGGl/9Lz1E0YtOYtFU+YEZ+xqfqYhATb2S2Y9QO
+         QK4v8ActsO4jpuWsDbSrvgO40gYpyjMDDNdmufgY8C0uMIm3ZdBcE/HeHFqbHNCadSiN
+         rT9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775129982; x=1775734782;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/wh742VMTWlWH+slgubSz+moLYFABAfaF0AWY39n6Iw=;
+        b=Mbc0JVifwpBAvhtVlQviSO9N6KVF6VLiuW2IqlCZ78GQ4G1M7RZSZ9uYbyHOkyoexm
+         BryP4qFIjmgktU6FNA9b6duzHTF7qUHBRJ2k78MizucdiY0O74HJ7UhkYW2WQk3FCVVB
+         OvJX0jFZWnU0qhxUBMBWj0isFWyYyzsAlxmM5JSw7s57SD+Qj1ByGr3ngEGY/5e2NEl7
+         B1Sm8hBEksYApWW/ku7H951OwO6UszVXqH/vCeq8TEG0twc0ozfJoInZmOXymNVVlWIJ
+         Bgefr2tD8OvXNyB5+VtB5rHu6WwtCEz0Lu5/H4G9vEibopvsdYYU8Wf8e1EGNISTmp7g
+         vuZA==
+X-Gm-Message-State: AOJu0Yz6G0lHqaAXK0Xro9MzILRg9VphFr9g24gd69hltC3XPlofFpqB
+	hBwPD35p8HKnQlwZWpWeBR+BzEReamk1/vC9uAH22arjqbHomiAbzB3LaCX+kXEiN0CGCg0z/pI
+	MFlkav4ocIWeSek8mkziiaOXNAJbPg2FTEGp0TbR4aX719edI5KeEngwOH501E/NplOTYxRJAik
+	YEdrkNRxrbAO/ABl9R3aRSrkwj9QBe9rEUDhGgrlLRRWhFxo4Sw/+XtKC46Vue4S0yD/W8pa1Ax
+	J0MU/ieDDsRB2o=
+X-Received: from wmbjg9.prod.google.com ([2002:a05:600c:a009:b0:488:823b:4cf3])
+ (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:3516:b0:480:690e:f14a with SMTP id 5b1f17b1804b1-48883597ccdmr109213475e9.14.1775129981835;
+ Thu, 02 Apr 2026 04:39:41 -0700 (PDT)
+Date: Thu,  2 Apr 2026 11:39:39 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.53.0.1213.gd9a14994de-goog
+Message-ID: <20260402113939.930221-1-sebastianene@google.com>
+Subject: [PATCH v2] firmware: arm_ffa: Use the correct buffer size during RXTX_MAP
+From: Sebastian Ene <sebastianene@google.com>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	android-kvm@google.com
+Cc: sudeep.holla@kernel.org, Sebastian Ene <sebastianene@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_122713_491230_C2970567 
-X-CRM114-Status: UNSURE (   8.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260402_123946_669762_1497996B 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,20 +102,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 02.04.26 um 12:08 schrieb Marc Zyngier:
->> +static inline bool kvm_supports_32bit_el0(void)
->> +{
->> +	return false;
->> +}
->> +
-> 
-> This looks wrong. The original file still has:
-> 
-> #define kvm_supports_32bit_el0()                                \
->          (system_supports_32bit_el0() &&                         \
->           !static_branch_unlikely(&arm64_mismatched_32bit_el0))
-Thanks for spotting.
-Yes, we will fix. Seems to be a leftover when sorting patches.
+Don't use the discovered buffer size from an FFA_FEATURES call directly
+since we can run on a system that has the PAGE_SIZE larger than the
+returned size which makes the alloc_pages_exact for the buffer to be
+rounded up.
 
-Christian
+Fixes: 61824feae5c0 ("firmware: arm_ffa: Fetch the Rx/Tx buffer size using ffa_features()")
+Signed-off-by: Sebastian Ene <sebastianene@google.com>
+---
+v1 -> v2:
+ * use the correct macro PAGE_ALIGN when calculating the size of the buffer
+---
+ drivers/firmware/arm_ffa/driver.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+index f2f94d4d533e..eb2782848283 100644
+--- a/drivers/firmware/arm_ffa/driver.c
++++ b/drivers/firmware/arm_ffa/driver.c
+@@ -2078,7 +2078,7 @@ static int __init ffa_init(void)
+ 
+ 	ret = ffa_rxtx_map(virt_to_phys(drv_info->tx_buffer),
+ 			   virt_to_phys(drv_info->rx_buffer),
+-			   rxtx_bufsz / FFA_PAGE_SIZE);
++			   PAGE_ALIGN(rxtx_bufsz) / FFA_PAGE_SIZE);
+ 	if (ret) {
+ 		pr_err("failed to register FFA RxTx buffers\n");
+ 		goto free_pages;
+-- 
+2.53.0.1213.gd9a14994de-goog
+
 
