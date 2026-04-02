@@ -4,139 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A39ED3940D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 10:28:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A7BD3940B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 10:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AQ7Zd5cgb0yk5pits+gN3wLhngPs3KzNIb6mGSmkcF0=; b=dbTcIqCKoSdAGL4dfAmj2r3jut
-	k8WAuX7ojO88TdpiVPEZKPD3n+P+3ztTuDl/ARljxs13gGizbK9075vFHJhz3V4IX+POm9WEX+JUE
-	5mEtWNSNrXqgI9MoJgTih/0vYnAHmSuzVZzqFEFsYEzl7SiXOomkph3+U2E0NfsyUTdc1ZkMlTD9V
-	qatV63Qlvd/L/InE34+Em0MMAUTg1ZcGOlUkVOXLjIsmAp1fXLbut2ER46ETl2MYK5jj+T2NEri2s
-	8oQvKnZ0YmkByYd+6qZZEadH7ithsPZVmVfnv5PbqgbPG4ED0QXn80AezLpQTnZvkiAithzivdajG
-	ua0obsxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yv1R77h6z/OrsXahXxMWU+urCmfnJZMfmy6c8C3VLaw=; b=Ff0ZjL5wBmhgj6++wb95G4/+Fh
+	kEncwbasBZCQBKGnVD/msaqMVXoBinsauy+yWjmPA+ecB/whgV5tXz/SSqk+sE7t15S2GdtCQYnF3
+	ho9+0IZwzBuKLl8fWQUTPLsGNcEsIyFXjGu4/wvsuvl7OovwbcXcRdzxYhjQPfGD1qhC9K2Wx1VND
+	XsjAGvA/PDLayeT/8ZPG3OwJbFC3O93VtIk/vvRbnRmXMUMB1liLgTmlmjpCh6NyrwzacQEh9je+q
+	poffp0wJJUDzCcJx/rizev64o70IPFZQAssYoiP25VChIoc8kip5WxLLgUUIWss+KcHyDKDfkgViP
+	R/bcrhQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8FHc-0000000HPL0-2nVf;
-	Thu, 02 Apr 2026 10:28:16 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8FHa-0000000HPKf-26cO
+	id 1w8FQs-0000000HPz2-0slS;
+	Thu, 02 Apr 2026 10:37:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8FQp-0000000HPyb-1rVF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 10:28:15 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6326xO712798853
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 2 Apr 2026 10:28:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	AQ7Zd5cgb0yk5pits+gN3wLhngPs3KzNIb6mGSmkcF0=; b=QtEE2CB/LG9Io4Go
-	EGhJemTXECeThCcc/wBzfFu7oYLJTSD+Xjh5AElDvpqmEWXIlVlpD0Iixl/+nm5D
-	KMkDQ6kNvHV3qraajIboWHlpMKVWW1c0I76IDVtT1fhmNlxf0NoIPozhtc/fRoyr
-	wLnS4Wjc0pN+s5BgW/doG+xZhHQsUiLAKA0+KI5FrlSgztvBUMNnQYpNqlw6LAQT
-	SX+AWvVmaBWYYSg48+qbTSRQuP8B6/u/nNN+6my7WhiMO4RkPnj3h/kMOO6CKy8m
-	R8xMlkZ6onc7wmcWOaigKL0DSwHrDSB+3DGmKmNggJKgHmGtyHVr0bY5fFAjOWsM
-	lhxz4Q==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d96hk3kq5-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 10:28:13 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2b0bf2b3879so18553565ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 03:28:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1775125692; x=1775730492; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=AQ7Zd5cgb0yk5pits+gN3wLhngPs3KzNIb6mGSmkcF0=;
-        b=NdGq1OhVGRq0A6tba+HDBClt3BRFRMih4pfO4NXD3ANLKAX/WujGaaETVFEBp252m7
-         69csLw9mb+hsgf+ZAjORo/V7JipT/uPSjQ6fZPKG3S5UgLqBB4xJaYiUYilBBqeLmDp/
-         e4Gv3W4Kv4eTIkreNceeUXnqSxBsAnvh3UoR3Dy0F+hAteDKlsfXiuOB16cohETLyzXA
-         rdOOGo8MiiNPd9+E0HhcwWUzXqMdGy7Mf2AyJGTT0/1hAH+r/abH+OrV6DeVNQ9w7vYy
-         Up02yg4JMcEGcETYt1P6uCaZAgVvaPjPWyWUJ9eAi0WCyNg+6+RxUK9CPB3bw25EX7/j
-         0PNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775125692; x=1775730492;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AQ7Zd5cgb0yk5pits+gN3wLhngPs3KzNIb6mGSmkcF0=;
-        b=VvvTDIeURvt4ejJfKJH3XDcUUMxlgoeb4glIEXBQ+ns23Kk2XmYH+qQEcMMz0rdZoe
-         QqW+s0Ykh28o9PWjLd4C7pSAcetw9HD0iTCO73qG2pTFtO+GvEtx3SMSB/zPFZyfv7DR
-         WZjD+zsdBbTUFyA0LADBtb0zJUAjXamjaw6H3Pwy6ifLoQBcvRXBsrlCq/usGHsuAPLJ
-         RN36WRXxZ1peNE8lmu7ivIKj3afE7DiR+S2BNzRiblV+g3JChu0Y9D1mrx6A/gwVP8TB
-         rsYPfiSROT8UELnhXj8Te/NpJEgJyGX7cCmcTYGYYlMMFwsz3b++5+iU0JoxqHHOg/r+
-         mauw==
-X-Forwarded-Encrypted: i=1; AJvYcCWXfdACkUv8jINMXfrBghIJd5kuIHwSbx3h1WzLMQSCDp0KjciW5hB8zDY12nThG/kdVdkF0GVTFxPk5oMX6Plg@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKkcET1NPNp2B4sLcrDsrW6/8QRfReOygE5Ho8IJTZq3X6LG9F
-	axTpr6cWIfhpkoWkX3eGBHkIlrZh7/q3zJGtZy5RF+4KAceoEIwiEjWxNEvkZGB51z0LJA+P6On
-	J22sdhhPiiynczgukcvszXxeMpEYHwx6tu6fEQz7CvPIcGvAV49NkwQugQh9zwsbX5wutbut+fW
-	dS+w==
-X-Gm-Gg: AeBDievjAh2RRrM0UjrQ6N4Jw2+rQqTbWkF1rJKrmUFzI4Al3wtdH9sJCez5jbsBbir
-	37egJ/9Ean2vWzgvUoK0ZnalGhPgg+vekgmVAWdC7VSh3tUZ35BbVpUVKpp+mbszWPY4YTf5EAv
-	R3LUEyO8BhhP6Jg92kkkXadBcsXNDHkMklUHax/pikiN/4thvgw1QClagX04s3I/npOi7UTrQfQ
-	KhS0QnP5PhVTWtra7FpsfOTpqhNyRh61emcql5S+KwoTr6XF3R7l0CeO3swaGoTk9F2fU82gMnO
-	0yS2BEzOasLwtw7co7oHS0YPWh69enPRmWyTFXLHO2LzL9E5oCqKPFcS+obdmDZhJxx8NzfIloM
-	TG/DeoRtEq6NXyXJWPlDqZOXDo1TKZOVoSS5UCR1A+vOuLpdycvKt/VnYOgaeXgoGUKq7UvztEH
-	hZWH4mNGniX2M=
-X-Received: by 2002:a17:903:1a4e:b0:2b0:51f6:d46e with SMTP id d9443c01a7336-2b269c3c5f6mr76030865ad.15.1775125692319;
-        Thu, 02 Apr 2026 03:28:12 -0700 (PDT)
-X-Received: by 2002:a17:903:1a4e:b0:2b0:51f6:d46e with SMTP id d9443c01a7336-2b269c3c5f6mr76030445ad.15.1775125691854;
-        Thu, 02 Apr 2026 03:28:11 -0700 (PDT)
-Received: from [10.133.33.180] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b27475ff56sm24425525ad.22.2026.04.02.03.28.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 02 Apr 2026 03:28:11 -0700 (PDT)
-Message-ID: <be011ef1-e938-44ab-80e8-fdbadf5feeb1@oss.qualcomm.com>
-Date: Thu, 2 Apr 2026 18:28:06 +0800
+	Thu, 02 Apr 2026 10:37:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2C8EB2C43;
+	Thu,  2 Apr 2026 03:37:38 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2EA953F915;
+	Thu,  2 Apr 2026 03:37:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775126263; bh=GQzaBMwghl8XYidHwNNmgxTe21K2DfaqjQnm40MyiGg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HveKKtNGZYStMde8mysfVmmrzu0eDZAc6sG/X6uBcJ/WIJ/j2pEF54jrBgaiecdcx
+	 W2c7UBqIdHhbXUqRnU0lrHh4npDO0UiZDDUENxFTq7rLHlbk+bLeTRJvawN2WrPq7M
+	 gg60OtPpvOXkdBvisy3B/dvw6XgHomN2sEGqWukE=
+Date: Thu, 2 Apr 2026 11:37:37 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Rob Herring <robh@kernel.org>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH V3 7/7] arm64/hw_breakpoint: Enable FEAT_Debugv8p9
+Message-ID: <ac5G8e4zWTdicDBs@J2N7QTR9R3>
+References: <20241216040831.2448257-1-anshuman.khandual@arm.com>
+ <20241216040831.2448257-8-anshuman.khandual@arm.com>
+ <Z2AH1SN5CipWkkE4@J2N7QTR9R3>
+ <20260331225800.GA2082670-robh@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 5/7] qcom-tgu: Add support to configure next action
-To: Songwei Chai <songwei.chai@oss.qualcomm.com>, andersson@kernel.org,
-        alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
-        konrad.dybcio@oss.qualcomm.com, suzuki.poulose@arm.com,
-        james.clark@arm.com, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
-        devicetree@vger.kernel.org, gregkh@linuxfoundation.org
-References: <20260402092838.341295-1-songwei.chai@oss.qualcomm.com>
- <20260402092838.341295-6-songwei.chai@oss.qualcomm.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20260402092838.341295-6-songwei.chai@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAyMDA5MyBTYWx0ZWRfXxdwe/8NfSbNM
- /Mv4yYNRmWfZ6tdydOJcl+sHFiTZ/KebPuGTXicnP4JEtKehOOS+JY7NGG0OMu1l0vb6ap8sZDV
- /SIJ0n+s/ZAz1jHVAfcL/Cq1wmACBKR2bE2anDKCRWvPcak2whhp3y25xsDajpJDcbbeEBcQMVn
- sanWIlI4tP4FT+DFjDkJ5dxXbxBzslw2LCZ0spcs5yknuBviPypq4gWhXRinpEKQiaXQSztQwdV
- UfolnGw/HksmCHX+w2bTdLWVmFORlUG8umWZI3MdUzXFKaYxtWlrwg3HkEaGKAFxls+nv+/jA39
- WhFVfuk7e02UAtDP36hs6hURfInX2cbABUeGCGMhOLvtZqpc+p8+E5cAc9c9Zuhm7A6L4kMn7rs
- CxlGts3QMi3t7oJcZrHIDbi1EB7O8LUZBQHBqTnKO4d6ctWNl4MOMqDxJ5zpRzMh9JQyYFe/0JH
- IKIulygz4B1vMj86gpA==
-X-Proofpoint-GUID: Gz_D-nLaW6NpggGrC53PycGt4v4bqMug
-X-Proofpoint-ORIG-GUID: Gz_D-nLaW6NpggGrC53PycGt4v4bqMug
-X-Authority-Analysis: v=2.4 cv=e9ULiKp/ c=1 sm=1 tr=0 ts=69ce44bd cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=EUspDBNiAAAA:8 a=Ex1FgqpvNLb1JEDmgOQA:9 a=QEXdDO2ut3YA:10
- a=1OuFwYUASf3TG4hYMiVC:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-02_01,2026-04-02_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 priorityscore=1501 phishscore=0 bulkscore=0 malwarescore=0
- clxscore=1015 suspectscore=0 adultscore=0 spamscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2604020093
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260331225800.GA2082670-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_032814_665946_DFCA28A2 
-X-CRM114-Status: GOOD (  28.77  )
+X-CRM114-CacheID: sfid-20260402_033747_573340_9A0FE1D6 
+X-CRM114-Status: GOOD (  46.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,254 +78,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/2/2026 5:28 PM, Songwei Chai wrote:
-> Add "select" node for each step to determine if another step is taken,
-> trigger(s) are generated, counters/timers incremented/decremented, etc.
+On Tue, Mar 31, 2026 at 05:58:00PM -0500, Rob Herring wrote:
+> On Mon, Dec 16, 2024 at 10:58:29AM +0000, Mark Rutland wrote:
+> > On Mon, Dec 16, 2024 at 09:38:31AM +0530, Anshuman Khandual wrote:
+> > > Currently there can be maximum 16 breakpoints, and 16 watchpoints available
+> > > on a given platform - as detected from ID_AA64DFR0_EL1.[BRPs|WRPs] register
+> > > fields. But these breakpoint, and watchpoints can be extended further up to
+> > > 64 via a new arch feature FEAT_Debugv8p9.
+> > > 
+> > > This first enables banked access for the breakpoint and watchpoint register
+> > > set via MDSELR_EL1, extended exceptions via MDSCR_EL1.EMBWE and determining
+> > > available breakpoints and watchpoints in the platform from ID_AA64DFR1_EL1,
+> > > when FEAT_Debugv8p9 is enabled.
+> > 
+> > [...]
 > 
-> Reviewed-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
-> ---
->   .../ABI/testing/sysfs-bus-amba-devices-tgu    |  7 +++
->   drivers/hwtracing/qcom/tgu.c                  | 53 ++++++++++++++++++-
->   drivers/hwtracing/qcom/tgu.h                  | 27 ++++++++++
->   3 files changed, 85 insertions(+), 2 deletions(-)
+> Well, this series has landed on my plate...
+
+Sorry about that; thanks for taking a look!
+
+> > > +static u64 read_wb_reg(int reg, int n)
+> > > +{
+> > > +	unsigned long flags;
+> > > +	u64 val;
+> > > +
+> > > +	if (!is_debug_v8p9_enabled())
+> > > +		return __read_wb_reg(reg, n);
+> > > +
+> > > +	/*
+> > > +	 * Bank selection in MDSELR_EL1, followed by an indexed read from
+> > > +	 * breakpoint (or watchpoint) registers cannot be interrupted, as
+> > > +	 * that might cause misread from the wrong targets instead. Hence
+> > > +	 * this requires mutual exclusion.
+> > > +	 */
+> > > +	local_irq_save(flags);
+> > > +	write_sysreg_s(SYS_FIELD_PREP(MDSELR_EL1, BANK, n / MAX_PER_BANK), SYS_MDSELR_EL1);
+> > > +	isb();
+> > > +	val = __read_wb_reg(reg, n % MAX_PER_BANK);
+> > > +	local_irq_restore(flags);
+> > > +	return val;
+> > > +}
+> > >  NOKPROBE_SYMBOL(read_wb_reg);
+> > 
+> > I don't believe that disabling interrupts here is sufficient. On the
+> > last version I asked about the case of racing with a watchpoint handler:
+> > 
+> > | For example, what prevents watchpoint_handler() from firing in the
+> > | middle of arch_install_hw_breakpoint() or
+> > | arch_uninstall_hw_breakpoint()?
+> > 
+> > ... and disabling interrupts cannot prevent that, because
+> > local_irq_{save,restore}() do not affect the behaviour of watchpoints or
+> > breakpoints.
 > 
-> diff --git a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-> index 4ef0d696d3d0..786cb852bbe5 100644
-> --- a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-> +++ b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
-> @@ -21,3 +21,10 @@ KernelVersion:	7.1
->   Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
->   Description:
->   		(RW) Set/Get the decode mode with specific step for TGU.
-> +
-> +What:		/sys/bus/amba/devices/<tgu-name>/step[0:7]_condition_select/reg[0:3]
-> +Date:		April 2026
-> +KernelVersion:	7.1
-> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
-> +Description:
-> +		(RW) Set/Get the next action with specific step for TGU.
-> diff --git a/drivers/hwtracing/qcom/tgu.c b/drivers/hwtracing/qcom/tgu.c
-> index 5b37eb10f863..4112e6a691d6 100644
-> --- a/drivers/hwtracing/qcom/tgu.c
-> +++ b/drivers/hwtracing/qcom/tgu.c
-> @@ -29,6 +29,9 @@ static int calculate_array_location(struct tgu_drvdata *drvdata,
->   	case TGU_CONDITION_DECODE:
->   		return step_index * (drvdata->num_condition_decode) +
->   			reg_index;
-> +	case TGU_CONDITION_SELECT:
-> +		return step_index * (drvdata->num_condition_select) +
-> +			reg_index;
->   	default:
->   		break;
->   	}
-> @@ -71,6 +74,9 @@ static ssize_t tgu_dataset_show(struct device *dev,
->   	case TGU_CONDITION_DECODE:
->   		return sysfs_emit(buf, "0x%x\n",
->   				drvdata->value_table->condition_decode[index]);
-> +	case TGU_CONDITION_SELECT:
-> +		return sysfs_emit(buf, "0x%x\n",
-> +				drvdata->value_table->condition_select[index]);
->   	default:
->   		break;
->   	}
-> @@ -112,6 +118,10 @@ static ssize_t tgu_dataset_store(struct device *dev,
->   		tgu_drvdata->value_table->condition_decode[index] = val;
->   		ret = size;
->   		break;
-> +	case TGU_CONDITION_SELECT:
-> +		tgu_drvdata->value_table->condition_select[index] = val;
-> +		ret = size;
-> +		break;
->   	default:
->   		ret = -EINVAL;
->   		break;
-> @@ -146,6 +156,13 @@ static umode_t tgu_node_visible(struct kobject *kobject,
->   		if (tgu_attr->reg_num < drvdata->num_condition_decode)
->   			return attr->mode;
->   		break;
-> +	case TGU_CONDITION_SELECT:
-> +		/* 'default' register is at the end of 'select' region */
-> +		if (tgu_attr->reg_num == drvdata->num_condition_select - 1)
-> +			attr->name = "default";
-> +		if (tgu_attr->reg_num < drvdata->num_condition_select)
-> +			return attr->mode;
-> +		break;
->   	default:
->   		break;
->   	}
-> @@ -184,6 +201,18 @@ static ssize_t tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
->   				drvdata->base + CONDITION_DECODE_STEP(i, j));
->   		}
->   	}
-> +
-> +	for (i = 0; i < drvdata->num_step; i++) {
-> +		for (j = 0; j < drvdata->num_condition_select; j++) {
-> +			index = check_array_location(drvdata, i,
-> +						TGU_CONDITION_SELECT, j);
-> +			if (index == -EINVAL)
-> +				goto exit;
-> +
-> +			writel(drvdata->value_table->condition_select[index],
-> +				drvdata->base + CONDITION_SELECT_STEP(i, j));
-> +		}
-> +	}
->   	/* Enable TGU to program the triggers */
->   	writel(1, drvdata->base + TGU_CONTROL);
->   exit:
-> @@ -223,6 +252,8 @@ static void tgu_set_conditions(struct tgu_drvdata *drvdata)
->   
->   	devid = readl(drvdata->base + TGU_DEVID);
->   	drvdata->num_condition_decode = TGU_DEVID_CONDITIONS(devid);
-> +	/* select region has an additional 'default' register */
-> +	drvdata->num_condition_select = TGU_DEVID_CONDITIONS(devid) + 1;
->   }
->   
->   static int tgu_enable(struct device *dev)
-> @@ -366,6 +397,14 @@ static const struct attribute_group *tgu_attr_groups[] = {
->   	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(5),
->   	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(6),
->   	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(7),
-> +	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(0),
-> +	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(1),
-> +	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(2),
-> +	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(3),
-> +	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(4),
-> +	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(5),
-> +	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(6),
-> +	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(7),
->   	NULL,
->   };
->   
-> @@ -373,8 +412,8 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
->   {
->   	struct device *dev = &adev->dev;
->   	struct tgu_drvdata *drvdata;
-> -	unsigned int *priority, *condition;
-> -	size_t priority_size, condition_size;
-> +	unsigned int *priority, *condition, *select;
-> +	size_t priority_size, condition_size, select_size;
->   	int ret;
->   
->   	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-> @@ -425,6 +464,16 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
->   
->   	drvdata->value_table->condition_decode = condition;
->   
-> +	select_size = drvdata->num_condition_select * drvdata->num_step;
-> +
-> +	select = devm_kcalloc(dev, select_size,
-> +			     sizeof(*(drvdata->value_table->condition_select)),
-> +			     GFP_KERNEL);
-> +	if (!select)
-> +		return -ENOMEM;
-> +
-> +	drvdata->value_table->condition_select = select;
-> +
->   	drvdata->enabled = false;
->   
->   	pm_runtime_put(&adev->dev);
-> diff --git a/drivers/hwtracing/qcom/tgu.h b/drivers/hwtracing/qcom/tgu.h
-> index 987ea07bd618..ac46a2875209 100644
-> --- a/drivers/hwtracing/qcom/tgu.h
-> +++ b/drivers/hwtracing/qcom/tgu.h
-> @@ -52,6 +52,7 @@
->   #define STEP_OFFSET 0x1D8
->   #define PRIORITY_START_OFFSET 0x0074
->   #define CONDITION_DECODE_OFFSET 0x0050
-> +#define CONDITION_SELECT_OFFSET 0x0060
->   #define PRIORITY_OFFSET 0x60
->   #define REG_OFFSET 0x4
->   
-> @@ -63,6 +64,9 @@
->   #define CONDITION_DECODE_STEP(step, decode) \
->   	(CONDITION_DECODE_OFFSET + REG_OFFSET * decode + STEP_OFFSET * step)
->   
-> +#define CONDITION_SELECT_STEP(step, select) \
-> +	(CONDITION_SELECT_OFFSET + REG_OFFSET * select + STEP_OFFSET * step)
-> +
->   #define tgu_dataset_rw(name, step_index, type, reg_num)                  \
->   	(&((struct tgu_attribute[]){ {                                   \
->   		__ATTR(name, 0644, tgu_dataset_show, tgu_dataset_store), \
-> @@ -76,6 +80,8 @@
->   			reg_num)
->   #define STEP_DECODE(step_index, reg_num) \
->   	tgu_dataset_rw(reg##reg_num, step_index, TGU_CONDITION_DECODE, reg_num)
-> +#define STEP_SELECT(step_index, reg_num) \
-> +	tgu_dataset_rw(reg##reg_num, step_index, TGU_CONDITION_SELECT, reg_num)
->   
->   #define STEP_PRIORITY_LIST(step_index, priority) \
->   	{STEP_PRIORITY(step_index, 0, priority), \
-> @@ -107,6 +113,15 @@
->   	 NULL               \
->   	}
->   
-> +#define STEP_SELECT_LIST(n) \
-> +	{STEP_SELECT(n, 0), \
-> +	 STEP_SELECT(n, 1), \
-> +	 STEP_SELECT(n, 2), \
-> +	 STEP_SELECT(n, 3), \
-> +	 STEP_SELECT(n, 4), \
-> +	 NULL               \
-> +	}
-> +
->   #define PRIORITY_ATTRIBUTE_GROUP_INIT(step, priority)\
->   	(&(const struct attribute_group){\
->   		.attrs = (struct attribute*[])STEP_PRIORITY_LIST(step, priority),\
-> @@ -121,12 +136,21 @@
->   		.name = "step" #step "_condition_decode" \
->   	})
->   
-> +#define CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(step)\
-> +	(&(const struct attribute_group){\
-> +		.attrs = (struct attribute*[])STEP_SELECT_LIST(step),\
-> +		.is_visible = tgu_node_visible,\
-> +		.name = "step" #step "_condition_select" \
-> +	})
-> +
- > +
+> I think the answer is we just need NOKPROBE_SYMBOL() annotation on 
+> hw_breakpoint_control() (what arch_install_hw_breakpoint() and 
+> arch_uninstall_hw_breakpoint() wrap).
 
-remove extra blank line.
+Ok. I couldn'y spot where we prevent placing HW breakpoints on
+NOKPROBE_SYMBOL() functions, but if we do enforce that, something like
+that sounds ok.
 
-Thanks,
-Jie
+I suspect we'd need to make that noinstr to also prevent ftrace
+instrumentation, unless ftrace also inhibits itself for
+NOKPROBE_SYMBOL() functions.
 
+> We also need that on __read_wb_reg 
+> and __read_wb_reg though I would think those are folded into the calling 
+> functions by the compiler. Interestly, the x86 code doesn't use the 
+> annotation at all.
 
->   enum operation_index {
->   	TGU_PRIORITY0,
->   	TGU_PRIORITY1,
->   	TGU_PRIORITY2,
->   	TGU_PRIORITY3,
->   	TGU_CONDITION_DECODE,
-> +	TGU_CONDITION_SELECT,
->   };
->   
->   /* Maximum priority that TGU supports */
-> @@ -142,6 +166,7 @@ struct tgu_attribute {
->   struct value_table {
->   	unsigned int *priority;
->   	unsigned int *condition_decode;
-> +	unsigned int *condition_select;
->   };
->   
->   static inline void TGU_LOCK(void __iomem *addr)
-> @@ -172,6 +197,7 @@ static inline void TGU_UNLOCK(void __iomem *addr)
->    * @num_reg: Maximum number of registers
->    * @num_step: Maximum step size
->    * @num_condition_decode: Maximum number of condition_decode
-> + * @num_condition_select: Maximum number of condition_select
->    *
->    * This structure defines the data associated with a TGU device,
->    * including its base address, device pointers, clock, spinlock for
-> @@ -187,6 +213,7 @@ struct tgu_drvdata {
->   	int num_reg;
->   	int num_step;
->   	int num_condition_decode;
-> +	int num_condition_select;
->   };
->   
->   #endif
+IIUC, it looks like they *can* take debug NMIs during
+arch_install_hw_breakpoint() and arch_uninstall_hw_breakpoint(), which
+is why they have ordering constraints for modifying the percpu 'cpu_dr7'
+variable, and their actual DR7 register (which IIUC has the enable
+controls for each HW breakpoint).
 
+That said, the use of 'bp_per_reg' looks suspect given their
+arch_install_hw_breakpoint() and arch_uninstall_hw_breakpoint() modify
+that non-atomically.
+
+We could consider allowing breakpoints on those functions, but I'm not
+sure whether that's possible for us, and (as noted below) it might be
+better to transiently disable breakpoints/watchpoints.
+
+IIRC on x86, breakpoint exceptions are taken *after* execution of the
+instruction that triggered them, so the handler doesn't have to
+manipulate single-step, and can safely ignore a breakpoint exception
+without the risk of getting stuck taking the breakpoint repeatedly.
+
+> I initially thought the IRQ disabling is also still needed as IRQ 
+> handlers can trigger breakpoints. However, the x86 version of 
+> arch_install_hw_breakpoint() contains a lockdep_assert_irqs_disabled(), 
+> so it seems for that case interrupts are already disabled. And in debug 
+> exceptions, we disable interrupts. So I think the interrupt disabling 
+> can be dropped.
+
+I'd expect that the core perf code disables interrupts before calling
+arch_install_hw_breakpoint() or arch_uninstall_hw_breakpoint(), and this
+would be necessary for perf to serialise against IPIs that manipulate
+the perf_event_context.
+
+I agree that when we actually take the breakpoint, we'll mask all
+exceptions, and so it's not necessary to mask IRQs there.
+
+So a first step is probably to add that lockdep assert.
+
+> > Please can you try to answer the questions I asked last time, i.e.
+> > 
+> > | What prevents a race with an exception handler? e.g. 
+> > | 
+> > | * Does the structure of the code prevent that somehow?
+> 
+> If you can't set a breakpoint/watchpoint in NOKPROBE_SYMBOL() annotated 
+> code, you can't race.
+
+As above, I agree (with caveats), but I couldn't spot where this is
+enforced.
+
+> However, there's no such annotation for data. It looks like the kernel 
+> policy is "don't do that" or disable all breakpoints/watchpoints.
+
+If we have to transiently disable watchpoints/breakpoints when
+manipulating the relevant HW registers, that sounds fine to me.
+
+> > | 
+> > | * What context(s) does this code execute in?
+> > |   - Are debug exceptions always masked?
+> 
+> No.
+> 
+> > |   - Do we disable breakpoints/watchpoints around (some) manipulation of
+> > |     the relevant registers?
+> 
+> Yes, with NOKPROBE_SYMBOL().
+
+Thanks for digging into this; much appreciated!
+
+Mark.
 
