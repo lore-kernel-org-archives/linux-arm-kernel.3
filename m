@@ -4,59 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71B88D6AAE2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 15:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC0CD6AAE6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 15:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=azq6rPccAYyL64s6PaPux04RMnp/m4vA3aQmA1PwB+s=; b=vP+yKP/S70/CT4fVJqGrRV4lrS
-	8p7+wBuE4H7yHefDGfgETjIJA6jk9H1DdjmP8vCJ1zt2XB2zzJ33lFp3JZOEe97gE8+ndulu8+Zp4
-	sekL6Wm1DnGZLRkO5sVhLYEmliOHNOtrV7WpgEfs0nw8nDsGw1ZY3+zTLWTaOWKANCcEmYQCmTgC2
-	gvDEwXSOvkXsKk/A7pIaSNhdb2eQHYNN4yi8xCFSvTD/sNaCbFeJUQioQjP2t5ayPgGWkRiPNCYD4
-	PkAt0jRtkTs9uoEgOpxVeCiRwF4YRp5eu0CAhYRN/vuwf80mAU5At+1By8kvGP5NJli/7IKT5sQxm
-	AE6+4txg==;
+	bh=oUBZ8LHrLBmMldmlkg0IxYXlcz4TIbmGgxhLQM0d8KQ=; b=mqMKoYm3wdhIbEVjT6fXbvKC70
+	Xna2ATBLY6cZP6tHguc8LqnxkP48mq9x6RtS/7xKL41CLCkWt05iD5NEU9JplXjF275qmj9G35WOR
+	zfhPKkemWwyq+Kk/ve+6W24CcbjZjw74LqTViYFJMyrtCSOb6xMhErnTZlXBLmk+Ul8XyWWjMm84i
+	U63L3PKOhwU2Y2bWO0MWo8FsH7IeEmTEC1TQ8DZoqgmuNd9f03/sb3tyVD9k/CJV6B50JGLf3jfh4
+	BxP+t7AT9ZgTO/1MJJFVrXRXedIYHDIIBnCXH2JS+KVit1+CyS0lLz58k38EX0jSnm4kQTu7zz8L2
+	msumJ31Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8KDk-00000000SYJ-3rsQ;
-	Thu, 02 Apr 2026 15:44:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w8KIN-00000000T1X-0CPi;
+	Thu, 02 Apr 2026 15:49:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8KDj-00000000SY3-2phQ;
-	Thu, 02 Apr 2026 15:44:35 +0000
+	id 1w8KIK-00000000T0k-0CCo;
+	Thu, 02 Apr 2026 15:49:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D3ADA600C4;
-	Thu,  2 Apr 2026 15:44:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3684CC116C6;
-	Thu,  2 Apr 2026 15:44:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775144674;
-	bh=azq6rPccAYyL64s6PaPux04RMnp/m4vA3aQmA1PwB+s=;
+	by sea.source.kernel.org (Postfix) with ESMTP id 49FF24408A;
+	Thu,  2 Apr 2026 15:49:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4634CC19423;
+	Thu,  2 Apr 2026 15:49:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1775144959;
+	bh=ETKq7zpXTNX+jfpHKOz+WPkBvuAndyFKqifyTs989fQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qfZF8LlDV9jK3dpUo3HHmQlZoKNRx+stidWv4GnjXhJGBbmrYY3rw0ySLBYNCZMX1
-	 PK3vbmAAw0shZFe0Nysg1lpOGjYbTXcmRo32x28NpBoTejPSafLosWQ3cjxScnyjAX
-	 qGxcoJWePsoAIegg/WqhAHELGu1ZnLwumbMjv/0z7df18+8XXwrekoyUdX8Y2n7wDQ
-	 /fzZgh0nECyfcvKTzQh7AWr66CO8byr6J8NmhwXNKiFwVokCePb7Uib7eOaraJsoMT
-	 ItqzEOVSDRzqoScDdkRHUacP6+WRHkfKAyXmqq7UdkJW8nrNATWmgzC9/J2++ptHCM
-	 hJJIYhXli2x0Q==
-Date: Thu, 2 Apr 2026 17:44:32 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Shiji Yang <yangshiji66@outlook.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 0/2] pwm: mediatek: fix mt7628 register offset and clock
- source
-Message-ID: <ac6OYRkiDt_OJVcp@monoceros>
-References: <OS7PR01MB1360282ADC135931ECCAD9AF6BC74A@OS7PR01MB13602.jpnprd01.prod.outlook.com>
+	b=vDcw1prILIQAXHJowYDTJb6Nn1rk2kMRffrcqcdVG1vKoLbLy61HSdGnHVqlkKx4q
+	 ylg/MMGiQlKZe28tTkDSkOan0AGo1g+dPj/2nlK4S1pZ/d6kp0OuWyo/d0fkH2NCF6
+	 xDn8/HO4hkB4cT2GGVpv80jHaaYSdWeTyjMVyo1o=
+Date: Thu, 2 Apr 2026 17:49:10 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+	Baolin Wang <baolin.wang@linux.alibaba.com>, iommu@lists.linux.dev,
+	Janne Grunau <j@jannau.net>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Neal Gompa <neal@gompa.dev>, Orson Zhai <orsonzhai@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, Sven Peter <sven@kernel.org>,
+	virtualization@lists.linux.dev, Chen-Yu Tsai <wens@kernel.org>,
+	Will Deacon <will@kernel.org>, Yong Wu <yong.wu@mediatek.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Janusz Krzysztofik <janusz.krzysztofik@linux.intel.com>,
+	Joerg Roedel <joerg.roedel@amd.com>,
+	Jon Hunter <jonathanh@nvidia.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samiullah Khawaja <skhawaja@google.com>, stable@vger.kernel.org,
+	Vasant Hegde <vasant.hegde@amd.com>
+Subject: Re: [PATCH v2] iommu: Always fill in gather when unmapping
+Message-ID: <2026040202-uneaten-nutrient-b6e1@gregkh>
+References: <0-v2-b24668f107b2+11bbe-iommu_gather_always_jgg@nvidia.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="nosq6hqdgk23uy6t"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <OS7PR01MB1360282ADC135931ECCAD9AF6BC74A@OS7PR01MB13602.jpnprd01.prod.outlook.com>
+In-Reply-To: <0-v2-b24668f107b2+11bbe-iommu_gather_always_jgg@nvidia.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260402_084920_160312_25145162 
+X-CRM114-Status: GOOD (  23.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,39 +91,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Apr 02, 2026 at 11:25:16AM -0300, Jason Gunthorpe wrote:
+> The fixed commit assumed that the gather would always be populated if an
+> iotlb_sync was required.
+> 
+> arm-smmu-v3, amd, VT-d, riscv, s390, and mtk all use information from the
+> gather during their iotlb_sync() and this approach works for them.
+> 
+> However, arm-smmu, qcom_iommu, ipmmu-vmsa, sun50i, sprd, virtio, and
+> apple-dart all ignore the gather during their iotlb_sync(). They mostly
+> issue a full flush.
+> 
+> Unfortunately the latter set of drivers often don't bother to add anything
+> to the gather since they don't intend on using it. Since the core code now
+> blocks gathers that were never filled, this caused those drivers to stop
+> getting their iotlb_sync() calls and breaks them.
+> 
+> Since it is impossible to tell the difference between gathers that are
+> empty because there is nothing to do and gathers that are empty because
+> they are not used, fill in the gathers for the missing cases.
+> 
+> mtk uses io-pgtable-arm-v7s but added the range to the gather in the unmap
+> callback. Move this into the io-pgtable-arm-v7s unmap itself. That will
+> fix all the armv7 using drivers (arm-smmu, qcom_iommu, ipmmu-vmsa).
+> 
+> io-pgtable-arm needs to accommodate drivers like arm-smmu that don't want
+> to use the gather by just adding a simple range, and drivers like SMMUv3
+> that need to use gather->pgsize and also have a disjoint check. Move
+> SMMUv3 to a new tlb_add_range() op which replaces calling
+> iommu_iotlb_gather_add_page() in a loop with a single call to update the
+> gather with the range and required pgsize.
+> 
+> iommu_iotlb_gather_add_page() is repurposed since nothing but SMMUv3 uses it
+> now that amd, VT-d and riscv are using iommupt.
+> 
+> Add a trivial gather population to io-pgtable-dart.
+> 
+> Add trivial populations to sprd, sun50i and virtio-iommu in their unmap
+> functions.
+> 
+> Fixes: 90c5def10bea ("iommu: Do not call drivers for empty gathers")
+> Reported-by: Jon Hunter <jonathanh@nvidia.com>
+> Closes: https://lore.kernel.org/r/8800a38b-8515-4bbe-af15-0dae81274bf7@nvidia.com
+> Tested-by: Jon Hunter <jonathanh@nvidia.com>
+> Acked-by: Pranjal Shrivastava <praan@google.com>
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 11 ++++++-----
+>  drivers/iommu/io-pgtable-arm-v7s.c          |  4 ++++
+>  drivers/iommu/io-pgtable-arm.c              | 19 ++++++++++++++++---
+>  drivers/iommu/io-pgtable-dart.c             |  3 +++
+>  drivers/iommu/mtk_iommu.c                   |  1 -
+>  drivers/iommu/sprd-iommu.c                  |  1 +
+>  drivers/iommu/sun50i-iommu.c                |  1 +
+>  drivers/iommu/virtio-iommu.c                |  2 ++
+>  include/linux/io-pgtable.h                  |  3 +++
+>  include/linux/iommu.h                       | 19 ++++++++++---------
+>  10 files changed, 46 insertions(+), 18 deletions(-)
+> 
 
---nosq6hqdgk23uy6t
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH 0/2] pwm: mediatek: fix mt7628 register offset and clock
- source
-MIME-Version: 1.0
+<formletter>
 
-Hello,
+This is not the correct way to submit patches for inclusion in the
+stable kernel tree.  Please read:
+    https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html
+for how to do this properly.
 
-On Tue, Feb 24, 2026 at 04:51:00PM +0800, Shiji Yang wrote:
-> This patch series fixes support for mt7628.
-
-The series looks reasonable to me. It would be great to get some
-feedback from the Mediatek maintainers, though?!
-
-Best regards
-Uwe
-
---nosq6hqdgk23uy6t
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmnOjt0ACgkQj4D7WH0S
-/k7wcQf8DbZttWvtDRcy6Kuni91T0fY9QIk0I7HqCTtpHmiHKQsMxqGuvRQkvyj0
-d2jN+Z35x0m678C62gahQj4PQwoAD2TimRMG8l4JakiHG39GugFef1ntXqISIUdR
-BX+kx+mplwRhrLjCgsGPnM7EWUvn6cEpVrGis4EmU4nca5bbWeN6ZU6qtrsMDUBf
-j7F9ipxoCD1f6bQyBy4pe859OOJcSO9WXyLSE9uHSH+vs+tKWILtRMow8sEcf5QG
-MLrpWSMR3r3FhMrfmdNJC+F3xG3yCR7x6zxAxi0ZZ8WdS1VJK9AMMAIxVdwv6RuH
-7IEs9OpqV4yZaMawC9f3kVhlRkPuWw==
-=MxUZ
------END PGP SIGNATURE-----
-
---nosq6hqdgk23uy6t--
+</formletter>
 
