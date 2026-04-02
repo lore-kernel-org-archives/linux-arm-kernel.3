@@ -4,65 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66367D6AAEC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 17:01:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D36DD6AAEC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 17:05:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pfz69QQwM65LngRsXUfQhV7/YTyykBf5GU3oDEmJuVo=; b=uhceKVSbeKTs7wqpWWNRtLIHvL
-	Gsc8Is50KBblcBVyvEDH6HMHQFYI6GFDTQ0EMzYMud8IDn7lvIPF274mL4u1nVVrWdlEJhF8ag9gp
-	HCOMKOLM3AzGHECAmtXnpd/DhUnYO5EjV92Mth5ojw+axT6Sa6vD9oR1M8ldFa+EZHCQMFfud1NOb
-	AVv9qclwWlgFW4Aalyvpy4faAfd4GSlFXuZ0zE0qkn4NnZgS1VsDwEuzkhb29gKMgIPrLtBMjXLE+
-	olM2xcXie2iGmpAsQPVW+anjO+Uop7BcP92f4Z8GMrsbxow2N62xXQS2qhTgwqamF6c6wesjOmJk6
-	23q1aLsQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/cmxnxbLkcTsu04vVVOUQVD7IbjRgfqfsVRstns1eEY=; b=v4i1Nk94JvSR0d+OqdKA7wgbmA
+	HrvJ/1TWEAJddxtOaYYSt6KXw3CSbNEXMW6rVVQLuAoyZAgxY9NwTeqzT1/KsKMsM35o+CcMeZTXJ
+	4STxEw3cBixEYHPPvijFxgT7necU9F6MFjAchPe4GBFyZ3VuGpSfoJAgp+Ykc7o7Hg9TA9WJV4Ju5
+	IfzzW0MhPcGzAPRM3hKVW1COrOqqU7ZYwS2aa0WnIZjKGFR7Wj8i/Ezy2p6NWiwa6w+YVKvSWGFeL
+	Ztw7T2K1t1BmkCWCOaKZjwskR1OTv5Hh3xpmplWwSRM7mEdc1QdqC+Pl9nPKVR11juqs3VLlX59gv
+	h62Z3PNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8LPm-00000000ZDn-4BgW;
-	Thu, 02 Apr 2026 17:01:07 +0000
-Received: from courrier.aliel.fr ([65.21.61.41])
+	id 1w8LU4-00000000ZVY-2fbh;
+	Thu, 02 Apr 2026 17:05:32 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8LPi-00000000ZC9-0tXH;
-	Thu, 02 Apr 2026 17:01:05 +0000
-Message-ID: <d0d17d65-893d-44c8-a929-92ba5b71d7f6@aliel.fr>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1775149257;
-	bh=2OWqMG9cAvyIiZhUJJh6c3apSC/Ro+i93PaoDjc2ohY=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=TyDduWOpNvxQeMWOJLRKd7O4x57VGwm/FtjFB4aCLFl7jth9inkleHxhtz7dfmZpO
-	 ainHsiv56YhFZcMxmPC6M0wdfV/f5bNz9T4fDyPLaFgxbBcKiYU+Tt4hIw74Jodnmh
-	 wBAzw0LIaUuYcMk2fb2yJxzZTEAN/qFAlVGgh+tQ=
-Date: Thu, 2 Apr 2026 19:00:55 +0200
+	id 1w8LU0-00000000ZV0-3MS9
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Apr 2026 17:05:31 +0000
+Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1w8LTy-00078F-3k; Thu, 02 Apr 2026 19:05:26 +0200
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: soc@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	kernel@pengutronix.de,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Subject: [GIT PULL] Reset controller updates for v7.1
+Date: Thu,  2 Apr 2026 19:05:25 +0200
+Message-ID: <20260402170525.2452299-1-p.zabel@pengutronix.de>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Subject: Re: [PATCH 5/8] thermal: khadas-mcu-fan: Add fan config from platform
- data Add regulator support
-To: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Beniamino Galvani <b.galvani@gmail.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>
-Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org
-References: <20260402-add-mcu-fan-khadas-vim4-v1-0-2b12eb4ac7b0@aliel.fr>
- <20260402-add-mcu-fan-khadas-vim4-v1-5-2b12eb4ac7b0@aliel.fr>
- <5e3e8684-f893-4fb0-879e-9661820f72dd@linaro.org>
-Content-Language: en-US
-In-Reply-To: <5e3e8684-f893-4fb0-879e-9661820f72dd@linaro.org>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_100104_545978_11CB71CC 
-X-CRM114-Status: GOOD (  17.29  )
+X-CRM114-CacheID: sfid-20260402_100528_842976_FFE3931E 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,135 +63,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/2/26 5:39 PM, Neil Armstrong wrote:
-> On 4/2/26 16:27, Ronald Claveau wrote:
->> Replace the hardcoded MAX_LEVEL constant and fan register
->> with values read from platform_data (fan_reg, max_level),
->> as new MCUs need different values.
->>
->> Optionally acquire and enable a "fan" regulator supply
->> at probe time and on resume,
->> so boards that gate fan power through a regulator are handled.
->>
->> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
->> ---
->>   drivers/thermal/khadas_mcu_fan.c | 43 ++++++++++++++++++++++++++++++
->> ++++------
->>   1 file changed, 37 insertions(+), 6 deletions(-)
->>
->> diff --git a/drivers/thermal/khadas_mcu_fan.c b/drivers/thermal/
->> khadas_mcu_fan.c
->> index d35e5313bea41..55b496625e3bd 100644
->> --- a/drivers/thermal/khadas_mcu_fan.c
->> +++ b/drivers/thermal/khadas_mcu_fan.c
->> @@ -13,13 +13,15 @@
->>   #include <linux/regmap.h>
->>   #include <linux/sysfs.h>
->>   #include <linux/thermal.h>
->> -
->> -#define MAX_LEVEL 3
->> +#include <linux/regulator/consumer.h>
->>     struct khadas_mcu_fan_ctx {
->>       struct khadas_mcu *mcu;
->> +    unsigned int fan_reg;
->>       unsigned int level;
->> +    unsigned int max_level;
->>       struct thermal_cooling_device *cdev;
->> +    struct regulator *power;
->>   };
->>     static int khadas_mcu_fan_set_level(struct khadas_mcu_fan_ctx *ctx,
->> @@ -27,8 +29,7 @@ static int khadas_mcu_fan_set_level(struct
->> khadas_mcu_fan_ctx *ctx,
->>   {
->>       int ret;
->>   -    ret = regmap_write(ctx->mcu->regmap,
->> KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
->> -               level);
->> +    ret = regmap_write(ctx->mcu->regmap, ctx->fan_reg, level);
->>       if (ret)
->>           return ret;
->>   @@ -40,7 +41,9 @@ static int khadas_mcu_fan_set_level(struct
->> khadas_mcu_fan_ctx *ctx,
->>   static int khadas_mcu_fan_get_max_state(struct
->> thermal_cooling_device *cdev,
->>                       unsigned long *state)
->>   {
->> -    *state = MAX_LEVEL;
->> +    struct khadas_mcu_fan_ctx *ctx = cdev->devdata;
->> +
->> +    *state = ctx->max_level;
->>         return 0;
->>   }
->> @@ -61,7 +64,7 @@ khadas_mcu_fan_set_cur_state(struct
->> thermal_cooling_device *cdev,
->>   {
->>       struct khadas_mcu_fan_ctx *ctx = cdev->devdata;
->>   -    if (state > MAX_LEVEL)
->> +    if (state > ctx->max_level)
->>           return -EINVAL;
->>         if (state == ctx->level)
->> @@ -83,11 +86,32 @@ static int khadas_mcu_fan_probe(struct
->> platform_device *pdev)
->>       struct device *dev = &pdev->dev;
->>       struct khadas_mcu_fan_ctx *ctx;
->>       int ret;
->> +    const struct khadas_mcu_fan_pdata *pdata =
->> dev_get_platdata(&pdev->dev);
->>         ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
->>       if (!ctx)
->>           return -ENOMEM;
->> +
->>       ctx->mcu = mcu;
->> +    ctx->fan_reg   = pdata->fan_reg;
->> +    ctx->max_level = pdata->max_level;
->> +
->> +    ctx->power = devm_regulator_get_optional(dev->parent, "fan");
->> +    if (IS_ERR(ctx->power)) {
->> +        if (PTR_ERR(ctx->power) == -ENODEV)
->> +            ctx->power = NULL;
->> +        else
->> +            return PTR_ERR(ctx->power);
->> +    }
->> +
->> +    if (ctx->power) {
->> +        ret = regulator_enable(ctx->power);
->> +        if (ret) {
->> +            dev_err(dev, "Failed to enable fan power supply: %d\n",
->> ret);
->> +            return ret;
->> +        }
->> +    }
->> +
->>       platform_set_drvdata(pdev, ctx);
->>         cdev = devm_thermal_of_cooling_device_register(dev->parent,
->> @@ -130,6 +154,13 @@ static int khadas_mcu_fan_suspend(struct device
->> *dev)
->>   static int khadas_mcu_fan_resume(struct device *dev)
->>   {
->>       struct khadas_mcu_fan_ctx *ctx = dev_get_drvdata(dev);
->> +    int ret;
->> +
->> +    if (ctx->power) {
->> +        ret = regulator_enable(ctx->power);
-> 
-> Seems you're missing a regulator_disable() on suspend.
-> 
-> Neil
-> 
+Dear arm-soc maintainers,
 
-You right, I will add the regulator_disable on suspend for next version.
-Thanks for your feedback.
+The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 
->> +        if (ret)
->> +            return ret;
->> +    }
->>         return khadas_mcu_fan_set_level(ctx, ctx->level);
->>   }
->>
-> 
+  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
 
+are available in the Git repository at:
 
--- 
-Best regards,
-Ronald
+  https://git.pengutronix.de/git/pza/linux.git tags/reset-for-v7.1
+
+for you to fetch changes up to d373605cd514837d8a6de3d00c786d4bae6dbaf8:
+
+  Merge tag 'reset-fixes-for-v7.0-2' into reset/next (2026-04-02 18:32:53 +0200)
+
+----------------------------------------------------------------
+Reset controller updates for v7.1
+
+* Rework the reset core to support firmware nodes, add more fine
+  grained locking, and use guard() helpers.
+* Change the reset-gpio driver to use firmware nodes.
+* Add support for the Cix Sky1 SoC reset controller.
+* Add support for the RZ/G3E SoC to the reset-rzv2h-usb2phy driver and
+  convert it to regmap. Prepare registering a VBUS mux controller.
+* Replace use of the deprecated register_restart_handler() function in
+  the ath79, intel-gw, lpc18xx, ma35d1, npcm, and sunplus reset drivers.
+* Combine two allocations into one in the sti/reset-syscfg driver.
+* Fix the reset-rzg2l-usbphy-ctrl MODULE_AUTHOR email.
+* Fix the reset_control_rearm() kerneldoc comment.
+
+The last commit is a merge of reset-fixes-for-v7.0-2 into reset/next,
+to solve a merge conflict between commits a9b95ce36de4 ("reset: gpio: add a
+devlink between reset-gpio and its consumer") and fbffb8c7c7bb ("reset: gpio:
+fix double free in reset_add_gpio_aux_device() error path").
+
+----------------------------------------------------------------
+Andrew Davis (6):
+      reset: ath79: Use devm_register_restart_handler()
+      reset: intel: Use devm_register_restart_handler()
+      reset: lpc18xx: Use devm_register_sys_off_handler()
+      reset: ma35d1: Use devm_register_sys_off_handler()
+      reset: npcm: Use devm_register_sys_off_handler()
+      reset: sunplus: Use devm_register_sys_off_handler()
+
+Bartosz Golaszewski (15):
+      reset: gpio: remove unneeded OF-node put
+      reset: gpio: add a devlink between reset-gpio and its consumer
+      reset: gpio: simplify fallback device matching
+      reset: gpio: remove unneeded auxiliary_set_drvdata()
+      reset: warn on reset-gpio release
+      reset: fold ida_alloc() into reset_create_gpio_aux_device()
+      reset: use lock guards in reset core
+      reset: handle removing supplier before consumers
+      reset: protect struct reset_controller_dev with its own mutex
+      reset: protect struct reset_control with its own mutex
+      reset: convert of_reset_control_get_count() to using firmware nodes
+      reset: convert the core API to using firmware nodes
+      reset: convert reset core to using firmware nodes
+      reset: gpio: make the driver fwnode-agnostic
+      reset: don't overwrite fwnode_reset_n_cells
+
+Biju Das (1):
+      reset: rzg2l-usbphy-ctrl: Fix malformed MODULE_AUTHOR string
+
+Claudiu Beznea (2):
+      reset: rzg2l-usbphy-ctrl: Check pwrrdy is valid before using it
+      reset: core: Drop unnecessary double quote
+
+Gary Yang (2):
+      dt-bindings: soc: cix: document the syscon on Sky1 SoC
+      reset: add Sky1 soc reset support
+
+Guangshuo Li (1):
+      reset: gpio: fix double free in reset_add_gpio_aux_device() error path
+
+Philipp Zabel (2):
+      reset: core: Fix indentation
+      Merge tag 'reset-fixes-for-v7.0-2' into reset/next
+
+Rosen Penev (1):
+      reset: sti: kzalloc + kcalloc to kzalloc
+
+Tommaso Merciai (5):
+      reset: rzv2h-usb2phy: Keep PHY clock enabled for entire device lifetime
+      dt-bindings: reset: renesas,rzv2h-usb2phy: Add '#mux-state-cells' property
+      dt-bindings: reset: renesas,rzv2h-usb2phy: Document RZ/G3E USB2PHY reset
+      reset: rzv2h-usb2phy: Convert to regmap API
+      reset: rzv2h-usb2phy: Add support for VBUS mux controller registration
+
+Yixun Lan (1):
+      reset: spacemit: k3: Decouple composite reset lines
+
+ .../reset/renesas,rzv2h-usb2phy-reset.yaml         |   9 +-
+ .../bindings/soc/cix/cix,sky1-system-control.yaml  |  42 ++
+ Documentation/driver-api/reset.rst                 |   1 -
+ drivers/reset/Kconfig                              |   9 +
+ drivers/reset/Makefile                             |   1 +
+ drivers/reset/core.c                               | 518 ++++++++++++++-------
+ drivers/reset/reset-ath79.c                        |  12 +-
+ drivers/reset/reset-gpio.c                         |  27 +-
+ drivers/reset/reset-intel-gw.c                     |  11 +-
+ drivers/reset/reset-lpc18xx.c                      |  12 +-
+ drivers/reset/reset-ma35d1.c                       |  11 +-
+ drivers/reset/reset-npcm.c                         |  12 +-
+ drivers/reset/reset-rzg2l-usbphy-ctrl.c            |   5 +-
+ drivers/reset/reset-rzv2h-usb2phy.c                | 197 ++++----
+ drivers/reset/reset-sky1.c                         | 367 +++++++++++++++
+ drivers/reset/reset-sunplus.c                      |  12 +-
+ drivers/reset/spacemit/reset-spacemit-k3.c         |  60 ++-
+ drivers/reset/sti/reset-syscfg.c                   |   9 +-
+ .../dt-bindings/reset/cix,sky1-s5-system-control.h | 163 +++++++
+ .../dt-bindings/reset/cix,sky1-system-control.h    |  41 ++
+ include/dt-bindings/reset/spacemit,k3-resets.h     |  48 +-
+ include/linux/reset-controller.h                   |  21 +-
+ include/linux/reset.h                              |  43 +-
+ 23 files changed, 1223 insertions(+), 408 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml
+ create mode 100644 drivers/reset/reset-sky1.c
+ create mode 100644 include/dt-bindings/reset/cix,sky1-s5-system-control.h
+ create mode 100644 include/dt-bindings/reset/cix,sky1-system-control.h
 
