@@ -4,92 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA285D39422
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 13:37:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 556F5D3941D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 13:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dmkvCpP2a3UNCt3T71mo35xLnOMtFmcLyGF6ZcbgPnQ=; b=nt5zndSYka/FWlKqXVnV3HvV7G
-	L/9QB8qHIg8dxs0au0LHODZ4vhy9EyQ7SfI9yEFdZwVlmaDDVEO9nBXIPLwYHTzskxOi+riKK8PP9
-	I6zqvZgPAH/5MDRgUa2vvYZTKewkOJYZDnUCbwwvmhdFO1u4W63LyeyKLTQpGH+7IjhxWS+koR4/e
-	mDCV1P5B6wLaRDFWMOQIa+hu8IjVDmadQza88+KMgsBUPER9oxAbjiyDJUPs4Nk6X3ZHECLPi29bp
-	dnOR7tTKB0gZkRVMU/RgXYlBKSz7UgXWHXKTfk4lxzUWH41tehUrYVBTz2FRpqi/qfuGhm4GEBSR4
-	oS/NUdnA==;
+	bh=7ertrZ7cOW6bABT6XdeWCDyQWZusL7F0NUcV1adjjfo=; b=N314uZfnXBkTkxYYvALlmjKWTi
+	8J5atsi4Y4Ym0RwZ3ZWoCeeuqJDh12fVPfS2AgVxHN3McNpurGDSZbgQvFBgQHx08DhPU6svZ0pFc
+	ZemyiIqH/u4KeLPs9GN44qseAcFewnLBXoj+l4fOBZDv0cov07mau5NYgSSn3NPsuvd7gDucIz3Vx
+	lbabkNBqHf/ew3djX+8kSZBWBLO84uctR4y5gJ92RC8g4gkbkE5fQIRAOLNYLbk92JIj3cGEqIn9e
+	ZdOfw5UhV84JcGmFEEtk2Fi4MhnpWm4JW5EE6giFGXyqW+/oZPlslVciG7/+s1NDXYJK2cejpaoMS
+	sa8RtpZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8IEm-00000000C8N-40d2;
-	Thu, 02 Apr 2026 13:37:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w8IF7-00000000CDX-17Z6;
+	Thu, 02 Apr 2026 13:37:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8IEl-00000000C7z-1oYb
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 02 Apr 2026 13:37:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=dmkvCpP2a3UNCt3T71mo35xLnOMtFmcLyGF6ZcbgPnQ=; b=d8XA7RYnobtTxJgtUpy1rpfCoq
-	kxQr4lcC6mzFOK9tQWcqVuTT+s5jvtjwBtAUf8mxKYG+sWFEouL4YnnaN2zG3C73eoav+uJcG+JPa
-	iJUSf2FupvVDk4V0X+vPtPgcgMH+0KYuqjyxaCnSgetCoLP6KotGenqUNajOAMII9GV9qv0j+ec8M
-	mi/RFXpGRS5p3mS2czyRN7iS1CHqT50lTFvo3urIAYg3gtwupQIA8gJNuyMGIIqREeUeCPuHYzzY2
-	kLh5VH6XhQjBC1kV14Tlf+fO5KWuhA2xHZ+sFuPghR41vvXg+/2j/ujMQEHVPoM/LxyQACAg4RBGf
-	R7zlSCfQ==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8IEi-00000002Z55-2l8N
+	id 1w8IF5-00000000CCf-2KHo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 13:37:30 +0000
+	Thu, 02 Apr 2026 13:37:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F04064366B;
-	Thu,  2 Apr 2026 13:37:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC369C116C6;
-	Thu,  2 Apr 2026 13:37:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0657C600C4;
+	Thu,  2 Apr 2026 13:37:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE30FC116C6;
+	Thu,  2 Apr 2026 13:37:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775137044;
-	bh=zOLl2zJty3v/3SL++/5OhGWVR+MQwoy8O/9OeF3iLhA=;
+	s=k20201202; t=1775137070;
+	bh=Qzgk/iZjoZnwo81KZZUDeMH/+ALFpUHEWvzUVLjFXA0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JWiykH+KnngwBxMMvwHVo54ng/SX4xFjoSNIDL1dbVb2mBcaFR3BK5KB2irAnW/4r
-	 ivqHaM6wmllhW6UxJUZJEtD/C0hYKIbeHtDzXw8NVXnxVC2noc2gyiCdCROUADqo2b
-	 ApmhdLms6RfiZw/iLWL3UmdoH5orkqczBz1ub8tu/a6ksVmWoQHG0lfH0YPdnoB/7z
-	 eEI/puXtacydPFcjzmI0C/s8ZLq6vw70Gzoilww8s+0kBR8kcTdOesJUyQ6f/u7r7m
-	 a101EgFqks3HOHXgIK/bdBaIRuYZ9ob2469ZCkapI6Pe/06u/gVvBckNgrGzpZigN9
-	 Z+Mk4TReMe6vg==
+	b=VhyH76e1jkbrbnWqDJDMSo9gyycWmrdVrQ3YUBzfe/Dcq8dyFSeIQrvyqo9i6eXeA
+	 yk0IEZ7A9ARfXdiYWLiV2h6eShVtl9BRqrBRtAXuQIVYfODId/HSC95aoPUTYDhmxt
+	 5ZiTsGsV7PotlJ+wg81q1LwLPnt9Jr3ffAEZJ1GQmhFd85xnBaFFRCgJ5mF4uMyDod
+	 58hFjlwQR6OZgy5fTHN5cjAYMxxPGL8GNHwqwafecPg4/CdsqwpCF2oar5RyqSp+KT
+	 26GpStoW70AGOJMdEsuxVOsw+Kki5dDpLLhh0RNDPao6wvzocJCM++yKi7ZUbJQQ8b
+	 7T5ygAU7jMH9g==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1w8IEc-00000008H22-2YVF;
-	Thu, 02 Apr 2026 13:37:22 +0000
+	id 1w8IF2-00000008H4M-2tGH;
+	Thu, 02 Apr 2026 13:37:48 +0000
 From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: nd <nd@arm.com>,
-	Joey Gouly <Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	yuzenghui@huawei.com,
-	broonie@kernel.org,
-	Oliver Upton <oupton@kernel.org>
-Subject: Re: [PATCH] KVM: arm64: vgic-v5: Fold PPI state for all exposed PPIs
-Date: Thu,  2 Apr 2026 14:37:19 +0100
-Message-ID: <177513703760.453570.13515415348349688517.b4-ty@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH] KVM: arm64: Advertise ID_AA64PFR2_EL1.GCIE
+Date: Thu,  2 Apr 2026 14:37:45 +0100
+Message-ID: <177513705965.454087.2424216826926153221.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260401162152.932243-1-sascha.bischoff@arm.com>
-References: <20260401162152.932243-1-sascha.bischoff@arm.com>
+In-Reply-To: <20260401170017.369529-1-maz@kernel.org>
+References: <20260401170017.369529-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, Sascha.Bischoff@arm.com, nd@arm.com, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, broonie@kernel.org, oupton@kernel.org
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, sascha.bischoff@arm.com, will@kernel.org, catalin.marinas@arm.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_143728_895629_4A59938C 
-X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,21 +86,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 01 Apr 2026 16:21:57 +0000, Sascha Bischoff wrote:
-> GICv5 supports up to 128 PPIs, which would introduce a large amount of
-> overhead if all of them were actively tracked. Rather than keeping
-> track of all 128 potential PPIs, we instead only consider the set of
-> architected PPIs (the first 64). Moreover, we further reduce that set
-> by only exposing a subset of the PPIs to a guest. In practice, this
-> means that only 4 PPIs are typically exposed to a guest - the SW_PPI,
-> PMUIRQ, and the timers.
+On Wed, 01 Apr 2026 18:00:17 +0100, Marc Zyngier wrote:
+> As we are missing ID_AA64PFR2_EL1.GCIE from the kernel feature set,
+> userspace cannot write ID_AA64PFR2_EL1 with GCIE set, even if we are
+> on a GICv5 host.
+> 
+> Add the required field description.
+> 
 > 
 > [...]
 
 Applied to next, thanks!
 
-[1/1] KVM: arm64: vgic-v5: Fold PPI state for all exposed PPIs
-      commit: 9c1ac77ddfc90b6292ef63a4fa5ab6f9e4b29981
+[1/1] KVM: arm64: Advertise ID_AA64PFR2_EL1.GCIE
+      commit: 899ff451fcee1289f3f37d061da66c3e38748a69
 
 Cheers,
 
