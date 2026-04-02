@@ -4,66 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07666D6AAF0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:36:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 845C5D6AAF2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=z3vQ8QeY0ne6RQFW1DbV98KTZDASSo5rBQdtH/QGkgU=; b=E1YGcpnQVv2eQNb21WFH7vzj3/
-	MpDYU/wydOzgiTKuy1QUU2DtnbyZk7R0XohuHyRHzuRcOuyuwXhORm6LX6YugyvT7Okwmr6K6aLGd
-	OXiZ0L8xIDucv3/XcMJ3wybfDhJhwyTiGg9tznF3g2x9i+4RgxbYcV9ZlB4zckhd6BpVUtMbRWwaQ
-	i5qvJj+fqBOhwv+OZdfzxwv1OxnELlvXU0CRp71vaMIYOI2n7w8qs2cDkLeoVGWlM5+l6IR2gnxPI
-	mbkEgSrRblo9LYeHAt3bqU8u1KRP805MW1jkqL/XuTSYK95a6LS/kcaTLiq7hWGLGuJ7rzcb4+8UL
-	4PpMrynw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bf6BzcH0R5MqYrtbezlfhIwcA+5shdZfk2Lj/kv9sQw=; b=D/1DcmFR7mtosid18+QpN9RKGB
+	hKWryuEiU8YLIFHo7vFxczThwZEkj9Ut9tzq+1743v/9gUjoxCK6xfGrjnzgHjmG/5Ojx5vyhpej5
+	vScJEirOTTpSJgBIl+G9Q48jaPVUke/M9v08LuFwqfhhamBTlII0Y5pmTrGQbos+niTR1O8hHRC56
+	vBG1XnilmfEYEVyHnE7gVmaT+1fFGoq14AkAjprdbr39F3a9NBJkxEiQGVT+GBJhD7aFqV/POhb63
+	1kDVz3D2YqmswxfOAbLhGuriEhdhi8VP1V/Evn7evlVDzYS7jd+T1IJCsNj2kuI/XgUAw3b7vT8US
+	O8aG/VmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8L2I-00000000WJ1-3Zwy;
-	Thu, 02 Apr 2026 16:36:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w8L2L-00000000WKg-3iwn;
+	Thu, 02 Apr 2026 16:36:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8L2G-00000000WIT-1XXI;
-	Thu, 02 Apr 2026 16:36:49 +0000
+	id 1w8L2I-00000000WIn-0b1t
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Apr 2026 16:36:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EF0C9429E9;
-	Thu,  2 Apr 2026 16:36:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D028C19423;
-	Thu,  2 Apr 2026 16:36:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 48EEF60128;
+	Thu,  2 Apr 2026 16:36:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01F82C116C6;
+	Thu,  2 Apr 2026 16:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775147806;
-	bh=uLmS0HsUDr2BokeD+jSdwx3Xz2Gctb+uLNXQ4boAXU0=;
-	h=From:Date:Subject:To:Cc:From;
-	b=OwhXBHWnXxQbgi+Lr/d+FvS3AagvKuOJYOhfaXr08zbUSER3M5c3OxYjwjYv1c0Tj
-	 ZF2yShxfaOil38PS1vqkSxJnvE4VW98G385tH3yHFDyuW4QVLvnkI7oY+1zX0wS5zg
-	 hw9sCi/Ys6iEnDf6wIq55kG1f6CJQPU6PonA/mEcjhwBiuYNrf6y2pmrMvPfzPPoFW
-	 Krb47bfx+9KYhZA1PL+O/O6uO0BY2p5MFBFgTYwUbbp/cN5PjKyosdYEEccBIkFbuj
-	 w57xRsiPbM1DoOoiRjuGtpRRTujC1WyHHDN5ub32eSW8FfraqyrjDtfc/fPGKCMFUD
-	 KDfUjKtjwIyuA==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 02 Apr 2026 18:36:28 +0200
-Subject: [PATCH net] net: airoha: Add dma_rmb() and READ_ONCE() in
- airoha_qdma_rx_process()
+	s=k20201202; t=1775147809;
+	bh=ZziQI+L2TPJPg9vzRV+c96lmFlIjt5A3GhQ/nKXHWTg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=o74/Yl2vwckDQCqDswuI2eZoPtoMfkyoF/DjNlbERA7Vd06FDP5GZ3aJrgnjgadGL
+	 KsBsubE+NUZDFO+9i86lMoQT6reVgwozlVnz5Lod1tKM47lqemfW6MHDTvcaNcKich
+	 pJE0kaXKFZQTN9jvQfE/d+NG5MLWlAQNd+OUXPCXC3Ts8+i34SW9Kyd/ADrluAqf7a
+	 9YH4RL6ys3DWE9qhgAhwEOQX0pBKNdouXe/NpOw+o7J1RJYORnSeQFloxxYPN2ouui
+	 qy3irQ2Yozh0oKlsPcEvc4Kz2xUSdvHeZhK6DlEEJ2HzAEkm7sOuAqRtYT2L6vPglF
+	 NOwiPpwJECdOQ==
+Message-ID: <6cee7587-a7f6-4e69-893f-4c89dd0aa2bf@kernel.org>
+Date: Thu, 2 Apr 2026 18:36:43 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] dt-bindings: usb: dwc3-xilinx: Add MMI USB support
+ on Versal Gen2 platform
+To: "Pandey, Radhey Shyam" <radheys@amd.com>,
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Cc: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, michal.simek@amd.com, Thinh.Nguyen@synopsys.com,
+ p.zabel@pengutronix.de, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, git@amd.com
+References: <20260330190304.1841593-1-radhey.shyam.pandey@amd.com>
+ <20260330190304.1841593-2-radhey.shyam.pandey@amd.com>
+ <20260331-jellyfish-of-pragmatic-prowess-a230fc@quoll>
+ <3d64cd29-d981-4e84-8106-8085250fc502@amd.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <3d64cd29-d981-4e84-8106-8085250fc502@amd.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260402-airoha_qdma_rx_process-fix-reordering-v1-1-53278474f062@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2N0QrCMAwAf2Xk2UCNdoq/IqPUNW55sJ2JyGDs3
- w0+Hhx3GxirsMGt20D5KyatOhwPHYxzrhOjFGegQH04B8Is2uac3uWVk65p0TayGT5lReWmxXN
- 1wgvRKVwpxkcfwVuLshv/zx0qf2DY9x9LzFK9fAAAAA==
-X-Change-ID: 20260402-airoha_qdma_rx_process-fix-reordering-722308255b65
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Xuegang Lu <xuegang.lu@airoha.com>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_093648_472117_4303D7DE 
-X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,77 +121,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing dma_rmb() in airoha_qdma_rx_process routine to make sure the
-DMA read operations are completed when the NIC reports the processing on
-the current descriptor is done. Moreover, add missing READ_ONCE() in
-airoha_qdma_rx_process() for DMA descriptor control fields in order to
-avoid any compiler reordering.
+On 31/03/2026 11:18, Pandey, Radhey Shyam wrote:
+>> On Tue, Mar 31, 2026 at 12:33:01AM +0530, Radhey Shyam Pandey wrote:
+>>> Versal Gen2 platform multimedia integrated (MMI) module has a USB3.2 Gen
+>>> 2x1 Dual Role Device IP. Introduce a new compatibility string to support
+>>> it. The USB wrapper registers reside in the MMI UDH system-level control
+>>> registers (SLCR) block, so instead of a dedicated reg property, add
+>>> xlnx,usb-syscon phandle with four cells specifying register offsets for
+>>> USB2 PHY, USB3 PHY, USB DRD, and USB power configuration within the SLCR.
+>>>
+>>> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+>>> ---
+>>> Changes for v2:
+>>> - Add blank line after compatible as suggested by Krzysztof.
+>>> - Retain the mmi suffix in the compatible string, as this USB 3.2 Gen2
+>>>    IP from Synopsys is part of the dedicated Multimedia Interface. The
+>>>    Versal Gen2 platform also includes a separate USB 2.0 controller,
+>>>    and the mmi suffix uniquely distinguishes between the two USB
+>>>    controllers. MMI is an independent subsystem particularly targeted for
+>>>    deployment in Multi-Media related applications. The MMI block include
+>>>    following submodules: UDH: USB3.2 Gen 2x1 Dual Role Device, DisplayPort
+>>>    Transmit Controller, Security Module (ESM) for DisplayPort and HDMI
+>>>    Controllers, DP AUX-I2C PHY.
+>>> - For MMI USB define parent address space i.e UDH block.
+>>> - Fix inconsistent MHz spacing to use SI convention with spaces.
+>>> - Move description before $ref and items in xlnx,usb-syscon property.
+>>> - Restore original zynqmp-dwc3 example, add new versal2-mmi-dwc3 example.
+>>> - Use 'usb' node name (without unit address) for versal2 example since
+>>>    it has no reg property.
+>>> - Use 1/1 address/size configuration in versal2 example, use lowercase
+>>>    hex in syscon offsets.
+>>> ---
+>>>   .../devicetree/bindings/usb/dwc3-xilinx.yaml  | 70 ++++++++++++++++++-
+>>>   1 file changed, 67 insertions(+), 3 deletions(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+>>> index d6823ef5f9a7..5e31b961aff7 100644
+>>> --- a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+>>> +++ b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
+>>> @@ -15,6 +15,8 @@ properties:
+>>>         - enum:
+>>>             - xlnx,zynqmp-dwc3
+>>>             - xlnx,versal-dwc3
+>>> +          - xlnx,versal2-mmi-dwc3
+>> I am not going to ask the same questions.
+> 
+> I have provided the explanation in v2 changelog.
+> Retain the mmi suffix in the compatible string, as this USB 3.2 Gen2
+> IP from Synopsys is part of the dedicated Multimedia Interface. The
+> Versal Gen2 platform also includes a separate USB 2.0 controller,
+> and the mmi suffix uniquely distinguishes between the two USB
+> controllers.
+> 
+> Let me know if you still have reservation in this approach (using
+> <vendor>,<soc>-<subsystem>-<ip>). Or any other alternative
+> based on IP version etc please suggest.
 
-Fixes: 23020f0493270 ("net: airoha: Introduce ethernet support for EN7581 SoC")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 14 +++++++++-----
- 1 file changed, 9 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 95ba99b89428e4cafb91ff7813e43ffeb38e6d9b..29dea8b35f64bfdcf88bc09fd711e0d8b4f7b6fa 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -612,15 +612,17 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 	while (done < budget) {
- 		struct airoha_queue_entry *e = &q->entry[q->tail];
- 		struct airoha_qdma_desc *desc = &q->desc[q->tail];
--		u32 hash, reason, msg1 = le32_to_cpu(desc->msg1);
--		struct page *page = virt_to_head_page(e->buf);
--		u32 desc_ctrl = le32_to_cpu(desc->ctrl);
-+		u32 hash, reason, msg1, desc_ctrl;
- 		struct airoha_gdm_port *port;
- 		int data_len, len, p;
-+		struct page *page;
- 
-+		desc_ctrl = le32_to_cpu(READ_ONCE(desc->ctrl));
- 		if (!(desc_ctrl & QDMA_DESC_DONE_MASK))
- 			break;
- 
-+		dma_rmb();
-+
- 		q->tail = (q->tail + 1) % q->ndesc;
- 		q->queued--;
- 
-@@ -637,6 +639,7 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 		if (p < 0 || !eth->ports[p])
- 			goto free_frag;
- 
-+		page = virt_to_head_page(e->buf);
- 		port = eth->ports[p];
- 		if (!q->skb) { /* first buffer */
- 			q->skb = napi_build_skb(e->buf, q->buf_size);
-@@ -670,8 +673,8 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 			 * DMA descriptor. Report DSA tag to the DSA stack
- 			 * via skb dst info.
- 			 */
--			u32 sptag = FIELD_GET(QDMA_ETH_RXMSG_SPTAG,
--					      le32_to_cpu(desc->msg0));
-+			u32 msg0 = le32_to_cpu(READ_ONCE(desc->msg0));
-+			u32 sptag = FIELD_GET(QDMA_ETH_RXMSG_SPTAG, msg0);
- 
- 			if (sptag < ARRAY_SIZE(port->dsa_meta) &&
- 			    port->dsa_meta[sptag])
-@@ -679,6 +682,7 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 						  &port->dsa_meta[sptag]->dst);
- 		}
- 
-+		msg1 = le32_to_cpu(READ_ONCE(desc->msg1));
- 		hash = FIELD_GET(AIROHA_RXD4_FOE_ENTRY, msg1);
- 		if (hash != AIROHA_RXD4_FOE_ENTRY)
- 			skb_set_hash(q->skb, jhash_1word(hash, 0),
-
----
-base-commit: ec7067e661193403a7a00980bda8612db5954142
-change-id: 20260402-airoha_qdma_rx_process-fix-reordering-722308255b65
+Commit msg must explain that you have two different devices. And then
+explain what is the difference between versal2-dwc3 and versal2-mmi-dwc3.
 
 Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+Krzysztof
 
