@@ -4,99 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F7F1112274
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 02:19:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9F451112274
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 02:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HYGP2hISTZIOwm7KcS+DDptEEs44HrRNLaMy7aCvf7A=; b=DMFgf8w20YneXOrVxfVBnhWkDt
-	UnTjGwevAerYS+btYbhUsszOgkkvo+2nwL4mdlf7vxhrOU4qXfa0k7QEhNXcNSZBcbcTNPwN1x/ps
-	FNWNeQEjHiceHMIQm/LysTKzLez3b96AIfKVRkSLFjWTPtbQisdhFC9Z2jB1/4W8SgkdXhekJi31J
-	h1B/ww51POarf6ziE6yyv8x70zn6DgYrgh9n6z4LC6wwUDZtPBFOZfOXdxIxdnFeU5t/aFj80ttkl
-	ccVAM47dhkUPunMlMHPOo14oZoHRqb1yEH0Ig8evV/+6/x+9Nwdq/nSHkER6/96aLjkj4vGcT/xjh
-	taWJvEjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PLOJdGh8Zj4JSEdcQhNVsEs0aSOI1jN7IdBHD4I9ibY=; b=b9MANLftH7UElg
+	JMw6i+qkSnW0pEe6nCsw08r71FrXhiFrnq/9Py53GyrDuYENdXzHJxttSKp4WBiUThCL19y1COHxY
+	peKSpPDFK4qPmlzzJ1ly0oYSidPT/1hYv7051hFwm9HQwQT1ufxxObzB7uWtrAokS7otPa4RqUJD6
+	YmcV/w+t/hzj08BhsUt1BV6I45XqhzEuiCh78bXGk1axzy9fGEb6vDezAiH4Az8WLltMYt2uu8L3r
+	DO3OrObKH7X+2rhD5xxDL3QRC0GrrB5xUHv1a+aTPn4bJu66vhrT6GwJGW6A7ol6R/y4G5AF3ka3r
+	rkHQEeh1LwwD0mzMHmXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w87et-0000000Gaxz-035B;
-	Thu, 02 Apr 2026 02:19:47 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1w87fa-0000000Gb40-1B4i;
+	Thu, 02 Apr 2026 02:20:30 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w87ep-0000000Gaxb-1T4w
+	id 1w87fW-0000000Gb2z-2F4P
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 02:19:45 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-43cfe71e5d3so335921f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 19:19:42 -0700 (PDT)
+	Thu, 02 Apr 2026 02:20:28 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-48558d6ef83so2760585e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Apr 2026 19:20:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1775096380; x=1775701180; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HYGP2hISTZIOwm7KcS+DDptEEs44HrRNLaMy7aCvf7A=;
-        b=NmoU4q+ejw4FN8mCnDW5O5nzlp9PiR/iEXiPJa48o1OunBHMiI7IdB9/18SceFYw/7
-         RVSSYb93vpJAIqEz2E5tc0BpPqXTAyhTqatUZpgZryc6p1d3N24oaHr6J1CCzKfLXasl
-         Fw+xbhgZuqHxlRb3LLjUJgh/B4Se0GHTv4gou3mtrBbt+uKJkgC433RQq07YH7v2yiqi
-         IhTMNjUWifuTSZmIx2GVMEpEJEfxryKkIrR1XRrTqBAhJANwDfvHxtqzQbM+4A5FuAmM
-         wtRvjBskA+qm6opfkQUc8CHiArMJTcpa4KoPj91l8j41JsFZaPs6gXvJzJE511K4Zbel
-         rRjA==
+        d=linaro.org; s=google; t=1775096424; x=1775701224; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PLOJdGh8Zj4JSEdcQhNVsEs0aSOI1jN7IdBHD4I9ibY=;
+        b=Fg0RwkKSiFxbf8fYJKsoOLwJTnyEUN8UGAra+VMCTlF/SyKPJWdxbqFBGbFyEm3VYI
+         ZgHWJ66+z2P8a7uqO1gifwFS4x0og7sNrdh10ydDKvEfmN4MVD5/0WXOM7Rvkk2gFzeZ
+         3BXNGIVnt9KacaZqZ8Y7rInEaQR3WdDkvomj5FyKWyVuNgVhZI4H7Z5TnNPWQ54Qc6UY
+         lLv8aJ84GtgOXxe4ryqr0C9zqW4RtOVdcDhoigIsrMWBhwbVreKHFVAtnw0EviAhtjET
+         J/MMQcFqhYaQkEfLzNGovgxd1OGwztVQcPRpg854cB3HtpxgWVj+BnM/hDz2oXUV8qwx
+         lf3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775096380; x=1775701180;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=HYGP2hISTZIOwm7KcS+DDptEEs44HrRNLaMy7aCvf7A=;
-        b=esHOQX1qkC6d93XeNaoEwmk+AUTFEKCUTPKg63R5WjjrPvxNdse9KCQdfbC12qIBjh
-         dhJArmA4nSqZWrUCkzr7jnEE/QSIj8U63LvpxwFKZeOwxKSsqBdsYH0wP9dUpI2MCeyz
-         V8H5EDLBVM3MBY1x9aXzkCVw7JLH/lklE47yJtsz6LFTLp1TWD5v8FPz5g+4/ijBlnv5
-         WySGsuAh/GfmiKwrKRw/bAef3vGGKh0L/ZfZ8XHeht5Q9btEvJ+lvK2PoBvB7jE7YufI
-         URIo8Rc9N3F9WZaI5mDfCnj4C0RrQB5mdaqFKWGxdHbmhg9X/ss71W36RDQT0XH7gd3/
-         61Lg==
-X-Forwarded-Encrypted: i=1; AJvYcCXEZ/kChwU8hnpFDVIaBwt0DJAQ1HcB3fkQBj6NBG8feJe4RJIg2p+H0KUqjVnTmPdPB0s9b2uC7m8CJ0P4jntR@lists.infradead.org
-X-Gm-Message-State: AOJu0YyaDDiTG79Vs8vlNj1BdNOhI2tp4e4tBhQkzVaiLobLgvTd4k3m
-	t0GCvZzhJSexSIFGEFuSPt4JZM/PjJs5noSRsFghgac8dOinFQVEs3+++TbFyAD/LfBzDNHR963
-	rT8kjIYk=
-X-Gm-Gg: ATEYQzxFmb5VzfbVRwY1TpltrrQcSKVGnFWCxr85oxWA2Kg6e801qkoPf6+8yk8+IE+
-	cl9Xh+7vQIKG0DcyZVovbqIOjEJzXbDl22hYhvMo/z25FXG80qX0RN9HCtLH7fFehAugpR3IudA
-	tA3UEJSutoC6vTDwkdRkYgqh4qnNd6WFHneQ4EyfVy+psIaz/bGHPlP5yKh/yyfyXOXhvVy6qSh
-	uO5WLeni0x+9pyGS+IevHz3OvniTCmpyMCF3s5Cp51CIy7xTwOcw1gQxbXEvY4rsqmMSUMPRPn9
-	Lo2ltGPP/PSj39RDdc8PI3lF2oPywXfa2vygT6DY4P7RvG4k+uPDFHhxjz0dKTtGtA9qTOlgUpN
-	AJvQBrk+ewEx7LbDqo1fv5cqUXTVrXjvoGpROk+c5pXsCT0wrCobrPbI30JJzDiMJKv+A415lvT
-	3VRoKFLp+Qv4DTN08DExtF34f4h5y7+nPfo9sV26tdNkIUEI0ITTmRygCGIMnK0CJizQJFa2GHM
-	n8VBjjoy5D+OQ==
-X-Received: by 2002:a05:6000:2303:b0:439:beb9:5a96 with SMTP id ffacd0b85a97d-43d150e8ba7mr11084985f8f.31.1775096380493;
-        Wed, 01 Apr 2026 19:19:40 -0700 (PDT)
-Received: from localhost ([94.4.195.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d1e2c3a01sm3815604f8f.12.2026.04.01.19.19.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 01 Apr 2026 19:19:39 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 02 Apr 2026 03:19:37 +0100
-Message-Id: <DHIB5E66SP7A.110YA5R1OOQHS@linaro.org>
-Cc: "Sylwester Nawrocki" <s.nawrocki@samsung.com>, "Chanwoo Choi"
- <cw00.choi@samsung.com>, "Alim Akhtar" <alim.akhtar@samsung.com>, "Sam
- Protsenko" <semen.protsenko@linaro.org>, "Michael Turquette"
- <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Rob Herring"
- <robh@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Tudor Ambarus"
- <tudor.ambarus@linaro.org>, "Jassi Brar" <jassisinghbrar@gmail.com>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Peter Griffin"
- <peter.griffin@linaro.org>, <linux-samsung-soc@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 0/5] Exynos850 APM-to-AP mailbox support
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>, "Alexey Klimov"
- <alexey.klimov@linaro.org>
-X-Mailer: aerc 0.21.0
-References: <20260320-exynos850-ap2apm-mailbox-v1-0-983eb3f296fc@linaro.org>
- <20260321-beautiful-garnet-magpie-de4fbd@quoll>
-In-Reply-To: <20260321-beautiful-garnet-magpie-de4fbd@quoll>
+        d=1e100.net; s=20251104; t=1775096424; x=1775701224;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PLOJdGh8Zj4JSEdcQhNVsEs0aSOI1jN7IdBHD4I9ibY=;
+        b=RMRWbXbiTVT6Uw5XqPayEh+7aeM1aC1EUHbcgIII+9YJFcJkRUPhA9s2kvmbgHn54a
+         oRlkg9OoOKhyNW3yNv3I0EDZl4DWZpIOGVOr3zy+86nGLj/a4lgbCH8I/hBZleCAjSLq
+         fgijuKpbM8h0/aXFY5W7hBky/QdIG6ApCGL46cyy2Rl641FruOzFMyTyzz8vNyoYUdY5
+         hjoylcmjR9xP0SBGz0cyxSvCyiQ70gx4oPDkl8FZp5dH6Tg8vL/RN9Liim8fo1yplL33
+         oSyfsUYY6ttLTiQVo2D+a3NE/E4Px+bkgf4Sev8GY8651nbbwxioup6asc02eTg7PKP5
+         ds4A==
+X-Forwarded-Encrypted: i=1; AJvYcCVlKfXRNrn4OJsrCEiiPBm7df12bHFU9YYGoReBaktK8o5aiXEABrwTm/7o5WhWfu+s01BWlQPieqGL5PyBKOAU@lists.infradead.org
+X-Gm-Message-State: AOJu0YylzS8cl9gMEWd1oeyv7UvOW33InNayGLZOewjWfkschQBvyfYn
+	T/6cJvAnDV8fAiU4hTpZP0K7T5rqGy9cJbygMhhhuDPXZeZo0z0KaEsEz4pFaU7IR4YA5TJYmZh
+	p+s41nBA=
+X-Gm-Gg: ATEYQzxP25VibP3Zq0YlfvUW6hjOCwIBARKnFE9StlK+mIUspobnJrb3JNsHPzAoTqP
+	lsBf9zbODxRIO6aiwYr5hOGZy7L9pwuTZJwCLlvJHNSOUTWoHYZYVSNIhCZYC0wjORo5WTT47FO
+	D0Q8ykmbIiKsg7zaXIM5QvZMXo+gOuweqR0mBaba9fCj+wk8h0R64g+5taI1D3Y8fplBnQ3bqv2
+	M2Rr2MAlYArOJzd7aRegdokWyWnoMR/lz1KmX39iO5nlihSfgbG1hTERF2ib9jCSWNn3/8ooJ7e
+	T2RQvQL8i6XvceJ+NFgP6KNMIbX+9NHfoz5H1oDOj1ZNDigL+caiV3gFGKDKtqw8k9h0HCixSFb
+	EV7mq3cVjR1xiqPWleDxrYPf7IDW8wxJaxY7o1/nzylHekZUQf9tgkO/L5QUnKsHBK9dMqhmOPq
+	YsVKErd37M3hFbYiMR/TRN6bRcY/Mpt90A8fR+E4uQMKU2xF8t3jUshm/fIGtoLGjAQCGVVHwFk
+	QE0JvvcwqXyrx3a
+X-Received: by 2002:a05:600c:444e:b0:485:35ee:f836 with SMTP id 5b1f17b1804b1-48883569e3dmr93027505e9.2.1775096423942;
+        Wed, 01 Apr 2026 19:20:23 -0700 (PDT)
+Received: from [127.0.1.1] ([94.4.195.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4887aacb88fsm56379725e9.2.2026.04.01.19.20.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Apr 2026 19:20:23 -0700 (PDT)
+From: Alexey Klimov <alexey.klimov@linaro.org>
+Subject: [PATCH v2 0/3] Exynos850 APM-to-AP mailbox support
+Date: Thu, 02 Apr 2026 03:20:13 +0100
+Message-Id: <20260402-exynos850-ap2apm-mailbox-v2-0-ca5ffdff99d4@linaro.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAF3SzWkC/42NQQqDMBBFryKz7pQYqSRd9R7FRYwTHdBEkhIU8
+ e5NPUGX78F//4BEkSnBszogUubEwReQtwrsZPxIyENhkEK2opECadt9SOoh0KzSrAsuhuc+bGi
+ dE1YNrVZaQZmvkRxvV/rdFZ44fULcr6dc/+wf0VyjQK0a6hsndevsa2ZvYriHOEJ3nucXsOEZI
+ MEAAAA=
+X-Change-ID: 20260320-exynos850-ap2apm-mailbox-cff0c8d69898
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Sam Protsenko <semen.protsenko@linaro.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Jassi Brar <jassisinghbrar@gmail.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, linux-samsung-soc@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Alexey Klimov <alexey.klimov@linaro.org>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260401_191943_473572_08AFC205 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20260401_192027_593581_76FCD7A7 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,39 +114,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat Mar 21, 2026 at 10:44 AM GMT, Krzysztof Kozlowski wrote:
-> On Fri, Mar 20, 2026 at 09:15:12PM +0000, Alexey Klimov wrote:
->> Hi all,
->>=20
->> This patch series introduces support for the APM-to-AP mailbox on the=20
->> Exynos850 SoC. This mailbox is required for communicating with the APM=
-=20
->> co-processor using ACPM.
->>=20
->> The Exynos850 mailbox operates similarly to the existing gs101=20
->> implementation, but the register offsets and IRQ mask bits differ.=20
->> This series abstracts these differences into platform-specific data=20
->> structures matched via the device tree.
->>=20
->> Also, it requires APM-to-AP mailbox clock in CMU_APM block.
->>=20
->> In theory this can be split into two series with correct dependecies:
->> device tree node requires clock changes to be merged. The suggestion
->> is to let this go through Samsung SoC tree with corresponding acks
->> if it is okay.
->
-> I don't understand why this cannot be split into two seris
-> *practically*. What is exactly the dependency between mailbox and DTS,
-> that it had to be combined here?
+This patch series introduces support for the APM-to-AP mailbox on the 
+Exynos850 SoC. This mailbox is required for communicating with the APM 
+co-processor using ACPM.
 
-Do you suggest to send 3 single patches with proper dependencies
-description? DT bindings change first, then mailbox change that specificall=
-y
-depends on dt-bindings change and then dts update (which will depend on bot=
-h)?
+The Exynos850 mailbox operates similarly to the existing gs101 
+implementation, but the register offsets and IRQ mask bits differ. 
+This series abstracts these differences into platform-specific data 
+structures matched via the device tree.
 
-I thought that mbox driver change depends implicitly on bindings update?
+Also, it requires APM-to-AP mailbox clock in CMU_APM block. These
+were marged already (thanks Krzysztof!) so they are dropped from
+this v2.
+
+Please also advice if mailbox change should be split out as a separate
+patch.
+
+Will be appreciated if it can be tested on gs101 to make sure that I
+didn't break anything, I don't have dev gs101 devices.
+
+Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+---
+Changes in v2:
+- dropped clock patches (they seem to be merged);
+- patch 3: updated commit description mentioning that
+  exynos850 is not compatible to gs101 mbox (as suggested by Krzysztof);
+- fixed comment description for struct exynos_mbox_driver_data
+  (reported by kernel test robot <lkp@intel.com>);
+- Link to v1: https://lore.kernel.org/r/20260320-exynos850-ap2apm-mailbox-v1-0-983eb3f296fc@linaro.org
+
+---
+Alexey Klimov (3):
+      dt-bindings: mailbox: google,gs101-mbox: Add samsung,exynos850-mbox
+      mailbox: exynos: Add support for Exynos850 mailbox
+      arm64: dts: exynos850: Add ap2apm mailbox
+
+ .../bindings/mailbox/google,gs101-mbox.yaml        |  4 +-
+ arch/arm64/boot/dts/exynos/exynos850.dtsi          |  9 +++
+ drivers/mailbox/exynos-mailbox.c                   | 67 +++++++++++++++++++++-
+ 3 files changed, 76 insertions(+), 4 deletions(-)
+---
+base-commit: bd0f139e5fc11182777b81cefc3893ea508544ec
+change-id: 20260320-exynos850-ap2apm-mailbox-cff0c8d69898
 
 Best regards,
-Alexey
+-- 
+Alexey Klimov <alexey.klimov@linaro.org>
+
 
