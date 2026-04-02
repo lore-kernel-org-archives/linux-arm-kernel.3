@@ -4,113 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 113D5D6AAF2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:39:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4311D6AAF2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:39:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+gGP+SqqBinVX/QK2u1mNG3NnIANWWEBL89nQ/UBtz0=; b=qXnzQGJb29PiCEveRcjH61MhEJ
-	ZpomKLfWX4dqTJ3Fd4Cz1rfC1lcB3VKLHgJACE3EeTI7r63ocIDNotKPX0ICQyt/4oRiAdTrc6b0i
-	WQMC6AiDwFGFz6mi+UTVeOBXk+rNnwEe6qbel4t7PzAV1qUNK3HhUztBrsrXizt9+u19/nAmocFB0
-	u/qW3LXhZdn3y+OL+RxJ6hb7sSpv4Nmxdtkj/OGSPVzFHzyHBAHVb5UiXB/43sMc5M35W9P7Ih/LN
-	VgnaSpZtF3OWNjzWWFqZXxHBdVGsXcgyGMOfFIJ60jF9g7891dyvTcnvnSxOLNuRMnSJzZUxDrNS4
-	JmJMqk+g==;
+	bh=hzW5ME07N7uB5Pe56PeAi3P41+VXC9TAF9pgmKaUxvM=; b=C2CNbwPdA02xx+ICL7UK61uaTu
+	sb+onwBfyZmrqxN6wBg82PSINCTP9SsfUHql29ErjWjIUhF4vbXE83dMpiS8N0QC8OQvx4MNmPGu6
+	qKnee2d5Zulzd4cWcQvQnHx3RyLROU4aa/Gcqpq/WpaJkfHDhghiWpgaOtr9KdFi0xTkXcJFHjuF5
+	kcWHHjkmN/zrVK1Dg56dkOb8b6ezAqfyEswBtaBDWitAphgtDW3q165BIVuE9HrGTBfKJPcFvyNZ2
+	XTXWz7JT026nZhKRSwaqefFbs1zK1Uq+K17y2rh3AJkqiuetg+O82o0ghnRX1FJmpMdpM6KuNK/84
+	381vwHkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8L4U-00000000Wf9-2gwk;
-	Thu, 02 Apr 2026 16:39:06 +0000
-Received: from mail-northcentralusazon11013058.outbound.protection.outlook.com ([40.107.201.58] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1w8L4b-00000000Whz-1t76;
+	Thu, 02 Apr 2026 16:39:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8L4S-00000000Wdw-1Kb8
+	id 1w8L4a-00000000WhL-32B4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 16:39:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Kzdp6e0RDv8OrIWfuz7G6LdZL9eRZcu6aWLQiop3FKOYk7F73+yA7LnwXWnRA1QeecA7CS7Jpp0KBm0D1G3Zf80h1NDmQq0j0hAe8sUNh3jHhTblULss4VLEEhHOIlluOOUlYYNug2jp06mXe43u4kDZ+/h6j7TGnbrjyj3HmdGAfeiFnL680bO2MJSesCfquKtEANju8iILfO0bXCcW3ptpWEWRLHL2jmC9/8bDQLYh2Xq9xNvF1UhkGSeLi4j49q46rbqbgTY/oypCQiDQpPaKiMAtWbuel+m02J1/auTVO2yuyAM1bH6ESsexRjNdLSPMDsH6OMq68eJTOwum6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+gGP+SqqBinVX/QK2u1mNG3NnIANWWEBL89nQ/UBtz0=;
- b=iAgQquxNvWQQHq/SXCm6mRtmK4wrPwNqNJ9AKX3dX90bGf4z6n8ZSr7fUd2iSN1kbGTvwVilPvpZNwJT6PO7z4F5Yi8MFzjTugAb6NisNXtpeM4QB8nxbcQztZHdzzn3hl+Oxqs3y1BYSH/xVCXmhL8JrEZFOYsm1RTuvoGEWw20R9k7hjWQOXSebM+Sh1PkuYqpL+7/skxuL/yckzR0Ye7S1/VOfGrMVpWWDq0zuTqaReThO7UZYBJjAciyrOvi/ufP/BurS0rPiCkVXP9eD/lnLq3larR4N6PTUgMVHUwIl6Keok34msgEOxwppjqaCm4ZZ+NtaOtmUwK+OKcRdQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+gGP+SqqBinVX/QK2u1mNG3NnIANWWEBL89nQ/UBtz0=;
- b=YV1Nlpfg5G5YQUABEjJzL043nLHnWsSHI38ilSdIAAp2TSJD9Pu+1zTQ3YNsDId6jNG+761eCHu0w0FyiXSsx0FnDVVtxI/PF8OFEZ8BorYtbVhtRaDmY4PHcu9Dl9TwQ/ERQOkaPGP9I5cxMUR8KgQs7r+NC61z5Y9Kan4JtXo=
-Received: from DS7P220CA0020.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:223::10) by
- BY5PR12MB4084.namprd12.prod.outlook.com (2603:10b6:a03:205::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.19; Thu, 2 Apr
- 2026 16:38:55 +0000
-Received: from DS3PEPF0000C37A.namprd04.prod.outlook.com
- (2603:10b6:8:223:cafe::2b) by DS7P220CA0020.outlook.office365.com
- (2603:10b6:8:223::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.18 via Frontend Transport; Thu,
- 2 Apr 2026 16:38:54 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- DS3PEPF0000C37A.mail.protection.outlook.com (10.167.23.4) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9769.17 via Frontend Transport; Thu, 2 Apr 2026 16:38:54 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 2 Apr
- 2026 11:38:53 -0500
-Received: from xhdshubhraj40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Thu, 2 Apr 2026 11:38:50 -0500
-From: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-To: <linux-kernel@vger.kernel.org>
-CC: <git@amd.com>, <shubhrajyoti.datta@gmail.com>, Shubhrajyoti Datta
-	<shubhrajyoti.datta@amd.com>, Srinivas Neeli <srinivas.neeli@amd.com>,
-	"Michal Simek" <michal.simek@amd.com>, Linus Walleij <linusw@kernel.org>,
-	"Bartosz Golaszewski" <brgl@kernel.org>, Rob Herring <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, <linux-gpio@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH 1/2] dt-bindings: gpio: Add eio gpio node to gpio-zynq
-Date: Thu, 2 Apr 2026 22:08:39 +0530
-Message-ID: <20260402163840.938417-2-shubhrajyoti.datta@amd.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260402163840.938417-1-shubhrajyoti.datta@amd.com>
-References: <20260402163840.938417-1-shubhrajyoti.datta@amd.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF0000C37A:EE_|BY5PR12MB4084:EE_
-X-MS-Office365-Filtering-Correlation-Id: 22cbd5cd-51af-4c57-ce53-08de90d6546f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|82310400026|1800799024|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: fgr11iTbGNe9IYx54SZDcT+2FH0JB2yxjcf5cFGw509Np9nR7LrEaqU01kzFJxq0yIZqvI8AS/YtpvZ9yXc05Ap3ftHktYdSoVDbEiNO96mPEHZHAKf9IY0gy1MGTe7kltRyosKZS7dh2sQsvtmj0DH6agCFDxlMMEwM43Scj8lx21Tb/Hr7xweOs8kxAGYyzqJ0WLP7apkr96pJuJbw1c1oeob4jMFjxOLmKpmUV7CqA5ZB4zNMFeyNI6yOroCmOjUuJGftx6PTTGeSnu2o8tUMn9gzuRwvEgBMXOeY1NiI4jM2mv1r2Pe5hbyAnDVULTn6/kXMJBIxQG8pgZjwtvJX5gQW3ZkeqP1J5ATxGZLIXqMkMwbONFLjGJze6KoqjMC9bT816/Kip/MiqvPpNTmpg+QguTI36THEX34OhP81ydAWTxi7nR/UyLJ3OLpdX38xiZWCTvsSQr3O8avqinNagbEbGT2XBwbrWTcQv2gfs/do32XBHx6saZWwUUP8yVbclFd8pcS5iioxWtq2mOcOWmxv7O9qeTYbT1R+xQ6WIcdxZ61zz+s5rUUMvoXSh3UylWhx2Z82oci7Wbt78xFIlVc2830Zq0kPpdREAnryD86+CGqUkOVVRLXkAzTvvcgjv1loWeugK6l+3fSv2LgmJ80NEnjsSk1C5+7EnlJq68WaTrC/ky0s1iLjYpSQVFuN/TknsUVZxZt+Z3s/Qo9ukYVrtwdkjVK5SgAiHzx2UDQ7cm98m7wbs50t7kFwPE1QPKMy+FXx/7Cy5uyoUA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(82310400026)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: YbDdu4SL1JwpANftQl9hsshlp7MyaLHmtNj/6DF71qsE3FMSB0GzKORnvR7jKK42+OigTfTJmV2UtFu7EV3QPmvYGDdRr4elJBQ2zl8qiQMGO7WB2efJ5orEKjpmdnfIUpUz6SnegzpniO/Y0SHCbrX2dwDY1Egk/yh5Cbz/N8Gr7P4zMzOELspXAWMPIbAfgX/Ctd25imiCk0V8gLQhdd0fL/FqXcMZCJyddLX5NHLDNM+kNq51FgOh0SgVcp5yZUW1m6YRV/ewnifudA4ECxLmDUiWcCgd9z9hh1XQVLx478XcA3QqO45si5csjGCWaDiS++y9Q9I61G39d60SeCgnvPD/+jioNwOiNDSCRgKqNvdTcv8mxdxM5vhzN4fZprgT/pjre4UzoN5gTAJFGBl4PCl2ufy1PelXbCxQnzYyOnAwBJ5Z1LSfUPoKXBg6
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2026 16:38:54.6390
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 22cbd5cd-51af-4c57-ce53-08de90d6546f
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF0000C37A.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4084
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_093904_359014_CFD4B284 
-X-CRM114-Status: GOOD (  12.53  )
+	Thu, 02 Apr 2026 16:39:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E7F9A60126;
+	Thu,  2 Apr 2026 16:39:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0489C2BCB0;
+	Thu,  2 Apr 2026 16:39:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775147951;
+	bh=/9sVJqbqd5N55bgK+hKxVPxccAtMDky0mqOzEJC8sog=;
+	h=Date:Subject:Cc:To:From:References:In-Reply-To:From;
+	b=uy1jCrCUIxHvmyUZs169uxUYSq14obZ67K0G2WOxvXw6Gz7QyijB80FM7Bd8f2gJD
+	 zePwAEFKrTHcYOaw5pntNHglRgq0JDYaHZy3u63cTcc0nuc8leJMYsXBlOS7s7ncOA
+	 +jyfkVfEO2hWjhrW/C2yRotvHvngghtEEI4GDkrOkiFFkka9eXiR1AX2sm/vv29CWH
+	 AUhmmsGrTjj7PEa3WSL5LmuJNsWvUyog7NrU5tJYcdSdCCtGLi7XpjQzwaTqFZAr1g
+	 mL8vgdNtb35jk98a87dYW96BHXuvOgKmBJy+sXjU4ZiwbjQyEJLYDA2WSID+qm56Nt
+	 b1jZ/1rv++4fQ==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 02 Apr 2026 18:39:06 +0200
+Message-Id: <DHITFGL3J4IE.2WZU3K2CSYL7I@kernel.org>
+Subject: Re: [PATCH v5 1/4] kernel: ksysfs: initialize kernel_kobj earlier
+Cc: "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
+ "Daniel Scally" <djrscally@gmail.com>, "Heikki Krogerus"
+ <heikki.krogerus@linux.intel.com>, "Sakari Ailus"
+ <sakari.ailus@linux.intel.com>, "Aaro Koskinen" <aaro.koskinen@iki.fi>,
+ "Janusz Krzysztofik" <jmkrzyszt@gmail.com>, "Tony Lindgren"
+ <tony@atomide.com>, "Russell King" <linux@armlinux.org.uk>, "Dmitry
+ Torokhov" <dmitry.torokhov@gmail.com>, "Kevin Hilman"
+ <khilman@baylibre.com>, "Arnd Bergmann" <arnd@arndb.de>, <brgl@kernel.org>,
+ <driver-core@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+ <linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-omap@vger.kernel.org>
+To: "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+References: <20260402-nokia770-gpio-swnodes-v5-0-d730db3dd299@oss.qualcomm.com> <20260402-nokia770-gpio-swnodes-v5-1-d730db3dd299@oss.qualcomm.com>
+In-Reply-To: <20260402-nokia770-gpio-swnodes-v5-1-d730db3dd299@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,58 +78,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the EIO gpio node to the device tree.
-The EIO GPIO block exposes only bank 0 and bank 1 to
-multiplexed I/O pins, providing a fixed total of 52 GPIO lines
-(2 banks × 26 pins). Enforce this hardware constraint by requiring
-exactly 52 entries in gpio-line-names for the EIO variant.
+On Thu Apr 2, 2026 at 4:15 PM CEST, Bartosz Golaszewski wrote:
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 0f258aeeacba184d2025b932d90280cf2aabf4b0..8bc934162e712cf8ddf033e53=
+bf3481054cfb7fe 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -7843,6 +7843,7 @@ F:	include/linux/debugfs.h
+>  F:	include/linux/device.h
+>  F:	include/linux/fwnode.h
+>  F:	include/linux/kobj*
+> +F:	include/linux/ksysfs.h
 
-Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
----
+Currently, kernel/ksysfs.c is not listed in the driver core entry (it is no=
+t in
+any entry), but I guess that would make sense.
 
- .../devicetree/bindings/gpio/gpio-zynq.yaml        | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/devicetree/bindings/gpio/gpio-zynq.yaml b/Documentation/devicetree/bindings/gpio/gpio-zynq.yaml
-index 5e2496379a3c..b8dd279753a5 100644
---- a/Documentation/devicetree/bindings/gpio/gpio-zynq.yaml
-+++ b/Documentation/devicetree/bindings/gpio/gpio-zynq.yaml
-@@ -16,6 +16,7 @@ properties:
-       - xlnx,zynqmp-gpio-1.0
-       - xlnx,versal-gpio-1.0
-       - xlnx,pmc-gpio-1.0
-+      - xlnx,eio-gpio-1.0
- 
-   reg:
-     maxItems: 1
-@@ -30,7 +31,7 @@ properties:
- 
-   gpio-line-names:
-     description: strings describing the names of each gpio line
--    minItems: 58
-+    minItems: 52
-     maxItems: 174
- 
-   interrupt-controller: true
-@@ -89,6 +90,17 @@ allOf:
-           minItems: 116
-           maxItems: 116
- 
-+  - if:
-+      properties:
-+        compatible:
-+          enum:
-+            - xlnx,eio-gpio-1.0
-+    then:
-+      properties:
-+        gpio-line-names:
-+          minItems: 52
-+          maxItems: 52
-+
- required:
-   - compatible
-   - reg
--- 
-2.34.1
-
+So, we should probably also add kernel/ksysfs.c. :) But this can be a separ=
+ate
+patch independent of this series.
 
