@@ -4,69 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3798FCC6B33
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 09:16:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FECECC6B33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 09:18:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Uok65dj69bcAmKA1QWCQXVXLBUk/1sPHSRfi/XnxpY=; b=YCPHHoj7yquDz5DOwvfPyNgGAx
-	yYe13TqW6uqXmjFRN94x3ZjOijphDQXdVXqdRWzj0+COw4OuAHxyBqXvY83tYrra9ySs2bZUO8PgN
-	OMZXqjVwN4lE4yXAoqAKqM/iVObV/9znyIKwZmS7lINRiN9X0c4Rgv02gTDhVHB5lughTwcoMUAtx
-	VXXDKTkT3XSK8xR/YNKgSTwCF4xi2Mqush/FdDEOSg5OOsscKA8GuJZw9G3gCNLEDfgm4PQZG+Oob
-	Qy8V9uo7oSQw0Z+t7nDpbU5V5kt8XEyx8k5yhU5YZFOM5Yhu5NALW4re9qTklRf7JLhx6rJXEjaIr
-	N6tIsahQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e5E37KeyQvBrhbW1ehOlCBikgEtUmncAsHjFsbAJD3M=; b=graDHjQeO3S9kdHRLaDmyXbdlu
+	PS9Tu0QDhI6eCP8+VhU153oaeypyIIU74zArPDxn0vlv//KVVCCeQqLW3b2aJJRUV2XGF9buiEvH1
+	rwDaczAENSAY7BNRC6S2ACNQcj75PBIR5whklfQEr7izqe2bSrAN/fQZdKbFz/FL3x9TY/u13WPDt
+	xSW0jFgKxeR7cc1wqTwfBXbHcSHMN+lVfsanKf/f8Yke9ZvVfpyBZp2zWXorAyZ66X6s9LVBGNjhI
+	cnuwkpZC+xfTS2AQiM9s7Kv2NSZvrtJ6NR59CzGk8ODUOGlPbczBRauPn3hV/s8B50oasMLJYcRTG
+	A7BCPk5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EA3-0000000HEXJ-33Eh;
-	Thu, 02 Apr 2026 09:16:23 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1w8ECB-0000000HEjW-1b0M;
+	Thu, 02 Apr 2026 09:18:35 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EA0-0000000HEWE-3b4k
+	id 1w8EC9-0000000HEjC-17c4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 09:16:22 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1w8E9W-0006Tm-4L; Thu, 02 Apr 2026 11:15:50 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1w8E9V-003Lnm-1y;
-	Thu, 02 Apr 2026 11:15:49 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1w8E9V-000000004T7-2DNj;
-	Thu, 02 Apr 2026 11:15:49 +0200
-Message-ID: <5dd7ddb50b71de737aae6ad4d11bd28fa52443a9.camel@pengutronix.de>
-Subject: Re: [PATCH v6 02/10] reset: Add Realtek basic reset support
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Yu-Chun Lin <eleanor.lin@realtek.com>, mturquette@baylibre.com, 
-	sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- 	cylee12@realtek.com, afaerber@suse.com, jyanchou@realtek.com
-Cc: devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-realtek-soc@lists.infradead.org, james.tai@realtek.com, 
-	cy.huang@realtek.com, stanley_chang@realtek.com
-Date: Thu, 02 Apr 2026 11:15:49 +0200
-In-Reply-To: <20260402073957.2742459-3-eleanor.lin@realtek.com>
-References: <20260402073957.2742459-1-eleanor.lin@realtek.com>
-	 <20260402073957.2742459-3-eleanor.lin@realtek.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Thu, 02 Apr 2026 09:18:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1775121510;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=e5E37KeyQvBrhbW1ehOlCBikgEtUmncAsHjFsbAJD3M=;
+	b=b5hBfzgyNHTwFkhD3XYi1U82XH8JnxVqM6W/9vbY4FfT9N9gt/e/Zj+L9KaQAiW3MuiZ5v
+	f6HA7l0M+pgCVeUcplEUCQ15qsh2hZXgx8PkjHH5e9EFLApzgNmdAbCxhvlipV5mdlZV6J
+	ilrtsijKfoiKzxc5K6zt9m+cHAtUqMw=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-639-j-1GzxqgNZixg14LBaHC1w-1; Thu,
+ 02 Apr 2026 05:18:26 -0400
+X-MC-Unique: j-1GzxqgNZixg14LBaHC1w-1
+X-Mimecast-MFC-AGG-ID: j-1GzxqgNZixg14LBaHC1w_1775121504
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 11E71180035C;
+	Thu,  2 Apr 2026 09:18:23 +0000 (UTC)
+Received: from [10.44.33.85] (unknown [10.44.33.85])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id F101D18001FE;
+	Thu,  2 Apr 2026 09:18:14 +0000 (UTC)
+Message-ID: <d92e3983-d183-4c86-9023-3a16ed5ba2be@redhat.com>
+Date: Thu, 2 Apr 2026 11:18:12 +0200
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 01/27] VFIO: take reference to the KVM module
+To: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
+Cc: Andreas Grapentin <Andreas.Grapentin@ibm.com>,
+ Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ David Hildenbrand <david@kernel.org>, Gautam Gala <ggala@linux.ibm.com>,
+ Hendrik Brueckner <brueckner@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+ Marc Zyngier <maz@kernel.org>,
+ Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+ Oliver Upton <oupton@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Ulrich Weigand <Ulrich.Weigand@de.ibm.com>, Will Deacon <will@kernel.org>,
+ Zenghui Yu <yuzenghui@huawei.com>
+References: <20260402042125.3948963-1-seiden@linux.ibm.com>
+ <20260402042125.3948963-2-seiden@linux.ibm.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Autocrypt: addr=pbonzini@redhat.com; keydata=
+ xsEhBFRCcBIBDqDGsz4K0zZun3jh+U6Z9wNGLKQ0kSFyjN38gMqU1SfP+TUNQepFHb/Gc0E2
+ CxXPkIBTvYY+ZPkoTh5xF9oS1jqI8iRLzouzF8yXs3QjQIZ2SfuCxSVwlV65jotcjD2FTN04
+ hVopm9llFijNZpVIOGUTqzM4U55sdsCcZUluWM6x4HSOdw5F5Utxfp1wOjD/v92Lrax0hjiX
+ DResHSt48q+8FrZzY+AUbkUS+Jm34qjswdrgsC5uxeVcLkBgWLmov2kMaMROT0YmFY6A3m1S
+ P/kXmHDXxhe23gKb3dgwxUTpENDBGcfEzrzilWueOeUWiOcWuFOed/C3SyijBx3Av/lbCsHU
+ Vx6pMycNTdzU1BuAroB+Y3mNEuW56Yd44jlInzG2UOwt9XjjdKkJZ1g0P9dwptwLEgTEd3Fo
+ UdhAQyRXGYO8oROiuh+RZ1lXp6AQ4ZjoyH8WLfTLf5g1EKCTc4C1sy1vQSdzIRu3rBIjAvnC
+ tGZADei1IExLqB3uzXKzZ1BZ+Z8hnt2og9hb7H0y8diYfEk2w3R7wEr+Ehk5NQsT2MPI2QBd
+ wEv1/Aj1DgUHZAHzG1QN9S8wNWQ6K9DqHZTBnI1hUlkp22zCSHK/6FwUCuYp1zcAEQEAAc0j
+ UGFvbG8gQm9uemluaSA8cGJvbnppbmlAcmVkaGF0LmNvbT7CwU0EEwECACMFAlRCcBICGwMH
+ CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRB+FRAMzTZpsbceDp9IIN6BIA0Ol7MoB15E
+ 11kRz/ewzryFY54tQlMnd4xxfH8MTQ/mm9I482YoSwPMdcWFAKnUX6Yo30tbLiNB8hzaHeRj
+ jx12K+ptqYbg+cevgOtbLAlL9kNgLLcsGqC2829jBCUTVeMSZDrzS97ole/YEez2qFpPnTV0
+ VrRWClWVfYh+JfzpXmgyhbkuwUxNFk421s4Ajp3d8nPPFUGgBG5HOxzkAm7xb1cjAuJ+oi/K
+ CHfkuN+fLZl/u3E/fw7vvOESApLU5o0icVXeakfSz0LsygEnekDbxPnE5af/9FEkXJD5EoYG
+ SEahaEtgNrR4qsyxyAGYgZlS70vkSSYJ+iT2rrwEiDlo31MzRo6Ba2FfHBSJ7lcYdPT7bbk9
+ AO3hlNMhNdUhoQv7M5HsnqZ6unvSHOKmReNaS9egAGdRN0/GPDWr9wroyJ65ZNQsHl9nXBqE
+ AukZNr5oJO5vxrYiAuuTSd6UI/xFkjtkzltG3mw5ao2bBpk/V/YuePrJsnPFHG7NhizrxttB
+ nTuOSCMo45pfHQ+XYd5K1+Cv/NzZFNWscm5htJ0HznY+oOsZvHTyGz3v91pn51dkRYN0otqr
+ bQ4tlFFuVjArBZcapSIe6NV8C4cEiSTOwE0EVEJx7gEIAMeHcVzuv2bp9HlWDp6+RkZe+vtl
+ KwAHplb/WH59j2wyG8V6i33+6MlSSJMOFnYUCCL77bucx9uImI5nX24PIlqT+zasVEEVGSRF
+ m8dgkcJDB7Tps0IkNrUi4yof3B3shR+vMY3i3Ip0e41zKx0CvlAhMOo6otaHmcxr35sWq1Jk
+ tLkbn3wG+fPQCVudJJECvVQ//UAthSSEklA50QtD2sBkmQ14ZryEyTHQ+E42K3j2IUmOLriF
+ dNr9NvE1QGmGyIcbw2NIVEBOK/GWxkS5+dmxM2iD4Jdaf2nSn3jlHjEXoPwpMs0KZsgdU0pP
+ JQzMUMwmB1wM8JxovFlPYrhNT9MAEQEAAcLBMwQYAQIACQUCVEJx7gIbDAAKCRB+FRAMzTZp
+ sadRDqCctLmYICZu4GSnie4lKXl+HqlLanpVMOoFNnWs9oRP47MbE2wv8OaYh5pNR9VVgyhD
+ OG0AU7oidG36OeUlrFDTfnPYYSF/mPCxHttosyt8O5kabxnIPv2URuAxDByz+iVbL+RjKaGM
+ GDph56ZTswlx75nZVtIukqzLAQ5fa8OALSGum0cFi4ptZUOhDNz1onz61klD6z3MODi0sBZN
+ Aj6guB2L/+2ZwElZEeRBERRd/uommlYuToAXfNRdUwrwl9gRMiA0WSyTb190zneRRDfpSK5d
+ usXnM/O+kr3Dm+Ui+UioPf6wgbn3T0o6I5BhVhs4h4hWmIW7iNhPjX1iybXfmb1gAFfjtHfL
+ xRUr64svXpyfJMScIQtBAm0ihWPltXkyITA92ngCmPdHa6M1hMh4RDX+Jf1fiWubzp1voAg0
+ JBrdmNZSQDz0iKmSrx8xkoXYfA3bgtFN8WJH2xgFL28XnqY4M6dLhJwV3z08tPSRqYFm4NMP
+ dRsn0/7oymhneL8RthIvjDDQ5ktUjMe8LtHr70OZE/TT88qvEdhiIVUogHdo4qBrk41+gGQh
+ b906Dudw5YhTJFU3nC6bbF2nrLlB4C/XSiH76ZvqzV0Z/cAMBo5NF/w=
+In-Reply-To: <20260402042125.3948963-2-seiden@linux.ibm.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+X-Mimecast-MFC-PROC-ID: bukO4UsNtN5aNSxcbIuRxPenFMEydQ5TQn4GqSxn3P8_1775121504
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_021621_052403_A269F6BC 
-X-CRM114-Status: GOOD (  25.80  )
+X-CRM114-CacheID: sfid-20260402_021833_401190_B5F27AD2 
+X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,198 +136,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Do, 2026-04-02 at 15:39 +0800, Yu-Chun Lin wrote:
-> From: Cheng-Yu Lee <cylee12@realtek.com>
->=20
-> Define the reset operations backed by a regmap-based register interface
-> and prepare the reset controller to be registered through the reset
-> framework.
->=20
-> Since the reset controllers on Realtek SoCs often share the same register
-> space with the clock controllers, this common framework is designed to
-> extract the regmap and device tree node from the parent device
-> (e.g., an auxiliary device parent).
->=20
-> Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-> Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> ---
-> Changes in v6:
-> - Remove the global header include/linux/reset/realtek.h and use a local =
-common.h
-> instead.
-> - Extract regmap and of_node directly from the parent device.
-> - Remove struct rtk_reset_initdata. Now, pass struct rtk_reset_data direc=
-tly when
-> calling rtk_reset_controller_add().
-> ---
->  MAINTAINERS                    |  1 +
->  drivers/reset/Kconfig          |  1 +
->  drivers/reset/Makefile         |  1 +
->  drivers/reset/realtek/Kconfig  |  3 ++
->  drivers/reset/realtek/Makefile |  2 +
->  drivers/reset/realtek/common.c | 85 ++++++++++++++++++++++++++++++++++
->  drivers/reset/realtek/common.h | 29 ++++++++++++
->  7 files changed, 122 insertions(+)
->  create mode 100644 drivers/reset/realtek/Kconfig
->  create mode 100644 drivers/reset/realtek/Makefile
->  create mode 100644 drivers/reset/realtek/common.c
->  create mode 100644 drivers/reset/realtek/common.h
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 07e73bf621b0..8f355896583b 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -22240,6 +22240,7 @@ L:	devicetree@vger.kernel.org
->  L:	linux-clk@vger.kernel.org
->  S:	Supported
->  F:	Documentation/devicetree/bindings/clock/realtek*
-> +F:	drivers/reset/realtek/*
->  F:	include/dt-bindings/clock/realtek*
->  F:	include/dt-bindings/reset/realtek*
-> =20
-> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-> index 7ce151f6a7e4..03be1931f264 100644
-> --- a/drivers/reset/Kconfig
-> +++ b/drivers/reset/Kconfig
-> @@ -398,6 +398,7 @@ config RESET_ZYNQMP
-> =20
->  source "drivers/reset/amlogic/Kconfig"
->  source "drivers/reset/hisilicon/Kconfig"
-> +source "drivers/reset/realtek/Kconfig"
->  source "drivers/reset/spacemit/Kconfig"
->  source "drivers/reset/starfive/Kconfig"
->  source "drivers/reset/sti/Kconfig"
-> diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-> index fc0cc99f8514..4407d1630070 100644
-> --- a/drivers/reset/Makefile
-> +++ b/drivers/reset/Makefile
-> @@ -2,6 +2,7 @@
->  obj-y +=3D core.o
->  obj-y +=3D amlogic/
->  obj-y +=3D hisilicon/
-> +obj-y +=3D realtek/
->  obj-y +=3D spacemit/
->  obj-y +=3D starfive/
->  obj-y +=3D sti/
-> diff --git a/drivers/reset/realtek/Kconfig b/drivers/reset/realtek/Kconfi=
-g
-> new file mode 100644
-> index 000000000000..99a14d355803
-> --- /dev/null
-> +++ b/drivers/reset/realtek/Kconfig
-> @@ -0,0 +1,3 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +config RESET_RTK_COMMON
-> +	bool
+On 4/2/26 06:20, Steffen Eiden wrote:
+> @@ -157,6 +158,7 @@ static int kvm_vfio_file_add(struct kvm_device *dev, unsigned int fd)
+>   		goto out_fput;
+>   	}
+>   
+> +	module = filp->f_op->owner;
 
-Please make this build-testable with COMPILE_TEST.
+This patch is incorrect because filp->f_op->owner is actually the VFIO 
+module.
 
-> diff --git a/drivers/reset/realtek/Makefile b/drivers/reset/realtek/Makef=
-ile
-> new file mode 100644
-> index 000000000000..b59a3f7f2453
-> --- /dev/null
-> +++ b/drivers/reset/realtek/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +obj-$(CONFIG_RESET_RTK_COMMON) +=3D common.o
-> diff --git a/drivers/reset/realtek/common.c b/drivers/reset/realtek/commo=
-n.c
-> new file mode 100644
-> index 000000000000..ea7ff27117e7
-> --- /dev/null
-> +++ b/drivers/reset/realtek/common.c
-> @@ -0,0 +1,85 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2019 Realtek Semiconductor Corporation
-> + */
-> +
-> +#include <linux/device.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/regmap.h>
-> +#include "common.h"
-> +
-> +static inline struct rtk_reset_data *to_rtk_reset_controller(struct rese=
-t_controller_dev *r)
-> +{
-> +	return container_of(r, struct rtk_reset_data, rcdev);
-> +}
-> +
-> +static inline struct rtk_reset_desc *rtk_reset_get_desc(struct rtk_reset=
-_data *data,
-> +							unsigned long idx)
-> +{
-> +	return &data->descs[idx];
-> +}
-> +
-> +static int rtk_reset_assert(struct reset_controller_dev *rcdev,
-> +			    unsigned long idx)
-> +{
-> +	struct rtk_reset_data *data =3D to_rtk_reset_controller(rcdev);
-> +	struct rtk_reset_desc *desc =3D rtk_reset_get_desc(data, idx);
-> +	u32 mask =3D desc->write_en ? (0x3 << desc->bit) : BIT(desc->bit);
-> +	u32 val  =3D desc->write_en ? (0x2 << desc->bit) : 0;
-> +
-> +	return regmap_update_bits(data->regmap, desc->ofs, mask, val);
-> +}
-> +
-> +static int rtk_reset_deassert(struct reset_controller_dev *rcdev,
-> +			      unsigned long idx)
-> +{
-> +	struct rtk_reset_data *data =3D to_rtk_reset_controller(rcdev);
-> +	struct rtk_reset_desc *desc =3D rtk_reset_get_desc(data, idx);
-> +	u32 mask =3D desc->write_en ? (0x3 << desc->bit) : BIT(desc->bit);
-> +	u32 val  =3D mask;
-> +
-> +	return regmap_update_bits(data->regmap, desc->ofs, mask, val);
-> +}
-> +
-> +static int rtk_reset_status(struct reset_controller_dev *rcdev,
-> +			    unsigned long idx)
-> +{
-> +	struct rtk_reset_data *data =3D to_rtk_reset_controller(rcdev);
-> +	struct rtk_reset_desc *desc =3D rtk_reset_get_desc(data, idx);
-> +	u32 val;
-> +	int ret;
-> +
-> +	ret =3D regmap_read(data->regmap, desc->ofs, &val);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return !((val >> desc->bit) & 1);
-> +}
-> +
-> +static const struct reset_control_ops rtk_reset_ops =3D {
-> +	.assert   =3D rtk_reset_assert,
-> +	.deassert =3D rtk_reset_deassert,
-> +	.status   =3D rtk_reset_status,
-> +};
-> +
-> +/* The caller must initialize data->rcdev.nr_resets and data->descs befo=
-re
-> + * calling rtk_reset_controller_add().
-> + */
-> +int rtk_reset_controller_add(struct device *dev,
-> +			     struct rtk_reset_data *data)
-> +{
-> +	struct device *parent =3D dev->parent;
-> +
-> +	data->regmap =3D dev_get_regmap(parent, NULL);
-> +	if (!data->regmap)
-> +		return -ENODEV;
-> +
-> +	data->rcdev.owner     =3D THIS_MODULE;
+I'll send a replacement series for the first three patches here.
 
-The rtk_reset_desc arrays used by this code live in the calling module,
-so it would be better to let the caller initialize .owner as well.
+Paolo
 
-It doesn't make a difference in practice, since CONFIG_RESET_RTK_COMMON
-isn't tristate (right now).
-
-
-regards
-Philipp
 
