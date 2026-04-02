@@ -4,85 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 021D6D39431
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 14:28:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D901D3942E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 14:28:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2BzcSw7vPRFLh2EUBcrYhqUwnxbIkB4ljkpRES7Otzs=; b=mnzjRYDpyrPsss+QLaXUkFyeqo
-	cW6IoX6q99OPCTMuFYOiUybYYewZCo0wsSRu7mASWqQMxuv3yq5uY+jT/2CWpV4TNFb4kAcfMSHzS
-	KSo6azSHhv7OS7h+UteiWPfEgBtyix7AnwDA5E3oEvMcGZV1SOXiTL+9LPvcvVT8vs/K17pSRUTlN
-	YWwTD3dCOP7Gld4pfuOLjSnvCCdnIKkUOTp2o0cEjj1KNMJ2Yti+//xDcxBLC2utm5oK30lCOAyCN
-	3ZjSkgrOFSxNgu3O06DjyLuaZh2WP6JQzrF/xqeFtBybX5Q1gBFrzor/1gggpP2uLVYuzol5/xoLX
-	VbvgpUrA==;
+	bh=CCOVnNSdC1ddrjtgt4UaI6BEDPw3G5/w0hM6qUTn1Lk=; b=Jc6pOPY+DIk9THB59sQTEREtTB
+	mc3+vrJABpKC7ggUrmIL9fmXfqLQcVd/rI7nZPr/148FmbB1+X/XivNoTe5KKj9AFTY9egrFAXUNy
+	WppvlA6BZ+5Zfw6ILfPlVR1pe/Nax5tyB05+Yrif/vfWVtx6zhalLY6i26AFKDZac+2n9cNC54nRY
+	z30Hk8q9epUqMPuos/Wa0ZFSzqAnapay1IiUh6qvrAnigwJu2F3T+v8siLMCvgDJ9Vph10yFlM2Fp
+	+DOgf9CT1HTUZjN8hAU0D5MOJPSwtxYllZDHhFV30JL/wdMVl/o4l8LCCpmxojnvlDX8BeSGx2TrF
+	g0CLZm3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8J1X-00000000KkQ-3rQi;
-	Thu, 02 Apr 2026 14:27:55 +0000
+	id 1w8J1l-00000000L6b-2oVq;
+	Thu, 02 Apr 2026 14:28:09 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8J1U-00000000KdQ-0LOS;
-	Thu, 02 Apr 2026 14:27:52 +0000
+	id 1w8J1h-00000000L0H-0ImH
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 02 Apr 2026 14:28:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=2BzcSw7vPRFLh2EUBcrYhqUwnxbIkB4ljkpRES7Otzs=; b=jvfBJSgkGjD95hX+o56hhuyeEy
-	2vejlgUjP+kpT+wKbVLSCI6RHdgRnnQfhxvsrHW8zLC1USwXzQcA8CrWTu353Mv/wKFyXyh5hxGaF
-	konQejdv3eAiRuk4ok4TBxkzCK8p+2guFOhFXdZKVv9VVhob3hMJBGQLEE+6IZ6E9u3h2UbbmMrL9
-	Mdknfxsp1aU59usJseZBIYTBuCXUHOTnutlNSvwt1VwEd9bnbmYE0+LgF5kgUb5tW4jHqzwFAwPdR
-	S08QKNBNXquie6E1M9kf7NHHe3popfVU4+DNpbA3XOVWihpp5F60qNVvpAci2BIApAB083JKM4W4j
-	zSbEGRVg==;
-Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
+	bh=CCOVnNSdC1ddrjtgt4UaI6BEDPw3G5/w0hM6qUTn1Lk=; b=fq06MQsTetRqBh8BnukmPM7yIT
+	FMAHGU6hLeOAXf87r+n2+CZktVUbUSsotG5Y7H+tZ+SuS2MWwybDpOVBaZuAANn82USwNxlEDSHCT
+	caA40R76b0updQ4FK/JbPXAbqezvBOeHrjFIZMTg8sCGjJLCRE4PPN7yykL4epyQCg+Top2xdG0QO
+	pPJj2XX9DjIUz7ShpFDAcG7T+bt/8A1g2q+k8asEWclHKV48Cxu7wtO4ePiY1RFDbEOvWF5GoIWmO
+	g54+hdAdlTLhFyMPHG5yR+5dgaDVR2uSX7xQPP3UhTvEnsyIkp5Y7EDCLKxoQAc+D84vxlRv5T4Mm
+	0U5n6gpg==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8J1P-00000002gC7-14BO;
-	Thu, 02 Apr 2026 14:27:51 +0000
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1775140056;
-	bh=emjopVGd5uVLfwcqEy71jr1NYUE1/T1lgxk1RfDuCzk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=LArVNGDz1k+jbYHRcZFcAJZMtXt6KJXbGs0mjJ36pKOjlD2Rvzo/0PAPCNqcqPt7p
-	 ZuzVrr2gzw2tt8CKwcDB8PHMS++6KEeCxOJhsg1mWl/HPEJSdZysL/u1NMJcXYWRjs
-	 vZKpYh5yyqbBlr5NlQ8qyIEL6X9xlXoQMI+1NXuE=
-Date: Thu, 02 Apr 2026 16:27:04 +0200
-Subject: [PATCH 4/8] mfd: khadas-mcu: Add support for VIM4 MCU variant
+	id 1w8J1d-00000002gEx-3S5d
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Apr 2026 14:28:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0E63043C57;
+	Thu,  2 Apr 2026 14:27:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46B4EC2BCB3;
+	Thu,  2 Apr 2026 14:27:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775140077;
+	bh=NAByKfU/ZjEewVQnAkmCy1V2fy4PZYtDqNWOg10g8F4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=Np8hZNYtGt5gbuN6MvaRAeCqJ3F1oqjeR011UgZKWdilMm1NWwEoLJsrop9vEKEKJ
+	 CayjbD65CgAq6kxmTN8/ZMRp6UbYRXHlvyQOrz43iT1i9DhBkbE6llfzKbHqVGbHqF
+	 dsl60/acNLsak+orkqezhAvI3XmmvonG/75gxEvZG1O2auyx6FUxOJM7Vty8iOE2kI
+	 +21b6K4dPmLpZGAKuwA2BVZ0XHXDUr6qAf6eXd18c8zJtGEZocRpqAI+pDz1Wpvh4w
+	 Ank1UlBk7SRIQT8kGQQsNqqE0Z42e2gjIlq4NqcgLJQkmzABy5cDqtHaNKQxYaML1Q
+	 7ur41gY0vsfyQ==
+From: Thierry Reding <thierry.reding@kernel.org>
+Date: Thu, 02 Apr 2026 16:27:35 +0200
+Subject: [PATCH v4 1/4] dt-bindings: pci: Document the NVIDIA Tegra264 PCIe
+ controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260402-add-mcu-fan-khadas-vim4-v1-4-2b12eb4ac7b0@aliel.fr>
-References: <20260402-add-mcu-fan-khadas-vim4-v1-0-2b12eb4ac7b0@aliel.fr>
-In-Reply-To: <20260402-add-mcu-fan-khadas-vim4-v1-0-2b12eb4ac7b0@aliel.fr>
-To: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Beniamino Galvani <b.galvani@gmail.com>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>
-Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
- Ronald Claveau <linux-kernel-dev@aliel.fr>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openssh-sha256; t=1775140050; l=5062;
- i=linux-kernel-dev@aliel.fr; s=id_ed25519; h=from:subject:message-id;
- bh=emjopVGd5uVLfwcqEy71jr1NYUE1/T1lgxk1RfDuCzk=;
- b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgMGec55oxeeisqykQiUedekMYyOnR9
- BG9E/7rDWyqdNoAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
- QNFYGQ22wUjcnZ7vapC00QSDl8zs3C3axoxoPUnw3mtHhXNUtMbUbdXtrGLLR337SdvqCIKaqud
- uc3tkbtkOzwk=
-X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openssh;
- fpr=SHA256:kch4osYZ6A1BrPps5AUs6KnfdE2wm4ocMtyTc8TmZMs
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260402-tegra264-pcie-v4-1-21e2e19987e8@nvidia.com>
+References: <20260402-tegra264-pcie-v4-0-21e2e19987e8@nvidia.com>
+In-Reply-To: <20260402-tegra264-pcie-v4-0-21e2e19987e8@nvidia.com>
+To: Bjorn Helgaas <bhelgaas@google.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Thierry Reding <thierry.reding@gmail.com>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
+ Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
+ Michal Simek <michal.simek@amd.com>, Kevin Xie <kevin.xie@starfivetech.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>
+X-Mailer: b4 0.15.1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6863; i=treding@nvidia.com;
+ h=from:subject:message-id; bh=OWl+kwHniIJmn2xT8tkW6mFB/fgovQVw1CKdkoUXhPs=;
+ b=owEBbQKS/ZANAwAKAd0jrNd/PrOhAcsmYgBpznznvY0VyUIk/fnSv3MCEw9J6m6PLKgotKsZu
+ ORvzT4pPzeJAjMEAAEKAB0WIQSI6sMIAUnM98CNyJ/dI6zXfz6zoQUCac585wAKCRDdI6zXfz6z
+ oTzCD/0V1hNnSNbAiKMSLVeNsPoLZy4RnVdQ7bR1WzYlNd042sabyfuzOnLelO99DMyrlbVoNge
+ YdmBgNaAuoBJCQcTUxkKLp7IIiNNQlBAxxUNCnnfutVal7IKePDgcf2ZiclzO7Urlyi7tuL+GEB
+ jBf6gAP8758J9KRcy7IUTSIsbeicTMhafg5Rvg5YaIISl6oAzNj99creo068Ke43pd+hc5ArT8Z
+ GZGpql1IiB5exxe2Y5dsjMKF7kE+ZRiqiNDwFwTc+CenCx/yXUtw6WNvTgXDHF6qbvTzKHAk7G4
+ tgYDg7JH7+Tvp8Ii2y5A7hc1EKBNvizKuCTtOoX1RcXn2CXBn/+gWIA+N6zB78liX0Vi9GcWvbn
+ 9J0NtyC7yyyKnR2pJTdRI2eRBSJAazoGEZv5MtFp8D5s2G56CeUKHw6Nqp9C8W5ntGu5TTM1Sqe
+ nhbvFbFHE8cLwJ5AFyVlGv874nEYCpsZbdNwCLfJd4wRUJzDYxbFrlGq8kBRHaTi4xwHiZDBO5G
+ S5pM1aYKbrKG6V8SsDuVhPWIGSApZHau1ecXEjmiDCp2lcb6wBAikX0XOMVDpwq7Rv4kJmsgLDA
+ k71lZkvIfSmXawWjf72LlCjpsznvyeA/K3ux9QNVqFxvbxm+JxGnlGjJoLhnnb+SsEWB8Q1uo20
+ tv/SMhE1jXe5wwg==
+X-Developer-Key: i=treding@nvidia.com; a=openpgp;
+ fpr=88EAC3080149CCF7C08DC89FDD23ACD77F3EB3A1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_152749_493012_7BF527D8 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20260402_152802_226621_62E52444 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,176 +117,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refactor probe() to use per-variant khadas_mcu_data
-instead of hardcoded globals.
+From: Thierry Reding <treding@nvidia.com>
 
-Add dedicated regmap configuration and device data for the VIM4 MCU,
-with its own volatile/writeable registers.
+The six PCIe controllers found on Tegra264 are of two types: one is used
+for the internal GPU and therefore is not connected to a UPHY and the
+remaining five controllers are typically routed to a PCI slot and have
+additional controls for the physical link.
 
-Add the fan control register
-(0–100 levels vs 0–3 for previous supported boards).
+While these controllers can be switched into endpoint mode, this binding
+describes the root complex mode only.
 
-Add a new compatible string "khadas,vim4-mcu".
-
-Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+Signed-off-by: Thierry Reding <treding@nvidia.com>
 ---
- drivers/mfd/khadas-mcu.c | 106 ++++++++++++++++++++++++++++++++++++++++++-----
- 1 file changed, 95 insertions(+), 11 deletions(-)
+Changes in v4:
+- ECAM is outside of the controller's region, so it cannot be the first
+  reg entry, otherwise we get warnings because it doesn't match the
+  unit-address, so revert back to oneOf construct
 
-diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
-index ba981a7886921..b36b3b3ab73c0 100644
---- a/drivers/mfd/khadas-mcu.c
-+++ b/drivers/mfd/khadas-mcu.c
-@@ -75,15 +75,91 @@ static const struct regmap_config khadas_mcu_regmap_config = {
- 	.cache_type	= REGCACHE_MAPLE,
- };
- 
-+static const struct khadas_mcu_fan_pdata khadas_mcu_fan_pdata = {
-+	.fan_reg	= KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
-+	.max_level	= 3,
-+};
+Changes in v2:
+- move ECAM region first and unify C0 vs. C1-C5
+- move unevaluatedProperties to right before the examples
+- add description to clarify the two types of controllers
+- add examples for C0 and C1-C5
+---
+ .../bindings/pci/nvidia,tegra264-pcie.yaml         | 174 +++++++++++++++++++++
+ 1 file changed, 174 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml b/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml
+new file mode 100644
+index 000000000000..acb677d477fb
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml
+@@ -0,0 +1,174 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pci/nvidia,tegra264-pcie.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- static struct mfd_cell khadas_mcu_fan_cells[] = {
- 	/* VIM1/2 Rev13+ and VIM3 only */
--	{ .name = "khadas-mcu-fan-ctrl", },
-+	{
-+		.name = "khadas-mcu-fan-ctrl",
-+		.platform_data = &khadas_mcu_fan_pdata,
-+		.pdata_size    = sizeof(khadas_mcu_fan_pdata),
-+	},
- };
- 
- static struct mfd_cell khadas_mcu_cells[] = {
- 	{ .name = "khadas-mcu-user-mem", },
- };
- 
-+static const struct khadas_mcu_data khadas_mcu_data = {
-+	.regmap_config	= &khadas_mcu_regmap_config,
-+	.cells		= khadas_mcu_cells,
-+	.ncells		= ARRAY_SIZE(khadas_mcu_cells),
-+	.fan_cells	= khadas_mcu_fan_cells,
-+	.nfan_cells	= ARRAY_SIZE(khadas_mcu_fan_cells),
-+};
++title: NVIDIA Tegra264 PCIe controller
 +
-+static bool khadas_mcu_vim4_reg_volatile(struct device *dev, unsigned int reg)
-+{
-+	switch (reg) {
-+	case KHADAS_MCU_PWR_OFF_CMD_REG:
-+	case KHADAS_MCU_VIM4_REST_CONF_REG:
-+	case KHADAS_MCU_WOL_INIT_START_REG:
-+	case KHADAS_MCU_VIM4_LED_ON_RAM_REG:
-+	case KHADAS_MCU_VIM4_FAN_CTRL_REG:
-+	case KHADAS_MCU_VIM4_WDT_EN_REG:
-+	case KHADAS_MCU_VIM4_SYS_RST_REG:
-+		return true;
-+	default:
-+		return false;
-+	}
-+}
++maintainers:
++  - Thierry Reding <thierry.reding@gmail.com>
++  - Jon Hunter <jonathanh@nvidia.com>
 +
-+static bool khadas_mcu_vim4_reg_writeable(struct device *dev, unsigned int reg)
-+{
-+	switch (reg) {
-+	case KHADAS_MCU_VERSION_0_REG:
-+	case KHADAS_MCU_VERSION_1_REG:
-+	case KHADAS_MCU_SHUTDOWN_NORMAL_STATUS_REG:
-+		return false;
-+	default:
-+		return true;
-+	}
-+}
++description: |
++  Of the six PCIe controllers found on Tegra264, one (C0) is used for the
++  internal GPU and the other five (C1-C5) are routed to connectors such as
++  PCI or M.2 slots. Therefore the UPHY registers (XPL) exist only for C1
++  through C5, but not for C0.
 +
-+static const struct regmap_config khadas_mcu_vim4_regmap_config = {
-+	.reg_bits	= 8,
-+	.reg_stride	= 1,
-+	.val_bits	= 8,
-+	.max_register	= KHADAS_MCU_VIM4_SYS_RST_REG,
-+	.volatile_reg	= khadas_mcu_vim4_reg_volatile,
-+	.writeable_reg	= khadas_mcu_vim4_reg_writeable,
-+	.cache_type	= REGCACHE_MAPLE,
-+};
++properties:
++  compatible:
++    const: nvidia,tegra264-pcie
 +
-+static const struct khadas_mcu_fan_pdata khadas_vim4_fan_pdata = {
-+	.fan_reg	= KHADAS_MCU_VIM4_FAN_CTRL_REG,
-+	.max_level	= 0x64,
-+};
++  reg:
++    minItems: 4
++    maxItems: 5
 +
-+static const struct mfd_cell khadas_mcu_vim4_cells[] = {
-+	{
-+		.name		= "khadas-mcu-fan-ctrl",
-+		.platform_data	= &khadas_vim4_fan_pdata,
-+		.pdata_size	= sizeof(khadas_vim4_fan_pdata),
-+	},
-+};
++  reg-names:
++    minItems: 4
++    maxItems: 5
 +
-+static const struct khadas_mcu_data khadas_vim4_mcu_data = {
-+	.regmap_config	= &khadas_mcu_vim4_regmap_config,
-+	.cells		= NULL,
-+	.ncells		= 0,
-+	.fan_cells	= khadas_mcu_vim4_cells,
-+	.nfan_cells	= ARRAY_SIZE(khadas_mcu_vim4_cells),
-+};
++  interrupts:
++    minItems: 1
++    maxItems: 4
 +
- static int khadas_mcu_probe(struct i2c_client *client)
- {
- 	struct device *dev = &client->dev;
-@@ -94,28 +170,35 @@ static int khadas_mcu_probe(struct i2c_client *client)
- 	if (!ddata)
- 		return -ENOMEM;
- 
-+	ddata->data = i2c_get_match_data(client);
-+	if (!ddata->data)
-+		return -EINVAL;
++  dma-coherent: true
 +
- 	i2c_set_clientdata(client, ddata);
- 
- 	ddata->dev = dev;
- 
--	ddata->regmap = devm_regmap_init_i2c(client, &khadas_mcu_regmap_config);
-+	ddata->regmap = devm_regmap_init_i2c(client,
-+					     ddata->data->regmap_config);
- 	if (IS_ERR(ddata->regmap)) {
- 		ret = PTR_ERR(ddata->regmap);
- 		dev_err(dev, "Failed to allocate register map: %d\n", ret);
- 		return ret;
- 	}
- 
--	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
--				   khadas_mcu_cells,
--				   ARRAY_SIZE(khadas_mcu_cells),
--				   NULL, 0, NULL);
--	if (ret)
--		return ret;
-+	if (ddata->data->cells && ddata->data->ncells) {
-+		ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
-+					   ddata->data->cells,
-+					   ddata->data->ncells,
-+					   NULL, 0, NULL);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	if (of_property_present(dev->of_node, "#cooling-cells"))
- 		return devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
--					    khadas_mcu_fan_cells,
--					    ARRAY_SIZE(khadas_mcu_fan_cells),
-+					    ddata->data->fan_cells,
-+					    ddata->data->nfan_cells,
- 					    NULL, 0, NULL);
- 
- 	return 0;
-@@ -123,7 +206,8 @@ static int khadas_mcu_probe(struct i2c_client *client)
- 
- #ifdef CONFIG_OF
- static const struct of_device_id khadas_mcu_of_match[] = {
--	{ .compatible = "khadas,mcu", },
-+	{ .compatible = "khadas,mcu", .data = &khadas_mcu_data },
-+	{ .compatible = "khadas,vim4-mcu", .data = &khadas_vim4_mcu_data },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, khadas_mcu_of_match);
++  nvidia,bpmp:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    description: |
++      Must contain a pair of phandle (to the BPMP controller node) and
++      controller ID. The following are the controller IDs for each controller:
++
++      0: C0
++      1: C1
++      2: C2
++      3: C3
++      4: C4
++      5: C5
++    items:
++      - items:
++          - description: phandle to the BPMP controller node
++          - description: PCIe controller ID
++            maximum: 5
++
++required:
++  - interrupt-map
++  - interrupt-map-mask
++  - iommu-map
++  - msi-map
++  - nvidia,bpmp
++
++allOf:
++  - $ref: /schemas/pci/pci-host-bridge.yaml#
++  - oneOf:
++      - description: C0 controller (no UPHY)
++        properties:
++          reg:
++            items:
++              - description: application layer registers
++              - description: transaction layer registers
++              - description: privileged transaction layer registers
++              - description: ECAM compatible configuration space
++
++          reg-names:
++            items:
++              - const: xal
++              - const: xtl
++              - const: xtl-pri
++              - const: ecam
++
++      - description: C1-C5 controllers (with UPHY)
++        properties:
++          reg:
++            items:
++              - description: application layer registers
++              - description: transaction layer registers
++              - description: privileged transaction layer registers
++              - description: data link/physical layer registers
++              - description: ECAM compatible configuration space
++
++          reg-names:
++            items:
++              - const: xal
++              - const: xtl
++              - const: xtl-pri
++              - const: xpl
++              - const: ecam
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    bus {
++      #address-cells = <2>;
++      #size-cells = <2>;
++
++      pci@c000000 {
++        compatible = "nvidia,tegra264-pcie";
++        reg = <0x00 0x0c000000 0x0 0x00004000>,
++              <0x00 0x0c004000 0x0 0x00001000>,
++              <0x00 0x0c005000 0x0 0x00001000>,
++              <0xd0 0xb0000000 0x0 0x10000000>;
++        reg-names = "xal", "xtl", "xtl-pri", "ecam";
++        #address-cells = <3>;
++        #size-cells = <2>;
++        device_type = "pci";
++        linux,pci-domain = <0x00>;
++        #interrupt-cells = <0x1>;
++
++        interrupt-map-mask = <0x0 0x0 0x0 0x7>;
++        interrupt-map = <0x0 0x0 0x0 0x1 &gic 0x0 0x0 0x0 155 4>,
++                        <0x0 0x0 0x0 0x2 &gic 0x0 0x0 0x0 156 4>,
++                        <0x0 0x0 0x0 0x3 &gic 0x0 0x0 0x0 157 4>,
++                        <0x0 0x0 0x0 0x4 &gic 0x0 0x0 0x0 158 4>;
++
++        iommu-map = <0x0 &smmu2 0x10000 0x10000>;
++        msi-map = <0x0 &its 0x210000 0x10000>;
++        dma-coherent;
++
++        ranges = <0x81000000 0x00 0x84000000 0xd0 0x84000000 0x00 0x00200000>,
++                 <0x82000000 0x00 0x20000000 0x00 0x20000000 0x00 0x08000000>,
++                 <0xc3000000 0xd0 0xc0000000 0xd0 0xc0000000 0x07 0xc0000000>;
++        bus-range = <0x0 0xff>;
++
++        nvidia,bpmp = <&bpmp 0>;
++      };
++    };
++
++  - |
++    bus {
++      #address-cells = <2>;
++      #size-cells = <2>;
++
++      pci@8400000 {
++        compatible = "nvidia,tegra264-pcie";
++        reg = <0x00 0x08400000 0x0 0x00004000>,
++              <0x00 0x08404000 0x0 0x00001000>,
++              <0x00 0x08405000 0x0 0x00001000>,
++              <0x00 0x08410000 0x0 0x00010000>,
++              <0xa8 0xb0000000 0x0 0x10000000>;
++        reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
++        #address-cells = <3>;
++        #size-cells = <2>;
++        device_type = "pci";
++        linux,pci-domain = <0x01>;
++        #interrupt-cells = <1>;
++        interrupt-map-mask = <0x0 0x0 0x0 0x7>;
++        interrupt-map = <0x0 0x0 0x0 0x1 &gic 0x0 0x0 0x0 908 4>,
++                        <0x0 0x0 0x0 0x2 &gic 0x0 0x0 0x0 909 4>,
++                        <0x0 0x0 0x0 0x3 &gic 0x0 0x0 0x0 910 4>,
++                        <0x0 0x0 0x0 0x4 &gic 0x0 0x0 0x0 911 4>;
++
++        iommu-map = <0x0 &smmu1 0x10000 0x10000>;
++        msi-map = <0x0 &its 0x110000 0x10000>;
++        dma-coherent;
++
++        ranges = <0x81000000 0x00 0x84000000 0xa8 0x84000000 0x00 0x00200000>,
++                 <0x82000000 0x00 0x28000000 0x00 0x28000000 0x00 0x08000000>,
++                 <0xc3000000 0xa8 0xc0000000 0xa8 0xc0000000 0x07 0xc0000000>;
++        bus-range = <0x00 0xff>;
++
++        nvidia,bpmp = <&bpmp 1>;
++      };
++    };
 
 -- 
-2.49.0
+2.52.0
 
 
