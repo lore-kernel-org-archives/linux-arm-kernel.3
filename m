@@ -4,51 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D36DD6AAEC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 17:05:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBF59D6AAF5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 17:07:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/cmxnxbLkcTsu04vVVOUQVD7IbjRgfqfsVRstns1eEY=; b=v4i1Nk94JvSR0d+OqdKA7wgbmA
-	HrvJ/1TWEAJddxtOaYYSt6KXw3CSbNEXMW6rVVQLuAoyZAgxY9NwTeqzT1/KsKMsM35o+CcMeZTXJ
-	4STxEw3cBixEYHPPvijFxgT7necU9F6MFjAchPe4GBFyZ3VuGpSfoJAgp+Ykc7o7Hg9TA9WJV4Ju5
-	IfzzW0MhPcGzAPRM3hKVW1COrOqqU7ZYwS2aa0WnIZjKGFR7Wj8i/Ezy2p6NWiwa6w+YVKvSWGFeL
-	Ztw7T2K1t1BmkCWCOaKZjwskR1OTv5Hh3xpmplWwSRM7mEdc1QdqC+Pl9nPKVR11juqs3VLlX59gv
-	h62Z3PNg==;
+	bh=5ceebF0cNoevtXZxXS/tupzteUV9Qk2AK74OlrZ5xNE=; b=uVXZ+Ar6NtmAL3n9tnhNI4Of9Y
+	QEBUWVrL754YCN3Ooaq/iZ8Tt4gBHJ7acy47PsBpxDtPcmzrJ03CEJHgYYc0GVEbb6WXwMmeKEz8l
+	8VYB1bnLwNUxMwDFQoonDBbok8k1Fnc6Ge6w0KCeNt+L0cDd9O+X67Hejr+tP4yo9KN9aNpIOW6Ef
+	4FcXTSNJCcaXz2A0iqLeaFEHwtZcXMNRqI6mSvngmFVIWzqIWJgRotbNcoIQzm9EE0BmLtIcgtBGF
+	v5KF8ydPK6foOhKgtJPTMhHQt2/zop0T5YK4KZoaCGnXGlZu7F1qs0C38KzhU1aWfJG+fHxr+3EZS
+	ePrUY5Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8LU4-00000000ZVY-2fbh;
-	Thu, 02 Apr 2026 17:05:32 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1w8LVX-00000000ZfV-3D6W;
+	Thu, 02 Apr 2026 17:07:03 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8LU0-00000000ZV0-3MS9
+	id 1w8LVU-00000000Zed-35Fr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 17:05:31 +0000
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1w8LTy-00078F-3k; Thu, 02 Apr 2026 19:05:26 +0200
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: soc@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	kernel@pengutronix.de,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [GIT PULL] Reset controller updates for v7.1
-Date: Thu,  2 Apr 2026 19:05:25 +0200
-Message-ID: <20260402170525.2452299-1-p.zabel@pengutronix.de>
-X-Mailer: git-send-email 2.47.3
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+	Thu, 02 Apr 2026 17:07:02 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2b0bf2b3879so27197025ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 10:06:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1775149619; x=1775754419; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=5ceebF0cNoevtXZxXS/tupzteUV9Qk2AK74OlrZ5xNE=;
+        b=Fb8t/8OLs9lVc+lM51/Za1XH2Av699OfqeKCARg1ttgwND64viVznSFM0O7r7L6DTP
+         V4JkCpbWBuOk/EwrgJLYaFFQcJQeHr41JL6ieNt6OJVz04AbvkZ9gzeaLm4dsv7o1heM
+         307YkarkcToT1rjkPkcDvVa70yRF2JhMNrcuZfVvalFmrXmkNYA+ym9VSjgVV3Rs49kw
+         08pg0MyGdkVlB9Pkj4ET+h/nsGcngI/5MtC1bNS5c+/7jScPprBjBVIXuOc5zOyN4577
+         S2UJGJUHo7qDE9o69zZ/fbFuZkC+mf5xo8UuQcjiRoKvPJh3BOKzX6IAQBFST7jPISmC
+         4IGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775149619; x=1775754419;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=5ceebF0cNoevtXZxXS/tupzteUV9Qk2AK74OlrZ5xNE=;
+        b=F/xcREt9TPoS4w1SkCmz3KoXIJqNZL/lh3WJlxPYKLqMH2GWsul8P/baLJMGt3mJNi
+         zNhkqtOBB5slmhYr5N+NNkLuV6wNAP7648PQD9/JCucD/IhpEteJcle65DdxoZaOQGxU
+         of/Uf4FUGup9b2DSrkPvJo7dH/CB5zIEph6PowSNbNVA3/QhHqPI/c6Z59M2VuKEcBSg
+         6oAbX4f9iX6xJyBGoGFlb7TgOikfJ20VBVCRGEBEuNea+NZTKt1b5IbkdgafT/QX+pJF
+         CJkoZ1aVz2qte9gPfE1zBhOt21xXIVZama3tk4VFh2TyTCxHKcb7kSH+oZLZhXhdEv8d
+         1G/g==
+X-Forwarded-Encrypted: i=1; AJvYcCUqeBYPhO/TIYMvtOipCXuHZr7LuxrzFZ/+T/mrc0fpRPCzx/fc1jcJB9VzsU8oDXLIkfQRepSIcM3Uw5au4tPG@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBkvKRnhPHxAcS6dKuM5a+H9Ur9Hi73jK21XjYuGu+LMmkHX8n
+	YauWNNWbFlOBMzmok4lVLKNndeI+HR6PbfVkTc0ANjRcbfsWNm3TNyYAagU+dUkHd8VLJCapHZa
+	dFYNTK2419ddTqk7VTtXXNKMPLw==
+X-Received: from ploe7.prod.google.com ([2002:a17:903:2407:b0:2b0:b03a:16ce])
+ (user=joonwonkang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:903:3d0f:b0:2b2:4cd2:e174 with SMTP id d9443c01a7336-2b281811ef1mr573475ad.43.1775149618937;
+ Thu, 02 Apr 2026 10:06:58 -0700 (PDT)
+Date: Thu,  2 Apr 2026 17:06:39 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.53.0.1213.gd9a14994de-goog
+Message-ID: <20260402170641.2082547-1-joonwonkang@google.com>
+Subject: [PATCH v3 0/2] mailbox: Fix wrong completion order and improper send
+ result in the blocking mode send API
+From: Joonwon Kang <joonwonkang@google.com>
+To: jassisinghbrar@gmail.com, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, thierry.reding@gmail.com, 
+	jonathanh@nvidia.com
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org, 
+	Joonwon Kang <joonwonkang@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_100528_842976_FFE3931E 
-X-CRM114-Status: GOOD (  14.61  )
+X-CRM114-CacheID: sfid-20260402_100700_769335_E037F61B 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,123 +90,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear arm-soc maintainers,
+Hi team,
 
-The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+This patch series fixes the two major issues in blocking mode.
 
-  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+1) Wrong completion order in the send API as described in [1]:
 
-are available in the Git repository at:
+        Thread#1(T1)               Thread#2(T2)
+     mbox_send_message           mbox_send_message
+            |                           |
+            V                           |
+        add_to_rbuf(M1)                 V
+            |                     add_to_rbuf(M2)
+            |                           |
+            |                           V
+            V                      msg_submit(picks M1)
+        msg_submit                      |
+            |                           V
+            V                   wait_for_completion(on M2)
+     wait_for_completion(on M1)         |  (1st in waitQ)
+            |   (2nd in waitQ)          V
+            V                   wake_up(on completion of M1)<--incorrect
 
-  https://git.pengutronix.de/git/pza/linux.git tags/reset-for-v7.1
+2) Send API does not return the actual send result.
 
-for you to fetch changes up to d373605cd514837d8a6de3d00c786d4bae6dbaf8:
+This patch series contains two patches for each issue:
+  0001-mailbox-Use-per-thread-completion-to-fix-wrong-co.patch
+  0002-mailbox-Make-mbox_send_message-return-error-code-.patch
 
-  Merge tag 'reset-fixes-for-v7.0-2' into reset/next (2026-04-02 18:32:53 +0200)
+The first issue has to do with multi-threads support. Given the
+discussion in [1] with the mailbox framework maintainer, it has been
+long thought that the mailbox framework is designed to support
+multi-threads although it missed the completion order issue at its
+introduction. The first patch of this series is to fix it.
 
-----------------------------------------------------------------
-Reset controller updates for v7.1
+Alternatively, we could instead declare that the mailbox API does not
+support multi-threads [2]. However, it would be a sudden big change to
+the mailbox users after the long standing implication of supporting
+multi-threads. Plus, it would have disparity with the non-blocking mode
+which supports multi-threads already, which could also lead to confusion
+to the users by saying "non-blocking mode supports multi-threads whereas
+blocking mode doesn't". For this reason, the first patch in this series
+does not choose this alternative.
 
-* Rework the reset core to support firmware nodes, add more fine
-  grained locking, and use guard() helpers.
-* Change the reset-gpio driver to use firmware nodes.
-* Add support for the Cix Sky1 SoC reset controller.
-* Add support for the RZ/G3E SoC to the reset-rzv2h-usb2phy driver and
-  convert it to regmap. Prepare registering a VBUS mux controller.
-* Replace use of the deprecated register_restart_handler() function in
-  the ath79, intel-gw, lpc18xx, ma35d1, npcm, and sunplus reset drivers.
-* Combine two allocations into one in the sti/reset-syscfg driver.
-* Fix the reset-rzg2l-usbphy-ctrl MODULE_AUTHOR email.
-* Fix the reset_control_rearm() kerneldoc comment.
+The patch series rules out the case where tx_tick() is called twice or
+more for a sent message on the same channel. In theory, it could happen
+when timeout occurs. For example, one tx_tick() by the mailbox core due
+to timeout and another tx_tick() by the mailbox controller or client by
+accident or for any other reason. If it happens, the internal mailbox
+state could become inconsistent even on a single thread. Thus, this
+issue should be handled in an orthogonal effort later on.
 
-The last commit is a merge of reset-fixes-for-v7.0-2 into reset/next,
-to solve a merge conflict between commits a9b95ce36de4 ("reset: gpio: add a
-devlink between reset-gpio and its consumer") and fbffb8c7c7bb ("reset: gpio:
-fix double free in reset_add_gpio_aux_device() error path").
+The second issue forces users to register tx done callback to get the
+actual send result although they are using the blocking mode send API.
+This behavior is different from typical blocking send APIs, which just
+return the actual send result directly, and so confusing to the users.
+Without knowing this additional requirement of the API, it would be
+prone to miss the send result check entirely. The second patch is to fix
+it by making the blocking mode send API return the actual send result.
 
-----------------------------------------------------------------
-Andrew Davis (6):
-      reset: ath79: Use devm_register_restart_handler()
-      reset: intel: Use devm_register_restart_handler()
-      reset: lpc18xx: Use devm_register_sys_off_handler()
-      reset: ma35d1: Use devm_register_sys_off_handler()
-      reset: npcm: Use devm_register_sys_off_handler()
-      reset: sunplus: Use devm_register_sys_off_handler()
+Change log of the first patch:
+ - v3: Rebase on the latest for-next branch.
+ - v2: Consider the case where timeout occurs and so tx_tick() is called
+   for a channel by one thread while another thread is having an active
+   request on the same channel. In that case, we mark the inactive
+   request as canceled and do not send it to the controller.
+ - v1: The previous solution in v0 tries to have per-message completion:
+   `tx_cmpl[MBOX_TX_QUEUE_LEN]`; each completion belongs to each slot of
+   the message queue: `msg_data[i]`. Those completions take up additional
+   memory even when they are not used. Instead, this patch tries to have
+   per-"thread" completion; each completion belongs to each sender thread
+   and each slot of the message queue has a pointer to that completion;
+   `struct mbox_message` has the "pointer" field
+   `struct completion *tx_complete` which points to the completion which
+   is created on the stack of the sender, instead of owning the
+   completion by `struct completion tx_complete`. This way, we could
+   avoid additional memory use since a completion will be allocated only
+   when necessary. Plus, more importantly, we could avoid the window
+   where the same completion is reused by different sender threads, which
+   the previous solution still has.
+ - v0: This first attempt tries to have per-message completion: [1].
 
-Bartosz Golaszewski (15):
-      reset: gpio: remove unneeded OF-node put
-      reset: gpio: add a devlink between reset-gpio and its consumer
-      reset: gpio: simplify fallback device matching
-      reset: gpio: remove unneeded auxiliary_set_drvdata()
-      reset: warn on reset-gpio release
-      reset: fold ida_alloc() into reset_create_gpio_aux_device()
-      reset: use lock guards in reset core
-      reset: handle removing supplier before consumers
-      reset: protect struct reset_controller_dev with its own mutex
-      reset: protect struct reset_control with its own mutex
-      reset: convert of_reset_control_get_count() to using firmware nodes
-      reset: convert the core API to using firmware nodes
-      reset: convert reset core to using firmware nodes
-      reset: gpio: make the driver fwnode-agnostic
-      reset: don't overwrite fwnode_reset_n_cells
+Change log of the second patch:
+ - No major change from v1.
 
-Biju Das (1):
-      reset: rzg2l-usbphy-ctrl: Fix malformed MODULE_AUTHOR string
+References:
+ - [1]: https://lore.kernel.org/all/1490809381-28869-1-git-send-email-jaswinder.singh@linaro.org
+ - [2]: https://lore.kernel.org/all/CABb+yY39rhTZbtA21MecYk-R9fh7VQQr5kZUgCw4z92mWhZ1Rg@mail.gmail.com/
 
-Claudiu Beznea (2):
-      reset: rzg2l-usbphy-ctrl: Check pwrrdy is valid before using it
-      reset: core: Drop unnecessary double quote
 
-Gary Yang (2):
-      dt-bindings: soc: cix: document the syscon on Sky1 SoC
-      reset: add Sky1 soc reset support
+Joonwon Kang (2):
+  mailbox: Use per-thread completion to fix wrong completion order
+  mailbox: Make mbox_send_message() return error code when tx fails
 
-Guangshuo Li (1):
-      reset: gpio: fix double free in reset_add_gpio_aux_device() error path
+ drivers/mailbox/mailbox.c          | 98 ++++++++++++++++++++----------
+ drivers/mailbox/mtk-vcp-mailbox.c  |  2 +-
+ drivers/mailbox/tegra-hsp.c        |  2 +-
+ include/linux/mailbox_controller.h | 22 +++++--
+ 4 files changed, 85 insertions(+), 39 deletions(-)
 
-Philipp Zabel (2):
-      reset: core: Fix indentation
-      Merge tag 'reset-fixes-for-v7.0-2' into reset/next
 
-Rosen Penev (1):
-      reset: sti: kzalloc + kcalloc to kzalloc
+Thanks,
+Joonwon Kang
+-- 
+2.53.0.1185.g05d4b7b318-goog
 
-Tommaso Merciai (5):
-      reset: rzv2h-usb2phy: Keep PHY clock enabled for entire device lifetime
-      dt-bindings: reset: renesas,rzv2h-usb2phy: Add '#mux-state-cells' property
-      dt-bindings: reset: renesas,rzv2h-usb2phy: Document RZ/G3E USB2PHY reset
-      reset: rzv2h-usb2phy: Convert to regmap API
-      reset: rzv2h-usb2phy: Add support for VBUS mux controller registration
-
-Yixun Lan (1):
-      reset: spacemit: k3: Decouple composite reset lines
-
- .../reset/renesas,rzv2h-usb2phy-reset.yaml         |   9 +-
- .../bindings/soc/cix/cix,sky1-system-control.yaml  |  42 ++
- Documentation/driver-api/reset.rst                 |   1 -
- drivers/reset/Kconfig                              |   9 +
- drivers/reset/Makefile                             |   1 +
- drivers/reset/core.c                               | 518 ++++++++++++++-------
- drivers/reset/reset-ath79.c                        |  12 +-
- drivers/reset/reset-gpio.c                         |  27 +-
- drivers/reset/reset-intel-gw.c                     |  11 +-
- drivers/reset/reset-lpc18xx.c                      |  12 +-
- drivers/reset/reset-ma35d1.c                       |  11 +-
- drivers/reset/reset-npcm.c                         |  12 +-
- drivers/reset/reset-rzg2l-usbphy-ctrl.c            |   5 +-
- drivers/reset/reset-rzv2h-usb2phy.c                | 197 ++++----
- drivers/reset/reset-sky1.c                         | 367 +++++++++++++++
- drivers/reset/reset-sunplus.c                      |  12 +-
- drivers/reset/spacemit/reset-spacemit-k3.c         |  60 ++-
- drivers/reset/sti/reset-syscfg.c                   |   9 +-
- .../dt-bindings/reset/cix,sky1-s5-system-control.h | 163 +++++++
- .../dt-bindings/reset/cix,sky1-system-control.h    |  41 ++
- include/dt-bindings/reset/spacemit,k3-resets.h     |  48 +-
- include/linux/reset-controller.h                   |  21 +-
- include/linux/reset.h                              |  43 +-
- 23 files changed, 1223 insertions(+), 408 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.yaml
- create mode 100644 drivers/reset/reset-sky1.c
- create mode 100644 include/dt-bindings/reset/cix,sky1-s5-system-control.h
- create mode 100644 include/dt-bindings/reset/cix,sky1-system-control.h
 
