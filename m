@@ -4,105 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89896D3942E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 14:34:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F4E1D3942E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 14:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bR3R0WqWAIFDAgGItl7Ndx3TmjrhDRZrY6gbrtVQoOs=; b=lSzBlz1fAT35eI2+qS9QTYPvwa
-	G7Wm6rESuRUku13lNdmKvcBxMvX5Ux31/2CObqtjejjbsfARpVVezj6LSgU6EB5WoP9XO7pXizPZp
-	UBOQOQTtK9njEE7pIEM5zwdr7uh9Sd8EAj0VMaJY7pnRFEGpqlXAfRwXvQz7BxavzLhIz1ltu8+Hp
-	HShnwO0ipwFWTVlD2d7r74y1nFPOllno25j3XY3hk8HKqyb4Hrl7tEEAUczxSRHlA6SJqzbHDo1d2
-	UiGT50fLoj+kMDG+/Cr1GMaB+j86cChue5M22SbxAFXovNsynaLeQ7LF9oO/3Iod4s3CWJZtGnWlA
-	WoHrA84w==;
+	bh=eglLKrveNJuj7YOcmdnYRMdVElmq6kVL9OzjVIGPajw=; b=T6k4gTr/Rjw0M0Lwrhnj24E4g7
+	h1xs3kSKa5jDdi2IQ6VgIRFNkuTs5y2rgVWU4eHNv7xfMHMKI/wFBvrT99ev3X5M30qSLq09p+4FT
+	IZN5wsW2o8p2Q0kJQOT9W3cf1lRkNIb8TdHMgRV8KeUvtweVSI9JsWaqf+xFRfjWhro6fgcPqRWg2
+	+ECvrBmuU3QjwnoG49lHILCdTG8N3h766E9YntW25ELSrDXBKp61C/wIeLkN1FVOccqmdkqULjLdW
+	E0NvipnCWa8g3T3aA79CN7s0j757IShNGwaXPQHeuqd6bmYBh5gj1uztN+1tbdocFUhmqGe/aJ49X
+	Q9K8ozOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8J80-00000000MDg-3F3R;
-	Thu, 02 Apr 2026 14:34:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w8JBI-00000000MQE-1raq;
+	Thu, 02 Apr 2026 14:38:00 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8J7x-00000000MDV-2L7E
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 02 Apr 2026 14:34:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=bR3R0WqWAIFDAgGItl7Ndx3TmjrhDRZrY6gbrtVQoOs=; b=KAf/5mdPBJrFPDiy1REbFwdFUh
-	Xi6xUDHWLTNU4YQLQn980yuYZl/4JhrD1fr6lHwbeC/q4SHJ8F86Wbsyks25Pos0sAUXBpWrdr44w
-	tx2H3F0rIgP4xpZjgQ9FnYM5GmuvsyCyGjL5Fpzp67rOx/Crg2xV/2I6pogSu0SsiEUe9r93VlfBW
-	+l/Kya5pys1OWBavF897ZXcBbqlPBuUKBY+PwL2JCIYme8rdVJbsxkkHpHwpPy1Ovg+0bAr3MDWYA
-	MezzlEMsxNDKXqxPaiWxS3Nn0ctSa67VdLZsXJf2EHcEK6Ac4uemGnHj2xlP9RMFDmQ6qATQEwgDW
-	9tBXgTQg==;
-Received: from mgamail.intel.com ([198.175.65.20])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8J7u-00000002h6o-0SxC
+	id 1w8JBE-00000000MPF-20lX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 14:34:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1775140470; x=1806676470;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=x8FTCBu1ZLI3XgysCKTdvPU6t29kanGzc/hDoIDWGbY=;
-  b=CDd0o2nhE0PHSObGU+SZSThACg7tDKu7QbogccFpw7+dV5tFoLrYEmIh
-   9SaH+GoeVZLhp576nsklIThBFFXY9uDHZFf9dHsbt/G/RrgxrWiWDkGcJ
-   ldv3wNGieMJhNjOADaZXF3hnDQoHptWJCzLn3y01GFYom76MllzQu8TvR
-   7g7hKCiWgnvFAhoROrUeUvDUE8y0y9hj+A1xmN/2qp3x4LAw6AmQiyiTY
-   IKx/kS3CmfNeKhyX/ChQ+pLVqR8oKMk/hEWYLWMZGmRB0nxgayVy9v6Gr
-   m87c9P2EK11HT4TdoNW3SoW17CEbEDzneEaWrWORUlJyoiidYLdrzU9ng
-   w==;
-X-CSE-ConnectionGUID: HgTH8gGGRFCC+XrQpnjTkQ==
-X-CSE-MsgGUID: IHIbOw1fTLuGnKjQt4evCQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11746"; a="75919747"
-X-IronPort-AV: E=Sophos;i="6.23,155,1770624000"; 
-   d="scan'208";a="75919747"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Apr 2026 07:34:24 -0700
-X-CSE-ConnectionGUID: IRj/dYM7SrK+dXdHhMcULw==
-X-CSE-MsgGUID: r//BrWwvSb+p2ltV6o1Cnw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,155,1770624000"; 
-   d="scan'208";a="227258049"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by orviesa007.jf.intel.com with ESMTP; 02 Apr 2026 07:34:19 -0700
-Received: by black.igk.intel.com (Postfix, from userid 1008)
-	id CF25D95; Thu, 02 Apr 2026 16:34:17 +0200 (CEST)
-Date: Thu, 2 Apr 2026 17:33:31 +0300
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: amitsd@google.com
-Cc: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jagan Sridharan <badhri@google.com>,
-	Mark Brown <broonie@kernel.org>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Sebastian Reichel <sre@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-Subject: Re: [PATCH v10 6/6] usb: typec: tcpm/tcpci_maxim: deprecate WAR for
- setting charger mode
-Message-ID: <ac5-OzwQkczTWtMg@kuha>
-References: <20260331-max77759-charger-v10-0-76f59233c369@google.com>
- <20260331-max77759-charger-v10-6-76f59233c369@google.com>
+	Thu, 02 Apr 2026 14:37:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=eglLKrveNJuj7YOcmdnYRMdVElmq6kVL9OzjVIGPajw=; b=PdGvsnb1gbCZELkYEOvXsBdgo3
+	pxstB8JsTZnISW06js/AXkaTooQnQWt+WBKuQqCehMJU9pnAsm32Vs4AutzsTVrZJHfZLsvev30mt
+	4mC9oBXgtWFugWpJ5Deg7kBR1L01IW4zS7JMCvFSqoBdCNBWw9DwCSdqZEJ8CrwzvpSWELrQRRdts
+	QJKuHHK+CcVVgo3VfyUbRxI6h3/i8UAik0nzXVsRYEebECQueryJ2ANMQXZ6iea9mjyABtsSzIkkU
+	6sj8650Uh8ssV+Dy/HjEMAwxmci/Tx8zsyaB2XFl8HDoJTOM76oXmvqIpSA0C5e6G3vN2q0AEAq5m
+	poBIocag==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:45144)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1w8JB2-000000004Zt-1mLj;
+	Thu, 02 Apr 2026 15:37:44 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1w8JAz-000000005pB-2SHC;
+	Thu, 02 Apr 2026 15:37:41 +0100
+Date: Thu, 2 Apr 2026 15:37:41 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH RFC net-next] net: stmmac: qcom-ethqos: set clk_csr
+Message-ID: <ac5_NVLeRZTYm2yR@shell.armlinux.org.uk>
+References: <E1w6AZm-0000000E54W-1F6E@rmk-PC.armlinux.org.uk>
+ <9d0a529a-d065-4f46-a93b-23195a4f9727@oss.qualcomm.com>
+ <acpqgpCsbo3lJs3l@shell.armlinux.org.uk>
+ <acw1habUsiSqlrky@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260331-max77759-charger-v10-6-76f59233c369@google.com>
+In-Reply-To: <acw1habUsiSqlrky@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_153430_552926_8DEBE955 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20260402_073756_521626_258DD833 
+X-CRM114-Status: GOOD (  19.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,29 +88,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Amit,
+On Wed, Apr 01, 2026 at 02:28:45AM +0530, Mohd Ayaan Anwar wrote:
+> While I had made an identical change while retesting the PCS series,
+> I was holding off on posting this patch for the same concern - what
+> if some boards fall outside the 50 - 100 MHz range.
+> 
+> After some digging, the AHB clock appears to operate within:
+>  - 50 to 100 MHz for lemans/monaco derivative boards (2500BASE-X
+>    interface)
+>  - 30 to 75 MHz for boards with an RGMII interface.
 
-> +static int get_vbus_regulator_handle(struct max_tcpci_chip *chip)
-> +{
-> +	if (IS_ERR_OR_NULL(chip->vbus_reg)) {
-> +		chip->vbus_reg = devm_regulator_get_exclusive(chip->dev,
-> +							      "vbus");
+That's ever so slightly annoying, but it makes no difference for the
+divisor selection.
 
-Sorry to go back to this, but why can't you just get the regulator in
-max_tcpci_probe()?
+CSR_F_60M is a divider of 42 giving:
+	714kHz  @ 30MHz,
+	1.19MHz @ 50MHz,
+	1.79MHz @ 75MHz,
+	2.42MHz @ 100MHz
 
-thanks,
+If we were to use CSR_F_35M, that would be /26, giving:
+	1.15MHz @ 30MHz
+	1.92MHz @ 50MHz
+	2.88MHz @ 75MHz (exceeding 802.3 spec)
+	3.85MHz @ 100MHz (exceeding 802.3 spec)
 
-> +		if (IS_ERR_OR_NULL(chip->vbus_reg)) {
-> +			dev_err(chip->dev,
-> +				"Failed to get vbus regulator handle\n");
-> +			return -ENODEV;
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
+Given the RGMII range, to stay within the 802.3 spec without knowing
+the actual clock rate being used, CSR_F_60M is still the only possible
+selection, even though it gives an extremely low clock rate for 30MHz.
+
+I believe you said that firmware can change this clock rate dynamically
+at runtime which makes it much harder. If there was a notification from
+firmware into the kernel that the clocks had changed, and that was
+communicated into the clk API such that the appropriate clock input for
+stmmac, then we could look at updating the divisor.
+
+We would need the firmware to give us a pre-rate change notification
+and post-rate change notification (and be guaranteed that there would
+always be a post notification after the pre notification) with that
+coupled into the clk API.
+
+We'd need stmmac to hook into the clk API notifier infrastructure,
+where the PRE_RATE_CHANGE takes the MDIO bus lock to wait for any in-
+progress transfer to finish, and then block further accesses, and
+POST_RATE_CHANGE update the divisor, and finally both
+ABORT_RATE_CHANGE and POST_RATE_CHANGE releasing the MDIO bus lock.
+
+With firmware telling the kernel what this clock rate is, the manual
+setting of priv->plat->clk_csr goes away.
+
+Maybe this is something to consider for the future.
+
+> If a future platform exceeds this range, we could switch to something
+> like: plat_dat->clk_csr = data->clk_csr, with each EMAC version
+> selecting the appropriate divisor.
+
+Without firmware telling us what the clock rate actually is, that's the
+only solution.
+
+> Due to some urgent work tasks, I am still finishing PCS series
+> testing. I will provide a t-b once done.
+> 
+> In the meanwhile, please feel free to add:
+> 
+> Reviewed-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+
+Thanks! I'll submit the patch non-RFC shortly.
 
 -- 
-heikki
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
