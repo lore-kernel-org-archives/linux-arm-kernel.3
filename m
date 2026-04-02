@@ -4,138 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 150A2D39406
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 09:50:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE7D6D39406
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 09:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q+/4iNXAH2Vuhz/GgTRpfoMMfLPcLnPEqw2X2iiifgM=; b=OekKtK9molXRiukaC0HatZQ1dD
-	VkC0JcEl4MoTZdbUHNp7VNcNqCyGR/AGPkqnCXPoexmXCelPeku18+C4DsnIDZwo2pXfaFmYCEyWv
-	j9AdDLLM684CwMIcBJIM0XZhNK/O/FoLAOmtFP3vOFpTaaJonNiGrYN27TmslpHGN08q84WiTGOGr
-	HS0cPG0Sr6ETqXUuVCYpHIq8KX9YTe8TbOWs9SCBJgnIXO7xytFtOf+hJYqpNUOLbdXqcZ7qL2GEZ
-	K7jJ8gi4z8nAowd+bLpxJM0GjawmXEiK+H5tTtDo6tnjKAG1hmxVeXCI96TGvGJJR7IkU4NZtfixT
-	0GxlGIwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=O8f/+miE3jil4DGaMUWbI1gUjHJGqg6T+HZU+N1NLIo=; b=OGUYFnjzgSVhzGxrGY98+9MWAS
+	oGAJuHBJAsQvMZz+o3760LJAvGOarXY/qdkoRcvqTY8Io+k08ROSDVhs0z2/CmCIQo6e/7+3Glupy
+	t99OMCVeyzYyclVAS4EtBpupe7yxFslLOqSjdsa9zWqHtnLpFBWKx15SLGk5RZLo+QnXnpwsYIJbL
+	htcAzwnutyatnFZpZdrZfEp2xONYnAQldQgGWd6CioeVGaWCOB9BQ8IFHgtZUsr/gHyLQh9l2MmZc
+	h+bfF1Fbf35BmtnojYFnoSOuHeLEdr6DPm4DIBTIYUsGHuysKLMrpVXHFxBJSB8C//cNv0zX66Wpv
+	y8lwTrKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EhF-0000000HIrD-3Z42;
-	Thu, 02 Apr 2026 09:50:41 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1w8EhI-0000000HIum-3SfQ;
+	Thu, 02 Apr 2026 09:50:44 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8EhC-0000000HIkP-47yz
+	id 1w8EhF-0000000HIpd-1Vr3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 09:50:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tN7SgY8IM3Lp64Vycy9BQTnF56Gmj56BCbNA2UpXcQ2XEuF7hZhw2rVIIz+B/PwyaR92CNBW0TATpjgBAsqQtpd4wWUdqk6sBULPcxHKCndoZzUnKHBiMXNdJoOZDKhfCy3NzPuZwdsM9wh1d2vkSvdikkqCBhNv77rU1NADBgiyqgjuLvPLWrKbIrpiMfIFpfhRxp/h+LHPVSjRVbnMo+OK4HTCmF6LgIywUJXt05ZLZ6mgGbPC4v5/3jxg135SHVHTnAV0OTj8E1+MeNLtjXbBL0p2PWD9ixKEU0KZP34sTRU/rsSyosMCvhTMJHyPOup5Zkuqm8Skzu4NcC87mQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=q+/4iNXAH2Vuhz/GgTRpfoMMfLPcLnPEqw2X2iiifgM=;
- b=K4Vl8x+PknAQMdfXE5JtHK0Xb2j7d/DDiQUHR0rLW2qNdwi80Mo/1hhsqF84M31DZn2eSZu4ja8ZNQDQr4m4iDvtOjS8iz7K7W7lSpO9Q8+b7ZlKVMbNqVBYjO5ymleCwLlY8W0DSQLIfg9w5eHRUO/DuImiekxbQVqJ6UZfSVWzQiUFlAr3/CUkcLR6UH9abEKlbUVUn0hbwLdg2RkeqXInWnxRRE8G2O1MZnvzvW5sRQYD7aJ+CiFcJzuOuES4g7C5OfdoLHV50j77HHEiXH8FFEdCrdUXqD3hLWhnYYRzJLHKR2jHu9arEuJ8asldCQlPCsn39QHlrhF3TZfVhQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=q+/4iNXAH2Vuhz/GgTRpfoMMfLPcLnPEqw2X2iiifgM=;
- b=HPPWCaDH83AkVpSg6BfpCchkhTSBJaf4C8BujnPYeplFWmSsht+9+XF3Q7FEng86E3qP75PJuVpypHaLHbUlI/jYC5ymST9RGK8ZyQ3cxPGaIvdwkDHWiEtIHoyeORxO0ZWRRj3ePo+YiKvZm5uhqqEulQHLb+iVTyWoSnk5GxgdVVSpl83vddJDcGk1r3/5/vIMCrfjDBQsc81gF7RqO07WDxiublR27h02JuI4D5HrNwIJ7oA1EXa5YqFAzPdn6QYtiEF04UsmyVS54KjjYhNQEHO5hxy4buvigNBsGIOghyrzXwnyNUAIh2GNQ9lA1i9aq7+Qbr0KU+tlwgsB+w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13) by AM9PR04MB8471.eurprd04.prod.outlook.com
- (2603:10a6:20b:416::22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.25; Thu, 2 Apr
- 2026 09:50:32 +0000
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994%6]) with mapi id 15.20.9769.018; Thu, 2 Apr 2026
- 09:50:32 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	bhelgaas@google.com,
-	hongxing.zhu@nxp.com,
-	l.stach@pengutronix.de
-Cc: imx@lists.linux.dev,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH V10 05/13] PCI: imx6: Add support for parsing the reset property in new Root Port binding
-Date: Thu,  2 Apr 2026 17:50:59 +0800
-Message-Id: <20260402095107.205439-6-sherry.sun@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20260402095107.205439-1-sherry.sun@nxp.com>
-References: <20260402095107.205439-1-sherry.sun@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5P287CA0163.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1ba::11) To VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13)
+	Thu, 02 Apr 2026 09:50:42 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63277ier3044208;
+	Thu, 2 Apr 2026 09:50:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=O8f/+miE3jil4DGaMUWbI1gUjHJGqg6T+HZ
+	U+N1NLIo=; b=b3fqVzCa2pjxbNmb+PV/IjBB3X30+qlipBw30evNccbmM7r9OuD
+	AbHAZ3DA4JNyame0ZQJQKeLuuQmk+/YlVBPze9RXQYUGi+8X5CQc6GlLm3Aj1jw0
+	FFuDvdLRT0iABB7KKZ/eyqK1glJbRt8TX38xXYMw5DsZWsfp9IBxHPsXXsuSuRgt
+	54o8umCHu7ta7hMcJ72YeBnHFj3/fc2n8gLPDNxQ0p99qphu6F4Pf26J4UI6fDpq
+	yWuuQYcbG0v35u+DVXDUWNG+FjBs24iTK6BHoIjb3/Glmtt1BCvZ/cBDHdl3osFo
+	N9ycs2ZirmPNWi28Z0YXlCprhZjOmhonsYg==
+Received: from apblrppmta02.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d9483v8fm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 02 Apr 2026 09:50:20 +0000 (GMT)
+Received: from pps.filterd (APBLRPPMTA02.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA02.qualcomm.com (8.18.1.7/8.18.1.7) with ESMTP id 6329oGQL004380;
+	Thu, 2 Apr 2026 09:50:16 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 4d6qk2m86m-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 02 Apr 2026 09:50:16 +0000 (GMT)
+Received: from APBLRPPMTA02.qualcomm.com (APBLRPPMTA02.qualcomm.com [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.1.12) with ESMTP id 6329oGNt004363;
+	Thu, 2 Apr 2026 09:50:16 GMT
+Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-mkuntuma-hyd.qualcomm.com [10.213.97.145])
+	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 6329oGgH004355
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 02 Apr 2026 09:50:16 +0000 (GMT)
+Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 4582077)
+	id A5DD3465; Thu,  2 Apr 2026 15:20:15 +0530 (+0530)
+From: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
+To: dmitry.baryshkov@oss.qualcomm.com, marijn.suijten@somainline.org,
+        swboyd@chromium.org, mripard@kernel.org, abel.vesa@linaro.org,
+        andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
+        krzk+dt@kernel.org, conor+dt@kernel.org, robin.clark@oss.qualcomm.com,
+        jessica.zhang@oss.qualcomm.com, abhinav.kumar@linux.dev,
+        sean@poorly.run, airlied@gmail.com, simona@ffwll.ch,
+        alex.vinarskis@gmail.com
+Cc: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        freedreno@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+        quic_rajeevny@quicinc.com, quic_vproddut@quicinc.com,
+        quic_riteshk@quicinc.com
+Subject: [PATCH v5 0/3] Enable mdss1 Display Port for Qualcomm lemans-ride platform
+Date: Thu,  2 Apr 2026 15:20:00 +0530
+Message-Id: <20260402095003.3758176-1-quic_mkuntuma@quicinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|AM9PR04MB8471:EE_
-X-MS-Office365-Filtering-Correlation-Id: cf032d08-5110-4c00-9c13-08de909d47ed
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|52116014|38350700014|56012099003|22082099003|921020|18002099003;
-X-Microsoft-Antispam-Message-Info: vyLJghb+VJxKn8KI5q+ymIk7WZiumY3WgKF1g7okBdtU7Tfc4F+g+JqRmNso8jPbdAUYMIaIHEH6aYZIaLGJ19qMM3DnMW4W1ZdcHThE7vWaH+VfvDiy9w82REcrjJPzmIfA2aOAO9/KUVBjKH0NXsrb9E/292v+WgcO5nYpz74kBBua5ueQjqLjeL1JEwSPCYSu/H5TJgZujBH8bZBJsEPP0GZALvzLe33Cl+afDHd0+wn3hMxrIb1/VovME6jy+ZgkAVCPUOOaWRvN/44IJhPcq/FuvrEcf6S7EDLqOAjdcZF2SqfRtu5zbWIt8fRPyh/mjtT7Rm3DOfBaUP41I4TtlkIjf2DL3G/8C5Gou5U6awRv/mXucWVtnrr+ZPLuYCSnvpqmW2SHx9cGuq4hT12iDHDVfhid/VLr8RhQzJYbckRtUVermBed+6DbzemEyhS7JsZD7+/+zGsRr1WE/qVYsLq18fk4YExdUcDKj5kkqIw/c2IjZ+AgNCe03A0vzZBUXObONofiMG42iFJuKmGSc5j93iIzwXLVuBVvcTQT/6CrFSIpV9HFQSX5QeI0kBDVA3QCI8wuN3/zO3uchKYNsSMC8ytLXp/se+qksdAaBDka+wrqtVA/idK9maJEcxp91L37IxQqMYXPJWljH7BaCdAhxI6feljW5ZKgEK3Pd6lsg/N/5V3PL8txDMrxR65x8VUJAVZTR6drMgffdtPdL+EPalWWLn5fomoir73HiWmUE45ryfnptA1b7Cq4NBO7C2RmljIlj1ljqZpZl4a1MLwS6rmslvjaoE+fPCEgDVyzzhOzecQWW4I35ZfA
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(52116014)(38350700014)(56012099003)(22082099003)(921020)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Tj41lA27r9qsjDnHisScfkLXEZNwCHjFzpzOP2YV2vcyjp71Neukfll4e4ri?=
- =?us-ascii?Q?KBPVlkXhQbVew/AhkIoFlbSm3VrBFQaBhukUASzDOJ7Fzbqjjs4yfCTRK5h7?=
- =?us-ascii?Q?rzI6yyMHKqhlTHibcQu5eYP4Gbe8nzo0SwKWg3bBAy+hiVCA6bui7uLk5hfh?=
- =?us-ascii?Q?us40e4LFk/HRqDtdvgeojAvR6WiaEAxVvBxJUkLopqHX7wwWO9OHQLUk9YVz?=
- =?us-ascii?Q?/B5Xhu2V/12AqyMpUnf514Ra/sRRealYVBckUG0r661hATOC8C4vbdRjgGXZ?=
- =?us-ascii?Q?bkAKwLeXikh6iWWAOxbwOV1dxUTNtQ9p8BtCWZ7qXyuYPOEVu4FepKZdWa17?=
- =?us-ascii?Q?6joIsIDpM8/OcssTOslKP89h+OHy6b6mor3j3Gnae6juZp5DhQKLMEkMyaYO?=
- =?us-ascii?Q?x9yt890gN7BHbv0+yOWWU97eOclmSuZdJEzOq2jo5M2ojnocpbka5eI4Bmex?=
- =?us-ascii?Q?FwGByAewdEamBO2kcyVSJUUx0I64QcyNyMFOpM+tj01B7X4ENs/dvrJOsgiX?=
- =?us-ascii?Q?e6VdB29CNfvJgcIKfWZ1IyhLSwhGgQVTJyp25kOJ7FEKoHboR4BsJeY6Fg12?=
- =?us-ascii?Q?8CEiSKcjy7waA6OsT37JNXmex/4/t3qtcPYkyXuUXwNpuTVf03eyEoed8GGO?=
- =?us-ascii?Q?6p7k7/mE4w8PUXxOBRaS6o7aCjGUj51JfvCc78PjLju6N/2nDvmlzXHMHaZa?=
- =?us-ascii?Q?fduhPQbXK5Dyr2aZhoGv+tq+reynvG+nadPLo8581Gn/sKVuiIadY7qske0u?=
- =?us-ascii?Q?7l0Ud2Bh98psPPzrKkmwMUNpg76h5pzaBO+XNhwzysVc6y3b9iTX995vzDU+?=
- =?us-ascii?Q?2nKmE3iK9MiDVSbigsOEQShpQiEme4mKFynOIEvehqtEALBGXWYU2CZjIeqq?=
- =?us-ascii?Q?vhdugF1khuUIVV/M+iGudQn1F9/4/HmxgbmswrtfgikcsQnAPXweXDiFyPiv?=
- =?us-ascii?Q?x4k1oL+oSsg4zjMdUTfWHq6hDfYtGjSV7ljeM/AhUrNFpS+974ENO9Ezr5JR?=
- =?us-ascii?Q?Sfq9BVona49kOMqTfyGZVPVYog/GCOplj84PKegOFxEyW2xYYWLoXyVGIbDD?=
- =?us-ascii?Q?2mXJutIDJ15smg1NbTkO5Kq7PEoL/gooxCft/n1ckYHpOtpwdIC0H9T/Hp9L?=
- =?us-ascii?Q?HJNOa8Iq7TZllbjx7xibrrXSq13keKymy6AcgIgeUyfh10Uq+UYNl1RPHd4u?=
- =?us-ascii?Q?OQPIydSqqK2xqtkojUcG038n3SpN0/rk1KmKmVl3FhNb/4HSxQF4g1xGE76+?=
- =?us-ascii?Q?FAe+FwURSz+PNGtyBVkd7BeW64+yRfO4NrhggGGhXRY5yC/c6KWue6rqKYtT?=
- =?us-ascii?Q?KMYUl9teGNMKW5842fw0CWGWPB6/3mwvEbCB9TgCktFPxTbnyY4Cy578vrrY?=
- =?us-ascii?Q?7Ixsa3hZ3dYbXUWE/ukObJK7c6b6wA6n1BziwTlCW4Li6JYvCa50/l99L/ed?=
- =?us-ascii?Q?XuSGObmNH1ToAWWbxK/gK8IWM8UNDVITpoGEBghgqeKvIrdovAgVj7XVfFqs?=
- =?us-ascii?Q?6hPJJYSyASi3V/EdcqJpw2STDTevqfi1F4ZHq72rbbh3CTOTcV37QnN0OET1?=
- =?us-ascii?Q?fPOEIcWvl/RGdZV/2farRmdA99lVxHEM4kyZ06VpnoCmnaPjyyp43tt6goor?=
- =?us-ascii?Q?Nd456mAQKDQmLBirZpfIjzQO0GBvpzwS3heRNGxkeDBJDHMUTQpRBLkzyt3p?=
- =?us-ascii?Q?xw+BiBqp6PtzKemEAVUDr4RVYOathsflqrYoFafJh9qO1B17JVN2Kx7zUiB5?=
- =?us-ascii?Q?owyK0Z+Isw=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cf032d08-5110-4c00-9c13-08de909d47ed
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2026 09:50:32.8620
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0KZFxcaoFWYuY4FA5lEuvAgj/2vOybU4NIZpJ+vWtFiY9u0XG8Akq7UqQjywfvOJ+3Jl7ACtQJ16TjFYl++KJg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8471
+Content-Transfer-Encoding: 8bit
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Authority-Analysis: v=2.4 cv=RYydyltv c=1 sm=1 tr=0 ts=69ce3bdc cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=yOCtJkima9RkubShWh1s:22 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8
+ a=e5mUnYsNAAAA:8 a=kyufpZre07lEBfj0WjwA:9 a=TjNXssC_j7lpFel5tvFf:22
+ a=Vxmtnl_E_bksehYqCbjh:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAyMDA4OCBTYWx0ZWRfX9GswskdlKLhD
+ FLWAJhUJ44ea63EfEMZUCtQ0pBof1MmR2xUktaLB1dPqrY211BhGEqnAMKFJAoQIgaaT4gZTfO6
+ e+E4l2CizIfXcuLEONQr0ANuHAW/oEFVrs+Qg8qIEfXoQsxfVka8m+pDe6X/KH5MxAvGcExQNyj
+ t/pVmAwNfm7wEL6+yIFYE46a/9DvC69eqGpSfOIiBhhCvyfqAr4wQo1srFAsC3dcz7ia6IcrOu7
+ ev+3zunYYJyX1sNIwVHI6QtF46egoXP7+iS71iVVsRR8DNBcl9FssoV1qeVbPNZViCkWggSLaxY
+ 0Bc0LIMSZSmGmaRqSatt4zukI2uTdK9J1RNDbIzBZbEG0FQ3rR84Pcxk+gMmZ8BDg5cK8a3jfpT
+ 5MddmhY5M4ok3A4bs+duoY3vUt5TKmENLJgGL5t/UpJ9TOT4hiC2jmhyaD4NHkyk8WOndRwpNlm
+ ubyME31bKl1Vrukp/xw==
+X-Proofpoint-ORIG-GUID: WPRj92rFS_u_oeE-0OpxDhrsZBumql4_
+X-Proofpoint-GUID: WPRj92rFS_u_oeE-0OpxDhrsZBumql4_
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-02_01,2026-04-02_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 clxscore=1015 adultscore=0 bulkscore=0
+ spamscore=0 phishscore=0 impostorscore=0 lowpriorityscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2604020088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_025039_640205_B7584893 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20260402_025041_415897_5C010AD9 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,148 +122,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current DT binding for pci-imx6 specifies the 'reset-gpios' property
-in the host bridge node. However, the PERST# signal logically belongs to
-individual Root Ports rather than the host bridge itself. This becomes
-important when supporting PCIe KeyE connector and PCI power control
-framework for pci-imx6 driver, which requires properties to be specified
-in Root Port nodes.
+This series adds the DPTX0 and DPTX1 nodes, as a part of mdss1
+on Qualcomm lemans SoC. It also enables Display Port on Qualcomm
+lemans-ride and lemans-evk-ifp-mezzanine platforms.
 
-With the common Root Port parsing now handled in dw_pcie_host_init(),
-update the reset GPIO handling to use the parsed port list from
-bridge->ports. To maintain DT backwards compatibility, fallback to the
-legacy method of parsing the host bridge node if the reset property is
-not present in the Root Port node (indicated by an empty ports list).
-
-Since now the reset GPIO is obtained with GPIOD_ASIS flag, it may be in
-input mode, using gpiod_direction_output() instead of
-gpiod_set_value_cansleep() to ensure the reset GPIO is properly
-configured as output before setting its value.
-
-Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
 ---
- drivers/pci/controller/dwc/pci-imx6.c | 70 +++++++++++++++++++++------
- 1 file changed, 55 insertions(+), 15 deletions(-)
+This series is dependent on below series:
+https://lore.kernel.org/all/20260128114853.2543416-1-quic_riteshk@quicinc.com/
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 948ffb75d122..b44563309d40 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -34,6 +34,7 @@
- #include <linux/pm_runtime.h>
- 
- #include "../../pci.h"
-+#include "../pci-host-common.h"
- #include "pcie-designware.h"
- 
- #define IMX8MQ_GPR_PCIE_REF_USE_PAD		BIT(9)
-@@ -150,7 +151,6 @@ struct imx_lut_data {
- 
- struct imx_pcie {
- 	struct dw_pcie		*pci;
--	struct gpio_desc	*reset_gpiod;
- 	struct clk_bulk_data	*clks;
- 	int			num_clks;
- 	bool			supports_clkreq;
-@@ -1222,6 +1222,32 @@ static void imx_pcie_disable_device(struct pci_host_bridge *bridge,
- 	imx_pcie_remove_lut(imx_pcie, pci_dev_id(pdev));
- }
- 
-+static int imx_pcie_parse_legacy_binding(struct imx_pcie *pcie)
-+{
-+	struct device *dev = pcie->pci->dev;
-+	struct pci_host_bridge *bridge = pcie->pci->pp.bridge;
-+	struct pci_host_port *port;
-+	struct gpio_desc *reset;
-+
-+	reset = devm_gpiod_get_optional(dev, "reset", GPIOD_ASIS);
-+	if (IS_ERR(reset))
-+		return PTR_ERR(reset);
-+
-+	if (!reset)
-+		return 0;
-+
-+	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
-+	if (!port)
-+		return -ENOMEM;
-+
-+	port->reset = reset;
-+	INIT_LIST_HEAD(&port->list);
-+	list_add_tail(&port->list, &bridge->ports);
-+
-+	return devm_add_action_or_reset(dev, pci_host_common_delete_ports,
-+					&bridge->ports);
-+}
-+
- static void imx_pcie_vpcie_aux_disable(void *data)
- {
- 	struct regulator *vpcie_aux = data;
-@@ -1231,13 +1257,22 @@ static void imx_pcie_vpcie_aux_disable(void *data)
- 
- static void imx_pcie_assert_perst(struct imx_pcie *imx_pcie, bool assert)
- {
--	if (assert) {
--		gpiod_set_value_cansleep(imx_pcie->reset_gpiod, 1);
--	} else {
--		if (imx_pcie->reset_gpiod) {
--			msleep(PCIE_T_PVPERL_MS);
--			gpiod_set_value_cansleep(imx_pcie->reset_gpiod, 0);
--			msleep(PCIE_RESET_CONFIG_WAIT_MS);
-+	struct dw_pcie *pci = imx_pcie->pci;
-+	struct pci_host_bridge *bridge = pci->pp.bridge;
-+	struct pci_host_port *port;
-+
-+	if (!bridge)
-+		return;
-+
-+	list_for_each_entry(port, &bridge->ports, list) {
-+		if (assert) {
-+			gpiod_direction_output(port->reset, 1);
-+		} else {
-+			if (port->reset) {
-+				msleep(PCIE_T_PVPERL_MS);
-+				gpiod_direction_output(port->reset, 0);
-+				msleep(PCIE_RESET_CONFIG_WAIT_MS);
-+			}
- 		}
- 	}
- }
-@@ -1247,8 +1282,20 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
- 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
- 	struct device *dev = pci->dev;
- 	struct imx_pcie *imx_pcie = to_imx_pcie(pci);
-+	struct pci_host_bridge *bridge = pp->bridge;
- 	int ret;
- 
-+	/*
-+	 * For DT backward compatibility: if no Root Port nodes were parsed
-+	 * (indicated by empty ports list), parse reset-gpios from the host
-+	 * bridge node.
-+	 */
-+	if (bridge && list_empty(&bridge->ports)) {
-+		ret = imx_pcie_parse_legacy_binding(imx_pcie);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	imx_pcie_assert_perst(imx_pcie, true);
- 
- 	/* Keep 3.3Vaux supply enabled for the entire PCIe controller lifecycle */
-@@ -1702,13 +1749,6 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 			return PTR_ERR(imx_pcie->phy_base);
- 	}
- 
--	/* Fetch GPIOs */
--	imx_pcie->reset_gpiod = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
--	if (IS_ERR(imx_pcie->reset_gpiod))
--		return dev_err_probe(dev, PTR_ERR(imx_pcie->reset_gpiod),
--				     "unable to get reset gpio\n");
--	gpiod_set_consumer_name(imx_pcie->reset_gpiod, "PCIe reset");
--
- 	/* Fetch clocks */
- 	imx_pcie->num_clks = devm_clk_bulk_get_all(dev, &imx_pcie->clks);
- 	if (imx_pcie->num_clks < 0)
+Change in v5:
+- Moved OPP tables inside the mdss0 and mdss0_dp0 nodes and reused them for other nodes. [Konrad]
+- Added newline before subnode. [Konrad]
+- Included lemans-evk-ifp-mezzanine patch: https://lore.kernel.org/lkml/20260219-enable-edp2-3-lemans-evk-mezzanine-v1-1-969316806538@oss.qualcomm.com/ [Konrad]
+- Link to v4: https://lore.kernel.org/all/20260226111322.250176-1-quic_mkuntuma@quicinc.com/
+
+Change in v4:
+- Moved the OPP tables for DP and MDP one level up to make them common for both nodes. [Dmitry]
+- Added an explanation for enabling dispcc1 in the commit message. [Dmitry]
+- Removed unnecessary blank lines preceding 'reg'. [Konrad]
+- Link to v3: https://lore.kernel.org/all/20260217071420.2240380-1-mkuntuma@qti.qualcomm.com/
+
+Change in v3:
+- Patchset v2 [1/3] got merged
+  https://gitlab.freedesktop.org/lumag/msm/-/commit/1338e8ae4084
+- Rebased on top of linux-next and picked the latest patch from the dependent series.
+- Removed additional instance of opp table [Dmitry]
+- Link to v2: https://lore.kernel.org/all/20251125105622.1755651-1-quic_mkuntuma@quicinc.com/
+
+Change in v2:
+- Added fixes tag for the DP driver patch [Dmitry]
+- Included below patch in this series after addressing comments [Dmitry and Konrad]
+  https://lore.kernel.org/all/20250925-lemans_dual-v1-1-9c371803198d@oss.qualcomm.com/
+	- Removed the misleading comment: "same path used twice" [Konrad]
+	- Removed unused label in 'display-controller' [Dmitry]
+- Removed extra zeroes in dispcc1 node [Konrad]
+- Enbaled dispcc1 by default in main dtsi file [Dmitry]
+- Added EDP ref clock and updated dependency series.
+- Link to v1: https://lore.kernel.org/all/20250926085956.2346179-1-quic_mkuntuma@quicinc.com/
+
+---
+
+Mani Chandana Ballary Kuntumalla (2):
+  arm64: dts: qcom: lemans: add mdss1 display device nodes
+  arm64: dts: qcom: lemans-ride: Enable mdss1 display Port
+
+Vishnu Saini (1):
+  arm64: dts: qcom: lemans-evk-ifp-mezzanine: Enable mdss1 display Port
+
+ .../dts/qcom/lemans-evk-ifp-mezzanine.dtso    |  74 +++++
+ .../boot/dts/qcom/lemans-ride-common.dtsi     |  80 +++++
+ arch/arm64/boot/dts/qcom/lemans.dtsi          | 289 ++++++++++++++++--
+ 3 files changed, 416 insertions(+), 27 deletions(-)
+
 -- 
-2.37.1
+2.34.1
 
 
