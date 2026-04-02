@@ -4,64 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12120D6AB13
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 20:44:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB4BAD6AB10
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 20:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XtVsTEkrUECjJRD7aGi/0e7Hl5IiiR2QyYRJQgcmHRU=; b=QXgHqtKXrY1dIGkw71GsKFIFw9
-	gr1ieReLlReMWBuzRhVyzf62XVxXTfcCceGJFaazvfDCbzFagcGkYTH07OzEuuTU2rEIGzkKDe84z
-	vxboQjV6aXfdqTEFueEcdYOhxVabPldg2gb7CMSgd0M7JWly3REsQaWexAVJJzkzdqu41R9exEO4I
-	q783yxU3m3OJt3QR05b+Gc3awLOppEOFdxczR0qeFpjUhlwEkIsqe/ilCI5ZhU1Pq/gxmbIdg0Adb
-	ZfGeEDomBmlHx2uQQ0wHkTft+6z2aA3+EBs8cCt0mBSlGjQfYtzWKO8nlaGPY1h0FxSF3HF8AxBaH
-	Sg38EvsQ==;
+	bh=+wrzblJBnuO2RTfpLM9BJI19asD5d3lrNjqKPOWD7QM=; b=1qc09KL8armOLcwdzx60QgiFCi
+	bvfjXLoPrCzdBEwEt9LVVn7VjplHdbqp76/mu9i1LSUN+vgzS0jQGKPGMSqV+L+RsLoWJbfXNK+b2
+	nQgMqTIxhKZ6tPczVM3Rz++CuFbpLwZQk1FNyU0UpHo9zH6M165hPtdMZ5MgHRrK2Ai8vXIULGecw
+	Hju+OoU2SjKp2H1PMos19anp8/bXt8UKe7nPvBtFaXV9e/dem4gkUr1q2tUUFDvYlPhRNuIz6qBih
+	2VjgWDAzcuF8mGMXXgzbBKI/sVUSdMehObgHSOv0zD4bG2uN4r+GQ7WfW30OXAv+VnGtn5L1gRrVt
+	U6CB+Qaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Otf-00000000lTb-0ssP;
-	Thu, 02 Apr 2026 20:44:11 +0000
+	id 1w8P6L-00000000ls0-25HF;
+	Thu, 02 Apr 2026 20:57:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Otb-00000000lT9-3oL3
+	id 1w8P6J-00000000lrf-0C0I
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 20:44:09 +0000
+	Thu, 02 Apr 2026 20:57:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 192EA176B;
-	Thu,  2 Apr 2026 13:43:58 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C92B91692;
+	Thu,  2 Apr 2026 13:57:06 -0700 (PDT)
 Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3ED233F915;
-	Thu,  2 Apr 2026 13:44:02 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B2443F915;
+	Thu,  2 Apr 2026 13:57:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775162643; bh=cjEZkKQ+ODVU3DKbmEDkBuKAPPbwImPNm5BnHCLYCdA=;
+	t=1775163432; bh=fZl342qtKB38he9YQmesSx4GGcj0I4dAAHkc0sOsHLc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rMISpFzgJPXbGvKghDviAPSjcuME2BDYXFgSL9AnIbxA4cAcDMShJErC2ayBI5Wdz
-	 4AXjfquKWnELfq3rw5MB99YKMgHGZNzxLt9DFqQHuEXzExkBF9z5zR0fl/jfkORk1r
-	 1hkhnj8rf6S/kx7qKb9lbVJe0u0k8T0CUysryFhI=
-Date: Thu, 2 Apr 2026 21:43:59 +0100
+	b=bgvMaCiqbCN/lyG0i3b+yh8LEvUAjeo/0QxdTvnIrbA0vhMYZXmCMfhjisiv9bNmA
+	 MO8WXAvJZksdQYC0e5hWYXkzR36DtrFduME5GSvJOwUvXMXlHuF3fWBbhjG49Nrbhp
+	 kD2ke6G1Y1wwHDSdgZG8aDR4PyNYPSqsdEMNHYSU=
+Date: Thu, 2 Apr 2026 21:57:08 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Dev Jain <dev.jain@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
+To: Linus Walleij <linusw@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Jinjiang Tu <tujinjiang@huawei.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] arm64: mm: Fix rodata=full block mapping support
- for realm guests
-Message-ID: <ac7VD4Z85nS30GCp@arm.com>
-References: <20260330161705.3349825-1-ryan.roberts@arm.com>
- <20260330161705.3349825-2-ryan.roberts@arm.com>
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Subject: Re: [PATCH] arm64: clear_page[s] using memset
+Message-ID: <ac7YJPo4Np2zxxEp@arm.com>
+References: <20260306-aarch64-clear-pages-c-v1-1-77c1bb0f1c21@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260330161705.3349825-2-ryan.roberts@arm.com>
+In-Reply-To: <20260306-aarch64-clear-pages-c-v1-1-77c1bb0f1c21@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_134408_159950_97FEBD1E 
-X-CRM114-Status: GOOD (  27.76  )
+X-CRM114-CacheID: sfid-20260402_135715_125246_99B1D498 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,82 +71,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 05:17:02PM +0100, Ryan Roberts wrote:
->  int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
->  {
->  	int ret;
->  
-> -	/*
-> -	 * !BBML2_NOABORT systems should not be trying to change permissions on
-> -	 * anything that is not pte-mapped in the first place. Just return early
-> -	 * and let the permission change code raise a warning if not already
-> -	 * pte-mapped.
-> -	 */
-> -	if (!system_supports_bbml2_noabort())
-> -		return 0;
-> -
->  	/*
->  	 * If the region is within a pte-mapped area, there is no need to try to
->  	 * split. Additionally, CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE may
->  	 * change permissions from atomic context so for those cases (which are
->  	 * always pte-mapped), we must not go any further because taking the
-> -	 * mutex below may sleep.
-> +	 * mutex below may sleep. Do not call force_pte_mapping() here because
-> +	 * it could return a confusing result if called from a secondary cpu
-> +	 * prior to finalizing caps. Instead, linear_map_requires_bbml2 gives us
-> +	 * what we need.
->  	 */
-> -	if (force_pte_mapping() || is_kfence_address((void *)start))
-> +	if (!linear_map_requires_bbml2 || is_kfence_address((void *)start))
->  		return 0;
->  
-> +	if (!system_supports_bbml2_noabort()) {
-> +		/*
-> +		 * !BBML2_NOABORT systems should not be trying to change
-> +		 * permissions on anything that is not pte-mapped in the first
-> +		 * place. Just return early and let the permission change code
-> +		 * raise a warning if not already pte-mapped.
-> +		 */
-> +		if (system_capabilities_finalized())
-> +			return 0;
-> +
-> +		/*
-> +		 * Boot-time: split_kernel_leaf_mapping_locked() allocates from
-> +		 * page allocator. Can't split until it's available.
-> +		 */
-> +		if (WARN_ON(!page_alloc_available))
-> +			return -EBUSY;
-> +
-> +		/*
-> +		 * Boot-time: Started secondary cpus but don't know if they
-> +		 * support BBML2_NOABORT yet. Can't allow splitting in this
-> +		 * window in case they don't.
-> +		 */
-> +		if (WARN_ON(num_online_cpus() > 1))
-> +			return -EBUSY;
-> +	}
+On Fri, Mar 06, 2026 at 09:57:50AM +0100, Linus Walleij wrote:
+> There is no need to try to second-guess the compiler when
+> clearing memory. Just call memset() like everyone else.
 
-I think sashiko is over cautions here
-(https://sashiko.dev/#/patchset/20260330161705.3349825-1-ryan.roberts@arm.com)
-but it has a somewhat valid point from the perspective of
-num_online_cpus() semantics. We have have num_online_cpus() == 1 while
-having a secondary CPU just booted and with its MMU enabled. I don't
-think we can have any asynchronous tasks running at that point to
-trigger a spit though. Even async_init() is called after smp_init().
+Hmm, that "like everyone else" made me think - why not move this to
+generic code and only the 1-2 platforms that need their own should
+override it? Could we do the same with copy_page()?
 
-An option may be to attempt cpus_read_trylock() as this lock is taken by
-_cpu_up(). If it fails, return -EBUSY, otherwise check num_online_cpus()
-and unlock (and return -EBUSY if secondaries already started).
+Sorry, more work all of a sudden ;).
 
-Another thing I couldn't get my head around - IIUC is_realm_world()
-won't return true for map_mem() yet (if in a realm). Can we have realms
-on hardware that does not support BBML2_NOABORT? We may not have
-configuration with rodata_full set (it should be complementary to realm
-support).
+> Since memset() already has an architecture-local MOPS
+> optimization, we do not need to do anything else to preserve
+> the MOPS optimization.
 
-I'll add the patches to for-next/core to give them a bit of time in
--next but let's see next week if we ignore this (with an updated
-comment) or we try to avoid the issue altogether.
+The custom clear_page() had the (very small) advantage that it can skip
+the length/alignment checks as they are always page-size.
+
+> While at it, implement the shorthand for directly calling
+> the new prototype clear_pages() for larger page chunks.
+> 
+> No performance regressions can be seen, the fastpath
+> benchmarks differences are in the noise.
+
+I assume the benchmarks ran on real hardware (had to ask, last time you
+mentioned qemu ;)).
 
 -- 
 Catalin
