@@ -4,67 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C843FCC6B1F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 08:01:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA72CC6B1F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 08:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pLcYmIaCk/Dv+xS45L6OKFyJwUlg4GkkihQ3dDWqIek=; b=PsT5DZkLCiZ4FaAOiKjIbMr1g0
-	tI+sMm2/WaSXITKuMKQEhc5pdAw9pHv8i+kDHyDc46bIWpJjhvMM865xvVjri1+NdSx/UcjUcpRUd
-	AY8MdwWsgN3GkWxPBKJuCBb/cqvNqXJM6WruYfrSmAG5hMw/93fztaVtRj979JgllG9KomOK3pTby
-	ls5U3wYAXLfvZWS0dtOujjcDrocq9zHMCQaF6AZde809M1QAZ3sPf5Rr9LTqGNJ1fYRHUqGYT0ePo
-	0Pdujsrmp0JiLnhyN7aEsfKVDob1/86i7z8iEMMowPJoGYd+37vRrFSpa/xOunD4LO+jKJdcGQMz0
-	GJfbcRUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dS8vowZvjq9bju2bbkwpviKelLcrJ8LMcmYx/wTclnU=; b=DUiHH7OGOAP3TEjZP8fGjM8ULJ
+	x793p5Cl32STWNEICGDwhnMNyUC2YVkYVT9QmtrOxiYclnUCbDZXG+5dzXIbVrdMNocM8If6egxeq
+	ZWBjK5u2XcxrxWmkgXfE1/zs8WpEfH6GBo5ZlTPQb03BlfrccPuk0PqC/3a5gCQ0BFq2UTehki2lE
+	WjpQUjdoIimnMt0D3BLn6vrpc3xA9VQzuZdCHydqtm6EEa1ZGGfQzgmTMGPaE0iE0bxU/XfyfCYat
+	Q1sCEqNi5e2AxJ/RZoUKvXOiyHKe/QAOcCecA/0yJh+9XcZLVLWTr5wWngWQIRsCIzlIN2j6yRBrE
+	zMJbMzTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8CzK-0000000H8Ew-1uN5;
-	Thu, 02 Apr 2026 08:01:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w8D3T-0000000H8W7-2XfV;
+	Thu, 02 Apr 2026 08:05:31 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8CzI-0000000H8EP-0svO
+	id 1w8D3S-0000000H8W0-05hI
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 02 Apr 2026 08:05:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=dS8vowZvjq9bju2bbkwpviKelLcrJ8LMcmYx/wTclnU=; b=nnNIsc1WEpZmev8YS+HnHuZ7GE
+	o1nuc/mTgBTVwj3KBO1PDbvId5URJZ4lIfBAZtWlfT3jcM0fAiGOUZpR9Bhc/HyMaw+BX9chzWilo
+	AmMvdaiKEgbdTjxLDF444GJJdexKBv+uF0AJk88o3FI3wmuNAPFoGqpfIOnjCAMXnUiKpZsCcWLVB
+	5YG3Dwwsxtl//eRCzJjdXdaFuYT8FowLfhGnb1Nw5Y/q8mROvj7A3kqlSGGimi/9/Q628/0TF98OK
+	AEUyHZIXEY7sJ+xxoWJ1Bdi/OMydmNmPvB6AIb6iLN7Pq/JNChmmbrmqpUu1shYYT6j/ZLG9d3+vI
+	d3hUcmwA==;
+Received: from cp2.siel.si ([46.19.12.180])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8D3O-0000000BuJm-3VoK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 08:01:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5279840B6F;
-	Thu,  2 Apr 2026 08:01:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A72DC19423;
-	Thu,  2 Apr 2026 08:01:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775116871;
-	bh=dOBLN9EDUXoP6F3RNlfwPSU/jR0DNDaBV83MF3LHzyU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PTvPWQneucHcWRnBJe8LoYjpL22hEDAAM0vTVlx94GSvRpLgu+jIRhu8p94Jf7+tD
-	 EwaMh9sDaS44jfchwbTjsx3RBaAKJsxgTEM+796o1OR3VapbfKsEaXctW50iB/LAii
-	 1LOW/1jcolXp9uosOb12OGVdIeI8yCzLhNkN/ZZUwfKcWMOFWa5E8jiprtgpmnglnW
-	 BEXhEdix7oKwau+fn0rBRm5E1ZwN6ytEBnKh8jbRPniHHD+09OKvGqVB+2FcWGLjNG
-	 BS4NPvQl2fY2+I3WVgvQkr4kVOn2J+AsB9/LVf9aCBVQ3a7RtBD7Xdj9LjMnuVOUlb
-	 4ht76ZEw7jFpg==
-Date: Thu, 2 Apr 2026 10:01:08 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Alexey Klimov <alexey.klimov@linaro.org>
-Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
-	Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Sam Protsenko <semen.protsenko@linaro.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Jassi Brar <jassisinghbrar@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, linux-samsung-soc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] arm64: dts: exynos850: Add ap2apm mailbox
-Message-ID: <20260402-free-foamy-gibbon-acad72@quoll>
-References: <20260402-exynos850-ap2apm-mailbox-v2-0-ca5ffdff99d4@linaro.org>
- <20260402-exynos850-ap2apm-mailbox-v2-3-ca5ffdff99d4@linaro.org>
+	Thu, 02 Apr 2026 08:05:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:
+	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=dS8vowZvjq9bju2bbkwpviKelLcrJ8LMcmYx/wTclnU=; b=cyT+P6CchtzDeBIAmZzB4qEbEm
+	3KSNaTBRHYf811vuNdIFSI1WYnRGKze9uOk0Ye5HbkQY4OxQjobYnyssHLAbbnkoPa4P6OOQoFWxn
+	rOhvVj0yevoIvtFWUywVBP8UFmLFxg8E/mojqGHAw3PLkHCr46K6ofmJHvrqmyIvn00vS9wqRh+nb
+	kK3KaXVmEJqbFOjZpQ69r6WfByM0VKm0d99bCcFAaRpg7IHhLNw0aCgCkB6ZLP3zzWse11NbTqDzF
+	b0mLNBkaDd9fOoj2qmCwyQnBCZmrVt2pNkkvrZ3dgfZT5VhTRpa1FULd29+tVRZWbfKPPsRanB0fU
+	It6kvYLQ==;
+Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:33206 helo=florijan-nb..)
+	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.1)
+	(envelope-from <florijan.plohl@norik.com>)
+	id 1w8CAG-00000009Vv6-27S1;
+	Thu, 02 Apr 2026 09:08:27 +0200
+From: Florijan Plohl <florijan.plohl@norik.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de
+Subject: [PATCH] arm64: dts: imx{91,93}-phyboard-segin: Add peb-av-18 overlay
+Date: Thu,  2 Apr 2026 09:08:26 +0200
+Message-ID: <20260402070826.970012-1-florijan.plohl@norik.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260402-exynos850-ap2apm-mailbox-v2-3-ca5ffdff99d4@linaro.org>
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cp2.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: florijan.plohl@norik.com
+X-Authenticated-Sender: cp2.siel.si: florijan.plohl@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_010112_277179_3AAEC243 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20260402_090527_073348_E8D7AF94 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,22 +107,341 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 02, 2026 at 03:20:16AM +0100, Alexey Klimov wrote:
-> Add mailbox node that describes AP-to-APM mailbox, that can be
-> used for communicating with APM co-processor on Exynos850 SoCs.
-> 
-> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
-> ---
->  arch/arm64/boot/dts/exynos/exynos850.dtsi | 9 +++++++++
+Add overlay for the PEB-AV-18 adapter on phyBOARD-Segin-i.MX91/93.
+The supported LCD is Powertip PH800480T032-ZHC19 panel (AC220).
 
-What DTS is doing in the middle of the patchset? If there is going to be
-resend, then fix the order. If the order is intended, then most likely
-NAK but I need somewhere explanation (but I really do not see the need
-for it).
+Signed-off-by: Florijan Plohl <florijan.plohl@norik.com>
+---
+ arch/arm64/boot/dts/freescale/Makefile        |   4 +
+ .../imx91-phyboard-segin-peb-av-18.dtso       | 142 ++++++++++++++++++
+ .../imx93-phyboard-segin-peb-av-18.dtso       | 142 ++++++++++++++++++
+ 3 files changed, 288 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-phyboard-segin-peb-av-18.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-18.dtso
 
-Please read submitting patches (both documents).
-
-Best regards,
-Krzysztof
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index bae24b53bce6..8f5b3996b678 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -437,17 +437,21 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
+ 
++imx91-phyboard-segin-peb-av-18-dtbs += imx91-phyboard-segin.dtb imx91-phyboard-segin-peb-av-18.dtbo
+ imx93-phyboard-nash-jtag-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-jtag.dtbo
+ imx93-phyboard-nash-peb-wlbt-07-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-peb-wlbt-07.dtbo
+ imx93-phyboard-nash-pwm-fan-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-pwm-fan.dtbo
+ imx93-phyboard-segin-peb-av-02-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-av-02.dtbo
++imx93-phyboard-segin-peb-av-18-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-av-18.dtbo
+ imx93-phyboard-segin-peb-eval-01-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-eval-01.dtbo
+ imx93-phyboard-segin-peb-wlbt-05-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-wlbt-05.dtbo
+ imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
++dtb-$(CONFIG_ARCH_MXC) += imx91-phyboard-segin-peb-av-18.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-jtag.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-peb-wlbt-07.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-pwm-fan.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-av-02.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-av-18.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-eval-01.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-wlbt-05.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phycore-rpmsg.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx91-phyboard-segin-peb-av-18.dtso b/arch/arm64/boot/dts/freescale/imx91-phyboard-segin-peb-av-18.dtso
+new file mode 100644
+index 000000000000..ec6ef2e5a11a
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx91-phyboard-segin-peb-av-18.dtso
+@@ -0,0 +1,142 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (C) 2026 PHYTEC Messtechnik GmbH
++ *
++ * Author: Florijan Plohl <florijan.plohl@norik.com>
++ */
++
++#include <dt-bindings/clock/imx93-clock.h>
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++#include "imx91-pinfunc.h"
++
++/dts-v1/;
++/plugin/;
++
++&{/} {
++	backlight: backlight {
++		compatible = "pwm-backlight";
++		brightness-levels = <0 4 8 16 32 64 128 255>;
++		default-brightness-level = <5>;
++		power-supply = <&reg_vcc_3v3_con>;
++		pwms = <&pwm7 0 5000000 0>;
++	};
++
++	panel {
++		compatible = "powertip,ph800480t032-zhc19";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_panel>;
++
++		backlight = <&backlight>;
++		enable-gpios = <&gpio4 29 GPIO_ACTIVE_HIGH>;
++		power-supply = <&reg_vcc_3v3_con>;
++
++		port {
++			panel_in: endpoint {
++				remote-endpoint = <&dpi_to_panel>;
++			};
++		};
++	};
++
++	pwm7: pwm-7 {
++		compatible = "pwm-gpio";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_pwm7>;
++		gpios = <&gpio4 28 GPIO_ACTIVE_HIGH>;
++		#pwm-cells = <3>;
++	};
++
++	reg_vcc_3v3_con: regulator-vcc-3v3-con {
++		compatible = "regulator-fixed";
++		regulator-name = "VCC3V3_CON";
++		regulator-max-microvolt = <3300000>;
++		regulator-min-microvolt = <3300000>;
++	};
++};
++
++&dpi_bridge {
++	status = "okay";
++};
++
++&dpi_to_panel {
++	remote-endpoint = <&panel_in>;
++	bus-width = <18>;
++};
++
++&lcdif {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_lcdif>;
++	assigned-clocks = <&clk IMX93_CLK_VIDEO_PLL>;
++	assigned-clock-rates = <27272728>;
++	status = "okay";
++};
++
++&lpi2c2 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	touchscreen@41 {
++		compatible = "ilitek,ili2130";
++		reg = <0x41>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_touchscreen>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <12 IRQ_TYPE_EDGE_FALLING>;
++		reset-gpios = <&gpio4 1 GPIO_ACTIVE_LOW>;
++		touchscreen-size-x = <800>;
++		touchscreen-size-y = <480>;
++		wakeup-source;
++	};
++};
++
++&media_blk_ctrl {
++	status = "okay";
++};
++
++&iomuxc {
++	pinctrl_lcdif: lcdifgrp {
++		fsl,pins = <
++			MX91_PAD_GPIO_IO00__MEDIAMIX_DISP_CLK		0x50e
++			MX91_PAD_GPIO_IO01__MEDIAMIX_DISP_DE		0x50e
++			MX91_PAD_GPIO_IO02__MEDIAMIX_DISP_VSYNC		0x50e
++			MX91_PAD_GPIO_IO03__MEDIAMIX_DISP_HSYNC		0x50e
++			MX91_PAD_GPIO_IO04__MEDIAMIX_DISP_DATA0 	0x50e
++			MX91_PAD_GPIO_IO05__MEDIAMIX_DISP_DATA1		0x50e
++			MX91_PAD_GPIO_IO06__MEDIAMIX_DISP_DATA2		0x50e
++			MX91_PAD_GPIO_IO07__MEDIAMIX_DISP_DATA3		0x50e
++			MX91_PAD_GPIO_IO08__MEDIAMIX_DISP_DATA4		0x50e
++			MX91_PAD_GPIO_IO09__MEDIAMIX_DISP_DATA5		0x51e
++			MX91_PAD_GPIO_IO10__MEDIAMIX_DISP_DATA6		0x50e
++			MX91_PAD_GPIO_IO11__MEDIAMIX_DISP_DATA7		0x50e
++			MX91_PAD_GPIO_IO12__MEDIAMIX_DISP_DATA8		0x50e
++			MX91_PAD_GPIO_IO13__MEDIAMIX_DISP_DATA9		0x50e
++			MX91_PAD_GPIO_IO14__MEDIAMIX_DISP_DATA10	0x50e
++			MX91_PAD_GPIO_IO15__MEDIAMIX_DISP_DATA11	0x50e
++			MX91_PAD_GPIO_IO16__MEDIAMIX_DISP_DATA12	0x506
++			MX91_PAD_GPIO_IO17__MEDIAMIX_DISP_DATA13	0x506
++			MX91_PAD_GPIO_IO18__MEDIAMIX_DISP_DATA14	0x506
++			MX91_PAD_GPIO_IO19__MEDIAMIX_DISP_DATA15	0x506
++			MX91_PAD_GPIO_IO20__MEDIAMIX_DISP_DATA16	0x506
++			MX91_PAD_GPIO_IO21__MEDIAMIX_DISP_DATA17	0x506
++		>;
++	};
++
++	pinctrl_panel: panelgrp {
++		fsl,pins = <
++			MX91_PAD_CCM_CLKO4__GPIO4_IO29			0x1133e
++		>;
++	};
++
++	pinctrl_pwm7: pwm7grp {
++		fsl,pins = <
++			MX91_PAD_CCM_CLKO3__GPIO4_IO28			0x1133e
++		>;
++	};
++
++	pinctrl_touchscreen: touchscreengrp {
++		fsl,pins = <
++			MX91_PAD_ENET1_MDIO__GPIO4_IO1			0x11e
++			MX91_PAD_ENET1_RD2__GPIO4_IO12			0x1133e
++		>;
++	};
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-18.dtso b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-18.dtso
+new file mode 100644
+index 000000000000..189b0f0472d2
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-18.dtso
+@@ -0,0 +1,142 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (C) 2026 PHYTEC Messtechnik GmbH
++ *
++ * Author: Florijan Plohl <florijan.plohl@norik.com>
++ */
++
++#include <dt-bindings/clock/imx93-clock.h>
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++#include "imx93-pinfunc.h"
++
++/dts-v1/;
++/plugin/;
++
++&{/} {
++	backlight: backlight {
++		compatible = "pwm-backlight";
++		brightness-levels = <0 4 8 16 32 64 128 255>;
++		default-brightness-level = <5>;
++		power-supply = <&reg_vcc_3v3_con>;
++		pwms = <&pwm7 0 5000000 0>;
++	};
++
++	panel {
++		compatible = "powertip,ph800480t032-zhc19";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_panel>;
++
++		backlight = <&backlight>;
++		enable-gpios = <&gpio4 29 GPIO_ACTIVE_HIGH>;
++		power-supply = <&reg_vcc_3v3_con>;
++
++		port {
++			panel_in: endpoint {
++				remote-endpoint = <&dpi_to_panel>;
++			};
++		};
++	};
++
++	pwm7: pwm-7 {
++		compatible = "pwm-gpio";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_pwm7>;
++		gpios = <&gpio4 28 GPIO_ACTIVE_HIGH>;
++		#pwm-cells = <3>;
++	};
++
++	reg_vcc_3v3_con: regulator-vcc-3v3-con {
++		compatible = "regulator-fixed";
++		regulator-name = "VCC3V3_CON";
++		regulator-max-microvolt = <3300000>;
++		regulator-min-microvolt = <3300000>;
++	};
++};
++
++&dpi_bridge {
++	status = "okay";
++};
++
++&dpi_to_panel {
++	remote-endpoint = <&panel_in>;
++	bus-width = <18>;
++};
++
++&lcdif {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_lcdif>;
++	assigned-clocks = <&clk IMX93_CLK_VIDEO_PLL>;
++	assigned-clock-rates = <27272728>;
++	status = "okay";
++};
++
++&lpi2c2 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	touchscreen@41 {
++		compatible = "ilitek,ili2130";
++		reg = <0x41>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_touchscreen>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <12 IRQ_TYPE_EDGE_FALLING>;
++		reset-gpios = <&gpio4 1 GPIO_ACTIVE_LOW>;
++		touchscreen-size-x = <800>;
++		touchscreen-size-y = <480>;
++		wakeup-source;
++	};
++};
++
++&media_blk_ctrl {
++	status = "okay";
++};
++
++&iomuxc {
++	pinctrl_lcdif: lcdifgrp {
++		fsl,pins = <
++			MX93_PAD_GPIO_IO00__MEDIAMIX_DISP_CLK		0x50e
++			MX93_PAD_GPIO_IO01__MEDIAMIX_DISP_DE		0x50e
++			MX93_PAD_GPIO_IO02__MEDIAMIX_DISP_VSYNC		0x50e
++			MX93_PAD_GPIO_IO03__MEDIAMIX_DISP_HSYNC		0x50e
++			MX93_PAD_GPIO_IO04__MEDIAMIX_DISP_DATA00	0x50e
++			MX93_PAD_GPIO_IO05__MEDIAMIX_DISP_DATA01	0x50e
++			MX93_PAD_GPIO_IO06__MEDIAMIX_DISP_DATA02	0x50e
++			MX93_PAD_GPIO_IO07__MEDIAMIX_DISP_DATA03	0x50e
++			MX93_PAD_GPIO_IO08__MEDIAMIX_DISP_DATA04	0x50e
++			MX93_PAD_GPIO_IO09__MEDIAMIX_DISP_DATA05	0x51e
++			MX93_PAD_GPIO_IO10__MEDIAMIX_DISP_DATA06	0x50e
++			MX93_PAD_GPIO_IO11__MEDIAMIX_DISP_DATA07	0x50e
++			MX93_PAD_GPIO_IO12__MEDIAMIX_DISP_DATA08	0x50e
++			MX93_PAD_GPIO_IO13__MEDIAMIX_DISP_DATA09	0x50e
++			MX93_PAD_GPIO_IO14__MEDIAMIX_DISP_DATA10	0x50e
++			MX93_PAD_GPIO_IO15__MEDIAMIX_DISP_DATA11	0x50e
++			MX93_PAD_GPIO_IO16__MEDIAMIX_DISP_DATA12	0x506
++			MX93_PAD_GPIO_IO17__MEDIAMIX_DISP_DATA13	0x506
++			MX93_PAD_GPIO_IO18__MEDIAMIX_DISP_DATA14	0x506
++			MX93_PAD_GPIO_IO19__MEDIAMIX_DISP_DATA15	0x506
++			MX93_PAD_GPIO_IO20__MEDIAMIX_DISP_DATA16	0x506
++			MX93_PAD_GPIO_IO21__MEDIAMIX_DISP_DATA17	0x506
++		>;
++	};
++
++	pinctrl_panel: panelgrp {
++		fsl,pins = <
++			MX93_PAD_CCM_CLKO4__GPIO4_IO29			0x1133e
++		>;
++	};
++
++	pinctrl_pwm7: pwm7grp {
++		fsl,pins = <
++			MX93_PAD_CCM_CLKO3__GPIO4_IO28			0x1133e
++		>;
++	};
++
++	pinctrl_touchscreen: touchscreengrp {
++		fsl,pins = <
++			MX93_PAD_ENET1_MDIO__GPIO4_IO01			0x11e
++			MX93_PAD_ENET1_RD2__GPIO4_IO12			0x1133e
++		>;
++	};
++};
+-- 
+2.43.0
 
 
