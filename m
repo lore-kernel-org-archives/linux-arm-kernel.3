@@ -4,172 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B33E1D3943A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C500FCC6B3E
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 15:27:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IIJkyZ4vqVqocU0260kV/9e9mxp7Nf7GppVgKAYDdSY=; b=Q+A/5+2ptGHl4FN5iNwVR+BM0C
-	DSl9GnRJRKdmRYbNSUXZuDocV1eoQ4+j+y60FizaXXEm+CcFUhopIRDfy7vo6Y01dd7VV3tWId4KV
-	zm+8m65Zq9njwnHTlpxh9oWm0xgFfRdz7fHo3qZ4c3GxGOJuvS/ybJvwCgD1gNr8ux2gjEo3tsKrk
-	XU8IbGupsxglYIw6BVXwGZFZh+b9fpEEYu9fxVgbFPebM4kOUdgfOF0XkzweMYSdpT5sJse2fSLQF
-	sqEWmZiKjqHbiOXmyN2VDavc0/dYzgg59UgY3qdguSJGgkKurjMz2J8y1y+KLF5vpmbqlOv/7JPw/
-	4So48lXQ==;
+	bh=obs00e+wrJFs2sWumo70dIrKKwlJrD6vLf8ObLD+lkA=; b=3VCl5EBu2HdnfXCx5/l1hVi++R
+	08ZYrnDNUiS91mc1dmaU6rXW1AcdMha6/VLsjFXSBp4IGFvZ4tYu7IZ/Mrb0+eGWkt2VqpLRu7Sfu
+	4OMM7gwPE5OCts3g8vNX4xQjrN9CpsBrBfDx3X9DOnns3pasfSxBY1Vl5wx+OpEiBEFiWsOFW+ODu
+	UEzWhASSsT1/6SUcFEldTZy2eNjErOsi0fbQc8zaO7e+hxoLDUqgkjylmWDaR7AXZhGFnpaF8NWC4
+	wJqQv4paVlfia6jlg/kbYikWO0mYLFil7hUrvum2+VS38ohP1JcUCXPsL4ylvFsNZrRuCpVbI2nFd
+	pVRdtHWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Jx0-00000000RHU-46JU;
-	Thu, 02 Apr 2026 15:27:18 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Jwx-00000000RFZ-2EOo
-	for linux-arm-kernel@lists.infradead.org;
+	id 1w8Jwy-00000000RG8-0a4V;
 	Thu, 02 Apr 2026 15:27:16 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 71E825BE1C;
-	Thu,  2 Apr 2026 15:27:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1775143633; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=IIJkyZ4vqVqocU0260kV/9e9mxp7Nf7GppVgKAYDdSY=;
-	b=NcND9pxl0yg+bfnMPz3DZPhuSNTO7WXGIqZ2SRslgy6FRLaAKFjKfkltXIT8wMKtvaQMat
-	wdr7zHgc3mhpRKS/hH180m35ntqkHAutmXyxaqyjx+/Z6WXlp6SuMsGmLMtgtv9Lppw1la
-	YAbd3oISpYzHZJ1J85SjGAqbskJUCUk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1775143633;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=IIJkyZ4vqVqocU0260kV/9e9mxp7Nf7GppVgKAYDdSY=;
-	b=+XN1aYgEZxrW4VREe8WxPTgskOQKj2Mh89mLE/+Ni4A5KzK+ErobJbFr7AepIrMve9+sA3
-	rF1W61MS7QyQnIDg==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=NcND9pxl;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=+XN1aYgE
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1775143633; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=IIJkyZ4vqVqocU0260kV/9e9mxp7Nf7GppVgKAYDdSY=;
-	b=NcND9pxl0yg+bfnMPz3DZPhuSNTO7WXGIqZ2SRslgy6FRLaAKFjKfkltXIT8wMKtvaQMat
-	wdr7zHgc3mhpRKS/hH180m35ntqkHAutmXyxaqyjx+/Z6WXlp6SuMsGmLMtgtv9Lppw1la
-	YAbd3oISpYzHZJ1J85SjGAqbskJUCUk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1775143633;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=IIJkyZ4vqVqocU0260kV/9e9mxp7Nf7GppVgKAYDdSY=;
-	b=+XN1aYgEZxrW4VREe8WxPTgskOQKj2Mh89mLE/+Ni4A5KzK+ErobJbFr7AepIrMve9+sA3
-	rF1W61MS7QyQnIDg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id DC57A4A0B0;
-	Thu,  2 Apr 2026 15:27:12 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 6UFUNNCKzmnZUwAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Thu, 02 Apr 2026 15:27:12 +0000
-Message-ID: <001efe27-9cbb-4a89-8d2d-a1f3ae15e505@suse.de>
-Date: Thu, 2 Apr 2026 17:27:12 +0200
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8Jwu-00000000RFG-2qnS
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Apr 2026 15:27:14 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2b0c12be0ecso104365ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 08:27:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775143632; cv=none;
+        d=google.com; s=arc-20240605;
+        b=OO0UVirTA8O3SyhS3ZCM2n1bWUvIX6NZ4RPgX0mErjwtDrlwugZJWmKtgdj8ox2+nT
+         Xq2rYkKd+72D4gmtvkfpSw9JRa4waSze9Ok9HtZbQ2cYMkLucn7hofRu/D1kfnedAY2m
+         8qqxnXrtplxf7kDIZA4Q9pEhXtLUPHa/7ir4l3du9rt/NTUsWCnS/68LLIRnp9I3G5xJ
+         N3sAcv+z3FP9MEzPPBCHtp6yZu14rZWY7luWlnfaRrDWYLY1gPMX8Ju5j8IKcmpbO2sB
+         sOFnymugsXu1x21b4PZuFvk3KI8rpCxJSzAUeDRPuNURpkiimzoR/91y0m2jEC6iko17
+         epvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=obs00e+wrJFs2sWumo70dIrKKwlJrD6vLf8ObLD+lkA=;
+        fh=81YiYHLekE2PEZ1OramBqZoWbkD9TzDpfezPi+pqI34=;
+        b=ajzaI9h/CniS15Zd+7yK4QsiBe8Y5RVqTyaAlj70ksRsz0c8mDg7lFt5wvTNV9CTsc
+         RZHswNz6+r0B2O6MfyEigAmRJbeZvIOfPFHKHEBTWCQtqRWgOOq+FKWoK/f3CR0Du1nq
+         o53+1OEqt2x4tLeSqnsqY6yVZaI+/gl8XjZQGeqdZ7CkyTbLAtAUYhPDqJp6RyICAygQ
+         udTusCqkenLhQb41DNEe5hr3Oiripn6OINU3kzAa0KjEQU8hkzN+NSHlIjMsEqV5laUX
+         4OnVsS32RrgR36qEU7x0JHrK5p2SSpLqCIvVrq7thxAOXUi6Z3nRJttpzEWzvmzHR75w
+         jktA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1775143632; x=1775748432; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=obs00e+wrJFs2sWumo70dIrKKwlJrD6vLf8ObLD+lkA=;
+        b=DlkWAdkVMPYSXczYWKiIttT+2qoy1DfjxWqrBC5IG5jPx1LhKo8rWt201RCvg3QuZN
+         +ZKK3b+RB+jQDfOGUn4g73WtwuJINSq4d5PKu0gKujqA4CGsF5EHiDjnYw3h0QOsqiJr
+         n9m5PnFxjjrmRajZDTDftTqPysR2lpYa/Pbm3Nv0Vnl79itFV6FzAWz3fttSiguOANR4
+         EFg7e8gwGr2GUVIzEys5M/cqkFyeBVEONBP46Watgheon9aAB9ElL++v91JxHc8egI2+
+         tbazh/9l8W0HmJ5hzUsneKUrc/py245zLspa3j+ivjlcBaZPtPzV8d4KbSx5r/8iMRAa
+         VG9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775143632; x=1775748432;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=obs00e+wrJFs2sWumo70dIrKKwlJrD6vLf8ObLD+lkA=;
+        b=Dguze0EKMfraiNm51Il3YlRB15Zx43UOLF7fACc8w9i3aF5NquOZvScIXiuncgcwkg
+         T82brY5EFinLrMUfznhdsZoUXFGxcOVg2IEf3u0wpA7Zif3klB0phSrhl73v7ALI/hHB
+         4cMcfdycEdG/M/nL/gaXf9wTWfqv99s5eyZcZMLtmuZSS+4Bq3+5RdnUi+27r08SoA2S
+         raKGua/Cjml7qQm2jdOcMTl7cpEmf9lX5j/d1fwatFuTjfcWn7axx2Ldf884GGgMc2Gc
+         FkXFIN/4Xv1/W7ufa/FL8cKmf+4JTuZ1OivzM7wLgA1RIG8UdsxtwJnuipfxUyQXtvnR
+         2IqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWOAZ3ypJWlU611LveHwn0HdwHxcumGddIcJhRiTqRkeBRjSuyfPGLplG3gPsS5zNNq8kMB7W83tFBQtHCarNsX@lists.infradead.org
+X-Gm-Message-State: AOJu0YyS3tbfGzotv6g/pc0yT75RC9c2N5C+eWVsbi+DqxAn/ts3U5/d
+	KqCfR9ZUpkRTDja6gjtGSLfY4vRQZtcsNT7Xzzk4G9E+vOHgcAxcI2Ozsg6luTn8ViJW5o4B62u
+	r5icc7od9LIoJFqBoLunPNIoaPzgIK3OE9P6X2bve
+X-Gm-Gg: AeBDietXSzfM41T0TpfDkLImoW4Vy4SPA/FsOFg3/G/AkAcHsREf+VF+gRC+xv9k31a
+	4MK7TQR9XZ460zH0sp4TwznCBC9puHVXIcCHDa/DQE6M0LF9m9B++lU69gs45h4Qfk9ovXaBUdX
+	2C3WV/m7BalM0CKTOcBiqwwz6qyduEdps9LeR0xUW7xi11NLmLtELwDb0ma6eewyhXyrMtkV0bB
+	Ot1r9BpcMQYMIyBoXctHtAdqYM0xFOUg2JBPevBaUwutuZsHDN09HECPmkypLB9OS0arP+Zkw+6
+	ClSWam0JYlB189FwZPR40uJ1hA0vrN8rrkjf
+X-Received: by 2002:a17:902:e74e:b0:2ae:575b:2345 with SMTP id
+ d9443c01a7336-2b2784835cemr2064795ad.9.1775143630848; Thu, 02 Apr 2026
+ 08:27:10 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/8] firmware: sysfb: Make CONFIG_SYSFB a user-selectable
- option
-To: Arnd Bergmann <arnd@arndb.de>,
- Javier Martinez Canillas <javierm@redhat.com>,
- Ard Biesheuvel <ardb@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Dave Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, "K. Y. Srinivasan" <kys@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, longli@microsoft.com,
- Helge Deller <deller@gmx.de>
-Cc: linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
- linux-fbdev@vger.kernel.org
-References: <20260402092305.208728-1-tzimmermann@suse.de>
- <20260402092305.208728-4-tzimmermann@suse.de>
- <78f76717-8f1e-41d6-92f7-261df96b84b6@app.fastmail.com>
- <3e466158-c2e5-4e23-934f-dcdbb71ad41f@suse.de>
- <d3d7c545-3b07-4881-a16d-45b6f039de19@app.fastmail.com>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <d3d7c545-3b07-4881-a16d-45b6f039de19@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-4.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FREEMAIL_TO(0.00)[arndb.de,redhat.com,kernel.org,linaro.org,xen0n.name,linux.intel.com,gmail.com,ffwll.ch,microsoft.com,gmx.de];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	ARC_NA(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCPT_COUNT_TWELVE(0.00)[23];
-	MIME_TRACE(0.00)[0:+];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:dkim,suse.de:mid]
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: 71E825BE1C
+References: <20260401-james-spe-impdef-decode-v1-0-ad0d372c220c@linaro.org> <20260401-james-spe-impdef-decode-v1-3-ad0d372c220c@linaro.org>
+In-Reply-To: <20260401-james-spe-impdef-decode-v1-3-ad0d372c220c@linaro.org>
+From: Ian Rogers <irogers@google.com>
+Date: Thu, 2 Apr 2026 08:26:59 -0700
+X-Gm-Features: AQROBzAMz7khfd74Y0zsjFeuyutU7U6Voo59fVJW6yu6K4lYUjWspkQFbEqalcU
+Message-ID: <CAP-5=fVcYOJ_3TWd6won5FVaH2MH6QwLhCoCRnNzzeE-9PgO1Q@mail.gmail.com>
+Subject: Re: [PATCH 3/4] perf arm_spe: Decode Arm N1 IMPDEF events
+To: James Clark <james.clark@linaro.org>
+Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_082715_724523_F2B7828A 
-X-CRM114-Status: GOOD (  29.74  )
+X-CRM114-CacheID: sfid-20260402_082712_758645_71D9BB29 
+X-CRM114-Status: GOOD (  34.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,104 +123,259 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
-
-Am 02.04.26 um 16:59 schrieb Arnd Bergmann:
-> On Thu, Apr 2, 2026, at 16:10, Thomas Zimmermann wrote:
->> Am 02.04.26 um 15:08 schrieb Arnd Bergmann:
->>> On Thu, Apr 2, 2026, at 11:09, Thomas Zimmermann wrote:
->>> I don't really like this part of the series and would prefer
->>> to keep CONFIG_SYSFB hidden as much as possible as an x86
->>> (and EFI) specific implementation detail, with the hope
->>> of eventually seperating out the x86 bits from the EFI ones.
->> You mean, you want to use the EFI-provided framebuffers without the
->> intermediate step of going through sysfb_primary_display?
->>
->> In that case, CONFIG_SYSFB would become an x86-internal thing, right?
-> The part that is still needed from sysfb is the arbitration
-> between DRM_EFI and the PCI device driver for the same hardware,
-> so I think some part of sysfb is clearly needed, in particular
-> the sysfb_disable() function that removes the EFI framebuffer
-> when there is a conflicting simpledrm or hardware specific
-> driver.
-
-We do most of that in the aperture-helper module. (see 
-<linux/aperture.h>). Calling sysfb_disable() from there is a workaround 
-for some corner cases. We can have an EFI-specific function that does 
-the same.
-
-BTW, simpledrm-on-EFI/VESA is considered obsolete and should preferably 
-be removed from that driver. Simpledrm should become a driver for 
-Devicetree nodes of type simple-framebuffer (as it originally has been 
-intended).
-
+On Wed, Apr 1, 2026 at 7:26=E2=80=AFAM James Clark <james.clark@linaro.org>=
+ wrote:
 >
-> The parts that I want to keep out of that is anything
-> related to the x86 boot protocol, non-EFI framebuffers,
-> text console, and kexec handoff, which we don't need on
-> non-x86 UEFI systems.
+> From the TRM [1], N1 has one IMPDEF event which isn't covered by the
+> common list. Add a framework so that more cores can be added in the
+> future and that the N1 IMPDEF event can be decoded. Also increase the
+> size of the buffer because we're adding more strings and if it gets
+> truncated it falls back to a hex dump only.
 >
-> I don't mind the idea of having a sysfb_primary_display
-> in the EFI code if that helps keep EFI sane on x86,
-> but it would be good to make that local to
-> drivers/firmware/efi and (eventually) detached from
-> include/uapi/linux/screen_info.h.
-
-Efidrm retrieves the framebuffer settings from the contained struct 
-screen_info. Disconnecting from screen_info would require separate 
-graphics drivers for x86 and non-x86. If we split off EFI from sysfb, 
-we'd likely need a sysfbdrm driver of some sort. Just saying.
-
-I think we'd also have to duplicate the framebuffer-relocation code that 
-currently works on anything using struct screen_info (see patch 5).
-
+> [1]: https://developer.arm.com/documentation/100616/0401/Statistical-Prof=
+iling-Extension/implementation-defined-features-of-SPE
+> Suggested-by: Al Grant <al.grant@arm.com>
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  tools/perf/util/arm-spe-decoder/Build              |  2 +
+>  .../util/arm-spe-decoder/arm-spe-pkt-decoder.c     | 45 ++++++++++++++++=
+++++--
+>  .../util/arm-spe-decoder/arm-spe-pkt-decoder.h     |  5 ++-
+>  tools/perf/util/arm-spe.c                          | 13 ++++---
+>  4 files changed, 54 insertions(+), 11 deletions(-)
 >
->>> In general, I am always in favor of properly using Kconfig
->>> dependencies over 'select' statements, for the same reasons
->>> you describe, but I don't want the the x86 logic for
->>> the legacy VESA and VGA console handling to leak into more
->>> architectures than necessary.
->>>
->>> Do you think we could instead move the sysfb_init()
->>> function into the same two places that contain the
->>> sysfb_primary_display definition (arch/x86/kernel/setup.c,
->>> drivers/firmware/efi/efi-init.c) and simplify the efi version
->>> to take out the x86 bits? That would reduce the rest
->>> of sysfb-primary.c to the logic to unregister the device,
->>> and that could then be selected by both x86 and EFI.
->> No, I'm more than happy that sysfb finally consolidates all the
->> init-framebuffer setup and detection that floated around in the kernel.
->> I would not want it to be duplicated again.
->>
->> For now, we could certainly keep CONFIG_SYSFB hidden and autoselected.
->> Although I think this will require soem sort of solution at a later point.
-> Can you clarify which problem you are trying to solve
-> with that?
-
-One thing is that some users simply what control over their kernel build.
-
-I also think that there might be systems that want to use 
-sysfb_primary_display (plus the relocation feature), but not create the 
-framebuffer device. Say for efi-earlycon. It needs user-control over the 
-SYSFB option to do that.
-
-As a side-effect, user-configurable SYSFB gives us a nice place to put 
-SYSFB_SIMPLEFB and FIRMWARE_EDID; two options that currently float 
-around in the config somewhat arbitrarily.
-
-Best regards
-Thomas
-
+> diff --git a/tools/perf/util/arm-spe-decoder/Build b/tools/perf/util/arm-=
+spe-decoder/Build
+> index ab500e0efe24..97a298d1e279 100644
+> --- a/tools/perf/util/arm-spe-decoder/Build
+> +++ b/tools/perf/util/arm-spe-decoder/Build
+> @@ -1 +1,3 @@
+>  perf-util-y +=3D arm-spe-pkt-decoder.o arm-spe-decoder.o
+> +
+> +CFLAGS_arm-spe-pkt-decoder.o +=3D -I$(srctree)/tools/arch/arm64/include/=
+ -I$(OUTPUT)arch/arm64/include/generated/
+> diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c b/tool=
+s/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
+> index c880b0dec3a1..42a7501d4dfe 100644
+> --- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
+> +++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
+> @@ -15,6 +15,8 @@
 >
->       Arnd
+>  #include "arm-spe-pkt-decoder.h"
+>
+> +#include "../../arm64/include/asm/cputype.h"
 
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
+Sashiko spotted:
+https://sashiko.dev/#/patchset/20260401-james-spe-impdef-decode-v1-0-ad0d37=
+2c220c%40linaro.org
+"""
+This isn't a bug, but does this include directive rely on accidental
+path normalization?
 
+The relative path ../../arm64/include/asm/cputype.h does not exist relative
+to arm-spe-pkt-decoder.c. It only compiles because the Build file adds
+-I$(srctree)/tools/arch/arm64/include/ to CFLAGS.
 
+Would it be cleaner to use #include <asm/cputype.h> to explicitly rely on
+the include path?
+[ ... ]
+"""
+I wouldn't use <asm/cputype.h> due to cross-compilation and the like,
+instead just add the extra "../" into the include path.
+
+> +
+>  static const char * const arm_spe_packet_name[] =3D {
+>         [ARM_SPE_PAD]           =3D "PAD",
+>         [ARM_SPE_END]           =3D "END",
+> @@ -307,6 +309,11 @@ static const struct ev_string common_ev_strings[] =
+=3D {
+>         { .event =3D 0, .desc =3D NULL },
+>  };
+>
+> +static const struct ev_string n1_event_strings[] =3D {
+> +       { .event =3D 12, .desc =3D "LATE-PREFETCH" },
+> +       { .event =3D 0, .desc =3D NULL },
+> +};
+> +
+>  static u64 print_event_list(int *err, char **buf, size_t *buf_len,
+>                             const struct ev_string *ev_strings, u64 paylo=
+ad)
+>  {
+> @@ -318,14 +325,44 @@ static u64 print_event_list(int *err, char **buf, s=
+ize_t *buf_len,
+>         return payload;
+>  }
+>
+> +struct event_print_handle {
+> +       const struct midr_range *midr_ranges;
+> +       const struct ev_string *ev_strings;
+> +};
+> +
+> +#define EV_PRINT(range, strings)                       \
+> +       {                                       \
+> +               .midr_ranges =3D range,           \
+> +               .ev_strings =3D strings,  \
+> +       }
+> +
+> +static const struct midr_range n1_event_encoding_cpus[] =3D {
+> +       MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N1),
+> +       {},
+> +};
+> +
+> +static const struct event_print_handle event_print_handles[] =3D {
+> +       EV_PRINT(n1_event_encoding_cpus, n1_event_strings),
+> +};
+> +
+>  static int arm_spe_pkt_desc_event(const struct arm_spe_pkt *packet,
+> -                                 char *buf, size_t buf_len)
+> +                                 char *buf, size_t buf_len, u64 midr)
+>  {
+>         u64 payload =3D packet->payload;
+>         int err =3D 0;
+>
+>         arm_spe_pkt_out_string(&err, &buf, &buf_len, "EV");
+> -       print_event_list(&err, &buf, &buf_len, common_ev_strings, payload=
+);
+> +       payload =3D print_event_list(&err, &buf, &buf_len, common_ev_stri=
+ngs,
+> +                                  payload);
+> +
+> +       /* Try to decode IMPDEF bits for known CPUs */
+> +       for (unsigned int i =3D 0; i < ARRAY_SIZE(event_print_handles); i=
+++) {
+> +               if (is_midr_in_range_list(midr,
+> +                                         event_print_handles[i].midr_ran=
+ges))
+> +                       payload =3D print_event_list(&err, &buf, &buf_len=
+,
+> +                                                  event_print_handles[i]=
+.ev_strings,
+> +                                                  payload);
+> +       }
+>
+>         return err;
+>  }
+> @@ -506,7 +543,7 @@ static int arm_spe_pkt_desc_counter(const struct arm_=
+spe_pkt *packet,
+>  }
+>
+>  int arm_spe_pkt_desc(const struct arm_spe_pkt *packet, char *buf,
+> -                    size_t buf_len)
+> +                    size_t buf_len, u64 midr)
+>  {
+>         int idx =3D packet->index;
+>         unsigned long long payload =3D packet->payload;
+> @@ -522,7 +559,7 @@ int arm_spe_pkt_desc(const struct arm_spe_pkt *packet=
+, char *buf,
+>                 arm_spe_pkt_out_string(&err, &buf, &blen, "%s", name);
+>                 break;
+>         case ARM_SPE_EVENTS:
+> -               err =3D arm_spe_pkt_desc_event(packet, buf, buf_len);
+> +               err =3D arm_spe_pkt_desc_event(packet, buf, buf_len, midr=
+);
+>                 break;
+>         case ARM_SPE_OP_TYPE:
+>                 err =3D arm_spe_pkt_desc_op_type(packet, buf, buf_len);
+> diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h b/tool=
+s/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
+> index adf4cde320aa..17b067fe3c87 100644
+> --- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
+> +++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
+> @@ -11,7 +11,7 @@
+>  #include <stddef.h>
+>  #include <stdint.h>
+>
+> -#define ARM_SPE_PKT_DESC_MAX           256
+> +#define ARM_SPE_PKT_DESC_MAX           512
+>
+>  #define ARM_SPE_NEED_MORE_BYTES                -1
+>  #define ARM_SPE_BAD_PACKET             -2
+> @@ -186,5 +186,6 @@ const char *arm_spe_pkt_name(enum arm_spe_pkt_type);
+>  int arm_spe_get_packet(const unsigned char *buf, size_t len,
+>                        struct arm_spe_pkt *packet);
+>
+> -int arm_spe_pkt_desc(const struct arm_spe_pkt *packet, char *buf, size_t=
+ len);
+> +int arm_spe_pkt_desc(const struct arm_spe_pkt *packet, char *buf, size_t=
+ len,
+> +                    u64 midr);
+>  #endif
+> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+> index 7447b000f9cd..46f0309c092b 100644
+> --- a/tools/perf/util/arm-spe.c
+> +++ b/tools/perf/util/arm-spe.c
+> @@ -135,7 +135,7 @@ struct data_source_handle {
+>         }
+>
+>  static void arm_spe_dump(struct arm_spe *spe __maybe_unused,
+> -                        unsigned char *buf, size_t len)
+> +                        unsigned char *buf, size_t len, u64 midr)
+>  {
+>         struct arm_spe_pkt packet;
+>         size_t pos =3D 0;
+> @@ -161,7 +161,7 @@ static void arm_spe_dump(struct arm_spe *spe __maybe_=
+unused,
+>                         color_fprintf(stdout, color, "   ");
+>                 if (ret > 0) {
+>                         ret =3D arm_spe_pkt_desc(&packet, desc,
+> -                                              ARM_SPE_PKT_DESC_MAX);
+> +                                              ARM_SPE_PKT_DESC_MAX, midr=
+);
+>                         if (!ret)
+>                                 color_fprintf(stdout, color, " %s\n", des=
+c);
+>                 } else {
+> @@ -174,10 +174,10 @@ static void arm_spe_dump(struct arm_spe *spe __mayb=
+e_unused,
+>  }
+>
+>  static void arm_spe_dump_event(struct arm_spe *spe, unsigned char *buf,
+> -                              size_t len)
+> +                              size_t len, u64 midr)
+>  {
+>         printf(".\n");
+> -       arm_spe_dump(spe, buf, len);
+> +       arm_spe_dump(spe, buf, len, midr);
+>  }
+>
+>  static int arm_spe_get_trace(struct arm_spe_buffer *b, void *data)
+> @@ -1469,8 +1469,11 @@ static int arm_spe_process_auxtrace_event(struct p=
+erf_session *session,
+>                 /* Dump here now we have copied a piped trace out of the =
+pipe */
+>                 if (dump_trace) {
+>                         if (auxtrace_buffer__get_data(buffer, fd)) {
+> +                               u64 midr =3D 0;
+> +
+> +                               arm_spe__get_midr(spe, buffer->cpu.cpu, &=
+midr);
+
+Sashiko claims to have spotted an issue here:
+"""
+Is it possible for arm_spe__get_midr() to cause a segmentation fault here?
+
+If the trace is from an older recording (metadata version 1) and the
+environment lacks a CPUID string (such as during cross-architecture
+analysis), perf_env__cpuid() returns NULL.
+
+It appears arm_spe__get_midr() then passes this NULL pointer to
+strtol(cpuid, NULL, 16), which leads to undefined behavior.
+"""
+
+But this feels like, if this happens you're already having a bad time
+and these changes aren't necessarily making things worse.
+
+Thanks,
+Ian
+
+>                                 arm_spe_dump_event(spe, buffer->data,
+> -                                               buffer->size);
+> +                                               buffer->size, midr);
+>                                 auxtrace_buffer__put_data(buffer);
+>                         }
+>                 }
+>
+> --
+> 2.34.1
+>
 
