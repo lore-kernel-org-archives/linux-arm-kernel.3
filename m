@@ -4,90 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAB6AD3942E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 021D6D39431
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 14:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=uheuigAt51hXKsD9B+v7gKCUGf5jzHjoKGXCK5IPGks=; b=s82JHa8gy4nWOy
-	hzdewXiAEFbPRP3d0o/jhhX/8GJ5dz11qns24as7dEe4GN5UJbo/pI3djphu/7S9y8QIJjbLSpJ8Q
-	4XUnwmRNfncZpKLAQWjr3dkTEMv7LMsmmRR1Xul8fWwQPkr3xyoY/x76xuhtNmUs7k+P7D2MptD61
-	qBCdfJQOiyHvBYC0PNECPCkOf63ZYQXVHwVbLYZCaXrWpTiek/Mng2YkBSixHRoXZtFcKn4Q5YTuM
-	jInFYMu7iWDyubcUi6GpNNNh/V4XSz0KBXuIkXMC5Jg/Y1+ZUWipITtdO62o5eMGyGVRs+xeFz6Sr
-	yWyaltfscFd1InFM5hXw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2BzcSw7vPRFLh2EUBcrYhqUwnxbIkB4ljkpRES7Otzs=; b=mnzjRYDpyrPsss+QLaXUkFyeqo
+	cW6IoX6q99OPCTMuFYOiUybYYewZCo0wsSRu7mASWqQMxuv3yq5uY+jT/2CWpV4TNFb4kAcfMSHzS
+	KSo6azSHhv7OS7h+UteiWPfEgBtyix7AnwDA5E3oEvMcGZV1SOXiTL+9LPvcvVT8vs/K17pSRUTlN
+	YWwTD3dCOP7Gld4pfuOLjSnvCCdnIKkUOTp2o0cEjj1KNMJ2Yti+//xDcxBLC2utm5oK30lCOAyCN
+	3ZjSkgrOFSxNgu3O06DjyLuaZh2WP6JQzrF/xqeFtBybX5Q1gBFrzor/1gggpP2uLVYuzol5/xoLX
+	VbvgpUrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8J1Y-00000000Kmh-3Z5E;
-	Thu, 02 Apr 2026 14:27:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w8J1X-00000000KkQ-3rQi;
+	Thu, 02 Apr 2026 14:27:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8J1Y-00000000Kjg-15GJ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 14:27:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3A004600C4;
-	Thu,  2 Apr 2026 14:27:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CDECC116C6;
-	Thu,  2 Apr 2026 14:27:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775140074;
-	bh=Zer/BJD+qJqeBtob+isjMLL/b+ilLo5Tgi4DcTu1vu0=;
-	h=From:Subject:Date:To:Cc:From;
-	b=S4b7ctXJxnf+ZsiRGJaBCXbBWCNAusE0H5aSNAbYVB8YMWhXLLscg3uvZrwL0kI3z
-	 YeA4WglrmVRjUrvU1/0/MkuWlJTJGZcSUEC/9FzD9TvG6pFw0e6I+5z6Ue2Xd6Fswy
-	 vmTLrhmV94Wtssm7kOk7QBONGTtExTu0JeIp4Sf+njAuyzu8aht14JPKUOD9ID7Hps
-	 9ojezoGOoICwjAaE51P6XYk73bYF62yhRpGA8pouvb6i+ASx7sBnpnl9VwODsOIPKh
-	 zBdUVcYk/cEtVYhDs3vrpeg8esHZH/IGEqZR2WKxjaX/ZpIK84qr9M2VUm1uHgK7nc
-	 PN0tV1nss3W3A==
-From: Thierry Reding <thierry.reding@kernel.org>
-Subject: [PATCH v4 0/4] PCI: tegra: Add Tegra264 support
-Date: Thu, 02 Apr 2026 16:27:34 +0200
-Message-Id: <20260402-tegra264-pcie-v4-0-21e2e19987e8@nvidia.com>
+	id 1w8J1U-00000000KdQ-0LOS;
+	Thu, 02 Apr 2026 14:27:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=2BzcSw7vPRFLh2EUBcrYhqUwnxbIkB4ljkpRES7Otzs=; b=jvfBJSgkGjD95hX+o56hhuyeEy
+	2vejlgUjP+kpT+wKbVLSCI6RHdgRnnQfhxvsrHW8zLC1USwXzQcA8CrWTu353Mv/wKFyXyh5hxGaF
+	konQejdv3eAiRuk4ok4TBxkzCK8p+2guFOhFXdZKVv9VVhob3hMJBGQLEE+6IZ6E9u3h2UbbmMrL9
+	Mdknfxsp1aU59usJseZBIYTBuCXUHOTnutlNSvwt1VwEd9bnbmYE0+LgF5kgUb5tW4jHqzwFAwPdR
+	S08QKNBNXquie6E1M9kf7NHHe3popfVU4+DNpbA3XOVWihpp5F60qNVvpAci2BIApAB083JKM4W4j
+	zSbEGRVg==;
+Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8J1P-00000002gC7-14BO;
+	Thu, 02 Apr 2026 14:27:51 +0000
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1775140056;
+	bh=emjopVGd5uVLfwcqEy71jr1NYUE1/T1lgxk1RfDuCzk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=LArVNGDz1k+jbYHRcZFcAJZMtXt6KJXbGs0mjJ36pKOjlD2Rvzo/0PAPCNqcqPt7p
+	 ZuzVrr2gzw2tt8CKwcDB8PHMS++6KEeCxOJhsg1mWl/HPEJSdZysL/u1NMJcXYWRjs
+	 vZKpYh5yyqbBlr5NlQ8qyIEL6X9xlXoQMI+1NXuE=
+Date: Thu, 02 Apr 2026 16:27:04 +0200
+Subject: [PATCH 4/8] mfd: khadas-mcu: Add support for VIM4 MCU variant
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNQQ6CMBBFr2K6tk1n2oK48h7GBcIIowbIFInGc
- HeLblzpZvJ/8t+bp4okTFFtV08lNHHkvkvFr1eqasuuIc116gotZtZb1CM1UmLm9VAxaXK2PBK
- 6urS5SswgdOL727c/fHq8Hc9UjYtkWbQcx14e74cTLLuP20EBmQWwBiHl4DXosWUSeRihmrtmd
- yHp6Gp6adTinvCLTheD985gyKFA+59233QGLmxCMJgXAXzxm57n+QVw0+cMOAEAAA==
-X-Change-ID: 20260402-tegra264-pcie-e30abe23da07
-To: Bjorn Helgaas <bhelgaas@google.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thierry Reding <thierry.reding@gmail.com>, 
- Jonathan Hunter <jonathanh@nvidia.com>, 
- Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
- Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
- Michal Simek <michal.simek@amd.com>, Kevin Xie <kevin.xie@starfivetech.com>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>, 
- Manikanta Maddireddy <mmaddireddy@nvidia.com>
-X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2819; i=treding@nvidia.com;
- h=from:subject:message-id; bh=Zer/BJD+qJqeBtob+isjMLL/b+ilLo5Tgi4DcTu1vu0=;
- b=owEBbQKS/ZANAwAKAd0jrNd/PrOhAcsmYgBpznzn8GyWDCsk1KnLx87ijwIsQ/CXd+W6jaRvz
- pYORK2DmqCJAjMEAAEKAB0WIQSI6sMIAUnM98CNyJ/dI6zXfz6zoQUCac585wAKCRDdI6zXfz6z
- oWqnEACMzABpCGQB5QXhKC4LEdSLeJcPJRNZXPlzNzEEQPiyHCdNBOi0FeNAEDqd5smgl4E6vtj
- Gio5rrUK6cCmPlAfN50Ne6AhAqGjuxzhgXPrGnkAXswhUIPs9sf/UrDP0ze2nNrd1/kYFvAe/Av
- NoIvra40dSEw4p6F1wucit7xC3ICCtLl7PWs4R8+CLM/mVRV3XR5G4gj9e4Hj8uzMJMCfN56EFc
- qgDj2OT37ewuSItdcySi0LpPydLhYd5+pWrFCvfL0xldAoTkt6kpvMQrlr8Z8tMufYVT8ZN8bLj
- e/9xk326peBDniUdJ0qm1FT2q+/MW2mVrOeZzJJC9Gu7cA4oBbpElmxE/9h+W3Doe/bl6GSs3fb
- M0dNca/uFpnXptbS6p2JIhbjwH2JcJcPoBwUZSKx5OvsNLNBdJCegmZcvlhBfixTM5AmbbSVkZ6
- UaUjYO0w17ZUanXoNjGsIhKN0FEzjSjgGxa+SncXAlIv1LOuZwXXYbE8+iOuHxkmcs/FKZT6kZ8
- DDCFhevxHUGMtnsleZTQi5BtoIsgZFYL1CqtrkSRujlwGhlBzUO6/CT65ZluAp6ZtKD1RZ779d5
- 6JT0LnQgP21WPDPZuBbHe1FiDAB79fSenKiLeX/vhBENsVDvXTio1Q7/WR10QyKEObu9i1KSIwX
- z4qZRDuviV3Yf1g==
-X-Developer-Key: i=treding@nvidia.com; a=openpgp;
- fpr=88EAC3080149CCF7C08DC89FDD23ACD77F3EB3A1
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260402-add-mcu-fan-khadas-vim4-v1-4-2b12eb4ac7b0@aliel.fr>
+References: <20260402-add-mcu-fan-khadas-vim4-v1-0-2b12eb4ac7b0@aliel.fr>
+In-Reply-To: <20260402-add-mcu-fan-khadas-vim4-v1-0-2b12eb4ac7b0@aliel.fr>
+To: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Beniamino Galvani <b.galvani@gmail.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>
+Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openssh-sha256; t=1775140050; l=5062;
+ i=linux-kernel-dev@aliel.fr; s=id_ed25519; h=from:subject:message-id;
+ bh=emjopVGd5uVLfwcqEy71jr1NYUE1/T1lgxk1RfDuCzk=;
+ b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgMGec55oxeeisqykQiUedekMYyOnR9
+ BG9E/7rDWyqdNoAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
+ QNFYGQ22wUjcnZ7vapC00QSDl8zs3C3axoxoPUnw3mtHhXNUtMbUbdXtrGLLR337SdvqCIKaqud
+ uc3tkbtkOzwk=
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openssh;
+ fpr=SHA256:kch4osYZ6A1BrPps5AUs6KnfdE2wm4ocMtyTc8TmZMs
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260402_152749_493012_7BF527D8 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,71 +97,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Refactor probe() to use per-variant khadas_mcu_data
+instead of hardcoded globals.
 
-this series adds support for the PCIe controllers found on the Tegra264
-SoC. There are six instances, one of which is for internal purposes only
-and the other five are general purpose.
+Add dedicated regmap configuration and device data for the VIM4 MCU,
+with its own volatile/writeable registers.
 
-The first two patches in the series add the BPMP support needed to power
-up/down the PCI link. Patch 3 contains the device tree bindings for the
-PCIe controller. Before adding the driver in patch 5, patch 4 introduces
-some new common wait times for PCIe and unifies the way that drivers use
-them. Finally, patch 6 adds DT nodes for the controllers found on the
-Tegra264 SoC.
+Add the fan control register
+(0–100 levels vs 0–3 for previous supported boards).
 
-Note that this cannot be applied for v7.1-rc1 because there's a build
-dependency that's going through the Tegra tree. If you'd like to merge
-this, please let me know and I can provide a branch with the
-dependencies resolved.
+Add a new compatible string "khadas,vim4-mcu".
 
-Changes in v4:
-- strip out dependencies that are going in through the ARM SoC tree
-- revert bindings to oneOf construct so that we don't produce new DTC
-  warnings
-- Link to v3: https://patch.msgid.link/20260326135855.2795149-1-thierry.reding@kernel.org
-
-Changes in v3:
-- integrate PCI standard wait times patch into the series to maintain
-  bisectability
-- fix review comments from Mikko
-- Link to v2: https://patch.msgid.link/20260320225443.2571920-1-thierry.reding@kernel.org
-
-Changes in v2:
-- fix an issue with sanity-checking disabled BARs
-- address review comments
-- Link to v1: https://patch.msgid.link/20260319160110.2131954-1-thierry.reding@kernel.org
-
-Thanks,
-Thierry
-
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 ---
-Thierry Reding (4):
-      dt-bindings: pci: Document the NVIDIA Tegra264 PCIe controller
-      PCI: Use standard wait times for PCIe link monitoring
-      PCI: tegra: Add Tegra264 support
-      arm64: tegra: Add PCI controllers on Tegra264
+ drivers/mfd/khadas-mcu.c | 106 ++++++++++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 95 insertions(+), 11 deletions(-)
 
- .../bindings/pci/nvidia,tegra264-pcie.yaml         | 174 +++++++
- arch/arm64/boot/dts/nvidia/tegra264.dtsi           | 248 ++++++++--
- drivers/pci/controller/Kconfig                     |  10 +-
- drivers/pci/controller/Makefile                    |   1 +
- .../controller/cadence/pcie-cadence-host-common.c  |   6 +-
- .../pci/controller/cadence/pcie-cadence-lga-regs.h |   5 -
- drivers/pci/controller/mobiveil/pcie-mobiveil.c    |   4 +-
- drivers/pci/controller/mobiveil/pcie-mobiveil.h    |   5 -
- drivers/pci/controller/pci-aardvark.c              |   7 +-
- drivers/pci/controller/pcie-tegra264.c             | 527 +++++++++++++++++++++
- drivers/pci/controller/pcie-xilinx-nwl.c           |   9 +-
- drivers/pci/controller/plda/pcie-starfive.c        |   9 +-
- drivers/pci/pci.h                                  |   2 +
- 13 files changed, 946 insertions(+), 61 deletions(-)
----
-base-commit: bfbb8533d7293235b71e4096cc0bc9a5c0c20b20
-change-id: 20260402-tegra264-pcie-e30abe23da07
+diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
+index ba981a7886921..b36b3b3ab73c0 100644
+--- a/drivers/mfd/khadas-mcu.c
++++ b/drivers/mfd/khadas-mcu.c
+@@ -75,15 +75,91 @@ static const struct regmap_config khadas_mcu_regmap_config = {
+ 	.cache_type	= REGCACHE_MAPLE,
+ };
+ 
++static const struct khadas_mcu_fan_pdata khadas_mcu_fan_pdata = {
++	.fan_reg	= KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
++	.max_level	= 3,
++};
++
+ static struct mfd_cell khadas_mcu_fan_cells[] = {
+ 	/* VIM1/2 Rev13+ and VIM3 only */
+-	{ .name = "khadas-mcu-fan-ctrl", },
++	{
++		.name = "khadas-mcu-fan-ctrl",
++		.platform_data = &khadas_mcu_fan_pdata,
++		.pdata_size    = sizeof(khadas_mcu_fan_pdata),
++	},
+ };
+ 
+ static struct mfd_cell khadas_mcu_cells[] = {
+ 	{ .name = "khadas-mcu-user-mem", },
+ };
+ 
++static const struct khadas_mcu_data khadas_mcu_data = {
++	.regmap_config	= &khadas_mcu_regmap_config,
++	.cells		= khadas_mcu_cells,
++	.ncells		= ARRAY_SIZE(khadas_mcu_cells),
++	.fan_cells	= khadas_mcu_fan_cells,
++	.nfan_cells	= ARRAY_SIZE(khadas_mcu_fan_cells),
++};
++
++static bool khadas_mcu_vim4_reg_volatile(struct device *dev, unsigned int reg)
++{
++	switch (reg) {
++	case KHADAS_MCU_PWR_OFF_CMD_REG:
++	case KHADAS_MCU_VIM4_REST_CONF_REG:
++	case KHADAS_MCU_WOL_INIT_START_REG:
++	case KHADAS_MCU_VIM4_LED_ON_RAM_REG:
++	case KHADAS_MCU_VIM4_FAN_CTRL_REG:
++	case KHADAS_MCU_VIM4_WDT_EN_REG:
++	case KHADAS_MCU_VIM4_SYS_RST_REG:
++		return true;
++	default:
++		return false;
++	}
++}
++
++static bool khadas_mcu_vim4_reg_writeable(struct device *dev, unsigned int reg)
++{
++	switch (reg) {
++	case KHADAS_MCU_VERSION_0_REG:
++	case KHADAS_MCU_VERSION_1_REG:
++	case KHADAS_MCU_SHUTDOWN_NORMAL_STATUS_REG:
++		return false;
++	default:
++		return true;
++	}
++}
++
++static const struct regmap_config khadas_mcu_vim4_regmap_config = {
++	.reg_bits	= 8,
++	.reg_stride	= 1,
++	.val_bits	= 8,
++	.max_register	= KHADAS_MCU_VIM4_SYS_RST_REG,
++	.volatile_reg	= khadas_mcu_vim4_reg_volatile,
++	.writeable_reg	= khadas_mcu_vim4_reg_writeable,
++	.cache_type	= REGCACHE_MAPLE,
++};
++
++static const struct khadas_mcu_fan_pdata khadas_vim4_fan_pdata = {
++	.fan_reg	= KHADAS_MCU_VIM4_FAN_CTRL_REG,
++	.max_level	= 0x64,
++};
++
++static const struct mfd_cell khadas_mcu_vim4_cells[] = {
++	{
++		.name		= "khadas-mcu-fan-ctrl",
++		.platform_data	= &khadas_vim4_fan_pdata,
++		.pdata_size	= sizeof(khadas_vim4_fan_pdata),
++	},
++};
++
++static const struct khadas_mcu_data khadas_vim4_mcu_data = {
++	.regmap_config	= &khadas_mcu_vim4_regmap_config,
++	.cells		= NULL,
++	.ncells		= 0,
++	.fan_cells	= khadas_mcu_vim4_cells,
++	.nfan_cells	= ARRAY_SIZE(khadas_mcu_vim4_cells),
++};
++
+ static int khadas_mcu_probe(struct i2c_client *client)
+ {
+ 	struct device *dev = &client->dev;
+@@ -94,28 +170,35 @@ static int khadas_mcu_probe(struct i2c_client *client)
+ 	if (!ddata)
+ 		return -ENOMEM;
+ 
++	ddata->data = i2c_get_match_data(client);
++	if (!ddata->data)
++		return -EINVAL;
++
+ 	i2c_set_clientdata(client, ddata);
+ 
+ 	ddata->dev = dev;
+ 
+-	ddata->regmap = devm_regmap_init_i2c(client, &khadas_mcu_regmap_config);
++	ddata->regmap = devm_regmap_init_i2c(client,
++					     ddata->data->regmap_config);
+ 	if (IS_ERR(ddata->regmap)) {
+ 		ret = PTR_ERR(ddata->regmap);
+ 		dev_err(dev, "Failed to allocate register map: %d\n", ret);
+ 		return ret;
+ 	}
+ 
+-	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+-				   khadas_mcu_cells,
+-				   ARRAY_SIZE(khadas_mcu_cells),
+-				   NULL, 0, NULL);
+-	if (ret)
+-		return ret;
++	if (ddata->data->cells && ddata->data->ncells) {
++		ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
++					   ddata->data->cells,
++					   ddata->data->ncells,
++					   NULL, 0, NULL);
++		if (ret)
++			return ret;
++	}
+ 
+ 	if (of_property_present(dev->of_node, "#cooling-cells"))
+ 		return devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+-					    khadas_mcu_fan_cells,
+-					    ARRAY_SIZE(khadas_mcu_fan_cells),
++					    ddata->data->fan_cells,
++					    ddata->data->nfan_cells,
+ 					    NULL, 0, NULL);
+ 
+ 	return 0;
+@@ -123,7 +206,8 @@ static int khadas_mcu_probe(struct i2c_client *client)
+ 
+ #ifdef CONFIG_OF
+ static const struct of_device_id khadas_mcu_of_match[] = {
+-	{ .compatible = "khadas,mcu", },
++	{ .compatible = "khadas,mcu", .data = &khadas_mcu_data },
++	{ .compatible = "khadas,vim4-mcu", .data = &khadas_vim4_mcu_data },
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, khadas_mcu_of_match);
 
-Best regards,
---  
-Thierry Reding <treding@nvidia.com>
+-- 
+2.49.0
 
 
