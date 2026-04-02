@@ -4,79 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C323D6AAF4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 17:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67FDBD6AAF4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 17:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OBUNBOUtPI/k+VSXotfbt5ddiQ0C3Y6bmoMp5MELPG0=; b=AqgmC9hleiR7gOxnvFBm/MrVer
-	NNToO7hTRysosHDHEtJMIm577FUPFw3JNCB/efmiRZa7oPI/LTxw1chOXC54gT21GwuqmAV2bHy3l
-	INsJVWDpBdB/ytggQHAHov2VsqQjWqNAzAt5uaM2m54txPqoDB9xlI2OXXMJcM7F2C366ZhEq7GlU
-	AMDSGw6UdXDMBHtij1NJY7DNYrSBmsvc38DiTeJw50bmZFQ5Lvna9rOCWMeYbLbESrBqigxSa/gi0
-	bygX+YSLVAptyRgjnnPGuNPRca94gI+rZ2eGbnbGvOGUG8hKiRt7hkpdZw8fNbgMpS2qk6+HAFXDH
-	2KJHdp9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tq7FG4Q/QQKaF2KEXQXUS/wC9EocSmykX6qtekYg6N8=; b=uSvqvNeu6c97Yeu3gLL9Pf/Ld5
+	f1W5g0Ar5e5lbB6svfwB6T850zr2dM60BZlYAdBYQu+33vEAT9BiLScwnv/kBC3k8Ka30JC20XndO
+	lMCEsSWXZBEBRA/eXcGGYJAtm+2hAqw9hIC63xmzy2smxDClvqdGQtcnagU1ZblTlfWDQHLC8yla9
+	ibhUsYwmebNxm4GWD6ZIToXbYT0MteKKVtnOqUTuVHkNDEol/bNGSraoFN25xbV+vCImhHO/FQunp
+	SJht2KfB0n8EcXLWXdG+BzA3LmSU7ttnWMcbnkksdUwHtEECIAjJA0Yx9d5/CahoVUEjfEkroM5dV
+	TjNtCrHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8LfI-00000000aMf-49lX;
-	Thu, 02 Apr 2026 17:17:09 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1w8LmR-00000000af0-0eCU;
+	Thu, 02 Apr 2026 17:24:31 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8LfG-00000000aLv-0PRq
+	id 1w8LmO-00000000aee-3Uiy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 17:17:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=OBUNBOUtPI/k+VSXotfbt5ddiQ0C3Y6bmoMp5MELPG0=; b=jhQTOP6FbSgr96iF6NQ9PpTjPG
-	AMS8+vlXjAla1qlHlpYHs5nczppotue/hndP1ILMlgEIPAG9yuQxsYS3xiqtFL62ks9jszKXB/Ynj
-	AuDOmaI8uNBDjn05w5PCtk7+AL0k4mp3kEaMZ2rz9Y4IG1emsEK77XPZTA8euj7WpkcpCeyWN523Q
-	Tl0vm6hYqwLU3qV+7GICIKlCoM6ObHoFB9XK3zo/tAl1yjqeS0/TZJW5bSp7Jzd5ipTttcA9VLMVq
-	1gWirMUKBSmjLVn4PDvmaWHRTnYLdRyA5o1ycnuYBZLKTiXLE/E/QEcdeYdku9dF51cvqMz+IMbET
-	Zcel0E+Q==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:52218)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w8Lf0-000000004kJ-2mdR;
-	Thu, 02 Apr 2026 18:16:50 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w8Lew-000000005wN-0dmu;
-	Thu, 02 Apr 2026 18:16:46 +0100
-Date: Thu, 2 Apr 2026 18:16:45 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Sam Edwards <cfsworks@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Baruch Siach <baruch@tkos.co.il>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v4 0/2] stmmac crash/stall fixes when under memory
- pressure
-Message-ID: <ac6kfQ98Xjt3dCGj@shell.armlinux.org.uk>
-References: <20260401041929.12392-1-CFSworks@gmail.com>
+	Thu, 02 Apr 2026 17:24:30 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 632G4g6V1525615
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 2 Apr 2026 17:24:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Tq7FG4Q/QQKaF2KEXQXUS/wC9EocSmykX6qtekYg6N8=; b=mFC0AVfuix9ruhKO
+	2rGfv66jE8X9lHZzyBOFBYXnnbdWbHnaX3BjpilwYpaa7SL5mXjYSGO8f/jFogFr
+	qP9crl788a84vPk3NAr+vD44RImcctGCHK4BXFT1tCtBYEc+xcbucdoBdvk0Wox2
+	4G+68fXHdj9LcIorXfL4RPn3PnJR0qATNcdazH/G+3ggI538DvGX/BfRe7/0rzjE
+	yK8jLAgyDk7ng+/sS9YOpNVQjcvckiifMh+LGbSL6j/Myt41yQtBYLMaTVgGa7E1
+	drZq/ZAz2L8N39yhj5vbRpW5qWaV2uUvkIxsbKOTl/zxS22G2YGhUN+0EH1Wtb0m
+	NA+sXg==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d9jcuauxy-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 17:24:26 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-50d5aa81907so12205311cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 10:24:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1775150666; x=1775755466; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Tq7FG4Q/QQKaF2KEXQXUS/wC9EocSmykX6qtekYg6N8=;
+        b=JTmfqWuTpsPxsI2RpD2trC0/zSB6S03PCpi71NsbCfm0nwoHsrVrcBopJ+zNz3QaYn
+         URhsZ8+zZT+e2DppNcltR2wW4egmJSYWzxtH8DPvy9iDQmz2DiBuxlGCn8HW6wJvjnyA
+         Z40N+HahqQQ1CVBJYR0lngbWt6aSHTPUcRdhaYMPtdH7GDV5e6HpMy5W1I5rXkvjQqB3
+         Uo4ME0F0mqd7bhTZl77+Y2NHGEkduhA3gsA3kCIZKuFFS9lu/WD9VkD8HBnmy3Evxdsb
+         S7t+yzB+dnwcwEO+r8qIS8T4X2gdjEx+VEw/LB0bz9KtfkcUstoz29qWL+Jylu0Q/qm/
+         HmUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775150666; x=1775755466;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Tq7FG4Q/QQKaF2KEXQXUS/wC9EocSmykX6qtekYg6N8=;
+        b=qXPV77lxgIrtmlI4/kXUXe2B+eLqKqXjtd4rZ7PAXAJzuOPuuQ7R9o4CWwm9hkzCVY
+         Uwyr+J+Wnc/3CWgcXvb9DYtN0NrRLOZ4TaZ72/UNjOv837CXZq08vNmqxImHeXsypcFb
+         GmbqA1OSL6o1R7HpILdPAHNvL3bbZVzS81RQpm/8iaOFoJgdVFThSjM4KZFifIHoBfHa
+         RoE165RF17zZiKBo7fHYL+Z9ha4JN/3rDMw5Fa0mTXohijUttCZetszaoxuvsLF7qRBl
+         QxMKT+PNZi0ZMCt2DV3ggpVBR8VllmmmsxUywsdiFeSeXYmKabdRLqre5cpB+BSSpVnI
+         px4w==
+X-Forwarded-Encrypted: i=1; AJvYcCXsXdWqRiuV5sp67SUagCkr9npHvd8dIt+J4kCDNsaFF6IciHD0wEeWU35KV3K7+vSXyVyo9Kk9YfyYqbq/eeVC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyxd8vV4dQmSWi0Rx7nvseWMOKNa1FwtIF7DvXPzEMarJPrHzdl
+	s2FcTf4WvchtB9Znc0TyhN7QtFb4YUNvLyYJIjafK9yDEECaH14c2k+c6RixA4chWOJ64RCpiFU
+	puBd0OOts6QKWoG4FM2hg9VOrJ3GyalZzWmDGkOb/fUGtKnha9omhGcS3O/xFF8dUQrM/b3/dRs
+	t+2g==
+X-Gm-Gg: ATEYQzymltcczJeUdokp3VnH8nYnlYwkSkj0XJ5YrufaSVMpaO3oCkArTcig8tWw+cn
+	T4MBeWnnQre+seyDYo+dYak8szRcsiyJ7iL1IF8yvfqdRLT/kdzK8E/Z8su4lrYr0Li3th+cuIi
+	znK+Em188L8q/3dft2Xz3TwH8XOU0jnDEeKVNZSU5Npwo7ww1dFNT06vc84pqkWV5jC380Ube+M
+	M6uc4lh0uM/7pnWzqUSmoUOY0nMR4A4r3vr3QWQdYYbZ9L+X3e4pcMmfsy6CavnDZBOUv/dCs/j
+	WKiX4qBf5AOtWWsi9cvtC3PN2OqT/vSclkWRlAcaNPVfjze6Vf6GcSxm+1w3VBt6Po+9L2rAM/W
+	nfpqwfHFEQ/j3pILvnJXb7X9Xcd03d8ioiUuMKEmxqtagw5TW5egouxQ/Z0OpHwZCTr0t1toDLO
+	zjFfDBycLU
+X-Received: by 2002:a05:622a:5810:b0:50b:4b2f:1606 with SMTP id d75a77b69052e-50d62750dbbmr3336251cf.15.1775150666314;
+        Thu, 02 Apr 2026 10:24:26 -0700 (PDT)
+X-Received: by 2002:a05:622a:5810:b0:50b:4b2f:1606 with SMTP id d75a77b69052e-50d62750dbbmr3335801cf.15.1775150665896;
+        Thu, 02 Apr 2026 10:24:25 -0700 (PDT)
+Received: from ?IPV6:2a05:6e02:1041:c10:ae20:597c:99b8:d161? ([2a05:6e02:1041:c10:ae20:597c:99b8:d161])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d1e4d58e5sm11345379f8f.23.2026.04.02.10.24.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 02 Apr 2026 10:24:25 -0700 (PDT)
+Message-ID: <471ec056-3b67-4ed0-bd8a-9c4644eb8672@oss.qualcomm.com>
+Date: Thu, 2 Apr 2026 19:24:24 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260401041929.12392-1-CFSworks@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND] thermal/drivers/brcmstb_thermal: Use max to
+ simplify brcmstb_get_temp
+To: Thorsten Blum <thorsten.blum@linux.dev>,
+        Markus Mayer <mmayer@broadcom.com>,
+        Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+        Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+References: <20260402165616.895305-3-thorsten.blum@linux.dev>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+In-Reply-To: <20260402165616.895305-3-thorsten.blum@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAyMDE1NSBTYWx0ZWRfX8Wf/PdiR8vAe
+ nDEfzyDcHtmPQCuAuiiYA/i512cQDgRWXb05JtegUNnaIGsnSzs1fruy8jgWdqW3Kd7Y1j3luUF
+ zmgAkAhJHVMVkbVgVMgriXZAScWn7n4S79zoiUGhAAbQMyPdau7tZuea641MxAEG5ofBDAHdlOU
+ X+z94uSZHE6YfySRKeje2+sUxsjaDrwhRs8IIbMSkLj8+k4rSNnOKy+AAbsu37+8Arf6I/6zljl
+ gzkQK1yg34OGdMhN8fweyi8V1N+4CYaGIWU3ESUeGkAHDDaioJ/KdxnhcpWNbZ7yXsaxLDWuTby
+ dbnIbruy3twzsGenxmHT7wMwctje2RF7ytZX1fF9Ek0M3ISJypbKGzcTb+jtY0/yENnJjdhVO7p
+ ++0PoM+Thgbx53CHtehZYuJ7vmIdG5AI+EMlOF1rd7eSCf216BeMjgzlGv84U+sMZlVS7wlnu7l
+ opzpwOHEbMVPm+gd6xw==
+X-Proofpoint-GUID: q_sTVzHK0AeVyVp-W1AfZJg5vnsAfc88
+X-Authority-Analysis: v=2.4 cv=eYYwvrEH c=1 sm=1 tr=0 ts=69cea64b cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=Q-fNiiVtAAAA:8
+ a=z1V0bBGJbCNoM0m4n84A:9 a=QEXdDO2ut3YA:10 a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-ORIG-GUID: q_sTVzHK0AeVyVp-W1AfZJg5vnsAfc88
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-02_03,2026-04-02_05,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 priorityscore=1501 lowpriorityscore=0 phishscore=0
+ impostorscore=0 malwarescore=0 bulkscore=0 adultscore=0 clxscore=1015
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
+ definitions=main-2604020155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_101706_296606_606DE47C 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20260402_102429_045000_9EE5F52A 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,282 +154,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 31, 2026 at 09:19:27PM -0700, Sam Edwards wrote:
-> Hi netdev,
+On 4/2/26 18:56, Thorsten Blum wrote:
+> Use max() to simplify brcmstb_get_temp() and improve its readability.
+> Since avs_tmon_code_to_temp() returns an int, change the data type of
+> the local variable 't' from long to int.  No functional changes.
 > 
-> This is v4 of my series containing a pair of bugfixes for the stmmac driver's
-> receive pipeline. These issues occur when stmmac_rx_refill() does not (fully)
-> succeed, which happens more frequently when free memory is low.
-> 
-> The first patch closes Bugzilla bug #221010 [1], where stmmac_rx() can circle
-> around to a still-dirty descriptor (with a NULL buffer pointer), mistake it for
-> a filled descriptor (due to OWN=0), and attempt to dereference the buffer.
-> 
-> In testing that patch, I discovered a second issue: starvation of available RX
-> buffers causes the NIC to stop sending interrupts; if the driver stops polling,
-> it will wait indefinitely for an interrupt that will never come. (Note: the
-> first patch makes this issue more prominent -- mostly because it lets the
-> system survive long enough to exhibit it -- but doesn't *cause* it.) The second
-> patch addresses that problem as well.
-> 
-> Both patches are minimal, appropriate for stable, and designated to `net`. My
-> focus is on small, obviously-correct, easy-to-explain changes: I'll follow up
-> with another patch/series (something like [2]) for `net-next` that fixes the
-> ring in a more robust way.
-> 
-> The tx and zc paths seem to have similar low-memory bugs, to be addressed in
-> separate series.
+> Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+> ---
 
-I've tested this on my Jetson Xavier platform. One of the issues I've
-had is that running iperf3 results in the receive side stalling because
-it runs out of descriptors. However, despite the receive ring
-eventually being re-filled and the hardware appropriately prodded, it
-steadfastly refuses to restart, despite the descriptors having been
-updated.
+Applied, thanks
 
-What I can see is there's 40 packets in the internal FIFOs via the
-PRXQ[13:0] field of the ETH_MTLRXQxDR register.
-
-With your patches applied:
-
-root@tegra-ubuntu:~# iperf3 -c 192.168.248.1 -R
-Connecting to host 192.168.248.1, port 5201
-Reverse mode, remote host 192.168.248.1 is sending
-[  5] local 192.168.248.174 port 43728 connected to 192.168.248.1 port 5201
-[ ID] Interval           Transfer     Bitrate
-[  5]   0.00-1.00   sec  30.3 MBytes   254 Mbits/sec
-[  5]   1.00-2.00   sec  0.00 Bytes  0.00 bits/sec
-[  5]   2.00-3.00   sec  0.00 Bytes  0.00 bits/sec
-[  5]   3.00-4.00   sec  0.00 Bytes  0.00 bits/sec
-[  5]   4.00-5.00   sec  0.00 Bytes  0.00 bits/sec
-[  5]   5.00-6.00   sec  0.00 Bytes  0.00 bits/sec
-...
-
-The remote system says:
-
-Accepted connection from 192.168.248.174, port 43720
-[  5] local 192.168.248.1 port 5201 connected to 192.168.248.174 port 43728
-[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
-[  5]   0.00-1.00   sec  31.8 MBytes   266 Mbits/sec    1   1.41 KBytes
-[  5]   1.00-2.00   sec  0.00 Bytes  0.00 bits/sec    1   1.41 KBytes
-[  5]   2.00-3.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-
-This is a dwmac v5.0. I think the relevant registers are:
-
-ETH_MTLQxICSR: Value at address 0x02490d2c: 0x00000002
-
-ETH_MTLRXQxDR: Value at address 0x02490d38: 0x00280020
-
- PRXQ[13:0]: Number of Packets in Receive Queue = 40
- RXQSTS[1:0]: MTL Rx Queue Fill-Level status = 2 (Rx queue fill-level
- above flow-control activate threshold)
- RRXSTS[1:0]: MTL Rx Queue Read Controller State = 0 (Idle)
- RWCSTS: MTL Rx Queue Write Controller Active Status = 0
-
-ETH_DMADS1R: Value at address 0x0249100c: 0x00006300
-
- RPS0[3:0]: DMA Channel Receive Process State = Running (Waiting for Rx
- packet)
-
-ETH_DMACxRXDTPR: Value at address 0x02491128: 0xffffe7d0
-
- RDT[31:0]: Receive Descriptor Tail Pointer (writes should apparently
- trigger DMA to start, but doesn't seem to)
-
-ETH_DMACxCARXDR: Value at address 0x0249114c: 0xffffe7d0
-
- CURRDESAPTR[31:0]: Application receive descriptor address pointer
-
-ETH_DMACxCARXBR: Value at address 0x0249115c: 0xffb55040
-
- CURRBUFAPTR[31:0]: Application receive buffer address pointer
-
- This makes it look like it's read the descriptor at 0x7fffffe7d0.
-
-ETH_DMAC0SR: Value at address 0x02491160: 0x00000484
-
- ETI (early transmit interrupt)=1 RBU (receive buffer unavailable)=1
- TBU (transmit buffer unavailable)=1
-
- Clearing RBU doesn't seem to help.
-
-Descriptors:
-
-123 [0x0000007fffffe7b0]: 0xffbba040 0x7f 0x0 0x81000000
-124 [0x0000007fffffe7c0]: 0xffbb9040 0x7f 0x0 0x81000000
-125 [0x0000007fffffe7d0]: 0xffb55040 0x7f 0x0 0x81000000 <---
-126 [0x0000007fffffe7e0]: 0xffc26040 0x7f 0x0 0x81000000
-127 [0x0000007fffffe7f0]: 0xfff95040 0x7f 0x0 0x81000000
-
-So they're all refilled.
-
-Any ideas?
-
-
-Full register dump via devmem2 (ethtool -d doesn't dump all registers):
-
-Value at address 0x02490000: 0x08072203
-Value at address 0x02490004: 0x00200000
-Value at address 0x02490008: 0x00010404
-Value at address 0x0249000c: 0x00000000
-Value at address 0x02490010: 0x00040008
-Value at address 0x02490014: 0x20000008
-Value at address 0x02490018: 0x00000001
-Value at address 0x0249001c: 0x00000001
-Value at address 0x02490020: 0x00000000
-Value at address 0x02490024: 0x00000000
-Value at address 0x02490028: 0x00000000
-Value at address 0x0249002c: 0x00000000
-Value at address 0x02490030: 0x00000000
-Value at address 0x02490034: 0x00000000
-Value at address 0x02490038: 0x00000000
-Value at address 0x0249003c: 0x00000000
-Value at address 0x02490040: 0x00000000
-Value at address 0x02490044: 0x00000000
-Value at address 0x02490048: 0x00000000
-Value at address 0x0249004c: 0x00000000
-Value at address 0x02490050: 0x01600000
-Value at address 0x02490054: 0x00000000
-Value at address 0x02490058: 0x00000000
-Value at address 0x0249005c: 0x00000000
-Value at address 0x02490060: 0x00120000
-Value at address 0x02490064: 0x00000000
-Value at address 0x02490068: 0x00000000
-Value at address 0x0249006c: 0x00000000
-Value at address 0x02490070: 0xffff0002
-Value at address 0x02490074: 0x00000000
-Value at address 0x02490078: 0x00000000
-Value at address 0x0249007c: 0x00000000
-Value at address 0x02490080: 0x00000000
-Value at address 0x02490084: 0x00000000
-Value at address 0x02490088: 0x00000000
-Value at address 0x0249008c: 0x00000000
-Value at address 0x02490090: 0x00000001
-Value at address 0x02490094: 0x00000000
-Value at address 0x02490098: 0x00000000
-Value at address 0x0249009c: 0x00000000
-Value at address 0x024900a0: 0x00000002
-Value at address 0x024900a4: 0x00000000
-Value at address 0x024900a8: 0x00000000
-Value at address 0x024900ac: 0x00000000
-Value at address 0x024900b0: 0x00000001
-Value at address 0x024900b4: 0x00001030
-Value at address 0x024900b8: 0x00000000
-Value at address 0x024900bc: 0x00000000
-Value at address 0x024900c0: 0x00000000
-Value at address 0x024900c4: 0x00000000
-Value at address 0x024900c8: 0x00000000
-Value at address 0x024900cc: 0x00000000
-Value at address 0x024900d0: 0x003b0200
-Value at address 0x024900d4: 0x03e8001e
-Value at address 0x024900d8: 0x000f4240
-Value at address 0x024900dc: 0x0000007c
-Value at address 0x024900e0: 0x00000000
-Value at address 0x024900e4: 0x00000000
-Value at address 0x024900e8: 0x00000000
-Value at address 0x024900ec: 0x00000000
-Value at address 0x024900f0: 0x00000000
-Value at address 0x024900f4: 0x00000000
-Value at address 0x024900f8: 0x000d0000
-Value at address 0x024900fc: 0x00000000
-Value at address 0x02490100: 0x00000000
-Value at address 0x02490104: 0x00000000
-Value at address 0x02490108: 0x00000000
-Value at address 0x0249010c: 0x00000000
-Value at address 0x02490110: 0x00001050
-Value at address 0x02490114: 0x00000000
-Value at address 0x02490118: 0x00000000
-Value at address 0x0249011c: 0x1bfd73f7
-Value at address 0x02490120: 0x421e7a49
-Value at address 0x02490124: 0x100c30c3
-Value at address 0x02490128: 0x00320220
-Value at address 0x02490200: 0x000e010c
-Value at address 0x02490204: 0x00000006
-Value at address 0x02490208: 0x00000000
-Value at address 0x0249020c: 0x00000000
-Value at address 0x02490210: 0x00000000
-Value at address 0x02490214: 0x00000000
-Value at address 0x02490218: 0x00000000
-Value at address 0x0249021c: 0x00000000
-Value at address 0x02490220: 0x00000000
-Value at address 0x02490224: 0x00000000
-Value at address 0x02490228: 0x00000000
-Value at address 0x0249022c: 0x00000000
-Value at address 0x02490230: 0x00000000
-Value at address 0x02490234: 0x00000000
-Value at address 0x02490238: 0x00000102
-Value at address 0x02490d00: 0x00ff000a
-Value at address 0x02490d04: 0x00000000
-Value at address 0x02490d08: 0x00000000
-Value at address 0x02490d0c: 0x00000000
-Value at address 0x02490d10: 0x00000000
-Value at address 0x02490d14: 0x00000030
-Value at address 0x02490d18: 0x00000000
-Value at address 0x02490d1c: 0x00000000
-Value at address 0x02490d20: 0x00000000
-Value at address 0x02490d24: 0x00000000
-Value at address 0x02490d28: 0x00000000
-Value at address 0x02490d2c: 0x00000002
-Value at address 0x02490d30: 0x0ff1c4e0
-Value at address 0x02490d34: 0x00000000
-Value at address 0x02490d38: 0x00280020
-Value at address 0x02490d3c: 0x00000000
-Value at address 0x02491000: 0x00000000
-Value at address 0x02491004: 0x0002180e
-Value at address 0x02491008: 0x00000000
-Value at address 0x0249100c: 0x00006300
-Value at address 0x02491010: 0x00000000
-Value at address 0x02491014: 0x00000000
-Value at address 0x02491018: 0x00000000
-Value at address 0x0249101c: 0x00000000
-Value at address 0x02491020: 0x00000000
-Value at address 0x02491024: 0x00000000
-Value at address 0x02491028: 0x00000000
-Value at address 0x0249102c: 0x00000000
-Value at address 0x02491030: 0x00000000
-Value at address 0x02491034: 0x00000000
-Value at address 0x02491038: 0x00000000
-Value at address 0x0249103c: 0x00000000
-Value at address 0x02491040: 0x00000000
-Value at address 0x02491044: 0x00000000
-Value at address 0x02491048: 0x00000000
-Value at address 0x0249104c: 0x00000000
-Value at address 0x02491050: 0x00000000
-Value at address 0x02491054: 0x00000000
-Value at address 0x02491100: 0x00010000
-Value at address 0x02491104: 0x00101011
-Value at address 0x02491108: 0x00080c01
-Value at address 0x0249110c: 0x00000000
-Value at address 0x02491110: 0x0000007f
-Value at address 0x02491114: 0xffffc000
-Value at address 0x02491118: 0x0000007f
-Value at address 0x0249111c: 0xffffe000
-Value at address 0x02491120: 0xffffc500
-Value at address 0x02491124: 0x00000000
-Value at address 0x02491128: 0xffffe7d0
-Value at address 0x0249112c: 0x000001ff
-Value at address 0x02491130: 0x000001ff
-Value at address 0x02491134: 0x0000d041
-Value at address 0x02491138: 0x000000a0
-Value at address 0x0249113c: 0x000d07c0
-Value at address 0x02491140: 0x00000000
-Value at address 0x02491144: 0xffffc500
-Value at address 0x02491148: 0x00000000
-Value at address 0x0249114c: 0xffffe7d0
-Value at address 0x02491150: 0x0000007f
-Value at address 0x02491154: 0xffc45b02
-Value at address 0x02491158: 0x0000007f
-Value at address 0x0249115c: 0xffb55040
-Value at address 0x02491160: 0x00000484
-Value at address 0x02491164: 0x00000000
-Value at address 0x02491168: 0x00000000
-Value at address 0x0249116c: 0x00000000
-Value at address 0x02491170: 0x00000000
-Value at address 0x02491174: 0x00000000
-Value at address 0x02491178: 0x00000000
-Value at address 0x0249117c: 0x00000000
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
