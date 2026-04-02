@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 851FED39431
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 14:19:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBD51D39426
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 14:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wEwVt/TOby91/obLvpEjMbAjKWw/iIZ/j0HIP3lRSWw=; b=UEfeiVYj1ZgBs1il+lXv02Yu9C
-	NEywJWLLJuugmesN4mJzUOzeV8h9eccNqqCztm6vOymkM6XufnhcgzDw36hDYEqNZ+ipBaaD7Ennf
-	ru4eyLcxc93apns3P28gpNvOmZjaM0F5m9bzFCunM3az2GwAxln3iOswA8BCfah0hDB+J1cWnYIa6
-	O55qT225nG5cbYVh8AjOIjWF/NsTHlJ8+pSD0SQFkHTsYv+ertDkoX8q9UCyvSAolTncJ2ai7O28k
-	KQrdMmTS04l7CmemtUkHQ+bg6mlxU+N6qXfisVf4feHMu6EiV2k55yaS1bbLEcFa57mZfY+rnJ3r/
-	C95PYIFg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zz1zlRSiKHlMJZnEUctS28g6FTYx8BEHRWatZco+c68=; b=MntN/oasTg1t2HaHMsUKDkwJBC
+	Iw4BrBu2lck2UTMvT3pHSaCjZmw1JMSinqD/YdfSHeFcqd7TYDso93717H1QITbm47v/7QWPpoMr8
+	AV1nF8UCK6BJ95SBUbcerourkOFxKqAYGucDyZ6iPj+OtuSeR3IPIKQHC0EmudbVtQIjKMDKkneH/
+	AGBh2JTFymU0vU1i5KWdvgW49r1cuzqm3wTIgkRX29dc9t/G0nKl1tADTzCRG2YNNnBR5jf8hhro2
+	Q4AW7MpPPPdEFwCL45yuaWlZn+6w9vQBDuDzBKh+hQrsYAqNmq1rOQcJNGGLW6zIM0vLOzaWw+Bkv
+	ZcZ97txw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8ItZ-00000000JRd-1R5H;
-	Thu, 02 Apr 2026 14:19:41 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1w8Itf-00000000JUE-10JK;
+	Thu, 02 Apr 2026 14:19:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8ItW-00000000JR2-186l
+	id 1w8Ite-00000000JTm-0UUw
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 02 Apr 2026 14:19:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Zz1zlRSiKHlMJZnEUctS28g6FTYx8BEHRWatZco+c68=; b=SsmGhf2Bx2LNKcszG+er22O5W3
+	GBkbtpVaSh+GAfA+Ma2411OhLY4px3mANpoUOZU9FHuLhZg6KtkdF0eUhbVJXXF+/Ks/8xYTU5WM5
+	joTfzFunY5+fPU9bWr4d54Iip8f95if9v2+2s5QkWja+hRBY0T4v/dLm9856kiIKOC8RZ5sLNPwJG
+	eaJUxN1fm0AJ/GtrhByVmUNL57bb3osHC/M/F0SWpd5EWUzngm8KAEIZ1OsRe1qWHnb9lVLjUq7Lk
+	2mKe4wEWL4+HdwnB0kwGzy4hEs2QIZllx3z3hwl/JV2W5Hf9hn+WbN5Alax/URaF3CATKLPOD8M/G
+	id+2vg8Q==;
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8Itb-00000002ey2-0hXq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 14:19:39 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-35c1d101355so361139a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 07:19:37 -0700 (PDT)
+	Thu, 02 Apr 2026 14:19:45 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-35c1a131946so1269416a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 07:19:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775139577; x=1775744377; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=wEwVt/TOby91/obLvpEjMbAjKWw/iIZ/j0HIP3lRSWw=;
-        b=sH5LRlkpeELdfFV9+I2orEkSeLzV50f/sS2nvbN5d/o73nB1SQPt4PvC8WrwbnwYJm
-         7QYNAJVS88bPqcNli59iEmA4JuOU3EqhyhNa4gqwmWYNellsJcJTF3vKbT45WlAtPAvI
-         gi7vg2xNnF77wLEU5w6MKP2wGDVxSMU2DJIcPH++4OeGkFqQt334v06shjt4a+mX06sH
-         eVHjxoC1Sq3BHm8oAT8V31vD9c3qdzPqaLO12UKu+zHZ/RcMSrl1kLi1Slyw+85ev98O
-         X/tqAJSX8TteZvb7zqJkNjg0KXlJ3wHmFRdLbvQtNhrLS0Zx51bD3W74X+xJadidPtO7
-         DyKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775139577; x=1775744377;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1775139581; x=1775744381; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wEwVt/TOby91/obLvpEjMbAjKWw/iIZ/j0HIP3lRSWw=;
-        b=G7nJysKauZRJEAYGXxj1iyNc5U0KbypFFa6O6kDiwDCrDnbgliRGzMkEYtQKoUtXVe
-         isWP9bUafCTcM3LxB9MKRtN49h0VO5IATELIsRhJA5uzGguAETGD9Ssd/2eda8PNvrtc
-         ON/UlthAzpS/y2uU+gSvfjtzqy4hozUWAh7/MC9TAIIQBLxxP4YeVqcH9rlghdx42U6V
-         kKaC9xq2qaQPdZXFbLEyxwkuMdbURUKLTKsbQAVE338ZhLqux6wVc3k8kW1xxrR/YBod
-         d5F5Ilz5OamYtrK2uDS+VSzTKsQmPyf8aZyuInpdn3bptLicGdOcOQg2gA185h3EhvI3
-         wbMw==
-X-Forwarded-Encrypted: i=1; AJvYcCWPIwEpSGCzW9/cUNSSMLW8l3kjVQB5Uhv7KfFOpRwKSEkeVFvf4XHS2wbLox1yuyjXEjUf8vm1nJ/stnGc6fc1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYLryWo92mGd6omsP04kJzbndTLiqZc0CtOvsIriRU7i95UTJ2
-	OBatPesrA7b1XWzRQ+m+9JLRcQDYXzUaS/J507c/NfpHX36NvmhNjRA8
-X-Gm-Gg: AeBDieuYvpCNktzvEQV2PXoSH4FicgUXIRPuq+TcBdkkXMvO7n82M4YL3Cghib61SDq
-	af//0tt1PKhU+1HyM4zdWjwTCjvWk1qjQTDP4AllZpIClHYVmdm1qF7+5qQW9sueLvRrbzdXrHU
-	l0amsQri6eYFhJAIcGSZJxO3vzNC0yFc93ziWTBGUm1cBHqUvu9g5CGHg0b8uFXJ9m1FAZD0C0N
-	LUhHUcyji0H3ah9avb6PfW+DWfSn7KbX3uvomgZRhsdGrTM2cTnorCbsldg6bnSILnn7BrOWNNZ
-	G4LCpKHRzxss72xsnS9MSEDXWyvOuFznjKLUaCRJht+vbBZm+6vtggL4MQSLShA3YNbfoH6e1/V
-	N2GKCaY9AqZqT++896E8CHnI+iWnSQ5CDhp0aw5AmR35ka1PUcJ5AVDgiaVd/oQ6LaTMZqMF8tv
-	7dwC1QU6VcuNv6jVg7ZEjK
-X-Received: by 2002:a17:90b:3d92:b0:35b:90e7:c453 with SMTP id 98e67ed59e1d1-35dc6e43b12mr7324340a91.6.1775139576619;
-        Thu, 02 Apr 2026 07:19:36 -0700 (PDT)
+        bh=Zz1zlRSiKHlMJZnEUctS28g6FTYx8BEHRWatZco+c68=;
+        b=OfRICO8KxDsZXxJTPAbSE0eHGK4iSe2sHN8hBIcDUykyzF4ZKvZUUO6x/CpM3nSFkn
+         sDqnDuZMX2mRxjEyIXSw0fDm/djZ4kI84vMKledUWJ27mW+MIDmK74QlpIb23hRBT6mz
+         7utP/PGbT+jx5dCXgXX+SNv0S86lNp3yr/FX1PxinNZYNodJaMQ7uFSw+r6KOPSPWbSm
+         pMG+dUAJbwDlub/3UbtI8/jK5KDpQCxrearRyF1ZafdxZiufJT3l64CW3uKBASdi4RdW
+         ggsonAcRwoZDsN35TbaE08SVQqRJoV66lt0mhyPx1tbftCCtKTOdSlZSiw1J8w9HDwXT
+         wfbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775139581; x=1775744381;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Zz1zlRSiKHlMJZnEUctS28g6FTYx8BEHRWatZco+c68=;
+        b=mVpuyitrJ512lCDLvZxUX6bH+o+1SZD/WNVOUjdPeZXd9HJYDLbnijpnWCCkDVJ4E2
+         QLQwdDH8kjsiWToqBwzMT7PlaosGovPBWcszcvmp8MArCpIO8PlP0p0mI3Ir15OioPqg
+         +QJ/UBuEO5l34DBMzuI3LYT+yyc/bmunESF+I1p8chd0W7x/8pTcT3UMPvIUjVRxuCq9
+         ZXidiksj2aHFxXh0cMtZgqKQ97gTHFgkB5BMTSPWOZjMYOF8NlwPWrwWAfBI3i3mIz9B
+         98r5klBwW6ebXx/CLmNd0QUmBD/beiowup3IsPknVVA6cU0HapdqsgbG3z9HB1/EZiw1
+         ErAg==
+X-Forwarded-Encrypted: i=1; AJvYcCWJjUYFPAkn3TQoRpbpiHvVHXuVDRJ6Ib7zfY1D0MWNkkrCkyh7U1e/dJyQ6Ev/vNLQejiR4kNi48NesRJHhAHD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAtfD0RQkFWQOIHjC71+XAP/3j7y4O50b8wGX3TaJpWM7OzX2T
+	/vuP92kGJi1pvSVLZFj/AV1gWdCMnQkYwg3gF2HKERxOD7/jH82w76T6
+X-Gm-Gg: AeBDievEmmxGDF1qhyR2wZQBOYzNlc2zCcTGr4vCODWroUx8mUI6lVhshofUDAcLtH+
+	+6m5TWfBN0Vd9Y54CYIDd65NyztchtczmrkFJ57GsxMHwEppaxAy29L2inrPfxWVgsA2YM+iUaW
+	KWxEeeY60tobecs8hVKxNXXB/QjGoovVGac+zsq8c8eAeam1RIYMiiBrJ4rx3DhYYk0k0LKMnOn
+	5TbLL87uy7FI0KTTfqzS/gRSkiW55KIAchYaK9qvyd5MzhiTsSVJLrQZNmWVqDIXlFHQvedFhmY
+	A2GfIfqkbHPx6lVoHfL2tWuMdBw97tyfUmsS0izWbd6z3iQOxL2NvVA085pBwts3/hwl02Y4J5Z
+	d+lPTdqbKvSzdzFRrXl+/5NMEMrb/qtDglwKUxwLrQcMSIH9AKOYCI9kfI4P8DUMYVpF8wj2hP1
+	lnpEErwFCm09x689uH1r2q
+X-Received: by 2002:a17:90b:314b:b0:35a:2ed:9b6f with SMTP id 98e67ed59e1d1-35dd65b05e0mr2598226a91.0.1775139581041;
+        Thu, 02 Apr 2026 07:19:41 -0700 (PDT)
 Received: from rockpi-5b ([45.112.0.200])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35dbe9377b7sm10959123a91.10.2026.04.02.07.19.33
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35dbe9377b7sm10959123a91.10.2026.04.02.07.19.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Apr 2026 07:19:35 -0700 (PDT)
+        Thu, 02 Apr 2026 07:19:40 -0700 (PDT)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Heiko Stuebner <heiko@sntech.de>,
 	Andi Shyti <andi.shyti@kernel.org>,
@@ -75,17 +91,19 @@ To: Heiko Stuebner <heiko@sntech.de>,
 	linux-rockchip@lists.infradead.org (open list:ARM/Rockchip SoC support),
 	linux-i2c@vger.kernel.org (open list:I2C SUBSYSTEM HOST DRIVERS),
 	linux-kernel@vger.kernel.org (open list)
-Cc: Anand Moon <linux.amoon@gmail.com>,
-	David Wu <david.wu@rock-chips.com>
-Subject: [PATCH v3 1/2] i2c: rk3x: add support for SCL OE debounce and slave hold recovery
-Date: Thu,  2 Apr 2026 19:49:22 +0530
-Message-ID: <20260402141927.7216-1-linux.amoon@gmail.com>
+Cc: Anand Moon <linux.amoon@gmail.com>
+Subject: [PATCH v3 2/2] i2c: rk3x: Fix deadlock by splitting rk3x_i2c_adapt_div into locked/unlocked variants
+Date: Thu,  2 Apr 2026 19:49:23 +0530
+Message-ID: <20260402141927.7216-2-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260402141927.7216-1-linux.amoon@gmail.com>
+References: <20260402141927.7216-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_071938_339127_8759E74A 
-X-CRM114-Status: GOOD (  25.53  )
+X-CRM114-CacheID: sfid-20260402_151943_370500_272F48B3 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,163 +118,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Wu <david.wu@rock-chips.com>
+Introduce __rk3x_i2c_adapt_div() function as a locked-only helper to
+handle core timing calculations and register updates. This restructuring
+allows these operations to be safely called from contexts where i2c->lock
+is already held—such as during error recovery in rk3x_i2c_xfer_common
+avoiding recursive locking or deadlocks.
 
-As per the RK3399 and RK35xx datasheet, Rockchip I2C controllers
-feature a SCL_OE_DB register (0x24). This register is used to
-configure the debounce time for the SCL output enable signal,
-which helps prevent glitches and ensures timing compliance during bus
-handover or slave clock stretching.
-
-Introduce a 'has_scl_oe_debounce' flag to rk3x_i2c_soc_data to
-distinguish between hardware versions. For supported SoCs, calculate
-the debounce counter dynamically based on the current clock rate
-and program it during divider adaptation.
-
-Additionally:
-- Implement detection for the REG_INT_SLV_HDSCL (Slave Hold SCL)
-  interrupt bit during transfer timeouts.
-- Capture the Interrupt Pending (IPD) register state before clearing
-  interrupts during a timeout to check for the slave hold condition.
-- Re-apply the clock dividers via rk3x_i2c_adapt_div() if a slave
-  hold is detected on supported SoCs to attempt bus recovery.
-- Initialize the SLV_HDSCL bit in i2c_start for I2C interrupt field.
-
-The recovery logic is gated by 'has_scl_oe_debounce' to ensure that
-reserved bits on older SoC variants do not trigger false-positive
-recoveries.
-
-Signed-off-by: David Wu <david.wu@rock-chips.com>
 Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 ---
-Changes:
-v3: intialize the SLV_HDSCL bit in in i2c_start for interupt enable
- v2: https://lore.kernel.org/all/20260321105146.7419-1-linux.amoon@gmail.com/
-v2: Aded the to detect REG_INT_SLV_HDSCL interrupt timeout
-    it was part of origmal commit below.
-    [1] https://github.com/radxa/kernel/commit/006c0b1e7710d471119a69d6bd56917a15a85a0b
-Fix the order of SoB,
-Fix the doc warning reporteed by kernel test robot
- v1: https://lore.kernel.org/all/20260103052506.6743-1-linux.amoon@gmail.com/
+v3: new patch to avoid deadlock.
 ---
- drivers/i2c/busses/i2c-rk3x.c | 34 +++++++++++++++++++++++++++++++++-
- 1 file changed, 33 insertions(+), 1 deletion(-)
+ drivers/i2c/busses/i2c-rk3x.c | 25 +++++++++++++++----------
+ 1 file changed, 15 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/i2c/busses/i2c-rk3x.c b/drivers/i2c/busses/i2c-rk3x.c
-index fcede9f6ed54..06a77780cf82 100644
+index 06a77780cf82..2556a3d8b2a1 100644
 --- a/drivers/i2c/busses/i2c-rk3x.c
 +++ b/drivers/i2c/busses/i2c-rk3x.c
-@@ -36,6 +36,7 @@
- #define REG_IEN        0x18 /* interrupt enable */
- #define REG_IPD        0x1c /* interrupt pending */
- #define REG_FCNT       0x20 /* finished count */
-+#define REG_SCL_OE_DB  0x24 /* Slave hold scl debounce */
+@@ -880,22 +880,18 @@ static int rk3x_i2c_v1_calc_timings(unsigned long clk_rate,
+ 	return ret;
+ }
  
- /* Data buffer offsets */
- #define TXBUFFER_BASE 0x100
-@@ -74,6 +75,7 @@ enum {
- #define REG_INT_START     BIT(4) /* START condition generated */
- #define REG_INT_STOP      BIT(5) /* STOP condition generated */
- #define REG_INT_NAKRCV    BIT(6) /* NACK received */
-+#define REG_INT_SLV_HDSCL BIT(7) /* Slave hold scl interrupt enable */
- #define REG_INT_ALL       0x7f
- 
- /* Constants */
-@@ -161,10 +163,12 @@ enum rk3x_i2c_state {
- 
- /**
-  * struct rk3x_i2c_soc_data - SOC-specific data
-+ * @has_scl_oe_debounce: Support for slave hold SCL debounce
-  * @grf_offset: offset inside the grf regmap for setting the i2c type
-  * @calc_timings: Callback function for i2c timing information calculated
-  */
- struct rk3x_i2c_soc_data {
-+	bool has_scl_oe_debounce;
- 	int grf_offset;
- 	int (*calc_timings)(unsigned long, struct i2c_timings *,
- 			    struct rk3x_i2c_calced_timings *);
-@@ -248,8 +252,12 @@ static inline void rk3x_i2c_clean_ipd(struct rk3x_i2c *i2c)
- static void rk3x_i2c_start(struct rk3x_i2c *i2c)
- {
- 	u32 val = i2c_readl(i2c, REG_CON) & REG_CON_TUNING_MASK;
-+	u32 ien = REG_INT_START;
- 
--	i2c_writel(i2c, REG_INT_START, REG_IEN);
-+	if (i2c->soc_data->has_scl_oe_debounce)
-+		ien |= REG_INT_SLV_HDSCL;
-+
-+	i2c_writel(i2c, ien, REG_IEN);
- 
- 	/* enable adapter with correct mode, send START condition */
- 	val |= REG_CON_EN | REG_CON_MOD(i2c->mode) | REG_CON_START;
-@@ -876,6 +884,7 @@ static void rk3x_i2c_adapt_div(struct rk3x_i2c *i2c, unsigned long clk_rate)
+-static void rk3x_i2c_adapt_div(struct rk3x_i2c *i2c, unsigned long clk_rate)
++static void __rk3x_i2c_adapt_div(struct rk3x_i2c *i2c, unsigned long clk_rate)
  {
  	struct i2c_timings *t = &i2c->t;
  	struct rk3x_i2c_calced_timings calc;
-+	unsigned long period, time_hold = (WAIT_TIMEOUT / 2) * 1000000;
+ 	unsigned long period, time_hold = (WAIT_TIMEOUT / 2) * 1000000;
  	u64 t_low_ns, t_high_ns;
- 	unsigned long flags;
+-	unsigned long flags;
  	u32 val;
-@@ -893,6 +902,13 @@ static void rk3x_i2c_adapt_div(struct rk3x_i2c *i2c, unsigned long clk_rate)
- 	i2c_writel(i2c, val, REG_CON);
- 	i2c_writel(i2c, (calc.div_high << 16) | (calc.div_low & 0xffff),
- 		   REG_CLKDIV);
-+
-+	if (i2c->soc_data->has_scl_oe_debounce) {
-+		period = DIV_ROUND_UP(1000000000, clk_rate);
-+		val = DIV_ROUND_UP(time_hold, period);
-+		i2c_writel(i2c, val, REG_SCL_OE_DB);
-+	}
-+
- 	spin_unlock_irqrestore(&i2c->lock, flags);
+ 	int ret;
  
- 	clk_disable(i2c->pclk);
-@@ -1063,6 +1079,7 @@ static int rk3x_i2c_xfer_common(struct i2c_adapter *adap,
- 	unsigned long flags;
- 	long time_left;
- 	u32 val;
-+	u32 ipd = 0; /* To store interrupt pending status for timeout analysis */
- 	int ret = 0;
- 	int i;
+ 	ret = i2c->soc_data->calc_timings(clk_rate, t, &calc);
+ 	WARN_ONCE(ret != 0, "Could not reach SCL freq %u", t->bus_freq_hz);
  
-@@ -1107,6 +1124,9 @@ static int rk3x_i2c_xfer_common(struct i2c_adapter *adap,
- 		spin_lock_irqsave(&i2c->lock, flags);
+-	clk_enable(i2c->pclk);
+-
+-	spin_lock_irqsave(&i2c->lock, flags);
+ 	val = i2c_readl(i2c, REG_CON);
+ 	val &= ~REG_CON_TUNING_MASK;
+ 	val |= calc.tuning;
+@@ -909,10 +905,6 @@ static void rk3x_i2c_adapt_div(struct rk3x_i2c *i2c, unsigned long clk_rate)
+ 		i2c_writel(i2c, val, REG_SCL_OE_DB);
+ 	}
  
- 		if (time_left == 0) {
-+			/* Read IPD before clearing to check for Slave Hold SCL */
-+			ipd = i2c_readl(i2c, REG_IPD);
+-	spin_unlock_irqrestore(&i2c->lock, flags);
+-
+-	clk_disable(i2c->pclk);
+-
+ 	t_low_ns = div_u64(8ULL * HZ_PER_GHZ * (calc.div_low + 1), clk_rate);
+ 	t_high_ns = div_u64(8ULL * HZ_PER_GHZ * (calc.div_high + 1), clk_rate);
+ 	dev_dbg(i2c->dev,
+@@ -922,6 +914,19 @@ static void rk3x_i2c_adapt_div(struct rk3x_i2c *i2c, unsigned long clk_rate)
+ 		t_low_ns, t_high_ns);
+ }
+ 
++static void rk3x_i2c_adapt_div(struct rk3x_i2c *i2c, unsigned long clk_rate)
++{
++	unsigned long flags;
 +
- 			/* Force a STOP condition without interrupt */
- 			i2c_writel(i2c, 0, REG_IEN);
- 			val = i2c_readl(i2c, REG_CON) & REG_CON_TUNING_MASK;
-@@ -1125,6 +1145,17 @@ static int rk3x_i2c_xfer_common(struct i2c_adapter *adap,
++	clk_enable(i2c->pclk);
++
++	spin_lock_irqsave(&i2c->lock, flags);
++	__rk3x_i2c_adapt_div(i2c, clk_rate);
++	spin_unlock_irqrestore(&i2c->lock, flags);
++
++	clk_disable(i2c->pclk);
++}
++
+ /**
+  * rk3x_i2c_clk_notifier_cb - Clock rate change callback
+  * @nb:		Pointer to notifier block
+@@ -1152,7 +1157,7 @@ static int rk3x_i2c_xfer_common(struct i2c_adapter *adap,
+ 	if (ret == -ETIMEDOUT && i2c->soc_data->has_scl_oe_debounce) {
+ 		if (ipd & REG_INT_SLV_HDSCL) {
+ 			dev_err(i2c->dev, "SCL hold by slave detected, resetting timings.\n");
+-			rk3x_i2c_adapt_div(i2c, clk_get_rate(i2c->clk));
++			__rk3x_i2c_adapt_div(i2c, clk_get_rate(i2c->clk));
  		}
  	}
  
-+	/*
-+	 * If a timeout occurred and the slave is holding SCL,
-+	 * re-apply the timings/dividers to attempt recovery.
-+	 */
-+	if (ret == -ETIMEDOUT && i2c->soc_data->has_scl_oe_debounce) {
-+		if (ipd & REG_INT_SLV_HDSCL) {
-+			dev_err(i2c->dev, "SCL hold by slave detected, resetting timings.\n");
-+			rk3x_i2c_adapt_div(i2c, clk_get_rate(i2c->clk));
-+		}
-+	}
-+
- 	clk_disable(i2c->pclk);
- 	clk_disable(i2c->clk);
- 
-@@ -1198,6 +1229,7 @@ static const struct rk3x_i2c_soc_data rk3288_soc_data = {
- static const struct rk3x_i2c_soc_data rk3399_soc_data = {
- 	.grf_offset = -1,
- 	.calc_timings = rk3x_i2c_v1_calc_timings,
-+	.has_scl_oe_debounce = true,
- };
- 
- static const struct of_device_id rk3x_i2c_match[] = {
-
-base-commit: 9147566d801602c9e7fc7f85e989735735bf38ba
 -- 
 2.50.1
 
