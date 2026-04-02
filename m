@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 889DDD6AAEE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:30:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07666D6AAF0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:36:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dqMIcQ51E1sQeKxBU9RN0BSEUB1PBlGsNnfvKutGTvw=; b=M85z4CnjwW/x3dl2MlJOC522Ii
-	xGBgWsQUA2uWbwmRjvZg49Qo94hLbdA/9pOd0nKIQMtvNyGbmFITWzefu5z3lHTHpLfChKeqE64VK
-	t7/u3cgk0LSPIqdfP27g8MQ32cG2/fVJZPR812OHgOksenJqMRwkYMps5Fw5GK+GdabhLXxXIpKij
-	823ZezV+8jj9CgJCTMcc/DXMpfp6+h2kxjmNYfwGJYiho51cBYaVl70AwbZXy9tuCbK72L0+wBDIP
-	MFUbfFwPPJh02QKnR2f5nkpK/n/kkTy1x9vsegWh8kXh2DAizCeJhWB6xeKF7slnQLFBFxyfKHuO7
-	xhWX5glg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=z3vQ8QeY0ne6RQFW1DbV98KTZDASSo5rBQdtH/QGkgU=; b=E1YGcpnQVv2eQNb21WFH7vzj3/
+	MpDYU/wydOzgiTKuy1QUU2DtnbyZk7R0XohuHyRHzuRcOuyuwXhORm6LX6YugyvT7Okwmr6K6aLGd
+	OXiZ0L8xIDucv3/XcMJ3wybfDhJhwyTiGg9tznF3g2x9i+4RgxbYcV9ZlB4zckhd6BpVUtMbRWwaQ
+	i5qvJj+fqBOhwv+OZdfzxwv1OxnELlvXU0CRp71vaMIYOI2n7w8qs2cDkLeoVGWlM5+l6IR2gnxPI
+	mbkEgSrRblo9LYeHAt3bqU8u1KRP805MW1jkqL/XuTSYK95a6LS/kcaTLiq7hWGLGuJ7rzcb4+8UL
+	4PpMrynw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Kvk-00000000W0r-45Mi;
-	Thu, 02 Apr 2026 16:30:04 +0000
+	id 1w8L2I-00000000WJ1-3Zwy;
+	Thu, 02 Apr 2026 16:36:50 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Kvi-00000000W0F-0kJa
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 16:30:03 +0000
+	id 1w8L2G-00000000WIT-1XXI;
+	Thu, 02 Apr 2026 16:36:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E26EA44467;
-	Thu,  2 Apr 2026 16:30:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 198D7C116C6;
-	Thu,  2 Apr 2026 16:29:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EF0C9429E9;
+	Thu,  2 Apr 2026 16:36:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D028C19423;
+	Thu,  2 Apr 2026 16:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775147400;
-	bh=w1dW8AZk4reCHACcRL/0+eMefcFQIN8mzWpVA8G3YSI=;
-	h=Date:Cc:To:From:Subject:References:In-Reply-To:From;
-	b=KHOyIcuzguDroW3VbA8bQHdLBILXZSpffvP320Gcop3G5/+HewMrRub0Hx4dBP8Ks
-	 iDZHmCQD7FnOjeaaWJq49GeqWXgFEnDdcJpq4VQrI+zI8lz/6SjsVFidu0RoIURTts
-	 70rLx9nJyQEb2tR8Y63JVX9V/El/5pKBQu7AYUmwpD/Xok/5ilw62F0JwwDME1ldzL
-	 zkWXlo7UAgPyn8Ou0yBdlTAHOfA0b5ApTwbiO8KwS124kHhZ0iQNCygnZph6filT0I
-	 rLBwc81Dcg0gyCYg/spGCS0zfg/tLbZW/38xh0jL3JKznlOTP6F/IsXyS6n/39UMFl
-	 dtNAN9+0M47yg==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 02 Apr 2026 18:29:55 +0200
-Message-Id: <DHIT8FGUNBB6.3JBUXPIVOP6GU@kernel.org>
-Cc: "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>, "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
- "Daniel Scally" <djrscally@gmail.com>, "Heikki Krogerus"
- <heikki.krogerus@linux.intel.com>, "Sakari Ailus"
- <sakari.ailus@linux.intel.com>, "Aaro Koskinen" <aaro.koskinen@iki.fi>,
- "Janusz Krzysztofik" <jmkrzyszt@gmail.com>, "Tony Lindgren"
- <tony@atomide.com>, "Russell King" <linux@armlinux.org.uk>, "Dmitry
- Torokhov" <dmitry.torokhov@gmail.com>, "Kevin Hilman"
- <khilman@baylibre.com>, "Arnd Bergmann" <arnd@arndb.de>, <brgl@kernel.org>,
- <driver-core@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
- <linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-omap@vger.kernel.org>
-To: "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>
-From: "Danilo Krummrich" <dakr@kernel.org>
-Subject: Re: [PATCH v5 0/4] ARM: omap1: use real firmware node lookup for
- GPIOs on Nokia 770
-References: <20260402-nokia770-gpio-swnodes-v5-0-d730db3dd299@oss.qualcomm.com>
-In-Reply-To: <20260402-nokia770-gpio-swnodes-v5-0-d730db3dd299@oss.qualcomm.com>
+	s=k20201202; t=1775147806;
+	bh=uLmS0HsUDr2BokeD+jSdwx3Xz2Gctb+uLNXQ4boAXU0=;
+	h=From:Date:Subject:To:Cc:From;
+	b=OwhXBHWnXxQbgi+Lr/d+FvS3AagvKuOJYOhfaXr08zbUSER3M5c3OxYjwjYv1c0Tj
+	 ZF2yShxfaOil38PS1vqkSxJnvE4VW98G385tH3yHFDyuW4QVLvnkI7oY+1zX0wS5zg
+	 hw9sCi/Ys6iEnDf6wIq55kG1f6CJQPU6PonA/mEcjhwBiuYNrf6y2pmrMvPfzPPoFW
+	 Krb47bfx+9KYhZA1PL+O/O6uO0BY2p5MFBFgTYwUbbp/cN5PjKyosdYEEccBIkFbuj
+	 w57xRsiPbM1DoOoiRjuGtpRRTujC1WyHHDN5ub32eSW8FfraqyrjDtfc/fPGKCMFUD
+	 KDfUjKtjwIyuA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Thu, 02 Apr 2026 18:36:28 +0200
+Subject: [PATCH net] net: airoha: Add dma_rmb() and READ_ONCE() in
+ airoha_qdma_rx_process()
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260402-airoha_qdma_rx_process-fix-reordering-v1-1-53278474f062@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2N0QrCMAwAf2Xk2UCNdoq/IqPUNW55sJ2JyGDs3
+ w0+Hhx3GxirsMGt20D5KyatOhwPHYxzrhOjFGegQH04B8Is2uac3uWVk65p0TayGT5lReWmxXN
+ 1wgvRKVwpxkcfwVuLshv/zx0qf2DY9x9LzFK9fAAAAA==
+X-Change-ID: 20260402-airoha_qdma_rx_process-fix-reordering-722308255b65
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Xuegang Lu <xuegang.lu@airoha.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ netdev@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_093002_258995_25600D5B 
-X-CRM114-Status: UNSURE (   5.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260402_093648_472117_4303D7DE 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,15 +78,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu Apr 2, 2026 at 4:15 PM CEST, Bartosz Golaszewski wrote:
-> Bartosz Golaszewski (4):
->       kernel: ksysfs: initialize kernel_kobj earlier
->       software node: remove software_node_exit()
->       driver core: make software nodes available earlier
+Add missing dma_rmb() in airoha_qdma_rx_process routine to make sure the
+DMA read operations are completed when the NIC reports the processing on
+the current descriptor is done. Moreover, add missing READ_ONCE() in
+airoha_qdma_rx_process() for DMA descriptor control fields in order to
+avoid any compiler reordering.
 
-Looks good to me now; I will give it a few more days on the list and then p=
-ull
-it in for v7.1-rc1 if no one else raises concerns.
+Fixes: 23020f0493270 ("net: airoha: Introduce ethernet support for EN7581 SoC")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_eth.c | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
 
->       ARM: omap1: enable real software node lookup of GPIOs on Nokia 770
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 95ba99b89428e4cafb91ff7813e43ffeb38e6d9b..29dea8b35f64bfdcf88bc09fd711e0d8b4f7b6fa 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -612,15 +612,17 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 	while (done < budget) {
+ 		struct airoha_queue_entry *e = &q->entry[q->tail];
+ 		struct airoha_qdma_desc *desc = &q->desc[q->tail];
+-		u32 hash, reason, msg1 = le32_to_cpu(desc->msg1);
+-		struct page *page = virt_to_head_page(e->buf);
+-		u32 desc_ctrl = le32_to_cpu(desc->ctrl);
++		u32 hash, reason, msg1, desc_ctrl;
+ 		struct airoha_gdm_port *port;
+ 		int data_len, len, p;
++		struct page *page;
+ 
++		desc_ctrl = le32_to_cpu(READ_ONCE(desc->ctrl));
+ 		if (!(desc_ctrl & QDMA_DESC_DONE_MASK))
+ 			break;
+ 
++		dma_rmb();
++
+ 		q->tail = (q->tail + 1) % q->ndesc;
+ 		q->queued--;
+ 
+@@ -637,6 +639,7 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 		if (p < 0 || !eth->ports[p])
+ 			goto free_frag;
+ 
++		page = virt_to_head_page(e->buf);
+ 		port = eth->ports[p];
+ 		if (!q->skb) { /* first buffer */
+ 			q->skb = napi_build_skb(e->buf, q->buf_size);
+@@ -670,8 +673,8 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 			 * DMA descriptor. Report DSA tag to the DSA stack
+ 			 * via skb dst info.
+ 			 */
+-			u32 sptag = FIELD_GET(QDMA_ETH_RXMSG_SPTAG,
+-					      le32_to_cpu(desc->msg0));
++			u32 msg0 = le32_to_cpu(READ_ONCE(desc->msg0));
++			u32 sptag = FIELD_GET(QDMA_ETH_RXMSG_SPTAG, msg0);
+ 
+ 			if (sptag < ARRAY_SIZE(port->dsa_meta) &&
+ 			    port->dsa_meta[sptag])
+@@ -679,6 +682,7 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 						  &port->dsa_meta[sptag]->dst);
+ 		}
+ 
++		msg1 = le32_to_cpu(READ_ONCE(desc->msg1));
+ 		hash = FIELD_GET(AIROHA_RXD4_FOE_ENTRY, msg1);
+ 		if (hash != AIROHA_RXD4_FOE_ENTRY)
+ 			skb_set_hash(q->skb, jhash_1word(hash, 0),
+
+---
+base-commit: ec7067e661193403a7a00980bda8612db5954142
+change-id: 20260402-airoha_qdma_rx_process-fix-reordering-722308255b65
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
