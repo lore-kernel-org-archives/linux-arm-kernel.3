@@ -4,98 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DCAFD3942C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 13:57:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BEB2D3942D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 13:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HlqXtAWJ1GByy64qGazEk71FC5c2hQMAqngLM9hJtdA=; b=e/PxQsns1izWl5+o0bIS/MpHes
-	klc33kWUm53WBYnyg5/Zil1SdRa92gK+uy3+sncOJTM6sM8S5H75X99S36qFpReNdkUcb8TBlmGwn
-	Lr7OIUxnHUmvEWX0KovOPYqtpTU8cGr9jwgeY08a3z+LW9XVyKx1IXkgUyIzrb1vbxUPWqxg0nRwM
-	avomIx0xcI4xC2NeuGFeI6YfElgWSOCvssyhzFm36rsqo9OaJEGEaitLQQ9iTcc9orp/Gkkeqh6J9
-	jb/dgWGBJDYgX6zx42oqqIbsmlgfc4zDASF9DnEccWlJCaKWX5xK4DKHCuJKjq3hmTo1GUsrEfqcL
-	Pqf621MQ==;
+	bh=dLVMAKqyGscpMd3RaTb0PTlAAEY6ecJ8SdxwSVZ0340=; b=Cq54k/mUuvNcSW3jnmav7k/EEr
+	d+T94GP+/EdG/R1Blsx43LK+owd1jTWYndrit28dXkT09KyRFtnO83NBusmi/A8QDMPKyVG6WSLHW
+	ocPbtmPLgGTrSkKGqm1SKKEUd9RHKiLxX+sNBYzqCdbsNi6RsTrl4iHEVSyXa0M5F63gPZv31bL6L
+	fRsGEnE62xSXMoIPV8+ylCIBvNjmuDIbRMzb7BGnyJoY169rmZOVaZBju+AdBwzDAF7vmG0BjJNOf
+	bNX3XfxgbVWP3ElfQLEgeYiiBTMxLu3k2AJpMG2fxe0I7z6Z3fx4ZPTGQpv1MhyYxxyxBZcuvcDZ4
+	cRIw/njQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8IXt-00000000DpY-35QE;
-	Thu, 02 Apr 2026 13:57:17 +0000
-Received: from mail-wm1-f45.google.com ([209.85.128.45])
+	id 1w8IXy-00000000DrX-2LTy;
+	Thu, 02 Apr 2026 13:57:22 +0000
+Received: from iad-out-014.esa.us-east-1.outbound.mail-perimeter.amazon.com ([50.16.246.183])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8IXr-00000000DpB-0CAi
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 13:57:16 +0000
-Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-488879b2e6aso8145245e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 06:57:14 -0700 (PDT)
+	id 1w8IXw-00000000Dpp-1Tpw;
+	Thu, 02 Apr 2026 13:57:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1775138233; x=1775743033; darn=lists.infradead.org;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HlqXtAWJ1GByy64qGazEk71FC5c2hQMAqngLM9hJtdA=;
-        b=bPieVSxa9/hG5DklWD+SXsa9Q7QcuhtwK+lxOSNx2OmZnhHnM45AX9fZm9sv8+f0H1
-         +IMOGzTkiXFY0qPVJHLq+JEQsLMUyrWi3tkTHcoUBf1J8rb3PDsasu7OuNNQgDsWnuvf
-         BvgkK+hic213FRaGMyf56kmohaHNv8KRbcdqfYlnpwMdyK0H3JpmaKXxGJal8FfLp5+5
-         RhlUDmcgeK4gu/aK62op5/PHKNSS8j/AakMCXuHSswaq7sx/4uCAIkuT+HUoZk5X9V55
-         r/pwyxisGdXVS2dyqmJ2OAjvu4NLQKXmkDhGpreGDKJwdRexVscyY4t8Tn0aj4Vc3BbF
-         tnZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775138233; x=1775743033;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=HlqXtAWJ1GByy64qGazEk71FC5c2hQMAqngLM9hJtdA=;
-        b=OWv6Zlv04wRjKWz2qEotmYqJvG/qzwnjrJCjL6Tqzu4L41NZrBoBHgE2Tmc9s19il3
-         2eewY7+bk3nOosSJlvgctxKXu1eoRMyv6tCfXL2Gos3w3QvK9cVg53XsyEROyTmtbq54
-         9HJSp73M6aorCuaVq/ulm55PtHPXGgSBvCKhg8oU7GwMWzb4MpwIwa8VTrMaJIarZMj0
-         wLyiO72eqP+2kQvFOKnZVSwNwAv3mK6b89XGfom/Y7n/5/3lkh+nlaSIb1f9ZK7Ox3zl
-         RERzymTIEvmdGhhg/cghjqcnKOqJeTtIuCchMIUvea6R8h0DkyXzUMEGIbMyDLYD0f8t
-         Um1g==
-X-Forwarded-Encrypted: i=1; AJvYcCUNiSTmMuJFjJ9Am3Ewy48KFj5qyo34QgMf9Y6LlWbu3znRTf24039jv6dy1xu9eiKLntGbLDCxh/2v6lGqlc+j@lists.infradead.org
-X-Gm-Message-State: AOJu0YwA6pVqSu8RIi5WXZdQ2856FcZNi25hboHx+i+tZ3LAEx6lMBwE
-	Y13ZNK2pXJy8fiTu8yNGs82HLUXiHZSvSDTWkiMfdHY0t5Jd6+pxj5Dg5tDOyuSBYhg=
-X-Gm-Gg: ATEYQzwvAC+1rZo1VyfUP57H9PyLRmlICUK3E9+zWBqa4BQvR41mC869Chpx4tWhzSf
-	jiHnMQrbFyThyqOvbdE43tr4pY8iPGacpCH24CYsxEDa6SFTtUdBEnwJ7YbGI0J9G8FFJXx2R/s
-	tKJY/JBBVVkQoekzUyPOby+VzSiGp5VBIrscTEjOHe0KmDezuopvuOoNDW53oJ+TWWEIDy04wGv
-	fjiHKTweOiqvMrW3FIt/ZDOgf7l0AkLsA7GSNHpLYAR3vPE8A0xlaXJf4p70Ub3esauv8JZOQH/
-	BG9jabk+2qcZbRJizl4CFBJpZoP3doie6ZBOLpqNHYZc1T78VJOKdMadUDfvi0GK9nhDigtAGBt
-	0ubKr33f+vNu3G8WMWlNGL3q/grG/UI51877Xk6OUA1BLSBV3ZW90sIgw2QoCsjysEsLytkNDig
-	yzqNDQlkKkAonwqm1pny4LuSzLxlZC7enIoDZ6+QtjtAhgFzxagFSLph607ZtfWSH5U6yOjOWss
-	U+kBQiWeApmHpMf
-X-Received: by 2002:a05:600c:8488:b0:486:f4d2:eac6 with SMTP id 5b1f17b1804b1-488835682c8mr136632325e9.13.1775138232539;
-        Thu, 02 Apr 2026 06:57:12 -0700 (PDT)
-Received: from localhost ([2a00:2381:fd67:101:a0c1:4037:aafe:5dc])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d1e2c5253sm7388752f8f.9.2026.04.02.06.57.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 02 Apr 2026 06:57:11 -0700 (PDT)
-Mime-Version: 1.0
+  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
+  t=1775138240; x=1806674240;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:mime-version:content-transfer-encoding;
+  bh=dLVMAKqyGscpMd3RaTb0PTlAAEY6ecJ8SdxwSVZ0340=;
+  b=F+Ux3M+xWXlx+EpJx5LCfGFwIwP77O8nlTZF6rWOEWm7A+uRXXSZsRzJ
+   AMtxEvyFzW7JaqwCjF9tckbGQT79314H0G5ZSDj8X3oWiQVr1PQNuq2sD
+   dg4IPwgEBoJbtPttg9I9moexogbyUii20lvtMBY97Qg0fqnEMt9o/bDXP
+   jXgsIb+fJdJhYiFAkQ4HfxLXPiSX6qVKlaXK9XVx//E1kuV8N/uYeQcOx
+   nywwZRXEXCfIu5YM9yklt+nim+apSUnAqv+28tlGq2QJYcMmR+ukoGIjT
+   ps1fRvflQxuSa3hUX9vuFvz1X2/+zLsn7g77Z3txMeZIUfnWKYRWcMNtf
+   g==;
+X-CSE-ConnectionGUID: QefcKAD/QN21zgYZOMjGYg==
+X-CSE-MsgGUID: ryS+CPUiQOKO8fP8hRu9dw==
+X-IronPort-AV: E=Sophos;i="6.23,155,1770595200"; 
+   d="scan'208";a="14829490"
+Received: from ip-10-4-3-150.ec2.internal (HELO smtpout.naws.us-east-1.prod.farcaster.email.amazon.dev) ([10.4.3.150])
+  by internal-iad-out-014.esa.us-east-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Apr 2026 13:57:16 +0000
+Received: from EX19MTAUEC002.ant.amazon.com [72.21.196.66:29020]
+ by smtpin.naws.us-east-1.prod.farcaster.email.amazon.dev [10.0.56.32:2525] with esmtp (Farcaster)
+ id e2ae4a7f-cdc7-4cfb-a244-584b549b0f48; Thu, 2 Apr 2026 13:57:15 +0000 (UTC)
+X-Farcaster-Flow-ID: e2ae4a7f-cdc7-4cfb-a244-584b549b0f48
+Received: from EX19D012UEC003.ant.amazon.com (10.252.135.160) by
+ EX19MTAUEC002.ant.amazon.com (10.252.135.253) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Thu, 2 Apr 2026 13:57:14 +0000
+Received: from EX19D012UEC003.ant.amazon.com (10.252.135.160) by
+ EX19D012UEC003.ant.amazon.com (10.252.135.160) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Thu, 2 Apr 2026 13:57:13 +0000
+Received: from EX19D012UEC003.ant.amazon.com ([fe80::67ea:859:1e17:25a9]) by
+ EX19D012UEC003.ant.amazon.com ([fe80::67ea:859:1e17:25a9%3]) with mapi id
+ 15.02.2562.037; Thu, 2 Apr 2026 13:57:13 +0000
+From: "Heyne, Maximilian" <mheyne@amazon.de>
+To: "stable@vger.kernel.org" <stable@vger.kernel.org>
+CC: "Heyne, Maximilian" <mheyne@amazon.de>, Jens Axboe <axboe@kernel.dk>,
+	Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, "Alyssa
+ Rosenzweig" <alyssa@rosenzweig.io>, Keith Busch <kbusch@kernel.org>,
+	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, "James E.J.
+ Bottomley" <jejb@linux.ibm.com>, "Martin K. Petersen"
+	<martin.petersen@oracle.com>, Alim Akhtar <alim.akhtar@samsung.com>, "Avri
+ Altman" <avri.altman@wdc.com>, Bart Van Assche <bvanassche@acm.org>, "Sasha
+ Levin" <sashal@kernel.org>, Peter Wang <peter.wang@mediatek.com>, "Greg
+ Kroah-Hartman" <gregkh@linuxfoundation.org>, Seunghwan Baek
+	<sh8267.baek@samsung.com>, Thomas Yen <thomasyen@google.com>, Adrian Hunter
+	<adrian.hunter@intel.com>, Wonkon Kim <wkon.kim@samsung.com>, Brian Kao
+	<powenkao@google.com>, Seunghui Lee <sh043.lee@samsung.com>, Sanjeev Yadav
+	<sanjeev.y@mediatek.com>, Hannes Reinecke <hare@suse.de>, Ming Lei
+	<ming.lei@redhat.com>, Chaitanya Kulkarni <kch@nvidia.com>,
+	"linux-block@vger.kernel.org" <linux-block@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"asahi@lists.linux.dev" <asahi@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-nvme@lists.infradead.org"
+	<linux-nvme@lists.infradead.org>, "linux-scsi@vger.kernel.org"
+	<linux-scsi@vger.kernel.org>
+Subject: [PATCH 6.1.y v2 1/6] Revert "nvme: fix admin request_queue lifetime"
+Thread-Topic: [PATCH 6.1.y v2 1/6] Revert "nvme: fix admin request_queue
+ lifetime"
+Thread-Index: AQHcwqibkOh//WP2l0GMBmj+1Ehg9w==
+Date: Thu, 2 Apr 2026 13:57:13 +0000
+Message-ID: <20260402-tavern-keen-2b4fa6b9@mheyne-amazon>
+References: <20260402-moral-jockey-f072379b@mheyne-amazon>
+In-Reply-To: <20260402-moral-jockey-f072379b@mheyne-amazon>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.13.235.223]
+Content-Type: text/plain; charset="iso-8859-1"
+MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 02 Apr 2026 14:57:11 +0100
-Message-Id: <DHIPZHI8BC0M.1GLYIDLUP5SF5@linaro.org>
-Subject: Re: [PATCH v2 6/7] MAINTAINERS: add exynos850-pmu.c to Exynos850
- entry
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Sam Protsenko" <semen.protsenko@linaro.org>, "Krzysztof Kozlowski"
- <krzk@kernel.org>
-Cc: <linux-samsung-soc@vger.kernel.org>, "Peter Griffin"
- <peter.griffin@linaro.org>, =?utf-8?q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, "Conor Dooley" <conor+dt@kernel.org>, "Alim
- Akhtar" <alim.akhtar@samsung.com>, "Tudor Ambarus"
- <tudor.ambarus@linaro.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-X-Mailer: aerc 0.20.0
-References: <20260401-exynos850-cpuhotplug-v2-0-c5a760a3e259@linaro.org>
- <20260401-exynos850-cpuhotplug-v2-6-c5a760a3e259@linaro.org>
- <f73173b4-f44a-4d01-abec-3366b6561332@kernel.org>
- <CAPLW+4=H_UkjwY2RJFPD9ekJh05MyuhKrymeuUYC4dX1WzF0wg@mail.gmail.com>
-In-Reply-To: <CAPLW+4=H_UkjwY2RJFPD9ekJh05MyuhKrymeuUYC4dX1WzF0wg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_065715_135133_CB7BF084 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20260402_065720_547500_94D46F6E 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,55 +116,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Apr 1, 2026 at 5:16 PM BST, Sam Protsenko wrote:
-> Hi Krzysztof,
->
-> On Wed, Apr 1, 2026 at 9:28=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
->>
->> On 01/04/2026 06:51, Alexey Klimov wrote:
->> > Update Exynos850 entry to include new file
->> > drivers/soc/samsung/exynos850-pmu.c. Add myself as M
->> > there.
->> >
->> > Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
->> > ---
->> >  MAINTAINERS | 2 ++
->> >  1 file changed, 2 insertions(+)
->> >
->> > diff --git a/MAINTAINERS b/MAINTAINERS
->> > index e14e6f874e05..4b28e92b4d9b 100644
->> > --- a/MAINTAINERS
->> > +++ b/MAINTAINERS
->> > @@ -23601,6 +23601,7 @@ F:    include/dt-bindings/clock/samsung,exynos=
-2200-cmu.h
->> >
->> >  SAMSUNG EXYNOS850 SoC SUPPORT
->> >  M:   Sam Protsenko <semen.protsenko@linaro.org>
->> > +M:   Alexey Klimov <alexey.klimov@linaro.org>
->>
->> I am surprised to see this because I did not find many reviews from your
->> side before.
->>
->
-> It was me who advised Alexey to add himself on the list, as he's doing
-> a lot of Exynos850 related work nowadays, and we expect him to
-> continue doing that. If you think it's too early, let's get back to
-> this once there are more patches submitted under his name.
->
-> Thanks!
->
->> Please first engage in reviewing of this platform, before assigning
->> yourself as a maintainer.
+This reverts commit ff037b5f47eeccc1636c03f84cd47db094eb73c9.
 
-Okay, so it was done after Sam's advice. I can do one of these options:
-- drop this patch;
-- move it into separate entry in maintainers file;
-- something else, please suggest.
+The backport of upstream commit 03b3bcd319b3 ("nvme: fix admin
+request_queue lifetime") to 6.1 is broken in 2 ways. First of all it
+doesn't actually fix the issue because blk_put_queue will still be
+called as part of blk_mq_destroy_queue in nvme_remove_admin_tag_set
+leading to the UAF.
+Second, the backport leads to a refcount underflow when unbinding a pci
+nvme device:
 
-I don't fancy having loose files (first option).
+ refcount_t: underflow; use-after-free.
+ WARNING: CPU: 2 PID: 1486 at lib/refcount.c:28 refcount_warn_saturate+0xba=
+/0x110
+ Modules linked in: bochs drm_vram_helper simpledrm skx_edac_common drm_shm=
+em_helper drm_kms_helper kvm_intel cfbfillrect syscopyarea cfbimgblt sysfil=
+lrect sysimgblt fb_sys_fops cfbcopyarea drm_ttm_helper fb ttm kvm fbdev drm=
+ mousedev nls_ascii psmouse irqbypass nls_cp437 atkbd crc32_pclmul crc32c_i=
+ntel libps2 vfat fat sunrpc virtio_net ata_piix vivaldi_fmap drm_panel_orie=
+ntation_quirks libata backlight i2c_piix4 net_failover i8042 ghash_clmulni_=
+intel failover serio i2c_core button sch_fq_codel
+ CPU: 2 PID: 1486 Comm: bash Not tainted 6.1.167 #2
+ Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS edk2-20240813-=
+306.amzn2 08/13/2024
+ RIP: 0010:refcount_warn_saturate+0xba/0x110
+ Code: 01 01 e8 89 79 ad ff 0f 0b e9 82 f4 7e 00 80 3d 73 03 cc 01 00 75 85=
+ 48 c7 c7 e0 5d 3b 8e c6 05 63 03 cc 01 01 e8 66 79 ad ff <0f> 0b c3 cc cc =
+cc cc 80 3d 4e 03 cc 01 00 0f 85 5e ff ff ff 48 c7
+ RSP: 0018:ffffd0cc011bfd18 EFLAGS: 00010286
+ RAX: 0000000000000000 RBX: ffff8ada07b33210 RCX: 0000000000000027
+ RDX: ffff8adb37d1f728 RSI: 0000000000000001 RDI: ffff8adb37d1f720
+ RBP: ffff8ada07b33000 R08: 0000000000000000 R09: 00000000fffeffff
+ R10: ffffd0cc011bfba8 R11: ffffffff8f1781a8 R12: ffffd0cc011bfd38
+ R13: ffff8ada03080800 R14: ffff8ada07b33210 R15: ffff8ada07b33b10
+ FS:  00007f50f6964740(0000) GS:ffff8adb37d00000(0000) knlGS:00000000000000=
+00
+ CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+ CR2: 000055cdb54e6ae0 CR3: 000000010224e001 CR4: 0000000000770ee0
+ DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+ DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+ PKRU: 55555554
+ Call Trace:
+  <TASK>
+  nvme_pci_free_ctrl+0x45/0x80
+  nvme_free_ctrl+0x1aa/0x2b0
+  device_release+0x34/0x90
+  kobject_cleanup+0x3a/0x130
+  pci_device_remove+0x3e/0xb0
+  device_release_driver_internal+0x1aa/0x230
+  unbind_store+0x11f/0x130
+  kernfs_fop_write_iter+0x13a/0x1d0
+  vfs_write+0x2a6/0x3b0
+  ksys_write+0x5f/0xe0
+  do_syscall_64+0x35/0x80
+  entry_SYSCALL_64_after_hwframe+0x6e/0xd8
+ RIP: 0033:0x7f50f66ff897
+ Code: 0f 00 f7 d8 64 89 02 48 c7 c0 ff ff ff ff eb b7 0f 1f 00 f3 0f 1e fa=
+ 64 8b 04 25 18 00 00 00 85 c0 75 10 b8 01 00 00 00 0f 05 <48> 3d 00 f0 ff =
+ff 77 51 c3 48 83 ec 28 48 89 54 24 18 48 89 74 24
+ RSP: 002b:00007fffaef903d8 EFLAGS: 00000246 ORIG_RAX: 0000000000000001
+ RAX: ffffffffffffffda RBX: 00007f50f67fd780 RCX: 00007f50f66ff897
+ RDX: 000000000000000d RSI: 0000557f72ef6b90 RDI: 0000000000000001
+ RBP: 000000000000000d R08: 0000000000000000 R09: 00007f50f67b2d20
+ R10: 00007f50f67b2c20 R11: 0000000000000246 R12: 000000000000000d
+ R13: 0000557f72ef6b90 R14: 000000000000000d R15: 00007f50f67f89c0
+  </TASK>
 
-Best regards,
-Alexey.
+The reason for this is that nvme_free_ctrl calls ->free_ctrl which
+resolves to nvme_pci_free_ctrl in aforementioned case which also has a
+blk_put_queue, so the admin queue is put twice. This is because on 6.1
+we're missing the commit 96ef1be53663 ("nvme-pci: put the admin queue in
+nvme_dev_remove_admin").
+
+Signed-off-by: Maximilian Heyne <mheyne@amazon.de>
+---
+ drivers/nvme/host/core.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/drivers/nvme/host/core.c b/drivers/nvme/host/core.c
+index 9df33b293ee3e..938af571dc13e 100644
+--- a/drivers/nvme/host/core.c
++++ b/drivers/nvme/host/core.c
+@@ -5180,8 +5180,6 @@ static void nvme_free_ctrl(struct device *dev)
+ 		container_of(dev, struct nvme_ctrl, ctrl_device);
+ 	struct nvme_subsystem *subsys =3D ctrl->subsys;
+ =
+
+-	if (ctrl->admin_q)
+-		blk_put_queue(ctrl->admin_q);
+ 	if (!subsys || ctrl->instance !=3D subsys->instance)
+ 		ida_free(&nvme_instance_ida, ctrl->instance);
+ =
+
+-- =
+
+2.50.1
+
+
+
+
+Amazon Web Services Development Center Germany GmbH
+Tamara-Danz-Str. 13
+10243 Berlin
+Geschaeftsfuehrung: Christof Hellmis, Andreas Stieger
+Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
+Sitz: Berlin
+Ust-ID: DE 365 538 597
 
 
