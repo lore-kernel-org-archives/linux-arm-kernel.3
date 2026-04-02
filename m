@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D901D3942E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6617D39426
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 14:28:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,59 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CCOVnNSdC1ddrjtgt4UaI6BEDPw3G5/w0hM6qUTn1Lk=; b=Jc6pOPY+DIk9THB59sQTEREtTB
-	mc3+vrJABpKC7ggUrmIL9fmXfqLQcVd/rI7nZPr/148FmbB1+X/XivNoTe5KKj9AFTY9egrFAXUNy
-	WppvlA6BZ+5Zfw6ILfPlVR1pe/Nax5tyB05+Yrif/vfWVtx6zhalLY6i26AFKDZac+2n9cNC54nRY
-	z30Hk8q9epUqMPuos/Wa0ZFSzqAnapay1IiUh6qvrAnigwJu2F3T+v8siLMCvgDJ9Vph10yFlM2Fp
-	+DOgf9CT1HTUZjN8hAU0D5MOJPSwtxYllZDHhFV30JL/wdMVl/o4l8LCCpmxojnvlDX8BeSGx2TrF
-	g0CLZm3Q==;
+	bh=Tac6VTJygk3YrrNOxHFOOqZvxPRPf86stbQxXvEcrdk=; b=3xykJfyCcOKtQ8H1Xy3U7n3btX
+	rTip7jtEvFPRpZcuJ/IE+EsKuuTEaJqU/Bek3VFr53lO4VyeTeDJB0MVABXi7SXpgTy/AjsQoIq4K
+	DfvdIuRDwBTUj91Dd/xoh4+yKPsNZb0udzrkOiCyd9F4fpGxckQSe2+g91GDZpRU9ZcUbwAgChknf
+	92nw8vTYpXz+bRqs9C0Gk+8RxG3gJiSMPoCVnleXLNW2Go2TXddiciEAcrNgNViuSDUdbyuBO+nxt
+	tI9NSRoMJBBFeDo8V3GJJz6N43jX5OEpBf/seS5NUDkpZwqq/Tarp+tF7rMJHaCF1R1AplhLK/BSi
+	kR1kagMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8J1l-00000000L6b-2oVq;
-	Thu, 02 Apr 2026 14:28:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8J1h-00000000L0H-0ImH
-	for linux-arm-kernel@bombadil.infradead.org;
+	id 1w8J1g-00000000L0t-3JyO;
 	Thu, 02 Apr 2026 14:28:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=CCOVnNSdC1ddrjtgt4UaI6BEDPw3G5/w0hM6qUTn1Lk=; b=fq06MQsTetRqBh8BnukmPM7yIT
-	FMAHGU6hLeOAXf87r+n2+CZktVUbUSsotG5Y7H+tZ+SuS2MWwybDpOVBaZuAANn82USwNxlEDSHCT
-	caA40R76b0updQ4FK/JbPXAbqezvBOeHrjFIZMTg8sCGjJLCRE4PPN7yykL4epyQCg+Top2xdG0QO
-	pPJj2XX9DjIUz7ShpFDAcG7T+bt/8A1g2q+k8asEWclHKV48Cxu7wtO4ePiY1RFDbEOvWF5GoIWmO
-	g54+hdAdlTLhFyMPHG5yR+5dgaDVR2uSX7xQPP3UhTvEnsyIkp5Y7EDCLKxoQAc+D84vxlRv5T4Mm
-	0U5n6gpg==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8J1d-00000002gEx-3S5d
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8J1e-00000000Kus-0Nfa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 14:28:03 +0000
+	Thu, 02 Apr 2026 14:28:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0E63043C57;
-	Thu,  2 Apr 2026 14:27:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46B4EC2BCB3;
-	Thu,  2 Apr 2026 14:27:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2559B60131;
+	Thu,  2 Apr 2026 14:28:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47A16C2BCB2;
+	Thu,  2 Apr 2026 14:28:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775140077;
-	bh=NAByKfU/ZjEewVQnAkmCy1V2fy4PZYtDqNWOg10g8F4=;
+	s=k20201202; t=1775140080;
+	bh=KAMIzOzCbbIkdN4+h9mLaBbmQnop0xd9spJhdw58o5c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Np8hZNYtGt5gbuN6MvaRAeCqJ3F1oqjeR011UgZKWdilMm1NWwEoLJsrop9vEKEKJ
-	 CayjbD65CgAq6kxmTN8/ZMRp6UbYRXHlvyQOrz43iT1i9DhBkbE6llfzKbHqVGbHqF
-	 dsl60/acNLsak+orkqezhAvI3XmmvonG/75gxEvZG1O2auyx6FUxOJM7Vty8iOE2kI
-	 +21b6K4dPmLpZGAKuwA2BVZ0XHXDUr6qAf6eXd18c8zJtGEZocRpqAI+pDz1Wpvh4w
-	 Ank1UlBk7SRIQT8kGQQsNqqE0Z42e2gjIlq4NqcgLJQkmzABy5cDqtHaNKQxYaML1Q
-	 7ur41gY0vsfyQ==
+	b=FdmBp7yZC8Smmq2TO45C7ur2SCZkl8gcSfLPtb4lo4TH0BqX+FXIp7bh2VVL0j5wC
+	 FR75B+Xt8OwP9FuaXn35F+mPRdD1tHvCSfw64rPTRSIKdYaFTk9lo/imjRi3di/hbt
+	 8Awox14+qFJyM9f3JcQcVmsWbKnQUfeIpn6KiYG0Mi5FHDTTR7bQZciD8S2g6mePaj
+	 EQgcenVlmhG1c+cMIeNKY+Fd4sYp7Cqvy6M51UX57MCIZwncsOIe71dLjFmxbIzmCA
+	 3+yGsJSjRCxk7FAAcxYF7faPNHCtPJHcFG/TkTIAZ4MfZHMV1LSxwLy7nVercwHXZq
+	 awz2aqkHVH88Q==
 From: Thierry Reding <thierry.reding@kernel.org>
-Date: Thu, 02 Apr 2026 16:27:35 +0200
-Subject: [PATCH v4 1/4] dt-bindings: pci: Document the NVIDIA Tegra264 PCIe
- controller
+Date: Thu, 02 Apr 2026 16:27:36 +0200
+Subject: [PATCH v4 2/4] PCI: Use standard wait times for PCIe link
+ monitoring
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260402-tegra264-pcie-v4-1-21e2e19987e8@nvidia.com>
+Message-Id: <20260402-tegra264-pcie-v4-2-21e2e19987e8@nvidia.com>
 References: <20260402-tegra264-pcie-v4-0-21e2e19987e8@nvidia.com>
 In-Reply-To: <20260402-tegra264-pcie-v4-0-21e2e19987e8@nvidia.com>
 To: Bjorn Helgaas <bhelgaas@google.com>, 
@@ -84,25 +69,22 @@ Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
  linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>
 X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6863; i=treding@nvidia.com;
- h=from:subject:message-id; bh=OWl+kwHniIJmn2xT8tkW6mFB/fgovQVw1CKdkoUXhPs=;
- b=owEBbQKS/ZANAwAKAd0jrNd/PrOhAcsmYgBpznznvY0VyUIk/fnSv3MCEw9J6m6PLKgotKsZu
- ORvzT4pPzeJAjMEAAEKAB0WIQSI6sMIAUnM98CNyJ/dI6zXfz6zoQUCac585wAKCRDdI6zXfz6z
- oTzCD/0V1hNnSNbAiKMSLVeNsPoLZy4RnVdQ7bR1WzYlNd042sabyfuzOnLelO99DMyrlbVoNge
- YdmBgNaAuoBJCQcTUxkKLp7IIiNNQlBAxxUNCnnfutVal7IKePDgcf2ZiclzO7Urlyi7tuL+GEB
- jBf6gAP8758J9KRcy7IUTSIsbeicTMhafg5Rvg5YaIISl6oAzNj99creo068Ke43pd+hc5ArT8Z
- GZGpql1IiB5exxe2Y5dsjMKF7kE+ZRiqiNDwFwTc+CenCx/yXUtw6WNvTgXDHF6qbvTzKHAk7G4
- tgYDg7JH7+Tvp8Ii2y5A7hc1EKBNvizKuCTtOoX1RcXn2CXBn/+gWIA+N6zB78liX0Vi9GcWvbn
- 9J0NtyC7yyyKnR2pJTdRI2eRBSJAazoGEZv5MtFp8D5s2G56CeUKHw6Nqp9C8W5ntGu5TTM1Sqe
- nhbvFbFHE8cLwJ5AFyVlGv874nEYCpsZbdNwCLfJd4wRUJzDYxbFrlGq8kBRHaTi4xwHiZDBO5G
- S5pM1aYKbrKG6V8SsDuVhPWIGSApZHau1ecXEjmiDCp2lcb6wBAikX0XOMVDpwq7Rv4kJmsgLDA
- k71lZkvIfSmXawWjf72LlCjpsznvyeA/K3ux9QNVqFxvbxm+JxGnlGjJoLhnnb+SsEWB8Q1uo20
- tv/SMhE1jXe5wwg==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7887; i=treding@nvidia.com;
+ h=from:subject:message-id; bh=oVBJHFwB+gdNI7W/8nXEvJ4Aw93e6oLvRNS3XbChGUY=;
+ b=owEBbQKS/ZANAwAKAd0jrNd/PrOhAcsmYgBpznzo0GCVjwX6st8+h0v682ZUEPkxIqGzROXu5
+ Nfbq+SWm8GJAjMEAAEKAB0WIQSI6sMIAUnM98CNyJ/dI6zXfz6zoQUCac586AAKCRDdI6zXfz6z
+ oWyWD/9KqFx3AWLsen71eImhEUWi5Vbr2EBrypY2+xZH9iKEKVVlJX6zH8ICwWXLq/9S1CoF7BI
+ gyYELvWzJEiM6ESCDHKhPNtvGAoFCET+VjruIN+kzkv3g9g0n3yijseZDE3XYLW2n+fCQgrc/ue
+ gv7U+JfI6npA9oOfh3rsk9jciSVRay4VjYG+IzF7kvWZFsIhDS1ComrThVZMJVXgYFHJ/EMm/1J
+ uSZ2vSSneNVSp637VzbNkj4uxxHJBj9TZ81Qq3faJk7BNQOrSKbcJfZzbffZYxDYLBesi8fwKny
+ oRsfmO86HYyG18GpqzHW4l3UEU+1EkO3H6Z0BN0j4rX1ZAGhe/RtzbZcoQBhvyla3/5OotxSGWp
+ 1zlZCz//YAA3VgdBTNI3ob5gd+3rQI6tXRCuRiO1zWmr9z/LBsOOJf47m7Fkcbm9vomT59v1azx
+ XRgTCgolqoI1+LSMXlS7/hF8VU4otMyvnROWai7BSFtLOOKgUU7nuF74TwbSCTo9IYbVJkNR3n8
+ serEUq/fObYix+yblw+nJqup+1zMA1nRuEa6KAU+7VqR//N/0kC8N7jx+0LXv67NjShXyH1UxCz
+ cyxfUhS7mCo/PdAMIw7ttGQOksFOKFNN1cGiYY8IOqqDHc0ljMdVuOC4PY2DYYgAgwXgaFrLxOo
+ drF5PgjYPbDmGyA==
 X-Developer-Key: i=treding@nvidia.com; a=openpgp;
  fpr=88EAC3080149CCF7C08DC89FDD23ACD77F3EB3A1
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_152802_226621_62E52444 
-X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,210 +101,205 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Thierry Reding <treding@nvidia.com>
 
-The six PCIe controllers found on Tegra264 are of two types: one is used
-for the internal GPU and therefore is not connected to a UPHY and the
-remaining five controllers are typically routed to a PCI slot and have
-additional controls for the physical link.
-
-While these controllers can be switched into endpoint mode, this binding
-describes the root complex mode only.
+Instead of defining the wait values for each driver, use common values
+defined in the core pci.h header file. Note that most drivers don't use
+the millisecond waits, but rather usleep_range(), so add these commonly
+used values to the header so that all drivers can use them.
 
 Signed-off-by: Thierry Reding <treding@nvidia.com>
 ---
-Changes in v4:
-- ECAM is outside of the controller's region, so it cannot be the first
-  reg entry, otherwise we get warnings because it doesn't match the
-  unit-address, so revert back to oneOf construct
-
 Changes in v2:
-- move ECAM region first and unify C0 vs. C1-C5
-- move unevaluatedProperties to right before the examples
-- add description to clarify the two types of controllers
-- add examples for C0 and C1-C5
+- fix build for Cadence
 ---
- .../bindings/pci/nvidia,tegra264-pcie.yaml         | 174 +++++++++++++++++++++
- 1 file changed, 174 insertions(+)
+ drivers/pci/controller/cadence/pcie-cadence-host-common.c | 6 ++++--
+ drivers/pci/controller/cadence/pcie-cadence-lga-regs.h    | 5 -----
+ drivers/pci/controller/mobiveil/pcie-mobiveil.c           | 4 ++--
+ drivers/pci/controller/mobiveil/pcie-mobiveil.h           | 5 -----
+ drivers/pci/controller/pci-aardvark.c                     | 7 ++-----
+ drivers/pci/controller/pcie-xilinx-nwl.c                  | 9 ++-------
+ drivers/pci/controller/plda/pcie-starfive.c               | 9 ++-------
+ drivers/pci/pci.h                                         | 2 ++
+ 8 files changed, 14 insertions(+), 33 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml b/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml
-new file mode 100644
-index 000000000000..acb677d477fb
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml
-@@ -0,0 +1,174 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/nvidia,tegra264-pcie.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/pci/controller/cadence/pcie-cadence-host-common.c b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+index 2b0211870f02..72b36c70f389 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence-host-common.c
++++ b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+@@ -15,6 +15,8 @@
+ #include "pcie-cadence.h"
+ #include "pcie-cadence-host-common.h"
+ 
++#include "../../pci.h"
 +
-+title: NVIDIA Tegra264 PCIe controller
-+
-+maintainers:
-+  - Thierry Reding <thierry.reding@gmail.com>
-+  - Jon Hunter <jonathanh@nvidia.com>
-+
-+description: |
-+  Of the six PCIe controllers found on Tegra264, one (C0) is used for the
-+  internal GPU and the other five (C1-C5) are routed to connectors such as
-+  PCI or M.2 slots. Therefore the UPHY registers (XPL) exist only for C1
-+  through C5, but not for C0.
-+
-+properties:
-+  compatible:
-+    const: nvidia,tegra264-pcie
-+
-+  reg:
-+    minItems: 4
-+    maxItems: 5
-+
-+  reg-names:
-+    minItems: 4
-+    maxItems: 5
-+
-+  interrupts:
-+    minItems: 1
-+    maxItems: 4
-+
-+  dma-coherent: true
-+
-+  nvidia,bpmp:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    description: |
-+      Must contain a pair of phandle (to the BPMP controller node) and
-+      controller ID. The following are the controller IDs for each controller:
-+
-+      0: C0
-+      1: C1
-+      2: C2
-+      3: C3
-+      4: C4
-+      5: C5
-+    items:
-+      - items:
-+          - description: phandle to the BPMP controller node
-+          - description: PCIe controller ID
-+            maximum: 5
-+
-+required:
-+  - interrupt-map
-+  - interrupt-map-mask
-+  - iommu-map
-+  - msi-map
-+  - nvidia,bpmp
-+
-+allOf:
-+  - $ref: /schemas/pci/pci-host-bridge.yaml#
-+  - oneOf:
-+      - description: C0 controller (no UPHY)
-+        properties:
-+          reg:
-+            items:
-+              - description: application layer registers
-+              - description: transaction layer registers
-+              - description: privileged transaction layer registers
-+              - description: ECAM compatible configuration space
-+
-+          reg-names:
-+            items:
-+              - const: xal
-+              - const: xtl
-+              - const: xtl-pri
-+              - const: ecam
-+
-+      - description: C1-C5 controllers (with UPHY)
-+        properties:
-+          reg:
-+            items:
-+              - description: application layer registers
-+              - description: transaction layer registers
-+              - description: privileged transaction layer registers
-+              - description: data link/physical layer registers
-+              - description: ECAM compatible configuration space
-+
-+          reg-names:
-+            items:
-+              - const: xal
-+              - const: xtl
-+              - const: xtl-pri
-+              - const: xpl
-+              - const: ecam
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    bus {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      pci@c000000 {
-+        compatible = "nvidia,tegra264-pcie";
-+        reg = <0x00 0x0c000000 0x0 0x00004000>,
-+              <0x00 0x0c004000 0x0 0x00001000>,
-+              <0x00 0x0c005000 0x0 0x00001000>,
-+              <0xd0 0xb0000000 0x0 0x10000000>;
-+        reg-names = "xal", "xtl", "xtl-pri", "ecam";
-+        #address-cells = <3>;
-+        #size-cells = <2>;
-+        device_type = "pci";
-+        linux,pci-domain = <0x00>;
-+        #interrupt-cells = <0x1>;
-+
-+        interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-+        interrupt-map = <0x0 0x0 0x0 0x1 &gic 0x0 0x0 0x0 155 4>,
-+                        <0x0 0x0 0x0 0x2 &gic 0x0 0x0 0x0 156 4>,
-+                        <0x0 0x0 0x0 0x3 &gic 0x0 0x0 0x0 157 4>,
-+                        <0x0 0x0 0x0 0x4 &gic 0x0 0x0 0x0 158 4>;
-+
-+        iommu-map = <0x0 &smmu2 0x10000 0x10000>;
-+        msi-map = <0x0 &its 0x210000 0x10000>;
-+        dma-coherent;
-+
-+        ranges = <0x81000000 0x00 0x84000000 0xd0 0x84000000 0x00 0x00200000>,
-+                 <0x82000000 0x00 0x20000000 0x00 0x20000000 0x00 0x08000000>,
-+                 <0xc3000000 0xd0 0xc0000000 0xd0 0xc0000000 0x07 0xc0000000>;
-+        bus-range = <0x0 0xff>;
-+
-+        nvidia,bpmp = <&bpmp 0>;
-+      };
-+    };
-+
-+  - |
-+    bus {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      pci@8400000 {
-+        compatible = "nvidia,tegra264-pcie";
-+        reg = <0x00 0x08400000 0x0 0x00004000>,
-+              <0x00 0x08404000 0x0 0x00001000>,
-+              <0x00 0x08405000 0x0 0x00001000>,
-+              <0x00 0x08410000 0x0 0x00010000>,
-+              <0xa8 0xb0000000 0x0 0x10000000>;
-+        reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
-+        #address-cells = <3>;
-+        #size-cells = <2>;
-+        device_type = "pci";
-+        linux,pci-domain = <0x01>;
-+        #interrupt-cells = <1>;
-+        interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-+        interrupt-map = <0x0 0x0 0x0 0x1 &gic 0x0 0x0 0x0 908 4>,
-+                        <0x0 0x0 0x0 0x2 &gic 0x0 0x0 0x0 909 4>,
-+                        <0x0 0x0 0x0 0x3 &gic 0x0 0x0 0x0 910 4>,
-+                        <0x0 0x0 0x0 0x4 &gic 0x0 0x0 0x0 911 4>;
-+
-+        iommu-map = <0x0 &smmu1 0x10000 0x10000>;
-+        msi-map = <0x0 &its 0x110000 0x10000>;
-+        dma-coherent;
-+
-+        ranges = <0x81000000 0x00 0x84000000 0xa8 0x84000000 0x00 0x00200000>,
-+                 <0x82000000 0x00 0x28000000 0x00 0x28000000 0x00 0x08000000>,
-+                 <0xc3000000 0xa8 0xc0000000 0xa8 0xc0000000 0x07 0xc0000000>;
-+        bus-range = <0x00 0xff>;
-+
-+        nvidia,bpmp = <&bpmp 1>;
-+      };
-+    };
+ #define LINK_RETRAIN_TIMEOUT HZ
+ 
+ u64 bar_max_size[] = {
+@@ -53,12 +55,12 @@ int cdns_pcie_host_wait_for_link(struct cdns_pcie *pcie,
+ 	int retries;
+ 
+ 	/* Check if the link is up or not */
+-	for (retries = 0; retries < LINK_WAIT_MAX_RETRIES; retries++) {
++	for (retries = 0; retries < PCIE_LINK_WAIT_MAX_RETRIES; retries++) {
+ 		if (pcie_link_up(pcie)) {
+ 			dev_info(dev, "Link up\n");
+ 			return 0;
+ 		}
+-		usleep_range(LINK_WAIT_USLEEP_MIN, LINK_WAIT_USLEEP_MAX);
++		usleep_range(PCIE_LINK_WAIT_US_MIN, PCIE_LINK_WAIT_US_MAX);
+ 	}
+ 
+ 	return -ETIMEDOUT;
+diff --git a/drivers/pci/controller/cadence/pcie-cadence-lga-regs.h b/drivers/pci/controller/cadence/pcie-cadence-lga-regs.h
+index 857b2140c5d2..15dc4fcaf45d 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence-lga-regs.h
++++ b/drivers/pci/controller/cadence/pcie-cadence-lga-regs.h
+@@ -10,11 +10,6 @@
+ 
+ #include <linux/bitfield.h>
+ 
+-/* Parameters for the waiting for link up routine */
+-#define LINK_WAIT_MAX_RETRIES	10
+-#define LINK_WAIT_USLEEP_MIN	90000
+-#define LINK_WAIT_USLEEP_MAX	100000
+-
+ /* Local Management Registers */
+ #define CDNS_PCIE_LM_BASE	0x00100000
+ 
+diff --git a/drivers/pci/controller/mobiveil/pcie-mobiveil.c b/drivers/pci/controller/mobiveil/pcie-mobiveil.c
+index 62ecbaeb0a60..cc102032c1e6 100644
+--- a/drivers/pci/controller/mobiveil/pcie-mobiveil.c
++++ b/drivers/pci/controller/mobiveil/pcie-mobiveil.c
+@@ -218,11 +218,11 @@ int mobiveil_bringup_link(struct mobiveil_pcie *pcie)
+ 	int retries;
+ 
+ 	/* check if the link is up or not */
+-	for (retries = 0; retries < LINK_WAIT_MAX_RETRIES; retries++) {
++	for (retries = 0; retries < PCIE_LINK_WAIT_MAX_RETRIES; retries++) {
+ 		if (mobiveil_pcie_link_up(pcie))
+ 			return 0;
+ 
+-		usleep_range(LINK_WAIT_MIN, LINK_WAIT_MAX);
++		usleep_range(PCIE_LINK_WAIT_US_MIN, PCIE_LINK_WAIT_US_MAX);
+ 	}
+ 
+ 	dev_err(&pcie->pdev->dev, "link never came up\n");
+diff --git a/drivers/pci/controller/mobiveil/pcie-mobiveil.h b/drivers/pci/controller/mobiveil/pcie-mobiveil.h
+index 7246de6a7176..11010a99e27c 100644
+--- a/drivers/pci/controller/mobiveil/pcie-mobiveil.h
++++ b/drivers/pci/controller/mobiveil/pcie-mobiveil.h
+@@ -122,11 +122,6 @@
+ #define IB_WIN_SIZE			((u64)256 * 1024 * 1024 * 1024)
+ #define MAX_PIO_WINDOWS			8
+ 
+-/* Parameters for the waiting for link up routine */
+-#define LINK_WAIT_MAX_RETRIES		10
+-#define LINK_WAIT_MIN			90000
+-#define LINK_WAIT_MAX			100000
+-
+ #define PAGED_ADDR_BNDRY		0xc00
+ #define OFFSET_TO_PAGE_ADDR(off)	\
+ 	((off & PAGE_LO_MASK) | PAGED_ADDR_BNDRY)
+diff --git a/drivers/pci/controller/pci-aardvark.c b/drivers/pci/controller/pci-aardvark.c
+index e34bea1ff0ac..506323a6c72b 100644
+--- a/drivers/pci/controller/pci-aardvark.c
++++ b/drivers/pci/controller/pci-aardvark.c
+@@ -255,9 +255,6 @@ enum {
+ #define PIO_RETRY_CNT			750000 /* 1.5 s */
+ #define PIO_RETRY_DELAY			2 /* 2 us*/
+ 
+-#define LINK_WAIT_MAX_RETRIES		10
+-#define LINK_WAIT_USLEEP_MIN		90000
+-#define LINK_WAIT_USLEEP_MAX		100000
+ #define RETRAIN_WAIT_MAX_RETRIES	10
+ #define RETRAIN_WAIT_USLEEP_US		2000
+ 
+@@ -349,11 +346,11 @@ static int advk_pcie_wait_for_link(struct advk_pcie *pcie)
+ 	int retries;
+ 
+ 	/* check if the link is up or not */
+-	for (retries = 0; retries < LINK_WAIT_MAX_RETRIES; retries++) {
++	for (retries = 0; retries < PCIE_LINK_WAIT_MAX_RETRIES; retries++) {
+ 		if (advk_pcie_link_up(pcie))
+ 			return 0;
+ 
+-		usleep_range(LINK_WAIT_USLEEP_MIN, LINK_WAIT_USLEEP_MAX);
++		usleep_range(PCIE_LINK_WAIT_US_MIN, PCIE_LINK_WAIT_US_MAX);
+ 	}
+ 
+ 	return -ETIMEDOUT;
+diff --git a/drivers/pci/controller/pcie-xilinx-nwl.c b/drivers/pci/controller/pcie-xilinx-nwl.c
+index 7db2c96c6cec..fc65e9fdddb3 100644
+--- a/drivers/pci/controller/pcie-xilinx-nwl.c
++++ b/drivers/pci/controller/pcie-xilinx-nwl.c
+@@ -140,11 +140,6 @@
+ #define PCIE_PHY_LINKUP_BIT		BIT(0)
+ #define PHY_RDY_LINKUP_BIT		BIT(1)
+ 
+-/* Parameters for the waiting for link up routine */
+-#define LINK_WAIT_MAX_RETRIES          10
+-#define LINK_WAIT_USLEEP_MIN           90000
+-#define LINK_WAIT_USLEEP_MAX           100000
+-
+ struct nwl_msi {			/* MSI information */
+ 	DECLARE_BITMAP(bitmap, INT_PCI_MSI_NR);
+ 	struct irq_domain *dev_domain;
+@@ -203,10 +198,10 @@ static int nwl_wait_for_link(struct nwl_pcie *pcie)
+ 	int retries;
+ 
+ 	/* check if the link is up or not */
+-	for (retries = 0; retries < LINK_WAIT_MAX_RETRIES; retries++) {
++	for (retries = 0; retries < PCIE_LINK_WAIT_MAX_RETRIES; retries++) {
+ 		if (nwl_phy_link_up(pcie))
+ 			return 0;
+-		usleep_range(LINK_WAIT_USLEEP_MIN, LINK_WAIT_USLEEP_MAX);
++		usleep_range(PCIE_LINK_WAIT_US_MIN, PCIE_LINK_WAIT_US_MAX);
+ 	}
+ 
+ 	dev_err(dev, "PHY link never came up\n");
+diff --git a/drivers/pci/controller/plda/pcie-starfive.c b/drivers/pci/controller/plda/pcie-starfive.c
+index 298036c3e7f9..542a751b6f4d 100644
+--- a/drivers/pci/controller/plda/pcie-starfive.c
++++ b/drivers/pci/controller/plda/pcie-starfive.c
+@@ -45,11 +45,6 @@
+ #define STG_SYSCON_LNKSTA_OFFSET		0x170
+ #define DATA_LINK_ACTIVE			BIT(5)
+ 
+-/* Parameters for the waiting for link up routine */
+-#define LINK_WAIT_MAX_RETRIES	10
+-#define LINK_WAIT_USLEEP_MIN	90000
+-#define LINK_WAIT_USLEEP_MAX	100000
+-
+ struct starfive_jh7110_pcie {
+ 	struct plda_pcie_rp plda;
+ 	struct reset_control *resets;
+@@ -217,12 +212,12 @@ static int starfive_pcie_host_wait_for_link(struct starfive_jh7110_pcie *pcie)
+ 	int retries;
+ 
+ 	/* Check if the link is up or not */
+-	for (retries = 0; retries < LINK_WAIT_MAX_RETRIES; retries++) {
++	for (retries = 0; retries < PCIE_LINK_WAIT_MAX_RETRIES; retries++) {
+ 		if (starfive_pcie_link_up(&pcie->plda)) {
+ 			dev_info(pcie->plda.dev, "port link up\n");
+ 			return 0;
+ 		}
+-		usleep_range(LINK_WAIT_USLEEP_MIN, LINK_WAIT_USLEEP_MAX);
++		usleep_range(PCIE_LINK_WAIT_US_MIN, PCIE_LINK_WAIT_US_MAX);
+ 	}
+ 
+ 	return -ETIMEDOUT;
+diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+index 13d998fbacce..f47ed96d8ef2 100644
+--- a/drivers/pci/pci.h
++++ b/drivers/pci/pci.h
+@@ -63,6 +63,8 @@ struct pcie_tlp_log;
+ /* Parameters for the waiting for link up routine */
+ #define PCIE_LINK_WAIT_MAX_RETRIES	10
+ #define PCIE_LINK_WAIT_SLEEP_MS		90
++#define PCIE_LINK_WAIT_US_MIN		90000
++#define PCIE_LINK_WAIT_US_MAX		100000
+ 
+ /* Format of TLP; PCIe r7.0, sec 2.2.1 */
+ #define PCIE_TLP_FMT_3DW_NO_DATA	0x00 /* 3DW header, no data */
 
 -- 
 2.52.0
