@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCADCD6AAE9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:21:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4442DD6AAE6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AkCD8wM/qtUrNEg2vN1s6p8xtYLdZo4rTamfMzPaJXM=; b=QoluS+yWffkUEmsZ46ScT+wZPd
-	ozLlBT0yVbG44xAjX6RQwzgHe9sKBRlFi7E3CXmx/y7j+Wf6jUjJRXONQOCmYXhgJ4U+bFbNPCD+3
-	zvp2IFc0SGK58OW+Quf2MVBXejROb1/Tz4rMBfyuC6FZP8YdKE50VrIJdkRgqDSWzg3sCzzNurt/l
-	INBvmH3KtEYcBxGDIhnfQpOfYA69lTgA6SwpYJYnsGm8vGcRCvRxsSFpm/Rnp1OHN9pm72W9nw4+7
-	msTSxOhcMHNtWGe/o9je/oHxUjx0QuZkIbrJUwp48rPKEeuzXkRF9vk9luRlOycTOM0U98GIh7M3J
-	U2WY/aRw==;
+	bh=XM3cpHUUcyNLCB/nYmaJKHDEnGYf34Fg0cTwoWs1xoM=; b=xk36xg7KbZzZiZ3JOZ2rp4ZVO/
+	93PFQ1yibSbK4xF+LyiZGkOXKYhOlXr2LbUoJ5N+ND+ySWUNH9noAcG0y7WDY01NXvUfAJxXY8jAj
+	8ecLkGi7FokYtOyCIFkMFcIIQ9KKqLGpQwo+N6n0XLrtiPxEty4wCXT6nN855eyL6m1DU5h2FMw0v
+	0Bx64WRJolq7ZS9Qyzv7p49UKCJatkxmlyQX4ptjapxTS62ILvN3IlgCOMivkMRCosfuYLgl7Mnbt
+	WmQ2qBaEjfpHJvsJkRRmdzDdmD9KNBaFMbva2thd4ryEctT9m5XVKQbNGpCjURq+Dn+Ujf4SZF9MS
+	FSECeqCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Kn9-00000000VOY-087l;
-	Thu, 02 Apr 2026 16:21:11 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1w8Kpk-00000000VcP-2KGi;
+	Thu, 02 Apr 2026 16:23:52 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Kn6-00000000VO9-0Qex
+	id 1w8Kpi-00000000Vc2-3Bkq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 16:21:09 +0000
+	Thu, 02 Apr 2026 16:23:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1775146868; x=1806682868;
+  t=1775147031; x=1806683031;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=GujdQjZozNiu5xy5BhxV8QzkK0PAVPSJEakluqbDb2k=;
-  b=A16uy0iXAJy25E80Ct9zNgLgPdYJEkgquRMkXNeDDPsoyyo6v5bRuNJd
-   Skh9kIqoR2kbIe3cq1lYSP3znOe/1WnIJBK6IPsxg86KiFcp6TCzavub3
-   6/PIc1N/QYJ3lFE6i+WxLqvfQw32b81ChDVAFH+5LpK6+OLwWDWmCdo0k
-   Kj/9/3L4x3o7TfRDwQ4TWSfoINVhLXaJBqKVSbeI5+J104iwGw0LNjbi0
-   XWUvJ6N4oaaJzGJwW7coBB6D+leBKwA6ekAZQamYotuNc2DJBoqdBVe6i
-   BtVtEfH02uc96oqqmsaS7FXU5yG5cISnhKp9RfAH6htQKd9WGyIm75mZ8
-   g==;
-X-CSE-ConnectionGUID: 2S58HEMiQKmdAylD7PGroA==
-X-CSE-MsgGUID: gWdu8PZEReO5PMlbt168Bw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11747"; a="63760789"
+  bh=jubyS2m2QjhM1wFy1HfygIjKkKElTV1Ix6KF2Q4kQlc=;
+  b=IRxht+fe6dniiH2vT5iQKBjUyzqrWRvM3TYTOKBb0n8tYyeh5y9/o/XP
+   5PkDzPP8woN5aWGglxRyN42DJFlu0ISFLzPzg/vtX+fB0N9eDUfllDADm
+   eIZjh6JQ4Vc9gCBAZ74XbfBtU+5w+fx/8XQTwWx+25+/R1bq8ZWO8Etdt
+   Gm9A7JhdMj/Mi36cEotiXSyCrrZ9THABwkAPWuM50rglkH8Mbu9GqoxcQ
+   CSzMbQ/W57GXIzspxSATfdUd2hMqwZ9KXM5wPQ/51PI+WbaVfXi0s7hCq
+   raJRh0yvdcegwjNoAOg9gYlE2Yfo4tShizJDUckPLVvnYywYXQyUkhiC/
+   A==;
+X-CSE-ConnectionGUID: SGSX2f7URXqwxD7lEAp/EA==
+X-CSE-MsgGUID: w3a8ax1+S0K/cFROIsWJrQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11747"; a="87283608"
 X-IronPort-AV: E=Sophos;i="6.23,156,1770624000"; 
-   d="scan'208";a="63760789"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Apr 2026 09:21:06 -0700
-X-CSE-ConnectionGUID: 80euU5L7TgqPnrTtsw4CKQ==
-X-CSE-MsgGUID: UBI1ni8OTnaF1n3N+HjjFA==
+   d="scan'208";a="87283608"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Apr 2026 09:23:50 -0700
+X-CSE-ConnectionGUID: D0KNrGtMRbC6uGrHszmO3A==
+X-CSE-MsgGUID: XhnFx+ziTluokXI1j+c2NA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.23,156,1770624000"; 
-   d="scan'208";a="226893234"
+   d="scan'208";a="231060363"
 Received: from amilburn-desk.amilburn-desk (HELO localhost) ([10.245.245.31])
-  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Apr 2026 09:21:01 -0700
-Date: Thu, 2 Apr 2026 19:20:58 +0300
+  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Apr 2026 09:23:46 -0700
+Date: Thu, 2 Apr 2026 19:23:43 +0300
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -72,20 +72,20 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	brgl@kernel.org, driver-core@lists.linux.dev,
 	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
-Subject: Re: [PATCH v5 3/4] driver core: make software nodes available earlier
-Message-ID: <ac6XasInVzlqtuPu@ashevche-desk.local>
+Subject: Re: [PATCH v5 4/4] ARM: omap1: enable real software node lookup of
+ GPIOs on Nokia 770
+Message-ID: <ac6YD0Zr46YjNdr5@ashevche-desk.local>
 References: <20260402-nokia770-gpio-swnodes-v5-0-d730db3dd299@oss.qualcomm.com>
- <20260402-nokia770-gpio-swnodes-v5-3-d730db3dd299@oss.qualcomm.com>
+ <20260402-nokia770-gpio-swnodes-v5-4-d730db3dd299@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260402-nokia770-gpio-swnodes-v5-3-d730db3dd299@oss.qualcomm.com>
+In-Reply-To: <20260402-nokia770-gpio-swnodes-v5-4-d730db3dd299@oss.qualcomm.com>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_092108_161284_A647AF39 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260402_092350_881492_05297B98 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,16 +100,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 02, 2026 at 04:15:04PM +0200, Bartosz Golaszewski wrote:
-> Software nodes are currently initialized in a function registered as
-> a postcore_initcall(). However, some devices may want to register
-> software nodes earlier than that (or also in a postcore_initcall() where
-> they're at the merci of the link order). Move the initialization to
-> driver_init() making swnode available much earlier as well as making
-> their initialization time deterministic.
+On Thu, Apr 02, 2026 at 04:15:05PM +0200, Bartosz Golaszewski wrote:
+> Currently the board file for Nokia 770 creates dummy software nodes not
+> attached in any way to the actual GPIO controller devices and uses the
+> fact that GPIOLIB matching swnode's name to the GPIO chip's label during
+> software node lookup. This behavior is wrong and we want to remove it.
+> To that end, we need to first convert all existing users to creating
+> actual fwnode links.
+> 
+> Create real software nodes for GPIO controllers on OMAP16xx and
+> reference them from the software nodes in the nokia board file.
 
-Okay, if people want this, why not.
-Acked-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+...
+
+> +static const struct software_node omap16xx_gpio2_swnode = { };
+
+No need to have {} for statically defined variables.
+OTOH, if you want to have same style over exported and static,
+perhaps it's okay.
+
+> +static const struct software_node omap16xx_gpio3_swnode = { };
+
+> +static const struct software_node omap16xx_gpio4_swnode = { };
 
 -- 
 With Best Regards,
