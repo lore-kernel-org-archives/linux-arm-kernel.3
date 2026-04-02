@@ -4,66 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93863D6AAF5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 329B5D6AAF6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:51:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Z4i9cPTE/8T4X7U6Dd0oVOrCRrGp3u6qVoLqSZCkUE=; b=Ajmx9O0ji6kIzSWKa1MfBIzqWx
-	yxgVrpH2t8Bx8iHbDGqj6reokqxBjE++ec8SJsjKArSyIDxqGAkuu98V+ui7sTdnTqF9ULfQvEzDl
-	ini1v0BbYcQBhc05+p8JSkfZ4tbxU2b6HU5bUxG9XZwk6bam2sV+kTEzkU00+r2umahGApRiV4HhV
-	MWIKS0r4nsiVBmhukU++DPKid3tNdVRzSRDXJygK4tgnvI5CIV1lIOvbV6KvFxvXUFfUREeW7RBV6
-	zrsytIdzO9YzmGevsIdItxwEGAD6PDHxaDyXfXdqftzvhqYzNhX+wdnl6X4ck16HfAzr0a7i3Ymld
-	+PZMf0ug==;
+	bh=RBizT6dITzOWs3PxefUJhuMVHGKPHsRS7LDlIgolVHA=; b=ATxyeGkwBqTmUmLeTaGKWp1AR+
+	vOQIM5PjrqK1PoXgfK04iCKKBkFvL3dJVB13Cx4LmHwDa1Wsp1lGOO6RUejuTq92Si6eYkdO0oV0i
+	CW7NbvkR1JNQ6xjgYaHm1vk0ucKBNuDfrcCMZQL3CvBW+TjogQGSI0fPfNzbumKRbTEgauI65Glqb
+	2qngd8MKrmVSno2xkG6a2BpdO+QBwvcxHoQ8bWUkOTho9mm0K1UeleG3A5Un/eEJlHY8EW0bV5iF6
+	ocVXkMJ2nJReFFnwya3yklc2ffFKwWspIxV60vAagrnt6rcsJAIHFScSSPYHKQF6Y9kZRCGzmBGmj
+	L/jxYYmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8LFz-00000000Xsa-364M;
-	Thu, 02 Apr 2026 16:50:59 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1w8LGY-00000000Xyy-2bTB;
+	Thu, 02 Apr 2026 16:51:34 +0000
+Received: from mail-westus2azon11010071.outbound.protection.outlook.com ([52.101.46.71] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8LFw-00000000Xru-3PJS
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 16:50:58 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 77CAA1F8005D
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Apr 2026 16:50:47 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id DD10CB40126; Thu,  2 Apr 2026 16:50:32 +0000 (UTC)
-Received: from shepard (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id 14645B4011E;
-	Thu,  2 Apr 2026 16:50:26 +0000 (UTC)
-Date: Thu, 2 Apr 2026 18:50:09 +0200
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: Krzysztof =?utf-8?Q?Ha=C5=82asa?= <khalasa@piap.pl>
-Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Liu Ying <victor.liu@nxp.com>
-Subject: Re: [PATCH 3/3] drm: lcdif: Wait for vblank before disabling DMA
-Message-ID: <ac6eQcDS8lr-A4ia@shepard>
-References: <20260330224619.2620782-1-paulk@sys-base.io>
- <20260330224619.2620782-4-paulk@sys-base.io>
- <m3y0j8mhoz.fsf@t19.piap.pl>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="a2mfjKByZ2U6+wpv"
+	id 1w8LGW-00000000Xy8-19pG;
+	Thu, 02 Apr 2026 16:51:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YxVgv/a5FBKUEMGOwAyZZQ+/9ATFx1rxCHbK2fXsszMd9I/Oz6wFdYMxcbYVQtn6EiB/jPzdYvI+48gmNFm8xJmpGwW3sIPfr48J4p4SIsyz7E+sVJ2/exJaZ2RSqmV0NyFyU75LNGqT37xZZOU4xBcUZ470ocPBo15lmjphKmUBei4RtYQSsWTiDlFbVg94oV8joP+XdJ+yDL247JUk6rRgka4NZ1tAf2R1x1DRbw92b4LZsXLxrSXkWAYWGfDvVXF7lHyrmIJNawZ3TCMszvGZlUULsKlGjI5DinhIRcabdSseEKa9eNm3/ecMuHcgD0PyOHwdCtO040OD0U8Czg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RBizT6dITzOWs3PxefUJhuMVHGKPHsRS7LDlIgolVHA=;
+ b=T2GzLxBtOdF1SM6L0TtHSIZXsj/HYSzYP2UWfIpXDUOgfGbDpXHEV6UD30Yxm1pKG+4WGmD5PIxcRvGKo2WoptfHQYiAIAYKZYpprwqUgAkGACcI6T8ratzPu9IvynuGB0D2SxYMsK6ueGB+ONhe9txfS9Tr81ORwzS7MBJcoqb+kMEGQUgT48nsBoZtMG80TmQqF1oLuHKx+Z3umgdtXzl98FUw8tIm3WJOZd2Nqbli55rzLRSV9Hh12RqOEOrh9t6AP3hKyBvSEuEMf2AYh8b4RQrdT/d3DKDP3Ckvn7cpqwUnB8mAlv/bRiyOqTpZSqrmH9XdnDEkQR3xpozsfQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RBizT6dITzOWs3PxefUJhuMVHGKPHsRS7LDlIgolVHA=;
+ b=fQDyJAqSkJyMHoiYKTaK32SJvdJQCDaUpLB7molXDt67shG25G/IDhdZMnvZBUNJYdR3eqkPuRY45T6410bkmzo5QUud2JAe7GqdT8nVqPalZCO9CjUCOj1lDWp9+y/mc2qxOgBBOPjIpjcxpGQ9MyRjEXyL6MIdbFSymTUTbhzTvnlypWSXvbwF7y2SRmEBU9nKYAPntiYaZaiClSO/iQw0Mf4/titxp/Bm+gy28cgzf7/iMt/uAkTwH4Z8xGgBI4zlnj89tAwNVgHLCOg9Ffm9IOLxNun5+3oqGRPOojh0hEzDYrwpggrJRYtoNWqu1FmXrY4Oxpgw//ZBN2v9fw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by SJ2PR12MB7918.namprd12.prod.outlook.com (2603:10b6:a03:4cc::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Thu, 2 Apr
+ 2026 16:51:25 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9769.017; Thu, 2 Apr 2026
+ 16:51:25 +0000
+Date: Thu, 2 Apr 2026 13:51:23 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+	Baolin Wang <baolin.wang@linux.alibaba.com>, iommu@lists.linux.dev,
+	Janne Grunau <j@jannau.net>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Neal Gompa <neal@gompa.dev>, Orson Zhai <orsonzhai@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, Sven Peter <sven@kernel.org>,
+	virtualization@lists.linux.dev, Chen-Yu Tsai <wens@kernel.org>,
+	Will Deacon <will@kernel.org>, Yong Wu <yong.wu@mediatek.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Janusz Krzysztofik <janusz.krzysztofik@linux.intel.com>,
+	Joerg Roedel <joerg.roedel@amd.com>,
+	Jon Hunter <jonathanh@nvidia.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>, stable@vger.kernel.org,
+	Vasant Hegde <vasant.hegde@amd.com>
+Subject: Re: [PATCH v2] iommu: Always fill in gather when unmapping
+Message-ID: <20260402165123.GG310919@nvidia.com>
+References: <0-v2-b24668f107b2+11bbe-iommu_gather_always_jgg@nvidia.com>
+ <70a128f9-d6f0-41b6-8fef-e249c0507149@arm.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <m3y0j8mhoz.fsf@t19.piap.pl>
+In-Reply-To: <70a128f9-d6f0-41b6-8fef-e249c0507149@arm.com>
+X-ClientProxiedBy: YT4PR01CA0221.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:eb::12) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SJ2PR12MB7918:EE_
+X-MS-Office365-Filtering-Correlation-Id: 12a523e2-26d5-4294-88b9-08de90d8134d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: nv3eWcfPVgqpwumndzHvGpmiicpJDjcAupVRIpfFppJ2h7nneXAjiVLiFGyeE4haqMRus50NmE12DLDx17tyEnunLBqV8UmPT4tLbrneF0rT/eAV21uGRn/GuBvUFqUsmC1sqhCpuvVNT7VLjmq/FM+unJaz4ODfhfFYcGFmXhekMU0Mcbv/yhEGWNTLNSCvbJ7dctJLsoFVEHdBAaYo1Bs6sgpibI6hiH5bFCd/wlGalQVwCP4wyYb1ei2oo13wmYFHTl17b5UracBRe/KJXNIw/ytFWpS3PwldMhUm+0lBo4KB8bW+S3I5fcZmmYUeZvcHJLaJ9KS4MiWwcDF1ffU9GmRsKc4FbHh7dNVf14pDCqURXkhcPpiYYTZKBoymIaQwV/S47darmEMQlQppF3EgCRVv/U4t9Ggv4XmG9PRBNekTnIrsGNDRcu/HnnWsMktw3VZw0ChZhv75Py//1uwfnJnLadX6ida5RGFhzBc0dHhkNbV3GR+2Q+4FB1tLQuBL3zWxY5WLrTpsS9AfytOh70B2mAlw8DW3SVk2/E5NanfFOZhhjELsEdMXnfy32biCvThZP6+JZS4Qi2vh3LVAwrd6Njs5hbm9nEkugeB1MWsdxlWfxD7pcv7ZJpiKKpARakWf9ltiPzp8iXJrD8qBQNE8u9YyhYIdJtIEYZyjPDCDuDO7VyIOqk8U9HzmRGwJbnp/EOX3+dh6ZCsUpoaDjukpn3QBshEgQFya3gc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pdbny2mjmDm0DkpF0XzFDwQxA68zQu5QwbhUMLKNfLKme00Sg/a6r5XvOfes?=
+ =?us-ascii?Q?im0OPbWN1UvQ8UCgyrT1j12USyPoFHyHs/Fx/SkIj6ApzeE2vWV1X0mud7Y7?=
+ =?us-ascii?Q?gR00yHrP1ZyNESt8HjZs3pU6/DWjo1vScfe6Uqo/6lEWzhAdfi16MX1eLVwY?=
+ =?us-ascii?Q?cY3L78dmNLtarQb4N3GcnqRcKWxKihxU0wTMkv+kK3oQ/vgaVvW7M1jWmtWC?=
+ =?us-ascii?Q?KROIBGArjPls1SzS23QiCEukolq4jRYALAskNgWVw/R05nG8YfwdCbNgQvJ4?=
+ =?us-ascii?Q?ZRZeGqgChoLIorgKfx/1KOBOP9maqIY4ZJvPdIaLBsIpBimo76uYfGW4r65O?=
+ =?us-ascii?Q?pg5X45F++0cejh5ZeyauVHKAKDZgoJdty7fVH1o+nsDSHFV1IMBsh35Ik5yp?=
+ =?us-ascii?Q?CPfY+CLr6MMJTiFwgCiIhp74zNzT7oOFlQVfPiLbVgNWmJNXu+lJq5mfaKp1?=
+ =?us-ascii?Q?d2a+5NwxpCL9NQzMrAyFCgY/ryZWc5i1XKfftV+i6ZkkbUKRaa/wE8sUcFRN?=
+ =?us-ascii?Q?aQ864kCbB5iIcqsGCV19D6LPwCKxnwzTQJrBk1Ks1oqojGYLTv93qphcevcg?=
+ =?us-ascii?Q?YjiDyhigMkpDDmb4oMhOYEKFG/AFgcW8S+QlICtl4oOTJsLqOWlMP9N3HAtg?=
+ =?us-ascii?Q?AVSRJU+kQ598+yfbKxAYwDEaHYfBhY8luoV5f5mYbqd0cwMn4gm9iLdyQ7of?=
+ =?us-ascii?Q?lYK3yx8mLA8LyOSzgQoHSLGy7jd+WgB1B8Oib5nWd4skxBDFuugYKl4wWnwd?=
+ =?us-ascii?Q?Wfa4uMj4YFUPNUdVEGjq2DO5u5wFtoEoCs4bzXsctQoBlR141JLOY0wY+RaB?=
+ =?us-ascii?Q?eB1vYcjNHXJ+nPbqAsEUIMQ6DQuu/WAns4gZxNzP2K3OF3oKfkkUnJwvcjrF?=
+ =?us-ascii?Q?TPF40m68jGlpJndufvibmvEj25qpctsdic6YdnzTh8nIHRZ5nuGBdWQAQZAz?=
+ =?us-ascii?Q?cM9/aYtN4qPo+9JWu0m5OPThky/7gOyUbuZAGkowR/2WsxiUHamuV4llEvHJ?=
+ =?us-ascii?Q?FcbqvdqlAALlw7JZxzNyCWtmkzF97aLTsB/NmVzOADgg+A0R/Nw/tW0RhZYC?=
+ =?us-ascii?Q?HaXILRGz91th53gEY1KibxpohW7jStXl1RLunTbPtO7984Vu4fwI9rWD0+L1?=
+ =?us-ascii?Q?0hO5nrr3RMWn1hw4QzWBrL90bWGoikfu+kZd9e0JMsM/hw13s8qrq2BsqUvD?=
+ =?us-ascii?Q?OCDsL5gAf2VX3eXswdqaT4CibT9ZneNWIIdVh4LDenzpLxOVocYa3307kj6P?=
+ =?us-ascii?Q?yKyYt4JMfbI8YucN9AI+BywLGCEgrfF5TCNIwOgVtHj1KYHBzwvzE3NfC2CN?=
+ =?us-ascii?Q?p0CMEOa7JBS/meGYrMSy9hCtBEsiY5ROZuGYTLXuTNoUleY1ZXS4ES5DCQ8Y?=
+ =?us-ascii?Q?wGrb3AgZ1wr1hgu8E6NNJH8ood37t/cEW5jDyZW2e9DQuOWiouGE4TWEWn0v?=
+ =?us-ascii?Q?x9zXnl+zijnvb8gCzMxm6t1t66xbtu7RMqfgeVHePsDS8B3YRGPiXmafAeOC?=
+ =?us-ascii?Q?g/d09J0jN/Ob9A7Jxl2J/8lFhsTjfAEq+jBct5tsYjyByiSxquBn7AKJHz3a?=
+ =?us-ascii?Q?6ZapIxGHhDG/msQYrybHwvI/aWpv9ZBOVWaBaVSB33NRPIiMZZKp81JCNV8t?=
+ =?us-ascii?Q?zwj//5BOBrS25GQpRohQKKE3wcpsRz1AJ2w9lVnRUXUhqQxxPF37EsLdD7E0?=
+ =?us-ascii?Q?qVrkwoV4aVjNm71KJR9mNtY1xHmbhYD7Kqdf9hQrrxGc+9Vh?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 12a523e2-26d5-4294-88b9-08de90d8134d
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2026 16:51:24.8765
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tcdTlflq2fhu3zOHc9hj1v+tRAfHusMO9e0IMxmC8dO1XOBn7eHcnxYH4UWKaoji
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB7918
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_095057_195526_7419D78A 
-X-CRM114-Status: GOOD (  48.24  )
+X-CRM114-CacheID: sfid-20260402_095132_322848_2DE6E214 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,266 +157,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---a2mfjKByZ2U6+wpv
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hi Krzysztof,
-
-On Tue 31 Mar 26, 12:11, Krzysztof Ha=C5=82asa wrote:
-> Paul Kocialkowski writes:
-> > It is necessary to wait for the full frame to finish streaming
-> > through the DMA engine before we can safely disable it by removing
-> > the DISP_PARA_DISP_ON bit. Disabling it in-flight can leave the
-> > hardware confused and unable to resume streaming for the next frame.
-> >
-> > This causes the FIFO underrun and empty status bits to be set and
-> > a single solid color to be shown on the display, coming from one of
-> > the pixels of the previous frame. The issue occurs sporadically when
-> > a new mode is set, which triggers the crtc disable and enable paths.
-> >
-> > Setting the shadow load bit and waiting for it to be cleared by the
-> > DMA engine allows waiting for completion.
-> >
-> > The NXP BSP driver addresses this issue with a hardcoded 25 ms sleep.
->=20
-> ...or "addressed" in the previous version :-)
->=20
-> Test results: it works for me: at 1080p60 and 2160p30. I.e. it fixed the
-> underrun problem. It's interesting how a CRTC shutdown can affect it's
-> subsequent start following an SW_RESET.
-
-Thanks for confirming! Indeed it's a bit surprising. I'm not sure what SW_R=
-ESET
-does exactly but it may not concern the DMA part. I've tried using it in the
-irq handler when the underrun is reported and it didn't do anything at all.
-
-> Or... perhaps it has something to do with the clocks? Also see below.
-> If somehow the DMA engine was "running" with it's clock disabled, it
-> would result in an underrun, or worse.
-
-Interestingly I tried to keep the clocks always on as an experiment and it
-had the opposite effect: the DMA engine would get confused every time after=
- the
-first mode set and disable. So for some reason the disabling of the clocks =
-seems
-to mitigate the issue rather than aggravate it.
-
-I think the issue probably boils down to a corrupted internal state of the =
-DMA
-engine if it is disabled while streaming pixels. This is more or less what =
-the
-comment from NXP suggests.
-
-> BTW apparently something converted your tab characters into spaces.
-
-Ah good to know, thanks!
-
-> > --- a/drivers/gpu/drm/mxsfb/lcdif_kms.c
-> > +++ b/drivers/gpu/drm/mxsfb/lcdif_kms.c
-> > @@ -393,6 +393,22 @@ static void lcdif_disable_controller(struct lcdif_=
-drm_private *lcdif)
-> >         if (ret)
-> >                 drm_err(lcdif->drm, "Failed to disable controller!\n");
-> >
-> > +       /*
-> > +        * It is necessary to wait for the full frame to finish streami=
-ng
-> > +        * through the DMA engine before we can safely disable it by re=
-moving
-> > +        * the DISP_PARA_DISP_ON bit. Disabling it in-flight can leave =
-the
-> > +        * hardware confused and unable to resume streaming for the nex=
-t frame.
-> > +        */
-> > +       reg =3D readl(lcdif->base + LCDC_V8_CTRLDESCL0_5);
-> > +       reg |=3D CTRLDESCL0_5_SHADOW_LOAD_EN;
-> > +       writel(reg, lcdif->base + LCDC_V8_CTRLDESCL0_5);
+On Thu, Apr 02, 2026 at 04:59:29PM +0100, Robin Murphy wrote:
+> > @@ -666,9 +666,22 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
+> >   		/* Clear the remaining entries */
+> >   		__arm_lpae_clear_pte(ptep, &iop->cfg, i);
+> > -		if (gather && !iommu_iotlb_gather_queued(gather))
+> > -			for (int j = 0; j < i; j++)
+> > -				io_pgtable_tlb_add_page(iop, gather, iova + j * size, size);
+> > +		if (gather && !iommu_iotlb_gather_queued(gather)) {
+> > +			if (iop->cfg.tlb && iop->cfg.tlb->tlb_add_range) {
+> > +				iop->cfg.tlb->tlb_add_range(gather, iova,
+> > +							    i * size, size,
+> > +							    iop->cookie);
 > > +
-> > +       ret =3D readl_poll_timeout(lcdif->base + LCDC_V8_CTRLDESCL0_5,
-> > +                                reg, !(reg & CTRLDESCL0_5_SHADOW_LOAD_=
-EN),
-> > +                                0, 36000);     /* Wait ~2 frame times =
-max */
->=20
-> I guess this comment is not necessarily correct - at 2160p30 one frame =3D
-> ca. 33 ms. Still works, though (I guess anything more than one frame is
-> enough). I don't know how long a frame on HDMI (or LVDS, MIPI etc.) can
-> take. 30 FPS on 2160p is common because the i.MX8MP can't display 2160p60.
+> > +			} else {
+> > +				iommu_iotlb_gather_add_range(gather, iova,
+> > +							     i * size);
+> > +
+> > +				for (int j = 0; j < i; j++)
+> > +					io_pgtable_tlb_add_page(iop, gather,
+> > +								iova + j * size,
+> > +								size);
+> > +			}
+> > +		}
+> 
+> NAK, this is insane.
 
-Honestly I think we're good assuming 30 fps (33 ms) is a lower bound.
-And the current 36 ms goes even beyond, so I think it's fine.
+This quite an optimization for SMMUv3 so it doesn't have to fit into
+the ill fitting add_page api. What is "insane" here?
 
-> Also, found an issue. Perhaps unrelated? Powered the board without HDMI
-> connected. Then connected 1080p60 display. It came in 1024x768, console
-> 64x24 :-)
+> If you'd rather make gathers mandatory for all drivers than fix it in the
+> core code, then for goodness' sake just add the trivial one-liner to the
+> handful of .unamp_pages implementations which need it, 
 
-That looks more related to a failure to fetch the EDID from the monitor.
-1024x768 is the default fallback that is used in this situation.
-Maybe check if there is something wrong with the DDC lines from the hdmi
-controller, maybe pinmux etc.
+Do I understand this right, you want to not touch io-pgtable and
+instead the unmap trampolines will fix the gather like mkt is doing?
 
-> Run weston. Pressed ctrl-alt-backspace. It deadlocked. Sysrq (serial
-> console, show blocked state) showed (with *lcdif* in it):
-> task:systemd-logind  state:D stack:0     pid:253   tgid:253   ppid:1     =
- task_flags:0x400100 flags:0x00000800
-> Call trace:
->  ...
->  schedule+0x34/0x118
->  rpm_resume+0x188/0x678
->  __pm_runtime_resume+0x4c/0x98
->  clk_pm_runtime_get.part.0.isra.0+0x1c/0x94
->  clk_core_set_rate_nolock+0xd0/0x2fc
->  clk_set_rate+0x38/0x158
->  lcdif_crtc_atomic_enable+0x74/0x8d0
->  drm_atomic_helper_commit_crtc_enable+0xac/0x104
->  drm_atomic_helper_commit_tail_rpm+0x68/0xd8
->  commit_tail+0xa4/0x1a4
->  drm_atomic_helper_commit+0x178/0x1a0
->  drm_atomic_commit+0x8c/0xcc
->  drm_client_modeset_commit_atomic+0x1f8/0x25c
->  drm_client_modeset_commit_locked+0x60/0x17c
->  __drm_fb_helper_restore_fbdev_mode_unlocked.part.0+0x2c/0x8c
->  drm_fb_helper_set_par+0x5c/0x78
->  fb_set_var+0x190/0x35c
->  fbcon_blank+0x178/0x24c
->  do_unblank_screen+0xa8/0x19c
->  vt_ioctl+0x4fc/0x14c0
->  tty_ioctl+0x228/0xb88
->  __arm64_sys_ioctl+0x90/0xe4
->  ...
->=20
-> This is reproducible, though not always.
-
-That seems to be in the enable path and related to runtime pm.
-I don't think it is related to my patch at all.
-
-> It seems it locks on some mutex - the shell works until I do 'cat
-> log.txt' or similar. Now (with std output/error redirection?), weston
-> doesn't even start.
->=20
-> dmesg doesn't show anything of interest.
-> weston: 14.0.2
-> using /dev/dri/card1
-> DRM: supports atomic modesetting
-> DRM: supports GBM modifiers
-> DRM: does not support Atomic async page flip
-> DRM: supports picture aspect ratio
-> Loading module '/usr/lib64/libweston-14/gl-renderer.so'
-> Using rendering device: /dev/dri/renderD128
-> EGL version: 1.5
-> EGL vendor: Mesa Project
-> EGL client APIs: OpenGL OpenGL_ES
-> ...
-> Registered plugin API 'weston_drm_output_api_v1' of size 40
-> Registered plugin API 'weston_drm_virtual_output_api_v2' of size 48
-> Color manager: no-op
->   protocol support: no
-> Output 'HDMI-A-1' attempts EOTF mode SDR and colorimetry mode default.
-> Output 'HDMI-A-1' using color profile: stock sRGB color profile
-> Chosen EGL config details: id:  17 rgba: 8 8 8 0 buf: 24 dep:  0 stcl: 0 =
-int: 1-1 type: win vis_id: XRGB8
-> )
-> Output HDMI-A-1 (crtc 37) video modes:
-> 1920x1080@60.0, preferred, current, 148.5 MHz
->=20
-> Output 'HDMI-A-1' enabled with head(s) HDMI-A-1
-> Loading module '/usr/lib64/weston/desktop-shell.so'
-> launching '/usr/libexec/weston-keyboard'
-> launching '/usr/libexec/weston-desktop-shell'
-> Warning: computed repaint delay for output [HDMI-A-1] is abnormal: -69164=
- msec (happens always)
->=20
-> could not load cursor 'dnd-copy'
-> could not load cursor 'dnd-copy'
-> could not load cursor 'dnd-none'
-> could not load cursor 'dnd-none'
->=20
-> Why all these clk* mutexes? Perhaps something didn't work out as it
-> should there? clk_set_rate isn't supposed to take much time, is it?
-
-Maybe something to do with the clock driver.
-It seems pretty much unrelated to the lcdif driver.
-
-All the best,
-
-Paul
-
-> $ grep clk /tmp/minicom.cap -C1
-> [  728.310054]  __pm_runtime_resume+0x4c/0x98
-> [  728.310059]  clk_pm_runtime_get.part.0.isra.0+0x1c/0x94
-> [  728.310065]  clk_core_set_rate_nolock+0xd0/0x2fc
-> [  728.310071]  clk_set_rate+0x38/0x158
-> [  728.310076]  lcdif_crtc_atomic_enable+0x74/0x8d0
-> --
-> [  728.310210]  mutex_lock+0x48/0x58
-> [  728.310216]  clk_prepare_lock+0x80/0xc0
-> [  728.310223]  clk_unprepare+0x28/0x44
-> [  728.310227]  fsl_samsung_hdmi_phy_suspend+0x24/0x40
-> --
-> [  728.310344]  mutex_lock+0x48/0x58
-> [  728.310350]  clk_prepare_lock+0x80/0xc0
-> [  728.310359]  clk_unprepare+0x28/0x44
-> [  728.310364]  etnaviv_gpu_clk_disable.isra.0+0x28/0x80
-> [  728.310372]  etnaviv_gpu_rpm_suspend+0x78/0x1dc
-> --
-> [  728.310494]  mutex_lock+0x48/0x58
-> [  728.310499]  clk_prepare_lock+0x80/0xc0
-> [  728.310506]  clk_unprepare+0x28/0x44
-> [  728.310512]  sdhci_esdhc_runtime_suspend+0x7c/0x198
-> --
-> [  728.310627]  mutex_lock+0x48/0x58
-> [  728.310632]  clk_prepare_lock+0x80/0xc0
-> [  728.310639]  clk_round_rate+0x38/0x1d8
-> [  728.310646]  dev_pm_opp_set_rate+0xe4/0x2e0
-> --
-> [  728.310760]  mutex_lock+0x48/0x58
-> [  728.310765]  clk_prepare_lock+0x80/0xc0
-> [  728.310771]  clk_prepare+0x1c/0x50
-> [  728.310778]  sdhci_esdhc_runtime_resume+0x34/0x180
-> --
-> [  728.311286]  mutex_lock+0x48/0x58
-> [  728.311292]  clk_prepare_lock+0x80/0xc0
-> [  728.311298]  clk_prepare+0x1c/0x50
-> [  728.311303]  sdhci_esdhc_runtime_resume+0x34/0x180
->=20
-> Something fishy here.
-> --
-> Krzysztof "Chris" Ha=C5=82asa
->=20
-> Sie=C4=87 Badawcza =C5=81ukasiewicz
-> Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-> Al. Jerozolimskie 202, 02-486 Warszawa
-
---=20
-Paul Kocialkowski,
-
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
-
-Expert in multimedia, graphics and embedded hardware support with Linux.
-
---a2mfjKByZ2U6+wpv
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmnOnkEACgkQhP3B6o/u
-lQymaA/8Cu27/yyOshfCvqQopelEL+8j4/DcmCUAm138wEi8rWc/EG+eZ5P9Falz
-x3trgpduIM3oiIPxLR47PGUGiUTSLcs+XnlZVTYUp/Tu3iFG47n6JY6SiQUev43L
-bEFjXvIvzMew71be3QyVRKNDOxSXDvONIK5Qtx+/dDyok55iYEm8kWrZDnwbAbE6
-yfr0Iqo+FEiLcHqT8RhB/jesQPRS1PiCxkJlMEQMEN4mKXQqm2uPCZ1dMmMD1GXQ
-jDj7NaqhnSVQfpsOa/PpoeBgUjtlisku3ypcC1/e8mC+ZmNFZseTfXaUIceOwBTw
-LmJc8UFyt4peZfJilrj4kWDbVpn8P3zL9Tj9+JsPbGZW4/klJZ5LSYCLbZCQT4n5
-LkxGxSjqNCO4A/fUvBhIClyp0+WpDrC+guIUk+pg5WrIsN4hLxWXpO0lxjDT+qyp
-IsDeUcDEqHA95gP9LogZzy0H0yhq5HTBhXx7EDs4pXGKf4nTrfB8JLrIGhQO6QFH
-g1VEEkRq8XvByVCGaByNcPIUh1uWqYDx9ybHsc1+/5GF+qzhXpPGTDRGjj8L0GMs
-WQ8NaGNVPSeEEMWbqghtb5lTdqTdPndFhyJXJWY73o60oAGZiE+wW8fZpcvY8DK7
-N231m3Ihf/BmRWl5jujv95ju1zvIsqs9UEDwUUpJwKdrnjSPbeE=
-=87Mt
------END PGP SIGNATURE-----
-
---a2mfjKByZ2U6+wpv--
+Jason
 
