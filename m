@@ -4,73 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1DE8D39406
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 10:13:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54208D39409
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 10:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zDZytDd0i8kMUF7vupzViqMhMeI2fbuPY0FM2og+xXc=; b=F4y+m1p71DkHoLX4VEQMHl1e8+
-	SLd8XwSMDbWsNYZbbcyJHPv5Z7tpdfMeKSteCHJjkxMH1SUac1EPHKw7IRxkRe+JvbBxi73cGXhTg
-	0dnxwAQvIXe1nU5/TBPxeW5o1hojsjfkGr3mfnQ7BDQGY3UmiyzZ+n3GiQhPylVDs3KBIz0aqD27m
-	G/ILhj52pIOmOVkYxUVOw0Q9mCl5qbJ9GxvfbO3ugz4DwtVxsazV2s9LsPknPJRUwRwl3+kYwG57S
-	xU9VfbI4s0y+8X/dPtgnCj+l+ek9jHsbc93EhtkzrK/ldrRz6cRkzyPAt5b4CQ0D3NQXGWZlon76s
-	ZD+23uxQ==;
+	bh=0uG7ywldOjaUzeof/WNjOjTtdACVD5rMx6FLWvsBrfA=; b=e2nFwNm1zfMMKmw6CTqrPltmAN
+	hEqn2q0aF3ZS1blu2M7jOdaUQr+nml7gJaqe3itBHVNE4s2/H3FDLkEAfWH+H+cbvBLYfJw8ZILW1
+	8y+kAgkMSfDtHIR1JZEoq6knRnC4vo04g9Y2/9clVm+VmFAHhun0f8VK4v2jy+dtyDTUnR4mSikaX
+	A7WcoWygSzQLgXZB05RborcArea5QR2bbk2/f5ZrtzAPq2dKBhMZPtoV3n43h4sqVoxCNpQbP2JIX
+	a1SxjOv/IPopv74+iBbeYCrZF72mDprzHWvirqSlMpjXPZMmzwo8+aMJBBbTzzzGSODMMYQUGUlvM
+	V2QO4pYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8F36-0000000HNqe-2g1u;
-	Thu, 02 Apr 2026 10:13:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w8F7v-0000000HOWX-0Qhe;
+	Thu, 02 Apr 2026 10:18:15 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8F34-0000000HNop-3LVE
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 02 Apr 2026 10:13:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=zDZytDd0i8kMUF7vupzViqMhMeI2fbuPY0FM2og+xXc=; b=mRM9zHpzMCcJgTVkFvHHCRzU8f
-	bQxtQnIuUw+tPK3UffNlOKZT6F1gtlBI7e3bEetkYonz23lpracoa5PFh+OGSeBk7Vii2j5CD5HAR
-	16i5sY/bZn1hQYQxNH2b7w+J9mhTucCSSfMrRhAjdI4LjS88ppm4LC/2LNRWQaj7uOfVBPY4enpz+
-	Zh7r5UItaOaps8nf9yaHys63ggwIJP5nlkGStoXufc0Gy1ODU7UjEIksc49YRfi0zs6yoakwAANrQ
-	g22abS/3Z7o9IrdMFi5Oa7xkycuNthbUFoRBf86OU5hedmjkZR83ixvpDaR+iFWYpax/TokT1SACn
-	C1w/3Kcw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8F2m-00000002DKz-1KB1
+	id 1w8F7o-0000000HOVn-43qt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 10:12:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A5D7B2C43;
-	Thu,  2 Apr 2026 03:12:49 -0700 (PDT)
-Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4F56F3F915;
-	Thu,  2 Apr 2026 03:12:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775124775; bh=67CU32/4GMWyz1ND4TiWtL97Fmo5hPALvo8LEyjRWJY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rzLUWl5JCyDY7ZsqhTitTzLeiWal54029cJYX+zIPkDs1pydfx7QeiCvEnjGxuVkn
-	 RXHtfXiE1ZTlMC8NCQGMB1md23uTbbqgEOY22lpYts0MNggkO+bgdIf5FBg/iNaJZ0
-	 2MhMBwi03ZjswWL0kvwzeOps9+nGcqR1QzWfU1qA=
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v4 4/4] arm64: errata: Work around early CME DVMSync acknowledgement
-Date: Thu,  2 Apr 2026 11:12:44 +0100
-Message-ID: <20260402101246.3870036-5-catalin.marinas@arm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260402101246.3870036-1-catalin.marinas@arm.com>
-References: <20260402101246.3870036-1-catalin.marinas@arm.com>
+	Thu, 02 Apr 2026 10:18:12 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6328dAdH1249508
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 2 Apr 2026 10:18:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	0uG7ywldOjaUzeof/WNjOjTtdACVD5rMx6FLWvsBrfA=; b=Dw3tIUJPBonguF/a
+	pcBCLU6rKaGB3GO8S6EhXEtOzfrit5UUdEXKxZvWxEy7gHcv7p00MZlBhEXH82DW
+	29jLg8VWJv+qOoNhFIdWfd3XpNkcb0jixI0pE8VuFLIfHwNCWt4NtRKxzzx04Djv
+	ulksf7aYDpkH0jME2bRibQeXqQ/c3VTtpN0SkoA1FGS0pJvB7+pa3KwB67zQjelJ
+	MynkTCxMQYaurjeSDKNr5t7mZjx+fM+Vmfj0UvL6NcBL+2kDX8nZ67oA2IC8TCM9
+	cD44iUrTe+C8haMH5cXhNhB7Y5Wx5Al3Zqn8+Y/MqeW9Qx7rG/QrrCAEv0LNmWNb
+	3FjJfQ==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4d9n4t0cps-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 10:18:07 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-35da37203d2so1435854a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 03:18:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1775125087; x=1775729887; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=0uG7ywldOjaUzeof/WNjOjTtdACVD5rMx6FLWvsBrfA=;
+        b=X0ELi524vLtcPPVgAvbhMBRpyIr+BX/FGFcU9ZQN1RO9JYzYxjWatklDEvmcWeOUq8
+         sg+QM/yeFALWB6EpV3psy8Mew4yCvA0u2uotFZR15tXjunhXH+tOPs9/rT8VI1X3/Qiv
+         zctfAYIoa18m09ec0MAxAtTnnDnTezGEqhKo2MW/0dzi57Dx2ieQ2gWEoVezylGADq0J
+         fEQLs1bk9b5p40IAn4FltHgFwqFcNCgR/JMGC2obARpLN66NjU0M4R4vZ5JesOxWEe9/
+         JZD5m3bGbAW/ITIKQaKLUu0TLh13rOKFP4lYtojl3rbTyw0OV4Dwt8O0Uo6PvaD774PI
+         WjaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775125087; x=1775729887;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0uG7ywldOjaUzeof/WNjOjTtdACVD5rMx6FLWvsBrfA=;
+        b=qkrvjdXDdhCFwBD0NWYws47BLlR4fhwelGPKkQlH/qnHxkBY9x7tMumMrPsRrhAslU
+         /D85mexWtmo1RxF0L9O2yw1c4ZOBbtmyIfowOpJMPpW5xGHu8ivQqpHKoToRSeGAtfZa
+         wITsugM027U0wJQIob9DFCrPVjBWQN3VBGUQMFQt/p+tzJ67x73LSQullKtDCOMbMsZS
+         kxaKHnCFoWnUE6kQp/wEMZIB+gDOfJHiDBrq54rx+2RzPiiaV1uHLOb4EjeqCGSzRPUu
+         /uLlWZXkeKR723vjbXPFT4XZhsQDWHvW4Kem3opMqip4Wp2P9aFqb3p7JONEODAjgRE9
+         VwHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUqxumSs7JnqQta6Mp81CR1sXXLrCSsxmSacLtZUhhDT2wP/bStd3/i84x/Ti8d5UBr7/MaCUBs0GSPu14/Iir+@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuJBYNcHTHSJxkBSjZ52T1dMBV5vnmrWrORUkwR3QoGFuxd8o4
+	B4+r0cDG4IpdyIwA4aWBCUMhl6JmzfhpOI2xDWxVioA9f1gPAbGnyeyRtRQT3/Nh9F2uaQBMvNo
+	rMrr6eSho10K4ZJ7CK34xDgU0imU+yuDxF/+Foysjp9FMtJiY8EReUh0qif0mreFJE9vlyJz4LW
+	UMbQ==
+X-Gm-Gg: AeBDieuRwpGUXX/XmJx2aA6xc4Faew5knzAiHSGWwh8w72HBwQv9iEESk+cA9Ox4Cmc
+	t1pxM9BQ5u8x9Qk8TZe8/I4M0mLFjyR9eM4TW07Cj8WYbLIWtStoiNEod8khmy2a2zN0uwExT1L
+	QMcggo+KumpH5sOJY88blESTKC5HX0d5e3+K7MzZDKwtKVcznN3oNG5lot4TepC2AduYPuNS/gM
+	MNVLB/ONXyCUJjnkMLu6pF/7tIioCPSTHhXBwWH85GUlrqma1l5VEja8MpGSRmAyRQ50YpdJFwH
+	6mLrEYPpVB5ZVoFs5hN/I5a/Q6HA9U6KB3kemCtOMz6jvwJQ+tg+W28y6sezk36zi/bGGQT+qiN
+	yVIuNC7n/xLonYBSDKHlfA2lX5wvPMWjWrybmxNpdaK/17OLdj8abzcyYeN3nhrd5YzkYHFzrKl
+	zzxXN5GjOOQJ4=
+X-Received: by 2002:a17:90b:2ec4:b0:34c:904a:d92 with SMTP id 98e67ed59e1d1-35dc6fdd803mr6465774a91.26.1775125086496;
+        Thu, 02 Apr 2026 03:18:06 -0700 (PDT)
+X-Received: by 2002:a17:90b:2ec4:b0:34c:904a:d92 with SMTP id 98e67ed59e1d1-35dc6fdd803mr6465739a91.26.1775125085899;
+        Thu, 02 Apr 2026 03:18:05 -0700 (PDT)
+Received: from [10.133.33.180] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35dbe62f5dbsm7631844a91.8.2026.04.02.03.18.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 02 Apr 2026 03:18:05 -0700 (PDT)
+Message-ID: <e96601e1-c433-498b-9d8f-5c56540a07cb@oss.qualcomm.com>
+Date: Thu, 2 Apr 2026 18:18:00 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 2/7] qcom-tgu: Add TGU driver
+To: Songwei Chai <songwei.chai@oss.qualcomm.com>, andersson@kernel.org,
+        alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
+        konrad.dybcio@oss.qualcomm.com, suzuki.poulose@arm.com,
+        james.clark@arm.com, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
+        devicetree@vger.kernel.org, gregkh@linuxfoundation.org
+References: <20260402092838.341295-1-songwei.chai@oss.qualcomm.com>
+ <20260402092838.341295-3-songwei.chai@oss.qualcomm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260402092838.341295-3-songwei.chai@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: ryh2kpd92jcJ1GlkApGsWo6479ZG5-5M
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAyMDA5MiBTYWx0ZWRfX+iTanYzGSKjf
+ 5J/bZ2QW00XuUCG7NGoDd/niZe72fk4obbHF90z+ozmmvALWmcX2EgClTW/QBv9QB5hQZcZNS0s
+ 8b5py0mPbJuoHuQ0S/tnlsQb29fWjBaGjXSxhG7+JZoF47Hi78UHneokxdk3r73hCKkXha89ycV
+ yKjDDHuLIyXZNiKrFDV3E4YFGlTWQGgEWm0pbgvrYCTak3iWNeqyStaT6jBtQSjXFyIEhZN1RJN
+ OcbwfpqfK8J6t372fib5akILOrff4FQN6BA64NO4bztrgCkq9hyUMNh2sVwAlw8sld7eDyUTHvt
+ MaugJvW6tQk3rseradJXLbSGIuD+Zp3Vt4NbrhyRUL3BEoC3JyQRagi0zV90SYTweQrEUyQkk5C
+ AVWffU2pA6gLvfaUVgUQf/vQCBTvAfX+FHqYoIUnEOxR4u6GsU26af/mOX9Tfjn4+qRCM1bVO7x
+ 0qeLSRiXHnUAkma7gFQ==
+X-Proofpoint-GUID: ryh2kpd92jcJ1GlkApGsWo6479ZG5-5M
+X-Authority-Analysis: v=2.4 cv=Ap/jHe9P c=1 sm=1 tr=0 ts=69ce425f cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=EUspDBNiAAAA:8 a=RlaAdA2wXV2HMp-xn2gA:9 a=QEXdDO2ut3YA:10
+ a=iS9zxrgQBfv6-_F4QbHw:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-02_01,2026-04-02_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 malwarescore=0 spamscore=0 clxscore=1015
+ bulkscore=0 impostorscore=0 adultscore=0 lowpriorityscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2604020092
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_111256_791995_313E2C60 
-X-CRM114-Status: GOOD (  29.61  )
+X-CRM114-CacheID: sfid-20260402_031809_028109_EA92084B 
+X-CRM114-Status: GOOD (  33.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,533 +151,372 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-C1-Pro acknowledges DVMSync messages before completing the SME/CME
-memory accesses. Work around this by issuing an IPI to the affected CPUs
-if they are running in EL0 with SME enabled.
 
-Note that we avoid the local DSB in the IPI handler as the kernel runs
-with SCTLR_EL1.IESB=1. This is sufficient to complete SME memory
-accesses at EL0 on taking an exception to EL1. On the return to user
-path, no barrier is necessary either. See the comment in
-sme_set_active() and the more detailed explanation in the link below.
 
-To avoid a potential IPI flood from malicious applications (e.g.
-madvise(MADV_PAGEOUT) in a tight loop), track where a process is active
-via mm_cpumask() and only interrupt those CPUs.
+On 4/2/2026 5:28 PM, Songwei Chai wrote:
+> Add driver to support device TGU (Trigger Generation Unit).
+> TGU is a Data Engine which can be utilized to sense a plurality of
+> signals and create a trigger into the CTI or generate interrupts to
+> processors. Add probe/enable/disable functions for tgu.
+> 
+> Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
+> ---
+>   .../ABI/testing/sysfs-bus-amba-devices-tgu    |   9 +
+>   drivers/Makefile                              |   1 +
+>   drivers/hwtracing/Kconfig                     |   2 +
+>   drivers/hwtracing/qcom/Kconfig                |  18 ++
+>   drivers/hwtracing/qcom/Makefile               |   3 +
+>   drivers/hwtracing/qcom/tgu.c                  | 193 ++++++++++++++++++
+>   drivers/hwtracing/qcom/tgu.h                  |  51 +++++
+>   7 files changed, 277 insertions(+)
+>   create mode 100644 Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+>   create mode 100644 drivers/hwtracing/qcom/Kconfig
+>   create mode 100644 drivers/hwtracing/qcom/Makefile
+>   create mode 100644 drivers/hwtracing/qcom/tgu.c
+>   create mode 100644 drivers/hwtracing/qcom/tgu.h
+> 
+> diff --git a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+> new file mode 100644
+> index 000000000000..f877a00fcaa5
+> --- /dev/null
+> +++ b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+> @@ -0,0 +1,9 @@
+> +What:		/sys/bus/amba/devices/<tgu-name>/enable_tgu
+> +Date:		April 2026
+> +KernelVersion:	7.1
+> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
+> +Description:
+> +		(RW) Set/Get the enable/disable status of TGU
+> +		Accepts only one of the 2 values -  0 or 1.
+> +		0 : disable TGU.
+> +		1 : enable TGU.
+> diff --git a/drivers/Makefile b/drivers/Makefile
+> index 53fbd2e0acdd..82b712a12a26 100644
+> --- a/drivers/Makefile
+> +++ b/drivers/Makefile
+> @@ -177,6 +177,7 @@ obj-$(CONFIG_RAS)		+= ras/
+>   obj-$(CONFIG_USB4)		+= thunderbolt/
+>   obj-$(CONFIG_CORESIGHT)		+= hwtracing/coresight/
+>   obj-y				+= hwtracing/intel_th/
+> +obj-y				+= hwtracing/qcom/
+>   obj-$(CONFIG_STM)		+= hwtracing/stm/
+>   obj-$(CONFIG_HISI_PTT)		+= hwtracing/ptt/
+>   obj-y				+= android/
+> diff --git a/drivers/hwtracing/Kconfig b/drivers/hwtracing/Kconfig
+> index 911ee977103c..8a640218eed8 100644
+> --- a/drivers/hwtracing/Kconfig
+> +++ b/drivers/hwtracing/Kconfig
+> @@ -7,4 +7,6 @@ source "drivers/hwtracing/intel_th/Kconfig"
+>   
+>   source "drivers/hwtracing/ptt/Kconfig"
+>   
+> +source "drivers/hwtracing/qcom/Kconfig"
+> +
+>   endmenu
+> diff --git a/drivers/hwtracing/qcom/Kconfig b/drivers/hwtracing/qcom/Kconfig
+> new file mode 100644
+> index 000000000000..d6f6d4b0f28e
+> --- /dev/null
+> +++ b/drivers/hwtracing/qcom/Kconfig
+> @@ -0,0 +1,18 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +#
+> +# QCOM specific hwtracing drivers
+> +#
+> +menu "Qualcomm specific hwtracing drivers"
+> +
+> +config QCOM_TGU
+> +	tristate "QCOM Trigger Generation Unit driver"
 
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Link: https://lore.kernel.org/r/ablEXwhfKyJW1i7l@J2N7QTR9R3
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: James Morse <james.morse@arm.com>
-Cc: Mark Brown <broonie@kernel.org>
----
- Documentation/arch/arm64/silicon-errata.rst |  2 +
- arch/arm64/Kconfig                          | 12 +++
- arch/arm64/include/asm/cpucaps.h            |  2 +
- arch/arm64/include/asm/fpsimd.h             | 21 +++++
- arch/arm64/include/asm/tlbbatch.h           | 10 ++-
- arch/arm64/include/asm/tlbflush.h           | 72 ++++++++++++++++-
- arch/arm64/kernel/cpu_errata.c              | 30 +++++++
- arch/arm64/kernel/entry-common.c            |  3 +
- arch/arm64/kernel/fpsimd.c                  | 90 +++++++++++++++++++++
- arch/arm64/kernel/process.c                 | 37 +++++++++
- arch/arm64/tools/cpucaps                    |  1 +
- 11 files changed, 276 insertions(+), 4 deletions(-)
+depends on ARCH_QCOM || COMPILE_TEST
+depends on ARM_AMBA
 
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index 4c300caad901..282ad4257983 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -202,6 +202,8 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | Neoverse-V3AE   | #3312417        | ARM64_ERRATUM_3194386       |
- +----------------+-----------------+-----------------+-----------------------------+
-+| ARM            | C1-Pro          | #4193714        | ARM64_ERRATUM_4193714       |
-++----------------+-----------------+-----------------+-----------------------------+
- | ARM            | MMU-500         | #841119,826419  | ARM_SMMU_MMU_500_CPRE_ERRATA|
- |                |                 | #562869,1047329 |                             |
- +----------------+-----------------+-----------------+-----------------------------+
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 38dba5f7e4d2..9b419f1a9ae6 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1175,6 +1175,18 @@ config ARM64_ERRATUM_4311569
- 
- 	  If unsure, say Y.
- 
-+config ARM64_ERRATUM_4193714
-+	bool "C1-Pro: 4193714: SME DVMSync early acknowledgement"
-+	depends on ARM64_SME
-+	default y
-+	help
-+	  Enable workaround for C1-Pro acknowledging the DVMSync before
-+	  the SME memory accesses are complete. This will cause TLB
-+	  maintenance for processes using SME to also issue an IPI to
-+	  the affected CPUs.
-+
-+	  If unsure, say Y.
-+
- config CAVIUM_ERRATUM_22375
- 	bool "Cavium erratum 22375, 24313"
- 	default y
-diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
-index 177c691914f8..0b1b78a4c03e 100644
---- a/arch/arm64/include/asm/cpucaps.h
-+++ b/arch/arm64/include/asm/cpucaps.h
-@@ -64,6 +64,8 @@ cpucap_is_possible(const unsigned int cap)
- 		return IS_ENABLED(CONFIG_ARM64_WORKAROUND_REPEAT_TLBI);
- 	case ARM64_WORKAROUND_SPECULATIVE_SSBS:
- 		return IS_ENABLED(CONFIG_ARM64_ERRATUM_3194386);
-+	case ARM64_WORKAROUND_4193714:
-+		return IS_ENABLED(CONFIG_ARM64_ERRATUM_4193714);
- 	case ARM64_MPAM:
- 		/*
- 		 * KVM MPAM support doesn't rely on the host kernel supporting MPAM.
-diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-index 1d2e33559bd5..d9d00b45ab11 100644
---- a/arch/arm64/include/asm/fpsimd.h
-+++ b/arch/arm64/include/asm/fpsimd.h
-@@ -428,6 +428,24 @@ static inline size_t sme_state_size(struct task_struct const *task)
- 	return __sme_state_size(task_get_sme_vl(task));
- }
- 
-+void sme_enable_dvmsync(void);
-+void sme_set_active(void);
-+void sme_clear_active(void);
-+
-+static inline void sme_enter_from_user_mode(void)
-+{
-+	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714) &&
-+	    test_thread_flag(TIF_SME))
-+		sme_clear_active();
-+}
-+
-+static inline void sme_exit_to_user_mode(void)
-+{
-+	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714) &&
-+	    test_thread_flag(TIF_SME))
-+		sme_set_active();
-+}
-+
- #else
- 
- static inline void sme_user_disable(void) { BUILD_BUG(); }
-@@ -456,6 +474,9 @@ static inline size_t sme_state_size(struct task_struct const *task)
- 	return 0;
- }
- 
-+static inline void sme_enter_from_user_mode(void) { }
-+static inline void sme_exit_to_user_mode(void) { }
-+
- #endif /* ! CONFIG_ARM64_SME */
- 
- /* For use by EFI runtime services calls only */
-diff --git a/arch/arm64/include/asm/tlbbatch.h b/arch/arm64/include/asm/tlbbatch.h
-index fedb0b87b8db..6297631532e5 100644
---- a/arch/arm64/include/asm/tlbbatch.h
-+++ b/arch/arm64/include/asm/tlbbatch.h
-@@ -2,11 +2,17 @@
- #ifndef _ARCH_ARM64_TLBBATCH_H
- #define _ARCH_ARM64_TLBBATCH_H
- 
-+#include <linux/cpumask.h>
-+
- struct arch_tlbflush_unmap_batch {
-+#ifdef CONFIG_ARM64_ERRATUM_4193714
- 	/*
--	 * For arm64, HW can do tlb shootdown, so we don't
--	 * need to record cpumask for sending IPI
-+	 * Track CPUs that need SME DVMSync on completion of this batch.
-+	 * Otherwise, the arm64 HW can do tlb shootdown, so we don't need to
-+	 * record cpumask for sending IPI
- 	 */
-+	cpumask_var_t cpumask;
-+#endif
- };
- 
- #endif /* _ARCH_ARM64_TLBBATCH_H */
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index 262791191935..3aa19831d0c2 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -80,6 +80,71 @@ static inline unsigned long get_trans_granule(void)
- 	}
- }
- 
-+#ifdef CONFIG_ARM64_ERRATUM_4193714
-+
-+void sme_do_dvmsync(const struct cpumask *mask);
-+
-+static inline void sme_dvmsync(struct mm_struct *mm)
-+{
-+	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
-+		return;
-+
-+	sme_do_dvmsync(mm_cpumask(mm));
-+}
-+
-+static inline void sme_dvmsync_add_pending(struct arch_tlbflush_unmap_batch *batch,
-+					   struct mm_struct *mm)
-+{
-+	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
-+		return;
-+
-+	/*
-+	 * Order the mm_cpumask() read after the hardware DVMSync.
-+	 */
-+	dsb(ish);
-+	if (cpumask_empty(mm_cpumask(mm)))
-+		return;
-+
-+	/*
-+	 * Allocate the batch cpumask on first use. If this fails, fall back to
-+	 * an immediate IPI for this mm.
-+	 */
-+	if (!cpumask_available(batch->cpumask) &&
-+	    !zalloc_cpumask_var(&batch->cpumask, GFP_ATOMIC)) {
-+		sme_do_dvmsync(mm_cpumask(mm));
-+		return;
-+	}
-+
-+	cpumask_or(batch->cpumask, batch->cpumask, mm_cpumask(mm));
-+}
-+
-+static inline void sme_dvmsync_batch(struct arch_tlbflush_unmap_batch *batch)
-+{
-+	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
-+		return;
-+
-+	if (!cpumask_available(batch->cpumask))
-+		return;
-+
-+	sme_do_dvmsync(batch->cpumask);
-+	cpumask_clear(batch->cpumask);
-+}
-+
-+#else
-+
-+static inline void sme_dvmsync(struct mm_struct *mm)
-+{
-+}
-+static inline void sme_dvmsync_add_pending(struct arch_tlbflush_unmap_batch *batch,
-+					   struct mm_struct *mm)
-+{
-+}
-+static inline void sme_dvmsync_batch(struct arch_tlbflush_unmap_batch *batch)
-+{
-+}
-+
-+#endif /* CONFIG_ARM64_ERRATUM_4193714 */
-+
- /*
-  * Level-based TLBI operations.
-  *
-@@ -189,12 +254,14 @@ static inline void __tlbi_sync_s1ish(struct mm_struct *mm)
- {
- 	dsb(ish);
- 	__repeat_tlbi_sync(vale1is, 0);
-+	sme_dvmsync(mm);
- }
- 
--static inline void __tlbi_sync_s1ish_batch(void)
-+static inline void __tlbi_sync_s1ish_batch(struct arch_tlbflush_unmap_batch *batch)
- {
- 	dsb(ish);
- 	__repeat_tlbi_sync(vale1is, 0);
-+	sme_dvmsync_batch(batch);
- }
- 
- static inline void __tlbi_sync_s1ish_kernel(void)
-@@ -397,7 +464,7 @@ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
-  */
- static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
- {
--	__tlbi_sync_s1ish_batch();
-+	__tlbi_sync_s1ish_batch(batch);
- }
- 
- /*
-@@ -602,6 +669,7 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
- 		struct mm_struct *mm, unsigned long start, unsigned long end)
- {
- 	__flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, true, 3);
-+	sme_dvmsync_add_pending(batch, mm);
- }
- 
- static inline bool __pte_flags_need_flush(ptdesc_t oldval, ptdesc_t newval)
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index 5c0ab6bfd44a..5377e4c2eba2 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -11,6 +11,7 @@
- #include <asm/cpu.h>
- #include <asm/cputype.h>
- #include <asm/cpufeature.h>
-+#include <asm/fpsimd.h>
- #include <asm/kvm_asm.h>
- #include <asm/smp_plat.h>
- 
-@@ -575,6 +576,23 @@ static const struct midr_range erratum_spec_ssbs_list[] = {
- };
- #endif
- 
-+#ifdef CONFIG_ARM64_ERRATUM_4193714
-+static bool has_sme_dvmsync_erratum(const struct arm64_cpu_capabilities *entry,
-+				    int scope)
-+{
-+	if (!id_aa64pfr1_sme(read_sanitised_ftr_reg(SYS_ID_AA64PFR1_EL1)))
-+		return false;
-+
-+	return is_affected_midr_range(entry, scope);
-+}
-+
-+static void cpu_enable_sme_dvmsync(const struct arm64_cpu_capabilities *__unused)
-+{
-+	if (this_cpu_has_cap(ARM64_WORKAROUND_4193714))
-+		sme_enable_dvmsync();
-+}
-+#endif
-+
- #ifdef CONFIG_AMPERE_ERRATUM_AC03_CPU_38
- static const struct midr_range erratum_ac03_cpu_38_list[] = {
- 	MIDR_ALL_VERSIONS(MIDR_AMPERE1),
-@@ -901,6 +919,18 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
- 		.matches = need_arm_si_l1_workaround_4311569,
- 	},
- #endif
-+#ifdef CONFIG_ARM64_ERRATUM_4193714
-+	{
-+		.desc = "C1-Pro SME DVMSync early acknowledgement",
-+		.capability = ARM64_WORKAROUND_4193714,
-+		.type = ARM64_CPUCAP_LOCAL_CPU_ERRATUM,
-+		.matches = has_sme_dvmsync_erratum,
-+		.cpu_enable = cpu_enable_sme_dvmsync,
-+		/* C1-Pro r0p0 - r1p2 (the latter only when REVIDR_EL1[0]==0) */
-+		.midr_range = MIDR_RANGE(MIDR_C1_PRO, 0, 0, 1, 2),
-+		MIDR_FIXED(MIDR_CPU_VAR_REV(1, 2), BIT(0)),
-+	},
-+#endif
- #ifdef CONFIG_ARM64_WORKAROUND_SPECULATIVE_UNPRIV_LOAD
- 	{
- 		.desc = "ARM errata 2966298, 3117295",
-diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index 3625797e9ee8..fb1e374af622 100644
---- a/arch/arm64/kernel/entry-common.c
-+++ b/arch/arm64/kernel/entry-common.c
-@@ -21,6 +21,7 @@
- #include <asm/daifflags.h>
- #include <asm/esr.h>
- #include <asm/exception.h>
-+#include <asm/fpsimd.h>
- #include <asm/irq_regs.h>
- #include <asm/kprobes.h>
- #include <asm/mmu.h>
-@@ -67,6 +68,7 @@ static __always_inline void arm64_enter_from_user_mode(struct pt_regs *regs)
- {
- 	enter_from_user_mode(regs);
- 	mte_disable_tco_entry(current);
-+	sme_enter_from_user_mode();
- }
- 
- /*
-@@ -80,6 +82,7 @@ static __always_inline void arm64_exit_to_user_mode(struct pt_regs *regs)
- 	local_irq_disable();
- 	exit_to_user_mode_prepare_legacy(regs);
- 	local_daif_mask();
-+	sme_exit_to_user_mode();
- 	mte_check_tfsr_exit();
- 	exit_to_user_mode();
- }
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index 9de1d8a604cb..7b497ba5395f 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -15,6 +15,7 @@
- #include <linux/compiler.h>
- #include <linux/cpu.h>
- #include <linux/cpu_pm.h>
-+#include <linux/cpumask.h>
- #include <linux/ctype.h>
- #include <linux/kernel.h>
- #include <linux/linkage.h>
-@@ -28,6 +29,7 @@
- #include <linux/sched/task_stack.h>
- #include <linux/signal.h>
- #include <linux/slab.h>
-+#include <linux/smp.h>
- #include <linux/stddef.h>
- #include <linux/sysctl.h>
- #include <linux/swab.h>
-@@ -1358,6 +1360,94 @@ void do_sve_acc(unsigned long esr, struct pt_regs *regs)
- 	put_cpu_fpsimd_context();
- }
- 
-+#ifdef CONFIG_ARM64_ERRATUM_4193714
-+
-+/*
-+ * SME/CME erratum handling
-+ */
-+static cpumask_var_t sme_dvmsync_cpus;
-+static DEFINE_RAW_SPINLOCK(sme_dvmsync_init_lock);
-+
-+/*
-+ * These helpers are only called from non-preemptible contexts, so
-+ * smp_processor_id() is safe here.
-+ */
-+void sme_set_active(void)
-+{
-+	unsigned int cpu = smp_processor_id();
-+
-+	if (!cpumask_test_cpu(cpu, sme_dvmsync_cpus))
-+		return;
-+
-+	cpumask_set_cpu(cpu, mm_cpumask(current->mm));
-+
-+	/*
-+	 * A subsequent (post ERET) SME access may use a stale address
-+	 * translation. On C1-Pro, a TLBI+DSB on a different CPU will wait for
-+	 * the completion of cpumask_set_cpu() above as it appears in program
-+	 * order before the SME access. The post-TLBI+DSB read of mm_cpumask()
-+	 * will lead to the IPI being issued.
-+	 *
-+	 * https://lore.kernel.org/r/ablEXwhfKyJW1i7l@J2N7QTR9R3
-+	 */
-+}
-+
-+void sme_clear_active(void)
-+{
-+	unsigned int cpu = smp_processor_id();
-+
-+	if (!cpumask_test_cpu(cpu, sme_dvmsync_cpus))
-+		return;
-+
-+	/*
-+	 * With SCTLR_EL1.IESB enabled, the SME memory transactions are
-+	 * completed on entering EL1.
-+	 */
-+	cpumask_clear_cpu(cpu, mm_cpumask(current->mm));
-+}
-+
-+static void sme_dvmsync_ipi(void *unused)
-+{
-+	/*
-+	 * With SCTLR_EL1.IESB on, taking an exception is sufficient to ensure
-+	 * the completion of the SME memory accesses, so no need for an
-+	 * explicit DSB.
-+	 */
-+}
-+
-+void sme_do_dvmsync(const struct cpumask *mask)
-+{
-+	/*
-+	 * This is called from the TLB maintenance functions after the DSB ISH
-+	 * to send the hardware DVMSync message. If this CPU sees the mask as
-+	 * empty, the remote CPU executing sme_set_active() would have seen
-+	 * the DVMSync and no IPI required.
-+	 */
-+	if (cpumask_empty(mask))
-+		return;
-+
-+	preempt_disable();
-+	smp_call_function_many(mask, sme_dvmsync_ipi, NULL, true);
-+	preempt_enable();
-+}
-+
-+void sme_enable_dvmsync(void)
-+{
-+	/*
-+	 * stop_machine() will invoke this function concurrently on all
-+	 * affected CPUs. Serialise the initialisation.
-+	 */
-+	raw_spin_lock(&sme_dvmsync_init_lock);
-+	if (!cpumask_available(sme_dvmsync_cpus) &&
-+	    !zalloc_cpumask_var(&sme_dvmsync_cpus, GFP_ATOMIC))
-+		panic("Unable to allocate cpumasks for the SME DVMSync erratum");
-+	raw_spin_unlock(&sme_dvmsync_init_lock);
-+
-+	cpumask_set_cpu(smp_processor_id(), sme_dvmsync_cpus);
-+}
-+
-+#endif /* CONFIG_ARM64_ERRATUM_4193714 */
-+
- /*
-  * Trapped SME access
-  *
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 489554931231..88426d8ae11c 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -26,6 +26,7 @@
- #include <linux/reboot.h>
- #include <linux/interrupt.h>
- #include <linux/init.h>
-+#include <linux/cpumask.h>
- #include <linux/cpu.h>
- #include <linux/elfcore.h>
- #include <linux/pm.h>
-@@ -339,8 +340,41 @@ void flush_thread(void)
- 	flush_gcs();
- }
- 
-+#ifdef CONFIG_ARM64_ERRATUM_4193714
-+
-+static int arch_dup_tlbbatch_mask(struct task_struct *dst)
-+{
-+	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
-+		return 0;
-+
-+	if (!zalloc_cpumask_var(&dst->tlb_ubc.arch.cpumask, GFP_KERNEL))
-+		return -ENOMEM;
-+
-+	return 0;
-+}
-+
-+static void arch_release_tlbbatch_mask(struct task_struct *tsk)
-+{
-+	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
-+		free_cpumask_var(tsk->tlb_ubc.arch.cpumask);
-+}
-+
-+#else
-+
-+static int arch_dup_tlbbatch_mask(struct task_struct *dst)
-+{
-+	return 0;
-+}
-+
-+static void arch_release_tlbbatch_mask(struct task_struct *tsk)
-+{
-+}
-+
-+#endif /* CONFIG_ARM64_ERRATUM_4193714 */
-+
- void arch_release_task_struct(struct task_struct *tsk)
- {
-+	arch_release_tlbbatch_mask(tsk);
- 	fpsimd_release_task(tsk);
- }
- 
-@@ -356,6 +390,9 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
- 
- 	*dst = *src;
- 
-+	if (arch_dup_tlbbatch_mask(dst))
-+		return -ENOMEM;
-+
- 	/*
- 	 * Drop stale reference to src's sve_state and convert dst to
- 	 * non-streaming FPSIMD mode.
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 7261553b644b..8946be60a409 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -105,6 +105,7 @@ WORKAROUND_2077057
- WORKAROUND_2457168
- WORKAROUND_2645198
- WORKAROUND_2658417
-+WORKAROUND_4193714
- WORKAROUND_4311569
- WORKAROUND_AMPERE_AC03_CPU_38
- WORKAROUND_AMPERE_AC04_CPU_23
+> +	help
+> +	  This driver provides support for Trigger Generation Unit that is
+> +	  used to detect patterns or sequences on a given set of signals.
+> +	  TGU is used to monitor a particular bus within a given region to
+> +	  detect illegal transaction sequences or slave responses. It is also
+> +	  used to monitor a data stream to detect protocol violations and to
+> +	  provide a trigger point for centering data around a specific event
+> +	  within the trace data buffer.
+> +
+> +endmenu
+> diff --git a/drivers/hwtracing/qcom/Makefile b/drivers/hwtracing/qcom/Makefile
+> new file mode 100644
+> index 000000000000..5a0a868c1ea0
+> --- /dev/null
+> +++ b/drivers/hwtracing/qcom/Makefile
+> @@ -0,0 +1,3 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +obj-$(CONFIG_QCOM_TGU) += tgu.o
+> diff --git a/drivers/hwtracing/qcom/tgu.c b/drivers/hwtracing/qcom/tgu.c
+> new file mode 100644
+> index 000000000000..49c8f710b931
+> --- /dev/null
+> +++ b/drivers/hwtracing/qcom/tgu.c
+> @@ -0,0 +1,193 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+> + */
+> +
+> +#include <linux/amba/bus.h>
+> +#include <linux/device.h>
+> +#include <linux/err.h>
+> +#include <linux/io.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/pm_runtime.h>
+> +
+> +#include "tgu.h"
+> +
+> +static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
+> +{
+> +	TGU_UNLOCK(drvdata->base);
+> +	/* Enable TGU to program the triggers */
+> +	writel(1, drvdata->base + TGU_CONTROL);
+> +	TGU_LOCK(drvdata->base);
+> +}
+> +
+> +static int tgu_enable(struct device *dev)
+> +{
+> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+> +
+> +	guard(spinlock)(&drvdata->lock);
+> +	drvdata->enabled = true;
+> +
+> +	tgu_write_all_hw_regs(drvdata);
+> +
+> +	return 0;
+> +}
+> +
+> +static void tgu_do_disable(struct tgu_drvdata *drvdata)
+> +{
+> +	TGU_UNLOCK(drvdata->base);
+> +	writel(0, drvdata->base + TGU_CONTROL);
+> +	TGU_LOCK(drvdata->base);
+> +
+> +	drvdata->enabled = false;
+> +}
+> +
+> +static void tgu_disable(struct device *dev)
+> +{
+> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+> +
+> +	guard(spinlock)(&drvdata->lock);
+> +	if (!drvdata->enabled)
+> +		return;
+> +
+> +	tgu_do_disable(drvdata);
+> +}
+> +
+> +static ssize_t enable_tgu_show(struct device *dev,
+> +			       struct device_attribute *attr, char *buf)
+> +{
+> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+> +	bool enabled;
+> +
+> +	guard(spinlock)(&drvdata->lock);
+> +	enabled = drvdata->enabled;
+> +
+> +	return sysfs_emit(buf, "%d\n", !!enabled);
+> +}
+> +
+> +/* enable_tgu_store - Configure Trace and Gating Unit (TGU) triggers. */
+> +static ssize_t enable_tgu_store(struct device *dev,
+> +				struct device_attribute *attr,
+> +				const char *buf,
+> +				size_t size)
+> +{
+> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+> +	unsigned long val;
+> +	int ret;
+> +
+> +	ret = kstrtoul(buf, 0, &val);
+> +	if (ret || val > 1)
+> +		return -EINVAL;
+> +
+> +	if (val) {
+> +		scoped_guard(spinlock, &drvdata->lock) {
+> +			if (drvdata->enabled)
+> +				return -EBUSY;
+> +		}
+> +
+> +		ret = pm_runtime_resume_and_get(dev);
+> +		if (ret)
+> +			return ret;
+> +
+> +		ret = tgu_enable(dev);
+> +		if (ret) {
+> +			pm_runtime_put(dev);
+> +			return ret;
+> +		}
+> +	} else {
+> +		scoped_guard(spinlock, &drvdata->lock) {
+> +			if (!drvdata->enabled)
+> +				return -EINVAL;
+> +		}
+> +
+> +		tgu_disable(dev);
+> +		pm_runtime_put(dev);
+> +	}
+> +
+> +	return size;
+> +}
+> +static DEVICE_ATTR_RW(enable_tgu);
+> +
+> +static struct attribute *tgu_common_attrs[] = {
+> +	&dev_attr_enable_tgu.attr,
+> +	NULL,
+> +};
+> +
+> +static const struct attribute_group tgu_common_grp = {
+> +	.attrs = tgu_common_attrs,
+> +	NULL,
+> +};
+> +
+> +static const struct attribute_group *tgu_attr_groups[] = {
+> +	&tgu_common_grp,
+> +	NULL,
+> +};
+> +
+> +static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
+> +{
+> +	struct device *dev = &adev->dev;
+> +	struct tgu_drvdata *drvdata;
+> +	int ret;
+> +
+> +	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+> +	if (!drvdata)
+> +		return -ENOMEM;
+> +
+> +	drvdata->dev = &adev->dev;
+> +	dev_set_drvdata(dev, drvdata);
+> +
+> +	drvdata->base = devm_ioremap_resource(dev, &adev->res);
+> +	if (IS_ERR(drvdata->base))
+> +		return PTR_ERR(drvdata->base);
+
+pm_runtime_enable is called in amba_probe, and amba_probe calls 
+pm_runtime_put_noidle only when tgu_probe succeeds. We need call the 
+pm_runtime_put in error path to reset the runtime refcount.
+
+
+> +
+> +	spin_lock_init(&drvdata->lock);
+> +
+> +	ret = sysfs_create_groups(&dev->kobj, tgu_attr_groups);
+> +	if (ret) {
+> +		dev_err(dev, "failed to create sysfs groups: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	drvdata->enabled = false;
+> +
+> +	pm_runtime_put(&adev->dev);
+> +
+> +	return 0;
+> +}
+> +
+> +static void tgu_remove(struct amba_device *adev)
+> +{
+> +	struct device *dev = &adev->dev;
+> +
+> +	sysfs_remove_groups(&dev->kobj, tgu_attr_groups);
+> +
+> +	tgu_disable(dev);
+> +}
+> +
+> +static const struct amba_id tgu_ids[] = {
+> +	{
+> +		.id = 0x000f0e00,
+> +		.mask = 0x000fffff,
+> +	},
+> +	{ 0, 0, NULL },
+> +};
+> +
+> +MODULE_DEVICE_TABLE(amba, tgu_ids);
+> +
+> +static struct amba_driver tgu_driver = {
+> +	.drv = {
+> +		.name = "qcom-tgu",
+> +		.suppress_bind_attrs = true,
+> +	},
+> +	.probe = tgu_probe,
+> +	.remove = tgu_remove,
+> +	.id_table = tgu_ids,
+> +};
+> +
+> +module_amba_driver(tgu_driver);
+> +
+> +MODULE_AUTHOR("Songwei Chai <songwei.chai@oss.qualcomm.com>");
+> +MODULE_AUTHOR("Jinlong Mao <jinlong.mao@oss.qualcomm.com>");
+> +MODULE_DESCRIPTION("Qualcomm Trigger Generation Unit driver");
+> +MODULE_LICENSE("GPL");
+> diff --git a/drivers/hwtracing/qcom/tgu.h b/drivers/hwtracing/qcom/tgu.h
+> new file mode 100644
+> index 000000000000..dd7533b9d735
+> --- /dev/null
+> +++ b/drivers/hwtracing/qcom/tgu.h
+> @@ -0,0 +1,51 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+> + */
+> +
+> +#ifndef _QCOM_TGU_H
+> +#define _QCOM_TGU_H
+> +
+> +/* Register addresses */
+> +#define TGU_CONTROL		0x0000
+> +#define TGU_LAR		0xfb0
+
+nit: wrong indent here (you can check in vim)
+
+Thanks,
+Jie
+
+> +#define TGU_UNLOCK_OFFSET	0xc5acce55
+> +
+> +static inline void TGU_LOCK(void __iomem *addr)
+> +{
+> +	do {
+> +		/* Wait for things to settle */
+> +		mb();
+> +		writel_relaxed(0x0, addr + TGU_LAR);
+> +	} while (0);
+> +}
+> +
+> +static inline void TGU_UNLOCK(void __iomem *addr)
+> +{
+> +	do {
+> +		writel_relaxed(TGU_UNLOCK_OFFSET, addr + TGU_LAR);
+> +		/* Make sure everyone has seen this */
+> +		mb();
+> +	} while (0);
+> +}
+> +
+> +/**
+> + * struct tgu_drvdata - Data structure for a TGU (Trigger Generator Unit)
+> + * @base: Memory-mapped base address of the TGU device
+> + * @dev: Pointer to the associated device structure
+> + * @lock: Spinlock for handling concurrent access to private data
+> + * @enabled: Flag indicating whether the TGU device is enabled
+> + *
+> + * This structure defines the data associated with a TGU device,
+> + * including its base address, device pointers, clock, spinlock for
+> + * synchronization, trigger data pointers, maximum limits for various
+> + * trigger-related parameters, and enable status.
+> + */
+> +struct tgu_drvdata {
+> +	void __iomem *base;
+> +	struct device *dev;
+> +	spinlock_t lock;
+> +	bool enabled;
+> +};
+> +
+> +#endif
+
 
