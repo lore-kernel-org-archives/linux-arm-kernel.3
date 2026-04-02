@@ -4,113 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71436D6AAF2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:48:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17636D6AAEC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 16:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kbb1Mc69jkb0FN5XgRKuUb6bvicX4C1Nt1KELCyHBHc=; b=xJFoPXI9vZnTKou6hxZopK+X3f
-	SbQIyVwhTF9MT+QsU6Xigh6rL7AExYVNOAWqia+sO2NbNPZL5dvsSjDVrxxdP48GpqJMr0g+ScOJu
-	T4fNPZlbpJLhYfNrMCAJ738LFE8qiCVsNMspTLL2cp6ZMkUZD9wS4WDAxzsvAC2gelUB7Y1KwihWt
-	002MXa1B3Au32bKuC/WOFkOTNB763WOQ7Yp0dV63N+tiUZunNn0Xw4WYECSyLQYotSiDiSUSgJ4dg
-	xEpgGgQgNFdxVtEcrQKRrawM5yvUJpyZtLIT99K3/NHJQXY70nw/eMlcg/NuBmtPWsaQ8JN6nuCi3
-	pLtb5zDw==;
+	bh=lYV/HE/eaLjj4haLdqZX1D55ej4Hm/J5ZQp8Ipwz81U=; b=tPOsRZ+hz+kvpSjLvDXnhFrigq
+	1cdQutY84oYYWjQmpJIVnH2pOLuL6+N8QoxKCUDKzz5+ZxaOhHv/ra2HVWTuM8OeeofPotYMfJ3yD
+	O+HLVi4LN8HVK8mfivpOJa+ewPeBKLNjC/HFaB5bJrBBoRH9GzFz/LSCFqJftANLfxZijcTBDUouo
+	9N1+IlfVi1SbQLJaheCyUsuBZqJSLWPU9PNNtrqduapOsyT9g0iqQS8VQsWyLWrs59hl6Z72+LisX
+	8Vlgh8dOgY+qeX3wC+xqdDlhScAV8xFruh3raT7t3gLhiDRBq5qDkkSd+1rir925Kyrc8AKOf9K97
+	4Xi6NfsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8LDY-00000000XZD-3d7I;
-	Thu, 02 Apr 2026 16:48:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w8LEL-00000000XfD-3Tlb;
+	Thu, 02 Apr 2026 16:49:17 +0000
+Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8LDW-00000000XYr-1Lqh
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 16:48:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B84A540939;
-	Thu,  2 Apr 2026 16:48:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA07DC116C6;
-	Thu,  2 Apr 2026 16:48:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775148505;
-	bh=9vNIZE6d7J2nu2PeCMWke+C5rG8NL1MM8jJnypOOPig=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=qyz4bHTN7c6FqZihF+fvH9DCkTNMqNpA7RQXU70cu/HrNsjZOo7ow52sdp0stDYCZ
-	 d565E5jBKa9x/hjFmSLwuebN3PcyKDAQeMOkQYz68qfUvPFZGMyL1lKRQLfTF4CuEH
-	 xi5B8su8WqW4UaFaXY9zHoeQRjOGfBCt5ygpsMBY5WHpA4daUxcSg1MvgOH0azIeTW
-	 RC36sMZ1wGR0i/zFoqXpM/vC5q0enxNTV7zXYc75GIZRO7rqsuEyAOt8fOO4xAvEUf
-	 cEI4aBDRq6hCYoYuGSa/MLpjm/4fTBCODHRLoGV8LjtI2cwW1I5/kqNMj2NGT/auK0
-	 XiT6ZAXnIoxyw==
-Message-ID: <5068c136-4dfe-49ef-841e-871c42c9d062@kernel.org>
-Date: Thu, 2 Apr 2026 18:48:21 +0200
+	id 1w8LEI-00000000Xee-2Hju;
+	Thu, 02 Apr 2026 16:49:16 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id F0B3C7A00DC;
+	Thu,  2 Apr 2026 12:49:11 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Thu, 02 Apr 2026 12:49:12 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1775148551;
+	 x=1775234951; bh=lYV/HE/eaLjj4haLdqZX1D55ej4Hm/J5ZQp8Ipwz81U=; b=
+	SbNsQGJrGjnB8ek6JMQE3rHUQ2eUZ2jW9OQWsaMHhAu3T8VI5iSevjK4RHN3QMKD
+	/kjRkhCWK7n6krz5Y5jUWRRobjA+NsF+nMuB8Jb3+gNaX/jWelDwsEInvt4JxRSv
+	sLX1i72t3HMmj+kjDeWBHol2RF4kFmJJYjLcOSilVLOoyMLrWBp7m03iF/MWqrlR
+	UmhV9T97QFqNQGogOFD9CRI85tnJEOgaJSGr4F0R5o8fHrhnkhdaOyTsNmcIQbdp
+	kj41b6kGgeK/K2S7uWRHV2iXi+9kUz8TIhmoDkAjLzBnpZWciM6atk51S5QC2CwO
+	f6ilWCBh6l8kEHQVfmXC0Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1775148551; x=
+	1775234951; bh=lYV/HE/eaLjj4haLdqZX1D55ej4Hm/J5ZQp8Ipwz81U=; b=j
+	ekHnRJIb57zb6LNOJw/r5P4rlGsJAg3yyh9+jR8fDFI3oMOD4JBygyuuyKyhE8FL
+	LIieQ5o8+IapaBHO8Kfv10zCNuLkTlagAYq6qpFi61cuv54UXNpUic6uR4ZlYRRc
+	61vOt+0wa/qbp6RufGXIfm8lggh9zOUC2+XO4Oh336G7NcN5O5aIB72koZKkdxFr
+	DWbVXav9gZgiQAQThSVmbmtzlGczE+qqFyouqpYWnOReOOYqe1OT++8ORlsunYws
+	r79VWh6bCXLiK08tza93I3YRq/bk9LfdIl7MssNZWGv5kqRbhgDmXdX2Vul9ftlk
+	ChEIlBFRarXY8yq+mrJOA==
+X-ME-Sender: <xms:B57Oaah1IAVM1MpqVucregry5V56_mF6D_tfVj0QyHv3UO9mypWXSQ>
+    <xme:B57OaV3c9VoVWeV8baNic297CVGm1HWc3HargMvcEsE5WTlW8umiBCVlgCSHWlBuq
+    6gvBHj2nKSaoztXPOPqff5CZH8oSnPjesjCD5X4vLXFn_c1pVXrH7N5>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdeiheehucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
+    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
+    epofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
+    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
+    ephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdeinecu
+    vehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhguse
+    grrhhnuggsrdguvgdpnhgspghrtghpthhtohepvdefpdhmohguvgepshhmthhpohhuthdp
+    rhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtoheprghirhhlih
+    gvugesghhmrghilhdrtghomhdprhgtphhtthhopeguvghllhgvrhesghhmgidruggvpdhr
+    tghpthhtoheprghruggssehkvghrnhgvlhdrohhrghdprhgtphhtthhopegthhgvnhhhuh
+    grtggriheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhhrihhprghrugeskhgvrhhn
+    vghlrdhorhhgpdhrtghpthhtohepfigvihdrlhhiuheskhgvrhhnvghlrdhorhhgpdhrtg
+    hpthhtohepihhlihgrshdrrghprghlohguihhmrghssehlihhnrghrohdrohhrghdprhgt
+    phhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlrd
+    gtohhm
+X-ME-Proxy: <xmx:B57OaXq7Fq8tP7x6l5dBAWWWbFxGc72eT4nZc1Ez2R9yelqsIbe0iw>
+    <xmx:B57OadGA3pgF6EIjYalsXy3pJ2CMHaefryWrCjjpq2PpqIhrBWtQFA>
+    <xmx:B57OaS7FFU3NE9O5REXDd6c-ZPeED_eMbfTPjk8ySEwf_duLCEL7kA>
+    <xmx:B57OaYB3dmTgiRgVub4R4xNil6GrnUqBFP0V5-YXn9cE-BSTBYwEqA>
+    <xmx:B57OaVNHy5qQPJxXUY3g2qeqnNDg8D1RrXtmnTXvVchJ2_tkVfjYL5Pz>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id EE7BE700065; Thu,  2 Apr 2026 12:49:10 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: gpio: Add eio gpio node to gpio-zynq
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
- linux-kernel@vger.kernel.org
-Cc: git@amd.com, shubhrajyoti.datta@gmail.com,
- Srinivas Neeli <srinivas.neeli@amd.com>, Michal Simek
- <michal.simek@amd.com>, Linus Walleij <linusw@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260402163840.938417-1-shubhrajyoti.datta@amd.com>
- <20260402163840.938417-2-shubhrajyoti.datta@amd.com>
- <c28e97b2-4266-4a32-b70d-049518c606fe@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <c28e97b2-4266-4a32-b70d-049518c606fe@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-ThreadId: ATYY62_w4Fts
+Date: Thu, 02 Apr 2026 18:47:01 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Thomas Zimmermann" <tzimmermann@suse.de>,
+ "Javier Martinez Canillas" <javierm@redhat.com>,
+ "Ard Biesheuvel" <ardb@kernel.org>,
+ "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
+ "Huacai Chen" <chenhuacai@kernel.org>, "WANG Xuerui" <kernel@xen0n.name>,
+ "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+ "Maxime Ripard" <mripard@kernel.org>, "Dave Airlie" <airlied@gmail.com>,
+ "Simona Vetter" <simona@ffwll.ch>, "K. Y. Srinivasan" <kys@microsoft.com>,
+ "Haiyang Zhang" <haiyangz@microsoft.com>, "Wei Liu" <wei.liu@kernel.org>,
+ "Dexuan Cui" <decui@microsoft.com>, longli@microsoft.com,
+ "Helge Deller" <deller@gmx.de>
+Cc: linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
+ linux-fbdev@vger.kernel.org
+Message-Id: <295a43ce-92fb-435d-a82f-d1cfa8f4f28d@app.fastmail.com>
+In-Reply-To: <001efe27-9cbb-4a89-8d2d-a1f3ae15e505@suse.de>
+References: <20260402092305.208728-1-tzimmermann@suse.de>
+ <20260402092305.208728-4-tzimmermann@suse.de>
+ <78f76717-8f1e-41d6-92f7-261df96b84b6@app.fastmail.com>
+ <3e466158-c2e5-4e23-934f-dcdbb71ad41f@suse.de>
+ <d3d7c545-3b07-4881-a16d-45b6f039de19@app.fastmail.com>
+ <001efe27-9cbb-4a89-8d2d-a1f3ae15e505@suse.de>
+Subject: Re: [PATCH 3/8] firmware: sysfb: Make CONFIG_SYSFB a user-selectable option
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_094826_398386_EFCD8552 
-X-CRM114-Status: UNSURE (   9.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260402_094915_249121_5ADEA32F 
+X-CRM114-Status: GOOD (  38.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,25 +130,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/04/2026 18:46, Krzysztof Kozlowski wrote:
-> On 02/04/2026 18:38, Shubhrajyoti Datta wrote:
->> Add the EIO gpio node to the device tree.
-> 
-> What is EIO? A name of new SoC? Or you forgot to include the SoC here?
-> 
-> 
->> The EIO GPIO block exposes only bank 0 and bank 1 to
->> multiplexed I/O pins, providing a fixed total of 52 GPIO lines
->> (2 banks × 26 pins). Enforce this hardware constraint by requiring
->> exactly 52 entries in gpio-line-names for the EIO variant.
-> 
-> Don't describe the syntax. We can read the diff.
-> 
+On Thu, Apr 2, 2026, at 17:27, Thomas Zimmermann wrote:
+> Am 02.04.26 um 16:59 schrieb Arnd Bergmann:
+>> On Thu, Apr 2, 2026, at 16:10, Thomas Zimmermann wrote:
+>>> Am 02.04.26 um 15:08 schrieb Arnd Bergmann:
+>>>> On Thu, Apr 2, 2026, at 11:09, Thomas Zimmermann wrote:
+>>>> I don't really like this part of the series and would prefer
+>>>> to keep CONFIG_SYSFB hidden as much as possible as an x86
+>>>> (and EFI) specific implementation detail, with the hope
+>>>> of eventually seperating out the x86 bits from the EFI ones.
+>>> You mean, you want to use the EFI-provided framebuffers without the
+>>> intermediate step of going through sysfb_primary_display?
+>>>
+>>> In that case, CONFIG_SYSFB would become an x86-internal thing, right?
+>> The part that is still needed from sysfb is the arbitration
+>> between DRM_EFI and the PCI device driver for the same hardware,
+>> so I think some part of sysfb is clearly needed, in particular
+>> the sysfb_disable() function that removes the EFI framebuffer
+>> when there is a conflicting simpledrm or hardware specific
+>> driver.
+>
+> We do most of that in the aperture-helper module. (see 
+> <linux/aperture.h>). Calling sysfb_disable() from there is a workaround 
+> for some corner cases. We can have an EFI-specific function that does 
+> the same.
 
-I also receive immediate Out of office bounces when replying. Please do
-not cc addresses of people who cannot set up correctly their
-autoresponder and send to open source Out of office messages.
+That sounds good, yes. The same change would need to go into
+of_platform_default_populate_init() then.
 
-Best regards,
-Krzysztof
+> BTW, simpledrm-on-EFI/VESA is considered obsolete and should preferably 
+> be removed from that driver. Simpledrm should become a driver for 
+> Devicetree nodes of type simple-framebuffer (as it originally has been 
+> intended).
+
+Sure, I was only thinking of the case where there are both
+sysfb (from Arm/riscv UEFI) and simpledrm (from devicetree)
+objects referring to the same one, not the simpledrm
+device created by sysfb_simplefb.
+
+>> The parts that I want to keep out of that is anything
+>> related to the x86 boot protocol, non-EFI framebuffers,
+>> text console, and kexec handoff, which we don't need on
+>> non-x86 UEFI systems.
+>>
+>> I don't mind the idea of having a sysfb_primary_display
+>> in the EFI code if that helps keep EFI sane on x86,
+>> but it would be good to make that local to
+>> drivers/firmware/efi and (eventually) detached from
+>> include/uapi/linux/screen_info.h.
+>
+> Efidrm retrieves the framebuffer settings from the contained struct 
+> screen_info. Disconnecting from screen_info would require separate 
+> graphics drivers for x86 and non-x86. If we split off EFI from sysfb, 
+> we'd likely need a sysfbdrm driver of some sort. Just saying.
+
+Yes, I saw that as well and don't have an immediate idea for how
+to best do it. I saw that you already abstracted the access to
+the screen_info members in drm_sysfb_screen_info.c, which I think
+is a step in that direction.
+
+I also noticed that efidrm is mostly a subset of vesadrm, so
+in theory they could be merged back into an x86 drm driver
+along with the drm_sysfb_screen_info helpers, and have a non-x86
+driver that constructs a drm_sysfb_device directly from the
+EFI structures.
+
+> I think we'd also have to duplicate the framebuffer-relocation code that 
+> currently works on anything using struct screen_info (see patch 5).
+
+You mean the code from include/linux/screen_info.h? I think
+it would make sense to have an x86 specific version of that
+to operate on the x86 screen_info, and a simpler version
+that just updates the resource for the efirdrm driver, but
+that could also be done one level higher or lower.
+
+>>>> In general, I am always in favor of properly using Kconfig
+>>>> dependencies over 'select' statements, for the same reasons
+>>>> you describe, but I don't want the the x86 logic for
+>>>> the legacy VESA and VGA console handling to leak into more
+>>>> architectures than necessary.
+>>>>
+>>>> Do you think we could instead move the sysfb_init()
+>>>> function into the same two places that contain the
+>>>> sysfb_primary_display definition (arch/x86/kernel/setup.c,
+>>>> drivers/firmware/efi/efi-init.c) and simplify the efi version
+>>>> to take out the x86 bits? That would reduce the rest
+>>>> of sysfb-primary.c to the logic to unregister the device,
+>>>> and that could then be selected by both x86 and EFI.
+>>> No, I'm more than happy that sysfb finally consolidates all the
+>>> init-framebuffer setup and detection that floated around in the kernel.
+>>> I would not want it to be duplicated again.
+>>>
+>>> For now, we could certainly keep CONFIG_SYSFB hidden and autoselected.
+>>> Although I think this will require soem sort of solution at a later point.
+>> Can you clarify which problem you are trying to solve
+>> with that?
+>
+> One thing is that some users simply what control over their kernel build.
+>
+> I also think that there might be systems that want to use 
+> sysfb_primary_display (plus the relocation feature), but not create the 
+> framebuffer device. Say for efi-earlycon. It needs user-control over the 
+> SYSFB option to do that.
+
+I'm still not following, sorry. efi-earlycon doesn't require
+CONFIG_SYSFB today, and I don't see why that would need to change,
+or why it couldn't just 'select SYSFB' if it it does change.
+
+> As a side-effect, user-configurable SYSFB gives us a nice place to put 
+> SYSFB_SIMPLEFB and FIRMWARE_EDID; two options that currently float 
+> around in the config somewhat arbitrarily.
+
+You said that SYSFB_SIMPLEFB should get phased out in the future,
+right?
+
+I'm also missing your plan for CONFIG_FIRMWARE_EDID. I only
+see three legacy drivers using the old fb_firmware_edid()
+interface, so I assume this is not what you are interested in. 
+
+For the global copy that is filled by x86 and efi, and
+consumed by vesadrm and efidrm, does that even need to
+be a configuration option rather than get always enabled?
+
+       Arnd
 
