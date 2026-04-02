@@ -4,96 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5198D6AB17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 21:37:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4A3AD6AB16
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 21:49:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=waizWTQgb79SYXJEMpu2HdgvqskB00jeTBtHyN4rxlE=; b=uE9a7vAUjsDvLbAIua2Nbp7T4n
-	ZSYoU9RSkhaaK5rVyVBJ6bwsQ3NngNPYEtvRAMgamAEK5rqdJmZQQdvFLfoqKdhJCY1XqWROorQxw
-	KZ0bf7SXnqI8XLKxK74RdRbKIQjOSmUt1od2peaeTXAt8dPR7CZ5f7R6+MC0/1Ofsmko8yJ/5ITqB
-	Dv09R4Ah1LvZ/0rvenEkN47evfSiCCYxrOAwwjBZfjo5eURKSrG/45iFNZemQfe5rOXE+vXMs+Ck7
-	RcBJXJte2Nlo2tjl2qyhpi1D7kqL43mtbl1uzOa7SP64iP7xengMKSNb/DH11Y/T+gtztqQFMGLHx
-	QfdB5Dqw==;
+	bh=XB1+qEZQ3/4/NCjiwpc6YJhMs5uxlHHTszpVXBON2Bw=; b=GHNfMa9PTvLw2jF3mTRZwWpNhJ
+	BYpba7CJmA4sPnH+0LvDEWUQtKliFJ6p/6Tg/jcEKUVrj+TTdNT1qupWQMLiMNk5/mWXsoRPt//Qw
+	JhCQ+aVJvx17KkOA9dsI7Btj4WZpqgB98RjJk4+rc8bFcSFcX+bh33VJ56WfJq5aHadzBJDD7N65Q
+	uF7TqbcjU8kZDbX7tSxQPePF6TRbObA2WqWDoZhfMIF2HS4yVO5QL0gD30d0FvBflLvcm1Iv+ASIC
+	HOYVixpPAlosVFjkbD8nXmpxhy7fuIirXHYWnDlk9fYryI6dKqMklRP75aTi3SJ8CI42lN1/VDlWV
+	KSgbMJYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Pig-00000000oBc-30xc;
-	Thu, 02 Apr 2026 21:36:54 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.166.231])
+	id 1w8Puf-00000000pPT-3arN;
+	Thu, 02 Apr 2026 21:49:17 +0000
+Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Pid-00000000o9V-2w71
+	id 1w8Puc-00000000pP9-3wsc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 21:36:52 +0000
-Received: from mail-acc-it-01.broadcom.com (mail-acc-it-01.acc.broadcom.net [10.35.36.83])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 8F11BC00218E;
-	Thu,  2 Apr 2026 14:36:50 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 8F11BC00218E
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1775165810;
-	bh=NCQ2iu2oK2whClbBsYQU22HZemSxySMrHUGi3V4KUfs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Q47f1Lrr/thuuWVnUSzbZjCEG0ylDGJztlaCGz6QFF5us9vMWp+PInvkdyQsEW+jo
-	 9A5DVF24arenq2mTnyCmbmqpXeOWUheQFiXs3sK2RNT2An4+4C/G7WaaJTzVT7V+6u
-	 1JyHRAL10WEzjpRuWVGNk3yRhPtpBlx4o1mOVRj8=
-Received: from lvnvdb8054.lvn.broadcom.net (lvnvdb8054.lvn.broadcom.net [10.17.214.29])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-acc-it-01.broadcom.com (Postfix) with ESMTPSA id 1C380AE80;
-	Thu,  2 Apr 2026 17:36:48 -0400 (EDT)
-From: "Jitendra Vegiraju" <jitendra.vegiraju@broadcom.com>
-To: netdev@vger.kernel.org
-Cc: alexandre.torgue@foss.st.com,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	jitendra.vegiraju@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	richardcochran@gmail.com,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	rmk+kernel@armlinux.org.uk,
-	rohan.g.thomas@altera.com,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	bpf@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	horms@kernel.org,
-	sdf@fomichev.me,
-	me@ziyao.cc,
-	siyanteng@cqsoftware.com.cn,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	weishangjuan@eswincomputing.com,
-	wens@kernel.org,
-	vladimir.oltean@nxp.com,
-	lizhi2@eswincomputing.com,
-	boon.khai.ng@altera.com,
-	maxime.chevallier@bootlin.com,
-	chenchuangyu@xiaomi.com,
-	yangtiezhu@loongson.cn,
-	ovidiu.panait.rb@renesas.com,
-	chenhuacai@kernel.org,
-	florian.fainelli@broadcom.com,
-	quic_abchauha@quicinc.com
-Subject: [PATCH net-next v9 4/4] net: stmmac: Add BCM8958x driver to build system
-Date: Thu,  2 Apr 2026 14:36:29 -0700
-Message-ID: <20260402213629.1996133-5-jitendra.vegiraju@broadcom.com>
-X-Mailer: git-send-email 2.45.4
-In-Reply-To: <20260402213629.1996133-1-jitendra.vegiraju@broadcom.com>
-References: <20260402213629.1996133-1-jitendra.vegiraju@broadcom.com>
+	Thu, 02 Apr 2026 21:49:16 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 154A47A013F;
+	Thu,  2 Apr 2026 17:49:14 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Thu, 02 Apr 2026 17:49:14 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1775166553;
+	 x=1775252953; bh=XB1+qEZQ3/4/NCjiwpc6YJhMs5uxlHHTszpVXBON2Bw=; b=
+	bAsOBNSh44rSX7Zp6fqe29xav6a8aWeSRrpZ+bm1aYmYYPihpK+KY3YdPyqQX7tq
+	+b3w2iwOG8KlV7urxMHA53JeTf1i+YA9u+duxowutB/uedKh5AvVoDWxUxENMH73
+	DnK9TtCSUdBWq9sexO9Wdxqg85wSmB9hvCffYjs0TBplAqtWHOmeTsDug+w4OEkN
+	u1EKWhgyE8CGEjAJrECNBP+enuSyjOfVk9Lm7NdMMvOgVXUZK07WRytbdEzbC4nz
+	qzD7WIv2B7hpmDMQzqhYNAf+1Z1gCCrVSU09C/rCofYKsdR5oFnloS3vtVzOkvVM
+	b7KbXtFUhhi6BuSusvQ+vg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1775166553; x=
+	1775252953; bh=XB1+qEZQ3/4/NCjiwpc6YJhMs5uxlHHTszpVXBON2Bw=; b=m
+	biH+zmP1EwDR0qNWOTXH6i+7xmqB2FMBcwtRsobX9jkxo81HRnKytTXXl8wgSTP7
+	d1CHmxI7QCAtThxrVC5z3v+4WOZU9ja7CX1za1HaWmpm287xBz0BlHM111PMn2kO
+	tojDZ0RnoMugLvBE7gHsQCQwbjJ/O9LIg/c2Upg1dJR911B0BTXJ5A+ro3KbbAh8
+	mUDVxseGK1YDFOKhjgr0goyXAGYW0DwxGfm2CiBAHPNmbGXdnu5XaKT1l+/2QIm5
+	RVxNwkUv0w5W9FeMYSO6Ba+YkKqF26FuJcN4GaZpOLazR2HaXuxZ8cljevAfpsIB
+	jKJk6ca0qDctEjbzYsOPg==
+X-ME-Sender: <xms:WeTOaTBnoBMs_w2pqOgtRm_MzhwgQwIJtsRItI5hl2cnFCWiNagztA>
+    <xme:WeTOaUXjzxMpYzVL0UFEvnDmeEO1aqJhI2ZV2oJwHTWay3F1R4e92wVMLH9S5ZE34
+    cOEArLdAs-vJCvdu5cL-9WcwDtQs6QMuQ4lMYjWPUHR53nj9siXTw39>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdejudehucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
+    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
+    epofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
+    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
+    ephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdeinecu
+    vehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhguse
+    grrhhnuggsrdguvgdpnhgspghrtghpthhtohepgedpmhhouggvpehsmhhtphhouhhtpdhr
+    tghpthhtohepkhhhihhlmhgrnhessggrhihlihgsrhgvrdgtohhmpdhrtghpthhtoheplh
+    hinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
+    pdhrtghpthhtohepshhotgeslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhope
+    hlihhnuhigqdhomhgrphesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:WeTOacvZm9K3BPmPFfXJFrch0VvfW2IYX9T4ocXM5b6QSMtLxdBwGg>
+    <xmx:WeTOaQUEWZ4PPlOBL-PEFI0971aaWNhQYGFngjyjabrWbsAgzhxRBA>
+    <xmx:WeTOaQHHMRPc2J8KYpja9U3cWBLDRGukrUhOQamDlOE4l7Jtkql6jg>
+    <xmx:WeTOaa3Lib2LN39k8jPIr8AIwoph6hZCjyno7KSb-VyimNBNViPBWQ>
+    <xmx:WeTOaWF0JE8d6O0v2jOTXSP9W2kHxYMPAFiMO_n2ibkEg7sFbsk41-75>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 8FD17700065; Thu,  2 Apr 2026 17:49:13 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ThreadId: A1UuxUpPOvY7
+Date: Thu, 02 Apr 2026 23:48:52 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Kevin Hilman" <khilman@baylibre.com>, soc@lists.linux.dev
+Cc: Linux-OMAP <linux-omap@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+Message-Id: <83d0c8d8-fcde-4407-bb09-c2ae0e0e142d@app.fastmail.com>
+In-Reply-To: <7hqzoytlms.fsf@baylibre.com>
+References: <7hqzoytlms.fsf@baylibre.com>
+Subject: Re: [GIT PULL] ARM: dts: updates for ti/omap for v7.1
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_143651_764755_C8626AF3 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20260402_144915_050550_8F4712B8 
+X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,70 +111,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
+On Wed, Apr 1, 2026, at 23:29, Kevin Hilman wrote:
+>
+> ----------------------------------------------------------------
+> ARM: dts: updates for ti/omap for v7.1
+>
 
-Add PCI driver for BCM8958x to the linux build system and
-update MAINTAINERS file.
+Hi Kevin,
 
-Signed-off-by: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
----
- MAINTAINERS                                  |  8 ++++++++
- drivers/net/ethernet/stmicro/stmmac/Kconfig  | 11 +++++++++++
- drivers/net/ethernet/stmicro/stmmac/Makefile |  1 +
- 3 files changed, 20 insertions(+)
+I applied this one, but I noticed two problems:
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 7a2ffd9d37d5..0637b8a563ae 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -5120,6 +5120,14 @@ N:	brcmstb
- N:	bcm7038
- N:	bcm7120
- 
-+BROADCOM BCM8958X ETHERNET DRIVER
-+M:	Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
-+R:	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-+L:	netdev@vger.kernel.org
-+S:	Maintained
-+F:	drivers/net/ethernet/stmicro/stmmac/dw25gmac.*
-+F:	drivers/net/ethernet/stmicro/stmmac/dwmac-brcm.c
-+
- BROADCOM BCMBCA ARM ARCHITECTURE
- M:	William Zhang <william.zhang@broadcom.com>
- M:	Anand Gore <anand.gore@broadcom.com>
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index c2cb530fd0a2..f6f8fa256bf5 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -398,6 +398,17 @@ config DWMAC_LOONGSON
- 	  This selects the LOONGSON PCI bus support for the stmmac driver,
- 	  Support for ethernet controller on Loongson-2K1000 SoC and LS7A1000 bridge.
- 
-+config DWMAC_BRCM
-+	tristate "Broadcom XGMAC support"
-+	depends on STMMAC_ETH && PCI
-+	depends on COMMON_CLK
-+	select STMMAC_LIBPCI
-+	help
-+	  Support for ethernet controllers on Broadcom BCM8958x SoCs.
-+	  This selects Broadcom XGMAC specific PCI bus support for the
-+	  stmmac driver. This driver provides the glue layer on top of the
-+	  stmmac driver required for the Broadcom BCM8958x SoC devices.
-+
- config DWMAC_MOTORCOMM
- 	tristate "Motorcomm PCI DWMAC support"
- 	depends on PCI
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index dc55aec915a2..a1e39f65cd42 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -51,4 +51,5 @@ obj-$(CONFIG_STMMAC_PCI)	+= stmmac-pci.o
- obj-$(CONFIG_DWMAC_INTEL)	+= dwmac-intel.o
- obj-$(CONFIG_DWMAC_LOONGSON)	+= dwmac-loongson.o
- obj-$(CONFIG_DWMAC_MOTORCOMM)	+= dwmac-motorcomm.o
-+obj-$(CONFIG_DWMAC_BRCM)       += dwmac-brcm.o
- stmmac-pci-objs:= stmmac_pci.o
--- 
-2.34.1
+There is no long form changelog text, please add
+more information about what is in the branch in
+the future. I've added a short paragraph while
+applying.
 
+> +-
+>  arch/arm/boot/dts/ti/omap/omap4-samsung-espresso-common.dtsi     | 744 
+> +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+>  arch/arm/boot/dts/ti/omap/omap4-samsung-espresso10.dts           | 101 
+> +++++++++++++++++++++
+>  arch/arm/boot/dts/ti/omap/omap4-samsung-espresso7.dts            |  70 
+> +++++++++++++++
+>  arch/arm/boot/dts/ti/omap/omap5-l4.dtsi                          |   2 
+
+Something went wrong with the overly long lines here.
+
+      Arnd
 
