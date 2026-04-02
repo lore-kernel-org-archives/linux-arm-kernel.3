@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FA10CC6B27
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 08:13:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F2CCC6B26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 08:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9DZSPJQqlD99r/OIc2WKry63v0In1Nyg+SstSRHrfXQ=; b=zwMA/RFEaknRBXWiGvgXYST1cu
-	L2bIecybe/1o1+pYqn01Yib8IoZ87VtW1d9j0cGT5fuKtyKLo4bi7bS6GgTqIPiBEMSp2h98TSQFW
-	k36WKrNMJMyHc1Lt45xtZyYkz3sA23s4nkQjm4MzVcoE6okXF5e7iRQO0+G9FS56clZXq4aer0bIC
-	F23LiY3NzlGDYC4F8CRb1F9TF/kcPNodjofsBBbP3MIBPbB93aXxb7lRaWja9S52Zu+c8sDNj13T1
-	xBxNhb32ngptWU0bCO310c6+nVujPWEnk+qaGo3ejg08cIV+3EtFWnCoGhqKRMb5zW4wAsObe+Uag
-	rEbpeYbw==;
+	bh=SxEmDJKiV+c4hXDT8KzFobIXtY+zuUhBSLr6+m0zIVk=; b=nCqUrrEn+mrPL4yjG50KFr/s15
+	rr3Rk97BDEG+xsy5d0mRLmObQ4xDxKGHiy8YEA5492zM6fJJcyf4jhOWCs6eEkinVZNmVLv78gGdi
+	NX4oN/iAWm2kZobS8GBksIivf+w++96rVZ5k9SKAhbvCqrOTJ0t0R7O8LNJtCEOpeflIyEf/yv4FF
+	nhcvIbt4keZnOQDewIaAvTYEyDfedKe2tTCwnfYid1KOQ+ljO84IsBGjgP/44n7ZHLUznNcW20Irr
+	bnGuyxVi1F039Yhft939R70/R54C1bKlobuamqXLaRKVPVtOrMQLMAWnAUW411TOAaSiYPBZtrZ5/
+	S5BxY+/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8DBD-0000000H9tz-3nk6;
-	Thu, 02 Apr 2026 08:13:32 +0000
+	id 1w8DBW-0000000HA3c-2YF8;
+	Thu, 02 Apr 2026 08:13:50 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8DBB-0000000H9sU-31VT;
-	Thu, 02 Apr 2026 08:13:29 +0000
+	id 1w8DBU-0000000HA2J-2wzA;
+	Thu, 02 Apr 2026 08:13:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=9DZSPJQqlD99r/OIc2WKry63v0In1Nyg+SstSRHrfXQ=; b=kyOXmIhx55S0ViWffExwT8gViR
-	VsxHR8jUJQDdYc7pGzbVLwzl8KZ0ogpl3OCBZV9d9LtgK8T7K8ujV3xVp+Y8dJ8ZsvK290McdrIR4
-	+cNnnehUrWVB3z+twsGm3zI8ZiyYCD/rOISowoLbPqlUHjMHID2hDbVFKjBXYUkohF8F8oJEtQLDu
-	2BdxaJL/Z/O4yPWfvtA5fgKzLTZ7Bp9BXWH98/UlWedKIe2haW1RtBTnvThmHisThHslk/jUE8n4b
-	Crx4z3H8A2fXJSpz3BsKIILczNkWFg/ZEZPWPlF6VFfcpDGFdMDa3N+rM9j15NLomjcEL9Px6LJs2
-	GqPkW4PQ==;
+	bh=SxEmDJKiV+c4hXDT8KzFobIXtY+zuUhBSLr6+m0zIVk=; b=ZGtO6AHOm1YYM72SbHvINh4xeX
+	UJqOZXEIW0EGBEZ+v55E5AxPbD49sFCzVxsjn1hlMSYc/PLmD0fkCAdXWUu3IyTKWUUMSWriaLLrk
+	bslRc/AdS8x/LJgl8NLq81NltKsj0oAvY4gZ10CiB3kpYvb3MmX4lstrP0t0bRLtlFusvSw+q766X
+	8u+xQXiChg8eJFgXWYTx2JO488HM+7DTt5AJOGZyydU99im682HNI6U82RIoU4qifViaM5RQczSLu
+	rWsxYAnoUi0lH1wK9ZAQeupaUNgopJRYal7aTSB5C1l1SYUfWRL3QDGZSR41IeyHLtjMoivtE3yNM
+	oKUV0qyw==;
 Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8D9K-00000001zMI-1ADx;
-	Thu, 02 Apr 2026 08:13:24 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6327e0M612695598, This message is accepted by code: ctloc85258
+	id 1w8DBC-00000001zMI-3Z9a;
+	Thu, 02 Apr 2026 08:13:39 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6327e21H12695621, This message is accepted by code: ctloc85258
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1775115600; bh=9DZSPJQqlD99r/OIc2WKry63v0In1Nyg+SstSRHrfXQ=;
+	t=1775115602; bh=SxEmDJKiV+c4hXDT8KzFobIXtY+zuUhBSLr6+m0zIVk=;
 	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=IGQIo8aWHKyNgGR5pDseX149TgWuXKhF7099lGROyGVys16xWG/HA1EuSwKtxAJwG
-	 cd+1/TY7JKjraErDJQekAYlezdQIR8IV+xfE7B+H5EbXa6bKwgDCvJxW2tgNHKhB47
-	 QQQsAoJOAlNXhNj0BWT+0L56KZxbESm8bjdNTlYsKtbYVnzmrNGVJv3DemcTHhUQPJ
-	 1dof9N8SDnO/hPxXDEXJhyngImmNSPtvNfohgwhybGnOAJz08rxA26XeoAQ6yMqB8c
-	 HUAgxHICj0UuW8z3LHDChOIZlGMYTp/J/qpBypLIgXECvAg7tvw3QZVt+meofuwVJK
-	 CA7AnP3lpvsaQ==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.26/5.94) with ESMTPS id 6327e0M612695598
+	b=c7MuTejnX5y09AK9vwci92VMm4A17NEtn+0d1AIhpJ1AsP3xOHFC34IOh0Xx74ofw
+	 fNvkDn/gbRve6TDxHWRo0pPZ0GGMK6w5hnLK70gqBvEWIzPpkVVD2kQif58p5KQIIc
+	 p+QT6ckLvK8YOuaq0EbMdZsszNrUeSLeDszSIhFvHPlPa6AEvGr0+6JfV1pVLloqpV
+	 YVvul242Mf5zaspZhaLCkqCNrjZYVheiWTIxyUfVA33VxB+x00846FyZ0OSuX8kf64
+	 HDEXd05kAZ+VV/Pnp0zr7R2w31VtZMdbjaX4UmLt+FoDg+2SPrDc7ZVTMuOAkNdxf9
+	 juvCzRYna5EEg==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.26/5.94) with ESMTPS id 6327e21H12695621
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 2 Apr 2026 15:40:00 +0800
+	Thu, 2 Apr 2026 15:40:02 +0800
 Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Thu, 2 Apr 2026 15:39:58 +0800
+ 15.2.1748.10; Thu, 2 Apr 2026 15:40:02 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Thu, 2 Apr 2026 15:40:02 +0800
 Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS05.realtek.com.tw
  (10.21.1.55) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Thu, 2 Apr 2026 15:39:58 +0800
+ Transport; Thu, 2 Apr 2026 15:40:02 +0800
 From: Yu-Chun Lin <eleanor.lin@realtek.com>
 To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
@@ -71,9 +75,9 @@ CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
         <linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
         <cy.huang@realtek.com>, <stanley_chang@realtek.com>,
         <eleanor.lin@realtek.com>
-Subject: [PATCH v6 04/10] clk: realtek: Add support for phase locked loops (PLLs)
-Date: Thu, 2 Apr 2026 15:39:51 +0800
-Message-ID: <20260402073957.2742459-5-eleanor.lin@realtek.com>
+Subject: [PATCH v6 07/10] clk: realtek: Add support for MMC-tuned PLL clocks
+Date: Thu, 2 Apr 2026 15:39:54 +0800
+Message-ID: <20260402073957.2742459-8-eleanor.lin@realtek.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260402073957.2742459-1-eleanor.lin@realtek.com>
 References: <20260402073957.2742459-1-eleanor.lin@realtek.com>
@@ -81,8 +85,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_091210_893359_309E8492 
-X-CRM114-Status: GOOD (  20.34  )
+X-CRM114-CacheID: sfid-20260402_091334_198558_5ECC81F9 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,325 +103,509 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Cheng-Yu Lee <cylee12@realtek.com>
 
-Provide a full set of PLL operations for programmable PLLs and a read-only
-variant for fixed or hardware-managed PLLs.
+Add clk_pll_mmc_ops for enable/disable, prepare, rate control, and status
+operations on MMC PLL clocks.
+
+Also add clk_pll_mmc_phase_ops to support phase get/set operations.
 
 Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+Co-developed-by: Jyan Chou <jyanchou@realtek.com>
+Signed-off-by: Jyan Chou <jyanchou@realtek.com>
 Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 ---
 Changes in v6:
 - Add the headers used in c file to follow the "Include What You Use" principle.
-- Move to_clk_pll() from clk-pll.h to clk-pll.c to limit its scope.
+- Move to_clk_pll_mmc() from clk-pll.h to clk-pll-mmc.c to limit its scope.
+- Change offset type from int to unsigned int.
 ---
- drivers/clk/realtek/Makefile     |   2 +
- drivers/clk/realtek/clk-pll.c    | 164 +++++++++++++++++++++++++++++++
- drivers/clk/realtek/clk-pll.h    |  42 ++++++++
- drivers/clk/realtek/freq_table.c |  36 +++++++
- drivers/clk/realtek/freq_table.h |  21 ++++
- 5 files changed, 265 insertions(+)
- create mode 100644 drivers/clk/realtek/clk-pll.c
- create mode 100644 drivers/clk/realtek/clk-pll.h
- create mode 100644 drivers/clk/realtek/freq_table.c
- create mode 100644 drivers/clk/realtek/freq_table.h
+ MAINTAINERS                       |   8 +
+ drivers/clk/realtek/Kconfig       |   3 +
+ drivers/clk/realtek/Makefile      |   2 +
+ drivers/clk/realtek/clk-pll-mmc.c | 410 ++++++++++++++++++++++++++++++
+ drivers/clk/realtek/clk-pll.h     |  13 +
+ 5 files changed, 436 insertions(+)
+ create mode 100644 drivers/clk/realtek/clk-pll-mmc.c
 
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 8318156a02b5..4b28af4b26b5 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22245,6 +22245,14 @@ F:	drivers/reset/realtek/*
+ F:	include/dt-bindings/clock/realtek*
+ F:	include/dt-bindings/reset/realtek*
+ 
++REALTEK SOC PLL CLOCK FOR MMC SUPPORT
++M:	Cheng-Yu Lee <cylee12@realtek.com>
++M:	Jyan Chou <jyanchou@realtek.com>
++M:	Yu-Chun Lin <eleanor.lin@realtek.com>
++L:	linux-clk@vger.kernel.org
++S:	Supported
++F:	drivers/clk/realtek/clk-pll-mmc.c
++
+ REALTEK SPI-NAND
+ M:	Chris Packham <chris.packham@alliedtelesis.co.nz>
+ S:	Maintained
+diff --git a/drivers/clk/realtek/Kconfig b/drivers/clk/realtek/Kconfig
+index bc47d3f1c452..b31a31e57b3a 100644
+--- a/drivers/clk/realtek/Kconfig
++++ b/drivers/clk/realtek/Kconfig
+@@ -25,4 +25,7 @@ config RTK_CLK_COMMON
+ 	  multiple Realtek clock implementations, and include integration
+ 	  with reset controllers where required.
+ 
++config RTK_CLK_PLL_MMC
++	bool
++
+ endif
 diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
-index 377ec776ee47..a89ad77993e9 100644
+index f90dc57fcfdb..fd7d777902c8 100644
 --- a/drivers/clk/realtek/Makefile
 +++ b/drivers/clk/realtek/Makefile
-@@ -2,3 +2,5 @@
- obj-$(CONFIG_RTK_CLK_COMMON) += clk-rtk.o
- 
- clk-rtk-y += common.o
-+clk-rtk-y += clk-pll.o
-+clk-rtk-y += freq_table.o
-diff --git a/drivers/clk/realtek/clk-pll.c b/drivers/clk/realtek/clk-pll.c
+@@ -7,3 +7,5 @@ clk-rtk-y += clk-pll.o
+ clk-rtk-y += clk-regmap-gate.o
+ clk-rtk-y += clk-regmap-mux.o
+ clk-rtk-y += freq_table.o
++
++clk-rtk-$(CONFIG_RTK_CLK_PLL_MMC) += clk-pll-mmc.o
+diff --git a/drivers/clk/realtek/clk-pll-mmc.c b/drivers/clk/realtek/clk-pll-mmc.c
 new file mode 100644
-index 000000000000..44730b22a94c
+index 000000000000..d28c7027d3f0
 --- /dev/null
-+++ b/drivers/clk/realtek/clk-pll.c
-@@ -0,0 +1,164 @@
++++ b/drivers/clk/realtek/clk-pll-mmc.c
+@@ -0,0 +1,410 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * Copyright (C) 2024 Realtek Semiconductor Corporation
++ * Copyright (C) 2021 Realtek Semiconductor Corporation
 + * Author: Cheng-Yu Lee <cylee12@realtek.com>
 + */
 +
++#include <linux/bits.h>
++#include <linux/module.h>
 +#include <linux/regmap.h>
 +#include "clk-pll.h"
 +
-+#define TIMEOUT 2000
++#define PLL_EMMC1_OFFSET           0x0
++#define PLL_EMMC2_OFFSET           0x4
++#define PLL_EMMC3_OFFSET           0x8
++#define PLL_EMMC4_OFFSET           0xc
++#define PLL_SSC_DIG_EMMC1_OFFSET   0x0
++#define PLL_SSC_DIG_EMMC3_OFFSET   0xc
++#define PLL_SSC_DIG_EMMC4_OFFSET   0x10
 +
-+static inline struct clk_pll *to_clk_pll(struct clk_hw *hw)
++#define PLL_MMC_SSC_DIV_N_VAL      0x1b
++
++#define PLL_PHRT0_MASK             BIT(1)
++#define PLL_PHSEL_MASK             GENMASK(4, 0)
++#define PLL_SSCPLL_RS_MASK         GENMASK(12, 10)
++#define PLL_SSCPLL_ICP_MASK        GENMASK(9, 5)
++#define PLL_SSC_DIV_EXT_F_MASK     GENMASK(25, 13)
++#define PLL_PI_IBSELH_MASK         GENMASK(28, 27)
++#define PLL_SSC_DIV_N_MASK         GENMASK(23, 16)
++#define PLL_NCODE_SSC_EMMC_MASK    GENMASK(20, 13)
++#define PLL_FCODE_SSC_EMMC_MASK    GENMASK(12, 0)
++#define PLL_GRAN_EST_EM_MC_MASK    GENMASK(20, 0)
++#define PLL_EN_SSC_EMMC_MASK       BIT(0)
++#define PLL_FLAG_INITAL_EMMC_MASK  BIT(1)
++
++#define PLL_PHRT0_SHIFT            1
++#define PLL_SSCPLL_RS_SHIFT        10
++#define PLL_SSCPLL_ICP_SHIFT       5
++#define PLL_SSC_DIV_EXT_F_SHIFT    13
++#define PLL_PI_IBSELH_SHIFT        27
++#define PLL_SSC_DIV_N_SHIFT        16
++#define PLL_NCODE_SSC_EMMC_SHIFT   13
++#define PLL_FLAG_INITAL_EMMC_SHIFT 8
++
++#define CYCLE_DEGREES              360
++#define PHASE_STEPS                32
++#define PHASE_SCALE_FACTOR         1125
++
++static inline struct clk_pll_mmc *to_clk_pll_mmc(struct clk_hw *hw)
 +{
 +	struct clk_regmap *clkr = to_clk_regmap(hw);
 +
-+	return container_of(clkr, struct clk_pll, clkr);
++	return container_of(clkr, struct clk_pll_mmc, clkr);
 +}
 +
-+static int wait_freq_ready(struct clk_pll *clkp)
++static inline int get_phrt0(struct clk_pll_mmc *clkm, u32 *val)
 +{
-+	u32 pollval;
++	u32 reg;
++	int ret;
 +
-+	if (!clkp->freq_ready_valid)
-+		return 0;
++	ret = regmap_read(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC1_OFFSET, &reg);
++	if (ret)
++		return ret;
 +
-+	return regmap_read_poll_timeout_atomic(clkp->clkr.regmap, clkp->freq_ready_reg, pollval,
-+						(pollval & clkp->freq_ready_mask)
-+						== clkp->freq_ready_val, 0, TIMEOUT);
++	*val = (reg >> PLL_PHRT0_SHIFT) & PLL_PHRT0_MASK;
++	return 0;
 +}
 +
-+static bool is_power_on(struct clk_pll *clkp)
++static inline int set_phrt0(struct clk_pll_mmc *clkm, u32 val)
 +{
++	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC1_OFFSET,
++				  PLL_PHRT0_MASK, val << PLL_PHRT0_SHIFT);
++}
++
++static inline int get_phsel(struct clk_pll_mmc *clkm, int id, u32 *val)
++{
++	int ret;
++	u32 raw_val;
++	u32 sft = id ? 8 : 3;
++
++	ret = regmap_read(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC1_OFFSET, &raw_val);
++	if (ret)
++		return ret;
++
++	*val = (raw_val >> sft) & PLL_PHSEL_MASK;
++	return 0;
++}
++
++static inline int set_phsel(struct clk_pll_mmc *clkm, int id, u32 val)
++{
++	u32 sft = id ? 8 : 3;
++
++	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC1_OFFSET,
++				  PLL_PHSEL_MASK << sft, val << sft);
++}
++
++static inline int set_sscpll_rs(struct clk_pll_mmc *clkm, u32 val)
++{
++	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC2_OFFSET,
++				  PLL_SSCPLL_RS_MASK, val << PLL_SSCPLL_RS_SHIFT);
++}
++
++static inline int set_sscpll_icp(struct clk_pll_mmc *clkm, u32 val)
++{
++	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC2_OFFSET,
++				  PLL_SSCPLL_ICP_MASK, val << PLL_SSCPLL_ICP_SHIFT);
++}
++
++static inline int get_ssc_div_ext_f(struct clk_pll_mmc *clkm, u32 *val)
++{
++	u32 raw_val;
++	int ret;
++
++	ret = regmap_read(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC2_OFFSET, &raw_val);
++	if (ret)
++		return ret;
++
++	*val = (raw_val & PLL_SSC_DIV_EXT_F_MASK) >> PLL_SSC_DIV_EXT_F_SHIFT;
++	return 0;
++}
++
++static inline int set_ssc_div_ext_f(struct clk_pll_mmc *clkm, u32 val)
++{
++	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC2_OFFSET,
++				  PLL_SSC_DIV_EXT_F_MASK,
++				  val << PLL_SSC_DIV_EXT_F_SHIFT);
++}
++
++static inline int set_pi_ibselh(struct clk_pll_mmc *clkm, u32 val)
++{
++	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC2_OFFSET,
++				  PLL_PI_IBSELH_MASK, val << PLL_PI_IBSELH_SHIFT);
++}
++
++static inline int set_ssc_div_n(struct clk_pll_mmc *clkm, u32 val)
++{
++	return regmap_update_bits(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC3_OFFSET,
++				  PLL_SSC_DIV_N_MASK, val << PLL_SSC_DIV_N_SHIFT);
++}
++
++static inline int get_ssc_div_n(struct clk_pll_mmc *clkm, u32 *val)
++{
++	int ret;
++	u32 raw_val;
++
++	ret = regmap_read(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC3_OFFSET, &raw_val);
++	if (ret)
++		return ret;
++
++	*val = (raw_val & PLL_SSC_DIV_N_MASK) >> PLL_SSC_DIV_N_SHIFT;
++	return 0;
++}
++
++static inline int set_pow_ctl(struct clk_pll_mmc *clkm, u32 val)
++{
++	return regmap_write(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC4_OFFSET, val);
++}
++
++static inline int get_pow_ctl(struct clk_pll_mmc *clkm, u32 *val)
++{
++	int ret;
++	u32 raw_val;
++
++	ret = regmap_read(clkm->clkr.regmap, clkm->pll_ofs + PLL_EMMC4_OFFSET, &raw_val);
++	if (ret)
++		return ret;
++
++	*val = raw_val;
++
++	return 0;
++}
++
++static int clk_pll_mmc_phase_set_phase(struct clk_hw *hw, int degrees)
++{
++	struct clk_hw *hwp = clk_hw_get_parent(hw);
++	struct clk_pll_mmc *clkm;
++	int phase_id;
++	int ret;
 +	u32 val;
 +
-+	if (!clkp->power_reg)
-+		return true;
++	if (!hwp)
++		return -ENOENT;
 +
-+	if (regmap_read(clkp->clkr.regmap, clkp->power_reg, &val))
-+		return true;
-+
-+	return (val & clkp->power_mask) == clkp->power_val_on;
-+}
-+
-+static void clk_pll_disable(struct clk_hw *hw)
-+{
-+	struct clk_pll *clkp = to_clk_pll(hw);
-+
-+	if (!clkp->seq_power_off)
-+		return;
-+
-+	regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_power_off,
-+			       clkp->num_seq_power_off);
-+}
-+
-+static int clk_pll_is_enabled(struct clk_hw *hw)
-+{
-+	struct clk_pll *clkp = to_clk_pll(hw);
-+
-+	return is_power_on(clkp);
-+}
-+
-+static int clk_pll_determine_rate(struct clk_hw *hw,
-+				  struct clk_rate_request *req)
-+{
-+	struct clk_pll *clkp = to_clk_pll(hw);
-+	const struct freq_table *ftblv = NULL;
-+
-+	ftblv = ftbl_find_by_rate(clkp->freq_tbl, req->rate);
-+	if (!ftblv)
-+		return -EINVAL;
-+
-+	req->rate = ftblv->rate;
-+	return 0;
-+}
-+
-+static unsigned long clk_pll_recalc_rate(struct clk_hw *hw,
-+					 unsigned long parent_rate)
-+{
-+	struct clk_pll *clkp = to_clk_pll(hw);
-+	const struct freq_table *fv;
-+	u32 freq_val;
-+
-+	if (regmap_read(clkp->clkr.regmap, clkp->freq_reg, &freq_val))
-+		return 0;
-+
-+	freq_val &= clkp->freq_mask;
-+
-+	fv = ftbl_find_by_val_with_mask(clkp->freq_tbl, clkp->freq_mask,
-+					freq_val);
-+	return fv ? fv->rate : 0;
-+}
-+
-+static int clk_pll_set_rate(struct clk_hw *hw, unsigned long rate,
-+			    unsigned long parent_rate)
-+{
-+	struct clk_pll *clkp = to_clk_pll(hw);
-+	const struct freq_table *fv;
-+	int ret;
-+
-+	fv = ftbl_find_by_rate(clkp->freq_tbl, rate);
-+	if (!fv || fv->rate != rate)
-+		return -EINVAL;
-+
-+	if (clkp->seq_pre_set_freq) {
-+		ret = regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_pre_set_freq,
-+					     clkp->num_seq_pre_set_freq);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	ret = regmap_update_bits(clkp->clkr.regmap, clkp->freq_reg,
-+				 clkp->freq_mask, fv->val);
++	clkm = to_clk_pll_mmc(hwp);
++	phase_id = (hw - &clkm->phase0_hw) ? 1 : 0;
++	val = DIV_ROUND_CLOSEST(degrees * 100, PHASE_SCALE_FACTOR);
++	ret = set_phsel(clkm, phase_id, val);
 +	if (ret)
 +		return ret;
 +
-+	if (clkp->seq_post_set_freq) {
-+		ret = regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_post_set_freq,
-+					     clkp->num_seq_post_set_freq);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	if (is_power_on(clkp)) {
-+		ret = wait_freq_ready(clkp);
-+		if (ret)
-+			return ret;
-+	}
-+
++	usleep_range(10, 20);
 +	return 0;
 +}
 +
-+static int clk_pll_enable(struct clk_hw *hw)
++static int clk_pll_mmc_phase_get_phase(struct clk_hw *hw)
 +{
-+	struct clk_pll *clkp = to_clk_pll(hw);
++	struct clk_hw *hwp;
++	struct clk_pll_mmc *clkm;
++	int phase_id;
 +	int ret;
++	u32 val;
 +
-+	if (!clkp->seq_power_on)
-+		return 0;
++	hwp = clk_hw_get_parent(hw);
++	if (!hwp)
++		return -ENOENT;
 +
-+	if (is_power_on(clkp))
-+		return 0;
-+
-+	ret = regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_power_on,
-+				     clkp->num_seq_power_on);
++	clkm = to_clk_pll_mmc(hwp);
++	phase_id = (hw - &clkm->phase0_hw) ? 1 : 0;
++	ret = get_phsel(clkm, phase_id, &val);
 +	if (ret)
 +		return ret;
 +
-+	return wait_freq_ready(clkp);
++	val = DIV_ROUND_CLOSEST(val * CYCLE_DEGREES, PHASE_STEPS);
++
++	return val;
 +}
 +
-+const struct clk_ops rtk_clk_pll_ops = {
-+	.enable         = clk_pll_enable,
-+	.disable        = clk_pll_disable,
-+	.is_enabled     = clk_pll_is_enabled,
-+	.recalc_rate    = clk_pll_recalc_rate,
-+	.determine_rate = clk_pll_determine_rate,
-+	.set_rate       = clk_pll_set_rate,
++const struct clk_ops rtk_clk_pll_mmc_phase_ops = {
++	.set_phase = clk_pll_mmc_phase_set_phase,
++	.get_phase = clk_pll_mmc_phase_get_phase,
 +};
-+EXPORT_SYMBOL_NS_GPL(rtk_clk_pll_ops, "REALTEK_CLK");
++EXPORT_SYMBOL_NS_GPL(rtk_clk_pll_mmc_phase_ops, "REALTEK_CLK");
 +
-+const struct clk_ops rtk_clk_pll_ro_ops = {
-+	.recalc_rate = clk_pll_recalc_rate,
++static int clk_pll_mmc_prepare(struct clk_hw *hw)
++{
++	struct clk_pll_mmc *clkm = to_clk_pll_mmc(hw);
++
++	return set_pow_ctl(clkm, 7);
++}
++
++static void clk_pll_mmc_unprepare(struct clk_hw *hw)
++{
++	struct clk_pll_mmc *clkm = to_clk_pll_mmc(hw);
++
++	set_pow_ctl(clkm, 0);
++}
++
++static int clk_pll_mmc_is_prepared(struct clk_hw *hw)
++{
++	struct clk_pll_mmc *clkm = to_clk_pll_mmc(hw);
++	u32 val;
++	int ret;
++
++	ret = get_pow_ctl(clkm, &val);
++	if (ret)
++		return 1;
++
++	return val != 0x0;
++}
++
++static int clk_pll_mmc_enable(struct clk_hw *hw)
++{
++	struct clk_pll_mmc *clkm = to_clk_pll_mmc(hw);
++	int ret;
++
++	ret = set_phrt0(clkm, 1);
++	if (ret)
++		return ret;
++
++	udelay(10);
++	return 0;
++}
++
++static void clk_pll_mmc_disable(struct clk_hw *hw)
++{
++	struct clk_pll_mmc *clkm = to_clk_pll_mmc(hw);
++
++	set_phrt0(clkm, 0);
++	udelay(10);
++}
++
++static int clk_pll_mmc_is_enabled(struct clk_hw *hw)
++{
++	struct clk_pll_mmc *clkm = to_clk_pll_mmc(hw);
++	u32 val;
++	int ret;
++
++	ret = get_phrt0(clkm, &val);
++	if (ret)
++		return 1;
++
++	return val == 0x1;
++}
++
++static unsigned long clk_pll_mmc_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
++{
++	struct clk_pll_mmc *clkm = to_clk_pll_mmc(hw);
++	u32 val, ext_f;
++	int ret;
++
++	ret = get_ssc_div_n(clkm, &val);
++	if (ret)
++		return ret;
++
++	ret = get_ssc_div_ext_f(clkm, &ext_f);
++	if (ret)
++		return ret;
++
++	return parent_rate / 4 * (val + 2) + (parent_rate / 4 * ext_f) / 8192;
++}
++
++static int clk_pll_mmc_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
++{
++	u32 val = DIV_ROUND_CLOSEST(req->rate * 4, req->best_parent_rate);
++
++	req->rate = req->best_parent_rate * val / 4;
++	return 0;
++}
++
++static int clk_pll_mmc_set_rate(struct clk_hw *hw, unsigned long rate, unsigned long parent_rate)
++{
++	struct clk_pll_mmc *clkm = to_clk_pll_mmc(hw);
++	u32 val = PLL_MMC_SSC_DIV_N_VAL;
++	int ret;
++
++	ret = regmap_update_bits(clkm->clkr.regmap,
++				 clkm->ssc_dig_ofs + PLL_SSC_DIG_EMMC1_OFFSET,
++				 PLL_FLAG_INITAL_EMMC_MASK, 0x0 << PLL_FLAG_INITAL_EMMC_SHIFT);
++	if (ret)
++		return ret;
++
++	ret = set_ssc_div_n(clkm, val);
++	if (ret)
++		return ret;
++
++	ret = set_ssc_div_ext_f(clkm, 1517);
++	if (ret)
++		return ret;
++
++	switch (val) {
++	case 31 ... 46:
++		ret |= set_pi_ibselh(clkm, 3);
++		ret |= set_sscpll_rs(clkm, 3);
++		ret |= set_sscpll_icp(clkm, 2);
++		break;
++
++	case 20 ... 30:
++		ret |= set_pi_ibselh(clkm, 2);
++		ret |= set_sscpll_rs(clkm, 3);
++		ret |= set_sscpll_icp(clkm, 1);
++		break;
++
++	case 10 ... 19:
++		ret |= set_pi_ibselh(clkm, 1);
++		ret |= set_sscpll_rs(clkm, 2);
++		ret |= set_sscpll_icp(clkm, 1);
++		break;
++
++	case 5 ... 9:
++		ret |= set_pi_ibselh(clkm, 0);
++		ret |= set_sscpll_rs(clkm, 2);
++		ret |= set_sscpll_icp(clkm, 0);
++		break;
++	}
++	if (ret)
++		return ret;
++
++	ret = regmap_update_bits(clkm->clkr.regmap,
++				 clkm->ssc_dig_ofs + PLL_SSC_DIG_EMMC3_OFFSET,
++				 PLL_NCODE_SSC_EMMC_MASK,
++				 27 << PLL_NCODE_SSC_EMMC_SHIFT);
++	if (ret)
++		return ret;
++
++	ret = regmap_update_bits(clkm->clkr.regmap,
++				 clkm->ssc_dig_ofs + PLL_SSC_DIG_EMMC3_OFFSET,
++				 PLL_FCODE_SSC_EMMC_MASK, 321);
++	if (ret)
++		return ret;
++
++	ret = regmap_update_bits(clkm->clkr.regmap,
++				 clkm->ssc_dig_ofs + PLL_SSC_DIG_EMMC4_OFFSET,
++				 PLL_GRAN_EST_EM_MC_MASK, 5985);
++	if (ret)
++		return ret;
++
++	ret = regmap_update_bits(clkm->clkr.regmap,
++				 clkm->ssc_dig_ofs + PLL_SSC_DIG_EMMC1_OFFSET,
++				 PLL_EN_SSC_EMMC_MASK, 0x1);
++	if (ret)
++		return ret;
++
++	ret = regmap_update_bits(clkm->clkr.regmap,
++				 clkm->ssc_dig_ofs + PLL_SSC_DIG_EMMC1_OFFSET,
++				 PLL_EN_SSC_EMMC_MASK, 0x0);
++	if (ret)
++		return ret;
++
++	ret = regmap_update_bits(clkm->clkr.regmap,
++				 clkm->ssc_dig_ofs + PLL_SSC_DIG_EMMC1_OFFSET,
++				 PLL_FLAG_INITAL_EMMC_MASK,
++				 0x1 << PLL_FLAG_INITAL_EMMC_SHIFT);
++	if (ret)
++		return ret;
++
++	usleep_range(10, 20);
++	return 0;
++}
++
++const struct clk_ops rtk_clk_pll_mmc_ops = {
++	.prepare          = clk_pll_mmc_prepare,
++	.unprepare        = clk_pll_mmc_unprepare,
++	.is_prepared      = clk_pll_mmc_is_prepared,
++	.enable           = clk_pll_mmc_enable,
++	.disable          = clk_pll_mmc_disable,
++	.is_enabled       = clk_pll_mmc_is_enabled,
++	.recalc_rate      = clk_pll_mmc_recalc_rate,
++	.determine_rate   = clk_pll_mmc_determine_rate,
++	.set_rate         = clk_pll_mmc_set_rate,
 +};
-+EXPORT_SYMBOL_NS_GPL(rtk_clk_pll_ro_ops, "REALTEK_CLK");
++EXPORT_SYMBOL_NS_GPL(rtk_clk_pll_mmc_ops, "REALTEK_CLK");
 diff --git a/drivers/clk/realtek/clk-pll.h b/drivers/clk/realtek/clk-pll.h
-new file mode 100644
-index 000000000000..00884585a242
---- /dev/null
+index 00884585a242..033c982e1eb1 100644
+--- a/drivers/clk/realtek/clk-pll.h
 +++ b/drivers/clk/realtek/clk-pll.h
-@@ -0,0 +1,42 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2017-2019 Realtek Semiconductor Corporation
-+ * Author: Cheng-Yu Lee <cylee12@realtek.com>
-+ */
-+
-+#ifndef __CLK_REALTEK_CLK_PLL_H
-+#define __CLK_REALTEK_CLK_PLL_H
-+
-+#include "common.h"
-+#include "freq_table.h"
-+
-+struct reg_sequence;
-+
-+struct clk_pll {
+@@ -39,4 +39,17 @@ struct clk_pll {
+ extern const struct clk_ops rtk_clk_pll_ops;
+ extern const struct clk_ops rtk_clk_pll_ro_ops;
+ 
++struct clk_pll_mmc {
 +	struct clk_regmap clkr;
-+	const struct reg_sequence *seq_power_on;
-+	u32 num_seq_power_on;
-+	const struct reg_sequence *seq_power_off;
-+	u32 num_seq_power_off;
-+	const struct reg_sequence *seq_pre_set_freq;
-+	u32 num_seq_pre_set_freq;
-+	const struct reg_sequence *seq_post_set_freq;
-+	u32 num_seq_post_set_freq;
-+	const struct freq_table *freq_tbl;
-+	u32 freq_reg;
-+	u32 freq_mask;
-+	u32 freq_ready_valid;
-+	u32 freq_ready_mask;
-+	u32 freq_ready_reg;
-+	u32 freq_ready_val;
-+	u32 power_reg;
-+	u32 power_mask;
-+	u32 power_val_on;
++	unsigned int pll_ofs;
++	unsigned int ssc_dig_ofs;
++	struct clk_hw phase0_hw;
++	struct clk_hw phase1_hw;
 +};
 +
-+#define __clk_pll_hw(_ptr)  __clk_regmap_hw(&(_ptr)->clkr)
++#define __clk_pll_mmc_hw(_ptr)  __clk_regmap_hw(&(_ptr)->clkr)
 +
-+extern const struct clk_ops rtk_clk_pll_ops;
-+extern const struct clk_ops rtk_clk_pll_ro_ops;
++extern const struct clk_ops rtk_clk_pll_mmc_ops;
++extern const struct clk_ops rtk_clk_pll_mmc_phase_ops;
 +
-+#endif /* __CLK_REALTEK_CLK_PLL_H */
-diff --git a/drivers/clk/realtek/freq_table.c b/drivers/clk/realtek/freq_table.c
-new file mode 100644
-index 000000000000..272a10e75a54
---- /dev/null
-+++ b/drivers/clk/realtek/freq_table.c
-@@ -0,0 +1,36 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#include <linux/bitops.h>
-+#include "freq_table.h"
-+
-+const struct freq_table *ftbl_find_by_rate(const struct freq_table *ftbl,
-+					   unsigned long rate)
-+{
-+	unsigned long best_rate = 0;
-+	const struct freq_table *best = NULL;
-+
-+	for (; !IS_FREQ_TABLE_END(ftbl); ftbl++) {
-+		if (ftbl->rate == rate)
-+			return ftbl;
-+
-+		if (ftbl->rate > rate)
-+			continue;
-+
-+		if (ftbl->rate > best_rate) {
-+			best_rate = ftbl->rate;
-+			best = ftbl;
-+		}
-+	}
-+
-+	return best;
-+}
-+
-+const struct freq_table *
-+ftbl_find_by_val_with_mask(const struct freq_table *ftbl, u32 mask, u32 value)
-+{
-+	for (; !IS_FREQ_TABLE_END(ftbl); ftbl++) {
-+		if ((ftbl->val & mask) == (value & mask))
-+			return ftbl;
-+	}
-+	return NULL;
-+};
-diff --git a/drivers/clk/realtek/freq_table.h b/drivers/clk/realtek/freq_table.h
-new file mode 100644
-index 000000000000..6d9116651105
---- /dev/null
-+++ b/drivers/clk/realtek/freq_table.h
-@@ -0,0 +1,21 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+
-+struct freq_table {
-+	u32 val;
-+	unsigned long rate;
-+};
-+
-+/* ofs check */
-+#define CLK_OFS_INVALID        -1
-+#define CLK_OFS_IS_VALID(_ofs) ((_ofs) != CLK_OFS_INVALID)
-+
-+#define FREQ_TABLE_END    \
-+	{                 \
-+		.rate = 0 \
-+	}
-+#define IS_FREQ_TABLE_END(_f) ((_f)->rate == 0)
-+
-+const struct freq_table *ftbl_find_by_rate(const struct freq_table *ftbl,
-+					   unsigned long rate);
-+const struct freq_table *
-+ftbl_find_by_val_with_mask(const struct freq_table *ftbl, u32 mask, u32 value);
+ #endif /* __CLK_REALTEK_CLK_PLL_H */
 -- 
 2.34.1
 
