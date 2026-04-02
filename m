@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39581D6AB10
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 22:55:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90E6FD6AB17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 23:12:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zvGayACEJU4xZaCyDpXN/VojcybBx3f3mO3hhbOOrb4=; b=0t9GD/0hHxBet2S8DEFzP0Dz0M
-	I0VqiII/ebpXPTgeEmMnY4XL8KjkPm2LWrgSYTQyhiyN6T2sVTOipDcrW0t4CV8lOB0AueI0z3gMK
-	1Xiv+szxziNqdbrVJ8pUUFIHz6IgVpTyqFABySA/dCC9X1fxypPL0UlGYZUet5OwSxprnsyBeyu+O
-	VQKwzefdbqjMMdvD7oSNT7Xk19rjDUsKiC9N3Irm1OkWFsBpDJtAac6yz5iwt6F2K1ZDBGueW5Zzy
-	XJUbpp4FqMZ5LnWzeFuqWDAvyt8twDmXaEnHO0O10Q5s62gZkYcyr23cIuK4kxnOy+oVZoeCqBBWq
-	jhj2Yzvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q8Ji+VkGi/Kh/iXrwXR4D1R50m6wHjt7UU3vThFFKes=; b=1ZOalU5DE527U6hKQK8DW/nKX7
+	WV4o2B0dI+eAptIIbClLHYFMHMg3Dq7P6lpWtURkyViyAGcK14DIEl1cGuZGAxCWvBUZqC6aAZ8ed
+	fCbqv+91lGleHv4yHizatMHItz662p5CI7BOMzAJwEIqdnTBsLpOi7rYka7mN4c/jirnbdoCs/ubZ
+	KEA9cetjTrZ7ivqfk0P/Nb7Inf44VWTnykCyioC3P6JZMLeBBNVxpl5I5liDgF68IOfH3PR8oRkbl
+	BCy+XMB3opucf9O8P5ke7xRUtLtBUFVtmM+vmQEQJQqPl0HjtvGLgFlSvJFIMa1RrwUh/UgDFnsFe
+	OhGBsByw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8QwE-00000000uOp-0BO3;
-	Thu, 02 Apr 2026 22:54:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w8RCx-00000000vIo-2O64;
+	Thu, 02 Apr 2026 23:12:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Qw9-00000000uNW-3kAZ
+	id 1w8RCw-00000000vIf-2MAW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 22:54:54 +0000
+	Thu, 02 Apr 2026 23:12:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2912444218;
-	Thu,  2 Apr 2026 22:54:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB059C19424;
-	Thu,  2 Apr 2026 22:54:51 +0000 (UTC)
-Received: by venus (Postfix, from userid 1000)
-	id 2CF801812B5; Fri, 03 Apr 2026 00:54:50 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: sre@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
- conor+dt@kernel.org, ulli.kroll@googlemail.com, linusw@kernel.org, 
- Khushal Chitturi <khushalchitturi@gmail.com>
-Cc: daniel.baluta@nxp.com, simona.toaca@nxp.com, d-gole@ti.com, 
- m-chawdhry@ti.com, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260330110135.10316-1-khushalchitturi@gmail.com>
-References: <20260330110135.10316-1-khushalchitturi@gmail.com>
-Subject: Re: (subset) [PATCH v3 0/2] dt-bindings: power: reset: cortina:
- Convert to DT schema and rename node
-Message-Id: <177517049015.464276.4179544371896712365.b4-ty@collabora.com>
-Date: Fri, 03 Apr 2026 00:54:50 +0200
+	by tor.source.kernel.org (Postfix) with ESMTP id 9EB7160008;
+	Thu,  2 Apr 2026 23:12:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEF4BC116C6;
+	Thu,  2 Apr 2026 23:12:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775171533;
+	bh=AlQcHq0q3oR6NEiP4jcaPQ2aCDBphhzMdw3wZ91g/MU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tRI4AqK8e/TacyNpwXSTBMfh2L3lbi6A+5ll/Pju1P9ZQdw2GhsNNw6idKf2EEZa6
+	 lpGpcYt/GSBDUXNGvefebyTOVUzGdklJWMZt7JZBVc4ciOuISjuHyvYxbM3RVSok9d
+	 h8Bp6ghwWoEjX2meOTGuxfpnprt40657QSAF1DrhmkX21yWWtL/k/+6+c7E+4ptOk+
+	 5NBLV+xMPVIj6oEvfhztnlW03n6YOtRGgqMw1V1MoWoImr1a2pnme5hYI22O9bwlWV
+	 ByKe9dqEbF51zKX5hB70HDxn2CSu5QzzPDazLKWxOK3g3ii4c2btwkpIZwqRYySz/b
+	 Bw8FCpQpTnmsQ==
+Date: Thu, 2 Apr 2026 16:12:09 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/9] lib/crypto: arm64: Remove obsolete chunking logic
+Message-ID: <20260402231209.GD2910@quark>
+References: <20260401000548.133151-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_155453_961948_A41A239E 
-X-CRM114-Status: UNSURE (   5.92  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260401000548.133151-1-ebiggers@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,19 +70,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 30 Mar 2026 16:31:33 +0530, Khushal Chitturi wrote:
-> Convert the Cortina Systems Gemini Poweroff Controller bindings to
-> DT schema and update corresponding dtsi file with new node name
+On Tue, Mar 31, 2026 at 05:05:39PM -0700, Eric Biggers wrote:
+> Since commit aefbab8e77eb ("arm64: fpsimd: Preserve/restore kernel mode
+> NEON at context switch"), kernel-mode NEON sections have been
+> preemptible on arm64.  And since commit 7dadeaa6e851 ("sched: Further
+> restrict the preemption modes"), voluntary preemption is no longer
+> supported on arm64 either.  Therefore, there's no longer any need to
+> limit the length of kernel-mode NEON sections on arm64.
 > 
+> This series simplifies the code in lib/crypto/arm64/ accordingly by
+> using longer kernel-mode NEON sections instead of multiple shorter ones.
+> 
+> This series is targeting libcrypto-next.
 
-Applied, thanks!
+Applied to https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=libcrypto-next
 
-[1/2] dt-bindings: power: reset: cortina,gemini-power-controller: convert to DT schema
-      commit: 64a97c98f93e344be00d4ff10fef4119973938bd
-
-Best regards,
--- 
-Sebastian Reichel <sebastian.reichel@collabora.com>
-
+- Eric
 
