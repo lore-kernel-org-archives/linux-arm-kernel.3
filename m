@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8AE7D6AB17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 21:36:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F99D6AB17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Apr 2026 21:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GQrJj4zxc7tCjDUdluzE5DsDMWLnAwoHWer4QjL8FwM=; b=1TI4VgVQYvqFvhjtJ/ZRsLEA3u
-	TqW9BfeveG64XBKZ3bEW9X9BlZ4frn6StsP1OtnvX1PTEejn6rGEl23paGlrxNi559epcR3/H/l3Y
-	N8X5G8QyQoLo9ILfCsX22THMc5vzb/03V372Wrjkp5VFkcWEGkTxHnEU6t1SNoi+bIUNNcNo92/Xg
-	5y8xo2sQlFDd67pAIlks4O1H2nBbjJNeGqp4VKUVkMEhNj/BH53laz8dURKQ93RevBTcAqRsgx3Ep
-	LZSLPw+XxzPAc35LMO1AngIl1PMgl9zhzNcQGbX36GrvsXd836LN/a480Yg0zzDLz+Du1iDZwpR80
-	eA5mEZ2w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zEUPiZA1uM1W9O0SJiTPr6/wjUI+ThhFcDml/H7HnrA=; b=hIH93m/OvaT8K7/p7Lokl+IzVp
+	tXlGvVUvP2V19q5LFevjFALtOSt0rt3UnjoCPgL6sFlXowBXbR0eCPDxUf97diIZW5zOHBPxXObH+
+	gFMcTYRPz2lXijVRI+4x2ZqLSF93ZmxjF2SNcC6XfgzyZK4FrMG1Dv8+ovuVoXvd2FuCu1N131nxG
+	G809XbsuecjKjfdrjBBo0y9Z+KED/yLN5lFUJKjUDopNVS0Y28VUuH+6kBQqL35QMJ8YCr6TfWtpE
+	U+dHMs0QDpR1JY762/RzuJfxeN1WViqB8rZvsSVfw9R2DzQMm1/DgUg5+gZ3pTXNNGsVA4wuqTZd6
+	IKhRCFrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8PiZ-00000000o6W-02f1;
-	Thu, 02 Apr 2026 21:36:47 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.205])
+	id 1w8Pid-00000000o9X-1k74;
+	Thu, 02 Apr 2026 21:36:51 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.166.228])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8PiV-00000000o54-429K
+	id 1w8Pia-00000000o7V-37BW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Apr 2026 21:36:45 +0000
+	Thu, 02 Apr 2026 21:36:50 +0000
 Received: from mail-acc-it-01.broadcom.com (mail-acc-it-01.acc.broadcom.net [10.35.36.83])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id B8951C001A1F;
-	Thu,  2 Apr 2026 14:36:40 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com B8951C001A1F
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 330DDC00033C;
+	Thu,  2 Apr 2026 14:36:48 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 330DDC00033C
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1775165800;
-	bh=HvdvXJgypGzk3PPjN04z4zH2UxZcYBxrtLHm7UTDijw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=nQb428Pl7IPm/qvKbRU8ECdZlEeZ03Ncz9cxTjOppNe6P94myN5quDmdhFiqMdLPZ
-	 RLiBOAQpmyYkF+0froOXcRAhN9M05m9E/Z1hYXuIR2xZ5RZqzU+j/Har8Uq+TZWOw8
-	 uvVeWKXUInxU9mBnSh3e8Q0X7HpqyD1/o69EYVU0=
+	s=dkimrelay; t=1775165808;
+	bh=/JcEL2aEGcxeVMe/m0fHS2YNiAO0KRQJPQdKHaWHBgw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=chNxxj3K3s2HYLJSjlRFZi562FxwTaEB6sD7xUdQwLmrW42QNFUR+yr9/O7VhuiQL
+	 fnBEqv9zvGZLEYm1wvdULR+0nhDDZ5JnFcbpEediJp9EWt6KRCy4JFMuCUS1QyBSl+
+	 ACTA+QB6xj70L0jvTsGcAprmQEET/tfYNPrWPV+Q=
 Received: from lvnvdb8054.lvn.broadcom.net (lvnvdb8054.lvn.broadcom.net [10.17.214.29])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-acc-it-01.broadcom.com (Postfix) with ESMTPSA id 73F6BAE80;
-	Thu,  2 Apr 2026 17:36:38 -0400 (EDT)
+	by mail-acc-it-01.broadcom.com (Postfix) with ESMTPSA id A6A6BAE81;
+	Thu,  2 Apr 2026 17:36:45 -0400 (EDT)
 From: "Jitendra Vegiraju" <jitendra.vegiraju@broadcom.com>
 To: netdev@vger.kernel.org
 Cc: alexandre.torgue@foss.st.com,
@@ -82,16 +82,19 @@ Cc: alexandre.torgue@foss.st.com,
 	ovidiu.panait.rb@renesas.com,
 	chenhuacai@kernel.org,
 	florian.fainelli@broadcom.com,
-	quic_abchauha@quicinc.com
-Subject: [PATCH net-next v9 0/4] net: stmmac: Add PCI driver support for BCM8958x
-Date: Thu,  2 Apr 2026 14:36:25 -0700
-Message-ID: <20260402213629.1996133-1-jitendra.vegiraju@broadcom.com>
+	quic_abchauha@quicinc.com,
+	Russell King <linux@armlinux.org.uk>
+Subject: [PATCH net-next v9 3/4] net: stmmac: Add PCI glue driver for BCM8958x
+Date: Thu,  2 Apr 2026 14:36:28 -0700
+Message-ID: <20260402213629.1996133-4-jitendra.vegiraju@broadcom.com>
 X-Mailer: git-send-email 2.45.4
+In-Reply-To: <20260402213629.1996133-1-jitendra.vegiraju@broadcom.com>
+References: <20260402213629.1996133-1-jitendra.vegiraju@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_143644_099718_C48E2C81 
-X-CRM114-Status: GOOD (  25.39  )
+X-CRM114-CacheID: sfid-20260402_143648_826498_76F06960 
+X-CRM114-Status: GOOD (  23.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,14 +111,12 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
 
-This patchset adds basic PCI ethernet device driver support for Broadcom
-BCM8958x Automotive Ethernet switch SoC devices.
+Add PCI ethernet driver support for Broadcom BCM8958x SoC devices used
+in automotive applications.
 
 This SoC device has PCIe ethernet MAC attached to an integrated ethernet
 switch using XGMII interface. The PCIe ethernet controller is presented to
 the Linux host as PCI network device.
-Management of integrated ethernet switch on this SoC is not handled via
-the PCIe interface.
 
 The following block diagram gives an overview of the application.
              +=================================+
@@ -142,172 +143,391 @@ The following block diagram gives an overview of the application.
         +==========================================+
                       || || || || More external interfaces
 
-The MAC block on BCM8958x is based on Synopsis XGMAC 4.00a core. This
-MAC IP introduces new DMA architecture called Hyper-DMA for virtualization
-scalability.
+The MAC IP block on BCM8958x is based on Synopsis XGMAC 4.00a core. This
+driver uses common dwxgmac2 code where applicable.
+Driver functionality specific to this MAC is implemented in dw25gmac.c.
 
-Driver functionality specific to new MAC (DW25GMAC) is implemented in
-new file dw25gmac.c.
+Management of integrated ethernet switch on this SoC is not handled via
+the PCIe interface.
 
-v8->v9:
-   Patch1:
-       Merged patch1 and patch2 to avoid patchwork warning (Simon Horman)
-   Patch2:
-       Patch3 from v8.
-   Patch3:
-       Merged patch4 and patch5 from v8 (Russell King).
-       Addressed review comments from Russell King.
-       Removed redundant initialization of zero-initialized variables.
-       Allocate sequential interrupt vectors for per channel interrupts.
-       Remove device id based setup function in glue driver as currently
-       a single device id is supported.
-   Patch4:
-       Following the recent upstream patch, removed "depends on STMMAC_ETH"
-       statment in Kconfig.
+This SoC device has PCIe ethernet MAC directly attached to an integrated
+ethernet switch using XGMII interface. Since device tree support is not
+available on this platform, a software node is created to enable
+fixed-link support using phylink driver.
 
-v7->v8:
-   Addressed review comments from v7.
-   Patch2:
-       Add a helper function with common code for three setup functions
-       in dwxgmac2_core.c (Russell King).
-   Patch4:
-       Use stmmac_plat_dat_alloc() to allocate memory for
-       :plat_stmmacenet_data: (Russell King).
-       Changed few bool variable initialization to bool types in
-       dwxgmac_brcm_default_data().
-   Patch5:
-       Make use of plat->init, plat->exit handlers to cleanup
-       probe function error handling path (Russell King).
-       Use managed API to free irq vectors.
-v6->v7:
-   Minor changes to v6 patchset adapting to recent changes net-next.
-   Patch1:
-       Make use of the core_type variable for MAC core identification.
-       Define enum value DWMAC_CORE_25GMAC and discard previous proposal to
-       add new variables in struct plat_stmmacenet_data.
-   Patch2:
-       Updated patch to latest net-next branch code base.
-   Patch3:
-       Modified hwif entry matching to use core_type DWMAC_CORE_25GMAC.
-   Patch4:
-       Adapted glue driver to match recent stmmac core changes.
-       Changed susped/resume functionality to use common framework.
-   https://lore.kernel.org/netdev/20260313222206.778760-1-jitendra.vegiraju@broadcom.com/
-v5->v6:
-   Change summary to address comments/suggestions by Serge Semin.
-   Patch1:
-     Removed the complexity of hdma mapping in previous patch series and
-     use static DMA mapping.
-     Renamed plat_stmmacenet_data::snps_dev_id as dev_id and moved to
-     the beginning of the struct.
-   Patch2:
-     Added dw25gmac_get_hw_feature() for dw25gmac.
-     Use static one-to-one VDMA-TC-PDMA mapping.
-   Patch4:
-     Remove usage of plat_stmmacenet_data::msi_*_vec variables for
-     interrupt vector initialization.
-     Change phy_interface type to XGMII.
-     Cleanup unused macros.
-   https://lore.kernel.org/netdev/20241018205332.525595-1-jitendra.vegiraju@broadcom.com/
-
-v4->v5:
-   Summary of changes in this patch series:
-   As suggested by Serge Semin, defined common setup function for dw25gmac.
-   To accommodate early adopter DW25GMAC used in BCM8958x device, provide
-   a mechanism to override snps_id and snps_dev_id used for driver entry
-   matching in hwif.c
-
-   Patch1:
-     Added plat_stmmacenet_data::snps_id,snps_dev_id fields - Serge Semin
-   Patch2:
-     Define common setup function for dw25gmac_setup() - Serge Semin
-     Support DW25GMAC IPs with varying VDMA/PDMA count - Abhishek Chauhan
-     Allocate and initialize hdma mapping configuration data dynamically
-     based on device's VDMA/PDMA feature capabilities in dw25gmac_setup().
-     Spelling errors in commit log, lower case 0x for hex -Amit Singh Tomar
-   Patch3:
-     Glue support in hwif.c for DW25GMAC in hwif.c - Serge Semin
-     Provide an option to override snps_id and snps_dev_id when the device
-     reports version info not conformant with driver's expectations as is
-     the case with BCM8958x device. - Serge Semin
-   Patch4:
-     Remove setup function in the glue driver - Serge Semin
-     Remove unnecessary calls pci_enable_device() and pci_set_master()
-     in dwxgmac_brcm_pci_resume() - Jakub Kicinski
-     Merge variable definitions to single line - Amit Singh Tomar
-    https://lore.kernel.org/netdev/20240904054815.1341712-1-jitendra.vegiraju@broadcom.com/
-   
-v3->v4:
-   Based on Serge's questions, received a confirmation from Synopsys that
-   the MAC IP is indeed the new 25GMAC design.
-   Renamed all references of XGMAC4 to 25GMAC.
-   The patch series is rearranged slightly as follows.
-   Patch1 (new): Define HDMA mapping data structure in kernel's stmmac.h
-   Patch2 (v3 Patch1): Adds dma_ops for dw25gmac in stmmac core
-       Renamed new files dwxgmac4.* to dw25gmac.* - Serge Semin
-       Defined new Synopsis version and device id macros for DW25GMAC.
-       Converted bit operations to FIELD_PREP macros - Russell King
-       Moved hwif.h to this patch, Sparse flagged warning - Simon Horman
-       Defined macros for hardcoded values TDPS etc - Serge Semin
-       Read number of PDMAs/VDMAs from hardware - Serge Semin
-   Patch3 (v3 Patch2): Hooks in hardware interface handling for dw25gmac
-       Resolved user_version quirks questions - Serge, Russell, Andrew
-       Added new stmmac_hw entry for DW25GMAC. - Serge
-       Added logic to override synopsis_dev_id by glue driver.
-   Patch4 (v3 Patch3): Adds PCI driver for BCM8958x device
-       Define bitmmap macros for hardcoded values - Andrew Lunn
-       Added per device software node - Andrew Lunn
-   Patch5(new/split): Adds BCM8958x driver to build system
-   https://lore.kernel.org/netdev/20240814221818.2612484-1-jitendra.vegiraju@broadcom.com/
-
-v2->v3:
-   Addressed v2 comments from Andrew, Jakub, Russel and Simon.
-   Based on suggestion by Russel and Andrew, added software node to create
-   phylink in fixed-link mode.
-   Moved dwxgmac4 specific functions to new files dwxgmac4.c and dwxgmac4.h
-   in stmmac core module.
-   Reorganized the code to use the existing glue logic support for xgmac in
-   hwif.c and override ops functions for dwxgmac4 specific functions.
-   The patch is split into three parts.
-     Patch#1 Adds dma_ops for dwxgmac4 in stmmac core
-     Patch#2 Hooks in the hardware interface handling for dwxgmac4
-     Patch#3 Adds PCI driver for BCM8958x device
-   https://lore.kernel.org/netdev/20240802031822.1862030-1-jitendra.vegiraju@broadcom.com/
-
-v1->v2:
-   Minor fixes to address coding style issues.
-   Sent v2 too soon by mistake, without waiting for review comments.
-   Received feedback on this version.
-   https://lore.kernel.org/netdev/20240511015924.41457-1-jitendra.vegiraju@broadcom.com/
-
-v1:  
-   https://lore.kernel.org/netdev/20240510000331.154486-1-jitendra.vegiraju@broadcom.com/
-
-Jitendra Vegiraju (4):
-  Add DW25GMAC support in stmmac core driver
-  Integrate dw25gmac into hwif handling
-  Add PCI driver support for BCM8958x
-  Add BCM8958x driver to build system
-
- MAINTAINERS                                   |   8 +
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 +
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   3 +-
- drivers/net/ethernet/stmicro/stmmac/common.h  |  12 +-
- .../net/ethernet/stmicro/stmmac/dw25gmac.c    | 161 ++++++++
- .../net/ethernet/stmicro/stmmac/dw25gmac.h    |  92 +++++
+Suggested-by: Russell King (Oracle) <linux@armlinux.org.uk>
+Signed-off-by: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
+---
  .../net/ethernet/stmicro/stmmac/dwmac-brcm.c  | 360 ++++++++++++++++++
- .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |   1 +
- .../ethernet/stmicro/stmmac/dwxgmac2_core.c   |  59 +--
- .../ethernet/stmicro/stmmac/dwxgmac2_dma.c    |  51 +++
- drivers/net/ethernet/stmicro/stmmac/hwif.c    |  20 +
- drivers/net/ethernet/stmicro/stmmac/hwif.h    |   1 +
- .../net/ethernet/stmicro/stmmac/stmmac_main.c |  35 ++
- include/linux/stmmac.h                        |   1 +
- 14 files changed, 791 insertions(+), 24 deletions(-)
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dw25gmac.c
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dw25gmac.h
+ 1 file changed, 360 insertions(+)
  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-brcm.c
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-brcm.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-brcm.c
+new file mode 100644
+index 000000000000..e8c6b4b618ac
+--- /dev/null
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-brcm.c
+@@ -0,0 +1,360 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/* Copyright (c) 2024-2026 Broadcom Corporation
++ *
++ * PCI driver for ethernet interface of BCM8958X automotive switch chip.
++ *
++ * High level block diagram of the device.
++ *              +=================================+
++ *              |       Host CPU/Linux            |
++ *              +=================================+
++ *                         || PCIe
++ *                         ||
++ *         +==========================================+
++ *         |           +--------------+               |
++ *         |           | PCIE Endpoint|               |
++ *         |           | Ethernet     |               |
++ *         |           | Controller   |               |
++ *         |           |   DMA        |               |
++ *         |           +--------------+               |
++ *         |           |   MAC        |   BCM8958X    |
++ *         |           +--------------+   SoC         |
++ *         |               || XGMII                   |
++ *         |               ||                         |
++ *         |           +--------------+               |
++ *         |           | Ethernet     |               |
++ *         |           | switch       |               |
++ *         |           +--------------+               |
++ *         |             || || || ||                  |
++ *         +==========================================+
++ *                       || || || || More external interfaces
++ *
++ * This SoC device has PCIe ethernet MAC directly attached to an integrated
++ * ethernet switch using XGMII interface. Since devicetree support is not
++ * available on this platform, a software node is created to enable
++ * fixed-link support using phylink driver.
++ */
++
++#include <linux/clk-provider.h>
++#include <linux/dmi.h>
++#include <linux/pci.h>
++#include <linux/phy.h>
++#include <linux/of_mdio.h>
++#include "stmmac.h"
++#include "stmmac_libpci.h"
++#include "dwxgmac2.h"
++#include "dw25gmac.h"
++
++#define PCI_DEVICE_ID_BCM8958X			0xa00d
++#define BRCM_MAX_MTU				1500
++
++/* TX and RX Queue counts */
++#define BRCM_TX_Q_COUNT				4
++#define BRCM_RX_Q_COUNT				4
++
++#define BRCM_XGMAC_BAR0_MASK			BIT(0)
++
++#define BRCM_XGMAC_IOMEM_MISC_REG_OFFSET	0x0
++#define BRCM_XGMAC_IOMEM_MBOX_REG_OFFSET	0x1000
++#define BRCM_XGMAC_IOMEM_CFG_REG_OFFSET		0x3000
++
++#define XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_LOW	0x940
++#define XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_LO_VALUE	0x00000001
++#define XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_HIGH	0x944
++#define XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_HI_VALUE	0x88000000
++
++#define XGMAC_PCIE_MISC_MII_CTRL_OFFSET			0x4
++#define XGMAC_PCIE_MISC_MII_CTRL_PAUSE_RX		BIT(0)
++#define XGMAC_PCIE_MISC_MII_CTRL_PAUSE_TX		BIT(1)
++#define XGMAC_PCIE_MISC_MII_CTRL_LINK_UP		BIT(2)
++#define XGMAC_PCIE_MISC_PCIESS_CTRL_OFFSET		0x8
++#define XGMAC_PCIE_MISC_PCIESS_CTRL_EN_MSI_MSIX		BIT(9)
++#define XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_LO_OFFSET	0x90
++#define XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_LO_VALUE	0x00000001
++#define XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_HI_OFFSET	0x94
++#define XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_HI_VALUE	0x88000000
++#define XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST0_OFFSET	0x700
++#define XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST0_VALUE	1
++#define XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST1_OFFSET	0x704
++#define XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST1_VALUE	1
++#define XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST_DBELL_OFFSET	0x728
++#define XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST_DBELL_VALUE	1
++#define XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_SBD_ALL_OFFSET	0x740
++#define XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_SBD_ALL_VALUE	0
++
++/* MSIX Vector map register starting offsets */
++#define XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_RX0_PF0_OFFSET	0x840
++#define XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_TX0_PF0_OFFSET	0x890
++#define BRCM_XGMAC_MSI_MAC_VECTOR		0
++#define BRCM_PER_CH_INT_VECTOR_START		1
++#define BRCM_VECTOR_MAX		(BRCM_RX_Q_COUNT + BRCM_TX_Q_COUNT + 1)
++
++static const struct property_entry fixed_link_properties[] = {
++	PROPERTY_ENTRY_U32("speed", 10000),
++	PROPERTY_ENTRY_BOOL("full-duplex"),
++	PROPERTY_ENTRY_BOOL("pause"),
++	{ }
++};
++
++static const struct software_node parent_swnode = {
++	.name = "ethernet",
++};
++
++static const struct software_node fixed_link_swnode = {
++	.name = "fixed-link",           /* MUST be named "fixed-link" */
++	.parent = &parent_swnode,
++	.properties = fixed_link_properties,
++};
++
++static const struct software_node *brcm_swnodes[] = {
++	&parent_swnode,
++	&fixed_link_swnode,
++	NULL
++};
++
++struct brcm_priv_data {
++	void __iomem *misc_regs;    /* MISC  Registers*/
++};
++
++static void misc_iowrite(struct brcm_priv_data *brcm_priv,
++			 u32 reg, u32 val)
++{
++	iowrite32(val, brcm_priv->misc_regs + reg);
++}
++
++static void brcm_free_irq_vectors(void *data)
++{
++	struct pci_dev *pdev = data;
++
++	pci_free_irq_vectors(pdev);
++}
++
++static int brcm_config_multi_msi(struct pci_dev *pdev,
++				 struct plat_stmmacenet_data *plat,
++				 struct stmmac_resources *res)
++{
++	int vector;
++	int ret;
++	int i;
++
++	ret = pci_alloc_irq_vectors(pdev, BRCM_VECTOR_MAX, BRCM_VECTOR_MAX,
++				    PCI_IRQ_MSI | PCI_IRQ_MSIX);
++	if (ret < 0) {
++		dev_err(&pdev->dev, "%s: multi MSI enablement failed\n",
++			__func__);
++		return ret;
++	}
++
++	vector = BRCM_XGMAC_MSI_MAC_VECTOR;
++	res->irq = pci_irq_vector(pdev, vector++);
++	for (i = 0; i < BRCM_RX_Q_COUNT; i++, vector++)
++		res->rx_irq[i] = pci_irq_vector(pdev, vector);
++	for (i = 0; i < BRCM_TX_Q_COUNT; i++, vector++)
++		res->tx_irq[i] = pci_irq_vector(pdev, vector);
++
++	plat->flags |= STMMAC_FLAG_MULTI_MSI_EN;
++	plat->flags |= STMMAC_FLAG_TSO_EN;
++	plat->flags |= STMMAC_FLAG_SPH_DISABLE;
++
++	return devm_add_action_or_reset(&pdev->dev,
++					brcm_free_irq_vectors, pdev);
++}
++
++static int brcm_drv_init(struct device *dev, void *bsp_priv)
++{
++	struct brcm_priv_data *brcm_priv = (struct brcm_priv_data *)bsp_priv;
++	struct pci_dev *pdev = to_pci_dev(dev);
++	int vector;
++	int ret;
++
++	/* This device is directly attached to the switch chip internal to the
++	 * SoC using XGMII interface. Since no MDIO is present, register
++	 * fixed-link software_node to create phylink.
++	 */
++	ret = software_node_register_node_group(brcm_swnodes);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "failed to register software_node\n");
++	device_set_node(dev, software_node_fwnode(&parent_swnode));
++
++	pci_write_config_dword(pdev, XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_LOW,
++			       XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_LO_VALUE);
++	pci_write_config_dword(pdev, XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_HIGH,
++			       XGMAC_PCIE_CFG_MSIX_ADDR_MATCH_HI_VALUE);
++
++	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_LO_OFFSET,
++		     XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_LO_VALUE);
++	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_HI_OFFSET,
++		     XGMAC_PCIE_MISC_MSIX_ADDR_MATCH_HI_VALUE);
++
++	/* SBD Interrupt */
++	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_SBD_ALL_OFFSET,
++		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_SBD_ALL_VALUE);
++	/* EP_DOORBELL Interrupt */
++	misc_iowrite(brcm_priv,
++		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST_DBELL_OFFSET,
++		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST_DBELL_VALUE);
++	/* EP_H0 Interrupt */
++	misc_iowrite(brcm_priv,
++		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST0_OFFSET,
++		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST0_VALUE);
++	/* EP_H1 Interrupt */
++	misc_iowrite(brcm_priv,
++		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST1_OFFSET,
++		     XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_EP2HOST1_VALUE);
++
++	vector = BRCM_PER_CH_INT_VECTOR_START;
++	for (int i = 0, offset = XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_RX0_PF0_OFFSET;
++	     i < BRCM_RX_Q_COUNT; i++, vector++, offset += 4)
++		misc_iowrite(brcm_priv, offset, vector);
++	for (int i = 0, offset = XGMAC_PCIE_MISC_MSIX_VECTOR_MAP_TX0_PF0_OFFSET;
++	     i < BRCM_TX_Q_COUNT; i++, vector++, offset += 4)
++		misc_iowrite(brcm_priv, offset, vector);
++
++	/* Enable Switch Link */
++	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_MII_CTRL_OFFSET,
++		     XGMAC_PCIE_MISC_MII_CTRL_PAUSE_RX |
++		     XGMAC_PCIE_MISC_MII_CTRL_PAUSE_TX |
++		     XGMAC_PCIE_MISC_MII_CTRL_LINK_UP);
++	/* Enable MSI-X */
++	misc_iowrite(brcm_priv, XGMAC_PCIE_MISC_PCIESS_CTRL_OFFSET,
++		     XGMAC_PCIE_MISC_PCIESS_CTRL_EN_MSI_MSIX);
++	return 0;
++}
++
++static void brcm_drv_exit_cleanup(struct device *dev, void *bsp_priv)
++{
++	struct pci_dev *pdev = to_pci_dev(dev);
++
++	device_set_node(&pdev->dev, NULL);
++	software_node_unregister_node_group(brcm_swnodes);
++}
++
++static int brcm_pci_resume(struct device *dev, void *bsp_priv)
++{
++	/* Enable Switch Link */
++	misc_iowrite(bsp_priv, XGMAC_PCIE_MISC_MII_CTRL_OFFSET,
++		     XGMAC_PCIE_MISC_MII_CTRL_PAUSE_RX |
++		     XGMAC_PCIE_MISC_MII_CTRL_PAUSE_TX |
++		     XGMAC_PCIE_MISC_MII_CTRL_LINK_UP);
++
++	return stmmac_pci_plat_resume(dev, bsp_priv);
++}
++
++static struct plat_stmmacenet_data *
++brcm_plat_data_setup(struct pci_dev *pdev)
++{
++	struct plat_stmmacenet_data *plat;
++
++	plat = stmmac_plat_dat_alloc(&pdev->dev);
++	if (!plat)
++		return NULL;
++
++	plat->axi = devm_kzalloc(&pdev->dev, sizeof(*plat->axi), GFP_KERNEL);
++	if (!plat->axi)
++		return NULL;
++
++	plat->core_type = DWMAC_CORE_25GMAC;
++	plat->phy_interface = PHY_INTERFACE_MODE_XGMII;
++
++	plat->dma_cfg->pbl = DEFAULT_DMA_PBL;
++	plat->dma_cfg->pblx8 = true;
++	plat->dma_cfg->eame = true;
++
++	plat->axi->axi_wr_osr_lmt = 31;
++	plat->axi->axi_rd_osr_lmt = 31;
++	plat->axi->axi_blen_regval = DMA_AXI_BLEN64;
++	plat->force_sf_dma_mode = true;
++	plat->mac_port_sel_speed = SPEED_10000;
++	plat->clk_ptp_rate = 125000000;
++	plat->clk_ref_rate = 250000000;
++	plat->tx_coe = true;
++	plat->rx_coe = STMMAC_RX_COE_TYPE1;
++	plat->rss_en = 1;
++	plat->max_speed = SPEED_10000;
++	plat->maxmtu = BRCM_MAX_MTU;
++
++	plat->tx_queues_to_use = BRCM_TX_Q_COUNT;
++	plat->rx_queues_to_use = BRCM_RX_Q_COUNT;
++	plat->tx_sched_algorithm = MTL_TX_ALGORITHM_SP;
++	plat->rx_sched_algorithm = MTL_RX_ALGORITHM_SP;
++
++	plat->init		= brcm_drv_init;
++	plat->exit		= brcm_drv_exit_cleanup;
++	plat->suspend		= stmmac_pci_plat_suspend;
++	plat->resume		= brcm_pci_resume;
++
++	return plat;
++}
++
++static int dwxgmac_brcm_pci_probe(struct pci_dev *pdev,
++				  const struct pci_device_id *id)
++{
++	struct plat_stmmacenet_data *plat;
++	struct brcm_priv_data *brcm_priv;
++	struct stmmac_resources res;
++	int ret;
++
++	brcm_priv = devm_kzalloc(&pdev->dev, sizeof(*brcm_priv), GFP_KERNEL);
++	if (!brcm_priv)
++		return -ENOMEM;
++
++	plat = brcm_plat_data_setup(pdev);
++	if (!plat)
++		return -ENOMEM;
++	plat->bsp_priv = brcm_priv;
++
++	/* Disable D3COLD as our device does not support it */
++	pci_d3cold_disable(pdev);
++
++	/* Enable PCI device */
++	ret = pcim_enable_device(pdev);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "failed to enable device\n");
++
++	pci_set_master(pdev);
++
++	memset(&res, 0, sizeof(res));
++	res.addr = pcim_iomap_region(pdev, 0, pci_name(pdev));
++	if (IS_ERR(res.addr))
++		return dev_err_probe(&pdev->dev, PTR_ERR(res.addr),
++				     "failed to map IO region\n");
++
++	/* MISC Regs */
++	brcm_priv->misc_regs = res.addr + BRCM_XGMAC_IOMEM_MISC_REG_OFFSET;
++	res.addr += BRCM_XGMAC_IOMEM_CFG_REG_OFFSET;
++
++	ret = brcm_config_multi_msi(pdev, plat, &res);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "failed to configure IRQ\n");
++
++	return stmmac_dvr_probe(&pdev->dev, plat, &res);
++}
++
++static void dwxgmac_brcm_pci_remove(struct pci_dev *pdev)
++{
++	stmmac_dvr_remove(&pdev->dev);
++}
++
++static const struct pci_device_id dwxgmac_brcm_id_table[] = {
++	{ PCI_DEVICE(PCI_VENDOR_ID_BROADCOM, PCI_DEVICE_ID_BCM8958X) },
++	{}
++};
++
++MODULE_DEVICE_TABLE(pci, dwxgmac_brcm_id_table);
++
++static struct pci_driver dwxgmac_brcm_pci_driver = {
++	.name = "brcm-bcm8958x",
++	.id_table = dwxgmac_brcm_id_table,
++	.probe	= dwxgmac_brcm_pci_probe,
++	.remove = dwxgmac_brcm_pci_remove,
++	.driver = {
++		.pm = &stmmac_simple_pm_ops,
++	},
++};
++
++module_pci_driver(dwxgmac_brcm_pci_driver);
++
++MODULE_DESCRIPTION("Broadcom 10G Automotive Ethernet PCIe driver");
++MODULE_LICENSE("GPL");
 -- 
 2.34.1
 
