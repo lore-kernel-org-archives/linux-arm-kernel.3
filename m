@@ -4,57 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72FCCE7E365
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 10:16:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FECBE7E365
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 10:17:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jy8BkO3kiAA3oVj6TfrZh12oW7ljzxGoR7o/eK2BSPA=; b=NZgpk5mbQgN6G8dsSpkp+ZHxF/
-	/Fo27XLNhXzPvVXtaxiyqt37RAVUWqoGeZT8uKf6MFt0CB6JSU2M1Su6XbC29C5WETTwuKDqpuxec
-	ILW39SQ4iNdK1CfBPTFPXLrAQoZfheKsH43mQrZ7NzeqsKh1L29O5bIZdVhOYHhNlEWod+mRwARlo
-	cJ034SCDq9saanGcM7niEI1OIRZX/Qw49uLyfJfX9wI65zsn/OGn1zItQhnOr2dZrm8byAy4q5hyI
-	nYFELqAxIyQObZmyhWyj4b3SIjoKRi+m+fP+XJkDmUtyTqZMFaPXVqeVOCYxzOhs5TX7eLB7DZM3m
-	2eA/uHYQ==;
+	bh=d/v4XeoiWFEOFAaH3W/eNFweATx6olzCtwWK+dE1fQE=; b=bG3JSG2bvIFmNe/Cp64eQ3jw0B
+	GB1tCB3Y9s9XPhwI4NBD2T38S5OXaYP4pJb2sk4gZkoq8DvNc//exnseFQP9NUQ9JWoFZ/+hWk5Hj
+	N49+itS0Atw6rnAJnDLuvv3wQwPikKvNCw7QM9tBtcQ+M3tkJ5fxHPf6hQd2d4vIn7YgoC8C5ADID
+	RLHyrWjtpP0pBHBDHscGg4++Eeh0++uyjz1qI7Gqt3YuQ0xHI3vG/cMyYy4LRcuP/nh7PdrwxwqmY
+	HT96+iBsPjmEeOGCpCSPCosqHSurrFHFwMjKAQ1on45KzbE1FhTEyMf4U+JJYTcOZ3d/juLorz363
+	WpdyYyVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8ba1-00000001sE5-2rxD;
-	Fri, 03 Apr 2026 10:16:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w8baz-00000001sJw-0gR6;
+	Fri, 03 Apr 2026 10:17:45 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8bZz-00000001sDa-2BtD
+	id 1w8bax-00000001sJU-0HIX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 10:16:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C7C9141A1B;
-	Fri,  3 Apr 2026 10:16:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C875C19424;
-	Fri,  3 Apr 2026 10:16:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775211401;
-	bh=vJcrMCFWi3eVzyJNqr5vaLE810lzwaTLsguHO5sXDbE=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
-	b=ar2Nqmqrw2/cBEhIRcDPY5fAvwVyfVAcnpauo/1KqYBG2TCbSBd+9gEbEwRxvUDO1
-	 hFBOy3+D3FIw60MHO3K1Qp+vVCVkodRVdVJt3/1xfPJGYmW1Cze1Bz2q+J2u1y61pq
-	 lresNR+/SiKpq/FDqxNQuzYcI/yZeoy/xjiybBkm0FwFdRZdrS+50Kh9gZoor2TmiA
-	 qNKHw1uQKeGhx9JreI1mroZmZRT7tqq9j75FRZm1ItETTCIeV5GRL1pl4H1vYCrr3e
-	 zVkQnWTfIei6Z09bdqhDKjjErNF3pvZwz7c+cMfEXny2gwVt9v/UMOUWf07CNex89c
-	 N+JmIeVhByILQ==
-Content-Type: multipart/mixed; boundary="===============5612373391882020586=="
+	Fri, 03 Apr 2026 10:17:44 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-43b8e8e7432so1470557f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 03:17:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1775211461; x=1775816261; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=d/v4XeoiWFEOFAaH3W/eNFweATx6olzCtwWK+dE1fQE=;
+        b=nm1NYEatRFSNIaOfEGJu4rqgu9f99VwkyE1ZdbGjoqUAAlkC36+9LPQa/5K1j1zv7p
+         mTpex/ALJocUwkgLKm9dIUzHB6XQLhADtPhoWulA8sFT7L+HidjTJgAIynDcAyLUPYB6
+         GPtbQbURpX6RGHHj+rZUyA8FsTtJIvVg9u5O5xSMgNtXULKB2Ewl5nqLmc1wgwlBYu1e
+         +A4/q7BP5yqz/bwgZWJsqKMyZPmd2dinYjgqIVVzJwBlrqGRfNot0r6ZOChV+Q7zLCGE
+         3yDeedMhioXSj9G7dHpPkmEpG8ez8AaWOHQ4kXaSQp+1YsoMxZmPOCYLhN+p3idE7mBa
+         Z64g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775211461; x=1775816261;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=d/v4XeoiWFEOFAaH3W/eNFweATx6olzCtwWK+dE1fQE=;
+        b=La8PRVmqVSGWmgHfMwz0SdxTvWqpropW/T6NPh6uhDdlfP88yLGkQT62gHDISIFEwd
+         9tn7m85iIYopRM92wqDV4c3Xj7b06MakVL989v86A4aR+0qUJXSlkF/485L5nJXZz8ic
+         tZ/sbbtbgoSjdB7ehjSU9fGydPg8KyfQB75TM+o4xouI+I0+WTDjLhTD5Cndp3xZH5j1
+         LTK4HvZWgRA5foGnnOI837OITumRQeyIwHXKHFtg1ON6H6jcf+NhMubc01Is+pabS/3I
+         1XLFx0UHQMRw6J6PLsyhjxRqrxyPKioeb+RXmzB593VFt2PFqbWOneMqJhanBWYnAyHo
+         i9Fg==
+X-Forwarded-Encrypted: i=1; AJvYcCWwwjSPaFCHF/Z0KxJHySvpumMTLbhsODIoHPErQmuR0CP9MWlpSnlUHF+Q5oAW5CKANq6i+qSI+hoOLfhsbS9K@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFfCJLxOA6GzyTe6roxGhmRBuMJvAbOVqSdTxvqqnq4yleCmVS
+	R5L3dvnHUSuFIbfQgtqZoteGckU8066VzhOG3mZiZuYO4JYARlfaqxSeojcriCGJdKU=
+X-Gm-Gg: AeBDieu+aMfXCsrcDYp76eJ50q/LLK4y/ddU5KvRljDKJZC+pQxkl7mMPCcCSACI2u3
+	5QHAYjiGEwNAm1dBYcxD48b7fk4VALdjXZd3vCgWS2plH5SuMxgycHaH3+4xXll1Zd75kycrA7R
+	aBlWDJkiPiVe/6/fOhEWVMqjmNLwkYXBKj1CDKl7/5CeYNO8yhR/jQnH6D7V2CwMRwM6uA0sE3Z
+	0FtrPyzbRO9cl2xSCB4kWRPfVPRR8RzHLHTe5htzbAYpa5TlaojvX5MJJueLWW6Vc6y0AZv9U7f
+	u97+5Lh/5Ri1qX8YfGQcqI/eOxFxgW/PqgJYuIffDeWn88FCqCBbzwNHThd5SYlD3+96XBFzEeT
+	GCai7cxPozjt4JIs3yrkpgfnr/wOoXWjg3IBrOPKup4ey2SFUP4GHuW5zwFkasbf1rboWHR2TmM
+	Vgy/WscwyX5l3PqyxEnZiC4zuBjg/E
+X-Received: by 2002:a05:6000:4201:b0:43c:f976:b8ee with SMTP id ffacd0b85a97d-43d292dab19mr3932897f8f.26.1775211460610;
+        Fri, 03 Apr 2026 03:17:40 -0700 (PDT)
+Received: from draszik.lan ([212.129.76.92])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d1e2a71f7sm16791493f8f.1.2026.04.03.03.17.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Apr 2026 03:17:40 -0700 (PDT)
+Message-ID: <01ffe5d3aca040edcedb084386ab6e195cb93013.camel@linaro.org>
+Subject: Re: [PATCH v2 2/7] dt-bindings: soc: samsung: exynos-pmu: add
+ samsung,pmu-intr-gen phandle
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Alexey Klimov <alexey.klimov@linaro.org>, Sam Protsenko	
+ <semen.protsenko@linaro.org>, linux-samsung-soc@vger.kernel.org, Krzysztof
+ Kozlowski <krzk@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+ Conor Dooley	 <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+  Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, 	devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Fri, 03 Apr 2026 11:17:47 +0100
+In-Reply-To: <20260401-exynos850-cpuhotplug-v2-2-c5a760a3e259@linaro.org>
+References: <20260401-exynos850-cpuhotplug-v2-0-c5a760a3e259@linaro.org>
+	 <20260401-exynos850-cpuhotplug-v2-2-c5a760a3e259@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-8+build1 
 MIME-Version: 1.0
-Message-Id: <03e4fec040d9458797f717e7778cc61a69ed1fd862782df81a7b59c82fad03c7@mail.kernel.org>
-In-Reply-To: <20260403090915.473493-2-xukuohai@huaweicloud.com>
-References: <20260403090915.473493-2-xukuohai@huaweicloud.com>
-Subject: Re: [PATCH bpf-next v11 1/5] bpf: Move constants blinding out of arch-specific JITs
-From: bot+bpf-ci@kernel.org
-To: xukuohai@huaweicloud.com,bpf@vger.kernel.org,linux-kernel@vger.kernel.org,linux-arm-kernel@lists.infradead.org
-Cc: ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,yonghong.song@linux.dev,puranjay@kernel.org,a.s.protopopov@gmail.com,alexis.lothore@bootlin.com,list+bpf@vahedi.org,linux@armlinux.org.uk,yangtiezhu@loongson.cn,hengqi.chen@gmail.com,johan.almbladh@anyfinetworks.com,paulburton@kernel.org,hbathini@linux.ibm.com,chleroy@kernel.org,naveen@kernel.org,luke.r.nels@gmail.com,xi.wang@gmail.com,bjorn@kernel.org,pulehui@huawei.com,iii@linux.ibm.com,hca@linux.ibm.com,gor@linux.ibm.com,davem@davemloft.net,udknight@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Fri,  3 Apr 2026 10:16:41 +0000 (UTC)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_031643_598357_9D362A66 
-X-CRM114-Status: GOOD (  20.55  )
+X-CRM114-CacheID: sfid-20260403_031743_126931_0D7F1FFF 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,137 +106,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============5612373391882020586==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+Hi Alexey,
 
-> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-> index a431b7d50e1b..0d6bfccf0dd7 100644
-> --- a/kernel/bpf/verifier.c
-> +++ b/kernel/bpf/verifier.c
+On Wed, 2026-04-01 at 05:51 +0100, Alexey Klimov wrote:
+> Some Exynos-based SoCs, for instance Exynos850, require access
+> to the pmu interrupt generation register region which is exposed
+> as a syscon. Update the exynos-pmu bindings documentation to
+> reflect this.
 
-[ ... ]
+You could mention that this is similar to the existing google,...
+one due to same requirement, hence a new and more general property.
 
-> +static int jit_subprogs(struct bpf_verifier_env *env)
-> +{
-> +	int err, i;
-> +	bool blinded = false;
-> +	struct bpf_insn *insn;
-> +	struct bpf_prog *prog, *orig_prog;
-> +	u32 *orig_subprog_starts;
+>=20
+> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+> ---
+> =C2=A0.../devicetree/bindings/soc/samsung/exynos-pmu.yaml=C2=A0=C2=A0=C2=
+=A0 | 18 ++++++++++++++++++
+> =C2=A01 file changed, 18 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yam=
+l b/Documentation/devicetree/bindings/soc/samsung/exynos-
+> pmu.yaml
+> index 76ce7e98c10f..92acdfd5d44e 100644
+> --- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+> +++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+> @@ -110,6 +110,11 @@ properties:
+> =C2=A0=C2=A0=C2=A0=C2=A0 description:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Node for reboot method
+> =C2=A0
+> +=C2=A0 samsung,pmu-intr-gen-syscon:
+> +=C2=A0=C2=A0=C2=A0 $ref: /schemas/types.yaml#/definitions/phandle
+> +=C2=A0=C2=A0=C2=A0 description:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Phandle to PMU interrupt generation inter=
+face.
 > +
-> +	if (env->subprog_cnt <= 1)
-> +		return 0;
-> +
-> +	prog = orig_prog = env->prog;
-> +	if (bpf_prog_need_blind(orig_prog)) {
-> +		if (!IS_ENABLED(CONFIG_BPF_JIT_ALWAYS_ON)) {
-> +			orig_subprog_starts = dup_subprog_starts(env);
-> +			if (!orig_subprog_starts) {
-> +				err = -ENOMEM;
-> +				goto out_cleanup;
-> +			}
-> +		}
-> +		prog = bpf_jit_blind_constants(env, NULL);
-> +		if (IS_ERR(prog)) {
-> +			err = -ENOMEM;
-> +			goto out_restore;
+> =C2=A0=C2=A0 google,pmu-intr-gen-syscon:
 
-When bpf_jit_blind_constants() fails, prog holds an ERR_PTR value.
-The goto out_restore falls through to out_cleanup which dereferences
-prog:
+Please keep alphabetical order of vendors.
 
-    prog->jit_requested = 0;
-
-That would be dereferencing ERR_PTR(-ENOMEM).
-
-> +		}
-> +		blinded = true;
-> +	}
-> +
-> +	err = __jit_subprogs(env);
-> +	if (blinded) {
-> +		if (err) {
-> +			bpf_jit_prog_release_other(orig_prog, prog);
-
-Similarly, when blinding succeeds but __jit_subprogs() fails,
-bpf_jit_prog_release_other() frees the clone through
-bpf_prog_clone_free(). After this, prog points to freed memory,
-and the goto out_restore falls through to out_cleanup where
-prog->jit_requested is a use-after-free.
-
-Both paths could use orig_prog (or env->prog, which was restored)
-at out_cleanup instead of the stale prog local variable.
-
-> +			/* roll back to the clean original prog */
-> +			env->prog = orig_prog;
-> +			goto out_restore;
-> +		} else {
-> +			bpf_jit_prog_release_other(prog, orig_prog);
-> +			if (!IS_ENABLED(CONFIG_BPF_JIT_ALWAYS_ON))
-> +				kvfree(orig_subprog_starts);
-> +		}
-> +	} else if (err) {
-> +		/* We will fall back to interpreter mode when err is not -EFAULT, before
-> +		 * that, insn->off and insn->imm should be restored to their original values
-> +		 * since they were modified by __jit_subprogs.
-> +		 */
-> +		if (err != EFAULT) {
-
-The comment says "when err is not -EFAULT" but the code checks
-err != EFAULT (positive 14).  Since __jit_subprogs() returns
-negative error codes, this condition is always true.  Should this
-be err != -EFAULT?
-
-> +			for (i = 0, insn = prog->insnsi; i < prog->len; i++, insn++) {
-> +				if (!bpf_pseudo_call(insn))
-> +					continue;
-> +				insn->off = 0;
-> +				insn->imm = env->insn_aux_data[i].call_imm;
-> +			}
-> +		}
-> +		goto out_cleanup;
-> +	}
-> +
-> +	return 0;
-> +
-> +out_restore:
-> +	if (!IS_ENABLED(CONFIG_BPF_JIT_ALWAYS_ON)) {
-> +		restore_subprog_starts(env, orig_subprog_starts);
-> +		kvfree(orig_subprog_starts);
-> +	}
-> +out_cleanup:
-> +	/* cleanup main prog to be interpreted */
-> +	prog->jit_requested = 0;
-> +	prog->blinding_requested = 0;
->  	return err;
->  }
-
-[ ... ]
-
-> @@ -26456,7 +26529,7 @@ int bpf_check(struct bpf_prog **prog, union bpf_attr *attr, bpfptr_t uattr, __u3
->  err_unlock:
->  	if (!is_priv)
->  		mutex_unlock(&bpf_verifier_lock);
-> -	clear_insn_aux_data(env, 0, env->prog->len);
-> +	clear_insn_aux_data(env, 0, env->blinded_insn_aux_len ? : env->prog->len);
-
-When blinding succeeds but JIT fails and jit_subprogs() rolls back
-env->prog to the original (shorter) program, blinded_insn_aux_len
-is larger than env->prog->len.
-
-clear_insn_aux_data() iterates to blinded_insn_aux_len and calls
-bpf_is_ldimm64(&insns[i]) on each entry.  The insns array comes
-from env->prog->insnsi, which only has env->prog->len entries.
-Can this read past the end of the program instructions array?
-
->  	vfree(env->insn_aux_data);
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/23941975318
---===============5612373391882020586==--
+Cheers,
+Andre'
 
