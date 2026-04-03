@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B78E7E348
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 08:41:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C437CE7E348
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 08:41:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BscWtAcG2FmHfLMPQAEJmpSFHXHldAlcD3No09GWSI4=; b=nj1SywOaxCAt1E4Ozq88RO9WLD
-	vyXrYYcSGCmf8pkm0HvGDTy835YHgmGgfLGgZEhh7D+Q8qOY2Z/0pP1V1Ni5dJLQ/DlVg9VW15QFL
-	pHmVKkULb8P5v0gF9dCcrFUKy3dELPIhf1LaF3NqhMedHpFOswy8L+SFgdimVNrUNrj9X2bAdFYcd
-	otWNKYlLecMDRVR+IC76pNQkPqvlJJf+ZRcT34IOr2ERWXyz0C2L8DwzPk0h22bQo1oRe3zK8sRk6
-	CK2EAYZwUTrskcw0vesPnJIEnrZ4R2LBQ5b2yynzTGlXl/04xk70OdCLEGDVIgH4tMtJ0ey5Z2zeg
-	E2IlZX1Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xwQFTLyur5H+E/ecDZXyPFLcjgsddNgZpITPoKJi25Y=; b=uaFDAlhLR8hdlyw7UbgquiZMTK
+	QSQWTHL4+O1Y+wG/pClgdWso7/95GHBCJIpeMOIZpabNkB2cH/Rjlysg/1VXLCP83SaFeUcVHLk0U
+	Uwq+qFxlts6LDVCpduWbSuGt3oxvFOn8DU6+fWakDCxelKBrwIKmG8DPYNQcU6DE8RvYHSQ8IaHlr
+	EyZUh+kM/A9i7H2E7cldQFfqLRqE1Ywuq/8bJvieQLG39xaw5bYP285C2afdvapm53fFdkn8t/4lk
+	glt/at8Cu+c0h0R2D9Adgs9dK3fiYUx8YLroPq5xb6Cki1Xb48Be2hsnjWWEPS/WjttKXGr236ZSu
+	K/VdJSLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8a65-00000001jK8-03TU;
-	Fri, 03 Apr 2026 08:41:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8a61-00000001jI2-2eIS
-	for linux-arm-kernel@lists.infradead.org;
+	id 1w8a62-00000001jIP-2j72;
 	Fri, 03 Apr 2026 08:41:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8a5z-00000001jHD-1p0D
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Apr 2026 08:41:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 516714453F;
-	Fri,  3 Apr 2026 08:41:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6D9FC4CEF7;
-	Fri,  3 Apr 2026 08:41:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8A04B42E01;
+	Fri,  3 Apr 2026 08:41:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBDD9C4CEF7;
+	Fri,  3 Apr 2026 08:41:35 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Sudeep Holla <sudeep.holla@kernel.org>,
 	Cristian Marussi <cristian.marussi@arm.com>,
@@ -40,17 +40,15 @@ Cc: arm-scmi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 2/3] firmware: arm_scmi: quirk: Simplify quirk table iteration
-Date: Fri,  3 Apr 2026 10:41:30 +0200
-Message-ID: <8577f4b103cf04420c3b67dcaad528daff867287.1775205358.git.geert+renesas@glider.be>
+Subject: [PATCH 0/3] firmware: arm_scmi: Miscellaneous improvements
+Date: Fri,  3 Apr 2026 10:41:28 +0200
+Message-ID: <cover.1775205358.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1775205358.git.geert+renesas@glider.be>
-References: <cover.1775205358.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_014141_688023_6434A910 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20260403_014139_530556_A01F2671 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,34 +63,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current table entry is assigned in both the init and loop
-expressions of the for-statement.  Merge this into a single assignment
-in the conditional expression, to simplify the code.
+	Hi all,
 
-While at it, make the loop counter unsigned and loop-local.
+This patch series contains miscellaneous improvements for SCMI quirk
+handling and SCMI instance iteration.
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
- drivers/firmware/arm_scmi/quirks.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+Thanks for your comments!
 
-diff --git a/drivers/firmware/arm_scmi/quirks.c b/drivers/firmware/arm_scmi/quirks.c
-index b1d9cd9fa2427879..2b38ba3f59a13c9e 100644
---- a/drivers/firmware/arm_scmi/quirks.c
-+++ b/drivers/firmware/arm_scmi/quirks.c
-@@ -258,10 +258,8 @@ static int scmi_quirk_range_parse(struct scmi_quirk *quirk)
- void scmi_quirks_initialize(void)
- {
- 	struct scmi_quirk *quirk;
--	int i;
- 
--	for (i = 0, quirk = scmi_quirks_table[0]; quirk;
--	     i++, quirk = scmi_quirks_table[i]) {
-+	for (unsigned int i = 0; (quirk = scmi_quirks_table[i]); i++) {
- 		int ret;
- 
- 		ret = scmi_quirk_range_parse(quirk);
+Geert Uytterhoeven (3):
+  firmware: arm_scmi: quirk: Improve quirk range parsing
+  firmware: arm_scmi: quirk: Simplify quirk table iteration
+  firmware: arm_scmi: Convert to list_for_each_entry()
+
+ drivers/firmware/arm_scmi/driver.c |  4 +---
+ drivers/firmware/arm_scmi/quirks.c | 15 ++++++---------
+ 2 files changed, 7 insertions(+), 12 deletions(-)
+
 -- 
 2.43.0
 
+Gr{oetje,eeting}s,
+
+						Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+							    -- Linus Torvalds
 
