@@ -4,94 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF436E7E345
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 08:58:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1459E7E34C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 09:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KxQFvqelXHDHyvDQl7EWq8XKSqTOS9+kkTkwsuSR9EM=; b=a2Rn+BU34poxtHVfrasowfT4K8
-	SCue9oPnYJ8sprwa8H9vSLjFyRJqngoUJyCjhhFaZAwXuBOsflsoBgE9JqEPZ+6yMNgwluxsNM9Bq
-	fZZPRyaAroUiESHF3kSRlOhsua6WU8HqR3NPIJphfeh9B75ALBBPb0kv7/TbPQZSxscsYeMMcIHh8
-	SYrY5QfePvlx7UilaqVJkdwzP1eY/1MSnlrhz9b39JusSPZjP5O4a+q1XwKz+xf60cnFFjyGMb585
-	4sZb0iT/pe/Q9RnGyFR8glbdxkp1FkIARFjA+L/oGx+rp1HvBOfiNl3sbyAhFO4zTixV7fNkIVBN5
-	vSLNQSuA==;
+	bh=Qsj1RGLAszaRKzpMsR2E+ns4h5R80DTAT3PdStNjiP8=; b=u7L/TohBwJ2nNcfkSrUAKBnkLc
+	nkwZpzbvo4C2PNDBkkIbD0l1QVTKMaR0zFX1KBA4w1cKNmq0AU0VQvHRoICA2Lu5iFwHMdjdn1N3q
+	AI449nDKKHnqizhtCHE5N+gp5x2FBuRUvPQ4nBl7y0rD7GOMPewwS37uPAXeiSEZrAqlBi4tu93m4
+	06BZkUMGpGnxLInoaBUaA0GnigosJ1Wy12TC/IPBCjU1+LKNmvTpk6Os3RKF7KjWtuhOc7oScK2/3
+	vKne31kaar7J2HFeXq4dcsInoFUxDSAR6CfA7or14aVHjfGVlJZriLRB9L4Ui9Ilg66JUvAUcJUf6
+	22PfiMnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8aLs-00000001l8s-0BrH;
-	Fri, 03 Apr 2026 08:58:04 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1w8aPs-00000001lVQ-1C4A;
+	Fri, 03 Apr 2026 09:02:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8aLp-00000001l8Q-0iHh
+	id 1w8aPq-00000001lVI-0W5h
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 03 Apr 2026 09:02:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Qsj1RGLAszaRKzpMsR2E+ns4h5R80DTAT3PdStNjiP8=; b=KQBe/JM8Vpxeobr0PRKoHo7GAG
+	R98x5c9nmWI8yDsd7DODlcHaJoQjhDoq6k9j+LsPKkFY7nIDmFLJMFOmCbsU6k4isrvdvY8zbU5XZ
+	l6wDn2ZpkM+gzdJ6dubc+jSUOaUNsUkwmAh3SR6HD2Yz8SZtcNZo0TM9edt+HlWuQ+ezdmu0tTCFo
+	z7RnxpGqOBAq8phdg8GaW2RAEePei8EuNRLMK2yWNSh38y0PRd1kLS/yavvG8+NRiQ1APyYVxe8aH
+	V76nrEnJjUXmSjGPdbwkLz/E7XhjIORFaFkaIndPDuLj20uVG9cIQhcsQuLvlzrZwm5KhUIsmlkm7
+	/ypgubSw==;
+Received: from mail-ua1-f42.google.com ([209.85.222.42])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8aPn-00000003rBz-0ihA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 08:58:02 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-8296dabef74so1677304b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 01:58:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775206679; x=1775811479; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KxQFvqelXHDHyvDQl7EWq8XKSqTOS9+kkTkwsuSR9EM=;
-        b=dVAV6nvRDx9lEiQY6HNNKucqLeHPhbyAqzOjw113sJvMszGLIf50HRlvPpP0jyhSNx
-         JeOhoYQutUM4I0GlSMnjd0xKMIBYdKuy1siqHBTKFoQaGpGZvJffLXV602MRxPCJy+kC
-         tPu8C26v7cXtgSx7+X+ix11hK6DPUTNt5pP0cvNxJlUxPNpLjVeBEM52g7SjbOj0lFkN
-         mf5jDi/iqhdlKZm09+oBU/aKIlk/SkYEiVDOUYLWbu82AlBjDB9nCmDp0boY02OMJZ78
-         lLivIPR743J4fnxrKQ7x0Wr4F5KC1jFk2WNpFGp1sDXAMx9Bl5g0m4Xn4AzkiMSZFmF/
-         PUcg==
+	Fri, 03 Apr 2026 09:02:08 +0000
+Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-94de664b541so523079241.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 02:02:06 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775206679; x=1775811479;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KxQFvqelXHDHyvDQl7EWq8XKSqTOS9+kkTkwsuSR9EM=;
-        b=KpoUqUbwfybBw6aegdw2fT4FTry6ZRaCzeVnLSmjjrhraHP6wkzJUMYg7XE4MaCUbe
-         1NNaZ4HkDiRRbiRLJHagd3E9x/PVXQ3jwkNgQw/yLB5VRAWIteYWz8cKxGJknWGqsOR+
-         zTnuF7NHpm2Ezz1uDCPZmfNzSgieXu7PtjQ+o3Iw4Wbpt1E6X8F8CFEk7OyZqdGche++
-         LgpTCyEzuL5CVOpjwjCf773feJbwUs4HXHx8bw0aN7I1/sRViJg8r08jGAlFBj+KUy/d
-         eeauluQWLjTKibvvKi9cNgejDb5EYe0a/J8FsfyfneGjsptMhxTWTgUs93LXofRMg5eR
-         ZI2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUVUyVg4mAd2XJO+N9nx6o4QVVoPO2x3Ia+7FTdiUZlGYLqMRqABkxhKHmsi6YDfaSz2v19xOOS0pEBOzBjPsMn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/6WjR/3e95QCU1tRQHXIrm0gIRlmMKobILYxDr80b1EZtv4U2
-	Fxs87RX3a4zxnBFeSD+yZBRnkbTlSHTSJetASHR5YiFQVGQgVqRSE9rk
-X-Gm-Gg: AeBDievg+c2PRO6VDFe8092J8JJHDiWJNK5gGKgCofaZridvV+4aRT0ebDaVzm0MySx
-	5PS0YHCxGNRqx7T5D/vByng9D8L0xmVHltduki22cVTqwnh7m4TpXIZBth5Ad36/AQpJmsGWeev
-	AOo7lDuVwDDG2UOT9+LFw8K/LvGRNFwBh//MNfMYBDrTe/vgQ7njuGaCk9fQPFADGvxdbWc+tX5
-	8imJCDOy5Hvj5I3rQtp7IHiuBCtQch9fxhR1+DJymWQoYkr1qYph0IrJWT/+odrHR/htASybYyb
-	4NB1YH1xDBGEJUX/FUwbwy8weDxZ+z7Yv0D9Twlhd3eqYKjnPyf0sSROddfeOiWvGhzD34mvMDH
-	WaxVnNBhqbtfkhfJ2yqF2fbT/IHOfvke1li95R0B2j+Dh949YDzjod61kVcp7zXOVG32uea0BuR
-	rE9f/PkrOkeoUaqofgwBQM7tpVAJ2JujWKxIBpkyE9Rvl0NPo=
-X-Received: by 2002:a05:6a00:3027:b0:824:93e4:2ddf with SMTP id d2e1a72fcca58-82d0da3f8afmr2250267b3a.13.1775206679416;
-        Fri, 03 Apr 2026 01:57:59 -0700 (PDT)
-Received: from google.com ([2402:7500:477:c367:541d:a40c:7624:4482])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82cf9c68273sm7096151b3a.41.2026.04.03.01.57.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Apr 2026 01:57:58 -0700 (PDT)
-Date: Fri, 3 Apr 2026 16:57:53 +0800
-From: Kuan-Wei Chiu <visitorckw@gmail.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: James Clark <james.clark@linaro.org>, mike.leach@linaro.org,
-	alexander.shishkin@linux.intel.com, gregkh@linuxfoundation.org,
-	mathieu.poirier@linaro.org, leo.yan@arm.com, Al.Grant@arm.com,
-	jserv@ccns.ncku.edu.tw, marscheng@google.com, ericchancf@google.com,
-	milesjiang@google.com, nickpan@google.com,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v3] coresight: etm3x: Fix cntr_val_show() to match
- cntr_val_store() behavior
-Message-ID: <ac-BEX0Rfe9RBJJn@google.com>
-References: <20251202082613.3265761-1-visitorckw@gmail.com>
- <3bec7ceb-61a8-4b38-a794-02ee2fc9e68c@linaro.org>
- <aYAxbbkHslAP9RBN@google.com>
- <bb521240-ab53-4c5a-aa1d-6b140ed4262e@arm.com>
+        d=1e100.net; s=20251104; t=1775206925; x=1775811725;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Qsj1RGLAszaRKzpMsR2E+ns4h5R80DTAT3PdStNjiP8=;
+        b=Ss9Te3aJ0UIi7zr5qD7az10DaNYY40oV6PeYYYzIGDrdasmJoMjziV3T4npAj81uMn
+         gBRdy1u1Cu7o15r+iEPt2dKhYX//uv1iQW4TkuzFPJBdlw9ayEWVC8NRPsFEx8Jgt57u
+         Oj8qKa55l77jenJ+g1lnWkhWHUvEAlEtW9YPEE23eCseaZM/goR/Az8tQjG8l9KVfwPn
+         I953aAtS9vWwviOSRCxS+JUAtU7LC2L1XGuLYT3ERDMkb5GFgR7+hg86oEkJ8ux4isPM
+         UK5cyda0RMldDBByCIWAhIi4ini3RTFdnmq9f+DphBlaMZ6vKkk8RYZwqeaNMSdYogpI
+         zW2w==
+X-Gm-Message-State: AOJu0Yz1iDDnYKspvRj37Ja1ECt59bAxE666+q5EABrYy88uoeZCtuI1
+	qCcjaMkdBuUjO2IJq0QZeKwx9rR5zJ3C2uC5p57wPShwXJJ39PIWaiO3kzqioFE4
+X-Gm-Gg: AeBDieuD+hkvHfP8pofqoP9ypJ5D1r2fp29U6tb+kuY+4zf7g1A+rij9jnI7LHIwFMX
+	c2LiFktuYlE+eAPlGLe4f7K/Jf2xvH6JW8N9T1m3RG8s3S/gxUBs9hIo2SJ/8AFYME6WEQHOZ7v
+	K0vJOKR8ifn9EOfvQJKww8+OFu/i6FDvzpS2syQhw5Ee2CTt0fI5+nY4LVKMekl2pohZsGRMrVK
+	WhWmVNVAYfjjUMj+/Qc9wCLBEUBlFXoxWE5F3Zs4t40F7yk2jZpJw6GN/SIPUTnG4CLUkiLIiav
+	Q2MPeVkSBXkuHchjwtHsI0q7s3pbTIFNEAJvJKPW9E/6y1XduNU353b0BVRal7vMzkvof7CU9st
+	S7XYdkh9MAAH4WdS630ZGTPaXTfnsAA6o5ofNRLLL4JIEosPMcyTwraqocspQI3UgitzMiP1Vqe
+	EeK6teC2rnbCkieC8Ms1ki8wa9qHc2tAb+zLCijUK8SHgOw3Mp9BdFhywPNcmoiXIP
+X-Received: by 2002:a05:6102:914:b0:603:dc3a:6f27 with SMTP id ada2fe7eead31-605a4fc7d46mr692147137.22.1775206924525;
+        Fri, 03 Apr 2026 02:02:04 -0700 (PDT)
+Received: from mail-vk1-f178.google.com (mail-vk1-f178.google.com. [209.85.221.178])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-60582e73126sm6908571137.4.2026.04.03.02.02.04
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 03 Apr 2026 02:02:04 -0700 (PDT)
+Received: by mail-vk1-f178.google.com with SMTP id 71dfb90a1353d-56d85881a68so663610e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 02:02:04 -0700 (PDT)
+X-Received: by 2002:a05:6122:d1e:b0:56c:ca38:ebeb with SMTP id
+ 71dfb90a1353d-56dab8243c8mr760736e0c.2.1775206924117; Fri, 03 Apr 2026
+ 02:02:04 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <bb521240-ab53-4c5a-aa1d-6b140ed4262e@arm.com>
+References: <20260326042411.215241-1-marek.vasut+renesas@mailbox.org> <20260326042411.215241-2-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260326042411.215241-2-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 3 Apr 2026 11:01:53 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXCRCbqWdJMMEsJCbk2TFVxUurjOmFxwLMYxHzPdDCo5Q@mail.gmail.com>
+X-Gm-Features: AQROBzAnTN9lYrSaM9ZtCA2x2wm4A4eG7aiOhMzuh5U7vdK_Tlzo08dmx-AhkbM
+Message-ID: <CAMuHMdXCRCbqWdJMMEsJCbk2TFVxUurjOmFxwLMYxHzPdDCo5Q@mail.gmail.com>
+Subject: Re: [PATCH 1/4] arm64: dts: renesas: Fix missing cells and reg in
+ Draak/Ebisu panel DTO
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_015801_236707_2D0F176F 
-X-CRM114-Status: GOOD (  34.72  )
+X-CRM114-CacheID: sfid-20260403_100207_292523_8C35B79D 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,91 +110,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
-
-On Mon, Feb 02, 2026 at 09:33:59AM +0000, Suzuki K Poulose wrote:
-> Hello
-> 
-> On 02/02/2026 05:09, Kuan-Wei Chiu wrote:
-> > On Tue, Dec 02, 2025 at 09:26:19AM +0000, James Clark wrote:
-> > > 
-> > > 
-> > > On 02/12/2025 8:26 am, Kuan-Wei Chiu wrote:
-> > > > The cntr_val_show() function was intended to print the values of all
-> > > > counters using a loop. However, due to a buffer overwrite issue with
-> > > > sprintf(), it effectively only displayed the value of the last counter.
-> > > > 
-> > > > The companion function, cntr_val_store(), allows users to modify a
-> > > > specific counter selected by 'cntr_idx'. To maintain consistency
-> > > > between read and write operations and to align with the ETM4x driver
-> > > > behavior, modify cntr_val_show() to report only the value of the
-> > > > currently selected counter.
-> > > > 
-> > > > This change removes the loop and the "counter %d:" prefix, printing
-> > > > only the hexadecimal value. It also adopts sysfs_emit() for standard
-> > > > sysfs output formatting.
-> > > > 
-> > > > Fixes: a939fc5a71ad ("coresight-etm: add CoreSight ETM/PTM driver")
-> > > > Cc: stable@vger.kernel.org
-> > > > Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
-> > > > ---
-> > > > Build test only.
-> > > > 
-> > > > Changes in v3:
-> > > > - Switch format specifier to %#x to include the 0x prefix.
-> > > > - Add Cc stable
-> > > > 
-> > > > v2: https://lore.kernel.org/lkml/20251201095228.1905489-1-visitorckw@gmail.com/
-> > > > 
-> > > >    .../hwtracing/coresight/coresight-etm3x-sysfs.c   | 15 ++++-----------
-> > > >    1 file changed, 4 insertions(+), 11 deletions(-)
-> > > > 
-> > > > diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> > > > index 762109307b86..b3c67e96a82a 100644
-> > > > --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> > > > +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> > > > @@ -717,26 +717,19 @@ static DEVICE_ATTR_RW(cntr_rld_event);
-> > > >    static ssize_t cntr_val_show(struct device *dev,
-> > > >    			     struct device_attribute *attr, char *buf)
-> > > >    {
-> > > > -	int i, ret = 0;
-> > > >    	u32 val;
-> > > >    	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > > >    	struct etm_config *config = &drvdata->config;
-> > > >    	if (!coresight_get_mode(drvdata->csdev)) {
-> > > >    		spin_lock(&drvdata->spinlock);
-> > > > -		for (i = 0; i < drvdata->nr_cntr; i++)
-> > > > -			ret += sprintf(buf, "counter %d: %x\n",
-> > > > -				       i, config->cntr_val[i]);
-> > > > +		val = config->cntr_val[config->cntr_idx];
-> > > >    		spin_unlock(&drvdata->spinlock);
-> > > > -		return ret;
-> > > > -	}
-> > > > -
-> > > > -	for (i = 0; i < drvdata->nr_cntr; i++) {
-> > > > -		val = etm_readl(drvdata, ETMCNTVRn(i));
-> > > > -		ret += sprintf(buf, "counter %d: %x\n", i, val);
-> > > > +	} else {
-> > > > +		val = etm_readl(drvdata, ETMCNTVRn(config->cntr_idx));
-> > > >    	}
-> > > > -	return ret;
-> > > > +	return sysfs_emit(buf, "%#x\n", val);
-> > > >    }
-> > > >    static ssize_t cntr_val_store(struct device *dev,
-> > > 
-> > > Reviewed-by: James Clark <james.clark@linaro.org>
-> > > 
-> > Thanks for the review!
-> > Is there anything else I need to do for this fix to land?
-> 
-> Thanks for the patch, I will queue this for the next release (v7.1).
+On Thu, 26 Mar 2026 at 05:24, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Add missing cells and reg DT property into Draak/Ebisu panel DTO to fix
+> the following warning:
 >
-Just a gentle ping.
+> "
+> arch/arm64/boot/dts/renesas/draak-ebisu-panel-aa104xd12.dtso:30.10-34.5: Warning (unit_address_vs_reg): /fragment@2/__overlay__/ports/port@1: node has a unit name, but no reg or ranges property
+> "
+>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-Since the v7.1 merge window is presumably opening in about a week, I
-noticed this patch isn't in linux-next yet and wanted to send a quick
-reminder. Thanks.
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v7.2.
 
-Regards,
-Kuan-Wei
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
