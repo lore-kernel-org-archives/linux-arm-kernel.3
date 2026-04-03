@@ -4,189 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12316E7E34E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 08:54:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF436E7E345
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 08:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=749l+8tmuSGDLXg49Hfrlvxrxrf3wW2fMXTmsAj8E9g=; b=EkLRxfSI4nmkztShXAZcHql2j+
-	pmYNgMaXEVQLNuIouvEfZnX9G5+4IKdUGdeUn0zkhS7coI3uZvFfn2jzPRzRnZ5NjMBxak9cEadCy
-	2fMuifLVsvUjs8GHxuUyVM7/Y7dxvTfUNcUKbn+wn1bqSHquv0Sb+Pe49A1dBuHXgYMaABITcxpKV
-	KdLT3LQ0KLmjQhNbzL+Yi87QwKb9TIVt0tyi63jlxdlFf2xXM4VMzIdO6vCQjC07otMvl55SxKMJG
-	jTBjRDvVkyIxYuE+6uH3P2kANEtjdFlZizCdb362COf02PSlXJFAelE6YI6TtoB3v9tD5OjvSmIqK
-	r/9oeJ5g==;
+	bh=KxQFvqelXHDHyvDQl7EWq8XKSqTOS9+kkTkwsuSR9EM=; b=a2Rn+BU34poxtHVfrasowfT4K8
+	SCue9oPnYJ8sprwa8H9vSLjFyRJqngoUJyCjhhFaZAwXuBOsflsoBgE9JqEPZ+6yMNgwluxsNM9Bq
+	fZZPRyaAroUiESHF3kSRlOhsua6WU8HqR3NPIJphfeh9B75ALBBPb0kv7/TbPQZSxscsYeMMcIHh8
+	SYrY5QfePvlx7UilaqVJkdwzP1eY/1MSnlrhz9b39JusSPZjP5O4a+q1XwKz+xf60cnFFjyGMb585
+	4sZb0iT/pe/Q9RnGyFR8glbdxkp1FkIARFjA+L/oGx+rp1HvBOfiNl3sbyAhFO4zTixV7fNkIVBN5
+	vSLNQSuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8aIl-00000001kp3-0hGJ;
-	Fri, 03 Apr 2026 08:54:51 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1w8aLs-00000001l8s-0BrH;
+	Fri, 03 Apr 2026 08:58:04 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8aIj-00000001koS-0tX7;
-	Fri, 03 Apr 2026 08:54:50 +0000
-X-UUID: c2e6569e2f3a11f1a6de359d7043e138-20260403
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=749l+8tmuSGDLXg49Hfrlvxrxrf3wW2fMXTmsAj8E9g=;
-	b=dm4GM8MMmxfFf9utn7d1quqUvl9tn2m8Z52qElYNkf8iHpnnYKUgULrB9Lvz1/qAjCEmIdFkvrG8qECR51LkVTJEIvLNsCFdV+Y5aOnjvM4dLdAnbiD0HNGrUvNwvDPZfBVCfoj20cbdGYVITaeegDsNyKxfXMswhkFdreIGHA0=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:b5526ff0-7ab5-444f-99b6-feb471fde815,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:23b975d5-060f-4ecc-9ee0-121eeeb4a682,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:-10|3|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,Q
-	S:nil,BEC:-1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,A
-	RC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: c2e6569e2f3a11f1a6de359d7043e138-20260403
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw02.mediatek.com
-	(envelope-from <jason-jh.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 309542237; Fri, 03 Apr 2026 01:54:44 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Fri, 3 Apr 2026 16:54:42 +0800
-Received: from SI4PR04CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Fri, 3 Apr 2026 16:54:42 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GoRiyuB50lQvuRKGeA6MSFNAkRXrfvNM7rP5DVQ1vslZdw7G3jLO+UQPm+lRMynZXf5/8i3UrTDdm+jqSjyQqaWjILRCgHiaGI6srBLYOdb5dHUqLwTPTtkODzNXCECuGAu51zF8ELzijyytUWP7mAxfRF+ObCQS3QUSeyNdaCrLaSOvFglFJxEUwu0XXngqgkeRW5LiOI1/3mGqTdc/S301GkxhZh4TthCJtAWA49kRBSW/ODwFO14Ue567dYak8kVPniqk4PYut+vpg+djVdOcx+7py0xb6gAu0FE5QrjCSXxqvpfuLQseH64rOY+2JSpm4fa5Lg1tQkisK9Ak2g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=749l+8tmuSGDLXg49Hfrlvxrxrf3wW2fMXTmsAj8E9g=;
- b=Z/u7BroJo4sjET3Zd11tbPSF86yvyuqg0E48rTH7bGg41SHZjynTUPT8P+LIpNGPU6CgYQAr6fzq5KFRGJe/zHmXDUw0jRQkTZqSw/TKenD8nl00tm/07QyO+REgDCQ1wsImO3ZekWf+jnIWiy7pY5u2Xb0wbCQ5AXbO6IvinkZNFwe858jd9p8WHJ3y8oY4DLbqHovaE7g+u98qjrbj4cwn+M5uyATa7STgBaVKkZQgCW2KbLVGIGDE+RABVI5M8K9LVtbe+FIQ7D8qj2f/BztVT/xuuI34TshpWcd7V+SiDHw+OjSg3HbFGYfAs0dEIdXZNYXHc5bn0pkJjBGupw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
+	id 1w8aLp-00000001l8Q-0iHh
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Apr 2026 08:58:02 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-8296dabef74so1677304b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 01:58:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=749l+8tmuSGDLXg49Hfrlvxrxrf3wW2fMXTmsAj8E9g=;
- b=vJHlTAXMMRifB4X++EQrnxFS2/0GaXZBilIMCwfNsxdTkEFqB9rTaqrio+GR92rudpbRvrtn+k1I/RxzKkFAF26nBjVpJGE1lL5q2FVj4mElIr/7GJsF4NMC5e1bXp9fWwoDySkLuYDU8RqiMmqPJj7rnWpLMjRCgA9fo1Dmd+U=
-Received: from SEYPR03MB7682.apcprd03.prod.outlook.com (2603:1096:101:149::11)
- by TYZPR03MB7819.apcprd03.prod.outlook.com (2603:1096:400:464::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.20; Fri, 3 Apr
- 2026 08:54:39 +0000
-Received: from SEYPR03MB7682.apcprd03.prod.outlook.com
- ([fe80::1fe4:fb59:1b1:1646]) by SEYPR03MB7682.apcprd03.prod.outlook.com
- ([fe80::1fe4:fb59:1b1:1646%6]) with mapi id 15.20.9769.020; Fri, 3 Apr 2026
- 08:54:39 +0000
-From: =?utf-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>
-To: Laura Nao <laura.nao@collabora.com>
-CC: =?utf-8?B?R3VhbmdqaWUgU29uZyAo5a6L5YWJ5p2wKQ==?=
-	<Guangjie.Song@mediatek.com>, "robh@kernel.org" <robh@kernel.org>,
-	"kernel@collabora.com" <kernel@collabora.com>,
-	=?utf-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <Sirius.Wang@mediatek.com>,
-	=?utf-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	=?utf-8?B?UGF1bC1wbCBDaGVuICjpmbPmn4/pnJYp?= <Paul-pl.Chen@mediatek.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"richardcochran@gmail.com" <richardcochran@gmail.com>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "mturquette@baylibre.com" <mturquette@baylibre.com>,
-	Nicolas Prado <nfraprado@collabora.com>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, =?utf-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?=
-	<Singo.Chang@mediatek.com>, "wenst@chromium.org" <wenst@chromium.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "sboyd@kernel.org" <sboyd@kernel.org>
-Subject: Re: [PATCH v5 23/27] clk: mediatek: Add MT8196 disp-ao clock support
-Thread-Topic: [PATCH v5 23/27] clk: mediatek: Add MT8196 disp-ao clock support
-Thread-Index: AQHcGNelXPSfqVm58E66r9ASuZOvZbXMoqQAgAA8LwCAAX5+AA==
-Date: Fri, 3 Apr 2026 08:54:39 +0000
-Message-ID: <04a1848e3ffb43fae727ca0110d57e81fe88a4a1.camel@mediatek.com>
-References: <2d418383ff2d6ff40ffb3b4f8e2b0c0e665c3b58.camel@mediatek.com>
-	 <20260402100538.27291-1-laura.nao@collabora.com>
-In-Reply-To: <20260402100538.27291-1-laura.nao@collabora.com>
-Accept-Language: zh-TW, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR03MB7682:EE_|TYZPR03MB7819:EE_
-x-ms-office365-filtering-correlation-id: f396c047-9ab3-4385-6138-08de915ea3a8
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7416014|38070700021|22082099003|18002099003|56012099003;
-x-microsoft-antispam-message-info: gxniqvuysKYY5PL5eU3rg9rRfKBbW134VbRVimALStZ0RkBUEU6vXtKcdKeYk300H5fCdtHdb45yDHdyPRq8kZtwtFnnzROgrOx4dzL9m6+iJQtgEWMUEt/+doo1mGm437YncjCG9RD0KjWIib44s3ijPkwDaz+Z8avGTQ78qv93Od/RFlhC42Cv6eQBgBrTdZ5aKMfbFf/Sz6CeoCJf9Cq1Lj6PgaoaWPyrGYWQDTmF6Bze8eQ+Oxb2zNeVrta0PvGtT03FX+v1lye5uiHkur1IMVWv+4fVnUtzGV7yZ3OJ/fPjt5xI6tCoB/q+8MEmu6w5to6Wr8MDGPXYmD8DJl4czHtYsk1432WfFJzITS25feZ/qlqrjxZVAyGUB9WZiE5EiFmTOuSgOHhXCzf64OIjBV1GVw9+sUkicLsIBYBwpZK3HpjfGAf6nHK9f0GE1vT1JiQN9goX9iIPwk/tD0kF21rzIvbEScFYPuuJyuVjTyGcztvCGGuhg0VglMQrLPp855G1nqhVsGA7x/+v5Wp8+23mQP9wwnmVv0T2OiaIfnVTX4ccIdY3elpP2f2gsuUydn/Xm3fhfO/jOteFMDvY0oyb4A9bjF2VGeH3aTGL2lTFts77Haa88hX/NXURgait4qKvI8bAC7jJewdykvS5rzfa+NKAuP0m2JHyiOyvjKPsfeW6ZiuV1DUQYWe76Xp+h/bx5/+KY5z2OBDzm2+/h7CYynJrSbsVbijo0yV3PsuEdiFe7XrQvdpX3YetX/2r+EI6jw2RNJebPmzXqA==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR03MB7682.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7416014)(38070700021)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SmNvOGJ1eEIrUVZrbEppMkp6Ulk1Z0poZDAyYUlkdVZLMy8wV3J3bk5weklo?=
- =?utf-8?B?T0pWR0dtNTdaZjk3ZmFuK2poMzRzVElzVm5kYzBEZjIyWitKeUs4UWFCRUN2?=
- =?utf-8?B?azdmbk5yYnJFRnIrTVBaNWEzanJHK3JtdFpMQWUvcHFMdm4reCthUkN5OFc3?=
- =?utf-8?B?VHdnK1ozSFFtU1lnb0o0TWh2R1hBTWgyemZOQVYrR1dxWVRrbTdhYThhcTBZ?=
- =?utf-8?B?SEo0SWlHMDNEWVVmMDRvdnVnZDNBcXdwR2RaN2R6cjBSd1pra1luaHFQRnJi?=
- =?utf-8?B?NlV6WjNiUHM1ZEJ1eU1EQVNEZ1puaGVZMTQ2WUtUdjVhZG5lL1hrVUdJeE1o?=
- =?utf-8?B?Zk9hTHlsQ2haaVIyaE5Vc29UOXhYOXArZ3FsMzZmcnRma0tVT25Pa0Uyc09M?=
- =?utf-8?B?bElYallRdGdjQ1FtYnJPL0xORlArSkw0N0U1RVc1c3Z6VTgwUzZKd2RDd3lG?=
- =?utf-8?B?bUxVRDVXb3NvSXMwdEhkUnJKVkx3aG9PdzJURlRZRWZrTVpXMUFPbXVsQnJo?=
- =?utf-8?B?TEQwelM4YmpBM2VGK3pPUzhIL0NTRHFuZ1gzQ2oxU0FScEYveDhlNUczU0lD?=
- =?utf-8?B?RUNZZkxrWXZFNWNvckZ5Q3cyVStpVVJPbmNMYWErNGd6cSttSUFiWTIzL1da?=
- =?utf-8?B?ajhvb1l3aDBrLytNVm1mRnc2V05SRW16M3ByMitVMUFNSHFhdDdkbGpySS9S?=
- =?utf-8?B?Z2hLOW1OOWpXeG9DdXlUNHFDNDkrODdqdFVkTnRnM0F4STY3U0Q0dDI5Y0Q2?=
- =?utf-8?B?bEtnSGNOU1RiSWhQaVdST01qdnYrSnB5WjA5aUtmZk1Bc2F1WG1QSzVEQ2E1?=
- =?utf-8?B?MlB0US9zN1BwZnRLY0FvZWU0NzlhcmgxYytaN2E1aVdKTTdGV0Z5cFVNeEpq?=
- =?utf-8?B?R05nMVNpZytqMktQNVBENkZpT0JpWlRHcThQZWxZbXZUVE1tRXFWZytxNDIy?=
- =?utf-8?B?U0E1Nno0NVhUc1lZZ29rZDJOdCtzTlE3dER3dzMzOENveFBtVDIyUzZUSHVE?=
- =?utf-8?B?M1dobjZjSXlIOVpqR0QyeG9MQkZLbXNJSXFCc3FENDFoTElqZmIrZS94bGlF?=
- =?utf-8?B?TnMrTk50bW1HZ1JLeHYxOUFpbUdtNWlzWmVIZURtZ3NabVFiMmtrRHVmcitz?=
- =?utf-8?B?eTltQis0VENacmlhdkVmUWVFMHAwSkRwa1dKYThuQUd6c3FzMEtFVDd2TXlk?=
- =?utf-8?B?T3JhVURGdy9HaVkwSEZCWFlNOGQ5aFEwbG8wZ1l6OXUrUWREYmlRc1d5aUho?=
- =?utf-8?B?REJWdXE5ekI1OFFJUjhiQXJpc2trcmJqTGlrbk9kbGt1VUVMbEdteU9zandW?=
- =?utf-8?B?MEJTT0FuVUlRWEc5OUlnMElENGFEb2Y1aThvSzFmckFXQkZBVVF2c3p2WWVu?=
- =?utf-8?B?cXQrK2NzTUlyY0IxNDA3WjdCYlNJR1ppZjZsR1g3RmFkRi9rbENIRzJucXNV?=
- =?utf-8?B?OHRhdnZnSzQ0QSt2Z240dyticTVINk94ZnFOeFQ1eHV0dEdyV0NiN0F2VlFH?=
- =?utf-8?B?aWg5S3BPOWVESmN3WDdyODZJaThTQkJFL2UvVW1Sd2tKczZPYmx0TXNCQ1Y5?=
- =?utf-8?B?RU9jQmxqY1FqaUI4Wm5tWjFJYU83MXhJb21TQkdEMHZHZW16YUFmY2dERUpZ?=
- =?utf-8?B?ZnJnWUlibm9melFVaEhVdTNhLy9zRjF6QXdJeG4xbVQvZSs5VytaalZLem4x?=
- =?utf-8?B?N0dyaTVJL3BobU1IRWU4RWN0NEx6ZnpDVUZSajhHaDVrNjJYaVRiMUpBdXpI?=
- =?utf-8?B?bHNSSk1BcXdsbGJEbDVFSTltOG1mTUZERUpoNmg4eDI3U1BGWCtmSzRON1Z3?=
- =?utf-8?B?bDV0cU1TV2w5RG9EQkhmNHhRY3lNZ0NTd3p1UTdkeXZHN2tvRHJXWXptVE1U?=
- =?utf-8?B?bWEvVnhmUi9WQWNpejUyL1FuTlZHdkdjQVEyby91MGhxaXpVcDFDeFovNlo0?=
- =?utf-8?B?Wko0TVVwc2k2bzZ5Wmw2ZzhXN1g1MjZYUUZTeWtyVlE0QURJeHRnMTlvMFNK?=
- =?utf-8?B?azkraWRHaDlBbDh4eEY1c1doL1NoRmQ4b2lSbzNzY3hTZDdRbVNraFB4RHhJ?=
- =?utf-8?B?ZTcvTCt1Zms1U2dJcGpJcjZva09aYnVzay9DdVd3YlFlcHdHNUNCSXhReTRs?=
- =?utf-8?B?RCtxVVdQYTVkQWQ4RlZJUENwZnhGM3hlclVKdU90Q2FvcUhZZ2kxeVkxSnlu?=
- =?utf-8?B?ZmlsdEk0dlIzanlwbllxQUtLc2VZRGJxTy9TY25lUzVZRWxMdldNSlEvakps?=
- =?utf-8?B?b01UK3FScEQ0M0w4a0xSQW1lcFVXOTQvT0dWeURzd2tsQTloNU42cmtBWUZx?=
- =?utf-8?B?UFVtSTZqc2JLMTZMNk9RVWUvR1lqT3lydlhENGQ1cUI2bVNaNkMrYUhOMFpp?=
- =?utf-8?Q?PgrI0j+Kq3mcLHVU=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <6CEAD2A2AA83B048AFBFEFCA9F6728CC@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+        d=gmail.com; s=20251104; t=1775206679; x=1775811479; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=KxQFvqelXHDHyvDQl7EWq8XKSqTOS9+kkTkwsuSR9EM=;
+        b=dVAV6nvRDx9lEiQY6HNNKucqLeHPhbyAqzOjw113sJvMszGLIf50HRlvPpP0jyhSNx
+         JeOhoYQutUM4I0GlSMnjd0xKMIBYdKuy1siqHBTKFoQaGpGZvJffLXV602MRxPCJy+kC
+         tPu8C26v7cXtgSx7+X+ix11hK6DPUTNt5pP0cvNxJlUxPNpLjVeBEM52g7SjbOj0lFkN
+         mf5jDi/iqhdlKZm09+oBU/aKIlk/SkYEiVDOUYLWbu82AlBjDB9nCmDp0boY02OMJZ78
+         lLivIPR743J4fnxrKQ7x0Wr4F5KC1jFk2WNpFGp1sDXAMx9Bl5g0m4Xn4AzkiMSZFmF/
+         PUcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775206679; x=1775811479;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KxQFvqelXHDHyvDQl7EWq8XKSqTOS9+kkTkwsuSR9EM=;
+        b=KpoUqUbwfybBw6aegdw2fT4FTry6ZRaCzeVnLSmjjrhraHP6wkzJUMYg7XE4MaCUbe
+         1NNaZ4HkDiRRbiRLJHagd3E9x/PVXQ3jwkNgQw/yLB5VRAWIteYWz8cKxGJknWGqsOR+
+         zTnuF7NHpm2Ezz1uDCPZmfNzSgieXu7PtjQ+o3Iw4Wbpt1E6X8F8CFEk7OyZqdGche++
+         LgpTCyEzuL5CVOpjwjCf773feJbwUs4HXHx8bw0aN7I1/sRViJg8r08jGAlFBj+KUy/d
+         eeauluQWLjTKibvvKi9cNgejDb5EYe0a/J8FsfyfneGjsptMhxTWTgUs93LXofRMg5eR
+         ZI2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUVUyVg4mAd2XJO+N9nx6o4QVVoPO2x3Ia+7FTdiUZlGYLqMRqABkxhKHmsi6YDfaSz2v19xOOS0pEBOzBjPsMn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/6WjR/3e95QCU1tRQHXIrm0gIRlmMKobILYxDr80b1EZtv4U2
+	Fxs87RX3a4zxnBFeSD+yZBRnkbTlSHTSJetASHR5YiFQVGQgVqRSE9rk
+X-Gm-Gg: AeBDievg+c2PRO6VDFe8092J8JJHDiWJNK5gGKgCofaZridvV+4aRT0ebDaVzm0MySx
+	5PS0YHCxGNRqx7T5D/vByng9D8L0xmVHltduki22cVTqwnh7m4TpXIZBth5Ad36/AQpJmsGWeev
+	AOo7lDuVwDDG2UOT9+LFw8K/LvGRNFwBh//MNfMYBDrTe/vgQ7njuGaCk9fQPFADGvxdbWc+tX5
+	8imJCDOy5Hvj5I3rQtp7IHiuBCtQch9fxhR1+DJymWQoYkr1qYph0IrJWT/+odrHR/htASybYyb
+	4NB1YH1xDBGEJUX/FUwbwy8weDxZ+z7Yv0D9Twlhd3eqYKjnPyf0sSROddfeOiWvGhzD34mvMDH
+	WaxVnNBhqbtfkhfJ2yqF2fbT/IHOfvke1li95R0B2j+Dh949YDzjod61kVcp7zXOVG32uea0BuR
+	rE9f/PkrOkeoUaqofgwBQM7tpVAJ2JujWKxIBpkyE9Rvl0NPo=
+X-Received: by 2002:a05:6a00:3027:b0:824:93e4:2ddf with SMTP id d2e1a72fcca58-82d0da3f8afmr2250267b3a.13.1775206679416;
+        Fri, 03 Apr 2026 01:57:59 -0700 (PDT)
+Received: from google.com ([2402:7500:477:c367:541d:a40c:7624:4482])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82cf9c68273sm7096151b3a.41.2026.04.03.01.57.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Apr 2026 01:57:58 -0700 (PDT)
+Date: Fri, 3 Apr 2026 16:57:53 +0800
+From: Kuan-Wei Chiu <visitorckw@gmail.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: James Clark <james.clark@linaro.org>, mike.leach@linaro.org,
+	alexander.shishkin@linux.intel.com, gregkh@linuxfoundation.org,
+	mathieu.poirier@linaro.org, leo.yan@arm.com, Al.Grant@arm.com,
+	jserv@ccns.ncku.edu.tw, marscheng@google.com, ericchancf@google.com,
+	milesjiang@google.com, nickpan@google.com,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v3] coresight: etm3x: Fix cntr_val_show() to match
+ cntr_val_store() behavior
+Message-ID: <ac-BEX0Rfe9RBJJn@google.com>
+References: <20251202082613.3265761-1-visitorckw@gmail.com>
+ <3bec7ceb-61a8-4b38-a794-02ee2fc9e68c@linaro.org>
+ <aYAxbbkHslAP9RBN@google.com>
+ <bb521240-ab53-4c5a-aa1d-6b140ed4262e@arm.com>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: HIyk6ZbZFJ/WvqlRHv5JMMOi2SEkvC08EMLsZqLJKF6nUIgYgvCSVPb2N4fOWAgBEuxtFCdN0IRMD0FULyX86cyDKA10PCENCI+C8wbJUrKPQThgViJRRies2eTG0yfbLXgmtDV9BMNwPnqxThrj3ajAg5GjiDP4Uu+V9lIMlZiODPMJPaL7Gg65V1wY857tm9b6P0uBz5+B8ECIU7K9JYMDD+KHu5UGZ16LpD8LNDnQF3inbGfQUjaFIVc+k2sA9MTAlBANUxsDl5ZMKKr5UMDHvsWKe72kMVmMb//5tUtBi5JOTxrnnnLWhlTOwEB8/PWkpprOvBN2k0ZxixvQqA==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR03MB7682.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f396c047-9ab3-4385-6138-08de915ea3a8
-X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Apr 2026 08:54:39.1434
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 7PFMwQSo7GPFNI0MjlKGslA4kXg7tbX+fvpO/l2ofu7MXNcjT3oMHY5RCFmQTfjFR/R3CspH1+s0Q3pkhwVkxyPbcVYwYvVjkJIpywX78R8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB7819
-X-MTK: N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <bb521240-ab53-4c5a-aa1d-6b140ed4262e@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_015449_272114_A663758D 
-X-CRM114-Status: GOOD (  17.79  )
+X-CRM114-CacheID: sfid-20260403_015801_236707_2D0F176F 
+X-CRM114-Status: GOOD (  34.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -201,23 +106,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-W3NuaXBdDQoNCj4gPiA+ICtzdGF0aWMgY29uc3Qgc3RydWN0IG9mX2RldmljZV9pZCBvZl9tYXRj
-aF9jbGtfbXQ4MTk2X3ZkaXNwX2FvW10NCj4gPiA+ID0gew0KPiA+ID4gKwl7IC5jb21wYXRpYmxl
-ID0gIm1lZGlhdGVrLG10ODE5Ni12ZGlzcC1hbyIsIC5kYXRhID0NCj4gPiA+ICZtbV92X21jZCB9
-LA0KPiA+IA0KPiA+IEhpIExhdXJhLA0KPiA+IA0KPiA+IFdlIGFyZSBnb2luZyB0byBzZW5kIG10
-ay1tbXN5cyBkcml2ZXIgZm9yIE1UODE5NiByZWNlbnRseSwgYnV0IHdlDQo+ID4gZm91bmQNCj4g
-PiB0aGUgY29tcGF0aWJsZSBuYW1lIGlzIHVzZWQgaGVyZS4NCj4gPiANCj4gPiBBcyB5b3VyIGNv
-bW1pdCBtZXNzYWdlLCB2ZGlzcC1hbyBpcyBpbnRlZ3JhdGVkIHdpdGggdGhlIG10ay1tbXN5cw0K
-PiA+IGRyaXZlciwgd2hpY2ggcmVnaXN0ZXJzIHRoZSB2ZGlzcC1hbyBjbG9jayBkcml2ZXIgdmlh
-IA0KPiA+IHBsYXRmb3JtX2RldmljZV9yZWdpc3Rlcl9kYXRhKCkuDQo+ID4gDQo+ID4gU2hvdWxk
-bid0IHRoaXMgY29tcGF0aWJsZSBuYW1lIGJlbG9uZyB0byBtbXN5cyBkcml2ZXIgZm9yIE1UODE5
-Nj8NCj4gPiANCj4gDQo+IFRoYXQncyByaWdodCwgbXkgZmF1bHQgZm9yIG1pc3NpbmcgdGhhdCEg
-VGhhbmtzIGZvciB0aGUgaGVhZHMgdXAuDQo+IA0KPiBJJ20gYXdhcmUgQW5nZWxvIGlzIGN1cnJl
-bnRseSByZXN0cnVjdHVyaW5nIG1lZGlhdGVrLWRybSAoaW5jbHVkaW5nIA0KPiBtbXN5cyBhbmQg
-bXV0ZXgpLCBhbmQgdGhhdCBtaWdodCBhZmZlY3QgdGhlIHdheSB2ZGlzcC1hbyBpcyBsb2FkZWQN
-Cj4gdG9vLiANCj4gU28gSSdtIG5vdCBzdXJlIHdoZXRoZXIgaXQgbWFrZXMgc2Vuc2UgdG8gc2Vu
-ZCBhIHBhdGNoIHRvIGZpeCB0aGlzIA0KPiByaWdodCBhd2F5Lg0KDQpPSywgd2UnbGwgdHJ5IHRv
-IGNvbnRhY3QgQW5nZWxvIGZyb20gb3RoZXIgcGxhY2VzLg0KVGhhbmtzIGZvciB5b3VyIGNvbmZp
-cm1hdGlvbiENCg0KUmVnYXJkcywNCkphc29uLUpILkxpbg0KDQo+IA0KPiBCZXN0LA0KPiANCj4g
-TGF1cmENCj4gDQo=
+Hi Suzuki,
+
+On Mon, Feb 02, 2026 at 09:33:59AM +0000, Suzuki K Poulose wrote:
+> Hello
+> 
+> On 02/02/2026 05:09, Kuan-Wei Chiu wrote:
+> > On Tue, Dec 02, 2025 at 09:26:19AM +0000, James Clark wrote:
+> > > 
+> > > 
+> > > On 02/12/2025 8:26 am, Kuan-Wei Chiu wrote:
+> > > > The cntr_val_show() function was intended to print the values of all
+> > > > counters using a loop. However, due to a buffer overwrite issue with
+> > > > sprintf(), it effectively only displayed the value of the last counter.
+> > > > 
+> > > > The companion function, cntr_val_store(), allows users to modify a
+> > > > specific counter selected by 'cntr_idx'. To maintain consistency
+> > > > between read and write operations and to align with the ETM4x driver
+> > > > behavior, modify cntr_val_show() to report only the value of the
+> > > > currently selected counter.
+> > > > 
+> > > > This change removes the loop and the "counter %d:" prefix, printing
+> > > > only the hexadecimal value. It also adopts sysfs_emit() for standard
+> > > > sysfs output formatting.
+> > > > 
+> > > > Fixes: a939fc5a71ad ("coresight-etm: add CoreSight ETM/PTM driver")
+> > > > Cc: stable@vger.kernel.org
+> > > > Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
+> > > > ---
+> > > > Build test only.
+> > > > 
+> > > > Changes in v3:
+> > > > - Switch format specifier to %#x to include the 0x prefix.
+> > > > - Add Cc stable
+> > > > 
+> > > > v2: https://lore.kernel.org/lkml/20251201095228.1905489-1-visitorckw@gmail.com/
+> > > > 
+> > > >    .../hwtracing/coresight/coresight-etm3x-sysfs.c   | 15 ++++-----------
+> > > >    1 file changed, 4 insertions(+), 11 deletions(-)
+> > > > 
+> > > > diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> > > > index 762109307b86..b3c67e96a82a 100644
+> > > > --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> > > > +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> > > > @@ -717,26 +717,19 @@ static DEVICE_ATTR_RW(cntr_rld_event);
+> > > >    static ssize_t cntr_val_show(struct device *dev,
+> > > >    			     struct device_attribute *attr, char *buf)
+> > > >    {
+> > > > -	int i, ret = 0;
+> > > >    	u32 val;
+> > > >    	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> > > >    	struct etm_config *config = &drvdata->config;
+> > > >    	if (!coresight_get_mode(drvdata->csdev)) {
+> > > >    		spin_lock(&drvdata->spinlock);
+> > > > -		for (i = 0; i < drvdata->nr_cntr; i++)
+> > > > -			ret += sprintf(buf, "counter %d: %x\n",
+> > > > -				       i, config->cntr_val[i]);
+> > > > +		val = config->cntr_val[config->cntr_idx];
+> > > >    		spin_unlock(&drvdata->spinlock);
+> > > > -		return ret;
+> > > > -	}
+> > > > -
+> > > > -	for (i = 0; i < drvdata->nr_cntr; i++) {
+> > > > -		val = etm_readl(drvdata, ETMCNTVRn(i));
+> > > > -		ret += sprintf(buf, "counter %d: %x\n", i, val);
+> > > > +	} else {
+> > > > +		val = etm_readl(drvdata, ETMCNTVRn(config->cntr_idx));
+> > > >    	}
+> > > > -	return ret;
+> > > > +	return sysfs_emit(buf, "%#x\n", val);
+> > > >    }
+> > > >    static ssize_t cntr_val_store(struct device *dev,
+> > > 
+> > > Reviewed-by: James Clark <james.clark@linaro.org>
+> > > 
+> > Thanks for the review!
+> > Is there anything else I need to do for this fix to land?
+> 
+> Thanks for the patch, I will queue this for the next release (v7.1).
+>
+Just a gentle ping.
+
+Since the v7.1 merge window is presumably opening in about a week, I
+noticed this patch isn't in linux-next yet and wanted to send a quick
+reminder. Thanks.
+
+Regards,
+Kuan-Wei
 
