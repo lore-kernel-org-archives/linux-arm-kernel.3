@@ -4,90 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DCFBE88D63
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 21:27:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DED1EE88D6A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 21:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Content-Type:MIME-Version:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JeRTLOcy5yBXD+HuJ39TxkiskXMTMotEnO2l9/4Dmvs=; b=3NmOBIqqOpaoT22WpRjKW7iFyL
-	n1JMCdjyVvR9iTgvAxRDW4BGQwWZwnTuWxf/3/Y/SZldDbbnBR4h3kl7pv2q/wPvVYaIDe2FYLK+V
-	ErYTqAw/v/Q8NfjSk43JqlkzTa3bwjKz1WkBRq4NTj2em8aKLzcYDY5DovEvV5BMMlKDumJVFJP/d
-	8K8vu4SiT3wF1dbOrjNkalKlellWWvg85WgDYNW7/8gvql8ztglh/KUlbLopUW5SI8FOVnhyw3BdZ
-	7YCGVaM3dDRuF+PL3wAyCKz4oAOy9LujXbFi4MGFi+MwkrMhtZqebd61RZzXAcMCGjX8G9dJTXF9q
-	tA0HlNRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HhbFZCDZmxv7fECgEQ8sY8Xbb1cxAsjfdjH6IeTihN0=; b=hvjLTv9362IkaBqS4wGEjZzYsg
+	eNikxwE1YQ3xTpZMcg5kHyAw6LS4SF6YOEUtC6vtQse+WBhjnoBKMR/OORbJkkUpnc6oE0fJ2u0Y7
+	AsoNkEH1d9GPbuFM2zMJryOFZDgMriLzv7iSLPq+Xd8bAfhJqEPrsmBKrSFxF7e94Rgg1r1GhioOF
+	XTknyKJRsITnLGBxMavk6WMvJBhhCLNlHMfPIWnFkMGbsm/TegtytmcwMt/xcFhzraOJTul1Cgc60
+	wuWcNnXG6z/U8s/BF15SyaLNxIVZEQQw8IzJ5Z+nnH0S7la5uUlTuhoS3bRdweufNJUMisVDsVXkR
+	Gv96jGJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8m31-00000002c4A-33NH;
-	Fri, 03 Apr 2026 21:27:23 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1w8mHu-00000002fNp-2b9G;
+	Fri, 03 Apr 2026 21:42:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8m2y-00000002c1Z-2yNV
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 21:27:22 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-82cebbdbdccso1149154b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 14:27:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=orb-net.20251104.gappssmtp.com; s=20251104; t=1775251639; x=1775856439; darn=lists.infradead.org;
-        h=references:in-reply-to:content-disposition:mime-version:message-id
-         :subject:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=JeRTLOcy5yBXD+HuJ39TxkiskXMTMotEnO2l9/4Dmvs=;
-        b=dq9wGcQC9HtEt/UtlPpc8FLTXt4eEq/bqEkHS5lIl4O4D5MM4Xwlon1jGjQ1Iww+HY
-         k6t0qfs0L1sE7HRgLGfweaAU7tpgs7THRn4RfAwTeA7fa2cxp1a7abRP22PJMzqWgNmr
-         Bs7L+eFqwK5SIcwByT9zj2zOYpM2rTbEEoeCJS3mVCj3F3/1qslPiKtWmdvrkAQ8secn
-         4t8iEoU+d9D7AD0rySxAsmtnm1dGB002dr0YSVKXZsZdd46rXUtAEmqy2azmd0kXy/vQ
-         LgriknBBlGmLfH4lr4rb1k9Tk5iN9PuMaEA6tZB5DwHRTWgEYoYMxKlsbnyaSsqXI5LI
-         efSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775251639; x=1775856439;
-        h=references:in-reply-to:content-disposition:mime-version:message-id
-         :subject:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=JeRTLOcy5yBXD+HuJ39TxkiskXMTMotEnO2l9/4Dmvs=;
-        b=a83VbdGIunF/lkGxGeLkvE1uvWvdUAN6xbEOHD7ZTkZpSgpQ7EVSHThUfNUx3EInap
-         aJKHhhZUSa1hrM+Rhc61aCQ6hY0GLcnW7COxyqPuhYDfVLsO3CHdAE5t7PmK6S4JFLwW
-         vOP0yCCVgO4cHNGsCysOkfFRcEv8kjxU/lATCyyKhoxk39F97+oBc6i7GOHWmnzCW/6d
-         Y2JcWHfPPTXBvlWg6QVXreyJq66kRmU32t2M9OypyaInjUlt7fnJ27QDNgWlbjdL5iDK
-         0Cccoy1sy6ab9pFVdaDXhv/LthxQp2xIZvpBeHJPxD4OVoHf/ybOqYZUYUHGMPt1tnV7
-         CtZA==
-X-Forwarded-Encrypted: i=1; AJvYcCWqvpEDazWpSJ0yQ/H9RGBwx/JU1Iaibo4/ovavVaaykyVL5tATPzVRvYzA4GW8p6pQeq0yGm6yfqGzO1eVx9yx@lists.infradead.org
-X-Gm-Message-State: AOJu0YyNLPb2ngAi64UH+dBdHcWe3KdZS0Z9GtAJp8GofyEhWZVJtseX
-	roX9TqpzOs6Eg0CPtyVZO3IpND5/jaCu8XdD8y6rdhx24kq0dSaRvcSkA4ZANhEDe3A=
-X-Gm-Gg: AeBDieuRAx/Z1Vh6pRodW5zYVKUjHt3ameGvKZHg06XnQKBoruqO3KykWQOEwYvMgOq
-	z5cDeX0Mjmh5Vpug9I8iRl1VW1LBbVay2JgGtvLflM0dPSc+1k9gnDbWTigeDdGsGVhpXEBz3lJ
-	oxaTQ3395IyYVNllFMrRnPjgciTFqQKwqN2yIL4xQySk8ivFB2b0emfGfLpwL+OOJF3EG+w5Gix
-	/I0Wk8VFBPMagQ/wLlbWbKhCNhMUtwFfl1jKRwenppaz6lMFSj4eDY2hNnIbedm1vuNrOSNpD5m
-	H9qIcl3YUa9/ijhiH+UIrvYdNbgCe+kh8a8l+oOfMQJr63gUhXRQuae+ZoANqVh3RAagos1l4cI
-	YhkwCav34ItikKCC0wWHdERY9yhmGRA+GOuSCdl7FF+mZQNVqlKkJ1wwWI59APb2/RurTCef9Kl
-	Mi0GYzWZyMm348xRpt7+Egz+6d0NMRYmkxA0WXc9gUC17+sTT1zNRVGN0+CkuzHJvzIT4A7Mkd
-X-Received: by 2002:a05:6a00:a257:b0:823:1444:7873 with SMTP id d2e1a72fcca58-82d003b2753mr7863216b3a.32.1775251638984;
-        Fri, 03 Apr 2026 14:27:18 -0700 (PDT)
-Received: from claude-dev ([50.125.94.20])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82cf9b3dcb3sm6643153b3a.16.2026.04.03.14.27.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Apr 2026 14:27:18 -0700 (PDT)
-Date: Fri, 3 Apr 2026 21:27:18 +0000
-From: Daniel Bozeman <daniel@orb.net>
-To: shawn.lin@rock-chips.com, finley.xiao@rock-chips.com,
-	ulf.hansson@linaro.org, heiko@sntech.de, linux-pm@vger.kernel.org,
+	id 1w8mHt-00000002fNb-00xz;
+	Fri, 03 Apr 2026 21:42:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1C41360008;
+	Fri,  3 Apr 2026 21:42:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E667DC4CEF7;
+	Fri,  3 Apr 2026 21:42:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775252563;
+	bh=bdj8RXu3qgyKpumk5HWckExHJL+wZZpu0L3xUEHMOvc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=qLIXmbTJFOvMHgvmx+IsIiO/p5g2tHkt75ezUxbSbPXEq1I0iflD+reTNHwPbyhnI
+	 7/LHdfxoz7QUStvGpRbfPj5izApbuatl2sDSlXuW6XWVOpdnWC/ov4sw1sQ1TyC4Ks
+	 EV/b3+NA8+14EvEA29s+Q1n5/Yub5iKu2W+vZwqJBuCO3Vq1QSHDf9u9RBmD3z0gUj
+	 /6EdwmvLhdCi5Tc59ENYFSBH1+nzq52VBCmCSViLW49kXcGfduqaZVBfL4OrEMLa8/
+	 3HIXzozEmPLifBHuKQ62QiOf/dBv0OHx0VbrsgdaV8j6dKlHhYGM5PyhAV7uJEr/LY
+	 7XjcuwFxC1tNw==
+From: Jakub Kicinski <kuba@kernel.org>
+To: lorenzo@kernel.org
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] pmdomain/rockchip: skip QoS operations for idle-only
- domains
-Message-ID: <adAwtiaU-32qjRRE@claude-dev>
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH net] net: airoha: Fix memory leak in airoha_qdma_rx_process()
+Date: Fri,  3 Apr 2026 14:42:24 -0700
+Message-ID: <20260403214223.2230561-2-kuba@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260402-airoha_qdma_rx_process-mem-leak-fix-v1-1-b5706f402d3c@kernel.org>
+References: <20260402-airoha_qdma_rx_process-mem-leak-fix-v1-1-b5706f402d3c@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <fbf16b5a-1565-39c9-0d92-33a7a577212f@rock-chips.com>
-References: <20260331180223.1682283-1-daniel@orb.net>
- <5c8732a3-6cc9-5d02-f56b-fc7ba29c7ce0@rock-chips.com>
- <fbf16b5a-1565-39c9-0d92-33a7a577212f@rock-chips.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_142721_000972_76AD8147 
-X-CRM114-Status: UNSURE (   6.95  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,34 +73,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I ran both tests you requested:
+This is an AI-generated review of your patch. The human sending this
+email says: "more thing to fix.."
+---
+net: airoha: Fix memory leak in airoha_qdma_rx_process()
 
-Test 1: Added pr_err to rockchip_pd_power_on/off to identify
-the crashing domain. With patch 2 only (skip EPROBE_DEFER),
-the crash occurs on PD_VO:
+This commit fixes a memory leak in the error path of
+airoha_qdma_rx_process() by partially reverting a previous commit and
+always calling page_pool_put_full_page().
 
-  rockchip_pd_power_off: vo pwr_mask=0x0
-  Internal error: synchronous external abort: 0000000096000010
-  Workqueue: pm genpd_power_off_work_fn
-  Call trace:
-   regmap_mmio_read32le+0x8/0x20
-   _regmap_bus_reg_read+0x6c/0xac
-   _regmap_read+0x60/0xd8
-   regmap_read+0x4c/0x7c
-   rockchip_pmu_set_idle_request.isra.0+0x98/0x16c
-   rockchip_pd_power+0x130/0x48c
-   rockchip_pd_power_off+0x38/0x48
-   genpd_power_off.isra.0+0x1f0/0x2f0
-   genpd_power_off_work_fn+0x34/0x54
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> index 95ba99b89428e..91cb63a32d990 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -697,9 +697,8 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
 
-Test 2: Same debug build, booted with clk_ignore_unused
-added to kernel cmdline via U-Boot. Same crash, same domain:
+This problem wasn't introduced by this patch, but while reviewing this
+function I noticed the descriptor field msg1 is read from memory before
+the ownership bit is validated:
 
-  rockchip_pd_power_off: vo pwr_mask=0x0
-  Internal error: synchronous external abort: 0000000096000010
-  (identical call trace)
+airoha_qdma_rx_process() {
+        while (done < budget) {
+                struct airoha_queue_entry *e = &q->entry[q->tail];
+                struct airoha_qdma_desc *desc = &q->desc[q->tail];
+                u32 hash, reason, msg1 = le32_to_cpu(desc->msg1);
+                struct page *page = virt_to_head_page(e->buf);
+                u32 desc_ctrl = le32_to_cpu(desc->ctrl);
 
-The crash occurs even with clk_ignore_unused. The QoS
-registers for PD_VO are inaccessible when genpd attempts
-to power off this idle-only domain.
+                if (!(desc_ctrl & QDMA_DESC_DONE_MASK))
+                        break;
+
+Could this lead to processing stale descriptor metadata? On weakly-ordered
+architectures, the CPU might reorder these reads before the device commits
+the new descriptor data. 
+
+Are we missing a dma_rmb() after the ownership check?
+
+>  		if (q->skb) {
+>  			dev_kfree_skb(q->skb);
+>  			q->skb = NULL;
+> -		} else {
+> -			page_pool_put_full_page(q->page_pool, page, true);
+>  		}
+
+This is also an existing issue, but does jumping to this error path on a
+scattered packet fragment leave the receive loop in an inconsistent state?
+
+If an error occurs while processing a middle fragment of a packet, q->skb
+is freed and set to NULL here. However, the loop continues to the next
+descriptor.
+
+Since q->skb is now NULL, won't the next fragment of the same corrupted
+packet be erroneously parsed as the start of a brand new Ethernet frame:
+
+                if (!q->skb) { /* first buffer */
+                        q->skb = napi_build_skb(e->buf, q->buf_size);
+
+Could this desynchronization allow arbitrary payload to be injected into
+the network stack as a legitimate packet? The driver may need to discard
+all subsequent fragments until a descriptor without QDMA_DESC_MORE_MASK is
+encountered.
+
+> +		page_pool_put_full_page(q->page_pool, page, true);
+>  	}
+>  	airoha_qdma_fill_rx_queue(q);
+>
 
