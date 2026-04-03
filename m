@@ -4,55 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF392D730AC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 07:25:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8070D730B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 07:35:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5pCTJfDYr/r1hxWMxjtsdEhq89JT5cAfvqasjnMXAVQ=; b=gAUSSxTek0e9RAgN39uYqVPXY/
-	DC3HN9oZpM52MeFvRYLiO09/MOoUm58adK64Kg2NBKqsDdFaIj6yPYzvNQ8NjhQSVXwmozt7isnA5
-	9KWYQJITtw+TjngB+0EYs5WGxyXTRl3PwVnOmJyxYfIEEVs+in1ekUVs6jas2gRYfY6ZUoPFpq7tk
-	x83w9I92/Bb7+jHcw8I22kp3bifR2xTQ+kKx5Tpxmhs2Lp1I4fHLPrsBncdzA8M8iG6L+d4WG8gK0
-	JIH1Fz0iUf2U4vzEGw9D9ax/Khl9YOsM7IJjacRf7aO8fIlYVSHf5K39mpKqr+irKpum/KmJmO7iK
-	iE+LIcAw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ko2Pl9nkvxaDAe9S9+zwkHmgGDrH3B92mYEu4/SfdBY=; b=vH4DuXCYvDh0CPsQfODFFvIU7V
+	/6vork0RA9HJjd07rSMRvUKh1YIoFje0d3KXcBbSQUGmCkJJFSFb1Nb7K1l2/PxKcME/mMA84Rj62
+	Hc9TMBn25vEDkrgz+f8bgyn8oD2x18q8B7uEzU9imTboqVuKSnyW9wqoQZ6jun9KTMeGl2I5moAAP
+	XVjzJ5uExHxwlafW6XwGYz5HRdtyCFJ/wxrhq6AbJcZGjnSoZBjw5YK9RuRUcQqEJqXOOPefrc2XD
+	B2Ju8uqQfKH7m1HQgeQYH1A4rjpBdT93hjxPDtZnuwe9odTL5bWq6MY/5ht41EgYJj6RHmTksSN99
+	L38FYy4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Yua-00000001b4n-2XMu;
-	Fri, 03 Apr 2026 07:25:48 +0000
-Received: from mail-24416.protonmail.ch ([109.224.244.16])
+	id 1w8Z3Z-00000001e2l-3y2A;
+	Fri, 03 Apr 2026 07:35:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8YuX-00000001b1U-0wBq
+	id 1w8Z3Z-00000001e2e-0rNl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 07:25:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail; t=1775201139; x=1775460339;
-	bh=5pCTJfDYr/r1hxWMxjtsdEhq89JT5cAfvqasjnMXAVQ=;
-	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
-	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=HFHWonGpk9aE8W+tG0jj7FT5gRxUI96AMoxWku5LuYlA4y8ck0kEzGzEZ4DXRseQP
-	 krLDNeRJOE7LSYPbWZEHj7c6u4ht6vl3c0FslsHAwqwwy5j1W53p76r0Vx2ORjf+y9
-	 P+4MvDHnRGC6uiCWN/tuXGz+HPrlBOsbtYECiEfxK9e9O/Gtp0crxSB5x37C5jktYv
-	 gNftONlJt12wd0tuPmjswECZgxuLgTB8NhV6ZwrFeQWhns2S/kyciGJwCa6OgT4+H9
-	 qvtaKfknhnLUfsVpxrbUyf3b0/no4llk5p+K4h99hF62spJxYQpRVYJixXNTiFjj6V
-	 7H/ZJhIYfDO+A==
-Date: Fri, 03 Apr 2026 07:25:35 +0000
-To: heiko@sntech.de
-From: Clemens Malten <c.malten@proton.me>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Clemens Malten <c.malten@proton.me>
-Subject: [PATCH] arm64: dts: rockchip: odroid-m2: Enable DisplayPort Alt Mode over USB-C
-Message-ID: <20260403072408.44926-1-c.malten@proton.me>
-Feedback-ID: 133261535:user:proton
-X-Pm-Message-ID: 6e10c726fc4a3142f19f64eaf5dae528a9ac80d9
+	Fri, 03 Apr 2026 07:35:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5C85460131;
+	Fri,  3 Apr 2026 07:35:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A6EBC4CEF7;
+	Fri,  3 Apr 2026 07:35:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775201704;
+	bh=b88F/W5W1nSzHoIZaHpZ53hxpjDr1C+4WeW8L3mEIww=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=azY2esPXY8lihI+oGh2n7H2qfdKrZ7yec0qZMnrlR2ax0CUFq+Qil8ENTh30PDWsg
+	 J5/y/alxsU6ITOf/iLsmmFFgobLIJ9zG37pheeFWtgGeCmYEAmPzWgwJZwGlVG7f/u
+	 ckGuHZ/FQAq04RoynrhGyTYbzcXS0b0KeIGCv8mx9uaqmHP9rE7I1Xqt2k5cUGvATn
+	 KcjfOOYvgB0i41VmzaYCdBkidByy1pr8G7Bz815NPuOdcVYh8JpgByfc0V3PKMjlfX
+	 18PCrrd34+FchL4zyexbzXfxqJiEiGaKuAG4fWoQSlQeYCmhBrVpDYZWDcM7yuEdHG
+	 IZifnKgxDSOVQ==
+Message-ID: <18acf94c-d1e1-4c42-b1a8-4cb230c3eea0@kernel.org>
+Date: Fri, 3 Apr 2026 09:35:00 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_002545_871242_AC14F2CA 
-X-CRM114-Status: UNSURE (   8.55  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [GIT PULL 6/7] arm64: tegra: Device tree changes for v7.1-rc1
+To: Thierry Reding <thierry.reding@kernel.org>, arm@kernel.org, soc@kernel.org
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+ Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260329151045.1443133-1-thierry.reding@kernel.org>
+ <20260329151045.1443133-6-thierry.reding@kernel.org> <ac5ahWb1I-qnaK_Y@orome>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <ac5ahWb1I-qnaK_Y@orome>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,75 +115,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable USB-C DisplayPort Alt Mode on the ODROID-M2 board (RK3588S) by
-adding the necessary DTS changes:
+On 02/04/2026 14:02, Thierry Reding wrote:
+> On Sun, Mar 29, 2026 at 05:10:43PM +0200, Thierry Reding wrote:
+>> From: Thierry Reding <thierry.reding@gmail.com>
+>>
+>> Hi ARM SoC maintainers,
+>>
+>> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+>>
+>>   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+>>
+>> are available in the Git repository at:
+>>
+>>   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-7.1-arm64-dt
+>>
+>> for you to fetch changes up to c70e6bc11d2008fbb19695394b69fd941ab39030:
+>>
+>>   arm64: tegra: Add Tegra264 GPIO controllers (2026-03-28 01:36:46 +0100)
+>>
+>> Thanks,
+>> Thierry
+>>
+>> ----------------------------------------------------------------
+>> arm64: tegra: Device tree changes for v7.1-rc1
+>>
+>> Various fixes and new additions across a number of devices. GPIO and PCI
+>> are enabled on Tegra264 and the Jetson AGX Thor Developer Kit, allowing
+>> it to boot via network and mass storage.
+>>
+>> ----------------------------------------------------------------
+>> Diogo Ivo (1):
+>>       arm64: tegra: smaug: Enable SPI-NOR flash
+>>
+>> Jon Hunter (1):
+>>       arm64: tegra: Fix RTC aliases
+>>
+>> Prathamesh Shete (1):
+>>       arm64: tegra: Add Tegra264 GPIO controllers
+>>
+>> Thierry Reding (6):
+>>       dt-bindings: pci: Document the NVIDIA Tegra264 PCIe controller
+>>       Merge branch for-7.1/dt-bindings into for-7.1/pci
+>>       arm64: tegra: Fix snps,blen properties
+>>       arm64: tegra: Drop redundant clock and reset names for TSEC
+>>       arm64: tegra: Add PCI controllers on Tegra264
+>>       arm64: tegra: Add Jetson AGX Thor Developer Kit support
+>>
+>>  .../bindings/pci/nvidia,tegra264-pcie.yaml         | 149 +++++++++
+>>  arch/arm64/boot/dts/nvidia/Makefile                |   2 +
+>>  arch/arm64/boot/dts/nvidia/tegra210-smaug.dts      |  12 +
+>>  arch/arm64/boot/dts/nvidia/tegra210.dtsi           |   2 -
+>>  arch/arm64/boot/dts/nvidia/tegra234-p3701.dtsi     |   1 +
+>>  arch/arm64/boot/dts/nvidia/tegra234-p3767.dtsi     |   1 +
+>>  arch/arm64/boot/dts/nvidia/tegra234.dtsi           |   6 +-
+>>  .../dts/nvidia/tegra264-p4071-0000+p3834-0008.dts  |  11 +
+>>  .../boot/dts/nvidia/tegra264-p4071-0000+p3834.dtsi |  12 +
+>>  arch/arm64/boot/dts/nvidia/tegra264.dtsi           | 336 +++++++++++++++++++--
+>>  10 files changed, 500 insertions(+), 32 deletions(-)
+>>  create mode 100644 Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml
+>>  create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p4071-0000+p3834-0008.dts
+>>  create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p4071-0000+p3834.dtsi
+> 
+> Hi ARM SoC maintainers,
+> 
+> DT maintainers objected to the way I wanted to handle the DT bindings
+> dependency here, so I'll drop the whole PCI stuff from this and redo the
+> PR.
 
-- Enable dp0 controller (dw-dp driver)
-- Add VOP2 video pipeline endpoints: vp2 -> dp0 -> usbdp_phy0
-- Fix try-power-role from 'source' to 'sink' to allow the board to
-  receive power and trigger correct PD negotiation
-- Add altmodes block to the USB-C connector with DP SVID (0xff01) and
-  VDO. Note: svid must be declared as a 16-bit value (/bits/ 16) as
-  required by the typec class driver (fwnode_property_read_u16)
+It took me ages to get that information from you but finally you pointed
+me that this is shared with PCI, so it is fine.
 
-Tested on ODROID-M2 (RK3588S) with a UGreen CM654 USB-C DP adapter
-under mainline Linux 6.19-rc.
-
-This patch depends on Andy Yan's RK3588 DisplayPort Controller series:
-Link: https://lore.kernel.org/all/20250822063959.692098-1-andyshrk@163.com/
-
-Signed-off-by: Clemens Malten <c.malten@proton.me>
----
- .../boot/dts/rockchip/rk3588s-odroid-m2.dts   | 29 ++++++++++++++++++-
- 1 file changed, 28 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts b/arch/arm6=
-4/boot/dts/rockchip/rk3588s-odroid-m2.dts
-index a72063c55..dbc62f032 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
-@@ -352,7 +352,17 @@ connector {
- =09=09=09power-role =3D "dual";
- =09=09=09sink-pdos =3D <PDO_FIXED(5000, 1000, PDO_FIXED_USB_COMM)>;
- =09=09=09source-pdos =3D <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
--=09=09=09try-power-role =3D "source";
-+=09=09=09try-power-role =3D "sink";
-+
-+=09=09=09altmodes {
-+=09=09=09=09#address-cells =3D <1>;
-+=09=09=09=09#size-cells =3D <0>;
-+=09=09=09=09altmode@0 {
-+=09=09=09=09=09reg =3D <0>;
-+=09=09=09=09=09svid =3D /bits/ 16 <0xff01>;
-+=09=09=09=09=09vdo =3D <0xffffffff>;
-+=09=09=09=09};
-+=09=09=09};
-=20
- =09=09=09ports {
- =09=09=09=09#address-cells =3D <1>;
-@@ -952,3 +962,20 @@ vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
- =09=09remote-endpoint =3D <&hdmi0_in_vp0>;
- =09};
- };
-+
-+&dp0 {
-+=09status =3D "okay";
-+};
-+
-+&dp0_in {
-+=09dp0_in_vp2: endpoint {
-+=09=09remote-endpoint =3D <&vp2_out_dp0>;
-+=09};
-+};
-+
-+&vp2 {
-+=09vp2_out_dp0: endpoint@a {
-+=09=09reg =3D <ROCKCHIP_VOP2_EP_DP0>;
-+=09=09remote-endpoint =3D <&dp0_in_vp2>;
-+=09};
-+};
---=20
-2.53.0
-
-
+Best regards,
+Krzysztof
 
