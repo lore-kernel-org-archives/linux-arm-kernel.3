@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAB6EE8537A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 16:30:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42415E8537A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 16:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kmQMfcyzuZjDFanSQa7aOlIRVuJztiYHN0qs0CQZmxc=; b=3vrPjs6nt6efXAkahHkvdH9Lzo
-	iQwG8loyc7K3W9S3g/FSFv7do8mNkYAllca9rZiOSvC+aJjAu+eOTUALuVoO7+/YI4PspYzUYRpQv
-	sgn2/UCw5BLAnVRG6AeEXkA/XXT7YrVhbDUX2AAI+/fGvvMS0ElK01MkFG6z0ijd3ycCOJpTTQpA8
-	s3DV3tgUjqsjPNEKjtjJPHk1zQo8/FZRWlEd8OzJDZOnwFM5pZ2oZNRSs9Ab2B1pnqVH4MDIDbmO2
-	YrLl4vPI1HD12iHWMtfKtgjG5epuHIYoq8ZX9AcDuJvd1OmlNHTchx3Ifl2hAFZgVsPerNbQj4IRS
-	LA1S8zZA==;
+	bh=Hl48le5DZuaTctUw9+zvwnFRvdxei1nlvRwJsvIOXWs=; b=X5gnLZ4qEugwNbP0nyPjM1Q+GV
+	+gWvTsUzdrPSD89uBwBIbIaOAOmKRvUvXBr6xCIjEzTSo/EozdlRVNMIcx2OMcgs5Wk5qI1iErQau
+	abuzVsQCqJioXMKmXmQU1z7wCItxU8DIbwd2B5M3CW928yTcZZTcXxa8Od1z8HPY3i5RMnr6/3hU9
+	Z/Dr1aoKd1DbDbEkC9PQZ+SWKnrJ6q8/WZ4zNMH09l6Lbb3WoFoHlJ0kYTz9SayJCK/UWH0L1isYr
+	/q4LkwwqBFtOgBPkGBaAR8KrvwxPeYlwEMDKcwAba2rz9x1y8O9aW7NjnLRwORtpAxnH3Rt2t0nlh
+	mWoPg4Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8hPQ-00000002KEf-1uFt;
-	Fri, 03 Apr 2026 16:30:12 +0000
+	id 1w8hPm-00000002KJJ-3SnH;
+	Fri, 03 Apr 2026 16:30:34 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8hPL-00000002KDu-3oLk
+	id 1w8hPk-00000002KIY-1VTE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 16:30:11 +0000
+	Fri, 03 Apr 2026 16:30:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1775233807; x=1806769807;
+  t=1775233832; x=1806769832;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=vAu5xDULmUDVRflPCz8uMYqeqlNDlanNU9eapaLwCXM=;
-  b=fI7Jr0U+A6i3Mb+f5YB0KHABN9horeGFYIfKqJslxrza+0qAqXPThyMU
-   /uWGr0ikMY4jaWoNmfBW3lIJlt/U20uRJJClLpw6rIfAA5P5bre2ZVnge
-   YPMVIDOCD5BHf5AvN4TsGMJ1IJlmo+dGMGHjcrBJaGUMPickz6iW1TOZg
-   iBQO92YtCnRG+CvObRB5u+xnPG1bPTxDH2y4fTZVcxO2r5vgRCfTjpexT
-   cyf6IQNeON6cBpT8OPmv0a6cPTJVUvRUVz+EWt3nkLBlg4+VmIsnKjRhG
-   41nD0vYylFVNRzzfhwAtjg3qSxMYB701IchyJb9S8cTz0NcFIESxGlcf7
-   w==;
-X-CSE-ConnectionGUID: E/PdIr15RDaZGqnfevhQgw==
-X-CSE-MsgGUID: DgoYrBvXTna9L4fcG6YzCQ==
+  bh=hnXbTiCURWkWhcJukdVHDLVwJkYC/OiQhhQ6AqQbxkw=;
+  b=exD5dii/xUIPongdKWdnaM1VVn9zkmh6u4elrKJd2OBWZ3FODW4VkDS8
+   4uqU4Qxf1M2j7i4zuzgOI4kJRiYRFV1kboq8mBEF4NmkbyTpc4WNP8BPM
+   BSZUdsOm9pohRymvB8pJ2kaHmcJd1gJaC+USiHA0VlQokH/b+NyHM1Nqa
+   PUTtLqsJ4N74QzixQzDZrrFRiYyIwNSTexfBxYCObvJolhTs5VxCL3I9O
+   LKLwCb5FFOiZWktHcJT+9RlJ3iQ/WRGqMEuBlwHesgWARF3vgvR/s/mlT
+   5MdY3BOGylFrBrDcVXK3xJRUTttlIlszTLdSLxgtwQ1GTp/bdkVv4tgsW
+   Q==;
+X-CSE-ConnectionGUID: dUDUSQJ+T8aeZQq9X6+uCg==
+X-CSE-MsgGUID: iUmQc9GxQcS1JvNTZT1BOQ==
 X-IronPort-AV: E=Sophos;i="6.23,158,1770620400"; 
-   d="scan'208";a="222904266"
+   d="scan'208";a="222904307"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Apr 2026 09:30:04 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
- chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 03 Apr 2026 09:30:31 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.35; Fri, 3 Apr 2026 09:29:32 -0700
+ 15.1.2507.58; Fri, 3 Apr 2026 09:30:13 -0700
 Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Fri, 3 Apr 2026 09:29:30 -0700
-Message-ID: <0fdf436d-af96-4798-8099-31469217ac86@microchip.com>
-Date: Fri, 3 Apr 2026 18:29:29 +0200
+ Transport; Fri, 3 Apr 2026 09:30:11 -0700
+Message-ID: <29b697cf-90ae-4239-898b-2026dbf368dc@microchip.com>
+Date: Fri, 3 Apr 2026 18:30:10 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] crypto: atmel-ecc - add Thorsten Blum as maintainer
+Subject: Re: [PATCH 2/2] crypto: atmel-sha204a - add Thorsten Blum as
+ maintainer
 To: Thorsten Blum <thorsten.blum@linux.dev>, Herbert Xu
 	<herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>,
 	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
@@ -66,15 +67,16 @@ To: Thorsten Blum <thorsten.blum@linux.dev>, Herbert Xu
 CC: <linux-crypto@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>
 References: <20260403112135.903162-5-thorsten.blum@linux.dev>
+ <20260403112135.903162-7-thorsten.blum@linux.dev>
 From: Nicolas Ferre <nicolas.ferre@microchip.com>
 Content-Language: en-US, fr
 Organization: microchip
-In-Reply-To: <20260403112135.903162-5-thorsten.blum@linux.dev>
+In-Reply-To: <20260403112135.903162-7-thorsten.blum@linux.dev>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_093008_302200_48D6A6EC 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20260403_093032_482202_27C40B94 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,34 +92,38 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 03/04/2026 at 13:21, Thorsten Blum wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> 
-> Add Thorsten Blum as maintainer of the atmel-ecc driver.
+> Add a MAINTAINERS entry for the atmel-sha204a driver and Thorsten Blum
+> as maintainer.
 > 
 > Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
 
 Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
 
+Thanks Thorsten for taking care of those components.
+
+Best regards,
+   Nicolas
+
 > ---
->   MAINTAINERS | 5 +++--
->   1 file changed, 3 insertions(+), 2 deletions(-)
+>   MAINTAINERS | 6 ++++++
+>   1 file changed, 6 insertions(+)
 > 
 > diff --git a/MAINTAINERS b/MAINTAINERS
-> index c3fe46d7c4bc..c23110384b91 100644
+> index c23110384b91..7317d80592cf 100644
 > --- a/MAINTAINERS
 > +++ b/MAINTAINERS
-> @@ -17216,9 +17216,10 @@ F:     Documentation/devicetree/bindings/media/microchip,csi2dc.yaml
->   F:     drivers/media/platform/microchip/microchip-csi2dc.c
+> @@ -17197,6 +17197,12 @@ S:     Supported
+>   F:     Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml
+>   F:     drivers/spi/spi-at91-usart.c
 > 
->   MICROCHIP ECC DRIVER
+> +MICROCHIP ATSHA204A DRIVER
 > +M:     Thorsten Blum <thorsten.blum@linux.dev>
->   L:     linux-crypto@vger.kernel.org
-> -S:     Orphan
-> -F:     drivers/crypto/atmel-ecc.*
+> +L:     linux-crypto@vger.kernel.org
 > +S:     Maintained
-> +F:     drivers/crypto/atmel-ecc.c
-> 
->   MICROCHIP EIC DRIVER
+> +F:     drivers/crypto/atmel-sha204a.c
+> +
+>   MICROCHIP AUDIO ASOC DRIVERS
 >   M:     Claudiu Beznea <claudiu.beznea@tuxon.dev>
+>   M:     Andrei Simion <andrei.simion@microchip.com>
 
 
