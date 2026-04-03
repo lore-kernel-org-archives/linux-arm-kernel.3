@@ -4,72 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AF57D7308A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 03:33:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA302D7308A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 04:00:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vdPOlbAUIqljmWFhodWwJuCVc9GTRBRfx9bHmiMi4Xc=; b=h25s9+u3dXOMRno8Y9KN1rr/ba
-	j76Lr0kkDwLjmU/TuUL8YVz1uOjYLBPuLWqAUJDWOWuadAZNftwst73Amvk4k4feRUAIBDQRBQPTP
-	Hd288Rvrk2FDoZwGARYQW7jricUhWbq1S+dGI2kNDeF/Fr2B1EALgxU0hrqaSytJcVkJwmb8jVBsB
-	uszzwYuR5pDJpwp49gfpw0pFfyZ89lbXdHqCMlBijo0YJzkhwVFA/ppe4JQ0fF9ip8fX4M/5tS6Rm
-	w02sIlah3POaf+HIWqdJSAYKGqNKB3odLtjgyE+Eo2rh+Gdc4NY437DB+XFGJr9RLlz7Ol28FXlPp
-	N9PGT1Sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FDGH5rnvDjGs2iYXTqzlofiEvEFhDmxQWJNHOYO7zcc=; b=HF9s3fBHtyoHn0WGVixq+ERNf9
+	rzRzrlMNx9fIuiB4pRybRWJ5U16P9Qmlg0nFWfTByySRztC4bZDb0Cfawpdbrb7kh4Ja9gijfIhDh
+	dp9UlWvtNqIyNFMukuJO72VCCQVGJ2icxdEurwZUUFIbsLvEISnfk1hF+l9b/uumH08JkS4dPIfx2
+	AaRWNUWZTOBNj/uXbZeuU0ezY29AkyTWajEbeZDLddnNdmm+m4J21oOujgdX0yV1c0fiyYbyld6dn
+	aEKo5V5TV6tIXGyYWlq7uqUE5I96zxqh0Bwrx5NyhQUr9Eur2W8nNLJjulUwta/Faa1mJWk9R/mzR
+	jkBV3PEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8VHX-000000018mf-0aBs;
-	Fri, 03 Apr 2026 03:33:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1w8Vhx-00000001Af1-0pMv;
+	Fri, 03 Apr 2026 04:00:33 +0000
+Received: from mail-northeuropeazon11010032.outbound.protection.outlook.com ([52.101.84.32] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8VHU-000000018lt-3sak
+	id 1w8Vhu-00000001Aef-3027
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 03:33:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1775187190;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=vdPOlbAUIqljmWFhodWwJuCVc9GTRBRfx9bHmiMi4Xc=;
-	b=EQiXE3ENx6eNHaSSwTvQfz8ihZHUP7Gc0fMlyf2+k+2SxKOUsxRVsXTj2Nfjy2ezwjKImL
-	ozPCAKbH2EvP4pW3vJpXhv0amj9fB5OvMIS4KxuYf4bZ6VxhoEjrwhV8gYlBsVdpHvMY0o
-	QVp0UP0644EY7MHPNsRDDxCcmvVMaQY=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-606-r2Cs3SuTOJ29usbMGP78Yg-1; Thu,
- 02 Apr 2026 23:33:06 -0400
-X-MC-Unique: r2Cs3SuTOJ29usbMGP78Yg-1
-X-Mimecast-MFC-AGG-ID: r2Cs3SuTOJ29usbMGP78Yg_1775187186
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 660291956089;
-	Fri,  3 Apr 2026 03:33:05 +0000 (UTC)
-Received: from [172.20.155.76] (unknown [10.30.44.186])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id C15961800673;
-	Fri,  3 Apr 2026 03:33:03 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (7.0.0-rc6,
- upstream-arm-next, 129fdb45)
-Date: Fri, 03 Apr 2026 03:33:03 -0000
-To: will@kernel.org, linux-arm-kernel@lists.infradead.org,
- catalin.marinas@arm.com
+	Fri, 03 Apr 2026 04:00:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uEwkUv4C8LhSVBea6iJ/ZzMkUTQMDRdRt2EEKMCk/soWX4cM01T9kSjXiUZusn5VM4uuMNRnzyq5cej7s6K+QZYq9fm/0SB9gvXvVdUjY89AYDb1amUJ/iLLibdK9LCUnWS27Ax1YftEdtgQup2K9vbMXqGd+OzMrhGaow2+YCZBFuTNJZBGcEmOz7x+RPuLAuVYdkAUpkzcD/GLJUbqdCg0Xkwot4xK0zaAprJNYbnE4Ls1gecIudlDpjJS/kdx+Lxep6iADK3KDlDEvsvqcqsH68QA3erIwX/HcwQB+GNl0v1pVEGKE46rbDFl/Js4BwCNXUVfJvHu4QW7pCjyZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FDGH5rnvDjGs2iYXTqzlofiEvEFhDmxQWJNHOYO7zcc=;
+ b=h3Vi6/0U0aWTD5VCS5Z2VUweuMXAKfDDMjGspNnvmFLOaxt2gloOATYU80ePnF5W8F5WkWgd6bp0rv/0uSOz0Rd84hSzWrdTlIoDqjwMGB9Er/PZiIoMGXsum8M7nQJ6RCiOWFt7SqHHUgOg9/Ip7KHJ72KxjUILBsOYCKsOwtRpqCr6czAlpW9eYkwPBf1718ept8gQa07uh95lw1MmtygHpmvmatEynYqblouXiuL22zv0gzIWSXAgFfOo7mqAbQz5tsuiVanS+V+Vn42syTMBNwvwRBXHdwxCPrbSKWMxanb8m6UuKWRMfOQsufbmajUKA3TsbxGR3isAc09Mdw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FDGH5rnvDjGs2iYXTqzlofiEvEFhDmxQWJNHOYO7zcc=;
+ b=SYriPUr1wxG87/NqT+MUOqH0ro4J2a5LEKgQS5aWuz2OC8XSfwAEWlYIT4CB4igOl1x8jKPC2z5uZIUIFLEe7vPVfeh/EBbS6tSlkhkEVnJPyqNLHUBAdoUF4YxXVeywMTQM3LkZlI1K84uLZ6/bJgFU0h9DqNeE3Oab198ryROXIrUzE2iKPu2onMiIyqYsuuxUFo1S/yRvonuYMOxTSfAoqAub8LdhUt07261OZBGufpC9TZ3nxQVcc/tIvAOFxcrvaNJ5+3cgReBLbMAKv6sAqkPcdkReIwsRLrSYpCvdho4kbBq/roeAf7TZ9DIbUF0dvV+q/6W9Y7K7VkX8KA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by PAXPR04MB8925.eurprd04.prod.outlook.com (2603:10a6:102:20c::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Fri, 3 Apr
+ 2026 04:00:26 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9769.018; Fri, 3 Apr 2026
+ 04:00:26 +0000
+Date: Fri, 3 Apr 2026 00:00:19 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Florijan Plohl <florijan.plohl@norik.com>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, upstream@lists.phytec.de
+Subject: Re: [PATCH] arm64: dts: imx{91,93}-phyboard-segin: Add peb-av-18
+ overlay
+Message-ID: <ac87U9yw-6NcIdkQ@lizhi-Precision-Tower-5810>
+References: <20260402070826.970012-1-florijan.plohl@norik.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260402070826.970012-1-florijan.plohl@norik.com>
+X-ClientProxiedBy: SA1P222CA0074.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:2c1::20) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
-Message-Id: <77552.126040223330700258@us-mta-606.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 9KCr0j8Zt4KwUCuOG1oq5-YPQxx7jj73OQPoRbgTsYk_1775187186
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PAXPR04MB8925:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6e90cf35-97a1-4923-1596-08de9135897c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|19092799006|1800799024|38350700014|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: snYBh+X71AfibPI7/O03jLWpAEoOgURmULsDMiBA1cLO1PJF3TyFsEFm5YP3TmOx7VViYoes6l9VPjVZl8I6gA+JvK5Zy8r0+UBqfuWq0UXRg9yZoXp07Lbj9NdAAYeJIABqvHZf0dVWEww8sjyKTA+L6IHwq5pnSbu3ypXtQLqBjNpUuW8ovA3Mxq+Ae3kY95WppJxnMo3u1wW2IFsWFYz95sZai9PnJ2qioC2HjSOXMI+n6GEwUmwDXCWQMbadyMiQCNPrDcG/hra/32rZ+4Kk82Wnboh7ODvPbxrX/GouOVflWpGGNX7Pt/WWOa7IZfO+IdWRR73WnExWLCtrkYvRVv00cXDlRhebRi2pjSFS2MfpwYA5lQfEWldpAqMaJdJuvmlHPWVQSY7GSRHaXwNYIxKOmtl5QsgMHcSJkwY0p/iBkXQqTHxhI1hO2oDvMpKTOMOx8eTM0QcHr/786kDHahUoOTG30iavH6o8XzmNVr0mBkqX/oINugh5796h9dSMR42tnDBxEwxktJjo2pWD2o2InUcxhIDAfmFjjppF1egMM8ylr0GrRHyD3UuUEpnWTV1T5qAj5xmcyBIArNCKWg4WTHziP2IEO41LH2ho3lRIFgXOMFF7g9ZTfx11NVyP42iW0zgNvS4r4Me1KaVCO2bwR1Ox3eLAvF5z9vqOIH7xPLav2dUL4ShQ0fbl2NjO2xRINSB7MOXE+j/xTLKves2rIdr0dlPXwIuI++o=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(19092799006)(1800799024)(38350700014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gBEBPi5L+ilabiUFIYavka2cc/EdoM8w7HHgad2nHm91pW/zpedIwBFwptdO?=
+ =?us-ascii?Q?8BZR9JZQLHVhH17P+8nTULMOEn7+C69USckL2e1wxg7gP9IOYSc/+UAd0QJR?=
+ =?us-ascii?Q?88xI8TIEJ1E4wjDVGgrcOiR+pOx1d61KxGIgvAe56mS9X16NytsKTojX5nkR?=
+ =?us-ascii?Q?g+A2gPeFA45Z/wr8zr+p4O7qBWk0Lg+m32vvsIuKp2aBBUiZ14Jneef6H7Rz?=
+ =?us-ascii?Q?K3j0lRXEDbszfeWA33aTWnJlfijlfk/02pKZfqFW7Bpd8mIYA2NPw5m9MxMU?=
+ =?us-ascii?Q?3wjAnZkXBgU3B9bJpCcfY/ZqMhDuKigD351C6xeo8skqeFUCo+09Sb94kWyE?=
+ =?us-ascii?Q?fPjhHPaI9Nim0gWgKhctZRUiyGwIQqqFtv2wiWg/j/Mc+vWwakbwXt0zRred?=
+ =?us-ascii?Q?N5GM/x0OSfxJgbOlcO5GQmOCB7aCu9ACXSCTa5qBcUEENg9HyT+c9OXfUcvW?=
+ =?us-ascii?Q?xt4ZR3Z3muXxAIzyticZIZSgIUugfvMLaUVoVsR0/sUb5deR+SuQ7w/9DKwz?=
+ =?us-ascii?Q?pKX9i3QCTODR4viZ+BV2KYEShMDzKsJtk1uZzgNeiRxXnT774jXrf4qg5J9n?=
+ =?us-ascii?Q?yH/+1m6Zh/YitoBStrAfkNg2M8E9wz3zxr1e/BCLfb90XWFuX+yaNxH1YJi7?=
+ =?us-ascii?Q?fjyYMZJCfXNXD862MZ7lsyXWi4fXdzGZOeQAScehkAbsQmGcdzzPjmqxWqFK?=
+ =?us-ascii?Q?YuuYmUlXmQySNQrhd5pTmCGssBdXRihIkSO9vMVQQy/JVLQxA8yiOwSmCHuk?=
+ =?us-ascii?Q?HDtxBnNDCpqbm6Uri7s3n3FS0SPYtHNQfRr5o3o1lW7cqEes6j1o8zz884+I?=
+ =?us-ascii?Q?V6I3ka5q66Wm6FzN7lJ7n+KGErnStqLDqMDbK9a8qY6oOGC47Jlf4wKH2qZT?=
+ =?us-ascii?Q?ToQ4ZLKZzXD4eq2PEY8nJCo1ZcJthVls/gEayY6eUBmdqJW+aAFftIwnpwb7?=
+ =?us-ascii?Q?aEYpnTS4zIZqeig+PNcYNqtPRaGJ4AYfd6nQVaHi84Vtgz/uhhVTpmdNSz4C?=
+ =?us-ascii?Q?5v4wEi7B/PWfTTbQxMsf2/HzesdJDffWuQCq3+MLuca0/dJeTqUjafs0vJbx?=
+ =?us-ascii?Q?LR8WeHi821yZXotFC3eQvlW4/Bdr7ZWOedXl41UPf1x8xuMwt0je2FnDIITk?=
+ =?us-ascii?Q?ICwVRkow6Ex4pRvyT7b6CuLe8qXdI9ieVugG4qHqckpUniW13x9G49XfZPio?=
+ =?us-ascii?Q?8GuIPhQAD8uoDzyTW5jbE4RL0uF1CzOe1GHn8oOqHaZ9mPUzFLkPrBX4BCKP?=
+ =?us-ascii?Q?Y8ucdnV2c2rqa4qPcs1LmY0amtexKM2N8ZSCjMnWc2VApu5QwmsMijBfbIso?=
+ =?us-ascii?Q?UdCiMeSuhzTsDbnMbXpSuGFfQUzW7Y4SE6mb9LQKFb3RAIX/ECoD3yj2gme9?=
+ =?us-ascii?Q?tLogcX62pPUSsFaNWr59P7ztMK2WktgHp6tb4kHQhcIYuDvvpMaucO/s6kxj?=
+ =?us-ascii?Q?AGPmfHPKIPlo4qBBGIQpLjJ+3WfQFsVeaMyiICpsXlUmrL7oiUs/Nogy7TF3?=
+ =?us-ascii?Q?a0O3mUAmRmS0NYdoW5AaI8seB42eSG3glq0FlU88fGH1t9X/Nl1ArIOvRFtL?=
+ =?us-ascii?Q?Hm1DxVp/B/9B1SF2/S9kEC0RhzxLRZGnkpSM3sbYMkhfRgncjdOsuqKvRqPH?=
+ =?us-ascii?Q?qLwmVpYCYzIb4MqQXTu7+rI49Q54IW0LB28m/Q3ftGFiDLnJSxPBYiyeVvFw?=
+ =?us-ascii?Q?9/zl/JCObsO0bJE1VBx8/UjM2D+Jarn0+63mmGOfgtp6Y15ZI+b3zGQId78P?=
+ =?us-ascii?Q?c0bf8acO6Q=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6e90cf35-97a1-4923-1596-08de9135897c
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Apr 2026 04:00:26.1039
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: yjjvHCLvbKZZLch4LoQ1monhiKaRIlp+0Af8QoIJjzVKpYfqc3zY6k5xwPnFIxPtB3+py6FGCPqGdhhxvfrqig==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8925
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_203313_040995_E18233BA 
-X-CRM114-Status: UNSURE (   6.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260402_210030_934788_68D33834 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,39 +140,349 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Thu, Apr 02, 2026 at 09:08:26AM +0200, Florijan Plohl wrote:
+> Add overlay for the PEB-AV-18 adapter on phyBOARD-Segin-i.MX91/93.
+> The supported LCD is Powertip PH800480T032-ZHC19 panel (AC220).
+>
+> Signed-off-by: Florijan Plohl <florijan.plohl@norik.com>
+> ---
+>  arch/arm64/boot/dts/freescale/Makefile        |   4 +
+>  .../imx91-phyboard-segin-peb-av-18.dtso       | 142 ++++++++++++++++++
+>  .../imx93-phyboard-segin-peb-av-18.dtso       | 142 ++++++++++++++++++
+>  3 files changed, 288 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx91-phyboard-segin-peb-av-18.dtso
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-18.dtso
+>
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> index bae24b53bce6..8f5b3996b678 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -437,17 +437,21 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
+>
+> +imx91-phyboard-segin-peb-av-18-dtbs += imx91-phyboard-segin.dtb imx91-phyboard-segin-peb-av-18.dtbo
+>  imx93-phyboard-nash-jtag-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-jtag.dtbo
+>  imx93-phyboard-nash-peb-wlbt-07-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-peb-wlbt-07.dtbo
+>  imx93-phyboard-nash-pwm-fan-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-pwm-fan.dtbo
+>  imx93-phyboard-segin-peb-av-02-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-av-02.dtbo
+> +imx93-phyboard-segin-peb-av-18-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-av-18.dtbo
+>  imx93-phyboard-segin-peb-eval-01-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-eval-01.dtbo
+>  imx93-phyboard-segin-peb-wlbt-05-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-wlbt-05.dtbo
+>  imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
+> +dtb-$(CONFIG_ARCH_MXC) += imx91-phyboard-segin-peb-av-18.dtb
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+https://sashiko.dev/#/patchset/20260402070826.970012-1-florijan.plohl%40norik.com
 
-Tested-by: CKI Project <cki-project@redhat.com>
+"should this be kept with the other imx91 dtb definition"
 
-Kernel information:
-    Commit message: Merge remote-tracking branch 'origin/nocache-cleanup' i=
-nto for-kernelci
+Frank Li
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2427004144
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-jtag.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-peb-wlbt-07.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-pwm-fan.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-av-02.dtb
+> +dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-av-18.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-eval-01.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-wlbt-05.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-phycore-rpmsg.dtb
+> diff --git a/arch/arm64/boot/dts/freescale/imx91-phyboard-segin-peb-av-18.dtso b/arch/arm64/boot/dts/freescale/imx91-phyboard-segin-peb-av-18.dtso
+> new file mode 100644
+> index 000000000000..ec6ef2e5a11a
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx91-phyboard-segin-peb-av-18.dtso
+> @@ -0,0 +1,142 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (C) 2026 PHYTEC Messtechnik GmbH
+> + *
+> + * Author: Florijan Plohl <florijan.plohl@norik.com>
+> + */
+> +
+> +#include <dt-bindings/clock/imx93-clock.h>
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include "imx91-pinfunc.h"
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +&{/} {
+> +	backlight: backlight {
+> +		compatible = "pwm-backlight";
+> +		brightness-levels = <0 4 8 16 32 64 128 255>;
+> +		default-brightness-level = <5>;
+> +		power-supply = <&reg_vcc_3v3_con>;
+> +		pwms = <&pwm7 0 5000000 0>;
+> +	};
+> +
+> +	panel {
+> +		compatible = "powertip,ph800480t032-zhc19";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_panel>;
+> +
+> +		backlight = <&backlight>;
+> +		enable-gpios = <&gpio4 29 GPIO_ACTIVE_HIGH>;
+> +		power-supply = <&reg_vcc_3v3_con>;
+> +
+> +		port {
+> +			panel_in: endpoint {
+> +				remote-endpoint = <&dpi_to_panel>;
+> +			};
+> +		};
+> +	};
+> +
+> +	pwm7: pwm-7 {
+> +		compatible = "pwm-gpio";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_pwm7>;
+> +		gpios = <&gpio4 28 GPIO_ACTIVE_HIGH>;
+> +		#pwm-cells = <3>;
+> +	};
+> +
+> +	reg_vcc_3v3_con: regulator-vcc-3v3-con {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "VCC3V3_CON";
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-min-microvolt = <3300000>;
+> +	};
+> +};
+> +
+> +&dpi_bridge {
+> +	status = "okay";
+> +};
+> +
+> +&dpi_to_panel {
+> +	remote-endpoint = <&panel_in>;
+> +	bus-width = <18>;
+> +};
+> +
+> +&lcdif {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_lcdif>;
+> +	assigned-clocks = <&clk IMX93_CLK_VIDEO_PLL>;
+> +	assigned-clock-rates = <27272728>;
+> +	status = "okay";
+> +};
+> +
+> +&lpi2c2 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+> +	touchscreen@41 {
+> +		compatible = "ilitek,ili2130";
+> +		reg = <0x41>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_touchscreen>;
+> +		interrupt-parent = <&gpio4>;
+> +		interrupts = <12 IRQ_TYPE_EDGE_FALLING>;
+> +		reset-gpios = <&gpio4 1 GPIO_ACTIVE_LOW>;
+> +		touchscreen-size-x = <800>;
+> +		touchscreen-size-y = <480>;
+> +		wakeup-source;
+> +	};
+> +};
+> +
+> +&media_blk_ctrl {
+> +	status = "okay";
+> +};
+> +
+> +&iomuxc {
+> +	pinctrl_lcdif: lcdifgrp {
+> +		fsl,pins = <
+> +			MX91_PAD_GPIO_IO00__MEDIAMIX_DISP_CLK		0x50e
+> +			MX91_PAD_GPIO_IO01__MEDIAMIX_DISP_DE		0x50e
+> +			MX91_PAD_GPIO_IO02__MEDIAMIX_DISP_VSYNC		0x50e
+> +			MX91_PAD_GPIO_IO03__MEDIAMIX_DISP_HSYNC		0x50e
+> +			MX91_PAD_GPIO_IO04__MEDIAMIX_DISP_DATA0 	0x50e
+> +			MX91_PAD_GPIO_IO05__MEDIAMIX_DISP_DATA1		0x50e
+> +			MX91_PAD_GPIO_IO06__MEDIAMIX_DISP_DATA2		0x50e
+> +			MX91_PAD_GPIO_IO07__MEDIAMIX_DISP_DATA3		0x50e
+> +			MX91_PAD_GPIO_IO08__MEDIAMIX_DISP_DATA4		0x50e
+> +			MX91_PAD_GPIO_IO09__MEDIAMIX_DISP_DATA5		0x51e
+> +			MX91_PAD_GPIO_IO10__MEDIAMIX_DISP_DATA6		0x50e
+> +			MX91_PAD_GPIO_IO11__MEDIAMIX_DISP_DATA7		0x50e
+> +			MX91_PAD_GPIO_IO12__MEDIAMIX_DISP_DATA8		0x50e
+> +			MX91_PAD_GPIO_IO13__MEDIAMIX_DISP_DATA9		0x50e
+> +			MX91_PAD_GPIO_IO14__MEDIAMIX_DISP_DATA10	0x50e
+> +			MX91_PAD_GPIO_IO15__MEDIAMIX_DISP_DATA11	0x50e
+> +			MX91_PAD_GPIO_IO16__MEDIAMIX_DISP_DATA12	0x506
+> +			MX91_PAD_GPIO_IO17__MEDIAMIX_DISP_DATA13	0x506
+> +			MX91_PAD_GPIO_IO18__MEDIAMIX_DISP_DATA14	0x506
+> +			MX91_PAD_GPIO_IO19__MEDIAMIX_DISP_DATA15	0x506
+> +			MX91_PAD_GPIO_IO20__MEDIAMIX_DISP_DATA16	0x506
+> +			MX91_PAD_GPIO_IO21__MEDIAMIX_DISP_DATA17	0x506
+> +		>;
+> +	};
+> +
+> +	pinctrl_panel: panelgrp {
+> +		fsl,pins = <
+> +			MX91_PAD_CCM_CLKO4__GPIO4_IO29			0x1133e
+> +		>;
+> +	};
+> +
+> +	pinctrl_pwm7: pwm7grp {
+> +		fsl,pins = <
+> +			MX91_PAD_CCM_CLKO3__GPIO4_IO28			0x1133e
+> +		>;
+> +	};
+> +
+> +	pinctrl_touchscreen: touchscreengrp {
+> +		fsl,pins = <
+> +			MX91_PAD_ENET1_MDIO__GPIO4_IO1			0x11e
+> +			MX91_PAD_ENET1_RD2__GPIO4_IO12			0x1133e
+> +		>;
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-18.dtso b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-18.dtso
+> new file mode 100644
+> index 000000000000..189b0f0472d2
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-18.dtso
+> @@ -0,0 +1,142 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (C) 2026 PHYTEC Messtechnik GmbH
+> + *
+> + * Author: Florijan Plohl <florijan.plohl@norik.com>
+> + */
+> +
+> +#include <dt-bindings/clock/imx93-clock.h>
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include "imx93-pinfunc.h"
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +&{/} {
+> +	backlight: backlight {
+> +		compatible = "pwm-backlight";
+> +		brightness-levels = <0 4 8 16 32 64 128 255>;
+> +		default-brightness-level = <5>;
+> +		power-supply = <&reg_vcc_3v3_con>;
+> +		pwms = <&pwm7 0 5000000 0>;
+> +	};
+> +
+> +	panel {
+> +		compatible = "powertip,ph800480t032-zhc19";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_panel>;
+> +
+> +		backlight = <&backlight>;
+> +		enable-gpios = <&gpio4 29 GPIO_ACTIVE_HIGH>;
+> +		power-supply = <&reg_vcc_3v3_con>;
+> +
+> +		port {
+> +			panel_in: endpoint {
+> +				remote-endpoint = <&dpi_to_panel>;
+> +			};
+> +		};
+> +	};
+> +
+> +	pwm7: pwm-7 {
+> +		compatible = "pwm-gpio";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_pwm7>;
+> +		gpios = <&gpio4 28 GPIO_ACTIVE_HIGH>;
+> +		#pwm-cells = <3>;
+> +	};
+> +
+> +	reg_vcc_3v3_con: regulator-vcc-3v3-con {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "VCC3V3_CON";
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-min-microvolt = <3300000>;
+> +	};
+> +};
+> +
+> +&dpi_bridge {
+> +	status = "okay";
+> +};
+> +
+> +&dpi_to_panel {
+> +	remote-endpoint = <&panel_in>;
+> +	bus-width = <18>;
+> +};
+> +
+> +&lcdif {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_lcdif>;
+> +	assigned-clocks = <&clk IMX93_CLK_VIDEO_PLL>;
+> +	assigned-clock-rates = <27272728>;
+> +	status = "okay";
+> +};
+> +
+> +&lpi2c2 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+> +	touchscreen@41 {
+> +		compatible = "ilitek,ili2130";
+> +		reg = <0x41>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_touchscreen>;
+> +		interrupt-parent = <&gpio4>;
+> +		interrupts = <12 IRQ_TYPE_EDGE_FALLING>;
+> +		reset-gpios = <&gpio4 1 GPIO_ACTIVE_LOW>;
+> +		touchscreen-size-x = <800>;
+> +		touchscreen-size-y = <480>;
+> +		wakeup-source;
+> +	};
+> +};
+> +
+> +&media_blk_ctrl {
+> +	status = "okay";
+> +};
+> +
+> +&iomuxc {
+> +	pinctrl_lcdif: lcdifgrp {
+> +		fsl,pins = <
+> +			MX93_PAD_GPIO_IO00__MEDIAMIX_DISP_CLK		0x50e
+> +			MX93_PAD_GPIO_IO01__MEDIAMIX_DISP_DE		0x50e
+> +			MX93_PAD_GPIO_IO02__MEDIAMIX_DISP_VSYNC		0x50e
+> +			MX93_PAD_GPIO_IO03__MEDIAMIX_DISP_HSYNC		0x50e
+> +			MX93_PAD_GPIO_IO04__MEDIAMIX_DISP_DATA00	0x50e
+> +			MX93_PAD_GPIO_IO05__MEDIAMIX_DISP_DATA01	0x50e
+> +			MX93_PAD_GPIO_IO06__MEDIAMIX_DISP_DATA02	0x50e
+> +			MX93_PAD_GPIO_IO07__MEDIAMIX_DISP_DATA03	0x50e
+> +			MX93_PAD_GPIO_IO08__MEDIAMIX_DISP_DATA04	0x50e
+> +			MX93_PAD_GPIO_IO09__MEDIAMIX_DISP_DATA05	0x51e
+> +			MX93_PAD_GPIO_IO10__MEDIAMIX_DISP_DATA06	0x50e
+> +			MX93_PAD_GPIO_IO11__MEDIAMIX_DISP_DATA07	0x50e
+> +			MX93_PAD_GPIO_IO12__MEDIAMIX_DISP_DATA08	0x50e
+> +			MX93_PAD_GPIO_IO13__MEDIAMIX_DISP_DATA09	0x50e
+> +			MX93_PAD_GPIO_IO14__MEDIAMIX_DISP_DATA10	0x50e
+> +			MX93_PAD_GPIO_IO15__MEDIAMIX_DISP_DATA11	0x50e
+> +			MX93_PAD_GPIO_IO16__MEDIAMIX_DISP_DATA12	0x506
+> +			MX93_PAD_GPIO_IO17__MEDIAMIX_DISP_DATA13	0x506
+> +			MX93_PAD_GPIO_IO18__MEDIAMIX_DISP_DATA14	0x506
+> +			MX93_PAD_GPIO_IO19__MEDIAMIX_DISP_DATA15	0x506
+> +			MX93_PAD_GPIO_IO20__MEDIAMIX_DISP_DATA16	0x506
+> +			MX93_PAD_GPIO_IO21__MEDIAMIX_DISP_DATA17	0x506
+> +		>;
+> +	};
+> +
+> +	pinctrl_panel: panelgrp {
+> +		fsl,pins = <
+> +			MX93_PAD_CCM_CLKO4__GPIO4_IO29			0x1133e
+> +		>;
+> +	};
+> +
+> +	pinctrl_pwm7: pwm7grp {
+> +		fsl,pins = <
+> +			MX93_PAD_CCM_CLKO3__GPIO4_IO28			0x1133e
+> +		>;
+> +	};
+> +
+> +	pinctrl_touchscreen: touchscreengrp {
+> +		fsl,pins = <
+> +			MX93_PAD_ENET1_MDIO__GPIO4_IO01			0x11e
+> +			MX93_PAD_ENET1_RD2__GPIO4_IO12			0x1133e
+> +		>;
+> +	};
+> +};
+> --
+> 2.43.0
+>
 
