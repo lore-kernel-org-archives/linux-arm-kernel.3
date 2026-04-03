@@ -4,105 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81E00D730AD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 18:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A823E8538E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 19:47:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aUEap9ZtLAOWWOdMbJTcGPlnUuslrijse69P0jdZIjA=; b=YgyZnOdopbFkyzTiaApokUWOsX
-	gsZKwVgRqBk34VoewuAaKf1RFUYmAcM/WRqYitAlyynuLCfuVRzW63ftAv0FfSs9lZEZoqddeZ3q5
-	42sGVwPzZeRLr+iF4t2wQNFvuEG1l+F2MDW9bGylozkmQW1ZRKzejgSbN6tP38RpyMyZUqh/tUkpl
-	aawusQ3YQ2+xFPhdvs+HTczoc0nKWjR3OGHPtWwC/ljSz9yRycTa79b32N70vZyPGSBKn9uV70CW7
-	fCuJXYJvwCWMT3gM6dLlRfiZ+8Ud8xNhGhBXRNIyp5LBa3eKyvGwiXVf4IoWytBgjkxJ/N4WR7G/T
-	ZH//cIvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VsvDVL5tc5VALviYh62qkT8pA+BxF0TiR0JTDFx2wc0=; b=YDVsDw23i48wIpGM9YFokFcTAj
+	etC8yIHL3hQW2mKT4tFtcUfgRJdU2YZfxZ5MY4wv/xHGlcMryR/+Wu9KeqapPGh8of7mha7QBQpXn
+	a0jOImn+m0WHdLQRNjMVIcQE5RnYVkNWfo125lYdYqiE7kdQbuMfUXA+SEge94QwR1x2Tk/BkIhEo
+	Vh2YxyZm0WLelMOXwQnq+vRLGIS1tzhDEigTp1HHdqXUWsGMI8tGqkl20s4xadbBE3y+1hYIdkhTh
+	JEMjGo8UmLTfV+GikMJqExtNkzLwwBLy7/MBcWChSxyIGxeLiPNXWKqd8JivjYlFYW+R71ffiQrBg
+	3h5L70wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8jgb-00000002SWB-08T4;
-	Fri, 03 Apr 2026 18:56:05 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1w8kUG-00000002Vg8-1RoT;
+	Fri, 03 Apr 2026 19:47:24 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8jgY-00000002SVZ-3DOl
+	id 1w8kUD-00000002Vfn-3iq5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 18:56:03 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2b2503753efso17706235ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 11:56:02 -0700 (PDT)
+	Fri, 03 Apr 2026 19:47:23 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2a871daa98fso17079765ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 12:47:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=etsalapatis-com.20251104.gappssmtp.com; s=20251104; t=1775242562; x=1775847362; darn=lists.infradead.org;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aUEap9ZtLAOWWOdMbJTcGPlnUuslrijse69P0jdZIjA=;
-        b=fiUg/LAhuDYLR8ZQXrtePICHpU1wMoMVnkgvEMK3u7GyG7xVcD9q5jTn6iQ6mooEyC
-         H+LPBsPuRQjZDlPulejoC+45AvtvrT0f3IuKwcF6WlCB8wjTKaDUEvgnXT6SlJ6e4TUp
-         tWV2abCdAs6iO7TwKNUVCt9wuhXGd8pyctorkQOYMREn43PFSm55W1xD2ZRwreTa+Otv
-         rv9mQQeiEUemO3p+X6Q9EM7KJjpEIF/LroC+RiSVes+tseHyw0lNNzsx4uiPpIJrxPA6
-         5Wmt1N8xqaA9tofsVYwJ56N5/K0zJu9onp9zYmmb+cNr1e3N+7kE+q6Ma+81zTZm7HQB
-         XBqw==
+        d=gmail.com; s=20251104; t=1775245640; x=1775850440; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=VsvDVL5tc5VALviYh62qkT8pA+BxF0TiR0JTDFx2wc0=;
+        b=YW2274EQGgoFffqwnjaMBDim7r9BXEep0yAun97iGWBvwWMfbn32kSfXequdllg2SI
+         zqyo845/NdTBh+BvDamyRBIWFS4jsQ55CKOunrf6Bm8dadI9r5qmw4gAdM2el9xKA4KL
+         4sAlm57gm0ULHGOFYaeYK0qdaeyShVpcq9V4nFLNs47t+RB5JspF8xXdX8R9KRoiJTmm
+         abX8v2hVl/lRby8kWxWKwTnwqumICkAkVDNxMiLUtn2SQKCPzGZvbu+vmJk+f2Or6d5W
+         GrbIHPH1zwUiPEd/L8olLznI2cbW4szyvzaPw88oleKf4bzQ8F6juBLFyZqvvrrc6QWw
+         OuAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775242562; x=1775847362;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=aUEap9ZtLAOWWOdMbJTcGPlnUuslrijse69P0jdZIjA=;
-        b=TtU4N2RzmuzGXlBuupkHmDLqkjqLMUpS/XTJcVKlIVrX7kUItpnrsLu/Hue1DcpF1l
-         V9CXklPaCuVH7wAZyGPKC32CiUAwppN8Ys3zJTXZTpHFwz/pa4gOaGPqd5BoF8LMUaNi
-         4tYjF8cuaggUqSVY/oTnBk3KLcDMT2ygaifUWKiLLuldBM2HKXeAxDPbPi4OwGbnUwbi
-         BqTu1PfSPx9MmzOIG3zMQoupG6gG7kWEGfAX2hOFQiyI1uT5ffUb/NfEVjJZNX+3xPif
-         X2x4uBNonHiufZW4nVf/cex83owM0meLWL+CYLjP4K2t4qJFWwf53Kt87qce8iIFvq8f
-         n/Bw==
-X-Forwarded-Encrypted: i=1; AJvYcCWGrmi33JAKQGHF4KCdttXOjK6TrB3SRARGmpx/zT3Cu/WpTR3J/hjy0or1XtVf07ft/y1F0+lB7ra/zpxp0QcQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4Nxtilbz0oE78/vCtcAZMV1NfWhOtknQdWNhkU3bpZ5BQvY+t
-	5+nd3jrmqeQWnWg14ov04/NB8W/IP1n9Nab/T+UCAYOjA2AmoQVC2itDK16EBH/l8h4=
-X-Gm-Gg: AeBDiesBSswCVWJi+NdIvupsNaYQPNlFddjgk0CncZNoeaetfl2xvGannFCj3e4LqKA
-	saUgTmShH2gvCgG7WMaSLK/UzQoj3IkP5X7MSUARW9TCaFxLhJhPcYLZms3TwPZZl/0Up8OfaU/
-	q3BYWORJWWpp7VuzrCjjfPJks/PXNUHNzdtFZZMhHvlabBa86ktZrXb82U3KczyobytcpvaQG2q
-	x4jaKUeZW14eokd+ekz3Ys2XmGSBBXApoQSbm/H8YIG5oSngSMZlWI1aWyAi8c/zsSdEDuSNzF1
-	7O0onr8cvVrbfsdzQYlYIUNpdy5ByrmFkew6FcU2PBbE5zbJcyyWHSZYyxYtvwvZZhZlHbp4KjR
-	fgZtWk9KMO8mrWbTC3hy1SfZ0XLrmkvnDQjD5dMIH8KREEHXhO0WksljFV52TVIKSYR/l8FOE3E
-	6c2jn+DLM=
-X-Received: by 2002:a17:902:e78c:b0:2ae:c916:511 with SMTP id d9443c01a7336-2b2819173d3mr42659205ad.24.1775242561526;
-        Fri, 03 Apr 2026 11:56:01 -0700 (PDT)
-Received: from localhost ([2604:3d08:487d:cd00::5517])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b27475ff56sm63177805ad.22.2026.04.03.11.56.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 03 Apr 2026 11:56:01 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 03 Apr 2026 14:56:00 -0400
-Message-Id: <DHJQYTHUJH8L.2757EBVNFL6PZ@etsalapatis.com>
-Subject: Re: [PATCH bpf-next v12 5/5] bpf, arm64: Emit BTI for indirect jump
- target
-From: "Emil Tsalapatis" <emil@etsalapatis.com>
-To: "Xu Kuohai" <xukuohai@huaweicloud.com>, <bpf@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Cc: "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
- <daniel@iogearbox.net>, "Andrii Nakryiko" <andrii@kernel.org>, "Martin
- KaFai Lau" <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>,
- "Yonghong Song" <yonghong.song@linux.dev>, "Puranjay Mohan"
- <puranjay@kernel.org>, "Anton Protopopov" <a.s.protopopov@gmail.com>,
- =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>, "Shahab
- Vahedi" <list+bpf@vahedi.org>, "Russell King" <linux@armlinux.org.uk>,
- "Tiezhu Yang" <yangtiezhu@loongson.cn>, "Hengqi Chen"
- <hengqi.chen@gmail.com>, "Johan Almbladh"
- <johan.almbladh@anyfinetworks.com>, "Paul Burton" <paulburton@kernel.org>,
- "Hari Bathini" <hbathini@linux.ibm.com>, "Christophe Leroy"
- <chleroy@kernel.org>, "Naveen N Rao" <naveen@kernel.org>, "Luke Nelson"
- <luke.r.nels@gmail.com>, "Xi Wang" <xi.wang@gmail.com>,
- =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, "Pu Lehui"
- <pulehui@huawei.com>, "Ilya Leoshkevich" <iii@linux.ibm.com>, "Heiko
- Carstens" <hca@linux.ibm.com>, "Vasily Gorbik" <gor@linux.ibm.com>, "David
- S . Miller" <davem@davemloft.net>, "Wang YanQing" <udknight@gmail.com>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260403132811.753894-1-xukuohai@huaweicloud.com>
- <20260403132811.753894-6-xukuohai@huaweicloud.com>
-In-Reply-To: <20260403132811.753894-6-xukuohai@huaweicloud.com>
+        d=1e100.net; s=20251104; t=1775245640; x=1775850440;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VsvDVL5tc5VALviYh62qkT8pA+BxF0TiR0JTDFx2wc0=;
+        b=FcZvsKHELHGbtNeNTfotocPbFNV9ePRjfgABrNUZbBiDBSXSXejJz20t3pfyvS/2Zf
+         NYsePV9KVSNXRekHmTJdr4cxr7dzHTM3KXO6vlqmWbn/gtnQv6HDjhTgXfIOcMbsLbBX
+         59kEBlcpIWZWQL7ego4sKFEHd0vEbXFzQHhKvBHMoElxElojvGaxYpDeK2JXRUHeJzcb
+         Q6clAQrCUgDKNhij7m28+OYFCLEUO4EeA6CtSptWvS/WgoGjuRUY6NN3tT9MNqG9Yc+f
+         34k5575kKrKPve/Mz+cTaBRUosg6v17PdQXCBqQTESzG54dBVhhfi2C7zRYwZw5RAzWa
+         Oz5w==
+X-Forwarded-Encrypted: i=1; AJvYcCVxHVigkL6RWMMcp9XfkSV9XO96edWehM8DtK6sd89lhlyVVIr9T8CvjTvvKaMeAzcLEc0yIAnCYCwWdJoDFWPB@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIOnbTcTolDP57zq3S+77YYyh83ceV7DneGgwufDYJqV+/F3vh
+	JwJj780YwAi7kc2RrDohdlQA7UHP7Ojw6S7QZ45CA6lb9jLY6VQkfNjhriZvLw==
+X-Gm-Gg: AeBDiet/RblDVBp/wGT/tIoDZ3qOFh7NW6DpXHsRnI26o2/CPnt+5mXELYut2hDDGL5
+	J6ic94M/OO9/5giG7dDNmh4X+cdTWBe+caAmQWx9Q2+hTde3XDmif2i/M/0IIbabm7T/56avC6t
+	kga4AghBdMoD2YRvd3/C6xFuZdAOM7uJiSrPrRgVVDIWPj9HUMaU64uFxWe3gF88mxZdlxDk2og
+	IFT4wD/Ts4FH8p/mCZux1h/J3matndHbeBLpOiLatuQ9BKAqsWuQBg4RCdZFsoeSN5TZG7t2+y5
+	uOtnpYk29xF77yXZZQKF1UuSujvwzSwgEmsl8aToVaWnj3PwPPx0na8JovglQ4ar8PrXU3/yhrO
+	zJV1LDNgbeVwKgydUb0FILMBXTwXNsIH6YqRHLp88FT2f2WpC/cdAGr/YS+Kjne6JXoT+3q4xF7
+	PiIXflnJNuhct1jCPcfgpJxl4in4D1peNZUUh4vRA5Sb+yW2SUkn0sOP4=
+X-Received: by 2002:a17:903:3c6d:b0:2ae:8272:deb0 with SMTP id d9443c01a7336-2b2817361c8mr46732635ad.15.1775245639256;
+        Fri, 03 Apr 2026 12:47:19 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:5b5d::8bd])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b27472d54bsm62706225ad.1.2026.04.03.12.47.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Apr 2026 12:47:18 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-clk@vger.kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,...),
+	linux-kernel@vger.kernel.org (open list),
+	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be)?\b)
+Subject: [PATCHv2] clk: mvebu: use kzalloc_flex
+Date: Fri,  3 Apr 2026 12:47:01 -0700
+Message-ID: <20260403194701.11902-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.53.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_115602_819127_B63F0A29 
-X-CRM114-Status: GOOD (  19.32  )
+X-CRM114-CacheID: sfid-20260403_124721_955462_75D564F7 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,114 +103,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri Apr 3, 2026 at 9:28 AM EDT, Xu Kuohai wrote:
-> From: Xu Kuohai <xukuohai@huawei.com>
->
-> On CPUs that support BTI, the indirect jump selftest triggers a kernel
-> panic because there is no BTI instructions at the indirect jump targets.
->
-> Fix it by emitting a BTI instruction for each indirect jump target.
->
-> For reference, below is a sample panic log.
->
-> Internal error: Oops - BTI: 0000000036000003 [#1]  SMP
+Use a flexible array member to combine kzalloc and kcalloc in one
+allocation so they can be freed together.
 
-Reviewed-by: Emil Tsalapatis <emil@etsalapatis.com>
+Add __counted_by for extra runtime analysis. Move counting variable
+assignment right after allocation as done by kzalloc_flex with GCC >=
+15.
 
-> ...
-> Call trace:
->  bpf_prog_2e5f1c71c13ac3e0_big_jump_table+0x54/0xf8 (P)
->  bpf_prog_run_pin_on_cpu+0x140/0x468
->  bpf_prog_test_run_syscall+0x280/0x3b8
->  bpf_prog_test_run+0x22c/0x2c0
->
-> Fixes: f4a66cf1cb14 ("bpf: arm64: Add support for indirect jumps")
-> Reviewed-by: Anton Protopopov <a.s.protopopov@gmail.com>
-> Acked-by: Leon Hwang <leon.hwang@linux.dev>
-> Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
-> ---
->  arch/arm64/net/bpf_jit_comp.c | 17 ++++++++++-------
->  1 file changed, 10 insertions(+), 7 deletions(-)
->
-> diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.=
-c
-> index 7212ec89dfe3..aa5cd240cdda 100644
-> --- a/arch/arm64/net/bpf_jit_comp.c
-> +++ b/arch/arm64/net/bpf_jit_comp.c
-> @@ -1198,8 +1198,8 @@ static int add_exception_handler(const struct bpf_i=
-nsn *insn,
->   * >0 - successfully JITed a 16-byte eBPF instruction.
->   * <0 - failed to JIT.
->   */
-> -static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
-> -		      bool extra_pass)
-> +static int build_insn(const struct bpf_verifier_env *env, const struct b=
-pf_insn *insn,
-> +		      struct jit_ctx *ctx, bool extra_pass)
->  {
->  	const u8 code =3D insn->code;
->  	u8 dst =3D bpf2a64[insn->dst_reg];
-> @@ -1224,6 +1224,9 @@ static int build_insn(const struct bpf_insn *insn, =
-struct jit_ctx *ctx,
->  	int ret;
->  	bool sign_extend;
-> =20
-> +	if (bpf_insn_is_indirect_target(env, ctx->prog, i))
-> +		emit_bti(A64_BTI_J, ctx);
-> +
->  	switch (code) {
->  	/* dst =3D src */
->  	case BPF_ALU | BPF_MOV | BPF_X:
-> @@ -1899,7 +1902,7 @@ static int build_insn(const struct bpf_insn *insn, =
-struct jit_ctx *ctx,
->  	return 0;
->  }
-> =20
-> -static int build_body(struct jit_ctx *ctx, bool extra_pass)
-> +static int build_body(struct bpf_verifier_env *env, struct jit_ctx *ctx,=
- bool extra_pass)
->  {
->  	const struct bpf_prog *prog =3D ctx->prog;
->  	int i;
-> @@ -1918,7 +1921,7 @@ static int build_body(struct jit_ctx *ctx, bool ext=
-ra_pass)
->  		int ret;
-> =20
->  		ctx->offset[i] =3D ctx->idx;
-> -		ret =3D build_insn(insn, ctx, extra_pass);
-> +		ret =3D build_insn(env, insn, ctx, extra_pass);
->  		if (ret > 0) {
->  			i++;
->  			ctx->offset[i] =3D ctx->idx;
-> @@ -2079,7 +2082,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_ver=
-ifier_env *env, struct bpf_pr
->  	if (build_prologue(&ctx, was_classic))
->  		goto out_off;
-> =20
-> -	if (build_body(&ctx, extra_pass))
-> +	if (build_body(env, &ctx, extra_pass))
->  		goto out_off;
-> =20
->  	ctx.epilogue_offset =3D ctx.idx;
-> @@ -2127,7 +2130,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_ver=
-ifier_env *env, struct bpf_pr
->  	/* Dont write body instructions to memory for now */
->  	ctx.write =3D false;
-> =20
-> -	if (build_body(&ctx, extra_pass))
-> +	if (build_body(env, &ctx, extra_pass))
->  		goto out_free_hdr;
-> =20
->  	ctx.epilogue_offset =3D ctx.idx;
-> @@ -2136,7 +2139,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_ver=
-ifier_env *env, struct bpf_pr
->  	ctx.write =3D true;
-> =20
->  	/* Pass 3: Adjust jump offset and write final image */
-> -	if (build_body(&ctx, extra_pass) ||
-> +	if (build_body(env, &ctx, extra_pass) ||
->  		WARN_ON_ONCE(ctx.idx !=3D ctx.epilogue_offset))
->  		goto out_free_hdr;
-> =20
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ v2: remove now unused goto label.
+ drivers/clk/mvebu/common.c | 21 ++++++++-------------
+ 1 file changed, 8 insertions(+), 13 deletions(-)
+
+diff --git a/drivers/clk/mvebu/common.c b/drivers/clk/mvebu/common.c
+index 28f2e1b2a932..0f9ae5f5cefd 100644
+--- a/drivers/clk/mvebu/common.c
++++ b/drivers/clk/mvebu/common.c
+@@ -189,10 +189,10 @@ DEFINE_SPINLOCK(ctrl_gating_lock);
+
+ struct clk_gating_ctrl {
+ 	spinlock_t *lock;
+-	struct clk **gates;
+ 	int num_gates;
+ 	void __iomem *base;
+ 	u32 saved_reg;
++	struct clk *gates[] __counted_by(num_gates);
+ };
+
+ static struct clk_gating_ctrl *ctrl;
+@@ -257,24 +257,21 @@ void __init mvebu_clk_gating_setup(struct device_node *np,
+ 		clk_put(clk);
+ 	}
+
+-	ctrl = kzalloc_obj(*ctrl);
++	/* Count, allocate, and register clock gates */
++	for (n = 0; desc[n].name;)
++		n++;
++
++	ctrl = kzalloc_flex(*ctrl, gates, n);
+ 	if (WARN_ON(!ctrl))
+ 		goto ctrl_out;
+
++	ctrl->num_gates = n;
++
+ 	/* lock must already be initialized */
+ 	ctrl->lock = &ctrl_gating_lock;
+
+ 	ctrl->base = base;
+
+-	/* Count, allocate, and register clock gates */
+-	for (n = 0; desc[n].name;)
+-		n++;
+-
+-	ctrl->num_gates = n;
+-	ctrl->gates = kzalloc_objs(*ctrl->gates, ctrl->num_gates);
+-	if (WARN_ON(!ctrl->gates))
+-		goto gates_out;
+-
+ 	for (n = 0; n < ctrl->num_gates; n++) {
+ 		const char *parent =
+ 			(desc[n].parent) ? desc[n].parent : default_parent;
+@@ -289,8 +286,6 @@ void __init mvebu_clk_gating_setup(struct device_node *np,
+ 	register_syscore(&clk_gate_syscore);
+
+ 	return;
+-gates_out:
+-	kfree(ctrl);
+ ctrl_out:
+ 	iounmap(base);
+ }
+--
+2.53.0
 
 
