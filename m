@@ -4,70 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A1D4E7E35F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 09:43:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DA37E7E35E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 09:45:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=BlTGqnCJGh4mB5RDKBN0tAN5xbPo1gnzhzo9p74pj1Y=; b=ysBsIU8EyY+mAO
-	Fpf9eAbuOnua//Qiz5lcKAQ31nmZudXzLUTGJ34vxkxcuKvwjSw1rBHTkxjnCWFeOw+cicF1nrTL/
-	lffWLvHF0ME585E2l09kh4SFeZkWq2pnLCW8b8Yq40xRSubNOFSK602GMfz9S97MT3sIrzmogGELP
-	on/zec9dZ4e6o2xKshUzdKTdBhbwfAhbndwsuyXBOwTl0IMpL7IbMfq3t0dA26hk4q0QTX2Kq9dyF
-	oVsA5WB6sKig8GaCRq5jsnlr46h6toU6Wk60IlIhW856PMzmsgvaQyFqTOxl1YYVReAIKJnWlnW16
-	I6hsINSyhauQ3w+ivn/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ruCqB3/pL3/NGcM0sCiCf50HfVwh7yqzIADvTdNecvY=; b=o3ZD3/KDJOAp0AcO4n1pM0gcCY
+	ZOlf7VGawjfDrbBf8Yk7Zt6LEYU1f31dCwtHWQCIfA8Dzaas97kgEnFv1QUJxqU5H0uEj8nc8bxXv
+	XGd7Sz8xC0H3qvEx2qIqPZVZsdA19w5UVuxP+fVxoihYTp3EFm8ESWrlUHcAFbA/mh5Rl3Rqpa6+c
+	iXYPEGj6hgfI1oGjx016ktH/nGT/dMLDJxV3OvNAW/aCaQM2+oWv4HZCpCT9TVl4UmwCYVn/STqF8
+	jfuIFT4RfBvcCHteDDVmvSzdeeM4/zqAGFTkedH6yIP6ojX4cyoP3F3fI6+GDv2kFChxrhwwh14zi
+	tVJwKuqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8b44-00000001ptV-3VCc;
-	Fri, 03 Apr 2026 09:43:44 +0000
-Received: from mail.ispras.ru ([83.149.199.84])
+	id 1w8b5J-00000001q1G-3arC;
+	Fri, 03 Apr 2026 09:45:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8b42-00000001psV-04Uc;
-	Fri, 03 Apr 2026 09:43:43 +0000
-Received: from localhost (unknown [10.10.165.6])
-	by mail.ispras.ru (Postfix) with ESMTPSA id 8FFDF40737CA;
-	Fri,  3 Apr 2026 09:43:37 +0000 (UTC)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.ispras.ru 8FFDF40737CA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ispras.ru;
-	s=default; t=1775209418;
-	bh=BlTGqnCJGh4mB5RDKBN0tAN5xbPo1gnzhzo9p74pj1Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=ArS3juWVKe95xJXrOX2F6Ro0yZ8cseolXjAQ6iDUHnykQIiPxXKnylqzTCAnec2B8
-	 q535YNWxALE+971ppWvQ43SqWyBv38lZaCMpA0iGwTw8p0Madg3maVBBl5//FHUIaw
-	 ZiJGLy4cUxRlmBaihFSGjT1GykEtfuoERsRO8eis=
-Date: Fri, 3 Apr 2026 12:43:37 +0300
-From: Fedor Pchelkin <pchelkin@ispras.ru>
-To: "Heyne, Maximilian" <mheyne@amazon.de>
-Cc: "stable@vger.kernel.org" <stable@vger.kernel.org>, 
-	Ming Lei <ming.lei@redhat.com>, Keith Busch <kbusch@kernel.org>, Yi Zhang <yi.zhang@redhat.com>, 
-	Jens Axboe <axboe@kernel.dk>, Hector Martin <marcan@marcan.st>, 
-	Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
-	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
-	"James E.J. Bottomley" <jejb@linux.ibm.com>, "Martin K. Petersen" <martin.petersen@oracle.com>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>, 
-	Bart Van Assche <bvanassche@acm.org>, Sasha Levin <sashal@kernel.org>, 
-	Peter Wang <peter.wang@mediatek.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Seunghwan Baek <sh8267.baek@samsung.com>, Seunghui Lee <sh043.lee@samsung.com>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Brian Kao <powenkao@google.com>, 
-	Sanjeev Yadav <sanjeev.y@mediatek.com>, Wonkon Kim <wkon.kim@samsung.com>, 
-	Chaitanya Kulkarni <kch@nvidia.com>, Hannes Reinecke <hare@suse.de>, 
-	"linux-block@vger.kernel.org" <linux-block@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"asahi@lists.linux.dev" <asahi@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-nvme@lists.infradead.org" <linux-nvme@lists.infradead.org>, "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>
-Subject: Re: [PATCH 6.1.y v2 6/6] nvme: fix admin queue leak on controller
- reset
-Message-ID: <20260403123652-2fd721d0de63be980e2ec1e9-pchelkin@ispras>
+	id 1w8b5J-00000001q0e-0vkS
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Apr 2026 09:45:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 39C1E60008;
+	Fri,  3 Apr 2026 09:45:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 347D2C4CEF7;
+	Fri,  3 Apr 2026 09:44:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775209499;
+	bh=IuR4blB8wmpp6he85y4L3StdxuF4DElLSlSeh4ZnhRI=;
+	h=Date:From:To:Cc:Subject:From;
+	b=cR33W1v0ZEHORp/4TS1wFE1ScKMWDxVdk6XloO5zQv15jHquqgzR6KbYansGsVLkr
+	 S6SFIZDgfpfNceuwqFCROagEpFq58bQq/stot06ZUYTpM5FdX2Haz+ifkU1eiUwQBy
+	 NZXRZ0uN50vfxrNGg4xc3dLwFbIiJW+ESOIkbUwCvrYMKePt2D0KcuNlYi6M9jSB4F
+	 RU9k/XvqcDGb58c52Gven2o4t/Nwc226P2IKV4RcR4Mchm2K5oQV1PNVsMF6hd9cmk
+	 lfrnj0Jf+MbOC6EXUC5tSlnGZPlorBBZMz4ootqZ+9h9zK7ZSx4oOijJQJba363F5e
+	 CggDsRAN1icoA==
+Date: Fri, 3 Apr 2026 10:44:55 +0100
+From: Will Deacon <will@kernel.org>
+To: torvalds@linux-foundation.org
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-team@android.com,
+	ardb@kernel.org
+Subject: [GIT PULL] arm64 fix for 7.0
+Message-ID: <ac-MF-N_-wrXkjrF@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260402-fox-attic-82ebf113@mheyne-amazon>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_024342_223060_013517AC 
-X-CRM114-Status: UNSURE (   7.79  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,16 +67,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"Heyne, Maximilian" <mheyne@amazon.de>
-> [ Have to do analogous work in nvme_pci_alloc_admin_tag_set in pci.c due
->   to missing upstream commit 0da7feaa5913 ("nvme-pci: use the tagset
->   alloc/free helpers") ]
+Hi Linus,
 
-nit: not actually needed for 6.1.y because the only callsite of
-nvme_pci_alloc_admin_tag_set() there looks like
+Please pull this lone arm64 fix for v7.0.
 
-	if (!dev->ctrl.admin_q) {
-		result = nvme_pci_alloc_admin_tag_set(dev);
+Although it's slightly involved, it's been in the works for a while and
+resolves a user-triggerable kCFI failure via perf.
 
-Though that doesn't really matter and not worth resending I think.
+Cheers,
+
+Will
+
+--->8
+
+The following changes since commit 8c6e9b60f5c7985a9fe41320556a92d7a33451df:
+
+  arm64: realm: Fix PTE_NS_SHARED for 52bit PA support (2026-03-19 12:46:05 +0000)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+
+for you to fetch changes up to 54ac9ff8f1196afc49d644a1625e0af1c9fcf7f5:
+
+  arm64: Use static call trampolines when kCFI is enabled (2026-04-01 15:29:59 +0100)
+
+----------------------------------------------------------------
+arm64 fix for v7.0
+
+- Implement a basic static call trampoline to fix CFI failures with the
+  generic implementation.
+
+----------------------------------------------------------------
+Ard Biesheuvel (1):
+      arm64: Use static call trampolines when kCFI is enabled
+
+ arch/arm64/Kconfig                   |  1 +
+ arch/arm64/include/asm/static_call.h | 31 +++++++++++++++++++++++++++++++
+ arch/arm64/kernel/Makefile           |  1 +
+ arch/arm64/kernel/static_call.c      | 23 +++++++++++++++++++++++
+ arch/arm64/kernel/vmlinux.lds.S      |  1 +
+ 5 files changed, 57 insertions(+)
+ create mode 100644 arch/arm64/include/asm/static_call.h
+ create mode 100644 arch/arm64/kernel/static_call.c
 
