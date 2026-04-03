@@ -4,103 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E00F8E8536E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 13:29:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A34FE85367
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 13:39:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D3TgrwVgeoZcZASDHDP/iFsOkmG4q/7olBpiPeQBlYk=; b=NwUP4ja0IaG9iqRX+yJMlG+jwo
-	SAun7huSZNxx0E0SkwP5QMAga75R08WdTo8piiCA7GrH8uPMs7rpH6Frk4HWEHX2K5zrYJbkWIamv
-	PS6ZgvD1pAWfWQFzCH1trxryZaXcVuFlPrzrJs4eQqeJQXLy2q5RumSaC9n1VpnH7rNZN1fGed3iO
-	O1wuaENFSi608Xv3hSjBKYb96UiR+bRl7JJZ28xoDTxH+YPqdvndqMvHX7mwR+wBHTzYQ9AGMnyCp
-	3Gyn6xWLjxMnXw6tpFUnhvQoSXOXPY8dO3lywRGWy1C39uWhV+ya2IMjx9ojNDl1+NFcvmq4Pm/Bt
-	CgROlnFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=K0i9/psgiYriNr+bQD8bwLT5N5vs6aXdpa5YckR6JD0=; b=p0DEqpbTXAcq6F7ZWYb0bUSX0w
+	gYQHEjcT6c7FaxPCgjNRDqWCdXvH9C0tFqy8oTurSxbUBdJXDfURaesTbY8ss1f6ueOSuBQ5AkyDF
+	6hwCOdFGGAleC3aOIoqUyJ6hbAGsrZlWmc3YaumKQKOmOdBOQvoqHtqVZv97EzWbL9dRCX7K6T2ei
+	/GsRMj1RwjGoM8oKGUlgCqD9NpqBq3has+iaJls6mPHyH6CMWGZLMKQmq7KPisHMPbAtpmzl0H4R3
+	gkVW3y2OuDkL24oU47IOZbSIE6et3D3Ky5wEed7IH4Y+oYcms2JivrL1PavvaQfWeewoYs5jt4AJg
+	rbgfG46w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8eah-000000024Qo-2wcj;
-	Fri, 03 Apr 2026 13:29:39 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1w8ekK-000000024uR-3zft;
+	Fri, 03 Apr 2026 13:39:36 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8ead-000000024QC-3Kos
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 13:29:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1775222973;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=D3TgrwVgeoZcZASDHDP/iFsOkmG4q/7olBpiPeQBlYk=;
-	b=V0s3DYoh4BnRIpDfwehNVE3p7Yuj6iy+6Qia14gpgJKS0Irp4OGMbu7chup6fIom26VlsU
-	2Ep9Srxmm7pS7/wNwedO6+H7XCrNJ84BadreYBQ+tb7IIvzRjakiV3ggRrJ9FdAsY1oaIf
-	MbDHUTxJWMtted6w5OBR/Gsv0cDnyPI=
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com
- [209.85.160.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-641-_BFiTNdXO2SZlTh8K8mlWA-1; Fri, 03 Apr 2026 09:29:29 -0400
-X-MC-Unique: _BFiTNdXO2SZlTh8K8mlWA-1
-X-Mimecast-MFC-AGG-ID: _BFiTNdXO2SZlTh8K8mlWA_1775222969
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-5093b92f327so53672551cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 06:29:29 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775222969; x=1775827769;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=D3TgrwVgeoZcZASDHDP/iFsOkmG4q/7olBpiPeQBlYk=;
-        b=ddJxzdHqUTHpMFM9rJPx8aQDB0rCaiUYG/pQlS27M/hS1NClVqXRtVWAnAZGgKPzLH
-         nvt99alBGJnuLaH3aWcec2hV+KiVhNm5gQzqZOQ9SHM9bX/BJH56Ubv5pmXC1SJJ8ZVa
-         WSHVkmibeUOr5uoJH7sU8tnQhVcFz7z1f2tsMhqc9BH5xm14HBjCaWIyn6S+UV/y/sUr
-         FVkPS/2sGVUnmtuGeIx4h1iAkzrrgmxHBfrY3mjnNczHyGv/Sn+EAEnSbWLYqBSxlJ5B
-         MCTZ3VPPS1rTVMnFZBw6trC704u0DBPjtU/PJp0m3OS1XzHUXZFcBAx/Fju6AHYinfUa
-         vDbg==
-X-Forwarded-Encrypted: i=1; AJvYcCX9ijE6bm1X4Qizbu+/HQj7c54ymvgZQwgYwmJ8tx5glJODAWC+X3PxTD+mKhSK4GbTKDUcrA8MmpIGTTl8RDLF@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAK/D4OBlOgGqnCSnQoHyxNZThmvHsLjlYDWB1nEmWfwqiXwHn
-	p/LidNRUooXTtQG1EJ6Wfxmqx6jmd6xGD9v4DT3bcjkeoeJ7HT9W3x3wHsLEpOwdtc1JQf6D0BE
-	nfT01Gy1Oa00iSMZ32hCXjM78ln0992Qu2tlfBNgE3jFuERlC/S1xgxoPhT+BueD5nqe/8saZfd
-	we
-X-Gm-Gg: ATEYQzweUKVpEXTPkVEtApKSCWoVVvK6MxZpRIt47FXqyIzWknO3RGqrbKPmCB0/sFh
-	YPHgYsxjPcEl4R9wSBx6tPZbB8fzBQ+6ssZc0uTSDoc4t/jcl3PKXakFtsJPtGamcfzfNFG5/9U
-	kPBAD7cerHL1XkFZ9qLPZLNFdvg6eiNIO67RSwEk034GYaPkg+RqtC4Z0EEyzmp5G0JWxDGJ2Sf
-	Bwmn7fv3HbXvhA6ZcLhGrFsB56L8He/u7H7TIIW4McElb2FpuXSS/I5dd/9omuxda/FOJcWg9z4
-	e+3rz11iJQ97t+qEkyiu+pDbMYAYdVGvLI/dlO+ouCG7KT2C17grZ0aT96yBqcC8w/1HTGIT8n7
-	v+DCv8f6PR7z1gdQC9ZwtgZPKHZuEa8YB/PUuZLyuvJlpFRYZr5q4UYKf
-X-Received: by 2002:ac8:7f88:0:b0:50b:37ff:727e with SMTP id d75a77b69052e-50d62a95729mr48480051cf.44.1775222968997;
-        Fri, 03 Apr 2026 06:29:28 -0700 (PDT)
-X-Received: by 2002:ac8:7f88:0:b0:50b:37ff:727e with SMTP id d75a77b69052e-50d62a95729mr48479561cf.44.1775222968488;
-        Fri, 03 Apr 2026 06:29:28 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-50d63962c30sm17886441cf.10.2026.04.03.06.29.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Apr 2026 06:29:27 -0700 (PDT)
-Date: Fri, 3 Apr 2026 09:29:26 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-clk@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	"moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,..." <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:KERNEL HARDENING (not covered by other areas):Keyword:b__counted_by(_le|_be)?b" <linux-hardening@vger.kernel.org>
-Subject: Re: [PATCH] clk: mvebu: use kzalloc_flex
-Message-ID: <ac_AtoG1j_I2m9Ja@redhat.com>
-References: <20260402002011.89926-1-rosenp@gmail.com>
+	id 1w8ekH-000000024tp-3hRb;
+	Fri, 03 Apr 2026 13:39:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
+	bh=K0i9/psgiYriNr+bQD8bwLT5N5vs6aXdpa5YckR6JD0=; b=zB38WtEwuPAveMLDaJrCfuOoeM
+	wRqvnkKiQvikUmFiOjjuJGW18YqsmRUTJOjGCR8Bj/PBRLDdzythtvYtblO8CfLuI5u/X4DhcDpO5
+	35GlxsA2qWLqF1nmLwY8916tQ9vsSU07HGQ6bQpELI1fioaDrJJoKGbg0lHBdQ4h7mFkeGx/GcC4O
+	0LMqFsjqa5DLoyQFydL/UWvzBNIhysuqa7Xth36+zF+kqXWsqhysNt+Hnw3a7ymSG0iaiA5pBgSjt
+	gzTao7wn4ODFp2yexFVbUXglMjyHJ1OGQCRCjVahE45wXKr9gTOmx7jABkdC8hv8Nt04ZuzODoyNU
+	/bKlaebA==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: arm@kernel.org
+Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>,
+ mturquette@baylibre.com
+Subject: [GIT PULL] Rockchip dts32 changes for 7.1 #2
+Date: Fri, 03 Apr 2026 15:39:31 +0200
+Message-ID: <13980380.dW097sEU6C@phil>
 MIME-Version: 1.0
-In-Reply-To: <20260402002011.89926-1-rosenp@gmail.com>
-User-Agent: Mutt/2.3.0 (2026-01-25)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: LjcNnXknOa6NrhVaQDTtzhD3MfL2Ys_nhm0OfHX1o74_1775222969
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_062935_923842_679D617B 
-X-CRM114-Status: GOOD (  21.65  )
+X-CRM114-CacheID: sfid-20260403_063933_948851_90ED8B6E 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,76 +63,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rosen,
+Hi soc maintainers,
 
-On Wed, Apr 01, 2026 at 05:20:11PM -0700, Rosen Penev wrote:
-> Use a flexible array member to combine kzalloc and kcalloc in one
-> allocation so they can be freed together.
-> 
-> Add __counted_by for extra runtime analysis. Move counting variable
-> assignment right after allocation as done by kzalloc_flex with GCC >=
-> 15.
-> 
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->  drivers/clk/mvebu/common.c | 19 ++++++++-----------
->  1 file changed, 8 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/clk/mvebu/common.c b/drivers/clk/mvebu/common.c
-> index 28f2e1b2a932..4129690fcae0 100644
-> --- a/drivers/clk/mvebu/common.c
-> +++ b/drivers/clk/mvebu/common.c
-> @@ -189,10 +189,10 @@ DEFINE_SPINLOCK(ctrl_gating_lock);
->  
->  struct clk_gating_ctrl {
->  	spinlock_t *lock;
-> -	struct clk **gates;
->  	int num_gates;
->  	void __iomem *base;
->  	u32 saved_reg;
-> +	struct clk *gates[] __counted_by(num_gates);
->  };
->  
->  static struct clk_gating_ctrl *ctrl;
-> @@ -257,24 +257,21 @@ void __init mvebu_clk_gating_setup(struct device_node *np,
->  		clk_put(clk);
->  	}
->  
-> -	ctrl = kzalloc_obj(*ctrl);
-> +	/* Count, allocate, and register clock gates */
-> +	for (n = 0; desc[n].name;)
-> +		n++;
-> +
-> +	ctrl = kzalloc_flex(*ctrl, gates, n);
->  	if (WARN_ON(!ctrl))
->  		goto ctrl_out;
->  
-> +	ctrl->num_gates = n;
-> +
->  	/* lock must already be initialized */
->  	ctrl->lock = &ctrl_gating_lock;
->  
->  	ctrl->base = base;
->  
-> -	/* Count, allocate, and register clock gates */
-> -	for (n = 0; desc[n].name;)
-> -		n++;
-> -
-> -	ctrl->num_gates = n;
-> -	ctrl->gates = kzalloc_objs(*ctrl->gates, ctrl->num_gates);
-> -	if (WARN_ON(!ctrl->gates))
-> -		goto gates_out;
+please find below a new ARM32 Rockchip SoC for 7.1 . This goes on top
+of the generic arm32 changes I just sent.
 
-The gates_out label and kfree() needs to be removed.
 
-Brian
+I've split this off from the other ARM32 changes, because this contains
+a shared clock header, shared between the devicetree side and the clock-
+driver side.
 
-> -
->  	for (n = 0; n < ctrl->num_gates; n++) {
->  		const char *parent =
->  			(desc[n].parent) ? desc[n].parent : default_parent;
-> -- 
-> 2.53.0
-> 
+The clock pull-request is sent [0], but not merged yet - probably after
+easter I guess.
+
+And while in the past this has always come together in time for the
+merge-window, I wasn't sure if in the soc multi-maintainer context the
+handling changes. So depending on your preference this could also wait
+until after the clock-subsystem-side got merged.
+
+
+Please pull.
+Thanks
+Heiko
+
+
+[0] https://lore.kernel.org/all/3746710.R56niFO833@phil/
+
+
+The following changes since commit 94c8dc1fa8e1ad4037084204152bca1e799d7d1c:
+
+  ARM: dts: rockchip: Pass linux,code to the power key on rk3288-veyron-pinky (2026-03-24 17:06:35 +0100)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v7.1-rockchip-dts32-2
+
+for you to fetch changes up to 683192d7d5b47e89d920867f7c6997d2c0d1a0ad:
+
+  ARM: dts: rockchip: Add Onion Omega4 Evaluation Board (2026-03-24 17:40:11 +0100)
+
+----------------------------------------------------------------
+Support for the RV1103B SoC and the Onion Omega4 board using it.
+While the RV1103B only got a B-extension to its name, the SoC internals
+were reworked heavily. So likely it's mainly pin compatible to the
+non-B variant.
+
+The dt-binding for the RV1103B clock driver is shared with the clock-
+driver branch going into the clock-tree.
+
+----------------------------------------------------------------
+Fabio Estevam (5):
+      dt-bindings: clock: rockchip: Add RV1103B CRU support
+      dt-bindings: soc: rockchip: grf: Add RV1103B compatibles
+      ARM: dts: rockchip: Add support for RV1103B
+      dt-bindings: arm: rockchip: Add Omega4 Evaluation board
+      ARM: dts: rockchip: Add Onion Omega4 Evaluation Board
+
+Heiko Stuebner (1):
+      Merge branch 'v7.1-shared/clkids' into v7.1-armsoc/dts32
+
+ .../devicetree/bindings/arm/rockchip.yaml          |   6 +
+ .../bindings/clock/rockchip,rv1126b-cru.yaml       |   1 +
+ .../devicetree/bindings/soc/rockchip/grf.yaml      |   3 +
+ arch/arm/boot/dts/rockchip/Makefile                |   1 +
+ arch/arm/boot/dts/rockchip/rv1103b-omega4-evb.dts  |  63 ++
+ arch/arm/boot/dts/rockchip/rv1103b-omega4.dtsi     | 147 ++++
+ arch/arm/boot/dts/rockchip/rv1103b-pinctrl.dtsi    | 816 +++++++++++++++++++++
+ arch/arm/boot/dts/rockchip/rv1103b.dtsi            | 239 ++++++
+ include/dt-bindings/clock/rockchip,rv1103b-cru.h   | 220 ++++++
+ 9 files changed, 1496 insertions(+)
+ create mode 100644 arch/arm/boot/dts/rockchip/rv1103b-omega4-evb.dts
+ create mode 100644 arch/arm/boot/dts/rockchip/rv1103b-omega4.dtsi
+ create mode 100644 arch/arm/boot/dts/rockchip/rv1103b-pinctrl.dtsi
+ create mode 100644 arch/arm/boot/dts/rockchip/rv1103b.dtsi
+ create mode 100644 include/dt-bindings/clock/rockchip,rv1103b-cru.h
+
+
 
 
