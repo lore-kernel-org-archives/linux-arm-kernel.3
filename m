@@ -4,59 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB9E1E7E378
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 11:37:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF336E7E379
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 11:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BQb1rPnTvoMn5siSRqNgBY6tc+dxHHuY1IfGWGD4G0c=; b=ed++Rx6+b6glCIDDMHO1kIALgu
-	0CU2KsW/6mdxD71NOX1uI5QvBeGvESAVcZgyqJBtEaZ9nyCfgvXi/k/ic7ZtEj4kZ+IbdNRZjouGh
-	V+rl0d9s6YHQO8u2CdOsJPZgrOg9zN0eQw2GrQ4P6FwL78Ws1SUvAxRf+WeByWY2C8sRCDR7fYigb
-	VYAAQzVUOfURtQ6AYqsVqFkbiebWjmZHSdlB5NN7Q8Fue/GbaTWmEtTqGTb7wJTNVN9A7Lu3zS9cV
-	/8kVm6M4R2AcbJx00Rg6YX8JLadgITIz21/cVx1H5Y3kPmc2X/a0NU+Jq/cczC7FazFS6BPZQy/G7
-	bbJNJOsQ==;
+	bh=GYmj+RmI59lUc3oRYL28miTebRrqVEFBlcRGuFWLEpM=; b=dpAH+0fGtgOokJZ3PM+rzjMvmT
+	Iysw/yDIdOglNkbIcHq6pBjbYkf8AXqDaGUhi/A6bGVTbRrQFdEYshlYHW1ZqIieO5W4dMVwUJIXZ
+	j07WV6irIBcSI9TaKkEYip5AAS1JKEojnbVztpe3ZaQHpFobMpK7BO/ZH+yqXLJU+hoqdiekWPb0C
+	zZNUz33g4mUu2HYEqfk7K5682JiYv+XBWkmwZL/F3hkPJ9Fa+0gcLeuLHltNJn7ve6QiR4X714EFK
+	2MikbKuAwOLZ2n+b0lFjmT2G/3rm+DBmkCrM8PCG2HVrwiEZXFySVJgItGt1NRqgMcFz08T4/PVUC
+	ecI5Nc9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8cq1-00000001y2f-1LYl;
-	Fri, 03 Apr 2026 11:37:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8cpx-00000001y0n-3BhU
+	id 1w8cvt-00000001yac-1sUW;
+	Fri, 03 Apr 2026 11:43:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8cvq-00000001yaD-431v
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 11:37:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B3BE351B;
-	Fri,  3 Apr 2026 04:37:10 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B9DF3F641;
-	Fri,  3 Apr 2026 04:37:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775216235; bh=v+Q7pZKq6lYeuy+fosZKjc3aYlgbV5fzx5+MxAH6R84=;
+	Fri, 03 Apr 2026 11:43:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BD013400E2;
+	Fri,  3 Apr 2026 11:43:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58017C4CEF7;
+	Fri,  3 Apr 2026 11:43:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775216601;
+	bh=nHOAlStK0yrlXQs+u/fb9lpL6PjE3lfkGJ95j8Xl3nA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GHoX3Dlj4K9QzbEsMUdodsAf5PGbxboE6BFRxb8iQwKuwa2NHLVTD8MoqipGLZ56K
-	 oP5xraWseJ2TDBnk25ZsN+JjfqNRYOvhicd1woxOScDk32oNNSHbaVEPZNnxmmp/kw
-	 My0syJ621qD3PGJmWIYd3+UxLa2pn5sp9rMjtOtw=
-Date: Fri, 3 Apr 2026 12:37:12 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v4 4/4] arm64: errata: Work around early CME DVMSync
- acknowledgement
-Message-ID: <ac-maGr18CPKvh0X@arm.com>
-References: <20260402101246.3870036-1-catalin.marinas@arm.com>
- <20260402101246.3870036-5-catalin.marinas@arm.com>
+	b=YyuHvdfDDlqPoMZDZjxvIJhSoBDAhKwdbUD2svKr3+MfA4KxH3cvX8Giw1t5EGV0G
+	 vxlttlQtZ89rshVo8UyvmLsaJ697M9N6CuB/lXxnMnklVpbWJu2Q/pPR6gOrF8rRFl
+	 wfL49F/yY83JguOMukBYajhn359hvV3MzdCXL5K5Dl+8bwaLhNE52aWvOeYeu6wpVq
+	 32oAI5PYc7jyAuFhGFqiLq6fWA+LzDrz8gO9bUY+gf3DlsJDLXF8InlezI7kIk5z0p
+	 vSsVU9I2cEE8+S1u9+NuL3EyNRhKsi/+DgjieCIRrzJweaKLChSV0WOTY3V9tbGzCy
+	 b44b3DqiMX4yA==
+Date: Fri, 3 Apr 2026 12:43:10 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+Cc: Frank Li <Frank.li@nxp.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:CLOCKSOURCE, CLOCKEVENT DRIVERS" <linux-kernel@vger.kernel.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	Stephen Rothwell <sfr@canb.auug.org.au>
+Subject: Re: [PATCH 1/1] dt-bindings: timer: fsl,imxgpt: add compatible
+ string fsl,imx25-epit
+Message-ID: <3ba9e33e-8d58-469c-9c21-5861c0f6c5eb@sirena.org.uk>
+References: <20260211214947.3705328-1-Frank.Li@nxp.com>
+ <aaiIdS0zRPBY81aE@mai.linaro.org>
+ <ac9ztfwZMrZZgTeP@lizhi-Precision-Tower-5810>
+ <77a77b79-a489-41a8-98c0-00242cbdf24f@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="u8+SQnjbHNPxZuSK"
 Content-Disposition: inline
-In-Reply-To: <20260402101246.3870036-5-catalin.marinas@arm.com>
+In-Reply-To: <77a77b79-a489-41a8-98c0-00242cbdf24f@oss.qualcomm.com>
+X-Cookie: The Korean War must have been fun.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_043717_968390_71BE45C9 
-X-CRM114-Status: GOOD (  25.71  )
+X-CRM114-CacheID: sfid-20260403_044323_024936_FF571C93 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,167 +87,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some sashiko.dev feedback below:
 
-On Thu, Apr 02, 2026 at 11:12:44AM +0100, Catalin Marinas wrote:
-> +static inline void sme_dvmsync_add_pending(struct arch_tlbflush_unmap_batch *batch,
-> +					   struct mm_struct *mm)
-> +{
-> +	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
-> +		return;
-> +
-> +	/*
-> +	 * Order the mm_cpumask() read after the hardware DVMSync.
-> +	 */
-> +	dsb(ish);
-> +	if (cpumask_empty(mm_cpumask(mm)))
-> +		return;
+--u8+SQnjbHNPxZuSK
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Mentioned in the cover letter already but sashiko highlighted it as
-well: the dsb here adds a possible overhead. I did not notice any
-difference in some hand/AI-crafted benchmarks using
-madvise(MADV_PAGEOUT). In practice, this erratum affects systems with a
-small number of CPUs, so the eager DVMSync won't matter.
+On Fri, Apr 03, 2026 at 10:15:49AM +0200, Daniel Lezcano wrote:
+> On 4/3/26 10:00, Frank Li wrote:
 
-> +void sme_enable_dvmsync(void)
-> +{
-> +	/*
-> +	 * stop_machine() will invoke this function concurrently on all
-> +	 * affected CPUs. Serialise the initialisation.
-> +	 */
-> +	raw_spin_lock(&sme_dvmsync_init_lock);
-> +	if (!cpumask_available(sme_dvmsync_cpus) &&
-> +	    !zalloc_cpumask_var(&sme_dvmsync_cpus, GFP_ATOMIC))
-> +		panic("Unable to allocate cpumasks for the SME DVMSync erratum");
-> +	raw_spin_unlock(&sme_dvmsync_init_lock);
-> +
-> +	cpumask_set_cpu(smp_processor_id(), sme_dvmsync_cpus);
-> +}
+> > Can't find it at linux-next master branch, anything wrong!
 
-I don't think sashiko is correct here. It said that zalloc_cpumask_var()
-may sleep on PREEMPT_RT kernels but I thought passing GFP_ATOMIC should
-be sufficient.
+> The patch is in timer/next but may be linux-next disabled my branch
 
-> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-> index 489554931231..88426d8ae11c 100644
-> --- a/arch/arm64/kernel/process.c
-> +++ b/arch/arm64/kernel/process.c
-> @@ -26,6 +26,7 @@
->  #include <linux/reboot.h>
->  #include <linux/interrupt.h>
->  #include <linux/init.h>
-> +#include <linux/cpumask.h>
->  #include <linux/cpu.h>
->  #include <linux/elfcore.h>
->  #include <linux/pm.h>
-> @@ -339,8 +340,41 @@ void flush_thread(void)
->  	flush_gcs();
->  }
->  
-> +#ifdef CONFIG_ARM64_ERRATUM_4193714
-> +
-> +static int arch_dup_tlbbatch_mask(struct task_struct *dst)
-> +{
-> +	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
-> +		return 0;
-> +
-> +	if (!zalloc_cpumask_var(&dst->tlb_ubc.arch.cpumask, GFP_KERNEL))
-> +		return -ENOMEM;
-> +
-> +	return 0;
-> +}
-> +
-> +static void arch_release_tlbbatch_mask(struct task_struct *tsk)
-> +{
-> +	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
-> +		free_cpumask_var(tsk->tlb_ubc.arch.cpumask);
-> +}
-> +
-> +#else
-> +
-> +static int arch_dup_tlbbatch_mask(struct task_struct *dst)
-> +{
-> +	return 0;
-> +}
-> +
-> +static void arch_release_tlbbatch_mask(struct task_struct *tsk)
-> +{
-> +}
-> +
-> +#endif /* CONFIG_ARM64_ERRATUM_4193714 */
-> +
->  void arch_release_task_struct(struct task_struct *tsk)
->  {
-> +	arch_release_tlbbatch_mask(tsk);
->  	fpsimd_release_task(tsk);
->  }
->  
-> @@ -356,6 +390,9 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
->  
->  	*dst = *src;
->  
-> +	if (arch_dup_tlbbatch_mask(dst))
-> +		return -ENOMEM;
+I have a timers/drivers/next branch in your git tree in -next but
+no record of anything else.  That branch was last updated on January
+20th.  If you want something else adding let me know.
 
-This may indeed leak if the caller of arch_dup_task_struct() fails.
-dup_task_struct() calls free_task_struct() on failure but not the
-arch_release_task_struct().
+--u8+SQnjbHNPxZuSK
+Content-Type: application/pgp-signature; name="signature.asc"
 
-The simplest fix is to just allocate the tlbbatch mask lazily via
-arch_tlbbatch_add_pending(). The downside is that we need a GFP_ATOMIC
-in there but that's only theoretical, such systems are built with
-CPUMASK_OFFSTACK=n already and no allocation necessary anyway. The diff
-on top would be:
+-----BEGIN PGP SIGNATURE-----
 
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 88426d8ae11c..88904e47c7d9 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -342,15 +342,14 @@ void flush_thread(void)
- 
- #ifdef CONFIG_ARM64_ERRATUM_4193714
- 
--static int arch_dup_tlbbatch_mask(struct task_struct *dst)
-+static void arch_dup_tlbbatch_mask(struct task_struct *dst)
- {
--	if (!alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
--		return 0;
--
--	if (!zalloc_cpumask_var(&dst->tlb_ubc.arch.cpumask, GFP_KERNEL))
--		return -ENOMEM;
--
--	return 0;
-+	/*
-+	 * Clear any inherited batch state. The cpumask is allocated lazily if
-+	 * CPUMASK_OFFSTACK=y.
-+	 */
-+	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
-+		memset(&dst->tlb_ubc.arch, 0, sizeof(dst->tlb_ubc.arch));
- }
- 
- static void arch_release_tlbbatch_mask(struct task_struct *tsk)
-@@ -361,9 +360,8 @@ static void arch_release_tlbbatch_mask(struct task_struct *tsk)
- 
- #else
- 
--static int arch_dup_tlbbatch_mask(struct task_struct *dst)
-+static void arch_dup_tlbbatch_mask(struct task_struct *dst)
- {
--	return 0;
- }
- 
- static void arch_release_tlbbatch_mask(struct task_struct *tsk)
-@@ -390,8 +388,7 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
- 
- 	*dst = *src;
- 
--	if (arch_dup_tlbbatch_mask(dst))
--		return -ENOMEM;
-+	arch_dup_tlbbatch_mask(dst);
- 
- 	/*
- 	 * Drop stale reference to src's sve_state and convert dst to
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmnPp84ACgkQJNaLcl1U
+h9DozQf/YNeuimr/qBF1dSRHOHAPPCJDwyu6/YY4S+uJp5MPGgO8XaXHsKHMtfkz
+gOyIxskBRJM8hZf3XmZozh2FqhOqw0Kndi2zXvpunr7EQsTnKuQUaVbHW9dznM7f
+GXElrI3MMi5flsW5bj9qvg882psBbU9bN8a5tj9PpKZvqhYrQCyBzZcUXn+sCpEY
+iYiLu0GaKh5NeQ6V9Acq9C1Np5twKfNpAjX6brcoCmcF3RhqCrAQ8RtvtbI5BiwY
+0Ay1VIG/KY5dJCJh8IESqwwDG92/XyV4oxxFMSRQtM+9wabl0cXl4ytmSQCH6f19
+2qYyqWp8185FXBG91h1oPmi24oTtXg==
+=Cmi/
+-----END PGP SIGNATURE-----
 
--- 
-Catalin
+--u8+SQnjbHNPxZuSK--
 
