@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7320ECC6B1D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 02:06:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBC8ED6AAFA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 02:06:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=va8tZAzcik9ibYN5dhcgHo1/7Og0KTYznIgjG96zuQE=; b=wPtnat+3C6ZQ+cpBxHLa88JVM3
-	PXcpqZuTwjLidgInnkbhH4YQ4PxQQ5DagIJ9365757a4jGm/u7lN53ww6Goz47QI99iZ0nASK2bsO
-	Ijn2Rpqj8movEMS1WmuPt61fqGDdpRtBjhiwq2xLsKFQzKrS9WbWegDgeC0yz/IdtOzq2VNyhKihn
-	z/+QpmQuYAh74zZe0ZYk2mAHSzZphjnOuelHDwQm1G5nZNj/M85r+eFJ6ymwWBjt6BwxmRdA81w+2
-	TU2vFrusPExdZT9ACQyUWMyX0zo4+qNiqlhDIu//3Db3JC5pplWJmi/yIymFq1C2NuwDqJaDA/cil
-	d8aeYldg==;
+	bh=JuU4KWiApf0ZUp6VJ9psnuq1pPNAcv7FH3S1uYvgc+M=; b=yQQ6fg0DNHK2Gd2hViWsCOitMN
+	3cJk66hy50byQ9UdE15VggK7tO9efqVC5FHc6I17SF379hDE264E7NjnFHmIyy4blfs1EoMZ6PXM7
+	pKYCpH027aY4xD1cwoM9ALX2Tbk/KpdvXAgzaI35w/v2EP6Df87fbCDGIKqFaRPrdbBq5Sw3F9y2S
+	egsnIpPk8wHj69KLU0L5lj8AnoSH9cG7u1m3KurWtzOliEaPzqL3O7ua5kDHb9InIISZqLh6fWeqT
+	Tr8w5+p+V1mKkq3YBqxFeW9/SKQ4kZGyr9+10wZYxwczMCaxe45s51TnPcGoMV1F6qcCuWteQHY5k
+	wrEpanjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Tus-000000015CR-1fOZ;
-	Fri, 03 Apr 2026 02:05:46 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1w8Tve-000000015LP-2AHr;
+	Fri, 03 Apr 2026 02:06:34 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Tup-000000015BX-1KIC;
-	Fri, 03 Apr 2026 02:05:44 +0000
-Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6330P58C3150600;
-	Fri, 3 Apr 2026 02:05:40 GMT
+	id 1w8Tvb-000000015Ke-3ZIH;
+	Fri, 03 Apr 2026 02:06:33 +0000
+Received: from pps.filterd (m0333520.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6330GC2Z1380163;
+	Fri, 3 Apr 2026 02:05:43 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=
-	corp-2025-04-25; bh=va8tZAzcik9ibYN5dhcgHo1/7Og0KTYznIgjG96zuQE=; b=
-	cG44+wdKf6Tsvz0CAm7MuabTvueoPrpy1HHvc/ZKaE8kiPo23/Adrj05ikf7xlvO
-	BWgibIrWmphiREqrrWVL7zNnweIFafwIsLdqQzsq/DcQ6/4d6IZYVI3+a0h79Ejm
-	vbJtOOS0Gm76gQDYw+eKCapRF+amu60ueEp66+ZiIN3g48+fNqqx31Rq9Ruk/rPm
-	sPtgVUk3bpqj/RDEMB7s4m7Q1Z9JtNt5uJRNnkDbRdotbBySjwlnNJ2gxEAvLSpo
-	iUPZ+4Lu7O0FDRV1PfFtTYHkpl3cYRpsllpwYl1TCwif6O7JPSnzzqBwLclIL1KD
-	Ty4zObYB9q1v5UpD6yz2iw==
+	corp-2025-04-25; bh=JuU4KWiApf0ZUp6VJ9psnuq1pPNAcv7FH3S1uYvgc+M=; b=
+	Qt+9uZ1u/LHo+bGtDpN2v9Zed05JNtsSBBB4ocolh0+Hcx/687h8RJkoVDR6XWwX
+	7PxIeDQwZcCajaStb2ljMKnHhg2T2UZEHisLgsTB8kzx892bx2hjTBVbofEQt2Qh
+	GHjPKwtJW12eCl5IeGwfr4vrGzUX2lMrTSJq6JQyfXs5IR+Z6RHl+/O8gSlfQKOU
+	sk/KVypXcEKQOewPSELXyvRXdw1SozqpbtAwhE6mi+uesCIBoF19iZneL/UJpmC1
+	q3f9mqKyJscv4fKScHnsKiXNxHYRAksDgxgI29yEO7OLaPbm6Xa4KXYBO/OZwv9A
+	rIUmFix3T6ug3/SHFFoaaA==
 Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4d66v5se65-1
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4d671b1gvq-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 03 Apr 2026 02:05:40 +0000 (GMT)
+	Fri, 03 Apr 2026 02:05:42 +0000 (GMT)
 Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 6331A5Lk028960;
-	Fri, 3 Apr 2026 02:05:39 GMT
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 6331Kig9028961;
+	Fri, 3 Apr 2026 02:05:42 GMT
 Received: from pps.reinject (localhost [127.0.0.1])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 4d65eddp3b-1
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 4d65eddp4r-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 03 Apr 2026 02:05:39 +0000
+	Fri, 03 Apr 2026 02:05:41 +0000
 Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 63325cqX017364;
-	Fri, 3 Apr 2026 02:05:38 GMT
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 63325cqb017364;
+	Fri, 3 Apr 2026 02:05:41 GMT
 Received: from ca-mkp2.ca.oracle.com.com (mpeterse-ol9.allregionaliads.osdevelopmeniad.oraclevcn.com [100.100.251.135])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTP id 4d65eddp33-1;
-	Fri, 03 Apr 2026 02:05:38 +0000
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTP id 4d65eddp33-3;
+	Fri, 03 Apr 2026 02:05:41 +0000
 From: "Martin K. Petersen" <martin.petersen@oracle.com>
-To: Shawn Lin <shawn.lin@rock-chips.com>, linux-scsi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: avri.altman@wdc.com, bvanassche@acm.org, beanhuo@micron.com,
+        peter.wang@mediatek.com, mani@kernel.org,
+        Can Guo <can.guo@oss.qualcomm.com>
 Cc: "Martin K . Petersen" <martin.petersen@oracle.com>,
-        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-        Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [PATCH v1 1/1] scsi: ufs: rockchip: Drop unused include
-Date: Thu,  2 Apr 2026 22:05:24 -0400
-Message-ID: <177517593422.3522679.1544975066978972395.b4-ty@oracle.com>
+        linux-scsi@vger.kernel.org, Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v5 00/12] scsi: ufs: Add TX Equalization support for UFS 5.0
+Date: Thu,  2 Apr 2026 22:05:26 -0400
+Message-ID: <177517593459.3522679.17128283878850153356.b4-ty@oracle.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260320215606.3236516-1-andriy.shevchenko@linux.intel.com>
-References: <20260320215606.3236516-1-andriy.shevchenko@linux.intel.com>
+In-Reply-To: <20260325152154.1604082-1-can.guo@oss.qualcomm.com>
+References: <20260325152154.1604082-1-can.guo@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -77,28 +78,27 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-02_04,2026-04-02_05,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxscore=0 bulkscore=0 spamscore=0
- malwarescore=0 mlxlogscore=624 phishscore=0 suspectscore=0 adultscore=0
+ malwarescore=0 mlxlogscore=999 phishscore=0 suspectscore=0 adultscore=0
  classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2603050001
  definitions=main-2604030017
-X-Proofpoint-GUID: jMrp97DojdWvgtypZ3hTaCcxL8mvjgnP
-X-Authority-Analysis: v=2.4 cv=G7cR0tk5 c=1 sm=1 tr=0 ts=69cf2074 b=1 cx=c_pps
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAzMDAxNyBTYWx0ZWRfX1LBiQhOsYASj
+ d3H2snTfATbPOEWZg2HG1tt7/4T05EXo6LV9feS5OwUWTg9/TPUFuBZwMOd4Mo2K0RiRPDDxkqP
+ 8CVDlhXM4D4w+Cenl0eGd7Fly88H4BubUJyn/NL2+LCyPi9qgNO6Z5QylQcfp//xeCvqvmGTFuC
+ 4ed74nuW9ruFeUQoEZ1C696AmvDcf9Wcj7a2feizDRouxswMEU4mKU9MMqyhAAHcrZKsvd9d0zP
+ zDOEC0kknYdUFcuxqVHXejyJ0FM7Blp79ONYlwPS33o/B/8yyC6Tym11GoS7uwXfBImVWwZiR3K
+ eee13D0Ypm0e7zVrvudZuoOepSxSLGYcgJDwMwSa4FAmJLb3qumlAXYF/MiVQ4D1wuwEyvz2Uoa
+ ozEiIqkLDlrmXKZ2FFo0FiULZWxafzSvHrWhrAWAJIHXoraP9TqfqkRU5hudSrcB83FYZepIWSw
+ fQldEsdhH7i8u7HnPZw==
+X-Authority-Analysis: v=2.4 cv=PJkCOPqC c=1 sm=1 tr=0 ts=69cf2076 b=1 cx=c_pps
  a=WeWmnZmh0fydH62SvGsd2A==:117 a=WeWmnZmh0fydH62SvGsd2A==:17
  a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=jiCTI4zE5U7BLdzWsZGv:22 a=EIcjfB9IiI4px24ztqRk:22 a=VwQbUJbxAAAA:8
- a=kJSQstGPYqi19cbqO5EA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: jMrp97DojdWvgtypZ3hTaCcxL8mvjgnP
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAzMDAxNyBTYWx0ZWRfXz6/IPjs5Ksft
- sSMZS7rSwfShxry1hbwSuS85VcpGz4EIl5J86V0o5m6H4LIFZPl9CmPNlFpz8W/VSIvFlazZOLR
- +V7bmKsBhgEAccXO/n61oIvZJ1Ktvrv/kQonJhbQaE7nni/5ZGpWpu3aUW7hnRO12QTiCEcUBoz
- mr0ikJethsbC3wPqrx+LV6e+RMbrl1Yp0ny2W597zfZnRzAWsaXW+RIj+H1ELsbeRf2oxoXXGK9
- OFij43Xc0i7JUNsbhU5wzAZUBchXzJIPr1dzbtffK6jnIwDE3TGZu/mrKgcIqk8h1jEZzHsT4qz
- i/vn/sdvMEd94CByE59icH9rApmIIYA/aBY+4AUWNZCSRTVqS2dnVr3ZTVPg35SUU5p+fnH3Df0
- 146YNgToR9XRIAcVx8Vu0GiCpTYViqLWpQHjYchK0Qsom4F7Ujckq8kItgbl6nxfUbXEh6xbbx9
- 5SIuXISiMP9YV4UcEEA==
+ a=jiCTI4zE5U7BLdzWsZGv:22 a=BqU2WV_vvsyTyxaotp0D:22 a=VwQbUJbxAAAA:8
+ a=EuvOurwuZNnj9x5cPKIA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: J3hC8jPB2XAMZ05DyGFme7bAbVHCETjW
+X-Proofpoint-ORIG-GUID: J3hC8jPB2XAMZ05DyGFme7bAbVHCETjW
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_190543_362835_14E06DB7 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260402_190632_007131_F53256F3 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,17 +113,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 20 Mar 2026 22:56:06 +0100, Andy Shevchenko wrote:
+On Wed, 25 Mar 2026 08:21:42 -0700, Can Guo wrote:
 
-> This driver includes the legacy header <linux/gpio.h> but does
-> not use any symbols from it. Drop the inclusion.
+> The UFS v5.0 and UFSHCI v5.0 standards have published, introducing support
+> for HS-G6 (46.6 Gbps per lane) through the new UniPro V3.0 interconnect
+> layer and M-PHY V6.0 physical layer specifications. To achieve reliable
+> operation at these higher speeds, UniPro V3.0 introduces TX Equalization
+> and Pre-Coding mechanisms that are essential for signal integrity.
 > 
+> This patch series implements TX Equalization support in the UFS core
+> driver as specified in UFSHCI v5.0, along with the necessary vendor
+> operations and a reference implementation for Qualcomm UFS host
+> controllers.
 > 
+> [...]
 
 Applied to 7.1/scsi-queue, thanks!
 
-[1/1] scsi: ufs: rockchip: Drop unused include
-      https://git.kernel.org/mkp/scsi/c/8ad1ddc50d15
+[01/12] scsi: ufs: core: Introduce a new ufshcd vops negotiate_pwr_mode()
+        https://git.kernel.org/mkp/scsi/c/d3eba21c7170
+[02/12] scsi: ufs: core: Pass force_pmc to ufshcd_config_pwr_mode() as a parameter
+        https://git.kernel.org/mkp/scsi/c/c91c83671642
+[03/12] scsi: ufs: core: Add UFS_HS_G6 and UFS_HS_GEAR_MAX to enum ufs_hs_gear_tag
+        https://git.kernel.org/mkp/scsi/c/6669ab18c223
+[04/12] scsi: ufs: core: Add support for TX Equalization
+        https://git.kernel.org/mkp/scsi/c/03e5d38e2f98
+[05/12] scsi: ufs: core: Add debugfs entries for TX Equalization params
+        https://git.kernel.org/mkp/scsi/c/10c40143f369
+[06/12] scsi: ufs: core: Add helpers to pause and resume command processing
+        https://git.kernel.org/mkp/scsi/c/dc5dcac53278
+[07/12] scsi: ufs: core: Add support to retrain TX Equalization via debugfs
+        https://git.kernel.org/mkp/scsi/c/adbabdcf0db0
+[08/12] scsi: ufs: ufs-qcom: Fixup PAM-4 TX L0_L1_L2_L3 adaptation pattern length
+        https://git.kernel.org/mkp/scsi/c/53c94067efa2
+[09/12] scsi: ufs: ufs-qcom: Implement vops tx_eqtr_notify()
+        https://git.kernel.org/mkp/scsi/c/385b95893e79
+[10/12] scsi: ufs: ufs-qcom: Implement vops get_rx_fom()
+        https://git.kernel.org/mkp/scsi/c/26605db7604d
+[11/12] scsi: ufs: ufs-qcom: Implement vops apply_tx_eqtr_settings()
+        https://git.kernel.org/mkp/scsi/c/16cbdc830877
+[12/12] scsi: ufs: ufs-qcom: Enable TX Equalization
+        https://git.kernel.org/mkp/scsi/c/57b7943fd87f
 
 -- 
 Martin K. Petersen
