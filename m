@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54031CC6B3F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB56CC6B1D
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 01:12:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DdZSBkChagkMLrFVJfEUdvTm5kwlp1UMN+1LxXIrfqU=; b=ZloYvnH7gCsJvViqc7erpE6nKO
-	MY4oD/Gv8+YkFy3pZ2HQU1g9G9tQlvyD33a4D281RdNBvsNPiV9zf56C4vvlDebpZxfEukgAGelai
-	Zv5zEPT5GRcF1FLG06zX1+gQ9XemWtzaHj23Vv8AYFwn67usXDZr5W+i0UUshz2R/VSwBzGaw+E6o
-	7GDNywHIx3MrOaM3YK6L+/Uz7tksxSWxAr4bAscX2/RLd63W9ZYVhACGff56uMu4PLjVqkw+zLjwT
-	ShputXBhCJTwPwHe1L3z6Z9gK27elO4g41vIEFKqIrfH4c5030Fg89d6ZBDSQnidAfM9LrrIopGzi
-	Y99+JlVg==;
+	bh=HXK+EYLtc5lIZRh1TcUZZxAPrhwOg9uhHu8DEfjyPdA=; b=a5ETQXOdBXKl6DoahtiaAI9Cat
+	SPhHkyBXXyMmeW5tomZldxCv5Ysi50jmWG+HgBeBrYP60ddov4BoQp2e+53wcyO2QH0/7tkKjF2x/
+	vUM4gzWvyyEMolVogrkVjHfZ7iPCyM+TFjovp7/XDn/oScv8+s/xXfzqpiAal8LDiqpIqmhTJWtp+
+	a4dfsqTc9/jBdkDVWmZ2tH+lOKYE/+pUPHaxtdF/pgb0xZUv3hOhjx75mSKUP/X1SbMXNEZfezAkv
+	PIX2uW1DH5DT4bSvihXvkYHBfUYYJjI5NINLy2xX4uQXFe0QFxx9U/R7G/eOxzUi9Q3hmvMU2BUKO
+	xBdqRBOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8T5M-000000011KP-13Pf;
-	Fri, 03 Apr 2026 01:12:32 +0000
+	id 1w8T5L-000000011Jq-2iw5;
+	Fri, 03 Apr 2026 01:12:31 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8T5L-000000011Jp-344S;
-	Fri, 03 Apr 2026 01:12:31 +0000
+	id 1w8T5K-000000011Jg-09Nf;
+	Fri, 03 Apr 2026 01:12:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3047E60123;
-	Fri,  3 Apr 2026 01:12:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D219C2BCAF;
-	Fri,  3 Apr 2026 01:12:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2FF5860008;
+	Fri,  3 Apr 2026 01:12:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47078C116C6;
+	Fri,  3 Apr 2026 01:12:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775178750;
-	bh=WF2Jj7sBQE7zHSj1Hk6o9abcLIimmZM7K0/w+ZvzQ+E=;
+	s=k20201202; t=1775178748;
+	bh=tgVI8ESKBIFQCUY2ygL+jTE2pS6yd4+CeEVqpP8vaCo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Ysl8pbGKFB352iWEa5Z7utJUlFB5z1m+IJ8S6sltC47g5/nZGaOITOE+7r+C22mvw
-	 3MGOk9U8IWwoBSg6T/bxHv0i6Oz4Pq6FOnKg2M7lg0oewE8hdM7ghY0kv+Uh98sbUb
-	 V5dhuAKMgFe3GeiJHQV1fUKBFjdGi87IKqHEgZUuHFDVCq1GQnDMcWSFQW6QttIPHp
-	 CYQQFS8gd64744F97B8MOMW7e0Fa+AmdCj8gppoW7E3ZNNf5+RmjAPRYlR6KnvskDj
-	 w+ZW+pA10h3C/P1jzAX7RJPLlgIiTmmZ9FXuvZCRH67bw5CJoXBfFaemHQC0qoW6UU
-	 d4dTwyiS4PTgg==
+	b=EaDajJnGxhQ4kknRlCCMgeRdDdq0D7TlMeA2iX8kgkAHlFGApqHHu+Dsx2FspoDK+
+	 ibZnS8scvcaS4lrBtKFhQZ31Ga66SP2W83uYilpFkWQBSBhdsdU2B4fT8ej21N109c
+	 QeueZ6UCRNzA4scfsdplZlLsOC9X2n4KN5LlaPmgRIdZgyn1JyOay7khaYkxasee6P
+	 lbIKeLxzyKvLyloqyVppv5SuSJijvKh4HVknoPugbLfnswTPDj0R3dsZYcf98uxvdY
+	 jCAbu5VEu/hoFZF7i7y2NE77+QQ2TM1em3yglIqeIAQbmPsu6NpGditOY6sSp78GIh
+	 TxCS7T4iYAMQA==
 From: Jakub Kicinski <kuba@kernel.org>
 To: lorenzo@kernel.org
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -57,12 +57,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	linux-mediatek@lists.infradead.org,
 	netdev@vger.kernel.org,
 	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v2 10/11] net: airoha: Do not stop GDM port if it is shared
-Date: Thu,  2 Apr 2026 18:12:29 -0700
-Message-ID: <20260403011229.1785808-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v2 09/11] net: airoha: Support multiple net_devices for a single FE GDM port
+Date: Thu,  2 Apr 2026 18:12:08 -0700
+Message-ID: <20260403011208.1784815-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260401-airoha-eth-multi-serdes-v2-10-ac427ae4beeb@kernel.org>
-References: <20260401-airoha-eth-multi-serdes-v2-10-ac427ae4beeb@kernel.org>
+In-Reply-To: <20260401-airoha-eth-multi-serdes-v2-9-ac427ae4beeb@kernel.org>
+References: <20260401-airoha-eth-multi-serdes-v2-9-ac427ae4beeb@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -82,73 +82,194 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-net: airoha: Do not stop GDM port if it is shared
+Subject: net: airoha: Support multiple net_devices for a single FE GDM port
 
-This patch introduces a port->users reference counter to prevent setting
-the GDM port forward configuration to FE_PSE_PORT_DROP if another net_device
-is still using the shared GDM port.
+This commit introduces support for multiple net_devices connected to the
+same Frame Engine (FE) GDM port via an external hardware arbiter. It
+adds logic to parse device tree child nodes and instantiate separate
+net_devices for TDM traffic from external SerDes.
 
 > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-> index 0780fb8aacfb..3f9bce8c5370 100644
+> index 5e489e8593ba..0780fb8aacfb 100644
 > --- a/drivers/net/ethernet/airoha/airoha_eth.c
 > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
 [ ... ]
-> @@ -1681,9 +1682,6 @@ static int airoha_dev_stop(struct net_device *netdev)
->  	for (i = 0; i < ARRAY_SIZE(qdma->q_tx); i++)
->  		netdev_tx_reset_subqueue(netdev, i);
+> @@ -614,9 +616,8 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+>  		u32 hash, reason, msg1 = le32_to_cpu(desc->msg1);
+>  		struct page *page = virt_to_head_page(e->buf);
+>  		u32 desc_ctrl = le32_to_cpu(desc->ctrl);
+> -		struct airoha_gdm_port *port;
+> -		struct net_device *netdev;
+> -		int data_len, len, p;
+> +		struct airoha_gdm_dev *dev;
+> +		int data_len, len;
 >  
-> -	airoha_set_gdm_port_fwd_cfg(qdma->eth, REG_GDM_FWD_CFG(port->id),
-> -				    FE_PSE_PORT_DROP);
-> -
->  	if (atomic_dec_and_test(&qdma->users)) {
->  		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
->  				  GLOBAL_CFG_TX_DMA_EN_MASK |
+>  		if (!(desc_ctrl & QDMA_DESC_DONE_MASK))
+>  			break;
+> @@ -633,12 +634,10 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+>  		if (!len || data_len < len)
+>  			goto free_frag;
+>  
+> -		p = airoha_qdma_get_gdm_port(eth, desc);
+> -		if (p < 0 || !eth->ports[p])
+> +		dev = airoha_qdma_get_gdm_dev(eth, desc);
+> +		if (IS_ERR(dev))
+>  			goto free_frag;
 
-While this patch aims to support shared GDM ports, does the remaining
-unconditional call to airoha_set_vip_for_gdm_port(dev, false) at the start
-of airoha_dev_stop() break other active devices sharing the port?
+If a scattered frame is being processed (q->skb is not NULL) and IS_ERR(dev)
+triggers the goto free_frag, the error handler frees the skb:
 
-static int airoha_dev_stop(struct net_device *netdev)
-{
-        ...
-        err = airoha_set_vip_for_gdm_port(dev, false);
-        ...
-}
+free_frag:
+	if (q->skb) {
+		dev_kfree_skb(q->skb);
+		q->skb = NULL;
+	} else {
+		page_pool_put_full_page(q->page_pool, page, true);
+	}
 
-This appears to clear the REG_FE_VIP_PORT_EN and REG_FE_IFC_PORT_EN hardware
-bits for the physical port, which might instantly kill traffic for any other
-active interface using the shared port.
-
-Similarly, in airoha_dev_open() and airoha_dev_change_mtu(), the
-REG_GDM_LEN_CFG (MTU) is overwritten unconditionally. If a device with a
-smaller MTU is brought up, will it overwrite the shared port's MTU limit
-and cause the hardware to silently drop larger packets for the other device?
+Since the current fragment's page is not yet attached to q->skb, does this
+skip the else branch and permanently leak the page pool buffer?
 
 [ ... ]
-> @@ -1697,6 +1695,11 @@ static int airoha_dev_stop(struct net_device *netdev)
->  		}
+> @@ -1747,9 +1748,7 @@ static int airoha_set_gdm2_loopback(struct airoha_gdm_dev *dev)
+>  	airoha_fe_clear(eth, REG_FE_VIP_PORT_EN, BIT(AIROHA_GDM2_IDX));
+>  	airoha_fe_clear(eth, REG_FE_IFC_PORT_EN, BIT(AIROHA_GDM2_IDX));
+>  
+> -	/* XXX: handle XSI_USB_PORT and XSI_PCE1_PORT */
+> -	nbq = port->id == AIROHA_GDM3_IDX && airoha_is_7581(eth) ? 4 : 0;
+> -	src_port = eth->soc->ops.get_src_port_id(port, nbq);
+> +	src_port = eth->soc->ops.get_src_port_id(port, dev->nbq);
+>  	if (src_port < 0)
+>  		return src_port;
+
+With multiple net_devices instantiated for the same physical GDM port, does
+the initialization of sibling devices overwrite shared hardware registers?
+
+For example, when airoha_set_gdm2_loopback() uses src_port to configure
+REG_FE_WAN_PORT, it explicitly clears the WAN port routing masks:
+
+	airoha_fe_rmw(eth, REG_FE_WAN_PORT,
+		      WAN1_EN_MASK | WAN1_MASK | WAN0_MASK,
+		      FIELD_PREP(WAN0_MASK, src_port));
+
+Will the last initialized device clobber the WAN routing configurations and
+hardware MAC filters for the others, causing their traffic to be dropped?
+
+[ ... ]
+> @@ -1970,7 +1969,8 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
 >  	}
 >  
-> +	if (atomic_dec_and_test(&port->users))
-> +		airoha_set_gdm_port_fwd_cfg(qdma->eth,
-> +					    REG_GDM_FWD_CFG(port->id),
-> +					    FE_PSE_PORT_DROP);
+>  	fport = airoha_get_fe_port(dev);
+> -	msg1 = FIELD_PREP(QDMA_ETH_TXMSG_FPORT_MASK, fport) |
+> +	msg1 = FIELD_PREP(QDMA_ETH_TXMSG_NBOQ_MASK, dev->nbq) |
+> +	       FIELD_PREP(QDMA_ETH_TXMSG_FPORT_MASK, fport) |
+>  	       FIELD_PREP(QDMA_ETH_TXMSG_METER_MASK, 0x7f);
+>  
+>  	q = &qdma->q_tx[qid];
+
+When multiple net_devices share a single QDMA instance and its TX rings
+(qdma->q_tx), a TX queue stall might occur here.
+
+If the shared hardware ring fills up, netif_tx_stop_queue() stops the
+transmitting device's queue. Later, when descriptors are freed, the driver
+only wakes the queue corresponding to the specific packet that just completed.
+
+If multiple devices' TX queues are stopped, will the other devices' queues
+remain stalled unless their specific packets happen to be processed?
+
+[ ... ]
+> @@ -2897,10 +2900,11 @@ bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
+>  
+>  static int airoha_alloc_gdm_device(struct airoha_eth *eth,
+>  				   struct airoha_gdm_port *port,
+> -				   struct device_node *np)
+> +				   int nbq, struct device_node *np)
+>  {
+> -	struct airoha_gdm_dev *dev;
+>  	struct net_device *netdev;
+> +	struct airoha_gdm_dev *dev;
+> +	u8 index;
+>  	int err;
+[ ... ]
+> +	/* Allowed nbq for EN7581 on GDM3 port are 4 and 5 for PCIE0
+> +	 * and PCIE1 respectively.
+> +	 */
+> +	index = nbq;
+> +	if (airoha_is_7581(eth) && port->id == AIROHA_GDM3_IDX)
+> +		index -= 4;
 > +
->  	return 0;
+> +	if (index >= ARRAY_SIZE(port->devs) || port->devs[index]) {
+> +		dev_err(eth->dev, "invalid nbq id: %d\n", nbq);
+> +		return -EINVAL;
+> +	}
+
+There are two potential issues regarding the new index logic:
+
+First, does this break probing for older device trees without child nodes?
+When falling back to airoha_alloc_gdm_device(..., 0, np) with nbq = 0,
+the index -= 4 operation for AIROHA_GDM3_IDX will cause the u8 index to
+underflow to 252. The bounds check 252 >= 2 fails, returning -EINVAL.
+
+Second, can an invalid device tree value bypass the bounds check?
+The int nbq parameter is directly assigned to the u8 index. If a large value
+like reg = <256> is provided, it truncates to 0, passing the index >= 2
+check. The un-truncated int nbq is then stored in dev->nbq, potentially
+causing out-of-bounds shifts when used in hardware macros.
+
+[ ... ]
+> @@ -2986,7 +3004,36 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
+>  	if (err)
+>  		return err;
+>  
+> -	return airoha_alloc_gdm_device(eth, port, np);
+> +	for_each_child_of_node(np, node) {
+> +		/* Multiple external serdes connected to the FE GDM port via an
+> +		 * external arbiter.
+> +		 */
+> +		const __be32 *nbq_ptr;
+> +
+> +		if (!of_device_is_compatible(node, "airoha,eth-port"))
+> +			continue;
+> +
+> +		d++;
+> +		if (!of_device_is_available(node))
+> +			continue;
+> +
+> +		nbq_ptr = of_get_property(node, "reg", NULL);
+> +		if (!nbq_ptr) {
+> +			dev_err(eth->dev, "missing nbq id\n");
+> +			err = -EINVAL;
+> +			of_node_put(node);
+> +			break;
+> +		}
+> +
+> +		err = airoha_alloc_gdm_device(eth, port, be32_to_cpup(nbq_ptr),
+> +					      node);
+> +		if (err) {
+> +			of_node_put(node);
+> +			return err;
+> +		}
+> +	}
+> +
+> +	return !d ? airoha_alloc_gdm_device(eth, port, 0, np) : 0;
 >  }
 
-Does moving this FE_PSE_PORT_DROP configuration to the end of airoha_dev_stop()
-cause a race condition when stopping the device?
+If nbq_ptr is missing, err = -EINVAL is set and the loop breaks. However,
+since the child counter d was already incremented, the final statement
+evaluates to 0 (success) because !d is false.
 
-In airoha_dev_open(), the driver correctly enables the QDMA engine before
-configuring the GDM port to forward packets. A safe teardown typically
-mirrors this by first stopping the packet source (setting FE_PSE_PORT_DROP)
-and then disabling the destination DMA engine.
+Does this swallow the -EINVAL error and cause a silent failure where the
+driver continues probing without initializing the misconfigured GDM devices?
 
-By moving airoha_set_gdm_port_fwd_cfg() after the airoha_qdma_clear() block,
-when both qdma->users and port->users reach zero, the QDMA engine and its
-queues are shut down while the GDM port is still actively forwarding packets.
+Additionally, the for_each_child_of_node() iterator automatically handles
+taking and dropping the reference to node.
 
-Could incoming packets be forwarded to a disabled DMA engine during this
-window, risking hardware lockups or buffer leaks?
+When node is passed to airoha_alloc_gdm_device(), it is directly assigned:
+netdev->dev.of_node = np;
+
+Since of_node_get() is not called, when the loop iteration finishes and drops
+the reference, does this leave the net_device pointing to a freed device
+tree node?
+-- 
+pw-bot: cr
 
