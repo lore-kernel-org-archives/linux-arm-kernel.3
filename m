@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69957E7E358
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 09:22:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB9B5E7E358
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 09:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X5B2pyHP/JliOmf6Ji1g5Y1Ga/IgQoI6orIY2xFD1nM=; b=mtWUNNiWHNIsSvVrfl7/MM85Po
-	AxaYsH4gGhT1kePuF3TIVKG08gQkVbpdYtOl7Jc+sMbLTh+DkFIE+UftORXDITXHxvxSO2n4T7RPE
-	JpYOxXTCWit9d1n5k6Anq/3Hs2l9OxZDXRdWbcJ5gOS4v+p7RzWXC1Bu2oxVUCsKi9ZR92UEj0NQ6
-	VOYPWIhRlChrvqKL0Ta+Az5DaynViwEjhyvbvVi6EpP11Pn0pA1Opufjo3yU1PSPZsW43+fpJLox7
-	EX+SQO9FwtbPH9sSCNcuVM2rG7knHrInxBQ9Y0Nu+3430n9VbrBlUsBHqnLSJLEjXCANlWPJcnHUQ
-	ao7dOoWA==;
+	bh=RqTHZkYXx3XaUYuf56o3EDTX420ivEQjaKKZt4Gr+jk=; b=0m+/PdWPK7UYJPB+rQ/mBtKKnW
+	V0c7qhPSOxs34YgC33/idnHeSA8pgjxh1aPTGBbXrsJmlh6OxJ8OMKMTrHnsO+jLBl6eS/lqNJY4v
+	G+6o81r922pkpGsL+tWsVtJq5ex1DFi+S/mvLFj9bpHqlML/cEOZ8euw2z1ChQ7qGeQkVC8T6K/C3
+	DPcr1iUN25l8fHEKADmTUwkyvr0SlU9gNfaAj3+U9sSHgVDU8TXLfSc7AfQAZqLkA3L7jJNiuMyhq
+	PKgntvGGG530gFGAGPNzdhtpfCRYuBEgwixTntLRMKx1ugeWWTUJ2bsHaLoCWVYLeBiCj6F5xR1Cz
+	ajrsdkLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8aj9-00000001n13-2fuG;
-	Fri, 03 Apr 2026 09:22:07 +0000
-Received: from mail-vk1-f171.google.com ([209.85.221.171])
+	id 1w8ajU-00000001n5K-3waz;
+	Fri, 03 Apr 2026 09:22:28 +0000
+Received: from mail-vk1-f179.google.com ([209.85.221.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8aj7-00000001n0S-0GLd
+	id 1w8ajS-00000001n4R-18Cc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 09:22:06 +0000
-Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-56d924c7183so1969490e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 02:22:04 -0700 (PDT)
+	Fri, 03 Apr 2026 09:22:27 +0000
+Received: by mail-vk1-f179.google.com with SMTP id 71dfb90a1353d-56d933b555cso683645e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 02:22:25 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775208124; x=1775812924;
+        d=1e100.net; s=20251104; t=1775208145; x=1775812945;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=X5B2pyHP/JliOmf6Ji1g5Y1Ga/IgQoI6orIY2xFD1nM=;
-        b=orqcU8lAO8tjUeAhK055BJWSPT4gL0o/akA6J85QHU2VyobT5iA1qvxOXnsS0rGrIy
-         +F/WN8j2jTK1JS53Gc3q6uS9g3ME8hZzesIXho2/D51Djg4RVlVN103WOrJWcuUZnjEG
-         UnYfomTW1IFPCGnfR2XyKUtl+ER5xY09z/GHdALuyiWxpounbAljrZaMQlNVToh9K/PO
-         ZwVBTTh9hZoTcYXGYQREYKh/4A2fsSDMEdQ1glePbk3XvaLsHuGsoqPfnlf3Gyu335Ki
-         dM9sM2GLFKlxXK83KuQV0WhVKLEQb+YFOX5uUJge4bPgfxhiF7NH1DR3DwcnHyqdUAHb
-         48+g==
-X-Gm-Message-State: AOJu0Yz9uqbKh53iBxm3Yq/hjCTzUon9xymxvFOVJSzOtLatyilqjQhV
-	QZDqZTuHRMSaidP7SbI1gcQ8jIxQijLN4yD/LUhPpuj16JX+khvGzuqAWRh9WiB4
-X-Gm-Gg: AeBDiev/ZRjgKjtwVbLr5irQ4ZxaGzbmj79GLeZYDeac+LxoFMcoLBF1vOvJROt1jF1
-	GsHP1gMkZ+q3HoOGgJjFrlyjm5bV6hDuoZdi9p+coEYhilrAZy52wEoo6I2bhbmdOyas3TsT18p
-	mnHdmOf7QAH+ojm28Y2piq45onH7xlaaekyz4H57RclSA15/3eRhiCDcBQTO4UNFtTpJ8JaYvCX
-	wWEUWTQdCuFUOHcFUcO4ODbYZzQYO4gXVMymamLg70KBmGlJknyxlw97u1tGmg7XMTmUlgon1PP
-	5uGNr1nKrab/MBQixW0bnKrDOydjdETUmsKeHnQa88FhGBZXGqTzCq75H0cmF0YJRIqYdRCqMOc
-	PS+YaCY/XspIlR2oUppNo5nZT4kWpc2oM5S8dS0ABfh+WCgfc3F6rVYyjcjZl7C1B679+NQKUVv
-	L2kz8/n8Li1ZkdwfZ9lBrfhqqQa5jd4gSg15l3Y+/euCPpkDf0MiODN4Z827v7
-X-Received: by 2002:a05:6123:149:b0:56d:86dd:d1b0 with SMTP id 71dfb90a1353d-56daaf8137amr747775e0c.0.1775208123516;
-        Fri, 03 Apr 2026 02:22:03 -0700 (PDT)
-Received: from mail-vs1-f52.google.com (mail-vs1-f52.google.com. [209.85.217.52])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56d9ba81b53sm6293818e0c.4.2026.04.03.02.22.02
+        bh=RqTHZkYXx3XaUYuf56o3EDTX420ivEQjaKKZt4Gr+jk=;
+        b=T2uxHex6zHOzEqBdmBFbBKEcYvpmkpLlX8kp4VL/uhNLYA4+joROe3ORf2/hgrr0wu
+         4ePk+rIqhgsNG9tsEJRlIJPlwzl1eolVtpjHwh2B5VS+fbLsQ6TzlFBNr0rxExLVbvrA
+         PmAL+/9G7G83mYpTM1MaXAoT2twhrdlmCyvT8n4lepGTqChvRg1y3PgNTZWjJuQcn1zb
+         EHkB9kfHc/ymFFelSTcx7wnSx/SkWmAdd8jwVe1px8fhNKBQWb1IyNVSJjkAT9kKcwuE
+         xVndMGEKgVjjOrCKbatNJiqMCxsAJR33H0Ples8cyJLFu+liPjH3wSPNu4Ik56b+/X9q
+         qjWg==
+X-Gm-Message-State: AOJu0Yx/ZvPZrKYWhmqU4AbywgLrzXPmgSPMyYLtXzPFFYv7krfWrPbD
+	/RePDspzC5ZK1Yl/fYN1q+OVp1cEDRScw0xjqKfJ0AVR4aoMsCpJ6Dq727f4j7Zp
+X-Gm-Gg: AeBDieuMI4rvMhOH/GVH5C7+yMGyUvn+BRCgJ2e5G6k0zrHSkUzZee9o+SPCxI/oF5S
+	4apZUGivwvKNctb7BsseOCnEAGTRaeNsKb0LuBAiXZXR5LXNrPfihzILCZaSkL+0v0MDt3cpOMQ
+	qhZJ0LvCFiUn5qrsWg/EG5k99dS2NJFkF3RaIW8TR66cZhG8ppc/neFE546iRaOzhZUgfGtYBTA
+	yi6Kc9S558lyECdRe3kwR/IOoSEDNb8rDozg7AX5BLbPzHAeFffGzped68ItctNPevBfDjlwCXB
+	OoQbjnCtMP1IRgF8IOBr/K41Bcxww/UcUBYly9g3H3aQfohGuuIICVDG9ydHpBlwSfCXiTa3Oni
+	Z35B0rRvp/HmqMQ29UWIV60hCFYUekfMPwHn/mgOTceF3LOYW+duUU00hQtrVy/vWHSACFL9+B7
+	Dq6mEtqNxfSK32kFiRXkoQ2R6jlekJEb0h1iFYhdC5ZFd6b2SIapcb+qdewxGnySHs
+X-Received: by 2002:a05:6122:c86:b0:56b:7484:39b with SMTP id 71dfb90a1353d-56dab87bd4bmr638182e0c.4.1775208144836;
+        Fri, 03 Apr 2026 02:22:24 -0700 (PDT)
+Received: from mail-vk1-f177.google.com (mail-vk1-f177.google.com. [209.85.221.177])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-953fb84c289sm5637459241.4.2026.04.03.02.22.24
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 03 Apr 2026 02:22:03 -0700 (PDT)
-Received: by mail-vs1-f52.google.com with SMTP id ada2fe7eead31-605b3b6c4dcso107129137.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 02:22:02 -0700 (PDT)
-X-Received: by 2002:a67:e70d:0:b0:5ff:c40b:27eb with SMTP id
- ada2fe7eead31-6058a4b3fd6mr2323242137.3.1775208122603; Fri, 03 Apr 2026
- 02:22:02 -0700 (PDT)
+        Fri, 03 Apr 2026 02:22:24 -0700 (PDT)
+Received: by mail-vk1-f177.google.com with SMTP id 71dfb90a1353d-56a9076813bso724930e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 02:22:24 -0700 (PDT)
+X-Received: by 2002:a05:6122:698d:b0:56c:d623:896e with SMTP id
+ 71dfb90a1353d-56daba305a0mr682606e0c.14.1775208143755; Fri, 03 Apr 2026
+ 02:22:23 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260327234244.91707-1-marek.vasut+renesas@mailbox.org> <20260327234244.91707-2-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260327234244.91707-2-marek.vasut+renesas@mailbox.org>
+References: <20260327234244.91707-1-marek.vasut+renesas@mailbox.org> <20260327234244.91707-3-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260327234244.91707-3-marek.vasut+renesas@mailbox.org>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 3 Apr 2026 11:21:51 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWTV71efsQ6SzdXdsnHHb93Gn6sbNNEjSzVLZ0_w==90g@mail.gmail.com>
-X-Gm-Features: AQROBzBnDgdH3_Oj0-6Y6WYqcbqwAQ1EOcuaufJmPvw1l1BD18PtBKWpQ0DK2N8
-Message-ID: <CAMuHMdWTV71efsQ6SzdXdsnHHb93Gn6sbNNEjSzVLZ0_w==90g@mail.gmail.com>
-Subject: Re: [PATCH 1/6] ARM: dts: renesas: r8a7778: Add missing unit to bus node
+Date: Fri, 3 Apr 2026 11:22:12 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWaXqvoyzFOMMtCuMchAJamOGD4WKG5_16sy7NAUvKVzA@mail.gmail.com>
+X-Gm-Features: AQROBzCnb6VpPRGvatHwhBVrCjOQ7-o3JrWeLFgYVGZIXfX3Imq6Fsi--Hd35Yg
+Message-ID: <CAMuHMdWaXqvoyzFOMMtCuMchAJamOGD4WKG5_16sy7NAUvKVzA@mail.gmail.com>
+Subject: Re: [PATCH 2/6] ARM: dts: renesas: r8a7779: Add missing unit to bus node
 To: Marek Vasut <marek.vasut+renesas@mailbox.org>
 Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
@@ -78,8 +78,8 @@ Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
 	linux-renesas-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_022205_098869_07C2B93B 
-X-CRM114-Status: GOOD (  20.43  )
+X-CRM114-CacheID: sfid-20260403_022226_327686_8AEE9EF7 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,36 +94,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
-
-On Sat, 28 Mar 2026 at 00:42, Marek Vasut
+On Sat, 28 Mar 2026 at 00:43, Marek Vasut
 <marek.vasut+renesas@mailbox.org> wrote:
 > Add missing unit to bus node to fix the following DTC warning:
 > "
-> arch/arm/boot/dts/renesas/r8a7778.dtsi:43.12-48.4: Warning (unit_address_vs_reg): /bus: node has a reg or ranges property, but no unit name
+> arch/arm/boot/dts/renesas/r8a7779.dtsi:707.12-712.4: Warning (unit_address_vs_reg): /bus: node has a reg or ranges property, but no unit name
 > "
 >
 > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
 Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 i.e. will queue in renesas-devel for v7.2.
-
-> --- a/arch/arm/boot/dts/renesas/r8a7778.dtsi
-> +++ b/arch/arm/boot/dts/renesas/r8a7778.dtsi
-> @@ -40,7 +40,7 @@ aliases {
->                 spi2 = &hspi2;
->         };
->
-> -       lbsc: bus {
-> +       lbsc: bus@0 {
-
-Note for the future: if we ever add proper LBSC support (including its
-own compatible value and reg property), this should be changed to the
-address in the reg property.  This applies to the first four patches.
-
->                 compatible = "simple-bus";
->                 #address-cells = <1>;
->                 #size-cells = <1>;
 
 Gr{oetje,eeting}s,
 
