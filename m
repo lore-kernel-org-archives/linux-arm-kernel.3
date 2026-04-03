@@ -4,103 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB9F6E8536F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 15:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A482E8537A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 15:50:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I9vnOEy2SnXABq64qUkV4dXXkUgE/P3rvcB6DgffOz4=; b=S/EniBltlFxZBQSp+73kodQ/Nr
-	fuCy06J082iGv76JL+I5LBtPDJ/MunNqhzRnJlOL34pninQoZRE1W2PEYxHmXB0ySJ8uIr0kj2KsJ
-	DcuTzic7CxwYf3xH1ipHNPUi2hBjjhTIGvTUFDBD/DAZONRLzENJf2vo02VBTSosQ6tHR6opZYtG7
-	ik7J2U54rpcg13xQ5yWzoLJRx0pEk28CWRKnimgNQFfKkJnuwj2mmlpTGCJLUf8iOWjtsyaNSmKQr
-	VHtm5CkseScyyI1k+1XNZZVK/dDjburxqS7wpDAQ4dgwNmc4OZJ+vmc1m5RTQpXLKcwYgYSZD5Hyc
-	ce4y6fbw==;
+	bh=1Y7rWcWFSVI8FYBYcIVNi2UAFKU/jzneFj/DK/KoBts=; b=l85+tqKLG/LCOtrPesDlGaG2hZ
+	DjICxJx8y9/TM9ltBPpCYCP1OFe4ZBki1NRVH5AFhou7Eojwkeaujq9qqzxv3MFsUdAeP2td3EQIi
+	bSaQc0cHiiDzY+pIAq88alycX9yWjvR6b2yOLxVH85l6SBuzVRoTYgqi4qyAjdT0h9vZo7mCJ1baw
+	B8YFRBL83V/7JUMk7gxLn7bcNwmD+iqN53jKe4XnRPFvPsDbHh/ukPJklDyahCwOMBPaU5Zo+nyRu
+	qYUk5zL/yQrAnmb1g2rpgF/YhBIfcp7CiFp+05nzF5apCswQMmJhzIf+54LK+OskWgbiqdpYUkfyL
+	PGOAWEJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8gT4-00000002D8J-1UBT;
-	Fri, 03 Apr 2026 15:29:54 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1w8gmo-00000002Ell-0Pqg;
+	Fri, 03 Apr 2026 15:50:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8gT2-00000002D7d-08sI
+	id 1w8gmm-00000002ElZ-2v5J
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 15:29:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1775230191;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=I9vnOEy2SnXABq64qUkV4dXXkUgE/P3rvcB6DgffOz4=;
-	b=Zlv8lfclJWwK+4XWd3QATMXU5weEu0rbpBoqvwLsbgiTbNyg7ZL4SuiOMWlf91GaNh+Tvp
-	ShUdAGzhvAeGJk+WPePvF+BsYy86pPW5Z+9iRy2pAz53RlS1Gbz0JpmPbcA/cQ6CZCg0lC
-	FPkacRXmdcHhC2VUNbQB/TC1PScxbGY=
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
- [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-360-j_F2wuarMrC7XcpqtxIeNw-1; Fri, 03 Apr 2026 11:29:48 -0400
-X-MC-Unique: j_F2wuarMrC7XcpqtxIeNw-1
-X-Mimecast-MFC-AGG-ID: j_F2wuarMrC7XcpqtxIeNw_1775230188
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-89fd9daa423so49463516d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 08:29:48 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775230188; x=1775834988;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=I9vnOEy2SnXABq64qUkV4dXXkUgE/P3rvcB6DgffOz4=;
-        b=Tj9VvQSk/mPkS/mWAr/DnJXR6gf1snb/Ynpps9Ntv57yTO/YtuZCJv2+C2OoP9mIax
-         xYkZPG5kshMkhYol1bxgF7IYpuBHkGfuD5KGguLsI9w/mVM4FWK8xc26ajk9vgeM9AmJ
-         1yf1zCE5Y95Qsxq9RFlhR9mcP8nTMt0uqenorj/fWDj5GUwz1ui9F5HV7tMjBxFiYqs4
-         rflcPjNyRT2HQkPfzAIItgc/YgT3AXyEUyjyFFheD3V0Mn8HiEDR3kkgLxNBUcDAFgKO
-         XPHCvUXQkHQSsMiUs1do6HU6/abg5K6RLFUoVoUipWd6/bZP5Ih9UV2aZ5dMTaf6I5PX
-         OhiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXJ3a7kAx/NdbNEoP209LWKpzEe3+KmLopdAHmGaMKu2YdpCt5iHqRyY1XQ9gv603unOL37JmCWa7NLoXbfVyo3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx31Sv5WpBY7ztYldbyRZf+ovgfOdvgFXFKvJGrz3LYWc9g6zRY
-	ftNdk+dlp6Zyop+aqrUWoyvQVpe1SZr/LRLn9/arT1/NL9QbjJR6MEJJHb/mpYQ0msYA4YcnkL8
-	HAzpwE8j2e5obRJElCyCuwS3Ld0V3PTzG0dX4po4Ybg97jGw0jlns1npT/6ro/+UBCBNnr6NVfN
-	vA
-X-Gm-Gg: ATEYQzzoTeql9751Q2o4ngQF7QILDd2JZ8DclUOeqUUD047HK9KnHBOg1tFdYKAblDe
-	V+vYUj5UBWKxq5bAfmUFP4iZk6L6k98fMXjg9A6fGi0seNS3FvLHE/yxEgXlZYRPD6yz+1EBKUN
-	QPshnXM4QeTCAyJonCYb5BAbRjdOisHpnIoCgGkN5gs0vWzXAmRPZ0H/4HfuO+bVz7GgM/nfmKh
-	zuEqiuP0WDY2Vcbd6nBdhuMeFVpfZhDkxdUTRMLvvszfTmVXDf6kUibGyobccZP5atRhlg3zgkx
-	zMeBxUX0/AKvdo9HqPzv8UoiJmwYT9XBi7vWcPFebgQxovMr2QRR7lejjbcDRCHNoYkf1mB0kYi
-	5FHBRTEYamM51SRkmZo2O6xu2pQ84tYkLsWtiuBwr6b5lVr7OZmvjyAx+
-X-Received: by 2002:a05:620a:44d3:b0:8cd:93b7:ebbd with SMTP id af79cd13be357-8d41e9206a4mr465045885a.60.1775230187636;
-        Fri, 03 Apr 2026 08:29:47 -0700 (PDT)
-X-Received: by 2002:a05:620a:44d3:b0:8cd:93b7:ebbd with SMTP id af79cd13be357-8d41e9206a4mr465040385a.60.1775230187049;
-        Fri, 03 Apr 2026 08:29:47 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8d43e17d30esm188410185a.6.2026.04.03.08.29.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Apr 2026 08:29:46 -0700 (PDT)
-Date: Fri, 3 Apr 2026 11:29:44 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Yu-Chun Lin <eleanor.lin@realtek.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
-	cylee12@realtek.com, afaerber@suse.com, jyanchou@realtek.com,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-realtek-soc@lists.infradead.org, james.tai@realtek.com,
-	cy.huang@realtek.com, stanley_chang@realtek.com
-Subject: Re: [PATCH v6 09/10] clk: realtek: Add RTD1625-ISO clock controller
- driver
-Message-ID: <ac_c6BkBQyvvOpeq@redhat.com>
-References: <20260402073957.2742459-1-eleanor.lin@realtek.com>
- <20260402073957.2742459-10-eleanor.lin@realtek.com>
+	Fri, 03 Apr 2026 15:50:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A6F1C60121;
+	Fri,  3 Apr 2026 15:50:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D5ACC4CEF7;
+	Fri,  3 Apr 2026 15:50:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775231415;
+	bh=prDkm53R9Cx3R2od50UsMKn7PCFX4EJS2fF/vGLBeYU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=e5GZrzydQ2eNeHFUBs9hO1fUN+M1I8zyAlUGnlyzZGlI8bmoj9tvyC9z2wahuOdQ5
+	 LXXGDAmcQAlHqZUETS8/fFbv54dKFLy3/k9ZNFt21WfWTtsp4Ra500/Z5Syi0vUr/z
+	 rPw3ckbhNW0C8/WtfFCND8YxyvTtgarI7GCHgPMwYS4qcjsPNz5Ju5OA/e2G8nScau
+	 V/l3tkNRyj3mAq1yc/hhlQKYkPKFTr8N2gmfO1H6sf09bUz6DMGAEUbbnXNun1w88e
+	 OdOXkB3nNsLjjdeAnCG4pJGmh6673d7Fd3Q0Y9feSbMVZe8LXj6reXhdH8xKg5tH8h
+	 Oy2mPR9IEGiYg==
+Date: Fri, 3 Apr 2026 17:50:06 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Bjorn Andersson <andersson@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	John Stultz <john.stultz@linaro.org>,
+	Moritz Fischer <moritz.fischer@ettus.com>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Andre Draszik <andre.draszik@linaro.org>,
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org, Srinivas Kandagatla <srini@kernel.org>
+Subject: Re: [PATCH v20 06/10] power: reset: Add psci-reboot-mode driver
+Message-ID: <ac/hru3IIiU0+Lp9@lpieralisi>
+References: <20260304-arm-psci-system_reset2-vendor-reboots-v20-0-cf7d346b8372@oss.qualcomm.com>
+ <20260304-arm-psci-system_reset2-vendor-reboots-v20-6-cf7d346b8372@oss.qualcomm.com>
+ <acaMPgRALnoUIHMC@lpieralisi>
+ <93a78bc2-4fd1-41bd-bf4a-b433b06fc218@oss.qualcomm.com>
+ <ac0trUGsRBLPS+ux@lpieralisi>
+ <da6f4566-a719-409b-80a9-40ca89e3e721@oss.qualcomm.com>
 MIME-Version: 1.0
-In-Reply-To: <20260402073957.2742459-10-eleanor.lin@realtek.com>
-User-Agent: Mutt/2.3.0 (2026-01-25)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: qXx-6v80bPyFVycn2xdzsRnjZKKmxU8oHZnc917yl7k_1775230188
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_082952_217560_E5EE8697 
-X-CRM114-Status: GOOD (  31.82  )
+In-Reply-To: <da6f4566-a719-409b-80a9-40ca89e3e721@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,332 +93,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yu-Chun,
-
-On Thu, Apr 02, 2026 at 03:39:56PM +0800, Yu-Chun Lin wrote:
-> From: Cheng-Yu Lee <cylee12@realtek.com>
+On Fri, Apr 03, 2026 at 12:05:27AM +0530, Shivendra Pratap wrote:
 > 
-> Add support for the ISO (Isolation) domain clock controller on the Realtek
-> RTD1625 SoC. This controller manages clocks in the always-on power domain,
-> ensuring essential services remain functional even when the main system
-> power is gated.
 > 
-> Since the reset controller shares the same register space with the ISO
-> clock controller, it is instantiated as an auxiliary device by the core
-> clock driver. This patch also includes the corresponding auxiliary reset
-> driver to handle the ISO domain resets.
+> On 01-04-2026 20:07, Lorenzo Pieralisi wrote:
+> > On Tue, Mar 31, 2026 at 11:30:09PM +0530, Shivendra Pratap wrote:
+> > > 
+> > > 
+> > > On 27-03-2026 19:25, Lorenzo Pieralisi wrote:
+> > > > On Wed, Mar 04, 2026 at 11:33:06PM +0530, Shivendra Pratap wrote:
+> > > > > PSCI supports different types of resets like COLD reset, ARCH WARM
 > 
-> Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-> Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> ---
-> Changes in v6:
-> - Add the headers used in c file to follow the "Include What You Use" principle.
-> - Move struct rtk_reset_desc arrays from the clock driver to the dedicated reset driver.
-> - Implement and register a dedicated reset auxiliary driver.
-> ---
->  drivers/clk/realtek/Makefile              |   1 +
->  drivers/clk/realtek/clk-rtd1625-iso.c     | 144 ++++++++++++++++++++++
->  drivers/reset/realtek/Makefile            |   2 +-
->  drivers/reset/realtek/reset-rtd1625-iso.c |  96 +++++++++++++++
->  4 files changed, 242 insertions(+), 1 deletion(-)
->  create mode 100644 drivers/clk/realtek/clk-rtd1625-iso.c
->  create mode 100644 drivers/reset/realtek/reset-rtd1625-iso.c
+> [snip..]
 > 
-> diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
-> index c992f97dfbc7..1680435e1e0f 100644
-> --- a/drivers/clk/realtek/Makefile
-> +++ b/drivers/clk/realtek/Makefile
-> @@ -10,3 +10,4 @@ clk-rtk-y += freq_table.o
->  
->  clk-rtk-$(CONFIG_RTK_CLK_PLL_MMC) += clk-pll-mmc.o
->  obj-$(CONFIG_COMMON_CLK_RTD1625) += clk-rtd1625-crt.o
-> +obj-$(CONFIG_COMMON_CLK_RTD1625) += clk-rtd1625-iso.o
-> diff --git a/drivers/clk/realtek/clk-rtd1625-iso.c b/drivers/clk/realtek/clk-rtd1625-iso.c
-> new file mode 100644
-> index 000000000000..027a131363f9
-> --- /dev/null
-> +++ b/drivers/clk/realtek/clk-rtd1625-iso.c
-> @@ -0,0 +1,144 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2024 Realtek Semiconductor Corporation
-> + * Author: Cheng-Yu Lee <cylee12@realtek.com>
-> + */
-> +
-> +#include <dt-bindings/clock/realtek,rtd1625-clk.h>
-> +#include <linux/array_size.h>
-> +#include <linux/init.h>
-> +#include <linux/module.h>
-> +#include <linux/of_device.h>
-> +#include <linux/platform_device.h>
-> +#include "clk-regmap-gate.h"
-> +
-> +#define RTD1625_ISO_CLK_MAX	19
-> +#define RTD1625_ISO_RSTN_MAX	29
-> +#define RTD1625_ISO_S_CLK_MAX	5
-> +#define RTD1625_ISO_S_RSTN_MAX	5
-> +
-> +static CLK_REGMAP_GATE_NO_PARENT(clk_en_usb_p4, 0, 0x4, 0, 0);
-> +static CLK_REGMAP_GATE_NO_PARENT(clk_en_usb_p3, 0, 0x4, 1, 0);
-> +static CLK_REGMAP_GATE(clk_en_misc_cec0, "clk_en_misc", 0, 0x4, 2, 0);
-> +static CLK_REGMAP_GATE_NO_PARENT(clk_en_cbusrx_sys, 0, 0x4, 3, 0);
-> +static CLK_REGMAP_GATE_NO_PARENT(clk_en_cbustx_sys, 0, 0x4, 4, 0);
-> +static CLK_REGMAP_GATE_NO_PARENT(clk_en_cbus_sys, 0, 0x4, 5, 0);
-> +static CLK_REGMAP_GATE_NO_PARENT(clk_en_cbus_osc, 0, 0x4, 6, 0);
-> +static CLK_REGMAP_GATE_NO_PARENT(clk_en_i2c0, 0, 0x4, 9, 0);
-> +static CLK_REGMAP_GATE_NO_PARENT(clk_en_i2c1, 0, 0x4, 10, 0);
-> +static CLK_REGMAP_GATE_NO_PARENT(clk_en_etn_250m, 0, 0x4, 11, 0);
-> +static CLK_REGMAP_GATE_NO_PARENT(clk_en_etn_sys, 0, 0x4, 12, 0);
-> +static CLK_REGMAP_GATE_NO_PARENT(clk_en_usb_drd, 0, 0x4, 13, 0);
-> +static CLK_REGMAP_GATE_NO_PARENT(clk_en_usb_host, 0, 0x4, 14, 0);
-> +static CLK_REGMAP_GATE_NO_PARENT(clk_en_usb_u3_host, 0, 0x4, 15, 0);
-> +static CLK_REGMAP_GATE_NO_PARENT(clk_en_usb, 0, 0x4, 16, 0);
-> +static CLK_REGMAP_GATE_NO_PARENT(clk_en_vtc, 0, 0x4, 17, 0);
-> +static CLK_REGMAP_GATE(clk_en_misc_vfd, "clk_en_misc", 0, 0x4, 18, 0);
-> +
-> +static struct clk_regmap *rtd1625_clk_regmap_list[] = {
-
-static const? Same for some others below as well.
-
-> +	&clk_en_usb_p4.clkr,
-> +	&clk_en_usb_p3.clkr,
-> +	&clk_en_misc_cec0.clkr,
-> +	&clk_en_cbusrx_sys.clkr,
-> +	&clk_en_cbustx_sys.clkr,
-> +	&clk_en_cbus_sys.clkr,
-> +	&clk_en_cbus_osc.clkr,
-> +	&clk_en_i2c0.clkr,
-> +	&clk_en_i2c1.clkr,
-> +	&clk_en_etn_250m.clkr,
-> +	&clk_en_etn_sys.clkr,
-> +	&clk_en_usb_drd.clkr,
-> +	&clk_en_usb_host.clkr,
-> +	&clk_en_usb_u3_host.clkr,
-> +	&clk_en_usb.clkr,
-> +	&clk_en_vtc.clkr,
-> +	&clk_en_misc_vfd.clkr,
-> +};
-> +
-> +static struct clk_hw_onecell_data rtd1625_iso_clk_data = {
-> +	.num = RTD1625_ISO_CLK_MAX,
-> +	.hws = {
-> +		[RTD1625_ISO_CLK_EN_USB_P4]      = &__clk_regmap_gate_hw(&clk_en_usb_p4),
-> +		[RTD1625_ISO_CLK_EN_USB_P3]      = &__clk_regmap_gate_hw(&clk_en_usb_p3),
-> +		[RTD1625_ISO_CLK_EN_MISC_CEC0]   = &__clk_regmap_gate_hw(&clk_en_misc_cec0),
-> +		[RTD1625_ISO_CLK_EN_CBUSRX_SYS]  = &__clk_regmap_gate_hw(&clk_en_cbusrx_sys),
-> +		[RTD1625_ISO_CLK_EN_CBUSTX_SYS]  = &__clk_regmap_gate_hw(&clk_en_cbustx_sys),
-> +		[RTD1625_ISO_CLK_EN_CBUS_SYS]    = &__clk_regmap_gate_hw(&clk_en_cbus_sys),
-> +		[RTD1625_ISO_CLK_EN_CBUS_OSC]    = &__clk_regmap_gate_hw(&clk_en_cbus_osc),
-> +		[RTD1625_ISO_CLK_EN_I2C0]        = &__clk_regmap_gate_hw(&clk_en_i2c0),
-> +		[RTD1625_ISO_CLK_EN_I2C1]        = &__clk_regmap_gate_hw(&clk_en_i2c1),
-> +		[RTD1625_ISO_CLK_EN_ETN_250M]    = &__clk_regmap_gate_hw(&clk_en_etn_250m),
-> +		[RTD1625_ISO_CLK_EN_ETN_SYS]     = &__clk_regmap_gate_hw(&clk_en_etn_sys),
-> +		[RTD1625_ISO_CLK_EN_USB_DRD]     = &__clk_regmap_gate_hw(&clk_en_usb_drd),
-> +		[RTD1625_ISO_CLK_EN_USB_HOST]    = &__clk_regmap_gate_hw(&clk_en_usb_host),
-> +		[RTD1625_ISO_CLK_EN_USB_U3_HOST] = &__clk_regmap_gate_hw(&clk_en_usb_u3_host),
-> +		[RTD1625_ISO_CLK_EN_USB]         = &__clk_regmap_gate_hw(&clk_en_usb),
-> +		[RTD1625_ISO_CLK_EN_VTC]         = &__clk_regmap_gate_hw(&clk_en_vtc),
-> +		[RTD1625_ISO_CLK_EN_MISC_VFD]    = &__clk_regmap_gate_hw(&clk_en_misc_vfd),
-> +		[RTD1625_ISO_CLK_MAX] = NULL,
-> +	},
-> +};
-> +
-> +static const struct rtk_clk_desc rtd1625_iso_desc = {
-> +	.clk_data = &rtd1625_iso_clk_data,
-> +	.clks     = rtd1625_clk_regmap_list,
-> +	.num_clks = ARRAY_SIZE(rtd1625_clk_regmap_list),
-> +};
-> +
-> +static CLK_REGMAP_GATE_NO_PARENT(clk_en_irda, 0, 0x4, 6, 1);
-> +static CLK_REGMAP_GATE_NO_PARENT(clk_en_ur10, 0, 0x4, 8, 1);
-> +
-> +static struct clk_regmap *rtd1625_iso_s_clk_regmap_list[] = {
-> +	&clk_en_irda.clkr,
-> +	&clk_en_ur10.clkr,
-> +};
-> +
-> +static struct clk_hw_onecell_data rtd1625_iso_s_clk_data = {
-> +	.num = RTD1625_ISO_S_CLK_MAX,
-> +	.hws = {
-> +		[RTD1625_ISO_S_CLK_EN_IRDA] = &__clk_regmap_gate_hw(&clk_en_irda),
-> +		[RTD1625_ISO_S_CLK_EN_UR10] = &__clk_regmap_gate_hw(&clk_en_ur10),
-> +		[RTD1625_ISO_S_CLK_MAX] = NULL,
-> +	},
-> +};
-> +
-> +static const struct rtk_clk_desc rtd1625_iso_s_desc = {
-> +	.clk_data = &rtd1625_iso_s_clk_data,
-> +	.clks     = rtd1625_iso_s_clk_regmap_list,
-> +	.num_clks = ARRAY_SIZE(rtd1625_iso_s_clk_regmap_list),
-> +};
-> +
-> +static int rtd1625_iso_probe(struct platform_device *pdev)
-> +{
-> +	const struct rtk_clk_desc *desc;
-> +
-> +	desc = of_device_get_match_data(&pdev->dev);
-> +	if (!desc)
-> +		return -EINVAL;
-> +	return rtk_clk_probe(pdev, desc, "iso_rst");
-
-Add newline before return.
-
-> +}
-> +
-> +static const struct of_device_id rtd1625_iso_match[] = {
-> +	{.compatible = "realtek,rtd1625-iso-clk", .data = &rtd1625_iso_desc},
-> +	{.compatible = "realtek,rtd1625-iso-s-clk", .data = &rtd1625_iso_s_desc},
-> +	{ /* sentinel */ }
-> +};
-> +
-> +static struct platform_driver rtd1625_iso_driver = {
-> +	.probe = rtd1625_iso_probe,
-> +	.driver = {
-> +		.name = "rtk-rtd1625-iso-clk",
-> +		.of_match_table = rtd1625_iso_match,
-> +	},
-> +};
-> +
-> +static int __init rtd1625_iso_init(void)
-> +{
-> +	return platform_driver_register(&rtd1625_iso_driver);
-> +}
-> +subsys_initcall(rtd1625_iso_init);
-> +
-> +MODULE_DESCRIPTION("Realtek RTD1625 ISO Controller Driver");
-> +MODULE_AUTHOR("Cheng-Yu Lee <cylee12@realtek.com>");
-> +MODULE_LICENSE("GPL");
-> +MODULE_IMPORT_NS("REALTEK_CLK");
-> diff --git a/drivers/reset/realtek/Makefile b/drivers/reset/realtek/Makefile
-> index 8ca1fa939f10..26b3ddc75ada 100644
-> --- a/drivers/reset/realtek/Makefile
-> +++ b/drivers/reset/realtek/Makefile
-> @@ -1,2 +1,2 @@
->  # SPDX-License-Identifier: GPL-2.0-only
-> -obj-$(CONFIG_RESET_RTK_COMMON) += common.o reset-rtd1625-crt.o
-> +obj-$(CONFIG_RESET_RTK_COMMON) += common.o reset-rtd1625-crt.o reset-rtd1625-iso.o
-
-Some comment as the previous patch. CONFIG_RESET_RTK_COMMON is expected
-to be common, right? If so, a SoC-specific driver shouldn't be listed
-here.
-
-> diff --git a/drivers/reset/realtek/reset-rtd1625-iso.c b/drivers/reset/realtek/reset-rtd1625-iso.c
-> new file mode 100644
-> index 000000000000..f2a0478382ae
-> --- /dev/null
-> +++ b/drivers/reset/realtek/reset-rtd1625-iso.c
-> @@ -0,0 +1,96 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2026 Realtek Semiconductor Corporation
-> + */
-> +
-> +#include <dt-bindings/reset/realtek,rtd1625.h>
-> +#include <linux/auxiliary_bus.h>
-> +#include <linux/device.h>
-> +#include <linux/errno.h>
-> +#include <linux/of.h>
-> +#include <linux/slab.h>
-> +#include "common.h"
-> +
-> +#define RTD1625_ISO_RSTN_MAX	29
-> +#define RTD1625_ISO_S_RSTN_MAX	5
-> +
-> +static struct rtk_reset_desc rtd1625_iso_reset_descs[] = {
-
-static const?
-
-> +	[RTD1625_ISO_RSTN_VFD]                 = { .ofs = 0x88, .bit = 0 },
-> +	[RTD1625_ISO_RSTN_CEC0]                = { .ofs = 0x88, .bit = 2 },
-> +	[RTD1625_ISO_RSTN_CEC1]                = { .ofs = 0x88, .bit = 3 },
-> +	[RTD1625_ISO_RSTN_CBUSTX]              = { .ofs = 0x88, .bit = 5 },
-> +	[RTD1625_ISO_RSTN_CBUSRX]              = { .ofs = 0x88, .bit = 6 },
-> +	[RTD1625_ISO_RSTN_USB3_PHY2_XTAL_POW]  = { .ofs = 0x88, .bit = 7 },
-> +	[RTD1625_ISO_RSTN_UR0]                 = { .ofs = 0x88, .bit = 8 },
-> +	[RTD1625_ISO_RSTN_GMAC]                = { .ofs = 0x88, .bit = 9 },
-> +	[RTD1625_ISO_RSTN_GPHY]                = { .ofs = 0x88, .bit = 10 },
-> +	[RTD1625_ISO_RSTN_I2C_0]               = { .ofs = 0x88, .bit = 11 },
-> +	[RTD1625_ISO_RSTN_I2C_1]               = { .ofs = 0x88, .bit = 12 },
-> +	[RTD1625_ISO_RSTN_CBUS]                = { .ofs = 0x88, .bit = 13 },
-> +	[RTD1625_ISO_RSTN_USB_DRD]             = { .ofs = 0x88, .bit = 14 },
-> +	[RTD1625_ISO_RSTN_USB_HOST]            = { .ofs = 0x88, .bit = 15 },
-> +	[RTD1625_ISO_RSTN_USB_PHY_0]           = { .ofs = 0x88, .bit = 16 },
-> +	[RTD1625_ISO_RSTN_USB_PHY_1]           = { .ofs = 0x88, .bit = 17 },
-> +	[RTD1625_ISO_RSTN_USB_PHY_2]           = { .ofs = 0x88, .bit = 18 },
-> +	[RTD1625_ISO_RSTN_USB]                 = { .ofs = 0x88, .bit = 19 },
-> +	[RTD1625_ISO_RSTN_TYPE_C]              = { .ofs = 0x88, .bit = 20 },
-> +	[RTD1625_ISO_RSTN_USB_U3_HOST]         = { .ofs = 0x88, .bit = 21 },
-> +	[RTD1625_ISO_RSTN_USB3_PHY0_POW]       = { .ofs = 0x88, .bit = 22 },
-> +	[RTD1625_ISO_RSTN_USB3_P0_MDIO]        = { .ofs = 0x88, .bit = 23 },
-> +	[RTD1625_ISO_RSTN_USB3_PHY1_POW]       = { .ofs = 0x88, .bit = 24 },
-> +	[RTD1625_ISO_RSTN_USB3_P1_MDIO]        = { .ofs = 0x88, .bit = 25 },
-> +	[RTD1625_ISO_RSTN_VTC]                 = { .ofs = 0x88, .bit = 26 },
-> +	[RTD1625_ISO_RSTN_USB3_PHY2_POW]       = { .ofs = 0x88, .bit = 27 },
-> +	[RTD1625_ISO_RSTN_USB3_P2_MDIO]        = { .ofs = 0x88, .bit = 28 },
-> +	[RTD1625_ISO_RSTN_USB_PHY_3]           = { .ofs = 0x88, .bit = 29 },
-> +	[RTD1625_ISO_RSTN_USB_PHY_4]           = { .ofs = 0x88, .bit = 30 },
-> +};
-> +
-> +static struct rtk_reset_desc rtd1625_iso_s_reset_descs[] = {
-> +	[RTD1625_ISO_S_RSTN_ISOM_MIS] = { .ofs = 0x310, .bit = 0, .write_en = 1 },
-> +	[RTD1625_ISO_S_RSTN_GPIOM]    = { .ofs = 0x310, .bit = 2, .write_en = 1 },
-> +	[RTD1625_ISO_S_RSTN_TIMER7]   = { .ofs = 0x310, .bit = 4, .write_en = 1 },
-> +	[RTD1625_ISO_S_RSTN_IRDA]     = { .ofs = 0x310, .bit = 6, .write_en = 1 },
-> +	[RTD1625_ISO_S_RSTN_UR10]     = { .ofs = 0x310, .bit = 8, .write_en = 1 },
-> +};
-> +
-> +static int rtd1625_iso_reset_probe(struct auxiliary_device *adev,
-> +				   const struct auxiliary_device_id *id)
-> +{
-> +	struct device *dev = &adev->dev;
-> +	struct device *parent = dev->parent;
-> +	struct rtk_reset_data *data;
-> +
-> +	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
-> +	if (!data)
-> +		return -ENOMEM;
-> +
-> +	if (of_device_is_compatible(parent->of_node, "realtek,rtd1625-iso-s-clk")) {
-> +		data->descs           = rtd1625_iso_s_reset_descs;
-> +		data->rcdev.nr_resets = RTD1625_ISO_S_RSTN_MAX;
-> +	} else {
-> +		data->descs           = rtd1625_iso_reset_descs;
-> +		data->rcdev.nr_resets = RTD1625_ISO_RSTN_MAX;
-> +	}
-> +	return rtk_reset_controller_add(dev, data);
-
-Newline before return.
-
-> +}
-> +
-> +static const struct auxiliary_device_id rtd1625_iso_reset_ids[] = {
-> +	{
-> +		.name = "clk_rtk.iso_rst",
-> +	},
-
-I would combine the { .name } all on one line.
-
-Brian
-
-
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(auxiliary, rtd1625_iso_reset_ids);
-> +
-> +static struct auxiliary_driver rtd1625_iso_driver = {
-> +	.probe = rtd1625_iso_reset_probe,
-> +	.id_table = rtd1625_iso_reset_ids,
-> +	.driver = {
-> +		.name = "rtd1625-iso-reset",
-> +	},
-> +};
-> +module_auxiliary_driver(rtd1625_iso_driver);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_IMPORT_NS("REALTEK_RESET");
-> -- 
-> 2.34.1
+> > > > > + * Predefined reboot-modes are defined as per the values
+> > > > > + * of enum reboot_mode defined in the kernel: reboot.c.
+> > > > > + */
+> > > > > +static struct mode_info psci_resets[] = {
+> > > > > +	{ .mode = "warm", .magic = REBOOT_WARM},
+> > > > > +	{ .mode = "soft", .magic = REBOOT_SOFT},
+> > > > > +	{ .mode = "cold", .magic = REBOOT_COLD},
+> > 
+> > These strings match the command userspace issue right ? I think that we
+> > should make them match the corresponding PSCI reset types, the list above
+> > maps command to reboot_mode values and those can belong to any reboot
+> > mode driver to be honest they don't make much sense in a PSCI reboot
+> > mode driver only.
+> > 
+> > It is a question for everyone here: would it make sense to make these
+> > predefined resets a set of strings, eg:
+> > 
+> > psci-system-reset
+> > psci-system-reset2-arch-warm-reset
+> > 
+> > and then vendor resets:
+> > 
+> > psci-system-reset2-vendor-reset
 > 
+> Can you share bit more details on this? We are already defining the string
+> from userspace in the struct - eg: ".mode = "warm".
 
+"warm","soft","cold" are not strictly speaking PSCI concepts and mean nothing
+well defined to user space and even if they did, they would not belong in
+the PSCI reboot mode driver but in generic code.
+
+Spelling out what a reset is might help instead, again, this is just my
+opinion, I don't know how the semantics of resets have been handled thus
+far.
+
+If userspace issues a LINUX_REBOOT_CMD_RESTART2 with arg, say,
+"psci-system-reset2-arch-warm-reset" it is pretty clear what it wants
+to do in PSCI.
+
+Again, it is a suggestion, comments welcome.
+
+> yes we can move away from enum reboot_mode and use custom psci defines one -
+> Ack.
+> 
+> > 
+> 
+> [snip ..]
+> 
+> > > > > +
+> > > > > +/*
+> > > > > + * arg1 is reset_type(Low 32 bit of magic).
+> > > > > + * arg2 is cookie(High 32 bit of magic).
+> > > > > + * If reset_type is 0, cookie will be used to decide the reset command.
+> > > > > + */
+> > > > > +static int psci_reboot_mode_write(struct reboot_mode_driver *reboot, u64 magic)
+> > > > > +{
+> > > > > +	u32 reset_type = REBOOT_MODE_ARG1(magic);
+> > > > > +	u32 cookie = REBOOT_MODE_ARG2(magic);
+> > > > > +
+> > > > > +	if (reset_type == 0) {
+> > > > > +		if (cookie == REBOOT_WARM || cookie == REBOOT_SOFT)
+> > > > > +			psci_set_reset_cmd(true, 0, 0);
+> > > > > +		else
+> > > > > +			psci_set_reset_cmd(false, 0, 0);
+> > > > > +	} else {
+> > > > > +		psci_set_reset_cmd(true, reset_type, cookie);
+> > > > > +	}
+> > > > 
+> > > > I don't think that psci_set_reset_cmd() has the right interface (and this
+> > > > nested if is too complicated for my taste). All we need to pass is reset-type
+> > > > and cookie (and if the reset is one of the predefined ones, reset-type is 0
+> > > > and cookie is the REBOOT_* cookie).
+> > > > 
+> > > > Then the PSCI firmware driver will take the action according to what
+> > > > resets are available.
+> > > > 
+> > > > How does it sound ?
+> > > 
+> > > So we mean these checks will move to the psci driver? Sorry for re-iterating
+> > > the question.
+> > 
+> > Given what I say above, I believe that something we can do is mapping the magic
+> > to an enum like:
+> > 
+> > PSCI_SYSTEM_RESET
+> > PSCI_SYSTEM_RESET2_ARCH_SYSTEM_WARM_RESET
+> > PSCI_SYSTEM_RESET2_VENDOR_RESET
+> > 
+> > and can add a probe function into PSCI driver similar to psci_has_osi_support() but
+> > to probe for SYSTEM_RESET2 and initialize the predefined strings accordingly,
+> > depending on its presence.
+> 
+> Not able to get it cleanly.
+> 
+> 1. Will move away from reboot_mode enum for pre-defined modes and define new
+> enum defining these modes- fine.
+> 2. get SYSTEM_RESET2 is supported from psci exported function -- fine, but
+> how we use it here now, as we do not want to send the reset_cmd from
+> psci_set_reset_cmd now?
+
+You do keep psci_set_reset_cmd() but all it is used for is setting a struct
+shared with the PSCI driver where you initialize the enum above, possibly
+with a cookie if it is a vendor reset.
+
+> 3. For pre-defined modes, warm/soft or cold - reset_type and cookie, both
+> are zero, sys_reset2 or sys_reset2 decides the ARCH reset vs cold reset.
+> 4. For vendor-rest , we use sys_reset2 with reset_type and cookie.
+
+Yes.
+
+> All above is done in reboot_notifier call at psci-reboot-mode.
+> --
+> 
+> Now in the final restart_notifier->psci_sys_reset --
+> 
+> If panic is in progress, we do not use any of the cmd based reset params and
+> go with the legacy reset. So we need to preserve the values that were set
+> from psci-reboot-mode.
+> 
+> Did not understand the proposed suggestion in above usecase. Need more input
+> on this.
+
+I explained above. The reboot mode driver sets the command to carry out
+depending on the string coming from user space and whether PSCI supports
+SYSTEM_RESET2 or not.
+
+> --
+> 
+> One other option is to have a restart_notifier in psci-reboot-mode, with
+> lesser priority than psci_sys_rest and then handle all the case including
+> panic and sys_reset2.
+
+No.
+
+Thanks,
+Lorenzo
 
