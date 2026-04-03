@@ -4,101 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBC8ED6AAFA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 02:06:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02F7DD73086
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 02:20:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JuU4KWiApf0ZUp6VJ9psnuq1pPNAcv7FH3S1uYvgc+M=; b=yQQ6fg0DNHK2Gd2hViWsCOitMN
-	3cJk66hy50byQ9UdE15VggK7tO9efqVC5FHc6I17SF379hDE264E7NjnFHmIyy4blfs1EoMZ6PXM7
-	pKYCpH027aY4xD1cwoM9ALX2Tbk/KpdvXAgzaI35w/v2EP6Df87fbCDGIKqFaRPrdbBq5Sw3F9y2S
-	egsnIpPk8wHj69KLU0L5lj8AnoSH9cG7u1m3KurWtzOliEaPzqL3O7ua5kDHb9InIISZqLh6fWeqT
-	Tr8w5+p+V1mKkq3YBqxFeW9/SKQ4kZGyr9+10wZYxwczMCaxe45s51TnPcGoMV1F6qcCuWteQHY5k
-	wrEpanjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YLyfrpphk/pri+vsSR8ZKPbndfkUJotLPgfVmPM7TEQ=; b=ZTiAyXMehOKnpZxuRVLIv9HiVi
+	mhGMHO5ecj3ep24Px/w1+T+ojHT4HJSfE/IFV81uL8sCmhHi2jYaZofG8U+4wZWJTJMawVMGjGM4D
+	+ThSKKaOxkjnDn3FywxiLU0KFQWYA+JirxMDTotA3tHoAk8HV6GDcMh8Kud/z5ZFasFebjoln1P05
+	oqCmehF9MuyIZasNx+bKnMzADvqBBmz6hlrkdAX16nwBFB97O+gI4iKLeO+6ojD6ykWpBCC6X59xX
+	54jED7NbBRwjo5FIbOsGF9w5Jm3qGoinVKsfPEC9ymCd2eprim1DGniRsN0K0l3Upyfl+WFJEXUlm
+	FlmMKYYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Tve-000000015LP-2AHr;
-	Fri, 03 Apr 2026 02:06:34 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1w8U8y-0000000164b-0ZRj;
+	Fri, 03 Apr 2026 02:20:20 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Tvb-000000015Ke-3ZIH;
-	Fri, 03 Apr 2026 02:06:33 +0000
-Received: from pps.filterd (m0333520.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6330GC2Z1380163;
-	Fri, 3 Apr 2026 02:05:43 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2025-04-25; bh=JuU4KWiApf0ZUp6VJ9psnuq1pPNAcv7FH3S1uYvgc+M=; b=
-	Qt+9uZ1u/LHo+bGtDpN2v9Zed05JNtsSBBB4ocolh0+Hcx/687h8RJkoVDR6XWwX
-	7PxIeDQwZcCajaStb2ljMKnHhg2T2UZEHisLgsTB8kzx892bx2hjTBVbofEQt2Qh
-	GHjPKwtJW12eCl5IeGwfr4vrGzUX2lMrTSJq6JQyfXs5IR+Z6RHl+/O8gSlfQKOU
-	sk/KVypXcEKQOewPSELXyvRXdw1SozqpbtAwhE6mi+uesCIBoF19iZneL/UJpmC1
-	q3f9mqKyJscv4fKScHnsKiXNxHYRAksDgxgI29yEO7OLaPbm6Xa4KXYBO/OZwv9A
-	rIUmFix3T6ug3/SHFFoaaA==
-Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4d671b1gvq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 03 Apr 2026 02:05:42 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 6331Kig9028961;
-	Fri, 3 Apr 2026 02:05:42 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 4d65eddp4r-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 03 Apr 2026 02:05:41 +0000
-Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 63325cqb017364;
-	Fri, 3 Apr 2026 02:05:41 GMT
-Received: from ca-mkp2.ca.oracle.com.com (mpeterse-ol9.allregionaliads.osdevelopmeniad.oraclevcn.com [100.100.251.135])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTP id 4d65eddp33-3;
-	Fri, 03 Apr 2026 02:05:41 +0000
-From: "Martin K. Petersen" <martin.petersen@oracle.com>
-To: avri.altman@wdc.com, bvanassche@acm.org, beanhuo@micron.com,
-        peter.wang@mediatek.com, mani@kernel.org,
-        Can Guo <can.guo@oss.qualcomm.com>
-Cc: "Martin K . Petersen" <martin.petersen@oracle.com>,
-        linux-scsi@vger.kernel.org, Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v5 00/12] scsi: ufs: Add TX Equalization support for UFS 5.0
-Date: Thu,  2 Apr 2026 22:05:26 -0400
-Message-ID: <177517593459.3522679.17128283878850153356.b4-ty@oracle.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260325152154.1604082-1-can.guo@oss.qualcomm.com>
-References: <20260325152154.1604082-1-can.guo@oss.qualcomm.com>
+	id 1w8U8t-0000000164F-2xNu
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Apr 2026 02:20:17 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2b0c12be0ecso49155ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Apr 2026 19:20:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1775182814; x=1775787614; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=YLyfrpphk/pri+vsSR8ZKPbndfkUJotLPgfVmPM7TEQ=;
+        b=Gzf9Gm0x63NKPNfkZfgIZZfYhNYivstMvd74lqkQm1ekrsZ5uE/z+kJIPbauHYmYYh
+         G9Bg7opEdvwdxHfujgPy9Lf7A1/xmcUiHiAhnbdsb422oCncSBjkqx+n6gf1c4aZG+P/
+         H4uvRV22ZormAeDC9+hGXahcnyQRArJLNlNldprEA4zQIqDNcjxFAWXtGNI3rANk4L5v
+         NakezxV3KrRQph7gTP5PFLjofTDllMdpXSDnVBoeEq+m6+xlUaTo9XQyV4DtmPSaRhf6
+         1QPrb1mLn35EL8SoJ87j4KTcMf3VkdcTzPkFN44wDi6RXLN9taGdbpCZRNcNlw54cij8
+         ZOHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775182814; x=1775787614;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YLyfrpphk/pri+vsSR8ZKPbndfkUJotLPgfVmPM7TEQ=;
+        b=R++fcheFBk7D+MKS9vGBhIcjw9oyArWaVzrApyfz0vdj2eMvRWy88yWiICKB5AkMwz
+         zVXu0F9lMjwe4TvqiBUI07crbpnDiPeP/O05p0AgB2Tai7ZxOZUPH+ZX4S5NX+B42ZmW
+         VvtX8RYGkL8SOTcb8I8wlciZfRWqJdeyfD18hX4r8lrfcpXZuXCKrsicudo222aWBJx4
+         R6FV3ZGkjej8wojTkgMNP/xZsgjxmDncellPx1hy3+oJAH1SIn/5NEUXrc+y/DNer0uR
+         qRNnLI+u5qTUnK1ms+rRKCj3J3dO+7jDDMxlGxeeguEnHNfRi5bjtxQkeCWdEtk/W0qT
+         uJmw==
+X-Forwarded-Encrypted: i=1; AJvYcCUG3+y5wQu7dhUVFslx6FLLpYRqbOLTRZQIX45+At8u6yDYYem9CIvOJWkUNmuJyTyJhu7ZgFDbScwIGjgO2ALC@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLivt/fHcaE1DXYLBumG89KK8DeaTCa6PaW/LvKVDYpEvtFMpd
+	FxM4Hyp9XTXfkgFcc510dyZuO3qe+JMXSMuMMOI1OkaACq22qxqAV+UJXxrJQ3Qyfw==
+X-Gm-Gg: AeBDievBunG2OFcJZSFUKlMaBot2ycBfb3hgmImU8L+pthxaYsehNwX8cDo2COCcuKP
+	oQK77TFH2t/S/TzAyRZa93uyDu9xcGefLCLceTe6dfRoJyzaRMX2XDhf1yFxiS4CZ2OQ616eg/Z
+	MSRXN8yXcy+fOPnFnvSBUYfrTCC183qXg8rTxZqLLxbY4KWzPGCTr7wZWcndD0l9PY3c2Hn17rG
+	0BnSJDtSuesijbOgkJa+Nvp7K91F7ugyT/KBLDpzCJ/mgGSrygLItzI8PY277XVMDwOpSU8PmKw
+	PMs6mQ17FK7axygTRciBlQICUJF2oQMB/SpcGcqPbYLBaGT01Uo/3H9lGWU5Bs25tckabD6HCuD
+	mt18R3U1mdaC9/4meuVq8l9Nmebi9+b2I2A1R4X+20STrugseyVEianBouDKzwO/hMYktnG4FLw
+	6aGu0qxTENwGUtyiXEMh47b3fNqtcQat98NAs1HAMJTpks+h9GcAY9ogUJqg==
+X-Received: by 2002:a17:903:2f0d:b0:2ae:4808:bd99 with SMTP id d9443c01a7336-2b282ed3780mr1613755ad.2.1775182813067;
+        Thu, 02 Apr 2026 19:20:13 -0700 (PDT)
+Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82cf9c71e62sm4165949b3a.44.2026.04.02.19.20.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Apr 2026 19:20:12 -0700 (PDT)
+Date: Fri, 3 Apr 2026 02:20:06 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Connor Abbott <cwabbott0@gmail.com>, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+	Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
+Subject: Re: [PATCH v2] iommu/arm-smmu: Use pm_runtime in fault handlers
+Message-ID: <ac8j1jlFNxgZWzzK@google.com>
+References: <20260313-smmu-rpm-v2-1-8c2236b402b0@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-02_04,2026-04-02_05,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxscore=0 bulkscore=0 spamscore=0
- malwarescore=0 mlxlogscore=999 phishscore=0 suspectscore=0 adultscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2603050001
- definitions=main-2604030017
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAzMDAxNyBTYWx0ZWRfX1LBiQhOsYASj
- d3H2snTfATbPOEWZg2HG1tt7/4T05EXo6LV9feS5OwUWTg9/TPUFuBZwMOd4Mo2K0RiRPDDxkqP
- 8CVDlhXM4D4w+Cenl0eGd7Fly88H4BubUJyn/NL2+LCyPi9qgNO6Z5QylQcfp//xeCvqvmGTFuC
- 4ed74nuW9ruFeUQoEZ1C696AmvDcf9Wcj7a2feizDRouxswMEU4mKU9MMqyhAAHcrZKsvd9d0zP
- zDOEC0kknYdUFcuxqVHXejyJ0FM7Blp79ONYlwPS33o/B/8yyC6Tym11GoS7uwXfBImVWwZiR3K
- eee13D0Ypm0e7zVrvudZuoOepSxSLGYcgJDwMwSa4FAmJLb3qumlAXYF/MiVQ4D1wuwEyvz2Uoa
- ozEiIqkLDlrmXKZ2FFo0FiULZWxafzSvHrWhrAWAJIHXoraP9TqfqkRU5hudSrcB83FYZepIWSw
- fQldEsdhH7i8u7HnPZw==
-X-Authority-Analysis: v=2.4 cv=PJkCOPqC c=1 sm=1 tr=0 ts=69cf2076 b=1 cx=c_pps
- a=WeWmnZmh0fydH62SvGsd2A==:117 a=WeWmnZmh0fydH62SvGsd2A==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=jiCTI4zE5U7BLdzWsZGv:22 a=BqU2WV_vvsyTyxaotp0D:22 a=VwQbUJbxAAAA:8
- a=EuvOurwuZNnj9x5cPKIA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: J3hC8jPB2XAMZ05DyGFme7bAbVHCETjW
-X-Proofpoint-ORIG-GUID: J3hC8jPB2XAMZ05DyGFme7bAbVHCETjW
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260313-smmu-rpm-v2-1-8c2236b402b0@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_190632_007131_F53256F3 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20260402_192015_808587_025E3750 
+X-CRM114-Status: GOOD (  38.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,48 +103,229 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 25 Mar 2026 08:21:42 -0700, Can Guo wrote:
-
-> The UFS v5.0 and UFSHCI v5.0 standards have published, introducing support
-> for HS-G6 (46.6 Gbps per lane) through the new UniPro V3.0 interconnect
-> layer and M-PHY V6.0 physical layer specifications. To achieve reliable
-> operation at these higher speeds, UniPro V3.0 introduces TX Equalization
-> and Pre-Coding mechanisms that are essential for signal integrity.
+On Fri, Mar 13, 2026 at 03:53:53PM +0530, Prakash Gupta wrote:
+> Commit d4a44f0750bb ("iommu/arm-smmu: Invoke pm_runtime across the driver")
+> enabled pm_runtime for the arm-smmu device. On systems where the SMMU
+> sits in a power domain, all register accesses must be done while the
+> device is runtime active to avoid unclocked register reads and
+> potential NoC errors.
 > 
-> This patch series implements TX Equalization support in the UFS core
-> driver as specified in UFSHCI v5.0, along with the necessary vendor
-> operations and a reference implementation for Qualcomm UFS host
-> controllers.
+> So far, this has not been an issue for most SMMU clients because
+> stall-on-fault is enabled by default. While a translation fault is
+> being handled, the SMMU stalls further translations for that context
+> bank, so the fault handler would not race with a powered-down
+> SMMU.
 > 
-> [...]
+> Adreno SMMU now disables stall-on-fault in the presence of fault
+> storms to avoid saturating SMMU resources and hanging the GMU. With
+> stall-on-fault disabled, the SMMU can generate faults while its power
+> domain may no longer be enabled, which makes unclocked accesses to
+> fault-status registers in the SMMU fault handlers possible.
+> 
+> Guard the context and global fault handlers with pm_runtime_get_if_active()
+> and pm_runtime_put_autosuspend() so that all SMMU fault register accesses
+> are done with the SMMU powered. In case pm_runtime is not active we can
+> safely ignore the fault as for pm runtime resume the smmu device is
+> reset and fault registers are cleared.
+> 
+> Fixes: b13044092c1e ("drm/msm: Temporarily disable stall-on-fault after a page fault")
+> Co-developed-by: Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
+> Signed-off-by: Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
+> Signed-off-by: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+> ---
+> Changes in v2:
+> - Switched from arm_smmu_rpm_get()/arm_smmu_rpm_put() wrappers to
+>   pm_runtime_get_if_active()/pm_runtime_put_autosuspend() APIs
+> - Added support for smmu->impl->global_fault callback in global fault handler
+> - Remove threaded irq context fault restriction to allow modifying stall
+>   mode for adreno smmu
+> - Link to v1: https://patch.msgid.link/20260127-smmu-rpm-v1-1-2ef2f4c85305@oss.qualcomm.com
+> ---
+>  drivers/iommu/arm/arm-smmu/arm-smmu.c | 60 +++++++++++++++++++++++------------
+>  1 file changed, 39 insertions(+), 21 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> index 5e690cf85ec9..f4c46491a03d 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> @@ -462,10 +462,20 @@ static irqreturn_t arm_smmu_context_fault(int irq, void *dev)
+>  	int idx = smmu_domain->cfg.cbndx;
+>  	int ret;
+>  
+> +	if (!pm_runtime_get_if_active(smmu->dev))
 
-Applied to 7.1/scsi-queue, thanks!
+Note that the pm_runtime_get_if_active(dev) only returns a positive
+value if the device state is exactly RPM_ACTIVE. If the device is in the
+middle of its runtime_suspend callback, its state is RPM_SUSPENDING.
 
-[01/12] scsi: ufs: core: Introduce a new ufshcd vops negotiate_pwr_mode()
-        https://git.kernel.org/mkp/scsi/c/d3eba21c7170
-[02/12] scsi: ufs: core: Pass force_pmc to ufshcd_config_pwr_mode() as a parameter
-        https://git.kernel.org/mkp/scsi/c/c91c83671642
-[03/12] scsi: ufs: core: Add UFS_HS_G6 and UFS_HS_GEAR_MAX to enum ufs_hs_gear_tag
-        https://git.kernel.org/mkp/scsi/c/6669ab18c223
-[04/12] scsi: ufs: core: Add support for TX Equalization
-        https://git.kernel.org/mkp/scsi/c/03e5d38e2f98
-[05/12] scsi: ufs: core: Add debugfs entries for TX Equalization params
-        https://git.kernel.org/mkp/scsi/c/10c40143f369
-[06/12] scsi: ufs: core: Add helpers to pause and resume command processing
-        https://git.kernel.org/mkp/scsi/c/dc5dcac53278
-[07/12] scsi: ufs: core: Add support to retrain TX Equalization via debugfs
-        https://git.kernel.org/mkp/scsi/c/adbabdcf0db0
-[08/12] scsi: ufs: ufs-qcom: Fixup PAM-4 TX L0_L1_L2_L3 adaptation pattern length
-        https://git.kernel.org/mkp/scsi/c/53c94067efa2
-[09/12] scsi: ufs: ufs-qcom: Implement vops tx_eqtr_notify()
-        https://git.kernel.org/mkp/scsi/c/385b95893e79
-[10/12] scsi: ufs: ufs-qcom: Implement vops get_rx_fom()
-        https://git.kernel.org/mkp/scsi/c/26605db7604d
-[11/12] scsi: ufs: ufs-qcom: Implement vops apply_tx_eqtr_settings()
-        https://git.kernel.org/mkp/scsi/c/16cbdc830877
-[12/12] scsi: ufs: ufs-qcom: Enable TX Equalization
-        https://git.kernel.org/mkp/scsi/c/57b7943fd87f
+Thus, if a fault races with the suspend callback, we'll return IRQ_NONE
+and the suspend callback doesn't seem to be disabling interrupts.
 
--- 
-Martin K. Petersen
+This isn't any better if we're in a fault-storm caused by
+level-triggered interrupts, we'd simply keep entering this handler and
+return.
+
+I believe we should clear / handle any pending faults/interrupts or
+atleast mask interrupt in the suspend handler to avoid this situation.
+
+> +		return IRQ_NONE;
+> +
+
+Maybe we could add another wrapped-helper to maintain consistency:
+
+static inline int arm_smmu_rpm_get_if_active(struct arm_smmu_device *smmu)
+{
+     if (!pm_runtime_enabled(smmu->dev))
+         return 1; // Assume active/powered if RPM is not used
+     return pm_runtime_get_if_active(smmu->dev);
+}
+
+This returns -EINVAL otherwise which isn't a problem for the if
+condition but slightly cleaner.
+
+> +	if (smmu->impl && smmu->impl->context_fault) {
+> +		ret = smmu->impl->context_fault(irq, dev);
+> +		goto out_power_off;
+> +	}
+> +
+
+We've moved impl-specific handlers here, I don't see a functional change.
+This looks fine.
+
+>  	arm_smmu_read_context_fault_info(smmu, idx, &cfi);
+>  
+> -	if (!(cfi.fsr & ARM_SMMU_CB_FSR_FAULT))
+> -		return IRQ_NONE;
+> +	if (!(cfi.fsr & ARM_SMMU_CB_FSR_FAULT)) {
+> +		ret = IRQ_NONE;
+> +		goto out_power_off;
+> +	}
+>  
+>  	ret = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
+>  		cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
+> @@ -480,7 +490,12 @@ static irqreturn_t arm_smmu_context_fault(int irq, void *dev)
+>  				  ret == -EAGAIN ? 0 : ARM_SMMU_RESUME_TERMINATE);
+>  	}
+>  
+> -	return IRQ_HANDLED;
+> +	ret = IRQ_HANDLED;
+> +
+> +out_power_off:
+> +	pm_runtime_put_autosuspend(smmu->dev);
+
+Nit: Please use arm_smmu_rpm_put() here.. while at it, I guess we can
+also bring back pm_runtime_put_autosuspend() in arm_smmu_rpm_put() since
+it is updated now to also mark last busy.
+
+> +
+> +	return ret;
+>  }
+>  
+>  static irqreturn_t arm_smmu_global_fault(int irq, void *dev)
+> @@ -489,14 +504,25 @@ static irqreturn_t arm_smmu_global_fault(int irq, void *dev)
+>  	struct arm_smmu_device *smmu = dev;
+>  	static DEFINE_RATELIMIT_STATE(rs, DEFAULT_RATELIMIT_INTERVAL,
+>  				      DEFAULT_RATELIMIT_BURST);
+> +	int ret;
+> +
+> +	if (!pm_runtime_get_if_active(smmu->dev))
+> +		return IRQ_NONE;
+> +
+
+Same here.
+
+> +	if (smmu->impl && smmu->impl->global_fault) {
+> +		ret = smmu->impl->global_fault(irq, dev);
+> +		goto out_power_off;
+> +	}
+>  
+>  	gfsr = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sGFSR);
+>  	gfsynr0 = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sGFSYNR0);
+>  	gfsynr1 = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sGFSYNR1);
+>  	gfsynr2 = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sGFSYNR2);
+>  
+> -	if (!gfsr)
+> -		return IRQ_NONE;
+> +	if (!gfsr) {
+> +		ret = IRQ_NONE;
+> +		goto out_power_off;
+> +	}
+>  
+>  	if (__ratelimit(&rs)) {
+>  		if (IS_ENABLED(CONFIG_ARM_SMMU_DISABLE_BYPASS_BY_DEFAULT) &&
+> @@ -513,7 +539,11 @@ static irqreturn_t arm_smmu_global_fault(int irq, void *dev)
+>  	}
+>  
+>  	arm_smmu_gr0_write(smmu, ARM_SMMU_GR0_sGFSR, gfsr);
+> -	return IRQ_HANDLED;
+> +	ret = IRQ_HANDLED;
+> +
+> +out_power_off:
+> +	pm_runtime_put_autosuspend(smmu->dev);
+> +	return ret;
+>  }
+>  
+>  static void arm_smmu_init_context_bank(struct arm_smmu_domain *smmu_domain,
+> @@ -683,7 +713,6 @@ static int arm_smmu_init_domain_context(struct arm_smmu_domain *smmu_domain,
+>  	enum io_pgtable_fmt fmt;
+>  	struct iommu_domain *domain = &smmu_domain->domain;
+>  	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
+> -	irqreturn_t (*context_fault)(int irq, void *dev);
+>  
+>  	mutex_lock(&smmu_domain->init_mutex);
+>  	if (smmu_domain->smmu)
+> @@ -850,19 +879,14 @@ static int arm_smmu_init_domain_context(struct arm_smmu_domain *smmu_domain,
+>  	 */
+>  	irq = smmu->irqs[cfg->irptndx];
+>  
+> -	if (smmu->impl && smmu->impl->context_fault)
+> -		context_fault = smmu->impl->context_fault;
+> -	else
+> -		context_fault = arm_smmu_context_fault;
+> -
+>  	if (smmu->impl && smmu->impl->context_fault_needs_threaded_irq)
+>  		ret = devm_request_threaded_irq(smmu->dev, irq, NULL,
+> -						context_fault,
+> +						arm_smmu_context_fault,
+>  						IRQF_ONESHOT | IRQF_SHARED,
+>  						"arm-smmu-context-fault",
+>  						smmu_domain);
+>  	else
+> -		ret = devm_request_irq(smmu->dev, irq, context_fault, IRQF_SHARED,
+> +		ret = devm_request_irq(smmu->dev, irq, arm_smmu_context_fault, IRQF_SHARED,
+>  				       "arm-smmu-context-fault", smmu_domain);
+>  
+>  	if (ret < 0) {
+> @@ -2125,7 +2149,6 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+>  	struct device *dev = &pdev->dev;
+>  	int num_irqs, i, err;
+>  	u32 global_irqs, pmu_irqs;
+> -	irqreturn_t (*global_fault)(int irq, void *dev);
+>  
+>  	smmu = devm_kzalloc(dev, sizeof(*smmu), GFP_KERNEL);
+>  	if (!smmu) {
+> @@ -2205,18 +2228,13 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+>  		smmu->num_context_irqs = smmu->num_context_banks;
+>  	}
+>  
+> -	if (smmu->impl && smmu->impl->global_fault)
+> -		global_fault = smmu->impl->global_fault;
+> -	else
+> -		global_fault = arm_smmu_global_fault;
+> -
+>  	for (i = 0; i < global_irqs; i++) {
+>  		int irq = platform_get_irq(pdev, i);
+>  
+>  		if (irq < 0)
+>  			return irq;
+>  
+> -		err = devm_request_irq(dev, irq, global_fault, IRQF_SHARED,
+> +		err = devm_request_irq(dev, irq, arm_smmu_global_fault, IRQF_SHARED,
+>  				       "arm-smmu global fault", smmu);
+>  		if (err)
+>  			return dev_err_probe(dev, err,
+> 
+
+Thanks,
+Praan
 
