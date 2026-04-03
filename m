@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB052CC6B1D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 00:53:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEBA1D6AB1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 01:03:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R/gbGmXT8G+ZNC4WOZV98syZMUVqLqbIohTb80/HY9c=; b=aieWDNmZGoiUnEEuLYHjm3h4je
-	cTfrf7VNByk2zfj7QRMKr05kY5HJnt57AN+DNpFGU85cFr50VZ+krkHyJqkXyJKOabgRz5Od7awQC
-	4dU13EGUo6og5YBPCbXlLAEUO9pK9aVOIebj4/0ZIAG/bl3kqwaadmVU5kkrM6YSUhHAbIfIku8QS
-	o4PyxL8Rfp3f65mscCRihdiYliuDP0Td+guNX8NO1dxi8QFZBAF53gmBAWpNs2OLZ36hvswcYQLYV
-	VaZlCB62WDtU6OGOZbViTfaXqPzwsKZ9U5RgvGZYrD3BQBw+uwFIeKmWC3P2uZCi6sGwOi546X3aj
-	gVdPsegw==;
+	bh=7YoSEJ++U+bhsZHS7opTnIXvFxUfS1Ektt6/OuIFNhc=; b=geZ4J5/rcnTMZIgtvXSMawuKWk
+	8LBYNrS4TaTZyr6Pr+Ox83xgcq21O/q6ba72rPl+1L0c7P/YTQWesUQcrv6bNp8wvfROkevxzHl3R
+	NXYgEhfbAgUZdgKRedePeBdJyGjuBZUYgavqrD/hX+gaiAKPi0RI9LEvcdmzvbePv9K0D9HFQCBhx
+	RjbxjdnzLahnsTKXDcP4aKk0vgj3jU54j8x/ZVbLw6e40UaGkxcjJIr5StTFA1FXZtjkTf5zNJTBc
+	TjJP6CT4atx61Gr4cLPd3woLq1rGh41PxrAlLl9Qsn7c76QXHCEx+sOj+o5a1cJZHxQu16Or/XPZU
+	KzB/Whkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Smw-0000000105F-3MbG;
-	Fri, 03 Apr 2026 00:53:30 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1w8SwY-000000010hW-22WE;
+	Fri, 03 Apr 2026 01:03:26 +0000
+Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8Smv-00000001048-1E02;
-	Fri, 03 Apr 2026 00:53:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=R/gbGmXT8G+ZNC4WOZV98syZMUVqLqbIohTb80/HY9c=; b=K2
-	xaUK9NCidBxIhq4MBQyfiD9duhm5SufM2BFIUZeFRB8PBymzG9r0LIczZglK9WodAR/UyU9NhjAE7
-	ECUtKxIYSvVH0BJamhsL+NI1lDOLZxft0hNk9bXUmKlXF4jThuCxs79Qcg/qelLkptQ0+iPIOgKqk
-	X0It/l4/no9Dnk4=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1w8SmT-00Eaxu-P1; Fri, 03 Apr 2026 02:53:01 +0200
-Date: Fri, 3 Apr 2026 02:53:01 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Dennis Gilmore <dennis@ausil.us>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki <naoki@radxa.com>,
-	Hsun Lai <i@chainsx.cn>, Jonas Karlman <jonas@kwiboo.se>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	John Clark <inindev@gmail.com>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Chukun Pan <amadeus@jmu.edu.cn>, Alexey Charkov <alchark@gmail.com>,
-	Peter Robinson <pbrobinson@gmail.com>,
-	Michael Riesch <michael.riesch@collabora.com>,
-	Mykola Kvach <xakep.amatop@gmail.com>,
-	Jimmy Hon <honyuenkwun@gmail.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/3] arm64: dts: rockchip: refactor items from Orange
- Pi 5/b to prep for Pro
-Message-ID: <b1ba2e70-4886-4d37-9c53-9045c3ad78df@lunn.ch>
-References: <20260401010707.2584962-1-dennis@ausil.us>
- <20260401010707.2584962-3-dennis@ausil.us>
- <b733883d-e515-4946-a81f-d1a595985e01@lunn.ch>
- <CAABkxwvnv7i=xg53qu4JDapBs6ATaMGh9iXZfi+od=CCxRxQUA@mail.gmail.com>
+	id 1w8SwV-000000010h9-20K8
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Apr 2026 01:03:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=7YoSEJ++U+bhsZHS7opTnIXvFxUfS1Ektt6/OuIFNhc=; 
+	b=Pcy7ukdfzC+ko0Rih10LxJA/9qlFtoganjfS6zaAZ35WkeQrRSOlmAvvaXUwmNwR7B37BTMhg7k
+	/ew7Tnlw/GUdOMSIDiMQPqRdnmeTsGRdARmFHP4IPEy0xsgKgXmzo+pZVXXD8KXDv+zabAez2r5w/
+	ZcbVGDNKtTC0zAHqKY34A+hn29cQzJiWBiDLC3u+BsxRqlfAbqHbMW9SA+7DmANiyje9TF3GVV0aZ
+	lJLzf0h9wabmwP4bLXE3fpetHCOsCoNaH2sao3DxGZiJ/nxFAcWQGnA9hOGvkxpdpW/oj7GEpy75m
+	iggZIsDgon/bj2jdGfOKUmUC4oYRfkwQH0Lw==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1w8SWg-003Qwj-0L;
+	Fri, 03 Apr 2026 09:03:02 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 03 Apr 2026 09:03:00 +0800
+Date: Fri, 3 Apr 2026 09:03:00 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Aleksander Jan Bajkowski <olek2@wp.pl>
+Cc: davem@davemloft.net, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, linux-crypto@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4] crypto: testmgr - Add test vectors for
+ authenc(hmac(md5),cbc(aes))
+Message-ID: <ac8RxOP3h7SEqBN5@gondor.apana.org.au>
+References: <20260303184916.69132-1-olek2@wp.pl>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAABkxwvnv7i=xg53qu4JDapBs6ATaMGh9iXZfi+od=CCxRxQUA@mail.gmail.com>
+In-Reply-To: <20260303184916.69132-1-olek2@wp.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_175329_346615_19178FEE 
-X-CRM114-Status: GOOD (  15.48  )
+X-CRM114-CacheID: sfid-20260402_180323_522749_3571A59C 
+X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,37 +74,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 01, 2026 at 08:27:30AM -0500, Dennis Gilmore wrote:
-> Hi Andrew,
+On Tue, Mar 03, 2026 at 07:48:44PM +0100, Aleksander Jan Bajkowski wrote:
+> Test vectors were generated starting from existing CBC(AES) test vectors
+> (RFC3602, NIST SP800-38A) and adding HMAC(MD5) computed with Python
+> script. Then, the results were double-checked on Mediatek MT7981 (safexcel)
+> and NXP P2020 (talitos). Both platforms pass self-tests.
 > 
-> On Wed, Apr 1, 2026 at 6:52 AM Andrew Lunn <andrew@lunn.ch> wrote:
-> >
-> > > +&gmac1 {
-> > > +     clock_in_out = "output";
-> > > +     phy-handle = <&rgmii_phy1>;
-> > > +     phy-mode = "rgmii-rxid";
-> > > +     pinctrl-0 = <&gmac1_miim
-> > > +                  &gmac1_tx_bus2
-> > > +                  &gmac1_rx_bus2
-> > > +                  &gmac1_rgmii_clk
-> > > +                  &gmac1_rgmii_bus>;
-> > > +     pinctrl-names = "default";
-> > > +     tx_delay = <0x42>;
-> >
-> > phy-mode = "rgmii-rxid" means the PCB provides the 2ns delay for
-> > TX. This is unlikely to be correct. Please try "rgmii-id" and delete
-> > the tx_delay.
-> 
-> As I mentioned to you in v2 I do not have the affected hardware to
-> test any changes. This patch is just moving the existing definition
-> from the common dtsi to the two devices that  have gmac1 wired up. I
-> am not comfortable making changes here that I can not verify if they
-> work or not.
+> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
+> ---
+> v4:
+> - rename aes-generic -> aes-lib
+> v3:
+> - correct sha384 -> md5 in description
+> v2:
+> - rebase and resolve conflicts
+> ---
+>  crypto/testmgr.c |   7 ++
+>  crypto/testmgr.h | 255 +++++++++++++++++++++++++++++++++++++++++++++++
+>  2 files changed, 262 insertions(+)
 
-Yes, sorry.
-
-Please add this to the commit message, so i don't make the same point
-again.
-
-	Andrew
+Patch applied.  Thanks.
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
