@@ -4,94 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FECBE7E365
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 10:17:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6745EE7E364
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 10:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d/v4XeoiWFEOFAaH3W/eNFweATx6olzCtwWK+dE1fQE=; b=bG3JSG2bvIFmNe/Cp64eQ3jw0B
-	GB1tCB3Y9s9XPhwI4NBD2T38S5OXaYP4pJb2sk4gZkoq8DvNc//exnseFQP9NUQ9JWoFZ/+hWk5Hj
-	N49+itS0Atw6rnAJnDLuvv3wQwPikKvNCw7QM9tBtcQ+M3tkJ5fxHPf6hQd2d4vIn7YgoC8C5ADID
-	RLHyrWjtpP0pBHBDHscGg4++Eeh0++uyjz1qI7Gqt3YuQ0xHI3vG/cMyYy4LRcuP/nh7PdrwxwqmY
-	HT96+iBsPjmEeOGCpCSPCosqHSurrFHFwMjKAQ1on45KzbE1FhTEyMf4U+JJYTcOZ3d/juLorz363
-	WpdyYyVg==;
+	bh=VfRg7JhxgO22hv4vWTi7qx0wPWni4jPw9gnG9lj7S84=; b=PyrqkAXoYjS2dVz3S9KbR11Jvk
+	1SmPGPnkutelJgkzgdyva4PABRY7IjBqGT3BjFy5PjUbLrDsygt0fbwTBeXqFImdaT3gsYpjyq+Mx
+	afatjdR0MGafAPL4WMkD7tNnR4EeA+yhyDowrsdSxvJddl2XiPW0dIZh6Crmo0yRg/RhQymjR30ZD
+	SL8aHblCAJfGgMa5JOq3RHMu2VvK+otvwtqWnEKmZGIBxSZV76np0BWuPcSMg+pXtHJTYca81x5bq
+	pk9VURjfSjKW8PtkIsFHy2wuU5NdQmcPxGi+tIHtDkntKB2wTrS2UzIIZqWA+B0AXUWE2XNLTamsV
+	qdD35cNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8baz-00000001sJw-0gR6;
-	Fri, 03 Apr 2026 10:17:45 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1w8bbQ-00000001sOF-1zvd;
+	Fri, 03 Apr 2026 10:18:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8bax-00000001sJU-0HIX
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 10:17:44 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-43b8e8e7432so1470557f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 03:17:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1775211461; x=1775816261; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=d/v4XeoiWFEOFAaH3W/eNFweATx6olzCtwWK+dE1fQE=;
-        b=nm1NYEatRFSNIaOfEGJu4rqgu9f99VwkyE1ZdbGjoqUAAlkC36+9LPQa/5K1j1zv7p
-         mTpex/ALJocUwkgLKm9dIUzHB6XQLhADtPhoWulA8sFT7L+HidjTJgAIynDcAyLUPYB6
-         GPtbQbURpX6RGHHj+rZUyA8FsTtJIvVg9u5O5xSMgNtXULKB2Ewl5nqLmc1wgwlBYu1e
-         +A4/q7BP5yqz/bwgZWJsqKMyZPmd2dinYjgqIVVzJwBlrqGRfNot0r6ZOChV+Q7zLCGE
-         3yDeedMhioXSj9G7dHpPkmEpG8ez8AaWOHQ4kXaSQp+1YsoMxZmPOCYLhN+p3idE7mBa
-         Z64g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775211461; x=1775816261;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=d/v4XeoiWFEOFAaH3W/eNFweATx6olzCtwWK+dE1fQE=;
-        b=La8PRVmqVSGWmgHfMwz0SdxTvWqpropW/T6NPh6uhDdlfP88yLGkQT62gHDISIFEwd
-         9tn7m85iIYopRM92wqDV4c3Xj7b06MakVL989v86A4aR+0qUJXSlkF/485L5nJXZz8ic
-         tZ/sbbtbgoSjdB7ehjSU9fGydPg8KyfQB75TM+o4xouI+I0+WTDjLhTD5Cndp3xZH5j1
-         LTK4HvZWgRA5foGnnOI837OITumRQeyIwHXKHFtg1ON6H6jcf+NhMubc01Is+pabS/3I
-         1XLFx0UHQMRw6J6PLsyhjxRqrxyPKioeb+RXmzB593VFt2PFqbWOneMqJhanBWYnAyHo
-         i9Fg==
-X-Forwarded-Encrypted: i=1; AJvYcCWwwjSPaFCHF/Z0KxJHySvpumMTLbhsODIoHPErQmuR0CP9MWlpSnlUHF+Q5oAW5CKANq6i+qSI+hoOLfhsbS9K@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFfCJLxOA6GzyTe6roxGhmRBuMJvAbOVqSdTxvqqnq4yleCmVS
-	R5L3dvnHUSuFIbfQgtqZoteGckU8066VzhOG3mZiZuYO4JYARlfaqxSeojcriCGJdKU=
-X-Gm-Gg: AeBDieu+aMfXCsrcDYp76eJ50q/LLK4y/ddU5KvRljDKJZC+pQxkl7mMPCcCSACI2u3
-	5QHAYjiGEwNAm1dBYcxD48b7fk4VALdjXZd3vCgWS2plH5SuMxgycHaH3+4xXll1Zd75kycrA7R
-	aBlWDJkiPiVe/6/fOhEWVMqjmNLwkYXBKj1CDKl7/5CeYNO8yhR/jQnH6D7V2CwMRwM6uA0sE3Z
-	0FtrPyzbRO9cl2xSCB4kWRPfVPRR8RzHLHTe5htzbAYpa5TlaojvX5MJJueLWW6Vc6y0AZv9U7f
-	u97+5Lh/5Ri1qX8YfGQcqI/eOxFxgW/PqgJYuIffDeWn88FCqCBbzwNHThd5SYlD3+96XBFzEeT
-	GCai7cxPozjt4JIs3yrkpgfnr/wOoXWjg3IBrOPKup4ey2SFUP4GHuW5zwFkasbf1rboWHR2TmM
-	Vgy/WscwyX5l3PqyxEnZiC4zuBjg/E
-X-Received: by 2002:a05:6000:4201:b0:43c:f976:b8ee with SMTP id ffacd0b85a97d-43d292dab19mr3932897f8f.26.1775211460610;
-        Fri, 03 Apr 2026 03:17:40 -0700 (PDT)
-Received: from draszik.lan ([212.129.76.92])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d1e2a71f7sm16791493f8f.1.2026.04.03.03.17.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Apr 2026 03:17:40 -0700 (PDT)
-Message-ID: <01ffe5d3aca040edcedb084386ab6e195cb93013.camel@linaro.org>
-Subject: Re: [PATCH v2 2/7] dt-bindings: soc: samsung: exynos-pmu: add
- samsung,pmu-intr-gen phandle
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Alexey Klimov <alexey.klimov@linaro.org>, Sam Protsenko	
- <semen.protsenko@linaro.org>, linux-samsung-soc@vger.kernel.org, Krzysztof
- Kozlowski <krzk@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- Conor Dooley	 <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
-  Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
- linux-arm-kernel@lists.infradead.org, 	devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Fri, 03 Apr 2026 11:17:47 +0100
-In-Reply-To: <20260401-exynos850-cpuhotplug-v2-2-c5a760a3e259@linaro.org>
-References: <20260401-exynos850-cpuhotplug-v2-0-c5a760a3e259@linaro.org>
-	 <20260401-exynos850-cpuhotplug-v2-2-c5a760a3e259@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-8+build1 
+	id 1w8bbO-00000001sO1-43tt;
+	Fri, 03 Apr 2026 10:18:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 029D960008;
+	Fri,  3 Apr 2026 10:18:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F41CC4CEF7;
+	Fri,  3 Apr 2026 10:18:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775211489;
+	bh=gnO1TPgDaKN0Jehro+SBn82RW/6IA1b93dtYQWKMCk4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bG6aHuwiQKPtfqhem1Q0+Uy42nD+WovXzdsuTbPT5MlR3StVje5XoD14o+64+H2vY
+	 ygzwEseyG5seQJ1Jdzz/Ybsw99HBkNJI6OBOdc3oI+/xwbFUqozVG5qNLRQY3/iD8G
+	 mRkH3YwjdrtptG8T/k10LIDBM8WaXvu0L4sCR/8SB3BNpHnU+LZAirWnj4jdMMeNsF
+	 C6GoC17k+Yah2ogHJdUutH2WIsTAvC7y8c3t6wQIvT675Plx90F3vgxqVgjeh8Sw8P
+	 tc7hc8KMxR83NtUt5gn+IkqP7UA+Ac531Fvdg6SeTP/6k3XdMrthgTuLwS05a/xCf/
+	 YFem104TfOCDQ==
+Date: Fri, 3 Apr 2026 12:18:07 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, ansuelsmth@gmail.com,
+	benjamin.larsson@genexis.eu, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH net-next v2 09/11] net: airoha: Support multiple
+ net_devices for a single FE GDM port
+Message-ID: <ac-T31bmPzp7hqbA@lore-desk>
+References: <20260401-airoha-eth-multi-serdes-v2-9-ac427ae4beeb@kernel.org>
+ <20260403011208.1784815-1-kuba@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_031743_126931_0D7F1FFF 
-X-CRM114-Status: GOOD (  13.83  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="uANK1J/2luT5WIud"
+Content-Disposition: inline
+In-Reply-To: <20260403011208.1784815-1-kuba@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,44 +74,259 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexey,
 
-On Wed, 2026-04-01 at 05:51 +0100, Alexey Klimov wrote:
-> Some Exynos-based SoCs, for instance Exynos850, require access
-> to the pmu interrupt generation register region which is exposed
-> as a syscon. Update the exynos-pmu bindings documentation to
-> reflect this.
+--uANK1J/2luT5WIud
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-You could mention that this is similar to the existing google,...
-one due to same requirement, hence a new and more general property.
-
->=20
-> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+> This is an AI-generated review of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
 > ---
-> =C2=A0.../devicetree/bindings/soc/samsung/exynos-pmu.yaml=C2=A0=C2=A0=C2=
-=A0 | 18 ++++++++++++++++++
-> =C2=A01 file changed, 18 insertions(+)
+> Subject: net: airoha: Support multiple net_devices for a single FE GDM po=
+rt
 >=20
-> diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yam=
-l b/Documentation/devicetree/bindings/soc/samsung/exynos-
-> pmu.yaml
-> index 76ce7e98c10f..92acdfd5d44e 100644
-> --- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
-> +++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
-> @@ -110,6 +110,11 @@ properties:
-> =C2=A0=C2=A0=C2=A0=C2=A0 description:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Node for reboot method
-> =C2=A0
-> +=C2=A0 samsung,pmu-intr-gen-syscon:
-> +=C2=A0=C2=A0=C2=A0 $ref: /schemas/types.yaml#/definitions/phandle
-> +=C2=A0=C2=A0=C2=A0 description:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Phandle to PMU interrupt generation inter=
-face.
-> +
-> =C2=A0=C2=A0 google,pmu-intr-gen-syscon:
+> This commit introduces support for multiple net_devices connected to the
+> same Frame Engine (FE) GDM port via an external hardware arbiter. It
+> adds logic to parse device tree child nodes and instantiate separate
+> net_devices for TDM traffic from external SerDes.
+>=20
+> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
+ernet/airoha/airoha_eth.c
+> > index 5e489e8593ba..0780fb8aacfb 100644
+> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> [ ... ]
+> > @@ -614,9 +616,8 @@ static int airoha_qdma_rx_process(struct airoha_que=
+ue *q, int budget)
+> >  		u32 hash, reason, msg1 =3D le32_to_cpu(desc->msg1);
+> >  		struct page *page =3D virt_to_head_page(e->buf);
+> >  		u32 desc_ctrl =3D le32_to_cpu(desc->ctrl);
+> > -		struct airoha_gdm_port *port;
+> > -		struct net_device *netdev;
+> > -		int data_len, len, p;
+> > +		struct airoha_gdm_dev *dev;
+> > +		int data_len, len;
+> > =20
+> >  		if (!(desc_ctrl & QDMA_DESC_DONE_MASK))
+> >  			break;
+> > @@ -633,12 +634,10 @@ static int airoha_qdma_rx_process(struct airoha_q=
+ueue *q, int budget)
+> >  		if (!len || data_len < len)
+> >  			goto free_frag;
+> > =20
+> > -		p =3D airoha_qdma_get_gdm_port(eth, desc);
+> > -		if (p < 0 || !eth->ports[p])
+> > +		dev =3D airoha_qdma_get_gdm_dev(eth, desc);
+> > +		if (IS_ERR(dev))
+> >  			goto free_frag;
+>=20
+> If a scattered frame is being processed (q->skb is not NULL) and IS_ERR(d=
+ev)
+> triggers the goto free_frag, the error handler frees the skb:
+>=20
+> free_frag:
+> 	if (q->skb) {
+> 		dev_kfree_skb(q->skb);
+> 		q->skb =3D NULL;
+> 	} else {
+> 		page_pool_put_full_page(q->page_pool, page, true);
+> 	}
+>=20
+> Since the current fragment's page is not yet attached to q->skb, does this
+> skip the else branch and permanently leak the page pool buffer?
 
-Please keep alphabetical order of vendors.
+This issue is fixed in the following net patch (not merged yet):
 
-Cheers,
-Andre'
+https://lore.kernel.org/netdev/20260402-airoha_qdma_rx_process-mem-leak-fix=
+-v1-1-b5706f402d3c@kernel.org/
+
+>=20
+> [ ... ]
+> > @@ -1747,9 +1748,7 @@ static int airoha_set_gdm2_loopback(struct airoha=
+_gdm_dev *dev)
+> >  	airoha_fe_clear(eth, REG_FE_VIP_PORT_EN, BIT(AIROHA_GDM2_IDX));
+> >  	airoha_fe_clear(eth, REG_FE_IFC_PORT_EN, BIT(AIROHA_GDM2_IDX));
+> > =20
+> > -	/* XXX: handle XSI_USB_PORT and XSI_PCE1_PORT */
+> > -	nbq =3D port->id =3D=3D AIROHA_GDM3_IDX && airoha_is_7581(eth) ? 4 : =
+0;
+> > -	src_port =3D eth->soc->ops.get_src_port_id(port, nbq);
+> > +	src_port =3D eth->soc->ops.get_src_port_id(port, dev->nbq);
+> >  	if (src_port < 0)
+> >  		return src_port;
+>=20
+> With multiple net_devices instantiated for the same physical GDM port, do=
+es
+> the initialization of sibling devices overwrite shared hardware registers?
+>=20
+> For example, when airoha_set_gdm2_loopback() uses src_port to configure
+> REG_FE_WAN_PORT, it explicitly clears the WAN port routing masks:
+>=20
+> 	airoha_fe_rmw(eth, REG_FE_WAN_PORT,
+> 		      WAN1_EN_MASK | WAN1_MASK | WAN0_MASK,
+> 		      FIELD_PREP(WAN0_MASK, src_port));
+>=20
+> Will the last initialized device clobber the WAN routing configurations a=
+nd
+> hardware MAC filters for the others, causing their traffic to be dropped?
+
+ack, I will fix it in v3.
+
+>=20
+> [ ... ]
+> > @@ -1970,7 +1969,8 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff=
+ *skb,
+> >  	}
+> > =20
+> >  	fport =3D airoha_get_fe_port(dev);
+> > -	msg1 =3D FIELD_PREP(QDMA_ETH_TXMSG_FPORT_MASK, fport) |
+> > +	msg1 =3D FIELD_PREP(QDMA_ETH_TXMSG_NBOQ_MASK, dev->nbq) |
+> > +	       FIELD_PREP(QDMA_ETH_TXMSG_FPORT_MASK, fport) |
+> >  	       FIELD_PREP(QDMA_ETH_TXMSG_METER_MASK, 0x7f);
+> > =20
+> >  	q =3D &qdma->q_tx[qid];
+>=20
+> When multiple net_devices share a single QDMA instance and its TX rings
+> (qdma->q_tx), a TX queue stall might occur here.
+>=20
+> If the shared hardware ring fills up, netif_tx_stop_queue() stops the
+> transmitting device's queue. Later, when descriptors are freed, the driver
+> only wakes the queue corresponding to the specific packet that just compl=
+eted.
+>=20
+> If multiple devices' TX queues are stopped, will the other devices' queues
+> remain stalled unless their specific packets happen to be processed?
+
+This does not seem strictly related to this series. I will look into it in a
+dedicated patch.
+
+>=20
+> [ ... ]
+> > @@ -2897,10 +2900,11 @@ bool airoha_is_valid_gdm_dev(struct airoha_eth =
+*eth,
+> > =20
+> >  static int airoha_alloc_gdm_device(struct airoha_eth *eth,
+> >  				   struct airoha_gdm_port *port,
+> > -				   struct device_node *np)
+> > +				   int nbq, struct device_node *np)
+> >  {
+> > -	struct airoha_gdm_dev *dev;
+> >  	struct net_device *netdev;
+> > +	struct airoha_gdm_dev *dev;
+> > +	u8 index;
+> >  	int err;
+> [ ... ]
+> > +	/* Allowed nbq for EN7581 on GDM3 port are 4 and 5 for PCIE0
+> > +	 * and PCIE1 respectively.
+> > +	 */
+> > +	index =3D nbq;
+> > +	if (airoha_is_7581(eth) && port->id =3D=3D AIROHA_GDM3_IDX)
+> > +		index -=3D 4;
+> > +
+> > +	if (index >=3D ARRAY_SIZE(port->devs) || port->devs[index]) {
+> > +		dev_err(eth->dev, "invalid nbq id: %d\n", nbq);
+> > +		return -EINVAL;
+> > +	}
+>=20
+> There are two potential issues regarding the new index logic:
+>=20
+> First, does this break probing for older device trees without child nodes?
+> When falling back to airoha_alloc_gdm_device(..., 0, np) with nbq =3D 0,
+> the index -=3D 4 operation for AIROHA_GDM3_IDX will cause the u8 index to
+> underflow to 252. The bounds check 252 >=3D 2 fails, returning -EINVAL.
+
+ack, I will fix it in v3.
+
+>=20
+> Second, can an invalid device tree value bypass the bounds check?
+> The int nbq parameter is directly assigned to the u8 index. If a large va=
+lue
+> like reg =3D <256> is provided, it truncates to 0, passing the index >=3D=
+ 2
+> check. The un-truncated int nbq is then stored in dev->nbq, potentially
+> causing out-of-bounds shifts when used in hardware macros.
+
+ack, I will fix it in v3.
+
+>=20
+> [ ... ]
+> > @@ -2986,7 +3004,36 @@ static int airoha_alloc_gdm_port(struct airoha_e=
+th *eth,
+> >  	if (err)
+> >  		return err;
+> > =20
+> > -	return airoha_alloc_gdm_device(eth, port, np);
+> > +	for_each_child_of_node(np, node) {
+> > +		/* Multiple external serdes connected to the FE GDM port via an
+> > +		 * external arbiter.
+> > +		 */
+> > +		const __be32 *nbq_ptr;
+> > +
+> > +		if (!of_device_is_compatible(node, "airoha,eth-port"))
+> > +			continue;
+> > +
+> > +		d++;
+> > +		if (!of_device_is_available(node))
+> > +			continue;
+> > +
+> > +		nbq_ptr =3D of_get_property(node, "reg", NULL);
+> > +		if (!nbq_ptr) {
+> > +			dev_err(eth->dev, "missing nbq id\n");
+> > +			err =3D -EINVAL;
+> > +			of_node_put(node);
+> > +			break;
+> > +		}
+> > +
+> > +		err =3D airoha_alloc_gdm_device(eth, port, be32_to_cpup(nbq_ptr),
+> > +					      node);
+> > +		if (err) {
+> > +			of_node_put(node);
+> > +			return err;
+> > +		}
+> > +	}
+> > +
+> > +	return !d ? airoha_alloc_gdm_device(eth, port, 0, np) : 0;
+> >  }
+>=20
+> If nbq_ptr is missing, err =3D -EINVAL is set and the loop breaks. Howeve=
+r,
+> since the child counter d was already incremented, the final statement
+> evaluates to 0 (success) because !d is false.
+>=20
+> Does this swallow the -EINVAL error and cause a silent failure where the
+> driver continues probing without initializing the misconfigured GDM devic=
+es?
+>=20
+> Additionally, the for_each_child_of_node() iterator automatically handles
+> taking and dropping the reference to node.
+>=20
+> When node is passed to airoha_alloc_gdm_device(), it is directly assigned:
+> netdev->dev.of_node =3D np;
+>=20
+> Since of_node_get() is not called, when the loop iteration finishes and d=
+rops
+> the reference, does this leave the net_device pointing to a freed device
+> tree node?
+
+ack, I will fix it in v3.
+
+Regards,
+Lorenzo
+
+> --=20
+> pw-bot: cr
+
+--uANK1J/2luT5WIud
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCac+T3wAKCRA6cBh0uS2t
+rD8uAQDLwW+kRrIkaKBLR1QF49omOiYp+YjFijcbAKEE/A1lWAD9GoWKnBmEB+A1
+wsVr9oMXxS/1lbttP9QypribarRFtAU=
+=maWk
+-----END PGP SIGNATURE-----
+
+--uANK1J/2luT5WIud--
 
