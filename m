@@ -4,51 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A34FE85367
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 13:39:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B33FAE85370
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 13:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=K0i9/psgiYriNr+bQD8bwLT5N5vs6aXdpa5YckR6JD0=; b=p0DEqpbTXAcq6F7ZWYb0bUSX0w
-	gYQHEjcT6c7FaxPCgjNRDqWCdXvH9C0tFqy8oTurSxbUBdJXDfURaesTbY8ss1f6ueOSuBQ5AkyDF
-	6hwCOdFGGAleC3aOIoqUyJ6hbAGsrZlWmc3YaumKQKOmOdBOQvoqHtqVZv97EzWbL9dRCX7K6T2ei
-	/GsRMj1RwjGoM8oKGUlgCqD9NpqBq3has+iaJls6mPHyH6CMWGZLMKQmq7KPisHMPbAtpmzl0H4R3
-	gkVW3y2OuDkL24oU47IOZbSIE6et3D3Ky5wEed7IH4Y+oYcms2JivrL1PavvaQfWeewoYs5jt4AJg
-	rbgfG46w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B2Xlm/PN5fGPQUkHz4pa/ilL9G35CycqwLHfLuWA/Rw=; b=SCbSnQu8zuNX1Sv/1uYLAnAUOE
+	0/1qzHaIWa2D3IhMCcAQ1B6Nw3MUT4NB3FnBfF11q6f1sZ0NtY53MWzwURM1GHG/WVFpL4ydYD7Uw
+	CXC5KcXGjrlVk8bMl+/peF6KQ9ex+A/loTheXi4yCmpq99hnk9XfsIqsTpgUyia9r/xoCDCaigecs
+	XLc1TgkpNZp13hvYirEbBeII/E9XlaJ+dcjTshGmx1qxbuF5IXeLUFnWjYt4S1DPSHjWY+MIUDn8U
+	8FSzNLTyFwWOzVNjfEbnLXAYt/LZSSh80RvwiEIVx7uimnywxVXCFpsfPNohw6qasBLCf1YJWkjWO
+	Iu2jMhSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8ekK-000000024uR-3zft;
-	Fri, 03 Apr 2026 13:39:36 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1w8eln-0000000254q-1SVA;
+	Fri, 03 Apr 2026 13:41:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8ekH-000000024tp-3hRb;
-	Fri, 03 Apr 2026 13:39:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
-	bh=K0i9/psgiYriNr+bQD8bwLT5N5vs6aXdpa5YckR6JD0=; b=zB38WtEwuPAveMLDaJrCfuOoeM
-	wRqvnkKiQvikUmFiOjjuJGW18YqsmRUTJOjGCR8Bj/PBRLDdzythtvYtblO8CfLuI5u/X4DhcDpO5
-	35GlxsA2qWLqF1nmLwY8916tQ9vsSU07HGQ6bQpELI1fioaDrJJoKGbg0lHBdQ4h7mFkeGx/GcC4O
-	0LMqFsjqa5DLoyQFydL/UWvzBNIhysuqa7Xth36+zF+kqXWsqhysNt+Hnw3a7ymSG0iaiA5pBgSjt
-	gzTao7wn4ODFp2yexFVbUXglMjyHJ1OGQCRCjVahE45wXKr9gTOmx7jABkdC8hv8Nt04ZuzODoyNU
-	/bKlaebA==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: arm@kernel.org
-Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>,
- mturquette@baylibre.com
-Subject: [GIT PULL] Rockchip dts32 changes for 7.1 #2
-Date: Fri, 03 Apr 2026 15:39:31 +0200
-Message-ID: <13980380.dW097sEU6C@phil>
+	id 1w8elm-0000000254d-1kD3;
+	Fri, 03 Apr 2026 13:41:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 94AC460008;
+	Fri,  3 Apr 2026 13:41:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBBF5C4CEF7;
+	Fri,  3 Apr 2026 13:41:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775223665;
+	bh=6g9R2GmeiAMhntpDVU6Z92dvhCYleNtqjiM/Wc8jXvY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aDKEbgHtwO03Htxu7Te0gFEyIE7S3X0OzU+6jR8id9x1tcxbx7oQlB7szyGVgVM++
+	 8hv0gQoSXTfIpRCFzOwPlc5SqASExfYZLMBSKdzJWUr57pFARA/xO9fe/VqHrmB3J9
+	 z3XBsFBk2Frzm56C5TsAqp6dqTZidHelQPtveZmEhjrEFcq+7m2BE6qqTDoEUwB529
+	 ykcvOq++MF4mKlu5NkwAKszZ+FoWBVBROGg/Zmq29nsfpq6K3Xkbfv5TuVc0te1XZF
+	 sC9VXKsEtrNhcXCN5Q3fBya2guGh3EfHEUlJcDqmYgQHXac8dvrQZ7IUWsorWXlWJC
+	 Twa4nECx+zudg==
+Date: Fri, 3 Apr 2026 15:41:03 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Xuegang Lu <xuegang.lu@airoha.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net] net: airoha: Add dma_rmb() and READ_ONCE() in
+ airoha_qdma_rx_process()
+Message-ID: <ac_Dbzfgr728lpmD@lore-desk>
+References: <20260402-airoha_qdma_rx_process-fix-reordering-v1-1-53278474f062@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_063933_948851_90ED8B6E 
-X-CRM114-Status: GOOD (  16.06  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="CcLH+/Yb/7WuJ8OG"
+Content-Disposition: inline
+In-Reply-To: <20260402-airoha_qdma_rx_process-fix-reordering-v1-1-53278474f062@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,81 +73,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi soc maintainers,
 
-please find below a new ARM32 Rockchip SoC for 7.1 . This goes on top
-of the generic arm32 changes I just sent.
+--CcLH+/Yb/7WuJ8OG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+> Add missing dma_rmb() in airoha_qdma_rx_process routine to make sure the
+> DMA read operations are completed when the NIC reports the processing on
+> the current descriptor is done. Moreover, add missing READ_ONCE() in
+> airoha_qdma_rx_process() for DMA descriptor control fields in order to
+> avoid any compiler reordering.
+>=20
+> Fixes: 23020f0493270 ("net: airoha: Introduce ethernet support for EN7581=
+ SoC")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 14 +++++++++-----
+>  1 file changed, 9 insertions(+), 5 deletions(-)
 
-I've split this off from the other ARM32 changes, because this contains
-a shared clock header, shared between the devicetree side and the clock-
-driver side.
+Please drop this version, I will post v2 to add a missing READ_ONCE() for
+airoha_qdma_get_gdm_port().
 
-The clock pull-request is sent [0], but not merged yet - probably after
-easter I guess.
+Regards,
+Lorenzo
 
-And while in the past this has always come together in time for the
-merge-window, I wasn't sure if in the soc multi-maintainer context the
-handling changes. So depending on your preference this could also wait
-until after the clock-subsystem-side got merged.
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index 95ba99b89428e4cafb91ff7813e43ffeb38e6d9b..29dea8b35f64bfdcf88bc09fd=
+711e0d8b4f7b6fa 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -612,15 +612,17 @@ static int airoha_qdma_rx_process(struct airoha_que=
+ue *q, int budget)
+>  	while (done < budget) {
+>  		struct airoha_queue_entry *e =3D &q->entry[q->tail];
+>  		struct airoha_qdma_desc *desc =3D &q->desc[q->tail];
+> -		u32 hash, reason, msg1 =3D le32_to_cpu(desc->msg1);
+> -		struct page *page =3D virt_to_head_page(e->buf);
+> -		u32 desc_ctrl =3D le32_to_cpu(desc->ctrl);
+> +		u32 hash, reason, msg1, desc_ctrl;
+>  		struct airoha_gdm_port *port;
+>  		int data_len, len, p;
+> +		struct page *page;
+> =20
+> +		desc_ctrl =3D le32_to_cpu(READ_ONCE(desc->ctrl));
+>  		if (!(desc_ctrl & QDMA_DESC_DONE_MASK))
+>  			break;
+> =20
+> +		dma_rmb();
+> +
+>  		q->tail =3D (q->tail + 1) % q->ndesc;
+>  		q->queued--;
+> =20
+> @@ -637,6 +639,7 @@ static int airoha_qdma_rx_process(struct airoha_queue=
+ *q, int budget)
+>  		if (p < 0 || !eth->ports[p])
+>  			goto free_frag;
+> =20
+> +		page =3D virt_to_head_page(e->buf);
+>  		port =3D eth->ports[p];
+>  		if (!q->skb) { /* first buffer */
+>  			q->skb =3D napi_build_skb(e->buf, q->buf_size);
+> @@ -670,8 +673,8 @@ static int airoha_qdma_rx_process(struct airoha_queue=
+ *q, int budget)
+>  			 * DMA descriptor. Report DSA tag to the DSA stack
+>  			 * via skb dst info.
+>  			 */
+> -			u32 sptag =3D FIELD_GET(QDMA_ETH_RXMSG_SPTAG,
+> -					      le32_to_cpu(desc->msg0));
+> +			u32 msg0 =3D le32_to_cpu(READ_ONCE(desc->msg0));
+> +			u32 sptag =3D FIELD_GET(QDMA_ETH_RXMSG_SPTAG, msg0);
+> =20
+>  			if (sptag < ARRAY_SIZE(port->dsa_meta) &&
+>  			    port->dsa_meta[sptag])
+> @@ -679,6 +682,7 @@ static int airoha_qdma_rx_process(struct airoha_queue=
+ *q, int budget)
+>  						  &port->dsa_meta[sptag]->dst);
+>  		}
+> =20
+> +		msg1 =3D le32_to_cpu(READ_ONCE(desc->msg1));
+>  		hash =3D FIELD_GET(AIROHA_RXD4_FOE_ENTRY, msg1);
+>  		if (hash !=3D AIROHA_RXD4_FOE_ENTRY)
+>  			skb_set_hash(q->skb, jhash_1word(hash, 0),
+>=20
+> ---
+> base-commit: ec7067e661193403a7a00980bda8612db5954142
+> change-id: 20260402-airoha_qdma_rx_process-fix-reordering-722308255b65
+>=20
+> Best regards,
+> --=20
+> Lorenzo Bianconi <lorenzo@kernel.org>
+>=20
 
+--CcLH+/Yb/7WuJ8OG
+Content-Type: application/pgp-signature; name=signature.asc
 
-Please pull.
-Thanks
-Heiko
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCac/DbgAKCRA6cBh0uS2t
+rBFGAQDsASA4qELdeIETxjOVDrs0SEJPliW3Cdlk2di93gqB1gD+J5i5KV2KXaow
+NB6Aity+4OCEK19fVTDOFqX39VIASgA=
+=NVjB
+-----END PGP SIGNATURE-----
 
-[0] https://lore.kernel.org/all/3746710.R56niFO833@phil/
-
-
-The following changes since commit 94c8dc1fa8e1ad4037084204152bca1e799d7d1c:
-
-  ARM: dts: rockchip: Pass linux,code to the power key on rk3288-veyron-pinky (2026-03-24 17:06:35 +0100)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v7.1-rockchip-dts32-2
-
-for you to fetch changes up to 683192d7d5b47e89d920867f7c6997d2c0d1a0ad:
-
-  ARM: dts: rockchip: Add Onion Omega4 Evaluation Board (2026-03-24 17:40:11 +0100)
-
-----------------------------------------------------------------
-Support for the RV1103B SoC and the Onion Omega4 board using it.
-While the RV1103B only got a B-extension to its name, the SoC internals
-were reworked heavily. So likely it's mainly pin compatible to the
-non-B variant.
-
-The dt-binding for the RV1103B clock driver is shared with the clock-
-driver branch going into the clock-tree.
-
-----------------------------------------------------------------
-Fabio Estevam (5):
-      dt-bindings: clock: rockchip: Add RV1103B CRU support
-      dt-bindings: soc: rockchip: grf: Add RV1103B compatibles
-      ARM: dts: rockchip: Add support for RV1103B
-      dt-bindings: arm: rockchip: Add Omega4 Evaluation board
-      ARM: dts: rockchip: Add Onion Omega4 Evaluation Board
-
-Heiko Stuebner (1):
-      Merge branch 'v7.1-shared/clkids' into v7.1-armsoc/dts32
-
- .../devicetree/bindings/arm/rockchip.yaml          |   6 +
- .../bindings/clock/rockchip,rv1126b-cru.yaml       |   1 +
- .../devicetree/bindings/soc/rockchip/grf.yaml      |   3 +
- arch/arm/boot/dts/rockchip/Makefile                |   1 +
- arch/arm/boot/dts/rockchip/rv1103b-omega4-evb.dts  |  63 ++
- arch/arm/boot/dts/rockchip/rv1103b-omega4.dtsi     | 147 ++++
- arch/arm/boot/dts/rockchip/rv1103b-pinctrl.dtsi    | 816 +++++++++++++++++++++
- arch/arm/boot/dts/rockchip/rv1103b.dtsi            | 239 ++++++
- include/dt-bindings/clock/rockchip,rv1103b-cru.h   | 220 ++++++
- 9 files changed, 1496 insertions(+)
- create mode 100644 arch/arm/boot/dts/rockchip/rv1103b-omega4-evb.dts
- create mode 100644 arch/arm/boot/dts/rockchip/rv1103b-omega4.dtsi
- create mode 100644 arch/arm/boot/dts/rockchip/rv1103b-pinctrl.dtsi
- create mode 100644 arch/arm/boot/dts/rockchip/rv1103b.dtsi
- create mode 100644 include/dt-bindings/clock/rockchip,rv1103b-cru.h
-
-
-
+--CcLH+/Yb/7WuJ8OG--
 
