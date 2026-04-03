@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D93FBD730AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 06:49:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F1D0D730B2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 07:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q2EE0v2YuGnnarJX/1QZgTeEUI0kbiuBPkv0Aq4Sy/M=; b=s3x1XSk6joIW0Cpsv8bCA1jo9r
-	MajMo2J8u+/J+Ew6692AgOCi9Vjts15ffwHQ6sYMsGHANW4jdNsYS+zaH0+MRuOfqujFRaS1WfrKu
-	8+6XQVsjmOPsb2aOYOlqg1pSjWrD6C5cNBhEOPDljfyP3IIGTvCKT9+l4F1V2BPn1qrCgepmswxS0
-	aQh5G8U5zSaLzOo0z166NL5HkPIFnkdJTkTtSxoc0GzhrEdVYUr2mtuLUw9oSbNtcYzAPioRe2t0g
-	Vz0NhewF7K4aVmFCw9bJlOV23IYv6hPbLWv0SLB8/Ak7xyFUJ3aQ0x0tSdzWPV2qkb8wn5SwKdt3y
-	V7vkPuhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sFB8BBIFFL7jpCc3yoYdeIALzzlxyXt+AtPHpod/PGU=; b=evg3wMlymnZz2IAnV8rjMor5Ow
+	P6gTatYBtSnX9KCRbKJiZw+aDAt35S39PuUfzNvdoxK3me7YY5IOijhcwW1HaTAA+AWT13LCiUCeY
+	3Hbyn3MeAJnflGh9Xp8krncQua0fSabtPTuA0CHDHbJ3wQ/oS+qS9WmuzbgdBnSmNdG4uyzvBVyKZ
+	b5mWf7CoijtmVBNMBNuHR9K7W4YNBy5bOiaqTL+BOY83Om9IFNOafKQn/Mf8qN6cZRkCwnCW0KQiW
+	yYCCsUGfmyhrLbGWeGNvZWtT54c9GnV/JFdXjbYm9ctcVpFP1tfZLczWMYVTs/+LwBr2rho9PSbHi
+	QaxMaktg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8YLp-00000001PFN-2g7G;
-	Fri, 03 Apr 2026 06:49:53 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1w8YWQ-00000001Qkk-46Je;
+	Fri, 03 Apr 2026 07:00:50 +0000
+Received: from mail-m49210.qiye.163.com ([45.254.49.210])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8YLm-00000001PBH-2JNv;
-	Fri, 03 Apr 2026 06:49:51 +0000
-X-UUID: 4c6b9cec2f2911f19e7563141e833ce8-20260402
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=Q2EE0v2YuGnnarJX/1QZgTeEUI0kbiuBPkv0Aq4Sy/M=;
-	b=DstAYHRJ08njtOzYhF7yvbbiJGtQSYr78RHEhxnP6WKGiyzxpt8jKTEGFpR/6KCB5Q5A2IP4ghTXWzYckEMwUgrUo92tvCy64U2TKTfpr5lRl74bfREuS3EBmHVKC2Xf2gwwmtOI+9EjhZWkFsMUhMvf4nZlBPLkYkYgmE3ldfU=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:5acd80c2-842e-449d-a36d-b042fcb4cd52,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:e7bac3a,CLOUDID:4ce8048f-6df4-4a3d-a7a4-fbdc42d669ce,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|865|888|898,TC:-5,Cont
-	ent:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0
-	,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 4c6b9cec2f2911f19e7563141e833ce8-20260402
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
-	(envelope-from <jianhua.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1448969849; Thu, 02 Apr 2026 23:49:44 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Fri, 3 Apr 2026 14:49:43 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Fri, 3 Apr 2026 14:49:42 +0800
-From: Jianhua Lin <jianhua.lin@mediatek.com>
-To: <nicolas@ndufresne.ca>, <mchehab@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-media@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
-	<jh.hsu@mediatek.com>, Jianhua Lin <jianhua.lin@mediatek.com>, Krzysztof
- Kozlowski <krzk@kernel.org>
-Subject: [PATCH v6 2/3] dt-bindings: media: mediatek-jpeg-encoder: add MT8189 compatible string
-Date: Fri, 3 Apr 2026 14:49:11 +0800
-Message-ID: <20260403064912.17259-3-jianhua.lin@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20260403064912.17259-1-jianhua.lin@mediatek.com>
-References: <20260403064912.17259-1-jianhua.lin@mediatek.com>
+	id 1w8YWN-00000001QfP-07Sk;
+	Fri, 03 Apr 2026 07:00:48 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 396d58c8f;
+	Fri, 3 Apr 2026 15:00:40 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com,
+	wens@kernel.org,
+	samuel@sholland.org,
+	luca.ceresoli@bootlin.com
+Cc: Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	victor.liu@nxp.com,
+	dmitry.baryshkov@oss.qualcomm.com,
+	shengjiu.wang@nxp.com,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v1 3/4] drm/rockchip: dw_hdmi: Apply DRM_BRIDGE_ATTACH_NO_CONNECTOR and the bridge-connector
+Date: Fri,  3 Apr 2026 15:00:31 +0800
+Message-Id: <20260403070032.447102-4-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260403070032.447102-1-damon.ding@rock-chips.com>
+References: <20260403070032.447102-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-HM-Tid: 0a9d5224db2703a3kunm1d6b6bc811deb5
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQx4ZGlZJSR1LQx5KSUpOHUlWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=MTggQTmpvpDAkUCTK+phVdqDF0DwSlKrX4o0Bg/D6d8/YgiJQvd2U4TtW6aulksm8kWQCkkqT/Ro3s7iM9nTfEtoe5vhyLxHKXrEjMWzebV5O55UTD9Pdo/33xyT4OzM8T64sJq1OVNcHA+xnQTvFkBOxlhy0fryPFt2AjdYZDk=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=sFB8BBIFFL7jpCc3yoYdeIALzzlxyXt+AtPHpod/PGU=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_234950_591255_DD505D63 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260403_000047_249431_031A72FA 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,60 +91,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the compatible string for the JPEG encoder block found in the
-MediaTek MT8189 SoC.
+Convert this driver to DRM_BRIDGE_ATTACH_NO_CONNECTOR and to the
+drm_bridge_connector framework which is the current DRM bridge best
+practice.
 
-Unlike some previous SoCs, the MT8189 JPEG encoder requires 34-bit IOVA
-address space support. Therefore, it is added as a standalone compatible
-string without falling back to the generic "mediatek,mtk-jpgenc" to
-ensure the driver applies the correct hardware-specific configurations.
-
-Suggested-by: Krzysztof Kozlowski <krzk@kernel.org>
-Suggested-by: Rob Herring <robh@kernel.org>
-Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 ---
- .../bindings/media/mediatek-jpeg-encoder.yaml | 19 +++++++++++++------
- 1 file changed, 13 insertions(+), 6 deletions(-)
+ drivers/gpu/drm/rockchip/Kconfig            |  1 +
+ drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c | 19 +++++++++++++++----
+ 2 files changed, 16 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml b/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml
-index 5b15f8977f67..19948ed25f98 100644
---- a/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml
-+++ b/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml
-@@ -14,13 +14,16 @@ description: |-
+diff --git a/drivers/gpu/drm/rockchip/Kconfig b/drivers/gpu/drm/rockchip/Kconfig
+index e7f49fe845ea..69b832d0c8c4 100644
+--- a/drivers/gpu/drm/rockchip/Kconfig
++++ b/drivers/gpu/drm/rockchip/Kconfig
+@@ -76,6 +76,7 @@ config ROCKCHIP_DW_DP
  
- properties:
-   compatible:
--    items:
-+    oneOf:
-       - enum:
--          - mediatek,mt2701-jpgenc
--          - mediatek,mt8183-jpgenc
--          - mediatek,mt8186-jpgenc
--          - mediatek,mt8188-jpgenc
--      - const: mediatek,mtk-jpgenc
-+          - mediatek,mt8189-jpgenc
-+      - items:
-+          - enum:
-+              - mediatek,mt2701-jpgenc
-+              - mediatek,mt8183-jpgenc
-+              - mediatek,mt8186-jpgenc
-+              - mediatek,mt8188-jpgenc
-+          - const: mediatek,mtk-jpgenc
-   reg:
-     maxItems: 1
+ config ROCKCHIP_DW_HDMI
+ 	bool "Rockchip specific extensions for Synopsys DW HDMI"
++	select DRM_BRIDGE_CONNECTOR
+ 	help
+ 	  This selects support for Rockchip SoC specific extensions
+ 	  for the Synopsys DesignWare HDMI driver. If you want to
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+index 21b141b7cb9c..b5cfcb936078 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+@@ -13,6 +13,7 @@
+ #include <linux/regulator/consumer.h>
  
-@@ -34,6 +37,10 @@ properties:
-     items:
-       - const: jpgenc
+ #include <drm/bridge/dw_hdmi.h>
++#include <drm/drm_bridge_connector.h>
+ #include <drm/drm_edid.h>
+ #include <drm/drm_of.h>
+ #include <drm/drm_probe_helper.h>
+@@ -542,6 +543,7 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
+ 	struct drm_device *drm = data;
+ 	struct drm_encoder *encoder;
+ 	struct rockchip_hdmi *hdmi;
++	struct drm_connector *connector;
+ 	int ret;
  
-+  mediatek,larb:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: a phandle to the smi_larb node.
+ 	if (!pdev->dev.of_node)
+@@ -608,7 +610,7 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
+ 
+ 	platform_set_drvdata(pdev, hdmi);
+ 
+-	hdmi->hdmi = dw_hdmi_bind(pdev, encoder, plat_data, 0);
++	hdmi->hdmi = dw_hdmi_bind(pdev, encoder, plat_data, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+ 
+ 	/*
+ 	 * If dw_hdmi_bind() fails we'll never call dw_hdmi_unbind(),
+@@ -616,12 +618,21 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
+ 	 */
+ 	if (IS_ERR(hdmi->hdmi)) {
+ 		ret = PTR_ERR(hdmi->hdmi);
+-		goto err_bind;
++		goto err_cleanup_encoder;
+ 	}
+ 
+-	return 0;
++	connector = drm_bridge_connector_init(drm, encoder);
++	if (IS_ERR(connector)) {
++		ret = PTR_ERR(connector);
++		dev_err(hdmi->dev, "Failed to initialize bridge_connector\n");
++		goto err_unbind_bridge;
++	}
+ 
+-err_bind:
++	return drm_connector_attach_encoder(connector, encoder);
 +
-   power-domains:
-     maxItems: 1
++err_unbind_bridge:
++	dw_hdmi_unbind(hdmi->hdmi);
++err_cleanup_encoder:
+ 	drm_encoder_cleanup(encoder);
  
+ 	return ret;
 -- 
-2.45.2
+2.34.1
 
 
