@@ -4,113 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91251E85367
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 14:29:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE215E8536F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 14:30:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2tgGNuvlVR75U6twtOQ2sB+iKcvPJAVB1mzayebN+L4=; b=hSx+VQEnxXs2SCSAjFasuR6PWL
-	zisDckwk/02EVyCu3ycBUuda2j5Hghtxp+d3Wm4JCAqZdmXWLKwXyixE1zCGjbtDjQXgBiaGd4w5O
-	jS6TTJlo9wXWX/+OwAMos3aG0aZRgtfn4BSQJO0jWfzjC5OhCCL+/O1M1xY9s/+RH8wmAcdGA/OEK
-	2mblg/iRTrSH6ovkSHUszM3DTlgJGI37Qmb1aN0DBfrPvkSfj2O7GMJ4Cj9ArDULJGYmlWKbZD1Uc
-	NH/cTm3IwMXEX0iU2y+YbzMS9I3IZrbqcAaPRtAg7YBpK7UcirTF873q0kqjqbjBR3X5JOoL/P+oF
-	enWKdqBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GsULLJ4tluaP9bXGJ3HtIbjnSUBgVXhyBQ1KFqeeSFo=; b=FtDbJTqP29w5kTw3Tkj+1SnOGV
+	mXAKWf1djZdL4jn+GTYCxGv2eB5m9h59LJqTp14Qor/0wNa6RaUvtvt43XG6AgFu5D40LuP9Vl3Qt
+	QHu6+HX0KSL+Pa0yNvvBWHl6mNEHPPb/4gyf3A32mob99thXtqU9pzDJgene4wIfm0ZgfmKAUAEXR
+	sEqrY7Y3n4nHfc6oc6GgjaB0lobQKMVTon8gfwS1aFyRAJDEikmjKCa9zOm8N7SDbUajuX8xW/yy6
+	fV5UcqoYd+LFKgjGrqE+PKCOkZp93jtq77O9bwSoJf4Gk806jCAN4Mc+aEHVqNu55hoKErxPx5eZo
+	7HMGVnVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8fWJ-000000028v3-2IHn;
-	Fri, 03 Apr 2026 14:29:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w8fXy-000000029Iy-217T;
+	Fri, 03 Apr 2026 14:30:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8fWI-000000028th-2xDb
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 03 Apr 2026 14:29:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:
-	Content-Type:Content-ID:Content-Description;
-	bh=2tgGNuvlVR75U6twtOQ2sB+iKcvPJAVB1mzayebN+L4=; b=laTufLQBX9eHMUJuEA/n+AdLwt
-	hSSaNECY6ueTbrM9GQ4RfkMQgC/LjQuHdSVmTG3Ng2x0ceGFTzotXRTY0mBtpIFXp2Jc7NMcdq3Ch
-	eTzflZBZ7VukG0vl4foBD6aGYFo10YxTkuXGUu9qxq/HCBg/k8SAkWf9CdfWsWw7BxXjSB+sfLZMk
-	6ks3QNl6Q7m/dz3pvhYZX/fiX1DwF1z0mj1q2461+B8PEO6JwKltE4R0Ib/ijwHqTCTe9qUsqVsWk
-	o3b3TLvePr0AXbklOkjvFbZW27Vxbf1cR60T849stGOILfUARhivdUs93W+cbtjl5lKfHYLxgu6v6
-	KjnvIYvg==;
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8fWC-00000004FoL-0Fdi
+	id 1w8fXw-000000029Ir-2VBj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 14:29:08 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-486fc4725f0so19755935e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 07:29:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1775226541; x=1775831341; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2tgGNuvlVR75U6twtOQ2sB+iKcvPJAVB1mzayebN+L4=;
-        b=FTJgBoQIyhYy37+ZZ11wPH1X8ZYLjcq6HTSNxcO0n9fknCCnoUcIzzVDZv18Ep/SKL
-         F4qAsxQrkW2Mb2WZFQx92eLlTJgkhdcLAOyTEY0xgv7IBVsY5u1OZuUcjevSsIIZAYbk
-         imBkaUxibo7LJOzlogT19RMhMeChmt29+IWvnbXAhQfzBeSQfnv1dJs+bAw55c5EmhpC
-         ZqVRugNpApiEVCZ6IldM0bwyXe93pSnXs9o4x3qvydmv7ijI93LAzuRo43gXtbwQxksf
-         zO7nhYkqwD3pB+EFBqCWwAPIobQ1rQ5qaeEQD4Z6mijWvbZi7PjL3EMyN59z69jIa8x9
-         sSXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775226541; x=1775831341;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=2tgGNuvlVR75U6twtOQ2sB+iKcvPJAVB1mzayebN+L4=;
-        b=q/IWC+LEj/2gT5rzZ3vv2e73zhtcj+0r530fURskWcwgFQr7YnvyK/vD+qzHOnefiG
-         OQraNnivBXSRcB8B0repnJFZCqRJzBEMmiGT35qgZTrg9lAfyHIvs5J258/92WqDH3iH
-         4nHrAQr7osQs+2pmOLfdrRGRvclCyvEaOQvd3rzWd2f2pccarDOBoQ2YJru+uTPVzgkg
-         a5AGeW9vPjBsYz/5sEBy/HHM7wognklu8EVjGnB0wzWuPd311L+N/QfE/JfU9K8MWlMf
-         ePmlbBndkQi/J4+VobN1eQPnB+aYVH6jTsrizKC6cfssBk05+Owf+3z78+jQutaMXNVB
-         3guw==
-X-Forwarded-Encrypted: i=1; AJvYcCU744QYEfq+taYwinqYViVL/LXAwE1wmu3SwUokD3IoXCOxR176xEmYfikMzkchS6dSWnFs4G3WepSshd0DcJGw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyg5pv+H95xESu23AXtH3OeHTA/PMAMFM2fXrmqnA7gPrm2jihz
-	UJJS5fsDfSXZD9FSXDwAqif1t/ZMSEpZdK2IURdfhJxqcEXMOAhfCei7s7IYBmSH/6U=
-X-Gm-Gg: ATEYQzzU/6gS6tdMrDLAN8gbR5lixkn8mSanL7r7MKnvbbzu87/rlj8hEG45M6UvOzP
-	bL/iF2zCDDni/dEMgZWC9Jo4urxgWg6AQye4v51Iy0k5x+S7WCmk1KUCB+JkHqUjeVjHBTMHHd7
-	oidHIO8qUMPpr7mNpfiIh1RGqV7BeGpsxAXkj3k67haaspibZO6dAZgA7bJvd58bEEMqTESz/WV
-	/TIij4d8nzojCnxXXBbN0EhRCA0mit5bX3WTbjuX9Fd5NntbyXMITch1lpFXW2JnuCCCu1F45TN
-	Q/K/wOfy+1u+9q9ib22VAID18zTmqbhVch4zcfbdi0f509IuRlF5PADpJc4pPfjXBXHbkg2B0UP
-	yHsweqyemoxxHWWaiA3yLveLkzZQ/qmR1fbcM7529ER66LBzMnvu11VwWs+E+A/fdtUC0pTxf4O
-	hRIhp4LfgjepP0lkwgHa+Wz8KZH+YhnA5o59+jXnQVzOHaLU+X9EWGx1moRdqzrChPoIi7y7Lkj
-	kkmp4o=
-X-Received: by 2002:a05:600c:1394:b0:485:3cef:d6ea with SMTP id 5b1f17b1804b1-488994a7a76mr49414895e9.13.1775226540607;
-        Fri, 03 Apr 2026 07:29:00 -0700 (PDT)
-Received: from localhost (host-79-33-140-232.retail.telecomitalia.it. [79.33.140.232])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4888a72baa8sm142747135e9.15.2026.04.03.07.29.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Apr 2026 07:29:00 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	linux-pwm@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Naushir Patuck <naush@raspberrypi.com>,
-	Stanimir Varbanov <svarbanov@suse.de>
-Subject: [PATCH 3/3] arm64: dts: broadcom: rp1: Add PWM node
-Date: Fri,  3 Apr 2026 16:31:56 +0200
-Message-ID: <ef79e974c6680202294a4cfde7cc791753bf1b3e.1775223441.git.andrea.porta@suse.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <cover.1775223441.git.andrea.porta@suse.com>
-References: <cover.1775223441.git.andrea.porta@suse.com>
+	Fri, 03 Apr 2026 14:30:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A2FE560121;
+	Fri,  3 Apr 2026 14:30:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA79FC4CEF7;
+	Fri,  3 Apr 2026 14:30:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775226651;
+	bh=EG/4+EnjirMkDZg/s2AKKf6fVlqgREOm7zmiAunJsOk=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
+	b=hF5oKMIpkSnVzJ3WsKgH/PKmqSjD1zMtFEPF0s6EGi4R1o3Q9JQIMZHd45Db26d9j
+	 WQGO5XHcHtrh5DEGn1aBhnCHm3Ogjl/RrKAig3gh/fOmIXM7xAgDGOWGsQ5QIleq7O
+	 QOL6KHuRrvmt+w5O4vG2F4MiyxGHSmGDec8OD1qgueiMmzpRsSzIwLfFD6fXioscRM
+	 n1nnbxgbd8UK3T0bcj8UfcZ/aML4gpNI/Rrvy6s+AMil1i8M75Yp3ac5Dr0DZpoXWl
+	 USWvfIVrCIWgqQh9vI7sZB8LUIjli/nfjkqCVF+A3UwuzQ/6zSmFS195MwPQ5PTEGe
+	 NB/KiYZEZyjQA==
+Content-Type: multipart/mixed; boundary="===============2451143287243483675=="
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_152904_254851_F8D055D7 
-X-CRM114-Status: GOOD (  11.35  )
+Message-Id: <d7d0c76305b07ae5d485df56061925b95bc2206ad3fe13fb62d4567e51800f46@mail.kernel.org>
+In-Reply-To: <20260403132811.753894-2-xukuohai@huaweicloud.com>
+References: <20260403132811.753894-2-xukuohai@huaweicloud.com>
+Subject: Re: [PATCH bpf-next v12 1/5] bpf: Move constants blinding out of arch-specific JITs
+From: bot+bpf-ci@kernel.org
+To: xukuohai@huaweicloud.com,bpf@vger.kernel.org,linux-kernel@vger.kernel.org,linux-arm-kernel@lists.infradead.org
+Cc: ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,yonghong.song@linux.dev,puranjay@kernel.org,a.s.protopopov@gmail.com,alexis.lothore@bootlin.com,list+bpf@vahedi.org,linux@armlinux.org.uk,yangtiezhu@loongson.cn,hengqi.chen@gmail.com,johan.almbladh@anyfinetworks.com,paulburton@kernel.org,hbathini@linux.ibm.com,chleroy@kernel.org,naveen@kernel.org,luke.r.nels@gmail.com,xi.wang@gmail.com,bjorn@kernel.org,pulehui@huawei.com,iii@linux.ibm.com,hca@linux.ibm.com,gor@linux.ibm.com,davem@davemloft.net,udknight@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
+Date: Fri,  3 Apr 2026 14:30:50 +0000 (UTC)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,72 +66,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stanimir Varbanov <svarbanov@suse.de>
+--===============2451143287243483675==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-The RP1 chipset used on the Raspberry Pi 5 features an integrated
-PWM controller to drive the cooling fan.
+> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+> index a431b7d50e1b..66cef3744fde 100644
+> --- a/kernel/bpf/verifier.c
+> +++ b/kernel/bpf/verifier.c
 
-Add the corresponding DT node for this PWM controller.
+[ ... ]
 
-Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-Co-developed-by: Andrea della Porta <andrea.porta@suse.com>
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> +static void restore_insn_aux_data(struct bpf_verifier_env *env,
+> +				  struct bpf_insn_aux_data *orig_insn_aux)
+> +{
+> +	/* the expanded elements are zero-filled, so no special handling is required */
+> +	vfree(env->insn_aux_data);
+> +	env->insn_aux_data = orig_insn_aux;
+> +}
+
+[ ... ]
+
+> +out_restore:
+> +	restore_subprog_starts(env, orig_subprog_starts);
+> +	restore_insn_aux_data(env, orig_insn_aux);
+> +	kvfree(orig_subprog_starts);
+> +out_free_aux:
+> +	kvfree(orig_insn_aux);
+> +out_cleanup:
+> +	/* cleanup main prog to be interpreted */
+> +	prog->jit_requested = 0;
+> +	prog->blinding_requested = 0;
+> +	return err;
+
+Is there a double-free of env->insn_aux_data on the out_restore path?
+
+restore_insn_aux_data() sets env->insn_aux_data = orig_insn_aux, then
+out_restore falls through to out_free_aux which does
+kvfree(orig_insn_aux), freeing the just-restored pointer.
+
+Later, bpf_check() cleanup runs:
+
+    clear_insn_aux_data(env, 0, env->prog->len);
+    vfree(env->insn_aux_data);
+
+which would be a use-after-free followed by a double-free.
+
+The out_restore path is reached when bpf_jit_blind_constants() or
+__jit_subprogs() fails while blinding was active, which can happen
+under memory pressure with multi-subprog BPF programs.
+
+It looks like out_restore needs a goto out_cleanup (or similar) after
+kvfree(orig_subprog_starts) to skip the out_free_aux label, since after
+restoring, orig_insn_aux is owned by env->insn_aux_data and must not be
+freed here.
+
+This regression is not fixed by later commits in the series.
+
+
 ---
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 12 ++++++++++++
- arch/arm64/boot/dts/broadcom/rp1-common.dtsi     | 10 ++++++++++
- 2 files changed, 22 insertions(+)
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-index 2856082814462..a4e5ba23bf536 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-@@ -64,12 +64,24 @@ phy1: ethernet-phy@1 {
- };
- 
- &rp1_gpio {
-+	fan_pwm_default_state: fan-pwm-default-state {
-+		function = "pwm1";
-+		pins = "gpio45";
-+		bias-pull-down;
-+	};
-+
- 	usb_vbus_default_state: usb-vbus-default-state {
- 		function = "vbus1";
- 		groups = "vbus1";
- 	};
- };
- 
-+&rp1_pwm {
-+	pinctrl-0 = <&fan_pwm_default_state>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
- &rp1_usb0 {
- 	pinctrl-0 = <&usb_vbus_default_state>;
- 	pinctrl-names = "default";
-diff --git a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-index 5a815c3797945..7e78501e62b0c 100644
---- a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-@@ -56,6 +56,16 @@ rp1_eth: ethernet@40100000 {
- 		#size-cells = <0>;
- 	};
- 
-+	rp1_pwm: pwm@4009c000 {
-+		compatible = "raspberrypi,rp1-pwm";
-+		reg = <0x00 0x4009c000  0x0 0x100>;
-+		clocks = <&rp1_clocks RP1_CLK_PWM1>;
-+		assigned-clocks = <&rp1_clocks RP1_CLK_PWM1>;
-+		assigned-clock-rates = <50000000>;
-+		#pwm-cells = <3>;
-+		status = "disabled";
-+	};
-+
- 	rp1_usb0: usb@40200000 {
- 		compatible = "snps,dwc3";
- 		reg = <0x00 0x40200000  0x0 0x100000>;
--- 
-2.35.3
-
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/23948799625
+--===============2451143287243483675==--
 
