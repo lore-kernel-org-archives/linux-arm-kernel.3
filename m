@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F21BE88D63
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 21:57:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E2DDE88D6E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 22:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=JUYivlWneDYv2wCp3O4ECZT/dJL5ql68tL2T//GvL/w=; b=4OXg15y3+9wr0+
-	9jCNrsicnqiiMY23h/rlknbcoGX01rOrEBt7PtIpx6uAxAe7j6/V28zA0SMTWCPDMWjBVo/vYjui0
-	PRg8Xh3nWHFfZjpduatuvDP2B7P1oGf9VvAz9s8VA/JimWuxrXwA7kWnbrCmX5heqMcOCborlNAkM
-	hfaroyjaZSPrwFQ80ji3Cm+esgxTKbuYjRyDllG6NRkgTh/IWaJe/AO0eXB20wfrN8w7CBUYNz7XB
-	xOFnZ2oCQiCuOK76gYCZrd16ocTKWE8c8KpJ2gwTaEIaPPv8HbjserMEbJxZy2/gNPpBQTCQKEfaM
-	YpwZp3RlVwxKtGaKrluQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UD4iYKr0RwJBdjOq5o2iO00xILNUZb0+054xIjHpbMk=; b=DjY1/OmIl0hBtrpfndvr+Pzh/r
+	eBWd/FQjdrVmppei+z16wYnmGxSUer9KZEfBAYxY+zAxdCejZj0KX3uuJL7iUmF/FZ9ZCdFYRiObW
+	DkLzlCiiWmFrsHNtUlCFhKpS5WbKODzjQFG+HwpvzBzR/rLHdhK6Q2Uj+ChUz5JzHJhA+CaA+tkA6
+	PxkVI72HE08F1TS+yrMiAxUUWRm77J3Hbw59p+ozKNvhpuDkQbipKjojnlnHRK5JBkHsLsmQrv8EU
+	AbKnYumTz3E/U/vx33KkpcrlzBglsABI9TQHfYUjlPeO/jdyhbdLI2zMlzRI+XI4FAYbh5zuFvo7K
+	yH8sWuPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8mVh-00000002ftG-0tpK;
-	Fri, 03 Apr 2026 21:57:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w8mZG-00000002g7R-0cd1;
+	Fri, 03 Apr 2026 22:00:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8mVf-00000002fst-25j7
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 21:57:00 +0000
+	id 1w8mZD-00000002g6z-0pPC;
+	Fri, 03 Apr 2026 22:00:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 53FD6416E0;
-	Fri,  3 Apr 2026 21:56:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EA43C4CEF7;
-	Fri,  3 Apr 2026 21:56:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D3F9544581;
+	Fri,  3 Apr 2026 22:00:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA7A4C4CEF7;
+	Fri,  3 Apr 2026 22:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775253418;
-	bh=uHkzLeYRPMdYHIG9yS72h3rCLUWaLfdftqsXVr+qimI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=MBQKPM5UnHKHXaLvuAW2yMteTzbBKm6o+cIPktQNSj7g8MkMeNPI9vLcMxFjuJ5vd
-	 QYvwf90vLdXpqUi2aCAm2lAexHcIkCPFbho11IkgLhK/rv4OkSUIFXxsHTB64iQcO9
-	 LCLHcm8pKQbw1FvuWQ9zeVB3j6Fqk23nWR6UV6iLk+tTxrqJJkyu3i9xyHUGNbpiFA
-	 KM7nX6SaPg/sgjKVXQWQvkhlIieK0m1LaUm+XOvgxte3WdlX/D1pVFjqJ3e02+2nHU
-	 IMwMUAeQtPdkLF5kzicxA/yiDeQBrGz69Oz8j182HYbEGlwSjB+7SqkOVS0EF6cqu7
-	 ofu8KrqrngGhA==
-Date: Fri, 3 Apr 2026 16:56:56 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v3] PCI: imx6: Don't remove MSI capability for
- i.MX7D/i.MX8M
-Message-ID: <20260403215656.GA360979@bhelgaas>
+	s=k20201202; t=1775253637;
+	bh=XQhuRFS5BhcmVEdMuLawsRfUu2jHBVhVjnMXYwC/UYE=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=mWulMMjS+GA+sce/alHYMe7S7502pEHOwPO1e/XgbBPylsuwU8FChqi9PUMkVsHRG
+	 1t39RpQV8EObJa9vFGWjc2iuJfAitb9hGEGomEZQL2NaRc8WrqNubIuaEbeVeuV/2H
+	 MIglKDpeW7SrwzMbeTJalPgTHzExCK5WkQOQvMr90Q4qkMHJ6MHFQ0PYkuJ/eXU0qD
+	 RZpsxw3MP5jDdl9kkb08OZKfYebprt/FG9JMnz4oyZqqT7+oNfDcxVEDsr1/MeOBkk
+	 mOLc1Od6wjUdQuC/vd5VWi3F3ZcBwm9dVcIIbc9NOQTk8HWKmKKUfJsYCENYWzAoTP
+	 jEtS2nofA9Y+Q==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7CD813809A14;
+	Fri,  3 Apr 2026 22:00:20 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260331085252.1243108-1-hongxing.zhu@nxp.com>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] net: airoha: Fix memory leak in
+ airoha_qdma_rx_process()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177525361903.1466030.1505141844783892898.git-patchwork-notify@kernel.org>
+Date: Fri, 03 Apr 2026 22:00:19 +0000
+References: <20260402-airoha_qdma_rx_process-mem-leak-fix-v1-1-b5706f402d3c@kernel.org>
+In-Reply-To: <20260402-airoha_qdma_rx_process-mem-leak-fix-v1-1-b5706f402d3c@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_145659_596616_D365B59F 
-X-CRM114-Status: GOOD (  27.65  )
+X-CRM114-CacheID: sfid-20260403_150039_285489_3DB4D8BB 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,118 +75,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 31, 2026 at 04:52:52PM +0800, Richard Zhu wrote:
-> The MSI trigger mechanism for endpoint devices connected to i.MX7D,
-> i.MX8MM, and i.MX8MQ PCIe root complex ports depends on the MSI
-> capability register settings in the root complex. Removing the MSI
-> capability breaks MSI functionality for these endpoints.
+Hello:
+
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Thu, 02 Apr 2026 14:57:10 +0200 you wrote:
+> If an error occurs on the subsequents buffers belonging to the
+> non-linear part of the skb (e.g. due to an error in the payload length
+> reported by the NIC or if we consumed all the available fragments for
+> the skb), the page_pool fragment will not be linked to the skb so it will
+> not return to the pool in the airoha_qdma_rx_process() error path. Fix the
+> memory leak partially reverting commit 'd6d2b0e1538d ("net: airoha: Fix
+> page recycling in airoha_qdma_rx_process()")' and always running
+> page_pool_put_full_page routine in the airoha_qdma_rx_process() error
+> path.
 > 
-> Add keep_rp_msi_en flag to indicate platforms (i.MX7D, i.MX8MM, i.MX8MQ)
-> that should preserve the MSI capability during initialization.
+> [...]
 
-I guess Mani added this to the commit log:
+Here is the summary with links:
+  - [net] net: airoha: Fix memory leak in airoha_qdma_rx_process()
+    https://git.kernel.org/netdev/net/c/285fa6b1e03c
 
-  Note that by keeping Root Port MSI capability, Root Port MSIs such as AER,
-  PME and others won't be received by default. So users need to use
-  workarounds such as passing 'pcie_pme=nomsi' cmdline param.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Why can't we fix this automatically?  I hate it when users are
-expected to use command line parameters to work around issues.
 
-Obviously we know at probe-time, before any PCI devices are
-enumerated, so it seems like we should be able to do the equivalent of
-"pcie_pme=nomsi" even without the parameter.
-
-> Cc: stable@vger.kernel.org
-> Fixes: f5cd8a929c825 ("PCI: dwc: Remove MSI/MSIX capability for Root Port if iMSI-RX is used as MSI controller")
-> Suggested-by: Manivannan Sadhasivam <mani@kernel.org>
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> ---
-> v3 changes:
-> Use a flag 'dw_pcie_rp::keep_rp_msi_en' to identify SoCs that require MSI
-> capability preservation, and skip the capability removal in
-> pcie-designware-host.c accordingly.
-> 
-> v2 changes:
-> CC stable tree.
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c             | 7 +++++++
->  drivers/pci/controller/dwc/pcie-designware-host.c | 2 +-
->  drivers/pci/controller/dwc/pcie-designware.h      | 1 +
->  3 files changed, 9 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 20dafd2710a3..fde173770933 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -117,6 +117,8 @@ enum imx_pcie_variants {
->  #define IMX_PCIE_FLAG_HAS_LUT			BIT(10)
->  #define IMX_PCIE_FLAG_8GT_ECN_ERR051586		BIT(11)
->  #define IMX_PCIE_FLAG_SKIP_L23_READY		BIT(12)
-> +/* Preserve MSI capability for platforms that require it */
-> +#define IMX_PCIE_FLAG_KEEP_MSI_CAP		BIT(13)
->  
->  #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
->  
-> @@ -1820,6 +1822,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  	} else {
->  		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_SKIP_L23_READY))
->  			pci->pp.skip_l23_ready = true;
-> +		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_KEEP_MSI_CAP))
-> +			pci->pp.keep_rp_msi_en = true;
->  		pci->pp.use_atu_msg = true;
->  		ret = dw_pcie_host_init(&pci->pp);
->  		if (ret < 0)
-> @@ -1897,6 +1901,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  	[IMX7D] = {
->  		.variant = IMX7D,
->  		.flags = IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
-> +			 IMX_PCIE_FLAG_KEEP_MSI_CAP |
->  			 IMX_PCIE_FLAG_HAS_APP_RESET |
->  			 IMX_PCIE_FLAG_SKIP_L23_READY |
->  			 IMX_PCIE_FLAG_HAS_PHY_RESET,
-> @@ -1909,6 +1914,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  	[IMX8MQ] = {
->  		.variant = IMX8MQ,
->  		.flags = IMX_PCIE_FLAG_HAS_APP_RESET |
-> +			 IMX_PCIE_FLAG_KEEP_MSI_CAP |
->  			 IMX_PCIE_FLAG_HAS_PHY_RESET |
->  			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
->  		.gpr = "fsl,imx8mq-iomuxc-gpr",
-> @@ -1923,6 +1929,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  	[IMX8MM] = {
->  		.variant = IMX8MM,
->  		.flags = IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
-> +			 IMX_PCIE_FLAG_KEEP_MSI_CAP |
->  			 IMX_PCIE_FLAG_HAS_PHYDRV |
->  			 IMX_PCIE_FLAG_HAS_APP_RESET,
->  		.gpr = "fsl,imx8mm-iomuxc-gpr",
-> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> index a74339982c24..7b5558561e15 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> @@ -1171,7 +1171,7 @@ int dw_pcie_setup_rc(struct dw_pcie_rp *pp)
->  	 * the MSI and MSI-X capabilities of the Root Port to allow the drivers
->  	 * to fall back to INTx instead.
->  	 */
-> -	if (pp->use_imsi_rx) {
-> +	if (pp->use_imsi_rx && !pp->keep_rp_msi_en) {
->  		dw_pcie_remove_capability(pci, PCI_CAP_ID_MSI);
->  		dw_pcie_remove_capability(pci, PCI_CAP_ID_MSIX);
->  	}
-> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-> index ae6389dd9caa..b12c5334552c 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware.h
-> +++ b/drivers/pci/controller/dwc/pcie-designware.h
-> @@ -421,6 +421,7 @@ struct dw_pcie_host_ops {
->  
->  struct dw_pcie_rp {
->  	bool			use_imsi_rx:1;
-> +	bool			keep_rp_msi_en:1;
->  	bool			cfg0_io_shared:1;
->  	u64			cfg0_base;
->  	void __iomem		*va_cfg0_base;
-> -- 
-> 2.37.1
-> 
 
