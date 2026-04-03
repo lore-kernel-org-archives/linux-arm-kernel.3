@@ -4,54 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE19E85372
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 14:30:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0375CE85372
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 14:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hrv5xmJ+W4v6dhfjJG9pCJo08zLp83BWgniQY3tIO2s=; b=jlIL6Q4724wS1z0ZCzq4tqFuV+
-	/wnSdLyBngysQ4cLYQ9kultQotIQpGUTrNofX6ulHFnX5Uv58t/9JIIooivL/JahJPacRXUgpzA8I
-	aY1UWRGLlVDhzhWYBHz7198G9V4Rt4Nbgm/j/llWtsU3X1KKMaunwlFYtbiEUi/BgxWlpU2HyS9jk
-	8eo71CIwcAqLznY4a3ieCoOlDQ1NheyWjiDRsE1y0uOoCzQwtRRZOl0y8qQA5xsCgeWasyxss1dh/
-	ojcIDdo6YPhqJF7pEb+UTFhGCAlIDWArP+ggIIL6J2q7tzyd4qqC55NSAIlcrlfla3N6rrpIVn+Xf
-	aPVrgFWg==;
+	bh=YLnwGWL6TgcYasgyv0J5P3QylGUlytMkTqWZKROjvys=; b=k1nxJkOtUSGHxh2pd1mu1srh48
+	B6RVIW9pT3OH6xCa069FDJgdWiqD7wZ6IihhDv5R6mK7y533PpZnaG1s2+kW5XjB5++PDnJxZWTI0
+	+g5Z2/l99Mhc6TeFLJxO9c+fxMx11bZ0vNqHuu0hGP/5UZTiD10bXrA+yHG+GTVt3ZH40hXain1Dk
+	413Iw5fRWrfnU3YsiReBfhf2kL889+RJTH1WPWJuCRF8/WlMGnu965qserHN85Y5oOUgtRh8ap4UT
+	aEtLQ2JrsLW6DmAJhCH7rFOp9PkuF9+0lIjsKjT6y4ZWIXS46iArHAIfTU3sEaNpVdDrjVaodIUw2
+	Q4U1veHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8fXz-000000029JM-3Jfp;
-	Fri, 03 Apr 2026 14:30:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w8fYQ-000000029PI-0PfE;
+	Fri, 03 Apr 2026 14:31:22 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8fXy-000000029Ix-2Oyn
+	id 1w8fYN-000000029Ne-481n
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 14:30:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 900EB60133;
-	Fri,  3 Apr 2026 14:30:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87EEEC19421;
-	Fri,  3 Apr 2026 14:30:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775226653;
-	bh=Ph0s8jNFWIbP2rJPQvULbZ2x0gslejGFneauyzarkl0=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
-	b=Njo06mBfUW4Vie5R5F38MZRVRU7KKvM6YoYP1OUXT9wHYW4E89HvJoMu4bKIxmyYO
-	 1D4jT8ZVQFtD6ZHGnSnAUreicxMxZbfcD6hfzOdN237AY1KOmYr4JT7mvB+XZsKVKC
-	 GlX7o4nH4syMNF0dYaxEo0A3oULo1LpsTL5MxE3Xzq0fudTO8aBWAKwRcaoGl+tV1n
-	 bR0ZmoH8yWHqfncMlE/m7wd2UdJktk5+apZ5fcsaZ9kfW3DdKqG/cqQB4BjA5bB2lF
-	 M0pGg6DY+qWOWbaBfpWOsVBvxB6FgRfl1zPsJbYo7dj+l4XyaTNNdNB53hrrOof/ZT
-	 lXjE1ZSfOdlDw==
-Content-Type: multipart/mixed; boundary="===============9218033960697897612=="
+	Fri, 03 Apr 2026 14:31:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=YLnwGWL6TgcYasgyv0J5P3QylGUlytMkTqWZKROjvys=; b=SCtPbH0VqwVH77TZpjAYo8qz6T
+	qWxPm1gO6ha8ukxYYosimjxw8LazWPmZ/JwaexvKDX8aVy4Q/x+q/WW3kXyrEPR89YVFJJ6tZ0RZl
+	zYrXKpS4lO9XI9OdbuXtmJDA9mBDy2EBhUvNWJtkrZCfgX2im+dpn+sPbeJjiNEp2YHw=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1w8fYC-00Efvy-89; Fri, 03 Apr 2026 16:31:08 +0200
+Date: Fri, 3 Apr 2026 16:31:08 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ARM: mvebu: validate memory node device_type strings
+Message-ID: <a78b3608-486d-47d9-8b3d-558ed92733ea@lunn.ch>
+References: <20260403151504.4-dt-arm-mvebu-resend-pengpeng@iscas.ac.cn>
 MIME-Version: 1.0
-Message-Id: <ad939c6a7364bd33eabc4eeadb80f904a947bb769093b550002d2cd818260a36@mail.kernel.org>
-In-Reply-To: <20260403132811.753894-3-xukuohai@huaweicloud.com>
-References: <20260403132811.753894-3-xukuohai@huaweicloud.com>
-Subject: Re: [PATCH bpf-next v12 2/5] bpf: Pass bpf_verifier_env to JIT
-From: bot+bpf-ci@kernel.org
-To: xukuohai@huaweicloud.com,bpf@vger.kernel.org,linux-kernel@vger.kernel.org,linux-arm-kernel@lists.infradead.org
-Cc: ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,yonghong.song@linux.dev,puranjay@kernel.org,a.s.protopopov@gmail.com,alexis.lothore@bootlin.com,list+bpf@vahedi.org,linux@armlinux.org.uk,yangtiezhu@loongson.cn,hengqi.chen@gmail.com,johan.almbladh@anyfinetworks.com,paulburton@kernel.org,hbathini@linux.ibm.com,chleroy@kernel.org,naveen@kernel.org,luke.r.nels@gmail.com,xi.wang@gmail.com,bjorn@kernel.org,pulehui@huawei.com,iii@linux.ibm.com,hca@linux.ibm.com,gor@linux.ibm.com,davem@davemloft.net,udknight@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Fri,  3 Apr 2026 14:30:52 +0000 (UTC)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260403151504.4-dt-arm-mvebu-resend-pengpeng@iscas.ac.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260403_073120_020031_30076111 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,86 +68,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============9218033960697897612==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-
-> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-> index cc61fe57b98d..093ab0f68c81 100644
-> --- a/kernel/bpf/core.c
-> +++ b/kernel/bpf/core.c
-
-[ ... ]
-
-> @@ -2551,47 +2528,63 @@ static bool bpf_prog_select_interpreter(struct bpf_prog *fp)
->  	return select_interpreter;
->  }
->
-> -static struct bpf_prog *bpf_prog_jit_compile(struct bpf_prog *prog)
-> +static struct bpf_prog *bpf_prog_jit_compile(struct bpf_verifier_env *env, struct bpf_prog *prog)
+On Fri, Apr 03, 2026 at 10:42:46AM +0800, Pengpeng Hou wrote:
+> mvebu_scan_mem() fetches the raw device_type property and immediately
+> compares it with strcmp(). Flat DT properties are external boot input,
+> and this path does not prove that the property is NUL-terminated within
+> its declared bounds.
+> 
+> Use fdt_stringlist_get() so malformed unterminated device_type
+> properties are rejected before they are used as C strings.
+> 
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+> ---
+>  arch/arm/mach-mvebu/board-v7.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm/mach-mvebu/board-v7.c b/arch/arm/mach-mvebu/board-v7.c
+> index a0740ab0dca9..f867f6233108 100644
+> --- a/arch/arm/mach-mvebu/board-v7.c
+> +++ b/arch/arm/mach-mvebu/board-v7.c
+> @@ -11,6 +11,7 @@
+>  
+>  #include <linux/kernel.h>
+>  #include <linux/init.h>
+> +#include <linux/libfdt.h>
+>  #include <linux/of_address.h>
+>  #include <linux/of_fdt.h>
+>  #include <linux/io.h>
+> @@ -66,7 +67,8 @@ void __iomem *mvebu_get_scu_base(void)
+>  static int __init mvebu_scan_mem(unsigned long node, const char *uname,
+>  				 int depth, void *data)
 >  {
->  #ifdef CONFIG_BPF_JIT
->  	bool blinded = false;
->  	struct bpf_prog *orig_prog = prog;
-> +	struct bpf_insn_aux_data *orig_insn_aux;
->
->  	if (bpf_prog_need_blind(orig_prog)) {
-> +		if (env) {
-> +			/* If env is not NULL, we are called from the end of bpf_check(), at this
-> +			 * point, only insn_aux_data is used after failure, so we only restore it
-> +			 * here.
-> +			 */
-> +			orig_insn_aux = bpf_dup_insn_aux_data(env);
-> +			if (!orig_insn_aux)
-> +				return orig_prog;
-> +		}
-> +		prog = bpf_jit_blind_constants(env, orig_prog);
+> -	const char *type = of_get_flat_dt_prop(node, "device_type", NULL);
+> +	const char *type = fdt_stringlist_get(initial_boot_params, node,
+> +					      "device_type", 0, NULL);
+>  	const __be32 *reg, *endp;
+>  	int l;
 
-[ ... ]
+Did you read the comment?
 
-> +	return prog;
-> +
-> +out_restore:
-> +	bpf_restore_insn_aux_data(env, orig_insn_aux);
-> +out_free:
-> +	kvfree(orig_insn_aux);
->  #endif
->  	return prog;
->  }
+/*
+ * When returning from suspend, the platform goes through the
+ * bootloader, which executes its DDR3 training code. This code has
+ * the unfortunate idea of using the first 10 KB of each DRAM bank to
+ * exercise the RAM and calculate the optimal timings. Therefore, this
+ * area of RAM is overwritten, and shouldn't be used by the kernel if
+ * suspend/resume is supported.
+ */
 
-When the out_restore label is reached (blinding or JIT failure with
-env != NULL), bpf_restore_insn_aux_data() sets env->insn_aux_data to
-point to orig_insn_aux:
+You probably want to make use of:
 
-kernel/bpf/verifier.c:bpf_restore_insn_aux_data() {
-    vfree(env->insn_aux_data);
-    env->insn_aux_data = orig_insn_aux;
-}
+ *     -FDT_ERR_BADVALUE if the property value is not NUL-terminated
+ *     -FDT_ERR_NOTFOUND if the property does not exist
 
-The code then falls through to the out_free label, which calls
-kvfree(orig_insn_aux). This frees the memory that env->insn_aux_data
-now points to, leaving it as a dangling pointer.
-
-Since this function is called from inside bpf_check() via
-__bpf_prog_select_runtime(), the subsequent cleanup in bpf_check()
-accesses the freed memory:
-
-kernel/bpf/verifier.c:bpf_check() {
-    ...
-    clear_insn_aux_data(env, 0, env->prog->len);
-    vfree(env->insn_aux_data);
-}
-
-Could the out_restore path return directly instead of falling through
-to out_free, since after the restore env now owns orig_insn_aux and
-bpf_check() will free it during normal cleanup?
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/23948799625
---===============9218033960697897612==--
+	Andrew
 
