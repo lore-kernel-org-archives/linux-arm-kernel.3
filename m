@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F30D6AAFA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 01:17:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2AE0D6AB1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 01:17:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f0pN8aUKmhnmAGTXsEU3mqDCvjefLUa2M7SMOn3aBe0=; b=CNmeRiCdXelh4UZOm3Zjjrk9Ud
-	ewFWU1v0WvEYXoO4Sl/AO5VgGaS/MbyEt2VImsNz+YTsnZyahcdjDA5216dx8yXS+xByAxV0a7QFI
-	N1bLVflqPl0LS2hb+AQp300wlTcp6OmLOrgK2EHdEKuVCcBilAF9O5iana+R/W6LMpk/m47hpc1eR
-	M4J6eVEO2qRow1WzI6U9jxbdFAubpxl5vzuxoPEHr9qJIsIW1ch7KMAQI5qQXcrlZr7trZwH9R3OE
-	+SRODRVDvwiiEAJ35P/B+5b5VTchE3EvA9e8dJ5wUT4V0AaCUX5VbbINzGuVpmToU2EE8naQj9nVf
-	ElvKNQqQ==;
+	bh=FxQv7s5Odq+vZQmZIotCiow9lCNZu5hiBKdpZB9SFQs=; b=v3M24nLqOd6prFLGsDt5gd5VJm
+	TETE472DZlo/+n1QzKgJvAPsrrG/A1s7aRgD84yUepgBV/umlEYIWmwk14Vm87Vm0zl+ypM0pOrVB
+	uyiL/NmUjUJuNvdogQ96NYvCn4YwQNb4qqT1ffs1UEqc+2lhDb5QwewqfN/fksEHyp2PbIa8aEp1o
+	fw92l2rBNP02YWvle5Ue2kAdL1tw7qS2xr3t7mT+RUWE50c58SKIfHB4MUdoPnAwJxcc4hMXgr6oG
+	4hVZ7vwyFGoBxVWhyGcPsqX1bfYUiCe4tmo347JrIUGTGjfXW+M15nFGgcqzXD3gs6aBkwGn/+zXY
+	gRr+mmSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8TAB-000000011j5-0LGk;
-	Fri, 03 Apr 2026 01:17:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w8TAF-000000011kd-1dn0;
+	Fri, 03 Apr 2026 01:17:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8TAA-000000011ii-0T9T
+	id 1w8TAC-000000011jO-0ehw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 01:17:30 +0000
+	Fri, 03 Apr 2026 01:17:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6242160126;
-	Fri,  3 Apr 2026 01:17:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1375CC116C6;
-	Fri,  3 Apr 2026 01:17:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 933D743488;
+	Fri,  3 Apr 2026 01:17:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56F30C19423;
+	Fri,  3 Apr 2026 01:17:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775179049;
-	bh=IU9zpV+fhw/AVGDmlIS+prrr3RJ46Y3yClO3R5MZOJA=;
+	s=k20201202; t=1775179051;
+	bh=z2oeBslkWxXFxUEpEWFwllAfQCf4n0yeC2tozbEVTlM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fvBhotl1IEvyAFT2T/qEv9rf8dWP9JNEuuEOqn3jzMpIQEMFOgSoIlSrwyysbQJH6
-	 4ZdUqynMTLHMzK1zM5kGAHNMAaMIVREs5KvkRHA/m7Vl1cFyB1OsaDjbKB72LGmYO8
-	 NvoiXno04iCv9rJ/c/rN1K0DjJEPOWRwgkY3hOBcdws4kU5zx2P/8KdidjDb4eOd2d
-	 Wkroi3b2cTFnMOunZ5dbeRfzIcwt4klfueHVLjUfXCVM+MVYSyOIhoH2RUiGKB4dxW
-	 NU8QdrlH6J1+lTqPGxVX15h8OmVA+ETYG4W5EDjYM34q7HZeDAvjT/uFvWObt4pU0x
-	 Mm9Aly2jvUauw==
+	b=MdV9augW1jHZqVwnMVXugkgpU/OawSUTlXxgNHgItjcvmIUEWW2w4w5xit2HBBHif
+	 0fr72BN15tfROcp/toAKBSg3iE65TFpJFCcgkJUUaNiLqsV4WKBJDI9DCEXedvzy49
+	 FTgxWeo/a4aqiTElWJ/eegm2i4dVWVTQE1H1yvhkR3wBVxXxKBkQOuNPC/XC/yU+vv
+	 LbxdimGIxIU1xU63GXKAh67M9AkUVRJmZa5OIJiisn/mSYglYqNtSwW0QWjlM82RXp
+	 xYJe9TtgRr/AmJ3hxt7+XnkZQzPJqiUi6t+IFzrNdoJAoCmx2OSwm3w5oqP4a+TuDy
+	 UcQy18A1RR15A==
 From: Jakub Kicinski <kuba@kernel.org>
 To: wei.fang@nxp.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -67,14 +67,17 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org,
 	imx@lists.linux.dev
-Subject: Re: [PATCH v4 net-next 04/14] net: enetc: add basic operations to the FDB table
-Date: Thu,  2 Apr 2026 18:17:26 -0700
-Message-ID: <20260403011727.1795379-1-kuba@kernel.org>
+Subject: Re: [PATCH v4 net-next 05/14] net: enetc: add support for the "Add" operation to VLAN filter table
+Date: Thu,  2 Apr 2026 18:17:29 -0700
+Message-ID: <20260403011729.1795413-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260331113025.1566878-5-wei.fang@nxp.com>
-References: <20260331113025.1566878-5-wei.fang@nxp.com>
+In-Reply-To: <20260331113025.1566878-6-wei.fang@nxp.com>
+References: <20260331113025.1566878-6-wei.fang@nxp.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260402_181732_239940_D3868966 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,47 +95,69 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-net: enetc: add basic operations to the FDB table
+net: enetc: add support for the "Add" operation to VLAN filter table
 
-This commit adds FDB table management operations (Add, Delete, Update,
-Query/Search) to the enetc driver using NTMP version 2.0. FDB entries
-are managed via the command BD ring.
+This patch adds the ntmp_vft_add_entry() helper function to support adding
+entries to the VLAN filter table. It allocates a DMA buffer, formats the
+request, and transmits it via the command BD ring using netc_xmit_ntmp_cmd().
 
-> diff --git a/include/linux/fsl/ntmp.h b/include/linux/fsl/ntmp.h
-> index 916dc4fe7de3..a9f3e6cbf422 100644
-> --- a/include/linux/fsl/ntmp.h
-> +++ b/include/linux/fsl/ntmp.h
-
-[ ... ]
-
-> @@ -116,6 +158,31 @@ static inline int ntmp_rsst_query_entry(struct ntmp_user *user,
->  	return 0;
->  }
->  
-> +static inline int ntmp_fdbt_add_entry(struct ntmp_user *user, u32 *entry_id,
-> +				      const struct fdbt_keye_data *keye,
-> +				      const struct fdbt_cfge_data *data)
-> +{
-> +	return 0;
-> +}
-
-If CONFIG_NXP_NETC_LIB is disabled, will returning 0 here cause callers to
-falsely assume the operation succeeded and proceed to use an uninitialized
-entry_id pointer? Would it be safer to return an error code such as
--EOPNOTSUPP for stubs that have output parameters?
+> diff --git a/drivers/net/ethernet/freescale/enetc/ntmp.c b/drivers/net/ethernet/freescale/enetc/ntmp.c
+> --- a/drivers/net/ethernet/freescale/enetc/ntmp.c
+> +++ b/drivers/net/ethernet/freescale/enetc/ntmp.c
 
 [ ... ]
 
-> +static inline int ntmp_fdbt_search_port_entry(struct ntmp_user *user, int port,
-> +					      u32 *resume_entry_id,
-> +					      struct fdbt_entry_data *entry)
+> @@ -652,5 +655,52 @@ int ntmp_fdbt_search_port_entry(struct ntmp_user *user, int port,
+> +int ntmp_vft_add_entry(struct ntmp_user *user, u16 vid,
+> +		       const struct vft_cfge_data *cfge)
 > +{
-> +	return 0;
-> +}
+> +	struct ntmp_dma_buf data = {
+> +		.dev = user->dev,
+> +		.size = sizeof(struct vft_req_ua),
+> +	};
+> +	struct vft_req_ua *req;
+> +	union netc_cbd cbd;
+> +	u32 len;
+> +	int err;
+> +
+> +	err = ntmp_alloc_data_mem(&data, (void **)&req);
+> +	if (err)
+> +		return err;
+> +
+> +	/* Request data */
+> +	ntmp_fill_crd(&req->crd, user->tbl.vft_ver, 0,
+> +		      NTMP_GEN_UA_CFGEU);
+> +	req->ak.exact.vid = cpu_to_le16(vid);
+> +	req->cfge = *cfge;
+> +
+> +	/* Request header */
+> +	len = NTMP_LEN(data.size, NTMP_STATUS_RESP_LEN);
+> +	ntmp_fill_request_hdr(&cbd, data.dma, len, NTMP_VFT_ID,
+> +			      NTMP_CMD_ADD, NTMP_AM_EXACT_KEY);
+> +
+> +	err = netc_xmit_ntmp_cmd(user, &cbd);
+> +	if (err)
+> +		dev_err(user->dev,
+> +			"Failed to add %s entry, vid: %u, err: %pe\n",
+> +			ntmp_table_name(NTMP_VFT_ID), vid, ERR_PTR(err));
+> +
+> +	ntmp_free_data_mem(&data);
 
-Similar to the above, does returning 0 here leave both resume_entry_id and
-entry uninitialized while signaling success? Since resume_entry_id is
-typically used as an iterator, could this lead to an infinite loop or other
-unpredictable behavior in the caller if they interpret the 0 return as a
-successful read of valid hardware configuration data?
+Does this code safely handle hardware timeouts?
+
+If netc_xmit_ntmp_cmd() times out and returns an error, the pending
+transaction is not explicitly aborted before ntmp_free_data_mem()
+unconditionally frees the DMA buffer.
+
+Could the hardware eventually process the pending command and perform a
+DMA write of the response to the physical address of the freed buffer?
+
+This might lead to silent memory corruption if that memory has already
+been reallocated to another subsystem. Would it be safer to explicitly
+abort the pending DMA transaction, reset the device on timeout, or
+intentionally delay freeing the buffer until it is proven safe?
+
+> +
+> +	return err;
+> +}
 
