@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA95ED730A3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0695D730A4
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 05:34:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,52 +12,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Date:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7Re2Ie6mHUKZzAiGhiNDIbjPk4r+ZyAUXROCqSBZvTY=; b=fkvDFBU6+j1nDOLs2IyaZJSIQx
-	TAK2WzuUUhLbykdkem4Qprk5Bm2OIAMh+n7M32VSjq4N/tZNdPmEL+eRbcLdsVk5MHIqebZ8nXyGn
-	DsR3rYEjti59HPVJps/yvzbYxcNO7G5k0/zukM9Fcn/xj9jQDc4D45dqC6/qSZu1WUe3BBRD8mAun
-	MM7ckgvdRik7R82qrk32KiMOupJvtcyjxXUZpTy7w2qWnvXJasZwcyoMLc8U5ps0Ctfh9mcTMhu6f
-	2GJsAtZ5m8jXt0+WHPuxrSYcDBX6zV/LyNgO7vDmrG2L2vqt76kN2IfUVCUB/LK92Y2kBegC03RBe
-	BjjM7S2A==;
+	bh=bOPv8VNXDRpmSMPTTDXh/W4lndshgQEyDxPQjxTNZtE=; b=lDIghwjmzoXM7yQKL21r1WE0cM
+	b/jS7Z7iEPHih+6kym6iq7pcZk7GNErOYYLIczsP0NxqY5e7CoXrwealnI8eLA/Jey6yiIPxyVry9
+	0+5I3JC7Lxr+erWZ79QfnsZvK8eGA/tuczLsp1om2skkrM7c2zUv91RQVcu2PUD92Y5yRwX2eVWv0
+	BbuIdWdmf87PLlSncEI+vS0RlWcXen6dWWqFaon9Il3cS6afeZsRQCF5THVLCL5Vr82XvoPAVFjCO
+	mgotjfmfE626EE8pFrefxXFaEvWvMPqqX876A1Y8Lr+O3XjmQJ4qWCXcdRNWaDVuPVFXCBvIkh4l+
+	yFR39Csg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8XAN-00000001JKQ-1DPl;
-	Fri, 03 Apr 2026 05:33:59 +0000
+	id 1w8XAL-00000001JJ9-226v;
+	Fri, 03 Apr 2026 05:33:57 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8XAG-00000001JHA-41oI
+	id 1w8XAG-00000001JH6-3GOo
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 03 Apr 2026 05:33:55 +0000
-Received: from 0005-arm-at91.resend.eml (unknown [111.196.245.197])
-	by APP-03 (Coremail) with SMTP id rQCowAB3ldw+Uc9pm0K7DA--.32785S2;
-	Fri, 03 Apr 2026 13:33:50 +0800 (CST)
+Received: from 0002-arm-xen.resend.eml (unknown [111.196.245.197])
+	by APP-03 (Coremail) with SMTP id rQCowACHqeA9Uc9pjEK7DA--.32598S2;
+	Fri, 03 Apr 2026 13:33:49 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-Date: Fri, 3 Apr 2026 10:42:55 +0800
-Message-ID: <20260403151505.5-dt-arm-at91-resend-pengpeng@iscas.ac.cn>
-To: Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, pengpeng@iscas.ac.cn
-Subject: [PATCH] ARM: at91: validate memory node device_type strings
-X-CM-TRANSID: rQCowAB3ldw+Uc9pm0K7DA--.32785S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Gr47Xr4UWF4UGw15XFy8uFg_yoW8JF45pF
-	ZxCF1DtFW5ur17Ca9Fvr9ayw409a1DAr4Utry2vryjvw4aqryqv39akw1vy3W8CrWUuayr
-	uFW5WrykZwsIkaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkv14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+Date: Fri, 3 Apr 2026 10:42:09 +0800
+Message-ID: <20260403151502.2-dt-arm-xen-resend-pengpeng@iscas.ac.cn>
+To: Stefano Stabellini <sstabellini@kernel.org>
+Cc: xen-devel@lists.xenproject.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, pengpeng@iscas.ac.cn
+Subject: [PATCH] ARM: xen: validate hypervisor compatible before parsing its
+ version
+X-CM-TRANSID: rQCowACHqeA9Uc9pjEK7DA--.32598S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Zr4rtFWkCF4rJr1kZF1UKFg_yoW8Zw4fpF
+	Zakr9avFWrt3WxWa4IyFyv9Fy5GF4kXrW2qFykZ3Wjyrnrtw1rXrWIvF1SvFn3ArW8W343
+	ZrWjyFn5AF47X3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkq14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcVAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWUAVWU
-	twCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r
-	1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij
-	64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr
-	0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF
-	0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUIfO7UUUUU=
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r106r15McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IY64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r126r1D
+	MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr
+	0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0E
+	wIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJV
+	W8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAI
+	cVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjG-e7UUUUU==
 X-Originating-IP: [111.196.245.197]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_223353_366733_93FD2E07 
-X-CRM114-Status: UNSURE (   8.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260402_223353_185480_F9D0C276 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,41 +72,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-at91_pm_backup_scan_memcs() fetches the raw device_type property and
-immediately compares it with strcmp(). Flat DT properties are external
-boot input, and this path does not prove that the property is
-NUL-terminated within its declared bounds.
+fdt_find_hyper_node() reads the raw compatible property and then
+derives hyper_node.version from a prefix match before later printing it
+with %s. Flat DT properties are external boot input, and this path does
+not prove that the compatible string is NUL-terminated within its
+declared bounds.
 
-Use fdt_stringlist_get() so malformed unterminated device_type
-properties are rejected before they are used as C strings.
+Fetch the first compatible entry with fdt_stringlist_get() so malformed
+unterminated properties are rejected before the version suffix is
+parsed.
 
 Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
- arch/arm/mach-at91/pm.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ arch/arm/xen/enlighten.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm/mach-at91/pm.c b/arch/arm/mach-at91/pm.c
-index 68bb4a86cd94..0767fc9f30ab 100644
---- a/arch/arm/mach-at91/pm.c
-+++ b/arch/arm/mach-at91/pm.c
-@@ -8,6 +8,7 @@
- 
- #include <linux/genalloc.h>
- #include <linux/io.h>
+diff --git a/arch/arm/xen/enlighten.c b/arch/arm/xen/enlighten.c
+index 4feed2c2498d..f69290a4c639 100644
+--- a/arch/arm/xen/enlighten.c
++++ b/arch/arm/xen/enlighten.c
+@@ -19,6 +19,7 @@
+ #include <asm/efi.h>
+ #include <linux/interrupt.h>
+ #include <linux/irqreturn.h>
 +#include <linux/libfdt.h>
- #include <linux/of_address.h>
+ #include <linux/module.h>
  #include <linux/of.h>
  #include <linux/of_fdt.h>
-@@ -1044,7 +1045,8 @@ static int __init at91_pm_backup_scan_memcs(unsigned long node,
- 	if (*located)
+@@ -218,8 +219,9 @@ static __initdata struct {
+ static int __init fdt_find_hyper_node(unsigned long node, const char *uname,
+ 				      int depth, void *data)
+ {
+-	const void *s = NULL;
++	const char *s = NULL;
+ 	int len;
++	size_t prefix_len = strlen(hyper_node.prefix);
+ 
+ 	if (depth != 1 || strcmp(uname, "hypervisor") != 0)
  		return 0;
+@@ -227,10 +229,10 @@ static int __init fdt_find_hyper_node(unsigned long node, const char *uname,
+ 	if (of_flat_dt_is_compatible(node, hyper_node.compat))
+ 		hyper_node.found = true;
  
--	type = of_get_flat_dt_prop(node, "device_type", NULL);
-+	type = fdt_stringlist_get(initial_boot_params, node, "device_type",
-+				  0, NULL);
+-	s = of_get_flat_dt_prop(node, "compatible", &len);
+-	if (strlen(hyper_node.prefix) + 3  < len &&
+-	    !strncmp(hyper_node.prefix, s, strlen(hyper_node.prefix)))
+-		hyper_node.version = s + strlen(hyper_node.prefix);
++	s = fdt_stringlist_get(initial_boot_params, node, "compatible", 0, &len);
++	if (s && len > prefix_len + 2 &&
++	    !strncmp(hyper_node.prefix, s, prefix_len))
++		hyper_node.version = s + prefix_len;
  
- 	/* We are scanning "memory" nodes only. */
- 	if (!type || strcmp(type, "memory"))
+ 	/*
+ 	 * Check if Xen supports EFI by checking whether there is the
 -- 
 2.50.1 (Apple Git-155)
 
