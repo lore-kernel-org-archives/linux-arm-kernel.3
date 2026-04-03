@@ -4,109 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0486FE7E35E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 09:45:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D37C6E7E35E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 09:48:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZH9+LliZTB5HpO6CFpEOH4jpCgMrdVel5twiQSolHR0=; b=hnF5LAirnBtYwX+kfq/ePHhuF5
-	pid81THyM1NMuv/ycaqcPlmfUgb2ZrjyilGHe1z+7vd//pgF6pGNQWZW5DugJCTYZGZQ4Q7mbHcMh
-	FhGTxqlHgQYPaMGuKmHtIZ2BrVCFu4a8Bvt7Mc8mReEFBmNTYLpkzTDy+dz9l72LZdC+tfCOau2/9
-	7goY8Wij6nkiZG+GOCLIxYNhpn0BLKYHGkXs7JJblQqT1PlYitnbtBS3QHA9EOSGilyjoTSObBA0O
-	UyQaGwwRqW5dOFei525y+MGax9nGUG1PojuY8zbLmOVPY6iaBzyeDQtSUPGWJTggbd/UnTnj3ZKbz
-	d4vSq72Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=EIa2xY/7ArqmuS4f+LqdW2QQTwVExLr+4F5Vcx6yq0o=; b=D9zG/KTkniLP2s
+	NV/YVVdNHgMsAik0s7s1/S5dNVjSQwnrmPs+NuAxuBNuERnBqwvGMf9FnrQFMuA+ZuANzDMFtaz0S
+	AiA8/T0kj0yIgo2n/rIW0xRo5f7EJE9TwvhHaW1KPXTjsF0esJF1UvBs9P9SU1wBQQHw2VkUiHjyv
+	xfP5q7Kog0WcFvdphDQCRdyKo4ZteoLAJwKlky92XVw7Ak7lI+f9HG1XhI7+Yj7p6hGMHhF/JgWN/
+	e/uDxb/q+lxMLwGrCIGzUmEo+p/DohJNTyX+OXN19d0tNP5uHttR/DMhuOyf+EztwvZNxU7e2fitU
+	UEXihFJ3FX+REnfmFEsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8b5f-00000001q54-0lU6;
-	Fri, 03 Apr 2026 09:45:23 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1w8b8L-00000001qMD-3HFa;
+	Fri, 03 Apr 2026 09:48:09 +0000
+Received: from mail.ispras.ru ([83.149.199.84])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8b5c-00000001q4H-38qI
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 09:45:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1775209519;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZH9+LliZTB5HpO6CFpEOH4jpCgMrdVel5twiQSolHR0=;
-	b=L26UcBJahTYdEPvtdGgDj+Nenz/AX9z6icHuHq18kVUqBfNJrtYr2XHbE6j03MR7lm9aGt
-	Ld7FHAYG2HgbL5piDa8kDBXAmv3a7/C/KlEI6HEYHGyhPOthBQ8b4DQ9n35BJ8MjXpePFT
-	l+9/kxODymFX8uIg+Nl7K1F7AoMM17U=
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com
- [209.85.210.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-446-INGQ9yZFPUWrSa9SCtvQRw-1; Fri, 03 Apr 2026 05:45:17 -0400
-X-MC-Unique: INGQ9yZFPUWrSa9SCtvQRw-1
-X-Mimecast-MFC-AGG-ID: INGQ9yZFPUWrSa9SCtvQRw_1775209517
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-82c7ec40f92so2495717b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 02:45:17 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775209517; x=1775814317;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZH9+LliZTB5HpO6CFpEOH4jpCgMrdVel5twiQSolHR0=;
-        b=Pl5jeLDKiAmAv/CLJMKtAShvvzxo6CI+q8dv89aov0AbqO3Lt8M38paEKMdSWxJFM2
-         HIVjtqcUz6JvsnPZUPrU1eLyyTHatmq6id4QgIv72EZVKI22b+jQoVjguKYLTzNkzvIb
-         uprzwEBtRvjVeyeAh0OAN2W84QkZ8JckY3SQUf5FODHeN/IxlHy9dsAB2pQJP0HNROWN
-         prFrUGWT7jaD9xl8FcQ1y3wSuQC2OTWLA91WKEPKdN+1Dq2+DuV9wOesXib6hAL58wnS
-         666hsqK6rhLbT3aSJur6Ju99dx+EOYDLHEvfLit3zPYcidpLXv3Zj/o0Lmb8Tzqz3lH8
-         Uw/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXqmMrBrQs2VzlAJQAx60CceJ91CkF/oe05oGDe3T2BssFm1P4y6/lWP0ExKrHOsfLPOrCn+yuvsrhr5CorAlWt@lists.infradead.org
-X-Gm-Message-State: AOJu0YxeIstHa4+awFty7WgWbY/lxmdueUTqCihDclw6g5V/lI27wHRZ
-	wq4P6LrdotPm9zrvyNw124n/CX5NRLZhNf6fLrNao3HGpIEEFR2VW1OHN+L6+7HUq0SZscTYWHG
-	Enq+4NSOPDdZsrw0cs5fN26+cduuvPfKEj4ZpmLKAPgdfS5pmHezAYtgyKgRua0Sf92Zw7jiePK
-	CM
-X-Gm-Gg: AeBDieuixQa3y0uV3fRU3s0ySmZ8oyszmRFewMiDzMoHiIZSbO1JWt6GX44LUhxLYzU
-	iZkZD6CNwt4kR+PxIk58NxwevJwvm4/SbSXPDsUKHPm+UXSpbPh0eGzxErStbgkF/6om1Q9aLYE
-	SicRiAEcMZdTPHZx3XTJ77VdY0C6NOWNbix2m75MMzn+KHZ08DErtp2iYW4Ln6hNWfNlwyxeD47
-	8TA/3mPZw4MGsDt4AJnlYWw1lmHRo+VSU63TNUAUUcSzXsM4gXeLhXMIAGzdKk4Ubs3dmsypHxC
-	T4/HBdzmQ2vyEudnbRKX7WPyUFSBMyaGBqBlQ0mzBi9JL2qSQtu8ba+BHSXz8MnZnEGk6vjk+/1
-	naE2OnC7RDoBw
-X-Received: by 2002:a05:6a00:3027:b0:81f:52d4:a5ec with SMTP id d2e1a72fcca58-82d0dba9c6fmr2625450b3a.43.1775209516626;
-        Fri, 03 Apr 2026 02:45:16 -0700 (PDT)
-X-Received: by 2002:a05:6a00:3027:b0:81f:52d4:a5ec with SMTP id d2e1a72fcca58-82d0dba9c6fmr2625387b3a.43.1775209515832;
-        Fri, 03 Apr 2026 02:45:15 -0700 (PDT)
-Received: from localhost ([209.132.188.88])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82cf9c9cbf6sm5915263b3a.52.2026.04.03.02.45.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Apr 2026 02:45:15 -0700 (PDT)
-Date: Fri, 3 Apr 2026 17:40:52 +0800
-From: Coiby Xu <coxu@redhat.com>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Sourabh Jain <sourabhjain@linux.ibm.com>, kexec@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, devicetree@vger.kernel.org, 
-	Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>, Baoquan he <bhe@redhat.com>, Dave Young <dyoung@redhat.com>, 
-	Kairui Song <ryncsn@gmail.com>, Pingfan Liu <kernelfans@gmail.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Thomas Staudt <tstaudt@de.ibm.com>, Will Deacon <will@kernel.org>, 
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Saravana Kannan <saravanak@kernel.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 3/3] arm64,ppc64le/kdump: pass dm-crypt keys to kdump
- kernel
-Message-ID: <ac-KKklNrB5eQFvG@Rk>
-References: <20260225060347.718905-1-coxu@redhat.com>
- <20260225060347.718905-4-coxu@redhat.com>
- <51761fcf-955f-45e2-97a5-2b49d8e79d04@linux.ibm.com>
- <20260402233118.08ea88a6836bd10f01031cce@linux-foundation.org>
+	id 1w8b8J-00000001qLl-0yzd;
+	Fri, 03 Apr 2026 09:48:08 +0000
+Received: from localhost (unknown [10.10.165.6])
+	by mail.ispras.ru (Postfix) with ESMTPSA id 5DFC6406C750;
+	Fri,  3 Apr 2026 09:48:03 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.ispras.ru 5DFC6406C750
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ispras.ru;
+	s=default; t=1775209683;
+	bh=EIa2xY/7ArqmuS4f+LqdW2QQTwVExLr+4F5Vcx6yq0o=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=NliT+tOQj2FTWGMCHPwylQmCn894Tz3Kz7z5FcNXNjHKaGRUos2rQciI0uZON65R7
+	 I3aEXVr6HLMHg20QNtY1tu6G1APvWaSNKQidCCJAY7nW2XPBmuPueNAhEcMX/CgCWa
+	 aQ6tp3KkjE3TzH/+9hmfc//xwkaZk2d3GOvaRbIg=
+Date: Fri, 3 Apr 2026 12:48:03 +0300
+From: Fedor Pchelkin <pchelkin@ispras.ru>
+To: "Heyne, Maximilian" <mheyne@amazon.de>, 
+	"stable@vger.kernel.org" <stable@vger.kernel.org>
+Cc: Jens Axboe <axboe@kernel.dk>, Hector Martin <marcan@marcan.st>, 
+	Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	Keith Busch <kbusch@kernel.org>, Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
+	"James E.J. Bottomley" <jejb@linux.ibm.com>, "Martin K. Petersen" <martin.petersen@oracle.com>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>, 
+	Bart Van Assche <bvanassche@acm.org>, Sasha Levin <sashal@kernel.org>, 
+	Peter Wang <peter.wang@mediatek.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Seunghwan Baek <sh8267.baek@samsung.com>, 
+	Seunghui Lee <sh043.lee@samsung.com>, Thomas Yen <thomasyen@google.com>, 
+	Brian Kao <powenkao@google.com>, Sanjeev Yadav <sanjeev.y@mediatek.com>, 
+	Wonkon Kim <wkon.kim@samsung.com>, Chaitanya Kulkarni <kch@nvidia.com>, 
+	Hannes Reinecke <hare@suse.de>, Ming Lei <ming.lei@redhat.com>, 
+	"linux-block@vger.kernel.org" <linux-block@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"asahi@lists.linux.dev" <asahi@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-nvme@lists.infradead.org" <linux-nvme@lists.infradead.org>, "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>
+Subject: Re: [PATCH 6.1.y v2 0/6] nvme: correctly fix admin request_queue
+ lifetime
+Message-ID: <20260403124447-fb4fa96a8af4e7117989073e-pchelkin@ispras>
 MIME-Version: 1.0
-In-Reply-To: <20260402233118.08ea88a6836bd10f01031cce@linux-foundation.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 8dIuzmJU-QDjuutO9HFh-KHwWf2BOYdxzNjEdT-FZXg_1775209517
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=iso-8859-1; format=flowed
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260402-moral-jockey-f072379b@mheyne-amazon>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_024520_857817_2EB7C45E 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20260403_024807_465356_79B31A4A 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,49 +81,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 02, 2026 at 11:31:18PM -0700, Andrew Morton wrote:
->On Thu, 2 Apr 2026 16:24:14 +0530 Sourabh Jain <sourabhjain@linux.ibm.com> wrote:
->
->> But while reading crash_load_dm_crypt_keys() I noticed a possibility of a
->> double free at the address pointed by `keys_header`:
->>
->> In crash_load_dm_crypt_keys()/crash_dump_dm_crypt.c
->>      snip...
->>
->>      kbuf.buffer = keys_header;
->>
->>      snip....
->>
->>      r = kexec_add_buffer(&kbuf);
->>      if (r) {
->>          pr_err("Failed to call kexec_add_buffer, ret=%d\n", r);
->>          kvfree((void *)kbuf.buffer);                           <---
->> First Free
->>          return r;
->>      }
->>
->> Since `keys_header` is not reset, the next call to build_keys_header()
->> will cause a double free at `keys_header`.
->>
->> static int build_keys_header(void)
->> {
->>
->>      snip...
->>
->>      if (keys_header != NULL)
->>          kvfree(keys_header);
->>
->>      snip...
->> }
->>
->> What do you think?
->
->It looks that way to me.
+"Heyne, Maximilian" <mheyne@amazon.de> wrote:
+> The initial attempt to backport upstream commit 03b3bcd319b3 ("nvme: fix
+> admin request_queue lifetime") was not correct leading to refcount
+> underflows and not even fixing the problem.
+> 
+> I've tested the reproduction steps from [1] (adding a delay to
+> nvme_submit_user_cmd and 'echo 1 | sudo tee
+> /sys/class/nvme/nvme0/delete_controller') on the nvme-tcp driver which
+> printed the KASAN UAF blurb.
+> 
+> Fixing the issue in the 6.1 series requires a few dependent patches.
+> This is mainly the upstream commit 2b3f056f72e5 ("blk-mq: move the call
+> to blk_put_queue out of blk_mq_destroy_queue") which allows to move the
+> blk_put_queue to a different location.
+> 
+> The backport of commit 03b3bcd319b3 ("nvme: fix admin
+> request_queue lifetime") needed a tweak to the nvme pci driver.
+> 
+> Furthermore, in this patch series I've also included a follow-up fixup
+> from upstream commit b84bb7bd913d ("nvme: fix admin queue leak on
+> controller reset"), again with an adaption to the nvme pci driver. This
+> issue could easily be reproduced by resetting the controller (no need to
+> run full blktests):
+> 
+>   echo 1 > /sys/class/nvme/nvme0/reset_controller
 
-Thanks for confirming it! I'll send a patch after finishing the testing.
+For the series
 
--- 
-Best regards,
-Coiby
+Tested-by: Fedor Pchelkin <pchelkin@ispras.ru>
 
+Thanks for the prompt fix.
 
