@@ -4,161 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C609EE8537A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 17:45:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F0BE8537A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 18:03:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BcRbm4HgwKmiNI6qxpLJK0dsTMaJBwVAMn+5K7yoUOs=; b=HQKR+mMz59ZjX22uGopYZ48RTo
-	cif7DyfvW9vhG73gCYtshPLcJ2Ngv7AQM/I4i/VLT3m/xffEUitfmmHJ0iDpzgK3dJSK6F3I5rtUx
-	oETUBx0H7RNJRAM30GorEz/Ib0R8BvGZ4O0CH1chrXRn8ZTVm++ClqoDCBG7izEDjdUFXXvNs8TX4
-	Z/ohNTzvUUDe3J5HEUzUgP7Km+PlTTTFLVbtx095xyd3dXMc/rvb+agUg3jjsZkjbOGZ3eBhy9M5g
-	3IT80+ALUg3PTSyj/pRAwSivlUOwl+VSGp1Gp/bfeDNFGF3Wjor1tYUfOmeb9KWCK728yQwSJ1b/k
-	KvW6KAOw==;
+	bh=St1Q+eC0G4ZneHNDCt55t0/J1pND9W4YSxEJDZNyi4U=; b=WdcgN0R0cikDIAX0KVXlD+CNSj
+	tKq5qkT2/fdVlQZWV95w5XWD+CVOPzGdQQjgi8H8EGdw29Kumyfe+SYNCcq6rgEQiRGUuOpIclLDs
+	9cd/+vDyfI3mA9CSvMHdqWkf68YwNVfkQ3nebgJx8Gc6JTUfgy+dbspQryEG5+YIjy0SlhNGtsL/u
+	7gDkeGNCxof9bunvhNWPspmYVuKJUeDPcFnLwK+ez4inLtKeHsInuOIgpDwYK6mW/BewrXiixJhow
+	kF5d2YuTUQ2d9sKEfV0rgFHEzhS4usuP7nMmosQfD5VeZrptbeIw2kYr2QeMUhaSiIN45jxQTJIIZ
+	vSxWCHWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8iab-00000002P45-1L0H;
-	Fri, 03 Apr 2026 17:45:49 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1w8irA-00000002Pmq-2X65;
+	Fri, 03 Apr 2026 18:02:56 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8iaY-00000002P3i-0HxW
+	id 1w8ir5-00000002PmJ-0tcz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 17:45:47 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 633B1djQ1453174
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 3 Apr 2026 17:45:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	BcRbm4HgwKmiNI6qxpLJK0dsTMaJBwVAMn+5K7yoUOs=; b=KFRVUBvZOe2C0zgk
-	e8tSDQsHTE3yxdNVLr4Csc4+WzEaw/yFbEGpPxRr+o7SdiPO2uIIxWKQCeYai7f1
-	8VOMvMRjoCwtBIUerLOoj9EIwHjuwwSTCOM+n8NEBK9k2LpOXYsnYFEq4UVeHXgo
-	zTddW1L4sMsncNekJEOFJRldvhmP9CZ5P+LmbXbOzdhhL3C4+h55g2JlKYGkLV/D
-	GAMkmb1gg+b5j3buQe28PQ4EOlv1T0oEU6s97UklIjxIouG54erk5HZ22DEMRwpt
-	Jrec8/3gieGPqSQDQx6j5q9oY/aGigao8fza4VtqinJco7GEd5+5YKwuRqfdVzE4
-	EOH/Zw==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dacam948v-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 17:45:43 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c76b06f37a7so839183a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 10:45:43 -0700 (PDT)
+	Fri, 03 Apr 2026 18:02:55 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2b24fdac394so20610545ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 11:02:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1775238343; x=1775843143; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=BcRbm4HgwKmiNI6qxpLJK0dsTMaJBwVAMn+5K7yoUOs=;
-        b=CF0nNDLmkwpVrEsrGiNnGbWO5j/0D0UbcbClnT089rQrK0g2E0aHB7VMrXduDOEih6
-         5e3MLKerNZb12ImTI/wwHpy+nUfBH8bIAD08Zdl7W83DmAW0emLcio7rkCoKScYO145x
-         VVuYELCJN5fu0CwRvyMK7qzf316QZylza/c24lhAdQEiObTHGSK/kS8E4KR15s9rDu2c
-         rRFxTCmKg2AbzAmocqu5zEoSaRRSUXs+Iww5mmvqilXFTIUHp4EXwFjTtdM5k+hBB/35
-         YUpYg6PVjJnP+EnqKE0IwSVpQwybpOXuoGzrrzQPT4ymojCexMRDT7Ig8ILN5VWX0NVf
-         LUXA==
+        d=etsalapatis-com.20251104.gappssmtp.com; s=20251104; t=1775239370; x=1775844170; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=St1Q+eC0G4ZneHNDCt55t0/J1pND9W4YSxEJDZNyi4U=;
+        b=F4ozLKQqww1mdLy8qbl8wSwPeortTF8Ur11sniXp1IWIwmNruvE6cBVpr9X8FGiAlb
+         6oBYhqR/M+QZ7D35D66lk7URluTZ8AECgzQCrncEOaenUlvqWoYyq/5uiC7RmFEkYmT0
+         2RRFBAN4pt7y84eAViWT12XeqNi/PjSqsFhvONCtd0vpWU/UCFFd/+tN0rXmRFXCdvol
+         L4NIGCY+XnY7o1X0CoRAGX3lG5xDam7EkvjX4/va8fFFrazeV/h4eJm3Dccu2fPvRkQQ
+         WmvyCsyvxvXfgfA4zaqvhwu38KQ3C4nSrX5Th+ugCK49q9LYJHNZZyXUJWKaZkva4Y2S
+         Xsnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775238343; x=1775843143;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=BcRbm4HgwKmiNI6qxpLJK0dsTMaJBwVAMn+5K7yoUOs=;
-        b=U1UM1WK1idhBYj8BjINJ5Vs3aTw4zrmyFF58FfHOscdCOOaXznH5eXgZiIOy66ZxtC
-         JCZFN54o/0TUlslO4NTj5GHdZSTg+CD0J6oqBywhEcMfbsuVgFnhEHPe2ZTARpqJtHMe
-         /183rdl/wsNdyJ2X8o8aOpbZeCSRts6lfBiFfDDx/bAkkTxPVEc4cGxtOz8wHz5UdUzX
-         bitoAkrnM3t4zSeX9ZWS2aV5vWCxCd+Ewn6xKNPZzijNHsi0YtDGFfuc9rnhohXa8X9L
-         QWV6a16vpbeTXSbCIfAeVUzMqeSmFH6+OiihjUWLIMWdQ+xwzuYb6VK2F/jo1ebJaCYz
-         mS6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWPehxn8ITG6SvpeOL05pPyTZGg/x142K3BDRkFusI5Xddkkh7fgtmj9g0PIOblBRIgwphARM7jKIhijMSP4sQe@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKCy2cH4MgLvQW4mFbO+qVlpn64E4F1nmU3GPn0/onr41aZ3Fk
-	44jDCt5k0mOodmD+6gBv7a89GpI3bsB+dU8/PKagTfD2FXEyznkBRdgZJroNau7hHyS3okzAz3B
-	ZaYOueNtRIxv6wd29jPdPU8h4pD4HJPpchvM7uOv5Ug4gSbSOkukbVYjJTubmJYW5U4AotLMQvj
-	KOOw==
-X-Gm-Gg: ATEYQzw1LUg+QQn60QmOpDKSi9Vy8ibJqmif4ILSVXTKp8PMsJRR9inBT/+WvVDao7Q
-	tJXTBHWPPvqNfPwjvdfD5V5ACkAqdngtYQm3nXY+5pxPkkU4MG/adoQRkYh57wBjmEcahTjS/Dy
-	3sdY6a3d5leNYl1Dqkx3PJsITiLn9REE/pNRFAsRuNEkOBLIymZQzQeiWdbQ5JnWglAV8nZA1o7
-	AgbtAHA83gENaM78ge8k3kTfbXVnu4G5BPyb7jR3c2x6DdSpdQPsUfDeE4hhXZmrbQ6QjveOzQh
-	Ede5fzMnVedIEdK55waZLkLv/LjkkDO5RiW+UZMBH5G83T1c2YIoCxnaZQLhGqwy1Jq7bkkJMmX
-	DCHrD2ABFFsndU35wK8AnLtSeistSLjpfW1y//yuGADcGkJW3/jId0AHh
-X-Received: by 2002:a05:6a21:9995:b0:39c:4ca1:345b with SMTP id adf61e73a8af0-39f2efadfc1mr3753209637.38.1775238342842;
-        Fri, 03 Apr 2026 10:45:42 -0700 (PDT)
-X-Received: by 2002:a05:6a21:9995:b0:39c:4ca1:345b with SMTP id adf61e73a8af0-39f2efadfc1mr3753157637.38.1775238342245;
-        Fri, 03 Apr 2026 10:45:42 -0700 (PDT)
-Received: from [192.168.29.31] ([49.43.227.38])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c76c6563597sm6988128a12.16.2026.04.03.10.45.34
+        d=1e100.net; s=20251104; t=1775239370; x=1775844170;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=St1Q+eC0G4ZneHNDCt55t0/J1pND9W4YSxEJDZNyi4U=;
+        b=Rn36AiA7+UORuXkxS8gABtTzCuoopL/PPG0rnYiqAycZMrgioVkaYb++SRHhGXLO0P
+         utg2cy4WrwarBncRaQtGoU6KMofHmoXFlfpVp7AnSUOmk9sHOtZGnVkOmjzJdznWKqgA
+         0H37B23bW6e4rZChNZmzpFSuQMP6o5UpymqG54qU9QsxuTTKJj9mRIxrY2bW/XXIpF7h
+         pTp4cxzYN2BXI/bTbCwoDZPm+y4JTxYL9qTMEEH4ec/ozKC8cd0gRXNIr5/2mkY8r5Vn
+         Btax47fJvzRqY9TTd9qfo6iUFaRYUIWgGWz7k1CxNbEOi0yafut7AzmXniGmRmAzNKHu
+         OOKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV5TxH3av2tK4YDfQl56s9g6YhwynBbn7tIhtgCXvBW+j2NH+y+XRhSLuEX48pQwRjbUvw1lfgTcqpvIZeL5YLS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzS1GLjMyqszbzgpartf15BcEDPAz5SPUsAxbTPH/mL0gfPWw4E
+	X9hkKVN3QC05/1Mux7RL4Xzlpz9M4QfXQAzmKlKIKJQ7JFVzcWhY932nWz9R08H2SKI=
+X-Gm-Gg: AeBDies/qWs79C2bZgJwsT/WB0vGgaoysCQtld4KBv32NkXeP6e2cJ1TNeoPgB+bUgz
+	qdqB8dGyv5qBP2z98npMvDcadv+alwcbKWBm89NCB1tCAfR9vORXn9FzmNtpavz9b9PBbiyLsWn
+	DzT6KYQc+2ncGoGDr25yyS/E6G4m4qM095nt5K9kM9/BVigsfPqAJfi8siFsdo9WER16y4p+0PA
+	aRug8Fzb4giFcRiv8NMQz2Gtmc/f4IHytcF1EBnzzyv8jZC3Q6TSsLeZwY1vJEd6dlG/PWonaZM
+	8eKGbAAct1TJOmQEjaGAx4nM7izpcUneNlfPglDx11uB6vDAinubw47M0zIg8nYzQllSyliQLJ5
+	yfls3MmagiLX6JxwBplXzN1c0vRhm1MU/zBIG/UQJcXPuEkJyzw78xp7dMSUEWEkwvLl/xFdDl5
+	gKLcWAMOE=
+X-Received: by 2002:a17:903:1b70:b0:2b0:bebb:1081 with SMTP id d9443c01a7336-2b281799025mr44217265ad.28.1775239369871;
+        Fri, 03 Apr 2026 11:02:49 -0700 (PDT)
+Received: from localhost ([2604:3d08:487d:cd00::5517])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b27497af26sm63916025ad.49.2026.04.03.11.02.48
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 03 Apr 2026 10:45:41 -0700 (PDT)
-Message-ID: <547c006b-231c-430c-a69e-f80334c4f81f@oss.qualcomm.com>
-Date: Fri, 3 Apr 2026 23:15:32 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v20 06/10] power: reset: Add psci-reboot-mode driver
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Andy Yan
- <andy.yan@rock-chips.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        John Stultz
- <john.stultz@linaro.org>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Sudeep Holla
- <sudeep.holla@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, Srinivas Kandagatla <srini@kernel.org>
-References: <20260304-arm-psci-system_reset2-vendor-reboots-v20-0-cf7d346b8372@oss.qualcomm.com>
- <20260304-arm-psci-system_reset2-vendor-reboots-v20-6-cf7d346b8372@oss.qualcomm.com>
- <acaMPgRALnoUIHMC@lpieralisi>
- <93a78bc2-4fd1-41bd-bf4a-b433b06fc218@oss.qualcomm.com>
- <ac0trUGsRBLPS+ux@lpieralisi>
- <da6f4566-a719-409b-80a9-40ca89e3e721@oss.qualcomm.com>
- <ac/hru3IIiU0+Lp9@lpieralisi>
-Content-Language: en-US
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-In-Reply-To: <ac/hru3IIiU0+Lp9@lpieralisi>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: sNP9GiQAX0AdBtVLhJ8BucIgm8wdH_17
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDAzMDE1OCBTYWx0ZWRfXzwrR0Rj2p6wK
- Tb46pKZYkDeSYoETau8PzkgB9TNYlt6xsdT9d31p+G239r1M/hxosogR4AJzX5lS6h0qMo5C2YT
- sXxTFl5BG4jus2vhP2hpHNhYfwpjJ1D4DYorL9TzPsmcic63mDqhWaRcM9yAMXFJGIHlvMaQKIP
- HMriLSnnY27xQR6J4zHobFCvxYKulz4O4JxWRZrMdJEY8EHijEJG/+djNTsqgbVcp1gsFs+d+P9
- UeovcCrNGB6ODSo9k45KutQqWlmocLpAg8W/UZE6dF9ZvMdLlWgCSXpMb8hjquKXtgR1weEYlXF
- MVi0fcM29H2nNqFxQi1sCavlw3wa/PrqhZWf+NtRZS2/g9euihb89Zu+pihW0ZfT/UHE1m5AU5S
- lAq/VPSvmXP+zwOt441Ei/XT9cxDYcLemUgBy6uw3WxqtlScfvu3cpQOkhW2mhnEamqxIWxfEpr
- o+a5ypxV/YSk+3oYCOg==
-X-Proofpoint-ORIG-GUID: sNP9GiQAX0AdBtVLhJ8BucIgm8wdH_17
-X-Authority-Analysis: v=2.4 cv=ULXQ3Sfy c=1 sm=1 tr=0 ts=69cffcc7 cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=2dos1RgzJhmu1+008kacPQ==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=F0Qtw4M1lXcpx3oWCRwA:9 a=QEXdDO2ut3YA:10 a=3WC7DwWrALyhR5TkjVHa:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-03_05,2026-04-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 bulkscore=0 clxscore=1015 spamscore=0
- phishscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2604030158
+        Fri, 03 Apr 2026 11:02:49 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 03 Apr 2026 14:02:47 -0400
+Message-Id: <DHJPU2PATPEF.1QNVY25530KTK@etsalapatis.com>
+Cc: "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
+ <daniel@iogearbox.net>, "Andrii Nakryiko" <andrii@kernel.org>, "Martin
+ KaFai Lau" <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>,
+ "Yonghong Song" <yonghong.song@linux.dev>, "Puranjay Mohan"
+ <puranjay@kernel.org>, "Anton Protopopov" <a.s.protopopov@gmail.com>,
+ =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>, "Shahab
+ Vahedi" <list+bpf@vahedi.org>, "Russell King" <linux@armlinux.org.uk>,
+ "Tiezhu Yang" <yangtiezhu@loongson.cn>, "Hengqi Chen"
+ <hengqi.chen@gmail.com>, "Johan Almbladh"
+ <johan.almbladh@anyfinetworks.com>, "Paul Burton" <paulburton@kernel.org>,
+ "Hari Bathini" <hbathini@linux.ibm.com>, "Christophe Leroy"
+ <chleroy@kernel.org>, "Naveen N Rao" <naveen@kernel.org>, "Luke Nelson"
+ <luke.r.nels@gmail.com>, "Xi Wang" <xi.wang@gmail.com>,
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, "Pu Lehui"
+ <pulehui@huawei.com>, "Ilya Leoshkevich" <iii@linux.ibm.com>, "Heiko
+ Carstens" <hca@linux.ibm.com>, "Vasily Gorbik" <gor@linux.ibm.com>, "David
+ S . Miller" <davem@davemloft.net>, "Wang YanQing" <udknight@gmail.com>
+Subject: Re: [PATCH bpf-next v12 3/5] bpf: Add helper to detect indirect
+ jump targets
+From: "Emil Tsalapatis" <emil@etsalapatis.com>
+To: "Xu Kuohai" <xukuohai@huaweicloud.com>, <bpf@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260403132811.753894-1-xukuohai@huaweicloud.com>
+ <20260403132811.753894-4-xukuohai@huaweicloud.com>
+In-Reply-To: <20260403132811.753894-4-xukuohai@huaweicloud.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_104546_253335_400FD26C 
-X-CRM114-Status: GOOD (  42.40  )
+X-CRM114-CacheID: sfid-20260403_110251_527168_D44E4E4C 
+X-CRM114-Status: GOOD (  26.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,172 +117,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri Apr 3, 2026 at 9:28 AM EDT, Xu Kuohai wrote:
+> From: Xu Kuohai <xukuohai@huawei.com>
+>
+> Introduce helper bpf_insn_is_indirect_target to check whether a BPF
+> instruction is an indirect jump target.
+>
+> Since the verifier knows which instructions are indirect jump targets,
+> add a new flag indirect_target to struct bpf_insn_aux_data to mark
+> them. The verifier sets this flag when verifying an indirect jump target
+> instruction, and the helper checks the flag to determine whether an
+> instruction is an indirect jump target.
 
+Reviewed-by: Emil Tsalapatis <emil@etsalapatis.com>
 
-On 03-04-2026 21:20, Lorenzo Pieralisi wrote:
-> On Fri, Apr 03, 2026 at 12:05:27AM +0530, Shivendra Pratap wrote:
->>
->>
->> On 01-04-2026 20:07, Lorenzo Pieralisi wrote:
->>> On Tue, Mar 31, 2026 at 11:30:09PM +0530, Shivendra Pratap wrote:
->>>>
->>>>
->>>> On 27-03-2026 19:25, Lorenzo Pieralisi wrote:
->>>>> On Wed, Mar 04, 2026 at 11:33:06PM +0530, Shivendra Pratap wrote:
->>>>>> PSCI supports different types of resets like COLD reset, ARCH WARM
->>
->> [snip..]
->>
->>>>>> + * Predefined reboot-modes are defined as per the values
->>>>>> + * of enum reboot_mode defined in the kernel: reboot.c.
->>>>>> + */
->>>>>> +static struct mode_info psci_resets[] = {
->>>>>> +	{ .mode = "warm", .magic = REBOOT_WARM},
->>>>>> +	{ .mode = "soft", .magic = REBOOT_SOFT},
->>>>>> +	{ .mode = "cold", .magic = REBOOT_COLD},
->>>
->>> These strings match the command userspace issue right ? I think that we
->>> should make them match the corresponding PSCI reset types, the list above
->>> maps command to reboot_mode values and those can belong to any reboot
->>> mode driver to be honest they don't make much sense in a PSCI reboot
->>> mode driver only.
->>>
->>> It is a question for everyone here: would it make sense to make these
->>> predefined resets a set of strings, eg:
->>>
->>> psci-system-reset
->>> psci-system-reset2-arch-warm-reset
->>>
->>> and then vendor resets:
->>>
->>> psci-system-reset2-vendor-reset
->>
->> Can you share bit more details on this? We are already defining the string
->> from userspace in the struct - eg: ".mode = "warm".
-> 
-> "warm","soft","cold" are not strictly speaking PSCI concepts and mean nothing
-> well defined to user space and even if they did, they would not belong in
-> the PSCI reboot mode driver but in generic code.
-> 
-> Spelling out what a reset is might help instead, again, this is just my
-> opinion, I don't know how the semantics of resets have been handled thus
-> far.
-> 
-> If userspace issues a LINUX_REBOOT_CMD_RESTART2 with arg, say,
-> "psci-system-reset2-arch-warm-reset" it is pretty clear what it wants
-> to do in PSCI.
+>
+> Reviewed-by: Anton Protopopov <a.s.protopopov@gmail.com>
+> Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
+> ---
+>  include/linux/bpf.h          |  2 ++
+>  include/linux/bpf_verifier.h |  9 +++++----
+>  kernel/bpf/core.c            |  9 +++++++++
+>  kernel/bpf/verifier.c        | 18 ++++++++++++++++++
+>  4 files changed, 34 insertions(+), 4 deletions(-)
+>
+> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+> index 05b34a6355b0..90760e250865 100644
+> --- a/include/linux/bpf.h
+> +++ b/include/linux/bpf.h
+> @@ -1541,6 +1541,8 @@ bool bpf_has_frame_pointer(unsigned long ip);
+>  int bpf_jit_charge_modmem(u32 size);
+>  void bpf_jit_uncharge_modmem(u32 size);
+>  bool bpf_prog_has_trampoline(const struct bpf_prog *prog);
+> +bool bpf_insn_is_indirect_target(const struct bpf_verifier_env *env, con=
+st struct bpf_prog *prog,
+> +				 int insn_idx);
+>  #else
+>  static inline int bpf_trampoline_link_prog(struct bpf_tramp_link *link,
+>  					   struct bpf_trampoline *tr,
+> diff --git a/include/linux/bpf_verifier.h b/include/linux/bpf_verifier.h
+> index b129e0aaee20..cc53877639a5 100644
+> --- a/include/linux/bpf_verifier.h
+> +++ b/include/linux/bpf_verifier.h
+> @@ -578,16 +578,17 @@ struct bpf_insn_aux_data {
+> =20
+>  	/* below fields are initialized once */
+>  	unsigned int orig_idx; /* original instruction index */
+> -	bool jmp_point;
+> -	bool prune_point;
+> +	u32 jmp_point:1;
+> +	u32 prune_point:1;
+>  	/* ensure we check state equivalence and save state checkpoint and
+>  	 * this instruction, regardless of any heuristics
+>  	 */
+> -	bool force_checkpoint;
+> +	u32 force_checkpoint:1;
+>  	/* true if instruction is a call to a helper function that
+>  	 * accepts callback function as a parameter.
+>  	 */
+> -	bool calls_callback;
+> +	u32 calls_callback:1;
+> +	u32 indirect_target:1; /* if it is an indirect jump target */
+>  	/*
+>  	 * CFG strongly connected component this instruction belongs to,
+>  	 * zero if it is a singleton SCC.
+> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+> index 093ab0f68c81..439575fa6976 100644
+> --- a/kernel/bpf/core.c
+> +++ b/kernel/bpf/core.c
+> @@ -1570,6 +1570,15 @@ struct bpf_prog *bpf_jit_blind_constants(struct bp=
+f_verifier_env *env, struct bp
+>  	clone->blinded =3D 1;
+>  	return clone;
+>  }
+> +
+> +bool bpf_insn_is_indirect_target(const struct bpf_verifier_env *env, con=
+st struct bpf_prog *prog,
+> +				 int insn_idx)
+> +{
+> +	if (!env)
+> +		return false;
+> +	insn_idx +=3D prog->aux->subprog_start;
+> +	return env->insn_aux_data[insn_idx].indirect_target;
+> +}
+>  #endif /* CONFIG_BPF_JIT */
+> =20
+>  /* Base function for offset calculation. Needs to go into .text section,
+> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+> index 5084a754a748..e078e6ad5b00 100644
+> --- a/kernel/bpf/verifier.c
+> +++ b/kernel/bpf/verifier.c
+> @@ -4049,6 +4049,11 @@ static bool is_jmp_point(struct bpf_verifier_env *=
+env, int insn_idx)
+>  	return env->insn_aux_data[insn_idx].jmp_point;
+>  }
+> =20
+> +static void mark_indirect_target(struct bpf_verifier_env *env, int idx)
+> +{
+> +	env->insn_aux_data[idx].indirect_target =3D true;
+> +}
+> +
+>  #define LR_FRAMENO_BITS	3
+>  #define LR_SPI_BITS	6
+>  #define LR_ENTRY_BITS	(LR_SPI_BITS + LR_FRAMENO_BITS + 1)
+> @@ -21227,12 +21232,14 @@ static int check_indirect_jump(struct bpf_verif=
+ier_env *env, struct bpf_insn *in
+>  	}
+> =20
+>  	for (i =3D 0; i < n - 1; i++) {
+> +		mark_indirect_target(env, env->gotox_tmp_buf->items[i]);
+>  		other_branch =3D push_stack(env, env->gotox_tmp_buf->items[i],
+>  					  env->insn_idx, env->cur_state->speculative);
+>  		if (IS_ERR(other_branch))
+>  			return PTR_ERR(other_branch);
+>  	}
+>  	env->insn_idx =3D env->gotox_tmp_buf->items[n-1];
+> +	mark_indirect_target(env, env->insn_idx);
+>  	return 0;
+>  }
+> =20
+> @@ -22158,6 +22165,17 @@ static void adjust_insn_aux_data(struct bpf_veri=
+fier_env *env,
+>  		data[i].seen =3D old_seen;
+>  		data[i].zext_dst =3D insn_has_def32(insn + i);
+>  	}
+> +
+> +	/* The indirect_target flag of the original instruction was moved to th=
+e last of the
+> +	 * new instructions by the above memmove and memset, but the indirect j=
+ump target is
+> +	 * actually the first instruction, so move it back. This also matches w=
+ith the behavior
+> +	 * of bpf_insn_array_adjust(), which preserves xlated_off to point to t=
+he first new
+> +	 * instruction.
+> +	 */
+> +	if (data[off + cnt - 1].indirect_target) {
+> +		data[off].indirect_target =3D 1;
+> +		data[off + cnt - 1].indirect_target =3D 0;
+> +	}
+>  }
+> =20
+>  static void adjust_subprog_starts(struct bpf_verifier_env *env, u32 off,=
+ u32 len)
 
-ok. got it.
-
-so it predef-modes.
-
-reboot psci-system-reset2-arch-warm-reset =>goes for => ARCH WARM RESET.
-etc..
-
-> 
-> Again, it is a suggestion, comments welcome.
-> 
->> yes we can move away from enum reboot_mode and use custom psci defines one -
->> Ack.
->>
->>>
->>
->> [snip ..]
->>
->>>>>> +
->>>>>> +/*
->>>>>> + * arg1 is reset_type(Low 32 bit of magic).
->>>>>> + * arg2 is cookie(High 32 bit of magic).
->>>>>> + * If reset_type is 0, cookie will be used to decide the reset command.
->>>>>> + */
->>>>>> +static int psci_reboot_mode_write(struct reboot_mode_driver *reboot, u64 magic)
->>>>>> +{
->>>>>> +	u32 reset_type = REBOOT_MODE_ARG1(magic);
->>>>>> +	u32 cookie = REBOOT_MODE_ARG2(magic);
->>>>>> +
->>>>>> +	if (reset_type == 0) {
->>>>>> +		if (cookie == REBOOT_WARM || cookie == REBOOT_SOFT)
->>>>>> +			psci_set_reset_cmd(true, 0, 0);
->>>>>> +		else
->>>>>> +			psci_set_reset_cmd(false, 0, 0);
->>>>>> +	} else {
->>>>>> +		psci_set_reset_cmd(true, reset_type, cookie);
->>>>>> +	}
->>>>>
->>>>> I don't think that psci_set_reset_cmd() has the right interface (and this
->>>>> nested if is too complicated for my taste). All we need to pass is reset-type
->>>>> and cookie (and if the reset is one of the predefined ones, reset-type is 0
->>>>> and cookie is the REBOOT_* cookie).
->>>>>
->>>>> Then the PSCI firmware driver will take the action according to what
->>>>> resets are available.
->>>>>
->>>>> How does it sound ?
->>>>
->>>> So we mean these checks will move to the psci driver? Sorry for re-iterating
->>>> the question.
->>>
->>> Given what I say above, I believe that something we can do is mapping the magic
->>> to an enum like:
->>>
->>> PSCI_SYSTEM_RESET
->>> PSCI_SYSTEM_RESET2_ARCH_SYSTEM_WARM_RESET
->>> PSCI_SYSTEM_RESET2_VENDOR_RESET
->>>
->>> and can add a probe function into PSCI driver similar to psci_has_osi_support() but
->>> to probe for SYSTEM_RESET2 and initialize the predefined strings accordingly,
->>> depending on its presence.
->>
->> Not able to get it cleanly.
->>
->> 1. Will move away from reboot_mode enum for pre-defined modes and define new
->> enum defining these modes- fine.
->> 2. get SYSTEM_RESET2 is supported from psci exported function -- fine, but
->> how we use it here now, as we do not want to send the reset_cmd from
->> psci_set_reset_cmd now?
-> 
-> You do keep psci_set_reset_cmd() but all it is used for is setting a struct
-> shared with the PSCI driver where you initialize the enum above, possibly
-> with a cookie if it is a vendor reset.
-> 
->> 3. For pre-defined modes, warm/soft or cold - reset_type and cookie, both
->> are zero, sys_reset2 or sys_reset2 decides the ARCH reset vs cold reset.
->> 4. For vendor-rest , we use sys_reset2 with reset_type and cookie.
-> 
-> Yes.
-
-Ack.
-
-
->> All above is done in reboot_notifier call at psci-reboot-mode.
->> --
->>
->> Now in the final restart_notifier->psci_sys_reset --
->>
->> If panic is in progress, we do not use any of the cmd based reset params and
->> go with the legacy reset. So we need to preserve the values that were set
->> from psci-reboot-mode.
->>
->> Did not understand the proposed suggestion in above usecase. Need more input
->> on this.
-> 
-> I explained above. The reboot mode driver sets the command to carry out
-> depending on the string coming from user space and whether PSCI supports
-> SYSTEM_RESET2 or not.
-
-got it. working on it. thanks.
-
-
->> --
->>
->> One other option is to have a restart_notifier in psci-reboot-mode, with
->> lesser priority than psci_sys_rest and then handle all the case including
->> panic and sys_reset2.
-> 
-> No.
-
-Ack.
-
-thanks,
-Shivendra
 
