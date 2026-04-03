@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 524ACE85368
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 20:01:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43776D730AD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 20:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2av+ftgNuFD53hSt56LSxxtAxbO0fchOHbj967j2GV0=; b=ThUY81CpD4JP/eKwInupW2kqxz
-	B2tdJT9qrG4ePlGIWKWw1V6Dk50wWKPZ6SDedpGhcKbxqStim/1fmmCcjysNgOdIuToisTDzeJamd
-	zTPUUlcZ69sfXw2lUW122eAdEZDX/tdVIxQOeONnriQjukZiFdS1RrmcEgoaANVL76CteIF4i6/hC
-	SH9419qBqlqSmu0ou3mlPNq74TfHmnO3rm5f1p+Ou6CLX8p0Gxh5G4qGXp5xIy4JfUYdPpOghTbwT
-	HUY2I0CgEZuXWn3J6N1dJgXZDyQDap4eQJziXC89O6kqdREImOEAmwnoOaK5MzQR2m8lP1zcV7+b3
-	BixZngZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rkMgPId7pYnnvNbAuwYM5wExpHWHyYhMeO7FUfW2+ho=; b=rtVdFcVn6yeiCzT+AafCu2m2nX
+	8KyoGxbDUuLhgCUANfj7DUQKPei9O7GQRVzsDPjBrcdCzSPJYiqx2cLyywRnQQ8OD/AyI+RmoG4+r
+	/xFzAN34xEzmTwqBnpGBlS8uj+oDvx9/iZqwRXdYjH/DSQQm168OiscSTwtNOMPBlj9oTqSvKgPsK
+	P75WwIzkW5BKQzlUIpt4yuV8dchwlMwsuJYCU17YyTPYe7qj8EnoPLHi7lF8onknojwwm+12Y3HE3
+	J5hYVYlu0gbPfLEziz2gAciMdwquJ2d4ArM0Oc7p/JoudPUqyv3yC0JGlruHNXUhgpaEeebOD0iSD
+	x4MB3WbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8khg-00000002WMj-3S6d;
-	Fri, 03 Apr 2026 20:01:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w8l8g-00000002XAU-46P6;
+	Fri, 03 Apr 2026 20:29:10 +0000
+Received: from mail.ispras.ru ([83.149.199.84])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8khd-00000002WMN-2NSq
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 20:01:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C1390436F4;
-	Fri,  3 Apr 2026 20:01:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ED41C4CEF7;
-	Fri,  3 Apr 2026 20:01:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775246472;
-	bh=/Hog9vPmqfzb/GY6jN9Z+oDejJCGNcblxWSQxxJFasc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=edZgOFa+m6Z050EMv3mxaVUk0YISBKg2JBK6vbhoknN0eJr3nHfl5BUYDi9pzAK2y
-	 w7ZJK2An7cb/s5lyaMZy4827EjdUXAhdnW8554Qo7taO6guAnx+VGDYJ0jR9rDggck
-	 hADR/CParFIaOweZKtRH69wpJd9ufF90tUAgu8puluP4zo+47llnbG9Qn3WM9Kg6g+
-	 6FbhhMuCih/EuAKhSXzlu7ZBNJnf0tDtUSzgIgKAiEm0WebVOfgL1OsbLGhfafO2Sr
-	 Izf8LvQ4JWhoh2mDOqihYfR2myKnFJA6WwIdzSyMUGgVOtYhifK2AXFhddU2fbujNb
-	 22VJxQgLNIT7A==
-Date: Fri, 3 Apr 2026 12:59:58 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Demian Shulhan <demyansh@gmail.com>
-Subject: Re: [PATCH 0/5] crc64: Tweak intrinsics code and enable it for ARM
-Message-ID: <20260403195958.GA2882@sol>
-References: <20260330144630.33026-7-ardb@kernel.org>
- <20260401195943.GA2466@quark>
- <dc424b4a-11b5-475f-a53a-987b5813bac5@app.fastmail.com>
- <20260402234028.GA2256@sol>
- <9b5affa6-0e04-4256-b740-6ffdad1747b9@app.fastmail.com>
+	id 1w8l8d-00000002XA4-3tlO;
+	Fri, 03 Apr 2026 20:29:09 +0000
+Received: from debian.lan (unknown [79.139.252.175])
+	by mail.ispras.ru (Postfix) with ESMTPSA id CB3C045A1D06;
+	Fri,  3 Apr 2026 20:29:01 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.ispras.ru CB3C045A1D06
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ispras.ru;
+	s=default; t=1775248142;
+	bh=rkMgPId7pYnnvNbAuwYM5wExpHWHyYhMeO7FUfW2+ho=;
+	h=From:To:Cc:Subject:Date:From;
+	b=kOolXopkJtnCfd+9m8RNpBDmXydllXw3oykDCDNbEpSHP0DisAbGRJiGpW3FTRp6p
+	 0dkuNbDhU9KFyGKb4JdvMVGzHOOgLGFHuABWqABZOiVj6x0yAlJKaigNotN5Es24jh
+	 j9xqoW7gspk2ovsJBViM+PvF5ADZlvItRSQhTTgs=
+From: Fedor Pchelkin <pchelkin@ispras.ru>
+To: Keith Busch <kbusch@kernel.org>,
+	Christoph Hellwig <hch@lst.de>
+Cc: Fedor Pchelkin <pchelkin@ispras.ru>,
+	Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Jens Axboe <axboe@kernel.dk>,
+	Sagi Grimberg <sagi@grimberg.me>,
+	Hannes Reinecke <hare@suse.de>,
+	Ming Lei <ming.lei@redhat.com>,
+	Chaitanya Kulkarni <kch@nvidia.com>,
+	"Heyne, Maximilian" <mheyne@amazon.de>,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-nvme@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	lvc-project@linuxtesting.org,
+	stable@vger.kernel.org
+Subject: [PATCH] nvme-apple: drop invalid put of admin queue reference count
+Date: Fri,  3 Apr 2026 23:27:00 +0300
+Message-ID: <20260403202701.991276-1-pchelkin@ispras.ru>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9b5affa6-0e04-4256-b740-6ffdad1747b9@app.fastmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_130113_664251_9E8A5722 
-X-CRM114-Status: GOOD (  22.50  )
+X-CRM114-CacheID: sfid-20260403_132908_499296_597ADABE 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,46 +79,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 03, 2026 at 08:49:04AM +0200, Ard Biesheuvel wrote:
-> 
-> 
-> On Fri, 3 Apr 2026, at 01:40, Eric Biggers wrote:
-> > On Thu, Apr 02, 2026 at 10:52:17AM +0200, Ard Biesheuvel wrote:
-> >> 
-> >> On Wed, 1 Apr 2026, at 21:59, Eric Biggers wrote:
-> >> > On Mon, Mar 30, 2026 at 04:46:31PM +0200, Ard Biesheuvel wrote:
-> >> >> Apply some tweaks to the new arm64 crc64 NEON intrinsics code, and wire
-> >> >> it up for the 32-bit ARM build. Note that true 32-bit ARM CPUs usually
-> >> >> don't implement the prerequisite 64x64 PMULL instructions, but 32-bit
-> >> >> kernels are commonly used on 64-bit capable hardware too, which do
-> >> >> implement the 32-bit versions of the crypto instructions if they are
-> >> >> implemented for the 64-bit ISA (as per the architecture).
-> >> >> 
-> >> >> Cc: Demian Shulhan <demyansh@gmail.com>
-> >> >> Cc: Eric Biggers <ebiggers@kernel.org>
-> >> >> 
-> >> >> Ard Biesheuvel (5):
-> >> >>   lib/crc: arm64: Drop unnecessary chunking logic from crc64
-> >> >>   lib/crc: arm64: Use existing macros for kernel-mode FPU cflags
-> >> >>   ARM: Add a neon-intrinsics.h header like on arm64
-> >> >>   lib/crc: arm64: Simplify intrinsics implementation
-> >> >>   lib/crc: arm: Enable arm64's NEON intrinsics implementation of crc64
-> >> >
-> >> > I think patches 3 and 4 should be swapped, so it's cleanups first (which
-> >> > make sense regardless of the 32-bit ARM support) and then the 32-bit ARM
-> >> > support.
-> >> >
-> >> 
-> >> Ok.
-> >
-> > I can also apply patches 1-2 and 4 now if you want.  Let me know if I
-> > should do that or if a new version is coming.
-> >
-> 
-> Yes, good idea. I'll take care of the ARM stuff next cycle.
+Commit 03b3bcd319b3 ("nvme: fix admin request_queue lifetime") moved the
+admin queue reference ->put call into nvme_free_ctrl() - a controller
+device release callback performed for every nvme driver doing
+nvme_init_ctrl().
 
-I've applied patches 1-2 and 4 to
-https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=crc-next
+nvme-apple sets refcount of the admin queue to 1 at allocation during the
+probe function and then puts it twice now:
 
-- Eric
+nvme_free_ctrl()
+  blk_put_queue(ctrl->admin_q) // #1
+  ->free_ctrl()
+    apple_nvme_free_ctrl()
+      blk_put_queue(anv->ctrl.admin_q) // #2
+
+Note that there is a commit 941f7298c70c ("nvme-apple: remove an extra
+queue reference") which intended to drop having an extra admin queue
+reference.  Looks like at that moment it accidentally fixed a refcount
+leak, which existed since the driver's introduction.  There were an
+initial ->set and an extra ->get call at driver's probe function, and only
+a single ->put inside apple_nvme_free_ctrl().
+
+However now after commit 03b3bcd319b3 ("nvme: fix admin request_queue
+lifetime") the refcount is imbalanced again.  Fix it by removing extra
+->put call from apple_nvme_free_ctrl().  Compile tested only.
+
+Found by Linux Verification Center (linuxtesting.org).
+
+Fixes: 03b3bcd319b3 ("nvme: fix admin request_queue lifetime")
+Cc: stable@vger.kernel.org # depends on 941f7298c70c
+Signed-off-by: Fedor Pchelkin <pchelkin@ispras.ru>
+---
+
+Also nvme-apple seems not to have a blk_mq_destroy_queue() call for
+admin queue since introduction - if it's needed, the proper place would
+be in apple_nvme_remove() just before calling nvme_uninit_ctrl(), I guess?
+
+ drivers/nvme/host/apple.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
+index ed61b97fde59..1d82f0541b0b 100644
+--- a/drivers/nvme/host/apple.c
++++ b/drivers/nvme/host/apple.c
+@@ -1269,8 +1269,6 @@ static void apple_nvme_free_ctrl(struct nvme_ctrl *ctrl)
+ {
+ 	struct apple_nvme *anv = ctrl_to_apple_nvme(ctrl);
+ 
+-	if (anv->ctrl.admin_q)
+-		blk_put_queue(anv->ctrl.admin_q);
+ 	put_device(anv->dev);
+ }
+ 
+-- 
+2.53.0
+
 
