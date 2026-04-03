@@ -4,59 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17915E85385
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7CFBE8538B
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 17:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CpqDk8t85d2FZ/scwPIoKaoNKKy95KGBBLBg6KWoXvk=; b=xGeZa+wSNbxJL1es3IXP8pweKe
-	bztzLvUN534D+W7x5tfo5TidLZhEYN9pEjCbgV0M1SLEK6jl/XqiehVxzEL//lJXFS7X6N0Qqaq5d
-	qnmdv8AWiG1YNpQ7JdlfVUdRZCIbb3HlS1T1RFBdsbWxBVoiF9XyPlEFOtIR4VOj/cWisL29lgXLq
-	ljFwqzE1/z3RZAxdTajGE3XqgP6u7T+mGZHz+KsnzRbkolIJVHMe5VCvLObFz5RWcCidlbhZTIrba
-	8S/k28EyWIMH3sVeEHTmRdRSkWPX2sEGGsRp+NGkz4eQKlWLI9NF21j1BidxlIZlPwvLwGn3kKQQh
-	APtbvfHw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CtN1yjPtO1vtNZpAT1hGZ+43qCluHvFHFIqhxnfcaWU=; b=ZiKK8GRFZQjSJXos09FQaAIduX
+	pkpLTtJqfuF5NHcl4zxfh2Ko2wyfHMNzLuYRMYvcLsVTgNtXjMt5y6br7JRWTfTwZTuCVeZaAaD6R
+	U9ZzWhdRKWSg6U7xlwIbCAFHd/pQ+5xKZSsNqZDJTx9Ww0RevhIi25lWIAxoaxZHHzVMUWcVr5Pr0
+	2Sj8CQawRmiJ6lLlxlcruKq/uE2vpuIwF1KEkW7jKNGHEMRcyJ9P6CSvZDZNbYxkyjN5Ckirk5do5
+	Wz04HGv6tHj/EFC+Kvh8hjEPFo+WDIViqFeHC8AdLaEj/xSrnlvid4GKEGkEVnMcYqdhenlCKpYYw
+	dFgAajDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8i0e-00000002MoM-3xzP;
-	Fri, 03 Apr 2026 17:08:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w8i0q-00000002N1m-31pf;
+	Fri, 03 Apr 2026 17:08:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8i0b-00000002MlN-3dMu
+	id 1w8i0m-00000002MxV-38CL
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 03 Apr 2026 17:08:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Content-ID:Content-Description;
+	bh=CtN1yjPtO1vtNZpAT1hGZ+43qCluHvFHFIqhxnfcaWU=; b=k7hv8ZaEmHT22qA5LT+RJZyyR1
+	wPf2LBK4oLri1J6VgO3SNhjDmE6sjsKCR4SN/FKwPrPIiCA7MJ5mE8DkP0TLaTWdsV05Ga5mj9PlF
+	9QL1EGHKL4ThDS6OdJYad6mXt6PX4IvaEk3rKVAoxubdS4RO5GtyWcDwTBQTuli3lC/rgdYgU3TYF
+	Hh6zyR6fnenjZLvOEOgJ69Ng4g9HZclH2nsBKx+O7yigFPiB82uXms2fE9Mo2/XTMy2b6xPj7yHMQ
+	8kE2yU97KdAyl7Gj2F7//TBeSkW9+SuQMzT8YxCnmMHOBBTouosv6Z9/NaXx6F3XNrD2IKKC5xpbg
+	q61WsMjQ==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w8i0i-00000004Uk5-2968
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 17:08:39 +0000
+	Fri, 03 Apr 2026 17:08:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8FE3440277;
-	Fri,  3 Apr 2026 17:08:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 62892C4CEF7;
-	Fri,  3 Apr 2026 17:08:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E019444579;
+	Fri,  3 Apr 2026 17:08:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B7D35C4CEF7;
+	Fri,  3 Apr 2026 17:08:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775236116;
-	bh=GlKYN/zZxt8aijzn4oIdQuv3Z0rJb0I1333hvIbLwMw=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=OZchdwm3Ry93yItR+6UNZXN34uWDQ7gZvJK2HAVZl/Qq2cvq9bdpSu34AsF1KWwXF
-	 Ag7g7med83zCKIraZaGQUYsGmKxTCu1qs1L1zjKdmVQC7JjGbfvvaQm3v7LPD0ZKD3
-	 BtE/fiACsNTQSmWksigJ/WblVyXNIFXqiDfngPflknrKnodGv87n6lrpX0aoHJtWvm
-	 18JaTngPC0it1TbNBpTEPf2HKn6L+m732WFLUp98CNTLxoBhxXA57Tak+3AnxRZ4Zs
-	 FmSkWC4cGAuLoAjrGtGwr0qWvIsqdVL1snlngdkepn6grRlYIJox6sU02kwyRyMNQl
-	 mowISHbQyVFRQ==
+	s=k20201202; t=1775236117;
+	bh=rKnHwYgLNi3sMebAsDDIpMCpmbnS/3URMebyTSVFWZ4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=KUdvSzmc2KdFS/vapGWLhldul49tbG1X8VrpflhOl8CJ5l73H2d6q0oJRFbqRpxcP
+	 JSq6LC83BMNyhPYeh6qL0bbw7EUjovIZ4xm6v6D4easReC21zNOJ48xuuoyVW3CWn+
+	 sCNPMy5dV4j/lucnfZADBh8X98Lj2ALq5KG9mTwL0lPodqhI3OSRV5SeZjEhOCL+t2
+	 qt/CYMHDsBv4xGmWMRxiHPp0aCg6515w24sGknLBu7A0MbT/vLdytWlGej0M7DOKrj
+	 aoRW5sLcVaAigplIfs8CcaQQfNrwd4U5XLvndH+1qTlaOlwjqIbxeOrntV2lBFJgVK
+	 PLVZ5SCO4mkDA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A577E85386;
-	Fri,  3 Apr 2026 17:08:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A63C7E85387;
+	Fri,  3 Apr 2026 17:08:37 +0000 (UTC)
 From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Subject: [PATCH WIP v3 00/11] Input: support for STM FTS5
-Date: Fri, 03 Apr 2026 19:08:29 +0200
-Message-Id: <20260403-stmfts5-v3-0-5da768cfd201@ixit.cz>
+Date: Fri, 03 Apr 2026 19:08:35 +0200
+Subject: [PATCH WIP v3 06/11] Input: stmfts - use client to make future
+ code cleaner
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAA30z2kC/02Muw7CIBSGX8WcWQwHSi9Orm5uDsahUGrPYGuAk
- GrTd5cwWMf/8n0LeOvIejjuFnA2kqdpTEHud2CGdnxYRl3KILgoucCC+fDsg1dMF5VE7HVXSQH
- p/XK2pzmbbnA9X+CeyoF8mNw72yPmKYskx58oIuNMCFOoWjetKesTzRQO5pMNUfxRqDZKJKri2
- tTS2kY1uFHrun4B4OVZ4dcAAAA=
-X-Change-ID: 20260214-stmfts5-b47311fbd732
+Message-Id: <20260403-stmfts5-v3-6-5da768cfd201@ixit.cz>
+References: <20260403-stmfts5-v3-0-5da768cfd201@ixit.cz>
+In-Reply-To: <20260403-stmfts5-v3-0-5da768cfd201@ixit.cz>
 To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
  Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
  Alexandre Torgue <alexandre.torgue@foss.st.com>, 
@@ -71,28 +84,28 @@ Cc: Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
  linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org, 
  David Heidelberg <david@ixit.cz>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2782; i=david@ixit.cz;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=999; i=david@ixit.cz;
  h=from:subject:message-id;
- bh=GlKYN/zZxt8aijzn4oIdQuv3Z0rJb0I1333hvIbLwMw=;
- b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBpz/QPbgkGGQZL6Ms1VT4v9eXov9xd9EfrPAqIV
- RcjKaBA9EKJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCac/0DwAKCRBgAj/E00kg
- ciZGD/0VTy2p4LA7wUhf9zj4p6BQTIB91aIJN/nsxu35iLgxPUdqZqVKXN2OAOq5Jrr8g6LwlJ9
- B04oKF2XCz96GCSdXkC3FUo/Cxz5aeBx7+SQIXCXMYqilQnqhtSiRoog9DKTYyxWDsXBkOhsBCs
- UE3XebZX2Lcyh48cRBrGMEZ0NPsuesYofpsWmPGmRp6CRbnI+PhAgL+wk4vSxh+5kwPNvTUcNDQ
- tK6K4aYmPLoP/zxLyV5G2Lm+z6oFcq4quGWd4l1EbEZZLAavoWQuErfbyXXn9En5Xo8a1LEICFV
- WJ9Bb9R9pb5cclH4veK7RlM/mKrchaoqC+t07OtjNSfPjfO3pk+x8EGMDy8K+PyHjc3jU7s34C6
- mTBCYWtMnu4CuTLyEcuBPTPxuO09UC/4+Q6AnokmjduA555YQhOsEHD94qiF1nUYkO3hHmBUG2N
- D9cNOllkF5TlbkcexZcREw3MQP6NkoaIYx3sqG91GRJGGQbLJdAhViBB7PsZFPXdjnCjvLn3f6B
- C6fUx3jnH9Xe10yNcLSb94FApuY7dNvCBsfyYj/cN56C4y74wWvbQgtnXVw+Ur9CAnZPkLmVuDS
- O3aSmGOu/0CCBWEj8CWZMkWTAyOuncNtnXwtm7Lvq98ogYcwcKhC5IiYr0B+sNchfOmFYSkcTok
- UOK94K2QqppkkkQ==
+ bh=lbYMNOyikKvzSOq1O72SDp83zLBiEDw5AionEdJRDJQ=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBpz/QQADNC8bWKbBtksX+13HyaXLaUKZUVfxXHk
+ 07gDDNOQnGJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCac/0EAAKCRBgAj/E00kg
+ cmJ+D/9IK24uy72rHSw+JqStVL356K7AGLtPpHDc95QFrDKE2f2kUT+x6P7o9SqSBP3I1N76QCD
+ 6yV7c32f1U/8vgx4zNLD4Z/3ncV94IaEAwfxLB5SiG2Hxe7NC4JQZAzTQCIBIfl3u8wlZFxqf1H
+ uqfRt5Cu0hJDH1+51p/pvBrcIiAjdCd0zAKDO9tAk4HLkjTF9VJvgZF55DdNjWpZSeyv+ePxStR
+ E4J1l7kvFvA2mOdFGhSQVlc5RGZjgHHRRIcPx5mUNk/nqqeTUBgNMGcnp9r/KTS/T0O4FqKkizw
+ eLFz0q7mwyUfBhGKdC699DKtT4EwoLROVYBnzx2DvWjKfizwj4B8BRuR2/ULcVP0wh68zGBVg3c
+ QtwgVIbgSKH0g9FKBVNDUxNT/WmTXzoPvuON8IhKMGOFAtBcuRJ3YyXrTvr/hMhKK5e10Gy6JJu
+ VGzMtIsdysc4tjxbl2xGjR7XcxH/cJ4R/YdVoogMS1hBceSFnXYJJA/HpF+lVmeNvOJQeP2EAgY
+ eGgxMZQG8fbvXLYwtDTbdUTlAExnFHsd1Ap/m9RochKmbCPILoxPmm9qcDE2o9BvwuPNJ8lbAhG
+ da801WhDMPR1dUkdi8ANdK4IQHZxs+WDmQnBUfQ7G8s5hKPVI9gLbN0grqKm+agBqRZw8ZK+G7t
+ KxJYscsQBkZfYKw==
 X-Developer-Key: i=david@ixit.cz; a=openpgp;
  fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
 X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
 X-Original-From: David Heidelberg <david@ixit.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_100837_986635_5A808D3E 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20260403_180845_015912_609A512E 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,72 +121,37 @@ Reply-To: david@ixit.cz
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Used on various phones. Minimal basic support.
+From: Petr Hodina <petr.hodina@protonmail.com>
 
-Includes device-tree enabling touchscreen on Pixel 3.
+Make code cleaner, compiler will optimize it away anyway.
 
-Sending as WIP, as not all comments we're addressed, but please feel
-free to apply any patch which does look ready for inclusion.
+Preparation for FTM5 support, where more steps are needed.
 
-What is missing:
- - switching between AP and SLPI mode (to be able to wake up phone by touch)
- - firmware loading
- - anything above basic touch
-
+Signed-off-by: Petr Hodina <petr.hodina@protonmail.com>
 Signed-off-by: David Heidelberg <david@ixit.cz>
 ---
-TODO for v4:
-- wrap everything below enabling the supplies into stmfts_configure()
-  to avoid bunch of gotos to power off on error? (Dmitry T.)
-- finish chip specific ops and potentinally remove is_fts5. (Dmitry T.)
+ drivers/input/touchscreen/stmfts.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Changes in v3:
-- s/touchscreen_pins/touchscreen_irq_n. (Konrad)
-- Use interrupts-extended. (Konrad)
-- Fixed rebase conflict against 8665ceb926ec ("Input: stmfts - use guard notation when acquiring mutex")
-- Rename switch-gpios to mode-switch-gpios.
-- Do not define properties in if:then: branches. (Krzysztof)
-- Link to v2: https://lore.kernel.org/r/20260315-stmfts5-v2-0-70bc83ee9591@ixit.cz
+diff --git a/drivers/input/touchscreen/stmfts.c b/drivers/input/touchscreen/stmfts.c
+index a90528b76f52b..5f7de5e687da2 100644
+--- a/drivers/input/touchscreen/stmfts.c
++++ b/drivers/input/touchscreen/stmfts.c
+@@ -763,9 +763,10 @@ static int stmfts_runtime_suspend(struct device *dev)
+ static int stmfts_runtime_resume(struct device *dev)
+ {
+ 	struct stmfts_data *sdata = dev_get_drvdata(dev);
++	struct i2c_client *client = sdata->client;
+ 	int ret;
+ 
+-	ret = i2c_smbus_write_byte(sdata->client, STMFTS_SLEEP_OUT);
++	ret = i2c_smbus_write_byte(client, STMFTS_SLEEP_OUT);
+ 	if (ret)
+ 		dev_err(dev, "failed to resume device: %d\n", ret);
+ 
 
-Changes in v2:
-- Fix typo in the binding s/switch-gpio/switch-gpios/.
-- Deduplacate allOf. (Rob yamllint)
-- Add missing S-off-by. (Dmitry B.)
-- Dropped irq-gpios as it's not needed. (Konrad)
-- Correct x and y touchscreen area size. (Konrad)
-- Correct reset introduction commit description. (Krzysztof)
-- Partially implemented chip specific ops. (Dmitry T.)
-- Separeted license naming cleanup into separate commit (Dmitry T.)
-- Link to v1: https://lore.kernel.org/r/20260301-stmfts5-v1-0-22c458b9ac68@ixit.cz
-
----
-David Heidelberg (7):
-      Input: stmfts - Fix the MODULE_LICENSE() string
-      Input: stmfts - Use dev struct directly
-      Input: stmfts - Switch to devm_regulator_bulk_get_const
-      Input: stmfts - abstract reading information from the firmware
-      Input: stmfts - disable regulators when power on fails
-      dt-bindings: input: touchscreen: st,stmfts: Introduce reset GPIO
-      dt-bindings: input: touchscreen: st,stmfts: Introduce STM FTS5
-
-Petr Hodina (4):
-      Input: stmfts - use client to make future code cleaner
-      Input: stmfts - add optional reset GPIO support
-      Input: stmfts - support FTS5
-      arm64: dts: qcom: sdm845-google: Add STM FTS touchscreen support
-
- .../bindings/input/touchscreen/st,stmfts.yaml      |  19 +-
- .../arm64/boot/dts/qcom/sdm845-google-blueline.dts |  19 +-
- arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi |   2 +-
- drivers/input/touchscreen/stmfts.c                 | 594 +++++++++++++++++++--
- 4 files changed, 574 insertions(+), 60 deletions(-)
----
-base-commit: cc13002a9f984d37906e9476f3e532a8cdd126f5
-change-id: 20260214-stmfts5-b47311fbd732
-
-Best regards,
 -- 
-David Heidelberg <david@ixit.cz>
+2.53.0
 
 
 
