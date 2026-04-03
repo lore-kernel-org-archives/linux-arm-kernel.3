@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B287BD7309A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 04:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9572D7309A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 04:40:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C0LYw0K67yw7SBl01hBN296rjQmEFbf1HYtOdd3+AEc=; b=DyaERIKNAVj4gxK98v1G8psTqa
-	MlIT2VCcFOyvtN3JdM4iI/7GbRCmg1HLzQy5jNPJc0FnqZjSWJtepgZ+K9dbmQbdf6yRwzWoDdLZ7
-	X7Fj2VR23ZpQBokxS9/TqajLfan9qalbLwHrLyzwZRvqcb8pr+rQU3TS8DzxMw2hZGi8SRqqFcsha
-	Nqj0FJ77nQbjHXcZSrzM6CZ5IvfAq8umj4m8GXz4RVANoFjyKSN1XWqBzhLQE6HDoi8/1CSIA6FhA
-	rURooJLrWy4i+YkQ5vMZHdyZ8hiXp8SCd+WFhfLL266v/j0ro3hBwBmZowkweH8a1PVpbg8bcflFa
-	l55aTRwQ==;
+	bh=eYBzo3C1Cf7sqGeYKJ1qwNvqGxve4byxZgH3FVKfsJM=; b=a2EZqQNNuMgtRopdry70pHOYEo
+	AsUv7olG/zCxgC9iLG7pxj/HJCCwihb3jiJblhakqUX2K+Kmkk8FUnEKkZQoGVIOs5uXeUPeTbDzV
+	mMD/n1R3NlkoRWrLWZMoRyrOCR3UaW4gE2iQTshaNuRyfGlq5UeemmRoVvYlydIfuF3tI/chV7A23
+	QukXeoGIEDbfYdLTyUCgRDrSkIbtbOKexgjw/fNZyi9q662aAI/AAmMUplWuhFfeU0YZReOp26/tx
+	84vUNqJDCmgafSzl7y2Jjxyu4XbQ2ZcuAkHCNHL7PEku53TeXdXWw2R6y7Iz0exO8ms8RQjj9AxNj
+	0ki+OK9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8WHm-00000001CVa-28lp;
-	Fri, 03 Apr 2026 04:37:34 +0000
-Received: from ni.piap.pl ([195.187.100.5])
+	id 1w8WKv-00000001Cwl-1WJN;
+	Fri, 03 Apr 2026 04:40:49 +0000
+Received: from mail-m2457.xmail.ntesmail.com ([45.195.24.57])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8WHK-00000001CRj-06g7
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 04:37:33 +0000
-Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id A7806C3EEAC9;
-	Fri,  3 Apr 2026 06:36:56 +0200 (CEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl A7806C3EEAC9
-From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: <dri-devel@lists.freedesktop.org>,  <imx@lists.linux.dev>,
-  <linux-arm-kernel@lists.infradead.org>,  <linux-kernel@vger.kernel.org>,
-  Marek Vasut <marex@denx.de>,  Stefan Agner <stefan@agner.ch>,  Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
- <mripard@kernel.org>,  Thomas Zimmermann <tzimmermann@suse.de>,  David
- Airlie <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>,  Frank Li
- <Frank.Li@nxp.com>,  Sascha Hauer <s.hauer@pengutronix.de>,  Pengutronix
- Kernel Team <kernel@pengutronix.de>,  Fabio Estevam <festevam@gmail.com>,
-  Lucas Stach <l.stach@pengutronix.de>,  Marco Felsch
- <m.felsch@pengutronix.de>,  Liu Ying <victor.liu@nxp.com>
-Subject: Re: [PATCH 3/3] drm: lcdif: Wait for vblank before disabling DMA
-In-Reply-To: <ac6eQcDS8lr-A4ia@shepard> (Paul Kocialkowski's message of "Thu,
-	2 Apr 2026 18:50:09 +0200")
-References: <20260330224619.2620782-1-paulk@sys-base.io>
-	<20260330224619.2620782-4-paulk@sys-base.io>
-	<m3y0j8mhoz.fsf@t19.piap.pl> <ac6eQcDS8lr-A4ia@shepard>
-Date: Fri, 03 Apr 2026 06:36:55 +0200
-Message-ID: <m3ldf4mzh4.fsf@t19.piap.pl>
+	id 1w8WKp-00000001Cuc-2YHK;
+	Fri, 03 Apr 2026 04:40:47 +0000
+Received: from [192.168.31.31] (gy-adaptive-ssl-proxy-1-entmail-virt204.gy.ntes [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 396864e74;
+	Fri, 3 Apr 2026 12:40:27 +0800 (GMT+08:00)
+Message-ID: <5663593b-2c53-4632-ad2c-db9efa8e9ab2@rock-chips.com>
+Date: Fri, 3 Apr 2026 12:40:27 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/rockchip: fix page table allocation flags for v2
+ IOMMU
+From: Simon Xue <xxm@rock-chips.com>
+To: Jonas Karlman <jonas@kwiboo.se>, Midgy BALON <midgy971@gmail.com>
+Cc: iommu@lists.linux.dev, joro@8bytes.org, will@kernel.org,
+ robin.murphy@arm.com, heiko@sntech.de, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260331075010.1463-1-midgy971@gmail.com>
+ <0f285782-b12a-4abd-bca7-b6c549bed59f@rock-chips.com>
+ <e622cc9e-8fb0-454a-b88e-dc13cf2ff507@kwiboo.se>
+ <89ed223d-1a2c-447d-9f21-76969e668855@rock-chips.com>
+In-Reply-To: <89ed223d-1a2c-447d-9f21-76969e668855@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9d51a47baa03ackunm789b51092f4f36d
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGh9OGlZLT0IaGEJLGh1NTE5WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUJCSU5LVU
+	pLS1VKQktCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=g0Q2Ypis5R4cjDFjKLDJBYsfm8rOI3Yghsqwhne/+vJr51C2y0lEGJuoCIS+2jqmbXmQDmt1Qtm73P0DZ/An+3jA5o8AdaBlZrjPAYlGvu8LvlHWoJ0WGnSMtPisgmX20DFwzko0CCTHzD1PTFEcvc1ia4gT6ks6UFToCioYjO0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=eYBzo3C1Cf7sqGeYKJ1qwNvqGxve4byxZgH3FVKfsJM=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260402_213706_228918_9B2011CA 
-X-CRM114-Status: GOOD (  20.15  )
+X-CRM114-CacheID: sfid-20260402_214044_217134_DD5715ED 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,60 +75,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
 
-Paul Kocialkowski <paulk@sys-base.io> writes:
-
-> Interestingly I tried to keep the clocks always on as an experiment and it
-> had the opposite effect: the DMA engine would get confused every time aft=
-er the
-> first mode set and disable. So for some reason the disabling of the clock=
-s seems
-> to mitigate the issue rather than aggravate it.
-
-Interesting. Fortunately we have a workaround.
-
->> > +       ret =3D readl_poll_timeout(lcdif->base + LCDC_V8_CTRLDESCL0_5,
->> > +                                reg, !(reg & CTRLDESCL0_5_SHADOW_LOAD=
-_EN),
->> > +                                0, 36000);     /* Wait ~2 frame times=
- max */
->>=20
->> I guess this comment is not necessarily correct - at 2160p30 one frame =
-=3D
->> ca. 33 ms. Still works, though (I guess anything more than one frame is
->> enough). I don't know how long a frame on HDMI (or LVDS, MIPI etc.) can
->> take. 30 FPS on 2160p is common because the i.MX8MP can't display 2160p6=
-0.
+在 2026/4/1 18:22, Simon Xue 写道:
+> Hi Jonas,
 >
-> Honestly I think we're good assuming 30 fps (33 ms) is a lower bound.
-> And the current 36 ms goes even beyond, so I think it's fine.
-
-Right. It is just the comment in the code which is not exactly true.
-I.e., we "wait for at least 1 complete frame time". I guess.
-Also, the 25 ms in the patch (commit) message is no longer accurate.
-
->> Also, found an issue. Perhaps unrelated? Powered the board without HDMI
->> connected. Then connected 1080p60 display. It came in 1024x768, console
->> 64x24 :-)
+> 在 2026/4/1 16:41, Jonas Karlman 写道:
+>> Hi Simon,
+>>
+>> On 4/1/2026 9:48 AM, Simon wrote:
+>>> Hi Midgy,
+>>>
+>>> 在 2026/3/31 15:50, Midgy BALON 写道:
+>>>> commit 2a7e6400f72b ("iommu: rockchip: Allocate tables from all
+>>>> available memory for IOMMU v2") removed GFP_DMA32 from
+>>>> iommu_data_ops_v2, reasoning that RK356x and RK3588 IOMMU v2 hardware
+>>>> supports up to 40-bit physical addresses for page tables. However, the
+>>>> RK3568 IOMMU page-table walker uses a 32-bit AXI bus: it cannot access
+>>>> physical addresses above 4 GB regardless of the address encoding 
+>>>> range.
+>>>>
+>>>> On boards with more than 4 GB of RAM (e.g. 8 GB LPDDR4X), removing
+>>>> GFP_DMA32 causes two distinct failure modes:
+>>>>
+>>>> 1. Direct allocation above 4 GB: iommu_alloc_pages_sz() may return
+>>>>      memory above 0x100000000.  The hardware page-table walker 
+>>>> issues a
+>>>>      bus error trying to dereference those addresses, causing an IOMMU
+>>>>      fault on the first DMA transaction.
+>>> Which IP block is hitting this? We'd like to take a look on our end.
+>> I have seen reports that the NPU MMU on RK3568/RK3566 is having some
+>> issue using DTE/PTE with >32-bit addresses, maybe it uses a different
+>> MMU hw revision or has some hw errata?
+>>
+>>  From my own testing at least the VOP2 MMU on RK3568 (and RK3588) was
+>> able to handle 40-bit addressable DTE/PTE, hence the original commit
+>> 2a7e6400f72b ("iommu: rockchip: Allocate tables from all available
+>> memory for IOMMU v2").
+>>
+>> As also mentioned in my reply at [1], maybe the NPU MMU has some hw
+>> limitation or errata and may need to use a different compatible.
 >
-> That looks more related to a failure to fetch the EDID from the monitor.
-> 1024x768 is the default fallback that is used in this situation.
-> Maybe check if there is something wrong with the DDC lines from the hdmi
-> controller, maybe pinmux etc.
+> Yes,  We are checking internally whether different IOMMU versions 
+> integrated.
+>
+> I will share what we find once we have results.
+>
+We internally checked that the RK356x SoCs integrate two different IOMMU 
+versions (v1.0 and v2.0), like NPU and ISP use the v1.0 IOMMU.
 
-No no no, I did that on purpose - the monitor was really disconnected at
-the boot time. Only then (but before starting weston) i reconnected it.
-But it indeed appears to be a separate issue, a software one - a mutex
-deadlock on access to clocks and power management. Both enable and
-disable paths interfere there. "I will post a patch when I have a patch
-to post" :-)
+Both versions can map 40-bit physical pages, but v1.0 does not support 
+placing the first-level page table above 4 GB.
 
-Thanks,
---=20
-Krzysztof "Chris" Ha=C5=82asa
+To fix this, I think we need to land this patch first: 
+https://lore.kernel.org/all/20260310105303.128859-1-xxm@rock-chips.com/
 
-Sie=C4=87 Badawcza =C5=81ukasiewicz
-Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-Al. Jerozolimskie 202, 02-486 Warszawa
+Then on top of that, we can add a new compatible string to distinguish 
+the IOMMU versions.
+
+>> [1] 
+>> https://lore.kernel.org/r/3cd63b3d-1c5e-4a11-856e-c4aeb5d97d55@kwiboo.se/
+>>
+>> Regards,
+>> Jonas
+>>
+>>>> 2. SWIOTLB bounce-buffer poisoning: without GFP_DMA32, page tables 
+>>>> land
+>>>>      above the SWIOTLB window.  dma_map_single() with DMA_BIT_MASK(32)
+>>>>      then bounces them into a buffer below 4 GB. 
+>>>> rk_dte_get_page_table()
+>>>>      returns phys_to_virt() of the bounce buffer address; PTEs are 
+>>>> written
+>>>>      there; the next dma_sync_single_for_device(DMA_TO_DEVICE) 
+>>>> copies the
+>>>>      original (zero) data back over the bounce buffer, silently 
+>>>> erasing the
+>>>>      freshly written PTEs.  The IOMMU faults because every PTE 
+>>>> reads as zero.
+>>> This probably need a separate patch. One way to fix it would be to 
+>>> track the
+>>> original L2 page table base addresses in struct rk_iommu_domain,
+>>> then have rk_dte_get_page_table() return the tracked address instead of
+>>> deriving it from the DTE.
+>>>
+>>>> Restore GFP_DMA32 (and DMA_BIT_MASK(32)) for iommu_data_ops_v2, which
+>>>> currently only serves "rockchip,rk3568-iommu" in mainline.
+>>>>
+>>>> Tested on Radxa ROCK 3B (RK3568, 8 GB LPDDR4X):
+>>>>     - MobileNetV1 via RKNN: 5.8 ms/inference (IOMMU mode)
+>>>>     - YOLOv5s 640x640 via RKNN: ~57 ms/inference (IOMMU mode)
+>>>>     - No IOMMU faults, correct inference results
+>>>>
+>>>> Fixes: 2a7e6400f72b ("iommu: rockchip: Allocate tables from all 
+>>>> available memory for IOMMU v2")
+>>>> Cc: stable@vger.kernel.org
+>>>> Cc: Jonas Karlman <jonas@kwiboo.se>
+>>>> Signed-off-by: Midgy BALON <midgy971@gmail.com>
+>>>> ---
+>>>>    drivers/iommu/rockchip-iommu.c | 4 ++--
+>>>>    1 file changed, 2 insertions(+), 2 deletions(-)
+>>>>
+>>>> diff --git a/drivers/iommu/rockchip-iommu.c 
+>>>> b/drivers/iommu/rockchip-iommu.c
+>>>> index 85f3667e797..8b45db29471 100644
+>>>> --- a/drivers/iommu/rockchip-iommu.c
+>>>> +++ b/drivers/iommu/rockchip-iommu.c
+>>>> @@ -1358,8 +1358,8 @@ static struct rk_iommu_ops iommu_data_ops_v2 = {
+>>>>        .pt_address = &rk_dte_pt_address_v2,
+>>>>        .mk_dtentries = &rk_mk_dte_v2,
+>>>>        .mk_ptentries = &rk_mk_pte_v2,
+>>>> -    .dma_bit_mask = DMA_BIT_MASK(40),
+>>>> -    .gfp_flags = 0,
+>>>> +    .dma_bit_mask = DMA_BIT_MASK(32),
+>>>> +    .gfp_flags = GFP_DMA32,
+>>>>    };
+>>>>       static const struct of_device_id rk_iommu_dt_ids[] = {
+>>
 
