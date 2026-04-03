@@ -4,114 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E72E85367
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 13:49:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF0C0E8536F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 14:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t9DPACZ8pIeFKuDDOQc3N1VsllCpEBigz/njwAwQGy0=; b=y1yQqlGP0ql/5qNtJyvLElpuBN
-	5alvZfdTaSmciczPizF3FcG/IRxIPVxa4HArIfm/ZsehBvZ/do2oSe/YpjdsONstY4gg57JzIiHhU
-	eEdNdZfZKxCvOwyp7wPAnxFg3imeNYZ0LcVeULeZZxWqEHl6UZSP7mr/g8Qheq1BgnUXBf3FkSKoh
-	bK949FKNsJz+LgaezJBDLk4NqvBNo7ob1lGd7uh7cX2iSShUhqte1MMRpr1AXpfbtOnYHk3UOGlJy
-	pOLIFNEF/ZLj0fJOzR7IQj87vmLQkTO9DB/MyECL+ZwXEqnGqH1SEx3sJU2K+GZOje69JoE8ZoIUd
-	SjdGyiGw==;
+	bh=GZJMb8BpsQsC5OCqpX0KvnetYnrUPrII+wbhqXuacG4=; b=baIC2i4+lBTqq/sn4ytfA7hKjh
+	ZBGCb005pOKWJXFZ12XxxVcfTIKSDgIwuFvi5dZZf3gxNhV3kmj1VryDcPr9PC+yCcXYjGuxPjI6R
+	0uaQqTDFWRA0yZFiI3H1RnLYlP8XlzyOY9NqunvnX5ySEWfxccBOl0e2QBqLVlz9WsSNs+ltYhtyI
+	KltlBPmuryOPiCtsJlmg14dQpIx5Fbs3cy8gPcE3ePM9ReMlBcMoLZmm8ItB2eSDyZEk84WTvaa+c
+	KtPbV64UfypsgnVBOquh8GKuJ8Rh9FLnMFlJd+7mnMmrByNLKwCcdx5Wo1f7YWca8E2Gd3sDrTExG
+	kzenIetg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8euA-000000025f4-13U2;
-	Fri, 03 Apr 2026 13:49:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w8f4V-000000026xx-11ne;
+	Fri, 03 Apr 2026 14:00:27 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8eu7-000000025d9-3KbJ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 03 Apr 2026 13:49:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=t9DPACZ8pIeFKuDDOQc3N1VsllCpEBigz/njwAwQGy0=; b=jo/qmXXjK8ln9W6lq/AdMxaPTn
-	5qMuUDKBvltKWN4jCK+/IcjPkuxfjkKxqIegj/6r3Mfgvdc3C/mRwo+6JxxfylcUSxScGJaTfTCCB
-	3XZo0JtaCSghjeLnmuKyqt96ANVbOBMYcS/WI8b2yPHzfnRq3jjQpjW8RBvzrebk/xetkJE1izo71
-	AJoXSvGhr6oPooksRi1lxdZVvjm4G0eCy/hONhp5apINWq261e4qWRvAt1pHfr7ysT6a44w8sdCfx
-	XX5dFjL7/HFvsCG2f+r44/pad74JxuBnyEnOEe1IbdPe7HtjMJ1PPOYtCilv4l+kqINKrY60HswVP
-	pLzY4ToA==;
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8eu1-00000004C2c-2edq
+	id 1w8f4S-000000026xG-3Sxc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 13:49:42 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.177])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4fnKnn5ZMGzYQtqx
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Apr 2026 21:49:01 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.252])
-	by mail.maildlp.com (Postfix) with ESMTP id 7812B40590
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Apr 2026 21:49:27 +0800 (CST)
-Received: from localhost.huawei.com (unknown [10.67.174.243])
-	by APP3 (Coremail) with SMTP id _Ch0CgAnB1Rjxc9pPbfoDA--.34698S3;
-	Fri, 03 Apr 2026 21:49:27 +0800 (CST)
-From: Xu Kuohai <xukuohai@huaweicloud.com>
-To: bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Anton Protopopov <a.s.protopopov@gmail.com>,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	Shahab Vahedi <list+bpf@vahedi.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>,
-	Hengqi Chen <hengqi.chen@gmail.com>,
-	Johan Almbladh <johan.almbladh@anyfinetworks.com>,
-	Paul Burton <paulburton@kernel.org>,
-	Hari Bathini <hbathini@linux.ibm.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Naveen N Rao <naveen@kernel.org>,
-	Luke Nelson <luke.r.nels@gmail.com>,
-	Xi Wang <xi.wang@gmail.com>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Pu Lehui <pulehui@huawei.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Wang YanQing <udknight@gmail.com>
-Subject: [PATCH bpf-next v12 1/5] bpf: Move constants blinding out of arch-specific JITs
-Date: Fri,  3 Apr 2026 13:28:07 +0000
-Message-ID: <20260403132811.753894-2-xukuohai@huaweicloud.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260403132811.753894-1-xukuohai@huaweicloud.com>
-References: <20260403132811.753894-1-xukuohai@huaweicloud.com>
+	Fri, 03 Apr 2026 14:00:26 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-66b2f6e983bso3174219a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 07:00:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775224822; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Uf2XQy82x1d/j+6kdk8QSICV9dL7dqaCD1ljeXe7xR5bN6Uy8Nw/EWZneGXwqtmx6o
+         C8snvn54viOVwCCU3mJ/46RQ0VCRpJgOY0bUJnLQbnqRl64SlFRnwMK7dHLtFeLs9vgs
+         u4q9w7mhUAwBX9riMuTLNRy2l1N9MCvTCyjYE9C6YPHRtqNmj75whrdlnOPRcnwBOfgG
+         FXtf07weoZYP7PwEUG2LP2t8bPWqhCtilNuJUjwXWL2Ks1K3oEXRJGXSs+lGbSONaHsY
+         EmwEDs7VlHJNGJPY8KFJpkUGQhbcDeRA5QCH/1YRGj7EXKWDKq18jt0zWU1YPCotGYWh
+         w9lA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=GZJMb8BpsQsC5OCqpX0KvnetYnrUPrII+wbhqXuacG4=;
+        fh=rZsie27CrxZv5JBNDeWQSvWBBWHSeb+p9r1wU9LTHVs=;
+        b=ENkl6LqrzhLeUZSsDewLRkd13Cysix1JCMuDbaxTynXCicJ+mU5E2SlwKkk1RF7sJD
+         jQ2aJlN1kRbPrHeaJg8JqfP0E+yi2T5F7+Znt8QcndFJ9gOz2v4wDRk7XNm09g6JKBlc
+         Ukf6BzF4Cl0Mopk1NKGyj5yRRgIOTSmBrI6D8GYi2o7mauxe8fMiTv4IWICIuZb5ZEfK
+         PhZxulFHVZ9BAKMRpE53LbphcbjP1JrLiwV8YAxGGxCrwpxG4raKRcOBEldvDQ5rJz87
+         s+IIXyRpGi/TMUhUxVHqhaIEbzZisC1kTI1i4xynxfA0J49bNEPMEPID7eoHR1lCOELz
+         u+TQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1775224822; x=1775829622; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GZJMb8BpsQsC5OCqpX0KvnetYnrUPrII+wbhqXuacG4=;
+        b=jVlu/eiXVqjKKfAKso1le+wOEoCgy0Rric/41W9ggpE4evx/uNLD5WJ+q8a4PoneoX
+         vEFnARzcxZIxrvnnZRRRDuUAeAnsXmvh+1V4FqU5T+v++yoAG6qLgcxJi+xPzSzj77PQ
+         2mPUw/+/YRdYIVrgvUXRjNC7g4LMoTn8/NtzUlsM3Ah7vTyUiXekk/n2m5/VlBEZFBxR
+         tG8XY5yCL8zhEbGPnTY3Jka/aN4KwdWFCw6DbLBqLKm4JpgeB8qwaVom+lu8fUXpqpFC
+         h7XxMinpun9Ea6cu1ucxrZp5xGqyYHHJmUZZM+CHg4s23751ZRIXUPvgy0+CXbcfM0CE
+         HJ1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775224822; x=1775829622;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=GZJMb8BpsQsC5OCqpX0KvnetYnrUPrII+wbhqXuacG4=;
+        b=AlUzgh1GPrfmgrHYuaScVwzrFbeTCg1HL57q+GPFlNiRdzst59SuOLnadCaN1qeb+t
+         BiNEysT/ePjg7eixcuTKN6Hno8UIxw3OAW9ggdMWfK1OqroogJ0PMIJKDGDCwP/ftaVR
+         jUPeYUoQ7/ovzUt+nC0zKVH2zTmMaGVYQVIgpsi7XEkxG8arXFvJScruciAlJpAyTTnH
+         S3RoUnKRR4K9dwXF33jD2+Qc+J9J3PB5erl0exfKIlESIb/vFcGa09UMZ55BvKGFrhfg
+         njGhFfYjej2sBE9kdF6Im5SjbWDK/4RZJqnpRJU1txSzfziq5sc0ZWwLzz65bJyIytLE
+         +NvA==
+X-Forwarded-Encrypted: i=1; AJvYcCVcEeQxjSihIsh6ruvHKOWcavJqsdFTWHqAUHQ5MILWD23UN9p2/p1MnNGbOuQ4NX7pFTIcQKL38UrhR5CgTXBd@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBnFiHvRhlrOnwiYbNhqOZl5NCAu5gsk2O88iPDP4AGW3hs0dB
+	bFUXObmpxSGEyFkPJToyyOSG+w7djoMTcor11JKKw23BNDM4eLf9j0yyD2LOw5dNCjGtAEppm6X
+	eT7gmtvpYmcJCFfXNdFanmZ0ex3FvrTI=
+X-Gm-Gg: AeBDievZ5PV6eHWhb5dgp6pRJvIx1GGkKibxnERYrqG1LVl4GTq8WgZNDuSB+D4welT
+	w1I+1i0D+5JvzFXmq8lW5mxElDzge1oRBuOO7KtmuH2flkB7Gw+rUNKEZ5qfERK47dIMnCbcGbg
+	hTc+E+9XG+xKro+6pM5gquAo5MA48C9YTIET2AptG6DbvaMNXojNdarjUrk5oD7wLkgSb7vjs6n
+	nIhSe7XiIOayQmPIl7SULbe9lrTCefHyWUklUiPHxQtL6wCo4eRhWu8/uVU8AwYruBTsSiF4dLx
+	iynyY/eUwxdCWqQOgg==
+X-Received: by 2002:a05:6402:5241:b0:668:50ef:427d with SMTP id
+ 4fb4d7f45d1cf-66e3f70d42cmr1446085a12.21.1775224821948; Fri, 03 Apr 2026
+ 07:00:21 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _Ch0CgAnB1Rjxc9pPbfoDA--.34698S3
-X-Coremail-Antispam: 1UD129KBjvAXoWDXF18Ww1xWw4kXF4fGry8Xwb_yoW7CrWkto
-	Wagwn8AF4rt34kGw4xKrn7GF13Zw18GrZrXr4fGFZ8Gayxt3yUKrZrXws8KaySqa15GryD
-	uFyxJay5ArZ0kr13n29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UjIYCTnIWjp_UUUO07kC6x804xWl14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK
-	8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr
-	4l82xGYIkIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
-	xVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ew
-	Av7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY
-	6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14
-	v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8C
-	rVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXw
-	CIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x02
-	67AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r
-	4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjxU
-	Iw0eDUUUU
-X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
+References: <20260331075010.1463-1-midgy971@gmail.com> <0f285782-b12a-4abd-bca7-b6c549bed59f@rock-chips.com>
+ <e622cc9e-8fb0-454a-b88e-dc13cf2ff507@kwiboo.se> <89ed223d-1a2c-447d-9f21-76969e668855@rock-chips.com>
+ <5663593b-2c53-4632-ad2c-db9efa8e9ab2@rock-chips.com>
+In-Reply-To: <5663593b-2c53-4632-ad2c-db9efa8e9ab2@rock-chips.com>
+From: Midgy Balon <midgy971@gmail.com>
+Date: Fri, 3 Apr 2026 16:02:02 +0200
+X-Gm-Features: AQROBzC2wzA0RbJXoNrMzE6k6aC5-WfVfCFoYB3Sb0oM_n_1ycoKvDZTyy5IIMA
+Message-ID: <CA+GS1Y3K=N3emYYC-4KAZ27MO7W7ZPgczbk8xPtWC+cYm-5F1w@mail.gmail.com>
+Subject: Re: [PATCH] iommu/rockchip: fix page table allocation flags for v2 IOMMU
+To: Simon Xue <xxm@rock-chips.com>
+Cc: Jonas Karlman <jonas@kwiboo.se>, iommu@lists.linux.dev, joro@8bytes.org, 
+	will@kernel.org, robin.murphy@arm.com, Heiko Stuebner <heiko@sntech.de>, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_144939_008271_36DA9B8B 
-X-CRM114-Status: GOOD (  29.77  )
+X-CRM114-CacheID: sfid-20260403_070024_916891_73F55062 
+X-CRM114-Status: GOOD (  41.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,1904 +120,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xu Kuohai <xukuohai@huawei.com>
+ From: Midgy BALON <midgy971@gmail.com>
+ To: Simon Xue <xxm@rock-chips.com>
+ Cc: Jonas Karlman <jonas@kwiboo.se>, iommu@lists.linux.dev,
+     joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
+     heiko@sntech.de, linux-arm-kernel@lists.infradead.org,
+     linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+     stable@vger.kernel.org
+ In-Reply-To: <5663593b-2c53-4632-ad2c-db9efa8e9ab2@rock-chips.com>
+ References: <20260331075010.1463-1-midgy971@gmail.com>
+             <0f285782-b12a-4abd-bca7-b6c549bed59f@rock-chips.com>
+             <e622cc9e-8fb0-454a-b88e-dc13cf2ff507@kwiboo.se>
+             <89ed223d-1a2c-447d-9f21-76969e668855@rock-chips.com>
+             <5663593b-2c53-4632-ad2c-db9efa8e9ab2@rock-chips.com>
+ Subject: Re: [PATCH] iommu/rockchip: fix page table allocation flags
+for v2 IOMMU
 
-During the JIT stage, constants blinding rewrites instructions but only
-rewrites the private instruction copy of the JITed subprog, leaving the
-global env->prog->insni and env->insn_aux_data untouched. This causes a
-mismatch between subprog instructions and the global state, making it
-difficult to use the global data in the JIT.
+ On 4/3/2026, Simon Xue wrote:
+ > We internally checked that the RK356x SoCs integrate two different
+ > IOMMU versions (v1.0 and v2.0), like NPU and ISP use the v1.0 IOMMU.
+ >
+ > Both versions can map 40-bit physical pages, but v1.0 does not support
+ > placing the first-level page table above 4 GB.
+ >
+ > To fix this, I think we need to land this patch first:
+ > https://lore.kernel.org/all/20260310105303.128859-1-xxm@rock-chips.com/
+ >
+ > Then on top of that, we can add a new compatible string to distinguish
+ > the IOMMU versions.
 
-To avoid this mismatch, and given that all arch-specific JITs already
-support constants blinding, move it to the generic verifier code, and
-switch to rewrite the global env->prog->insnsi with the global states
-adjusted, as other rewrites in the verifier do.
+ Thank you Simon and Jonas for the internal investigation. This explains
+ exactly what I observed.
 
-This removes the constants blinding calls in each JIT, which are largely
-duplicated code across architectures.
+ To answer Simon's earlier question: the IP block hitting both failure
+ modes is the NPU IOMMU (rknpu_mmu, at 0xfde4b000), currently bound
+ to "rockchip,rk3568-iommu" in rk356x-base.dtsi. Both the downstream
+ rknpu driver and the upstream Rocket accel driver (drivers/accel/rocket/)
+ use this IOMMU.
 
-Since constants blinding is only required for JIT, and there are two
-JIT entry functions, jit_subprogs() for BPF programs with multiple
-subprogs and bpf_prog_select_runtime() for programs with no subprogs,
-move the constants blinding invocation into these two functions.
+ The v1.0 first-level page table constraint explains both failure modes.
+ On boards with more than 4 GB of RAM the DTE table can be allocated
+ above 0x100000000, and the v1.0 hardware silently truncates or errors
+ on that address. The SWIOTLB bounce-buffer path is a consequence of
+ the same root cause: with DMA_BIT_MASK(32) on the NPU device, bounce
+ buffers land below 4 GB, phys_to_virt() of the bounce address is then
+ used as the PTE write target, and the subsequent
+ dma_sync_single_for_device(DMA_TO_DEVICE) overwrites those PTEs with
+ zeros from the original buffer.
 
-In the verifier path, bpf_patch_insn_data() is used to keep global
-verifier auxiliary data in sync with patched instructions. A key
-question is whether this global auxiliary data should be restored
-on the failure path.
+ Please consider my original patch withdrawn. Modifying iommu_data_ops_v2
+ was too broad and would have incorrectly constrained VOP2 MMU and all
+ other v2 IOMMU users.
 
-Besides instructions, bpf_patch_insn_data() adjusts:
-  - prog->aux->poke_tab
-  - env->insn_array_maps
-  - env->subprog_info
-  - env->insn_aux_data
+ I agree fully with the two-step approach. On top of your per-device-ops
+ patch [1], I plan to send:
 
-For prog->aux->poke_tab, it is only used by JIT or only meaningful after
-JIT succeeds, so it does not need to be restored on the failure path.
+   [1/2] iommu/rockchip: Add "rockchip,rk3568-iommu-v1" compatible
+         for IOMMU v1.0 blocks (NPU, ISP/VICAP) on RK3568
+         =E2=80=94 ops with .gfp_flags =3D GFP_DMA32,
+                .dma_bit_mask =3D DMA_BIT_MASK(40)
+         (v1.0 can still map 40-bit physical pages; only the DTE
+         table base must be below 4 GB)
+   [2/2] arm64: dts: rockchip: rk356x: Use "rockchip,rk3568-iommu-v1"
+         for rknpu_mmu (0xfde4b000) and vicap_mmu (0xfdfe0800)
 
-For env->insn_array_maps, when JIT fails, programs using insn arrays
-are rejected by bpf_insn_array_ready() due to missing JIT addresses.
-Hence, env->insn_array_maps is only meaningful for JIT and does not need
-to be restored.
+ One note on the SWIOTLB issue: with GFP_DMA32 in the new ops, page
+ table allocations never reach SWIOTLB, so the "track L2 base addresses"
+ approach you suggested should not be necessary =E2=80=94 GFP_DMA32 prevent=
+s the
+ bounce-buffer poisoning at the source. Happy to be corrected if there
+ is another path where it is still needed.
 
-For subprog_info, if jit_subprogs fails and CONFIG_BPF_JIT_ALWAYS_ON
-is not enabled, kernel falls back to interpreter. In this case,
-env->subprog_info is used to determine subprogram stack depth. So it
-must be restored on failure.
+ I am happy to add Tested-by to your per-device-ops patch [1].
 
-For env->insn_aux_data, it is freed by clean_insn_aux_data() at the
-end of bpf_check(). Before freeing, clean_insn_aux_data() loops over
-env->insn_aux_data to release jump targets recorded in it. The loop
-uses env->prog->len as the array length, but this length no longer
-matches the actual size of the adjusted env->insn_aux_data array after
-constants blinding.
+ [1] https://lore.kernel.org/all/20260310105303.128859-1-xxm@rock-chips.com=
+/
 
-To address it, a simple approach is to keep insn_aux_data as adjusted
-after failure, since it will be freed shortly, and record its actual size
-for the loop in clean_insn_aux_data(). But since clean_insn_aux_data()
-uses the same index to loop over both env->prog->insni and env->insn_aux_data,
-this approach result in incorrect index for the insni array. So an
-alternative approach is adopted: clone the original env->insn_aux_data
-before blinding and restore it after failure, similar to env->prog.
+ Regards,
+ Midgy BALON
 
-For classic BPF programs, constants blinding works as before since it
-is still invoked from bpf_prog_select_runtime().
-
-Reviewed-by: Anton Protopopov <a.s.protopopov@gmail.com> # v8
-Reviewed-by: Hari Bathini <hbathini@linux.ibm.com> # powerpc jit
-Reviewed-by: Pu Lehui <pulehui@huawei.com> # riscv jit
-Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
----
- arch/arc/net/bpf_jit_core.c      |  39 ++++-----
- arch/arm/net/bpf_jit_32.c        |  41 ++--------
- arch/arm64/net/bpf_jit_comp.c    |  72 +++++-----------
- arch/loongarch/net/bpf_jit.c     |  59 ++++----------
- arch/mips/net/bpf_jit_comp.c     |  20 +----
- arch/parisc/net/bpf_jit_core.c   |  73 +++++++----------
- arch/powerpc/net/bpf_jit_comp.c  |  68 ++++++----------
- arch/riscv/net/bpf_jit_core.c    |  61 +++++---------
- arch/s390/net/bpf_jit_comp.c     |  59 +++++---------
- arch/sparc/net/bpf_jit_comp_64.c |  61 +++++---------
- arch/x86/net/bpf_jit_comp.c      |  43 ++--------
- arch/x86/net/bpf_jit_comp32.c    |  33 +-------
- include/linux/filter.h           |  33 +++++++-
- kernel/bpf/core.c                |  67 +++++++++++++--
- kernel/bpf/verifier.c            | 136 +++++++++++++++++++++++++------
- 15 files changed, 390 insertions(+), 475 deletions(-)
-
-diff --git a/arch/arc/net/bpf_jit_core.c b/arch/arc/net/bpf_jit_core.c
-index 1421eeced0f5..973ceae48675 100644
---- a/arch/arc/net/bpf_jit_core.c
-+++ b/arch/arc/net/bpf_jit_core.c
-@@ -79,7 +79,6 @@ struct arc_jit_data {
-  * The JIT pertinent context that is used by different functions.
-  *
-  * prog:		The current eBPF program being handled.
-- * orig_prog:		The original eBPF program before any possible change.
-  * jit:			The JIT buffer and its length.
-  * bpf_header:		The JITed program header. "jit.buf" points inside it.
-  * emit:		If set, opcodes are written to memory; else, a dry-run.
-@@ -94,12 +93,10 @@ struct arc_jit_data {
-  * need_extra_pass:	A forecast if an "extra_pass" will occur.
-  * is_extra_pass:	Indicates if the current pass is an extra pass.
-  * user_bpf_prog:	True, if VM opcodes come from a real program.
-- * blinded:		True if "constant blinding" step returned a new "prog".
-  * success:		Indicates if the whole JIT went OK.
-  */
- struct jit_context {
- 	struct bpf_prog			*prog;
--	struct bpf_prog			*orig_prog;
- 	struct jit_buffer		jit;
- 	struct bpf_binary_header	*bpf_header;
- 	bool				emit;
-@@ -114,7 +111,6 @@ struct jit_context {
- 	bool				need_extra_pass;
- 	bool				is_extra_pass;
- 	bool				user_bpf_prog;
--	bool				blinded;
- 	bool				success;
- };
- 
-@@ -161,13 +157,7 @@ static int jit_ctx_init(struct jit_context *ctx, struct bpf_prog *prog)
- {
- 	memset(ctx, 0, sizeof(*ctx));
- 
--	ctx->orig_prog = prog;
--
--	/* If constant blinding was requested but failed, scram. */
--	ctx->prog = bpf_jit_blind_constants(prog);
--	if (IS_ERR(ctx->prog))
--		return PTR_ERR(ctx->prog);
--	ctx->blinded = (ctx->prog != ctx->orig_prog);
-+	ctx->prog = prog;
- 
- 	/* If the verifier doesn't zero-extend, then we have to do it. */
- 	ctx->do_zext = !ctx->prog->aux->verifier_zext;
-@@ -214,14 +204,6 @@ static inline void maybe_free(struct jit_context *ctx, void **mem)
-  */
- static void jit_ctx_cleanup(struct jit_context *ctx)
- {
--	if (ctx->blinded) {
--		/* if all went well, release the orig_prog. */
--		if (ctx->success)
--			bpf_jit_prog_release_other(ctx->prog, ctx->orig_prog);
--		else
--			bpf_jit_prog_release_other(ctx->orig_prog, ctx->prog);
--	}
--
- 	maybe_free(ctx, (void **)&ctx->bpf2insn);
- 	maybe_free(ctx, (void **)&ctx->jit_data);
- 
-@@ -229,12 +211,19 @@ static void jit_ctx_cleanup(struct jit_context *ctx)
- 		ctx->bpf2insn_valid = false;
- 
- 	/* Freeing "bpf_header" is enough. "jit.buf" is a sub-array of it. */
--	if (!ctx->success && ctx->bpf_header) {
--		bpf_jit_binary_free(ctx->bpf_header);
--		ctx->bpf_header = NULL;
--		ctx->jit.buf    = NULL;
--		ctx->jit.index  = 0;
--		ctx->jit.len    = 0;
-+	if (!ctx->success) {
-+		if (ctx->bpf_header) {
-+			bpf_jit_binary_free(ctx->bpf_header);
-+			ctx->bpf_header = NULL;
-+			ctx->jit.buf    = NULL;
-+			ctx->jit.index  = 0;
-+			ctx->jit.len    = 0;
-+		}
-+		if (ctx->is_extra_pass) {
-+			ctx->prog->bpf_func = NULL;
-+			ctx->prog->jited = 0;
-+			ctx->prog->jited_len = 0;
-+		}
- 	}
- 
- 	ctx->emit = false;
-diff --git a/arch/arm/net/bpf_jit_32.c b/arch/arm/net/bpf_jit_32.c
-index deeb8f292454..e6b1bb2de627 100644
---- a/arch/arm/net/bpf_jit_32.c
-+++ b/arch/arm/net/bpf_jit_32.c
-@@ -2144,9 +2144,7 @@ bool bpf_jit_needs_zext(void)
- 
- struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- {
--	struct bpf_prog *tmp, *orig_prog = prog;
- 	struct bpf_binary_header *header;
--	bool tmp_blinded = false;
- 	struct jit_ctx ctx;
- 	unsigned int tmp_idx;
- 	unsigned int image_size;
-@@ -2156,20 +2154,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	 * the interpreter.
- 	 */
- 	if (!prog->jit_requested)
--		return orig_prog;
--
--	/* If constant blinding was enabled and we failed during blinding
--	 * then we must fall back to the interpreter. Otherwise, we save
--	 * the new JITed code.
--	 */
--	tmp = bpf_jit_blind_constants(prog);
--
--	if (IS_ERR(tmp))
--		return orig_prog;
--	if (tmp != prog) {
--		tmp_blinded = true;
--		prog = tmp;
--	}
-+		return prog;
- 
- 	memset(&ctx, 0, sizeof(ctx));
- 	ctx.prog = prog;
-@@ -2179,10 +2164,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	 * we must fall back to the interpreter
- 	 */
- 	ctx.offsets = kcalloc(prog->len, sizeof(int), GFP_KERNEL);
--	if (ctx.offsets == NULL) {
--		prog = orig_prog;
--		goto out;
--	}
-+	if (ctx.offsets == NULL)
-+		return prog;
- 
- 	/* 1) fake pass to find in the length of the JITed code,
- 	 * to compute ctx->offsets and other context variables
-@@ -2194,10 +2177,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	 * being successful in the second pass, so just fall back
- 	 * to the interpreter.
- 	 */
--	if (build_body(&ctx)) {
--		prog = orig_prog;
-+	if (build_body(&ctx))
- 		goto out_off;
--	}
- 
- 	tmp_idx = ctx.idx;
- 	build_prologue(&ctx);
-@@ -2213,10 +2194,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	ctx.idx += ctx.imm_count;
- 	if (ctx.imm_count) {
- 		ctx.imms = kcalloc(ctx.imm_count, sizeof(u32), GFP_KERNEL);
--		if (ctx.imms == NULL) {
--			prog = orig_prog;
-+		if (ctx.imms == NULL)
- 			goto out_off;
--		}
- 	}
- #else
- 	/* there's nothing about the epilogue on ARMv7 */
-@@ -2238,10 +2217,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	/* Not able to allocate memory for the structure then
- 	 * we must fall back to the interpretation
- 	 */
--	if (header == NULL) {
--		prog = orig_prog;
-+	if (header == NULL)
- 		goto out_imms;
--	}
- 
- 	/* 2.) Actual pass to generate final JIT code */
- 	ctx.target = (u32 *) image_ptr;
-@@ -2278,16 +2255,12 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- #endif
- out_off:
- 	kfree(ctx.offsets);
--out:
--	if (tmp_blinded)
--		bpf_jit_prog_release_other(prog, prog == orig_prog ?
--					   tmp : orig_prog);
-+
- 	return prog;
- 
- out_free:
- 	image_ptr = NULL;
- 	bpf_jit_binary_free(header);
--	prog = orig_prog;
- 	goto out_imms;
- }
- 
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index adf84962d579..cd5a72fff500 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -2009,14 +2009,12 @@ struct arm64_jit_data {
- struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- {
- 	int image_size, prog_size, extable_size, extable_align, extable_offset;
--	struct bpf_prog *tmp, *orig_prog = prog;
- 	struct bpf_binary_header *header;
- 	struct bpf_binary_header *ro_header = NULL;
- 	struct arm64_jit_data *jit_data;
- 	void __percpu *priv_stack_ptr = NULL;
- 	bool was_classic = bpf_prog_was_classic(prog);
- 	int priv_stack_alloc_sz;
--	bool tmp_blinded = false;
- 	bool extra_pass = false;
- 	struct jit_ctx ctx;
- 	u8 *image_ptr;
-@@ -2025,26 +2023,13 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	int exentry_idx;
- 
- 	if (!prog->jit_requested)
--		return orig_prog;
--
--	tmp = bpf_jit_blind_constants(prog);
--	/* If blinding was requested and we failed during blinding,
--	 * we must fall back to the interpreter.
--	 */
--	if (IS_ERR(tmp))
--		return orig_prog;
--	if (tmp != prog) {
--		tmp_blinded = true;
--		prog = tmp;
--	}
-+		return prog;
- 
- 	jit_data = prog->aux->jit_data;
- 	if (!jit_data) {
- 		jit_data = kzalloc_obj(*jit_data);
--		if (!jit_data) {
--			prog = orig_prog;
--			goto out;
--		}
-+		if (!jit_data)
-+			return prog;
- 		prog->aux->jit_data = jit_data;
- 	}
- 	priv_stack_ptr = prog->aux->priv_stack_ptr;
-@@ -2056,10 +2041,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		priv_stack_alloc_sz = round_up(prog->aux->stack_depth, 16) +
- 				      2 * PRIV_STACK_GUARD_SZ;
- 		priv_stack_ptr = __alloc_percpu_gfp(priv_stack_alloc_sz, 16, GFP_KERNEL);
--		if (!priv_stack_ptr) {
--			prog = orig_prog;
-+		if (!priv_stack_ptr)
- 			goto out_priv_stack;
--		}
- 
- 		priv_stack_init_guard(priv_stack_ptr, priv_stack_alloc_sz);
- 		prog->aux->priv_stack_ptr = priv_stack_ptr;
-@@ -2079,10 +2062,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	ctx.prog = prog;
- 
- 	ctx.offset = kvzalloc_objs(int, prog->len + 1);
--	if (ctx.offset == NULL) {
--		prog = orig_prog;
-+	if (ctx.offset == NULL)
- 		goto out_off;
--	}
- 
- 	ctx.user_vm_start = bpf_arena_get_user_vm_start(prog->aux->arena);
- 	ctx.arena_vm_start = bpf_arena_get_kern_vm_start(prog->aux->arena);
-@@ -2095,15 +2076,11 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	 * BPF line info needs ctx->offset[i] to be the offset of
- 	 * instruction[i] in jited image, so build prologue first.
- 	 */
--	if (build_prologue(&ctx, was_classic)) {
--		prog = orig_prog;
-+	if (build_prologue(&ctx, was_classic))
- 		goto out_off;
--	}
- 
--	if (build_body(&ctx, extra_pass)) {
--		prog = orig_prog;
-+	if (build_body(&ctx, extra_pass))
- 		goto out_off;
--	}
- 
- 	ctx.epilogue_offset = ctx.idx;
- 	build_epilogue(&ctx, was_classic);
-@@ -2121,10 +2098,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	ro_header = bpf_jit_binary_pack_alloc(image_size, &ro_image_ptr,
- 					      sizeof(u64), &header, &image_ptr,
- 					      jit_fill_hole);
--	if (!ro_header) {
--		prog = orig_prog;
-+	if (!ro_header)
- 		goto out_off;
--	}
- 
- 	/* Pass 2: Determine jited position and result for each instruction */
- 
-@@ -2152,10 +2127,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	/* Dont write body instructions to memory for now */
- 	ctx.write = false;
- 
--	if (build_body(&ctx, extra_pass)) {
--		prog = orig_prog;
-+	if (build_body(&ctx, extra_pass))
- 		goto out_free_hdr;
--	}
- 
- 	ctx.epilogue_offset = ctx.idx;
- 	ctx.exentry_idx = exentry_idx;
-@@ -2164,19 +2137,15 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 
- 	/* Pass 3: Adjust jump offset and write final image */
- 	if (build_body(&ctx, extra_pass) ||
--		WARN_ON_ONCE(ctx.idx != ctx.epilogue_offset)) {
--		prog = orig_prog;
-+		WARN_ON_ONCE(ctx.idx != ctx.epilogue_offset))
- 		goto out_free_hdr;
--	}
- 
- 	build_epilogue(&ctx, was_classic);
- 	build_plt(&ctx);
- 
- 	/* Extra pass to validate JITed code. */
--	if (validate_ctx(&ctx)) {
--		prog = orig_prog;
-+	if (validate_ctx(&ctx))
- 		goto out_free_hdr;
--	}
- 
- 	/* update the real prog size */
- 	prog_size = sizeof(u32) * ctx.idx;
-@@ -2193,16 +2162,13 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		if (extra_pass && ctx.idx > jit_data->ctx.idx) {
- 			pr_err_once("multi-func JIT bug %d > %d\n",
- 				    ctx.idx, jit_data->ctx.idx);
--			prog->bpf_func = NULL;
--			prog->jited = 0;
--			prog->jited_len = 0;
- 			goto out_free_hdr;
- 		}
- 		if (WARN_ON(bpf_jit_binary_pack_finalize(ro_header, header))) {
--			/* ro_header has been freed */
-+			/* ro_header and header has been freed */
- 			ro_header = NULL;
--			prog = orig_prog;
--			goto out_off;
-+			header = NULL;
-+			goto out_free_hdr;
- 		}
- 		/*
- 		 * The instructions have now been copied to the ROX region from
-@@ -2245,13 +2211,15 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		kfree(jit_data);
- 		prog->aux->jit_data = NULL;
- 	}
--out:
--	if (tmp_blinded)
--		bpf_jit_prog_release_other(prog, prog == orig_prog ?
--					   tmp : orig_prog);
-+
- 	return prog;
- 
- out_free_hdr:
-+	if (extra_pass) {
-+		prog->bpf_func = NULL;
-+		prog->jited = 0;
-+		prog->jited_len = 0;
-+	}
- 	if (header) {
- 		bpf_arch_text_copy(&ro_header->size, &header->size,
- 				   sizeof(header->size));
-diff --git a/arch/loongarch/net/bpf_jit.c b/arch/loongarch/net/bpf_jit.c
-index 9cb796e16379..fcc8c0c29fb0 100644
---- a/arch/loongarch/net/bpf_jit.c
-+++ b/arch/loongarch/net/bpf_jit.c
-@@ -1922,43 +1922,26 @@ int arch_bpf_trampoline_size(const struct btf_func_model *m, u32 flags,
- 
- struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- {
--	bool tmp_blinded = false, extra_pass = false;
-+	bool extra_pass = false;
- 	u8 *image_ptr, *ro_image_ptr;
- 	int image_size, prog_size, extable_size;
- 	struct jit_ctx ctx;
- 	struct jit_data *jit_data;
- 	struct bpf_binary_header *header;
- 	struct bpf_binary_header *ro_header;
--	struct bpf_prog *tmp, *orig_prog = prog;
- 
- 	/*
- 	 * If BPF JIT was not enabled then we must fall back to
- 	 * the interpreter.
- 	 */
- 	if (!prog->jit_requested)
--		return orig_prog;
--
--	tmp = bpf_jit_blind_constants(prog);
--	/*
--	 * If blinding was requested and we failed during blinding,
--	 * we must fall back to the interpreter. Otherwise, we save
--	 * the new JITed code.
--	 */
--	if (IS_ERR(tmp))
--		return orig_prog;
--
--	if (tmp != prog) {
--		tmp_blinded = true;
--		prog = tmp;
--	}
-+		return prog;
- 
- 	jit_data = prog->aux->jit_data;
- 	if (!jit_data) {
- 		jit_data = kzalloc_obj(*jit_data);
--		if (!jit_data) {
--			prog = orig_prog;
--			goto out;
--		}
-+		if (!jit_data)
-+			return prog;
- 		prog->aux->jit_data = jit_data;
- 	}
- 	if (jit_data->ctx.offset) {
-@@ -1978,17 +1961,13 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	ctx.user_vm_start = bpf_arena_get_user_vm_start(prog->aux->arena);
- 
- 	ctx.offset = kvcalloc(prog->len + 1, sizeof(u32), GFP_KERNEL);
--	if (ctx.offset == NULL) {
--		prog = orig_prog;
-+	if (ctx.offset == NULL)
- 		goto out_offset;
--	}
- 
- 	/* 1. Initial fake pass to compute ctx->idx and set ctx->flags */
- 	build_prologue(&ctx);
--	if (build_body(&ctx, extra_pass)) {
--		prog = orig_prog;
-+	if (build_body(&ctx, extra_pass))
- 		goto out_offset;
--	}
- 	ctx.epilogue_offset = ctx.idx;
- 	build_epilogue(&ctx);
- 
-@@ -2004,10 +1983,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	/* Now we know the size of the structure to make */
- 	ro_header = bpf_jit_binary_pack_alloc(image_size, &ro_image_ptr, sizeof(u32),
- 					      &header, &image_ptr, jit_fill_hole);
--	if (!ro_header) {
--		prog = orig_prog;
-+	if (!ro_header)
- 		goto out_offset;
--	}
- 
- 	/* 2. Now, the actual pass to generate final JIT code */
- 	/*
-@@ -2027,17 +2004,13 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	ctx.num_exentries = 0;
- 
- 	build_prologue(&ctx);
--	if (build_body(&ctx, extra_pass)) {
--		prog = orig_prog;
-+	if (build_body(&ctx, extra_pass))
- 		goto out_free;
--	}
- 	build_epilogue(&ctx);
- 
- 	/* 3. Extra pass to validate JITed code */
--	if (validate_ctx(&ctx)) {
--		prog = orig_prog;
-+	if (validate_ctx(&ctx))
- 		goto out_free;
--	}
- 
- 	/* And we're done */
- 	if (bpf_jit_enable > 1)
-@@ -2050,9 +2023,9 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 			goto out_free;
- 		}
- 		if (WARN_ON(bpf_jit_binary_pack_finalize(ro_header, header))) {
--			/* ro_header has been freed */
-+			/* ro_header and header have been freed */
- 			ro_header = NULL;
--			prog = orig_prog;
-+			header = NULL;
- 			goto out_free;
- 		}
- 		/*
-@@ -2084,13 +2057,15 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		prog->aux->jit_data = NULL;
- 	}
- 
--out:
--	if (tmp_blinded)
--		bpf_jit_prog_release_other(prog, prog == orig_prog ? tmp : orig_prog);
--
- 	return prog;
- 
- out_free:
-+	if (extra_pass) {
-+		prog->bpf_func = NULL;
-+		prog->jited = 0;
-+		prog->jited_len = 0;
-+	}
-+
- 	if (header) {
- 		bpf_arch_text_copy(&ro_header->size, &header->size, sizeof(header->size));
- 		bpf_jit_binary_pack_free(ro_header, header);
-diff --git a/arch/mips/net/bpf_jit_comp.c b/arch/mips/net/bpf_jit_comp.c
-index e355dfca4400..d2b6c955f18e 100644
---- a/arch/mips/net/bpf_jit_comp.c
-+++ b/arch/mips/net/bpf_jit_comp.c
-@@ -911,10 +911,8 @@ bool bpf_jit_needs_zext(void)
- 
- struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- {
--	struct bpf_prog *tmp, *orig_prog = prog;
- 	struct bpf_binary_header *header = NULL;
- 	struct jit_context ctx;
--	bool tmp_blinded = false;
- 	unsigned int tmp_idx;
- 	unsigned int image_size;
- 	u8 *image_ptr;
-@@ -925,19 +923,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	 * the interpreter.
- 	 */
- 	if (!prog->jit_requested)
--		return orig_prog;
--	/*
--	 * If constant blinding was enabled and we failed during blinding
--	 * then we must fall back to the interpreter. Otherwise, we save
--	 * the new JITed code.
--	 */
--	tmp = bpf_jit_blind_constants(prog);
--	if (IS_ERR(tmp))
--		return orig_prog;
--	if (tmp != prog) {
--		tmp_blinded = true;
--		prog = tmp;
--	}
-+		return prog;
- 
- 	memset(&ctx, 0, sizeof(ctx));
- 	ctx.program = prog;
-@@ -1025,14 +1011,10 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	prog->jited_len = image_size;
- 
- out:
--	if (tmp_blinded)
--		bpf_jit_prog_release_other(prog, prog == orig_prog ?
--					   tmp : orig_prog);
- 	kfree(ctx.descriptors);
- 	return prog;
- 
- out_err:
--	prog = orig_prog;
- 	if (header)
- 		bpf_jit_binary_free(header);
- 	goto out;
-diff --git a/arch/parisc/net/bpf_jit_core.c b/arch/parisc/net/bpf_jit_core.c
-index a5eb6b51e27a..35dca372b5df 100644
---- a/arch/parisc/net/bpf_jit_core.c
-+++ b/arch/parisc/net/bpf_jit_core.c
-@@ -44,30 +44,19 @@ bool bpf_jit_needs_zext(void)
- struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- {
- 	unsigned int prog_size = 0, extable_size = 0;
--	bool tmp_blinded = false, extra_pass = false;
--	struct bpf_prog *tmp, *orig_prog = prog;
-+	bool extra_pass = false;
- 	int pass = 0, prev_ninsns = 0, prologue_len, i;
- 	struct hppa_jit_data *jit_data;
- 	struct hppa_jit_context *ctx;
- 
- 	if (!prog->jit_requested)
--		return orig_prog;
--
--	tmp = bpf_jit_blind_constants(prog);
--	if (IS_ERR(tmp))
--		return orig_prog;
--	if (tmp != prog) {
--		tmp_blinded = true;
--		prog = tmp;
--	}
-+		return prog;
- 
- 	jit_data = prog->aux->jit_data;
- 	if (!jit_data) {
- 		jit_data = kzalloc_obj(*jit_data);
--		if (!jit_data) {
--			prog = orig_prog;
--			goto out;
--		}
-+		if (!jit_data)
-+			return prog;
- 		prog->aux->jit_data = jit_data;
- 	}
- 
-@@ -81,10 +70,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 
- 	ctx->prog = prog;
- 	ctx->offset = kzalloc_objs(int, prog->len);
--	if (!ctx->offset) {
--		prog = orig_prog;
--		goto out_offset;
--	}
-+	if (!ctx->offset)
-+		goto out_err;
- 	for (i = 0; i < prog->len; i++) {
- 		prev_ninsns += 20;
- 		ctx->offset[i] = prev_ninsns;
-@@ -93,10 +80,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	for (i = 0; i < NR_JIT_ITERATIONS; i++) {
- 		pass++;
- 		ctx->ninsns = 0;
--		if (build_body(ctx, extra_pass, ctx->offset)) {
--			prog = orig_prog;
--			goto out_offset;
--		}
-+		if (build_body(ctx, extra_pass, ctx->offset))
-+			goto out_err;
- 		ctx->body_len = ctx->ninsns;
- 		bpf_jit_build_prologue(ctx);
- 		ctx->prologue_len = ctx->ninsns - ctx->body_len;
-@@ -116,10 +101,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 						     &jit_data->image,
- 						     sizeof(long),
- 						     bpf_fill_ill_insns);
--			if (!jit_data->header) {
--				prog = orig_prog;
--				goto out_offset;
--			}
-+			if (!jit_data->header)
-+				goto out_err;
- 
- 			ctx->insns = (u32 *)jit_data->image;
- 			/*
-@@ -134,8 +117,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		pr_err("bpf-jit: image did not converge in <%d passes!\n", i);
- 		if (jit_data->header)
- 			bpf_jit_binary_free(jit_data->header);
--		prog = orig_prog;
--		goto out_offset;
-+		goto out_err;
- 	}
- 
- 	if (extable_size)
-@@ -148,8 +130,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	bpf_jit_build_prologue(ctx);
- 	if (build_body(ctx, extra_pass, NULL)) {
- 		bpf_jit_binary_free(jit_data->header);
--		prog = orig_prog;
--		goto out_offset;
-+		goto out_err;
- 	}
- 	bpf_jit_build_epilogue(ctx);
- 
-@@ -160,20 +141,19 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 			{ extern int machine_restart(char *); machine_restart(""); }
- 	}
- 
-+	if (!prog->is_func || extra_pass) {
-+		if (bpf_jit_binary_lock_ro(jit_data->header)) {
-+			bpf_jit_binary_free(jit_data->header);
-+			goto out_err;
-+		}
-+		bpf_flush_icache(jit_data->header, ctx->insns + ctx->ninsns);
-+	}
-+
- 	prog->bpf_func = (void *)ctx->insns;
- 	prog->jited = 1;
- 	prog->jited_len = prog_size;
- 
--	bpf_flush_icache(jit_data->header, ctx->insns + ctx->ninsns);
--
- 	if (!prog->is_func || extra_pass) {
--		if (bpf_jit_binary_lock_ro(jit_data->header)) {
--			bpf_jit_binary_free(jit_data->header);
--			prog->bpf_func = NULL;
--			prog->jited = 0;
--			prog->jited_len = 0;
--			goto out_offset;
--		}
- 		prologue_len = ctx->epilogue_offset - ctx->body_len;
- 		for (i = 0; i < prog->len; i++)
- 			ctx->offset[i] += prologue_len;
-@@ -183,14 +163,19 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		kfree(jit_data);
- 		prog->aux->jit_data = NULL;
- 	}
--out:
-+
- 	if (HPPA_JIT_REBOOT)
- 		{ extern int machine_restart(char *); machine_restart(""); }
- 
--	if (tmp_blinded)
--		bpf_jit_prog_release_other(prog, prog == orig_prog ?
--					   tmp : orig_prog);
- 	return prog;
-+
-+out_err:
-+	if (extra_pass) {
-+		prog->bpf_func = NULL;
-+		prog->jited = 0;
-+		prog->jited_len = 0;
-+	}
-+	goto out_offset;
- }
- 
- u64 hppa_div64(u64 div, u64 divisor)
-diff --git a/arch/powerpc/net/bpf_jit_comp.c b/arch/powerpc/net/bpf_jit_comp.c
-index a62a9a92b7b5..711028bebea3 100644
---- a/arch/powerpc/net/bpf_jit_comp.c
-+++ b/arch/powerpc/net/bpf_jit_comp.c
-@@ -142,9 +142,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
- 	int flen;
- 	struct bpf_binary_header *fhdr = NULL;
- 	struct bpf_binary_header *hdr = NULL;
--	struct bpf_prog *org_fp = fp;
--	struct bpf_prog *tmp_fp;
--	bool bpf_blinded = false;
- 	bool extra_pass = false;
- 	u8 *fimage = NULL;
- 	u32 *fcode_base;
-@@ -152,24 +149,13 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
- 	u32 fixup_len;
- 
- 	if (!fp->jit_requested)
--		return org_fp;
--
--	tmp_fp = bpf_jit_blind_constants(org_fp);
--	if (IS_ERR(tmp_fp))
--		return org_fp;
--
--	if (tmp_fp != org_fp) {
--		bpf_blinded = true;
--		fp = tmp_fp;
--	}
-+		return fp;
- 
- 	jit_data = fp->aux->jit_data;
- 	if (!jit_data) {
- 		jit_data = kzalloc_obj(*jit_data);
--		if (!jit_data) {
--			fp = org_fp;
--			goto out;
--		}
-+		if (!jit_data)
-+			return fp;
- 		fp->aux->jit_data = jit_data;
- 	}
- 
-@@ -194,10 +180,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
- 	}
- 
- 	addrs = kcalloc(flen + 1, sizeof(*addrs), GFP_KERNEL);
--	if (addrs == NULL) {
--		fp = org_fp;
--		goto out_addrs;
--	}
-+	if (addrs == NULL)
-+		goto out_err;
- 
- 	memset(&cgctx, 0, sizeof(struct codegen_context));
- 	bpf_jit_init_reg_mapping(&cgctx);
-@@ -211,11 +195,9 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
- 	cgctx.exception_cb = fp->aux->exception_cb;
- 
- 	/* Scouting faux-generate pass 0 */
--	if (bpf_jit_build_body(fp, NULL, NULL, &cgctx, addrs, 0, false)) {
-+	if (bpf_jit_build_body(fp, NULL, NULL, &cgctx, addrs, 0, false))
- 		/* We hit something illegal or unsupported. */
--		fp = org_fp;
--		goto out_addrs;
--	}
-+		goto out_err;
- 
- 	/*
- 	 * If we have seen a tail call, we need a second pass.
-@@ -226,10 +208,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
- 	 */
- 	if (cgctx.seen & SEEN_TAILCALL || !is_offset_in_branch_range((long)cgctx.idx * 4)) {
- 		cgctx.idx = 0;
--		if (bpf_jit_build_body(fp, NULL, NULL, &cgctx, addrs, 0, false)) {
--			fp = org_fp;
--			goto out_addrs;
--		}
-+		if (bpf_jit_build_body(fp, NULL, NULL, &cgctx, addrs, 0, false))
-+			goto out_err;
- 	}
- 
- 	bpf_jit_realloc_regs(&cgctx);
-@@ -250,10 +230,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
- 
- 	fhdr = bpf_jit_binary_pack_alloc(alloclen, &fimage, 4, &hdr, &image,
- 					      bpf_jit_fill_ill_insns);
--	if (!fhdr) {
--		fp = org_fp;
--		goto out_addrs;
--	}
-+	if (!fhdr)
-+		goto out_err;
- 
- 	if (extable_len)
- 		fp->aux->extable = (void *)fimage + FUNCTION_DESCR_SIZE + proglen + fixup_len;
-@@ -272,8 +250,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
- 				       extra_pass)) {
- 			bpf_arch_text_copy(&fhdr->size, &hdr->size, sizeof(hdr->size));
- 			bpf_jit_binary_pack_free(fhdr, hdr);
--			fp = org_fp;
--			goto out_addrs;
-+			goto out_err;
- 		}
- 		bpf_jit_build_epilogue(code_base, &cgctx);
- 
-@@ -295,15 +272,16 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
- 	((u64 *)image)[1] = local_paca->kernel_toc;
- #endif
- 
-+	if (!fp->is_func || extra_pass) {
-+		if (bpf_jit_binary_pack_finalize(fhdr, hdr))
-+			goto out_err;
-+	}
-+
- 	fp->bpf_func = (void *)fimage;
- 	fp->jited = 1;
- 	fp->jited_len = cgctx.idx * 4 + FUNCTION_DESCR_SIZE;
- 
- 	if (!fp->is_func || extra_pass) {
--		if (bpf_jit_binary_pack_finalize(fhdr, hdr)) {
--			fp = org_fp;
--			goto out_addrs;
--		}
- 		bpf_prog_fill_jited_linfo(fp, addrs);
- out_addrs:
- 		kfree(addrs);
-@@ -318,11 +296,15 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
- 		jit_data->hdr = hdr;
- 	}
- 
--out:
--	if (bpf_blinded)
--		bpf_jit_prog_release_other(fp, fp == org_fp ? tmp_fp : org_fp);
--
- 	return fp;
-+
-+out_err:
-+	if (extra_pass) {
-+		fp->bpf_func = NULL;
-+		fp->jited = 0;
-+		fp->jited_len = 0;
-+	}
-+	goto out_addrs;
- }
- 
- /*
-diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
-index b3581e926436..527baa50dc68 100644
---- a/arch/riscv/net/bpf_jit_core.c
-+++ b/arch/riscv/net/bpf_jit_core.c
-@@ -44,29 +44,19 @@ bool bpf_jit_needs_zext(void)
- struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- {
- 	unsigned int prog_size = 0, extable_size = 0;
--	bool tmp_blinded = false, extra_pass = false;
--	struct bpf_prog *tmp, *orig_prog = prog;
-+	bool extra_pass = false;
- 	int pass = 0, prev_ninsns = 0, i;
- 	struct rv_jit_data *jit_data;
- 	struct rv_jit_context *ctx;
- 
- 	if (!prog->jit_requested)
--		return orig_prog;
--
--	tmp = bpf_jit_blind_constants(prog);
--	if (IS_ERR(tmp))
--		return orig_prog;
--	if (tmp != prog) {
--		tmp_blinded = true;
--		prog = tmp;
--	}
-+		return prog;
- 
- 	jit_data = prog->aux->jit_data;
- 	if (!jit_data) {
- 		jit_data = kzalloc_obj(*jit_data);
- 		if (!jit_data) {
--			prog = orig_prog;
--			goto out;
-+			return prog;
- 		}
- 		prog->aux->jit_data = jit_data;
- 	}
-@@ -83,15 +73,11 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	ctx->user_vm_start = bpf_arena_get_user_vm_start(prog->aux->arena);
- 	ctx->prog = prog;
- 	ctx->offset = kzalloc_objs(int, prog->len);
--	if (!ctx->offset) {
--		prog = orig_prog;
-+	if (!ctx->offset)
- 		goto out_offset;
--	}
- 
--	if (build_body(ctx, extra_pass, NULL)) {
--		prog = orig_prog;
-+	if (build_body(ctx, extra_pass, NULL))
- 		goto out_offset;
--	}
- 
- 	for (i = 0; i < prog->len; i++) {
- 		prev_ninsns += 32;
-@@ -105,10 +91,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		bpf_jit_build_prologue(ctx, bpf_is_subprog(prog));
- 		ctx->prologue_len = ctx->ninsns;
- 
--		if (build_body(ctx, extra_pass, ctx->offset)) {
--			prog = orig_prog;
-+		if (build_body(ctx, extra_pass, ctx->offset))
- 			goto out_offset;
--		}
- 
- 		ctx->epilogue_offset = ctx->ninsns;
- 		bpf_jit_build_epilogue(ctx);
-@@ -126,10 +110,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 							  &jit_data->ro_image, sizeof(u32),
- 							  &jit_data->header, &jit_data->image,
- 							  bpf_fill_ill_insns);
--			if (!jit_data->ro_header) {
--				prog = orig_prog;
-+			if (!jit_data->ro_header)
- 				goto out_offset;
--			}
- 
- 			/*
- 			 * Use the image(RW) for writing the JITed instructions. But also save
-@@ -150,7 +132,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 
- 	if (i == NR_JIT_ITERATIONS) {
- 		pr_err("bpf-jit: image did not converge in <%d passes!\n", i);
--		prog = orig_prog;
- 		goto out_free_hdr;
- 	}
- 
-@@ -163,26 +144,27 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	ctx->nexentries = 0;
- 
- 	bpf_jit_build_prologue(ctx, bpf_is_subprog(prog));
--	if (build_body(ctx, extra_pass, NULL)) {
--		prog = orig_prog;
-+	if (build_body(ctx, extra_pass, NULL))
- 		goto out_free_hdr;
--	}
- 	bpf_jit_build_epilogue(ctx);
- 
- 	if (bpf_jit_enable > 1)
- 		bpf_jit_dump(prog->len, prog_size, pass, ctx->insns);
- 
--	prog->bpf_func = (void *)ctx->ro_insns + cfi_get_offset();
--	prog->jited = 1;
--	prog->jited_len = prog_size - cfi_get_offset();
--
- 	if (!prog->is_func || extra_pass) {
- 		if (WARN_ON(bpf_jit_binary_pack_finalize(jit_data->ro_header, jit_data->header))) {
- 			/* ro_header has been freed */
- 			jit_data->ro_header = NULL;
--			prog = orig_prog;
--			goto out_offset;
-+			jit_data->header = NULL;
-+			goto out_free_hdr;
- 		}
-+	}
-+
-+	prog->bpf_func = (void *)ctx->ro_insns + cfi_get_offset();
-+	prog->jited = 1;
-+	prog->jited_len = prog_size - cfi_get_offset();
-+
-+	if (!prog->is_func || extra_pass) {
- 		/*
- 		 * The instructions have now been copied to the ROX region from
- 		 * where they will execute.
-@@ -198,14 +180,15 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		kfree(jit_data);
- 		prog->aux->jit_data = NULL;
- 	}
--out:
- 
--	if (tmp_blinded)
--		bpf_jit_prog_release_other(prog, prog == orig_prog ?
--					   tmp : orig_prog);
- 	return prog;
- 
- out_free_hdr:
-+	if (extra_pass) {
-+		prog->bpf_func = NULL;
-+		prog->jited = 0;
-+		prog->jited_len = 0;
-+	}
- 	if (jit_data->header) {
- 		bpf_arch_text_copy(&jit_data->ro_header->size, &jit_data->header->size,
- 				   sizeof(jit_data->header->size));
-diff --git a/arch/s390/net/bpf_jit_comp.c b/arch/s390/net/bpf_jit_comp.c
-index d08d159b6319..2dfc279b1be2 100644
---- a/arch/s390/net/bpf_jit_comp.c
-+++ b/arch/s390/net/bpf_jit_comp.c
-@@ -2314,36 +2314,20 @@ static struct bpf_binary_header *bpf_jit_alloc(struct bpf_jit *jit,
-  */
- struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
- {
--	struct bpf_prog *tmp, *orig_fp = fp;
- 	struct bpf_binary_header *header;
- 	struct s390_jit_data *jit_data;
--	bool tmp_blinded = false;
- 	bool extra_pass = false;
- 	struct bpf_jit jit;
- 	int pass;
- 
- 	if (!fp->jit_requested)
--		return orig_fp;
--
--	tmp = bpf_jit_blind_constants(fp);
--	/*
--	 * If blinding was requested and we failed during blinding,
--	 * we must fall back to the interpreter.
--	 */
--	if (IS_ERR(tmp))
--		return orig_fp;
--	if (tmp != fp) {
--		tmp_blinded = true;
--		fp = tmp;
--	}
-+		return fp;
- 
- 	jit_data = fp->aux->jit_data;
- 	if (!jit_data) {
- 		jit_data = kzalloc_obj(*jit_data);
--		if (!jit_data) {
--			fp = orig_fp;
--			goto out;
--		}
-+		if (!jit_data)
-+			return fp;
- 		fp->aux->jit_data = jit_data;
- 	}
- 	if (jit_data->ctx.addrs) {
-@@ -2356,34 +2340,27 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
- 
- 	memset(&jit, 0, sizeof(jit));
- 	jit.addrs = kvcalloc(fp->len + 1, sizeof(*jit.addrs), GFP_KERNEL);
--	if (jit.addrs == NULL) {
--		fp = orig_fp;
--		goto free_addrs;
--	}
-+	if (jit.addrs == NULL)
-+		goto out_err;
- 	/*
- 	 * Three initial passes:
- 	 *   - 1/2: Determine clobbered registers
- 	 *   - 3:   Calculate program size and addrs array
- 	 */
- 	for (pass = 1; pass <= 3; pass++) {
--		if (bpf_jit_prog(&jit, fp, extra_pass)) {
--			fp = orig_fp;
--			goto free_addrs;
--		}
-+		if (bpf_jit_prog(&jit, fp, extra_pass))
-+			goto out_err;
- 	}
- 	/*
- 	 * Final pass: Allocate and generate program
- 	 */
- 	header = bpf_jit_alloc(&jit, fp);
--	if (!header) {
--		fp = orig_fp;
--		goto free_addrs;
--	}
-+	if (!header)
-+		goto out_err;
- skip_init_ctx:
- 	if (bpf_jit_prog(&jit, fp, extra_pass)) {
- 		bpf_jit_binary_free(header);
--		fp = orig_fp;
--		goto free_addrs;
-+		goto out_err;
- 	}
- 	if (bpf_jit_enable > 1) {
- 		bpf_jit_dump(fp->len, jit.size, pass, jit.prg_buf);
-@@ -2392,8 +2369,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
- 	if (!fp->is_func || extra_pass) {
- 		if (bpf_jit_binary_lock_ro(header)) {
- 			bpf_jit_binary_free(header);
--			fp = orig_fp;
--			goto free_addrs;
-+			goto out_err;
- 		}
- 	} else {
- 		jit_data->header = header;
-@@ -2411,11 +2387,16 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *fp)
- 		kfree(jit_data);
- 		fp->aux->jit_data = NULL;
- 	}
--out:
--	if (tmp_blinded)
--		bpf_jit_prog_release_other(fp, fp == orig_fp ?
--					   tmp : orig_fp);
-+
- 	return fp;
-+
-+out_err:
-+	if (extra_pass) {
-+		fp->bpf_func = NULL;
-+		fp->jited = 0;
-+		fp->jited_len = 0;
-+	}
-+	goto free_addrs;
- }
- 
- bool bpf_jit_supports_kfunc_call(void)
-diff --git a/arch/sparc/net/bpf_jit_comp_64.c b/arch/sparc/net/bpf_jit_comp_64.c
-index b23d1c645ae5..e83e29137566 100644
---- a/arch/sparc/net/bpf_jit_comp_64.c
-+++ b/arch/sparc/net/bpf_jit_comp_64.c
-@@ -1479,37 +1479,22 @@ struct sparc64_jit_data {
- 
- struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- {
--	struct bpf_prog *tmp, *orig_prog = prog;
- 	struct sparc64_jit_data *jit_data;
- 	struct bpf_binary_header *header;
- 	u32 prev_image_size, image_size;
--	bool tmp_blinded = false;
- 	bool extra_pass = false;
- 	struct jit_ctx ctx;
- 	u8 *image_ptr;
- 	int pass, i;
- 
- 	if (!prog->jit_requested)
--		return orig_prog;
--
--	tmp = bpf_jit_blind_constants(prog);
--	/* If blinding was requested and we failed during blinding,
--	 * we must fall back to the interpreter.
--	 */
--	if (IS_ERR(tmp))
--		return orig_prog;
--	if (tmp != prog) {
--		tmp_blinded = true;
--		prog = tmp;
--	}
-+		return prog;
- 
- 	jit_data = prog->aux->jit_data;
- 	if (!jit_data) {
- 		jit_data = kzalloc_obj(*jit_data);
--		if (!jit_data) {
--			prog = orig_prog;
--			goto out;
--		}
-+		if (!jit_data)
-+			return prog;
- 		prog->aux->jit_data = jit_data;
- 	}
- 	if (jit_data->ctx.offset) {
-@@ -1527,10 +1512,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	ctx.prog = prog;
- 
- 	ctx.offset = kmalloc_array(prog->len, sizeof(unsigned int), GFP_KERNEL);
--	if (ctx.offset == NULL) {
--		prog = orig_prog;
--		goto out_off;
--	}
-+	if (ctx.offset == NULL)
-+		goto out_err;
- 
- 	/* Longest sequence emitted is for bswap32, 12 instructions.  Pre-cook
- 	 * the offset array so that we converge faster.
-@@ -1543,10 +1526,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		ctx.idx = 0;
- 
- 		build_prologue(&ctx);
--		if (build_body(&ctx)) {
--			prog = orig_prog;
--			goto out_off;
--		}
-+		if (build_body(&ctx))
-+			goto out_err;
- 		build_epilogue(&ctx);
- 
- 		if (bpf_jit_enable > 1)
-@@ -1569,10 +1550,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	image_size = sizeof(u32) * ctx.idx;
- 	header = bpf_jit_binary_alloc(image_size, &image_ptr,
- 				      sizeof(u32), jit_fill_hole);
--	if (header == NULL) {
--		prog = orig_prog;
--		goto out_off;
--	}
-+	if (header == NULL)
-+		goto out_err;
- 
- 	ctx.image = (u32 *)image_ptr;
- skip_init_ctx:
-@@ -1582,8 +1561,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 
- 	if (build_body(&ctx)) {
- 		bpf_jit_binary_free(header);
--		prog = orig_prog;
--		goto out_off;
-+		goto out_err;
- 	}
- 
- 	build_epilogue(&ctx);
-@@ -1592,8 +1570,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		pr_err("bpf_jit: Failed to converge, prev_size=%u size=%d\n",
- 		       prev_image_size, ctx.idx * 4);
- 		bpf_jit_binary_free(header);
--		prog = orig_prog;
--		goto out_off;
-+		goto out_err;
- 	}
- 
- 	if (bpf_jit_enable > 1)
-@@ -1604,8 +1581,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	if (!prog->is_func || extra_pass) {
- 		if (bpf_jit_binary_lock_ro(header)) {
- 			bpf_jit_binary_free(header);
--			prog = orig_prog;
--			goto out_off;
-+			goto out_err;
- 		}
- 	} else {
- 		jit_data->ctx = ctx;
-@@ -1624,9 +1600,14 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		kfree(jit_data);
- 		prog->aux->jit_data = NULL;
- 	}
--out:
--	if (tmp_blinded)
--		bpf_jit_prog_release_other(prog, prog == orig_prog ?
--					   tmp : orig_prog);
-+
- 	return prog;
-+
-+out_err:
-+	if (extra_pass) {
-+		prog->bpf_func = NULL;
-+		prog->jited = 0;
-+		prog->jited_len = 0;
-+	}
-+	goto out_off;
- }
-diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
-index e9b78040d703..77d00a8dec87 100644
---- a/arch/x86/net/bpf_jit_comp.c
-+++ b/arch/x86/net/bpf_jit_comp.c
-@@ -3717,13 +3717,11 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- {
- 	struct bpf_binary_header *rw_header = NULL;
- 	struct bpf_binary_header *header = NULL;
--	struct bpf_prog *tmp, *orig_prog = prog;
- 	void __percpu *priv_stack_ptr = NULL;
- 	struct x64_jit_data *jit_data;
- 	int priv_stack_alloc_sz;
- 	int proglen, oldproglen = 0;
- 	struct jit_context ctx = {};
--	bool tmp_blinded = false;
- 	bool extra_pass = false;
- 	bool padding = false;
- 	u8 *rw_image = NULL;
-@@ -3733,27 +3731,13 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 	int i;
- 
- 	if (!prog->jit_requested)
--		return orig_prog;
--
--	tmp = bpf_jit_blind_constants(prog);
--	/*
--	 * If blinding was requested and we failed during blinding,
--	 * we must fall back to the interpreter.
--	 */
--	if (IS_ERR(tmp))
--		return orig_prog;
--	if (tmp != prog) {
--		tmp_blinded = true;
--		prog = tmp;
--	}
-+		return prog;
- 
- 	jit_data = prog->aux->jit_data;
- 	if (!jit_data) {
- 		jit_data = kzalloc_obj(*jit_data);
--		if (!jit_data) {
--			prog = orig_prog;
--			goto out;
--		}
-+		if (!jit_data)
-+			return prog;
- 		prog->aux->jit_data = jit_data;
- 	}
- 	priv_stack_ptr = prog->aux->priv_stack_ptr;
-@@ -3765,10 +3749,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		priv_stack_alloc_sz = round_up(prog->aux->stack_depth, 8) +
- 				      2 * PRIV_STACK_GUARD_SZ;
- 		priv_stack_ptr = __alloc_percpu_gfp(priv_stack_alloc_sz, 8, GFP_KERNEL);
--		if (!priv_stack_ptr) {
--			prog = orig_prog;
-+		if (!priv_stack_ptr)
- 			goto out_priv_stack;
--		}
- 
- 		priv_stack_init_guard(priv_stack_ptr, priv_stack_alloc_sz);
- 		prog->aux->priv_stack_ptr = priv_stack_ptr;
-@@ -3786,10 +3768,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		goto skip_init_addrs;
- 	}
- 	addrs = kvmalloc_objs(*addrs, prog->len + 1);
--	if (!addrs) {
--		prog = orig_prog;
-+	if (!addrs)
- 		goto out_addrs;
--	}
- 
- 	/*
- 	 * Before first pass, make a rough estimation of addrs[]
-@@ -3820,8 +3800,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 						   sizeof(rw_header->size));
- 				bpf_jit_binary_pack_free(header, rw_header);
- 			}
--			/* Fall back to interpreter mode */
--			prog = orig_prog;
- 			if (extra_pass) {
- 				prog->bpf_func = NULL;
- 				prog->jited = 0;
-@@ -3852,10 +3830,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 			header = bpf_jit_binary_pack_alloc(roundup(proglen, align) + extable_size,
- 							   &image, align, &rw_header, &rw_image,
- 							   jit_fill_hole);
--			if (!header) {
--				prog = orig_prog;
-+			if (!header)
- 				goto out_addrs;
--			}
- 			prog->aux->extable = (void *) image + roundup(proglen, align);
- 		}
- 		oldproglen = proglen;
-@@ -3908,8 +3884,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		prog->bpf_func = (void *)image + cfi_get_offset();
- 		prog->jited = 1;
- 		prog->jited_len = proglen - cfi_get_offset();
--	} else {
--		prog = orig_prog;
- 	}
- 
- 	if (!image || !prog->is_func || extra_pass) {
-@@ -3925,10 +3899,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		kfree(jit_data);
- 		prog->aux->jit_data = NULL;
- 	}
--out:
--	if (tmp_blinded)
--		bpf_jit_prog_release_other(prog, prog == orig_prog ?
--					   tmp : orig_prog);
-+
- 	return prog;
- }
- 
-diff --git a/arch/x86/net/bpf_jit_comp32.c b/arch/x86/net/bpf_jit_comp32.c
-index dda423025c3d..5f259577614a 100644
---- a/arch/x86/net/bpf_jit_comp32.c
-+++ b/arch/x86/net/bpf_jit_comp32.c
-@@ -2521,35 +2521,19 @@ bool bpf_jit_needs_zext(void)
- struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- {
- 	struct bpf_binary_header *header = NULL;
--	struct bpf_prog *tmp, *orig_prog = prog;
- 	int proglen, oldproglen = 0;
- 	struct jit_context ctx = {};
--	bool tmp_blinded = false;
- 	u8 *image = NULL;
- 	int *addrs;
- 	int pass;
- 	int i;
- 
- 	if (!prog->jit_requested)
--		return orig_prog;
--
--	tmp = bpf_jit_blind_constants(prog);
--	/*
--	 * If blinding was requested and we failed during blinding,
--	 * we must fall back to the interpreter.
--	 */
--	if (IS_ERR(tmp))
--		return orig_prog;
--	if (tmp != prog) {
--		tmp_blinded = true;
--		prog = tmp;
--	}
-+		return prog;
- 
- 	addrs = kmalloc_objs(*addrs, prog->len);
--	if (!addrs) {
--		prog = orig_prog;
--		goto out;
--	}
-+	if (!addrs)
-+		return prog;
- 
- 	/*
- 	 * Before first pass, make a rough estimation of addrs[]
-@@ -2574,7 +2558,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 			image = NULL;
- 			if (header)
- 				bpf_jit_binary_free(header);
--			prog = orig_prog;
- 			goto out_addrs;
- 		}
- 		if (image) {
-@@ -2588,10 +2571,8 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		if (proglen == oldproglen) {
- 			header = bpf_jit_binary_alloc(proglen, &image,
- 						      1, jit_fill_hole);
--			if (!header) {
--				prog = orig_prog;
-+			if (!header)
- 				goto out_addrs;
--			}
- 		}
- 		oldproglen = proglen;
- 		cond_resched();
-@@ -2604,16 +2585,10 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		prog->bpf_func = (void *)image;
- 		prog->jited = 1;
- 		prog->jited_len = proglen;
--	} else {
--		prog = orig_prog;
- 	}
- 
- out_addrs:
- 	kfree(addrs);
--out:
--	if (tmp_blinded)
--		bpf_jit_prog_release_other(prog, prog == orig_prog ?
--					   tmp : orig_prog);
- 	return prog;
- }
- 
-diff --git a/include/linux/filter.h b/include/linux/filter.h
-index e40d4071a345..d396e55c9a1d 100644
---- a/include/linux/filter.h
-+++ b/include/linux/filter.h
-@@ -1183,6 +1183,18 @@ static inline bool bpf_dump_raw_ok(const struct cred *cred)
- 
- struct bpf_prog *bpf_patch_insn_single(struct bpf_prog *prog, u32 off,
- 				       const struct bpf_insn *patch, u32 len);
-+
-+#ifdef CONFIG_BPF_SYSCALL
-+struct bpf_prog *bpf_patch_insn_data(struct bpf_verifier_env *env, u32 off,
-+				     const struct bpf_insn *patch, u32 len);
-+#else
-+static inline struct bpf_prog *bpf_patch_insn_data(struct bpf_verifier_env *env, u32 off,
-+						   const struct bpf_insn *patch, u32 len)
-+{
-+	return ERR_PTR(-ENOTSUPP);
-+}
-+#endif /* CONFIG_BPF_SYSCALL */
-+
- int bpf_remove_insns(struct bpf_prog *prog, u32 off, u32 cnt);
- 
- static inline bool xdp_return_frame_no_direct(void)
-@@ -1309,9 +1321,14 @@ int bpf_jit_get_func_addr(const struct bpf_prog *prog,
- 
- const char *bpf_jit_get_prog_name(struct bpf_prog *prog);
- 
--struct bpf_prog *bpf_jit_blind_constants(struct bpf_prog *fp);
-+struct bpf_prog *bpf_jit_blind_constants(struct bpf_verifier_env *env, struct bpf_prog *prog);
- void bpf_jit_prog_release_other(struct bpf_prog *fp, struct bpf_prog *fp_other);
- 
-+static inline bool bpf_prog_need_blind(const struct bpf_prog *prog)
-+{
-+	return prog->blinding_requested && !prog->blinded;
-+}
-+
- static inline void bpf_jit_dump(unsigned int flen, unsigned int proglen,
- 				u32 pass, void *image)
- {
-@@ -1450,6 +1467,20 @@ static inline void bpf_prog_kallsyms_del(struct bpf_prog *fp)
- {
- }
- 
-+static inline bool bpf_prog_need_blind(const struct bpf_prog *prog)
-+{
-+	return false;
-+}
-+
-+static inline
-+struct bpf_prog *bpf_jit_blind_constants(struct bpf_verifier_env *env, struct bpf_prog *prog)
-+{
-+	return prog;
-+}
-+
-+static inline void bpf_jit_prog_release_other(struct bpf_prog *fp, struct bpf_prog *fp_other)
-+{
-+}
- #endif /* CONFIG_BPF_JIT */
- 
- void bpf_prog_kallsyms_del_all(struct bpf_prog *fp);
-diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-index 1af5fb3f21d9..cc61fe57b98d 100644
---- a/kernel/bpf/core.c
-+++ b/kernel/bpf/core.c
-@@ -1506,7 +1506,10 @@ static void adjust_insn_arrays(struct bpf_prog *prog, u32 off, u32 len)
- #endif
- }
- 
--struct bpf_prog *bpf_jit_blind_constants(struct bpf_prog *prog)
-+/* Now this function is used only to blind the main prog and must be invoked only when
-+ * bpf_prog_need_blind() returns true.
-+ */
-+struct bpf_prog *bpf_jit_blind_constants(struct bpf_verifier_env *env, struct bpf_prog *prog)
- {
- 	struct bpf_insn insn_buff[16], aux[2];
- 	struct bpf_prog *clone, *tmp;
-@@ -1514,13 +1517,17 @@ struct bpf_prog *bpf_jit_blind_constants(struct bpf_prog *prog)
- 	struct bpf_insn *insn;
- 	int i, rewritten;
- 
--	if (!prog->blinding_requested || prog->blinded)
--		return prog;
-+	if (env)
-+		prog = env->prog;
- 
- 	clone = bpf_prog_clone_create(prog, GFP_USER);
- 	if (!clone)
- 		return ERR_PTR(-ENOMEM);
- 
-+	/* make sure bpf_patch_insn_data() patches the correct prog */
-+	if (env)
-+		env->prog = clone;
-+
- 	insn_cnt = clone->len;
- 	insn = clone->insnsi;
- 
-@@ -1548,21 +1555,34 @@ struct bpf_prog *bpf_jit_blind_constants(struct bpf_prog *prog)
- 		if (!rewritten)
- 			continue;
- 
--		tmp = bpf_patch_insn_single(clone, i, insn_buff, rewritten);
--		if (IS_ERR(tmp)) {
-+		if (env)
-+			tmp = bpf_patch_insn_data(env, i, insn_buff, rewritten);
-+		else
-+			tmp = bpf_patch_insn_single(clone, i, insn_buff, rewritten);
-+
-+		if (IS_ERR_OR_NULL(tmp)) {
-+			if (env)
-+				/* restore the original prog */
-+				env->prog = prog;
- 			/* Patching may have repointed aux->prog during
- 			 * realloc from the original one, so we need to
- 			 * fix it up here on error.
- 			 */
- 			bpf_jit_prog_release_other(prog, clone);
--			return tmp;
-+			return IS_ERR(tmp) ? tmp : ERR_PTR(-ENOMEM);
- 		}
- 
- 		clone = tmp;
- 		insn_delta = rewritten - 1;
- 
--		/* Instructions arrays must be updated using absolute xlated offsets */
--		adjust_insn_arrays(clone, prog->aux->subprog_start + i, rewritten);
-+		if (env)
-+			env->prog = clone;
-+		else
-+			/* Instructions arrays must be updated using absolute xlated offsets.
-+			 * The arrays have already been adjusted by bpf_patch_insn_data() when
-+			 * env is not NULL.
-+			 */
-+			adjust_insn_arrays(clone, i, rewritten);
- 
- 		/* Walk new program and skip insns we just inserted. */
- 		insn = clone->insnsi + i + insn_delta;
-@@ -2531,6 +2551,35 @@ static bool bpf_prog_select_interpreter(struct bpf_prog *fp)
- 	return select_interpreter;
- }
- 
-+static struct bpf_prog *bpf_prog_jit_compile(struct bpf_prog *prog)
-+{
-+#ifdef CONFIG_BPF_JIT
-+	bool blinded = false;
-+	struct bpf_prog *orig_prog = prog;
-+
-+	if (bpf_prog_need_blind(orig_prog)) {
-+		prog = bpf_jit_blind_constants(NULL, orig_prog);
-+		/* If blinding was requested and we failed during blinding, we must fall
-+		 * back to the interpreter.
-+		 */
-+		if (IS_ERR(prog))
-+			return orig_prog;
-+		blinded = true;
-+	}
-+
-+	prog = bpf_int_jit_compile(prog);
-+	if (blinded) {
-+		if (!prog->jited) {
-+			bpf_jit_prog_release_other(orig_prog, prog);
-+			prog = orig_prog;
-+		} else {
-+			bpf_jit_prog_release_other(prog, orig_prog);
-+		}
-+	}
-+#endif
-+	return prog;
-+}
-+
- /**
-  *	bpf_prog_select_runtime - select exec runtime for BPF program
-  *	@fp: bpf_prog populated with BPF program
-@@ -2570,7 +2619,7 @@ struct bpf_prog *bpf_prog_select_runtime(struct bpf_prog *fp, int *err)
- 		if (*err)
- 			return fp;
- 
--		fp = bpf_int_jit_compile(fp);
-+		fp = bpf_prog_jit_compile(fp);
- 		bpf_prog_jit_attempt_done(fp);
- 		if (!fp->jited && jit_needed) {
- 			*err = -ENOTSUPP;
-diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-index a431b7d50e1b..66cef3744fde 100644
---- a/kernel/bpf/verifier.c
-+++ b/kernel/bpf/verifier.c
-@@ -22215,8 +22215,8 @@ static void adjust_poke_descs(struct bpf_prog *prog, u32 off, u32 len)
- 	}
- }
- 
--static struct bpf_prog *bpf_patch_insn_data(struct bpf_verifier_env *env, u32 off,
--					    const struct bpf_insn *patch, u32 len)
-+struct bpf_prog *bpf_patch_insn_data(struct bpf_verifier_env *env, u32 off,
-+				     const struct bpf_insn *patch, u32 len)
- {
- 	struct bpf_prog *new_prog;
- 	struct bpf_insn_aux_data *new_data = NULL;
-@@ -22983,7 +22983,41 @@ static int convert_ctx_accesses(struct bpf_verifier_env *env)
- 	return 0;
- }
- 
--static int jit_subprogs(struct bpf_verifier_env *env)
-+static u32 *dup_subprog_starts(struct bpf_verifier_env *env)
-+{
-+	u32 *starts = NULL;
-+
-+	starts = kvmalloc_objs(u32, env->subprog_cnt, GFP_KERNEL_ACCOUNT);
-+	if (!starts)
-+		return NULL;
-+	for (int i = 0; i < env->subprog_cnt; i++)
-+		starts[i] = env->subprog_info[i].start;
-+	return starts;
-+}
-+
-+static void restore_subprog_starts(struct bpf_verifier_env *env, u32 *orig_starts)
-+{
-+	for (int i = 0; i < env->subprog_cnt; i++)
-+		env->subprog_info[i].start = orig_starts[i];
-+}
-+
-+static struct bpf_insn_aux_data *dup_insn_aux_data(struct bpf_verifier_env *env)
-+{
-+	size_t size;
-+
-+	size = array_size(sizeof(struct bpf_insn_aux_data), env->prog->len);
-+	return kvmemdup(env->insn_aux_data, size, GFP_KERNEL_ACCOUNT);
-+}
-+
-+static void restore_insn_aux_data(struct bpf_verifier_env *env,
-+				  struct bpf_insn_aux_data *orig_insn_aux)
-+{
-+	/* the expanded elements are zero-filled, so no special handling is required */
-+	vfree(env->insn_aux_data);
-+	env->insn_aux_data = orig_insn_aux;
-+}
-+
-+static int __jit_subprogs(struct bpf_verifier_env *env)
- {
- 	struct bpf_prog *prog = env->prog, **func, *tmp;
- 	int i, j, subprog_start, subprog_end = 0, len, subprog;
-@@ -22991,10 +23025,6 @@ static int jit_subprogs(struct bpf_verifier_env *env)
- 	struct bpf_insn *insn;
- 	void *old_bpf_func;
- 	int err, num_exentries;
--	int old_len, subprog_start_adjustment = 0;
--
--	if (env->subprog_cnt <= 1)
--		return 0;
- 
- 	for (i = 0, insn = prog->insnsi; i < prog->len; i++, insn++) {
- 		if (!bpf_pseudo_func(insn) && !bpf_pseudo_call(insn))
-@@ -23063,10 +23093,11 @@ static int jit_subprogs(struct bpf_verifier_env *env)
- 			goto out_free;
- 		func[i]->is_func = 1;
- 		func[i]->sleepable = prog->sleepable;
-+		func[i]->blinded = prog->blinded;
- 		func[i]->aux->func_idx = i;
- 		/* Below members will be freed only at prog->aux */
- 		func[i]->aux->btf = prog->aux->btf;
--		func[i]->aux->subprog_start = subprog_start + subprog_start_adjustment;
-+		func[i]->aux->subprog_start = subprog_start;
- 		func[i]->aux->func_info = prog->aux->func_info;
- 		func[i]->aux->func_info_cnt = prog->aux->func_info_cnt;
- 		func[i]->aux->poke_tab = prog->aux->poke_tab;
-@@ -23122,15 +23153,7 @@ static int jit_subprogs(struct bpf_verifier_env *env)
- 		func[i]->aux->might_sleep = env->subprog_info[i].might_sleep;
- 		if (!i)
- 			func[i]->aux->exception_boundary = env->seen_exception;
--
--		/*
--		 * To properly pass the absolute subprog start to jit
--		 * all instruction adjustments should be accumulated
--		 */
--		old_len = func[i]->len;
- 		func[i] = bpf_int_jit_compile(func[i]);
--		subprog_start_adjustment += func[i]->len - old_len;
--
- 		if (!func[i]->jited) {
- 			err = -ENOTSUPP;
- 			goto out_free;
-@@ -23256,16 +23279,83 @@ static int jit_subprogs(struct bpf_verifier_env *env)
- 	}
- 	kfree(func);
- out_undo_insn:
-+	bpf_prog_jit_attempt_done(prog);
-+	return err;
-+}
-+
-+static int jit_subprogs(struct bpf_verifier_env *env)
-+{
-+	int err, i;
-+	bool blinded = false;
-+	struct bpf_insn *insn;
-+	struct bpf_prog *prog, *orig_prog;
-+	struct bpf_insn_aux_data *orig_insn_aux;
-+	u32 *orig_subprog_starts;
-+
-+	if (env->subprog_cnt <= 1)
-+		return 0;
-+
-+	prog = orig_prog = env->prog;
-+	if (bpf_prog_need_blind(orig_prog)) {
-+		orig_insn_aux = dup_insn_aux_data(env);
-+		if (!orig_insn_aux) {
-+			err = -ENOMEM;
-+			goto out_cleanup;
-+		}
-+		orig_subprog_starts = dup_subprog_starts(env);
-+		if (!orig_subprog_starts) {
-+			err = -ENOMEM;
-+			goto out_free_aux;
-+		}
-+		prog = bpf_jit_blind_constants(env, NULL);
-+		if (IS_ERR(prog)) {
-+			err = -ENOMEM;
-+			prog = orig_prog;
-+			goto out_restore;
-+		}
-+		blinded = true;
-+	}
-+
-+	err = __jit_subprogs(env);
-+	if (blinded) {
-+		if (err) {
-+			bpf_jit_prog_release_other(orig_prog, prog);
-+			/* roll back to the clean original prog */
-+			prog = env->prog = orig_prog;
-+			goto out_restore;
-+		} else {
-+			bpf_jit_prog_release_other(prog, orig_prog);
-+			kvfree(orig_subprog_starts);
-+			kvfree(orig_insn_aux);
-+		}
-+	} else if (err) {
-+		/* We will fall back to interpreter mode when err is not -EFAULT, before
-+		 * that, insn->off and insn->imm should be restored to their original values
-+		 * since they were modified by __jit_subprogs.
-+		 */
-+		if (err != -EFAULT) {
-+			for (i = 0, insn = prog->insnsi; i < prog->len; i++, insn++) {
-+				if (!bpf_pseudo_call(insn))
-+					continue;
-+				insn->off = 0;
-+				insn->imm = env->insn_aux_data[i].call_imm;
-+			}
-+		}
-+		goto out_cleanup;
-+	}
-+
-+	return 0;
-+
-+out_restore:
-+	restore_subprog_starts(env, orig_subprog_starts);
-+	restore_insn_aux_data(env, orig_insn_aux);
-+	kvfree(orig_subprog_starts);
-+out_free_aux:
-+	kvfree(orig_insn_aux);
-+out_cleanup:
- 	/* cleanup main prog to be interpreted */
- 	prog->jit_requested = 0;
- 	prog->blinding_requested = 0;
--	for (i = 0, insn = prog->insnsi; i < prog->len; i++, insn++) {
--		if (!bpf_pseudo_call(insn))
--			continue;
--		insn->off = 0;
--		insn->imm = env->insn_aux_data[i].call_imm;
--	}
--	bpf_prog_jit_attempt_done(prog);
- 	return err;
- }
- 
--- 
-2.43.0
-
+Le ven. 3 avr. 2026 =C3=A0 06:40, Simon Xue <xxm@rock-chips.com> a =C3=A9cr=
+it :
+>
+>
+> =E5=9C=A8 2026/4/1 18:22, Simon Xue =E5=86=99=E9=81=93:
+> > Hi Jonas,
+> >
+> > =E5=9C=A8 2026/4/1 16:41, Jonas Karlman =E5=86=99=E9=81=93:
+> >> Hi Simon,
+> >>
+> >> On 4/1/2026 9:48 AM, Simon wrote:
+> >>> Hi Midgy,
+> >>>
+> >>> =E5=9C=A8 2026/3/31 15:50, Midgy BALON =E5=86=99=E9=81=93:
+> >>>> commit 2a7e6400f72b ("iommu: rockchip: Allocate tables from all
+> >>>> available memory for IOMMU v2") removed GFP_DMA32 from
+> >>>> iommu_data_ops_v2, reasoning that RK356x and RK3588 IOMMU v2 hardwar=
+e
+> >>>> supports up to 40-bit physical addresses for page tables. However, t=
+he
+> >>>> RK3568 IOMMU page-table walker uses a 32-bit AXI bus: it cannot acce=
+ss
+> >>>> physical addresses above 4 GB regardless of the address encoding
+> >>>> range.
+> >>>>
+> >>>> On boards with more than 4 GB of RAM (e.g. 8 GB LPDDR4X), removing
+> >>>> GFP_DMA32 causes two distinct failure modes:
+> >>>>
+> >>>> 1. Direct allocation above 4 GB: iommu_alloc_pages_sz() may return
+> >>>>      memory above 0x100000000.  The hardware page-table walker
+> >>>> issues a
+> >>>>      bus error trying to dereference those addresses, causing an IOM=
+MU
+> >>>>      fault on the first DMA transaction.
+> >>> Which IP block is hitting this? We'd like to take a look on our end.
+> >> I have seen reports that the NPU MMU on RK3568/RK3566 is having some
+> >> issue using DTE/PTE with >32-bit addresses, maybe it uses a different
+> >> MMU hw revision or has some hw errata?
+> >>
+> >>  From my own testing at least the VOP2 MMU on RK3568 (and RK3588) was
+> >> able to handle 40-bit addressable DTE/PTE, hence the original commit
+> >> 2a7e6400f72b ("iommu: rockchip: Allocate tables from all available
+> >> memory for IOMMU v2").
+> >>
+> >> As also mentioned in my reply at [1], maybe the NPU MMU has some hw
+> >> limitation or errata and may need to use a different compatible.
+> >
+> > Yes,  We are checking internally whether different IOMMU versions
+> > integrated.
+> >
+> > I will share what we find once we have results.
+> >
+> We internally checked that the RK356x SoCs integrate two different IOMMU
+> versions (v1.0 and v2.0), like NPU and ISP use the v1.0 IOMMU.
+>
+> Both versions can map 40-bit physical pages, but v1.0 does not support
+> placing the first-level page table above 4 GB.
+>
+> To fix this, I think we need to land this patch first:
+> https://lore.kernel.org/all/20260310105303.128859-1-xxm@rock-chips.com/
+>
+> Then on top of that, we can add a new compatible string to distinguish
+> the IOMMU versions.
+>
+> >> [1]
+> >> https://lore.kernel.org/r/3cd63b3d-1c5e-4a11-856e-c4aeb5d97d55@kwiboo.=
+se/
+> >>
+> >> Regards,
+> >> Jonas
+> >>
+> >>>> 2. SWIOTLB bounce-buffer poisoning: without GFP_DMA32, page tables
+> >>>> land
+> >>>>      above the SWIOTLB window.  dma_map_single() with DMA_BIT_MASK(3=
+2)
+> >>>>      then bounces them into a buffer below 4 GB.
+> >>>> rk_dte_get_page_table()
+> >>>>      returns phys_to_virt() of the bounce buffer address; PTEs are
+> >>>> written
+> >>>>      there; the next dma_sync_single_for_device(DMA_TO_DEVICE)
+> >>>> copies the
+> >>>>      original (zero) data back over the bounce buffer, silently
+> >>>> erasing the
+> >>>>      freshly written PTEs.  The IOMMU faults because every PTE
+> >>>> reads as zero.
+> >>> This probably need a separate patch. One way to fix it would be to
+> >>> track the
+> >>> original L2 page table base addresses in struct rk_iommu_domain,
+> >>> then have rk_dte_get_page_table() return the tracked address instead =
+of
+> >>> deriving it from the DTE.
+> >>>
+> >>>> Restore GFP_DMA32 (and DMA_BIT_MASK(32)) for iommu_data_ops_v2, whic=
+h
+> >>>> currently only serves "rockchip,rk3568-iommu" in mainline.
+> >>>>
+> >>>> Tested on Radxa ROCK 3B (RK3568, 8 GB LPDDR4X):
+> >>>>     - MobileNetV1 via RKNN: 5.8 ms/inference (IOMMU mode)
+> >>>>     - YOLOv5s 640x640 via RKNN: ~57 ms/inference (IOMMU mode)
+> >>>>     - No IOMMU faults, correct inference results
+> >>>>
+> >>>> Fixes: 2a7e6400f72b ("iommu: rockchip: Allocate tables from all
+> >>>> available memory for IOMMU v2")
+> >>>> Cc: stable@vger.kernel.org
+> >>>> Cc: Jonas Karlman <jonas@kwiboo.se>
+> >>>> Signed-off-by: Midgy BALON <midgy971@gmail.com>
+> >>>> ---
+> >>>>    drivers/iommu/rockchip-iommu.c | 4 ++--
+> >>>>    1 file changed, 2 insertions(+), 2 deletions(-)
+> >>>>
+> >>>> diff --git a/drivers/iommu/rockchip-iommu.c
+> >>>> b/drivers/iommu/rockchip-iommu.c
+> >>>> index 85f3667e797..8b45db29471 100644
+> >>>> --- a/drivers/iommu/rockchip-iommu.c
+> >>>> +++ b/drivers/iommu/rockchip-iommu.c
+> >>>> @@ -1358,8 +1358,8 @@ static struct rk_iommu_ops iommu_data_ops_v2 =
+=3D {
+> >>>>        .pt_address =3D &rk_dte_pt_address_v2,
+> >>>>        .mk_dtentries =3D &rk_mk_dte_v2,
+> >>>>        .mk_ptentries =3D &rk_mk_pte_v2,
+> >>>> -    .dma_bit_mask =3D DMA_BIT_MASK(40),
+> >>>> -    .gfp_flags =3D 0,
+> >>>> +    .dma_bit_mask =3D DMA_BIT_MASK(32),
+> >>>> +    .gfp_flags =3D GFP_DMA32,
+> >>>>    };
+> >>>>       static const struct of_device_id rk_iommu_dt_ids[] =3D {
+> >>
 
