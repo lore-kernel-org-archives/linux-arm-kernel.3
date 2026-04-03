@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73C00E85370
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49BCBE85367
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 13:49:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JI886UvjguWM4ZhYxAnTakaouBcyxDwT+atrqeNkfbQ=; b=wk6O/+mtDjtWsq6Y+zsNYCVl2l
-	cVlp8+iUjuvIDG0wYcUZaTS+oDENpEmNtXJU1jCUFUyuostKLLMD1+eoLZ42guFqu/+gOvFBewAV2
-	UfC3sh88coCkszkT6iavLdSS9T3zoczaysg0sKDOkOAPjVPTDvgtFcTygy2h96Ph2ms9fWRBZax2x
-	b2TciwhHn3CPE96YqQPY98oGWC7NcsY30HtuAwnnDPbp/3fV8QqN4Cpltwi8CrWS8imswRYhZUX43
-	FwYnSOPTTOf4DQdsXeGmYrOKuOFgw4fk7HRRMpIuTVfdxiXQ0QsaN/biYZSzxAemjN2HANrzwMqNs
-	7xu8h8rw==;
+	bh=7FB6A8PCRPsht5j5YAhgiG4EO9MPh7lGwz9FClOaDkI=; b=oKouQjV6fQQCj/B7lFMGfIPYkg
+	PZ1xnZJ26lP4DYcKSEdVt3x69nysn/Pq10Ru5Jg6VztNAlQBbbnhiPcmgyfMYEr4FRBAyczijXcdt
+	taff232ydb+FOf1U5O/zvBk8mp1Y2N+eLcDKGq5xqoVg2LRgA5mutor36EzhX8KTuQpac2VX0IdPr
+	eTzsMTcaj9cn+Xsp8xyeYllY6LrxvNX3RAqcojDG/Hxdi6TGp2MDOvl/t3CI57Vsv50LggTFbIHJy
+	GWZnKDgDGuSYCY7Oh6boSgbW/yZZa5/0yg2M+EazUwB8J+lBMq3US22UhZMY/k4LjMBzd3Xs15cRx
+	xy9tq+1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8eu8-000000025ds-2ma7;
-	Fri, 03 Apr 2026 13:49:44 +0000
+	id 1w8eu7-000000025dG-1UPT;
+	Fri, 03 Apr 2026 13:49:43 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8eu6-000000025cn-1cFQ
+	id 1w8eu6-000000025co-1cGD
 	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 03 Apr 2026 13:49:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=JI886UvjguWM4ZhYxAnTakaouBcyxDwT+atrqeNkfbQ=; b=fqjEOzhIE5sxLdy73mGezHfiNr
-	N4ktls77ZCREsZmrtZP/0uh1op95+DKfJ0WrpO6VgKgltnCL/2kLjIpYalXZOfLDWS6b5aPLy4dmF
-	IjKsOvqGq4tmLLkXeUNED6/MHw1zo06tyPeJGtCmpyUadUGLCllKI4dd83za76sRWqHeAeOHgmmHc
-	ftZ6D3smnvsanzbUu/14RMkQ44uQAdPvhAtvUsqCJKyLrgJKDgKYypwikPZ63WKqjHHJMzGSluqcF
-	om+pDR+yu46cRsjueZDwwn7baETlLxkTAhoPIWWh6aZq0Q+Fx5h0B/sJJlJc/Zx8tjg6g8BHscQnk
-	z22LcNVQ==;
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	bh=7FB6A8PCRPsht5j5YAhgiG4EO9MPh7lGwz9FClOaDkI=; b=DMKjsw2zg+3sgZLg0hqFgPMGQe
+	caTuTNMRDr+/Gf5CdOpOhwCn3693vlcSJ679iA6Pqe7VuicylkFHRt4gtwQxSQ+W9WkK0wdJBt/Ad
+	8v7wqtsjZYB/x1sAwTJowq8yQm70Uz5FAo5W/L6JadrgRTtwsxjPKuobULWVGVNu+iIFEBRio6Vla
+	jx8hyJcaCLm7JgYHjq5/M3FZb7bYOLuTU85z784yIvsCE3zpji579V8GHhHzv98F5GKcmFSQ9YLWO
+	l7AExhiYfQAmQHsuIN/4CyPX1aT0kfBSrJdVqGBYpIAdUalSp7H+1M6tUukcKp2MwM8C7AKy4BNYf
+	avrB/aTQ==;
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8eu1-00000004C2a-2ehh
+	id 1w8eu1-00000004C2b-1piG
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 03 Apr 2026 13:49:40 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.170])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4fnKnp1R3WzYQts7
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Apr 2026 21:49:02 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.19.163.177])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4fnKnH1CzDzKHMW8
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Apr 2026 21:48:35 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.252])
-	by mail.maildlp.com (Postfix) with ESMTP id E23AB40561
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Apr 2026 21:49:27 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTP id 0C17F4058F
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Apr 2026 21:49:28 +0800 (CST)
 Received: from localhost.huawei.com (unknown [10.67.174.243])
-	by APP3 (Coremail) with SMTP id _Ch0CgAnB1Rjxc9pPbfoDA--.34698S6;
+	by APP3 (Coremail) with SMTP id _Ch0CgAnB1Rjxc9pPbfoDA--.34698S7;
 	Fri, 03 Apr 2026 21:49:27 +0800 (CST)
 From: Xu Kuohai <xukuohai@huaweicloud.com>
 To: bpf@vger.kernel.org,
@@ -82,18 +82,18 @@ Cc: Alexei Starovoitov <ast@kernel.org>,
 	Vasily Gorbik <gor@linux.ibm.com>,
 	"David S . Miller" <davem@davemloft.net>,
 	Wang YanQing <udknight@gmail.com>
-Subject: [PATCH bpf-next v12 4/5] bpf, x86: Emit ENDBR for indirect jump targets
-Date: Fri,  3 Apr 2026 13:28:10 +0000
-Message-ID: <20260403132811.753894-5-xukuohai@huaweicloud.com>
+Subject: [PATCH bpf-next v12 5/5] bpf, arm64: Emit BTI for indirect jump target
+Date: Fri,  3 Apr 2026 13:28:11 +0000
+Message-ID: <20260403132811.753894-6-xukuohai@huaweicloud.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260403132811.753894-1-xukuohai@huaweicloud.com>
 References: <20260403132811.753894-1-xukuohai@huaweicloud.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _Ch0CgAnB1Rjxc9pPbfoDA--.34698S6
-X-Coremail-Antispam: 1UD129KBjvJXoWxZr4DXF1DAFW8Jw13WFW3KFg_yoWrtw48pa
-	9xJ3sIyrZ8WFs8KF1kXF47CFy2yF4qgryfGr4rt3yruw42grnYgF1Yka4FqFyYkrWrKrn7
-	XFyjkr1DWw1kurDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: _Ch0CgAnB1Rjxc9pPbfoDA--.34698S7
+X-Coremail-Antispam: 1UD129KBjvJXoWxXrW8trW5XF45Cw1rWw4Uurg_yoW5tr4kpF
+	4DC3s0krWrGr4UWa1DXayDAFyakr4kGay3GFyFk3yIkrZIqFy5WF15KF12kFn3A3yrur1x
+	AayYkr17W34xJrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUUPvb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
 	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUAV
 	Cq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0
@@ -104,14 +104,14 @@ X-Coremail-Antispam: 1UD129KBjvJXoWxZr4DXF1DAFW8Jw13WFW3KFg_yoWrtw48pa
 	z7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2
 	AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAq
 	x4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6r
-	W5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF
+	W5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF
 	7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
 	v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuY
 	vjxUI-eODUUUU
 X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_144938_488376_6C28031F 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20260403_144938_470362_B99E0581 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,144 +128,99 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Xu Kuohai <xukuohai@huawei.com>
 
-On CPUs that support CET/IBT, the indirect jump selftest triggers
-a kernel panic because the indirect jump targets lack ENDBR
-instructions.
+On CPUs that support BTI, the indirect jump selftest triggers a kernel
+panic because there is no BTI instructions at the indirect jump targets.
 
-To fix it, emit an ENDBR instruction to each indirect jump target. Since
-the ENDBR instruction shifts the position of original jited instructions,
-fix the instruction address calculation wherever the addresses are used.
+Fix it by emitting a BTI instruction for each indirect jump target.
 
 For reference, below is a sample panic log.
 
- Missing ENDBR: bpf_prog_2e5f1c71c13ac3e0_big_jump_table+0x97/0xe1
- ------------[ cut here ]------------
- kernel BUG at arch/x86/kernel/cet.c:133!
- Oops: invalid opcode: 0000 [#1] SMP NOPTI
+Internal error: Oops - BTI: 0000000036000003 [#1]  SMP
+...
+Call trace:
+ bpf_prog_2e5f1c71c13ac3e0_big_jump_table+0x54/0xf8 (P)
+ bpf_prog_run_pin_on_cpu+0x140/0x468
+ bpf_prog_test_run_syscall+0x280/0x3b8
+ bpf_prog_test_run+0x22c/0x2c0
 
- ...
-
-  ? 0xffffffffc00fb258
-  ? bpf_prog_2e5f1c71c13ac3e0_big_jump_table+0x97/0xe1
-  bpf_prog_test_run_syscall+0x110/0x2f0
-  ? fdget+0xba/0xe0
-  __sys_bpf+0xe4b/0x2590
-  ? __kmalloc_node_track_caller_noprof+0x1c7/0x680
-  ? bpf_prog_test_run_syscall+0x215/0x2f0
-  __x64_sys_bpf+0x21/0x30
-  do_syscall_64+0x85/0x620
-  ? bpf_prog_test_run_syscall+0x1e2/0x2f0
-
-Fixes: 493d9e0d6083 ("bpf, x86: add support for indirect jumps")
+Fixes: f4a66cf1cb14 ("bpf: arm64: Add support for indirect jumps")
 Reviewed-by: Anton Protopopov <a.s.protopopov@gmail.com>
 Acked-by: Leon Hwang <leon.hwang@linux.dev>
 Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
 ---
- arch/x86/net/bpf_jit_comp.c | 28 +++++++++++++++-------------
- 1 file changed, 15 insertions(+), 13 deletions(-)
+ arch/arm64/net/bpf_jit_comp.c | 17 ++++++++++-------
+ 1 file changed, 10 insertions(+), 7 deletions(-)
 
-diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
-index 72d9a5faa230..ea9e707e8abf 100644
---- a/arch/x86/net/bpf_jit_comp.c
-+++ b/arch/x86/net/bpf_jit_comp.c
-@@ -58,8 +58,8 @@ static u8 *emit_code(u8 *ptr, u32 bytes, unsigned int len)
- #define EMIT_ENDBR()		EMIT(gen_endbr(), 4)
- #define EMIT_ENDBR_POISON()	EMIT(gen_endbr_poison(), 4)
- #else
--#define EMIT_ENDBR()
--#define EMIT_ENDBR_POISON()
-+#define EMIT_ENDBR()		do { } while (0)
-+#define EMIT_ENDBR_POISON()	do { } while (0)
- #endif
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index 7212ec89dfe3..aa5cd240cdda 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -1198,8 +1198,8 @@ static int add_exception_handler(const struct bpf_insn *insn,
+  * >0 - successfully JITed a 16-byte eBPF instruction.
+  * <0 - failed to JIT.
+  */
+-static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
+-		      bool extra_pass)
++static int build_insn(const struct bpf_verifier_env *env, const struct bpf_insn *insn,
++		      struct jit_ctx *ctx, bool extra_pass)
+ {
+ 	const u8 code = insn->code;
+ 	u8 dst = bpf2a64[insn->dst_reg];
+@@ -1224,6 +1224,9 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
+ 	int ret;
+ 	bool sign_extend;
  
- static bool is_imm8(int value)
-@@ -1649,8 +1649,8 @@ static int emit_spectre_bhb_barrier(u8 **pprog, u8 *ip,
++	if (bpf_insn_is_indirect_target(env, ctx->prog, i))
++		emit_bti(A64_BTI_J, ctx);
++
+ 	switch (code) {
+ 	/* dst = src */
+ 	case BPF_ALU | BPF_MOV | BPF_X:
+@@ -1899,7 +1902,7 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
  	return 0;
  }
  
--static int do_jit(struct bpf_prog *bpf_prog, int *addrs, u8 *image, u8 *rw_image,
--		  int oldproglen, struct jit_context *ctx, bool jmp_padding)
-+static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *addrs, u8 *image,
-+		  u8 *rw_image, int oldproglen, struct jit_context *ctx, bool jmp_padding)
+-static int build_body(struct jit_ctx *ctx, bool extra_pass)
++static int build_body(struct bpf_verifier_env *env, struct jit_ctx *ctx, bool extra_pass)
  {
- 	bool tail_call_reachable = bpf_prog->aux->tail_call_reachable;
- 	struct bpf_insn *insn = bpf_prog->insnsi;
-@@ -1663,7 +1663,7 @@ static int do_jit(struct bpf_prog *bpf_prog, int *addrs, u8 *image, u8 *rw_image
- 	void __percpu *priv_stack_ptr;
- 	int i, excnt = 0;
- 	int ilen, proglen = 0;
--	u8 *prog = temp;
-+	u8 *ip, *prog = temp;
- 	u32 stack_depth;
- 	int err;
+ 	const struct bpf_prog *prog = ctx->prog;
+ 	int i;
+@@ -1918,7 +1921,7 @@ static int build_body(struct jit_ctx *ctx, bool extra_pass)
+ 		int ret;
  
-@@ -1734,6 +1734,11 @@ static int do_jit(struct bpf_prog *bpf_prog, int *addrs, u8 *image, u8 *rw_image
- 				dst_reg = X86_REG_R9;
- 		}
+ 		ctx->offset[i] = ctx->idx;
+-		ret = build_insn(insn, ctx, extra_pass);
++		ret = build_insn(env, insn, ctx, extra_pass);
+ 		if (ret > 0) {
+ 			i++;
+ 			ctx->offset[i] = ctx->idx;
+@@ -2079,7 +2082,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
+ 	if (build_prologue(&ctx, was_classic))
+ 		goto out_off;
  
-+		if (bpf_insn_is_indirect_target(env, bpf_prog, i - 1))
-+			EMIT_ENDBR();
-+
-+		ip = image + addrs[i - 1] + (prog - temp);
-+
- 		switch (insn->code) {
- 			/* ALU */
- 		case BPF_ALU | BPF_ADD | BPF_X:
-@@ -2440,8 +2445,6 @@ st:			if (is_imm8(insn->off))
+-	if (build_body(&ctx, extra_pass))
++	if (build_body(env, &ctx, extra_pass))
+ 		goto out_off;
  
- 			/* call */
- 		case BPF_JMP | BPF_CALL: {
--			u8 *ip = image + addrs[i - 1];
--
- 			func = (u8 *) __bpf_call_base + imm32;
- 			if (src_reg == BPF_PSEUDO_CALL && tail_call_reachable) {
- 				LOAD_TAIL_CALL_CNT_PTR(stack_depth);
-@@ -2465,7 +2468,8 @@ st:			if (is_imm8(insn->off))
- 			if (imm32)
- 				emit_bpf_tail_call_direct(bpf_prog,
- 							  &bpf_prog->aux->poke_tab[imm32 - 1],
--							  &prog, image + addrs[i - 1],
-+							  &prog,
-+							  ip,
- 							  callee_regs_used,
- 							  stack_depth,
- 							  ctx);
-@@ -2474,7 +2478,7 @@ st:			if (is_imm8(insn->off))
- 							    &prog,
- 							    callee_regs_used,
- 							    stack_depth,
--							    image + addrs[i - 1],
-+							    ip,
- 							    ctx);
- 			break;
+ 	ctx.epilogue_offset = ctx.idx;
+@@ -2127,7 +2130,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
+ 	/* Dont write body instructions to memory for now */
+ 	ctx.write = false;
  
-@@ -2639,7 +2643,7 @@ st:			if (is_imm8(insn->off))
- 			break;
+-	if (build_body(&ctx, extra_pass))
++	if (build_body(env, &ctx, extra_pass))
+ 		goto out_free_hdr;
  
- 		case BPF_JMP | BPF_JA | BPF_X:
--			emit_indirect_jump(&prog, insn->dst_reg, image + addrs[i - 1]);
-+			emit_indirect_jump(&prog, insn->dst_reg, ip);
- 			break;
- 		case BPF_JMP | BPF_JA:
- 		case BPF_JMP32 | BPF_JA:
-@@ -2729,8 +2733,6 @@ st:			if (is_imm8(insn->off))
- 			ctx->cleanup_addr = proglen;
- 			if (bpf_prog_was_classic(bpf_prog) &&
- 			    !ns_capable_noaudit(&init_user_ns, CAP_SYS_ADMIN)) {
--				u8 *ip = image + addrs[i - 1];
--
- 				if (emit_spectre_bhb_barrier(&prog, ip, bpf_prog))
- 					return -EINVAL;
- 			}
-@@ -3791,7 +3793,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
- 	for (pass = 0; pass < MAX_PASSES || image; pass++) {
- 		if (!padding && pass >= PADDING_PASSES)
- 			padding = true;
--		proglen = do_jit(prog, addrs, image, rw_image, oldproglen, &ctx, padding);
-+		proglen = do_jit(env, prog, addrs, image, rw_image, oldproglen, &ctx, padding);
- 		if (proglen <= 0) {
- out_image:
- 			image = NULL;
+ 	ctx.epilogue_offset = ctx.idx;
+@@ -2136,7 +2139,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
+ 	ctx.write = true;
+ 
+ 	/* Pass 3: Adjust jump offset and write final image */
+-	if (build_body(&ctx, extra_pass) ||
++	if (build_body(env, &ctx, extra_pass) ||
+ 		WARN_ON_ONCE(ctx.idx != ctx.epilogue_offset))
+ 		goto out_free_hdr;
+ 
 -- 
 2.43.0
 
