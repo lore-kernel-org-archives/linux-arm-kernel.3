@@ -4,91 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2DC9D730A9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 06:49:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5819D730A9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 06:49:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VZzYJ1OPaaFrBOFHgVd+bq+Znm9wwi1PJ8bRY8JaNa4=; b=TZMTWunmDUmd5qm2LsMtmYU5OJ
-	23OfkfBejiZH+2o55VkwTkmUhwgoaZnSXVlYgav908g/qT+xhCFIDm5eZGODEeJ+nzR7zUf4YBbD4
-	FQVBZEClwvbCQOK1HyHak5SP94X/auBdmMo58c9C27nIRIzxs1wKMMG01nKqIGSgMBcH41eEhUxfN
-	aa7sbAkcsAeocnDLpmjkgE6+7uqjf9GsUkKQRlY7kO42aV7rb2UOZINpg920uBhsHWo1Cc1RTphhn
-	8bc0a17qVZp2PDW4c54s7GiA04s3uTTySTdjVyyxZF07M3NEG06vRIbPaq7OvaVOGf3jGNNTXgCpo
-	gpJbz1ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UVDiR/387rcc5iosgK3Eo/Y5G2Be4ywKMU1i0407va4=; b=eEa4AzTh37pL1bpUP59+Xg4N25
+	ig1OMpAu7/qIgbpOQLRul1iBvtlox+5gy724sHE1TxXZhysGmJF0ht504PnSEmGkB5XmlPXPzJoz9
+	tkGPXYpUPs5qNvpSI3s12be+4V07D0Gx0Q3+gH0gpVtxgEL7SuS5rM9zVYm9ss0h+4wpTUK3J8zCp
+	2/X/MTIhUGyKcRlh37rZAxNXoKA4AgL335NEmWYwJtig5EkxQHy5zV63lVJPRm8lWcNq8LFjHBScL
+	YU9QwIM2MMNYoZq+sjMUnEKcg+yYdJlDl+Uw0pBUT1r+20p9F0Xg0hGVwYcdJg7FmrTxn8evDMpld
+	IkKvpeTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8YLO-00000001P9i-1iJy;
-	Fri, 03 Apr 2026 06:49:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w8YLn-00000001PDS-32TR;
+	Fri, 03 Apr 2026 06:49:51 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8YLM-00000001P9b-3kbl
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 06:49:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E291960008
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Apr 2026 06:49:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71C9FC19424;
-	Fri,  3 Apr 2026 06:49:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775198963;
-	bh=EsIjX7BTm3rJrR+xnTUlzZBz1FaVfcjsMT+3BL2b6Tk=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=lPU2xYfNVM7mP+/B9dBe/DhMIIc/4yQtOIuWMYy6BsUOG9fxtdUGp8J2TBOlG7q9a
-	 A7JhnZe5Xa1n6Wf2amtg0HcXvO+Bj/0aGNHI2Xb615mGjrOyhVZko597VTP05x3tO4
-	 tM/uvLb9Tr1MI9tGAiAgcQi3KrWxUpZhy7gzXANam1S2RKBoapBhalCYfYqsGOxxUo
-	 8P6mt/DpkhlI2WeuB3wDGnHEYmIfPKVE/QVp3lY1slAFRe3ZQ0dFkMIkUpysfq8X60
-	 xaam3N1+COMb2qQTAhJ6zHpvJzz5CD+GFJm3C+iWYXa+WLexLkTdBDeLhJOnWNsGSH
-	 oOv/1EF5aOgSg==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 66745F4006F;
-	Fri,  3 Apr 2026 02:49:22 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Fri, 03 Apr 2026 02:49:22 -0400
-X-ME-Sender: <xms:8mLPafDZKbDcCv7rtFg0a1ZRr0tFjiPfSSoflicr1_J9LKwxhsxm0g>
-    <xme:8mLPaQU_boBoLNUpgXrLjwHMbsEPmkyJPgljT98SR_M9072DGsABTXVG1tWIxrG8U
-    hqvioPBm5g7GL9nHnY6SyLjR0dS17O3PMmfQtEaQctLix_NpB9O3Q>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdekvdehucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
-    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
-    epofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcuuehi
-    vghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrghtth
-    gvrhhnpedvueehiedtvedtleekuddutefgffdtleetfeetveejveejieehfefhjeeijeef
-    udenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
-    guodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduieejtdehtddtjeelqdef
-    fedvudeigeduhedqrghruggspeepkhgvrhhnvghlrdhorhhgseifohhrkhhofhgrrhgurd
-    gtohhmpdhnsggprhgtphhtthhopeegpdhmohguvgepshhmthhpohhuthdprhgtphhtthho
-    peguvghmhigrnhhshhesghhmrghilhdrtghomhdprhgtphhtthhopegvsghighhgvghrsh
-    eskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghl
-    sehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqtg
-    hrhihpthhosehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:8mLPaSFZ-ZwcKrj5bnfF9mbOEhU6b78xY-AAkthe2XKwDhS06fH9tA>
-    <xmx:8mLPaYuslSy-uIQ_sgVoXWH7zmXRJ_AtjsFJuhgzSsOumQPv3HSdKQ>
-    <xmx:8mLPacU_ECrrWwZyQsF_j8e3dhAQiUuatQSMVTB5dFF2NiQSlfoatA>
-    <xmx:8mLPacG35MTpfhkBX9kJjScp0eoGHG-70SsoCJosTbyqooBPoP6tqA>
-    <xmx:8mLPaW3NBpxr-O7hmDA7augRB9A6FCItVZi0ZtZdwfxUeFwO-IKB2vYL>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 4431D700065; Fri,  3 Apr 2026 02:49:22 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1w8YLl-00000001PBH-1XBE;
+	Fri, 03 Apr 2026 06:49:50 +0000
+X-UUID: 4bf533fe2f2911f19e7563141e833ce8-20260402
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=UVDiR/387rcc5iosgK3Eo/Y5G2Be4ywKMU1i0407va4=;
+	b=XAeAKNFwVmjr7qkkuMAo4ETf2pIeNHvpVlDLzlaMkQTSHOXQiwMqif/oQe8vOLIEkjECYPKHBHyosVsM+DHgwwB9u7xisvhDSw4U72KjBeQRxR8eDtYmUsGzMw8DIvlCwesMOC6q44q8XSDtERfi+18vEfInVSuJiebqkFJkEgQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:ceebc0e7-8d2e-49d6-bb16-2033dd18ab95,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:e7bac3a,CLOUDID:63e174d5-060f-4ecc-9ee0-121eeeb4a682,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|865|888|898,TC:-5,Content:0|
+	15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0
+	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 4bf533fe2f2911f19e7563141e833ce8-20260402
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
+	(envelope-from <jianhua.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 699569643; Thu, 02 Apr 2026 23:49:43 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Fri, 3 Apr 2026 14:49:41 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Fri, 3 Apr 2026 14:49:40 +0800
+From: Jianhua Lin <jianhua.lin@mediatek.com>
+To: <nicolas@ndufresne.ca>, <mchehab@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-media@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
+	<jh.hsu@mediatek.com>, Jianhua Lin <jianhua.lin@mediatek.com>
+Subject: [PATCH v6 0/3] Mediatek MT8189 JPEG support
+Date: Fri, 3 Apr 2026 14:49:09 +0800
+Message-ID: <20260403064912.17259-1-jianhua.lin@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-X-ThreadId: AfnkVD7BdAFw
-Date: Fri, 03 Apr 2026 08:49:04 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Eric Biggers" <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- "Demian Shulhan" <demyansh@gmail.com>
-Message-Id: <9b5affa6-0e04-4256-b740-6ffdad1747b9@app.fastmail.com>
-In-Reply-To: <20260402234028.GA2256@sol>
-References: <20260330144630.33026-7-ardb@kernel.org>
- <20260401195943.GA2466@quark>
- <dc424b4a-11b5-475f-a53a-987b5813bac5@app.fastmail.com>
- <20260402234028.GA2256@sol>
-Subject: Re: [PATCH 0/5] crc64: Tweak intrinsics code and enable it for ARM
+Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260402_234949_425447_68309AA1 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,40 +89,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series is based on tag: next-20260327, linux-next/master
 
+Changes compared with v5:
+- Patches 1/3 (dt-bindings: decoder):
+  - Drop top-level minItems/maxItems for clock-names per Krzysztof's
+    review.
+  - Refine allOf block to strictly enforce clock constraints.
 
-On Fri, 3 Apr 2026, at 01:40, Eric Biggers wrote:
-> On Thu, Apr 02, 2026 at 10:52:17AM +0200, Ard Biesheuvel wrote:
->> 
->> On Wed, 1 Apr 2026, at 21:59, Eric Biggers wrote:
->> > On Mon, Mar 30, 2026 at 04:46:31PM +0200, Ard Biesheuvel wrote:
->> >> Apply some tweaks to the new arm64 crc64 NEON intrinsics code, and wire
->> >> it up for the 32-bit ARM build. Note that true 32-bit ARM CPUs usually
->> >> don't implement the prerequisite 64x64 PMULL instructions, but 32-bit
->> >> kernels are commonly used on 64-bit capable hardware too, which do
->> >> implement the 32-bit versions of the crypto instructions if they are
->> >> implemented for the 64-bit ISA (as per the architecture).
->> >> 
->> >> Cc: Demian Shulhan <demyansh@gmail.com>
->> >> Cc: Eric Biggers <ebiggers@kernel.org>
->> >> 
->> >> Ard Biesheuvel (5):
->> >>   lib/crc: arm64: Drop unnecessary chunking logic from crc64
->> >>   lib/crc: arm64: Use existing macros for kernel-mode FPU cflags
->> >>   ARM: Add a neon-intrinsics.h header like on arm64
->> >>   lib/crc: arm64: Simplify intrinsics implementation
->> >>   lib/crc: arm: Enable arm64's NEON intrinsics implementation of crc64
->> >
->> > I think patches 3 and 4 should be swapped, so it's cleanups first (which
->> > make sense regardless of the 32-bit ARM support) and then the 32-bit ARM
->> > support.
->> >
->> 
->> Ok.
->
-> I can also apply patches 1-2 and 4 now if you want.  Let me know if I
-> should do that or if a new version is coming.
->
+Changes compared with v4:
+- Refines the device tree bindings for JPEG decoder and encoder.
+  - Patches 1/3 (dt-bindings: decoder):
+    Moved the standalone compatible string mediatek,mt8189-jpgdec
+    into the first oneOf entry along with mt2701 and mt8173, as
+    suggested by Rob Herring. This correctly groups all independent
+    ICs and removes the redundant items wrapper.
+  - Patches 2/3 (dt-bindings: encoder):
+    Applied the same logic suggested by Rob Herring to the encoder
+    binding. Restructured the compatible property to clearly
+    distinguish between the standalone IC (mediatek,mt8189-jpgenc)
+    and the ICs that must fallback to mediatek,mtk-jpgenc.
 
-Yes, good idea. I'll take care of the ARM stuff next cycle.
+Changes compared with v3:
+- The v4 is resending the cover-letter, because the v3 cover-letter was
+  not sent successfully.
+
+Changes compared with v2:
+- Dropped the dts patch (arm64: dts: mt8188: update JPEG encoder/decoder
+  compatible) as it belongs to a different tree/series.
+- Patches 1/3 (dt-bindings: decoder):
+  - Changed the MT8189 compatible to be a standalone `const` instead of
+    an `enum`.
+  - Added an `allOf` block with conditional checks to enforce the single
+    clock ("jpgdec") requirement for MT8189, while preserving the
+    two-clock requirement for older SoCs.
+  - Updated commit message to reflect the schema structure changes and
+    hardware differences.
+- Patches 2/3 (dt-bindings: encoder):
+  - Changed the MT8189 compatible to be a standalone `const` instead of
+    an `enum` inside the `items` list, as it does not fallback to
+    "mediatek,mtk-jpgenc" due to 34-bit IOVA requirements.
+  - Updated commit message to explain the standalone compatible design.
+- Patches 3/3 (media: mediatek: jpeg):
+  - Refined commit message for better clarity regarding 34-bit IOVA and
+    single clock configuration.
+
+Changes compared with v1:
+- Patches 1/4:
+  - Updating commit message
+- Patches 2/4, 3/4: 
+  - Updating commit message
+  - Adjusted property descriptions acorrding to hardware requirements
+  - Improved formatting for better readability and consistency
+- Patches 4/4:
+  - Updating commit message
+
+Jianhua Lin (3):
+  dt-bindings: media: mediatek-jpeg-decoder: add MT8189 compatible
+    string
+  dt-bindings: media: mediatek-jpeg-encoder: add MT8189 compatible
+    string
+  media: mediatek: jpeg: add compatible for MT8189 SoC
+
+ .../bindings/media/mediatek-jpeg-decoder.yaml | 46 +++++++++++++++----
+ .../bindings/media/mediatek-jpeg-encoder.yaml | 19 +++++---
+ .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 44 ++++++++++++++++++
+ 3 files changed, 95 insertions(+), 14 deletions(-)
+
+-- 
+2.45.2
+
 
