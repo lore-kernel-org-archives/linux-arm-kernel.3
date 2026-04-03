@@ -4,80 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BDDED730AC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 07:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF392D730AC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 07:25:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M9YUctVfAtJIk1ZmXcJSd5NOCb5Fs4LOg6Ehx0OBRDQ=; b=2Yb64n+m51v6KKcxtWJT/Nv3sE
-	BIqYSOjrL9h/QOUdx222VLEFOaIyCyZevgwtR6NNSIFc/hxFmllLpyt4jhscNhsY8wS8qDqCuHyXA
-	8Dm7e/f92j5cu8ebP+MCVNFCufnRoWWff5yI6YIy4Ux4ZREbe5ulztgTnh72Ep7VO0gPFeZR35gSQ
-	IeIOnbbU74CusOZBnifgyrWRs3xks+D9OnbSN6jtBVzBDrwCDZh+e7JYj8sFSLqWcfqquubkMc+Vy
-	rgaJpVnznM/pEqUuIE+ZmsNIlq9WbMlUCS0mzi97VCQ/pV+25A3Y12P5zV1qpawM2jUcIFGm3f2M/
-	Suog+x8w==;
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5pCTJfDYr/r1hxWMxjtsdEhq89JT5cAfvqasjnMXAVQ=; b=gAUSSxTek0e9RAgN39uYqVPXY/
+	DC3HN9oZpM52MeFvRYLiO09/MOoUm58adK64Kg2NBKqsDdFaIj6yPYzvNQ8NjhQSVXwmozt7isnA5
+	9KWYQJITtw+TjngB+0EYs5WGxyXTRl3PwVnOmJyxYfIEEVs+in1ekUVs6jas2gRYfY6ZUoPFpq7tk
+	x83w9I92/Bb7+jHcw8I22kp3bifR2xTQ+kKx5Tpxmhs2Lp1I4fHLPrsBncdzA8M8iG6L+d4WG8gK0
+	JIH1Fz0iUf2U4vzEGw9D9ax/Khl9YOsM7IJjacRf7aO8fIlYVSHf5K39mpKqr+irKpum/KmJmO7iK
+	iE+LIcAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8YsL-00000001ZyK-1m8S;
-	Fri, 03 Apr 2026 07:23:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w8Yua-00000001b4n-2XMu;
+	Fri, 03 Apr 2026 07:25:48 +0000
+Received: from mail-24416.protonmail.ch ([109.224.244.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8YsI-00000001ZwH-2vyQ
+	id 1w8YuX-00000001b1U-0wBq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 07:23:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 959E54455E
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Apr 2026 07:23:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68E5AC4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Apr 2026 07:23:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775201005;
-	bh=X5jJUvqRgah6D4xreZa2cicuZ87mzGtemSdNEwIyCE8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=qbsrfuVDWXDD14HyUPLCwUoEA35b36V8S0xofxc6TYCTk1NGhobr8TzmodD/Smtx4
-	 i1QQs5kzFkuDbk/rvg3UozTwMytnG6oUaVI6ZgUWnRCT+4VNmCBHdf450IesQzuZ0q
-	 D4tp6UuHBdTfVkvzVGU8APuLPtyH/cN9I8meoXFtmPrO11do9hsn01I+J8U2+an6Ch
-	 5gRSGzScckRFAlp1KitJZc+tz+dp6bjBVwv7i4FeWztE1W2RIwDRZu/e9VPxeyknD5
-	 B60rdTQ3IYQfsel+S8iRlIbjOc7bOyopVHXNkSEijfCHsDZF5A0j6OvsyptvzNIJ79
-	 LSEB4VoLy9+Kg==
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-38a3066b68bso14777691fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 00:23:25 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXLoZg/De1s4FwAq3FXKr/kHssqwZ6sDZytDYGus7Pelfv7AmORkxLTF9K+wYnldwIoQ9tUV3G1magh+0+CSBkc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwbISrX403SOB8hf5hojrHoKr/Jvvba5C+PvxEF/El7wkdXuPD
-	nHnBoC7iexZ9riQgC6AoXwhAvGm1iDAU+Hg+2hwaOy7uQ7Rs/DKQHNrxyND6UljzTAPkkyoiXPm
-	SGC5RUsHd9ZwVC/94npLUQkhOKhku10IqhTyQHKni6w==
-X-Received: by 2002:a2e:be92:0:b0:38c:6979:f75d with SMTP id
- 38308e7fff4ca-38d91d89693mr6167751fa.34.1775201003957; Fri, 03 Apr 2026
- 00:23:23 -0700 (PDT)
+	Fri, 03 Apr 2026 07:25:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail; t=1775201139; x=1775460339;
+	bh=5pCTJfDYr/r1hxWMxjtsdEhq89JT5cAfvqasjnMXAVQ=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=HFHWonGpk9aE8W+tG0jj7FT5gRxUI96AMoxWku5LuYlA4y8ck0kEzGzEZ4DXRseQP
+	 krLDNeRJOE7LSYPbWZEHj7c6u4ht6vl3c0FslsHAwqwwy5j1W53p76r0Vx2ORjf+y9
+	 P+4MvDHnRGC6uiCWN/tuXGz+HPrlBOsbtYECiEfxK9e9O/Gtp0crxSB5x37C5jktYv
+	 gNftONlJt12wd0tuPmjswECZgxuLgTB8NhV6ZwrFeQWhns2S/kyciGJwCa6OgT4+H9
+	 qvtaKfknhnLUfsVpxrbUyf3b0/no4llk5p+K4h99hF62spJxYQpRVYJixXNTiFjj6V
+	 7H/ZJhIYfDO+A==
+Date: Fri, 03 Apr 2026 07:25:35 +0000
+To: heiko@sntech.de
+From: Clemens Malten <c.malten@proton.me>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Clemens Malten <c.malten@proton.me>
+Subject: [PATCH] arm64: dts: rockchip: odroid-m2: Enable DisplayPort Alt Mode over USB-C
+Message-ID: <20260403072408.44926-1-c.malten@proton.me>
+Feedback-ID: 133261535:user:proton
+X-Pm-Message-ID: 6e10c726fc4a3142f19f64eaf5dae528a9ac80d9
 MIME-Version: 1.0
-References: <20260402-nokia770-gpio-swnodes-v5-0-d730db3dd299@oss.qualcomm.com>
- <20260402-nokia770-gpio-swnodes-v5-4-d730db3dd299@oss.qualcomm.com> <ac6n1p3eLVFzumbt@google.com>
-In-Reply-To: <ac6n1p3eLVFzumbt@google.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Fri, 3 Apr 2026 09:23:11 +0200
-X-Gmail-Original-Message-ID: <CAMRc=MdZ7JRs3vvz5Rz7vMHYM1JQGRtVujRXeNhsz2igtDADEw@mail.gmail.com>
-X-Gm-Features: AQROBzAuWuJJYQfEE9L788n8ipCOf6hcvXwHusg9h7TnjUkNV2xHUaa0ho16T-M
-Message-ID: <CAMRc=MdZ7JRs3vvz5Rz7vMHYM1JQGRtVujRXeNhsz2igtDADEw@mail.gmail.com>
-Subject: Re: [PATCH v5 4/4] ARM: omap1: enable real software node lookup of
- GPIOs on Nokia 770
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Daniel Scally <djrscally@gmail.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
-	Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>, 
-	Russell King <linux@armlinux.org.uk>, Kevin Hilman <khilman@baylibre.com>, 
-	Arnd Bergmann <arnd@arndb.de>, driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-omap@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_002326_850800_AAE1F5BB 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20260403_002545_871242_AC14F2CA 
+X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,30 +67,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 2, 2026 at 7:32=E2=80=AFPM Dmitry Torokhov
-<dmitry.torokhov@gmail.com> wrote:
->
-> On Thu, Apr 02, 2026 at 04:15:05PM +0200, Bartosz Golaszewski wrote:
-> > @@ -244,6 +263,13 @@ static int __init omap16xx_gpio_init(void)
-> >               iounmap(base);
-> >
-> >               platform_device_register(omap16xx_gpio_dev[i]);
-> > +
-> > +             ret =3D device_add_software_node(&omap16xx_gpio_dev[i]->d=
-ev,
-> > +                                            omap16xx_gpio_swnodes[i]);
-> > +             if (ret) {
-> > +                     dev_err(&pdev->dev, "Failed to add software node.=
-\n");
-> > +                     return ret;
-> > +             }
->
-> I think the best and safest way is to convert to using
-> platform_driver_register_full() and set swnode in the relevant "info"
-> instance.
+Enable USB-C DisplayPort Alt Mode on the ODROID-M2 board (RK3588S) by
+adding the necessary DTS changes:
 
-For sure, that's the plan. I will respin this after v7.1-rc1 with that chan=
-ge.
+- Enable dp0 controller (dw-dp driver)
+- Add VOP2 video pipeline endpoints: vp2 -> dp0 -> usbdp_phy0
+- Fix try-power-role from 'source' to 'sink' to allow the board to
+  receive power and trigger correct PD negotiation
+- Add altmodes block to the USB-C connector with DP SVID (0xff01) and
+  VDO. Note: svid must be declared as a 16-bit value (/bits/ 16) as
+  required by the typec class driver (fwnode_property_read_u16)
 
-Bart
+Tested on ODROID-M2 (RK3588S) with a UGreen CM654 USB-C DP adapter
+under mainline Linux 6.19-rc.
+
+This patch depends on Andy Yan's RK3588 DisplayPort Controller series:
+Link: https://lore.kernel.org/all/20250822063959.692098-1-andyshrk@163.com/
+
+Signed-off-by: Clemens Malten <c.malten@proton.me>
+---
+ .../boot/dts/rockchip/rk3588s-odroid-m2.dts   | 29 ++++++++++++++++++-
+ 1 file changed, 28 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts b/arch/arm6=
+4/boot/dts/rockchip/rk3588s-odroid-m2.dts
+index a72063c55..dbc62f032 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
+@@ -352,7 +352,17 @@ connector {
+ =09=09=09power-role =3D "dual";
+ =09=09=09sink-pdos =3D <PDO_FIXED(5000, 1000, PDO_FIXED_USB_COMM)>;
+ =09=09=09source-pdos =3D <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
+-=09=09=09try-power-role =3D "source";
++=09=09=09try-power-role =3D "sink";
++
++=09=09=09altmodes {
++=09=09=09=09#address-cells =3D <1>;
++=09=09=09=09#size-cells =3D <0>;
++=09=09=09=09altmode@0 {
++=09=09=09=09=09reg =3D <0>;
++=09=09=09=09=09svid =3D /bits/ 16 <0xff01>;
++=09=09=09=09=09vdo =3D <0xffffffff>;
++=09=09=09=09};
++=09=09=09};
+=20
+ =09=09=09ports {
+ =09=09=09=09#address-cells =3D <1>;
+@@ -952,3 +962,20 @@ vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
+ =09=09remote-endpoint =3D <&hdmi0_in_vp0>;
+ =09};
+ };
++
++&dp0 {
++=09status =3D "okay";
++};
++
++&dp0_in {
++=09dp0_in_vp2: endpoint {
++=09=09remote-endpoint =3D <&vp2_out_dp0>;
++=09};
++};
++
++&vp2 {
++=09vp2_out_dp0: endpoint@a {
++=09=09reg =3D <ROCKCHIP_VOP2_EP_DP0>;
++=09=09remote-endpoint =3D <&dp0_in_vp2>;
++=09};
++};
+--=20
+2.53.0
+
+
 
