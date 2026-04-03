@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1459E7E34C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 09:02:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA76BE7E350
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 09:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qsj1RGLAszaRKzpMsR2E+ns4h5R80DTAT3PdStNjiP8=; b=u7L/TohBwJ2nNcfkSrUAKBnkLc
-	nkwZpzbvo4C2PNDBkkIbD0l1QVTKMaR0zFX1KBA4w1cKNmq0AU0VQvHRoICA2Lu5iFwHMdjdn1N3q
-	AI449nDKKHnqizhtCHE5N+gp5x2FBuRUvPQ4nBl7y0rD7GOMPewwS37uPAXeiSEZrAqlBi4tu93m4
-	06BZkUMGpGnxLInoaBUaA0GnigosJ1Wy12TC/IPBCjU1+LKNmvTpk6Os3RKF7KjWtuhOc7oScK2/3
-	vKne31kaar7J2HFeXq4dcsInoFUxDSAR6CfA7or14aVHjfGVlJZriLRB9L4Ui9Ilg66JUvAUcJUf6
-	22PfiMnA==;
+	bh=BeTldaeFKLb1jw+lVjLCkjUpuPTt3MmHsJN8YKLGAfM=; b=wxEnWtEr7NeCWRX/vZzi5LUimB
+	dh3by8u1kAloNOhlwIACHnSZI661FM3Rf7msUclve8D1w038lIiT6eYWmNSGs1vKyssPpYOPrbxLC
+	7QjKiBVupDy1Zpglcrrh3kPWExpc8GvePqcxjyZ9Hb6sGpFeTMQX+Vx55qstylIazGuLXp7BAcfYJ
+	whM/fBgkCpA5dJs29y/xt2foqt660vfzlKf/fBhThj1AokNHO3XLa/1FmjfmVeo6FdIf9NFSMYB+X
+	6RyUQ0HflsjuQp0RfQqXiBVn0s39wfXF+D2dr76qkv8KAHkSVBGSGZqfxBHrMJdjsP790R1es8Wbe
+	CBcDqrjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8aPs-00000001lVQ-1C4A;
-	Fri, 03 Apr 2026 09:02:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1w8aQk-00000001lbg-2gld;
+	Fri, 03 Apr 2026 09:03:06 +0000
+Received: from mail-vs1-f52.google.com ([209.85.217.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8aPq-00000001lVI-0W5h
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 03 Apr 2026 09:02:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Qsj1RGLAszaRKzpMsR2E+ns4h5R80DTAT3PdStNjiP8=; b=KQBe/JM8Vpxeobr0PRKoHo7GAG
-	R98x5c9nmWI8yDsd7DODlcHaJoQjhDoq6k9j+LsPKkFY7nIDmFLJMFOmCbsU6k4isrvdvY8zbU5XZ
-	l6wDn2ZpkM+gzdJ6dubc+jSUOaUNsUkwmAh3SR6HD2Yz8SZtcNZo0TM9edt+HlWuQ+ezdmu0tTCFo
-	z7RnxpGqOBAq8phdg8GaW2RAEePei8EuNRLMK2yWNSh38y0PRd1kLS/yavvG8+NRiQ1APyYVxe8aH
-	V76nrEnJjUXmSjGPdbwkLz/E7XhjIORFaFkaIndPDuLj20uVG9cIQhcsQuLvlzrZwm5KhUIsmlkm7
-	/ypgubSw==;
-Received: from mail-ua1-f42.google.com ([209.85.222.42])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8aPn-00000003rBz-0ihA
+	id 1w8aQi-00000001lao-2JtO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 09:02:08 +0000
-Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-94de664b541so523079241.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 02:02:06 -0700 (PDT)
+	Fri, 03 Apr 2026 09:03:05 +0000
+Received: by mail-vs1-f52.google.com with SMTP id ada2fe7eead31-60591ade110so1009036137.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 02:03:03 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775206925; x=1775811725;
+        d=1e100.net; s=20251104; t=1775206983; x=1775811783;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Qsj1RGLAszaRKzpMsR2E+ns4h5R80DTAT3PdStNjiP8=;
-        b=Ss9Te3aJ0UIi7zr5qD7az10DaNYY40oV6PeYYYzIGDrdasmJoMjziV3T4npAj81uMn
-         gBRdy1u1Cu7o15r+iEPt2dKhYX//uv1iQW4TkuzFPJBdlw9ayEWVC8NRPsFEx8Jgt57u
-         Oj8qKa55l77jenJ+g1lnWkhWHUvEAlEtW9YPEE23eCseaZM/goR/Az8tQjG8l9KVfwPn
-         I953aAtS9vWwviOSRCxS+JUAtU7LC2L1XGuLYT3ERDMkb5GFgR7+hg86oEkJ8ux4isPM
-         UK5cyda0RMldDBByCIWAhIi4ini3RTFdnmq9f+DphBlaMZ6vKkk8RYZwqeaNMSdYogpI
-         zW2w==
-X-Gm-Message-State: AOJu0Yz1iDDnYKspvRj37Ja1ECt59bAxE666+q5EABrYy88uoeZCtuI1
-	qCcjaMkdBuUjO2IJq0QZeKwx9rR5zJ3C2uC5p57wPShwXJJ39PIWaiO3kzqioFE4
-X-Gm-Gg: AeBDieuD+hkvHfP8pofqoP9ypJ5D1r2fp29U6tb+kuY+4zf7g1A+rij9jnI7LHIwFMX
-	c2LiFktuYlE+eAPlGLe4f7K/Jf2xvH6JW8N9T1m3RG8s3S/gxUBs9hIo2SJ/8AFYME6WEQHOZ7v
-	K0vJOKR8ifn9EOfvQJKww8+OFu/i6FDvzpS2syQhw5Ee2CTt0fI5+nY4LVKMekl2pohZsGRMrVK
-	WhWmVNVAYfjjUMj+/Qc9wCLBEUBlFXoxWE5F3Zs4t40F7yk2jZpJw6GN/SIPUTnG4CLUkiLIiav
-	Q2MPeVkSBXkuHchjwtHsI0q7s3pbTIFNEAJvJKPW9E/6y1XduNU353b0BVRal7vMzkvof7CU9st
-	S7XYdkh9MAAH4WdS630ZGTPaXTfnsAA6o5ofNRLLL4JIEosPMcyTwraqocspQI3UgitzMiP1Vqe
-	EeK6teC2rnbCkieC8Ms1ki8wa9qHc2tAb+zLCijUK8SHgOw3Mp9BdFhywPNcmoiXIP
-X-Received: by 2002:a05:6102:914:b0:603:dc3a:6f27 with SMTP id ada2fe7eead31-605a4fc7d46mr692147137.22.1775206924525;
-        Fri, 03 Apr 2026 02:02:04 -0700 (PDT)
-Received: from mail-vk1-f178.google.com (mail-vk1-f178.google.com. [209.85.221.178])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-60582e73126sm6908571137.4.2026.04.03.02.02.04
+        bh=BeTldaeFKLb1jw+lVjLCkjUpuPTt3MmHsJN8YKLGAfM=;
+        b=UfnMWWisUnnrceMq/Nk/b/Q70au4Rj5vwwoFNCUFm3bn7/UTtr2o5mYKAEPmHf8Wpy
+         dWP1Hj7/xKwZudbrfTb4RqMaajl260PFy1pMhD0hZspZOEfy5jWMx7jIX+2zpAqGqksQ
+         FzD94jx7k/S4wC0ozTybFNyJ/UcSDHGR6Hmv/2ygMUZAuJ0glezQ27L+0oNJ3VkU/1Ux
+         RSzXYPuLYRqGYXfBLsIaN57iza8R2dg/kjXcn9y1QoMMug644EqKa88qlDdwCS+VexRf
+         NkKhGpuN0zebdsbWXa6rAJwDds3AyGDKwi1998Eawz86dPSlWGZ3TrK8bfSNrWRekXlm
+         myxg==
+X-Gm-Message-State: AOJu0YxOJYfafTOTeONlh4Incfq56cevYWJMTBQjAI60z5BCpE6LUuGR
+	jHSTLNQmCYZ5CjvqI5lYFAUV29DtnwyhSuZSM9uqLiqapqtuo1iIuakKVWO59kCA
+X-Gm-Gg: AeBDiesauqRSSlruzwmdICDU96WJ7CHiLe7e514xlKhh/A0rr8aGtAG8gRpTgM4gAD1
+	+9s4Ajqyxu0D4w4XWkSHYrh4WJtxFq2I3INeuyzF0mXn8tr5fMNX+BSNbgzS1a0DTvFo8/ihoxR
+	Sal9nNyCB90RoS5I0deV5zVFnie0VstWcqMPpzY4ZyTkejBg2F7qHMBhp+AChMUUXzD+HoKCby8
+	tBpEQyCftc4xgYJt9CND9rii3083EZq9nxC06wDdAdgi11qKNdRnGMNYuNqHF2BwugDsvQ4ACKi
+	pWblOp6UDqLUIEEwAJtDTpxW0IvfDebjMzFlc9mYqT9YMQbz6Sc98yUd8iQKjzedg/VyRfzfuZs
+	FeneJbkx+2xF0LqUqtrGNQaWxNPFJRLYXqX73zPrWXpz5btWG+3psUpOGn9U+570gHHN2JGfh5m
+	QwPkk0WHdAhFKmre6Rf+0U75RK62igLwuulW4Hkq0pM3N0yod2is4nwYOrXvpX
+X-Received: by 2002:a05:6102:358d:b0:5ff:be25:894a with SMTP id ada2fe7eead31-605a5139644mr879425137.32.1775206981441;
+        Fri, 03 Apr 2026 02:03:01 -0700 (PDT)
+Received: from mail-ua1-f47.google.com (mail-ua1-f47.google.com. [209.85.222.47])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-605b214b45fsm586838137.5.2026.04.03.02.03.00
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 03 Apr 2026 02:02:04 -0700 (PDT)
-Received: by mail-vk1-f178.google.com with SMTP id 71dfb90a1353d-56d85881a68so663610e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 02:02:04 -0700 (PDT)
-X-Received: by 2002:a05:6122:d1e:b0:56c:ca38:ebeb with SMTP id
- 71dfb90a1353d-56dab8243c8mr760736e0c.2.1775206924117; Fri, 03 Apr 2026
- 02:02:04 -0700 (PDT)
+        Fri, 03 Apr 2026 02:03:00 -0700 (PDT)
+Received: by mail-ua1-f47.google.com with SMTP id a1e0cc1a2514c-9539d9f1675so1088236241.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 02:03:00 -0700 (PDT)
+X-Received: by 2002:a05:6102:801a:b0:605:8280:5e6b with SMTP id
+ ada2fe7eead31-605a5006639mr842406137.16.1775206980479; Fri, 03 Apr 2026
+ 02:03:00 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260326042411.215241-1-marek.vasut+renesas@mailbox.org> <20260326042411.215241-2-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260326042411.215241-2-marek.vasut+renesas@mailbox.org>
+References: <20260326042411.215241-1-marek.vasut+renesas@mailbox.org> <20260326042411.215241-3-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260326042411.215241-3-marek.vasut+renesas@mailbox.org>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 3 Apr 2026 11:01:53 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXCRCbqWdJMMEsJCbk2TFVxUurjOmFxwLMYxHzPdDCo5Q@mail.gmail.com>
-X-Gm-Features: AQROBzAnTN9lYrSaM9ZtCA2x2wm4A4eG7aiOhMzuh5U7vdK_Tlzo08dmx-AhkbM
-Message-ID: <CAMuHMdXCRCbqWdJMMEsJCbk2TFVxUurjOmFxwLMYxHzPdDCo5Q@mail.gmail.com>
-Subject: Re: [PATCH 1/4] arm64: dts: renesas: Fix missing cells and reg in
- Draak/Ebisu panel DTO
+Date: Fri, 3 Apr 2026 11:02:49 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVWrKfQSO4LHdDG6KV5tKahzpxN6073Mz4kjtF2MQRH_Q@mail.gmail.com>
+X-Gm-Features: AQROBzDCJPmdFGO3WLCOdZ77NkJ3IqtNsdBGX_ONT98Xal23qSXaiQziWiGG0kg
+Message-ID: <CAMuHMdVWrKfQSO4LHdDG6KV5tKahzpxN6073Mz4kjtF2MQRH_Q@mail.gmail.com>
+Subject: Re: [PATCH 2/4] arm64: dts: renesas: Fix missing cells and reg in
+ Salvator-X panel DTO
 To: Marek Vasut <marek.vasut+renesas@mailbox.org>
 Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
@@ -94,8 +79,8 @@ Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
 	linux-renesas-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_100207_292523_8C35B79D 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20260403_020304_590404_5D030B20 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,11 +97,11 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Thu, 26 Mar 2026 at 05:24, Marek Vasut
 <marek.vasut+renesas@mailbox.org> wrote:
-> Add missing cells and reg DT property into Draak/Ebisu panel DTO to fix
+> Add missing cells and reg DT property into Salvator-X panel DTO to fix
 > the following warning:
 >
 > "
-> arch/arm64/boot/dts/renesas/draak-ebisu-panel-aa104xd12.dtso:30.10-34.5: Warning (unit_address_vs_reg): /fragment@2/__overlay__/ports/port@1: node has a unit name, but no reg or ranges property
+> arch/arm64/boot/dts/renesas/salvator-panel-aa104xd12.dtso:30.10-34.5: Warning (unit_address_vs_reg): /fragment@2/__overlay__/ports/port@1: node has a unit name, but no reg or ranges property
 > "
 >
 > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
