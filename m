@@ -4,71 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C429E7E362
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 10:14:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72FCCE7E365
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Apr 2026 10:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CGMrmF2SzRznHLoDamGdHotrWFnuU2zov0LJJJgs24g=; b=Xqkj74xBmG/ySU7iXqdTL4T6gq
-	82j+CDR7oODmahoE8953j4OvV8moXVJ5tOmAkDwOsaPzYGwjnmWBlUj+n74NDj2PXSi3KcZtSwxRX
-	fpFMRzicx1o52NMXwbDBH+tgxyA4ovamYrfXkZrwdyaCz36Bt9/zXaW4q5eY5aIwlwRncFaKlExwg
-	kG93y+WKc4eYA7YjSKPPDgVYSNbki8dNrJelnSEZUbik6b2DHWxFJ9eDpQ4Og6ff+GGmwom1WVSj0
-	gGSYA1Y3UgFk0xKMZKUhbUjywPHUiJDNPEDed1/NNxiBlo+6UFm0yyIHTHz5e0VnIj5Nay/3aRaIb
-	XclPntKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jy8BkO3kiAA3oVj6TfrZh12oW7ljzxGoR7o/eK2BSPA=; b=NZgpk5mbQgN6G8dsSpkp+ZHxF/
+	/Fo27XLNhXzPvVXtaxiyqt37RAVUWqoGeZT8uKf6MFt0CB6JSU2M1Su6XbC29C5WETTwuKDqpuxec
+	ILW39SQ4iNdK1CfBPTFPXLrAQoZfheKsH43mQrZ7NzeqsKh1L29O5bIZdVhOYHhNlEWod+mRwARlo
+	cJ034SCDq9saanGcM7niEI1OIRZX/Qw49uLyfJfX9wI65zsn/OGn1zItQhnOr2dZrm8byAy4q5hyI
+	nYFELqAxIyQObZmyhWyj4b3SIjoKRi+m+fP+XJkDmUtyTqZMFaPXVqeVOCYxzOhs5TX7eLB7DZM3m
+	2eA/uHYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8bXl-00000001rxY-3tB3;
-	Fri, 03 Apr 2026 10:14:25 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1w8ba1-00000001sE5-2rxD;
+	Fri, 03 Apr 2026 10:16:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8bXi-00000001rwc-3MQg
+	id 1w8bZz-00000001sDa-2BtD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Apr 2026 10:14:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1775211262; x=1806747262;
-  h=date:from:to:cc:subject:message-id;
-  bh=BUo4n9LJXsm4HBVpebbhVjEP4vYmqz88m9l9k90MAxs=;
-  b=NwhyeTVBRG7ccIH/c3PaHpHfL1WcfstRoH+5Vr0eBydjGIKrdCbWzR7c
-   RbwnehqNhsGKiu9whgpSuCfW2fnjUfpTwsEHZBQkii0u4xYJONMxEIv47
-   NBeGY9jgDjEHRthxUwopzu12V6XiHYDB0VUg9dL7J+XvqIkegOoZ8DKIq
-   5d8xIqTR7kkBoqAW4yMHnMnfXOje9R4iAHRZepTlYadbc46LcWXbWA/A0
-   nHW4mXJMrAc8LMA0iW3ykp7f1aZo5Eq0+mVl2qrBX2dkw3uc4kqOPmEwj
-   750FlLk90CWWGox9W+T5rQO5ObhISvjroSVztSvpUFLcBKRjGeWsLFtkd
-   w==;
-X-CSE-ConnectionGUID: k8U3PUJzQraoazB8pIUpCA==
-X-CSE-MsgGUID: 5XJuLMLqRDK9vtfw8OGrZg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11747"; a="76338033"
-X-IronPort-AV: E=Sophos;i="6.23,157,1770624000"; 
-   d="scan'208";a="76338033"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Apr 2026 03:14:20 -0700
-X-CSE-ConnectionGUID: CdfW3EY/S++xDwQjhuIOdg==
-X-CSE-MsgGUID: UoXPdbzlRHuJdR4vS9B0Ww==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,157,1770624000"; 
-   d="scan'208";a="222867192"
-Received: from lkp-server01.sh.intel.com (HELO c7fa6caadbb2) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 03 Apr 2026 03:14:19 -0700
-Received: from kbuild by c7fa6caadbb2 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1w8bXc-0000000004B-41Ls;
-	Fri, 03 Apr 2026 10:14:16 +0000
-Date: Fri, 03 Apr 2026 18:13:50 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Kevin Hilman (TI)" <khilman@baylibre.com>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:omap/dt] BUILD SUCCESS
- 2c4059f54f65ff1ee2d430fa023d25487cfb5b99
-Message-ID: <202604031840.6GcCoqJz-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Fri, 03 Apr 2026 10:16:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C7C9141A1B;
+	Fri,  3 Apr 2026 10:16:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C875C19424;
+	Fri,  3 Apr 2026 10:16:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775211401;
+	bh=vJcrMCFWi3eVzyJNqr5vaLE810lzwaTLsguHO5sXDbE=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
+	b=ar2Nqmqrw2/cBEhIRcDPY5fAvwVyfVAcnpauo/1KqYBG2TCbSBd+9gEbEwRxvUDO1
+	 hFBOy3+D3FIw60MHO3K1Qp+vVCVkodRVdVJt3/1xfPJGYmW1Cze1Bz2q+J2u1y61pq
+	 lresNR+/SiKpq/FDqxNQuzYcI/yZeoy/xjiybBkm0FwFdRZdrS+50Kh9gZoor2TmiA
+	 qNKHw1uQKeGhx9JreI1mroZmZRT7tqq9j75FRZm1ItETTCIeV5GRL1pl4H1vYCrr3e
+	 zVkQnWTfIei6Z09bdqhDKjjErNF3pvZwz7c+cMfEXny2gwVt9v/UMOUWf07CNex89c
+	 N+JmIeVhByILQ==
+Content-Type: multipart/mixed; boundary="===============5612373391882020586=="
+MIME-Version: 1.0
+Message-Id: <03e4fec040d9458797f717e7778cc61a69ed1fd862782df81a7b59c82fad03c7@mail.kernel.org>
+In-Reply-To: <20260403090915.473493-2-xukuohai@huaweicloud.com>
+References: <20260403090915.473493-2-xukuohai@huaweicloud.com>
+Subject: Re: [PATCH bpf-next v11 1/5] bpf: Move constants blinding out of arch-specific JITs
+From: bot+bpf-ci@kernel.org
+To: xukuohai@huaweicloud.com,bpf@vger.kernel.org,linux-kernel@vger.kernel.org,linux-arm-kernel@lists.infradead.org
+Cc: ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,yonghong.song@linux.dev,puranjay@kernel.org,a.s.protopopov@gmail.com,alexis.lothore@bootlin.com,list+bpf@vahedi.org,linux@armlinux.org.uk,yangtiezhu@loongson.cn,hengqi.chen@gmail.com,johan.almbladh@anyfinetworks.com,paulburton@kernel.org,hbathini@linux.ibm.com,chleroy@kernel.org,naveen@kernel.org,luke.r.nels@gmail.com,xi.wang@gmail.com,bjorn@kernel.org,pulehui@huawei.com,iii@linux.ibm.com,hca@linux.ibm.com,gor@linux.ibm.com,davem@davemloft.net,udknight@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
+Date: Fri,  3 Apr 2026 10:16:41 +0000 (UTC)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260403_031422_851283_61F4E813 
-X-CRM114-Status: UNSURE (   5.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260403_031643_598357_9D362A66 
+X-CRM114-Status: GOOD (  20.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,193 +69,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git omap/dt
-branch HEAD: 2c4059f54f65ff1ee2d430fa023d25487cfb5b99  ARM: dts: am335x: Add Seeed Studio BeagleBone HDMI cape overlay
+--===============5612373391882020586==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-elapsed time: 742m
+> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+> index a431b7d50e1b..0d6bfccf0dd7 100644
+> --- a/kernel/bpf/verifier.c
+> +++ b/kernel/bpf/verifier.c
 
-configs tested: 173
-configs skipped: 137
+[ ... ]
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+> +static int jit_subprogs(struct bpf_verifier_env *env)
+> +{
+> +	int err, i;
+> +	bool blinded = false;
+> +	struct bpf_insn *insn;
+> +	struct bpf_prog *prog, *orig_prog;
+> +	u32 *orig_subprog_starts;
+> +
+> +	if (env->subprog_cnt <= 1)
+> +		return 0;
+> +
+> +	prog = orig_prog = env->prog;
+> +	if (bpf_prog_need_blind(orig_prog)) {
+> +		if (!IS_ENABLED(CONFIG_BPF_JIT_ALWAYS_ON)) {
+> +			orig_subprog_starts = dup_subprog_starts(env);
+> +			if (!orig_subprog_starts) {
+> +				err = -ENOMEM;
+> +				goto out_cleanup;
+> +			}
+> +		}
+> +		prog = bpf_jit_blind_constants(env, NULL);
+> +		if (IS_ERR(prog)) {
+> +			err = -ENOMEM;
+> +			goto out_restore;
 
-tested configs:
-alpha                             allnoconfig    gcc-15.2.0
-alpha                            allyesconfig    gcc-15.2.0
-alpha                               defconfig    gcc-15.2.0
-arc                              allmodconfig    clang-16
-arc                               allnoconfig    gcc-15.2.0
-arc                              allyesconfig    clang-23
-arc                                 defconfig    gcc-15.2.0
-arc                   randconfig-001-20260403    gcc-10.5.0
-arc                   randconfig-002-20260403    gcc-10.5.0
-arm                               allnoconfig    gcc-15.2.0
-arm                              allyesconfig    clang-16
-arm                                 defconfig    gcc-15.2.0
-arm                         orion5x_defconfig    clang-23
-arm                   randconfig-001-20260403    gcc-10.5.0
-arm                   randconfig-002-20260403    gcc-10.5.0
-arm                   randconfig-003-20260403    gcc-10.5.0
-arm                   randconfig-004-20260403    gcc-10.5.0
-arm                         vf610m4_defconfig    gcc-15.2.0
-arm64                            allmodconfig    clang-23
-arm64                             allnoconfig    gcc-15.2.0
-arm64                               defconfig    gcc-15.2.0
-arm64                 randconfig-001-20260403    gcc-13.4.0
-arm64                 randconfig-002-20260403    gcc-13.4.0
-arm64                 randconfig-003-20260403    gcc-13.4.0
-arm64                 randconfig-004-20260403    gcc-13.4.0
-csky                             allmodconfig    gcc-15.2.0
-csky                              allnoconfig    gcc-15.2.0
-csky                                defconfig    gcc-15.2.0
-csky                  randconfig-001-20260403    gcc-13.4.0
-csky                  randconfig-002-20260403    gcc-13.4.0
-hexagon                          allmodconfig    gcc-15.2.0
-hexagon                           allnoconfig    gcc-15.2.0
-hexagon                             defconfig    gcc-15.2.0
-hexagon               randconfig-001-20260403    clang-23
-hexagon               randconfig-002-20260403    clang-23
-i386                             allmodconfig    clang-20
-i386                              allnoconfig    gcc-15.2.0
-i386                             allyesconfig    clang-20
-i386        buildonly-randconfig-001-20260403    gcc-14
-i386        buildonly-randconfig-002-20260403    gcc-14
-i386        buildonly-randconfig-003-20260403    gcc-14
-i386        buildonly-randconfig-004-20260403    gcc-14
-i386        buildonly-randconfig-005-20260403    gcc-14
-i386        buildonly-randconfig-006-20260403    gcc-14
-i386                                defconfig    gcc-15.2.0
-i386                  randconfig-001-20260403    gcc-14
-i386                  randconfig-002-20260403    gcc-14
-i386                  randconfig-003-20260403    gcc-14
-i386                  randconfig-004-20260403    gcc-14
-i386                  randconfig-005-20260403    gcc-14
-i386                  randconfig-006-20260403    gcc-14
-i386                  randconfig-007-20260403    gcc-14
-i386                  randconfig-011-20260403    clang-20
-i386                  randconfig-012-20260403    clang-20
-i386                  randconfig-013-20260403    clang-20
-i386                  randconfig-014-20260403    clang-20
-i386                  randconfig-015-20260403    clang-20
-i386                  randconfig-016-20260403    clang-20
-i386                  randconfig-017-20260403    clang-20
-loongarch                        allmodconfig    clang-23
-loongarch                         allnoconfig    gcc-15.2.0
-loongarch                           defconfig    clang-19
-loongarch             randconfig-001-20260403    clang-23
-loongarch             randconfig-002-20260403    clang-23
-m68k                             allmodconfig    gcc-15.2.0
-m68k                              allnoconfig    gcc-15.2.0
-m68k                             allyesconfig    clang-16
-m68k                                defconfig    clang-19
-microblaze                        allnoconfig    gcc-15.2.0
-microblaze                       allyesconfig    gcc-15.2.0
-microblaze                          defconfig    clang-19
-mips                             allmodconfig    gcc-15.2.0
-mips                              allnoconfig    gcc-15.2.0
-mips                             allyesconfig    gcc-15.2.0
-mips                     cu1830-neo_defconfig    gcc-15.2.0
-mips                      fuloong2e_defconfig    gcc-15.2.0
-nios2                            allmodconfig    clang-23
-nios2                             allnoconfig    clang-23
-nios2                               defconfig    clang-19
-nios2                 randconfig-001-20260403    clang-23
-nios2                 randconfig-002-20260403    clang-23
-openrisc                         allmodconfig    clang-23
-openrisc                          allnoconfig    clang-23
-openrisc                            defconfig    gcc-15.2.0
-parisc                           allmodconfig    gcc-15.2.0
-parisc                            allnoconfig    clang-23
-parisc                           allyesconfig    clang-19
-parisc                              defconfig    gcc-15.2.0
-parisc                randconfig-001-20260403    gcc-10.5.0
-parisc                randconfig-002-20260403    gcc-10.5.0
-parisc64                            defconfig    clang-19
-powerpc                          allmodconfig    gcc-15.2.0
-powerpc                           allnoconfig    clang-23
-powerpc               randconfig-001-20260403    gcc-10.5.0
-powerpc               randconfig-002-20260403    gcc-10.5.0
-powerpc                     tqm5200_defconfig    gcc-15.2.0
-powerpc64             randconfig-001-20260403    gcc-10.5.0
-powerpc64             randconfig-002-20260403    gcc-10.5.0
-riscv                            allmodconfig    clang-23
-riscv                             allnoconfig    clang-23
-riscv                            allyesconfig    clang-16
-riscv                               defconfig    gcc-15.2.0
-riscv                 randconfig-001-20260403    clang-23
-riscv                 randconfig-002-20260403    clang-23
-s390                             allmodconfig    clang-19
-s390                              allnoconfig    clang-23
-s390                             allyesconfig    gcc-15.2.0
-s390                                defconfig    gcc-15.2.0
-s390                  randconfig-001-20260403    clang-23
-s390                  randconfig-002-20260403    clang-23
-sh                               allmodconfig    gcc-15.2.0
-sh                                allnoconfig    clang-23
-sh                               allyesconfig    clang-19
-sh                                  defconfig    gcc-14
-sh                     magicpanelr2_defconfig    gcc-15.2.0
-sh                    randconfig-001-20260403    clang-23
-sh                    randconfig-002-20260403    clang-23
-sparc                             allnoconfig    clang-23
-sparc                               defconfig    gcc-15.2.0
-sparc                 randconfig-001-20260403    clang-20
-sparc                 randconfig-002-20260403    clang-20
-sparc64                          allmodconfig    clang-23
-sparc64                             defconfig    gcc-14
-sparc64               randconfig-001-20260403    clang-20
-sparc64               randconfig-002-20260403    clang-20
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-23
-um                               allyesconfig    gcc-15.2.0
-um                                  defconfig    gcc-14
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20260403    clang-20
-um                    randconfig-002-20260403    clang-20
-um                           x86_64_defconfig    gcc-14
-x86_64                           allmodconfig    clang-20
-x86_64                            allnoconfig    clang-23
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20260403    clang-20
-x86_64      buildonly-randconfig-002-20260403    clang-20
-x86_64      buildonly-randconfig-003-20260403    clang-20
-x86_64      buildonly-randconfig-004-20260403    clang-20
-x86_64      buildonly-randconfig-005-20260403    clang-20
-x86_64      buildonly-randconfig-006-20260403    clang-20
-x86_64                              defconfig    gcc-14
-x86_64                                  kexec    clang-20
-x86_64                randconfig-001-20260403    clang-20
-x86_64                randconfig-002-20260403    clang-20
-x86_64                randconfig-003-20260403    clang-20
-x86_64                randconfig-004-20260403    clang-20
-x86_64                randconfig-005-20260403    clang-20
-x86_64                randconfig-006-20260403    clang-20
-x86_64                randconfig-011-20260403    gcc-14
-x86_64                randconfig-012-20260403    gcc-14
-x86_64                randconfig-013-20260403    gcc-14
-x86_64                randconfig-014-20260403    gcc-14
-x86_64                randconfig-015-20260403    gcc-14
-x86_64                randconfig-016-20260403    gcc-14
-x86_64                randconfig-071-20260403    gcc-14
-x86_64                randconfig-072-20260403    gcc-14
-x86_64                randconfig-073-20260403    gcc-14
-x86_64                randconfig-074-20260403    gcc-14
-x86_64                randconfig-075-20260403    gcc-14
-x86_64                randconfig-076-20260403    gcc-14
-x86_64                               rhel-9.4    clang-20
-x86_64                           rhel-9.4-bpf    gcc-14
-x86_64                          rhel-9.4-func    clang-20
-x86_64                    rhel-9.4-kselftests    clang-20
-x86_64                         rhel-9.4-kunit    gcc-14
-x86_64                           rhel-9.4-ltp    gcc-14
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                            allnoconfig    clang-23
-xtensa                           allyesconfig    clang-23
-xtensa                randconfig-001-20260403    clang-20
-xtensa                randconfig-002-20260403    clang-20
+When bpf_jit_blind_constants() fails, prog holds an ERR_PTR value.
+The goto out_restore falls through to out_cleanup which dereferences
+prog:
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+    prog->jit_requested = 0;
+
+That would be dereferencing ERR_PTR(-ENOMEM).
+
+> +		}
+> +		blinded = true;
+> +	}
+> +
+> +	err = __jit_subprogs(env);
+> +	if (blinded) {
+> +		if (err) {
+> +			bpf_jit_prog_release_other(orig_prog, prog);
+
+Similarly, when blinding succeeds but __jit_subprogs() fails,
+bpf_jit_prog_release_other() frees the clone through
+bpf_prog_clone_free(). After this, prog points to freed memory,
+and the goto out_restore falls through to out_cleanup where
+prog->jit_requested is a use-after-free.
+
+Both paths could use orig_prog (or env->prog, which was restored)
+at out_cleanup instead of the stale prog local variable.
+
+> +			/* roll back to the clean original prog */
+> +			env->prog = orig_prog;
+> +			goto out_restore;
+> +		} else {
+> +			bpf_jit_prog_release_other(prog, orig_prog);
+> +			if (!IS_ENABLED(CONFIG_BPF_JIT_ALWAYS_ON))
+> +				kvfree(orig_subprog_starts);
+> +		}
+> +	} else if (err) {
+> +		/* We will fall back to interpreter mode when err is not -EFAULT, before
+> +		 * that, insn->off and insn->imm should be restored to their original values
+> +		 * since they were modified by __jit_subprogs.
+> +		 */
+> +		if (err != EFAULT) {
+
+The comment says "when err is not -EFAULT" but the code checks
+err != EFAULT (positive 14).  Since __jit_subprogs() returns
+negative error codes, this condition is always true.  Should this
+be err != -EFAULT?
+
+> +			for (i = 0, insn = prog->insnsi; i < prog->len; i++, insn++) {
+> +				if (!bpf_pseudo_call(insn))
+> +					continue;
+> +				insn->off = 0;
+> +				insn->imm = env->insn_aux_data[i].call_imm;
+> +			}
+> +		}
+> +		goto out_cleanup;
+> +	}
+> +
+> +	return 0;
+> +
+> +out_restore:
+> +	if (!IS_ENABLED(CONFIG_BPF_JIT_ALWAYS_ON)) {
+> +		restore_subprog_starts(env, orig_subprog_starts);
+> +		kvfree(orig_subprog_starts);
+> +	}
+> +out_cleanup:
+> +	/* cleanup main prog to be interpreted */
+> +	prog->jit_requested = 0;
+> +	prog->blinding_requested = 0;
+>  	return err;
+>  }
+
+[ ... ]
+
+> @@ -26456,7 +26529,7 @@ int bpf_check(struct bpf_prog **prog, union bpf_attr *attr, bpfptr_t uattr, __u3
+>  err_unlock:
+>  	if (!is_priv)
+>  		mutex_unlock(&bpf_verifier_lock);
+> -	clear_insn_aux_data(env, 0, env->prog->len);
+> +	clear_insn_aux_data(env, 0, env->blinded_insn_aux_len ? : env->prog->len);
+
+When blinding succeeds but JIT fails and jit_subprogs() rolls back
+env->prog to the original (shorter) program, blinded_insn_aux_len
+is larger than env->prog->len.
+
+clear_insn_aux_data() iterates to blinded_insn_aux_len and calls
+bpf_is_ldimm64(&insns[i]) on each entry.  The insns array comes
+from env->prog->insnsi, which only has env->prog->len entries.
+Can this read past the end of the program instructions array?
+
+>  	vfree(env->insn_aux_data);
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/23941975318
+--===============5612373391882020586==--
 
