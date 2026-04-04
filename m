@@ -4,62 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E52B6E88D73
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 02:34:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 345FEE88D86
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 05:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+yda7erg1Jay2VaQllefXqC7meReiz4dcH2BXHM9SW0=; b=iyMLVXQ7F/1NdTnqd/jNjnHO4P
-	2nBono1oQSY7UthHotHuZCZNYYFgd7Gn/GGaL/cpIS8qj9GJ0BzGbDXD//1whjo3+62904ijLJPuK
-	nRU/Mf+JTbz4ropINhHUjKfBF3+EFj7t89Jl3LAzUg3a8/MUdGvRQH07wWHrJlCN14rMU6JC9Alvp
-	Q3Hn7hjb66vA6Q5wn09eZevfP5glIwIAWaZeAzzAfPsTdy0hsSnkcCnTdK3L2ey2OZN+mCZV3diKS
-	6GSQ+06p7YpFDmbZwlJTr2YMUw1F9GWeHvMXGQzq94yscoOKU2+EfiqY1nsEBUAtUvUb+G4gBx6eN
-	Y+h1xbvw==;
+	bh=q0bWS7IQWf/pTrd7yQAODT3hHm6x/5r6ulA0C6sdgYw=; b=j6Ffi3ihedAMJMzWlNkiqPwH+w
+	7CB8YfS/8TcxGDswbTKrS3Fn6dpK5o23E1Y8Apv0MmQBVnQnqYFR+8HxuFGrNsIWSkl+xhdTdytbl
+	xu343O0pRz47YWVemitLO5yLONcnQCwpvM2rCS6F6F50vecQvn/w9F+7V4OgEWqc2E/gqtHYVOMvM
+	0oN32Ho0mdvMU+fcHiFKWIuLI4Q5neHR0QsKLfsTRUghp9AbZleQ0SvyjlzoayezjeZ2jzUlNO5eB
+	P5TYcVm4qXrLHDXTyYKTREVIogBNYP7KscgzOQayNREsrSVUQqlodYvn63NPJBm2vOMlOI9cjtSjJ
+	cm7wMmdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8qpu-0000000335Q-3rG9;
-	Sat, 04 Apr 2026 02:34:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w8tka-00000003ABf-0F51;
+	Sat, 04 Apr 2026 05:40:52 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8qpt-0000000335K-2Pth
+	id 1w8tkW-00000003A9P-37li
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Apr 2026 02:34:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 354DF60008;
-	Sat,  4 Apr 2026 02:34:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E7F4C4CEF7;
-	Sat,  4 Apr 2026 02:34:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775270046;
-	bh=ov2H8JzYKmYOc6CcKNfzyC7ZEUeHD2YB4AVNGff6iNI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Sl9mBwBOOKMXn8NEElmhNDOFCe0AXa8FhEfUbyBjxm5l1b1rOhI/gHTHEbFK3AWzy
-	 urFBnB5FEIhF66/Ht5mew/l0VFBEKCT/mwFHunY4bBlEqKqo9NwjxJVVbzyOVkr2k+
-	 wkqDKW/wxQHeCiQikMP+4LfwkyP52a1ne2M5RVkUSCG/5miKkLabfTe62B6W41dHGV
-	 aBPyiZJ2tCeXJwDYM+/6GyDrE4V6imIR0SYqPWE0FhMGUA4nH1A7FmFg+lH1jk14D6
-	 rx6HjQ+gPZptXGbXO9YIu8xjzUhY5F3qQ4GwuK3TdTlhsx9TgOJTNFJmFCcNQgmFvu
-	 cRNEQX6geTkzw==
-Date: Sat, 4 Apr 2026 08:03:53 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Richard Zhu <hongxing.zhu@nxp.com>, frank.li@nxp.com, 
-	l.stach@pengutronix.de, lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
-	bhelgaas@google.com, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v3] PCI: imx6: Don't remove MSI capability for
- i.MX7D/i.MX8M
-Message-ID: <sp2jnu23k6gy2kgpdmwajmz65nah6pdgwjja7apq3ewoqmm2rd@qsaqikndaofl>
-References: <20260331085252.1243108-1-hongxing.zhu@nxp.com>
- <20260403215656.GA360979@bhelgaas>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260403215656.GA360979@bhelgaas>
+	Sat, 04 Apr 2026 05:40:49 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2bdf75bc88fso3127838eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Apr 2026 22:40:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1775281246; x=1775886046; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=q0bWS7IQWf/pTrd7yQAODT3hHm6x/5r6ulA0C6sdgYw=;
+        b=Y6BuDieLVaRLqQBdlvGJkSCjXsy2aHcmzo3jPnqaj4i8pmrt6niVR+YYIGSXCIOQZU
+         ZD7MZTvzyo2eNSm5IoS7ioTtJPMEE8ytl3sddV1m3ZUFeq3Wzaea20dcYHLIX2Eq6mxj
+         FF2xD5s8hUzkh8rp2pI/gSUDU5VfJHLn0gjxVwZyJvLAUlif6acX2cPwiNiehTkmB4L3
+         jS4zT5yvcwkfgCrnjZGsQUhVvkWaKz99pkvnmPf5bxTimagf45QL+qgRR5DUt6VrMcDS
+         5LWQnTtgybeW07W4SLNNNGSfV9pyDO8Hwn9Vz9eNS/QV7DOma2E+wFP2iVMSCDGdzHJh
+         Ncgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775281246; x=1775886046;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=q0bWS7IQWf/pTrd7yQAODT3hHm6x/5r6ulA0C6sdgYw=;
+        b=jURs8bVo4Fa5xs/ziC/cBpWg4aJSZbCELkU7TbIl1MmVFFoMxZrSZ6UJQ8CJnyGqpP
+         jOrr/JWQDqQxT5ErDhkRKHKYPGm3iupCrOLAttNjqQ4OLe6eO6WxwdENAZCtO3zj/5YY
+         a4jLFWwZosZQJ1k/50NNDps680IoJGNb3yoU2uu+I00OPJT7TNs1jUkcs1bGN7BvrOD5
+         c7Hn2Em3HMQJdz7+IukiJww/YpKtwU/HOrm2LQeNBo0K66QIN05kIxPnf2pU3eEL6h2d
+         uJg3Fzc+p7lrOkPEXqCRHy4jwIGOJIs6zI+WmKYJIUrEPH//yWi09l//iAcLXnKYXnnN
+         bDAA==
+X-Forwarded-Encrypted: i=1; AJvYcCXu8oyyQEd8ZV7wG8DULwzThWs7YlNS5QxqAi2/IR+HM4rUIeWzFU/fW808PDV6KM2op9I4KHwR1SwzxB0x17YX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7qzJX+cQrKXzK4BWJfwWNcFV9P5lrdTB+but5VKNSIthfMFyK
+	0gRtsjjkL6lmUAazhrn7AZbSR+NxKdqS3Yf4HQ1/wDQ2y+x/WdnuuK7U60Ib5VokQYAyOO+hy/1
+	byBJwQ+oXqg==
+X-Received: from dybmx6.prod.google.com ([2002:a05:7300:d406:b0:2c1:5b29:d58f])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:3005:b0:2ca:2f21:64da
+ with SMTP id 5a478bee46e88-2cbf6a8e179mr2811537eec.0.1775281246342; Fri, 03
+ Apr 2026 22:40:46 -0700 (PDT)
+Date: Fri,  3 Apr 2026 22:40:24 -0700
+In-Reply-To: <20260305221927.3237145-1-irogers@google.com>
+Mime-Version: 1.0
+References: <20260305221927.3237145-1-irogers@google.com>
+X-Mailer: git-send-email 2.53.0.1213.gd9a14994de-goog
+Message-ID: <20260404054032.1538095-1-irogers@google.com>
+Subject: [PATCH v3 0/8] perf libunwind multiple remote support
+From: Ian Rogers <irogers@google.com>
+To: acme@kernel.org
+Cc: irogers@google.com, 9erthalion6@gmail.com, adrian.hunter@intel.com, 
+	alex@ghiti.fr, alexander.shishkin@linux.intel.com, 
+	andrew.jones@oss.qualcomm.com, aou@eecs.berkeley.edu, atrajeev@linux.ibm.com, 
+	blakejones@google.com, ctshao@google.com, dapeng1.mi@linux.intel.com, 
+	howardchu95@gmail.com, james.clark@linaro.org, john.g.garry@oracle.com, 
+	jolsa@kernel.org, leo.yan@linux.dev, libunwind-devel@nongnu.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	mingo@redhat.com, namhyung@kernel.org, palmer@dabbelt.com, 
+	peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com, 
+	tglozar@redhat.com, tmricht@linux.ibm.com, will@kernel.org, yuzhuo@google.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260403_224048_782556_ED38934D 
+X-CRM114-Status: GOOD (  19.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,135 +97,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 03, 2026 at 04:56:56PM -0500, Bjorn Helgaas wrote:
-> On Tue, Mar 31, 2026 at 04:52:52PM +0800, Richard Zhu wrote:
-> > The MSI trigger mechanism for endpoint devices connected to i.MX7D,
-> > i.MX8MM, and i.MX8MQ PCIe root complex ports depends on the MSI
-> > capability register settings in the root complex. Removing the MSI
-> > capability breaks MSI functionality for these endpoints.
-> > 
-> > Add keep_rp_msi_en flag to indicate platforms (i.MX7D, i.MX8MM, i.MX8MQ)
-> > that should preserve the MSI capability during initialization.
-> 
-> I guess Mani added this to the commit log:
-> 
->   Note that by keeping Root Port MSI capability, Root Port MSIs such as AER,
->   PME and others won't be received by default. So users need to use
->   workarounds such as passing 'pcie_pme=nomsi' cmdline param.
-> 
+Fix the libunwind build for when libdw and libunwind are feature
+detected, currently failing with a duplicate symbol.
 
-Yes, I did.
+Refactor the libunwind support so that whenever a remote target is
+available, perf functions using the ELF machine can use that remote
+target regardless of what the host/local machine is. Migrate existing
+libunwind supported architectures like powerpc, arm64 and loongarch so
+that they can work in a cross-architecture way. Add support for
+RISC-V. Make the code more regular in function names, etc. and avoid
+including a C-file. This increases the lines of code. It is similar in
+style to the unwind-libdw implementation. It is hoped that the more
+uniform nature of the code with help with refactoring the perf
+registers for SIMD/APX support.
 
-> Why can't we fix this automatically?  I hate it when users are
-> expected to use command line parameters to work around issues.
-> 
-> Obviously we know at probe-time, before any PCI devices are
-> enumerated, so it seems like we should be able to do the equivalent of
-> "pcie_pme=nomsi" even without the parameter.
-> 
+Aside from local host testing these patches are under tested, in part
+as I'm failing to see how to build libunwind with support for multiple
+remote targets. Please could I get help in testing.
 
-That's why we came up with the idea of disabling the MSI/MSI-X capabilities of
-the Root Port so that the code falls back to INTx. But the issue is that,
-disabling that capability or MSI Enable bit (mayebe?) prevents endpoint MSIs
-from being received. We don't know exactly what's going on inside the hardware
-though. But is broken at its best. Fortunately, this behavior only applies to a
-subset of the NXP SoCs.
+v3: Minor whitespace clean up and warn when a dynamic choice of libdw
+    or libunwind is selected for unwinding and support is missing (Arnaldo).
 
-- Mani
+v2: Move two fixes patches to position 1 and 2 in the series. Fix
+    struct naming inconsistency, Andrew Jones
+    <andrew.jones@oss.qualcomm.com>. Fix other inconsistencies and
+    potential non-x86 build issues.
+https://lore.kernel.org/lkml/20260305221927.3237145-1-irogers@google.com/
 
-> > Cc: stable@vger.kernel.org
-> > Fixes: f5cd8a929c825 ("PCI: dwc: Remove MSI/MSIX capability for Root Port if iMSI-RX is used as MSI controller")
-> > Suggested-by: Manivannan Sadhasivam <mani@kernel.org>
-> > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> > ---
-> > v3 changes:
-> > Use a flag 'dw_pcie_rp::keep_rp_msi_en' to identify SoCs that require MSI
-> > capability preservation, and skip the capability removal in
-> > pcie-designware-host.c accordingly.
-> > 
-> > v2 changes:
-> > CC stable tree.
-> > ---
-> >  drivers/pci/controller/dwc/pci-imx6.c             | 7 +++++++
-> >  drivers/pci/controller/dwc/pcie-designware-host.c | 2 +-
-> >  drivers/pci/controller/dwc/pcie-designware.h      | 1 +
-> >  3 files changed, 9 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> > index 20dafd2710a3..fde173770933 100644
-> > --- a/drivers/pci/controller/dwc/pci-imx6.c
-> > +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> > @@ -117,6 +117,8 @@ enum imx_pcie_variants {
-> >  #define IMX_PCIE_FLAG_HAS_LUT			BIT(10)
-> >  #define IMX_PCIE_FLAG_8GT_ECN_ERR051586		BIT(11)
-> >  #define IMX_PCIE_FLAG_SKIP_L23_READY		BIT(12)
-> > +/* Preserve MSI capability for platforms that require it */
-> > +#define IMX_PCIE_FLAG_KEEP_MSI_CAP		BIT(13)
-> >  
-> >  #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
-> >  
-> > @@ -1820,6 +1822,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
-> >  	} else {
-> >  		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_SKIP_L23_READY))
-> >  			pci->pp.skip_l23_ready = true;
-> > +		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_KEEP_MSI_CAP))
-> > +			pci->pp.keep_rp_msi_en = true;
-> >  		pci->pp.use_atu_msg = true;
-> >  		ret = dw_pcie_host_init(&pci->pp);
-> >  		if (ret < 0)
-> > @@ -1897,6 +1901,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
-> >  	[IMX7D] = {
-> >  		.variant = IMX7D,
-> >  		.flags = IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
-> > +			 IMX_PCIE_FLAG_KEEP_MSI_CAP |
-> >  			 IMX_PCIE_FLAG_HAS_APP_RESET |
-> >  			 IMX_PCIE_FLAG_SKIP_L23_READY |
-> >  			 IMX_PCIE_FLAG_HAS_PHY_RESET,
-> > @@ -1909,6 +1914,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
-> >  	[IMX8MQ] = {
-> >  		.variant = IMX8MQ,
-> >  		.flags = IMX_PCIE_FLAG_HAS_APP_RESET |
-> > +			 IMX_PCIE_FLAG_KEEP_MSI_CAP |
-> >  			 IMX_PCIE_FLAG_HAS_PHY_RESET |
-> >  			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
-> >  		.gpr = "fsl,imx8mq-iomuxc-gpr",
-> > @@ -1923,6 +1929,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
-> >  	[IMX8MM] = {
-> >  		.variant = IMX8MM,
-> >  		.flags = IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
-> > +			 IMX_PCIE_FLAG_KEEP_MSI_CAP |
-> >  			 IMX_PCIE_FLAG_HAS_PHYDRV |
-> >  			 IMX_PCIE_FLAG_HAS_APP_RESET,
-> >  		.gpr = "fsl,imx8mm-iomuxc-gpr",
-> > diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > index a74339982c24..7b5558561e15 100644
-> > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > @@ -1171,7 +1171,7 @@ int dw_pcie_setup_rc(struct dw_pcie_rp *pp)
-> >  	 * the MSI and MSI-X capabilities of the Root Port to allow the drivers
-> >  	 * to fall back to INTx instead.
-> >  	 */
-> > -	if (pp->use_imsi_rx) {
-> > +	if (pp->use_imsi_rx && !pp->keep_rp_msi_en) {
-> >  		dw_pcie_remove_capability(pci, PCI_CAP_ID_MSI);
-> >  		dw_pcie_remove_capability(pci, PCI_CAP_ID_MSIX);
-> >  	}
-> > diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-> > index ae6389dd9caa..b12c5334552c 100644
-> > --- a/drivers/pci/controller/dwc/pcie-designware.h
-> > +++ b/drivers/pci/controller/dwc/pcie-designware.h
-> > @@ -421,6 +421,7 @@ struct dw_pcie_host_ops {
-> >  
-> >  struct dw_pcie_rp {
-> >  	bool			use_imsi_rx:1;
-> > +	bool			keep_rp_msi_en:1;
-> >  	bool			cfg0_io_shared:1;
-> >  	u64			cfg0_base;
-> >  	void __iomem		*va_cfg0_base;
-> > -- 
-> > 2.37.1
-> > 
+v1: https://lore.kernel.org/lkml/20260224142938.26088-1-irogers@google.com/
+
+Ian Rogers (8):
+  perf unwind: Refactor get_entries to allow dynamic libdw/libunwind
+    selection
+  perf build loongarch: Remove reference to missing file
+  tools build: Deduplicate test-libunwind for different architectures
+  perf build: Be more programmatic when setting up libunwind variables
+  perf unwind-libunwind: Make libunwind register reading cross platform
+  perf unwind-libunwind: Move flush/finish access out of local
+  perf unwind-libunwind: Remove libunwind-local
+  perf unwind-libunwind: Add RISC-V libunwind support
+
+ tools/build/feature/Makefile                  |  38 +-
+ tools/build/feature/test-libunwind-aarch64.c  |  27 -
+ tools/build/feature/test-libunwind-arm.c      |  28 -
+ .../test-libunwind-debug-frame-aarch64.c      |  17 -
+ .../feature/test-libunwind-debug-frame-arm.c  |  17 -
+ .../feature/test-libunwind-debug-frame.c      |   1 -
+ tools/build/feature/test-libunwind-x86.c      |  28 -
+ tools/build/feature/test-libunwind-x86_64.c   |  28 -
+ tools/build/feature/test-libunwind.c          |   1 -
+ tools/perf/Makefile.config                    | 215 ++---
+ tools/perf/arch/arm/util/Build                |   2 -
+ tools/perf/arch/arm/util/unwind-libunwind.c   |  50 --
+ tools/perf/arch/arm64/util/Build              |   1 -
+ tools/perf/arch/arm64/util/unwind-libunwind.c |  17 -
+ tools/perf/arch/loongarch/util/Build          |   3 -
+ .../arch/loongarch/util/unwind-libunwind.c    |  82 --
+ tools/perf/arch/mips/Build                    |   1 -
+ tools/perf/arch/mips/util/Build               |   1 -
+ tools/perf/arch/mips/util/unwind-libunwind.c  |  22 -
+ tools/perf/arch/powerpc/util/Build            |   1 -
+ .../perf/arch/powerpc/util/unwind-libunwind.c |  92 --
+ tools/perf/arch/x86/util/Build                |   3 -
+ tools/perf/arch/x86/util/unwind-libunwind.c   | 115 ---
+ tools/perf/builtin-inject.c                   |   4 +
+ tools/perf/builtin-report.c                   |   4 +
+ tools/perf/builtin-script.c                   |   4 +
+ tools/perf/util/Build                         |   5 +-
+ tools/perf/util/libunwind-arch/Build          |  11 +
+ .../perf/util/libunwind-arch/libunwind-arch.c | 319 +++++++
+ .../perf/util/libunwind-arch/libunwind-arch.h | 296 +++++++
+ .../perf/util/libunwind-arch/libunwind-arm.c  | 290 ++++++
+ .../util/libunwind-arch/libunwind-arm64.c     | 289 ++++++
+ .../perf/util/libunwind-arch/libunwind-i386.c | 312 +++++++
+ .../util/libunwind-arch/libunwind-loongarch.c | 297 +++++++
+ .../perf/util/libunwind-arch/libunwind-mips.c | 299 +++++++
+ .../util/libunwind-arch/libunwind-ppc32.c     | 301 +++++++
+ .../util/libunwind-arch/libunwind-ppc64.c     | 303 +++++++
+ .../util/libunwind-arch/libunwind-riscv.c     | 297 +++++++
+ .../perf/util/libunwind-arch/libunwind-s390.c | 299 +++++++
+ .../util/libunwind-arch/libunwind-x86_64.c    | 320 +++++++
+ tools/perf/util/libunwind/arm64.c             |  40 -
+ tools/perf/util/libunwind/x86_32.c            |  41 -
+ tools/perf/util/maps.c                        |  29 +-
+ tools/perf/util/maps.h                        |   4 +-
+ tools/perf/util/symbol_conf.h                 |  10 +
+ tools/perf/util/thread.c                      |  29 +-
+ tools/perf/util/unwind-libdw.c                |   2 +-
+ tools/perf/util/unwind-libunwind-local.c      | 832 ------------------
+ tools/perf/util/unwind-libunwind.c            | 679 ++++++++++++--
+ tools/perf/util/unwind.c                      |  98 +++
+ tools/perf/util/unwind.h                      |  77 +-
+ 51 files changed, 4549 insertions(+), 1732 deletions(-)
+ delete mode 100644 tools/build/feature/test-libunwind-aarch64.c
+ delete mode 100644 tools/build/feature/test-libunwind-arm.c
+ delete mode 100644 tools/build/feature/test-libunwind-debug-frame-aarch64.c
+ delete mode 100644 tools/build/feature/test-libunwind-debug-frame-arm.c
+ delete mode 100644 tools/build/feature/test-libunwind-x86.c
+ delete mode 100644 tools/build/feature/test-libunwind-x86_64.c
+ delete mode 100644 tools/perf/arch/arm/util/unwind-libunwind.c
+ delete mode 100644 tools/perf/arch/arm64/util/unwind-libunwind.c
+ delete mode 100644 tools/perf/arch/loongarch/util/unwind-libunwind.c
+ delete mode 100644 tools/perf/arch/mips/Build
+ delete mode 100644 tools/perf/arch/mips/util/Build
+ delete mode 100644 tools/perf/arch/mips/util/unwind-libunwind.c
+ delete mode 100644 tools/perf/arch/powerpc/util/unwind-libunwind.c
+ delete mode 100644 tools/perf/arch/x86/util/unwind-libunwind.c
+ create mode 100644 tools/perf/util/libunwind-arch/Build
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-arch.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-arch.h
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-arm.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-arm64.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-i386.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-loongarch.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-mips.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-ppc32.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-ppc64.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-riscv.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-s390.c
+ create mode 100644 tools/perf/util/libunwind-arch/libunwind-x86_64.c
+ delete mode 100644 tools/perf/util/libunwind/arm64.c
+ delete mode 100644 tools/perf/util/libunwind/x86_32.c
+ delete mode 100644 tools/perf/util/unwind-libunwind-local.c
+ create mode 100644 tools/perf/util/unwind.c
 
 -- 
-மணிவண்ணன் சதாசிவம்
+2.53.0.1213.gd9a14994de-goog
+
 
