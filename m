@@ -4,60 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1157E88D9F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 15:33:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 641BBD7308D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 15:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=27Au/wFg3dQPsgstAr4YE9VS4hX/8jHjNObqAYPrTRg=; b=D4/eYz1wCysTC8P80PPJmzmucx
-	HCNT0m622KT97otn635RSVviKFB8fsFGMM08qD+e+qE6HkCnxgMKMsbTqWRPHi+FIthloTtOTc4AI
-	hbDbXt88t1gMst0tJL5zgsxDkCwjlaej1esETvXp+WWs0cwm0LExi1npgkpgiSP1xMLf1OwJO3U7/
-	YuM0Muxz3gvSpX/uizSNZwMYpc8oOEowwkwyzCyeZ+/5OBpnnzIOCw/VE60RFnYH7Rd7RxjLnl1f/
-	D4cN16WHMx5s1FYGmMparMfssJoYZFKYFnJUTGcKG8+H6tM/XahORaG7pomEUv6uG8tD3IHabE9aI
-	Ibmu517A==;
+	bh=zeokfY81zDTGoMKsfsKuYQ0QSL7q5LjfiUcpRy4ytMk=; b=R+0p/9HPYgmf9pEOlKnkn1m30X
+	zTUuoXquQsfF+GtuhR03wgXvvpS7R1WU0gM+a19NIe66D3rYrD841NuQgjIo0VbIhvK434M0ETJOO
+	ipdcXad28FDX2LJc+5Xp7b63AmYeF/a4/qU6m8uChkf1pDEq+qeroT6hwmTm73bZ22x5xyBpAOyO5
+	mK4QPXsUwbS4dvzCX2mHFEHQ3cCvK+fZhIExPKEbcfZabDZOEWZy87AlmrExa4HWtXzNTIxuBmB8l
+	9SPsfOXy3QnoiTKqhHmVneAq5d6GHgdiPzql8UU/EWBzLZcxa2pbFzV0GotYf037Xu9qItaBkAUW5
+	1BVDO0IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w92zp-00000003ZNe-1zrI;
-	Sat, 04 Apr 2026 15:33:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w9324-00000003ZVz-428J;
+	Sat, 04 Apr 2026 15:35:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w92zn-00000003ZNG-1YtL
+	id 1w9323-00000003ZVt-2sCz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Apr 2026 15:33:12 +0000
+	Sat, 04 Apr 2026 15:35:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D010042A4B;
-	Sat,  4 Apr 2026 15:33:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56A51C19421;
-	Sat,  4 Apr 2026 15:33:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0204B60008;
+	Sat,  4 Apr 2026 15:35:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DB3AC19421;
+	Sat,  4 Apr 2026 15:35:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775316790;
-	bh=ZlzV4y4YHNwOQarGow9Y9+NJ3NB3R2lb3gtd1kS1GYY=;
+	s=k20201202; t=1775316930;
+	bh=TXsjcJSJe7hvyAedd5gCRzSniMOLxr/pVGRppUex7cs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WGJ1G1dbHQ8YSJMkbnCewNVPp8K+F5tb/VYcQ14aSjrCJEv1HH52gd2YYgXlV8Ib3
-	 oM84BZIxEeX7oHwVTYCtA0QLdf9bEOQz49KuKdnrYVCrtLs+rRHP/BKW19tHLW0PaE
-	 ccvyaaLBTqJbL6t/UaOi82pWK4maeP3WZRoJuf8eKTlptNaNahXd3ZLSoaVPqcL+0l
-	 5gz8kaM3/1xx9rM4cFVf+3ORaNavCSrwvmOcqPEUUn5eXFauqWS3RcTbY+dRSWFbY1
-	 hQJ/MsDdvoI77roMMXUQp9RiotjlxhqK3x6TVCxGleYzHEVfnDEbh2FHKar231+aDw
-	 0FmCStvs2QTVw==
-Date: Sat, 4 Apr 2026 17:33:08 +0200
+	b=BPynoeXLborhBzyM9b4ZkPtvliUHIixnUsyQI8aroBObEDpxsdrzkJpKe4DfT1lYT
+	 bDrc1INLbB1OEryGII09TDcS1y843N9n02CzyDUoVan4alVPHCiyyageA25r+hh4hs
+	 h4LQk1atg/tnGXq6w6hNf8vp3Jz2uatM6jhWJqJEEDWiPwrQ4IODxRWPYLGMp/eOjH
+	 RYvtBUKZZNsepFHpaG4APaD1UeZRBWQRCIcKMjK4D0KrNNkmsxSAFwvCw4VzbtrpvE
+	 x22jSLSiVagve27GvXZlfrbp1wEza2IYm+zhgIz/3vhAPKXBpS1e/brT7ZRSLunC0t
+	 MrLTu7FAKz0rg==
+Date: Sat, 4 Apr 2026 17:35:28 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Cc: soc@kernel.org, arm@kernel.org, conor@kernel.org, 
 	nicolas.ferre@microchip.com, linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL] Microchip ARM64 device tree updates for v7.1
-Message-ID: <20260404-warping-determined-caracal-cc0abb@quoll>
-References: <20260403070637.2554408-1-claudiu.beznea@tuxon.dev>
+Subject: Re: [GIT PULL] Microchip ARM64 SoC updates for v7.1
+Message-ID: <20260404-huge-dormouse-of-engineering-5ccd0b@quoll>
+References: <20260403070658.2554567-1-claudiu.beznea@tuxon.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260403070637.2554408-1-claudiu.beznea@tuxon.dev>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260404_083311_452590_34458F24 
-X-CRM114-Status: UNSURE (   9.95  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260403070658.2554567-1-claudiu.beznea@tuxon.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,26 +68,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 03, 2026 at 10:06:37AM +0300, Claudiu Beznea wrote:
+On Fri, Apr 03, 2026 at 10:06:58AM +0300, Claudiu Beznea wrote:
 > The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 > 
 >   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
 > 
 > are available in the Git repository at:
 > 
->   https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/microchip-dt64-7.1
+>   https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/microchip-soc-7.1
 > 
-> for you to fetch changes up to 711cca0f1cfef57018654b969da4041c2bab68d3:
+> for you to fetch changes up to e4ffa98a02f4d16eda9a5faec6792493b41dab35:
 > 
->   arm64: dts: microchip: add EV23X71A board (2026-03-20 10:56:22 +0200)
-> 
-> ----------------------------------------------------------------
-> Microchip ARM64 device tree updates for v7.1
-> 
-> This update includes:
-> - device tree files for the Microchip LAN9691 SoC and its evaluation
->   board (Microchip EV23X71A)
-> 
+>   arm64: Kconfig: provide a top-level switch for Microchip platforms (2026-03-18 10:55:49 +0200)
 
 Thanks, applied
 
