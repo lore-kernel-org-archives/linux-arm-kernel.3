@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2546FE63FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 17:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24E0CE63FE5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 17:16:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=368Z9sU0Ln6NehqMrF6U00K0urf9MFo027GaM0ORoeI=; b=gLSsru7fvmOU3ykGwECuhO0NnR
-	sXCwwGj1L3h24f3NRWakmbxNL3la5jgQI7gAbo2zCuwg3g/dnMj+zE6OLIAsN+4/m9LEroQ+Rvxet
-	M/xAnr1XaKAPanTCqcNbJqbIfY1fkmT0E0wEGUaeptFt21etdCWd3cY7MZNv7K8AHBtF/oaL/RWL7
-	55pJgkVI+nEoUtgxL3pvOVL5ZH1j8LWAdQY93QpkJT+y9GU6RuddAnIm9bcSrM94f4ZI/4dip+7ls
-	mGy3zsxzXp5ZFxD9Ks4m5ZJ/nr7ANiCEnd7/Vym5uiFNDcGcBdmU1YHCQdDCcEuH58XGdJ5AGscbt
-	lwE0o8Sw==;
+	bh=vsmbdBHaX2w5XcBqN3gdCMgwy3ayHTGIzo7A1ewMMMw=; b=X5hclVksdGCqgbQ65fqXZniBOL
+	xxIP9QsJ7RORbn/CWsqIL2Al+K4IMpl65iVWRpnEYR/TpSaFA0Im1BZMXXauXVrycuRU8HbwmIc0j
+	JcIWWDqKd3rwmaLE1xQTSD+KlYr9PHMGqZaD971P2M/aCvjjmnS9CALtWPFaQQxnUR990BTnUJemP
+	rfXj5uaLspSXdJCAzGL3i6QRqL4AOTmRpkQgF8fRJNLLY9KJdysJ26nA2Wi1JHfRjzJr3F7+aF/pY
+	2EvbcK6imSwNugrffBoRFA8otXNu2iZChgEetxPZr85cf/9GXfdm+1IFvSglhoAZlRA4TMlBKjMjI
+	sN1ysovg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w94W2-00000003coy-2w5U;
-	Sat, 04 Apr 2026 17:10:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w94bh-00000003dIf-1zEk;
+	Sat, 04 Apr 2026 17:16:25 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w94W0-00000003com-3iUb
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Apr 2026 17:10:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0CBA960054;
-	Sat,  4 Apr 2026 17:10:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E377C19421;
-	Sat,  4 Apr 2026 17:10:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775322631;
-	bh=TL1x8uQHfXMCS5DAHiJFSwR5ZSFg/H+USQuXqbWXElU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tk25YExvw8065Vz9EAfitUx04X7OsINDwnPs6q3WubHt+0ULf8lwIg1JMVEudvdY1
-	 BmSqdQ6R2OPSmmg5/w1As6rFSbzwL7616L+hDAAAEBKweXaNot/S+VJPGB6GnorJnD
-	 Bd8MpQZG6tAjvQ4z9MYttsJKHtH038/8IvNIpSCyz7WNNyp455IC5gBhppMDjyjjM1
-	 qIcyfqahtkzGeFE+g0HzQcvNSuQ9W0KVlHD102us0OpbGi/h76rnXQIueU/wEeADku
-	 y90yOdX5yaMPDEshLmomivYRo7OiDXOcEtB21s5xDudi8KygyIC9vDSL8cwXYFTAcG
-	 NZpqOPG4QVFUA==
-Date: Sat, 4 Apr 2026 22:40:16 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Sherry Sun <sherry.sun@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
-	bhelgaas@google.com, hongxing.zhu@nxp.com, l.stach@pengutronix.de, 
-	imx@lists.linux.dev, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V2 0/8] PCI: imx6: Integrate pwrctrl API and update
- device trees
-Message-ID: <omtn42mopdz7igg7jaqwehd67l6xc77zk7zzqwkufgnsycvadg@5kodhpgfesre>
-References: <20260402101007.208419-1-sherry.sun@nxp.com>
+	id 1w94ba-00000003dHP-3zYZ;
+	Sat, 04 Apr 2026 17:16:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1775322969; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=B14SHV11mIeaSdfanRw/FPb/uoYWFTRzLcKOkqBx2gxpmS3EOItjhsgTa54RA5lRgmmkRPyfCaOA9jEuJwzAMloc+GWoId/gZlu/jmSwPXI9Oi0sldlOtQCoyYKO27yPcceKTHsCcTdFbVNjlAA7ZPF/vbWqaiW7p39YdidgRYQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1775322969; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=vsmbdBHaX2w5XcBqN3gdCMgwy3ayHTGIzo7A1ewMMMw=; 
+	b=Xbwm51IbpxbhGx97RqrO2v7dIB8E1prD7Ggl20lmN2NGu2WZGhMgjhAbmRG8u+2HaE6OOER+K+Jo/6I8Od6ITFKUP86jGdBKfHWXSwM17ilvmU3wWdTmoKpMsAc79Pf1bZL/CBC+xBJYqVFxtROxSzkDs9vPcro3W4TLMMMC4js=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1775322969;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=vsmbdBHaX2w5XcBqN3gdCMgwy3ayHTGIzo7A1ewMMMw=;
+	b=I0ii5rAl21pUwmVpjFb7MbBrqCzddD6KhHO2tiwRELQfcAovLb7Xf6ndKxdVMOru
+	IUl8il3UOzBzqffwS1jXlhZMuASqAiKdbGe3DHXYundjqlN1T+AOA7GdU7FcuMRf7j0
+	UQH/x1olt9ZoWAhw9Q+Bu49SBpiz+IJ2C41tEG9U=
+Received: by mx.zohomail.com with SMTPS id 1775322965794133.1766397921774;
+	Sat, 4 Apr 2026 10:16:05 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Heiko Stuebner <heiko@sntech.de>, Sugar Zhang <sugar.zhang@rock-chips.com>,
+ Alexey Charkov <alchark@flipper.net>
+Cc: linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Alexey Charkov <alchark@flipper.net>
+Subject: Re: [PATCH] ASoC: rockchip: rockchip_sai: Set slot width for non-TDM mode
+Date: Sat, 04 Apr 2026 19:16:00 +0200
+Message-ID: <5445638.31r3eYUQgx@workhorse>
+In-Reply-To: <20260318-sai-slot-width-v1-1-1f68186f71e3@flipper.net>
+References: <20260318-sai-slot-width-v1-1-1f68186f71e3@flipper.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260402101007.208419-1-sherry.sun@nxp.com>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260404_101619_068222_F51C4493 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,80 +79,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 02, 2026 at 06:09:59PM +0800, Sherry Sun wrote:
-> Note: This patch set depends on my previous patch set [1] which adds
-> Root Port device tree nodes and support parsing the reset property in
-> new Root Port binding in pci-imx6 driver.
+On Wednesday, 18 March 2026 15:50:25 Central European Summer Time Alexey Charkov wrote:
+> Currently the slot width in non-TDM mode is always kept at the POR value
+> of 32 bits, regardless of the sample width, which doesn't work well for
+> some codecs such as NAU8822.
 > 
-> This series integrates the PCI pwrctrl framework into the pci-imx6
-> driver and updates i.MX EVK board device trees to support it.
+> Set the slot width according to the sample width in non-TDM mode, which
+> is what other CPU DAI drivers do.
 > 
-> Patches 2-8 update device trees for i.MX EVK boards which maintained
-> by NXP to move power supply properties from the PCIe controller node
-> to the Root Port child node, which is required for pwrctrl framework.
-> Affected boards:
-> - i.MX6Q/DL SABRESD
-> - i.MX6SX SDB
-> - i.MX8MM EVK
-> - i.MX8MP EVK
-> - i.MX8MQ EVK
-> - i.MX8DXL/QM/QXP EVK
-> - i.MX95 15x15/19x19 EVK
+> Tested on the following RK3576 configurations:
+> - SAI2 + NAU8822 (codec as the clock master), custom board
+> - SAI1 + ES8388 (codec as the clock master), RK3576 EVB1
+> - SAI2 + RT5616 (SAI as the clock master), FriendlyElec NanoPi M5
 > 
-> The driver maintains legacy regulator handling for device trees that
-> haven't been updated yet. Both old and new device tree structures are
-> supported.
+> NAU8822 didn't work prior to this patch but works after the patch. Other
+> two configurations work both before and after the patch.
 > 
-
-Thanks for the work! Due to some recently merged patches, this series (Patch 1)
-doesn't apply on top of pci/controller/dwc-imx6 branch. Please rebase and
-resend!
-
-- Mani
-
-> [1] https://lore.kernel.org/all/20260318062916.2747472-1-sherry.sun@nxp.com/
-> 
-> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+> Fixes: cc78d1eaabad ("ASoC: rockchip: add Serial Audio Interface (SAI) driver")
+> Signed-off-by: Alexey Charkov <alchark@flipper.net>
 > ---
-> Changes in V2:
-> 1. After commit 2d8c5098b847 ("PCI/pwrctrl: Do not power off on pwrctrl
->    device removal"), the pwrctrl drivers no longer power off devices
->    during removal. Update pci-imx6 driver's shutdown callback in patch#1
->    to explicitly call pci_pwrctrl_power_off_devices() before 
->    pci_pwrctrl_destroy_devices() to ensure devices are properly powered
->    off.
+>  sound/soc/rockchip/rockchip_sai.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/sound/soc/rockchip/rockchip_sai.c b/sound/soc/rockchip/rockchip_sai.c
+> index 1bf614dbdf4d..ed393e5034a4 100644
+> --- a/sound/soc/rockchip/rockchip_sai.c
+> +++ b/sound/soc/rockchip/rockchip_sai.c
+> @@ -628,6 +628,10 @@ static int rockchip_sai_hw_params(struct snd_pcm_substream *substream,
+>  
+>  	regmap_update_bits(sai->regmap, reg, SAI_XCR_VDW_MASK | SAI_XCR_CSR_MASK, val);
+>  
+> +	if (!sai->is_tdm)
+> +		regmap_update_bits(sai->regmap, reg, SAI_XCR_SBW_MASK,
+> +				   SAI_XCR_SBW(params_physical_width(params)));
+> +
+>  	regmap_read(sai->regmap, reg, &val);
+>  
+>  	slot_width = SAI_XCR_SBW_V(val);
+> 
 > ---
+> base-commit: 8e5a478b6d6a5bb0a3d52147862b15e4d826af19
+> change-id: 20260318-sai-slot-width-378eed5c22cd
 > 
-> Sherry Sun (8):
->   PCI: imx6: Integrate new pwrctrl API for pci-imx6
->   arm: dts: imx6qdl-sabresd: Move power supply property to Root Port
->     node
->   arm: dts: imx6sx-sdb: Move power supply property to Root Port node
->   arm64: dts: imx8mm-evk: Move power supply property to Root Port node
->   arm64: dts: imx8mp-evk: Move power supply properties to Root Port node
->   arm64: dts: imx8mq-evk: Move power supply properties to Root Port node
->   arm64: dts: imx8dxl/qm/qxp: Move power supply properties to Root Port
->     node
->   arm64: dts: imx95: Move power supply properties to Root Port node
-> 
->  .../arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi |  2 +-
->  arch/arm/boot/dts/nxp/imx/imx6sx-sdb.dtsi     |  2 +-
->  arch/arm64/boot/dts/freescale/imx8dxl-evk.dts |  4 ++--
->  arch/arm64/boot/dts/freescale/imx8mm-evk.dtsi |  2 +-
->  arch/arm64/boot/dts/freescale/imx8mp-evk.dts  |  4 ++--
->  arch/arm64/boot/dts/freescale/imx8mq-evk.dts  |  4 ++--
->  arch/arm64/boot/dts/freescale/imx8qm-mek.dts  |  4 ++--
->  arch/arm64/boot/dts/freescale/imx8qxp-mek.dts |  4 ++--
->  .../boot/dts/freescale/imx95-15x15-evk.dts    |  4 ++--
->  .../boot/dts/freescale/imx95-19x19-evk.dts    |  8 +++----
->  drivers/pci/controller/dwc/Kconfig            |  1 +
->  drivers/pci/controller/dwc/pci-imx6.c         | 24 ++++++++++++++++++-
->  12 files changed, 43 insertions(+), 20 deletions(-)
-> 
-> -- 
-> 2.37.1
+> Best regards,
 > 
 
--- 
-மணிவண்ணன் சதாசிவம்
+Okay, so I took a logic analyzer to the SAI today and found the following:
+
+It seems we've always been sending 16-bit samples in 32-bit width slots per
+channel before. With this change, we're now correctly sending 16-bit samples
+in 16-bit slots.
+
+In a follow-up patch (doesn't have to be in this one, this is fine to merge
+as-is) we could also refactor the switch statement just above to no longer
+exist but set val = SAI_XCR_VDW(params_width(params)).
+
+So:
+
+Acked-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+
+Kind regards,
+Nicolas Frattaroli
+
+
 
