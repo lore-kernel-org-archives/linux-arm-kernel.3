@@ -4,56 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97247E88D9F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 15:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA815E88D9F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 15:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BdlhROafgeFV3lrDjQvOufXHI54qA+PqdUd6sqxfkX4=; b=d7RjsZPAWogmuwRkA/Sw1Xck8R
-	w1hMQGxDlntAb9mKQ4aAEbPhcbNTR1lFO1gsVSxYhq0jtrBB2SBV8Rk7WygiShZkSy6EEDivTHuOt
-	DgHGZgF1pBHGwbLBS0Tg4ikcGhoBQTKiz2lZUePXeMVNl7yVa7VrYetfCgrcCP+aeI57eUw5NfQLH
-	fBoPSLYwJqf2IlAj7lj6XJgQq1L2wrkeuP3Bx6ZSPcZvKOwPEXPAzA1t7S6NSEI+QDgUIAO8CbYqH
-	ODkF+l79QZdH256F4ZwnT4BeulRoZ0OQ2WYDHViFL7SwcGTCsTAm0Zqk8WDrsVniwTF1JY+l4Fx7v
-	rAkd7ydg==;
+	bh=I4rR+TEccZn7+c4PrR/Iewf24K4auV+TBRGFnxLB4wA=; b=4Q5DGJ5FxMrtbSHlMz93zAkGNR
+	qKxsGiGbvaXba3P2SwzPE8Dfa6pn+DBBUeCsYDCf+ShGOPSEAeLQBMG8IoDV3lp/FzjnG9F6j8RTy
+	B97radSVo7WgRWvJjJPPrwnVjKaVbL6p4bqz0rSdOymmX0Ex4r7fDmDUBLVU98cYE5v1+eAJY85ir
+	8MEtYnJPN/UAYr2vmjbU26EhJrECwoh2H2JujpoqIh+x22zoIowqihj2v+nZLTkGkRGveBLTi0x1d
+	6/sjg+vxtjNe1mUgJ4LXJcmyTmZp1eBu0OARzMjXJr5ALdWjlneXc3Co+w9hQ2SviFFc1EhLxffc+
+	viYRt3Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w92vC-00000003Yzm-1k60;
-	Sat, 04 Apr 2026 15:28:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w92yH-00000003ZAo-0Jrm;
+	Sat, 04 Apr 2026 15:31:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w92vB-00000003Yz6-04XL
+	id 1w92yE-00000003ZAT-1poU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Apr 2026 15:28:25 +0000
+	Sat, 04 Apr 2026 15:31:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5B35F60008;
-	Sat,  4 Apr 2026 15:28:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76D96C19421;
-	Sat,  4 Apr 2026 15:28:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D171A44479;
+	Sat,  4 Apr 2026 15:31:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29066C19421;
+	Sat,  4 Apr 2026 15:31:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775316504;
-	bh=UA6bly+AQF5v+iWuK0z14Apl21P8Edj1tf0r96yuACA=;
+	s=k20201202; t=1775316693;
+	bh=Jj345pl+qal7aG0Q1tYZedCjsr+sVk8K+OmliaqF4sI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tk4LRGy+4yKS+P21boxRJtOVZDeIw5q8LnMR5HJ72EPi3vUx2F2G4qxLS+7XSNzz6
-	 N3CyMnXwIaRX4uxpp3avk9Xc9N583TsDJ/ioW4noyUjeO3eoU6ApOz3UiBwC43Juph
-	 c3Sz/uuVarwZ1vVimrfzXgfbVYIZ9V7u6UsGr7+sJBN2dmU8THDgP3g9i7WNJn6l95
-	 PCs1MN5dfaWHxCF1ox9gHIvFqyOdiCIS8MwgJzHr1d2GCcJp7yx0Dx8OOk8R98UKap
-	 IvMdLqpAnyThNal+0iOqn8ot/AfoO54+6BysOyI4cqgxxz9cMUSXu0pjtn4CE5HEUq
-	 c+To3jbqRbJbA==
-Date: Sat, 4 Apr 2026 17:28:21 +0200
+	b=jyALPOMMBXuS4jfm5YuWGWwXWTDZ+mPWNO6j+42krZLCWuex+1n7pFozJyM63Fo23
+	 qaCV/wnj+GksER0nRdyNWnjPUz2LpRfqEkmFOYcVrTKctLh+BOa0DC2COATyeVM4Ht
+	 h0BG6qBxEBHWT6EntTU8lk2uyiS2YsrdkbsJM7Jr7S5M0wVeFzVHmL6D/B+xLMaR6Q
+	 Kj9pYqH6FwzJ6BPZ8xBdkXX5p1fMWt0Lgu1Dyr0pJqwqbUZGHPfgbuypFBwqGgFaC2
+	 yKd3zEHP6LCFVzKAfnr354wcETmAPUhp1Sca7BlIyYUm8OXEANT/sBCDwPOpngotnl
+	 /XevyBxnDHxBA==
+Date: Sat, 4 Apr 2026 17:31:31 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Cc: soc@kernel.org, arm@kernel.org, nicolas.ferre@microchip.com, 
 	alexandre.belloni@bootlin.com, linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL] Microchip AT91 device tree updates for v7.1
-Message-ID: <20260404-tricky-seagull-of-vastness-de462d@quoll>
-References: <20260403070327.2552867-1-claudiu.beznea@tuxon.dev>
+Subject: Re: [GIT PULL] Microchip AT91 SoC updates for v7.1
+Message-ID: <20260404-quick-quartz-mouse-ac84ef@quoll>
+References: <20260403070344.2553018-1-claudiu.beznea@tuxon.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260403070327.2552867-1-claudiu.beznea@tuxon.dev>
+In-Reply-To: <20260403070344.2553018-1-claudiu.beznea@tuxon.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260404_083134_497666_CED508C6 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,18 +72,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 03, 2026 at 10:03:27AM +0300, Claudiu Beznea wrote:
+On Fri, Apr 03, 2026 at 10:03:44AM +0300, Claudiu Beznea wrote:
 > The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 > 
 >   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
 > 
 > are available in the Git repository at:
 > 
->   https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-dt-7.1
+>   https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-soc-7.1
 > 
-> for you to fetch changes up to 7d7a9fc1310a0ade8ea61c5eb4d8b29456f8d604:
+> for you to fetch changes up to f3ae0049ff8a3d2cbd8c05857705744435629d0c:
 > 
->   ARM: dts: microchip: sama7d65: add Cortex-A7 PMU node (2026-03-24 15:35:37 +0200)
+>   dt-bindings: arm: atmel,at91rm9200-sdramc: convert to DT schema (2026-03-07 16:41:03 +0200)
+> 
+> ----------------------------------------------------------------
+> Microchip AT91 SoC updates for v7.1
+> 
+> This update includes:
+> - device tree bindings conversion to DT schema for CHIPID, RAM
+>   controller and PIT, PIT64b, ST timers
 > 
 
 Thanks, applied
