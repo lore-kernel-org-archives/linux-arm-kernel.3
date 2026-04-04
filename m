@@ -4,60 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 744C7E88D80
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 10:50:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FF6AE88D8B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 10:54:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hVI0gjN4ggle9FRj0azH8ETQFgO6XAT3wrYzemDx5lE=; b=4hgMsmu2QxaxttxDbyKpGz6R3t
-	FeC0RO8D/erzUqsTaNn41TBehRU9+/f2bvDjOPgsJx/+BLwrXh2nwhbL/FztnQAo26CCj8n8c8IXj
-	Fu3q6dYeyL1aW4aVk0ve1LHbjhOL1NcnJkzxol8GDfoqP2y+FicdabQW6eXP3TII7OmVO6Oc755RI
-	HBzZE4ui28tLRTHHNn+KApFTVP3oitoZRG7LHIJK35NSICPAyJIKR8qkb0p07x08lg6DB5/xtQz8t
-	PXdrOYk86AeXALj09WEGQdiCLVAKgpfBUjTkebjZXl8LFSAoAHDREaBrtWlnZg2nGF+uv3q8Do2Qg
-	qh4Am5JA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8M156wfxsw08c/N3AsfeAf2KagUFS03fu06PBN70kOY=; b=rUhMPZE+8Nma4AoJ1Ix+aupvay
+	/rZmigiyzcTXIITc9MJplcfUNcNmfRQUlgTuZ8d7i1BCvDOd34cK8Uq+MPsopGU9qotiLl41CW329
+	bLugybS/HPx1I++ZEEPRTpjdPAuI2vEUCjyqtMiPEP+kk6r+kBqBE4ejudkXQqvJTl364r/b+Gdzw
+	UxLQxGqcj9QPZnf64ZQQIH5jNitcZhoE+oznTNdxGMziGEVdQuoSdv/OHY1XIgxtIz/mOMg1Tc1RD
+	lTCXVgCYhRnjNNaGWBfPiw9oX+jqWWwdwdt6ms8l/aBj2jKYzrKBXl+yJpHlm1Rut/XYD3FCdJYbJ
+	/qE3lHKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8yaX-00000003Obd-2WMS;
-	Sat, 04 Apr 2026 10:50:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w8ye2-00000003OmQ-0tMo;
+	Sat, 04 Apr 2026 10:54:26 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w8yaW-00000003ObX-1okz
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Apr 2026 10:50:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 955F960008;
-	Sat,  4 Apr 2026 10:50:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8484C19421;
-	Sat,  4 Apr 2026 10:50:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775299847;
-	bh=XlV93qt8XxCZGBNC86/HRqHqRPWS0RQnPhDy2NL8/VA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cvy7ergdvQvaay7kV3qQWauJcg/3sL8wHUNwYoHNmuMOtWWZT+CSy8fzUdoAyj5XA
-	 im6n5mdOd9xfLx0XSwv05Rac5aRpujCigBYkNPphd0uZl5Luz9tgz9RLcaq3u6l7uN
-	 daY/acphESIcmLfti0Ic3e37xelWgO9E/gZ0suYA3pdPPEugWQN+yT7SlI/UxTURD8
-	 +iuoED22jDHZ07XsD6OYydgo8c/lO8DDgdp7+p11E9UZMn+5GPA4Yu7sqKjgZKQ33g
-	 NW0PFWPLMO3dMo6iVbc2MzT5lab25QJW9f+xMAjcryQ8z2WdK0MmVkoOhMBJqd94KX
-	 qJRrKYCIYwEnA==
-Date: Sat, 4 Apr 2026 12:50:44 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Robin Murphy <Robin.Murphy@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] dt-bindings: arm-smmu: qcom: Add compatible for Hawi
- SoC
-Message-ID: <20260404-hissing-determined-doberman-fa1ab6@quoll>
-References: <20260403080956.2714415-1-mukesh.ojha@oss.qualcomm.com>
+	id 1w8ydx-00000003Olt-3trO;
+	Sat, 04 Apr 2026 10:54:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=8M156wfxsw08c/N3AsfeAf2KagUFS03fu06PBN70kOY=; b=dJK0HsQaEwf/UJnpEs487pcJ4C
+	Y2NySHfJUwbOrj7lPO/sbgDir7632a63T/Z4mVtF2UHOEfgENzTSKiSfVuvdZtIyvTbl47/83OyCq
+	4Dgwq1FhpFF/ulQWj0BhGFGcbqbesr3VHOZZqmuCRJNw1vw54OzROYYiAMeCe2QrBLG3JOMUSFr+P
+	c2sesOCbIuTzoZFCwmqbxX8Kbr9Lnxtro43dGE2pcIBbfZKzqefTJyjH3GIFpa4NhgFyji4oTjf9e
+	EXBZkv50/xkMk5V/rVxv1ZF4DxoF1MSsO7i5sc4ubkclhKz4ZLipz5tjER9McfZkOG/Z5KGLZtyQa
+	pw0WPs3Q==;
+Received: from [189.7.87.169] (helo=prince)
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1w8ydf-00Bnm6-9R; Sat, 04 Apr 2026 12:54:03 +0200
+From: =?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>
+To: Stefan Wahren <wahrenst@gmx.net>,
+	Maxime Ripard <mripard@kernel.org>,
+	Melissa Wen <mwen@igalia.com>,
+	Iago Toral Quiroga <itoral@igalia.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>
+Cc: dri-devel@lists.freedesktop.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	kernel-dev@igalia.com,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Subject: Re: [PATCH v9 0/3] Power Management for Raspberry Pi V3D GPU
+Date: Sat,  4 Apr 2026 07:52:31 -0300
+Message-ID: <177529993945.2604999.5241727039867600030.b4-ty@igalia.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260331-v3d-power-management-v9-0-f52ff87bfd36@igalia.com>
+References: <20260331-v3d-power-management-v9-0-f52ff87bfd36@igalia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260403080956.2714415-1-mukesh.ojha@oss.qualcomm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260404_035423_091690_5C046AAD 
+X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,17 +83,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 03, 2026 at 01:39:56PM +0530, Mukesh Ojha wrote:
-> Qualcomm Hawi SoC include apps smmu that implements arm,mmu-500, which
-> is used to translate device-visible virtual addresses to physical
-> addresses. Add compatible for these items.
-> 
-> Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-> ---
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+On Tue, 31 Mar 2026 09:35:50 -0300, Maíra Canal wrote:
+> This series introduces Runtime Power Management (PM) support for the
+> Raspberry Pi V3D GPU.
+> 
+> Currently, the V3D clock remains enabled for the entire system uptime,
+> even when the GPU is idle. With the introduction of Runtime PM, the
+> clock can now be disabled during idle periods. For example, with this
+> series applied to a Raspberry Pi 5, if we check `vcgencmd measure_clock
+> v3d`, we get:
+> 
+> [...]
+
+Applied, thanks for all reviews!
+
+[1/3] drm/v3d: Use devm_reset_control_get_optional_exclusive()
+      commit: de1e32ef1d625ee4d717bcf10c23df2722324f62
+[2/3] drm/v3d: Allocate all resources before enabling the clock
+      commit: ffd7371ed4179827dcf401543b37b69e5781f924
+[3/3] drm/v3d: Introduce Runtime Power Management
+      commit: 458f2a712ab42b7d3615208862922dc35fe90ef9
 
 Best regards,
-Krzysztof
-
+- Maíra
 
