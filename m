@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24E0CE63FE5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 17:16:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 041F9E63FE5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 18:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vsmbdBHaX2w5XcBqN3gdCMgwy3ayHTGIzo7A1ewMMMw=; b=X5hclVksdGCqgbQ65fqXZniBOL
-	xxIP9QsJ7RORbn/CWsqIL2Al+K4IMpl65iVWRpnEYR/TpSaFA0Im1BZMXXauXVrycuRU8HbwmIc0j
-	JcIWWDqKd3rwmaLE1xQTSD+KlYr9PHMGqZaD971P2M/aCvjjmnS9CALtWPFaQQxnUR990BTnUJemP
-	rfXj5uaLspSXdJCAzGL3i6QRqL4AOTmRpkQgF8fRJNLLY9KJdysJ26nA2Wi1JHfRjzJr3F7+aF/pY
-	2EvbcK6imSwNugrffBoRFA8otXNu2iZChgEetxPZr85cf/9GXfdm+1IFvSglhoAZlRA4TMlBKjMjI
-	sN1ysovg==;
+	bh=752JaVkU2L6o0aL1SHQviRopiwp7hO4CqcFVcd7m20U=; b=vJ8IfN7HFaFJcWNUfrqxpAiFxD
+	UyLGOCvFRPqoUTlHxGA9RMj9ftQ4+jbRx+KSel2TIfBqXK3JAk4PormuRQ0cq1TnVUCHzZQF66g96
+	CDCxVKmY/LHSwN7ANpUyFTZNBB9rg5sGf3TSdDeSI6zuWKKMJTq0+7vm994fBSDp7F1shpGRj2qBt
+	wbcWZVZUffT14VBNLLsPS+oMjwjgFEMxoSUvd3Mociei6Un3K9kxVlNIBLXXc45uhhbw4Jc0wB/l1
+	swTFKorPKb7bdQc4/QreY9RmqQiqNGPVTfEkrHJZRiKNuev36b2N2BswBsC8kPui77bnDJRyhMsYq
+	ejhYWHOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w94bh-00000003dIf-1zEk;
-	Sat, 04 Apr 2026 17:16:25 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1w95VA-00000003ejc-1DzV;
+	Sat, 04 Apr 2026 18:13:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w94ba-00000003dHP-3zYZ;
-	Sat, 04 Apr 2026 17:16:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1775322969; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=B14SHV11mIeaSdfanRw/FPb/uoYWFTRzLcKOkqBx2gxpmS3EOItjhsgTa54RA5lRgmmkRPyfCaOA9jEuJwzAMloc+GWoId/gZlu/jmSwPXI9Oi0sldlOtQCoyYKO27yPcceKTHsCcTdFbVNjlAA7ZPF/vbWqaiW7p39YdidgRYQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1775322969; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=vsmbdBHaX2w5XcBqN3gdCMgwy3ayHTGIzo7A1ewMMMw=; 
-	b=Xbwm51IbpxbhGx97RqrO2v7dIB8E1prD7Ggl20lmN2NGu2WZGhMgjhAbmRG8u+2HaE6OOER+K+Jo/6I8Od6ITFKUP86jGdBKfHWXSwM17ilvmU3wWdTmoKpMsAc79Pf1bZL/CBC+xBJYqVFxtROxSzkDs9vPcro3W4TLMMMC4js=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1775322969;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=vsmbdBHaX2w5XcBqN3gdCMgwy3ayHTGIzo7A1ewMMMw=;
-	b=I0ii5rAl21pUwmVpjFb7MbBrqCzddD6KhHO2tiwRELQfcAovLb7Xf6ndKxdVMOru
-	IUl8il3UOzBzqffwS1jXlhZMuASqAiKdbGe3DHXYundjqlN1T+AOA7GdU7FcuMRf7j0
-	UQH/x1olt9ZoWAhw9Q+Bu49SBpiz+IJ2C41tEG9U=
-Received: by mx.zohomail.com with SMTPS id 1775322965794133.1766397921774;
-	Sat, 4 Apr 2026 10:16:05 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Heiko Stuebner <heiko@sntech.de>, Sugar Zhang <sugar.zhang@rock-chips.com>,
- Alexey Charkov <alchark@flipper.net>
-Cc: linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexey Charkov <alchark@flipper.net>
-Subject: Re: [PATCH] ASoC: rockchip: rockchip_sai: Set slot width for non-TDM mode
-Date: Sat, 04 Apr 2026 19:16:00 +0200
-Message-ID: <5445638.31r3eYUQgx@workhorse>
-In-Reply-To: <20260318-sai-slot-width-v1-1-1f68186f71e3@flipper.net>
-References: <20260318-sai-slot-width-v1-1-1f68186f71e3@flipper.net>
+	id 1w95V7-00000003ejH-0Hrz
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 04 Apr 2026 18:13:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4A4F642DC5;
+	Sat,  4 Apr 2026 18:13:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F32CC19424;
+	Sat,  4 Apr 2026 18:13:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775326416;
+	bh=wjBG2dDvNOcl73t5Dsrip8H0/qPbPfDx7nYSPfXnK9U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=b2pO4bdXXFL1yc84LWPwy/iQoPw+SE+ISHxp+wjlENH+6kkZcAGH7OWOaXKJVY+QS
+	 TMtj8hNKN9E/r/jOhU1ZRCwFGeC6xnxGAR80fbbJUUWI1JRMWSGlNJMaBsaW+bcdPk
+	 7q1WL3opiHRdmO8kKVQG5Fw3MsbXpxu79A2wNOcgaamUMOb1eM+nNq7EuBDj1SRBb1
+	 TS2ni3llMnn4kMlp4pgZKQcUC/jzbw8YsvtTSBTK7iRjCscWS/9VOtUOqnFUMsYl8X
+	 uwgEIo6k8mEpYIdphbHNKEPQHn4Urwq6oRrwjmzVfateMMrzrNkMSqU2dk9NvEtd+N
+	 evARPDS2MV6LA==
+Date: Sat, 4 Apr 2026 20:13:30 +0200
+From: Nathan Chancellor <nathan@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH] KVM: arm64: Advertise ID_AA64PFR2_EL1.GCIE
+Message-ID: <20260404181330.GA3987102@ax162>
+References: <20260401170017.369529-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260401170017.369529-1-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260404_101619_068222_F51C4493 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20260404_111341_172975_7C7CEF2D 
+X-CRM114-Status: GOOD (  19.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,67 +76,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wednesday, 18 March 2026 15:50:25 Central European Summer Time Alexey Charkov wrote:
-> Currently the slot width in non-TDM mode is always kept at the POR value
-> of 32 bits, regardless of the sample width, which doesn't work well for
-> some codecs such as NAU8822.
+Hi Marc,
+
+On Wed, Apr 01, 2026 at 06:00:17PM +0100, Marc Zyngier wrote:
+> As we are missing ID_AA64PFR2_EL1.GCIE from the kernel feature set,
+> userspace cannot write ID_AA64PFR2_EL1 with GCIE set, even if we are
+> on a GICv5 host.
 > 
-> Set the slot width according to the sample width in non-TDM mode, which
-> is what other CPU DAI drivers do.
+> Add the required field description.
 > 
-> Tested on the following RK3576 configurations:
-> - SAI2 + NAU8822 (codec as the clock master), custom board
-> - SAI1 + ES8388 (codec as the clock master), RK3576 EVB1
-> - SAI2 + RT5616 (SAI as the clock master), FriendlyElec NanoPi M5
-> 
-> NAU8822 didn't work prior to this patch but works after the patch. Other
-> two configurations work both before and after the patch.
-> 
-> Fixes: cc78d1eaabad ("ASoC: rockchip: add Serial Audio Interface (SAI) driver")
-> Signed-off-by: Alexey Charkov <alchark@flipper.net>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 > ---
->  sound/soc/rockchip/rockchip_sai.c | 4 ++++
->  1 file changed, 4 insertions(+)
+>  arch/arm64/kernel/cpufeature.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> diff --git a/sound/soc/rockchip/rockchip_sai.c b/sound/soc/rockchip/rockchip_sai.c
-> index 1bf614dbdf4d..ed393e5034a4 100644
-> --- a/sound/soc/rockchip/rockchip_sai.c
-> +++ b/sound/soc/rockchip/rockchip_sai.c
-> @@ -628,6 +628,10 @@ static int rockchip_sai_hw_params(struct snd_pcm_substream *substream,
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 32c2dbcc0c641..5bca6e064ca72 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -327,6 +327,7 @@ static const struct arm64_ftr_bits ftr_id_aa64pfr2[] = {
+>  	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_FPMR_SHIFT, 4, 0),
+>  	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_MTEFAR_SHIFT, 4, ID_AA64PFR2_EL1_MTEFAR_NI),
+>  	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_MTESTOREONLY_SHIFT, 4, ID_AA64PFR2_EL1_MTESTOREONLY_NI),
+> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_GCIE_SHIFT, 4, ID_AA64PFR2_EL1_GCIE_NI),
+>  	ARM64_FTR_END,
+>  };
 >  
->  	regmap_update_bits(sai->regmap, reg, SAI_XCR_VDW_MASK | SAI_XCR_CSR_MASK, val);
->  
-> +	if (!sai->is_tdm)
-> +		regmap_update_bits(sai->regmap, reg, SAI_XCR_SBW_MASK,
-> +				   SAI_XCR_SBW(params_physical_width(params)));
-> +
->  	regmap_read(sai->regmap, reg, &val);
->  
->  	slot_width = SAI_XCR_SBW_V(val);
-> 
-> ---
-> base-commit: 8e5a478b6d6a5bb0a3d52147862b15e4d826af19
-> change-id: 20260318-sai-slot-width-378eed5c22cd
-> 
-> Best regards,
+> -- 
+> 2.47.3
 > 
 
-Okay, so I took a logic analyzer to the SAI today and found the following:
+After this change in -next as commit 899ff451fcee ("KVM: arm64:
+Advertise ID_AA64PFR2_EL1.GCIE"), I am seeing a warning on boot in my
+simple QEMU boot tests.
 
-It seems we've always been sending 16-bit samples in 32-bit width slots per
-channel before. With this change, we're now correctly sending 16-bit samples
-in 16-bit slots.
+  $ make -skj"$(nproc)" ARCH=arm64 CROSS_COMPILE=aarch64-linux- mrproper virtconfig Image.gz
 
-In a follow-up patch (doesn't have to be in this one, this is fine to merge
-as-is) we could also refactor the switch statement just above to no longer
-exist but set val = SAI_XCR_VDW(params_width(params)).
+  $ curl -LSs https://github.com/ClangBuiltLinux/boot-utils/releases/download/20241120-044434/arm64-rootfs.cpio.zst | zstd -d >rootfs.cpio
 
-So:
+  $ qemu-system-aarch64 \
+      -display none \
+      -nodefaults \
+      -machine virt,gic-version=max \
+      -append 'console=ttyAMA0 earlycon' \
+      -kernel arch/arm64/boot/Image.gz \
+      -initrd rootfs.cpio \
+      -cpu host \
+      -enable-kvm \
+      -m 1G \
+      -smp 8 \
+      -serial mon:stdio
+  [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x413fd0c1]
+  [    0.000000] Linux version 7.0.0-rc4-00058-g899ff451fcee (nathan@aadp) (aarch64-linux-gcc (GCC) 15.2.0, GNU ld (GNU Binutils) 2.45) #1 SMP PREEMPT Sat Apr  4 06:55:05 MST 2026
+  ...
+  [    0.000000] ------------[ cut here ]------------
+  [    0.000000] SYS_ID_AA64PFR2_EL1 has feature overlap at shift 12
+  [    0.000000] WARNING: arch/arm64/kernel/cpufeature.c:986 at init_cpu_features+0xbc/0x344, CPU#0: swapper/0
+  [    0.000000] Modules linked in:
+  [    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper Not tainted 7.0.0-rc4-00058-g899ff451fcee #1 PREEMPT
+  [    0.000000] Hardware name: linux,dummy-virt (DT)
+  [    0.000000] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+  [    0.000000] pc : init_cpu_features+0xbc/0x344
+  [    0.000000] lr : init_cpu_features+0xbc/0x344
+  [    0.000000] sp : ffffcd0982373db0
+  [    0.000000] x29: ffffcd0982373db0 x28: 0000000000000010 x27: ffffcd0981c63878
+  [    0.000000] x26: 0000000000000018 x25: ffffcd0982013f38 x24: ffffcd0981c69068
+  [    0.000000] x23: ffffcd0981c635f0 x22: ffffcd0982388640 x21: 0000000000000003
+  [    0.000000] x20: 0000000000000017 x19: ffffcd09824c9308 x18: 000000000000000a
+  [    0.000000] x17: 5d305b203837205d x16: 305b203737205d30 x15: 0000000000000000
+  [    0.000000] x14: 0000000000000000 x13: 3231207466696873 x12: 2074612070616c72
+  [    0.000000] x11: 0000000000000058 x10: 0000000000000018 x9 : ffffcd0982396598
+  [    0.000000] x8 : 0000000000057fa8 x7 : 000000000000002a x6 : ffffcd09823ee598
+  [    0.000000] x5 : ffffcd09823ee598 x4 : 0000000000000000 x3 : 0000000000000000
+  [    0.000000] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffffcd09823852c0
+  [    0.000000] Call trace:
+  [    0.000000]  init_cpu_features+0xbc/0x344 (P)
+  [    0.000000]  cpuinfo_store_boot_cpu+0x48/0x54
+  [    0.000000]  smp_prepare_boot_cpu+0x28/0x38
+  [    0.000000]  start_kernel+0x248/0x780
+  [    0.000000]  __primary_switched+0x88/0x90
+  [    0.000000] ---[ end trace 0000000000000000 ]---
+  ...
+  ```
 
-Acked-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Is this expected? I assume not, hence the report. If there is any
+information I can provide or patches I can test, I am more than happy to
+do so.
 
-Kind regards,
-Nicolas Frattaroli
+Cheers,
+Nathan
 
-
+# bad: [2febe6e6ee6e34c7754eff3c4d81aa7b0dcb7979] Add linux-next specific files for 20260403
+# good: [d8a9a4b11a137909e306e50346148fc5c3b63f9d] Merge tag 'v7.0-rc6-smb3-client-fix' of git://git.samba.org/sfrench/cifs-2.6
+git bisect start 'origin/master' 'origin/stable'
+# bad: [dc9c72702de7e46679f8c2ab2175ab7070baa3ee] Merge branch 'main' of https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git
+git bisect bad dc9c72702de7e46679f8c2ab2175ab7070baa3ee
+# bad: [d5ea83fae6558b2431b022781f6ccb74d241b2bb] Merge branch 'for-next' of https://git.kernel.org/pub/scm/linux/kernel/git/s390/linux.git
+git bisect bad d5ea83fae6558b2431b022781f6ccb74d241b2bb
+# bad: [d16ebd2d0dc90f1561d0a44a828db2c9148ad5f4] Merge branch 'for-next/perf' of https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git
+git bisect bad d16ebd2d0dc90f1561d0a44a828db2c9148ad5f4
+# bad: [768784742008ccebbf3e88a26a6e9e6aad76dc8e] Merge branch 'timekeeping-next' of https://github.com/Rust-for-Linux/linux.git
+git bisect bad 768784742008ccebbf3e88a26a6e9e6aad76dc8e
+# good: [b671065be2bef906bb3e0c1bc7be4055e84ea1d3] Merge branch 'at91-fixes' of https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git
+git bisect good b671065be2bef906bb3e0c1bc7be4055e84ea1d3
+# bad: [bd1f7328e25426f08cafa8333293411788c7957b] Merge branch kvm-arm64/vgic-fixes-7.1 into kvmarm-master/next
+git bisect bad bd1f7328e25426f08cafa8333293411788c7957b
+# good: [1cd0bb0425594cea9baf862393a4ca9cc0c018a3] Merge branch kvm-arm64/pkvm-psci into kvmarm-master/next
+git bisect good 1cd0bb0425594cea9baf862393a4ca9cc0c018a3
+# good: [bc20692f528b2ac8226bafe5b1db9a1f8be96dbf] KVM: arm64: Don't hold 'vm_table_lock' across guest page reclaim
+git bisect good bc20692f528b2ac8226bafe5b1db9a1f8be96dbf
+# good: [adb70b3a8b31e9eb05f2ec3c76d85f9a7a8c8cbc] KVM: arm64: Directly expose mapping prot and kill kvm_s2_fault
+git bisect good adb70b3a8b31e9eb05f2ec3c76d85f9a7a8c8cbc
+# good: [be46a408f376df31762e8a9914dc6d082755e686] KVM: arm64: Correctly plumb ID_AA64PFR2_EL1 into pkvm idreg handling
+git bisect good be46a408f376df31762e8a9914dc6d082755e686
+# good: [33cdd7f8fa32c92317aa521bd6f407a3cba8474b] Merge branch kvm-arm64/spe-trbe-nvhe into kvmarm-master/next
+git bisect good 33cdd7f8fa32c92317aa521bd6f407a3cba8474b
+# good: [e54971a0468a8bc82b1976d5b010392d7cb689b9] Merge branch kvm-arm64/vgic-fixes-7.1 into kvmarm-master/next
+git bisect good e54971a0468a8bc82b1976d5b010392d7cb689b9
+# bad: [899ff451fcee1289f3f37d061da66c3e38748a69] KVM: arm64: Advertise ID_AA64PFR2_EL1.GCIE
+git bisect bad 899ff451fcee1289f3f37d061da66c3e38748a69
+# good: [9c1ac77ddfc90b6292ef63a4fa5ab6f9e4b29981] KVM: arm64: vgic-v5: Fold PPI state for all exposed PPIs
+git bisect good 9c1ac77ddfc90b6292ef63a4fa5ab6f9e4b29981
+# first bad commit: [899ff451fcee1289f3f37d061da66c3e38748a69] KVM: arm64: Advertise ID_AA64PFR2_EL1.GCIE
 
