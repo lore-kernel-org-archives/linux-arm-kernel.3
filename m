@@ -4,56 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 641BBD7308D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 15:35:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 560AEE63FE3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 16:56:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zeokfY81zDTGoMKsfsKuYQ0QSL7q5LjfiUcpRy4ytMk=; b=R+0p/9HPYgmf9pEOlKnkn1m30X
-	zTUuoXquQsfF+GtuhR03wgXvvpS7R1WU0gM+a19NIe66D3rYrD841NuQgjIo0VbIhvK434M0ETJOO
-	ipdcXad28FDX2LJc+5Xp7b63AmYeF/a4/qU6m8uChkf1pDEq+qeroT6hwmTm73bZ22x5xyBpAOyO5
-	mK4QPXsUwbS4dvzCX2mHFEHQ3cCvK+fZhIExPKEbcfZabDZOEWZy87AlmrExa4HWtXzNTIxuBmB8l
-	9SPsfOXy3QnoiTKqhHmVneAq5d6GHgdiPzql8UU/EWBzLZcxa2pbFzV0GotYf037Xu9qItaBkAUW5
-	1BVDO0IQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ST2pb+/gQk3IV14UpJzT4A8hj7OcdgJQlHupwD1g5y0=; b=kr3iH+d3uWMElHCIP7yQwnxV42
+	/eMrqm2hvvfdlF1KeQaky2i9bsJ0pPcc7ubxmSBQVvXgMzMnJNZi/nQsArbQACIVDNcj2jJRpjT/Q
+	9e0O/Gd66ziFFfPNrP6zlNENHroJi/T/8ZxSYDRbd9lAWJ9u6qdmZR7arlzSnOocegVXNLH0TmJBw
+	X4ypMbHQboiYlfPwM95Ye5mZycO8lX2SraDIIOyQTaF9w+yMjZQ1uHBBPaWLVnWNAManW0oCkYAps
+	pPMrWl8ubS+jtW7FDVKdjziMVOxGTwQ3Bi3b3eusKshKq3bVPCC4ZA2DSoJDb+1GrjvqbpKk9Pp4D
+	Q69SWWWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9324-00000003ZVz-428J;
-	Sat, 04 Apr 2026 15:35:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w94IP-00000003c1q-1vP4;
+	Sat, 04 Apr 2026 16:56:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9323-00000003ZVt-2sCz
+	id 1w94IM-00000003c1T-28An
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Apr 2026 15:35:31 +0000
+	Sat, 04 Apr 2026 16:56:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0204B60008;
-	Sat,  4 Apr 2026 15:35:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DB3AC19421;
-	Sat,  4 Apr 2026 15:35:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C91694059C;
+	Sat,  4 Apr 2026 16:56:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A189EC19421;
+	Sat,  4 Apr 2026 16:56:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775316930;
-	bh=TXsjcJSJe7hvyAedd5gCRzSniMOLxr/pVGRppUex7cs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BPynoeXLborhBzyM9b4ZkPtvliUHIixnUsyQI8aroBObEDpxsdrzkJpKe4DfT1lYT
-	 bDrc1INLbB1OEryGII09TDcS1y843N9n02CzyDUoVan4alVPHCiyyageA25r+hh4hs
-	 h4LQk1atg/tnGXq6w6hNf8vp3Jz2uatM6jhWJqJEEDWiPwrQ4IODxRWPYLGMp/eOjH
-	 RYvtBUKZZNsepFHpaG4APaD1UeZRBWQRCIcKMjK4D0KrNNkmsxSAFwvCw4VzbtrpvE
-	 x22jSLSiVagve27GvXZlfrbp1wEza2IYm+zhgIz/3vhAPKXBpS1e/brT7ZRSLunC0t
-	 MrLTu7FAKz0rg==
-Date: Sat, 4 Apr 2026 17:35:28 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: soc@kernel.org, arm@kernel.org, conor@kernel.org, 
-	nicolas.ferre@microchip.com, linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL] Microchip ARM64 SoC updates for v7.1
-Message-ID: <20260404-huge-dormouse-of-engineering-5ccd0b@quoll>
-References: <20260403070658.2554567-1-claudiu.beznea@tuxon.dev>
+	s=k20201202; t=1775321784;
+	bh=z0EKK9uCRclvxyjrhd1+SN0RRq/OFfBzrXy9eOqqb1Y=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=Pvkgz2VYtss1MeKDd1hCnXOqFhZSJT7sCBgib4Ld40MuoHbsbTzaQtqEQlHI315/z
+	 sSsTrUhsdTJPdFsI6MsazCxIagVra3Yz7Nj6ieza8kV78SqaqqkR1jw4ERelqbogu8
+	 P2C5HKTLPE156wtoOmaEhBjNWmWs1/5XjIm7Pn+IztUEvzTxOWgE4ijDSgxwxt7sHW
+	 /z+by/VjXh6iXK4C6vfLmsq7Ld8muhOBjOIJmJuiMgdiDbMtkSfkPxjp0+PDXt64DF
+	 SAsEhipno3UJ1XHvp0XZyChIymjhWJhckqoZh6Dfi1SExI1b8SJikdcJieSIN27yIj
+	 n1QGwKpOYjS/A==
+Message-ID: <faa68f96-5b10-45d0-a5dc-fac4350a7dd7@kernel.org>
+Date: Sat, 4 Apr 2026 18:56:08 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260403070658.2554567-1-claudiu.beznea@tuxon.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/12] bus: fsl-mc: use generic driver_override
+ infrastructure
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+To: Ioana Ciornei <ioana.ciornei@nxp.com>, Danilo Krummrich <dakr@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Nipun Gupta <nipun.gupta@amd.com>,
+ Nikhil Agarwal <nikhil.agarwal@amd.com>, "K. Y. Srinivasan"
+ <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>,
+ Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+ Long Li <longli@microsoft.com>, Bjorn Helgaas <bhelgaas@google.com>,
+ Armin Wolf <W_Armin@gmx.de>, Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Vineeth Vijayan <vneethv@linux.ibm.com>,
+ Peter Oberparleiter <oberpar@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ Harald Freudenberger <freude@linux.ibm.com>,
+ Holger Dengler <dengler@linux.ibm.com>, Mark Brown <broonie@kernel.org>,
+ "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowang@redhat.com>,
+ Xuan Zhuo <xuanzhuo@linux.alibaba.com>, =?UTF-8?Q?Eugenio_P=C4=82=C2=A9rez?=
+ <eperezma@redhat.com>, Alex Williamson <alex@shazbot.org>,
+ Juergen Gross <jgross@suse.com>, Stefano Stabellini
+ <sstabellini@kernel.org>,
+ Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+ linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-hyperv@vger.kernel.org,
+ linux-pci@vger.kernel.org, platform-driver-x86@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+ linux-s390@vger.kernel.org, linux-spi@vger.kernel.org,
+ virtualization@lists.linux.dev, kvm@vger.kernel.org,
+ xen-devel@lists.xenproject.org, linux-arm-kernel@lists.infradead.org,
+ Gui-Dong Han <hanguidong02@gmail.com>
+References: <20260324005919.2408620-1-dakr@kernel.org>
+ <20260324005919.2408620-3-dakr@kernel.org>
+ <cvcetxkxjq2tz6n2vsofhyzove3qdi2e4r6rq6yxou3joejk2h@rmt5ygav7ssu>
+ <4c5e9bad-82f0-4714-99c2-8ccd79a45043@kernel.org>
+Content-Language: fr-FR
+In-Reply-To: <4c5e9bad-82f0-4714-99c2-8ccd79a45043@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260404_095626_611543_85342319 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,22 +106,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 03, 2026 at 10:06:58AM +0300, Claudiu Beznea wrote:
-> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
-> 
->   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
-> 
-> are available in the Git repository at:
-> 
->   https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/microchip-soc-7.1
-> 
-> for you to fetch changes up to e4ffa98a02f4d16eda9a5faec6792493b41dab35:
-> 
->   arm64: Kconfig: provide a top-level switch for Microchip platforms (2026-03-18 10:55:49 +0200)
 
-Thanks, applied
 
-Best regards,
-Krzysztof
+Le 28/03/2026 à 13:10, Christophe Leroy (CS GROUP) a écrit :
+> 
+> 
+> Le 25/03/2026 à 13:01, Ioana Ciornei a écrit :
+>> On Tue, Mar 24, 2026 at 01:59:06AM +0100, Danilo Krummrich wrote:
+>>> When a driver is probed through __driver_attach(), the bus' match()
+>>> callback is called without the device lock held, thus accessing the
+>>> driver_override field without a lock, which can cause a UAF.
+>>>
+>>> Fix this by using the driver-core driver_override infrastructure taking
+>>> care of proper locking internally.
+>>>
+>>> Note that calling match() from __driver_attach() without the device lock
+>>> held is intentional. [1]
+>>>
+>>> Link: https://eur01.safelinks.protection.outlook.com/? 
+>>> url=https%3A%2F%2Flore.kernel.org%2Fdriver- 
+>>> core%2FDGRGTIRHA62X.3RY09D9SOK77P%40kernel.org%2F&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C4b9262ddecdd4ce29f9808de8a66485e%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639100369055903282%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=%2BRfjlUkq7oWV%2F0v2S2B%2BEuxCY%2FLRQv6qHiEWiupd6kc%3D&reserved=0 [1]
+>>> Reported-by: Gui-Dong Han <hanguidong02@gmail.com>
+>>> Closes: https://eur01.safelinks.protection.outlook.com/? 
+>>> url=https%3A%2F%2Fbugzilla.kernel.org%2Fshow_bug.cgi%3Fid%3D220789&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7C4b9262ddecdd4ce29f9808de8a66485e%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639100369055936232%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=XL1K1ICiygOZnlvDUbQFe192KnLsBQms0HFNGCuyz%2Fw%3D&reserved=0
+>>> Fixes: 1f86a00c1159 ("bus/fsl-mc: add support for 'driver_override' 
+>>> in the mc-bus")
+>>> Signed-off-by: Danilo Krummrich <dakr@kernel.org>
+>>
+>> Tested-by: Ioana Ciornei <ioana.ciornei@nxp.com>
+>> Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
+>>
+> 
+> 
+> Applied, thanks
+
+Have to drop it for now, build fails:
+
+   CALL    scripts/checksyscalls.sh
+   CC      drivers/bus/fsl-mc/fsl-mc-bus.o
+drivers/bus/fsl-mc/fsl-mc-bus.c: In function 'fsl_mc_bus_match':
+drivers/bus/fsl-mc/fsl-mc-bus.c:92:15: error: implicit declaration of 
+function 'device_match_driver_override' 
+[-Werror=implicit-function-declaration]
+    92 |         ret = device_match_driver_override(dev, drv);
+       |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+drivers/bus/fsl-mc/fsl-mc-bus.c: At top level:
+drivers/bus/fsl-mc/fsl-mc-bus.c:321:10: error: 'const struct bus_type' 
+has no member named 'driver_override'
+   321 |         .driver_override = true,
+       |          ^~~~~~~~~~~~~~~
+drivers/bus/fsl-mc/fsl-mc-bus.c:321:28: warning: initialization of 
+'const char *' from 'int' makes pointer from integer without a cast 
+[-Wint-conversion]
+   321 |         .driver_override = true,
+       |                            ^~~~
+drivers/bus/fsl-mc/fsl-mc-bus.c:321:28: note: (near initialization for 
+'fsl_mc_bus_type.dev_name')
+cc1: some warnings being treated as errors
+make[5]: *** [scripts/Makefile.build:289: 
+drivers/bus/fsl-mc/fsl-mc-bus.o] Error 1
+make[4]: *** [scripts/Makefile.build:546: drivers/bus/fsl-mc] Error 2
+make[3]: *** [scripts/Makefile.build:546: drivers/bus] Error 2
+make[2]: *** [scripts/Makefile.build:546: drivers] Error 2
+make[1]: *** [/home/chleroy/linux-powerpc/Makefile:2101: .] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
+
+Christophe
 
 
