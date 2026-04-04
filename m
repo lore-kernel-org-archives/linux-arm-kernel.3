@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74B97E88D9D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 14:34:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED9FD73091
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 14:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rqYuzc4utBpRZ378FOvtpDw6AcF+DpukubA3SO1zz/M=; b=xKD1L0DACX81BFN6yUhk8CyOO4
-	8pPQwmgx0XSCIxADB065KUbIrnRTrDxf+eJP7BWCIzg+GKlDhaXUl+0Ybrt8GF413RV1UkFu88WqP
-	GQIzulqGqXsNeQ7SL4a9gAe/H+EjjLrUhiJkNGu/QKDtcKcH9IZFpnWrB3FZg0cGjAdxSyOBweV91
-	9DaXXXZeHbn+PGAArUN6FTAIyZQ49qohKCg5JEwLxNb/RZERa4NTxldi/2Xd7u2oVuXPLXcwmgMfo
-	ja+h9/JE7yyDZ02tMiQ2cE2n69ZKKwy1+cva3EuMq8i68NKZNiyKuxah+hb8+b4W3bQdP+1tgJ4/5
-	9Ds7VJ0A==;
+	bh=RGVNvdmyPLrnuQm0vrwWKMvtO9uoE5KBnFIp8YQuxgI=; b=pnOPyoAtRsc7pZ5/nWuPNyDB9i
+	1WMYaKq67uZt1KPUMUS36B3Kl7W8M82NwiD6+dzAtH1jeYa9mDG1J7JYbM0MtoctuLzZB7cT8XEPx
+	ro8Sr5t7rMTfOf1l6776wwjpYLsVV6/mb7tNvW9nSOAL162z8iWZBEGtODoovBBg7lBZnqLOELfqU
+	UECTIGzC/j1ppDuOsgqLiJXqaDwyhdIO+WCAtHVeu9mH18U1OF81xY7kVMfJmZtswvjL51mR2jVG/
+	sDowlol6jooUiGDtty9iumKvXeGVDK/4endO8s6elMmO210kJ7LhebjynG3g2gxE1ZzRY8eWWPG5x
+	PI9E87Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w925D-00000003WiX-0SRA;
-	Sat, 04 Apr 2026 14:34:43 +0000
+	id 1w92HS-00000003X2o-1bFz;
+	Sat, 04 Apr 2026 14:47:22 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w925B-00000003Wi2-0FV2
+	id 1w92HP-00000003X2T-3640
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Apr 2026 14:34:42 +0000
+	Sat, 04 Apr 2026 14:47:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7821143B91;
-	Sat,  4 Apr 2026 14:34:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5669C19421;
-	Sat,  4 Apr 2026 14:34:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F239344449;
+	Sat,  4 Apr 2026 14:47:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F677C19421;
+	Sat,  4 Apr 2026 14:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775313280;
-	bh=2xgJUGK4xs2Z/4HKoiHpphCYn8IFg7c1x66ai8aA2zQ=;
+	s=k20201202; t=1775314038;
+	bh=wkWsq3wOxvvGHQk5g9AdcPeG8Kmz14QfgWPiPSY/fAw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JwwXma6JBk61kxPVjXRQAQafGrGyW9yj/VSpsgw13z2oBkjQQ8WffLdOBmxczJDfB
-	 y+VG3GBfItG4zWAlA2luC87AoDmSA3lHJOQXMfvp3uNeradx6x75x0rFYubP4z/tvd
-	 LNb/UevxA5bVcpnx7oetaEwwSRbt6CvB/U8TZ4s0LUkSAnUmOdJO7cUv+jjdu6wUDU
-	 gMjZpW/d2rFpmesHfHOs4Oj4+8kmXTFgeCrfz9CGErOPYlTMa0hkRdtsAVIpzdZ9uH
-	 FV1ZqdLpQCDjuIk/tOpwVBexjTjBwWhu3soNc2aUx6jrijVB88qpdNPewWT+lx8rNj
-	 GHJH8SWpWYSbg==
-Date: Sat, 4 Apr 2026 16:34:37 +0200
+	b=mgWB8CvrnBabd/PPFTftEM8Yg4ce7Bnp5i35nCClv52Fol4A5/jbB0PR04WD4D5nx
+	 OZ2mTONoFKKP91Q5Bb3d0CUgEm553zGSmU5/qFMxjD6MKaD1df3y+AmdN5rTgL1kjZ
+	 x2F/zt4suiuQB1Fq+NvvHpgMld8/IVU7q85yds8LTwwKOQdzf+WpJOgzYjuEXHSBOz
+	 m3masDW9xk0r2292SJ79A4GOBHboGlVxErafkxqh/biq5bsP9qsGLouFD2m/avjxjY
+	 LMe2uTJmkZdCNUaF/FBkCCdrKxOAx+lGKBCZMVpLbt6atGPBpLVZrqKfV45a3+fJem
+	 wCqBTw0AfzJqQ==
+Date: Sat, 4 Apr 2026 16:47:16 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Frank Li <Frank.Li@nxp.com>
 Cc: soc@kernel.org, arm@kernel.org, Shawn Guo <shawnguo@kernel.org>, 
 	Fabio Estevam <festevam@gmail.com>, kernel@pengutronix.de, imx@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL 1/4] i.MX arm64 dts changes for v7.1
-Message-ID: <20260404-practical-purple-jackal-8e250d@quoll>
+Subject: Re: [GIT PULL 2/4] i.MX arm dts changes for v7.1
+Message-ID: <20260404-thoughtful-placid-boobook-da26da@quoll>
 References: <20260330141444.3789193-1-Frank.Li@nxp.com>
- <20260330141444.3789193-2-Frank.Li@nxp.com>
+ <20260330141444.3789193-3-Frank.Li@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260330141444.3789193-2-Frank.Li@nxp.com>
+In-Reply-To: <20260330141444.3789193-3-Frank.Li@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260404_073441_141672_8FCEA134 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20260404_074719_798887_BAB5EF2A 
+X-CRM114-Status: UNSURE (   6.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,91 +74,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 10:14:37AM -0400, Frank Li wrote:
-> From: Frank.Li@nxp.com
-> 
-> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
-> 
->   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
-> 
-> are available in the Git repository at:
-> 
->   git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git tags/imx-dt64-7.1
-> 
-> for you to fetch changes up to 825b8c7e1d2918d89eb378b761530d1e51dba82e:
-> 
->   arm64: dts: imx8qxp-mek: switch Type-C connector power-role to dual (2026-03-27 09:53:32 -0400)
-> 
-> ----------------------------------------------------------------
-> i.MX arm64 device tree changes for 7.1:
-> 
-> - New Board Support
->   S32N79-RDB, Variscite DART-MX95, DART-MX91 with Sonata carrier boards,
->   Verdin iMX95 with multiple carrier boards (Yavia, Mallow, Ivy, Dahlia)
->   TQMa93xx/MBa93xxLA-MINI, SolidRun i.MX8MP HummingBoard IIoT,
->   SolidRun i.MX8MM SOM and EVB, SolidRun SolidSense-N8 board
->   Ka-Ro Electronics tx8m-1610 COM, GOcontroll Moduline IV and Moduline Mini,
->   NXP FRDM-IMX91S board, i.MX93 Wireless EVK board with Wireless SiP,
->   NXP i.MX8MP audio board v2.
+On Mon, Mar 30, 2026 at 10:14:38AM -0400, Frank Li wrote:
+> Frank Li (24):
+>       ARM: dts: imx35: rename emi to emi-bus to fix CHECK_DTBS warning
+>       ARM: dts: imx35: rename i2c clock-names to ipg
+>       ARM: dts: imx35: remove simple-bus 'usbphy'
+>       ARM: dts: imx51-ts4800: rename fpga@0 to fpga@0,0
+>       ARM: dts: imx51-babbage: rename at45db321d@1 to flash@1
+>       ARM: dts: imx53: drop fallback compatible "dlg,da9052"
 
-You do not have any bindings for these.
+This, just like arm64 pull, breaks users without explanation. You use
+incorrect terms in that commit msg which might mean you did not perform
+proper analysis of compatibility. Commit claims compatibility string is
+not comaptible and as proof brings dtbs_check warning. So the sole
+reason is the binding. What if binding is wrong?
 
-I found them in driver bindings (!!!) pull request so completely
-different branch. This is wrong. Bindings come with the user. Who is the
-user of board bindings? Not a driver, but exactly this pull request.
+Commit msg must explain that.
 
-This makes this branch full of warnings which is completely unnecessary.
-Plus this will spawn multiple checkpatch warnings if tested. It must
-have also cause warnings in your case, so probably you do not test your
-tree enough.
+I looked at the drivers and it looks 100% compatible, so commit msg is
+clearly wrong and this might affect users of DTS.
 
-...
-
-> Marco Felsch (1):
->       arm64: dts: imx93: Add parallel display output nodes
-> 
-> Martin Schmiedel (2):
->       arm64: dts: freescale: add initial device tree for TQMa93xx/MBa93xxLA-MINI
->       arm64: dts: freescale: imx93-tqma9352-mba93xxla-mini: Add WLAN/BT overlay
-> 
-> Maud Spierings (4):
->       arm64: dts: imx8mm: Add pinctrl config definitions
->       arm64: dts: freescale: add Ka-Ro Electronics tx8m-1610 COM
->       arm64: dts: freescale: Add the GOcontroll Moduline IV
->       arm64: dts: freescale: Add the GOcontroll Moduline Mini
-> 
-> Nora Schiffer (1):
->       arm64: dts: freescale: imx8mp-tqma8mpql-mba8mp-ras314: fix UART1 RTS/CTS muxing
-> 
-> Peng Fan (4):
->       arm64: dts: imx94: Add V2X/ELE mailbox nodes
->       arm64: dts: imx94: Add SCMI sensor/lmm/cpu nodes
->       arm64: dts: imx943-evk: Add nxp,ctrl-ids for scmi_misc
->       arm64: dts: imx943-evk: Add pf09/53 thermal zone
-> 
-> Primoz Fiser (1):
->       arm64: dts: freescale: imx93-phy{core,board}: Add i2c bus recovery
-> 
-> Ranjani Vaidyanathan (1):
->       arm64: dts: imx94: Update pin headers
-> 
-> Rob Herring (Arm) (1):
->       arm64: dts: freescale: imx93: Add Ethos-U65 NPU and SRAM nodes
-> 
-> Shengjiu Wang (7):
->       arm64: dts: imx8mm-evk: correct the spdif compatible string
-
-This breaks users of DTS and explains nothing about impact or why this
-should be changed (corrected). It should not pass review of two people.
-Also I could not find explanation of the impact in the tag message.
-
-Device was apparently working fine, so it should have been made
-compatible. I know that 10 years ago we did not care that much about
-DTS users, but that changes for a few years already.
-
-I am merging this but next time I would postpone the pull till some
-clarifications are provided. Please pay attention to OF_UPSTREAM and
-other users impact next time.
+Please resend pull without this commit.
 
 Best regards,
 Krzysztof
