@@ -4,100 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92FD3E88D9A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 12:21:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC3B0E88D9B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 12:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kI3rlSKvLXjOnIGBM/nCi97GMUjHxk2mPfVufcNpMfw=; b=Cfd8AznL3CtZxoNIWOd/rcMdKg
-	29p7x1nXO1k4CLGtrijwU6Z21Qw/rMy1jdXBUtL9/Lg6zwh1Fh+rAD7XnbZtbEA6k/BbeZGxhRjVJ
-	H3cTbQzylJxFN7TqNynaUjAjyhK1Zke393Z7HwjySl48sgPsg15k9twStiZCKlxm+7NumnEWkGwSw
-	GS/JDN9BiDRoo4J79KonpajfwRdSTcSpf6Zk/XWXg8zBnB6+kNEdr5J6x/arM4YRNkY8EqiXqPtwU
-	E2CxL13OOHMP8t4e3eiz6dNmRxd+8Zi67HuJygXEXJiK9ffXSlvdNmKz2QjFjvcIX5ik4rHPWJTR3
-	4sGMzKmg==;
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q1l0x4W+UvoXzUmEv9e5e/HxO0/QK/ip62Tt8sY3EdQ=; b=lyAD//CSkXIqJUxGj2e/vbwnMb
+	uEJpcfFyF1UjCtcanQYUWExcY78WlBimvA313U4xMA8e3R9HqmbkKnjcDpv2H5toRud07/3ddR/Zb
+	Z6uyMMlSSkBR2iJu3zC1P5e8+qQY9TX5aaMX/S94Y4uYfFxUKQodxwpUpcf9+8aqsv4TypSV3mNKX
+	KTq78TyVtBZ/uu1MkPwgf+AcxLBV5hVMlKw9ulwPwuWhMvgtOXg3z4TUJFBOK8G3WqJDJX5E597pX
+	HIyvB8b4gzgb11asHrJS1UurHDbrOJSTyx/iQzCbTWrnnGvBF9Mfc3H6MK0ufsJYJKkYxfxanEmHD
+	KVO40EEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w900I-00000003S4G-3yjc;
-	Sat, 04 Apr 2026 12:21:30 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1w90Mc-00000003T1C-1Vg5;
+	Sat, 04 Apr 2026 12:44:34 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w900G-00000003S3J-3Hac
+	id 1w90Ma-00000003T0O-1ZQE
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Apr 2026 12:21:29 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-82ce49785a0so1135813b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Apr 2026 05:21:28 -0700 (PDT)
+	Sat, 04 Apr 2026 12:44:33 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2b2523e0299so71929285ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Apr 2026 05:44:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1775305288; x=1775910088; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kI3rlSKvLXjOnIGBM/nCi97GMUjHxk2mPfVufcNpMfw=;
-        b=ZEKEyz7rVdRXgFAzupnVLyQ1GqxE65ZiDLr3nl/BiAKIuU3H9ed47BNwjhO7NHkaeU
-         W/AJe0RKNGDWKrCDH0I2zrbbuhD6+MPf18hxq+PVs2QA0caD9j4YRBxvFLGok86r4Qjr
-         9XQinYkN7k3NYMzlf0huPlpfnzH64VB+s3nWy5OvLqOUuo6YKWHlazaMcaEnICMjjJ15
-         ljZhaMxd+y5H4MWjVIg8qnx0o5lCD/ZdUuAHsqNUY2GmhOUAcOZXPYobJjrdD6ohgpk5
-         4kewQ/T4FDRJEAJ7V2a0SxZxua5dFvZH2aPOJ8UP/imbhVSq4jeIpWenTxRlOXkKhdbm
-         fdhw==
+        d=google.com; s=20251104; t=1775306671; x=1775911471; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=q1l0x4W+UvoXzUmEv9e5e/HxO0/QK/ip62Tt8sY3EdQ=;
+        b=TwEMInUe8aIZJ6HVJRm+fVBXwSaeTtdtoF5rlMQm5+7mrt/DrMbJ1tG/RedcWoo6s5
+         BbVWB6x7j8v6zA/fFlRbXD6IYzcIhoGZhT9P0TWYJUrqirFzLyF50GE/mCeZoLmbwqqi
+         VArRvv4QJCixrX/fRYD8NGg7e1ZrWi4irOm+zRXGjp9/RUqADQ/BQXWZnMvjdBeRDfMw
+         Xfffty/BMp3sEUrfc7aNl36Rn46Rs1LWGkwgN+B/BGFwiocUOoQ2g0s9VwcCrl7/QUPy
+         Jb6bjoSywUPF9f9ed6hzb17JwqJI3fIJuM/vbuORH672XAMoyFkxVADzxp6/Q3C0y4Rm
+         Yh7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775305288; x=1775910088;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=kI3rlSKvLXjOnIGBM/nCi97GMUjHxk2mPfVufcNpMfw=;
-        b=a8wZioOdcdXGQ5q7p3RhY8/auOOCQ0+vd1AVp4owtF2ywlCPSUgoWPaW5n5bbQMPz+
-         qMi26A1QK+hSOBaiff0W8GTYDPOCsCraJ5ULiqfOtMDQhUnEyHEsJXREfKVG2LBGB7ss
-         R3jkCFGeIvTd6+sxb90RGEz0yzFMYzaooUytAf2qbePKmQKD72q51vpGgZFvM7QnflBI
-         fnWwt8Uo2fx15Lkt2NGSF+Q9piL6DAECUepZ27DMHl/yxwO+jcpoNG17j6mUhgcn3LRy
-         gh3/9Qyt5P2WfsBIndhy7WAEQx6jUSiLg4gF3Y9E/H4beJVV5IT2HZQiG+KVhiKg8Lef
-         vZAg==
-X-Forwarded-Encrypted: i=1; AJvYcCWhc178nhTrK3Fvmmb91GtDm2oksvh6l2muTVlKXjYtmnt0NyW1WzwRSPpwAWGGBc1Rhz6U6mU7i6cz6E3BxOuS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyY83KaCxJQLRu74ABGTzJrYz3kboBwZc+dH0syzcMstrROJype
-	ADsgIH4V7Pej0wSCdLZ4iR9rd9Csj2FZrho/PpuBD2qRiWPwMGwSH+JiDsBbaiuB8ug=
-X-Gm-Gg: AeBDieuaMGxpCNNTKT9qjqC3FMjOJrqH0BsxRNdtrkPpazv6u8zJsGf1ZFp37h7uuO+
-	Fu/bnvN7KHykAJK8pWOPwBSS1gPgJQmIArPRgnUQbCjVlBmGui0GQ+0CYS9wNsLcVxmUED122rq
-	GXMcpuIJFwZM+L4aI5f/jPoax4gDa5yCPZT4X4H2uSKfDlmXD3nb4EM6/a5CSZKREURgkUKhwM8
-	2w1+4fuVG+NQy4lCZzv2G8bsZ+YyEbbC7CMkUfaGghRBL+FGwbLm+2rw7dO2FS6gwazfB4LYMLJ
-	CIJhlZ75lBfHcBhEelh6n93D7URxPt9dW+YIbOxgleZkW4l8qn3wGkWjrlYK/LgW+hFrN9gGkss
-	wIGcKGseI6BvjkS4tll7Rs1VFvClgMPdZlWY0labbT4skMrWdnyRYbbwFb0bi5XGrX4QhEw3j8y
-	aKV/7CKOKS3N39WxuXtdADCmnvM5u3k9AufPzvD3l1NFk=
-X-Received: by 2002:a05:6a00:181f:b0:82d:29f:d003 with SMTP id d2e1a72fcca58-82d0da2af95mr6055941b3a.12.1775305287696;
-        Sat, 04 Apr 2026 05:21:27 -0700 (PDT)
-Received: from n232-176-004.byted.org ([36.110.163.98])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82cfebe5b23sm8327063b3a.59.2026.04.04.05.21.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 04 Apr 2026 05:21:27 -0700 (PDT)
-From: Muchun Song <songmuchun@bytedance.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: linux-mm@kvack.org,
-	akpm@linux-foundation.org,
-	Muchun Song <songmuchun@bytedance.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Dev Jain <dev.jain@arm.com>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Chaitanya S Prakash <chaitanyas.prakash@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/5] arm64/mm: drop vmemmap_pmd helpers and use generic code
-Date: Sat,  4 Apr 2026 20:20:55 +0800
-Message-Id: <20260404122105.3989557-3-songmuchun@bytedance.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20260404122105.3989557-1-songmuchun@bytedance.com>
-References: <20260404122105.3989557-1-songmuchun@bytedance.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20251104; t=1775306671; x=1775911471;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=q1l0x4W+UvoXzUmEv9e5e/HxO0/QK/ip62Tt8sY3EdQ=;
+        b=RR5+oVJiVcVHLdw440j3VJWoeSY7nbbrNgeEoJ9wUE3mMop91Ju5BEdby0hk5ELhxT
+         n5kbxVwd7eZyFv62k9xmh5grW1CX5snix6xmJAJLNGYxYS9kkHKnwu6/bblrBzZIMRP/
+         m1cZRoBEndFgMqf1LwBFWbrArpPBClBMNsPnNFZjACeatlRDfwOaSdr+N5SK96efPN+q
+         m/Z1zuGegVqxCbXviv8+Qg3XS2sejOnodoBBHtc1kh2opsbp3kNESzyAVIyqjcA9Yakq
+         fgXKvGiNlb8olJ7hsVrP2VJa3Kz89T/4j4MdsOCmTbm79zcJP9u9n7Ev/nnFYKVi4YP/
+         JoOw==
+X-Forwarded-Encrypted: i=1; AJvYcCUItybMkWgsbCYk9CrckAfJgiL5cKyPGRUS85jQkl5Dxb24XTdsKWcNUuBRCh67A7QS1NS04312vXUx49G2soUB@lists.infradead.org
+X-Gm-Message-State: AOJu0YwImPZ3kgF//ReWjyDmgF4GdTJycCSsEBIeLj8RLRnliK5bZbOO
+	kxYQHwA1f6nnhM0d8s/WO0NbAc7ARI4KzB6bEotOOPw2VLMZDpMc6dP/nbeunlS3dW/N641jFii
+	9w/n8Q5Rt8+KXu1YVJg57KyC6lw==
+X-Received: from plwg14.prod.google.com ([2002:a17:902:f74e:b0:2b0:5b0d:f4db])
+ (user=joonwonkang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:902:e748:b0:2b2:50bd:83b3 with SMTP id d9443c01a7336-2b281706f12mr64261875ad.10.1775306670477;
+ Sat, 04 Apr 2026 05:44:30 -0700 (PDT)
+Date: Sat,  4 Apr 2026 12:44:27 +0000
+In-Reply-To: <CABb+yY0uDQh-3cadPQONV=NJKjMtc4mJekgjmHYVaHnfHXvGZQ@mail.gmail.com>
+Mime-Version: 1.0
+References: <CABb+yY0uDQh-3cadPQONV=NJKjMtc4mJekgjmHYVaHnfHXvGZQ@mail.gmail.com>
+X-Mailer: git-send-email 2.53.0.1213.gd9a14994de-goog
+Message-ID: <20260404124428.3077670-1-joonwonkang@google.com>
+Subject: Re: [PATCH v3 1/2] mailbox: Use per-thread completion to fix wrong
+ completion order
+From: Joonwon Kang <joonwonkang@google.com>
+To: jassisinghbrar@gmail.com
+Cc: angelogioacchino.delregno@collabora.com, jonathanh@nvidia.com, 
+	joonwonkang@google.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-tegra@vger.kernel.org, matthias.bgg@gmail.com, stable@vger.kernel.org, 
+	thierry.reding@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260404_052128_818478_332785F0 
-X-CRM114-Status: UNSURE (   8.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260404_054432_408412_FDCA4BEF 
+X-CRM114-Status: GOOD (  33.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,39 +95,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic implementations now suffice; remove the arm64 copies.
+> On Fri, Apr 3, 2026 at 9:51=E2=80=AFAM Joonwon Kang <joonwonkang@google.c=
+om> wrote:
+> >
+> > > On Thu, Apr 2, 2026 at 12:07=E2=80=AFPM Joonwon Kang <joonwonkang@goo=
+gle.com> wrote:
+> > > >
+> > > > Previously, a sender thread in mbox_send_message() could be woken u=
+p at
+> > > > a wrong time in blocking mode. It is because there was only a singl=
+e
+> > > > completion for a channel whereas messages from multiple threads cou=
+ld be
+> > > > sent in any order; since the shared completion could be signalled i=
+n any
+> > > > order, it could wake up a wrong sender thread.
+> > > >
+> > > > This commit resolves the false wake-up issue with the following cha=
+nges:
+> > > > - Completions are created just as many as the number of concurrent =
+sender
+> > > >   threads
+> > > > - A completion is created on a sender thread's stack
+> > > > - Each slot of the message queue, i.e. `msg_data`, contains a point=
+er to
+> > > >   its target completion
+> > > > - tx_tick() signals the completion of the currently active slot of =
+the
+> > > >   message queue
+> > > >
+> > > I think I reviewed it already or is this happening on
+> > > one-channel-one-client usage? Because mailbox api does not support
+> > > channels shared among multiple clients.
+> >
+> > Yes, this patch is handling the one-channel-one-client usage but when t=
+hat
+> > single channel is shared between multiple threads.
+>=20
+> hmm.... how is this not single-channel-multiple-clients ?
+> A channel is returned as an opaque token to the clients, if that
+> client shares that with other threads - they will race.
 
-Signed-off-by: Muchun Song <songmuchun@bytedance.com>
----
- arch/arm64/mm/mmu.c | 14 --------------
- 1 file changed, 14 deletions(-)
+They will race because of the current blocking mode implementation. With th=
+is
+patch, they should not race as it handles the known racing point. So, I thi=
+nk
+it will be important to decide whether to support multi-threads in blocking
+mode or not.
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index ec1c6971a561..b87053452641 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1745,20 +1745,6 @@ static void free_empty_tables(unsigned long addr, unsigned long end,
- }
- #endif
- 
--void __meminit vmemmap_set_pmd(pmd_t *pmdp, void *p, int node,
--			       unsigned long addr, unsigned long next)
--{
--	pmd_set_huge(pmdp, __pa(p), __pgprot(PROT_SECT_NORMAL));
--}
--
--int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
--				unsigned long addr, unsigned long next)
--{
--	vmemmap_verify((pte_t *)pmdp, node, addr, next);
--
--	return pmd_sect(READ_ONCE(*pmdp));
--}
--
- int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
- 		struct vmem_altmap *altmap)
- {
--- 
-2.20.1
+> It is the job of the original client to serialize its threads' access
+> to the channel.
 
+I can see the disparity with the non-blocking mode here. Currently, the cli=
+ent
+does not need to serialize its threads' access to the channel in non-blocki=
+ng
+mode whereas it needs to in blocking mode. It would be nice if the client d=
+oes
+not need to in both modes, but it may also depend on the necessity as you s=
+aid.
+
+> > From my understanding, the
+> > discussion back then ended with how to circumvent the issue rather than=
+ whether
+> > we will eventually solve this in the mailbox framework or not, and if y=
+es, how
+> > we will, and if not, why.
+>=20
+> It will be interesting to see how many current clients actually need
+> to share channels. If there are enough, it makes sense to implement
+> some helper api
+> on top of existing code, instead of changing its nature totally.
+
+I agree that we may need research on the current uses of channels and the
+necessity of shared channels. However, it may require non-trivial amount of
+time since it requires thorough understanding of the context of every clien=
+t
+driver. At this point, I think we at least need a clear documentation in te=
+rms
+of multi-threads support as we have none now. Since it is obvious that
+multi-threads is not supported for now, I can create another patch to add t=
+his
+to the API doc to be clear. How do you think?
+
+Thanks,
+Joonwon Kang
 
