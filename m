@@ -4,90 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B179BE63FEA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 19:50:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 528BEE63FFB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 21:08:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fFw0d3YxVX0IoKpqo6KQF5VmNpCfzzBEIlKe5xv8oSw=; b=JZeP3RAlbzPOqocM/u2p0jtdo5
-	rvowkz5nGO5fGXnWVlmYyuul7t7ddSJ+xBwLNfCrIUau/SIlqGE91trmyW8fU2lobYKWsWxr7QSFd
-	cv1nz4AWe32l4SiQsmw/uEh214fcWACUHwBBlJQ/7gwsivuavnc0mnvaGOuHow08xZTOvR+MgZh21
-	U332JpNn3lQ4cRVThiLy49uelfUvcFvRBXfuvk9ExeUeJGdmCB4u09tkAXh7Fmlc9dl4Jbdy/HC6m
-	OVZCDxXOCPmnS9ksDgGNvGZAKEeh36OFgBx9dxtLcUavqf2bUpHOfKyVv5cVFmrIOlIZe5SB5WBoY
-	C0DDNaww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EZQZTyI56J/MOaXDomD/sCn41jqHloMPn0rZlVRKeX0=; b=DPiw4bS1uyGepLIUqHQY/OUPZj
+	Jo3tYBQUNeoXnd/gyGUgxJXpvpdMEA8K/yGSy1KIIBMJk8Ct9Jz0xiyixcJD108psyhqFf94JMky5
+	uZhYFIIpg9ozewzVWOeMqHg+1168b6QTkA1dkAI5ZNO/fNWfuoT4ZYMJqRAwZm/IDUunhDxV3/2xb
+	ALgceE2T3SF5pcxP2WN0R75Pba8Vfbb2sCDdLqnwUcgA5zpsau6uOEyk0OD44Uu5vf1dkH6OL9Ntu
+	BA0v2Wg0IV2qsy8iMWMebKozp5dV7gdgp6zaNc+AmXpZ9ARfFMTeqaX3d22GbS7urC3H0X7aTs4iV
+	efEcLmCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w970g-00000003iDW-0tcv;
-	Sat, 04 Apr 2026 19:50:22 +0000
-Received: from mail-vk1-xa2e.google.com ([2607:f8b0:4864:20::a2e])
+	id 1w98Dr-00000003kP9-1HYD;
+	Sat, 04 Apr 2026 21:08:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w970d-00000003iCn-2Jyf
+	id 1w98Dp-00000003kOv-1Weo
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Apr 2026 19:50:21 +0000
-Received: by mail-vk1-xa2e.google.com with SMTP id 71dfb90a1353d-56a8e0ea02aso3261082e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Apr 2026 12:50:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775332217; x=1775937017; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=fFw0d3YxVX0IoKpqo6KQF5VmNpCfzzBEIlKe5xv8oSw=;
-        b=ZxUeOHYtaBGnikK4GN6OQUyzJ1IMptnHYkTjDsdA4XyhVLBJJ3wSql5AiVyUVSJfyd
-         af2tthgKRYRmTmPJcBWLUFciv4TfdXadPU0JFiuyj2WWI4BrXuFHKls7UhX2J7JQVFZe
-         rvjEgrAbsMu1BN5gKSWxXuxafuSzsbWKClFPqhy3Xo02G2sMAuwuC+HxnXClPTRZ+7j8
-         M3bdJ3DA7x/XeLw0OTEeG9c4Li4r2YJHiGVcxixLE+AoRuKnjevC6Bme01XHvsQM7NJ0
-         +4G9juaMXNVet+exy1ZLnCPAej9ANgZ/O89ap2sbYl0q1SS2nGeQo0WeDm5lU6Al1ie4
-         95WQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775332217; x=1775937017;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fFw0d3YxVX0IoKpqo6KQF5VmNpCfzzBEIlKe5xv8oSw=;
-        b=EhNZNHumsbVAJ+BsX3g2c/lyZWo1KU3LwaF8Q6Ov3k5dpPE+EOOWy0FppWfrsS/TjQ
-         U+YOOTu1zZh6AEaDok4X4F8AJNijZvFBP9n2uw7nl+IosCZjhj6dG1k8e8aI9aXQxk5J
-         VDrKRrO92N6VhnKLExAjHdl27oRuSZ//R4oMnk1OhGAR2Gs6m7RuH316XCRYGN4h2tYk
-         VnMtc+LeXP4rBXW+9rwjfJDAWeIzKvgHUg2932yB9HPM7HLNqBfddOzOgSo0UuhLISf1
-         IP/I4Fwn1pH9ngQ4PIspiLpJL2x7NhIamxrDIECwxCCOf9JwLiwJ50ZygtKtKTkxD4cG
-         mvWA==
-X-Forwarded-Encrypted: i=1; AJvYcCUlR2PgpJI8+Cp3CXxpxicpInaOHe0cLIAiE0t+3zOGjLGifMt45QUA5So1yM0//Iu5foE5iaQBMcIK8E9EN/xi@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwpgW7HJzxpWSkBvanpNudwqKix6EyHf4H8J3Jnu3Yl8A7XxZT
-	lHw7HJWch8vew8RU+x7iio/w2eaOlh6BPbfroN3qlSrLrUVHhBxEURFs
-X-Gm-Gg: AeBDiesJ+Kt6vDXvqdaHUm4JIjgo1izgaRzyRGvWnr5CgF1Q4OR1LQhfTAb7C3LvLX+
-	DFAZTuMBulrRCIjoFujcebpTTrpmlskTUuh05bmNPT7rFoBnzs4Id8MUkQkODAcu0bLTH4VCZPG
-	EwSrnPXfnvyrbQ3FqmmMDlujOPTECxe/lyhB2scsORdXZ7OBZhiAwUGyHQW6teLO2uicjeMWF2H
-	6B8ZuDa6jZb4stHeKd4DlPC14T/AeB41WWxvA1z8G1+rCMyFPhhOQ540vcYXXcw1NIsKxjX6J3V
-	+QOgwYNwUM282/WTeiR+8I0AggikIejvVeRt/Cp8sQuXR7y6KuBkc5glgDsCZuwNJ01i8wv2lCh
-	nXh3o/FrthP3htO10EDD1O6zSLxuUohkAjCE7rO8SD/aBxdeTLkabMyKJobwngRkSdcaOCaPiId
-	3YXk50kGamFdPW5LM6/eCQQCvIEYpFd4g/Wa9Lxyk3CKqF8LQWcdHblWt6GMR86o4bCu0rNA==
-X-Received: by 2002:a05:6123:28:b0:56d:b337:4709 with SMTP id 71dfb90a1353d-56db3374a26mr1454973e0c.6.1775332217583;
-        Sat, 04 Apr 2026 12:50:17 -0700 (PDT)
-Received: from fabio-Precision-3551.. ([2804:1b3:a803:fafb:5a7b:510a:6309:f015])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-56d9b8d22b4sm10695521e0c.0.2026.04.04.12.50.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 04 Apr 2026 12:50:16 -0700 (PDT)
-From: Fabio Estevam <festevam@gmail.com>
-To: heiko@sntech.de
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
+	Sat, 04 Apr 2026 21:08:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2D60060120;
+	Sat,  4 Apr 2026 21:08:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA414C19421;
+	Sat,  4 Apr 2026 21:07:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775336879;
+	bh=BiIX1lzxXdrzlCJQEBMZ1l1BGbfTuSVkY81BhOXf3lk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Oub0fn0xIZldTYcqRSlDOTMQjzbFiyZ2FBHAXnqwpUqD2yw3szONKSE+emJv4DD1C
+	 UmwWZmDq7uBINn/TjYM1XtY6FndW9aRBAXl2/98FyCpwlyg62yDxzdVdH8r8iOkxxm
+	 pvy837G3CWsTrBt8bahp8UgRgUo64OkQMiL6ClDwGqC4am4TzC6NmFZbjcjYFvizqY
+	 pWRqRLiVnuird2FXpJJGYOMRRBKMyRK6peLps17CRMJsJ5i5B3xB2UnF6H9IWF0kA9
+	 rZhQgk6UKVI5fcmEwSIfRGCNuOUMP4es6s5rV9TwC/3m3u9fr3FYENSOelyBzO7TQW
+	 hNf1sd9y0aGyg==
+Received: from cu01147a.smtpx.saremail.com ([195.16.150.122] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1w98Dl-00000008wZY-1oge;
+	Sat, 04 Apr 2026 21:07:57 +0000
+Date: Sat, 04 Apr 2026 22:07:51 +0100
+Message-ID: <874ilqcu3c.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Fabio Estevam <festevam@nabladev.com>
-Subject: [PATCH] ARM: dts: rockchip: Remove invalid properies from rk3288-veyron-analog-audio
-Date: Sat,  4 Apr 2026 16:50:08 -0300
-Message-ID: <20260404195008.1951910-1-festevam@gmail.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260404_125019_631401_3946D6CB 
-X-CRM114-Status: UNSURE (   9.57  )
-X-CRM114-Notice: Please train this message.
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH] KVM: arm64: Advertise ID_AA64PFR2_EL1.GCIE
+In-Reply-To: <20260404181330.GA3987102@ax162>
+References: <20260401170017.369529-1-maz@kernel.org>
+	<20260404181330.GA3987102@ax162>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 195.16.150.122
+X-SA-Exim-Rcpt-To: nathan@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, sascha.bischoff@arm.com, will@kernel.org, catalin.marinas@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,34 +88,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fabio Estevam <festevam@nabladev.com>
+On Sat, 04 Apr 2026 19:13:30 +0100,
+Nathan Chancellor <nathan@kernel.org> wrote:
+> 
+> Hi Marc,
+> 
+> On Wed, Apr 01, 2026 at 06:00:17PM +0100, Marc Zyngier wrote:
+> > As we are missing ID_AA64PFR2_EL1.GCIE from the kernel feature set,
+> > userspace cannot write ID_AA64PFR2_EL1 with GCIE set, even if we are
+> > on a GICv5 host.
+> > 
+> > Add the required field description.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kernel/cpufeature.c | 1 +
+> >  1 file changed, 1 insertion(+)
+> > 
+> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> > index 32c2dbcc0c641..5bca6e064ca72 100644
+> > --- a/arch/arm64/kernel/cpufeature.c
+> > +++ b/arch/arm64/kernel/cpufeature.c
+> > @@ -327,6 +327,7 @@ static const struct arm64_ftr_bits ftr_id_aa64pfr2[] = {
+> >  	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_FPMR_SHIFT, 4, 0),
+> >  	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_MTEFAR_SHIFT, 4, ID_AA64PFR2_EL1_MTEFAR_NI),
+> >  	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_MTESTOREONLY_SHIFT, 4, ID_AA64PFR2_EL1_MTESTOREONLY_NI),
+> > +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_GCIE_SHIFT, 4, ID_AA64PFR2_EL1_GCIE_NI),
+> >  	ARM64_FTR_END,
+> >  };
+> >  
+> > -- 
+> > 2.47.3
+> > 
+> 
+> After this change in -next as commit 899ff451fcee ("KVM: arm64:
+> Advertise ID_AA64PFR2_EL1.GCIE"), I am seeing a warning on boot in my
+> simple QEMU boot tests.
+> 
+>   $ make -skj"$(nproc)" ARCH=arm64 CROSS_COMPILE=aarch64-linux- mrproper virtconfig Image.gz
+> 
+>   $ curl -LSs https://github.com/ClangBuiltLinux/boot-utils/releases/download/20241120-044434/arm64-rootfs.cpio.zst | zstd -d >rootfs.cpio
+> 
+>   $ qemu-system-aarch64 \
+>       -display none \
+>       -nodefaults \
+>       -machine virt,gic-version=max \
+>       -append 'console=ttyAMA0 earlycon' \
+>       -kernel arch/arm64/boot/Image.gz \
+>       -initrd rootfs.cpio \
+>       -cpu host \
+>       -enable-kvm \
+>       -m 1G \
+>       -smp 8 \
+>       -serial mon:stdio
+>   [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x413fd0c1]
+>   [    0.000000] Linux version 7.0.0-rc4-00058-g899ff451fcee (nathan@aadp) (aarch64-linux-gcc (GCC) 15.2.0, GNU ld (GNU Binutils) 2.45) #1 SMP PREEMPT Sat Apr  4 06:55:05 MST 2026
+>   ...
+>   [    0.000000] ------------[ cut here ]------------
+>   [    0.000000] SYS_ID_AA64PFR2_EL1 has feature overlap at shift 12
+>   [    0.000000] WARNING: arch/arm64/kernel/cpufeature.c:986 at init_cpu_features+0xbc/0x344, CPU#0: swapper/0
+>   [    0.000000] Modules linked in:
+>   [    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper Not tainted 7.0.0-rc4-00058-g899ff451fcee #1 PREEMPT
+>   [    0.000000] Hardware name: linux,dummy-virt (DT)
+>   [    0.000000] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>   [    0.000000] pc : init_cpu_features+0xbc/0x344
+>   [    0.000000] lr : init_cpu_features+0xbc/0x344
+>   [    0.000000] sp : ffffcd0982373db0
+>   [    0.000000] x29: ffffcd0982373db0 x28: 0000000000000010 x27: ffffcd0981c63878
+>   [    0.000000] x26: 0000000000000018 x25: ffffcd0982013f38 x24: ffffcd0981c69068
+>   [    0.000000] x23: ffffcd0981c635f0 x22: ffffcd0982388640 x21: 0000000000000003
+>   [    0.000000] x20: 0000000000000017 x19: ffffcd09824c9308 x18: 000000000000000a
+>   [    0.000000] x17: 5d305b203837205d x16: 305b203737205d30 x15: 0000000000000000
+>   [    0.000000] x14: 0000000000000000 x13: 3231207466696873 x12: 2074612070616c72
+>   [    0.000000] x11: 0000000000000058 x10: 0000000000000018 x9 : ffffcd0982396598
+>   [    0.000000] x8 : 0000000000057fa8 x7 : 000000000000002a x6 : ffffcd09823ee598
+>   [    0.000000] x5 : ffffcd09823ee598 x4 : 0000000000000000 x3 : 0000000000000000
+>   [    0.000000] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffffcd09823852c0
+>   [    0.000000] Call trace:
+>   [    0.000000]  init_cpu_features+0xbc/0x344 (P)
+>   [    0.000000]  cpuinfo_store_boot_cpu+0x48/0x54
+>   [    0.000000]  smp_prepare_boot_cpu+0x28/0x38
+>   [    0.000000]  start_kernel+0x248/0x780
+>   [    0.000000]  __primary_switched+0x88/0x90
+>   [    0.000000] ---[ end trace 0000000000000000 ]---
+>   ...
+>   ```
+> 
+> Is this expected? I assume not, hence the report. If there is any
+> information I can provide or patches I can test, I am more than happy to
+> do so.
 
-The 'rockchip,mic-det-gpios' property is not documented anywhere.
+Gah. No idea how I managed to miss that: the register fields must be
+strictly ordered, and I placed the field in the wrong spot. The
+following hack fixes it for me:
 
-The 'rockchip,hp-det-gpios' property is not a valid property for the
-'rockchip,rockchip-audio-max98090' compatible.
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 5bca6e064ca72..1bfaa96881dab 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -325,9 +325,9 @@ static const struct arm64_ftr_bits ftr_id_aa64pfr1[] = {
+ 
+ static const struct arm64_ftr_bits ftr_id_aa64pfr2[] = {
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_FPMR_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_GCIE_SHIFT, 4, ID_AA64PFR2_EL1_GCIE_NI),
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_MTEFAR_SHIFT, 4, ID_AA64PFR2_EL1_MTEFAR_NI),
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_MTESTOREONLY_SHIFT, 4, ID_AA64PFR2_EL1_MTESTOREONLY_NI),
+-	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_GCIE_SHIFT, 4, ID_AA64PFR2_EL1_GCIE_NI),
+ 	ARM64_FTR_END,
+ };
+ 
+If that works for you, I'll fold that into the original patch...
 
-Remove both invalid properties.
+Thanks for pointing this out!
 
-Signed-off-by: Fabio Estevam <festevam@nabladev.com>
----
- arch/arm/boot/dts/rockchip/rk3288-veyron-analog-audio.dtsi | 2 --
- 1 file changed, 2 deletions(-)
+	M.
 
-diff --git a/arch/arm/boot/dts/rockchip/rk3288-veyron-analog-audio.dtsi b/arch/arm/boot/dts/rockchip/rk3288-veyron-analog-audio.dtsi
-index 51208d161d65..25c7c0667856 100644
---- a/arch/arm/boot/dts/rockchip/rk3288-veyron-analog-audio.dtsi
-+++ b/arch/arm/boot/dts/rockchip/rk3288-veyron-analog-audio.dtsi
-@@ -14,8 +14,6 @@ sound {
- 		rockchip,model = "VEYRON-I2S";
- 		rockchip,i2s-controller = <&i2s>;
- 		rockchip,audio-codec = <&max98090>;
--		rockchip,hp-det-gpios = <&gpio6 RK_PA5 GPIO_ACTIVE_HIGH>;
--		rockchip,mic-det-gpios = <&gpio6 RK_PB3 GPIO_ACTIVE_LOW>;
- 		rockchip,headset-codec = <&headsetcodec>;
- 		rockchip,hdmi-codec = <&hdmi>;
- 	};
 -- 
-2.43.0
-
+Jazz isn't dead. It just smells funny.
 
