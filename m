@@ -4,62 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED9FD73091
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 14:47:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C505CD73094
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 15:08:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RGVNvdmyPLrnuQm0vrwWKMvtO9uoE5KBnFIp8YQuxgI=; b=pnOPyoAtRsc7pZ5/nWuPNyDB9i
-	1WMYaKq67uZt1KPUMUS36B3Kl7W8M82NwiD6+dzAtH1jeYa9mDG1J7JYbM0MtoctuLzZB7cT8XEPx
-	ro8Sr5t7rMTfOf1l6776wwjpYLsVV6/mb7tNvW9nSOAL162z8iWZBEGtODoovBBg7lBZnqLOELfqU
-	UECTIGzC/j1ppDuOsgqLiJXqaDwyhdIO+WCAtHVeu9mH18U1OF81xY7kVMfJmZtswvjL51mR2jVG/
-	sDowlol6jooUiGDtty9iumKvXeGVDK/4endO8s6elMmO210kJ7LhebjynG3g2gxE1ZzRY8eWWPG5x
-	PI9E87Jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
+	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gs1kMOlXrbZsLGY84yk6OiZKLkuZPgIWvrdhGV8DpHE=; b=1yDdYNiNNXBQs7dV5GJpVIFu+d
+	ylmV7CiAvqC8A2Zp4+1LEojL4J7ZxmkJxAdxpURzEmCroxySG3YcTQdofBQALndG2Ko4WvcM6mP4T
+	F/YhcCqp/YLxpUcDFUOZ27j2+3xukU/nRWH8M7yROPTtWh55Cld9ziy9Vd3gGOf1TTGKV8NGy+MR1
+	N6XnB1e5yyd+NR3EtQ4yyp4w7CUAzMlQqwor3ExUXPdJxpykUighsJdlLyRWRzC47t29i84YrEe4k
+	TSYV+jeTvXZ17xfrRDNgcBGMpklLbkvTd4ExeSLKUSzTaOIpXQO72O56z8ianc406LNfazw4JmrdC
+	1FqEwWkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w92HS-00000003X2o-1bFz;
-	Sat, 04 Apr 2026 14:47:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w92bQ-00000003Xsy-3GOS;
+	Sat, 04 Apr 2026 15:08:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w92HP-00000003X2T-3640
+	id 1w92bQ-00000003Xss-0L5Z
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Apr 2026 14:47:20 +0000
+	Sat, 04 Apr 2026 15:08:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F239344449;
-	Sat,  4 Apr 2026 14:47:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F677C19421;
-	Sat,  4 Apr 2026 14:47:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 09D4760008;
+	Sat,  4 Apr 2026 15:07:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11D01C19421;
+	Sat,  4 Apr 2026 15:07:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775314038;
-	bh=wkWsq3wOxvvGHQk5g9AdcPeG8Kmz14QfgWPiPSY/fAw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mgWB8CvrnBabd/PPFTftEM8Yg4ce7Bnp5i35nCClv52Fol4A5/jbB0PR04WD4D5nx
-	 OZ2mTONoFKKP91Q5Bb3d0CUgEm553zGSmU5/qFMxjD6MKaD1df3y+AmdN5rTgL1kjZ
-	 x2F/zt4suiuQB1Fq+NvvHpgMld8/IVU7q85yds8LTwwKOQdzf+WpJOgzYjuEXHSBOz
-	 m3masDW9xk0r2292SJ79A4GOBHboGlVxErafkxqh/biq5bsP9qsGLouFD2m/avjxjY
-	 LMe2uTJmkZdCNUaF/FBkCCdrKxOAx+lGKBCZMVpLbt6atGPBpLVZrqKfV45a3+fJem
-	 wCqBTw0AfzJqQ==
-Date: Sat, 4 Apr 2026 16:47:16 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: soc@kernel.org, arm@kernel.org, Shawn Guo <shawnguo@kernel.org>, 
-	Fabio Estevam <festevam@gmail.com>, kernel@pengutronix.de, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL 2/4] i.MX arm dts changes for v7.1
-Message-ID: <20260404-thoughtful-placid-boobook-da26da@quoll>
-References: <20260330141444.3789193-1-Frank.Li@nxp.com>
- <20260330141444.3789193-3-Frank.Li@nxp.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260330141444.3789193-3-Frank.Li@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260404_074719_798887_BAB5EF2A 
-X-CRM114-Status: UNSURE (   6.83  )
-X-CRM114-Notice: Please train this message.
+	s=k20201202; t=1775315278;
+	bh=vsboea1jS0mbXrEN888C7vI6KSnNsfnadcjKrpMmAnY=;
+	h=Date:To:From:Subject:Cc:References:In-Reply-To:From;
+	b=BqFwLyJnTBhpomTB+sXRdwyVaWyzA1LM4x/jRCX0BFGrA8JpgKS8rfJ3LIpPDY9yk
+	 p+d1jqhJ1Mjf2wU0RpwYFVVUOlAbdMj9UlGnuClj9FmR1QC9ZSfTvrkB18QTB/RfaR
+	 3w4rXTh/VlmdJJ+A6SXPJawUID7A7XZSgzuHSGqEFu6Tbouz8uVWV9o1VaA1GFu7gI
+	 3NdNsOM8C1NHzuvTeKFcIyrqClEFUe0UqumonfV9MfwITs9dnEyWj08ERsdYv9WbWd
+	 01HVmLT594g3v4oxts7zZYAk6RxZP3qVHdO7PiI+5yTu0pvGRJP4QeyHxy5PzJrrxp
+	 3oxcw/dlirZ+g==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 04 Apr 2026 17:07:48 +0200
+Message-Id: <DHKGQN6D0ANO.2QYY3JTM5435O@kernel.org>
+To: "Russell King" <linux@armlinux.org.uk>, "Greg Kroah-Hartman"
+ <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ "Ioana Ciornei" <ioana.ciornei@nxp.com>, "Nipun Gupta"
+ <nipun.gupta@amd.com>, "Nikhil Agarwal" <nikhil.agarwal@amd.com>, "K. Y.
+ Srinivasan" <kys@microsoft.com>, "Haiyang Zhang" <haiyangz@microsoft.com>,
+ "Wei Liu" <wei.liu@kernel.org>, "Dexuan Cui" <decui@microsoft.com>, "Long
+ Li" <longli@microsoft.com>, "Bjorn Helgaas" <bhelgaas@google.com>, "Armin
+ Wolf" <W_Armin@gmx.de>, "Bjorn Andersson" <andersson@kernel.org>, "Mathieu
+ Poirier" <mathieu.poirier@linaro.org>, "Vineeth Vijayan"
+ <vneethv@linux.ibm.com>, "Peter Oberparleiter" <oberpar@linux.ibm.com>,
+ "Heiko Carstens" <hca@linux.ibm.com>, "Vasily Gorbik" <gor@linux.ibm.com>,
+ "Alexander Gordeev" <agordeev@linux.ibm.com>, "Christian Borntraeger"
+ <borntraeger@linux.ibm.com>, "Sven Schnelle" <svens@linux.ibm.com>, "Harald
+ Freudenberger" <freude@linux.ibm.com>, "Holger Dengler"
+ <dengler@linux.ibm.com>, "Mark Brown" <broonie@kernel.org>, "Michael S.
+ Tsirkin" <mst@redhat.com>, "Jason Wang" <jasowang@redhat.com>, "Xuan Zhuo"
+ <xuanzhuo@linux.alibaba.com>, =?utf-8?q?Eugenio_P=C3=A9rez?=
+ <eperezma@redhat.com>, "Alex Williamson" <alex@shazbot.org>, "Juergen
+ Gross" <jgross@suse.com>, "Stefano Stabellini" <sstabellini@kernel.org>,
+ "Oleksandr Tyshchenko" <oleksandr_tyshchenko@epam.com>, "Christophe Leroy
+ (CS GROUP)" <chleroy@kernel.org>
+From: "Danilo Krummrich" <dakr@kernel.org>
+Subject: Re: (subset) [PATCH 00/12] treewide: Convert buses to use generic
+ driver_override
+Cc: <linux-kernel@vger.kernel.org>, <driver-core@lists.linux.dev>,
+ <linuxppc-dev@lists.ozlabs.org>, <linux-hyperv@vger.kernel.org>,
+ <linux-pci@vger.kernel.org>, <platform-driver-x86@vger.kernel.org>,
+ <linux-arm-msm@vger.kernel.org>, <linux-remoteproc@vger.kernel.org>,
+ <linux-s390@vger.kernel.org>, <linux-spi@vger.kernel.org>,
+ <virtualization@lists.linux.dev>, <kvm@vger.kernel.org>,
+ <xen-devel@lists.xenproject.org>, <linux-arm-kernel@lists.infradead.org>,
+ "Danilo Krummrich" <dakr@kernel.org>
+References: <20260324005919.2408620-1-dakr@kernel.org>
+In-Reply-To: <20260324005919.2408620-1-dakr@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,29 +95,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 30, 2026 at 10:14:38AM -0400, Frank Li wrote:
-> Frank Li (24):
->       ARM: dts: imx35: rename emi to emi-bus to fix CHECK_DTBS warning
->       ARM: dts: imx35: rename i2c clock-names to ipg
->       ARM: dts: imx35: remove simple-bus 'usbphy'
->       ARM: dts: imx51-ts4800: rename fpga@0 to fpga@0,0
->       ARM: dts: imx51-babbage: rename at45db321d@1 to flash@1
->       ARM: dts: imx53: drop fallback compatible "dlg,da9052"
+On Tue Mar 24, 2026 at 1:59 AM CET, Danilo Krummrich wrote:
+> Danilo Krummrich (12):
+>   PCI: use generic driver_override infrastructure
+>   platform/wmi: use generic driver_override infrastructure
+>   vdpa: use generic driver_override infrastructure
+>   s390/cio: use generic driver_override infrastructure
+>   s390/ap: use generic driver_override infrastructure
 
-This, just like arm64 pull, breaks users without explanation. You use
-incorrect terms in that commit msg which might mean you did not perform
-proper analysis of compatibility. Commit claims compatibility string is
-not comaptible and as proof brings dtbs_check warning. So the sole
-reason is the binding. What if binding is wrong?
+Applied to driver-core-testing, thanks!
 
-Commit msg must explain that.
+>   amba: use generic driver_override infrastructure
+>   cdx: use generic driver_override infrastructure
+>   hv: vmbus: use generic driver_override infrastructure
+>   rpmsg: use generic driver_override infrastructure
 
-I looked at the drivers and it looks 100% compatible, so commit msg is
-clearly wrong and this might affect users of DTS.
+I have not picked these up, as they have not received ACKs from the
+corresponding subsystem maintainers so far.
 
-Please resend pull without this commit.
+>   bus: fsl-mc: use generic driver_override infrastructure
+>   spi: use generic driver_override infrastructure
 
-Best regards,
-Krzysztof
+These have already been picked up via the respective subsystem trees -- tha=
+nks!
 
+Thanks,
+Danilo
 
