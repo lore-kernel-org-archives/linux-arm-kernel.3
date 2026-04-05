@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 690F1E64003
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Apr 2026 07:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA0CE64003
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Apr 2026 07:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P9zwXgUbE8chWfX56OZRKt6UodJllnGIvZYEcTHHyE4=; b=R4yrReXGfcYhc8iu2jf3u6D820
-	t72EP/2jTa4Z1MnEeP4PZTFHV2RXSLCW+IKfB/J748msY8S7xbD26WIUJdNYumrbIfhf5RnLCZaXI
-	YR0rsC0IdE9FxwCeJaZi2O4fE9TKjnBEuE3+xp/vvMdVxJwKeqoOquK2kBy3y5Lcd9ufGQmVDt+JM
-	eNKhaEVoZUgVecmasi8larOPHBBD+xlqRtDKvhhbmvbLiZhojPSPlcNyZUSWYg+wYMjoUtZo1dbMn
-	ewUda752MCEaf/UMxQRJONbJjLYBVvuNRK5X5KAGCJJSKYBysxXCZ7seh8ybTojyStSYJit+iowWG
-	slJDJAqQ==;
+	bh=gik0rc4AUjH01aTkdd9GDQqrimGHwk2sVVZkVxe1iwM=; b=VdF3BXs6Kt3eZAJhOt8Diem8HB
+	yg1nCt2dNMUr74bMMKg1Q+UGGgw18Nx2jU9TuFNjYyaUmICLRQjr6nl+Z80JZb+t8bo47ml4t++P/
+	aR3oEzvBPGzvGj/fEf/k1V8Np3xMM9jVRoFSsVJLvh1aqfzeh70DjKyV+Gx68pwxEQr/tNY5qnpN5
+	WeXOLMorUCJm0qyN7h216qhz8JnZhusmGeuSzMEL6/Nwxm5VIVLQEReqoSnEkZnEVayk1lxD7Cl5n
+	Z3K42fKW+lMfJ8OFwWO+M2qf9wo0pPiloKtXZEaGoZtJ2n9RLpGV8enK6M3Bgztfjr0thep0ZuyJJ
+	KklnCz8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9IHH-000000042xk-47xC;
-	Sun, 05 Apr 2026 07:52:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w9IIl-0000000435f-0QQM;
+	Sun, 05 Apr 2026 07:53:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9IHG-000000042xa-1hlr;
-	Sun, 05 Apr 2026 07:52:14 +0000
+	id 1w9IIj-0000000435E-24FA;
+	Sun, 05 Apr 2026 07:53:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 651A7600AE;
-	Sun,  5 Apr 2026 07:52:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8874AC116C6;
-	Sun,  5 Apr 2026 07:52:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 80EB241968;
+	Sun,  5 Apr 2026 07:53:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBE19C116C6;
+	Sun,  5 Apr 2026 07:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775375533;
-	bh=i5I87xe3rCX6jakt5XfSPaCxSLCt3vmnBkAl2OH+qO4=;
+	s=k20201202; t=1775375624;
+	bh=mmT6pS2qy6cxZpqzi3T3vnIlGk445m471lTjYAty8AA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BYdvxgMUJ8yNZjPasLh9fx9kB58YSGry8Q2LIW42mRsBu4vcmP/X02G982jWk9TH7
-	 WJ3vXB/pYzX5/MoYbSdpDSBeRVqd01JQJK/agrV8J1AFJz7UUxiw6FsVpkGrdd7NHy
-	 oCE8VDDwfDhG8MvSYD1niXsklqmiQBCp+5TIJLLy1pV/6f0z9n+38D0NEAfXMygDV2
-	 zB1MAlAxhBocqKo34PWuOI2fkSN9geyXhhhHZTGQOVeIn9Ht87Ys9DLFRaWCPn6OzD
-	 sgVz44yGwN7bsfkJf4P1bLDfrSVtcbGKoo9/Kh1NvA1CaaEn4OdwDrv/fnnjP7Q5dN
-	 SnEGpNKi1l13A==
-Date: Sun, 5 Apr 2026 09:52:10 +0200
+	b=fywhHBR2CBjI23v0w3up56C9cMDZNh/BxiClQFDTaz+8M0J92oOsIo8ehZx8FCrNy
+	 GHISB9tq9laaOWb9XCIY1j+OWZPNo1ju2jRKd8KKGnfTcSfEKXN4TEDxgBjZThA04i
+	 bAfTyF3G9UanDv/2nN20AA+gawgWl8gOx6KqZasuETWVmxzIJ/GEo+G3OG1P+yX502
+	 0Tn4O/6dmTIXbPkGSaMIVXzovM+EJ+jbJLz2QFudu6d6TUJfPhyHrNO2ZeCrgTLlKh
+	 R5h4gU2yfNV/AbACVYBHSYvk6wHK3rg9WJy7D06QASRN1nRGwUt9BJYiXjIuiLECwe
+	 f5ob7221EliKA==
+Date: Sun, 5 Apr 2026 09:53:41 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Andrea della Porta <andrea.porta@suse.com>
 Cc: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
@@ -51,14 +51,18 @@ Cc: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	Naushir Patuck <naush@raspberrypi.com>, Stanimir Varbanov <svarbanov@suse.de>
-Subject: Re: [PATCH 1/3] dt-bindings: pwm: Add Raspberry Pi RP1 PWM controller
-Message-ID: <20260405-enormous-glittering-avocet-285f82@quoll>
+Subject: Re: [PATCH 3/3] arm64: dts: broadcom: rp1: Add PWM node
+Message-ID: <20260405-tremendous-colorful-spoonbill-88debb@quoll>
 References: <cover.1775223441.git.andrea.porta@suse.com>
- <11b5eee3c22cfd034bb4b425d28a5a3ff2a71828.1775223441.git.andrea.porta@suse.com>
+ <ef79e974c6680202294a4cfde7cc791753bf1b3e.1775223441.git.andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <11b5eee3c22cfd034bb4b425d28a5a3ff2a71828.1775223441.git.andrea.porta@suse.com>
+In-Reply-To: <ef79e974c6680202294a4cfde7cc791753bf1b3e.1775223441.git.andrea.porta@suse.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260405_005345_550332_3CD9F0ED 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,18 +77,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 03, 2026 at 04:31:54PM +0200, Andrea della Porta wrote:
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
+On Fri, Apr 03, 2026 at 04:31:56PM +0200, Andrea della Porta wrote:
 > +
+>  &rp1_usb0 {
+>  	pinctrl-0 = <&usb_vbus_default_state>;
+>  	pinctrl-names = "default";
+> diff --git a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
+> index 5a815c3797945..7e78501e62b0c 100644
+> --- a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
+> +++ b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
+> @@ -56,6 +56,16 @@ rp1_eth: ethernet@40100000 {
+>  		#size-cells = <0>;
+>  	};
+>  
+> +	rp1_pwm: pwm@4009c000 {
 
-Missing ref to pwm.yaml.
-
-> +additionalProperties: false
-
-and this should be unevaluatedProperties. See other files.
+Don't break the order. Instead please read and follow DTS coding style.
 
 Best regards,
 Krzysztof
