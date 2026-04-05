@@ -4,65 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2DD8E9D823
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Apr 2026 21:48:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B01E2E9D826
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Apr 2026 23:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UbSo1DAwAWxJg32DFbvlijyUIpAIFuCPFtMF/KOXGIU=; b=VC/6seHuwQBABp1oPggExiYUze
-	wuoo2rgPzjZYUsExKTBfdB0HslCnPE+RMkwtGmqxTweGXhGfd1kQP05rBBXg5/Hvt8EkUCx1jkLss
-	kFmq5WtCkBUcTkKRwB13gxaJZep+VCtBBWy6KeUI1uOKNL5yr5wrdJM1QH1LLYNkQfe0A20U43LFm
-	KrobERvEfgdqZhXNmEMc7gt6+mvX7xtPg+CJxl61XtlnQA7Ly6o9BfQX+dNHCpC6KTqUduuJrisrI
-	mBdJwTbMV2kW0UP8PRPK2QzE0l6fGKfnNh96fyxAYBmtjsPKHi5tLEvefTNbRb2JgMkjnsEh5JhvC
-	BYb3nbQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7nRF2alQvQ2aT54Jx0Zl/2nZdMqcYryRscNapi5ZMxM=; b=Hi153h/OIk0TwQmCzttEKMNhrh
+	ekO03NV/Xfhei3FKUp0IJGIRZJH9DH9dvf/+nSVMtwrCvV4IH8E6GlOdjE14g8UDYZCfzb2AqnC4C
+	QS/tWP827VAd3cfaAsZyHFcezV/RBm4rSrL65q8Gl0oRDDS6NNzV4q4Y6BsJS9KSSxVuDkB1sncQQ
+	VAbV5mlZl1Q2l2JUErJERRH2pUjm7tixO9y5R46lEsums0xehw7ZXiMgfGGPcy0KT1bN+om3OWBXo
+	QhJzWLFxlTe7a99s2gTM0Mq6mUpN+IOIULxAgVF4jy0Lt9TX3Oa12o6jf9t7ThPsBTkRK8+o8It+Q
+	knk7vOpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9VKM-00000004VL9-23Z1;
-	Sun, 05 Apr 2026 21:48:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w9WhB-00000004Y9m-2dF5;
+	Sun, 05 Apr 2026 23:15:57 +0000
+Received: from mail-dy1-x132c.google.com ([2607:f8b0:4864:20::132c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9VKJ-00000004VKl-2IRC;
-	Sun, 05 Apr 2026 21:48:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 055BD42B6A;
-	Sun,  5 Apr 2026 21:48:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35856C116C6;
-	Sun,  5 Apr 2026 21:48:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775425693;
-	bh=RGKOBQD3Q6ynJpf+CVXJt8bXlPhMYn8DmenV7P8v5uU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=h2cd3RH0ZY08IBHKfzRhqB1K337C4FVOO0qZeUhgJ98d7JrCfsytmVl2STQdmGtT2
-	 V+RVFGYTZ23wOpPPrLOHGoV4eHcy5cM5eDMC5lgLCR3eExlwsZDWHMq/d8gJkI6VvU
-	 Zr7nuTWMp8UHOXg2PgAqXkVwTHFQfta+3FhqerqtiqYEcKur4+NSrxhJf651hyCb/v
-	 7ZPdMtvFW0KK7UoiiyKpcsTOvTX4CcSoAbmsG8PKl1VCZduFJh3m5iRKZ/8ZmmQKoh
-	 5BLFJWEjdcSrWIeVPfAGO9mIhfLf0lzEtHjznnaru3ByDryUnP7MesLZZmLK2NadNG
-	 f67igLD70FYKQ==
-Date: Sun, 5 Apr 2026 23:48:10 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Naushir Patuck <naush@raspberrypi.com>, Stanimir Varbanov <svarbanov@suse.de>
-Subject: Re: [PATCH 3/3] arm64: dts: broadcom: rp1: Add PWM node
-Message-ID: <adLYU8EUzk7kIuwl@monoceros>
-References: <cover.1775223441.git.andrea.porta@suse.com>
- <ef79e974c6680202294a4cfde7cc791753bf1b3e.1775223441.git.andrea.porta@suse.com>
+	id 1w9Wh7-00000004Y92-3GuG
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 05 Apr 2026 23:15:54 +0000
+Received: by mail-dy1-x132c.google.com with SMTP id 5a478bee46e88-2bda3b4318dso224419eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Apr 2026 16:15:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775430953; cv=none;
+        d=google.com; s=arc-20240605;
+        b=SwAYW/NI2sevpyxgVMsUQHESLxgsNYFdfp9aD3P0OyQxKXTRBpF4NL+4sLVIsTwOdW
+         jVIvZu9ehQEv+rdzHBneuryQl24Zla06CNOr9JOhGyuydRIraO9cKaosmfS2ctuB82+n
+         DIPO+pt7A4IobBkVeh//HN4BYqmSp0a+epdtHFuCmHbZZlSakgEUKblEPWMlxDiXKTmV
+         F32wwUW1p+M1LjiGEV7PsfOBaldeRC1jyGlgUOaji5lj/8+LArACq4DYvQyU0RfWo30w
+         P93SJs0rCj4xqmdRBuf4geliSZMlnyD6xKb2ZSTPEewyJ7zpinp6rEcAydkj7Slmb4DE
+         k4+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=7nRF2alQvQ2aT54Jx0Zl/2nZdMqcYryRscNapi5ZMxM=;
+        fh=ANs3BaS4F/Kh3TKLPZ4mEmBDimkXozV6DUxKKpuU0Ls=;
+        b=b/hca5v1zpnLHtrAcYNbxqGe4agjNCeM17hb4PzwuinLXYOEdvlr3EL3lEyD7qHSy3
+         IwJBwjmlZYgFyrJZt8FYwm40ll31bprFsgNRb+PExYwufjsetu74cC91MP6ky3fh9ZzG
+         fkCe299gbphTcnfkXOYarCQ38FjxzpniuIAzN6k7K6rYyYtKYJhCeaAmQkv/mBB+MxGS
+         dw65VcNp2TSQ8sS1TUQ4VGHYhLoeJVgbeFR1Uqs9nCqw3zcE1jnydbrcvi0/uF08y7i3
+         UvZ1QjdqNJcWCBqBP3nrfrnGWRC5zGKw07cHhP08PalICUpzsXW8g+sx6XzkSB+RZsow
+         RrqQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1775430953; x=1776035753; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7nRF2alQvQ2aT54Jx0Zl/2nZdMqcYryRscNapi5ZMxM=;
+        b=UomZZmi8yhjL+i8cmZd0HP8U+2MIjTOtjQZ1hbyEk/zZgMju0LO64YNHg54jkUhQqC
+         GAPXy+x7cNTzbG4Tp8iKFU2NnU8pu48OuMl7TQ0FL6mfCGnr4ZJNkuRz67ixcK2plzs4
+         L6tGTRxdZ+JitzCwthuBcZUxtariq5En8Mccph3M93xL/8ajxe/Xqy5ZkZAjLSjRhRk0
+         YPnjEjk2y79JOIiFX6ptqHO9NGyI6yqkCF0/IF/gj7itymC4mGZwiRWTkmgPb38CxJOY
+         Yr1Euh6AksZ26ZwnNEDOMAaZFfBkfm4zYKYBfnMxhW0314VMhQuEo/jMHp7vyLAfV5XI
+         CQMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775430953; x=1776035753;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=7nRF2alQvQ2aT54Jx0Zl/2nZdMqcYryRscNapi5ZMxM=;
+        b=OPJFCwOZKGLE8Xj9S0SQaG16r+lB78k+IANgXFUyM2FLShgpLQhqH+sCOXDqB1WgiG
+         haUNB2Sqe9FdYkjpmXseUUVXmd7Q6irMh15Sdx+wK5v+JlplSL36DeCguegb6SquOM85
+         IBpFXlBC3DDdIOU8UuL5aqVwuvixkACfgD14LrBd5yCnwchmKmhXqPN1E9OsstIZNEnt
+         FkiAUFG6y4qiFuiG/CoDJ4ZRSsSyVz6rbDSq7Eti87/luXjIej4eMHZLock8hBNr+fmy
+         dzPcVdo5Cy+rXPK84S5KZrdF9YlSIgRC/QLIGNYFqbsRxQjyPiNu2v9kymw7ZjQr/BrP
+         HBzg==
+X-Forwarded-Encrypted: i=1; AJvYcCWE0ixvD87+JfOOu2vEsfrF4A0aE5JPPkX49Feaa+MDHzGfm3pVsvIBnMJT6r5fnmO51nzAwBqmzGE5BwF1glSj@lists.infradead.org
+X-Gm-Message-State: AOJu0YxnIFyomRrTtBHWDUHz5nZcXpD597PNcOBmAGyU/s5LPLB6DKGd
+	/KS0uvwjAKso84JaVXOritFkTNtS/8E2CL/aa2S8crEXsaF7kwWeswXE/9VyOv2cpFHa+rbduSX
+	g9Tq7h7kd+Q3UpRVZl8XzQuo/7qYS/AA=
+X-Gm-Gg: AeBDiev2ZoRXvQCD2nXk2+f00iJEuhtaj7+dzU0k+o/cZkMkOFH03Lh2qyZzKvfXp+x
+	Dmzt6c1+cd++1v98JPptm56fWHmf7Hv3I1eJYJkwnqMT+kBPoG1O21mlGJxVRBGHqpDyI0cE2Ig
+	lsnpy6308HuEnN7Ty7YXJM74t0PkCfkSjerdwq8druTUj7DDrDR7s9s4tHEGRBFZ40qfkuW1v/8
+	xOEQzNscnmogRG8MtmIU7/WzZqewKSr1G8ITkwqeHz8keUITNwidvRWtd9x25eUB5MDU3/cXYzN
+	PLVrB7ikiq6OcoawXBIMWz4LiCkGXjgo9lyME4VQNxYkbBQOVQYjsYvJchaaPPyh9qGnqIjheZu
+	kXTqMjYlsok1EVJH/WMGazmQ=
+X-Received: by 2002:a05:7300:fb8a:b0:2c7:3a7:c795 with SMTP id
+ 5a478bee46e88-2cbf669b785mr2053063eec.0.1775430952689; Sun, 05 Apr 2026
+ 16:15:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="a2ld2b4dw2q6x2ai"
-Content-Disposition: inline
-In-Reply-To: <ef79e974c6680202294a4cfde7cc791753bf1b3e.1775223441.git.andrea.porta@suse.com>
+References: <20260401114540.30108-1-ojeda@kernel.org> <20260401114540.30108-33-ojeda@kernel.org>
+ <DHHX9O7V06VZ.G0N1CQ7BUKFO@garyguo.net>
+In-Reply-To: <DHHX9O7V06VZ.G0N1CQ7BUKFO@garyguo.net>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Mon, 6 Apr 2026 01:15:39 +0200
+X-Gm-Features: AQROBzBr0aNQIDV47zgxZ35JmTq7j6zQBNm1bxMAs_nutxdLV5rErBhW_SWV5gw
+Message-ID: <CANiq72mTaA2tjhkLKf0-2hrrrt9rxWPgy6SfNSbponbGOegQvA@mail.gmail.com>
+Subject: Re: [PATCH 32/33] rust: kbuild: support global per-version flags
+To: Gary Guo <gary@garyguo.net>, Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Courbot <acourbot@nvidia.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, =?UTF-8?B?QXJ2ZSBIasO4bm5ldsOlZw==?= <arve@android.com>, 
+	Todd Kjos <tkjos@android.com>, Christian Brauner <christian@brauner.io>, 
+	Carlos Llamas <cmllamas@google.com>, Alice Ryhl <aliceryhl@google.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Boqun Feng <boqun@kernel.org>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>, rust-for-linux@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	Vlastimil Babka <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org, 
+	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>, Alexandre Ghiti <alex@ghiti.fr>, 
+	linux-riscv@lists.infradead.org, nouveau@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, Rae Moar <raemoar63@gmail.com>, 
+	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260405_144815_628862_C7852007 
-X-CRM114-Status: UNSURE (   6.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260405_161553_874293_46782496 
+X-CRM114-Status: GOOD (  18.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,37 +138,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Apr 2, 2026 at 12:28=E2=80=AFAM Gary Guo <gary@garyguo.net> wrote:
+>
+> I think I would prefer moving these down.
+>
+> The current approach append the flags to all variables, which will cause =
+the
+> following equivalence to stop holding after the flag update.
+>
+> KBUILD_HOSTRUSTFLAGS :=3D $(rust_common_flags) -O -Cstrip=3Ddebuginfo \
+>                         -Zallow-features=3D $(HOSTRUSTFLAGS)
+>
+> (Per version flags doesn't go before -O anymore, it comes after HOSTRUSTF=
+LAGS).
 
---a2ld2b4dw2q6x2ai
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH 3/3] arm64: dts: broadcom: rp1: Add PWM node
-MIME-Version: 1.0
+[ For context for others, Sashiko reported the same and we also talked
+about it in a Rust for Linux call. ]
 
-Hello,
+I have been thinking about this, and about potential other ways to
+achieve the same thing. I think the best at the moment is to move just
+the `$(HOSTRUSTFLAGS)` below, but not the rest.
 
-The "rp1" in the Subject is very irritating. Better make this:
+The reason is that it is closer to what we do with other user (kernel)
+flags (e.g. arch flags come after the general ones). But I am
+wondering if we should/could set all the user variables later in the
+`Makefile` in general `HOST*FLAGS` later in the `Makefile`.
 
-	arm64: dts: broadcom: rpi-5: Add rp1 PWM node
+In fact, there is already a limitation with the host flags: `-Werror`,
+i.e. that one gets appended later, and so users cannot override it.
 
-or similar.
-Best regards
-Uwe
+This may be considered a bug, because commit 7ded7d37e5f5
+("scripts/Makefile.extrawarn: Respect CONFIG_WERROR / W=3De for
+hostprogs") says:
 
---a2ld2b4dw2q6x2ai
-Content-Type: application/pgp-signature; name="signature.asc"
+    While it is
+    possible to avoid this behavior by passing HOSTCFLAGS=3D-w or
+    HOSTCFLAGS=3D-Wno-error, it may not be the most intuitive for regular
+    users not intimately familiar with Kbuild.
 
------BEGIN PGP SIGNATURE-----
+But passing `HOSTCFLAGS=3D-Wno-error` doesn't work, since it comes
+earlier (`-w` does work, but because it turns off everything).
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmnS2JgACgkQj4D7WH0S
-/k7/BAgAraQetvLdiGHxyhhuRl+/9A1OzV4ZpgpJrRstQExDxilsE9zghRdQUCrx
-NbXRR2E5MTy9JtG2qDM0oW587E2dF96ywTvExIY3LQIsz7qjHLb+fF20bbp8bKOX
-A7WEwiBze2iC1QbIETJJjmgMBoSIx9fGK2kZXexhor2xucynUQunuMGPLBu1i/HU
-rAyhYUblL8/RqRlpfTt8Zx1eyo3UaavEznhai+isamY6euA8e8LWK6mvj6YKUAD3
-J7TGSn6vmzbR2WFeAL5XHql8OM7wfwurPoxCYVE/L8Btc53r3g4AzIaefq+HmzfW
-xC7bOVcru5Oiv5/QMxSoB0vt+PExMg==
-=d13v
------END PGP SIGNATURE-----
+I am also a bit confused with:
 
---a2ld2b4dw2q6x2ai--
+    While this means there is a small portion of
+    the build that does not have -Werror enabled (namely scripts/kconfig/*
+    and scripts/basic/fixdep)
+
+because it gets enabled in the build (I think it is referring to other
+targets like the config ones).
+
+Anyway, for now I moved the expansion of `HOSTRUSTFLAGS` in v2. If
+Kbuild (Nathan, Nicolas) think it is a good idea to do one of the
+bigger changes (e.g. for more `HOST*` flags, appending it even later),
+then we can do it afterwards.
+
+Cheers,
+Miguel
 
