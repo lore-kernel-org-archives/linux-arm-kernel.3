@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BB13E9D805
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Apr 2026 15:03:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91FA0E9D805
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Apr 2026 15:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RwUQ3uSD+V8fxSOMVe0JcfGw/IoNWj6WjniaBxxLHjw=; b=G79JIr8tv3C6y/AZEwTTmY5t8O
-	TJlM/9xWN5BS0yUSNVeZRr2M1ZcJOyZ1XZL1Lcyyb9FYRYqcsm1wo3dIi3fogHAB9N8ZtjJFtIn40
-	ro0/MM1C8gCROiShgSNvs+w/6g7pDnsJyXuizphIZcfHsK9IdZuHTLLUqlKioxrXqW4iuGHh8GNRw
-	4EeYebVbkBKjkYabmjJRd2YcBWC/5kZQCU5BIQvBg1PNlnSftcgyusNEBLBLPbLiAZBOzMAWpz9Bz
-	gXDkF0haQnZBRsU7YHFCdcqvMk84YHUjYaI/CX4HrJ/BVH0C4nHP6DklX7taaKSMFYGfC0WGQdAyw
-	WFJhgIaA==;
+	bh=eLZtjCqfpkOsbWsIVLfsZWO1yVkVl3GTT2+Xj0hoI08=; b=teb7xJJfZHM+yUnM4r3o2ETDLx
+	AM+yzAAV82Po9Sm9bk8ARRts6M0ANWhkmGDvqBX1oHDCNG9gNFTWtPNSTRWe6VLRzuw/90AbTW5Ar
+	yE4Q5DLtqxFJ+NNSSW0RCwn6KNQHhi8n+uk2y/YIwS9rjJNXFVqwWT8x89ntqZ06Cj/dgBa8E3766
+	l52HOfM1tcLNaNh2Mhk2htzHicVCRptBSZblONIuC4H6mDWJJAAjlFNR+aDD7P6MheseRy0lum7K/
+	Y276ArXvB2OHjmAi4GLb2kO6S7ADtg229cGkuSkCnVbrHHMRxZxJVFZ/Qpq1lik+PWQGBQFIIq1cH
+	w2a2+aeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9P0e-00000004HOd-0Zg3;
-	Sun, 05 Apr 2026 15:03:32 +0000
+	id 1w9P0h-00000004HTw-2fge;
+	Sun, 05 Apr 2026 15:03:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9P0b-00000004HKy-3TbS
+	id 1w9P0e-00000004HPF-3sce
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Apr 2026 15:03:31 +0000
+	Sun, 05 Apr 2026 15:03:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 86CA326BE;
-	Sun,  5 Apr 2026 08:03:23 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 944FF3F62B;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A03721758;
 	Sun,  5 Apr 2026 08:03:26 -0700 (PDT)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AD9FB3F62B;
+	Sun,  5 Apr 2026 08:03:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775401409; bh=O/jD5YzDk4RzifDj0WFmzhJ1u4lQv9s/34sv+lA4/Kg=;
+	t=1775401412; bh=0Q3CYI7FuviAhAHN4iyx+iRMJNxoybboLByDH1ZuNk0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Z2AZAG9QXQcC73C+k5u/rvTSSRWG0qYR5c5DRDI8W9d0EMkpcRfCMjktq68lh5bZ8
-	 PE8yJhdVyPpjw+tIPx5fX7mf/DmkOdAqbEVbAu/m5JNeAactN0qdJ/oAAB2dsMjD6k
-	 zpyHPL1G3VVG92ymrnkIV2562tfibF3snbsqCroA=
+	b=r903+w63laxLcKzgZ1Er4NjbFLxe61c0ecctY2WJekBq7OhYOuJLN/x7fueTj8Pu8
+	 GOQprnpTNcTgxzFdpPpSZcN/oMZFtpNAJjHB/tZ/wfloek3U/qbdmFSd1gzw2EFzvi
+	 zVHCe6IZj6l4IqJcbNWrHTNrIml/8vDhVaAxtsTQ=
 From: Leo Yan <leo.yan@arm.com>
-Date: Sun, 05 Apr 2026 16:02:45 +0100
-Subject: [PATCH v10 09/20] coresight: etm4x: Remove redundant checks in PM
- save and restore
+Date: Sun, 05 Apr 2026 16:02:46 +0100
+Subject: [PATCH v10 10/20] coresight: syscfg: Use IRQ-safe spinlock to
+ protect active variables
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260405-arm_coresight_path_power_management_improvement-v10-9-13e94754a8be@arm.com>
+Message-Id: <20260405-arm_coresight_path_power_management_improvement-v10-10-13e94754a8be@arm.com>
 References: <20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be@arm.com>
 In-Reply-To: <20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -60,18 +60,18 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
  Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>, 
  Peter Zijlstra <peterz@infradead.org>
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>
+ Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775401378; l=3117;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775401378; l=4125;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=O/jD5YzDk4RzifDj0WFmzhJ1u4lQv9s/34sv+lA4/Kg=;
- b=iEgfbqp5b9LY2Oj213S6zTvVTVVPEAZ85MIWKlLPr29bkYVyQGdXEMZMWBbpev3T1mD3j7/4x
- hDw+waH7/cjCl0mIyEBcsPrc/J74nnjJPRrCWMoLPU0Op1AYQhxm2SC
+ bh=0Q3CYI7FuviAhAHN4iyx+iRMJNxoybboLByDH1ZuNk0=;
+ b=2NICiteqbX+ZHF1mfndnmK6lsFDORl2QtuvErla63Ppe3fd86+p0kA3JusMs7RwKJF4ObOvLf
+ sraKshlIKVRDppj+N4MmJZ4baTBtJrEYUWraX0xaH3a1Xv5xCmG6Fdw
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260405_080329_974176_5A4DFED9 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20260405_080333_296746_B5A2BAF1 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,99 +86,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ETMv4 driver save/restore callbacks still re-check conditions that are
-already validated by the core layer before the callbacks are invoked.
+cscfg_config_sysfs_get_active_cfg() will be used from idle flows, while
+sleeping locks are not allowed.  Introduce sysfs_store_lock to replace
+the mutex to protect sysfs_active_config and sysfs_active_preset
+accesses, with IRQ-safe locking to avoid lockdep complaint.
 
-Remove the duplicated checks and fold the two-level functions into
-direct callback implementations.  The obsolete WARN_ON() checks are
-removed as well.
+Refactor cscfg_config_sysfs_activate() to handle errors first and use
+finer-grained locking only for sysfs_active_config.
 
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
-Tested-by: James Clark <james.clark@linaro.org>
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Reviewed-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 41 +++-------------------
- 1 file changed, 4 insertions(+), 37 deletions(-)
+ drivers/hwtracing/coresight/coresight-syscfg.c | 35 +++++++++++++-------------
+ drivers/hwtracing/coresight/coresight-syscfg.h |  2 ++
+ 2 files changed, 20 insertions(+), 17 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 3fe9ebf31fe19738c8cfa3cfe6d3464ab96726ce..5ccbf792fe71bec7d5b74c24288c5313afdb7cd0 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1861,17 +1861,14 @@ static inline bool etm4_pm_save_needed(void)
- 	return pm_save_enable == PARAM_PM_SAVE_SELF_HOSTED;
+diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
+index d7f5037953d6ba7fb7f83a8012a1abc5ffd0a147..2ccd7659b472e4993a16be408d0647b5993c5ec7 100644
+--- a/drivers/hwtracing/coresight/coresight-syscfg.c
++++ b/drivers/hwtracing/coresight/coresight-syscfg.c
+@@ -953,39 +953,40 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
+ 	unsigned long cfg_hash;
+ 	int err = 0;
+ 
+-	mutex_lock(&cscfg_mutex);
++	guard(mutex)(&cscfg_mutex);
+ 
+ 	cfg_hash = (unsigned long)config_desc->event_ea->var;
+ 
+ 	if (activate) {
+ 		/* cannot be a current active value to activate this */
+-		if (cscfg_mgr->sysfs_active_config) {
+-			err = -EBUSY;
+-			goto exit_unlock;
+-		}
++		if (cscfg_mgr->sysfs_active_config)
++			return -EBUSY;
++
+ 		err = _cscfg_activate_config(cfg_hash);
+-		if (!err)
++		if (err)
++			return err;
++
++		scoped_guard(raw_spinlock_irqsave, &cscfg_mgr->sysfs_store_lock)
+ 			cscfg_mgr->sysfs_active_config = cfg_hash;
+ 	} else {
++		if (cscfg_mgr->sysfs_active_config != cfg_hash)
++			return -EINVAL;
++
+ 		/* disable if matching current value */
+-		if (cscfg_mgr->sysfs_active_config == cfg_hash) {
+-			_cscfg_deactivate_config(cfg_hash);
++		_cscfg_deactivate_config(cfg_hash);
++
++		scoped_guard(raw_spinlock_irqsave, &cscfg_mgr->sysfs_store_lock)
+ 			cscfg_mgr->sysfs_active_config = 0;
+-		} else
+-			err = -EINVAL;
+ 	}
+ 
+-exit_unlock:
+-	mutex_unlock(&cscfg_mutex);
+-	return err;
++	return 0;
  }
  
--static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
-+static int etm4_cpu_save(struct coresight_device *csdev)
+ /* set the sysfs preset value */
+ void cscfg_config_sysfs_set_preset(int preset)
  {
- 	int i, ret = 0;
-+	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
- 	struct etmv4_save_state *state;
--	struct coresight_device *csdev = drvdata->csdev;
- 	struct csdev_access *csa;
- 	struct device *etm_dev;
- 
--	if (WARN_ON(!csdev))
--		return -ENODEV;
--
- 	etm_dev = &csdev->dev;
- 	csa = &csdev->access;
- 
-@@ -2003,32 +2000,13 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
- 	return ret;
+-	mutex_lock(&cscfg_mutex);
++	guard(raw_spinlock_irqsave)(&cscfg_mgr->sysfs_store_lock);
+ 	cscfg_mgr->sysfs_active_preset = preset;
+-	mutex_unlock(&cscfg_mutex);
  }
  
--static int etm4_cpu_save(struct coresight_device *csdev)
--{
--	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
--	int ret = 0;
--
--	if (!etm4_pm_save_needed())
--		return 0;
--
--	/*
--	 * Save and restore the ETM Trace registers only if
--	 * the ETM is active.
--	 */
--	if (coresight_get_mode(drvdata->csdev))
--		ret = __etm4_cpu_save(drvdata);
--	return ret;
--}
--
--static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
-+static void etm4_cpu_restore(struct coresight_device *csdev)
+ /*
+@@ -994,10 +995,9 @@ void cscfg_config_sysfs_set_preset(int preset)
+  */
+ void cscfg_config_sysfs_get_active_cfg(unsigned long *cfg_hash, int *preset)
  {
- 	int i;
-+	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
- 	struct etmv4_save_state *state = drvdata->save_state;
- 	struct csdev_access *csa = &drvdata->csdev->access;
- 
--	if (WARN_ON(!drvdata->csdev))
--		return;
--
- 	etm4_cs_unlock(drvdata, csa);
- 	etm4x_relaxed_write32(csa, state->trcclaimset, TRCCLAIMSET);
- 
-@@ -2121,17 +2099,6 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
- 	etm4_cs_lock(drvdata, csa);
+-	mutex_lock(&cscfg_mutex);
++	guard(raw_spinlock_irqsave)(&cscfg_mgr->sysfs_store_lock);
+ 	*preset = cscfg_mgr->sysfs_active_preset;
+ 	*cfg_hash = cscfg_mgr->sysfs_active_config;
+-	mutex_unlock(&cscfg_mutex);
  }
+ EXPORT_SYMBOL_GPL(cscfg_config_sysfs_get_active_cfg);
  
--static void etm4_cpu_restore(struct coresight_device *csdev)
--{
--	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
--
--	if (!etm4_pm_save_needed())
--		return;
--
--	if (coresight_get_mode(drvdata->csdev))
--		__etm4_cpu_restore(drvdata);
--}
--
- static const struct coresight_ops etm4_cs_ops = {
- 	.trace_id	= coresight_etm_get_trace_id,
- 	.source_ops	= &etm4_source_ops,
+@@ -1201,6 +1201,7 @@ static int cscfg_create_device(void)
+ 	INIT_LIST_HEAD(&cscfg_mgr->load_order_list);
+ 	atomic_set(&cscfg_mgr->sys_active_cnt, 0);
+ 	cscfg_mgr->load_state = CSCFG_NONE;
++	raw_spin_lock_init(&cscfg_mgr->sysfs_store_lock);
+ 
+ 	/* setup the device */
+ 	dev = cscfg_device();
+diff --git a/drivers/hwtracing/coresight/coresight-syscfg.h b/drivers/hwtracing/coresight/coresight-syscfg.h
+index 66e2db890d8203853a0c3c907b48aa66dd8014e6..658e93c3705f1cb3ba3523d0bc27ac704697dd70 100644
+--- a/drivers/hwtracing/coresight/coresight-syscfg.h
++++ b/drivers/hwtracing/coresight/coresight-syscfg.h
+@@ -42,6 +42,7 @@ enum cscfg_load_ops {
+  * @sysfs_active_config:Active config hash used if CoreSight controlled from sysfs.
+  * @sysfs_active_preset:Active preset index used if CoreSight controlled from sysfs.
+  * @load_state:		A multi-stage load/unload operation is in progress.
++ * @sysfs_store_lock:	Exclusive access sysfs stored variables.
+  */
+ struct cscfg_manager {
+ 	struct device dev;
+@@ -54,6 +55,7 @@ struct cscfg_manager {
+ 	u32 sysfs_active_config;
+ 	int sysfs_active_preset;
+ 	enum cscfg_load_ops load_state;
++	raw_spinlock_t sysfs_store_lock;
+ };
+ 
+ /* get reference to dev in cscfg_manager */
 
 -- 
 2.34.1
