@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C157E9D800
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Apr 2026 15:28:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B81ADE9D80D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Apr 2026 19:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NLhNzGMOgKlXfHjypiVdn/OKo3D9FPy3aHDyUjhbrTA=; b=EcUT8jkxQbsq4wJ61S8EyzA8dP
-	mcpL8EcdRwfJNSEAEwgrE4k7bHwPBgH11+44r9BnHbbjRM4kpk/efRZ93ZvmnwNO5MKQy5IXozvdD
-	LQgN0xyCmvnFS6URPDAdX7KCiKFuVJVWlzCLxvnjUCXlSyKtHGIs6oAzVVgwcGv1NJ/sv/B4GMJC9
-	hdhi69kG1qpF3jviJDJ1+HUQqjzEgdJS8rz4ot11uVnXycWHHbyKgJ63qBROY6eOCh2ccMSmn6m1y
-	GrX5h9ZL2sWSihyMrAZlFcAS3IIcTYFBbPMXb5WGzh/hDHa61kSJgBUsGKmdIEtdf/uyZxXDaN8DJ
-	XG1f37yg==;
+	bh=BOtc/bNR+1D0kmq5Zl8YoqhLYvnM38viroIsMbPI0cY=; b=MegeoaF4mGsKcjJBkef059faGb
+	DQg2DsJQvXybrx3mBxunc/eZ9F2NkH5lrD1CSiZf356FLBpFj+7fPgPo2v4qFHcePofGmpG3iX996
+	WcdB3Qi4zw4lqOwM6MfUn0WDKLebgr9u2ZlVowwnqYJdc+mm2lQwMfEVPLPRHHNwYW9X1eoAEd2+h
+	6656B1fkrSoK/Gb/cARi39hH1V+Ap+YbCBE3DjdmH4sWHpbXflDNXU5yeJfxGPvKonmgdhuCoUzzy
+	4+jU9jn3hvExWc0d8rN7C63k4UKdsWwxYCaouMDJM/ICZY6Pyq8EqxkazVuBkZ+7diwOfa/vhk919
+	ApZygdLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9POJ-00000004Jk6-2hM9;
-	Sun, 05 Apr 2026 15:27:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9POH-00000004Jjg-49G9
+	id 1w9TKu-00000004RDn-1Owo;
+	Sun, 05 Apr 2026 19:40:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w9TKr-00000004RDT-2Yu8
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Apr 2026 15:27:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 048E81BC0;
-	Sun,  5 Apr 2026 08:27:49 -0700 (PDT)
-Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E34383F62B;
-	Sun,  5 Apr 2026 08:27:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775402874; bh=NDnBsbXnNGGHQG0turWSfj4CBg3TO2qRC78L3hPeXs4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=KvQWd+GlyQ26qJRkqKLtd0rZhhvYeTZuhURhP2De+TrJdzHLaXomuaxGKCg7V+Nmu
-	 Cq76diR6Q/0tGfEMAOK8ZxI5sR+DH/t5TeJTkhUA5i4JJEJ6ngsn8s9++hzFvakxNn
-	 hubn+aHBCVzSVgfa8MK94n19vR39SYApBGMpstuA=
-Date: Sun, 5 Apr 2026 17:27:38 +0200
-From: Andre Przywara <andre.przywara@arm.com>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] pinctrl: sunxi: a523: Remove unneeded IRQ
- remuxing flag
-Message-ID: <20260405172738.02530c80@ryzen.lan>
-In-Reply-To: <CAGb2v64A0rgiMkTCdvq-pVfzCTqWKqc=nx69B9tD7A8_E7vHUg@mail.gmail.com>
-References: <20260327113006.3135663-1-andre.przywara@arm.com>
-	<20260327113006.3135663-2-andre.przywara@arm.com>
-	<CAGb2v64A0rgiMkTCdvq-pVfzCTqWKqc=nx69B9tD7A8_E7vHUg@mail.gmail.com>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	Sun, 05 Apr 2026 19:40:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 090844454F;
+	Sun,  5 Apr 2026 19:40:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34AA8C116C6;
+	Sun,  5 Apr 2026 19:40:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775418039;
+	bh=F6qst3LBccqfafD86O3ZKGJti3SyNgdle+pCAPtzzro=;
+	h=From:To:Subject:Date:In-Reply-To:References:From;
+	b=YHHUdqlvUxvqgbqpHgiHnOJxb/bBwCTy+Ye+xBX4NLO67OqGfmJilzzO37Xi+Dk35
+	 FHELVBf4Ck80uqRyeWe020nsBrRGMkn/B8IAfc63ZqfPBJkz6q02PB28eBNxcMLRqC
+	 r+xZAWg8UXHoWJnqFlGIeQTGB2CBDNakP4i331W4Uwk8zXKaCorpIJ0PW6KpnEIB2Q
+	 FWUggyW2SZpi4oW3rY9EVn9YSsSsgI+1cMheIJbPKwnk6Gn19Ly/nJk8RDcZoICbQX
+	 Tz0KheAsRVfWnYiPCKMMHwYuEpZ4kwTDCTJj2Tw7wAYz8HFujZVjIBZBlFTwoC5GTT
+	 LbwInDF4FQo7g==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-arm-msm@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: (subset) [PATCH 1/2] clk: qcom: Constify qcom_cc_driver_data
+Date: Sun,  5 Apr 2026 14:40:19 -0500
+Message-ID: <177541802158.2061229.7249314871905290258.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260331091721.61613-3-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260331091721.61613-3-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260405_082758_156500_276B1977 
-X-CRM114-Status: GOOD (  27.46  )
+X-CRM114-CacheID: sfid-20260405_124041_668593_FFCF1D01 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,84 +80,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 27 Mar 2026 19:38:57 +0800
-Chen-Yu Tsai <wens@kernel.org> wrote:
 
-Hi Linus,
+On Tue, 31 Mar 2026 11:17:22 +0200, Krzysztof Kozlowski wrote:
+> The static 'struct qcom_cc_driver_data' contains probe match-like data
+> and is not modified: neither by the driver defining it nor by common.c
+> code using it.
+> 
+> Make it const for code safety and code readability.
+> 
+> 
+> [...]
 
-> On Fri, Mar 27, 2026 at 7:30=E2=80=AFPM Andre Przywara <andre.przywara@ar=
-m.com> wrote:
-> >
-> > The Allwinner A10 and H3 SoCs cannot read the state of a GPIO line when
-> > that line is muxed for IRQ triggering (muxval 6), but only if it's
-> > explicitly muxed for GPIO input (muxval 0). Other SoCs do not show this
-> > behaviour, so we added a optional workaround, triggered by a quirk bit,
-> > which triggers remuxing the pin when it's configured for IRQ, while we
-> > need to read its value.
-> >
-> > For some reasons this quirk flag was copied over to newer SoCs, even
-> > though they don't show this behaviour, and the GPIO data register
-> > reflects the true GPIO state even with a pin muxed to IRQ trigger.
-> >
-> > Remove the unneeded quirk from the A523 family, where it's definitely
-> > not needed (confirmed by experiments), and where it actually breaks,
-> > because the workaround is not compatible with the newer generation
-> > pinctrl IP used in that chip.
-> >
-> > Together with a DT change this fixes GPIO IRQ operation on the A523
-> > family of SoCs, as for instance used for the SD card detection.
-> >
-> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> > Fixes: b8a51e95b376 ("pinctrl: sunxi: Add support for the secondary A52=
-3 GPIO ports") =20
->=20
-> Acked-by: Chen-Yu Tsai <wens@kernel.org>
+Applied, thanks!
 
-Can you possibly take this patch and maybe the binding (PATCH v2 2/3)?
-Ideally still for v7.0? IIUC Chen-Yu would take the DT patch, but
-relies on those two here.
+[2/2] clk: qcom: Constify list of critical CBCR registers
+      commit: 87df31ea43eef5f6b9e7be0fa2555e58a9455e05
 
-Thanks,
-Andre
-
-
->=20
-> > ---
-> >  drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c | 1 -
-> >  drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c   | 1 -
-> >  2 files changed, 2 deletions(-)
-> >
-> > diff --git a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c b/drivers/pi=
-nctrl/sunxi/pinctrl-sun55i-a523-r.c
-> > index 69cd2b4ebd7d..462aa1c4a5fa 100644
-> > --- a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
-> > +++ b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
-> > @@ -26,7 +26,6 @@ static const u8 a523_r_irq_bank_muxes[SUNXI_PINCTRL_M=
-AX_BANKS] =3D
-> >  static struct sunxi_pinctrl_desc a523_r_pinctrl_data =3D {
-> >         .irq_banks =3D ARRAY_SIZE(a523_r_irq_bank_map),
-> >         .irq_bank_map =3D a523_r_irq_bank_map,
-> > -       .irq_read_needs_mux =3D true,
-> >         .io_bias_cfg_variant =3D BIAS_VOLTAGE_PIO_POW_MODE_SEL,
-> >         .pin_base =3D PL_BASE,
-> >  };
-> > diff --git a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c b/drivers/pinc=
-trl/sunxi/pinctrl-sun55i-a523.c
-> > index 7d2308c37d29..b6f78f1f30ac 100644
-> > --- a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
-> > +++ b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
-> > @@ -26,7 +26,6 @@ static const u8 a523_irq_bank_muxes[SUNXI_PINCTRL_MAX=
-_BANKS] =3D
-> >  static struct sunxi_pinctrl_desc a523_pinctrl_data =3D {
-> >         .irq_banks =3D ARRAY_SIZE(a523_irq_bank_map),
-> >         .irq_bank_map =3D a523_irq_bank_map,
-> > -       .irq_read_needs_mux =3D true,
-> >         .io_bias_cfg_variant =3D BIAS_VOLTAGE_PIO_POW_MODE_SEL,
-> >  };
-> >
-> > --
-> > 2.43.0
-> > =20
->=20
-
+Best regards,
+-- 
+Bjorn Andersson <andersson@kernel.org>
 
