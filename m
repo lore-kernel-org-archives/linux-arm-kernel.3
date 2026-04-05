@@ -4,91 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD4F2E63FFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Apr 2026 00:59:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91196E63FE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Apr 2026 02:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:In-Reply-To:Message-ID:Cc:To:From:Date:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=igv1X0Jh9R3lolDJfbtFzOBAbeGQ8wEXL4Lx+psSqc0=; b=1BHTJewOG+N2dfd3wBu6dUjH9Q
-	PR/YrDEqEri/Pk+DfVutJ6X66TC6MImJ+qsDyNl5xNfUBujV1TlqDCrQ6q1qKsvAQeAoyLvLlDTIz
-	gXVxRK4y45SnWg5jlE/DdxzMpSW0AxB9OEmaoHTH8C1W+qYE7JGJpa59//i8EbSCcU25WINCWXLGm
-	J0jk7fbvZk7aARpzXrbtmOqq88jXidpX6yoXgiQCwPlwBz/RNJ1dQShVKWjelElQO9kslvd38tc+F
-	aNqrDEYUlo09WdFyRjppp1zhFDeZL0JWONgCdgLFLltj/djDZZ8ocuGh3Eqb+I/8Kru4QWXVmTXsX
-	PMmYpqQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:References:
+	In-Reply-To:Cc:To:Message-ID:Date:From:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NBNhgN2mqh266TqNiMeOcIbNFDRG18IfcIMU/sT2b2Q=; b=2B7YRJZAwc3ygadB+fmY9+S++f
+	D4K/Sink5sklBVbhnSDPo4w8+p5eV33HxPSHgOdzunulpIgYmXfl7dPg85lKVtg1n/6YGOxWLDY7q
+	4BWIiWJ8U97b6hB5wrsthleNSkgZXeIYU3KiNxMtV+P5IEnHx3kTN1NTDPoQNzxD738S9ha4St5H6
+	4sQyClpNw8MIk+0e9SIZeNmXtUmge5wYRb19GIPdaeRK0zeDBFAKSSO1uoYIlUZt7CBwc/0lrV5yM
+	VGk38Ot1DKJN526i7wqaQB8SZ1HYvT80qdz7HrLzlIKeTVeJD8QgtE347p0GCj5aDmAwrBGOAn4BK
+	eGktiXpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9BpK-00000003rad-13nt;
-	Sun, 05 Apr 2026 00:58:58 +0000
-Received: from mail-pj1-x1041.google.com ([2607:f8b0:4864:20::1041])
+	id 1w9D0z-00000003tnd-22EK;
+	Sun, 05 Apr 2026 02:15:05 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9BpH-00000003ra2-2fn6
+	id 1w9D0u-00000003tlq-2HWY
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Apr 2026 00:58:56 +0000
-Received: by mail-pj1-x1041.google.com with SMTP id 98e67ed59e1d1-354a18c48b5so2533277a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Apr 2026 17:58:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775350734; x=1775955534; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:subject:in-reply-to
-         :message-id:cc:to:from:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=igv1X0Jh9R3lolDJfbtFzOBAbeGQ8wEXL4Lx+psSqc0=;
-        b=KltLKZ1Xx63TeeuNWAs0yyJ3vahQLtOzuutogfpFvuxEiFK+SQvLCPMVrFeYQAUptH
-         ZqGBIRE3SU1Y9oLldwV279tFDnxct576Y5eZjgovlfE+WYRwH8wjLw9vwJ3WhNt6ib1J
-         IJFJxxa/ctMFfaY3EaV+jnA6j1M6NecfhhXjwZn93Q/qV0ErVv6uj7KHZXvIVcbrTsL/
-         WLvZbuNlBoLQ+Vf6+0zEKcaCsLrl4XTsHOZFKSyObOxRIV0Z39iNe4/VnqFl3cfQOZTU
-         zS7LTibLUP38I9g6rV9f52e3Nns+HMNrgWWS3K5+4EO3eVXDGsuGK4kza3CfvT+0UBX1
-         abiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775350734; x=1775955534;
-        h=content-transfer-encoding:mime-version:subject:in-reply-to
-         :message-id:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=igv1X0Jh9R3lolDJfbtFzOBAbeGQ8wEXL4Lx+psSqc0=;
-        b=CMe9DEyGc8iTPdPf4tWzk4HMz5eIpRpkUSuQihkxh7rjP9ExZTm8GNwbAiqTtTefVq
-         f8Z/TJ3ntqL9cbjFwxkdxaJ2FwUyt+/MUE8HBUY8V6R8qtymFWhmOvD8Omd+WiGIKYph
-         4J24qd7WogTs9UqiJEmTHcyBOLSqnrGuLwXJZ5XUt+ydcRxTTefkovEu3iUF71q9KIji
-         2SKufl2BbHmHa7CGGTOQzPHcgnvstzvQbluHEZxPIYPTxZMOSRlhciMSQZCHAD9S3VLw
-         tagvW7dzqMXZUJEbVJ3Vu4NCKkFbRezsD6UPnQ0CCls827KtQ3R2b8gSQux5Widr2pGA
-         ZLhw==
-X-Forwarded-Encrypted: i=1; AJvYcCV2FsjSEyx4chO9pTNk7zdMdCyNtrc6rrII6TI/rzh9pMF1NbOYtVlIGPzAtu1WjiOIxrX3LKvcK+Zis9XS3ode@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBzSv62gkk4WJp/uqOGcHfUZRzeno5UoZoly82tLO84N7Q2ybt
-	kooYTuibhxKPPhawSuPGP0KLAH8CYWltjCMojbHytVnxw9ZjVSQc/hSM
-X-Gm-Gg: AeBDiesp3qkRryVgmzNAKgsM3OABpADDYnmkQfp9OvDh64VIHP3aLO9iBwC7JIbEL7A
-	gleKdLhvhq5cC01w8cfLUwn7V6bVsh5xU3C6UkU3tGZfrygoqnFkzH8ht0biRJ3kck1FtY/XzD0
-	hl7Yzogvs51LxMQdEPDPKYfw3KMDAB/qJPTi0zCz+Wd+TqryIIEUf5wnmVjPTa9F2pba+Ez87dL
-	M/GXGwcxRHqdz8m/xkb3xv6eTUUjUA1hGO60HiBXewlWMdk9WhfMWLYKLCZwSlki5rYeFq6yO5T
-	pLJme2PzNJ1SJaw250FlpLrm0fr+OCNJLwf/YA7PTvn7xp2I/at4LSzye03wu1WHg4cfyrt8QAN
-	UW0iJ0e4kswIs/t23Jk63tQj8U6irFKx76J75pluZaew5wvmAmev3Znr4bafRyZCpWZ3Xb/MDiE
-	SHInagul2qn7aRq9fZaRjQl0Q=
-X-Received: by 2002:a17:90b:3d4d:b0:35b:aca5:db39 with SMTP id 98e67ed59e1d1-35de67ee6bemr7012077a91.9.1775350734065;
-        Sat, 04 Apr 2026 17:58:54 -0700 (PDT)
-Received: from [127.0.0.1] ([142.91.102.47])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35de6860cfbsm2876078a91.6.2026.04.04.17.58.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 04 Apr 2026 17:58:53 -0700 (PDT)
-Date: Sun, 5 Apr 2026 08:58:41 +0800
-From: zhang <zhangweize9@gmail.com>
-To: joonwonkang@google.com
-Cc: angelogioacchino.delregno@collabora.com, jassisinghbrar@gmail.com,
-	jonathanh@nvidia.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-tegra@vger.kernel.org, matthias.bgg@gmail.com,
-	stable@vger.kernel.org, thierry.reding@gmail.com
-Message-ID: <8710cb76-78e7-4e7f-8be8-0f059b9cb0ac@gmail.com>
-In-Reply-To: <20260404124428.3077670-1-joonwonkang@google.com>
-Subject: Re: [PATCH v3 1/2] mailbox: Use per-thread completion to fix wrong
- completion order
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Correlation-ID: <8710cb76-78e7-4e7f-8be8-0f059b9cb0ac@gmail.com>
+	Sun, 05 Apr 2026 02:15:04 +0000
+Received: from 0005-arm-xen-v2.eml (unknown [111.196.245.197])
+	by APP-01 (Coremail) with SMTP id qwCowADnjGihxdFpUAU5DA--.3582S2;
+	Sun, 05 Apr 2026 10:14:57 +0800 (CST)
+From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Date: Sun, 5 Apr 2026 08:42:00 +0800
+Message-ID: <20260405094005.5-arm-xen-v2-pengpeng@iscas.ac.cn>
+To: Stefano Stabellini <sstabellini@kernel.org>
+Cc: xen-devel@lists.xenproject.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, pengpeng@iscas.ac.cn
+In-Reply-To: <20260403111502.2-dt-arm-xen-pengpeng@iscas.ac.cn>
+References: <20260403111502.2-dt-arm-xen-pengpeng@iscas.ac.cn>
+Subject: [PATCH v2] ARM: xen: validate hypervisor compatible before parsing
+ its version
+X-CM-TRANSID: qwCowADnjGihxdFpUAU5DA--.3582S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Zr4rKFW7Jw13Zryxtry5urg_yoW8CFyDpF
+	WFg3sIvFWfta4xW34IyFWDWFy5G3WkXrW7XFyku3W7Ars8t34rKrW2qr1SvF93Ary8G3ya
+	vrW0yF18AF4UJaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkl14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
+	1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
+	6xIIjxv20xvE14v26r126r1DMcIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr
+	0_Gr1lF7xvr2IY64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r12
+	6r1DMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI
+	0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y
+	0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
+	W8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1l
+	IxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjiID7UUUU
+	U==
+X-Originating-IP: [111.196.245.197]
+X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260404_175855_685854_17016373 
-X-CRM114-Status: UNSURE (   6.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260404_191500_972843_7D14986B 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,15 +75,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi! Joonwon Kang.
+fdt_find_hyper_node() reads the raw compatible property and then derives
+hyper_node.version from a prefix match before later printing it with %s.
+Flat DT properties are external boot input, and this path does not prove
+that the first compatible entry is NUL-terminated within the returned
+property length.
 
-I just looked at the content of your email, and I think we can design a resource priority scheduling system with 70% and 30% priority allocation. The specific idea is as follows:
+Keep the existing flat-DT lookup path, but verify that the first
+compatible entry terminates within the returned property length before
+deriving the version suffix from it.
 
-During task execution, each task can be tagged. Important tasks can be allocated to the 30% of resources, while the remaining 70% can be used to run low-load and repetitive pipeline tasks.
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+---
+Changes since v1:
+- keep `of_get_flat_dt_prop()` instead of switching to `fdt_stringlist_get()`
+- validate the first compatible entry with bounded `strnlen()`
 
-The specific algorithm can be written as follows: reserve 30% of the runtime space for the system's critical processes. For the remaining 70% of non-critical processes, a judgment can be made: if resource usage exceeds 70%, the excess processes are marked with a priority deferred tag and run only when resources are freed up.
+ arch/arm/xen/enlighten.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
+diff --git a/arch/arm/xen/enlighten.c b/arch/arm/xen/enlighten.c
+index 4feed2c2..25a0ce3b 100644
+--- a/arch/arm/xen/enlighten.c
++++ b/arch/arm/xen/enlighten.c
+@@ -218,8 +218,9 @@ static __initdata struct {
+ static int __init fdt_find_hyper_node(unsigned long node, const char *uname,
+ 				      int depth, void *data)
+ {
+-	const void *s = NULL;
++	const char *s = NULL;
+ 	int len;
++	size_t prefix_len = strlen(hyper_node.prefix);
+ 
+ 	if (depth != 1 || strcmp(uname, "hypervisor") != 0)
+ 		return 0;
+@@ -228,9 +229,10 @@ static int __init fdt_find_hyper_node(unsigned long node, const char *uname,
+ 		hyper_node.found = true;
+ 
+ 	s = of_get_flat_dt_prop(node, "compatible", &len);
+-	if (strlen(hyper_node.prefix) + 3  < len &&
+-	    !strncmp(hyper_node.prefix, s, strlen(hyper_node.prefix)))
+-		hyper_node.version = s + strlen(hyper_node.prefix);
++	if (s && len > 0 && strnlen(s, len) < len &&
++	    len > prefix_len + 3 &&
++	    !strncmp(hyper_node.prefix, s, prefix_len))
++		hyper_node.version = s + prefix_len;
+ 
+ 	/*
+ 	 * Check if Xen supports EFI by checking whether there is the
 -- 
+2.50.1
 
-the-essence-of-life
 
