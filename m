@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D34DAE63FF9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Apr 2026 22:42:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD4F2E63FFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Apr 2026 00:59:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Content-Type:MIME-Version:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ZcFkwtelNvbHrpmOVful4dZyoIYvTSSe4AGBuE0+FU=; b=4gTAcAQ+Ph1KMKf8R1q90JHPoO
-	O1/PG/9VYE9PfIm9TlMGmn/QhfDhss/s4rFchZvJkXKuiUvsg2N3VJ7w/yQLauC7L4iSMYUmRsEPO
-	TEfeNJDh8swcRg7POZyjB+QhvQcE7e95sW+ke/0D5oD2/afREZm8zdCobSgrqn+JnOlomuthMX0rl
-	twoPrKEsXcrJbXD7Au4gy37d5Nvk4HhOnJCYee1u0hqcfvdD+w33m39cgyMc6gXFOwtFgjg34GDhA
-	hyiowaOkWZDpYO/h+WT5Fp8CJqtxhSTO3z2zAvIqIVrb1oIdsV3fFD47xFTmwVivmxcRYHZmJsztx
-	/rGnx87w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:In-Reply-To:Message-ID:Cc:To:From:Date:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=igv1X0Jh9R3lolDJfbtFzOBAbeGQ8wEXL4Lx+psSqc0=; b=1BHTJewOG+N2dfd3wBu6dUjH9Q
+	PR/YrDEqEri/Pk+DfVutJ6X66TC6MImJ+qsDyNl5xNfUBujV1TlqDCrQ6q1qKsvAQeAoyLvLlDTIz
+	gXVxRK4y45SnWg5jlE/DdxzMpSW0AxB9OEmaoHTH8C1W+qYE7JGJpa59//i8EbSCcU25WINCWXLGm
+	J0jk7fbvZk7aARpzXrbtmOqq88jXidpX6yoXgiQCwPlwBz/RNJ1dQShVKWjelElQO9kslvd38tc+F
+	aNqrDEYUlo09WdFyRjppp1zhFDeZL0JWONgCdgLFLltj/djDZZ8ocuGh3Eqb+I/8Kru4QWXVmTXsX
+	PMmYpqQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w99hH-00000003nUv-2sLR;
-	Sat, 04 Apr 2026 22:42:31 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1w9BpK-00000003rad-13nt;
+	Sun, 05 Apr 2026 00:58:58 +0000
+Received: from mail-pj1-x1041.google.com ([2607:f8b0:4864:20::1041])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w99hE-00000003nU8-0M84
+	id 1w9BpH-00000003ra2-2fn6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Apr 2026 22:42:30 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-35da01fc0baso1974461a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Apr 2026 15:42:27 -0700 (PDT)
+	Sun, 05 Apr 2026 00:58:56 +0000
+Received: by mail-pj1-x1041.google.com with SMTP id 98e67ed59e1d1-354a18c48b5so2533277a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Apr 2026 17:58:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=orb-net.20251104.gappssmtp.com; s=20251104; t=1775342546; x=1775947346; darn=lists.infradead.org;
-        h=references:in-reply-to:content-disposition:mime-version:message-id
-         :subject:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=7ZcFkwtelNvbHrpmOVful4dZyoIYvTSSe4AGBuE0+FU=;
-        b=wpFTq+P1jBlWp8RLJkHXUrB6woqGNvL5dmmbwFr72BOhOJQTqQx1w/sZfnxr4KLFr2
-         u7GoSl6cxC84XzfpHNdz/Dx0ujhx6rj+vZDcfDg/pZ5w2bnKJBPjGlTWHo8YhdlnFVma
-         ryPt8SOBxIi4JFwO1vDbR+QA7MT1xlNouCfdRJy95EcrwIdpi0JH+Bg0mJkmUt46LD4f
-         IZM34AvcHWemZ/Hnu3vvagXEw3Yx2VN6O+BrjQdbbbEsznaX2C+LeYmavqD9WjfnRjmK
-         9TksY/q1N3u12DCpdUEHdTnf1HKzz3t3WGTonJ6PIHhDGq/vvvVS4sXb1pkvPUuTRyxu
-         hWwQ==
+        d=gmail.com; s=20251104; t=1775350734; x=1775955534; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:subject:in-reply-to
+         :message-id:cc:to:from:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=igv1X0Jh9R3lolDJfbtFzOBAbeGQ8wEXL4Lx+psSqc0=;
+        b=KltLKZ1Xx63TeeuNWAs0yyJ3vahQLtOzuutogfpFvuxEiFK+SQvLCPMVrFeYQAUptH
+         ZqGBIRE3SU1Y9oLldwV279tFDnxct576Y5eZjgovlfE+WYRwH8wjLw9vwJ3WhNt6ib1J
+         IJFJxxa/ctMFfaY3EaV+jnA6j1M6NecfhhXjwZn93Q/qV0ErVv6uj7KHZXvIVcbrTsL/
+         WLvZbuNlBoLQ+Vf6+0zEKcaCsLrl4XTsHOZFKSyObOxRIV0Z39iNe4/VnqFl3cfQOZTU
+         zS7LTibLUP38I9g6rV9f52e3Nns+HMNrgWWS3K5+4EO3eVXDGsuGK4kza3CfvT+0UBX1
+         abiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775342546; x=1775947346;
-        h=references:in-reply-to:content-disposition:mime-version:message-id
-         :subject:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=7ZcFkwtelNvbHrpmOVful4dZyoIYvTSSe4AGBuE0+FU=;
-        b=Kqi19aR3iVl1snV9Sbf1ay55IDPxDUBohjXS0V8UtyOY3oXSo/8Is1CgjUFBGais/P
-         Z6XmQCqqehBPckiydMC7Wy+20Kdu9axOUSOZ3wVBHK0N4NxH1ROuIdeAPAVbczxRyUg+
-         FcoOwaejDCQmhA0c3aHsnBAvxMkYEovS6CxWk+F8zouyKfr9a0xvHgZTf3QESz1RSJ55
-         P/DBkGlyOmJJC9sLTjaRgp6skUB7JINiAe+GxS4YDWbNk1IPbwxvU5tvc79rVFxdGpXZ
-         em+3uRUk/JdX/UE1ukHy+fhjFTuR6IiByTZIccSSLLzQSCMS8smCiBTCcbGxENnEURfZ
-         RJ9g==
-X-Forwarded-Encrypted: i=1; AJvYcCWwQrh/CYM0MXXhC/cHFMFmYHifLSdl5UfiKHURfObLvmXJposKghjJI5v9qGc9XRYXmXNXdMqG3vYOzs29ECR2@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVHum4wI/QSbYzjie0jTvyJRpoummo06lm2LUuKjGIhEw+e1yZ
-	pRd18ICpw5H/h28I3bHi4Nf2RRm/tMy04i+WwfTo6aEyrLrI4QQSflUPKl1shSavi+M=
-X-Gm-Gg: AeBDieskxL8EMW/xfUEmweRX+nHoddZakueSKf75W3spCLlF8hOWqxK9CL4jrEcSFxx
-	hBqGYIEj5eys0gxojzMxjpaN6+9mX2JozTONyIklNa/0zrApud6O7agzfgEduZlNc98GkD43drX
-	su/E9U5FVQMAUb8nIgQfIpCKx87rUEfTMx+YKgee1GjF+ndc4Ll9BYy25LyKI0WY1Yxdy59UQzO
-	E05Hgpcv9N9y4c49XxIRhi/SMUC38J2oHbYeq2sTS1rRNGEtsEKTCL40pWbiCAmwjKCgnVSk771
-	msvrOEjY85+i3vykbnaE+XZsh2QleCVPaTGnKW6ljo6Uj0cUWJwZFETUuXj/rtJbgJda0x/j2tc
-	XeCrIf8cAMDurTrWmjyy11AkDuZDSYG64+zM9rrS2BE42rbHjEe2TpEleG0Tv+2lzDeJzWbRHb/
-	Xt5Mw2/2WX9My6XGs/UNr2nRGRws79jC13Lrm0RO7dI+Dvz37HIiz6g1eQWJ96ZVzArbeSZS43
-X-Received: by 2002:a17:90b:2d10:b0:35d:a9bb:1e33 with SMTP id 98e67ed59e1d1-35de685ecf3mr7280003a91.11.1775342546534;
-        Sat, 04 Apr 2026 15:42:26 -0700 (PDT)
-Received: from claude-dev ([50.125.94.20])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35dd367c142sm9424108a91.11.2026.04.04.15.42.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 04 Apr 2026 15:42:26 -0700 (PDT)
-Date: Sat, 4 Apr 2026 22:42:25 +0000
-From: Daniel Bozeman <daniel@orb.net>
-To: shawn.lin@rock-chips.com, finley.xiao@rock-chips.com, jonas@kwiboo.se,
-	ulf.hansson@linaro.org, heiko@sntech.de, linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] pmdomain/rockchip: skip QoS operations for idle-only
- domains
-Message-ID: <adGT0TZb1BASubCL@claude-dev>
+        d=1e100.net; s=20251104; t=1775350734; x=1775955534;
+        h=content-transfer-encoding:mime-version:subject:in-reply-to
+         :message-id:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=igv1X0Jh9R3lolDJfbtFzOBAbeGQ8wEXL4Lx+psSqc0=;
+        b=CMe9DEyGc8iTPdPf4tWzk4HMz5eIpRpkUSuQihkxh7rjP9ExZTm8GNwbAiqTtTefVq
+         f8Z/TJ3ntqL9cbjFwxkdxaJ2FwUyt+/MUE8HBUY8V6R8qtymFWhmOvD8Omd+WiGIKYph
+         4J24qd7WogTs9UqiJEmTHcyBOLSqnrGuLwXJZ5XUt+ydcRxTTefkovEu3iUF71q9KIji
+         2SKufl2BbHmHa7CGGTOQzPHcgnvstzvQbluHEZxPIYPTxZMOSRlhciMSQZCHAD9S3VLw
+         tagvW7dzqMXZUJEbVJ3Vu4NCKkFbRezsD6UPnQ0CCls827KtQ3R2b8gSQux5Widr2pGA
+         ZLhw==
+X-Forwarded-Encrypted: i=1; AJvYcCV2FsjSEyx4chO9pTNk7zdMdCyNtrc6rrII6TI/rzh9pMF1NbOYtVlIGPzAtu1WjiOIxrX3LKvcK+Zis9XS3ode@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBzSv62gkk4WJp/uqOGcHfUZRzeno5UoZoly82tLO84N7Q2ybt
+	kooYTuibhxKPPhawSuPGP0KLAH8CYWltjCMojbHytVnxw9ZjVSQc/hSM
+X-Gm-Gg: AeBDiesp3qkRryVgmzNAKgsM3OABpADDYnmkQfp9OvDh64VIHP3aLO9iBwC7JIbEL7A
+	gleKdLhvhq5cC01w8cfLUwn7V6bVsh5xU3C6UkU3tGZfrygoqnFkzH8ht0biRJ3kck1FtY/XzD0
+	hl7Yzogvs51LxMQdEPDPKYfw3KMDAB/qJPTi0zCz+Wd+TqryIIEUf5wnmVjPTa9F2pba+Ez87dL
+	M/GXGwcxRHqdz8m/xkb3xv6eTUUjUA1hGO60HiBXewlWMdk9WhfMWLYKLCZwSlki5rYeFq6yO5T
+	pLJme2PzNJ1SJaw250FlpLrm0fr+OCNJLwf/YA7PTvn7xp2I/at4LSzye03wu1WHg4cfyrt8QAN
+	UW0iJ0e4kswIs/t23Jk63tQj8U6irFKx76J75pluZaew5wvmAmev3Znr4bafRyZCpWZ3Xb/MDiE
+	SHInagul2qn7aRq9fZaRjQl0Q=
+X-Received: by 2002:a17:90b:3d4d:b0:35b:aca5:db39 with SMTP id 98e67ed59e1d1-35de67ee6bemr7012077a91.9.1775350734065;
+        Sat, 04 Apr 2026 17:58:54 -0700 (PDT)
+Received: from [127.0.0.1] ([142.91.102.47])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35de6860cfbsm2876078a91.6.2026.04.04.17.58.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 04 Apr 2026 17:58:53 -0700 (PDT)
+Date: Sun, 5 Apr 2026 08:58:41 +0800
+From: zhang <zhangweize9@gmail.com>
+To: joonwonkang@google.com
+Cc: angelogioacchino.delregno@collabora.com, jassisinghbrar@gmail.com,
+	jonathanh@nvidia.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-tegra@vger.kernel.org, matthias.bgg@gmail.com,
+	stable@vger.kernel.org, thierry.reding@gmail.com
+Message-ID: <8710cb76-78e7-4e7f-8be8-0f059b9cb0ac@gmail.com>
+In-Reply-To: <20260404124428.3077670-1-joonwonkang@google.com>
+Subject: Re: [PATCH v3 1/2] mailbox: Use per-thread completion to fix wrong
+ completion order
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f1b9a97a-f1f9-0757-5dc7-33960318be61@rock-chips.com>
-References: <20260331180223.1682283-1-daniel@orb.net>
- <5c8732a3-6cc9-5d02-f56b-fc7ba29c7ce0@rock-chips.com>
- <fbf16b5a-1565-39c9-0d92-33a7a577212f@rock-chips.com>
- <f1b9a97a-f1f9-0757-5dc7-33960318be61@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Correlation-ID: <8710cb76-78e7-4e7f-8be8-0f059b9cb0ac@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260404_154228_385522_8F66A30D 
-X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-CacheID: sfid-20260404_175855_685854_17016373 
+X-CRM114-Status: UNSURE (   6.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,38 +103,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Further testing with NO kernel patches and fw_devlink=strict
-reveals both crashes happening simultaneously on different
-CPUs:
+Hi! Joonwon Kang.
 
-  CPU1 (genpd_power_off_work_fn):
-  pc : regmap_mmio_read32le+0x8/0x20
-  Workqueue: pm genpd_power_off_work_fn
+I just looked at the content of your email, and I think we can design a resource priority scheduling system with 70% and 30% priority allocation. The specific idea is as follows:
 
-  CPU2 (deferred_probe_work_func):
-  pc : clk_gate_endisable+0xa8/0x130
-  Workqueue: events_unbound deferred_probe_work_func
+During task execution, each task can be tagged. Important tasks can be allocated to the 30% of resources, while the remaining 70% can be used to run low-load and repetitive pipeline tasks.
 
-  Kernel panic - not syncing: Asynchronous SError Interrupt
+The specific algorithm can be written as follows: reserve 30% of the runtime space for the system's critical processes. For the remaining 70% of non-critical processes, a judgment can be made: if resource usage exceeds 70%, the excess processes are marked with a priority deferred tag and run only when resources are freed up.
 
-This shows there are perhaps two independent issues:
+-- 
 
-1. genpd tries to power off idle-only domains and crashes
-   in rockchip_pmu_set_idle_request (the regmap read at
-   PMU offset 0x1120 faults)
-
-2. GPIO4 probes while PD_RKVENC is not registered (power
-   domain controller tore down due to PD_GPU EPROBE_DEFER)
-   and crashes in clk_gate_endisable
-
-Both crashes occur in the unpatched kernel. Previously we
-only observed crash #2 because it appeared first in serial
-output, but maybe they're racing on different CPUs?
-
-I also tested removing all pm_qos from all idle-only
-domains (PD_VO, PD_RKVENC, PD_VPU). Crash #1 still
-occurs. Because it is in rockchip_pmu_set_idle_request,
-not in QoS save/restore?
-
-fw_devlink=strict does not prevent either crash.
+the-essence-of-life
 
