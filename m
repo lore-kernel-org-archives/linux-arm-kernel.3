@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B902E9D800
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Apr 2026 15:03:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68C70E9D805
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Apr 2026 15:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fEglUpkX5hhqQjwTzS016A/2qsEy/DKKRg5xFskANcA=; b=M3n9l8sueUt5aBXH7ZBZy4RXC4
-	g/ROC4N8qqXHfYI+9IQFdUHXiaKQVziKSUP4Etb7+2wJ+pGybRwpxrIKQZdHqIU9UB4TGmKVyAF5d
-	AUgYWh9g4cMU9GYX8Yp2JhfvdnXDwjtJC3oLCMOSFDD3oIoAPkpQXk9jUE3LmazFL4bmWPk95ZYgB
-	nz/y8DxJBxt+0qzVwyheQcxNljC6f0IbS7POpLBiDa2eOlijOrqj11POIJwUSyift6twm+wAA9nW+
-	6o6DHFV9Gk8/QcHrmAHWkjed6kOPTfk52Tf/usP7tlhoJdkuaPesdwFD/zM9KKoXF5tPwbQ8jnFV7
-	Z0cOhGaQ==;
+	bh=gSGabibu/FNUuFYpKj6t+vcoiszLKH3tL5pw8WgiprU=; b=RLxpDA2SczTzZ0qMpe8frzU5dk
+	lXSUOKkNctjW3KCR6a0tAN0sMe7VpTMjALUJL/f8FPJAuwoYApS4lCPkSS6XN1n34s9Chjcl9JqQ8
+	UwNOswc/cvZCealU63S33K5uDvQrAZODFobUDrwU9/NItYU0puEZ289yBMbc015Ob8SKSUd1ZCB+u
+	4D2aCkp0swJCoE+QwcwO2JD7VhIa463OeHhVhxreXbgYp9WHp6jGeUnnzZvb/WKc3D/64l57agVmm
+	F2gApYD1x+fCV1kZrduBzzYwniT4KA+91iXDKAGQQWkAKtKklaGLPLtBJmgB1wABazBgQ7vkEeSF5
+	w3DL65gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9P10-00000004Hth-29cp;
-	Sun, 05 Apr 2026 15:03:54 +0000
+	id 1w9P13-00000004HyJ-3e7s;
+	Sun, 05 Apr 2026 15:03:57 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9P0x-00000004HpG-2rkm
+	id 1w9P11-00000004Hui-0q5E
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Apr 2026 15:03:53 +0000
+	Sun, 05 Apr 2026 15:03:56 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B5BC26BE;
-	Sun,  5 Apr 2026 08:03:45 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 55F6C3F62B;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 64F2A1758;
 	Sun,  5 Apr 2026 08:03:48 -0700 (PDT)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 704FD3F62B;
+	Sun,  5 Apr 2026 08:03:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775401431; bh=payx2C2rQ+j4ZUNG51DXGuD0c0fz1h5v+A97XdNDA/8=;
+	t=1775401434; bh=ZKwAI/jZqq8uz0mci8d4aZTWjK8jGbVGEdLtRjY/v0c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=QooK79PHWnDWELp1369dGIv2egxCIl8UW11nvsHQqpTOLY5Uf6qVerEvPJ0W7Ywhr
-	 7YEnNQlSvXcC/ocv7Xpyuuyd2gG0C3Fzej3GNLssmtOlkel6FaMbG5EyQZFUrxuANg
-	 qgaQhuaNvK5q9jwaFngAWDhdQQcprSIXgfhpfJK4=
+	b=O3Ksii3yW/HV+HKOQdVBC2DokbK5cu1hUay5HtVgd7sirCCLNH1/x3Tf/sk/DiaVv
+	 SLcinWno0mBKhjnUxxmGtlsKuAoivg1cBLC9N33Vx2zAoom0MX80BJYGJc68dyPusc
+	 yelZxHiSYQHxMD0esjSdRmZnqjMm5Sim4NjpGjhk=
 From: Leo Yan <leo.yan@arm.com>
-Date: Sun, 05 Apr 2026 16:02:52 +0100
-Subject: [PATCH v10 16/20] coresight: Add PM callbacks for sink device
+Date: Sun, 05 Apr 2026 16:02:53 +0100
+Subject: [PATCH v10 17/20] coresight: trbe: Save and restore state across
+ CPU low power state
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260405-arm_coresight_path_power_management_improvement-v10-16-13e94754a8be@arm.com>
+Message-Id: <20260405-arm_coresight_path_power_management_improvement-v10-17-13e94754a8be@arm.com>
 References: <20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be@arm.com>
 In-Reply-To: <20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -61,16 +62,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775401378; l=4080;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775401378; l=4250;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=payx2C2rQ+j4ZUNG51DXGuD0c0fz1h5v+A97XdNDA/8=;
- b=JlobQ0I/Un1C8YyePoadFMDUj9eno1zNcaBlAF2/eGbZ42Faup6aIAPUOcGNzI4SQ4Y79S4z/
- 6emO/l7TNzAA2ogCchwJGOgzO7xdALdRVX+NHPQJQZyLNhYnuHcUvKI
+ bh=f1ketuyR7pxmBwkFQg96+8BpS0LqIznTr87sMgFLFn0=;
+ b=oKVZYbvwFnvD8cI5xzNNIGEoiITYIv2vnd6qTiURudb+5y1o+DN17E/vY/2oAIJ3s+J/LP1Mp
+ vRDnQIVkblZASRG3FOa+1ZA2xmhpzA7AUJgrxTj4pgpcLRJKfOksN+l
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260405_080351_850760_4A7841FB 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20260405_080355_598267_3E4A90B3 
+X-CRM114-Status: GOOD (  18.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,124 +86,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unlike system level sinks, per-CPU sinks may lose power during CPU idle
-states.  Currently, this applies specifically to TRBE.  This commit
-invokes save and restore callbacks for the sink in the CPU PM notifier.
+From: Yabin Cui <yabinc@google.com>
 
-If the sink provides PM callbacks but the source does not, this is
-unsafe because the sink cannot be disabled safely unless the source
-can also be controlled, so veto low power entry to avoid lockups.
+TRBE context can be lost when a CPU enters low power states.  If a trace
+source is restored while TRBE is not, tracing may run without an active
+sink, which can lead to hangs on some devices (e.g., Pixel 9).
 
+The save and restore flows are described in the section K5.5 "Context
+switching" of Arm ARM (ARM DDI 0487 L.a). This commit adds save and
+restore callbacks with following the software usages defined in the
+architecture manual.
+
+During the restore flow, since TRBLIMITR_EL1.E resets to 0 on a warm
+reset, the trace buffer unit is disabled when idle resume, it is safe to
+restore base/pointer/status registers first and program TRBLIMITR_EL1
+last.
+
+Signed-off-by: Yabin Cui <yabinc@google.com>
 Tested-by: James Clark <james.clark@linaro.org>
 Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 Reviewed-by: James Clark <james.clark@linaro.org>
+Co-developed-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c | 46 ++++++++++++++++++++++++++--
- 1 file changed, 43 insertions(+), 3 deletions(-)
+ drivers/hwtracing/coresight/coresight-trbe.c | 59 +++++++++++++++++++++++++++-
+ 1 file changed, 58 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index c1e8debc76aba7eb5ecf7efe2a3b9b8b3e11b10c..a918bf6398a932de30fe9b4947020cc4c1cfb2f7 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1736,14 +1736,15 @@ static void coresight_release_device_list(void)
- /* Return: 1 if PM is required, 0 if skip, <0 on error */
- static int coresight_pm_check(struct coresight_path *path)
- {
--	struct coresight_device *source;
--	bool source_has_cb;
-+	struct coresight_device *source, *sink;
-+	bool source_has_cb, sink_has_cb;
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+index 14e35b9660d76e47619cc6026b94929b3bb3e02b..c7cbca45f2debd4047b93283ea9fe5dd9e1f2ebf 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.c
++++ b/drivers/hwtracing/coresight/coresight-trbe.c
+@@ -116,6 +116,20 @@ static int trbe_errata_cpucaps[] = {
+  */
+ #define TRBE_WORKAROUND_OVERWRITE_FILL_MODE_SKIP_BYTES	256
  
- 	if (!path)
- 		return 0;
++/*
++ * struct trbe_save_state: Register values representing TRBE state
++ * @trblimitr		- Trace Buffer Limit Address Register value
++ * @trbbaser		- Trace Buffer Base Register value
++ * @trbptr		- Trace Buffer Write Pointer Register value
++ * @trbsr		- Trace Buffer Status Register value
++ */
++struct trbe_save_state {
++	u64 trblimitr;
++	u64 trbbaser;
++	u64 trbptr;
++	u64 trbsr;
++};
++
+ /*
+  * struct trbe_cpudata: TRBE instance specific data
+  * @trbe_flag		- TRBE dirty/access flag support
+@@ -134,6 +148,7 @@ struct trbe_cpudata {
+ 	enum cs_mode mode;
+ 	struct trbe_buf *buf;
+ 	struct trbe_drvdata *drvdata;
++	struct trbe_save_state save_state;
+ 	DECLARE_BITMAP(errata, TRBE_ERRATA_MAX);
+ };
  
- 	source = coresight_get_source(path);
--	if (!source)
-+	sink = coresight_get_sink(path);
-+	if (!source || !sink)
- 		return 0;
+@@ -1189,6 +1204,46 @@ static irqreturn_t arm_trbe_irq_handler(int irq, void *dev)
+ 	return IRQ_HANDLED;
+ }
  
- 	/* Don't save and restore if the source is inactive */
-@@ -1759,16 +1760,36 @@ static int coresight_pm_check(struct coresight_path *path)
- 	if (source_has_cb)
- 		return 1;
- 
-+	sink_has_cb = coresight_ops(sink)->pm_save_disable &&
-+		      coresight_ops(sink)->pm_restore_enable;
-+	/*
-+	 * It is not permitted that the source has no callbacks while the sink
-+	 * does, as the sink cannot be disabled without disabling the source,
-+	 * which may lead to lockups. Alternatively, the ETM driver should
-+	 * enable self-hosted PM mode at probe (see etm4_probe()).
-+	 */
-+	if (sink_has_cb) {
-+		pr_warn_once("coresight PM failed: source has no PM callbacks; "
-+			     "cannot safely control sink\n");
-+		return -EINVAL;
++static int arm_trbe_save(struct coresight_device *csdev)
++{
++	struct trbe_cpudata *cpudata = dev_get_drvdata(&csdev->dev);
++	struct trbe_save_state *state = &cpudata->save_state;
++
++	state->trblimitr = read_sysreg_s(SYS_TRBLIMITR_EL1);
++
++	/* Disable the unit, ensure the writes to memory are complete */
++	if (state->trblimitr & TRBLIMITR_EL1_E)
++		trbe_drain_and_disable_local(cpudata);
++
++	state->trbbaser = read_sysreg_s(SYS_TRBBASER_EL1);
++	state->trbptr = read_sysreg_s(SYS_TRBPTR_EL1);
++	state->trbsr = read_sysreg_s(SYS_TRBSR_EL1);
++	return 0;
++}
++
++static void arm_trbe_restore(struct coresight_device *csdev)
++{
++	struct trbe_cpudata *cpudata = dev_get_drvdata(&csdev->dev);
++	struct trbe_save_state *state = &cpudata->save_state;
++
++	write_sysreg_s(state->trbbaser, SYS_TRBBASER_EL1);
++	write_sysreg_s(state->trbptr, SYS_TRBPTR_EL1);
++	write_sysreg_s(state->trbsr, SYS_TRBSR_EL1);
++
++	if (!(state->trblimitr & TRBLIMITR_EL1_E)) {
++		write_sysreg_s(state->trblimitr, SYS_TRBLIMITR_EL1);
++	} else {
++		/*
++		 * The section K5.5 Context switching, Arm ARM (ARM DDI 0487
++		 * L.a), S_PKLXF requires a Context synchronization event to
++		 * guarantee the Trace Buffer Unit will observe the new values
++		 * of the system registers.
++		 */
++		isb();
++		set_trbe_enabled(cpudata, state->trblimitr);
 +	}
++}
 +
- 	return 0;
- }
+ static const struct coresight_ops_sink arm_trbe_sink_ops = {
+ 	.enable		= arm_trbe_enable,
+ 	.disable	= arm_trbe_disable,
+@@ -1198,7 +1253,9 @@ static const struct coresight_ops_sink arm_trbe_sink_ops = {
+ };
  
- static int coresight_pm_device_save(struct coresight_device *csdev)
- {
-+	if (!csdev || !coresight_ops(csdev)->pm_save_disable)
-+		return 0;
-+
- 	return coresight_ops(csdev)->pm_save_disable(csdev);
- }
+ static const struct coresight_ops arm_trbe_cs_ops = {
+-	.sink_ops	= &arm_trbe_sink_ops,
++	.pm_save_disable	= arm_trbe_save,
++	.pm_restore_enable	= arm_trbe_restore,
++	.sink_ops		= &arm_trbe_sink_ops,
+ };
  
- static void coresight_pm_device_restore(struct coresight_device *csdev)
- {
-+	if (!csdev || !coresight_ops(csdev)->pm_restore_enable)
-+		return;
-+
- 	coresight_ops(csdev)->pm_restore_enable(csdev);
- }
- 
-@@ -1787,15 +1808,32 @@ static int coresight_pm_save(struct coresight_path *path)
- 	to = list_prev_entry(coresight_path_last_node(path), link);
- 	coresight_disable_path_from_to(path, from, to);
- 
-+	ret = coresight_pm_device_save(coresight_get_sink(path));
-+	if (ret)
-+		goto sink_failed;
-+
- 	return 0;
-+
-+sink_failed:
-+	if (!coresight_enable_path_from_to(path, coresight_get_mode(source),
-+					   from, to))
-+		coresight_pm_device_restore(source);
-+
-+	pr_err("Failed in coresight PM save on CPU%d: %d\n",
-+	       smp_processor_id(), ret);
-+	this_cpu_write(percpu_pm_failed, true);
-+	return ret;
- }
- 
- static void coresight_pm_restore(struct coresight_path *path)
- {
- 	struct coresight_device *source = coresight_get_source(path);
-+	struct coresight_device *sink = coresight_get_sink(path);
- 	struct coresight_node *from, *to;
- 	int ret;
- 
-+	coresight_pm_device_restore(sink);
-+
- 	from = coresight_path_first_node(path);
- 	/* Up to the node before sink to avoid latency */
- 	to = list_prev_entry(coresight_path_last_node(path), link);
-@@ -1808,6 +1846,8 @@ static void coresight_pm_restore(struct coresight_path *path)
- 	return;
- 
- path_failed:
-+	coresight_pm_device_save(sink);
-+
- 	pr_err("Failed in coresight PM restore on CPU%d: %d\n",
- 	       smp_processor_id(), ret);
- 
+ static ssize_t align_show(struct device *dev, struct device_attribute *attr, char *buf)
 
 -- 
 2.34.1
