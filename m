@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A262FE9D800
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Apr 2026 15:03:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B902E9D800
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Apr 2026 15:03:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oXW8G9Pa9b17zPKGM1oreiDSB2JnQ7fw9IFedbWMS7c=; b=r+/uRnN3lbkC73nr/DfqHkpun5
-	Z+YDafS2sfG/ZLhYk61bafZE3lpGKzWjZC+3jNMvEXJvKneq/D2zidW3m1/eIPkMcUforfm0xUQKC
-	LM2dn62QIYRPtTHNGtDuYVlEGAwOXxCtP8+dj4eJwwiJgYdnrt6fBOWPv4XeVARhpdqqNX20F+TcH
-	zosGuBWOgeDfLaY46HNqrCPzFvhlUjMEJ/1XwHiZlF26coS+R5mHnsUxMalKFH+BaMypzwtSXapd3
-	4Y6uDs5lLgKlbcUxM9Q8fhUvrEKR5jldpeXNbTzPCYnLqU6sWTR8NrZLKMpHdVHaGLAX/YdO/weTL
-	E7k2jDkw==;
+	bh=fEglUpkX5hhqQjwTzS016A/2qsEy/DKKRg5xFskANcA=; b=M3n9l8sueUt5aBXH7ZBZy4RXC4
+	g/ROC4N8qqXHfYI+9IQFdUHXiaKQVziKSUP4Etb7+2wJ+pGybRwpxrIKQZdHqIU9UB4TGmKVyAF5d
+	AUgYWh9g4cMU9GYX8Yp2JhfvdnXDwjtJC3oLCMOSFDD3oIoAPkpQXk9jUE3LmazFL4bmWPk95ZYgB
+	nz/y8DxJBxt+0qzVwyheQcxNljC6f0IbS7POpLBiDa2eOlijOrqj11POIJwUSyift6twm+wAA9nW+
+	6o6DHFV9Gk8/QcHrmAHWkjed6kOPTfk52Tf/usP7tlhoJdkuaPesdwFD/zM9KKoXF5tPwbQ8jnFV7
+	Z0cOhGaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9P0y-00000004HqN-0f99;
-	Sun, 05 Apr 2026 15:03:52 +0000
+	id 1w9P10-00000004Hth-29cp;
+	Sun, 05 Apr 2026 15:03:54 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9P0u-00000004HlY-1vlf
+	id 1w9P0x-00000004HpG-2rkm
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Apr 2026 15:03:50 +0000
+	Sun, 05 Apr 2026 15:03:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F9951758;
-	Sun,  5 Apr 2026 08:03:42 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B95B3F62B;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B5BC26BE;
 	Sun,  5 Apr 2026 08:03:45 -0700 (PDT)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 55F6C3F62B;
+	Sun,  5 Apr 2026 08:03:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775401428; bh=QQpJvJMLcyiFr74EQSFZBPwiVCm8wR0vVTW2kmtHRrg=;
+	t=1775401431; bh=payx2C2rQ+j4ZUNG51DXGuD0c0fz1h5v+A97XdNDA/8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=NUABRLubzSwH1mKCdLX9twQsQwwq6ivv52/O+DkeXCQYt2MtFrpJvIHkn+yrGpakG
-	 SgtObZi1DFop3LIWz/kIoPcX2GlWnOPrcIdJZ9h5fTePYdFd5yxq92NPrxX2P0byQe
-	 VjZS8mPKNO6YjlekUG5kYjKHxXFwvk8KjBFFT77k=
+	b=QooK79PHWnDWELp1369dGIv2egxCIl8UW11nvsHQqpTOLY5Uf6qVerEvPJ0W7Ywhr
+	 7YEnNQlSvXcC/ocv7Xpyuuyd2gG0C3Fzej3GNLssmtOlkel6FaMbG5EyQZFUrxuANg
+	 qgaQhuaNvK5q9jwaFngAWDhdQQcprSIXgfhpfJK4=
 From: Leo Yan <leo.yan@arm.com>
-Date: Sun, 05 Apr 2026 16:02:51 +0100
-Subject: [PATCH v10 15/20] coresight: Control path during CPU idle
+Date: Sun, 05 Apr 2026 16:02:52 +0100
+Subject: [PATCH v10 16/20] coresight: Add PM callbacks for sink device
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260405-arm_coresight_path_power_management_improvement-v10-15-13e94754a8be@arm.com>
+Message-Id: <20260405-arm_coresight_path_power_management_improvement-v10-16-13e94754a8be@arm.com>
 References: <20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be@arm.com>
 In-Reply-To: <20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -61,16 +61,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775401378; l=4013;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775401378; l=4080;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=QQpJvJMLcyiFr74EQSFZBPwiVCm8wR0vVTW2kmtHRrg=;
- b=wFeBJwEKQ4Gieac/ilEWG8zvLmNot3XVqA/fb0f6IFBc0RqUQChDZr48AJg0HPOF4gZ2Xz79w
- JbTBUWnDQjHCshv6YLk2/yA+RqRQ7wsANmSW7oE2ZYgFTgkOnAyRd9Z
+ bh=payx2C2rQ+j4ZUNG51DXGuD0c0fz1h5v+A97XdNDA/8=;
+ b=JlobQ0I/Un1C8YyePoadFMDUj9eno1zNcaBlAF2/eGbZ42Faup6aIAPUOcGNzI4SQ4Y79S4z/
+ 6emO/l7TNzAA2ogCchwJGOgzO7xdALdRVX+NHPQJQZyLNhYnuHcUvKI
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260405_080348_602680_88680E04 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20260405_080351_850760_4A7841FB 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,118 +85,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend the CPU PM flow to control the path: disable from source up to
-the node before the sink, then re-enable the same range on restore.
-To avoid latency, control it up to the node before the sink.
+Unlike system level sinks, per-CPU sinks may lose power during CPU idle
+states.  Currently, this applies specifically to TRBE.  This commit
+invokes save and restore callbacks for the sink in the CPU PM notifier.
 
-Track per-CPU PM restore failures using percpu_pm_failed.  Once a CPU
-hits a restore failure, set the percpu_pm_failed and return NOTIFY_BAD
-on subsequent notifications to avoid repeating half-completed
-transitions.
+If the sink provides PM callbacks but the source does not, this is
+unsafe because the sink cannot be disabled safely unless the source
+can also be controlled, so veto low power entry to avoid lockups.
 
-Setting percpu_pm_failed permanently blocks CPU PM on that CPU.  Such
-failures are typically seen during development; disabling PM operations
-simplifies the implementation, and a warning highlights the issue.
-
+Tested-by: James Clark <james.clark@linaro.org>
+Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Reviewed-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c | 47 +++++++++++++++++++++++++---
- 1 file changed, 43 insertions(+), 4 deletions(-)
+ drivers/hwtracing/coresight/coresight-core.c | 46 ++++++++++++++++++++++++++--
+ 1 file changed, 43 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 02d26dd0171ebf4e884bb3e0028b9a21588f061a..c1e8debc76aba7eb5ecf7efe2a3b9b8b3e11b10c 100644
+index c1e8debc76aba7eb5ecf7efe2a3b9b8b3e11b10c..a918bf6398a932de30fe9b4947020cc4c1cfb2f7 100644
 --- a/drivers/hwtracing/coresight/coresight-core.c
 +++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -37,6 +37,7 @@ DEFINE_MUTEX(coresight_mutex);
- static DEFINE_PER_CPU(struct coresight_device *, csdev_sink);
- 
- static DEFINE_PER_CPU(struct coresight_path *, percpu_path);
-+static DEFINE_PER_CPU(bool, percpu_pm_failed);
- 
- /**
-  * struct coresight_node - elements of a path, from source to sink
-@@ -1732,7 +1733,7 @@ static void coresight_release_device_list(void)
- 	}
- }
- 
--/* Return: 1 if PM is required, 0 if skip */
-+/* Return: 1 if PM is required, 0 if skip, <0 on error */
+@@ -1736,14 +1736,15 @@ static void coresight_release_device_list(void)
+ /* Return: 1 if PM is required, 0 if skip, <0 on error */
  static int coresight_pm_check(struct coresight_path *path)
  {
- 	struct coresight_device *source;
-@@ -1749,6 +1750,9 @@ static int coresight_pm_check(struct coresight_path *path)
- 	if (coresight_get_mode(source) == CS_MODE_DISABLED)
+-	struct coresight_device *source;
+-	bool source_has_cb;
++	struct coresight_device *source, *sink;
++	bool source_has_cb, sink_has_cb;
+ 
+ 	if (!path)
  		return 0;
  
-+	if (this_cpu_read(percpu_pm_failed))
-+		return -EIO;
-+
- 	/* pm_save_disable() and pm_restore_enable() must be paired */
- 	source_has_cb = coresight_ops(source)->pm_save_disable &&
- 			coresight_ops(source)->pm_restore_enable;
-@@ -1771,24 +1775,59 @@ static void coresight_pm_device_restore(struct coresight_device *csdev)
- static int coresight_pm_save(struct coresight_path *path)
- {
- 	struct coresight_device *source = coresight_get_source(path);
-+	struct coresight_node *from, *to;
-+	int ret;
-+
-+	ret = coresight_pm_device_save(source);
-+	if (ret)
-+		return ret;
-+
-+	from = coresight_path_first_node(path);
-+	/* Up to the node before sink to avoid latency */
-+	to = list_prev_entry(coresight_path_last_node(path), link);
-+	coresight_disable_path_from_to(path, from, to);
+ 	source = coresight_get_source(path);
+-	if (!source)
++	sink = coresight_get_sink(path);
++	if (!source || !sink)
+ 		return 0;
  
--	return coresight_pm_device_save(source);
-+	return 0;
+ 	/* Don't save and restore if the source is inactive */
+@@ -1759,16 +1760,36 @@ static int coresight_pm_check(struct coresight_path *path)
+ 	if (source_has_cb)
+ 		return 1;
+ 
++	sink_has_cb = coresight_ops(sink)->pm_save_disable &&
++		      coresight_ops(sink)->pm_restore_enable;
++	/*
++	 * It is not permitted that the source has no callbacks while the sink
++	 * does, as the sink cannot be disabled without disabling the source,
++	 * which may lead to lockups. Alternatively, the ETM driver should
++	 * enable self-hosted PM mode at probe (see etm4_probe()).
++	 */
++	if (sink_has_cb) {
++		pr_warn_once("coresight PM failed: source has no PM callbacks; "
++			     "cannot safely control sink\n");
++		return -EINVAL;
++	}
++
+ 	return 0;
+ }
+ 
+ static int coresight_pm_device_save(struct coresight_device *csdev)
+ {
++	if (!csdev || !coresight_ops(csdev)->pm_save_disable)
++		return 0;
++
+ 	return coresight_ops(csdev)->pm_save_disable(csdev);
+ }
+ 
+ static void coresight_pm_device_restore(struct coresight_device *csdev)
+ {
++	if (!csdev || !coresight_ops(csdev)->pm_restore_enable)
++		return;
++
+ 	coresight_ops(csdev)->pm_restore_enable(csdev);
+ }
+ 
+@@ -1787,15 +1808,32 @@ static int coresight_pm_save(struct coresight_path *path)
+ 	to = list_prev_entry(coresight_path_last_node(path), link);
+ 	coresight_disable_path_from_to(path, from, to);
+ 
++	ret = coresight_pm_device_save(coresight_get_sink(path));
++	if (ret)
++		goto sink_failed;
++
+ 	return 0;
++
++sink_failed:
++	if (!coresight_enable_path_from_to(path, coresight_get_mode(source),
++					   from, to))
++		coresight_pm_device_restore(source);
++
++	pr_err("Failed in coresight PM save on CPU%d: %d\n",
++	       smp_processor_id(), ret);
++	this_cpu_write(percpu_pm_failed, true);
++	return ret;
  }
  
  static void coresight_pm_restore(struct coresight_path *path)
  {
  	struct coresight_device *source = coresight_get_source(path);
-+	struct coresight_node *from, *to;
-+	int ret;
++	struct coresight_device *sink = coresight_get_sink(path);
+ 	struct coresight_node *from, *to;
+ 	int ret;
+ 
++	coresight_pm_device_restore(sink);
 +
-+	from = coresight_path_first_node(path);
-+	/* Up to the node before sink to avoid latency */
-+	to = list_prev_entry(coresight_path_last_node(path), link);
-+	ret = coresight_enable_path_from_to(path, coresight_get_mode(source),
-+					    from, to);
-+	if (ret)
-+		goto path_failed;
+ 	from = coresight_path_first_node(path);
+ 	/* Up to the node before sink to avoid latency */
+ 	to = list_prev_entry(coresight_path_last_node(path), link);
+@@ -1808,6 +1846,8 @@ static void coresight_pm_restore(struct coresight_path *path)
+ 	return;
  
- 	coresight_pm_device_restore(source);
-+	return;
+ path_failed:
++	coresight_pm_device_save(sink);
 +
-+path_failed:
-+	pr_err("Failed in coresight PM restore on CPU%d: %d\n",
-+	       smp_processor_id(), ret);
-+
-+	/*
-+	 * Once PM fails on a CPU, set percpu_pm_failed and leave it set until
-+	 * reboot. This prevents repeated partial transitions during idle
-+	 * entry and exit.
-+	 */
-+	this_cpu_write(percpu_pm_failed, true);
- }
+ 	pr_err("Failed in coresight PM restore on CPU%d: %d\n",
+ 	       smp_processor_id(), ret);
  
- static int coresight_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
- 				   void *v)
- {
- 	struct coresight_path *path = coresight_get_percpu_local_path();
-+	int ret;
- 
--	if (!coresight_pm_check(path))
--		return NOTIFY_DONE;
-+	ret = coresight_pm_check(path);
-+	if (ret <= 0)
-+		return ret ? NOTIFY_BAD : NOTIFY_DONE;
- 
- 	switch (cmd) {
- 	case CPU_PM_ENTER:
 
 -- 
 2.34.1
