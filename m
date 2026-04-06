@@ -4,151 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F8DEEF4EB4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 06:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12B64EF4EB8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 07:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tkqsgi/b9ZE29EDYbWjY0RehHrUxOeDAeSueJ7mUCYs=; b=Sq2RNIL/gCxpzyXdkps4gJ7XQU
-	CaQQCzlpkrxygGYEn5K5MkI9Qtsaz7sVcCOoYgRDlPBMMlEeDqxX0fN8ngDt39bcpfS+8usGgEdFC
-	Hda8QDl5id+Xv95g7UO1evaJc4wSvAmWqeLf9F4f3Pw4lChpsIDjZQPc+kkSYYBD8j3miSUpfTPrH
-	1zu4IZKlq3ZRobHVBWXAAClA+yJfrUwDFL5ja0Jr1Z//8zmY2tipbKq5I5kESzDh5Epq8f/u/wOb8
-	225BzrDP209TAuMbGQiD+9Fm/tr3MRSputHaNyfRDHLrz+r3jLu576vLvRGxtf/yR0UNg5s0H5K2j
-	Lr5xYRqQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CmI+hzyBqRr28Y++VrQXgi0DtpH9W0BGd3T//ob2zds=; b=2OUXe9NHBmGh1CgY91rHzdn8dT
+	pteo85i159TOAVJDBOPWBUS6bmE442PoUBUxKG1mJ5sEipA8vuC4vmfoLaKM4cehY61aTp/vQuNY6
+	7UA/JtMwWzhBTY4hVkZzl7Vssmh8WN5S9LnreC7yn5EEp40Aj9ZprA88E7Qodmmm1w+epQiCEuxXN
+	kFpx9wvVIkMteTpHsMYqnbAz9Wao7JP0b6uN0jpJfCdMuXQ8yf36jX2OntEOASOIL5GI/sKOL9QQ1
+	ctsyUcuYeESNIKgzbk/Oe0e4XUMfRtkyNyg8PmB0GnbS8T/qPjZ0ZPOK4CH4P9A5Df2CLjfraa4PY
+	TZkfUWoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9dbN-00000004rGp-2MMF;
-	Mon, 06 Apr 2026 06:38:25 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1w9e2g-00000004sGp-1rO3;
+	Mon, 06 Apr 2026 07:06:38 +0000
+Received: from mail-ej1-f68.google.com ([209.85.218.68])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9dbK-00000004rFW-3XTO
+	id 1w9e2d-00000004sG3-04ti
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Apr 2026 06:38:24 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 635Hi0YJ3543138
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Apr 2026 06:38:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=tkqsgi/b9ZE
-	29EDYbWjY0RehHrUxOeDAeSueJ7mUCYs=; b=eXpHbvDRt+Y+4uf0JmAFhVgxo6J
-	13AsdqvlzVC6JgMSIcmZYjha2BPP+MIDX05acgQo764s9WR78/Ci4KTN2f6bL8dQ
-	9fRW3259HTig6E5sno7GbNVbQpDrYUYsEk7x0IDf5Ke4CgRMhHSfIhxlusjj+apA
-	TyWhk6OEqfAU8Y1jas8SgYNIE+nlQtJYQZm5mME1a7q/8ZesukB3hvr5b7DrYGnS
-	5mmTyOhNoc4/QCLOKdVh+PvRorA4+rGVlItVuxMGrhO4kUFTMjHsuxP80DQafaOd
-	VKlCwM1itQfh4BGOpsJdfbMgA6Gh0fnI27YmGBT2KluA37lb39slk/8nSTg==
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4datv1c59p-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Apr 2026 06:38:22 +0000 (GMT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-50b6f869676so89004051cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Apr 2026 23:38:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1775457501; x=1776062301; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tkqsgi/b9ZE29EDYbWjY0RehHrUxOeDAeSueJ7mUCYs=;
-        b=Ip9wv6ZZwS85JdQ5PMnKO7tSejlk1kVWIHk2orez9nL/XM3I1FEN2iO6hz6WtbbCza
-         WBb+O2cadMFgs5cndGxyWjrvXoFW1CwbO2n/+KiFbVfVUOdNB8LUCxwJkZzXfH8tUf4T
-         IFywjeU0+6EY938pjnA2hzT/FtWPCmds9p04mWCTEqMaf22rNwbfZdDiEtn88wbrBrZ+
-         TRH+/cjJBflcZhX82XMhD/6+QgrOOokHDsoaIXSSF5bTiEuZum/Zx3h1Q2D2/Uas/EkQ
-         Yb0l6GqsJ09RSNJF9UHc+sonv5qSm7SH00uPIzgD8k6EiF4zLPDvMiRihkQoEi2Mb7d7
-         tCAQ==
+	Mon, 06 Apr 2026 07:06:36 +0000
+Received: by mail-ej1-f68.google.com with SMTP id a640c23a62f3a-b9c9d03524cso191583166b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Apr 2026 00:06:33 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775457501; x=1776062301;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=tkqsgi/b9ZE29EDYbWjY0RehHrUxOeDAeSueJ7mUCYs=;
-        b=hSq4eCdQKoPxV7I8mZBQOc3nG0l2xhnOSYQp04SacY5henkrcNYOXjaATNMDjfD7L4
-         MhPymXSiER2iEGN5rX9ceka7ucWKtPJZkXfUx2C0oEiR6F3d6aXla7fSFfyP2VOYEsZF
-         h1acoUMvtJkjI8HzGOSVGRiKcWedxWd8/on9tJARXr7+e/4GJCX7wfMHg3QI/t5zHOyd
-         GcG69UyjmTtyJvcoZOFqXYCk75uRjMGF9hpd0e6t4aKU3erJDwITu7VoALEU4Uo5ilbk
-         GoQfCC+4GKZmFFTqQWIwvtNTkyEMe67xYj2qheUsWjc0T+MP3kh9CoKvaDvZPU1uC4Dh
-         1iWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWejnYo+PYyPed+FBbVCfDWecfcaQ8YuciXcUWhYMkRj/Duo0kjQLL0q6VmA83deg+bICv4Z/tc8L/0w+EFimYi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3/8T2UQX+KM8KEKcQcs3t8KvyfOH//9Zstuhpf8kiLpQZPv7N
-	JXJQIc12NLQld4IrhRmnbxU6vDbnrn69Cb7utaJb3+1pPYZy7mbTZL1nqSsbvE0zBaWL1C0TwZG
-	bGUl+ZmHS3XrPmFbDIfDwoiKsmjhRZPdzfKypUaFsPXXVDzCzWBL7BKH/05Yrp/9gaP8+9Jpm2J
-	iSlg==
-X-Gm-Gg: AeBDiev9xFO4ituZikvG965KysVtbGPSC3ngLtc2Hs08zFiNSwI80/Irp2GSWS+ODbF
-	z68qA6k0I6vWRRtfsDnvTxOCOTz3ew6CIspjkW2/2JqW6Zer4I7HfXtfyfJerkp0wgCCRDxB9U4
-	Nk7OOQ/CZoP4VWqmpm6AgjRdqgTftp3zvKxJWbVpo3VKpucPKVNTqrzk+fsFXnQbNDRi0jkFoYW
-	osqkCFY4KW4MhCuboURAmmA7Hex4Luux9cL8o2JId2qfnb6ke9+eCBtFavPKdN5AmFmMay6GLdC
-	uUffDYDRuM+oAP3luZLp6r/k7wNKaOWmO/BN2jqbc5eEUI0wraV/7EcM3scTtnmxLzfnm4X79ab
-	FPNEq+JE7Kh2jgkM24LOeLhkwdu+ThrhdY+JF
-X-Received: by 2002:a05:622a:14c8:b0:509:1d4b:f860 with SMTP id d75a77b69052e-50d62b34a43mr169714801cf.58.1775457501158;
-        Sun, 05 Apr 2026 23:38:21 -0700 (PDT)
-X-Received: by 2002:a05:622a:14c8:b0:509:1d4b:f860 with SMTP id d75a77b69052e-50d62b34a43mr169714581cf.58.1775457500656;
-        Sun, 05 Apr 2026 23:38:20 -0700 (PDT)
-Received: from quoll ([178.197.219.94])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d1e4e52a0sm36724509f8f.30.2026.04.05.23.38.19
+        d=1e100.net; s=20251104; t=1775459192; x=1776063992;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CmI+hzyBqRr28Y++VrQXgi0DtpH9W0BGd3T//ob2zds=;
+        b=BgUQ4OC3VHY5/uLsXFzqA2xAJkJrB3JLGEPUi/J9ZQC+y8nVRlyRfwS7Q06369FHw8
+         VKLI62RGVvXPIjIF8/Q26JXwrfn90reFOZffIb49nQFRfQ7Hpia50H3kiIgvLHgVFBol
+         5bFsw/1SyFq7BVCDAz+lJUDjaHRPRCEtFRxC4n6gUtjLmHKcrYF6MV3cowO5XjMm6xn3
+         7bxnJocWE6PQDmrqVmI+pjBHjAWBCbpFcXv8x79oMJ7Z0NJPmRItBe2GIhIqNQKme77I
+         6dofHvuHPB9LAR4PB+1WoAkEkPrEBC2N9qqN8vrCZwj8uvZzgaifqF5Udjt9VTi/dvIO
+         PihA==
+X-Forwarded-Encrypted: i=1; AJvYcCW517kvia4T5U0LvgyiAHGwec84cFZbWHndyjAOSvAJtxtpqPEg3Crx+FMMURvg9mXTk7CDHGq2uDfhDi/DTU5i@lists.infradead.org
+X-Gm-Message-State: AOJu0YxunNfm6PRObj0UrxUpO2F8l3qhhMg1/VIfhGmmYaojEXVzXF7z
+	A1bq5wlqjuNdF3pIQtDneDGJ1uNiG6HDb5iaFbG2k1biLwOeQpGaVdP2
+X-Gm-Gg: AeBDietBLpvVjp2Qkot3mAlSwsUh8L2Xsj70QldkYUAizliMruv+sStysF9lzsE8k/Y
+	zoUWCtOrws35FXOE4PmlzGvi/IzM/hIz5N1EcEGjefDT0NR3XRGQzjl4zfa49esdkIPGhvxtNXz
+	f+I+03TmUshkWLZ77kE+LqEuRDs/KbJmqtlp+V4ahm7ULWfr7cmI9oJQaHsGBt2H4Qg0WvuXGhT
+	z4UaYqFNpfmQonjBVGNYhO14q7ed6bRaUiLGdeQ3TwN+kMfLKrSPdDU+PKOUhpmsuVN87K8zvNG
+	HIeUrU/TtkNFkZZAj1R7hiE41WkIv3xv9vfCME0FSzjN+3S5nTnJD5loRSm7YatkIv76j0vfdVS
+	iKPgR3XLiRHE6hW7OXcFT/Nhw6ssnriYNZsSdMXfS6dRMTcOypKzvbNzj5nDY8isnPFFzPTmC62
+	R9I8Oi1VZbjhejSqnuqdOsuH77+s4+VHWIAY08WBqfXoXZcDabM7uGexegJ2237w==
+X-Received: by 2002:a17:906:4fd4:b0:b96:e11e:97c4 with SMTP id a640c23a62f3a-b9c676ad8bfmr559766366b.20.1775459192157;
+        Mon, 06 Apr 2026 00:06:32 -0700 (PDT)
+Received: from aorus.localdomain (5.185.72.109.ipv4.public.orange.pl. [5.185.72.109])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b9c3cff131csm450129466b.52.2026.04.06.00.06.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 05 Apr 2026 23:38:19 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, Marek Vasut <marex@nabladev.com>,
-        Peng Fan <peng.fan@nxp.com>, Fedor Ross <fedor.ross@ifm.com>,
-        Shawn Guo <shawnguo@kernel.org>, Shengjiu Wang <shengjiu.wang@nxp.com>,
-        Viorel Suman <viorel.suman@nxp.com>, devicetree@vger.kernel.org,
-        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH 2/3] arm64: dts: imx8mn-vhip4-evalboard-v2: Correct interrupt flags
-Date: Mon,  6 Apr 2026 08:38:12 +0200
-Message-ID: <20260406063810.25531-5-krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260406063810.25531-4-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260406063810.25531-4-krzysztof.kozlowski@oss.qualcomm.com>
+        Mon, 06 Apr 2026 00:06:31 -0700 (PDT)
+From: =?UTF-8?q?=C5=81ukasz=20Lebiedzi=C5=84ski?= <kernel@lvkasz.us>
+To: vkoul@kernel.org
+Cc: neil.armstrong@linaro.org,
+	krzk@kernel.org,
+	alim.akhtar@samsung.com,
+	andre.draszik@linaro.org,
+	pritam.sutar@samsung.com,
+	kauschluss@disroot.org,
+	johan@kernel.org,
+	ivo.ivanov.ivanov1@gmail.com,
+	linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	=?utf-8?q?=C5=81ukasz=20Lebiedzi=C5=84ski?= <kernel@lvkasz.us>,
+	stable@vger.kernel.org
+Subject: [PATCH] phy: exynos5-usbdrd: fix USB 2.0 HS PHY tuning values for Exynos7870
+Date: Mon,  6 Apr 2026 09:05:48 +0200
+Message-ID: <20260406070548.132491-1-kernel@lvkasz.us>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1211; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=NKTG5+SHcXAW1JXdbaucnX+WCRebKnrDUyFIgU8QTw8=;
- b=kA0DAAoBwTdm5oaLg9cByyZiAGnTVNWiBDD++YBNGt5UAEaKATYJxmG/RLk5maCk21XeAIvfO
- YkCMwQAAQoAHRYhBN3SYig9ERsjO264qME3ZuaGi4PXBQJp01TVAAoJEME3ZuaGi4PXlMUQAI/u
- 1IdB4Nmf2WXgCBhdFqpqbMpzPe9C09bOK+tFnYAmkWReWHVW1JjyneoNYzCEO6ip1VXva7jbC2j
- tKzCffLLXJda1Jyt+x23g0QKUQjE1hU092/7//R8e5mivTU6JjD4V+HAi3MF99z+iborvYGmUtx
- QOiPDFBwg88/5DDBiqgtFi7vQ0PY3O6UVfxix+kkaAeWZB5CaDUDNYcST6yMRZbKv3Q5IQyEJy8
- BEfAfny0udjyM0AkP3/aIPh1X1UbqRuGYVusV4BgVzSMnMOYJ+G/0eUdb5wjMZ3ZFnqQpR8xWdd
- lpPHuI2KGVJA4Nyquu4aIqo/Rm8VKm6+sfogP6iq4qXFN/nzPvV+r2IQ/st1tR01iUNNnLG/kTP
- Rl1vByDF7vJCeft5MkBwMbzcNdULXbKvd055EsQ9HqhrWcQwQsRLnd6AdKzM63VFGbztLvH28Cp
- 0tiMmB8z/Rg4vuAXDJ4QtHzvZL9pigTWjAjvR+WsWWBXxuZwWUW6iA7TeTQIVPuB+zxkTzRa9uO
- 8bGwn7zhxHr5ju91o6IJn3autdOVuEj6JGq59bbwPdoDHbu2BrqpIkbWGOx5xXJl8QphVzeoJdF
- REwy/HU6a+jdahbQcjGFdsXECC4MGwLgY0E2UhVWI8cTkOvIbsBsc3G0c+P5reh+JZRS1cB2mqx LJfY2
-X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: a5_j7lK0ICeuFyHwtvFt0Hvjk8rdeXXQ
-X-Authority-Analysis: v=2.4 cv=GLEF0+NK c=1 sm=1 tr=0 ts=69d354de cx=c_pps
- a=WeENfcodrlLV9YRTxbY/uA==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
- a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=EUspDBNiAAAA:8
- a=0oGBXvcucFHjQTZxw3UA:9 a=kacYvNCVWA4VmyqE58fU:22
-X-Proofpoint-ORIG-GUID: a5_j7lK0ICeuFyHwtvFt0Hvjk8rdeXXQ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDA2MDA2MCBTYWx0ZWRfXx7kolhZLeXsm
- 8HdHwqWz+yuQ4hDxrZk6KAMmwJEl9r+ftFILZGF7ZqOhurJs8/kiRkaecbVN2z4iGDI+e8SZGdB
- Ip+RSPhpDZGI2Rd3wkN+nGHyOPyO5zohaBJaFMJVGjHIJuGLkRGT526S3Hq6TR2Ku4qPrH9DBGj
- nI46ThryT13bBeha9YfGMKb7rK4dZM86hnfAxR0JJozF6TPzymY+i/ofucDi4DIG9rfjUsPpd/U
- +aJfeUwE1/paJsvBXtwkFya6RFhnuiWhezhIDBRnEcp24ldBJnIc9rn0nZN2X6P3OBZABQAcfOK
- jBN6PuKPUJx1WNdwiVq0DIxslM1aALOC/5zkt3SpaAi1bvYp3efVvbaR/tH38tPVaKyyNtYAa/C
- dHiG46IxD/sUbk0P7rCzf8Qao0t+3B86PDCrLp8WAAztg8Kh8wWnXhYvd1ISmzDlcA/ym2Cqt03
- HCqEXlBwx/ndE7nzHNA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-06_01,2026-04-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 phishscore=0 spamscore=0 suspectscore=0 adultscore=0
- priorityscore=1501 clxscore=1015 lowpriorityscore=0 impostorscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2603050001
- definitions=main-2604060060
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260405_233822_925480_B53DC807 
-X-CRM114-Status: GOOD (  17.53  )
+X-CRM114-CacheID: sfid-20260406_000635_075158_ABB8B95B 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,36 +97,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-GPIO_ACTIVE_x flags are not correct in the context of interrupt flags.
-These are simple defines so they could be used in DTS but they will not
-have the same meaning:
-1. GPIO_ACTIVE_HIGH = 0 => IRQ_TYPE_NONE
-2. GPIO_ACTIVE_LOW  = 1 => IRQ_TYPE_EDGE_RISING
+The existing PHYPARAM0 tuning values for Exynos7870 are incorrect,
+causing the USB 2.0 PHY to fail high-speed negotiation and fall back
+to full-speed (12Mbps) operation.
 
-Correct the interrupt flags, assuming the author of the code wanted the
-same logical behavior behind the name "ACTIVE_xxx", this is:
-ACTIVE_LOW  => IRQ_TYPE_LEVEL_LOW
+Fix TXVREFTUNE (transmitter voltage reference) from 14 to 3,
+TXRESTUNE (transmitter impedance) from 3 to 2, and SQRXTUNE
+(squelch threshold) from 6 to 5. Also explicitly set
+TXPREEMPPULSETUNE to 0, which was previously missing from the
+tuning table despite being included in the register mask.
 
-Fixes: 5eb7405db99b ("arm64: dts: imx8mn: Add ifm VHIP4 EvalBoard v1 and v2")
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+All values are derived from the vendor kernel for the Samsung
+Galaxy A6 (SM-A600FN), as no public hardware documentation is
+available for the Exynos7870 USB DRD PHY. With these corrections,
+the PHY successfully negotiates high-speed (480Mbps) operation.
+
+Fixes: 588d5d20ca8d ("phy: exynos5-usbdrd: add exynos7870 USBDRD support")
+Cc: stable@vger.kernel.org
+Tested-by: Łukasz Lebiedziński <kernel@lvkasz.us>
+Tested-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+Signed-off-by: Łukasz Lebiedziński <kernel@lvkasz.us>
 ---
- arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v2.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/phy/samsung/phy-exynos5-usbdrd.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v2.dts b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v2.dts
-index 4dadfb7f78de..43fd4d0041ef 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v2.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v2.dts
-@@ -99,7 +99,7 @@ &i2c3 {
- 
- &ifm_pmic {
- 	interrupt-parent = <&gpio5>;
--	interrupts = <17 GPIO_ACTIVE_LOW>;
-+	interrupts = <17 IRQ_TYPE_LEVEL_LOW>;
- };
- 
- &iomuxc {
+diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+index 5a181cb4597e..8711a3b62c8e 100644
+--- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
++++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+@@ -1958,13 +1958,14 @@ const struct exynos5_usbdrd_phy_tuning exynos7870_tunes_utmi_postinit[] = {
+ 			      PHYPARAM0_TXPREEMPAMPTUNE | PHYPARAM0_TXHSXVTUNE |
+ 			      PHYPARAM0_TXFSLSTUNE | PHYPARAM0_SQRXTUNE |
+ 			      PHYPARAM0_OTGTUNE | PHYPARAM0_COMPDISTUNE),
+-			     (FIELD_PREP_CONST(PHYPARAM0_TXVREFTUNE, 14) |
++			     (FIELD_PREP_CONST(PHYPARAM0_TXVREFTUNE, 3) |
+ 			      FIELD_PREP_CONST(PHYPARAM0_TXRISETUNE, 1) |
+-			      FIELD_PREP_CONST(PHYPARAM0_TXRESTUNE, 3) |
++			      FIELD_PREP_CONST(PHYPARAM0_TXRESTUNE, 2) |
++			      FIELD_PREP_CONST(PHYPARAM0_TXPREEMPPULSETUNE, 0) |
+ 			      FIELD_PREP_CONST(PHYPARAM0_TXPREEMPAMPTUNE, 0) |
+ 			      FIELD_PREP_CONST(PHYPARAM0_TXHSXVTUNE, 0) |
+ 			      FIELD_PREP_CONST(PHYPARAM0_TXFSLSTUNE, 3) |
+-			      FIELD_PREP_CONST(PHYPARAM0_SQRXTUNE, 6) |
++			      FIELD_PREP_CONST(PHYPARAM0_SQRXTUNE, 5) |
+ 			      FIELD_PREP_CONST(PHYPARAM0_OTGTUNE, 2) |
+ 			      FIELD_PREP_CONST(PHYPARAM0_COMPDISTUNE, 3))),
+ 	PHY_TUNING_ENTRY_LAST
+
+base-commit: caf08514bbee0736c31d8d4f406e3415cdf726bb
 -- 
-2.51.0
+2.53.0
 
 
