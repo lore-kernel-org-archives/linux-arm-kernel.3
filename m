@@ -4,115 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D5A7FB5173
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 23:21:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26A01FB5173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 23:26:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Y+h81nrMBw9ME7lijugY27w3aaTpXKUJu6PS0fvzaps=; b=UNVIFqg+MUiF56oPAGlGLJUPQI
-	Wqq7YM52MKjnLacbNhmYCI1oS9PMp/nzb5xg4mt2a294TsF0N6xnXmWittveKE5/GXcjADNqL4cJv
-	duFM9+Mel8l3M37XZ4OsFPrXxbXIs+mua1n+e5z0A7CVt1S88ftQkOv6sHQH4wy9pQQrvwNPLOXpu
-	Soi+13xgWpPRtNy1cs4ewpgL9h/nXun0nLJB6OJAzFQMfFUeGhgwrOBCUmWHbWf3oTI6v45syF0A3
-	LgAUxGp40+Gb+tfo+onU59itw3ZL43hO1O3iuIth9sdXACjIHnslNywi1ImT1h95sR++t4sS9r54Z
-	132PS8Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZXh4AAlJDAdDMt/mfgmqe7SUyEdUcOFGra/HATmG4Zg=; b=aSEgLGlJMfv57tf9NCNB/dtgnh
+	J1G4Ii5WkTTpeWpS8xj/RT2bTgb88hRJwT8Q7tHpBJI2+v8Qv3vfDsuAuiBKfBCNB2//wL0gEVwpp
+	PpSS/hgP3qC27GEuJYkid5ID7BisLKGgx0cwrmSd3inlfQg7mqoff5lik64mJEUWp+ADUjSssCqAy
+	R1j8bHRweKfq0tjql7AbKTWM2N3zPyEstyPjW50BLyWULorqsePrtHSHIOvxeQnmL2lnciUmOrDL9
+	Y+y09t/PWJ4v+oKohh356Szai9e6et9TZWes5cyNo1XaIypYypYGE0Fk+xUqoNaewXn+IYU23w0Oe
+	AwIZVX7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9tFn-00000005biN-2179;
-	Mon, 06 Apr 2026 23:21:11 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1w9tKI-00000005cCT-3jrh;
+	Mon, 06 Apr 2026 23:25:51 +0000
+Received: from mail-dy1-x1336.google.com ([2607:f8b0:4864:20::1336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9tFk-00000005bhQ-15zs
+	id 1w9tKF-00000005c9z-2Zkm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Apr 2026 23:21:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GOjZLXW/AFRflL5iHhEahztxe2RMVRtiVTiSOA4B3Pw8xXr6+uo7bh5GSGm0yQyyzwPAiJiolfSw5o/GnBna9DbKgYR/TMUFkbsL2M2C5DfmEGfWrd5rohlX8wQWhW61nCnZAwzu6VcwwaGFUKbvPmabvGNliE48bWO1PKiNDdh/mstiPQlj2opwG8MeiLqppa/Km4Z91O05qzl7uTQ//6qXGp66nPYpxi44ZAaue2JMTW/SmTQJ/vn2eVB+WJXnUjJK6CryYmbgv0lHT5wWp/Jxvko6RNnzBMA7sTo/Wmi0cwIGPDkVsJCuWLYVpaXjE/NJACdSlBrbCbKE6seJYg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Y+h81nrMBw9ME7lijugY27w3aaTpXKUJu6PS0fvzaps=;
- b=D9pnM5UDFVaZc0dmRRTFZFer6cl7RXGF9hzBwvtHsb0UFsLlTVHCiww6FaIvEjXSKJRvLipZMvWwsO+RB86FM3s9Cr+8SnTHIQtcOVer8lUpyNTNlR0Y350Y9HBoB7GjRZ9Vjyy2YdO5SxX9uhfp+d4BPLD5W7K580CXwj5P89h4x1/gdnwE5RiZsVl8Iwc9ASlz4BbuKisX4HpPWPRG3SyeGEmkZv8UJUYaV9HiG3vLEw9BUvlCDt6VfYYNJTTIJlogrFjb0w0WgtssqyjJmdqYPorU4ct+bAFmpPbXabXH5Y+yVx2tqlboWeGxwo/8CgtTjmqS0UspMZc1tNhDyg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Y+h81nrMBw9ME7lijugY27w3aaTpXKUJu6PS0fvzaps=;
- b=N0yl54eqWPgyEFWb03Dz5Q+nDsNSei0H7FxzpOMib77L7nPX/mHsNsVnVHwu6G/jOQwjR6+RzED4UdroKRnYRt++szHGGXxmp2yvSlv3LX3V0AaBNSq72LciKPm7eimLlWxgafiSLf6dy6wf2nxD8IpQlDpBJf+GgQENTGYt2Vm4q2Cg40sLgfM14/0Um0iMq+CJa926NWtjpq0USPLOboL2FBsg/jxDROKtHQRoH9HDuM/sx/NEVJelGlOnTemBsi0GUAJcwGUBV49ugXOYYmr9jdi5CCZHMRCgmukFu7pDaowJyw6lVXrn2dRoP06aGW6FeaydZtwf46o/scrYRg==
-Received: from CH2PR18CA0060.namprd18.prod.outlook.com (2603:10b6:610:55::40)
- by PH8PR12MB6843.namprd12.prod.outlook.com (2603:10b6:510:1ca::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Mon, 6 Apr
- 2026 23:21:00 +0000
-Received: from CH1PEPF0000AD82.namprd04.prod.outlook.com
- (2603:10b6:610:55:cafe::22) by CH2PR18CA0060.outlook.office365.com
- (2603:10b6:610:55::40) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.31 via Frontend Transport; Mon,
- 6 Apr 2026 23:20:55 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CH1PEPF0000AD82.mail.protection.outlook.com (10.167.244.91) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9769.17 via Frontend Transport; Mon, 6 Apr 2026 23:21:00 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 6 Apr
- 2026 16:20:45 -0700
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 6 Apr
- 2026 16:20:44 -0700
-Received: from build-bwicaksono-noble-20251018.internal (10.127.8.11) by
- mail.nvidia.com (10.129.68.9) with Microsoft SMTP Server id 15.2.2562.20 via
- Frontend Transport; Mon, 6 Apr 2026 16:20:43 -0700
-From: Besar Wicaksono <bwicaksono@nvidia.com>
-To: <will@kernel.org>, <mark.rutland@arm.com>, <james.clark@linaro.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-tegra@vger.kernel.org>, <treding@nvidia.com>, <jonathanh@nvidia.com>,
-	<vsethi@nvidia.com>, <rwiley@nvidia.com>, <sdonthineni@nvidia.com>,
-	<mochs@nvidia.com>, <nirmoyd@nvidia.com>, <skelley@nvidia.com>, "Besar
- Wicaksono" <bwicaksono@nvidia.com>
-Subject: [PATCH] perf/arm_pmu: Skip PMCCNTR_EL0 on NVIDIA Olympus
-Date: Mon, 6 Apr 2026 23:20:34 +0000
-Message-ID: <20260406232034.2566133-1-bwicaksono@nvidia.com>
-X-Mailer: git-send-email 2.43.0
+	Mon, 06 Apr 2026 23:25:49 +0000
+Received: by mail-dy1-x1336.google.com with SMTP id 5a478bee46e88-2c15849aa2cso5682224eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Apr 2026 16:25:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1775517947; x=1776122747; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZXh4AAlJDAdDMt/mfgmqe7SUyEdUcOFGra/HATmG4Zg=;
+        b=HUvIROqCOCG4FZaWsFIWvMeWo3iNSK1baKLQdMOhHl3vRCXplTmHg7clwMBuSUprxW
+         dBicFh0cqJg21dgIxVMWLJ3vm6VUaegnmys85ZcXvCPI40vbeiFJ+Nx43jkMqc0UYIZ7
+         D+DjxuBc9f81ZvSHFgw+QRL9pkPAZzqNrP5xQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775517947; x=1776122747;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ZXh4AAlJDAdDMt/mfgmqe7SUyEdUcOFGra/HATmG4Zg=;
+        b=ZSUw+Ew3SvwwHPYDq9x+cSi5t1F2HLyyor5UJHEDn1KfI5cu4tfKx+HbR9D9EC8/fy
+         Pi70s2vVJ0AnRedYo7N+apQfkOzpF5EAXBjDbt92+66YSz5C5CQfWGDxaorr3FZ9trot
+         9YFYnK9QO/R2amS1LYEBQmunuF6EeYJx/uvWN5YoWlTv/FXoDf5HCDYZ4t2NuCZC3XNX
+         ydbn8yIEWDX7aOsgzHmHk/uJydKruZ5NHyGJ9/JEg9QfYx1LpM4h2NEHGnnIJUoyX4ol
+         wOEjktHI1hzbMUFdMmIzWsIZ3vuRrHMdRjOyc2eOcQotoeV392GyT+KDTy+YnYeD7aBD
+         YyMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVnhpSrMMNqkI64LA/r8gOt8D7+YtWBcbVr1dCYcqKnw5yc7k0Rgs08/z/Ks1sw2WBmYclq91qFkMNjXOBbMOqL@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmXUEwoYdkm6I7CxnfCFSimuDvDGBKewbaqHlSH4px3utmzcjO
+	2uPbEFNqGlE2NB1M4NFQQBJgIt782WAYuF8OGd0wnXDcYQzefi1Neo0gbZaLgXjkQQ==
+X-Gm-Gg: AeBDievo6ICgwsTfnNqOER0U+CrMbWz9uLSnGCPHQVEpYFzANhHFmronFdZ1mRJwpPb
+	uVuT4Ufz+mmblv2fjMi94de5lbq6zf5TAxHDLEvl2MRaO4v7LL7Lnnzabh7e/PuMBCAEdqLoeZV
+	8j39YPV8xVKM1+plymvipKkjlfZXCeXj5Q5/otlyx+oCSn+Z/HOUIr1y6vITujkFEsEZFY5EPGr
+	eOYjHLD2f1pM6vn6lx1UXCripwDqJtw+EXtFhCETSOGHV6N5gAjN/hTn4Ww676z06AKgv8BIe1X
+	7gCEXW7eF138kU7CGl+qMoy8/r1cZ3dwEJyG83Z2D1yk3G7qw079AyrUOdoCTeCiHVjASWLOgjh
+	3+7e4zHHadE/PxCwfwYfAsUoJ/G9BHAt3tQ0IHX5s9CcBbNg6uQYEY7Rh0938v9gheVvGWD9q2t
+	/IDNpd5Q5YRQrtCuy5fO0cwBAMCG7+h1xUqkk2jQHLmLVVebYHO+IcJtrDkfKKFjE3QwwgZpMu3
+	Qkis9nxYA==
+X-Received: by 2002:a05:7300:d509:b0:2c7:2cac:8123 with SMTP id 5a478bee46e88-2cbf99ec1d3mr6819121eec.4.1775517946892;
+        Mon, 06 Apr 2026 16:25:46 -0700 (PDT)
+Received: from dianders.sjc.corp.google.com ([2a00:79e0:2e7c:8:c071:3b78:5a5:824a])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2ca760b0518sm14730975eec.0.2026.04.06.16.25.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Apr 2026 16:25:45 -0700 (PDT)
+From: Douglas Anderson <dianders@chromium.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Alan Stern <stern@rowland.harvard.edu>
+Cc: Alexey Kardashevskiy <aik@ozlabs.ru>,
+	Johan Hovold <johan@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Christoph Hellwig <hch@lst.de>,
+	Robin Murphy <robin.murphy@arm.com>,
+	maz@kernel.org,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Mark Brown <broonie@kernel.org>,
+	alexander.stein@ew.tq-group.com,
+	andrew@codeconstruct.com.au,
+	andrew@lunn.ch,
+	andriy.shevchenko@linux.intel.com,
+	astewart@tektelic.com,
+	bhelgaas@google.com,
+	brgl@kernel.org,
+	davem@davemloft.net,
+	devicetree@vger.kernel.org,
+	driver-core@lists.linux.dev,
+	hkallweit1@gmail.com,
+	jirislaby@kernel.org,
+	joel@jms.id.au,
+	kees@kernel.org,
+	kuba@kernel.org,
+	lgirdwood@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	linux@armlinux.org.uk,
+	mani@kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org
+Subject: [PATCH v5 8/9] driver core: Replace dev->of_node_reused with dev_of_node_reused()
+Date: Mon,  6 Apr 2026 16:23:01 -0700
+Message-ID: <20260406162231.v5.8.I806b8636cd3724f6cd1f5e199318ab8694472d90@changeid>
+X-Mailer: git-send-email 2.53.0.1213.gd9a14994de-goog
+In-Reply-To: <20260406232444.3117516-1-dianders@chromium.org>
+References: <20260406232444.3117516-1-dianders@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD82:EE_|PH8PR12MB6843:EE_
-X-MS-Office365-Filtering-Correlation-Id: fc0d3098-7dbc-4b22-77db-08de94332a05
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700016|1800799024|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: Yof1GB0YcJxeWlj4n1GpeawgPPEVxNJn1SPgm4al6Hxf9Vdf8rvIn9ak3C4Z3UWN9OVgELS1+l0JvFwD2ujzMCq5/u0auMZj9fdAy2X9uAdgKVJsuMHxA673lIwtwHQ7lfBw0ALI8sog0hPB3kv3Tbv2qXkf6/3wNCW/kebVjzXvVHrc+Y6zS19e0sPFAv1YzUQQOwHHFWEBm0J1Z7EEplxHilR6Rdba+Y3ZnLwAV3LRxqlxL2BulNoDQXHqOQ8+y15HwrHEyajkhumdM/tlpiOmbFPA4GRnqbBwGwDbhmXl79XIDPR/KAXWRGOGE2XmecR2SsbuNANN1cJHDxJLFD7lI1ivbpTOOzhcSb9wUCNAijdbWQexJWY21vzHP6mLKgTykluWGCKoz25gjSif3psemX8/Es7ZahAQbNjzQ/4OKRJVKtWuuO8DTFbBEJgb2fUQPS/Rb0VhURo33jydtv/sXEMEy5M93d3p4ylVoN7LSyAtWY9WNhBN0btP9+P/YR6zMxCTGPdURQET+kofowOypz3JPEVPUPzjg6gk5riLH6z8cKLL8VvzWbdIY823vYAWPkcWRyjEcceUT/4lCeNIUq5nE79hTYgf/FRKKu+meOuJ+NY5bGdaUKCMGrsbKcEombqCvQ9UMw9uhrfeewBkb30YCEvJv/6Bhz2gT4awBphB2bmOK1VIF9j7TMviCmqmCr78l/jzDzZupLkNx9eHXE7NqEIxEMgtAcp37vbTMFDsipqHP0T48Sct+SaZhZMSr9ZZbSsLUmL2Q1a+fg==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700016)(1800799024)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: osQvFUVY7WpOvhjAQjinlorZjvJK3l1vbbjw1E7DiaT/HXxycxUP04xdhYNzvKw5tFiEyR4CEZWHZDWzDlIsREWdqubTKiK+5sWyiahm4/2xVaBHMez26AS7nIcZn00oInmtBnoYsKtr0Gvn3MyTd9NfOGQ5v/iJwsxIXtzF8O6G1w24aCZwznPnO8MJzgCRDuFUmQLydweWgOZ4ojvOkzNeP4EMKFzNin64g69ycg+3p7Jr2eeusOYBwDbafmUcNKXuASwc+M8p1rkHWKCfaPy8rQ2FkfSWXnoul7ueKQEKaIToHsAT4tWpNXG5rqebcaXaNlOMPDXIpZ0B1qHFlrWFHTOtqlfC/v8vfJDK7LqvSoWhE76xP9poVccSCjbvaCoUi+rdFXLqlmV1H32+sKypmD3fgjRzlkCMxT43ALoXBjsg7SdazJhQKODlru6d
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Apr 2026 23:21:00.0721
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fc0d3098-7dbc-4b22-77db-08de94332a05
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD82.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6843
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_162108_328494_C56ACEBE 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20260406_162547_666935_2CFA0EF6 
+X-CRM114-Status: GOOD (  22.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,67 +135,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PMCCNTR_EL0 in NVIDIA Olympus CPU may increment while
-in WFI/WFE, which does not align with counting CPU_CYCLES
-on a programmable counter. Add a MIDR range entry and
-refuse PMCCNTR_EL0 for cycle events on affected parts so
-perf does not mix the two behaviors.
+In C, bitfields are not necessarily safe to modify from multiple
+threads without locking. Switch "of_node_reused" over to the "flags"
+field so modifications are safe.
 
-Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
+Cc: Johan Hovold <johan@kernel.org>
+Acked-by: Mark Brown <broonie@kernel.org>
+Reviewed-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
+Reviewed-by: Danilo Krummrich <dakr@kernel.org>
+Signed-off-by: Douglas Anderson <dianders@chromium.org>
 ---
- drivers/perf/arm_pmuv3.c | 31 +++++++++++++++++++++++++++++++
- 1 file changed, 31 insertions(+)
+Not fixing any known bugs; problem is theoretical and found by code
+inspection. Change is done somewhat manually and only lightly tested
+(mostly compile-time tested).
 
-diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
-index 8014ff766cff..b5d2f60af6f0 100644
---- a/drivers/perf/arm_pmuv3.c
-+++ b/drivers/perf/arm_pmuv3.c
-@@ -978,6 +978,29 @@ static int armv8pmu_get_chain_idx(struct pmu_hw_events *cpuc,
- 	return -EAGAIN;
- }
- 
-+/*
-+ * List of CPUs that should avoid using PMCCNTR_EL0.
-+ */
-+static struct midr_range armv8pmu_avoid_pmccntr_cpus[] = {
-+	/*
-+	 * The PMCCNTR_EL0 in Olympus CPU may still increment while in WFI/WFE state.
-+	 * This is an implementation specific behavior and not an erratum.
-+	 *
-+	 * From ARM DDI0487 D14.4:
-+	 *   It is IMPLEMENTATION SPECIFIC whether CPU_CYCLES and PMCCNTR count
-+	 *   when the PE is in WFI or WFE state, even if the clocks are not stopped.
-+	 *
-+	 * From ARM DDI0487 D24.5.2:
-+	 *   All counters are subject to any changes in clock frequency, including
-+	 *   clock stopping caused by the WFI and WFE instructions.
-+	 *   This means that it is CONSTRAINED UNPREDICTABLE whether or not
-+	 *   PMCCNTR_EL0 continues to increment when clocks are stopped by WFI and
-+	 *   WFE instructions.
-+	 */
-+	MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
-+	{}
-+};
-+
- static bool armv8pmu_can_use_pmccntr(struct pmu_hw_events *cpuc,
- 				     struct perf_event *event)
+(no changes since v4)
+
+Changes in v4:
+- Use accessor functions for flags
+
+Changes in v3:
+- New
+
+ drivers/base/core.c                      | 2 +-
+ drivers/base/pinctrl.c                   | 2 +-
+ drivers/base/platform.c                  | 2 +-
+ drivers/net/pcs/pcs-xpcs-plat.c          | 2 +-
+ drivers/of/device.c                      | 6 +++---
+ drivers/pci/of.c                         | 2 +-
+ drivers/pci/pwrctrl/core.c               | 2 +-
+ drivers/regulator/bq257xx-regulator.c    | 2 +-
+ drivers/regulator/rk808-regulator.c      | 2 +-
+ drivers/tty/serial/serial_base_bus.c     | 2 +-
+ drivers/usb/gadget/udc/aspeed-vhub/dev.c | 2 +-
+ include/linux/device.h                   | 7 ++++---
+ 12 files changed, 17 insertions(+), 16 deletions(-)
+
+diff --git a/drivers/base/core.c b/drivers/base/core.c
+index 8a83d7c93361..30825bf83234 100644
+--- a/drivers/base/core.c
++++ b/drivers/base/core.c
+@@ -5283,7 +5283,7 @@ void device_set_of_node_from_dev(struct device *dev, const struct device *dev2)
  {
-@@ -1011,6 +1034,14 @@ static bool armv8pmu_can_use_pmccntr(struct pmu_hw_events *cpuc,
- 	if (cpu_pmu->has_smt)
- 		return false;
- 
-+	/*
-+	 * On some CPUs, PMCCNTR_EL0 does not match the behavior of CPU_CYCLES
-+	 * programmable counter, so avoid routing cycles through PMCCNTR_EL0 to
-+	 * prevent inconsistency in the results.
-+	 */
-+	if (is_midr_in_range_list(armv8pmu_avoid_pmccntr_cpus))
-+		return false;
-+
- 	return true;
+ 	of_node_put(dev->of_node);
+ 	dev->of_node = of_node_get(dev2->of_node);
+-	dev->of_node_reused = true;
++	dev_set_of_node_reused(dev);
  }
+ EXPORT_SYMBOL_GPL(device_set_of_node_from_dev);
+ 
+diff --git a/drivers/base/pinctrl.c b/drivers/base/pinctrl.c
+index 6e250272c843..0bbc83231234 100644
+--- a/drivers/base/pinctrl.c
++++ b/drivers/base/pinctrl.c
+@@ -24,7 +24,7 @@ int pinctrl_bind_pins(struct device *dev)
+ {
+ 	int ret;
+ 
+-	if (dev->of_node_reused)
++	if (dev_of_node_reused(dev))
+ 		return 0;
+ 
+ 	dev->pins = devm_kzalloc(dev, sizeof(*(dev->pins)), GFP_KERNEL);
+diff --git a/drivers/base/platform.c b/drivers/base/platform.c
+index d44591d52e36..199e6fb25770 100644
+--- a/drivers/base/platform.c
++++ b/drivers/base/platform.c
+@@ -856,7 +856,7 @@ struct platform_device *platform_device_register_full(
+ 	pdev->dev.parent = pdevinfo->parent;
+ 	pdev->dev.fwnode = pdevinfo->fwnode;
+ 	pdev->dev.of_node = of_node_get(to_of_node(pdev->dev.fwnode));
+-	pdev->dev.of_node_reused = pdevinfo->of_node_reused;
++	dev_assign_of_node_reused(&pdev->dev, pdevinfo->of_node_reused);
+ 
+ 	if (pdevinfo->dma_mask) {
+ 		pdev->platform_dma_mask = pdevinfo->dma_mask;
+diff --git a/drivers/net/pcs/pcs-xpcs-plat.c b/drivers/net/pcs/pcs-xpcs-plat.c
+index b8c48f9effbf..f4b1b8246ce9 100644
+--- a/drivers/net/pcs/pcs-xpcs-plat.c
++++ b/drivers/net/pcs/pcs-xpcs-plat.c
+@@ -349,7 +349,7 @@ static int xpcs_plat_init_dev(struct dw_xpcs_plat *pxpcs)
+ 	 * up later. Make sure DD-core is aware of the OF-node being re-used.
+ 	 */
+ 	device_set_node(&mdiodev->dev, fwnode_handle_get(dev_fwnode(dev)));
+-	mdiodev->dev.of_node_reused = true;
++	dev_set_of_node_reused(&mdiodev->dev);
+ 
+ 	/* Pass the data further so the DW XPCS driver core could use it */
+ 	mdiodev->dev.platform_data = (void *)device_get_match_data(dev);
+diff --git a/drivers/of/device.c b/drivers/of/device.c
+index f7e75e527667..be4e1584e0af 100644
+--- a/drivers/of/device.c
++++ b/drivers/of/device.c
+@@ -26,7 +26,7 @@
+ const struct of_device_id *of_match_device(const struct of_device_id *matches,
+ 					   const struct device *dev)
+ {
+-	if (!matches || !dev->of_node || dev->of_node_reused)
++	if (!matches || !dev->of_node || dev_of_node_reused(dev))
+ 		return NULL;
+ 	return of_match_node(matches, dev->of_node);
+ }
+@@ -192,7 +192,7 @@ ssize_t of_device_modalias(struct device *dev, char *str, ssize_t len)
+ {
+ 	ssize_t sl;
+ 
+-	if (!dev || !dev->of_node || dev->of_node_reused)
++	if (!dev || !dev->of_node || dev_of_node_reused(dev))
+ 		return -ENODEV;
+ 
+ 	sl = of_modalias(dev->of_node, str, len - 2);
+@@ -254,7 +254,7 @@ int of_device_uevent_modalias(const struct device *dev, struct kobj_uevent_env *
+ {
+ 	int sl;
+ 
+-	if ((!dev) || (!dev->of_node) || dev->of_node_reused)
++	if ((!dev) || (!dev->of_node) || dev_of_node_reused(dev))
+ 		return -ENODEV;
+ 
+ 	/* Devicetree modalias is tricky, we add it in 2 steps */
+diff --git a/drivers/pci/of.c b/drivers/pci/of.c
+index 9f8eb5df279e..1f9b669abdb0 100644
+--- a/drivers/pci/of.c
++++ b/drivers/pci/of.c
+@@ -38,7 +38,7 @@ int pci_set_of_node(struct pci_dev *dev)
+ 	struct device *pdev __free(put_device) =
+ 		bus_find_device_by_of_node(&platform_bus_type, node);
+ 	if (pdev)
+-		dev->bus->dev.of_node_reused = true;
++		dev_set_of_node_reused(&dev->bus->dev);
+ 
+ 	device_set_node(&dev->dev, of_fwnode_handle(no_free_ptr(node)));
+ 	return 0;
+diff --git a/drivers/pci/pwrctrl/core.c b/drivers/pci/pwrctrl/core.c
+index 7754baed67f2..72963a92362a 100644
+--- a/drivers/pci/pwrctrl/core.c
++++ b/drivers/pci/pwrctrl/core.c
+@@ -39,7 +39,7 @@ static int pci_pwrctrl_notify(struct notifier_block *nb, unsigned long action,
+ 		 * If we got here then the PCI device is the second after the
+ 		 * power control platform device. Mark its OF node as reused.
+ 		 */
+-		dev->of_node_reused = true;
++		dev_set_of_node_reused(dev);
+ 		break;
+ 	}
+ 
+diff --git a/drivers/regulator/bq257xx-regulator.c b/drivers/regulator/bq257xx-regulator.c
+index dab8f1ab4450..40e0f1a7ae81 100644
+--- a/drivers/regulator/bq257xx-regulator.c
++++ b/drivers/regulator/bq257xx-regulator.c
+@@ -143,7 +143,7 @@ static int bq257xx_regulator_probe(struct platform_device *pdev)
+ 	struct regulator_config cfg = {};
+ 
+ 	pdev->dev.of_node = pdev->dev.parent->of_node;
+-	pdev->dev.of_node_reused = true;
++	dev_set_of_node_reused(&pdev->dev);
+ 
+ 	pdata = devm_kzalloc(&pdev->dev, sizeof(struct bq257xx_reg_data), GFP_KERNEL);
+ 	if (!pdata)
+diff --git a/drivers/regulator/rk808-regulator.c b/drivers/regulator/rk808-regulator.c
+index e66408f23bb6..8297d31cde9f 100644
+--- a/drivers/regulator/rk808-regulator.c
++++ b/drivers/regulator/rk808-regulator.c
+@@ -2115,7 +2115,7 @@ static int rk808_regulator_probe(struct platform_device *pdev)
+ 	int ret, i, nregulators;
+ 
+ 	pdev->dev.of_node = pdev->dev.parent->of_node;
+-	pdev->dev.of_node_reused = true;
++	dev_set_of_node_reused(&pdev->dev);
+ 
+ 	regmap = dev_get_regmap(pdev->dev.parent, NULL);
+ 	if (!regmap)
+diff --git a/drivers/tty/serial/serial_base_bus.c b/drivers/tty/serial/serial_base_bus.c
+index a12935f6b992..5f23284a8778 100644
+--- a/drivers/tty/serial/serial_base_bus.c
++++ b/drivers/tty/serial/serial_base_bus.c
+@@ -74,7 +74,7 @@ static int serial_base_device_init(struct uart_port *port,
+ 	dev->parent = parent_dev;
+ 	dev->bus = &serial_base_bus_type;
+ 	dev->release = release;
+-	dev->of_node_reused = true;
++	dev_set_of_node_reused(dev);
+ 
+ 	device_set_node(dev, fwnode_handle_get(dev_fwnode(parent_dev)));
+ 
+diff --git a/drivers/usb/gadget/udc/aspeed-vhub/dev.c b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
+index 2ecd049dacc2..8b9449d16324 100644
+--- a/drivers/usb/gadget/udc/aspeed-vhub/dev.c
++++ b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
+@@ -593,7 +593,7 @@ int ast_vhub_init_dev(struct ast_vhub *vhub, unsigned int idx)
+ 		d->gadget.max_speed = USB_SPEED_HIGH;
+ 	d->gadget.speed = USB_SPEED_UNKNOWN;
+ 	d->gadget.dev.of_node = vhub->pdev->dev.of_node;
+-	d->gadget.dev.of_node_reused = true;
++	dev_set_of_node_reused(&d->gadget.dev);
+ 
+ 	rc = usb_add_gadget_udc(d->port_dev, &d->gadget);
+ 	if (rc != 0)
+diff --git a/include/linux/device.h b/include/linux/device.h
+index 5b0fb6ad4c72..a79865a212e9 100644
+--- a/include/linux/device.h
++++ b/include/linux/device.h
+@@ -483,6 +483,8 @@ struct device_physical_location {
+  *		driver/bus sync_state() callback.
+  * @DEV_FLAG_DMA_COHERENT: This particular device is dma coherent, even if the
+  *		architecture supports non-coherent devices.
++ * @DEV_FLAG_OF_NODE_REUSED: Set if the device-tree node is shared with an
++ *		ancestor device.
+  */
+ enum struct_device_flags {
+ 	DEV_FLAG_READY_TO_PROBE = 0,
+@@ -492,6 +494,7 @@ enum struct_device_flags {
+ 	DEV_FLAG_DMA_OPS_BYPASS = 4,
+ 	DEV_FLAG_STATE_SYNCED = 5,
+ 	DEV_FLAG_DMA_COHERENT = 6,
++	DEV_FLAG_OF_NODE_REUSED = 7,
+ 
+ 	DEV_FLAG_COUNT
+ };
+@@ -573,8 +576,6 @@ enum struct_device_flags {
+  *
+  * @offline_disabled: If set, the device is permanently online.
+  * @offline:	Set after successful invocation of bus type's .offline().
+- * @of_node_reused: Set if the device-tree node is shared with an ancestor
+- *              device.
+  * @flags:	DEV_FLAG_XXX flags. Use atomic bitfield operations to modify.
+  *
+  * At the lowest level, every device in a Linux system is represented by an
+@@ -681,7 +682,6 @@ struct device {
+ 
+ 	bool			offline_disabled:1;
+ 	bool			offline:1;
+-	bool			of_node_reused:1;
+ 
+ 	DECLARE_BITMAP(flags, DEV_FLAG_COUNT);
+ };
+@@ -715,6 +715,7 @@ __create_dev_flag_accessors(dma_skip_sync, DEV_FLAG_DMA_SKIP_SYNC);
+ __create_dev_flag_accessors(dma_ops_bypass, DEV_FLAG_DMA_OPS_BYPASS);
+ __create_dev_flag_accessors(state_synced, DEV_FLAG_STATE_SYNCED);
+ __create_dev_flag_accessors(dma_coherent, DEV_FLAG_DMA_COHERENT);
++__create_dev_flag_accessors(of_node_reused, DEV_FLAG_OF_NODE_REUSED);
+ 
+ #undef __create_dev_flag_accessors
  
 -- 
-2.43.0
+2.53.0.1213.gd9a14994de-goog
 
 
