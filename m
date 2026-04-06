@@ -4,63 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95E6AEF4ECD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 10:36:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 870E2EF4ECA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 10:54:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=77yFOdaXUTaqkj5JQcxywG/dnz7QnSEmk3PZTAME1uI=; b=UXWXMhIv/R1U+R61YqPFXbpUOF
-	QVWsqNZM9m0zFOT10KTXnZB0e8qKYOTmvqwLCdiuoEsMxw1ZaJ3+2c/6pH4LVnA9ajtfxi55UkAi5
-	9K8TzKr8AOmX4TTNdm0l+1+8glpgeH4wjXi0rwnkBRKEuzRIpHu2DfDVXfRkPBwn6f1epUsioNuRX
-	rsKMS4/el/J4vy0qPJWT5HsEmYV3w7dM/iXn8sKQTGU0QR+FxbQXe03eo+02wg/zlvCPelvLYhsKR
-	DlnuQH9jMBhajOla4BTotusDclc94rHC56vsu7XTtel1eqa2TzGFOk/gPfh1Vg3wf1JDW7al7VI3V
-	c52867gA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XXUzVb1vom1SWj9JpbO7wIGEIn6BnxEy2Nc9VVCJT3s=; b=neDg8+JARXPdJjiSoWJgRpevLI
+	zn4nA49mwSX+XN2mGnhS/Yv6bC66IBiF1/oG7Op1GNhQQDQb7Pxdhv4ndFiYx5Qzbi0HZxaCQpiss
+	Ef+tUiuw1e9o9SnGUgNPBsWPHI0j10BkGdvoiQjKFptHwr2onqPxPR3qkCOQ7qsN/0J8iQoS5N+aw
+	QvP6HS99RfAsedg/ufmOVv6XaCCK3NmJu2yBCA/YHh+U2JIVAq/JAWqr1oeKKYJ6jRMIZ4Oqgl2+G
+	Ipzdg5T1TPyyr/Rlmy805YTTBooDNrlyJDrYC/hzvyeSMfDbK8bziCQUrLmmG+vOBX36+lepsQaeu
+	kvzgaORA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9hJl-000000051tr-164M;
-	Mon, 06 Apr 2026 10:36:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w9hbK-00000005383-1xGL;
+	Mon, 06 Apr 2026 10:54:38 +0000
+Received: from mail-northeuropeazon11012065.outbound.protection.outlook.com ([52.101.66.65] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9hIg-000000051QO-3owK;
-	Mon, 06 Apr 2026 10:35:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5B484600AC;
-	Mon,  6 Apr 2026 10:35:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2E03C4CEF7;
-	Mon,  6 Apr 2026 10:35:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775471722;
-	bh=8Mrg0yy4Xk/C/etY2AlCJfZSISnYqkitJZWt4ANfVg4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=XSraxYjCgU2J0H4fZt2UrtpCMSvrd0BINn2NKUnixlTRwQKX3841/yr6APDsyWLhr
-	 qYgkshMMezsdYHobUf81wY5fFSjqQTaewACtRnMgJ6scHoIX2+tr5ZSJo/s//gjICG
-	 q1uU0mnBMVPK1i3T+zKIykv0yOvtg5O31Ltw951gBX51lKatP6kUYxapsnUw7ygBlv
-	 gjk6KvkTLO66flsBbZ9MyEL/ElXTFRIPjB6ta+ENDmCF6qlWJnHrv68SyGcDhm7EqA
-	 YpHzGjTlTm7qKmAlwJvGvfH/uguzDOKctnxeewYD7T5o/qfiofwAiAWw4k5s52qaET
-	 C6G5fFO+CfpOg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 06 Apr 2026 12:34:17 +0200
-Subject: [PATCH net-next v3 12/12] net: airoha: Rename get_src_port_id
- callback in get_sport
+	id 1w9hbE-0000000536r-2ZWT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Apr 2026 10:54:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Vf/IYAMqpc8T9jrbTR2qIRUN+mk6AZOQffi7KQyJi9GTW2ELhmMAuygP0JQp3Uugkku4BtbKU/B2QUrCniapBTfz3CWgQWI0SMZBtfB3P9SFZbN6BNijvsWW2xRUZbFoXZvGb9yrYSmX2tuLarhfGERylxlIV4fntD+LPYoSX8lpaZKTCCpC5KDb1bxXxFgFH7/riKqcJOP7nwQdA5N5DooA6sL/Royj+Y2iaAKYqS1gTB9z6NjUTvnm/ItIRElzSEUPLo6ME4kR0dKCblQ2RcyaSPNwXNKjm0JqUvCA9CEPA8FxAQqS4gcFKL6M/nIOjDyTic9xEzr4n5SPdJC7uw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XXUzVb1vom1SWj9JpbO7wIGEIn6BnxEy2Nc9VVCJT3s=;
+ b=o54qYRIB/3p2cWOiJVHhr3CW3fn+SbD27XtPHRWBLXZa+GhAmiOgxMDRdXbCRa5M0InJWyL0fgn384oqX0lSHgiBcAh6iY4bfrHLeGzkjr5L10KemgfaAZgEweQJey1t8PWLiwYOmkD8SiJ+viScDA5sdrSDQKPEkximyAIUWizBOuJ3mMwlcpymRiN6slbF6ZhWRiBPBZz2sf46atvVY08NHchFhH1ur0s7TxnzRbKG6evQ6FMynNw76rrgIcRcHBMbfoSY1WLGjJ/no4tCXYzfD+BIMNhAtRF5TMUGxpl+irT0PYU2ibSofq0+qOPIISdfYYWsEgv2dBh0H6kP5g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XXUzVb1vom1SWj9JpbO7wIGEIn6BnxEy2Nc9VVCJT3s=;
+ b=fbRMpxoEdKI1i1W+WhLy+p7Nsg1MMfUbp95QZ5tetdnB4Czb9NrhE15ZwM5d3k1Y0nzIQwdeDwr0GR0ZfhIYYjwZPyiyhXH6+MvrePAQ6zvhovp2HqLupcfRaE5r6GPFP3hUW3O/IOjdkErEiR++zHZjvVjuucRcxsuuybbe1om4HdXT1orDSvtYJYzE6zYNYiDqo1i6Za4YEscBuruzV6jRQBDma7d+qyJm8MntJLy07/mVoX04DK68Qsyq1cdNJ13CHgMfJ5AphM+iuKV17Aaqe45Hm5/ND1XFLJt/kSJfktsvvR1yEI74kr3ZwIzC0MJlxulLwMgc6GL3MB8QJg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by DB9PR04MB8203.eurprd04.prod.outlook.com (2603:10a6:10:242::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.21; Mon, 6 Apr
+ 2026 10:54:28 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9769.018; Mon, 6 Apr 2026
+ 10:54:28 +0000
+Date: Mon, 6 Apr 2026 06:54:18 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Peter Rosin <peda@axentia.se>, Linus Walleij <linusw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Haibo Chen <haibo.chen@nxp.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Ahmad Fatoum <a.fatoum@pengutronix.de>
+Subject: Re: [PATCH v5 0/7] pinctrl: Add generic pinctrl for board-level mux
+ chips
+Message-ID: <adOQ2lFb7vCXcbfW@lizhi-Precision-Tower-5810>
+References: <20260327-pinctrl-mux-v5-0-d4aec9d62c62@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260327-pinctrl-mux-v5-0-d4aec9d62c62@nxp.com>
+X-ClientProxiedBy: BY3PR10CA0009.namprd10.prod.outlook.com
+ (2603:10b6:a03:255::14) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260406-airoha-eth-multi-serdes-v3-12-ab6ea49d59ff@kernel.org>
-References: <20260406-airoha-eth-multi-serdes-v3-0-ab6ea49d59ff@kernel.org>
-In-Reply-To: <20260406-airoha-eth-multi-serdes-v3-0-ab6ea49d59ff@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Christian Marangi <ansuelsmth@gmail.com>, 
- Benjamin Larsson <benjamin.larsson@genexis.eu>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org
-X-Mailer: b4 0.14.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DB9PR04MB8203:EE_
+X-MS-Office365-Filtering-Correlation-Id: 82323fe0-6575-4820-b897-08de93cadfdc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|366016|52116014|7416014|1800799024|38350700014|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: P8ZHs89kn0gzyVnnDSij88KW/dTBJy3mmpSZzetes22arDEAVderGl770f5GMHJm/TYtlTGgIUoZvcH6F2j8FI9iQaULjAPxYizcfIIgE2zV2o5AeKupONfNbp6vezXjAL7E5gAZdBGbiKhHPRKXTg2DM8xwsLR/jWLA1AR6gsuREowvfS/7icQuVg66fCeY81HWWoUB0WrndNGG4/Dl9wf/zh/9bevDUtZ6nv9QZXshdHtEz4mvNmYkeZICi+UkJ7j81wsjlfH0bD9MKE8AVFdPhTtI27FiS35AA/eglsPG/v2DG3ag7d3+AUdPiWQndfefe40GSEx/xjiTmmkM9FRWtkbPd3mlRr81Q7Qb2dfL+jxEsfUK/0eEdABYknl2YiTqwjS6IyyZyKczI7xECB9zrR9Nq/nNN/xzOK16V3UXKlk0PxtTFFYyZcq5ZbGKyAdjeqFzlOTjQPksi/kYJLdrhtLrehaXcY8KQj+xwWQZhEDlcYuNX4AJcvSgz+GozJb376UdDHVoKuBWcIAY1CidK5KO7oY2TWv6/ZAaox5c+3KZmfhfO3hIt/Jk0nO6XQC1lUzq028jOYZK4ch4Wk9tJsTc2d2GsNp5HbCmU0uEJtlw7BYEdGTKzfbDKiOAKE/DhIwtLrdzRBqHq0U9X2T0pf1O3aRhPbCCRqy6Ixr1nQqb3aJG9uPY4rCwxcH69fdLtHPHCg8ysnh3sUbCWdeNo0zDIXxh67UIo5TftqCdYGpmWoschY/ltnTWKJO6JUPiU3jgT9LdZrIfUVnEnoeS7p/f6K8CGBcmLH3cL14=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(366016)(52116014)(7416014)(1800799024)(38350700014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/z8YP3hBvU7UT2k/bsMcxRu31aXP1wXH8YHxnIuffTHKDEe1FuGgFo4bCnIt?=
+ =?us-ascii?Q?Vk3P9N3EG6eJkb6v+92kQ3lQu/p6VopdvHG1luDinf2zs+nULL7blos1dYEQ?=
+ =?us-ascii?Q?Ralsgol+1/3NN0A3NYOR1GerROw7O7fVZipW5yWfs26ddAzsf1w+gXrcv4YZ?=
+ =?us-ascii?Q?kXni+WuAxDihk92zmi0sV0qrxKPbItpjHMltM+93AwPALairdb2KyyN68Prw?=
+ =?us-ascii?Q?W1FkrRGLIUPHSUswHY2B2Ue97pVwTyV6sLEp6HI4wMgl6bSZ57rzoC/0DNde?=
+ =?us-ascii?Q?x7KdesOe53XhNUgath6xzEF5Y47cV4Go4vspDuPYhoaiKoAGcF30gpCqBVEG?=
+ =?us-ascii?Q?KLOaN1PT3ND88Zf2Y/5+McCxl8fd8hiSX3b65Lr2SgKZ1/nH7d07AXBu5A8q?=
+ =?us-ascii?Q?xR1U46e31P1aOwqJoflYCPx/Gy1vfs00WCea0R/6Z0ZkKiRLKEd4/TTfuol0?=
+ =?us-ascii?Q?MAmKhoV40arh4p9hW+CYmyfkZENKk+6FWo23xN8hY0nY5xs2kGVPA0yq+G5b?=
+ =?us-ascii?Q?tGT3uMMnvsFBSOawZMjzi/UFqPh+K0+lD+lGs7kQV7GjzE3tWUfuMn/grpCA?=
+ =?us-ascii?Q?GmYSI0RkYloLFznPXwYP/aa+5zwafFfuZq4M1VQNn/VyFW2dcwDM60V/4XoK?=
+ =?us-ascii?Q?WOBO5B+wWxxmsr9w0ialC9BhhXLM8TCrclNWN56zD85ZwvvLiXn2i32mrVjX?=
+ =?us-ascii?Q?URC3V8aHkJvhiHsvC5jpkaLmvwi8X2hoTwX4Ws1pKZI4GC+sx8oLYYThFGa4?=
+ =?us-ascii?Q?7uef+hg2wr7fIJb7lBkO+KbjaC+WZbd26RZEczn1BjQTpHOQWniJe8DSh9Dy?=
+ =?us-ascii?Q?z+hrNuxLaimgx1zw+zU2q0sbp+qyrWxWI7NiVzGXF+h4oeV2Ex4HJT/Z6Wha?=
+ =?us-ascii?Q?ryZlcotRLU+tcNk77oJAAQETROvD49OnCDzmx8LY2FoWm/Yw37VEnxfwUcQd?=
+ =?us-ascii?Q?kPd9H4vgmv5gC1iIKTvwBtN+0g75i/e733Zw7wD70/b0HXyeOmS9kfDOvGC5?=
+ =?us-ascii?Q?HZu7KEfY9IGiFDKXtlK3IoOF8QGbhFOeJHeqdd1rMEmmaaLsemV9YaWE6CAX?=
+ =?us-ascii?Q?kxSpp2Lc/0ANQ9uDpeZeGVtriCJg2ZKyS5kJnXaXW88kyCqucfUK9QVdXAjv?=
+ =?us-ascii?Q?iX99Kifqd/1KsA4icZ4sYsz58FEcMlyrqJb+tea96hdaCDbxTiOf6yK71U2l?=
+ =?us-ascii?Q?PptLFE7FAyX2O97fRHCWqE48AoNkC4ZTHvpuRKqHifr6LdYF7/DlR/eFqrgb?=
+ =?us-ascii?Q?+E6UuSiJUQe/aNsd5QRY1dJh/2FZUV9/BjVco+r3andYu/Mxf+ChpZNOOlT5?=
+ =?us-ascii?Q?dOoxnJMAKP8fHwH3ssx6XB6N/SEZn6bx9Z1fh93+zUG6++2WmUnL3142eX1b?=
+ =?us-ascii?Q?IRa5bBkdefpANEexBGP+X85VnFihebApGi+kWS4/dLjOmdvS6OY/77aakYP5?=
+ =?us-ascii?Q?sWg9GcnXdntuhqsvFzIPo68cbkXGvT3IBKAfrmrjuh7xE0e7NfCTiBgRDqSF?=
+ =?us-ascii?Q?jElGfE+a353Wlum30JJnQIgOHgiQR73CkeKiE+FyaGxxaPfTP7oSueswqY4p?=
+ =?us-ascii?Q?+GxXexinyH3MPedSMRj18EKylpXm7eG71euibh1nQeVqxCK29tcWmvgrcstB?=
+ =?us-ascii?Q?MYCQGVpVvdUnYp3vIlulvVH4f5VjTtxZUUp7QaxONV4kTUp5r9BCt6BROBP8?=
+ =?us-ascii?Q?A4XWpyc0vyzpw/FSr6kF6AV1V5cY4qnoux2j2rdkC8xXPbr4?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 82323fe0-6575-4820-b897-08de93cadfdc
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Apr 2026 10:54:28.3134
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JeGTmFuzC6FstPwDx50puctwhJKHca6XTAQq6SXQID93vbw50kCzhhz+aJEL8RUG6Lfmb3PvaOxvW+/I4cCYdA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8203
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260406_035432_689272_0EC9B4FD 
+X-CRM114-Status: UNSURE (   7.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,89 +146,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For code consistency, rename get_src_port_id callback in get_sport.
-Please note this patch does not introduce any logical change and it is
-just a cosmetic patch.
+On Fri, Mar 27, 2026 at 05:33:57PM -0400, Frank Li wrote:
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 12 ++++++------
- drivers/net/ethernet/airoha/airoha_eth.h |  2 +-
- 2 files changed, 7 insertions(+), 7 deletions(-)
+Linus Walleij:
+	Any chance to pick this for 7.1?
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 9988011dca53..c14dee3c9bfb 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1770,7 +1770,7 @@ static int airoha_set_gdm2_loopback(struct airoha_gdm_dev *dev)
- 	airoha_fe_clear(eth, REG_FE_VIP_PORT_EN, BIT(AIROHA_GDM2_IDX));
- 	airoha_fe_clear(eth, REG_FE_IFC_PORT_EN, BIT(AIROHA_GDM2_IDX));
- 
--	src_port = eth->soc->ops.get_src_port_id(port, dev->nbq);
-+	src_port = eth->soc->ops.get_sport(port, dev->nbq);
- 	if (src_port < 0)
- 		return src_port;
- 
-@@ -3102,7 +3102,7 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 
- 		/* Verify the provided nbq parameter is valid */
- 		nbq = be32_to_cpup(nbq_ptr);
--		err = eth->soc->ops.get_src_port_id(port, nbq);
-+		err = eth->soc->ops.get_sport(port, nbq);
- 		if (err < 0) {
- 			of_node_put(node);
- 			return err;
-@@ -3309,7 +3309,7 @@ static const char * const en7581_xsi_rsts_names[] = {
- 	"xfp-mac",
- };
- 
--static int airoha_en7581_get_src_port_id(struct airoha_gdm_port *port, int nbq)
-+static int airoha_en7581_get_sport(struct airoha_gdm_port *port, int nbq)
- {
- 	switch (port->id) {
- 	case AIROHA_GDM3_IDX:
-@@ -3373,7 +3373,7 @@ static const char * const an7583_xsi_rsts_names[] = {
- 	"xfp-mac",
- };
- 
--static int airoha_an7583_get_src_port_id(struct airoha_gdm_port *port, int nbq)
-+static int airoha_an7583_get_sport(struct airoha_gdm_port *port, int nbq)
- {
- 	switch (port->id) {
- 	case AIROHA_GDM3_IDX:
-@@ -3431,7 +3431,7 @@ static const struct airoha_eth_soc_data en7581_soc_data = {
- 	.num_xsi_rsts = ARRAY_SIZE(en7581_xsi_rsts_names),
- 	.num_ppe = 2,
- 	.ops = {
--		.get_src_port_id = airoha_en7581_get_src_port_id,
-+		.get_sport = airoha_en7581_get_sport,
- 		.get_dev_from_sport = airoha_en7581_get_dev_from_sport,
- 	},
- };
-@@ -3442,7 +3442,7 @@ static const struct airoha_eth_soc_data an7583_soc_data = {
- 	.num_xsi_rsts = ARRAY_SIZE(an7583_xsi_rsts_names),
- 	.num_ppe = 1,
- 	.ops = {
--		.get_src_port_id = airoha_an7583_get_src_port_id,
-+		.get_sport = airoha_an7583_get_sport,
- 		.get_dev_from_sport = airoha_an7583_get_dev_from_sport,
- 	},
- };
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 8dec25fa0478..ec31a3b5efc3 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -591,7 +591,7 @@ struct airoha_eth_soc_data {
- 	int num_xsi_rsts;
- 	int num_ppe;
- 	struct {
--		int (*get_src_port_id)(struct airoha_gdm_port *port, int nbq);
-+		int (*get_sport)(struct airoha_gdm_port *port, int nbq);
- 		int (*get_dev_from_sport)(struct airoha_qdma_desc *desc,
- 					  u16 *port, u16 *dev);
- 	} ops;
+Frank
 
--- 
-2.53.0
-
+>
 
