@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ECC2F46C4E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 17:09:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B7FF46C66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 17:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nCKJcvwdJOyRT4Asc0OHL+oRxWGefQ/ckPTybH/rQVI=; b=Rx7PaLVPf6uzeFTiZj5fUpepIO
-	sn/wftmo8s+C9we65/Tjlsm5pHj5wq243zvjl7nWIDwMrgqRZqUNd4Hhtc7DKV1qUWeSrE4TNYTIz
-	P6LY3maCU0no9I5EDYTCxIrRj3Pzo5be1YEgvy/BPkl1dGPal3UL5WDMKeWmyrhYd0mIDXvdDVH7t
-	chtqAu1gGABfg8thvKmXG6gltEJzMMn+gA/22coFSiHuiLJ0S+g3JL3tgDnZkoDPs98KrStbGcxaR
-	FqVLagphJ1O2uq4vkPpI/ZraUUgt51tuGAuhVw6yfoblpmMvCUE1Y2yDUy/q/dvLsUILTcdn4/exw
-	AmOm8SjQ==;
+	bh=umdfzPYe5UYw57GSr1FJjZ8H+6rmeeqO+4eLZHs1fic=; b=2F9hrzxQbtV/6w8NPogz0T38bI
+	M6rAK1o0hGoyS6G45OHf4LCJd9JJwWXQxpkSItMudKpKg/OoMOsaSOlQLqehKs57aDuC4EJDaWk/s
+	g4w0EHb/SgWqffW+vJI4U8FHkhSrI0/AB1u8kv9YE+jk7jxcpJ0u8veQ1dw4hbuffW7vO6J0h2ZiX
+	HyGVzW9tCQMg6y05nVUKaVFLSpU6rG7PMdrjOEp/XXdOp/fyv6ZMRiVCSlLMCEE80hMOH8gnHKiGv
+	DYfwWpnSQ6qBPh3xiihSgETGfEkiIcMbtCifjwwUTMtw4AgDjBci3oNXa6rjSFixob5yuQR/n9WvE
+	g9y4rwwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9nRl-00000005LZa-3rjo;
-	Mon, 06 Apr 2026 17:09:09 +0000
+	id 1w9o1P-00000005N4u-3nh9;
+	Mon, 06 Apr 2026 17:46:00 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9nRk-00000005LZ5-2PNL
+	id 1w9o1N-00000005N4O-3ktA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Apr 2026 17:09:08 +0000
+	Mon, 06 Apr 2026 17:45:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 88E8060103;
-	Mon,  6 Apr 2026 17:09:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DBBBC4CEF7;
-	Mon,  6 Apr 2026 17:09:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 06B3960103;
+	Mon,  6 Apr 2026 17:45:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3A70C4CEF7;
+	Mon,  6 Apr 2026 17:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775495346;
-	bh=q6gKp785JxKchbmVLWw2lzXRSHeWFhSO6rZ0e3KkhRg=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=Yszqow0S10EDbtSVWrHM1agNPCadMSsQttmi8+d/hcX+L0BQvWN9zqnOSkH2gUprD
-	 v+DacecAAoDFqWV4/F1eJkOxqGtOHHVZiqWZHdmWPbAMeuylMM1Z3edh9py+DaiOIm
-	 BxngS4cJUfdx4BKqYi1GOrqEpFNq3r3k7wQVR7A0+e8xBiBuh5RDAs2EwIFbc0D8Nr
-	 gpOiJX5X3eM58AM+YgchV7VtwzD829PeUm5acHQXM3MaD3MdDPfudJgzUyF2SydGyr
-	 1hqm/qnfTn/Romv58R7Glvod1M2aie3FtW32B8lk2tiyxdc1DLbcwHHY1CjRu/6Uke
-	 YMRL7mr6IQmbQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FE513809A35;
-	Mon,  6 Apr 2026 17:08:46 +0000 (UTC)
-Subject: Re: [GIT PULL] soc fixes for 7.0, part 2
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <23df0cc0-55cb-4c11-907d-f4d8955c6aa9@app.fastmail.com>
-References: <23df0cc0-55cb-4c11-907d-f4d8955c6aa9@app.fastmail.com>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <23df0cc0-55cb-4c11-907d-f4d8955c6aa9@app.fastmail.com>
-X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-7.0-2
-X-PR-Tracked-Commit-Id: eaad992e3fa8086db47f2cf05498af518ca5edda
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: bfe62a454542cfad3379f6ef5680b125f41e20f4
-Message-Id: <177549532487.3192209.5710276572840287983.pr-tracker-bot@kernel.org>
-Date: Mon, 06 Apr 2026 17:08:44 +0000
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+	s=k20201202; t=1775497556;
+	bh=eGWDO6+7WjkWzY6Nuvk55mQI2p6QMYb3HOtGf9ZPtvs=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=hUoM9ayNjSVoFMJafY8c5o6aAvUJb/dRfyfVfa9S9mwp4NqtU+js5Y3gVVoICyhyv
+	 Arw9WZw193LcuzHf4v0Zbc4ovk11fUbqcWx59M3vbvYoquPnBXUrzbQFShQsznjNxE
+	 b8rcoh1/+vDJnJQc+cIcMFjBKHFNlk5DHKM3nTj6tBQSTfRnG9+tbWv0kJuMF75W23
+	 iRVbRHKq0aJTgHoTKWSd3d2qhDq+B5U7yGz1NOoduP/aGfPTW1sVsZHzEnnAa+tInQ
+	 SA+sZK/dRcPRjiF4SIuGLFvICDGgbw1flUV4Mo60kWTqAd/uATN0RV8ms07d3Z47Cc
+	 kUTMIxPcVLbXw==
+Date: Mon, 6 Apr 2026 10:45:54 -0700 (PDT)
+From: Stefano Stabellini <sstabellini@kernel.org>
+X-X-Sender: sstabellini@ubuntu-linux-20-04-desktop
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>
+cc: Stefano Stabellini <sstabellini@kernel.org>, 
+    xen-devel@lists.xenproject.org, linux-arm-kernel@lists.infradead.org, 
+    linux-kernel@vger.kernel.org, jgross@suse.com
+Subject: Re: [PATCH v2] ARM: xen: validate hypervisor compatible before
+ parsing its version
+In-Reply-To: <20260405094005.5-arm-xen-v2-pengpeng@iscas.ac.cn>
+Message-ID: <alpine.DEB.2.22.394.2604061045310.2873990@ubuntu-linux-20-04-desktop>
+References: <20260403111502.2-dt-arm-xen-pengpeng@iscas.ac.cn> <20260405094005.5-arm-xen-v2-pengpeng@iscas.ac.cn>
+User-Agent: Alpine 2.22 (DEB 394 2020-01-19)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,16 +71,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Mon, 06 Apr 2026 10:03:08 +0200:
+On Sun, 5 Apr 2026, Pengpeng Hou wrote:
+> fdt_find_hyper_node() reads the raw compatible property and then derives
+> hyper_node.version from a prefix match before later printing it with %s.
+> Flat DT properties are external boot input, and this path does not prove
+> that the first compatible entry is NUL-terminated within the returned
+> property length.
+> 
+> Keep the existing flat-DT lookup path, but verify that the first
+> compatible entry terminates within the returned property length before
+> deriving the version suffix from it.
+> 
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-7.0-2
+Reviewed-by: Stefano Stabellini <sstabellini@kernel.org>
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/bfe62a454542cfad3379f6ef5680b125f41e20f4
 
-Thank you!
-
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+> ---
+> Changes since v1:
+> - keep `of_get_flat_dt_prop()` instead of switching to `fdt_stringlist_get()`
+> - validate the first compatible entry with bounded `strnlen()`
+> 
+>  arch/arm/xen/enlighten.c | 9 ++++++---
+>  1 file changed, 6 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm/xen/enlighten.c b/arch/arm/xen/enlighten.c
+> index 4feed2c2..25a0ce3b 100644
+> --- a/arch/arm/xen/enlighten.c
+> +++ b/arch/arm/xen/enlighten.c
+> @@ -218,8 +218,9 @@ static __initdata struct {
+>  static int __init fdt_find_hyper_node(unsigned long node, const char *uname,
+>  				      int depth, void *data)
+>  {
+> -	const void *s = NULL;
+> +	const char *s = NULL;
+>  	int len;
+> +	size_t prefix_len = strlen(hyper_node.prefix);
+>  
+>  	if (depth != 1 || strcmp(uname, "hypervisor") != 0)
+>  		return 0;
+> @@ -228,9 +229,10 @@ static int __init fdt_find_hyper_node(unsigned long node, const char *uname,
+>  		hyper_node.found = true;
+>  
+>  	s = of_get_flat_dt_prop(node, "compatible", &len);
+> -	if (strlen(hyper_node.prefix) + 3  < len &&
+> -	    !strncmp(hyper_node.prefix, s, strlen(hyper_node.prefix)))
+> -		hyper_node.version = s + strlen(hyper_node.prefix);
+> +	if (s && len > 0 && strnlen(s, len) < len &&
+> +	    len > prefix_len + 3 &&
+> +	    !strncmp(hyper_node.prefix, s, prefix_len))
+> +		hyper_node.version = s + prefix_len;
+>  
+>  	/*
+>  	 * Check if Xen supports EFI by checking whether there is the
+> -- 
+> 2.50.1
+> 
 
