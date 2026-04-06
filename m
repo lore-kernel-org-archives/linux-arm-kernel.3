@@ -4,126 +4,195 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0355F46C66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 19:01:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCBD2F46C74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 19:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gf3VuwShgbYg5PZ/J/6LyKGap1JcrY8bWhqVawvmQIs=; b=PjPYWNK7GywX0z5LBZ5WE493GH
-	lo7UjXwLSd0mrhc4bH1YqDrFwDKdxSgxv9yKkheFXon/brQegqJkwP3+/gqmX6pnbBjLWMVdFxpbZ
-	HSBvE0siHMO5jRviR3bgk+/zlx+Z4cnsmTWUFPK7smb82x723obqWD7Qqk0MQX1yzyKZypXdnPeDf
-	D1wbsyz58M6Ztfiv8cMXbtsVOa+tFZLSH0z+4jI9DQtX9jiPG30ZVy/2YpFaFBmwqV63K7ZfWVUEs
-	ZvlT/ICb3pUTn2Z/lK3kmR9daINauHijg4Xy1R+P6/qT8a2EUajMRxYhiDFy6+HZvNE+QfniVY/+P
-	bAGD2pLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cg1NIKkNKP6HRaOr5ZhaLAxepQ++fwiUmjbXuLNy7Is=; b=CzpsX6Km6sX3HJ0n2DAmULFS5N
+	jy6IHxRek1ZpLO/O3bxF6U5xgwsCl13koMc18L8MmE3/gvLFNWUk+Ng1jmSs92GJHEoynuo2QM9cu
+	PJXLCsNtG0aJAicF/UYRanbvAvyMGqIJhItePdTWN2KE3qCA6sPEeSJIMpJfqKb4R5HzQd8a5ufJ+
+	mS1dai2W5wuiePnks9Ev6Qx6F/LeKIQ7d424VDb1X+rwBUIsBTQ6PoHcNyjp1kamZw8CUivmnnKHS
+	xOKwtkBruXNwr4ZhdArWuoYMhzA7hHlyz8YCdHg2BqSCe2UE4PdQzwu5TrapGhaDmFs9Ao0wN8NzK
+	hVgl4u8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9pCq-00000005R2l-3ozS;
-	Mon, 06 Apr 2026 19:01:52 +0000
-Received: from mail-dy1-x1332.google.com ([2607:f8b0:4864:20::1332])
+	id 1w9pIY-00000005RLE-07cL;
+	Mon, 06 Apr 2026 19:07:46 +0000
+Received: from mail-westusazhn15010018.outbound.protection.outlook.com ([52.102.128.18] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9pCm-00000005R26-44T8
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Apr 2026 19:01:51 +0000
-Received: by mail-dy1-x1332.google.com with SMTP id 5a478bee46e88-2bd5658b901so258250eec.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Apr 2026 12:01:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1775502108; cv=none;
-        d=google.com; s=arc-20240605;
-        b=KmiRbYtYzxRw4VFdvOU5JGVTl9rcG5nEXZgP3Dgoyx1Zg6kFwkKvwX4+Gf4EEgPw9d
-         GOgMInJ/pKz35Hj37VwlyKlwtNaKrV0oB9rZFbHX0KLjI7KFBoIHQGztqLJg9Jp7Baav
-         KbAQvmr/ZCCUqj2frKsAC9ihmRc77PsRNrNYETSrajLAU82CGSJsK2YAOuMSfen/eerc
-         yzG13hf2JwDrsOQJAlSs9wnfr8yixJ0KuxjlHGPyQ4Of56qOWCGEO1fCkiaSU6m5i7C2
-         dk1Rlc6IhLwhU6BHK4cyi/FSiRCePRL9zSnzf3RnXn3Cfz8H/AIv2ZVpLavhohBKUvuu
-         xMQw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=gf3VuwShgbYg5PZ/J/6LyKGap1JcrY8bWhqVawvmQIs=;
-        fh=c2+NOC9+pET8VISmn9wekh7mrOtCT/G1qFz+gvNviww=;
-        b=Dcq5kmTgHIVjhHk3YjIOKFT3j7GXv68FQo4lfMCcx7ICIoMZfKFjlQwI58+FcQ9YqA
-         VYgxdxDlVSzMgSfarczbYw8jyY60D644T1fgzdbzISOW8D3d3ELD/UbKGonUP7Gq7uZH
-         iZt9X2bggcBsh3sZ5c2pgEymI7cq/5xc8pdNAGCdWPRgEZ7B5j3G8x9ZHCQsf0Xs+q4X
-         l/Ij7F080cu5BvLBhnKCtCt3eM02EAV8RdEZsC9IMEYIXM9p5ZF4z0dl0LWOEhNlnLBa
-         K5iIf8B9VPMUnTfxIuWCxyZiQo71xCdZkwlWni89kwHoZeSy0cCp/mbQnc1T/Op9d85R
-         SN/g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775502108; x=1776106908; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gf3VuwShgbYg5PZ/J/6LyKGap1JcrY8bWhqVawvmQIs=;
-        b=M02hHpfRNYB9wGqMBl6eFiH69oIJUpEFyrPQFyU3Gn7RVhvtYJtJJuXOxjNorrjJn1
-         sDA3C5KPKtucz+DqnGSCG/k9f61MBQw/3ieb2ZwMUN0CaneVnmtu5h6fWq8i1fPHTYjm
-         Xhj++iSuiXoCuD2icNsItDEO8eo08Ns+Gff0lILxIfigZxmss7yZ86p6NZGX+agPpG+u
-         wMAGLcR83j1ZgDPgaUK1US9Jsh4pJMSzc86Um8GTGqEcznrd/61vKhuIc0HFQAtiVFAm
-         RmA0QQbCgoh0phWB5IPN2/Gy/O6GJCuoGREED7gn9hdcAsQrgcNyIuyekh243+n9QTnW
-         7ktQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775502108; x=1776106908;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=gf3VuwShgbYg5PZ/J/6LyKGap1JcrY8bWhqVawvmQIs=;
-        b=X+yocKKvdYC68apnYcCBvMCkaXldK7TjV/h6eUD0wuqAgbl6x93Haxezbzh0cESINn
-         Z9kZfiflm5B6SrHeWh2NflJbCmqgnUQelw1Yoi7UyhhFw309hgxz6RvW6YXdzMtnSmq5
-         TLfL8M9pUjTaBaLz5M88dwtOHDWDSUku2/0xj/l23Tl2pw3GGgB4y9XccyO0/9Tm3LPD
-         qfmpjthVOiXbA6yANjmVa+co313GTJHQYPEIMOkUgusnnNhtlVjLs1rWRQ2k4miLOj0i
-         QxOi/EGuoCWiH4ZubjZMIyXmTGziBAVaCJco1ICt/ot1qDvC+SLQ+OeuZOslwEsUcvvO
-         tfLA==
-X-Forwarded-Encrypted: i=1; AJvYcCXWph3Y7V0m3SsQpMwloMDnRMTL8V9rTnfYxvoOyl795IDkj6WVkTsAp0Aldo/2xSu67Lksm2YEA9zokMoC6GJm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUDXOBNbkfEEGTPA5WywguE22zqweAR/tjemgHIrCjMy5b96uF
-	4Pk/EPVGP5ee/eZNnIGai+y1GiNRj566AY5pILwI4OdGlF88Rv7cgVALEP2UEAPJDZjVcGzOM4D
-	p5ORAoBZC48bRDzHf+C6DR8rKzX5QVLA=
-X-Gm-Gg: AeBDiesMgcsN41nsWFIvT3N7Z5q3fJqiD3dYW2nv6w0W47ruiKatnvqpP5dep6WD7YB
-	wPTnUK5c9nT/zsqCCUcj49FH2dKVxah0adyR4pYBW9ijioNOMJeGPXR2HiZdM5xNJpTjTBnSMYr
-	FRC4jDjZ6cyZBoiFZZqq9R0nyKawrS9sbLD52S0hNkC0X5v8N6uFkVD+IPxED6Zbx708iKMC2r5
-	Tf/KVfVGJpnFfWALjF5r87+a3+U6UFFojkzV1N3QUtb+VhFi0Mgx8Z0cAFqcwoaPi7OYnfdp72J
-	k2K957rTHR85YsL4Z83K64YSGai6ShnYh1/gQw8/2VBJOTZXsU26qhx6e8vWjGYlp45hwvTZovq
-	BTkGXmWZSepYRSTCUxt333r8=
-X-Received: by 2002:a05:693c:2b02:b0:2cb:6653:ea05 with SMTP id
- 5a478bee46e88-2cbfcf5295fmr2949463eec.4.1775502107727; Mon, 06 Apr 2026
- 12:01:47 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260405235309.418950-1-ojeda@kernel.org> <CANiq72mnGArtgAbe7xXZCYW1x7Zd5hozfnzoftaGy9rxoLO4ew@mail.gmail.com>
- <cf28afe0-ede5-4d1a-9824-65a1448f8161@nvidia.com>
-In-Reply-To: <cf28afe0-ede5-4d1a-9824-65a1448f8161@nvidia.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Mon, 6 Apr 2026 21:01:35 +0200
-X-Gm-Features: AQROBzAfx15_qleB1FpEnqVT3LDjlhAucDNDkuNXvaEMC2J19jPyg217OqF9cWw
-Message-ID: <CANiq72n4tmTzqbcHCnzUBFyLVmJzB-AJng_1FgELJCWr7hDg4A@mail.gmail.com>
+	id 1w9pIV-00000005RKo-3Kk7;
+	Mon, 06 Apr 2026 19:07:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iqp6upBX2//zCFoSnOUSeq38w+Uvb5wwpsWXV2JmzaczHjEfPRXM7fKkzobBGDoBRs8SNxQzFHKReIWPwQ2b5kxFBsLfELdvm/Ww2wiuGbkafA63j6BQIcF4ERaTiTljfPSldJP09mHMxAgboVqNdG3plg//kZrc9EfIqv2Vft1H+ULqQjfYA1OsuYq8+EJC37vlmYcfKv2QJfR550fqEa7qMILJOEgAAXx9RLgWCBw+kJNWvbNlfENVAnODgafaT/k/2h+a3nSFEWPbAP5rFoZzDlzbSNLYiRZX5/O8W3xyLVggFAE/TU/Az/KXXtq3otKj8PORFx+28cOfT6M0FA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Cg1NIKkNKP6HRaOr5ZhaLAxepQ++fwiUmjbXuLNy7Is=;
+ b=at0o1F0TbRRHDl9tsk2msAIs4hx5ogBE+en5TIcJir5toPObBnw2hQFNcK9ojbTqMzxozvN96ApwSS1kv2b06agjWCcAhKDWdWhM+YVsYlrV55T1Yviy84pp/+Y00S+nNyoU223q5lhMlcBYSFR3DNbA7Y0Td4iiaU5YheVx9q9GAS4lY4OABAbpc0t+KXyBLzd7ESSgiUfsKQN11dSpSESCt+fzGihNeD93jiqjGsPKxuWyRXUXctRmJR0qzPffM1rsX5CdqXP5GC4gJP5TtfZjUsAUp+RrTlPpDl0gn/M9+zknk0CLBd41Ek7sUPm70jQGpVANQcvqNO03lNC/UA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Cg1NIKkNKP6HRaOr5ZhaLAxepQ++fwiUmjbXuLNy7Is=;
+ b=d67YKGulT87ze7SVqbS2X/WsLdQRjieFq/wBilBpWJPPkZQXM2ryK5kY7qoflrEUX23AXXedwHXnGuFce05sdPdK2Lsyw1dmaxG3pjkw37kLA/YcEd1U3mxeKQBSpCWGdXylTIjdz23FkPyOscXJgdjSzAmypCT3xpUpAsv1ohLjnJDDbi6essUxX9YLunzcFJaILmiCopp5xTEvPjB+S5Rfy/6HeYK+jChrMHW7sAiBilQtCz4nS/VRmvM1TmLtVaLMpw9ssxinmgvTtMu4HYoniwKK8mId3l3K7bCyStPKlzZBUCW6umll4TT2EX+3rIgbWEHX/uhJfmzpQvhBjA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM3PR12MB9416.namprd12.prod.outlook.com (2603:10b6:0:4b::8) by
+ SJ1PR12MB6291.namprd12.prod.outlook.com (2603:10b6:a03:456::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.20; Mon, 6 Apr
+ 2026 19:07:35 +0000
+Received: from DM3PR12MB9416.namprd12.prod.outlook.com
+ ([fe80::8cdd:504c:7d2a:59c8]) by DM3PR12MB9416.namprd12.prod.outlook.com
+ ([fe80::8cdd:504c:7d2a:59c8%5]) with mapi id 15.20.9769.020; Mon, 6 Apr 2026
+ 19:07:35 +0000
+Message-ID: <efe61810-2b28-4acd-b69f-d577042c0b62@nvidia.com>
+Date: Mon, 6 Apr 2026 12:07:32 -0700
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 00/33] rust: bump minimum Rust and `bindgen` versions
-To: John Hubbard <jhubbard@nvidia.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Courbot <acourbot@nvidia.com>, Simona Vetter <simona@ffwll.ch>, 
-	Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, =?UTF-8?B?QXJ2ZSBIasO4bm5ldsOlZw==?= <arve@android.com>, 
-	Todd Kjos <tkjos@android.com>, Christian Brauner <christian@brauner.io>, 
-	Carlos Llamas <cmllamas@google.com>, Alice Ryhl <aliceryhl@google.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>, rust-for-linux@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	Vlastimil Babka <vbabka@kernel.org>, "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
-	Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org, 
-	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>, Alexandre Ghiti <alex@ghiti.fr>, 
-	linux-riscv@lists.infradead.org, nouveau@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, Rae Moar <raemoar63@gmail.com>, 
-	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
+ Nicolas Schier <nsc@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+ Andreas Hindborg <a.hindborg@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Courbot <acourbot@nvidia.com>,
+ Simona Vetter <simona@ffwll.ch>, Brendan Higgins
+ <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ =?UTF-8?Q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>,
+ Todd Kjos <tkjos@android.com>, Christian Brauner <christian@brauner.io>,
+ Carlos Llamas <cmllamas@google.com>, Alice Ryhl <aliceryhl@google.com>,
+ Jonathan Corbet <corbet@lwn.net>, Boqun Feng <boqun@kernel.org>,
+ Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
+ <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
+ Trevor Gross <tmgross@umich.edu>, rust-for-linux@vger.kernel.org,
+ linux-kbuild@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Vlastimil Babka <vbabka@kernel.org>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org,
+ moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>,
+ Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
+ nouveau@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ Rae Moar <raemoar63@gmail.com>, linux-kselftest@vger.kernel.org,
+ kunit-dev@googlegroups.com,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ llvm@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
+References: <20260405235309.418950-1-ojeda@kernel.org>
+ <CANiq72mnGArtgAbe7xXZCYW1x7Zd5hozfnzoftaGy9rxoLO4ew@mail.gmail.com>
+ <cf28afe0-ede5-4d1a-9824-65a1448f8161@nvidia.com>
+ <CANiq72n4tmTzqbcHCnzUBFyLVmJzB-AJng_1FgELJCWr7hDg4A@mail.gmail.com>
+Content-Language: en-US
+From: John Hubbard <jhubbard@nvidia.com>
+In-Reply-To: <CANiq72n4tmTzqbcHCnzUBFyLVmJzB-AJng_1FgELJCWr7hDg4A@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: BYAPR07CA0067.namprd07.prod.outlook.com
+ (2603:10b6:a03:60::44) To DM3PR12MB9416.namprd12.prod.outlook.com
+ (2603:10b6:0:4b::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM3PR12MB9416:EE_|SJ1PR12MB6291:EE_
+X-MS-Office365-Filtering-Correlation-Id: 62a71bce-f023-4e71-28ba-08de940fc346
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MFlJS3c2OHdMQlNjc2NHbnhMY2xNMW01YXlQT2w1ZGdCUFJReGF6dlpxSVZI?=
+ =?utf-8?B?ZmRGZnppTHVXRGlaUUVaRkxrNFVmelFQUmtZZzVLckYwbVovaXliODRoSzEw?=
+ =?utf-8?B?NmljY1dqN0xPSC9iU0xCb1Z1NlFwZXpsZlI1WWtsSmJpeEFweWU0VnlmbmFo?=
+ =?utf-8?B?eXJRYXQwSWMxMmdERGNBQUJrWEwzTWhvQzVwUnByODlJaitHdDlEc1RUcDhp?=
+ =?utf-8?B?bFNGWWkwemloMUs1Mkk3cGtxUlU1ZzJHNWxOSmxkR29ISUh2dzlNMVJxUXNK?=
+ =?utf-8?B?dHF0UitwZmZrTXFuZVRKT0dzWm5rRmRobk5USUo2Nm00V0U3SWhrR2d2NXZW?=
+ =?utf-8?B?anEveHU2SHhNaUZPMko2T0RwYTNzdVRJL1AxTzdJT3hpc21yTWFiUnZxT0FR?=
+ =?utf-8?B?Y2dSZk1CWVUyYnEzbll4c1hDS2gzZWxUSll0cUhncnhuVVdnY24xdEFPUzRQ?=
+ =?utf-8?B?dDVTN0FXK1NIZG02anJoaE54dzdJN2lQaXh0YytuS2hsVFpMejBYclB3WVNP?=
+ =?utf-8?B?OTNJbTdyOS9xcjk1bWxxNXY3MnowOE15ZWhHdi85c1VDQ3JETkxkWUZzajcv?=
+ =?utf-8?B?UWg3aERyeFNHbXFPNmEwc1JKSUpqZUsxR0ZsVmhJY0lUdFFiUWtqQ2NlanZY?=
+ =?utf-8?B?Zng2VmNJNFl3RDhSNS9LanV6a0c0Z3hkaXVNWko1bHd3MlRmNXEvQ2UzQWlU?=
+ =?utf-8?B?NXIxaUozWHBIamhRK0tDUytTT0g3TWM0blQvV25iUHlOS2RJdzZORkdmZHRF?=
+ =?utf-8?B?L2RFZUREdmhPTEgrbzZHZTdIaDFSNGoxcUNnTnFrYktlK3dpUzlPdFhHVC9q?=
+ =?utf-8?B?dGxHcjUvcUhWWG5nWGVNcmpuYTluWEY3akhWRHlvOWdLYitxY2gxRVMwMDJS?=
+ =?utf-8?B?SkgveGwxYTJDWFk0NFU1bUowMjFxb3hrQVdxL2RFekJBR3ViN29oUHlNdnpm?=
+ =?utf-8?B?RWkvSHdVWCtuVWhrbHRYd1JkMDkxM0pRWVNnSFQ5eEJMT1RDRlJ1NGg1bTJR?=
+ =?utf-8?B?c0ZvcE5heFZmK2FsRHRCRUxBMG5aUUtVa3dCQWN2VG9xYWtiUzFRdUYvMjBq?=
+ =?utf-8?B?bEczK1hiYVI1UVVLeitZVy9VdXo2MllpWUNNQjRISWJIK1NyTEJRNmc1SnBv?=
+ =?utf-8?B?cWQwMTUybU5QR1paaUNZK3lzanI4bVdoOC9BYmNWRFZ1MFRqV3VVUFdWcEZJ?=
+ =?utf-8?B?eTkzYnBqQlYrWXNuRVdBdW5lWlBzMkxCRmN1eXphWDB2OWRJRkViYWtPTmdw?=
+ =?utf-8?B?NndqYVVWT1prOFB5UGhCc01MRmkrRGF4U0d4eG1rRjJxTkQ1U2ptZDAxZE1a?=
+ =?utf-8?B?RHJvR2xzRUlPSzdZR2ZNczJtdmVpMjU2T2FXQmlNSzEvYjlWc2dESkFPS01r?=
+ =?utf-8?B?QlgvWEtQWWdVN241OTZFZGM2Y2Z6TWpMbkNyM0pzSE5nSmczb1EySm4zZDhx?=
+ =?utf-8?B?ZEdLNjVURkgySlUwcy9CakxkZGQ3Rm5XNXJKMGZsV2VmTnhUUmVSSXVZOXNy?=
+ =?utf-8?B?bElZb3dDT2s2ejltM2hyNWw3OUdUZlNrSzlVaFFFUGdEY0VvWjZxMFV0RmFJ?=
+ =?utf-8?B?dkxWNUNJS29ySFpPcC9wc3NkYnZpdUlsZmtDMmE4U0pkb3NpS0sxVG90dlc4?=
+ =?utf-8?B?SHR2SStHcUJlRzJqYmdFQVZOV21XOWJvZWFtcUszQ0JnK3JUS2U5b2srMlhT?=
+ =?utf-8?B?TCtEQTVNd0szbUpKN3o0WW1GUVlsY09VV2Z6RVhMa0Mxbjk2NlQvU20zZ1Jt?=
+ =?utf-8?B?WTRLNUx0aE50Q08xN3JCZDN2S3VBc2xEeFc2RlB6SGEwT0E2ais1NDBIV3M1?=
+ =?utf-8?Q?W5irxu9q4Mx/7zzirdmwk5FzhJUf6UETsxpH8=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:9;SRV:;IPV:NLI;SFV:SPM;H:DM3PR12MB9416.namprd12.prod.outlook.com;PTR:;CAT:OSPM;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1501;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YzhTTUxPZlRBMkdIK3ZXbTR3a0Nnb0kzVEYwR1dzYUJNQ1MwSWhQdjF5cFpn?=
+ =?utf-8?B?S1N3UlEwcmo5RXhXbTVveDFNeU1VRENhcDE4WjlGN3g1RTVyRGVmK0NPZEVQ?=
+ =?utf-8?B?dXFUV2FlcW9ZcTBnOW5ZNTFVK1Vsc0lZMFRnOURxekRYMkF3VXRtZmlQQTYx?=
+ =?utf-8?B?aVZnang2a3hkZUpLVTBTRFlsd0xpWnQ5THppNGQ2YXF2Vm9XdG1tVHNvbUdh?=
+ =?utf-8?B?NXhxZHhTTDRVd1ZVdWZ3TENZQzZJcFB0MkxqZUpsenNZSGs1U2xOdVo2SXRI?=
+ =?utf-8?B?bEtVZjFoSDlKbUoydHNlYmR6WWJRTE5udWZId1ZKTjlVNkNCK0duTHpYOTMy?=
+ =?utf-8?B?TFZHWmdZTnFiQUFtNVZYK09ycGxtTG5uSkpQbCtuSGcyWUhBMTRrdXZQcWIw?=
+ =?utf-8?B?aThpOUxnQlZwUlNvS3d2Zm9LNmRaay9rNW5GZmZ3T3RoUTdLMEJQeUk5aXFF?=
+ =?utf-8?B?eXFGdHYxU2o4K1E5N0RrM1Jqc210UE1sRENEdFFwL3Uwc1BKL0VVM01yVjVP?=
+ =?utf-8?B?RFBtZlM0R0JlekxDcEgzcStCMnZWbmNIYkxyc1FUckF5V1JwbnU5L09rUm9n?=
+ =?utf-8?B?cUdTM2dvSjVOaDVpZ1ZGZWpDY056eDNGUmN1T2E5WDJjaXJGNzNzdWwweFpE?=
+ =?utf-8?B?N08rNWw3TGsyT3liVG1kUlBDd0diOHYyZ01TUFNNT0ZIVnpvV0hWTDdiOVM0?=
+ =?utf-8?B?WFM2cDl6RVpobU1CeHBxY2RaZWhzVGR0RE40T3c4bm9YVlJvUlRnUzJMNGpN?=
+ =?utf-8?B?dDlqTHJ6bTQ3ZFNGM2RMbW8yU1Z3bEZGSituMm9rQXNSUTBoeEdlMjFTWXZj?=
+ =?utf-8?B?UWFacjQ3RCtFOWpxcERmUnozUEFYenVJcjdQUWxwRDJKRncyckZ2UTlKb1VD?=
+ =?utf-8?B?QzBPSTVNdDJOK2o4aVZWTzloTXErb1hqcGpHbmpIQjNocGhRZlhHYVRtNis3?=
+ =?utf-8?B?QnNZclJOQmhKcEtEbHkzdkVNUVYyc0J3VWlIS1FjOG15VzNuUkNCSFRDbmRw?=
+ =?utf-8?B?aVpzalFTUjdXOWFKK0Q1MC90MEx4Z0t2SENWMWhURGErTkl1bVVmcHdNK255?=
+ =?utf-8?B?ekcySXFwbTdBVitjWlphOEFsMFEwTWxxRU5KOTY0RDR3eGpGRXVNaHRWNDBU?=
+ =?utf-8?B?K0Y0cGZLWEVzZU5TSWtldXZINkZ0NmZFSTZqQTJvbUVDVTM0cWN2dzMydjRu?=
+ =?utf-8?B?c3VlUDNzK2tzLytqUytFVktWSHVDWHkwRUlvcEhjL1h1L05lYUduWWZLNTFU?=
+ =?utf-8?B?azVaTU45RTJodEVJRmFFN3gzSUFyTzRrMFF5MEJiMUxxdStaL1NIWkpFQ0FD?=
+ =?utf-8?B?TjU4NXBPNWZqVmRTb0kzNFBoOHQ2TTRkUE9hQmxQc2pvY0wrcDVNNlVETHpR?=
+ =?utf-8?B?NGROYndJK0NUY3NRWnlLRzdqZXdnRWQvWVY1Rktta0FXWlhHTXp2UlVhQUxC?=
+ =?utf-8?B?VTlSVnp6UkxlZjFhV3NqenRCNGpKaTZodkg2am1RNTlBK1A0VldEOENLYWts?=
+ =?utf-8?B?eEZyMmJyRG5xTVU1MFdXODgyeGY1bWNVVkhxc00xSFdPdmRjOHQrMzVyaWNa?=
+ =?utf-8?B?L0NYaFhodGFqZXE5T2lubEs5cmJ0M1N0Q2I3QW9OVnh3N1hXTjVpdkU3RSt3?=
+ =?utf-8?B?and5bFFGUGtsMzAxb3BtZ0hiSjVBOVZndytlRkE0SWE2eG1UZm5lNEpObDdO?=
+ =?utf-8?B?ZWZKZ0JRSmdwR0hhL1NkMDVxWFZuZkJRT0VDYlNvcmtJWS92eEVnMWlqUmRl?=
+ =?utf-8?B?NjE5VjVGZmJCbHE5OE9UdG5Vakl1bzZ3NzdyOVlIREpBMFlhTis5dU1SZzZ6?=
+ =?utf-8?B?MjF0TTE4ZUxUN0F2cVhodEFweTQrR3MxSURtME1odzZWL2VML29KRTJoTFdJ?=
+ =?utf-8?B?N2JhdHRZM1hTMDhEcStmTTFjUks0dVZFVlVWTGFudnd3U0dRR2NJb0pEbURX?=
+ =?utf-8?B?aVh2SDZOSUhVb2pqSWNSNndaaU4xM0xQMnZabUVQUkQzeVFKWm9OTGFsRHFD?=
+ =?utf-8?B?M3A5L0hmQW03SjlhbjlDcUxNUXZQZFlwcG9naURxZ1BoN280TUptdGh0ZkJ4?=
+ =?utf-8?B?bHNKd1BkV1NKQzFXM1VwM240eEJpVTZOcHZ3ZUEwL2lEdVIwcHYrYXR3YXUy?=
+ =?utf-8?B?L21xN245anBRRWJmQ2E4RS9qRnZIYzdiMDlvMUxBNWtzL1FOSU5wN1FiTkpV?=
+ =?utf-8?B?cFhSS3FhbmJjejIrUExEb1kyWDNZazFhOWZQcks5R1NDR0hWS0xrTmlxS1VX?=
+ =?utf-8?B?UFZQOWY1QTJLOW1YQ0N4QVBtdXdrQ3RvL2Z6U0N3RG8ya1RSdnhrQjZZaXBL?=
+ =?utf-8?B?OVFjYVlKcHJOejhKSUYwaXcyMFdsNnM0djFDRkQ0aUgrM3pVdCtIT0VqRDNH?=
+ =?utf-8?Q?XpTuRoTqG5MTTtvF+BrCZafTreg9+PJ6x5QaeAgKGhhLY?=
+X-MS-Exchange-AntiSpam-MessageData-1: 3gFyzzHb9o/A+pTLUaQ50bc3K8Ru9SQVuMpbOL5FMFL+5rjc3+SbavrHkuPbL9a8NSl3k6TtHSV683H+6cnXgsrISv5P3+kfdLk=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 62a71bce-f023-4e71-28ba-08de940fc346
+X-MS-Exchange-CrossTenant-AuthSource: DM3PR12MB9416.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Apr 2026 19:07:35.6314
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 57PtZqWpu68ohPoxp2oY8nU4q4sbLKScJGLKONgmVyOp/8KOGqyy7BZugD43u7ukIjp4mCdXetiRj7tbnCbcnw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6291
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_120149_049559_66D7B12D 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20260406_120743_860311_8CD4C47F 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,36 +207,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 6, 2026 at 8:51=E2=80=AFPM John Hubbard <jhubbard@nvidia.com> w=
-rote:
->
-> Looks good from the perspective of this patchset. I am seeing
-> one remaining problem that we previously came up with a fix for,
-> so I expect that that fix is staged in another branch. But in
-> case it's not, here is the report:
->
-> On today's rust-next, using rustc 1.85.0, at commit 232e79c72f57
-> ("rust: kbuild: allow `clippy::precedence` for Rust < 1.86.0"):
->
->   CLIPPY [M] drivers/gpu/drm/nova/nova.o
-> warning: consider removing unnecessary double parentheses
->     --> rust/doctests_kernel_generated.rs:4240:14
->      |
-> 4240 |     pr_info!("The policy details are: {:?}\n", (policy.cpu(), poli=
-cy.cur()));
->      |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->      |
->      =3D help: for further information visit https://rust-lang.github.io/=
-rust-clippy/master/index.html#double_parens
->      =3D note: `-W clippy::double-parens` implied by `-W clippy::all`
->      =3D help: to override `-W clippy::all` add `#[allow(clippy::double_p=
-arens)]`
->
-> warning: 1 warning emitted
+On 4/6/26 12:01 PM, Miguel Ojeda wrote:
+> On Mon, Apr 6, 2026 at 8:51 PM John Hubbard <jhubbard@nvidia.com> wrote:
+>>
+>> Looks good from the perspective of this patchset. I am seeing
+>> one remaining problem that we previously came up with a fix for,
+>> so I expect that that fix is staged in another branch. But in
+>> case it's not, here is the report:
+>>
+>> On today's rust-next, using rustc 1.85.0, at commit 232e79c72f57
+>> ("rust: kbuild: allow `clippy::precedence` for Rust < 1.86.0"):
+>>
+>>   CLIPPY [M] drivers/gpu/drm/nova/nova.o
+>> warning: consider removing unnecessary double parentheses
+>>     --> rust/doctests_kernel_generated.rs:4240:14
+>>      |
+>> 4240 |     pr_info!("The policy details are: {:?}\n", (policy.cpu(), policy.cur()));
+>>      |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>>      |
+>>      = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#double_parens
+>>      = note: `-W clippy::double-parens` implied by `-W clippy::all`
+>>      = help: to override `-W clippy::all` add `#[allow(clippy::double_parens)]`
+>>
+>> warning: 1 warning emitted
+> 
+> That is already fixed and in mainline: 487f9b3dc6e5 ("rust: cpufreq:
+> suppress clippy::double_parens in Policy doctest").
+> 
 
-That is already fixed and in mainline: 487f9b3dc6e5 ("rust: cpufreq:
-suppress clippy::double_parens in Policy doctest").
+That's what I thought I recalled, too. Weird that it is not in rust-next
+already, though.
 
-Cheers,
-Miguel
+
+thanks,
+-- 
+John Hubbard
+
 
