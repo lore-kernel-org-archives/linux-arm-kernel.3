@@ -4,135 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D0AAE9D82F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 02:09:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E36AE9D82F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 02:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zjJ5XyHjpdgzIr2NmwSxYGuuYJdMzb2UNu6A8GBnjDo=; b=A6bpgvRnsDj9rnUc6bASOzSsbF
-	ZTbycB6PCmoE2sBwhLxVj8KOgyAnojgEFvsWPcrLqIjWnHbGJuAeveQWNAmGmB3U20tiphr9VlORW
-	y02335A/gJql+m1clkndBkNnPE1I4RV6PP5evazRJ25Q+yriiFQ3KArVqTU+z+nKovin1ateSgfdJ
-	SRoslDCITh0FAoJR2cFzaFyt1uLFDeWPI+J2O54fOtDhwu1NpZJ8Ilnv5sxnZmFO6nJPb6ZAoD8nd
-	RquWL8bPr7XMFQYii+AW1hTu0rVGhSEOZP0GVKmNi5n2iEM0iRwVut7HON3v8hUzOEQFlCUPxswQY
-	u6X0IKNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qk8d6uAQPFrqL7e/FPfRYs5LaraysuRQi8+fvb7+ncQ=; b=RyG4O/Q+xPlPLy2A/0wegR2LAB
+	9NoaVKglWB7jjEyu4nMlCCch3lItFq4Fjy7xtevYsZKdPYxPU+11kJWwSt2gJU0/0FEftremWCNqh
+	1iuZ8I7dx+atz8MgQBSOYpIymCSLtt9hjIDqd++Qt+qE58JWJFn33/EnSm9ewgjk4GYAmp7+n9QTN
+	2JoE4Ve6Roih7IJyLTJfEs/WeDc8lmmZJBcs1A0rFKI9tks65Xec8FKpZpdot1kmwR6SS24qXN6z6
+	5GRV7sxyRwKARyNoeSOYi4t6/uaNDcXujl1CXocqOEguBE8yAFcI50Vm7SICcqHD1xYd9XPS/A7Ys
+	zdtzTzkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9ZOi-00000004hJs-392P;
-	Mon, 06 Apr 2026 02:09:04 +0000
-Received: from mail-swedencentralazon11013043.outbound.protection.outlook.com ([52.101.83.43] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1w9a9N-00000004ift-1SbQ;
+	Mon, 06 Apr 2026 02:57:17 +0000
+Received: from mail-swedencentralazon11013027.outbound.protection.outlook.com ([52.101.83.27] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9ZOf-00000004hJ4-2ERW
+	id 1w9a9K-00000004ifV-2gjc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Apr 2026 02:09:03 +0000
+	Mon, 06 Apr 2026 02:57:16 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bxTNEW71LaNPQujLzPNmCGsLcQksly0f1V1z7otRqN76XdbHjVnlsaajpQBZ2KkbWK9dES3mtXUzgG5yWDXErIlK0QhzVZ0pX/1YWyEifbfH1aW4+xSE4W1Z8iuvCFpdxpkJlOHuG8II/Vp+IB+bDHDAeMTgyZqb9e5lON5IcxAFhd7PtFFF3XZfTk3xe3CO65FnXSIlahhtpKaWGYCZ/CdXoPM6e94MYMIgvjfjy26l9zozMnMCyEgb7Xy5lPI1CuOQHbnx8L4iRmjOFlxudeCHGSzVyEnOjPDh4lCVzBVvh3l83RCZa6Plpu3OkNW0EtgEJBNV5i6BE10UVQjMtw==
+ b=Fx9/omm6F04WPKX6mJSd2f550OkDOyLfVuXlRp7GwrLJitv13Tfn3Y8J2R0Ckc5JSD8Nu3vM4bjT0/6+/0LgfdSM+xi1PsmQROXyz676/SKao/gWqD8BFcUksfF0/feq1xbijKu0s4r7RRWTCKM3sFjk9xHKwjACW42cPW86ez1tccjZoXEsZDczN8uT1IKqawbGQnJKtbu+KVa4R+0H55TMD+JYsP6Lpkr7wNX7ysx5X+yp8jmaRFFNK1moDyn2M0OEd+z790nMlhp+0Vc8xkKstaecPDbqEwA66LSiiJqns9KN4hkzxkpurQjRGz7LzZHFgYX+Y3mPGOWwriiAYw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zjJ5XyHjpdgzIr2NmwSxYGuuYJdMzb2UNu6A8GBnjDo=;
- b=T6cOTuHFn7OLdFfs2tU+80kus3bCV6/xBn5BaBbydxN7fc0dQ2MaOcaytji502SwRmUDllweMXk3YLLWf0Nk0q7wDmeOhWI3OOhbS86qxyahQbXC4M8Z3qQ/H1Cnjf0Amjl0z+2rGQUNVFV5mHU50e2gWHNCrdnulyun1uYUWxLSMNpEt27VAfzhZlFGhm4GSppNcJCmr1//XnIdvn/So/og+jhSv76UaloHeHBQVggttKC9h3DfAP6NP4uFyTZ9D5T+UXt/zZWLFqkK7oyqTxWNhIxXLk4vuD3yDBrrV6PeMUsy0SR2SF3iAWwhgzOAytghDoMCVAgrb5KHrkjYSw==
+ bh=Qk8d6uAQPFrqL7e/FPfRYs5LaraysuRQi8+fvb7+ncQ=;
+ b=MSeHcwUXB42G5QATpBsF/Y4ufMczwaZfbgrVjK1jRyJs6ZVH0OA5o9E1INB7rR2FOOK9F7n6tT03kP939PGTf2dLH9tqHfhgzgZqjY9b9dW59BoefdgP0vcVTDtiaz5jGe9/VkHW9BQKzY9/GXI4mQd+Ahh6vd6TIPobFbBU/qzl6wNcuOSvCRMJF9jrgeWCtb4KF+JgfjwdaMAO1SYdh5Nxg0rAi7WfDerJUZgN6zK3Kv2OcW6YFDFnkh848NM1zxPAj6ULluNsYpuQu6DktYgLh6gd7ebwft3vUbfyRa77NUmrNGlvg2YSA1L2AeFl1HyOosY+N1z4usjHufLsxA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zjJ5XyHjpdgzIr2NmwSxYGuuYJdMzb2UNu6A8GBnjDo=;
- b=X3anRmUfCp5t76y5krPF0bxQ8asyQLmIze8/kb4SFOHANzMDoR7qIKQF5o9ScqSJvvTHbXy36AubXMO6W1unY9ub7UrFf+CeooowshPah6FKUarSd5U0aQ1LMNsvk8jL2+jTqQsPKit28jjUkqIEY/G4Y41UxAEdcv2bjVjt5DXBDtpbVPdtH0/tNlpGhKaB/bxb7eforZ+f/uHfO8bDj7ABr4JF6pHSIRlcke2g2QKFU6HPaNDydcREdIe64Y6tWeIe61feau3LBGJwYnul1iXWYpQRbZ8KeZrLODU4l1mcI5ON3Nc+4ycLPWqwUXrzGrzmivX/UBefmqUnpjqJ0w==
+ bh=Qk8d6uAQPFrqL7e/FPfRYs5LaraysuRQi8+fvb7+ncQ=;
+ b=lTTlzjxzjosx3kOpBtPPEJyJDHkQgqkjuCiNKv/dBD/8/RZQjtvXjvcA0O8tcnDQUBsdw4Iq5UieKYXUJ69U4D99n7U0nsB4Wj3WshS9ZaTiqbt/61dLt9V0kXO7feg1E8t3z2TrI+OLts1RIyVt8fti/BN892GiAe4CTR9UF1eoxUx5BIPKY9e3avhzYhxl3kjcDKeQM4P4Sistka+TalngIkJUvb0QEKigONdRICL/BY5vpij4PJAceSb0xn2Pe4+S/FaLtAYCx3s25dEt+YrV+9BTpnwNlrvAuQ4ufpkp/kXR8KfwlNg8kFkbPgqeHPbu2/e2IyGzC+aUAJqTwg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PAXPR04MB9518.eurprd04.prod.outlook.com (2603:10a6:102:22d::15) with
+ by AM7PR04MB6791.eurprd04.prod.outlook.com (2603:10a6:20b:103::19) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Mon, 6 Apr
- 2026 02:08:55 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.20; Mon, 6 Apr
+ 2026 02:56:55 +0000
 Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
  ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
  ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9769.018; Mon, 6 Apr 2026
- 02:08:55 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: soc@kernel.org,
-	arm@kernel.org
-Cc: Frank.Li@nxp.com,
-	Shawn Guo <shawnguo@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	kernel@pengutronix.de,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] i.MX arm dts changes for v7.1 (V2)
-Date: Sun,  5 Apr 2026 22:08:08 -0400
-Message-ID: <20260406020819.2812877-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SA9PR13CA0001.namprd13.prod.outlook.com
- (2603:10b6:806:21::6) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ 02:56:55 +0000
+Date: Sun, 5 Apr 2026 22:56:47 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Florijan Plohl <florijan.plohl@norik.com>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, upstream@lists.phytec.de
+Subject: Re: [PATCH] arm64: dts: imx{91,93}-phyboard-segin: Add peb-av-18
+ overlay
+Message-ID: <adMg762HH4gcuWyq@lizhi-Precision-Tower-5810>
+References: <20260402070826.970012-1-florijan.plohl@norik.com>
+ <ac50OHuEApM3tRHq@lizhi-Precision-Tower-5810>
+ <56b9e133-74b9-4e59-a40c-c7637c080fd8@norik.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <56b9e133-74b9-4e59-a40c-c7637c080fd8@norik.com>
+X-ClientProxiedBy: PH7PR17CA0016.namprd17.prod.outlook.com
+ (2603:10b6:510:324::19) To PA4PR04MB9366.eurprd04.prod.outlook.com
  (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PAXPR04MB9518:EE_
-X-MS-Office365-Filtering-Correlation-Id: 74b0e7d8-ecc3-4344-1a63-08de93817496
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM7PR04MB6791:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2f10970c-0165-4e2b-ddda-08de9388291c
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|52116014|366016|1800799024|56012099003|38350700014|18002099003;
-X-Microsoft-Antispam-Message-Info: vaE7KiMjVHeZM/YMCJOZzFsNQYDJlmjhDs/YQBY0oOjR/eGH/F+ImN4DAjak9SXcPcA7xIqXkkElTjw2VVzMXjGesOoSS5q4h+dTxmPSZEylPx8BNqDxxcefM8CDJWjgVRU4O99dAvNMAI9I2ihyTEmWnWk9ciJoWkZFQ0jpNH4vsRoo3SnVwJsSBAs9XHAbZJouy46qTcMW6QRlbnK8WrzSWBA3DIFWL1zaAi+m7m172rW5QqaAeTiuoOU9tHbzTVIbupyEooeJr2TVL6N+fGvBllzjEVXb9S4gp+ZCDJo2WB/oQFux/SOE6XeYN7QAt8639l5ueEipBYIUn8Bt57sjC0vNFh/vTDBTM60JGmOlEGxgJosk3kEucIPEHHsIHCAdycPug6JhKBayJ7p0VKP3pyQ7pxDuwdQLszDupjrdviqkVY+74u8Tg7zR5bhyEePj91+BiKRcsqty3eQGlDMTN5fLA7QAc/Rt9uSmDlzBYSsder65ycZBlEVEmwg8c2224hzdqSuLll1XF+xPF5ug2+d9HlHmdhRh5yy0HEOxu6JAK6AiY0KssQHt3/7Bm0qGDKIeTlgV2MUAtkNlOjBSW2PACeeG0x+a31HGA37+My8OoGzeVdrAuyhUyscYxqJu+aImYquHraRdzB637JlzVNZGQMbLiRMi/B54HzBFg8iPVXbnhXdu7G+5b7L0FPcSB4+lMRjbGlnvRsjCobftrYFFEEa47nnnb2xVYvaNgARd6OI3mLXTOhAGKU/3+2l0x3DXs+uAZA9N2/f0ZqxDj9FT50tEhJ9CfIIqbgA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(52116014)(366016)(1800799024)(56012099003)(38350700014)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|19092799006|1800799024|38350700014|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: g180neoEUHB0f0TFMQVKtwkhENQdOw3Jy+vtLbbTbL/PmfLGx4XEdoCor3jOQW74lpeFvLW8LUs75jNthZPoPmfTgiqYFa/cO9QZItXE5iR27CJbkXhXG3ZQCDugd67SmekIAcLEvZIW0xOBCvIfbqsPAetmrEUHWGv09QWEIrfmCegYnO75oUJgMnyCTzFs+jakIDE1F3MzI6GHlIofzgPaG4bpTfU55Dufx6tG6KEiOK/95U3/O0tPI6iUu0yThNkxBtUxlKV6gLB4yqeS5/2aceMRJlgVItNZr9OJqK/azBviU+d0nx9lbeUxS7+3j3is2/QcqTJKaRPZoPpU+D7wtG7lSp+xiUfd4Z6YNqO/WWVRy77gr1KZ344zK52YMSJp+eUleXKfvSVJhzgzmito2ZsAv0IlSFCyL9suzYUJQUrS8fpbpHQ3UJg8PKoYoRM1DZHzjIDJXX2mtZS1Q0MMcmKX/VZriJv5/III/zVGcLm/Zev/ow+XGmdDWWYKySQiGvr4fwcFzTqaQTgBb15YR0ksirLgqP+21EA8JOioKCWjzw8WGO/UAQH6hD5x31N1v1rIOBnQ15kZjyAPHpNExk4sMGyBefXfk5vsuFxOf1GIJPdE7NcGrpvIoL5NXOiY7HO/l/llp+7oHedXJJzoh/WuC01s3DXX/3+Ct2QsVj6wbruMNYDCXKbKxgp1CDTMr89ilyEiyZUuBMTGoSYzygmJfvqeDtBLJb5MbuH6j9qVcxZQSO04WFYSSsW2fkxP02kJJ8s89I758ZjdhTohIwCy+i7svZ3tmVoYO7g=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(19092799006)(1800799024)(38350700014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a3RCWUlTdVcyTS9BNGkrbUZiaVZ1ZHdQeHppQjJtVkFWaVpwMThQLzlkM0FM?=
- =?utf-8?B?SHhib2hqS0U1L05NelFsaGh0Q3F6NGl0aUJuMFh5Wk1UaWZhQjlVa0VnMW9h?=
- =?utf-8?B?bmQvMEJjSEk0ek9hc2NTaXQrbERwNXNJcitjZjZTYlJidmNqY25MUERxcHN4?=
- =?utf-8?B?U0svWDRFSmdCcDA0Um9XNE9YYzRwbzBlQ1NTdlQ4YTVyZ2pTaVUrazhmM01X?=
- =?utf-8?B?Q0wvbFdtRnRQZ0Rnbmw2OXJtWlBKclV6bzEySTJBdFNVT3c2Yk1vbW5VcWxi?=
- =?utf-8?B?Z04vQ3RhWVkzYUF2bTRpNEdCUGltSXR5ajBGZE15bWR0WHhkQ0htck9ZSGph?=
- =?utf-8?B?MHVObnFhTDU1OENuWklQWktPM0hEc2JybnRkcDVmWUp1MVptRG5NOWNXWFNI?=
- =?utf-8?B?V0xWakF1Z3JBVC9YTzFVN3BCYTNvSEo3bWhseVhFcTNmZXJ0TFBhZENKcGFk?=
- =?utf-8?B?OU1NTEV5MFh2NVRaUE9aa2J5WXJTdkpPOVEwd0Q3Q2Qrc3pxN080S3pkcUZN?=
- =?utf-8?B?U2NDT2dHdlhvYUMweUlVNlFPalFxQXF0ak1hcVM5TFl4L2l6cGJHNzFyOHZ2?=
- =?utf-8?B?cXp6anU1bGNBY3hwcXUyQVdSQnFyWFAyZmpYUlh1ZDZuWW9neWZwL3V0THlx?=
- =?utf-8?B?NnNvQXQwZTRRMVFkWlN4eE9iSmtXT29kandOM1I4MVJRVWR6RFlEVEVKeERZ?=
- =?utf-8?B?bFVNQ2FtQmR5TzRIbWNTanpTdDdEa3lEaEJ5RXJrY3VKOVlCTy9YNlA5TThO?=
- =?utf-8?B?b2FRSHRsakRKL1hGOWs1WlZqV2dVWVZUVXdPZG9TaVo4T0pvNFl1c01rRTEx?=
- =?utf-8?B?Sk41dE0wTENEZDdBazRHWjNyN0hTTy9wUTd3cjcvWGd0VDgvdWd4K0FCMks1?=
- =?utf-8?B?bHpFV29VLzQ1bGtKOWtFWjVLRjlKdXdkeDdKSnNiOWRJa0lNQ2g2aDllTEFt?=
- =?utf-8?B?eFRBWEpjU1NmNTN4cUl6WDAwTndtVFVkdFJPRkNkVmpDa1RFOVdidW8rNlVK?=
- =?utf-8?B?RW5zWkhjeTNmL3FWd3k4b2NnL1dXdDROdkhXdzRINEkvUGJKbVF1Vkt3dERh?=
- =?utf-8?B?RFdOdlpPK0FpTmJNNW9TQXF0clVvcmZhbzVSTUQ3enQ2RERnVEIrK1VGM1hO?=
- =?utf-8?B?ZXhpNmU5NXlEbWMrYVV4OURQcjMxQnhJTnpGMHRlVXJtc3dzUDNCb0pLSG9z?=
- =?utf-8?B?TzZwN1RNS0VmTGJtdUorY0pKRHQyakVTMTd5dVlpanIxdEltZTFxVUgzVHQ0?=
- =?utf-8?B?eDRMWHNWWEdDNnozYW9SSnl5d3FiNll6aVFrMDFiNWRCdmtobkJOeHJDVGVN?=
- =?utf-8?B?YnNmQnB4UHlaSVlmcFloNlJLQTk2cTlXKzFqcVU1bmpuZTBTZU15Q3lOTm9q?=
- =?utf-8?B?VmNISDJDR3ZPL3MxUFBwSXkvZWNXVE52bmpYcncyVFBFKzM5U1hMK0hDMXcz?=
- =?utf-8?B?cW1yYkZLWVg1d0gzOWQ5VnJEYVZqN2FncTFzQmFVK1Faa1huNFFHdldaYUgy?=
- =?utf-8?B?Mk5ySmJLc09qd1N3UHJoZGl5UTFrMHhQU2dFNjhzbDdiWWozQmlBbkJvVGtv?=
- =?utf-8?B?WE9VRWF5YlN3TXFXRUw1SFJHcW5QZzByZGtCNjZGZ1lZM0pYZVZuaUFueG1S?=
- =?utf-8?B?VUxPRGxNWnJBWEYyTUdMWm9pc2l6VGVJMk1sa3R2dGxla1RMS2w4cmIzRGNq?=
- =?utf-8?B?c1ljMTZZVzBLWllVbzdJV1BJYmtkODJYZEtPSkc5WGFaanlEcTNicWpGRTJP?=
- =?utf-8?B?aSs2b2NMa1REQUVadDk0MHBQd1hJbEVtMUpsRUh4SnFTYURSeEFzc0dIVDZO?=
- =?utf-8?B?UmIvczJwQWRYNUdhZU8zYzlySlhYS09kM1VWK0x2NXk2bUs3SnVKMVVrcTZl?=
- =?utf-8?B?V1E5anlMMy9WYWQ5dEU5bGFsQ2dyaXdrQ3YvRjR4QVk5M01tUFkxQzNiNzFj?=
- =?utf-8?B?WWtwTm5oUHQrT0hIKzRwUVh4ZjFlbVhIV1c5WGtydEFzdkNiNUUzM3prVzV2?=
- =?utf-8?B?cUJGSy84Mmx0eUtMc0JIZjFnN3NTMWdTQkRUNGxqOVJmZjRhYmxGd0hpTVR4?=
- =?utf-8?B?dGNGelB6cTZvR0NobFNGcmp4SmtlOE1leVJ1NFNVMFpzWnV4MEU4UUh3WDdv?=
- =?utf-8?B?NzZFZ2FnOW0xL05TZ1ovSFA2eUJ4ZHFsSzlSYlpDc2lUY0xUUngyRzZHSUxX?=
- =?utf-8?B?NndPUm1GNWFqazllWWpDaTQ2YkVCYXhhbUIyL3I3bXZaWmJxUVU3NUJBa3VO?=
- =?utf-8?B?dlFZQys3MDdvZkZ3SEd0d0ZVUlNkbjdJWHo2N3BOVldhRGNLM2p0YlE0UDdQ?=
- =?utf-8?Q?1exIGsZoMp7druvZ2W?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wlzc6/p+Na7THsl6J3Ltr5k+eZGOInflukXgA44SI9zYKbUSGzz5zKV8Je4O?=
+ =?us-ascii?Q?P7P58QndQDH/YzzSFBPMSAGcxXLTlLUa7E6caXcVVRTy9xeexEeF0ky76kG3?=
+ =?us-ascii?Q?HU/Lm7umExpzIFkA34s+Ws+l2JZ20L/dmRe/cyy7sw4sRI45c12rZuzRuDxV?=
+ =?us-ascii?Q?Kklmep08njwAeu63jyeeKVSyVflYAGgRGlX3AoXFqR6KMR7UiV8zqOJN59bh?=
+ =?us-ascii?Q?Viq8NrR8Gz3TCJhW/Avt/tOZJgpUNQjhAMvyg85JchbRb+lVYxFuIBRLfg2y?=
+ =?us-ascii?Q?dvROvD8PVS2MjCypvH3yglMkk6J1NlNFyQkxduEKuwk2N/pVHeCfDJZHakVA?=
+ =?us-ascii?Q?Kgn5LTV+8BdvVzT7C2v2IQuvMo+TfM9fbYvOlGIzv7g6dmokswp+IUJesyM/?=
+ =?us-ascii?Q?BJ0bKzCsjIGkKaDXINSsts0DASugn69GW00zcJMqar7+QUyBQviJvNDa6fsJ?=
+ =?us-ascii?Q?cLxZewjsHMOTj0Zlt2puViIl+eVQ31Vw1oiwvjLNjdtr7LhkCYEpFrIgkNwm?=
+ =?us-ascii?Q?a0N9b4TOSLDC+uZCcsqlB6S5HSt/inu1sLFq3XctHStGoqqXC3vUM+HbU1cO?=
+ =?us-ascii?Q?ulE096HT/mwx8aFxApdoVtRnWkZLdK4DBtejkYGcHy27mJWmcY0MuIaXHIVI?=
+ =?us-ascii?Q?MPDhnB6LDGn9WrjLTGbllpPxxcYbBl/vv5/7FSKjQmak2Spr9Ei0oenT5Ken?=
+ =?us-ascii?Q?xfrspqTJ0Q4P3zVcBJUqdd17pwdGVTjl/dyuwaAaLFPdNowAhVVEBCMYKu8w?=
+ =?us-ascii?Q?HzF+CB9Kcwk/gQtRviJiOAAhdTuLhaiN/qcuVlReobPOsdVi3IFJInLO+0I+?=
+ =?us-ascii?Q?ZsmPnXaPq68So9x27BMEVLf/iBUBoRwOAUbSfCrrvApg8wPYERptP8F8vGEA?=
+ =?us-ascii?Q?lB/OquJeuWGmCoLGY6kMNbgq77WTiCwHp30lCJcnclYNZB+w/0H2QxLLIl1U?=
+ =?us-ascii?Q?dq8LWoxsvJOTINrblxJFSh6MprTjh721WS2yHaZhfw1MW7J+jcFj2q9a3YeN?=
+ =?us-ascii?Q?y46ifD93We4mxEZmbGpSMDTVHnc362cW9smA5wIZ1C6q8DzMM20VVbxFGiJI?=
+ =?us-ascii?Q?h6vXB31uP5+J1/tdb1EMfngH2FQswsdqvjYngXBtAYUSgB+u9d1iR2o63Dz0?=
+ =?us-ascii?Q?B+1yPBWvIbAAT6uC6uDLAtOrNdEOwXgVfz0z1RKVXsRVHCEFPce+pAg6oyU7?=
+ =?us-ascii?Q?bQlxhL5PDSyIP1MM8RDtfdycIuIyloUbcOse9IWyLM7LBIQ9fJwuV1Df7HtU?=
+ =?us-ascii?Q?IyjYizL0dU1uVh0tNOM8nXE32ZV0MujYR6CkYP1+yu3uooT2+S6M6iVQVTaJ?=
+ =?us-ascii?Q?5IKU8eBwR0U6T9FAqRl2VRd6MtqFFOFzsn5Axggeq8qqIlwh8Z7RuwSoIXDt?=
+ =?us-ascii?Q?80EAG0VoGR1fCwySsH2AOP5UNdSedKrG8rXszG3YSZjabpQLeLz5zePMg9Nb?=
+ =?us-ascii?Q?cCPv/AjN3upbohEVdTGDl0zw2GyGxTmTai3zmhbDO+TRV4OiItgZYoPKSQwa?=
+ =?us-ascii?Q?xW26yL6p2wx9WH8P9D+HgTMGgNdr3nOPi6s0pXRP3yHsUrhVgYC35w2YjoUq?=
+ =?us-ascii?Q?HD70jcQPbSMo7I4Fn8/wBzzpLoGizPQv11ZWZkTdtwFnZvhdDanrNG3otHD7?=
+ =?us-ascii?Q?UNKrvf3ML4WurcH7XmKxGqoHyuXrAZsx2eP6SH3YVUAK7QWZT+12I4QyMFqx?=
+ =?us-ascii?Q?SLYbK0lP+kfDF5HQgTa+zBf7ZnjD/HN2L2wYGZ9Cl/aOMMpv?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 74b0e7d8-ecc3-4344-1a63-08de93817496
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2f10970c-0165-4e2b-ddda-08de9388291c
 X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Apr 2026 02:08:55.1138
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Apr 2026 02:56:54.9473
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MowQ7P/+aPDsfB3CRA9Ilo4pfxeacGKJR75mKrMPLYo0oBailsJbZ8f/+7+fQe0xFKImNmVNv5D/zIp0Itjqig==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9518
+X-MS-Exchange-CrossTenant-UserPrincipalName: eTH4UmfDnyO5keesJkRtYrM1QuxiP+zlZOl1NMtzDaFV0MCICNNamHOlxW8IvjmFtd6fl8oh1k6JNtdcP+/o6Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6791
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260405_190901_766816_1C887627 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20260405_195714_699580_F30A7F73 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,210 +141,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank.Li@nxp.com
+On Fri, Apr 03, 2026 at 10:29:00AM +0200, Florijan Plohl wrote:
+> Hello,
+>
+> On 4/2/26 15:50, Frank Li wrote:
+> > On Thu, Apr 02, 2026 at 09:08:26AM +0200, Florijan Plohl wrote:
+> > > Add overlay for the PEB-AV-18 adapter on phyBOARD-Segin-i.MX91/93.
+> > what's means PEB-AV-18? Is it random board name?
+> The PEB-AV-18 is PHYTEC designation for Audio/Video adapter modules that can
+> be used to connect displays on their boards.
+>
+> I will improve commit message to add more such information in v2.
+>
+> >
+> >
+> > > The supported LCD is Powertip PH800480T032-ZHC19 panel (AC220).
+> > >
+> > > Signed-off-by: Florijan Plohl <florijan.plohl@norik.com>
+> > > ---
+> > >   arch/arm64/boot/dts/freescale/Makefile        |   4 +
+> > >   .../imx91-phyboard-segin-peb-av-18.dtso       | 142 ++++++++++++++++++
+> > >   .../imx93-phyboard-segin-peb-av-18.dtso       | 142 ++++++++++++++++++
+> > Any difference between 91 and 93, can use one overlay file?
+> >
+> > Frank
+>
+> Can you suggest how to do so?
+>
+> There are imx93-pinfunc.h and imx91-pinfunc.h which are not unified
+> between imx91 and imx93.
 
-The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+I suggest move pinmux setting to mainboard's dts files, which provide
+plug adaptor header, signal should be descripted in mainboard's dts file,
+which provide an unified label to overlay file.
 
-  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+Frank
 
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git tags/imx-dt-7.1
-
-for you to fetch changes up to 0037d16644b15686eec420a90f05bcd2804edf6d:
-
-  ARM: dts: imx: Add DT overlays for DH i.MX6 DHCOM SoM and boards (2026-04-05 21:35:41 -0400)
-
-Changes in v2:
-  drop patch: ARM: dts: imx53: drop fallback compatible "dlg,da9052"
-
-----------------------------------------------------------------
-i.MX ARM device tree changes for 7.1:
-
-- Device Tree Schema Compliance Fixes
-
-  Fixed numerous CHECK_DTBS warnings across multiple i.MX SoC families
-  Renamed nodes to match schema requirements (tcq→touchscreen,
-  uart8250→serial, iomuxc→pinmux, etc.). Fixed node naming conventions
-  (added "led-" prefix, proper addressing formats).
-
-  Corrected compatible strings and removed undocumented fallbacks. Added
-  required properties (clocks, clock-names, power supplies,
-  #sound-dai-cells).
-
-- New Hardware Support
-
-  Added DT overlays for various expansion modules (i.MX6 DHCOM PDK2,
-  PicoITX display boards). Added support for muRata 1YN WiFi chip
-  (replacement for 1DX) on i.MX6ULL DHCOR board.
-
-  i.MX7ULP: Added CPU clock and OPP table support for frequency scaling.
-
-- Boot Phase Properties
-  Added bootph.yaml properties to multiple TQ-Systems boards and SoCs:
-  imx7s, tqma7, mba7 imx6ul/ull, tqma6ul/ull, mba6ulx imx6qdl, tqma6, mba6.
-
-- Bug Fixes & Corrections
-
-  Fixed interrupt property usage (interrupts→interrupts-extended where
-  needed). Corrected spelling ("TQ-Systems" with hyphen). Removed redundant
-  intermediate nodes in pinmux hierarchy. Fixed clock references and
-  naming.
-
-----------------------------------------------------------------
-Alexander Feilke (3):
-      ARM: dts: imx7s: add boot phase properties
-      ARM: dts: tqma7: add boot phase properties
-      ARM: dts: imx7-mba7: Deassert BOOT_EN after boot
-
-Dario Binacchi (1):
-      ARM: dts: imx6ull-engicam-microgea-bmm: set touchscreen glitch threshold
-
-Frank Li (23):
-      ARM: dts: imx35: rename emi to emi-bus to fix CHECK_DTBS warning
-      ARM: dts: imx35: rename i2c clock-names to ipg
-      ARM: dts: imx35: remove simple-bus 'usbphy'
-      ARM: dts: imx51-ts4800: rename fpga@0 to fpga@0,0
-      ARM: dts: imx51-babbage: rename at45db321d@1 to flash@1
-      ARM: dts: imx6qdl-sr-som-ti: use fixed-clock instead of clock-frequency
-      ARM: dts: imx53-smd: Add power supply node for fsl,sgtl5000
-      ARM: dts: imx7s-warp: Remove data-lanes and clock-lanes for ov2680
-      ARM: dts: imx: rename iomuxc to pinmux
-      ARM: dts: imx: remove redundant intermediate node in pinmux hierarchy
-      ARM: dts: imx27-eukrea: replace interrupts with interrupts-extended
-      ARM: dts: imx27-eukrea-cpuimx27: rename uart8250 to serial
-      ARM: dts: imx27: remove fsl,imx-osc26m from fixed-clock node
-      ARM: dts: imx23: fix interrupt names for dma-controller@80024000
-      ARM: dts: imx23/28: add "led-" prefix to LED subnodes
-      ARM: dts: imx28: rename gpios-reset to reset-gpios of hx8357
-      ARM: dts: imx28-sps1: remove undocumented fallback compatible "mr25h256"
-      ARM: dts: imx28-tx28: rename compatible to "edt,edt-ft5206"
-      ARM: dts: imx28-tx28: remove undocumented aliases
-      ARM: dts: imx6qdl: add label for system clocks
-      ARM: dts: imx: add required clocks and clock-names for ccm
-      ARM: dts: imx25: rename node name tcq to touchscreen
-      ARM: dts: imx6sx: remove fallback compatible string fsl,imx28-lcdif
-
-Ian Ray (5):
-      ARM: dts: imx: bx50v3: Configure switch PHY max-speed to 100Mbps
-      ARM: dts: imx: bx50v3: Configure phy-mode to eliminate a warning
-      ARM: dts: imx: b850v3: Use alphabetical sorting
-      ARM: dts: imx: b850v3: Define GPIO line names
-      ARM: dts: imx: b850v3: Disable unused usdhc4
-
-Marek Vasut (2):
-      ARM: dts: imx6ull-dhcor: Handle both 1DX and 1YN WiFi on i.MX6ULL DHCOR
-      ARM: dts: imx: Add DT overlays for DH i.MX6 DHCOM SoM and boards
-
-Max Merchel (8):
-      ARM: dts: imx6qdl-tqma6: add missing labels
-      ARM: dts: imx6qdl: add boot phase properties
-      ARM: dts: imx6qdl-tqma6: add boot phase properties
-      ARM: dts: imx6qdl-mba6: add boot phase properties
-      ARM: dts: imx6ul/imx6ull: add boot phase properties
-      ARM: dts: imx6ul[l]-tqma6ul[l]: add boot phase properties
-      ARM: dts: mba6ulx: add boot phase properties
-      ARM: dts: tqma6ul[l]: correct spelling of TQ-Systems
-
-Peng Fan (1):
-      ARM: dts: imx7ulp: Add CPU clock and OPP table support
-
- arch/arm/boot/dts/nxp/imx/Makefile                 |  37 ++++
- arch/arm/boot/dts/nxp/imx/imx1-ads.dts             | 108 +++++----
- arch/arm/boot/dts/nxp/imx/imx1-apf9328.dts         |  92 ++++----
- arch/arm/boot/dts/nxp/imx/imx1.dtsi                |   2 +-
- .../boot/dts/nxp/imx/imx25-eukrea-cpuimx25.dtsi    |  38 ++--
- .../imx25-eukrea-mbimxsd25-baseboard-cmo-qvga.dts  |   6 +-
- .../nxp/imx/imx25-eukrea-mbimxsd25-baseboard.dts   | 134 ++++++-----
- arch/arm/boot/dts/nxp/imx/imx25-pdk.dts            | 190 ++++++++--------
- arch/arm/boot/dts/nxp/imx/imx25.dtsi               |   4 +-
- arch/arm/boot/dts/nxp/imx/imx27-apf27.dts          |  58 +++--
- arch/arm/boot/dts/nxp/imx/imx27-apf27dev.dts       | 194 ++++++++--------
- .../boot/dts/nxp/imx/imx27-eukrea-cpuimx27.dtsi    | 244 ++++++++++-----------
- .../nxp/imx/imx27-eukrea-mbimxsd27-baseboard.dts   | 196 ++++++++---------
- arch/arm/boot/dts/nxp/imx/imx27-pdk.dts            | 132 ++++++-----
- .../dts/nxp/imx/imx27-phytec-phycard-s-rdk.dts     |  92 ++++----
- .../dts/nxp/imx/imx27-phytec-phycard-s-som.dtsi    | 174 ++++++++-------
- .../boot/dts/nxp/imx/imx27-phytec-phycore-rdk.dts  | 206 +++++++++--------
- .../boot/dts/nxp/imx/imx27-phytec-phycore-som.dtsi | 154 +++++++------
- arch/arm/boot/dts/nxp/imx/imx27.dtsi               |   4 +-
- arch/arm/boot/dts/nxp/imx/imx31.dtsi               |   2 +-
- arch/arm/boot/dts/nxp/imx/imx35.dtsi               |  30 +--
- arch/arm/boot/dts/nxp/imx/imx51-babbage.dts        |   2 +-
- arch/arm/boot/dts/nxp/imx/imx51-ts4800.dts         |   2 +-
- arch/arm/boot/dts/nxp/imx/imx53-smd.dts            |  18 ++
- arch/arm/boot/dts/nxp/imx/imx6dl-alti6p.dts        |   4 +-
- .../boot/dts/nxp/imx/imx6dl-eckelmann-ci4x10.dts   |   4 +-
- arch/arm/boot/dts/nxp/imx/imx6dl-lanmcu.dts        |   4 +-
- arch/arm/boot/dts/nxp/imx/imx6dl-plybas.dts        |   4 +-
- arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts        |   4 +-
- arch/arm/boot/dts/nxp/imx/imx6dl-prtmvt.dts        |   4 +-
- arch/arm/boot/dts/nxp/imx/imx6dl-qmx6.dtsi         |   5 +-
- arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts        |   4 +-
- arch/arm/boot/dts/nxp/imx/imx6q-b450v3.dts         |   1 +
- arch/arm/boot/dts/nxp/imx/imx6q-b650v3.dts         |   1 +
- arch/arm/boot/dts/nxp/imx/imx6q-b850v3.dts         |  53 +++--
- arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi        |   4 +
- arch/arm/boot/dts/nxp/imx/imx6q-prtwd2.dts         |   4 +-
- ...mx6qdl-dhcom-overlay-panel-dpi-ch101olhlwh.dtsi |  75 +++++++
- .../nxp/imx/imx6qdl-dhcom-overlay-panel-dpi.dtsi   |  61 ++++++
- .../imx6qdl-dhcom-pdk2-overlay-497-200-x12.dtso    |  28 +++
- ...dhcom-pdk2-overlay-505-200-x12-ch101olhlwh.dtso |  26 +++
- .../imx6qdl-dhcom-pdk2-overlay-531-100-x21.dtso    |  32 +++
- .../imx6qdl-dhcom-pdk2-overlay-531-100-x22.dtso    |  32 +++
- .../imx6qdl-dhcom-pdk2-overlay-560-200-x12.dtso    |  39 ++++
- ...com-picoitx-overlay-626-100-x2-ch101olhlwh.dtso |   8 +
- arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-som.dtsi   |   6 +-
- arch/arm/boot/dts/nxp/imx/imx6qdl-mba6.dtsi        |  12 +
- arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi    |   4 +-
- arch/arm/boot/dts/nxp/imx/imx6qdl-sr-som-ti.dtsi   |   8 +-
- arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6.dtsi       |  11 +
- arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi      |   5 +-
- arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi      |   6 +-
- arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi             |  24 +-
- arch/arm/boot/dts/nxp/imx/imx6sx.dtsi              |   4 +-
- .../boot/dts/nxp/imx/imx6ul-tqma6ul-common.dtsi    |  10 +
- arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul2.dtsi     |   1 +
- .../boot/dts/nxp/imx/imx6ul-tqma6ul2l-mba6ulx.dts  |   4 +-
- arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul2l.dtsi    |   1 +
- .../boot/dts/nxp/imx/imx6ul-tqma6ulx-common.dtsi   |   1 +
- .../boot/dts/nxp/imx/imx6ul-tqma6ulxl-common.dtsi  |   1 +
- arch/arm/boot/dts/nxp/imx/imx6ul.dtsi              |   7 +
- arch/arm/boot/dts/nxp/imx/imx6ull-dhcor-som.dtsi   |   4 +-
- .../dts/nxp/imx/imx6ull-engicam-microgea-bmm.dts   |   1 +
- arch/arm/boot/dts/nxp/imx/imx6ull-tqma6ull2.dtsi   |   1 +
- .../dts/nxp/imx/imx6ull-tqma6ull2l-mba6ulx.dts     |   2 +-
- arch/arm/boot/dts/nxp/imx/imx6ull-tqma6ull2l.dtsi  |   3 +-
- arch/arm/boot/dts/nxp/imx/imx6ull.dtsi             |   1 +
- arch/arm/boot/dts/nxp/imx/imx7-mba7.dtsi           |  13 ++
- arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi          |   5 +
- arch/arm/boot/dts/nxp/imx/imx7s-warp.dts           |   2 -
- arch/arm/boot/dts/nxp/imx/imx7s.dtsi               |   5 +
- arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi             |  28 +++
- arch/arm/boot/dts/nxp/imx/mba6ulx.dtsi             |   6 +
- arch/arm/boot/dts/nxp/mxs/imx23-olinuxino.dts      |   2 +-
- arch/arm/boot/dts/nxp/mxs/imx23.dtsi               |   6 +-
- arch/arm/boot/dts/nxp/mxs/imx28-apf28dev.dts       |   2 +-
- arch/arm/boot/dts/nxp/mxs/imx28-apx4devkit.dts     |   2 +-
- arch/arm/boot/dts/nxp/mxs/imx28-cfa10036.dts       |   2 +-
- arch/arm/boot/dts/nxp/mxs/imx28-cfa10049.dts       |   2 +-
- arch/arm/boot/dts/nxp/mxs/imx28-cfa10055.dts       |   2 +-
- arch/arm/boot/dts/nxp/mxs/imx28-cfa10056.dts       |   2 +-
- arch/arm/boot/dts/nxp/mxs/imx28-duckbill-2-485.dts |   4 +-
- .../boot/dts/nxp/mxs/imx28-duckbill-2-enocean.dts  |   6 +-
- arch/arm/boot/dts/nxp/mxs/imx28-duckbill-2.dts     |   4 +-
- arch/arm/boot/dts/nxp/mxs/imx28-duckbill.dts       |   4 +-
- arch/arm/boot/dts/nxp/mxs/imx28-evk.dts            |   2 +-
- arch/arm/boot/dts/nxp/mxs/imx28-m28cu3.dts         |   4 +-
- arch/arm/boot/dts/nxp/mxs/imx28-sps1.dts           |   2 +-
- arch/arm/boot/dts/nxp/mxs/imx28-tx28.dts           |   9 +-
- 89 files changed, 1607 insertions(+), 1140 deletions(-)
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-overlay-panel-dpi-ch101olhlwh.dtsi
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-overlay-panel-dpi.dtsi
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-497-200-x12.dtso
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-505-200-x12-ch101olhlwh.dtso
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-531-100-x21.dtso
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-531-100-x22.dtso
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-pdk2-overlay-560-200-x12.dtso
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-dhcom-picoitx-overlay-626-100-x2-ch101olhlwh.dtso
+>
+> So we can only create common dtsi like so:
+>
+> imx91-93-phyboard-segin-peb-av-18.dtsi
+>
+> and still use separate dtsos:
+>
+> imx91-phyboard-segin-peb-av-18.dtso
+> imx93-phyboard-segin-peb-av-18.dtso
+>
+> Is that your idea?
+>
+> BR,
+>
+> Florijan Plohl
+>
+> > > --
+> > > 2.43.0
+> > >
 
