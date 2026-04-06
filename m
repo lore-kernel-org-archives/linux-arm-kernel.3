@@ -4,75 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 208E3E9D818
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 05:17:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C841E9D83B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 05:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6aXghZoCygeJrBopuhQ5ADnEtlIYNmXUNUX+mGg8e7Y=; b=Fo1tdEWyU5mv79Vqij3gOgsORz
-	vwZui8xiY3XPNV56ocBAYjYMMI2UwT+U8xACTXV9eJYKzjRAifBLYfLIQW0PP43yIcqW5slnDzZgJ
-	SI1ux8wHomylv8mCSmAIzAxT5AUFWbrT6IjjSNKQA10sXCqQqtJMDRRi9i2wZNfXDljzhzg03N+3U
-	pMdpCjrGQWIrcWtGy1+Lx1r9s62Mc1HDHUOb+KVVBsw5npGoNipLeAp1d8Fidni07xW19uf4mKGOc
-	5mOHfYY1Ug/jY38X7OlR5i27pKa7Ed6FNEo1RZ7nYVyPVR7h1FydIkLwfFir8tt95E2BLozuuWnBN
-	mdyZmGeg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9055rfnlg7fgk8VgLDnbJoGSSSMJhUoeMa9BriZD0iA=; b=mr57YeCCAPuClPlUkhz3387gMY
+	LcpDyS+LvR7I06JwxfUQJPpVpKOqAXBvENceHEdAqrXh6zdUu3W3NJgyHWMs72LLpkN2doJGDiAmn
+	V9CITeXNI52uSRRQX8T43efxgHoF/e99zBr7AdD0PtdIfr2ELSB7AqJCFzMlULoBJCGQ6K9nSURC3
+	dpacOEikZBRZAuxamhVfuQJH5mabeEmHsSvhBGUnWUv6+hm5VIby9sBTVtL7p9d+3rsBad1+kqEhG
+	tJVwxyKdbmXLqKDwPzymLYCb7OyBOAfa7sHubpfaOOxO9l2876yKpHOlHOYUBhIzGhWlqRASIi90E
+	xeFE889w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9cKc-00000004nYC-2v8C;
-	Mon, 06 Apr 2026 05:17:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w9cqP-00000004p8z-1Gg6;
+	Mon, 06 Apr 2026 05:49:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9cKb-00000004nXo-22ia
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Apr 2026 05:17:01 +0000
+	id 1w9cqM-00000004p8S-348I;
+	Mon, 06 Apr 2026 05:49:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8CA2D60127;
-	Mon,  6 Apr 2026 05:16:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0AEF5C2BCB0;
-	Mon,  6 Apr 2026 05:16:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3F9B540DF5;
+	Mon,  6 Apr 2026 05:49:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63BD2C4CEF7;
+	Mon,  6 Apr 2026 05:49:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775452619;
-	bh=2/R8hwVT5UvTjOtMlKMI6RGTlmZeC9oO2S1Skxh7MUk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=FdQwBZMzgbUuWgWJkYSNCAmV4A2938HAFpmu9KT7qL967o1En5v7M70701nB8oUb0
-	 rcIPK40aEMy95A3o68NUfKLG48GVygAq7cIVg0x9hJJaVW8A68zBQcDiCdFJUWt7lp
-	 +O0wuZzYwqxamyufJonseCmoANXy6pEYbkSCg7LBs6HVAJLlx6GzsUChtDn077rd78
-	 t9g0fGMRV5xFcM4xxhiyXi34WY2U2z8m0qZhL1am1779GRo+4gJAVR5B9bZ4a65ws8
-	 mNOeVpqhTyeQsHPpqXYD1YA8wAgGce4ZgtISRWJnbjPZSjoccmBYvXhn1YQMhYaDOY
-	 MOzVSKz9GnKag==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EE28AE9D839;
-	Mon,  6 Apr 2026 05:16:58 +0000 (UTC)
-From: Alexandre Messier via B4 Relay <devnull+alex.me.ssier.org@kernel.org>
-Date: Mon, 06 Apr 2026 01:16:58 -0400
-Subject: [PATCH v2 2/4] ARM: dts: qcom: msm8974pro-htc-m8: add NFC support
+	s=k20201202; t=1775454589;
+	bh=4thoVWcMmw4MkYMp3l5E6+QpX/OSrE+K9Cc8bqDe0Ss=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bgXI890rX05ktv9oPv33HQAY90wguIlq0zeVRBIbmeDKXLA/c1mE1e5ydxu7hcduI
+	 kTZ9nO2+CkEVZjIDQGxe5bkfu2tmthXMLqKff1bqGFPaj+08+iHC08xjxc92g1DPEE
+	 KwVzjDTLqo2zhZDXkIrcuY5ezh3/H92TsCyGn+R1UdZRVT4pOQwueRJNE+JlSFvysL
+	 s3ofTuZZGE6Y2soiw9bIkJ/yTIdEF/ZL9+ftN7CICVlDH8rbwnbFFIAgWY4IyHBOsS
+	 w2C3bcHMNGEXDzAizYg/NRL6FHwycOJuhBHTezD2YnqnSWkNgtd7JsDL5QtQx8LstU
+	 +278O8yuLefAQ==
+Date: Mon, 6 Apr 2026 11:19:45 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Douglas Anderson <dianders@chromium.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Christoph Hellwig <hch@lst.de>, Eric Dumazet <edumazet@google.com>,
+	Johan Hovold <johan@kernel.org>, Leon Romanovsky <leon@kernel.org>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Alexey Kardashevskiy <aik@ozlabs.ru>,
+	Robin Murphy <robin.murphy@arm.com>, Frank.Li@kernel.org,
+	alex@ghiti.fr, andre.przywara@arm.com, andrew@lunn.ch,
+	aou@eecs.berkeley.edu, catalin.marinas@arm.com,
+	dmaengine@vger.kernel.org, driver-core@lists.linux.dev,
+	gregory.clement@bootlin.com, iommu@lists.linux.dev, jgg@ziepe.ca,
+	kees@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-snps-arc@lists.infradead.org,
+	linux@armlinux.org.uk, m.szyprowski@samsung.com, palmer@dabbelt.com,
+	peter.ujfalusi@gmail.com, pjw@kernel.org,
+	sebastian.hesselbarth@gmail.com, tsbogend@alpha.franken.de,
+	vgupta@kernel.org, will@kernel.org, willy@infradead.org
+Subject: Re: [PATCH v4 7/9] driver core: Replace dev->dma_coherent with
+ dev_dma_coherent()
+Message-ID: <adNJebiLoHqgQEyZ@vaman>
+References: <20260404000644.522677-1-dianders@chromium.org>
+ <20260403170432.v4.7.If839f6dde98979fce177f70c6c74689a1904ee76@changeid>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260406-m8-dts-additions-v2-2-c4c4bd50af48@me.ssier.org>
-References: <20260406-m8-dts-additions-v2-0-c4c4bd50af48@me.ssier.org>
-In-Reply-To: <20260406-m8-dts-additions-v2-0-c4c4bd50af48@me.ssier.org>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Luca Weiss <luca@lucaweiss.eu>, linux-arm-kernel@lists.infradead.org, 
- linux-arm-msm@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht, 
- phone-devel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Alexandre Messier <alex@me.ssier.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775452618; l=1054;
- i=alex@me.ssier.org; s=20240603; h=from:subject:message-id;
- bh=JU0TS6dILZCLSZHyXLFTL6ZYC0tHdKQqnoQppdUf1kQ=;
- b=BwfaQTGnDfue3ZWWdpP2EfasX/7LitrEQGjtuzkKlETFgafs5q6Xw6Y/vx7zos53mjvYL/zT9
- N0o5zj3Y7PQAF4pAL5x5Qr6K1Nhnyh18M1duHV63gO/aetiyzSOFXKV
-X-Developer-Key: i=alex@me.ssier.org; a=ed25519;
- pk=JjRqVfLd2XLHX2QTylKoROw346/1LOyZJX0q6cfnrKw=
-X-Endpoint-Received: by B4 Relay for alex@me.ssier.org/20240603 with
- auth_id=168
-X-Original-From: Alexandre Messier <alex@me.ssier.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260403170432.v4.7.If839f6dde98979fce177f70c6c74689a1904ee76@changeid>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260405_224950_811508_246660B1 
+X-CRM114-Status: UNSURE (   5.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,52 +89,16 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: alex@me.ssier.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexandre Messier <alex@me.ssier.org>
+On 03-04-26, 17:05, Douglas Anderson wrote:
+> In C, bitfields are not necessarily safe to modify from multiple
+> threads without locking. Switch "dma_coherent" over to the "flags"
+> field so modifications are safe.
 
-Add the NFC chip used in the HTC One M8 to its device tree.
-
-The downstream vendor kernel used an I2C frequency of 384 kHz
-for this bus. Use the same value as the vendor.
-
-Signed-off-by: Alexandre Messier <alex@me.ssier.org>
----
- arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
-
-diff --git a/arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts b/arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts
-index 37df271dbdeb..f24882dbeef3 100644
---- a/arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts
-+++ b/arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts
-@@ -65,6 +65,22 @@ vreg_vph_pwr: vreg-vph-pwr {
- 	};
- };
- 
-+&blsp1_i2c3 {
-+	clock-frequency = <384000>;
-+
-+	status = "okay";
-+
-+	nfc@28 {
-+		compatible = "nxp,pn544-i2c";
-+		reg = <0x28>;
-+
-+		interrupts-extended = <&tlmm 144 IRQ_TYPE_LEVEL_HIGH>;
-+
-+		enable-gpios = <&tlmm 2 GPIO_ACTIVE_LOW>;
-+		firmware-gpios = <&tlmm 3 GPIO_ACTIVE_HIGH>;
-+	};
-+};
-+
- &pm8941_lpg {
- 	qcom,power-source = <1>;
- 
+Acked-by: Vinod Koul <vkoul@kernel.org>
 
 -- 
-2.53.0
-
-
+~Vinod
 
