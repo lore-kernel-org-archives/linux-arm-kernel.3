@@ -4,93 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59268F46C47
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 14:29:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0428F46C46
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 14:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YL71vnLj9QpiyZ0wn2k6qRLWCKTBHQ5qGJXoAsI/k7Y=; b=QUjXFTU7xkiJXkycO7HyieS4dN
-	KsDHvzoBkg1N57HjbnbZQIgSn7TQf2fA+YSI7s5WqkSmvbYqqAcqzMH495oHBUPegqRtBbMWcyNaK
-	tHPCUKQVKmuEiil++L8oGxRH5TGPS01qRLgQw0jUYppAEhbYKTuDqHpEmn9LKhgUmONjsMw4RlBuj
-	w0jZ3PpA3CleMDiqVef4/KXyOm2b3lisJiq2o99JlXw0TmXH5f8UsOSLgDCf7BPTONGNPR7sfi3M+
-	+U5xIK2vDE4MSxqnEzpytnt+rDgyjD7Zl/0+nXX69I125+b8V3xaUfCltULVmDC9y3lqxUmQG3Wtg
-	ZT9gyslA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aybtIzcYOFk4NYjCCutoTxAAiO25iEOBYjxMd1pVN1E=; b=tramEdJTd1LsqdpWHhJBN9jP8W
+	UM3jvv9FLT1nUPGhcqdl4bTuD6f8igWEMrApuv68tYusht2srMvfe4cA6ezf10i7+cTFS9WLrI0UU
+	AIqu6pLGhEZyASXEEHSCZ6tt6Ilbi7V4XGL67PR50aEOKXntFjZzfJZjL9WIY/HkHQkS9GSMiv0sq
+	kdnzw0Xoi3TM6ENvn56Iyu31M+cy55g0mdGHD1Ff93vTqq3wxsiFPdx93j4Xk7x+AS9u1LFnSuoMX
+	IyIAEkVCefVAL2BsuZr+DZ4fe8FiOKhF0DbJnP0p7yjiPnu+jl7+sLBe2eQcfMe4eOJodq3bHGrhe
+	6r4Ms2Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9kx9-00000005Bn6-3nwj;
-	Mon, 06 Apr 2026 14:29:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w9kxa-00000005C3U-3pIO;
+	Mon, 06 Apr 2026 14:29:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9kx8-00000005BmD-14eN;
-	Mon, 06 Apr 2026 14:29:22 +0000
+	id 1w9kxY-00000005C1f-0MMh
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Apr 2026 14:29:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AF2D860128;
-	Mon,  6 Apr 2026 14:29:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18640C4CEF7;
-	Mon,  6 Apr 2026 14:29:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EC53143460;
+	Mon,  6 Apr 2026 14:29:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33CBAC4CEF7;
+	Mon,  6 Apr 2026 14:29:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775485761;
-	bh=mq7jaFSupKdEJsnxgCQqUuadHGtAR9I1r4rs0c7hHHQ=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date:From;
-	b=e+As036J1OE0LRbTE+udyTNDvuoDowrAh30WCvKKTZxym8JYzXrGS3G26uVdSwDP6
-	 mK3MA9FuaKrw2yn6f4O66Z1zhBrF83QZGaW2/46S36F1e6+tbLI+XC7JYbZzu9Ff2r
-	 Vc9MuNOWNw+/xBZ4JS1jso2x8nUy5yuCaECtI4kKEB+tx7ukCV87lbA0JAlLkDmp68
-	 5qUbmQ7T+w79KOxCzYtbCnYkoItoAf9EdIcuSMqk4t18yFBWMycOAV32nSBypHspnL
-	 g2OeTE7e+5JZx9HvznWqHMpzI2q+cViUAFIk3S0nmqEP7lP8RFEUbEhMLbJzveYwbK
-	 H+dQk2i2obNKw==
+	s=k20201202; t=1775485786;
+	bh=ArnEb8iTrG1HBn6Jh5O6C/vH6Bepv8pxSQWcTcSm1Po=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mLbMoc9WXhk8SpQWQmCo9HHXPF0j9EG3YBeLn7wt4tcy0vkKBF4WqHN3IpHtX9ssr
+	 HFZoLaaigQ/JRHn1WU6lRelwuOJ6nqGmxNvn1LkaX5i80Bo64fVXyAUHeMoShf1gtL
+	 zwkQpMeedJ1UORslXzRomM2b120RxH+SXzNt/yJ2cWzMeda+LP7MYDaG2iXgUT2XSe
+	 rCyS9rxKCBBbwYFsdhvV7xDP3vTX6KdaaD9OQ/rsLDvhbL1EepXrP0BTl+0Igg+J3b
+	 o+ZWkgNqX/Oh1WCD44iPytxt9m80b66haBxOqMHaPHYNQcmnBNifxJkoBkzVA6DXVb
+	 9svWHf8UB7icA==
+Date: Mon, 6 Apr 2026 19:59:39 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Bjorn Andersson <andersson@kernel.org>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
+	mark.rutland@arm.com, lpieralisi@kernel.org, bjorn.andersson@oss.qualcomm.com, 
+	konrad.dybcio@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Konrad Dybcio <konradybcio@kernel.org>, 
+	Konrad Dybcio <konrad.dybcio@linaro.org>, Sudeep Holla <sudeep.holla@arm.com>
+Subject: Re: [PATCH] firmware: psci: Set pm_set_resume/suspend_via_firmware()
+ for SYSTEM_SUSPEND
+Message-ID: <a6lce6bq3yjzidxzq6w2xuiyevvgfuu5crbijtzeiukecmwvhh@k2w64iyj7q7q>
+References: <20251231162126.7728-1-manivannan.sadhasivam@oss.qualcomm.com>
+ <acrdFfk8al80dynq@baldur>
+ <ces6pczk5yo2v5h6sga2dl2xuncqv4pmudunc7dhyeiy6swfh7@bk7vxdxrsrzz>
+ <adO1lS2g8Hewj0Ol@baldur>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v2 32/33] rust: kbuild: support global per-version
- flags
-From: Tamir Duberstein <tamird@kernel.org>
-To: Miguel Ojeda <ojeda@kernel.org>
-Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
- Danilo Krummrich <dakr@kernel.org>, 
- Andreas Hindborg <a.hindborg@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Courbot <acourbot@nvidia.com>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Brendan Higgins <brendan.higgins@linux.dev>, David Gow <david@davidgow.net>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, 
- Todd Kjos <tkjos@android.com>, Christian Brauner <christian@brauner.io>, 
- Carlos Llamas <cmllamas@google.com>, Alice Ryhl <aliceryhl@google.com>, 
- Jonathan Corbet <corbet@lwn.net>, Boqun Feng <boqun@kernel.org>, 
- Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
- rust-for-linux@vger.kernel.org, linux-kbuild@vger.kernel.org, 
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
- Vlastimil Babka <vbabka@kernel.org>, 
- "Liam R . Howlett" <Liam.Howlett@oracle.com>, 
- Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Alexandre Ghiti <alex@ghiti.fr>, 
- linux-riscv@lists.infradead.org, nouveau@lists.freedesktop.org, 
- dri-devel@lists.freedesktop.org, Rae Moar <raemoar63@gmail.com>, 
- linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
-In-Reply-To: <20260405235309.418950-33-ojeda@kernel.org>
-References: <20260405235309.418950-1-ojeda@kernel.org>
- <20260405235309.418950-33-ojeda@kernel.org>
-Date: Mon, 06 Apr 2026 10:28:57 -0400
-Message-Id: <177548573700.95472.352775942128786057.b4-review@b4>
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=710; i=tamird@kernel.org;
- h=from:subject:message-id; bh=mq7jaFSupKdEJsnxgCQqUuadHGtAR9I1r4rs0c7hHHQ=;
- b=owGbwMvMwCV2wYdPVfy60HTG02pJDJmXD+tzWYj+6dTpkBWbUfp7wsO/m/iYktnfTG+7aHHYb
- GZpoV1Bx0QWBjEuBksxRZZE0UN701Nv75HNfHccZg4rE8gQaZEGBiBgYeDLTcwrNdIx0jPVNtQz
- NNIx0DFm4OIUgKl+5czwP+PqFPMTQeFWGn039hd23v20JE567dHFIme6jpjbVEjwr2RkuOrsmlm
- kEVS0PyKl+13SNTPpN+1S8XIH9s/y+Sn8aJMrFwA=
-X-Developer-Key: i=tamird@kernel.org; a=openpgp;
- fpr=5A6714204D41EC844C50273C19D6FF6092365380
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <adO1lS2g8Hewj0Ol@baldur>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260406_072948_180756_2273A00B 
+X-CRM114-Status: GOOD (  38.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,21 +79,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 06 Apr 2026 01:53:08 +0200, Miguel Ojeda <ojeda@kernel.org> wrote:
-> Sometimes it is useful to gate global Rust flags per compiler version.
-> For instance, we may want to disable a lint that has false positives in
-> a single version [1].
+On Mon, Apr 06, 2026 at 08:48:44AM -0500, Bjorn Andersson wrote:
+> On Tue, Mar 31, 2026 at 12:09:38PM +0530, Manivannan Sadhasivam wrote:
+> > On Mon, Mar 30, 2026 at 03:48:05PM -0500, Bjorn Andersson wrote:
+> > > On Wed, Dec 31, 2025 at 09:51:26PM +0530, Manivannan Sadhasivam wrote:
+> > > > From: Konrad Dybcio <konradybcio@kernel.org>
+> > > > 
+> > > > PSCI specification defines the SYSTEM_SUSPEND feature which enables the
+> > > > firmware to implement the suspend to RAM (S2RAM) functionality by
+> > > > transitioning the system to a deeper low power state. When the system
+> > > > enters such state, the power to the peripheral devices might be removed.
+> > > 
+> > > What is the actual extent of "peripheral devices" in this definition?
+> > > 
+> > 
+> > All devices except the ones backing volatile memory (DDR).
+> > 
 > 
-> We already had helpers like `rustc-min-version` for that, which we use
-> elsewhere, but we cannot currently use them for `rust_common_flags`,
-> which contains the global flags for all Rust code (kernel and host),
-> because `rustc-min-version` depends on `CONFIG_RUSTC_VERSION`, which
-> does not exist when `rust_common_flags` is defined.
+> I do not agree that this should be the interpretation on a Qualcomm
+> platform.
 > 
-> [...]
+> 
+> We do have the corner case of DeepSleep, where this indeed is what will
+> happen (not sure if other resource votes in the system are ignored
+> though?). For all typical targets making the PSCI jump might result in
+> CX being turned off (unless something else votes for it...). 
+> 
+> State is still retained on a case-by-case basis and some parts of the
+> system are still functional when we enter such state - and that is the
+> system state we desire.
+> 
+> Making the interpretation that all SoC resources will be disabled will
+> result in a large amount of unnecessary save/restore work, in addition
+> to breaking many use cases.
+> 
 
-Reviewed-by: Tamir Duberstein <tamird@kernel.org>
+I think adding these kind of per-device power state might be cumbersome as it
+may vary from SoC to SoC. But I do agree on the pain point of context
+save/restore work which will happen majority of the times since DeepSleep
+platforms are limited as of now.
+
+> I do however not think that such interpretation is necessary, the
+> pm_suspend_via_firmware() kernel-doc describes that the firmware might
+> perform actions to power down things, it isn't specific about the
+> extent, so I think that's fine - while equating this to DeepSleep (SoC
+> fully powered down) is too extreme.
+> 
+> 
+> What bothers me with this patch in itself is that the behavior in
+> relation to PCIe does match the description of pm_suspend_via_firmware()
+> - the firmware does things which causes PCIe to "break", but IMHO this
+> is merely because PCIe operates without voting for the resources that it
+> depends on. But you keep telling me that this can't be solved in the PCI
+> layer...
+> 
+
+We do not want to vote for any resources during system suspend from the PCI
+layer (host controller driver in specific), and that's the problem (only a few
+platforms are exceptions).
+
+Let's say if we have connected a NVMe to the PCIe bus. Since this is a passive
+device i.e, not supporting wakeup, we can safely put the PCIe bus into low power
+mode (turning off resources) to save power during system suspend (let's
+ignore the NVMe driver behavior now). Now the suspend (s2ram) behavior will be:
+
+CXPC - Controller context will be retained by switching the power domain to
+always ON domain
+
+DeepSleep - Controller context will be lost once the SoC enters CXPC, since CXPC
+is the pre-requisite for entering DeepSleep
+
+So only if the NVMe driver had prepared for the power loss, the driver will
+resume successfully, if the platform used DeepSleep.
+
+> If we can agree that pm_suspend_via_firmware() relates to the state of
+> CX - and merely the implicit PCSI-owned vote thereof - then I think we
+> should merge this patch.
+> 
+
+Sure. It makes logical sense to relate this API behavior with the state of CX.
+I'll send v2 with the updated commit message.
+
+> 
+> But regardless of this interpretation. If PCI/NVMe relies on the PSCI
+> implementation's implicit vote for CX and its absence breaks NVMe during
+> suspend, then we're faced with exactly the same problem if the user
+> chooses s2idle as their means of suspending the system.
+> 
+
+From the PCIe controller driver, we are going to keep the votes in s2idle, but
+just let go in s2ram.
+
+> I.e. on a Qualcomm platform, we should flag PM_SUSPEND_FLAG_FW_SUSPEND
+> in s2idle as well - because from PCI/NVMe's point of view, the relevant
+> resources will be gone in either configuration.
+> 
+
+No they don't, as we do not plan to drop votes in s2idle. So
+PM_SUSPEND_FLAG_FW_SUSPEND only applies to s2ram.
+
+- Mani
 
 -- 
-Tamir Duberstein <tamird@kernel.org>
+மணிவண்ணன் சதாசிவம்
 
