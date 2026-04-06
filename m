@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46257E9D83A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 05:17:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E13FE9D839
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 05:17:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pCOYnZPuslJEhMjEr3bgExdhe1+YT3Dai/hpJcXRP6U=; b=y3mLLaSMtWjeUhm8iZ+WbLZ2pZ
-	66f/cwVnLu3EbQUrnGAeeN0OJiGfsKSnz4qEIBSZVfxHRavzO2ZiyvUe3JV5dvOIsmAjPz/hNh6t6
-	7ZYZT3FlEEdzj7yDAWL8wbpSY1Afoitl+bpdEPAbIcPuI57yl/jxCDx7I+w0Mapt+Flah76rpDUwM
-	V0cCD8nrgGfW75TtwtxWlR4bTErz2V0WdzpL4V5ZP0akUsPzQzwIdyGvBIfONk3QxIuPrR0y2KEqS
-	/JsJ/8UQyUAQwsV8DIgVCuOa9xe2Dh4p6rIoEMlrC9tzev1R1OqpBEzAH3nIUUWr8wFqccVE6nVJn
-	cHsd4CoA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/UXt3bPhf3gAi60w6VgErdTxugJQUy11Kvsg7OmDUi4=; b=ofcKfsx5ednvfQBAEauj6Zqrp0
+	jQkld26wA1CwsRUA4CGyZtuNPbbME0nCFZXN0QOPwTkaskpGoyiMnwXCbtkXPsncEZoKKf9nGF3aZ
+	QFS7OWszsty/coY345gcHNOsRJhMd5ftv5wcNuuXYQgJ+dwdkL9PzLdVVXNVD9clZAqpl5ZatDvUx
+	kRj18FSelOlDi8ppofxGu0Z/VB2A2YrQ4A/7qgYJB2oBp71XkOmnXxK7uUVL1eRQ2iE3La1QTkt2e
+	cg7o1IJ8AZJ3p/bzn+OOW1zJL/dU1vIk6B8L0H72qZyMJDnsMhdh7Gomraobe78wvnawlvFu/nXTi
+	txwLRsOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9cKf-00000004nZQ-2hhJ;
-	Mon, 06 Apr 2026 05:17:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w9cKd-00000004nYU-1OMB;
+	Mon, 06 Apr 2026 05:17:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9cKa-00000004nWr-1b6l
+	id 1w9cKa-00000004nWo-1auF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Apr 2026 05:17:02 +0000
+	Mon, 06 Apr 2026 05:17:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F0EB44551;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0FD0243998;
 	Mon,  6 Apr 2026 05:16:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 27305C4AF11;
-	Mon,  6 Apr 2026 05:16:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DA9C4C4CEF7;
+	Mon,  6 Apr 2026 05:16:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775452619;
-	bh=diflTiFOAqcvYf3crqey6uaDb/lDhFF77VdlL8dJwh0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=tydBbXyNhHRsQlT+UoWjS4c4ZsjuYKsADuemDDlvtg3uycQRNYV8C6L23UZ1Uq74D
-	 oK965UOWaaLK+Kxae/QZrXVH86NB8EaDK36IGLY7bB7UHo1AKDue7fjE7/ScJMyslS
-	 Tis5+ch3xgQfs1kqEpOalErzvZD5KKGp5TNgxPnBPCaf2kz6NhYsqPr4tM1dQqY/Fq
-	 K9uISVtkIDeGwpu7Zp4oiyE/xIzu6Wnmw8gpJnC7up8Qsa6WWPE37iGIfU1Jr56Pps
-	 qbz8qxmg+Vq+ApFy6J4HY7KlPfdZUr3Gb2IIObmouGxK1IcyQWnzPM9HoSsxgmnqBX
-	 DNFq2jcxRMT5Q==
+	s=k20201202; t=1775452618;
+	bh=Mgy1duuWt0vR+mviueizCgI5vS8MuDmlLDbmB0xbpMk=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=OXYTN+AnGs/YdVN6DJem8778RfBGXNCC9Kaq1ij+hKGvY8xxIf8FM9TBg14VIsswH
+	 iNMx1Q1AaxBmwXgNqHxggZbWhq1oCz8R7UqR9p3HwJvMOHb+hnE/csi/t+S1y1xOoD
+	 IhQ8IxhkTNAzODSGPMEkw6uw9Iv789NATipDjD9UvlleGZPBvLYKNaIczwog+Jz13c
+	 w+zpGcq0zmY0gPzn3xSmDSCZCFL3Doie9pU2nK+F+v+mW9DeV6XqG0zERslFhRO9OI
+	 Was+j7CMyazusPShytxygf4ehfjRwbmnnenFfaQlEaNy26jLA8Kw/phlhN7izabL3I
+	 5wsEHNMfO6doA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1F48AE9D818;
-	Mon,  6 Apr 2026 05:16:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C8B85E9D818;
+	Mon,  6 Apr 2026 05:16:58 +0000 (UTC)
 From: Alexandre Messier via B4 Relay <devnull+alex.me.ssier.org@kernel.org>
-Date: Mon, 06 Apr 2026 01:17:00 -0400
-Subject: [PATCH v2 4/4] ARM: dts: qcom: msm8974pro-htc-m8: add touchscreen
+Subject: [PATCH v2 0/4] Describe more hardware of the HTC One (M8)
+Date: Mon, 06 Apr 2026 01:16:56 -0400
+Message-Id: <20260406-m8-dts-additions-v2-0-c4c4bd50af48@me.ssier.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260406-m8-dts-additions-v2-4-c4c4bd50af48@me.ssier.org>
-References: <20260406-m8-dts-additions-v2-0-c4c4bd50af48@me.ssier.org>
-In-Reply-To: <20260406-m8-dts-additions-v2-0-c4c4bd50af48@me.ssier.org>
+X-B4-Tracking: v=1; b=H4sIAMhB02kC/32NMQ6DMAxFr4I8NygJIEqn3qNiSIkBD0Blo6gVy
+ t3rcoBufv7fzwcIMqHArTiAMZHQtir4SwHDHNYJDUVl8NY3ztrWLFcTdzEhRtq1q9OgWefCGHw
+ NevZiHOl9Kh+98kyyb/w5PyT32/6RJWesaarYhmfVdDW29wVLEUIuN56gzzl/AfqKz4izAAAA
+X-Change-ID: 20251007-m8-dts-additions-ac20291afa24
 To: Bjorn Andersson <andersson@kernel.org>, 
  Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -61,21 +63,24 @@ To: Bjorn Andersson <andersson@kernel.org>,
 Cc: Luca Weiss <luca@lucaweiss.eu>, linux-arm-kernel@lists.infradead.org, 
  linux-arm-msm@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht, 
  phone-devel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Alexandre Messier <alex@me.ssier.org>
+ linux-kernel@vger.kernel.org, Alexandre Messier <alex@me.ssier.org>, 
+ Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>, 
+ linux-leds@vger.kernel.org, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775452618; l=1510;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775452618; l=1221;
  i=alex@me.ssier.org; s=20240603; h=from:subject:message-id;
- bh=A5B+vqZ179ZaDPlA3FT17LpryB1RKmK0Cto2Yde+kzY=;
- b=XFv28L9PjBz5gSbfK4yWi2aPoBQ1/kpYHiDEUwKx6u1z4TCJiy+e/YO806jiJrDus5Qvnkm1R
- s4N3BEMGiUtAYb1RCQKiqyBKCrtCw7pDynzRajt3cZUG4kNZgNIpTOe
+ bh=Mgy1duuWt0vR+mviueizCgI5vS8MuDmlLDbmB0xbpMk=;
+ b=3Tt0iAZ6E7HTSlxgNIYL/SaG2UX02aKjPrgvG5Vsw6RtmW2qn6Lj9foVwxIs2s4rY7huMh71e
+ 27OECyK4cxNBxK3B+fvfm1ZVQ0JhBS9e58EuwJbHEOEtT+wOjrGpKJX
 X-Developer-Key: i=alex@me.ssier.org; a=ed25519;
  pk=JjRqVfLd2XLHX2QTylKoROw346/1LOyZJX0q6cfnrKw=
 X-Endpoint-Received: by B4 Relay for alex@me.ssier.org/20240603 with
  auth_id=168
 X-Original-From: Alexandre Messier <alex@me.ssier.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260405_221700_497007_D2CC6B0F 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20260405_221700_493360_322478AF 
+X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,75 +96,41 @@ Reply-To: alex@me.ssier.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexandre Messier <alex@me.ssier.org>
+Add hardware description for these parts of the HTC One (M8):
 
-Add the touchscreen device node for the HTC One (M8).
-
-The downstream vendor kernel used an I2C frequency of 384 kHz
-for this bus. Use the same value as the vendor.
+ - Notification LEDs
+ - Bluetooth
+ - NFC
+ - Touchscreen
 
 Signed-off-by: Alexandre Messier <alex@me.ssier.org>
 ---
- arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts | 36 +++++++++++++++++++++++
- 1 file changed, 36 insertions(+)
+Changes in v2:
+- Rebased on top of 7.0-rc6
+- In patch 1, change color of one LED from amber to orange.
+- In patch 1, use a multicolor LED to represent the logical grouping
+  of the LEDs.
+- In patches 2 and 4, note in the commit message the usage of same
+  I2C bus frequency as the downstream kernel.
+- In patch 3, gather Reviewed-by tag from Konrad Dybcio.
+- Link to v1: https://lore.kernel.org/r/20251007-m8-dts-additions-v1-0-53d7ab3594e7@me.ssier.org
 
-diff --git a/arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts b/arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts
-index 2edf407db567..66ad93e7dd20 100644
---- a/arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts
-+++ b/arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts
-@@ -65,6 +65,35 @@ vreg_vph_pwr: vreg-vph-pwr {
- 	};
- };
- 
-+&blsp1_i2c2 {
-+	clock-frequency = <384000>;
-+
-+	status = "okay";
-+
-+	touch@20 {
-+		compatible = "syna,rmi4-i2c";
-+		reg = <0x20>;
-+
-+		interrupts-extended = <&tlmm 18 IRQ_TYPE_LEVEL_LOW>;
-+
-+		pinctrl-0 = <&ts_int_pin>;
-+		pinctrl-names = "default";
-+
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		rmi4-f01@1 {
-+			reg = <0x1>;
-+			syna,nosleep-mode = <1>;
-+		};
-+
-+		rmi4-f11@11 {
-+			reg = <0x11>;
-+			syna,sensor-type = <1>;
-+		};
-+	};
-+};
-+
- &blsp1_i2c3 {
- 	clock-frequency = <384000>;
- 
-@@ -353,6 +382,13 @@ cmd-data-pins {
- 		};
- 	};
- 
-+	ts_int_pin: ts-int-pin-state {
-+		pins = "gpio18";
-+		function = "gpio";
-+		drive-strength = <2>;
-+		bias-disable;
-+	};
-+
- 	wcnss_pin_a: wcnss-pin-active-state {
- 		bt-pins {
- 			pins = "gpio35", "gpio43", "gpio44";
+---
+Alexandre Messier (4):
+      ARM: dts: qcom: msm8974pro-htc-m8: add status LEDs
+      ARM: dts: qcom: msm8974pro-htc-m8: add NFC support
+      ARM: dts: qcom: msm8974pro-htc-m8: add Bluetooth pins
+      ARM: dts: qcom: msm8974pro-htc-m8: add touchscreen
 
+ arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts | 94 ++++++++++++++++++++++-
+ 1 file changed, 90 insertions(+), 4 deletions(-)
+---
+base-commit: 7aaa8047eafd0bd628065b15757d9b48c5f9c07d
+change-id: 20251007-m8-dts-additions-ac20291afa24
+
+Best regards,
 -- 
-2.53.0
+Alexandre Messier <alex@me.ssier.org>
 
 
 
