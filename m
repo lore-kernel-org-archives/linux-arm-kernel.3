@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F62F46C59
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 16:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D16EF46C5A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 16:47:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JmUEiDUzB/d9b/qanJMLIiDxDt0VTx0SbrbgQo9fEow=; b=2Cv6vOQSbGELS3eSStwRKjxDnJ
-	OOb9KXKHyMpTxyNFmSjyl/sz7B76A1pdI3dODECNdKAYLlEbPVYV12VHd22tRl9mor2rbPLZYR9Pa
-	yneURXPlmsOuDC938DoAoBjcW4ZvwO1bv5mGtc6nPYZNlgwJEPp/1bciyicIDENRNgEMve/M6yhTN
-	fI437QjR8JyKjlEZD98Q5DNfrdDolDoCjReJrTcDKx4fyHonJDulrmaoXWf96MDlRsy/c9vr+b2pi
-	q5jygYJPKVEGtggdqSX4UHMxIHpJLDVq2yJY4kbZz92hzcCPEaWZH5hlOgklsa5fPAffqjhKNaB3F
-	M/DH6yKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hfKuixJ8pE1hcPIZ9H3UU1eYP61TJGKgmNCDwQTcXKI=; b=QUL19wipTIH5lYhA2C4r0kkEX2
+	VbyE2787gjmkoIBaZxvycLhdlDFtfv8XJgUXqdtlwUAqKW1YX4cmCtjfYw2fED2WliIS/XdHw/CIJ
+	5v9OvngIanNPahfBJn+67TYrW0BiIACxYkjjxuHAaz/tfwgQqkQxNVR3+5ph7CwDYfMSbzKrT128o
+	0SRJerOgTmcpyBbTpou2gT0AkPCXb7GGVvbw1ib+EnFBmqeppX0aw2ay9gESqecwAdMW7119NX0Kz
+	VzfWQW4nMTL388HzT3WDaAQ8FmQWzVRvhw1fvaZ8CHRi3gbga3lzpVq1vX6/H/jjRYtT0g60XHsZH
+	IsuyaZIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9n5y-00000005Kbt-0lSx;
-	Mon, 06 Apr 2026 16:46:38 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9n5u-00000005KbS-3Beo
+	id 1w9n6i-00000005Kfu-3I19;
+	Mon, 06 Apr 2026 16:47:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w9n6g-00000005KfT-18N5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Apr 2026 16:46:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=JmUEiDUzB/d9b/qanJMLIiDxDt0VTx0SbrbgQo9fEow=; b=SiVGeKcCZ4Ko1Gig+ppZMpDo1/
-	KG4HxlpvM+wMoozcXKVM/PzJQQhqCmRTI+Ok/vgi9GnfuRsnKENdjnXEiFoG9PdbdcR4/P9KprbnU
-	6OcVQ2kbtBpRsBAurTC2Yob1IgCjKVFf4i8/LSbmzGiAkmj1wJZFwdrBZp6m701PL+bhcmX8OK4Li
-	F2eIoGst+Uu0AM2g0QxCaFmfGyIGAG+H2v5sTX6hzW2cm+dXOq0WYcyaA6N5rO1+yRXgvew8QU/im
-	WozeUgmbg6BymjPjShU9YrkRevLbNkFWBN6NwEiDCQUhIlr7Iha8xTJ2clM/zr4Siq44GSChY7C1a
-	4oZ2rj4w==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:38218)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1w9n5j-000000008Ja-1kAT;
-	Mon, 06 Apr 2026 17:46:23 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1w9n5g-000000001Re-2IJt;
-	Mon, 06 Apr 2026 17:46:20 +0100
-Date: Mon, 6 Apr 2026 17:46:20 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Julian Braha <julianbraha@gmail.com>, davem@davemloft.net,
-	peppe.cavallaro@st.com, alexandre.torgue@foss.st.com,
-	mcoquelin.stm32@gmail.com, kuba@kernel.org, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] stmmac: cleanup dead dependencies on STMMAC_PLATFORM
- and STMMAC_ETH in Kconfig
-Message-ID: <adPjXKz-UNgyLzAl@shell.armlinux.org.uk>
-References: <20260402145858.240231-1-julianbraha@gmail.com>
- <CAMuHMdUfzVSQpadJYpEqPJ_UOBAgswnGzD_bp_U3U6jt2dy0dg@mail.gmail.com>
+	Mon, 06 Apr 2026 16:47:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0A93516F3;
+	Mon,  6 Apr 2026 09:47:13 -0700 (PDT)
+Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3732F3F7D8;
+	Mon,  6 Apr 2026 09:47:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775494038; bh=ozT5c4q3To0rGt3iOF4BIad4dP2hdLkN0+ux1is1UlI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=eHDD8BPx6jnFrGRUoEKXnmPzzp8oBJR9NFw+CMewBNOJYyy0Jnp7iXSo5Ghcxr205
+	 QLWUfDgSfw4f60J8NH+vVU9uKcX6s5b5neakHoJcGxHFkVKLu+tcFfPg/3O2PYIbdz
+	 HfFmOz25tou5tHulTS2Qb+pVpMrNksejuNbZXSO4=
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: [PATCH 0/2] KVM: arm64: Handle unsupported guest translation granules
+Date: Mon,  6 Apr 2026 17:46:16 +0100
+Message-ID: <20260406164618.3312473-1-weilin.chang@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdUfzVSQpadJYpEqPJ_UOBAgswnGzD_bp_U3U6jt2dy0dg@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_094635_086699_A6906A62 
-X-CRM114-Status: GOOD (  20.23  )
+X-CRM114-CacheID: sfid-20260406_094722_430647_FB932B67 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,70 +75,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 06, 2026 at 10:23:46AM +0200, Geert Uytterhoeven wrote:
-> Hi Julian,
-> 
-> On Thu, 2 Apr 2026 at 17:07, Julian Braha <julianbraha@gmail.com> wrote:
-> > There are already 'if STMMAC_ETH' and 'STMMAC_PLATFORM'
-> > conditions wrapping these config options, making the
-> > 'depends on' statements duplicate dependencies (dead code).
-> >
-> > I propose leaving the outer 'if STMMAC_PLATFORM...endif' and
-> > 'if STMMAC_ETH...endif' conditions, and removing the
-> > individual 'depends on' statements.
-> >
-> > This dead code was found by kconfirm, a static analysis tool for Kconfig.
-> >
-> > Signed-off-by: Julian Braha <julianbraha@gmail.com>
-> > Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> > ---
-> > v2: add back default STMMAC_PLATFORM for DWMAC_GENERIC
-> > Link to v1: https://lore.kernel.org/all/20260331125817.117091-1-julianbraha@gmail.com/
-> 
-> Thanks for your patch, which is now commit e2f152c822cf5d37 ("stmmac:
-> cleanup dead dependencies on STMMAC_PLATFORM and STMMAC_ETH in
-> Kconfig") in net-next.
-> 
-> > --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> > @@ -20,7 +20,6 @@ if STMMAC_ETH
-> >  config STMMAC_SELFTESTS
-> >         bool "Support for STMMAC Selftests"
-> >         depends on INET
-> > -       depends on STMMAC_ETH
-> >         default n
-> >         help
-> >           This adds support for STMMAC Selftests using ethtool. Enable this
-> > @@ -29,7 +28,6 @@ config STMMAC_SELFTESTS
-> >
-> >  config STMMAC_PLATFORM
-> >         tristate "STMMAC Platform bus support"
-> > -       depends on STMMAC_ETH
-> >         select MFD_SYSCON
-> >         default y
-> 
-> This now lets us have STMMAC_PLATFORM=y and STMMAC_ETH=m.
-> Does that actually link?
+Hi,
 
-Really?
+This small series fixes the granule size selection for software stage-1
+and stage-2 walks. Previously we treat the guest's TCR/VTCR.TGx as-is
+and use the encoded granule size for the walks. However this is
+incorrect if the granule sizes are not advertised in the guest's
+ID_AA64MMFR0_EL1.TGRAN*. The architecture specifies that when an
+unsupported size is programed in TGx, it must be treated as an
+implemented size. Fix this by choosing an available one while
+prioritizing PAGE_SIZE.
 
-Let's try forcing it:
+The first patch is a refactor to prepare for the fix, and the fix is
+implemented in the second patch. I lightly tested for regressions by
+booting up nested guests of each page size.
 
-CONFIG_STMMAC_ETH=m
-CONFIG_STMMAC_SELFTESTS=y
-CONFIG_STMMAC_PLATFORM=y
+Thanks!
 
-and make oldconfig...
+Wei-Lin Chang (2):
+  KVM: arm64: Factor out TG0/1 decoding of VTCR and TCR
+  KVM: arm64: Fallback to a supported value for unsupported guest TGx
 
-    STMicroelectronics Multi-Gigabit Ethernet driver (STMMAC_ETH) [M/n/y/?] m
-      Support for STMMAC Selftests (STMMAC_SELFTESTS) [Y/n/?] y
-      STMMAC Platform bus support (STMMAC_PLATFORM) [M/n/?] m
-
-CONFIG_STMMAC_PLATFORM is forced to 'm'. 'y' is not permitted.
-
-I think you're mistaken.
+ arch/arm64/kvm/at.c     | 121 +++++++++++++++++++++++++--------
+ arch/arm64/kvm/nested.c | 145 ++++++++++++++++++++++++++++------------
+ 2 files changed, 194 insertions(+), 72 deletions(-)
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.43.0
+
 
