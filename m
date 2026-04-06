@@ -4,56 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D5DEEF4ECD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 10:35:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EF66EF4ECB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 10:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lQvLl3xmXTudXH4KmDhO0iBLnK0m4L8kweIt4onxX4o=; b=zd2SSUse2ImVCy
-	34kN7lEOXncXTiV3LVpI6h3O59wcXwGWGIAZxK2a0zPCVAoZiBIx2VR47cXDtFWeZBhu9PZaTX4W9
-	RcU84Djktrg3AWWU3kQ06uJtWvaX4Gphc5GOpWTuAYkozcUuyS2Pu8hkQcSGrJ5udQqhqkMcQJMOU
-	yjeJ4uw7W3OBek/aAXYmHcYCxG7aqGhJ0kHKF5bTf85xcPYLFgRdhzb78GOsdRlxXsalU/6fngShM
-	jDvk5G8TzayuxvX36StLROvIr+l8hVOs2YWAIfA5FH+VFFbL0NpxODgZdb8zA2IiU9jZPAVNoZK/D
-	uh5HD80pQIbbnftBk9FA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oYmqSeO1KSVshB+ZeFm+TZoDgFiMv5apz0qj8kroaAA=; b=Vxy9GJGSUMBH3Bayg9gvgND0FL
+	Zs/xcQ0EKM0Qn1/OGUjGxAB6+Pf70/R9cL5WN9/FZsTWuJYcajpqs1hUCXNzDy56fNq5Cr/NtQ+tT
+	8W8muEztn6OHYVt1E9AfGq74zqIujk/iUCr/wpfBAeTZbuSsorLcktZQITwQSwSnNaVNupnWpMiyD
+	C4PYhgYrWhjl5sMFMZAXTERU2JYcp1X2p9gU+wg6qeMzpO5bkr9/aw93/6zozTEaF91F918T4Kg0k
+	dbdhWqmxFwnyfSft6sEQv8c4OVruS/cY+ptCDbCABJ60M35zhfxpE29FX0Jfixdp1PsL/hy97tY7l
+	lTMk3xFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9hIE-0000000513R-1Wko;
-	Mon, 06 Apr 2026 10:34:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1w9hIH-0000000515O-3qUN;
+	Mon, 06 Apr 2026 10:34:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9hIC-0000000513I-28hP;
-	Mon, 06 Apr 2026 10:34:52 +0000
+	id 1w9hIH-0000000514k-1cFp;
+	Mon, 06 Apr 2026 10:34:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B90C8600AC;
-	Mon,  6 Apr 2026 10:34:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B2A5C4CEF7;
-	Mon,  6 Apr 2026 10:34:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CD5C460103;
+	Mon,  6 Apr 2026 10:34:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30FF2C4CEF7;
+	Mon,  6 Apr 2026 10:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775471691;
-	bh=k7JJlwi84yGGOLofZzS7mPP1hD0WkiobHK3wyYJGTnc=;
-	h=From:Subject:Date:To:Cc:From;
-	b=LxDMv5uoiDF75CnKZwgbub7t23mOm4GYDxsxuY7wEaJJv1/eFCq10Stqvm3nHQZMN
-	 HRwXMycW4z0aeKno8BH0SjSP23fHYmAYv5cZYi/9+jGjBIAcKW1UoXNN7BbglQ+xTs
-	 mAew6Ar3rRjqaRXc58RW1MgIO9Q4ucREXgj2w32bo/bEY9BH6X5u1/Qh6X749cN94M
-	 g3AKBb5eL28nI74G10pE6U4Ro8ZnqVn9QrrHkWPYNOLirxIIGtwBo4gCtj5pTtDFhp
-	 P4yRU2lSlw7BQFx4Ce5pPwBImTkI7DnDP6iDR32Bp3MtBwUAf8rQ/bKkQkqe4EdV4b
-	 bMDjh4JZCafAg==
+	s=k20201202; t=1775471696;
+	bh=24QybONLSULPujbEyYxPmLfX9/i2FaVu9f7Sw/XmRpc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=XVJ9imZfjseY5hYJl/k7rGVmDibqUfi7NRNql+RUn4lqzo3zCmoOSMVDvvQxmXZsC
+	 vvWmeD00rat6Culpxw9rUzBq3qQvf9rG5bhFOjf7FvNbCO98CQAop4ZydR7HQpeBa3
+	 KCZHILWomCO3KIahICd7EH/iE49mzP+Cay0AahLmjOhtjndUv9QMjt1oQSfjC5sQou
+	 xrzfL1F2RBnPYltdr3VXh1bhA+MetrkeQ5AmFaQjE6XH5Q+E7+H7XcinAUmRcAGtIG
+	 BAhvktmWjMyliks1uXhycejaW3eAe8HI/U5gT3daqmqwYnWtJsfowOcA47p3u9bgai
+	 TJUqfE/zjXajQ==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: [PATCH net-next v3 00/12] net: airoha: Support multiple
- net_devices connected to the same GDM port
-Date: Mon, 06 Apr 2026 12:34:05 +0200
-Message-Id: <20260406-airoha-eth-multi-serdes-v3-0-ab6ea49d59ff@kernel.org>
+Date: Mon, 06 Apr 2026 12:34:07 +0200
+Subject: [PATCH net-next v3 02/12] net: airoha: Set PPE cpu port for GDM2
+ if loopback is enabled
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XNQQ6CMBQE0KuQrv2mlBaiK+9hXJTyoT9ia9pKM
- IS72xAT44LlZDJvFhYxEEZ2LhYWcKJI3uVQHQpmrHYDAnU5M8FFzSshQVPwVgMmC4/XmAgy0GG
- EvpWtUjVio2qW18+APc2bfGUOEzicE7vlxlJMPry3y6nc+q9+2tWnEjhw3ivRmarmRl/uGByOR
- x+GDZ3ED5K83IdEhrSRotEoW8T2D1rX9QOihXylEgEAAA==
-X-Change-ID: 20260324-airoha-eth-multi-serdes-fb4b556ee756
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260406-airoha-eth-multi-serdes-v3-2-ab6ea49d59ff@kernel.org>
+References: <20260406-airoha-eth-multi-serdes-v3-0-ab6ea49d59ff@kernel.org>
+In-Reply-To: <20260406-airoha-eth-multi-serdes-v3-0-ab6ea49d59ff@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -62,8 +59,7 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
 Cc: Christian Marangi <ansuelsmth@gmail.com>, 
  Benjamin Larsson <benjamin.larsson@genexis.eu>, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- Xuegang Lu <xuegang.lu@airoha.com>
+ netdev@vger.kernel.org, devicetree@vger.kernel.org
 X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,85 +75,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-EN7581 or AN7583 SoCs support connecting multiple external SerDes (e.g.
-Ethernet or USB SerDes) to GDM3 or GDM4 ports via a hw arbiter that
-manages the traffic in a TDM manner. As a result multiple net_devices can
-connect to the same GDM{3,4} port and there is a theoretical "1:n"
-relation between GDM ports and net_devices.
+Add missing PPE cpu port configuration for GDM2 if QoS loopback is enabled
+for GDM3 or GDM4 ports. Similar to commit 'f44218cd5e6a ("net: airoha:
+Reset PPE cpu port configuration in airoha_ppe_hw_init()"), this patch is
+fixing an issue not visible to the user (so we do not need to backport it)
+since airoha_eth driver currently supports just the internal phy available
+via the MT7530 DSA switch and there are no WAN interfaces officially
+supported since PCS/external phy is not merged mainline yet (it will be
+posted with following patches).
 
-           ┌─────────────────────────────────┐
-           │                                 │    ┌──────┐
-           │                         P1 GDM1 ├────►MT7530│
-           │                                 │    └──────┘
-           │                                 │      ETH0 (DSA conduit)
-           │                                 │
-           │              PSE/FE             │
-           │                                 │
-           │                                 │
-           │                                 │    ┌─────┐
-           │                         P0 CDM1 ├────►QDMA0│
-           │  P4                     P9 GDM4 │    └─────┘
-           └──┬─────────────────────────┬────┘
-              │                         │
-           ┌──▼──┐                 ┌────▼────┐
-           │ PPE │                 │   ARB   │
-           └─────┘                 └─┬─────┬─┘
-                                     │     │
-                                  ┌──▼──┐┌─▼───┐
-                                  │ ETH ││ USB │
-                                  └─────┘└─────┘
-                                   ETH1   ETH2
-
-This series introduces support for multiple net_devices connected to the
-same Frame Engine (FE) GDM port (GDM3 or GDM4) via an external hw
-arbiter. Please note GDM1 or GDM2 does not support the connection with
-the external arbiter.
-
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
-Changes in v3:
-- Fix MTU and VIP configuration when the GDM port is shared between
-  multiple net_devices.
-- Add sanity check for nbq parameter.
-- Add missing of_node_get() for net_device np node.
-- Check if GDM port is shared before decresing device MTU.
-- Move port forward configuration in airoha_dev_stop() before
-  configuring DMA tx/rx engine.
-- Introduce PRIV_FLAG_WAN parameter.
-- Link to v2: https://lore.kernel.org/r/20260401-airoha-eth-multi-serdes-v2-0-ac427ae4beeb@kernel.org
+ drivers/net/ethernet/airoha/airoha_eth.c | 8 ++++++--
+ drivers/net/ethernet/airoha/airoha_eth.h | 3 ++-
+ drivers/net/ethernet/airoha/airoha_ppe.c | 6 +++---
+ 3 files changed, 11 insertions(+), 6 deletions(-)
 
-Changes in v2:
-- Rename multiplexer in arbiter in the commit logs.
-- Rebase on top of net-next main branch.
-- Add missing PPE cpu port configuration for GDM2 when loopback is
-  enabled.
-- Link to v1: https://lore.kernel.org/r/20260329-airoha-eth-multi-serdes-v1-0-00f52dc360ca@kernel.org
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 8b070dadca11..4b5581596043 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -1730,7 +1730,7 @@ static int airoha_set_gdm2_loopback(struct airoha_gdm_port *port)
+ {
+ 	struct airoha_eth *eth = port->qdma->eth;
+ 	u32 val, pse_port, chan, nbq;
+-	int src_port;
++	int i, src_port;
+ 
+ 	/* Forward the traffic to the proper GDM port */
+ 	pse_port = port->id == AIROHA_GDM3_IDX ? FE_PSE_PORT_GDM3
+@@ -1774,6 +1774,9 @@ static int airoha_set_gdm2_loopback(struct airoha_gdm_port *port)
+ 		      SP_CPORT_MASK(val),
+ 		      __field_prep(SP_CPORT_MASK(val), FE_PSE_PORT_CDM2));
+ 
++	for (i = 0; i < eth->soc->num_ppe; i++)
++		airoha_ppe_set_cpu_port(port, i, AIROHA_GDM2_IDX);
++
+ 	if (port->id == AIROHA_GDM4_IDX && airoha_is_7581(eth)) {
+ 		u32 mask = FC_ID_OF_SRC_PORT_MASK(nbq);
+ 
+@@ -1812,7 +1815,8 @@ static int airoha_dev_init(struct net_device *dev)
+ 	}
+ 
+ 	for (i = 0; i < eth->soc->num_ppe; i++)
+-		airoha_ppe_set_cpu_port(port, i);
++		airoha_ppe_set_cpu_port(port, i,
++					airoha_get_fe_port(port));
+ 
+ 	return 0;
+ }
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index af29fc74165b..3088c24db26a 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -651,7 +651,8 @@ int airoha_get_fe_port(struct airoha_gdm_port *port);
+ bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
+ 			      struct airoha_gdm_port *port);
+ 
+-void airoha_ppe_set_cpu_port(struct airoha_gdm_port *port, u8 ppe_id);
++void airoha_ppe_set_cpu_port(struct airoha_gdm_port *port, u8 ppe_id,
++			     u8 fport);
+ bool airoha_ppe_is_enabled(struct airoha_eth *eth, int index);
+ void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *skb,
+ 			  u16 hash, bool rx_wlan);
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index c057bb2d105d..2e6391f9f24b 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -85,10 +85,9 @@ static u32 airoha_ppe_get_timestamp(struct airoha_ppe *ppe)
+ 	return FIELD_GET(AIROHA_FOE_IB1_BIND_TIMESTAMP, timestamp);
+ }
+ 
+-void airoha_ppe_set_cpu_port(struct airoha_gdm_port *port, u8 ppe_id)
++void airoha_ppe_set_cpu_port(struct airoha_gdm_port *port, u8 ppe_id, u8 fport)
+ {
+ 	struct airoha_qdma *qdma = port->qdma;
+-	u8 fport = airoha_get_fe_port(port);
+ 	struct airoha_eth *eth = qdma->eth;
+ 	u8 qdma_id = qdma - &eth->qdma[0];
+ 	u32 fe_cpu_port;
+@@ -174,7 +173,8 @@ static void airoha_ppe_hw_init(struct airoha_ppe *ppe)
+ 			if (!port)
+ 				continue;
+ 
+-			airoha_ppe_set_cpu_port(port, i);
++			airoha_ppe_set_cpu_port(port, i,
++						airoha_get_fe_port(port));
+ 		}
+ 	}
+ }
 
----
-Lorenzo Bianconi (12):
-      dt-bindings: net: airoha: Add EN7581 ethernet-ports properties
-      net: airoha: Set PPE cpu port for GDM2 if loopback is enabled
-      net: airoha: Rely on net_device pointer in airoha_dev_setup_tc_block signature
-      net: airoha: Rely on net_device pointer in HTB callbacks
-      net: airoha: Rely on net_device pointer in ETS callbacks
-      net: airoha: Introduce airoha_gdm_dev struct
-      net: airoha: Move airoha_qdma pointer in airoha_gdm_dev struct
-      net: airoha: Rely on airoha_gdm_dev pointer in airhoa_is_lan_gdm_port()
-      net: airoha: Support multiple net_devices for a single FE GDM port
-      net: airoha: Do not stop GDM port if it is shared
-      net: airoha: Introduce WAN device flag
-      net: airoha: Rename get_src_port_id callback in get_sport
-
- .../devicetree/bindings/net/airoha,en7581-eth.yaml |  44 +-
- drivers/net/ethernet/airoha/airoha_eth.c           | 725 ++++++++++++++-------
- drivers/net/ethernet/airoha/airoha_eth.h           |  39 +-
- drivers/net/ethernet/airoha/airoha_ppe.c           |  45 +-
- 4 files changed, 585 insertions(+), 268 deletions(-)
----
-base-commit: 3741f8fa004bf598cd5032b0ff240984332d6f05
-change-id: 20260324-airoha-eth-multi-serdes-fb4b556ee756
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.53.0
 
 
