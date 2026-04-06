@@ -4,56 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05841E9D834
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 13:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12D3EE9D834
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 13:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tK3O76BzFxR3NTCCUf/kOsnoLPAQBJDNUZl95DxKc8Y=; b=2x3XCFHT8XgVnBKzjGvUGiOXD8
-	dD85eht0P40d4PAjqRWs2LASLJdFh+66nkLDkNsV8v/l//5lKEKX55ILubTiwR9kUjEIQ7D2UoSmG
-	2d3KCPPjsGQeiP1xTm3UEBxqVmiDASju3WGe0w834VqNZtEj4g2rbp/nciivy8eM8rwt2X1aMmAik
-	YanxE4sJ8YJHrlANWGs9Ppb+mUaJokFEHIDshNxcq+WZ/yjF24w1fQaea/f3FQhpZ4gXCU3u+vzUM
-	boDcfik9KdQsE4kX8uWetZA8Q6G4cEFTXBDwcUb+m0Vb9wOxUvzCShrKdruyFdSf1abpgPLdsDXy8
-	SuWxmxqA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L1DPbypnRN6ywhOj6sopS9XYa2M4HLkcjGlSFf0OkEo=; b=Btb+MUWEH7DS332i0UeBZNCwUa
+	JEukm8W4Ol5eBrpGHl93moQueK9yTUGOrsFdhxshG+oAduXswB/CjUPWT8msZxLDJcRDopDntTFKP
+	ZsPLqnHNGjsm2r8ankqQOIQtV73mKsou3wHitR+GFrbMJ61k8NjFtjIDYrTo8X0i5J2GxLmTFq/qk
+	pBcvGmz7yFq9KWQFoFrT6ElyjIaUHUQNkcJQARhLKNP4QzLwyrJ4iRfvBaN7A1AZ5fcpZuAWGy9iK
+	cpKpdjyfzaGf4rpm0u2mQKa7JdIil3XUyDFi7brJKi1dtZBBjk+DW72Q8CP20kZIowGRXcH+xLkRo
+	2+OD96qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9jtf-0000000593C-3ej3;
-	Mon, 06 Apr 2026 13:21:43 +0000
+	id 1w9k9f-000000059la-3Qau;
+	Mon, 06 Apr 2026 13:38:15 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9jte-0000000592o-1FR0
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Apr 2026 13:21:42 +0000
+	id 1w9k9e-000000059l1-19ag;
+	Mon, 06 Apr 2026 13:38:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC531600AC;
-	Mon,  6 Apr 2026 13:21:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5CB9C4CEF7;
-	Mon,  6 Apr 2026 13:21:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6155B60123;
+	Mon,  6 Apr 2026 13:38:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3371EC4CEF7;
+	Mon,  6 Apr 2026 13:38:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775481701;
-	bh=gMzvZgJhPQDGhuIKuU+VTQeMpr2RvuGJOM4ZILaIqFM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=fsgW6wgGxQgAydwtbIDhTk+P+JSilrn1Tax8ZmMrcV+Lk2Pca7Vwn6KzcjoppNSBo
-	 +z15AhJqxG4SvBN8legbu7ORAtxK+8tvlPnTKzS77w9pNmMsosqr2TkxXKQdSN5seZ
-	 BHn3SYsmIKXRrUJ+GBSlqB1dDjSJqUs29KHvbJOvbEmNzlHofD5zukbFBz80Tqj7Xu
-	 cyUwAM+nFcSIcj63J8NRUy9ifU8PUfwHpbH+SOQXuJ0n5NFcvH0bKzoqgIV1WeUaGP
-	 APnZ56ai67I5jUlkIAY54LXp5kfIZK3KX+0CUR1BBFtfOJf3Fm5UV2YIBoxnW10H+H
-	 bDmrBaJslID/Q==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-Subject: [GIT PULL] One more Qualcomm driver update for v7.1
-Date: Mon,  6 Apr 2026 08:21:38 -0500
-Message-ID: <20260406132138.2265013-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	s=k20201202; t=1775482693;
+	bh=9f1+IanKVd/XJVNM+JocRgqDSvnCXUbrGgLpydGoeKs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bDK5t7YTuBMAo9PQTMhzXtsxuuA7TIHYdXteEB7LQ7i4H9uIz4uR3C1MFG+sg4dgF
+	 ihwQHNJJJMdWkQ5t008x/jk/KULPIti5KEfUjgamnxOtivSFLcda5bhM1MD66RuA7B
+	 nHqCcqung8SEGJJghWxkwrwaAVPeBKVy+i9tgK3D5hHGC/WFLtWAAjkueaQ6FUpefC
+	 8oibaimxaauepHVv/mK/hm17WrpB2NBvv23ZKKa3i4/JVKnfGyh9sAkSb3TYAIn1bY
+	 wOCsgGU8dsYPRNuZo1uqua80XOu3cOL5Yu2p0LJn4xf6e+ny9vgjSRj5N61BwIh+Lp
+	 1/E1glJwDXZkQ==
+Message-ID: <e4090ddb-a237-4d55-b916-ea9ca32d6d98@kernel.org>
+Date: Mon, 6 Apr 2026 15:38:07 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] phy: exynos5-usbdrd: fix USB 2.0 HS PHY tuning values for
+ Exynos7870
+To: =?UTF-8?B?xYF1a2FzeiBMZWJpZWR6acWEc2tp?= <kernel@lvkasz.us>,
+ vkoul@kernel.org
+Cc: neil.armstrong@linaro.org, alim.akhtar@samsung.com,
+ andre.draszik@linaro.org, pritam.sutar@samsung.com, kauschluss@disroot.org,
+ johan@kernel.org, ivo.ivanov.ivanov1@gmail.com,
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260406070548.132491-1-kernel@lvkasz.us>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260406070548.132491-1-kernel@lvkasz.us>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,28 +118,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 06/04/2026 09:05, Łukasz Lebiedziński wrote:
+> The existing PHYPARAM0 tuning values for Exynos7870 are incorrect,
+> causing the USB 2.0 PHY to fail high-speed negotiation and fall back
+> to full-speed (12Mbps) operation.
+> 
+> Fix TXVREFTUNE (transmitter voltage reference) from 14 to 3,
+> TXRESTUNE (transmitter impedance) from 3 to 2, and SQRXTUNE
+> (squelch threshold) from 6 to 5. Also explicitly set
+> TXPREEMPPULSETUNE to 0, which was previously missing from the
+> tuning table despite being included in the register mask.
+> 
+> All values are derived from the vendor kernel for the Samsung
+> Galaxy A6 (SM-A600FN), as no public hardware documentation is
+> available for the Exynos7870 USB DRD PHY. With these corrections,
+> the PHY successfully negotiates high-speed (480Mbps) operation.
+> 
+> Fixes: 588d5d20ca8d ("phy: exynos5-usbdrd: add exynos7870 USBDRD support")
+> Cc: stable@vger.kernel.org
+> Tested-by: Łukasz Lebiedziński <kernel@lvkasz.us>
 
-The following changes since commit d6e766e391ef0b2be62682e007223fc72ba7764f:
+Drop you are the author. This is for 3rd party credits.
 
-  Merge branch '20260125-iris-ubwc-v4-1-1ff30644ac81@oss.qualcomm.com' into drivers-for-7.1 (2026-03-30 12:46:14 -0500)
+> Tested-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> Signed-off-by: Łukasz Lebiedziński <kernel@lvkasz.us>
+> ---
+>  drivers/phy/samsung/phy-exynos5-usbdrd.c | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> index 5a181cb4597e..8711a3b62c8e 100644
+> --- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> +++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> @@ -1958,13 +1958,14 @@ const struct exynos5_usbdrd_phy_tuning exynos7870_tunes_utmi_postinit[] = {
+>  			      PHYPARAM0_TXPREEMPAMPTUNE | PHYPARAM0_TXHSXVTUNE |
+>  			      PHYPARAM0_TXFSLSTUNE | PHYPARAM0_SQRXTUNE |
+>  			      PHYPARAM0_OTGTUNE | PHYPARAM0_COMPDISTUNE),
+> -			     (FIELD_PREP_CONST(PHYPARAM0_TXVREFTUNE, 14) |
+> +			     (FIELD_PREP_CONST(PHYPARAM0_TXVREFTUNE, 3) |
+>  			      FIELD_PREP_CONST(PHYPARAM0_TXRISETUNE, 1) |
+> -			      FIELD_PREP_CONST(PHYPARAM0_TXRESTUNE, 3) |
+> +			      FIELD_PREP_CONST(PHYPARAM0_TXRESTUNE, 2) |
+> +			      FIELD_PREP_CONST(PHYPARAM0_TXPREEMPPULSETUNE, 0) |
+>  			      FIELD_PREP_CONST(PHYPARAM0_TXPREEMPAMPTUNE, 0) |
+>  			      FIELD_PREP_CONST(PHYPARAM0_TXHSXVTUNE, 0) |
+>  			      FIELD_PREP_CONST(PHYPARAM0_TXFSLSTUNE, 3) |
+> -			      FIELD_PREP_CONST(PHYPARAM0_SQRXTUNE, 6) |
+> +			      FIELD_PREP_CONST(PHYPARAM0_SQRXTUNE, 5) |
+>  			      FIELD_PREP_CONST(PHYPARAM0_OTGTUNE, 2) |
+>  			      FIELD_PREP_CONST(PHYPARAM0_COMPDISTUNE, 3))),
 
-are available in the Git repository at:
+With tags corrected:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-7.1-2
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-for you to fetch changes up to a31ad9339eff4ce401dec816b01a94b4e3c47898:
 
-  firmware: qcom: scm: Allow QSEECOM on Lenovo IdeaCentre Mini X (2026-04-02 16:09:01 -0500)
-
-----------------------------------------------------------------
-One more Qualcomm driver update for v7.1
-
-Flag Lenovo IdeaCentre Mini X to have functional QSEECOM/uefisecapp.
-
-----------------------------------------------------------------
-Bjorn Andersson (1):
-      firmware: qcom: scm: Allow QSEECOM on Lenovo IdeaCentre Mini X
-
- drivers/firmware/qcom/qcom_scm.c | 1 +
- 1 file changed, 1 insertion(+)
+Best regards,
+Krzysztof
 
