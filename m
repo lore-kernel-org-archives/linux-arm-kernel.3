@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0921CF46C71
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 18:50:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D2F9F46C74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 18:50:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VpzT+ICu0jB9Dwg0WfUKLLeGWuMQN0uNeEJrD8H4J74=; b=qLMPzCtjVJ1hbr6/gjDEe+7Cpi
-	bEVlThdtzhL/EFYGGr5Z08WpOQOI9goR2LgRxRAE0nxu8qaUD5umC/Mqyz+Kz+9QeCqnpvxU8iAwL
-	jigwY9/qSclO3OE/FTKlzAPTWIFCZdNOIXwMymuzEDHnKgD8qQqqTYBhj9/VdlJaHyyElXVPrbBgc
-	5KdowI+aGm9ivbTy3MuETMFATPqooOSjrgWBs5mSJRP0wZn5HkNu/ke2r1q0d7PzPqkMOz3coeUQS
-	MZ3pDZALJ1sF/JdJ/en/Ew36NPvpSYNBX+2P351hphCJnXnhW0SkA6v2uvDfWBahpxijGbTY5kaJX
-	pDurDlMw==;
+	bh=8HXbZLR5ZhYSlqgeT0xflWnaF053OqDtzxDl5bISse0=; b=e221otkpt6MM+l24HC15vYBI4R
+	SNRFKrRHqDfFyf+I32O5JE7+GtfkH1T87KmY8E6R1pRy+DgnUUAhzflC70tXt3MWnCGFyeZ1DeaI4
+	51zHhznwNXor5MELklxoS5ood8oh2ZH9bGna4mHHo/EYSOr2Mjzlx9VhIYbEHy+ohwwHXeD6eEbCc
+	ZpY/kC4Zt/c90Rv0G8BaOhUxoQ+LbDBWO73CJWoRK8AZWLH0oJOCaYqlGNofJGhnib3GSXzaHssS/
+	WzsKTfoAt0dF4cpNyBQE8RhYBcuwfdQPD7y02evxKCCGmnhw5J8ajR5/z/BXGW3qUYcobfyabeHkV
+	dkS1Lcog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9p1k-00000005POT-2JDL;
-	Mon, 06 Apr 2026 18:50:24 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1w9p1m-00000005PPw-3aPd;
+	Mon, 06 Apr 2026 18:50:26 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9p1g-00000005PMG-3mUZ
+	id 1w9p1j-00000005PNd-3kzM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Apr 2026 18:50:22 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-82c1e1a6cfbso2889544b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Apr 2026 11:50:20 -0700 (PDT)
+	Mon, 06 Apr 2026 18:50:24 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-82cd9fa608bso7530781b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Apr 2026 11:50:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1775501420; x=1776106220; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1775501423; x=1776106223; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=VpzT+ICu0jB9Dwg0WfUKLLeGWuMQN0uNeEJrD8H4J74=;
-        b=F7xrnjbxuMSUBu/JxuiNVEcwGaYWm9E32ODfbBh/wqkToCiFFqRtXS8hTGu905zj0S
-         GuwZ9oh5d3ryoqLR2fKb64Dd7BVxRvFWSzFpOsk4JXe12K924Xp77U1dTF0uY6KQASI4
-         cnScX/n5IYYrUn9nneQTbYytx5xfFw9s6VRChvKBnRIljPgVUeY5MJWTlUhG3ctzM5mQ
-         kT3N+eMbqTOHV84En8z6jf987KGc1z3SqpXiLBi0XueMFX2Te+nxnDVVRI9dJH32sZXf
-         LIvMyTlJA+9/7dQW6O8v6iOPct6dlz3OhHf1lUSQBD2jXq+i+bnuDxGlf5ChwtdTtkvd
-         41IQ==
+        bh=8HXbZLR5ZhYSlqgeT0xflWnaF053OqDtzxDl5bISse0=;
+        b=ISKqweNz4ji77fn3/pRThKSdRe42EIZhDbcHpW/aKv3dlaTjTV/o8qfvdFUk3V29hW
+         gjwutaWeKx4KTyNouWRFISc/7UAR6R/+dhPuf6oUa4ftoN8b7WmkhdOxlM+KAui2MNbf
+         ZxtuDirobf94Nt5nyHju2dHpUtzSOOyMF+XE0hWFxQfLRhwJJjKEmm5eVnL+q9fJMUoz
+         lgJOk2oHqj3i5P6QUvY50GUOZN+XXRIiPpoeQP4PI9dbqiDbHmQrIRQEiv01FdAqdx/a
+         z8sOTkR3Eb2OiYjwWKHkAFOkw/G7G68cDjXqVULn2KiVuYOEdt2ROAoFhf7RbYGk8dkE
+         lXyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775501420; x=1776106220;
+        d=1e100.net; s=20251104; t=1775501423; x=1776106223;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VpzT+ICu0jB9Dwg0WfUKLLeGWuMQN0uNeEJrD8H4J74=;
-        b=UxQ+oRbYHajap65KHhhtyIoUzZoIkCGZBr6UM7dCz33jc9CeKtLKzGFS02bj18wQNT
-         +RiNoBkxIiQ4FhmZhyAIhqAfs3NFGMcFV5eBIumedrcPLrDo4H18yDl5nI2wL+hERO9E
-         IPciyrOu34VpMaJwLdHs5MiWk+tt5gxZDgDzfZV6SffDyM3uJA3vQlhBx9f12HO1Lk24
-         l3g04UUcJj7isr9Rs/+ElqYtf6Sf0lTwzbGLGtPgGROtV7o3SbcX21QimPUjbDNYYpMm
-         5nt0w/fRoB/4YgwkHK8tERELTVm7qynsUFR1M/SDNWtKKR3v5ye8TomKkXo6anEXjfw4
-         BLHA==
-X-Forwarded-Encrypted: i=1; AJvYcCU/9+rVXSGaQ0MUwThW0JV9EH6G3AX9NAkuHCvRFMchftndE7CuFuWfoiOAzh+OajxBLFKqh9FPqzaxjgeME7Y5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfuV3nbzxRAiZ913bKvx8zhbqoo6LL0UB1sBDi1EL3uu0OHo5f
-	LxlYMXHQN90RAnjyEG9SX1gtSgo/jZ5tQJtfSzguT84zym33pTZOX3LuXEk82PYy5nmeegveL4r
-	6/ty7WPPJ6EQESm5xWPDLI182zA==
-X-Received: from pfus21.prod.google.com ([2002:a05:6a00:8d5:b0:824:aec2:e5eb])
+        bh=8HXbZLR5ZhYSlqgeT0xflWnaF053OqDtzxDl5bISse0=;
+        b=b4MBC3P+eSGf0fI0W4wiFcUS3S5DSaE/4Psxo2zbNoFpyI0PIUqxOv6kqr1nGrzbo6
+         bp3/71Wi4nicZycXaAUPNfI1cp2R8hlkE+v95UpKyEJDe2e4DpSSvkkVv/2LflJufo07
+         CJHdiRxsN073l5I8XpAJIFmF/jrym8AZ/7HdJYu747V22Li6jA5TVIdIHah1AtComtPh
+         ufyTch0XsuXgikvs+LAgzmRCk7cJ1vImxDzhiGrXybCy2PLsxCct4UlMX+ARM6V5GRae
+         i2+xQu6MKZ/U50sOFAGHoG8i9wRS49YeIQl8oGBDx5/X1USwJjJQ8A9hDSspz0Dy4L9l
+         cQaQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVn8y0rtXtoDeJEbVY8w7lmCfU93c030soSSexaw7qVocXRUYB9+H0tM5a5aXUXExZ+0QDX/uZKVTSBWvNELwEi@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAF+rczrnd0Jszs7RBf3S12yqUp6QZuihAJ0r2WT1eSpMtmON4
+	Y1loeyigWcOtOmRZzrbI3t+lKz0bLRnoY52HjomZ+7oWCMbLCapeYgC/c3L2jnN6D/SPA3tKWeX
+	ipNVxCcbKH1gpVEI5taZy70G9og==
+X-Received: from pfx19.prod.google.com ([2002:a05:6a00:a453:b0:82a:5e62:7b95])
  (user=dylanbhatch job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:2e22:b0:7e8:4471:ae55 with SMTP id d2e1a72fcca58-82d0db72eb0mr14262131b3a.33.1775501419533;
- Mon, 06 Apr 2026 11:50:19 -0700 (PDT)
-Date: Mon,  6 Apr 2026 18:49:54 +0000
+ 2002:a05:6a00:800a:b0:82a:6461:6d15 with SMTP id d2e1a72fcca58-82d0dbbc24dmr13636080b3a.46.1775501422424;
+ Mon, 06 Apr 2026 11:50:22 -0700 (PDT)
+Date: Mon,  6 Apr 2026 18:49:55 +0000
 In-Reply-To: <20260406185000.1378082-1-dylanbhatch@google.com>
 Mime-Version: 1.0
 References: <20260406185000.1378082-1-dylanbhatch@google.com>
 X-Mailer: git-send-email 2.53.0.1213.gd9a14994de-goog
-Message-ID: <20260406185000.1378082-3-dylanbhatch@google.com>
-Subject: [PATCH v3 2/8] arm64, unwind: build kernel with sframe V3 info
+Message-ID: <20260406185000.1378082-4-dylanbhatch@google.com>
+Subject: [PATCH v3 3/8] arm64: entry: add unwind info for various kernel entries
 From: Dylan Hatch <dylanbhatch@google.com>
 To: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>, 
 	Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
@@ -79,8 +79,8 @@ Cc: Dylan Hatch <dylanbhatch@google.com>, Mark Rutland <mark.rutland@arm.com>,
 	Jens Remus <jremus@linux.ibm.com>, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_115020_966139_3A526864 
-X-CRM114-Status: GOOD (  21.85  )
+X-CRM114-CacheID: sfid-20260406_115023_935296_6613FF67 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,175 +95,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Build with -Wa,--gsframe-3 flags to generate a .sframe section. This
-will be used for in-kernel reliable stacktrace in cases where the frame
-pointer alone is insufficient.
+From: Weinan Liu <wnliu@google.com>
 
-Currently, the sframe format only supports arm64, x86_64 and s390x
-architectures.
+DWARF CFI (Call Frame Information) specifies how to recover the return
+address and callee-saved registers at each PC in a given function.
+Compilers are able to generate the CFI annotations when they compile
+the code to assembly language. For handcrafted assembly, we need to
+annotate them by hand.
+
+Annotate CFI unwind info for assembly for interrupt and exception
+handlers.
 
 Signed-off-by: Weinan Liu <wnliu@google.com>
 Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
-Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
 ---
- MAINTAINERS                            |  1 +
- Makefile                               |  8 ++++++++
- arch/Kconfig                           |  7 +++++++
- arch/arm64/Kconfig                     |  1 +
- arch/arm64/Kconfig.debug               | 13 +++++++++++++
- arch/arm64/include/asm/unwind_sframe.h | 12 ++++++++++++
- arch/arm64/kernel/vdso/Makefile        |  2 +-
- include/asm-generic/vmlinux.lds.h      | 15 +++++++++++++++
- 8 files changed, 58 insertions(+), 1 deletion(-)
- create mode 100644 arch/arm64/include/asm/unwind_sframe.h
+ arch/arm64/kernel/entry.S | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index cfc7dec88da4..a7d75f9cb5f4 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -27561,6 +27561,7 @@ STACK UNWINDING
- M:	Josh Poimboeuf <jpoimboe@kernel.org>
- M:	Steven Rostedt <rostedt@goodmis.org>
- S:	Maintained
-+F:	arch/*/include/asm/unwind_sframe.h
- F:	include/linux/sframe.h
- F:	include/linux/unwind*.h
- F:	kernel/unwind/
-diff --git a/Makefile b/Makefile
-index 2b15f0b4a0cb..e03d09ea6a23 100644
---- a/Makefile
-+++ b/Makefile
-@@ -1110,6 +1110,14 @@ endif
- # Ensure compilers do not transform certain loops into calls to wcslen()
- KBUILD_CFLAGS += -fno-builtin-wcslen
+diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+index f8018b5c1f9a..3148ede8c2c6 100644
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -575,7 +575,12 @@ SYM_CODE_START_LOCAL(el\el\ht\()_\regsize\()_\label)
+ 	.if \el == 0
+ 	b	ret_to_user
+ 	.else
++	.cfi_startproc
++	.cfi_def_cfa_offset PT_REGS_SIZE
++	.cfi_offset 29, S_FP - PT_REGS_SIZE
++	.cfi_offset 30, S_LR - PT_REGS_SIZE
+ 	b	ret_to_kernel
++	.cfi_endproc
+ 	.endif
+ SYM_CODE_END(el\el\ht\()_\regsize\()_\label)
+ 	.endm
+@@ -889,6 +894,10 @@ SYM_FUNC_START(call_on_irq_stack)
+ 	add	sp, x16, #IRQ_STACK_SIZE
+ 	restore_irq x9
+ 	blr	x1
++	.cfi_startproc
++	.cfi_def_cfa 29, 16
++	.cfi_offset 29, -16
++	.cfi_offset 30, -8
  
-+# build with sframe table
-+ifdef CONFIG_SFRAME_UNWINDER
-+CC_FLAGS_SFRAME := -Wa,--gsframe-3
-+KBUILD_CFLAGS	+= $(CC_FLAGS_SFRAME)
-+KBUILD_AFLAGS	+= $(CC_FLAGS_SFRAME)
-+export CC_FLAGS_SFRAME
-+endif
-+
- # change __FILE__ to the relative path to the source directory
- ifdef building_out_of_srctree
- KBUILD_CPPFLAGS += -fmacro-prefix-map=$(srcroot)/=
-diff --git a/arch/Kconfig b/arch/Kconfig
-index 6695c222c728..c87e489fa978 100644
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -520,6 +520,13 @@ config SFRAME_VALIDATION
+ 	save_and_disable_daif x9
+ 	/*
+@@ -900,6 +909,7 @@ SYM_FUNC_START(call_on_irq_stack)
+ 	scs_load_current
+ 	restore_irq x9
+ 	ret
++	.cfi_endproc
+ SYM_FUNC_END(call_on_irq_stack)
+ NOKPROBE(call_on_irq_stack)
  
- 	  If unsure, say N.
- 
-+config ARCH_SUPPORTS_SFRAME_UNWINDER
-+	bool
-+	help
-+	  An architecture can select this if it  enables the sframe (Simple
-+	  Frame) unwinder for unwinding kernel stack traces. It uses unwind
-+	  table that is directly generatedby toolchain based on DWARF CFI information.
-+
- config HAVE_PERF_REGS
- 	bool
- 	help
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 38dba5f7e4d2..189bc199ad2e 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -112,6 +112,7 @@ config ARM64
- 	select ARCH_SUPPORTS_SCHED_SMT
- 	select ARCH_SUPPORTS_SCHED_CLUSTER
- 	select ARCH_SUPPORTS_SCHED_MC
-+	select ARCH_SUPPORTS_SFRAME_UNWINDER
- 	select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
- 	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
- 	select ARCH_WANT_DEFAULT_BPF_JIT
-diff --git a/arch/arm64/Kconfig.debug b/arch/arm64/Kconfig.debug
-index 265c4461031f..df291d64812f 100644
---- a/arch/arm64/Kconfig.debug
-+++ b/arch/arm64/Kconfig.debug
-@@ -20,4 +20,17 @@ config ARM64_RELOC_TEST
- 	depends on m
- 	tristate "Relocation testing module"
- 
-+config SFRAME_UNWINDER
-+	bool "Sframe unwinder"
-+	depends on AS_SFRAME3
-+	depends on 64BIT
-+	depends on ARCH_SUPPORTS_SFRAME_UNWINDER
-+	select SFRAME_LOOKUP
-+	help
-+	  This option enables the sframe (Simple Frame) unwinder for unwinding
-+	  kernel stack traces. It uses unwind table that is directly generated
-+	  by toolchain based on DWARF CFI information. In, practice this can
-+	  provide more reliable stacktrace results than unwinding with frame
-+	  pointers alone.
-+
- source "drivers/hwtracing/coresight/Kconfig"
-diff --git a/arch/arm64/include/asm/unwind_sframe.h b/arch/arm64/include/asm/unwind_sframe.h
-new file mode 100644
-index 000000000000..1682c079e387
---- /dev/null
-+++ b/arch/arm64/include/asm/unwind_sframe.h
-@@ -0,0 +1,12 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_ARM64_UNWIND_SFRAME_H
-+#define _ASM_ARM64_UNWIND_SFRAME_H
-+
-+#ifdef CONFIG_ARM64
-+
-+#define SFRAME_REG_SP	31
-+#define SFRAME_REG_FP	29
-+
-+#endif
-+
-+#endif /* _ASM_ARM64_UNWIND_SFRAME_H */
-diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
-index 7dec05dd33b7..c60ef921956f 100644
---- a/arch/arm64/kernel/vdso/Makefile
-+++ b/arch/arm64/kernel/vdso/Makefile
-@@ -38,7 +38,7 @@ ccflags-y += -DDISABLE_BRANCH_PROFILING -DBUILD_VDSO
- CC_FLAGS_REMOVE_VDSO := $(CC_FLAGS_FTRACE) -Os $(CC_FLAGS_SCS) \
- 			$(RANDSTRUCT_CFLAGS) $(KSTACK_ERASE_CFLAGS) \
- 			$(GCC_PLUGINS_CFLAGS) \
--			$(CC_FLAGS_LTO) $(CC_FLAGS_CFI) \
-+			$(CC_FLAGS_LTO) $(CC_FLAGS_CFI) $(CC_FLAGS_SFRAME) \
- 			-Wmissing-prototypes -Wmissing-declarations
- 
- CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables
-diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-index 1e1580febe4b..0a5c2f6cc4c0 100644
---- a/include/asm-generic/vmlinux.lds.h
-+++ b/include/asm-generic/vmlinux.lds.h
-@@ -491,6 +491,8 @@
- 		*(.rodata1)						\
- 	}								\
- 									\
-+	SFRAME								\
-+									\
- 	/* PCI quirks */						\
- 	.pci_fixup        : AT(ADDR(.pci_fixup) - LOAD_OFFSET) {	\
- 		BOUNDED_SECTION_PRE_LABEL(.pci_fixup_early,  _pci_fixups_early,  __start, __end) \
-@@ -911,6 +913,19 @@
- #define TRACEDATA
- #endif
- 
-+#ifdef CONFIG_SFRAME_UNWINDER
-+#define SFRAME							\
-+	/* sframe */						\
-+	.sframe : AT(ADDR(.sframe) - LOAD_OFFSET) {		\
-+		__start_sframe_header = .;			\
-+		KEEP(*(.sframe))				\
-+		KEEP(*(.init.sframe))				\
-+		__stop_sframe_header = .;			\
-+	}
-+#else
-+#define SFRAME
-+#endif
-+
- #ifdef CONFIG_PRINTK_INDEX
- #define PRINTK_INDEX							\
- 	.printk_index : AT(ADDR(.printk_index) - LOAD_OFFSET) {		\
 -- 
 2.53.0.1213.gd9a14994de-goog
 
