@@ -4,109 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5D5DFB5164
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 21:31:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7681FFB5168
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 21:33:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GyThv2DxbTG/BKeYrv8aDgw2xYo6966hqmjyrursIqE=; b=OV6jNSpfc4l1t8jHVhX3rq7jXF
-	uJkxCV43jQpwOWYT8R0bcJPhXFitgUOl4HQx3kiBCb0zXbj1wuQGDaE4Bm1xeR0dxBd24oQxh2XKk
-	KY5vxAj5S4uEdKHvFZ1BHZs54JraYhVTTLX0E0FfRtvEbpAxCq/jaJPCF7OCOGRrTO3HjMc+23E6U
-	ZTw1iOFlkPzYrf1sPx5nQdEErXkrr0ze0BZg/jUuWNDLoiAKschYmUAwHOKo8zvJGaaPYXnBYwRib
-	RcHJrXvdzbpvGoM+xcKqpuGR7WtFZLiU5OXbV95DJHWlMxu3BZh5kkO9ctv3FTR9EuN6HmleaNrOF
-	lvECpYdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=X4Z/u0BPYRMqLs52XcLcvuYfZRh4JiZHKYBfZ5dQ7wg=; b=ZsQ7Ep/p+ZZyHTsqgVd8XXc0Ub
+	TNy1bpM2qM+qPKsm5JqPhPfioHET+8Lgwd/utn9+Q4rEm7ntUXSYG+cbESo0m38qIE5nivi9tE9d9
+	zutl/pi4MdxKjh8Mif540QyWcetcowxMAVDtcefcLobS287Qwc4+8mo5iQKhwemsgJWODdIYlIWNw
+	f1gZS1CSFy0M9f0epC78v1MAxK/9PcYHpErk9mH5lSsZizTa1qO6FSH+8r1xV0Ny12FQRqUbiLDz3
+	MOgl911+Fk+1SD32DftM+im947BNGVOORbs8PqaJmb34ngPbHGYMUaiVRqFyKgc+nE2jJJdhOkfDv
+	FDH3gf+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9rXY-00000005Wsq-1El7;
-	Mon, 06 Apr 2026 21:31:24 +0000
-Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9rXW-00000005WsS-1Izh
+	id 1w9rZR-00000005X0k-3Db8;
+	Mon, 06 Apr 2026 21:33:21 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1w9rZP-00000005X0Q-1zUO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Apr 2026 21:31:23 +0000
-Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-38e09b14102so8121471fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Apr 2026 14:31:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775511080; x=1776115880; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GyThv2DxbTG/BKeYrv8aDgw2xYo6966hqmjyrursIqE=;
-        b=Tw3Xh2pRUo2mXIIwOG8KOrd+Iw0lv0WVIgIiwxU1Wlz0FLNLBo7LL4cUq8P1oCfikE
-         rc/Klsik1VPu1dxIOhB52TpAiuVi/os+VW5BUesJSYDulHB1PuMjUGruxpEW7WKl+hJu
-         UZsQ00/l4YQ19VmZGCsaxwHbWgvKbmsgUY2ZLDGP46OodTDje80g943KddH/KNv8AIPR
-         mcaeI+K0zR2yeGz97mr5DJ0/bJ6/7NjGWaprz/vzPS55YsTFJes0zzvewiepptnnujE2
-         H+JkLtxdHJreGGvbUGoyI2fZDXh25FKJL+vzPDPYY+1BPkOjTz8T+tznJcOm4aRGotoZ
-         VdLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775511080; x=1776115880;
-        h=in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GyThv2DxbTG/BKeYrv8aDgw2xYo6966hqmjyrursIqE=;
-        b=rWgrvvrpm4A6dKq8bXPMIynl9ygbes1GLYVmeKQosguwTJjrmCB11Y+obBGUs10uSs
-         3B93TSeGBmfgJTKaZcV/pWd0saZVHTWgFyU+UUL6JdN85uTGcnIEVg1tZxILB9dymRqM
-         mIzZ/ZD4QTZrSzsbaUFzfxEq1FT4gEUAB8jRG9Q7Bho0er9FlWSkZDS/Xomg/ZZ7hink
-         q3Vam3HUFveFvAJHaajrs39W35ULxePSW1dAJDlT/dsxhmUHS2/Gwdxl6FNy03jpDwBp
-         bMFk1aNN/gJqcmFhW6vULhiY0Heeczxu4o0jXMhxjVrLeho/jBFs/at/8iIr0pBBKpyJ
-         rIbw==
-X-Forwarded-Encrypted: i=1; AJvYcCUdRUtrhGoqyn73TR8uH8QQRI+rbnxPWavHpYyXDRJPkT3VmLYtQmKMgWNUIJO04elCN+KQFaPkoiapcPXWKXKd@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIrJ3GqxjP5zv/1E+kEuAhALtzEq3ZxAflCX6CMstvqobkVO2K
-	AukBvZ6gHHI+7NhytQPwejldVyyzSQFZPrvssmcZAtMvsoQyV3S9IYia
-X-Gm-Gg: AeBDiev3LeWtqe1uWpVmeZUSO4XYi06YVRfBymG4ljfsDlDRsjUEHq73ELki3Zp+BL5
-	5HyEUsAa0R3FLlxqSQOClQb1T+M4lZzDTDyOVyGGgL2sgTJkoawm/N3ZpSgBA9XsXPMBKOeWlo8
-	ldQJzkQfdGGfAZm++K3YsP1f13F6csJuIs0hZjxFdI2gUnP9M2JtIPTCIqXduuv8ykYQmn6MGj4
-	4fJy9eTH8HSWdja+zC3m+L+fr0QNhwh2KMYvIEB5JK4hYzetkMHVpsKRYRQ95Ri7s5u+yQwdqBC
-	XycNYrTstqLOJBofmjxWF5+EXhZxg2NwkQGv3E19Yi7AiLhrkqpkZn24e5hnX80YYYIdiBUT49S
-	gyrHydAErMuMuKjT9S5kiKNlBvrFxk83HLSRKdd/V634f9GJrvU+RvlSBtkVfVUNzT7CCsfp2QJ
-	AiRyHdOT/kaOisI7fhMpK2VTs13fE=
-X-Received: by 2002:a2e:bc11:0:b0:38b:d8dc:4adf with SMTP id 38308e7fff4ca-38d9d439ed4mr46799101fa.32.1775511079668;
-        Mon, 06 Apr 2026 14:31:19 -0700 (PDT)
-Received: from localhost ([94.19.228.143])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38cd217c708sm32952631fa.39.2026.04.06.14.31.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Apr 2026 14:31:19 -0700 (PDT)
-Date: Tue, 7 Apr 2026 00:31:18 +0300
-From: Andrey Skvortsov <andrej.skvortzov@gmail.com>
-To: Dan Carpenter <error27@gmail.com>
-Cc: Maxime Ripard <mripard@kernel.org>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] media: cedrus: Fix failure to clean up hardware on
- probe failure
-Message-ID: <adQmJhxNkAe-ChRp@skv.local>
-Mail-Followup-To: Andrey Skvortsov <andrej.skvortzov@gmail.com>,
-	Dan Carpenter <error27@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20260401191441.1217646-1-andrej.skvortzov@gmail.com>
- <20260401191441.1217646-2-andrej.skvortzov@gmail.com>
- <ac5oecJ05oZD25VF@stanley.mountain>
+	Mon, 06 Apr 2026 21:33:20 +0000
+Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
+	by linux.microsoft.com (Postfix) with ESMTPSA id DD7A220B710C;
+	Mon,  6 Apr 2026 14:33:17 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DD7A220B710C
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1775511197;
+	bh=X4Z/u0BPYRMqLs52XcLcvuYfZRh4JiZHKYBfZ5dQ7wg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=O9JczRbzGjrgnNesBV28xXrzqGwYfcUroOs+rggyWVdNAg4cxLpjWBN37n+qhE9o2
+	 hNc+Oi0tCULO36I221+G1Jgp8j4w4alMZZiAXlmWwFWhkh/ERUD6Keazel2C+y8UKh
+	 c2xrJeRoOL7XLHLddE4YOccUS1Inen+lvPABPWpk=
+From: Kameron Carr <kameroncarr@linux.microsoft.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: suzuki.poulose@arm.com,
+	steven.price@arm.com,
+	ryan.roberts@arm.com,
+	dev.jain@arm.com,
+	yang@os.amperecomputing.com,
+	shijie@os.amperecomputing.com,
+	kevin.brodsky@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH] arm64: mm: support set_memory_encrypted/decrypted for vmalloc addresses
+Date: Mon,  6 Apr 2026 14:33:17 -0700
+Message-ID: <20260406213317.216171-1-kameroncarr@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.7
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <ac5oecJ05oZD25VF@stanley.mountain>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_143122_430688_DA9FC784 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20260406_143319_634451_BC4D61A0 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,25 +73,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-04-02 16:00, Dan Carpenter wrote:
-> On Wed, Apr 01, 2026 at 10:14:41PM +0300, Andrey Skvortsov wrote:
-> > From: Samuel Holland <samuel@sholland.org>
-> > 
-> > From: Samuel Holland <samuel@sholland.org>
-> > 
-> 
-> git am isn't set up to deal with two From: headers.
-Sorry about that. The first line I've added manually and the second
-was added by git send-email. I'll fix that in v2.
+Currently __set_memory_enc_dec() only handles linear map (lm) addresses
+and returns -EINVAL for anything else. This means callers using
+vmalloc'd buffers cannot mark memory as shared/protected with the RMM
+via set_memory_decrypted()/set_memory_encrypted().
 
-> 
-> > cedrus_hw_remove undoes, that was done by cedrus_hw_probe previously,
-> > like disabling runtime power management, releasing claimed sram.
-> 
-> The first part of this sentence is missing.
-Thanks, I rewrite this part of the commit message.
+Extend the implementation to handle vmalloc (non-linear-map) addresses
+by introducing __set_va_addr_enc_dec(). For vmalloc addresses, the page
+table entries are not contiguous in the physical address space, so the
+function walks the vm_area's pages array and issues per-page RSI calls
+to transition each page between shared and protected states.
 
+The original linear-map path is factored out into __set_lm_addr_enc_dec(),
+and __set_memory_enc_dec() now dispatches to the appropriate helper based
+on whether the address is a linear map address.
+
+Signed-off-by: Kameron Carr <kameroncarr@linux.microsoft.com>
+---
+ arch/arm64/mm/pageattr.c | 74 +++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 65 insertions(+), 9 deletions(-)
+
+diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+index ce035e1b4eaf..45058f61b957 100644
+--- a/arch/arm64/mm/pageattr.c
++++ b/arch/arm64/mm/pageattr.c
+@@ -275,20 +275,12 @@ int set_direct_map_default_noflush(struct page *page)
+ 				 PAGE_SIZE, set_mask, clear_mask);
+ }
+ 
+-static int __set_memory_enc_dec(unsigned long addr,
+-				int numpages,
+-				bool encrypt)
++static int __set_lm_addr_enc_dec(unsigned long addr, int numpages, bool encrypt)
+ {
+ 	unsigned long set_prot = 0, clear_prot = 0;
+ 	phys_addr_t start, end;
+ 	int ret;
+ 
+-	if (!is_realm_world())
+-		return 0;
+-
+-	if (!__is_lm_address(addr))
+-		return -EINVAL;
+-
+ 	start = __virt_to_phys(addr);
+ 	end = start + numpages * PAGE_SIZE;
+ 
+@@ -321,6 +313,70 @@ static int __set_memory_enc_dec(unsigned long addr,
+ 				      __pgprot(PTE_PRESENT_INVALID));
+ }
+ 
++static int __set_va_addr_enc_dec(unsigned long addr, int numpages, bool encrypt)
++{
++	unsigned long set_prot = 0, clear_prot = 0, start_idx;
++	struct vm_struct *area;
++	int i, ret;
++
++	if (encrypt)
++		clear_prot = PROT_NS_SHARED;
++	else
++		set_prot = PROT_NS_SHARED;
++
++	area = find_vm_area((void *)addr);
++	if (!area)
++		return -EINVAL;
++
++	start_idx = ((unsigned long)kasan_reset_tag((void *)addr) -
++		     (unsigned long)kasan_reset_tag(area->addr)) >>
++		    PAGE_SHIFT;
++
++	if (start_idx + numpages > area->nr_pages)
++		return -EINVAL;
++
++	/*
++	 * Break the mapping before we make any changes to avoid stale TLB
++	 * entries or Synchronous External Aborts caused by RIPAS_EMPTY
++	 */
++	ret = change_memory_common(addr, numpages,
++		__pgprot(set_prot | PTE_PRESENT_INVALID),
++		__pgprot(clear_prot | PTE_PRESENT_VALID_KERNEL));
++
++	if (ret)
++		return ret;
++
++	for (i = 0; i < numpages; i++) {
++		struct page *page = area->pages[start_idx + i];
++		phys_addr_t phys = page_to_phys(page);
++
++		if (encrypt) {
++			ret = rsi_set_memory_range_protected(phys,
++							     phys + PAGE_SIZE);
++		} else {
++			ret = rsi_set_memory_range_shared(phys,
++							  phys + PAGE_SIZE);
++		}
++		if (ret)
++			return ret;
++	}
++
++	return change_memory_common(addr, numpages,
++				    __pgprot(PTE_PRESENT_VALID_KERNEL),
++				    __pgprot(PTE_PRESENT_INVALID));
++}
++
++static int __set_memory_enc_dec(unsigned long addr, int numpages, bool encrypt)
++{
++	if (!is_realm_world())
++		return 0;
++
++	if (!__is_lm_address(addr))
++		return __set_va_addr_enc_dec(addr, numpages, encrypt);
++
++	return __set_lm_addr_enc_dec(addr, numpages, encrypt);
++}
++
+ static int realm_set_memory_encrypted(unsigned long addr, int numpages)
+ {
+ 	int ret = __set_memory_enc_dec(addr, numpages, true);
+
+base-commit: 25f6040ca43a78048466b949994b8d637fe2fe07
 -- 
-Best regards,
-Andrey Skvortsov
+2.45.4
+
 
