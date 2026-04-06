@@ -4,121 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DDF0FB5179
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 23:26:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC4DFB5173
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 23:55:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+7fxdjSi9+RKgdFwjeRu5DfLfM5rFKPeYpJSBLh/9No=; b=bvq5FSuB9zxPZ/QdtxYalgUFIZ
-	pbSW+Gv062+8ac0Ejn6LzW4i9JFqK6aykC+UG7EY0ksKHA07JFjcH2U4H7qi76ZStZLtDDpwO1xX9
-	+n4gjFy+TnsdgNv0KPeCdW3POzc1V/bNFZPYyZNl2Zvd/Q7UF7pekW8j0Gst3y1rbNPZ+Q6Ivl2Au
-	0XnXSTJJu0qnvrbFQRVPvhEEYiPWuKDJorA7jGmMszIz2BfxcocNYyuoHA/5lf7trxgBAJfr0cZkF
-	ijtgMBYNu+ftPAnB7UO75bac/lrnc4fxEHEaQUSA7gOhGHxyWabm1vszh9/HSN/yiZRA2euJK4WDH
-	9hy/h8Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Content-Type:MIME-Version:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=928edzxFlqN/Z48RQN0M8E84sJTAtb1fJmgV5h9KVWw=; b=b2bDSnbnFpkD0lzPKuDsyCZ4Af
+	iFhkGgDbCdTUC/yZHVdJCzi2f37Rks9UA28hClYOLwrCpcIAQkDbhEI8VpwSBJxsti6+zqxdLs28E
+	GzGmNc3u3Vd866X+OiTICgW9Vra0DoXXcEoLRJhRKHfjmp9xszhsVN7kPJJM8sd+ks9hz7h3J3lM2
+	6Yg92bhrIQjab/rQ9MihCmNIVgpB0NM346zw5QO1lDqp9vd9FShzrkX7mzBU4BYt/B5SsDFEdUJ49
+	nZcvNUFM6wrXtBdV3o9ys5D5eAmIpkw3KVT2hIj/BPTZfo3V9UJQrqbMsEeTS1bvQefz4TYOLdixO
+	+GmgYp8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9tKL-00000005cEp-2swe;
-	Mon, 06 Apr 2026 23:25:53 +0000
-Received: from mail-dl1-x1233.google.com ([2607:f8b0:4864:20::1233])
+	id 1w9tmj-00000005dqM-2iui;
+	Mon, 06 Apr 2026 23:55:13 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9tKJ-00000005cCX-1sFv
+	id 1w9tmg-00000005dpW-2iU1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Apr 2026 23:25:52 +0000
-Received: by mail-dl1-x1233.google.com with SMTP id a92af1059eb24-126ea4e9694so10654168c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Apr 2026 16:25:51 -0700 (PDT)
+	Mon, 06 Apr 2026 23:55:12 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2b25cf1b5f0so28295645ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Apr 2026 16:55:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1775517950; x=1776122750; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+7fxdjSi9+RKgdFwjeRu5DfLfM5rFKPeYpJSBLh/9No=;
-        b=TpJwQ1YX67LK1tHj5GV6xT7NNeZYBCMcb0yKQg6cHCeS7M+25I+eCiAx9lo35J9p46
-         1SIystMz7BglNd54+VKoU86Kvsm+a8pT1bVJQEocTpHL+xlBya6RNzFNZAw14yx1O2CO
-         JnVp+LeS2yqk5g891mfBgXEI+nD4Syel5nGS0=
+        d=orb-net.20251104.gappssmtp.com; s=20251104; t=1775519709; x=1776124509; darn=lists.infradead.org;
+        h=references:in-reply-to:content-disposition:mime-version:message-id
+         :subject:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=928edzxFlqN/Z48RQN0M8E84sJTAtb1fJmgV5h9KVWw=;
+        b=zJKh3ul5AhOKXzx6FHia7OhzC4emE34hvV4vIuKrt3ltGIMftiTBX26kBBFszls/RV
+         tUIkF+//jJplTR8Vl2ydm7imIsr4dtQgsTgLXHaPR7byKvwYyu3EuHFsIlHc2llhqy+V
+         kvi0GmpLPo8i7umS/axqt8CQonhCETBh+9RImR877m6pf/MJY0Sohba4bIB/3PD8do6i
+         gEUcnTfPK3R6jpVkspzdxE+eFtP5k1DcBUxc0lVQMp614+O3K9/V7tu6tYgAw9o5o/w2
+         F5yKShDNu2suIPjX0jn/5qCpdwr0kqzPyBvyuE/Uq8f5l26TsyOjBnZL4iFOs+4VdyIl
+         2tkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775517950; x=1776122750;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=+7fxdjSi9+RKgdFwjeRu5DfLfM5rFKPeYpJSBLh/9No=;
-        b=h4nHwgAbI4Tvs8TFAM+wNfRvp+01NXOsdwNqLG27gAaeFWhPuOSGEBxeu/QxlkgLCX
-         T8ufKyTYhHLvQQHMwn9wYNWL96OnH9WtcP7gwFrcj9YDwFcKksdFEPrueyAKSejYqJAe
-         vORr52BZiZBr6desY7ZlKL87VUWYZrJ8KbGK9l925M4g3PgYbsL+SmW9oxezIkOzgAPD
-         79sYxvmUVlEw+Z+YnQeIJK/Gw+fH4PRvh+c4ALN9s+cbnjgT+r3DeZUg+YnoRntTUY6Y
-         xK1EI1dRoh3sQW0ka4dZidYfPPwQtK3tVwJ8ktQO7NUBT5N4EXRbyhp8NxpWmQL24khG
-         ak8w==
-X-Forwarded-Encrypted: i=1; AJvYcCU/9yUi9rJYO1oKrF2zCyzv/Oy+hOx0D7RJGcVN22pjGJmDY/8G9Aq5AaZnN2t8fvLQGmmqfUScz3mwtrl/XEj3@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywx9unSdWyarpjFWowuOe9i7DY1vmylovJ7hW1RpgmIypM1vzoJ
-	Cpam0DBZEy4dWgnEXbqye52GJw/Er1vSeWeBfON4+6ZSCDLt0NyWSgddTOucpmoQNQ==
-X-Gm-Gg: AeBDietDhkJZsCzjDo9rVkQa/T4NXBKEzeo7Li55qxRYBJY1NiqqOAMbP7oujedBRdQ
-	kh9Cw1tS1Yg3bFGBpQq1BONPvwHS+ja/YC8vrxIUCXWnQLcywyUk8RrhJwtFKOI2m5Ai/uLiRDI
-	IEOLA0WXUyxD6fIQVTovMrQIaIgsnMFhrZ806wHja+jtik0PNeO14a9S8ou7TPiq97eNdB57S4U
-	6WE/suTWvm+5Hmiw2i/LyPzPAHd1HC/xDisAX/CiOa96NhEkJqznKAXJrAtVFq/FtiuXLCFE10F
-	KdJVecdNABqa2MHCT402bACdSHHc4AvlJYT4uSTTbjoxnPNf9etjC83Y21zkq1ToiQzFRJmXhhe
-	8xzhij8DXaWY6O8LRN9lCpbP26h+DTxizWhB/UjPCPoxLhxdaT6WSdTswi/vlag3JlJzCAHi0cJ
-	Uwj/OCfU+wV4SAvuJ1W/U3fS7D+tG3gz7UMSoBtgDZhVW7L3hMkCQEmbBmz0m+i2lTJiN1xTeIe
-	BchmOC8kQ==
-X-Received: by 2002:a05:7301:434b:b0:2c8:6361:ab38 with SMTP id 5a478bee46e88-2cbfa5c1258mr7548017eec.15.1775517950390;
-        Mon, 06 Apr 2026 16:25:50 -0700 (PDT)
-Received: from dianders.sjc.corp.google.com ([2a00:79e0:2e7c:8:c071:3b78:5a5:824a])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2ca760b0518sm14730975eec.0.2026.04.06.16.25.47
+        d=1e100.net; s=20251104; t=1775519709; x=1776124509;
+        h=references:in-reply-to:content-disposition:mime-version:message-id
+         :subject:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=928edzxFlqN/Z48RQN0M8E84sJTAtb1fJmgV5h9KVWw=;
+        b=mnf9RVYieLyj3jm9Y04ijledTQN8VLBni0t8taRqDZyxWzewTgs3SOMIFdEPeWcdvO
+         1xHpuuUhe8qtEJr5oXah0SRd8u2KvoF76H21DGjmvddfgZ2YmunyxWEgQwJ9H6oeMzVB
+         3jiJR7mh26GZDQsnk8jQufNrKNN/xRoidFKqWIINgdjghGapTyX9Jmm0HeNWV74xZFFQ
+         HFhmFislzeMZuW9B+kC9IYC0CRWxI/BNto9+UgJYG+Ezb89l/C9uGRBG2i4dpYbioTKz
+         Mx3yYnLIGK8lH7gZqCkIY8Mm1MLUee9DuE942tthR0TXnFBjLqBDooQv2opIsznvl4av
+         Wwpg==
+X-Forwarded-Encrypted: i=1; AJvYcCXXL+YWIi4sbQQxo+UJ26DezfPnbYpkF1PiX20iRDeIJGB06UHOHUMVsXaDxOU7rhWfIyHFF2KtaoqsLp8NZF3C@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWh2ZYyuUXJKDI6a6hf8JLH9FkuULZ3r9Ruzn8g4ugUSypqTPZ
+	rFe9yoaNR2v/ctaFJJ5kOe1P5+HQ6qeEyBUt7DaFeEfKjwzLo07dALNk8dgfW32WvcU=
+X-Gm-Gg: AeBDieskXNuJEY/MgVy1LdorSW4ah6kGbYYl3Ag3lsBMc1ro81rOUg4JBwmkY/NvEzn
+	fTCsPxRQNo80NRuExDBV137gSe0N491xV3TKqAjYVIBZNRgyTBH0Giysr+Y+uoGraVs//azNrXh
+	blfqmZmNoERDIaVvhsPxX0tJ9QdvbhVOkxbdAERxzViWS+QWzEO85TXljf0uKsjzvz1MChDpf8F
+	Hmxwvded5rDMw1T+JWXF0MOS6kHyL2paK3jYnPwd2C/W60bfdAzXopgMgWA/amSvXNUnQnjNkZe
+	vZu7LVyhV04N2xyASBxQn7LyFi4ztyHTitVAmXbzQQsUuaYqDpVu0R8S9hFJHweyd+XhKsLs6Op
+	uQFE2yxwCYDbq+3CHu4IuyVQ3GQOFshy3k/tgjU4EJAs4im+V8SIVCwBBVQQa6NDFRKrniTxAQK
+	KNdipizVnEeOMrHddIyb7YYfi+/PXbhVHZY9NlLBGOdmtFThjYgGjhwntCS0ZpkpwQf+xWuVIk
+X-Received: by 2002:a17:903:2f08:b0:2b0:67fa:dbf8 with SMTP id d9443c01a7336-2b2817e97b9mr152039645ad.41.1775519709263;
+        Mon, 06 Apr 2026 16:55:09 -0700 (PDT)
+Received: from claude-dev ([50.125.94.20])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b2749cbc58sm155836415ad.78.2026.04.06.16.55.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Apr 2026 16:25:49 -0700 (PDT)
-From: Douglas Anderson <dianders@chromium.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Alan Stern <stern@rowland.harvard.edu>
-Cc: Alexey Kardashevskiy <aik@ozlabs.ru>,
-	Johan Hovold <johan@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Leon Romanovsky <leon@kernel.org>,
-	Christoph Hellwig <hch@lst.de>,
-	Robin Murphy <robin.murphy@arm.com>,
-	maz@kernel.org,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Mark Brown <broonie@kernel.org>,
-	ardb@kernel.org,
-	catalin.marinas@arm.com,
-	chleroy@kernel.org,
-	david@kernel.org,
-	driver-core@lists.linux.dev,
-	kees@kernel.org,
-	kevin.brodsky@arm.com,
-	lenb@kernel.org,
-	linux-acpi@vger.kernel.org,
+        Mon, 06 Apr 2026 16:55:08 -0700 (PDT)
+Date: Mon, 6 Apr 2026 23:55:07 +0000
+From: Daniel Bozeman <daniel@orb.net>
+To: shawn.lin@rock-chips.com, finley.xiao@rock-chips.com, jonas@kwiboo.se,
+	ulf.hansson@linaro.org, heiko@sntech.de, linux-pm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-cxl@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linuxppc-dev@lists.ozlabs.org,
-	maddy@linux.ibm.com,
-	miko.lenczewski@arm.com,
-	mpe@ellerman.id.au,
-	npiggin@gmail.com,
-	osalvador@suse.de,
-	oupton@kernel.org,
-	peterz@infradead.org,
-	tglx@kernel.org,
-	will@kernel.org,
-	yangyicong@hisilicon.com,
-	yeoreum.yun@arm.com
-Subject: [PATCH v5 9/9] driver core: Replace dev->offline + ->offline_disabled with accessors
-Date: Mon,  6 Apr 2026 16:23:02 -0700
-Message-ID: <20260406162231.v5.9.I897d478b4a9361d79cd5073207c1062fd4d0d0e4@changeid>
-X-Mailer: git-send-email 2.53.0.1213.gd9a14994de-goog
-In-Reply-To: <20260406232444.3117516-1-dianders@chromium.org>
-References: <20260406232444.3117516-1-dianders@chromium.org>
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] pmdomain/rockchip: skip QoS operations for idle-only
+ domains
+Message-ID: <adRH235mv00OdOsb@claude-dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <693c6c27-6ff2-4ab0-994f-3821e5ffcec8@kwiboo.se>
+References: <20260331180223.1682283-1-daniel@orb.net>
+ <5c8732a3-6cc9-5d02-f56b-fc7ba29c7ce0@rock-chips.com>
+ <fbf16b5a-1565-39c9-0d92-33a7a577212f@rock-chips.com>
+ <f1b9a97a-f1f9-0757-5dc7-33960318be61@rock-chips.com>
+ <693c6c27-6ff2-4ab0-994f-3821e5ffcec8@kwiboo.se>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_162551_514054_FF8EF53E 
-X-CRM114-Status: GOOD (  22.93  )
+X-CRM114-CacheID: sfid-20260406_165510_966898_5904C80A 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,261 +103,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In C, bitfields are not necessarily safe to modify from multiple
-threads without locking. Switch "offline" and "offline_disabled" over
-to the "flags" field so modifications are safe.
+Hi Jonas,
 
-Cc: Rafael J. Wysocki <rafael@kernel.org>
-Acked-by: Mark Brown <broonie@kernel.org>
-Reviewed-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
-Reviewed-by: Danilo Krummrich <dakr@kernel.org>
-Signed-off-by: Douglas Anderson <dianders@chromium.org>
----
-Not fixing any known bugs; problem is theoretical and found by code
-inspection. Change is done somewhat manually and only lightly tested
-(mostly compile-time tested).
+Thanks for digging into this and identifying the GENPD_FLAG_NO_STAY_ON
+connection.
 
-(no changes since v4)
+I tested on your next-20260403-rk3528 branch (7.0-rc6) with the
+NanoPi Zero2.
 
-Changes in v4:
-- Use accessor functions for flags
+Your conditional NO_STAY_ON patch alone results in a NULL pointer
+dereference crash in run_timer_softirq during boot:
 
-Changes in v3:
-- New
+  Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+  CPU: 3 PID: 0 Comm: swapper/3
+  pc : run_timer_softirq+0x258/0x2c4
+  Call trace:
+   run_timer_softirq+0x258/0x2c4
+   handle_softirqs+0x18c/0x1d0
+   __do_softirq+0x10/0x18
+   ...
+   do_idle+0x94/0xa0
 
- arch/arm64/kernel/cpufeature.c                 |  2 +-
- .../powerpc/platforms/pseries/hotplug-memory.c |  4 ++--
- drivers/acpi/scan.c                            |  2 +-
- drivers/base/core.c                            | 18 +++++++++---------
- drivers/base/cpu.c                             |  4 ++--
- drivers/base/memory.c                          |  2 +-
- include/linux/device.h                         | 12 ++++++------
- kernel/cpu.c                                   |  4 ++--
- 8 files changed, 24 insertions(+), 24 deletions(-)
+The crash is caused by the EPROBE_DEFER teardown in
+rockchip_pm_domain_probe(). When PD_GPU's clock lookup returns
+-EPROBE_DEFER, the entire controller probe fails and tears down
+all successfully registered domains. This corrupts timer state
+and crashes in run_timer_softirq on the next tick I think.
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 32c2dbcc0c64..c832aa565dc2 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -4042,7 +4042,7 @@ static int enable_mismatched_32bit_el0(unsigned int cpu)
- 	 */
- 	lucky_winner = cpu_32bit ? cpu : cpumask_any_and(cpu_32bit_el0_mask,
- 							 cpu_active_mask);
--	get_cpu_device(lucky_winner)->offline_disabled = true;
-+	dev_set_offline_disabled(get_cpu_device(lucky_winner));
- 	setup_elf_hwcaps(compat_elf_hwcaps);
- 	elf_hwcap_fixup();
- 	pr_info("Asymmetric 32-bit EL0 support detected on CPU %u; CPU hot-unplug disabled on CPU %u\n",
-diff --git a/arch/powerpc/platforms/pseries/hotplug-memory.c b/arch/powerpc/platforms/pseries/hotplug-memory.c
-index b2f14db59034..75f85a5da981 100644
---- a/arch/powerpc/platforms/pseries/hotplug-memory.c
-+++ b/arch/powerpc/platforms/pseries/hotplug-memory.c
-@@ -213,9 +213,9 @@ static int dlpar_change_lmb_state(struct drmem_lmb *lmb, bool online)
- 		return -EINVAL;
- 	}
- 
--	if (online && mem_block->dev.offline)
-+	if (online && dev_offline(&mem_block->dev))
- 		rc = device_online(&mem_block->dev);
--	else if (!online && !mem_block->dev.offline)
-+	else if (!online && !dev_offline(&mem_block->dev))
- 		rc = device_offline(&mem_block->dev);
- 	else
- 		rc = 0;
-diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index e8cdbdb46fdb..1353adbcc234 100644
---- a/drivers/acpi/scan.c
-+++ b/drivers/acpi/scan.c
-@@ -122,7 +122,7 @@ bool acpi_scan_is_offline(struct acpi_device *adev, bool uevent)
- 	mutex_lock_nested(&adev->physical_node_lock, SINGLE_DEPTH_NESTING);
- 
- 	list_for_each_entry(pn, &adev->physical_node_list, node)
--		if (device_supports_offline(pn->dev) && !pn->dev->offline) {
-+		if (device_supports_offline(pn->dev) && !dev_offline(pn->dev)) {
- 			if (uevent)
- 				kobject_uevent_env(&pn->dev->kobj, KOBJ_CHANGE, envp);
- 
-diff --git a/drivers/base/core.c b/drivers/base/core.c
-index 30825bf83234..4f293aed879a 100644
---- a/drivers/base/core.c
-+++ b/drivers/base/core.c
-@@ -2788,7 +2788,7 @@ static ssize_t online_show(struct device *dev, struct device_attribute *attr,
- 	bool val;
- 
- 	device_lock(dev);
--	val = !dev->offline;
-+	val = !dev_offline(dev);
- 	device_unlock(dev);
- 	return sysfs_emit(buf, "%u\n", val);
- }
-@@ -2913,7 +2913,7 @@ static int device_add_attrs(struct device *dev)
- 	if (error)
- 		goto err_remove_type_groups;
- 
--	if (device_supports_offline(dev) && !dev->offline_disabled) {
-+	if (device_supports_offline(dev) && !dev_offline_disabled(dev)) {
- 		error = device_create_file(dev, &dev_attr_online);
- 		if (error)
- 			goto err_remove_dev_groups;
-@@ -4180,7 +4180,7 @@ static int device_check_offline(struct device *dev, void *not_used)
- 	if (ret)
- 		return ret;
- 
--	return device_supports_offline(dev) && !dev->offline ? -EBUSY : 0;
-+	return device_supports_offline(dev) && !dev_offline(dev) ? -EBUSY : 0;
- }
- 
- /**
-@@ -4198,7 +4198,7 @@ int device_offline(struct device *dev)
- {
- 	int ret;
- 
--	if (dev->offline_disabled)
-+	if (dev_offline_disabled(dev))
- 		return -EPERM;
- 
- 	ret = device_for_each_child(dev, NULL, device_check_offline);
-@@ -4207,13 +4207,13 @@ int device_offline(struct device *dev)
- 
- 	device_lock(dev);
- 	if (device_supports_offline(dev)) {
--		if (dev->offline) {
-+		if (dev_offline(dev)) {
- 			ret = 1;
- 		} else {
- 			ret = dev->bus->offline(dev);
- 			if (!ret) {
- 				kobject_uevent(&dev->kobj, KOBJ_OFFLINE);
--				dev->offline = true;
-+				dev_set_offline(dev);
- 			}
- 		}
- 	}
-@@ -4238,11 +4238,11 @@ int device_online(struct device *dev)
- 
- 	device_lock(dev);
- 	if (device_supports_offline(dev)) {
--		if (dev->offline) {
-+		if (dev_offline(dev)) {
- 			ret = dev->bus->online(dev);
- 			if (!ret) {
- 				kobject_uevent(&dev->kobj, KOBJ_ONLINE);
--				dev->offline = false;
-+				dev_clear_offline(dev);
- 			}
- 		} else {
- 			ret = 1;
-@@ -4716,7 +4716,7 @@ static int device_attrs_change_owner(struct device *dev, kuid_t kuid,
- 	if (error)
- 		return error;
- 
--	if (device_supports_offline(dev) && !dev->offline_disabled) {
-+	if (device_supports_offline(dev) && !dev_offline_disabled(dev)) {
- 		/* Change online device attributes of @dev to @kuid/@kgid. */
- 		error = sysfs_file_change_owner(kobj, dev_attr_online.attr.name,
- 						kuid, kgid);
-diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
-index 875abdc9942e..19d288a3c80c 100644
---- a/drivers/base/cpu.c
-+++ b/drivers/base/cpu.c
-@@ -422,8 +422,8 @@ int register_cpu(struct cpu *cpu, int num)
- 	cpu->dev.id = num;
- 	cpu->dev.bus = &cpu_subsys;
- 	cpu->dev.release = cpu_device_release;
--	cpu->dev.offline_disabled = !cpu->hotpluggable;
--	cpu->dev.offline = !cpu_online(num);
-+	dev_assign_offline_disabled(&cpu->dev, !cpu->hotpluggable);
-+	dev_assign_offline(&cpu->dev, !cpu_online(num));
- 	cpu->dev.of_node = of_get_cpu_node(num, NULL);
- 	cpu->dev.groups = common_cpu_attr_groups;
- 	if (cpu->hotpluggable)
-diff --git a/drivers/base/memory.c b/drivers/base/memory.c
-index a3091924918b..5005654f44fa 100644
---- a/drivers/base/memory.c
-+++ b/drivers/base/memory.c
-@@ -697,7 +697,7 @@ static int __add_memory_block(struct memory_block *memory)
- 	memory->dev.id = memory->start_section_nr / sections_per_block;
- 	memory->dev.release = memory_block_release;
- 	memory->dev.groups = memory_memblk_attr_groups;
--	memory->dev.offline = memory->state == MEM_OFFLINE;
-+	dev_assign_offline(&memory->dev, memory->state == MEM_OFFLINE);
- 
- 	ret = device_register(&memory->dev);
- 	if (ret) {
-diff --git a/include/linux/device.h b/include/linux/device.h
-index a79865a212e9..d695f7537112 100644
---- a/include/linux/device.h
-+++ b/include/linux/device.h
-@@ -485,6 +485,8 @@ struct device_physical_location {
-  *		architecture supports non-coherent devices.
-  * @DEV_FLAG_OF_NODE_REUSED: Set if the device-tree node is shared with an
-  *		ancestor device.
-+ * @DEV_FLAG_OFFLINE_DISABLED: If set, the device is permanently online.
-+ * @DEV_FLAG_OFFLINE: Set after successful invocation of bus type's .offline().
-  */
- enum struct_device_flags {
- 	DEV_FLAG_READY_TO_PROBE = 0,
-@@ -495,6 +497,8 @@ enum struct_device_flags {
- 	DEV_FLAG_STATE_SYNCED = 5,
- 	DEV_FLAG_DMA_COHERENT = 6,
- 	DEV_FLAG_OF_NODE_REUSED = 7,
-+	DEV_FLAG_OFFLINE_DISABLED = 8,
-+	DEV_FLAG_OFFLINE = 9,
- 
- 	DEV_FLAG_COUNT
- };
-@@ -573,9 +577,6 @@ enum struct_device_flags {
-  * @removable:  Whether the device can be removed from the system. This
-  *              should be set by the subsystem / bus driver that discovered
-  *              the device.
-- *
-- * @offline_disabled: If set, the device is permanently online.
-- * @offline:	Set after successful invocation of bus type's .offline().
-  * @flags:	DEV_FLAG_XXX flags. Use atomic bitfield operations to modify.
-  *
-  * At the lowest level, every device in a Linux system is represented by an
-@@ -680,9 +681,6 @@ struct device {
- 
- 	enum device_removable	removable;
- 
--	bool			offline_disabled:1;
--	bool			offline:1;
--
- 	DECLARE_BITMAP(flags, DEV_FLAG_COUNT);
- };
- 
-@@ -716,6 +714,8 @@ __create_dev_flag_accessors(dma_ops_bypass, DEV_FLAG_DMA_OPS_BYPASS);
- __create_dev_flag_accessors(state_synced, DEV_FLAG_STATE_SYNCED);
- __create_dev_flag_accessors(dma_coherent, DEV_FLAG_DMA_COHERENT);
- __create_dev_flag_accessors(of_node_reused, DEV_FLAG_OF_NODE_REUSED);
-+__create_dev_flag_accessors(offline_disabled, DEV_FLAG_OFFLINE_DISABLED);
-+__create_dev_flag_accessors(offline, DEV_FLAG_OFFLINE);
- 
- #undef __create_dev_flag_accessors
- 
-diff --git a/kernel/cpu.c b/kernel/cpu.c
-index bc4f7a9ba64e..f975bb34915b 100644
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -2639,7 +2639,7 @@ static void cpuhp_offline_cpu_device(unsigned int cpu)
- {
- 	struct device *dev = get_cpu_device(cpu);
- 
--	dev->offline = true;
-+	dev_set_offline(dev);
- 	/* Tell user space about the state change */
- 	kobject_uevent(&dev->kobj, KOBJ_OFFLINE);
- }
-@@ -2648,7 +2648,7 @@ static void cpuhp_online_cpu_device(unsigned int cpu)
- {
- 	struct device *dev = get_cpu_device(cpu);
- 
--	dev->offline = false;
-+	dev_clear_offline(dev);
- 	/* Tell user space about the state change */
- 	kobject_uevent(&dev->kobj, KOBJ_ONLINE);
- }
--- 
-2.53.0.1213.gd9a14994de-goog
+Adding the following on top of your fix results in a clean boot
+with USB working:
 
+  for_each_available_child_of_node_scoped(np, node) {
+      error = rockchip_pm_add_one_domain(pmu, node);
+      if (error) {
+          if (error == -EPROBE_DEFER) {
+              dev_dbg(dev, "skipped node %pOFn, ...\n", node);
+              continue;
+          }
+          ...
+
+This skips domains that defer and continues registering the rest.
+Skipped domains have NULL entries in the provider, causing their
+consumers to defer until the clock dependency is available.
+
+I also tested on 6.12 with backported RK3528 support (OpenWrt).
+There, GENPD_FLAG_NO_STAY_ON does not exist, but marking idle-only
+domains with GENPD_FLAG_ALWAYS_ON prevents the genpd_power_off
+crash. The EPROBE_DEFER fix is needed there as well -- without it,
+the probe teardown/retry produces a timer warning in __run_timers.
+
+Test results on NanoPi Zero2:
+
+7.0-rc6 (next-20260403-rk3528):
+- Your NO_STAY_ON fix only: crash in run_timer_softirq
+- Your NO_STAY_ON fix + EPROBE_DEFER skip: clean boot, USB works
+
+6.12 with backported RK3528 support (OpenWrt):
+- GENPD_FLAG_ALWAYS_ON only: boots with __run_timers warning
+- GENPD_FLAG_ALWAYS_ON + EPROBE_DEFER skip: clean boot
 
