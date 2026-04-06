@@ -4,63 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6271E9D836
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 13:48:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 509ABF46C40
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 13:57:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ntALtiS+qF1sJX7H2hdG3h61UJEWuvU1SPdmOVIdw08=; b=JIJ0jUu6sKk8kzPLvjl5jQ5WjM
-	eFrqS9scUXIDKetx5cqk9sr6cMSOfXYFh+HTDycAypX9YRm9U9tdF4Tt+bYvD43SWemPkurdslZgx
-	lQTDxA5CytbsPrEw35WDMem4h9RDsHeNM0yznNTkDhe4iCP4vNKq2o62XMnIGR/6GNXiP6UwBmVxA
-	hYKR2sCo83r0WGqIIRGHPwFxf7MBX1efymS+b/4nFIa/9QL4wjT/WOnjoIgvUd4blxY8xPifFSbr5
-	liqfXciMlLeDbX5SYDfrWov8N592Pz2/pVisHX49yOIKPMmwl2e/7zpjiOw6/DMnCTBku+IoiKuzF
-	4TIw1BKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OQtUgZBlTwv+xDoaiKb2N7gT+/y7cOGsVK3GMzZHFqc=; b=CCNU9ZZwAXl2zkO6O0sis9pNSs
+	H11hMz6rEHN1dIzbtFp0USU0M6sNayPMrMM8Jw+TejeZQxrlIdbeFZcstC6jag9kNzv2VIVVv/hRn
+	Jqk0X71fcCodOrtLYcGE47IrPWzcUhESuIEBhKma+5EfE17KDWwKB2OEmuhPSo81bPThzkm+W6FFA
+	HlvBZRl7jQJ+VS4D55ZmqRBAkEh4aVymMsiH+N7eFgC0NjAk+ZHZ+DGwBVj2HCL1fXB+Zc9ro5pQv
+	8Wi/l2X6aArBXa8rOE9cDA97+tGoUjmXsjpR0ag8KDSBORceGm7bgFdOYmjKxPjTMipxXaJ46XZ1O
+	Dd3iXA/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9kJv-00000005A8m-4BGZ;
-	Mon, 06 Apr 2026 13:48:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1w9kRk-00000005ARR-0UGe;
+	Mon, 06 Apr 2026 13:56:56 +0000
+Received: from mail-ej1-f67.google.com ([209.85.218.67])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9kJu-00000005A8f-0XkA
+	id 1w9kRh-00000005AQm-1DRo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Apr 2026 13:48:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2C85260123;
-	Mon,  6 Apr 2026 13:48:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6931C4CEF7;
-	Mon,  6 Apr 2026 13:48:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775483328;
-	bh=4KAv/Y/r6B3QPbmOZXoUcCmGpPGusPnReZahnIGGELs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=G6sTwJNDpDYZ037U4XfiYJjufNITO/f28GJg3G6pfaK6fcZpwKHKUvT3Is4uXqY6Y
-	 4Bo5riiGZeRrKksE9xsTqcz+H3ydjdNnRVdSMlL3dgWTo0yUvJIgm5kuehx65HOSum
-	 zlntl0U/JtgB5z3ThAZqHoKXQbeFJla1C0IFu1vGxy1LeiQSmKeOxz+EEhHz6SZay4
-	 i9aP3kjTLmjBP1fztmkT/igt6MllIUT/jHsFEnayq759304m9LJHzAXozoNhU/M8aJ
-	 JZgTdmJOqPcIUQUglZocFcpI8CqH8ByCXmTolpqYXRREfFGnu58bQ3s7RjvRqVAyiA
-	 e8pKR/h7aOo4w==
-Date: Mon, 6 Apr 2026 08:48:44 -0500
-From: Bjorn Andersson <andersson@kernel.org>
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
-	mark.rutland@arm.com, lpieralisi@kernel.org, bjorn.andersson@oss.qualcomm.com, 
-	konrad.dybcio@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Konrad Dybcio <konradybcio@kernel.org>, 
-	Konrad Dybcio <konrad.dybcio@linaro.org>, Sudeep Holla <sudeep.holla@arm.com>
-Subject: Re: [PATCH] firmware: psci: Set pm_set_resume/suspend_via_firmware()
- for SYSTEM_SUSPEND
-Message-ID: <adO1lS2g8Hewj0Ol@baldur>
-References: <20251231162126.7728-1-manivannan.sadhasivam@oss.qualcomm.com>
- <acrdFfk8al80dynq@baldur>
- <ces6pczk5yo2v5h6sga2dl2xuncqv4pmudunc7dhyeiy6swfh7@bk7vxdxrsrzz>
+	Mon, 06 Apr 2026 13:56:54 +0000
+Received: by mail-ej1-f67.google.com with SMTP id a640c23a62f3a-b941762394aso509961466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Apr 2026 06:56:52 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775483811; x=1776088611;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OQtUgZBlTwv+xDoaiKb2N7gT+/y7cOGsVK3GMzZHFqc=;
+        b=ZRSrGJRCGAun6eUc/yRB7zxBaeJuMdOFtBg9ap8rMJwKmLD8wZKbFPpihrQgDbiebU
+         qF5dN5EnWAJALldWssyOan2Zmuagd5yz1tJMNH1fscV2igT505MhN82m9izKgr1VMZNS
+         Tqw/J/Lx2SGfmyOS9tC03+zbLI0bhw8W2BXCfzd/Givqg2FdQm1v3Xj+Ho3szMmZKK0Z
+         jf/uqbBxWmn+g7TfyR1K4cNUNljdpcRmqahiGxFMJbZhM3cOewhKJu9CdC26t2tVpl+J
+         9NLHYNLiLHkKkvZOPcXeF8b3ECM0ez7JGOJXv+4AE61S4kkPR018MbUKLYJrK2Cn2Pet
+         Op5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUPk7aFU3YJeIcPT5SHdQKTiy+pA/p5dJhdXRFclbyA+1VpJsJS7zdo3SXwb7xfGvrBPfAezTsMDdk5Z9+tVIwu@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlHOmyizgFKjk3WJbeCGH6mQLyMCUAhG6ztaHZxQ8IWEBYotA0
+	VqDDy+XGdRbRulUyb0mUPbH+qSGKuHHWFXGAJ9GkXBwUhBvs1dP7vTlb
+X-Gm-Gg: AeBDietSwRZBIJjuyBy/E8wdCyDaZ5siFpjcvAmKp24uVbzVdn6+qugoMNjVXRcvo4J
+	8gd319DYIWBOjT+nFnPS3K70lKoHiY2Rn+qfan809+PAxLRqX+6C7hN/DnjjgAawPHmTHj38SDq
+	v2L8latkiSAsalhdWebHGkEMt1eC0sd0owkT8o3eQmH78ikMIE8EtMZOZ5voYCmacwifmpjjj19
+	4Amsc8+FBIigPuj/WIYfmDCU969QD5ovTddSgPmPxy5yrR22TFojVtfiT1OMu8Zzm7s9mhZ7HQw
+	mEF9gaxsamdQ0e2en8UJyKR/F7h3nIVubUpokJzuFyvNQvWev4KhyaTkA2qR4oTp1t1P7y5n8X5
+	UVeke8Gd5DK4rr3I8EqhKk3Yo/H+nfUK9kswiCQYfDGI/dzvMQbEgvZpewVU7/sZcmHIuQ0Hq07
+	G141juQPultdWk2BqelMkbU912KgqOA6/Uz5VFvCFvNz0yOqs3A56xHu5NmXx6xw==
+X-Received: by 2002:a17:907:2d9f:b0:b9c:b3b5:bbf0 with SMTP id a640c23a62f3a-b9cb3b5bc8fmr276106266b.6.1775483810728;
+        Mon, 06 Apr 2026 06:56:50 -0700 (PDT)
+Received: from aorus.localdomain (5.185.72.109.ipv4.public.orange.pl. [5.185.72.109])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b9c3cac0e1asm472921266b.27.2026.04.06.06.56.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Apr 2026 06:56:50 -0700 (PDT)
+From: =?UTF-8?q?=C5=81ukasz=20Lebiedzi=C5=84ski?= <kernel@lvkasz.us>
+To: vkoul@kernel.org
+Cc: neil.armstrong@linaro.org,
+	krzk@kernel.org,
+	alim.akhtar@samsung.com,
+	andre.draszik@linaro.org,
+	pritam.sutar@samsung.com,
+	kauschluss@disroot.org,
+	johan@kernel.org,
+	ivo.ivanov.ivanov1@gmail.com,
+	linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	=?utf-8?q?=C5=81ukasz=20Lebiedzi=C5=84ski?= <kernel@lvkasz.us>,
+	stable@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v2] phy: exynos5-usbdrd: fix USB 2.0 HS PHY tuning values for Exynos7870
+Date: Mon,  6 Apr 2026 15:56:27 +0200
+Message-ID: <20260406135627.234835-1-kernel@lvkasz.us>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <ces6pczk5yo2v5h6sga2dl2xuncqv4pmudunc7dhyeiy6swfh7@bk7vxdxrsrzz>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260406_065653_366894_B44D4BE0 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,139 +98,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 31, 2026 at 12:09:38PM +0530, Manivannan Sadhasivam wrote:
-> On Mon, Mar 30, 2026 at 03:48:05PM -0500, Bjorn Andersson wrote:
-> > On Wed, Dec 31, 2025 at 09:51:26PM +0530, Manivannan Sadhasivam wrote:
-> > > From: Konrad Dybcio <konradybcio@kernel.org>
-> > > 
-> > > PSCI specification defines the SYSTEM_SUSPEND feature which enables the
-> > > firmware to implement the suspend to RAM (S2RAM) functionality by
-> > > transitioning the system to a deeper low power state. When the system
-> > > enters such state, the power to the peripheral devices might be removed.
-> > 
-> > What is the actual extent of "peripheral devices" in this definition?
-> > 
-> 
-> All devices except the ones backing volatile memory (DDR).
-> 
+The existing PHYPARAM0 tuning values for Exynos7870 are incorrect,
+causing the USB 2.0 PHY to fail high-speed negotiation and fall back
+to full-speed (12Mbps) operation.
 
-I do not agree that this should be the interpretation on a Qualcomm
-platform.
+Fix TXVREFTUNE (transmitter voltage reference) from 14 to 3,
+TXRESTUNE (transmitter impedance) from 3 to 2, and SQRXTUNE
+(squelch threshold) from 6 to 5. Also explicitly set
+TXPREEMPPULSETUNE to 0, which was previously missing from the
+tuning table despite being included in the register mask.
 
+All values are derived from the vendor kernel for the Samsung
+Galaxy A6 (SM-A600FN), as no public hardware documentation is
+available for the Exynos7870 USB DRD PHY. With these corrections,
+the PHY successfully negotiates high-speed (480Mbps) operation.
 
-We do have the corner case of DeepSleep, where this indeed is what will
-happen (not sure if other resource votes in the system are ignored
-though?). For all typical targets making the PSCI jump might result in
-CX being turned off (unless something else votes for it...). 
+Fixes: 588d5d20ca8d ("phy: exynos5-usbdrd: add exynos7870 USBDRD support")
+Cc: stable@vger.kernel.org
+Tested-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Łukasz Lebiedziński <kernel@lvkasz.us>
+---
+ drivers/phy/samsung/phy-exynos5-usbdrd.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-State is still retained on a case-by-case basis and some parts of the
-system are still functional when we enter such state - and that is the
-system state we desire.
+diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+index 5a181cb4597e..8711a3b62c8e 100644
+--- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
++++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+@@ -1958,13 +1958,14 @@ const struct exynos5_usbdrd_phy_tuning exynos7870_tunes_utmi_postinit[] = {
+ 			      PHYPARAM0_TXPREEMPAMPTUNE | PHYPARAM0_TXHSXVTUNE |
+ 			      PHYPARAM0_TXFSLSTUNE | PHYPARAM0_SQRXTUNE |
+ 			      PHYPARAM0_OTGTUNE | PHYPARAM0_COMPDISTUNE),
+-			     (FIELD_PREP_CONST(PHYPARAM0_TXVREFTUNE, 14) |
++			     (FIELD_PREP_CONST(PHYPARAM0_TXVREFTUNE, 3) |
+ 			      FIELD_PREP_CONST(PHYPARAM0_TXRISETUNE, 1) |
+-			      FIELD_PREP_CONST(PHYPARAM0_TXRESTUNE, 3) |
++			      FIELD_PREP_CONST(PHYPARAM0_TXRESTUNE, 2) |
++			      FIELD_PREP_CONST(PHYPARAM0_TXPREEMPPULSETUNE, 0) |
+ 			      FIELD_PREP_CONST(PHYPARAM0_TXPREEMPAMPTUNE, 0) |
+ 			      FIELD_PREP_CONST(PHYPARAM0_TXHSXVTUNE, 0) |
+ 			      FIELD_PREP_CONST(PHYPARAM0_TXFSLSTUNE, 3) |
+-			      FIELD_PREP_CONST(PHYPARAM0_SQRXTUNE, 6) |
++			      FIELD_PREP_CONST(PHYPARAM0_SQRXTUNE, 5) |
+ 			      FIELD_PREP_CONST(PHYPARAM0_OTGTUNE, 2) |
+ 			      FIELD_PREP_CONST(PHYPARAM0_COMPDISTUNE, 3))),
+ 	PHY_TUNING_ENTRY_LAST
+-- 
+2.53.0
 
-Making the interpretation that all SoC resources will be disabled will
-result in a large amount of unnecessary save/restore work, in addition
-to breaking many use cases.
-
-I do however not think that such interpretation is necessary, the
-pm_suspend_via_firmware() kernel-doc describes that the firmware might
-perform actions to power down things, it isn't specific about the
-extent, so I think that's fine - while equating this to DeepSleep (SoC
-fully powered down) is too extreme.
-
-
-What bothers me with this patch in itself is that the behavior in
-relation to PCIe does match the description of pm_suspend_via_firmware()
-- the firmware does things which causes PCIe to "break", but IMHO this
-is merely because PCIe operates without voting for the resources that it
-depends on. But you keep telling me that this can't be solved in the PCI
-layer...
-
-If we can agree that pm_suspend_via_firmware() relates to the state of
-CX - and merely the implicit PCSI-owned vote thereof - then I think we
-should merge this patch.
-
-
-But regardless of this interpretation. If PCI/NVMe relies on the PSCI
-implementation's implicit vote for CX and its absence breaks NVMe during
-suspend, then we're faced with exactly the same problem if the user
-chooses s2idle as their means of suspending the system.
-
-I.e. on a Qualcomm platform, we should flag PM_SUSPEND_FLAG_FW_SUSPEND
-in s2idle as well - because from PCI/NVMe's point of view, the relevant
-resources will be gone in either configuration.
-
-Regards,
-Bjorn
-
-> > > So
-> > > the respective device drivers must prepare for the possible removal of the
-> > > power by performing actions such as shutting down or resetting the device
-> > > in their system suspend callbacks.
-> > > 
-> > 
-> > Our typical interpretation of this state is that IP-blocks might be
-> > non-functional during this time, but typically some state is retained.
-> > 
-> > Will the acceptance of this patch result in that we in the Qualcomm case
-> > should start accepting/writing patches that implement save/restore of
-> > state that is generally retained throughout the drivers - in the name of
-> > "power might be removed"?
-> > 
-> 
-> From the PSCI spec perspective, the underlying implementation of the
-> SYSTEM_SUSPEND is implementation defined. So whether the vendor firmware retains
-> the state or drops it completely, is out of the scope for PSCI. That's why
-> *assuming* that the devices will loose power is the best possible approach.
-> 
-> For sure, assuming that the power will be lost always will result in some
-> overhead with drivers saving and restoring the context unnecessarily if the
-> power if retained. But I can't think of any other way to make the driver work
-> across all firmware implementations.
-> 
-> > > The Linux PM framework allows the platform drivers to convey this info to
-> > > device drivers by calling the pm_set_suspend_via_firmware() and
-> > > pm_set_resume_via_firmware() APIs.
-> > > 
-> > > Hence, if the PSCI firmware supports SYSTEM_SUSPEND feature, call the above
-> > > mentioned APIs in the psci_system_suspend_begin() and
-> > > psci_system_suspend_enter() callbacks.
-> > > 
-> > 
-> > With the right interpretation of what this means for us, I think this
-> > patch looks good - but as we've discussed, I'm a bit worried about how
-> > to deal with the alternative interpretations.
-> > 
-> 
-> Just for the sake of clarity to others, 'alternative interpretations' is
-> referring to Qcom DeepSleep firmware implementation, which cuts power to almost
-> all components except DDR with no wakeup source other than PMIC.
-> 
-> > Specifically, if we fully adopt "power might be removed", we should to
-> > take actions which will prevent a typical Qualcomm system from waking up
-> > from sleep again.
-> > 
-> 
-> I think for wakeup, the driver should just save the device context and call
-> enable_irq_wake() if the user has configured the device as a wakeup source and
-> assume that the device will wakeup the system from suspend/sleep.
-> 
-> The underlying firmware should honor the wakeup and not cut the power to the
-> devices. But if it does, then wakeup will be broken anyway.
-> 
-> So from Qcom drivers perspective:
-> 
-> 1. They should save and restore the context if those drivers are going to be
-> used in both PSCI SYSTEM_SUSPEND (power retained) and DeepSleep (power lost)
-> firmware implementations.
-> 
-> 2. If the user has configured wakeup, they should enable wakeup using
-> enable_irq_wake() during suspend. On PSCI SYSTEM_SUSPEND implementations, wakeup
-> should just work, but on DeepSleep, it may not if the power is cut off
-> completely. But that's the limitation on those platforms and the OS policy
-> should ensure that wakeup is not configured for devices.
->  
-> - Mani
-> 
-> -- 
-> மணிவண்ணன் சதாசிவம்
 
