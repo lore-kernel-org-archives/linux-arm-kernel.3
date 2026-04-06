@@ -4,79 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFF83F46C4E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 15:54:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BD0CF46C53
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Apr 2026 16:22:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CTIp6PYmhxw2yxDPfMwjhrEaZe3DIpYSpXyQJZiM6Bs=; b=T3aTm+l2XzVwHb9SGb8U32b+mN
-	OJ68nlCFVsv5uTS16tRUz/XMrvmUonlRIba3r6KihSsAiafOx82EXF2bmHmZatG3zPLBVrEnOXgul
-	olHmYu9aTmd8arNPasNVIdZFkIug3yQZSfdYxvsBkVqwZOF9gpR+1WOrkr5/yKveNJjnzqSr+4iiQ
-	AA0a/qW0efBfyp8zGgK4lX/9oQLfLwd0eZ/a3tEoUoPB/xlgP+KXgebeYKPB6Bk5kNll4FNmSnILG
-	Cd5ct8GOMxIe20ibaZe2FEC1Mj0VgjVM20snCimi34J09Oyk03mVqsxzjYkIybRQ3WnOs3Oc1HsUd
-	+WNZaKgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sWslBRf0qez7073VMBbYbm8uIhmaBf/eGLBWgOwRt/A=; b=rxBowBCjuygafkW9bXcnPLJiAi
+	d+wraXgp6N8fRQ2SDVufE7Mgvp6AZ/kDft3vApqaBeMyb/DyFe/ustO6nvvxeRzjQgnFjHKJf2aTe
+	vklMY4lVZIJfaJU7Itm8stc3QREWOap/Xjb341bqSIOj4s4FoOhQ1GNsYQWlaQL4Fq6h5edtFu2iW
+	9rVWuoMblWvt1ep6i8DsXjmGTzZmlq035dUlzYPmdFTIA7zExAadEuCGaYO+UQK/9PpBcPkK8gTj3
+	djjRCSKo5ct9SjxDAS6JbN6DlPETzm1G1a+dFnOTm1T1f26Gzk/7IZvj9N37ParIXdE2D7YjZN3hH
+	hW4YHZSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9mGy-00000005IOy-0WYK;
-	Mon, 06 Apr 2026 15:53:56 +0000
-Received: from mout-p-202.mailbox.org ([80.241.56.172])
+	id 1w9mii-00000005JpA-0gss;
+	Mon, 06 Apr 2026 16:22:36 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9mGu-00000005IOc-42TZ
+	id 1w9mif-00000005Joo-1NWN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Apr 2026 15:53:54 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4fqDQN3LNXz9tSw;
-	Mon,  6 Apr 2026 17:53:48 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1775490828;
+	Mon, 06 Apr 2026 16:22:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1775492551;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=CTIp6PYmhxw2yxDPfMwjhrEaZe3DIpYSpXyQJZiM6Bs=;
-	b=tQBtZ3+QdFCh8HetGdgL7k6cbzkPLanUKpjTx6EjdXoqLqplLZTRD2PrWqVlztlcHdr62L
-	r6pT5YlAznARax6qBNuDyMmKWmJugM93A/MOmCzq+Zyuh/DMEu77mBXekdsg/579blIxF/
-	n0tlYFUNNlbw0xMj8HdP0Bi5yOd83RHma/S4EborSZcZbE5XmwqAGZERiK+K0vCDfinZii
-	v7G6z0gBNS4xbkGXqf94PftQDzSBUXyQGHoc45oxuD1XoETqO8ipM8f8Ujt+UlMUI0qB0/
-	Cam6xQ91elEtgHPqYE/nBjJluhBDjEClLBLsM0o904caQVqDpIjlsh7UV7n2rQ==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b="DD/gq8Qh";
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1775490826;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=CTIp6PYmhxw2yxDPfMwjhrEaZe3DIpYSpXyQJZiM6Bs=;
-	b=DD/gq8QhbBEVad1i5qgLgyFF3vOOiQiJ19QZV6JAcDegCZLyGy7F019Qy0KNT7sFFQPJJi
-	RswqdEslBP4j1vHEKbIN7UUnYI8bRqt71ChEx+8wR5bM1G+cAMj1/LfLB3JS6Y0Gxoqs1/
-	FZPy2TuGDcUVxrljr2uUuT7texuDJsfFRv13AK6xAIwGl2OwmnWw77IYWDTAlR8OakboB4
-	XSbod4LdYFnvrt2JKWClfnSTSHCQM7D5cq+YYYE9pUX9c7SLXzIjbGmFvV4wUsIhWSldkj
-	r5eZPqes5VWHmKSSCcH9aItHiZcFA/9+n1OzpDNTJVEfGcKqYbB0LturWeVowQ==
-To: arm-scmi@vger.kernel.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [RFC][PATCH] firmware: arm_scmi: Rename struct scmi_revision_info to scmi_base_info
-Date: Mon,  6 Apr 2026 17:52:54 +0200
-Message-ID: <20260406155343.72087-1-marek.vasut+renesas@mailbox.org>
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=sWslBRf0qez7073VMBbYbm8uIhmaBf/eGLBWgOwRt/A=;
+	b=JaFNq6/XRLcn4ySGWkjlWJetnBb2WrNyLGNVKmsiflq4nM4em2wyt6q6gJIlEk7yckDqi7
+	cg37iKHr0k5NtDuHdho19k9uWTsQ9K6DXiH/05LfmU4xQ0p2ilmiN00wZEhOhBPHbA2Kua
+	lFVGDIm1F7BD6SnH4A+23HutpR07lrI=
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
+ [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-638-DNU_7Tg_NueLlblrP-VSyQ-1; Mon, 06 Apr 2026 12:22:30 -0400
+X-MC-Unique: DNU_7Tg_NueLlblrP-VSyQ-1
+X-Mimecast-MFC-AGG-ID: DNU_7Tg_NueLlblrP-VSyQ_1775492550
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8cfc61fc9b8so1027460985a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Apr 2026 09:22:30 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775492550; x=1776097350;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=sWslBRf0qez7073VMBbYbm8uIhmaBf/eGLBWgOwRt/A=;
+        b=p8t8LTX5rHf41xiUPWK9+zcFe+hz90LEZu/SsilUI8k7Zu9g95Xi+77Gjgdj81ynmX
+         VEo81xvMyYCdY6AKYF+tCcgz84bsohfvIClW6TiV7dDn7d8jfVF/Kpl3sr6La+UOzEvV
+         ac1GglQci4MCfXrGzceb6P51ln+b7kdqyRu31sREXLTtlIzkFeLwDkO8W5KlvHKVRK8z
+         RBMgVZT97RBuf9+83T8rKQsJZwqGEaQifvJqGTCNL9+MVJla5DD/QICu+4ywcvJ8L0Jh
+         AaELs6fKz4CBD3RbyaXdUmC43KpbOaEtRHw8wcAJ9vI/N7ghZGGCzpbdR2YVjnVasupb
+         ft8w==
+X-Forwarded-Encrypted: i=1; AJvYcCWCCcsq2EWynJCCCHyImzXkIR1V1WPeERhP6N1OxJ9Ah+lu3/m6GRTGg6U5E1plnCdzmGA22OksADRvKMNXB/gl@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDfLzVGAdjMxFi5wsZ9uRmkg2vXiJCYWQlsfCPcGbx43q+IHb8
+	zO2LoONThSyajr1o5UY4qYa7P1sLANL7y1gG+hk2giZxpZZJ6NwvjmqUWcc8F0366vI8Okdkv7p
+	aGEG3uOvzBi0za3k41D56KMKhiPkm7EcXo3vAh8YtMv/l0atxN30e099ZD2lmlHZiUCzXneGuwv
+	k0
+X-Gm-Gg: AeBDiesvsCJwDAwJyXCLUnEu/B1wYZ1A7LQS44G5jsVdUtqnKVA75tcpj+AKJ7Sdvbj
+	Ik+2tm64vuOjq7+b7LzHnqwEHbNyN93v/EI6lDOZELONfxChEoUjWK/O+9tbzbNglRlaMPPC8ih
+	KcHsIQlCdx2fHghu1M28S88GnDvEm9kGkgYaot8S3vgDzi5qrzkY6zfqEh0BNivyymBDpec++j3
+	1s2ULMmwrl7an1oOGhZlA81D25VQgb7lwJTOS4qq93mEbA6hxusE0cb/+5orvE1sw/y+EDnLFRQ
+	DlFZtafGqAbcS5gGDN6ryxfceaMvjvSY1QCv7kGxVksORWVkya8+XtWVIq9ZWsjdgkbbANFn9at
+	G8kE5izFB4wI+9oB3cmoovSDjTWOsdLiSbdoVdbs/q8DIPFPmJ0StV6fp
+X-Received: by 2002:a05:620a:1983:b0:8cf:d717:c22e with SMTP id af79cd13be357-8d41c3b4bbfmr1914123585a.28.1775492549536;
+        Mon, 06 Apr 2026 09:22:29 -0700 (PDT)
+X-Received: by 2002:a05:620a:1983:b0:8cf:d717:c22e with SMTP id af79cd13be357-8d41c3b4bbfmr1914116585a.28.1775492548827;
+        Mon, 06 Apr 2026 09:22:28 -0700 (PDT)
+Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8d2a5c5cb5csm1099220585a.15.2026.04.06.09.22.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Apr 2026 09:22:27 -0700 (PDT)
+Date: Mon, 6 Apr 2026 12:22:25 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-clk@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	"moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,..." <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:KERNEL HARDENING (not covered by other areas):Keyword:b__counted_by(_le|_be)?b" <linux-hardening@vger.kernel.org>
+Subject: Re: [PATCHv2] clk: mvebu: use kzalloc_flex
+Message-ID: <adPdwTGDdt5MkDp6@redhat.com>
+References: <20260403194701.11902-1-rosenp@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: csqpo6g64h8qr9irwbwzpf9dqam9ghtb
-X-MBO-RS-ID: 38eced4b8dc950e2456
-X-Rspamd-Queue-Id: 4fqDQN3LNXz9tSw
+In-Reply-To: <20260403194701.11902-1-rosenp@gmail.com>
+User-Agent: Mutt/2.3.0 (2026-01-25)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: yolSO8_k_kRGVQbvrnUHxgd6CYEHi3f9UTzzbK8bi-A_1775492550
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_085353_176315_18E8B36D 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20260406_092233_543844_2A453459 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,191 +115,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename struct scmi_revision_info to struct scmi_base_info , to
-accurately represent its content. The scmi_revision_info is no
-longer accurate, because the structure now contains more than
-only SCMI base protocol revision, it now also contains number
-of protocols, agents, vendor and subvendor strings. All those
-are fetched from the base protocol, so rename the structure to
-scmi_base_info, to match the other scmi_*_info structure names.
-No functional change.
+Hi Rosen,
 
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: arm-scmi@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-renesas-soc@vger.kernel.org
----
- drivers/firmware/arm_scmi/base.c   | 10 +++++-----
- drivers/firmware/arm_scmi/common.h |  2 +-
- drivers/firmware/arm_scmi/driver.c | 14 +++++++-------
- include/linux/scmi_protocol.h      |  6 +++---
- 4 files changed, 16 insertions(+), 16 deletions(-)
+On Fri, Apr 03, 2026 at 12:47:01PM -0700, Rosen Penev wrote:
+> Use a flexible array member to combine kzalloc and kcalloc in one
+> allocation so they can be freed together.
+> 
+> Add __counted_by for extra runtime analysis. Move counting variable
+> assignment right after allocation as done by kzalloc_flex with GCC >=
+> 15.
+> 
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> ---
+>  v2: remove now unused goto label.
 
-diff --git a/drivers/firmware/arm_scmi/base.c b/drivers/firmware/arm_scmi/base.c
-index cd1331c2fc403..4df2620e3c5d0 100644
---- a/drivers/firmware/arm_scmi/base.c
-+++ b/drivers/firmware/arm_scmi/base.c
-@@ -69,7 +69,7 @@ static int scmi_base_attributes_get(const struct scmi_protocol_handle *ph)
- 	int ret;
- 	struct scmi_xfer *t;
- 	struct scmi_msg_resp_base_attributes *attr_info;
--	struct scmi_revision_info *rev = ph->get_priv(ph);
-+	struct scmi_base_info *rev = ph->get_priv(ph);
- 
- 	ret = ph->xops->xfer_get_init(ph, PROTOCOL_ATTRIBUTES,
- 				      0, sizeof(*attr_info), &t);
-@@ -103,7 +103,7 @@ scmi_base_vendor_id_get(const struct scmi_protocol_handle *ph, bool sub_vendor)
- 	int ret, size;
- 	char *vendor_id;
- 	struct scmi_xfer *t;
--	struct scmi_revision_info *rev = ph->get_priv(ph);
-+	struct scmi_base_info *rev = ph->get_priv(ph);
- 
- 	if (sub_vendor) {
- 		cmd = BASE_DISCOVER_SUB_VENDOR;
-@@ -143,7 +143,7 @@ scmi_base_implementation_version_get(const struct scmi_protocol_handle *ph)
- 	int ret;
- 	__le32 *impl_ver;
- 	struct scmi_xfer *t;
--	struct scmi_revision_info *rev = ph->get_priv(ph);
-+	struct scmi_base_info *rev = ph->get_priv(ph);
- 
- 	ret = ph->xops->xfer_get_init(ph, BASE_DISCOVER_IMPLEMENT_VERSION,
- 				      0, sizeof(*impl_ver), &t);
-@@ -180,7 +180,7 @@ scmi_base_implementation_list_get(const struct scmi_protocol_handle *ph,
- 	__le32 *num_skip, *num_ret;
- 	u32 tot_num_ret = 0, loop_num_ret;
- 	struct device *dev = ph->dev;
--	struct scmi_revision_info *rev = ph->get_priv(ph);
-+	struct scmi_base_info *rev = ph->get_priv(ph);
- 
- 	ret = ph->xops->xfer_get_init(ph, BASE_DISCOVER_LIST_PROTOCOLS,
- 				      sizeof(*num_skip), 0, &t);
-@@ -377,7 +377,7 @@ static int scmi_base_protocol_init(const struct scmi_protocol_handle *ph)
- 	u8 *prot_imp;
- 	char name[SCMI_SHORT_NAME_MAX_SIZE];
- 	struct device *dev = ph->dev;
--	struct scmi_revision_info *rev = scmi_revision_area_get(ph);
-+	struct scmi_base_info *rev = scmi_revision_area_get(ph);
- 
- 	rev->major_ver = PROTOCOL_REV_MAJOR(ph->version);
- 	rev->minor_ver = PROTOCOL_REV_MINOR(ph->version);
-diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index 7c9617d080a02..07a127dec0319 100644
---- a/drivers/firmware/arm_scmi/common.h
-+++ b/drivers/firmware/arm_scmi/common.h
-@@ -138,7 +138,7 @@ static inline void unpack_scmi_header(u32 msg_hdr, struct scmi_msg_hdr *hdr)
- 	xfer_;							\
- })
- 
--struct scmi_revision_info *
-+struct scmi_base_info *
- scmi_revision_area_get(const struct scmi_protocol_handle *ph);
- void scmi_setup_protocol_implemented(const struct scmi_protocol_handle *ph,
- 				     u8 *prot_imp);
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 57785c0c04241..00329935926d3 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -134,7 +134,7 @@ struct scmi_protocol_instance {
-  *	       usage.
-  * @protocols_mtx: A mutex to protect protocols instances initialization.
-  * @protocols_imp: List of protocols implemented, currently maximum of
-- *		   scmi_revision_info.num_protocols elements allocated by the
-+ *		   scmi_base_info.num_protocols elements allocated by the
-  *		   base protocol
-  * @active_protocols: IDR storing device_nodes for protocols actually defined
-  *		      in the DT and confirmed as implemented by fw.
-@@ -152,7 +152,7 @@ struct scmi_info {
- 	int id;
- 	struct device *dev;
- 	const struct scmi_desc *desc;
--	struct scmi_revision_info version;
-+	struct scmi_base_info version;
- 	struct scmi_handle handle;
- 	struct scmi_xfers_info tx_minfo;
- 	struct scmi_xfers_info rx_minfo;
-@@ -266,7 +266,7 @@ scmi_vendor_protocol_lookup(int protocol_id, char *vendor_id,
- }
- 
- static const struct scmi_protocol *
--scmi_vendor_protocol_get(int protocol_id, struct scmi_revision_info *version)
-+scmi_vendor_protocol_get(int protocol_id, struct scmi_base_info *version)
- {
- 	const struct scmi_protocol *proto;
- 
-@@ -304,7 +304,7 @@ scmi_vendor_protocol_get(int protocol_id, struct scmi_revision_info *version)
- }
- 
- static const struct scmi_protocol *
--scmi_protocol_get(int protocol_id, struct scmi_revision_info *version)
-+scmi_protocol_get(int protocol_id, struct scmi_base_info *version)
- {
- 	const struct scmi_protocol *proto = NULL;
- 
-@@ -2095,7 +2095,7 @@ static const struct scmi_proto_helpers_ops helpers_ops = {
-  * Return: A reference to the version memory area associated to the SCMI
-  *	   instance underlying this protocol handle.
-  */
--struct scmi_revision_info *
-+struct scmi_base_info *
- scmi_revision_area_get(const struct scmi_protocol_handle *ph)
- {
- 	const struct scmi_protocol_instance *pi = ph_to_pi(ph);
-@@ -2408,7 +2408,7 @@ scmi_is_protocol_implemented(const struct scmi_handle *handle, u8 prot_id)
- {
- 	int i;
- 	struct scmi_info *info = handle_to_scmi_info(handle);
--	struct scmi_revision_info *rev = handle->version;
-+	struct scmi_base_info *rev = handle->version;
- 
- 	if (!info->protocols_imp)
- 		return false;
-@@ -3203,7 +3203,7 @@ static const struct scmi_desc *scmi_transport_setup(struct device *dev)
- 
- static void scmi_enable_matching_quirks(struct scmi_info *info)
- {
--	struct scmi_revision_info *rev = &info->version;
-+	struct scmi_base_info *rev = &info->version;
- 
- 	dev_dbg(info->dev, "Looking for quirks matching: %s/%s/0x%08X\n",
- 		rev->vendor_id, rev->sub_vendor_id, rev->impl_ver);
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index c710107c2120a..49cc39e0cbca5 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -17,7 +17,7 @@
- #define SCMI_SHORT_NAME_MAX_SIZE	16
- 
- /**
-- * struct scmi_revision_info - version information structure
-+ * struct scmi_base_info - version information structure
-  *
-  * @major_ver: Major ABI version. Change here implies risk of backward
-  *	compatibility break.
-@@ -30,7 +30,7 @@
-  * @vendor_id: A vendor identifier(Null terminated ASCII string)
-  * @sub_vendor_id: A sub-vendor identifier(Null terminated ASCII string)
-  */
--struct scmi_revision_info {
-+struct scmi_base_info {
- 	u16 major_ver;
- 	u16 minor_ver;
- 	u8 num_protocols;
-@@ -906,7 +906,7 @@ struct scmi_notify_ops {
-  */
- struct scmi_handle {
- 	struct device *dev;
--	struct scmi_revision_info *version;
-+	struct scmi_base_info *version;
- 
- 	int __must_check (*devm_protocol_acquire)(struct scmi_device *sdev,
- 						  u8 proto);
--- 
-2.53.0
+Reviewed-by: Brian Masney <bmasney@redhat.com>
+
+This is the third time that I've asked you this [1]: For the future, if
+someone asks for changes in a previous version, then be sure to CC them
+on the next revision. I was the one that found the unused goto in v1.
+
+[1] https://lore.kernel.org/linux-clk/acvUoSOOF_9UQC75@redhat.com/
+    https://lore.kernel.org/linux-clk/ac0o7XbBm8aBOa7a@redhat.com/
 
 
