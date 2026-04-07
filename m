@@ -4,60 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D8CFF512E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 17:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94842FF5132
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 17:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cRqD0imszs524WQf5gj0L39h0B1pNS9NWfFkzN7Pyt0=; b=tFFaDYEkYHlOTansBHh3vCbN78
-	9v5AmrGrbsf9sgj92pzWgIhhXOPnDeTC13zuFjALqbcVg8677r/jwfgS9u2W2d/vgG1UQFfRyyHTH
-	5DyQ32VzK/EM6hS05d3Ewa+ciwYya5O7hq+cMbCtrl/7KdDFFOBZE3lQujsHft4BJCG0Cw2zzS1e9
-	+WTesAZtJa1E9rin8BiAV8yhHdCjpuaoaHHFJ200zdAp8l24G7QfVW2BUQJRCwf877OhpamAkzJsm
-	U1MVcGx+Tp58nHZoQlaaMjs+T9c+N8nZxxw9UERaOL1IKMVO0qZ24maHHk7QlD591HHmiSeyELXKb
-	7GAMCalA==;
+	bh=X/MSOJp/AJlf7hUTMD/NXnVkTNNfR/Z7vvW8KkUYbLI=; b=TLoDg3SdSxQPEpC7jZ0HCBSjLW
+	Ogj+x41S8HK6WciFzwbRova0W6EaYPy+WDaxqIh9rEvLiJnIOuiWGiTYJdKBorhA1iSiN2OS7TQtw
+	AQoZ+kOjloolpIaiVonqh0p89v6KO6hDcejCE2/1andKGbVqOWox9fDb0U39KsdrTczJUM2VLJzhl
+	OkI//T/2AlZ0U76od1G4o1ziEpIkjskCeci9B4lRbAr0S1SAHYsfEC4NGcZFgKkUhWbzufZ80AYe8
+	ZLf97g1kkkHeNIRC4ojS4Q9nd2OEzaXov20VP1ZGBMzWpbxOWhmZNsqBTFh2M3krQlm6TMo2ZtGGl
+	QGQktNqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAAaP-00000006swe-2Y2R;
-	Tue, 07 Apr 2026 17:51:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wAAbg-00000006t58-0QVZ;
+	Tue, 07 Apr 2026 17:52:56 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAAaO-00000006swO-0ioI
+	id 1wAAbe-00000006t4T-0Sda
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 17:51:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 290AF600AC;
-	Tue,  7 Apr 2026 17:51:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADD42C116C6;
-	Tue,  7 Apr 2026 17:51:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775584294;
-	bh=rlMvpKgIOlZglIA88qVLTA+ty+Ojl1Tbj1KHcxZ+sM4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Yk/IZ0bkIfxY1NwrYVPkE0J/y6mUTaVCt2SijSspoxtSH0SsddcagzZWemgmgefgS
-	 Og0tgurlxvYiL6aHknxY0oc+xnDkKydEA/ZXne54HBIpY04+ZzlfsjXcAHPGxxWVgp
-	 wtcKaMCBq69EhA8p8Uc/hLsBEJ2dCK9JLooaYWdzzP0iZunoJRxhH4cmCUQfqvb3VK
-	 9d0ZBS/qGUczOV2O7OYf5Sl+ahTwPjO5C8ihpWUVAebchf1d6o8weM0fj/wVJfSRpy
-	 hrpITt71+aEaJSDc28XCZYti6dkDAkK6+JfaAfUs4cN077L3EZbDMzgUCPqd85NG1A
-	 eTeq1c8O/5teQ==
-Date: Tue, 7 Apr 2026 12:51:32 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Jernej Skrabec <jernej@kernel.org>, devicetree@vger.kernel.org,
-	linux-sunxi@lists.linux.dev, Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Samuel Holland <samuel@sholland.org>
-Subject: Re: [PATCH 1/7] dt-bindings: sram: Document Allwinner H616 VE SRAM
-Message-ID: <177558429222.3170780.2861586740779038011.robh@kernel.org>
-References: <20260324164357.1607247-1-wens@kernel.org>
- <20260324164357.1607247-2-wens@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260324164357.1607247-2-wens@kernel.org>
+	Tue, 07 Apr 2026 17:52:55 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-35842aa350fso12471710a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 10:52:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1775584373; x=1776189173; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=X/MSOJp/AJlf7hUTMD/NXnVkTNNfR/Z7vvW8KkUYbLI=;
+        b=lVD4A2xvKTsWLov1gw1CL7FogtUwCXSx8aHHWRRjLvYfvK7huTvZ728lHLLwFLS1M9
+         X5s98fCXlTFOc6pmqXkTYkdI1OGFGxfKnChXpkxhtilydILQ1UEcr/aCkWGLjXCgYOzr
+         puJK/0G885FRgbmwh5UHfIvg5i9SBsO7CT95304Ly00sNYqIoinb3jmczVqKiBT4cL1l
+         bbg0toUgNwlS+p4BsEzynXXSp2ruivYQ8MmaE/P8321HJ5GNNWPORtuDkCmGNZw/Uzv+
+         5DHZH5ubHMYcdoN8kbTHwbB1R7EnU7Mb2MKmJKxqb7/8s5FVPVknt2SAAMpBE9TfDOM7
+         Omvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775584373; x=1776189173;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=X/MSOJp/AJlf7hUTMD/NXnVkTNNfR/Z7vvW8KkUYbLI=;
+        b=DybAWlO85JgkzwosAUqvGFAVWUB/oGkd1G0c7eiqIG26RapPEcvG4uB2lRtzIpOsky
+         pmEDcpweiyoseheMH5cIrjd15rpqGZAry+0u20hV5CEARAZsFq0BLFXT9xT31spEDAVb
+         j4xccAQ8am9kilFHlJoKyRjXpGuTa9Nr/ioqOq+Xj52+U7iD9LZ3xOWO5Op2vtxme5CO
+         oxnhyX/DKraeFETVLB/BC0I02ZaapjSOfCsDQNcd26nuZ4TxtjGqU64yziKV/0sHo/YF
+         CkG8p+JWz/tWRWZxjZcTl0ACeXGHF88vX2A/ym1nlWNME/U+5AXGrTfZYmEOwcrt3G/p
+         SBqA==
+X-Forwarded-Encrypted: i=1; AJvYcCUQ9i9U4KSo5v3p93atWstuCMGDPrYyBnX78wuh+Cb0uVXoS0cKa3TDyR6YYKl7+lb2vZrpCwB3LoCSIbrjMLn6@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcpoNsjbdiyk06nbSSYBDMlGruGjprqWst9siB9e7aSd/g4X8Q
+	Gy3sAgTSDYylFqHYF+yXbzIczKONcGe5UdJucJmmqp2HQi40AFlBH+3dxr6QkyfVNxxaQZis4xI
+	VgeSO9w==
+X-Received: from pjps16.prod.google.com ([2002:a17:90a:a110:b0:35d:94b3:bd6b])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2885:b0:35d:974d:8f7
+ with SMTP id 98e67ed59e1d1-35de679c8ecmr16179304a91.1.1775584372473; Tue, 07
+ Apr 2026 10:52:52 -0700 (PDT)
+Date: Tue, 7 Apr 2026 10:52:51 -0700
+In-Reply-To: <2a216ee2-aebb-42ba-b2aa-826488448bbe@linux.alibaba.com>
+Mime-Version: 1.0
+References: <cover.1773890510.git.baolin.wang@linux.alibaba.com>
+ <545847c132da5d957cfc74ab19e849b16127aa8f.1773890510.git.baolin.wang@linux.alibaba.com>
+ <67c670e2-c98f-490b-bbb9-2960f8175b5a@lucifer.local> <66e78b59-f96c-4277-b7d7-473b68ed413f@linux.alibaba.com>
+ <adBJTXeE6G2vQNKX@google.com> <2a216ee2-aebb-42ba-b2aa-826488448bbe@linux.alibaba.com>
+Message-ID: <adVEc4zUVVxRiEJG@google.com>
+Subject: Re: [PATCH 6/6] mm: change to return bool for the MMU notifier's
+ young flag check
+From: Sean Christopherson <seanjc@google.com>
+To: Baolin Wang <baolin.wang@linux.alibaba.com>
+Cc: "Lorenzo Stoakes (Oracle)" <ljs@kernel.org>, akpm@linux-foundation.org, david@kernel.org, 
+	Liam.Howlett@oracle.com, vbabka@kernel.org, rppt@kernel.org, 
+	surenb@google.com, mhocko@suse.com, linux-arm-kernel@lists.infradead.org, 
+	x86@kernel.org, linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	kvm@vger.kernel.org, open <linux-mm@kvack.org>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260407_105254_182084_DB0D8DA4 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,35 +95,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Apr 07, 2026, Baolin Wang wrote:
+> On 4/4/26 7:12 AM, Sean Christopherson wrote:
+> > On Fri, Mar 20, 2026, Baolin Wang wrote:
+> > > > > -static __always_inline int kvm_age_hva_range(struct mmu_notifier *mn,
+> > > > > -						unsigned long start,
+> > > > > -						unsigned long end,
+> > > > > -						gfn_handler_t handler,
+> > > > > -						bool flush_on_ret)
+> > > > > +static __always_inline bool kvm_age_hva_range(struct mmu_notifier *mn,
+> > > > > +					      unsigned long start,
+> > > > > +					      unsigned long end,
+> > > > > +					      gfn_handler_t handler,
+> > > > > +					      bool flush_on_ret)
+> > > > 
+> > > > Can we please fix this terrrible indentation while we're here :)?
+> > > > 
+> > > > static __always_inline bool kvm_age_hva_range(struct mmu_notifier *mn,
+> > > > 		unsigned long start, unsigned long end, gfn_handler_t handler,
+> > > > 		bool flush_on_ret)
+> > > > 
+> > > > Would be nicer, thanks!
+> > 
+> > No, please keep this as-is.  KVM's preferred style is exactly this (and I personally
+> > find mm's style much harder to parse).
+> 
+> Um, Andrew has already queued v2[1] into the mm-stable branch. Do you want
+> me to send a follow-up patch to restore the original KVM coding style?
 
-On Wed, 25 Mar 2026 00:43:49 +0800, Chen-Yu Tsai wrote:
-> The Allwinner H616 has two switchable peripheral SRAM regions:
-> 
-> - The VE SRAM is a 2 MB dedicated SRAM for the Video Engine. CPU access
->   to this region is enabled by default. CPU access can be disabled,
->   after which reads will show the same stale value for all addresses,
->   while writes are ignored.
-> 
->   The mux value for this region is different from previous generations,
->   and thus needs a completely new compatible.
-> 
-> - The SRAM C region is an alias of the first 128 KB of VE SRAM, plus 64
->   KB of DE SRAM. The latter is otherwise unaccessible from the CPU. When
->   CPU access is disabled, the whole region reads as zero, while writes
->   are ignored.
-> 
->   The mux value for this region is the same as on the A64 and H6. The
->   existing compatible for the A64 already covers this.
-> 
-> Add the compatible for the VE SRAM to the list of covered compatibles in
-> the generic SRAM region binding.
-> 
-> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
-> ---
->  Documentation/devicetree/bindings/sram/sram.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
-
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-
+Nah, not worth the churn.  Thanks though!
 
