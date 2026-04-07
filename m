@@ -4,56 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D15BEDB7EF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 10:52:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F97F3D5E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 10:59:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qaQqvztElhnaUNrSq4dQfMUXlHb2aPZeHeprvpEK5iI=; b=TlYtgcZUYRZ/TOQILaEq7DpPIZ
-	4iFUTunhwLOJkZ+SfruWqgDeSIa3ABFIICqsAsa9J+ZQ3g8Dd/t1NzdPczB5C7HIeI62zJTnYgs5Z
-	J5kTJOX7MiXSb8fHanD3nMnK7N5TWXQh/ZIeFqLddlsIQ3e9+2fegLwpV0m1FJUSHukUn6qWFyPPb
-	yvSr2+EPhQ8S/FmdaTMrWS37Z9HhQ9uprvCSLUlORDMNow16+T9S+RjGrEoVJNjoDYBIqFWT3KfOF
-	4hLLdgSDeTc9Bdcx4jT8BToOcILHAF+c4D7UjiJ7sYev1lcwiTru0IlezDizHyxpUz+d6Htt6N0J/
-	cwwqrC0A==;
+	bh=pW18SYaewZa2ej+crJk99wLT0nXZT691qI5b/3x5qMM=; b=3R03d2MDsg+9VR3m/a1D0pJXAi
+	mc80JSesRJNpx/LDvio5fMhul+1515iK4Q3dSSNrEPrbOw5yJ5bJ9U3BdaCy3+7MRJ/nizLCu76s9
+	D5nfzASaZo6b6TpgeA0Aksviwxx08yzZb2Qu8ETNQyr8BshFXAguax6uis7mqrro0QpI8way1tS7/
+	F8TljxsBTVZqarssBDJBMMCpgKTkCo1wbFE/VHKpBx98Zye6ptA0nTHrxl0GtQBOB4nYWZltD0ssK
+	7vJrAfI3d2kHDQd9nyfy78wIprIp9hDIx/wO9WMLjAjS2cGre/AxhpIeYAzG/z5G+WYr2C0PTkB41
+	87X1oFMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA43C-00000006LAE-1vFu;
-	Tue, 07 Apr 2026 10:52:54 +0000
-Received: from mx.socionext.com ([202.248.49.38])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA439-00000006L8r-2J2s
+	id 1wA49b-00000006LYq-0eR8;
+	Tue, 07 Apr 2026 10:59:31 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wA49Y-00000006LYS-3xuf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 10:52:53 +0000
-Received: from unknown (HELO iyokan3-ex.css.socionext.com) ([172.31.9.54])
-  by mx.socionext.com with ESMTP; 07 Apr 2026 19:52:47 +0900
-Received: from mail.mfilter.local (mail-arc02.css.socionext.com [10.213.46.40])
-	by iyokan3-ex.css.socionext.com (Postfix) with ESMTP id BDF0F2091483;
-	Tue,  7 Apr 2026 19:52:47 +0900 (JST)
-Received: from iyokan3.css.socionext.com ([172.31.9.53]) by m-FILTER with ESMTP; Tue, 7 Apr 2026 19:52:47 +0900
-Received: from [10.212.247.199] (unknown [10.212.247.199])
-	by iyokan3.css.socionext.com (Postfix) with ESMTP id 3618210A0BE;
-	Tue,  7 Apr 2026 19:52:47 +0900 (JST)
-Message-ID: <c5a88b29-9a2b-43e7-b75f-3c7f19cfaeaf@socionext.com>
-Date: Tue, 7 Apr 2026 19:52:47 +0900
+	Tue, 07 Apr 2026 10:59:30 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6376p3go1407046
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 7 Apr 2026 10:59:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	pW18SYaewZa2ej+crJk99wLT0nXZT691qI5b/3x5qMM=; b=W+LOTv13ENjFxOAP
+	pEXx12Pc1CtXtjBrpCSy841S9mfXxu6RcST8MTyQigyM8zPoUjZXAYEH7JLoKRYH
+	mJ1S4Bq0nWKEP0j/4ewik69txqIU4Pv9QqCIM6t5Juuf0FbulbvxjLRtwZaFTHaw
+	yRAPKRPc+7ZAjQrLrR/vnG5HzzBTUUS5w09VpfK2VkbO8E9+FL6m+vCSCuf2hcVh
+	JWE+kvVYwgUsjdgdknhX7B1FLNpL5PbE+XM9ErtjO44E9BHzpijQmPFKO+GExgYd
+	Bsf+riVeEmQaLIVr/0sflVz4W1VR3NRl/TX7h3ZbU5CLO/to+9ALI/pMxtJcBL3f
+	CdK44g==
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dcmratcf0-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 10:59:28 +0000 (GMT)
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-c76b06f37a7so1835550a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 03:59:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1775559567; x=1776164367; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=pW18SYaewZa2ej+crJk99wLT0nXZT691qI5b/3x5qMM=;
+        b=E82S/jYJXmm22wzKl5SGSjPPuttoEQPWumiND61HciZDANU3Jb8YHrzxXUVmCETytq
+         fX7EaiwGxML8e5yYeQh7b3BCmrKqBgAX7vY+kDqLwU7KpNu/bjVKxUA4o5WkzKNTEZQv
+         1obzQUnpM7tjeSpT52v114Cqn4dWOdLS3b0y/HKocIfjyMxaLg7Gx0mRxFlyXqtjtbmr
+         km/IcOdn0fCSLjsQpqpZq8qVY9uGphEKamDrAYNbiB4lx0sLc7NrKqQt0KvP9EH6lzzK
+         JsPECtViNwRyttgg86iHthR6fgstwS+Z1y+L/d5uF48l9Qg0Df7npVRF4vMy9EaZCkum
+         b30A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775559567; x=1776164367;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pW18SYaewZa2ej+crJk99wLT0nXZT691qI5b/3x5qMM=;
+        b=KNfAobttx858tg2YrWOf5pMowGpAqcw5K1Q4Q5iWFMganiNhdCfvRRZIp8dHULEz19
+         UNY15QYyCeH5+11Wgo/XHVmEf8DYAazlW1IPC5SsbBfyBYjC3IfO3NA8cowiH8sIVt2Q
+         T4jaaTOd9MPuY/cicHZ8d+EW57PIJKWhlrlaIRvxpOGSpJZYXInL4BYRONL5uZ9HsQJP
+         yy5ouqwrq4aNpsQMD3A0+9OVR9z5y03ybGYlV9Dx8gXO/CatmX2MQqKg/JUHWoz90M3y
+         ssEq934NSCWhpxazY4rHNcBx243VRCjOxsQOagsFfJRoKfGmu+ioGoGry/mP1m5oPZA1
+         QtNg==
+X-Forwarded-Encrypted: i=1; AJvYcCXyyfgGwSc7bVc9jaBTLk95e/gQHx7fwaMX/GXqSEO2eA/GbtV0EoZQcBNZ95brzzibYV4S5s2/MMilT7IE8hZP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhuUTqicBGxzD6KDt4STvDjvdR4/LAalvy7Nzle2iqt21caYKs
+	wcchsktP7WOQQbdhdQMTBRaCQqfECbMJE8TLDxnlqD7okvWuTgrwLhVRfUVOIjGJFYpbxg8gwAE
+	Wbg4XEfa2knsrbM7jl01QfGXczdjeViIqkayyZfAfLCoinBGn415h1GfHEBPMZfxU001gCVEajy
+	pe5Q==
+X-Gm-Gg: AeBDietfyRtdcvda9gHIFX8o61fH9shf+/slE1O2gC5RXYyqN/GrTqHWi3M8OhN03Tq
+	Qe8pUtA05XZhIWn8oIAxGBohDAv+MMICTCLlhrQRedKZZh0cuv21Jf9cGH6R2w+AL1afL18inPU
+	6qVj9yuKW7hSZ98cU8yuqi3GaNgnH43Xp2PMnMyH5A4M1eBYtsGt9VVz0J0qcEbLp2nA4+bUQ4a
+	BCc7eW/ilOJqFC86NowT1C80sHitf4zMX5jja/ZK8qg09oTFbwVp6dr6Kf/FWKwohoCblGFd+OG
+	waJdj/8nTnpx7q9IGTB5pA0iBFnao6I6EgSfwIs9+65n0Ls4PPbbPCgKmB02wtU5vWNExwl3y4n
+	cK0MxcQVVzBm4dbtbnjg12DJkaPqcihI8HQqHgkzN/V/77pbevJUgyv7KHbMEO8F6bn8nyGxRUw
+	xoDU7WHWjctg==
+X-Received: by 2002:a05:6a20:244d:b0:398:bda8:d8cd with SMTP id adf61e73a8af0-39f2ed0ff5dmr15779428637.7.1775559567466;
+        Tue, 07 Apr 2026 03:59:27 -0700 (PDT)
+X-Received: by 2002:a05:6a20:244d:b0:398:bda8:d8cd with SMTP id adf61e73a8af0-39f2ed0ff5dmr15779398637.7.1775559566966;
+        Tue, 07 Apr 2026 03:59:26 -0700 (PDT)
+Received: from [10.133.33.25] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c76c6476a81sm15130467a12.7.2026.04.07.03.59.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 07 Apr 2026 03:59:26 -0700 (PDT)
+Message-ID: <a912064f-9ac7-4f0d-aacb-564eaa87cbf1@oss.qualcomm.com>
+Date: Tue, 7 Apr 2026 18:59:21 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] spi: uniphier: Simplify clock handling with
- devm_clk_get_enabled()
-To: Pei Xiao <xiaopei01@kylinos.cn>
-Cc: broonie@kernel.org, mhiramat@kernel.org, linux-spi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <b2deeefd4ef1a4bce71116aabfcb7e81400f6d37.1775546948.git.xiaopei01@kylinos.cn>
+Subject: Re: [PATCH] coresight: tpdm: fix invalid MMIO access issue
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+References: <20260407-fix-potential-issue-in-tpdm-v1-1-42090d27c0a8@oss.qualcomm.com>
+ <20260407081048.GJ356832@e132581.arm.com>
+ <0a4911f4-168b-48c4-9554-3962d6e96efa@oss.qualcomm.com>
+ <20260407103530.GL356832@e132581.arm.com>
 Content-Language: en-US
-From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-In-Reply-To: <b2deeefd4ef1a4bce71116aabfcb7e81400f6d37.1775546948.git.xiaopei01@kylinos.cn>
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260407103530.GL356832@e132581.arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: iwI3pU1Tek7BZOxoxyf2ACYigqNb7Aia
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDA3MDEwMiBTYWx0ZWRfXxhmPhTgMVUFZ
+ Sh5GMEFXZIf7OWWYfXV3IzXYXUpoVtUQyZsJKAZVujxlNnXXsUkI4p7bFgyONQ26lDePo9bmi7z
+ h8795jwVLrS9T6YuVHxU+iBNZbseLqEno+8xu94wjCRdn+65+Lg3m8+OUlQdBVJY5bKBy64b3x0
+ RVFK2CHoZBmNse/gfNIdcocxCbYWbtyH0y4JbFnjzIO2ZC5/E8PNDVd9lB+y9npak/ciAdlLlC9
+ lK4lxqITYusCfNCGSUhFGOxzyANYvmX7GZq3fIpOBnyFi+Lv07qGDLjjwz4LEl1KNAGaAPYaToD
+ ibl3uUGEWdtrmDtuqsSDqPyVne5I+Fj6hM8Sgl13QGnGeEmQnAMd7WhudyoqHyCbOD9PLMjmi1/
+ x6yQe6/oPCGf65SkpsfUc342PNVcLTdZniWRwwKXabAGm/Txi0ys0587BCLM1vQqXyXHzaK+fnp
+ jUtljPr4KOBd7obaUpw==
+X-Proofpoint-GUID: iwI3pU1Tek7BZOxoxyf2ACYigqNb7Aia
+X-Authority-Analysis: v=2.4 cv=D/d37PRj c=1 sm=1 tr=0 ts=69d4e390 cx=c_pps
+ a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=7CQSdrXTAAAA:8 a=D9BDWDdkfOs3MDT8590A:9 a=QEXdDO2ut3YA:10
+ a=_Vgx9l1VpLgwpw_dHYaR:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-07_02,2026-04-07_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 adultscore=0 bulkscore=0 impostorscore=0 lowpriorityscore=0
+ priorityscore=1501 malwarescore=0 spamscore=0 phishscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604070102
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_035251_751295_5300480E 
-X-CRM114-Status: GOOD (  20.97  )
+X-CRM114-CacheID: sfid-20260407_035929_008270_78D26432 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,104 +154,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On 2026/04/07 16:30, Pei Xiao wrote:
-> Replace devm_clk_get() followed by clk_prepare_enable() with
-> devm_clk_get_enabled() for the clock. This removes the need for
-> explicit clock enable and disable calls, as the managed API automatically
-> handles clock disabling on device removal or probe failure.
+Hi Leo,
+
+On 4/7/2026 6:35 PM, Leo Yan wrote:
+> Hi Jie,
 > 
-> Remove the now-unnecessary clk_disable_unprepare() calls from the probe
-> error path and the remove callback. Adjust error labels accordingly.
+> On Tue, Apr 07, 2026 at 04:33:22PM +0800, Jie Gan wrote:
+>> On 4/7/2026 4:10 PM, Leo Yan wrote:
+>>> On Tue, Apr 07, 2026 at 12:47:11PM +0800, Jie Gan wrote:
+>>>> Create the csdev_access struct only when a valid MMIO resource is
+>>>> available. In tpdm_probe(), base is uninitialized for static TPDM
+>>>> instances that lack an MMIO resource, causing csdev_access to be
+>>>> created with a garbage address and potentially leading to
+>>>> unexpected issues.
+>>>
+>>> This patch itself is fine for me.  However, I am wandering if this
+>>> is sufficient.
+>>>
+>>> As mentioned "potentially leading to unexpected issues", can I
+>>> understand some code pieces access register with uninitialized base?
+>>> If so, you would also explictly add coresight_is_static_tpdm() to
+>>> prevent register access.
+>>>
+>>
+>> Actually, we havent MMIO access for the static TPDM device, So no issues are
+>> observed. The commit message here may be misleading. do I need rephrase the
+>> commit message?
 > 
-> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
-> ---
->   drivers/spi/spi-uniphier.c | 18 ++++--------------
->   1 file changed, 4 insertions(+), 14 deletions(-)
+> Yes, good to clarify a bit in commit log:
 > 
-> diff --git a/drivers/spi/spi-uniphier.c b/drivers/spi/spi-uniphier.c
-> index 9e1d364a6198..1b815ee2ed1b 100644
-> --- a/drivers/spi/spi-uniphier.c
-> +++ b/drivers/spi/spi-uniphier.c
-> @@ -666,28 +666,24 @@ static int uniphier_spi_probe(struct platform_device
-> *pdev)
->   	}
->   	priv->base_dma_addr = res->start;
->   
-> -	priv->clk = devm_clk_get(&pdev->dev, NULL);
-> +	priv->clk = devm_clk_get_enabled(&pdev->dev, NULL);
->   	if (IS_ERR(priv->clk)) {
->   		dev_err(&pdev->dev, "failed to get clock\n");
->   		ret = PTR_ERR(priv->clk);
->   		goto out_host_put;
->   	}
->   
-> -	ret = clk_prepare_enable(priv->clk);
-> -	if (ret)
-> -		goto out_host_put;
-> -
->   	irq = platform_get_irq(pdev, 0);
->   	if (irq < 0) {
->   		ret = irq;
-> -		goto out_disable_clk;
-> +		goto out_host_put;
->   	}
->   
->   	ret = devm_request_irq(&pdev->dev, irq, uniphier_spi_handler,
->   			       0, "uniphier-spi", priv);
->   	if (ret) {
->   		dev_err(&pdev->dev, "failed to request IRQ\n");
-> -		goto out_disable_clk;
-> +		goto out_host_put;
->   	}
->   
->   	init_completion(&priv->xfer_done);
-> @@ -716,7 +712,7 @@ static int uniphier_spi_probe(struct platform_device
-> *pdev)
->   	if (IS_ERR_OR_NULL(host->dma_tx)) {
->   		if (PTR_ERR(host->dma_tx) == -EPROBE_DEFER) {
->   			ret = -EPROBE_DEFER;
-> -			goto out_disable_clk;
-> +			goto out_host_put;
->   		}
->   		host->dma_tx = NULL;
->   		dma_tx_burst = INT_MAX;
-> @@ -766,9 +762,6 @@ static int uniphier_spi_probe(struct platform_device
-> *pdev)
->   		host->dma_tx = NULL;
->   	}
->   
-> -out_disable_clk:
-> -	clk_disable_unprepare(priv->clk);
-> -
->   out_host_put:
->   	spi_controller_put(host);
->   	return ret;
-> @@ -777,14 +770,11 @@ static int uniphier_spi_probe(struct platform_device
-> *pdev)
->   static void uniphier_spi_remove(struct platform_device *pdev)
->   {
->   	struct spi_controller *host = platform_get_drvdata(pdev);
-> -	struct uniphier_spi_priv *priv = spi_controller_get_devdata(host);
->   
->   	if (host->dma_tx)
->   		dma_release_channel(host->dma_tx);
->   	if (host->dma_rx)
->   		dma_release_channel(host->dma_rx);
-> -
-> -	clk_disable_unprepare(priv->clk);
->   }
->   
->   static const struct of_device_id uniphier_spi_match[] = {
+>    "So far there has no register access for static instance, but this
+>     change helps mitigate potential risks in the future."
+> 
+> With this:
+> 
+> Reviewed-by: Leo Yan <leo.yan@arm.com>
 
-Looks good to me.
+Well noted.
 
-Reviewed-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+Thanks,
+Jie
 
-Thank you,
 
----
-Best Regards
-Kunihiko Hayashi
 
