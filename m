@@ -4,78 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77200FF5107
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 15:23:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65EDEFF5106
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 15:27:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NKBx6bVmWC7VSTX/T2tSGTL9Yi85hovB3fKir/sRBS8=; b=ijteT+y0JZL5tkQUf4lobLJNe/
-	LJf1RzXarABO5mWA7+0y2BH+TyGf+Ti+KX8hTQcR+sITGheI0MczXdeIQiPGmSDmtJ6bOsxy9Q0Uc
-	VxnMs9EQAB39GI/BU1svJkM1Ql7sn3O/41ABvaQqbv1uVMWv0pVe2kLH/p0zWaHxh40acAmEz6MK2
-	3wGszVay6NfqPdCl364ZdTd30xlFgIIPP0e5z5nwrXmRkTSTuZ1R9TQRPHTIdKC2NIJVUjyepzrr4
-	eQgAn/jhUcb93An4k9vjiy9gROUcZL2TQOe934i+dvNLgi/dpmY9MYH9IKidJvdkSGSyax76539OW
-	zvSDSp2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dU+Do44yz0TIhjMzxEB+m3FIC55S78YfYxFAve6i/V8=; b=seQsQe2YBTB1UYSleJ9WnGXbIQ
+	lylff1gwaIGfk2FnExeyUJI9vDF2GZpkBH46ntJf1XZT4LahmAnOqIYzRLpS39wAAveG54y86zjH+
+	SeEq+d4ZXrp2KG3C/xzVpS+C6FO4zhYV5/HmllnqWHHbdjKkIO1BRLRujt8QU1dGbVXmKw8UbULuj
+	lJuWzsZ9TPr8E+Wc6W+uFc89ALU4TiGCzU4aKf5vqAEvnvRgv34BLd/NAMPWJ7P46cYkg/LvBlIzJ
+	ZChwmrf9F5/ICbQ9shiBramVj/47asYUFp5qzZnsSWfo/TCM4syFvyMDei5MEz2o67wvLGWr7f0qk
+	gFo65w8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA8HE-00000006h3M-1NnI;
-	Tue, 07 Apr 2026 15:23:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA8HB-00000006h2n-2HCH
+	id 1wA8KO-00000006hKN-04HZ;
+	Tue, 07 Apr 2026 15:26:56 +0000
+Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wA8KK-00000006hJu-3LS6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 15:23:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C09181BB2;
-	Tue,  7 Apr 2026 08:23:29 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A3BC63F7D8;
-	Tue,  7 Apr 2026 08:23:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775575415; bh=S0KhfM4isL6DUfK/OM+IpENXf/XOYoUfgu5TX4otGBs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aefdV1zd4eTc7MvgGtSzxJ6u6nyn6CMFJ8DD0XRkLGfrY33iY2FOoNFww6iazNtBn
-	 wAhikLlDca2j5pDfe4SJfzH1oEwvG3WfHMJS7FKe4QHJTXCAI4y0AQpcswcWdV1YHG
-	 NydN8l/eOnj3UHguIO+FYOOEcR/l3ipZzrQCTm5g=
-Date: Tue, 7 Apr 2026 16:23:26 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Andrei Vagin <avagin@google.com>
-Cc: Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Cyrill Gorcunov <gorcunov@gmail.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Alexander Mikhalitsyn <alexander@mihalicyn.com>,
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org, criu@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Chen Ridong <chenridong@huawei.com>,
-	Christian Brauner <brauner@kernel.org>,
-	David Hildenbrand <david@kernel.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Michal Koutny <mkoutny@suse.com>,
-	Alexander Mikhalitsyn <aleksandr.mikhalitsyn@futurfusion.io>,
-	Linux API <linux-api@vger.kernel.org>
-Subject: Re: [PATCH 1/4] exec: inherit HWCAPs from the parent process
-Message-ID: <adUhbk0sKT0ucWhJ@J2N7QTR9R3>
-References: <20260323175340.3361311-1-avagin@google.com>
- <20260323175340.3361311-2-avagin@google.com>
- <acGEonF9I6sPA42B@J2N7QTR9R3.cambridge.arm.com>
- <acJnOB-rlyt-3jU4@willie-the-truck>
- <CAEWA0a7iR8YHooqXJfhersV6YhAXGMZDUhib3QQH5XGn=KNowA@mail.gmail.com>
- <acarA3sGKY4Acozw@J2N7QTR9R3.cambridge.arm.com>
- <CAEWA0a7AZiuy1F+0LDxtEtJpdu=zA-RKhPb1wcDMpy2tSMFO5g@mail.gmail.com>
+	Tue, 07 Apr 2026 15:26:54 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 880FC10E334;
+	Tue,  7 Apr 2026 17:26:45 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1775575608;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=dU+Do44yz0TIhjMzxEB+m3FIC55S78YfYxFAve6i/V8=;
+	b=dskD0HjT2yjD5SVz9KueEeydV9WOAkhnuwUCHbXkQhY0tivDOX65200j+rnWwwFvO/+0nr
+	FpETLL7rrumCu4VM+5Eco73mD0bedt8pgfn4LCi0Ed5HRv1hiSQU3PvCbb/nB9/joHwGSA
+	fgxCU/TkTBvOKL82MAYhmC0k9yddbPRFSUTXhFNTN4eQpnufWc4ayeJFPOnvyg9uZXBoHf
+	ExQZEiTa59u1GMQNuOfDFD1s75Sr9RcJfNOzZQwRkFQOzR1dCxP+0b7MSYQ8t6GMIBoEfR
+	OtuXK35zZgP5sVrlgWtitZcIV5N0svb6ebVCQ9lp77GSDkhqFxJd7hmm4efc1g==
+Message-ID: <5c0f6900-bb37-4c9f-8052-5d17e21180ec@nabladev.com>
+Date: Tue, 7 Apr 2026 17:26:45 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAEWA0a7AZiuy1F+0LDxtEtJpdu=zA-RKhPb1wcDMpy2tSMFO5g@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm64: dts: imx8mp: Add DT overlays for DH i.MX8M Plus
+ DHCOM SoM and boards
+To: linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>
+Cc: Christoph Niedermaier <cniedermaier@dh-electronics.com>,
+ Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev, kernel@dh-electronics.com,
+ linux-kernel@vger.kernel.org
+References: <20260326044411.222907-1-marex@nabladev.com>
+Content-Language: en-US
+From: Marek Vasut <marex@nabladev.com>
+In-Reply-To: <20260326044411.222907-1-marex@nabladev.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_082337_660750_E5518894 
-X-CRM114-Status: GOOD (  37.43  )
+X-CRM114-CacheID: sfid-20260407_082652_980722_8AAE62B0 
+X-CRM114-Status: UNSURE (   7.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,113 +78,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 27, 2026 at 05:21:26PM -0700, Andrei Vagin wrote:
-> Hi Mark,
-> 
-> I understand all these points and they are valid. However, as I
-> mentioned, we are not trying to introduce a mechanism that will strictly
-> enforce feature sets for every container. While we would like to have
-> that functionality, as you and will mentioned, it would require
-> substantially more complexity to address, and maintainers would unlikely
-> to pick up that complexity. 
+On 3/26/26 5:43 AM, Marek Vasut wrote:
+> Add DT overlays to support DH i.MX8M Plus DHCOM SoM variants and carrier
+> board expansion modules. The following DT overlays are implemented:
+> - SoM:
+>    - DH 660-x00 SoM with 1xRMII PHY
+>    - DH 660-x00 SoM with 2xRMII PHY
+> - PDK2:
+>    - DH 505-200 Display board in edge connector X12 via direct LVDS
+>    - DH 531-100 SPI/I2C board in header X21
+>    - DH 531-200 SPI/I2C board in header X22
+>    - DH 560-200 Display board in edge connector X12
+> - PDK3:
+>    - DH 505-200 Display board in edge connector X36 via direct LVDS
+>    - DH 531-100 SPI/I2C board in header X40
+>    - DH 531-200 SPI/I2C board in header X41
+>    - DH 560-300 Display board in edge connector X36
+>    - EA muRata 2AE M.2 A/E-Key card in connector X20
+>    - NXP SPF-29853-C1 MINISASTOCSI with OV5640 sensor in connector X31
+>    - NXP SPF-29853-C1 MINISASTOCSI with OV5640 sensor in connector X29
+> - PicoITX:
+>    - DH 626-100 Display board in edge connector X2
+Hello Frank,
 
-The crux of my complaint here is that unless you do that (to some
-degree), this is not going to work reliably, even with the constraints
-you outline.
+I know I was sending quite a few DTOs recently. Is this set still on 
+your review list, or was this one missed ?
 
-Further, I disagree with your proposed solution of pushing more
-constraints onto userspace (to also consider HWCAPs as overriding other
-mechainsms, etc).
-
-I think that as-is, the approach is flawed.
-
-> Even masking ID registers on a per-container basis would introduce
-> extra complexity that could make architecture maintainers unhappy.
-> There were a few attempts to introduce container CPUID masking on
-> x86_64 in the past.
-
-> In CRIU, we are not aiming to handle every possible workload. Our goal
-> is to target workloads where developers are ready to cooperate and
-> willing to make adjustments to be C/R compatible. The goal here is to
-> provide developers with clear instructions on what they can do to ensure
-> their applications are C/R compatible. When I say "workloads", I mean
-> this in a broad sense. A container might pack a set of tools with
-> different runtimes (Go, Java, libc-based). All these runtimes should
-> detect only allowed features.
-
-I do not think that arbitrary applications (and libraries!) should have
-to pick up additional constraints that are unnecessary without CRIU,
-especially where that goes against deliberate design decisions (e.g.
-features in arm64's HINT instruction space, which are designed to be
-usable in fast paths WITHOUT needing explicit checks of things like
-HWCAPs). Note that those typically *do* have kernel controls.
-
-I think there's a much larger problem space than you anticipate, and
-adding an incomplete solution now is just going to introduce a
-maintenance burden.
-
-> Returning to the subject of this patchset: this series extends the role
-> of hwcaps. With this change, we would establish that hwcaps is the
-> "source of truth" for which features an application can safely use. Any
-> other features available on the current CPU would not be guaranteed to
-> remain available after migration to another machine.
-> 
-> After this discussion, I found that the current version missed one major
-> thing: there should be a signal indicating that hwcaps must be used for
-> feature detection. Since we will need to integrate this interface into
-> libc, Go, and other runtimes, they definitely should not rely just on
-> hwcaps by default, especially in the early stages. This can be solved
-> via the prctl command.  Libraries like libc would call
-> prctl(PR_USER_HWCAP_ENABLED). If this returns true, the runtime knows
-> that only the features explicitly listed in hwcaps should be used.
-
-I do not think we should be pushing that shape of constraint onto
-userspace.
-
-> You are right, the controlled feature set will be limited to features
-> the kernel knows about. And yes, we would need to report CPU features in
-> hwcaps even if the kernel isn't directly involved in handling them.
-
-To be clear, that is not what I am arguing.
-
-As I mentioned before, the way this works on arm64 is that the kernel
-only exposes what it is aware of, even in the ID regs accessible to
-userspace. We usually *can* hide features, and do that for cases of
-mismatched big.LITTLE, virtual machines, etc.
-
-> Honestly, I am not certain if this is the "right" interface for that,
-> and I would be happy to consider other ideas. I understand that these
-> hwcaps will not work right out of the box, but we need a way to solve
-> this problem. Having a centralized API for CPU/kernel feature detection
-> seems like the right direction.
-
-I think that for better or worse the approach you are tkaing here simply
-does not solve enough of the problem to actually be worthwhile.
-
-> As for signal frame size and extended states like SVE/SME, we aware
-> about this problem.  However, it is partly mitigated by the fact that if
-> an application does not use some features, those states are not placed
-> in the signal frame.
-
-That is not true. The kernel can and will create signal frames for
-architectural state that a task might never have touched.
-
-Generally arm64 creates signal frames for features when the feature
-*exists*, regardless of whether the task has actively manipulated the
-relevant state. For example, on systems with SVE a trivial SVE signal
-frame gets created even if a task only uses the FPSIMD registers, and on
-systms with SME a TPIDR2 signal frame gets created even if the task has
-never read/written TPIDR2.
-
-When restoring, an unrecognised signal frame is treated as invalid, and
-we can require that certain signal frames are present.
-
-> In the future, when we construct/reload a signal frame, we could look
-> at a process feature set for a process and generate a frame according
-> to those features...
-
-When you say 'we' here, are you talking about within the kernel, or
-within the userspace C/R mechanism?
-
-Mark.
+Thank you for reviewing the DTOs so actively, it really helps a lot !
 
