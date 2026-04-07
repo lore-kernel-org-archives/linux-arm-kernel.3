@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEE06EDB7CA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 07:27:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07142EDB7CA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 07:30:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kT01Kxko0Mdfvco+cwdX7xfZEHOufw2OA9hulGs7J8w=; b=VsshA/nC5LSXrk2afwdS4VOMls
-	JMvNYhbMSFstUxzm+OKFck5ARA0+1zdYVwzHzVH/PU79PnICWyq95/dBSdpMBD2iLNtO0OuK6PgLp
-	kjLTIFRuo5Y1xH17a0bFxTCxmqoVArorgPk0pHE3N4OML4ruxCpBeu2O3D5MOzVuIEC7h5DUIorI/
-	FGbfk/TiGT5zheVZTeIkelhZAuBJ//naT+e5QseOR4kW4ugaNtWeO4anWd0kN6u2W5719SD/RSqlS
-	kWGha54+mEm4deHZSiRsgeuxwtUdKTZPSQhV3wItr+3ahhQG8IzRV5SjCDz91DATaV+jrXQ42/fwk
-	65mukbBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LdNKFhBY11PVyHyhTzpAaANyHDzJRCm262JVD5uXVMg=; b=NQ+/w740mtfqBLkaYZJB8uWgPq
+	0FgGZoLmPCEpoyhtY2Z/qP944O6Ms5eNXeToTvVONrCYAhqwJMB+QiIzhs0h3sHXHBSVBiXREi/Nn
+	q5yvMyjXmCt/sE0sksQBD6/knLH62nueADgVkwMKcbzLfU9Y8tccieE58qVZZ25wib2nlEldANpQU
+	FDaoEZhoIhOPnctzVzTitV2fEnZ412z4S12287YePf5qAmE5bB8jadCOqzeMq0YyO/84W5RGWD626
+	0OwWIOMEfnCBHLTHfB0HN7UvHA6n6QHDZGWaZ5yrZJ9DrW0huvg3wFl4MXMhsDMwGmW/zWRe/QYEn
+	nI8UViJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA0qY-000000064LH-3RS2;
-	Tue, 07 Apr 2026 07:27:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wA0tT-000000064h3-48Rx;
+	Tue, 07 Apr 2026 07:30:39 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA0qX-000000064KB-22Fm
+	id 1wA0tR-000000064gf-03of
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 07:27:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7B29360126;
-	Tue,  7 Apr 2026 07:27:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F639C116C6;
-	Tue,  7 Apr 2026 07:27:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775546856;
-	bh=Ke+4cfFIuUyaAYRB85WlhtaSzn9Vsqf7eLubNm2wrC8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=m30OgZ4+3p1ReP/oAexgtmU1wpHtdCwMpqLsPQ1M0sfld/z/FFzZXpYDh4e3fybYj
-	 /pxqvDO1Tk2YWl7SwXOzZpmgZPuybaqhOnBhM2OusK35qXxa6nPe47jMcbyPObRx9A
-	 LIBBR24hxE+0GEJyrHG5Mor7C5RciZv0K1Y119quGDDpBWRKWuWFCrZtXtkdQBW4P/
-	 0NSGF1V4uZmeRTPBIIxtlEIQSD1QF0mJS+7VB4QuEvtYAR4nRExM1YEGb6Y1NIFanM
-	 5dyrIFv4Z+WGfhdSU+6/pMy8q4brJ4lkLN1g/LKq88orVqzymK08dPIflO6p1CiWaw
-	 stDhRXnwwdSEw==
-Date: Tue, 7 Apr 2026 12:57:19 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Douglas Anderson <dianders@chromium.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
-	Alan Stern <stern@rowland.harvard.edu>, Alexey Kardashevskiy <aik@ozlabs.ru>, 
-	Johan Hovold <johan@kernel.org>, Eric Dumazet <edumazet@google.com>, 
-	Leon Romanovsky <leon@kernel.org>, Christoph Hellwig <hch@lst.de>, 
-	Robin Murphy <robin.murphy@arm.com>, maz@kernel.org, Alexander Lobakin <aleksander.lobakin@intel.com>, 
-	Saravana Kannan <saravanak@kernel.org>, Mark Brown <broonie@kernel.org>, alexander.stein@ew.tq-group.com, 
-	andrew@codeconstruct.com.au, andrew@lunn.ch, andriy.shevchenko@linux.intel.com, 
-	astewart@tektelic.com, bhelgaas@google.com, brgl@kernel.org, davem@davemloft.net, 
-	devicetree@vger.kernel.org, driver-core@lists.linux.dev, hkallweit1@gmail.com, 
-	jirislaby@kernel.org, joel@jms.id.au, kees@kernel.org, kuba@kernel.org, 
-	lgirdwood@gmail.com, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-serial@vger.kernel.org, linux-usb@vger.kernel.org, linux@armlinux.org.uk, 
-	netdev@vger.kernel.org, pabeni@redhat.com, robh@kernel.org
-Subject: Re: [PATCH v5 8/9] driver core: Replace dev->of_node_reused with
- dev_of_node_reused()
-Message-ID: <xoo5ymm44t66hr5ti2apl3u7mmenbic66gi7siiiwxtdgn6bhh@hvfzixit53pf>
-References: <20260406232444.3117516-1-dianders@chromium.org>
- <20260406162231.v5.8.I806b8636cd3724f6cd1f5e199318ab8694472d90@changeid>
+	Tue, 07 Apr 2026 07:30:39 +0000
+X-UUID: a8ed727e325311f1aa26b74ffac11d73-20260407
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:c96a075b-4a0c-43b4-b692-e8c37c25f802,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
+	ON:release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:2df466a2af49398e4708298c405b112c,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|898,TC:nil,Content:0|15|50,EDM:5
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: a8ed727e325311f1aa26b74ffac11d73-20260407
+X-User: xiaopei01@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <xiaopei01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1426789851; Tue, 07 Apr 2026 15:30:32 +0800
+From: Pei Xiao <xiaopei01@kylinos.cn>
+To: hayashi.kunihiko@socionext.com,
+	mhiramat@kernel.org,
+	linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: broonie@kernel.org,
+	Pei Xiao <xiaopei01@kylinos.cn>
+Subject: [PATCH] spi: uniphier: Simplify clock handling with devm_clk_get_enabled()
+Date: Tue,  7 Apr 2026 15:30:28 +0800
+Message-Id: <b2deeefd4ef1a4bce71116aabfcb7e81400f6d37.1775546948.git.xiaopei01@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260406162231.v5.8.I806b8636cd3724f6cd1f5e199318ab8694472d90@changeid>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260407_003038_051288_260DEFD3 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,259 +77,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 06, 2026 at 04:23:01PM -0700, Douglas Anderson wrote:
-> In C, bitfields are not necessarily safe to modify from multiple
-> threads without locking. Switch "of_node_reused" over to the "flags"
-> field so modifications are safe.
-> 
-> Cc: Johan Hovold <johan@kernel.org>
-> Acked-by: Mark Brown <broonie@kernel.org>
-> Reviewed-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
-> Reviewed-by: Danilo Krummrich <dakr@kernel.org>
-> Signed-off-by: Douglas Anderson <dianders@chromium.org>
+Replace devm_clk_get() followed by clk_prepare_enable() with
+devm_clk_get_enabled() for the clock. This removes the need for
+explicit clock enable and disable calls, as the managed API automatically
+handles clock disabling on device removal or probe failure.
 
-Acked-by: Manivannan Sadhasivam <mani@kernel.org> # PCI_PWRCTRL
+Remove the now-unnecessary clk_disable_unprepare() calls from the probe
+error path and the remove callback. Adjust error labels accordingly.
 
-- Mani
+Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+---
+ drivers/spi/spi-uniphier.c | 18 ++++--------------
+ 1 file changed, 4 insertions(+), 14 deletions(-)
 
-> ---
-> Not fixing any known bugs; problem is theoretical and found by code
-> inspection. Change is done somewhat manually and only lightly tested
-> (mostly compile-time tested).
-> 
-> (no changes since v4)
-> 
-> Changes in v4:
-> - Use accessor functions for flags
-> 
-> Changes in v3:
-> - New
-> 
->  drivers/base/core.c                      | 2 +-
->  drivers/base/pinctrl.c                   | 2 +-
->  drivers/base/platform.c                  | 2 +-
->  drivers/net/pcs/pcs-xpcs-plat.c          | 2 +-
->  drivers/of/device.c                      | 6 +++---
->  drivers/pci/of.c                         | 2 +-
->  drivers/pci/pwrctrl/core.c               | 2 +-
->  drivers/regulator/bq257xx-regulator.c    | 2 +-
->  drivers/regulator/rk808-regulator.c      | 2 +-
->  drivers/tty/serial/serial_base_bus.c     | 2 +-
->  drivers/usb/gadget/udc/aspeed-vhub/dev.c | 2 +-
->  include/linux/device.h                   | 7 ++++---
->  12 files changed, 17 insertions(+), 16 deletions(-)
-> 
-> diff --git a/drivers/base/core.c b/drivers/base/core.c
-> index 8a83d7c93361..30825bf83234 100644
-> --- a/drivers/base/core.c
-> +++ b/drivers/base/core.c
-> @@ -5283,7 +5283,7 @@ void device_set_of_node_from_dev(struct device *dev, const struct device *dev2)
->  {
->  	of_node_put(dev->of_node);
->  	dev->of_node = of_node_get(dev2->of_node);
-> -	dev->of_node_reused = true;
-> +	dev_set_of_node_reused(dev);
->  }
->  EXPORT_SYMBOL_GPL(device_set_of_node_from_dev);
->  
-> diff --git a/drivers/base/pinctrl.c b/drivers/base/pinctrl.c
-> index 6e250272c843..0bbc83231234 100644
-> --- a/drivers/base/pinctrl.c
-> +++ b/drivers/base/pinctrl.c
-> @@ -24,7 +24,7 @@ int pinctrl_bind_pins(struct device *dev)
->  {
->  	int ret;
->  
-> -	if (dev->of_node_reused)
-> +	if (dev_of_node_reused(dev))
->  		return 0;
->  
->  	dev->pins = devm_kzalloc(dev, sizeof(*(dev->pins)), GFP_KERNEL);
-> diff --git a/drivers/base/platform.c b/drivers/base/platform.c
-> index d44591d52e36..199e6fb25770 100644
-> --- a/drivers/base/platform.c
-> +++ b/drivers/base/platform.c
-> @@ -856,7 +856,7 @@ struct platform_device *platform_device_register_full(
->  	pdev->dev.parent = pdevinfo->parent;
->  	pdev->dev.fwnode = pdevinfo->fwnode;
->  	pdev->dev.of_node = of_node_get(to_of_node(pdev->dev.fwnode));
-> -	pdev->dev.of_node_reused = pdevinfo->of_node_reused;
-> +	dev_assign_of_node_reused(&pdev->dev, pdevinfo->of_node_reused);
->  
->  	if (pdevinfo->dma_mask) {
->  		pdev->platform_dma_mask = pdevinfo->dma_mask;
-> diff --git a/drivers/net/pcs/pcs-xpcs-plat.c b/drivers/net/pcs/pcs-xpcs-plat.c
-> index b8c48f9effbf..f4b1b8246ce9 100644
-> --- a/drivers/net/pcs/pcs-xpcs-plat.c
-> +++ b/drivers/net/pcs/pcs-xpcs-plat.c
-> @@ -349,7 +349,7 @@ static int xpcs_plat_init_dev(struct dw_xpcs_plat *pxpcs)
->  	 * up later. Make sure DD-core is aware of the OF-node being re-used.
->  	 */
->  	device_set_node(&mdiodev->dev, fwnode_handle_get(dev_fwnode(dev)));
-> -	mdiodev->dev.of_node_reused = true;
-> +	dev_set_of_node_reused(&mdiodev->dev);
->  
->  	/* Pass the data further so the DW XPCS driver core could use it */
->  	mdiodev->dev.platform_data = (void *)device_get_match_data(dev);
-> diff --git a/drivers/of/device.c b/drivers/of/device.c
-> index f7e75e527667..be4e1584e0af 100644
-> --- a/drivers/of/device.c
-> +++ b/drivers/of/device.c
-> @@ -26,7 +26,7 @@
->  const struct of_device_id *of_match_device(const struct of_device_id *matches,
->  					   const struct device *dev)
->  {
-> -	if (!matches || !dev->of_node || dev->of_node_reused)
-> +	if (!matches || !dev->of_node || dev_of_node_reused(dev))
->  		return NULL;
->  	return of_match_node(matches, dev->of_node);
->  }
-> @@ -192,7 +192,7 @@ ssize_t of_device_modalias(struct device *dev, char *str, ssize_t len)
->  {
->  	ssize_t sl;
->  
-> -	if (!dev || !dev->of_node || dev->of_node_reused)
-> +	if (!dev || !dev->of_node || dev_of_node_reused(dev))
->  		return -ENODEV;
->  
->  	sl = of_modalias(dev->of_node, str, len - 2);
-> @@ -254,7 +254,7 @@ int of_device_uevent_modalias(const struct device *dev, struct kobj_uevent_env *
->  {
->  	int sl;
->  
-> -	if ((!dev) || (!dev->of_node) || dev->of_node_reused)
-> +	if ((!dev) || (!dev->of_node) || dev_of_node_reused(dev))
->  		return -ENODEV;
->  
->  	/* Devicetree modalias is tricky, we add it in 2 steps */
-> diff --git a/drivers/pci/of.c b/drivers/pci/of.c
-> index 9f8eb5df279e..1f9b669abdb0 100644
-> --- a/drivers/pci/of.c
-> +++ b/drivers/pci/of.c
-> @@ -38,7 +38,7 @@ int pci_set_of_node(struct pci_dev *dev)
->  	struct device *pdev __free(put_device) =
->  		bus_find_device_by_of_node(&platform_bus_type, node);
->  	if (pdev)
-> -		dev->bus->dev.of_node_reused = true;
-> +		dev_set_of_node_reused(&dev->bus->dev);
->  
->  	device_set_node(&dev->dev, of_fwnode_handle(no_free_ptr(node)));
->  	return 0;
-> diff --git a/drivers/pci/pwrctrl/core.c b/drivers/pci/pwrctrl/core.c
-> index 7754baed67f2..72963a92362a 100644
-> --- a/drivers/pci/pwrctrl/core.c
-> +++ b/drivers/pci/pwrctrl/core.c
-> @@ -39,7 +39,7 @@ static int pci_pwrctrl_notify(struct notifier_block *nb, unsigned long action,
->  		 * If we got here then the PCI device is the second after the
->  		 * power control platform device. Mark its OF node as reused.
->  		 */
-> -		dev->of_node_reused = true;
-> +		dev_set_of_node_reused(dev);
->  		break;
->  	}
->  
-> diff --git a/drivers/regulator/bq257xx-regulator.c b/drivers/regulator/bq257xx-regulator.c
-> index dab8f1ab4450..40e0f1a7ae81 100644
-> --- a/drivers/regulator/bq257xx-regulator.c
-> +++ b/drivers/regulator/bq257xx-regulator.c
-> @@ -143,7 +143,7 @@ static int bq257xx_regulator_probe(struct platform_device *pdev)
->  	struct regulator_config cfg = {};
->  
->  	pdev->dev.of_node = pdev->dev.parent->of_node;
-> -	pdev->dev.of_node_reused = true;
-> +	dev_set_of_node_reused(&pdev->dev);
->  
->  	pdata = devm_kzalloc(&pdev->dev, sizeof(struct bq257xx_reg_data), GFP_KERNEL);
->  	if (!pdata)
-> diff --git a/drivers/regulator/rk808-regulator.c b/drivers/regulator/rk808-regulator.c
-> index e66408f23bb6..8297d31cde9f 100644
-> --- a/drivers/regulator/rk808-regulator.c
-> +++ b/drivers/regulator/rk808-regulator.c
-> @@ -2115,7 +2115,7 @@ static int rk808_regulator_probe(struct platform_device *pdev)
->  	int ret, i, nregulators;
->  
->  	pdev->dev.of_node = pdev->dev.parent->of_node;
-> -	pdev->dev.of_node_reused = true;
-> +	dev_set_of_node_reused(&pdev->dev);
->  
->  	regmap = dev_get_regmap(pdev->dev.parent, NULL);
->  	if (!regmap)
-> diff --git a/drivers/tty/serial/serial_base_bus.c b/drivers/tty/serial/serial_base_bus.c
-> index a12935f6b992..5f23284a8778 100644
-> --- a/drivers/tty/serial/serial_base_bus.c
-> +++ b/drivers/tty/serial/serial_base_bus.c
-> @@ -74,7 +74,7 @@ static int serial_base_device_init(struct uart_port *port,
->  	dev->parent = parent_dev;
->  	dev->bus = &serial_base_bus_type;
->  	dev->release = release;
-> -	dev->of_node_reused = true;
-> +	dev_set_of_node_reused(dev);
->  
->  	device_set_node(dev, fwnode_handle_get(dev_fwnode(parent_dev)));
->  
-> diff --git a/drivers/usb/gadget/udc/aspeed-vhub/dev.c b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-> index 2ecd049dacc2..8b9449d16324 100644
-> --- a/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-> +++ b/drivers/usb/gadget/udc/aspeed-vhub/dev.c
-> @@ -593,7 +593,7 @@ int ast_vhub_init_dev(struct ast_vhub *vhub, unsigned int idx)
->  		d->gadget.max_speed = USB_SPEED_HIGH;
->  	d->gadget.speed = USB_SPEED_UNKNOWN;
->  	d->gadget.dev.of_node = vhub->pdev->dev.of_node;
-> -	d->gadget.dev.of_node_reused = true;
-> +	dev_set_of_node_reused(&d->gadget.dev);
->  
->  	rc = usb_add_gadget_udc(d->port_dev, &d->gadget);
->  	if (rc != 0)
-> diff --git a/include/linux/device.h b/include/linux/device.h
-> index 5b0fb6ad4c72..a79865a212e9 100644
-> --- a/include/linux/device.h
-> +++ b/include/linux/device.h
-> @@ -483,6 +483,8 @@ struct device_physical_location {
->   *		driver/bus sync_state() callback.
->   * @DEV_FLAG_DMA_COHERENT: This particular device is dma coherent, even if the
->   *		architecture supports non-coherent devices.
-> + * @DEV_FLAG_OF_NODE_REUSED: Set if the device-tree node is shared with an
-> + *		ancestor device.
->   */
->  enum struct_device_flags {
->  	DEV_FLAG_READY_TO_PROBE = 0,
-> @@ -492,6 +494,7 @@ enum struct_device_flags {
->  	DEV_FLAG_DMA_OPS_BYPASS = 4,
->  	DEV_FLAG_STATE_SYNCED = 5,
->  	DEV_FLAG_DMA_COHERENT = 6,
-> +	DEV_FLAG_OF_NODE_REUSED = 7,
->  
->  	DEV_FLAG_COUNT
->  };
-> @@ -573,8 +576,6 @@ enum struct_device_flags {
->   *
->   * @offline_disabled: If set, the device is permanently online.
->   * @offline:	Set after successful invocation of bus type's .offline().
-> - * @of_node_reused: Set if the device-tree node is shared with an ancestor
-> - *              device.
->   * @flags:	DEV_FLAG_XXX flags. Use atomic bitfield operations to modify.
->   *
->   * At the lowest level, every device in a Linux system is represented by an
-> @@ -681,7 +682,6 @@ struct device {
->  
->  	bool			offline_disabled:1;
->  	bool			offline:1;
-> -	bool			of_node_reused:1;
->  
->  	DECLARE_BITMAP(flags, DEV_FLAG_COUNT);
->  };
-> @@ -715,6 +715,7 @@ __create_dev_flag_accessors(dma_skip_sync, DEV_FLAG_DMA_SKIP_SYNC);
->  __create_dev_flag_accessors(dma_ops_bypass, DEV_FLAG_DMA_OPS_BYPASS);
->  __create_dev_flag_accessors(state_synced, DEV_FLAG_STATE_SYNCED);
->  __create_dev_flag_accessors(dma_coherent, DEV_FLAG_DMA_COHERENT);
-> +__create_dev_flag_accessors(of_node_reused, DEV_FLAG_OF_NODE_REUSED);
->  
->  #undef __create_dev_flag_accessors
->  
-> -- 
-> 2.53.0.1213.gd9a14994de-goog
-> 
-
+diff --git a/drivers/spi/spi-uniphier.c b/drivers/spi/spi-uniphier.c
+index 9e1d364a6198..1b815ee2ed1b 100644
+--- a/drivers/spi/spi-uniphier.c
++++ b/drivers/spi/spi-uniphier.c
+@@ -666,28 +666,24 @@ static int uniphier_spi_probe(struct platform_device *pdev)
+ 	}
+ 	priv->base_dma_addr = res->start;
+ 
+-	priv->clk = devm_clk_get(&pdev->dev, NULL);
++	priv->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+ 	if (IS_ERR(priv->clk)) {
+ 		dev_err(&pdev->dev, "failed to get clock\n");
+ 		ret = PTR_ERR(priv->clk);
+ 		goto out_host_put;
+ 	}
+ 
+-	ret = clk_prepare_enable(priv->clk);
+-	if (ret)
+-		goto out_host_put;
+-
+ 	irq = platform_get_irq(pdev, 0);
+ 	if (irq < 0) {
+ 		ret = irq;
+-		goto out_disable_clk;
++		goto out_host_put;
+ 	}
+ 
+ 	ret = devm_request_irq(&pdev->dev, irq, uniphier_spi_handler,
+ 			       0, "uniphier-spi", priv);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "failed to request IRQ\n");
+-		goto out_disable_clk;
++		goto out_host_put;
+ 	}
+ 
+ 	init_completion(&priv->xfer_done);
+@@ -716,7 +712,7 @@ static int uniphier_spi_probe(struct platform_device *pdev)
+ 	if (IS_ERR_OR_NULL(host->dma_tx)) {
+ 		if (PTR_ERR(host->dma_tx) == -EPROBE_DEFER) {
+ 			ret = -EPROBE_DEFER;
+-			goto out_disable_clk;
++			goto out_host_put;
+ 		}
+ 		host->dma_tx = NULL;
+ 		dma_tx_burst = INT_MAX;
+@@ -766,9 +762,6 @@ static int uniphier_spi_probe(struct platform_device *pdev)
+ 		host->dma_tx = NULL;
+ 	}
+ 
+-out_disable_clk:
+-	clk_disable_unprepare(priv->clk);
+-
+ out_host_put:
+ 	spi_controller_put(host);
+ 	return ret;
+@@ -777,14 +770,11 @@ static int uniphier_spi_probe(struct platform_device *pdev)
+ static void uniphier_spi_remove(struct platform_device *pdev)
+ {
+ 	struct spi_controller *host = platform_get_drvdata(pdev);
+-	struct uniphier_spi_priv *priv = spi_controller_get_devdata(host);
+ 
+ 	if (host->dma_tx)
+ 		dma_release_channel(host->dma_tx);
+ 	if (host->dma_rx)
+ 		dma_release_channel(host->dma_rx);
+-
+-	clk_disable_unprepare(priv->clk);
+ }
+ 
+ static const struct of_device_id uniphier_spi_match[] = {
 -- 
-மணிவண்ணன் சதாசிவம்
+2.25.1
+
 
