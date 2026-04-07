@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33202FEEF50
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4650FEEF49
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 14:30:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I7VCwf5RaYNvHJJKgsQhVb+QKar9Np7ef6NlSkdRpzw=; b=a/x++4kZY87LrEhLwjz+7gKsJQ
-	YTb2435EbQforCR/is1MSgAKG3RapiWbCWdoC+0tXtcTjzu17jlZIoSJnn0sKiK1jq3dOxOClwr+4
-	Ml2ssStv5pHzLbcnZxyKEJAMu9mmQzz7KMR9bNFUuxkK7T8VKiUg6hQwJsCgx1ZlMZHkRIwNCETRs
-	z0qX/Bh3SbSfdXERcE9m8j+3zqoXyPu4DgjOsCHOo46qSN+3EKLD5nEGAW+0K0WBRwh7TEiCRjDTY
-	ilbTTWoFIvOKX34NbJ7TxmjCbaHI8mTJTc5bmNaKgFFrRFFBysoQx4i7xCOv8GxE2cKy42t3bJmPm
-	GFMqrVog==;
+	bh=is/Dy3FN6ebzee6AgTac1cctbQQUDx3ZFsSJmB2HCNo=; b=hFGW4FL1jJ74/8Fs673nGKpQ+V
+	c8J+sNCJ0nvx1ow83U3f1LptwQK2lzBhk6Sr5L9nTrVxEZjO+vDnQacgHLJVSCnZ2EgWXcdpzI9m0
+	ZZqo6I1QGN3WqepNqpCtFuys1Ae+cIGMYtB/76HYqfvIXRz2u44Hwc5eStIyWLtntLtuysyf6OR4e
+	g+dTf+ZTh6JZSlPT2j0Z1S5j5bz0LYMp/kfut0NKETj9lVdIjrE09Clkf+S51SAE8CNtqJpOMqZAm
+	kaWZRsL8m4MxCSh946ef6SbrinlgegNEkEMIIG8mQ+LvKrK6M5jxomh9YP5Ya4Fzfmg37cz8hoSr8
+	uBH7Ne8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7RZ-00000006bim-0Lsh;
-	Tue, 07 Apr 2026 14:30:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wA7Rb-00000006bkJ-1fRa;
+	Tue, 07 Apr 2026 14:30:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7RW-00000006bgY-3a6M
+	id 1wA7RY-00000006biF-317t
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 14:30:14 +0000
+	Tue, 07 Apr 2026 14:30:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BEA7360133;
-	Tue,  7 Apr 2026 14:30:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49D43C116C6;
-	Tue,  7 Apr 2026 14:30:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2E94F600AC;
+	Tue,  7 Apr 2026 14:30:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5AE5C2BCB2;
+	Tue,  7 Apr 2026 14:30:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775572212;
-	bh=zXlPjSjJdZ1ja9eNaaYsLbU6jHV6bkXu/LbF2O2Rslk=;
+	s=k20201202; t=1775572215;
+	bh=uUvq9MVXp8cNAvU8/2GcbzCtpuny4H9rPPxomu7v7sY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=SRPEz+/S9/dK0A8JDQ5OuY1+2hVd/bEf8LIdeTo7yHf322NXXtQM1BkEBJRBU6diL
-	 sqNBr7Q12MAkwoYlQv6IXEBdjZYQ9i/gFuGZ0C9w+0uLaeDzKsdSwhMLBtc9a/9w3C
-	 C58O4MbwdDhqHYhs0gWMDXWdiUhEEhsdkeRnqRfM0L2+Ei2U5zY9keavYeAgwikSks
-	 /CMaDawUPm6w3swEDWL05/694l8lod7hNgg+bQ2OOpqPzacLlylJjLtqmNTUfU4T3G
-	 AZSvD76WdsKm/aciB9ija91/NZUydkwXgzY35IOCVMfhbTOT/Jm31wR2v+DoVjO0iS
-	 2OejfP+JtlXQw==
+	b=jy/SsEhEUWFlpfnTq1KI4r1d6pxJti65E4Z1yn9omGYV4MzOcFY8gZkxjuawQCxf1
+	 CQYvaEMbRdpdqMQl9EZVxBq2fyZJ4AVEY+0rS3WmwSnNIV3E9WB5VJEFHCMDea2lvu
+	 Z1nlthzoAQtoXaEB2jxZSQ51VxbZzwBA/34jzuXhinCjuUWz7SMwhqrfLTopdi9n6Z
+	 TU/bL5LZShtuIzau4bkAoSoZlZmIozavChyCxCkEaIGUw8jTFpra6NbpLP603qlmCY
+	 F7M6BC0qngv3ZR76nax53PV+PAkBdjj5ah/atADVYZVXHUC/JfKYjpokg4GwwbaikS
+	 qJod4SznuhSZA==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Tue, 07 Apr 2026 09:29:44 -0500
-Subject: [PATCH v4 2/6] arm64: hw_breakpoint: Add additional kprobe
- excluded functions
+Date: Tue, 07 Apr 2026 09:29:46 -0500
+Subject: [PATCH v4 4/6] arm64/cpufeature: Add field details for
+ ID_AA64DFR1_EL1 register
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260407-arm-debug-8-9-v4-2-a4864e69b0ea@kernel.org>
+Message-Id: <20260407-arm-debug-8-9-v4-4-a4864e69b0ea@kernel.org>
 References: <20260407-arm-debug-8-9-v4-0-a4864e69b0ea@kernel.org>
 In-Reply-To: <20260407-arm-debug-8-9-v4-0-a4864e69b0ea@kernel.org>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
@@ -73,71 +73,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Everything that either runs during exceptions or touches the
-breakpoint/watchpoint registers should be excluded from kprobes and
-breakpoints.
+From: Anshuman Khandual <anshuman.khandual@arm.com>
 
-The static functions are may or may not end up in the no kprobe section
-depending on whether the compiler inlines them or not. They are likely
-inlined, but make it explicit to ensure that they always are.
-Unfortunately, it is not possible to leave the inlining decision up to
-the compiler and place code within the no kprobes section.
+This adds required field details for ID_AA64DFR1_EL1, and also drops dummy
+ftr_raz[] array which is now redundant. These register fields will be used
+to enable increased breakpoint and watchpoint registers via FEAT_Debugv8p9
+later. The register fields have been marked as FTR_STRICT, unless there is
+a known variation in practice.
 
-Parts of what hw_breakpoint_control() calls are excluded already. Just
-exclude all of it to be safe.
-
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- arch/arm64/kernel/hw_breakpoint.c | 15 ++++++++-------
- 1 file changed, 8 insertions(+), 7 deletions(-)
+ arch/arm64/kernel/cpufeature.c | 21 ++++++++++++++++-----
+ 1 file changed, 16 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
-index 38fbd67b2a6e..bb39bc759810 100644
---- a/arch/arm64/kernel/hw_breakpoint.c
-+++ b/arch/arm64/kernel/hw_breakpoint.c
-@@ -187,9 +187,9 @@ static int is_compat_bp(struct perf_event *bp)
-  *	-ENOSPC if no slot is available/matches
-  *	-EINVAL on wrong operations parameter
-  */
--static int hw_breakpoint_slot_setup(struct perf_event **slots, int max_slots,
--				    struct perf_event *bp,
--				    enum hw_breakpoint_ops ops)
-+static nokprobe_inline int
-+hw_breakpoint_slot_setup(struct perf_event **slots, int max_slots,
-+			 struct perf_event *bp, enum hw_breakpoint_ops ops)
- {
- 	int i;
- 	struct perf_event **slot;
-@@ -283,6 +283,7 @@ static int hw_breakpoint_control(struct perf_event *bp,
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index c31f8e17732a..24c8e9147e35 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -570,6 +570,21 @@ static const struct arm64_ftr_bits ftr_id_aa64dfr0[] = {
+ 	ARM64_FTR_END,
+ };
  
- 	return 0;
- }
-+NOKPROBE_SYMBOL(hw_breakpoint_control);
++static const struct arm64_ftr_bits ftr_id_aa64dfr1[] = {
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_ABL_CMPs_SHIFT, 8, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_DPFZS_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_EBEP_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_ITE_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_ABLE_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_PMICNTR_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_SPMU_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_CTX_CMPs_SHIFT, 8, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_WRPs_SHIFT, 8, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_BRPs_SHIFT, 8, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_SYSPMUID_SHIFT, 8, 0),
++	ARM64_FTR_END,
++};
++
+ static const struct arm64_ftr_bits ftr_mvfr0[] = {
+ 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, MVFR0_EL1_FPRound_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, MVFR0_EL1_FPShVec_SHIFT, 4, 0),
+@@ -756,10 +771,6 @@ static const struct arm64_ftr_bits ftr_single32[] = {
+ 	ARM64_FTR_END,
+ };
  
- /*
-  * Install a perf counter breakpoint.
-@@ -718,8 +719,8 @@ NOKPROBE_SYMBOL(do_breakpoint);
-  * The function returns the distance of the address from the bytes watched by
-  * the watchpoint. In case of an exact match, it returns 0.
-  */
--static u64 get_distance_from_watchpoint(unsigned long addr, u64 val,
--					struct arch_hw_breakpoint_ctrl *ctrl)
-+static nokprobe_inline u64 get_distance_from_watchpoint(unsigned long addr, u64 val,
-+							struct arch_hw_breakpoint_ctrl *ctrl)
- {
- 	u64 wp_low, wp_high;
- 	u32 lens, lene;
-@@ -739,8 +740,8 @@ static u64 get_distance_from_watchpoint(unsigned long addr, u64 val,
- 		return 0;
- }
+-static const struct arm64_ftr_bits ftr_raz[] = {
+-	ARM64_FTR_END,
+-};
+-
+ #define __ARM64_FTR_REG_OVERRIDE(id_str, id, table, ovr) {	\
+ 		.sys_id = id,					\
+ 		.reg = 	&(struct arm64_ftr_reg){		\
+@@ -832,7 +843,7 @@ static const struct __ftr_reg_entry {
  
--static int watchpoint_report(struct perf_event *wp, unsigned long addr,
--			     struct pt_regs *regs)
-+static nokprobe_inline int watchpoint_report(struct perf_event *wp, unsigned long addr,
-+					     struct pt_regs *regs)
- {
- 	int step = is_default_overflow_handler(wp);
- 	struct arch_hw_breakpoint *info = counter_arch_bp(wp);
+ 	/* Op1 = 0, CRn = 0, CRm = 5 */
+ 	ARM64_FTR_REG(SYS_ID_AA64DFR0_EL1, ftr_id_aa64dfr0),
+-	ARM64_FTR_REG(SYS_ID_AA64DFR1_EL1, ftr_raz),
++	ARM64_FTR_REG(SYS_ID_AA64DFR1_EL1, ftr_id_aa64dfr1),
+ 
+ 	/* Op1 = 0, CRn = 0, CRm = 6 */
+ 	ARM64_FTR_REG(SYS_ID_AA64ISAR0_EL1, ftr_id_aa64isar0),
 
 -- 
 2.53.0
