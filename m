@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40462FF5104
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 16:08:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF2EFF5104
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 16:09:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iiEgo1uV9rgDDFa9W+HA7wyCNOgnxgyokuO5J5L+aoE=; b=2pRTsK5w7kyPZMIAtE5LhoMgu6
-	CTU0NMLws2YtZd2VDKh+rh03QFvUCdnGkywCci1Ed97CLOSdUqKxHJMsXVhwrLfSqu05JRIqqCCxN
-	sHhQciqKx36swkNUDyjtXboYumvISHJ/zgEEVKDW3j/qbhAxCI1ZqQHpQXAtCcBXkYOfu6obwTjKu
-	nUAmqTInLURSs27YmgDEA72ucc9YJqoah+Snv6FzY0/mAY8Zvq0WzOyxWFuYPBNwvD0aWQ+mLhVrg
-	ClquHA1WWdbFDX80tcLhYY0j6w7PhRq0U39bR+0Scbt/kwfIGTZeyL9iD2VEjkAARxuVzVesbNgYi
-	gjdeQVfg==;
+	bh=9nzMHmzKdn6jI56lWtmKaV47anHPbxIQIrEmLHQt9yQ=; b=iXJoyuso62M7+lPpJdVnraRbXK
+	ZivOKZWZdy1gzWHV/rnIX1N4sBB99w94YKthtdWlrZx6LDnSWjgoaA7WSDZoimOSVB1i4abgS5RZF
+	HabUcdgUqMZTvldd2tZjW2NQoxFu1pM0p0c1IQfo1lOchljEr6nbOV1oJ2GFeIJtxTF2qWlxb356V
+	GT0zb9fpXX6mFWBzn09nS5uVBcE69q32NJ+Xg/N7TXh8bz23YScCnIs7ZqR0X3U8d3w2b0we1qOP9
+	ZyiAF14cKUmkLnemqu1RhdVHZ9L3l5mAvq21ECMa2UWB0HsvRoTFEwSXeBgsb0bJmc5K6JZx65IvA
+	mL/MDN+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA8yn-00000006lhJ-0m1X;
-	Tue, 07 Apr 2026 16:08:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wA8zC-00000006loK-2N3i;
+	Tue, 07 Apr 2026 16:09:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA8ym-00000006lh0-0xRE
+	id 1wA8zB-00000006lnz-1K9J
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 16:08:40 +0000
+	Tue, 07 Apr 2026 16:09:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A8F07600AC;
-	Tue,  7 Apr 2026 16:08:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00F02C116C6;
-	Tue,  7 Apr 2026 16:08:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C119B600AC;
+	Tue,  7 Apr 2026 16:09:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D250C2BC9E;
+	Tue,  7 Apr 2026 16:09:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775578119;
-	bh=xYShYm9bxMjZrtIyKYredjisEXJj/O09esRnvDocgB8=;
+	s=k20201202; t=1775578144;
+	bh=B2VEEKnUZtT0OiN2Ngu8Tmj4uvxETDndnz4xu90eo1A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YOsSgzOAeLNh05Vesqd3XGDprBYHhayV2cKaUDAK75bko6lqaAreMFyFCUz3lXm45
-	 CbZ/v9quohodNaZDDQ8dwlFKC8j9ZdwPGV1CGpHNynsLl0qvyvsG1CFVETvirIQX5B
-	 rAFd8Z3uX1SyWG7XM9OG/ZjmxUHgbgydlnOwvyUVT79/GcfiYKzpvCCnOAwyrzE6xk
-	 3dJTi+BA6Jlmo/UFv50ZAOzWd7U8qrNhydC7de9KJEaScj2u3Yb3NAK4VtC/0Mxj6S
-	 rgO+bsMGh0Qt0XB1QU3MZmjDbVUPCCAUSPge8yk4RsCrTtbG7ms5vgZbYdQEuBJ2Sb
-	 a3ZwcVNwQYhtQ==
-Date: Tue, 7 Apr 2026 11:08:36 -0500
+	b=j3pRYXC9YIMF02RtzVzG/MJGRfH4hEa3cIeKhGdq2KgkefGHN6SK3cizCYBSuJSJ9
+	 xaoqGxxB/yg7lFzCmgsd6iclQ5BWMJ7n/6gd+T26KO4RsMfUHOXpFgYTaSR/UylPFw
+	 m5moSUAGmJsHxbLijvft2rVPjO19Zn/MW6uLwtwBpi0V8YJwKpAG1LxJKLl+J7AJfB
+	 NHLRREeiv2JZzbW9JaF+zKTwALcUhQSkB1OUX8Y08jkju4nNIZTsaSyylHJOditEhe
+	 4JN6zjS3ztpz7qeHC/4hVHYHKXM82ctKMrfDhwi24E2Cp0uh1A5WAuRgrKGeLQwl2m
+	 dYjNqTo+EiUAw==
+Date: Tue, 7 Apr 2026 11:09:01 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Janne Grunau <j@jannau.net>
-Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sven Peter <sven@kernel.org>, devicetree@vger.kernel.org,
-	Andi Shyti <andi.shyti@kernel.org>, asahi@lists.linux.dev,
+Cc: Neal Gompa <neal@gompa.dev>, linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
 	Guenter Roeck <linux@roeck-us.net>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	linux-i2c@vger.kernel.org, linux-pwm@vger.kernel.org,
-	Mark Kettenis <kettenis@openbsd.org>, linux-kernel@vger.kernel.org,
-	Linus Walleij <linusw@kernel.org>, linux-watchdog@vger.kernel.org,
+	Sven Peter <sven@kernel.org>,
 	Sasha Finkelstein <fnkl.kernel@gmail.com>,
-	Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org,
-	Neal Gompa <neal@gompa.dev>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 5/9] dt-bindings: pinctrl: apple,pinctrl: Add t8122
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Mark Kettenis <kettenis@openbsd.org>,
+	Linus Walleij <linusw@kernel.org>, linux-pwm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH 7/9] dt-bindings: pwm: apple,s5l-fpwm: Add t8122
  compatible
-Message-ID: <177557811572.2663241.13106736229238286122.robh@kernel.org>
+Message-ID: <177557814106.2663832.10126964665811714800.robh@kernel.org>
 References: <20260320-apple-m3-initial-devicetrees-v1-0-5842e1e393a8@jannau.net>
- <20260320-apple-m3-initial-devicetrees-v1-5-5842e1e393a8@jannau.net>
+ <20260320-apple-m3-initial-devicetrees-v1-7-5842e1e393a8@jannau.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260320-apple-m3-initial-devicetrees-v1-5-5842e1e393a8@jannau.net>
+In-Reply-To: <20260320-apple-m3-initial-devicetrees-v1-7-5842e1e393a8@jannau.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,15 +84,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 20 Mar 2026 13:23:23 +0100, Janne Grunau wrote:
-> The pin controller on the Apple silicon t8122 (M3) SoC is compatible
-> with the existing driver. Add "apple,t8122-pinctrl" as SoC specific
-> compatible under "apple,t8103-pinctrl" used by the driver.
+On Fri, 20 Mar 2026 13:23:25 +0100, Janne Grunau wrote:
+> The PWM controller on the Apple silicon t8122 (M3) SoC is compatible
+> with the existing driver. Add "apple,t8122-fpwm" as SoC specific
+> compatible under "apple,s5l-fpwm" used by the driver.
 > 
 > Signed-off-by: Janne Grunau <j@jannau.net>
 > ---
->  Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
+>  Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 > 
 
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
