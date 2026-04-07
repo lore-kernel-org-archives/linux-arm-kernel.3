@@ -4,68 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9124FF512C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 17:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68259FF512E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 17:20:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Ztlzy6/9/0FUOexK7kEqVQjcXPNMf035a9M8FFtxKo=; b=4ACE9Im/V2Nq5MCzZ5YROlOuYh
-	/Fl2mCyPkJ7B5BD+o6OayDSR3RzMG4BOTU9F+dN1Glr2ak2QNWl5640Ku30k8mijBEP16U9z2HBZh
-	1+Hc9i2pllGMD/Kdx2B7IWL0CmQybK34PdOH3e2BX2rz87fmwm+yxROqWL2aIwAivtr2WqQdavJzd
-	wIqej7coBhFziIvZnyEuWRsBHCceRj+mOiKgK0l7dOhXEOEU+srmys6nmTjq+X3L6+WS5wSOlqQLz
-	NdGscSd/5Q1ST+X4vxtpxqSno2CwGk+o2RWg3/TBR9lOaD9mlMMnQR8cSZ/3OSU291TjmSFnVJMlP
-	1+SkKDzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aeLYwHcVD9B0EutpT6V2+2V3AhDZX5KiFnwCP2iOghs=; b=CpB5Dpg1bwfP3XrQfJz0nshBNR
+	qlueP5hlwYFQitL7sL7qLw25wbFkPT0YW4CziJGeT7b9po7yllvt5liKK812OJOQSj6mWF/HsKW78
+	BYA8wdWjkOaS1jCG/+6wrIMYDL4l5zHVr6uySfNjs9lZ0Yhdb2RhjGLfQlZpiJgwEIW+KrZtrHZxr
+	h9AoFH17P5U+vZoTdAAjNXm0boP/e2wdiPpWsCWpzaLRlLks3kz2D5Ab1sXoaSAsTfLrSD6JCXfMa
+	AUJ2voAgz1wwNwuCThmAc/uxR0vrT/Et2hZmpATzGKXs1LQ0MG/MmzeUDHiMeiS04T16yjrQidgvX
+	bcdSeLFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA9qE-00000006pMy-2pUW;
-	Tue, 07 Apr 2026 17:03:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wAA6E-00000006rGj-0SgT;
+	Tue, 07 Apr 2026 17:20:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA9qD-00000006pMm-0Uz3
+	id 1wAA6C-00000006rGQ-3fxJ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 07 Apr 2026 17:20:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=aeLYwHcVD9B0EutpT6V2+2V3AhDZX5KiFnwCP2iOghs=; b=R/WkMZfuSNe/JXzHelzd0D/Dds
+	ir1ojmszqH20YOydnkltqBo7cEOq4sFPf73aVcgANeUdWTaHDamLQbwG+FSUC0AiPUMlXjWDVTEK+
+	FkmR76qfmLnapwUycohH0yIyMQxKNGZFmJsBT5CBAStbkv5eBynDuAcZnA6kmNJQUympSq9u6gQ/1
+	V8KOIsMu2+hl9sDI9jX4RBobVaHr3WhLBsNZHvRpUvcuzfB6aHRtoIroPT8WhKK/0wA2ruSlPkN2V
+	7GIKZNmH/6VGW9CkXgoW5R5LCY2vl2kPvWHeybGnlBll5HhljeWwkrUD9s1eCk5VQvhO3UtmWI1/m
+	GqNWMBtA==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAA68-00000008llw-2j2e
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 17:03:53 +0000
+	Tue, 07 Apr 2026 17:20:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 484B960133;
-	Tue,  7 Apr 2026 17:03:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D687C116C6;
-	Tue,  7 Apr 2026 17:03:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A146E439C9;
+	Tue,  7 Apr 2026 17:20:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B560C116C6;
+	Tue,  7 Apr 2026 17:20:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775581432;
-	bh=cvSfD19P7uTmsATu2GySWCnv/dAXkRtQ9Eb0rF3LY/I=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YAowgwY8frarC3ngk17I+k/t9K/0gPezR4wsmrg2wUodIyeKKKyY3f4j83jovC1UG
-	 x0OU8wils+E0iyIsFAs2LHttPoJ1px8fDhbFmOePXHRoZPtpsH4/07+G228uFFzCP5
-	 1DDiOPyZ1BQgTnwHtMatOWcIqpeFJDH4X3cj63X9gtA3BK1EPpzgqCA6PgQtxFOBkF
-	 Sk3AT55vezhVu9+R7EMhGolvc4eHRoNKHQGvJPQMJoYl+WVHcmj6o+8MOiCqPU94or
-	 3/x+qmiof/kn6hH4t/ofc8JN9+BMEiHqde+BtiKTUrvzpWJ5/PEsaxcT+1XhnvbhVL
-	 bNGXJMsjAZVpg==
-From: Will Deacon <will@kernel.org>
-To: Joerg Roedel <joro@8bytes.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Robin Murphy <Robin.Murphy@arm.com>,
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] dt-bindings: arm-smmu: qcom: Add compatible for Hawi SoC
-Date: Tue,  7 Apr 2026 18:03:43 +0100
-Message-ID: <177558103339.2252830.5428863486031269927.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260403080956.2714415-1-mukesh.ojha@oss.qualcomm.com>
-References: <20260403080956.2714415-1-mukesh.ojha@oss.qualcomm.com>
+	s=k20201202; t=1775582416;
+	bh=BcFJ2putys3P6/zGB23SL08fXAgv8v1CEym5nRQpouk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kuGsitZGzFfVbHuQLwYEGw4RMCkz7e9rMLWeqHBYYouyYEZX5YSi+EfHu5jpkUVgL
+	 kijgJNJl3WUt34t11eXze1dC3LZ+wMlk7HlKz7K3+epoHvubJjEwUDQv9L1jEGkedP
+	 dU5qhYrOe7g/2p9Jdm+2ZSs8XZ2a1Wi+MmxbHJxCxUmdp9eU2i5Tv+n5qh9JN/iCRZ
+	 ygIRT3Tn0MGWjhTK0wpVqf2DqNjCq+wdD/GX6nUZPZbiwG8kvkOlps5HriGJ/J4+Sd
+	 GqWpwV9Y4XVeswwq9QwfEZzWjA8czQW4S3guo9tFQG8AFzi1APhKp704ClmK6pAIcP
+	 KfmLfSUKakTYQ==
+Date: Tue, 7 Apr 2026 12:20:14 -0500
+From: Rob Herring <robh@kernel.org>
+To: Jun Guo <jun.guo@cixtech.com>
+Cc: peter.chen@cixtech.com, fugang.duan@cixtech.com, krzk+dt@kernel.org,
+	conor+dt@kernel.org, vkoul@kernel.org, ychuang3@nuvoton.com,
+	schung@nuvoton.com, robin.murphy@arm.com, Frank.Li@kernel.org,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 1/3] dt-bindings: dma: arm-dma350: document combined
+ and per-channel IRQ topologies
+Message-ID: <20260407172014.GA3090142-robh@kernel.org>
+References: <20260324120113.3681830-1-jun.guo@cixtech.com>
+ <20260324120113.3681830-2-jun.guo@cixtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260324120113.3681830-2-jun.guo@cixtech.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260407_182020_953222_8FFF86FF 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,23 +92,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 03 Apr 2026 13:39:56 +0530, Mukesh Ojha wrote:
-> Qualcomm Hawi SoC include apps smmu that implements arm,mmu-500, which
-> is used to translate device-visible virtual addresses to physical
-> addresses. Add compatible for these items.
+On Tue, Mar 24, 2026 at 08:01:11PM +0800, Jun Guo wrote:
+> Document the interrupt topologies supported by DMA-350 integration:
+> - one combined interrupt for all channels, or
+> - one interrupt per channel (up to 8 channels).
 > 
+> Assisted-by: Cursor:GPT-5.3-Codex
+> Signed-off-by: Jun Guo <jun.guo@cixtech.com>
+> ---
+>  .../devicetree/bindings/dma/arm,dma-350.yaml  | 25 ++++++++++++-------
+>  1 file changed, 16 insertions(+), 9 deletions(-)
 > 
+> diff --git a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
+> index 429f682f15d8..bec9dc32541b 100644
+> --- a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
+> +++ b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
+> @@ -22,15 +22,22 @@ properties:
+>  
+>    interrupts:
+>      minItems: 1
+> -    items:
+> -      - description: Channel 0 interrupt
+> -      - description: Channel 1 interrupt
+> -      - description: Channel 2 interrupt
+> -      - description: Channel 3 interrupt
+> -      - description: Channel 4 interrupt
+> -      - description: Channel 5 interrupt
+> -      - description: Channel 6 interrupt
+> -      - description: Channel 7 interrupt
+> +    maxItems: 8
 
-Applied to iommu (arm/smmu/bindings), thanks!
+Don't need maxItems
 
-[1/1] dt-bindings: arm-smmu: qcom: Add compatible for Hawi SoC
-      https://git.kernel.org/iommu/c/5e8323c3d528
-
-Cheers,
--- 
-Will
-
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+> +    description:
+> +      Either one interrupt per channel (8 interrupts), or one
+> +      combined interrupt for all channels.
+> +    oneOf:
+> +      - items:
+> +          - description: Channel 0 interrupt
+> +          - description: Channel 1 interrupt
+> +          - description: Channel 2 interrupt
+> +          - description: Channel 3 interrupt
+> +          - description: Channel 4 interrupt
+> +          - description: Channel 5 interrupt
+> +          - description: Channel 6 interrupt
+> +          - description: Channel 7 interrupt
+> +      - items:
+> +          - description: Combined interrupt shared by all channels
+>  
+>    "#dma-cells":
+>      const: 1
+> -- 
+> 2.34.1
+> 
 
