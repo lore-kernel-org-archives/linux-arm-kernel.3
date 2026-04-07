@@ -4,141 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA2AFB5192
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 04:47:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D94AFB5191
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 05:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+aaEBZPA3YHdfTo6KRYe5g3z2LS1IYocldEBGvZCBpc=; b=ak/+3Aj7i76bR3p1+MbwDfVCeU
-	aIZTxdm8gwaaVeOnjgLEk5wyUzGsv7sjV7HPZqtP3ukjx9Ik6taErrTCvuPiYcMZCY8ecEChVC8ze
-	27QkD0o154rFyZZLVpYn8WVYSYQFnaO0FwMGudeejJdMLsLfyNpQmt+r5Gw6ZDEHttj2zHfzwWcMm
-	z4gF7t+qCo3vxtBFxhqKNsXV5LxMlM5U+d8w3f29a2mOVgJu17z8Q8THpKyETBIkqOm6KvqMyAreg
-	HUBm5r5Q4BM/SB5pPReKgAkvhx9PlkdtoMAdg8bl1EwkyzzybDcyXQCWt/lXnwNnbkXJih2kce6yt
-	vp8Kb6VQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AjRWgcGdthCD6JjpX3GvlV0YkC7deUEizHFqQArMR/I=; b=3a9S3gUJCMLEc/yW5uOLmg8gav
+	sWmGqpqK63FWSTlQ9eGN0Qc1cUoumx+KFFvNP1Rd5mhmuOqbzsF7DMDWNj5OgD5erdBzGbuTjbjtt
+	VfwBI8ZfgtG09MPzHfIFOPKq1zbDV7vP1E3bCouKjxpb50olwLOGlNkD6rKiXpH8aicIr2XNnlLqb
+	eShzaHGksaWYzTqHYPPm9YigxGklXhnWe/v7Q5zA9DWST40PL2BsjoWL+hSKJY9q5Mc8sl06frVmE
+	wcD5vNlcNIb3lEFX37xLBkiV4A+CSKDzAIk127PTRhiR+g5Jtft8n6sVnFx/xNzB0y5NAPcTa8y24
+	6GQxjekg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9yLd-00000005t3o-2xqL;
-	Tue, 07 Apr 2026 04:47:33 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1w9zD1-00000005wHm-0SvP;
+	Tue, 07 Apr 2026 05:42:43 +0000
+Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9yLa-00000005t3S-3z7m
+	id 1w9zCx-00000005wHQ-3N1j
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 04:47:32 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 636LQ6xS3536836
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 7 Apr 2026 04:47:29 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=+aaEBZPA3YHdfTo6KRYe5g
-	3z2LS1IYocldEBGvZCBpc=; b=JWrxfBDsZaLNxP8+vgwVEGUw8vEPx/u3IAp9VN
-	7yHTNjMy/WgFI8J6cYUiqXs8nzxy66tlHCjT4ZpiIv0ozDRpgqq9LBVjvmN4Fecp
-	ak2bW1ScJ2/CvySeABqy1nauIRBpKWk9JDRS5P2JFMmfRqPFqi2mSScAYU1Pkg9z
-	e/StIFfB1GSSBEcWQ8Je8Y3hc9Y9PJb6m7HFRrNxmv4rG5E6691FTeKDu0swRtOU
-	Yp1w/HT5K3/4HyNExgCh+UlWdWBdfmoYFhgBvjcPvKq5fA3XFJi8A1Y6C17b09Hm
-	dj2FFLYs4bmFPvXdiqhycDPbwWbXNWJapTaCAclED5PBORtw==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dcmra1256-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 04:47:29 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-c741b950511so2469140a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Apr 2026 21:47:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1775537249; x=1776142049; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+aaEBZPA3YHdfTo6KRYe5g3z2LS1IYocldEBGvZCBpc=;
-        b=hRHDtbiSCFNvAmzoYz4q5PDZyDKbKW7ZyLbPXR0HKqDFUmZ0KhEH7kkTDgp2kzrc4/
-         3bHuIkjuwxG81pAfUwlwxQb/MjDiNWaXD0G8/K8fea/S3YZK6yfLPjfUDh0V5vGsIfO7
-         Hkp9IO36Vqk8WCF6yfapnFTxapMmaEfXbT0wq/m/imHgWAHzd7Zqt1C9ZALyG20NGHHa
-         OlAjwsSGJo6Um7CvjsKSZ/OhVhaS1iilMLwnA1mVBqrCSjNBArT5pDXbD0b0QxgxhH+n
-         MnjX2fgD7Y1CxdLwvaAQ1LMkR6P1RWWmXDrFphcGjBdGytaqA+D//4Pzjg6nN01ARw90
-         iYPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775537249; x=1776142049;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+aaEBZPA3YHdfTo6KRYe5g3z2LS1IYocldEBGvZCBpc=;
-        b=JQHYc93dycOBmeQuvaLj8joM3myf1Dh/wuHltBZDF3eSiYYlPdi1+r7axCcQisgQdB
-         m3cw8cqFTGKV9hXcAcGZ6ydkJwCMCfHSf6yyYOVRg8FI1u44+5hbPMdS/oqEi3vTViLX
-         5lAeQiDh5jXiJDjjAz1gBbspl6lXRd+B2nYyYCrZD3ozVprm67GnwE5ODOOY39xG5Bl+
-         7zYt1v93tmvU4TdiXDh91YWDjucsD+vdgOxILpGhjnqIf6d24WGHbN37BFsx045CedMD
-         7UjjtcfggxQ4iq3DZqm6OLM2cSG27qRxb4TsKhrxrosfKA6wftRfonjuOUaDAbpwaLIn
-         sjLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVjH/uH/jYxUv5R7w99rHGNQHJSstYc4g4e1FVkIaoS4tFynEFAbyCoszNLc2piZRGM6eLCcoJ7qYPqG5y+3z71@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywek6/aG7XUFtHBN9b+giVT2FZQ9HWSK38EybvvY3TA61x11xPm
-	gM6XxZwWdhe9a+dkbnsKouAgg7bp0JqQew8CJjp+wnoqxB9kYykVDbcdlp+EfQphenn7ELONo1t
-	RtV03eLRUbafNVvAoXGJ1XYxp447cpAVawVcCWZ0QAggtRYkJ2JqvGwN8JOgfziLV6apZTnlCDS
-	0Hcw==
-X-Gm-Gg: AeBDievVxk8HcxhBU9W3nO3daz8oVZcTYGRPeiQkD9fZ/olSoxOWyWHPjhAkk/XKKX/
-	Jo1VGG2oiLfA3VsZP4hX0YmvWm09GaMPHWRiIKvVTDE3dJCiyjGXh9e6Ie3DX+nBUB3iM44KpFk
-	+BgwVR9P8spHM7sGGZsmBe5OaknS0bu2RT0Lsfy9NhwlBnAltAVkac8KXN0slMPvvJZedoryFSW
-	LEVc/L4AGJcv4fATIqqSHX67KCgEcm9t4gEIeGkgJfEl8vEKKzGJpD9KwLAbnxoJqIVVyIogiZq
-	Ts9cqx8HvYfL24UOVfw9p/gjsaxoh2/NKEJ+hH3z+QDFKNkYUR0SaBmwvrniZilbm/on4NWWilZ
-	BeBASI0Ki1mfgY1i3r3Te85j171MO+g5okZFOCVkPNJfoJ+Hk/Ne+ydcBrIX2Ub6Uh1WPd6rQ6n
-	1ShkZObUJ2
-X-Received: by 2002:a05:6a00:3d56:b0:82c:d7c4:4c6b with SMTP id d2e1a72fcca58-82d0da2e1ffmr13231218b3a.11.1775537248919;
-        Mon, 06 Apr 2026 21:47:28 -0700 (PDT)
-X-Received: by 2002:a05:6a00:3d56:b0:82c:d7c4:4c6b with SMTP id d2e1a72fcca58-82d0da2e1ffmr13231199b3a.11.1775537248412;
-        Mon, 06 Apr 2026 21:47:28 -0700 (PDT)
-Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82cf9cf065asm14998963b3a.8.2026.04.06.21.47.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Apr 2026 21:47:27 -0700 (PDT)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Tue, 07 Apr 2026 12:47:11 +0800
-Subject: [PATCH] coresight: tpdm: fix invalid MMIO access issue
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	Tue, 07 Apr 2026 05:42:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aFUqACgNt6XdT5jsvcypw6WO3YmsRjBKtX3s1XO/uuRq+hvXSrRtQdBo0eeks/89qymUiOcb3aoCzjPEFV30UBYSI+ZPsE7OcES0zQvOBFLMoBR7Rd/45519TF/JCtphdnbjWSBj5Lfg+/5hL9xn4IC0KrR2FM+IqrB+ZGZrQ8Q2J96y0Os8/t4eVILUkFOKNMtHQRgJW9hihG+DpxzztfBfoFt0ImcbkfFToJGJJK9qG3ZzyOT/Ry1yRhAnS8yzPuoGuHoVpNnWA2PIMg9mpPd5ZImbz+gExhxOkLUhpUkMq1vQNtZAz9TmOOSEZ+HeCigiZG4ny509cy2pQChaLQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AjRWgcGdthCD6JjpX3GvlV0YkC7deUEizHFqQArMR/I=;
+ b=yKzOcMbVbpWMJrGObDZj7C/gulr1JbcEBrBlRbRp5er6KOyCzWK4IqvIFmjFNgpT2iE09FkY4BcPYEDBoZMbHskOvSGA+YTqesmQWGrxPjQ7J+V5/rZP5M351/zGTxnivPM7t0W1CPmi5Mm51brl4dOZybKHh/tqOsXavOPBswzEaBirZNRIXlFj9fWJbGsjJqZoQ0xWXtCfLPykmc0Z9yeYdk/o/BKmxjpPbXS/2Beiul5Nz4N8AtepCppD8VuU3cYz4/aJM7++e7ue9r4aY6jXAlzsthiKFfC1ON2Jo29YRygYC76SkBGjCwuV2WMOg/68hQKrGkMsxXVF4xHrkA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AjRWgcGdthCD6JjpX3GvlV0YkC7deUEizHFqQArMR/I=;
+ b=TVKOveEqX+1jptYl8dO4UZ/Acj3OIjW5/ah1tWQNwwvvvG2i1Q41qo7ivQ1dkjOqYwwilTP46Yao4K/jgqaRlame/UQAekB9y9Fo9XmTBCxugbhbsNu2f2AMldEKINhlmvXVG57bP5RiKqEs9UdzivqJpKC1KHR+C8R4t7VF51U=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SN7PR12MB8147.namprd12.prod.outlook.com (2603:10b6:806:32e::5)
+ by DSSPR12MB999211.namprd12.prod.outlook.com (2603:10b6:8:375::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.16; Tue, 7 Apr
+ 2026 05:42:33 +0000
+Received: from SN7PR12MB8147.namprd12.prod.outlook.com
+ ([fe80::3923:c1a4:778b:56f2]) by SN7PR12MB8147.namprd12.prod.outlook.com
+ ([fe80::3923:c1a4:778b:56f2%3]) with mapi id 15.20.9769.017; Tue, 7 Apr 2026
+ 05:42:32 +0000
+Message-ID: <90460b8e-fcee-47d4-8568-fe4aa1af4664@amd.com>
+Date: Tue, 7 Apr 2026 11:12:21 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2 5/5] dmaengine: xilinx_dma: Add support for reporting
+ transfer size to AXI DMA / MCDMA client when app fields are unavailable
+To: Frank Li <Frank.li@nxp.com>, Srinivas Neeli <srinivas.neeli@amd.com>
+Cc: Vinod Koul <vkoul@kernel.org>, git@amd.com, Frank Li
+ <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Suraj Gupta <suraj.gupta2@amd.com>,
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+ Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>,
+ Folker Schwesinger <dev@folker-schwesinger.de>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Kees Cook
+ <kees@kernel.org>, Abin Joseph <abin.joseph@amd.com>,
+ dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260313062533.421249-1-srinivas.neeli@amd.com>
+ <20260313062533.421249-6-srinivas.neeli@amd.com>
+ <acqe_AF3YHPLNzoV@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: "Neeli, Srinivas" <srneeli@amd.com>
+In-Reply-To: <acqe_AF3YHPLNzoV@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260407-fix-potential-issue-in-tpdm-v1-1-42090d27c0a8@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAE6M1GkC/x3MTQqEMAxA4atI1gZS6Sh4FXHhT0YDWktTRRDvP
- mGWDz7eA8pJWKEtHkh8icoRLFxZwLQOYWGU2Roqqmry1OBXboxH5pBl2FBUTyMBc5x3HKkZvfe
- upo8DO8TExv/3rn/fH+/w5/VtAAAA
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
-        James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775537244; l=1516;
- i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
- bh=q6N0WfkFV9v4xEgCEWlWJ743nK/v6b/vWjyL8Sc1oz4=;
- b=BsyoxXij77HoegeG9nCNSoetgIv0hrvCEaK9jySxdSq+mjgInZ5uPGK6camjMJ5sUTUNvANQ0
- oKhJQknL49fDXgFnEa0ruWYLxzlUT/0YRgGoDRpPMgRseAVT2xAydti
-X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
- pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
-X-Proofpoint-ORIG-GUID: nO9zqnnDGo0gyHE3EM6_JU6wfSA1ojG8
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDA3MDA0MiBTYWx0ZWRfX12M5S3oP0gW4
- 2o7yk9lgrkTmHpQAMlnJ2uGb2UNhJqPn824W6QoUTsiHiO3pciSqF9xK/ABWFX1/v9I0QRvqS3L
- ZNn/m1zmnvYJ9eBL834dlq+WjsD/RFP+XSH50kcGPJQzuNV+DdlTTQzs6wD2rGBfT6+ayBR2SjP
- LgX6/8BiQmZMDEqUB0p0jCRKaaf5Vv3Z2lR/6rT16hLXMwwE59/QjcT/0skOfdvjVXC3/tknLAI
- Ohh1an8M5Vks+8huwu2qjGCX3sAT6Z8Bj1VoyVMFrrVCZmYt5fMy2YPS67u0Nlnbdp2eU0USh2c
- C0Y9PXamsocnmJ6fqCpqlEUsHseGg1eXAqDLKklG5JSFwBsMshV8JDfmvzyBQGhnk2A9lyZc30y
- /0SOY9Issj7Ed4Z2JIDIKLAODGBwXbzQXHTyvycawqzY/lLuMhXY4QIqDcCY+olZKmK1NxaI5z4
- BYdu7VhmTQ91QfLRT9Q==
-X-Authority-Analysis: v=2.4 cv=BKGDalQG c=1 sm=1 tr=0 ts=69d48c61 cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=EUspDBNiAAAA:8 a=z9rP18_Dhswye3MgaU4A:9 a=QEXdDO2ut3YA:10
- a=_Vgx9l1VpLgwpw_dHYaR:22
-X-Proofpoint-GUID: nO9zqnnDGo0gyHE3EM6_JU6wfSA1ojG8
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-07_02,2026-04-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 phishscore=0 clxscore=1015 bulkscore=0 suspectscore=0
- spamscore=0 impostorscore=0 malwarescore=0 priorityscore=1501 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604070042
+X-ClientProxiedBy: PN4P287CA0015.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:c01:269::7) To SN7PR12MB8147.namprd12.prod.outlook.com
+ (2603:10b6:806:32e::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN7PR12MB8147:EE_|DSSPR12MB999211:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4987f378-1924-49b9-1f21-08de946876a3
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: VrsZeE8GOgghemZAoSRnxLJv/TqYHETPpwEUt2yqnLW+KDI/XkA5pbHkuClh3RVyxJyTiVyuOMSDw6gzMFAa2hg5o2rdhR3IgvgxmVt/2mqga7XytbqUDImBPRlksijfiF1NrHVuohOiNw/VdTx5tw+WmNNBSfV73P8RZj1tC9tVQK+3UTvaZDWnQ6ZLwT6aGnEI4gXi/fM83SCySaUTtuXJ5x6K3Iih9NckF+eNyOE3FuQXC2uxUXg71LQ94YZkPNd4nUuhav+DEuFdq57M0C1umQUv68eKJVbRXzK0AVguD2/jp7eSWf6rk/zTOMgqkRSk8OvYo+fuJ2GG8LGbZyKb/JrHdmmbfEwPTMFb+PeVdqE9CBwJuPoNECH+75J1mF1kC+p3tJ4s30klqM1Jz6E4MMIeMGmJ8ZIgEDKRF6GfcWO6rDk+h1+pOUEeCvoSeFLjBr2K1G/zsNjEyJaXGFPe2pNOeL2RUqkBhmD1ol3s0ZgkBV2E41tXSGDTEV5mT5hiUDaM3HCAP+kzYSAGYADpQasTlvA4C7X5baeflPkqyzmbREYKA/bPiwP2dQfKwAtlMvYUrTVexIDTrdLh/8zXsX2+3F0XdOHa8S4noAjUp/IXOx8LUsyay8kOJCsgw34WT3vB1VVntgcwA9KzDKSttbzfByIKczHNx2ziQGd6fEFIFwPz3vSMOrTeh9d6y/+IbNBJfEqTiTzF8JSxo671nbLJ6W6G33bULakzbv4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR12MB8147.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eHlPR0V0MURQbmxqZHJJWUUwOTA2VVZuc0F3aUFxdGhBWnZWWlM4dUF6Zm9w?=
+ =?utf-8?B?MnB3YVl2QXltQkxKS1hVSHNnQkY2Z0RPVEdkb2xmdXNQenFySGRHcitUbG92?=
+ =?utf-8?B?blN3UWZFTE1xNG9Fbm9hNVQ4bDJTR2gzRjgrYkNVdC94YTZOWFhZczFZeXZq?=
+ =?utf-8?B?ZUwwQVJzeG5GdWdsOVR4dTkyaHN0MGtBMldEekh4dU9QV2dvb1liUVdLa0FS?=
+ =?utf-8?B?alVnSDRLMnZocUliNEVmK2V4YUZ5VytGTnlDeElHQ0NDREZFVVh1ZGM0cmtr?=
+ =?utf-8?B?RGgybHZ5V2JEOVJhejJVTDlOTjQweGJKL293Z3RwVmJlUkRRQUxtUWY5dkdX?=
+ =?utf-8?B?VWdnaTBibFNGcGtZVUswUDZCODJKeTVacnU4eXF1TExGdm9aMlpkd1RjTkhz?=
+ =?utf-8?B?ZFZDU2J6VjlQdDFRUFRGMmZPV0xwc2s2alNjZUxkaEVyUkJhZXpLYjZMZTNw?=
+ =?utf-8?B?blpKTzRWZ0pTcGZ4akpsK1dBeEJzNTBrbEZvaGllajFxTUc2OWhCU0kwSXJn?=
+ =?utf-8?B?WjBIZ05kSXVsbGt3N3hPMEgreEdQdFB4SnFzTUc3ekFmb0FmSTFENjBHa21n?=
+ =?utf-8?B?OXljV0FtczJteFFOcjUzMzdvSGtVWm1HbHRYcGhOZzF0b0pSTUxKNzl5WFNO?=
+ =?utf-8?B?YVZwMWhSN0hlVGw4OUIzUW96UU9FbzRaRU1SODYydGNoUytQRXlod0FVeFJh?=
+ =?utf-8?B?Y3YrSlhTZFlHYk9na01mdUl6SlB3L2pnYVEwTXkrWG04TVVGa3lSTmdKYWp5?=
+ =?utf-8?B?YkN6WHJVSk5XUU85U1pJdGlEcXptMUFtczJaekJyT3hhSUU2NEtCWUp3TVg1?=
+ =?utf-8?B?SkozOFhjSVlwMmlKRXF1aWE1SnBOakIySHNFbWtxRi9ETTRQUzhOcnE5UGlX?=
+ =?utf-8?B?eFFJdU4rRUhTT0N3RFlFOGRZM0p4WGQ1YVV1aDlVNlltNkZPNjgyYzY4NlM1?=
+ =?utf-8?B?Q3o0UU9rcUlZd2s5bjd4RmRmbHBqclhXelVEZHU2aVJNbkVaMjRGcHNJRXF4?=
+ =?utf-8?B?SlBxWExON3EvZkk3U2srb0xrak93OHNoVzg2R0ZWamJQVDZQSTlvRlliS1RW?=
+ =?utf-8?B?a1BzRnk5cjRidGtiNjJDb0JwdXJBZEM3aEdBQUgwdWZtaU1QT3AwVFJGQks3?=
+ =?utf-8?B?a1JDOXBSZjdMSGp5QllxRVYyZzN1QUFXZi9jZFNDa0pUMC9HQjIvSHgxZ01L?=
+ =?utf-8?B?TVozMy9IUG9qNDkwTmhxSE9VeHFGZDlqNUd6dTQwVEJnanBDcGdWaE1BTUdO?=
+ =?utf-8?B?cy9TRW1XQnYvcTFDYnZvellzbUtqandIT0pvM1JzUDF1bjRKVThsR0ozR2xz?=
+ =?utf-8?B?bzBxSjVtUytRR25lZElUMUlVck02bFkrbEpURzlxTDZrdVlWUUF1SGNESmRu?=
+ =?utf-8?B?WXZJQjNseUhxdjNUMExKT3ArMjVhUWZTSHpUYklFMFRvd2xRMGdWZXF6Si9K?=
+ =?utf-8?B?VTlkNzgrUG9TOEw1cG15amUrR1R4aVJGQThLRUF4V1U2a3ZmZzN5SWU0b3pl?=
+ =?utf-8?B?OFp6QTZPZ3M1Y08rbkRCMzkrRDhBcGhySHE2R3RZYTBBa1FTYlZuN0hVVmpO?=
+ =?utf-8?B?Sjd4Ukp1cnBraXdLbkEwZzBob0RaNndKVFQ1dFRmMUFXR2hHL0gxZ1Mwc2tF?=
+ =?utf-8?B?NG83VjhRS0dUSWViNU1oQjd2MVhqNzhuTGRsSDZiUUhrbHFVdE5OZUtLaVpz?=
+ =?utf-8?B?TEtPOWF0TVZWbytHaC9QcnlTcXhGSFNzbm9idk9QUXFsSVhlRWRvV1Y1dWJx?=
+ =?utf-8?B?THh0bG1heFh1K3J6UWNnSUcvV3cwNmEzbkg5VFFIaElRWWl4Y3BtNy9VdXpu?=
+ =?utf-8?B?ZG1Uc3dVanY0OHl0TnNtZGg2RFBJYm9WMTd0L25IOHNVMFNQaGZOUDNUQzBX?=
+ =?utf-8?B?a1RMR0FvNnRZME5xS09hdnhGakU3cDhhWnZLYzNxK1ZWdFNxU24vQnZNK0oy?=
+ =?utf-8?B?RmlBSmRwVXZIQ2VkTlErdVRtTEdsZzZlRktwRlR0VjE0YkJndVk0MFZVUzBi?=
+ =?utf-8?B?OEF2aW4zRmlzTHJGbzJpZm42dmwwckl6bjVHU1pOKy8yT0E3R3VYdHJHd3lG?=
+ =?utf-8?B?dDJ0dWhiQmdwZ2lzaFllaXZvNnJUMWNNd3k5a3ZRUkIrQnRkU3RHODRnYWFP?=
+ =?utf-8?B?dStaT0ovWDZHZk4wTWYyeVdlcFFqZE9wYnFUYmNFc0wxRldUNTIyYWg1TFRp?=
+ =?utf-8?B?OHZTMExoVHQ4ZXo2WnJZWXBYQURZNTNzUWZKdEVuM1I3eUJDcnhYUzJ1d3Rp?=
+ =?utf-8?B?S0dCNDdFdjc2T3BqY0l1UWZEVlFuYmJWKzc1eUxjMW52K3pqRTY2bjE5aThk?=
+ =?utf-8?B?T2hPUHFRUzdTbEkxbFVjS3lnSzd0VUxBMWsyVXFRTkU5MTVpZjhRdz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4987f378-1924-49b9-1f21-08de946876a3
+X-MS-Exchange-CrossTenant-AuthSource: SN7PR12MB8147.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Apr 2026 05:42:32.4396
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZH8f80HHCgyPRQSnFjMhFR0i86ZFhVaTZ9VXw4/4RXzs/HzA64/aFQaIiz5lSR1W
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSSPR12MB999211
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_214731_066182_5DE8317B 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20260406_224239_991012_E948DCC8 
+X-CRM114-Status: GOOD (  24.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,45 +158,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Create the csdev_access struct only when a valid MMIO resource is
-available. In tpdm_probe(), base is uninitialized for static TPDM
-instances that lack an MMIO resource, causing csdev_access to be
-created with a garbage address and potentially leading to
-unexpected issues.
+Hi Frank,
 
-Fixes: 14ae052f7947 ("coresight: tpdm: add static tpdm support")
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
----
- drivers/hwtracing/coresight/coresight-tpdm.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On 3/30/2026 9:34 PM, Frank Li wrote:
+> On Fri, Mar 13, 2026 at 11:55:33AM +0530, Srinivas Neeli wrote:
+>> From: Suraj Gupta <suraj.gupta2@amd.com>
+>>
+>> The AXI4-stream status and control interface is optional in the AXI DMA /
+>> MCDMA IP design; when it is not present, app fields are not available in
+>> DMA descriptor. In such cases, the transferred byte count can be
+>> communicated to the client using the status field (bits 0-25) of
+>> AXI DMA / MCDMA descriptor.
+>>
+>> Add a xferred_bytes field to struct xilinx_dma_tx_descriptor to record the
+>> number of bytes transferred for each transaction. The value is calculated
+>> using the existing xilinx_dma_get_residue() function, which traverses all
+>> hardware descriptors associated with the async transaction descriptor,
+>> avoiding redundant traversal.
+> Can you split this change to new patch?
+>
+> Frank
+The changes related to the xferred_bytes field and the 
+has_stsctrl_stream property are tightly coupled and cannot be cleanly 
+separated without breaking functionality or resulting in incomplete commits.
+The xferred_bytes field does not serve any meaningful purpose without 
+the has_stsctrl_stream check:
+- xferred_bytes is computed in xilinx_dma_get_residue(), but it is only 
+exposed to clients through xilinx_dma_get_metadata_ptr().
+- The metadata accessor relies on has_stsctrl_stream to determine 
+whether to return APP fields or xferred_bytes.
+- Without this conditional logic, xferred_bytes would still be 
+calculated but would never be consumed by any client
 
-diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
-index 9b16f368a58b..eaf7210af648 100644
---- a/drivers/hwtracing/coresight/coresight-tpdm.c
-+++ b/drivers/hwtracing/coresight/coresight-tpdm.c
-@@ -1430,6 +1430,7 @@ static int tpdm_probe(struct device *dev, struct resource *res)
- 		if (ret)
- 			return ret;
- 
-+		desc.access = CSDEV_ACCESS_IOMEM(base);
- 		if (tpdm_has_dsb_dataset(drvdata))
- 			of_property_read_u32(drvdata->dev->of_node,
- 					     "qcom,dsb-msrs-num", &drvdata->dsb_msr_num);
-@@ -1452,7 +1453,6 @@ static int tpdm_probe(struct device *dev, struct resource *res)
- 	desc.ops = &tpdm_cs_ops;
- 	desc.pdata = dev->platform_data;
- 	desc.dev = dev;
--	desc.access = CSDEV_ACCESS_IOMEM(base);
- 	if (res)
- 		desc.groups = tpdm_attr_grps;
- 	else
 
----
-base-commit: 816f193dd0d95246f208590924dd962b192def78
-change-id: 20260407-fix-potential-issue-in-tpdm-b07b44416051
+Thanks
 
-Best regards,
--- 
-Jie Gan <jie.gan@oss.qualcomm.com>
+Neeli Srinivas
 
+>> The driver uses the xlnx,include-stscntrl-strm device tree property to
+>> determine if the status/control stream interface is present and selects the
+>> appropriate metadata source accordingly.
+>>
+>> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+>> ---
+>>   drivers/dma/xilinx/xilinx_dma.c | 28 ++++++++++++++++++++++++----
+>>   1 file changed, 24 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+>> index 52203d44e7a4..f5ef03a1297c 100644
+>> --- a/drivers/dma/xilinx/xilinx_dma.c
+>> +++ b/drivers/dma/xilinx/xilinx_dma.c
+>> @@ -380,6 +380,8 @@ struct xilinx_cdma_tx_segment {
+>>    * @cyclic: Check for cyclic transfers.
+>>    * @err: Whether the descriptor has an error.
+>>    * @residue: Residue of the completed descriptor
+>> + * @xferred_bytes: Number of bytes transferred by this transaction
+>> + *                 descriptor.
+>>    */
+>>   struct xilinx_dma_tx_descriptor {
+>>   	struct xilinx_dma_chan *chan;
+>> @@ -389,6 +391,7 @@ struct xilinx_dma_tx_descriptor {
+>>   	bool cyclic;
+>>   	bool err;
+>>   	u32 residue;
+>> +	u32 xferred_bytes;
+>>   };
+>>
+>>   /**
+>> @@ -515,6 +518,7 @@ struct xilinx_dma_config {
+>>    * @mm2s_chan_id: DMA mm2s channel identifier
+>>    * @max_buffer_len: Max buffer length
+>>    * @has_axistream_connected: AXI DMA connected to AXI Stream IP
+>> + * @has_stsctrl_stream: AXI4-stream status and control interface is enabled
+>>    */
+>>   struct xilinx_dma_device {
+>>   	void __iomem *regs;
+>> @@ -534,6 +538,7 @@ struct xilinx_dma_device {
+>>   	u32 mm2s_chan_id;
+>>   	u32 max_buffer_len;
+>>   	bool has_axistream_connected;
+>> +	bool has_stsctrl_stream;
+>>   };
+>>
+>>   /* Macros */
+>> @@ -672,8 +677,12 @@ static void *xilinx_dma_get_metadata_ptr(struct dma_async_tx_descriptor *tx,
+>>   				       struct xilinx_axidma_tx_segment, node);
+>>   		metadata_ptr = seg->hw.app;
+>>   	}
+>> -	*max_len = *payload_len = sizeof(u32) * XILINX_DMA_NUM_APP_WORDS;
+>> -	return metadata_ptr;
+>> +	if (desc->chan->xdev->has_stsctrl_stream) {
+>> +		*max_len = *payload_len = sizeof(u32) * XILINX_DMA_NUM_APP_WORDS;
+>> +		return metadata_ptr;
+>> +	}
+>> +	*max_len = *payload_len = sizeof(desc->xferred_bytes);
+>> +	return (void *)&desc->xferred_bytes;
+>>   }
+>>
+>>   static struct dma_descriptor_metadata_ops xilinx_dma_metadata_ops = {
+>> @@ -864,6 +873,7 @@ xilinx_dma_alloc_tx_descriptor(struct xilinx_dma_chan *chan)
+>>   		return NULL;
+>>
+>>   	desc->chan = chan;
+>> +	desc->xferred_bytes = 0;
+>>   	INIT_LIST_HEAD(&desc->segments);
+>>
+>>   	return desc;
+>> @@ -1014,6 +1024,7 @@ static u32 xilinx_dma_get_residue(struct xilinx_dma_chan *chan,
+>>   	struct xilinx_aximcdma_desc_hw *aximcdma_hw;
+>>   	struct list_head *entry;
+>>   	u32 residue = 0;
+>> +	u32 xferred = 0;
+>>
+>>   	list_for_each(entry, &desc->segments) {
+>>   		if (chan->xdev->dma_config->dmatype == XDMA_TYPE_CDMA) {
+>> @@ -1031,25 +1042,32 @@ static u32 xilinx_dma_get_residue(struct xilinx_dma_chan *chan,
+>>   			axidma_hw = &axidma_seg->hw;
+>>   			residue += (axidma_hw->control - axidma_hw->status) &
+>>   				   chan->xdev->max_buffer_len;
+>> +			xferred += axidma_hw->status & chan->xdev->max_buffer_len;
+>>   		} else {
+>>   			aximcdma_seg =
+>>   				list_entry(entry,
+>>   					   struct xilinx_aximcdma_tx_segment,
+>>   					   node);
+>>   			aximcdma_hw = &aximcdma_seg->hw;
+>> -			if (chan->direction == DMA_DEV_TO_MEM)
+>> +			if (chan->direction == DMA_DEV_TO_MEM) {
+>>   				residue +=
+>>   					(aximcdma_hw->control -
+>>   					 aximcdma_hw->s2mm_status) &
+>>   					chan->xdev->max_buffer_len;
+>> -			else
+>> +				xferred += aximcdma_hw->s2mm_status &
+>> +					chan->xdev->max_buffer_len;
+>> +			} else {
+>>   				residue +=
+>>   					(aximcdma_hw->control -
+>>   					 aximcdma_hw->mm2s_status) &
+>>   					chan->xdev->max_buffer_len;
+>> +				xferred += aximcdma_hw->mm2s_status &
+>> +					chan->xdev->max_buffer_len;
+>> +			}
+>>   		}
+>>   	}
+>>
+>> +	desc->xferred_bytes = xferred;
+>>   	return residue;
+>>   }
+>>
+>> @@ -3284,6 +3302,8 @@ static int xilinx_dma_probe(struct platform_device *pdev)
+>>   	    xdev->dma_config->dmatype == XDMA_TYPE_AXIMCDMA) {
+>>   		xdev->has_axistream_connected =
+>>   			of_property_read_bool(node, "xlnx,axistream-connected");
+>> +		xdev->has_stsctrl_stream =
+>> +			of_property_read_bool(node, "xlnx,include-stscntrl-strm");
+>>   	}
+>>
+>>   	if (xdev->dma_config->dmatype == XDMA_TYPE_VDMA) {
+>> --
+>> 2.43.0
+>>
 
