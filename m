@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA302FB5181
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 02:10:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59137FB5173
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 02:10:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fHBCikhoLTrJDVcs6gjo3OtSrv29oSWKaVPMZGe6Yhg=; b=rNiVU5StqFlVo2W883sDWCqUnI
-	lU+JIseiKln0gSgvGXJyKZ2nRnum5sSebW/uZcuQVBuWh2yDo1RnIBSPi+/tEWWkA1x39gfooTp+2
-	MAP7x2wtgmUBCxsMiLTePlAzMMfof+Fv71+Hw6DaOxCprLY7XBYNjy+aczM8Ab0QmXSP7ZVBNSFlW
-	4uvb2tkPQO4Q9GUrmxEMSy7vkRHrUOjy2auEoRyQSvvtIRRAncV1wMjF2cRjDY8N21mjkqPTdFz/l
-	xpj/i7foLGL/JmBq20/urkR8XDMSztnP5Y6QP9HAzUx2z0p8BcJ2FXSPwhDTqfsmRa7ST77ZxA+tL
-	0sjXo8ww==;
+	bh=vUgnd2KjiHWGVeOjjlcPI2eVkKZ0hfPwCNodGGDv/1c=; b=VwWjAZgJiZM+ejS1GSKwUJ2UmW
+	Pc5b8VvhaBiryA9cw+Zsn/bIuQaq7Fp83tZnWJWDTO9hBq4L34IA9H9CvZQIAOJ7hLI3PGJXze1Ho
+	NrUrmWjIrtbT+Tu0eiZCZa1IUpVsBWMw0jMUHtVUmkpEVgCldGc5cwHP5Lv1Ve4MWBApNNo0GvJ4z
+	pnqt2CBJX80P12LgI8IWaxZ4VQLA2iE6cD9duoVbXPR7A44YQtWdeOhPRLfH6GrfD54qoTN1d99bc
+	8wxMLCFF1aSpDyMxRIMxGDjtg3a46p9NpK4Ohp+44Kw6Eb9NW5NvWy17ysAdvQ1yqwjaVg2p4+4mx
+	Uuob5AMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9vtB-00000005k2V-2fWj;
-	Tue, 07 Apr 2026 02:10:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1w9vtD-00000005k3W-3zjk;
+	Tue, 07 Apr 2026 02:10:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9vt9-00000005k1d-0ztl
+	id 1w9vtB-00000005k2Y-41bH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 02:10:00 +0000
+	Tue, 07 Apr 2026 02:10:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 177AC4058B;
-	Tue,  7 Apr 2026 02:09:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FFE6C4CEF7;
-	Tue,  7 Apr 2026 02:09:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 886C94033D;
+	Tue,  7 Apr 2026 02:10:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 965B2C2BC9E;
+	Tue,  7 Apr 2026 02:09:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775527798;
-	bh=8zm7b1Dp5ZpiFTf/LgmJSJNCehJUDDM+96sCJdAfMgk=;
+	s=k20201202; t=1775527801;
+	bh=l09qNxpZb2Z1OjdsheCfqqB6WqqZEIYEjhtnuPN66eg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CqEIbu1/BUSfAdrjcjmNOZAJzrixByXza3QuIRv7Ki8WNp20xG6Y5WIYpg3/iC1ho
-	 n6oOPnLOdUQGb0gTsdxxDVKiCFGWXmuKf2djzu+uNDe6lxLStdCdcQz2hhIX8B2m5C
-	 gvBM6uPvyqvl+UGZg1ZYLRSFKCPjBjjCYhBWVtyxbMj/MFIjOcE4WVYGepsnqgWKU1
-	 /JPYIoNWWQLmLbjcIqDBUq59YxwXDWBqXbUGRZ7jrPC9msOBw6R4SRWaDRoC4GdN0T
-	 MI7GF+IHUhOTM2noxKAU7HNEVgaRMR0OxgpQM5W6spcoVhPof03yDWIQypOlDfWxmI
-	 uQqVRr9fy+tyg==
+	b=K/XT+t2dUq4UZUpycoC/TjCJryznGtdzS7KsFBX/zOgT6p/Dyu+gZjCGebF8q1Fsu
+	 tRc3uUvMRPSl8hAEGe+1yUuM2rM4yAPo1wvlPy6dRkrt7xS5EAVniNWzawuJT5q57v
+	 j2ElEqf7orzMg09jO30j1Bh10HhlVMiHh/oQcS1V/zAw59MJ2LDfLXsJ5wNK2bc88T
+	 O6e8KRDP2qyeDnLJW0qagfnBY7YC/XJHzWTKYNUp947c+jndZsiz6lax+fu8i0dZwg
+	 nfE9ST9hBXBB1/oEuTje5L2oNyFWaw96a5IRopzwr6d3RMT6tulObgZ5Bne0+G7g0z
+	 hYJkTyeJLAh9g==
 From: Jakub Kicinski <kuba@kernel.org>
 To: jitendra.vegiraju@broadcom.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -81,17 +81,17 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	chenhuacai@kernel.org,
 	florian.fainelli@broadcom.com,
 	quic_abchauha@quicinc.com
-Subject: Re: [PATCH net-next v9 1/4] net: stmmac: Add DW25GMAC support in stmmac core driver
-Date: Mon,  6 Apr 2026 19:09:54 -0700
-Message-ID: <20260407020954.3674529-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v9 2/4] net: stmmac: Integrate dw25gmac into hwif handling
+Date: Mon,  6 Apr 2026 19:09:58 -0700
+Message-ID: <20260407020958.3674568-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260402213629.1996133-2-jitendra.vegiraju@broadcom.com>
-References: <20260402213629.1996133-2-jitendra.vegiraju@broadcom.com>
+In-Reply-To: <20260402213629.1996133-3-jitendra.vegiraju@broadcom.com>
+References: <20260402213629.1996133-3-jitendra.vegiraju@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_190959_318563_CB6C6F89 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20260406_191002_047973_7C4C6154 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,80 +109,95 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-Subject: net: stmmac: Add DW25GMAC support in stmmac core driver
+net: stmmac: Integrate dw25gmac into hwif handling
 
-This commit introduces support for the DW25GMAC hardware in the stmmac
-core driver, which uses a new Hyper-DMA (HDMA) architecture. It adds a
-new DMA ops instance mapping virtual DMA channels to physical DMA
-channels and sets up the basic device configurations.
+Integrate dw25gmac support into stmmac hardware interface handling.
+Added a new entry to the stmmac_hw table in hwif.c.
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dw25gmac.c b/drivers/net/ethernet/stmicro/stmmac/dw25gmac.c
-> new file mode 100644
-> index 0000000000000..82eb22bff73e0
-> --- /dev/null
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dw25gmac.c
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.c b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+> index 511b0fd5e8343..a69f558c0db06 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/hwif.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+> @@ -287,6 +287,26 @@ static const struct stmmac_hwif_entry {
+>  		.mmc = &dwxgmac_mmc_ops,
+>  		.est = &dwmac510_est_ops,
+>  		.setup = dwxlgmac2_setup,
+> +	}, {
+> +		.core_type = DWMAC_CORE_25GMAC,
+> +		.min_id = DW25GMAC_CORE_3_20,
 
-[ ... ]
+Are there other areas where the core capabilities will be misidentified?
 
-> +static int rd_dma_ch_ind(void __iomem *ioaddr, u8 mode, u32 channel)
-> +{
-> +	u32 reg_val = 0;
-> +
-> +	reg_val |= FIELD_PREP(XXVGMAC_MODE_SELECT, mode);
-> +	reg_val |= FIELD_PREP(XXVGMAC_ADDR_OFFSET, channel);
-> +	reg_val |= XXVGMAC_CMD_TYPE | XXVGMAC_OB;
-> +	writel(reg_val, ioaddr + XXVGMAC_DMA_CH_IND_CONTROL);
-> +	return readl(ioaddr + XXVGMAC_DMA_CH_IND_DATA);
-> +}
+Throughout stmmac_main.c and stmmac_ethtool.c, hardware features branch
+explicitly on core_type == DWMAC_CORE_XGMAC instead of including
+DWMAC_CORE_25GMAC.
 
-Does this readl() need to wait for the hardware to clear the XXVGMAC_OB
-(Operation Busy) bit? Returning immediately might read uninitialized or
-stale data if the hardware hasn't finished the fetch.
+This seems to cause a few side effects:
+- stmmac_ethtool_get_drvinfo() misreports the driver as MAC100_ETHTOOL_NAME
+  (st_mac100).
+- stmmac_main.c enforces legacy MTU limits rather than XGMAC_JUMBO_LEN.
+- stmmac_dma_cap_show() debugfs output treats the 25GMAC count of multiple
+  MAC address registers as a simple boolean and omits Timestamp System Time
+  Source details.
 
-> +
-> +static void wr_dma_ch_ind(void __iomem *ioaddr, u8 mode, u32 channel, u32 val)
-> +{
-> +	u32 reg_val = 0;
-> +
-> +	writel(val, ioaddr + XXVGMAC_DMA_CH_IND_DATA);
-> +	reg_val |= FIELD_PREP(XXVGMAC_MODE_SELECT, mode);
-> +	reg_val |= FIELD_PREP(XXVGMAC_ADDR_OFFSET, channel);
-> +	reg_val |= XGMAC_OB;
+Does this also break MDIO communication for the PHY?
 
-This isn't a bug, but should this use the XXVGMAC_OB macro instead of
-XGMAC_OB here for consistency?
+In stmmac_mdio_register(), XGMAC MDIO accessors are assigned strictly if
+priv->plat->core_type == DWMAC_CORE_XGMAC. Because 25GMAC is omitted, it
+falls into the else block and assigns legacy GMAC callbacks like
+stmmac_mdio_read_c22().
 
-> +	writel(reg_val, ioaddr + XXVGMAC_DMA_CH_IND_CONTROL);
-> +}
+The GMAC accessors format the control word using GMAC bitfields (checking
+MII_ADDR_GBUSY at bit 0), while the XGMAC register layout expects
+MII_XGMAC_BUSY at bit 22.
 
-Similarly, does this function need to poll for the busy bit to clear after
-the writel()? If back-to-back operations occur, the next indirect write
-might overwrite the control and data registers while the hardware is still
-processing this request.
+Could this misconfiguration write invalid bit patterns to the register and
+wait on the wrong bit?
 
-[ ... ]
+> +		.regs = {
+> +			.ptp_off = PTP_XGMAC_OFFSET,
+> +			.mmc_off = MMC_XGMAC_OFFSET,
+> +			.est_off = EST_XGMAC_OFFSET,
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-> index f02b434bbd505..64c38de294da2 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+Will this misconfigure the Time-to-Output Value for EST (802.3 Qbv)?
 
-[ ... ]
+In stmmac_est.c, est_configure() and est_irq_status() use
+if (priv->plat->core_type == DWMAC_CORE_XGMAC) to differentiate XGMAC from
+GMAC5.
 
-> -int dwxgmac2_setup(struct stmmac_priv *priv)
-> +static void dwxgmac2_common_setup(struct stmmac_priv *priv, char *mac_name)
->  {
+Without 25GMAC in that check, it falls through to the GMAC5 logic, applying
+the EST_GMAC5_PTOV mask (bits 31:24) instead of the EST_XGMAC_PTOV mask
+(bits 31:23) to the EST control register at EST_XGMAC_OFFSET.
 
-This isn't a bug, but should mac_name be declared as const char * since it
-is passed string literals like "XGMAC2" and "DW25GMAC"? This avoids
-discarded-qualifiers compiler warnings.
+> +		},
+> +		.desc = &dwxgmac210_desc_ops,
+> +		.dma = &dw25gmac400_dma_ops,
+> +		.mac = &dwxgmac210_ops,
 
->  	struct mac_device_info *mac = priv->hw;
->  
-> -	dev_info(priv->device, "\tXGMAC2\n");
-> +	dev_info(priv->device, "\t%s\n", mac_name);
+Does adding these ops introduce a buffer overflow during ethtool register
+dumps?
 
-[ ... ]
--- 
-pw-bot: cr
+Since stmmac_ethtool_get_regs_len() does not match DWMAC_CORE_25GMAC, it
+falls back to returning REG_SPACE_SIZE (4192 bytes, or 1048 u32 elements).
+
+However, these ops use the dwxgmac2_dump_regs() and dwxgmac2_dma_dump_regs()
+callbacks, which write far beyond the 1048-element buffer:
+
+- dwxgmac2_dump_regs() writes up to index XGMAC_MAC_REGSIZE (1309 elements).
+- dwxgmac2_dma_dump_regs() writes from XGMAC_DMA_MODE / 4 (3072) to
+  XGMAC_REGSIZE (3647 elements).
+
+Will this corrupt kernel memory when a privileged user runs ethtool -d?
+
+> +		.vlan = &dwxgmac210_vlan_ops,
+> +		.hwtimestamp = &stmmac_ptp,
+> +		.ptp = &stmmac_ptp_clock_ops,
+> +		.mode = NULL,
+> +		.tc = &dwmac510_tc_ops,
+> +		.mmc = &dwxgmac_mmc_ops,
+> +		.est = &dwmac510_est_ops,
+> +		.setup = dw25gmac_setup,
+> +		.quirks = NULL,
+>  	},
+>  };
 
