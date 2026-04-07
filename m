@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87353EDB7CC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 08:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8ED4EDB7D4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 08:57:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JdX1LIpHvqh2DDSNmEcY8xRZ9YTUqTMVm1kziL2Iug4=; b=OVX6IZSx2o5xWwv+1bdJwnbVC6
-	9H6Fwzo2enIat2sLbHLheavaxPwvNlcLCKeY8KjxegALHHomyXvmTFVTo8igbdQG0ETdxUnawoqht
-	pz+fOsG3qAEU6cZYqCENVfOqlC/5tt4CdP0N6t1OIVuadhhesrj7R/hqJ+6Mkz10K4utjXsH5VYxU
-	qZhS1hqpJwRb7ogHxGt/1mt88INYDMCPRWxTDwiwry2TVowQyEV9Bh/XsoGsu5nL9oKIbGDf/LFgH
-	Dq2Lm71X5YBa5ClSQ/cKAE1fCTp1xW/MRmxHCrkmrCUqxXatMJk3DIv5S3A8JxZ2EmnJfgzQoNZ4j
-	rWirsCoQ==;
+	bh=j6bI40rFXjnNi4xEhtGuTS96Jn2uqw2dljQ1TolNlrY=; b=kQYcMcslz8ShccNCQ1Q9KZsUf9
+	1D6ZdRYz4GEcelcmdvRkWG3vYKKcAl14PgFyVsmUDClDNys/+xDec4I1kbeNw5oCq/VpuqfnAcSVG
+	sJDtszd+X9bSztkheXh4SXhuUBGlYC53A36rrxX/7DQcngjblNaUK2TPUwGjfChH/KWHR3rVICgXh
+	8hB/he00S8HwSLWTB77dRxUMA/wCSpdZeD2RVDkcTnHM8E5cD9slNQQLY7sTHzRs/gtLa+yROu89A
+	QDHYT70QXwfej2CJ8wnfDscUmNVzblB+DiCe7Vnca+VrIs9lCdLDzFPNfbOkLr0jzbNp809mvp7EP
+	4v2UIC4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA22H-00000006B5y-3xCX;
-	Tue, 07 Apr 2026 08:43:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA22F-00000006B5d-2Qej
+	id 1wA2FP-00000006Blj-2pK2;
+	Tue, 07 Apr 2026 08:57:23 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wA2FL-00000006Bkr-36tu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 08:43:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D5DC1D6F;
-	Tue,  7 Apr 2026 01:43:40 -0700 (PDT)
-Received: from [10.57.87.42] (unknown [10.57.87.42])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8594C3F641;
-	Tue,  7 Apr 2026 01:43:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775551426; bh=yBLiVzjBRJft8vkh+7dn+QeKm7TtX8g2EDLLFcDXOZY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=U8bvururo5b1ps+KdeqNiZedG+dYujaDyNUBLnI5D3ezXZ76ozBXVKrKkte0h1gQ3
-	 KhrRvUK/4bauOvy0bt/z3ZnAtclb5oWoHQKyxrlTaHGqKZKxOAzB4XElR0vAPyGtIg
-	 jN/i3x5oZOztXV7dewzuwpwnlzJI+jcJqSpt2jhg=
-Message-ID: <beacee23-c177-47a1-b8b5-743844b617a8@arm.com>
-Date: Tue, 7 Apr 2026 09:43:42 +0100
+	Tue, 07 Apr 2026 08:57:22 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260407085713euoutp02caab3cc755e4263c76426bb137d3d145~kB1lTUQvO0545605456euoutp02u
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Apr 2026 08:57:13 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260407085713euoutp02caab3cc755e4263c76426bb137d3d145~kB1lTUQvO0545605456euoutp02u
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1775552233;
+	bh=j6bI40rFXjnNi4xEhtGuTS96Jn2uqw2dljQ1TolNlrY=;
+	h=Date:From:Subject:To:Cc:In-Reply-To:References:From;
+	b=RZP7wrMKzjWpTNSEshTsXiJTw8AOOP1zOFBBv3tS71vQiKtLXKVltuDeWF8EcIlfM
+	 zElp9QyxfncUuCiEwOUWl9FjZN1RcG+kB8hUgcqxg2h6EcoSs1h0Ivn4/iGzNp9W9Y
+	 Hbg61O3FN+HxRRDMyEpK+gegKhATJxWzq1dImPGc=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260407085713eucas1p2511c88350d65a30746d62a99c13306c5~kB1lHOMuj1628516285eucas1p2J;
+	Tue,  7 Apr 2026 08:57:13 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260407085711eusmtip2e1ec49f71f6ce486832315b6cf927c28~kB1jYPioW0291302913eusmtip27;
+	Tue,  7 Apr 2026 08:57:11 +0000 (GMT)
+Message-ID: <e65750d2-7e1a-4e4a-acd9-ab4c4d0a2055@samsung.com>
+Date: Tue, 7 Apr 2026 10:57:10 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] arm64: mm: Fix rodata=full block mapping support
- for realm guests
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, "David Hildenbrand (Arm)"
- <david@kernel.org>, Dev Jain <dev.jain@arm.com>,
- Yang Shi <yang@os.amperecomputing.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Jinjiang Tu <tujinjiang@huawei.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20260330161705.3349825-1-ryan.roberts@arm.com>
- <20260330161705.3349825-2-ryan.roberts@arm.com> <ac7VD4Z85nS30GCp@arm.com>
- <ac-W9oNM_O5RTtaf@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <ac-W9oNM_O5RTtaf@arm.com>
-Content-Type: text/plain; charset=UTF-8
+User-Agent: Betterbird (Windows)
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+Subject: Re: [PATCH v5 0/9] driver core: Fix some race conditions
+To: Douglas Anderson <dianders@chromium.org>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Alan Stern <stern@rowland.harvard.edu>
+Cc: Leon Romanovsky <leon@kernel.org>, Christoph Hellwig <hch@lst.de>, Robin
+	Murphy <robin.murphy@arm.com>, driver-core@lists.linux.dev,
+	iommu@lists.linux.dev, linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linux-pci@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux@armlinux.org.uk
+Content-Language: en-US
+In-Reply-To: <20260406232444.3117516-1-dianders@chromium.org>
 Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20260407085713eucas1p2511c88350d65a30746d62a99c13306c5
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260406232527eucas1p2faa678aa90f0636bd17e0a7f4cb8fa28
+X-EPHeader: CA
+X-CMS-RootMailID: 20260406232527eucas1p2faa678aa90f0636bd17e0a7f4cb8fa28
+References: <CGME20260406232527eucas1p2faa678aa90f0636bd17e0a7f4cb8fa28@eucas1p2.samsung.com>
+	<20260406232444.3117516-1-dianders@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_014347_683041_3F3B2791 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20260407_015720_425904_EF918C84 
+X-CRM114-Status: GOOD (  34.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,36 +89,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/04/2026 11:31, Catalin Marinas wrote:
-> On Thu, Apr 02, 2026 at 09:43:59PM +0100, Catalin Marinas wrote:
->> Another thing I couldn't get my head around - IIUC is_realm_world()
->> won't return true for map_mem() yet (if in a realm). Can we have realms
->> on hardware that does not support BBML2_NOABORT? We may not have
->> configuration with rodata_full set (it should be complementary to realm
->> support).
-> 
-> With rodata_full==false, can_set_direct_map() returns false initially
-> but after arm64_rsi_init() it starts returning true if is_realm_world().
-> The side-effect is that map_mem() goes for block mappings and
-> linear_map_requires_bbml2 set to false. Later on,
-> linear_map_maybe_split_to_ptes() will skip the splitting.
-> 
-> Unless I'm missing something, is_realm_world() calls in
-> force_pte_mapping() and can_set_direct_map() are useless. I'd remove
-> them and either require BBML2_NOABORT with CCA or get the user to force
-> rodata_full when running in realms. Or move arm64_rsi_init() even
-> earlier?
 
-I'd need Suzuki to comment on this. As I said in the other mail, I was treating
-this like a pre-existing bug. But I guess linear_map_requires_bbml2 ending up
-wrong is a problem here. I'm not sure it's quite as simple as requiring
-BBML2_NOABORT with CCA as we still need can_set_direct_map() to return true if
-we are in a realm.
+On 07.04.2026 01:22, Douglas Anderson wrote:
+> The main goal of this series is to fix the observed bug talked about
+> in the first patch ("driver core: Don't let a device probe until it's
+> ready"). That patch fixes a problem that has been observed in the real
+> world and could land even if the rest of the patches are found
+> unacceptable or need to be spun.
+>
+> That said, during patch review Danilo correctly pointed out that many
+> of the bitfield accesses in "struct device" are unsafe. I added a
+> bunch of patches in the series to address each one.
+>
+> Danilo said he's most worried about "can_match", so I put that one
+> first. After that, I tried to transition bitfields to flags in reverse
+> order to when the bitfield was added.
+>
+> Even if transitioning from bitfields to flags isn't truly needed for
+> correctness, it seems silly (and wasteful of space in struct device)
+> to have some in bitfields and some as flags. Thus I didn't spend time
+> for each bitfield showing that it's truly needed for correctness.
+>
+> Transition was done semi manually. Presumably someone skilled at
+> coccinelle could do a better job, but I just used sed in a heavy-
+> handed manner and then reviewed/fixed the results, undoing anything my
+> script got wrong. My terrible/ugly script was:
+>
+> var=can_match
+> caps="${var^^}"
+> for f in $(git grep -l "[>\.]${var}[^1-9_a-zA-Z\[]"); do
+>   echo $f
+>   sed -i~ -e "s/\([a-zA-Z_0-9\.>()-][a-zA-Z_0-9\.>()-]*\)->${var} = true/set_bit(DEV_FLAG_${caps}, \&\\1->flags)/" "$f"
+>   sed -i~ -e "s/\([a-zA-Z_0-9\.>()-][a-zA-Z_0-9\.>()-]*\)\.${var} = true/dev_set_${caps}(\&\\1)/" "$f"
+>   sed -i~ -e "s/\([a-zA-Z_0-9\.>()-][a-zA-Z_0-9\.>()-]*\)->${var} = false/clear_bit(DEV_FLAG_${caps}, \&\\1->flags)/" "$f"
+>   sed -i~ -e "s/\([a-zA-Z_0-9\.>()-][a-zA-Z_0-9\.>()-]*\)\.${var} = false/dev_clear_${caps}(\&\\1)/" "$f"
+>   sed -i~ -e "s/\([a-zA-Z_0-9\.>()-][a-zA-Z_0-9\.>()-]*\)->${var} = \([^;]*\)/assign_bit(DEV_FLAG_${caps}, \&\\1->flags, \\2)/" "$f"
+>   sed -i~ -e "s/\([a-zA-Z_0-9\.>()-][a-zA-Z_0-9\.>()-]*\)\.${var} = \([^;]*\)/dev_assign_${caps}(\&\\1, \\2)/" "$f"
+>   sed -i~ -e "s/\([a-zA-Z_0-9\.>()-][a-zA-Z_0-9\.>()-]*\)->${var}\([^1-9_a-zA-Z\[]\)/test_bit(DEV_FLAG_${caps}, \&\\1->flags)\\2/" "$f"
+>   sed -i~ -e "s/\([a-zA-Z_0-9\.>()-][a-zA-Z_0-9\.>()-]*\)\.${var}\([^1-9_a-zA-Z\[]\)/dev_${caps}(\&\\1)\\2/" "$f"
+> done
+>
+> From v3 to v4, I transitioned to accessor functions with another ugly
+> sed script. I had git format the old patches, then transformed them
+> with:
+>
+> for f in *.patch; do
+>   echo $f
+>   sed -i~ -e "s/test_and_set_bit(DEV_FLAG_\([^,]*\), \&\(.*\)->flags)/dev_test_and_set_\\L\\1(\\2)/" "$f"
+>   sed -i~ -e "s/test_and_set_bit(DEV_FLAG_\([^,]*\), \(.*\)\.flags)/dev_test_and_set_\\L\\1(\\2)/" "$f"
+>   sed -i~ -e "s/test_bit(DEV_FLAG_\([^,]*\), \&\(.*\)->flags)/dev_\\L\\1(\\2)/" "$f"
+>   sed -i~ -e "s/test_bit(DEV_FLAG_\([^,]*\), \(.*\)\.flags)/dev_\\L\\1(\\2)/" "$f"
+>   sed -i~ -e "s/set_bit(DEV_FLAG_\([^,]*\), \&\(.*\)->flags)/dev_set_\\L\\1(\\2)/" "$f"
+>   sed -i~ -e "s/set_bit(DEV_FLAG_\([^,]*\), \(.*\)\.flags)/dev_set_\\L\\1(\\2)/" "$f"
+>   sed -i~ -e "s/clear_bit(DEV_FLAG_\([^,]*\), \&\(.*\)->flags)/dev_clear_\\L\\1(\\2)/" "$f"
+>   sed -i~ -e "s/clear_bit(DEV_FLAG_\([^,]*\), \(.*\)\.flags)/dev_clear_\\L\\1(\\2)/" "$f"
+>   sed -i~ -e "s/assign_bit(DEV_FLAG_\([^,]*\), \&\(.*\)->flags, \(.*\))/dev_assign_\\L\\1(\\2, \\3)/" "$f"
+>   sed -i~ -e "s/assign_bit(DEV_FLAG_\([^,]*\), \(.*\)\.flags, \(.*\))/dev_assign_\\L\\1(\\2, \\3)/" "$f"
+> done
+>
+> ...and then did a few manual touchups for spacing.
+>
+> I only marked the first patch as a "Fix" since it is the only one
+> fixing observed problems. Other patches could be considered fixes too
+> if folks want.
+>
+> I tested the first patch in the series backported to kernel 6.6 on the
+> Pixel phone that was experiencing the race. I added extra printouts to
+> make sure that the problem was hitting / addressed. The rest of the
+> patches are tested with allmodconfig with arm32, arm64, ppc, and
+> x86. I boot tested on an arm64 Chromebook running mainline.
+The dma-mapping related bits are probably not race prone, but if you plan
+to refactor that part I won't object.
 
-I don't know what it would take to run arm64_rsi_init() even earlier, but that
-would be the best option from my point of view.
+Acked-by: Marek Szyprowski
 
-Thanks,
-Ryan
+
+> Changes in v5:
+> - ready_to_prove => ready_to_probe typo
+> - device_lock() while calling dev_set_ready_to_probe()
+> - Add comment before "can_match = true" from Danilo.
+> - undef __create_dev_flag_accessors
+>
+> Changes in v4:
+> - Use accessor functions for flags
+>
+> Changes in v3:
+> - Use a new "flags" bitfield
+> - Add missing \n in probe error message
+>
+> Changes in v2:
+> - Instead of adjusting the ordering, use "ready_to_probe" flag
+>
+> Douglas Anderson (9):
+>   driver core: Don't let a device probe until it's ready
+>   driver core: Replace dev->can_match with dev_can_match()
+>   driver core: Replace dev->dma_iommu with dev_dma_iommu()
+>   driver core: Replace dev->dma_skip_sync with dev_dma_skip_sync()
+>   driver core: Replace dev->dma_ops_bypass with dev_dma_ops_bypass()
+>   driver core: Replace dev->state_synced with dev_state_synced()
+>   driver core: Replace dev->dma_coherent with dev_dma_coherent()
+>   driver core: Replace dev->of_node_reused with dev_of_node_reused()
+>   driver core: Replace dev->offline + ->offline_disabled with accessors
+>
+>  arch/arc/mm/dma.c                             |   4 +-
+>  arch/arm/mach-highbank/highbank.c             |   2 +-
+>  arch/arm/mach-mvebu/coherency.c               |   2 +-
+>  arch/arm/mm/dma-mapping-nommu.c               |   4 +-
+>  arch/arm/mm/dma-mapping.c                     |  28 ++--
+>  arch/arm64/kernel/cpufeature.c                |   2 +-
+>  arch/arm64/mm/dma-mapping.c                   |   2 +-
+>  arch/mips/mm/dma-noncoherent.c                |   2 +-
+>  arch/powerpc/kernel/dma-iommu.c               |   8 +-
+>  .../platforms/pseries/hotplug-memory.c        |   4 +-
+>  arch/riscv/mm/dma-noncoherent.c               |   2 +-
+>  drivers/acpi/scan.c                           |   2 +-
+>  drivers/base/core.c                           |  55 +++++---
+>  drivers/base/cpu.c                            |   4 +-
+>  drivers/base/dd.c                             |  36 ++++--
+>  drivers/base/memory.c                         |   2 +-
+>  drivers/base/pinctrl.c                        |   2 +-
+>  drivers/base/platform.c                       |   2 +-
+>  drivers/dma/ti/k3-udma-glue.c                 |   6 +-
+>  drivers/dma/ti/k3-udma.c                      |   6 +-
+>  drivers/iommu/dma-iommu.c                     |   9 +-
+>  drivers/iommu/iommu.c                         |   5 +-
+>  drivers/net/pcs/pcs-xpcs-plat.c               |   2 +-
+>  drivers/of/device.c                           |   6 +-
+>  drivers/pci/of.c                              |   2 +-
+>  drivers/pci/pwrctrl/core.c                    |   2 +-
+>  drivers/regulator/bq257xx-regulator.c         |   2 +-
+>  drivers/regulator/rk808-regulator.c           |   2 +-
+>  drivers/tty/serial/serial_base_bus.c          |   2 +-
+>  drivers/usb/gadget/udc/aspeed-vhub/dev.c      |   2 +-
+>  include/linux/device.h                        | 122 ++++++++++++------
+>  include/linux/dma-map-ops.h                   |   6 +-
+>  include/linux/dma-mapping.h                   |   2 +-
+>  include/linux/iommu-dma.h                     |   3 +-
+>  kernel/cpu.c                                  |   4 +-
+>  kernel/dma/mapping.c                          |  12 +-
+>  mm/hmm.c                                      |   2 +-
+>  37 files changed, 218 insertions(+), 142 deletions(-)
+>
+Best regards
+
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
