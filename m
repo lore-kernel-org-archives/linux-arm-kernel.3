@@ -4,76 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCC5FB5173
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 02:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA302FB5181
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 02:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3908iiPI3hECH6QUcIBezZy77aQeoYAT6au45Bpg6gU=; b=3Hh1wj1Em2mNv0zF/D2z0DkkeX
-	EhIcz5KIvkyva9AAWle1HxuGw9FoFiB/JSuUO7SLIHdZm0Y+NC21b0kRvKDK3EiFoY4hqGdjQPWP+
-	owOFphjcubFD74VIizdb7rVw6QkG6rXWO1aSfu7WDRapRC8J9iPREdqLHLjsKVCwmqtOkr1jPNNKb
-	W06oMSlWf8/GGs6qleDaXoktirfS/UtMnwZzsLqS2q8F3VzKLYKjRr2UqdajkqMFwa9IWCjgab1Kf
-	ykmLIJKTSf8vhV3RbCiC0ADODTB/xErzYt/9NCc5y7HDGQDocAw1SzfhemUOwS8ItZPLV50oeAWV3
-	zTdxlrHw==;
+	bh=fHBCikhoLTrJDVcs6gjo3OtSrv29oSWKaVPMZGe6Yhg=; b=rNiVU5StqFlVo2W883sDWCqUnI
+	lU+JIseiKln0gSgvGXJyKZ2nRnum5sSebW/uZcuQVBuWh2yDo1RnIBSPi+/tEWWkA1x39gfooTp+2
+	MAP7x2wtgmUBCxsMiLTePlAzMMfof+Fv71+Hw6DaOxCprLY7XBYNjy+aczM8Ab0QmXSP7ZVBNSFlW
+	4uvb2tkPQO4Q9GUrmxEMSy7vkRHrUOjy2auEoRyQSvvtIRRAncV1wMjF2cRjDY8N21mjkqPTdFz/l
+	xpj/i7foLGL/JmBq20/urkR8XDMSztnP5Y6QP9HAzUx2z0p8BcJ2FXSPwhDTqfsmRa7ST77ZxA+tL
+	0sjXo8ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9vsD-00000005jto-2UnH;
-	Tue, 07 Apr 2026 02:09:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1w9vtB-00000005k2V-2fWj;
+	Tue, 07 Apr 2026 02:10:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1w9vsA-00000005jtO-1gpV
+	id 1w9vt9-00000005k1d-0ztl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 02:08:59 +0000
+	Tue, 07 Apr 2026 02:10:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 213B740811;
-	Tue,  7 Apr 2026 02:08:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73830C4CEF7;
-	Tue,  7 Apr 2026 02:08:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 177AC4058B;
+	Tue,  7 Apr 2026 02:09:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FFE6C4CEF7;
+	Tue,  7 Apr 2026 02:09:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775527737;
-	bh=He/fqeGcwQSmgNiVZyJYEsyIDIMjQPKTbSWJEV+kcCU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=SCwtf8bsMl12ktsPj3oFIc41TE+oL3ZUtJTlC97i90HEZdaH8X31PgsavVyH3kh6k
-	 CCCqFJ/2XHGourzmLkiJRmAfLRskkbx//u9zDnspLyUJJWy70eweGSOZkVwIYbqLGf
-	 ygxoAxXlUTUgO93D+H9m/4LbLJkeShPK28qPppBGLoNDwCd2oK/GZDkb7X47QZaZHk
-	 8Aq/Ph9PlCkVvCXuCAvJb4hbQNA2U701K8T7huPQWgxAkBNufohNjw58v29o2tFMGt
-	 aeImjBNE+hCaCnqJ7xKFrunMecQIm/I3xxrR4QLVV0FPhPVsKGkNO+b+3jvojxvhFh
-	 SWhw+PJl2n2UA==
-Date: Mon, 6 Apr 2026 19:08:54 -0700
+	s=k20201202; t=1775527798;
+	bh=8zm7b1Dp5ZpiFTf/LgmJSJNCehJUDDM+96sCJdAfMgk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=CqEIbu1/BUSfAdrjcjmNOZAJzrixByXza3QuIRv7Ki8WNp20xG6Y5WIYpg3/iC1ho
+	 n6oOPnLOdUQGb0gTsdxxDVKiCFGWXmuKf2djzu+uNDe6lxLStdCdcQz2hhIX8B2m5C
+	 gvBM6uPvyqvl+UGZg1ZYLRSFKCPjBjjCYhBWVtyxbMj/MFIjOcE4WVYGepsnqgWKU1
+	 /JPYIoNWWQLmLbjcIqDBUq59YxwXDWBqXbUGRZ7jrPC9msOBw6R4SRWaDRoC4GdN0T
+	 MI7GF+IHUhOTM2noxKAU7HNEVgaRMR0OxgpQM5W6spcoVhPof03yDWIQypOlDfWxmI
+	 uQqVRr9fy+tyg==
 From: Jakub Kicinski <kuba@kernel.org>
-To: "Jitendra Vegiraju" <jitendra.vegiraju@broadcom.com>
-Cc: netdev@vger.kernel.org, alexandre.torgue@foss.st.com,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, bcm-kernel-feedback-list@broadcom.com,
- richardcochran@gmail.com, ast@kernel.org, daniel@iogearbox.net,
- hawk@kernel.org, john.fastabend@gmail.com, rmk+kernel@armlinux.org.uk,
- rohan.g.thomas@altera.com, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
- andrew+netdev@lunn.ch, horms@kernel.org, sdf@fomichev.me, me@ziyao.cc,
- siyanteng@cqsoftware.com.cn, prabhakar.mahadev-lad.rj@bp.renesas.com,
- weishangjuan@eswincomputing.com, wens@kernel.org, vladimir.oltean@nxp.com,
- lizhi2@eswincomputing.com, boon.khai.ng@altera.com,
- maxime.chevallier@bootlin.com, chenchuangyu@xiaomi.com,
- yangtiezhu@loongson.cn, ovidiu.panait.rb@renesas.com,
- chenhuacai@kernel.org, florian.fainelli@broadcom.com,
- quic_abchauha@quicinc.com
-Subject: Re: [PATCH net-next v9 4/4] net: stmmac: Add BCM8958x driver to
- build system
-Message-ID: <20260406190854.13596789@kernel.org>
-In-Reply-To: <20260402213629.1996133-5-jitendra.vegiraju@broadcom.com>
-References: <20260402213629.1996133-1-jitendra.vegiraju@broadcom.com>
-	<20260402213629.1996133-5-jitendra.vegiraju@broadcom.com>
+To: jitendra.vegiraju@broadcom.com
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	netdev@vger.kernel.org,
+	alexandre.torgue@foss.st.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	richardcochran@gmail.com,
+	ast@kernel.org,
+	daniel@iogearbox.net,
+	hawk@kernel.org,
+	john.fastabend@gmail.com,
+	rmk+kernel@armlinux.org.uk,
+	rohan.g.thomas@altera.com,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	bpf@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	horms@kernel.org,
+	sdf@fomichev.me,
+	me@ziyao.cc,
+	siyanteng@cqsoftware.com.cn,
+	prabhakar.mahadev-lad.rj@bp.renesas.com,
+	weishangjuan@eswincomputing.com,
+	wens@kernel.org,
+	vladimir.oltean@nxp.com,
+	lizhi2@eswincomputing.com,
+	boon.khai.ng@altera.com,
+	maxime.chevallier@bootlin.com,
+	chenchuangyu@xiaomi.com,
+	yangtiezhu@loongson.cn,
+	ovidiu.panait.rb@renesas.com,
+	chenhuacai@kernel.org,
+	florian.fainelli@broadcom.com,
+	quic_abchauha@quicinc.com
+Subject: Re: [PATCH net-next v9 1/4] net: stmmac: Add DW25GMAC support in stmmac core driver
+Date: Mon,  6 Apr 2026 19:09:54 -0700
+Message-ID: <20260407020954.3674529-1-kuba@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260402213629.1996133-2-jitendra.vegiraju@broadcom.com>
+References: <20260402213629.1996133-2-jitendra.vegiraju@broadcom.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_190858_482170_CCBFC53F 
-X-CRM114-Status: UNSURE (   6.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260406_190959_318563_CB6C6F89 
+X-CRM114-Status: GOOD (  16.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,18 +106,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu,  2 Apr 2026 14:36:29 -0700 Jitendra Vegiraju wrote:
-> +BROADCOM BCM8958X ETHERNET DRIVER
-> +M:	Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
-> +R:	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+---
+Subject: net: stmmac: Add DW25GMAC support in stmmac core driver
 
-Should be:
+This commit introduces support for the DW25GMAC hardware in the stmmac
+core driver, which uses a new Hyper-DMA (HDMA) architecture. It adds a
+new DMA ops instance mapping virtual DMA channels to physical DMA
+channels and sets up the basic device configurations.
 
-L:	<bcm-kernel-feedback-list@broadcom.com>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dw25gmac.c b/drivers/net/ethernet/stmicro/stmmac/dw25gmac.c
+> new file mode 100644
+> index 0000000000000..82eb22bff73e0
+> --- /dev/null
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dw25gmac.c
 
-It's not a parson.
-Before you ask - FWIW what other subsystems allow in MAINTAINERS
-is irrelevant.
+[ ... ]
 
-> +L:	netdev@vger.kernel.org
+> +static int rd_dma_ch_ind(void __iomem *ioaddr, u8 mode, u32 channel)
+> +{
+> +	u32 reg_val = 0;
+> +
+> +	reg_val |= FIELD_PREP(XXVGMAC_MODE_SELECT, mode);
+> +	reg_val |= FIELD_PREP(XXVGMAC_ADDR_OFFSET, channel);
+> +	reg_val |= XXVGMAC_CMD_TYPE | XXVGMAC_OB;
+> +	writel(reg_val, ioaddr + XXVGMAC_DMA_CH_IND_CONTROL);
+> +	return readl(ioaddr + XXVGMAC_DMA_CH_IND_DATA);
+> +}
+
+Does this readl() need to wait for the hardware to clear the XXVGMAC_OB
+(Operation Busy) bit? Returning immediately might read uninitialized or
+stale data if the hardware hasn't finished the fetch.
+
+> +
+> +static void wr_dma_ch_ind(void __iomem *ioaddr, u8 mode, u32 channel, u32 val)
+> +{
+> +	u32 reg_val = 0;
+> +
+> +	writel(val, ioaddr + XXVGMAC_DMA_CH_IND_DATA);
+> +	reg_val |= FIELD_PREP(XXVGMAC_MODE_SELECT, mode);
+> +	reg_val |= FIELD_PREP(XXVGMAC_ADDR_OFFSET, channel);
+> +	reg_val |= XGMAC_OB;
+
+This isn't a bug, but should this use the XXVGMAC_OB macro instead of
+XGMAC_OB here for consistency?
+
+> +	writel(reg_val, ioaddr + XXVGMAC_DMA_CH_IND_CONTROL);
+> +}
+
+Similarly, does this function need to poll for the busy bit to clear after
+the writel()? If back-to-back operations occur, the next indirect write
+might overwrite the control and data registers while the hardware is still
+processing this request.
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+> index f02b434bbd505..64c38de294da2 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+
+[ ... ]
+
+> -int dwxgmac2_setup(struct stmmac_priv *priv)
+> +static void dwxgmac2_common_setup(struct stmmac_priv *priv, char *mac_name)
+>  {
+
+This isn't a bug, but should mac_name be declared as const char * since it
+is passed string literals like "XGMAC2" and "DW25GMAC"? This avoids
+discarded-qualifiers compiler warnings.
+
+>  	struct mac_device_info *mac = priv->hw;
+>  
+> -	dev_info(priv->device, "\tXGMAC2\n");
+> +	dev_info(priv->device, "\t%s\n", mac_name);
+
+[ ... ]
+-- 
+pw-bot: cr
 
