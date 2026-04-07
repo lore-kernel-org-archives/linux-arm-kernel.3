@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16C3DF46C7F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 21:10:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DE14FEEF55
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 21:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PnND6iHBMV6WE1ZHJaECUBIFEEiEhNHhl942sAfaZN8=; b=iWlkzNeKqR1/BuxyeekOjFWG1b
-	uhyhn/SLtdbjuQwpR1ifmNLfKm5PTYqaqOke0R4kCRxS4Igik7oE6VF3lZpgNvzORE0s37XoZ2SOM
-	iX7nWJCOlutvF6o7LXCUzzHg3BnnUqBSfEZvPgs65JHm9xfAn/ycALH9YYhKgo92eiCOWrBpwTt0T
-	DQZtKpkyi2Eh0xHbwWailGPkPaF2y3/UGyfOCEd5hDKAt9ERzluDijv2njN0smJiLprSV/rQB7DDJ
-	Pgpo9wJ+h1ipP6mmRkoBXKZEN8aTJWMJmg8dO8J2TXP8r4ma357keJ0h8vSToXen+w2AEfKB+uGH5
-	PIVpI/0g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1cngJlnIlPxMsTV4SXm02aZ7wJ4Q9rU8NrxN7v94io8=; b=2ILbGJph9kh1b3kHetRihL6NzE
+	Scm5btf2TP1LZ2RYaG1ZMabuMFsaKnAm9njwSzjJsejbxRF+qNGpiBTaCA5xXjOdp/il4DQGyy88R
+	bYY4MaBCKkyiorA2vm9zQUAmw76X3aStUkfKt12HlftMyVqPGRhaMA7ltxH9OJeBV4acioAr7Q4lR
+	naln2KbHtkeSSpMuX5hK5gwJ3vBck4a1XYSkYkBG1inRmpYrujgX48ZbhQSH4/uV4r4NrWyWSUaGh
+	BTUP5qz/WaPpW8DGQtC1DUomA90ICnIBX6MbW4F+wIaSvTd0GC9XM86xmCu+GF6ij5MV269d3MLcS
+	J3xs2dBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wADgM-00000007vcP-3cWX;
-	Tue, 07 Apr 2026 21:09:58 +0000
+	id 1wADgN-00000007vcf-0jRG;
+	Tue, 07 Apr 2026 21:09:59 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wADgM-00000007vcE-0Xdz
+	id 1wADgM-00000007vcD-0Xda
 	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 07 Apr 2026 21:09:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Sender:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=PnND6iHBMV6WE1ZHJaECUBIFEEiEhNHhl942sAfaZN8=; b=EbSVYnC+aoucRZI1t/3rJLmcgk
-	SNk5+GvL37isalRUjPlqIJjPz6o2HlMFTzBTXkduIEJm5ameGW+WG53vYY1Z771BNYaMQABDakZb6
-	2LTG4Vktm8Xb2RlPvOlBTAp3Qvun+8KOHjDSq1FekuKcUoafrmG2YFG3uJN0t/+zcArnBUW0XDz89
-	bEFz0EkIh28qL1DNxgTZvcL/JsdJhAS14t5/f6QyZQcbyAloDnVnouRXNt4y1Eaud/WGR15fp7xS+
-	A1LbgqzHmow88ah2ZNLXlU616ZEyBBgrzK3otVYBdWbPp5EeSlS9hXdw7FNwCOMDwuHInAqoBN3gh
-	Eh/OEGhQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description;
+	bh=1cngJlnIlPxMsTV4SXm02aZ7wJ4Q9rU8NrxN7v94io8=; b=ZV3n1nKqH48ExdKXkA56lqEqgz
+	YX2I6uzyquwqXj1doPwXw7hRQsduWM1eTOYsrxPstKcZXPCpfLvJI9i41s6q8h33cECTzu5RgrOWM
+	ev5nqmCozbs1FD5EGojR7Ak2Le7olTXi+PYu+OHmY3p2IsYfImaqiG2OAh9o6rcJZsbaBOCZGHnxE
+	8QHX/3ULjj6YBCvVCwE6YFmqskvixkpl7EPLgN5b2ZJjivA5ejp89vSi+qLABOqnfPIR9Mm32ksl0
+	S79ZRQIc0UGUzoM/0UDLh6Xnxggvn8CimCDiWwos4ktbCSI9VypxF2trrcLRzvtbSkLh/ZdOWIYIs
+	07mEiyCw==;
 Received: from [2001:8b0:10b:1::425] (helo=i7.infradead.org)
 	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wADgI-00000004GbB-3Zu8;
+	id 1wADgI-00000004GbA-3bHu;
 	Tue, 07 Apr 2026 21:09:54 +0000
 Received: from dwoodhou by i7.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wADgI-00000008iI5-1hTK;
+	id 1wADgI-00000008iIB-20Dt;
 	Tue, 07 Apr 2026 22:09:54 +0100
 From: David Woodhouse <dwmw2@infradead.org>
 To: Marc Zyngier <maz@kernel.org>,
@@ -65,10 +65,12 @@ To: Marc Zyngier <maz@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH 0/3] KVM: arm64: vgic: Fix IIDR revision handling and add revision 1
-Date: Tue,  7 Apr 2026 21:27:01 +0100
-Message-ID: <20260407210949.2076251-1-dwmw2@infradead.org>
+Subject: [PATCH 2/3] KVM: arm64: vgic: Allow userspace to set IIDR revision 1
+Date: Tue,  7 Apr 2026 21:27:03 +0100
+Message-ID: <20260407210949.2076251-3-dwmw2@infradead.org>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260407210949.2076251-1-dwmw2@infradead.org>
+References: <20260407210949.2076251-1-dwmw2@infradead.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
@@ -86,36 +88,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The uaccess write handlers for GICD_IIDR extract the revision field
-from the wrong variable, making it impossible for userspace to actually
-change the implementation revision. Fix that.
+From: David Woodhouse <dwmw@amazon.co.uk>
 
-Additionally, allow userspace to select IIDR revision 1, restoring the 
-behaviour from before commit d53c2c29ae0d ("KVM: arm/arm64: vgic: Allow 
-configuration of interrupt groups") behaviour where interrupt groups are 
-not guest-configurable. This is needed by hypervisors that were 
-reverting that commit to preserve the original guest-visible 
-semantics.
+Allow userspace to select GICD_IIDR revision 1, which restores the
+original pre-d53c2c29ae0d ("KVM: arm/arm64: vgic: Allow configuration
+of interrupt groups") behaviour where interrupt groups are not
+guest-configurable.
 
 When revision 1 is selected:
- - GICv2: IGROUPR reads as zero (group 0), writes ignored
- - GICv3: IGROUPR reads as all-ones (group 1), writes ignored
+ - GICv2: IGROUPR reads as zero (group 0), writes are ignored
+ - GICv3: IGROUPR reads as all-ones (group 1), writes are ignored
+ - v2_groups_user_writable is not set
 
-The IIDR revision comments in both vgic-mmio-v2.c and vgic-mmio-v3.c
-are updated to document all three revisions.
+This is implemented by checking the implementation revision in
+vgic_mmio_read_group() and vgic_mmio_write_group() and returning
+the fixed values when the revision is below 2.
 
-David Woodhouse (3):
-      KVM: arm64: vgic: Fix IIDR revision field extracted from wrong value
-      KVM: arm64: vgic: Allow userspace to set IIDR revision 1
-      KVM: arm64: selftests: Add vgic IIDR revision test
+Fixes: d53c2c29ae0d ("KVM: arm/arm64: vgic: Allow configuration of interrupt groups")
+Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+---
+ arch/arm64/kvm/vgic/vgic-mmio-v2.c |  5 +++++
+ arch/arm64/kvm/vgic/vgic-mmio-v3.c |  4 ++++
+ arch/arm64/kvm/vgic/vgic-mmio.c    | 15 +++++++++++++++
+ include/kvm/arm_vgic.h             |  1 +
+ 4 files changed, 25 insertions(+)
 
- arch/arm64/kvm/vgic/vgic-mmio-v2.c                 |   7 +-
- arch/arm64/kvm/vgic/vgic-mmio-v3.c                 |   6 +-
- arch/arm64/kvm/vgic/vgic-mmio.c                    |  15 +++
- include/kvm/arm_vgic.h                             |   1 +
- tools/testing/selftests/kvm/Makefile.kvm           |   1 +
- .../testing/selftests/kvm/arm64/vgic_group_iidr.c  | 112 +++++++++++++++++++++
- 6 files changed, 140 insertions(+), 2 deletions(-)
-
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v2.c b/arch/arm64/kvm/vgic/vgic-mmio-v2.c
+index 0643e333db35..14aa49f86f60 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio-v2.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio-v2.c
+@@ -20,6 +20,8 @@
+  * Revision 1: Report GICv2 interrupts as group 0 instead of group 1
+  * Revision 2: Interrupt groups are guest-configurable and signaled using
+  * 	       their configured groups.
++ * Revision 3: GICv2 behaviour is unchanged from revision 2.
++ * 	       (GICv3 gains GICR_CTLR.{IR,CES}; see vgic-mmio-v3.c)
+  */
+ 
+ static unsigned long vgic_mmio_read_v2_misc(struct kvm_vcpu *vcpu,
+@@ -93,6 +95,9 @@ static int vgic_mmio_uaccess_write_v2_misc(struct kvm_vcpu *vcpu,
+ 		 */
+ 		reg = FIELD_GET(GICD_IIDR_REVISION_MASK, val);
+ 		switch (reg) {
++		case KVM_VGIC_IMP_REV_1:
++			dist->implementation_rev = reg;
++			return 0;
+ 		case KVM_VGIC_IMP_REV_2:
+ 		case KVM_VGIC_IMP_REV_3:
+ 			vcpu->kvm->arch.vgic.v2_groups_user_writable = true;
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+index 5913a20d8301..0130db71cfc9 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+@@ -74,8 +74,11 @@ bool vgic_supports_direct_sgis(struct kvm *kvm)
+ /*
+  * The Revision field in the IIDR have the following meanings:
+  *
++ * Revision 1: Interrupt groups are not guest-configurable.
++ * 	       IGROUPR reads as all-ones (group 1), writes ignored.
+  * Revision 2: Interrupt groups are guest-configurable and signaled using
+  * 	       their configured groups.
++ * Revision 3: GICR_CTLR.{IR,CES} are advertised.
+  */
+ 
+ static unsigned long vgic_mmio_read_v3_misc(struct kvm_vcpu *vcpu,
+@@ -196,6 +199,7 @@ static int vgic_mmio_uaccess_write_v3_misc(struct kvm_vcpu *vcpu,
+ 
+ 		reg = FIELD_GET(GICD_IIDR_REVISION_MASK, val);
+ 		switch (reg) {
++		case KVM_VGIC_IMP_REV_1:
+ 		case KVM_VGIC_IMP_REV_2:
+ 		case KVM_VGIC_IMP_REV_3:
+ 			dist->implementation_rev = reg;
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio.c b/arch/arm64/kvm/vgic/vgic-mmio.c
+index a573b1f0c6cb..9eb95f13b9b6 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio.c
+@@ -48,6 +48,17 @@ unsigned long vgic_mmio_read_group(struct kvm_vcpu *vcpu,
+ 	u32 value = 0;
+ 	int i;
+ 
++	/*
++	 * Revision 1 and below: groups are not guest-configurable.
++	 * GICv2 reports all interrupts as group 0 (RAZ).
++	 * GICv3 reports all interrupts as group 1 (RAO).
++	 */
++	if (vgic_get_implementation_rev(vcpu) < KVM_VGIC_IMP_REV_2) {
++		if (vcpu->kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3)
++			return -1UL;
++		return 0;
++	}
++
+ 	/* Loop over all IRQs affected by this read */
+ 	for (i = 0; i < len * 8; i++) {
+ 		struct vgic_irq *irq = vgic_get_vcpu_irq(vcpu, intid + i);
+@@ -73,6 +84,10 @@ void vgic_mmio_write_group(struct kvm_vcpu *vcpu, gpa_t addr,
+ 	int i;
+ 	unsigned long flags;
+ 
++	/* Revision 1 and below: groups are not guest-configurable. */
++	if (vgic_get_implementation_rev(vcpu) < KVM_VGIC_IMP_REV_2)
++		return;
++
+ 	for (i = 0; i < len * 8; i++) {
+ 		struct vgic_irq *irq = vgic_get_vcpu_irq(vcpu, intid + i);
+ 
+diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+index f2eafc65bbf4..90fb6cd3c91c 100644
+--- a/include/kvm/arm_vgic.h
++++ b/include/kvm/arm_vgic.h
+@@ -248,6 +248,7 @@ struct vgic_dist {
+ 
+ 	/* Implementation revision as reported in the GICD_IIDR */
+ 	u32			implementation_rev;
++#define KVM_VGIC_IMP_REV_1	1 /* GICv2 interrupts as group 0 */
+ #define KVM_VGIC_IMP_REV_2	2 /* GICv2 restorable groups */
+ #define KVM_VGIC_IMP_REV_3	3 /* GICv3 GICR_CTLR.{IW,CES,RWP} */
+ #define KVM_VGIC_IMP_REV_LATEST	KVM_VGIC_IMP_REV_3
+-- 
+2.51.0
 
 
