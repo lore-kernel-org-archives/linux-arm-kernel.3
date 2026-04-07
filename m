@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D3F0FF512E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 18:41:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE949FF510E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 18:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nfBttNz1NvFY2dM1i3T9MslnHQbytk9v4vLwlXpZBJU=; b=Gq+wVFRpS+4a5ifORyGLaXyBHA
-	D2SGctM/U3pLBisqeaoT5UJ9JRVieuqBHr9gYYtw8GSbMFNaArD/93wjhXp6QWLlvV5DqwCuCdWBJ
-	tBw7biajMJ9VOWjDJyCiXRXP/6HJ1LHrvsXDsMvfM8yidNV1DgxdEhU0xMpK0+5PPVTJqORCoy1Ea
-	rUY2hvIqSni1AkwPgzrl+CbCDdcLp9vWUX/iUO0baa0FTiS+J5nt4D9cehdmw1xUdgQx8hObna6UR
-	XgSjkh60OrfHilMyAyKSkavuwn9eSbdNUDzfCxeyiVYTxmHV29GakC80mzaa8rY6CAf+wqssnhz7P
-	9UOHsIYQ==;
+	bh=BOVVRUNNwx2LwRvagVlTVA+P8ggQUnFfmm4OhRcOWok=; b=1+qovsLN0L5aPr0+Wnrl9H0Bks
+	K/DHa0znDCrxN7w4i/wGZq59hrTrYGk2T75g3LxUsu4HbwM5swmgFF6glRQD2AmmGRrdJTS4GEaJr
+	DYoOtzA2BLpnJWomsiQMcwDnASQoiQhIzdeJ9UqQw5j/fk0SRwMpoPHDU+G740ej5KXhjfU9F4IZb
+	8zxUM52pSUaqzgyuNeWo5jPtmE6cZ08k0/j38kSVbvlqxTZgxyPp/YClva5qimQVS5P53h0gNYd7a
+	SgwDWwMfB71i2aqMv9JI53EoLsRCeJQSn63I0Fsa2cyMzT3uWjEVsBgm2EBMZEGjPMXrB2xGOpKQj
+	n+jojBGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wABMD-000000075Ir-3r2u;
-	Tue, 07 Apr 2026 18:41:01 +0000
+	id 1wABQ5-000000077By-09G9;
+	Tue, 07 Apr 2026 18:45:01 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wABMB-000000075HI-1oZ5
+	id 1wABQ3-000000077A7-02Le
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 18:41:00 +0000
+	Tue, 07 Apr 2026 18:45:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A57BA43A7F;
-	Tue,  7 Apr 2026 18:40:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DA0BC116C6;
-	Tue,  7 Apr 2026 18:40:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7549441B24;
+	Tue,  7 Apr 2026 18:44:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17F6FC116C6;
+	Tue,  7 Apr 2026 18:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775587257;
-	bh=ctBJBNAL2sZVwDJhXMphkJ4Ne0SfUaEL20su6jHmPpQ=;
+	s=k20201202; t=1775587498;
+	bh=RfoCuSdIyOP4Fpm9kXSutxGN9meBpEZjFRVOEcgj1aM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sI/mLUzrYB0p0h7F+qggqo+B7Iixi3QUIFCsUfYOUxnIZWiwOZgq7ZpCn339TFSkK
-	 /Bh2Vxl6Ng5B8rBSa7tzwXMlVhRi7hjYXswf7R7EHaz2nIvV0fNuEvc/AbusGP/y5Z
-	 9c3TZdbLIIDHjOYNTGyTt4Rx6zte92EOWG+3mssFLmsgbzu7+UhULF/innTCtcaPkX
-	 OznSjTzMz2iwVcW5IICmamnUgnIMPjy87/mqyizz+/U7eoWymD5sbqpL8dMZBNbDYh
-	 zFpClBRqO00vxOHRu2DZyvpCjlwNyxQWuLHoeEhS1p4r1EmCZeFwUri8Ixtmza/hrn
-	 6NnjaEZ03aDRg==
-Date: Tue, 7 Apr 2026 13:40:55 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, linux-gpio@vger.kernel.org,
-	linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>
-Subject: Re: [PATCH v2 2/3] dt-bindings: pinctrl: sun55i-a523: increase IRQ
- banks number
-Message-ID: <177558725508.3367275.431498004414263153.robh@kernel.org>
-References: <20260327113006.3135663-1-andre.przywara@arm.com>
- <20260327113006.3135663-3-andre.przywara@arm.com>
+	b=qkZD1cxBKdN+1FjGJRZwk7GdvwvsHf0/DaPIVcsacSzG8dPIBV6byoiBAH485l2Tu
+	 n61IoJ55UEJpNTpqCg4FX3/KUAVvIYDocZ9rL4h6vAIdD/KvW8AZSPWio7rZ5Dvr9S
+	 M+edeW6vgcKIUVUPGjkkxGFdl7w+sYdl3Z3CXC85FBSyxHy1i93sYl2TZ23GMbmCJQ
+	 9mk68FvEgLmkSXWK17IFq3JFpLhHgtsnaGW8gSyINAFNZyz7txL1CMEbprwqb3w1vR
+	 BHnb7ipiBknWtPKP4MLrEuyqilOXfefBp3XGBz2s5oX6IJk2WDyTiOG/MBUNpCQ+0G
+	 AlEFq5m86kdJg==
+Date: Tue, 7 Apr 2026 13:44:55 -0500
+From: Rob Herring <robh@kernel.org>
+To: Padmashree S S <padmashreess2006@gmail.com>
+Cc: andrew@lunn.ch, gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com, krzk+dt@kernel.org,
+	conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] dt-bindings: arm: marvell: Convert
+ armada-380-mpcore-soc-ctrl to DT Schema
+Message-ID: <20260407184455.GA3369046-robh@kernel.org>
+References: <20260327114653.593582-1-padmashreess2006@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260327113006.3135663-3-andre.przywara@arm.com>
+In-Reply-To: <20260327114653.593582-1-padmashreess2006@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_114059_518974_FE05B451 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20260407_114459_070856_405A643C 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,24 +75,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 27 Mar 2026 11:30:05 +0000, Andre Przywara wrote:
-> The Allwinner A523 SoC implements 10 GPIO banks in the first pinctrl
-> instance, but it skips the first bank (PortA), so their index goes from
-> 1 to 10. The same is actually true for the IRQ banks: there are registers
-> for 11 banks, though the first bank is not implemented (RAZ/WI).
-> In contrast to previous SoCs, the count of the IRQ banks starts with this
-> first unimplemented bank, so we need to provide an interrupt for it.
-> And indeed the A523 user manual lists an interrupt number for PortA, so we
-> need to increase the maximum number of interrupts per pin controller to 11,
-> to be able to assign the correct interrupt number for each bank.
+On Fri, Mar 27, 2026 at 05:16:53PM +0530, Padmashree S S wrote:
+> Convert armada-380-mpcore-soc-ctrl to DT schema
 > 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> Signed-off-by: Padmashree S S <padmashreess2006@gmail.com>
 > ---
->  .../bindings/pinctrl/allwinner,sun55i-a523-pinctrl.yaml   | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
+>  .../marvell/armada-380-mpcore-soc-ctrl.txt    | 14 --------
+>  .../marvell/armada-380-mpcore-soc-ctrl.yaml   | 32 +++++++++++++++++++
+>  2 files changed, 32 insertions(+), 14 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/arm/marvell/armada-380-mpcore-soc-ctrl.txt
+>  create mode 100644 Documentation/devicetree/bindings/arm/marvell/armada-380-mpcore-soc-ctrl.yaml
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Please move this to 
+bindings/soc/marvell/marvell,armada-380-mpcore-soc-ctrl.yaml
 
+Don't forget to update the '$id' value.
+
+Rob
 
