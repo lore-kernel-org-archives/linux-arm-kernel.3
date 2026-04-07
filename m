@@ -4,144 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 107BFFEEF33
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 13:03:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78D00FEEF2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 13:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=33isoV0yWVJ9xotd+3ciXf4Msdfdu+7UChBrj+6r8Zg=; b=GXrdEzpjA2gWi23gCKWCK992K2
-	TLunLr4b0x7JVMncVfFp55L6rSAakbN6k/Dkh+JU3tpR5+T0q/xvfdSUlrHoPVMRTbhYb2yHrjzA2
-	EJ0zEcDmtXtT0kF1m/xtQw6j/VRwZ2q/YqwbWctDUU3zjqjgPIUXfHFIBVaw/O3WBxC3jx7sPx1AU
-	wDrp7uQ1iiQDPkaAcDZ+N4aPIXEMnGf+mrZ4UCtm8TcC/6V+9aFozyo25gz77Fm0kNRg+ULwpl+lr
-	t5vSjAGrJdMgNNd449qkUMg49n0mSFgaGD4SoLatS7TqVdgoNt41S7F8LnLWjskLMytvxifdOw2Z4
-	kAsdZNzg==;
+	bh=cpfge6yNx7T9yEfbtbwl8dtCjlCOyzGaNlVP1awFX34=; b=UUdO0uhGnYuhU+nZjKIw+i+uzw
+	U0j5qhfchvddsG/1uLa3J5Y5sAZBvUKLL26rm5/p1Kr2ssDdo6VZSrouHqiRhU4P/51KxoKzSLBv1
+	46H/mueuM+rwNcPLbYeoNLHDj3TqVnTWeJ7T0Ad3CkHKQ9l4vEDPSyrr3hP223rW39KgNVcT0TR48
+	dh9NwcfxMFCakOY1u7ku5K6M/BLAwbdIrzNsgBNgatrt4wyELmX5iRNZsg4/OXAooKAH4IioGovdV
+	GQ2kk0ECZduIwqV80ryTS+1TsLycbIEotQFCEGurU2BJSBLJJ3gOzd6idQvrjhJIrxX39PXXPNyMj
+	A9R0uffg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA65w-00000006TYC-3dwI;
-	Tue, 07 Apr 2026 13:03:52 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA65u-00000006TWX-0FV8
+	id 1wA68I-00000006U0l-1wlj;
+	Tue, 07 Apr 2026 13:06:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wA68F-00000006U0Q-1uf8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 13:03:51 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6376YpNh2327993
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 7 Apr 2026 13:03:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	33isoV0yWVJ9xotd+3ciXf4Msdfdu+7UChBrj+6r8Zg=; b=bCnvo+02LZ73oC4a
-	eqaGfX+dMblgz/tmkFLmUryVC8AsbKahxJw3KkHa49PXG2aIEFG4pyZQBGTAQNqk
-	54RqPlyHWxE+hWnEP07Gz6MBvzGaTWbyreMmBdoPVRjVSs1NonS/wvoiK1vZjQFi
-	DFcDlMeD+SnxH5B+ZOTLHjfxAqca00CboKsTjcW4f6VDpEerqFRFcuHKosXPQA2+
-	se4Gzic4JU8h7qKl7kCiLKes/msnmiIkMHgllj4+F4tEHDw/rd371UB6vnxoYwag
-	mtfyotCOoZ9kBllaT3KB9tkG190fFMhiikAAWZ19JT7ZWCNxDI4rvfWTPSgTJzhR
-	c0QwHw==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dcms4tsud-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 13:03:49 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2b0c92ff4ebso65794195ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 06:03:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1775567029; x=1776171829; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=33isoV0yWVJ9xotd+3ciXf4Msdfdu+7UChBrj+6r8Zg=;
-        b=TD1Li8InhKHP1aunREWHgyY5oZtKy8f/EDI4bFTsfPhshUyySGSHOJcK7xLln+HEzX
-         53oZQTu6igSecgifc20jnbTjjN6wIoLfYiLyNZWsC2utDIayU7rxJbi0/9C3cT7mI9Vc
-         7DMLweqS2AxeWjh3ON3vRERiCDqYornkRGlY/4YoHnpQgbpAmiSg/PN3q2DybOrW668J
-         060J9tXIbAmzfmI6mxq4/KCiD01zIiBhLVRHxsGFE7IEbKPC9MKIw4IQAYCNJ9qOZCrF
-         gXgM/EC4uxiTAMgrSiLnUW5P7mGVNU3DeOCmizl5yQCtusP4QlLzHGLjUFxdkWbeaEiS
-         /fKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775567029; x=1776171829;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=33isoV0yWVJ9xotd+3ciXf4Msdfdu+7UChBrj+6r8Zg=;
-        b=RzjJjqPA21N+yikQIk63XBU/jaLTFYgdLaB8nFrS1RppjWdszOL72NgWrlud+HIi3k
-         S4Mxvgy2I02uOmKAm1aeOb3n5TU4sBBPPflu3E9AdHF2tYgTm+/Fv84IqlQQqdzQQ8cQ
-         9NwoTC6Z8vXL/pe++m9809HDhRMYoBpystRiY6nAUDQ3HLltNhuwAqfvlfBIVaSFS2fr
-         VMbGDtGi0eLDwX1LGkVnBIihVSVlDGFhBKJwcCSZx91RbY60FkP99GISZIb+kEQTvTmV
-         5/keO5lef6zyhac1uppmaB1QXWQ8ziTnfOrMAFMeq+SncK904K77fyoTggdDtUcA+juQ
-         StgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUxf9sHEfit7rGutiUofrvWXLMPuiOAs1eyjgfW48Phgxbflh/gbV5xq9OPjTUG4ZSmV/JFSwei8wd1w/XNqrTx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5RhhYjLEH4zytizbllf35k6ol7Jy/Is6HXc5CehnsOmVEAJdH
-	3Apv7UjlmVKZniZE4HhDTtkO1v9qGsRmV9SeKagZnZBt6uOpy2xFzcvGd1YuWZUMMj3LSRb3NK/
-	/FN/qQ5k+VYwuD6n8qkAsZG/Aal+h73Q+1QlwqfRcGsE+MdiqO5BZZlUBcAzk0YiOn8Sp+6req6
-	jVbA==
-X-Gm-Gg: AeBDiesDvDdQg4f0CbbfneJzEz4gRHK8Nl3DO/h0H01x402gEUoehs87aCQwQ+ympT2
-	bgDab6ma/0r0qYGfKmh4jvFP2lKA7TL/8KUnFE1FOd/dDASwS4l9s31OVE2DRVHlhHAfiDxHUNc
-	ZnURcG7dCI+SamELLBBNe4BJeM8t9DPYZ36zMPxNGsXvDFkIiv4xPTLlyYi0WrZRKzDjJzDltyA
-	iIR8z8TVZnjTdPLJggVxFx38ygoS2yjGwc5yNACWd6cPABmTEL8DaEyhf3OMASIgi+Xq4nCHl0q
-	+O5EhdwVRnhwPU8hsVAAn1zazhy0JllEilOqomdNeEmBWrj1BFq/lS43muCUjwXtBIksyKNjtA7
-	Pn2ROuNjWVlfFnGEukKAqr6+76MkZZeK+CnzHJSWWNeCg67l1RBP6Gxdn
-X-Received: by 2002:a17:903:185:b0:2b0:5be9:f423 with SMTP id d9443c01a7336-2b2819180c5mr167577725ad.43.1775567028623;
-        Tue, 07 Apr 2026 06:03:48 -0700 (PDT)
-X-Received: by 2002:a17:903:185:b0:2b0:5be9:f423 with SMTP id d9443c01a7336-2b2819180c5mr167577015ad.43.1775567027939;
-        Tue, 07 Apr 2026 06:03:47 -0700 (PDT)
-Received: from hu-krichai-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b2749794e8sm181564885ad.53.2026.04.07.06.03.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Apr 2026 06:03:47 -0700 (PDT)
-From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Date: Tue, 07 Apr 2026 18:33:12 +0530
-Subject: [PATCH v4 5/5] PCI: qcom: Add D3cold support
+	Tue, 07 Apr 2026 13:06:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C92F616F2;
+	Tue,  7 Apr 2026 06:06:07 -0700 (PDT)
+Received: from [10.57.87.42] (unknown [10.57.87.42])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DA97F3F7D8;
+	Tue,  7 Apr 2026 06:06:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775567173; bh=zuBn8OJOWsJS9EPWfpklo6YjfsJiO778RvGxeIrnKB0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JdFSpFrjdJTWWgkfZtbcCKe7QkoOe2/p8yY8YtJI4/kKTmIonolQrs9Wlg0TfI4XU
+	 gqqi2Rc1o3/dUBBf+9GJXwU6k14+I+USFuCJAxcekAKU3dj9Bptgzgqac4FlSW45uJ
+	 tERFJhhCbN0JVWxaj8HzUYWmWNswPo95NAUzOdvQ=
+Message-ID: <b545e650-f84f-4911-9902-b914870f0e1d@arm.com>
+Date: Tue, 7 Apr 2026 14:06:10 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] arm64: mm: Fix rodata=full block mapping support
+ for realm guests
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, "David Hildenbrand (Arm)"
+ <david@kernel.org>, Dev Jain <dev.jain@arm.com>,
+ Yang Shi <yang@os.amperecomputing.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Jinjiang Tu <tujinjiang@huawei.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260330161705.3349825-1-ryan.roberts@arm.com>
+ <20260330161705.3349825-2-ryan.roberts@arm.com> <ac7VD4Z85nS30GCp@arm.com>
+ <ac-W9oNM_O5RTtaf@arm.com> <beacee23-c177-47a1-b8b5-743844b617a8@arm.com>
+ <adTPFrlVCEt-hioX@arm.com> <bc4a0246-33bb-443e-a885-a31b24d4a022@arm.com>
+ <adTh8d9k3y5ybemL@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <adTh8d9k3y5ybemL@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260407-d3cold-v4-5-bb171f75b465@oss.qualcomm.com>
-References: <20260407-d3cold-v4-0-bb171f75b465@oss.qualcomm.com>
-In-Reply-To: <20260407-d3cold-v4-0-bb171f75b465@oss.qualcomm.com>
-To: Jingoo Han <jingoohan1@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-        Will Deacon <will@kernel.org>
-Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        jonathanh@nvidia.com, bjorn.andersson@oss.qualcomm.com,
-        Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775566995; l=7930;
- i=krishna.chundru@oss.qualcomm.com; s=20230907; h=from:subject:message-id;
- bh=W1OhNcEspfBwAlfmZve2ZqD5tZvvm1E8mVApzAXXGuI=;
- b=o5n5mzRCb1hInEwIP9Lo/mkqs1V+NaPD+q4D06Qd+qeyiIvLq3qU775agBpWtloe/QTme7jjR
- nCXcRkr1zXNBKMFJTclv0uXBflgy6ODXlnpBwnYuu/TuB08Ps/73MqU
-X-Developer-Key: i=krishna.chundru@oss.qualcomm.com; a=ed25519;
- pk=10CL2pdAKFyzyOHbfSWHCD0X0my7CXxj8gJScmn1FAg=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDA3MDEyMSBTYWx0ZWRfXwOS2NUr6f3cj
- 7piUqORcipbilPeJuvqULXu4HyBJXo/aIiZq0gyt/6pOQ1a9sE8XphRkpjMg28sdKMHmdbwPbqV
- gcYMjYrEyI1Ufcvx9CHLyaQ9sIFOg2BlutPgWki7mV7t9aCm2WWLRrMlH/yVzCtkLZYL4+ugYma
- DsDbmqNKJjId2yelpqyIq31T9NqyiMPcKIaGtlAo7uWSHXDkELg87sbB40sqFX24zEcqOODX1Yu
- vIE5Z8A8Vn7cbyfbCC9TT0XFT53VaQN84WvcgNFZ/WTrt8UPI6/e70CI/lm6HHCoKX7Y98qoUo+
- v4bftmi0yWG0xM3yd2zLs2V9hTCVvfpnJniRKWamnarTO6dSsb2CBfuv+Hoi8eScLtLTFavVP7q
- mEvSilBuzd8YBSy5MMxsgouoltzRlW4Kq7YPv4/UnaQsodgfCYzq93qxFAZtbOwO3Usc0ZfSX4y
- +C1uidOM+wjjEHaHx5Q==
-X-Proofpoint-ORIG-GUID: uLIMHhS_Dj5GgnfCXhJUWLMigj6NVzlo
-X-Authority-Analysis: v=2.4 cv=WNZPmHsR c=1 sm=1 tr=0 ts=69d500b5 cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=3yJ-4rlz3SFKGY1FFUMA:9 a=QEXdDO2ut3YA:10
- a=1OuFwYUASf3TG4hYMiVC:22
-X-Proofpoint-GUID: uLIMHhS_Dj5GgnfCXhJUWLMigj6NVzlo
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-07_02,2026-04-07_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 bulkscore=0 phishscore=0 spamscore=0 impostorscore=0
- lowpriorityscore=0 suspectscore=0 clxscore=1015 malwarescore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604070121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_060350_112015_30D323CC 
-X-CRM114-Status: GOOD (  29.19  )
+X-CRM114-CacheID: sfid-20260407_060615_610356_3438E025 
+X-CRM114-Status: GOOD (  50.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,260 +80,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for transitioning PCIe endpoints under host bridge into
-D3cold by integrating with the DWC core suspend/resume helpers.
+On 07/04/2026 11:52, Catalin Marinas wrote:
+> On Tue, Apr 07, 2026 at 11:13:07AM +0100, Ryan Roberts wrote:
+>> On 07/04/2026 10:32, Catalin Marinas wrote:
+>>> On Tue, Apr 07, 2026 at 09:43:42AM +0100, Ryan Roberts wrote:
+>>>> On 03/04/2026 11:31, Catalin Marinas wrote:
+>>>>> On Thu, Apr 02, 2026 at 09:43:59PM +0100, Catalin Marinas wrote:
+>>>>>> Another thing I couldn't get my head around - IIUC is_realm_world()
+>>>>>> won't return true for map_mem() yet (if in a realm). Can we have realms
+>>>>>> on hardware that does not support BBML2_NOABORT? We may not have
+>>>>>> configuration with rodata_full set (it should be complementary to realm
+>>>>>> support).
+>>>>>
+>>>>> With rodata_full==false, can_set_direct_map() returns false initially
+>>>>> but after arm64_rsi_init() it starts returning true if is_realm_world().
+>>>>> The side-effect is that map_mem() goes for block mappings and
+>>>>> linear_map_requires_bbml2 set to false. Later on,
+>>>>> linear_map_maybe_split_to_ptes() will skip the splitting.
+>>>>>
+>>>>> Unless I'm missing something, is_realm_world() calls in
+>>>>> force_pte_mapping() and can_set_direct_map() are useless. I'd remove
+>>>>> them and either require BBML2_NOABORT with CCA or get the user to force
+>>>>> rodata_full when running in realms. Or move arm64_rsi_init() even
+>>>>> earlier?
+>>>>
+>>>> I'd need Suzuki to comment on this. As I said in the other mail, I was treating
+>>>> this like a pre-existing bug. But I guess linear_map_requires_bbml2 ending up
+>>>> wrong is a problem here. I'm not sure it's quite as simple as requiring
+>>>> BBML2_NOABORT with CCA as we still need can_set_direct_map() to return true if
+>>>> we are in a realm.
+>>>
+>>> can_set_direct_map() == true is not a property of the realm but rather a
+>>> requirement. 
+>>
+>> Yes indeed. It would be better to call it might_set_direct_map() or something
+>> like that...
+> 
+> The way it is used means "is allowed to set the direct map". I guess
+> "may set..." works as well. My reading of "might" is more like in
+> might_sleep(), more of hint than a permission check.
 
-Implement PME_TurnOff message generation via ELBI_SYS_CTRL and hook it
-into the DWC host operations so the controller follows the standard
-PME_TurnOff-based power-down sequence before entering D3cold.
+OK, I read it as "might" as in a hint that we might want to change the direct
+map permissions.
 
-When the device is suspended into D3cold, fully tear down interconnect
-bandwidth, OPP votes. If D3cold is not entered, retain existing behavior
-by keeping the required interconnect and OPP votes.
+> 
+> If you only look at the linear_map_requires_bbml2 setting in map_mem(),
+> yes, something like might_set_direct_map() makes sense but that's not
+> how this function is used in the rest of the kernel (to reject the
+> direct map change if not supported).
 
-Use dw_pcie::skip_pwrctrl_off to avoid powering off devices during suspend
-to preseve wakeup capability of the devices and also not to power on the
-devices in the init path.
+ACK.
 
-Drop the qcom_pcie::suspended flag and rely on the existing
-dw_pcie::suspended state, which now drives both the power-management
-flow and the interconnect/OPP handling.
+> 
+>>> In the absence of BBML2_NOABORT, I guess the test was added
+>>> under the assumption that force_pte_mapping() also returns true if
+>>> is_realm_world(). We might as well add a variable or static label to
+>>> track whether can_set_direct_map() is possible and avoid tests that
+>>> duplicate force_pte_mapping().
+>>
+>> I'm not sure I follow. We have linear_map_requires_bbml2 which is inteded to
+>> track this shape of thing;
+> 
+> As the name implies, linear_map_requires_bbml2 tracks only this -
+> BBML2_NOABORT is required because the linear map uses large blocks.
+> Prior to your patches, that's only used as far as
+> linear_map_maybe_split_to_ptes() and if splitting took place, this
+> variable is no longer relevant (should be turned to false but since it's
+> not used, it doesn't matter).
+> 
+> With your patches, its use was extended to runtime and I think it
+> remains true even if linear_map_maybe_split_to_ptes() changed the block
+> mappings. Do we need this:
 
-Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
----
- drivers/pci/controller/dwc/pcie-qcom.c | 150 ++++++++++++++++++++-------------
- 1 file changed, 92 insertions(+), 58 deletions(-)
+I'll admit it is ugly but it's not a bug; the system capabilitites are finalized
+by the time we call linear_map_maybe_split_to_ptes().
 
-diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-index c14c3eb70f356b6ad8a2ffe48b107327d2babf77..e8d109c44dd270610272906244d1afeec3664f41 100644
---- a/drivers/pci/controller/dwc/pcie-qcom.c
-+++ b/drivers/pci/controller/dwc/pcie-qcom.c
-@@ -145,6 +145,7 @@
- 
- /* ELBI_SYS_CTRL register fields */
- #define ELBI_SYS_CTRL_LT_ENABLE			BIT(0)
-+#define ELBI_SYS_CTRL_PME_TURNOFF_MSG		BIT(4)
- 
- /* AXI_MSTR_RESP_COMP_CTRL0 register fields */
- #define CFG_REMOTE_RD_REQ_BRIDGE_SIZE_2K	0x4
-@@ -283,7 +284,6 @@ struct qcom_pcie {
- 	const struct qcom_pcie_cfg *cfg;
- 	struct dentry *debugfs;
- 	struct list_head ports;
--	bool suspended;
- 	bool use_pm_opp;
- };
- 
-@@ -1336,13 +1336,17 @@ static int qcom_pcie_host_init(struct dw_pcie_rp *pp)
- 	if (ret)
- 		goto err_deinit;
- 
--	ret = pci_pwrctrl_create_devices(pci->dev);
--	if (ret)
--		goto err_disable_phy;
-+	if (!pci->suspended) {
-+		ret = pci_pwrctrl_create_devices(pci->dev);
-+		if (ret)
-+			goto err_disable_phy;
-+	}
- 
--	ret = pci_pwrctrl_power_on_devices(pci->dev);
--	if (ret)
--		goto err_pwrctrl_destroy;
-+	if (!pp->skip_pwrctrl_off) {
-+		ret = pci_pwrctrl_power_on_devices(pci->dev);
-+		if (ret)
-+			goto err_pwrctrl_destroy;
-+	}
- 
- 	if (pcie->cfg->ops->post_init) {
- 		ret = pcie->cfg->ops->post_init(pcie);
-@@ -1386,11 +1390,14 @@ static void qcom_pcie_host_deinit(struct dw_pcie_rp *pp)
- 
- 	qcom_pcie_perst_assert(pcie);
- 
--	/*
--	 * No need to destroy pwrctrl devices as this function only gets called
--	 * during system suspend as of now.
--	 */
--	pci_pwrctrl_power_off_devices(pci->dev);
-+	if (!pci->pp.skip_pwrctrl_off) {
-+		/*
-+		 * No need to destroy pwrctrl devices as this function only gets called
-+		 * during system suspend as of now.
-+		 */
-+		pci_pwrctrl_power_off_devices(pci->dev);
-+	}
-+
- 	qcom_pcie_phy_power_off(pcie);
- 	pcie->cfg->ops->deinit(pcie);
- }
-@@ -1404,10 +1411,18 @@ static void qcom_pcie_host_post_init(struct dw_pcie_rp *pp)
- 		pcie->cfg->ops->host_post_init(pcie);
- }
- 
-+static void qcom_pcie_host_pme_turn_off(struct dw_pcie_rp *pp)
-+{
-+	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-+
-+	writel(ELBI_SYS_CTRL_PME_TURNOFF_MSG, pci->elbi_base + ELBI_SYS_CTRL);
-+}
-+
- static const struct dw_pcie_host_ops qcom_pcie_dw_ops = {
- 	.init		= qcom_pcie_host_init,
- 	.deinit		= qcom_pcie_host_deinit,
- 	.post_init	= qcom_pcie_host_post_init,
-+	.pme_turn_off	= qcom_pcie_host_pme_turn_off,
- };
- 
- /* Qcom IP rev.: 2.1.0	Synopsys IP rev.: 4.01a */
-@@ -2072,53 +2087,51 @@ static int qcom_pcie_suspend_noirq(struct device *dev)
- 	if (!pcie)
- 		return 0;
- 
--	/*
--	 * Set minimum bandwidth required to keep data path functional during
--	 * suspend.
--	 */
--	if (pcie->icc_mem) {
--		ret = icc_set_bw(pcie->icc_mem, 0, kBps_to_icc(1));
--		if (ret) {
--			dev_err(dev,
--				"Failed to set bandwidth for PCIe-MEM interconnect path: %d\n",
--				ret);
--			return ret;
--		}
--	}
-+	ret = dw_pcie_suspend_noirq(pcie->pci);
-+	if (ret)
-+		return ret;
- 
--	/*
--	 * Turn OFF the resources only for controllers without active PCIe
--	 * devices. For controllers with active devices, the resources are kept
--	 * ON and the link is expected to be in L0/L1 (sub)states.
--	 *
--	 * Turning OFF the resources for controllers with active PCIe devices
--	 * will trigger access violation during the end of the suspend cycle,
--	 * as kernel tries to access the PCIe devices config space for masking
--	 * MSIs.
--	 *
--	 * Also, it is not desirable to put the link into L2/L3 state as that
--	 * implies VDD supply will be removed and the devices may go into
--	 * powerdown state. This will affect the lifetime of the storage devices
--	 * like NVMe.
--	 */
--	if (!dw_pcie_link_up(pcie->pci)) {
--		qcom_pcie_host_deinit(&pcie->pci->pp);
--		pcie->suspended = true;
--	}
-+	if (pcie->pci->suspended) {
-+		ret = icc_disable(pcie->icc_mem);
-+		if (ret)
-+			dev_err(dev, "Failed to disable PCIe-MEM interconnect path: %d\n", ret);
- 
--	/*
--	 * Only disable CPU-PCIe interconnect path if the suspend is non-S2RAM.
--	 * Because on some platforms, DBI access can happen very late during the
--	 * S2RAM and a non-active CPU-PCIe interconnect path may lead to NoC
--	 * error.
--	 */
--	if (pm_suspend_target_state != PM_SUSPEND_MEM) {
- 		ret = icc_disable(pcie->icc_cpu);
- 		if (ret)
- 			dev_err(dev, "Failed to disable CPU-PCIe interconnect path: %d\n", ret);
- 
- 		if (pcie->use_pm_opp)
- 			dev_pm_opp_set_opp(pcie->pci->dev, NULL);
-+	} else {
-+		/*
-+		 * Set minimum bandwidth required to keep data path functional during
-+		 * suspend.
-+		 */
-+		if (pcie->icc_mem) {
-+			ret = icc_set_bw(pcie->icc_mem, 0, kBps_to_icc(1));
-+			if (ret) {
-+				dev_err(dev,
-+					"Failed to set bandwidth for PCIe-MEM interconnect path: %d\n",
-+					ret);
-+				return ret;
-+			}
-+		}
-+
-+		/*
-+		 * Only disable CPU-PCIe interconnect path if the suspend is non-S2RAM.
-+		 * Because on some platforms, DBI access can happen very late during the
-+		 * S2RAM and a non-active CPU-PCIe interconnect path may lead to NoC
-+		 * error.
-+		 */
-+		if (pm_suspend_target_state != PM_SUSPEND_MEM) {
-+			ret = icc_disable(pcie->icc_cpu);
-+			if (ret)
-+				dev_err(dev, "Failed to disable CPU-PCIe interconnect path: %d\n",
-+					ret);
-+
-+			if (pcie->use_pm_opp)
-+				dev_pm_opp_set_opp(pcie->pci->dev, NULL);
-+		}
- 	}
- 	return ret;
- }
-@@ -2132,25 +2145,46 @@ static int qcom_pcie_resume_noirq(struct device *dev)
- 	if (!pcie)
- 		return 0;
- 
--	if (pm_suspend_target_state != PM_SUSPEND_MEM) {
-+	if (pcie->pci->suspended) {
- 		ret = icc_enable(pcie->icc_cpu);
- 		if (ret) {
- 			dev_err(dev, "Failed to enable CPU-PCIe interconnect path: %d\n", ret);
- 			return ret;
- 		}
--	}
- 
--	if (pcie->suspended) {
--		ret = qcom_pcie_host_init(&pcie->pci->pp);
--		if (ret)
--			return ret;
-+		ret = icc_enable(pcie->icc_mem);
-+		if (ret) {
-+			dev_err(dev, "Failed to enable PCIe-MEM interconnect path: %d\n", ret);
-+			goto disable_icc_cpu;
-+		}
- 
--		pcie->suspended = false;
-+		/*
-+		 * Ignore -ENODEV & -EIO here since it is expected when no endpoint is
-+		 * connected to the PCIe link.
-+		 */
-+		ret = dw_pcie_resume_noirq(pcie->pci);
-+		if (ret && ret != -ENODEV && ret != -EIO)
-+			goto disable_icc_mem;
-+	} else {
-+		if (pm_suspend_target_state != PM_SUSPEND_MEM) {
-+			ret = icc_enable(pcie->icc_cpu);
-+			if (ret) {
-+				dev_err(dev, "Failed to enable CPU-PCIe interconnect path: %d\n",
-+					ret);
-+				return ret;
-+			}
-+		}
- 	}
- 
- 	qcom_pcie_icc_opp_update(pcie);
- 
- 	return 0;
-+disable_icc_mem:
-+	icc_disable(pcie->icc_mem);
-+disable_icc_cpu:
-+	icc_disable(pcie->icc_cpu);
-+
-+	return ret;
- }
- 
- static const struct of_device_id qcom_pcie_match[] = {
+The "if (!linear_map_requires_bbml2 || is_kfence_address((void *)start))" check
+in split_kernel_leaf_mapping() would ideally be "if (!force_pte_mapping() ||
+is_kfence_address((void *)start))", but it is not safe to call
+force_pte_mapping() from a secondary cpu prior to finalizing the system caps.
+I'm reusing the flag that I already had available to work around that.
 
--- 
-2.34.1
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index dcee56bb622a..595d35fdd8c3 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -988,6 +988,7 @@ void __init linear_map_maybe_split_to_ptes(void)
+>  	if (linear_map_requires_bbml2 && !system_supports_bbml2_noabort()) {
+>  		init_idmap_kpti_bbml2_flag();
+>  		stop_machine(linear_map_split_to_ptes, NULL, cpu_online_mask);
+> +		linear_map_requires_bbml2 = false;
+>  	}
+>  }
+>  
+> 
+>> if we have forced pte mapping then the value of
+>> can_set_direct_map() is irrelevant - we will never need to split because we are
+>> already pte-mapped.
+> 
+> can_set_direct_map() is used in other places, so its value is relevant,
+> e.g. sys_memfd_secret() is rejected if this function returns false.
+> 
+>> But if can_set_direct_map() initially returns false because
+>> is_realm_world() incorrectly returns false in the early boot environment, then
+>> linear_map_requires_bbml2 will be set to false, and we will incorrectly
+>> short-circuit splitting any block mappings in split_kernel_leaf_mapping().
+>>
+>> I think we are agreed on the problem. But I don't understand how tracking
+>> can_set_direct_map() in a cached variable helps with that.
+> 
+> It's not about the map_mem() decision and linear_map_requires_bbml2
+> setting but rather its other uses like sys_memfd_secret().
+> 
+>>> This won't solve the is_realm_world() changing polarity during boot but
+>>> at least we know it won't suddenly make can_set_direct_map() return
+>>> true when it shouldn't.
+>>
+>> But is_real_world() _should_ make can_set_direct_map() return true, shouldn't
+>> it?
+> 
+> Yes but not directly. If is_realm_world() is true, we either have
+> (linear_map_requires_bbml2 && system_supports_bbml2_noabort()) or
+> linear_map_requires_bbml2 is false and we have pte mappings. Adding
+> is_realm_world() to can_set_direct_map() does not imply any of these.
+> It's just a hope that something before actually ensured the conditions
+> are true.
+> 
+> It might be better if we rename the current function to
+> might_set_direct_map() and introduce a new can_set_direct_map() that
+> actually tells the truth if all the conditions are met. I suggested a
+> variable or static label but checking some conditions related to the
+> actual linear map work as well, just not is_realm_world() directly.
+
+I'm not sure I see the distinction between "might" and "can" with your
+definition. But regardless, I think we are talking about the pre-existing
+is_real_world() bug, so I'm not personally planning to do anything further here
+unless you shout.
+
+Thanks,
+Ryan
+
 
 
