@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC8BEDB7CA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 08:11:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F07EDB7CC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 08:14:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dSD42sRw8m4KqOMn6RKtEBsK4oxrupRNhEOtKscgMfE=; b=ukfyUe26nsiat2VYARx5lDgi9S
-	ZYABe85lDzm3zqB5pauIlqFn5pq2UHKobI9pSIARYWMIzIhqDkDHvh81cavBXc6jwJ0IcMAdXqCd0
-	fxEAImNLWO9gYLObVdTQhP67ReRAg79Zaq+IKrMwmEbUvHSvAblIfocXWrt7+RcRa3CIW+mu30pTk
-	KnREa9dcL6/cnZi+Qx+mPpuLVsC1I+kc6qzPz4mFfE7kZIWJ5U2IiKPa/Y7fxnowvp9T1415r9xFx
-	RPKjXyJM4RwTFl9KKZq2EATKpVq5R7Y4Ljl6TmaH8Hrxy49FbF+av3DHmOj2II2nJb8Oki6p+ET9Z
-	lpayhOiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZhUhM7TYxFWQJk8xgxU9dZQKtoxIxIBRIBiWXcoPPIQ=; b=TCU9C9AMB3690pdL7CFtLS0jxr
+	3PPD2wrk8NA8hM9OmQH6g6nA84CCUdsWIirhHhQBqxAnVwMsxIGHrj/5+0hlaNxiW5j1xXW6NK4PW
+	2yDvr491ZvytHkUDxtdg+4154si8kZiF33X905YjRaprPIRwKr2JsNppLqrQ8KmIfIaGN6sw6LY8Z
+	AVHUIlJGdqr8YiqvE/BN6oljfy3Y1ZhsGfPWrfiNPebEFxUhLZyx/0Dh/CsPfTS09HP5xTgpV8L/8
+	9iySOQmZFeqG48A2cFNwPvozkH5s/wf4zYNB3SWuKvhUyNZDOOIt5Rx+0wHfLwtygeaokF3IbwW9R
+	/hOj+FbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA1WT-000000067Ns-21NT;
-	Tue, 07 Apr 2026 08:10:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA1WQ-000000067Mm-3tIG
+	id 1wA1Zu-000000067hh-2HUA;
+	Tue, 07 Apr 2026 08:14:30 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wA1Zq-000000067hH-2rgD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 08:10:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 45B721688;
-	Tue,  7 Apr 2026 01:10:45 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9ED873F641;
-	Tue,  7 Apr 2026 01:10:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775549451; bh=wa8Bk5qYAqzC1U23ghWAMt0N32UINcdTL+QzfUMPJsI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=p641DY+Fy2ySv9iOJpBsOkQrsZ7E5jraZoQXlTN6knbfYzQbv7HA1edZla1KTwT3D
-	 MlCbWCbYi4PQG6BoOtCsHAyIYM8ASN33yOBOyqSinFKfg+W00nU6FE7sxGTHNydcn3
-	 /ehvutRm1GFISv+0iOeHISJHl9xp3rHfsB/Q2qB0=
-Date: Tue, 7 Apr 2026 09:10:48 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] coresight: tpdm: fix invalid MMIO access issue
-Message-ID: <20260407081048.GJ356832@e132581.arm.com>
-References: <20260407-fix-potential-issue-in-tpdm-v1-1-42090d27c0a8@oss.qualcomm.com>
+	Tue, 07 Apr 2026 08:14:28 +0000
+X-UUID: c7cbaed0325911f1aa26b74ffac11d73-20260407
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:83df2d24-2cb7-45b1-b816-c9f0ea4d053f,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:bfaf8827c76e159ca0db3e104194e851,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:0|15|
+	52,EDM:-3,IP:nil,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
+	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: c7cbaed0325911f1aa26b74ffac11d73-20260407
+X-User: xiaopei01@kylinos.cn
+Received: from [10.42.12.251] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <xiaopei01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
+	with ESMTP id 1327235905; Tue, 07 Apr 2026 16:14:21 +0800
+Message-ID: <80a108ac-c100-4077-b51e-8139f9ec277b@kylinos.cn>
+Date: Tue, 7 Apr 2026 16:14:18 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260407-fix-potential-issue-in-tpdm-v1-1-42090d27c0a8@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] spi: zynq-qspi: Simplify clock handling with
+ devm_clk_get_enabled()
+To: Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ broonie@kernel.org
+References: <0c851587c90ae51d1498d18955aefc83fa41f17d.1775547057.git.xiaopei01@kylinos.cn>
+ <827a6fdf-b119-4aea-9442-7f27f1383c78@amd.com>
+From: Pei Xiao <xiaopei01@kylinos.cn>
+In-Reply-To: <827a6fdf-b119-4aea-9442-7f27f1383c78@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_011055_111063_624E3FCF 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20260407_011427_120501_D36917F6 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,57 +78,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 07, 2026 at 12:47:11PM +0800, Jie Gan wrote:
-> Create the csdev_access struct only when a valid MMIO resource is
-> available. In tpdm_probe(), base is uninitialized for static TPDM
-> instances that lack an MMIO resource, causing csdev_access to be
-> created with a garbage address and potentially leading to
-> unexpected issues.
 
-This patch itself is fine for me.  However, I am wandering if this
-is sufficient.
 
-As mentioned "potentially leading to unexpected issues", can I
-understand some code pieces access register with uninitialized base?
-If so, you would also explictly add coresight_is_static_tpdm() to
-prevent register access.
+在 2026/4/7 16:01, Michal Simek 写道:
+> 
+> 
+> On 4/7/26 09:32, Pei Xiao wrote:
+>> [You don't often get email from xiaopei01@kylinos.cn. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>>
+>> Replace devm_clk_get() followed by clk_prepare_enable() with
+>> devm_clk_get_enabled() for both "pclk" and "ref_clk". This removes
+>> the need for explicit clock enable and disable calls, as the managed
+>> API automatically disables the clocks on device removal or probe
+>> failure.
+>>
+>> Remove the now-unnecessary clk_disable_unprepare() calls from the
+>> probe error paths and the remove callback. Simplify error handling
+>> by jumping directly to the remove_ctlr label.
+>>
+>> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+>> ---
+>>   drivers/spi/spi-zynq-qspi.c | 31 ++++++-------------------------
+>>   1 file changed, 6 insertions(+), 25 deletions(-)
+>>
+>> diff --git a/drivers/spi/spi-zynq-qspi.c b/drivers/spi/spi-zynq-qspi.c
+>> index 5232483c4a3a..8c3975030d0a 100644
+>> --- a/drivers/spi/spi-zynq-qspi.c
+>> +++ b/drivers/spi/spi-zynq-qspi.c
+>> @@ -661,7 +661,7 @@ static int zynq_qspi_probe(struct platform_device *pdev)
+>>                  goto remove_ctlr;
+>>          }
+>>
+>> -       xqspi->pclk = devm_clk_get(&pdev->dev, "pclk");
+>> +       xqspi->pclk = devm_clk_get_enabled(&pdev->dev, "pclk");
+>>          if (IS_ERR(xqspi->pclk)) {
+>>                  dev_err(&pdev->dev, "pclk clock not found.\n");
+>>                  ret = PTR_ERR(xqspi->pclk);
+>> @@ -670,36 +670,24 @@ static int zynq_qspi_probe(struct platform_device *pdev)
+>>
+>>          init_completion(&xqspi->data_completion);
+>>
+>> -       xqspi->refclk = devm_clk_get(&pdev->dev, "ref_clk");
+>> +       xqspi->refclk = devm_clk_get_enabled(&pdev->dev, "ref_clk");
+>>          if (IS_ERR(xqspi->refclk)) {
+>>                  dev_err(&pdev->dev, "ref_clk clock not found.\n");
+>>                  ret = PTR_ERR(xqspi->refclk);
+>>                  goto remove_ctlr;
+>>          }
+>>
+>> -       ret = clk_prepare_enable(xqspi->pclk);
+>> -       if (ret) {
+>> -               dev_err(&pdev->dev, "Unable to enable APB clock.\n");
+>> -               goto remove_ctlr;
+>> -       }
+>> -
+>> -       ret = clk_prepare_enable(xqspi->refclk);
+>> -       if (ret) {
+>> -               dev_err(&pdev->dev, "Unable to enable device clock.\n");
+>> -               goto clk_dis_pclk;
+>> -       }
+>> -
+>>          xqspi->irq = platform_get_irq(pdev, 0);
+>>          if (xqspi->irq < 0) {
+>>                  ret = xqspi->irq;
+>> -               goto clk_dis_all;
+>> +               goto remove_ctlr;
+>>          }
+>>          ret = devm_request_irq(&pdev->dev, xqspi->irq, zynq_qspi_irq,
+>>                                 0, pdev->name, xqspi);
+>>          if (ret != 0) {
+>>                  ret = -ENXIO;
+>>                  dev_err(&pdev->dev, "request_irq failed\n");
+>> -               goto clk_dis_all;
+>> +               goto remove_ctlr;
+>>          }
+>>
+>>          ret = of_property_read_u32(np, "num-cs",
+>> @@ -709,7 +697,7 @@ static int zynq_qspi_probe(struct platform_device *pdev)
+>>          } else if (num_cs > ZYNQ_QSPI_MAX_NUM_CS) {
+>>                  ret = -EINVAL;
+>>                  dev_err(&pdev->dev, "only 2 chip selects are available\n");
+>> -               goto clk_dis_all;
+>> +               goto remove_ctlr;
+>>          } else {
+>>                  ctlr->num_chipselect = num_cs;
+>>          }
+>> @@ -728,15 +716,11 @@ static int zynq_qspi_probe(struct platform_device *pdev)
+>>          ret = devm_spi_register_controller(&pdev->dev, ctlr);
+>>          if (ret) {
+>>                  dev_err(&pdev->dev, "devm_spi_register_controller failed\n");
+>> -               goto clk_dis_all;
+>> +               goto remove_ctlr;
+>>          }
+>>
+>>          return ret;
+>>
+>> -clk_dis_all:
+>> -       clk_disable_unprepare(xqspi->refclk);
+>> -clk_dis_pclk:
+>> -       clk_disable_unprepare(xqspi->pclk);
+>>   remove_ctlr:
+>>          spi_controller_put(ctlr);
+>>
+>> @@ -758,9 +742,6 @@ static void zynq_qspi_remove(struct platform_device *pdev)
+>>          struct zynq_qspi *xqspi = platform_get_drvdata(pdev);
+>>
+>>          zynq_qspi_write(xqspi, ZYNQ_QSPI_ENABLE_OFFSET, 0);
+>> -
+>> -       clk_disable_unprepare(xqspi->refclk);
+>> -       clk_disable_unprepare(xqspi->pclk);
+>>   }
+>>
+>>   static const struct of_device_id zynq_qspi_of_match[] = {
+>> -- 
+>> 2.25.1
+>>
+> 
+> There is also clock manipulation in zynq_qspi_setup_op() which needs to be handled.
+> 
+Can I remove this code? If not, please ignore this patch, and I apologize for the noise.
 
-Thanks,
-Leo
+In zynq_qspi_setup_op: 
+         ~~~~remove this clk enable code
+	ret = clk_enable(qspi->refclk);
+	if (ret)
+		return ret;
 
-> Fixes: 14ae052f7947 ("coresight: tpdm: add static tpdm support")
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-tpdm.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
-> index 9b16f368a58b..eaf7210af648 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpdm.c
-> +++ b/drivers/hwtracing/coresight/coresight-tpdm.c
-> @@ -1430,6 +1430,7 @@ static int tpdm_probe(struct device *dev, struct resource *res)
->  		if (ret)
->  			return ret;
->  
-> +		desc.access = CSDEV_ACCESS_IOMEM(base);
->  		if (tpdm_has_dsb_dataset(drvdata))
->  			of_property_read_u32(drvdata->dev->of_node,
->  					     "qcom,dsb-msrs-num", &drvdata->dsb_msr_num);
-> @@ -1452,7 +1453,6 @@ static int tpdm_probe(struct device *dev, struct resource *res)
->  	desc.ops = &tpdm_cs_ops;
->  	desc.pdata = dev->platform_data;
->  	desc.dev = dev;
-> -	desc.access = CSDEV_ACCESS_IOMEM(base);
->  	if (res)
->  		desc.groups = tpdm_attr_grps;
->  	else
-> 
-> ---
-> base-commit: 816f193dd0d95246f208590924dd962b192def78
-> change-id: 20260407-fix-potential-issue-in-tpdm-b07b44416051
-> 
-> Best regards,
-> -- 
-> Jie Gan <jie.gan@oss.qualcomm.com>
-> 
+	ret = clk_enable(qspi->pclk);
+	if (ret) {
+		clk_disable(qspi->refclk);
+		return ret;
+	}
+	~~~
+
+Thanks!
+Pei.
+
+> Thanks,
+> Michal
+
 
