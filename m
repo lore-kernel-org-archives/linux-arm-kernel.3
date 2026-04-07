@@ -4,143 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44FB7EDB7C8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 07:37:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4059EDB7C8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 07:39:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IJBRXN3P5fGYe205STdMAFvshqcm4C934yvfMQ/Cc10=; b=Xf5YVvuJVcolnRXJumOoDRr0XK
-	/sT/1Su/gP+4EvKCGLgmKHp9ajlKdBHmC6deH3o7xxEi/uZ+UbJkaNBHUuWdaI5cKa5GPzvUfGbD7
-	t98ihIydaiIaP7V4PuuSHMiwWQ+3jn67rPqjpxS06KxHOzRPwTOAuw/vaa20K7kk5MCfuHg4cmWdM
-	Mi1J69PH3Z7Pq7oh6d1GhcI6/wMYahRIIE7/PgaErxEpGDAWNbFgRgTqa3c7g0XWNVWUVYumv2Th2
-	37RPo5yISlaz6t2YxmV1VnVxpHwC3gelBlQUO3N72uAStDL+ELtsfuRnr2Z+L03bG4EnIk9MJI7ZX
-	VsItBhdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YiyWz4jsfCMiFJgdrKu0mvuvn+cBCeIxv71Vm0SOnFs=; b=h+rebjfBnNMjKv86Or5Aovp3Z8
+	hQ3l0+ljK+3zsHhbQqEddcQPV2gLURthyRAtcVl0KDmctHF/jxh8rFpJWrI21O15sMlA11fGI6z50
+	adcSYwOcw0qlrz1PZ5sdeerWhzf22StENmg6f9TgM0DwyPRgTwKzMsJzSyHS5yb/D7xoZCa237dRb
+	O3OUAOB0qxRw9PKe7GNNL3KyG1hzDaD+7GmgQNA8GG4nht2FnG4FyL4A1oJItrbksOCPThfeAlbUz
+	2w0a+JTkNJvQEnYxlt0pyK5QHpm0GNJIYl3pG4KBd78655ogg3E3yk6JppF0zpkGNmZXf9a4Qrhx+
+	+oT+MNBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA0zr-000000065EC-0L1s;
-	Tue, 07 Apr 2026 07:37:15 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wA12K-000000065b1-1MhO;
+	Tue, 07 Apr 2026 07:39:48 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA0zo-000000065Dj-1NZu
+	id 1wA12H-000000065Zl-2fBr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 07:37:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mr2HE5I7TRTok04JUxGAIviU+sx8bBcvPJDc0eD1OLRjMvexb8NqypykosTiz7BSMRQtT+kz9qsEXZl0sLxV52TeXdlH6/CLiTSy+J7NRvF25KbFMsiAaimD37AYkhK7F1MR1jIn1tCI6AnxOVkP0zl9rv2vVRSksjD8aGIlG0fma2Q9bKAU2SC/qwym1ThbEZEbNw/wwjwJqE/2Ncr6I2G95ktapz/y0ldXBpxD3s0TWxzZAL7qSVi9J+FWPduRbJxPKOlArUZBjUFKZiXaWrJsuA33cAQY3wDx68qaJ/pdzOLWTPCRiG/ESxa50MRS4L1MW0Btk59kKknvKR3pCw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IJBRXN3P5fGYe205STdMAFvshqcm4C934yvfMQ/Cc10=;
- b=batr5VloA6X9ngVPFcphLH21s8BR+hPS6cCRk6SQdZJ6Xmp3V0OzXsBZ4oSg0vYWh3iZjW5ebL2VmTy6oaHScwKx2UslS85QaPnYiarWpKRcIpwryf1+b+OR4jVGVnHY5mYj+f7/RgHnyncJh0vSsV6jQLcVGXEPjKZksESzAfMfCIlsR2IJ4W7v4ZC8jphI6/HW7Zww9HKBKJRlGq3/+qaMHSx0tulyoDLkA8YQX7m5rYRL20GWgUfJC4OdZ1S1orJ+BJqALt/leMTz0LuLAzAcswJdj7tzVZy+aSh4UD4RcPNWT/vkEuLKrVB2qw18UABl1gYVp9giCeu/UbY6AA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IJBRXN3P5fGYe205STdMAFvshqcm4C934yvfMQ/Cc10=;
- b=I1ZcWRtRdGih564alvYn/+yCE2FwfFfsb+0dL0Olv4VFsNGf98DR1/3nX5mi53x0aNdVJGBmRe5mlzLL+sQ6vYmsRhxaYaZFShuj/cgkn+7TiiYjjP8n58xY+IVwJtoFoKoxH4WBEflaL6Vb8VRJVE9HvANUkiUdmugmovDd0xX7FM7+gqbMi8UcdMtWs+XtsP80dcXOWwYMNcnMwbq0k6dlwlLD3NuuwQJsiCYikR0JwQQo2h5Xb+lVOrxFbqrS2QS59vbUbpCFx4XZTDCCRE7yISKp0amkMecAxoVpKeexOmcKexCUkSgcT6huVFZEmQdvwwXLQ95UjRTdmLwwyQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA6PR04MB11910.eurprd04.prod.outlook.com
- (2603:10a6:102:516::16) by DU2PR04MB9020.eurprd04.prod.outlook.com
- (2603:10a6:10:2e3::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Tue, 7 Apr
- 2026 07:37:05 +0000
-Received: from PA6PR04MB11910.eurprd04.prod.outlook.com
- ([fe80::d3f0:3c24:f717:4989]) by PA6PR04MB11910.eurprd04.prod.outlook.com
- ([fe80::d3f0:3c24:f717:4989%4]) with mapi id 15.20.9769.014; Tue, 7 Apr 2026
- 07:37:05 +0000
-Message-ID: <4e669a11-38ff-41a5-b54d-8f50841b0411@nxp.com>
-Date: Tue, 7 Apr 2026 09:37:03 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC v1 01/11] media: uapi: v4l2-isp: Add v4l2 ISP extensible
- statistics definitions
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Cc: julien.vuillaumier@nxp.com, alexi.birlinger@nxp.com,
- daniel.baluta@nxp.com, peng.fan@nxp.com, frank.li@nxp.com,
- laurent.pinchart@ideasonboard.com, mchehab@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
- s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Jai Luthra <jai.luthra@ideasonboard.com>,
- paul elder <paul.elder@ideasonboard.com>
-References: <20260123080938.3367348-1-antoine.bouyer@nxp.com>
- <20260123080938.3367348-2-antoine.bouyer@nxp.com> <ac93m33MhldSpYDj@zed>
-Content-Language: en-US
-From: Antoine Bouyer <antoine.bouyer@nxp.com>
-In-Reply-To: <ac93m33MhldSpYDj@zed>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0042.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:c7::12) To PA6PR04MB11910.eurprd04.prod.outlook.com
- (2603:10a6:102:516::16)
+	Tue, 07 Apr 2026 07:39:47 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 72C245BD52;
+	Tue,  7 Apr 2026 07:39:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1775547582; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=YiyWz4jsfCMiFJgdrKu0mvuvn+cBCeIxv71Vm0SOnFs=;
+	b=Lwc8SswOcmvDaThhW5gu+ugaSdz/Tur+g3ukpvkHUTg651XIM0qsZh6oEKvQgxaagqmhkk
+	frEjXXzQewBMmZbUwIn809pYAZ9F7435SdMZrqdnd+O4rmfU0GhN7ANHAWtHl1Mj8ByaqU
+	2lP6YzT+nwzLTAwK1CI3AIqGfZ8g/p4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1775547582;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=YiyWz4jsfCMiFJgdrKu0mvuvn+cBCeIxv71Vm0SOnFs=;
+	b=leyjTsOWX3c+7WT9jTBLifx0FWt0S1CcF/d5c46EcxUtjD0bJZpdP/ROt2HMfqVxT1Ejjk
+	V3ZzfS/XlYx9/cDA==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1775547582; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=YiyWz4jsfCMiFJgdrKu0mvuvn+cBCeIxv71Vm0SOnFs=;
+	b=Lwc8SswOcmvDaThhW5gu+ugaSdz/Tur+g3ukpvkHUTg651XIM0qsZh6oEKvQgxaagqmhkk
+	frEjXXzQewBMmZbUwIn809pYAZ9F7435SdMZrqdnd+O4rmfU0GhN7ANHAWtHl1Mj8ByaqU
+	2lP6YzT+nwzLTAwK1CI3AIqGfZ8g/p4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1775547582;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=YiyWz4jsfCMiFJgdrKu0mvuvn+cBCeIxv71Vm0SOnFs=;
+	b=leyjTsOWX3c+7WT9jTBLifx0FWt0S1CcF/d5c46EcxUtjD0bJZpdP/ROt2HMfqVxT1Ejjk
+	V3ZzfS/XlYx9/cDA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 263F74A0B0;
+	Tue,  7 Apr 2026 07:39:41 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id opDkB7201GnYZAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 07 Apr 2026 07:39:41 +0000
+Message-ID: <0156562f-5fcf-47ce-8fea-03345f2c3fe6@suse.de>
+Date: Tue, 7 Apr 2026 09:39:40 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA6PR04MB11910:EE_|DU2PR04MB9020:EE_
-X-MS-Office365-Filtering-Correlation-Id: c57f8221-149a-4d8d-0ae6-08de94787758
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|1800799024|366016|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: MMmlXQ37bnYPzoKXUgZBvS63vpd/iaZ3m0u2/VbQqxlYsQ1yYkmRukhFs3IguLpigXW3MB/sBvD/9yXnFu6qP9GT+i10kKtblw1uq+4o8mnP7vPOVo86kSRf8EU7hHEafgTBpTXQZ847rp1hteAYDP35QTtVimXDafsq9TETXVuPZeRKqG3GEmEO1MU5Ufddf2JbPZmhBbdblpbbdNXYRhbwKZstP1dSoIXpLgUsusLuZwHtAmN2cyfDGVXtaAhvXj+UXTIIS0xDujdMQe5ilrVKTZfg+S8jdVU7ELOGyuX9gQyyx2UJwjwlBixouw4bTXYJ6JlKbKcldXI43X9ttP5K8RmcEy/1FV3+rpWEI/Nn2S4a0hAr8Wxn2X7IpbFcYhBlhcvX6z1HnrX12OobqJ5Ddd37+47pwAf8wmqUgALOwXGT0fw4W8BwgDvA67AGPVpSGVK8xYEyv9P2FA9xf/7fPLwai5DDSPWGsgpGWeJDoliCNgr7D5dEkpFj1eyA2QGlYCtHgEuhq5zzfqJodBFSe25BYnJP7dlwTHxSEHay/zYhXwNJWRbLZE1C9BMVkltIzsyAyCjZPfhi/4rH+W52jdEI7LC8ztWRYALCA3VJMiJnuoD2ww3NcMZczk4CgYbycApdJeWZoi55zC+umgNUYWNQkRDHZkkacMlEI004MB3byHZfAulXKR0GBZnaUmcBhYrwPhB0XKZGKsq7ZJa/sLSzDUhLGyf15b9YUPs=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA6PR04MB11910.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(1800799024)(366016)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?akUxZm13NzNKb2ZZanZvU0I2U21TZmJwNlJtN0ViVXAvZ21Yd2tSb3l4a002?=
- =?utf-8?B?aUd5LzdmZ3UyN0NVVmlzZzFqeVBsd2pOMzNhcFVZNkQ5MW1JOUhWWlByOWxs?=
- =?utf-8?B?d04zdCtVeUtoTzh6ZUdnSWFXOGhGdER5a2tXYnkyeUNJYzVwNmxMdlhRQWlT?=
- =?utf-8?B?c2libUpxUy9ZZnpCbXNjcFR6TGVPNC9qM1VQZzRUVWxtS28xcFpjL0hwbHpE?=
- =?utf-8?B?R1VIbUN6SlFrUVM2ME1GcUc3QWo3S004NXkvNlBCeWIvY3VuNTEyOTJ1WlpE?=
- =?utf-8?B?SnRmYzZnbE1WT0ZsTmMrSVRLanNFWU5iamFaWUtzeUJRdTk2TGlwdWFJY2lR?=
- =?utf-8?B?MzA5eVlJVThkMWg1dDExZTltT0oyL3l1NjIzQk05MGhnNi9JUTIzbnJjai8x?=
- =?utf-8?B?aVFqajJmYlhaeGhvRWtCMmhMNE1BRWhmTVg3Q041Vm45SndEcm45cU9YdUd6?=
- =?utf-8?B?aGl4N1NVRVp5OEEvSFlZbytGa1VkNEZCY0hQaEZqVmFDei9qd3MzRmpmeUVO?=
- =?utf-8?B?Z09xRU5oSDhWTEp2ZndlSTN3by9UZGR0NGkxb2hhQnNadG55L1FDeXlFK2I1?=
- =?utf-8?B?WDNxSGgxK2VxQnJXV2MySTZFZ1JNbEpYTXBoSEN5VWUwNDBoanYzUUZ2cTh5?=
- =?utf-8?B?RGMvOE93REE3c0Y1WjkycXVObjk5ZXJsejNBTTlFUnV3R2kra2hhK1FxUEJ3?=
- =?utf-8?B?djBsOVJJbVRtelFEUXNickJhWWlGbEZMS1Z3KzQ3bmJqZ2ZmWENTWUJEV1J4?=
- =?utf-8?B?OGNyWWdkeHlVRmMwM05rRGc5MVJESThHSTF0OU9NeFlMdnc4a3hTdUZ1OW50?=
- =?utf-8?B?Q0xCN2V1Q1luQVZqOWUrdWhxZHdudFRQcnplRWpHb0JnSERSUlNrUHY0Q3lo?=
- =?utf-8?B?WkpjdWVETFJTREMwMitWUzFma2VIdnBPNWhaMUh3M0lYSlhUUVlVbjJsOXBn?=
- =?utf-8?B?alR2MkFzZ3VaSzRCaGsyQ1d0SHlsWFI0R2JINTAyaXY3WXUyQ1dZTGxhYVZW?=
- =?utf-8?B?N3VFZ1Y4TGNQSEZoWmk5dWw2aHdDRk1KM0VZc3R1dzByTWZxUkN6Uk4wSGZt?=
- =?utf-8?B?b0ZUOUZzZVh0dDBUNElzSitHNHFWQ25aS2NEMmdVbnA2dDQ4TzZ1SmIzdkxD?=
- =?utf-8?B?UTVIQk1KOU5vdC9tL1NLa3gxbTc5OGRkU05aSFIrM0xmUVVJZkdsUXdSaVlP?=
- =?utf-8?B?TGtES09EZE9RRnFTWk9hcm5NQzJJdHZCckh0WW0wRG9IVmVkend1dFBMYUZP?=
- =?utf-8?B?d0ZOdDV0cG52WEhLSlk5N1BYTWJ0YUp0a3UrRXNGNEhwWXl0dnFVRzdjbHRl?=
- =?utf-8?B?R1BlbmIwc2ovOGFwV0tqZ3pvNjQ2UldrT0lpZjk3YnRTSHJDWHlHT3dNVmp1?=
- =?utf-8?B?bGF2cWMyL2gxK1ZQaG1GcTNVbDhJaitOM1pPd216WGpxcEtTK1k4UTM1am4w?=
- =?utf-8?B?V2hiQzVWR0MvV0NJdjVNdjBLeHI1cE14VFl4Wm9RV3Z3YXVDSDY0SGZ6bURN?=
- =?utf-8?B?SXdTUDBLMWpwNlNkSHJzRitPQ0hqZTNHZnFUVjMyaCtPVUY3dDNVSWN2NXMy?=
- =?utf-8?B?dDFkbk80a1JxQzJPTTZXTGtHQVYzbWhuT1E4RDBLVmlOVTF1U2lsVG44VzNH?=
- =?utf-8?B?czNzUDN6SVE5NUZQbWs2bExwcWovSGhPRmFvb0tZQVp6OTMxNmFHL1dieTMy?=
- =?utf-8?B?UkRvazFNRXlUU3pVQkIwVkpqUW1FVkxPbTd2aE5UbkdYd2xycXZnYnF6Mzdv?=
- =?utf-8?B?TXVuMnNpRjBqM0RjYzgrRDRRMk11K1A4RTBWVU9VcE1uV3V1dUgwdXlVV2hk?=
- =?utf-8?B?WXpZa1dQa0VocWZzdHJrbEliRG1ma2lvdkFDYnN4dFNmdGo3ZVhkU3NwK3Yw?=
- =?utf-8?B?eUt0VjgvMnkwRjVmclc5eERUTUp3VVh6ZUR5NGlqYmU5cGhQOFJJQ001cHA3?=
- =?utf-8?B?cVEzK0lNNEV1d2czOGVaNy81QzJuSWdRQSt5Nm00WFM5cVQxSU15blYrUnhC?=
- =?utf-8?B?UFE4cGRyQVV5UUhkcXRNUllIVEdiRE10cEdySUJ5bmRkWGxUcnVKamF5SVRW?=
- =?utf-8?B?dGxwbG5OWkUvaEswY1ZLbVpEblFZY2ZNaEE3QUtWdlhDRnM1NmZUOW0yUlFp?=
- =?utf-8?B?Q3BMb3grQXBOeEpjcjNyeGtCRGZVRVNaVXN5SmI2MEd6U0cydnpkUy9KSWRT?=
- =?utf-8?B?dUtORFVHVzNsTVZEaUh6Vnc5dWx5QW1ueksrc09QMEN3UWx5ZnZKeW5xU2tD?=
- =?utf-8?B?bDlld0FMZjNDb09RakpjTmRYQlE0cEI0MEE3QnV4aEdHN1lwcFRKekpQOXlx?=
- =?utf-8?B?WkMwdTFvQzNZd1FBcms5dFR1a3JJeVc1U2pHRGJhYmxkdXhuK1R4dz09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c57f8221-149a-4d8d-0ae6-08de94787758
-X-MS-Exchange-CrossTenant-AuthSource: PA6PR04MB11910.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Apr 2026 07:37:05.4753
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WhSNW/njCtYccx7IUeqzIXaVAUf4fglGqawkJvZ31Qg8cgOlpu+ERg7mklp7Y7bLgMhejixqjCChVK1sgDo9/g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9020
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/8] firmware: sysfb: Make CONFIG_SYSFB a user-selectable
+ option
+To: Arnd Bergmann <arnd@arndb.de>,
+ Javier Martinez Canillas <javierm@redhat.com>,
+ Ard Biesheuvel <ardb@kernel.org>,
+ Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Dave Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, "K. Y. Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, longli@microsoft.com,
+ Helge Deller <deller@gmx.de>
+Cc: linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
+ linux-fbdev@vger.kernel.org
+References: <20260402092305.208728-1-tzimmermann@suse.de>
+ <20260402092305.208728-4-tzimmermann@suse.de>
+ <78f76717-8f1e-41d6-92f7-261df96b84b6@app.fastmail.com>
+ <3e466158-c2e5-4e23-934f-dcdbb71ad41f@suse.de>
+ <d3d7c545-3b07-4881-a16d-45b6f039de19@app.fastmail.com>
+ <001efe27-9cbb-4a89-8d2d-a1f3ae15e505@suse.de>
+ <295a43ce-92fb-435d-a82f-d1cfa8f4f28d@app.fastmail.com>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <295a43ce-92fb-435d-a82f-d1cfa8f4f28d@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-4.30 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	ARC_NA(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	MIME_TRACE(0.00)[0:+];
+	RCPT_COUNT_TWELVE(0.00)[23];
+	FREEMAIL_TO(0.00)[arndb.de,redhat.com,kernel.org,linaro.org,xen0n.name,linux.intel.com,gmail.com,ffwll.ch,microsoft.com,gmx.de];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.com:url,imap1.dmz-prg2.suse.org:helo]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_003712_545750_F6E9E75B 
-X-CRM114-Status: GOOD (  28.13  )
+X-CRM114-CacheID: sfid-20260407_003945_983392_AB5F91BC 
+X-CRM114-Status: GOOD (  49.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,150 +176,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi
 
-Hi Jacopo
+Am 02.04.26 um 18:47 schrieb Arnd Bergmann:
+> On Thu, Apr 2, 2026, at 17:27, Thomas Zimmermann wrote:
+>> Am 02.04.26 um 16:59 schrieb Arnd Bergmann:
+>>> On Thu, Apr 2, 2026, at 16:10, Thomas Zimmermann wrote:
+>>>> Am 02.04.26 um 15:08 schrieb Arnd Bergmann:
+>>>>> On Thu, Apr 2, 2026, at 11:09, Thomas Zimmermann wrote:
+>>>>> I don't really like this part of the series and would prefer
+>>>>> to keep CONFIG_SYSFB hidden as much as possible as an x86
+>>>>> (and EFI) specific implementation detail, with the hope
+>>>>> of eventually seperating out the x86 bits from the EFI ones.
+>>>> You mean, you want to use the EFI-provided framebuffers without the
+>>>> intermediate step of going through sysfb_primary_display?
+>>>>
+>>>> In that case, CONFIG_SYSFB would become an x86-internal thing, right?
+>>> The part that is still needed from sysfb is the arbitration
+>>> between DRM_EFI and the PCI device driver for the same hardware,
+>>> so I think some part of sysfb is clearly needed, in particular
+>>> the sysfb_disable() function that removes the EFI framebuffer
+>>> when there is a conflicting simpledrm or hardware specific
+>>> driver.
+>> We do most of that in the aperture-helper module. (see
+>> <linux/aperture.h>). Calling sysfb_disable() from there is a workaround
+>> for some corner cases. We can have an EFI-specific function that does
+>> the same.
+> That sounds good, yes. The same change would need to go into
+> of_platform_default_populate_init() then.
 
-On 4/3/26 10:19 AM, Jacopo Mondi wrote:
-> 
-> 
-> Hello Antoine
-> 
->     in cc Jai and Paul
-> 
-> Jai and Paul are working on upstreaming new ISP formats which would
-> benefit from usage of extensible stats.
-> 
-> No pressure of course, just wanted to check how things are progressing
-> on your side. Do you have an updated version of this patch which can
-> be taken in ? Should we sync and work on an updated version ?
+The call to sysfb_disable() is a workaround for certain cases that 
+aperture helpers don't handle well. In the longer term, I'd want 
+aperture helpers to be more clever about aperture ownership. But as an 
+intermediate step, adding other _disable() function would be an option. 
+But there's no hurry.
 
-I'm still on it. Things are progressing well, but little bit delayed 
-because of neoisp rework. I hope to submit patchset (v4l2-isp + neo) by 
-end of this week.
+>
+>> BTW, simpledrm-on-EFI/VESA is considered obsolete and should preferably
+>> be removed from that driver. Simpledrm should become a driver for
+>> Devicetree nodes of type simple-framebuffer (as it originally has been
+>> intended).
+> Sure, I was only thinking of the case where there are both
+> sysfb (from Arm/riscv UEFI) and simpledrm (from devicetree)
+> objects referring to the same one, not the simpledrm
+> device created by sysfb_simplefb.
+>
+>>> The parts that I want to keep out of that is anything
+>>> related to the x86 boot protocol, non-EFI framebuffers,
+>>> text console, and kexec handoff, which we don't need on
+>>> non-x86 UEFI systems.
+>>>
+>>> I don't mind the idea of having a sysfb_primary_display
+>>> in the EFI code if that helps keep EFI sane on x86,
+>>> but it would be good to make that local to
+>>> drivers/firmware/efi and (eventually) detached from
+>>> include/uapi/linux/screen_info.h.
+>> Efidrm retrieves the framebuffer settings from the contained struct
+>> screen_info. Disconnecting from screen_info would require separate
+>> graphics drivers for x86 and non-x86. If we split off EFI from sysfb,
+>> we'd likely need a sysfbdrm driver of some sort. Just saying.
+> Yes, I saw that as well and don't have an immediate idea for how
+> to best do it. I saw that you already abstracted the access to
+> the screen_info members in drm_sysfb_screen_info.c, which I think
+> is a step in that direction.
+>
+> I also noticed that efidrm is mostly a subset of vesadrm, so
+> in theory they could be merged back into an x86 drm driver
+> along with the drm_sysfb_screen_info helpers, and have a non-x86
+> driver that constructs a drm_sysfb_device directly from the
+> EFI structures.
 
-BR
-Antoine
+I would not want to have a unifed driver for all-things-screen_info. The 
+code that can easily be shared is already in the sysfb helpers. But I 
+don't mind adding a separate driver for EFI's Graphics Output Protocol. 
+Then there would be current efidrm for EFI-from-screen_info and 
+efigopdrm for EFI via the GOP interfaces. If EFI ever specifies another 
+graphics interface, we could add another driver. The maintenance 
+overhead is small on the DRM side.
 
-> 
-> Thanks!
->     j
-> 
-> On Fri, Jan 23, 2026 at 09:09:28AM +0100, Antoine Bouyer wrote:
->> Extend the v4l2-isp extensible format introduced for isp parameters buffer
->> to the statistics buffer as well.
+What is the future of x86's boot_param and the related screen_info on 
+x86-64?  Is it obsolete?  Will boot loaders run the EFI stub instead?
+
+>
+>> I think we'd also have to duplicate the framebuffer-relocation code that
+>> currently works on anything using struct screen_info (see patch 5).
+> You mean the code from include/linux/screen_info.h? I think
+> it would make sense to have an x86 specific version of that
+> to operate on the x86 screen_info, and a simpler version
+> that just updates the resource for the efirdrm driver, but
+> that could also be done one level higher or lower.
+
+Makes me wonder if the relocation code could be integrated into the 
+aperture helpers. It would have to track the relocation of all PCI 
+graphics devices and probing DRM drivers would query the relocation 
+offset for their given framebuffer.
+
+>
+>>>>> In general, I am always in favor of properly using Kconfig
+>>>>> dependencies over 'select' statements, for the same reasons
+>>>>> you describe, but I don't want the the x86 logic for
+>>>>> the legacy VESA and VGA console handling to leak into more
+>>>>> architectures than necessary.
+>>>>>
+>>>>> Do you think we could instead move the sysfb_init()
+>>>>> function into the same two places that contain the
+>>>>> sysfb_primary_display definition (arch/x86/kernel/setup.c,
+>>>>> drivers/firmware/efi/efi-init.c) and simplify the efi version
+>>>>> to take out the x86 bits? That would reduce the rest
+>>>>> of sysfb-primary.c to the logic to unregister the device,
+>>>>> and that could then be selected by both x86 and EFI.
+>>>> No, I'm more than happy that sysfb finally consolidates all the
+>>>> init-framebuffer setup and detection that floated around in the kernel.
+>>>> I would not want it to be duplicated again.
+>>>>
+>>>> For now, we could certainly keep CONFIG_SYSFB hidden and autoselected.
+>>>> Although I think this will require soem sort of solution at a later point.
+>>> Can you clarify which problem you are trying to solve
+>>> with that?
+>> One thing is that some users simply what control over their kernel build.
 >>
->> Like for ISP configuration purpose, that will help supporting various ISP
->> hardware versions reporting different statistics data with less impact on
->> userspace.
->>
->> The `v4l2_isp_stats_buffer` reuses the `v4l2_isp_params_buffer` container
->> definitions, with similar header, versions and flags. V0 and V1 versions
->> are provided to match with params versions. On the other side, ENABLE and
->> DISABLE flags are not really meaningfull for statistics purpose. So VALID
->> and INVALID flags are introduced. Purpose is to force ISP driver to
->> validate a statistics buffer, before it is consumed by userspace.
->>
->> Signed-off-by: Antoine Bouyer <antoine.bouyer@nxp.com>
->> ---
->>   include/uapi/linux/media/v4l2-isp.h | 85 +++++++++++++++++++++++++++++
->>   1 file changed, 85 insertions(+)
->>
->> diff --git a/include/uapi/linux/media/v4l2-isp.h b/include/uapi/linux/media/v4l2-isp.h
->> index 779168f9058e..ed1279b86694 100644
->> --- a/include/uapi/linux/media/v4l2-isp.h
->> +++ b/include/uapi/linux/media/v4l2-isp.h
->> @@ -99,4 +99,89 @@ struct v4l2_isp_params_buffer {
->>        __u8 data[] __counted_by(data_size);
->>   };
->>
->> +/**
->> + * enum v4l2_isp_stats_version - V4L2 ISP statistics versioning
->> + *
->> + * @V4L2_ISP_STATS_VERSION_V0: First version of the V4L2 ISP statistics format
->> + *                          (for compatibility)
->> + * @V4L2_ISP_STATS_VERSION_V1: First version of the V4L2 ISP statistics format
->> + *
->> + * V0 and V1 are identical, and comply with V4l2 ISP parameters versions. So
->> + * both V0 and V1 refers to the first version of the V4L2 ISP statistics
->> + * format.
->> + *
->> + * Future revisions of the V4L2 ISP statistics format should start from the
->> + * value of 2.
->> + */
->> +enum v4l2_isp_stats_version {
->> +     V4L2_ISP_STATS_VERSION_V0 = 0,
->> +     V4L2_ISP_STATS_VERSION_V1,
->> +};
->> +
->> +#define V4L2_ISP_PARAMS_FL_BLOCK_VALID               (1U << 0)
->> +#define V4L2_ISP_PARAMS_FL_BLOCK_INVALID     (1U << 1)
->> +
->> +/*
->> + * Reserve the first 8 bits for V4L2_ISP_STATS_FL_* flag.
->> + *
->> + * Driver-specific flags should be defined as:
->> + * #define DRIVER_SPECIFIC_FLAG0     ((1U << V4L2_ISP_STATS_FL_DRIVER_FLAGS(0))
->> + * #define DRIVER_SPECIFIC_FLAG1     ((1U << V4L2_ISP_STATS_FL_DRIVER_FLAGS(1))
->> + */
->> +#define V4L2_ISP_STATS_FL_DRIVER_FLAGS(n)       ((n) + 8)
->> +
->> +/**
->> + * struct v4l2_isp_stats_block_header - V4L2 extensible statistics block header
->> + * @type: The statistics block type (driver-specific)
->> + * @flags: A bitmask of block flags (driver-specific)
->> + * @size: Size (in bytes) of the statistics block, including this header
->> + *
->> + * This structure represents the common part of all the ISP statistics blocks.
->> + * Each statistics block shall embed an instance of this structure type as its
->> + * first member, followed by the block-specific statistics data.
->> + *
->> + * The @type field is an ISP driver-specific value that identifies the block
->> + * type. The @size field specifies the size of the parameters block.
->> + *
->> + * The @flags field is a bitmask of per-block flags V4L2_STATS_ISP_FL_* and
->> + * driver-specific flags specified by the driver header.
->> + */
->> +struct v4l2_isp_stats_block_header {
->> +     __u16 type;
->> +     __u16 flags;
->> +     __u32 size;
->> +} __attribute__((aligned(8)));
->> +
->> +/**
->> + * struct v4l2_isp_stats_buffer - V4L2 extensible statistics data
->> + * @version: The statistics buffer version (driver-specific)
->> + * @data_size: The statistics data effective size, excluding this header
->> + * @data: The statistics data
->> + *
->> + * This structure contains the statistics information of the ISP hardware,
->> + * serialized for userspace into a data buffer. Each statistics block is
->> + * represented by a block-specific structure which contains a
->> + * :c:type:`v4l2_isp_stats_block_header` entry as first member. Driver
->> + * populates the @data buffer with statistics information of the ISP blocks it
->> + * intends to share to userspace. As a consequence, the data buffer effective
->> + * size changes according to the number of ISP blocks that driver intends to
->> + * provide and is set by the driver in the @data_size field.
->> + *
->> + * The statistics buffer is versioned by the @version field to allow modifying
->> + * and extending its definition. Driver shall populate the @version field to
->> + * inform the userpsace about the version it intends to use. The userspace will
->> + * parse and handle the @data buffer according to the data layout specific to
->> + * the indicated version.
->> + *
->> + * For each ISP block that driver wants to report, a block-specific structure
->> + * is appended to the @data buffer, one after the other without gaps in
->> + * between. Driver shall populate the @data_size field with the effective
->> + * size, in bytes, of the @data buffer.
->> + */
->> +struct v4l2_isp_stats_buffer {
->> +     __u32 version;
->> +     __u32 data_size;
->> +     __u8 data[] __counted_by(data_size);
->> +};
->> +
->>   #endif /* _UAPI_V4L2_ISP_H_ */
->> --
->> 2.52.0
->>
+>> I also think that there might be systems that want to use
+>> sysfb_primary_display (plus the relocation feature), but not create the
+>> framebuffer device. Say for efi-earlycon. It needs user-control over the
+>> SYSFB option to do that.
+> I'm still not following, sorry. efi-earlycon doesn't require
+> CONFIG_SYSFB today, and I don't see why that would need to change,
+> or why it couldn't just 'select SYSFB' if it it does change.
+>
+>> As a side-effect, user-configurable SYSFB gives us a nice place to put
+>> SYSFB_SIMPLEFB and FIRMWARE_EDID; two options that currently float
+>> around in the config somewhat arbitrarily.
+> You said that SYSFB_SIMPLEFB should get phased out in the future,
+> right?
+
+Yes. Better sooner than later.
+
+>
+> I'm also missing your plan for CONFIG_FIRMWARE_EDID. I only
+> see three legacy drivers using the old fb_firmware_edid()
+> interface, so I assume this is not what you are interested in.
+>
+> For the global copy that is filled by x86 and efi, and
+> consumed by vesadrm and efidrm, does that even need to
+> be a configuration option rather than get always enabled?
+
+There is code in x86's old 16-bit boot/init code that reads the EDID via 
+VESA. The help text on CONFIG_FIRMWARE_EDID sounds like it needs to be 
+configurable because some systems can't do the VESA calls. Hence, the 
+logical step seems to be to make this consistent for all systems by 
+adopting the option for all EDID retrieval.
+
+If we can remove CONFIG_FIRMWARE_EDID and make EDID support 
+unconditional, I'm all for it.
+
+Best regards
+Thomas
+
+>
+>         Arnd
+
+-- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
+
 
 
