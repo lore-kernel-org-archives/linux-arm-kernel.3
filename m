@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96EC2FF5139
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 19:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0CDDFF5136
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 19:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nKylmw2JBa+9HQkKAnkeiRUOdPwH+QDE+to5+t37u6I=; b=CRIgER1ZBfEIidCmVHeswJFgxc
-	SOJrW/e1se00vn3X9EL67r1lwFr7+4fJ2FOnWVt0zm9Pj2SJyP0LnqN7FlW9o+pc4YPXzJ6HWyjaJ
-	inhhVmjU2VBBoSuWvE0UIOwapIh6l7Dl/yIcFxTiqn2qmhXmmK21HgUkWvL84yYWVOta5AjpWPvJk
-	FN1DezceENkDN/1AOf4K6CU7jseKwqUlJF2b7A5/A6pymBuAl9ZfHCk3YO2ohckTTXoSM/MJF6JT9
-	lbZ2y3MWXnyrxM07hgvArskIj5kR+uDsv29p34Tzwrfkzsql1YW4WKgUuGDxbB4xHIogw/cQ/4SCk
-	9m4tRxBw==;
+	bh=zfB2Vo9vdLlwf+b5CQXtw7Z//lquULPDQoRNbd6Zh9Y=; b=r0xKvCeg5sZHSc/abQKIA+BxOs
+	IXoFp430xVCuK7hvguxkLHbZK8o5k2GJAJC1/dy0lH/xqb7H8YrtFZV+u58vgpYLLCfHYKZcNcYGj
+	hse3zbTWYiLS3YBUTiKKPun9md5We6Z/X0EMdK0wcMYnBEhyz9hPRYjR8aoFY5sryklYevWLjba1H
+	y6jLodcqgp2lxHXR3f/ag28zIsvGY3SZatvouWXYX+AiKRWlvoTBmOc97M0EsojJWHZPQeSZmaeXJ
+	Vf/9MYGPJFljOmf4vgdSp7/xb7TwL615OqS4JDtfQvjAYPIroYZAUsZy9N95TjmOngaUJ9+PNLRxv
+	wGahXdHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wACHM-00000007IRT-0ZKI;
-	Tue, 07 Apr 2026 19:40:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wACHO-00000007ITq-0pRj;
+	Tue, 07 Apr 2026 19:40:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wACHI-00000007IMS-2MpV;
-	Tue, 07 Apr 2026 19:40:01 +0000
+	id 1wACHM-00000007IQq-0ZmG;
+	Tue, 07 Apr 2026 19:40:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2242B404AC;
-	Tue,  7 Apr 2026 19:40:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7665FC19421;
-	Tue,  7 Apr 2026 19:39:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3BB9C60139;
+	Tue,  7 Apr 2026 19:40:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20F94C2BC9E;
+	Tue,  7 Apr 2026 19:40:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775590800;
-	bh=L3Rfg+8z09e8keiE7bpGEjenYKXFDv21kTEZM7E6AaA=;
+	s=k20201202; t=1775590802;
+	bh=G6kWDg5ZKjWvzVWKZlcYhQ5fam5iGV3sa+XLqVTs0uY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=l+XKs1nTqXITUzVO9V7ZcgbUKwdnwTFr3L2FCLHY2KQo86k0Ffjt8OL1/JRtkSDa3
-	 yNBwGPy69Qr91P26LAHEK1+rZfI5CToJT/zHAcNUCaWarkT5tjiCiRrgjcgleZ82i2
-	 RAt0ogBD0uHApgE3oFsyhNUam/qX/iD1x6pRvm43Q4Iw5xWGX7cWXIJicOEm828y5B
-	 55nqWXirst8RsbiNBuVI6dXtBatMxgvAUKG04HGQ8GcjMnE9vAOu2CBdQ4m7SQse8C
-	 W1jYywMzoAaOGnuLv2xcDaPbBqhp+7vjf9ZKmdzFfBwerHgNt4NKfTHi12+fv/HkF7
-	 JDYjm5yTda1Nw==
-Date: Tue, 7 Apr 2026 21:38:32 +0200
+	b=sDMsUKs11clmLqRSYOHdYemC/6eCCuTs/nd+pMdQ4HYBrZ2RMECvxE6SXi3Cq7Qt2
+	 Vq2KJvfW5GfXXZgHejEo9PnFH8x8Op63ZSvbJ0vvCU+be1qdWGNKDkx6MVC2iXkJUM
+	 qJwNyNeAg2v+RkrnDQoXDazkT2Endo1x/TFg5/uKx/qUeKnEug+ZIa1nMoI5aLlOEY
+	 qeo71REji+J04wTIEZliW+iwogjU+a6RnJJQAR1UJJBmXx/1Uxx/C0aQtgyu1LZY3r
+	 MsOztoq00b7hebIqtbESUzLc+vPI1CSIyx11Yg+4g+gy6/+6M0uFALPOC0AaMDWpzZ
+	 Kfy0Fs+ExLZRQ==
+Date: Tue, 7 Apr 2026 21:39:30 +0200
 From: Nicolas Schier <nsc@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>
 Cc: Nathan Chancellor <nathan@kernel.org>,
@@ -78,11 +78,10 @@ Cc: Nathan Chancellor <nathan@kernel.org>,
 	Bill Wendling <morbo@google.com>,
 	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
-	Tamir Duberstein <tamird@kernel.org>
-Subject: Re: [PATCH v2 25/33] docs: rust: quick-start: add Ubuntu 26.04 LTS
- and remove subsection title
-Message-ID: <adVdOOTJ0Iku8A3g@levanger>
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 01/33] rust: kbuild: remove `--remap-path-prefix`
+ workarounds
+Message-ID: <adVdctvoln3uRnSH@levanger>
 Mail-Followup-To: Nicolas Schier <nsc@kernel.org>,
 	Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -119,17 +118,13 @@ Mail-Followup-To: Nicolas Schier <nsc@kernel.org>,
 	Bill Wendling <morbo@google.com>,
 	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
-	Tamir Duberstein <tamird@kernel.org>
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
 References: <20260405235309.418950-1-ojeda@kernel.org>
- <20260405235309.418950-26-ojeda@kernel.org>
+ <20260405235309.418950-2-ojeda@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260405235309.418950-26-ojeda@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_124000_719399_DB5F32BD 
-X-CRM114-Status: GOOD (  15.55  )
+In-Reply-To: <20260405235309.418950-2-ojeda@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,31 +139,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 06, 2026 at 01:53:01AM +0200, Miguel Ojeda wrote:
-> Ubuntu 26.04 LTS (Resolute Raccoon) is scheduled to be released in a few
-> weeks [1], and it has a recent enough Rust toolchain, just like Ubuntu
-> 25.10 has [2][3].
+On Mon, Apr 06, 2026 at 01:52:37AM +0200, Miguel Ojeda wrote:
+> Commit 8cf5b3f83614 ("Revert "kbuild, rust: use -fremap-path-prefix
+> to make paths relative"") removed `--remap-path-prefix` from the build
+> system, so the workarounds are not needed anymore.
 > 
-> We could update the title and the paragraph, but to simplify and to
-> make it more consistent with the other distributions' sections, let's
-> instead just remove that title. It will also reduce the differences
-> later on to keep it updated. Eventually, when we remove the remaining
-> subsection for older LTSs, Ubuntu should be a small section like the
-> other distributions.
+> Thus remove them.
 > 
-> Thus remove the title and add the mention of Ubuntu 26.04 LTS.
+> Note that the flag has landed again in parallel in this cycle in
+> commit dda135077ecc ("rust: build: remap path to avoid absolute path"),
+> together with `--remap-path-scope=macro` [1]. However, they are gated on
+> `rustc-option-yn, --remap-path-scope=macro`, which means they are both
+> only passed starting with Rust 1.95.0 [2]:
 > 
-> Link: https://documentation.ubuntu.com/release-notes/26.04/schedule/#resolute-raccoon-schedule [1]
-> Link: https://packages.ubuntu.com/search?keywords=rustc&searchon=names&exact=1&suite=all&section=all [2]
-> Link: https://packages.ubuntu.com/search?keywords=bindgen&searchon=names&exact=1&suite=all&section=all [3]
-> Reviewed-by: Tamir Duberstein <tamird@kernel.org>
+>   `--remap-path-scope` is only stable in Rust 1.95, so use `rustc-option`
+>   to detect its presence. This feature has been available as
+>   `-Zremap-path-scope` for all versions that we support; however due to
+>   bugs in the Rust compiler, it does not work reliably until 1.94. I opted
+>   to not enable it for 1.94 as it's just a single version that we missed.
+> 
+> In turn, that means the workarounds removed here should not be needed
+> again (even with the flag added again above), since:
+> 
+>   - `rustdoc` now recognizes the `--remap-path-prefix` flag since Rust
+>     1.81.0 [3] (even if it is still an unstable feature [4]).
+> 
+>   - The Internal Compiler Error [5] that the comment mentions was fixed in
+>     Rust 1.87.0 [6]. We tested that was the case in a previous version
+>     of this series by making the workaround conditional [7][8].
+> 
+> ...which are both older versions than Rust 1.95.0.
+> 
+> We will still need to skip `--remap-path-scope` for `rustdoc` though,
+> since `rustdoc` does not support that one yet [4].
+> 
+> Link: https://github.com/rust-lang/rust/issues/111540 [1]
+> Link: https://github.com/rust-lang/rust/pull/147611 [2]
+> Link: https://github.com/rust-lang/rust/pull/107099 [3]
+> Link: https://doc.rust-lang.org/nightly/rustdoc/unstable-features.html#--remap-path-prefix-remap-source-code-paths-in-output [4]
+> Link: https://github.com/rust-lang/rust/issues/138520 [5]
+> Link: https://github.com/rust-lang/rust/pull/138556 [6]
+> Link: https://lore.kernel.org/rust-for-linux/20260401114540.30108-9-ojeda@kernel.org/ [7]
+> Link: https://lore.kernel.org/rust-for-linux/20260401114540.30108-10-ojeda@kernel.org/ [8]
 > Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 > ---
->  Documentation/rust/quick-start.rst | 5 +----
->  1 file changed, 1 insertion(+), 4 deletions(-)
+>  rust/Makefile | 8 ++------
+>  1 file changed, 2 insertions(+), 6 deletions(-)
 > 
 
-Reviewed-by: Nicolas Schier <nsc@kernel.org>
+Acked-by: Nicolas Schier <nsc@kernel.org>
 
 -- 
 Nicolas
