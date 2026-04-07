@@ -4,59 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8579FEEF55
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 21:08:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16C3DF46C7F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 21:10:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EutJzCH5y+/uj+HeBlqKAV6Z3BuYlSwoWrpFxuQWcuc=; b=4FFj2X1Cq5Wh5n/f5Ng/H+gW6u
-	fiZpUw+CkRD/HxBq1viZP0y7pKIKrzPJEl+0NffUzStDZLdblxoPZ4QL2S0WUvz5nEzTYod8WajNz
-	9yXRaxxQtYZbfY4DK+eghSy0qMgZgoTFC59qrrT8thtEX6y+zTRvExW9NxOYt+cUAi/mtXD3uh9z1
-	WjWb+3hELPuPjrUy7ZjAxoMWExz5WV7yZukpEjG2blVqasgVZLkL04E0EkpjawLF+4uxPUNRcbrdn
-	2YHGEI5Pw7x2eHqJidXbUhPMdK1qZ6au1TkFmj4K/WVy3pPYFZDx/a6ddSYaezjLOyw4xO2eQ0F0B
-	7TNUfmJg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PnND6iHBMV6WE1ZHJaECUBIFEEiEhNHhl942sAfaZN8=; b=iWlkzNeKqR1/BuxyeekOjFWG1b
+	uhyhn/SLtdbjuQwpR1ifmNLfKm5PTYqaqOke0R4kCRxS4Igik7oE6VF3lZpgNvzORE0s37XoZ2SOM
+	iX7nWJCOlutvF6o7LXCUzzHg3BnnUqBSfEZvPgs65JHm9xfAn/ycALH9YYhKgo92eiCOWrBpwTt0T
+	DQZtKpkyi2Eh0xHbwWailGPkPaF2y3/UGyfOCEd5hDKAt9ERzluDijv2njN0smJiLprSV/rQB7DDJ
+	Pgpo9wJ+h1ipP6mmRkoBXKZEN8aTJWMJmg8dO8J2TXP8r4ma357keJ0h8vSToXen+w2AEfKB+uGH5
+	PIVpI/0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wADfA-00000007vVw-21hR;
-	Tue, 07 Apr 2026 21:08:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wADgM-00000007vcP-3cWX;
+	Tue, 07 Apr 2026 21:09:58 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wADf8-00000007vVa-0Vxk
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 21:08:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 68B7341875;
-	Tue,  7 Apr 2026 21:08:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EFEFC116C6;
-	Tue,  7 Apr 2026 21:08:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775596120;
-	bh=gIIaaUV+7chBOO2TykQwm8KJUrCM1gtVUozq7g5UYi4=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=m0mxOE+P0p15xy5t+yMoKAbZL+g5VoESh66ptbVCBGkRr+88h2L8SrGP5dntdWWZl
-	 LfcjYKbo1NjpG4vFL8a1HhrowjPzYAI8JCYqELuune0oBSXwh2c/IIuYlAYpgEmLkz
-	 6tnqGy5OB5JsAuDqQUlt4UoE/f7qXEQ3pgtimExTBvyCvjDJA/pssKjus1s6QDvD0h
-	 VusIAoOeuvq/2jQt3PL6rM4+8ly+FQHr3b28OLbtYuojG24F2eSkd6CgdLZbRPSFpJ
-	 g4mHEu7BFzSY74iY+0M97H2dTvhZjD32T+qVQXj6MFOYJGofcfllp2oC3SERO1HlIw
-	 Ta6HfAxRV7t4A==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>,
- linux-arm-kernel@lists.infradead.org, Andy Lutomirski <luto@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Peter Zijlstra
- <peterz@infradead.org>, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH 00/10] arm64/entry:
-In-Reply-To: <20260407131650.3813777-1-mark.rutland@arm.com>
-References: <20260407131650.3813777-1-mark.rutland@arm.com>
-Date: Tue, 07 Apr 2026 23:08:36 +0200
-Message-ID: <87cy0a4gx7.ffs@tglx>
+	id 1wADgM-00000007vcE-0Xdz
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 07 Apr 2026 21:09:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Sender:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=PnND6iHBMV6WE1ZHJaECUBIFEEiEhNHhl942sAfaZN8=; b=EbSVYnC+aoucRZI1t/3rJLmcgk
+	SNk5+GvL37isalRUjPlqIJjPz6o2HlMFTzBTXkduIEJm5ameGW+WG53vYY1Z771BNYaMQABDakZb6
+	2LTG4Vktm8Xb2RlPvOlBTAp3Qvun+8KOHjDSq1FekuKcUoafrmG2YFG3uJN0t/+zcArnBUW0XDz89
+	bEFz0EkIh28qL1DNxgTZvcL/JsdJhAS14t5/f6QyZQcbyAloDnVnouRXNt4y1Eaud/WGR15fp7xS+
+	A1LbgqzHmow88ah2ZNLXlU616ZEyBBgrzK3otVYBdWbPp5EeSlS9hXdw7FNwCOMDwuHInAqoBN3gh
+	Eh/OEGhQ==;
+Received: from [2001:8b0:10b:1::425] (helo=i7.infradead.org)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wADgI-00000004GbB-3Zu8;
+	Tue, 07 Apr 2026 21:09:54 +0000
+Received: from dwoodhou by i7.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wADgI-00000008iI5-1hTK;
+	Tue, 07 Apr 2026 22:09:54 +0100
+From: David Woodhouse <dwmw2@infradead.org>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	David Woodhouse <dwmw@amazon.co.uk>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	Kees Cook <kees@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH 0/3] KVM: arm64: vgic: Fix IIDR revision handling and add revision 1
+Date: Tue,  7 Apr 2026 21:27:01 +0100
+Message-ID: <20260407210949.2076251-1-dwmw2@infradead.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_140842_191478_7C1E8B0E 
-X-CRM114-Status: GOOD (  18.00  )
+Content-Transfer-Encoding: 8bit
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,38 +83,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, ruanjinjie@huawei.com, vladimir.murzin@arm.com, linux-kernel@vger.kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 07 2026 at 14:16, Mark Rutland wrote:
-> I've split the series into a prefix of changes for generic irqentry,
-> followed by changes to the arm64 code. I'm hoping that we can queue the
-> generic irqentry patches onto a stable branch, or take those via arm64.
-> The patches are as follows:
->
-> * Patches 1 and 2 are cleanup to the generic irqentry code. These have no
->   functional impact, and I think these can be taken regardless of the
->   rest of the series.
->
-> * Patches 3 to 5 refactor the generic irqentry code as described above,
->   providing separate irqentry_{enter,exit}() functions and providing a
->   split form of irqentry_exit_to_kernel_mode() similar to what exists
->   for irqentry_exit_to_user_mode(). These patches alone should have no
->   functional impact.
+The uaccess write handlers for GICD_IIDR extract the revision field
+from the wrong variable, making it impossible for userspace to actually
+change the implementation revision. Fix that.
 
-I looked through them and I can't find any problem with them. I queued
-them localy and added the missing kernel doc as I promised you on IRC.
+Additionally, allow userspace to select IIDR revision 1, restoring the 
+behaviour from before commit d53c2c29ae0d ("KVM: arm/arm64: vgic: Allow 
+configuration of interrupt groups") behaviour where interrupt groups are 
+not guest-configurable. This is needed by hypervisors that were 
+reverting that commit to preserve the original guest-visible 
+semantics.
 
-As I have quite a conflict pending in the tip tree with other changes
-related to the generic entry code, I suggest that I queue 1-5, tag them
-for arm64 consumption and merge them into the conflicting branch to
-avoid trouble with pull request ordering and headaches for the -next
-people.
+When revision 1 is selected:
+ - GICv2: IGROUPR reads as zero (group 0), writes ignored
+ - GICv3: IGROUPR reads as all-ones (group 1), writes ignored
 
-Does that work for you?
+The IIDR revision comments in both vgic-mmio-v2.c and vgic-mmio-v3.c
+are updated to document all three revisions.
 
-Thanks,
+David Woodhouse (3):
+      KVM: arm64: vgic: Fix IIDR revision field extracted from wrong value
+      KVM: arm64: vgic: Allow userspace to set IIDR revision 1
+      KVM: arm64: selftests: Add vgic IIDR revision test
 
-        tglx
+ arch/arm64/kvm/vgic/vgic-mmio-v2.c                 |   7 +-
+ arch/arm64/kvm/vgic/vgic-mmio-v3.c                 |   6 +-
+ arch/arm64/kvm/vgic/vgic-mmio.c                    |  15 +++
+ include/kvm/arm_vgic.h                             |   1 +
+ tools/testing/selftests/kvm/Makefile.kvm           |   1 +
+ .../testing/selftests/kvm/arm64/vgic_group_iidr.c  | 112 +++++++++++++++++++++
+ 6 files changed, 140 insertions(+), 2 deletions(-)
+
+
 
