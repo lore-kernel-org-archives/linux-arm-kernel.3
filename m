@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DCD9E9D814
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 06:48:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24D70FB519F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 06:49:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=k94lUa+KEMbk6AFvbQk7NdZga11Yp/wVHOllCIcd9o0=; b=owaWuHzAdVUIY5oDl784fx4FeT
-	BMkZi/XoWlA48IhtV18Y5kBBD5TvFJeFr+csK5wwZSO1DT+UsT0koZiO2bIiT+iuA7hkaAjDKXfco
-	XEWvep+FYC9JTYNpWCYSMfjZBgqx8wZ2t5BvWtey2sbD+pEZ/iWuzbFvpzpc5ueTTXSdlWnGnQiyu
-	mND4jZPoOIpHfLhtbae5fVanEKZTJjl+4HBw3mpemMlyro6HKcmIF/zMtfRrJ7GTwnv0Cd/t0zMSG
-	3eGLjrk99n45qvAtQI7V1WWAkKGGKNoJkMZh848OrCaUAbDSFdJEk3JCq7q9e8VIarZtXNPK0YZBT
-	lSLzItiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=js/60XcxEgznRBJwV2ujw120fs3UELKfKXD5uMVygHQ=; b=D9alRyDFIWNw1e0mQYYlR8aVMB
+	0uZEKuMDNJuSVk6/RCU6d6Pxl1pkZLFGv3toDaaTJixEXaVH+5YoU1kttnwy/WtQDEOO64cpc1L8v
+	f76ltLEuNsplpQKH2aEV2cvBeyb6zyHv/cfHKFfTHE142kwflOes0UVEInl849jo91QmIjtmWtZPv
+	4/WwrYiUhdfqY73qgVRuGt+SBxLg0QPPjqQjP0jbLB98cwiHbXFkt4hs6m1RCcvQ1P6PndwElJ7vt
+	T4q8hyE/Tcua/ybVb1tWEDy0ZARmydTauCwS0qRE+ELUaPpjyXVl2QYFLXgIlvcFUKC4ywPnyi3iX
+	hoiPXlcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA0Er-000000061Ye-39Py;
-	Tue, 07 Apr 2026 06:48:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wA0FK-000000061ej-0FIe;
+	Tue, 07 Apr 2026 06:49:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA0Ep-000000061Xs-2Dc3;
-	Tue, 07 Apr 2026 06:48:40 +0000
+	id 1wA0FH-000000061e7-0I0K
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Apr 2026 06:49:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C82BC441C6;
-	Tue,  7 Apr 2026 06:48:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A990C116C6;
-	Tue,  7 Apr 2026 06:48:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 39F2244432
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Apr 2026 06:49:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10B79C2BCC9
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Apr 2026 06:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775544518;
-	bh=sO9aQuhE+niwJIm1bqiOtD3Jjz6qnYB8L83GRriDkrA=;
-	h=From:Date:Subject:To:Cc:From;
-	b=W7RyjkJPbc9QY9ImPBHkmjo0uS84hXK7K/BSLw6m6mt+L9Y6FaXWxApbiloGeOI49
-	 MO+z5Z2rMK1/BgV1bIFHqNSaXzJTEtrPCqO2xkAJUXzYxiLwtDdg79S1CiJLQ3MJXR
-	 nRERo2iz9AwoFN0eBfPSC1I21LHmaklRVfmdP1FoYDSbJ6zyvfr2DjkCoIvNa3Du9l
-	 OpS8xCNQnTvj3bxcwjnKpKqZdS7aIuqxj0XE9F+GlfCPYJeOE+69VSHzgjg1eE5AMN
-	 XHn4GAOCbmEl687Akghnl9byCiBaJU5iA1OX/KUPavRUrtkLdC7+VPrEMQhlGMfpxb
-	 GAltvef+phLjw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 07 Apr 2026 08:48:04 +0200
-Subject: [PATCH net v3] net: airoha: Add dma_rmb() and READ_ONCE() in
- airoha_qdma_rx_process()
+	s=k20201202; t=1775544546;
+	bh=HjjlIen8rUrvGYqNR05Jq/L1IRmPKRpg+nH7yZl2hRg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=kGNC2/lqyiujlvSY6SSWV8fe8eVTjPMe5dVTVNEl1a/g9RTwdfCcLBylgtyOdnWyO
+	 j5JN82QNLKuFCexfdfAmwq9aoCsnnWePrIknivfP98412hCf00i5/EH614vO037t12
+	 18wfYDVEC8WS823YkuRKRufiqess1ghcV91OvDZFFDO2XRw4UXJjZL442ZShZFxWOq
+	 nIAOrcpc0ENNVeLec61Ua2bnpxVE90J4bNNqIm2BLSPpHIWyM4eCnJyZsH5ZEt+UrH
+	 pI/C8sG+WOjxUwU9qwXOfxv3uRqJEoKUhSc+eYDQNhghb3n++zAKyy5JWYXcJhRdoI
+	 CUNnylxTI4Bpw==
+Received: by mail-yw1-f182.google.com with SMTP id 00721157ae682-79ea87af213so82251777b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Apr 2026 23:49:06 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVwJ/zbMONTl3Wlbm0qlrB/WiZXvx2tbmwHmjWzxj9JRfwGXTD+B8DbjZTINseQMWehphTklYrQMt4MZU/E637m@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDd6dw2p57CLD3iyUl3bIJXsYUGloJ3cZjYntXoWIJ/S+xo7GE
+	4TEani7uESiU+i6D7qMOdfqe8Vv8ATlVk5PMqSfA5GqbKMS9seyTL8JHiFaqsKiRE8BVV7t+5fk
+	r3hoc0jWrEAUj2TKFJBqLhuGqDPNkCTU=
+X-Received: by 2002:a05:690c:4903:b0:7a2:46b8:3858 with SMTP id
+ 00721157ae682-7a3be360aaamr143427997b3.24.1775544545311; Mon, 06 Apr 2026
+ 23:49:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260407-airoha_qdma_rx_process-fix-reordering-v3-1-91c36e9da31f@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5XNSw6CMBCA4auQrq1pp1CIK+9hDOExQKO2OCUNh
- nB3m650p8t55Ps35pEMenbKNkYYjDfOxkEdMtZNjR2Rmz7ODARokQvgjSE3NfWzfzQ1rfVMrkP
- v+WBWTuioj5wdeQmgRAVF0eqCRWsmjB+pc2EWF3aNy8n4xdErtYNMpz8zQXLJCwVllZf5IDScb
- 0gW70dHY0oE+GTVryxEVlYSNYLqoWy/2H3f374jibI3AQAA
-X-Change-ID: 20260402-airoha_qdma_rx_process-fix-reordering-722308255b65
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Xuegang Lu <xuegang.lu@airoha.com>, Simon Horman <horms@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org
-X-Mailer: b4 0.14.3
+References: <20260327-pinctrl-mux-v5-0-d4aec9d62c62@nxp.com> <CAD++jLmoHiJWV3J8f3TtpmQWLpUFD24icQEv2cbO3+x7775zxw@mail.gmail.com>
+In-Reply-To: <CAD++jLmoHiJWV3J8f3TtpmQWLpUFD24icQEv2cbO3+x7775zxw@mail.gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 7 Apr 2026 08:48:53 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmyf9mD4FgmLqNdrP1WdFgQptGZ7KbVOhwYCRrxZQXuHA@mail.gmail.com>
+X-Gm-Features: AQROBzCgkwudsrLfavBP6ja7953ovvgx3yZllIUGcsr7ztcvvCdDDTr3vn9C_-w
+Message-ID: <CAD++jLmyf9mD4FgmLqNdrP1WdFgQptGZ7KbVOhwYCRrxZQXuHA@mail.gmail.com>
+Subject: Re: [PATCH v5 0/7] pinctrl: Add generic pinctrl for board-level mux chips
+To: Frank Li <Frank.Li@nxp.com>, Peter Rosin <peda@axentia.se>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Ahmad Fatoum <a.fatoum@pengutronix.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260406_234839_632093_A62F2F42 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20260406_234907_124195_36E0877E 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,96 +87,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing dma_rmb() in airoha_qdma_rx_process routine to make sure the
-DMA read operations are completed when the NIC reports the processing on
-the current descriptor is done. Moreover, add missing READ_ONCE() in
-airoha_qdma_rx_process() for DMA descriptor control fields in order to
-avoid any compiler reordering.
+On Tue, Apr 7, 2026 at 8:42=E2=80=AFAM Linus Walleij <linusw@kernel.org> wr=
+ote:
 
-Fixes: 23020f0493270 ("net: airoha: Introduce ethernet support for EN7581 SoC")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
-Changes in v3:
-- Move page pointer initialization before checking error condition on
-  payload length in order avoid using page pointer uninitialized in the
-  airoha_qdma_rx_process() error path.
-- Link to v2: https://lore.kernel.org/r/20260403-airoha_qdma_rx_process-fix-reordering-v2-1-181e6e23d27b@kernel.org
+> >       mux: add devm_mux_control_get_from_np() to get mux from child nod=
+e
+>
+> Didn't get an ACK from the mux maintainer for this but this has been goin=
+g
+> on for long now so I applied it.
+>
+> Peter: protest if you don't like this and I will back it out.
 
-Changes in v2:
-- Use msg1 in airoha_qdma_get_gdm_port() signature to avoid missing
-  READ_ONCE().
-- Link to v1: https://lore.kernel.org/r/20260402-airoha_qdma_rx_process-fix-reordering-v1-1-53278474f062@kernel.org
----
- drivers/net/ethernet/airoha/airoha_eth.c | 16 ++++++++++------
- 1 file changed, 10 insertions(+), 6 deletions(-)
+I created an immutable branch for Peter to pull in if he want it:
+https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl.git/lo=
+g/?h=3Dib-mux-pinctrl
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 91cb63a32d99..9285a68f435f 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -584,7 +584,7 @@ static int airoha_qdma_fill_rx_queue(struct airoha_queue *q)
- static int airoha_qdma_get_gdm_port(struct airoha_eth *eth,
- 				    struct airoha_qdma_desc *desc)
- {
--	u32 port, sport, msg1 = le32_to_cpu(desc->msg1);
-+	u32 port, sport, msg1 = le32_to_cpu(READ_ONCE(desc->msg1));
- 
- 	sport = FIELD_GET(QDMA_ETH_RXMSG_SPORT_MASK, msg1);
- 	switch (sport) {
-@@ -612,21 +612,24 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 	while (done < budget) {
- 		struct airoha_queue_entry *e = &q->entry[q->tail];
- 		struct airoha_qdma_desc *desc = &q->desc[q->tail];
--		u32 hash, reason, msg1 = le32_to_cpu(desc->msg1);
--		struct page *page = virt_to_head_page(e->buf);
--		u32 desc_ctrl = le32_to_cpu(desc->ctrl);
-+		u32 hash, reason, msg1, desc_ctrl;
- 		struct airoha_gdm_port *port;
- 		int data_len, len, p;
-+		struct page *page;
- 
-+		desc_ctrl = le32_to_cpu(READ_ONCE(desc->ctrl));
- 		if (!(desc_ctrl & QDMA_DESC_DONE_MASK))
- 			break;
- 
-+		dma_rmb();
-+
- 		q->tail = (q->tail + 1) % q->ndesc;
- 		q->queued--;
- 
- 		dma_sync_single_for_cpu(eth->dev, e->dma_addr,
- 					SKB_WITH_OVERHEAD(q->buf_size), dir);
- 
-+		page = virt_to_head_page(e->buf);
- 		len = FIELD_GET(QDMA_DESC_LEN_MASK, desc_ctrl);
- 		data_len = q->skb ? q->buf_size
- 				  : SKB_WITH_OVERHEAD(q->buf_size);
-@@ -670,8 +673,8 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 			 * DMA descriptor. Report DSA tag to the DSA stack
- 			 * via skb dst info.
- 			 */
--			u32 sptag = FIELD_GET(QDMA_ETH_RXMSG_SPTAG,
--					      le32_to_cpu(desc->msg0));
-+			u32 msg0 = le32_to_cpu(READ_ONCE(desc->msg0));
-+			u32 sptag = FIELD_GET(QDMA_ETH_RXMSG_SPTAG, msg0);
- 
- 			if (sptag < ARRAY_SIZE(port->dsa_meta) &&
- 			    port->dsa_meta[sptag])
-@@ -679,6 +682,7 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 						  &port->dsa_meta[sptag]->dst);
- 		}
- 
-+		msg1 = le32_to_cpu(READ_ONCE(desc->msg1));
- 		hash = FIELD_GET(AIROHA_RXD4_FOE_ENTRY, msg1);
- 		if (hash != AIROHA_RXD4_FOE_ENTRY)
- 			skb_set_hash(q->skb, jhash_1word(hash, 0),
+(You can also pull in just the bottom commit which is just the mux change)
 
----
-base-commit: a9d4f4f6e65e0bf9bbddedecc84d67249991979c
-change-id: 20260402-airoha_qdma_rx_process-fix-reordering-722308255b65
-
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+Yours,
+Linus Walleij
 
