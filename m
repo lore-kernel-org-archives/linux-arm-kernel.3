@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6E5CEDB7DF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 10:07:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DECFEDB7DF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 10:08:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ABbFXHA17YPeSFOLyaCah4wP7kD1esZ+i8H/VX/7EME=; b=c++FXDHt0sCbrKSXNvMlRQjqon
-	2UAuPhJ2a+/38NOxYEpq2DneTSnaCqshfYm6icfLm24ZwjQlEBTMHPiKAxVmmonYxHUVXWjG7S3UX
-	jBbN1MdhP4PJ4O6u24oEotNUhim0csCJNZrLHyQ7FteQczjkdBcL4Q6DOk6rXYrrJqF9NKG+Smttz
-	pJ+BIVOWY75Pk52BWfqkEVulckmn0T35MatI8M1458Yb7/N8fuBeyjS/MhHJRkqy6f1ob47tXo7wC
-	k69tTBtU9CRKr5UgLBV8Vgeh6IGD0TUBf7OobuDxjAlS0LSbp0h/2+13Wstt+feWAhg875s/LDzjV
-	UtFiAJdQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iIsNW8U+3F4vNWIChl+7u47slwko/EeRDN5TM2qbiNM=; b=t9CLMTuGkb0rpOMqysdSmEoDvU
+	zf9j2bgHk0hPFuBRHn+mdrcsbzuDcsEYw9cGm8MnY0uoRnLQfPEdHVGd7AJvrUfUOzYCdDVrf4cw3
+	Qe3+xpCxCjsjy7Y+vYLWKI1/SE9YbAjBdja3VSASgIIRn2KCLJhxzPjH5mdOjy4T9WXI+eJl0/atY
+	+X/Bo4IfpVasLknEuZGMrVPihOiMIOYlbDVL0g5ng2TLOf5aEdAVZ8CYPlzJvhoK06LKSHd5saU65
+	kntVHOMwYH9glnFwyxI2Wz/3H6TmgLF9OG2vwekteg/rX3JMqXeCupsnL0KQCwmSSAXQeqMjgHtR+
+	Y9KZy4cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA3Kt-00000006GMj-2IMZ;
-	Tue, 07 Apr 2026 10:07:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wA3MX-00000006GUo-46Ip;
+	Tue, 07 Apr 2026 10:08:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA3Kr-00000006GMD-3d9C
+	id 1wA3MW-00000006GUV-1rUx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 10:07:05 +0000
+	Tue, 07 Apr 2026 10:08:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DAF32600AC;
-	Tue,  7 Apr 2026 10:07:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FEA4C116C6;
-	Tue,  7 Apr 2026 10:07:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3FFBD40440
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Apr 2026 10:08:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25AD4C116C6;
+	Tue,  7 Apr 2026 10:08:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775556424;
-	bh=6DCORM0s4E03aenlwjof26fclnBM2ZPHGMHWcvXFWns=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Zi4On3b/icFf0lBSlUCxvaQJUmYHZV6hfANopI8dBnGTl96OydFIYSZYf/TZsKLqy
-	 DcR3/rxNFavm4Wxb9U41aa7SWMomDx6dZz6lmn0lazVtCrW1Z1gZEVwJYZb96FbLvS
-	 UEzfyQIKNubQlukKrfviqnniTUkIOFI8+gpRSdu4CFs0HU7YejwdfTY+OBWdg6Dfat
-	 JW6a2NmekDBTxehodRnaJMAEozcf9HNsQ+PQSVXDTLT15StS7uwRnURHaTkKmROrW5
-	 RLLx7NWGM+4ezo1qlm2DWWLaeVvJSKgyr0OvXW3AV9KFxzRPxK6qp6fOIthi3Tty8j
-	 eVMB/XivUp3Ww==
+	s=k20201202; t=1775556527;
+	bh=6J/dMth4Df+CbjL8W8F+sqSp1uVURDezELTXVv5pzk0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=SvEW8qNl2VNjZyOY37TaXthP5bbVVW+RRDGA/LHf4FnZ5b8zL+jsgTruo4RFIUITQ
+	 vpEN+O4S2v+rlTQj14Ab4SORwZGhUHq81bS6nJYdXfZQcQuCbKYdtZAsMqdXpp/y8G
+	 igBDHVKbRqGUFD2v66eXXl5XI1chV36pOmMNdLd7dq8pQ2y2GyIXT9rqV2m2gGoCIl
+	 2GR+pNQ4HKeAfMTtCGQlpSlEIKgRi16wHCwdOKc/F/mn1eux8gLKeqTQKM128glOYx
+	 P2Z7KyQiuH/JkVDlRgWWFeWXtojyswmq2Y8tMjhRhJFmNxMvUvauq4LUYjGME7E6ZT
+	 ah//8nBznRR+Q==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	android-kvm@google.com,
-	Sebastian Ene <sebastianene@google.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>
-Subject: Re: [PATCH v2] firmware: arm_ffa: Use the correct buffer size during RXTX_MAP
-Date: Tue,  7 Apr 2026 11:06:58 +0100
-Message-ID: <177555638623.3149203.11228894617554022145.b4-ty@b4>
+To: ARM SoC Team <arm@kernel.org>,
+	SoC Team <soc@kernel.org>,
+	ALKML <linux-arm-kernel@lists.infradead.org>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Arnd Bergmann <arnd@kernel.org>
+Subject: [GIT PULL] firmware: arm_ffa: Fix for v7.1
+Date: Tue,  7 Apr 2026 11:08:39 +0100
+Message-ID: <20260407100841.3150090-1-sudeep.holla@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260402113939.930221-1-sebastianene@google.com>
-References: <20260402113939.930221-1-sebastianene@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260407_030848_508485_60399895 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,18 +72,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 02 Apr 2026 11:39:39 +0000, Sebastian Ene wrote:
-> Don't use the discovered buffer size from an FFA_FEATURES call directly
-> since we can run on a system that has the PAGE_SIZE larger than the
-> returned size which makes the alloc_pages_exact for the buffer to be
-> rounded up.
+Hi ARM SoC Team,
 
-Applied to sudeep.holla/linux (for-next/ffa/fixes), thanks!
+Please pull ! This is the only fix/update I have at the moment for v7.1
+So, I am sending it early as fix but late as an update for v7.1.
 
-[1/1] firmware: arm_ffa: Use the correct buffer size during RXTX_MAP
-      https://git.kernel.org/sudeep.holla/c/83210251fd70
---
 Regards,
 Sudeep
 
+-->8
+
+The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+
+  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/ffa-fix-7.1
+
+for you to fetch changes up to 83210251fd70d5f96bcdc8911e15f7411a6b2463:
+
+  firmware: arm_ffa: Use the correct buffer size during RXTX_MAP (2026-04-07 10:47:42 +0100)
+
+----------------------------------------------------------------
+Arm FF-A fix for v7.1
+
+Use the page aligned backing allocation size when computing the RXTX_MAP
+page count. This fixes FF-A RX/TX buffer registration on kernels built
+with 16K/64K PAGE_SIZE, where alloc_pages_exact() backs the buffer with a
+larger aligned span than the discovered minimum buffer size.
+
+----------------------------------------------------------------
+Sebastian Ene (1):
+      firmware: arm_ffa: Use the correct buffer size during RXTX_MAP
+
+ drivers/firmware/arm_ffa/driver.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
