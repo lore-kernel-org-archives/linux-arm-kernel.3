@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD7FEEDB7D4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 09:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03DE2EDB7D4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 09:32:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=35utQv1mJDn/+FVHA9rap7AYG4gs2p36qLIotZXtT0g=; b=DHS9y/b7iJrpP2GdBnzpLzgyW8
-	D0SarEPChUMnwCK2CsrqfHu2mLxLmo4WoSeBLAEoDo4t5pa+OA85uiExJTNmHmEtiLRPif6Zxqz5r
-	ulCK31CzBxwoJ1ruth3bZXZ0+rBmLsaqlRD8k1wJ7tWxyAliORQTVi46+dsAjnKhrr9uPCkGOEewP
-	NCiasQlmtYlPR0t95M1HBB9H9ZvvKodxzawj690T8O/nYjdvflqOEKqW5EXz2cpNvWWgT6IiYnrX+
-	FXU66XIWgs+83wRX2BE289+uHmGr3bi7zQWOX9/66R/DofnVr1p1JUU+GsWmotWEJQfaQAEffKYtb
-	rllYCi5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jzYf1Hv2JmuH8VIiQtUJrr8SNTqHqZ6SpcJMeA9CfZQ=; b=BJzrc1Xj7G8IwGBhXL2iUeUR/2
+	zCi69+AEL9XDks/5LWg3F+UQk6OCIB+cPaDQAeQQo/yQJ2rN6uVgupSVRV8mtAZJuLKKEYSiKTULQ
+	fuDs+mcDFfrov996UiNEDOQmbk8uhQeAyAm6hLLAHECEm2TZ4qogTxxvA5TQqHUdq7waRROm3aYWs
+	dsV9Aeq6B0XBcOCGk2z/rF8fWA7r5ie2A2y40xmlUfdTDHoTwBLxDf1edBAEUyx/bnMwmk7jMO5Bc
+	m1IanTRmoFylPxpIkFU7Pp/DidnHqT8bqafYDd24Z8GyXirPLohwx28u+cAPD7j+p/RU27WSKbb1B
+	fbsfQyOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA2hG-00000006Dlb-24HF;
-	Tue, 07 Apr 2026 09:26:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA2hD-00000006Dl6-3nVo
+	id 1wA2nA-00000006E52-17Gl;
+	Tue, 07 Apr 2026 09:32:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wA2n7-00000006E4c-3INm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 09:26:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 112BE44234
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Apr 2026 09:26:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA73FC2BCB8
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Apr 2026 09:26:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775553966;
-	bh=35utQv1mJDn/+FVHA9rap7AYG4gs2p36qLIotZXtT0g=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=kwPOA/g+hTcTrDkQ3laEHU10cLlf8nRjTe2c/DeUoh57DV38a/+blLLBZSpSLjiVS
-	 r7ZKEzbXxarw4uZeLSCuq3iKW2smXGmJyRUz/OX+xJzybsU7w7No+QOqxGdAqk2kdB
-	 poe038axHQ+y8PtKbcWHg6z2iNz/SZM8SqvEQUD0g3nS0K6nWf6CfJKs3FtnuMYKED
-	 j/191VqiOgd7PKAk614SOJTgGSTBH5sL/RO9m3nQ9vyI+QIevdr9slunsImKLiVHKJ
-	 rbnA3ZuevAh8ecHFpTBGKwqSQH2eFXeoTiFzE3TfrysAvIfUV0dB8wxw4zyByijFfs
-	 33ZKgUcGHH6Hw==
-Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-7a469383e0bso31135137b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 02:26:06 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVI9XzQPO35bfKMGbOLp7d0pIRbymRuEMHusUUurseVsNj2Td6Ov/luphv5lVemrXmCjxm5Mu+37YyX8QRzcgwz@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmGQ8emTKugxZf+ibRB2PXRUQpZQONiZwGK3yepF4iimGKnYTq
-	E7xEBVDS66aJzhAfrSnx5XsNYsu5uJ+y555bI/R31WWOX2Ox5DmrAhEE75GkGQNgiye/zqfDoFh
-	oUbT+mWEI9xxQgXNi289SV6HDRVSSduo=
-X-Received: by 2002:a05:690c:dc9:b0:79b:e346:980c with SMTP id
- 00721157ae682-7a4d625504fmr162419117b3.12.1775553966242; Tue, 07 Apr 2026
- 02:26:06 -0700 (PDT)
+	Tue, 07 Apr 2026 09:32:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 74C121A00;
+	Tue,  7 Apr 2026 02:32:04 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8770B3F7D8;
+	Tue,  7 Apr 2026 02:32:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775554330; bh=bghqVgVi2rFpebPFdJZ8KlldKSei03ZbC3RuMA7fBIQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NhWYcbEhkFfiMRGOXn92UL+3h4avxJGszc0GnCTCQst0YLBovrcfCb2id6UFMHVgq
+	 lNnUC1uqwmd74JeQbK0LBmuCFiIYw/dECq6d/pDT8ZmGmNiVDaNDy6eOI8/ZkgUczG
+	 Zz1hOhxPL9x+aJNcEQBXD2WbAyOcplVVWlsipxo8=
+Date: Tue, 7 Apr 2026 10:32:06 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Dev Jain <dev.jain@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Jinjiang Tu <tujinjiang@huawei.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] arm64: mm: Fix rodata=full block mapping support
+ for realm guests
+Message-ID: <adTPFrlVCEt-hioX@arm.com>
+References: <20260330161705.3349825-1-ryan.roberts@arm.com>
+ <20260330161705.3349825-2-ryan.roberts@arm.com>
+ <ac7VD4Z85nS30GCp@arm.com>
+ <ac-W9oNM_O5RTtaf@arm.com>
+ <beacee23-c177-47a1-b8b5-743844b617a8@arm.com>
 MIME-Version: 1.0
-References: <20260306-aarch64-clear-pages-c-v1-1-77c1bb0f1c21@kernel.org> <ac7YJPo4Np2zxxEp@arm.com>
-In-Reply-To: <ac7YJPo4Np2zxxEp@arm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 7 Apr 2026 11:25:55 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=G81=ueo7djqUETToE459kpFGniWvBwnYbJtmXrm8MFw@mail.gmail.com>
-X-Gm-Features: AQROBzCOCkncZm_JCfvTszNJbimlQJbAZxhLdXzaXBoMHZTRztuKC4ciORt69b8
-Message-ID: <CAD++jL=G81=ueo7djqUETToE459kpFGniWvBwnYbJtmXrm8MFw@mail.gmail.com>
-Subject: Re: [PATCH] arm64: clear_page[s] using memset
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <beacee23-c177-47a1-b8b5-743844b617a8@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_022608_010967_1963A361 
-X-CRM114-Status: GOOD (  21.99  )
+X-CRM114-CacheID: sfid-20260407_023213_884388_35E864DE 
+X-CRM114-Status: GOOD (  23.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,49 +79,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 2, 2026 at 10:57=E2=80=AFPM Catalin Marinas <catalin.marinas@ar=
-m.com> wrote:
-> On Fri, Mar 06, 2026 at 09:57:50AM +0100, Linus Walleij wrote:
-> > There is no need to try to second-guess the compiler when
-> > clearing memory. Just call memset() like everyone else.
->
-> Hmm, that "like everyone else" made me think - why not move this to
-> generic code and only the 1-2 platforms that need their own should
-> override it? Could we do the same with copy_page()?
->
-> Sorry, more work all of a sudden ;).
+On Tue, Apr 07, 2026 at 09:43:42AM +0100, Ryan Roberts wrote:
+> On 03/04/2026 11:31, Catalin Marinas wrote:
+> > On Thu, Apr 02, 2026 at 09:43:59PM +0100, Catalin Marinas wrote:
+> >> Another thing I couldn't get my head around - IIUC is_realm_world()
+> >> won't return true for map_mem() yet (if in a realm). Can we have realms
+> >> on hardware that does not support BBML2_NOABORT? We may not have
+> >> configuration with rodata_full set (it should be complementary to realm
+> >> support).
+> > 
+> > With rodata_full==false, can_set_direct_map() returns false initially
+> > but after arm64_rsi_init() it starts returning true if is_realm_world().
+> > The side-effect is that map_mem() goes for block mappings and
+> > linear_map_requires_bbml2 set to false. Later on,
+> > linear_map_maybe_split_to_ptes() will skip the splitting.
+> > 
+> > Unless I'm missing something, is_realm_world() calls in
+> > force_pte_mapping() and can_set_direct_map() are useless. I'd remove
+> > them and either require BBML2_NOABORT with CCA or get the user to force
+> > rodata_full when running in realms. Or move arm64_rsi_init() even
+> > earlier?
+> 
+> I'd need Suzuki to comment on this. As I said in the other mail, I was treating
+> this like a pre-existing bug. But I guess linear_map_requires_bbml2 ending up
+> wrong is a problem here. I'm not sure it's quite as simple as requiring
+> BBML2_NOABORT with CCA as we still need can_set_direct_map() to return true if
+> we are in a realm.
 
-I actually had that planned, I just wanted to know if this would
-be fine for arm64 first so that there is a user.
+can_set_direct_map() == true is not a property of the realm but rather a
+requirement. In the absence of BBML2_NOABORT, I guess the test was added
+under the assumption that force_pte_mapping() also returns true if
+is_realm_world(). We might as well add a variable or static label to
+track whether can_set_direct_map() is possible and avoid tests that
+duplicate force_pte_mapping().
 
-It seems you are on board so I will send a 2-patch series
-next.
+This won't solve the is_realm_world() changing polarity during boot but
+at least we know it won't suddenly make can_set_direct_map() return
+true when it shouldn't.
 
-> > Since memset() already has an architecture-local MOPS
-> > optimization, we do not need to do anything else to preserve
-> > the MOPS optimization.
->
-> The custom clear_page() had the (very small) advantage that it can skip
-> the length/alignment checks as they are always page-size.
-
-Yeah, it seems that is so fast that it doesn't really matter.
-
-> > While at it, implement the shorthand for directly calling
-> > the new prototype clear_pages() for larger page chunks.
-> >
-> > No performance regressions can be seen, the fastpath
-> > benchmarks differences are in the noise.
->
-> I assume the benchmarks ran on real hardware (had to ask, last time you
-> mentioned qemu ;)).
-
-Quoting my own commit message hehe:
-
-> No performance regressions can be seen, the fastpath
-> benchmarks differences are in the noise.
-
-This was tested on hardware with Ryan Robert's fastpath tool.
-
-Yours,
-Linus Walleij
+-- 
+Catalin
 
