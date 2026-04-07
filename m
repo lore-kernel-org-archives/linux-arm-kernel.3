@@ -4,83 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C234FEEF2D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 14:41:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7437FFEEF49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 14:44:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ObriV0Q2IquGQQtOCvjE29hhxCImgV2X5EipAqXZhE=; b=H10jh8CmAVlWrB9Ms760zyFiv2
-	/5qWWTtxzjzn7N/PN0o3BpZaV8QnQDndt/gQNRh/EHsRGkhSwYYERTbyKhecGlr5oN27Ud/P9owK3
-	ztM3DUerk5+wEAxIzVl3WNNjX8s46S9ffBci6tzp9K/o8ODkMONS8VOkJjps/1dZdpjbEjghuLzuY
-	hvrU0pYsRuHUoTvVTaYGrevsv7Wv3FemYWgWMLG8Igt5flgeb7HX4v/ZRnY+uf86M1oXftu7bXJ+I
-	6yxlz5roecYfryVFybvgMOYJCgHQPN0KxyDUBbmI5jptpqsxv1+faqUCtj88+GgW3gzgeweGYB4ZR
-	PlsDyZkg==;
+	bh=Zl+ybDcUVtik8d9nb2gVdt0WS3xrV20DIN3DouokInQ=; b=HBfWIE4waBbs8hK0jU0O83G6sy
+	DhlXYUkjgLco44SWHYnhkt71iZWYw+c3252CXm4bjepeQDbexSNLqAss3XTacoBCfbQRnbKq0Z40t
+	ISXmPv3+wzHilhhLSd86KwTkgP3wnTrj1NXCy8yGDa2IrunpxGs+wbtSyrkF8DvkQGsP1cGRhfeFv
+	vG+Y6sflMmcExPNPc7h+VC3Z/2UObUXCqn8DIjXgi+eIxX05Y7yZC9Bi5p5EPPQgFwlPoN6w9s+Lo
+	2oFR3I1WYRIQC0xTgPu7xyRFfWoTXGSu80E3fui/8mmi76kC1+NHzwXd9hYWg3ib7HHlxRtYdAY9y
+	isBDV03A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7cn-00000006dSd-0LDI;
-	Tue, 07 Apr 2026 14:41:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wA7ey-00000006dz8-1VsC;
+	Tue, 07 Apr 2026 14:44:08 +0000
+Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7ch-00000006dPG-2gNk
+	id 1wA7ev-00000006dxu-1miw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 14:41:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6530E444AD;
-	Tue,  7 Apr 2026 14:41:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 387AAC2BCB0;
-	Tue,  7 Apr 2026 14:41:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775572906;
-	bh=ef1jx7OWsEKTkZ4NElBbj+7oVAsnbdFmCVkx7//t3nU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=vEPn/GFAjO6VEpxdGL5GojtYcE0hpr7H9ChbGQ6QTtMuKa818tZRqmR0UeUVrTQuk
-	 FJDqSjwifIz+QPIxDKk1kjNlX5ukqpQvfnfqElbP+VjIOW4BQ3HI/jFCqgJNGK5bib
-	 FLWT+T21ecFKw79/1TlvcyTrqXqZvasjd5eJbKGgPqbUSiodS14m+0AojbyTjOlTGx
-	 yLtqBLwUbS153xozcuIiTsrn3KB1WgQGWaI45Ux/02/w+r0w7UDeg5yqLSEM2GvYL6
-	 Eipse8jOF4Ve1+Z2UcAFatBT6m6EcZ71Qjfsxleu7vGBZxeXaEyqQbD4FTXpxte3UE
-	 xN0Kt0VOGrvqQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2ED03FEEF53;
-	Tue,  7 Apr 2026 14:41:46 +0000 (UTC)
-From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Tue, 07 Apr 2026 16:41:43 +0200
-Subject: [PATCH v8 2/4] backlight: add max25014atg backlight
+	Tue, 07 Apr 2026 14:44:06 +0000
+Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-89f1e767f92so47464626d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 07:44:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775573044; cv=none;
+        d=google.com; s=arc-20240605;
+        b=RgJZyodCPsVZvDGwBQnZsNQudq1+5VjUcdhHeXDYMIwcXSl+IHbcQWz7dTS/DkPLVI
+         ERdJm7Mr4Uf8jgpUxNYKzfLRvDvxUz4/DzJzE0E3JTGz/fR9PsXTCkxabQI5yGlHS13J
+         9Du3/sFI4uvQvoHk72FAOYGOYV3iMVD1UmnRMyqFcFYRS8LGH1KExg9KqLze6WpOrCm1
+         1j0EUxmui47yq9YXrSQRrfYLVji52xvy1P4nHj9yPkRbvenI0Rcyhw+9LBkp85W649Ic
+         Vq0fsR/nsfsWwqxPDkLasawMeLQ9xYYNcZcthqq7qv5FtH/q1NJNmEjkr7rHQqTll67k
+         +XsA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Zl+ybDcUVtik8d9nb2gVdt0WS3xrV20DIN3DouokInQ=;
+        fh=yiy6oJXSZ76qrqmeKXiiT11Nz8Bwn0Olz77E1Dlzr2o=;
+        b=jpayAbbJ1HCIRJOdnGiNTiL0tUfthip3GvzU5DRErJlUYU2Dlt2BJO2Zu/ZZPEGsOc
+         AMcnIiMrkTqkrFJuRIj9bmB85R30X7l1VPyFuJPxOv1IiTnCnrL1A8LykK8PT8u2veVL
+         dKnAbol2CZcievgdiLBob75LeV4iKfOLSsPKWmU8RJyzOo9NekBIBSb6eaLPeS3yxcrd
+         FaoW41kmM9v8qBmTvUZFH2AJMtibmDKJ1HPdrh9SD/6p+HWDrHam5UHBaSJZWFjjutoi
+         3YE16LF0169k6DztDhBeGxWkrd1eqEg4ukgMswXj9op3051vDhfotoYPY7ldfFFdf0io
+         G4fA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1775573044; x=1776177844; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Zl+ybDcUVtik8d9nb2gVdt0WS3xrV20DIN3DouokInQ=;
+        b=XgcltCTWUgaqSygm3Sr6hBWjsaESAAPIMa8kLyw4RLBpinyRz2n8ZIkOTq3SnqZ0Pq
+         2nQ+udtMmyALXTcsa2HUkyaM15Gp5gupcRmGeg3zbROeH5QAfl4Aql5Mxuya2y72UDmu
+         XwBircOntaFTlIk4yzk3oqQG1OcnYDuqovfUS+Zx5IIZPCMqAuCrr0ldWmQeRwo7Lufj
+         ZOhbyeOEw9hvGlIvOQq/pMnFhMhqEEp8HBccjzCxTwQ2iyNpEJe1DN3fi7OG9lSngzk2
+         boVXeRA7yRHnYExwD+4C4OEEdUa+oDV9gDhBbC7YvbQm1/y1zAFF9VLNCtA9Syvt/1gv
+         BCYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775573044; x=1776177844;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Zl+ybDcUVtik8d9nb2gVdt0WS3xrV20DIN3DouokInQ=;
+        b=nvDbHDVeX0IqklXzxo+s14DK6NiPbvMpLPpTlNLj9qeqN28nVtQ3OpaoS0SQCokrDH
+         OnEZ433NgWa0PkY9NM6jz/nFSAzjgn0nuM30BO1gxVDcH76sG9DmJmHRHN27ZeIwZvH8
+         2mjtRDnkuuM7Jov3/pfwRypp7+hhGjuYT1krfiCQRpfVMUC7dpSuh/c9n2wZViIxpgZD
+         xVgSbgy/TLjvf2LZZbEGlLeGB59L64uO2ebeHmCY1Mlngq3tHvuYNhf+aK3z3NR7AAJs
+         KhmKTNV656j2qXbtKoHzEEb7d1YywPlsyTVExt677r+BwKvY5+3vyzvCyRFoHp6pZegi
+         0w3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVUBIcwAsZ9twBPcrFKYjiXmi9nHIBDnQH68St9SHHBnkKYZ9IkLBXBlQcpjsBqjRQvtWghNvtuMnScu2jZhp/Y@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzq1CIR/8EeWEoESJ1Wbh4Mdje/k3sxq4hFSqRvmnX2bfN9L2ui
+	JMk7rpXM/zGVAvNJspAcMhvduEiNxw8EUJWVnMF905AZEyqTYfvKK//goqEhzXuKrZWkEeaAC5P
+	L4y5Bbb905697gEtGRHPGj6qyhyptpyQ=
+X-Gm-Gg: AeBDiesIq9jy8nT5RHRvY/U9qkSbUquhsxY1xvTQ3Zc3nng2MfSkyUlg+GiH8qteJ9w
+	vRqPDWSIHF97GLcFwtp0ZVU5CukApaAAmAR7XMYrH8L/lZM2q+WAADgeBjNxgZktvyQbGI/ohRZ
+	wZolTMY0oq9FBZDo9NzZypiohCxgqZCTUkU41sAKc+OLoMk29Uo2JWHrKIPVDMdry++e7ggwaxP
+	G+nvLtAgn37eBcxrOdHLZ4TKQa+UvglAO6mU7ak8aZrhP1wKpOAyOeMmRgALk/J1Y3hwnP4RcBq
+	LuY6xQ==
+X-Received: by 2002:ad4:5bc3:0:b0:8a5:fcce:4c with SMTP id 6a1803df08f44-8a7043edff1mr287526516d6.27.1775573043645;
+ Tue, 07 Apr 2026 07:44:03 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260407-max25014-v8-2-14eac7ed673a@gocontroll.com>
-References: <20260407-max25014-v8-0-14eac7ed673a@gocontroll.com>
-In-Reply-To: <20260407-max25014-v8-0-14eac7ed673a@gocontroll.com>
-To: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>, 
- Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, Frank Li <Frank.Li@nxp.com>
-Cc: dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-fbdev@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Maud Spierings <maudspierings@gocontroll.com>
-X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775572904; l=13586;
- i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=uLW+QPrYLFpK9vr5ApIMHXa3cKKYw6jF1JqrJdl0OQw=;
- b=yw5E2rD9Uh9m6lW83GPT1YYTvJbPZIHrYWnj1d4uFwGZLSJIP4kkel/gsaNivBRhNYSwme4RR
- piG+WMg/bLiARblnKska4y1YGIPBu+541NXrB+W8fgLBCsoHvnulYGn
-X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
- pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
-X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
- with auth_id=341
-X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
+References: <20260326094308.1161335-1-wenst@chromium.org> <20260326094308.1161335-3-wenst@chromium.org>
+In-Reply-To: <20260326094308.1161335-3-wenst@chromium.org>
+From: Inki Dae <daeinki@gmail.com>
+Date: Tue, 7 Apr 2026 23:43:26 +0900
+X-Gm-Features: AQROBzBGt340ZHEJc4Xn02uKsIv90vik5xWrVoDE6tBxFh2VJoHTruSbBo3C7_4
+Message-ID: <CAAQKjZM5NC6svNX=7QpXzsfS-xAsCV2GdLDDdSTDpArwqg=o7g@mail.gmail.com>
+Subject: Re: [PATCH 2/4] drm/exynos: Use DRM core dedicated DMA device
+ tracking facility
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, 
+	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_074147_770242_93129D19 
-X-CRM114-Status: GOOD (  27.62  )
+X-CRM114-CacheID: sfid-20260407_074405_511275_3F944B7E 
+X-CRM114-Status: GOOD (  23.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,452 +116,167 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Maud Spierings <maudspierings@gocontroll.com>
+2026=EB=85=84 3=EC=9B=94 26=EC=9D=BC (=EB=AA=A9) =EC=98=A4=ED=9B=84 6:51, C=
+hen-Yu Tsai <wenst@chromium.org>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=B1:
+>
+> The exynos driver tracks a dedicated DMA device in its private data.
+> The DRM core already has facilities to do this, and it is integrated
+> into DRM PRIME imports and GEM DMA helpers.
+>
+> Convert the exynos driver to use the core's dedicated DMA device
+> tracking facility. Also get rid of exynos_drm_gem_prime_import() as
+> it is identical to drm_gem_prime_import() after the conversion.
+>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> ---
+>  drivers/gpu/drm/exynos/exynos_drm_dma.c | 11 +++++-----
+>  drivers/gpu/drm/exynos/exynos_drm_drv.c |  1 -
+>  drivers/gpu/drm/exynos/exynos_drm_drv.h |  8 --------
+>  drivers/gpu/drm/exynos/exynos_drm_g2d.c | 11 +++++-----
+>  drivers/gpu/drm/exynos/exynos_drm_gem.c | 27 ++++++++++---------------
+>  drivers/gpu/drm/exynos/exynos_drm_gem.h |  2 --
+>  6 files changed, 23 insertions(+), 37 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/exynos/exynos_drm_dma.c b/drivers/gpu/drm/ex=
+ynos/exynos_drm_dma.c
+> index ccc6b852ee7d..734741c80cbe 100644
+> --- a/drivers/gpu/drm/exynos/exynos_drm_dma.c
+> +++ b/drivers/gpu/drm/exynos/exynos_drm_dma.c
+> @@ -8,6 +8,7 @@
+>  #include <linux/iommu.h>
+>  #include <linux/platform_device.h>
+>
+> +#include <drm/drm_device.h>
+>  #include <drm/drm_print.h>
+>  #include <drm/exynos_drm.h>
+>
+> @@ -41,7 +42,7 @@ static int drm_iommu_attach_device(struct drm_device *d=
+rm_dev,
+>         struct exynos_drm_private *priv =3D drm_dev->dev_private;
+>         int ret =3D 0;
+>
+> -       if (get_dma_ops(priv->dma_dev) !=3D get_dma_ops(subdrv_dev)) {
+> +       if (get_dma_ops(drm_dev_dma_dev(drm_dev)) !=3D get_dma_ops(subdrv=
+_dev)) {
+>                 DRM_DEV_ERROR(subdrv_dev, "Device %s lacks support for IO=
+MMU\n",
+>                           dev_name(subdrv_dev));
+>                 return -EINVAL;
+> @@ -93,8 +94,8 @@ int exynos_drm_register_dma(struct drm_device *drm, str=
+uct device *dev,
+>  {
+>         struct exynos_drm_private *priv =3D drm->dev_private;
+>
+> -       if (!priv->dma_dev) {
+> -               priv->dma_dev =3D dev;
+> +       if (drm_dev_dma_dev(drm) =3D=3D drm->dev) {
+> +               drm_dev_set_dma_dev(drm, dev);
+>                 DRM_INFO("Exynos DRM: using %s device for DMA mapping ope=
+rations\n",
+>                          dev_name(dev));
+>         }
+> @@ -109,7 +110,7 @@ int exynos_drm_register_dma(struct drm_device *drm, s=
+truct device *dev,
+>                         mapping =3D arm_iommu_create_mapping(dev,
+>                                 EXYNOS_DEV_ADDR_START, EXYNOS_DEV_ADDR_SI=
+ZE);
+>                 else if (IS_ENABLED(CONFIG_IOMMU_DMA))
+> -                       mapping =3D iommu_get_domain_for_dev(priv->dma_de=
+v);
+> +                       mapping =3D iommu_get_domain_for_dev(dev);
+>
+>                 if (!mapping)
+>                         return -ENODEV;
+> @@ -135,5 +136,5 @@ void exynos_drm_cleanup_dma(struct drm_device *drm)
+>
+>         arm_iommu_release_mapping(priv->mapping);
+>         priv->mapping =3D NULL;
+> -       priv->dma_dev =3D NULL;
+> +       drm_dev_set_dma_dev(drm, NULL);
+>  }
+> diff --git a/drivers/gpu/drm/exynos/exynos_drm_drv.c b/drivers/gpu/drm/ex=
+ynos/exynos_drm_drv.c
+> index 2101a74dc1ed..9ee30086879f 100644
+> --- a/drivers/gpu/drm/exynos/exynos_drm_drv.c
+> +++ b/drivers/gpu/drm/exynos/exynos_drm_drv.c
+> @@ -109,7 +109,6 @@ static const struct drm_driver exynos_drm_driver =3D =
+{
+>         .open                   =3D exynos_drm_open,
+>         .postclose              =3D exynos_drm_postclose,
+>         .dumb_create            =3D exynos_drm_gem_dumb_create,
+> -       .gem_prime_import       =3D exynos_drm_gem_prime_import,
+>         .gem_prime_import_sg_table      =3D exynos_drm_gem_prime_import_s=
+g_table,
+>         EXYNOS_DRM_FBDEV_DRIVER_OPS,
+>         .ioctls                 =3D exynos_ioctls,
+> diff --git a/drivers/gpu/drm/exynos/exynos_drm_drv.h b/drivers/gpu/drm/ex=
+ynos/exynos_drm_drv.h
+> index 06c29ff2aac0..1ab7195d09ae 100644
+> --- a/drivers/gpu/drm/exynos/exynos_drm_drv.h
+> +++ b/drivers/gpu/drm/exynos/exynos_drm_drv.h
+> @@ -198,7 +198,6 @@ struct drm_exynos_file_private {
+>   */
+>  struct exynos_drm_private {
+>         struct device *g2d_dev;
+> -       struct device *dma_dev;
+>         struct device *vidi_dev;
+>         void *mapping;
+>
+> @@ -208,13 +207,6 @@ struct exynos_drm_private {
+>         wait_queue_head_t       wait;
+>  };
+>
+> -static inline struct device *to_dma_dev(struct drm_device *dev)
+> -{
+> -       struct exynos_drm_private *priv =3D dev->dev_private;
+> -
+> -       return priv->dma_dev;
+> -}
+> -
+>  static inline bool is_drm_iommu_supported(struct drm_device *drm_dev)
+>  {
+>         struct exynos_drm_private *priv =3D drm_dev->dev_private;
+> diff --git a/drivers/gpu/drm/exynos/exynos_drm_g2d.c b/drivers/gpu/drm/ex=
+ynos/exynos_drm_g2d.c
+> index 348603262af0..85a3a247dfca 100644
+> --- a/drivers/gpu/drm/exynos/exynos_drm_g2d.c
+> +++ b/drivers/gpu/drm/exynos/exynos_drm_g2d.c
+> @@ -20,6 +20,7 @@
+>  #include <linux/uaccess.h>
+>  #include <linux/workqueue.h>
+>
+> +#include <drm/drm_device.h>
+>  #include <drm/drm_file.h>
+>  #include <drm/drm_print.h>
+>  #include <drm/exynos_drm.h>
+> @@ -278,7 +279,7 @@ static int g2d_init_cmdlist(struct g2d_data *g2d)
+>
+>         g2d->cmdlist_dma_attrs =3D DMA_ATTR_WRITE_COMBINE;
+>
+> -       g2d->cmdlist_pool_virt =3D dma_alloc_attrs(to_dma_dev(g2d->drm_de=
+v),
+> +       g2d->cmdlist_pool_virt =3D dma_alloc_attrs(drm_dev_dma_dev(g2d->d=
+rm_dev),
+>                                                 G2D_CMDLIST_POOL_SIZE,
+>                                                 &g2d->cmdlist_pool, GFP_K=
+ERNEL,
+>                                                 g2d->cmdlist_dma_attrs);
+> @@ -311,7 +312,7 @@ static int g2d_init_cmdlist(struct g2d_data *g2d)
+>         return 0;
+>
+>  err:
+> -       dma_free_attrs(to_dma_dev(g2d->drm_dev), G2D_CMDLIST_POOL_SIZE,
+> +       dma_free_attrs(drm_dev_dma_dev(g2d->drm_dev), G2D_CMDLIST_POOL_SI=
+ZE,
 
-The Maxim MAX25014 is a 4-channel automotive grade backlight driver IC
-with integrated boost controller.
+to_dma_dev returns only the dedicated DMA device explicitly stored by
+the Exynos driver, whereas drm_dev_dma_dev falls back to the DRM
+master device when no dedicated DMA device has been set. So this does
+change the existing behavior, but it does not look problematic to me.
 
-Reviewed-by: Daniel Thompson (RISCstar) <danielt@kernel.org>
-Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
----
- MAINTAINERS                        |   1 +
- drivers/video/backlight/Kconfig    |   7 +
- drivers/video/backlight/Makefile   |   1 +
- drivers/video/backlight/max25014.c | 377 +++++++++++++++++++++++++++++++++++++
- 4 files changed, 386 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 7e3ad236537fe..1f1a5326a6aab 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -15692,6 +15692,7 @@ MAX25014 BACKLIGHT DRIVER
- M:	Maud Spierings <maudspierings@gocontroll.com>
- S:	Maintained
- F:	Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
-+F:	drivers/video/backlight/max25014.c
- 
- MAX31335 RTC DRIVER
- M:	Antoniu Miclaus <antoniu.miclaus@analog.com>
-diff --git a/drivers/video/backlight/Kconfig b/drivers/video/backlight/Kconfig
-index a7a3fbaf7c29e..f4e99542ffe8f 100644
---- a/drivers/video/backlight/Kconfig
-+++ b/drivers/video/backlight/Kconfig
-@@ -282,6 +282,13 @@ config BACKLIGHT_DA9052
- 	help
- 	  Enable the Backlight Driver for DA9052-BC and DA9053-AA/Bx PMICs.
- 
-+config BACKLIGHT_MAX25014
-+	tristate "Backlight driver for Maxim MAX25014"
-+	depends on I2C
-+	select REGMAP_I2C
-+	help
-+	  If you are using a MAX25014 chip as a backlight driver say Y to enable it.
-+
- config BACKLIGHT_MAX8925
- 	tristate "Backlight driver for MAX8925"
- 	depends on MFD_MAX8925
-diff --git a/drivers/video/backlight/Makefile b/drivers/video/backlight/Makefile
-index 794820a98ed49..21c8313cfb121 100644
---- a/drivers/video/backlight/Makefile
-+++ b/drivers/video/backlight/Makefile
-@@ -47,6 +47,7 @@ obj-$(CONFIG_BACKLIGHT_LOCOMO)		+= locomolcd.o
- obj-$(CONFIG_BACKLIGHT_LP855X)		+= lp855x_bl.o
- obj-$(CONFIG_BACKLIGHT_LP8788)		+= lp8788_bl.o
- obj-$(CONFIG_BACKLIGHT_LV5207LP)	+= lv5207lp.o
-+obj-$(CONFIG_BACKLIGHT_MAX25014)	+= max25014.o
- obj-$(CONFIG_BACKLIGHT_MAX8925)		+= max8925_bl.o
- obj-$(CONFIG_BACKLIGHT_MP3309C)		+= mp3309c.o
- obj-$(CONFIG_BACKLIGHT_MT6370)		+= mt6370-backlight.o
-diff --git a/drivers/video/backlight/max25014.c b/drivers/video/backlight/max25014.c
-new file mode 100644
-index 0000000000000..3ee45617261f3
---- /dev/null
-+++ b/drivers/video/backlight/max25014.c
-@@ -0,0 +1,377 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Backlight driver for Maxim MAX25014
-+ *
-+ * Copyright (C) 2025 GOcontroll B.V.
-+ * Author: Maud Spierings <maudspierings@gocontroll.com>
-+ */
-+
-+#include <linux/backlight.h>
-+#include <linux/gpio/consumer.h>
-+#include <linux/i2c.h>
-+#include <linux/regmap.h>
-+#include <linux/slab.h>
-+
-+#define MAX25014_ISET_DEFAULT_100 11
-+#define MAX_BRIGHTNESS            100
-+#define MIN_BRIGHTNESS            0
-+#define TON_MAX                   130720 /* @153Hz */
-+#define TON_STEP                  1307 /* @153Hz */
-+#define TON_MIN                   0
-+
-+#define MAX25014_DEV_ID           0x00
-+#define MAX25014_REV_ID           0x01
-+#define MAX25014_ISET             0x02
-+#define MAX25014_IMODE            0x03
-+#define MAX25014_TON1H            0x04
-+#define MAX25014_TON1L            0x05
-+#define MAX25014_TON2H            0x06
-+#define MAX25014_TON2L            0x07
-+#define MAX25014_TON3H            0x08
-+#define MAX25014_TON3L            0x09
-+#define MAX25014_TON4H            0x0A
-+#define MAX25014_TON4L            0x0B
-+#define MAX25014_TON_1_4_LSB      0x0C
-+#define MAX25014_SETTING          0x12
-+#define MAX25014_DISABLE          0x13
-+#define MAX25014_BSTMON           0x14
-+#define MAX25014_IOUT1            0x15
-+#define MAX25014_IOUT2            0x16
-+#define MAX25014_IOUT3            0x17
-+#define MAX25014_IOUT4            0x18
-+#define MAX25014_OPEN             0x1B
-+#define MAX25014_SHORTGND         0x1C
-+#define MAX25014_SHORTED_LED      0x1D
-+#define MAX25014_MASK             0x1E
-+#define MAX25014_DIAG             0x1F
-+
-+#define MAX25014_ISET_ENA         BIT(5)
-+#define MAX25014_ISET_PSEN        BIT(4)
-+#define MAX25014_IMODE_HDIM       BIT(2)
-+#define MAX25014_SETTING_FPWM     GENMASK(6, 4)
-+#define MAX25014_DISABLE_DIS_MASK GENMASK(3, 0)
-+#define MAX25014_DIAG_OT          BIT(0)
-+#define MAX25014_DIAG_OTW         BIT(1)
-+#define MAX25014_DIAG_HW_RST      BIT(2)
-+#define MAX25014_DIAG_BSTOV       BIT(3)
-+#define MAX25014_DIAG_BSTUV       BIT(4)
-+#define MAX25014_DIAG_IREFOOR     BIT(5)
-+
-+struct max25014 {
-+	struct i2c_client *client;
-+	struct backlight_device *bl;
-+	struct regmap *regmap;
-+	struct gpio_desc *enable;
-+	uint32_t iset;
-+	uint8_t strings_mask;
-+};
-+
-+static const struct regmap_config max25014_regmap_config = {
-+	.reg_bits = 8,
-+	.val_bits = 8,
-+	.max_register = MAX25014_DIAG,
-+};
-+
-+static int max25014_initial_power_state(struct max25014 *maxim)
-+{
-+	uint32_t val;
-+	int ret;
-+
-+	ret = regmap_read(maxim->regmap, MAX25014_ISET, &val);
-+	if (ret)
-+		return ret;
-+
-+	return val & MAX25014_ISET_ENA ? BACKLIGHT_POWER_ON : BACKLIGHT_POWER_OFF;
-+}
-+
-+static int max25014_check_errors(struct max25014 *maxim)
-+{
-+	uint32_t val;
-+	uint8_t i;
-+	int ret;
-+
-+	ret = regmap_read(maxim->regmap, MAX25014_OPEN, &val);
-+	if (ret)
-+		return ret;
-+	if (val) {
-+		dev_err(&maxim->client->dev, "Open led strings detected on:\n");
-+		for (i = 0; i < 4; i++) {
-+			if (val & 1 << i)
-+				dev_err(&maxim->client->dev, "string %d\n", i + 1);
-+		}
-+		return -EIO;
-+	}
-+
-+	ret = regmap_read(maxim->regmap, MAX25014_SHORTGND, &val);
-+	if (ret)
-+		return ret;
-+	if (val) {
-+		dev_err(&maxim->client->dev, "Short to ground detected on:\n");
-+		for (i = 0; i < 4; i++) {
-+			if (val & 1 << i)
-+				dev_err(&maxim->client->dev, "string %d\n", i + 1);
-+		}
-+		return -EIO;
-+	}
-+
-+	ret = regmap_read(maxim->regmap, MAX25014_SHORTED_LED, &val);
-+	if (ret)
-+		return ret;
-+	if (val) {
-+		dev_err(&maxim->client->dev, "Shorted led detected on:\n");
-+		for (i = 0; i < 4; i++) {
-+			if (val & 1 << i)
-+				dev_err(&maxim->client->dev, "string %d\n", i + 1);
-+		}
-+		return -EIO;
-+	}
-+
-+	ret = regmap_read(maxim->regmap, MAX25014_DIAG, &val);
-+	if (ret)
-+		return ret;
-+	/*
-+	 * The HW_RST bit always starts at 1 after power up.
-+	 * It is reset on first read, does not indicate an error.
-+	 */
-+	if (val && val != MAX25014_DIAG_HW_RST) {
-+		if (val & MAX25014_DIAG_OT)
-+			dev_err(&maxim->client->dev,
-+				"Overtemperature shutdown\n");
-+		if (val & MAX25014_DIAG_OTW)
-+			dev_err(&maxim->client->dev,
-+				 "Chip is getting too hot (>125C)\n");
-+		if (val & MAX25014_DIAG_BSTOV)
-+			dev_err(&maxim->client->dev,
-+				"Boost converter overvoltage\n");
-+		if (val & MAX25014_DIAG_BSTUV)
-+			dev_err(&maxim->client->dev,
-+				"Boost converter undervoltage\n");
-+		if (val & MAX25014_DIAG_IREFOOR)
-+			dev_err(&maxim->client->dev, "IREF out of range\n");
-+		return -EIO;
-+	}
-+	return 0;
-+}
-+
-+/*
-+ * 1. disable unused strings
-+ * 2. set dim mode
-+ * 3. set setting register
-+ * 4. enable the backlight
-+ */
-+static int max25014_configure(struct max25014 *maxim, int initial_state)
-+{
-+	uint32_t val;
-+	int ret;
-+
-+	ret = regmap_read(maxim->regmap, MAX25014_DISABLE, &val);
-+	if (ret)
-+		return ret;
-+
-+	/*
-+	 * Strings can only be disabled when MAX25014_ISET_ENA == 0, check if
-+	 * it needs to be changed at all to prevent the backlight flashing when
-+	 * it is configured correctly by the bootloader
-+	 */
-+	if (!((val & MAX25014_DISABLE_DIS_MASK) == maxim->strings_mask)) {
-+		if (initial_state == BACKLIGHT_POWER_ON) {
-+			ret = regmap_write(maxim->regmap, MAX25014_ISET, 0);
-+			if (ret)
-+				return ret;
-+		}
-+		ret = regmap_write(maxim->regmap, MAX25014_DISABLE, maxim->strings_mask);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	ret = regmap_write(maxim->regmap, MAX25014_IMODE, MAX25014_IMODE_HDIM);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_read(maxim->regmap, MAX25014_SETTING, &val);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_write(maxim->regmap, MAX25014_SETTING,
-+			   val & ~MAX25014_SETTING_FPWM);
-+	if (ret)
-+		return ret;
-+
-+	return regmap_write(maxim->regmap, MAX25014_ISET,
-+			   maxim->iset | MAX25014_ISET_ENA |
-+			   MAX25014_ISET_PSEN);
-+}
-+
-+static int max25014_update_status(struct backlight_device *bl_dev)
-+{
-+	struct max25014 *maxim = bl_get_data(bl_dev);
-+	uint32_t reg;
-+	int ret;
-+
-+	reg  = TON_STEP * backlight_get_brightness(bl_dev);
-+
-+	/*
-+	 * 18 bit number lowest, 2 bits in first register,
-+	 * next lowest 8 in the L register, next 8 in the H register
-+	 * Seemingly setting the strength of only one string controls all of
-+	 * them, individual settings don't affect the outcome.
-+	 */
-+	ret = regmap_write(maxim->regmap, MAX25014_TON_1_4_LSB, reg & 0b00000011);
-+	if (ret != 0)
-+		return ret;
-+	ret = regmap_write(maxim->regmap, MAX25014_TON1L, (reg >> 2) & 0b11111111);
-+	if (ret != 0)
-+		return ret;
-+	return regmap_write(maxim->regmap, MAX25014_TON1H, (reg >> 10) & 0b11111111);
-+}
-+
-+static const struct backlight_ops max25014_bl_ops = {
-+	.options = BL_CORE_SUSPENDRESUME,
-+	.update_status = max25014_update_status,
-+};
-+
-+static int max25014_parse_dt(struct max25014 *maxim,
-+			     uint32_t *initial_brightness)
-+{
-+	struct device *dev = &maxim->client->dev;
-+	struct device_node *node = dev->of_node;
-+	uint32_t strings[4];
-+	int res, i;
-+
-+	res = of_property_count_u32_elems(node, "maxim,strings");
-+	if (res == 4) {
-+		of_property_read_u32_array(node, "maxim,strings", strings, 4);
-+		for (i = 0; i < 4; i++) {
-+			if (strings[i] == 0)
-+				maxim->strings_mask |= 1 << i;
-+	}
-+	} else {
-+		maxim->strings_mask = 0;
-+	}
-+
-+	*initial_brightness = 50U;
-+	of_property_read_u32(node, "default-brightness", initial_brightness);
-+
-+	maxim->iset = MAX25014_ISET_DEFAULT_100;
-+	of_property_read_u32(node, "maxim,iset", &maxim->iset);
-+
-+	if (maxim->iset > 15)
-+		return dev_err_probe(dev, -EINVAL,
-+				     "Invalid iset, should be a value from 0-15, entered was %d\n",
-+				     maxim->iset);
-+
-+	if (*initial_brightness > 100)
-+		return dev_err_probe(dev, -EINVAL,
-+				     "Invalid initial brightness, should be a value from 0-100, entered was %d\n",
-+				     *initial_brightness);
-+
-+	return 0;
-+}
-+
-+static int max25014_probe(struct i2c_client *cl)
-+{
-+	const struct i2c_device_id *id = i2c_client_get_device_id(cl);
-+	struct backlight_properties props;
-+	uint32_t initial_brightness = 50;
-+	struct backlight_device *bl;
-+	struct max25014 *maxim;
-+	int ret;
-+
-+	maxim = devm_kzalloc(&cl->dev, sizeof(struct max25014), GFP_KERNEL);
-+	if (!maxim)
-+		return -ENOMEM;
-+
-+	maxim->client = cl;
-+
-+	ret = max25014_parse_dt(maxim, &initial_brightness);
-+	if (ret)
-+		return ret;
-+
-+	ret = devm_regulator_get_enable(&maxim->client->dev, "power");
-+	if (ret)
-+		return dev_err_probe(&maxim->client->dev, ret,
-+				     "failed to get power-supply");
-+
-+	maxim->enable = devm_gpiod_get_optional(&maxim->client->dev, "enable",
-+						GPIOD_OUT_HIGH);
-+	if (IS_ERR(maxim->enable))
-+		return dev_err_probe(&maxim->client->dev, PTR_ERR(maxim->enable),
-+				    "failed to get enable gpio\n");
-+
-+	/* Datasheet Electrical Characteristics tSTARTUP 2ms */
-+	fsleep(2000);
-+
-+	maxim->regmap = devm_regmap_init_i2c(cl, &max25014_regmap_config);
-+	if (IS_ERR(maxim->regmap))
-+		return dev_err_probe(&maxim->client->dev, PTR_ERR(maxim->regmap),
-+			"failed to initialize the i2c regmap\n");
-+
-+	i2c_set_clientdata(cl, maxim);
-+
-+	ret = max25014_check_errors(maxim);
-+	if (ret) /* error is already reported in the above function */
-+		return ret;
-+
-+	ret = max25014_initial_power_state(maxim);
-+	if (ret < 0)
-+		return dev_err_probe(&maxim->client->dev, ret, "Could not get enabled state\n");
-+
-+	memset(&props, 0, sizeof(struct backlight_properties));
-+	props.type = BACKLIGHT_PLATFORM;
-+	props.max_brightness = MAX_BRIGHTNESS;
-+	props.brightness = initial_brightness;
-+	props.scale = BACKLIGHT_SCALE_LINEAR;
-+	props.power = ret;
-+
-+	ret = max25014_configure(maxim, ret);
-+	if (ret)
-+		return dev_err_probe(&maxim->client->dev, ret, "device config error");
-+
-+	bl = devm_backlight_device_register(&maxim->client->dev, id->name,
-+					    &maxim->client->dev, maxim,
-+					    &max25014_bl_ops, &props);
-+	if (IS_ERR(bl))
-+		return dev_err_probe(&maxim->client->dev, PTR_ERR(bl),
-+				    "failed to register backlight\n");
-+
-+	maxim->bl = bl;
-+
-+	backlight_update_status(maxim->bl);
-+
-+	return 0;
-+}
-+
-+static void max25014_remove(struct i2c_client *cl)
-+{
-+	struct max25014 *maxim = i2c_get_clientdata(cl);
-+
-+	backlight_device_set_brightness(maxim->bl, 0);
-+	gpiod_set_value_cansleep(maxim->enable, 0);
-+}
-+
-+static const struct of_device_id max25014_dt_ids[] = {
-+	{ .compatible = "maxim,max25014", },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, max25014_dt_ids);
-+
-+static const struct i2c_device_id max25014_ids[] = {
-+	{ "max25014" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(i2c, max25014_ids);
-+
-+static struct i2c_driver max25014_driver = {
-+	.driver = {
-+		.name = KBUILD_MODNAME,
-+		.of_match_table = of_match_ptr(max25014_dt_ids),
-+	},
-+	.probe = max25014_probe,
-+	.remove = max25014_remove,
-+	.id_table = max25014_ids,
-+};
-+module_i2c_driver(max25014_driver);
-+
-+MODULE_DESCRIPTION("Maxim MAX25014 backlight driver");
-+MODULE_AUTHOR("Maud Spierings <maudspierings@gocontroll.com>");
-+MODULE_LICENSE("GPL");
-
--- 
-2.53.0
-
-
+Thanks,
+Inki Dae
 
