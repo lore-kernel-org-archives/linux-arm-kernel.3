@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B736BFF5134
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 19:40:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96EC2FF5139
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 19:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A/pc1a+Zi3k20dCbmJZUN9SrwwzLTOqkVLjKB2Vz9lg=; b=IXif16k+/XNStbyDISaWnEFT9k
-	oaoyBThhOH1eEe22OuJdAjEFN33iIjT2rhvy6l0NIhueMiM2kROk2kcJx4FQnKUpG6YvzAEN64RWq
-	WQBSFt6Gu+boZMGt7TMHucsBh5zJEunhXf2ZH+UOVT82hwWiRfuNoZVjcrXMRyUT8ZAwwfY6sdSaZ
-	wBSWExTTh9+3hKwy7kJqoHPaWdPeUWHDcqSWb8ywEQURYmvS86Ng2z76Y0JqNhryN/ITS21d8+ir5
-	dsiluzbHCkKA4lXjNcPxcsEspxW8GHQWk7v1eBnFAFJ5/qNCUGzs411qqvqOMsy784NAYFAkiAXcS
-	xfEmfhPQ==;
+	bh=nKylmw2JBa+9HQkKAnkeiRUOdPwH+QDE+to5+t37u6I=; b=CRIgER1ZBfEIidCmVHeswJFgxc
+	SOJrW/e1se00vn3X9EL67r1lwFr7+4fJ2FOnWVt0zm9Pj2SJyP0LnqN7FlW9o+pc4YPXzJ6HWyjaJ
+	inhhVmjU2VBBoSuWvE0UIOwapIh6l7Dl/yIcFxTiqn2qmhXmmK21HgUkWvL84yYWVOta5AjpWPvJk
+	FN1DezceENkDN/1AOf4K6CU7jseKwqUlJF2b7A5/A6pymBuAl9ZfHCk3YO2ohckTTXoSM/MJF6JT9
+	lbZ2y3MWXnyrxM07hgvArskIj5kR+uDsv29p34Tzwrfkzsql1YW4WKgUuGDxbB4xHIogw/cQ/4SCk
+	9m4tRxBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wACHJ-00000007IOL-48GU;
-	Tue, 07 Apr 2026 19:40:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wACHM-00000007IRT-0ZKI;
+	Tue, 07 Apr 2026 19:40:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wACHG-00000007IKo-3OmD;
-	Tue, 07 Apr 2026 19:39:58 +0000
+	id 1wACHI-00000007IMS-2MpV;
+	Tue, 07 Apr 2026 19:40:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D661E600CB;
-	Tue,  7 Apr 2026 19:39:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9EA9C19421;
-	Tue,  7 Apr 2026 19:39:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2242B404AC;
+	Tue,  7 Apr 2026 19:40:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7665FC19421;
+	Tue,  7 Apr 2026 19:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775590797;
-	bh=Sno46JhFI760NPkogQ116vAaZuCkAaZXDubMzxmwzfg=;
+	s=k20201202; t=1775590800;
+	bh=L3Rfg+8z09e8keiE7bpGEjenYKXFDv21kTEZM7E6AaA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nNUSwfNEZw9bDkNaJQHNj/OmlPYGhEuAmgwCiLbEq0YbJ35JTmIBAg41OgPiBiYW5
-	 y+tiiQMPtG6lsbLfrlATM0a/GEVzNZu7+XbUY6ZKWRjpygjgvqofNny9vnsMHC80lC
-	 w537C3CqDTW/2eTLBlAwgZXxHQ6pJYUcKTVcA+uvu5jRMPD4cvGe03Q7E8rCx6GMNM
-	 3vC7kC0gMiPq96BMfBQhmbRkgzlPnJUm6Etp+KGaBMKzReWQIOU/IJoMcbZY14NzUI
-	 E3fD8KE7um5EhWNYCiyZm/Lv3GZhsA7tNbobA3ck87xl50/FttLLv5rgqh67Hk7ENi
-	 CGofMKdTBZMpQ==
-Date: Tue, 7 Apr 2026 21:37:54 +0200
+	b=l+XKs1nTqXITUzVO9V7ZcgbUKwdnwTFr3L2FCLHY2KQo86k0Ffjt8OL1/JRtkSDa3
+	 yNBwGPy69Qr91P26LAHEK1+rZfI5CToJT/zHAcNUCaWarkT5tjiCiRrgjcgleZ82i2
+	 RAt0ogBD0uHApgE3oFsyhNUam/qX/iD1x6pRvm43Q4Iw5xWGX7cWXIJicOEm828y5B
+	 55nqWXirst8RsbiNBuVI6dXtBatMxgvAUKG04HGQ8GcjMnE9vAOu2CBdQ4m7SQse8C
+	 W1jYywMzoAaOGnuLv2xcDaPbBqhp+7vjf9ZKmdzFfBwerHgNt4NKfTHi12+fv/HkF7
+	 JDYjm5yTda1Nw==
+Date: Tue, 7 Apr 2026 21:38:32 +0200
 From: Nicolas Schier <nsc@kernel.org>
 To: Miguel Ojeda <ojeda@kernel.org>
 Cc: Nathan Chancellor <nathan@kernel.org>,
@@ -80,9 +80,9 @@ Cc: Nathan Chancellor <nathan@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
 	Tamir Duberstein <tamird@kernel.org>
-Subject: Re: [PATCH v2 24/33] docs: rust: quick-start: update minimum Ubuntu
- version
-Message-ID: <adVdEsZEJanbkec4@levanger>
+Subject: Re: [PATCH v2 25/33] docs: rust: quick-start: add Ubuntu 26.04 LTS
+ and remove subsection title
+Message-ID: <adVdOOTJ0Iku8A3g@levanger>
 Mail-Followup-To: Nicolas Schier <nsc@kernel.org>,
 	Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
@@ -122,11 +122,14 @@ Mail-Followup-To: Nicolas Schier <nsc@kernel.org>,
 	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
 	Tamir Duberstein <tamird@kernel.org>
 References: <20260405235309.418950-1-ojeda@kernel.org>
- <20260405235309.418950-25-ojeda@kernel.org>
+ <20260405235309.418950-26-ojeda@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260405235309.418950-25-ojeda@kernel.org>
+In-Reply-To: <20260405235309.418950-26-ojeda@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260407_124000_719399_DB5F32BD 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,22 +144,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 06, 2026 at 01:53:00AM +0200, Miguel Ojeda wrote:
-> Ubuntu 25.04 is out of support [1], and Ubuntu 25.10 is the latest
-> supported one.
+On Mon, Apr 06, 2026 at 01:53:01AM +0200, Miguel Ojeda wrote:
+> Ubuntu 26.04 LTS (Resolute Raccoon) is scheduled to be released in a few
+> weeks [1], and it has a recent enough Rust toolchain, just like Ubuntu
+> 25.10 has [2][3].
 > 
-> Moreover, Ubuntu 25.10 is the first that provides a recent enough Rust
-> given the minimum bump -- they provide 1.85.1 [2].
+> We could update the title and the paragraph, but to simplify and to
+> make it more consistent with the other distributions' sections, let's
+> instead just remove that title. It will also reduce the differences
+> later on to keep it updated. Eventually, when we remove the remaining
+> subsection for older LTSs, Ubuntu should be a small section like the
+> other distributions.
 > 
-> Thus update it.
+> Thus remove the title and add the mention of Ubuntu 26.04 LTS.
 > 
-> Link: https://ubuntu.com/about/release-cycle [1]
+> Link: https://documentation.ubuntu.com/release-notes/26.04/schedule/#resolute-raccoon-schedule [1]
 > Link: https://packages.ubuntu.com/search?keywords=rustc&searchon=names&exact=1&suite=all&section=all [2]
+> Link: https://packages.ubuntu.com/search?keywords=bindgen&searchon=names&exact=1&suite=all&section=all [3]
 > Reviewed-by: Tamir Duberstein <tamird@kernel.org>
 > Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
 > ---
->  Documentation/rust/quick-start.rst | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  Documentation/rust/quick-start.rst | 5 +----
+>  1 file changed, 1 insertion(+), 4 deletions(-)
 > 
 
 Reviewed-by: Nicolas Schier <nsc@kernel.org>
