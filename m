@@ -4,60 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DECFEDB7DF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 10:08:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D6FFEDB7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 10:13:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iIsNW8U+3F4vNWIChl+7u47slwko/EeRDN5TM2qbiNM=; b=t9CLMTuGkb0rpOMqysdSmEoDvU
-	zf9j2bgHk0hPFuBRHn+mdrcsbzuDcsEYw9cGm8MnY0uoRnLQfPEdHVGd7AJvrUfUOzYCdDVrf4cw3
-	Qe3+xpCxCjsjy7Y+vYLWKI1/SE9YbAjBdja3VSASgIIRn2KCLJhxzPjH5mdOjy4T9WXI+eJl0/atY
-	+X/Bo4IfpVasLknEuZGMrVPihOiMIOYlbDVL0g5ng2TLOf5aEdAVZ8CYPlzJvhoK06LKSHd5saU65
-	kntVHOMwYH9glnFwyxI2Wz/3H6TmgLF9OG2vwekteg/rX3JMqXeCupsnL0KQCwmSSAXQeqMjgHtR+
-	Y9KZy4cQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9pbEohc5Niu60PblepQCUfh299ojI2iXvDbw4RvhELg=; b=Aipt50w6YVq9L0yZU/H3YQ5Uto
+	VNfP0pPWvtuM/3TT6F8U2ceLxVWbq4f0FZHeVGfDafw6lF6hXulvJJbwqVLSO1MEU6oRGlxC8vws2
+	5oARd0f8vPWOh42LdxeENifRsJS6WWNx2aQqhL84l8VNi2boya98PyVNVXorK/S5KedCc0OL26Uk2
+	0B97rOEMwA69WURFjAxlzci0qfXdjKgtxj1/xzBUV/F7VukCnNpxhBFnfWjtXTMuwScZug7vVD/K1
+	kIOmPjpZvkzNdO+GuCYtG3I/Hc7u2uMGe2lbPRtdJSuPukXtq5EEUqmd8NSTdXnFf8PD/LREfNpP4
+	4lWRggJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA3MX-00000006GUo-46Ip;
-	Tue, 07 Apr 2026 10:08:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA3MW-00000006GUV-1rUx
+	id 1wA3Qo-00000006GiW-2ujK;
+	Tue, 07 Apr 2026 10:13:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wA3Qm-00000006Ghw-1oO4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 10:08:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3FFBD40440
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Apr 2026 10:08:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25AD4C116C6;
-	Tue,  7 Apr 2026 10:08:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775556527;
-	bh=6J/dMth4Df+CbjL8W8F+sqSp1uVURDezELTXVv5pzk0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=SvEW8qNl2VNjZyOY37TaXthP5bbVVW+RRDGA/LHf4FnZ5b8zL+jsgTruo4RFIUITQ
-	 vpEN+O4S2v+rlTQj14Ab4SORwZGhUHq81bS6nJYdXfZQcQuCbKYdtZAsMqdXpp/y8G
-	 igBDHVKbRqGUFD2v66eXXl5XI1chV36pOmMNdLd7dq8pQ2y2GyIXT9rqV2m2gGoCIl
-	 2GR+pNQ4HKeAfMTtCGQlpSlEIKgRi16wHCwdOKc/F/mn1eux8gLKeqTQKM128glOYx
-	 P2Z7KyQiuH/JkVDlRgWWFeWXtojyswmq2Y8tMjhRhJFmNxMvUvauq4LUYjGME7E6ZT
-	 ah//8nBznRR+Q==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: ARM SoC Team <arm@kernel.org>,
-	SoC Team <soc@kernel.org>,
-	ALKML <linux-arm-kernel@lists.infradead.org>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Arnd Bergmann <arnd@kernel.org>
-Subject: [GIT PULL] firmware: arm_ffa: Fix for v7.1
-Date: Tue,  7 Apr 2026 11:08:39 +0100
-Message-ID: <20260407100841.3150090-1-sudeep.holla@kernel.org>
-X-Mailer: git-send-email 2.43.0
+	Tue, 07 Apr 2026 10:13:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2D5061BB2;
+	Tue,  7 Apr 2026 03:13:05 -0700 (PDT)
+Received: from [10.57.87.42] (unknown [10.57.87.42])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B2DD3F641;
+	Tue,  7 Apr 2026 03:13:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775556790; bh=u6k7KReiIMT35ffIgZho6g6CodialPIJRfoN0WPK8T8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BWNVh6ANFtw0ueWu9yyum/s4AQLzADYVEGNe1bxpMRtjve3MThvdmz4uAY0F2iy4R
+	 4PJrXK6QtuNLXqjAhnWeXyLIfgZSsfwLCKBML6k8kvo+BXcXRP0C3FTBqeV+daqvc2
+	 bQkJZMH+IaAC4mVQ55h9T0x8Df47exrCEMB2Hmc4=
+Message-ID: <bc4a0246-33bb-443e-a885-a31b24d4a022@arm.com>
+Date: Tue, 7 Apr 2026 11:13:07 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] arm64: mm: Fix rodata=full block mapping support
+ for realm guests
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, "David Hildenbrand (Arm)"
+ <david@kernel.org>, Dev Jain <dev.jain@arm.com>,
+ Yang Shi <yang@os.amperecomputing.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Jinjiang Tu <tujinjiang@huawei.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260330161705.3349825-1-ryan.roberts@arm.com>
+ <20260330161705.3349825-2-ryan.roberts@arm.com> <ac7VD4Z85nS30GCp@arm.com>
+ <ac-W9oNM_O5RTtaf@arm.com> <beacee23-c177-47a1-b8b5-743844b617a8@arm.com>
+ <adTPFrlVCEt-hioX@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <adTPFrlVCEt-hioX@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_030848_508485_60399895 
-X-CRM114-Status: UNSURE (   9.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260407_031312_616210_6B12760A 
+X-CRM114-Status: GOOD (  24.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,40 +79,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi ARM SoC Team,
+On 07/04/2026 10:32, Catalin Marinas wrote:
+> On Tue, Apr 07, 2026 at 09:43:42AM +0100, Ryan Roberts wrote:
+>> On 03/04/2026 11:31, Catalin Marinas wrote:
+>>> On Thu, Apr 02, 2026 at 09:43:59PM +0100, Catalin Marinas wrote:
+>>>> Another thing I couldn't get my head around - IIUC is_realm_world()
+>>>> won't return true for map_mem() yet (if in a realm). Can we have realms
+>>>> on hardware that does not support BBML2_NOABORT? We may not have
+>>>> configuration with rodata_full set (it should be complementary to realm
+>>>> support).
+>>>
+>>> With rodata_full==false, can_set_direct_map() returns false initially
+>>> but after arm64_rsi_init() it starts returning true if is_realm_world().
+>>> The side-effect is that map_mem() goes for block mappings and
+>>> linear_map_requires_bbml2 set to false. Later on,
+>>> linear_map_maybe_split_to_ptes() will skip the splitting.
+>>>
+>>> Unless I'm missing something, is_realm_world() calls in
+>>> force_pte_mapping() and can_set_direct_map() are useless. I'd remove
+>>> them and either require BBML2_NOABORT with CCA or get the user to force
+>>> rodata_full when running in realms. Or move arm64_rsi_init() even
+>>> earlier?
+>>
+>> I'd need Suzuki to comment on this. As I said in the other mail, I was treating
+>> this like a pre-existing bug. But I guess linear_map_requires_bbml2 ending up
+>> wrong is a problem here. I'm not sure it's quite as simple as requiring
+>> BBML2_NOABORT with CCA as we still need can_set_direct_map() to return true if
+>> we are in a realm.
+> 
+> can_set_direct_map() == true is not a property of the realm but rather a
+> requirement. 
 
-Please pull ! This is the only fix/update I have at the moment for v7.1
-So, I am sending it early as fix but late as an update for v7.1.
+Yes indeed. It would be better to call it might_set_direct_map() or something
+like that...
 
-Regards,
-Sudeep
+> In the absence of BBML2_NOABORT, I guess the test was added
+> under the assumption that force_pte_mapping() also returns true if
+> is_realm_world(). We might as well add a variable or static label to
+> track whether can_set_direct_map() is possible and avoid tests that
+> duplicate force_pte_mapping().
 
--->8
+I'm not sure I follow. We have linear_map_requires_bbml2 which is inteded to
+track this shape of thing; if we have forced pte mapping then the value of
+can_set_direct_map() is irrelevant - we will never need to split because we are
+already pte-mapped. But if can_set_direct_map() initially returns false because
+is_realm_world() incorrectly returns false in the early boot environment, then
+linear_map_requires_bbml2 will be set to false, and we will incorrectly
+short-circuit splitting any block mappings in split_kernel_leaf_mapping().
 
-The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+I think we are agreed on the problem. But I don't understand how tracking
+can_set_direct_map() in a cached variable helps with that.
 
-  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+> 
+> This won't solve the is_realm_world() changing polarity during boot but
+> at least we know it won't suddenly make can_set_direct_map() return
+> true when it shouldn't.
 
-are available in the Git repository at:
+But is_real_world() _should_ make can_set_direct_map() return true, shouldn't
+it? If we are in realm-world, we need to be able to flip the NS_SHARED bit on
+parts of the linear map. So if we are in realm-world, we _might_ need to update
+he direct map and that's what can_set_direct_map() is supposed to tell us.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/ffa-fix-7.1
 
-for you to fetch changes up to 83210251fd70d5f96bcdc8911e15f7411a6b2463:
-
-  firmware: arm_ffa: Use the correct buffer size during RXTX_MAP (2026-04-07 10:47:42 +0100)
-
-----------------------------------------------------------------
-Arm FF-A fix for v7.1
-
-Use the page aligned backing allocation size when computing the RXTX_MAP
-page count. This fixes FF-A RX/TX buffer registration on kernels built
-with 16K/64K PAGE_SIZE, where alloc_pages_exact() backs the buffer with a
-larger aligned span than the discovered minimum buffer size.
-
-----------------------------------------------------------------
-Sebastian Ene (1):
-      firmware: arm_ffa: Use the correct buffer size during RXTX_MAP
-
- drivers/firmware/arm_ffa/driver.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
