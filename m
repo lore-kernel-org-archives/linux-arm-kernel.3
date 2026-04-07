@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84867FF512E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 17:37:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B915EFF512C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 17:41:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=djNkut1hxqQGDVRGAXzNFvKu4N+UY5u2qz6yBMjIlCs=; b=ZYcrecgmBZeziomLASGIKlRfXG
-	2QjB3eEzzdDf9hShqD5LNNLgBJ/i0lSbSdA98+NNgZL/OzQ5qR31XrdWGemGTMU25UQM8EwK+RzmT
-	yIMld0mcoA/NEw2WznwYONwQM/IOMhbLtR0B7TuGWcYAFQQAQqsFrYsIpcWqekRcb7WBJsPPAc3Yi
-	iyC6WZcoNFEl2wywarfsst0C07irztZYlPNmO9iSKmn6uMq26qLrhkpQnr0nMEZ0w4oNHh6PCZQ5b
-	5SU1Bk8wey2A6Ndi0RYk+FbL+Xok5DAMmq793aENjwOD7WAGditx8eQv47yjgNEXGNttUogyvVGmn
-	pHxbPUvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1Tp92fEIAGHRC4zj4SLEj5o26KziJ4vsTcxFPPrAedI=; b=EgLA2u3jlFWZHBO4wB8o7rHN2m
+	3AogvvVbLymiUXmSlhDCdlUFn3aEGLE6rkgbY67zRwSRhxoe5n/GENGPo4dFYNK93JMOKPB2akwyD
+	Vm85m+Ap3Gie/g6i5OWvYs6vqsBDS60XTKN9/j47rKKUWEnZfsn8OE5V8+EJDncl2NBQx54MEbOxL
+	T4a6DOncq4r7K9ZnapKMBOCX8z9Va1S9nZzjyju7DMPr/+2zUZLUP6pah5tNxLBdQR+SPcedG1Njk
+	C7EO8NQfzYJWHjQH2/M+cGon2XpUnz8fmYw785FQSjJZbHE3GXK7kgKGJhp5TctHEDJfMIdxdg2t0
+	Rld2W8UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAAMw-00000006s1R-426a;
-	Tue, 07 Apr 2026 17:37:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1wAAQU-00000006sEk-2QZT;
+	Tue, 07 Apr 2026 17:41:22 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAAMt-00000006s10-3hQK
+	id 1wAAQS-00000006sEH-0wX0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 17:37:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D744132E3;
-	Tue,  7 Apr 2026 10:37:32 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3837A3F7D8;
-	Tue,  7 Apr 2026 10:37:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775583458; bh=3K2ie5NdZ04S5aKjaDNdkDTH3Ltu1X0/55T0Yza4qds=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=G87M6Y+gYhDzUMllohQnQ+3MzJz7GLiU7i5oO5C7QoOSYJQR1ygcMOTBhp+Xa7dT1
-	 hKE9YT7k01mNLqUk3AgN6jyxMG7ud4ohKv1b9+WUvhZVAUAFNOdjaaVgIwyfWk5JW7
-	 RljKoBhaoHV9AaXW3hRg20JMlaRC1npt6VcdXzew=
-Date: Tue, 7 Apr 2026 18:37:34 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Dev Jain <dev.jain@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Jinjiang Tu <tujinjiang@huawei.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] arm64: mm: Fix rodata=full block mapping support
- for realm guests
-Message-ID: <adVA3iyqzRr4FtSX@arm.com>
-References: <20260330161705.3349825-1-ryan.roberts@arm.com>
- <20260330161705.3349825-2-ryan.roberts@arm.com>
- <ac7VD4Z85nS30GCp@arm.com>
- <ac-W9oNM_O5RTtaf@arm.com>
- <beacee23-c177-47a1-b8b5-743844b617a8@arm.com>
- <adTPFrlVCEt-hioX@arm.com>
- <bc4a0246-33bb-443e-a885-a31b24d4a022@arm.com>
- <adTh8d9k3y5ybemL@arm.com>
- <b545e650-f84f-4911-9902-b914870f0e1d@arm.com>
+	Tue, 07 Apr 2026 17:41:21 +0000
+Received: from [192.168.0.88] (192-184-212-33.fiber.dynamic.sonic.net [192.184.212.33])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 670E720B710C;
+	Tue,  7 Apr 2026 10:41:13 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 670E720B710C
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1775583674;
+	bh=1Tp92fEIAGHRC4zj4SLEj5o26KziJ4vsTcxFPPrAedI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rNvVRUuqwPHom7yczpPG4UTHQmqi/e8QocA4gchgWOaUaGPrnn021pC6/wGBukoTB
+	 juoBUdNvjAT8xg7WXdvzgITKomhuwHRDrHOx3Sz+gEgSRtMxJsb1M/SLGXq4sL1Mkp
+	 pWktucBD5k1IIfSPbUI1ZVck8Kh27iP2ezBiiIas=
+Message-ID: <c30ede65-46c4-02b1-756a-868f9a265cf1@linux.microsoft.com>
+Date: Tue, 7 Apr 2026 10:41:12 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b545e650-f84f-4911-9902-b914870f0e1d@arm.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.13.1
+Subject: Re: [PATCH v0 06/15] mshv: Implement mshv bridge device for VFIO
+Content-Language: en-US
+To: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-pci@vger.kernel.org, linux-arch@vger.kernel.org, kys@microsoft.com,
+ haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
+ longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
+ lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+ robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
+ nunodasneves@linux.microsoft.com, mhklinux@outlook.com,
+ romank@linux.microsoft.com
+References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
+ <20260120064230.3602565-7-mrathor@linux.microsoft.com>
+ <aW-oniY3VpagQMPb@skinsburskii.localdomain>
+From: Mukesh R <mrathor@linux.microsoft.com>
+In-Reply-To: <aW-oniY3VpagQMPb@skinsburskii.localdomain>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_103739_962356_355016AE 
-X-CRM114-Status: GOOD (  24.01  )
+X-CRM114-CacheID: sfid-20260407_104120_307571_26D1D3E3 
+X-CRM114-Status: GOOD (  25.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,45 +81,279 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 07, 2026 at 02:06:10PM +0100, Ryan Roberts wrote:
-> On 07/04/2026 11:52, Catalin Marinas wrote:
-> > As the name implies, linear_map_requires_bbml2 tracks only this -
-> > BBML2_NOABORT is required because the linear map uses large blocks.
-> > Prior to your patches, that's only used as far as
-> > linear_map_maybe_split_to_ptes() and if splitting took place, this
-> > variable is no longer relevant (should be turned to false but since it's
-> > not used, it doesn't matter).
-> > 
-> > With your patches, its use was extended to runtime and I think it
-> > remains true even if linear_map_maybe_split_to_ptes() changed the block
-> > mappings. Do we need this:
+On 1/20/26 08:09, Stanislav Kinsburskii wrote:
+> On Mon, Jan 19, 2026 at 10:42:21PM -0800, Mukesh R wrote:
+>> From: Mukesh Rathor <mrathor@linux.microsoft.com>
+>>
+>> Add a new file to implement VFIO-MSHV bridge pseudo device. These
+>> functions are called in the VFIO framework, and credits to kvm/vfio.c
+>> as this file was adapted from it.
+>>
+>> Original author: Wei Liu <wei.liu@kernel.org>
+>> (Slightly modified from the original version).
+>>
 > 
-> I'll admit it is ugly but it's not a bug; the system capabilitites are finalized
-> by the time we call linear_map_maybe_split_to_ptes().
+> There is a Linux standard for giving credits when code is adapted from.
+> This doesn't follow that standard. Please fix.
 > 
-> The "if (!linear_map_requires_bbml2 || is_kfence_address((void *)start))" check
-> in split_kernel_leaf_mapping() would ideally be "if (!force_pte_mapping() ||
-> is_kfence_address((void *)start))", but it is not safe to call
-> force_pte_mapping() from a secondary cpu prior to finalizing the system caps.
-> I'm reusing the flag that I already had available to work around that.
+>> Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+>> ---
+>>   drivers/hv/Makefile    |   3 +-
+>>   drivers/hv/mshv_vfio.c | 210 +++++++++++++++++++++++++++++++++++++++++
+>>   2 files changed, 212 insertions(+), 1 deletion(-)
+>>   create mode 100644 drivers/hv/mshv_vfio.c
+>>
+>> diff --git a/drivers/hv/Makefile b/drivers/hv/Makefile
+>> index a49f93c2d245..eae003c4cb8f 100644
+>> --- a/drivers/hv/Makefile
+>> +++ b/drivers/hv/Makefile
+>> @@ -14,7 +14,8 @@ hv_vmbus-y := vmbus_drv.o \
+>>   hv_vmbus-$(CONFIG_HYPERV_TESTING)	+= hv_debugfs.o
+>>   hv_utils-y := hv_util.o hv_kvp.o hv_snapshot.o hv_utils_transport.o
+>>   mshv_root-y := mshv_root_main.o mshv_synic.o mshv_eventfd.o mshv_irq.o \
+>> -	       mshv_root_hv_call.o mshv_portid_table.o mshv_regions.o
+>> +	       mshv_root_hv_call.o mshv_portid_table.o mshv_regions.o \
+>> +               mshv_vfio.o
+>>   mshv_vtl-y := mshv_vtl_main.o
+>>   
+>>   # Code that must be built-in
+>> diff --git a/drivers/hv/mshv_vfio.c b/drivers/hv/mshv_vfio.c
+>> new file mode 100644
+>> index 000000000000..6ea4d99a3bd2
+>> --- /dev/null
+>> +++ b/drivers/hv/mshv_vfio.c
+>> @@ -0,0 +1,210 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only
+>> +/*
+>> + * VFIO-MSHV bridge pseudo device
+>> + *
+>> + * Heavily inspired by the VFIO-KVM bridge pseudo device.
+>> + */
+>> +#include <linux/errno.h>
+>> +#include <linux/file.h>
+>> +#include <linux/list.h>
+>> +#include <linux/module.h>
+>> +#include <linux/mutex.h>
+>> +#include <linux/slab.h>
+>> +#include <linux/vfio.h>
+>> +
+>> +#include "mshv.h"
+>> +#include "mshv_root.h"
+>> +
+>> +struct mshv_vfio_file {
+>> +	struct list_head node;
+>> +	struct file *file;	/* list of struct mshv_vfio_file */
+>> +};
+>> +
+>> +struct mshv_vfio {
+>> +	struct list_head file_list;
+>> +	struct mutex lock;
+>> +};
+>> +
+>> +static bool mshv_vfio_file_is_valid(struct file *file)
+>> +{
+>> +	bool (*fn)(struct file *file);
+>> +	bool ret;
+>> +
+>> +	fn = symbol_get(vfio_file_is_valid);
+>> +	if (!fn)
+>> +		return false;
+>> +
+>> +	ret = fn(file);
+>> +
+>> +	symbol_put(vfio_file_is_valid);
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static long mshv_vfio_file_add(struct mshv_device *mshvdev, unsigned int fd)
+>> +{
+>> +	struct mshv_vfio *mshv_vfio = mshvdev->device_private;
+>> +	struct mshv_vfio_file *mvf;
+>> +	struct file *filp;
+>> +	long ret = 0;
+>> +
+>> +	filp = fget(fd);
+>> +	if (!filp)
+>> +		return -EBADF;
+>> +
+>> +	/* Ensure the FD is a vfio FD. */
+>> +	if (!mshv_vfio_file_is_valid(filp)) {
+>> +		ret = -EINVAL;
+>> +		goto out_fput;
+>> +	}
+>> +
+>> +	mutex_lock(&mshv_vfio->lock);
+>> +
+>> +	list_for_each_entry(mvf, &mshv_vfio->file_list, node) {
+>> +		if (mvf->file == filp) {
+>> +			ret = -EEXIST;
+>> +			goto out_unlock;
+>> +		}
+>> +	}
+>> +
+>> +	mvf = kzalloc(sizeof(*mvf), GFP_KERNEL_ACCOUNT);
+>> +	if (!mvf) {
+>> +		ret = -ENOMEM;
+>> +		goto out_unlock;
+>> +	}
+>> +
+>> +	mvf->file = get_file(filp);
+>> +	list_add_tail(&mvf->node, &mshv_vfio->file_list);
+>> +
+>> +out_unlock:
+>> +	mutex_unlock(&mshv_vfio->lock);
+>> +out_fput:
+>> +	fput(filp);
+>> +	return ret;
+>> +}
+>> +
+>> +static long mshv_vfio_file_del(struct mshv_device *mshvdev, unsigned int fd)
+>> +{
+>> +	struct mshv_vfio *mshv_vfio = mshvdev->device_private;
+>> +	struct mshv_vfio_file *mvf;
+>> +	long ret;
+>> +
+>> +	CLASS(fd, f)(fd);
+>> +
+>> +	if (fd_empty(f))
+>> +		return -EBADF;
+>> +
+>> +	ret = -ENOENT;
+>> +	mutex_lock(&mshv_vfio->lock);
+>> +
+>> +	list_for_each_entry(mvf, &mshv_vfio->file_list, node) {
+>> +		if (mvf->file != fd_file(f))
+>> +			continue;
+>> +
+>> +		list_del(&mvf->node);
+>> +		fput(mvf->file);
+>> +		kfree(mvf);
+>> +		ret = 0;
+>> +		break;
+>> +	}
+>> +
+>> +	mutex_unlock(&mshv_vfio->lock);
+>> +	return ret;
+>> +}
+>> +
+>> +static long mshv_vfio_set_file(struct mshv_device *mshvdev, long attr,
+>> +			      void __user *arg)
+>> +{
+>> +	int32_t __user *argp = arg;
+>> +	int32_t fd;
+>> +
+>> +	switch (attr) {
+>> +	case MSHV_DEV_VFIO_FILE_ADD:
+>> +		if (get_user(fd, argp))
+>> +			return -EFAULT;
+>> +		return mshv_vfio_file_add(mshvdev, fd);
+>> +
+>> +	case MSHV_DEV_VFIO_FILE_DEL:
+>> +		if (get_user(fd, argp))
+>> +			return -EFAULT;
+>> +		return mshv_vfio_file_del(mshvdev, fd);
+>> +	}
+>> +
+>> +	return -ENXIO;
+>> +}
+>> +
+>> +static long mshv_vfio_set_attr(struct mshv_device *mshvdev,
+>> +			      struct mshv_device_attr *attr)
+>> +{
+>> +	switch (attr->group) {
+>> +	case MSHV_DEV_VFIO_FILE:
+>> +		return mshv_vfio_set_file(mshvdev, attr->attr,
+>> +					  u64_to_user_ptr(attr->addr));
+>> +	}
+>> +
+>> +	return -ENXIO;
+>> +}
+>> +
+>> +static long mshv_vfio_has_attr(struct mshv_device *mshvdev,
+>> +			      struct mshv_device_attr *attr)
+>> +{
+>> +	switch (attr->group) {
+>> +	case MSHV_DEV_VFIO_FILE:
+>> +		switch (attr->attr) {
+>> +		case MSHV_DEV_VFIO_FILE_ADD:
+>> +		case MSHV_DEV_VFIO_FILE_DEL:
+>> +			return 0;
+>> +		}
+>> +
+>> +		break;
+>> +	}
+>> +
+>> +	return -ENXIO;
+>> +}
+>> +
+>> +static long mshv_vfio_create_device(struct mshv_device *mshvdev, u32 type)
+>> +{
+>> +	struct mshv_device *tmp;
+>> +	struct mshv_vfio *mshv_vfio;
+>> +
+>> +	/* Only one VFIO "device" per VM */
+>> +	hlist_for_each_entry(tmp, &mshvdev->device_pt->pt_devices,
+>> +			     device_ptnode)
+>> +		if (tmp->device_ops == &mshv_vfio_device_ops)
+>> +			return -EBUSY;
+>> +
+>> +	mshv_vfio = kzalloc(sizeof(*mshv_vfio), GFP_KERNEL_ACCOUNT);
+>> +	if (mshv_vfio == NULL)
+>> +		return -ENOMEM;
+>> +
+>> +	INIT_LIST_HEAD(&mshv_vfio->file_list);
+>> +	mutex_init(&mshv_vfio->lock);
+>> +
+>> +	mshvdev->device_private = mshv_vfio;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +/* This is called from mshv_device_fop_release() */
+>> +static void mshv_vfio_release_device(struct mshv_device *mshvdev)
+>> +{
+>> +	struct mshv_vfio *mv = mshvdev->device_private;
+>> +	struct mshv_vfio_file *mvf, *tmp;
+>> +
+>> +	list_for_each_entry_safe(mvf, tmp, &mv->file_list, node) {
+>> +		fput(mvf->file);
+> 
+> This put must be sync as device must be detached from domain before
+> attempting partition destruction.
 
-The confusing part is that the flag may be false incorrectly due to the
-is_realm_world() evaluation. Nothing to do with this patch though and
-the subject even mentions the rodata=full case. We should fix it
-separately.
+Like I said in 6.6 PR, this does not attach or detach devices.
 
-We could have set the flag to zero in linear_map_maybe_split_to_ptes(),
-though split_kernel_leaf_mapping() already exits early due to the
-!system_supports_bbml2_noabort() && system_capabilities_finalized(), so
-not a correctness issue.
+> This was explicitly mentioned in the patch originated this code.
+> Please fix, add a comment and credits to the commit message.
 
-> But regardless, I think we are talking about the pre-existing
-> is_real_world() bug, so I'm not personally planning to do anything further here
-> unless you shout.
+That was ".detstroy" hook which is gone.
 
-Not for this series. Steven or Suzuki should address the other problem
-with is_realm_world().
+Thanks,
+-Mukesh
 
--- 
-Catalin
+
+> Thanks,
+> Stanislav
+> 
+> 
+>> +		list_del(&mvf->node);
+>> +		kfree(mvf);
+>> +	}
+>> +
+>> +	kfree(mv);
+>> +	kfree(mshvdev);
+>> +}
+>> +
+>> +struct mshv_device_ops mshv_vfio_device_ops = {
+>> +	.device_name = "mshv-vfio",
+>> +	.device_create = mshv_vfio_create_device,
+>> +	.device_release = mshv_vfio_release_device,
+>> +	.device_set_attr = mshv_vfio_set_attr,
+>> +	.device_has_attr = mshv_vfio_has_attr,
+>> +};
+>> -- 
+>> 2.51.2.vfs.0.1
+>>
+
 
