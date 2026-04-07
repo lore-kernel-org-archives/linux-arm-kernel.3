@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42313FEEF49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 14:30:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3CF0FEEF50
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 14:30:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YQpYFZvG6hWc5gjb2GBGyXlrh53007LW9OTbFPSr5XA=; b=VXKo9CDv2zLUuNXCq7WrpLMnw5
-	dZP+ODiH8k9NOczKJOa5gjkJ6K6sCMV7Nda08H+JzFjgLskPgME1r4sGIrSzXvM+1p5nKgSdSWfCS
-	9mGBqbuGn1OV1GLs7LSH94TCOQN9R3n3K42jTnp5siec5gUujGF9xzpVnP8kMZ9ZuAjnLxBhl9KE3
-	7W9Shv8BPKeAJcScQ6hGlgTwHxkVVUwJNv3++PyscQZA7BhbLMIvfvSVCAjjcVQDjwcQ98zbjHlF0
-	cz/z5L8OeuWRNC+wdy3PpXRcsVPIoahUHrgeVtp6zbtjgQR+DeHsOiWeFI2z1oHkyG+topEghwVwg
-	zDEKhl0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1FmR99LZ8Tn4vCrHVpXr+y5OXEgFcl4dQEEXkDkeVcI=; b=ozrQ+KUit658Z+e4yzWxKDT6+r
+	yZrYtVWOt09j8t0l/E4RKyNFTZui3wS+Qshr+aJDrO4Zi2FWObYMx+e3dp4fEtAISn6vMOVj4Nfs6
+	frLaZoUhctzqkMR2blF7NK+EiA9wSdgZLLKbenfcXqlQ5iaK1mCNukODIhTPYCHYiur6m+U4vd6M7
+	yzKHbnU54IZxMbVN3aHZZFc2NfNrj1YtY7nF489BAaNDZvLbUlRQBu1pElhWUyHifFnFTnTKRLhJ0
+	QUOQUFPHWTISqY43ErxGJ/EY104+8tcYugxXqmH+uTS/TarERUjOzWOvg/l736ytH6UeYT4cvwijC
+	YoKFZFBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7Re-00000006bmx-06yh;
-	Tue, 07 Apr 2026 14:30:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7Rb-00000006bkI-2yV2
+	id 1wA7Rs-00000006bvv-29Qi;
+	Tue, 07 Apr 2026 14:30:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wA7Rn-00000006bte-32gd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 14:30:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2A56660132;
-	Tue,  7 Apr 2026 14:30:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1A10C2BCB5;
-	Tue,  7 Apr 2026 14:30:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775572218;
-	bh=SJDQ3b5SsRthX8/7tiLEloyuRg0cJ7pkoH2/b6dPyTw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZEBen4WD5noftUnkL55UHtJD5sfjPzXnWFbmZAjtb3mJX89esSwhus8rJnPftmxe+
-	 FbtJlWTqB1BK1ORUdlnYLkDy2hiQu18chJxTBCnau2CgCoIoF6XqlSjK2uEUYZmmEm
-	 w6cqdP+DkrUkK2FfDLCfEjzycA9ZfQtFPEwYVbPLrJH0mT/WwpzLPk8khqfn+vuwWx
-	 C161Q+FNw0IfMZ+5dbDKMzUP/d06V8gn4zLsxtRlfJZQtJ+AYCCLS/Kk8So2nUivk0
-	 5iRf9TNvlLxC7M62XO2Iex6CCrh5xA/+aiBzbSO2I1YwVacszwEDUpfBaMqXsL0W0V
-	 8eh6SB2Tq4e2A==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Tue, 07 Apr 2026 09:29:48 -0500
-Subject: [PATCH v4 6/6] arm64: hw_breakpoint: Enable FEAT_Debugv8p9
+	Tue, 07 Apr 2026 14:30:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E8AEE16A3;
+	Tue,  7 Apr 2026 07:30:24 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4ABD73FC07;
+	Tue,  7 Apr 2026 07:30:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775572230; bh=dXmMNv331vsD1/TZhQeflRhnIasUgjGg+y87Al+96Nk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PaKY3T8Iy3J39TtZ1JUYhfUZszVo4hWP+BmoJSwAK3supPXAjFbTFBemQne1mlLgi
+	 YrLYvtt3nm6RJKtb4Tw3iwim+PEcKHSQJNTsbD7/WvcPIpa5TjkDmDWvw2zXaXPITb
+	 bwt9sbA6NyifrMcx6pz1uX9nQ+ZjOzpen4WaafHM=
+Date: Tue, 7 Apr 2026 15:30:28 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@linaro.org, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com
+Subject: Re: [PATCH 1/2] coresight: etm4x: fix inconsistencies with sysfs
+ configration
+Message-ID: <20260407143028.GM356832@e132581.arm.com>
+References: <20260317181705.2456271-1-yeoreum.yun@arm.com>
+ <20260317181705.2456271-2-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260407-arm-debug-8-9-v4-6-a4864e69b0ea@kernel.org>
-References: <20260407-arm-debug-8-9-v4-0-a4864e69b0ea@kernel.org>
-In-Reply-To: <20260407-arm-debug-8-9-v4-0-a4864e69b0ea@kernel.org>
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org
-X-Mailer: b4 0.15-dev
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260317181705.2456271-2-yeoreum.yun@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260407_073031_938418_843927B0 
+X-CRM114-Status: GOOD (  25.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,258 +72,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Anshuman Khandual <anshuman.khandual@arm.com>
+On Tue, Mar 17, 2026 at 06:17:04PM +0000, Yeoreum Yun wrote:
+> The current ETM4x configuration via sysfs can lead to the following
+> inconsistencies:
+> 
+>   - If a configuration is modified via sysfs while a perf session is
+>     active, the running configuration may differ between before
+>     a sched-out and after a subsequent sched-in.
+> 
+>   - Once a perf session is enabled, some read-only register fields
+>     (e.g., TRCSSCSR<n>) may not be reported correctly,
+>     because drvdata->config is cleared while enabling with perf mode,
+>     even though the information was previously read via etm4_init_arch_data().
+> 
+> To resolve these inconsistencies, the configuration should be separated into:
+> 
+>   - active_config, which represents the currently applied configuration
+>   - config, which stores the settings configured via sysfs.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>  .../hwtracing/coresight/coresight-etm4x-cfg.c |  2 +-
+>  .../coresight/coresight-etm4x-core.c          | 45 +++++++++++--------
+>  drivers/hwtracing/coresight/coresight-etm4x.h |  2 +
+>  3 files changed, 30 insertions(+), 19 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> index c302072b293a..84213d40d1ae 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> @@ -47,7 +47,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
+>  				   struct cscfg_regval_csdev *reg_csdev, u32 offset)
+>  {
+>  	int err = -EINVAL, idx;
+> -	struct etmv4_config *drvcfg = &drvdata->config;
+> +	struct etmv4_config *drvcfg = &drvdata->active_config;
 
-Currently, there can be maximum 16 breakpoints and 16 watchpoints available
-on a given platform - as detected from ID_AA64DFR0_EL1.[BRPs|WRPs] register
-fields. These breakpoints and watchpoints can be extended further up to
-64 via a new arch feature FEAT_Debugv8p9.
+I'd suggest we leave out complex cfg things, we can refactor it
+later.
 
-Checking for FEAT_Debugv8p9 alone is not enough to enable the support.
-It is also necessary to determine if there are more than 16 breakpoints
-or watchpoints. The behavior with FEAT_Debugv8p9 and <=16 breakpoints
-and watchpoints is IMPDEF.
+In this series, let us first separate active_config and config, and
+keep using drvdata->config to save complex cfg ?
 
-The addition of the MDSELR_EL1 to set the bank index makes the register
-accesses non-atomic. However, the combination of all the breakpoint code
-being in the kprobe blacklist and breakpoint install/uninstall being
-protected by perf locking (IRQs disabled and context lock) will prevent
-debug exceptions during accesses and serialize the accesses.
+>  	u32 off_mask;
+>  
+>  	if (((offset >= TRCEVENTCTL0R) && (offset <= TRCVIPCSSCTLR)) ||
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index d565a73f0042..c552129c4a0c 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -88,9 +88,11 @@ static int etm4_probe_cpu(unsigned int cpu);
+>   */
+>  static bool etm4x_sspcicrn_present(struct etmv4_drvdata *drvdata, int n)
+>  {
+> +	struct etmv4_config *config = &drvdata->active_config;
+> +
+>  	return (n < drvdata->nr_ss_cmp) &&
+>  	       drvdata->nr_pe &&
+> -	       (drvdata->config.ss_status[n] & TRCSSCSRn_PC);
+> +	       (config->ss_status[n] & TRCSSCSRn_PC);
 
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
-v4:
- - Update commit message.
- - Configure MDSCR_EL1_EMBWE on CPU reset/hotplug instead of every time
-   breakpoints are enabled/disabled.
- - Drop unnecessary IRQ save and restore on register accesses.
- - Stash checking whether FEAT_Debugv8p9 is used rather than reading
-   feature register on every register access.
- - Check that we're greater than or equal to Debug_v8p9 not just equal
-   to.
- - Use is_debug_v8p9_enabled() in get_num_brps/get_num_wrps(). Handle
-   the case when FEAT_Debugv8p9 is present, but the number of BP/WP
-   are <16. It is IMPDEF if ID_AA64DFR1_EL1 is used in this case. It is
-   also IMPDEF if MDSELR_EL1 is accessible. TF-A doesn't enable access
-   to MDSELR_EL1 in this case.
- - Mark register access functions nokprobe.
----
- arch/arm64/include/asm/hw_breakpoint.h | 47 ++++++++++++++++++++++++++--------
- arch/arm64/kernel/debug-monitors.c     | 16 ++++++++----
- arch/arm64/kernel/hw_breakpoint.c      | 41 +++++++++++++++++++++++++++--
- 3 files changed, 87 insertions(+), 17 deletions(-)
+As Suzuki suggested in another reply, we need to extract capabilities
+into a separate structure.  I'd also extract status related registers
+into a new structure:
 
-diff --git a/arch/arm64/include/asm/hw_breakpoint.h b/arch/arm64/include/asm/hw_breakpoint.h
-index bd81cf17744a..c5624a906f3c 100644
---- a/arch/arm64/include/asm/hw_breakpoint.h
-+++ b/arch/arm64/include/asm/hw_breakpoint.h
-@@ -79,8 +79,9 @@ static inline void decode_ctrl_reg(u32 reg,
-  * Limits.
-  * Changing these will require modifications to the register accessors.
-  */
--#define ARM_MAX_BRP		16
--#define ARM_MAX_WRP		16
-+#define ARM_MAX_BRP		64
-+#define ARM_MAX_WRP		64
-+#define MAX_PER_BANK		16
- 
- /* Virtual debug register bases. */
- #define AARCH64_DBG_REG_BVR	0
-@@ -94,6 +95,14 @@ static inline void decode_ctrl_reg(u32 reg,
- #define AARCH64_DBG_REG_NAME_WVR	wvr
- #define AARCH64_DBG_REG_NAME_WCR	wcr
- 
-+static inline bool is_debug_v8p9_enabled(void)
-+{
-+	u64 dfr0 = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
-+	int dver = cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_DebugVer_SHIFT);
-+
-+	return dver >= ID_AA64DFR0_EL1_DebugVer_V8P9;
-+}
-+
- /* Accessor macros for the debug registers. */
- #define AARCH64_DBG_READ(N, REG, VAL) do {\
- 	VAL = read_sysreg(dbg##REG##N##_el1);\
-@@ -138,19 +147,37 @@ static inline void ptrace_hw_copy_thread(struct task_struct *task)
- /* Determine number of BRP registers available. */
- static inline int get_num_brps(void)
- {
--	u64 dfr0 = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
--	return 1 +
--		cpuid_feature_extract_unsigned_field(dfr0,
--						ID_AA64DFR0_EL1_BRPs_SHIFT);
-+	u64 dfr0, dfr1;
-+	int brps;
-+
-+	dfr0 = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
-+	brps = cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_BRPs_SHIFT);
-+	if (is_debug_v8p9_enabled() && brps == 15) {
-+		dfr1 = read_sanitised_ftr_reg(SYS_ID_AA64DFR1_EL1);
-+		brps = cpuid_feature_extract_unsigned_field_width(dfr1,
-+								  ID_AA64DFR1_EL1_BRPs_SHIFT, 8);
-+		if (!brps)
-+			return 16;
-+	}
-+	return 1 + brps;
- }
- 
- /* Determine number of WRP registers available. */
- static inline int get_num_wrps(void)
- {
--	u64 dfr0 = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
--	return 1 +
--		cpuid_feature_extract_unsigned_field(dfr0,
--						ID_AA64DFR0_EL1_WRPs_SHIFT);
-+	u64 dfr0, dfr1;
-+	int wrps;
-+
-+	dfr0 = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
-+	wrps = cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_WRPs_SHIFT);
-+	if (is_debug_v8p9_enabled() && wrps == 15) {
-+		dfr1 = read_sanitised_ftr_reg(SYS_ID_AA64DFR1_EL1);
-+		wrps = cpuid_feature_extract_unsigned_field_width(dfr1,
-+								  ID_AA64DFR1_EL1_WRPs_SHIFT, 8);
-+		if (!wrps)
-+			return 16;
-+	}
-+	return 1 + wrps;
- }
- 
- #ifdef CONFIG_CPU_PM
-diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-index 29307642f4c9..8ff74432d0c3 100644
---- a/arch/arm64/kernel/debug-monitors.c
-+++ b/arch/arm64/kernel/debug-monitors.c
-@@ -22,6 +22,7 @@
- #include <asm/daifflags.h>
- #include <asm/debug-monitors.h>
- #include <asm/exception.h>
-+#include <asm/hw_breakpoint.h>
- #include <asm/kgdb.h>
- #include <asm/kprobes.h>
- #include <asm/system_misc.h>
-@@ -123,11 +124,16 @@ void disable_debug_monitors(enum dbg_active_el el)
- }
- NOKPROBE_SYMBOL(disable_debug_monitors);
- 
--/*
-- * OS lock clearing.
-- */
--static int clear_os_lock(unsigned int cpu)
-+static int debug_monitors_reset(unsigned int cpu)
- {
-+	if (is_debug_v8p9_enabled()) {
-+		u64 mdscr = mdscr_read();
-+
-+		mdscr |= MDSCR_EL1_EMBWE;
-+		mdscr_write(mdscr);
-+	}
-+
-+	/* Clear OS lock */
- 	write_sysreg(0, osdlr_el1);
- 	write_sysreg(0, oslar_el1);
- 	isb();
-@@ -138,7 +144,7 @@ static int __init debug_monitors_init(void)
- {
- 	return cpuhp_setup_state(CPUHP_AP_ARM64_DEBUG_MONITORS_STARTING,
- 				 "arm64/debug_monitors:starting",
--				 clear_os_lock, NULL);
-+				 debug_monitors_reset, NULL);
- }
- postcore_initcall(debug_monitors_init);
- 
-diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
-index a9266dc710b4..ea48c1562bee 100644
---- a/arch/arm64/kernel/hw_breakpoint.c
-+++ b/arch/arm64/kernel/hw_breakpoint.c
-@@ -40,6 +40,7 @@ static DEFINE_PER_CPU(int, stepping_kernel_bp);
- /* Number of BRP/WRP registers on this CPU. */
- static int core_num_brps;
- static int core_num_wrps;
-+static bool has_debug_v8p9;
- 
- int hw_breakpoint_slots(int type)
- {
-@@ -104,7 +105,7 @@ int hw_breakpoint_slots(int type)
- 	WRITE_WB_REG_CASE(OFF, 14, REG, VAL);	\
- 	WRITE_WB_REG_CASE(OFF, 15, REG, VAL)
- 
--static u64 read_wb_reg(int reg, int n)
-+static nokprobe_inline u64 __read_wb_reg(int reg, int n)
- {
- 	u64 val = 0;
- 
-@@ -119,9 +120,27 @@ static u64 read_wb_reg(int reg, int n)
- 
- 	return val;
- }
-+
-+static u64 read_wb_reg(int reg, int n)
-+{
-+	u64 val;
-+
-+	/*
-+	 * Bank selection in MDSELR_EL1, followed by an indexed read from
-+	 * breakpoint (or watchpoint) registers cannot be interrupted, as
-+	 * that might cause misread from the wrong targets instead. Hence
-+	 * this requires mutual exclusion.
-+	 */
-+	if (has_debug_v8p9) {
-+		write_sysreg_s(SYS_FIELD_PREP(MDSELR_EL1, BANK, n / MAX_PER_BANK), SYS_MDSELR_EL1);
-+		isb();
-+	}
-+	val = __read_wb_reg(reg, n % MAX_PER_BANK);
-+	return val;
-+}
- NOKPROBE_SYMBOL(read_wb_reg);
- 
--static void write_wb_reg(int reg, int n, u64 val)
-+static nokprobe_inline void __write_wb_reg(int reg, int n, u64 val)
- {
- 	switch (reg + n) {
- 	GEN_WRITE_WB_REG_CASES(AARCH64_DBG_REG_BVR, AARCH64_DBG_REG_NAME_BVR, val);
-@@ -133,6 +152,21 @@ static void write_wb_reg(int reg, int n, u64 val)
- 	}
- 	isb();
- }
-+
-+static void write_wb_reg(int reg, int n, u64 val)
-+{
-+	/*
-+	 * Bank selection in MDSELR_EL1, followed by an indexed read from
-+	 * breakpoint (or watchpoint) registers cannot be interrupted, as
-+	 * that might cause misread from the wrong targets instead. Hence
-+	 * this requires mutual exclusion.
-+	 */
-+	if (has_debug_v8p9) {
-+		write_sysreg_s(SYS_FIELD_PREP(MDSELR_EL1, BANK, n / MAX_PER_BANK), SYS_MDSELR_EL1);
-+		isb();
-+	}
-+	__write_wb_reg(reg, n % MAX_PER_BANK, val);
-+}
- NOKPROBE_SYMBOL(write_wb_reg);
- 
- /*
-@@ -990,6 +1024,7 @@ static int __init arch_hw_breakpoint_init(void)
- 
- 	core_num_brps = get_num_brps();
- 	core_num_wrps = get_num_wrps();
-+	has_debug_v8p9 = (core_num_brps > 16) || (core_num_wrps > 16);
- 
- 	pr_info("found %d breakpoint and %d watchpoint registers.\n",
- 		core_num_brps, core_num_wrps);
-@@ -1006,6 +1041,8 @@ static int __init arch_hw_breakpoint_init(void)
- 
- 	/* Register cpu_suspend hw breakpoint restore hook */
- 	cpu_suspend_set_dbg_restorer(hw_breakpoint_reset);
-+	BUILD_BUG_ON((ARM_MAX_BRP % MAX_PER_BANK) != 0);
-+	BUILD_BUG_ON((ARM_MAX_WRP % MAX_PER_BANK) != 0);
- 
- 	return ret;
- }
+  struct etm4_cap {
+      int nr_ss_cmp;
+      bool pe_comparator;    // TRCSSCSRn.PC
+      bool dv_comparator;    // TRCSSCSRn.DV
+      bool da_comparator;    // TRCSSCSRn.DA
+      bool inst_comparator;  // TRCSSCSRn.INST
 
--- 
-2.53.0
+      int ns_ex_level;
+      int nr_pe;
+      int nr_pe_cmp;
+      int nr_resource;
+      ...
+  }
 
+  struct etm4_status_reg {
+      u32 ss_status[ETM_MAX_SS_CMP];
+      u32 cntr_val[ETMv4_MAX_CNTR];
+  }
+
+[...]
+
+> @@ -911,14 +915,17 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+>  
+>  	/* enable any config activated by configfs */
+>  	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+> +
+> +	raw_spin_lock(&drvdata->spinlock);
+> +
+> +	drvdata->active_config = drvdata->config;
+
+This is not an issue introduced by this patch, but we might need to
+consider to copy active config until it has acquired SYSFS mode.
+Otherwise, it might update config here but will disturb a perf session
+has been running.
+
+> @@ -2246,7 +2254,8 @@ static int etm4_add_coresight_dev(struct etm4_init_arg *init_arg)
+>  	if (!desc.name)
+>  		return -ENOMEM;
+>  
+> -	etm4_set_default(&drvdata->config);
+> +	etm4_set_default(&drvdata->active_config);
+
+Should we set default values to drvdata->config ?
+
+My understanding is drvdata->active_config would be always set at the
+runtime, but "drvdata->config" should be initialized properly so it
+can be consumed by sysfs knobs.
+
+Thanks,
+Leo
 
