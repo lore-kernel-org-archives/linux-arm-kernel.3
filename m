@@ -4,88 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED86FEEF44
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 14:16:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 058ADFEEF44
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 14:25:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tMXaVurIz+OvnlbZxjQiFTJcuO6e0LfYTwBBACJJ5Yg=; b=NIBNRsQC7n/x2tOj+BVBGO4B6Q
-	PMRELLUAD1B5I56Lt7dIAPud80cPnv6Q1oSg27NwbBfIJ2cNOkVexvR02DG88I1L93D+T0ZAFWiwJ
-	oN81Gk6lc0K3e7GDoeOA9CUkwS6+oMeU/TDhTwdwBsxHTdtx6M17TMHHC8s9qzjD37rOLLZJmzEJC
-	xkTz/BWVQ8sl8twnhGhskHYjuBOPu4lrfePhnWxsyIZl6ZF7OG7y3lsbx/VViEZl0NN26KYVThq27
-	jKn42ocUXLRUbSvtQfFu5kLq61k3getBxOT+hiiPJH7fWRgcup8u2x9FJXIFcRj+iNgGvO+YE49n4
-	gVDnr7mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jq+8qOzPJTUqKjsOERswRR9fpPCqfmg3Dkvvj9MmKts=; b=SOaf5Ur03BjWe2
+	vTFXqe20RFnPaSUkXMweQt2KRTuY4jZ3kPQzN9Ics9hrNQGHzBaRrkcrvNkp725GI/d6uphHqE+co
+	wdZZCZZKKfdB3GIX22eVs7Wc3kfmo+r1ADnf8kvn8FHJNs/JYpVaHI3L3cDnM9AkDUOVm2S6lwSdW
+	IIblPULbFR49qN78Q5SAbQnlDTYka8JcYScYxoHJ6SjDAqwR2AJ6HeWWtXAQDSb0NMsSzG/uuY0t+
+	XYe4l0QBbaue+eZn0fYhsOoDINMrw0R4sCKWUmWI0XxXgD5NFv/5OnjLzYo+gXeQ4j92Hls15ughK
+	Zgw+ghsSTF5eVpp6zRqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7E3-00000006aQN-3nI5;
-	Tue, 07 Apr 2026 14:16:19 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1wA7Mx-00000006axP-0QsQ;
+	Tue, 07 Apr 2026 14:25:31 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7E0-00000006aPu-31Uv
+	id 1wA7Mt-00000006avo-2Uoe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 14:16:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1775571376; x=1807107376;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=phr90QLyaq7RUo/A3Jc8HshSe4PIXcLlnVoGZR6dc3E=;
-  b=jp1qobZW0PnLYMk4t8Wf+kOeA4ohq4QSiF0se7iPZN/hBQYkT9bTFRe9
-   0XjnFzB05Qz4mSXaRPls8VspWJHhRicZqNWWL9mOOgyANSs/WVZorKA/1
-   wO2yHIrGnHGWfAby54n+JkbONilOWT+iTX7Kdjptx74cBfURWhZN9Y/pe
-   KWFx3R3Y5aHc/Ek2VgEeXSkGqYsl+Ny5fJgnqA7lWdU884h31zT2A4sMh
-   cNnp0Q6Ojedhhd8vVkLRIeTv/gz91TNuKB/ypbYo1E0hmD8+hFxk9K+pw
-   tqrNWn4KAGRkCnVRFGjQeNxruCoe3ojIAyZPVK2Bhi33IbRmVWTBsdkTt
-   Q==;
-X-CSE-ConnectionGUID: cuFoxuQzSa6xDwrmGqKXZw==
-X-CSE-MsgGUID: D9VOJI1gTE2n3/cMp5rD8w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11752"; a="76500319"
-X-IronPort-AV: E=Sophos;i="6.23,165,1770624000"; 
-   d="scan'208";a="76500319"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Apr 2026 07:16:15 -0700
-X-CSE-ConnectionGUID: qewB1qKeTX+YTbDaPymkmQ==
-X-CSE-MsgGUID: ctXyPk7pT+yPJmsv3N3spw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,165,1770624000"; 
-   d="scan'208";a="228440843"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.182])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Apr 2026 07:16:12 -0700
-Date: Tue, 7 Apr 2026 17:16:08 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Danilo Krummrich <dakr@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>,
-	brgl@kernel.org, driver-core@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
-Subject: Re: (subset) [PATCH v5 0/4] ARM: omap1: use real firmware node
- lookup for GPIOs on Nokia 770
-Message-ID: <adURqCMlAIGjB8--@ashevche-desk.local>
-References: <20260402-nokia770-gpio-swnodes-v5-0-d730db3dd299@oss.qualcomm.com>
- <DHKF135KLNW5.3LT0J6T5TE3JD@kernel.org>
+	Tue, 07 Apr 2026 14:25:29 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 076D9C5B18C;
+	Tue,  7 Apr 2026 14:25:56 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 27B4B603C7;
+	Tue,  7 Apr 2026 14:25:22 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DDD3B1045017A;
+	Tue,  7 Apr 2026 16:25:17 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1775571921; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=jq+8qOzPJTUqKjsOERswRR9fpPCqfmg3Dkvvj9MmKts=;
+	b=0P4+02rEAnNDTnKE+p/qz8mP2e2c8tW6KFIf+6DEOGiZQy12/V5zWgWBwrAvZ9jGsku/kS
+	tuViNuPIpChk8j7m7GovfqUJNxCsiENd2Jx4u5k3iIrIJCjzCutDD9Iakelq05XzO3A6nB
+	ESaALpqpNr2p/ZwoJeZ13KMlTwcp+mIEfzxiHZspkQfYZQ0SVqeoSidiHlQ/WfkRZhK5Ut
+	qrhW7ExCVR9JMfNSc+R12/HqV+B1VPVQKLxy5/nxlZf2VRamrXPenD8PS4ZjWt6lS7U0yH
+	9P7pWvFmN2+XO3YDhLPRqrE9pDJkYyzTQv7vhtM9JgS2AGH47D9Xg7eSAZ1UJQ==
+From: "Thomas Richard (TI)" <thomas.richard@bootlin.com>
+Subject: [PATCH v5 0/4] firmware: ti_sci: Introduce BOARDCFG_MANAGED mode
+ for Jacinto family
+Date: Tue, 07 Apr 2026 16:25:05 +0200
+Message-Id: <20260407-ti-sci-jacinto-s2r-restore-irq-v5-0-97b28f2d93f9@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <DHKF135KLNW5.3LT0J6T5TE3JD@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMET1WkC/4XOTU7DMBAF4KtUXmM0Hk/ihBX3QCyMf+ggiKltI
+ lCVu+MUVRHqIsv3NPrenEUJmUMRD4ezyGHmwmlqobs7CHe002uQ7FsWCNgpUCAry+JYvlnHU02
+ yYJY5lJpyu8wnSTgEgCF6BU405DOHyN+Xgafnv5zD6avt1K088gr8XJ6Y1dpe98ze3qwkSE2et
+ B49krGPLynVd57uXfoQKz7jBircB7GBlgYTrY4RUd2CegMRul1QN9BDP/Z6NGQ93YJ0BXtAoF2
+ QGtibAcFGPQbr/oPLsvwCd8L/fNYBAAA=
+X-Change-ID: 20251010-ti-sci-jacinto-s2r-restore-irq-428e008fd10c
+To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
+ Santosh Shilimkar <ssantosh@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>
+Cc: Gregory CLEMENT <gregory.clement@bootlin.com>, 
+ richard.genoud@bootlin.com, Udit Kumar <u-kumar1@ti.com>, 
+ Prasanth Mantena <p-mantena@ti.com>, Abhash Kumar <a-kumar2@ti.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-clk@vger.kernel.org, 
+ "Thomas Richard (TI)" <thomas.richard@bootlin.com>, 
+ Dhruva Gole <d-gole@ti.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_071616_826072_8B0083F8 
-X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-CacheID: sfid-20260407_072527_803887_30C94DDD 
+X-CRM114-Status: UNSURE (   6.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,16 +89,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 04, 2026 at 03:47:24PM +0200, Danilo Krummrich wrote:
-> On Thu Apr 2, 2026 at 4:15 PM CEST, Bartosz Golaszewski wrote:
+This is the 5th iteration of this series. Nothing new, I just rebased on
+v7.0-rc7, added Dhruva's RB tags, and use kzalloc_obj() in Patch 2.
 
->     [ Fix typo in the commit message: "s/merci/mercy/". - Danilo ]
+Best Regards,
+Thomas
 
-Depends if Bart used French to sound that genuine.
+Signed-off-by: Thomas Richard (TI) <thomas.richard@bootlin.com>
+---
+Changes in v5:
+- rebase on v7.0-rc7.
+- add Dhruva's RB tag.
+- use kzalloc_obj() in ti_sci driver.
+- Link to v4: https://lore.kernel.org/r/20260204-ti-sci-jacinto-s2r-restore-irq-v4-0-67820af39eac@bootlin.com
 
+Changes in v4:
+- rebase on linux-next next-20260202.
+- fix BOARDCFG_MANAGED value.
+- add MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST firmware capability.
+- add MSG_FLAG_CAPS_LPM_CLK_CONTEXT_LOST firmware capability.
+- Link to v3: https://lore.kernel.org/r/20251205-ti-sci-jacinto-s2r-restore-irq-v3-0-d06963974ad4@bootlin.com
+
+Changes in v3:
+- rebased on linux-next
+- sci-clk: context_restore() operation restores also rate.
+- Link to v2: https://lore.kernel.org/r/20251127-ti-sci-jacinto-s2r-restore-irq-v2-0-a487fa3ff221@bootlin.com
+
+Changes in v2:
+- ti_sci: use hlist to store IRQs.
+- sci-clk: add context_restore operation
+- ti_sci: restore clock parents during resume
+- Link to v1: https://lore.kernel.org/r/20251017-ti-sci-jacinto-s2r-restore-irq-v1-0-34d4339d247a@bootlin.com
+
+---
+Thomas Richard (TI) (4):
+      firmware: ti_sci: add BOARDCFG_MANAGED mode support
+      firmware: ti_sci: add support for restoring IRQs during resume
+      clk: keystone: sci-clk: add restore_context() operation
+      firmware: ti_sci: add support for restoring clock context during resume
+
+ drivers/clk/keystone/sci-clk.c |  42 +++++++++--
+ drivers/firmware/ti_sci.c      | 164 ++++++++++++++++++++++++++++++++++++++---
+ drivers/firmware/ti_sci.h      |   6 ++
+ 3 files changed, 192 insertions(+), 20 deletions(-)
+---
+base-commit: d843b67129e266054d8fa2e41e270a9f779381bd
+change-id: 20251010-ti-sci-jacinto-s2r-restore-irq-428e008fd10c
+
+Best regards,
 -- 
-With Best Regards,
-Andy Shevchenko
-
+Thomas Richard (TI) <thomas.richard@bootlin.com>
 
 
