@@ -4,164 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4059EDB7C8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 07:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B151AEDB7C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 07:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YiyWz4jsfCMiFJgdrKu0mvuvn+cBCeIxv71Vm0SOnFs=; b=h+rebjfBnNMjKv86Or5Aovp3Z8
-	hQ3l0+ljK+3zsHhbQqEddcQPV2gLURthyRAtcVl0KDmctHF/jxh8rFpJWrI21O15sMlA11fGI6z50
-	adcSYwOcw0qlrz1PZ5sdeerWhzf22StENmg6f9TgM0DwyPRgTwKzMsJzSyHS5yb/D7xoZCa237dRb
-	O3OUAOB0qxRw9PKe7GNNL3KyG1hzDaD+7GmgQNA8GG4nht2FnG4FyL4A1oJItrbksOCPThfeAlbUz
-	2w0a+JTkNJvQEnYxlt0pyK5QHpm0GNJIYl3pG4KBd78655ogg3E3yk6JppF0zpkGNmZXf9a4Qrhx+
-	+oT+MNBw==;
+	bh=ul0a8Gh+m7Miix3rJ72Qx10XkrEXaGS4AIkRhU8J2WA=; b=CHWpX2FPEHwLmnDK0OBZKRkfFe
+	CuYsdoBaKykq8NT1nndax1WaWubH/5iGLpneqyUrPWhMOsca6USbHKFQF+37dt1HvDsviXV392EHt
+	Yp7h9i477mGXmnVXGj/JtIMSgBEVIJVrxFXeCX9tTpRigOnxzN6hhLUMf31z331p18PXVVsleCtoQ
+	zgdMTBB+oEoRwrJ4GcD8cenpXb68i8WzcQZxkXaqVyvVWdRJBuzSrudMAAPEywlEsP0NQzjTFj35y
+	fZSrHndVj3abmkBw5n3S+UxpXopICJBQFCb4nTlzeHHhPC+M1UtQwEMqmoJgqQXKomInzV8lZZw6B
+	vDR5IPDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA12K-000000065b1-1MhO;
-	Tue, 07 Apr 2026 07:39:48 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1wA18L-0000000665W-04H3;
+	Tue, 07 Apr 2026 07:46:01 +0000
+Received: from cp2.siel.si ([46.19.12.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA12H-000000065Zl-2fBr
+	id 1wA185-000000065zJ-3h69
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 07:39:47 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 72C245BD52;
-	Tue,  7 Apr 2026 07:39:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1775547582; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=YiyWz4jsfCMiFJgdrKu0mvuvn+cBCeIxv71Vm0SOnFs=;
-	b=Lwc8SswOcmvDaThhW5gu+ugaSdz/Tur+g3ukpvkHUTg651XIM0qsZh6oEKvQgxaagqmhkk
-	frEjXXzQewBMmZbUwIn809pYAZ9F7435SdMZrqdnd+O4rmfU0GhN7ANHAWtHl1Mj8ByaqU
-	2lP6YzT+nwzLTAwK1CI3AIqGfZ8g/p4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1775547582;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=YiyWz4jsfCMiFJgdrKu0mvuvn+cBCeIxv71Vm0SOnFs=;
-	b=leyjTsOWX3c+7WT9jTBLifx0FWt0S1CcF/d5c46EcxUtjD0bJZpdP/ROt2HMfqVxT1Ejjk
-	V3ZzfS/XlYx9/cDA==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1775547582; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=YiyWz4jsfCMiFJgdrKu0mvuvn+cBCeIxv71Vm0SOnFs=;
-	b=Lwc8SswOcmvDaThhW5gu+ugaSdz/Tur+g3ukpvkHUTg651XIM0qsZh6oEKvQgxaagqmhkk
-	frEjXXzQewBMmZbUwIn809pYAZ9F7435SdMZrqdnd+O4rmfU0GhN7ANHAWtHl1Mj8ByaqU
-	2lP6YzT+nwzLTAwK1CI3AIqGfZ8g/p4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1775547582;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=YiyWz4jsfCMiFJgdrKu0mvuvn+cBCeIxv71Vm0SOnFs=;
-	b=leyjTsOWX3c+7WT9jTBLifx0FWt0S1CcF/d5c46EcxUtjD0bJZpdP/ROt2HMfqVxT1Ejjk
-	V3ZzfS/XlYx9/cDA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 263F74A0B0;
-	Tue,  7 Apr 2026 07:39:41 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id opDkB7201GnYZAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 07 Apr 2026 07:39:41 +0000
-Message-ID: <0156562f-5fcf-47ce-8fea-03345f2c3fe6@suse.de>
-Date: Tue, 7 Apr 2026 09:39:40 +0200
+	Tue, 07 Apr 2026 07:45:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ul0a8Gh+m7Miix3rJ72Qx10XkrEXaGS4AIkRhU8J2WA=; b=F0CV3/lIG1w+xlrn2EtobCm9Eb
+	S3YkQyanWCKbFNDT8O/4zTcxJ5uaSjhVGo5IMW/egNou+Ti3CiCO8eMfdzdWazcfEKzdUSiY565mT
+	XFjUtf+PKxf8iWCgzJIfThkoU44USVrzUrYir5bHxJ9oJKEakkaD7CVcWfsjLLHw5ruQ1EIcuMPYq
+	Ntv1/DmBEHBBogl0tpAPQT65C1wInGcucvZYtYscnhzvkq+xC5f1gx59rk7XXo3rlmcfaLVqtCDiF
+	99w1ef7j+OZRpKWpyU3nz9wU5ftSpNe6kO/Xpp77fF/nIocyD87BUAbF362v5P8tasIik2SPSJ4dg
+	6rdQJNBw==;
+Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:40998 helo=[192.168.69.116])
+	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.99.1)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1w9zhV-0000000Des7-2CRH;
+	Tue, 07 Apr 2026 08:14:12 +0200
+Message-ID: <707e106b-f444-4c26-9816-c53c8eda8cbb@norik.com>
+Date: Tue, 7 Apr 2026 08:14:08 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/8] firmware: sysfb: Make CONFIG_SYSFB a user-selectable
- option
-To: Arnd Bergmann <arnd@arndb.de>,
- Javier Martinez Canillas <javierm@redhat.com>,
- Ard Biesheuvel <ardb@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Dave Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, "K. Y. Srinivasan" <kys@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, longli@microsoft.com,
- Helge Deller <deller@gmx.de>
-Cc: linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
- linux-fbdev@vger.kernel.org
-References: <20260402092305.208728-1-tzimmermann@suse.de>
- <20260402092305.208728-4-tzimmermann@suse.de>
- <78f76717-8f1e-41d6-92f7-261df96b84b6@app.fastmail.com>
- <3e466158-c2e5-4e23-934f-dcdbb71ad41f@suse.de>
- <d3d7c545-3b07-4881-a16d-45b6f039de19@app.fastmail.com>
- <001efe27-9cbb-4a89-8d2d-a1f3ae15e505@suse.de>
- <295a43ce-92fb-435d-a82f-d1cfa8f4f28d@app.fastmail.com>
+Subject: Re: [Upstream] Re: [PATCH] arm64: dts: imx{91,93}-phyboard-segin: Add
+ peb-av-18 overlay
+To: Frank Li <Frank.li@nxp.com>, Florijan Plohl <florijan.plohl@norik.com>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, upstream@lists.phytec.de
+References: <20260402070826.970012-1-florijan.plohl@norik.com>
+ <ac50OHuEApM3tRHq@lizhi-Precision-Tower-5810>
+ <56b9e133-74b9-4e59-a40c-c7637c080fd8@norik.com>
+ <adMg762HH4gcuWyq@lizhi-Precision-Tower-5810>
 Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <295a43ce-92fb-435d-a82f-d1cfa8f4f28d@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-4.30 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	ARC_NA(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	MIME_TRACE(0.00)[0:+];
-	RCPT_COUNT_TWELVE(0.00)[23];
-	FREEMAIL_TO(0.00)[arndb.de,redhat.com,kernel.org,linaro.org,xen0n.name,linux.intel.com,gmail.com,ffwll.ch,microsoft.com,gmx.de];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.com:url,imap1.dmz-prg2.suse.org:helo]
+From: Primoz Fiser <primoz.fiser@norik.com>
+Autocrypt: addr=primoz.fiser@norik.com; keydata=
+ xjMEZrROOxYJKwYBBAHaRw8BAQdAADVOb5tiLVTUAC9nu/FUl4gj/+4fDLqbc3mk0Vz8riTN
+ JVByaW1veiBGaXNlciA8cHJpbW96LmZpc2VyQG5vcmlrLmNvbT7CiQQTFggAMRYhBK2YFSAH
+ ExsBZLCwJGoLbQEHbnBPBQJmtE47AhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQagttAQducE+T
+ gAD+K4fKlIuvH75fAFwGYG/HT3F9mN64majvqJqvp3gTB9YBAL12gu+cm11m9JMyOyN0l6Os
+ jStsQFghPkzBSDWSDN0NzjgEZrROPBIKKwYBBAGXVQEFAQEHQP2xtEOhbgA+rfzvvcFkV1zK
+ 6ym3/c/OUQObCp50BocdAwEIB8J4BBgWCAAgFiEErZgVIAcTGwFksLAkagttAQducE8FAma0
+ TjwCGwwACgkQagttAQducE8ucAD9F1sXtQD4iA7Qu+SwNUAp/9x7Cqr37CSb2p6hbRmPJP8B
+ AMYR91JYlFmOJ+ScPhQ8/MgFO+V6pa7K2ebk5xYqsCgA
+Organization: Norik systems d.o.o.
+In-Reply-To: <adMg762HH4gcuWyq@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cp2.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cp2.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_003945_983392_AB5F91BC 
-X-CRM114-Status: GOOD (  49.86  )
+X-CRM114-CacheID: sfid-20260407_004558_089276_ABE7E7A8 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,172 +105,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+Hi Frank, Florijan,
 
-Am 02.04.26 um 18:47 schrieb Arnd Bergmann:
-> On Thu, Apr 2, 2026, at 17:27, Thomas Zimmermann wrote:
->> Am 02.04.26 um 16:59 schrieb Arnd Bergmann:
->>> On Thu, Apr 2, 2026, at 16:10, Thomas Zimmermann wrote:
->>>> Am 02.04.26 um 15:08 schrieb Arnd Bergmann:
->>>>> On Thu, Apr 2, 2026, at 11:09, Thomas Zimmermann wrote:
->>>>> I don't really like this part of the series and would prefer
->>>>> to keep CONFIG_SYSFB hidden as much as possible as an x86
->>>>> (and EFI) specific implementation detail, with the hope
->>>>> of eventually seperating out the x86 bits from the EFI ones.
->>>> You mean, you want to use the EFI-provided framebuffers without the
->>>> intermediate step of going through sysfb_primary_display?
->>>>
->>>> In that case, CONFIG_SYSFB would become an x86-internal thing, right?
->>> The part that is still needed from sysfb is the arbitration
->>> between DRM_EFI and the PCI device driver for the same hardware,
->>> so I think some part of sysfb is clearly needed, in particular
->>> the sysfb_disable() function that removes the EFI framebuffer
->>> when there is a conflicting simpledrm or hardware specific
->>> driver.
->> We do most of that in the aperture-helper module. (see
->> <linux/aperture.h>). Calling sysfb_disable() from there is a workaround
->> for some corner cases. We can have an EFI-specific function that does
->> the same.
-> That sounds good, yes. The same change would need to go into
-> of_platform_default_populate_init() then.
-
-The call to sysfb_disable() is a workaround for certain cases that 
-aperture helpers don't handle well. In the longer term, I'd want 
-aperture helpers to be more clever about aperture ownership. But as an 
-intermediate step, adding other _disable() function would be an option. 
-But there's no hurry.
-
->
->> BTW, simpledrm-on-EFI/VESA is considered obsolete and should preferably
->> be removed from that driver. Simpledrm should become a driver for
->> Devicetree nodes of type simple-framebuffer (as it originally has been
->> intended).
-> Sure, I was only thinking of the case where there are both
-> sysfb (from Arm/riscv UEFI) and simpledrm (from devicetree)
-> objects referring to the same one, not the simpledrm
-> device created by sysfb_simplefb.
->
->>> The parts that I want to keep out of that is anything
->>> related to the x86 boot protocol, non-EFI framebuffers,
->>> text console, and kexec handoff, which we don't need on
->>> non-x86 UEFI systems.
->>>
->>> I don't mind the idea of having a sysfb_primary_display
->>> in the EFI code if that helps keep EFI sane on x86,
->>> but it would be good to make that local to
->>> drivers/firmware/efi and (eventually) detached from
->>> include/uapi/linux/screen_info.h.
->> Efidrm retrieves the framebuffer settings from the contained struct
->> screen_info. Disconnecting from screen_info would require separate
->> graphics drivers for x86 and non-x86. If we split off EFI from sysfb,
->> we'd likely need a sysfbdrm driver of some sort. Just saying.
-> Yes, I saw that as well and don't have an immediate idea for how
-> to best do it. I saw that you already abstracted the access to
-> the screen_info members in drm_sysfb_screen_info.c, which I think
-> is a step in that direction.
->
-> I also noticed that efidrm is mostly a subset of vesadrm, so
-> in theory they could be merged back into an x86 drm driver
-> along with the drm_sysfb_screen_info helpers, and have a non-x86
-> driver that constructs a drm_sysfb_device directly from the
-> EFI structures.
-
-I would not want to have a unifed driver for all-things-screen_info. The 
-code that can easily be shared is already in the sysfb helpers. But I 
-don't mind adding a separate driver for EFI's Graphics Output Protocol. 
-Then there would be current efidrm for EFI-from-screen_info and 
-efigopdrm for EFI via the GOP interfaces. If EFI ever specifies another 
-graphics interface, we could add another driver. The maintenance 
-overhead is small on the DRM side.
-
-What is the future of x86's boot_param and the related screen_info on 
-x86-64?  Is it obsolete?  Will boot loaders run the EFI stub instead?
-
->
->> I think we'd also have to duplicate the framebuffer-relocation code that
->> currently works on anything using struct screen_info (see patch 5).
-> You mean the code from include/linux/screen_info.h? I think
-> it would make sense to have an x86 specific version of that
-> to operate on the x86 screen_info, and a simpler version
-> that just updates the resource for the efirdrm driver, but
-> that could also be done one level higher or lower.
-
-Makes me wonder if the relocation code could be integrated into the 
-aperture helpers. It would have to track the relocation of all PCI 
-graphics devices and probing DRM drivers would query the relocation 
-offset for their given framebuffer.
-
->
->>>>> In general, I am always in favor of properly using Kconfig
->>>>> dependencies over 'select' statements, for the same reasons
->>>>> you describe, but I don't want the the x86 logic for
->>>>> the legacy VESA and VGA console handling to leak into more
->>>>> architectures than necessary.
->>>>>
->>>>> Do you think we could instead move the sysfb_init()
->>>>> function into the same two places that contain the
->>>>> sysfb_primary_display definition (arch/x86/kernel/setup.c,
->>>>> drivers/firmware/efi/efi-init.c) and simplify the efi version
->>>>> to take out the x86 bits? That would reduce the rest
->>>>> of sysfb-primary.c to the logic to unregister the device,
->>>>> and that could then be selected by both x86 and EFI.
->>>> No, I'm more than happy that sysfb finally consolidates all the
->>>> init-framebuffer setup and detection that floated around in the kernel.
->>>> I would not want it to be duplicated again.
->>>>
->>>> For now, we could certainly keep CONFIG_SYSFB hidden and autoselected.
->>>> Although I think this will require soem sort of solution at a later point.
->>> Can you clarify which problem you are trying to solve
->>> with that?
->> One thing is that some users simply what control over their kernel build.
+On 4/6/26 04:56, Frank Li wrote:
+> On Fri, Apr 03, 2026 at 10:29:00AM +0200, Florijan Plohl wrote:
+>> Hello,
 >>
->> I also think that there might be systems that want to use
->> sysfb_primary_display (plus the relocation feature), but not create the
->> framebuffer device. Say for efi-earlycon. It needs user-control over the
->> SYSFB option to do that.
-> I'm still not following, sorry. efi-earlycon doesn't require
-> CONFIG_SYSFB today, and I don't see why that would need to change,
-> or why it couldn't just 'select SYSFB' if it it does change.
->
->> As a side-effect, user-configurable SYSFB gives us a nice place to put
->> SYSFB_SIMPLEFB and FIRMWARE_EDID; two options that currently float
->> around in the config somewhat arbitrarily.
-> You said that SYSFB_SIMPLEFB should get phased out in the future,
-> right?
+>> On 4/2/26 15:50, Frank Li wrote:
+>>> On Thu, Apr 02, 2026 at 09:08:26AM +0200, Florijan Plohl wrote:
+>>>> Add overlay for the PEB-AV-18 adapter on phyBOARD-Segin-i.MX91/93.
+>>> what's means PEB-AV-18? Is it random board name?
+>> The PEB-AV-18 is PHYTEC designation for Audio/Video adapter modules that can
+>> be used to connect displays on their boards.
+>>
+>> I will improve commit message to add more such information in v2.
+>>
+>>>
+>>>
+>>>> The supported LCD is Powertip PH800480T032-ZHC19 panel (AC220).
+>>>>
+>>>> Signed-off-by: Florijan Plohl <florijan.plohl@norik.com>
+>>>> ---
+>>>>   arch/arm64/boot/dts/freescale/Makefile        |   4 +
+>>>>   .../imx91-phyboard-segin-peb-av-18.dtso       | 142 ++++++++++++++++++
+>>>>   .../imx93-phyboard-segin-peb-av-18.dtso       | 142 ++++++++++++++++++
+>>> Any difference between 91 and 93, can use one overlay file?
+>>>
+>>> Frank
+>>
+>> Can you suggest how to do so?
+>>
+>> There are imx93-pinfunc.h and imx91-pinfunc.h which are not unified
+>> between imx91 and imx93.
+> 
+> I suggest move pinmux setting to mainboard's dts files, which provide
+> plug adaptor header, signal should be descripted in mainboard's dts file,
+> which provide an unified label to overlay file.
 
-Yes. Better sooner than later.
+Yeah, that would be one way of doing it.
 
->
-> I'm also missing your plan for CONFIG_FIRMWARE_EDID. I only
-> see three legacy drivers using the old fb_firmware_edid()
-> interface, so I assume this is not what you are interested in.
->
-> For the global copy that is filled by x86 and efi, and
-> consumed by vesadrm and efidrm, does that even need to
-> be a configuration option rather than get always enabled?
+However, the phycore dtsi and phyboard dts are kept simple by design
+choice. This way, all optional pinctrls and peripherals are kept
+separate from the board device-tree to maintain clutter low.
 
-There is code in x86's old 16-bit boot/init code that reads the EDID via 
-VESA. The help text on CONFIG_FIRMWARE_EDID sounds like it needs to be 
-configurable because some systems can't do the VESA calls. Hence, the 
-logical step seems to be to make this consistent for all systems by 
-adopting the option for all EDID retrieval.
+For v2 I would prefer to keep as is (current downstream implementation)
+or at least use this approach:
 
-If we can remove CONFIG_FIRMWARE_EDID and make EDID support 
-unconditional, I'm all for it.
+imx91-93-phyboard-segin-peb-av-18.dtsi
+|
+ -> imx91-phyboard-segin-peb-av-18.dtso
+|
+ -> imx93-phyboard-segin-peb-av-18.dtso
 
-Best regards
-Thomas
+BR,
+Primoz
 
->
->         Arnd
+> 
+> Frank
+> 
+>>
+>> So we can only create common dtsi like so:
+>>
+>> imx91-93-phyboard-segin-peb-av-18.dtsi
+>>
+>> and still use separate dtsos:
+>>
+>> imx91-phyboard-segin-peb-av-18.dtso
+>> imx93-phyboard-segin-peb-av-18.dtso
+>>
+>> Is that your idea?
+>>
+>> BR,
+>>
+>> Florijan Plohl
+>>
+>>>> --
+>>>> 2.43.0
+>>>>
+> _______________________________________________
+> upstream mailing list -- upstream@lists.phytec.de
+> To unsubscribe send an email to upstream-leave@lists.phytec.de
 
 -- 
+Primoz Fiser
+phone: +386-41-390-545
+email: primoz.fiser@norik.com
 --
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
-
+Norik systems d.o.o.
+Your embedded software partner
+Slovenia, EU
+phone: +386-41-540-545
+email: info@norik.com
 
 
