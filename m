@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F4F0EDB7C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 07:14:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 908D8EDB7C5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 07:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eDYNJnr4ETlKa/GKXVghhxv0mku2PXdivqbDDAcFYYs=; b=cOsaGqAKZuT0V+kzLQA/lHb5VV
-	p1U7hKXoXy82gzIrxZF4qdnGD9eSUnbgJG5OpW6oH4l5hxUn2RqbAznp+gHJcBTL2NwewCr22n4rZ
-	mz1vD81HtKopmv4/ZgYr1A8yd8i8ucn0BsdqDnN4x/Xrn25QshkWgB6xXSd5xvph0gGgiOXNfzbvO
-	6NwkaXzmEne6dehacAGhjHkgw7+i+8CbIaAK1KGqtPCrC9PyMkXx1miLgpWQpo6FL5P4ua5LjpqNI
-	iqa/agHffQcnyq2Dbr1KjvhbUVuXFBv3C1Mp2nOyzHh/NGRIPOy6C/eZCUaAsKUTO4KALFna6wAdK
-	DpTdGchg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z9HCuPBAFcG8nfDvJ5tSrXG+e4CCUAPxM2+B6zS9lso=; b=IwagPu6FLbrQcdgmq5PdLisFl0
+	wnnu+Mv2NXeso6uvW3+xZPx9BSFcT21TRSU412PwXFi+/lL7IJNEVHVS2ghmIK5RAqqv5S1WgMauU
+	+ivB0dUYqFWWg+40W/slgCJRnUfMgTsB/0jWFttxYMP18AULnt0vDDR3zuWK4kuS/4OSSZQB6esGa
+	nFdtAkeoGNhyM0x69M4vkISBg03v8F/qMXfZ4cwa/IAMGdiRJqljEqIeyYeJMg/+y098DSXTpPEUq
+	I7DQufQXGrL/xveXTgVEwM1bxjbKkizYNQbW76NIUinvmn8hhqPvlP+OpKzgp7so+J5gTBWrCu+4D
+	mRofbVBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA0dw-000000063GJ-3rsM;
-	Tue, 07 Apr 2026 07:14:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wA0gx-000000063fN-13re;
+	Tue, 07 Apr 2026 07:17:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA0du-000000063FO-2StG
+	id 1wA0gu-000000063ez-070R
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 07:14:35 +0000
+	Tue, 07 Apr 2026 07:17:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B282E4448B
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Apr 2026 07:14:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C89CC2BCB4
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Apr 2026 07:14:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 26F7B442EE;
+	Tue,  7 Apr 2026 07:17:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA138C116C6;
+	Tue,  7 Apr 2026 07:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775546073;
-	bh=eDYNJnr4ETlKa/GKXVghhxv0mku2PXdivqbDDAcFYYs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=e6RHv0Yu9urVko13Ln68xAueF738ZXzS7tdsaS/46PUUOPlP5CuLpl91YXHvKXBgk
-	 PDw1oakAOBB/J13Ko+DJMWeaTOv/oUniEwsd5v7ULt2Dst3BuuY8GARf99TUM1rHx9
-	 NpCDf867TsKWmxmsIhCZdqhcJwNxWczRo109DvsvawKWBJtf7FUoNsDmTg/nGNLbT6
-	 /kZyEheo9OQs7hBmcqiWaIUvO9hvVdd0tFdqRxvEoHIw2RkY12FRzMaf+VBucAFrAz
-	 b2H7LLkAMITli4l3763xxC3gAX5dOUj2AgzMCUN5vvem3rFZrC4EGFeZljhu+oBlFx
-	 XS6pkfloyDCMA==
-Received: by mail-yx1-f54.google.com with SMTP id 956f58d0204a3-64edf260b49so6682981d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 00:14:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWUKRyKiiRrJnvaZrb0VLDfynguMSteS/vLnri8xEbTdUHGRM0oyY49xs4i3HQ2/CNl/srD45RQT8f5GbVkTAE4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKkU9IqNCkb2Bc6jVmq9qGnBzSVOCGgkRETLIGU18EMvJRAG6O
-	TpjU/oF66KVCMaU1arvS8voQqEJBaalFadNxXKcfFrdhWwA6cvd13Hh9hngitQsgtTf3wjxqN7n
-	0SiRsdB9fAKWJpouaaHnFLjwBhVVHG7o=
-X-Received: by 2002:a05:690e:d07:b0:650:7b78:2bf6 with SMTP id
- 956f58d0204a3-6507b782cc8mr1364136d50.21.1775546072903; Tue, 07 Apr 2026
- 00:14:32 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260331-pxa-gpio-swnodes-v1-0-f66d86d10d8d@oss.qualcomm.com>
-In-Reply-To: <20260331-pxa-gpio-swnodes-v1-0-f66d86d10d8d@oss.qualcomm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 7 Apr 2026 09:14:22 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmEstHo0CYq=ifqm367UXqFcMgs7669s-1P1Y96rKcTwg@mail.gmail.com>
-X-Gm-Features: AQROBzD3uIlbGSM9X7dypNf0x3ZZt8RrcOHCg4-dWSS6NmwEI15IRO13jTknXdg
-Message-ID: <CAD++jLmEstHo0CYq=ifqm367UXqFcMgs7669s-1P1Y96rKcTwg@mail.gmail.com>
-Subject: Re: [PATCH 0/3] ARM: pxa: attach software nodes to the GPIO controllers
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>, 
-	Robert Jarzmik <robert.jarzmik@free.fr>, Russell King <linux@armlinux.org.uk>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Arnd Bergmann <arnd@kernel.org>, brgl@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	s=k20201202; t=1775546258;
+	bh=DH4aQOykI0rpEHZrWRjW7Tiv09C9Qv6GTBvf35yHM2I=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=KID2eHR0XJBaXmB1/Ca916XBQ2YYI/+8t9UhJS6CPrbwgGUWYf/arWOAaJ5VX7gDv
+	 LXHY91ndmx2UdFL3GtVVMDDNumM5+7eR8Ngy+Ab3O6NFC4ceywP4yD7YJnGtSjoxkw
+	 YygFXykrZ4JCsOEJZylx+rkX2o60hwQI5A0q24o5oc7xlSOEGEE85O1gp19V/9sbvq
+	 5Fa+/iF24iIdyK2z3C4gcPVprguGiZVKWrPdOS37B3dJofRkvMkicbCbDfWEKAieAi
+	 U+jKcg6f4hOhSTZvrWu2/oMUhIeirk3kuKUnj+BkYeUTwiqv9XXIMe8iTLlM9Ay2a8
+	 9nUGS74D9XcvA==
+Received: from cu01147a.smtpx.saremail.com ([195.16.150.122] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wA0gp-00000009QiT-2U6s;
+	Tue, 07 Apr 2026 07:17:35 +0000
+Date: Tue, 07 Apr 2026 08:17:29 +0100
+Message-ID: <87y0izb5o6.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 1/2] KVM: arm64: Factor out TG0/1 decoding of VTCR and TCR
+In-Reply-To: <20260406164618.3312473-2-weilin.chang@arm.com>
+References: <20260406164618.3312473-1-weilin.chang@arm.com>
+	<20260406164618.3312473-2-weilin.chang@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 195.16.150.122
+X-SA-Exim-Rcpt-To: weilin.chang@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_001434_647913_82E35485 
-X-CRM114-Status: GOOD (  16.99  )
+X-CRM114-CacheID: sfid-20260407_001740_530866_2C66DC47 
+X-CRM114-Status: GOOD (  31.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,29 +91,251 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 31, 2026 at 11:11=E2=80=AFAM Bartosz Golaszewski
-<bartosz.golaszewski@oss.qualcomm.com> wrote:
+On Mon, 06 Apr 2026 17:46:17 +0100,
+Wei-Lin Chang <weilin.chang@arm.com> wrote:
+> 
+> The current code decodes TCR.TG0/TG1 and VTCR.TG0 inline at several
+> places. Extract this logic into helpers so the granule size is derived
+> in one place. This enables us to alter the effective granule size in
+> the same place, which we will need in a later patch.
+> 
+> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> ---
+>  arch/arm64/kvm/at.c     | 73 +++++++++++++++++++++++++----------------
+>  arch/arm64/kvm/nested.c | 70 ++++++++++++++++++++++++---------------
+>  2 files changed, 89 insertions(+), 54 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+> index c5c5644b1878..ff8ba30e917b 100644
+> --- a/arch/arm64/kvm/at.c
+> +++ b/arch/arm64/kvm/at.c
+> @@ -135,14 +135,54 @@ static void compute_s1poe(struct kvm_vcpu *vcpu, struct s1_walk_info *wi)
+>  	wi->e0poe = (wi->regime != TR_EL2) && (val & TCR2_EL1_E0POE);
+>  }
+>  
+> +static unsigned int tg0_to_shift(u64 tg0)
+> +{
 
-> I was looking for a use-case where automatic secondary fwnode assignment
-> would make sense for a DT platform. With the paz00 issue having been
-> addressed by Dmitry, PXA looked like the last one that could match the
-> idea but it turned out that we can just easily attach the software nodes
-> to their controllers enabling fwnode lookup of GPIOs.
->
-> After that the only GPIO consumers that still use label lookup with
-> dangling software nodes are ACPI platform devices and a single PCI
-> use-case. In that case, I won't be doing anything OF-related and will
-> limit the x86 tablets series to an ACPI-centric solution.
->
-> With that being said: here's a series attaching software nodes to GPIO
-> controllers on the PXA platform. Since everything happens in a
-> bord-file, it's quite straightforward.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+It'd be better to abstract these helpers a bit more by making them
+take the full TCR_ELx value, and to give them a slightly better name.
 
-This makes things better, thanks!
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+I'd suggest something like:
 
-Yours,
-Linus Walleij
+static unsigned int tcr_to_tg0_pgshift(u64 tcr)
+{
+	u64 tg0 = tcr & TCR_TG0_MASK, tcr;
+
+which makes it clear that the result is a page shift, as required by
+wi->pgshift.
+
+> +	switch (tg0) {
+> +	case TCR_EL1_TG0_4K:
+> +		return 12;
+> +	case TCR_EL1_TG0_16K:
+> +		return 14;
+> +	case TCR_EL1_TG0_64K:
+
+Please don't mix the _EL1 definition and those without _EL1 in the
+same file. For a start, that's not always EL1. Also, this makes very
+hard to reason about what is shifted and what is not.
+
+> +	default:	/* IMPDEF: treat any other value as 64k */
+> +		return 16;
+> +	}
+> +}
+> +
+> +static unsigned int tg1_to_shift(u64 tg1)
+> +{
+> +	switch (tg1) {
+> +	case TCR_EL1_TG1_4K:
+> +		return 12;
+> +	case TCR_EL1_TG1_16K:
+> +		return 14;
+> +	case TCR_EL1_TG1_64K:
+> +	default:	/* IMPDEF: treat any other value as 64k */
+> +		return 16;
+> +	}
+> +}
+> +
+> +static u64 tcr_tg_shift(struct kvm *kvm, u64 tcr, bool upper_range)
+> +{
+> +	unsigned int shift;
+> +
+> +	/* Someone was silly enough to encode TG0/TG1 differently */
+> +	if (upper_range)
+> +		shift = tg1_to_shift(FIELD_GET(TCR_EL1_TG1_MASK, tcr));
+> +	else
+> +		shift = tg0_to_shift(FIELD_GET(TCR_EL1_TG0_MASK, tcr));
+> +
+> +	return shift;
+> +}
+> +
+>  static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
+>  			 struct s1_walk_result *wr, u64 va)
+>  {
+> -	u64 hcr, sctlr, tcr, tg, ps, ia_bits, ttbr;
+> +	u64 hcr, sctlr, tcr, ps, ia_bits, ttbr;
+>  	unsigned int stride, x;
+> -	bool va55, tbi, lva;
+> +	bool va55, tbi, lva, upper_range;
+>  
+>  	va55 = va & BIT(55);
+> +	upper_range = va55 && wi->regime != TR_EL2;
+>  
+>  	if (vcpu_has_nv(vcpu)) {
+>  		hcr = __vcpu_sys_reg(vcpu, HCR_EL2);
+> @@ -173,35 +213,12 @@ static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
+>  		BUG();
+>  	}
+>  
+> -	/* Someone was silly enough to encode TG0/TG1 differently */
+> -	if (va55 && wi->regime != TR_EL2) {
+> +	if (upper_range)
+>  		wi->txsz = FIELD_GET(TCR_T1SZ_MASK, tcr);
+> -		tg = FIELD_GET(TCR_TG1_MASK, tcr);
+> -
+> -		switch (tg << TCR_TG1_SHIFT) {
+> -		case TCR_TG1_4K:
+> -			wi->pgshift = 12;	 break;
+> -		case TCR_TG1_16K:
+> -			wi->pgshift = 14;	 break;
+> -		case TCR_TG1_64K:
+> -		default:	    /* IMPDEF: treat any other value as 64k */
+> -			wi->pgshift = 16;	 break;
+> -		}
+> -	} else {
+> +	else
+>  		wi->txsz = FIELD_GET(TCR_T0SZ_MASK, tcr);
+> -		tg = FIELD_GET(TCR_TG0_MASK, tcr);
+> -
+> -		switch (tg << TCR_TG0_SHIFT) {
+> -		case TCR_TG0_4K:
+> -			wi->pgshift = 12;	 break;
+> -		case TCR_TG0_16K:
+> -			wi->pgshift = 14;	 break;
+> -		case TCR_TG0_64K:
+> -		default:	    /* IMPDEF: treat any other value as 64k */
+> -			wi->pgshift = 16;	 break;
+> -		}
+> -	}
+>  
+> +	wi->pgshift = tcr_tg_shift(vcpu->kvm, tcr, upper_range);
+>  	wi->pa52bit = has_52bit_pa(vcpu, wi, tcr);
+>
+>  	ia_bits = get_ia_size(wi);
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index 883b6c1008fb..2bfab3007cb3 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -378,20 +378,36 @@ static int walk_nested_s2_pgd(struct kvm_vcpu *vcpu, phys_addr_t ipa,
+>  	return 0;
+>  }
+>  
+> -static void vtcr_to_walk_info(u64 vtcr, struct s2_walk_info *wi)
+> +static unsigned int tg0_to_shift(u64 tg0)
+
+Same comments as above.
+
+> +{
+> +	switch (tg0) {
+> +	case VTCR_EL2_TG0_4K:
+> +		return 12;
+> +	case VTCR_EL2_TG0_16K:
+> +		return 14;
+> +	case VTCR_EL2_TG0_64K:
+> +	default:	/* IMPDEF: treat any other value as 64k */
+> +		return 16;
+> +	}
+> +}
+> +
+> +static u64 vtcr_tg0_shift(struct kvm *kvm, u64 vtcr)
+> +{
+> +	u64 tg0 = FIELD_GET(VTCR_EL2_TG0_MASK, vtcr);
+> +	unsigned int shift = tg0_to_shift(tg0);
+> +
+> +	return shift;
+
+shift is an unsigned int. Why is the return value a u64? Try and make
+sure that types are consistent, even if they cast nicely in C.
+
+> +}
+> +
+> +static size_t vtcr_tg0_size(struct kvm *kvm, u64 vtcr)
+> +{
+> +	return BIT(vtcr_tg0_shift(kvm, vtcr));
+> +}
+> +
+> +static void vtcr_to_walk_info(struct kvm *kvm, u64 vtcr, struct s2_walk_info *wi)
+
+This prototype reads bizarrely. vtcr is per CPU, the walk info is
+evidently per CPU, and yet you pass a kvm struct.
+
+Instead, rename this to:
+
+static void setup_s2_walk(struct kvm_vcpu *vcpu,
+			  struct s2_walk_info *wi)
+{
+	u64 vtcr = vcpu_read_sys_reg(vcpu, VTCR_EL2);
+
+and call that directly. You can then extract vcpu->kvm as needed. It
+also aligns the naming on the s1 part, which isn't a bad thing to do.
+
+>  {
+>  	wi->t0sz = vtcr & TCR_EL2_T0SZ_MASK;
+> -
+> -	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
+> -	case VTCR_EL2_TG0_4K:
+> -		wi->pgshift = 12;	 break;
+> -	case VTCR_EL2_TG0_16K:
+> -		wi->pgshift = 14;	 break;
+> -	case VTCR_EL2_TG0_64K:
+> -	default:	    /* IMPDEF: treat any other value as 64k */
+> -		wi->pgshift = 16;	 break;
+> -	}
+> -
+> +	wi->pgshift = vtcr_tg0_shift(kvm, vtcr);
+>  	wi->sl = FIELD_GET(VTCR_EL2_SL0_MASK, vtcr);
+>  	/* Global limit for now, should eventually be per-VM */
+>  	wi->max_oa_bits = min(get_kvm_ipa_limit(),
+> @@ -414,7 +430,7 @@ int kvm_walk_nested_s2(struct kvm_vcpu *vcpu, phys_addr_t gipa,
+>  
+>  	wi.baddr = vcpu_read_sys_reg(vcpu, VTTBR_EL2);
+>  
+> -	vtcr_to_walk_info(vtcr, &wi);
+> +	vtcr_to_walk_info(vcpu->kvm, vtcr, &wi);
+>  
+>  	wi.be = vcpu_read_sys_reg(vcpu, SCTLR_EL2) & SCTLR_ELx_EE;
+>  
+> @@ -515,17 +531,19 @@ static u8 get_guest_mapping_ttl(struct kvm_s2_mmu *mmu, u64 addr)
+>  	u64 tmp, sz = 0, vtcr = mmu->tlb_vtcr;
+>  	kvm_pte_t pte;
+>  	u8 ttl, level;
+> +	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+> +	size_t tg0_size = vtcr_tg0_size(kvm, vtcr);
+>  
+> -	lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(mmu)->mmu_lock);
+> +	lockdep_assert_held_write(&kvm->mmu_lock);
+>  
+> -	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
+> -	case VTCR_EL2_TG0_4K:
+> +	switch (tg0_size) {
+> +	case SZ_4K:
+>  		ttl = (TLBI_TTL_TG_4K << 2);
+>  		break;
+> -	case VTCR_EL2_TG0_16K:
+> +	case SZ_16K:
+>  		ttl = (TLBI_TTL_TG_16K << 2);
+>  		break;
+> -	case VTCR_EL2_TG0_64K:
+> +	case SZ_64K:
+
+All these unit changes make the patch harder to read than it should
+be. Consider having a separate patch to do that.
+
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
