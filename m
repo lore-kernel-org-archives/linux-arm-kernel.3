@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CED0DEDB7ED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 10:29:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10899EDB7F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 10:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/L8lkXUpPogeX4jhGnWZtuXaNGYlu/3wjmcEpj1tptc=; b=VPGJeIKUUH0CQpdUE76BP1igGL
-	P2f8eTt2cwSVqsmem1ng3X9Nw3mDb97X1jmZPYg1DNnoGeqUiw0jLac6eUU9lXZGQCIsrZDvlq3nV
-	TTDBVdwmIbHpnwWuLajKHw2qPWvUeSpxiOzoOuxiW4kzIGkEoQuU8XZtj6ZoIxPXRhBqLAtYjFNru
-	re+p20QXEy8WXn8LQjMkV0o4+Kw3aYFjV79xMmOoTgDLFGlVyhLgQjnwhMOvKulk6fSVzYHw3BFoY
-	YyfygoJmgAms67s48RhkN68ytqSDJH6UpK2tqJFtwefX0iIvl+Awy0QnqHMxIneiFc2UlS0lubINE
-	hbm6QfrQ==;
+	bh=Wbf3E557N4SEJDt5I9ywbJWL0cExXrE5XOjT3Zxvn0w=; b=w0GwTjubqlrIaiVyDSqemzj5/7
+	xSLmD0h7jdjIx548gL7Tk3PMU+kEs0w0C9sYB3TiERYynXsc1jPPEzcd40yemi/qcFddSci+NMfTk
+	BHsiWDircxEgijo/Et9/yxLDotq46ULzntLLmMCsSL7Wyw5rL7onCXuvVNjQa2ae7VKGoC4nX3PIm
+	15/daXVLg5x/Y/+1m4RjM+zStxlzejRAa+cIpEUqCk2m3ZdH83wwYVBY5n1HyN83/SWTL39hu9RDo
+	aC0mOtYRwZoiCNzOUIRjY3fvwUmWpR/yd04Nm3ARHVmo3ceZV23teJ3jsGr9fcvKDkeHHAHP9s2wg
+	0PKtlVNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA3g1-00000006HqJ-2z91;
-	Tue, 07 Apr 2026 10:28:57 +0000
+	id 1wA3g2-00000006Hqo-1WJ2;
+	Tue, 07 Apr 2026 10:28:58 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA3fx-00000006HnI-2zDE
+	id 1wA3fz-00000006Ho4-0djj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 10:28:54 +0000
+	Tue, 07 Apr 2026 10:28:56 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 125C232AF;
-	Tue,  7 Apr 2026 03:28:47 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 362271BB2;
+	Tue,  7 Apr 2026 03:28:48 -0700 (PDT)
 Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F17523F641;
-	Tue,  7 Apr 2026 03:28:51 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1FC3C3F641;
+	Tue,  7 Apr 2026 03:28:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775557732; bh=0hsScL5Jq+W2z3914Dx1/1N6cYL7m7yWJjXp55/auu0=;
+	t=1775557733; bh=T6AHbmBi2TmUQfIv141VhNW0xBnK7itHroSBTpypuwo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XyDs6pSPtTU4L57maMngDyDSKyHD+Ho0nFYMWqZvdsVrkY73RhlxmLriLUsGFNdL9
-	 4pefaAo3XWc3K/wj9vIH5DA8I56hkPYpgVFR+TuNtstTcRT1Kq2UFD29mZcp34JEoX
-	 ZFmNAdUXkZ3VYSZufE0Dz/ffazWctVzn9HNrZ6oU=
+	b=Gm3Lcl6BH56vlepcWbK3Q8eUrQbMIo7XDVs6HEv4zMecidvXdEkeHr5VQGJEXAoQk
+	 bu0MBLbtbjm+tj0cdzcrp+LhDtpvoIFuKklQW4Hr7nLogxmXyFCaOVQUErRUaRAz17
+	 gkyrJN3mNxJgY4W1ypd0Ypt+nuH6sAakH6tena30=
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Will Deacon <will@kernel.org>,
 	James Morse <james.morse@arm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v5 2/4] arm64: tlb: Pass the corresponding mm to __tlbi_sync_s1ish()
-Date: Tue,  7 Apr 2026 11:28:42 +0100
-Message-ID: <20260407102848.2266988-3-catalin.marinas@arm.com>
+Subject: [PATCH v5 3/4] arm64: cputype: Add C1-Pro definitions
+Date: Tue,  7 Apr 2026 11:28:43 +0100
+Message-ID: <20260407102848.2266988-4-catalin.marinas@arm.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260407102848.2266988-1-catalin.marinas@arm.com>
 References: <20260407102848.2266988-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_032853_868010_4DD555C1 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20260407_032855_224361_435F69B5 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,68 +71,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mm structure will be used for workarounds that need limiting to
-specific tasks.
+Add cputype definitions for C1-Pro. These will be used for errata
+detection in subsequent patches.
+
+These values can be found in "Table A-303: MIDR_EL1 bit descriptions" in
+issue 07 of the C1-Pro TRM:
+
+  https://documentation-service.arm.com/static/6930126730f8f55a656570af
 
 Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
 Acked-by: Mark Rutland <mark.rutland@arm.com>
 Cc: Will Deacon <will@kernel.org>
+Cc: James Morse <james.morse@arm.com>
 ---
- arch/arm64/include/asm/tlbflush.h | 8 ++++----
- arch/arm64/kernel/sys_compat.c    | 2 +-
- 2 files changed, 5 insertions(+), 5 deletions(-)
+ arch/arm64/include/asm/cputype.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index f41eebf00990..262791191935 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -185,7 +185,7 @@ do {										\
-  * Complete broadcast TLB maintenance issued by the host which invalidates
-  * stage 1 information in the host's own translation regime.
-  */
--static inline void __tlbi_sync_s1ish(void)
-+static inline void __tlbi_sync_s1ish(struct mm_struct *mm)
- {
- 	dsb(ish);
- 	__repeat_tlbi_sync(vale1is, 0);
-@@ -323,7 +323,7 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
- 	asid = __TLBI_VADDR(0, ASID(mm));
- 	__tlbi(aside1is, asid);
- 	__tlbi_user(aside1is, asid);
--	__tlbi_sync_s1ish();
-+	__tlbi_sync_s1ish(mm);
- 	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
- }
+diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
+index 08860d482e60..7b518e81dd15 100644
+--- a/arch/arm64/include/asm/cputype.h
++++ b/arch/arm64/include/asm/cputype.h
+@@ -98,6 +98,7 @@
+ #define ARM_CPU_PART_CORTEX_A725	0xD87
+ #define ARM_CPU_PART_CORTEX_A720AE	0xD89
+ #define ARM_CPU_PART_NEOVERSE_N3	0xD8E
++#define ARM_CPU_PART_C1_PRO		0xD8B
  
-@@ -377,7 +377,7 @@ static inline void flush_tlb_page(struct vm_area_struct *vma,
- 				  unsigned long uaddr)
- {
- 	flush_tlb_page_nosync(vma, uaddr);
--	__tlbi_sync_s1ish();
-+	__tlbi_sync_s1ish(vma->vm_mm);
- }
- 
- static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
-@@ -532,7 +532,7 @@ static inline void __flush_tlb_range(struct vm_area_struct *vma,
- {
- 	__flush_tlb_range_nosync(vma->vm_mm, start, end, stride,
- 				 last_level, tlb_level);
--	__tlbi_sync_s1ish();
-+	__tlbi_sync_s1ish(vma->vm_mm);
- }
- 
- static inline void local_flush_tlb_contpte(struct vm_area_struct *vma,
-diff --git a/arch/arm64/kernel/sys_compat.c b/arch/arm64/kernel/sys_compat.c
-index b9d4998c97ef..03fde2677d5b 100644
---- a/arch/arm64/kernel/sys_compat.c
-+++ b/arch/arm64/kernel/sys_compat.c
-@@ -37,7 +37,7 @@ __do_compat_cache_op(unsigned long start, unsigned long end)
- 			 * We pick the reserved-ASID to minimise the impact.
- 			 */
- 			__tlbi(aside1is, __TLBI_VADDR(0, 0));
--			__tlbi_sync_s1ish();
-+			__tlbi_sync_s1ish(current->mm);
- 		}
- 
- 		ret = caches_clean_inval_user_pou(start, start + chunk);
+ #define APM_CPU_PART_XGENE		0x000
+ #define APM_CPU_VAR_POTENZA		0x00
+@@ -189,6 +190,7 @@
+ #define MIDR_CORTEX_A725 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A725)
+ #define MIDR_CORTEX_A720AE MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A720AE)
+ #define MIDR_NEOVERSE_N3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_N3)
++#define MIDR_C1_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_C1_PRO)
+ #define MIDR_THUNDERX	MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX)
+ #define MIDR_THUNDERX_81XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX_81XX)
+ #define MIDR_THUNDERX_83XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX_83XX)
 
