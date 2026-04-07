@@ -4,104 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8394FEEF56
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 15:02:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C3F4FF5105
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 15:19:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IonLYcja0I5exy5BxsdqIigBkSbpN4xU4h1v8o9suB0=; b=EWCrva+1aiKAH6gUZW4TTcfr5W
-	3bGuii462hHMsuwZjZsLJmbGW4i7PBNCOG78hcnjRhscfthBuE/NrV7rco9dLQkzJet54DNFl7joo
-	dIi6tIhgzsS5j3kfBqzaXpohi/IsTaEXi4yCekSGqv3Ufcru6myEH2SNUjkDqmVh11VfJWTuGpfv/
-	BdEdjDva98CibyWLXSyidO3vwoqV1CoBVZWFQLSvqY84G+9zRUIKB6IHETOCmjSxm8oyo7fmufSpa
-	2H3ov/0KLPoxXbNh+xwnEUSERiRk0I38oYi0q6h6GEFqXH+5KrQZoWdhc0L3KHX6VXHiNnfonRtaV
-	rkEbXdYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=px+aTSO680+yUdTUoCh2tkBc+4urCGyGCdnmZi+tHi8=; b=t1WBlBMVCUkuAg5zB+ipcpE/Ya
+	/OcFGbsmxWF+sVsRgPd5uEXCTGfYqwNbH3GNZ5bp4d+pAi3+uikwuXe4i4UIzArYnhB0GpbFxXOD9
+	EGEi0UTeGt3skS2lCf7YM3ZlMb6wwjfWWs4DZR/VL81oPWJ22Dk51Ue6soeWrKRn2XPe7HIdLgbE9
+	XE385ITfF1WtKQmVKEcGGkNxB3HgKGu58zQAoyqkR4G26Z86ytLUc9ZwzyGy9xPyqedjTz8dZh2WR
+	zgjAT0u4GXGYuI29ZmbPyNtyStO2mfhNwEwhHzIPDOfoxADMyGRYmGz1Q8TyR6QCpRKyayDpDD30z
+	5He+PDlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7x1-00000006fYE-2MD1;
-	Tue, 07 Apr 2026 15:02:47 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1wA8DO-00000006ghP-2i1S;
+	Tue, 07 Apr 2026 15:19:42 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7wz-00000006fXX-1gRT
+	id 1wA8DM-00000006ggr-05E7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 15:02:46 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-66c05fb27e4so8650938a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 08:02:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1775574163; cv=none;
-        d=google.com; s=arc-20240605;
-        b=CKJZ7SR+ILRglzoq98GOOoC5GEeE3xjIWHyLQpduPiSAYpkNmTgp0auLdKC43n/T/t
-         vVkNQ6cbfLPEJbNiOfRD5jDzxCA9ykgCM//mT6rZNz4GOM9P/yFx8G5y6fcApj698X3/
-         0o8wZ2COj1Xs4AEvsLNHFtT9gB4qegebJ8phetgZoSzpo117w5z7obgLmAMMgSod001v
-         xWrT4wwvbfzWT8ZEQG0W87v8UG6Aca30JMQh81JeOCMDXAYSkz50lK/vCa027BBbYMcw
-         5hVtjyDlPEitIM3cmt0aLGAL/RgJPZjPCAubP/yJRP3bCeaLSuI2QOZP/9x1oYwjkj8T
-         sQZg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=IonLYcja0I5exy5BxsdqIigBkSbpN4xU4h1v8o9suB0=;
-        fh=PfqdgDD4l3m9yYRvVTP7fLBQqW9sY8V9cLKo3nWWjEw=;
-        b=KJgUzET2yA6DqOzMdls2E6eMQuScSFQUoYa6xkv+a+XDA1OqxgW7xz30lUL0QZ69qu
-         BzJfu3rYenPQ0RfqYiFEbOsN96PtIGlzEk2LdFU1aiq6KoAljlJOvqbsLmJ2l+B3p7fv
-         Ox2a6QkmdwXhvgWIb3B25zTUe03NISD0Bzl5/fBmHHFzM6Bn6JHkBKjIDOcz7QJFyE89
-         Lpn7QHvYTpZnbM23RCw1W32zWuT9efPPe4WRugL/b7gBhfREixkqUgZs/lrcMEDXG1FC
-         jshZoXt2U1k76RbBOLizAH7OM94F2g91srylAqunhOPADEG0a1L+iTVYA7qKUpXbaEC4
-         4Cng==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 07 Apr 2026 15:19:41 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-82ce49785a0so2177613b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 08:19:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=soleen.com; s=google; t=1775574163; x=1776178963; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IonLYcja0I5exy5BxsdqIigBkSbpN4xU4h1v8o9suB0=;
-        b=ZO6oeqACmU0Oy6/MRpdEcj8WxDnhEo3G7CwG495kU6kJJmdtYC4YgxCGRn5pIZq52G
-         xXy8ZSSGDS3Nx3kP9EQ8Ly3uT/5zpRdKeLZQ1oWT2wahf0AWfg4hsRUmMt2UcUOYMoQN
-         InkNNrjnHniZ9KloP9iT1c5Vt3Atnvjd7B8brqy0INzISryZqIhVdNyf2WVBBtp3n6lT
-         E+8JB5b0ZnVnrMW1wfU9CodCfgZpcCuv7I8eQLxK8L/vMy50xrjCHV76T0Kf2wvkJyCt
-         AQghdu2sbhhl5sBlO4E7jA96CANVuyv/Jpciu61TCUKTfn+sgj/v5DKRnGfXe5qqH8e6
-         F3rA==
+        d=linaro.org; s=google; t=1775575178; x=1776179978; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=px+aTSO680+yUdTUoCh2tkBc+4urCGyGCdnmZi+tHi8=;
+        b=u+1hzlGMzAAdNTzKGuxgu7+WoS3o5qEh/UnnmWdDwFdtfoUtKfrCeKxD6egPZGwICK
+         hrAFIV8IdYo+tGlLRPhTwWRptPJOcg8mtMj9PCU0NTq7fiXNkvgFH666JzjMZrLAZOp5
+         e3+YSIU+3Q3bW1gj6hxcxWyVaawQaf+2b27cO3LrWfecE6psE+hTrVwEgCSPjA1FH4xq
+         4/qjDxOicmGVJ7jNqzJjMqA/Eb7O0h4tOUytswDc+zZNu275KTe+TvgvejSE9NPfSd9e
+         sVz3FH8cYwrA85tF8ovp/ju3PQeCS661zVKyq4aiLeKC+e6ER4jpqTcELqzvKkTrT7bF
+         TLkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775574163; x=1776178963;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=IonLYcja0I5exy5BxsdqIigBkSbpN4xU4h1v8o9suB0=;
-        b=nxbABqXvDfkPpV0xszSSmwrhGY9TRVgcEVHFOBfO4S6wMCNYDEhIJZR4iKj68bk6NI
-         goafTQfDx8YO/HXkuyfmpPhYZRtIFMIKjyu7CGoGI1r/4RlT7f54Rs3Vy6pUw+HsOArC
-         ZqxS6o7bDPMbTNz8DucTiTOkq31HLIW7XGZyNi7iRTo2bDwmpbaC5XAeCjSSXInazmVL
-         QMqmft3EnfLjfGrLLLc78dogbaCpEhiyFthesB6Q+Leys2hBEW2RL5buJ6HhuvN0gJFc
-         4z079r5m+nbzIMRJgII/H/2DXb7ualcnUsE7IWYItV4EDzsj7XiHIsD/tV0kw5ppqv/N
-         2YTg==
-X-Forwarded-Encrypted: i=1; AJvYcCVGErfOTymq4sRDcbI76qmpAD3hkzCMl9tg+CSZu5cXwiWxmZqtHAx4AdcivtckLfG/Xb7WLdaNsQA6EW7S54Ms@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPO+zI1zl4sFMz/spUxLsz2b1kklUCeyaNBUEyH7WTd1D00uh0
-	Bppop7kPNvIxlDpSf6WsySw+Dh9a3fpJ4Vcjl5lDqTUXgxArIWy3fq9r2dNnOFYqRJ7kYy3fF7P
-	cwptL26Tj5O6Y7eoQvYCGMbnrajSq7Xw9dwtDgb4pFg==
-X-Gm-Gg: AeBDieup77UfgofsBJRg/QSkpBuntemqgyS4slmfsankefq86M2IbV0L9RRQvOSMMwg
-	AUY1cAH0xUMAQ9yzVA9I2p89WW6YGJXG2E9xo02tLZRYf9YSiaIfyYYTYUw5CZ9QNmRPZsUzmWg
-	QuChy9/FfDN7X9SMcFblGKKIfh7eK2ER8Ph3tCVJyXoL2BZZ6oey3lcwgbXK1r1fbKiHNjpBrNg
-	rr+ETuPwfi/dcQLlQQeIn4jA1VjdRTKpC4v9lbiVNp0hZeRTUiaZ+WsbLLDd8tMRttum87fSP8+
-	cHruvi8Ivc3IsSZ32eYr8dyKCZ6lK4OAmleTZw==
-X-Received: by 2002:a05:6402:430f:b0:66e:c7e3:55bc with SMTP id
- 4fb4d7f45d1cf-66ec7e357d9mr4752610a12.23.1775574162894; Tue, 07 Apr 2026
- 08:02:42 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1775575178; x=1776179978;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=px+aTSO680+yUdTUoCh2tkBc+4urCGyGCdnmZi+tHi8=;
+        b=gsvjZpkkoGeX54LSgPIisekVhOL+rHLBWgerNqf0LK4KmR1Ov9B3x2lj/ykgcl1CCS
+         T0ldWDA0fSAz0wFzWIPiQDjZuSCoZv1NvKzh3DD4UrTO3MaVRAosmUoB47sJLUtkEc3/
+         ThzxLqHb2haNFDNlEcsttby3QhOVN1rg1JRMC02+afNpNLhhoC01I2ZBCjFREySclD8y
+         DMFpMwbL+xXnqQocqkYwLPWcmre/eATTMNXKCp0o18m8JnkuJovEy4Qdy/UESnlACpmZ
+         A+1SPTQBzFMkHsqyFgRi2YK+0MlcsZct9es32rRPXqPXj7aYTedWgn3F8m6tLjRYlaGK
+         pkYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUEDOGVcp3K8rWi4tGHa59/muDX3eKhbB8r0LKlMpL2CYMGgsngQPs2O7rFFPngfl39bnAwQ3QEQCsf6J5F/527@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDm8IezRoDv8GyzK6jRUUgTIIbKkjWD8aGzQO74bZJ+V6F2B/J
+	Lhnc4QY5CtikxBQd6NH126ykDpPVk7xKXOCfsLQgGWhbkxMFEOpJOOZvDRh08Mxjz2A=
+X-Gm-Gg: AeBDiesc+O1ygVR+YtUOL+YHTWKhrlZUCww9jJyy64vFh6ht4WtJn+qtw9j/Su1cZE2
+	2P2F1UtQsCLm1236ezp+amerPv5QIndYITOzKW8XWFe3En1wbe8QnzQRYKDe64Z8Ep6qNekXxN7
+	3ZdpgIjOx+OlBqv6tSUcmYPkyhLu7F3f2QhFCOfTwwBjotXIIt/nXhUAsgJ3LsxCrO130261v2k
+	aZDSqRjIVwwDdi7fq50QvNi/oTQIjFhfbhSX7s3C9Wqt++LE5a4pi1umxzz6M0vumuXnTCgxvA3
+	j/4uvEykBJCQ6XLg01ViSJ495n4UFt/6Dzf6dKtpwRULXr0FYrl9UFZaIMbnzt03qmmmT9579Qn
+	lnBdFJulqurtRhLS+rUIQAjjpJS3O78rScNie3x2cyxwAbCdR5uJltb8MP09ntH+hyIiAqZc8Hr
+	/IbEoA34nhXiArZ3BX65ZnRBlh34E=
+X-Received: by 2002:a05:6a00:3926:b0:7f7:2f82:9904 with SMTP id d2e1a72fcca58-82d0da2c50cmr17909669b3a.5.1775575177733;
+        Tue, 07 Apr 2026 08:19:37 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:97a2:befd:d439:79fb])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82cf9c6ba2fsm18101364b3a.45.2026.04.07.08.19.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Apr 2026 08:19:37 -0700 (PDT)
+Date: Tue, 7 Apr 2026 09:19:34 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v2 2/3] remoteproc: imx_rproc: Pass bootaddr to SM
+ CPU/LMM reset vector
+Message-ID: <adUghiyZbe3fmcNX@p14s>
+References: <20260327-imx943-rproc-v2-0-a547a3588730@nxp.com>
+ <20260327-imx943-rproc-v2-2-a547a3588730@nxp.com>
+ <acqjS440STRl2sK2@p14s>
+ <acs2PAZq2k3zjmDW@shlinux89>
 MIME-Version: 1.0
-References: <20260405114231.264761-1-wsw9603@163.com>
-In-Reply-To: <20260405114231.264761-1-wsw9603@163.com>
-From: Pasha Tatashin <pasha.tatashin@soleen.com>
-Date: Tue, 7 Apr 2026 11:02:06 -0400
-X-Gm-Features: AQROBzCcGPf1ySVvrW87TazNskfJ2TiM9vxgw4woHsEvXNkApHwiXxb5fPxMhzM
-Message-ID: <CA+CK2bA4wr-DtkCrx2A2TjsPr7WR_GH2D1FVNAk-Qyu9Jnv9zw@mail.gmail.com>
-Subject: Re: [PATCH] arm64: kexec: Remove duplicate allocation for trans_pgd
-To: Wang Wensheng <wsw9603@163.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, mrigendra.chaubey@gmail.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <acs2PAZq2k3zjmDW@shlinux89>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_080245_456654_C31BCD41 
-X-CRM114-Status: GOOD (  15.65  )
+X-CRM114-CacheID: sfid-20260407_081940_088302_3B4368CA 
+X-CRM114-Status: GOOD (  22.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,41 +111,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 5, 2026 at 7:44=E2=80=AFAM Wang Wensheng <wsw9603@163.com> wrot=
-e:
->
-> trans_pgd would be allocated in trans_pgd_create_copy(), so remove the
-> duplicate allocation before calling trans_pgd_create_copy().
->
-> Fixes: 3744b5280e67 ("arm64: kexec: install a copy of the linear-map")
-> Signed-off-by: Wang Wensheng <wsw9603@163.com>
+On Tue, Mar 31, 2026 at 10:49:32AM +0800, Peng Fan wrote:
+> On Mon, Mar 30, 2026 at 10:22:35AM -0600, Mathieu Poirier wrote:
+> >On Fri, Mar 27, 2026 at 10:42:03AM +0800, Peng Fan (OSS) wrote:
+> >> From: Peng Fan <peng.fan@nxp.com>
+> >> 
+> >> Cortex-M[7,33] processors use a fixed reset vector table format:
+> >> 
+> >>   0x00  Initial SP value
+> >>   0x04  Reset vector
+> >>   0x08  NMI
+> >>   0x0C  ...
+> >>   ...
+> >>   IRQ[n]
+> >> 
+> >> In ELF images, the corresponding layout is:
+> >> 
+> >> reset_vectors:  --> hardware reset address
+> >>         .word __stack_end__
+> >>         .word Reset_Handler
+> >>         .word NMI_Handler
+> >>         .word HardFault_Handler
+> >>         ...
+> >>         .word UART_IRQHandler
+> >>         .word SPI_IRQHandler
+> >>         ...
+> >> 
+> >> Reset_Handler:  --> ELF entry point address
+> >>         ...
+> >> 
+> >> The hardware fetches the first two words from reset_vectors and populates
+> >> SP with __stack_end__ and PC with Reset_Handler. Execution proceeds from
+> >> Reset_Handler.
+> >> 
+> >> However, the ELF entry point does not always match the hardware reset
+> >> address. For example, on i.MX94 CM33S:
+> >> 
+> >>   ELF entry point:     0x0ffc211d
+> >>   hardware reset base: 0x0ffc0000 (default reset value, sw programmable)
+> >>
+> >
+> >But why?  Why can't the ELF image be set to the right reset base?
+> 
+> Per zephyr general link script[1]:
+> ENTRY(CONFIG_KERNEL_ENTRY)
+> 
+> CONFIG_KERNEL_ENTRY(_start) is the first instruction that Cortex-M starts to
+> execute.
+> 
+> config KERNEL_ENTRY
+>         string "Kernel entry symbol"
+>         default "__start"
+>         help
+>           Code entry symbol, to be set at linking phase.
+> 
+> The hardware reset base is different: it is the address where the hardware
+> fetches the initial MSP and PC values from the vector table. Hardware uses
+> this base to initialize the stack pointer and program counter, and only then
+> does the Cortex‑M begin execution at the reset handler.
 
-Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+That part is clear.
 
-Thanks,
-Pasha
+> 
+> Aligning the ELF entry point with the hardware reset base on Cortex‑M systems
+> is possible, but it comes with several risks.
 
-> ---
->  arch/arm64/kernel/machine_kexec.c | 3 ---
->  1 file changed, 3 deletions(-)
->
-> diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machin=
-e_kexec.c
-> index 239c16e3d02f..c5693a32e49b 100644
-> --- a/arch/arm64/kernel/machine_kexec.c
-> +++ b/arch/arm64/kernel/machine_kexec.c
-> @@ -129,9 +129,6 @@ int machine_kexec_post_load(struct kimage *kimage)
->         }
->
->         /* Create a copy of the linear map */
-> -       trans_pgd =3D kexec_page_alloc(kimage);
-> -       if (!trans_pgd)
-> -               return -ENOMEM;
->         rc =3D trans_pgd_create_copy(&info, &trans_pgd, PAGE_OFFSET, PAGE=
-_END);
->         if (rc)
->                 return rc;
-> --
-> 2.43.0
->
+I'm not asking to align the ELF entry point with the hardware reset base.  All I
+want is to have the correct start address embedded in the ELF file to avoid
+having to use a mask.
+
+> 1, Semantic mismatch (ELF vs. hardware behavior)
+> 2, Debuggers may attempt to set breakpoints or start execution at the entry symbol
+> 
+> [1] https://elixir.bootlin.com/zephyr/v4.4.0-rc1/source/include/zephyr/arch/arm/cortex_m/scripts/linker.ld#L103
+> 
+> Regards
+> Peng.
+> > 
 
