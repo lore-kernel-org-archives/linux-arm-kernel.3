@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BC01FEEF41
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 13:17:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 844BCFEEF41
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 13:18:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=13doc/3FCKY4n9lX9uzBGkJYjgPPbjSoK4aoirBe+NY=; b=pBwgrKu7GXWKlK
-	RKTjC2wSLOm6luU9f38Zpe2ZhQOs7s6yWX5ZaTPmR2XY7Q1g8IFTWgEVoIKIzueTYoQbjeU/3v6UM
-	nqpAq1y7W8udCJ7ojXhojo+UscjRfILz96A6mJe5hIx0E1yTc9DRGLSI0IxY/85sS202JL1YaEmEt
-	Ye4wSfAAu8mtx0JW5AWNZPsfPHowrYT7LtIi/WqxxVQAvnlxRcOXbDdYWNmZlk66dnOCYqfvjZyst
-	DN+MSMvhxRFecgDsAb5HIZjetWWia8qLzzRmwirEb2KVCsR56/9X63hnY5lu+5iFE71Fa1Ad0hAMW
-	6OMWPhkkSZ5ELZdUOb5w==;
+	List-Owner; bh=8YXaeVDZsodlsVYP5hdx2ZgrHnCbz2roFeBZohX4IxI=; b=qU2clTG2CcFTTA
+	mGKjAT0kywT4VbBYN+6jtqCrw+4omxAkqwVJSScZHRnhbSIAdzp0dAbMeMoJRDvuvY1oElvxOD57j
+	JyL7T9iLBbmD+q0Yqika80YZUTTwcsxRR/5NDyXOZ9o6+s3uX4efjBh8iAjWzC14kbpsbiF66D94d
+	VS2PlaTXf9V/BwfsFRnr2rH2yf5vJchXDiS2pzZ7RCt2KgmkYPAFNtTtafIfFMdiEI0vgjmV+Ic2g
+	95LzxCzkgRcgIhU9zwc4f/9V7xf92hkNP/ydxuOsNwgudivJ4bOPpPRVbQB/rGefwusTEoZooPbSJ
+	bzzAhu+7h+7DX9NLZ1Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA6JN-00000006V4l-2BLn;
-	Tue, 07 Apr 2026 13:17:45 +0000
+	id 1wA6Jc-00000006VBz-3YoK;
+	Tue, 07 Apr 2026 13:18:00 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA6JL-00000006V2z-35nB
+	id 1wA6JZ-00000006VA4-0RMq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 13:17:45 +0000
+	Tue, 07 Apr 2026 13:17:59 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 842BC16F2;
-	Tue,  7 Apr 2026 06:17:36 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0EACC1BB2;
+	Tue,  7 Apr 2026 06:17:50 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 62E0A3F7D8;
-	Tue,  7 Apr 2026 06:17:40 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DFFA93F7D8;
+	Tue,  7 Apr 2026 06:17:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775567862; bh=A2D6lxL6Il0+BUIp51/50fVPIMF1mAhdZSwxbep0s0A=;
+	t=1775567875; bh=tUnltGjcHlvxDk6vVHLGfWgevDbKvhXeMPsvKLPUGi0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eVwhDsGqS69W8pyM5O2Irxf3e+RSC1VmIe6Qpvxlpls5xl3IutTi9qO84rCJbqmB9
-	 TYf59sOhZX5hYSLbiPCI22HTxv/gGabXgva3U5rC6981gflphFbwp+pqAmNSPwfuUd
-	 sPEtQFvUq/V8wqJXLNdRevCJ4w26ssEX3MKKccxU=
+	b=i1GCfrQypMEjFouN11jFhy570D5SApBrIpY3oo1ghHbwpi+3FQik0WHbrIoeg4PIy
+	 oEy/KcYEqwQtdxl6bbDdhdZ7wsLZvdU4F1CPmrkySts9U6HeKxlfprLXKBbwmurcy+
+	 QYODOJQ13glCj+K16sN6NsPbo3CZqejEPGl8FIig=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	Andy Lutomirski <luto@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Thomas Gleixner <tglx@kernel.org>
-Subject: [PATCH 04/10] entry: Split kernel mode logic from irqentry_{enter,exit}()
-Date: Tue,  7 Apr 2026 14:16:44 +0100
-Message-Id: <20260407131650.3813777-5-mark.rutland@arm.com>
+Subject: [PATCH 05/10] entry: Split preemption from irqentry_exit_to_kernel_mode()
+Date: Tue,  7 Apr 2026 14:16:45 +0100
+Message-Id: <20260407131650.3813777-6-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260407131650.3813777-1-mark.rutland@arm.com>
 References: <20260407131650.3813777-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_061743_873142_C614CAF3 
-X-CRM114-Status: GOOD (  34.15  )
+X-CRM114-CacheID: sfid-20260407_061757_238837_3413735F 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,33 +70,47 @@ Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, catalin.marinas@arm.com, ruan
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic irqentry code has entry/exit functions specifically for
-exceptions taken from user mode, but doesn't have entry/exit functions
-specifically for exceptions taken from kernel mode.
+Some architecture-specific work needs to be performed between the state
+management for exception entry/exit and the "real" work to handle the
+exception. For example, arm64 needs to manipulate a number of exception
+masking bits, with different exceptions requiring different masking.
 
-It would be helpful to have separate entry/exit functions specifically
-for exceptions taken from kernel mode. This would make the structure of
-the entry code more consistent, and would make it easier for
-architectures to manage logic specific to exceptions taken from kernel
-mode.
+Generally this can all be hidden in the architecture code, but for arm64
+the current structure of irqentry_exit_to_kernel_mode() makes this
+particularly difficult to handle in a way that is correct, maintainable,
+and efficient.
 
-Move the logic specific to kernel mode out of irqentry_enter() and
-irqentry_exit() into new irqentry_enter_from_kernel_mode() and
-irqentry_exit_to_kernel_mode() functions. These are marked
-__always_inline and placed in irq-entry-common.h, as with
-irqentry_enter_from_user_mode() and irqentry_exit_to_user_mode(), so
-that they can be inlined into architecture-specific wrappers. The
-existing out-of-line irqentry_enter() and irqentry_exit() functions
-retained as callers of the new functions.
+The gory details are described in the thread surrounding:
 
-The lockdep assertion from irqentry_exit() is moved into
-irqentry_exit_to_user_mode() and irqentry_exit_to_kernel_mode(). This
-was previously missing from irqentry_exit_to_user_mode() when called
-directly, and any new lockdep assertion failure relating from this
-change is a latent bug.
+  https://lore.kernel.org/lkml/acPAzdtjK5w-rNqC@J2N7QTR9R3/
 
-Aside from the lockdep change noted above, there should be no functional
-change as a result of this patch.
+The summary is:
+
+* Currently, irqentry_exit_to_kernel_mode() handles both involuntary
+  preemption AND state management necessary for exception return.
+
+* When scheduling (including involuntary preemption), arm64 needs to
+  have all arm64-specific exceptions unmasked, though regular interrupts
+  must be masked.
+
+* Prior to the state management for exception return, arm64 needs to
+  mask a number of arm64-specific exceptions, and perform some work with
+  these exceptions masked (with RCU watching, etc).
+
+While in theory it is possible to handle this with a new arch_*() hook
+called somewhere under irqentry_exit_to_kernel_mode(), this is fragile
+and complicated, and doesn't match the flow used for exception return to
+user mode, which has a separate 'prepare' step (where preemption can
+occur) prior to the state management.
+
+To solve this, refactor irqentry_exit_to_kernel_mode() to match the
+style of {irqentry,syscall}_exit_to_user_mode(), moving preemption logic
+into a new irqentry_exit_to_kernel_mode_preempt() function, and moving
+state management in a new irqentry_exit_to_kernel_mode_after_preempt()
+function. The existing irqentry_exit_to_kernel_mode() is left as a
+caller of both of these, avoiding the need to modify existing callers.
+
+There should be no functional change as a result of this patch.
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Cc: Andy Lutomirski <luto@kernel.org>
@@ -107,9 +121,8 @@ Cc: Thomas Gleixner <tglx@kernel.org>
 Cc: Vladimir Murzin <vladimir.murzin@arm.com>
 Cc: Will Deacon <will@kernel.org>
 ---
- include/linux/irq-entry-common.h | 103 +++++++++++++++++++++++++++++++
- kernel/entry/common.c            | 103 +++----------------------------
- 2 files changed, 111 insertions(+), 95 deletions(-)
+ include/linux/irq-entry-common.h | 26 +++++++++++++++++++++-----
+ 1 file changed, 21 insertions(+), 5 deletions(-)
 
 Thomas/Peter/Andy, as mentioned on IRC, I haven't created kerneldoc
 comments for these new functions because the existing comments don't
@@ -122,253 +135,58 @@ preference.
 Mark.
 
 diff --git a/include/linux/irq-entry-common.h b/include/linux/irq-entry-common.h
-index d1e8591a59195..2206150e526d8 100644
+index 2206150e526d8..24830baa539c6 100644
 --- a/include/linux/irq-entry-common.h
 +++ b/include/linux/irq-entry-common.h
-@@ -304,6 +304,8 @@ static __always_inline void irqentry_enter_from_user_mode(struct pt_regs *regs)
-  */
- static __always_inline void irqentry_exit_to_user_mode(struct pt_regs *regs)
- {
-+	lockdep_assert_irqs_disabled();
-+
- 	instrumentation_begin();
- 	irqentry_exit_to_user_mode_prepare(regs);
- 	instrumentation_end();
-@@ -356,6 +358,107 @@ void dynamic_irqentry_exit_cond_resched(void);
- #define irqentry_exit_cond_resched()	raw_irqentry_exit_cond_resched()
- #endif /* CONFIG_PREEMPT_DYNAMIC */
+@@ -421,10 +421,18 @@ static __always_inline irqentry_state_t irqentry_enter_from_kernel_mode(struct p
+ 	return ret;
+ }
  
-+static __always_inline irqentry_state_t irqentry_enter_from_kernel_mode(struct pt_regs *regs)
-+{
-+	irqentry_state_t ret = {
-+		.exit_rcu = false,
-+	};
+-static __always_inline void irqentry_exit_to_kernel_mode(struct pt_regs *regs, irqentry_state_t state)
++static inline void irqentry_exit_to_kernel_mode_preempt(struct pt_regs *regs, irqentry_state_t state)
+ {
+-	lockdep_assert_irqs_disabled();
++	if (regs_irqs_disabled(regs) || state.exit_rcu)
++		return;
 +
-+	/*
-+	 * If this entry hit the idle task invoke ct_irq_enter() whether
-+	 * RCU is watching or not.
-+	 *
-+	 * Interrupts can nest when the first interrupt invokes softirq
-+	 * processing on return which enables interrupts.
-+	 *
-+	 * Scheduler ticks in the idle task can mark quiescent state and
-+	 * terminate a grace period, if and only if the timer interrupt is
-+	 * not nested into another interrupt.
-+	 *
-+	 * Checking for rcu_is_watching() here would prevent the nesting
-+	 * interrupt to invoke ct_irq_enter(). If that nested interrupt is
-+	 * the tick then rcu_flavor_sched_clock_irq() would wrongfully
-+	 * assume that it is the first interrupt and eventually claim
-+	 * quiescent state and end grace periods prematurely.
-+	 *
-+	 * Unconditionally invoke ct_irq_enter() so RCU state stays
-+	 * consistent.
-+	 *
-+	 * TINY_RCU does not support EQS, so let the compiler eliminate
-+	 * this part when enabled.
-+	 */
-+	if (!IS_ENABLED(CONFIG_TINY_RCU) &&
-+	    (is_idle_task(current) || arch_in_rcu_eqs())) {
-+		/*
-+		 * If RCU is not watching then the same careful
-+		 * sequence vs. lockdep and tracing is required
-+		 * as in irqentry_enter_from_user_mode().
-+		 */
-+		lockdep_hardirqs_off(CALLER_ADDR0);
-+		ct_irq_enter();
-+		instrumentation_begin();
-+		kmsan_unpoison_entry_regs(regs);
-+		trace_hardirqs_off_finish();
-+		instrumentation_end();
-+
-+		ret.exit_rcu = true;
-+		return ret;
-+	}
-+
-+	/*
-+	 * If RCU is watching then RCU only wants to check whether it needs
-+	 * to restart the tick in NOHZ mode. rcu_irq_enter_check_tick()
-+	 * already contains a warning when RCU is not watching, so no point
-+	 * in having another one here.
-+	 */
-+	lockdep_hardirqs_off(CALLER_ADDR0);
-+	instrumentation_begin();
-+	kmsan_unpoison_entry_regs(regs);
-+	rcu_irq_enter_check_tick();
-+	trace_hardirqs_off_finish();
-+	instrumentation_end();
-+
-+	return ret;
++	if (IS_ENABLED(CONFIG_PREEMPTION))
++		irqentry_exit_cond_resched();
 +}
-+
+ 
++static __always_inline void
++irqentry_exit_to_kernel_mode_after_preempt(struct pt_regs *regs, irqentry_state_t state)
++{
+ 	if (!regs_irqs_disabled(regs)) {
+ 		/*
+ 		 * If RCU was not watching on entry this needs to be done
+@@ -443,9 +451,6 @@ static __always_inline void irqentry_exit_to_kernel_mode(struct pt_regs *regs, i
+ 		}
+ 
+ 		instrumentation_begin();
+-		if (IS_ENABLED(CONFIG_PREEMPTION))
+-			irqentry_exit_cond_resched();
+-
+ 		/* Covers both tracing and lockdep */
+ 		trace_hardirqs_on();
+ 		instrumentation_end();
+@@ -459,6 +464,17 @@ static __always_inline void irqentry_exit_to_kernel_mode(struct pt_regs *regs, i
+ 	}
+ }
+ 
 +static __always_inline void irqentry_exit_to_kernel_mode(struct pt_regs *regs, irqentry_state_t state)
 +{
 +	lockdep_assert_irqs_disabled();
 +
-+	if (!regs_irqs_disabled(regs)) {
-+		/*
-+		 * If RCU was not watching on entry this needs to be done
-+		 * carefully and needs the same ordering of lockdep/tracing
-+		 * and RCU as the return to user mode path.
-+		 */
-+		if (state.exit_rcu) {
-+			instrumentation_begin();
-+			/* Tell the tracer that IRET will enable interrupts */
-+			trace_hardirqs_on_prepare();
-+			lockdep_hardirqs_on_prepare();
-+			instrumentation_end();
-+			ct_irq_exit();
-+			lockdep_hardirqs_on(CALLER_ADDR0);
-+			return;
-+		}
++	instrumentation_begin();
++	irqentry_exit_to_kernel_mode_preempt(regs, state);
++	instrumentation_end();
 +
-+		instrumentation_begin();
-+		if (IS_ENABLED(CONFIG_PREEMPTION))
-+			irqentry_exit_cond_resched();
-+
-+		/* Covers both tracing and lockdep */
-+		trace_hardirqs_on();
-+		instrumentation_end();
-+	} else {
-+		/*
-+		 * IRQ flags state is correct already. Just tell RCU if it
-+		 * was not watching on entry.
-+		 */
-+		if (state.exit_rcu)
-+			ct_irq_exit();
-+	}
++	irqentry_exit_to_kernel_mode_after_preempt(regs, state);
 +}
 +
  /**
   * irqentry_enter - Handle state tracking on ordinary interrupt entries
   * @regs:	Pointer to pt_regs of interrupted context
-diff --git a/kernel/entry/common.c b/kernel/entry/common.c
-index b5e05d87ba391..1034be02eae84 100644
---- a/kernel/entry/common.c
-+++ b/kernel/entry/common.c
-@@ -105,70 +105,16 @@ __always_inline unsigned long exit_to_user_mode_loop(struct pt_regs *regs,
- 
- noinstr irqentry_state_t irqentry_enter(struct pt_regs *regs)
- {
--	irqentry_state_t ret = {
--		.exit_rcu = false,
--	};
--
- 	if (user_mode(regs)) {
--		irqentry_enter_from_user_mode(regs);
--		return ret;
--	}
-+		irqentry_state_t ret = {
-+			.exit_rcu = false,
-+		};
- 
--	/*
--	 * If this entry hit the idle task invoke ct_irq_enter() whether
--	 * RCU is watching or not.
--	 *
--	 * Interrupts can nest when the first interrupt invokes softirq
--	 * processing on return which enables interrupts.
--	 *
--	 * Scheduler ticks in the idle task can mark quiescent state and
--	 * terminate a grace period, if and only if the timer interrupt is
--	 * not nested into another interrupt.
--	 *
--	 * Checking for rcu_is_watching() here would prevent the nesting
--	 * interrupt to invoke ct_irq_enter(). If that nested interrupt is
--	 * the tick then rcu_flavor_sched_clock_irq() would wrongfully
--	 * assume that it is the first interrupt and eventually claim
--	 * quiescent state and end grace periods prematurely.
--	 *
--	 * Unconditionally invoke ct_irq_enter() so RCU state stays
--	 * consistent.
--	 *
--	 * TINY_RCU does not support EQS, so let the compiler eliminate
--	 * this part when enabled.
--	 */
--	if (!IS_ENABLED(CONFIG_TINY_RCU) &&
--	    (is_idle_task(current) || arch_in_rcu_eqs())) {
--		/*
--		 * If RCU is not watching then the same careful
--		 * sequence vs. lockdep and tracing is required
--		 * as in irqentry_enter_from_user_mode().
--		 */
--		lockdep_hardirqs_off(CALLER_ADDR0);
--		ct_irq_enter();
--		instrumentation_begin();
--		kmsan_unpoison_entry_regs(regs);
--		trace_hardirqs_off_finish();
--		instrumentation_end();
--
--		ret.exit_rcu = true;
-+		irqentry_enter_from_user_mode(regs);
- 		return ret;
- 	}
- 
--	/*
--	 * If RCU is watching then RCU only wants to check whether it needs
--	 * to restart the tick in NOHZ mode. rcu_irq_enter_check_tick()
--	 * already contains a warning when RCU is not watching, so no point
--	 * in having another one here.
--	 */
--	lockdep_hardirqs_off(CALLER_ADDR0);
--	instrumentation_begin();
--	kmsan_unpoison_entry_regs(regs);
--	rcu_irq_enter_check_tick();
--	trace_hardirqs_off_finish();
--	instrumentation_end();
--
--	return ret;
-+	return irqentry_enter_from_kernel_mode(regs);
- }
- 
- /**
-@@ -212,43 +158,10 @@ void dynamic_irqentry_exit_cond_resched(void)
- 
- noinstr void irqentry_exit(struct pt_regs *regs, irqentry_state_t state)
- {
--	lockdep_assert_irqs_disabled();
--
--	/* Check whether this returns to user mode */
--	if (user_mode(regs)) {
-+	if (user_mode(regs))
- 		irqentry_exit_to_user_mode(regs);
--	} else if (!regs_irqs_disabled(regs)) {
--		/*
--		 * If RCU was not watching on entry this needs to be done
--		 * carefully and needs the same ordering of lockdep/tracing
--		 * and RCU as the return to user mode path.
--		 */
--		if (state.exit_rcu) {
--			instrumentation_begin();
--			/* Tell the tracer that IRET will enable interrupts */
--			trace_hardirqs_on_prepare();
--			lockdep_hardirqs_on_prepare();
--			instrumentation_end();
--			ct_irq_exit();
--			lockdep_hardirqs_on(CALLER_ADDR0);
--			return;
--		}
--
--		instrumentation_begin();
--		if (IS_ENABLED(CONFIG_PREEMPTION))
--			irqentry_exit_cond_resched();
--
--		/* Covers both tracing and lockdep */
--		trace_hardirqs_on();
--		instrumentation_end();
--	} else {
--		/*
--		 * IRQ flags state is correct already. Just tell RCU if it
--		 * was not watching on entry.
--		 */
--		if (state.exit_rcu)
--			ct_irq_exit();
--	}
-+	else
-+		irqentry_exit_to_kernel_mode(regs, state);
- }
- 
- irqentry_state_t noinstr irqentry_nmi_enter(struct pt_regs *regs)
 -- 
 2.30.2
 
