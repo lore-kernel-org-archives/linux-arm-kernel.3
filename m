@@ -4,93 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B151AEDB7C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 07:46:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46C2BEDB7CC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 08:02:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ul0a8Gh+m7Miix3rJ72Qx10XkrEXaGS4AIkRhU8J2WA=; b=CHWpX2FPEHwLmnDK0OBZKRkfFe
-	CuYsdoBaKykq8NT1nndax1WaWubH/5iGLpneqyUrPWhMOsca6USbHKFQF+37dt1HvDsviXV392EHt
-	Yp7h9i477mGXmnVXGj/JtIMSgBEVIJVrxFXeCX9tTpRigOnxzN6hhLUMf31z331p18PXVVsleCtoQ
-	zgdMTBB+oEoRwrJ4GcD8cenpXb68i8WzcQZxkXaqVyvVWdRJBuzSrudMAAPEywlEsP0NQzjTFj35y
-	fZSrHndVj3abmkBw5n3S+UxpXopICJBQFCb4nTlzeHHhPC+M1UtQwEMqmoJgqQXKomInzV8lZZw6B
-	vDR5IPDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YLPDMkWHUMUYlHTdX0A/tUtcXzX0G8xLslao3tboyJg=; b=bTd6A0BnxYOVjjIs7dfn6dkjaK
+	mKkhfk7rtrLfzUDGEO44qsay+Dnwasz/SIrYetTw4/TbVx8+4+cfZJzGA4g2htJaDxbxc4bTCeOZv
+	AxGHQJPkPsuBc5dEtGYdDOd+cINUeypuYmM3wg73faUI1+3LDpO3zhrq+iDbT6ajjzbLiibaNpcYt
+	Gz+tGNJV3qmKYXiZyVeOdeW8NRg6t5FfIQWz4EAc/3Uh0aSGWVmg84k/J7gTGhS/raj+Rzj+gbaAC
+	jdoLS9cTQQFy74ENSr93r8DyVeJhQn8THyCB2CYLSz4o7XBzbVOnZX5OqXM4WeMPVAYiirfm+pFuO
+	fAWgRLeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA18L-0000000665W-04H3;
-	Tue, 07 Apr 2026 07:46:01 +0000
-Received: from cp2.siel.si ([46.19.12.180])
+	id 1wA1Nx-000000066yB-2dl5;
+	Tue, 07 Apr 2026 08:02:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA185-000000065zJ-3h69
+	id 1wA1Nw-000000066y5-36ob
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 07 Apr 2026 08:02:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:From:References:To:Subject:Date:Message-ID:Sender:
+	Reply-To:Cc:Content-ID:Content-Description;
+	bh=YLPDMkWHUMUYlHTdX0A/tUtcXzX0G8xLslao3tboyJg=; b=XwrwOBdwjHx2WA3aZ7o41wMJvJ
+	LMGzncbkuPYQHIF3nwhhLosskUYvYZjODCudol/Y+q0X/piAQCtLBVAsvbvhw6Wa4XXaZb3dP99Qc
+	rpQvZdVuKwQaM9V06ISzd9J8W2tJQbvyGIqRxrfGgMJSGLDGQ9BmiltRtIqp5rpoaSy30h8dS75xi
+	ArIZj+i6yDq9bN8rWCfF4DaTeOXADibAwxRLv0W9jiyQz/oL4Uw73EoQEc25248PTPm7OVlgEHN1Y
+	V/BFIjEB38vQuprj3XCwkbY6mPwXAv3GFC1RqcnxOUN/d1XChcVagrNFle/QrlQVd1k1VZ3gSqy6D
+	7+53kKVw==;
+Received: from mail-southcentralusazon11012026.outbound.protection.outlook.com ([40.93.195.26] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wA1Nr-00000007nR0-09Jz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 07:45:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ul0a8Gh+m7Miix3rJ72Qx10XkrEXaGS4AIkRhU8J2WA=; b=F0CV3/lIG1w+xlrn2EtobCm9Eb
-	S3YkQyanWCKbFNDT8O/4zTcxJ5uaSjhVGo5IMW/egNou+Ti3CiCO8eMfdzdWazcfEKzdUSiY565mT
-	XFjUtf+PKxf8iWCgzJIfThkoU44USVrzUrYir5bHxJ9oJKEakkaD7CVcWfsjLLHw5ruQ1EIcuMPYq
-	Ntv1/DmBEHBBogl0tpAPQT65C1wInGcucvZYtYscnhzvkq+xC5f1gx59rk7XXo3rlmcfaLVqtCDiF
-	99w1ef7j+OZRpKWpyU3nz9wU5ftSpNe6kO/Xpp77fF/nIocyD87BUAbF362v5P8tasIik2SPSJ4dg
-	6rdQJNBw==;
-Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:40998 helo=[192.168.69.116])
-	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
-	(Exim 4.99.1)
-	(envelope-from <primoz.fiser@norik.com>)
-	id 1w9zhV-0000000Des7-2CRH;
-	Tue, 07 Apr 2026 08:14:12 +0200
-Message-ID: <707e106b-f444-4c26-9816-c53c8eda8cbb@norik.com>
-Date: Tue, 7 Apr 2026 08:14:08 +0200
-MIME-Version: 1.0
+	Tue, 07 Apr 2026 08:02:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gdguEDAynEIgN2qf+LZ20t78/vOCLxyh742y1Veq4hYAqpTBHZvG3ZSmna77W0wZ07+oGrWWGw3lN7GejvFslptDXCo0bWpuxk7Bi3m6awinIaZdBkJ0hxoJ9tAvmqPRTvAQ6NE/NG9qMU/ZJmQqQIouQVC6nhqP0XjVYxDVW/PyHToxYbGT241YGjI+bWbvIiiwibzQuMb2wkK4PvPJm95pqjdc3u6k3JQyhBsvIjbmpvGJ4Q+RYUKRqpHcue4Dg/ygATvhXhK4MDtSz+32Ylam/aOmhQSAaUjd2rRz6B6B1GMwHn1E1jghJnVbLvIYugeBrmXqneqksGy8sLeM0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YLPDMkWHUMUYlHTdX0A/tUtcXzX0G8xLslao3tboyJg=;
+ b=IS3WSjzVocMMFeqALQWrjgqRd7djPJkaf8zXFMYzuzUQ2PRKm3O3L0P14YnqjoSs/1jjaOYit8IEZPbL0c3ta2FoT3LEJokXJQwPwWLh9X/cn3Xr2xEZMuWpl7tLpwjbhCAXyZYWJjxdkE+XDdlOGCKjztAWIANMQsKThsqCQ8ogU5XDvSPkpB2WOA9dT881CUNAMmiNHkfkttyrzQTFqj1wH+Y4xGQE5/TvZHU/aQhodr4U07RzZhzq5potHbaPnZVbOwTs+OO/zR08RP2TtP/90GFqSomOmGd2ris9Wzf3Y5k8VxXu77w9qE6Ww5k1ukP0pWRQR5REDeohJM/agg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YLPDMkWHUMUYlHTdX0A/tUtcXzX0G8xLslao3tboyJg=;
+ b=Iv4eVcgo/NCYBPHsYLrdYtf4HR/8wgMGR/Jg/ZmDW7gMrGiD2+n4GAT0jLqdD5GNx5AVL7cDdXSeLeA6Zgn8cso0B30jbDSZtcv+Si1aSHSwjcTvDIyLiVCMsLrdpfH5x60eXA2LrjZEGaaEjBOqcSS3TURTHq+ZMyYZtFRprG8=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
+ by DS0PR12MB7748.namprd12.prod.outlook.com (2603:10b6:8:130::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.18; Tue, 7 Apr
+ 2026 08:01:51 +0000
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287%4]) with mapi id 15.20.9769.018; Tue, 7 Apr 2026
+ 08:01:50 +0000
+Message-ID: <827a6fdf-b119-4aea-9442-7f27f1383c78@amd.com>
+Date: Tue, 7 Apr 2026 10:01:43 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [Upstream] Re: [PATCH] arm64: dts: imx{91,93}-phyboard-segin: Add
- peb-av-18 overlay
-To: Frank Li <Frank.li@nxp.com>, Florijan Plohl <florijan.plohl@norik.com>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, upstream@lists.phytec.de
-References: <20260402070826.970012-1-florijan.plohl@norik.com>
- <ac50OHuEApM3tRHq@lizhi-Precision-Tower-5810>
- <56b9e133-74b9-4e59-a40c-c7637c080fd8@norik.com>
- <adMg762HH4gcuWyq@lizhi-Precision-Tower-5810>
+Subject: Re: [PATCH] spi: zynq-qspi: Simplify clock handling with
+ devm_clk_get_enabled()
+To: Pei Xiao <xiaopei01@kylinos.cn>, linux-spi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ broonie@kernel.org
+References: <0c851587c90ae51d1498d18955aefc83fa41f17d.1775547057.git.xiaopei01@kylinos.cn>
 Content-Language: en-US
-From: Primoz Fiser <primoz.fiser@norik.com>
-Autocrypt: addr=primoz.fiser@norik.com; keydata=
- xjMEZrROOxYJKwYBBAHaRw8BAQdAADVOb5tiLVTUAC9nu/FUl4gj/+4fDLqbc3mk0Vz8riTN
- JVByaW1veiBGaXNlciA8cHJpbW96LmZpc2VyQG5vcmlrLmNvbT7CiQQTFggAMRYhBK2YFSAH
- ExsBZLCwJGoLbQEHbnBPBQJmtE47AhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQagttAQducE+T
- gAD+K4fKlIuvH75fAFwGYG/HT3F9mN64majvqJqvp3gTB9YBAL12gu+cm11m9JMyOyN0l6Os
- jStsQFghPkzBSDWSDN0NzjgEZrROPBIKKwYBBAGXVQEFAQEHQP2xtEOhbgA+rfzvvcFkV1zK
- 6ym3/c/OUQObCp50BocdAwEIB8J4BBgWCAAgFiEErZgVIAcTGwFksLAkagttAQducE8FAma0
- TjwCGwwACgkQagttAQducE8ucAD9F1sXtQD4iA7Qu+SwNUAp/9x7Cqr37CSb2p6hbRmPJP8B
- AMYR91JYlFmOJ+ScPhQ8/MgFO+V6pa7K2ebk5xYqsCgA
-Organization: Norik systems d.o.o.
-In-Reply-To: <adMg762HH4gcuWyq@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
+From: Michal Simek <michal.simek@amd.com>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ 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
+ mpwx1d8=
+In-Reply-To: <0c851587c90ae51d1498d18955aefc83fa41f17d.1775547057.git.xiaopei01@kylinos.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cp2.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: primoz.fiser@norik.com
-X-Authenticated-Sender: cp2.siel.si: primoz.fiser@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+X-ClientProxiedBy: BE1P281CA0463.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:b10:7f::7) To LV5PR12MB9779.namprd12.prod.outlook.com
+ (2603:10b6:408:301::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|DS0PR12MB7748:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7cf14dba-49e0-433a-06ad-08de947beca6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: zHU3Gf2mD8mOKCV3j1gDQtEEiogzItcyQRgl8z876AK4tekZBdURbDsCj7bf7T32ppjK+HZNsHCHBw89MKZqaMqhqbNkXph+1ChbccneYuw7LZdK9FCqfXjI9xWVsbZqCXK4UCkqYfezU+wWOQB8lq9/ra56c1jSpphSo0TbFKH+AdYXD4aZP7SUqBjVx/v8eyr3ZBJPjEegWjfBHELyASjGUfu19tU7RAk846g0Sgncs/m7g9C8GsgAMQcn1X1S4Q147+AlM0++N7KsGuceX9UATvQ+nGgw+U7AE9bcH0eLlLN/SlUD4HM+cx+e5BRvuHjV1RvWATE/NcgxOww5ph8oxEFhkKZydVne9ubV9mqSWfLlwZQ2N1dyq3dkxh4Uoaq+PLSZVV+Zqg7hjc6ahjF/iYyWW67gFEa7N3WIUHxF1Oy8Zclm70NQWWsOdsYUSe3htoCf6B7pNFzDSNcGLP8EKoDUxZjRpowJhC8CeT91pzDA4u3EH58LOmJSARPY6YRlTYsEUWf3ZiAKIIVjCgsO/84fFaJZYIc/vB/cEWCdcTgNJHYEXP4EIa8fQJGgngZVxruDeZuDPs141Oe0VMt50t/UjuowO+vr7NbOQueUltkOV+BxBlGuX1qfuTTxjr9RFBnUpEgD6m54VbgZICg9nNap181qHrZ7O+mhye64I1ZPuMo0vX7K77U0OehS9c3JJwVNt2CTFg7u/4k3Ow2kwwTaX8Y02HD4XKIkkZw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WCtWTFI2TXB5MjhQZytHME1XcHI3b1d5aTBjcE5RaWliaFQrYXpDTlkrM0c4?=
+ =?utf-8?B?VU9pRGFnd2dhOEFTcVhETWVReTZGRmhvWmJIMjR5SlZERFFSQmE4WUsvbUN4?=
+ =?utf-8?B?UHN5UGpMNlJ2aXBvY1hhcERLZnJPZDJ3Vy9XMWQxSlh1dnZBYTFmVVlXTG1Y?=
+ =?utf-8?B?b0wva3AweWJVaTFOY1BGa0dQQmJiSGN2encvWUQxUVB6QTRldG9ZdWt6emFC?=
+ =?utf-8?B?YXlyMzF6R1JwenY2S29NMVd3Z0R5WS9QQ09XSlhFMGZXZm9iZUZFdEF4bWVO?=
+ =?utf-8?B?M1p6dnc1OVRXbGJFRG9HcElGVnJqNVIyNmplK1pKbzRwcWlSOUZNMW5nenVw?=
+ =?utf-8?B?MzFZM3BnWUlYSlY2TWVSZU1JMFA3Z25BVXZ5U001MEVLRTRxSmNQd21aQnhC?=
+ =?utf-8?B?RS9xUE5pOGpnRS9FMGYxRWdma2ROb0EzN3B6azcxZVhlSTVEVHlrYytNVTN6?=
+ =?utf-8?B?dzhtUHN4bDVyeS9aSkJlQUNPT1BSdzlxVlBtOEE1akVhbUJLaTFKMTJXejZU?=
+ =?utf-8?B?VjR6OGpJcVA0R1RVYXJtTlFURHFSNGlJR05WQXRDRGhhUTE0R2VXdGppWmlx?=
+ =?utf-8?B?cmNhWk1kOTkxSit5WnI3VXlnbDRSUFpHOTczUjlzaUJJWXovNWMvNDh5aERy?=
+ =?utf-8?B?ak5yN3VWSjkrRllkNFU2YkwxYUxrck1NcXhya1NWSnR4NzVaNTUwZGE4SDNk?=
+ =?utf-8?B?VmZPOEZRU1ZES1U4aVQzcVJ0YzNCWEYwM2d0NGcwRkFHR1JnR1RXTHh6OHNF?=
+ =?utf-8?B?MWxoeXl5ZGxEUzA4S2EvMjBMeVJUZDJhZGxsMGJwUFJsNHFVNHViT1VEUXcz?=
+ =?utf-8?B?QitTZ2xMQndERlR3anh0RXMzNWh6dUh4MUpJUGhEUkZTTzgrekZtZ0xpQm5E?=
+ =?utf-8?B?Rk0vdnUwUkp1V2xKd0FGSGVhb1lLUDE5b0NCdElRS1dhOWNLWHgvR1lISVAw?=
+ =?utf-8?B?NXBYQ1hSTWJqQ1JRa09ZV0lGWjl6Z1NialZlUkc3TWxUbVZnWFlFK3hOdzRC?=
+ =?utf-8?B?d2RpOFowTHRMcS9wYXNSREs5WUQrcVFBbk92cUFVSGhndXJ0aUc0UkExSSsx?=
+ =?utf-8?B?VVdFeUVjODRZSDQxUG4ycmNDNTIrd2J6TWt3eFNLckdXQWptckNzQVVQWWhG?=
+ =?utf-8?B?WEY5RjV6RWZxWXZmYVdnZUwvUWJSSmxhSysveWc4a3RiQTVScFFYMHZqY1d6?=
+ =?utf-8?B?SDFjYytveXZJb1I0QjFtV0E1VEdEYVhoUVB4WGI4MTlNRWE3UEhOUEpwRFRo?=
+ =?utf-8?B?SEtiam9ObmhnV1k2aHcrUU8zR2VyWGFyOHdnNnFNSW52Sm51d0E0eDlZdm8r?=
+ =?utf-8?B?VW9LZXFJQUU0NjlSbXVPYkdUelVXUjZXcFZPbTIxcGJZTGpacFBZOFpKVXZl?=
+ =?utf-8?B?UGd2T1lkRnB5ay9XdThiYngrUFVrSjUrZHpxVDFQU2ZXOExCMTk2QzhPdFBD?=
+ =?utf-8?B?Sng3Mi9pVTBrUFV2QTdyUVZiK1dGSHYvYjF0aVArK3ZvODBzZzlDc0JKNXRG?=
+ =?utf-8?B?RmtyVFJHZ3VGbWRoeXFPOVNoc2RFcjBzZXVmOGN0cm1LcC9iUzN3K1lzVGpZ?=
+ =?utf-8?B?WVVsLzRCT25ScndvdkNUZW16by9LNUZvZXJIem5UR3laZTZCM2Y5aXRWQUdT?=
+ =?utf-8?B?V3A0d0UvMVZpQ1A1eGhFbGhPdG15dzhwUFFVWjFsWS81K0g4TTZWeFZQK2c3?=
+ =?utf-8?B?U0VlUUpTLyt6dnFhdWtFMHE5M1FJS0cwSVJNbksrYVVzbzFDSzlteFJpcStX?=
+ =?utf-8?B?cjNwb1pKMDN0cXVDblZ0TEZHeVg2cFRkbDhxdGxZSjU5eXM5akF6SmloZVU5?=
+ =?utf-8?B?SnpYbWxnQUY0a3AxWkswVTArd0ZNdnJJT0FJbXBXNVNhVXMrRVc1K282eStI?=
+ =?utf-8?B?bE5PUGZ3WGs3SjhYWmR4SnU3dzFNTXFna2I3R2dSY0dhY2piQTMvWHVWMGJ0?=
+ =?utf-8?B?YXA2VEJiOXJ5RjFLMTRXR2NqdVlhQlFpdURoT29mZlJTMVpTNE9PaXJ3Smcv?=
+ =?utf-8?B?d0h3M25sdmlONnBiVmt2U2FrbUxGOXJRTmdKMlMvKzV3YUhsK1NTN1VoL09M?=
+ =?utf-8?B?NEN0d3JnditkSUszemoxaUhLQ1dvK25XT2FyZG94bEk5aDRFcVg0dFFiSzBE?=
+ =?utf-8?B?dlkveGJXQTZaZEFIbVdyN3FMd3FKMTE4ZXlGOE5nNmFVT2VqY2tHV0NaQzNC?=
+ =?utf-8?B?QjU0SnNRTHVNZy9aemR0TDJyWm9HY3FoWFhoYkZGR05kMGR6dklrQnYvYTN3?=
+ =?utf-8?B?Y1h3by9nSVZPNnpnZS9ha3JUdzE0RExnWU5LaHJualc1endQUUlYcnZzQVZt?=
+ =?utf-8?B?bXNXQURoQXUrTXVyeUxvT2w5OEFWRXFFQTBIbVc2RlRGaUZDMy9XUT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7cf14dba-49e0-433a-06ad-08de947beca6
+X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Apr 2026 08:01:50.7171
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AuyTM3CefEQO3f2RdJ3S/oERcVqC6nudTc1LhSrcYoAsvObYeceAYWgNDe3Mbrgv
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7748
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_004558_089276_ABE7E7A8 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20260407_090204_498319_F38B4262 
+X-CRM114-Status: GOOD (  19.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,96 +205,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank, Florijan,
 
-On 4/6/26 04:56, Frank Li wrote:
-> On Fri, Apr 03, 2026 at 10:29:00AM +0200, Florijan Plohl wrote:
->> Hello,
->>
->> On 4/2/26 15:50, Frank Li wrote:
->>> On Thu, Apr 02, 2026 at 09:08:26AM +0200, Florijan Plohl wrote:
->>>> Add overlay for the PEB-AV-18 adapter on phyBOARD-Segin-i.MX91/93.
->>> what's means PEB-AV-18? Is it random board name?
->> The PEB-AV-18 is PHYTEC designation for Audio/Video adapter modules that can
->> be used to connect displays on their boards.
->>
->> I will improve commit message to add more such information in v2.
->>
->>>
->>>
->>>> The supported LCD is Powertip PH800480T032-ZHC19 panel (AC220).
->>>>
->>>> Signed-off-by: Florijan Plohl <florijan.plohl@norik.com>
->>>> ---
->>>>   arch/arm64/boot/dts/freescale/Makefile        |   4 +
->>>>   .../imx91-phyboard-segin-peb-av-18.dtso       | 142 ++++++++++++++++++
->>>>   .../imx93-phyboard-segin-peb-av-18.dtso       | 142 ++++++++++++++++++
->>> Any difference between 91 and 93, can use one overlay file?
->>>
->>> Frank
->>
->> Can you suggest how to do so?
->>
->> There are imx93-pinfunc.h and imx91-pinfunc.h which are not unified
->> between imx91 and imx93.
+
+On 4/7/26 09:32, Pei Xiao wrote:
+> [You don't often get email from xiaopei01@kylinos.cn. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
 > 
-> I suggest move pinmux setting to mainboard's dts files, which provide
-> plug adaptor header, signal should be descripted in mainboard's dts file,
-> which provide an unified label to overlay file.
-
-Yeah, that would be one way of doing it.
-
-However, the phycore dtsi and phyboard dts are kept simple by design
-choice. This way, all optional pinctrls and peripherals are kept
-separate from the board device-tree to maintain clutter low.
-
-For v2 I would prefer to keep as is (current downstream implementation)
-or at least use this approach:
-
-imx91-93-phyboard-segin-peb-av-18.dtsi
-|
- -> imx91-phyboard-segin-peb-av-18.dtso
-|
- -> imx93-phyboard-segin-peb-av-18.dtso
-
-BR,
-Primoz
-
+> Replace devm_clk_get() followed by clk_prepare_enable() with
+> devm_clk_get_enabled() for both "pclk" and "ref_clk". This removes
+> the need for explicit clock enable and disable calls, as the managed
+> API automatically disables the clocks on device removal or probe
+> failure.
 > 
-> Frank
+> Remove the now-unnecessary clk_disable_unprepare() calls from the
+> probe error paths and the remove callback. Simplify error handling
+> by jumping directly to the remove_ctlr label.
 > 
->>
->> So we can only create common dtsi like so:
->>
->> imx91-93-phyboard-segin-peb-av-18.dtsi
->>
->> and still use separate dtsos:
->>
->> imx91-phyboard-segin-peb-av-18.dtso
->> imx93-phyboard-segin-peb-av-18.dtso
->>
->> Is that your idea?
->>
->> BR,
->>
->> Florijan Plohl
->>
->>>> --
->>>> 2.43.0
->>>>
-> _______________________________________________
-> upstream mailing list -- upstream@lists.phytec.de
-> To unsubscribe send an email to upstream-leave@lists.phytec.de
+> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+> ---
+>   drivers/spi/spi-zynq-qspi.c | 31 ++++++-------------------------
+>   1 file changed, 6 insertions(+), 25 deletions(-)
+> 
+> diff --git a/drivers/spi/spi-zynq-qspi.c b/drivers/spi/spi-zynq-qspi.c
+> index 5232483c4a3a..8c3975030d0a 100644
+> --- a/drivers/spi/spi-zynq-qspi.c
+> +++ b/drivers/spi/spi-zynq-qspi.c
+> @@ -661,7 +661,7 @@ static int zynq_qspi_probe(struct platform_device *pdev)
+>                  goto remove_ctlr;
+>          }
+> 
+> -       xqspi->pclk = devm_clk_get(&pdev->dev, "pclk");
+> +       xqspi->pclk = devm_clk_get_enabled(&pdev->dev, "pclk");
+>          if (IS_ERR(xqspi->pclk)) {
+>                  dev_err(&pdev->dev, "pclk clock not found.\n");
+>                  ret = PTR_ERR(xqspi->pclk);
+> @@ -670,36 +670,24 @@ static int zynq_qspi_probe(struct platform_device *pdev)
+> 
+>          init_completion(&xqspi->data_completion);
+> 
+> -       xqspi->refclk = devm_clk_get(&pdev->dev, "ref_clk");
+> +       xqspi->refclk = devm_clk_get_enabled(&pdev->dev, "ref_clk");
+>          if (IS_ERR(xqspi->refclk)) {
+>                  dev_err(&pdev->dev, "ref_clk clock not found.\n");
+>                  ret = PTR_ERR(xqspi->refclk);
+>                  goto remove_ctlr;
+>          }
+> 
+> -       ret = clk_prepare_enable(xqspi->pclk);
+> -       if (ret) {
+> -               dev_err(&pdev->dev, "Unable to enable APB clock.\n");
+> -               goto remove_ctlr;
+> -       }
+> -
+> -       ret = clk_prepare_enable(xqspi->refclk);
+> -       if (ret) {
+> -               dev_err(&pdev->dev, "Unable to enable device clock.\n");
+> -               goto clk_dis_pclk;
+> -       }
+> -
+>          xqspi->irq = platform_get_irq(pdev, 0);
+>          if (xqspi->irq < 0) {
+>                  ret = xqspi->irq;
+> -               goto clk_dis_all;
+> +               goto remove_ctlr;
+>          }
+>          ret = devm_request_irq(&pdev->dev, xqspi->irq, zynq_qspi_irq,
+>                                 0, pdev->name, xqspi);
+>          if (ret != 0) {
+>                  ret = -ENXIO;
+>                  dev_err(&pdev->dev, "request_irq failed\n");
+> -               goto clk_dis_all;
+> +               goto remove_ctlr;
+>          }
+> 
+>          ret = of_property_read_u32(np, "num-cs",
+> @@ -709,7 +697,7 @@ static int zynq_qspi_probe(struct platform_device *pdev)
+>          } else if (num_cs > ZYNQ_QSPI_MAX_NUM_CS) {
+>                  ret = -EINVAL;
+>                  dev_err(&pdev->dev, "only 2 chip selects are available\n");
+> -               goto clk_dis_all;
+> +               goto remove_ctlr;
+>          } else {
+>                  ctlr->num_chipselect = num_cs;
+>          }
+> @@ -728,15 +716,11 @@ static int zynq_qspi_probe(struct platform_device *pdev)
+>          ret = devm_spi_register_controller(&pdev->dev, ctlr);
+>          if (ret) {
+>                  dev_err(&pdev->dev, "devm_spi_register_controller failed\n");
+> -               goto clk_dis_all;
+> +               goto remove_ctlr;
+>          }
+> 
+>          return ret;
+> 
+> -clk_dis_all:
+> -       clk_disable_unprepare(xqspi->refclk);
+> -clk_dis_pclk:
+> -       clk_disable_unprepare(xqspi->pclk);
+>   remove_ctlr:
+>          spi_controller_put(ctlr);
+> 
+> @@ -758,9 +742,6 @@ static void zynq_qspi_remove(struct platform_device *pdev)
+>          struct zynq_qspi *xqspi = platform_get_drvdata(pdev);
+> 
+>          zynq_qspi_write(xqspi, ZYNQ_QSPI_ENABLE_OFFSET, 0);
+> -
+> -       clk_disable_unprepare(xqspi->refclk);
+> -       clk_disable_unprepare(xqspi->pclk);
+>   }
+> 
+>   static const struct of_device_id zynq_qspi_of_match[] = {
+> --
+> 2.25.1
+> 
 
--- 
-Primoz Fiser
-phone: +386-41-390-545
-email: primoz.fiser@norik.com
---
-Norik systems d.o.o.
-Your embedded software partner
-Slovenia, EU
-phone: +386-41-540-545
-email: info@norik.com
+There is also clock manipulation in zynq_qspi_setup_op() which needs to be handled.
+
+Thanks,
+Michal
 
 
