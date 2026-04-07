@@ -4,60 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3CF0FEEF50
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 14:30:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B3BFEEF49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 14:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1FmR99LZ8Tn4vCrHVpXr+y5OXEgFcl4dQEEXkDkeVcI=; b=ozrQ+KUit658Z+e4yzWxKDT6+r
-	yZrYtVWOt09j8t0l/E4RKyNFTZui3wS+Qshr+aJDrO4Zi2FWObYMx+e3dp4fEtAISn6vMOVj4Nfs6
-	frLaZoUhctzqkMR2blF7NK+EiA9wSdgZLLKbenfcXqlQ5iaK1mCNukODIhTPYCHYiur6m+U4vd6M7
-	yzKHbnU54IZxMbVN3aHZZFc2NfNrj1YtY7nF489BAaNDZvLbUlRQBu1pElhWUyHifFnFTnTKRLhJ0
-	QUOQUFPHWTISqY43ErxGJ/EY104+8tcYugxXqmH+uTS/TarERUjOzWOvg/l736ytH6UeYT4cvwijC
-	YoKFZFBQ==;
+	bh=K9O00qhMdA05JCSEuxgzd9/xVfY7CdPhirpnOk/y0wQ=; b=lWec8/DEwvBcxnKBSZ0ZduVx3B
+	kvpeISaoOFe6iNKCXiKbmXPGuyuCcTr1IZtG1CqtsBDxrg/5kiiwMhpiGZLCiWZtVgAE/UB+WToQG
+	HgyoXJdL3UkvdaIYxQtHL9T7YHsugKP5lVoD8hQhvZUPdNC7F/gGdFjhVf//Ki2FyLdrdAVtSHXMy
+	1kTeQT7fZEyV7OHqLaq4NiHPFNcHHsxz1O62EWxLZzed4Z/0VKQUNKvtYZEaChAr3FQ4HUR37eWpt
+	uGRFk/G0VqKWUxcV2MnSH0ZQDRTNNNZC5RH86g5wR2SsUQ/l3u6BRoi75MQKYRSj6+0eoVa1Nz0Yu
+	Im5G0MvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7Rs-00000006bvv-29Qi;
-	Tue, 07 Apr 2026 14:30:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7Rn-00000006bte-32gd
+	id 1wA7ST-00000006cJe-1Dgh;
+	Tue, 07 Apr 2026 14:31:13 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wA7SL-00000006cEh-1DDC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 14:30:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E8AEE16A3;
-	Tue,  7 Apr 2026 07:30:24 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4ABD73FC07;
-	Tue,  7 Apr 2026 07:30:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775572230; bh=dXmMNv331vsD1/TZhQeflRhnIasUgjGg+y87Al+96Nk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PaKY3T8Iy3J39TtZ1JUYhfUZszVo4hWP+BmoJSwAK3supPXAjFbTFBemQne1mlLgi
-	 YrLYvtt3nm6RJKtb4Tw3iwim+PEcKHSQJNTsbD7/WvcPIpa5TjkDmDWvw2zXaXPITb
-	 bwt9sbA6NyifrMcx6pz1uX9nQ+ZjOzpen4WaafHM=
-Date: Tue, 7 Apr 2026 15:30:28 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@linaro.org, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com
-Subject: Re: [PATCH 1/2] coresight: etm4x: fix inconsistencies with sysfs
- configration
-Message-ID: <20260407143028.GM356832@e132581.arm.com>
-References: <20260317181705.2456271-1-yeoreum.yun@arm.com>
- <20260317181705.2456271-2-yeoreum.yun@arm.com>
+	Tue, 07 Apr 2026 14:31:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AnI6hqEG1z3gqJGLZKPI0pwgDJiUxztrJIAVBGxfn6jd3PVI3m7uD0OT3Ohm/gUKHXiCdeXFc+tWoE5bVseM7wMscOgdyTFzraqoH6AKP8AoO09W0K16GMkvwvMcdkLC0dkESAO8hiwBqcuiNMensO/ifZLDMj27apnLtGWz3A17pr3mijtJhTK4r7x3SamkWrcKEnZO1cNsZPLefpOEynZE7GlSmUOZ10dae3NB9d2vvyFtaqs2jiOGUvx3Wlkzj6iBraXPwS/lz6kNha3y0tMT+TMmqZZqFf96U01euLg9fiJfYaqAgVa/JJr86o5qoNvRO5jVLHJOB50n8HNEzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=K9O00qhMdA05JCSEuxgzd9/xVfY7CdPhirpnOk/y0wQ=;
+ b=V11vJaz1NRtyxpiTg+Y+baeL7VmvM5hdzVYAGJFuB6wByI/Dgg98reOhmjbZwL0+ZUbGOKm4HlQ9526GucrcM3XQP5kZrF0Gh8azcATf/sxvy/4bx54O3yQugfMJafQKNwkGTqKCHxWplja7w3TMm2IjuXmeUlpVf0I28n6j0ZhW/x5ZanlGR/mA71yKlEHvKL1Voz5rWM2ir7Nd6Kyea5tOAnj9Fbl2dFeh3yCE09I9UKZBvUGfsDpGRfqOHoUoQidYBSOTEj9rGhEetUV3b5uB2lGNb+cEzGD7eKGvFhyqJJaSTQUlyewMC/a/NMGxqcfzZo5TjblScEKPkm71jQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=K9O00qhMdA05JCSEuxgzd9/xVfY7CdPhirpnOk/y0wQ=;
+ b=YUlWj9d6xMzkUplvElw7+Wabjm5qzXwdrGfmyR2drfLXawS7gsSV9CYm41KK8U+oXiutWuIRLSWAg8PTc7XYQ37bavuyHqN14D4T1c2KFdj8itcB/Fdg0Xl+rrGyCIiU5g0pKhIE7DxONGZ4TE6VwgZ+GNSuV50srXo7jOT1LFI=
+Received: from IA1PR12MB7736.namprd12.prod.outlook.com (2603:10b6:208:420::15)
+ by BY5PR12MB4099.namprd12.prod.outlook.com (2603:10b6:a03:20f::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.18; Tue, 7 Apr
+ 2026 14:30:58 +0000
+Received: from IA1PR12MB7736.namprd12.prod.outlook.com
+ ([fe80::2274:9fed:8f3:8550]) by IA1PR12MB7736.namprd12.prod.outlook.com
+ ([fe80::2274:9fed:8f3:8550%5]) with mapi id 15.20.9769.016; Tue, 7 Apr 2026
+ 14:30:57 +0000
+From: "Erim, Salih" <Salih.Erim@amd.com>
+To: Christofer Jonason <christofer.jonason@guidelinegeo.com>, "Simek, Michal"
+	<michal.simek@amd.com>, Jonathan Cameron <jic23@kernel.org>, "O'Griofa,
+ Conall" <conall.ogriofa@amd.com>
+CC: "lars@metafoo.de" <lars@metafoo.de>, "dlechner@baylibre.com"
+	<dlechner@baylibre.com>, "nuno.sa@analog.com" <nuno.sa@analog.com>,
+	"andy@kernel.org" <andy@kernel.org>, Victor Jonsson
+	<victor.jonsson@guidelinegeo.com>, "linux-iio@vger.kernel.org"
+	<linux-iio@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>
+Subject: RE: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
+ postdisable for dual mux
+Thread-Topic: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
+ postdisable for dual mux
+Thread-Index: AQHcq7dnEu4MVLVXG06oIZXnf3P2bbWjB/QAgARjkoCAIuly8IAJhQiAgAAEGeA=
+Date: Tue, 7 Apr 2026 14:30:57 +0000
+Message-ID: <IA1PR12MB7736D5B150CA36406ED7384A9F5AA@IA1PR12MB7736.namprd12.prod.outlook.com>
+References: <20260304090727.1800289-1-christofer.jonason@guidelinegeo.com>
+ <20260307124118.1d527749@jic23-huawei>
+ <1166aeef-0c93-408d-b265-9037f2840074@amd.com>
+ <IA1PR12MB7736AE6EEE95D5D184A15B9F9F50A@IA1PR12MB7736.namprd12.prod.outlook.com>
+ <GV3P280MB00657EB1524612E9BA0142DEF35AA@GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM>
+In-Reply-To: <GV3P280MB00657EB1524612E9BA0142DEF35AA@GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: IA1PR12MB7736:EE_|BY5PR12MB4099:EE_
+x-ms-office365-filtering-correlation-id: d2e11d38-8bae-4e9b-0523-08de94b248b5
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|56012099003|38070700021|22082099003|18002099003;
+x-microsoft-antispam-message-info: XUq2qYwUQKRCtZh5GRnLxneNZoHyhlHzn8OFMZN4bNMdRuWSGyAawfufZ701O5kg0GsZPEQ+/GcyexjolR2FH/yhv9KXd1+eAsjGeg0WIEjlj4nzTyh8hEgUO0deoi8ZjtA10HkTXuwPp/LK74bAHexQFWViySPtG988P0Lq0SKTbhIamhUUiGL6QxMvMaVg2n2g9TuKvwFUz9oHBw9qAyVV7+qoWdz2guVQ60Ti9asdSFfIoqpK/DxjeIagsKEJDx68JHmPcQ9TdkhVOSybkaVJPszGJPIExwQ+ds+xhYsqt3thuEa/koxmJNMR5j2xuMiv3O4zBuwj64F6Rm9BRwHe+Sl8/uk4V3OWDzmgG1fcRVhfJYW8JoF5/Tb3SmZIfuD4j/gMNxBSLvCs6lraJ2U9LktecR3mrtINCtzvbcV90E3Gh2V/MFxkH6ZCGJRG8QcC81gkeuPd2B67gQADSEGrG6XI6hnLBBiKUbe9Oxbcyj+o8HyjM38KNoTs/1byKj+0Dwv/+dPlOXiHW9lQPewGzLlkzMttbQdR1YU++MGuoyGfrTWEKMyQjBKdWGipqkMVhA0zKcHPVU7v1Y0A8yhrIU0YwTWvq5JWLK4md/bJWsJ9RhLwrYJR9v5uoC1yGA1BcLDxy2UFAc5HZkYQ1kWeTK+KrByI9ugn5rGhwWc9vI4/9g7bBhWe589pFKCg56EEhTGscQXYQs35Fd0SC5OqGcGqgeMmdc216zS25no9QEpHoblMdQqfCFg/GG94P9ef3ZveUZAiSxtVrztc7vcJAswkORUyYaTyxpT5ZmY=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB7736.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(56012099003)(38070700021)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?viHVkO/Oz/iLa1f1yiYDEAa29+d+lJXyTVMKHErRTAP0z/IBhjb6HNpvhyIK?=
+ =?us-ascii?Q?qFnuc7Atx/gb2NFoGRZ87ng4Q2pK7zhUAxL572KvLoWZuUFQ4JJ2AMlxNuc8?=
+ =?us-ascii?Q?iItppqId+hu8QqxVPGgIlypLv/mqeRnw+77c0p5p55zb7tE9Wcwj4jO6hptV?=
+ =?us-ascii?Q?zOM8IzrW+1AIlWMvcunzrj1UebHtIm5vR87oAdW6gFTGcQPkPt6dKWSLg+3e?=
+ =?us-ascii?Q?6zCI68MDhs8WNo3JQvZq8F444jNn2/aI21bk9Ff5KamwdNcURYutQH5xyU5t?=
+ =?us-ascii?Q?GrX+u+FxCcIbVYWwNar7kVlkdoXM+ejU59/7jlt2r/MpAYxvNnOKdoF7cQPv?=
+ =?us-ascii?Q?enlEA8HiUozJwHdX/PK8ZLTbh169zKORlpN58gRUtZZGg43UnMJHaaznPVhG?=
+ =?us-ascii?Q?2dORY8NFheg6JzMrCtEo8KRqspwS4Ehd/qviMsEW36GsSHHjv/Q1gwgQFxnS?=
+ =?us-ascii?Q?WMXtor7F8ALpZaXf1J+Hu5pJf1kvmyCetILXSABpG+QsoKREYkRRcQ9m8FTN?=
+ =?us-ascii?Q?I8uxTyqBeYFjqe5+bhWQWJObx7ZHEAuTerN2P6mQ/G/901oZKWxhxmBwQOQM?=
+ =?us-ascii?Q?NMhEu4tSRcsFZLvMVG6HtZP5u0E3Se3fcgk8+h6hNwJ+Sde1zhbcQH1Ddj7U?=
+ =?us-ascii?Q?CWAHHsr2hWf6ZspCBOD7klRMvPcxRESlJuMdVrTeW9151sz/3tRAPEJS9Emr?=
+ =?us-ascii?Q?xltiXckVPqzfgUQxTqwqcx5b7uLq22CALnwvB9jNvB88kTRbm0d/L+WRUdkA?=
+ =?us-ascii?Q?b+FeMpvdosX9t2I3FDvbIhVub3ET4r6/KPRLA3fyytgruttSG1WICyFPVlMP?=
+ =?us-ascii?Q?Zynt3HPxNX9Ea76wZq4upAg/CGXo6rzrtLLKywDNDJFqgwTzkQdRykWM7gHo?=
+ =?us-ascii?Q?cR8sW/lGrzkjnBUHaQIS5C0wq6BG6kd+UhUZqS7mItIb1sOyfoht6lzFerKR?=
+ =?us-ascii?Q?6jT6xOuHZ3YHOJrBXPFs2krlAG/yOKpG2V5iCNvA4OqsZ6v7cq2MRTzp69oV?=
+ =?us-ascii?Q?xEwdXtyIA3UNrnAxtuSF9EYsDQfmYNfs+nM5zl9HUon/KspnkowfLTPvWdkL?=
+ =?us-ascii?Q?WESSXegxRlSxD6wxtqKIXDTzgCD8d/eAqEGxv1OYt5XGQ8DYXlFtWwE2eohy?=
+ =?us-ascii?Q?fkZy1eoX6BYhMUtX56sLMtw1ixouQDCzIrX0lFHKsJgOkOc6DF1pVPfopYZi?=
+ =?us-ascii?Q?qZW6I6MD5KJ5DKoMcvHgOveyJlWruttm72EcaKk9Q337UthiNxU2ysSEguNf?=
+ =?us-ascii?Q?B6uOq+VxA9HIxZtCows1xPvXA7obRT3Kt3EKtWq5rIWSHO1qDC0p7fn/nHeS?=
+ =?us-ascii?Q?dKZScdVaxpwfhU1+lSlqiLjlMRWe3s2pExMlLXuGCYtIfHbeGhtiYIuZuvjS?=
+ =?us-ascii?Q?ltcZSyNBEp/oNMPdyRcM5UyWx7uifHepBfe9WxQ2+MQm279DCEPqVdO1j00n?=
+ =?us-ascii?Q?+paBMdvM+MuQ2D7ghnuDty3uebGI0HdAIccFm4AYD3/3ao3IDkULMWEf5ojb?=
+ =?us-ascii?Q?x0jy50AL3zJHgERB6geJtd5Jms2g0WFEzVhnYeIM8Oiej4kLtxvCdUjjufR3?=
+ =?us-ascii?Q?CbfQu9fGEIGjOziDAXUdKm3mFUuvAnoYiubkMnQE+Dn7JzYw6rdp1y1AxykO?=
+ =?us-ascii?Q?br/nUmzWkY0ro8qhg880z3ZO1DlGUlF1iZJdFb86+KURAJtf9qUzwINJ66f5?=
+ =?us-ascii?Q?0G/4FjMKTAIZSc6aPE1w5vUudEe3K3Ks8UkisIadDsgugQqV?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260317181705.2456271-2-yeoreum.yun@arm.com>
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR12MB7736.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d2e11d38-8bae-4e9b-0523-08de94b248b5
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Apr 2026 14:30:57.7510
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: BeeQ6SCEAFEAiILFYvmTSMVlJRw7x3fs4oEqrpTQpgeSbKjRpn1oHLbJHCa5dPWf
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_073031_938418_843927B0 
-X-CRM114-Status: GOOD (  25.66  )
+X-CRM114-CacheID: sfid-20260407_073105_378584_7001D09C 
+X-CRM114-Status: UNSURE (   6.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,118 +152,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 06:17:04PM +0000, Yeoreum Yun wrote:
-> The current ETM4x configuration via sysfs can lead to the following
-> inconsistencies:
-> 
->   - If a configuration is modified via sysfs while a perf session is
->     active, the running configuration may differ between before
->     a sched-out and after a subsequent sched-in.
-> 
->   - Once a perf session is enabled, some read-only register fields
->     (e.g., TRCSSCSR<n>) may not be reported correctly,
->     because drvdata->config is cleared while enabling with perf mode,
->     even though the information was previously read via etm4_init_arch_data().
-> 
-> To resolve these inconsistencies, the configuration should be separated into:
-> 
->   - active_config, which represents the currently applied configuration
->   - config, which stores the settings configured via sysfs.
-> 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->  .../hwtracing/coresight/coresight-etm4x-cfg.c |  2 +-
->  .../coresight/coresight-etm4x-core.c          | 45 +++++++++++--------
->  drivers/hwtracing/coresight/coresight-etm4x.h |  2 +
->  3 files changed, 30 insertions(+), 19 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> index c302072b293a..84213d40d1ae 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> @@ -47,7 +47,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
->  				   struct cscfg_regval_csdev *reg_csdev, u32 offset)
->  {
->  	int err = -EINVAL, idx;
-> -	struct etmv4_config *drvcfg = &drvdata->config;
-> +	struct etmv4_config *drvcfg = &drvdata->active_config;
+Hi Christofer,
 
-I'd suggest we leave out complex cfg things, we can refactor it
-later.
+Thanks for the details. That confirms it.
 
-In this series, let us first separate active_config and config, and
-keep using drvdata->config to save complex cfg ?
+Jonathan - this one is good to go from our side.
 
->  	u32 off_mask;
->  
->  	if (((offset >= TRCEVENTCTL0R) && (offset <= TRCVIPCSSCTLR)) ||
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index d565a73f0042..c552129c4a0c 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -88,9 +88,11 @@ static int etm4_probe_cpu(unsigned int cpu);
->   */
->  static bool etm4x_sspcicrn_present(struct etmv4_drvdata *drvdata, int n)
->  {
-> +	struct etmv4_config *config = &drvdata->active_config;
-> +
->  	return (n < drvdata->nr_ss_cmp) &&
->  	       drvdata->nr_pe &&
-> -	       (drvdata->config.ss_status[n] & TRCSSCSRn_PC);
-> +	       (config->ss_status[n] & TRCSSCSRn_PC);
-
-As Suzuki suggested in another reply, we need to extract capabilities
-into a separate structure.  I'd also extract status related registers
-into a new structure:
-
-  struct etm4_cap {
-      int nr_ss_cmp;
-      bool pe_comparator;    // TRCSSCSRn.PC
-      bool dv_comparator;    // TRCSSCSRn.DV
-      bool da_comparator;    // TRCSSCSRn.DA
-      bool inst_comparator;  // TRCSSCSRn.INST
-
-      int ns_ex_level;
-      int nr_pe;
-      int nr_pe_cmp;
-      int nr_resource;
-      ...
-  }
-
-  struct etm4_status_reg {
-      u32 ss_status[ETM_MAX_SS_CMP];
-      u32 cntr_val[ETMv4_MAX_CNTR];
-  }
-
-[...]
-
-> @@ -911,14 +915,17 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
->  
->  	/* enable any config activated by configfs */
->  	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
-> +
-> +	raw_spin_lock(&drvdata->spinlock);
-> +
-> +	drvdata->active_config = drvdata->config;
-
-This is not an issue introduced by this patch, but we might need to
-consider to copy active config until it has acquired SYSFS mode.
-Otherwise, it might update config here but will disturb a perf session
-has been running.
-
-> @@ -2246,7 +2254,8 @@ static int etm4_add_coresight_dev(struct etm4_init_arg *init_arg)
->  	if (!desc.name)
->  		return -ENOMEM;
->  
-> -	etm4_set_default(&drvdata->config);
-> +	etm4_set_default(&drvdata->active_config);
-
-Should we set default values to drvdata->config ?
-
-My understanding is drvdata->active_config would be always set at the
-runtime, but "drvdata->config" should be initialized properly so it
-can be consumed by sysfs knobs.
 
 Thanks,
-Leo
+Salih.
 
