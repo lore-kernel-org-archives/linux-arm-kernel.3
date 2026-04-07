@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2181FFF5134
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 19:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FC99FF5135
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 19:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qAYj3Czk1oUUWUZUdBnkkK69kXFDTguRUjI1xwumzIQ=; b=c8Kwg4IdOd8TdWBZLWVFPW3AzS
-	+S9mjuXH/AsMj61QYGTY4Vgztyv3W5B46L5I5iPrKs7CwC4LlP2MIVbJW9p9ePMLYb+wNWkIoD45F
-	qAYi1hF8Qts0YMtP5lt5CYaT9p2A6k25w5bH8m85jpCMYpUZG0KAwMtIjfVfBYx4659/IPN++SZP8
-	0YsBF+kCIB8gClq5MUOjtjjQaaDJmf3/6/3WpHfnFAWW4LP8aEOIZqkD3mBTxr6axm0qudWCjF4rd
-	w1Zm6q/AX9FXU0v89AnN7y4lJ/nWP/A8hIanUUcO6kjKGgCHElsxOMZ30tXKIH/Gy53KRCzwSfvbc
-	SWRrLlUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=s7BvHIXUu/KyBlp0Bh64m9iU1jIIBC4g+vpzAyrmhA8=; b=DtoaiaV6WrUVmcWabp3BWy5OCR
+	XGxe10x0oC3WRUMu6xtaxUiAQiLCBFBIxBMAkGUn4/Nk3aE0TY3jTKq3ufE/Oo64fYPPKQUGCfWr0
+	WKU1oFQnIH+wWxeI7vbbaGPNJYDFUKRo6sazqAOvOvMDorlq894aOwr8ZfrJbBAGurnHNH1Waekd6
+	A9sDsJnDQXlRpswKcO/b0oyfVqy5RX1L+qxSVFkfkXxl33y6tCixVhxtgeZowJD2G/vD6xrh3/fO5
+	35nBuBOKD0uC41RlK8ljCZ6EaYFYwOnvH0+mDbDz0jbCgVhDD95DrxrRGsLnPLi7USa6SIU23rwSy
+	JK3uKhQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wABpT-00000007APn-2rXU;
-	Tue, 07 Apr 2026 19:11:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wABpR-00000007APN-2pLB
+	id 1wAC7N-00000007Dhh-22S5;
+	Tue, 07 Apr 2026 19:29:45 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAC7L-00000007Dg1-1cJO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 19:11:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4BF5743235;
-	Tue,  7 Apr 2026 19:11:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0373AC116C6;
-	Tue,  7 Apr 2026 19:11:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775589073;
-	bh=i+fig20ggwsT9pZlJH2S534mhEFL//GXWbZnSmgwt9U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gTVT5w2tU4EyoSvbsHol1yPfBqgnOVuEharMt+6ku2UFnYRiD7BhFCTiuee+ijdYQ
-	 3ulJOpGs1IJ0PDBq7YCzgKKDqSg6T2dLqJ0/7vErGxpbxe4ExmP2871k7vcqq3WCGU
-	 3jbjOAye9CbG8NYZcrIvhzCTFhG9M5F4vnBQaPWOSh6CWe5a70CZRrim2VLPNmVwqw
-	 BVRg9v2Q0Hg4RFQ5ZyhNkXTJJDHftAj8RfQC/sUB+IkyF8LZguqaHNrIo3nrT6fpxA
-	 gpISpS64OkOCkS/z13OPMRJjVN+EC50vcVC/o3RTaYvVorj8srS5te3BihkiC2KJdg
-	 SwruxLCf6+neg==
-Date: Tue, 7 Apr 2026 14:11:05 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Charan Pedumuru <charan.pedumuru@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Tue, 07 Apr 2026 19:29:44 +0000
+Received: by linux.microsoft.com (Postfix, from userid 1216)
+	id 0337820B7135; Tue,  7 Apr 2026 12:29:41 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 0337820B7135
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1775590181;
+	bh=s7BvHIXUu/KyBlp0Bh64m9iU1jIIBC4g+vpzAyrmhA8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=AExyMAdr/2moVZ3cwtjXrEfUHWE8ytLxMd0Bi3A3BWIfMTPoNYqZgo6ige9DgkoAu
+	 eAbIdTsod9SyuHLV177tEg9OwAnZdUZa/hgWdX1n7vGFk0b8lohV77HAHWxXFUD+FP
+	 k0W3kNaUohEn0/X3HcoAoTUNCvkqDkRbHH39wz84=
+From: Hamza Mahfooz <hamzamahfooz@linux.microsoft.com>
+To: linux-crypto@vger.kernel.org
+Cc: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Herve Codina <herve.codina@bootlin.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>
-Subject: Re: [PATCH v4 5/5] dt-bindings: usb: atmel,at91sam9rl-udc: convert
- to DT schema
-Message-ID: <177558906473.3430958.14870529222355203210.robh@kernel.org>
-References: <20260327-atmel-usb-v4-0-eb8b6e49b29d@gmail.com>
- <20260327-atmel-usb-v4-5-eb8b6e49b29d@gmail.com>
+	linux-kernel@vger.kernel.org,
+	Hamza Mahfooz <hamzamahfooz@linux.microsoft.com>,
+	Jeff Barnes <jeffbarnes@linux.microsoft.com>,
+	Paul Monson <paul.monson@capgemini.com>
+Subject: [PATCH] crypto: tstmgr - guard xxhash tests
+Date: Tue,  7 Apr 2026 12:28:59 -0700
+Message-ID: <20260407192859.270745-1-hamzamahfooz@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.7
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260327-atmel-usb-v4-5-eb8b6e49b29d@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_121113_728080_CD9EB968 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20260407_122943_475967_5EE9A32C 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,20 +73,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+If the kernel isn't built with CONFIG_CRYPTO_XXHASH and booted with FIPS
+mode enabled it will currently panic. So, only benchmark xxhash64 if
+CRYPTO_XXHASH is enabled.
 
-On Fri, 27 Mar 2026 16:47:46 +0000, Charan Pedumuru wrote:
-> Convert Atmel High-Speed USB Device Controller (USBA) binding to DT schema.
-> Changes during conversion:
-> - Make the "clock-names" property flexible enough to accept the items
->   in any order as the existing in tree DTS nodes doesn't follow an order.
-> 
-> Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
-> ---
->  .../bindings/usb/atmel,at91sam9rl-udc.yaml         | 74 ++++++++++++++++++++++
->  .../devicetree/bindings/usb/atmel-usb.txt          | 46 --------------
->  2 files changed, 74 insertions(+), 46 deletions(-)
-> 
+Cc: Jeff Barnes <jeffbarnes@linux.microsoft.com>
+Cc: Paul Monson <paul.monson@capgemini.com>
+Signed-off-by: Hamza Mahfooz <hamzamahfooz@linux.microsoft.com>
+---
+ crypto/testmgr.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+diff --git a/crypto/testmgr.c b/crypto/testmgr.c
+index 4985411dedaec..9e4a040029ab8 100644
+--- a/crypto/testmgr.c
++++ b/crypto/testmgr.c
+@@ -5609,7 +5609,9 @@ static const struct alg_test_desc alg_test_descs[] = {
+ #endif
+ 		.alg = "xxhash64",
+ 		.test = alg_test_hash,
++#if IS_ENABLED(CONFIG_CRYPTO_XXHASH)
+ 		.fips_allowed = 1,
++#endif
+ 		.suite = {
+ 			.hash = __VECS(xxhash64_tv_template)
+ 		}
+-- 
+2.53.0
 
 
