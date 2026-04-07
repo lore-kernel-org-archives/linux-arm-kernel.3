@@ -4,193 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B486EFEEF44
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 13:40:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68CA8FEEF46
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 13:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vqH9qDu+RSkWSmOuYsas0/ji8lEDf8sfNj81OgPLcEA=; b=MIPTQH33xEcYZd1J2a3wUD6ZVm
-	E2S1wYKSlQJXBwMAMYdjb+bF1ySepW3FCR9N/+eNSRYGmGjPI4qN7/iGy6Urw/73Q/tJhccmF5Lzr
-	1glnVtmjgTQaA3v9yjFKyeVvtms7KV+/vTDUgLt+yLL0Rq59chO9G7FckcOhKTuGui4ffFU8YbvR0
-	6p5Pb8Z/3/w7RBGr+6G9afPNFOdR/WgUNI0zpkWVVOkJsDg6JiNGIiUw4leH+xdlCO27ZD6K8YkTw
-	UkSeFOOwIoT4/mzczmbqadWnTvDVcdvPIZETlyJdPfoeBuZMAcoSe6pQSlG+joqO948xPc8q+POUa
-	myDvAPVw==;
+	bh=K6+qhHS9U2NR5KN/+3DgIjEjwrsUhOTdOACQA1DQXNk=; b=eqz4XPwXXkiMwcc67wmY+dPEWm
+	ZYu0Akdo1UZY31fmuN4336ZR/JteYCraFWhGntRWGfYAmZ/ZNM4pEptipDfBwteXWFPjd/YC25E8b
+	F3w+lDuH/J9VQS/s4GLcffpVS2zTLGPVCjSRM0fP/p6xTgwbcRfodeAuHkSOQPtdXLrJtTY3a6n0i
+	Se5LY9AiqLOswDIAdCp1mi46R3piE8wtZKiIzQg7YrU5Ig3c1E7C82oRrb5P6EhdNUqxL6H/fSX0x
+	v7FNm00xXGKs3fn28kSrzHxlIygev6kCMQx808UmRUD5kow+TYrhNzzs1GEgfNwGY2grgeR42+X6r
+	1k/MUL2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA6fb-00000006X15-41O1;
-	Tue, 07 Apr 2026 13:40:43 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wA6g6-00000006X5D-1HWY;
+	Tue, 07 Apr 2026 13:41:14 +0000
+Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA6fZ-00000006X0b-2xrg
+	id 1wA6g4-00000006X4L-0nXv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 13:40:43 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 637DJv6x4010120
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 7 Apr 2026 13:40:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	vqH9qDu+RSkWSmOuYsas0/ji8lEDf8sfNj81OgPLcEA=; b=eMl9tmzC/a8uTVA5
-	sPv2R2zrCjgg3xMYRMNpC3IZn2j1evlEHQ6IkTVqblYshMHU7L9M++IEcStbxNcD
-	31oSp6fKZacdBLWDZ+Cr2znc/l21xYKfJVAABMsQizvNzqb1d/YvxHCHga4l5r/H
-	09sBSsbql6Y0tFBzTmuIu4h3d3wodEqrCi4gPBC2PYY/y3EYmZNeXx1fIPq844zg
-	2AiV+a5A9ccaO0S5WULPGfVvzdoAwuZPAuw/dUBqq/dCcXPkFN3UmXWpmyZr9JhU
-	Tt0EtOH5Ud+4Cuolz3CSFZo6P/4V1zN5kfdRyuxYDLARzt4WbvkjmonXrA1POO+Q
-	G78gNg==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dcmrktvxb-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 13:40:39 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50d8c192b3fso85566161cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 06:40:39 -0700 (PDT)
+	Tue, 07 Apr 2026 13:41:13 +0000
+Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-6501d242e2fso4713489d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 06:41:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775569271; cv=none;
+        d=google.com; s=arc-20240605;
+        b=g3cF+xWG/DXmsG/K2D/9RNlT5BhmorepJQfDX13XwzUxpOwNzmrGqKrGvvBfVwGbP+
+         z2oiLLrAjKPVd5Gu2e29Ye1fpLMWcgKAeL2j/XeQdTrmnKFiMBlWs8IRjAFMypb/wZKo
+         WqgJ8bb7DYAnKbx1IiZZ5oPgBhzxA1enOxGfC1rbGoJpfDTfiaxai87+S4cYZ/sWzGvS
+         4ozEPhdTZFHSuYMKQS0uJZhYDVECyigkjNdq5M/7KlLvDT5kWpL6Tkq9MxK0uFW3Qwxc
+         MYu8euYth7d8NlkKV5hxKMV1rhdN8yaGPTAef6sqzH9Egw7V3OwTLR1sdDm87GQ9pN9z
+         5WWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=K6+qhHS9U2NR5KN/+3DgIjEjwrsUhOTdOACQA1DQXNk=;
+        fh=3cN9hrhrMStxIYat8sfpcMqNHEV0ORtNFqCVVgT2VWI=;
+        b=gApSszgYsmnwhDdd8BvKEp/3dSmmj0DgRh4QQQyTzABXHk3RMJYqEv6vY4thoLqv1Z
+         N+Z4ZXe1wdXAnGF7MGBjWC6XFkt/GYF/5Cpt2x9PNvuaX3Qz/e2khVqsqOUekRfIWRGm
+         9BrTx33lF1Yrr46UaedIau0ln9QnPGXTo7GVLa0IOQ0ISVPWcS4ZxYEYMUucjJNhoW34
+         ubpu3XJqgIFIVbXJ6HewEsHoVrRW5pvzypWLvSMfOEKfJCLBgd0F9hU4yuIBGRy9oZRl
+         CMyvOScDXQZDUK9JJcAX4u7JCoBLCMWqeygDRzVXIb4cyv91Qqey71q8g3yHhFv/IK3I
+         i78Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1775569239; x=1776174039; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=vqH9qDu+RSkWSmOuYsas0/ji8lEDf8sfNj81OgPLcEA=;
-        b=R/ds9RRgb2SGcgbnaE0qcAo2RgzhfV0NxFcWsNXprgNSiUPDwsPG4iANm+pnha7hor
-         J6dFatFUIthc7GnPCAoayQf3JBe7cAGb8mZZoc+20h8nlO90QaPe1RlDb8XIiuG5KyHy
-         pbYMC466dhjtMPM13+6XmKau/rGllaXRq0XXvJS4+EOb9NHP4/Jn3B/rbxncpRWmto+O
-         P+48iROCTErFfEnF+KM57UMpM37l/gWGLuSpH20nz9d8hSDLZJdXUOuWRWTl6iKuIV/Y
-         1Brfk6i+ErVNP7geBvYCGLsPCaWsywacv6CbcDU04Mw/OIc62X7vioH2aqry/rZxo14C
-         wrDA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775569239; x=1776174039;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1775569271; x=1776174071; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vqH9qDu+RSkWSmOuYsas0/ji8lEDf8sfNj81OgPLcEA=;
-        b=iHwVlfkbkMU2rFqhxKIEMfcpQSit+4e/73DLcOWE9cPWlsQ43BPzL/Unxl2ySfdM5h
-         xv3/OkO5m/TZC9xPB53XQaeDrUc0+t8bBLEKteGnvq88SU9XsmoSrEYAFwjFCsDUvL5F
-         KEJpnul4Q33RwdOLuzHmOzw/m2BeyMT36yoxcMurmoZO8Jhr5ZS44vKo7wNsAxfRQ8mW
-         tK5BoBJoT0Xie+xqZCMWqyi0x4PVUtvJqHQ9LNer+CFX3/k5+LJMZc8FjBmqrwPYzaJV
-         1Kulydnb8EyKhUOnw77+MMPvpPZ91fkNnzD4Qqbd6+rJhPmSu+M4HntKth+q480T8+WV
-         QisQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX/8IXiCdX0DyFUIAkmq4XIYi5AgaqgD5ICb+4K4v6zjZu/Ynwzj0uYUJBWDPxHdahcB0hXyOr+lakYYuT8E3vI@lists.infradead.org
-X-Gm-Message-State: AOJu0YzM9Hhsu7y8vKQOv8omrSSexw71mnnpbDOPunLBJvzUaDpB2V9q
-	moobCSoLEfbmH/qyT0B4SjVy1ezj4d9ixn+0DIYt4yZKGM54jS71Bm0cpwcY3F4Qqsf6WF6CMo5
-	7EMQPVP6WHmrQD94wGIBqXbO67OCaTmMNNdw2r+ZKdFVlUWpwmEIWLnJVa62PYkQ/zMGMjIhcL9
-	Vl+Q==
-X-Gm-Gg: AeBDiety9zJ/D7340xErJczfjMF8uR8PFh4rqVB416RC+Kt/s4zWgIhxIjy/Id53HO4
-	SDszCSqQAW3nqWhCsCE6WWaLrqQb3ETlR8KGWjO03KAi3mR8Z01heRTak3s9TWm4rlUF4w/IhBj
-	9aUcuytu6VHgeSQnPd0F33kIgZOmknsC9My2rZdq5rKVb9SSLZwO0QVD9qp0u/8wClMkuDSqVzH
-	cu+wLoCjEH4FthWzJM1yvbZEDgt8rE6PsClhmlj9lbPnZKkEfXVSWXDjX0daPBcCSEJ6jNnX1ix
-	5dnlpaJpEjcPuJKgeBF4pRoAjr1OanTyJONVtA2CLge5gHMxyy7FpA8VaUSzOVsfQEthhZKzDy0
-	HfbJXawcWRqsj0JCWz1/N8XNN4pZOO3Peh8R5pTUOEFQAtzDt
-X-Received: by 2002:ac8:57cc:0:b0:50b:4167:7889 with SMTP id d75a77b69052e-50d629c5299mr254528181cf.30.1775569238888;
-        Tue, 07 Apr 2026 06:40:38 -0700 (PDT)
-X-Received: by 2002:ac8:57cc:0:b0:50b:4167:7889 with SMTP id d75a77b69052e-50d629c5299mr254527351cf.30.1775569238289;
-        Tue, 07 Apr 2026 06:40:38 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.219.94])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d1e2a71f7sm52599754f8f.1.2026.04.07.06.40.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 07 Apr 2026 06:40:37 -0700 (PDT)
-Message-ID: <4c4e80be-4aeb-4275-977f-b3f8c6ab26b0@oss.qualcomm.com>
-Date: Tue, 7 Apr 2026 15:40:35 +0200
+        bh=K6+qhHS9U2NR5KN/+3DgIjEjwrsUhOTdOACQA1DQXNk=;
+        b=BJ5VjFUBXK546oZZJ7zsY7sPo0aNVQiRgoQNiyuJNC9NCyFSQ2QqbmB+qVgl9SKHfL
+         Lo8hoRH4Kow7U06tD+lx5KitpXQsAjW0T00MvGhryZvmHXJassqi6jAuz9t8XbHkuy7Y
+         ykKwERoryBdNEREXWwr9WwGPyyOt7pkc0KFIlSLbSD9Z/Ovpdo2Dt2qZCsNeM2jxxcAz
+         /FA5DZSxHZ8K2Wy3X6wTs0jLIZ6WLKsa1HUAzekUeq0xqz2WComng9usLcnLUKGqVDlT
+         NZLhv4o8AgrKJJlAAbwqem4uEWQ7iw5CBZygPE2cXnD5EePgiskjP6oEm0u22FA3l6ok
+         KRIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775569271; x=1776174071;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=K6+qhHS9U2NR5KN/+3DgIjEjwrsUhOTdOACQA1DQXNk=;
+        b=JS9JGkXr0oEyiqStdRYuCGO6sRrIEC71MWONbhBBWH7eOSajuYnfS0HmFvaQs3mmt2
+         7sB8R7OfxcSJ3TIk+EzZoo7HNUv0AXnjC//joM4ND4QV9o39ydC/QEzPqyLs7dmwZW0y
+         8JR9vu3PQoYsRMtmQhlj3OnDCGi3u3bg18u3kUWDaC9m2wBiwc2yLad7t8puTbVepKGU
+         UGRWYY0ngm4SRnAvEDfNJ5eSgn3EWXl7MMWhXsSQ4sMWInR9W+Zptjt4pR2hgj5j4Uba
+         Aw9PUXH7IEUwYuUYlEjv/vLKB0v9IJO8d0V4BEtuqHk8Djlwe9M3vht0w3iVNep0X/dw
+         XUlw==
+X-Forwarded-Encrypted: i=1; AJvYcCUk7HLROB4IGLitTNZgwea8c2H8/jRaIOCC3EocB0TjLBP8q2CuDqVdsl429BMTKYwUYIIpwdaYl3MBhsTYMYSn@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFA328wOhiZ4pETN251LtEKeD7XqhxOu0yAc1EYr/sz3TRRduC
+	lg/7glk5tM4WgIVo5S0HWF09dLVOVAuuEGlpD7QSi3jogRmKxzh92vPUZiyAU2CxbkZ8+PRJC0G
+	CV6KGMIwxNiDX2FfXRzNJ0rBUzOZUTBVl9Flq
+X-Gm-Gg: AeBDietXGwM0FwPz68q7DVrUIAQU8YqMZVV2fNuAr4wPalIGjHvLamcKmDqlU5jdAiS
+	8Yy4T3OUX2DqSNmBboR1sAL+Gtqo401c94izj+8oj5n5qdZ5bf1+U/LP6ZuOVJERxjpCo6HOsUs
+	rMm8fp2NkkSmPnfRQBZVIR3FOa7OAynBqTFZFlI5cgJXfaYoFu0kCEykifJL1rWM0edGWsLPu5H
+	0VciVHPsZmy7laCeVfrz3mYBch1iDINdLd+MAnnyWgHOmvDnaEFFlkOyBK6V/eJKzMu7mHs1v2+
+	vgstIbo5O/hj+oJPq5g06Bhb06nX6XIT0q2IaAwKq+Tqc6Z7Zv5c9UF8QPIZ2wixeuXZNQ==
+X-Received: by 2002:a05:690e:4397:b0:64c:b81d:2cb7 with SMTP id
+ 956f58d0204a3-6504881bc03mr10964580d50.39.1775569270543; Tue, 07 Apr 2026
+ 06:41:10 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/7] dt-bindings: clock: qcom: Add video clock controller
- on Eliza SoC
-To: Taniya Das <taniya.das@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org
-References: <20260317-eliza_mm_clock_controllers_v1-v1-0-4696eeda8cfb@oss.qualcomm.com>
- <20260317-eliza_mm_clock_controllers_v1-v1-1-4696eeda8cfb@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@oss.qualcomm.com; keydata=
- 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
- cwzYbmi/Et7T2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <20260317-eliza_mm_clock_controllers_v1-v1-1-4696eeda8cfb@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=Rrz16imK c=1 sm=1 tr=0 ts=69d50957 cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=EUspDBNiAAAA:8 a=NEhj3jsE5cG0449qHM8A:9 a=QEXdDO2ut3YA:10
- a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-ORIG-GUID: u-Y8iDTui6YY6En75f17dYOmU4nAWwWQ
-X-Proofpoint-GUID: u-Y8iDTui6YY6En75f17dYOmU4nAWwWQ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDA3MDEyNyBTYWx0ZWRfX+s+gJP7IBPQE
- BFCXGIhXxFPexh+oWial6MCbFVFxfbJT8i4CvktUJT8THX0rnlRsXg+pO7Xfsc7ork5oGBCAQXw
- BHCjvKLB8Q8f14emCGzIJTC2mTsd6R6i0BO717XlITn7Fx/5Kut97ItNfKe69GF5E4AHtbTXZ8S
- HaKc4lRkgOEASA06ZGq4iAWAKcQhGXzhJTa0z9l8ReVdocplCG/DeMMPjYEtLMPGl/OsUhcYhkn
- MpBXvGc1yuYI8D9VM40TwARFAdyiO6mSksrh3QIVFjOK2zInUlSOBMLQcGO8F0q4qL44sHNysid
- Hlkxvm/8KW2IPimttX4eHoO472Gwxiz2ZVFcWACHTTAVkRDq+ekZ0eUQr7Boc75cJG82IaJxFJH
- D/oJEUhLgyq+zbp5HbpF/M6Ukjk/0tZ73+RFhNXuAJVJTMeDhu3qJZLKopAi01LdOe2k6e5F4hq
- 1q2Vw/PXEwbSwChrd7w==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-07_02,2026-04-07_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 lowpriorityscore=0 impostorscore=0 priorityscore=1501
- phishscore=0 bulkscore=0 suspectscore=0 adultscore=0 clxscore=1015
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2604010000
- definitions=main-2604070127
+References: <20260407-brcm-prio-v1-1-f38b17376640@gmail.com>
+In-Reply-To: <20260407-brcm-prio-v1-1-f38b17376640@gmail.com>
+From: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Date: Tue, 7 Apr 2026 09:40:58 -0400
+X-Gm-Features: AQROBzAa16hYCox9YuiofHUqjsYpvs_frFTh54dv3AlFBuE-XJcb0jeBhhoCcSI
+Message-ID: <CABBYNZ+OrkJWcbVKkyrpX3HHJr7vGgC92Y=wkf6PPwR9Zr+mOQ@mail.gmail.com>
+Subject: Re: [PATCH] Bluetooth: Add Broadcom channel priority commands
+To: fnkl.kernel@gmail.com
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+	Marcel Holtmann <marcel@holtmann.org>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-bluetooth@vger.kernel.org, 
+	netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_064041_880323_B1B95E7E 
-X-CRM114-Status: GOOD (  12.24  )
+X-CRM114-CacheID: sfid-20260407_064112_277289_1C56FD16 
+X-CRM114-Status: GOOD (  31.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -205,22 +120,291 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/03/2026 18:14, Taniya Das wrote:
-> Add compatible string for Eliza video clock controller and the bindings
-> for Eliza Qualcomm SoC.
-> 
-> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+Hi,
+
+On Tue, Apr 7, 2026 at 8:09=E2=80=AFAM Sasha Finkelstein via B4 Relay
+<devnull+fnkl.kernel.gmail.com@kernel.org> wrote:
+>
+> From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+>
+> Certain Broadcom bluetooth chips (bcm4377/bcm4378/bcm438) need ACL
+> streams carrying audio to be set as "high priority" using a vendor
+> specific command to prevent 10-ish second-long dropouts whenever
+> something does a device scan. This series adds an ioctl to control
+> the priorities and hooks it up for the relevant chips.
+>
+> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
 > ---
->  .../bindings/clock/qcom,sm8450-videocc.yaml        | 16 ++++++++++
->  include/dt-bindings/clock/qcom,eliza-videocc.h     | 37 ++++++++++++++++++++++
->  2 files changed, 53 insertions(+)
-> 
+>  MAINTAINERS                      |  2 ++
+>  drivers/bluetooth/hci_bcm4377.c  |  2 ++
+>  include/net/bluetooth/hci_core.h | 12 ++++++++++++
+>  include/net/bluetooth/hci_sock.h |  7 +++++++
+>  net/bluetooth/Kconfig            |  7 +++++++
+>  net/bluetooth/Makefile           |  1 +
+>  net/bluetooth/brcm.c             | 29 +++++++++++++++++++++++++++++
+>  net/bluetooth/brcm.h             | 17 +++++++++++++++++
+>  net/bluetooth/hci_conn.c         | 11 +++++++++++
+>  net/bluetooth/hci_sock.c         |  4 ++++
+>  10 files changed, 92 insertions(+)
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index c3fe46d7c4bc..81be021367ec 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2562,6 +2562,8 @@ F:        include/dt-bindings/pinctrl/apple.h
+>  F:     include/linux/mfd/macsmc.h
+>  F:     include/linux/soc/apple/*
+>  F:     include/uapi/drm/asahi_drm.h
+> +F:     net/bluetooth/brcm.c
+> +F:     net/bluetooth/brcm.h
+>
+>  ARM/ARTPEC MACHINE SUPPORT
+>  M:     Jesper Nilsson <jesper.nilsson@axis.com>
+> diff --git a/drivers/bluetooth/hci_bcm4377.c b/drivers/bluetooth/hci_bcm4=
+377.c
+> index 925d0a635945..5f79920c0306 100644
+> --- a/drivers/bluetooth/hci_bcm4377.c
+> +++ b/drivers/bluetooth/hci_bcm4377.c
+> @@ -2397,6 +2397,8 @@ static int bcm4377_probe(struct pci_dev *pdev, cons=
+t struct pci_device_id *id)
+>         if (bcm4377->hw->broken_le_ext_adv_report_phy)
+>                 hci_set_quirk(hdev, HCI_QUIRK_FIXUP_LE_EXT_ADV_REPORT_PHY=
+);
+>
+> +       hci_set_brcm_capable(hdev);
+> +
+>         pci_set_drvdata(pdev, bcm4377);
+>         hci_set_drvdata(hdev, bcm4377);
+>         SET_HCIDEV_DEV(hdev, &pdev->dev);
+> diff --git a/include/net/bluetooth/hci_core.h b/include/net/bluetooth/hci=
+_core.h
+> index a7bffb908c1e..ef3b5433203c 100644
+> --- a/include/net/bluetooth/hci_core.h
+> +++ b/include/net/bluetooth/hci_core.h
+> @@ -642,6 +642,10 @@ struct hci_dev {
+>         bool                    aosp_quality_report;
+>  #endif
+>
+> +#if IS_ENABLED(CONFIG_BT_BRCMEXT)
+> +       bool                    brcm_capable;
+> +#endif
+> +
+>         int (*open)(struct hci_dev *hdev);
+>         int (*close)(struct hci_dev *hdev);
+>         int (*flush)(struct hci_dev *hdev);
+> @@ -1791,6 +1795,13 @@ static inline void hci_set_aosp_capable(struct hci=
+_dev *hdev)
+>  #endif
+>  }
+>
+> +static inline void hci_set_brcm_capable(struct hci_dev *hdev)
+> +{
+> +#if IS_ENABLED(CONFIG_BT_BRCMEXT)
+> +       hdev->brcm_capable =3D true;
+> +#endif
+> +}
+> +
+>  static inline void hci_devcd_setup(struct hci_dev *hdev)
+>  {
+>  #ifdef CONFIG_DEV_COREDUMP
+> @@ -1812,6 +1823,7 @@ int hci_get_conn_list(void __user *arg);
+>  int hci_get_conn_info(struct hci_dev *hdev, void __user *arg);
+>  int hci_get_auth_info(struct hci_dev *hdev, void __user *arg);
+>  int hci_inquiry(void __user *arg);
+> +int hci_set_acl_prio(struct hci_dev *hdev, void __user *arg);
+>
+>  struct bdaddr_list *hci_bdaddr_list_lookup(struct list_head *list,
+>                                            bdaddr_t *bdaddr, u8 type);
+> diff --git a/include/net/bluetooth/hci_sock.h b/include/net/bluetooth/hci=
+_sock.h
+> index 13e8cd4414a1..95d156ac4cae 100644
+> --- a/include/net/bluetooth/hci_sock.h
+> +++ b/include/net/bluetooth/hci_sock.h
+> @@ -91,6 +91,8 @@ struct hci_ufilter {
+>
+>  #define HCIINQUIRY     _IOR('H', 240, int)
+>
+> +#define HCISETACLPRIO  _IOW('H', 250, int)
 
-Although I already suggested that this was not tested (and you never
-replied where did you test it), but I also checked and this fails checks
-- constraints are mismatched now.
+Nack, not going to introduce an ioctl command for this.
 
-Best regards,
-Krzysztof
+>  /* Ioctl requests structures */
+>  struct hci_dev_stats {
+>         __u32 err_rx;
+> @@ -171,6 +173,11 @@ struct hci_inquiry_req {
+>         __u8  length;
+>         __u8  num_rsp;
+>  };
+> +
+> +struct hci_acl_prio_req {
+> +       __u16 handle;
+> +       __u8  high_prio;
+> +};
+>  #define IREQ_CACHE_FLUSH 0x0001
+>
+>  #endif /* __HCI_SOCK_H */
+> diff --git a/net/bluetooth/Kconfig b/net/bluetooth/Kconfig
+> index 6b2b65a66700..0f2a5fbcafc5 100644
+> --- a/net/bluetooth/Kconfig
+> +++ b/net/bluetooth/Kconfig
+> @@ -110,6 +110,13 @@ config BT_AOSPEXT
+>           This options enables support for the Android Open Source
+>           Project defined HCI vendor extensions.
+>
+> +config BT_BRCMEXT
+> +       bool "Enable Broadcom extensions"
+> +       depends on BT
+> +       help
+> +         This option enables support for the Broadcom defined HCI
+> +         vendor extensions.
+> +
+>  config BT_DEBUGFS
+>         bool "Export Bluetooth internals in debugfs"
+>         depends on BT && DEBUG_FS
+> diff --git a/net/bluetooth/Makefile b/net/bluetooth/Makefile
+> index a7eede7616d8..b4c9013a46ce 100644
+> --- a/net/bluetooth/Makefile
+> +++ b/net/bluetooth/Makefile
+> @@ -24,5 +24,6 @@ bluetooth-$(CONFIG_BT_LE) +=3D iso.o
+>  bluetooth-$(CONFIG_BT_LEDS) +=3D leds.o
+>  bluetooth-$(CONFIG_BT_MSFTEXT) +=3D msft.o
+>  bluetooth-$(CONFIG_BT_AOSPEXT) +=3D aosp.o
+> +bluetooth-$(CONFIG_BT_BRCMEXT) +=3D brcm.o
+>  bluetooth-$(CONFIG_BT_DEBUGFS) +=3D hci_debugfs.o
+>  bluetooth-$(CONFIG_BT_SELFTEST) +=3D selftest.o
+> diff --git a/net/bluetooth/brcm.c b/net/bluetooth/brcm.c
+> new file mode 100644
+> index 000000000000..d03d2af5dc7e
+> --- /dev/null
+> +++ b/net/bluetooth/brcm.c
+> @@ -0,0 +1,29 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2026 The Asahi Linux Contributors
+> + */
+> +
+> +#include <net/bluetooth/bluetooth.h>
+> +#include <net/bluetooth/hci_core.h>
+> +
+> +#include "brcm.h"
+> +
+> +int brcm_set_high_priority(struct hci_dev *hdev, u16 handle, bool enable=
+)
+> +{
+> +       struct sk_buff *skb;
+> +       u8 cmd[3];
+> +
+> +       if (!hdev->brcm_capable)
+> +               return -EOPNOTSUPP;
+> +
+> +       cmd[0] =3D handle;
+> +       cmd[1] =3D handle >> 8;
+> +       cmd[2] =3D !!enable;
+> +
+> +       skb =3D hci_cmd_sync(hdev, 0xfc57, sizeof(cmd), cmd, HCI_CMD_TIME=
+OUT);
+> +       if (IS_ERR(skb))
+> +               return PTR_ERR(skb);
+> +
+> +       kfree_skb(skb);
+> +       return 0;
+> +}
+> diff --git a/net/bluetooth/brcm.h b/net/bluetooth/brcm.h
+> new file mode 100644
+> index 000000000000..a501f2988a96
+> --- /dev/null
+> +++ b/net/bluetooth/brcm.h
+> @@ -0,0 +1,17 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2026 The Asahi Linux Contributors
+> + */
+> +
+> +#if IS_ENABLED(CONFIG_BT_BRCMEXT)
+> +
+> +int brcm_set_high_priority(struct hci_dev *hdev, u16 handle, bool enable=
+);
+> +
+> +#else
+> +
+> +static inline int brcm_set_high_priority(struct hci_dev *hdev, u16 handl=
+e, bool enable)
+> +{
+> +       return -EOPNOTSUPP;
+> +}
+> +
+> +#endif
+> diff --git a/net/bluetooth/hci_conn.c b/net/bluetooth/hci_conn.c
+> index 11d3ad8d2551..b2c7414a9c5b 100644
+> --- a/net/bluetooth/hci_conn.c
+> +++ b/net/bluetooth/hci_conn.c
+> @@ -35,6 +35,7 @@
+>  #include <net/bluetooth/iso.h>
+>  #include <net/bluetooth/mgmt.h>
+>
+> +#include "brcm.h"
+>  #include "smp.h"
+>  #include "eir.h"
+>
+> @@ -2775,6 +2776,16 @@ int hci_get_auth_info(struct hci_dev *hdev, void _=
+_user *arg)
+>         return copy_to_user(arg, &req, sizeof(req)) ? -EFAULT : 0;
+>  }
+>
+> +int hci_set_acl_prio(struct hci_dev *hdev, void __user *arg)
+> +{
+> +       struct hci_acl_prio_req req;
+> +
+> +       if (copy_from_user(&req, arg, sizeof(req)))
+> +               return -EFAULT;
+> +
+> +       return brcm_set_high_priority(hdev, req.handle, req.high_prio);
+> +}
+> +
+>  struct hci_chan *hci_chan_create(struct hci_conn *conn)
+>  {
+>         struct hci_dev *hdev =3D conn->hdev;
+> diff --git a/net/bluetooth/hci_sock.c b/net/bluetooth/hci_sock.c
+> index 0290dea081f6..4be6aeeb6bad 100644
+> --- a/net/bluetooth/hci_sock.c
+> +++ b/net/bluetooth/hci_sock.c
+> @@ -1035,6 +1035,9 @@ static int hci_sock_bound_ioctl(struct sock *sk, un=
+signed int cmd,
+>                 if (!capable(CAP_NET_ADMIN))
+>                         return -EPERM;
+>                 return hci_sock_reject_list_del(hdev, (void __user *)arg)=
+;
+> +
+> +       case HCISETACLPRIO:
+> +               return hci_set_acl_prio(hdev, (void __user *)arg);
+>         }
+>
+>         return -ENOIOCTLCMD;
+> @@ -1072,6 +1075,7 @@ static int hci_sock_ioctl(struct socket *sock, unsi=
+gned int cmd,
+>         case HCIGETAUTHINFO:
+>         case HCIBLOCKADDR:
+>         case HCIUNBLOCKADDR:
+> +       case HCISETACLPRIO:
+>                 break;
+>         default:
+>                 return -ENOIOCTLCMD;
+>
+> ---
+> base-commit: bfe62a454542cfad3379f6ef5680b125f41e20f4
+> change-id: 20260407-brcm-prio-b630e6cc3834
+>
+> Best regards,
+> --
+> Sasha Finkelstein <fnkl.kernel@gmail.com>
 
+The simple solution would be for the driver to set all ACL connections
+with high priority since in most cases we do want connections having
+higher priority than scanning. That said, we may need to identify
+which connections are performing audio versus those that are not. For
+the audio connections, perhaps we could use skb->priority to set their
+priority (provided userspace sets it for audio).
+
+--=20
+Luiz Augusto von Dentz
 
