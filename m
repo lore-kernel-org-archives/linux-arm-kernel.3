@@ -4,59 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 058ADFEEF44
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 14:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17503FEEF49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 14:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jq+8qOzPJTUqKjsOERswRR9fpPCqfmg3Dkvvj9MmKts=; b=SOaf5Ur03BjWe2
-	vTFXqe20RFnPaSUkXMweQt2KRTuY4jZ3kPQzN9Ics9hrNQGHzBaRrkcrvNkp725GI/d6uphHqE+co
-	wdZZCZZKKfdB3GIX22eVs7Wc3kfmo+r1ADnf8kvn8FHJNs/JYpVaHI3L3cDnM9AkDUOVm2S6lwSdW
-	IIblPULbFR49qN78Q5SAbQnlDTYka8JcYScYxoHJ6SjDAqwR2AJ6HeWWtXAQDSb0NMsSzG/uuY0t+
-	XYe4l0QBbaue+eZn0fYhsOoDINMrw0R4sCKWUmWI0XxXgD5NFv/5OnjLzYo+gXeQ4j92Hls15ughK
-	Zgw+ghsSTF5eVpp6zRqw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1FYFzGVw2aSfud5YstAqYLdCYEMowvrxKyxKP8uIqwM=; b=4cYofm0vvJnB4y/3WbcIpZRMyK
+	YW+BBNl1MM7ytlsGxC2GAz+FuzeA0bze3wpra+I75IVXbSeNk8vGwdJfF+hsTYoQTThFuTrvXtLmv
+	eeyujEzbGzaVKT7r43y8ofZBwe5p1k8rsZn0HK8IZRcQw7cLpYg1NwSCgZNgLo4H8/x4yz6TBCcxb
+	XjhS6cYWoFadzd240pRc5HtFobZzUPnPiminQgmhpnGgRIrLwdo5pSlCKa84FdmUPANT06/VW2PyP
+	21mkDnOnFCRUYuaz4dK8hVZ8daQLKbPnOJCMTbXDJEVNGylmf2Hq+JArxhmA6g3aJfCfxV6af69YU
+	EZOL/65g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7Mx-00000006axP-0QsQ;
-	Tue, 07 Apr 2026 14:25:31 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wA7Mw-00000006axB-3B3s;
+	Tue, 07 Apr 2026 14:25:30 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7Mt-00000006avo-2Uoe
+	id 1wA7Mt-00000006avt-2d6v
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 07 Apr 2026 14:25:29 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 076D9C5B18C;
-	Tue,  7 Apr 2026 14:25:56 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 2DC5C4E4294A;
+	Tue,  7 Apr 2026 14:25:24 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 27B4B603C7;
-	Tue,  7 Apr 2026 14:25:22 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DDD3B1045017A;
-	Tue,  7 Apr 2026 16:25:17 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0516E603C7;
+	Tue,  7 Apr 2026 14:25:24 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 496F0104500A7;
+	Tue,  7 Apr 2026 16:25:21 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1775571921; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=jq+8qOzPJTUqKjsOERswRR9fpPCqfmg3Dkvvj9MmKts=;
-	b=0P4+02rEAnNDTnKE+p/qz8mP2e2c8tW6KFIf+6DEOGiZQy12/V5zWgWBwrAvZ9jGsku/kS
-	tuViNuPIpChk8j7m7GovfqUJNxCsiENd2Jx4u5k3iIrIJCjzCutDD9Iakelq05XzO3A6nB
-	ESaALpqpNr2p/ZwoJeZ13KMlTwcp+mIEfzxiHZspkQfYZQ0SVqeoSidiHlQ/WfkRZhK5Ut
-	qrhW7ExCVR9JMfNSc+R12/HqV+B1VPVQKLxy5/nxlZf2VRamrXPenD8PS4ZjWt6lS7U0yH
-	9P7pWvFmN2+XO3YDhLPRqrE9pDJkYyzTQv7vhtM9JgS2AGH47D9Xg7eSAZ1UJQ==
+	t=1775571922; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=1FYFzGVw2aSfud5YstAqYLdCYEMowvrxKyxKP8uIqwM=;
+	b=Xmu6wm7Wg2kM0sTP0JLzAgHRO912Upkhcsq7aMmuzzRuhVEZ6GfhWjJi3NzngXEFewHAmB
+	wgi6oYcNEiWje8OS2YpatlngcR1fLeW2BmFKgusYAduevlYUj/4RAHBPlhMCdyk9GWao21
+	jYEoXJYS6g8wi9iqQt5sHRgpfxiw58a9KdylUHbGdXuJYd3Ci3yxkXTONwiSqLEDE7VmRu
+	3yVNKdnIYShRxqIrl6IYoD3tiO+HslA6oq74XuBviNRDvQ4vo+xl+lUuayuX67/ixuwTpr
+	wP/nBntvZOaIALp4psgsGi9b1F1tvz1i8rJ4APJxnnXmi3dvPGy2caHrJVUt+g==
 From: "Thomas Richard (TI)" <thomas.richard@bootlin.com>
-Subject: [PATCH v5 0/4] firmware: ti_sci: Introduce BOARDCFG_MANAGED mode
- for Jacinto family
-Date: Tue, 07 Apr 2026 16:25:05 +0200
-Message-Id: <20260407-ti-sci-jacinto-s2r-restore-irq-v5-0-97b28f2d93f9@bootlin.com>
+Date: Tue, 07 Apr 2026 16:25:06 +0200
+Subject: [PATCH v5 1/4] firmware: ti_sci: add BOARDCFG_MANAGED mode support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAMET1WkC/4XOTU7DMBAF4KtUXmM0Hk/ihBX3QCyMf+ggiKltI
- lCVu+MUVRHqIsv3NPrenEUJmUMRD4ezyGHmwmlqobs7CHe002uQ7FsWCNgpUCAry+JYvlnHU02
- yYJY5lJpyu8wnSTgEgCF6BU405DOHyN+Xgafnv5zD6avt1K088gr8XJ6Y1dpe98ze3qwkSE2et
- B49krGPLynVd57uXfoQKz7jBircB7GBlgYTrY4RUd2CegMRul1QN9BDP/Z6NGQ93YJ0BXtAoF2
- QGtibAcFGPQbr/oPLsvwCd8L/fNYBAAA=
-X-Change-ID: 20251010-ti-sci-jacinto-s2r-restore-irq-428e008fd10c
+Message-Id: <20260407-ti-sci-jacinto-s2r-restore-irq-v5-1-97b28f2d93f9@bootlin.com>
+References: <20260407-ti-sci-jacinto-s2r-restore-irq-v5-0-97b28f2d93f9@bootlin.com>
+In-Reply-To: <20260407-ti-sci-jacinto-s2r-restore-irq-v5-0-97b28f2d93f9@bootlin.com>
 To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
  Santosh Shilimkar <ssantosh@kernel.org>, 
  Michael Turquette <mturquette@baylibre.com>, 
@@ -72,9 +68,8 @@ Cc: Gregory CLEMENT <gregory.clement@bootlin.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_072527_803887_30C94DDD 
-X-CRM114-Status: UNSURE (   6.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260407_072527_804645_60F30A3F 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,55 +84,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is the 5th iteration of this series. Nothing new, I just rebased on
-v7.0-rc7, added Dhruva's RB tags, and use kzalloc_obj() in Patch 2.
+In BOARDCFG_MANAGED mode, the low power mode configuration is done
+statically for the DM via the boardcfg. Constraints are not supported, and
+prepare_sleep() is not needed.
 
-Best Regards,
-Thomas
-
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
 Signed-off-by: Thomas Richard (TI) <thomas.richard@bootlin.com>
 ---
-Changes in v5:
-- rebase on v7.0-rc7.
-- add Dhruva's RB tag.
-- use kzalloc_obj() in ti_sci driver.
-- Link to v4: https://lore.kernel.org/r/20260204-ti-sci-jacinto-s2r-restore-irq-v4-0-67820af39eac@bootlin.com
+ drivers/firmware/ti_sci.c | 10 +++++++---
+ drivers/firmware/ti_sci.h |  2 ++
+ 2 files changed, 9 insertions(+), 3 deletions(-)
 
-Changes in v4:
-- rebase on linux-next next-20260202.
-- fix BOARDCFG_MANAGED value.
-- add MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST firmware capability.
-- add MSG_FLAG_CAPS_LPM_CLK_CONTEXT_LOST firmware capability.
-- Link to v3: https://lore.kernel.org/r/20251205-ti-sci-jacinto-s2r-restore-irq-v3-0-d06963974ad4@bootlin.com
+diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+index dd9911b1cc11..eaeaaae94142 100644
+--- a/drivers/firmware/ti_sci.c
++++ b/drivers/firmware/ti_sci.c
+@@ -3772,8 +3772,11 @@ static int ti_sci_prepare_system_suspend(struct ti_sci_info *info)
+ 			return ti_sci_cmd_prepare_sleep(&info->handle,
+ 							TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED,
+ 							0, 0, 0);
++		} else if (info->fw_caps & MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED) {
++			/* Nothing to do in the BOARDCFG_MANAGED mode */
++			return 0;
+ 		} else {
+-			/* DM Managed is not supported by the firmware. */
++			/* DM Managed and BoardCfg Managed are not supported by the firmware. */
+ 			dev_err(info->dev, "Suspend to memory is not supported by the firmware\n");
+ 			return -EOPNOTSUPP;
+ 		}
+@@ -4011,12 +4014,13 @@ static int ti_sci_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	ti_sci_msg_cmd_query_fw_caps(&info->handle, &info->fw_caps);
+-	dev_dbg(dev, "Detected firmware capabilities: %s%s%s%s%s\n",
++	dev_dbg(dev, "Detected firmware capabilities: %s%s%s%s%s%s\n",
+ 		info->fw_caps & MSG_FLAG_CAPS_GENERIC ? "Generic" : "",
+ 		info->fw_caps & MSG_FLAG_CAPS_LPM_PARTIAL_IO ? " Partial-IO" : "",
+ 		info->fw_caps & MSG_FLAG_CAPS_LPM_DM_MANAGED ? " DM-Managed" : "",
+ 		info->fw_caps & MSG_FLAG_CAPS_LPM_ABORT ? " LPM-Abort" : "",
+-		info->fw_caps & MSG_FLAG_CAPS_IO_ISOLATION ? " IO-Isolation" : ""
++		info->fw_caps & MSG_FLAG_CAPS_IO_ISOLATION ? " IO-Isolation" : "",
++		info->fw_caps & MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED ? " BoardConfig-Managed" : ""
+ 	);
+ 
+ 	ti_sci_setup_ops(info);
+diff --git a/drivers/firmware/ti_sci.h b/drivers/firmware/ti_sci.h
+index 4616127e33ff..d90de59e29eb 100644
+--- a/drivers/firmware/ti_sci.h
++++ b/drivers/firmware/ti_sci.h
+@@ -150,6 +150,7 @@ struct ti_sci_msg_req_reboot {
+  *		MSG_FLAG_CAPS_LPM_DM_MANAGED: LPM can be managed by DM
+  *		MSG_FLAG_CAPS_LPM_ABORT: Abort entry to LPM
+  *		MSG_FLAG_CAPS_IO_ISOLATION: IO Isolation support
++ *		MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED: LPM config done statically for the DM via boardcfg
+  *
+  * Response to a generic message with message type TI_SCI_MSG_QUERY_FW_CAPS
+  * providing currently available SOC/firmware capabilities. SoC that don't
+@@ -162,6 +163,7 @@ struct ti_sci_msg_resp_query_fw_caps {
+ #define MSG_FLAG_CAPS_LPM_DM_MANAGED	TI_SCI_MSG_FLAG(5)
+ #define MSG_FLAG_CAPS_LPM_ABORT		TI_SCI_MSG_FLAG(9)
+ #define MSG_FLAG_CAPS_IO_ISOLATION	TI_SCI_MSG_FLAG(7)
++#define MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED	TI_SCI_MSG_FLAG(12)
+ #define MSG_MASK_CAPS_LPM		GENMASK_ULL(4, 1)
+ 	u64 fw_caps;
+ } __packed;
 
-Changes in v3:
-- rebased on linux-next
-- sci-clk: context_restore() operation restores also rate.
-- Link to v2: https://lore.kernel.org/r/20251127-ti-sci-jacinto-s2r-restore-irq-v2-0-a487fa3ff221@bootlin.com
-
-Changes in v2:
-- ti_sci: use hlist to store IRQs.
-- sci-clk: add context_restore operation
-- ti_sci: restore clock parents during resume
-- Link to v1: https://lore.kernel.org/r/20251017-ti-sci-jacinto-s2r-restore-irq-v1-0-34d4339d247a@bootlin.com
-
----
-Thomas Richard (TI) (4):
-      firmware: ti_sci: add BOARDCFG_MANAGED mode support
-      firmware: ti_sci: add support for restoring IRQs during resume
-      clk: keystone: sci-clk: add restore_context() operation
-      firmware: ti_sci: add support for restoring clock context during resume
-
- drivers/clk/keystone/sci-clk.c |  42 +++++++++--
- drivers/firmware/ti_sci.c      | 164 ++++++++++++++++++++++++++++++++++++++---
- drivers/firmware/ti_sci.h      |   6 ++
- 3 files changed, 192 insertions(+), 20 deletions(-)
----
-base-commit: d843b67129e266054d8fa2e41e270a9f779381bd
-change-id: 20251010-ti-sci-jacinto-s2r-restore-irq-428e008fd10c
-
-Best regards,
 -- 
-Thomas Richard (TI) <thomas.richard@bootlin.com>
+2.53.0
 
 
