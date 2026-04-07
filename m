@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54C3BFF5110
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 16:14:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E701EFF511B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 16:20:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LRAe76edn5rgzKV1xpngUtqPruglV0Iqw1VDwsXGNv8=; b=OVDOgJo7L3xksbhQLG62NoMhMj
-	Z8mbTk0DPWS3yTKrol5Agwazcwn4T39MaiSsKFev7TJ/teABeIbN9KPIpbH83+zr7lD41/s9Io46W
-	tx0BtUjafEsyzPJehUPt4PfJCxswyb9DKuG/y5ZheQQvzhYApw5xdbXQl5uOgO2bwHu/iqUlZsM3p
-	V3rQW7qNiZ+T1DxTQTAW61/4+BvjN6y6DTaA2sJWHp4UIPrcnzlpf2iIMFxO/XPWgkqbY0hj1RhE4
-	BxBHM9FqOF/wL7MDP3033pvIr2hskBWOgnHeEOCt7c0Usp9hSuw4ZEmSY55xAGxXQAxf+klM1xbWp
-	OtzJbN5Q==;
+	bh=qLSOcHPJ/LT9wr/fQ9H8JFrAuuvSRX/sEM3SKVjwVhk=; b=H4Xoz87+bVcwfWZkYePNlS0Nfj
+	b8k86e/JB5C/BO0RUCNax1hsIbzmv6yE+9S2afG6nDdhMbbzQNqHZOeTjNasi5fwHSgRpAMuiTjR/
+	j7rj1eEVzBkDdIYDfdnrNhM5ykBcz3PFz0yoDSOm2ZEIyXYNXGANhvaEF4Qy7kOilEzOS6cD4RjaY
+	OE/q6l3A/5f9Ezz5xsDWPEG+o2O1/IisQHeFvJAM6SJeYUMfyPXiQo+JEr/YtDq5fshuBYYYxXO5h
+	Yd1zP7KWa/A8oyNg5rMRJudFw0ZAFiL4Jnep/qnhyXj/iKqvkx0kApcJxRm97Ecgjbnfyo9h3buB8
+	7sJOopFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA94Z-00000006mMd-22Dz;
-	Tue, 07 Apr 2026 16:14:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wA9A0-00000006moV-2Gmf;
+	Tue, 07 Apr 2026 16:20:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA94X-00000006mME-2bdr
+	id 1wA99z-00000006moD-06jM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 16:14:38 +0000
+	Tue, 07 Apr 2026 16:20:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1E2114441C;
-	Tue,  7 Apr 2026 16:14:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C13B4C116C6;
-	Tue,  7 Apr 2026 16:14:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 41E836012A;
+	Tue,  7 Apr 2026 16:20:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23D1DC19424;
+	Tue,  7 Apr 2026 16:20:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775578477;
-	bh=no4UEZFQcYB0LKd9v3lZJDFUspSbil4sfM/5uLMFUEE=;
+	s=k20201202; t=1775578814;
+	bh=qLSOcHPJ/LT9wr/fQ9H8JFrAuuvSRX/sEM3SKVjwVhk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KXIKxyDg8FURhlgtTqowsilbqLkXsYuAZuqFYFabH7q74VuTTjAvFmqxNqrigBf63
-	 rRDNOa89wXQBvJZ3oEA57XyewxylOZxKs38xDAGTaiqmj0/0LHbXBa/yTdN0Resa8b
-	 GcnL1cJ832IIXHXIphQsF1WooppBcw0pBH9sRvsDylhROfDNssZzI/2wsq1nCu8JZ0
-	 4QdvDnNetX76aLhQUnT9EPsbwk2GB+oDscNDni37HTQergtnXCjPp5pXHhH7jmB7uZ
-	 hlBr2mXYmfpLyRQxPlORm+54m9IMCRgoeGyw+NB5yPd4bzamisojoJ4rjPRjRUC3RG
-	 fhhrk+Fl18dRQ==
-Date: Tue, 7 Apr 2026 11:14:35 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: linux-sunxi@lists.linux.dev, Chen-Yu Tsai <wens@csie.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Linus Walleij <linusw@kernel.org>,
+	b=VvyR4JRo8MP4XchgDZHkJK+xhrdJ4hJYSqFvsIrTb5kCbMSAtxiFit6EDSYddduhg
+	 2NCBwHFOB6mQxYMlXQnHWMl2JiltkZr2WsWAS6lLCvH4bJIZiVRt5jr/BKZjNzk34V
+	 ppOEFAO6dQbzUIGirFM3NHLksT7sQiG0JLCNjYg0/uY+fqe6F3CctUkcSimBM08k90
+	 yalf2rPk7mmMbXyYMuFAbp0ATMRlKqs8GosBv/U4LI1J023vXANHTsr1+wOBbQyqBJ
+	 lyOuiDTddfC5CWSLyFQOzh3PGjqG9z2M8jXOB1K/am86iDxJWuvk/Rd5WPpSq29sCt
+	 Pv5pBmqtDiWYg==
+Date: Tue, 7 Apr 2026 17:20:08 +0100
+From: Conor Dooley <conor@kernel.org>
+To: florin.leotescu@oss.nxp.com
+Cc: Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Michal Piekos <michal.piekos@mmpsystems.pl>,
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Samuel Holland <samuel@sholland.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: Re: [PATCH 3/5] dt-bindings: pinctrl: sun55i-a523: increase IRQ bank
- number
-Message-ID: <177557847448.2708408.13454310555266452178.robh@kernel.org>
-References: <20260323110151.2352832-1-andre.przywara@arm.com>
- <20260323110151.2352832-4-andre.przywara@arm.com>
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Shych <michaelsh@nvidia.com>, linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	daniel.baluta@nxp.com, viorel.suman@nxp.com,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	festevam@gmail.com, Florin Leotescu <florin.leotescu@nxp.com>
+Subject: Re: [PATCH v6 2/3] dt-bindings: hwmon: emc2305: Add
+ fan-shutdown-percent property
+Message-ID: <20260407-slang-scoff-795164352c62@spud>
+References: <20260402122514.1811737-1-florin.leotescu@oss.nxp.com>
+ <20260402122514.1811737-3-florin.leotescu@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="DeEoZ3LUzOVpm+Wq"
 Content-Disposition: inline
-In-Reply-To: <20260323110151.2352832-4-andre.przywara@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_091437_682796_1A334BFD 
-X-CRM114-Status: GOOD (  15.54  )
+In-Reply-To: <20260402122514.1811737-3-florin.leotescu@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,23 +78,38 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 23 Mar 2026 12:01:49 +0100, Andre Przywara wrote:
-> The Allwinner A523 SoC implements 10 GPIO banks in the first pinctrl
-> instance, but it skips the first bank (PortA), so their index goes from
-> 1 to 10. The same is actually true for the IRQ banks: there are registers
-> for 11 banks, though the first bank is not implemented (RAZ/WI).
-> In contrast to previous SoCs, the count of the IRQ banks starts with this
-> first unimplemented bank, so we need to provide an interrupt for it.
-> And indeed the A523 user manual lists an interrupt number for PortA, so we
-> need to increase the maximum number of interrupts per pin controller to 11,
-> to be able to assign the correct interrupt number for each bank.
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  .../bindings/pinctrl/allwinner,sun55i-a523-pinctrl.yaml   | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
+--DeEoZ3LUzOVpm+Wq
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+On Thu, Apr 02, 2026 at 03:25:13PM +0300, florin.leotescu@oss.nxp.com wrote:
+> From: Florin Leotescu <florin.leotescu@nxp.com>
+>=20
+> The EMC2305 fan controller supports multiple independent PWM fan
+> outputs. Some systems require fans to enter a defined safe state
+> during system shutdown or reboot handoff, until firmware or the next
+> boot stage reconfigures the controller.
+>=20
+> Add an optional "fan-shutdown-percent" property to fan child nodes
+> allowing the PWM duty cycle applied during shutdown to be configured
+> per fan output.
+>=20
+> Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
 
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
+
+--DeEoZ3LUzOVpm+Wq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCadUuuAAKCRB4tDGHoIJi
+0vYKAQDc8PmGvn+SYQyxj/xBCFto2oQSVCh4pi6grWFMzYdABQD+PBeWK1D/8di9
+FKOw6IBmOzagSoiKXzLj6NnQuvX6EQI=
+=QQhM
+-----END PGP SIGNATURE-----
+
+--DeEoZ3LUzOVpm+Wq--
 
