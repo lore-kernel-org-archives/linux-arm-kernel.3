@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 070DBFEEF49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 14:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83DC1FEEF50
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 14:30:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=owxXoVnQqiNDnVf5jRv2pYvcspeYeUGZUeev6TWekso=; b=WSEa5fqNC+7heGGKIm0wBUY51c
-	y2zD108MVbQK5d/JKWqxukVkSqvGkmGqGWUm5UsV9j3WgH6Pb9a5nYU67Dac76/Loxml5JpAJWHnA
-	+yU6KpT47IkXS9OK3N8BlfGEt7s7qHXf53tLh1adLe2zcH+g6jefcYC5k9dBEcTPPS27QdV9nDbOO
-	M77V4IVKagoIuDprSuh+0JWnsXQfB8qvyVzFI1XggoD7H+OY8bGkU0zLWmEWjz2hWyGW5RDWrKwMn
-	oYEjrmZbuMzfOTl0uPJZJ8Z98jmUeAhXJs4tbKLcdQmxbywNtcdWoX3Id3VHmEYnSE2c122lqyvfc
-	n1mfLbuw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Z43l7BhW3QdUCmXnzvfMmASnQfDQPfWVxC4j+LeyIfI=; b=M1RmqhmiDr9+qa
+	m3WyV+eyaGjWOmBt5XdhSQOGgy/HqfL8Loi6hTk6kpEQctU14YUVYnW/56j3j42zZdcSguz3VvVQ0
+	YGbaIUNfo27O0Ck6kD+ZB8jMLkjhmeiua98cF7Xk59r0175+CFg1eNMOtGMmx2zJqdJiAC8/unSWn
+	UqKMAvUQZ81OheOiB4ctZwieRIkDlhyFqeT5/wLF1rL9c2QiUo8oalpgWJwMIVrDjXutUogFWefAI
+	r7kssshMotGG7qQso6/9W7qyMn01WdluXXGu6/NDYB+79+bfDyLuLkZWX6z5sdLEqM98HB3U6j8fR
+	7HSJrlLP/qs457+Dd8Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7N0-00000006azZ-04XH;
-	Tue, 07 Apr 2026 14:25:34 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wA7RU-00000006bg7-2lQs;
+	Tue, 07 Apr 2026 14:30:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7Mx-00000006ax9-1QRi
+	id 1wA7RS-00000006bfS-2hp7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 14:25:32 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id E29C64E4294A;
-	Tue,  7 Apr 2026 14:25:29 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B306E603C7;
-	Tue,  7 Apr 2026 14:25:29 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 355AD1045021F;
-	Tue,  7 Apr 2026 16:25:27 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1775571928; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=owxXoVnQqiNDnVf5jRv2pYvcspeYeUGZUeev6TWekso=;
-	b=JJMfC8ZlDGTRRG88egxqkDIlNS0RCMrCGsdgFFxUvjk5B0h1W7/q2nK7kmrhzMy6nLbkOQ
-	jSy2JanIT2c/awyYChI/OaUo6QnurMXHjGx5XaOUJI62y/ujVuRDFzi7vSSKXrSXyM4HyR
-	vTUBa//VxKlgLERb7l8mIl6u48zNzv9HEB+rcjRJoKFTqUnWViNFaG3g31NmM9RxOlGdRQ
-	1wmXu8/KfjVzWmdU/IXwzKZ7+IfTvXhV2G2C3oJLiyo9ajVhwPysGGDpdmDbgMqnUF7tPR
-	yEMre/pbh4tquCpQoeJh0iA0vZ2ABH1E4jcKA0VpuF15dJsHjQDZPbbtldyEAg==
-From: "Thomas Richard (TI)" <thomas.richard@bootlin.com>
-Date: Tue, 07 Apr 2026 16:25:09 +0200
-Subject: [PATCH v5 4/4] firmware: ti_sci: add support for restoring clock
- context during resume
+	Tue, 07 Apr 2026 14:30:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A02064065F;
+	Tue,  7 Apr 2026 14:30:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B4AFC116C6;
+	Tue,  7 Apr 2026 14:30:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775572209;
+	bh=F6zPippwXT9NoAaPuBCmjQXM7i5cwJ55Lk+dK97iVfo=;
+	h=From:Subject:Date:To:Cc:From;
+	b=SGGpCiloA16YGCNOBtnjqATKduo9VqxPftvhFTU4wQ99oD6xhZII3QIIPuZ2BteZi
+	 It4oNSzT+9TV6imSaukmNALxBbaSIH04pnHw+M6T4s3hbGTZk66/6p4/JDiCZ1VdLA
+	 sAQn37Sb6xna/XRQ3bokAGI4LKLj7xAfa4HSGVbr+crUhyoVjTFNNgF0zVgexUITaG
+	 3oO0IctM29eF06Ko+4LKEtWm/Y5wll033MXeJp4amWrRhRc8aRdB9Fsi2Ax/RP3KVY
+	 Y8DZqVWkFinHJV507eYo9FG4A3vIba8mdeHmRheb1U4J/C6vnYUKpC5VRqfkbkMLh6
+	 sCi7TVjgfAdYQ==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Subject: [PATCH v4 0/6] arm64: Add support for FEAT_Debugv8p9
+Date: Tue, 07 Apr 2026 09:29:42 -0500
+Message-Id: <20260407-arm-debug-8-9-v4-0-a4864e69b0ea@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260407-ti-sci-jacinto-s2r-restore-irq-v5-4-97b28f2d93f9@bootlin.com>
-References: <20260407-ti-sci-jacinto-s2r-restore-irq-v5-0-97b28f2d93f9@bootlin.com>
-In-Reply-To: <20260407-ti-sci-jacinto-s2r-restore-irq-v5-0-97b28f2d93f9@bootlin.com>
-To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
- Santosh Shilimkar <ssantosh@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>
-Cc: Gregory CLEMENT <gregory.clement@bootlin.com>, 
- richard.genoud@bootlin.com, Udit Kumar <u-kumar1@ti.com>, 
- Prasanth Mantena <p-mantena@ti.com>, Abhash Kumar <a-kumar2@ti.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-clk@vger.kernel.org, 
- "Thomas Richard (TI)" <thomas.richard@bootlin.com>, 
- Dhruva Gole <d-gole@ti.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+X-B4-Tracking: v=1; b=H4sIANYU1WkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyTHQUlJIzE
+ vPSU3UzU4B8JSMDIzMDEwMz3cSiXN2U1KTSdF0LXUtdE8M0szSDVHNjyyRTJaCegqLUtMwKsHn
+ RsbW1ABe/erJfAAAA
+X-Change-ID: 20260406-arm-debug-8-9-41f6f0e739b5
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+ Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev, 
+ Oliver Upton <oupton@kernel.org>
+X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_072531_669368_78AE522B 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20260407_073010_737653_32B53041 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,84 +79,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some DM-Firmware are not able to restore the clock rates and the clock
-parents after a suspend-resume. The CLK_CONTEXT_LOST firmware capability
-has been introduced to identify this characteristic. In this case the
-responsibility is therefore delegated to the ti_sci driver, which uses
-clk_restore_context() to trigger the context_restore() operation for all
-registered clocks, including those managed by the sci-clk. The sci-clk
-driver implements the context_restore() operation to ensure rates and clock
-parents are correctly restored.
+This series enables FEAT_Debugv8p9 which extends the breakpoint and 
+watchpoint support from 16 up to 64. I've picked up this series from 
+Anshuman.
 
-Reviewed-by: Dhruva Gole <d-gole@ti.com>
-Signed-off-by: Thomas Richard (TI) <thomas.richard@bootlin.com>
+Changes in V4:
+
+- Limit enabling of FEAT_Debugv8p9 to only when more than 16 breakpoints 
+  or watchpoints are present.
+- Add lockdep_assert_irqs_disabled() to document the constraints. Drop 
+  unnecessary IRQ disabling.
+- Add more kprobe blacklist annotations and disallow breakpoints in the 
+  nokprobe code.
+- Drop previously applied sysreg patches.
+
+Prior versions from Anshuman:
+
+Changes in V3:
+
+https://lore.kernel.org/all/20241216040831.2448257-1-anshuman.khandual@arm.com/
+
+- Marked ID_AA64DFR1_EL1.ABLE as FTR_NONSTRICT in ftr_id_aa64dfr1[]
+- Dropped MDCR_EL3.TDA boot requirement from documentation (separate series)
+- Dropped MDCR_EL2_EBWE definition as MDCR_EL2 is now defined in tools sysreg
+- Used SYS_FIELD_PREP() in read_wb_reg() and write_wb_reg()
+- Added MAX_PER_BANK based BUILD_BUG_ON() tests in arch_hw_breakpoint_init()
+- Dropped local variables i.e mdsel_bank and index
+- Derived bank and index from MAX_PER_BANK as required
+
+Changes in V2:
+
+https://lore.kernel.org/all/20241028053426.2486633-1-anshuman.khandual@arm.com/
+
+Following changes have been made per review comments from Mark Rutland
+
+- Orr MDCR_EL2_EBWE directly without an intermittent register
+- Alphabetically order header files in debug-monitors.c
+- Dropped embwe_ref_count mechanism
+- Dropped preempt_enable() from AARCH64_DBG_READ
+- Dropped preempt_disable() from AARCH64_DBG_WRITE
+- Dropped set_bank_index()
+- Renamed read/write_wb_reg() as __read/__write_wb_reg()
+- Modified read/write_wb_reg() to have MDSELR_E1 based banked read/write
+- Added required sysreg tools patches from KVM FEAT_FGT2 series for build
+
+Changes in V1:
+
+https://lore.kernel.org/all/20241001043602.1116991-1-anshuman.khandual@arm.com/
+
+- Changed FTR_STRICT to FTR_NONSTRICT for the following ID_AA64DFR1_EL1
+  register fields - ABL_CMPs, DPFZS, PMICNTR, CTX_CMPs, WRPs and BRPs
+
+Changes in RFC V2:
+
+https://lore.kernel.org/linux-arm-kernel/20240620092607.267132-1-anshuman.khandual@arm.com/
+
+- This series has been split from RFC V1 dealing only with arm64 breakpoints
+- Restored back DBG_MDSCR_MASK definition (unrelated change)
+- Added preempt_disable()/enable() blocks between selecting banks and registers
+
+Changes in RFC:
+
+https://lore.kernel.org/all/20240405080008.1225223-1-anshuman.khandual@arm.com/
+
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- drivers/firmware/ti_sci.c | 9 +++++++--
- drivers/firmware/ti_sci.h | 2 ++
- 2 files changed, 9 insertions(+), 2 deletions(-)
+Anshuman Khandual (3):
+      arm64/cpufeature: Add field details for ID_AA64DFR1_EL1 register
+      arm64/boot: Enable EL2 requirements for FEAT_Debugv8p9
+      arm64: hw_breakpoint: Enable FEAT_Debugv8p9
 
-diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-index b5c4324287b0..0148bafd71a0 100644
---- a/drivers/firmware/ti_sci.c
-+++ b/drivers/firmware/ti_sci.c
-@@ -9,6 +9,7 @@
- #define pr_fmt(fmt) "%s: " fmt, __func__
- 
- #include <linux/bitmap.h>
-+#include <linux/clk.h>
- #include <linux/cpu.h>
- #include <linux/debugfs.h>
- #include <linux/export.h>
-@@ -3981,6 +3982,9 @@ static int ti_sci_resume_noirq(struct device *dev)
- 					return ret;
- 			}
- 		}
-+
-+		if (info->fw_caps & MSG_FLAG_CAPS_LPM_CLK_CONTEXT_LOST)
-+			clk_restore_context();
- 		break;
- 	default:
- 		break;
-@@ -4141,14 +4145,15 @@ static int ti_sci_probe(struct platform_device *pdev)
- 	}
- 
- 	ti_sci_msg_cmd_query_fw_caps(&info->handle, &info->fw_caps);
--	dev_dbg(dev, "Detected firmware capabilities: %s%s%s%s%s%s%s\n",
-+	dev_dbg(dev, "Detected firmware capabilities: %s%s%s%s%s%s%s%s\n",
- 		info->fw_caps & MSG_FLAG_CAPS_GENERIC ? "Generic" : "",
- 		info->fw_caps & MSG_FLAG_CAPS_LPM_PARTIAL_IO ? " Partial-IO" : "",
- 		info->fw_caps & MSG_FLAG_CAPS_LPM_DM_MANAGED ? " DM-Managed" : "",
- 		info->fw_caps & MSG_FLAG_CAPS_LPM_ABORT ? " LPM-Abort" : "",
- 		info->fw_caps & MSG_FLAG_CAPS_IO_ISOLATION ? " IO-Isolation" : "",
- 		info->fw_caps & MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED ? " BoardConfig-Managed" : "",
--		info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST ? " IRQ-Context-Lost" : ""
-+		info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST ? " IRQ-Context-Lost" : "",
-+		info->fw_caps & MSG_FLAG_CAPS_LPM_CLK_CONTEXT_LOST ? " Clk-Context-Lost" : ""
- 	);
- 
- 	ti_sci_setup_ops(info);
-diff --git a/drivers/firmware/ti_sci.h b/drivers/firmware/ti_sci.h
-index 67f16e8c69a1..2d75667a6723 100644
---- a/drivers/firmware/ti_sci.h
-+++ b/drivers/firmware/ti_sci.h
-@@ -152,6 +152,7 @@ struct ti_sci_msg_req_reboot {
-  *		MSG_FLAG_CAPS_IO_ISOLATION: IO Isolation support
-  *		MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED: LPM config done statically for the DM via boardcfg
-  *		MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST: DM is not able to restore IRQ context
-+ *		MSG_FLAG_CAPS_LPM_CLK_CONTEXT_LOST: DM is not able to restore Clock context
-  *
-  * Response to a generic message with message type TI_SCI_MSG_QUERY_FW_CAPS
-  * providing currently available SOC/firmware capabilities. SoC that don't
-@@ -166,6 +167,7 @@ struct ti_sci_msg_resp_query_fw_caps {
- #define MSG_FLAG_CAPS_IO_ISOLATION	TI_SCI_MSG_FLAG(7)
- #define MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED	TI_SCI_MSG_FLAG(12)
- #define MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST	TI_SCI_MSG_FLAG(14)
-+#define MSG_FLAG_CAPS_LPM_CLK_CONTEXT_LOST	TI_SCI_MSG_FLAG(15)
- #define MSG_MASK_CAPS_LPM		GENMASK_ULL(4, 1)
- 	u64 fw_caps;
- } __packed;
+Rob Herring (Arm) (3):
+      arm64: hw_breakpoint: Disallow breakpoints in no kprobe code
+      arm64: hw_breakpoint: Add additional kprobe excluded functions
+      arm64: hw_breakpoint: Add lockdep_assert_irqs_disabled() on install/uninstall
 
--- 
-2.53.0
+ Documentation/arch/arm64/booting.rst   | 13 +++++++
+ arch/arm64/include/asm/el2_setup.h     | 14 +++++++
+ arch/arm64/include/asm/hw_breakpoint.h | 47 ++++++++++++++++++-----
+ arch/arm64/kernel/cpufeature.c         | 21 ++++++++---
+ arch/arm64/kernel/debug-monitors.c     | 16 +++++---
+ arch/arm64/kernel/hw_breakpoint.c      | 68 +++++++++++++++++++++++++++++-----
+ 6 files changed, 150 insertions(+), 29 deletions(-)
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260406-arm-debug-8-9-41f6f0e739b5
+
+Best regards,
+--  
+Rob Herring (Arm) <robh@kernel.org>
 
 
