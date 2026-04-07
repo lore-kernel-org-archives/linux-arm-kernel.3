@@ -4,98 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D16D6EDB7CA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 08:18:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFEC7EDB7CF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 08:26:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YF+vzkW/sLkkCK6eYuO/W7phgVcJivF+sw7H1piAQWk=; b=u2tqHFhKYJFPunIVj0uX3p/IUT
-	sTfWawuNJHYdvbs+FaeqQwMpKnXnFIX9zQygH++jeo06aD22PuurpLAWHXKb3HBWdGY7sE0AI+bsN
-	Rx6Efr1IujbySr0hERHkFakyDXc69mVki+aIW3p+d7GRtrWsUvVYWLeZ3MBLwYIa+WYzJFybvVpvN
-	eQbXzFb3coM/DEW5gcx44qa71qFg+oRuaL7HBNGxLWuJok7nyuVV+F+8e2gpUHbRHSNhow1I9R07Z
-	LPwd/5HWqiSrHRnpRZxk7juwGRqLtUpf8wMygTginnOz3qxpwFlq1K1h205/NYq73n/nUMP2xmaIE
-	dN0EbhyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GAhnvdn7hKx6YnOufXJRDlAYALMzw6HqrxcTsLc/17U=; b=rO9537b83hdFXINc/Xd47eLd4o
+	7l3GIyGYqdG7ToYOZ1b+80BcQcfjGLzIteB/OIMjUeAKXfEeV2WMTPsrjmhfKVicIk3ajndC2yK8n
+	rOtQ6IuvUghgH7nf+eSIEhuIbQW7gpUaRJjW7icUlED3/O4Y7vnCXnIuo8s7gQ2QMWdcGBNbL8lkJ
+	57MWyyS39wHh2zdghZKhKS3zaPZrQBGvWDQ2+XIWXKQzH3J7oJYMZ5cVP39E1zXH/8Pj7sjcuRvqy
+	RawjppJHnlF/5MNXfxQJYNm4+OMLAoRnWHGVjb7yFEWHLnvVEM54r6zhjyfatIZ2UI4I4sFDgYIRe
+	2UFur0Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA1dQ-0000000687X-3d0y;
-	Tue, 07 Apr 2026 08:18:08 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wA1lB-000000068fF-1iTL;
+	Tue, 07 Apr 2026 08:26:09 +0000
+Received: from mail-wm1-f42.google.com ([209.85.128.42])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA1dN-0000000685N-3lKC
+	id 1wA1l9-000000068dy-0acP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 08:18:07 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-48897fd88ebso33589875e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 01:18:04 -0700 (PDT)
+	Tue, 07 Apr 2026 08:26:08 +0000
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-482f454be5bso59757735e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 01:26:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1775549883; x=1776154683; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=YF+vzkW/sLkkCK6eYuO/W7phgVcJivF+sw7H1piAQWk=;
-        b=tpR+ol6iK00xPgQjmSSfCImHs9zBOhuYwiFwZ+Ug85F84AhM8FZjVmjX+8H0OwZSFG
-         ShLBLfvjcSylhajDItftIQCVZzvjWLfUjw+khpbUWqBB3Dozkyh1Zip+8egB/oGieo7u
-         VWazAFPvqbvOnH0fGStahxfRRB9BALccezr1xNB5ho4mgIFRgi23Ap9AuyZ2voseADvL
-         V0RVKIUqL1/nlmWVJKoDuFMdp6Kbt+c0QncmXsBoSINUkyGPE3WipTD9Ct5AoOPjpfve
-         no1iZFhIrRbdqzr/Mgd/FAWCA88U9pHhr7Ax1rfxUkj5qUw9siunzBcQfD3qpSczOkQd
-         fs/g==
+        d=suse.com; s=google; t=1775550364; x=1776155164; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=GAhnvdn7hKx6YnOufXJRDlAYALMzw6HqrxcTsLc/17U=;
+        b=L9PHCSLfEM47X+c6vJTANEnq0+iXDcCGQySJCbInSRYKU8CGV4lwKMwa+23BSqmYqb
+         rnxdrAikRcSMEOnVtH6yHIqfuA74uET9pqkmCcC8Q7G+e0EdwesVI41ZSULSL58qvZQe
+         YydXXcQNbazBuZu5zzyC+29mYmn2Dba5BV7UdEXfZMRAPPk0WHTjjPGB9KZbEm8jNvZv
+         IQtQRUTLAjsqbA4nMyFD7ad+cFC5hM6NuzU9cd+iSFtm7xOOwR3hpqTsLA3cxxntmS6X
+         G+tGojPm8HwgNZ5t+USOiNOUmG38dBDOQEutdAJp8FW3tk0LsaT/8rznwBMvMoucF1Es
+         Mgnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775549883; x=1776154683;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YF+vzkW/sLkkCK6eYuO/W7phgVcJivF+sw7H1piAQWk=;
-        b=bjJTtdBH/0KYCWNWDL7rIezmYdM3n+aZAua+08uVdazRn9bAfO2Xf3nS9Au1J/Llch
-         Aw2qAmqMFusT/KxMWwuN4pDk2pKy4mcJqwjqLMzM3dbtNboWKBc1MLi7n7AqEvtd1jSN
-         eqWSzQhoPbYma+lEpd28aQkuRUeencohc85o/LymUTbP1hZZNDTxRxpYyrhFiqzXVh0C
-         GuDTrLcl9GlqDt0yrdjUNp+g65/Fj+19vOcXODMwhXtwyi/20NEz8rdmPX67hzyfkw/A
-         spP8odk3b5T03klr63+N2azUaTCxi6jQ2BfCyM3qlaG4d9ak5DJipuGWBKPQ5G25q4wJ
-         HvJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVaKjBsEXISNuEORSflHgYps3Idcy1Z9ayM366kb6H9QJU7vorTp70PPezkSypkA0pQ0bKiyhUskvfCEnpD/Fe/@lists.infradead.org
-X-Gm-Message-State: AOJu0YykJc//wY5IMuoAiuRZuYuDfH2NSlXjRBCLoup1XC44FMY7OioL
-	0TeNpS3FzZItwjMqZZM3WC4OJiMJoBtVaqdMVlVpOCUd3678Es/Rt8WDqtwkykOq9Po=
-X-Gm-Gg: AeBDies4oOo+352TsyZmBmrrwO/wEYopDBBNIG2RsjltTyKQve5yIbvsvk56jseGgkA
-	HCpHF+1EaAR7v1M2U1PUqGZrFcB+Tan4TP73rrndUAY38iBebiFD7yr+FysuRr+g/qRTV2nMeoC
-	wUiLPGzDpmVcb2M3dLSDMp35Ez6S8vjE6P+oqZbzqQPgVsWBTcNgf7wQbLniNcQWqx6+inqAs1C
-	0XK6c2IOBjsu4DIJQbkFGknQnoKQoqQgQ2MqK3Dei3IIDdoLyOs68zwwaAJu+KYdWPtm7l1ZzRv
-	hryD2DbLI7fecTWPca1Gd5ipBanHX6GxU+906qMZFg/ZvoaphzIABOvCCKmav8CZX1mkTm0FIKL
-	HOFA44vJUFLywhrXHeNi3SkNyDoSr/U9UJER36eSZF6mIvljjJv7T5/UyNhvNt3ADVvVrElWsp2
-	motLeuDHIBU1RtCdJIK1UJR0SKc+4d
-X-Received: by 2002:a05:600c:5392:b0:486:fa9c:185 with SMTP id 5b1f17b1804b1-488997d69e4mr234861545e9.31.1775549883529;
-        Tue, 07 Apr 2026 01:18:03 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d214f2b63sm43051405f8f.28.2026.04.07.01.18.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 07 Apr 2026 01:18:02 -0700 (PDT)
-Message-ID: <d45195c7-ad32-4bc0-8d60-4b242cb3e2a7@linaro.org>
-Date: Tue, 7 Apr 2026 09:18:01 +0100
+        d=1e100.net; s=20251104; t=1775550364; x=1776155164;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GAhnvdn7hKx6YnOufXJRDlAYALMzw6HqrxcTsLc/17U=;
+        b=sy1M4Oyy3SFIL7MeUMPq+F4b9arxjqABR/z69fTyysUysElO2NX1qbVs4f9hjVTkl4
+         xn7m8q5hNUGWPjwHsZWpD+V+BvN13gVGnkGWgUbxdGWPRA7YX4SD36pIl8rP55oCz+Y8
+         oCyD8K0BEwbMPmPlUjFX6wQQ5ov70wDvjJffWiBVhgztTJ75P5zs3M5zR1wjWSvW/Gsr
+         ELg7s6VxnmoevPOE1LU99MbTKUcd7zqC4VD3ZUM+zzdI0e2wg8UIrdEDS6f11cM600XG
+         nwLe/qfnzo1hSM5uZlMd8HdgTCDF3wo/KbnfEnbeBU8VV7wmXcV/m+L19aUq1h1MYGzq
+         N4IQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXICtaOmbZ27LQp9D+Li7Qq4itYjyk8OcQiXyn+TeVHzEPNNYh1dXL8fRGmKVSTtn6t7WtBCF0omRUVh7dlGc9k@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCzKfozhSIbfQ2Duml7bmb3jSWAajyFlxQfyFoUxnHxDsHE2yA
+	xbSYe/ww9eHnjA996J/Nn9m+Kk1F3tU82GjJzC1cA5Z3wSAHDdOtzUjH8x66aCT0tEQ=
+X-Gm-Gg: AeBDieu+yE9iRbkCUZHNkNakr8+ydOWcbxpSV7JURyJOOBiVedGMhpbLTVucp54sFP6
+	4+BsFbCGBI+3+1XDeFOKoDDAGWfw2oQP8cH0NtUUt78DpUf8mFyQ0AkSbm0/c/+mjDqy/eluXBQ
+	VCpNfTcsO4CKGNoMae3jmXpI1P5GdG+bhPCozlizp7NGstpT47h2modhyWUi/+hpUKG1fJK0vcz
+	pbYnGaTe/nKQK7kyxT+C1Kfp4bC7cQZJr4b9QssYn6HvGrlYOQYVDKsiH4ov67scKvAdKBWcRQt
+	Sa3HvvXNVn/rr5erCNi8mdqrjcmoKaTeTbhD0RJ9b3HAh7SGOBYiBrmM+rVn/EbINOTveQznDCL
+	xI0dISJ7Rga2v/qqYoC6XVcC1dv91wIbzXpt9aCwEYAj9vchufLS7RkWdhq6/1z97POX/n4LkTq
+	U3zqP3sMrTAmtg1Ijj+aU+g+vMMFELPCH7gTOItWVOL7ROEFin3Q==
+X-Received: by 2002:a5d:5d0a:0:b0:43b:9b0a:7e80 with SMTP id ffacd0b85a97d-43d2115aed7mr29018679f8f.3.1775550363998;
+        Tue, 07 Apr 2026 01:26:03 -0700 (PDT)
+Received: from localhost (93-41-3-120.ip79.fastwebnet.it. [93.41.3.120])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d1e2c637asm46018051f8f.14.2026.04.07.01.26.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Apr 2026 01:26:03 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Tue, 7 Apr 2026 10:29:09 +0200
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Naushir Patuck <naush@raspberrypi.com>,
+	Stanimir Varbanov <svarbanov@suse.de>
+Subject: Re: [PATCH 1/3] dt-bindings: pwm: Add Raspberry Pi RP1 PWM controller
+Message-ID: <adTAVQddjxHgoh9k@apocalypse>
+References: <cover.1775223441.git.andrea.porta@suse.com>
+ <11b5eee3c22cfd034bb4b425d28a5a3ff2a71828.1775223441.git.andrea.porta@suse.com>
+ <20260405-enormous-glittering-avocet-285f82@quoll>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] perf arm_spe: Dump IMPDEF events
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
- Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260401-james-spe-impdef-decode-v1-0-ad0d372c220c@linaro.org>
- <adP44THdD-HBB8cY@google.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <adP44THdD-HBB8cY@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260405-enormous-glittering-avocet-285f82@quoll>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_011805_971034_19579D43 
-X-CRM114-Status: GOOD (  18.34  )
+X-CRM114-CacheID: sfid-20260407_012607_183053_79D77DCD 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,64 +109,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Krzysztof,
 
-
-On 06/04/2026 7:18 pm, Namhyung Kim wrote:
-> Hi James,
+On 09:52 Sun 05 Apr     , Krzysztof Kozlowski wrote:
+> On Fri, Apr 03, 2026 at 04:31:54PM +0200, Andrea della Porta wrote:
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - clocks
+> > +
 > 
-> On Wed, Apr 01, 2026 at 03:25:48PM +0100, James Clark wrote:
->> In the Arm SPE raw data dump, IMPDEF events aren't printed. Add the
->> ability to add names for some known events or print the raw event number
->> for unknown events.
->>
->> For example:
->>
->>    $ perf report -D
->>
->>    ... ARM SPE data: size 0xd000 bytes
->>    00000000: b0 18 c6 32 80 00 80 ff a0  PC 0xff80008032c618 el1 ns=1
->>    00000009: 64 e7 42 00 00              CONTEXT 0x42e7 el1
->>    0000000e: 00 00 00 00 00              PAD
->>    00000013: 49 00                       LD GP-REG
->>    00000015: 52 16 10               	EV RETIRED L1D-ACCESS TLB-ACCESS
->>
->> On N1 the event line becomes:
->>
->>    00000015: 52 16 10                    EV RETIRED L1D-ACCESS TLB-ACCESS LATE-PREFETCH
->>
->> Or on other cores it becomes:
->>
->>    00000015: 52 16 10                    EV RETIRED L1D-ACCESS TLB-ACCESS IMPDEF:12
->>
->> Signed-off-by: James Clark <james.clark@linaro.org>
->> ---
->> James Clark (4):
->>        perf arm_spe: Make a function to get the MIDR
->>        perf arm_spe: Turn event name mappings into an array
->>        perf arm_spe: Decode Arm N1 IMPDEF events
->>        perf arm_spe: Print remaining IMPDEF event numbers
-> 
-> Will you send v2 or do you think it's ok to merge v1?
-> 
-> Thanks,
-> Namhyung
-> 
+> Missing ref to pwm.yaml.
 
-I'll send a v2, thanks.
+The reference to pwm.yaml is at line 13, as follows:
 
->>
->>   tools/perf/util/arm-spe-decoder/Build              |   2 +
->>   .../util/arm-spe-decoder/arm-spe-pkt-decoder.c     | 147 ++++++++++++++-------
->>   .../util/arm-spe-decoder/arm-spe-pkt-decoder.h     |   5 +-
->>   tools/perf/util/arm-spe.c                          |  49 ++++---
->>   4 files changed, 135 insertions(+), 68 deletions(-)
->> ---
->> base-commit: 74e2dbe7be5037a5e5eed6bc1ad562747ac88566
->> change-id: 20260331-james-spe-impdef-decode-d944f4fdcff7
->>
->> Best regards,
->> -- 
->> James Clark <james.clark@linaro.org>
->>
+allOf:
+  - $ref: pwm.yaml#
 
+currently right after the maintainers: block. Are you
+suggesting to move it after the required: block?
+
+> 
+> > +additionalProperties: false
+> 
+> and this should be unevaluatedProperties. See other files.
+
+Ack.
+
+Many thanks,
+Andrea
+
+> 
+> Best regards,
+> Krzysztof
+> 
 
