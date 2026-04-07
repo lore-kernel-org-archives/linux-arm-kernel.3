@@ -4,84 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AED2FEEF4E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 14:10:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A59C3FEEF49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 14:13:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MN6qzqxRs/zqrPwuVs2/6X79CviG+I8DWPs5lk/Ay2c=; b=MTev/D2uJruNapEFKycOrB08ta
-	P9BRnHNt5WwucSUaen7l2JGbCticNR2B4MCjyln0oml3oWUXHt/PELw6qPOV7gHWugG9lvG/OOUFk
-	j7q1g6dpZ7vKnm2stCQ23c2pKUnOqUsp1uB3yl6xErG09tsneznnw3LlNlAfeqLA6ySmwDU2NTXeX
-	a91FX06Gio9ms7WmZRrHSD+VFswHk9L1W5+W3f6xy4jK2ioPb+B7MR6kVmq4vmJATQClz4ycZ6OxL
-	XO1GJDqrCUllYBiDiHoNhq81wN+M85DI0OOvF9EuT+fgE9CnvX+diGcSLjTtKUAV1LMyZNvB6Np0u
-	hR6l908g==;
+	bh=2/QAldH+MHxdm8YOBA7HBb0u08Hxn+kbA14SNL4kAUU=; b=rC6BPk3+yXseurFZ5Q0Cj1L92d
+	OAek7tWtOOJQrHagykGQt3YTsyGH/1egqSQatX+1Myu7LGC4/VgJiJetjC4S5GcJCZdBJDwnNLJKU
+	cLTTMqyGjeZ/Knv3bBjRxC2stSWugKXgTe7DZKR9rNLZhXW6sgpAW11NonaPzw8hPZpKAP6cGmvEy
+	LXm7C2oe7L7M/PBupx8U19CegKhN1p1Em86bK4QV/dop/A+x5O2ro5WNhJXT5SRl5H1htk9GjyrdD
+	17/0ir0I8V9KKOMTTHEr/uzYsLuILVEwtUW2LGNUkTKNoChyGDtjMZKhJovAXQph7+oHFb8Axq0vM
+	FwPXJnUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA787-00000006Zfh-18yL;
-	Tue, 07 Apr 2026 14:10:11 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1wA7Bb-00000006Zxm-3YvC;
+	Tue, 07 Apr 2026 14:13:47 +0000
+Received: from mail-swedencentralazon11020118.outbound.protection.outlook.com ([52.101.75.118] helo=GV3P280CU013.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA784-00000006ZfJ-0d7E
+	id 1wA7Ba-00000006ZxD-0duz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 14:10:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=MN6qzqxRs/zqrPwuVs2/6X79CviG+I8DWPs5lk/Ay2c=; b=TWW+DFiilpedgYEvtVyq7aTK32
-	O3BaEiUrFW1cKLzlvwnM8nb50GigIkogLZuJXkkCF0KkWw6k4YhEkMzSNRfhgRZ8AMZ8Shwam0edR
-	pWSEcMgEplZ7851y63OAhIgW3Unkzw0Ou8ZIWTzXZ59MnxmqFXbMt9h+suaD1LRDNLq2/DhwZRRDR
-	rWbqm+UTVyVUYtXuyK4cZmHgdSWSXe3Vu3WujAKjftI7mK2VTOHxaYr+Kp75Q9tkNYh1E/mkBi3AD
-	Zze+0VwODVD2NvONOkTLv91I3qahyeX7LH9AMPR1vxf5X/ODgy06Xn65DxLY6IqJ89NqCla1w3Hme
-	ERjpF/Nw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:50812)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1wA77h-0000000010S-2pf6;
-	Tue, 07 Apr 2026 15:09:45 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1wA77U-000000002KF-1WoV;
-	Tue, 07 Apr 2026 15:09:32 +0100
-Date: Tue, 7 Apr 2026 15:09:32 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
-Cc: netdev@vger.kernel.org, alexandre.torgue@foss.st.com,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	bcm-kernel-feedback-list@broadcom.com, richardcochran@gmail.com,
-	ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
-	john.fastabend@gmail.com, rohan.g.thomas@altera.com,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
-	andrew+netdev@lunn.ch, horms@kernel.org, sdf@fomichev.me,
-	me@ziyao.cc, siyanteng@cqsoftware.com.cn,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	weishangjuan@eswincomputing.com, wens@kernel.org,
-	vladimir.oltean@nxp.com, lizhi2@eswincomputing.com,
-	boon.khai.ng@altera.com, maxime.chevallier@bootlin.com,
-	chenchuangyu@xiaomi.com, yangtiezhu@loongson.cn,
-	ovidiu.panait.rb@renesas.com, chenhuacai@kernel.org,
-	florian.fainelli@broadcom.com, quic_abchauha@quicinc.com
-Subject: Re: [PATCH net-next v9 1/4] net: stmmac: Add DW25GMAC support in
- stmmac core driver
-Message-ID: <adUQHHBD0d3p1OSI@shell.armlinux.org.uk>
-References: <20260402213629.1996133-1-jitendra.vegiraju@broadcom.com>
- <20260402213629.1996133-2-jitendra.vegiraju@broadcom.com>
+	Tue, 07 Apr 2026 14:13:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hyLaosaznMPMrzF14q+iMAMDraXrvlax7Vi9ftjxuPwFnghF93ClaSf9EfJdn9Z+cIr9qI2M6kg55iqNtkrnl9V+kYdZKYXFTnJ4GOfTCLyHIfjkBSv1uZcpDN7oGBiraoX05JJVYbAzSoR1OSMJOW7fDcIvQgPq0e2Yy/WtFKkuP/Zu+OsztRtUPOhiRMVQO1LYrYAvNZ9TswjkmHsWW4QYzzz+JrcMeJmwebpW/BTV6qY6oMpun9ELylxeuI3nJzHfJVnw2qIBF9A29rllYqqjSwkCoQkrzlgW9xYH9mm+OvolYB4/0GFLJi3wZphlSIGhG93vZtethMn74eLEWA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2/QAldH+MHxdm8YOBA7HBb0u08Hxn+kbA14SNL4kAUU=;
+ b=IPeGyJLnfuGfwhvfF20qeLdt7/tIFh+rEEWEqDBPNaH6aA4c4weyrBdHSvjlCOiv9GyPhxF5H7wyAxv5jXj6XDVAFvrVmScXbirztnoW5r4ZIjaTliEHpSOJlHGqaaKtR6nHp4sjZDChp64t+Z/ZyU9+fUHWKSODDhQibJeiB58R3K9IM328e7LDHuGnOltQKUVr6OmWGGQkt1VtfoYeIjU2gtrGV8qSUmHcaF5DaDmTlP4O6oXJ9HgkDm9K7H3kxU4iZT6RQ4ZMz37fyozBJ+cBR4E40ZU5VCI8wZ1TVcnqAyxSzQqNdGuzWcDqMx12Ob/VC6GKpwmaCJb25s5EYQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=guidelinegeo.com; dmarc=pass action=none
+ header.from=guidelinegeo.com; dkim=pass header.d=guidelinegeo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=guidelinegeo.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2/QAldH+MHxdm8YOBA7HBb0u08Hxn+kbA14SNL4kAUU=;
+ b=VjwBjkRb8K/H4/GlQRLeX/U3KVX5UDIF02HQdKCOfMfmXbjHBfsKtOgN7XBC0sVY2rzR43gFvdgLP7dLbN5zlQeE72epM2DCt7dwNl+CBS4ro/FmswUJHjCHria1pAYPQUsdAMTBiabLrB9AeU4yRhvA6dunnDe1RJlydd+G0vg=
+Received: from GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM (2603:10a6:150:14::9) by
+ GVYP280MB2271.SWEP280.PROD.OUTLOOK.COM (2603:10a6:150:364::14) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.18; Tue, 7 Apr 2026 14:13:09 +0000
+Received: from GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM
+ ([fe80::5a42:b24d:f94f:a5ec]) by GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM
+ ([fe80::5a42:b24d:f94f:a5ec%3]) with mapi id 15.20.9769.020; Tue, 7 Apr 2026
+ 14:13:34 +0000
+From: Christofer Jonason <christofer.jonason@guidelinegeo.com>
+To: "Erim, Salih" <Salih.Erim@amd.com>, "Simek, Michal"
+	<michal.simek@amd.com>, Jonathan Cameron <jic23@kernel.org>, "O'Griofa,
+ Conall" <conall.ogriofa@amd.com>
+CC: "lars@metafoo.de" <lars@metafoo.de>, "dlechner@baylibre.com"
+	<dlechner@baylibre.com>, "nuno.sa@analog.com" <nuno.sa@analog.com>,
+	"andy@kernel.org" <andy@kernel.org>, Victor Jonsson
+	<victor.jonsson@guidelinegeo.com>, "linux-iio@vger.kernel.org"
+	<linux-iio@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>
+Subject: Re: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
+ postdisable for dual mux
+Thread-Topic: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in
+ postdisable for dual mux
+Thread-Index: AQHcq7ZpCeRIu+55oEGPm8jdqCh4D7WjB/YAgARjkoCAIu9BAIAJezdC
+Date: Tue, 7 Apr 2026 14:13:33 +0000
+Message-ID: <GV3P280MB00657EB1524612E9BA0142DEF35AA@GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM>
+References: <20260304090727.1800289-1-christofer.jonason@guidelinegeo.com>
+ <20260307124118.1d527749@jic23-huawei>
+ <1166aeef-0c93-408d-b265-9037f2840074@amd.com>
+ <IA1PR12MB7736AE6EEE95D5D184A15B9F9F50A@IA1PR12MB7736.namprd12.prod.outlook.com>
+In-Reply-To: <IA1PR12MB7736AE6EEE95D5D184A15B9F9F50A@IA1PR12MB7736.namprd12.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=guidelinegeo.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: GV3P280MB0065:EE_|GVYP280MB2271:EE_
+x-ms-office365-filtering-correlation-id: a2594e8a-72a9-4ee1-c2c7-08de94afda88
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|18002099003|38070700021|56012099003|22082099003;
+x-microsoft-antispam-message-info: KTQWzC5lgW1S/aAMZ21baE/995AO8Lx8/I4HCo9E0hYJoMjXf9t47RWfwqe1pmqpHBBcP5IPjjm8KwY4sR33x/SoHuHjdYT7tozMPJZ6s+D8KbMLKtskXgPy0lJ53v0Y4igRNiTkr1OlTUzLDct03kqQ4qRFG0MRMZYCk7xb+WWlR5bxb+zknetXTiPTF1MVfFlyCTUxFdLqMIuY89nChGoQvVY1HC3+PjXIUmExouxaRmnVKFRssPkdYTj5eyxN8al9dATlXwdnaJP4qevivAhgAjN34VWUP9VAN7VGRS0cnBzNOPAPnQRhlxAsRe9jCUVSlSRMoVhSFvUcENl7lF8v06YyV3b4xRJNPHynpQb52ANx7Rrc7z/GNygufRouQkvn9pE7xtMDSucoWwO7C9GyL3D0Mbr7VHa4cb9BqdkOs11PYs4Dn4CnJ9rpYb5nl73BU+byq/3Yp4bGiCdQF0qYMy7/OJ/8XvZlP6P0n9y21DWY9svFW8N4n8wMiyTJYeWj8F3LOEzyRmEQcveVrOetuenfm1A1Bf7YiVkFklPytP3r7dOevAy3DX0o8+ON2nS9Tx5YTP4OSfZYJFcOezNVavzf3zkEL+3j/JsTZASeq94/5MWIPMOwoEWcyOzs560KS+qV+l6Qxghy8Chhbx0JjQSOUt2a4aJo3AqoTbDUGdkSME5Hyl6Mly+fkmjAvrfHXssMSTJg12S72UZlRD2ALqleSfkIZRODvBqkJTZNaUmCYt4GkaBZqC/91iJbRlwQ4Mv2VNqNZoiDV7v9xoL7mCdvCGmV+kxWBAMubRM=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(18002099003)(38070700021)(56012099003)(22082099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?z97f2ZAWAYmECia8G1DVsizPojGHgZaUxBDipWn/H56rnxsMudrLl2cyIn?=
+ =?iso-8859-1?Q?KEKjHOzbyX5oytqbaoa7NHtgDuoPEJ/YFNomj2ts/cMzozLp+tXT96s9Fj?=
+ =?iso-8859-1?Q?4a+sn4laHz6HwrAsQCXRSu+d4FNAz6nGhe2CvEOGrHOFhH16PEMevT9q2m?=
+ =?iso-8859-1?Q?5sbLPivZrDAMqobDiZgnkYxJr9VfEMx3tE79xnbaUzvc0PhBRP/kKFoEJ8?=
+ =?iso-8859-1?Q?8i7y0po2SX7D9HfcJ74tynBbNp239JW2YioNmVWwYYEDI/GzrAtw9IpyMY?=
+ =?iso-8859-1?Q?e0eK1Xn8lB0pZ7qqm/rhIPGMRrO4LA31RzwNuQIdqMX0cxYrLQIHRQSXjU?=
+ =?iso-8859-1?Q?MLr0K46ubUy8fuKMX1a0CrqR5n9N8zytSeoISAA4IWNqsLuCXR26Ua5bvy?=
+ =?iso-8859-1?Q?fwNvjyAMamsdn/PcHREXxmvTO7U1+iBknm623IF9gKZb5RhgjKrFkbQ9os?=
+ =?iso-8859-1?Q?msTPNT/zPLhEyo3rbidJMzYlirpJTYOdyB2e4kHDK9xmjHVsdSR7mnJHnt?=
+ =?iso-8859-1?Q?Kt8iCwzUJXIEB2qAEnFh0GbZgqrpvlyDsvJxkN+MSiWRAX/p/pcN7fpusK?=
+ =?iso-8859-1?Q?P+oRw8KFDrRxP/xoXo8ZFoxbSUpxKEEwYlfIGM1RtYnL6R5HK2p/c/GQ3O?=
+ =?iso-8859-1?Q?SnS2UomymecABVjsuqRePiIOJYhZ4zt/R4fazQg03gpzCYLAVXY4HTRJEx?=
+ =?iso-8859-1?Q?XL/hFmZ8TVZrVC4bD1Xs5Z/qtqyCMMPM2MqNTY0ap9A3XWWZv5iq+gdv8W?=
+ =?iso-8859-1?Q?OsTq0AB7eaBJytcVBvkLA5YnUK66n6hKjLgP2Vwy/9bupWd+v3fXNeJ/rC?=
+ =?iso-8859-1?Q?PMZSGMO15li8BFsdvRQaAjG37LpT0W1o/xcOjcdOuUsbUKmmjvrZyG0XPb?=
+ =?iso-8859-1?Q?GL5FUkIgtWvST/VMVFW7Tp51gCDneC2qPOgll0ArcRdHb7Oluxx07ugVYH?=
+ =?iso-8859-1?Q?xXtk7s+REmh5gLcotXchIENptXM8nHsfC7nvp6Qge8FrdMf/5jxlGIdFdE?=
+ =?iso-8859-1?Q?bjl1qdXrcy8dw4yKOL3jnSk2ig1DrPp9SbVUaSbaSJJQ/1GLllv7CQrsiA?=
+ =?iso-8859-1?Q?nM5e+6/EPG0RS+VX6y0Nv9Ho8U7K5QIjCntINmJwzUndHUW7jAd+MsiYFU?=
+ =?iso-8859-1?Q?MVnu/05SI7Zg84uw+0Wi+lbkZNGNRDHhQOxHLI7wTq5u8MpkVZ8qD8j+K1?=
+ =?iso-8859-1?Q?DEh7Q8ieFX1Wkn7lq+boJHtlcAZGXa4FhlxgnbFSPpQ9wd7pEggbQ297fk?=
+ =?iso-8859-1?Q?OJGTkILvbQdvCmSTLv4bzFWv5JSdOu4J0nlg9IjePcW+so5nmawdgCPPvQ?=
+ =?iso-8859-1?Q?tP6qffhJ4uihDTV4QHw2FhQKe1yOoj40bZLwC30LN5WtOMw5tRFaFpDlYd?=
+ =?iso-8859-1?Q?dMXyAEtrw8/CeqK1ojk6bZFSDO5xas8q0ufDUEMStkGzepyJHfCK/X7aj3?=
+ =?iso-8859-1?Q?a3muLa43fb++shUUAzwTwg8a5rk3PQQtavom+4rH4rlO70BZutPoXshG9E?=
+ =?iso-8859-1?Q?PcJm+zT8mzoxDc10eShV8hWNEfZUPeHj7QEO5rTY48LiGoCxcGKNsZKNUq?=
+ =?iso-8859-1?Q?+KKTy/oF9pWPNvchuHMUmsR5BmrlT3Df5lphVsBSdkyASzybtXOWqBTyzW?=
+ =?iso-8859-1?Q?pNfeoK/HGFXHQP8uNunbti8qqPDiqVUfn5CRGDX8TeDimdUBmvjk+Q5cEK?=
+ =?iso-8859-1?Q?x6Zmfa2TMqyDHyAVbaG+J73lSpFfdG+p2a7EjtRfxTRKoQS5nmRu7mIO8E?=
+ =?iso-8859-1?Q?CpJPmbGiMMgB2upzOc+14eX0cuBr8dlkov+d4TOld1fO/ROwwhpkuqtCCR?=
+ =?iso-8859-1?Q?qiVJN2VMVtnch5cBi1kbmLk46ZOcetM=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260402213629.1996133-2-jitendra.vegiraju@broadcom.com>
+X-OriginatorOrg: guidelinegeo.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: GV3P280MB0065.SWEP280.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: a2594e8a-72a9-4ee1-c2c7-08de94afda88
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Apr 2026 14:13:33.9154
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: f3403a73-63c2-4dc7-b628-287972076881
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: BWyYZWippTFBNWx/3jXOG6AMiwLDVJMuzQrThDwopwwn0abNLEYLCaYw7XeqPTKtRrBGNfVZ2I+YhiKbmfIP9ykJV+TqIxGHp6HSPo9g29UkFTq/lpIbWDup0bj3bgvl
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVYP280MB2271
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_071008_195910_4B11CADF 
-X-CRM114-Status: GOOD (  20.03  )
+X-CRM114-CacheID: sfid-20260407_071346_212039_4905E4B0 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,84 +152,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Not withstanding my comment about the other Synopsys xlgmac driver that
-we have in the kernel...
-
-On Thu, Apr 02, 2026 at 02:36:26PM -0700, Jitendra Vegiraju wrote:
-> From: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
-> 
-> The DW25GMAC introduced a new DMA architecture called Hyper-DMA (HDMA) for
-> virtualization scalability. This is realized by decoupling physical DMA
-> channels(PDMA) from potentially large number of virtual DMA channels(VDMA).
-> The VDMAs provide software abstraction to driver that map to PDMAs for
-> frame transmission and reception.
-> Since 25GMAC is a derivative of XGMAC, majority of IP is common to both.
-> 
-> To add support for the HDMA in 25GMAC, a new instance of dma_ops,
-> dw25gmac400_dma_ops is introduced.
-> To support the current needs, a simple one-to-one mapping of dw25gmac's
-> logical VDMA (channel) to TC to PDMAs is used. Most of the other dma
-> operation functions in existing dwxgamc2_dma.c file are reused whereever
-
-Typo: dwxgmac2_dma.c
-
-> applicable.
-> Added setup function for DW25GMAC's stmmac_hwif_entry in stmmac core.
-
-In a previous review, I questioned the use of DWMAC_CORE_25GMAC and
-asked about its version numberspace. I believe you indicated that the
-version numberspace is the same as the existing XGMAC core.
-
-I'm going to question the value of adding DWMAC_CORE_25GMAC.
-
-1. What is the value of splitting DWMAC_CORE_25GMAC from
-   DWMAC_CORE_XGMAC given that it's in the same versioning numberspace
-   as XGMAC, and most tests (via dwmac_is_xgmac()) test for XGMAC or
-   25GMAC?
-
-2. Have you reviewed all the places that explicitly test for
-   DWMAC_CORE_XGMAC, looking at their "false" paths (for non-XGMAC
-   cores) to determine whether they are suitable? For example:
-
-        if (priv->plat->core_type == DWMAC_CORE_XGMAC)
-                ndev->max_mtu = XGMAC_JUMBO_LEN;
-        else if (priv->plat->enh_desc || priv->synopsys_id >= DWMAC_CORE_4_00)
-                ndev->max_mtu = JUMBO_LEN;
-        else
-                ndev->max_mtu = SKB_MAX_HEAD(NET_SKB_PAD + NET_IP_ALIGN);
-
-   XGMAC can handle a max MTU of 16368, but with your code using
-   DWMAC_CORE_25GMAC, we fall back to the next test, which tests the
-   IP version against 0x40, and uses a max MTU of 9000. Given that
-   DWMAC_CORE_4_00 is a different "version number space" this seems
-   wrong.
-
-3. Looking at the MDIO code, this looks very wrong if you're
-   introducing DWMAC_CORE_25GMAC. Have you tested MDIO accesses?
-
-   dwxgmac2_setup() is called for DWMAC_CORE_XGMAC core-type. In
-   stmmac_mdio_register(), DWMAC_CORE_XGMAC uses different functions
-   for MDIO bus access for C22 and C45 from other cores - it uses the
-   stmmac_xgmac2_mdio_* functions.
-
-   These use stmmac_xgmac2_c45_format() and stmmac_xgmac2_c22_format()
-   to format the register values which do not depend on mii.*_mask, but
-   do use mii.address and mii.data for the register offsets. Thus, is
-   there any point to setting mii.addr_mask and mii.reg_mask ?
-
-   For non-DWMAC_CORE_XGMAC cores, we fall back to the stmmac_mdio_*()
-   functions, which for non-DWMAC_CORE_GMAC4 will only support Clause
-   22 access, not Clause 45 - which would be very strange for a 25G
-   core.
-
-4. What about the feature printing in
-   stmmac_main.c::stmmac_dma_cap_show() ?
-
-5. What about similar tests in stmmac_est.c and stmmac_ethtool.c ?
-
-
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Hi Salih,=0A=
+=0A=
+Thanks for the review.=0A=
+=0A=
+Tested on a custom Zynq-7030 board with two TMUX1308APWR analog=0A=
+multiplexers in dual external mux configuration. The XADC is=0A=
+instantiated as an AXI XADC Wizard IP with xlnx,external-mux=0A=
+set to "dual" and xlnx,external-mux-channel set to 1.=0A=
+=0A=
+Verified by reading all 16 external mux channels via sysfs=0A=
+(in_voltageN_raw) and comparing against known reference voltages=0A=
+on the board. Before the fix, channels routed through ADC-B=0A=
+returned incorrect values. After the fix, all channels return=0A=
+the expected voltages matching the board schematic.=0A=
+=0A=
+Thanks,=0A=
+Christofer=0A=
+________________________________________=0A=
+From:=A0Erim, Salih <Salih.Erim@amd.com>=0A=
+Sent:=A0Wednesday, April 1, 2026 3:11 PM=0A=
+To:=A0Simek, Michal <michal.simek@amd.com>; Jonathan Cameron <jic23@kernel.=
+org>; Christofer Jonason <christofer.jonason@guidelinegeo.com>; O'Griofa, C=
+onall <conall.ogriofa@amd.com>=0A=
+Cc:=A0lars@metafoo.de <lars@metafoo.de>; dlechner@baylibre.com <dlechner@ba=
+ylibre.com>; nuno.sa@analog.com <nuno.sa@analog.com>; andy@kernel.org <andy=
+@kernel.org>; Victor Jonsson <victor.jonsson@guidelinegeo.com>; linux-iio@v=
+ger.kernel.org <linux-iio@vger.kernel.org>; linux-arm-kernel@lists.infradea=
+d.org <linux-arm-kernel@lists.infradead.org>; linux-kernel@vger.kernel.org =
+<linux-kernel@vger.kernel.org>; stable@vger.kernel.org <stable@vger.kernel.=
+org>=0A=
+Subject:=A0RE: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in post=
+disable for dual mux=0A=
+=A0=0A=
+[AMD Official Use Only - AMD Internal Distribution Only]=0A=
+=0A=
+Hi Christofer,=0A=
+=0A=
+The code change looks correct to me - it aligns postdisable with=0A=
+preenable by reusing xadc_get_seq_mode(), and the scope is limited=0A=
+to dual external mux configurations.=0A=
+=0A=
+Since this is targeting stable, could you please share what hardware/board=
+=0A=
+this was tested on and how you verified that VAUX[8-15] channels=0A=
+return correct data with the fix applied?=0A=
+=0A=
+Reviewed-by: Salih Emin <salih.emin@amd.com>=0A=
+=0A=
+Thanks,=0A=
+Salih=0A=
+=0A=
+=0A=
+> -----Original Message-----=0A=
+> From: Simek, Michal <michal.simek@amd.com>=0A=
+> Sent: Tuesday, March 10, 2026 7:43 AM=0A=
+> To: Jonathan Cameron <jic23@kernel.org>; Christofer Jonason=0A=
+> <christofer.jonason@guidelinegeo.com>; Erim, Salih <Salih.Erim@amd.com>;=
+=0A=
+> O'Griofa, Conall <conall.ogriofa@amd.com>=0A=
+> Cc: lars@metafoo.de; dlechner@baylibre.com; nuno.sa@analog.com;=0A=
+> andy@kernel.org; victor.jonsson@guidelinegeo.com; linux-iio@vger.kernel.o=
+rg;=0A=
+> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;=0A=
+> stable@vger.kernel.org=0A=
+> Subject: Re: [PATCH v2] iio: adc: xilinx-xadc: Fix sequencer mode in post=
+disable=0A=
+> for dual mux=0A=
+>=0A=
+> +Salih, Conall,=0A=
+>=0A=
+> On 3/7/26 13:41, Jonathan Cameron wrote:=0A=
+> > On Wed,=A0 4 Mar 2026 10:07:27 +0100=0A=
+> > Christofer Jonason <christofer.jonason@guidelinegeo.com> wrote:=0A=
+> >=0A=
+> >> xadc_postdisable() unconditionally sets the sequencer to continuous=0A=
+> >> mode. For dual external multiplexer configurations this is incorrect:=
+=0A=
+> >> simultaneous sampling mode is required so that ADC-A samples through=
+=0A=
+> >> the mux on VAUX[0-7] while ADC-B simultaneously samples through the=0A=
+> >> mux on VAUX[8-15]. In continuous mode only ADC-A is active, so=0A=
+> >> VAUX[8-15] channels return incorrect data.=0A=
+> >>=0A=
+> >> Since postdisable is also called from xadc_probe() to set the initial=
+=0A=
+> >> idle state, the wrong sequencer mode is active from the moment the=0A=
+> >> driver loads.=0A=
+> >>=0A=
+> >> The preenable path already uses xadc_get_seq_mode() which returns=0A=
+> >> SIMULTANEOUS for dual mux. Fix postdisable to do the same.=0A=
+> >>=0A=
+> >> Fixes: bdc8cda1d010 ("iio:adc: Add Xilinx XADC driver")=0A=
+> >> Cc: stable@vger.kernel.org=0A=
+> >> Signed-off-by: Christofer Jonason=0A=
+> >> <christofer.jonason@guidelinegeo.com>=0A=
+> >=0A=
+> > I'll leave this on list for a little longer as I'd really like a=0A=
+> > confirmation of this one from the AMD Xilinx folk.=0A=
+>=0A=
+> Salih/Conall: Please look at this patch and provide your comment or tag.=
+=0A=
+>=0A=
+> Thanks,=0A=
+> Michal=
 
