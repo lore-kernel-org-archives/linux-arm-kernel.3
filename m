@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F7A1EDB7EF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CED0DEDB7ED
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 10:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RvxWucOWWNDy817dYvW+Bn31pQ4N8NqJgBzSTsJJKkA=; b=Iv08Zq7OMLtjLQoZDrxPpCOHkI
-	vQ1BC0wxmLeXNrcucHWwhqcAFWUYhR0xK+K8nuEjdQzJNKLYZ9uSSXHBdp9RrBLg8vNTyJv1Eqs+Y
-	k1Pvns2XTdF/vgk3o8x3rnSFKc8FwU5j3fAolWqjyZ4AAmlx2VTS5b1ZIg0hjY9X06y2nBigy8JSs
-	hrqiNZ/gOyaKLxv5Z0LnuuuC4tYvkXwllwwMn2YxhTkeMaHKkjQjTzWDkkLSfaoH4Mf8Oy5l/q6cz
-	sCNVETndMVqwrV1qlnGgzSE1V+MMyqZjmHke6nQPNEHQD4R8GlOLM/22hCRcc/nmg3VbKnLNkJWXf
-	m5Tj4b7A==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/L8lkXUpPogeX4jhGnWZtuXaNGYlu/3wjmcEpj1tptc=; b=VPGJeIKUUH0CQpdUE76BP1igGL
+	P2f8eTt2cwSVqsmem1ng3X9Nw3mDb97X1jmZPYg1DNnoGeqUiw0jLac6eUU9lXZGQCIsrZDvlq3nV
+	TTDBVdwmIbHpnwWuLajKHw2qPWvUeSpxiOzoOuxiW4kzIGkEoQuU8XZtj6ZoIxPXRhBqLAtYjFNru
+	re+p20QXEy8WXn8LQjMkV0o4+Kw3aYFjV79xMmOoTgDLFGlVyhLgQjnwhMOvKulk6fSVzYHw3BFoY
+	YyfygoJmgAms67s48RhkN68ytqSDJH6UpK2tqJFtwefX0iIvl+Awy0QnqHMxIneiFc2UlS0lubINE
+	hbm6QfrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA3fz-00000006HoX-1S4G;
-	Tue, 07 Apr 2026 10:28:55 +0000
+	id 1wA3g1-00000006HqJ-2z91;
+	Tue, 07 Apr 2026 10:28:57 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA3fw-00000006Hmg-1ziT
+	id 1wA3fx-00000006HnI-2zDE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 10:28:53 +0000
+	Tue, 07 Apr 2026 10:28:54 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C712B1BB2;
-	Tue,  7 Apr 2026 03:28:44 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 125C232AF;
+	Tue,  7 Apr 2026 03:28:47 -0700 (PDT)
 Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AD7953F641;
-	Tue,  7 Apr 2026 03:28:49 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F17523F641;
+	Tue,  7 Apr 2026 03:28:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775557730; bh=0HFmuFOscvX8IJdE9J0bungu0qtaUEmlXeh6W8SzbFk=;
-	h=From:To:Cc:Subject:Date:From;
-	b=O6HBZlI2pPucWkUcjBRJeafBYCZ5KS8u2CV5jAMtZCSciXkpD/lb7Gmw2FGlrl0Fz
-	 RMO9Z+YBV0+KsS5asl1JwxembGnebXeZZyF/T4AFALQn1iWhCQNGXZmW2v7Xcrbzuh
-	 6R2QNvtaY2/ynOWbKZjXWPoSOIkp1/YO8m8Ah/OU=
+	t=1775557732; bh=0hsScL5Jq+W2z3914Dx1/1N6cYL7m7yWJjXp55/auu0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=XyDs6pSPtTU4L57maMngDyDSKyHD+Ho0nFYMWqZvdsVrkY73RhlxmLriLUsGFNdL9
+	 4pefaAo3XWc3K/wj9vIH5DA8I56hkPYpgVFR+TuNtstTcRT1Kq2UFD29mZcp34JEoX
+	 ZFmNAdUXkZ3VYSZufE0Dz/ffazWctVzn9HNrZ6oU=
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Will Deacon <will@kernel.org>,
 	James Morse <james.morse@arm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v5 0/4] arm64: Work around C1-Pro erratum 4193714 (CVE-2026-0995)
-Date: Tue,  7 Apr 2026 11:28:40 +0100
-Message-ID: <20260407102848.2266988-1-catalin.marinas@arm.com>
+Subject: [PATCH v5 2/4] arm64: tlb: Pass the corresponding mm to __tlbi_sync_s1ish()
+Date: Tue,  7 Apr 2026 11:28:42 +0100
+Message-ID: <20260407102848.2266988-3-catalin.marinas@arm.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260407102848.2266988-1-catalin.marinas@arm.com>
+References: <20260407102848.2266988-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_032852_640886_984CCA8E 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20260407_032853_868010_4DD555C1 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,66 +70,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-That's version 5 of the C1-Pro workaround. Version 3 here:
+The mm structure will be used for workarounds that need limiting to
+specific tasks.
 
-https://lore.kernel.org/r/20260402101246.3870036-1-catalin.marinas@arm.com
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Acked-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Will Deacon <will@kernel.org>
+---
+ arch/arm64/include/asm/tlbflush.h | 8 ++++----
+ arch/arm64/kernel/sys_compat.c    | 2 +-
+ 2 files changed, 5 insertions(+), 5 deletions(-)
 
-Changes since v4:
-
-- Static sme_dvmsync_cpus mask to avoid allocating under stop_machine().
-  Sashiko was right, even GFP_ATOMIC won't work under a raw_spin_lock()
-
-- batch->cpumask allocated lazily on arch_tlbbatch_add_pending() only to
-  avoid a potential leak in case of task cloning failure. That's mostly
-  theoretical as the (mobile) systems affected are expected to be built
-  with CPUMASK_OFFSTACK=n (the GKI kernel defaults to NR_CPUS=32)
-
-The other Sashiko report about the DSB in arch_tlbbatch_add_pending() is
-correct but it's not much we can do about it. I don't expect this to be
-noticeable at all on systems with a small number of CPUs.
-
-As with v4, there's no longer a global sme_active_cpus mask, reducing
-the risk DoS from a malicious app using SME.
-
-
-Erratum description:
-
-Arm C1-Pro prior to r1p3 has an erratum (4193714) where a TLBI+DSB
-sequence might fail to ensure the completion of all outstanding SME
-(Scalable Matrix Extension) memory accesses. The DVMSync message is
-acknowledged before the SME accesses have fully completed, potentially
-allowing pages to be reused before all in-flight accesses are done.
-
-The workaround consists of executing a DSB locally (via IPI)
-on all affected CPUs running with SME enabled, after the TLB
-invalidation. This ensures the SME accesses have completed before the
-IPI is acknowledged.
-
-This has been assigned CVE-2026-0995:
-
-https://developer.arm.com/documentation/111823/latest/
-
-
-Catalin Marinas (4):
-  arm64: tlb: Introduce __tlbi_sync_s1ish_{kernel,batch}() for TLB
-    maintenance
-  arm64: tlb: Pass the corresponding mm to __tlbi_sync_s1ish()
-  arm64: cputype: Add C1-Pro definitions
-  arm64: errata: Work around early CME DVMSync acknowledgement
-
- Documentation/arch/arm64/silicon-errata.rst |  2 +
- arch/arm64/Kconfig                          | 12 +++
- arch/arm64/include/asm/cpucaps.h            |  2 +
- arch/arm64/include/asm/cputype.h            |  2 +
- arch/arm64/include/asm/fpsimd.h             | 21 +++++
- arch/arm64/include/asm/tlbbatch.h           | 10 ++-
- arch/arm64/include/asm/tlbflush.h           | 96 +++++++++++++++++++--
- arch/arm64/kernel/cpu_errata.c              | 30 +++++++
- arch/arm64/kernel/entry-common.c            |  3 +
- arch/arm64/kernel/fpsimd.c                  | 79 +++++++++++++++++
- arch/arm64/kernel/process.c                 | 36 ++++++++
- arch/arm64/kernel/sys_compat.c              |  2 +-
- arch/arm64/tools/cpucaps                    |  1 +
- 13 files changed, 285 insertions(+), 11 deletions(-)
-
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index f41eebf00990..262791191935 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -185,7 +185,7 @@ do {										\
+  * Complete broadcast TLB maintenance issued by the host which invalidates
+  * stage 1 information in the host's own translation regime.
+  */
+-static inline void __tlbi_sync_s1ish(void)
++static inline void __tlbi_sync_s1ish(struct mm_struct *mm)
+ {
+ 	dsb(ish);
+ 	__repeat_tlbi_sync(vale1is, 0);
+@@ -323,7 +323,7 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
+ 	asid = __TLBI_VADDR(0, ASID(mm));
+ 	__tlbi(aside1is, asid);
+ 	__tlbi_user(aside1is, asid);
+-	__tlbi_sync_s1ish();
++	__tlbi_sync_s1ish(mm);
+ 	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
+ }
+ 
+@@ -377,7 +377,7 @@ static inline void flush_tlb_page(struct vm_area_struct *vma,
+ 				  unsigned long uaddr)
+ {
+ 	flush_tlb_page_nosync(vma, uaddr);
+-	__tlbi_sync_s1ish();
++	__tlbi_sync_s1ish(vma->vm_mm);
+ }
+ 
+ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+@@ -532,7 +532,7 @@ static inline void __flush_tlb_range(struct vm_area_struct *vma,
+ {
+ 	__flush_tlb_range_nosync(vma->vm_mm, start, end, stride,
+ 				 last_level, tlb_level);
+-	__tlbi_sync_s1ish();
++	__tlbi_sync_s1ish(vma->vm_mm);
+ }
+ 
+ static inline void local_flush_tlb_contpte(struct vm_area_struct *vma,
+diff --git a/arch/arm64/kernel/sys_compat.c b/arch/arm64/kernel/sys_compat.c
+index b9d4998c97ef..03fde2677d5b 100644
+--- a/arch/arm64/kernel/sys_compat.c
++++ b/arch/arm64/kernel/sys_compat.c
+@@ -37,7 +37,7 @@ __do_compat_cache_op(unsigned long start, unsigned long end)
+ 			 * We pick the reserved-ASID to minimise the impact.
+ 			 */
+ 			__tlbi(aside1is, __TLBI_VADDR(0, 0));
+-			__tlbi_sync_s1ish();
++			__tlbi_sync_s1ish(current->mm);
+ 		}
+ 
+ 		ret = caches_clean_inval_user_pou(start, start + chunk);
 
