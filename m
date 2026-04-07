@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D09BFEEF34
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 13:18:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA52FEEF34
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 13:19:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sQ1/QU6bB1fVMZAszRGUyNoOMsBZeQGdHVPM66SLFoU=; b=anB3dzi0cLnZMa
-	MlHJM1P8LPrue82pQpPJnEd5E4s69dJX7fdV+OYzruqOx31XhAgXkX5w8qBaew+4uQG7Fa3J8cmIa
-	sFtTU02E38jKTxEQd/wMuW+Psce70spcZyREOO86jlhj+9OvkFL2s+4zdwDJzIJ40tEA1hHgeDsD5
-	NRBaWlzyTItzgDPds8F6dtzzbxGa3yaM8YeEOAvA4levw8VZVI2XIursfzcWwvzFvFbiBHZmoCbt7
-	MmLlzaSXrGrYelylFk7zNn76uiKSdTSQdMdT+7CIPoQqj0Yy3QdDXlKcvh+fBv5cMKGJWBR4lj/cY
-	mGMyFzKl97RTjp2vS/ew==;
+	List-Owner; bh=w1LOCiscFEjSoqgCDhMw5kpuextA75e49lXHljIliqE=; b=C/vnh6O/V4/b6e
+	PCWqp3DPa98OBuA0cDxi7roGNPuW0a/NR7KnmlPFnnBgfSWCLxTcb5r71mVpaiqkURMT9PKAIxA+t
+	I82+n0GidoDDSOO1qPt3PBRhBiFoSG39/ZWxUovERra8CCBv2h6srg27D4bVlDz1AUWlxX6BTz1lU
+	ZQCUTT3HAt/ZNlTOMzjmzWjIdH+j4O2Pe+RQStY4X8etga2dXs43z+PsUKspViAEPGm0/5wulwX0J
+	NEnsZG7V/Zb82VScQpmyKvSX0CavQz6tuEuO7MbRcmK6EQx/bIM2BfbMk8NggccCTn86L04tfVNEK
+	/mdQJWa1zbPh+sihttiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA6KP-00000006VXb-2GcJ;
-	Tue, 07 Apr 2026 13:18:49 +0000
+	id 1wA6KY-00000006Vb3-3cZM;
+	Tue, 07 Apr 2026 13:18:58 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA6KM-00000006VWe-21eF
+	id 1wA6KW-00000006Va0-0Am4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 13:18:48 +0000
+	Tue, 07 Apr 2026 13:18:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4572A1BB2;
-	Tue,  7 Apr 2026 06:18:40 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 142061BB2;
+	Tue,  7 Apr 2026 06:18:49 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2299C3F7D8;
-	Tue,  7 Apr 2026 06:18:43 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E87773F7D8;
+	Tue,  7 Apr 2026 06:18:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775567926; bh=i+c6ra3/8cZfXlo5XIHBX2j6T0++N9EkiOZ/PzP/xNw=;
+	t=1775567934; bh=2GspNv828Xl2KX6qp8neNpclH69k3zwgwYawgy5AC/k=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OshVwYxTFGTFGSawa5bRFmJFGOmv6oo9ggoXahGU2HPlPekNW42uksSRVLBHgshN8
-	 qhZpaqGD1kCOGOzH4tumL/B5WziD4rsw2/JXT82fF7Q8r43PJjDMf9hYWNsdIEA2kC
-	 lj69fBtqTtoymQnq/o18Itvj/tC4do9loaIRqu0I=
+	b=bmZlTDyERLi4Xu/Ur7JYtQNwtgWONgcg1HR2cHS0Pv2toiJ4i+q3TU3LC67YbRsMG
+	 dZLCOI+C42wZbrNhYG0PF6j2+nApBR1+ZhEGuovcHqLYkNwoWkmG1O0Pvifqv3Giyt
+	 Dg9vh+AW4sFwXkbtKHlXOkI+/c1av6MBiF0sicf8=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>
-Subject: [PATCH 08/10] arm64: entry: Use irqentry_{enter_from,exit_to}_kernel_mode()
-Date: Tue,  7 Apr 2026 14:16:48 +0100
-Message-Id: <20260407131650.3813777-9-mark.rutland@arm.com>
+Subject: [PATCH 09/10] arm64: entry: Use split preemption logic
+Date: Tue,  7 Apr 2026 14:16:49 +0100
+Message-Id: <20260407131650.3813777-10-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260407131650.3813777-1-mark.rutland@arm.com>
 References: <20260407131650.3813777-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_061846_591429_B486C2A5 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20260407_061856_163354_EFB64686 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,19 +69,26 @@ Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, peterz@infradead.org, ruanjin
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic irqentry code now provides irqentry_enter_from_kernel_mode()
-and irqentry_exit_to_kernel_mode(), which can be used when an exception
-is known to be taken from kernel mode. These can be inlined into
-architecture-specific entry code, and avoid redundant work to test
-whether the exception was taken from user mode.
+The generic irqentry code now provides
+irqentry_exit_to_kernel_mode_preempt() and
+irqentry_exit_to_kernel_mode_after_preempt(), which can be used
+where architectures have different state requirements for involuntary
+preemption and exception return, as is the case on arm64.
 
-Use these in arm64_enter_from_kernel_mode() and
-arm64_exit_to_kernel_mode(), which are only used for exceptions known to
-be taken from kernel mode. This will remove a small amount of redundant
-work, and will permit further changes to arm64_exit_to_kernel_mode() in
-subsequent patches.
+Use the new functions on arm64, aligning our exit to kernel mode logic
+with the style of our exit to user mode logic. This removes the need for
+the recently-added bodge in arch_irqentry_exit_need_resched(), and
+allows preemption to occur when returning from any exception taken from
+kernel mode, which is nicer for RT.
 
-There should be no funcitonal change as a result of this patch.
+In an ideal world, we'd remove arch_irqentry_exit_need_resched(), and
+fold the conditionality directly into the architecture-specific entry
+code. That way all the logic necessary to avoid preempting from a
+pseudo-NMI could be constrained specifically to the EL1 IRQ/FIQ paths,
+avoiding redundant work for other exceptions, and making the flow a bit
+clearer. At present it looks like that would require a larger
+refactoring (e.g. for the PREEMPT_DYNAMIC logic), and so I've left that
+as-is for now.
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Cc: Andy Lutomirski <luto@kernel.org>
@@ -92,31 +99,115 @@ Cc: Thomas Gleixner <tglx@kernel.org>
 Cc: Vladimir Murzin <vladimir.murzin@arm.com>
 Cc: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kernel/entry-common.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/entry-common.h | 21 ++++++++-------------
+ arch/arm64/kernel/entry-common.c      | 12 ++++--------
+ 2 files changed, 12 insertions(+), 21 deletions(-)
 
+diff --git a/arch/arm64/include/asm/entry-common.h b/arch/arm64/include/asm/entry-common.h
+index 20f0a7c7bde15..cab8cd78f6938 100644
+--- a/arch/arm64/include/asm/entry-common.h
++++ b/arch/arm64/include/asm/entry-common.h
+@@ -29,19 +29,14 @@ static __always_inline void arch_exit_to_user_mode_work(struct pt_regs *regs,
+ 
+ static inline bool arch_irqentry_exit_need_resched(void)
+ {
+-	if (system_uses_irq_prio_masking()) {
+-		/*
+-		 * DAIF.DA are cleared at the start of IRQ/FIQ handling, and when GIC
+-		 * priority masking is used the GIC irqchip driver will clear DAIF.IF
+-		 * using gic_arch_enable_irqs() for normal IRQs. If anything is set in
+-		 * DAIF we must have handled an NMI, so skip preemption.
+-		 */
+-		if (read_sysreg(daif))
+-			return false;
+-	} else {
+-		if (read_sysreg(daif) & (PSR_D_BIT | PSR_A_BIT))
+-			return false;
+-	}
++	/*
++	 * DAIF.DA are cleared at the start of IRQ/FIQ handling, and when GIC
++	 * priority masking is used the GIC irqchip driver will clear DAIF.IF
++	 * using gic_arch_enable_irqs() for normal IRQs. If anything is set in
++	 * DAIF we must have handled an NMI, so skip preemption.
++	 */
++	if (system_uses_irq_prio_masking() && read_sysreg(daif))
++		return false;
+ 
+ 	/*
+ 	 * Preempting a task from an IRQ means we leave copies of PSTATE
 diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index 3d01cdacdc7a2..16a65987a6a9b 100644
+index 16a65987a6a9b..f42ce7b5c67f3 100644
 --- a/arch/arm64/kernel/entry-common.c
 +++ b/arch/arm64/kernel/entry-common.c
-@@ -39,7 +39,7 @@ static noinstr irqentry_state_t arm64_enter_from_kernel_mode(struct pt_regs *reg
- {
- 	irqentry_state_t state;
- 
--	state = irqentry_enter(regs);
-+	state = irqentry_enter_from_kernel_mode(regs);
- 	mte_check_tfsr_entry();
- 	mte_disable_tco_entry(current);
- 
-@@ -55,7 +55,7 @@ static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
+@@ -54,8 +54,11 @@ static noinstr irqentry_state_t arm64_enter_from_kernel_mode(struct pt_regs *reg
+ static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
  					      irqentry_state_t state)
  {
++	local_irq_disable();
++	irqentry_exit_to_kernel_mode_preempt(regs, state);
++	local_daif_mask();
  	mte_check_tfsr_exit();
--	irqentry_exit(regs, state);
-+	irqentry_exit_to_kernel_mode(regs, state);
+-	irqentry_exit_to_kernel_mode(regs, state);
++	irqentry_exit_to_kernel_mode_after_preempt(regs, state);
  }
  
  /*
+@@ -301,7 +304,6 @@ static void noinstr el1_abort(struct pt_regs *regs, unsigned long esr)
+ 	state = arm64_enter_from_kernel_mode(regs);
+ 	local_daif_inherit(regs);
+ 	do_mem_abort(far, esr, regs);
+-	local_daif_mask();
+ 	arm64_exit_to_kernel_mode(regs, state);
+ }
+ 
+@@ -313,7 +315,6 @@ static void noinstr el1_pc(struct pt_regs *regs, unsigned long esr)
+ 	state = arm64_enter_from_kernel_mode(regs);
+ 	local_daif_inherit(regs);
+ 	do_sp_pc_abort(far, esr, regs);
+-	local_daif_mask();
+ 	arm64_exit_to_kernel_mode(regs, state);
+ }
+ 
+@@ -324,7 +325,6 @@ static void noinstr el1_undef(struct pt_regs *regs, unsigned long esr)
+ 	state = arm64_enter_from_kernel_mode(regs);
+ 	local_daif_inherit(regs);
+ 	do_el1_undef(regs, esr);
+-	local_daif_mask();
+ 	arm64_exit_to_kernel_mode(regs, state);
+ }
+ 
+@@ -335,7 +335,6 @@ static void noinstr el1_bti(struct pt_regs *regs, unsigned long esr)
+ 	state = arm64_enter_from_kernel_mode(regs);
+ 	local_daif_inherit(regs);
+ 	do_el1_bti(regs, esr);
+-	local_daif_mask();
+ 	arm64_exit_to_kernel_mode(regs, state);
+ }
+ 
+@@ -346,7 +345,6 @@ static void noinstr el1_gcs(struct pt_regs *regs, unsigned long esr)
+ 	state = arm64_enter_from_kernel_mode(regs);
+ 	local_daif_inherit(regs);
+ 	do_el1_gcs(regs, esr);
+-	local_daif_mask();
+ 	arm64_exit_to_kernel_mode(regs, state);
+ }
+ 
+@@ -357,7 +355,6 @@ static void noinstr el1_mops(struct pt_regs *regs, unsigned long esr)
+ 	state = arm64_enter_from_kernel_mode(regs);
+ 	local_daif_inherit(regs);
+ 	do_el1_mops(regs, esr);
+-	local_daif_mask();
+ 	arm64_exit_to_kernel_mode(regs, state);
+ }
+ 
+@@ -423,7 +420,6 @@ static void noinstr el1_fpac(struct pt_regs *regs, unsigned long esr)
+ 	state = arm64_enter_from_kernel_mode(regs);
+ 	local_daif_inherit(regs);
+ 	do_el1_fpac(regs, esr);
+-	local_daif_mask();
+ 	arm64_exit_to_kernel_mode(regs, state);
+ }
+ 
 -- 
 2.30.2
 
