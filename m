@@ -4,109 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E37B3FEEF52
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 15:01:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 377CCFEEF58
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 15:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3lNjW+dxr/buBuPTrI5vfayHnWO+C+X6rAlTXc04424=; b=itWdYNaMvSSD6AizrBjL76QvA4
-	AOvTiNybjzYQoYwWIIVxaHJbVuK9eJKUvZFv7BBJOYjcBR4m2gZ50fR9RJR2FgIIJL9Ld4fY1PMn6
-	7r2wB48kaYSm4OyMWunW2FinU07P4OmEdczJnIvZaA8UKS/GkfiVghZksKKJl0WJboWk26RPntI1w
-	7SMDSsO0Rxb7wIP8WUZ7H9gHeYBzAoZwQgye0nOaOAvT61T9aHGpF+Xx4uISz+/sLxcvVljfVEAh+
-	Ycl6lkUMD10+F63bWkbbyd3QgiFwwG6hqT7VAosrv6SrWST8kIGM0GOa/RZk6AjMwSBbsgFMC5/Ri
-	gRMqkzfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KU08GdXzhxD89cvnr3HoQq/JdUDQMqOrNvKfY9ptx3M=; b=Saj5bMO2M6agMT84NL59XuRZLy
+	il443RoPYxnLrchgK+2tGnILekiGYQmnIOPrTfkGZx8DylFTmoEYoAlzakA2HOeHNz9l0IDkRFl6S
+	FKv7vB3YRSwcWnFUGv3Jkl7zE6tR0AkGrgBUoiQ4tScsgjLtgdWIiUJ/yeKzfJ3HNMsUIPPpfa36Z
+	LgmNhe2DmbnxgjvKWWTD9fu/dHH2W9jBpqCNUFDabIEYWUmsF3GnxhpHUoKurZukYPoBsWcizzayY
+	+kHr6W5+Eo4rWB/D4UVMOtDrDU2e1hIio+XxM6kUNjYcpCqkpZzv8zekppgL806d27qQT0zQQH9bt
+	RC23jVtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7vP-00000006fM4-3LCK;
-	Tue, 07 Apr 2026 15:01:07 +0000
-Received: from mail-qv1-xf2c.google.com ([2607:f8b0:4864:20::f2c])
+	id 1wA7w6-00000006fR2-0W8l;
+	Tue, 07 Apr 2026 15:01:50 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wA7vN-00000006fLh-3IGp
+	id 1wA7w2-00000006fQS-40Er
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Apr 2026 15:01:06 +0000
-Received: by mail-qv1-xf2c.google.com with SMTP id 6a1803df08f44-899a5db525cso47232816d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 08:01:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1775574064; cv=none;
-        d=google.com; s=arc-20240605;
-        b=O6pFLU5NoImVmphGYZmuSbM3d/ELscdq0mY3SsNOGBQ5AsfpTMuFXJ1lS9vFzzU+w6
-         BXpynjL3wPfTfckE+sVJjZO50oXZyRUbYjRvogCVIWKU/+RNSNcd2wk5oMbcPzyPXfGp
-         FdQNUPA3uJnrQ9ztzV4yvgm5DBh97mkxyqCLlOboJLtZz9jkdfz4K9372WR8RetU7AAf
-         SkBVuw/R3Y23ES1HeggBCAUjarHNt/4F/Y+FB91jnnrxWrCciwK2i+0d8YEY+OVbjzIA
-         It1lIiAWKALB/nOlsu4f+UtOPB5kgCj1n7xyzZpnov7R5DO5/bEHo9TmighY9S0ybXfG
-         emsQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=3lNjW+dxr/buBuPTrI5vfayHnWO+C+X6rAlTXc04424=;
-        fh=8/QEcnQtHK1lphNhH+9RfaHYTYeiaWutXNfpxxGIZT4=;
-        b=MeSihjjiGVUcYIaClI9jFJAg4U5sS0A6SbXti8muDcPfTM5JnOrOP5mE0X4/WSri1M
-         hUIgBDb4QFz1GyAmNuMjJAIrTVn6fSa96ywY6kOetK3H9gC+RuJ7m7s+jGUzVkmWje1u
-         GbIncmXryfOVXh7d6Knm3azcZsCh/qzQn2XxNPvvRDcVQXCNJe4Bej9MZvZ12Jqbb8Eg
-         alrotDxTZa0EhChPv7o32zXcN4pHKJyuIkP3U12m1Al253lTOxQLxEuH6QHmcpPmcPbP
-         YMc1C9ZJTNf4TKzoUC4+cNvM4kEefWMb99aRFtkoLq2KoXr3Tm0NWgKrhL/lZ8HYhQpb
-         zv9w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775574064; x=1776178864; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3lNjW+dxr/buBuPTrI5vfayHnWO+C+X6rAlTXc04424=;
-        b=YbajE8KxTuc4Y96aIKrNMI8y+dtFDnxg4+Wxx44PeGOkYkPJzCB5GW2MK3UZy5jqT7
-         ZlVfzIqw5UDFW3cOaxbeqZ1cf7PPhYu6jxd9b8MjcSHbHyGr2fFz9pIBRCCk3LVfCyuP
-         2KF/sqAvZVcAZh/6MhfT8zFchX1MhYZrid4NOoF1MomLFzrL7v9nPaJZaevTnrTFcgAw
-         rzG60iJKXQXHzMSD51hA0uIEmuIUrMtxdUxwveY1bhZ7EJmReN6wCBzf1FkBi8ebcyxd
-         /L0W54s/zwDuDm2l0w9sRDujcXckrWHSvHE2imvtUrAwdnaM9r62dhpzSEtCGzOtniPY
-         ymAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775574064; x=1776178864;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=3lNjW+dxr/buBuPTrI5vfayHnWO+C+X6rAlTXc04424=;
-        b=BzpvgRDBB+XtU00zWFmo/3m6EOf8DV1v+hFMsSKLFmwALUpH5sYrJTrsT3Al6kvUGK
-         PfWv36meeWmokJrMbz1AXUMR1XMNodfPASfvRos22tXPh6/Z38CpmqOJc49jEsMvQ3A/
-         yyF4qFoc3JlNWzDaM0V39K8WRaGRcr8/2XLtavLwUFtyxko20fojyePKo4W1J2pm33wu
-         c0Akx/kcZgMYm0GXeOuyteRQamvLGiQFRkI/eSKztd5palvvROwgVDuwVF2tZzEYjQ9j
-         jV+KeBEVvlacaLXxZl7wPQJ8VFJyAMXJxEs3r2goilpauGd736GgpK4YkFUfnbwzt56G
-         U5oQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVflqxtkWFCv08u0jQReiPFfwo3WzzUQP8nU2yU8l+swXErzDWA8AWqPQQkBIB3FuAJz/UB88R1laOCyssiconQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFsmF6EmkpgllJfeNUW7f+ocK+g9wCWYcobMo4SyfqxwP78/BR
-	h67ZKXEPstj7TL7l0iSBxDMRbHUbhSe36ZA275b66V5LKYL1b6z3/SjlMM5qo2qhMKhE2hdGVd+
-	/BHg/7CqRXAvh0NeJCUNHMUcRIysUWJg=
-X-Gm-Gg: AeBDievDN3Gi0gq+eJJzz7D1icZUnc8GUR3MR15SelsTbnG+Vxyk1Ypa4BlD4bxFKqu
-	7FRaOo0tt35VoIbVfHvQIkpd58IPohbLqnSKOethpIhotiSWwGR7fPycTLPCO/SA/IaMX1O2H/N
-	38jkcookQz9t2Fe33x4KUKg3s+G4cW2d43QmKalfH78U+aON/RqnBGD9/fDpkbofd4uha9BP3KE
-	prGH/X8AAcQPjoF8ewy7Bmz/yQizTDQb7s7tVUrO9FVdaf9dLFG5hqm23MZnsd8znBLNvh27UUh
-	saxfjA==
-X-Received: by 2002:a05:6214:2f13:b0:89e:cb8b:a77e with SMTP id
- 6a1803df08f44-8a704abb8dfmr284541396d6.32.1775574064233; Tue, 07 Apr 2026
- 08:01:04 -0700 (PDT)
+	Tue, 07 Apr 2026 15:01:49 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 39F1F1F8005D
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Apr 2026 15:01:26 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id 97D8BB40192; Tue,  7 Apr 2026 15:01:24 +0000 (UTC)
+Received: from shepard (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id C0656B4018A;
+	Tue,  7 Apr 2026 15:01:22 +0000 (UTC)
+Date: Tue, 7 Apr 2026 17:01:20 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Lucas Stach <l.stach@pengutronix.de>
+Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof =?utf-8?Q?Ha=C5=82asa?= <khalasa@piap.pl>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Liu Ying <victor.liu@nxp.com>
+Subject: Re: [PATCH v2 2/2] drm: lcdif: Wait for vblank before disabling DMA
+Message-ID: <adUcQIor2tEMCn3R@shepard>
+References: <20260402183351.3281123-1-paulk@sys-base.io>
+ <20260402183351.3281123-3-paulk@sys-base.io>
+ <d6bbf0c23dc5cf0c6ab0375fb1d2d3f6b4579737.camel@pengutronix.de>
 MIME-Version: 1.0
-References: <20260326094308.1161335-1-wenst@chromium.org> <CGME20260327054445eucas1p2d1ac645faccf16272c3a12406400a364@eucas1p2.samsung.com>
- <CAGXv+5G2H3CSic5hCSd2g6RrfGyNSbpYS7Z9uo-XUn6No3a4Rw@mail.gmail.com> <52a26d5b-67ec-4a99-98f6-6216e930cdb7@samsung.com>
-In-Reply-To: <52a26d5b-67ec-4a99-98f6-6216e930cdb7@samsung.com>
-From: Inki Dae <daeinki@gmail.com>
-Date: Wed, 8 Apr 2026 00:00:27 +0900
-X-Gm-Features: AQROBzCwFYJ79nrP10FU2NCqyXv-mL-J9T-1EOFubFcU9cyDki20zWlIqj79km4
-Message-ID: <CAAQKjZO=h9uegjBOi7dqq0DM3o2B9gJ9mkM+40pEXMHY87unvw@mail.gmail.com>
-Subject: Re: [PATCH 0/4] drm/exynos: Random cleanups
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, 
-	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="tr3oA7U7+SI63nqs"
+Content-Disposition: inline
+In-Reply-To: <d6bbf0c23dc5cf0c6ab0375fb1d2d3f6b4579737.camel@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_080105_854572_29591D62 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20260407_080147_333960_94462BBE 
+X-CRM114-Status: GOOD (  33.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,35 +78,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-2026=EB=85=84 3=EC=9B=94 31=EC=9D=BC (=ED=99=94) =EC=98=A4=ED=9B=84 11:39, =
-Marek Szyprowski <m.szyprowski@samsung.com>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=
-=84=B1:
->
-> On 27.03.2026 06:44, Chen-Yu Tsai wrote:
-> > On Thu, Mar 26, 2026 at 5:43=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.or=
-g> wrote:
-> >> Here are some cleanups for the exynos drm driver. This was done as par=
-t
-> >> of the conversion of the driver to GEM DMA helpers. These patches have
-> >> no dependency, unlike the actual conversion, so I am sending them
-> >> separately for inclusion now.
-> >>
-> >> Please take a look.
-> > I should add that these patches were only compile tested.
->
-> I've tested this on the real hardware and it works fine.
->
-> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
 
-Thanks Marek, :)
-Inki Dae
+--tr3oA7U7+SI63nqs
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+Hi Lucas,
+
+On Tue 07 Apr 26, 10:28, Lucas Stach wrote:
+> Am Donnerstag, dem 02.04.2026 um 20:33 +0200 schrieb Paul Kocialkowski:
+> > It is necessary to wait for the full frame to finish streaming
+> > through the DMA engine before we can safely disable it by removing
+> > the DISP_PARA_DISP_ON bit. Disabling it in-flight can leave the
+> > hardware confused and unable to resume streaming for the next frame.
+> >=20
+> > This causes the FIFO underrun and empty status bits to be set and
+> > a single solid color to be shown on the display, coming from one of
+> > the pixels of the previous frame. The issue occurs sporadically when
+> > a new mode is set, which triggers the crtc disable and enable paths.
+> >=20
+> > Setting the shadow load bit and waiting for it to be cleared by the
+> > DMA engine allows waiting for completion.
+> >=20
+> > The NXP BSP driver addresses this issue with a hardcoded 25 ms sleep.
+> >=20
+> > Fixes: 9db35bb349a0 ("drm: lcdif: Add support for i.MX8MP LCDIF variant=
+")
+> > Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
+> > Co-developed-by: Lucas Stach <l.stach@pengutronix.de>
+>=20
+> Looks good to me. Since the co-developed tag requires a sign-off from
+> me, I'll add that instead of a review tag. And you might want to move
+> your sign-off down, as you are the one submitting the patch.
+
+Sounds good to me! This can probably be done when picking up the patch,
+but if maintainers need me to respin the series to get all the tags in
+order myself, just let me know!
+
+All the best,
+
+Paul
+
+> Signed-off-by: Lucas Stach <l.stach@pengutronix.de>
 >
-> Best regards
-> --
-> Marek Szyprowski, PhD
-> Samsung R&D Institute Poland
->
->
+> > ---
+> >  drivers/gpu/drm/mxsfb/lcdif_kms.c | 15 ++++++++++++---
+> >  1 file changed, 12 insertions(+), 3 deletions(-)
+> >=20
+> > diff --git a/drivers/gpu/drm/mxsfb/lcdif_kms.c b/drivers/gpu/drm/mxsfb/=
+lcdif_kms.c
+> > index a00c4f6d63f4..0d04a0028671 100644
+> > --- a/drivers/gpu/drm/mxsfb/lcdif_kms.c
+> > +++ b/drivers/gpu/drm/mxsfb/lcdif_kms.c
+> > @@ -375,14 +375,23 @@ static void lcdif_disable_controller(struct lcdif=
+_drm_private *lcdif)
+> >  	int ret;
+> > =20
+> >  	reg =3D readl(lcdif->base + LCDC_V8_CTRLDESCL0_5);
+> > +	/* Disable the layer for DMA. */
+> >  	reg &=3D ~CTRLDESCL0_5_EN;
+> > +	/*
+> > +	 * It is necessary to wait for the full frame to finish streaming
+> > +	 * through the DMA engine before we can safely disable it by removing
+> > +	 * the DISP_PARA_DISP_ON bit. Disabling it in-flight can leave the
+> > +	 * hardware confused and unable to resume streaming for the next fram=
+e.
+> > +	 */
+> > +	reg |=3D CTRLDESCL0_5_SHADOW_LOAD_EN;
+> >  	writel(reg, lcdif->base + LCDC_V8_CTRLDESCL0_5);
+> > =20
+> > +	/* Wait for the frame to finish or timeout after 50 ms. */
+> >  	ret =3D readl_poll_timeout(lcdif->base + LCDC_V8_CTRLDESCL0_5,
+> > -				 reg, !(reg & CTRLDESCL0_5_EN),
+> > -				 0, 36000);	/* Wait ~2 frame times max */
+> > +				 reg, !(reg & CTRLDESCL0_5_SHADOW_LOAD_EN),
+> > +				 200, 50000);
+> >  	if (ret)
+> > -		drm_err(lcdif->drm, "Failed to disable controller!\n");
+> > +		drm_err(lcdif->drm, "Timed out waiting for final vblank!\n");
+> > =20
+> >  	reg =3D readl(lcdif->base + LCDC_V8_DISP_PARA);
+> >  	reg &=3D ~DISP_PARA_DISP_ON;
+>=20
+
+--=20
+Paul Kocialkowski,
+
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--tr3oA7U7+SI63nqs
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmnVHEAACgkQhP3B6o/u
+lQx7KA/7BnpEWNIUmhxDgwURWcnToLoxc1aEBm/u/+bpY0PzQwdfdimZy7f8fR4h
+PuxDVy7QBNZTag6cT6rcoJ9QoWw8Srx2docDOotHjGHMOjytxrv3KJ4KeN7kVlpH
+EeuJNt8jWSulxNRiuEv85B6pFw9yUpwb1UCyiLx4H8jIHvOIxbPAOxc7f20PkCjP
+Sbwx+0iSgxffcH0c++DlDONOOLj/3pjLtjw8K6MGXQtRXX0kIxU9lVI9SNgvaZlR
+18xQ3n1Y92Zm/wOuN8tGB7VX3ILwYTXJYDU/qE3DSAzqRvLFFNTBAeBLPOVzTmhB
+Pile1vjDAdO/A4YoV/pOUS0mt0lpT40dyEH2aDC5Rzty7w5s9VbPaE9AjnPLvEvY
+GPCZ+Jcln2clHdhEEX3TiVyimht8j0GLtNtJ+Dl28b1GhYmJN6xouNNLMOvOikE3
+RwCE8eq+ijQly5rxYwnpRONuHhAPWEMg10oayJiM6vhJ4xoBxgimChoF9Klvfqev
+nbn5eOqezBWsPFx/AT53T1TJoP0kNwJLdu6HKNPIdEyWN3Fk0zbrD3kHDsPfvpDF
+vHStdPI8fyeJygwslAKAgEJNv9Vj7OFWBYap3Hn70jkLR+zAMRsKr4Or3b4PQCKq
+ZtOAvsX/zNSDVt50bwMhPmbWBE530bMy75n+cbLTPB1KgY1yT1o=
+=Ted2
+-----END PGP SIGNATURE-----
+
+--tr3oA7U7+SI63nqs--
 
