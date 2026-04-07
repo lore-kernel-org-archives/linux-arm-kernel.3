@@ -4,127 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0CDDFF5136
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 19:40:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A724FF513E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Apr 2026 20:44:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zfB2Vo9vdLlwf+b5CQXtw7Z//lquULPDQoRNbd6Zh9Y=; b=r0xKvCeg5sZHSc/abQKIA+BxOs
-	IXoFp430xVCuK7hvguxkLHbZK8o5k2GJAJC1/dy0lH/xqb7H8YrtFZV+u58vgpYLLCfHYKZcNcYGj
-	hse3zbTWYiLS3YBUTiKKPun9md5We6Z/X0EMdK0wcMYnBEhyz9hPRYjR8aoFY5sryklYevWLjba1H
-	y6jLodcqgp2lxHXR3f/ag28zIsvGY3SZatvouWXYX+AiKRWlvoTBmOc97M0EsojJWHZPQeSZmaeXJ
-	Vf/9MYGPJFljOmf4vgdSp7/xb7TwL615OqS4JDtfQvjAYPIroYZAUsZy9N95TjmOngaUJ9+PNLRxv
-	wGahXdHQ==;
+	bh=QEpYJNZFtz9B/pHhKHhy3x4ZNPm/kdA6HWB88/fNLBg=; b=FE89p2TSCMi/u8idQPT1v+0WVb
+	1HurfOptVytHnhnOx/4b4e8UGZsUdsQokuePVULjZUyGyK107SJcTrL776cMolOZg4sWTBdi7zre0
+	Rr4KUQPawtavsoRododEvpXn5iG0vL9FxPzcIs7z2wONmV+cVzYocbyrE3zMhQHaS1kCxqBkS0dwv
+	OTUMDPFKGSBoP9ZToepHS5tIjsmr98IfAJtTFkxZ1sosMU269ZHiVL+fGCUVJK9DicnXlDIgbh2ax
+	PLN+RUi3bbcXkasgks6AbtrxAhrUeWQ80Qsg8TmwYlyE+3bzfOLTHxz9jILGredl9Ox8BO7a69zoK
+	q2ZNaPMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wACHO-00000007ITq-0pRj;
-	Tue, 07 Apr 2026 19:40:06 +0000
+	id 1wADHM-00000007mXJ-0l66;
+	Tue, 07 Apr 2026 20:44:08 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wACHM-00000007IQq-0ZmG;
-	Tue, 07 Apr 2026 19:40:04 +0000
+	id 1wADHK-00000007mW8-2xps
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Apr 2026 20:44:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3BB9C60139;
-	Tue,  7 Apr 2026 19:40:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20F94C2BC9E;
-	Tue,  7 Apr 2026 19:40:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A5B5C600CB;
+	Tue,  7 Apr 2026 20:44:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12689C116C6;
+	Tue,  7 Apr 2026 20:44:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775590802;
-	bh=G6kWDg5ZKjWvzVWKZlcYhQ5fam5iGV3sa+XLqVTs0uY=;
+	s=k20201202; t=1775594645;
+	bh=ds5g5d0oS4MQyIT0BsNumaIh8fLF8x9rw6OQMpQU+uY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sDMsUKs11clmLqRSYOHdYemC/6eCCuTs/nd+pMdQ4HYBrZ2RMECvxE6SXi3Cq7Qt2
-	 Vq2KJvfW5GfXXZgHejEo9PnFH8x8Op63ZSvbJ0vvCU+be1qdWGNKDkx6MVC2iXkJUM
-	 qJwNyNeAg2v+RkrnDQoXDazkT2Endo1x/TFg5/uKx/qUeKnEug+ZIa1nMoI5aLlOEY
-	 qeo71REji+J04wTIEZliW+iwogjU+a6RnJJQAR1UJJBmXx/1Uxx/C0aQtgyu1LZY3r
-	 MsOztoq00b7hebIqtbESUzLc+vPI1CSIyx11Yg+4g+gy6/+6M0uFALPOC0AaMDWpzZ
-	 Kfy0Fs+ExLZRQ==
-Date: Tue, 7 Apr 2026 21:39:30 +0200
-From: Nicolas Schier <nsc@kernel.org>
-To: Miguel Ojeda <ojeda@kernel.org>
-Cc: Nathan Chancellor <nathan@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Brendan Higgins <brendan.higgins@linux.dev>,
-	David Gow <david@davidgow.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Arve =?iso-8859-1?B?SGr4bm5lduVn?= <arve@android.com>,
-	Todd Kjos <tkjos@android.com>,
-	Christian Brauner <christian@brauner.io>,
-	Carlos Llamas <cmllamas@google.com>,
-	Alice Ryhl <aliceryhl@google.com>, Jonathan Corbet <corbet@lwn.net>,
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>,
-	rust-for-linux@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
-	Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org,
-	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>,
-	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
-	nouveau@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-	Rae Moar <raemoar63@gmail.com>, linux-kselftest@vger.kernel.org,
-	kunit-dev@googlegroups.com,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v2 01/33] rust: kbuild: remove `--remap-path-prefix`
- workarounds
-Message-ID: <adVdctvoln3uRnSH@levanger>
-Mail-Followup-To: Nicolas Schier <nsc@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Brendan Higgins <brendan.higgins@linux.dev>,
-	David Gow <david@davidgow.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Arve =?iso-8859-1?B?SGr4bm5lduVn?= <arve@android.com>,
-	Todd Kjos <tkjos@android.com>,
-	Christian Brauner <christian@brauner.io>,
-	Carlos Llamas <cmllamas@google.com>,
-	Alice Ryhl <aliceryhl@google.com>, Jonathan Corbet <corbet@lwn.net>,
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>,
-	rust-for-linux@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
-	Uladzislau Rezki <urezki@gmail.com>, linux-block@vger.kernel.org,
-	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>,
-	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
-	nouveau@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-	Rae Moar <raemoar63@gmail.com>, linux-kselftest@vger.kernel.org,
-	kunit-dev@googlegroups.com,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, llvm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
-References: <20260405235309.418950-1-ojeda@kernel.org>
- <20260405235309.418950-2-ojeda@kernel.org>
+	b=uHhCe4tPmGbkZTpZN9Rrs8D9dJOiIv2+bHWFiMZ05TIVDwiWNoTVOdsISivUCHNdY
+	 uCuf/fSBK6RrsOStoyi2Okr5nk4MOznSQj10P3JNd/6irEulWYqNBPnKslaDUQIJ3f
+	 Hj+V7I+uJcQFzJAgHHV+lrK9Gb8PQDExW7z4fv93cQW++Ewq9qBpP2QPRoWGq0l6Et
+	 /r7HB6hAI23z8VWUxp+IfNQ/IyUTqRyP1I0y1UyTHm5Jv28gWGNiAAO2XFgdEKBAc0
+	 y5vUDrgnoN632A0GrlK152WVlrb87NPl6IEJCSqpqS1eBli2miQHa6Za+VbO/ZGA8h
+	 fBG0bbMHEtcfQ==
+Date: Tue, 7 Apr 2026 15:44:02 -0500
+From: Rob Herring <robh@kernel.org>
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: Jeremy Kerr <jk@codeconstruct.com.au>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	"andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>
+Subject: Re: [PATCH v28 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
+ global-regs and enable-dma properties
+Message-ID: <20260407204402.GA3641251-robh@kernel.org>
+References: <20260330-upstream_i2c-v28-0-17bdae39c5cb@aspeedtech.com>
+ <20260330-upstream_i2c-v28-2-17bdae39c5cb@aspeedtech.com>
+ <20260331-fanatic-certain-bustard-fb13bc@quoll>
+ <TY2PPF5CB9A1BE6F267C60EEC34B6A75400F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <09cbc12bea5707f794e139ea1bfafac82c2d2c12.camel@codeconstruct.com.au>
+ <TY2PPF5CB9A1BE6EA5BABE55EB8A7003D22F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <72517fcf99a7453841ee75243dc54e735c10238f.camel@codeconstruct.com.au>
+ <TY2PPF5CB9A1BE64B7988CD85A7189164E1F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260405235309.418950-2-ojeda@kernel.org>
+In-Reply-To: <TY2PPF5CB9A1BE64B7988CD85A7189164E1F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,56 +89,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 06, 2026 at 01:52:37AM +0200, Miguel Ojeda wrote:
-> Commit 8cf5b3f83614 ("Revert "kbuild, rust: use -fremap-path-prefix
-> to make paths relative"") removed `--remap-path-prefix` from the build
-> system, so the workarounds are not needed anymore.
-> 
-> Thus remove them.
-> 
-> Note that the flag has landed again in parallel in this cycle in
-> commit dda135077ecc ("rust: build: remap path to avoid absolute path"),
-> together with `--remap-path-scope=macro` [1]. However, they are gated on
-> `rustc-option-yn, --remap-path-scope=macro`, which means they are both
-> only passed starting with Rust 1.95.0 [2]:
-> 
->   `--remap-path-scope` is only stable in Rust 1.95, so use `rustc-option`
->   to detect its presence. This feature has been available as
->   `-Zremap-path-scope` for all versions that we support; however due to
->   bugs in the Rust compiler, it does not work reliably until 1.94. I opted
->   to not enable it for 1.94 as it's just a single version that we missed.
-> 
-> In turn, that means the workarounds removed here should not be needed
-> again (even with the flag added again above), since:
-> 
->   - `rustdoc` now recognizes the `--remap-path-prefix` flag since Rust
->     1.81.0 [3] (even if it is still an unstable feature [4]).
-> 
->   - The Internal Compiler Error [5] that the comment mentions was fixed in
->     Rust 1.87.0 [6]. We tested that was the case in a previous version
->     of this series by making the workaround conditional [7][8].
-> 
-> ...which are both older versions than Rust 1.95.0.
-> 
-> We will still need to skip `--remap-path-scope` for `rustdoc` though,
-> since `rustdoc` does not support that one yet [4].
-> 
-> Link: https://github.com/rust-lang/rust/issues/111540 [1]
-> Link: https://github.com/rust-lang/rust/pull/147611 [2]
-> Link: https://github.com/rust-lang/rust/pull/107099 [3]
-> Link: https://doc.rust-lang.org/nightly/rustdoc/unstable-features.html#--remap-path-prefix-remap-source-code-paths-in-output [4]
-> Link: https://github.com/rust-lang/rust/issues/138520 [5]
-> Link: https://github.com/rust-lang/rust/pull/138556 [6]
-> Link: https://lore.kernel.org/rust-for-linux/20260401114540.30108-9-ojeda@kernel.org/ [7]
-> Link: https://lore.kernel.org/rust-for-linux/20260401114540.30108-10-ojeda@kernel.org/ [8]
-> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
-> ---
->  rust/Makefile | 8 ++------
->  1 file changed, 2 insertions(+), 6 deletions(-)
-> 
+On Tue, Mar 31, 2026 at 07:30:58AM +0000, Ryan Chen wrote:
+> > Subject: Re: [PATCH v28 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add global-regs
+> > and enable-dma properties
+> > 
+> > Hi Ryan,
+> > 
+> > > > Sounds reasonable, but before you do so, how are you planning to
+> > > > manage the allocation of DMA channels across multiple i2c peripherals?
+> > > >
+> > > The AST2600 I2C hardware has only one can use DMA at a time.
+> > > To avoid the complexity of managing DMA channel contention, I plan to
+> > > use buffer mode by default for all controllers, which still provides
+> > > better performance than byte mode without requiring DMA channel
+> > allocation.
+> > 
+> > OK, but your wording there ("by default") implies that DMA is still selectable
+> > for one controller peripheral. In which case: you still have the problem of
+> > managing DMA channel contention, but now it's at runtime instead.
+> > 
+> > So my question still stands: how are you planning to enforce that DMA is only
+> > enabled for one controller?
+> > 
+> > Or are you planning to disable I2C DMA entirely on AST2600?
+> Yes, This is my intent to do.
+> Disable I2C DMA entirely on AST2600.
+> If I remove DMA, should can I keep byte and buffer for sysfs? 
 
-Acked-by: Nicolas Schier <nsc@kernel.org>
+28 versions and it's still not clear when you need what mode. Sigh. The 
+only thing better about sysfs then it's not my problem, but that really 
+doesn't sound much better.
 
--- 
-Nicolas
+DMA is only going to be useful for transfers above a certain size. If 
+you are doing the typical SMBus style register accesses, then DMA is 
+completely useless. The setup DMA overhead is going to be greater than 
+just directly reading/writing the I2C controller FIFOs. What's the size 
+that makes DMA useful? 16, 32, 64 bytes? Something greater than the max 
+size in buffer mode probably. Really, provide some data that DMA gives 
+better performance and/or less CPU usage. If you set some minimum size 
+and request DMA only above that size, is there really that much 
+contention? If there's some specific device that really needs DMA, then 
+make that device's driver request it and reserve it. 
+
+For byte mode, there's not a clear need nor description of why. Someone 
+once long ago asked for it... Who cares, if they really want it, then 
+the issue needs to be described. If a certain device requires certain 
+timing that byte mode provides, then that should be some property the 
+driver for the device communicates to the controller. No need for DT 
+nor sysfs in that case.
+
+Rob
 
