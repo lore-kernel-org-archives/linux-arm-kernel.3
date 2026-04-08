@@ -4,57 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 528471073C89
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 10:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98FCC1073C89
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 10:20:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tfy5jiFp/cBoNobPRB+UM61E0Er5prxDKhEY2yXZxGs=; b=t5rtAMkb0Xy4jS6104M5I+juQQ
-	Pw14oAwsl6T0dCn04fW4ug7wHjVCozhQF2WMeYG+N6fZdhcTpYrM2E4fvKlnOP+iNcj/QCXGO1wjz
-	cZKNqieU5R22Jts7vTNLplI/IgvMa5P49MHCdhCX2TYw9beReWTbnVrxspKdC/w5qA9BPxezC0Xc5
-	L91QZW5YR4TOEtpXxZDcjdFc1nxoeYoQOZLvpDinOTUyaw30M1g5ctbWoKS8BDh/asoK3trs5JKOB
-	wLY/SziKTrDnc5he/OZ8UiWGbLsiCXDBKdFw245L5E0r2tR3CKPija9FjS+n+zI2lVa4MqCgg/8c/
-	XVbjTJUw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tZSUNgoKuiFadjEFerCS0nKsIpd3Tqofym8ba1BATyM=; b=avEk+FMWJqYifbYWY+8QfzsJqQ
+	dwpRtyhawmKT/5g9alyo/9PoWgEO7z7u8V5i9+7TfXMqao1MFC4IHPVSPS4DikDMe1pPud6iLFkAv
+	GU6HSvZZYwfnxPXKNiIm9We0nhOdhDYrMI52ZfUHjeLGcb5rWVDISNvjs4f5vhKM8dxF4L34PDh1a
+	BCQ3+7iH3UcY/w8kuNeh51BdN1TALfo97NcHbgEDFCZjfQOuUtg+2JZfBu3BzlEv/v7zn5ayO++Ig
+	KCzJAW7AW1bI83auSWO53Qb6jbsntZpQbymvbDm/T0qtHb+01ErLKwvdbCwumX9x3Fih7vt/k0BEC
+	+SzBfRbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAQ0U-00000008fvI-0AdR;
-	Wed, 08 Apr 2026 10:19:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAQ0Q-00000008fuT-28il
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 10:19:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7DFFD3161;
-	Wed,  8 Apr 2026 03:19:23 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E5C383F632;
-	Wed,  8 Apr 2026 03:19:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775643569; bh=WmwShQzYPknrvR6gU+R3HWsVbnrmnJ8t4GkPvqjeMrQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZJew61uDwLQN40laHPY+cuqofDDJwusjf1MGnV8buURble+uWv5/H726yZIUptZJP
-	 yeXzuZU0vhSkzcNqgpL+XLLn4qZA6wwkIyUFlQogV/pjiDufpQY7dtC+YZ9phGRVW9
-	 U0LdJtNHzSFgiKEJlhRC9PUwtfQliPcbK99neOr8=
-Date: Wed, 8 Apr 2026 11:19:25 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Subject: Re: [PATCH 05/10] entry: Split preemption from
- irqentry_exit_to_kernel_mode()
-Message-ID: <adYrrUU7bk0ewCgp@J2N7QTR9R3>
-References: <20260407131650.3813777-1-mark.rutland@arm.com>
- <20260407131650.3813777-6-mark.rutland@arm.com>
- <2d647257-f14b-efac-0d46-ef8aa643393d@huawei.com>
+	id 1wAQ1d-00000008g71-1hG1;
+	Wed, 08 Apr 2026 10:20:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAQ1b-00000008g6U-1oyg;
+	Wed, 08 Apr 2026 10:20:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DC9B7600AD;
+	Wed,  8 Apr 2026 10:20:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41E71C19421;
+	Wed,  8 Apr 2026 10:20:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775643642;
+	bh=ABZLM89td49tEIN7UAY05XdHZIYCDOKvcEo6PPPXL4g=;
+	h=From:Date:Subject:To:Cc:From;
+	b=UylZGa91eIst3xrkGSx8Rv7QKeB4U9GXaeu3sGozFpC1+cKpVH/MXGk6NsfglblLL
+	 mJp5oRaoxD7E/OCKVrB7F6GtchmH7J0ad1p1WZa4f0vL+9m9IEPkBFjaJkZvCo9IrZ
+	 v/US7MRVyxLnEt8HZ0slSyAX4v7Jf1ckbOe2+kjAx5OtPxk5akENyPL0KoEsQDpa5i
+	 xLB3tiR12atgVp+K8PWFGO2q2THEUrKenlmyR2X9KtakFLaq0MRdUvpgtQE20+nXZ9
+	 VAjyWK+5Z/UUt8bxu8N1LUkesug4MJ08hq+Trt1fMkmtm7Nu54p7KuFMPdOQaSiR9q
+	 Kzi9pV2XAEM3Q==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Wed, 08 Apr 2026 12:20:09 +0200
+Subject: [PATCH net] net: airoha: Fix FE_PSE_BUF_SET configuration if PPE2
+ is available
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2d647257-f14b-efac-0d46-ef8aa643393d@huawei.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_031930_712795_CF54098A 
-X-CRM114-Status: GOOD (  36.86  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260408-airoha-reg_fe_pse_buf_set-v1-1-0c4fa8f4d1d9@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQ6CMBBG4auQWdOkVhHkKsY0A/yF2RQyg8aEc
+ Hcbl9/ivYMMKjDqq4MUHzFZc8GlrmhcOM9wMhVT8OHub75zLLou7BRzTIibIQ7vFA27uz64bTA
+ NTRiZSr8pknz/7ydl7PQ6zx+1t6AOcAAAAA==
+X-Change-ID: 20260408-airoha-reg_fe_pse_buf_set-39a75edb52ca
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Xuegang Lu <xuegang.lu@airoha.com>, Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,141 +72,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: vladimir.murzin@arm.com, Peter Zijlstra <peterz@infradead.org>, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>, Andy Lutomirski <luto@kernel.org>, will@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 08, 2026 at 05:17:29PM +0800, Jinjie Ruan wrote:
-> 
-> 
-> On 2026/4/7 21:16, Mark Rutland wrote:
-> > Some architecture-specific work needs to be performed between the state
-> > management for exception entry/exit and the "real" work to handle the
-> > exception. For example, arm64 needs to manipulate a number of exception
-> > masking bits, with different exceptions requiring different masking.
-> > 
-> > Generally this can all be hidden in the architecture code, but for arm64
-> > the current structure of irqentry_exit_to_kernel_mode() makes this
-> > particularly difficult to handle in a way that is correct, maintainable,
-> > and efficient.
-> > 
-> > The gory details are described in the thread surrounding:
-> > 
-> >   https://lore.kernel.org/lkml/acPAzdtjK5w-rNqC@J2N7QTR9R3/
-> > 
-> > The summary is:
-> > 
-> > * Currently, irqentry_exit_to_kernel_mode() handles both involuntary
-> >   preemption AND state management necessary for exception return.
-> > 
-> > * When scheduling (including involuntary preemption), arm64 needs to
-> >   have all arm64-specific exceptions unmasked, though regular interrupts
-> >   must be masked.
-> > 
-> > * Prior to the state management for exception return, arm64 needs to
-> >   mask a number of arm64-specific exceptions, and perform some work with
-> >   these exceptions masked (with RCU watching, etc).
-> > 
-> > While in theory it is possible to handle this with a new arch_*() hook
-> > called somewhere under irqentry_exit_to_kernel_mode(), this is fragile
-> > and complicated, and doesn't match the flow used for exception return to
-> > user mode, which has a separate 'prepare' step (where preemption can
-> > occur) prior to the state management.
-> > 
-> > To solve this, refactor irqentry_exit_to_kernel_mode() to match the
-> > style of {irqentry,syscall}_exit_to_user_mode(), moving preemption logic
-> > into a new irqentry_exit_to_kernel_mode_preempt() function, and moving
-> > state management in a new irqentry_exit_to_kernel_mode_after_preempt()
-> > function. The existing irqentry_exit_to_kernel_mode() is left as a
-> > caller of both of these, avoiding the need to modify existing callers.
-> > 
-> > There should be no functional change as a result of this patch.
-> > 
-> > Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> > Cc: Andy Lutomirski <luto@kernel.org>
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Jinjie Ruan <ruanjinjie@huawei.com>
-> > Cc: Peter Zijlstra <peterz@infradead.org>
-> > Cc: Thomas Gleixner <tglx@kernel.org>
-> > Cc: Vladimir Murzin <vladimir.murzin@arm.com>
-> > Cc: Will Deacon <will@kernel.org>
-> > ---
-> >  include/linux/irq-entry-common.h | 26 +++++++++++++++++++++-----
-> >  1 file changed, 21 insertions(+), 5 deletions(-)
-> > 
-> > Thomas/Peter/Andy, as mentioned on IRC, I haven't created kerneldoc
-> > comments for these new functions because the existing comments don't
-> > seem all that consistent (e.g. for user mode vs kernel mode), and I
-> > suspect we want to rewrite them all in one go for wider consistency.
-> > 
-> > I'm happy to respin this, or to follow-up with that as per your
-> > preference.
-> > 
-> > Mark.
-> > 
-> > diff --git a/include/linux/irq-entry-common.h b/include/linux/irq-entry-common.h
-> > index 2206150e526d8..24830baa539c6 100644
-> > --- a/include/linux/irq-entry-common.h
-> > +++ b/include/linux/irq-entry-common.h
-> > @@ -421,10 +421,18 @@ static __always_inline irqentry_state_t irqentry_enter_from_kernel_mode(struct p
-> >  	return ret;
-> >  }
-> >  
-> > -static __always_inline void irqentry_exit_to_kernel_mode(struct pt_regs *regs, irqentry_state_t state)
-> > +static inline void irqentry_exit_to_kernel_mode_preempt(struct pt_regs *regs, irqentry_state_t state)
-> >  {
-> > -	lockdep_assert_irqs_disabled();
-> > +	if (regs_irqs_disabled(regs) || state.exit_rcu)
-> > +		return;
-> > +
-> > +	if (IS_ENABLED(CONFIG_PREEMPTION))
-> > +		irqentry_exit_cond_resched();
-> > +}
-> >  
-> > +static __always_inline void
-> > +irqentry_exit_to_kernel_mode_after_preempt(struct pt_regs *regs, irqentry_state_t state)
-> > +{
-> >  	if (!regs_irqs_disabled(regs)) {
-> >  		/*
-> >  		 * If RCU was not watching on entry this needs to be done
-> > @@ -443,9 +451,6 @@ static __always_inline void irqentry_exit_to_kernel_mode(struct pt_regs *regs, i
-> >  		}
-> >  
-> >  		instrumentation_begin();
-> > -		if (IS_ENABLED(CONFIG_PREEMPTION))
-> > -			irqentry_exit_cond_resched();
-> > -
-> >  		/* Covers both tracing and lockdep */
-> >  		trace_hardirqs_on();
-> >  		instrumentation_end();
-> > @@ -459,6 +464,17 @@ static __always_inline void irqentry_exit_to_kernel_mode(struct pt_regs *regs, i
-> >  	}
-> >  }
-> >  
-> > +static __always_inline void irqentry_exit_to_kernel_mode(struct pt_regs *regs, irqentry_state_t state)
-> > +{
-> > +	lockdep_assert_irqs_disabled();
-> > +
-> > +	instrumentation_begin();
-> > +	irqentry_exit_to_kernel_mode_preempt(regs, state);
-> > +	instrumentation_end();
-> 
-> I think the below AI's feedback makes sense. Directly calling
-> irqentry_exit_to_kernel_mode_preempt() on arm64/other archs could lead
-> to missing instrumentation_begin()/end() markers.
-> 
-> https://sashiko.dev/#/patchset/20260407131650.3813777-1-mark.rutland%40arm.com
+airoha_fe_set routine is used to set specified bits to 1 in the selected
+register. In the FE_PSE_BUF_SET case this can due to a overestimation of
+the required buffers for I/O queues since we can miss to set some bits
+of PSE_ALLRSV_MASK subfield to 0. Fix the issue relying on airoha_fe_rmw
+routine instead.
 
-I deliberartely made irqentry_exit_to_kernel_mode_preempt 'inline'
-rather than '__always_inline' since everything it does is
-instrumentable, and it's up to architecture code to handle that
-appropriately.
+Fixes: 8e38e08f2c560 ("net: airoha: fix PSE memory configuration in airoha_fe_pse_ports_init()")
+Tested-by: Xuegang Lu <xuegang.lu@airoha.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_eth.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-On arm64 instrumentation_begin() and instrumentation_end() are currently
-irrelevant. I didn't add those in the arm64-specific entry code as
-they'd simply add pointless NOPs.
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 91cb63a32d99..c365d693cf40 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -293,16 +293,18 @@ static void airoha_fe_pse_ports_init(struct airoha_eth *eth)
+ 		[FE_PSE_PORT_GDM4] = 2,
+ 		[FE_PSE_PORT_CDM5] = 2,
+ 	};
+-	u32 all_rsv;
+ 	int q;
+ 
+-	all_rsv = airoha_fe_get_pse_all_rsv(eth);
+ 	if (airoha_ppe_is_enabled(eth, 1)) {
++		u32 all_rsv;
++
+ 		/* hw misses PPE2 oq rsv */
++		all_rsv = airoha_fe_get_pse_all_rsv(eth);
+ 		all_rsv += PSE_RSV_PAGES *
+ 			   pse_port_num_queues[FE_PSE_PORT_PPE2];
++		airoha_fe_rmw(eth, REG_FE_PSE_BUF_SET, PSE_ALLRSV_MASK,
++			      FIELD_PREP(PSE_ALLRSV_MASK, all_rsv));
+ 	}
+-	airoha_fe_set(eth, REG_FE_PSE_BUF_SET, all_rsv);
+ 
+ 	/* CMD1 */
+ 	for (q = 0; q < pse_port_num_queues[FE_PSE_PORT_CDM1]; q++)
 
-This is fine as-is.
+---
+base-commit: f821664dde29302e8450aa0597bf1e4c7c5b0a22
+change-id: 20260408-airoha-reg_fe_pse_buf_set-39a75edb52ca
 
-Mark.
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
