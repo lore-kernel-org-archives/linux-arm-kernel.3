@@ -4,148 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E85AD105D991
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 01:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43372EDB7D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 01:32:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GSGmrOTPb4kMD7vUZS33vJyiKjk/oOEgxvQa/PZhSNI=; b=JVrQNIVIXCE+YDN4ESI74KWm6A
-	rgsbvSbloH01hB8Syj2zd++hORyLDAe59N67lDqYt+5XLuoXtsotUwTyht1NW+b5SS+esSXHxACaH
-	uRd+BhHxxEaS0fQRP93tdO/Z58xRORWIhu9qQ943NCqJL0PTATjRgnbOveTgTsxQEPK7M9h03o7xg
-	9kM0bHhVqcTiP2YLNuysgMRLIOd3jXbMHmbPaBlGI8xTD1mVsA0lqRK2rDPv0ylxnZ1cvlm7n7Zca
-	iyTw/5bnXp36Vv38Dq0tnw2mUjW5x4SxMtD9JtXA+rRBSxpRddwlNbj4UHs62aKA2EWL2gZBVAZI1
-	//TxIK9Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=i71DOn1eQlVy3RHO0lwG06HsEPKcVS2safwkiypaTmk=; b=nUz17iZ3CZqmFP
+	ivijJwKmi08UPpwdSGRPS5GDOEhe0X5LsJRvNM29YbAvIVBnVMnrx3tGLlvW85PxEsjfdLlwjDoxK
+	CWDDFFgWenN48FMgFJDe6UkdEp0z78K/hxykCIHw3TAPPQgzehBDZQ6/qti9fdt3N9auCLhTmnM6U
+	6SE4mIh0qlSGFZo1psYjI12KjqhphB/MjjsXOf2Tu+FXQEvo+opwAdX9CDoKyFn6v07hQ9m7ByXu7
+	Gsj6zM3WCdyNh8x48dEIu1TmpsJqRicJl0zjW5y1ZpW6PsgLBEK0coorwbjGgKGIWLE6Unv8zv1hh
+	l8BDlGRqJnbgFQtbadng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAHkQ-000000085OQ-3S4O;
-	Wed, 08 Apr 2026 01:30:26 +0000
-Received: from mail-westeuropeazon11013046.outbound.protection.outlook.com ([52.101.72.46] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wAHmW-000000085W8-10Tc;
+	Wed, 08 Apr 2026 01:32:36 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAHkO-000000085O2-40YG
+	id 1wAHmS-000000085Vk-461C
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 01:30:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fIZQUJhYn7xEfz2uSoUBjvUsQ9Gs+4ieD9sXh0sqHWabYdotT9WwA8mIEzw9H2PU/mrsCDRNHy/VJcz04h6P7kJis5cybuKqUdtdIhmOawGuQ+KcZEBcQK94KXmr7v164xgIsnvvhnpynX9H3yx6SOOVfMU8ZsaFdkHeD4An5HfqR2mgaQEu84CpzeK8gQrFuvPf1yInq+IoU3HbGOe+gmwWkQP7dsc+TcmUuOdiTry07j4jxH+2XO+lrR4sAU6pOiSvA5zmA3IHAiuwAcdrBkETNf6l3aL1lBtbyzhEzkW7Hpk83j347UEMyeMivFt7bwKyrOp4h5NedD8bdI9phw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GSGmrOTPb4kMD7vUZS33vJyiKjk/oOEgxvQa/PZhSNI=;
- b=OUzmg4ZVmAyHdahzCZaY4fbE4tyythzSE4NcBAgsVwA+voSiKvuTtTTFEoa0B2VCpak/ggw0Its09Qp/uSL4D5YVsBrdw0MnBonJZiu5G46hczeIb67ShMT9X/sNChEqM63F2sDdJVD5oLNGAK6mS9lkwLwCBISPGAZw9LoDfVXcWUi//47e/PzGi+JWb954JNaWaT2LyYcTG7ndSLX/DyMQtij/Fe8Onzs6M0P5b/v9249Of7mtPBIyJj9PIL3suoIkPAsv+s8pHk6BanPoJ2ySWI5qp+rUmBYVioMlv0bz2ICXPZWpymjQQpz1EuGfFPWtiNTC7I6864bZK9Ttfw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GSGmrOTPb4kMD7vUZS33vJyiKjk/oOEgxvQa/PZhSNI=;
- b=nYeeHAcl0SjOH8AmzzzM01WzhhxXsQRpl9S5H+sm/UVvteldx1n2oZ1QTB2BFAE+nZKJ5jaJbWE0WOBa6HqHqndXgjw/Pvc3eXZ9fqt37WIc8WNaweypSyzcJt1s4NCXxRoCsmZE9SWpXERVG6ACH55I8hRNTMllr8kEJXqzQcB50+2ntYPix3XLpbBbxVTSren6ehfMfHFwYU/uRQrWjiQBm00dCkhfCnaFHKn7Y8QWHOtwD6N7J8wejHoP+K4aOCObJqNj45WoNkCNoF5LHIeCMz4R2B8XNMMWdu+29cINPcKnVWnfWf9vEZSPMe8BcJ61jz2lApy0PK3tu73CDg==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DU0PR04MB9227.eurprd04.prod.outlook.com (2603:10a6:10:352::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 8 Apr
- 2026 01:30:16 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%3]) with mapi id 15.20.9723.030; Wed, 8 Apr 2026
- 01:30:16 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>, "Peng Fan (OSS)"
-	<peng.fan@oss.nxp.com>
-CC: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, Daniel Baluta <daniel.baluta@nxp.com>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v2 2/3] remoteproc: imx_rproc: Pass bootaddr to SM CPU/LMM
- reset vector
-Thread-Topic: [PATCH v2 2/3] remoteproc: imx_rproc: Pass bootaddr to SM
- CPU/LMM reset vector
-Thread-Index: AQHcvZMMZcXx1YnQb0Wxg/HvT7VMArXHR6+AgACvKwCAC9HgAIAAo2qw
-Date: Wed, 8 Apr 2026 01:30:16 +0000
-Message-ID: <PAXPR04MB8459AA009C932EB9D6139A11885BA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20260327-imx943-rproc-v2-0-a547a3588730@nxp.com>
- <20260327-imx943-rproc-v2-2-a547a3588730@nxp.com> <acqjS440STRl2sK2@p14s>
- <acs2PAZq2k3zjmDW@shlinux89> <adUghiyZbe3fmcNX@p14s>
-In-Reply-To: <adUghiyZbe3fmcNX@p14s>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DU0PR04MB9227:EE_
-x-ms-office365-filtering-correlation-id: 27e3b8e2-04c7-4655-9feb-08de950e63b9
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|7416014|38070700021|56012099003|18002099003|22082099003;
-x-microsoft-antispam-message-info: nzSGKs4g23/AqpPdq+cm7u71KJN/B1p/+pz/Hy+m6JYRt9dn9rTBOwk2x2I5vh+wbjbfEIt5IYUl+ly70mQ1XASHuoRK3rAXSOYknLKDCOpSwzqXA2ffhkniyPwAKcNJTuxXDPgM70AJK+sG5t1k7W4R3rmcylIXobcs22aNozkgwX8dT911hH5Ha/z0yUYmxUxitTA6xJ9I56KlWpSRzsBLVwjSUsYGpeY80Kj294mgxm5mNozaZXGdakVpL2x7/BcOs0+ly0qtwa/j+3L74BIJcH0sEjzLrKG7ClE7ldaveIfWgLVIU7nIutKaO4CGadmduHWzNM3IIubOeKlp9ykIc4ZJgivcZIzF9BCDUwrg0Hp8VH8x3Cs7hjv+pvRRmOEfxY4JpWqCnJ0Dodrs3qpzQrYq48dfPfdg+sX+uaCowjQDVlG0NYneO4KmCXgEV+TECnfKB50wvN4FXPT4Gng3jfUp7ZVCAgZpzph3gUUIOG0GwCNuaNCw+iy9EUz+3l7+Z9xsTsJUYrsORm7ZUtD6dAQJrUkfq9MwJToLXkUQr4GR1XFr2qBt9nzMHWF068cmGgo43iIDGhu91Be1lDbfX5XhSxjoGDKc5yQkS49YJj1PAkUv08AebWqlvpnGiMoo3DnseDPQGJv/sI9SnATSg15Qn6ZDhNpTNoe9I6TPFn0Qef01ac0za4N6EZeDn+LjOIrZ2FWfvuB8IXtqmBQ0T50vQK2YvsgNnz5MdVPf6bl2DFemtA8RF1OMb29kXua4uFLATAkE9oUEBFV6VRtuNBSLo88d7SUrbdqK4nk=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(7416014)(38070700021)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?aTU2dDRxM3pUa3E1Y2E4My9Zck9BTGJBVlpqblNTVUhoeU9GTmc1MlRxSEph?=
- =?utf-8?B?VVpSQjh5ajhwdFg1UUZjbTRuV3JyYmU4ZmRpV2FtK2xhMTFrK3AvQzZiNlVn?=
- =?utf-8?B?UWhCRVB3blFWbnhDWUVNQUdSYjlDM0E5VS9STk5Wam9nYzdMZmVXNW5sV0pG?=
- =?utf-8?B?SmpadUVnejlMUzI3TnVpTU5uNDlESUs3OFBvZWNkSmREZSs5aVNmUjFteFVp?=
- =?utf-8?B?N0Y2YmtiQTJuSzV5L0hMYWJ4NTUwS1YxSVFGVUZmUWtvRXU0TDArUVdtUGY0?=
- =?utf-8?B?bHVRSDRZa0NPdjJkZktMcXFJd2F5bGZvclVtVGNOQU93L3FKV0hzVHJXaUdV?=
- =?utf-8?B?UDg1bGxqbGlnMXVDZVZaUmk4WDFDSjluQjdOZVBDVVpDUHFNSWVHcUVTNUpL?=
- =?utf-8?B?VHNjMzBLaGxHcTVKSG9aUFZrWEZsZkpydms2ektTK2ZnRE54aGQ2anVvRnlk?=
- =?utf-8?B?dnJRZktTK3JQT3JpUFp1T0FYd0t6bTRXbWp6QnV2Y3NCaFNGdlRlTVU4WEhQ?=
- =?utf-8?B?bVBHTVZqTkRiVWM5ZE9UdzdYd2N5Ly9KY2loME1IVThRbXZjYUxQNU9FWVBu?=
- =?utf-8?B?bldqN0VsR2pJSlVYckRwMVFoNSt2Y0gxaWp2UWV5ZmZha0FMVjQzZWgrYnZD?=
- =?utf-8?B?ajkyYWptQ1JCdVA0bVYrT2pqblFTQkJHdklERzVVTERDQ1VlcEVsV2Q3eGFN?=
- =?utf-8?B?eUNyUWNJRms5ZUhXUmVaMFpReUx6UEhYby92S0hHQVpicVpQcXpBK3JSSGM3?=
- =?utf-8?B?R0Z6MFJFYWNHWWFibTFvWFZud3JWWmdOSlIweHBWQ2ZWaXBSNjFZaENtYmwz?=
- =?utf-8?B?aU1yWHBKdVhpWS9VcW53NERZbm9nTEtrVTVOUDFwdUwrb0RwWUdtZVptdjI3?=
- =?utf-8?B?TGdsR2wwVnBWNmFPRnQvejYzek44R1pocWpmbWtVeVIvWnl2SFRpTnlGV0E1?=
- =?utf-8?B?OTNmVi9rMXVSUDMrSURxU3VIQkJ5RzdJaHJrbGdRZUdWNEZ1bEdoT0o5ejJW?=
- =?utf-8?B?UGZWQkU0RTRjMm9MMm1zUFdqRTlKZG9iTTJWZ0UxZjVMU0syd2JPd3BuWHZ1?=
- =?utf-8?B?Q05sSHpzVUJwWTdhbVB3RjNBRU85QlgreFk3aTM2R2tFcEVYWmovekpZcTFV?=
- =?utf-8?B?bHE4Tlk5YUgzcEpHTG1HQm94b0ZDVDM0KzlrWXorVE1qM3NsdzllOWozT3pI?=
- =?utf-8?B?THZsTjg0TnVObzJlZnU5MFA2SGhGYWt3RDBqbU02S0UxU2s5bGRJSGhnUUFk?=
- =?utf-8?B?Qmg2Ym0zUXNKRWFtendmUURJa1ZaSnZBMVlPaGd6alFXV1R5SkNkMXhNV3h1?=
- =?utf-8?B?NmREUHAyL09FUExZb0Mxa1lLZm9ubGpkZzMrdFZxY2VOYTZyV3VxVm9RZ3hU?=
- =?utf-8?B?ZXM0VzhoRjAxdkVvVFNZbUZzUlFQR1VZYklJbi9ZdkxOeTRhQ291UzdVZ3hP?=
- =?utf-8?B?U1ZRTkdaRjRPZmhKWnFUbUNQNDZub1ZGTThxUTZiODMyS2tIZkltcUxNZ01x?=
- =?utf-8?B?MnZ1bWNwbGtORDd6TEFINnRWcW9XS3NpRDM0VTN5Ti9oemtqYmNzQjR3NEdE?=
- =?utf-8?B?TWFjTTRaOWcvYjNIZDhhNjRGZ2x6MU1WOVJzRWlzWHFDTTIxSWtRNDZONzlU?=
- =?utf-8?B?Z2NQQjVYcWIzQzlWeW1mYWlNRERmVERYOFVNa1NUUkpJb0JUTk1VVG9BNlYz?=
- =?utf-8?B?QjFGdFoyYzk2dU5KMmE3bmhWTGdDM2tuQ0ZiQkRoVVJSc2lyMXJDKzFhbXJa?=
- =?utf-8?B?cWdqV2svTDNOdHNZT29TNDBFb2R5ZzFXK3R3MEw2d3hNOGxaYzh2aVR5UE5n?=
- =?utf-8?B?dUZKcEQzbzF6V3hqTXZyK0FYNjJoV3hSVDJYQ1pUUGplUzlsN2pOcFI4cm8v?=
- =?utf-8?B?TTNBNStiNlBReDY5RC9lQlZ6bXhockF2ZGdhYnZ1WXQvelQrNXljU3Rzemgz?=
- =?utf-8?B?RnB0WXVEWmtMSERSN1l0VlRjSmZtYU8wbnVJb1BYVWhSakt2dGJ5eE52ZjY4?=
- =?utf-8?B?VFFYTk9wZFo0eEJOUi9YL3hyYXpEMHYvNEF6bjVjcFI0VzluV0h3bGhydXZC?=
- =?utf-8?B?WnBzelM4ZlF2UTE3M1A4WXBqdmZaek5QQk9ER3FubFl6M2xqY3ZYNWhZdHo0?=
- =?utf-8?B?MElKRzBHSjJWSVRjYXhwaDIwbWZzNml3R2xuc0w3MEltRXYrUFNCRlpyYVM0?=
- =?utf-8?B?eG5GNXk4a0d2TWtSbVpSSTVodm5VV0MxMDBGNzU5M3hTQ0NHVlJvcmZpN1lF?=
- =?utf-8?B?K3BUMEw1MzVpcnVUVGdmdUh3bVdNdjZZK3NoU0lSQ0Z6c0xXd2wzai81TTgy?=
- =?utf-8?Q?AAGVNr27XltpOlUoZ1?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Wed, 08 Apr 2026 01:32:35 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=i71DOn1eQlVy3RHO0lwG06HsEPKcVS2safwkiypaTmk=;
+	b=dUevUCE8ot43J+DCFTe3y1HXnxQaA0J7vEUIZWO9kKSE8bgApOhLtruULsmePBACN6ynojy7X
+	17KmH/N5VOo3EyPSSpjZDcHPpaeOucgak2f4V++K76tSeSKKcqFWFh6Wl8r0+IVwjJwcgm2uwql
+	gSBlFgXALyFOMNeSOKf5XXw=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4fr54N49xwzRhST;
+	Wed,  8 Apr 2026 09:26:12 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7442E4048F;
+	Wed,  8 Apr 2026 09:32:26 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 8 Apr 2026 09:32:25 +0800
+Message-ID: <cf193245-0877-6fa3-23c9-9b84946388be@huawei.com>
+Date: Wed, 8 Apr 2026 09:32:22 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 27e3b8e2-04c7-4655-9feb-08de950e63b9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Apr 2026 01:30:16.8225
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: FFfxhrzSlAlfPA3kRCYSQfkYFjQraxadB2GqhfwSRPklGemASGsHfWdlpl9Z+W6aBLEE+1uiBLk4fyxqE1K6WQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9227
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH 04/10] entry: Split kernel mode logic from
+ irqentry_{enter,exit}()
+Content-Language: en-US
+To: Mark Rutland <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>
+References: <20260407131650.3813777-1-mark.rutland@arm.com>
+ <20260407131650.3813777-5-mark.rutland@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260407131650.3813777-5-mark.rutland@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_183025_016181_139802CB 
-X-CRM114-Status: GOOD (  18.34  )
+X-CRM114-CacheID: sfid-20260407_183233_369993_A29C99B9 
+X-CRM114-Status: GOOD (  48.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,48 +78,313 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: vladimir.murzin@arm.com, will@kernel.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBTdWJqZWN0OiBSZTogW1BBVENIIHYyIDIvM10gcmVtb3RlcHJvYzogaW14X3Jwcm9jOiBQYXNz
-IGJvb3RhZGRyIHRvDQo+IFNNIENQVS9MTU0gcmVzZXQgdmVjdG9yDQo+IA0KWy4uLl0NCj4gDQo+
-ID4NCj4gPiBBbGlnbmluZyB0aGUgRUxGIGVudHJ5IHBvaW50IHdpdGggdGhlIGhhcmR3YXJlIHJl
-c2V0IGJhc2Ugb24NCj4gQ29ydGV44oCRTQ0KPiA+IHN5c3RlbXMgaXMgcG9zc2libGUsIGJ1dCBp
-dCBjb21lcyB3aXRoIHNldmVyYWwgcmlza3MuDQo+IA0KPiBJJ20gbm90IGFza2luZyB0byBhbGln
-biB0aGUgRUxGIGVudHJ5IHBvaW50IHdpdGggdGhlIGhhcmR3YXJlIHJlc2V0IGJhc2UuDQo+IEFs
-bCBJIHdhbnQgaXMgdG8gaGF2ZSB0aGUgY29ycmVjdCBzdGFydCBhZGRyZXNzIGVtYmVkZGVkIGlu
-IHRoZSBFTEYgZmlsZQ0KPiB0byBhdm9pZCBoYXZpbmcgdG8gdXNlIGEgbWFzay4NCg0KSSBzZWUs
-IHBlciBteSB1bmRlcnN0YW5kaW5nOg0KRnJlZVJUT1MgdHlwaWNhbGx5IGV4cG9zZXMgX19pc3Jf
-dmVjdG9yLCB3aGljaCBjb3JyZXNwb25kcyB0byB0aGUgaGFyZHdhcmUNCnJlc2V0IC8gdmVjdG9y
-IHRhYmxlIGJhc2UuDQpaZXBoeXIgKENvcnRleOKAkU0pIGV4cG9zZXMgX3ZlY3Rvcl90YWJsZSwg
-d2hpY2ggc2VydmVzIHRoZSBzYW1lIHB1cnBvc2UuDQpJIGFtIG5vdCBjZXJ0YWluIGFib3V0IG90
-aGVyIFJUT1NlcywgYnV0IHRoZSBwYXR0ZXJuIHNlZW1zIGNvbnNpc3RlbnQ6DQp0aGUgdmVjdG9y
-IHRhYmxlIGJhc2UgaXMgYWxyZWFkeSBhdmFpbGFibGUgYXMgYSBuYW1lZCBFTEYgc3ltYm9sLg0K
-DQpHaXZlbiB0aGF0LCBpZiB0aGUgcHJlZmVycmVkIGFwcHJvYWNoIGlzIHRvIHBhcnNlIHRoZSBF
-TEYgYW5kIGV4cGxpY2l0bHkNCnJldHJpZXZlIHRoZSBoYXJkd2FyZSByZXNldCBiYXNlLCBJIGNh
-biB1cGRhdGUgdGhlIGltcGxlbWVudGF0aW9uIGFjY29yZGluZ2x5Lg0KSWYgeW91IHByZWZlciB0
-byBwYXJzZSB0aGUgZWxmIGZpbGUgdG8gZ2V0IHRoZSBoYXJkd2FyZSByZXNldCBiYXNlLA0KSSBj
-b3VsZCB1cGRhdGUgdG8gdXNlIHRoZW0uDQoNCk9wdGlvbnMxOiBTb21ldGhpbmcgYXMgYmVsb3c6
-DQoxLiBJbmNsdWRlIHJwcm9jX2VsZl9maW5kX3N5bWJvbCBpbiByZW1vdGVwcm9jX2VsZl9sb2Fk
-ZXIuYw0KMi4gVXNlIGJlbG93IGluIGlteF9ycHJvYy5jDQpyZXQgPSBycHJvY19lbGZfZmluZF9z
-eW1ib2wocnByb2MsIGZ3LCAiX19pc3JfdmVjdG9yIiwgJnZlY3Rvcl9iYXNlKTsNCmlmIChyZXQp
-DQogICAgcmV0ID0gcnByb2NfZWxmX2ZpbmRfc3ltYm9sKHJwcm9jLCBmdywgIl9fdmVjdG9yX3Rh
-YmxlIiwgJnZlY3Rvcl9iYXNlKTsNCg0KaWYgKCFyZXQpDQogICAgcnByb2MtPmJvb3RhZGRyID0g
-dmVjdG9yX2Jhc2UNCmVsc2UNCiAgIGRldl9pbmZvKGRldiwgIm5vIF9faXNyX3ZlY3RvciBvciBf
-X3ZlY3Rvcl90YWJsZVxuIikNCg0KVGhpcyBtYWtlcyB0aGUgaGFyZHdhcmUgcmVzZXQgYmFzZSBl
-eHBsaWNpdCwgYXZvaWRzIG1hc2tpbmcgZV9lbnRyeS4NCg0KT3B0aW9uIDI6IFVzZXLigJFwcm92
-aWRlZCByZXNldCBzeW1ib2wgdmlhIHN5c2ZzIA0KQXMgYW4gYWx0ZXJuYXRpdmUsIHdlIGNvdWxk
-IGV4cG9zZSBhIHN5c2ZzIGF0dHJpYnV0ZSwNCmUuZy4gcmVzZXRfc3ltYm9sLCBhbGxvd2luZyB1
-c2VycyB0byBzcGVjaWZ5IHRoZSBzeW1ib2wgbmFtZQ0KdG8gYmUgdXNlZCBhcyB0aGUgcmVzZXQg
-YmFzZToNCg0KZWNobyBfX2lzcl92ZWN0b3IgPiAvc3lzL2NsYXNzL3JlbW90ZXByb2MvcmVtb3Rl
-cHJvY1gvcmVzZXRfc3ltYm9sDQoNClRoZSByZW1vdGVwcm9jIGNvcmUgd291bGQgdGhlbiByZXNv
-bHZlIHRoYXQgc3ltYm9sIGZyb20NCnRoZSBFTEYgYW5kIHNldCBycHJvYy0+Ym9vdGFkZHIgYWNj
-b3JkaW5nbHkuDQpUaGlzIHByb3ZpZGVzIG1heGltdW0gZmxleGliaWxpdHkgYnV0IGRvZXMgaW50
-cm9kdWNlIGEgbmV3IHVzZXLigJF2aXNpYmxlIEFCSSwNCnNvIEkgc2VlIGl0IG1vcmUgYXMgYW4g
-b3B04oCRaW4gb3IgZmFsbGJhY2sgbWVjaGFuaXNtLg0KDQpQbGVhc2UgbGV0IG1lIGtub3cgd2hp
-Y2ggYXBwcm9hY2ggeW91IHByZWZlciwgYW5kIEkgd2lsbCB1cGRhdGUNCnRoaXMgc2VyaWVzIGFj
-Y29yZGluZ2x5IGluIHYzLi4NCg0KVGhhbmtzLA0KUGVuZy4NCg0KDQo+IA0KPiA+IDEsIFNlbWFu
-dGljIG1pc21hdGNoIChFTEYgdnMuIGhhcmR3YXJlIGJlaGF2aW9yKSAyLCBEZWJ1Z2dlcnMgbWF5
-DQo+ID4gYXR0ZW1wdCB0byBzZXQgYnJlYWtwb2ludHMgb3Igc3RhcnQgZXhlY3V0aW9uIGF0IHRo
-ZSBlbnRyeSBzeW1ib2wNCj4gPg0K
+
+
+On 2026/4/7 21:16, Mark Rutland wrote:
+> The generic irqentry code has entry/exit functions specifically for
+> exceptions taken from user mode, but doesn't have entry/exit functions
+> specifically for exceptions taken from kernel mode.
+> 
+> It would be helpful to have separate entry/exit functions specifically
+> for exceptions taken from kernel mode. This would make the structure of
+> the entry code more consistent, and would make it easier for
+> architectures to manage logic specific to exceptions taken from kernel
+> mode.
+> 
+> Move the logic specific to kernel mode out of irqentry_enter() and
+> irqentry_exit() into new irqentry_enter_from_kernel_mode() and
+> irqentry_exit_to_kernel_mode() functions. These are marked
+> __always_inline and placed in irq-entry-common.h, as with
+> irqentry_enter_from_user_mode() and irqentry_exit_to_user_mode(), so
+> that they can be inlined into architecture-specific wrappers. The
+> existing out-of-line irqentry_enter() and irqentry_exit() functions
+> retained as callers of the new functions.
+> 
+> The lockdep assertion from irqentry_exit() is moved into
+> irqentry_exit_to_user_mode() and irqentry_exit_to_kernel_mode(). This
+> was previously missing from irqentry_exit_to_user_mode() when called
+> directly, and any new lockdep assertion failure relating from this
+> change is a latent bug.
+> 
+> Aside from the lockdep change noted above, there should be no functional
+> change as a result of this patch.
+
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+
+> 
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Cc: Andy Lutomirski <luto@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: Thomas Gleixner <tglx@kernel.org>
+> Cc: Vladimir Murzin <vladimir.murzin@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> ---
+>  include/linux/irq-entry-common.h | 103 +++++++++++++++++++++++++++++++
+>  kernel/entry/common.c            | 103 +++----------------------------
+>  2 files changed, 111 insertions(+), 95 deletions(-)
+> 
+> Thomas/Peter/Andy, as mentioned on IRC, I haven't created kerneldoc
+> comments for these new functions because the existing comments don't
+> seem all that consistent (e.g. for user mode vs kernel mode), and I
+> suspect we want to rewrite them all in one go for wider consistency.
+> 
+> I'm happy to respin this, or to follow-up with that as per your
+> preference.
+> 
+> Mark.
+> 
+> diff --git a/include/linux/irq-entry-common.h b/include/linux/irq-entry-common.h
+> index d1e8591a59195..2206150e526d8 100644
+> --- a/include/linux/irq-entry-common.h
+> +++ b/include/linux/irq-entry-common.h
+> @@ -304,6 +304,8 @@ static __always_inline void irqentry_enter_from_user_mode(struct pt_regs *regs)
+>   */
+>  static __always_inline void irqentry_exit_to_user_mode(struct pt_regs *regs)
+>  {
+> +	lockdep_assert_irqs_disabled();
+> +
+>  	instrumentation_begin();
+>  	irqentry_exit_to_user_mode_prepare(regs);
+>  	instrumentation_end();
+> @@ -356,6 +358,107 @@ void dynamic_irqentry_exit_cond_resched(void);
+>  #define irqentry_exit_cond_resched()	raw_irqentry_exit_cond_resched()
+>  #endif /* CONFIG_PREEMPT_DYNAMIC */
+>  
+> +static __always_inline irqentry_state_t irqentry_enter_from_kernel_mode(struct pt_regs *regs)
+> +{
+> +	irqentry_state_t ret = {
+> +		.exit_rcu = false,
+> +	};
+> +
+> +	/*
+> +	 * If this entry hit the idle task invoke ct_irq_enter() whether
+> +	 * RCU is watching or not.
+> +	 *
+> +	 * Interrupts can nest when the first interrupt invokes softirq
+> +	 * processing on return which enables interrupts.
+> +	 *
+> +	 * Scheduler ticks in the idle task can mark quiescent state and
+> +	 * terminate a grace period, if and only if the timer interrupt is
+> +	 * not nested into another interrupt.
+> +	 *
+> +	 * Checking for rcu_is_watching() here would prevent the nesting
+> +	 * interrupt to invoke ct_irq_enter(). If that nested interrupt is
+> +	 * the tick then rcu_flavor_sched_clock_irq() would wrongfully
+> +	 * assume that it is the first interrupt and eventually claim
+> +	 * quiescent state and end grace periods prematurely.
+> +	 *
+> +	 * Unconditionally invoke ct_irq_enter() so RCU state stays
+> +	 * consistent.
+> +	 *
+> +	 * TINY_RCU does not support EQS, so let the compiler eliminate
+> +	 * this part when enabled.
+> +	 */
+> +	if (!IS_ENABLED(CONFIG_TINY_RCU) &&
+> +	    (is_idle_task(current) || arch_in_rcu_eqs())) {
+> +		/*
+> +		 * If RCU is not watching then the same careful
+> +		 * sequence vs. lockdep and tracing is required
+> +		 * as in irqentry_enter_from_user_mode().
+> +		 */
+> +		lockdep_hardirqs_off(CALLER_ADDR0);
+> +		ct_irq_enter();
+> +		instrumentation_begin();
+> +		kmsan_unpoison_entry_regs(regs);
+> +		trace_hardirqs_off_finish();
+> +		instrumentation_end();
+> +
+> +		ret.exit_rcu = true;
+> +		return ret;
+> +	}
+> +
+> +	/*
+> +	 * If RCU is watching then RCU only wants to check whether it needs
+> +	 * to restart the tick in NOHZ mode. rcu_irq_enter_check_tick()
+> +	 * already contains a warning when RCU is not watching, so no point
+> +	 * in having another one here.
+> +	 */
+> +	lockdep_hardirqs_off(CALLER_ADDR0);
+> +	instrumentation_begin();
+> +	kmsan_unpoison_entry_regs(regs);
+> +	rcu_irq_enter_check_tick();
+> +	trace_hardirqs_off_finish();
+> +	instrumentation_end();
+> +
+> +	return ret;
+> +}
+> +
+> +static __always_inline void irqentry_exit_to_kernel_mode(struct pt_regs *regs, irqentry_state_t state)
+> +{
+> +	lockdep_assert_irqs_disabled();
+> +
+> +	if (!regs_irqs_disabled(regs)) {
+> +		/*
+> +		 * If RCU was not watching on entry this needs to be done
+> +		 * carefully and needs the same ordering of lockdep/tracing
+> +		 * and RCU as the return to user mode path.
+> +		 */
+> +		if (state.exit_rcu) {
+> +			instrumentation_begin();
+> +			/* Tell the tracer that IRET will enable interrupts */
+> +			trace_hardirqs_on_prepare();
+> +			lockdep_hardirqs_on_prepare();
+> +			instrumentation_end();
+> +			ct_irq_exit();
+> +			lockdep_hardirqs_on(CALLER_ADDR0);
+> +			return;
+> +		}
+> +
+> +		instrumentation_begin();
+> +		if (IS_ENABLED(CONFIG_PREEMPTION))
+> +			irqentry_exit_cond_resched();
+> +
+> +		/* Covers both tracing and lockdep */
+> +		trace_hardirqs_on();
+> +		instrumentation_end();
+> +	} else {
+> +		/*
+> +		 * IRQ flags state is correct already. Just tell RCU if it
+> +		 * was not watching on entry.
+> +		 */
+> +		if (state.exit_rcu)
+> +			ct_irq_exit();
+> +	}
+> +}
+> +
+>  /**
+>   * irqentry_enter - Handle state tracking on ordinary interrupt entries
+>   * @regs:	Pointer to pt_regs of interrupted context
+> diff --git a/kernel/entry/common.c b/kernel/entry/common.c
+> index b5e05d87ba391..1034be02eae84 100644
+> --- a/kernel/entry/common.c
+> +++ b/kernel/entry/common.c
+> @@ -105,70 +105,16 @@ __always_inline unsigned long exit_to_user_mode_loop(struct pt_regs *regs,
+>  
+>  noinstr irqentry_state_t irqentry_enter(struct pt_regs *regs)
+>  {
+> -	irqentry_state_t ret = {
+> -		.exit_rcu = false,
+> -	};
+> -
+>  	if (user_mode(regs)) {
+> -		irqentry_enter_from_user_mode(regs);
+> -		return ret;
+> -	}
+> +		irqentry_state_t ret = {
+> +			.exit_rcu = false,
+> +		};
+>  
+> -	/*
+> -	 * If this entry hit the idle task invoke ct_irq_enter() whether
+> -	 * RCU is watching or not.
+> -	 *
+> -	 * Interrupts can nest when the first interrupt invokes softirq
+> -	 * processing on return which enables interrupts.
+> -	 *
+> -	 * Scheduler ticks in the idle task can mark quiescent state and
+> -	 * terminate a grace period, if and only if the timer interrupt is
+> -	 * not nested into another interrupt.
+> -	 *
+> -	 * Checking for rcu_is_watching() here would prevent the nesting
+> -	 * interrupt to invoke ct_irq_enter(). If that nested interrupt is
+> -	 * the tick then rcu_flavor_sched_clock_irq() would wrongfully
+> -	 * assume that it is the first interrupt and eventually claim
+> -	 * quiescent state and end grace periods prematurely.
+> -	 *
+> -	 * Unconditionally invoke ct_irq_enter() so RCU state stays
+> -	 * consistent.
+> -	 *
+> -	 * TINY_RCU does not support EQS, so let the compiler eliminate
+> -	 * this part when enabled.
+> -	 */
+> -	if (!IS_ENABLED(CONFIG_TINY_RCU) &&
+> -	    (is_idle_task(current) || arch_in_rcu_eqs())) {
+> -		/*
+> -		 * If RCU is not watching then the same careful
+> -		 * sequence vs. lockdep and tracing is required
+> -		 * as in irqentry_enter_from_user_mode().
+> -		 */
+> -		lockdep_hardirqs_off(CALLER_ADDR0);
+> -		ct_irq_enter();
+> -		instrumentation_begin();
+> -		kmsan_unpoison_entry_regs(regs);
+> -		trace_hardirqs_off_finish();
+> -		instrumentation_end();
+> -
+> -		ret.exit_rcu = true;
+> +		irqentry_enter_from_user_mode(regs);
+>  		return ret;
+>  	}
+>  
+> -	/*
+> -	 * If RCU is watching then RCU only wants to check whether it needs
+> -	 * to restart the tick in NOHZ mode. rcu_irq_enter_check_tick()
+> -	 * already contains a warning when RCU is not watching, so no point
+> -	 * in having another one here.
+> -	 */
+> -	lockdep_hardirqs_off(CALLER_ADDR0);
+> -	instrumentation_begin();
+> -	kmsan_unpoison_entry_regs(regs);
+> -	rcu_irq_enter_check_tick();
+> -	trace_hardirqs_off_finish();
+> -	instrumentation_end();
+> -
+> -	return ret;
+> +	return irqentry_enter_from_kernel_mode(regs);
+>  }
+>  
+>  /**
+> @@ -212,43 +158,10 @@ void dynamic_irqentry_exit_cond_resched(void)
+>  
+>  noinstr void irqentry_exit(struct pt_regs *regs, irqentry_state_t state)
+>  {
+> -	lockdep_assert_irqs_disabled();
+> -
+> -	/* Check whether this returns to user mode */
+> -	if (user_mode(regs)) {
+> +	if (user_mode(regs))
+>  		irqentry_exit_to_user_mode(regs);
+> -	} else if (!regs_irqs_disabled(regs)) {
+> -		/*
+> -		 * If RCU was not watching on entry this needs to be done
+> -		 * carefully and needs the same ordering of lockdep/tracing
+> -		 * and RCU as the return to user mode path.
+> -		 */
+> -		if (state.exit_rcu) {
+> -			instrumentation_begin();
+> -			/* Tell the tracer that IRET will enable interrupts */
+> -			trace_hardirqs_on_prepare();
+> -			lockdep_hardirqs_on_prepare();
+> -			instrumentation_end();
+> -			ct_irq_exit();
+> -			lockdep_hardirqs_on(CALLER_ADDR0);
+> -			return;
+> -		}
+> -
+> -		instrumentation_begin();
+> -		if (IS_ENABLED(CONFIG_PREEMPTION))
+> -			irqentry_exit_cond_resched();
+> -
+> -		/* Covers both tracing and lockdep */
+> -		trace_hardirqs_on();
+> -		instrumentation_end();
+> -	} else {
+> -		/*
+> -		 * IRQ flags state is correct already. Just tell RCU if it
+> -		 * was not watching on entry.
+> -		 */
+> -		if (state.exit_rcu)
+> -			ct_irq_exit();
+> -	}
+> +	else
+> +		irqentry_exit_to_kernel_mode(regs, state);
+>  }
+>  
+>  irqentry_state_t noinstr irqentry_nmi_enter(struct pt_regs *regs)
 
