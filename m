@@ -4,151 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 288F710F995A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 15:58:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E986F10F995A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 16:08:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XqYuVsb2XjLL2Ixw7DBhfeBFbxiPyVwNWuKIeGN+N+c=; b=Rgrf6zAQOzD+3cZjCkdtHlUV46
-	enEdKTYfafMg2DGwn8l48hw5ew6tGls8lXwpGr51tvF6rHLHiJ+UTE034Lce5fWcLoiC9hd1fJ1vU
-	0VQkSHb+41p8Gk+bquJ4QzO7EX3y9UcOcmeveVW0HQMxuI9+oNTF4edtcaCsp3XGet3WDXbAGXNFN
-	BC+6erACAWdOn2UB70bVg8Qe0ZQ/4+R13KTw5p34Bq1IDjwRWKNsPeMUG4VD8IG8XUHgwrgdEMzcn
-	KZGTe96JNgLiLfWAA8mjbYCtfco24SFzTuxHyawHMJW5xRJTgIKPMJCgPu1mqjzPjpG3piyEGogzB
-	SPzwoszQ==;
+	bh=Aig1lg191cXBZucnAyxENvKDcPyUXFvuxSQuwV9cV9s=; b=X2To3yhYvxPBzjl3CvaDgM9o9m
+	WQItSWTqs89+DmYmMi4D4Zo57NQ8oz+u9ckVqyKTuCISqqoGiVjbTFTrGbnWvYwUIwjqjz7UfWNIl
+	SIZjH3fyN6E4Oi2CMccpR15j/9sQBTjWsF0FyRlUGt2o8tJOvGbxSw8CeVrUElzjJ1JRVh9TPjR5m
+	uOBJEbqZpLTyztrBxdiDiZvf8G9aCGOL5wtbXwPqIZdzXLA0jGpHAJOfj2Pcg8Bcyey+ChUV7DAwj
+	wc4pSX+2Sn/QCt2KqXl59S5B/+dtUHy4SP1dxUBZiDZXqZMpDb7eQQOJDMEYKxIeAe6uiGAa0sB80
+	S1OB8X+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAVI0-000000095XX-2OP8;
-	Wed, 08 Apr 2026 15:58:00 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wAVSQ-0000000963B-0yJL;
+	Wed, 08 Apr 2026 16:08:46 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAVHy-000000095X2-1ku2
+	id 1wAVSM-0000000962p-3dlT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 15:57:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=i+bt82G/yOd/kHpQyO9eTkpbEOzKLgdOk9OmFvi3Bh+7zF69Q5DQnBfoAVEo6HJL13p9FJFTOUf3BDNq5uIzL8O7XliKi5QbvtBb4MfrNU+jMDhM4Z44ihDYP0+8JxPqKUGGnXArSJBbZcDBhYn67tSJ5NbSFu39ukQJYOrOyIqAnSzKfMxzpCZHQDVcnq0pJe2tpDjcGTyzJz3RBXIx34UObH4Bo/Tu+I1axPNIwP+WV1SGDBr/gc4kyiGFSoBjVxSEwqlDLe3lK8ktECDE5b2iXCZIQLWgxEUlGvCjFmBM2cy5icOaDBeU1ZJFJD3o4et2+koPQ0nDukqvJvxp7A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XqYuVsb2XjLL2Ixw7DBhfeBFbxiPyVwNWuKIeGN+N+c=;
- b=UX6F3n+lL4UXE2nPNk7cpMJBLe9xDZSmWP5hWpR0ZNT9GCX6ZnNApBBwtbxvklKLjlrpW3PtllVWmjuzkjd6xjaIEAe7fkG8GWcZ6FhZn0zMwo4oAmDKaC0lOi3r364IHQDuizgRRHtzsHK9bOvjaLNQivADFP9IkWu4PJtc6JcMZAj4+avDgsfcN3zZM3PsBLvYM/axpmN5IGKCM1uTQWngBD3YO7lZrbD9FD7GDtrK5xSD5ZfcLQHnJkS95k1/8cnYOLPOdbpTcrjCRm0lUJ5ob2vc5+KAvYnJKJAU1rAFDDWwpuwQBCGBftC42E7l1ayxomzFB4pbeIKvfzyzuw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XqYuVsb2XjLL2Ixw7DBhfeBFbxiPyVwNWuKIeGN+N+c=;
- b=HDXEsEOOz63yxfthL5p6oJdm9dP9ds6jHcAauZuFL3U8DIhz9Jd32bheqwief3x5PgPjLo6hPjrr5N/qQMS0N5adk4SmGTUA+XAc8rlqjcyD/b/2sDaiHSw5+GHQJU0WX4ugxDSwMDLEmsKVGKl2ArCBmgzhwC2NI3azZEjAmTeCoy1jQzVVYWDsUQkuz1YPhmuSQm4nundikdevOt+sVrZYQJvw10jGUUMgySWqvPVZBHsUfHsWok8lQFJANDfP7UrWc7Uyg0L6vVHVs1AHeX3VZRyNkmKAwInYaefmnmGFjVnWGI9F8AmYLqc+Xr8T54tpYy3hd8d4ujYIREpECg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
- by OSKPR04MB11317.eurprd04.prod.outlook.com (2603:10a6:e10:99::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 8 Apr
- 2026 15:57:48 +0000
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9769.016; Wed, 8 Apr 2026
- 15:57:48 +0000
-Message-ID: <a9910b12-bffd-42ad-8dad-137f42960432@oss.nxp.com>
-Date: Wed, 8 Apr 2026 19:00:56 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] remoteproc: imx_rproc: Pass bootaddr to SM CPU/LMM
- reset vector
-To: Peng Fan <peng.fan@nxp.com>, Mathieu Poirier
- <mathieu.poirier@linaro.org>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Daniel Baluta <daniel.baluta@nxp.com>,
- "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20260327-imx943-rproc-v2-0-a547a3588730@nxp.com>
- <20260327-imx943-rproc-v2-2-a547a3588730@nxp.com> <acqjS440STRl2sK2@p14s>
- <acs2PAZq2k3zjmDW@shlinux89> <adUghiyZbe3fmcNX@p14s>
- <PAXPR04MB8459AA009C932EB9D6139A11885BA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <PAXPR04MB8459AA009C932EB9D6139A11885BA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4P192CA0045.EURP192.PROD.OUTLOOK.COM
- (2603:10a6:20b:658::25) To GVXPR04MB12316.eurprd04.prod.outlook.com
- (2603:10a6:150:2c6::8)
+	Wed, 08 Apr 2026 16:08:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Aig1lg191cXBZucnAyxENvKDcPyUXFvuxSQuwV9cV9s=; b=zrVhyJh9b5pTlInqr7oOP2b00b
+	Sc4Vv4IeuoijoqLBX7W2A/CTeV3RWF1ETahKTxT8WN78xaBAuw5u83VVLDZ8o+l9YMZh5PtVlU7bP
+	IQOgOcQLHR8nqIyXOdTOsmDwocIGiRBkQP7sxPtz9yBgPvLowpy0Fm1+UvyfoY1jrd3+LYFwTyzCK
+	5V9G+xy7oN97W9jbv/43pd5db9ksKQ9sQsHmpThLJl0sqlYdrzANCvs37JqGX94SsoYpzk7W1IFCu
+	LON7xk5FEOrgmkuql7qacQ/EIcEXPjhbB1JDYuol4ZcGuV5gVqea85EWox5TUg3HgOe2E9JK02IAi
+	P+awcIyw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51122)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wAVSI-000000002X6-0zei;
+	Wed, 08 Apr 2026 17:08:38 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wAVSE-000000003S6-1t8y;
+	Wed, 08 Apr 2026 17:08:34 +0100
+Date: Wed, 8 Apr 2026 17:08:34 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-ext4@vger.kernel.org,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	dmaengine@vger.kernel.org
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>, Theodore Ts'o <tytso@mit.edu>,
+	Andreas Dilger <adilger.kernel@dilger.ca>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>
+Subject: Re: BUG: net-next (7.0-rc6 based and later) fails to boot on Jetson
+ Xavier NX
+Message-ID: <adZ9grUg71f518Fg@shell.armlinux.org.uk>
+References: <adZTGOjjJrVJOcT8@shell.armlinux.org.uk>
+ <adZfTi3R6jtsjXx-@shell.armlinux.org.uk>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|OSKPR04MB11317:EE_
-X-MS-Office365-Filtering-Correlation-Id: 50531c0f-bc04-49fb-7b31-08de95879483
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|19092799006|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: OLcvJzNpACPhkP2AsftbBKGPvTv+1rZy/XfaNusRmnX5cnz4xuhYYzsWfv10gqSvZUixvieT3cgQ49WXd5w9RPGOCTa4c9VQDKbhIFLJ929Xv2SXU50EM6wWD5ETzrPMMR4S2h55tp2/mp8I2KzukwCfXVE2IzhEK2MPS3IW8M0oyh7Q93m3LhiehSZQkWPzOpH76f1ZPYMHDLoJSerDGDC5UOwG/kiREbD/qyHMS2OTXPEwPbEQq2PhakK/RcONEIGQ9U9ONVsTufE39DMimA5j2EO1RxrW1w6HT0RWmJt7qu37TcGGcuUNFWuDzRzg+CncKWx5NwvdAM9wQHA0OGmxBWpPU7/nRtUAO8+naQ6tbveAQOIrzt7CZaJr9k3EhM66hUFhl4N2jbMhIXWXKYUIzmqIpJ59X+pzippEiSD2PgaGSMtLi5mDRWNcAlNaBWJv6JvsIpCs04Waofsx2VBzhnZaTXQD2Yrtc60DSFYHQST18xhfy1/BKn7RXbd6QYXc8lgcENd36nHOAFU8UXIT+TyFgnp9dVdhwQOsawBrZlcfq1kH0JuPpX5J77GRjaRYZXoflofYQFKT5PFKrV4zwae+fcyoTEjRRgPF4qAjkc0COwnzTlPEalcGpUEyolErEeGNRB31up+nSEKmHPDBMYmUMxwB0a2LWJ86q4k6vWEoKcwqqvU2YfVL1fT2qKxLsGWN9RjAUQ204lpMGDqqOf6ZBa65lLzKRL77RXk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(19092799006)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NkR2NUI5RkJVZ1IyallzV0R1OFhqMEI2dTIzemRDWkUwaGFRbWl6M2h6dXY1?=
- =?utf-8?B?YWJBU2ZraVI0aWZBQXVBWWppcEZMS1BrSmYvZFFRR1dqVmgxbmVGVmNieElQ?=
- =?utf-8?B?RnUvQ0grWXcwbTk3TzhaQTdtVWFYc3ltdDUwUEFtTDVlcWhWcUJoREZGb0ZW?=
- =?utf-8?B?MDIvZmprb3I3MnJZczNZT3djaXA0aVVNMmtrZDNxVFRObGZMZlI1NlY3Zm44?=
- =?utf-8?B?MlpRb2VFd2NERDhRT2R0LzJWcHRsRjR1ZG84VTZQYWpBand0dUZIb3pkd25i?=
- =?utf-8?B?VnNhTkxpOWJXMVI3QWc4ckpQOE9VWGcxd0NZSXNZVFFXS1g5TlkxOVBMWXJv?=
- =?utf-8?B?VlVGSUZsZEN4Y2RRbUM2SE1kY25TOUwzUEFacko0THNUeFNJTGhTcjRma2NI?=
- =?utf-8?B?SjBNV0xyelNvelVzM1JRb0Z1anVZQWk4K09sZXUwSWZjTVBhemk5RGJINXk5?=
- =?utf-8?B?YXNrVDYrWktWNmRkUXgwcFhSdTd3WmtoQnBrWGRoOXEyL3pNeFZQT0VJc3JT?=
- =?utf-8?B?Zm5SSlpOUGp6aVlLZ1lqU3ZrZWlXQ3ZaSU9SVDVmaUgrQ1VkSWFoYW9GTWk5?=
- =?utf-8?B?cGV0OUdVYllaMWZhRGxIbkwxU21sNjRsVmtnTmtMenFuZy9sOGI3MlpkVWNR?=
- =?utf-8?B?Q0NsdUFoajBMMWhjQ3BSM2l4V0EwVG1CTVFaSUlIUEsvNmRaRTB3c0VOMGFT?=
- =?utf-8?B?U25uUjg5bzJYelNUNzlyY2dvQ285bHZyT2FKb0d0Rk5wQlVSbDVsVTk2Mi9t?=
- =?utf-8?B?clV3SGhtN3VUb3duZHZFOFFpeXpVQUZ1RVNDYU9TNFFicW4zMVd4R1dOdmZQ?=
- =?utf-8?B?ZnptQjdxTzk5dXo5dzM0ODZJRytxNkdwLzlkNU9naDJ6WlVNZDlFcHJ1NGUx?=
- =?utf-8?B?Wi9WTTdxbHJscHhaZzIrRCs4NldtUzIzd2pWRlVXZE5mWUZ4YVlIZTZtaSt3?=
- =?utf-8?B?My9BT05nUW1zMnBxTGJyaVZFeTh3Y3lZYkVjR2Y2cW1TVzJMTU5aRERkSjI2?=
- =?utf-8?B?Y1plUUxab3l1N2g2Q2JqSm1MYmgrb1poSWtEa2tPQkRRTXltdkVZSndaeFJx?=
- =?utf-8?B?YXVlVm0xTSt3SjNSRkRUL214V2c4WVpGWG1iZVF0WDJ0QkZzU0JpMmx3OVJ2?=
- =?utf-8?B?VHI5VVI2VEx6Y29zeDFHbnFScFMwL214dWMrY25MWkRpVjdmSW03amlKUGpM?=
- =?utf-8?B?NEhFYTlobm9MdSs2N1g5M0dxOHVUK1BOb0huc0R4Mk9jNnk3UllpUjh5ZG1W?=
- =?utf-8?B?ZG9TK1VJS2lXUnJzbnNmZ0RzTEowVHI3bGpWRXluZWRaMTNuOHI4am0rbFVi?=
- =?utf-8?B?eG9zWXlXMm5WcHNvZ3gvakhNTDc1Mit2MnNLdzRlL3NLekVtSGp2YlNkZzli?=
- =?utf-8?B?L3o5eVY0TnkwRGZtVDBXOGpqckM3eEFMd3FGallBVzh3dk96K0lGMzJ5ZHZM?=
- =?utf-8?B?NXRsc2xmQWdqSDAyTHRQZm55REpxclBxMGYxL1ovQVc3WVR4cEExb0Y4WXRY?=
- =?utf-8?B?ekhnYUVpcnlEVUpnSWkrN05sVitPWmpzWTkyQ1ZKdXJrQlZMU3NNRDNCZi8r?=
- =?utf-8?B?V1ExUHgrZkEva0JzS21KaStEa0tkWDd1OXpqZVk5TzJNellkMjVZSkJBL0w2?=
- =?utf-8?B?WWYzenBabjdqWGRpbmRMMjY0Z0R5QWtkbW1tVjZ0ZjJVUEl6eWlVa1ZZaXFI?=
- =?utf-8?B?M05oRlJhRFhLaURqRTJJbG5ZUTRJOUcyNlpQQ1NzOWhEZk9tRGNqWWVGVUIr?=
- =?utf-8?B?eXlSSmZJRk9xVlRHLzlsSzVnUUNDcURvSVFXQ25HYnlRNmk4WmY1YVZDanVS?=
- =?utf-8?B?eFhNNld5cDZBc1QyN0NGWnk1aUpPY2RkeVJqK0RQTjJJVUFaNTlsblJaT1lh?=
- =?utf-8?B?d2dTQ1VQWXNQNDQ1Z1A1QmpFTkcrdElLZlk5Uk5QY1FqU2ZmelJRb241TzN1?=
- =?utf-8?B?SS9LNThRcFhTU05hbkNoeDZKUUlvUFI5SHJRWlRCME5LUUsvcGlDODdoRGxV?=
- =?utf-8?B?WkRmNnhTcWkzRWdiaG5YelErcmNwVzQ4ckR2N1BRbjc3T3Y2ZHVBUklmRWtu?=
- =?utf-8?B?c2FKV0drUzBaZVhKNzAwcUFkc1o4K3lReFhkVmVpckVBK0xBTFlLUi92TFll?=
- =?utf-8?B?TEFBT1E2MmUyUHZGL2tCbmdMb2prcmhCNlJBaWZTTFkrVDlncURQZkh5SDM4?=
- =?utf-8?B?a3dCNUw1T2lFL0JnYkd2Nk1pZ05YRDB3eXArSElMRVM4Q0V5SEJZa1B2TUNH?=
- =?utf-8?B?U09heHlwVlZSZTErR1F5L01IWGdsaDcwRXpWaFpURjdwSjRkOXRDVy9Nckt6?=
- =?utf-8?B?T1dLaG9sTGNzU0U3MTV4QWZ1TkV6TitULy9RL2daWThiSEd3ejdUZz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 50531c0f-bc04-49fb-7b31-08de95879483
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2026 15:57:47.9902
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hoJP/Lm5MjpleoG2nR5vOylzF+gIIirtSrT9VPXXMesIowCQR03oGNoaXD6kcBAVwfY9svm22z3PFs+9op+kKA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSKPR04MB11317
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <adZfTi3R6jtsjXx-@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_085758_486112_F21BE597 
-X-CRM114-Status: GOOD (  21.17  )
+X-CRM114-CacheID: sfid-20260408_090843_088909_C33CA1B2 
+X-CRM114-Status: GOOD (  34.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,66 +86,261 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/8/26 04:30, Peng Fan wrote:
->> Subject: Re: [PATCH v2 2/3] remoteproc: imx_rproc: Pass bootaddr to
->> SM CPU/LMM reset vector
->>
-> [...]
->>> Aligning the ELF entry point with the hardware reset base on
->> Cortex‑M
->>> systems is possible, but it comes with several risks.
->> I'm not asking to align the ELF entry point with the hardware reset base.
->> All I want is to have the correct start address embedded in the ELF file
->> to avoid having to use a mask.
-> I see, per my understanding:
-> FreeRTOS typically exposes __isr_vector, which corresponds to the hardware
-> reset / vector table base.
-> Zephyr (Cortex‑M) exposes _vector_table, which serves the same purpose.
-> I am not certain about other RTOSes, but the pattern seems consistent:
-> the vector table base is already available as a named ELF symbol.
->
-> Given that, if the preferred approach is to parse the ELF and explicitly
-> retrieve the hardware reset base, I can update the implementation accordingly.
-> If you prefer to parse the elf file to get the hardware reset base,
-> I could update to use them.
->
-> Options1: Something as below:
-> 1. Include rproc_elf_find_symbol in remoteproc_elf_loader.c
-> 2. Use below in imx_rproc.c
-> ret = rproc_elf_find_symbol(rproc, fw, "__isr_vector", &vector_base);
-> if (ret)
->     ret = rproc_elf_find_symbol(rproc, fw, "__vector_table", &vector_base);
->
-> if (!ret)
->     rproc->bootaddr = vector_base
-> else
->    dev_info(dev, "no __isr_vector or __vector_table\n")
->
-> This makes the hardware reset base explicit, avoids masking e_entry.
->
-> Option 2: User‑provided reset symbol via sysfs 
-> As an alternative, we could expose a sysfs attribute,
-> e.g. reset_symbol, allowing users to specify the symbol name
-> to be used as the reset base:
->
-> echo __isr_vector > /sys/class/remoteproc/remoteprocX/reset_symbol
->
-> The remoteproc core would then resolve that symbol from
-> the ELF and set rproc->bootaddr accordingly.
-> This provides maximum flexibility but does introduce a new user‑visible ABI,
-> so I see it more as an opt‑in or fallback mechanism.
->
-> Please let me know which approach you prefer, and I will update
-> this series accordingly in v3..
+On Wed, Apr 08, 2026 at 02:59:42PM +0100, Russell King (Oracle) wrote:
+> On Wed, Apr 08, 2026 at 02:07:36PM +0100, Russell King (Oracle) wrote:
+> > Hi,
+> > 
+> > Just a heads-up that current net-next (v7.0-rc6 based) fails to boot on
+> > my nVidia Jetson Xavier platform. v7.0-rc5 and v6.14 based net-next both
+> > boot fine. This is an arm64 platform.
+> > 
+> > The problem appears to be completely random in terms of its symptoms,
+> > and looks like severe memory corruption - every boot seems to produce
+> > a different problem. The common theme is, although the kernel gets to
+> > userspace, it never gets anywhere close to a login prompt before
+> > failing in some way.
+> > 
+> > The last net-next+ boot (which is currently v7.0-rc6 based) resulted
+> > in:
+> > 
+> > tegra-mc 2c00000.memory-controller: xusb_hostw: secure write @0x00000003ffffff00: VPR violation ((null))
+> > ...
+> > irq 91: nobody cared (try booting with the "irqpoll" option)
+> > ...
+> > depmod: ERROR: could not open directory /lib/modules/7.0.0-rc6-net-next+: No such file or directory
+> > ...
+> > Unable to handle kernel paging request at virtual address 0003201fd50320cf
+> > 
+> > 
+> > A previous boot of the exact same kernel didn't oops, but was unable
+> > to find the block device to mount for /mnt via block UUID.
+> > 
+> > A previous boot to that resulted in an oops.
+> > 
+> > 
+> > The intersting thing is - the depmod error above is incorrect:
+> > 
+> > root@tegra-ubuntu:~# ls -ld /lib/modules/7.0.0-rc6-net-next+
+> > drwxrwxr-x 3 root root 4096 Apr  8 10:23 /lib/modules/7.0.0-rc6-net-next+
+> > 
+> > The directory is definitely there, and is readable - checked after
+> > booting back into net-next based on 7.0-rc5. In some of these boots,
+> > stmmac hasn't probed yet, which rules out my changes.
+> > 
+> > Rootfs is ext4, and it seems there were a lot of ext4 commits merged
+> > between rc5 and rc6, but nothing for rc7.
+> > 
+> > My current net-next head is dfecb0c5af3b. Merging rc7 on top also
+> > fails, I suspect also randomly, with that I just got:
+> > 
+> > EXT4-fs (mmcblk0p1): VFS: Can't find ext4 filesystem
+> > mount: /mnt: wrong fs type, bad option, bad superblock on /dev/mmcblk0p1, missing codepage or helper program, or other error.
+> > mount: /mnt/: can't find PARTUUID=741c0777-391a-4bce-a222-455e180ece2a.
+> > Unable to handle kernel paging request at virtual address f9bf0011ac0fb893
+> > Mem abort info:
+> >   ESR = 0x0000000096000004
+> >   EC = 0x25: DABT (current EL), IL = 32 bits
+> >   SET = 0, FnV = 0
+> >   EA = 0, S1PTW = 0
+> >   FSC = 0x04: level 0 translation fault
+> > Data abort info:
+> >   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
+> >   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+> >   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> > [f9bf0011ac0fb893] address between user and kernel address ranges
+> > Internal error: Oops: 0000000096000004 [#1]  SMP
+> > Modules linked in:
+> > CPU: 1 UID: 0 PID: 936 Comm: mount Not tainted 7.0.0-rc7-net-next+ #649 PREEMPT
+> > Hardware name: NVIDIA NVIDIA Jetson Xavier NX Developer Kit/Jetson, BIOS 6.0-37391689 08/28/2024
+> > pstate: 20400009 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> > pc : refill_objects+0x298/0x5ec
+> > lr : refill_objects+0x1f0/0x5ec
+> > 
+> > ...
+> > 
+> > Call trace:
+> >  refill_objects+0x298/0x5ec (P)
+> >  __pcs_replace_empty_main+0x13c/0x3a8
+> >  kmem_cache_alloc_noprof+0x324/0x3a0
+> >  alloc_iova+0x3c/0x290
+> >  alloc_iova_fast+0x168/0x2d4
+> >  iommu_dma_alloc_iova+0x84/0x154
+> >  iommu_dma_map_sg+0x2c4/0x538
+> >  __dma_map_sg_attrs+0x124/0x2c0
+> >  dma_map_sg_attrs+0x10/0x20
+> >  sdhci_pre_dma_transfer+0xb8/0x164
+> >  sdhci_pre_req+0x38/0x44
+> >  mmc_blk_mq_issue_rq+0x3dc/0x920
+> >  mmc_mq_queue_rq+0x104/0x2b0
+> >  __blk_mq_issue_directly+0x38/0xb0
+> >  blk_mq_request_issue_directly+0x54/0xb4
+> >  blk_mq_issue_direct+0x84/0x180
+> >  blk_mq_dispatch_queue_requests+0x1a8/0x2e0
+> >  blk_mq_flush_plug_list+0x60/0x140
+> >  __blk_flush_plug+0xe0/0x11c
+> >  blk_finish_plug+0x38/0x4c
+> >  read_pages+0x158/0x260
+> >  page_cache_ra_unbounded+0x158/0x3e0
+> >  force_page_cache_ra+0xb0/0xe4
+> >  page_cache_sync_ra+0x88/0x480
+> >  filemap_get_pages+0xd8/0x850
+> >  filemap_read+0xdc/0x3d8
+> >  blkdev_read_iter+0x84/0x198
+> >  vfs_read+0x208/0x2d8
+> >  ksys_read+0x58/0xf4
+> >  __arm64_sys_read+0x1c/0x28
+> >  invoke_syscall.constprop.0+0x50/0xe0
+> >  do_el0_svc+0x40/0xc0
+> >  el0_svc+0x48/0x2a0
+> >  el0t_64_sync_handler+0xa0/0xe4
+> >  el0t_64_sync+0x19c/0x1a0
+> > Code: 54000189 f9000022 aa0203e4 b9402ae3 (f8634840)
+> > ---[ end trace 0000000000000000 ]---
+> > Kernel panic - not syncing: Oops: Fatal exception
+> > 
+> > Looking at the changes between rc5 and rc6, there's one drivers/block
+> > change for zram (which is used on this platform), one change in
+> > drivers/base for regmap, nothing for drivers/mmc, but plenty for
+> > fs/ext4. There are five DMA API changes.
+> > 
+> > Now building straight -rc7. If that also fails, my plan is to start
+> > bisecting rc5..rc6, which will likely take most of the rest of the
+> > day. So, in the mean time I'm sending this as a heads-up that rc6
+> > and onwards has a problem.
+> 
+> Plain -rc7 fails (another random oops):
+> 
+> Root device found: PARTUUID=741c0777-391a-4bce-a222-455e180ece2a
+> depmod: ERROR: could not open directory /lib/modules/7.0.0-rc7-net-next+: No such file or directory
+> depmod: FATAL: could not search modules: No such file or directory
+> usb 2-3: new SuperSpeed Plus Gen 2x1 USB device number 2 using tegra-xusb
+> hub 2-3:1.0: USB hub found
+> hub 2-3:1.0: 4 ports detected
+> usb 1-3: new full-speed USB device number 3 using tegra-xusb
+> Unable to handle kernel paging request at virtual address 0003201fd50320cf
+> Mem abort info:
+>   ESR = 0x0000000096000004
+>   EC = 0x25: DABT (current EL), IL = 32 bits
+>   SET = 0, FnV = 0
+>   EA = 0, S1PTW = 0
+>   FSC = 0x04: level 0 translation fault
+> Data abort info:
+>   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
+>   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+>   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> [0003201fd50320cf] address between user and kernel address ranges
+> Internal error: Oops: 0000000096000004 [#1]  SMP
+> Modules linked in:
+> CPU: 1 UID: 0 PID: 917 Comm: mount Not tainted 7.0.0-rc7-net-next+ #649 PREEMPT
+> Hardware name: NVIDIA NVIDIA Jetson Xavier NX Developer Kit/Jetson, BIOS 6.0-37391689 08/28/2024
+> pstate: 20400009 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> pc : refill_objects+0x298/0x5ec
+> lr : refill_objects+0x1f0/0x5ec
+> sp : ffff80008606b500
+> x29: ffff80008606b500 x28: 0000000000000001 x27: fffffdffc20e6200
+> x26: 0000000000000006 x25: 0000000000000000 x24: 000000000000003c
+> x23: ffff0000809e4840 x22: ffff0000809dba00 x21: ffff80008606b5a0
+> x20: ffff000081133820 x19: fffffdffc20e6220 x18: 0000000000000000
+> x17: 0000000000000000 x16: 0000000000000100 x15: 0000000000000000
+> x14: 0000000000000000 x13: 0000000000000000 x12: ffff800081e5faa8
+> x11: ffff800082192c70 x10: ffff8000814074dc x9 : 0000000000000050
+> x8 : ffff80008606b490 x7 : ffff000083988b40 x6 : ffff80008606b4a0
+> x5 : 000000080015000f x4 : d503201fd503201f x3 : 00000000000000b0
+> x2 : d503201fd503201f x1 : ffff000081133828 x0 : d503201fd503201f
+> Call trace:
+>  refill_objects+0x298/0x5ec (P)
+>  __pcs_replace_empty_main+0x13c/0x3a8
+>  kmem_cache_alloc_noprof+0x324/0x3a0
+>  mempool_alloc_slab+0x1c/0x28
+>  mempool_alloc_noprof+0x98/0xe0
+>  bio_alloc_bioset+0x160/0x3e0
+>  do_mpage_readpage+0x3d0/0x618
+>  mpage_readahead+0xb8/0x144
+>  blkdev_readahead+0x18/0x24
+>  read_pages+0x58/0x260
+>  page_cache_ra_unbounded+0x158/0x3e0
+>  force_page_cache_ra+0xb0/0xe4
+>  page_cache_sync_ra+0x88/0x480
+>  filemap_get_pages+0xd8/0x850
+>  filemap_read+0xdc/0x3d8
+>  blkdev_read_iter+0x84/0x198
+>  vfs_read+0x208/0x2d8
+>  ksys_read+0x58/0xf4
+>  __arm64_sys_read+0x1c/0x28
+>  invoke_syscall.constprop.0+0x50/0xe0
+>  do_el0_svc+0x40/0xc0
+>  el0_svc+0x48/0x2a0
+>  el0t_64_sync_handler+0xa0/0xe4
+>  el0t_64_sync+0x19c/0x1a0
+> Code: 54000189 f9000022 aa0203e4 b9402ae3 (f8634840)
+> ---[ end trace 0000000000000000 ]---
+> 
+> Now starting the bisect between 7.0-rc5 and 7.0-rc6.
 
-I would go with option 1) as this and having something like this:
+The rebase is still progressing, but it's landed on:
 
-#define IMX_RPROC_DEFAULT_RST_VECTOR_NAME "..."
+c7d812e33f3e dmaengine: xilinx: xilinx_dma: Fix unmasked residue subtraction
 
-later we can expand that with a configurable name via sysfs.
+and while this boots to a login prompt, it spat out a BUG():
 
-This was along my initial proposal where you would determine
+BUG: sleeping function called from invalid context at kernel/locking/mutex.c:591
+in_atomic(): 0, irqs_disabled(): 1, non_block: 0, pid: 56, name: kworker/u24:3
+preempt_count: 0, expected: 0
+RCU nest depth: 0, expected: 0
+3 locks held by kworker/u24:3/56:
+ #0: ffff000080042148 ((wq_completion)events_unbound#2){+.+.}-{0:0}, at: process_one_work+0x184/0x780
+ #1: ffff80008299bdf8 (deferred_probe_work){+.+.}-{0:0}, at: process_one_work+0x1ac/0x780
+ #2: ffff0000808b48f8 (&dev->mutex){....}-{4:4}, at: __device_attach+0x2c/0x188
+irq event stamp: 10872
+hardirqs last  enabled at (10871): [<ffff80008013a410>] ktime_get+0x130/0x180
+hardirqs last disabled at (10872): [<ffff800080d61ac8>] _raw_spin_lock_irqsave+0x84/0x88
+softirqs last  enabled at (9216): [<ffff80008002807c>] fpsimd_save_and_flush_current_state+0x3c/0x80
+softirqs last disabled at (9214): [<ffff800080028098>] fpsimd_save_and_flush_current_state+0x58/0x80
+CPU: 5 UID: 0 PID: 56 Comm: kworker/u24:3 Not tainted 7.0.0-rc1-bisect+ #654 PREEMPT
+Hardware name: NVIDIA NVIDIA Jetson Xavier NX Developer Kit/Jetson, BIOS 6.0-37391689 08/28/2024
+Workqueue: events_unbound deferred_probe_work_func
+Call trace:
+ show_stack+0x18/0x30 (C)
+ dump_stack_lvl+0x6c/0x94
+ dump_stack+0x18/0x24
+ __might_resched+0x154/0x220
+ __might_sleep+0x48/0x80
+ __mutex_lock+0x48/0x800
+ mutex_lock_nested+0x24/0x30
+ pinmux_disable_setting+0x9c/0x180
+ pinctrl_commit_state+0x5c/0x260
+ pinctrl_pm_select_idle_state+0x4c/0xa0
+ tegra_i2c_runtime_suspend+0x2c/0x3c
+ pm_generic_runtime_suspend+0x2c/0x44
+ __rpm_callback+0x48/0x1ec
+ rpm_callback+0x74/0x80
+ rpm_suspend+0xec/0x630
+ rpm_idle+0x2c0/0x420
+ __pm_runtime_idle+0x44/0x160
+ tegra_i2c_probe+0x2e4/0x640
+ platform_probe+0x5c/0xa4
+ really_probe+0xbc/0x2c0
+ __driver_probe_device+0x78/0x120
+ driver_probe_device+0x3c/0x160
+ __device_attach_driver+0xbc/0x160
+ bus_for_each_drv+0x70/0xb8
+ __device_attach+0xa4/0x188
+ device_initial_probe+0x50/0x54
+ bus_probe_device+0x38/0xa4
+ deferred_probe_work_func+0x90/0xcc
+ process_one_work+0x204/0x780
+ worker_thread+0x1c8/0x36c
+ kthread+0x138/0x144
+ ret_from_fork+0x10/0x20
 
-the reset vector address from the elf file.
+This is reproducible.
 
+Adding Vinod and Frank, and dmaengine mailing list.
+
+Bisect continuing, assuming this is a "good" commit as it isn't
+producing the boot failure with random memory corruption.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
