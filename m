@@ -4,63 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F32C1073C99
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 11:08:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A8F61073C99
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 11:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m0H9zJfL6IkwhaRz6UhQTjJE34tHlIxmApDpb7jLyMw=; b=y70EzQB7MNCF19siCTWXeUdVlJ
-	KR8Xabvao9GX+ybPk22SmrIrD4w9Gy6vHTPv9p+0/L0h1/yAWyHkN1SaJBf/hlW36t4QJSDG7ZJ8n
-	VcBAnwmjYy5pbkfsd70rn73P8Kv68xhO5IYuizzb+MY9nQgLPXSAz/g1O6Nc8ze2miW3LKFHFcuRh
-	Rw+cH191QmIJWhI14NGbMyQ1MLEg/D3qUmkpg924Vr5vI1KzyfbT9DIvvKWN9tJCxHWtYEoWxVNno
-	/jJdCebnuIA1htAZzHlema+TuU+BF0xz7PN0akiuUlH0oBgELRqsIbpXL7iNzZsY+dHiIF2G/idXs
-	w61/ehmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c/1MhOJcKFUmRW9u7fKfEjRgUGCIko9OA+snDYkLJ4s=; b=bh8p7ufeXlLgVElQTCq6EgQk0L
+	cBT8m+0m1fELWXjv4b9ZkS+RgINaOLwLrWuatML+d+taVILOdyq4AkIX3FwiuGajxtyiVdRBv+ypa
+	45L+GMJT6pFNGfLrn0GNCajUT5FfT/cTbhkZk+paxf6ApRkgGIYIiNqYLdnR4kaTLFFlXIoApakYs
+	w+kA70rXC2eLkB6u/bxUU1Ctq7s7H3rwxwpO9pZJJF6bQ/YfN8XPRdB8qNSzaRZiFjJniOM2W/yiA
+	c5L9/LZq0vsheSHW/9i6cgGP0nFpGtIdR2O7P75ps4GIAZW8uW7Hz0txlLkTyPM5w01n+hNx9y5Fh
+	MnNldQOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAQm8-00000008j7o-3TZN;
-	Wed, 08 Apr 2026 11:08:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAQm6-00000008j7P-08dF
+	id 1wAQmb-00000008jAy-0fV0;
+	Wed, 08 Apr 2026 11:09:17 +0000
+Received: from mail-westeuropeazon11013003.outbound.protection.outlook.com ([52.101.72.3] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAQmY-00000008jAS-22xn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 11:08:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0369B32E3;
-	Wed,  8 Apr 2026 04:08:39 -0700 (PDT)
-Received: from [10.164.148.132] (unknown [10.164.148.132])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 857EF3F641;
-	Wed,  8 Apr 2026 04:08:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775646524; bh=WusmM/JN0uOT9i9wjTFqibLgRU744Qp8wkgjMexj9do=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=g9HlyYXzT1sjXsGodnTVTmGGq4Mh2oNyVIwEu/pdYfuHvn3ZgIUqe1Nh9SkZYtWSk
-	 Ox3Q6id5to3JfUsc54ciQLX+BpNGb9mA3Hn4PJtuFw3S6TMCtePHIAJZss+zFqaQe4
-	 020mO5z8wnXArz9eUbbV6pKiLo73uOxYmuPQiUMA=
-Message-ID: <f661064f-269c-4e1d-8d6c-a9a2e50cd82c@arm.com>
-Date: Wed, 8 Apr 2026 16:38:36 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 3/8] mm/vmalloc: Extend
- vmap_small_pages_range_noflush() to support larger page_shift sizes
-To: "Barry Song (Xiaomi)" <baohua@kernel.org>, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
- will@kernel.org, akpm@linux-foundation.org, urezki@gmail.com
-Cc: linux-kernel@vger.kernel.org, anshuman.khandual@arm.com,
- ryan.roberts@arm.com, ajd@linux.ibm.com, rppt@kernel.org, david@kernel.org,
- Xueyuan.chen21@gmail.com
-References: <20260408025115.27368-1-baohua@kernel.org>
- <20260408025115.27368-4-baohua@kernel.org>
+	Wed, 08 Apr 2026 11:09:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=c9r4g5s6u30Tuw4zohYSOawhRc+1hbdboCmpqvRJmCOX+jlPJNgtjp5i2usAOMaKt8fi1Mnkc9DEfwjuMtBPndhEf7kRpmOFfwJrkvpOvfhcROeHiVzqcFXyNvnd5YxRicipx5b+WBy1jbo5lHAh4ANnXuinjWCdSPVwyURPwyDtpX4he4wZQammueUReXYSjuOh/ex1okqzLR4pN534xv5Mz9RVoYIyh5jz3PTqmPk6mrfBKdpEcQgv7oaP1TxOJJ6QVvhxwYm6l7gx8mxoD0afVyY9tSx5fszt+quEMzlnKFfTW+iiFwXN+ZoCSic78rABeGC5/aocofoA5Obc5Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=c/1MhOJcKFUmRW9u7fKfEjRgUGCIko9OA+snDYkLJ4s=;
+ b=vFchqL8mYPzIk5e9Ph/bahoN+ZFvpVLDIAnPqwUedGwSeBjttkSJHll8y/dMDxhbqJX5ij3jdlQlTxWhP4VrbBzUJ3oRbx7rYvDiIbZUH63ZgEqCXn72doD0S6ubzYMpQ3rPZXAKXZ6Eei7DjNLPMGvqtt1nXuiHDExck9xnaKpXlZaXcZoUieVzMoD+N8SUWXbUYLeX0S5kC/jaK9dXBLk8TIXDQhLxHHGY0vsUzL2QeHwKuUrx5b508EHFDJrPZUozlpkufuLkJqBAgZGxMDT2vSIUU6hg26au/QFLuvshCRxYZu4cwV7vHliPxkdYRKwVrAzkWiFMBRW6NndDjQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=c/1MhOJcKFUmRW9u7fKfEjRgUGCIko9OA+snDYkLJ4s=;
+ b=ls2ZvLRQD4j1wrac7qeQexam4xGr5q7HEkNLVxZJ/ps0ELns2ad98tiPo18OlnXZtDh10TKgMDdLvLADq5RCBQwTU/QvJfvT1r4h1ZFp9OEoKiYHeFyhhqwCGTjP8pEMoPZL4Z80m88Dn3fNyCdyr25+vksz54njiL+rtUGZahoXN7LvO7ko/k2tQDzvH/Lax327vFjbHS6G3Uict/8Rrsex3nME5KYjgpA14Xjb0quOfVTBmqWYgFQH/dSLt4EYgNm96GeaT4Rnsb4VtVmrQhruvoCbHEZgZdzGHxgrPZP2H4cGR0vfSqa+vvVVggU5KFjyiWwpBpBGwh8FTojbKg==
+Received: from AM8PR04MB7284.eurprd04.prod.outlook.com (2603:10a6:20b:1dc::8)
+ by VI0PR04MB12077.eurprd04.prod.outlook.com (2603:10a6:800:317::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.21; Wed, 8 Apr
+ 2026 11:09:08 +0000
+Received: from AM8PR04MB7284.eurprd04.prod.outlook.com
+ ([fe80::9cd6:51bd:82b:98dc]) by AM8PR04MB7284.eurprd04.prod.outlook.com
+ ([fe80::9cd6:51bd:82b:98dc%5]) with mapi id 15.20.9769.014; Wed, 8 Apr 2026
+ 11:09:08 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: Jakub Kicinski <kuba@kernel.org>
+CC: Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir Oltean
+	<vladimir.oltean@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"pabeni@redhat.com" <pabeni@redhat.com>, "robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "f.fainelli@gmail.com" <f.fainelli@gmail.com>, Frank
+ Li <frank.li@nxp.com>, "chleroy@kernel.org" <chleroy@kernel.org>,
+	"horms@kernel.org" <horms@kernel.org>, "linux@armlinux.org.uk"
+	<linux@armlinux.org.uk>, "andrew@lunn.ch" <andrew@lunn.ch>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>
+Subject: RE: [PATCH v4 net-next 12/14] net: dsa: netc: add more basic
+ functions support
+Thread-Topic: [PATCH v4 net-next 12/14] net: dsa: netc: add more basic
+ functions support
+Thread-Index: AQHcwQGzRXF+4+m1mE+150E6Qq+367XMjVSAgAhyPOA=
+Date: Wed, 8 Apr 2026 11:09:08 +0000
+Message-ID: <AM8PR04MB72846ADE8D4BF97337ED2E85885BA@AM8PR04MB7284.eurprd04.prod.outlook.com>
+References: <20260331113025.1566878-13-wei.fang@nxp.com>
+ <20260403011743.1795726-1-kuba@kernel.org>
+In-Reply-To: <20260403011743.1795726-1-kuba@kernel.org>
+Accept-Language: en-US
 Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20260408025115.27368-4-baohua@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM8PR04MB7284:EE_|VI0PR04MB12077:EE_
+x-ms-office365-filtering-correlation-id: 9dda764b-2c9b-4d64-d63d-08de955f4174
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|366016|1800799024|38070700021|22082099003|18002099003|56012099003;
+x-microsoft-antispam-message-info: LA6/x0R3e3ySWr0mj7zjghCeAnpmGL3F5UHWtXhvKbwQDUr6iJAifaZNIFioZAdjmSQyh5e8/BPIjNNZQqtXiuGUoF2lkeCpWOeWswQKHCInc4hp4EeHvYZ3I6QRVPa/fL6HkyALKP12GgBfZRKyhhGVsBxObXJ0n4P8Ga7vHvUqNlt8QN7Y4fQ2hoEQaMAh/ErmrMoAZH2CRpmeVyXaC+WTB6MWmgFSz+pNGTfYiGPe2mpzYgkD56cyqgxW+fvjFbcf5hWk+27OaS+D6g73txxZCPqTbneYr/jyMdYNYDZ3qrxryBatxrGwdMkTs9MNZtg/euJfMQZov8O0ir6sgsGG0cTsIQeAuNuopPwILZlC/4faxvPCWuv5E4g6mDF+4nnSnvkTU/s0PwejdAzHV42iRJsH9iRNe395sDLNTmEY9WJE2KdHlSDsfs3ywneOMaVp3dR/grL+rXEfRCLmFzj2//E1BNPbYe8+jjmtX8YdiZNUxaGDzrJFfoTtQkqIuidm9WRyHWYVQovzAhC+5hHacEtMO2CSV5PlpOhxP3czvlGeyNdbN7BTT5avvrXACkqDBkoenwEi2/lLoLTyD0Xul53h/2R0shph9ia6uGOli9pjcO08/01rg5puiNaiIbL2Zm5C4euaHhUM7lHT5q7tkeaxHH0iFLZ4CUSLXLY4yp0eqKBrHaizU8DDmtXlVI2Zfi3GHIZwQDVpzvxspxjdv3rmbnK2k5ZqdHLI8i+ZdlNqFDl0Et6RN4yz01zuCrDFfIAf4iAvQeAL92PxoFzqKzdrmcju+cxIa153f34=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7284.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(366016)(1800799024)(38070700021)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ilOlcLCIlAH2eFh20RTEQiloWfqe1eltHrrftpq/fCsppw4nt7B+xZbe9PiZ?=
+ =?us-ascii?Q?8cxfzSZ+zo5yDgTLguJfn77gtBqeVVmJg5rbjrFOIxAhzSsNYZZo92ftpcqQ?=
+ =?us-ascii?Q?mdS9/bAejuIFcjJpav6xiR8mMI21kJIsRf0pMz1+zEMvGj+LrtjvtEVsRw9x?=
+ =?us-ascii?Q?gCvUjQT02OeG9n2+6XbxHY/aVg5HoGeq0ZcF7D7aLu3U0FkFblY9b1H7NkWq?=
+ =?us-ascii?Q?EKjlImFXZnPVN4VdDoRg1OZeoMFNky6b0SUP8Gt3P8F4ZsdDzOphTKpY+xyW?=
+ =?us-ascii?Q?qz+BG43qtOwx2NE1FnrIXwWF+ISuB+3EGXfNIuFcBXmk0WIoBps1MxggmK9X?=
+ =?us-ascii?Q?wiyDAGTnJ9AeanIHKpOB5dJ9pd8ceVMXc927wew3jScYYz8aXYSdTAWhBjif?=
+ =?us-ascii?Q?mhmQOekI3IGuM9wGEvkDYJv7saQLjxD9eWRE35EVQwFkgnBM+HQgt8aJwsJM?=
+ =?us-ascii?Q?GnICawkxo4YmRBbipjP0jT5MJxtKJN48mA225o46BPfVHpBDuF2qE29bvcIx?=
+ =?us-ascii?Q?aSoSj4YFnKsKQzla/EQnFlhCwF2kOYzt22QY0rd9wsBqfPRIYrv24WKQ/bsm?=
+ =?us-ascii?Q?IJXuCSGQHmuWcoaj11mjX3ATVnSXvRNDPAJXPEH+ddjItA92F0nbqOS9oxZV?=
+ =?us-ascii?Q?F1Chd3vEtN2GtrG9joujy4XNBjMLJakMCTfpqiT5I0X7HAkHiu3J9BYbU0Nl?=
+ =?us-ascii?Q?5HEXzyXVD6Jr9otTCcLgiURPvKJT2Nwb0eQQM1/kD8kM8SCbc4YgD/BfeC1j?=
+ =?us-ascii?Q?9Wha26w9N5oFuwNJDFbPRVe3Ru6BdAIXWFmTJ68o6k77eA4chvD5/a+Xk7jR?=
+ =?us-ascii?Q?BuPCiNoia7OaZPIFIGSdmkXXOddJerb/VUdORjZQEYmf2qJvTEkCWwQT2To0?=
+ =?us-ascii?Q?AzLVRuzCOOKnNN4fy43nrlKeRZMzD5kUtGFKttB1mDijMO3ezRC3SudgsJpZ?=
+ =?us-ascii?Q?pxLHYh21lf5qVwmey34f/NjcPHjN5gqJ+TPbmTwxUHk1ELYHeyYz97MH6MDz?=
+ =?us-ascii?Q?QjjHEKcf2LhR8bXQch5wQqltuolj2pWKR5xP5DKElKCet/Bg2ryQelwqlCDP?=
+ =?us-ascii?Q?5WHSaSrTjhum+8g6QTOmP2Il46BPFZ5nivrHW1g7RXQbdDX2s6PbF7DYz+qa?=
+ =?us-ascii?Q?CiV6MJeDSAuHqOVDKptsRGN/a8V4e6BmX02DRhZ1uAJRxXnF64mx0J/e934U?=
+ =?us-ascii?Q?tX1RVng6B8hQiYrBGbyxL4KBaV2W1FFS4nrRrh7muIljiHGD59GFOEJ/fpKW?=
+ =?us-ascii?Q?p2uOIL2nbca6znSdthW2yE1R2Xrd0JVGtOOtdQbZIh8VphXgcxSS8vZZ4M3Q?=
+ =?us-ascii?Q?qWmg8Teadaatn0S6PsEYKT1N69Ib9jKIucXLwAKfkzRAKEV4VImRXfKPTsKn?=
+ =?us-ascii?Q?XyZHG9ugNFlJR69cn4hylvVCUg1JMPCAqQJrn5Bdo0yS1ocMEah5EZG/NerC?=
+ =?us-ascii?Q?I0VBdaRGTdzYFujlBqL+QDssRXViMA8GEleuPQanHX0kz0BFIgwv2yMgUYRt?=
+ =?us-ascii?Q?cysZFBd0iSC+HRHmTib+2bdhU8l1xyFiONjwaPT6xcoV+/Oor/5rOupNXE+g?=
+ =?us-ascii?Q?82rhAXOv4bXaD1NsxvJiuj/OnNHpClSESf/CoyDiwaopk2Ey+azbZdGlID5R?=
+ =?us-ascii?Q?JbjW1WUdQv4Ca3xzob4diPbD8n5zfgkTby+rcI54c7IA58exfUG60Q5dHVH8?=
+ =?us-ascii?Q?O+sS9TvMFXMjwNjeivF5Ji0WESA4LqfB4HEap0vm6bHP93kD?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7284.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9dda764b-2c9b-4d64-d63d-08de955f4174
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Apr 2026 11:09:08.5556
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: tuYBw6hp+SVAUC/IVLxzRJsr6vz3/pf96YbtUsm/Spckf7+d+1DjEHwjGmqmWowS8Xa2RNdaAyuHjCtKctr3SQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12077
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_040846_167416_9755D7B9 
-X-CRM114-Status: GOOD (  21.54  )
+X-CRM114-CacheID: sfid-20260408_040914_554859_D9DD198F 
+X-CRM114-Status: GOOD (  37.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,177 +154,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> > +static int netc_add_standalone_vlan_entry(struct netc_switch *priv)
+> > +{
+> > +	u32 bitmap_stg =3D VFT_STG_ID(0) | netc_available_port_bitmap(priv);
+>=20
+> Does putting all standalone ports into a single shared VLAN 0 break the D=
+SA
+> isolation requirements?
+>=20
+> If a user manually adds a static FDB entry to a standalone port, it is
+> programmed into VLAN 0. Because all standalone ports reside in this VLAN,=
+ a
+> frame arriving on one standalone port with a matching destination MAC mig=
+ht
+> be hardware-switched directly to another standalone port, bypassing the C=
+PU.
 
+I think the FDB entry can only be added to the CPU port if the port is a
+standalone port not a bridge port. So this case will not be true.
 
-On 08/04/26 8:21 am, Barry Song (Xiaomi) wrote:
-> vmap_small_pages_range_noflush() provides a clean interface by taking
-> struct page **pages and mapping them via direct PTE iteration. This
-> avoids the page table zigzag seen when using
+>=20
+> [ ... ]
+>=20
+> > +static int netc_port_set_fdb_entry(struct netc_port *np,
+> > +				   const unsigned char *addr, u16 vid)
+> > +{
+>=20
+> [ ... ]
+>=20
+> > +	/* If the entry already exists, but not on this port, we need to
+> > +	 * update the port bitmap. In general, it should only be valid
+> > +	 * for multicast or broadcast address.
+> > +	 */
+> > +	port_bitmap ^=3D BIT(port);
+> > +	entry->cfge.port_bitmap =3D cpu_to_le32(port_bitmap);
+>=20
+> Can this XOR operation cause multi-port floods during unicast MAC migrati=
+ons?
+>=20
+> When a unicast MAC address moves to a new port, the bridging layer issues=
+ an
+> ADD for the new port. The XOR operation leaves the old port bit set along=
+side
+> the new port bit. Does the driver need to differentiate between unicast a=
+nd
+> multicast addresses and explicitly overwrite the bitmap for unicast entri=
+es?
 
-"Zigzag" is ambiguous. Just say "page table rewalk". Also please
-elaborate on why the rewalk is happening currently.
+I think the old FDB entry should be removed first when a unicast MAC addres=
+s
+moves to a new port rather than only adding a new entry. If AI refers to ad=
+ding
+before deleting, then this problem will indeed occur, and it is unavoidable=
+.
 
-> vmap_range_noflush() for page_shift values other than PAGE_SHIFT.
-> 
-> Extend it to support larger page_shift values, and add PMD- and
-> contiguous-PTE mappings as well.
+>=20
+> [ ... ]
+>=20
+> > +static int netc_port_del_fdb_entry(struct netc_port *np,
+> > +				   const unsigned char *addr, u16 vid)
+> > +{
+> > +	struct netc_switch *priv =3D np->switch_priv;
+> > +	struct ntmp_user *ntmp =3D &priv->ntmp;
+> > +	struct netc_fdb_entry *entry;
+> > +	int port =3D np->dp->index;
+> > +	u32 port_bitmap;
+> > +	int err =3D 0;
+> > +
+> > +	mutex_lock(&priv->fdbt_lock);
+> > +
+> > +	entry =3D netc_lookup_fdb_entry(priv, addr, vid);
+> > +	if (unlikely(!entry))
+> > +		goto unlock_fdbt;
+>=20
+> Will this prevent dynamically learned FDB entries from being deleted?
+>=20
+> Since the CPU port is configured with MLO_HW, the switch hardware
 
-So we can drop the "small" here since now it supports larger chunks
-as well.
+Currently we only support single port mode, so only support static FDB
+entry. The MLO_HW should be removed from the code, I will improve
+the logic.
 
-Also at this point the code you add is a no-op since you pass PAGE_SHIFT.
-Let us just squash patch 4 into this. This patch looks weird retaining
-the pagetable-rewalk algorithm when it literally adds functionality
-to avoid that.
+> dynamically
+> learns MAC addresses, but they are not added to the software priv->fdb_li=
+st.
+> If a user attempts to delete a dynamic entry, the software lookup will fa=
+il
+> here and return 0 (success), leaving the stale dynamically learned entry
+> active in hardware.
+>=20
+> [ ... ]
+>=20
+> > +static int netc_port_change_mtu(struct dsa_switch *ds,
+> > +				int port, int mtu)
+> > +{
+> > +	u32 max_frame_size =3D mtu + VLAN_ETH_HLEN + ETH_FCS_LEN;
+> > +	struct netc_port *np =3D NETC_PORT(ds, port);
+> > +
+> > +	if (dsa_is_cpu_port(ds, port))
+> > +		max_frame_size +=3D NETC_TAG_MAX_LEN;
+>=20
+> Does this double-count the DSA tag overhead for the CPU port?
+>=20
+> The DSA core computes the CPU port's MTU by adding the tagger overhead
+> before
+> calling the switch's .port_change_mtu() function. If the maximum MTU of 9=
+582
+> bytes is requested, the CPU port receives an MTU of 9596. Adding
+> NETC_TAG_MAX_LEN again here results in 9628 bytes, which exceeds the
+> hardware limit of 9600 (NETC_MAX_FRAME_LEN) and might lead to truncation.
 
-> 
-> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> ---
->  mm/vmalloc.c | 54 ++++++++++++++++++++++++++++++++++++++++------------
->  1 file changed, 42 insertions(+), 12 deletions(-)
-> 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index 57eae99d9909..5bf072297536 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -524,8 +524,9 @@ void vunmap_range(unsigned long addr, unsigned long end)
->  
->  static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
->  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
-> -		pgtbl_mod_mask *mask)
-> +		pgtbl_mod_mask *mask, unsigned int shift)
->  {
-> +	unsigned int steps = 1;
->  	int err = 0;
->  	pte_t *pte;
->  
-> @@ -543,6 +544,7 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
->  	do {
->  		struct page *page = pages[*nr];
->  
-> +		steps = 1;
->  		if (WARN_ON(!pte_none(ptep_get(pte)))) {
->  			err = -EBUSY;
->  			break;
-> @@ -556,9 +558,24 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
->  			break;
->  		}
->  
-> +#ifdef CONFIG_HUGETLB_PAGE
-> +		if (shift != PAGE_SHIFT) {
-> +			unsigned long pfn = page_to_pfn(page), size;
-> +
-> +			size = arch_vmap_pte_range_map_size(addr, end, pfn, shift);
-> +			if (size != PAGE_SIZE) {
-> +				steps = size >> PAGE_SHIFT;
-> +				pte_t entry = pfn_pte(pfn, prot);
-> +
-> +				entry = arch_make_huge_pte(entry, ilog2(size), 0);
-> +				set_huge_pte_at(&init_mm, addr, pte, entry, size);
-> +				continue;
-> +			}
-> +		}
-> +#endif
-> +
->  		set_pte_at(&init_mm, addr, pte, mk_pte(page, prot));
-> -		(*nr)++;
-> -	} while (pte++, addr += PAGE_SIZE, addr != end);
-> +	} while (pte += steps, *nr += steps, addr += PAGE_SIZE * steps, addr != end);
->  
->  	lazy_mmu_mode_disable();
->  	*mask |= PGTBL_PTE_MODIFIED;
-> @@ -568,7 +585,7 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
->  
->  static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
->  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
-> -		pgtbl_mod_mask *mask)
-> +		pgtbl_mod_mask *mask, unsigned int shift)
->  {
->  	pmd_t *pmd;
->  	unsigned long next;
-> @@ -578,7 +595,20 @@ static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
->  		return -ENOMEM;
->  	do {
->  		next = pmd_addr_end(addr, end);
-> -		if (vmap_pages_pte_range(pmd, addr, next, prot, pages, nr, mask))
-> +
-> +		if (shift == PMD_SHIFT) {
-> +			struct page *page = pages[*nr];
-> +			phys_addr_t phys_addr = page_to_phys(page);
-> +
-> +			if (vmap_try_huge_pmd(pmd, addr, next, phys_addr, prot,
-> +						shift)) {
-> +				*mask |= PGTBL_PMD_MODIFIED;
-> +				*nr += 1 << (shift - PAGE_SHIFT);
-> +				continue;
-> +			}
-> +		}
-> +
-> +		if (vmap_pages_pte_range(pmd, addr, next, prot, pages, nr, mask, shift))
->  			return -ENOMEM;
->  	} while (pmd++, addr = next, addr != end);
->  	return 0;
-> @@ -586,7 +616,7 @@ static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
->  
->  static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
->  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
-> -		pgtbl_mod_mask *mask)
-> +		pgtbl_mod_mask *mask, unsigned int shift)
->  {
->  	pud_t *pud;
->  	unsigned long next;
-> @@ -596,7 +626,7 @@ static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
->  		return -ENOMEM;
->  	do {
->  		next = pud_addr_end(addr, end);
-> -		if (vmap_pages_pmd_range(pud, addr, next, prot, pages, nr, mask))
-> +		if (vmap_pages_pmd_range(pud, addr, next, prot, pages, nr, mask, shift))
->  			return -ENOMEM;
->  	} while (pud++, addr = next, addr != end);
->  	return 0;
-> @@ -604,7 +634,7 @@ static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
->  
->  static int vmap_pages_p4d_range(pgd_t *pgd, unsigned long addr,
->  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
-> -		pgtbl_mod_mask *mask)
-> +		pgtbl_mod_mask *mask, unsigned int shift)
->  {
->  	p4d_t *p4d;
->  	unsigned long next;
-> @@ -614,14 +644,14 @@ static int vmap_pages_p4d_range(pgd_t *pgd, unsigned long addr,
->  		return -ENOMEM;
->  	do {
->  		next = p4d_addr_end(addr, end);
-> -		if (vmap_pages_pud_range(p4d, addr, next, prot, pages, nr, mask))
-> +		if (vmap_pages_pud_range(p4d, addr, next, prot, pages, nr, mask, shift))
->  			return -ENOMEM;
->  	} while (p4d++, addr = next, addr != end);
->  	return 0;
->  }
->  
->  static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
-> -		pgprot_t prot, struct page **pages)
-> +		pgprot_t prot, struct page **pages, unsigned int shift)
->  {
->  	unsigned long start = addr;
->  	pgd_t *pgd;
-> @@ -636,7 +666,7 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
->  		next = pgd_addr_end(addr, end);
->  		if (pgd_bad(*pgd))
->  			mask |= PGTBL_PGD_MODIFIED;
-> -		err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, &mask);
-> +		err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, &mask, shift);
->  		if (err)
->  			break;
->  	} while (pgd++, addr = next, addr != end);
-> @@ -665,7 +695,7 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
->  
->  	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC) ||
->  			page_shift == PAGE_SHIFT)
-> -		return vmap_small_pages_range_noflush(addr, end, prot, pages);
-> +		return vmap_small_pages_range_noflush(addr, end, prot, pages, PAGE_SHIFT);
->  
->  	for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
->  		int err;
+It seems a bug, I will fix it.
+
+>=20
+> [ ... ]
+>=20
+> > +static int netc_port_fdb_add(struct dsa_switch *ds, int port,
+> > +			     const unsigned char *addr, u16 vid,
+> > +			     struct dsa_db db)
+> > +{
+> > +	struct netc_port *np =3D NETC_PORT(ds, port);
+> > +
+> > +	/* Currently, we only support standalone port mode, so all VLANs
+> > +	 * should be converted to NETC_STANDALONE_PVID.
+> > +	 */
+> > +	return netc_port_set_fdb_entry(np, addr, NETC_STANDALONE_PVID);
+> > +}
+>=20
+> Is it safe to silently override user-requested VLAN IDs to VLAN 0?
+>=20
+> If a user explicitly attempts to configure a MAC address for a specific V=
+LAN,
+> the hardware is programmed for VLAN 0 and returns success. Should this
+> instead check if the requested vid is not 0 and not NETC_STANDALONE_PVID,
+> and return -EOPNOTSUPP to inform the networking stack?
+
+Okay, I will add a check.
+
+>=20
+> [ ... ]
+>=20
+> > +static void netc_port_set_host_flood(struct dsa_switch *ds, int port,
+> > +				     bool uc, bool mc)
+> > +{
+> > +	struct netc_port *np =3D NETC_PORT(ds, port);
+> > +
+> > +	if (np->uc =3D=3D uc && np->mc =3D=3D mc)
+> > +		return;
+> > +
+> > +	/* IPFT does not support in-place updates to the KEYE element,
+> > +	 * so we need to delete the old IPFT entry and then add a new
+> > +	 * one.
+> > +	 */
+> > +	if (np->host_flood)
+> > +		netc_port_remove_host_flood(np);
+> > +
+> > +	if (netc_port_add_host_flood_rule(np, uc, mc))
+> > +		dev_err(ds->dev, "Failed to add host flood rule on port %d\n",
+> > +			port);
+> > +}
+>=20
+> Could this permanently lose the host flood configuration if the new rule
+> addition fails?
+>=20
+> If the call to netc_port_add_host_flood_rule() fails (for example, due to
+> -ENOMEM), the function logs an error and returns, leaving the port entire=
+ly
+> without a host flood rule. Should the driver revert to the previous
+> configuration on failure to avoid blackholing traffic meant for the CPU?
+
+Okay, I will improve it.
 
 
