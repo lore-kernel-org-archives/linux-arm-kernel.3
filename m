@@ -4,63 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98FCC1073C89
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 10:20:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4937F1073C8D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 10:21:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tZSUNgoKuiFadjEFerCS0nKsIpd3Tqofym8ba1BATyM=; b=avEk+FMWJqYifbYWY+8QfzsJqQ
-	dwpRtyhawmKT/5g9alyo/9PoWgEO7z7u8V5i9+7TfXMqao1MFC4IHPVSPS4DikDMe1pPud6iLFkAv
-	GU6HSvZZYwfnxPXKNiIm9We0nhOdhDYrMI52ZfUHjeLGcb5rWVDISNvjs4f5vhKM8dxF4L34PDh1a
-	BCQ3+7iH3UcY/w8kuNeh51BdN1TALfo97NcHbgEDFCZjfQOuUtg+2JZfBu3BzlEv/v7zn5ayO++Ig
-	KCzJAW7AW1bI83auSWO53Qb6jbsntZpQbymvbDm/T0qtHb+01ErLKwvdbCwumX9x3Fih7vt/k0BEC
-	+SzBfRbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ILRS2tCRwpgSNCOrN2fMzhW7JRxZunppcYH5nJ8Tj+I=; b=IjTfREd3AJTh+OlxGEdX1kHKNu
+	cG8sNkclS8LVwx8ET2CYgdnKDGqjO01vRNnsDIQ1qZtSRio2hPyrfba7mhVEeCNb8iZ2W5hPBzY6Z
+	e4/yQqkw/VEXMlJQK6wLDiAuVKfrShH2yrIzGX7yHWQN3GEmQ+DFFn8qtPVS3Ph6n61m2zGScv3Cn
+	i9bsuGUhxK0epgFTyt49ZRNdaQO78+mElWgzvlNB8s0ldnCbBX/sfNBREmRXVv2U+hnsBEtFpIdgX
+	rK1gHK94c2UqvsLEmZ7ojOJVKYVgonc+8RDYohZEQBGZ/VtAP90iHWP1BszPzoiZJVED7RDNO4/ZU
+	9p/WU5tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAQ1d-00000008g71-1hG1;
-	Wed, 08 Apr 2026 10:20:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wAQ2X-00000008gFb-3vIZ;
+	Wed, 08 Apr 2026 10:21:41 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAQ1b-00000008g6U-1oyg;
-	Wed, 08 Apr 2026 10:20:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DC9B7600AD;
-	Wed,  8 Apr 2026 10:20:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41E71C19421;
-	Wed,  8 Apr 2026 10:20:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775643642;
-	bh=ABZLM89td49tEIN7UAY05XdHZIYCDOKvcEo6PPPXL4g=;
-	h=From:Date:Subject:To:Cc:From;
-	b=UylZGa91eIst3xrkGSx8Rv7QKeB4U9GXaeu3sGozFpC1+cKpVH/MXGk6NsfglblLL
-	 mJp5oRaoxD7E/OCKVrB7F6GtchmH7J0ad1p1WZa4f0vL+9m9IEPkBFjaJkZvCo9IrZ
-	 v/US7MRVyxLnEt8HZ0slSyAX4v7Jf1ckbOe2+kjAx5OtPxk5akENyPL0KoEsQDpa5i
-	 xLB3tiR12atgVp+K8PWFGO2q2THEUrKenlmyR2X9KtakFLaq0MRdUvpgtQE20+nXZ9
-	 VAjyWK+5Z/UUt8bxu8N1LUkesug4MJ08hq+Trt1fMkmtm7Nu54p7KuFMPdOQaSiR9q
-	 Kzi9pV2XAEM3Q==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 08 Apr 2026 12:20:09 +0200
-Subject: [PATCH net] net: airoha: Fix FE_PSE_BUF_SET configuration if PPE2
- is available
+	id 1wAQ2U-00000008gEg-49VM
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Apr 2026 10:21:40 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1wAQ23-0004mm-KN; Wed, 08 Apr 2026 12:21:11 +0200
+Message-ID: <9f36af74-ef1a-4777-a1c3-ff13b68c2221@pengutronix.de>
+Date: Wed, 8 Apr 2026 12:21:10 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clk: clk-imx8mm: Initialize clocks in arch_initcall
+To: Paul Geurts <paul.geurts@prodrive-technologies.com>, abelvesa@kernel.org,
+ peng.fan@nxp.com, mturquette@baylibre.com, sboyd@kernel.org,
+ Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, shawnguo@kernel.org, linux-clk@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: martijn.de.gouw@prodrive-technologies.com
+References: <20260408101313.2082125-1-paul.geurts@prodrive-technologies.com>
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Content-Language: en-US, de-DE, de-BE
+In-Reply-To: <20260408101313.2082125-1-paul.geurts@prodrive-technologies.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260408-airoha-reg_fe_pse_buf_set-v1-1-0c4fa8f4d1d9@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQ6CMBBG4auQWdOkVhHkKsY0A/yF2RQyg8aEc
- Hcbl9/ivYMMKjDqq4MUHzFZc8GlrmhcOM9wMhVT8OHub75zLLou7BRzTIibIQ7vFA27uz64bTA
- NTRiZSr8pknz/7ydl7PQ6zx+1t6AOcAAAAA==
-X-Change-ID: 20260408-airoha-reg_fe_pse_buf_set-39a75edb52ca
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Simon Horman <horms@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Xuegang Lu <xuegang.lu@airoha.com>, Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.3
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260408_032139_029858_2114C36C 
+X-CRM114-Status: GOOD (  25.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,52 +70,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-airoha_fe_set routine is used to set specified bits to 1 in the selected
-register. In the FE_PSE_BUF_SET case this can due to a overestimation of
-the required buffers for I/O queues since we can miss to set some bits
-of PSE_ALLRSV_MASK subfield to 0. Fix the issue relying on airoha_fe_rmw
-routine instead.
+Hello Paul,
 
-Fixes: 8e38e08f2c560 ("net: airoha: fix PSE memory configuration in airoha_fe_pse_ports_init()")
-Tested-by: Xuegang Lu <xuegang.lu@airoha.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+On 4/8/26 12:13 PM, Paul Geurts wrote:
+> The i.MX8MM clock driver is implemented as module_platform_driver();,
+> which makes it initialize in device_initcall(). This means that all
+> drivers referencing the clock driver nodes in the device tree are
+> deferred by fw_devlink, which are most of the i.MX8M platform drivers.
+> 
+> Explicitly initialize the clock driver in arch_initcall(), to make sure
+> the clock driver is ready when the rest of the drivers are probed.
+> 
+> Fixes: af7e7ee0e428 ("clk: imx8mm: Switch to platform driver")
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 91cb63a32d99..c365d693cf40 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -293,16 +293,18 @@ static void airoha_fe_pse_ports_init(struct airoha_eth *eth)
- 		[FE_PSE_PORT_GDM4] = 2,
- 		[FE_PSE_PORT_CDM5] = 2,
- 	};
--	u32 all_rsv;
- 	int q;
- 
--	all_rsv = airoha_fe_get_pse_all_rsv(eth);
- 	if (airoha_ppe_is_enabled(eth, 1)) {
-+		u32 all_rsv;
-+
- 		/* hw misses PPE2 oq rsv */
-+		all_rsv = airoha_fe_get_pse_all_rsv(eth);
- 		all_rsv += PSE_RSV_PAGES *
- 			   pse_port_num_queues[FE_PSE_PORT_PPE2];
-+		airoha_fe_rmw(eth, REG_FE_PSE_BUF_SET, PSE_ALLRSV_MASK,
-+			      FIELD_PREP(PSE_ALLRSV_MASK, all_rsv));
- 	}
--	airoha_fe_set(eth, REG_FE_PSE_BUF_SET, all_rsv);
- 
- 	/* CMD1 */
- 	for (q = 0; q < pse_port_num_queues[FE_PSE_PORT_CDM1]; q++)
+Your commit message doesn't explain why this was a problem for you.
+Does it delay your boot? What makes this patch a fix?
 
----
-base-commit: f821664dde29302e8450aa0597bf1e4c7c5b0a22
-change-id: 20260408-airoha-reg_fe_pse_buf_set-39a75edb52ca
+> Signed-off-by: Paul Geurts <paul.geurts@prodrive-technologies.com>
+> ---
+>  drivers/clk/imx/clk-imx8mm.c | 14 +++++++++++++-
+>  1 file changed, 13 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/clk/imx/clk-imx8mm.c b/drivers/clk/imx/clk-imx8mm.c
+> index 319af4deec01..7b2cf867b920 100644
+> --- a/drivers/clk/imx/clk-imx8mm.c
+> +++ b/drivers/clk/imx/clk-imx8mm.c
+> @@ -636,7 +636,19 @@ static struct platform_driver imx8mm_clk_driver = {
+>  		.of_match_table = imx8mm_clk_of_match,
+>  	},
+>  };
+> -module_platform_driver(imx8mm_clk_driver);
+> +
+> +static int __init imx8mm_clk_init(void)
+> +{
+> +	return platform_driver_register(&imx8mm_clk_driver);
+> +}
+> +arch_initcall(imx8mm_clk_init);
 
-Best regards,
+What happens if you build the driver as module with your changes applied?
+
+Cheers,
+Ahmad
+
+> +
+> +static void __exit imx8mm_clk_exit(void)
+> +{
+> +	platform_driver_unregister(&imx8mm_clk_driver);
+> +}
+> +module_exit(imx8mm_clk_exit);
+> +
+>  module_param(mcore_booted, bool, S_IRUGO);
+>  MODULE_PARM_DESC(mcore_booted, "See Cortex-M core is booted or not");
+>  
+
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+Pengutronix e.K.                  |                             |
+Steuerwalder Str. 21              | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
 
 
