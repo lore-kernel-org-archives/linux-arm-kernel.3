@@ -4,75 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14D881073C98
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 11:00:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 661F31073C99
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 11:01:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EZ2yuTZvfsrt02dodKOU1pTCiBawJg1GQIriROlTJHs=; b=gBPorwZm5JEleY2lIiTtEd3xu+
-	5XaEX/Lrs5Z74O6YHeJCZV99OCNB2vlHekM8Hf/AfPN13NdpVyPeml6r8lm5RiPCRoo0GZhit3F1V
-	2QeKQuB8gvg6t8ziMbzzb9Uf60KAFAq4aYAiLgAO9W9UXnAxtqxXhrCa3lWeWbNf+1v826Rk9gEGj
-	p0ms0LNfpxykHfDwCAX4YBVPZTtejZiBBuKJa0tl+udX3k4OdGj8owBT8dcImBg/B8t9GIoiuJKd0
-	VCAmfeUuWNyXp0QfVtIPIMGtNgtyux5IqVajoZTeHyIYt0FrwxStq/CrGQ/ij1clSqLrE7rQtMiYR
-	Ea+FOhgQ==;
+	bh=RCo/KGdYTRJFNwKNUpDIZvF/sPfe++F6/SVEF+nLq80=; b=Udj9Yk4aAkA311oI7U7/IBEumq
+	zzR7IBJTPDA5zDDoqxM3j3ciC0/pgD2hNczNGbTmGlE3Gze7DQNJwCqY9bdLnQiqyaWhMgphu3U79
+	EpvAUYeEas1bWDj+W1hUqV8+eITwAp8rebIJ/KClgBa1N38cU4JpL/05bPbmTQVSXIldJ+dFEMLTW
+	+KqUC7imhWm2sn/3hY5Tlf4uAXD7rjYxLVNY77JWeWELRHw2qrPqzFh7YmrjiV3vC0NY65+XHHMVx
+	T3bU1Cnz7zJgGVepT2A23IZ1DvO6upS+FGEf2pg2Yn6R1A6seT7+EPn1vzeSiqWSkeadApt87iBPN
+	2D3WqqSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAQeO-00000008ibn-2Iwr;
-	Wed, 08 Apr 2026 11:00:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAQeN-00000008ibG-0KQg
+	id 1wAQf6-00000008ihA-07IP;
+	Wed, 08 Apr 2026 11:01:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAQf3-00000008igG-16Z5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 11:00:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 461D0444C5
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Apr 2026 11:00:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23F7FC2BCB2
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Apr 2026 11:00:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775646046;
-	bh=0OfgS+n/fNHdA6iHaO+uqBDCD2A8pXnvnNC61V/pXfw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=bRVBbQly3XBWY1dTEzOEwlNr0HfuGL1bTGHzsMkQtqFOHYtF5lhWJKIjXAHNOSeRO
-	 i3wpQ4md7jGhUCJLSyjGLBKck9fixNCf6lbZSPOQ75UYEv3KVoMz/3BTijIM1cXq1r
-	 eD81XeKn/cWcQBnyVwCKQKzAoJ7FNNwT1QkF7UthrOxerX6xeaadm4akAQs/EVmAxC
-	 6tQerp4BeZOZhoxYvNhcZD0ZgiblFxYTJGApIrxiSYdP+YCpkx0JUHFQ25gHNrFJH/
-	 8SJSNSJwNVVWlQmyjZkupyQK2+Lx1Ua3qEllSqeH7CWAxnFEqDHNsLWfpZXWTm5tF/
-	 eFUmqQg2CAcwg==
-Received: by mail-qt1-f182.google.com with SMTP id d75a77b69052e-50d8e11b948so31204771cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 04:00:46 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVgUHTSjyLYszonYPPFFLLKv3ihz1MSLBrTJ3ExC+dooum7KnSt8tD6A+dcxPvXzQ8v0Rk5hWkMoiH+m5vf9Tnh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/+NsWCrRGbNg+vn0ilGdVaLSM6tL78TGs/uFECDsKMHHaVdM+
-	87GSPs+QB6fVmOpKlfbSeaUDJBQCQZ24P5UT3XgN9OEvNKvvtLfhqY3wRa6bES9Es/xfLvLIs9e
-	lb+S1mNwaPwK8ILtDUsDenw1NLhkBlJ8=
-X-Received: by 2002:a05:622a:1e9a:b0:50d:7587:dc46 with SMTP id
- d75a77b69052e-50d7587e069mr271418751cf.12.1775646045425; Wed, 08 Apr 2026
- 04:00:45 -0700 (PDT)
+	Wed, 08 Apr 2026 11:01:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9BFE92BC4;
+	Wed,  8 Apr 2026 04:01:20 -0700 (PDT)
+Received: from [10.57.87.42] (unknown [10.57.87.42])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7F3CF3F632;
+	Wed,  8 Apr 2026 04:01:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775646086; bh=sj8JDaDSYK+tYnVjXLuC+PQF+McDxx+lR1PogM9spE4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bNuae1i/ZuzLq7CMWlbVxrPHfN8BimWSWAP3gURWRbaWCS2zs31gmVArdTgAM9DFA
+	 mGCCsnP9qltnDf2MIQHjEfpDc+cFpIfeQHBf1LM75b3zMgEgVhInlvFDKtel3ZDx2+
+	 xgoASjHChVFUhH352g6g/FvcDa8koEVcRvq2fbV8=
+Message-ID: <2a980011-b229-43d4-ad9e-b3e851bff706@arm.com>
+Date: Wed, 8 Apr 2026 12:01:22 +0100
 MIME-Version: 1.0
-References: <20260408025115.27368-1-baohua@kernel.org> <20260408025115.27368-2-baohua@kernel.org>
- <02b0464a-13f6-4e0c-ad69-0f494bfacbf4@arm.com>
-In-Reply-To: <02b0464a-13f6-4e0c-ad69-0f494bfacbf4@arm.com>
-From: Barry Song <baohua@kernel.org>
-Date: Wed, 8 Apr 2026 19:00:34 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4x-73NTcef0Ep8wKUQviC=4KvGh3BfwGMqNFQt0fTPt=Q@mail.gmail.com>
-X-Gm-Features: AQROBzCZTm-M-8NVQt7j0TfFWeTANOKbOR2ssF4vKWCEH8fhyZKDU6z1LoiRbbI
-Message-ID: <CAGsJ_4x-73NTcef0Ep8wKUQviC=4KvGh3BfwGMqNFQt0fTPt=Q@mail.gmail.com>
-Subject: Re: [RFC PATCH 1/8] arm64/hugetlb: Extend batching of multiple
- CONT_PTE in a single PTE setup
-To: Dev Jain <dev.jain@arm.com>
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
-	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org, 
-	urezki@gmail.com, linux-kernel@vger.kernel.org, anshuman.khandual@arm.com, 
-	ryan.roberts@arm.com, ajd@linux.ibm.com, rppt@kernel.org, david@kernel.org, 
-	Xueyuan.chen21@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC V1 00/16] arm64/mm: Enable 128 bit page table entries
+Content-Language: en-GB
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ "David Hildenbrand (Arm)" <david@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
+ Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20260224051153.3150613-1-anshuman.khandual@arm.com>
+ <a77b39a4-c6dd-4a8a-8ea4-2bdc31bd3601@kernel.org>
+ <8d2c9ecb-ae33-42f2-a8ed-66b3286b9286@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <8d2c9ecb-ae33-42f2-a8ed-66b3286b9286@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_040047_158426_1D04192C 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20260408_040129_385970_10A8FAC9 
+X-CRM114-Status: GOOD (  20.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,71 +78,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 8, 2026 at 6:32=E2=80=AFPM Dev Jain <dev.jain@arm.com> wrote:
->
->
->
-> On 08/04/26 8:21 am, Barry Song (Xiaomi) wrote:
-> > For sizes aligned to CONT_PTE_SIZE and smaller than PMD_SIZE,
-> > we can batch CONT_PTE settings instead of handling them individually.
-> >
-> > Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> > ---
-> >  arch/arm64/mm/hugetlbpage.c | 10 ++++++++++
-> >  1 file changed, 10 insertions(+)
-> >
-> > diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-> > index a42c05cf5640..bf31c11ebd3b 100644
-> > --- a/arch/arm64/mm/hugetlbpage.c
-> > +++ b/arch/arm64/mm/hugetlbpage.c
-> > @@ -110,6 +110,12 @@ static inline int num_contig_ptes(unsigned long si=
-ze, size_t *pgsize)
-> >               contig_ptes =3D CONT_PTES;
-> >               break;
-> >       default:
-> > +             if (size < CONT_PMD_SIZE && size > 0 &&
-> > +                             IS_ALIGNED(size, CONT_PTE_SIZE)) {
->
-> Nit: Having the lower bound check before upper bound is natural to
-> read, so this should be size > 0 && size < CONT_PMD_SIZE (i.e written
-> the other way around).
+On 08/04/2026 11:53, Anshuman Khandual wrote:
+> On 07/04/26 8:14 PM, David Hildenbrand (Arm) wrote:
+>> On 2/24/26 06:11, Anshuman Khandual wrote:
+>>> FEAT_D128 is a new arm architecture feature adding support for VMSAv9-128
+>>> translation system. FEAT_D128 is an optional feature from ARMV9.3 onwards.
+>>> So with this feature arm64 platforms could have two different translation
+>>> systems, VMSAv8-64 and VMSAv9-128 could selectively be enabled.
+>>>
+>>> FEAT_D128 adds 128 bit page table entries, thus supporting larger physical
+>>> and virtual address range while also expanding available room for more MMU
+>>> management feature bits both for HW and SW. 
+>>>
+>>> This series has been split into two parts. Generic MM changes followed by
+>>> arm64 platform changes, finally enabling D128 with a new config ARM64_D128.
+>>>
+>>> READ_ONCE() on page table entries get routed via level specific pxdp_get()
+>>> helpers which platforms could then override when required. These accessors
+>>> on arm64 platform help in ensuring page table accesses are performed in an
+>>> atomic manner while reading 128 bit page table entries.
+>>>
+>>> All ARM64_VA_BITS and ARM64_PA_BITS combinations for all page sizes are now
+>>> supported both on D64 and D128 translation regimes. Although new 56 bits VA
+>>> space is not yet supported. Similarly FEAT_D128 skip level is not supported
+>>> currently.
+>>>
+>>> Basic page table geometry has been changed with D128 as there are now fewer
+>>> entries per level. Please refer to the following table for leaf entry sizes
+>>>
+>>>                     D64              D128
+>>> ------------------------------------------------
+>>> | PAGE_SIZE |   PMD  |  PUD  |   PMD  |   PUD  |
+>>> -----------------------------|-----------------|
+>>> |     4K    |    2M  |  1G   |    1M  |  256M  |
+>>> |    16K    |   32M  | 64G   |   16M  |   16G  |
+>>> |    64K    |  512M  |  4T   |  256M  |    1T  |
+>>> ------------------------------------------------
+>>>
+>>
+>> Interesting. That means user space will have it even harder to optimize
+>> for THP sizes.
+>>
+>> What's the effect on cont-pte? Do they still span the same number of
+>> entries and there is effectively no change?
+> 
+> The numbers are the same for 4K base page size but will need
+> some changes for 16K and 64K base page sizes. Something that
+> git missed in this series, will fix it.
 
-Thanks very much for reviewing, Dev. As we discussed in patch 0/8,
-this should be
-PMD_SIZE, not CONT_PMD_SIZE. I will use size > 0 && size < PMD_SIZE
-in the next version.
+Really - I thought the contiguous sizes were the same for D128 as they are for
+D64? What's the difference? Perhaps it's different for level 2, but for level 3,
+I'm pretty sure it remains:
 
->
-> Also IS_ALIGNED needs to go below size.
+PAGE_SIZE	CONT_SIZE	NR_PTES		CONT_ORDER
+4K		64K		16		4
+16K		2M		128		7
+64K		2M		32		5
 
-Sure, thanks!
+Thanks,
+Ryan
 
->
->
-> > +                     contig_ptes =3D size >> PAGE_SHIFT;
-> > +                     *pgsize =3D PAGE_SIZE;
-> > +                     break;
-> > +             }
-> >               WARN_ON(!__hugetlb_valid_size(size));
-> >       }
-> >
-> > @@ -359,6 +365,10 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int=
- shift, vm_flags_t flags)
-> >       case CONT_PTE_SIZE:
-> >               return pte_mkcont(entry);
-> >       default:
-> > +             if (pagesize < CONT_PMD_SIZE && pagesize > 0 &&
-> > +                             IS_ALIGNED(pagesize, CONT_PTE_SIZE))
-> > +                     return pte_mkcont(entry);
+> 
+>>
+>>> From arm64 kernel features perspective KVM, KASAN and UNMAP_KERNEL_AT_EL0
+>>> are currently not supported as well.
+>>>
+>>> Open Questions:
+>>>
+>>> - Do we need to support UNMAP_KERNEL_AT_EL0 with D128
+>>> - Do we need to emulate traditional D64 sizes at PUD, PMD level with D128
+>>
+>> It would certainly make user space interaction easier. But then, user
+>> space already has to consider various PMD sizes (and is better of
+>> querying /sys/kernel/mm/transparent_hugepage/hpage_pmd_size instead of
+>> hardcoding it). s390x, for example, also has 1M PMD size.
+>>> I guess with "emulating" you mean something simple like always
+>> allocating order-1 page tables that effectively have the same number of
+>> page table entries?
+> 
+> Yeah - thought something similar.
+> 
+>>
+>> The would be an option, but I recall that the pte_map_* infrastructure
+>> currently expects that leaf page tables only ever span a single page.
+>>> So it wouldn't really give us a lot of easy benefit I guess.
+> 
+> Right. So probably need to figure all other benefits this might
+> add besides just the user space facing interactions as you have
+> mentioned earlier.
 
-Here it should be pagesize > 0 && pagesize < PMD_SIZE as well :-)
-
-> > +
-> >               break;
-> >       }
-> >       pr_warn("%s: unrecognized huge page size 0x%lx\n",
->
-
-Best Regards
-Barry
 
