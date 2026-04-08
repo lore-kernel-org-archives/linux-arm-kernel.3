@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BDCB1073CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 12:28:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA6371073CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 12:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/aMf679OPttM6U5ARxRngz3Ey50x1fQtVbKPfutV6O0=; b=p2eErXvRhPmsJhxLy2k4Ip9zZI
-	b2gzU9iSF7qenNL3XFkFdOJyFIrJcRbpkD+tzbSC9uG2jGBcEuJjGXw7fEv+aR9deD08SUWBjCNK2
-	GmI5qpC8tN796ubkTlnF4JmMgtf8adilHqcGbWUnr6D91EdknTe01gGsgluG70H1pHpTCUhQCvZlB
-	UjN1oUPoZo05UYPdVYYjLa2WXhrjALDCvT7iTgTzBGwU782NR0oOCwfVhtnJ0SFSeH6pisklkw0oJ
-	G4V7uURy8CzJSCspy+dSSfiRgA95BItc/bX/65erb09hA2NM9sx+jGpXR1s75MbtC9ZZwLgfpttsW
-	RlEgQ/5A==;
+	bh=+iTfzKY+WAyMsREVjbsVA8K2liOA6jif1jDazY61mGM=; b=01mCz21U6gaLmwJITIsRZKRirL
+	7l1L750DbMlJAzncg3jVeclLCRlPAJG6tO+NqJ30RQBtS3RVp78vnAtubijV6h8Mta/P9ZYpncnSn
+	XkMFSalDQooMvEPiYn8eZdvb+qERuJR25lfeDR1+zztITylasHeVrUgewct4WPLVFOCBJoapZBlj4
+	cBZiWlQ2PUhGUfvT6KSQVM1ma4u8FOG0Habg0FaiwfL+XTdvCs+tJ7vzPjlNBrAu4a/v18w4E1RiT
+	f/F4crSObZOcfeCIepND1F6RxF9F5cZVCKjRraRRGMG2CoRr+BbmRQ7sy+Cx8Gk/R2DO2WLpzRx2b
+	sGD+RfDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAS11-00000008qN9-1nhG;
-	Wed, 08 Apr 2026 12:28:15 +0000
+	id 1wAS1a-00000008qWh-3H0l;
+	Wed, 08 Apr 2026 12:28:50 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAS0y-00000008qLB-2fQP
+	id 1wAS1Y-00000008qVO-0Tvi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 12:28:14 +0000
+	Wed, 08 Apr 2026 12:28:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 004D441A33;
-	Wed,  8 Apr 2026 12:28:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96885C19421;
-	Wed,  8 Apr 2026 12:28:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CABA84051C;
+	Wed,  8 Apr 2026 12:28:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78FB9C19421;
+	Wed,  8 Apr 2026 12:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775651291;
-	bh=eCmVTS83bSAS8xQjAy1lmOxcoN300rRw+xckrc2hsRY=;
+	s=k20201202; t=1775651327;
+	bh=36Oj5jo5sPcT0kNQzcbI+Kpz1ZOD+jY595knL2nNvh8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kAEBB8kzYQwMLJGcNYis8/369QPvVGiPjye3nlYnvyT5nT9mHWY8qcWW+MFlrn25U
-	 csMT2NcfMYjPEdLfnU9H67DuPPIX2avOkV/NEYTpW8TZJipN21NcsWNz8SQBRd33Ko
-	 Q+9D4+V01Rc3dX5MoNVqSALi189uEt/d43kv5sfmwVhxwGmmsQaktmN2TakJcH75BM
-	 9DTl2ZR2gKC+pyx+uoehWwMzoJsFae7BCPQA/lWZt8rInQu3p8ALLTx5aVFnNtUQTq
-	 4GJ2Rd9at0Y/wFkTNmVwy3SnbuKo26oOtNj6sitxgXGBStqs9HGKoxyN6F+2q8BJA8
-	 xxrLI0TbrglFA==
-Message-ID: <4290fcdb-47d1-4f74-97f3-51ac581efeaf@kernel.org>
-Date: Wed, 8 Apr 2026 14:28:08 +0200
+	b=nTu4O9Akk0flvO6+BSylm5USeEJv58A8rGR5OVCC9K2+wRrwUjZOadfi5VUAT9pax
+	 XH0gBWs37n9FdBYhl1ydKUtQIsyREwo5qbrDXxCu/+bgunERXrJ2zDtu8i4bMSqrX0
+	 4PT1ElyNznOFP0VQ7Rxnx5ET0DOnsrmzB/B12k9Vq5VADc2F59Z9QR3+67dAGH3CRl
+	 Dt1hpAB7ASIMZwFoTz7SgC82EF7FFN+66QYPUEmkSCrJ77Sdh0deMrbzAWk3LtdSiq
+	 e7edUxnQwQo66fxs1uJrEsST2+Keag1IlrdarBU9rbplgRNwDH41SM7WyEnLrmqoXK
+	 wTav+mb8/iibQ==
+Message-ID: <aeb1972c-57ba-4f21-8289-66424e4e619b@kernel.org>
+Date: Wed, 8 Apr 2026 14:28:44 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC V1 12/16] arm64/mm: Abstract printing of pxd_val()
+Subject: Re: [RFC V1 11/16] arm64/mm: Route all pgtable atomics to central
+ helpers
 To: Anshuman Khandual <anshuman.khandual@arm.com>,
  linux-arm-kernel@lists.infradead.org
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -56,7 +57,7 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
  linux-mm@kvack.org
 References: <20260224051153.3150613-1-anshuman.khandual@arm.com>
- <20260224051153.3150613-13-anshuman.khandual@arm.com>
+ <20260224051153.3150613-12-anshuman.khandual@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -103,12 +104,12 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260224051153.3150613-13-anshuman.khandual@arm.com>
+In-Reply-To: <20260224051153.3150613-12-anshuman.khandual@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_052812_713789_D1CBAF7E 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20260408_052848_196583_C246D96E 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,13 +125,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 2/24/26 06:11, Anshuman Khandual wrote:
-
-Subject: you probably mean "pxx_val()" ?
-
-> Ahead of adding support for D128 pgtables, refactor places that print
-> PTE values to use the new __PRIpte format specifier and __PRIpte_args()
-> macro to prepare the argument(s). When using D128 pgtables in future,
-> we can simply redefine __PRIpte and __PTIpte_args().
+> Route all cmpxchg() operations performed on various page table entries to a
+> new ptdesc_cmpxchg_relaxed() helper. Similarly route all xchg() operations
+> performed on page table entries to a new ptdesc_xchg_relaxed() helper.
+> 
+> Currently these helpers just forward to the same APIs that were previously
+> called direct, but in future we will change the routing for D128 which is
+> too long to use the standard APIs.
 > 
 > Cc: Catalin Marinas <catalin.marinas@arm.com>
 > Cc: Will Deacon <will@kernel.org>
@@ -140,24 +141,31 @@ Subject: you probably mean "pxx_val()" ?
 > Cc: linux-kernel@vger.kernel.org
 > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 > ---
->  arch/arm64/include/asm/pgtable-types.h |  3 +++
->  arch/arm64/include/asm/pgtable.h       | 22 +++++++++++-----------
->  arch/arm64/mm/fault.c                  | 10 +++++-----
->  3 files changed, 19 insertions(+), 16 deletions(-)
+>  arch/arm64/include/asm/pgtable.h | 23 +++++++++++++++++------
+>  arch/arm64/mm/fault.c            |  2 +-
+>  2 files changed, 18 insertions(+), 7 deletions(-)
 > 
-> diff --git a/arch/arm64/include/asm/pgtable-types.h b/arch/arm64/include/asm/pgtable-types.h
-> index 265e8301d7ba..dc3791dc9f14 100644
-> --- a/arch/arm64/include/asm/pgtable-types.h
-> +++ b/arch/arm64/include/asm/pgtable-types.h
-> @@ -11,6 +11,9 @@
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 42124d2f323d..cf69ce68f951 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -87,6 +87,17 @@ static inline void arch_leave_lazy_mmu_mode(void)
+>  #define ptdesc_get(x)		READ_ONCE(x)
+>  #define ptdesc_set(x, val)	WRITE_ONCE(x, val)
 >  
->  #include <asm/types.h>
->  
-> +#define __PRIpte		"016llx"
-> +#define __PRIpte_args(val)	((u64)val)
+> +static inline ptdesc_t ptdesc_cmpxchg_relaxed(ptdesc_t *ptep, ptdesc_t old,
+> +					      ptdesc_t new)
+> +{
+> +	return cmpxchg_relaxed(ptep, old, new);
+> +}
+> +
+> +static inline ptdesc_t ptdesc_xchg_relaxed(ptdesc_t *ptep, ptdesc_t new)
+> +{
+> +	return xchg_relaxed(ptep, new);
+> +}
+> +
 
-Same comment regarding "pte" being misleading.
-
+We really want the rename of ptdesc_t before this change.
 
 -- 
 Cheers,
