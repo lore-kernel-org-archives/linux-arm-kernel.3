@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E2F91073C8D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 10:56:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14D881073C98
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 11:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/7pk7+2SrMvldzc+4U5mhy1CoMp/H9X1AjSvNIqAgSU=; b=2H812JJSapvy4PKjSBb6C0/F0x
-	0KOQISBjbqxNZvAcJGB/JBLhxi74tHxzglEvYOIAHRV9SJJbWH34rzULKNAeVIx0dceW49aMVAH2J
-	diUIL29nHaLcfMMPYRfnkh3QdIvqthKhBQfBQoCi5KrFBqrZVxPB4GVQOreyu2mCNEXBZJrA7+tWP
-	vtxRX/W1pqWLwfA2xxAqukWIIXDc417OX9BT+oAoxJHEvHy9HfqgibhzQ/zdnyAWXgl3zHW9WgjpY
-	5TCxUVs5ly6tSXEM0gnKonNxiQMQs4UqvvccoN55b2pNXXS8NJWs63D94xCuJGw9b377XvGxOvbj/
-	Lzk73iPQ==;
+	bh=EZ2yuTZvfsrt02dodKOU1pTCiBawJg1GQIriROlTJHs=; b=gBPorwZm5JEleY2lIiTtEd3xu+
+	5XaEX/Lrs5Z74O6YHeJCZV99OCNB2vlHekM8Hf/AfPN13NdpVyPeml6r8lm5RiPCRoo0GZhit3F1V
+	2QeKQuB8gvg6t8ziMbzzb9Uf60KAFAq4aYAiLgAO9W9UXnAxtqxXhrCa3lWeWbNf+1v826Rk9gEGj
+	p0ms0LNfpxykHfDwCAX4YBVPZTtejZiBBuKJa0tl+udX3k4OdGj8owBT8dcImBg/B8t9GIoiuJKd0
+	VCAmfeUuWNyXp0QfVtIPIMGtNgtyux5IqVajoZTeHyIYt0FrwxStq/CrGQ/ij1clSqLrE7rQtMiYR
+	Ea+FOhgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAQZe-00000008iOh-2U8b;
-	Wed, 08 Apr 2026 10:55:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAQZb-00000008iOL-3ewk
+	id 1wAQeO-00000008ibn-2Iwr;
+	Wed, 08 Apr 2026 11:00:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAQeN-00000008ibG-0KQg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 10:55:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E8C413161;
-	Wed,  8 Apr 2026 03:55:44 -0700 (PDT)
-Received: from [10.164.148.132] (unknown [10.164.148.132])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 142E83F632;
-	Wed,  8 Apr 2026 03:55:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775645750; bh=12DWaVF8Vvq5Zd6EKvM59d/YIQTeYLlw8tBqiZQllUA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ivz8OBwpsW5cQV+wAkYMFtf3Ru6LoCIwapyqRJlX/gvnHB4pYHgJ+q6s3wOMSbGkB
-	 0Ci2NwamPVMH4UiMsn3VeIE7bR/5STGDwB54rPJvFu1Ufnrhki6Ag+HjFScyVbx51c
-	 4rli5EBHXWN9pXrpGZTev3n2cxusKJ2HaT1qfS9A=
-Message-ID: <85c9a072-12af-4683-be59-9600584d8bf7@arm.com>
-Date: Wed, 8 Apr 2026 16:25:42 +0530
+	Wed, 08 Apr 2026 11:00:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 461D0444C5
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Apr 2026 11:00:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23F7FC2BCB2
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Apr 2026 11:00:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775646046;
+	bh=0OfgS+n/fNHdA6iHaO+uqBDCD2A8pXnvnNC61V/pXfw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=bRVBbQly3XBWY1dTEzOEwlNr0HfuGL1bTGHzsMkQtqFOHYtF5lhWJKIjXAHNOSeRO
+	 i3wpQ4md7jGhUCJLSyjGLBKck9fixNCf6lbZSPOQ75UYEv3KVoMz/3BTijIM1cXq1r
+	 eD81XeKn/cWcQBnyVwCKQKzAoJ7FNNwT1QkF7UthrOxerX6xeaadm4akAQs/EVmAxC
+	 6tQerp4BeZOZhoxYvNhcZD0ZgiblFxYTJGApIrxiSYdP+YCpkx0JUHFQ25gHNrFJH/
+	 8SJSNSJwNVVWlQmyjZkupyQK2+Lx1Ua3qEllSqeH7CWAxnFEqDHNsLWfpZXWTm5tF/
+	 eFUmqQg2CAcwg==
+Received: by mail-qt1-f182.google.com with SMTP id d75a77b69052e-50d8e11b948so31204771cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 04:00:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVgUHTSjyLYszonYPPFFLLKv3ihz1MSLBrTJ3ExC+dooum7KnSt8tD6A+dcxPvXzQ8v0Rk5hWkMoiH+m5vf9Tnh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/+NsWCrRGbNg+vn0ilGdVaLSM6tL78TGs/uFECDsKMHHaVdM+
+	87GSPs+QB6fVmOpKlfbSeaUDJBQCQZ24P5UT3XgN9OEvNKvvtLfhqY3wRa6bES9Es/xfLvLIs9e
+	lb+S1mNwaPwK8ILtDUsDenw1NLhkBlJ8=
+X-Received: by 2002:a05:622a:1e9a:b0:50d:7587:dc46 with SMTP id
+ d75a77b69052e-50d7587e069mr271418751cf.12.1775646045425; Wed, 08 Apr 2026
+ 04:00:45 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 0/8] mm/vmalloc: Speed up ioremap, vmalloc and vmap
- with contiguous memory
-To: Barry Song <baohua@kernel.org>
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
- urezki@gmail.com, linux-kernel@vger.kernel.org, anshuman.khandual@arm.com,
- ryan.roberts@arm.com, ajd@linux.ibm.com, rppt@kernel.org, david@kernel.org,
- Xueyuan.chen21@gmail.com
-References: <20260408025115.27368-1-baohua@kernel.org>
- <1e7427c6-b6e5-4a3a-a600-bef9ac2bf3e0@arm.com>
- <CAGsJ_4xqxmHWBahN-yX10XcEwaHpvypCkwWDLHMY_1P_SzCeMg@mail.gmail.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <CAGsJ_4xqxmHWBahN-yX10XcEwaHpvypCkwWDLHMY_1P_SzCeMg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20260408025115.27368-1-baohua@kernel.org> <20260408025115.27368-2-baohua@kernel.org>
+ <02b0464a-13f6-4e0c-ad69-0f494bfacbf4@arm.com>
+In-Reply-To: <02b0464a-13f6-4e0c-ad69-0f494bfacbf4@arm.com>
+From: Barry Song <baohua@kernel.org>
+Date: Wed, 8 Apr 2026 19:00:34 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4x-73NTcef0Ep8wKUQviC=4KvGh3BfwGMqNFQt0fTPt=Q@mail.gmail.com>
+X-Gm-Features: AQROBzCZTm-M-8NVQt7j0TfFWeTANOKbOR2ssF4vKWCEH8fhyZKDU6z1LoiRbbI
+Message-ID: <CAGsJ_4x-73NTcef0Ep8wKUQviC=4KvGh3BfwGMqNFQt0fTPt=Q@mail.gmail.com>
+Subject: Re: [RFC PATCH 1/8] arm64/hugetlb: Extend batching of multiple
+ CONT_PTE in a single PTE setup
+To: Dev Jain <dev.jain@arm.com>
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
+	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org, 
+	urezki@gmail.com, linux-kernel@vger.kernel.org, anshuman.khandual@arm.com, 
+	ryan.roberts@arm.com, ajd@linux.ibm.com, rppt@kernel.org, david@kernel.org, 
+	Xueyuan.chen21@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_035552_011221_1141907C 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20260408_040047_158426_1D04192C 
+X-CRM114-Status: GOOD (  19.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,161 +87,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Apr 8, 2026 at 6:32=E2=80=AFPM Dev Jain <dev.jain@arm.com> wrote:
+>
+>
+>
+> On 08/04/26 8:21 am, Barry Song (Xiaomi) wrote:
+> > For sizes aligned to CONT_PTE_SIZE and smaller than PMD_SIZE,
+> > we can batch CONT_PTE settings instead of handling them individually.
+> >
+> > Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> > ---
+> >  arch/arm64/mm/hugetlbpage.c | 10 ++++++++++
+> >  1 file changed, 10 insertions(+)
+> >
+> > diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+> > index a42c05cf5640..bf31c11ebd3b 100644
+> > --- a/arch/arm64/mm/hugetlbpage.c
+> > +++ b/arch/arm64/mm/hugetlbpage.c
+> > @@ -110,6 +110,12 @@ static inline int num_contig_ptes(unsigned long si=
+ze, size_t *pgsize)
+> >               contig_ptes =3D CONT_PTES;
+> >               break;
+> >       default:
+> > +             if (size < CONT_PMD_SIZE && size > 0 &&
+> > +                             IS_ALIGNED(size, CONT_PTE_SIZE)) {
+>
+> Nit: Having the lower bound check before upper bound is natural to
+> read, so this should be size > 0 && size < CONT_PMD_SIZE (i.e written
+> the other way around).
 
+Thanks very much for reviewing, Dev. As we discussed in patch 0/8,
+this should be
+PMD_SIZE, not CONT_PMD_SIZE. I will use size > 0 && size < PMD_SIZE
+in the next version.
 
-On 08/04/26 4:21 pm, Barry Song wrote:
-> On Wed, Apr 8, 2026 at 5:14 PM Dev Jain <dev.jain@arm.com> wrote:
->>
->>
->>
->> On 08/04/26 8:21 am, Barry Song (Xiaomi) wrote:
->>> This patchset accelerates ioremap, vmalloc, and vmap when the memory
->>> is physically fully or partially contiguous. Two techniques are used:
->>>
->>> 1. Avoid page table zigzag when setting PTEs/PMDs for multiple memory
->>>    segments
->>> 2. Use batched mappings wherever possible in both vmalloc and ARM64
->>>    layers
->>>
->>> Patches 1–2 extend ARM64 vmalloc CONT-PTE mapping to support multiple
->>> CONT-PTE regions instead of just one.
->>>
->>> Patches 3–4 extend vmap_small_pages_range_noflush() to support page
->>> shifts other than PAGE_SHIFT. This allows mapping multiple memory
->>> segments for vmalloc() without zigzagging page tables.
->>>
->>> Patches 5–8 add huge vmap support for contiguous pages. This not only
->>> improves performance but also enables PMD or CONT-PTE mapping for the
->>> vmapped area, reducing TLB pressure.
->>>
->>> Many thanks to Xueyuan Chen for his substantial testing efforts
->>> on RK3588 boards.
->>>
->>> On the RK3588 8-core ARM64 SoC, with tasks pinned to CPU2 and
->>> the performance CPUfreq policy enabled, Xueyuan’s tests report:
->>>
->>> * ioremap(1 MB): 1.2× faster
->>> * vmalloc(1 MB) mapping time (excluding allocation) with
->>>   VM_ALLOW_HUGE_VMAP: 1.5× faster
->>> * vmap(): 5.6× faster when memory includes some order-8 pages,
->>>   with no regression observed for order-0 pages
->>>
->>> Barry Song (Xiaomi) (8):
->>>   arm64/hugetlb: Extend batching of multiple CONT_PTE in a single PTE
->>>     setup
->>>   arm64/vmalloc: Allow arch_vmap_pte_range_map_size to batch multiple
->>>     CONT_PTE
->>>   mm/vmalloc: Extend vmap_small_pages_range_noflush() to support larger
->>>     page_shift sizes
->>>   mm/vmalloc: Eliminate page table zigzag for huge vmalloc mappings
->>>   mm/vmalloc: map contiguous pages in batches for vmap() if possible
->>>   mm/vmalloc: align vm_area so vmap() can batch mappings
->>>   mm/vmalloc: Coalesce same page_shift mappings in vmap to avoid pgtable
->>>     zigzag
->>>   mm/vmalloc: Stop scanning for compound pages after encountering small
->>>     pages in vmap
->>>
->>>  arch/arm64/include/asm/vmalloc.h |   6 +-
->>>  arch/arm64/mm/hugetlbpage.c      |  10 ++
->>>  mm/vmalloc.c                     | 178 +++++++++++++++++++++++++------
->>>  3 files changed, 161 insertions(+), 33 deletions(-)
->>>
->>
->> On Linux VM on Apple M3, running mm-selftests:
-> 
-> Dev, thanks for your report. Sorry for the silly typo—
-> Xueyuan’s vmalloc/vmap tests don’t trigger that case yet.
-> 
-> it should be fixed by:
-> 
-> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-> index bf31c11ebd3b..25b9fce1ec6a 100644
-> --- a/arch/arm64/mm/hugetlbpage.c
-> +++ b/arch/arm64/mm/hugetlbpage.c
-> @@ -110,7 +110,7 @@ static inline int num_contig_ptes(unsigned long
-> size, size_t *pgsize)
->                 contig_ptes = CONT_PTES;
->                 break;
->         default:
-> -               if (size < CONT_PMD_SIZE && size > 0 &&
-> +               if (size < PMD_SIZE && size > 0 &&
->                                 IS_ALIGNED(size, CONT_PTE_SIZE)) {
->                         contig_ptes = size >> PAGE_SHIFT;
->                         *pgsize = PAGE_SIZE;
-> @@ -365,7 +365,7 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int
-> shift, vm_flags_t flags)
->         case CONT_PTE_SIZE:
->                 return pte_mkcont(entry);
->         default:
-> -               if (pagesize < CONT_PMD_SIZE && pagesize > 0 &&
-> +               if (pagesize < PMD_SIZE && pagesize > 0 &&
->                                 IS_ALIGNED(pagesize, CONT_PTE_SIZE))
->                         return pte_mkcont(entry);
+>
+> Also IS_ALIGNED needs to go below size.
 
-Yeah indeed the problem was that a PMD chunk was being treated as 512 ptes
-rather than 1 PMD. This fixes it.
+Sure, thanks!
 
-> 
->>
->>  ./run_vmtests.sh -t "hugetlb"
->>
->> TAP version 13
->> # -----------------------
->> # running ./hugepage-mmap
->> # -----------------------
->> # TAP version 13
->> # 1..1
->> # # Returned address is 0xffffe7c00000
->>
->>
->>
->> [   30.884630] kernel BUG at mm/page_table_check.c:86!
->> [   30.884701] Internal error: Oops - BUG: 00000000f2000800 [#1]  SMP
->> [   30.886803] Modules linked in:
->> [   30.887217] CPU: 3 UID: 0 PID: 1869 Comm: hugepage-mmap Not tainted 7.0.0-rc5+ #86 PREEMPT
->> [   30.888218] Hardware name: linux,dummy-virt (DT)
->> [   30.889413] pstate: a1400005 (NzCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
->> [   30.889901] pc : page_table_check_clear.part.0+0x128/0x1a0
->> [   30.890337] lr : page_table_check_clear.part.0+0x7c/0x1a0
->> [   30.890714] sp : ffff800084da3ad0
->> [   30.890946] x29: ffff800084da3ad0 x28: 0000000000000001 x27: 0010000000000001
->> [   30.891434] x26: 0040000000000040 x25: ffffa06bb8fb9000 x24: 00000000ffffffff
->> [   30.891932] x23: 0000000000000001 x22: 0000000000000000 x21: ffffa06bb8997810
->> [   30.892514] x20: 0000000000113e39 x19: 0000000000113e38 x18: 0000000000000000
->> [   30.893007] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
->> [   30.893500] x14: ffffa06bb7013780 x13: 0000fffff7f90fff x12: 0000000000000000
->> [   30.893990] x11: 1fffe0001a1282c1 x10: ffff0000d094160c x9 : ffffa06bb568a858
->> [   30.894479] x8 : ffff5f95c8474000 x7 : 0000000000000000 x6 : ffff00017fffc500
->> [   30.894973] x5 : ffff000191208fc0 x4 : 0000000000000000 x3 : 0000000000004000
->> [   30.895449] x2 : 0000000000000000 x1 : 00000000ffffffff x0 : ffff0000c071f1b8
->> [   30.895875] Call trace:
->> [   30.896027]  page_table_check_clear.part.0+0x128/0x1a0 (P)
->> [   30.896369]  page_table_check_clear+0xc8/0x138
->> [   30.896776]  __page_table_check_ptes_set+0xe4/0x1e8
->> [   30.897073]  __set_ptes_anysz+0x2e4/0x308
->> [   30.897327]  set_huge_pte_at+0xec/0x210
->> [   30.897561]  hugetlb_no_page+0x1ec/0x8e0
->> [   30.897807]  hugetlb_fault+0x188/0x740
->> [   30.898036]  handle_mm_fault+0x294/0x2c0
->> [   30.898283]  do_page_fault+0x120/0x748
->> [   30.898539]  do_translation_fault+0x68/0x90
->> [   30.898796]  do_mem_abort+0x4c/0xa8
->> [   30.899011]  el0_da+0x2c/0x90
->> [   30.899205]  el0t_64_sync_handler+0xd0/0xe8
->> [   30.899461]  el0t_64_sync+0x198/0x1a0
->> [   30.899688] Code: 91001021 b8f80022 51000441 36fffd41 (d4210000)
->> [   30.900053] ---[ end trace 0000000000000000 ]---
->>
->>
->>
->> The bug is at
->>
->> BUG_ON(atomic_dec_return(&ptc->file_map_count) < 0);
->>
->> My tree is mm-unstable, commit 3fa44141e0bb.
->>
-> 
-> Thanks
-> Barry
+>
+>
+> > +                     contig_ptes =3D size >> PAGE_SHIFT;
+> > +                     *pgsize =3D PAGE_SIZE;
+> > +                     break;
+> > +             }
+> >               WARN_ON(!__hugetlb_valid_size(size));
+> >       }
+> >
+> > @@ -359,6 +365,10 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int=
+ shift, vm_flags_t flags)
+> >       case CONT_PTE_SIZE:
+> >               return pte_mkcont(entry);
+> >       default:
+> > +             if (pagesize < CONT_PMD_SIZE && pagesize > 0 &&
+> > +                             IS_ALIGNED(pagesize, CONT_PTE_SIZE))
+> > +                     return pte_mkcont(entry);
 
+Here it should be pagesize > 0 && pagesize < PMD_SIZE as well :-)
+
+> > +
+> >               break;
+> >       }
+> >       pr_warn("%s: unrecognized huge page size 0x%lx\n",
+>
+
+Best Regards
+Barry
 
