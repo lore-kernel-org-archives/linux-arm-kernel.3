@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8196CFD5F8F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 07:28:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7DE5FD5F8F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 07:29:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nw2sk7Q/8E3OPh452L0/yYYa8JTilVd+ogYqqiYq0Jw=; b=VDYnjNy4gZEe1Ahtlrreyqcaqq
-	UHxrRO+KtRvW+n94FRreAD2PEwNg6QhNLV6lqEC7+5e2I+xZ21LQoYIH6ZFJSgNFnAJaqeDSq8G9E
-	v/ouDR5JrPaTCE5abmR9iX7BwCfDJR7Kl2VZZLRYcnHWYluyPEyJWAwYURqsSgk1hNlyajuaaPZD6
-	2URBzYO3/CRei2WXwLwMs+L999TzNLB+ZEXOqiqnAP1tikcvQDm/wrJbufTZ7Pqk+OaRjpNXk3Dgy
-	r3hV3QPOe7wdBl3cD8AuoYBfuuYwvmgrzhKLwKcFCR0kQlF6B4fHA0lbGCNf9rkCnySF+RTUKmY/D
-	EMva/Ejw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JBMyJgrxswXMHHOOoQfxlHGWkE8Y8DUq0RYrllJqtFk=; b=g3zxwHaHucErypdOEd6rWHnH5/
+	5f4CV1Fs9pVybPQfskt72YpzGjO6dtrp0yztsrBDloWAMncnjqpsrzF7j5GnCRBc6cn5Z4tq4oGbw
+	rLaBUR+VKPCVJiTMcdRrdS71anKiHzFslzcKCHUW7iBczv4TZmMWczARh+cfg+niOf4Qg7xxaoVRO
+	KAV4iiq+WsmrtmnPa/LkmBPJQE2m8689nhar+iVA3PpCNOq3LzjcYQcKjo0yD2nt302qDnQf5tpkT
+	5OhE863m5xXiqE9JCevkartmrOsRgfSTXSK1pXGwPTTDeuoH0z+RApR0p7S3Bn6a00ctoU6i6YmWE
+	HKBPvEPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wANKi-00000008QrT-2PUH;
-	Wed, 08 Apr 2026 07:28:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wANLS-00000008Qy6-2JxD;
+	Wed, 08 Apr 2026 07:29:02 +0000
+Received: from mout.web.de ([217.72.192.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wANKh-00000008QrA-3qxE
+	id 1wANLP-00000008Qwr-1Z8s
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 07:28:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 230E860138
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Apr 2026 07:28:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC4A6C2BCB3
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Apr 2026 07:28:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775633294;
-	bh=Nw2sk7Q/8E3OPh452L0/yYYa8JTilVd+ogYqqiYq0Jw=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=jb/M7KbJrHNmO/tvpkrm33X6mgjuE8dRuYOuvR2qVgn3gjPyyw8huPqxoMpGld33/
-	 fw3tbQ2nB5xmBn5aKwW0jjQdlwYNgOamZw7POVAubtIPxMEJwRpEVmi3jMaTEEdcWt
-	 4K4RE0dAsYAltsP4Mxp+ncIAnR29+ePtmfN/bXmC9wA/eD4iAV6PzuJ8/IrxQqQ0fV
-	 1XwSy0k3sgq5uxzmSEvRbzjMCT0UpBgZm/+1tHFjO/9x7sVX+XAQwwHQBqYCqWlHn0
-	 jZMjSentcvn+Nj8NDLdK7SxQSjXbQE5JJSo7vHk9JzVLZrEJucevlD/I94qK3/uqaX
-	 FaC+VConRml/Q==
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-38dd5f28a4cso35861641fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 00:28:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUJc19fGfis4ussof462/IlieHkz983LEK5whTJPtqrLDVG5ozSNeJHi3oXVlh5ivEJkn8WZMvNTREMSpeERcGZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8oz9djbc3atSGIn7it+Vpx3/uGiOJWgL1x3FYIp/WmQxuwTH6
-	7zgD13MOcEHkBTapmgzgxu9aqwFyc6zsqArBoNLG+zMhB3zj+GOAxaR4jR6GVWB/aFIVOzOu4kZ
-	2hWGK3T7C4KtLTRVhG+4Ym+MuXHg9DunBzyBubRMYcA==
-X-Received: by 2002:a05:651c:3243:b0:38e:21bb:b2ad with SMTP id
- 38308e7fff4ca-38e21bbb6d6mr9408481fa.2.1775633293381; Wed, 08 Apr 2026
- 00:28:13 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 8 Apr 2026 00:28:11 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 8 Apr 2026 00:28:11 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260408025243.1155482-5-eleanor.lin@realtek.com>
+	Wed, 08 Apr 2026 07:29:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1775633326; x=1776238126; i=markus.elfring@web.de;
+	bh=JBMyJgrxswXMHHOOoQfxlHGWkE8Y8DUq0RYrllJqtFk=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=Li2S5y0k8r8TPKYqugEeYBkm0wKy4jMuzv2JHCi1XiCi6PD26XVxHLhERPVI0heB
+	 aVKr2d6f3wo/UTidfeoThGd53fhthe2nC/7KFkYtIDktjJQL70BLeTh1MiMUczdc0
+	 diBh4rp2TBbU3fjs6MgHTMQ/RTcjDloQYzTi0IzCX4eWu6gzzr8JuIAcd1Qtcsjkl
+	 GJ6GX0ts4hDS4OTbgFqH800R23GmlLfOuPilc+J28VMQ5eqSCcxO9sH68jeubpjUD
+	 dMfhvO+rXyckmBU4wB+gSUF8+06vVcE6MJi4cCf0UiGBe4S75uqqgvFRkKmjkzFnu
+	 +kQRNiTtsIg9k6Za+w==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MIL0Q-1wDjNy2N3k-003mIF; Wed, 08
+ Apr 2026 09:28:46 +0200
+Message-ID: <ac7176be-8ab8-449b-b4f7-4e5af0379e80@web.de>
+Date: Wed, 8 Apr 2026 09:28:34 +0200
 MIME-Version: 1.0
-References: <20260408025243.1155482-1-eleanor.lin@realtek.com> <20260408025243.1155482-5-eleanor.lin@realtek.com>
-Date: Wed, 8 Apr 2026 00:28:11 -0700
-X-Gmail-Original-Message-ID: <CAMRc=Me+7aYyXFXjZBrenWnD8bgtyjHVWxK9GxA_U9tkrjih+Q@mail.gmail.com>
-X-Gm-Features: AQROBzC0LREM6_b2VQH2egdCf2epMV8TXGX3wPxZfvA_VFti5llCq9nyDHkaPQM
-Message-ID: <CAMRc=Me+7aYyXFXjZBrenWnD8bgtyjHVWxK9GxA_U9tkrjih+Q@mail.gmail.com>
-Subject: Re: [PATCH v2 4/4] arm64: dts: realtek: Add GPIO support for RTD1625
-To: Yu-Chun Lin <eleanor.lin@realtek.com>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-realtek-soc@lists.infradead.org, cy.huang@realtek.com, 
-	stanley_chang@realtek.com, james.tai@realtek.com, linusw@kernel.org, 
-	brgl@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	afaerber@suse.com, tychang@realtek.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+To: vulab@iscas.ac.cn, imx@lists.linux.dev, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Georgi Djakov <djakov@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>
+Cc: kernel@pengutronix.de, stable@vger.kernel.org,
+ LKML <linux-kernel@vger.kernel.org>, Fabio Estevam <festevam@gmail.com>
+References: <20260408031004.309483-1-vulab@iscas.ac.cn>
+Subject: Re: [PATCH] interconnect: imx: fix use-after-free in
+ imx_icc_node_init_qos()
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20260408031004.309483-1-vulab@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:a+/9ZVtkN5tdsblsJWxaTm5i+Qpmy4+r1RjEmTjqJox2o6D+mRB
+ X0gLzf47+mI89l69lRdhe+2g6xC7kxgtHOonJ78p6EOP5xe4c2E5aHeS/HuvfvC5yRJ6WTf
+ pnbNhlEZn2BeLd9NZlqYux+4kNy883XGG/ejuRp1JmLiC3y+z98j7F53eUp9iuHH6rJkoTS
+ RMqJqCQGCgItr3hj7qTFQ==
+UI-OutboundReport: notjunk:1;M01:P0:a7lNGxMd7xI=;s95fBgV3Au1wbIkJzs84aH5BnnD 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 th
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260408_002859_772160_608A60FE 
+X-CRM114-Status: UNSURE (   4.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,11 +85,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 8 Apr 2026 04:52:43 +0200, Yu-Chun Lin <eleanor.lin@realtek.com> said:
-> Add the GPIO node for the Realtek RTD1625 SoC.
->
-> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> ---
+> Move of_node_put(dn) after the last use of dn, and add a missing put
+> in the error path to avoid both use-after-free and reference leak.
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+How do you think about to increase the application of scope-based resource management?
+https://elixir.bootlin.com/linux/v7.0-rc7/source/include/linux/of.h#L138
+https://elixir.bootlin.com/linux/v7.0-rc7/source/drivers/interconnect/imx/imx.c#L117-L160
+
+Regards,
+Markus
 
