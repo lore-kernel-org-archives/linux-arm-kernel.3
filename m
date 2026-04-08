@@ -4,85 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E7B510FC454
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 23:02:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C810E10FC456
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 23:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BvbCwq68/qWYU9XfnJUnTP1IOqn0jqRNVTQiaBiIGqE=; b=mopa8uo29BVgCzv9aXDH1MpzIt
-	AnZJpolenDQwzMz+81u2Bxu3rMjSpYo29faX+3k4Tx/9vvVZyw0pa43suzcWe3d8kSrWKNnIlFozA
-	8NfPI1UXbHf2NGmPVEZYRH2JzAA0156wrCGXiFEm8VvZM8BpdDdPi5VFYbNmZgSBHWKu1tynfaqyP
-	ysBsg/LvPsoMq3zK95lcPPme0py3QIHR+CY6wDZ9wR1RfvKVlYUc4sR/xEDG9tj3BjgQiWUezM52K
-	44LFbkdDKf9bsk9oK7ZBAuW06424tVRm9RJycctjHFR0xBBZSY1nwR6qsknMiIyW3Uhhy+JmGz2qJ
-	p74SIszA==;
+	bh=4XULHe8enbUXLuiBFqQ5XoeR/9dws/Rh24z9BiTHJN4=; b=ColWUT57Ah/LvC01K46cUGf0RF
+	kgbygUWxZioqXK6Ce+wAzZ058bgl16asAdjPwlkQUpQnFEQ25Q0APC8SUgOvqE9LB7+0MHqfoDYRi
+	rWklXnf3VtcCfyVseSiOzXD7ORf0p7VqnzRt8XPHvjW0cY21hf9z6+GbXOD9Ks60Dm1Xm27qHaZkP
+	Q+nK99myB77ePlTy6S9X4Z6yXiwJXt6K0VEq80Ahi0swUtFDClnOnFBfWEt10Vm8Zi7BeiXR38hDw
+	J2SkQcE6vIr7Q/V8+giZTOkpqbu8aU9Zn78IX0i6Dh/JSkXA3omaBUsOp28htR9TLfnWFLlwfr5fF
+	dUJ34twA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAbua-00000009VJu-2lOh;
-	Wed, 08 Apr 2026 23:02:16 +0000
-Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
+	id 1wAcPb-00000009WQZ-0F8Y;
+	Wed, 08 Apr 2026 23:34:19 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAbuY-00000009VJB-1kTc
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 23:02:15 +0000
-Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-8d4ba1518afso18390285a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 16:02:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775689332; x=1776294132; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=BvbCwq68/qWYU9XfnJUnTP1IOqn0jqRNVTQiaBiIGqE=;
-        b=l+nwzhxHqQucBFJdwCMudzDKhTfk9FpmlvooRzG9jFHWS5Ng8ijmbt5LohxUs0vtwb
-         1O3c+TqihxULVnOzdMwzzb8WQ66OMJNLR8PqZN6h+1XbeCJVGGp6LLowADrR+7eRqk/f
-         XIxCWVOfUeq5dB0KSMY+d/bSZBmMlExrN8aJMIYaQj2h4C96pe9/int33+hCzCMxhys9
-         Bek+ehD30tyZKuWVuOA5KPwxQkpz0YkE5MPi0yJ/6998fQs6k/4V52KF6ttiY8EX3kyP
-         hQllRfIcBwI9Yw1rIqJgEZ5nYqhP8c/Q6fOdSDfR0EDoTxymBxuGpBI6v+r/RKFxRBaR
-         93Gg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775689332; x=1776294132;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BvbCwq68/qWYU9XfnJUnTP1IOqn0jqRNVTQiaBiIGqE=;
-        b=VjgwEIRaMrGwkPb6/98b6wyB9Cq8aVjLv6XrLiz66vbOmG7Uw3MPOtrNbdTIGcjMTm
-         Hx3SwmyBO9DQIE2d7I7XCThMt7uC6gWeVv6fUrE4DfXoZkKjgAgbBtCm/2HnBNQobncJ
-         WjSEMTWdxdJ2OXuiq2uu3mBxdqMyca4UlN6XkzGQ7OMo4xKr38XewcyPHY5e/p5ieu47
-         7Psr8rDTcU4fqCDH5kzOoDsb1LLy+D3xxTM2b2kVU2RHJkbq4rWWQLLzLUMjrnCRTY03
-         SK19tgEeDsV2Ny7J4SEKDyxTgCqBIfFkg2aPr/qv7hcBzA9XkNim8SGM6VjWE9xdef+l
-         Oo5w==
-X-Forwarded-Encrypted: i=1; AJvYcCUTbnjtq5aX3dZN5QndSXOD/tppNOXyc+lbCOu3Nu7APy6BQU2dZWXXKyRpypiYIVsOXXSkJYd7hgUAe2f3XbAm@lists.infradead.org
-X-Gm-Message-State: AOJu0YxY4KuvhjAo8FJB79Vh9K3kgtrIMwP4qb5xO/nlg/y1FFMQAv8h
-	HcT9s3tZpGOxJqmNLzNQUXqte/0cYqKDTg16EEhgQ70uTwNvNepHTGts
-X-Gm-Gg: AeBDieu7M7vPZFUiAGJkv3XmhGio+DrfbyYljG9GGwe6v4hBL8KGwFo/fr6y+S9YvcG
-	kpWyZhOU77d16M6eN+lGBlZ+LiOuA7c+R1mUfkCKSnQGyeigc681j9VDKLfvh0806I8ioV9sIb8
-	bTKPGd0u8Gty3e4qSxPCg7ZEcWzLd1FB1qIWPuBiDEdiXwxH9G3K9eaTD2/trsBVIqJanldehJR
-	PALAVCB6poKCr+Eo7dYilEDw7+IJXNfc3kiJ8vSYKTqrcYYaywoPj8Hxu/iS3dTBXOIdRWgQGR8
-	4w89rEj42LccHs3JMHNzJXSJUvPrVIsM7L3U2e76Me5BBsvdLbbxzxFcGs73mUa2yzaEP7T+Y2H
-	5OezxcBYLw1/jtZOrOCnx95zYdMHF1ydjl8U3AwkNp0QpxrsqwvGXHP/5O7nA3XWC5jHd5gLtwG
-	uQyHb/AlxBthPd7c5MgrcDeyRpMDEFYDGniQ3gyEpB1aGX/a4PmQX9x1g=
-X-Received: by 2002:a05:620a:29c3:b0:8d8:13c9:55cb with SMTP id af79cd13be357-8dc439f3cbbmr205076785a.4.1775689332280;
-        Wed, 08 Apr 2026 16:02:12 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d::8bd])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8d2a5392d35sm1611561585a.10.2026.04.08.16.02.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Apr 2026 16:02:11 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-rockchip@lists.infradead.org
-Cc: Srinivas Kandagatla <srini@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] nvmem: rockchip-otp: alloc clks with main struct
-Date: Wed,  8 Apr 2026 16:01:53 -0700
-Message-ID: <20260408230153.20726-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	id 1wAcPY-00000009WQB-27Oe;
+	Wed, 08 Apr 2026 23:34:17 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1wAcPF-000000004lk-2YmF;
+	Wed, 08 Apr 2026 23:33:57 +0000
+Date: Thu, 9 Apr 2026 00:33:47 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Pablo Neira Ayuso <pablo@netfilter.org>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Chad Monroe <chad.monroe@adtran.com>, Elad Yifee <eladwf@gmail.com>,
+	=?iso-8859-1?Q?Jo=E3o?= Duarte <du@rte.pm>,
+	John Crispin <john@phrozen.org>
+Subject: [PATCH net] net: ethernet: mtk_eth_soc: initialize PPE per-tag-layer
+ MTU registers
+Message-ID: <164435c1de5b4ccfd773ee623ad1bc65b5366250.1775690659.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_160214_488079_02CCF5BC 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20260408_163416_548201_CA31BDEB 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,51 +70,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use a flexible array member to simplify allocation slightly. No need for
-a separate calloc.
+The PPE enforces output frame size limits via per-tag-layer VLAN_MTU
+registers that the driver never initializes. The hardware defaults do
+not account for PPPoE overhead, causing the PPE to punt encapsulated
+frames back to the CPU instead of forwarding them.
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Initialize the registers at PPE start and on MTU changes using the
+maximum GMAC MTU. This is a conservative approximation -- the actual
+per-PPE requirement depends on egress path, but using the global
+maximum ensures the limits are never too small.
+
+Fixes: ba37b7caf1ed2 ("net: ethernet: mtk_eth_soc: add support for initializing the PPE")
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 ---
- drivers/nvmem/rockchip-otp.c | 9 ++-------
- 1 file changed, 2 insertions(+), 7 deletions(-)
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c | 22 ++++++++++++++-
+ drivers/net/ethernet/mediatek/mtk_ppe.c     | 30 +++++++++++++++++++++
+ drivers/net/ethernet/mediatek/mtk_ppe.h     |  1 +
+ 3 files changed, 52 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/nvmem/rockchip-otp.c b/drivers/nvmem/rockchip-otp.c
-index 0ec78b5e19e7..2c0feb036f3f 100644
---- a/drivers/nvmem/rockchip-otp.c
-+++ b/drivers/nvmem/rockchip-otp.c
-@@ -78,9 +78,9 @@ struct rockchip_data {
- struct rockchip_otp {
- 	struct device *dev;
- 	void __iomem *base;
--	struct clk_bulk_data *clks;
- 	struct reset_control *rst;
- 	const struct rockchip_data *data;
-+	struct clk_bulk_data clks[];
- };
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+index 1767463475de4..06880fa86f0ea 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+@@ -3922,12 +3922,23 @@ static int mtk_device_event(struct notifier_block *n, unsigned long event, void
+ 	return NOTIFY_DONE;
+ }
  
- static int rockchip_otp_reset(struct rockchip_otp *otp)
-@@ -424,7 +424,7 @@ static int rockchip_otp_probe(struct platform_device *pdev)
- 	if (!data)
- 		return dev_err_probe(dev, -EINVAL, "failed to get match data\n");
++static int mtk_max_gmac_mtu(struct mtk_eth *eth)
++{
++	int i, max_mtu = ETH_DATA_LEN;
++
++	for (i = 0; i < ARRAY_SIZE(eth->netdev); i++)
++		if (eth->netdev[i] && eth->netdev[i]->mtu > max_mtu)
++			max_mtu = eth->netdev[i]->mtu;
++
++	return max_mtu;
++}
++
+ static int mtk_open(struct net_device *dev)
+ {
+ 	struct mtk_mac *mac = netdev_priv(dev);
+ 	struct mtk_eth *eth = mac->hw;
+ 	struct mtk_mac *target_mac;
+-	int i, err, ppe_num;
++	int i, err, ppe_num, mtu;
  
--	otp = devm_kzalloc(&pdev->dev, sizeof(struct rockchip_otp),
-+	otp = devm_kzalloc(&pdev->dev, struct_size(otp, clks, data->num_clks),
- 			   GFP_KERNEL);
- 	if (!otp)
- 		return -ENOMEM;
-@@ -436,11 +436,6 @@ static int rockchip_otp_probe(struct platform_device *pdev)
- 		return dev_err_probe(dev, PTR_ERR(otp->base),
- 				     "failed to ioremap resource\n");
+ 	ppe_num = eth->soc->ppe_num;
  
--	otp->clks = devm_kcalloc(dev, data->num_clks, sizeof(*otp->clks),
--				 GFP_KERNEL);
--	if (!otp->clks)
--		return -ENOMEM;
--
- 	for (i = 0; i < data->num_clks; ++i)
- 		otp->clks[i].id = data->clks[i];
+@@ -3974,6 +3985,10 @@ static int mtk_open(struct net_device *dev)
+ 			mtk_gdm_config(eth, target_mac->id, gdm_config);
+ 		}
  
++		mtu = mtk_max_gmac_mtu(eth);
++		for (i = 0; i < ARRAY_SIZE(eth->ppe); i++)
++			mtk_ppe_update_mtu(eth->ppe[i], mtu);
++
+ 		napi_enable(&eth->tx_napi);
+ 		napi_enable(&eth->rx_napi[0].napi);
+ 		mtk_tx_irq_enable(eth, MTK_TX_DONE_INT);
+@@ -4788,6 +4803,7 @@ static int mtk_change_mtu(struct net_device *dev, int new_mtu)
+ 	int length = new_mtu + MTK_RX_ETH_HLEN;
+ 	struct mtk_mac *mac = netdev_priv(dev);
+ 	struct mtk_eth *eth = mac->hw;
++	int max_mtu, i;
+ 
+ 	if (rcu_access_pointer(eth->prog) &&
+ 	    length > MTK_PP_MAX_BUF_SIZE) {
+@@ -4798,6 +4814,10 @@ static int mtk_change_mtu(struct net_device *dev, int new_mtu)
+ 	mtk_set_mcr_max_rx(mac, length);
+ 	WRITE_ONCE(dev->mtu, new_mtu);
+ 
++	max_mtu = mtk_max_gmac_mtu(eth);
++	for (i = 0; i < ARRAY_SIZE(eth->ppe); i++)
++		mtk_ppe_update_mtu(eth->ppe[i], max_mtu);
++
+ 	return 0;
+ }
+ 
+diff --git a/drivers/net/ethernet/mediatek/mtk_ppe.c b/drivers/net/ethernet/mediatek/mtk_ppe.c
+index 79c11e179d894..9e829a2e4354e 100644
+--- a/drivers/net/ethernet/mediatek/mtk_ppe.c
++++ b/drivers/net/ethernet/mediatek/mtk_ppe.c
+@@ -973,6 +973,36 @@ static void mtk_ppe_init_foe_table(struct mtk_ppe *ppe)
+ 	}
+ }
+ 
++void mtk_ppe_update_mtu(struct mtk_ppe *ppe, int mtu)
++{
++	int base;
++	u32 val;
++
++	if (!ppe)
++		return;
++
++	/* The PPE checks output frame size against per-tag-layer MTU limits,
++	 * treating PPPoE and DSA tags just like 802.1Q VLAN tags. The Linux
++	 * device MTU already accounts for PPPoE (PPPOE_SES_HLEN) and DSA tag
++	 * overhead, but 802.1Q VLAN tags are handled transparently without
++	 * being reflected by the lower device MTU being increased by 4.
++	 * Use the maximum MTU across all GMAC interfaces so that PPE output
++	 * frame limits are sufficiently high regardless of which port a flow
++	 * egresses through.
++	 */
++	base = ETH_HLEN + mtu;
++
++	val = FIELD_PREP(MTK_PPE_VLAN_MTU0_NONE, base) |
++	      FIELD_PREP(MTK_PPE_VLAN_MTU0_1TAG, base + VLAN_HLEN);
++	ppe_w32(ppe, MTK_PPE_VLAN_MTU0, val);
++
++	val = FIELD_PREP(MTK_PPE_VLAN_MTU1_2TAG,
++			 base + 2 * VLAN_HLEN) |
++	      FIELD_PREP(MTK_PPE_VLAN_MTU1_3TAG,
++			 base + 3 * VLAN_HLEN);
++	ppe_w32(ppe, MTK_PPE_VLAN_MTU1, val);
++}
++
+ void mtk_ppe_start(struct mtk_ppe *ppe)
+ {
+ 	u32 val;
+diff --git a/drivers/net/ethernet/mediatek/mtk_ppe.h b/drivers/net/ethernet/mediatek/mtk_ppe.h
+index 223f709e2704f..ba85e39a155bf 100644
+--- a/drivers/net/ethernet/mediatek/mtk_ppe.h
++++ b/drivers/net/ethernet/mediatek/mtk_ppe.h
+@@ -346,6 +346,7 @@ struct mtk_ppe {
+ struct mtk_ppe *mtk_ppe_init(struct mtk_eth *eth, void __iomem *base, int index);
+ 
+ void mtk_ppe_deinit(struct mtk_eth *eth);
++void mtk_ppe_update_mtu(struct mtk_ppe *ppe, int mtu);
+ void mtk_ppe_start(struct mtk_ppe *ppe);
+ int mtk_ppe_stop(struct mtk_ppe *ppe);
+ int mtk_ppe_prepare_reset(struct mtk_ppe *ppe);
 -- 
 2.53.0
-
 
