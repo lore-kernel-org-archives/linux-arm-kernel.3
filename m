@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 810B9EDB7D0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 01:52:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56579105D993
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 02:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
 	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YRb+Osd/NggxIsIx4rl94ka4aexa6/QOGfXJoY+7LY0=; b=radGNpjrPyPSxY
-	rKLT+hdeI9BRuoDM6wcFW0nvBvZHDVLjb4XDnx5Ou1c+7PRbkn0szwNs/Le476FEnbWAtodvjnu+4
-	wMBcMdV/1qlth6MWLvylZD0mG/3C2jtIVMuhqPE42iew2P79Y+vD3vfTiKv4+Pu9kAY3SfDbb15/G
-	EsfhPgBuaVN+8p0n1D/Qe9UrNeGoOSYlQyS8E3/ciFF3Zo6BD0zYbceudsLyYyRGVkaZgqwuXP2UZ
-	WZkC5B442BRCGsHb2E2u+TTzYnqPll34ZH5hpO4ns7HWG+bib5GcU+31jNRWpZMFG1plK4BS6lKG7
-	2uXJ0G4Ya1PumH8zi83w==;
+	List-Owner; bh=9BEJrD9lpGuVmZxXihdgtCvkWgHOeY0uBe47D5xtX70=; b=RVoR0mdpr+MrYU
+	AMe2NOP07cp45Gvm9BYLrQobtN4Iz6JWfrtr/bjo2JjL/Fb6UmLacdFDv5liI1+jXk9YxKDu15Jqb
+	3W0Gr1PN1JROREXJiDBCZ1RppeXLzNJC3n2eyHCtqtEWpRF/uDb4ajMm5ZehLToYmqytwamz8Ntak
+	NsT2QkORJ+zez6BP3/6L6kCux1fisDXxJj5NB2E6vCvOLX0pNxtHpM7tZFOUN0s8ephluFTPhYSGu
+	ChjKu5nKncgliFGdxi/fIyAJKYv71/Y2DTX948qk1CCwWIsMQV/yqujgLBDNv7UxQnXCEHyhTuB4v
+	wC18YQWjRZOQNQ2RA/vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAI5l-000000086vY-2JsB;
-	Wed, 08 Apr 2026 01:52:29 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1wAIUd-000000087oF-2mzj;
+	Wed, 08 Apr 2026 02:18:11 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAI5h-000000086t6-29sW
+	id 1wAIUZ-000000087no-3v2O
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 01:52:28 +0000
+	Wed, 08 Apr 2026 02:18:10 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=YRb+Osd/NggxIsIx4rl94ka4aexa6/QOGfXJoY+7LY0=;
-	b=e7eSILFKCwBRQSsm3SPN85o/X1yqrfUBX9wfn0EzclLHI6v7L0hsmRemtv9l9xaRinSG/C+Gn
-	8DTDe/kCzs6cNcpQapqkVUmHuq7nujphBCz6ejXD2hyjWyYDS4r3ZTJ9w3k/s1TuOmUqEM9KHRy
-	ehBAD7TYWwrhaTw51nVzScs=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4fr5WZ5SsLzpT0b;
-	Wed,  8 Apr 2026 09:46:18 +0800 (CST)
+	bh=9BEJrD9lpGuVmZxXihdgtCvkWgHOeY0uBe47D5xtX70=;
+	b=TBQ2pJozqSZXUqtzKAtPlRtgPXVouwODy9bApOuXFu5u7bizaK6+mKFr2fIH2MUd145ke6C4o
+	e0bl6JqoTEEHAAGmXJ3t5Nf+afGZGcdZ4oM9K0s8KLejN9NRLHhUINoHHY1afObdyRquwgWMWtL
+	u6rYts1EqDeZbUJkeFUhVK8=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4fr64y4Wlwz1cyqN;
+	Wed,  8 Apr 2026 10:11:46 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 69C274056E;
-	Wed,  8 Apr 2026 09:52:18 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id B8C6440573;
+	Wed,  8 Apr 2026 10:17:59 +0800 (CST)
 Received: from [10.67.109.254] (10.67.109.254) by
  dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 8 Apr 2026 09:52:17 +0800
-Message-ID: <01050228-13d1-d2d7-482e-62bb4fc7a8c0@huawei.com>
-Date: Wed, 8 Apr 2026 09:52:15 +0800
+ 15.2.1544.11; Wed, 8 Apr 2026 10:17:59 +0800
+Message-ID: <26642def-7676-e081-98f3-9ab883048375@huawei.com>
+Date: Wed, 8 Apr 2026 10:17:56 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.2.0
-Subject: Re: [PATCH 09/10] arm64: entry: Use split preemption logic
+Subject: Re: [PATCH 10/10] arm64: Check DAIF (and PMR) at task-switch time
 Content-Language: en-US
 To: Mark Rutland <mark.rutland@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>, Catalin Marinas
 	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
 References: <20260407131650.3813777-1-mark.rutland@arm.com>
- <20260407131650.3813777-10-mark.rutland@arm.com>
+ <20260407131650.3813777-11-mark.rutland@arm.com>
 From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260407131650.3813777-10-mark.rutland@arm.com>
+In-Reply-To: <20260407131650.3813777-11-mark.rutland@arm.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
 X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260407_185225_907563_F3FAF5EE 
-X-CRM114-Status: GOOD (  25.46  )
+X-CRM114-CacheID: sfid-20260407_191808_638138_84467BB4 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,26 +84,16 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 2026/4/7 21:16, Mark Rutland wrote:
-> The generic irqentry code now provides
-> irqentry_exit_to_kernel_mode_preempt() and
-> irqentry_exit_to_kernel_mode_after_preempt(), which can be used
-> where architectures have different state requirements for involuntary
-> preemption and exception return, as is the case on arm64.
+> When __switch_to() switches from a 'prev' task to a 'next' task, various
+> pieces of CPU state are expected to have specific values, such that
+> these do not need to be saved/restored. If any of these hold an
+> unexpected value when switching away from the prev task, they could lead
+> to surprising behaviour in the context of the next task, and it would be
+> difficult to determine where they were configured to their unexpected
+> value.
 > 
-> Use the new functions on arm64, aligning our exit to kernel mode logic
-> with the style of our exit to user mode logic. This removes the need for
-> the recently-added bodge in arch_irqentry_exit_need_resched(), and
-> allows preemption to occur when returning from any exception taken from
-> kernel mode, which is nicer for RT.
-> 
-> In an ideal world, we'd remove arch_irqentry_exit_need_resched(), and
-> fold the conditionality directly into the architecture-specific entry
-> code. That way all the logic necessary to avoid preempting from a
-> pseudo-NMI could be constrained specifically to the EL1 IRQ/FIQ paths,
-> avoiding redundant work for other exceptions, and making the flow a bit
-> clearer. At present it looks like that would require a larger
-> refactoring (e.g. for the PREEMPT_DYNAMIC logic), and so I've left that
-> as-is for now.
+> Add some checks for DAIF and PMR at task-switch time so that we can
+> detect such issues.
 > 
 > Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 > Cc: Andy Lutomirski <luto@kernel.org>
@@ -114,116 +104,90 @@ On 2026/4/7 21:16, Mark Rutland wrote:
 > Cc: Vladimir Murzin <vladimir.murzin@arm.com>
 > Cc: Will Deacon <will@kernel.org>
 > ---
->  arch/arm64/include/asm/entry-common.h | 21 ++++++++-------------
->  arch/arm64/kernel/entry-common.c      | 12 ++++--------
->  2 files changed, 12 insertions(+), 21 deletions(-)
+>  arch/arm64/kernel/process.c | 25 +++++++++++++++++++++++++
+>  1 file changed, 25 insertions(+)
 > 
-> diff --git a/arch/arm64/include/asm/entry-common.h b/arch/arm64/include/asm/entry-common.h
-> index 20f0a7c7bde15..cab8cd78f6938 100644
-> --- a/arch/arm64/include/asm/entry-common.h
-> +++ b/arch/arm64/include/asm/entry-common.h
-> @@ -29,19 +29,14 @@ static __always_inline void arch_exit_to_user_mode_work(struct pt_regs *regs,
->  
->  static inline bool arch_irqentry_exit_need_resched(void)
->  {
-> -	if (system_uses_irq_prio_masking()) {
-> -		/*
-> -		 * DAIF.DA are cleared at the start of IRQ/FIQ handling, and when GIC
-> -		 * priority masking is used the GIC irqchip driver will clear DAIF.IF
-> -		 * using gic_arch_enable_irqs() for normal IRQs. If anything is set in
-> -		 * DAIF we must have handled an NMI, so skip preemption.
-> -		 */
-> -		if (read_sysreg(daif))
-> -			return false;
-> -	} else {
-> -		if (read_sysreg(daif) & (PSR_D_BIT | PSR_A_BIT))
-> -			return false;
-> -	}
-> +	/*
-> +	 * DAIF.DA are cleared at the start of IRQ/FIQ handling, and when GIC
-> +	 * priority masking is used the GIC irqchip driver will clear DAIF.IF
-> +	 * using gic_arch_enable_irqs() for normal IRQs. If anything is set in
-> +	 * DAIF we must have handled an NMI, so skip preemption.
-> +	 */
-> +	if (system_uses_irq_prio_masking() && read_sysreg(daif))
-> +		return false;
->  
->  	/*
->  	 * Preempting a task from an IRQ means we leave copies of PSTATE
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index 16a65987a6a9b..f42ce7b5c67f3 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -54,8 +54,11 @@ static noinstr irqentry_state_t arm64_enter_from_kernel_mode(struct pt_regs *reg
->  static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
->  					      irqentry_state_t state)
->  {
-> +	local_irq_disable();
-> +	irqentry_exit_to_kernel_mode_preempt(regs, state);
-> +	local_daif_mask();
->  	mte_check_tfsr_exit();
-> -	irqentry_exit_to_kernel_mode(regs, state);
-> +	irqentry_exit_to_kernel_mode_after_preempt(regs, state);
+> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+> index 489554931231e..ba9038434d2fb 100644
+> --- a/arch/arm64/kernel/process.c
+> +++ b/arch/arm64/kernel/process.c
+> @@ -699,6 +699,29 @@ void update_sctlr_el1(u64 sctlr)
+>  	isb();
 >  }
-
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
 >  
+> +static inline void debug_switch_state(void)
+> +{
+> +	if (system_uses_irq_prio_masking()) {
+> +		unsigned long daif_expected = 0;
+> +		unsigned long daif_actual = read_sysreg(daif);
+> +		unsigned long pmr_expected = GIC_PRIO_IRQOFF;
+> +		unsigned long pmr_actual = read_sysreg_s(SYS_ICC_PMR_EL1);
+> +
+> +		WARN_ONCE(daif_actual != daif_expected ||
+> +			  pmr_actual != pmr_expected,
+> +			  "Unexpected DAIF + PMR: 0x%lx + 0x%lx (expected 0x%lx + 0x%lx)\n",
+> +			  daif_actual, pmr_actual,
+> +			  daif_expected, pmr_expected);
+> +	} else {
+> +		unsigned long daif_expected = DAIF_PROCCTX_NOIRQ;
+> +		unsigned long daif_actual = read_sysreg(daif);
+> +
+> +		WARN_ONCE(daif_actual != daif_expected,
+> +			  "Unexpected DAIF value: 0x%lx (expected 0x%lx)\n",
+> +			  daif_actual, daif_expected);
+> +	}
+
+This logic seems consistent with arm64's local_irq_disable()
+implementation. Do we need to wrap these debug checks in a config option
+(e.g., CONFIG_ARM64_DEBUG_PRIORITY_MASKING) to avoid unnecessary overhead?
+
+
+__schedule()
+  -> local_irq_disable()
+    -> arch_local_irq_disable()
+
+52 static __always_inline void __daif_local_irq_disable(void)
+ 53 {
+ 54         barrier();
+ 55         asm volatile("msr daifset, #3");
+ 56         barrier();
+ 57 }
+ 58
+ 59 static __always_inline void __pmr_local_irq_disable(void)
+ 60 {
+ 61         if (IS_ENABLED(CONFIG_ARM64_DEBUG_PRIORITY_MASKING)) {
+ 62                 u32 pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
+ 63                 WARN_ON_ONCE(pmr != GIC_PRIO_IRQON && pmr !=
+GIC_PRIO_IRQOFF);
+ 64         }
+ 65
+ 66         barrier();
+ 67         write_sysreg_s(GIC_PRIO_IRQOFF, SYS_ICC_PMR_EL1);
+ 68         barrier();
+ 69 }
+ 70
+ 71 static inline void arch_local_irq_disable(void)
+ 72 {
+ 73         if (system_uses_irq_prio_masking()) {
+ 74                 __pmr_local_irq_disable();
+ 75         } else {
+ 76                 __daif_local_irq_disable();
+ 77         }
+ 78 }
+
+
+> +}
+> +
 >  /*
-> @@ -301,7 +304,6 @@ static void noinstr el1_abort(struct pt_regs *regs, unsigned long esr)
->  	state = arm64_enter_from_kernel_mode(regs);
->  	local_daif_inherit(regs);
->  	do_mem_abort(far, esr, regs);
-> -	local_daif_mask();
->  	arm64_exit_to_kernel_mode(regs, state);
->  }
+>   * Thread switching.
+>   */
+> @@ -708,6 +731,8 @@ struct task_struct *__switch_to(struct task_struct *prev,
+>  {
+>  	struct task_struct *last;
 >  
-> @@ -313,7 +315,6 @@ static void noinstr el1_pc(struct pt_regs *regs, unsigned long esr)
->  	state = arm64_enter_from_kernel_mode(regs);
->  	local_daif_inherit(regs);
->  	do_sp_pc_abort(far, esr, regs);
-> -	local_daif_mask();
->  	arm64_exit_to_kernel_mode(regs, state);
->  }
->  
-> @@ -324,7 +325,6 @@ static void noinstr el1_undef(struct pt_regs *regs, unsigned long esr)
->  	state = arm64_enter_from_kernel_mode(regs);
->  	local_daif_inherit(regs);
->  	do_el1_undef(regs, esr);
-> -	local_daif_mask();
->  	arm64_exit_to_kernel_mode(regs, state);
->  }
->  
-> @@ -335,7 +335,6 @@ static void noinstr el1_bti(struct pt_regs *regs, unsigned long esr)
->  	state = arm64_enter_from_kernel_mode(regs);
->  	local_daif_inherit(regs);
->  	do_el1_bti(regs, esr);
-> -	local_daif_mask();
->  	arm64_exit_to_kernel_mode(regs, state);
->  }
->  
-> @@ -346,7 +345,6 @@ static void noinstr el1_gcs(struct pt_regs *regs, unsigned long esr)
->  	state = arm64_enter_from_kernel_mode(regs);
->  	local_daif_inherit(regs);
->  	do_el1_gcs(regs, esr);
-> -	local_daif_mask();
->  	arm64_exit_to_kernel_mode(regs, state);
->  }
->  
-> @@ -357,7 +355,6 @@ static void noinstr el1_mops(struct pt_regs *regs, unsigned long esr)
->  	state = arm64_enter_from_kernel_mode(regs);
->  	local_daif_inherit(regs);
->  	do_el1_mops(regs, esr);
-> -	local_daif_mask();
->  	arm64_exit_to_kernel_mode(regs, state);
->  }
->  
-> @@ -423,7 +420,6 @@ static void noinstr el1_fpac(struct pt_regs *regs, unsigned long esr)
->  	state = arm64_enter_from_kernel_mode(regs);
->  	local_daif_inherit(regs);
->  	do_el1_fpac(regs, esr);
-> -	local_daif_mask();
->  	arm64_exit_to_kernel_mode(regs, state);
->  }
->  
+> +	debug_switch_state();
+> +
+>  	fpsimd_thread_switch(next);
+>  	tls_thread_switch(next);
+>  	hw_breakpoint_thread_switch(next);
 
