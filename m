@@ -4,68 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 187E010F994B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 15:03:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97D8E10F994F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 15:09:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SivuXMZukQhLcIXhHDoIeKLBX7Bze4wxvXciTgMUKAY=; b=eJJBOI22MVGyEy
-	jcyNPSAinrE8IvHtTZCcIkEGE8Yx5nj9hJvATNhhGZO7FfVp7fqEBrXXRhYDFSCUz4yHLuB0b+Fte
-	SCSdco+Jwb6DmAVyJpLW6PcqYwX8oyUNB83UjufbvKqU9G6DRHyjK3paRZUtITrkAQsG6g2BDZk+n
-	RfQWtYxuDJNpK8OvTYGTG5W8ML98q5Pac1l+YqXqdsMOWvqFXEkNCQsu8Vj7eibwzHMCqwJ1vZQkC
-	Xy07ENGGSyhbDWyULfGdp88D/Uj7Q2ylc6fylt+VN4O7ZI3ELhSzCHGz4iJDMJgV/0qGGNN/Dhuhk
-	7QGPv5DdV8SJg0xtQ4Kw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gj8jaWioaF9H0YGrruFt05uhtIOSLQ2QvQUkHGAhtYA=; b=StwXBEH7/UIJfgtRXDo8HU6Ovk
+	XrtkwWuG93akS9+iY/5Y41AoXKRHjm4WqhjM8+ckZglT46kC8HOJSLPJWKlqJcweRGDsXsGmoEjsS
+	XnTn/g8UkkvZQjyJJZhhzbr1FeDUrFeHc3qzAh0snXsfktwUz0qM5VyTIsG9rwYiSLU1Obpf3ilvJ
+	7Z0r+0RwKEhl+cSWcCJITstUBEL99mHz+Vj5gz/ji+XDYQZVCI1M7pfr8JoyBuP3KMd/eAXEzyNzk
+	t2DCSkfNw8LVQ4b/nuSleMx+8ikHDSIMwhuCgQeFgQWTdRVt1udjnKHaOSF8mrNR8NgYgAa1QUClA
+	aFLSccKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAURU-000000091lb-0Jfu;
-	Wed, 08 Apr 2026 15:03:44 +0000
+	id 1wAUXQ-0000000920f-3hHE;
+	Wed, 08 Apr 2026 15:09:52 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAURR-000000091lG-3xjK
+	id 1wAUXO-0000000920I-249L
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 15:03:43 +0000
+	Wed, 08 Apr 2026 15:09:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2CF6A433DB
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Apr 2026 15:03:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DA81C19424
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Apr 2026 15:03:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C7709442D3;
+	Wed,  8 Apr 2026 15:09:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DB81C19421;
+	Wed,  8 Apr 2026 15:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775660621;
-	bh=Betpu6YlX50HXxx8cB8c4TNDrqRx4yczkSoAvANIAAE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=BwWpSuEGh33P1HdOPUETTUh2GGicfP/E1wJq2vWfnrd590+xMej5M0vHycujXFfQp
-	 rWbgI2U92dN7FtM1PzQlioqocdbGOStnfIKTvA7D2+9GJRM4ApH/w1NF7D527il5fS
-	 eK/Hq04JUjC2iaoyTGCoCRKPaNshlgIvprkWX39rJkKbfQSQcaTRkpdbxYIGs37WJ6
-	 E8S6dZLH5TbFDRE3oa4mjKzABmoD2ZP3tvhxJMPw5hBHHMvcQqgGcKta4zd/F+ChX2
-	 suRPLFMDhoLEi4pn4Gl2iohsYwXyPWa4rQfg0i3dwmg/XGaDu0pSOlAwu0yvCujwhX
-	 1gPzE2CTN/DHA==
-Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-66c05fb27e4so10370725a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 08:03:40 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXV7X8EOmU6s1Aw6k0quQpb80obZAx+RtJY37BuwAezyhYFAxr05SNeGydi750AYuAZ+6MU8CURkes/jdl69vAR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8WWgBudD9xWbPd9hzmn/elgzqLT4aO4XRwHTfd3dnc8Q5ThNI
-	enyOOIaLon9GPUByGPcRedPbC5j9UfAbJO4CEb8MbjeDYQLZeaiqSvZKV7ppQpCEC6bXgZ/UREr
-	ehgM7H8UEzEflA2sCjageYtDEE7fdAQ==
-X-Received: by 2002:a05:6402:34c5:b0:66e:43ef:2951 with SMTP id
- 4fb4d7f45d1cf-66e43ef2a4bmr10220819a12.4.1775660619555; Wed, 08 Apr 2026
- 08:03:39 -0700 (PDT)
+	s=k20201202; t=1775660989;
+	bh=mGjriEUZMr+g1US10EShfrBqzpTUxxutiWrD+5RgSQA=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=rPNSFvNwU9jUtaJkM6mI86/toyzKHxm0pb4sc8hYlgcvdzpXI/tmpLVuJKLupvvXS
+	 InsiegzET6+urXis2LaRuun+w+XYJ42FqQeAYhwlfVP56LYM5h9zSZO4Ds2HKBP/YW
+	 N4VQ0B1MeL5ppNRABL9U8MaIotmsI9URRiJmrgjE/y7X0nxgkEbQQE3YBlem/wDXCL
+	 77whK/enQA/j6MjtdK77Uz35+JctjdJkcpUnnF/Yco11/Y7JfacGi7vAGCyHR/qcPY
+	 mBNNTQPOtHBsQ+zZwp0BiWOQoia2iCnJstAvRse5f/7yKtRORnz5yyaBO8uBWK5ul/
+	 pgEBui0w7LdCA==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 21B8FF4007E;
+	Wed,  8 Apr 2026 11:09:48 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Wed, 08 Apr 2026 11:09:48 -0400
+X-ME-Sender: <xms:vG_WaSW2T0IDV5IhknxKHye7IAvdBN05GVF0K1UTR3cSTuIj32wYTQ>
+    <xme:vG_WaZafQLXikZhBFOkTobqaBllyDe5eDbOCV38dXYSOzanJUKXElLQaf9XCiyBpT
+    nsjVRGNh0ujXaBkZmBKfL34yp8W1mZvxtLYdfEhLEG3qP14hYOVCrk>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddvfeeklecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhguuceu
+    ihgvshhhvghuvhgvlhdfuceorghruggssehkvghrnhgvlhdrohhrgheqnecuggftrfgrth
+    htvghrnhepuddvvdfhgfetueevleejvdejudeigfekheeggeetteetueeitdfgieelfeej
+    kedunecuffhomhgrihhnpehlughsrdhssgdpshgrshhhihhkohdruggvvhenucevlhhush
+    htvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhguodhmvghsmhht
+    phgruhhthhhpvghrshhonhgrlhhithihqdduieejtdehtddtjeelqdeffedvudeigeduhe
+    dqrghruggspeepkhgvrhhnvghlrdhorhhgseifohhrkhhofhgrrhgurdgtohhmpdhnsggp
+    rhgtphhtthhopeduvddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprghnshhhuh
+    hmrghnrdhkhhgrnhguuhgrlhesrghrmhdrtghomhdprhgtphhtthhopegtrghtrghlihhn
+    rdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepmhgrrhhkrdhruhhtlhgrnh
+    gusegrrhhmrdgtohhmpdhrtghpthhtoheprhihrghnrdhrohgsvghrthhssegrrhhmrdgt
+    ohhmpdhrtghpthhtoheprghruggsodhgihhtsehgohhoghhlvgdrtghomhdprhgtphhtth
+    hopehlihiiphhruhgtkhgrsehgohhoghhlvgdrtghomhdprhgtphhtthhopehsvghthhhj
+    vghnkhhinhhssehgohhoghhlvgdrtghomhdprhgtphhtthhopehkvggvsheskhgvrhhnvg
+    hlrdhorhhgpdhrtghpthhtohepfihilhhlsehkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:vG_WaaTndSDqM8rvYCzXCurufS_g5gaePe1OFHhpwGY20cQHYEBycg>
+    <xmx:vG_WaWJ369XN4dDFHzXG379k7hR9VwtaBG7BzOD1GWUzNdkGao1K6w>
+    <xmx:vG_WaUECzCmOnWaaoNBzviV2d6HqqY21_KQW2-mjV6yB9uE-uip9iQ>
+    <xmx:vG_WaT37PO0vSGNgj1WyXpV6jvRd_wfPkbo0qFGVBzO0lRunMPq7Xg>
+    <xmx:vG_WacLR1efsObTuQS-qBINiOr_7UseIdHQ1uy5t31lM2Gxq-brV63Lp>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id F2328700065; Wed,  8 Apr 2026 11:09:47 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <20260318-topic-am62a-ioddr-dt-v6-19-v3-0-c41473cb23c3@baylibre.com>
-In-Reply-To: <20260318-topic-am62a-ioddr-dt-v6-19-v3-0-c41473cb23c3@baylibre.com>
-From: Rob Herring <robh@kernel.org>
-Date: Wed, 8 Apr 2026 10:03:27 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJq=3z7SQX_26MGGRcmysnGHVke8aTwyDCesvOuQjEN+g@mail.gmail.com>
-X-Gm-Features: AQROBzClMUtPoA2R9xbP9UQlxvhX-iW9IARKlNopJ52gDn5_0cggpUPCuN1htyU
-Message-ID: <CAL_JsqJq=3z7SQX_26MGGRcmysnGHVke8aTwyDCesvOuQjEN+g@mail.gmail.com>
-Subject: Re: [PATCH v3 0/7] arm64: dts: ti: k3-am62a7-sk: Split r5f memory region
-To: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-ThreadId: AVizydSA80Ew
+Date: Wed, 08 Apr 2026 17:09:26 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Ard Biesheuvel" <ardb+git@google.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ "Will Deacon" <will@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
+ "Ryan Roberts" <ryan.roberts@arm.com>,
+ "Anshuman Khandual" <anshuman.khandual@arm.com>,
+ "Liz Prucka" <lizprucka@google.com>, "Seth Jenkins" <sethjenkins@google.com>,
+ "Kees Cook" <kees@kernel.org>, linux-hardening@vger.kernel.org
+Message-Id: <52abb233-80c5-4363-871d-cd52667291ad@app.fastmail.com>
+In-Reply-To: <adZbgYJqY6bisaoZ@arm.com>
+References: <20260320145934.2349881-15-ardb+git@google.com>
+ <20260320145934.2349881-16-ardb+git@google.com> <adZbgYJqY6bisaoZ@arm.com>
+Subject: Re: [PATCH v3 01/13] arm64: Move the zero page to rodata
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_080342_037608_3B867914 
-X-CRM114-Status: GOOD (  23.36  )
+X-CRM114-CacheID: sfid-20260408_080950_596578_B33E7B5B 
+X-CRM114-Status: GOOD (  20.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,134 +110,65 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Nishanth Menon <nm@ti.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, Mathieu Poirier <mathieu.poirier@linaro.org>, Dhruva Gole <d-gole@ti.com>, Akashdeep Kaur <a-kaur@ti.com>, Kevin Hilman <khilman@baylibre.com>, Bjorn Andersson <andersson@kernel.org>, linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, Kendall Willis <k-willis@ti.com>, Vishal Mahaveer <vishalm@ti.com>, Sebin Francis <sebin.francis@ti.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Tero Kristo <kristo@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 18, 2026 at 10:14=E2=80=AFAM Markus Schneider-Pargmann (TI)
-<msp@baylibre.com> wrote:
->
-> Hi,
->
-> Split the firmware memory region in more specific parts so it is better
-> described where which information is stored. Specifically the LPM metadat=
-a
-> region is important as bootloader software like U-Boot has to know where
-> that data is to be able to read that data and resume from RAM.
->
-> IO+DDR is a deep sleep state in which a few pins are set to be sensitive
-> for wakeup while the DDR is kept in self refresh. Everything else is
-> powered off.
->
-> The changes in this series were suggested as part of the IO+DDR u-boot se=
-ries:
->   https://lore.kernel.org/r/814c211f-a9eb-4311-bb84-165b1a69755f@ti.com
->
-> There are currently no real users of the memory-region that is split in
-> this series. The size of the memory-region in total stays the same.
-> The new layout is derived from the software running on the r5f
-> processor:
->   https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/exampl=
-es/drivers/ipc/ipc_rpmsg_echo_linux/am62ax-sk/r5fss0-0_freertos/ti-arm-clan=
-g/linker.cmd#L172
->   https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/source=
-/drivers/device_manager/sciclient.h#L459
->
-> Additionally the two important devicetree nodes for resuming from IO+DDR
-> have the bootph-pre-ram flag added as this data needs to be read before
-> the RAM is in use.
->
-> Best
-> Markus
->
-> Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
-> ---
-> Changes in v3:
-> - Squash the enforcement of the memory-region-names requirement in the
->   patch adding the memory-region-names, as suggested.
-> - Link to v2: https://lore.kernel.org/r/20260312-topic-am62a-ioddr-dt-v6-=
-19-v2-0-37cb7ceec658@baylibre.com
->
-> Changes in v2:
-> - Make memory-region-names required if memory-region is present
-> - Fixup memory-region and memory-region-names conditions. Require either
->   2 or 6 regions for memory-region and memory-region-names
-> - Reword and restructure the binding documentation for memory-region and
->   memory-region-names
-> - Add memory-region-names to all uses of memory-region
-> - Link to v1: https://lore.kernel.org/r/20260303-topic-am62a-ioddr-dt-v6-=
-19-v1-0-12fe72bb40d2@baylibre.com
->
-> ---
-> Markus Schneider-Pargmann (TI) (7):
->       dt-bindings: remoteproc: k3-r5f: Split up memory regions
->       dt-bindings: remoteproc: k3-r5f: Add memory-region-names
->       arm64: dts: ti: k3: Use memory-region-names for r5f
->       arm64: dts: ti: k3-am62a7-sk: Split r5f memory region
->       arm64: dts: ti: k3-am62p5-sk: Split r5f memory region
->       arm64: dts: ti: k3-am62a7-sk: Add r5f nodes to pre-ram bootphase
->       arm64: dts: ti: k3-am62p5-sk: Add r5f nodes to pre-ram bootphase
 
-TI folks, Please make sure these dts patches are picked up for 7.1.
-There's now a crap load of warnings in next with the binding change:
+On Wed, 8 Apr 2026, at 15:43, Catalin Marinas wrote:
+> Hi Ard,
+>
+> On Fri, Mar 20, 2026 at 03:59:36PM +0100, Ard Biesheuvel wrote:
+>> diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
+>> index 2964aad0362e..2d021a576e50 100644
+>> --- a/arch/arm64/kernel/vmlinux.lds.S
+>> +++ b/arch/arm64/kernel/vmlinux.lds.S
+>> @@ -229,6 +229,7 @@ SECTIONS
+>>  #endif
+>>  
+>>  	reserved_pg_dir = .;
+>> +	empty_zero_page = .;
+>>  	. += PAGE_SIZE;
+>>  
+>>  	swapper_pg_dir = .;
+>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>> index a6a00accf4f9..795743913ce5 100644
+>> --- a/arch/arm64/mm/mmu.c
+>> +++ b/arch/arm64/mm/mmu.c
+>> @@ -66,9 +66,8 @@ long __section(".mmuoff.data.write") __early_cpu_boot_status;
+>>  
+>>  /*
+>>   * Empty_zero_page is a special page that is used for zero-initialized data
+>> - * and COW.
+>> + * and COW. Defined in the linker script.
+>>   */
+>> -unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)] __page_aligned_bss;
+>>  EXPORT_SYMBOL(empty_zero_page);
+>
+> I looked at Sashiko's reports
+> (https://sashiko.dev/#/patchset/20260320145934.2349881-15-ardb+git@google.com)
+> and it has a point here that with MTE, map_mem() doesn't map the
+> empty_zero_page as Tagged in the for_each_mem_range() loop. The
+> subsequent cpu_enable_mte() will fail to initialise the tags. I think
+> this problem disappears with patch 11 where all the linear map is now
+> Tagged.
+>
+> We either ignore it or we temporarily map the kernel as Tagged until the
+> linear alias is removed later:
+>
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 795743913ce5..5290f7537074 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -1175,7 +1175,7 @@ static void __init map_mem(pgd_t *pgdp)
+>  	 * so we should avoid them here.
+>  	 */
+>  	__map_memblock(pgdp, kernel_start, kernel_end,
+> -		       PAGE_KERNEL, NO_CONT_MAPPINGS);
+> +		       pgprot_tagged(PAGE_KERNEL), NO_CONT_MAPPINGS);
+>  	memblock_clear_nomap(kernel_start, kernel_end - kernel_start);
+>  	arm64_kfence_map_pool(early_kfence_pool, pgdp);
+>  }
+>
 
-     58 (ti,am62-r5fss): r5f@78000000: 'memory-region-names' is a
-required property
-     30 (ti,am62-r5fss): r5f@79000000: 'memory-region-names' is a
-required property
-     22 (ti,j721s2-r5fss): r5f@5f00000: 'memory-region-names' is a
-required property
-     22 (ti,j721s2-r5fss): r5f@5e00000: 'memory-region-names' is a
-required property
-     22 (ti,j721s2-r5fss): r5f@5d00000: 'memory-region-names' is a
-required property
-     22 (ti,j721s2-r5fss): r5f@5c00000: 'memory-region-names' is a
-required property
-     22 (ti,j721s2-r5fss): r5f@41400000: 'memory-region-names' is a
-required property
-     22 (ti,j721s2-r5fss): r5f@41000000: 'memory-region-names' is a
-required property
-     21 (ti,am64-r5fss): r5f@78600000: 'memory-region-names' is a
-required property
-     21 (ti,am64-r5fss): r5f@78400000: 'memory-region-names' is a
-required property
-     21 (ti,am64-r5fss): r5f@78200000: 'memory-region-names' is a
-required property
-     21 (ti,am64-r5fss): r5f@78000000: 'memory-region-names' is a
-required property
-     12 (ti,j721s2-r5fss): r5f@5a00000: 'memory-region-names' is a
-required property
-     12 (ti,j721s2-r5fss): r5f@5900000: 'memory-region-names' is a
-required property
-     12 (ti,am654-r5fss): r5f@41400000: 'memory-region-names' is a
-required property
-     12 (ti,am654-r5fss): r5f@41000000: 'memory-region-names' is a
-required property
-      9 (ti,j721e-r5fss): r5f@5f00000: 'memory-region-names' is a
-required property
-      9 (ti,j721e-r5fss): r5f@5e00000: 'memory-region-names' is a
-required property
-      9 (ti,j721e-r5fss): r5f@5d00000: 'memory-region-names' is a
-required property
-      9 (ti,j721e-r5fss): r5f@5c00000: 'memory-region-names' is a
-required property
-      9 (ti,j721e-r5fss): r5f@41400000: 'memory-region-names' is a
-required property
-      9 (ti,j721e-r5fss): r5f@41000000: 'memory-region-names' is a
-required property
-      4 (ti,am62-r5fss): r5f@78400000: 'memory-region-names' is a
-required property
-      3 (ti,j7200-r5fss): r5f@5d00000: 'memory-region-names' is a
-required property
-      3 (ti,j7200-r5fss): r5f@5c00000: 'memory-region-names' is a
-required property
-      3 (ti,j7200-r5fss): r5f@41400000: 'memory-region-names' is a
-required property
-      3 (ti,j7200-r5fss): r5f@41000000: 'memory-region-names' is a
-required property
-
-If they aren't applied, making  'memory-region-names' required needs
-to be dropped from the binding.
-
-Rob
+OK. There were some other very good comments too, I'll look into those and respin this for the next cycle.
 
