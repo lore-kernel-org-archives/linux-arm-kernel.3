@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8A291073CBF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 14:11:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC3AA10F9943
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 14:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LqZnsz7wcqTyhp78mNFKi+0Adfefk/BvJL3db1qKzPo=; b=Kb9TpPXkbFSiwFPYebb11ai9fn
-	4xawrCVyEqdTDhkR28OpEXEQnHRG8QtC5x1j9EWwS+Vg9GkLUuLqmnpMk6za+Zlv9H79mFVWJkdm6
-	hxGhnKcxOqwKVqqrKKTQU2IylTrWZSq5QsWo0HZo4xtKMdEh8+FUVROK+lQqiI7qUGp0s/hUIQbS4
-	sBPncJ0+0XWtUcVXGF6a5Xex1eykOUyo2DZtOu4wCqgt1jc8enDhBN0Ci23ZPgkmO6HTxc9p9equC
-	MToufnaaG/UUobdgkMsaGufkVkcNaDPqJc5VX2P1mWjF3wGani9NnGuxMN+coNKVZUP1+D9x852mB
-	qLEB1KfA==;
+	bh=ac+ld7PBnDtntUMS9S8A9+sf8tF7fABnrLxBZdtfty8=; b=C/zNg4Qi+gkZc5O1q1vkkAWgAp
+	Ot9/OiLZPgIDQjm3rjgFFK47ZkBB1yvElG1LTUyqA8hxxlCwKozN3s91MRwVIBWpIs3huB6eGM0nc
+	yLtcGhR+DkQ8Y08mCo8onarm7ZTOxu2GjWLPHZspv9FJSz5BtlubEJt5xgV9qOAQcdaRWxV/tR3nG
+	vZlLTjEoz7HrjbwsrYUUt5cx9jNm/mwKaA/Zve2qd4gu/HU34PGUCGCArFUTZRmLs/ixJNk3tJPYm
+	Fs1XmcDAk5YlcfIRZ4Q5h1jBV5h3crQ/Rx/Yaxh+3PFmNmXfRCG5tX2RHoIFYUjKHHKECqnJaeUsR
+	U7HL47Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wATcz-00000008ykd-3cnq;
-	Wed, 08 Apr 2026 14:11:33 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wATk4-00000008zKd-1MRG;
+	Wed, 08 Apr 2026 14:18:52 +0000
+Received: from mail.ispras.ru ([83.149.199.84])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wATcw-00000008yjr-0tAt;
-	Wed, 08 Apr 2026 14:11:32 +0000
-Received: from dfae2b116770.home.arpa (unknown [124.16.138.129])
-	by APP-05 (Coremail) with SMTP id zQCowACXKAwLYtZprHbzDA--.2435S2;
-	Wed, 08 Apr 2026 22:11:23 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: Ulf Hansson <ulf.hansson@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: nfraprado@collabora.com,
-	Macpaul Lin <macpaul.lin@mediatek.com>,
-	Adam Ford <aford173@gmail.com>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1wATk1-00000008zKA-3j7S;
+	Wed, 08 Apr 2026 14:18:51 +0000
+Received: from debian.intra.ispras.ru (unknown [10.10.165.28])
+	by mail.ispras.ru (Postfix) with ESMTPSA id 6C47745F7988;
+	Wed,  8 Apr 2026 14:18:45 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.ispras.ru 6C47745F7988
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ispras.ru;
+	s=default; t=1775657925;
+	bh=ac+ld7PBnDtntUMS9S8A9+sf8tF7fABnrLxBZdtfty8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=KkOo6rDzgOhzmt/Dv2vYogRIIsqUNDCEo1aBqC06+JlxEM7oF8ShhurODjlhSnhiO
+	 8Gc5YQxtPgh9priKaqEXx32AGIIOFoPduVUoOh8SjzvOQ9W+6tKlcNU4dxlOoaiB4I
+	 Zx+p18z7AqSXSL1VrJzTPLlanaWSPAsQ+9NEoGH8=
+From: Fedor Pchelkin <pchelkin@ispras.ru>
+To: Keith Busch <kbusch@kernel.org>,
+	Christoph Hellwig <hch@lst.de>,
+	Jens Axboe <axboe@kernel.dk>
+Cc: Fedor Pchelkin <pchelkin@ispras.ru>,
+	Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Sagi Grimberg <sagi@grimberg.me>,
+	Hannes Reinecke <hare@suse.de>,
+	Ming Lei <ming.lei@redhat.com>,
+	Chaitanya Kulkarni <kch@nvidia.com>,
+	"Heyne, Maximilian" <mheyne@amazon.de>,
+	asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
+	linux-nvme@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	lvc-project@linuxtesting.org,
 	stable@vger.kernel.org
-Subject: [PATCH] pmdomain: mediatek: fix use-after-free in scpsys_get_bus_protection_legacy()
-Date: Wed,  8 Apr 2026 14:11:21 +0000
-Message-Id: <20260408141121.386522-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+Subject: [PATCH v2] nvme-apple: drop invalid put of admin queue reference count
+Date: Wed,  8 Apr 2026 17:18:14 +0300
+Message-ID: <20260408141815.375695-1-pchelkin@ispras.ru>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowACXKAwLYtZprHbzDA--.2435S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Kw1kuF4rZFyxGFyfZFWfAFb_yoW8Zw1fpF
-	W5Ka4YvrWUJr18GFW0krW8uayayrykK395Cws7GwsFv3Z8Xr1kGrySva4Yqr9YkrZYkanr
-	A3W7tryUA3W8AFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9C14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW5XwCF04k20xvY0x0EwIxGrw
-	CFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE
-	14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
-	IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxK
-	x2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI
-	0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUPR6wUUUUU=
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwwLA2nWHcDczgAAsz
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_071130_613624_7474BC22 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20260408_071850_099374_FE550221 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,55 +79,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In scpsys_get_bus_protection_legacy(), of_find_node_with_property()
-returns a device node with its reference count incremented. The function
-then calls of_node_put(node) before checking whether
-syscon_regmap_lookup_by_phandle() returns an error. If an error occurs,
-dev_err_probe() dereferences the node pointer to print diagnostic
-information, but the node memory may have already been freed due to the
-earlier of_node_put(), leading to a use-after-free vulnerability.
+Commit 03b3bcd319b3 ("nvme: fix admin request_queue lifetime") moved the
+admin queue reference ->put call into nvme_free_ctrl() - a controller
+device release callback performed for every nvme driver doing
+nvme_init_ctrl().
 
-Fix this by moving the of_node_put() call after the error check, ensuring
-the node is still valid when accessed in the error path.
+nvme-apple sets refcount of the admin queue to 1 at allocation during the
+probe function and then puts it twice now:
 
-Fixes: c29345fa5f66 ("pmdomain: mediatek: Refactor bus protection regmaps retrieval")
+nvme_free_ctrl()
+  blk_put_queue(ctrl->admin_q) // #1
+  ->free_ctrl()
+    apple_nvme_free_ctrl()
+      blk_put_queue(anv->ctrl.admin_q) // #2
+
+Note that there is a commit 941f7298c70c ("nvme-apple: remove an extra
+queue reference") which intended to drop taking an extra admin queue
+reference.  Looks like at that moment it accidentally fixed a refcount
+leak, which existed since the driver's introduction.  There were two ->get
+calls at driver's probe function and a single ->put inside
+apple_nvme_free_ctrl().
+
+However now after commit 03b3bcd319b3 ("nvme: fix admin request_queue
+lifetime") the refcount is imbalanced again.  Fix it by removing extra
+->put call from apple_nvme_free_ctrl().  anv->dev and ctrl->dev point to
+the same device, so use ctrl->dev directly for simplification.  Compile
+tested only.
+
+Found by Linux Verification Center (linuxtesting.org).
+
+Fixes: 03b3bcd319b3 ("nvme: fix admin request_queue lifetime")
 Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+Signed-off-by: Fedor Pchelkin <pchelkin@ispras.ru>
 ---
- drivers/pmdomain/mediatek/mtk-pm-domains.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-index e2800aa1bc59..d3b36f32417c 100644
---- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-+++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-@@ -993,6 +993,7 @@ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
- 	struct device_node *node, *smi_np;
- 	int num_regmaps = 0, i, j;
- 	struct regmap *regmap[3];
-+	int ret = 0;
+v2: use ctrl->dev directly for simplification (Jens Axboe)
+link to v1: https://lore.kernel.org/linux-nvme/20260403202701.991276-1-pchelkin@ispras.ru/
+
+ drivers/nvme/host/apple.c | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
+index ed61b97fde59..423c9c628e7b 100644
+--- a/drivers/nvme/host/apple.c
++++ b/drivers/nvme/host/apple.c
+@@ -1267,11 +1267,7 @@ static int apple_nvme_get_address(struct nvme_ctrl *ctrl, char *buf, int size)
  
- 	/*
- 	 * Legacy code retrieves a maximum of three bus protection handles:
-@@ -1043,11 +1044,14 @@ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
- 	if (node) {
- 		regmap[2] = syscon_regmap_lookup_by_phandle(node, "mediatek,infracfg-nao");
- 		num_regmaps++;
--		of_node_put(node);
--		if (IS_ERR(regmap[2]))
--			return dev_err_probe(dev, PTR_ERR(regmap[2]),
-+		if (IS_ERR(regmap[2])) {
-+			ret = dev_err_probe(dev, PTR_ERR(regmap[2]),
- 					     "%pOF: failed to get infracfg regmap\n",
- 					     node);
-+			of_node_put(node);
-+			return ret;
-+		}
-+		of_node_put(node);
- 	} else {
- 		regmap[2] = NULL;
- 	}
+ static void apple_nvme_free_ctrl(struct nvme_ctrl *ctrl)
+ {
+-	struct apple_nvme *anv = ctrl_to_apple_nvme(ctrl);
+-
+-	if (anv->ctrl.admin_q)
+-		blk_put_queue(anv->ctrl.admin_q);
+-	put_device(anv->dev);
++	put_device(ctrl->dev);
+ }
+ 
+ static const struct nvme_ctrl_ops nvme_ctrl_ops = {
 -- 
-2.34.1
+2.53.0
 
 
