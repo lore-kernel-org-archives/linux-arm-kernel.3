@@ -4,69 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8BD61073CBA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 13:55:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB61C1073CBA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 13:56:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y/Q9RcXjYRPHu9bw7azOiIXMjQ1JIwtos4lCU1dYBtM=; b=HhVwctO6L2aqWqMaHxrPBV1gwx
-	RAuaA92JDkXB/6O9V2yC+UZztCCuETAlDm8sfXpOmRYfE7kMGAChITcoeOWIR1dcKVRy8zEmQUkFG
-	4VKrK1wN5DppCb2MVtNJboRqCHSztF2DvV+QB7tFWPlc9O5UZr7yyVf3LOzJ1M22Rr6mn2793xaDh
-	LCN2ck5x2rBvbIn15DDjCr8iaBPYJbBhmG1NyLdhuOhl+fhMpz17KNLfXtnoLsrWgtKUVL3UvEui8
-	L0EuPdf7OHUtDdrzeDK+4K0bT4OMTiDhO5I0C7LcILMUrK1b1/ocVjff+QZD9Hy+pRhQvoPez9c6b
-	khQFPgYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vk9ZtLgNzNKgPkpN2H7+uXyVHFrg5CXZcijqYXO4kL8=; b=MXPxQcLY+uJggJR//VrBvm1Qsg
+	IpZnl96xz5oqwthnTn/U+hPv7nbV262h1yIdcfTR/XRTxkieHPU198ruhGq9QvIloO1UerjEJLo+F
+	FO8PyJjeRcNmKuktoIOf9yZLOWdMLtv8kYOz6S8M3uuhLwOvTscfyWHM7RgN28+ZkmQokrSkFblo2
+	XcVemJAOwp7jg6alr9o6+UNqVGhfG1vapuezMWSIm8Z5j5hJh32jcPjmvnePqXDgtPSsi3bEPE3FQ
+	kjO56r8CeI+MFDuFtzBWfTenHyRMEanis68cVOXdWEHnvnmb9ZJk8VEFZPr8lQ5lJzGW0NVFRzdKj
+	JVAzA1Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wATNU-00000008wvZ-1ivC;
-	Wed, 08 Apr 2026 13:55:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wATOc-00000008x6Y-19Mg;
+	Wed, 08 Apr 2026 13:56:42 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wATNS-00000008wvS-33IV
+	id 1wATOY-00000008x5Z-1WyY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 13:55:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ED096600CB;
-	Wed,  8 Apr 2026 13:55:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA82DC19421;
-	Wed,  8 Apr 2026 13:55:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775656529;
-	bh=bWhTBkh9lG0OYn3p1uqGUIvyw6GLsmFHsj0//fglkRI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Xyh+eGOS1uEhknb6elYjvxe9plsLEQA0ndZ/lEoPUYioAiP5zQvjd2bNOOWvI5MCL
-	 dZfs0TsU9xwBVF5m6omQOw13bGHGgud/VvcptZASu3QkiKC8BCoEO+mkYwyUCwzz1J
-	 jes4D92bC7QMF7a9IOOGoVb3U8JTx4tCUFf4SaCvo5DDyZDEcXE3XDiP3Rq4W/skR9
-	 zf/ld081YahQDRuyOUmAPBGZFFE1GEOdZjtyqIvCZrXGAXsLZBOzMXh6jasUlbgBvO
-	 1D/CXQGw4lO4f54mBTQyiNhYZU2Klfd6QJQ5LTHEYWyQ09Dks+38g79+7twLd8/bex
-	 //beLRzRUVylA==
-Date: Wed, 8 Apr 2026 19:25:19 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Sherry Sun <sherry.sun@nxp.com>
-Cc: "robh@kernel.org" <robh@kernel.org>, 
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
-	Frank Li <frank.li@nxp.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>, 
-	"bhelgaas@google.com" <bhelgaas@google.com>, Hongxing Zhu <hongxing.zhu@nxp.com>, 
-	"l.stach@pengutronix.de" <l.stach@pengutronix.de>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH V11 04/12] PCI: imx6: Add support for parsing the reset
- property in new Root Port binding
-Message-ID: <t5x45nyn6lw7cofzj2rec5j6z2ml6kve2hvzeeastdrv4hilsu@ujhkmltpp5ky>
-References: <20260407104154.2842132-1-sherry.sun@nxp.com>
- <20260407104154.2842132-5-sherry.sun@nxp.com>
- <7ewnbwdo5qtasbxj4uel6a6uthczq2l6udbvoqqkwm776lvseb@v54ri2gknwxn>
- <VI0PR04MB12114AAA709016DADF0B45DA6925BA@VI0PR04MB12114.eurprd04.prod.outlook.com>
-MIME-Version: 1.0
+	Wed, 08 Apr 2026 13:56:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dnvqrQ6mGXQPz5dYr/6j99uSdNinKqqZrP6cgywcKfmbifKmld0RI84T/73jXd2jMoG3MixFy/N8I2O4JZOAAv61uJAXK+c7iuXER74pKl9UTPU80Sfmu8qCVo5JuyTyKCWguSbW95N3a83xYaK02SGrBwhp4EtycuJL8mpMKmZlwWPwXTp1BU3JeUiaVj36Y4o6O+qaaM38zKQfTXGCfwlJwc+fyieGI78IMhBr1vcQh+uxtf44mHh/bNOX41ivb5E1ZSG77WjG51Bi8U1wX4u+gHHDQOL8ZgCJV5tVPFkO9L8H+Yb7ihKLhXKxE3ro7SVucYn6AX4ngrcogpD8kg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vk9ZtLgNzNKgPkpN2H7+uXyVHFrg5CXZcijqYXO4kL8=;
+ b=cpP2QF0e+icmvL63Ficfb5fKTob7pCZiuK+vTl/uUFtm2yRRMlM2QUhu4cpJ4DJIvQUmeTKVRx1X/EIZfNoNUJtD6+X40hmgxM1obKfR9I5Dkg0EZzjuJkaea5f5Ph6dwf6SiZirHj/rhj3SZWFflckxdVQ+kXtmeRTRMRl5a2idk+0wYdHrvI5z+vcF4KouKQCR1R3+VuxxlxiFAyTf+hOY8JEJaqQcBcpF9IcYOKIFTOFPbjTnB/LhbR/ODLvQmMt4gGF7jgTEEEb8PcT3H+SOK58BAJ/mIbm+PU/lMv/2grSCcyDN9FRuQsXoxddzAVs4Kw7Apn6NyMr+rPbO0Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vk9ZtLgNzNKgPkpN2H7+uXyVHFrg5CXZcijqYXO4kL8=;
+ b=QeDGUcca4+0KA9pj38+Vzmcm6ecGhvEwZNQfPAvet9j5/NczU9qlkwrNIQlcCS5PmQBbvTrsyi8EAZP9VrFNYhiiTP0VrAwpCxIfxXwCx7iR08j0T5BieG+4Fu/fJbZrOuiFlGNG/zbDATN0snkUcl8Haco6EBiXxKdC9YsvH02FJyJsdRUKz7yZlCwv7JVxv9o36gJvgkVkBlG8zQEBrgBLN/zhcVVdVc2GD8Ef+D58ffKhDVxo+WNt8wJEhUtarnn1cclf+MHK8OM/lLMDSbsENSN12yc7/GyKe2Yoa7wDdWLZuuMQwKnXrzGZpG/snOJdWk8oLXgyvvLU42af5Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by VI0PR04MB12008.eurprd04.prod.outlook.com (2603:10a6:800:317::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.18; Wed, 8 Apr
+ 2026 13:56:30 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%3]) with mapi id 15.20.9723.030; Wed, 8 Apr 2026
+ 13:56:30 +0000
+Date: Wed, 8 Apr 2026 21:58:52 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Brian Masney <bmasney@redhat.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH RFC 0/2] clk: scmi: =?utf-8?Q?D?=
+ =?utf-8?Q?T_support_for_SCMI_clock_rate_rounding_modes_=28per=E2=80=91clo?=
+ =?utf-8?Q?ck?= policy)
+Message-ID: <adZfHF18dnuugYHL@shlinux89>
+References: <20260306-scmi-clk-round-v1-0-61e2a5df9051@nxp.com>
+ <adPTdg4RJpkjc4Cg@redhat.com>
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <VI0PR04MB12114AAA709016DADF0B45DA6925BA@VI0PR04MB12114.eurprd04.prod.outlook.com>
+In-Reply-To: <adPTdg4RJpkjc4Cg@redhat.com>
+X-ClientProxiedBy: MA5P287CA0235.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1b1::13) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI0PR04MB12008:EE_
+X-MS-Office365-Filtering-Correlation-Id: 45b263f1-1fa9-4483-ac6e-08de9576a2e5
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|366016|376014|1800799024|19092799006|38350700014|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 8zezWLe8g0Al+gjVyGmswSobBz+OPDjCmskdYNcb75P8UcD+udD6TYC4C3bCsDeVkQWqvMu5cDB6oWCGOdZReXyVDhyT6RbVDE96YJrg/GGeOwzvP6S2Tpnt9VQ1UZq4HPgZ5MRtLKHfA/GHg8daBxZmdrdyJg0CRNl8wje+FjbHai4uBeW8ORlDK6KBpSuzSzFjQQ59Y4BEWz2aTstAC9vgJ8Y2jwu1+xEQ0zw0p5vlHP76Gu+KKBZZ9tMbBcO/FsBTpbfJPyRKki52sVipZNZmvW8lsUcpzJzSFG80BprzvHzuMh+cpEVP5ksxcGyPnYxDvAMZ65s6zflFw1lVjKc9GRs0fDZPVL2aYPn66fFoLYbTOrS93+fStn2ro1WFhZFpOmSyD0OWDyRaladyYuZXmlDUtG7m/th3IOMfjCxLeaHXNtm3pzMu7Ri//8vigZUk1hw7RzTziLXddnbt4ZwUZ0XRgtChNH1fd6LWwrNdLaYem3l7vynzpyv2a9E+RUJeokerKlkoTtnxmqhFJB9mjxDit/A818kfOkZOztKDFOV0mEnKQUImI+LxnfMF7QFTXfZYOIdwod6Ei6uA5OGkYRNchjswQquEfhn+Nm5h6C3jeSRH7vDUWhmFKKtmrLMsxth6yvkMi63cysfNdKDudHKRSTigpqSNurqzpqFRTX26HrUat/DH67JGSF+0BUuUbmkb3T3LQUYjoTzb5cMgX4V5VjTYUeT0qffNpAKcFU2OFjQGO/4HbeQeIfS3Ub+mNfXiCflhxdMmwXpWV1lbaiN3fqT7vM44R0gmDsA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(366016)(376014)(1800799024)(19092799006)(38350700014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZUNqTnhRQzBvcGRPSVY1ckpTRDlqQWFEa0VnS3M1TjZvaVN0R2I0ZlYvbTli?=
+ =?utf-8?B?YlFXVUIrOTBROEFKWS9NY1hRYmJ0NWF1L2NsZzVaNnNROVdMTUpkMjc2bnRM?=
+ =?utf-8?B?MmJqbmRRYUp4VE1MdzliMlk2MXBuZmwyNVBrK2FwenZKNWJCdlFDRW1LclJG?=
+ =?utf-8?B?R0hlTkxKckhjWUl6Mml1QmVFLzBpTWZBVFpvWGF4NzJyOUxuM3RIWFJTUXZ5?=
+ =?utf-8?B?b1hKUm5iZnJ1c2ZGTE9kc3A1aHVpc09MN01UQy9VQWlZSEJEaVJXVExMUTFI?=
+ =?utf-8?B?Wjg0a1BWb0N6YlovQ20yYVIvanlxSFhlQjkzT290WGI2RzYxbWtqcjlNV1V5?=
+ =?utf-8?B?UU1NWjFxZklBY2Z4OG5GTDVjakFQZ1NpSmhYS1JlOGNEK2RmM3JaL2duUFp3?=
+ =?utf-8?B?cmV3RW9FMnY2T3UvQjJCejdmVVZweGQ4Z2hsVHB0RkU5YmkxNkpBRG03Qnps?=
+ =?utf-8?B?dXJQcE9KS0d4dHBtWm8wVmNOWmdCVEl3WmdsTG4zVkd2TkpWTFRXZ2srVkFX?=
+ =?utf-8?B?bkdUNmw0dVppS2JWRmE3bllZSlFMa3MzYzE4amRmcUt1L0p2b3NhQUFXenNl?=
+ =?utf-8?B?VXEwWEw2d1RQZHZjVlRsb1N4RGdPWWxtcDYrUS9EeDlKMWdVVVltOS9XSzlT?=
+ =?utf-8?B?K3FpUzZ0ZW1qb1VaaUdmODU0U0xMdDhJM3VaMkRlNlYyOTRqa04yYTdqY2Fz?=
+ =?utf-8?B?UnJlMGRkRUhrK2ZhdnNSNmsrcnhvQnJoMkxTeUZuT3JBQ3BUUVpWVWRISzZW?=
+ =?utf-8?B?QW5pNFpoRzdyZ0JFODdJV0txVXkyRmdyYmluUnlQN3JtbUpGTzhFTDRDUEUy?=
+ =?utf-8?B?bW0xQmR3aW90Q0QzNnB4U053ZE1KQTZsWG1aRnNtM09zejdLVVpieHNhUStr?=
+ =?utf-8?B?TVFPSEdtTXFSTVdkUlUzOTVNYVF0czRXQ0JoUkt4cmJ4dmljZnBGenBzYWI2?=
+ =?utf-8?B?akxBV3pWN1lndjFmazk5TFV0a0tKaW5kYU5lTXVLbU5mM0V2M29wblJGTlNi?=
+ =?utf-8?B?ZmhwV2M2MStkUlNaa0J5WjlsR2poV2hDdSt1OVBWMjk2NzRERkUyQlFtMkpt?=
+ =?utf-8?B?VUZ4RHR2QUoyWmFaYmZZa0dxK25Jc0VqdkxEck9KeFZFMlRYSnc2SEw0OG0y?=
+ =?utf-8?B?MFVORUU1WFZRMkFGSWNBK1RubEQ3SS9ZRGpXVk5KZjRSenpvRkt5dTBCVkQ1?=
+ =?utf-8?B?TmRUSUJHTUdwQWZSc3BDYkw5ekJPNVNQYmljQ3VuT1hBdVBOWGZhS3g1eFJw?=
+ =?utf-8?B?MkhkbWtnbi9VUzNySERpQUljQmtNdForTXA4VmxQV2tWVlQraWZiTjN2S05U?=
+ =?utf-8?B?MlFQRERoQ3hJUEpsNVczRXk3REZNak1aOCs0RVlTYjlqcndtbE9vb1JOZVFI?=
+ =?utf-8?B?UEJXeERsWE44czE5L0hsblhMWmJTTWtmUDJOZzVOT2RCSThjeDFYU3h6bWFh?=
+ =?utf-8?B?S0JHSkMzM01ibGUvVHVHQ2ZFRytjczZYWUVVeEtXTjdDU1hZTjZlTWRZU3kr?=
+ =?utf-8?B?YUZNUXJuN1BxRWpBL3JqN2o3OXk4Qzd5VW41S1Nid1dLYTRTZHJwUEJ5Y3gw?=
+ =?utf-8?B?dGcrNDd1M1l3ZmU3Z3g5T1Q0eDUzZUZJRUszSThGYktwTGdNTldsK2pZNHNH?=
+ =?utf-8?B?eWJ6OHZpWW1HR3oraFNkcE9nMURZbDRIbXlIekY4WTBKMi9BcVdubmR6MnVj?=
+ =?utf-8?B?eWdaUXJBNzNpVVM2NVA2SEFnSVdqd3FRb1BKWC9WL1hURWp2QzA0cXRwK0dC?=
+ =?utf-8?B?bWFUU0hNdnZvT0EzOHhJNlA2eXRJQWtHeHJEZG54OHc1SmVFQnY2V2NrQ2xu?=
+ =?utf-8?B?NUU1VFdnNjBFdUVLTEI2WDNRU25vcUxFZENOZmpsZTRsN282WmMvejBwZTl6?=
+ =?utf-8?B?dkxOS3poRHZ0UVdqTXQzS3lYdlZhSGxKcTVSV3JnRTk3WTVla0JnaStsVVVi?=
+ =?utf-8?B?NUJZbGRNMnd1blFPWDZEQ1lDaEowYTRiZUNQT3huQVZBcktDSmNxdm94Tmh4?=
+ =?utf-8?B?V0ZjNnJ1WjhOMzR5U09pNU5RZGF3MHB5ajg5N291VEhGRnl5dFJRS0xLWGNy?=
+ =?utf-8?B?OWJSNFFJRFVjUXdZaDZmN2tUaDN0aVpxRGsxalNyUzRlVnJvM0pOeURmNEMr?=
+ =?utf-8?B?Q3VTMDFRNlVTd25WaUFTZiswaGovSDlJSFl1ZUkzQXVLeXUxZWdsOFh1MzdJ?=
+ =?utf-8?B?N1R3OXUyZ0t1Slg3Sno2K1gyTHBkZVZNT3gya0ZFSngyaWFEQTZieU5EN2Ja?=
+ =?utf-8?B?dmtEcnd2bitEQ3NSNThlUlVRQ0pOZFFIZWJEWmlDWE5BODgvYWhuK2xXZ2FR?=
+ =?utf-8?B?MytPb3R5T3g4ZitNZEdKR05vN2NicTZldGthb1RqblBHdGp1OXd5UT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 45b263f1-1fa9-4483-ac6e-08de9576a2e5
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2026 13:56:30.6529
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vnyZlEwFj8apPd+XAeK0npfm2GQ5wfoM8rLY4aWT27sNWfcE08TSrWrLJ6g6O7c4fOBTd3mFHB+ga7sTi5OYKg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12008
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260408_065638_405587_9A5D9904 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,186 +157,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 08, 2026 at 08:34:03AM +0000, Sherry Sun wrote:
-> > On Tue, Apr 07, 2026 at 06:41:46PM +0800, Sherry Sun wrote:
-> > > The current DT binding for pci-imx6 specifies the 'reset-gpios'
-> > > property in the host bridge node. However, the PERST# signal logically
-> > > belongs to individual Root Ports rather than the host bridge itself.
-> > > This becomes important when supporting PCIe KeyE connector and PCI
-> > > power control framework for pci-imx6 driver, which requires properties
-> > > to be specified in Root Port nodes.
-> > >
-> > > Add support for parsing 'reset-gpios' from Root Port child nodes using
-> > > the common helper pci_host_common_parse_ports(), and update the reset
-> > > GPIO handling to use the parsed port list from bridge->ports. To
-> > > maintain DT backwards compatibility, fallback to the legacy method of
-> > > parsing the host bridge node if the reset property is not present in
-> > > the Root Port node.
-> > >
-> > > Since now the reset GPIO is obtained with GPIOD_ASIS flag, it may be
-> > > in input mode, using gpiod_direction_output() instead of
-> > > gpiod_set_value_cansleep() to ensure the reset GPIO is properly
-> > > configured as output before setting its value.
-> > >
-> > > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> > > ---
-> > >  drivers/pci/controller/dwc/pci-imx6.c | 75
-> > > +++++++++++++++++++++------
-> > >  1 file changed, 60 insertions(+), 15 deletions(-)
-> > >
-> > > diff --git a/drivers/pci/controller/dwc/pci-imx6.c
-> > > b/drivers/pci/controller/dwc/pci-imx6.c
-> > > index d99da7e42590..dd8f9c0fcec4 100644
-> > > --- a/drivers/pci/controller/dwc/pci-imx6.c
-> > > +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> > > @@ -34,6 +34,7 @@
-> > >  #include <linux/pm_runtime.h>
-> > >
-> > >  #include "../../pci.h"
-> > > +#include "../pci-host-common.h"
-> > >  #include "pcie-designware.h"
-> > >
-> > >  #define IMX8MQ_GPR_PCIE_REF_USE_PAD		BIT(9)
-> > > @@ -152,7 +153,6 @@ struct imx_lut_data {
-> > >
-> > >  struct imx_pcie {
-> > >  	struct dw_pcie		*pci;
-> > > -	struct gpio_desc	*reset_gpiod;
-> > >  	struct clk_bulk_data	*clks;
-> > >  	int			num_clks;
-> > >  	bool			supports_clkreq;
-> > > @@ -1224,6 +1224,32 @@ static void imx_pcie_disable_device(struct
-> > pci_host_bridge *bridge,
-> > >  	imx_pcie_remove_lut(imx_pcie, pci_dev_id(pdev));  }
-> > >
-> > > +static int imx_pcie_parse_legacy_binding(struct imx_pcie *pcie) {
-> > > +	struct device *dev = pcie->pci->dev;
-> > > +	struct pci_host_bridge *bridge = pcie->pci->pp.bridge;
-> > > +	struct pci_host_port *port;
-> > > +	struct gpio_desc *reset;
-> > > +
-> > > +	reset = devm_gpiod_get_optional(dev, "reset", GPIOD_ASIS);
-> > > +	if (IS_ERR(reset))
-> > > +		return PTR_ERR(reset);
-> > > +
-> > > +	if (!reset)
-> > > +		return 0;
-> > > +
-> > > +	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
-> > > +	if (!port)
-> > > +		return -ENOMEM;
-> > > +
-> > > +	port->reset = reset;
-> > > +	INIT_LIST_HEAD(&port->list);
-> > > +	list_add_tail(&port->list, &bridge->ports);
-> > > +
-> > > +	return devm_add_action_or_reset(dev,
-> > pci_host_common_delete_ports,
-> > > +					&bridge->ports);
-> > > +}
-> > > +
-> > >  static void imx_pcie_vpcie_aux_disable(void *data)  {
-> > >  	struct regulator *vpcie_aux = data;
-> > > @@ -1233,13 +1259,22 @@ static void imx_pcie_vpcie_aux_disable(void
-> > > *data)
-> > >
-> > >  static void imx_pcie_assert_perst(struct imx_pcie *imx_pcie, bool
-> > > assert)  {
-> > > -	if (assert) {
-> > > -		gpiod_set_value_cansleep(imx_pcie->reset_gpiod, 1);
-> > > -	} else {
-> > > -		if (imx_pcie->reset_gpiod) {
-> > > -			msleep(PCIE_T_PVPERL_MS);
-> > > -			gpiod_set_value_cansleep(imx_pcie->reset_gpiod, 0);
-> > > -			msleep(PCIE_RESET_CONFIG_WAIT_MS);
-> > > +	struct dw_pcie *pci = imx_pcie->pci;
-> > > +	struct pci_host_bridge *bridge = pci->pp.bridge;
-> > > +	struct pci_host_port *port;
-> > > +
-> > > +	if (!bridge)
-> > > +		return;
-> > > +
-> > > +	list_for_each_entry(port, &bridge->ports, list) {
-> > > +		if (assert) {
-> > > +			gpiod_direction_output(port->reset, 1);
-> > > +		} else {
-> > > +			if (port->reset) {
-> > > +				msleep(PCIE_T_PVPERL_MS);
-> > > +				gpiod_direction_output(port->reset, 0);
-> > > +				msleep(PCIE_RESET_CONFIG_WAIT_MS);
-> > > +			}
-> > 
-> > Sashiko flagged this loop:
-> > 
-> > ```
-> > Does this loop multiply the initialization delays?
-> > If a controller has multiple Root Ports, the msleep calls will run sequentially
-> > for each port, linearly increasing the delay. Could we optimize this by
-> > asserting all reset GPIOs, waiting the pre-delay once, de-asserting all GPIOs,
-> > and waiting the post-delay once for the entire bus?
-> > ```
-> > 
-> > Maybe you should do:
-> > 
-> > 	if (!list_empty(&bridge->ports) && !assert)
-> > 		msleep(PCIE_T_PVPERL_MS);
-> > 
-> > 	list_for_each_entry(port, &bridge->ports, list) {
-> > 		...
-> > 		gpiod_direction_output(port->reset, 0);
-> > 		...
-> > 	}
-> > 
-> > 	if (!list_empty(&bridge->ports) && !assert)
-> > 		msleep(PCIE_RESET_CONFIG_WAIT_MS);
-> > 
-> 
-> Hi Mani, I think the code below looks clearer, is that ok for you?
-> 
->     if (assert) {
->         list_for_each_entry(port, &bridge->ports, list)
->             gpiod_direction_output(port->reset, 1);
->     } else {
->         if (list_empty(&bridge->ports))
->             return;
-> 
-
-This check should be moved out of the if() condition. Other than this, the
-change looks good.
-
->         msleep(PCIE_T_PVPERL_MS);
->         list_for_each_entry(port, &bridge->ports, list)
->             gpiod_direction_output(port->reset, 0);
->         msleep(PCIE_RESET_CONFIG_WAIT_MS);
->     }
+Hi Brian,
+On Mon, Apr 06, 2026 at 11:38:30AM -0400, Brian Masney wrote:
+>Hi Peng,
 >
-> > And then this:
-> > 
-> > ```
-> > Also, since this function is called from imx_pcie_resume_noirq, which
-> > executes with hardware interrupts disabled, does the use of msleep here
-> > trigger a 'sleeping while atomic' bug?
-> > ```
-> > 
-> > This is a valid concern. You should use mdelay(). But I'd recommend switching
-> > to IRQ enabled callback, resume() instead. There is no complelling reason to
-> > use resume_noirq() in this driver and adding delays in noirq() callbacks is not
-> > recommended as it may increase the overall system resume time.
-> > 
-> > I will submit a separate series to convert dw_pcie_resume_noirq() and its
-> > callers to IRQ enabled callbacks since this dw_pcie_resume_noirq() could
-> > potentially cause delay up to 1sec.
-> 
-> Yes, this is not a new bug introduced by this patch. I agree we should covert the
-> convert dw_pcie_resume_noirq() and the caller to IRQ enabled callbacks to fix
-> this in a separate patch series.
-> For now, should I leave it as is, or switch to mdelay in this patch?
-> 
+>On Fri, Mar 06, 2026 at 02:20:11PM +0800, Peng Fan (OSS) wrote:
+>> The ARM SCMI specification (DEN0056E) defines rounding‑mode flags for the
+>> CLOCK_RATE_SET command, allowing a client to request that the firmware
+>> round a requested clock rate down, up, or autonomously choose the
+>> closest achievable rate.
+>> This series introduces DT support in the SCMI clock provider to carry a
+>> per‑clock rounding policy from the device tree into the SCMI protocol.
+>> 
+>> Patch 1 adds dt‑bindings constants for rounding modes:
+>> ROUND_DOWN, ROUND_UP, ROUND_AUTO.
+>> 
+>> Patch 2 extends the SCMI clock provider to optionally support
+>> "#clock-cells = <2>", where the second cell encodes the rounding mode.
+>> The first consumer that references a given clock latches the per‑clock
+>> policy. Subsequent consumers of the same clock must specify the same
+>> mode; otherwise, the request is rejected to avoid non‑deterministic
+>> behavior. The selected mode is passed through to the SCMI Clock protocol
+>> and mapped to the corresponding CLOCK_SET_* flag.
+>> 
+>> Patch 2 includes changes to drivers/clk/clk-scmi.c and drivers/firmware
+>> arm_scmi/clock.c, it is hard to separate the changes without breaking,
+>> so I put the changes in one patch.
+>> 
+>> This design adopts a per‑clock policy model, not per‑consumer. The rounding
+>> mode is applied by the provider per clock (index).
+>> All consumers of the same clock must agree on the rounding mode.
+>> Conflicting per‑consumer requests for the same clock are invalid and
+>> are rejected during phandle translation.
+>> 
+>> This avoids silent clobbering and preserves deterministic behavior.
+>> 
+>> Existing device trees using #clock-cells = <1> continue to work and
+>> default to ROUND_DOWN, exactly as before.
+>> 
+>> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+>
+>My high level feedback about this:
+>
+>1) Since you are making changes to the DT schema for the clock-cells,
+>   does the SCMI DT schema document also need to be updated to allow
+>   clock-cells to be 1 or 2?
 
-Just use mdelay() in your patch for now.
+You are right.
 
-- Mani
+>
+>2) For the ROUND_XXX constants, I would prefix them with something
+>   since the existing ROUND names are fairly generic sounding. Maybe
+>   CLK_SCMI_?
 
--- 
-மணிவண்ணன் சதாசிவம்
+sounds good.
+
+I will wait a few more days to see if there are other comments, then
+will post out next version.
+
+Thanks,
+Peng
+
+>
+>Brian
+>
 
