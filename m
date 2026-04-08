@@ -4,79 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 800601073C84
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 09:43:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF6451073C82
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 09:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dtVN72wGnZ6TO0cAYb5J7S2eJNnpZu9n4ngwxR3LA7o=; b=nooYDhv2yzxzObtUNE+cmK1Z6d
-	4pt0+FYTxOs358KaUdxsdS+RYGJ5fXHJSv9vw2f2Rx7ZvYcw8PmT6q3Y1N9vZl8PjoFbWTRv1WHlk
-	Q/Yywbw+BFsYji+VwQjxzf8xsMvmRix2oANCtUB2p7b0rAQKGg9HJ5029Q60oTBIJZvg9J1SduKlD
-	Px1MOdwGSe4CkBEJIzkSG6Beeuv5lrTrxeZHCMweKJZ7JREwnzulKfYfK/I8wUcpBJOVq47dtmJ+U
-	PF9dPvA79A5oZ+UlJ4JRHa/r4QqBx+QgELUyjNYiaa4jcRoe/7bJYp+0j7FAyFpBlNiJlezKhsSpI
-	yue2sQDQ==;
+	bh=KpBkvXoWMaREiHwfE8NrZ0xdjSUtM8ms57ph18B9uZ8=; b=PGx65gC1RScLYVVweFOfRsmLcM
+	TL29+3MV3eA7Kh1tD6J3BdAEtRU2m/aa7A8bpPfRbddRRkhgPCUTqkoLbw32Xt1H++HrEVPrf2tEX
+	K48/eENepe42Zgaian7FV9MJEkwwW7hYHG4jpxXHL03g7J7zbEVpAK8UUu0npQMC7rPFTVSums00x
+	wlG/QRjYInlZW1Yo7jXbQx+wH+sbWP5Mz7FpOOuaSz8RDkSF1wltiL7E4Nd9qSQcpPz1ySqQB104s
+	kaLS5Bfmddeio2a7w9zRqd3aAsafY8l2gx9euL/eTdqpTYHtbOMlw/EKhdlQ4zG4ionOjmstMW5Xm
+	PamBS5Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAPRT-00000008dDo-3Eg4;
-	Wed, 08 Apr 2026 09:43:23 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAPRS-00000008dDU-0tC4
+	id 1wAPRg-00000008dGZ-0NBp;
+	Wed, 08 Apr 2026 09:43:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAPRd-00000008dFQ-2GBL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 09:43:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=dtVN72wGnZ6TO0cAYb5J7S2eJNnpZu9n4ngwxR3LA7o=; b=pMmFVqfW9d0y0Vunkjgw90tppX
-	e6SHEF9NLrmIAYbhuF6NYMuzwDOppOsK4e22goBrdIiKzvwduIXBRma6wH5ml1NdEv6wFPF46mgjY
-	ZjleLyH++ly3sn9TqN8TkvoxEpyRVEG/JnAG40jPB6MfzSIA1BCj91LVWhBomWJMcd4iaFjqmE6cF
-	6tn+0yEbovFt6d5tYDwYkcYq2HfcBD6VTd78TXwFg0EDFcrcCsX1oCgXHy24shjczrNA34YJABqLq
-	bWPkQB0TU6h7mui5mHBwDdhMZcH/sVs+TMusmJGUn/E/oJ+/eW9OAIhWiXviE4E+XFLAb9rge0YTg
-	vYTvPrrg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:33734 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1wAPC7-00000000244-1u7L;
-	Wed, 08 Apr 2026 10:27:31 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1wAPBw-0000000F7kf-0VA5;
-	Wed, 08 Apr 2026 10:27:20 +0100
-In-Reply-To: <adYfPBHsXxQUsMyr@shell.armlinux.org.uk>
-References: <adYfPBHsXxQUsMyr@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Samuel Holland <samuel@sholland.org>
-Subject: [PATCH RFC net-next 08/10] net: stmmac: simplify
- stmmac_get_ethtool_stats()
+	Wed, 08 Apr 2026 09:43:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3069C32E3;
+	Wed,  8 Apr 2026 02:43:26 -0700 (PDT)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6E0493F641;
+	Wed,  8 Apr 2026 02:43:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775641411; bh=EfovEt/+pDg6M+HIkNdZubv3GBaXYR/cbM7RTckIW4M=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=mmwTb/48ICnuGc7pZS/OynOOnQUOqp/8UJ9SIy2MX5hBIfz8s9dsLXLX0dIOYrZm2
+	 PMjgeOUjOO5CSk84JafJat2w4h+ovMS++rErvJGJZmYl1GyGe1L+AQfQgcdf1L1iJr
+	 pd1NFBSlFEanPPZpNeRevdztzodwPfhNoYzdtjUo=
+From: Leo Yan <leo.yan@arm.com>
+Date: Wed, 08 Apr 2026 10:42:31 +0100
+Subject: [PATCH v5 1/4] perf sort: Support sort ASE and SME
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1wAPBw-0000000F7kf-0VA5@rmk-PC.armlinux.org.uk>
-Date: Wed, 08 Apr 2026 10:27:20 +0100
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260408-perf_support_arm_spev1-3-v5-1-b5bcea6217bb@arm.com>
+References: <20260408-perf_support_arm_spev1-3-v5-0-b5bcea6217bb@arm.com>
+In-Reply-To: <20260408-perf_support_arm_spev1-3-v5-0-b5bcea6217bb@arm.com>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+ James Clark <james.clark@linaro.org>, Mark Rutland <mark.rutland@arm.com>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, 
+ linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775641408; l=1838;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=EfovEt/+pDg6M+HIkNdZubv3GBaXYR/cbM7RTckIW4M=;
+ b=kuW4WZuKarGhOd9GVLJh03EeD8j5qQzfWEOqCe9Zxd4iOZXTHH+MTUcAEoIY1u9HsgjV46PNy
+ u3x23EhzPW1AIVFcUI+yvaVZPaDodrGtLcK+DepENjSrSIeTEVdTfTg
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_024322_268817_58EA6A92 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20260408_024333_617562_AFCB8853 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,107 +80,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As documented, stmmac_dma_diagnostic_fr() will return non-zero for
-all non-DWMAC_CORE_MAC100 core types.
+Support sort Advance SIMD extension (ASE) and SME.
 
-However, as DWMAC_CORE_MAC100 core types do not have DMA capabilities,
-priv->dma_cap.rmon and priv->dma_cap.eee will be zero, and thus there
-is no need to make this also conditional on the
-stmmac_dma_diagnostic_fr() return value.
-
-Remove this test and unindent the code, and remove unnecessary parens.
-
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Reviewed-by: James Clark <james.clark@linaro.org>
+Reviewed-by: Ian Rogers <irogers@google.com>
+Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- .../ethernet/stmicro/stmmac/stmmac_ethtool.c  | 60 +++++++++----------
- 1 file changed, 28 insertions(+), 32 deletions(-)
+ tools/perf/util/sample.h | 12 +++++++++---
+ tools/perf/util/sort.c   |  6 +++++-
+ 2 files changed, 14 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-index 0caa5b992519..77cb67f4c63c 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-@@ -519,9 +519,9 @@ static void stmmac_get_ethtool_stats(struct net_device *dev,
- 	u32 rx_queues_count = priv->plat->rx_queues_to_use;
- 	u32 tx_queues_count = priv->plat->tx_queues_to_use;
- 	u64 napi_poll = 0, normal_irq_n = 0;
--	int i, j = 0, pos, ret;
- 	unsigned long count;
- 	unsigned int start;
-+	int i, j = 0, pos;
+diff --git a/tools/perf/util/sample.h b/tools/perf/util/sample.h
+index 3d27a0daef8fb2d72ffa8510923857e73130dd40..0e5ee7e0fb94f2d36c35df15de7c4ea00547a6c2 100644
+--- a/tools/perf/util/sample.h
++++ b/tools/perf/util/sample.h
+@@ -71,12 +71,18 @@ struct aux_sample {
+ };
  
- 	if (priv->dma_cap.asp) {
- 		for (i = 0; i < STMMAC_SAFETY_FEAT_SIZE; i++) {
-@@ -531,42 +531,38 @@ static void stmmac_get_ethtool_stats(struct net_device *dev,
- 		}
- 	}
+ struct simd_flags {
+-	u8	arch:1,	/* architecture (isa) */
+-		pred:2;	/* predication */
++	u8	arch:  2,	/* architecture (isa) */
++		pred:  2,	/* predication */
++		resv:  4;	/* reserved */
+ };
  
--	/* Update the DMA HW counters for dwmac10/100 (DWMAC_CORE_MAC100),
--	 * where this will return zero. Other core types will have a non-zero
--	 * return value.
--	 */
--	ret = stmmac_dma_diagnostic_fr(priv, &priv->xstats, priv->ioaddr);
--	if (ret) {
--		/* If supported, for new GMAC chips expose the MMC counters */
--		if (priv->dma_cap.rmon) {
--			stmmac_mmc_read(priv, priv->mmcaddr, &priv->mmc);
-+	/* Update the DMA HW counters for dwmac10/100 (DWMAC_CORE_MAC100). */
-+	stmmac_dma_diagnostic_fr(priv, &priv->xstats, priv->ioaddr);
+ /* simd architecture flags */
+-#define SIMD_OP_FLAGS_ARCH_SVE		0x01	/* ARM SVE */
++enum simd_op_flags {
++	SIMD_OP_FLAGS_ARCH_NONE = 0x0,	/* No SIMD operation */
++	SIMD_OP_FLAGS_ARCH_SVE,		/* Arm SVE */
++	SIMD_OP_FLAGS_ARCH_SME,		/* Arm SME */
++	SIMD_OP_FLAGS_ARCH_ASE,		/* Arm Advanced SIMD */
++};
  
--			for (i = 0; i < STMMAC_MMC_STATS_LEN; i++) {
--				char *p;
--				p = (char *)priv + stmmac_mmc[i].stat_offset;
-+	/* If supported, for new GMAC chips expose the MMC counters */
-+	if (priv->dma_cap.rmon) {
-+		stmmac_mmc_read(priv, priv->mmcaddr, &priv->mmc);
+ /* simd predicate flags */
+ #define SIMD_OP_FLAGS_PRED_PARTIAL	0x01	/* partial predicate */
+diff --git a/tools/perf/util/sort.c b/tools/perf/util/sort.c
+index 5c9656cc4f9dacdb66351543c103ddd3cee6860a..69ecc5be0488c749a11fe9912375d8e5408175bf 100644
+--- a/tools/perf/util/sort.c
++++ b/tools/perf/util/sort.c
+@@ -195,8 +195,12 @@ static const char *hist_entry__get_simd_name(struct simd_flags *simd_flags)
+ {
+ 	u64 arch = simd_flags->arch;
  
--				data[j++] = (stmmac_mmc[i].sizeof_stat ==
--					     sizeof(u64)) ? (*(u64 *)p) :
--					     (*(u32 *)p);
--			}
--		}
--		if (priv->dma_cap.eee) {
--			int val = phylink_get_eee_err(priv->phylink);
--			if (val)
--				priv->xstats.phy_eee_wakeup_error_n = val;
-+		for (i = 0; i < STMMAC_MMC_STATS_LEN; i++) {
-+			char *p = (char *)priv + stmmac_mmc[i].stat_offset;
-+
-+			data[j++] = stmmac_mmc[i].sizeof_stat == sizeof(u64) ?
-+				    *(u64 *)p : *(u32 *)p;
- 		}
-+	}
- 
--		/* Only dwmac1000 and dwmac4 implements the MAC .debug() method.
--		 * As there are different version spaces depending on core_type,
--		 * make this conditional on the appropriate core type.
--		 */
--		if ((priv->plat->core_type == DWMAC_CORE_GMAC ||
--		     priv->plat->core_type == DWMAC_CORE_GMAC4) &&
--		    priv->snpsver >= DWMAC_CORE_3_50)
--			stmmac_mac_debug(priv, priv->ioaddr,
--					(void *)&priv->xstats,
--					rx_queues_count, tx_queues_count);
-+	if (priv->dma_cap.eee) {
-+		int val = phylink_get_eee_err(priv->phylink);
-+		if (val)
-+			priv->xstats.phy_eee_wakeup_error_n = val;
- 	}
-+
-+	/* Only dwmac1000 and dwmac4 implements the MAC .debug() method.
-+	 * As there are different version spaces depending on core_type,
-+	 * make this conditional on the appropriate core type.
-+	 */
-+	if ((priv->plat->core_type == DWMAC_CORE_GMAC ||
-+	     priv->plat->core_type == DWMAC_CORE_GMAC4) &&
-+	    priv->snpsver >= DWMAC_CORE_3_50)
-+		stmmac_mac_debug(priv, priv->ioaddr,
-+				(void *)&priv->xstats,
-+				rx_queues_count, tx_queues_count);
-+
- 	for (i = 0; i < STMMAC_STATS_LEN; i++) {
- 		char *p = (char *)priv + stmmac_gstrings_stats[i].stat_offset;
- 		data[j++] = (stmmac_gstrings_stats[i].sizeof_stat ==
+-	if (arch & SIMD_OP_FLAGS_ARCH_SVE)
++	if (arch == SIMD_OP_FLAGS_ARCH_SVE)
+ 		return "SVE";
++	else if (arch == SIMD_OP_FLAGS_ARCH_SME)
++		return "SME";
++	else if (arch == SIMD_OP_FLAGS_ARCH_ASE)
++		return "ASE";
+ 	else
+ 		return "n/a";
+ }
+
 -- 
-2.47.3
+2.34.1
 
 
