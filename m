@@ -4,105 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AADDE10F9953
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 15:46:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2842F10F9958
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 15:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R5zH5Yy++LFl5X1883WPkm0h00qGtgJqcjU1g/XLy30=; b=jqRMhCWRKpnOr5PVoJOoNNcATE
-	69nJNUczX40s1uv/FkS4TOGXlLbqHSH797iL5z6UFm+0De2S88BF6sXbaF4L3ITCBXW/HAqlAbGQH
-	4RCcn7+aa7x9eSp0im3xiS7nxGEmjoEhj0ozFMC1wphp0WqktPLp1QDNmy+oHACe18Z7UKaaBZ+bp
-	XjVgIlT7xMZn6q5yMM5SlRrbGCRm1P0UfSJTjVIGsM2uTvKuiVCWwNVPy5ofkdOvYipRJH4DD5Bj2
-	GhuNMfWCm20LtMX9FGzL3YbAB8X7lFZq2BL/JLwBKlgje3GhflQs8MxOy/iwdOOQoYbyABuqcEWzm
-	7KwSuPYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mmw0SeoAT69D1xAGW36hY/lVHVuc79nAxgXwI2QcULk=; b=dFDOKMXihx64k//ZTcrn2V7zCf
+	Dw0zOsPC6sKaSzm6KOb+5y0ueCF6zs/htrqrqH2GOlFHI3gtDOl2h3lygtbXaiqo6+ZAI1Mv1lce5
+	F/seuFcIYt0CvuUPssAmHXOETRJXWqufuD+UuT184L4BW3bsiaMLEecIQHFyxWDm6n2dZv0ZwBelq
+	/lXl8kFyoKuxedjBRA2wSfmGhu6jKu0y97xnFLc4NqUExNE8Vfv8JV3B5fRHT/NMnz7LGFE6YZ1Z5
+	4p5faPNMNkKwGnaO0ver9RlxJQV62bgDfzAe+Kul5H4RrMzWmzUHjSJ/Xkp26gYIDthp5X4KGnzQi
+	1iTyHU3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAV72-000000094nb-0tkD;
-	Wed, 08 Apr 2026 15:46:40 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1wAV9d-0000000952O-2vzK;
+	Wed, 08 Apr 2026 15:49:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAV6z-000000094n9-2byV
+	id 1wAV9b-00000009521-22ew
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 15:46:38 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-82c68339cf0so597707b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 08:46:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1775663196; x=1776267996; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=R5zH5Yy++LFl5X1883WPkm0h00qGtgJqcjU1g/XLy30=;
-        b=mAqej2/Su0grJQeUsYTzNcsSIZ8LKTe0aArJJx7mzDhOsO9994EsFu2VR92dXrFPSv
-         UKVDD0xQc3jme7E1Eza5vZLxNt56FBBTZXO6NZW7UNYozrrR3f5/QHt4/LDZnzNmaUdy
-         lVDUyiCg5v+4qTIcnvBoln4pJVTJuTAIiwAmEO5CWKGhfbnGE+uhwkAy4UjCV22609tF
-         xobkubZikRDwh61A8IrEjLyiJv+mk+SiyK9mopfEVCawWLdL6o/HXIqiA21X2elpNDrV
-         3pmljgVIePe/YjOMgTSh7sYz5SwzSJb478oEAoWZPum/o6EX2lG+WW71PpBeiihxQBC0
-         RLEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775663196; x=1776267996;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=R5zH5Yy++LFl5X1883WPkm0h00qGtgJqcjU1g/XLy30=;
-        b=m6DsDBeU20GKey02y0H197A2jzsYk3aiDERAxDvOH3ZtGo/iY0BZ++n5CfP/FsqlYe
-         uLry5+gj14hc2WCLOmoMbEPLfHKOM0PUM+t6Vroc9B1zMLCaOX3Y6rp+K9ymVU850lYC
-         ouqqQrypn/4FUyRYnCIlVZBXM43sq6NXWL0xRwWjkHXR4J9mA0tBRwMDosY6y8CkAgnD
-         XzsxGavwNTQZY+x81FhpiFJjORVtl17PPmTpAeyQiWGO+18Np+J+LxBNHxpRG2FES1J1
-         J4PZgvA8F6ZpuRZKwtXJivLQdpX/2VYkd0hlnE4o5QPskBMWOxwUGC75kyCak8ODZUJw
-         ncGw==
-X-Forwarded-Encrypted: i=1; AJvYcCWk/mKy602362413bSjug8K7H9n/RXwWL9oTJh4PUFqngYzJTl0av77YOtleXZuRxhDDRT6wsmcwVJDQ8+5Z5DP@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwfDG9TqyOvipYvgpVrDj0T5YBr8mkEo4axOhenZfPpzvv1cEt
-	s2surK+eUfhmamYOfYxMtg2xgvsuimCw61sCvEGgHvARjwo6s6EdPnAaBNSs5OvWUvw=
-X-Gm-Gg: AeBDietr5teKgcZ3CkVku+lT8zLaFBPbnhcFfGu0R6oDt82IcbIeMBjZt5d4+HYdS/N
-	HgMqnJT9TjUDlYXgRo+DBgEwvGakZ5tF8Rg1ItttyTxgTi4SrJ0FwgELcZ3UmJ/Ipt4rytV8Yoh
-	9x4jNwqlPk/WShKsCM7ovM+4t4PqMA3MtC4W/qnyq4GJ27YV3QY5ZS0wL2GNtixrRKSYcpm2ixU
-	osMkdugvOu0346J00c6xAfUSzbqEbC3xnYtbLBKpuaDQAP1Tal5Jat9Bmg5ypfYvX9qOt9at49S
-	7TtEP5dvLu8C98t3EEF7062p4QR3qHbmBDtQezoTHvOlvjNAUtjnHf3aTFOQcvd3E2dbbqmAad6
-	9kYFaP9xegmL6667iVOvP0QoJxe0wMyZfDjL7ubQ127R/RrO0N2FOYYMcwa0LIzAknjXRUjaJr9
-	C52Pjrvpgfr83j6ZmozPkp20UJVw==
-X-Received: by 2002:a05:6a00:188e:b0:82a:170d:fe1d with SMTP id d2e1a72fcca58-82d001e92efmr22313731b3a.1.1775663196006;
-        Wed, 08 Apr 2026 08:46:36 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:bec3:28f:3ce4:6925])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82cf9c41bc6sm21534378b3a.29.2026.04.08.08.46.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Apr 2026 08:46:35 -0700 (PDT)
-Date: Wed, 8 Apr 2026 09:46:32 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 2/3] remoteproc: imx_rproc: Pass bootaddr to SM
- CPU/LMM reset vector
-Message-ID: <adZ4WIaC6WN97JhR@p14s>
-References: <20260327-imx943-rproc-v2-0-a547a3588730@nxp.com>
- <20260327-imx943-rproc-v2-2-a547a3588730@nxp.com>
- <acqjS440STRl2sK2@p14s>
- <acs2PAZq2k3zjmDW@shlinux89>
- <adUghiyZbe3fmcNX@p14s>
- <PAXPR04MB8459AA009C932EB9D6139A11885BA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+	Wed, 08 Apr 2026 15:49:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AE07D43510;
+	Wed,  8 Apr 2026 15:49:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AFC0C19425;
+	Wed,  8 Apr 2026 15:49:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775663358;
+	bh=r/R0opesZ0OWIZ40nIHX1yp9W851g1DNMvMXMB87n2E=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+	b=UUkP437XB+xLQwp9KZxWQV8gddCXunJWdKyd4nT+nycaB5y9yhzDzmUxOfzu+6OZB
+	 Rcbeh9LbJbBb5SsNMwXQlI/KgmEJZL0kEftSvdpHCy4vATkJywVFyQEPh/Lc9PLbzo
+	 1P9ldSlXucuhO9hUIW6cZlS/2fVXhwjGTiWCwOvXM803vUj1LF+5JC6sTRO5eGpGRK
+	 ukOz5x/MSI0vRejNO9Lftbj9/HCb3nDHiTeLDJsdJRo2+nhJZKGbVxIUV7VIzHF/k3
+	 bJ0Zw/b0Nn2TQcYxZlo+Xk9pbMwc5B6J981SOjVJrrmTttlbkAU1d6N6ds2h4BTXWK
+	 Rb4lKC9MymFBg==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 19FC5F40082;
+	Wed,  8 Apr 2026 11:49:17 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Wed, 08 Apr 2026 11:49:17 -0400
+X-ME-Sender: <xms:_HjWaRvIDHtwcI1aUCL0gkswEfZjmgChUOhfIC9zlWF2TCEsxuDVXQ>
+    <xme:_HjWaVRJrJ5Bzc4bOVQU0_q4ltB069PJx3Ibtc3vSOjil0NQ5jQvf_DvZaY31kU2C
+    LEa-rZYzwg1DjjOy_jfyyfUOCmNO6pLGO8e0YRnCKFUsGqJQ74oyl0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddvfeeljecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhguuceu
+    ihgvshhhvghuvhgvlhdfuceorghruggssehkvghrnhgvlhdrohhrgheqnecuggftrfgrth
+    htvghrnhepvdeuheeitdevtdelkeduudetgffftdelteefteevjeevjeeiheefhfejieej
+    fedunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    hrugdomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqudeijedthedttdejledq
+    feefvdduieegudehqdgrrhgusgeppehkvghrnhgvlhdrohhrghesfihorhhkohhfrghrug
+    drtghomhdpnhgspghrtghpthhtohepuddvpdhmohguvgepshhmthhpohhuthdprhgtphht
+    thhopegrnhhshhhumhgrnhdrkhhhrghnughurghlsegrrhhmrdgtohhmpdhrtghpthhtoh
+    eptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehmrghr
+    khdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopehrhigrnhdrrhhosggvrh
+    htshesrghrmhdrtghomhdprhgtphhtthhopegrrhgusgdoghhithesghhoohhglhgvrdgt
+    ohhmpdhrtghpthhtoheplhhiiihprhhutghkrgesghhoohhglhgvrdgtohhmpdhrtghpth
+    htohepshgvthhhjhgvnhhkihhnshesghhoohhglhgvrdgtohhmpdhrtghpthhtohepkhgv
+    vghssehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorh
+    hg
+X-ME-Proxy: <xmx:_XjWaRrJykn2JmtyYSiwQr_eAK4dKEZCGoUZRnOqIFI7_hVu-yB_iA>
+    <xmx:_XjWaaB6Z958gwilTDoPa8Lcg8hhxBW7Q_OJOn_bLiYfG1PCxDGK4w>
+    <xmx:_XjWaacXq_IVZOXySlQzPZjXybeV1Enaxayqr7JqIwO8OsU68TigxQ>
+    <xmx:_XjWaau7eg8vAIhYRrdIPCq48doPrsJBE7-TwQfNnbnLgszDjyg_DA>
+    <xmx:_XjWaZiUa8C1v_f7wnD0C6E7RcVz5hEeHcMjXa5sFp-mJOWamvraZg0u>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id E56A7700069; Wed,  8 Apr 2026 11:49:16 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <PAXPR04MB8459AA009C932EB9D6139A11885BA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+X-ThreadId: AHdOulA2uaL-
+Date: Wed, 08 Apr 2026 17:48:56 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Ard Biesheuvel" <ardb+git@google.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ "Will Deacon" <will@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
+ "Ryan Roberts" <ryan.roberts@arm.com>,
+ "Anshuman Khandual" <anshuman.khandual@arm.com>,
+ "Liz Prucka" <lizprucka@google.com>, "Seth Jenkins" <sethjenkins@google.com>,
+ "Kees Cook" <kees@kernel.org>, linux-hardening@vger.kernel.org
+Message-Id: <61c62386-214a-4b71-b3ae-2d76ed0e9a53@app.fastmail.com>
+In-Reply-To: <adZ4LpvJJz-3K20O@arm.com>
+References: <20260320145934.2349881-15-ardb+git@google.com>
+ <20260320145934.2349881-22-ardb+git@google.com> <adZ4LpvJJz-3K20O@arm.com>
+Subject: Re: [PATCH v3 07/13] arm64: mm: Use hierarchical XN mapping for the fixmap
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_084637_676490_43CAA57F 
-X-CRM114-Status: GOOD (  27.29  )
+X-CRM114-CacheID: sfid-20260408_084919_577252_8B4AFAB0 
+X-CRM114-Status: GOOD (  22.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,79 +113,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 08, 2026 at 01:30:16AM +0000, Peng Fan wrote:
-> > Subject: Re: [PATCH v2 2/3] remoteproc: imx_rproc: Pass bootaddr to
-> > SM CPU/LMM reset vector
-> > 
-> [...]
-> > 
-> > >
-> > > Aligning the ELF entry point with the hardware reset base on
-> > Cortex‑M
-> > > systems is possible, but it comes with several risks.
-> > 
-> > I'm not asking to align the ELF entry point with the hardware reset base.
-> > All I want is to have the correct start address embedded in the ELF file
-> > to avoid having to use a mask.
-> 
-> I see, per my understanding:
-> FreeRTOS typically exposes __isr_vector, which corresponds to the hardware
-> reset / vector table base.
-> Zephyr (Cortex‑M) exposes _vector_table, which serves the same purpose.
-> I am not certain about other RTOSes, but the pattern seems consistent:
-> the vector table base is already available as a named ELF symbol.
-> 
-> Given that, if the preferred approach is to parse the ELF and explicitly
-> retrieve the hardware reset base, I can update the implementation accordingly.
-> If you prefer to parse the elf file to get the hardware reset base,
-> I could update to use them.
-> 
-> Options1: Something as below:
-> 1. Include rproc_elf_find_symbol in remoteproc_elf_loader.c
-> 2. Use below in imx_rproc.c
-> ret = rproc_elf_find_symbol(rproc, fw, "__isr_vector", &vector_base);
-> if (ret)
->     ret = rproc_elf_find_symbol(rproc, fw, "__vector_table", &vector_base);
-> 
-> if (!ret)
->     rproc->bootaddr = vector_base
-> else
->    dev_info(dev, "no __isr_vector or __vector_table\n")
 
-No
 
-> 
-> This makes the hardware reset base explicit, avoids masking e_entry.
-> 
-> Option 2: User‑provided reset symbol via sysfs 
-> As an alternative, we could expose a sysfs attribute,
-> e.g. reset_symbol, allowing users to specify the symbol name
-> to be used as the reset base:
-> 
-> echo __isr_vector > /sys/class/remoteproc/remoteprocX/reset_symbol
-> 
+On Wed, 8 Apr 2026, at 17:45, Catalin Marinas wrote:
+> On Fri, Mar 20, 2026 at 03:59:42PM +0100, Ard Biesheuvel wrote:
+>> From: Ard Biesheuvel <ardb@kernel.org>
+>> 
+>> Nothing in the fixmap or in its vicinity requires executable
+>> permissions, and given that it is placed at exactly 1 GiB from the end
+>> of the virtual address space, we can safely set the hierarchical XN
+>> attributes on the level 2 table entries covering the fixmap, without
+>> running the risk of inadvertently taking away the executable permissions
+>> on an adjacent mappings.
+>> 
+>> This is a hardening measure that reduces the risk of the fixmap being
+>> abused to create executable mappings in the kernel address space.
+>> 
+>> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+>> ---
+>>  arch/arm64/mm/fixmap.c | 3 ++-
+>>  1 file changed, 2 insertions(+), 1 deletion(-)
+>> 
+>> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+>> index c5c5425791da..c3dd3c868cf5 100644
+>> --- a/arch/arm64/mm/fixmap.c
+>> +++ b/arch/arm64/mm/fixmap.c
+>> @@ -48,7 +48,8 @@ static void __init early_fixmap_init_pte(pmd_t *pmdp, unsigned long addr)
+>>  	if (pmd_none(pmd)) {
+>>  		ptep = bm_pte[BM_PTE_TABLE_IDX(addr)];
+>>  		__pmd_populate(pmdp, __pa_symbol(ptep),
+>> -			       PMD_TYPE_TABLE | PMD_TABLE_AF);
+>> +			       PMD_TYPE_TABLE | PMD_TABLE_AF |
+>> +			       PMD_TABLE_PXN | PMD_TABLE_UXN);
+>>  	}
+>>  }
+>
+> Sashiko reckons this breaks kpti. I think that's valid but I couldn't
+> reproduce it on qemu (maybe it doesn't implement hierarchical
+> permissions).
 
-Definitely not.
+Yeah, I think that observation is accurate, and it doesn't really affect the rest so I was just going to drop it.
 
-The definition of e_entry in the specification is clear, i.e "the address of the
-entry point from where the process starts executing".  If masking is required
-because the tool that puts the image together gets the wrong address, then it
-should be fixed.
+> Then I tried FVP and the whole series panics (unrelated to
+> kpti). With kvm-arm.mode=protected, I think kvm_ksym_ref() is lm_alias()
+> and we have kvm_hyp_init_symbols() trying to flush the bss.
+>
 
-> The remoteproc core would then resolve that symbol from
-> the ELF and set rproc->bootaddr accordingly.
-> This provides maximum flexibility but does introduce a new user‑visible ABI,
-> so I see it more as an opt‑in or fallback mechanism.
-> 
-> Please let me know which approach you prefer, and I will update
-> this series accordingly in v3..
-> 
-> Thanks,
-> Peng.
-> 
-> 
-> > 
-> > > 1, Semantic mismatch (ELF vs. hardware behavior) 2, Debuggers may
-> > > attempt to set breakpoints or start execution at the entry symbol
-> > >
+Interesting - I'll look into this for the next respin.
+
+
+
+> Unable to handle kernel paging request at virtual address 
+> fff00000748f7000
+> Mem abort info:
+>   ESR = 0x0000000096000147
+> ** replaying previous printk message **
+>   EC = 0x25: DABT (current EL), IL = 32 bits
+>   SET = 0, FnV = 0
+>   EA = 0, S1PTW = 0
+>   FSC = 0x07: level 3 translation fault
+> Data abort info:
+>   ISV = 0, ISS = 0x00000147, ISS2 = 0x00000000
+>   CM = 1, WnR = 1, TnD = 0, TagAccess = 0
+>   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> swapper pgtable: 4k pages, 52-bit VAs, pgdp=00000000f40ad000
+> [fff00000748f7000] pgd=18000008fffff403, p4d=18000008ffffe403, 
+> pud=18000008ffffd403, pmd=18000008fffe9403, pte=00e80000f48f7406
+> Internal error: Oops: 0000000096000147 [#1]  SMP
+> Modules linked in:
+> CPU: 1 UID: 0 PID: 1 Comm: swapper/0 Not tainted 
+> 7.0.0-rc3-00013-g6bb20b972b8c #2 PREEMPT
+> Hardware name: FVP Base RevC (DT)
+> pstate: 81400005 (Nzcv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+> pc : dcache_clean_inval_poc+0x24/0x48
+> lr : kvm_arm_init+0xb48/0x1338
+> sp : ffff80008005bd20
+> x29: ffff80008005bd60 x28: ffff95c63230b000 x27: 0000000000000004
+> x26: 0000000000000001 x25: ffff95c631a160c0 x24: 0000000000000008
+> x23: 0000000000000000 x22: 0000000000000000 x21: fff00000748f7000
+> x20: 0000000000002000 x19: 0001101131111112 x18: 00000000ffffffff
+> x17: ffff95c6321fdd88 x16: 0000000031427afd x15: 0000000000000100
+> x14: 0000000000000000 x13: 0000000000077a9a x12: fff000087f805650
+> x11: fff000087f805630 x10: ffffc1ffe005db08 x9 : 0000000000000000
+> x8 : 0000000080000000 x7 : ffff80008005bc50 x6 : 000f63580145a000
+> x5 : ffff95c6322f8000 x4 : 0000000000000000 x3 : 000000000000003f
+> x2 : 0000000000000040 x1 : fff00000748f9000 x0 : fff00000748f7000
+> Call trace:
+>  dcache_clean_inval_poc+0x24/0x48 (P)
+>  do_one_initcall+0x60/0x1d4
+>  kernel_init_freeable+0x24c/0x2d4
+>  kernel_init+0x24/0x140
+>  ret_from_fork+0x10/0x20
+> Code: 9ac32042 d1000443 8a230000 d503201f (d50b7e20)
+> ---[ end trace 0000000000000000 ]---
+>
+> -- 
+> Catalin
 
