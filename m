@@ -4,131 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85BE41073CB4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 13:08:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAF8A1073CB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 13:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HntEs+8pzBI+y7qt7t4W2UrvZTm4MrVZ9wGejJw7xFA=; b=hBqCjoioiJTpVtyMTqZq1P2jXS
-	gu4C43htcTafgp0DEHIL2SoMoTOBx3SFTdH5q4DpfFTcsIKsqhE57uRYzNMh6IBFCPFvY7oyX3JqM
-	9AtH515KBJj9siWM/r2ovm+yPWIBnbhkDshQcfNILosCREWzOL1yPzVcpUnKLldpqVrfyP2JkalJ0
-	rb7YTQKVbwBEvbPqHj8MHAwmHtd2mf2UxjneIKZd9+u9YMyP2sYAG+6kmAw7NLqLwMM0VBLJYn3qx
-	R/lywJm91oOFzr8yDCAuvzI9sYvUNedMn09BqdRwIFSUah3yDcQpeQDgncb8Zhajjr1787ypIMNUl
-	hewaEwFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=seV0jNRW43BQy38HSt7co1dbaDYjW5QgU3tBgjyLzOw=; b=RX2lKQC+7KVi5c1mZOqRNs+XNG
+	D0SqltkH5COKa2ZmGlGC+lXJfFpkMEJ8SG29jMrQQRN4mr/1L8SEEhFAK+202CyJC6sJZZcEgsvCX
+	U4o7aUfgJ22pSD05UY19ygAvhVpQ5xL50mT/su3rYSx/eLDFFF5dfLBD5hp0cqIg5VNFG9EYE2B+q
+	uIboHD1ub/QwLpV/8ogPCLyeCYb1TWdZeslvz9FgGkbi4RByYxRnXJYz+eNALk40Pj8N0RusSlE+T
+	aaaG02ec9C+SNPb2eWMFIUoYkahYmJAd7u+mT6PeqfWV/ZrCLvfLtDdcp3gqNyd0OBD8ZdMnfsOGM
+	+UBSIOyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wASe7-00000008tVl-2y6b;
-	Wed, 08 Apr 2026 13:08:39 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wASt2-00000008uFx-1vPq;
+	Wed, 08 Apr 2026 13:24:04 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wASe5-00000008tUy-2Ml0
+	id 1wASsz-00000008uFQ-2g3W
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 13:08:39 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6389Lrf42411822
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 8 Apr 2026 13:08:35 GMT
+	Wed, 08 Apr 2026 13:24:03 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 638AUCJJ262912
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 8 Apr 2026 13:23:59 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=HntEs+8pzBI+y7qt7t4W2U
-	rvZTm4MrVZ9wGejJw7xFA=; b=hOQLOC4Pqd9JJMAXOHmewoVLftRrhHPEDd1v17
-	/ttW0cuJGyHHlKIj/bbk+ZTexlZVNa2np9A3PRrbFSU3YhqVR0i3MiOZXWMHEfit
-	h9KX0UiWjHrhZC2Q+JkbpfmXD/okIiIO/wT6vEXmhY1lHzQRBErd5+OJJ8qXfNAA
-	xX19ydjn5RP8VNfeyjmV/wZiumJntxPwCloADOXELg3GV/wiN/26ztsnXu2uZEWc
-	zSLjdeBnjVLqwQmzDfdLKMLgvma6LK72EgL3s4R9cellB0Ss2jAXjhNbPVmHfR2s
-	NbG50WP8K8M9ZJJX6Wdqg4vtX9vI+ORk6JJsXF3lm4QM7HMw==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dd61vbvgm-1
+	:mime-version:subject:to; s=qcppdkim1; bh=seV0jNRW43BQy38HSt7co1
+	dbaDYjW5QgU3tBgjyLzOw=; b=GMbwE1Km9mHupd7kr6auukNY7wBhi2MMY/z+Zw
+	kVu016DP8kYvBQvMaGm3pZPv8FFiHa4DnVoprync9Qi++cOYYvFXXobdwfGt9g1T
+	0/Meu7gKl8R5P4FbVdYSki2jiG6UqAqGO/o7DsdNsN3zMs9kbTjqOJ8jcqvAXc+n
+	oH4/fXe4aEGXOswQ8qXuO8xM4vdOklEZo+egNDwclL78cXfP74RkRE/3W79YwjvK
+	UYZYYbt9i2R6GSWCiPFyUjJVyXIlutJlZe2OVJVTSw3EZ/qLOqyc7gBPfCEiy23a
+	1j8V1O67/nnjBpnDBPRVx8NkNDcy0oiravg0HmJNM0sfNclA==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dd7t23gm1-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 13:08:35 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c7691378914so2852361a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 06:08:35 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 13:23:59 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-35449510446so6552266a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 06:23:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1775653715; x=1776258515; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=HntEs+8pzBI+y7qt7t4W2UrvZTm4MrVZ9wGejJw7xFA=;
-        b=PMWb23vqjcr2A+la2sm5pVQLP5EwV/iCECqhi1FvBFuO8lZoajgsWngQSRuBH7B3pj
-         iTi0qBPS/cY8y7KZ2t6jiw4+QZIoztIbwR4vvK/qGWZyvCkRwQ7jq5fdUv4MaP6cJ04m
-         +FZD5jpYfQaExSkpbhZ55VpuwUBiU6Fh1bqlacbd/IEypTxUh5p64oMPGgX5HuC1YVAJ
-         LYa9xcr1Wu9ayD4c05ciyHsOxzu9edVZAleYKXlQvUTdp2Z2nSgqO72T4dHpjjw+Zfd9
-         fh2RxrGGj5OAKyAS0xpV4TvEvblWuTHYA5DpZLxsipxnB1+JDXN6Hf7/sZbuv+HK7dMj
-         JjKA==
+        d=oss.qualcomm.com; s=google; t=1775654639; x=1776259439; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=seV0jNRW43BQy38HSt7co1dbaDYjW5QgU3tBgjyLzOw=;
+        b=YNvij/QNBKEbfs2qYKBY0maMPbjRvhIVUahIrTMmCTH5WmYo+j7RAUfG9BoVAabV1b
+         GuqsXmrA6lxNWhbiuhFGDsOEdMzEm7uLET2ACFWGs96euSLG8D5fnEfNb3LZuwtVRehq
+         +AwvrgIi2RfSTwehK5vEIwRRqfFRxDK9o7nTocQLi0MxWF13G3HAOaM23E0zyU4EMZYe
+         mjpKwdP09zGKa0QuznNH3M7IJZiOdGHb+eWbQhNd77jtYpKrgzsaWqu4yDOAfXD+DBkw
+         tGTQmXTC5HqDdciUTzUF68fkDzy6VviOxw36Nku0W19WWe0AYsbp+vzHNctErZDaku3w
+         iAVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775653715; x=1776258515;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1775654639; x=1776259439;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=HntEs+8pzBI+y7qt7t4W2UrvZTm4MrVZ9wGejJw7xFA=;
-        b=I470cIUILMlqs4vH29sTCEKVWjIf2JS7vJ7zBH6GkQ4yC0YnnOi6XWw674JYp0dIbC
-         UDhfPd0oG4K1PpM92ek0PJaIgPb9Nqi98tFKz/8MtZ63TUnhVtnB8z3ENCv49fT+5xQb
-         PMUkIS1Ooi0SYrlCMaD8YIWrYef7BvQKAcgMHUf/HmTIfGIMTHQdgV2jRWdUum48uwcU
-         E2GIGTfzJo8mAkX1OFXKz0UzlOx01DX/2sE1PY5oRDXilOkmWVpML8OX3PllEzRoQg+2
-         xce+oL17Ax7VtfveN8gu7Vd+G5HouX1INO/JVzME8mxsZszI3Xe/xxE+EnEbx7G5fTjl
-         vt1g==
-X-Forwarded-Encrypted: i=1; AJvYcCWYGZHsny3Pj1C43CL94CxT7LGZqR7ESMBGpAZYiH5aBko44RN1H+FLcQErzV6k/xaSP1Sh47bH6VKvF5wO3kUZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzab18nN9JyaK9d4B/bFHuM+jzm+KfXMclkpmofVsUNeO/rCJiz
-	yICsAV2Ixv4jqza3KYyMQCGAgG4672ieD6+I4/FFp25dMltgr/CcdnbZWjlSVLI6B6m5ClfHMiG
-	mS9evhbR7UDAW+Cd20T4+sW0ZGEKwt80MDVh9p//eF1hoLKeEOMDmpqx7IJz6TiBpLYU9WpRT+C
-	vIqQ==
-X-Gm-Gg: AeBDietVUIyfl91ejfzY+Bmy0ewL3XWaoFunc+xAYRYFccLLVzwqQmYH090bxdbp/or
-	uAsczHiKOZKaWHP4rmNlbX0NpaNRkESWI6jGpfsSJQ11ctkCnkgK7HiqIfHXR7hrUkoN/ACjYt0
-	rmFZxFWEAPTgfqoZ6AmkdjsPcoW79RyjJNdaitGUOvOUmVjuDRHfaBn95CkFDcROypQBhmFlmVB
-	mryPhMRl3j1n1uP28Y92gnlQ6d/edpIG7mYfeh+3UZcolsP1nktxtHdy9kJmrGuH07PAZIgwhzW
-	YvBLyeu4WHaz25hrYBpzl7eYPzr1+GLDW6j1dVqMmthgknIXyAzpNm2gHmY2vyNW7BeqDsCEHrt
-	rLNT7ZNbpNF0xyklxEgLSzyFmNkaMyCJDZc7lAJVXK1q50d+0l6Fm
-X-Received: by 2002:a05:6a00:2e85:b0:81f:3fbd:ccf with SMTP id d2e1a72fcca58-82d0da9dca4mr19823931b3a.23.1775653714531;
-        Wed, 08 Apr 2026 06:08:34 -0700 (PDT)
-X-Received: by 2002:a05:6a00:2e85:b0:81f:3fbd:ccf with SMTP id d2e1a72fcca58-82d0da9dca4mr19823878b3a.23.1775653714032;
-        Wed, 08 Apr 2026 06:08:34 -0700 (PDT)
-Received: from hu-bibekkum-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82cf9c4126bsm20426192b3a.36.2026.04.08.06.08.30
+        bh=seV0jNRW43BQy38HSt7co1dbaDYjW5QgU3tBgjyLzOw=;
+        b=Yza1QXOJ9dCcQ7fS2ju416am76ej6elJYUoGvnQNTn0r6BqWfCltO5kZTQVK4/rqQg
+         DDYjCSqpQmhzMtEVgif7fHbIHVCsgCdhek12cvLJRruDRK8p+6f5xkE+Kaz8dnJ0xzuX
+         06loZZdp4mIk1QgIzS1N1H9j1bMwmaiIMeOCP0I9oztsp7AOh5+5hoowUIvG25N8onTV
+         SBclf2sJCOakyWepiK97w+/ZEeBgKwI7UbB/D/Jd9DV7jnWNItMt1aWDnjrC9/HwPmq8
+         yB3vgw4EGxl7/ptAxbXE/XNHMf27FRcgTqPzwq2iTxa0uSYGBgCa6OUVL+J2NirckmOF
+         +5WQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUSc/oN0CW86DwqR8GX6ZtOpghsLYBAfa+sT8Uf80tTMtj55FQZpAEOW6oNlLyG67GEVZzseg+V7jkWyO/c/+nh@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXkCBksaT3e+cs2rSH1KTfgEPCsOb6mH6/OZZwJK2qb26rGOMy
+	Xs42AZd1ceCvivzYefTjH3iO15U30fbNFD7Nh02xu3JKDgH1Cy/xZKZvueOWLenHVunStdkuCRS
+	fu+c0X8pzsTi/xzOe7+8pNPHRSd0JDbtlIbZq/+J4Vkhq49Y4g+2Q0ajbpi1RFEIjR3k4U5GIwR
+	p/wA==
+X-Gm-Gg: AeBDieuH0/Zfqv0KhwUaq7FweNAh+8pjL0DYXdGyCZldM0P6YX/Tr75aktUjF2ln7yq
+	1P+8kLq8smD5kpekDp6pMm01hIuDCyIRwBGf+Xva/OV6NkT/NEOmSp1zOsTvBRnRmVxg3NWR2MA
+	xu5LUc4vb4uE1ypNi2TOUOQqVZrLR1HJjFIMNisOPWCF23bKVPNcjHjquGc/vsRU421YCAxqFqB
+	jpZT+RxBl0jZqZsAe0Vj0W8fIShv7y4KZ4ibX8izSk3esPZdD0ZHeRt5EGeTL+hdYKiANKrRX5f
+	98AvHC0J8bgZ5a92AqnrX7LNE4/jiwDvbLkB5csEftBR8IF2KkCGViSFXZzbjWO2RVhVORJcs6b
+	L/ZIqqoKPmhjOkAgtY4LC7y238QXyWEDiCPj2OnAnSJR7yVH4YmF1C7DaBtg5i3RkPLQKOjslH6
+	na+WShKW3M
+X-Received: by 2002:a17:90b:4fc9:b0:35d:ac4d:3cb7 with SMTP id 98e67ed59e1d1-35de68417f5mr18906542a91.6.1775654638596;
+        Wed, 08 Apr 2026 06:23:58 -0700 (PDT)
+X-Received: by 2002:a17:90b:4fc9:b0:35d:ac4d:3cb7 with SMTP id 98e67ed59e1d1-35de68417f5mr18906521a91.6.1775654638109;
+        Wed, 08 Apr 2026 06:23:58 -0700 (PDT)
+Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35e289cb813sm1046347a91.14.2026.04.08.06.23.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Apr 2026 06:08:33 -0700 (PDT)
-From: bibek.patro@oss.qualcomm.com
-To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>
-Cc: Dmitry Baryshkov <lumag@kernel.org>, iommu@lists.linux.dev,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, srinivas.kandagatla@oss.qualcomm.com,
-        Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
-Subject: [PATCH] iommu/arm-smmu-qcom: Fix fastrpc compatible string in ACTLR client match table
-Date: Wed,  8 Apr 2026 18:38:25 +0530
-Message-Id: <20260408130825.3268733-1-bibek.patro@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
+        Wed, 08 Apr 2026 06:23:57 -0700 (PDT)
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+Date: Wed, 08 Apr 2026 21:23:44 +0800
+Subject: [PATCH] coresight: tpda: fix race between refcnt check and
+ register access
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDA4MDEyMSBTYWx0ZWRfXw4lVKiYEl+X2
- 4Zm5dzCpQiv1/CjdWIw00RiCbqwG80dDnNP1GzoE3T333pv8nH5Sjnase//ISzy/M+pKhfs/7Hh
- hrp6UBSX1oXaq3zwT74XldZDZvX8k/rJLRCAeokLae9x8k/1Zj7nCTyMi//Ziw2OQnry+uLBKLg
- F7LMkgae1SbyVyWYhBs9YLtgi1dGQwNDmARU4QJ/NikI1JtHPXAu4CLeodxEEjnLhjt20+OjkHd
- xV/WHZYw3WgWU9P056gyGHsGgXshpIb9+rHAZt5Vdrd4s3wJExySDN6I00mA5tAu3N00wrBYJna
- CPOlSgGM782ljfrfBaIR9mYXd+OCTIliEjuHi1wnJ6Zg0CD3RGC97fY39jm3iGT6nVVO5YSQpse
- DUrVtOmWm/Q9Rb1TfaOr3AfWM2YnlcpPCgs5GX6KITZ1TNC0PgDzFucUBJ+YmqtWzzkBkys/rql
- /FAd7wFoCGRW7+M6tkw==
-X-Authority-Analysis: v=2.4 cv=FecHAp+6 c=1 sm=1 tr=0 ts=69d65353 cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+Message-Id: <20260408-fix-race-condition-issue-v1-1-9a148d07e08f@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAOBW1mkC/x2MSQqAMAwAvyI5G6i1LvgV8aBt1FyqNCqC+HeDx
+ 4GZeUAoMQl02QOJLhbeokKRZ+DXMS6EHJTBGlsbZ1qc+cY0ekK/xcCH6sgiJ2FwzprSVm5qG9B
+ 8T6Tuv+6H9/0ATGpbKWoAAAA=
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
+        James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Tao Zhang <tao.zhang@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775654634; l=4282;
+ i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
+ bh=KiQ/IrzzL3ANrzaJSdZoqPviRgQu2S3d/exNOFGp/DI=;
+ b=jJ3QF/2Pjbwdo1DzYdwjHeSxd1oBs+phCjtMPF9PtPX4/IAvw4zeHE76qLpRReSv7qs7Mdefa
+ 0l58cJcNP23Cq5hDrulgYCp/4luyMAQu7gafZyo6mAN2UHcRd5+3tOd
+X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
+ pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
+X-Authority-Analysis: v=2.4 cv=De0nbPtW c=1 sm=1 tr=0 ts=69d656ef cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
  a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=bCvnzbEyROO2_-PIDOgA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=3WC7DwWrALyhR5TkjVHa:22
-X-Proofpoint-ORIG-GUID: tpHIMAKlUWgQP9MbPH2hMAgvaD8fnfSn
-X-Proofpoint-GUID: tpHIMAKlUWgQP9MbPH2hMAgvaD8fnfSn
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=EUspDBNiAAAA:8 a=_RqGKq5OiZDgAwGmis0A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=mQ_c8vxmzFEMiUWkPHU9:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDA4MDEyMyBTYWx0ZWRfX1LHgB7NMjwtZ
+ qkone8dbCXPPw5DoNZ+bc9CD8PsLbVDmIe87K/E9uL9y2F27k84FpAVWd1wEYTZsJdU5Xpb9C2P
+ 5WYxGehLvYrciDfUoR7uVIEh5dCqyOFQzN8UFisW4Eca91ZHEHMc9WwqOVwQMCmj1BHoqu+Fijk
+ ZWCUNmBedC1CSuw86/TmS5hdI4l0Q6cPUSXDwsslxMZ0IePm0roAEjS/bD7VfxHY8xcA3lcJuuY
+ cPQRgWie8lwjMG2OqpnIaeUYE2Cx2jwv3N17Sl2IsBO7FWqKud8c9c6YmnztfLHUvTdKdLd/BC8
+ PC7Yk/u1dAa/Pi/Ji0I6jifBO5QGzB7wBwPKHEuXIdf5bphrwCbfMbRb0IVyVKHye9Ti8Pa1VxA
+ nfy44RzHcrSB3OaAuW+tv+neWjlQ7KK2NnNf5wk8zWnm9L8ktXagKrjaHvS7meyU/Bak5FlmoY6
+ 3yRuCSlPpS7wtebhR6Q==
+X-Proofpoint-ORIG-GUID: VMDPfNksktlpxH1Wt2ny0u_yA2AKLDkD
+X-Proofpoint-GUID: VMDPfNksktlpxH1Wt2ny0u_yA2AKLDkD
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-08_04,2026-04-08_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 phishscore=0 lowpriorityscore=0 priorityscore=1501
- suspectscore=0 clxscore=1011 impostorscore=0 bulkscore=0 adultscore=0
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2604010000
- definitions=main-2604080121
+ spamscore=0 clxscore=1015 bulkscore=0 phishscore=0 priorityscore=1501
+ malwarescore=0 lowpriorityscore=0 suspectscore=0 impostorscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604080123
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_060837_738199_7D35F987 
-X-CRM114-Status: GOOD (  19.53  )
+X-CRM114-CacheID: sfid-20260408_062401_686878_7E2E1E96 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,74 +155,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+Several sysfs show/store handlers check csdev->refcnt before acquiring
+the spinlock, then access hardware registers inside the lock.  This is
+a race: between the check and the lock acquisition, the following can
+occur on another CPU:
 
-The qcom_smmu_actlr_client_of_match table contained "qcom,fastrpc" as
-the compatible string for applying ACTLR prefetch settings to FastRPC
-devices. However, "qcom,fastrpc" is the compatible string for the parent
-rpmsg channel node, which is not an IOMMU client — it carries no
-"iommus" property in the device tree and is never attached to an SMMU
-context bank.
+  CPU 0 (sysfs reader)              CPU 1 (disable path)
+  ─────────────────────────────     ──────────────────────────────────
+  refcnt == 1, check passes
+  [waiting for spinlock]            tpda_disable(): refcnt → 0
+                                    debug clock disabled
+  spinlock acquired
+  readl_relaxed()  ← FAULT/hang
 
-The actual IOMMU clients are the compute context bank (CB) child nodes,
-which use the compatible string "qcom,fastrpc-compute-cb". These nodes
-carry the "iommus" property and are probed by fastrpc_cb_driver via
-fastrpc_cb_probe(), which sets up the DMA mask and IOMMU mappings for
-each FastRPC session. The device tree structure is:
+tpda_disable() decrements csdev->refcnt under the same spinlock, so
+moving the refcnt check inside the lock closes the race.
 
-  fastrpc {
-      compatible = "qcom,fastrpc";        /* rpmsg channel, no iommus */
-      ...
-      compute-cb@3 {
-          compatible = "qcom,fastrpc-compute-cb";
-          iommus = <&apps_smmu 0x1823 0x0>;  /* actual IOMMU client */
-      };
-  };
+Fix all six affected sysfs handlers: global_flush_req_show/store,
+syncr_mode_show, syncr_count_show, and port_flush_req_show/store.
 
-Since qcom_smmu_set_actlr_dev() calls of_match_device() against the
-device being attached to the SMMU context bank, the "qcom,fastrpc"
-entry was never matching any device. As a result, the ACTLR prefetch
-settings (PREFETCH_DEEP | CPRE | CMTLB) were silently never applied
-for FastRPC compute context banks.
-
-Fix this by replacing "qcom,fastrpc" with "qcom,fastrpc-compute-cb"
-in the match table so that the ACTLR settings are correctly applied
-to the compute CB devices that are the true IOMMU clients.
-
-Assisted-by: Anthropic:claude-4-6-sonnet
-Fixes: 3e35c3e725de ("iommu/arm-smmu: Add ACTLR data and support for qcom_smmu_500")
-Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+Fixes: 8e1c358a3b0e ("coresight: tpda: add global_flush_req sysfs node")
+Fixes: 33f04ead7c49 ("coresight: tpda: add logic to configure TPDA_SYNCR register")
+Fixes: a089d585a7f4 ("coresight: tpda: add sysfs node to flush specific port")
+Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
 ---
+ drivers/hwtracing/coresight/coresight-tpda.c | 18 ++++++++++++------
+ 1 file changed, 12 insertions(+), 6 deletions(-)
 
-While there is an ongoing discussion [1] on how to differentiate ACTLR
-prefetch settings between compute DSP and audio DSP fastrpc devices, it
-is necessary to first fix the compatible string to "qcom,fastrpc-compute-cb".
-Both compute DSP and audio DSP fastrpc nodes use this compatible string,
-so both will receive the ACTLR settings after this fix. However, for
-audio DSP devices the effect remains the same as the current
-state since they do not actively use prefetch — the write is effectively
-a NOP for them. The fix is meaningful for compute DSP devices, which
-actively use prefetch and were previously being silently skipped.
+diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
+index 89c8f71f0aff..63a979312463 100644
+--- a/drivers/hwtracing/coresight/coresight-tpda.c
++++ b/drivers/hwtracing/coresight/coresight-tpda.c
+@@ -360,10 +360,10 @@ static ssize_t global_flush_req_show(struct device *dev,
+ 	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	unsigned long val;
+ 
++	guard(spinlock)(&drvdata->spinlock);
+ 	if (!drvdata->csdev->refcnt)
+ 		return -EINVAL;
+ 
+-	guard(spinlock)(&drvdata->spinlock);
+ 	val = readl_relaxed(drvdata->base + TPDA_CR);
+ 	/* read global_flush_req bit */
+ 	val &= TPDA_CR_FLREQ;
+@@ -382,10 +382,13 @@ static ssize_t global_flush_req_store(struct device *dev,
+ 	if (kstrtoul(buf, 0, &val))
+ 		return -EINVAL;
+ 
+-	if (!drvdata->csdev->refcnt || !val)
++	if (!val)
+ 		return -EINVAL;
+ 
+ 	guard(spinlock)(&drvdata->spinlock);
++	if (!drvdata->csdev->refcnt)
++		return -EINVAL;
++
+ 	val = readl_relaxed(drvdata->base + TPDA_CR);
+ 	/* set global_flush_req bit */
+ 	val |= TPDA_CR_FLREQ;
+@@ -404,10 +407,10 @@ static ssize_t syncr_mode_show(struct device *dev,
+ 	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	unsigned long val, syncr_val;
+ 
++	guard(spinlock)(&drvdata->spinlock);
+ 	if (!drvdata->csdev->refcnt)
+ 		return -EINVAL;
+ 
+-	guard(spinlock)(&drvdata->spinlock);
+ 	syncr_val = readl_relaxed(drvdata->base + TPDA_SYNCR);
+ 	val = FIELD_GET(TPDA_SYNCR_MODE_CTRL_MASK, syncr_val);
+ 
+@@ -440,10 +443,10 @@ static ssize_t syncr_count_show(struct device *dev,
+ 	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	unsigned long val;
+ 
++	guard(spinlock)(&drvdata->spinlock);
+ 	if (!drvdata->csdev->refcnt)
+ 		return -EINVAL;
+ 
+-	guard(spinlock)(&drvdata->spinlock);
+ 	val = readl_relaxed(drvdata->base + TPDA_SYNCR);
+ 	val &= TPDA_SYNCR_COUNT_MASK;
+ 
+@@ -478,10 +481,10 @@ static ssize_t port_flush_req_show(struct device *dev,
+ 	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	unsigned long val;
+ 
++	guard(spinlock)(&drvdata->spinlock);
+ 	if (!drvdata->csdev->refcnt)
+ 		return -EINVAL;
+ 
+-	guard(spinlock)(&drvdata->spinlock);
+ 	val = readl_relaxed(drvdata->base + TPDA_FLUSH_CR);
+ 
+ 	return sysfs_emit(buf, "0x%lx\n", val);
+@@ -498,10 +501,13 @@ static ssize_t port_flush_req_store(struct device *dev,
+ 	if (kstrtou32(buf, 0, &val))
+ 		return -EINVAL;
+ 
+-	if (!drvdata->csdev->refcnt || !val)
++	if (!val)
+ 		return -EINVAL;
+ 
+ 	guard(spinlock)(&drvdata->spinlock);
++	if (!drvdata->csdev->refcnt)
++		return -EINVAL;
++
+ 	CS_UNLOCK(drvdata->base);
+ 	writel_relaxed(val, drvdata->base + TPDA_FLUSH_CR);
+ 	CS_LOCK(drvdata->base);
 
-[1]: https://lore.kernel.org/all/9b4c895a-c822-40e6-bb92-8fdcd09c82d3@oss.qualcomm.com/
+---
+base-commit: f3e6330d7fe42b204af05a2dbc68b379e0ad179e
+change-id: 20260408-fix-race-condition-issue-d44203254b87
 
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index edd41b5a3b6a..2d006049dd61 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -39,7 +39,7 @@ static const struct of_device_id qcom_smmu_actlr_client_of_match[] = {
- 			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
- 	{ .compatible = "qcom,adreno-smmu",
- 			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
--	{ .compatible = "qcom,fastrpc",
-+	{ .compatible = "qcom,fastrpc-compute-cb",
- 			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
- 	{ .compatible = "qcom,qcm2290-mdss",
- 			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
---
-2.34.1
+Best regards,
+-- 
+Jie Gan <jie.gan@oss.qualcomm.com>
 
 
