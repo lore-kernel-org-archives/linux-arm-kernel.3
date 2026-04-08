@@ -4,100 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C792E1073CB6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 13:08:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85BE41073CB4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 13:08:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z5yV3renFUCMzTGFq9ONgz22Ec7d4PCew4CFxTTtr88=; b=tEbCCh292BNrAxpWIhsMK6Ruqj
-	TCTIoRyUhW7KLyTQwxislID/BQur6On41R0Xsp5ueUvIjtSTZaDTEe6LXdfbikrzK7uV6zkX4jU6Z
-	AKG2eR5T2ypdiEZvF86TEEvmwjfknjehfqsQ7hz0V/xF+z4Z9RsGBbi5g1LY0R5QtHlZ7G46ztGOB
-	rsjyrhPb9j3tR7cW1Vq2bp5ZSYxIxuoSldqqtxvGi7qocEsa+AcGM3aPGacYtifCWsn26m6aMCTqG
-	zll9uyfTZcs227Mit/zlgxHlihiou+GZm/A8E/Vl2ERHNspasco9WP0zCKO8368NgB8Vp6my/QJLg
-	uPQ8xoYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HntEs+8pzBI+y7qt7t4W2UrvZTm4MrVZ9wGejJw7xFA=; b=hBqCjoioiJTpVtyMTqZq1P2jXS
+	gu4C43htcTafgp0DEHIL2SoMoTOBx3SFTdH5q4DpfFTcsIKsqhE57uRYzNMh6IBFCPFvY7oyX3JqM
+	9AtH515KBJj9siWM/r2ovm+yPWIBnbhkDshQcfNILosCREWzOL1yPzVcpUnKLldpqVrfyP2JkalJ0
+	rb7YTQKVbwBEvbPqHj8MHAwmHtd2mf2UxjneIKZd9+u9YMyP2sYAG+6kmAw7NLqLwMM0VBLJYn3qx
+	R/lywJm91oOFzr8yDCAuvzI9sYvUNedMn09BqdRwIFSUah3yDcQpeQDgncb8Zhajjr1787ypIMNUl
+	hewaEwFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wASdb-00000008tPH-1G59;
-	Wed, 08 Apr 2026 13:08:07 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1wASe7-00000008tVl-2y6b;
+	Wed, 08 Apr 2026 13:08:39 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wASdY-00000008tOH-0f69
+	id 1wASe5-00000008tUy-2Ml0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 13:08:05 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-b9c01854477so1039172666b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 06:08:03 -0700 (PDT)
+	Wed, 08 Apr 2026 13:08:39 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6389Lrf42411822
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 8 Apr 2026 13:08:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=HntEs+8pzBI+y7qt7t4W2U
+	rvZTm4MrVZ9wGejJw7xFA=; b=hOQLOC4Pqd9JJMAXOHmewoVLftRrhHPEDd1v17
+	/ttW0cuJGyHHlKIj/bbk+ZTexlZVNa2np9A3PRrbFSU3YhqVR0i3MiOZXWMHEfit
+	h9KX0UiWjHrhZC2Q+JkbpfmXD/okIiIO/wT6vEXmhY1lHzQRBErd5+OJJ8qXfNAA
+	xX19ydjn5RP8VNfeyjmV/wZiumJntxPwCloADOXELg3GV/wiN/26ztsnXu2uZEWc
+	zSLjdeBnjVLqwQmzDfdLKMLgvma6LK72EgL3s4R9cellB0Ss2jAXjhNbPVmHfR2s
+	NbG50WP8K8M9ZJJX6Wdqg4vtX9vI+ORk6JJsXF3lm4QM7HMw==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dd61vbvgm-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 13:08:35 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c7691378914so2852361a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 06:08:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1775653682; x=1776258482; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=z5yV3renFUCMzTGFq9ONgz22Ec7d4PCew4CFxTTtr88=;
-        b=xIRVngZMVnzvCd3nkwTUEaUnDsbPGIlfBrBiGb87h9SYknsvapPFgdfTpc1AHxk8Dl
-         OK1KkoGHkm6NDvCo72JRL5K1Wv2wH/X63j0RiFfW/gBlWOoHkyJndNdU3Q0uoQl94teW
-         xeBx6kcdou2SigEGw8AQC68FOO+L+IRtWvGu2W0IrbRrWdTDAwxlqXr0f2lYxguWrKl6
-         +wVIIeBuY2ZtMFdu1bWnG/pXiTZjkW1bKxovm7oHlNizwI2IvyWCa8oUimka3YgjyuKY
-         GKwgOrEckdWnnQTW+unlb1DAbPuwO9XvOrIkizaS90PQ4tGjYzut14DSxpGFYWKLuAPn
-         kxrQ==
+        d=oss.qualcomm.com; s=google; t=1775653715; x=1776258515; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=HntEs+8pzBI+y7qt7t4W2UrvZTm4MrVZ9wGejJw7xFA=;
+        b=PMWb23vqjcr2A+la2sm5pVQLP5EwV/iCECqhi1FvBFuO8lZoajgsWngQSRuBH7B3pj
+         iTi0qBPS/cY8y7KZ2t6jiw4+QZIoztIbwR4vvK/qGWZyvCkRwQ7jq5fdUv4MaP6cJ04m
+         +FZD5jpYfQaExSkpbhZ55VpuwUBiU6Fh1bqlacbd/IEypTxUh5p64oMPGgX5HuC1YVAJ
+         LYa9xcr1Wu9ayD4c05ciyHsOxzu9edVZAleYKXlQvUTdp2Z2nSgqO72T4dHpjjw+Zfd9
+         fh2RxrGGj5OAKyAS0xpV4TvEvblWuTHYA5DpZLxsipxnB1+JDXN6Hf7/sZbuv+HK7dMj
+         JjKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775653682; x=1776258482;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=z5yV3renFUCMzTGFq9ONgz22Ec7d4PCew4CFxTTtr88=;
-        b=a42hLFQYZA7HTIRv6Uy0bztotcBsqQqSIbLJzumV26hLsUtkXt5+powY6XNOeTui6t
-         W6kieOvmE/Aha3/mbvZHtg+1ccKZV3QoP9CAtuPGt0Djkbb+df6yXb8PFknIpWO/S11V
-         Z88g0RBhbqqt8uNgrSBR721c7Vkqhn3ZsuCRVhTL9rDtxTnH3Adl6dCGZhQCnS8s0UXo
-         w+LvQhQboag3IRqqZardJu56KOGNv/zBaeJXm4BXvPYCKbvJkK43NXHMc13XNTU4uFm4
-         qfLh7/3/69DAukLo+uhTjABhdEfTzuLi3AXkF4tRMYLPMLVfxnlBj4vjjoFR/0b1BTa8
-         nnWg==
-X-Forwarded-Encrypted: i=1; AJvYcCXJMbufeChXg6kXS+SlMIU1o5YQ5Q01/rnGRdakmwl25EBkZQdRmdz8u3A9rfc7RL+NEF/VzaiP0gj52thNCql0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeV2n886opr2gFZdgMnS8XNmHUHJm02OfohxMbHsyudfPp49eb
-	DiNfqCyqdqx44K51GYCQpJMTf6FuAHy5UeXHZ8HBX+erP8vdYv0iLknD3gAEBBz0Ua4=
-X-Gm-Gg: AeBDievC2L24RQqNiaFP0rm+JYIezRxUaKA5tZ/wm92JmtAXYPgDHIADAr+qhs4gvHQ
-	0KXuJoApa+1p+bsCnnozpKNBrgXGIwKA60CeR+//Dq6OL6jLQEr+Kqf8URI6G0+eyRWbyp+RiyD
-	1xzhoQckrn7SaTCzu4zVCSD7QVTQOymXTkOZGJDThZZQ/HXPLdF2Mm7JY+EuRrdYkjxojNLVev+
-	DLCi4lIxzwWSUPTVNpnGG03MA5ub9Comvgk5LFMLeAseCrMPWr1RqD2VyuqjGS/Bgvlw/5bx+kb
-	lz85oY+SLITuRcB+FP7I8bSSAXdvGWgRvYeaVJjxVRIrC14ozG4bx0o8aSJJ6JytYXH2cIkBEgk
-	rT5rByrqlXteKJZYOOW09rWUJeATdoc9uxAFslTJDHtd/E4mS+sGE2sl9NGn4V8O/HBem3N99HF
-	iCx6LvamKGQQAvYFH6gSy/eW7uI4bCtwW14F6GYk9ENIMwPVeWXGGdCZbGz8FZN8mSZc/8QTE7f
-	19B4Qo8VN32PsPqFA==
-X-Received: by 2002:a17:906:478e:b0:b98:1129:51 with SMTP id a640c23a62f3a-b9c675492c5mr1034699866b.17.1775653681583;
-        Wed, 08 Apr 2026 06:08:01 -0700 (PDT)
-Received: from localhost ([2a00:2381:fd67:101:9775:58c0:569c:bd74])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b9d3a6a48f3sm24687366b.58.2026.04.08.06.08.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 08 Apr 2026 06:08:00 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+        d=1e100.net; s=20251104; t=1775653715; x=1776258515;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HntEs+8pzBI+y7qt7t4W2UrvZTm4MrVZ9wGejJw7xFA=;
+        b=I470cIUILMlqs4vH29sTCEKVWjIf2JS7vJ7zBH6GkQ4yC0YnnOi6XWw674JYp0dIbC
+         UDhfPd0oG4K1PpM92ek0PJaIgPb9Nqi98tFKz/8MtZ63TUnhVtnB8z3ENCv49fT+5xQb
+         PMUkIS1Ooi0SYrlCMaD8YIWrYef7BvQKAcgMHUf/HmTIfGIMTHQdgV2jRWdUum48uwcU
+         E2GIGTfzJo8mAkX1OFXKz0UzlOx01DX/2sE1PY5oRDXilOkmWVpML8OX3PllEzRoQg+2
+         xce+oL17Ax7VtfveN8gu7Vd+G5HouX1INO/JVzME8mxsZszI3Xe/xxE+EnEbx7G5fTjl
+         vt1g==
+X-Forwarded-Encrypted: i=1; AJvYcCWYGZHsny3Pj1C43CL94CxT7LGZqR7ESMBGpAZYiH5aBko44RN1H+FLcQErzV6k/xaSP1Sh47bH6VKvF5wO3kUZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzab18nN9JyaK9d4B/bFHuM+jzm+KfXMclkpmofVsUNeO/rCJiz
+	yICsAV2Ixv4jqza3KYyMQCGAgG4672ieD6+I4/FFp25dMltgr/CcdnbZWjlSVLI6B6m5ClfHMiG
+	mS9evhbR7UDAW+Cd20T4+sW0ZGEKwt80MDVh9p//eF1hoLKeEOMDmpqx7IJz6TiBpLYU9WpRT+C
+	vIqQ==
+X-Gm-Gg: AeBDietVUIyfl91ejfzY+Bmy0ewL3XWaoFunc+xAYRYFccLLVzwqQmYH090bxdbp/or
+	uAsczHiKOZKaWHP4rmNlbX0NpaNRkESWI6jGpfsSJQ11ctkCnkgK7HiqIfHXR7hrUkoN/ACjYt0
+	rmFZxFWEAPTgfqoZ6AmkdjsPcoW79RyjJNdaitGUOvOUmVjuDRHfaBn95CkFDcROypQBhmFlmVB
+	mryPhMRl3j1n1uP28Y92gnlQ6d/edpIG7mYfeh+3UZcolsP1nktxtHdy9kJmrGuH07PAZIgwhzW
+	YvBLyeu4WHaz25hrYBpzl7eYPzr1+GLDW6j1dVqMmthgknIXyAzpNm2gHmY2vyNW7BeqDsCEHrt
+	rLNT7ZNbpNF0xyklxEgLSzyFmNkaMyCJDZc7lAJVXK1q50d+0l6Fm
+X-Received: by 2002:a05:6a00:2e85:b0:81f:3fbd:ccf with SMTP id d2e1a72fcca58-82d0da9dca4mr19823931b3a.23.1775653714531;
+        Wed, 08 Apr 2026 06:08:34 -0700 (PDT)
+X-Received: by 2002:a05:6a00:2e85:b0:81f:3fbd:ccf with SMTP id d2e1a72fcca58-82d0da9dca4mr19823878b3a.23.1775653714032;
+        Wed, 08 Apr 2026 06:08:34 -0700 (PDT)
+Received: from hu-bibekkum-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82cf9c4126bsm20426192b3a.36.2026.04.08.06.08.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Apr 2026 06:08:33 -0700 (PDT)
+From: bibek.patro@oss.qualcomm.com
+To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>
+Cc: Dmitry Baryshkov <lumag@kernel.org>, iommu@lists.linux.dev,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, srinivas.kandagatla@oss.qualcomm.com,
+        Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+Subject: [PATCH] iommu/arm-smmu-qcom: Fix fastrpc compatible string in ACTLR client match table
+Date: Wed,  8 Apr 2026 18:38:25 +0530
+Message-Id: <20260408130825.3268733-1-bibek.patro@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-Date: Wed, 08 Apr 2026 14:08:00 +0100
-Message-Id: <DHNSP3FVR4ZQ.1PIRHF0KJGKI5@linaro.org>
-Cc: "Krzysztof Kozlowski" <krzk@kernel.org>, "Sylwester Nawrocki"
- <s.nawrocki@samsung.com>, "Chanwoo Choi" <cw00.choi@samsung.com>, "Alim
- Akhtar" <alim.akhtar@samsung.com>, "Sam Protsenko"
- <semen.protsenko@linaro.org>, "Michael Turquette"
- <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Rob Herring"
- <robh@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Jassi Brar"
- <jassisinghbrar@gmail.com>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Peter Griffin" <peter.griffin@linaro.org>,
- <linux-samsung-soc@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 2/3] mailbox: exynos: Add support for Exynos850
- mailbox
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Tudor Ambarus" <tudor.ambarus@linaro.org>
-X-Mailer: aerc 0.20.0
-References: <20260402-exynos850-ap2apm-mailbox-v2-0-ca5ffdff99d4@linaro.org>
- <20260402-exynos850-ap2apm-mailbox-v2-2-ca5ffdff99d4@linaro.org>
- <a02a693e-b06e-43bf-ac5f-8253f298c83d@linaro.org>
-In-Reply-To: <a02a693e-b06e-43bf-ac5f-8253f298c83d@linaro.org>
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDA4MDEyMSBTYWx0ZWRfXw4lVKiYEl+X2
+ 4Zm5dzCpQiv1/CjdWIw00RiCbqwG80dDnNP1GzoE3T333pv8nH5Sjnase//ISzy/M+pKhfs/7Hh
+ hrp6UBSX1oXaq3zwT74XldZDZvX8k/rJLRCAeokLae9x8k/1Zj7nCTyMi//Ziw2OQnry+uLBKLg
+ F7LMkgae1SbyVyWYhBs9YLtgi1dGQwNDmARU4QJ/NikI1JtHPXAu4CLeodxEEjnLhjt20+OjkHd
+ xV/WHZYw3WgWU9P056gyGHsGgXshpIb9+rHAZt5Vdrd4s3wJExySDN6I00mA5tAu3N00wrBYJna
+ CPOlSgGM782ljfrfBaIR9mYXd+OCTIliEjuHi1wnJ6Zg0CD3RGC97fY39jm3iGT6nVVO5YSQpse
+ DUrVtOmWm/Q9Rb1TfaOr3AfWM2YnlcpPCgs5GX6KITZ1TNC0PgDzFucUBJ+YmqtWzzkBkys/rql
+ /FAd7wFoCGRW7+M6tkw==
+X-Authority-Analysis: v=2.4 cv=FecHAp+6 c=1 sm=1 tr=0 ts=69d65353 cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=bCvnzbEyROO2_-PIDOgA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=3WC7DwWrALyhR5TkjVHa:22
+X-Proofpoint-ORIG-GUID: tpHIMAKlUWgQP9MbPH2hMAgvaD8fnfSn
+X-Proofpoint-GUID: tpHIMAKlUWgQP9MbPH2hMAgvaD8fnfSn
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-08_04,2026-04-08_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 phishscore=0 lowpriorityscore=0 priorityscore=1501
+ suspectscore=0 clxscore=1011 impostorscore=0 bulkscore=0 adultscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2604010000
+ definitions=main-2604080121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_060804_252543_6170F875 
-X-CRM114-Status: GOOD (  30.82  )
+X-CRM114-CacheID: sfid-20260408_060837_738199_7D35F987 
+X-CRM114-Status: GOOD (  19.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,193 +143,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tudor,
+From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
 
-On Thu Apr 2, 2026 at 9:42 AM BST, Tudor Ambarus wrote:
-> Hi, Alexey,
->
-> On 4/2/26 5:20 AM, Alexey Klimov wrote:
->> Exynos850-based platforms support ACPM and has similar workflow
->> of communicating with ACPM via mailbox, however mailbox controller
->> registers are located at different offsets and writes/reads could be
->> different. To distinguish between such different behaviours,
->> the registers offsets for Exynos850 and the platform-specific data
->> structs are introduced and configuration is described in such structs
->> for gs101 and exynos850 based SoCs. Probe routine now selects the
->> corresponding platform-specific data via device_get_match_data().
->>=20
->> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
->> ---
->>  drivers/mailbox/exynos-mailbox.c | 67 +++++++++++++++++++++++++++++++++=
-+++++--
->>  1 file changed, 64 insertions(+), 3 deletions(-)
->>=20
->> diff --git a/drivers/mailbox/exynos-mailbox.c b/drivers/mailbox/exynos-m=
-ailbox.c
->> index d2355b128ba4..f9c59c07558a 100644
->> --- a/drivers/mailbox/exynos-mailbox.c
->> +++ b/drivers/mailbox/exynos-mailbox.c
->> @@ -31,14 +31,61 @@
->> =20
->>  #define EXYNOS_MBOX_CHAN_COUNT		HWEIGHT32(EXYNOS_MBOX_INTGR1_MASK)
->> =20
->> +#define EXYNOS850_MBOX_MCUCTRL		0x0	/* Mailbox Control Register		*/
->> +#define EXYNOS850_MBOX_INTGR0		0x8	/* Interrupt Generation Register 0	*=
-/
->> +#define EXYNOS850_MBOX_INTCR0		0x0C	/* Interrupt Clear Register 0		*/
->> +#define EXYNOS850_MBOX_INTMR0		0x10	/* Interrupt Mask Register 0		*/
->> +#define EXYNOS850_MBOX_INTSR0		0x14	/* Interrupt Status Register 0		*/
->> +#define EXYNOS850_MBOX_INTMSR0		0x18	/* Interrupt Mask Status Register =
-0	*/
->> +#define EXYNOS850_MBOX_INTGR1		0x1C	/* Interrupt Generation Register 1	=
-*/
->> +#define EXYNOS850_MBOX_INTMR1		0x24	/* Interrupt Mask Register 1		*/
->> +#define EXYNOS850_MBOX_INTSR1		0x28	/* Interrupt Status Register 1		*/
->> +#define EXYNOS850_MBOX_INTMSR1		0x2C	/* Interrupt Mask Status Register =
-1	*/
->> +#define EXYNOS850_MBOX_VERSION		0x70
->
-> Please consider defining just the registers that are used, to not
-> pollute the driver. You may drop the unused gs101 definitions too.=20
+The qcom_smmu_actlr_client_of_match table contained "qcom,fastrpc" as
+the compatible string for applying ACTLR prefetch settings to FastRPC
+devices. However, "qcom,fastrpc" is the compatible string for the parent
+rpmsg channel node, which is not an IOMMU client — it carries no
+"iommus" property in the device tree and is never attached to an SMMU
+context bank.
 
-Sure. Thanks. I was surprised how many unused defines were introduced
-by gs101 SoC in the first place all over.
+The actual IOMMU clients are the compute context bank (CB) child nodes,
+which use the compatible string "qcom,fastrpc-compute-cb". These nodes
+carry the "iommus" property and are probed by fastrpc_cb_driver via
+fastrpc_cb_probe(), which sets up the DMA mask and IOMMU mappings for
+each FastRPC session. The device tree structure is:
 
->> +#define EXYNOS850_MBOX_INTMR1_MASK	GENMASK(15, 0)
->> +
->> +/**
->> + * struct exynos_mbox_driver_data - platform-specific mailbox configura=
-tion.
->> + * @irq_doorbell_offset:	offset to the IRQ generation register, doorbel=
-l
->> + *				to APM co-processor.
->> + * @irq_doorbell_shift:		shift to apply to the value written to IRQ
->> + *				generation register.
->> + * @irq_mask_offset:		offset to the IRQ mask register.
->> + * @irq_mask_value:		value to right to the mask register to mask out
->> + *				all interrupts.
->> + */
->> +struct exynos_mbox_driver_data {
->> +	u16 irq_doorbell_offset;
->> +	u16 irq_doorbell_shift;
->> +	u16 irq_mask_offset;
->> +	u16 irq_mask_value;
->> +};
->> +
->>  /**
->>   * struct exynos_mbox - driver's private data.
->>   * @regs:	mailbox registers base address.
->>   * @mbox:	pointer to the mailbox controller.
->> + * @data:	pointer to driver platform-specific data.
->>   */
->>  struct exynos_mbox {
->>  	void __iomem *regs;
->>  	struct mbox_controller *mbox;
->> +	const struct exynos_mbox_driver_data *data;
->> +};
->> +
->> +static const struct exynos_mbox_driver_data exynos850_mbox_data =3D {
->> +	.irq_doorbell_offset =3D EXYNOS850_MBOX_INTGR0,
->> +	.irq_doorbell_shift =3D 16,
->> +	.irq_mask_offset =3D EXYNOS850_MBOX_INTMR1,
->> +	.irq_mask_value =3D EXYNOS850_MBOX_INTMR1_MASK,
->> +};
->> +
->> +static const struct exynos_mbox_driver_data exynos_gs101_mbox_data =3D =
-{
->> +	.irq_doorbell_offset =3D EXYNOS_MBOX_INTGR1,
->> +	.irq_doorbell_shift =3D 0,
->> +	.irq_mask_offset =3D EXYNOS_MBOX_INTMR0,
->> +	.irq_mask_value =3D EXYNOS_MBOX_INTMR0_MASK,
->>  };
->
-> I find it strange that the SoCs use different registers. Are you sure you=
-'re
-> using the right direction? i.e. ring the doorbell to APM and not to AP?
+  fastrpc {
+      compatible = "qcom,fastrpc";        /* rpmsg channel, no iommus */
+      ...
+      compute-cb@3 {
+          compatible = "qcom,fastrpc-compute-cb";
+          iommus = <&apps_smmu 0x1823 0x0>;  /* actual IOMMU client */
+      };
+  };
 
-Well, I am not sure I correctly understood the questions and comment. So,
-this all was tested with ACPM TMU code with 3 temp sensors and it seems
-to work and sensors react in the right way.
+Since qcom_smmu_set_actlr_dev() calls of_match_device() against the
+device being attached to the SMMU context bank, the "qcom,fastrpc"
+entry was never matching any device. As a result, the ACTLR prefetch
+settings (PREFETCH_DEEP | CPRE | CMTLB) were silently never applied
+for FastRPC compute context banks.
 
-Downstream clearly does the following (see also [1],[2]) when sending
-ACPM msg:
+Fix this by replacing "qcom,fastrpc" with "qcom,fastrpc-compute-cb"
+in the match table so that the ACTLR settings are correctly applied
+to the compute CB devices that are the true IOMMU clients.
 
-static void apm_interrupt_gen(unsigned int id)
-{
-	/* APM NVIC INTERRUPT GENERATE */
-	writel((1 << id) << 16, acpm_ipc->intr + INTGR0);
-}
+Assisted-by: Anthropic:claude-4-6-sonnet
+Fixes: 3e35c3e725de ("iommu/arm-smmu: Add ACTLR data and support for qcom_smmu_500")
+Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+---
 
-I am aware that gs101 downstream uses INTGR1 in apm_interrupt_gen().
+While there is an ongoing discussion [1] on how to differentiate ACTLR
+prefetch settings between compute DSP and audio DSP fastrpc devices, it
+is necessary to first fix the compatible string to "qcom,fastrpc-compute-cb".
+Both compute DSP and audio DSP fastrpc nodes use this compatible string,
+so both will receive the ACTLR settings after this fix. However, for
+audio DSP devices the effect remains the same as the current
+state since they do not actively use prefetch — the write is effectively
+a NOP for them. The fix is meaningful for compute DSP devices, which
+actively use prefetch and were previously being silently skipped.
 
-When I use INTGR1 for e850 then I observe acpm timeouts. Hence, out of
-curiosity, what's the expected behaviour when/if I ring the doorbell to
-AP (to itself as far as I understand)? My understanding that it won't
-work at all in such case unless APM firmware does some very fast
-polling.
+[1]: https://lore.kernel.org/all/9b4c895a-c822-40e6-bb92-8fdcd09c82d3@oss.qualcomm.com/
 
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-[1]: https://gitlab.com/Linaro/96boards/e850-96/kernel/-/blob/android-exyno=
-s-4.14-linaro/drivers/soc/samsung/acpm/acpm_ipc.c?ref_type=3Dheads#L423
-[2]: https://github.com/samsungexynos850/android_kernel_samsung_exynos850/b=
-lob/0af517be2336bf8e09c59d576c4c314446713101/drivers/soc/samsung/acpm/acpm_=
-ipc.c#L426
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+index edd41b5a3b6a..2d006049dd61 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+@@ -39,7 +39,7 @@ static const struct of_device_id qcom_smmu_actlr_client_of_match[] = {
+ 			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
+ 	{ .compatible = "qcom,adreno-smmu",
+ 			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
+-	{ .compatible = "qcom,fastrpc",
++	{ .compatible = "qcom,fastrpc-compute-cb",
+ 			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
+ 	{ .compatible = "qcom,qcm2290-mdss",
+ 			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
+--
+2.34.1
 
->>  static int exynos_mbox_send_data(struct mbox_chan *chan, void *data)
->> @@ -57,7 +104,8 @@ static int exynos_mbox_send_data(struct mbox_chan *ch=
-an, void *data)
->>  		return -EINVAL;
->>  	}
->> =20
->> -	writel(BIT(msg->chan_id), exynos_mbox->regs + EXYNOS_MBOX_INTGR1);
->> +	writel(BIT(msg->chan_id) << exynos_mbox->data->irq_doorbell_shift,
->> +	       exynos_mbox->regs + exynos_mbox->data->irq_doorbell_offset);
->
-> Use FIELD_PREP from <linux/bitfield.h> please. You will use a mask instea=
-d of
-> a shift.
->
-> I would rename irq_doorbell_offset to intgr. It aligns with the register =
-name
-> from the datasheet. You won't need to prepend _offset to the name, we alr=
-eady
-> see it's an offset when doing the writel().
-
-Sure. Thanks. Let's use FIELD_PREP.
-
-"doorbell" naming was chosen for readability and maintainability reasons.
-It seems to be more generic enough name that better reflects the workflow
-of what's going on in ACPM+mailbox machinery. We can rename it to just
-"doorbell" for instance.
-
-From platform data it will be clear to which register it is set, INTGR0
-or INTGR1, to align it with datasheet (which is closed anyway).
-
-Regarding intgr vs doorbell name, the intgr is a bit unclear for a
-reader if it means interrupt generation register or something else.
-But if you prefer, I can go with "intgr".
-
-One more option is add a comment, smth like /* Ring the doorbell */
-before that writel().
-
-[..]
-
->> @@ -133,7 +194,7 @@ static int exynos_mbox_probe(struct platform_device =
-*pdev)
->>  	platform_set_drvdata(pdev, exynos_mbox);
->> =20
->>  	/* Mask out all interrupts. We support just polling channels for now. =
-*/
->> -	writel(EXYNOS_MBOX_INTMR0_MASK, exynos_mbox->regs + EXYNOS_MBOX_INTMR0=
-);
->> +	writel(data->irq_mask_value, exynos_mbox->regs + data->irq_mask_offset=
-);
->> =20
->
-> and here I would s/irq_mask_value/intmr_mask and irq_mask_offset/intmr.
-
-Ack. Thanks.
-
-Best regards,
-Alexey
 
