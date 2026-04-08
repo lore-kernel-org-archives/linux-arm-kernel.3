@@ -4,110 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89A0810FC443
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 21:11:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E65410FC445
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 21:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TYisYVKIgGGZp3/zTu7AGT0ZWouISUGwxKducl0azG8=; b=o1vXC12L48zUC/8Jpe7735isED
-	g4lE/Ll7AY+F2K5CbluvkPePjnhjxXvbN5BVP5XHVXTG2sNQQRt9Se7ubWWZu8xwCdIVYBtZ2VOf5
-	Aq6FcpQ4D0nCs2252KdosuE0FCC9WPS2gaJfv1+WW3wgvk6LTlM25FGEmjHBNf1VgrC/KpvF49b4G
-	/kTPjdgOeRj8SL3CEtsqC1WZjnKz6n+F+KudK9aDQBikINw9gW0pMt2seYgIepcSyiDqcgnL7TB6z
-	/uO3DfJMkKXUXA9lbiaY27yQspOstFQlKQT4gYjpB8hn2I6h+p4FngYx1OeILD6CQgKm1K9Wwvr5x
-	dmRn5rkA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=Hk3k45g78/3sNzIrbwQeoLcYreO/jz1LPkmaPwuP2Ms=; b=sQKhi9d+27X95G
+	cUwByw43+LDJTdBD92DjudDXsLgzQsOotbl3qLPq9EQ+QAH5Ab9dHT2IL5PfCKVxdAnvzXU3bAsNS
+	vn1nKBnZgdwciU6dU83+LZYkTlOndDolW9TWb+T8j6uU+xXUNvmdUxWQUvX3xaEdZjNvsFERkNwWg
+	G/haMzhYVfSAvFIEjBQYPPc34AzS9tyWIpiU0e4NZu3x7Cyo/lazOytm6laMwaItMT7ZQyOuBNh6R
+	ObRD1AGnnsu7f+U00VtoydE14Mize5DbqNzDjTtRLzYaBduaOX3mjIMZcmN3nY3vvjlV4jIXU0dWq
+	eq8N01MoBYAnQBB5fnSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAaBi-00000009Q6m-2UsV;
-	Wed, 08 Apr 2026 21:11:50 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
+	id 1wAaPf-00000009Qul-2Wge;
+	Wed, 08 Apr 2026 21:26:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAaBf-00000009Q66-28q7
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 21:11:48 +0000
-Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-50bbc41677dso2872171cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 14:11:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1775682706; x=1776287506; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=TYisYVKIgGGZp3/zTu7AGT0ZWouISUGwxKducl0azG8=;
-        b=iCS0dprN4sne6LSRLjVlZrsmhaxVbae1NXKHzeTdC9YpIXZtslmP5ENtiB/iwzRNqt
-         Ly8K55TTASHYDPTj+Q81qQnrRi03dgrI/u67Zv5zR9bwWUOaB0f+NCQXluf3r7gk/MKp
-         vA77IEiHd4TeCT5QLJbyD7FR+JAN8ixKdWVegCH5ahngBGvtwIg+pFY1Q4MGFhULch5s
-         18CyZ0Y8s2duuYae0d09CD0lHIGEA1eFTmYiE+ld0VJF3SHVcxrWYcl9OSrusWgwZjiF
-         aKOaBI0f1nQYIEomMFFRHTy16AEt03XxXUaZi3IQ8J4iJtp2EcoO7HyztXIFwSG+7yqe
-         T+/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775682706; x=1776287506;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TYisYVKIgGGZp3/zTu7AGT0ZWouISUGwxKducl0azG8=;
-        b=Z5J1NfWw+IHNnPObPRCDo0pXnoGxl6y/OKBmk1WfugBFpQmGBJQuO7YIt0Y3+37MOn
-         hsTEoluKqR5/uo/Cue3JWV9zoXehEeTIkmriz5va4YxOydR8Cx+tNk/3jkVDncdxUPG/
-         6eIigHR5+eGCjNlBgTMuvt0I4uyX5z5+GBSwu/ivgIjB2fE9YHKkwbfEB4fUlK7mWoqo
-         z6BqkZLej/PTmnUTGsPdSm0KxI1AXdo2NfgHOQbZ0NkPZVbRnJO9N4k4Nf7X9xg6K3v9
-         Pm1FtEO1lkWXsBebdaTxFVA7DwSHOYzKdOGWLxTa0TRHpwL8QXvrekN1Po7QoOfsySsr
-         hMHw==
-X-Forwarded-Encrypted: i=1; AJvYcCXmsbcF/Vmb6YCib74kYg19zXwmfC2r6KB2vD1NW5tEWtDB5YANtfGdIXVsb+dBhJOHMrHfd2lYMWGl1ODikNLi@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTrqKrbmQ5vX7q8UHfKU6azcNKBGtlX2AtbUb7LlS/sc/VxjrZ
-	Nv4aJjpj6cQ6iF0I2Aqsp/xZ4G1eGSE8nHkEHFR7vq36PE1G9Rpa+RMJag558nVi+7E=
-X-Gm-Gg: AeBDiev/Daq6FZkPPC8Qu6hOe4CprPdYq2sjWPIkKjl7M5qRul8tAolgx9jHjo9mSrk
-	Qvb8cRvsVdQqpauuioC5170So9zefcgquBqiRqSV3KQDB+mThaSYgKADuYa07uqDENdA+diBAgv
-	X3G9m2gtDfV+pC4D6/c5RE+Qs6ujOunqpdBXyJVmy0cgKFD+WNo88Wgl35r0nGUCeHYTI/iseA1
-	AOVJv+E1gAU3BK0HoYi8KqcoYqR6VLp80biBS5rV1e2rVKShBu7PkK96Rd6QkRCVCnXMQy4p0bY
-	GBU7a3JGc0Qwt5xOhNJPZfWh0OwzqlCgjmbCnZF40zXvoG10c1g5yKBU6rWZ5DSWXljkhtKrQCU
-	7k1Yg+y7SN3P3vbr9FIaqLhdDrSJwvhZZ8i2lAqUuJjLFU/zydUjQgvlSA5QHh50DnwWm4Lgl7K
-	0RPBWJHn2VATgFHzhwFy/aKlum+1BzlBZnJOklWVo=
-X-Received: by 2002:a05:622a:5a9a:b0:50d:7135:5631 with SMTP id d75a77b69052e-50dc21086b5mr14502351cf.6.1775682706003;
-        Wed, 08 Apr 2026 14:11:46 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:15:e06b::5ac? ([2606:6d00:15:e06b::5ac])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-50d4b885b69sm170660741cf.22.2026.04.08.14.11.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Apr 2026 14:11:45 -0700 (PDT)
-Message-ID: <8911674f2f86a4b75e1f44d6e9b66a28f6e74e56.camel@ndufresne.ca>
-Subject: Re: [RFC PATCH 1/7] media: v4l2-ctrls: Add V4L2_CID_MEMORY_USAGE
- control
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>, Frank Li <Frank.li@nxp.com>, 
- Detlev Casanova <detlev.casanova@collabora.com>
-Cc: linux-media@vger.kernel.org, mchehab@kernel.org,
- hverkuil-cisco@xs4all.nl, 	sebastian.fricke@collabora.com,
- shawnguo@kernel.org, s.hauer@pengutronix.de, 	kernel@pengutronix.de,
- festevam@gmail.com, linux-imx@nxp.com, xiahong.bao@nxp.com, 
-	eagle.zhou@nxp.com, imx@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Date: Wed, 08 Apr 2026 17:11:44 -0400
-In-Reply-To: <5c24fe3f-a1c7-4fd6-b5e6-c920bc3e7fcb@oss.nxp.com>
-References: <20260331072347.253-1-ming.qian@oss.nxp.com>
-	 <20260331072347.253-2-ming.qian@oss.nxp.com>
-	 <acvbOo17tU-s20BS@lizhi-Precision-Tower-5810>
-	 <079b1630abe5dd22e032797fc12925c9c79ea305.camel@ndufresne.ca>
-	 <d8c12ba1-5004-4a51-8a2b-3d500184778b@oss.nxp.com>
-	 <5c24fe3f-a1c7-4fd6-b5e6-c920bc3e7fcb@oss.nxp.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-GjVrQf050XDh72y8B2Co"
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	id 1wAaPd-00000009Que-32eG
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 08 Apr 2026 21:26:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:References;
+	bh=Hk3k45g78/3sNzIrbwQeoLcYreO/jz1LPkmaPwuP2Ms=; b=NpqntCzs04ixyJHboLesnfR2Dk
+	NbJ/jDPiTv0gti31tCEyupO08ndP1UaUp9uRiFEO1SKaPfbry/4QWXWtKgxnzgYv2PQtw9oe31sz2
+	n+X6jRpVF80nXg4BiWI7GL6Ko7HLaSydq5Mo1HBojcxD6Fwp6qNomczRJjoE1l9QvI0lKWLn3YJ4m
+	tymj6x7qemnR/PTSu3w7EEVWNP4DSYLRlMRStMy0An/fomWLLRqj2SCIrdzs7gRYy2gslFINIlBgY
+	Shu1BzGObtS1v2dQYaFTcudmimYwL6iCXfGUf9okwWIPmqFfWxCXN6h+TLjt/R22Tebw+lr1wrh/O
+	xiXKxuhg==;
+Received: from [172.31.31.148] (helo=u09cd745991455d.ant.amazon.com)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAaPa-0000000ApSr-24w4;
+	Wed, 08 Apr 2026 21:26:10 +0000
+Message-ID: <3c9c567f7a6e926e8ec24913d564ec55e8f450d2.camel@infradead.org>
+Subject: Re: [PATCH 0/4] arm64: mitigate CVE-2024-7881 in the absence of
+ firmware mitigation
+From: David Woodhouse <dwmw2@infradead.org>
+To: will@kernel.org
+Cc: catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, maz@kernel.org,
+  oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com
+Date: Wed, 08 Apr 2026 22:26:10 +0100
+In-Reply-To: <20250317212611.GA12724@willie-the-truck>
+Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
+	boundary="=-B1aAgbgTtdXVfpPHUzhH"
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_141147_572964_AC74F8A5 
-X-CRM114-Status: GOOD (  36.49  )
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,186 +71,120 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-GjVrQf050XDh72y8B2Co
+--=-B1aAgbgTtdXVfpPHUzhH
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Le jeudi 02 avril 2026 =C3=A0 11:14 +0800, Ming Qian(OSS) a =C3=A9crit=C2=
-=A0:
-> Hi Nicolas,
+On Mon, 17 Mar 2025 at 21:26:12 +0000, Will Deacon wrote:
+> I'm really not comfortable with this series and would prefer to see it
+> dropped while we continue the discussion, especially as it's causing
+> minor conflicts with the KVM/arm64 tree in -next.
 >=20
-> On 4/1/2026 10:23 AM, Ming Qian(OSS) wrote:
-> > Hi Nicolas,
-> >=20
-> > On 3/31/2026 10:54 PM, Nicolas Dufresne wrote:
-> > > Le mardi 31 mars 2026 =C3=A0 10:33 -0400, Frank Li a =C3=A9crit :
-> > > > On Tue, Mar 31, 2026 at 03:23:11PM +0800, ming.qian@oss.nxp.com=C2=
-=A0wrote:
-> > > > > From: Ming Qian <ming.qian@oss.nxp.com>
-> > > > >=20
-> > > > > Add a new read-only control V4L2_CID_MEMORY_USAGE that allows
-> > > > > applications to query the total amount of memory currently used
-> > > > > by a device instance.
-> > > > >=20
-> > > > > This control reports the memory consumption in bytes, including
-> > > > > internal buffers, intermediate processing data, and other
-> > > > > driver-managed allocations. Applications can use this information
-> > > > > for debugging, resource monitoring, or making informed decisions
-> > > > > about buffer allocation strategies.
-> > > > >=20
-> > > > > Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-> > > > > ---
-> > > >=20
-> > > > Not sure why not export these information by debugfs, or any benefi=
-t vs
-> > > > debugfs?
-> > >=20
-> > > There is also a on-going proposal that uses fdinfo.
-> > >=20
-> > > Nicolas
-> > >=20
-> >=20
-> > Thanks for the reminder about the ongoing fdinfo proposal.
-> >=20
-> > Just to confirm, you are referring to Detlev=E2=80=99s ongoing fdinfo p=
-roposal,
-> > specifically this series:
-> > https://lore.kernel.org/lkml/20260212162328.192217-1-=20
-> > detlev.casanova@collabora.com/
-> >=20
-> > I will align my work with it and switch to using fdinfo.
-> > Once the show_fdinfo support from that series is merged, I will prepare
-> > the next revision of my patch accordingly.
-> >=20
-> > Regards,
-> > Ming
-> >=20
+> ...
 >=20
-> Regarding the discussion about using fdinfo instead of a V4L2 control, I
-> have two questions:
->=20
-> 	1. Key consistency in fdinfo
-> 	fdinfo uses key=E2=80=93value pairs, which is flexible, but if multiple
-> 	drivers want to expose the same =E2=80=9Cmemory usage=E2=80=9D informati=
-on,
-> 	they need to agree on a common key name and meaning. Otherwise
-> 	user=E2=80=91space must handle each driver differently. A V4L2 control
-> 	naturally provides a unified interface without this coordination
-> 	effort.
->=20
->=20
-> 	2. Lack of notification in fdinfo
-> 	With a control, user=E2=80=91space can subscribe to control events and
-> 	receive notifications when the memory usage changes. fdinfo does
-> 	not have a built=E2=80=91in event mechanism, so users must either poll
-> 	or rely on additional eventfd=E2=80=91like or custom event mechanisms.
->=20
-> Do you have any suggestions or existing practices to address these two
-> issues when using fdinfo?
->=20
-> Thanks again for your time and comments.
+> To be clear: I'm not at all against mitigating this problem and
+> advertising the status of that mitigation. I *am* against quietly
+> handling it like a CPU erratum whilst simultaneously telling userspace
+> that meltdown is not a problem regardless of the mitigation state.
 
-Added Detlev in CC. You can also refer to his work through:
+Was there a conclusion? KVM still isn't even exposing
+SMCCC_ARCH_WORKAROUND_4 to guests...
 
-https://lore.kernel.org/all/20260212162328.192217-1-detlev.casanova@collabo=
-ra.com/
+--=-B1aAgbgTtdXVfpPHUzhH
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Transfer-Encoding: base64
 
-Nicolas
+MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
+ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
+AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
+BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
+MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
+a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
+jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
+GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
+aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
+nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
+8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
+HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
+IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
+KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
+BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
+QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
+QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
+ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
+/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
+uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
+xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
+W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
+c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
+VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
+NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
+DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
+sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
+w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
+i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
+kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
+0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
+ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
+blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
+hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
+VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
+HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
+ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
+AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
+cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
+cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
+AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
+aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
+hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
+iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
+8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
+JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
+xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
+EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
+B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
+MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
+KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
+Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
+nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
+WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
+W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
+nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
+g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
+9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
+9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
+sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
+a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
+ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
+AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
+dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
+MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
+YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
+4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
+6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
+QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
+nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
+MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
+VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
+ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDQwODIxMjYx
+MFowLwYJKoZIhvcNAQkEMSIEIIJNqkKlaBCFx5qXVrjcaQ8JPX5ZPMxOzxy216uXPQkVMGQGCSsG
+AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
+cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
+VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
+cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIApQz72x7POfTG
+EqLBU2nVyYKj0jRG//EdPyLHWkoHEVCWsuGiwhDXAFy3pJwWhr5jEt32mWrTE3p+O86wXM+yNw1Y
+Ays3iBvuNh4Lnzkj4WfrZK+KBUGWPzYPT996uqK0URhTffuvpYxYOqzLRMtUG5vJGHGYfg5luV+Q
+Uah78I+m6uHsNblTYjqCl/PZX1i+mCIq8vV6mfsaJEWX9oQkdUemEFImeTmbMoE8aZCTZ9sVndDS
+udLpdIEP45/JcMKsRCZ+hnrKXB4T30xKBx4WxmI0M0cv6zUi6ut/G4mVSp/i+2p3fUj+ixAt3J1s
+CukbknK0+lg91iQynBHZ/g7oRmdtDo6xePiIFnEnvKNBEeouhb3Jmw2IXyhwyyit/UFNvGazkl3Q
+naa81fv0B4EFVdtbwGVc3VfLPgY1Y5GjcpwNQD04Vuwi628B6N1GvPPTGZ6Sy8B+OJqBndz1jbG9
+dHKaJjgFeUyjgiO15qxjmUZB9bx4GO43wY6PWgAmdVz6lkqi39dMPKVnXw+Rfs2yw49mejVddGrL
+Ltfo3chxGKWa6UrUSvtPqQ2bwjZXm4enV6+PEoCh5DRdhA7PNN9ueGaA26SLwvix/KSayhIdoxXI
+85a+zIOOreXs8XtL9BdA1kwan8MpkD57WgJocbj0r5R3tS3EO042UdYN806nwDoAAAAAAAA=
 
->=20
-> Regards,
-> Ming
->=20
-> > > >=20
-> > > > Generanlly document should be first patch, then driver change.
-> > > >=20
-> > > > Frank
-> > > >=20
-> > > > > =C2=A0 drivers/media/v4l2-core/v4l2-ctrls-defs.c | 8 ++++++++
-> > > > > =C2=A0 include/uapi/linux/v4l2-controls.h=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 | 4 +++-
-> > > > > =C2=A0 2 files changed, 11 insertions(+), 1 deletion(-)
-> > > > >=20
-> > > > > diff --git a/drivers/media/v4l2-core/v4l2-ctrls-defs.c b/drivers/=
-=20
-> > > > > media/v4l2-core/v4l2-ctrls-defs.c
-> > > > > index 551426c4cd01..053db78ff661 100644
-> > > > > --- a/drivers/media/v4l2-core/v4l2-ctrls-defs.c
-> > > > > +++ b/drivers/media/v4l2-core/v4l2-ctrls-defs.c
-> > > > > @@ -831,6 +831,7 @@ const char *v4l2_ctrl_get_name(u32 id)
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 case V4L2_CID_ALPHA_COMPONENT:=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return "Alpha Component";
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 case V4L2_CID_COLORFX_CBCR:=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return "Color Effects, CbCr";
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 case V4L2_CID_COLORFX_RGB:=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 re=
-turn "Color Effects,=20
-> > > > > RGB";
-> > > > > +=C2=A0=C2=A0=C2=A0 case V4L2_CID_MEMORY_USAGE:=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 return "Memory Usage";
-> > > > >=20
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 /*
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 * Codec controls
-> > > > > @@ -1476,6 +1477,13 @@ void v4l2_ctrl_fill(u32 id, const char=20
-> > > > > **name, enum v4l2_ctrl_type *type,
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *min =3D 0=
-;
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *max =3D 0=
-xffff;
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
-> > > > > +=C2=A0=C2=A0=C2=A0 case V4L2_CID_MEMORY_USAGE:
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *type =3D V4L2_CTRL_T=
-YPE_INTEGER64;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *flags |=3D V4L2_CTRL=
-_FLAG_READ_ONLY;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *min =3D 0;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *max =3D S64_MAX;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *step =3D 1;
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 case V4L2_CID_FLASH_FAULT:
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 case V4L2_CID_JPEG_ACTIVE_MARKER:
-> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 case V4L2_CID_3A_LOCK:
-> > > > > diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/=
-=20
-> > > > > linux/v4l2-controls.h
-> > > > > index 68dd0c4e47b2..02c6f960d38e 100644
-> > > > > --- a/include/uapi/linux/v4l2-controls.h
-> > > > > +++ b/include/uapi/linux/v4l2-controls.h
-> > > > > @@ -110,8 +110,10 @@ enum v4l2_colorfx {
-> > > > > =C2=A0 #define V4L2_CID_COLORFX_CBCR=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (V4L2_CID_BASE+42)
-> > > > > =C2=A0 #define V4L2_CID_COLORFX_RGB=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (V4L2_CID_BASE+43)
-> > > > >=20
-> > > > > +#define V4L2_CID_MEMORY_USAGE=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (V4L2_CID_BASE+44)
-> > > > > +
-> > > > > =C2=A0 /* last CID + 1 */
-> > > > > -#define V4L2_CID_LASTP1=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (V4L2_CID_BASE+44)
-> > > > > +#define V4L2_CID_LASTP1=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (V4L2_CID_BASE+45)
-> > > > >=20
-> > > > > =C2=A0 /* USER-class private control IDs */
-> > > > >=20
-> > > > > --=20
-> > > > > 2.53.0
-> > > > >=20
-> >=20
 
---=-GjVrQf050XDh72y8B2Co
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCadbEkAAKCRDZQZRRKWBy
-9IqwAP4yeegqeo+AHSiM1jVlhyqY9eqH63qFPvFTBJmnvaPAbwEA5Z5akB+DPZtG
-ORNAuAa1vDoUmjl3VtozF6mFzAZBxgM=
-=Xjjv
------END PGP SIGNATURE-----
-
---=-GjVrQf050XDh72y8B2Co--
+--=-B1aAgbgTtdXVfpPHUzhH--
 
