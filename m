@@ -4,68 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F22E1073C86
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 09:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB78F1073C85
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 09:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hpNjeRgJ+zUPosmhLMgV3Q5onF101dchRCSSklbGPeA=; b=dtyaAX0kIzAmkVPsHHlDiwh2oR
-	jgbWbrq+bO7DC6zPki/Yejsq4Jca+ThC+kHPgMLJo3kcz9Y1OBKIwYlarrBE5wLoY1F9Ggv5QCgrq
-	A5LNdwNAWTexm542XT4BQ9gTGZtmqFrFAD+dm2YAESCyewGftIjq5Si7zbw+syeWtFOfex8aKRLDw
-	ide8gpDw7lfd+CMnUbd8+qhejBe5QmN4QSgUGM0w1/ocMQ1+tXXMYHm8Anod4mmgNS8w6WXpBnIMx
-	9qhcVOHq/fWbK9NWvz2qWg5oWw1LYTN7SxA5RBA39Jqa9nRaJ5DwJyv5Dsc5lE5Hlbcyj1xm4Oc5w
-	r+DinhCw==;
+	bh=FhdQTZ4PjxdShoN2GRJESKI6NUEw1EHbjw1nk/1gbzU=; b=k/m3xxofG3NUQDifNuDZ9XXcg2
+	do1XGFviKSRCd0nfwIaxIc926nk8KWX9fRyhb49Q7uLo948r04Yok5b6tgQlqeUPkVnktIouhRCOS
+	JCJz/NU7JQwwOQC/uhRFo+TEVzMtDCK0sw8THCw61S9wXtHgW2i7cpOrD0MjkfnGPSR2+AVvFRWJ6
+	B0ZNlY7se5FF70IC32Lr7+RUyxo+13zRJxF4R27LeveFolwCSnufwxun5UeDNO73qow3fZpOWSziu
+	hMkfy6KAvj1dLOfZyskU1wHDA9YhuE3+JFRDPtdfKyun/w5vMu/Qb6L9Tu4g4OB9XifP2zKYP/zjy
+	L/CZOImw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAPRl-00000008dLy-1DFb;
-	Wed, 08 Apr 2026 09:43:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAPRi-00000008dGu-0qDE
+	id 1wAPRk-00000008dKl-23v8;
+	Wed, 08 Apr 2026 09:43:40 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAPRg-00000008dGD-1zhu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 09:43:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 997423594;
-	Wed,  8 Apr 2026 02:43:31 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D33B63F641;
-	Wed,  8 Apr 2026 02:43:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775641417; bh=mIHRreF4FA7HVCoDiQrweeJgXjlFbqer2/TWKgSYjlo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=WaPB9nCPpien+QXC0Y7LQeTa37ySfIa7NHVmZoORH9sC6wQb8vYq3ZARpzOyJKEub
-	 E87GYvb48/cFX3i6Dl3dmCaHGNjSFFvYzdKzo2MU0XXuUEUtLyVit2tatWykE++ZwL
-	 u9pnawLL/u9hs0jQWa76S4d9Vq+2WCSROsDy0ZqE=
-From: Leo Yan <leo.yan@arm.com>
-Date: Wed, 08 Apr 2026 10:42:34 +0100
-Subject: [PATCH v5 4/4] perf arm_spe: Improve SIMD flags setting
+	Wed, 08 Apr 2026 09:43:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=FhdQTZ4PjxdShoN2GRJESKI6NUEw1EHbjw1nk/1gbzU=; b=LWVCNGgRtCTuIthGvixb61A+O8
+	C2GNvXJWZ6kxkTafqTGqfuUL71asdjM1C2FYgZxL8iRhdtav91LuRpZsj/TXI9qZZBkvHrFk1Vj5i
+	kbivRDeMv+KpkJm01SUtrvuMNbIS0+Q59yHymN4CAfKBoRgix4wOLmcW7+2gZmX5BimGmv+F8PV3t
+	UcIubeLHH3CpwG9f2+lrHiAvC4NNr0YGeCUycptUVkDaa91iXSLScagfulUk1LMfd9H2SE24BsKZI
+	x+b+iwzDfF8xqRZ3f6q7CB7HOycps5zd8x/ajUNl0ypsIUIjcAPyFbE5v2f1MlEVu7IzzR6F+syg1
+	S+e4yaew==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:33750 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1wAPC8-00000000246-3oVx;
+	Wed, 08 Apr 2026 10:27:33 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1wAPC1-0000000F7kl-15YL;
+	Wed, 08 Apr 2026 10:27:25 +0100
+In-Reply-To: <adYfPBHsXxQUsMyr@shell.armlinux.org.uk>
+References: <adYfPBHsXxQUsMyr@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Samuel Holland <samuel@sholland.org>
+Subject: [PATCH RFC net-next 09/10] net: stmmac: clean up test for rx_coe
+ debug printing
 MIME-Version: 1.0
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260408-perf_support_arm_spev1-3-v5-4-b5bcea6217bb@arm.com>
-References: <20260408-perf_support_arm_spev1-3-v5-0-b5bcea6217bb@arm.com>
-In-Reply-To: <20260408-perf_support_arm_spev1-3-v5-0-b5bcea6217bb@arm.com>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
- Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
- James Clark <james.clark@linaro.org>, Mark Rutland <mark.rutland@arm.com>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, 
- linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775641408; l=3573;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=mIHRreF4FA7HVCoDiQrweeJgXjlFbqer2/TWKgSYjlo=;
- b=s9hSHiHCIZLZTG7yl0OfDwjTRbfJuW7r8i/jhzkRK6cBAc6cluheWwKPjHZCRtpyuVrxlbsPB
- 2TXhYOtbo5lA+7IDb4GTeJHDaxVh2Qodt0GwVzcx3wvof1Fa7f9GCN+
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+Message-Id: <E1wAPC1-0000000F7kl-15YL@rmk-PC.armlinux.org.uk>
+Date: Wed, 08 Apr 2026 10:27:25 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_024338_322826_F97A965D 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20260408_024336_513281_76E602C7 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,79 +91,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fill in ASE and SME operations for the SIMD arch field.
+The test for printing rx_coe as opposed to rx_coe_type[12] and
+rxfifo_over_2048 has checked for an XGMAC core or the Synopssys IP
+version (snpsver) >= v4.0.
 
-Also set the predicate flags for SVE and SME, but differences between
-them: SME does not have a predicate flag, so the setting is based on
-events. SVE provides a predicate flag to indicate whether the predicate
-is disabled, which allows it to be distinguished into four cases: full
-predicates, empty predicates, fully predicated, and disabled predicates.
+Since the Synopsys IP version depends on the core type, avoid using it.
 
-After:
+The GMAC4 core type uses dwmac4_get_hw_feature(), which populates
+rx_coe but not rx_coe_type[12] or rxfifo_over_2048. XGMAC is the same
+but via dwxgmac2_get_hw_feature().
 
-    perf report -s +simd
-    ...
-    0.06%     0.06%  sve-test  sve-test               [.] setz                                        [p] SVE
-    0.06%     0.06%  sve-test  [kernel.kallsyms]      [k] do_raw_spin_lock
-    0.06%     0.06%  sve-test  sve-test               [.] getz                                        [p] SVE
-    0.06%     0.06%  sve-test  [kernel.kallsyms]      [k] timekeeping_advance
-    0.06%     0.06%  sve-test  sve-test               [.] getz                                        [d] SVE
-    0.06%     0.06%  sve-test  [kernel.kallsyms]      [k] update_load_avg
-    0.06%     0.06%  sve-test  sve-test               [.] getz                                        [e] SVE
-    0.05%     0.05%  sve-test  sve-test               [.] setz                                        [e] SVE
-    0.05%     0.05%  sve-test  [kernel.kallsyms]      [k] update_curr
-    0.05%     0.05%  sve-test  sve-test               [.] setz                                        [d] SVE
-    0.05%     0.05%  sve-test  [kernel.kallsyms]      [k] do_raw_spin_unlock
-    0.05%     0.05%  sve-test  [kernel.kallsyms]      [k] timekeeping_update_from_shadow.constprop.0
-    0.05%     0.05%  sve-test  sve-test               [.] getz                                        [f] SVE
-    0.05%     0.05%  sve-test  sve-test               [.] setz                                        [f] SVE
+dwmac-motorcomm populates rx_coe but not the others, and sets the core
+type to GMAC4. The Synopsys IP version is likely >= 4, but in any case
+printing rx_coe is clearly more correct.
 
-Reviewed-by: James Clark <james.clark@linaro.org>
-Reviewed-by: Ian Rogers <irogers@google.com>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
+Lastly, dwmac-sun8i is an oddball - it sets rx_coe, but does not set
+core_type, leaving it as the defeault DWMAC_CORE_MAC100 since as far
+as I can see, none of the .dtsi files for this platform use any of the
+versioned snps,gmac-* compatibles. Moreover, sun8i_dwmac_setup() sets
+snpsver to zero (which stmmac_get_version() will have already done) so
+this has always used the rx_coe_type[12] path.
+
+Change the test to check for GMAC4 or XGMAC which covers the cases
+where rx_coe is set from the core hardware features.
+
+Also add a comment for the GMAC to GMAC4+ rx_coe feature translation in
+stmmac_hw_init(), and document rx_coe in struct plat_stmmacenet_data.
+
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- tools/perf/util/arm-spe.c | 26 ++++++++++++++++++++------
- 1 file changed, 20 insertions(+), 6 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 11 +++++++++--
+ include/linux/stmmac.h                            |  7 +++++++
+ 2 files changed, 16 insertions(+), 2 deletions(-)
 
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 70dd9bee47c755f19a51b80c6df3499180de9540..e5835042acdf7685f95e19665cd45f97ed868275 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -353,12 +353,26 @@ static struct simd_flags arm_spe__synth_simd_flags(const struct arm_spe_record *
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index e47321119c83..93c031b3cfd5 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -6624,11 +6624,15 @@ static int stmmac_dma_cap_show(struct seq_file *seq, void *v)
+ 	seq_printf(seq, "\tAV features: %s\n", (priv->dma_cap.av) ? "Y" : "N");
+ 	seq_printf(seq, "\tChecksum Offload in TX: %s\n",
+ 		   (priv->dma_cap.tx_coe) ? "Y" : "N");
+-	if (priv->snpsver >= DWMAC_CORE_4_00 ||
+-	    priv->plat->core_type == DWMAC_CORE_XGMAC) {
++	if (dwmac_is_xmac(priv->plat->core_type)) {
++		/* gmac4, xgmac, and motorcomm populate this. */
+ 		seq_printf(seq, "\tIP Checksum Offload in RX: %s\n",
+ 			   (priv->dma_cap.rx_coe) ? "Y" : "N");
+ 	} else {
++		/* only dwmac1000 has these three. sun8i sets rx_coe, but
++		 * sets snpsver to zero and leaves core_Type as MAC100, so
++		 * uses this path.
++		 */
+ 		seq_printf(seq, "\tIP Checksum Offload (type1) in RX: %s\n",
+ 			   (priv->dma_cap.rx_coe_type1) ? "Y" : "N");
+ 		seq_printf(seq, "\tIP Checksum Offload (type2) in RX: %s\n",
+@@ -7441,6 +7445,9 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
+ 		/* In case of GMAC4 rx_coe is from HW cap register. */
+ 		priv->plat->rx_coe = priv->dma_cap.rx_coe;
  
- 	if (record->op & ARM_SPE_OP_SVE)
- 		simd_flags.arch |= SIMD_OP_FLAGS_ARCH_SVE;
--
--	if (record->type & ARM_SPE_SVE_PARTIAL_PRED)
--		simd_flags.pred |= SIMD_OP_FLAGS_PRED_PARTIAL;
--
--	if (record->type & ARM_SPE_SVE_EMPTY_PRED)
--		simd_flags.pred |= SIMD_OP_FLAGS_PRED_EMPTY;
-+	else if (record->op & ARM_SPE_OP_SME)
-+		simd_flags.arch |= SIMD_OP_FLAGS_ARCH_SME;
-+	else if (record->op & (ARM_SPE_OP_ASE | ARM_SPE_OP_SIMD_FP))
-+		simd_flags.arch |= SIMD_OP_FLAGS_ARCH_ASE;
-+
-+	if (record->op & ARM_SPE_OP_SVE) {
-+		if (!(record->op & ARM_SPE_OP_PRED))
-+			simd_flags.pred = SIMD_OP_FLAGS_PRED_DISABLED;
-+		else if (record->type & ARM_SPE_SVE_PARTIAL_PRED)
-+			simd_flags.pred = SIMD_OP_FLAGS_PRED_PARTIAL;
-+		else if (record->type & ARM_SPE_SVE_EMPTY_PRED)
-+			simd_flags.pred = SIMD_OP_FLAGS_PRED_EMPTY;
-+		else
-+			simd_flags.pred = SIMD_OP_FLAGS_PRED_FULL;
-+	} else {
-+		if (record->type & ARM_SPE_SVE_PARTIAL_PRED)
-+			simd_flags.pred = SIMD_OP_FLAGS_PRED_PARTIAL;
-+		else if (record->type & ARM_SPE_SVE_EMPTY_PRED)
-+			simd_flags.pred = SIMD_OP_FLAGS_PRED_EMPTY;
-+	}
- 
- 	return simd_flags;
- }
-
++		/* GMAC (dwmac1000) has separate bits for the Rx COE type.
++		 * Translate to the GMAC4/XGMAC rx_coe feature code.
++		 */
+ 		if (priv->dma_cap.rx_coe_type2)
+ 			priv->plat->rx_coe = STMMAC_RX_COE_TYPE2;
+ 		else if (priv->dma_cap.rx_coe_type1)
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index 4430b967abde..c80d45de0067 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -256,6 +256,13 @@ struct plat_stmmacenet_data {
+ 	bool force_sf_dma_mode;
+ 	bool force_thresh_dma_mode;
+ 	bool riwt_off;
++	/* rx_coe:
++	 * for dwmac100, rx_coe does not appear to be defined.
++	 * for dwmac1000, rx_coe takes one of the STMMAC_RX_COE_* constants,
++	 *  which will be derived from the RXTYP[12]COE hardware feature bits.
++	 * for dwmac4 and xgmac, rx_coe is a boolean from the RXCOESEL hardware
++	 *  feature bit.
++	 */
+ 	int rx_coe;
+ 	int max_speed;
+ 	int maxmtu;
 -- 
-2.34.1
+2.47.3
 
 
