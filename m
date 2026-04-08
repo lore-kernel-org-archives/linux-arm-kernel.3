@@ -4,90 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD83410F9966
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 17:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8237B10F9964
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 17:25:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qZhH8c6x0PEbv9p0RAqu0ezmUYM5PZZV4d1Q1ar4FwE=; b=3R1dCI0aCUtNj0LM6SN4JjUaws
-	eHA9clE8okjKJrkyE/qYvX+8COKipue5KcDwa6Pq4PL/7fosJOQiBx9l1S5m8cxTny9pUTHokDQS7
-	blVPTr1IaFDfiFnO5F0cA6hTWCG7kHvPAUryNebh9pCLBb4k+o8Wxp2iyQxfFblN10Ray8RaS6ssR
-	jbc4jG+84Vtwh6lK7k6NiJGlDGiNYQXH2KLQy23Q78BELW1MbqK+Zdm/BA+OKNn3P1DtqiGJXMNbK
-	H4v3FoF3v2iHDglz6ucllaDcW+Y4CNmQv2tMxMDXoWY4kArBQ2xornwEFwgCc+L504+jL4NGjibVe
-	RFfG7KbQ==;
+	bh=8lD3E5HRMlsQCD5VggpYU550MonPPB+IkA0OZi4jWtI=; b=xc0le0bo4CY7didxb0ByhX9GPE
+	Cq1S6vs3R5ooZgVHc2CszPwT3lSfIrm4kHmKz2TffClB8R1tdvxLBGPtY9+M/LaKaotGvB7rsY2V4
+	rbkfoR1wcYoaruGLtWiQK4xn0w1nJF8xuX0y7Xu99pMkZT9peh1ElpY8LZTV1EdIAU4ehiVOyi7Ix
+	0EkWuWv1RXiOX7X8kR6n6NciZVtd5YSVNTTG2nYjHAHFk9QXH69wY1pYfOKmNzfthXeDcg+hRfa7J
+	UvNx5+qozGVLkcO7Q2Fc/q+zq8/PfmaUrOVWjTnQY8Xt4aj4JBj79HZZiWyDy2wcN3pNQrgNC6mB+
+	oiNW2/Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAWbt-00000009AkU-3PrI;
-	Wed, 08 Apr 2026 17:22:37 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAWbq-00000009Ahu-1E1T
+	id 1wAWeM-00000009BFI-1M3N;
+	Wed, 08 Apr 2026 17:25:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAWeJ-00000009BEv-0J4R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 17:22:35 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id D6F2E1A3209;
-	Wed,  8 Apr 2026 17:22:32 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id AE170603CE;
-	Wed,  8 Apr 2026 17:22:32 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 195F51045019E;
-	Wed,  8 Apr 2026 19:22:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1775668951; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=qZhH8c6x0PEbv9p0RAqu0ezmUYM5PZZV4d1Q1ar4FwE=;
-	b=z8unAsqBhcFq5Vp4lQHlWVnZSxrWvHScIDOYqqp+A+dS3QgjjtDHAxKDjuEx0sxx6Ntw8m
-	/9p7zjSpikeOg/vfYZYTPmaqnAxKLigX/Sqh4Cy+ieb4WQ7IJlDRyLsFZM0CjTR8cipVBd
-	isItGziOohCzTwkhA8OjWcXijOoRqFa02KLen0vqjAdvH7maZMF66u4S0a4lFFsVfzOBB8
-	dGgEGIuM6i2daXd89VBetMT61jlXZbVRuJ2zPu+P4oL/+wjZn3oeZ0pflLVK85kJDBrbrV
-	+Dn/hhvE5dZl4tMmiG7Kv4LHFaOrEoW8aepF3HLtlgyhJThYLzrtH4vLKklGqg==
-From: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
-Date: Wed, 08 Apr 2026 19:21:58 +0200
-Subject: [PATCH v5 5/5] watchdog: aaeon: Add watchdog driver for SRG-IMX8P
- MCU
+	Wed, 08 Apr 2026 17:25:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 49B8F2D95;
+	Wed,  8 Apr 2026 10:24:59 -0700 (PDT)
+Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D62F3F641;
+	Wed,  8 Apr 2026 10:25:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775669105; bh=PlRA8QfdMUAitutbdSmBZYJ4KOb7Lyoj5je3W40Rf1g=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=giFTE8mN0nSUnk3L/Kghd5hCcCRFf7ICkTEYqy4RLQttthDSXVV7LXCDQihrxfr2j
+	 9U8ej9kmpzkEC2xuEJWnRu3NTufh6tGa5lYdWF7U7I/DHirnMSGfPTaK/eDxUdqWWM
+	 QP5eXyZILG/RZulGqK2AFdecP1icu3bedTpFAODM=
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Haoyu Lu <hechushiguitu666@gmail.com>
+Cc: Len Brown <lenb@kernel.org>,
+	Ilkka Koskinen <ilkka@os.amperecomputing.com>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] ACPI: AGDI: fix missing newline in error message
+Date: Wed,  8 Apr 2026 18:24:53 +0100
+Message-ID: <177566909299.3319453.9218685711243749152.b4-ty@arm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260407033117.100-1-hechushiguitu666@gmail.com>
+References: <20260407033117.100-1-hechushiguitu666@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260408-dev-b4-aaeon-mcu-driver-v5-5-ad98bd481668@bootlin.com>
-References: <20260408-dev-b4-aaeon-mcu-driver-v5-0-ad98bd481668@bootlin.com>
-In-Reply-To: <20260408-dev-b4-aaeon-mcu-driver-v5-0-ad98bd481668@bootlin.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- =?utf-8?q?J=C3=A9r=C3=A9mie_Dautheribes?= <jeremie.dautheribes@bootlin.com>, 
- Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Miquel Raynal <miquel.raynal@bootlin.com>, 
- "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6289;
- i=thomas.perrot@bootlin.com; h=from:subject:message-id;
- bh=65QwNvr+I5OOmsYxfpRudawMxhKeDbuvLhOvIVdlggg=;
- b=owEB7QES/pANAwAKAZ/ACwVx/grtAcsmYgBp1o7D023/jd70SBytcOY53H44Gff8aGs8jSBbo
- +a/5Eg1d1aJAbMEAAEKAB0WIQSHQHfGpqMKIwOoEiGfwAsFcf4K7QUCadaOwwAKCRCfwAsFcf4K
- 7Rx/C/9qKnMPOpRaDoSlA09ZRN0giYZatPJUexrNcHxuK8cjBp7y11zuq3C4s6O8QrilmBKw/Aw
- 9CYaXtm39Vdy2OWOKWAZA6TG3cA3/eiqsIdUo+OI93hbIW3LMyRMh9zlXKRoNkwfQFds4OAZe1C
- AU3TL8eKuUPdYFoJVd7lldprM14b2snHsFh6zZBpbj+49hwOViirfLN2Se57m/bDVdti3uZiRRh
- jb2wRfdz7ZxJlwCSIwSmsWN26FuFad417V+SI1+AbGTFd1oLdFiBruJg2qR4yh5sMsL3Kt7vbyq
- GdQeZEwjTVZOvWIQy7NmhtIejB5qDPLB4I8EwN39VU0Xe9bx3hzFMo5RVh3s5mX4yrKw5G6zKX4
- Y5Lg1DX7sFU8jKy+m+fPTNDAEzNJE9/ocw8rL1vSsokOiUFaHAPxnxuWdlwDEuIXFfywTMG9kGZ
- Q0fsKoWJlpZrlUt0qXONDKXTylsIx88zGYCLZQUGJ1KqNzkknFiG5qVJR0CT1Uh56i3Ds=
-X-Developer-Key: i=thomas.perrot@bootlin.com; a=openpgp;
- fpr=874077C6A6A30A2303A812219FC00B0571FE0AED
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_102234_542230_491B856E 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20260408_102507_262881_85E692A9 
+X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,208 +79,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add watchdog driver for the Aaeon SRG-IMX8P embedded controller.
-This driver provides system monitoring and recovery capabilities
-through the MCU's watchdog timer.
+On Tue, 07 Apr 2026 11:31:15 +0800, Haoyu Lu wrote:
+> Add the missing trailing newline to the dev_err() message
+> printed when SDEI event registration fails.
+> 
+> This keeps the error output as a properly terminated log line.
 
-The watchdog supports start, stop, and ping operations with a maximum
-hardware heartbeat of 25 seconds and a default timeout of 240 seconds.
+Applied to arm64 (for-next/acpi), thanks!
 
-Co-developed-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
-Signed-off-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
-Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
----
- MAINTAINERS                      |   1 +
- drivers/watchdog/Kconfig         |  10 +++
- drivers/watchdog/Makefile        |   1 +
- drivers/watchdog/aaeon_mcu_wdt.c | 132 +++++++++++++++++++++++++++++++++++++++
- 4 files changed, 144 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 2538f8c4bc14..7b92af42c9fd 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -193,6 +193,7 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml
- F:	drivers/gpio/gpio-aaeon-mcu.c
- F:	drivers/mfd/aaeon-mcu.c
-+F:	drivers/watchdog/aaeon_mcu_wdt.c
- F:	include/linux/mfd/aaeon-mcu.h
- 
- AAEON UPBOARD FPGA MFD DRIVER
-diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
-index d3b9df7d466b..f67a0b453316 100644
---- a/drivers/watchdog/Kconfig
-+++ b/drivers/watchdog/Kconfig
-@@ -420,6 +420,16 @@ config SL28CPLD_WATCHDOG
- 
- # ARM Architecture
- 
-+config AAEON_MCU_WATCHDOG
-+	tristate "Aaeon MCU Watchdog"
-+	depends on MFD_AAEON_MCU
-+	select WATCHDOG_CORE
-+	help
-+	  Select this option to enable watchdog timer support for the Aaeon
-+	  SRG-IMX8P onboard microcontroller (MCU). This driver provides
-+	  watchdog functionality through the MCU, allowing system monitoring
-+	  and automatic recovery from system hangs.
-+
- config AIROHA_WATCHDOG
- 	tristate "Airoha EN7581 Watchdog"
- 	depends on ARCH_AIROHA || COMPILE_TEST
-diff --git a/drivers/watchdog/Makefile b/drivers/watchdog/Makefile
-index ba52099b1253..2deec425d3ea 100644
---- a/drivers/watchdog/Makefile
-+++ b/drivers/watchdog/Makefile
-@@ -37,6 +37,7 @@ obj-$(CONFIG_USBPCWATCHDOG) += pcwd_usb.o
- # ALPHA Architecture
- 
- # ARM Architecture
-+obj-$(CONFIG_AAEON_MCU_WATCHDOG) += aaeon_mcu_wdt.o
- obj-$(CONFIG_ARM_SP805_WATCHDOG) += sp805_wdt.o
- obj-$(CONFIG_ARM_SBSA_WATCHDOG) += sbsa_gwdt.o
- obj-$(CONFIG_ARMADA_37XX_WATCHDOG) += armada_37xx_wdt.o
-diff --git a/drivers/watchdog/aaeon_mcu_wdt.c b/drivers/watchdog/aaeon_mcu_wdt.c
-new file mode 100644
-index 000000000000..949b506d8194
---- /dev/null
-+++ b/drivers/watchdog/aaeon_mcu_wdt.c
-@@ -0,0 +1,132 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Aaeon MCU Watchdog driver
-+ *
-+ * Copyright (C) 2026 Bootlin
-+ * Author: Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
-+ * Author: Thomas Perrot <thomas.perrot@bootlin.com>
-+ */
-+
-+#include <linux/mfd/aaeon-mcu.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/watchdog.h>
-+
-+#define AAEON_MCU_PING_WDT	0x73
-+
-+#define AAEON_MCU_WDT_TIMEOUT         240
-+#define AAEON_MCU_WDT_HEARTBEAT_MS    25000
-+
-+struct aaeon_mcu_wdt {
-+	struct watchdog_device wdt;
-+	struct regmap *regmap;
-+};
-+
-+static int aaeon_mcu_wdt_cmd(struct aaeon_mcu_wdt *data, u8 opcode, u8 arg)
-+{
-+	return regmap_write(data->regmap, AAEON_MCU_REG(opcode, arg), 0);
-+}
-+
-+static int aaeon_mcu_wdt_start(struct watchdog_device *wdt)
-+{
-+	struct aaeon_mcu_wdt *data = watchdog_get_drvdata(wdt);
-+
-+	return aaeon_mcu_wdt_cmd(data, AAEON_MCU_CONTROL_WDT_OPCODE, 0x01);
-+}
-+
-+static int aaeon_mcu_wdt_status(struct watchdog_device *wdt, bool *enabled)
-+{
-+	struct aaeon_mcu_wdt *data = watchdog_get_drvdata(wdt);
-+	unsigned int rsp;
-+	int ret;
-+
-+	ret = regmap_read(data->regmap,
-+			  AAEON_MCU_REG(AAEON_MCU_CONTROL_WDT_OPCODE, 0x02),
-+			  &rsp);
-+	if (ret)
-+		return ret;
-+
-+	*enabled = rsp == 0x01;
-+	return 0;
-+}
-+
-+static int aaeon_mcu_wdt_stop(struct watchdog_device *wdt)
-+{
-+	struct aaeon_mcu_wdt *data = watchdog_get_drvdata(wdt);
-+
-+	return aaeon_mcu_wdt_cmd(data, AAEON_MCU_CONTROL_WDT_OPCODE, 0x00);
-+}
-+
-+static int aaeon_mcu_wdt_ping(struct watchdog_device *wdt)
-+{
-+	struct aaeon_mcu_wdt *data = watchdog_get_drvdata(wdt);
-+
-+	return aaeon_mcu_wdt_cmd(data, AAEON_MCU_PING_WDT, 0x00);
-+}
-+
-+static const struct watchdog_info aaeon_mcu_wdt_info = {
-+	.identity	= "Aaeon MCU Watchdog",
-+	.options	= WDIOF_KEEPALIVEPING | WDIOF_MAGICCLOSE
-+};
-+
-+static const struct watchdog_ops aaeon_mcu_wdt_ops = {
-+	.owner		= THIS_MODULE,
-+	.start		= aaeon_mcu_wdt_start,
-+	.stop		= aaeon_mcu_wdt_stop,
-+	.ping		= aaeon_mcu_wdt_ping,
-+};
-+
-+static int aaeon_mcu_wdt_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct watchdog_device *wdt;
-+	struct aaeon_mcu_wdt *data;
-+	bool enabled;
-+	int ret;
-+
-+	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
-+	if (!data)
-+		return -ENOMEM;
-+
-+	data->regmap = dev_get_regmap(dev->parent, NULL);
-+	if (!data->regmap)
-+		return -ENODEV;
-+
-+	wdt = &data->wdt;
-+	wdt->parent = dev;
-+	wdt->info = &aaeon_mcu_wdt_info;
-+	wdt->ops = &aaeon_mcu_wdt_ops;
-+	/*
-+	 * The MCU firmware has a fixed hardware timeout of 25 seconds that
-+	 * cannot be changed. The watchdog core will handle automatic pinging
-+	 * to support longer timeouts. The software timeout of 240 seconds is
-+	 * chosen arbitrarily as a reasonable value and is not user-configurable.
-+	 */
-+	wdt->timeout = AAEON_MCU_WDT_TIMEOUT;
-+	wdt->max_hw_heartbeat_ms = AAEON_MCU_WDT_HEARTBEAT_MS;
-+
-+	watchdog_set_drvdata(wdt, data);
-+
-+	ret = aaeon_mcu_wdt_status(wdt, &enabled);
-+	if (ret)
-+		return ret;
-+
-+	if (enabled)
-+		set_bit(WDOG_HW_RUNNING, &wdt->status);
-+
-+	return devm_watchdog_register_device(dev, wdt);
-+}
-+
-+static struct platform_driver aaeon_mcu_wdt_driver = {
-+	.driver		= {
-+		.name	= "aaeon-mcu-wdt",
-+	},
-+	.probe		= aaeon_mcu_wdt_probe,
-+};
-+
-+module_platform_driver(aaeon_mcu_wdt_driver);
-+
-+MODULE_DESCRIPTION("Aaeon MCU Watchdog Driver");
-+MODULE_AUTHOR("Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>");
-+MODULE_LICENSE("GPL");
-
--- 
-2.53.0
-
+[1/1] ACPI: AGDI: fix missing newline in error message
+      https://git.kernel.org/arm64/c/b178330b67ab
 
