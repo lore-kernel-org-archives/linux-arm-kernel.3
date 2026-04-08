@@ -4,150 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1E0FFD5F8F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 07:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71A91FD5F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 07:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=foXQZW+HFsYsOpgbdU9gp8rFPeiZKMy9pLJVC5jouzg=; b=nAdqKl5r7ZVsrp93Wc1DKj/4q1
-	KB6XtWKVvOx0xklmts9ASk4kgkNkqub4NfeRMMMJu+IC1UV8IK7KsRKOiMYg/ysW9IH6uhum8E0JP
-	a50fJmuIJ1Jftt1WUTdw0DYxEZyxMzETKpP0OtA4Z2/Vjl0kZGpasyU4ApLQNVV7oW3Wqpxv/EAue
-	QF/DVsg51XrR8mQgF14s15zPI6LfnKHIyJks44N60zLzjLqJ/0gmV7oaotJTOgsMwVnn4HIVygu91
-	BuehfZ/XiK8/7+iHIUuA1aItr3HM6z59Pujx/20frVZbB627FRFZ+I7W0D3jBSKt8BLY5hdw9BZaz
-	a0RYXkbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Pgjc+iDhtRtK3JACWAL8i9BfyIOhdj4DskF7Y0r/1rs=; b=arpcEmsZJruaB/G4xi56c1fJ5J
+	yIJA7N42qwOqO8Z2fCEI2MGF6LjTSnp8ziqbVB/XGTe1mYVTmykXlagSouezkYnlc8+ZtihxdZDyN
+	G9lP9K1BVIU2f+QqnWBJK4euyTVRk76jQxs3cpXJzMh12nhLCGzY9O4wsiE8S9qlx6Y+V7cvxxndX
+	k4KvcWgx0ocQKgGG3c5NpXBW4aOejuyI4jX04DOWOo0ChdFDGAhqvw0tTWT0tMy8kx2NXkHN2bm1g
+	1misx8E2rS/nEIB2zRejguvGd6a4WdXn4ePaaI4zKoxSZXjOpFIu0bysxlVTvGHGN+pc7KBoQsylI
+	Yast8bUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wANT9-00000008RhF-3TgJ;
-	Wed, 08 Apr 2026 07:36:59 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wANUE-00000008Rs2-2sr8;
+	Wed, 08 Apr 2026 07:38:06 +0000
+Received: from mail-francesouthazon11011014.outbound.protection.outlook.com ([40.107.130.14] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wANT7-00000008Rgn-2CwN
+	id 1wANUC-00000008RrM-0XMR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 07:36:58 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63839Elq2412291
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 8 Apr 2026 07:36:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	foXQZW+HFsYsOpgbdU9gp8rFPeiZKMy9pLJVC5jouzg=; b=P0K3k3cp7IqmZJQQ
-	YQ7RGgCppWOOh2CBadHhcxzE8ak7D9xM6hpjmAei1mzpJwDU+2CFLxpy/Vaiz5Y8
-	PvYq+UU9TGJcg+beHTmeNxHn4eZ+nncr/zsC0ee6T54A6FCWMAb2/mJ0aF55B3OW
-	Op79Hj/HtYutQ5gCYBaDs/V+t4tKv+jWM+rEecgPW1URmcGCS7cWAkjiOHFLcUKn
-	mCogtT9jE7FevmbibSNRuiymAZeI/IpBhwsMl58RTYNZJxx9zGFabxhIOCuaeyf0
-	A+l8hPjUMJ8WzZTNfCgBiyAEBR866j2X9nYQBZdFlZr0fzxWoDQjOjWeZGtsToAE
-	euOs9g==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dd61vakre-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 07:36:55 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2b258636d16so60818155ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 00:36:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1775633815; x=1776238615; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=foXQZW+HFsYsOpgbdU9gp8rFPeiZKMy9pLJVC5jouzg=;
-        b=KLwkK9Us+8zMgrj4nmxZSNnDzH7ZfeLrAXuMX0TOKGjp5YGR2/5gl0u3uJ2PmE7Fy5
-         GonqM9/j/jG8ZUyRPiBmAten11NmcjussWWUmxTJc21OwUZvOdidFm1oTQ8RZxqthtoF
-         LMUmvukbMTRyAzLjkbtVtHkefBY7yzjxOLulr5lIaBT/5Qtt29QOxl6Ka9SyCiLIoQKc
-         F4Va/SSdM+yCn/ncugrNNrkQ6HkQA7ojCq8IjeFMg6+C+jOcfEZDomDYaq/aPHSbROX/
-         qFOTGBHdoImOxZtSQwaD+EU58/AEzJyGLsbyhuFIbGCowsO2Z82AymFu6ckhfrrW/ROr
-         3MUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775633815; x=1776238615;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=foXQZW+HFsYsOpgbdU9gp8rFPeiZKMy9pLJVC5jouzg=;
-        b=EiAQf0XesD1VF+xwIPF035i4OK1rKA5cCn+SrMl5lqMm8PFNgAkjlmyXhRJ6gaew+9
-         18Jc47bhbK77hXAPFvE7HrONtI+443eLR2QLh8EMrFUMw2KatRi8AMVnA2jx+OIONCVr
-         uGKODm40+6rZ2NrAq1BL8Binc0kqId7O0X3NvYqnO5QKuF+Ro2csJISCRHkmF0qq2LeD
-         En83hNyvFCfyRGakIKYV3B6y8Z2+H9O5IfHwf0IjYIPF90P9qdB7y7Yda0xn4UfSR30z
-         7sp3f/TvidB2e8WzqAs3rei5WPqG1CdtI8B+ya6gR5LQLJfauBr18YfVPzKAr7qrbo8Y
-         IqMw==
-X-Forwarded-Encrypted: i=1; AJvYcCW2m003av877ml2vElCZLucNytywZIcAsNxe0N4LNrWkStUbhKhMCB4gnq1qgbaWlLAtjg1hmPQWmTsLV1w2lmg@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoTofCdGyOF0rCEj9dp9lgq3l3BjplATIpnl6731A6whTv9a95
-	e9extJMSVl4S6qSm75iZsk+WqtKIr1gDCtNliS1VWgWTdKbov67JoKUksOMpBv5HFxvrBuxtPJ6
-	7ec7w7fZ0njMlKDqLFNaZME6cXEgUzzSWbZwQ1624OFLsRPJroGd/hEvKb2egqcfBX70kXff4YU
-	D+LQ==
-X-Gm-Gg: AeBDiet9LKaCvy9jKHkhWMqvAdKSFwBz0oaKztr4Sq0Yn4Iy1vcu0W6SMbp8h23slME
-	8vy1NRevbEV0XqZIXwytqG36gJ1DU5Zd0h5OCV5t/sO7I4TmGA9BscvZaQ8u4WY9xQ0PQeih6i2
-	PNr9EdwRYNMRZ06ICbTEFuJg9aC0kJviTVor1WZefrjKHCjeAdCA33Q8GQ4ZeUkJq03Q+FQCjjg
-	jjO4064yYUSHzFLp1p628wB5g5dRhMG8Gnf2/UYjsD4Jxxbx93nIcFTa0yKKczJVi6Bt9uQ4NQt
-	4XlMSNcs0HA6s4iv2oEea31tVQ7zU08SLX9+7tQvNLDGp7R7izx49vJpOyGlZTRernTKsOA0HJo
-	MsR4M+LvUS/9hX/89XmZ6GGU2hwwt4Ab+zxSsaeYDr+u5ctu9mw==
-X-Received: by 2002:a17:903:22c7:b0:2b2:4260:109 with SMTP id d9443c01a7336-2b2818b011emr206708445ad.23.1775633814978;
-        Wed, 08 Apr 2026 00:36:54 -0700 (PDT)
-X-Received: by 2002:a17:903:22c7:b0:2b2:4260:109 with SMTP id d9443c01a7336-2b2818b011emr206708055ad.23.1775633814473;
-        Wed, 08 Apr 2026 00:36:54 -0700 (PDT)
-Received: from [10.217.217.198] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b2adc8c4ecsm46328265ad.5.2026.04.08.00.36.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 08 Apr 2026 00:36:54 -0700 (PDT)
-Message-ID: <3dcd713f-dce6-401b-8c1b-194313ec5e05@oss.qualcomm.com>
-Date: Wed, 8 Apr 2026 13:06:48 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/7] dt-bindings: clock: qcom: Add video clock controller
- on Eliza SoC
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org
-References: <20260317-eliza_mm_clock_controllers_v1-v1-0-4696eeda8cfb@oss.qualcomm.com>
- <20260317-eliza_mm_clock_controllers_v1-v1-1-4696eeda8cfb@oss.qualcomm.com>
- <4c4e80be-4aeb-4275-977f-b3f8c6ab26b0@oss.qualcomm.com>
+	Wed, 08 Apr 2026 07:38:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ILkEPXNxJ+HeJXzhpbcriBQ1hss/CpaEihtALZRjwvgc0/SGqC6h2LWwAoShOaKJ1Bs7cc4wgdiIvnKID1+ZQbWN7k42Z9jL9CzCZ2RjB27U5D6LwIDpBNPRi1GrvnFcdp+73Z1b+5xi435FrtS9VbRb96MKkX2fIxPhRqXr6c7i50F8KKwLmucsmKNtpUEvTkje++o+5E7GngiwEFWRNDcLLWiUYNMVfjCo4nes4g74qrs8/p7niew0QUkDW47EW0Dp+wU6w30dmf3h6tnIEu3f+iWd9svN2L7GyKmtXSetdpgchHMnXHaFDHwqh2MKMBbB6Mn16Dj36Pr6ItITzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Pgjc+iDhtRtK3JACWAL8i9BfyIOhdj4DskF7Y0r/1rs=;
+ b=yZ/8Cmo663PHgMPONVcOj5ny5XoJ2WlvquBDs3aoZoC9InoykL28SGotrJ+QYvwory2MK8xU+vERnPSEEoX+D9Hn9XBq7IMkE/k5oSrIu4s8ERqnU5lTYoPoE07aLZc4RfIwmJwxo5kERAXSpOou8sIHAuYic8VLgs8tOJCGzMXt4sKReM3oVNgDaKjZthUuRDAWW3l5A/yPHCYFDvsXSYhfGFfjZ+VYGS0cjS4ZIL8Spz9LrY37OtQQRHGs1M5ahqReLuweMHPB+6LR0cgOcKhaCKv8nNyMXLWCMyBcVhmMn860yOZHoz+WEvly0BNuLeFnFrmoVtvrlWuZRavSfg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Pgjc+iDhtRtK3JACWAL8i9BfyIOhdj4DskF7Y0r/1rs=;
+ b=eE2pNGg9Ux/GRHgepd3B+ayw6qdfJxbeQyWqysZAZmk1/OZfJyvw5FVWxGoeYBPZBUAmWueEwAsSwMxflBMtjSMlRAo33rc8H4ia6lh4BtonBIz7yeOYo3NI5AvWqIuJCtD8wwZunGNhR42Oizq94mb+qrIuRNbS8OOzXp1E97wn7npaEToYOyoFXm3y8nAYqW4dU2OOlfzgfBJMQwyK32j+Lz7mwn1mMj4a0MIIM3D7dVddsr/OwzDdulX7OAUCi7ItqWXy13LmP/o/dwrq2qAV5otckEduOqv4bCbiFju3371TfdG/fmlvigbSiJmRm7pQSIK/U4tEuV+aAnIolg==
+Received: from AM8PR04MB7284.eurprd04.prod.outlook.com (2603:10a6:20b:1dc::8)
+ by DU4PR04MB10599.eurprd04.prod.outlook.com (2603:10a6:10:593::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 8 Apr
+ 2026 07:37:58 +0000
+Received: from AM8PR04MB7284.eurprd04.prod.outlook.com
+ ([fe80::9cd6:51bd:82b:98dc]) by AM8PR04MB7284.eurprd04.prod.outlook.com
+ ([fe80::9cd6:51bd:82b:98dc%5]) with mapi id 15.20.9769.014; Wed, 8 Apr 2026
+ 07:37:58 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: Jakub Kicinski <kuba@kernel.org>
+CC: Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir Oltean
+	<vladimir.oltean@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"pabeni@redhat.com" <pabeni@redhat.com>, "robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "f.fainelli@gmail.com" <f.fainelli@gmail.com>, Frank
+ Li <frank.li@nxp.com>, "chleroy@kernel.org" <chleroy@kernel.org>,
+	"horms@kernel.org" <horms@kernel.org>, "linux@armlinux.org.uk"
+	<linux@armlinux.org.uk>, "andrew@lunn.ch" <andrew@lunn.ch>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>
+Subject: RE: [PATCH v4 net-next 07/14] net: enetc: add support for "Add" and
+ "Delete" operations to IPFT
+Thread-Topic: [PATCH v4 net-next 07/14] net: enetc: add support for "Add" and
+ "Delete" operations to IPFT
+Thread-Index: AQHcwQGeP/HV20mPxkKmaPorSbeZFrXMjUkAgAhC7jA=
+Date: Wed, 8 Apr 2026 07:37:58 +0000
+Message-ID: <AM8PR04MB72844F38B677543BE84ED605885BA@AM8PR04MB7284.eurprd04.prod.outlook.com>
+References: <20260331113025.1566878-8-wei.fang@nxp.com>
+ <20260403011734.1795551-1-kuba@kernel.org>
+In-Reply-To: <20260403011734.1795551-1-kuba@kernel.org>
+Accept-Language: en-US
 Content-Language: en-US
-From: Taniya Das <taniya.das@oss.qualcomm.com>
-In-Reply-To: <4c4e80be-4aeb-4275-977f-b3f8c6ab26b0@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDA4MDA2OCBTYWx0ZWRfX/Q9V4RnLSw00
- T+/itIcKYo02Xw+RYHgQ8HNhVjSQdGKYaYhp8FmXwqT4X5J+yXppkjyTQr9gVfFoe7t44ajwkbP
- e53S/lPWZcNnhWEWHe1sXOHxyPekPbG///6BZe9mTGDD0VZT0fL/zWcn7Wa8DQsvfng04nPjcRQ
- taCTmyzlC8prE+bilwxWRfDVxEpnc6zvAscp0zFMpLKuHWj3L8lNFYWy8qUUla7WDTm9GN/7nTj
- ne734YSr4xiWTgnKZ3899KudLd+kKZ7A22rQrEh7HwW66twSnzr1ueDWdt8DbcGelezw7tT3ZLJ
- +nQQQQmRwDYFlaZWEkoICgF63yp4BZIg94t6FbF4WaJQe/MfB7WhzS4L6/MwfxTyZUxqzVLWiKv
- fxkAsrpOFBNiWzaX7vMsnzfn82V+5UjWD87dAkQxNc2goiHdhLCBVSCB23ZxMaoQG4Fp6/pZ7/K
- THPi2HGoSTEh+1O2rRw==
-X-Authority-Analysis: v=2.4 cv=FecHAp+6 c=1 sm=1 tr=0 ts=69d60597 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=EUspDBNiAAAA:8 a=f9sTazImdp3HmuBAhI8A:9 a=QEXdDO2ut3YA:10
- a=GvdueXVYPmCkWapjIL-Q:22
-X-Proofpoint-ORIG-GUID: yvL4Q6iGVZT6MfycG28G82Gtj16qDNZ-
-X-Proofpoint-GUID: yvL4Q6iGVZT6MfycG28G82Gtj16qDNZ-
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-08_03,2026-04-07_05,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 phishscore=0 lowpriorityscore=0 priorityscore=1501
- suspectscore=0 clxscore=1015 impostorscore=0 bulkscore=0 adultscore=0
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2604010000
- definitions=main-2604080068
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM8PR04MB7284:EE_|DU4PR04MB10599:EE_
+x-ms-office365-filtering-correlation-id: da041aa6-4c0e-4d80-7aae-08de9541c1a3
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|366016|1800799024|38070700021|22082099003|56012099003|18002099003;
+x-microsoft-antispam-message-info: gfuyhuNKRI6hs0PFdIdaNoro2Y5cA17B5tcllWF28I+kYMu8Zwt8JSP666+wWneGh8Ra37/j0SfjUT6CSvBWdcNkFI18ZGmN36ZovlZHFTf7iol5vmZ6rnZknGBmB9DOeDau+AMUXGxm9Lk0sXzjuQryFsatq9WARdGgoEQT+xHuGs1l2TXq8aw2M5QEJLA2RlzkU+LNrV7cC448Pbqpdm6LorptGoxbRQI3dPWC99eLiw0yZGqkH5i8W1rbfPtJej/EBArcRQwHzlkdvM4Ho8f3QLr/JFsWYdJ7B+WB4t7Fir2geBDy/W9DAFKkNmBXWcYu98vT4iQN6HJjNSL6kyFxg5MjK5Gm/WkA8mZT/8Pnk/h5/N8StlxD4EvG5anJ3DhO8K2Jdv1CUNb9uD7AtLGOSyvqPxw8kfi4ZJyxY3/DvG3HDomfUKtqVCoRchGHnIi0SgzPDaLlpJn/c7ezUmnHQcf2tdnjqA0WSEOBiBKoGM05sw5XPVOjLnCBrhc6ghXFxCPVrf59ImkFlWq2XDlA4qrnYne9zyzHd3S7Iw2TM1rtoR0h0VDFettJ5sgR9wumkbUQ6eNTMQO5ZTIMKyAGlDyl6aEvhnF87+9nWNpXgHsBxpbsUvjS1lpoAggKtEcsXEQwMV+ej3y3GEd/9aG2t4Ja2TeVVu5RRRRBTiPFXy5cP7TjOMJm9lYJgDuiMnXxCoQdogOVFYRPP0FC+jhiZp/UxN8RfQ9RRlGxNc0WtE2XFVmDY+FUt0KxOiqasuoFWCq7JIQKuvGR2eVoSw==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7284.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(366016)(1800799024)(38070700021)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?gVyzECq8b80JMrQaEnPMavQxaOSia4E3FVyZyJSGqV1jOEwe2LZcFC7c+xcx?=
+ =?us-ascii?Q?GkUaGoyhbJWRSUen5GOX3COR79oOnJNiTJdloaHhhQx7kOdbOLfZj1Rv6aUC?=
+ =?us-ascii?Q?LastaNKiTfbiBU+dXW93nt9OlzPV/unD5bpHIkcDraAl7ZFzCBF2/jLAKlBC?=
+ =?us-ascii?Q?cjxcZWmpnhffUZNFmTds/ypIjwn07WkgWhAtDE4UqO2oSwv2HR5NFWhg7tEX?=
+ =?us-ascii?Q?suZ4O37hbdorvuxmXMEv8zS7PV6fl++yNKzii/I03b3lceY+UJ/MruXkYv19?=
+ =?us-ascii?Q?zu8RwUDLj/yM39C4O0dPX3VT0RBgKYgE5R2m7PLmiJOeAc3uTn7EcwPNEfkZ?=
+ =?us-ascii?Q?x/s9P60dl7NAaIBoAIGtqD6VlQMmedkwLD8SVQIt2aYurTXKEsveHT3edfHz?=
+ =?us-ascii?Q?ybz0t181QpPdmJMLnboEoJCHVeeVmZKfA41kOscoT2/r856DR/dOzeAfgsjU?=
+ =?us-ascii?Q?FuMpXgKteLv/8vJgLaR7SlBZwxIXAxFgbpQQAWvbwSyppHlOhe3MFJeRZBVn?=
+ =?us-ascii?Q?OGYUOi38GAs9wRbLb6Id3sQI9F9IKdE18M4O0LlfafFLFKTkeG3c5u0UXpvi?=
+ =?us-ascii?Q?/uqOVvZwrXPUaA/Y49x4kCw+sVrRHHRJ6oIxuIXQGw22czxzI2d1GTOBSmmj?=
+ =?us-ascii?Q?tNtx+G/1Mub+h/N55BQr/4+EVJlKrxbw2hHkeRlNqfH8NjMgATv2iA3/9jZs?=
+ =?us-ascii?Q?3t6hcYtebsD1GzHzlbFPjs31mF9tzZbAxXaAxc0pxgSgmGvlCHq17UYWNedG?=
+ =?us-ascii?Q?ldiSqeyMPJQb9RwoH+Z4ASRm9v1E3e/sNMLWBeBJwfbmMHPXvvrYgjTrSmZa?=
+ =?us-ascii?Q?HI6vU2sbi0FDjch0wqjzLzS7b9tOyKqa1/em4cPzBiROo+j7ixgrUCrVVyd5?=
+ =?us-ascii?Q?QMdoMKIohgT4V8Q7s6iQ/Cc4Uw5b+KXu3AOKKYEDDTKDT3lMXuW0O7GjYn7G?=
+ =?us-ascii?Q?rW1JRaADWKxv76jGYIu6LyxVOK1dLVvu7B4KH4dVvoCoRJS1Hq6edHtbg2jj?=
+ =?us-ascii?Q?9hL0sGVRlt8klIPkUnGtmd7orMvfprkglf/8DUbzq51gjDVPWk7JpCd2hZbK?=
+ =?us-ascii?Q?IHhH5zbYvNg0F9QMs4cke/AG0ValqiqrhY5BHHK9eVLADHlrvxsu2Q++YsU5?=
+ =?us-ascii?Q?zcepYS+k1J1h4Eqw6unwCB6aXlRFTLiUiIF8u85M0IgtzdPZ8/5h0Xa4Br5L?=
+ =?us-ascii?Q?3SDcdnAw7s0I+KECWS03fjGDd5+RLMy436TYFmCjtU6LfsC7wEQh0TWlQkGs?=
+ =?us-ascii?Q?PUMHFEAPeQieM0Hc6AAzfGoElK1Cbxuxr8pLNfK69c6/yYzVOBwCOQMSsif3?=
+ =?us-ascii?Q?k5A6+LfjWsAVTVJtrThJlOWFpa4o7g3i/80zkvd/rjw/NFGLqkDGgTc/ig2W?=
+ =?us-ascii?Q?zbwQI1MG8dCdZJGHGXIxSaa0KihaHbT86IepMO0OXSSoxOgULiHUpATPruoz?=
+ =?us-ascii?Q?W39M8aaZfGsjTrukmnSJ1zcOrDj+QFdv6BzlN3qnLsmjUmn0LcmaSoE5iYJH?=
+ =?us-ascii?Q?oJXutoUTm+i4M2FoqxHKbi1IUXI3snIqN8PfV+ZgKZcyuRLsRXvwrOeHT8h0?=
+ =?us-ascii?Q?3szC2X36sVwkusKY3zgyZZjdZIu5Z7ZxodV+2vjqE3ciRooZ80EyK7P8XRo9?=
+ =?us-ascii?Q?bO8uIPrdtit0nOWtNZ+eEPfyIxcA6Iu6RidIb86KXGIYNXI0NlhO6vTXPMAv?=
+ =?us-ascii?Q?Rt3a/htq44m5/UobTlVj67V7qmOPr+v7VGPw7C2QkANO1iI/?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7284.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: da041aa6-4c0e-4d80-7aae-08de9541c1a3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Apr 2026 07:37:58.7284
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: lU8Jzw3qcjTBjYf6eiEhYVvAMfpQuo0y+/erRTiIyfs3OrIaz+eY+S3Dz/tzuugvWqTGT8OCb1VytAwjK7FzRQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10599
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_003657_686512_C47B4DC3 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20260408_003804_173442_F3F9EADE 
+X-CRM114-Status: GOOD (  18.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,28 +154,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> > +int ntmp_ipft_add_entry(struct ntmp_user *user,
+> > +			struct ipft_entry_data *entry)
+> > +{
+> [ ... ]
+> > +	err =3D ntmp_alloc_data_mem(&data, (void **)&req);
+> > +	if (err)
+> > +		return err;
+> > +
+> > +	ntmp_fill_crd(&req->crd, user->tbl.ipft_ver, NTMP_QA_ENTRY_ID,
+> > +		      NTMP_GEN_UA_CFGEU | NTMP_GEN_UA_STSEU);
+> > +	req->ak.keye =3D entry->keye;
+> > +	req->cfge =3D entry->cfge;
+>=20
+> The request sets NTMP_GEN_UA_STSEU to indicate statistics data is present=
+,
+> but struct ipft_req_ua does not appear to contain a match_count or STSE d=
+ata
+> field before cfge.
+>=20
+> Since the hardware expects STSE data before CFGE data (as seen in
+> struct ipft_resp_query), will this cause the hardware to misinterpret the
+> first 8 bytes of cfge as the match_count, and then read the actual filter
+> configuration from out-of-bounds or uninitialized memory?
 
+Based on NETC manual, the STSE_DATA is present only for the commands
+which perform a query. So for the 'add' command, we do not need to
+provide the STSE_DATA buffer. And STSE_DATA is the statistics of the
+entry, which is stored in the internal buffer of IPF table. Performing
+NTMP_GEN_UA_STSEU is to reset the statistic counter when adding
+an entry.
 
-On 4/7/2026 7:10 PM, Krzysztof Kozlowski wrote:
-> On 17/03/2026 18:14, Taniya Das wrote:
->> Add compatible string for Eliza video clock controller and the bindings
->> for Eliza Qualcomm SoC.
->>
->> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
->> ---
->>  .../bindings/clock/qcom,sm8450-videocc.yaml        | 16 ++++++++++
->>  include/dt-bindings/clock/qcom,eliza-videocc.h     | 37 ++++++++++++++++++++++
->>  2 files changed, 53 insertions(+)
->>
-> 
-> Although I already suggested that this was not tested (and you never
-> replied where did you test it), but I also checked and this fails checks
-> - constraints are mismatched now.
+[...]
 
-I will update the bindings for videocc.
+> > +struct ipft_pld_byte {
+> > +	u8 data;
+> > +	u8 mask;
+> > +};
+> > +
+> > +struct ipft_keye_data {
+> > +	__le16 precedence;
+> > +	__le16 resv0[3];
+> > +	__le16 frm_attr_flags;
+> > +#define IPFT_FAF_OVLAN		BIT(2)
+> > +#define IPFT_FAF_IVLAN		BIT(3)
+> > +#define IPFT_FAF_IP_HDR		BIT(7)
+> > +#define IPFT_FAF_IP_VER6	BIT(8)
+> > +#define IPFT_FAF_L4_CODE	GENMASK(11, 10)
+> > +#define  IPFT_FAF_TCP_HDR	1
+> > +#define  IPFT_FAF_UDP_HDR	2
+> > +#define  IPFT_FAF_SCTP_HDR	3
+> > +#define IPFT_FAF_WOL_MAGIC	BIT(12)
+> > +	__le16 frm_attr_flags_mask;
+> > +	__le16 dscp;
+> > +#define IPFT_DSCP		GENMASK(5, 0)
+> > +#define IPFT_DSCP_MASK		GENMASK(11, 0)
+>=20
+> Does IPFT_DSCP_MASK completely overlap with IPFT_DSCP?
+>=20
+> If it is defined as GENMASK(11, 0) instead of GENMASK(11, 6), using
+> FIELD_PREP with this mask will not shift the value into the upper bits,
+> which might overwrite the actual DSCP value in bits 0-5.
 
--- 
-Thanks,
-Taniya Das
+Thanks, this is a bug, I will fix it.
+
 
 
