@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4000510F9975
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 19:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45D5110F9975
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 19:52:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/NdSV3WZrVEBftS6fL3YY5Y1mwljswaIR/qaM7Z9BAw=; b=UQhOOqr+j9HrKYYVw7w4YTO1r0
-	cIbNVnLo83nT1NgVMGCxqO+c0b6MlbrOncVzdzYDkXNy7qyxmGRgmPO9403dewnJlJ4OZb1/39uXG
-	VHyrCKJZoy5FZnEz0ATSGDjflEJ+Nm1krjqiH2YT2/ywtfP+DvsAJU5vfO7dhmI6ceYm3bH9/nnWr
-	apMNzQr+vFXeaPZMwngHAwyrO8ewlfwBN1qUVjRq8/2x9drXNLjNqcSFnOvA8yzGEwetjD3ATnPia
-	mNibmNjmv3wQnYF1KAhfFVF4UOL11l/pqP8IQ5UyPeNASdQq8NjSBme+vyJ9L3MUtffQy8H5iMXKX
-	M2aiBfoA==;
+	bh=siH4dWUpa1bG3+ZxEQfIrP5wIqLbPeNz587asx6iEtM=; b=w32mTN8MF3Ce/328yt1jm2BIwy
+	3MlZObb2tnPSrxOHIbjlzRZmsofuZYy2e65zKJpvFZCbTvyQJ6UzsboBWnMiohXOH8O8nfIi/JNGF
+	Yc78W9T0iAKunrjLh7jI8cPLUXufab5O0wiK5RZp/x4wqHC2+8d0TD1OySWeoCLpeVvUo/9SfpbAv
+	j8K+oKEEmxk7QlWpIPEl57SFjdBkVDI6VmDXgY4rR5CrAK7Hn/iIEGgb49Za9GjriNJcGSP4JjRhH
+	oZKups8C+cElFw8fjYLkmd+MnMxOnQMipKv5SH5ZroQnSISUnhBzAnt2UmTpglIUJUKcnEq+/oWbe
+	JXLmhF3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAYtk-00000009LM0-3x4x;
-	Wed, 08 Apr 2026 19:49:13 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wAYx8-00000009LZb-0X3H;
+	Wed, 08 Apr 2026 19:52:42 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAYti-00000009LKk-0D06;
-	Wed, 08 Apr 2026 19:49:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1775677746;
-	bh=tz8CVy1W20G2fKkpZL7CTx9D5Goyx1D1bN5OlJng/I0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=qquXjlNtlX/W3P6CQcrmMP1FqkU+bjHfmbSfGIBGRpjvE9TXs7eJEbMhfumadx2zP
-	 mY6G+zfD+ZI8/WG6ATCuhO7Dh4aKG09f7RYHz6snWYizEcfTetq4PUYuWkP19iNFSz
-	 yiBTNWkyL3z0wWkgM3rd5zs2/j4us+7MMbLuD1sbKDnSPGX9we83h1CMmS5sG/EyPo
-	 uEzgTUxW3uxorkoiGuHIU3rSZGrVKpKJTXbgEpastF1neshWm34nLogGVlVAptGVDC
-	 6fgYQ7+AMcdFD6dcNa9tKTlkIRBmApRXEEEkpm0OHGjJ7btq9bkxJlHoh/4moaDeBj
-	 5T3WV+u2XdzmQ==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D225E17E0A2A;
-	Wed,  8 Apr 2026 21:49:04 +0200 (CEST)
-Message-ID: <16fecb553474b09c280e76d85db619fd2171d8b6.camel@collabora.com>
-Subject: Re: [PATCH v2] media: verisilicon: Create AV1 helper library
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
-	p.zabel@pengutronix.de, mchehab@kernel.org, heiko@sntech.de
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	kernel@collabora.com
-Date: Wed, 08 Apr 2026 15:49:03 -0400
-In-Reply-To: <20260312091525.28118-1-benjamin.gaignard@collabora.com>
-References: <20260312091525.28118-1-benjamin.gaignard@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-BquN7X0OQqwiN7U+0FMh"
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	id 1wAYx5-00000009LZG-2uys
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Apr 2026 19:52:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=siH4dWUpa1bG3+ZxEQfIrP5wIqLbPeNz587asx6iEtM=; b=HbONVFG6DRgrSygkw950meAgfH
+	FLTLo7BxXvMxVYn1N3O9aPUiz3woyCupXzqlJQWKrMvzQLmTmBdI6FEku+H9GKYgnuT3VLPpCo9f+
+	6UDXAtge8QqbJsZepg2gz1o0r8ZWvTGoK5cuNO5b+6T7SGJHaGQ1dJN34J2aho4Bw1hyZTnIeNaC4
+	Poq5/q05n5j5v6Xxsm05218oh5ixACNea6eFktDlpcOoW2BJjsL2Wd0AjuMGd6wqOP2v1ksNxubFr
+	y9J3KuLltt3yfobkIvJuBFwB/mpTyjhKQzrWzf7bSihFoYIWM5TQZmnfgoZQm6ZHigZ83vVG3EqUO
+	pkUdBNyg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:44908)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wAYx1-000000002jw-3Ojf;
+	Wed, 08 Apr 2026 20:52:35 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wAYwy-000000003cC-3cPP;
+	Wed, 08 Apr 2026 20:52:32 +0100
+Date: Wed, 8 Apr 2026 20:52:32 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-ext4@vger.kernel.org,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	dmaengine@vger.kernel.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Theodore Ts'o <tytso@mit.edu>,
+	Andreas Dilger <adilger.kernel@dilger.ca>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>
+Subject: Re: BUG: net-next (7.0-rc6 based and later) fails to boot on Jetson
+ Xavier NX
+Message-ID: <adayAMR_dEA6W5vW@shell.armlinux.org.uk>
+References: <adZTGOjjJrVJOcT8@shell.armlinux.org.uk>
+ <adZfTi3R6jtsjXx-@shell.armlinux.org.uk>
+ <adZ9grUg71f518Fg@shell.armlinux.org.uk>
+ <adZ_ZmjcE8S22vR1@shell.armlinux.org.uk>
+ <3a1d0520-3402-47b2-9d7b-4e14a3cd07a4@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3a1d0520-3402-47b2-9d7b-4e14a3cd07a4@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_124910_238889_A3922C69 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20260408_125239_738701_154A7AD4 
+X-CRM114-Status: GOOD (  22.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,101 +90,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Apr 08, 2026 at 05:40:48PM +0100, Robin Murphy wrote:
+> On 2026-04-08 5:16 pm, Russell King (Oracle) wrote:
+> > On Wed, Apr 08, 2026 at 05:08:34PM +0100, Russell King (Oracle) wrote:
+> > > The rebase is still progressing, but it's landed on:
+> > > 
+> > > c7d812e33f3e dmaengine: xilinx: xilinx_dma: Fix unmasked residue subtraction
+> 
+> FWIW I don't see a Tegra having the Xilinx IP in it anyway - judging by the
+> DT it has their own tegra-gpcdma engine...
+> 
+> There's a fair chance this could be 90c5def10bea ("iommu: Do not call
+> drivers for empty gathers"), which JonH also reported causing boot issues on
+> Tegras - in short, SMMU TLB maintenance may not be completed properly which
+> could lead to recycled DMA addresses causing exactly this kind of random
+> memory corruption. I CC'd you on a patch:
+> 
+> https://lore.kernel.org/linux-iommu/20260408162846.GE3357077@nvidia.com/T/#t
 
---=-BquN7X0OQqwiN7U+0FMh
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Okay, bisect complete, and... no idea. It seems to suggest that 7.0-rc6
+is actually fine - it ended up blaming Linus' tagging of 7.0-rc6 which
+only changed the makefile. So, my assumption that because rc6 was merged
+into net-next last Thursday which fails, net-next+rc7 fails, rc7 also
+fails, that rc6 would also fail seems to be false.
 
-Le jeudi 12 mars 2026 =C3=A0 10:15 +0100, Benjamin Gaignard a =C3=A9crit=C2=
-=A0:
-> Regroup all none hardware related AV1 functions into a helper library.
-> The goal is to avoid code duplication for futur AV1 codecs.
->=20
-> Tested on rock 5b board Fluster score remains the same 204/241.
->=20
-> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> ---
-> change in v2
-> - rockchip av1 codec use hantro_av1_get_hardware_tx_mode() and no more
-> =C2=A0 it own function.
->=20
-> =C2=A0drivers/media/platform/verisilicon/Makefile=C2=A0=C2=A0 |=C2=A0=C2=
-=A0 7 +-
-> =C2=A0.../media/platform/verisilicon/hantro_av1.c=C2=A0=C2=A0 | 780 +++++=
-++++++++++
-> =C2=A0.../media/platform/verisilicon/hantro_av1.h=C2=A0=C2=A0 |=C2=A0 62 =
-++
-> =C2=A0...entropymode.c =3D> hantro_av1_entropymode.c} |=C2=A0 18 +-
-> =C2=A0...entropymode.h =3D> hantro_av1_entropymode.h} |=C2=A0 18 +-
-> =C2=A0...av1_filmgrain.c =3D> hantro_av1_filmgrain.c} |=C2=A0 82 +-
-> =C2=A0.../verisilicon/hantro_av1_filmgrain.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 |=C2=A0 44 +
-> =C2=A0.../media/platform/verisilicon/hantro_hw.h=C2=A0=C2=A0=C2=A0 |=C2=
-=A0=C2=A0 4 +-
-> =C2=A0.../verisilicon/rockchip_av1_filmgrain.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 |=C2=A0 36 -
-> =C2=A0.../verisilicon/rockchip_vpu981_hw_av1_dec.c=C2=A0 | 942 ++--------=
---------
-> =C2=A010 files changed, 1048 insertions(+), 945 deletions(-)
-> =C2=A0create mode 100644 drivers/media/platform/verisilicon/hantro_av1.c
-> =C2=A0create mode 100644 drivers/media/platform/verisilicon/hantro_av1.h
-> =C2=A0rename drivers/media/platform/verisilicon/{rockchip_av1_entropymode=
-.c =3D> hantro_av1_entropymode.c} (99%)
-> =C2=A0rename drivers/media/platform/verisilicon/{rockchip_av1_entropymode=
-.h =3D> hantro_av1_entropymode.h} (95%)
-> =C2=A0rename drivers/media/platform/verisilicon/{rockchip_av1_filmgrain.c=
- =3D> hantro_av1_filmgrain.c} (92%)
-> =C2=A0create mode 100644 drivers/media/platform/verisilicon/hantro_av1_fi=
-lmgrain.h
-> =C2=A0delete mode 100644 drivers/media/platform/verisilicon/rockchip_av1_=
-filmgrain.h
+Right, rc7 built with the same .config that rc6 was built with
+definitely fails, this time with:
 
-[...]
-=C2=A0
-> =C2=A0	rockchip_vpu981_av1_dec_set_parameters(ctx);
-> =C2=A0	rockchip_vpu981_av1_dec_set_global_model(ctx);
-> @@ -2197,6 +1439,16 @@ int rockchip_vpu981_av1_dec_run(struct hantro_ctx =
-*ctx)
-> =C2=A0	return ret;
-> =C2=A0}
-> =C2=A0
-> +int rockchip_vpu981_av1_dec_init(struct hantro_ctx *ctx)
+Root device found: PARTUUID=741c0777-391a-4bce-a222-455e180ece2a
+depmod: ERROR: could not open directory /lib/modules/7.0.0-rc7-bisect: No such file or directory
+depmod: FATAL: could not search modules: No such file or directory
+usb 2-3: new SuperSpeed Plus Gen 2x1 USB device number 2 using tegra-xusb
+hub 2-3:1.0: USB hub found
+hub 2-3:1.0: 4 ports detected
+usb 1-3: new full-speed USB device number 3 using tegra-xusb
+EXT4-fs (mmcblk0p1): VFS: Can't find ext4 filesystem
+mount: /mnt: wrong fs type, bad option, bad superblock on /dev/mmcblk0p1, missing codepage or helper program, or other error.
+mount: /mnt/: can't find PARTUUID=741c0777-391a-4bce-a222-455e180ece2a.
+get_swap_device: Bad swap file entry 1800c00008
+get_swap_device: Bad swap file entry 1800c00008
+get_swap_device: Bad swap file entry 1800c00008
 
-nit: The wrapper is no longer needed, you can change rockchip_vpu_hw.c code=
- to:
+So, it seems rc6 -> rc7 => fails
+net-next with rc5 -> net-next with rc6 => fails
 
-           .init =3D hantro_av1_init
+However, before I test anything else, I've just built the same rc7
+which failed above with your patch applied - and that boots fine.
 
-> +{
-> +	return hantro_av1_init(ctx);
-> +}
-> +
-> +void rockchip_vpu981_av1_dec_exit(struct hantro_ctx *ctx)
-> +{
-> +	hantro_av1_exit(ctx);
+Now, each Thursday, net-next gets updated as that's the day that the
+net tree gets sent for merging into mainline. This causes net-next's
+version to increase. So something in current net-next plus in rc7 is
+causing this problem.
 
-Same nit, different function. Appart from that:
+The commit you claim needs fixing is:
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+$ git describe --contains 90c5def10bea
+v7.0-rc7~29^2~2
 
-> +}
-> +
-> =C2=A0static void rockchip_vpu981_postproc_enable(struct hantro_ctx *ctx)
-> =C2=A0{
-> =C2=A0	struct hantro_dev *vpu =3D ctx->dev;
+which I had assumed wouldn't be in net-next.
 
---=-BquN7X0OQqwiN7U+0FMh
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+Now, mainline had this on Thursday:
 
------BEGIN PGP SIGNATURE-----
+commit f8f5627a8aeab15183eef8930bf75ba88a51622f
+Merge: 4c2c526b5adf ec7067e66119
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Thu Apr 2 09:57:06 2026 -0700
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCadaxLwAKCRDZQZRRKWBy
-9OVJAQCBHm061j2iSakJtpkUf3ehkY8lD427TC3hCZcwyNnOBQEAz7E+YilOtBy0
-YD6ugaA0uvKYx6SYGex2GZ7c3rAPSQQ=
-=FywA
------END PGP SIGNATURE-----
+    Merge tag 'net-7.0-rc7' of git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net
 
---=-BquN7X0OQqwiN7U+0FMh--
+commit 4c2c526b5adfb580bd95316bf179327d5ee26da8
+Merge: 2ec9074b28a0 8b72aa5704c7
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Thu Apr 2 09:53:16 2026 -0700
+
+    Merge tag 'iommu-fixes-v7.0-rc6' of git://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux
+
+and merging iommu-fixes-v7.0-rc6 introduced the buggy 90c5def10bea
+commit into -rc7.
+
+However, as soon as Linus merged net-7.0-rc7, netdev maintainers merged
+that exact commit back into net-next:
+
+commit 8ffb33d7709b59ff60560f48960a73bd8a55be95
+Merge: 269389ba5398 f8f5627a8aea
+Author: Jakub Kicinski <kuba@kernel.org>
+Date:   Thu Apr 2 10:57:09 2026 -0700
+
+    Merge git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net
+
+Thereby bringing in that buggy commit into net-next, but with net-next
+identifying itself as 7.0-rc6.
+
+That's... confusing, but explains why current net-next which reports
+itself as 7.0-rc6 _and_ rc7 both fail, but rc6 itself does not. It
+also means I've wasted an entire afternoon running a useless bisect
+between rc5 and rc6 due to the version numbers in net-next being
+meaningless.
+
+What's the status on the iommu fix? Is it merged into mainline yet?
+If it isn't already, that means net-next remains unbootable going
+into the merge window without manually carrying the fix locally.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
