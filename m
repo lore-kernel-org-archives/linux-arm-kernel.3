@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0427F10FC465
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 22:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 390A410FC456
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 22:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uWLFchcQvmVD7HUEAqPMn2Oqj1LUT5MmLHO6xmrdXe8=; b=KEPJGvHLR9jWpBo+vpvTWFjaej
-	AwGD3WgB9WPPG5VKfwrXnIx6NwqvYaufzfULiaIie+2feS0XKmO6T4XaqxfKBy/2hxx7ewpHXMvjP
-	Sz1k5FC/8UfgBuQxPUZgrEwBydSNLRZgpD6XG3rUPbPDjQilQ4sQ5PXsFKMgyjjTWqIyUj3EShWD0
-	mPZhUDIj9b0NbwYxIg2k3ZUO7+dIC7ACMR9pGFbp9IWEwNw655eE6SMyVUf2nGqNzFHWzU1aYCj1v
-	jd7RI2IQQSqlO/ICAOpzZ6o89gNsFgBPupOLgbI+8+Di4bYM1z5hJAikNrp6vyB69dX1b7aYwk7b4
-	3gy4wEEQ==;
+	bh=V7coPJCiAbtPMojrn2TDI1q01XTne5x9shCS1+tfkHU=; b=r2iEuk8j+GkQPkvBIl0SUPFmws
+	u4d7cH/vIrbpOunY1LokkIGlAfIgm44mE9JzZjpKjavOpV9KAZp5jJThGOq0OZvsBqo/McqQiQ7R/
+	JX9abJrEoBHpR/FAhlfvAE1i21k5lPvNdjB8/jjywqkfgaX46Kn1Kgv/bO1eWBGINKkdQEiv5H4Oy
+	7hxqD6DNAYWOJ2o1wCn0AKHW1t8PgTxpgdlcryxcwoqwAV5OzGa7QR+SJxm9qhI858+QZgOsmpSEC
+	wDSD4/M/XmRqmkljgfmzAK4/Q1TCLO4aV8nTrJ/L2h4Ibo0OW76FB0RfLaiw0rTfn/M7n99XCJY19
+	rGz5yqhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAbBp-00000009TIq-3ecv;
-	Wed, 08 Apr 2026 22:16:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wAbBv-00000009TNY-1bmn;
+	Wed, 08 Apr 2026 22:16:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAbBi-00000009TAb-0GWc
+	id 1wAbBi-00000009TBK-2n6q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 22:15:55 +0000
+	Wed, 08 Apr 2026 22:15:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4C86B4456C;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7B99744599;
 	Wed,  8 Apr 2026 22:15:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 1D3FEC2BCB6;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 50842C19421;
 	Wed,  8 Apr 2026 22:15:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1775686551;
-	bh=7t/V64Z+l0jfwO+WO/MM+kjGDPqnSGczz1lucqZyGuI=;
+	bh=kHakWtc7I/4KMZNxyXdf4ZZNQ6CPJJ3HAz/w/Rhm82s=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=P8Jz0gk6Jg1XTEapnqS4d9L5ywthTdgsegiux9/6LdwiNl90NpgzJ/M673P1Ozp12
-	 ve8qpgFp6dDrlBbkrSIFKjj9q8wGM+Ms3U5uT0TTbGKPO/PGRDDRk1lBimaW6jEPoQ
-	 Jvh+vygbWp6elAEvJh+GgWZbbwIm+jL3r+JNkU1tNaZ0PKooPxCR6LpVwFC+f80s9i
-	 TDUsn3E9uqQtivIQ1NOBEV9tq9lusT8DjIqoe96IPagKWMWXKT0+fk+c6lfE1W0u3Q
-	 rogeQhh0p8kjFTuSSjfZ5gvE7pVjzmVIE3NWIEaG9OxUwGUEnmwOaPqHt/ueA/+Wfl
-	 mwax4lui6BRew==
+	b=kiS7skWTNXTLnFDt5YrRaai+6DODIhvjR5X7zhUCsOePFByb0p8CQrwuJ0X3qUUhE
+	 rb0XwpCbi/avsNQ3hCv4HW7CmdWM2QokjMnIRyKTfK//S2kqoWqh8uSvlI//SgvbNt
+	 Ui6keRgohDd/3pd2QDPTyC70ZtICYR/yhjuFtc4Kh0JDA4/aEYRtudVMPsWGIVeElS
+	 STWW+Zkpy115UsYLfHzlsKrHaxXOjWJ3sEk5ayitbQb23/J1kwYB83st1YQDn0lXuQ
+	 RISAMdzNhdWdLNUKk8qQCJLDE7dA74PZ0kaLpFHym5odD1GZ1sRoTaadhHCfWHs8ql
+	 0OdUwDB7reFRA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 100AF10FC453;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4525510FC45F;
 	Wed,  8 Apr 2026 22:15:51 +0000 (UTC)
 From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Date: Thu, 09 Apr 2026 00:15:51 +0200
-Subject: [PATCH v4 08/11] Input: stmfts - add optional reset GPIO support
+Date: Thu, 09 Apr 2026 00:15:54 +0200
+Subject: [PATCH v4 11/11] arm64: dts: qcom: sdm845-google: Add STM FTS
+ touchscreen support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260409-stmfts5-v4-8-64fe62027db5@ixit.cz>
+Message-Id: <20260409-stmfts5-v4-11-64fe62027db5@ixit.cz>
 References: <20260409-stmfts5-v4-0-64fe62027db5@ixit.cz>
 In-Reply-To: <20260409-stmfts5-v4-0-64fe62027db5@ixit.cz>
 To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
@@ -66,30 +67,31 @@ Cc: Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
  linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org, 
- David Heidelberg <david@ixit.cz>
+ David Heidelberg <david@ixit.cz>, 
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2312; i=david@ixit.cz;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1856; i=david@ixit.cz;
  h=from:subject:message-id;
- bh=Oxezv3LVWvcy2a3O5okAfGZrVzhTs38AJC0Tf+JxgKo=;
- b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBp1tOS1d0dXj0iC1bnB2PUOAopZm69S/9Tys0l2
- OabmP/9zpiJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCadbTkgAKCRBgAj/E00kg
- cq4tD/9UxMKbKC9JdKOG/RwoIBh3Vxa1qrGkKMKNGVETPPjVe0qRqV9CZrtO5PUA2/wMgWabwqv
- 9gCKoiUUNMtQeU1OQ2KMrE1dC5970Sqc6Bos4Z5fYXgWRRYAgsmb+TjUy1eVi7yaH5PWLPdSp3p
- cFRkmNnw9HcN8WF7hO2Gdnja0JZW7suYSRkmI2U+OYXzg2zPF7jcZ4oLmsWligdKOD96CM4hTlg
- HrD58ZCyJGR3ldncKB80ez/jAGud3LhSzsdehGDeSVqIHljSdcMI8smlpeRn4l34wCEzlgJlsRQ
- s37y00Hoi8gTYrAUHQt+q45pWUIe6NsMrWphr/dBt+snDeizP0Y91uXeeNJmDnp0F29rz13FQQG
- 1o6RO3JW7kvveZrrZhjB54fFWtIMHlLdXnEqQxLxBB738pvbNOEww38g3ra5pfXXtCxgvowIL0a
- DQZPXsv4MG6PicmdS9r0RLeH0WHHqrwFYsVrehRO4Nd5mMJ7LnEtVSpTof8mvvpmPMm1UVc7Yhf
- KsY9xWEsG5eohoFg9XpUQJfFoj0NNNe8fiokWDt6jYswtnaA1D6ZyvmE2jtoOiGFh2zhsiQ4g+7
- KTcwakKTqhp8k9dKjzpQ4BeoU7FbrVcQBcZzveCKEHVh3YDjbzkvkAJj4x8qyK1v42Y6QxIPvrG
- jcUSG7Pr1w3fsxA==
+ bh=7SvlmHIP51I6dk+k6+tvNP3/MABqkfu3zdnv9py6gtI=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBp1tOSbkFU6aEYu1WSXcSny3Bib98zFWA+1DYun
+ thcrml6diuJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCadbTkgAKCRBgAj/E00kg
+ coutD/0XMKWSj++FRSkStRFByRa+K5bf/KenIGUw9yS6Emc+5dhSrjiUP+MpBY961IreoJ7GvfA
+ 2vv1TiTcJsZ65jxJpzQ0Dz0w4G9hoWi8V1iEGA6t7yFRB89rDaFcn4n7ORsObw2oPZz0tn59Gjy
+ ayEx4qzSg2gXL6/h0DP1uUGrt+jgj0CWgd+wk0sRhgK1igWwfNwndn3Om+ZUClgSJPyAStUHSvS
+ vCT0K3LrxFviAxkQXgNEVhg0WizdwahTXTwcSicUqPHBlXncNhhY2tvBFZb3xyRL+5zo4/XUkdf
+ wZS6EBXa67Y7GnaUdBBbQNyDwsFryaOZQbWr6g17LR5z/igz1xeDIu5Fal6KQW5hDiM4XoWD2bT
+ EtTpeSWcSGQc9zB/mroFJkiO0HiMWA06AmRYFR/6uUdUstqeaxoa18VTfps7musntig5wbFXYN2
+ 2VWIWJAxALeJV+3HC/x5qWlG8dpret/2INQuh/DwxaLunH4DidZOUwRPlfiTtxxTwgoIH7YnXIq
+ B1FKqjLUQn2b0VwY6t3G7Coj7i2FmbcNGK8Svd4EGsdS8mTf/SK4vYqGQFTE0q2AoD/2x978zi7
+ 4s5zM8RcB2+W0VAnaOJaWVLV4eQhZIQ1meN7PGjQKlH7oDtcpkX+FcJOtG0wjoMbtrs4izGXKLm
+ zqjJzSVm9qTBp5g==
 X-Developer-Key: i=david@ixit.cz; a=openpgp;
  fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
 X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
 X-Original-From: David Heidelberg <david@ixit.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_151554_147147_29221467 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20260408_151554_766193_D3B1279B 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,79 +109,60 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Petr Hodina <petr.hodina@protonmail.com>
 
-Add support for an optional "reset-gpios" property. If present, the
-driver drives the reset line high at probe time and releases it during
-power-on, after the regulators have been enabled.
+Basic touchscreen connected to second i2c bus.
 
 Signed-off-by: Petr Hodina <petr.hodina@protonmail.com>
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 Co-developed-by: David Heidelberg <david@ixit.cz>
 Signed-off-by: David Heidelberg <david@ixit.cz>
 ---
- drivers/input/touchscreen/stmfts.c | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+ arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts | 19 ++++++++++++++++++-
+ arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi  |  2 +-
+ 2 files changed, 19 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/input/touchscreen/stmfts.c b/drivers/input/touchscreen/stmfts.c
-index b61a19e954296..1e6d9a287cd0c 100644
---- a/drivers/input/touchscreen/stmfts.c
-+++ b/drivers/input/touchscreen/stmfts.c
-@@ -77,6 +77,7 @@ static const struct regulator_bulk_data stmfts_supplies[] = {
- struct stmfts_data {
- 	struct i2c_client *client;
- 	struct input_dev *input;
-+	struct gpio_desc *reset_gpio;
- 	struct led_classdev led_cdev;
- 	struct mutex mutex;
+diff --git a/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts b/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts
+index fa89be500fb85..8fb988130b551 100644
+--- a/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts
++++ b/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts
+@@ -26,7 +26,24 @@ &i2c2 {
  
-@@ -539,6 +540,15 @@ static int stmfts_read_system_info(struct stmfts_data *sdata)
- 	return 0;
- }
+ 	status = "okay";
  
-+static void stmfts_reset(struct stmfts_data *sdata)
-+{
-+	gpiod_set_value_cansleep(sdata->reset_gpio, 1);
-+	msleep(20);
+-	/* ST,FTS @ 49 */
++	touchscreen@49 {
++		compatible = "st,stmfts5";
++		reg = <0x49>;
 +
-+	gpiod_set_value_cansleep(sdata->reset_gpio, 0);
-+	msleep(50);
-+}
++		pinctrl-0 = <&touchscreen_irq_n>, <&touchscreen_reset>;
++		pinctrl-names = "default";
 +
- static int stmfts_configure(struct stmfts_data *sdata)
- {
- 	int err;
-@@ -599,6 +609,9 @@ static int stmfts_power_on(struct stmfts_data *sdata)
- 	 */
- 	msleep(20);
++		interrupts-extended = <&tlmm 125 IRQ_TYPE_LEVEL_LOW>;
++
++		mode-switch-gpios = <&tlmm 136 GPIO_ACTIVE_HIGH>;
++		reset-gpios = <&tlmm 99 GPIO_ACTIVE_LOW>;
++
++		avdd-supply = <&vreg_l14a_1p8>;
++		vdd-supply = <&vreg_l19a_3p3>;
++
++		touchscreen-size-x = <1080>;
++		touchscreen-size-y = <2160>;
++	};
+ };
  
-+	if (sdata->reset_gpio)
-+		stmfts_reset(sdata);
-+
- 	err = stmfts_configure(sdata);
- 	if (err)
- 		regulator_bulk_disable(ARRAY_SIZE(stmfts_supplies),
-@@ -612,6 +625,10 @@ static void stmfts_power_off(void *data)
- 	struct stmfts_data *sdata = data;
+ &mdss_dsi0 {
+diff --git a/arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi b/arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi
+index 6930066857768..4653c63ec26d2 100644
+--- a/arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi
++++ b/arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi
+@@ -466,7 +466,7 @@ touchscreen_reset: ts-reset-state {
+ 		bias-pull-up;
+ 	};
  
- 	disable_irq(sdata->client->irq);
-+
-+	if (sdata->reset_gpio)
-+		gpiod_set_value_cansleep(sdata->reset_gpio, 1);
-+
- 	regulator_bulk_disable(ARRAY_SIZE(stmfts_supplies),
- 			       sdata->supplies);
- }
-@@ -668,6 +685,12 @@ static int stmfts_probe(struct i2c_client *client)
- 	if (err)
- 		return err;
- 
-+	sdata->reset_gpio = devm_gpiod_get_optional(dev, "reset",
-+						    GPIOD_OUT_HIGH);
-+	if (IS_ERR(sdata->reset_gpio))
-+		return dev_err_probe(dev, PTR_ERR(sdata->reset_gpio),
-+				     "Failed to get GPIO 'reset'\n");
-+
- 	sdata->input = devm_input_allocate_device(dev);
- 	if (!sdata->input)
- 		return -ENOMEM;
+-	touchscreen_pins: ts-pins-gpio-state {
++	touchscreen_irq_n: ts-irq-n-gpio-state {
+ 		pins = "gpio125";
+ 		function = "gpio";
+ 		drive-strength = <2>;
 
 -- 
 2.53.0
