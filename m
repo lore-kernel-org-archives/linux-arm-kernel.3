@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B771610F9964
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80FBF10F995C
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 17:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UBIjXtimEC8z6iE9BfKGji+xfAx6FZDoerR+pykd9LE=; b=ezEw9vxdyLwR6EjD/KJ+1gQ23r
-	yYGSlN1pqwYAnZbYubEhcRfZcNXumO+6nPJdkTPaNM5KE2Io5OBhuaE+NmA5L/t2UNcYoXluW6TYW
-	QWzo2nPAnxMb6JRSayRcQ0YRcQlP6NukfjjU+rp0QYVU3JGVXpHdo1E1lsluXcbYi62y90Uhea5Se
-	GxcPPfSVD1E6+69hbKbEUiC3lGkd88eWbfNq8DDTDsLsuFGn3wp+QtiwOu43YM9YdOCx/C2eYka+K
-	h2r2zsJwvT6RWnNLi9npCoTtGobPTcbUsapjNsCGB7HSk+GhqsDCotRJtSqekc4fPn5ZlTrWbe6P3
-	jPRJt4qQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+Wz7EWR6PFtBNGIpnKG6zlh6pWOtrnWRejKbkJ7zGIY=; b=sJ0CdBqMp3yCs+
+	1QowyyQbEHI5txqK2Xy3O3pOptaC2MONIjv7TsiHKk4DAhTzlxZhnIZadtQ/A88Qxwv4mmbWjyYag
+	VibkZ3c5scsSoGAAlPxSRPQYqCZ9/k9Bck/0Lx4n1yakBQ+nR1LFIKv5bx6hqYFmDWsAR+Q8lj/j9
+	PvVgWwFwvfmPI/Hx2gdFTusFuj108tuEwjfe0p1YL+SVJLwSwz9LZ26LFE50b7QjL8NUd16VPE/GD
+	zcYbZxCNxZS2OmfiLUbeNVuAbuuqK5e3xuiPfHEMS27hEd2DyyPaIo//DeSp116f+PhhqVA5/mZ3b
+	YcAc+Ry4H4nWgVNhR16A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAWbk-00000009AfY-2mew;
+	id 1wAWbk-00000009Afc-44gQ;
 	Wed, 08 Apr 2026 17:22:28 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAWbg-00000009Ae9-3nFs
+	id 1wAWbg-00000009Ae6-3AAa
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 08 Apr 2026 17:22:27 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 3C5DF1A31F5;
-	Wed,  8 Apr 2026 17:22:22 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 456FCC5AA9B;
+	Wed,  8 Apr 2026 17:22:54 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 11FAD603CE;
-	Wed,  8 Apr 2026 17:22:22 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 689D01045017E;
-	Wed,  8 Apr 2026 19:22:18 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B83EE603CE;
+	Wed,  8 Apr 2026 17:22:19 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1D9A0104500F3;
+	Wed,  8 Apr 2026 19:22:12 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1775668940; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=UBIjXtimEC8z6iE9BfKGji+xfAx6FZDoerR+pykd9LE=;
-	b=G+weuG8bwIawZYAgD3gCT2/VfWHmq7yaCDI4SMM982Q+a/XttsJWCezVFRx/Ekc/UmxMX9
-	XyhouRvZk+Zi85mQIgCf0ZAMYZQWRVyzS31nn382MCY4Geue0r8kCb8id8Q90F7DNycfys
-	6w9nzlb1D3tDDCQscy2re1ug10YoqKF2fkTxaL+68yeH5qxeA0wYQBXhIC3H/fRqKcoFEa
-	O70BWec315TfLIMcCKt8RloyXhzNAyuhr6o6owAtisLUHm3flI38oPYxHBKipy7hY3cgvM
-	5DufpwUlpohkwx2chd/lWyM1Dk0ZX96Edk2tbaje2/5KW/si1Cveuywz0150Dw==
+	t=1775668937; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=+Wz7EWR6PFtBNGIpnKG6zlh6pWOtrnWRejKbkJ7zGIY=;
+	b=vcE6F9Bm0xLbMFqR4xIAs+2HhyfGZTh0nQ6D037ZgVz1u7nNb8yF1TAaZN33ANBEfkW6Ba
+	P2doGxy3nCV/hxau4OL92CQcSNWoTKHWPrx95EhONQO0bTGPAGOkySAnxqsgkRYK1MIwbr
+	IsGUuCY/zZ6uUOJ4cCalg5CBqZLEIwdUqtNPRVclzZ6jzH+IFcoTRNN1b+CfoQHJgfFTiQ
+	oyrNiDChEJB6Yf7pM06krJIQuVxI6V2EEWJdjhCEyomF3Q0Iuy0fVVquwyjlcLvOgnZzS6
+	8shZsf2HkgPfDlWQPGqdOmQoMAeuLaHgb7P4DykRwvaA3wsQaec9E8kXADexqg==
 From: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
-Date: Wed, 08 Apr 2026 19:21:54 +0200
-Subject: [PATCH v5 1/5] dt-bindings: vendor-prefixes: Add AAEON vendor
- prefix
+Subject: [PATCH v5 0/5] Add support for AAEON SRG-IMX8P MCU
+Date: Wed, 08 Apr 2026 19:21:53 +0200
+Message-Id: <20260408-dev-b4-aaeon-mcu-driver-v5-0-ad98bd481668@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260408-dev-b4-aaeon-mcu-driver-v5-1-ad98bd481668@bootlin.com>
-References: <20260408-dev-b4-aaeon-mcu-driver-v5-0-ad98bd481668@bootlin.com>
-In-Reply-To: <20260408-dev-b4-aaeon-mcu-driver-v5-0-ad98bd481668@bootlin.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XQwWoDIRAG4FcJnmtxRt3EnvoeoQdHx0Zo1uKmk
+ hL23euGlhBC0uM/MN8/zElMXDNP4mV1EpVbnnIZe7BPKxF2fnxnmWPPAhVaQAAZuUky0nsuo9y
+ HLxlrblwlK944pmR8ItG3PyunfDzL27eed3k6lPp9LmqwTP83G0glraPkgXzQSb9SKYePPD6Hs
+ l9KfgV8LAwUB0thwwnwSljuavh3y6AA9X0Ju+SSCUpRIhvoVtIXCdUDSXdJeXBGo1oPPtxK5iJ
+ pNPcl06X+bwUQk1k7cy3N8/wDZHlEAuABAAA=
+X-Change-ID: 20251211-dev-b4-aaeon-mcu-driver-e0e89ebf4afb
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
  Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
@@ -69,27 +71,28 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
  Miquel Raynal <miquel.raynal@bootlin.com>, 
  "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=916;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4278;
  i=thomas.perrot@bootlin.com; h=from:subject:message-id;
- bh=AGFAvWQk7zbxUAEt/PCMZqut0lt2/9FHvDQ2czbP9Tk=;
- b=owEB7QES/pANAwAKAZ/ACwVx/grtAcsmYgBp1o7DI3w+rVUWZTe7H38X421b6sLX2EXxPl9Sm
- kxhfXFiGl+JAbMEAAEKAB0WIQSHQHfGpqMKIwOoEiGfwAsFcf4K7QUCadaOwwAKCRCfwAsFcf4K
- 7SvtC/oD6PgRkmSR74B35Eq7t21wwxQYtIB5T9r++AIM768VV9/eluT+EdWwdAo0+i4F4BgppHi
- ignu26bRlRzGee1SDTAxETaRm7O9EheK14gcaVe4kQChmaohFHawAsTaMCvKWaxpMjWMkQFyyha
- 0UFqp2vjRXB+Re8ggnyVK1lK8ukvZT7qAIlv2+CG6iQ8cPS3WcINITzY/nd8yeR3UHGhxIqzamz
- QjmC1Gv/Du4zlgvTiGwAHGYzpLQZ/gAw5f7WWAESyr4AbEUGThpWtHr6ZVYhpNOj5lDWvRzyfPv
- RM0X23enTGhzAWDKcV74xSElLIvtO86B0J4VKqR6MY5ylmIibc7X6TRnyfcvwtp3M7NIF25K/Y9
- TvFxnXrDjQqUsSCVk+VOttkiQEL3AI7MWxiksQe6b+ypYpIJijNmqbBHk+zCDP5GR+hkTHzrrJT
- 7jDaNCL5pn2HIIjeCQiyqaBpiZ5WkMxgHhL8W55eyY2ab64gI7P+2CA1FZlfyOiDodb1w=
+ bh=ays/7jNwW83CF93SHZVFHVvuLfD/wIAAwD4jrcSavkE=;
+ b=owEB7QES/pANAwAKAZ/ACwVx/grtAcsmYgBp1o7Dcs3pGUCJVgH0wv4fifMTQ43eT7+gmyEq0
+ GBStzGjCJiJAbMEAAEKAB0WIQSHQHfGpqMKIwOoEiGfwAsFcf4K7QUCadaOwwAKCRCfwAsFcf4K
+ 7X3/DACUMsrlamPpXwrcTDRZAlqDJTA3mvxlKDttCd4kyVBnt2mOkeicVC7GHSaC18Ng3kSmDe8
+ Gzlcv6JPWdLit91T/pO4cs5+8wUWpeZTA+6bTEfxHYCUFfUZsKO7cnvKoV45hE7wxRcYkJbshk4
+ cehXRpVYtj+RzWEN7UwucBpvxAoJmhTD9lntAugndNIqM+hPPvD2IORRdUDNuE4Y/Xq9V+sjK2r
+ uP157fvYGxkOPsRtd4iQuFo6/aJiFSvPrSf9FErodYvOO6nXMTAT/hN6rbbubtItFhKU8Qx2OA1
+ yHMTUkBNxYfMsEyw5czyyqr6zlxnUpGEICeM2cfUl4x9fHAlTQyFQODqaRRLGsoMe+eqxR4d0wp
+ eI/VOYtboYNZVbhSNkIMd6qiirnwV0QxTAGySTJ6xkDbEx3+0bubDWq5nuF66WuZaZ5HSe2c9zi
+ D1U4J3HHA21BopSPjfATaQiFahDUPmx/VWOU8YHgQI27ZOsFm0U3QozGc2s4u+8UPLJZY=
 X-Developer-Key: i=thomas.perrot@bootlin.com; a=openpgp;
  fpr=874077C6A6A30A2303A812219FC00B0571FE0AED
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_102225_105280_600291F2 
-X-CRM114-Status: UNSURE (   7.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260408_102225_105356_FC8AF255 
+X-CRM114-Status: GOOD (  14.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,30 +107,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the AAEON vendor prefix to support the AAEON SRG-IMX8P MCU driver
-devicetree bindings.
+This patch series introduces support for the AAEON SRG-IMX8P embedded
+controller (MCU). The MCU is connected via I2C and provides GPIO and
+watchdog functionality for the SRG-IMX8P board.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+The series includes:
+- Device tree binding for the MFD driver
+- MFD driver that serves as the core driver for the MCU
+- GPIO driver implementing the GPIO functionality
+- Watchdog driver for system monitoring
+- MAINTAINERS entry for the new drivers
+
+The drivers follow the standard Linux kernel subsystem patterns, with
+the MFD driver registering the sub-devices (GPIO and watchdog) which
+are then handled by their respective subsystem drivers.
+
 Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
 ---
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+Changes in v5:
+- mfd: use heap-allocated DMA-safe buffers for I2C transfers, replacing
+  stack-allocated buffers in the regmap bus callbacks
+- mfd: switch from REGCACHE_NONE to REGCACHE_MAPLE; add volatile_reg
+  callback marking GPIO input read registers (opcode 0x72) as volatile;
+  add max_register
+- mfd: use PLATFORM_DEVID_AUTO instead of PLATFORM_DEVID_NONE
+- mfd: use MFD_CELL_BASIC() macro for cell definitions
+- mfd: use dev_err_probe() for regmap initialization error
+- Link to v4: https://lore.kernel.org/r/20260324-dev-b4-aaeon-mcu-driver-v4-0-afb011df4794@bootlin.com
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index c7591b2aec2a..0f84ee93b3a8 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -32,6 +32,8 @@ patternProperties:
-     description: 8devices, UAB
-   "^9tripod,.*":
-     description: Shenzhen 9Tripod Innovation and Development CO., LTD.
-+  "^aaeon,.*":
-+    description: AAEON
-   "^abb,.*":
-     description: ABB
-   "^abilis,.*":
+Changes in v4:
+- mfd: switch to a custom regmap bus; remove aaeon_mcu_i2c_xfer() and the aaeon_mcu_dev struct
+- mfd: locking delegated to regmap's built-in mutex; drop explicit mutex
+- mfd: remove firmware version reading at probe time
+- gpio, watchdog: use regmap_read()/regmap_write() via dev_get_regmap()
+- include: replace aaeon_mcu_i2c_xfer() declaration with AAEON_MCU_REG() macro
+- dt-bindings: remove unused label from example node
+- Link to v3: https://lore.kernel.org/r/20260203-dev-b4-aaeon-mcu-driver-v3-0-0a19432076ac@bootlin.com
 
+Changes in v3:
+- Renamed SRG-IMX8PL to SRG-IMX8P
+- dt-bindings: add gpio-controller properties as required
+- mfd: move struct aaeon_mcu_dev from header to .c file (private)
+- mfd: use guard(mutex) and devm_mutex_init() for cleanup
+- mfd: firmware version log changed to dev_dbg()
+- mfd: add select MFD_CORE to Kconfig
+- Kconfig: add || COMPILE_TEST to all three drivers
+- watchdog: add comments explaining hardware timeout and WDOG_HW_RUNNING
+- watchdog: remove unused platform_set_drvdata()
+- watchdog: add a function to query the status
+- Link to v2: https://lore.kernel.org/r/20260123-dev-b4-aaeon-mcu-driver-v2-0-9f4c00bfb5cb@bootlin.com
+
+Changes in v2:
+- Fold GPIO and watchdog bindings into MFD binding
+- Drop OF_GPIO dependency in GPIO Kconfig
+- Use __set_bit/__clear_bit/__assign_bit instead of atomic variants
+- Various driver cleanups and improvements
+- Link to v1: https://lore.kernel.org/r/20251212-dev-b4-aaeon-mcu-driver-v1-0-6bd65bc8ef12@bootlin.com
+
+---
+Thomas Perrot (Schneider Electric) (5):
+      dt-bindings: vendor-prefixes: Add AAEON vendor prefix
+      dt-bindings: mfd: Add AAEON embedded controller
+      mfd: aaeon: Add SRG-IMX8P MCU driver
+      gpio: aaeon: Add GPIO driver for SRG-IMX8P MCU
+      watchdog: aaeon: Add watchdog driver for SRG-IMX8P MCU
+
+ .../bindings/mfd/aaeon,srg-imx8p-mcu.yaml          |  67 ++++++
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ MAINTAINERS                                        |  10 +
+ drivers/gpio/Kconfig                               |   9 +
+ drivers/gpio/Makefile                              |   1 +
+ drivers/gpio/gpio-aaeon-mcu.c                      | 229 +++++++++++++++++++++
+ drivers/mfd/Kconfig                                |  10 +
+ drivers/mfd/Makefile                               |   1 +
+ drivers/mfd/aaeon-mcu.c                            | 204 ++++++++++++++++++
+ drivers/watchdog/Kconfig                           |  10 +
+ drivers/watchdog/Makefile                          |   1 +
+ drivers/watchdog/aaeon_mcu_wdt.c                   | 132 ++++++++++++
+ include/linux/mfd/aaeon-mcu.h                      |  40 ++++
+ 13 files changed, 716 insertions(+)
+---
+base-commit: d358e5254674b70f34c847715ca509e46eb81e6f
+change-id: 20251211-dev-b4-aaeon-mcu-driver-e0e89ebf4afb
+
+Best regards,
 -- 
-2.53.0
+Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
 
 
