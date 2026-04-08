@@ -4,140 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84F5EFD5F98
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 08:35:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B30BFFD5F88
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 08:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pXbnSHQqmV0/aVnONGzIEHVXb+vsBAgbtY2mwbyuEm4=; b=bKhAL3cUO+48oEP3lSb8r9Iowt
-	p50jKl+wTyWrYFIDqjPrQJLDBLJRQJeXac077q5MbkHXQwWP3qT+tGzbMArpcxuozNkxdxJeYgKzn
-	b4KFzpX7aVudxNbFZqPWJcDQrvHjoXMVE+ryNMpS5DcO2W3xSsTViFSCiQd/ubClMNj/mb3BpkEJs
-	GYwIRMup7OH5bzjmxB9R4hRp5AbzyXrK3/caVj8y0EL4PM5YHrAv7PciSJuDaW+VX9qW/rXJhDqb+
-	nvSMbCpMrNf/XZ4cSlmtgqpclKhSc1c8rNJU3I+ZXuuh6Eb59yfDJuJjOkZfaGPNGSELxqAcok104
-	Voa6pptQ==;
+	bh=rsh4UWNOaS4eWTQc6pohKYvgavIyTrpuDxRmK3Vhtgg=; b=tbFIkXozhepCMHvzKsmuQDdzMA
+	Ea94UVq0plk9dMXWYIm+4tZqA3gn74m7NHPVVuZJa/yNC/4IvRUQG5FnLs+l7fNl9tbreSNxyGQ2X
+	0IUvWoMLm7dl+N17dNmYAWJ6ne5DX88eq5W/THjIhXBltBFqJrl+g5AV9FtRYjZKALyj9mUat4psp
+	R9lIAtQeaOXbFJ1vILfTmpcvPGmHyoZjApus/V6HuvhBm9nm4lSmMqagzWV6WNh7NEj0K5JOABGK/
+	ZMTVp0yJR6xrsGaEv6+zwgZJAFLruXzLUfnQs7/rTDMzjB6v5z0A7AIhsdPLJTtrTpdRan9hf30kv
+	JGBJS3Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAOO0-00000008WiX-0EH6;
-	Wed, 08 Apr 2026 08:35:44 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wAOQX-00000008WtZ-2WH2;
+	Wed, 08 Apr 2026 08:38:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAONw-00000008Whm-0vHO
+	id 1wAOQV-00000008Wt3-35za
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 08:35:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hiSy+H73Ko9+8MncaIqoOcEN6TUWqFQ7gYpXFumiz6/bdP9i4k4MC9+fsIS4EZ8O0002csxZFUbLY6LB+hAj/uenQKXqKPnU6tJduDlHRChUO160iLMraeROMBKMdHAmxiEdUZhuO54fjoWX8HwcmLXVppY177EG7NRHDIw9nupDrgufiSRSVijxsrOHPHg/+Ee3cveTvXyfMfHDGx3znm00x/dowsc1p4eRkNxNuYRTyv+nfkFK8EAOIm14lyHZ4RjH6oiwRbfak66OZrU4cIdYRvzJqmiZNVaPBW6QmYsNUxIVCNjR0mYmI2XE+aLpObj5krBIhV2ZxaqjtfYgRw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pXbnSHQqmV0/aVnONGzIEHVXb+vsBAgbtY2mwbyuEm4=;
- b=BskXMpnd3V04vL42Nv54sIxPGLhMM+cwPwJ/37pUu8pp0wYmLkeF7HDnonYwTEyoiHDnEP3SRRvxIAGkZyEyhvire6V3kFJaGAhqabHtBU0BHtgF3SMk/guGvDKgW53H2SeRsFcAUMTJoE4ggUKPK+DmzmNTIE1z9lUUjQ6LqhZnkS50wNYQFRUL+eByjPyyb0enYHk8pVID06u5/Ryu6tWGWdnxq0mtVorH6RmK1l888uTWrAKt3AF9K61ENP/11SRPigtAu7LSuWf00iIInK2jINRToapVE5SMwo3UgJESQEMTE+fQ8FmBX9v8g9J16TbJ2qoMM32zC1bOjpA9uQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pXbnSHQqmV0/aVnONGzIEHVXb+vsBAgbtY2mwbyuEm4=;
- b=Pe5f2rLp+KKXbkPTWHCkvkkBWOHzsJgROBG5pYhg/ufTEmAZ9x/CdhMBnkP5+RWpJnx2eV5E0TskDMXb04EOSH2q2ukKlKL1iKa6jLqakBNEUX3H9EkbY4DabI3sNQADybNBEYJZdJuNcs/UUQQIZWMb91m8Kur5okQFLHJE8E2uqN7butTir5cguMv8Zcs/q7ApThmuXH76BFzbP0NBsKZ1jS33w4h0DhMj3o51sL3SS6JRr/W/ZfhNnTOyNu3MwrSiBk2jsmIhaaXG9YxrqwgdhqY/LyaLNtwHvDXgYQ+cuvEHWbs/iMbVE5mcEGCN/SVcxKXH+GeG/kvC8mP27w==
-Received: from AM8PR04MB7284.eurprd04.prod.outlook.com (2603:10a6:20b:1dc::8)
- by VI1PR04MB7133.eurprd04.prod.outlook.com (2603:10a6:800:126::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.18; Wed, 8 Apr
- 2026 08:35:33 +0000
-Received: from AM8PR04MB7284.eurprd04.prod.outlook.com
- ([fe80::9cd6:51bd:82b:98dc]) by AM8PR04MB7284.eurprd04.prod.outlook.com
- ([fe80::9cd6:51bd:82b:98dc%5]) with mapi id 15.20.9769.014; Wed, 8 Apr 2026
- 08:35:32 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: Jakub Kicinski <kuba@kernel.org>
-CC: Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir Oltean
-	<vladimir.oltean@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "f.fainelli@gmail.com" <f.fainelli@gmail.com>, Frank
- Li <frank.li@nxp.com>, "chleroy@kernel.org" <chleroy@kernel.org>,
-	"horms@kernel.org" <horms@kernel.org>, "linux@armlinux.org.uk"
-	<linux@armlinux.org.uk>, "andrew@lunn.ch" <andrew@lunn.ch>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>
-Subject: RE: [PATCH v4 net-next 09/14] net: dsa: add NETC switch tag support
-Thread-Topic: [PATCH v4 net-next 09/14] net: dsa: add NETC switch tag support
-Thread-Index: AQHcwQGnBHohH8Ym5UWBzU905T1AvbXMjUwAgAhMYzA=
-Date: Wed, 8 Apr 2026 08:35:31 +0000
-Message-ID: <AM8PR04MB72840381B3C4C3A0A63BEB76885BA@AM8PR04MB7284.eurprd04.prod.outlook.com>
-References: <20260331113025.1566878-10-wei.fang@nxp.com>
- <20260403011736.1795610-1-kuba@kernel.org>
-In-Reply-To: <20260403011736.1795610-1-kuba@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM8PR04MB7284:EE_|VI1PR04MB7133:EE_
-x-ms-office365-filtering-correlation-id: 5c241562-ce57-4361-5eea-08de9549cc02
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|38070700021|18002099003|22082099003|56012099003;
-x-microsoft-antispam-message-info: sJho69hb19PSUWlJmRlDbxfwoImKnlnBALqBBTc6EhW8OmZCytJpz4dbasx3JHjybm8Ur/Ig8PuuVnfC7sdqAW/tMdZna0+3a6JQRrmsIDQia8SbZPVep7Kaw9BomfamCr/ALGQnvC3d7No1xQeMu2KHpXz6xYFy9xoc9P/2e3sHYRcVkV3tckLNKJ9VYBdU3saabxpMYYDmzmm8k0GRr2tXmMNMcb7GNNKDEjz/qXf8GQrmdnCiPxVWZsC9oU8p9dC/4rzpHOKm10Ca/d9jHCNW1KwbLITuPi9Ehp2R7/26/qfINCc8ZNLGErEHHR/YxuG+SvwBIxxW2cm9fpu8h/O2ZXYyr2m7pJBFO0YW1A++4GIdmPNDcwsyHf4+SvGgg336M+1SWIRsiYefV1+9M3p11olZcnWYMGL5woMmuQdx4L1KMIpGa3+j9G2TPUUr0lYL2KWlUcUmlqoZV829j4ZyCArJDdqQjWm87VOKhbHS/hfbPSVJ4IMJNmMaugqkiBWbOn8XgLXTtw3VYDxNdgnMlbUZU9c5UfsR6VGUHlCnGcPBqwdFcQjyRkuZAqe7qQRrtVaimwHasBdiJTMJdkYu7G4nGVe1kekKDVLGe7QS0ytM9wEsGJnveQqeJ4OzdOdMcNlfZxGLcFFrxGzMJjMWzoaiVEAtGkkvUBF8q95qGTA7DqkuhGzN1wyfvn41xYPxuL9btSSqTjrFqL3xWXeMX9X7W6Nc7hPjwRg8QpWtWbSvZPcAsAh1JSR7D+XG81k5RmXTAs0MXRa4D7rUIDnR9CgzySLW4g6p8DLnuXA=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7284.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(38070700021)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Cj01t5mXVo378lEd1Z015hW6pRKG3Gv/FLNt1GLb1yh1tFqtHsdosnbzsOgc?=
- =?us-ascii?Q?QpCnf4LG2f2VZ2ErE1PnRXnk8mAYad8TnFnsbcV/qG4NnxY3zp1WHmTbiDZy?=
- =?us-ascii?Q?YcYjPdSQ7aOpej0ZGU793S62aB0pI5B01KCvYSlGNnJ2Xs9brawCBaMnc4lM?=
- =?us-ascii?Q?t0royd1No6zXmVtINfXrSkXI/aNh5v8j8Gkg2VZqZT6EYqXhgfZDsWXU855X?=
- =?us-ascii?Q?/QpdN/a4j7Yex7JqWxNgc1grohWF6e8Yt6FEBMo7MFuJcwxHxL+SpIuAwUuG?=
- =?us-ascii?Q?XkSSRVjlCZo4XXiduoowThrlxHlNQSDqOn8myyJ8vN53DFE9H290/2GuMSP5?=
- =?us-ascii?Q?m+MBYlW3LLl1Si85XtaHyWq6lRDGskXnj11VLtgZ8+KeXX04XurMWCU6GGZx?=
- =?us-ascii?Q?8RRDIcymG21ZrYjNlOzlSbL0IMKdkba8Tn+LY4wzTFzewpuUcOiiu/wtiXOJ?=
- =?us-ascii?Q?EZJjZuZoGGNOW5fJkGsegVfaWNBSGxTrjAk12o1m6OWxRJKiES1E03NEiLyA?=
- =?us-ascii?Q?gfgwnhhHqc/laRSfdlh1cKvqgNcbr4lJXb5pNLhrT/gCJeZ+5OHbs6Hi7CxN?=
- =?us-ascii?Q?mLKe7trTk2uSVqgD1QGjhLS/RxoYqyEnGc8BXv9KJjm1yJuSptIeQSglmHZI?=
- =?us-ascii?Q?Ev4PcJskVaf3Z5yIqD+jW7PSVO+GG7YnTbmDP301OlocrVXoOOaDA484YNAT?=
- =?us-ascii?Q?E63wZkNA54adtA6hfEfJ9Sr9BBtdSrP2Gh/WrKrx3QBwOAl2pI14Hd35Q5BI?=
- =?us-ascii?Q?ia3PgUHKEj7xj8zJmWVxMlybmgBZcnVk8ohkvWdQ2UyQKwXpucQ20u+3qWgF?=
- =?us-ascii?Q?qJ6XHpE4fWSN0rjQBPj8ukLmuwATFC24EXadWaXcvXAur/TfgJ8odV/3TagJ?=
- =?us-ascii?Q?Hx7Ee17v2XO+MMxdHuJttxRYqZXjSXUfmf9HTqWMedZ835Jy0M3ZUJRosN4A?=
- =?us-ascii?Q?IMTTD9t63lQ9aWgaRMt15IhnW9+9dJKzNWxGdau1MuVHfmb22CLTENLxXWGJ?=
- =?us-ascii?Q?azgNh6O1zCNAaDQqNtbuIqyGhMVEmyo+PugVQmqVvlkgfn1Fch38evJrw+/9?=
- =?us-ascii?Q?vdBlph3f+1vTL6TcaTN7RYg8oI+6iYb6WLMUzvdtC0rJkqenO+3SlgUZ66oa?=
- =?us-ascii?Q?C3XCViYGVLtN1mGbrf+74jw95KIx1AgEusF3gRXlht+0kuHpW82gKscIoTHp?=
- =?us-ascii?Q?Tre8kDc4VAKKMjJEcN/f06ICwZx6qUC5MHRWVENltfPaM/iGa3Pm2wOHmOfo?=
- =?us-ascii?Q?jPL26atqp1KpjWJ88qvVGyyjBN6uAD5rMFun25CugGHZoL1IM4Zaxhe4ZTcJ?=
- =?us-ascii?Q?e9ykv46RiDXFElqTvvPyvsD75vrBzx8kWthNXwrw9jQRWr/Xo+VpDAtqFQjY?=
- =?us-ascii?Q?Wn9knJhsEGDpHia4pPkHB7X/dzBsygtA3Lyld8bMPcKUWtPTsIg5ZLaRVcoM?=
- =?us-ascii?Q?PFvycNjmG4Js5QDjmXpfkIUBvxvXnW85yWU377FDgeLu40VsEP2d6rsf1zNO?=
- =?us-ascii?Q?pN0ZA0psi9Q8CufHWalqdtdQQBx20d6i9NGI8VAZZBBKNRTs34UjZBX6elCK?=
- =?us-ascii?Q?uagN9o2QL7hfM/kAKHZODRmg4rv+riOWCz/OS0c+pngGj7CyRcXWJuPbsu0C?=
- =?us-ascii?Q?jL4NqdrWbnamjfiULeFs0dlUG5v1wzfKW6we6Tk2xST6uHDnNAlriMqJWjK/?=
- =?us-ascii?Q?pVvsZWjIbsrVh9ZsSWl7Ld5JyOeVcd4uRqUDO8Cj8Y8wrmi1?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 08 Apr 2026 08:38:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B22FF44479;
+	Wed,  8 Apr 2026 08:38:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C203C19424;
+	Wed,  8 Apr 2026 08:38:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775637498;
+	bh=tFO2wz8+moG8jwhFOJAx5x+1L99MAA6vAsWauEqfC8k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KmHU4vQta41BCXG19fXqoa5tTQlJEl6WHONqU7CIzw/YpkiDljrlZPIravgBwwtXQ
+	 EYMYZMKs8c/0GVDGXUQEC2sSMlB9/y01wj35boix4K9ORlZ2/e0rAZsCSq2vJDH/d5
+	 crp40HkhXdnIILqqTqe9D2YbS8Za8D0nvzoYScDW9CX1TEb1YafPe2k9Y1D6GkF2m4
+	 IVcVo9ZXmR+x0MmO3E4yACg2nFzr8OvkRE1PDCATHT6yk3nbsdHS82FddOq9EdvrBf
+	 j6AFyf1NddimzzhMBhiahr6Mq/saYVBjZ/4l4SuVwD5Dw2RC+S54O6+EjSDhMLB2nR
+	 m60qNuRTGtWbw==
+Date: Wed, 8 Apr 2026 11:38:15 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Ethan Luna <trunixcodes@zohomail.com>
+Cc: peterhuewe@gmx.de, jgg@ziepe.ca, nicolas.ferre@microchip.com,
+	claudiu.beznea@tuxon.dev, linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] tpm: i2c: atmel: fix block comment formatting
+Message-ID: <adYT9yeJBO9PhMBM@kernel.org>
+References: <20260324154354.6268-1-trunixcodes@zohomail.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7284.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5c241562-ce57-4361-5eea-08de9549cc02
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Apr 2026 08:35:31.9711
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Nf+9dbL7k7nY5xXMzXqXLX6PCTsiFiFK962eMa+0rjC/Xj7Gxzt71QC52bmzVtFV4NK+Yu0Pf7sQ7Nwltaailw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7133
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260324154354.6268-1-trunixcodes@zohomail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_013541_147729_3CAF9280 
-X-CRM114-Status: GOOD (  25.93  )
+X-CRM114-CacheID: sfid-20260408_013819_814106_384A1293 
+X-CRM114-Status: GOOD (  29.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,101 +72,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > diff --git a/net/dsa/tag_netc.c b/net/dsa/tag_netc.c
-> > new file mode 100644
-> > index 000000000000..addd41f7f1b6
-> > --- /dev/null
-> > +++ b/net/dsa/tag_netc.c
-> [ ... ]
-> > +static void *netc_fill_common_tp_tag(struct sk_buff *skb,
-> > +				     struct net_device *ndev,
-> > +				     u8 subtype, int tag_len)
-> > +{
-> > +	struct dsa_port *dp =3D dsa_user_to_port(ndev);
-> > +	u16 queue =3D skb_get_queue_mapping(skb);
-> > +	u8 ipv =3D netdev_txq_to_tc(ndev, queue);
->=20
-> What happens here if the interface doesn't have traffic classes configure=
-d?
+On Tue, Mar 24, 2026 at 08:39:49AM -0700, Ethan Luna wrote:
+> Multiple block comments in tpm_i2c_atmel.c placed the closing '*/' on the
+> same line as the comment text. This violates the kernel's preferred
+> comment style, which requires the closing delimiter to appear on its
+> line.
+> 
+> Fix the formatting to improve readability and resolve checkpatch
+> warnings.
+> 
+> Signed-off-by: Ethan Luna <trunixcodes@zohomail.com>
+> ---
+> 
+> V1 -> V2: Fixed block comment formatting consistently across all multi-line comments
+> V2 -> V3: Fixed trailing whitespaces consistently across all multi-line comments
+> 
+> v1: https://lore.kernel.org/all/20260322193112.27010-1-trunixcodes@zohomail.com/
+> v2: https://lore.kernel.org/all/20260323134200.7766-1-trunixcodes@zohomail.com/
+> 
+>  drivers/char/tpm/tpm_i2c_atmel.c | 34 +++++++++++++++++++++-----------
+>  1 file changed, 23 insertions(+), 11 deletions(-)
+> 
+> diff --git a/drivers/char/tpm/tpm_i2c_atmel.c b/drivers/char/tpm/tpm_i2c_atmel.c
+> index 4f229656a8e2..9fd73049821f 100644
+> --- a/drivers/char/tpm/tpm_i2c_atmel.c
+> +++ b/drivers/char/tpm/tpm_i2c_atmel.c
+> @@ -31,9 +31,11 @@
+>  
+>  struct priv_data {
+>  	size_t len;
+> -	/* This is the amount we read on the first try. 25 was chosen to fit a
+> +	/*
+> +	 * This is the amount we read on the first try. 25 was chosen to fit a
+>  	 * fair number of read responses in the buffer so a 2nd retry can be
+> -	 * avoided in small message cases. */
+> +	 * avoided in small message cases.
+> +	 */
+>  	u8 buffer[sizeof(struct tpm_header) + 25];
+>  };
+>  
+> @@ -58,7 +60,9 @@ static int i2c_atmel_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+>  	if (status < 0)
+>  		return status;
+>  
+> -	/* The upper layer does not support incomplete sends. */
+> +	/*
+> +	 * The upper layer does not support incomplete sends.
+> +	 */
+>  	if (status != len)
+>  		return -E2BIG;
+>  
+> @@ -76,9 +80,11 @@ static int i2c_atmel_recv(struct tpm_chip *chip, u8 *buf, size_t count)
+>  	if (priv->len == 0)
+>  		return -EIO;
+>  
+> -	/* Get the message size from the message header, if we didn't get the
+> +	/*
+> +	 * Get the message size from the message header, if we didn't get the
+>  	 * whole message in read_status then we need to re-read the
+> -	 * message. */
+> +	 * message.
+> +	 */
+>  	expected_len = be32_to_cpu(hdr->length);
+>  	if (expected_len > count)
+>  		return -ENOMEM;
+> @@ -111,15 +117,19 @@ static u8 i2c_atmel_read_status(struct tpm_chip *chip)
+>  	struct i2c_client *client = to_i2c_client(chip->dev.parent);
+>  	int rc;
+>  
+> -	/* The TPM fails the I2C read until it is ready, so we do the entire
+> +	/*
+> +	 * The TPM fails the I2C read until it is ready, so we do the entire
+>  	 * transfer here and buffer it locally. This way the common code can
+> -	 * properly handle the timeouts. */
+> +	 * properly handle the timeouts.
+> +	 */
+>  	priv->len = 0;
+>  	memset(priv->buffer, 0, sizeof(priv->buffer));
+>  
+>  
+> -	/* Once the TPM has completed the command the command remains readable
+> -	 * until another command is issued. */
+> +	/*
+> +	 * Once the TPM has completed the command the command remains readable
+> +	 * until another command is issued.
+> +	 */
+>  	rc = i2c_master_recv(client, priv->buffer, sizeof(priv->buffer));
+>  	dev_dbg(&chip->dev,
+>  		"%s: sts=%d", __func__, rc);
+> @@ -172,9 +182,11 @@ static int i2c_atmel_probe(struct i2c_client *client)
+>  
+>  	dev_set_drvdata(&chip->dev, priv);
+>  
+> -	/* There is no known way to probe for this device, and all version
+> +	/*
+> +	 * There is no known way to probe for this device, and all version
+>  	 * information seems to be read via TPM commands. Thus we rely on the
+> -	 * TPM startup process in the common code to detect the device. */
+> +	 * TPM startup process in the common code to detect the device.
+> +	 */
+>  
+>  	return tpm_chip_register(chip);
+>  }
+> -- 
+> 2.53.0
+> 
 
-netdev_txq_to_tc() will return 0 if not TC configured, I mean ndev->num_tc =
-is
-0.
+Thank you.
 
->=20
-> By default, netdev_txq_to_tc() returns -1. Because ipv is an unsigned 8-b=
-it
-> integer, this casts to 255.
+Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
 
-Okay, this is a potential bug when we add TC_SETUP_QDISC_MQPRIO
-support. I will fix it.
+Applied.
 
->=20
-> When this is later passed to FIELD_PREP(NETC_TAG_IPV, ipv) in
-> netc_fill_common_tag(), the macro blindly masks the variable, silently
-> forcing the IPV field to 7 (the maximum priority) for all default,
-> unconfigured traffic. Valid TC values greater than 7 would also be silent=
-ly
-> truncated.
->=20
-> Does this code bypass the intended QoS mechanisms?
-
-No, configure IPV to send packets according to the expected TC.
-
->=20
-> > +	void *tag;
-> > +
-> > +	skb_push(skb, tag_len);
-> > +	dsa_alloc_etype_header(skb, tag_len);
-> > +
-> > +	tag =3D dsa_etype_header_pos_tx(skb);
-> > +	memset(tag + NETC_TAG_CMN_LEN, 0, tag_len - NETC_TAG_CMN_LEN);
-> > +	netc_fill_common_tag(tag, NETC_TAG_TO_PORT, subtype,
-> > +			     dp->ds->index, dp->index, ipv);
->=20
-> Will this break communication for standard single-switch setups?
->=20
-> The driver passes dp->ds->index as the hardware switch ID here, which
-> defaults to 0 for the first switch in a DSA tree. However, on the receive
-> path, frames stamped with switch ID 0 are rejected.
->=20
-> If the physical switch hardware uses an ID greater than 0, frames will fa=
-il
-> the lookup in dsa_conduit_find_user() on receive because the software ind=
-ex
-> is 0.
-
-We added the 'dsa,member' property to the netc switch DT-binding doc, speci=
-fying
-that the 'member' (switch index) value cannot be 0. Furthermore, the netc s=
-witch
-driver also checks the switch index to ensure it is not 0. Therefore, the s=
-oftware index
-and hardware index are equal.
-
->=20
-> > +
-> > +	return tag;
-> > +}
-> [ ... ]
-> > +static struct sk_buff *netc_rcv(struct sk_buff *skb,
-> > +				struct net_device *ndev)
-> > +{
-> > +	struct netc_tag_cmn *tag_cmn;
-> > +	int tag_len, sw_id, port;
-> [ ... ]
-> > +	if (tag_cmn->qos & NETC_TAG_QV)
-> > +		skb->priority =3D FIELD_GET(NETC_TAG_IPV, tag_cmn->qos);
-> > +
-> > +	sw_id =3D NETC_TAG_SWITCH & tag_cmn->switch_port;
->=20
-> This isn't a bug, but is there a reason to use a raw bitwise AND for sw_i=
-d
-> instead of using FIELD_GET(NETC_TAG_SWITCH, ...) to match how the port
-> field is extracted just below this?
-
-I think either is fine, the final result is the same. I just wrote it this =
-way for
-convenience during implementation.
-
+BR, Jarkko
 
