@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8FA10FC440
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 21:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A50D710FC448
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 21:35:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0ZlSPMRj3+srXyOEPtV421yYfIPQI8//9hbBm9dm4MY=; b=s9bWTG3n7S7AnvK5SA9QSH226u
-	0X7/48oh/3qlDUdavPBPvx7LosmaavJXSNP58WJ55GV3hfdGcwnmLkhSayxH0JZX/4nXtU+UiUZEG
-	XfASijpbnOXCVSmdX0XmT9XWv40rBcUBkK+LnQbPeOQewEf0bavpaclTgq+yVKc+diW0PmtsINlfB
-	rNMedWywkQRH/c97+OjDgdks4myV6CypyVWQW95XoZekiRviJLTWP9Dn6MTXExHS8c9/ujiNofhwI
-	XMigzhw/v6zP1gzsfPMG35U2QmoPh37TJjkG6RQerejh09lN3T2qBFy4wlfB336Ekju6Jmw1LbASp
-	9JHQQf5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y/ZDmJFMf0pTjChgKNi4aVpSQoennJ1xMK8FbYsVCis=; b=wPlQmynyMaDvmXx4pR3jma/MFP
+	gg48WuScPtypslvkMjdVopXCN5QLtBG9wVbFcsgT5nJ1kZtGE7/AfRDloPpd5x/dZKwoIkI7ZuA8/
+	2RFuuGAd9AgrKPu030RBHGpGNX8pz4X9bwqvZ30BFdtJ7nqxJT0etgMlPFtRM6wQ4C9RSLL+oWQxa
+	uDQot0VUeTkgYdknTfWju2hwbRL5Hgk47f2Zqcu1STzvfWYp0VuipQbmqmb3l3L66wb6fEOy55gIq
+	UlwxWf39B/C5DCECEzrrIZyFHUlyaFn9sHHrxEZWLcYGuCZIzm6uzW7u3Iaa44MGJoogXVl8jpPIi
+	5YSWusCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAaWI-00000009RIA-1XWL;
-	Wed, 08 Apr 2026 21:33:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAaWE-00000009RHR-2w63
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 21:33:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D77335D8;
-	Wed,  8 Apr 2026 14:32:52 -0700 (PDT)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1FBD23F7D8;
-	Wed,  8 Apr 2026 14:32:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775683978; bh=g3A6qMSW6cDns9VV5VEWAQeyFTIBH0u7yOFw0zPoou8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=AlCPDd9hHx8MV2WLagIsv6t8rGQrB/OzkE0mJ10qcUvM6CfdDFbTIwbtGwXtSofbF
-	 43cs5rliKNBokb1ulqs3aKS0+AgUNCNZ3LnZ1mCV0kWghGOI57DzKIP99a7MiVmf1Y
-	 N32CdqKZmM8tX+w0mbMLIk5zTVDOHEe+70/lHHGU=
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: gregkh@linuxfoundation.org
-Cc: leo.yan@linux.dev,
-	mike.leach@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	james.clark@linaro.org,
-	suzuki.poulose@arm.com
-Subject: [GIT PULL] coresight: Updates for Linux v7.1
-Date: Wed,  8 Apr 2026 22:32:48 +0100
-Message-ID: <20260408213248.3825788-1-suzuki.poulose@arm.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
+	id 1wAaYU-00000009RQf-0CRv;
+	Wed, 08 Apr 2026 21:35:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAaYT-00000009RQW-1MDh;
+	Wed, 08 Apr 2026 21:35:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 35E0B600AD;
+	Wed,  8 Apr 2026 21:35:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 921BCC19421;
+	Wed,  8 Apr 2026 21:35:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775684119;
+	bh=U5m8hCve0SToPzGN57qTzQp7oW2CDN8d/H/F/Gwr1gk=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=c8Lz1avGo9y/3VwFqk+vg4C2dwokvPKM2kRCkByp3XrW7RZDSnYhczOJwfkn5J17L
+	 fZPiEDIAb2KROGCWUAncAdHDC37/G9H+3r/bDVJyxxMaT0qqLf9fZmz7PzP1madm3h
+	 Y/XJsLkf6KaJAK845zD1MKfM7MnRVciZJENhnfgD+0aaBr6QVYJIPfrZ9LDk9WaW2B
+	 +LWfNPwjYgAEpol/ft2FMPoaAZFaqgynKvrqrPgXPkS7Upr4LNOd5/CxKqPUIP1kjq
+	 xxCp7IN2bqWWAIAFgZJG98ZioTl6cU/Y9ZeSVkPWh7bnLWcoHLjT/nFmSJvbuIQ6z4
+	 dYmBPC/7/qxqQ==
+Date: Wed, 08 Apr 2026 16:35:17 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_143302_899015_529673EF 
-X-CRM114-Status: UNSURE (   9.22  )
-X-CRM114-Notice: Please train this message.
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-i3c@lists.infradead.org, 
+ Maciej Lawniczak <maciej.lawniczak@intel.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ linux-aspeed@lists.ozlabs.org, devicetree@vger.kernel.org
+To: Dawid Glazik <dawid.glazik@linux.intel.com>
+In-Reply-To: <7f55458097ef651b4fc46650254afd3fa7b87348.1775679285.git.dawid.glazik@linux.intel.com>
+References: <cover.1775679285.git.dawid.glazik@linux.intel.com>
+ <7f55458097ef651b4fc46650254afd3fa7b87348.1775679285.git.dawid.glazik@linux.intel.com>
+Message-Id: <177568411772.3278896.3414957895375606965.robh@kernel.org>
+Subject: Re: [PATCH v3 3/3] dt-bindings: i3c: Add AST2600 I3C global
+ registers
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,101 +74,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Greg
 
-Please find the updates for CoreSight self-hosted tracing subsystem targeting
-v7.1
+On Wed, 08 Apr 2026 22:34:35 +0200, Dawid Glazik wrote:
+> Introduce the device-tree bindings for I3C global registers found on
+> AST2600 SoCs.
+> 
+> Signed-off-by: Dawid Glazik <dawid.glazik@linux.intel.com>
+> ---
+> I wasn't sure if I should add newline at the end of the
+> file or not so I took
+> https://github.com/torvalds/linux/tree/master/Documentation/devicetree/bindings/i3c
+> as an example.
+> ---
+>  .../i3c/aspeed,ast2600-i3c-global.yaml        | 55 +++++++++++++++++++
+>  1 file changed, 55 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/i3c/aspeed,ast2600-i3c-global.yaml
+> 
 
-Kindly pull,
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Suzuki
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/i3c/aspeed,ast2600-i3c-global.yaml:55:4: [error] no new line character at the end of file (new-line-at-end-of-file)
 
+dtschema/dtc warnings/errors:
+Lexical error: Documentation/devicetree/bindings/i3c/aspeed,ast2600-i3c-global.example.dts:27.35-55 Unexpected 'ASPEED_RESET_I3C_DMA'
+FATAL ERROR: Syntax error parsing input tree
+make[2]: *** [scripts/Makefile.dtbs:140: Documentation/devicetree/bindings/i3c/aspeed,ast2600-i3c-global.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1597: dt_binding_check] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
 
-The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+doc reference errors (make refcheckdocs):
 
-  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+See https://patchwork.kernel.org/project/devicetree/patch/7f55458097ef651b4fc46650254afd3fa7b87348.1775679285.git.dawid.glazik@linux.intel.com
 
-are available in the Git repository at:
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git tags/coresight-next-v7.1
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-for you to fetch changes up to 971f3474f8898ae8bbab19a9b547819a5e6fbcf1:
+pip3 install dtschema --upgrade
 
-  coresight: tpdm: fix invalid MMIO access issue (2026-04-07 12:29:42 +0100)
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
-----------------------------------------------------------------
-coresight: Updates for Linux v7.1
-
-CoreSight self hosted tracing subsystem updates for Linux v7.1, includes:
-
- - Fix unregistration related issues
- - Clean up CTI power management and sysfs code
- - Miscellaneous fixes
- - MAINTAINERS: Add Leo Yan as Reviewer
- - MAINTAINERS: Update Mike's email address
-
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-
-----------------------------------------------------------------
-Elsanti (1):
-      drivers/hwtracing/coresight: remove unneeded variable in tmc_crashdata_release()
-
-Jie Gan (5):
-      coresight: ctcu: fix the spin_bug
-      coresight: cti: fix the check condition in inout_sel_store
-      coresight: platform: check the availability of the endpoint before parse
-      coresight: tpdm: add traceid_show for checking traceid
-      coresight: tpdm: fix invalid MMIO access issue
-
-Leo Yan (17):
-      coresight: cti: Move resource release to cti_remove()
-      coresight: Fix memory leak in coresight_alloc_device_name()
-      coresight: Get parent device reference after sink ID map allocation
-      coresight: Protect unregistration with mutex
-      coresight: Refactor output connection sysfs link cleanup
-      coresight: Refactor sysfs connection group cleanup
-      coresight: Move sink validation into etm_perf_add_symlink_sink()
-      coresight: Do not mix success path with failure handling
-      coresight: Unify bus unregistration via coresight_unregister()
-      coresight: cti: Make spinlock usage consistent
-      coresight: cti: Fix register reads
-      coresight: cti: Access ASICCTL only when implemented
-      coresight: cti: Remove CPU power management code
-      coresight: cti: Rename cti_active() to cti_is_active()
-      coresight: cti: Remove hw_powered flag
-      coresight: cti: Remove hw_enabled flag
-      coresight: cti: Properly handle negative offsets in cti_reg32_{show|store}()
-
-Mike Leach (1):
-      MAINTAINERS: Change e-mail address for reviewer
-
-Suzuki K Poulose (1):
-      MAINTAINERS: coresight: Add Leo Yan as Reviewer
-
- .mailmap                                           |   1 +
- .../ABI/testing/sysfs-bus-coresight-devices-tpdm   |  10 +
- MAINTAINERS                                        |   5 +-
- drivers/hwtracing/coresight/coresight-catu.c       |   4 +-
- drivers/hwtracing/coresight/coresight-core.c       | 214 ++++++++------
- drivers/hwtracing/coresight/coresight-ctcu-core.c  |   5 +-
- drivers/hwtracing/coresight/coresight-cti-core.c   | 321 ++++-----------------
- drivers/hwtracing/coresight/coresight-cti-sysfs.c  | 174 +++++------
- drivers/hwtracing/coresight/coresight-cti.h        |  15 +-
- drivers/hwtracing/coresight/coresight-dummy.c      |   7 +-
- drivers/hwtracing/coresight/coresight-etb10.c      |   4 +-
- drivers/hwtracing/coresight/coresight-etm-perf.c   |   5 +-
- drivers/hwtracing/coresight/coresight-funnel.c     |   4 +-
- drivers/hwtracing/coresight/coresight-platform.c   |   4 +-
- drivers/hwtracing/coresight/coresight-priv.h       |   3 +-
- drivers/hwtracing/coresight/coresight-replicator.c |   4 +-
- drivers/hwtracing/coresight/coresight-stm.c        |   4 +-
- drivers/hwtracing/coresight/coresight-tmc-core.c   |  15 +-
- drivers/hwtracing/coresight/coresight-tnoc.c       |   4 +-
- drivers/hwtracing/coresight/coresight-tpda.c       |   4 +-
- drivers/hwtracing/coresight/coresight-tpdm.c       |  40 ++-
- drivers/hwtracing/coresight/coresight-tpdm.h       |   2 +
- drivers/hwtracing/coresight/coresight-tpiu.c       |   4 +-
- drivers/hwtracing/coresight/ultrasoc-smb.c         |   4 +-
- include/linux/coresight.h                          |  14 +-
- 25 files changed, 363 insertions(+), 508 deletions(-)
 
