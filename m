@@ -4,88 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 382E510F995A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 15:55:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 288F710F995A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 15:58:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8xEbOSfAeIQTiQrXV9JaxCaRny/sDyU5tjFXkonzQzY=; b=eD8vKUGHwDYZrDySIe5CgK/IWe
-	b9YBmC2QuPYqY3Ut8j5GLa+wdoI37Y5WsrMeZ5zeb+TTk9MHXYRz74NpKuRraiXHTs9eVP9/NawTN
-	Z3YSNOD99NVaN1bXQfgn4d+xImL7k4xwiNpdaqR4QF23Jzcu9+ZJnSkm9s/1t55wUix9vEef2L6U8
-	/JAH3i0uGJrVEuSs9Ifg46Kt7bBg+ThalPvJW+IYH2ee4F7Yl8rplcyaHifwlmpTB3Gdqs4orSJ/I
-	FvG2xbtBpeC0+AB8Eu9nkTl6Sj/onO1FvMHttetbTwc5o33s5OpFHyTtLnkQOqSZwwYnvYmPFpip9
-	B0x3GNQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XqYuVsb2XjLL2Ixw7DBhfeBFbxiPyVwNWuKIeGN+N+c=; b=Rgrf6zAQOzD+3cZjCkdtHlUV46
+	enEdKTYfafMg2DGwn8l48hw5ew6tGls8lXwpGr51tvF6rHLHiJ+UTE034Lce5fWcLoiC9hd1fJ1vU
+	0VQkSHb+41p8Gk+bquJ4QzO7EX3y9UcOcmeveVW0HQMxuI9+oNTF4edtcaCsp3XGet3WDXbAGXNFN
+	BC+6erACAWdOn2UB70bVg8Qe0ZQ/4+R13KTw5p34Bq1IDjwRWKNsPeMUG4VD8IG8XUHgwrgdEMzcn
+	KZGTe96JNgLiLfWAA8mjbYCtfco24SFzTuxHyawHMJW5xRJTgIKPMJCgPu1mqjzPjpG3piyEGogzB
+	SPzwoszQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAVFg-000000095MC-2Ive;
-	Wed, 08 Apr 2026 15:55:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wAVI0-000000095XX-2OP8;
+	Wed, 08 Apr 2026 15:58:00 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAVFf-000000095M4-0L8Q
+	id 1wAVHy-000000095X2-1ku2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 15:55:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F13E1600CB;
-	Wed,  8 Apr 2026 15:55:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56793C19421;
-	Wed,  8 Apr 2026 15:55:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775663733;
-	bh=Kp3w3o5nxgWi4NC+Tw2hZegA80ySf51A5OA4FzvWIqw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=LoseWjJ69m5EyrO5MhbJght93gFPqR5QcBUo/7J4aaRiJ4kKMmuRoy8VKMBv4LA1G
-	 WrmF2s1kZUgySdHBqMQzjcFNksQ5tyEXdBe2jFPjl4F3/u0l+PF8/CTSXf/VaK414K
-	 iy5eBqBNTm0tLLptblZnxYz6MCCiyaeWCjYOcQW2k7BDhhnlrboIkGjoADgWS6YVdv
-	 NYZhBWKwRrJngW1I59mwzTzlBkzeKFwBOuM8iJmUmLbwrkKZuR85D7REH1phnEOdBi
-	 n3X5IObBvwQYTBDQhgyOJfuovLlgjaIJPh2MU8q/GSBGIgQ5jSRS31qNzFIGHureZi
-	 EcVBf0ovB9Vdw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wAVFa-00000009xvc-2WC2;
-	Wed, 08 Apr 2026 15:55:30 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Alexandru Elisei <alexandru.elisei@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	James Clark <james.clark@linaro.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	John Stultz <jstultz@google.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Kalesh Singh <kaleshsingh@google.com>,
-	Leo Yan <leo.yan@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Mostafa Saleh <smostafa@google.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Quentin Perret <qperret@google.com>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Subject: [GIT PULL] KVM/arm64 updates for 7.1
-Date: Wed,  8 Apr 2026 16:55:09 +0100
-Message-ID: <20260408155509.548103-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-MIME-Version: 1.0
+	Wed, 08 Apr 2026 15:57:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=i+bt82G/yOd/kHpQyO9eTkpbEOzKLgdOk9OmFvi3Bh+7zF69Q5DQnBfoAVEo6HJL13p9FJFTOUf3BDNq5uIzL8O7XliKi5QbvtBb4MfrNU+jMDhM4Z44ihDYP0+8JxPqKUGGnXArSJBbZcDBhYn67tSJ5NbSFu39ukQJYOrOyIqAnSzKfMxzpCZHQDVcnq0pJe2tpDjcGTyzJz3RBXIx34UObH4Bo/Tu+I1axPNIwP+WV1SGDBr/gc4kyiGFSoBjVxSEwqlDLe3lK8ktECDE5b2iXCZIQLWgxEUlGvCjFmBM2cy5icOaDBeU1ZJFJD3o4et2+koPQ0nDukqvJvxp7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XqYuVsb2XjLL2Ixw7DBhfeBFbxiPyVwNWuKIeGN+N+c=;
+ b=UX6F3n+lL4UXE2nPNk7cpMJBLe9xDZSmWP5hWpR0ZNT9GCX6ZnNApBBwtbxvklKLjlrpW3PtllVWmjuzkjd6xjaIEAe7fkG8GWcZ6FhZn0zMwo4oAmDKaC0lOi3r364IHQDuizgRRHtzsHK9bOvjaLNQivADFP9IkWu4PJtc6JcMZAj4+avDgsfcN3zZM3PsBLvYM/axpmN5IGKCM1uTQWngBD3YO7lZrbD9FD7GDtrK5xSD5ZfcLQHnJkS95k1/8cnYOLPOdbpTcrjCRm0lUJ5ob2vc5+KAvYnJKJAU1rAFDDWwpuwQBCGBftC42E7l1ayxomzFB4pbeIKvfzyzuw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XqYuVsb2XjLL2Ixw7DBhfeBFbxiPyVwNWuKIeGN+N+c=;
+ b=HDXEsEOOz63yxfthL5p6oJdm9dP9ds6jHcAauZuFL3U8DIhz9Jd32bheqwief3x5PgPjLo6hPjrr5N/qQMS0N5adk4SmGTUA+XAc8rlqjcyD/b/2sDaiHSw5+GHQJU0WX4ugxDSwMDLEmsKVGKl2ArCBmgzhwC2NI3azZEjAmTeCoy1jQzVVYWDsUQkuz1YPhmuSQm4nundikdevOt+sVrZYQJvw10jGUUMgySWqvPVZBHsUfHsWok8lQFJANDfP7UrWc7Uyg0L6vVHVs1AHeX3VZRyNkmKAwInYaefmnmGFjVnWGI9F8AmYLqc+Xr8T54tpYy3hd8d4ujYIREpECg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
+ by OSKPR04MB11317.eurprd04.prod.outlook.com (2603:10a6:e10:99::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 8 Apr
+ 2026 15:57:48 +0000
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9769.016; Wed, 8 Apr 2026
+ 15:57:48 +0000
+Message-ID: <a9910b12-bffd-42ad-8dad-137f42960432@oss.nxp.com>
+Date: Wed, 8 Apr 2026 19:00:56 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] remoteproc: imx_rproc: Pass bootaddr to SM CPU/LMM
+ reset vector
+To: Peng Fan <peng.fan@nxp.com>, Mathieu Poirier
+ <mathieu.poirier@linaro.org>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Daniel Baluta <daniel.baluta@nxp.com>,
+ "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20260327-imx943-rproc-v2-0-a547a3588730@nxp.com>
+ <20260327-imx943-rproc-v2-2-a547a3588730@nxp.com> <acqjS440STRl2sK2@p14s>
+ <acs2PAZq2k3zjmDW@shlinux89> <adUghiyZbe3fmcNX@p14s>
+ <PAXPR04MB8459AA009C932EB9D6139A11885BA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+Content-Language: en-US
+From: Daniel Baluta <daniel.baluta@oss.nxp.com>
+In-Reply-To: <PAXPR04MB8459AA009C932EB9D6139A11885BA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: pbonzini@redhat.com, alexandru.elisei@arm.com, arnd@arndb.de, catalin.marinas@arm.com, tabba@google.com, james.clark@linaro.org, joey.gouly@arm.com, jstultz@google.com, jonathan.cameron@huawei.com, kaleshsingh@google.com, leo.yan@arm.com, broonie@kernel.org, smostafa@google.com, nathan@kernel.org, oupton@kernel.org, qperret@google.com, sascha.bischoff@arm.com, sebastianene@google.com, rostedt@goodmis.org, suzuki.poulose@arm.com, vdonnefort@google.com, weilin.chang@arm.com, will@kernel.org, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-ClientProxiedBy: AS4P192CA0045.EURP192.PROD.OUTLOOK.COM
+ (2603:10a6:20b:658::25) To GVXPR04MB12316.eurprd04.prod.outlook.com
+ (2603:10a6:150:2c6::8)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|OSKPR04MB11317:EE_
+X-MS-Office365-Filtering-Correlation-Id: 50531c0f-bc04-49fb-7b31-08de95879483
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|19092799006|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: OLcvJzNpACPhkP2AsftbBKGPvTv+1rZy/XfaNusRmnX5cnz4xuhYYzsWfv10gqSvZUixvieT3cgQ49WXd5w9RPGOCTa4c9VQDKbhIFLJ929Xv2SXU50EM6wWD5ETzrPMMR4S2h55tp2/mp8I2KzukwCfXVE2IzhEK2MPS3IW8M0oyh7Q93m3LhiehSZQkWPzOpH76f1ZPYMHDLoJSerDGDC5UOwG/kiREbD/qyHMS2OTXPEwPbEQq2PhakK/RcONEIGQ9U9ONVsTufE39DMimA5j2EO1RxrW1w6HT0RWmJt7qu37TcGGcuUNFWuDzRzg+CncKWx5NwvdAM9wQHA0OGmxBWpPU7/nRtUAO8+naQ6tbveAQOIrzt7CZaJr9k3EhM66hUFhl4N2jbMhIXWXKYUIzmqIpJ59X+pzippEiSD2PgaGSMtLi5mDRWNcAlNaBWJv6JvsIpCs04Waofsx2VBzhnZaTXQD2Yrtc60DSFYHQST18xhfy1/BKn7RXbd6QYXc8lgcENd36nHOAFU8UXIT+TyFgnp9dVdhwQOsawBrZlcfq1kH0JuPpX5J77GRjaRYZXoflofYQFKT5PFKrV4zwae+fcyoTEjRRgPF4qAjkc0COwnzTlPEalcGpUEyolErEeGNRB31up+nSEKmHPDBMYmUMxwB0a2LWJ86q4k6vWEoKcwqqvU2YfVL1fT2qKxLsGWN9RjAUQ204lpMGDqqOf6ZBa65lLzKRL77RXk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(19092799006)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NkR2NUI5RkJVZ1IyallzV0R1OFhqMEI2dTIzemRDWkUwaGFRbWl6M2h6dXY1?=
+ =?utf-8?B?YWJBU2ZraVI0aWZBQXVBWWppcEZMS1BrSmYvZFFRR1dqVmgxbmVGVmNieElQ?=
+ =?utf-8?B?RnUvQ0grWXcwbTk3TzhaQTdtVWFYc3ltdDUwUEFtTDVlcWhWcUJoREZGb0ZW?=
+ =?utf-8?B?MDIvZmprb3I3MnJZczNZT3djaXA0aVVNMmtrZDNxVFRObGZMZlI1NlY3Zm44?=
+ =?utf-8?B?MlpRb2VFd2NERDhRT2R0LzJWcHRsRjR1ZG84VTZQYWpBand0dUZIb3pkd25i?=
+ =?utf-8?B?VnNhTkxpOWJXMVI3QWc4ckpQOE9VWGcxd0NZSXNZVFFXS1g5TlkxOVBMWXJv?=
+ =?utf-8?B?VlVGSUZsZEN4Y2RRbUM2SE1kY25TOUwzUEFacko0THNUeFNJTGhTcjRma2NI?=
+ =?utf-8?B?SjBNV0xyelNvelVzM1JRb0Z1anVZQWk4K09sZXUwSWZjTVBhemk5RGJINXk5?=
+ =?utf-8?B?YXNrVDYrWktWNmRkUXgwcFhSdTd3WmtoQnBrWGRoOXEyL3pNeFZQT0VJc3JT?=
+ =?utf-8?B?Zm5SSlpOUGp6aVlLZ1lqU3ZrZWlXQ3ZaSU9SVDVmaUgrQ1VkSWFoYW9GTWk5?=
+ =?utf-8?B?cGV0OUdVYllaMWZhRGxIbkwxU21sNjRsVmtnTmtMenFuZy9sOGI3MlpkVWNR?=
+ =?utf-8?B?Q0NsdUFoajBMMWhjQ3BSM2l4V0EwVG1CTVFaSUlIUEsvNmRaRTB3c0VOMGFT?=
+ =?utf-8?B?U25uUjg5bzJYelNUNzlyY2dvQ285bHZyT2FKb0d0Rk5wQlVSbDVsVTk2Mi9t?=
+ =?utf-8?B?clV3SGhtN3VUb3duZHZFOFFpeXpVQUZ1RVNDYU9TNFFicW4zMVd4R1dOdmZQ?=
+ =?utf-8?B?ZnptQjdxTzk5dXo5dzM0ODZJRytxNkdwLzlkNU9naDJ6WlVNZDlFcHJ1NGUx?=
+ =?utf-8?B?Wi9WTTdxbHJscHhaZzIrRCs4NldtUzIzd2pWRlVXZE5mWUZ4YVlIZTZtaSt3?=
+ =?utf-8?B?My9BT05nUW1zMnBxTGJyaVZFeTh3Y3lZYkVjR2Y2cW1TVzJMTU5aRERkSjI2?=
+ =?utf-8?B?Y1plUUxab3l1N2g2Q2JqSm1MYmgrb1poSWtEa2tPQkRRTXltdkVZSndaeFJx?=
+ =?utf-8?B?YXVlVm0xTSt3SjNSRkRUL214V2c4WVpGWG1iZVF0WDJ0QkZzU0JpMmx3OVJ2?=
+ =?utf-8?B?VHI5VVI2VEx6Y29zeDFHbnFScFMwL214dWMrY25MWkRpVjdmSW03amlKUGpM?=
+ =?utf-8?B?NEhFYTlobm9MdSs2N1g5M0dxOHVUK1BOb0huc0R4Mk9jNnk3UllpUjh5ZG1W?=
+ =?utf-8?B?ZG9TK1VJS2lXUnJzbnNmZ0RzTEowVHI3bGpWRXluZWRaMTNuOHI4am0rbFVi?=
+ =?utf-8?B?eG9zWXlXMm5WcHNvZ3gvakhNTDc1Mit2MnNLdzRlL3NLekVtSGp2YlNkZzli?=
+ =?utf-8?B?L3o5eVY0TnkwRGZtVDBXOGpqckM3eEFMd3FGallBVzh3dk96K0lGMzJ5ZHZM?=
+ =?utf-8?B?NXRsc2xmQWdqSDAyTHRQZm55REpxclBxMGYxL1ovQVc3WVR4cEExb0Y4WXRY?=
+ =?utf-8?B?ekhnYUVpcnlEVUpnSWkrN05sVitPWmpzWTkyQ1ZKdXJrQlZMU3NNRDNCZi8r?=
+ =?utf-8?B?V1ExUHgrZkEva0JzS21KaStEa0tkWDd1OXpqZVk5TzJNellkMjVZSkJBL0w2?=
+ =?utf-8?B?WWYzenBabjdqWGRpbmRMMjY0Z0R5QWtkbW1tVjZ0ZjJVUEl6eWlVa1ZZaXFI?=
+ =?utf-8?B?M05oRlJhRFhLaURqRTJJbG5ZUTRJOUcyNlpQQ1NzOWhEZk9tRGNqWWVGVUIr?=
+ =?utf-8?B?eXlSSmZJRk9xVlRHLzlsSzVnUUNDcURvSVFXQ25HYnlRNmk4WmY1YVZDanVS?=
+ =?utf-8?B?eFhNNld5cDZBc1QyN0NGWnk1aUpPY2RkeVJqK0RQTjJJVUFaNTlsblJaT1lh?=
+ =?utf-8?B?d2dTQ1VQWXNQNDQ1Z1A1QmpFTkcrdElLZlk5Uk5QY1FqU2ZmelJRb241TzN1?=
+ =?utf-8?B?SS9LNThRcFhTU05hbkNoeDZKUUlvUFI5SHJRWlRCME5LUUsvcGlDODdoRGxV?=
+ =?utf-8?B?WkRmNnhTcWkzRWdiaG5YelErcmNwVzQ4ckR2N1BRbjc3T3Y2ZHVBUklmRWtu?=
+ =?utf-8?B?c2FKV0drUzBaZVhKNzAwcUFkc1o4K3lReFhkVmVpckVBK0xBTFlLUi92TFll?=
+ =?utf-8?B?TEFBT1E2MmUyUHZGL2tCbmdMb2prcmhCNlJBaWZTTFkrVDlncURQZkh5SDM4?=
+ =?utf-8?B?a3dCNUw1T2lFL0JnYkd2Nk1pZ05YRDB3eXArSElMRVM4Q0V5SEJZa1B2TUNH?=
+ =?utf-8?B?U09heHlwVlZSZTErR1F5L01IWGdsaDcwRXpWaFpURjdwSjRkOXRDVy9Nckt6?=
+ =?utf-8?B?T1dLaG9sTGNzU0U3MTV4QWZ1TkV6TitULy9RL2daWThiSEd3ejdUZz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 50531c0f-bc04-49fb-7b31-08de95879483
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2026 15:57:47.9902
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: hoJP/Lm5MjpleoG2nR5vOylzF+gIIirtSrT9VPXXMesIowCQR03oGNoaXD6kcBAVwfY9svm22z3PFs+9op+kKA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSKPR04MB11317
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260408_085758_486112_F21BE597 
+X-CRM114-Status: GOOD (  21.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,468 +163,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Paolo,
+On 4/8/26 04:30, Peng Fan wrote:
+>> Subject: Re: [PATCH v2 2/3] remoteproc: imx_rproc: Pass bootaddr to
+>> SM CPU/LMM reset vector
+>>
+> [...]
+>>> Aligning the ELF entry point with the hardware reset base on
+>> Cortex‑M
+>>> systems is possible, but it comes with several risks.
+>> I'm not asking to align the ELF entry point with the hardware reset base.
+>> All I want is to have the correct start address embedded in the ELF file
+>> to avoid having to use a mask.
+> I see, per my understanding:
+> FreeRTOS typically exposes __isr_vector, which corresponds to the hardware
+> reset / vector table base.
+> Zephyr (Cortex‑M) exposes _vector_table, which serves the same purpose.
+> I am not certain about other RTOSes, but the pattern seems consistent:
+> the vector table base is already available as a named ELF symbol.
+>
+> Given that, if the preferred approach is to parse the ELF and explicitly
+> retrieve the hardware reset base, I can update the implementation accordingly.
+> If you prefer to parse the elf file to get the hardware reset base,
+> I could update to use them.
+>
+> Options1: Something as below:
+> 1. Include rproc_elf_find_symbol in remoteproc_elf_loader.c
+> 2. Use below in imx_rproc.c
+> ret = rproc_elf_find_symbol(rproc, fw, "__isr_vector", &vector_base);
+> if (ret)
+>     ret = rproc_elf_find_symbol(rproc, fw, "__vector_table", &vector_base);
+>
+> if (!ret)
+>     rproc->bootaddr = vector_base
+> else
+>    dev_info(dev, "no __isr_vector or __vector_table\n")
+>
+> This makes the hardware reset base explicit, avoids masking e_entry.
+>
+> Option 2: User‑provided reset symbol via sysfs 
+> As an alternative, we could expose a sysfs attribute,
+> e.g. reset_symbol, allowing users to specify the symbol name
+> to be used as the reset base:
+>
+> echo __isr_vector > /sys/class/remoteproc/remoteprocX/reset_symbol
+>
+> The remoteproc core would then resolve that symbol from
+> the ELF and set rproc->bootaddr accordingly.
+> This provides maximum flexibility but does introduce a new user‑visible ABI,
+> so I see it more as an opt‑in or fallback mechanism.
+>
+> Please let me know which approach you prefer, and I will update
+> this series accordingly in v3..
 
-7.1 should be a pretty large milestone for KVM/arm64. Of note, we have:
+I would go with option 1) as this and having something like this:
 
-- the hypervisor tracing infrastructure, which is pretty large on its
-  own, but also comes with an equally large set of tracing specific
-  patches (we share a branch with the tracing tree).
+#define IMX_RPROC_DEFAULT_RST_VECTOR_NAME "..."
 
-- the first set of patches for native GICv5 support, limited to PPIs
-  for the time being. I expect this to take a few kernel revisions
-  to reach the feature-complete state.
+later we can expand that with a configurable name via sysfs.
 
-- some movement on the pKVM front, in the form of protected guest and
-  protected memory support.
+This was along my initial proposal where you would determine
 
-The rest is a large set of fixes, cleanups and rework in order to make
-some of the most hairy code more maintainable (user_mem_abort() being
-the most significant example).
+the reset vector address from the elf file.
 
-Please pull,
-
-        M.
-
-The following changes since commit f338e77383789c0cae23ca3d48adcc5e9e137e3c:
-
-  Linux 7.0-rc4 (2026-03-15 13:52:05 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-7.1
-
-for you to fetch changes up to 94b4ae79ebb42a8a6f2124b4d4b033b15a98e4f9:
-
-  Merge branch kvm-arm64/misc-7.1 into kvmarm-master/next (2026-04-08 12:26:11 +0100)
-
-----------------------------------------------------------------
-KVM/arm64 updates for 7.1
-
-* New features:
-
-- Add support for tracing in the standalone EL2 hypervisor code,
-  which should help both debugging and performance analysis.
-  This comes with a full infrastructure for 'remote' trace buffers
-  that can be exposed by non-kernel entities such as firmware.
-
-- Add support for GICv5 Per Processor Interrupts (PPIs), as the
-  starting point for supporting the new GIC architecture in KVM.
-
-- Finally add support for pKVM protected guests, with anonymous
-  memory being used as a backing store. About time!
-
-* Improvements and bug fixes:
-
-- Rework the dreaded user_mem_abort() function to make it more
-  maintainable, reducing the amount of state being exposed to
-  the various helpers and rendering a substantial amount of
-  state immutable.
-
-- Expand the Stage-2 page table dumper to support NV shadow
-  page tables on a per-VM basis.
-
-- Tidy up the pKVM PSCI proxy code to be slightly less hard
-  to follow.
-
-- Fix both SPE and TRBE in non-VHE configurations so that they
-  do not generate spurious, out of context table walks that
-  ultimately lead to very bad HW lockups.
-
-- A small set of patches fixing the Stage-2 MMU freeing in error
-  cases.
-
-- Tighten-up accepted SMC immediate value to be only #0 for host
-  SMCCC calls.
-
-- The usual cleanups and other selftest churn.
-
-----------------------------------------------------------------
-Arnd Bergmann (3):
-      tracing: add more symbols to whitelist
-      KVM: arm64: tracing: add ftrace dependency
-      KVM: arm64: avoid unused-variable warning
-
-Fuad Tabba (14):
-      KVM: arm64: Extract VMA size resolution in user_mem_abort()
-      KVM: arm64: Introduce struct kvm_s2_fault to user_mem_abort()
-      KVM: arm64: Extract PFN resolution in user_mem_abort()
-      KVM: arm64: Isolate mmap_read_lock inside new kvm_s2_fault_get_vma_info() helper
-      KVM: arm64: Extract stage-2 permission logic in user_mem_abort()
-      KVM: arm64: Extract page table mapping in user_mem_abort()
-      KVM: arm64: Simplify nested VMA shift calculation
-      KVM: arm64: Remove redundant state variables from struct kvm_s2_fault
-      KVM: arm64: Simplify return logic in user_mem_abort()
-      KVM: arm64: Initialize struct kvm_s2_fault completely at declaration
-      KVM: arm64: Optimize early exit checks in kvm_s2_fault_pin_pfn()
-      KVM: arm64: Hoist MTE validation check out of MMU lock path
-      KVM: arm64: Clean up control flow in kvm_s2_fault_map()
-      KVM: arm64: Expose self-hosted debug regs as RAZ/WI for protected guests
-
-Marc Zyngier (49):
-      tracing: Restore accidentally removed SPDX tag
-      KVM: arm64: pkvm: Move error handling to the end of kvm_hyp_cpu_entry
-      KVM: arm64: pkvm: Simplify BTI handling on CPU boot
-      KVM: arm64: pkvm: Turn __kvm_hyp_init_cpu into an inner label
-      KVM: arm64: pkvm: Use direct function pointers for cpu_{on,resume}
-      KVM: arm64: Remove extra ISBs when using msr_hcr_el2
-      KVM: arm64: Kill fault->ipa
-      KVM: arm64: Make fault_ipa immutable
-      KVM: arm64: Move fault context to const structure
-      KVM: arm64: Replace fault_is_perm with a helper
-      KVM: arm64: Constrain fault_granule to kvm_s2_fault_map()
-      KVM: arm64: Kill write_fault from kvm_s2_fault
-      KVM: arm64: Kill exec_fault from kvm_s2_fault
-      KVM: arm64: Kill topup_memcache from kvm_s2_fault
-      KVM: arm64: Move VMA-related information to kvm_s2_fault_vma_info
-      KVM: arm64: Kill logging_active from kvm_s2_fault
-      KVM: arm64: Restrict the scope of the 'writable' attribute
-      KVM: arm64: Move kvm_s2_fault.{pfn,page} to kvm_s2_vma_info
-      KVM: arm64: Replace force_pte with a max_map_size attribute
-      KVM: arm64: Move device mapping management into kvm_s2_fault_pin_pfn()
-      KVM: arm64: Directly expose mapping prot and kill kvm_s2_fault
-      KVM: arm64: Simplify integration of adjust_nested_*_perms()
-      KVM: arm64: Convert gmem_abort() to struct kvm_s2_fault_desc
-      KVM: arm64: vgic: Don't reset cpuif/redist addresses at finalize time
-      KVM: arm64: Don't skip per-vcpu NV initialisation
-      arm64: Fix field references for ICH_PPI_DVIR[01]_EL2
-      KVM: arm64: Fix writeable mask for ID_AA64PFR2_EL1
-      KVM: arm64: Account for RESx bits in __compute_fgt()
-      KVM: arm64: vgic-v5: Hold config_lock while finalizing GICv5 PPIs
-      KVM: arm64: vgic-v5: Transfer edge pending state to ICH_PPI_PENDRx_EL2
-      KVM: arm64: vgic-v5: Cast vgic_apr to u32 to avoid undefined behaviours
-      KVM: arm64: vgic-v5: Make the effective priority mask a strict limit
-      KVM: arm64: vgic-v5: Correctly set dist->ready once initialised
-      KVM: arm64: Kill arch_timer_context::direct field
-      KVM: arm64: Remove evaluation of timer state in kvm_cpu_has_pending_timer()
-      KVM: arm64: Move GICv5 timer PPI validation into timer_irqs_are_valid()
-      KVM: arm64: Correctly plumb ID_AA64PFR2_EL1 into pkvm idreg handling
-      KVM: arm64: Don't advertises GICv3 in ID_PFR1_EL1 if AArch32 isn't supported
-      KVM: arm64: set_id_regs: Allow GICv3 support to be set at runtime
-      KVM: arm64: Advertise ID_AA64PFR2_EL1.GCIE
-      Merge branch kvm-arm64/hyp-tracing into kvmarm-master/next
-      Merge branch kvm-arm64/vgic-v5-ppi into kvmarm-master/next
-      Merge branch kvm-arm64/nv-s2-debugfs into kvmarm-master/next
-      Merge branch kvm-arm64/pkvm-psci into kvmarm-master/next
-      Merge branch kvm-arm64/user_mem_abort-rework into kvmarm-master/next
-      Merge branch kvm-arm64/spe-trbe-nvhe into kvmarm-master/next
-      Merge branch kvm-arm64/pkvm-protected-guest into kvmarm-master/next
-      Merge branch kvm-arm64/vgic-fixes-7.1 into kvmarm-master/next
-      Merge branch kvm-arm64/misc-7.1 into kvmarm-master/next
-
-Nathan Chancellor (1):
-      tracing: Adjust cmd_check_undefined to show unexpected undefined symbols
-
-Quentin Perret (1):
-      KVM: arm64: Inject SIGSEGV on illegal accesses
-
-Sascha Bischoff (41):
-      KVM: arm64: vgic-v3: Drop userspace write sanitization for ID_AA64PFR0.GIC on GICv5
-      KVM: arm64: vgic: Rework vgic_is_v3() and add vgic_host_has_gicvX()
-      KVM: arm64: Return early from kvm_finalize_sys_regs() if guest has run
-      KVM: arm64: vgic: Split out mapping IRQs and setting irq_ops
-      arm64/sysreg: Add remaining GICv5 ICC_ & ICH_ sysregs for KVM support
-      arm64/sysreg: Add GICR CDNMIA encoding
-      KVM: arm64: gic-v5: Add ARM_VGIC_V5 device to KVM headers
-      KVM: arm64: gic: Introduce interrupt type helpers
-      KVM: arm64: gic-v5: Add Arm copyright header
-      KVM: arm64: gic-v5: Detect implemented PPIs on boot
-      KVM: arm64: gic-v5: Sanitize ID_AA64PFR2_EL1.GCIE
-      KVM: arm64: gic-v5: Support GICv5 FGTs & FGUs
-      KVM: arm64: gic-v5: Add emulation for ICC_IAFFIDR_EL1 accesses
-      KVM: arm64: gic-v5: Trap and emulate ICC_IDR0_EL1 accesses
-      KVM: arm64: gic-v5: Add vgic-v5 save/restore hyp interface
-      KVM: arm64: gic-v5: Implement GICv5 load/put and save/restore
-      KVM: arm64: gic-v5: Finalize GICv5 PPIs and generate mask
-      KVM: arm64: gic: Introduce queue_irq_unlock to irq_ops
-      KVM: arm64: gic-v5: Implement PPI interrupt injection
-      KVM: arm64: gic-v5: Init Private IRQs (PPIs) for GICv5
-      KVM: arm64: gic-v5: Clear TWI if single task running
-      KVM: arm64: gic-v5: Check for pending PPIs
-      KVM: arm64: gic-v5: Trap and mask guest ICC_PPI_ENABLERx_EL1 writes
-      KVM: arm64: Introduce set_direct_injection irq_op
-      KVM: arm64: gic-v5: Implement direct injection of PPIs
-      KVM: arm64: gic-v5: Support GICv5 interrupts with KVM_IRQ_LINE
-      KVM: arm64: gic-v5: Create and initialise vgic_v5
-      KVM: arm64: gic-v5: Initialise ID and priority bits when resetting vcpu
-      irqchip/gic-v5: Introduce minimal irq_set_type() for PPIs
-      KVM: arm64: gic-v5: Enlighten arch timer for GICv5
-      KVM: arm64: gic-v5: Mandate architected PPI for PMU emulation on GICv5
-      KVM: arm64: gic: Hide GICv5 for protected guests
-      KVM: arm64: gic-v5: Hide FEAT_GCIE from NV GICv5 guests
-      KVM: arm64: gic-v5: Introduce kvm_arm_vgic_v5_ops and register them
-      KVM: arm64: gic-v5: Set ICH_VCTLR_EL2.En on boot
-      KVM: arm64: gic-v5: Probe for GICv5 device
-      Documentation: KVM: Introduce documentation for VGICv5
-      KVM: arm64: gic-v5: Communicate userspace-driveable PPIs via a UAPI
-      KVM: arm64: selftests: Introduce a minimal GICv5 PPI selftest
-      KVM: arm64: selftests: Add no-vgic-v5 selftest
-      KVM: arm64: vgic-v5: Fold PPI state for all exposed PPIs
-
-Sebastian Ene (1):
-      KVM: arm64: Prevent the host from using an smc with imm16 != 0
-
-Vincent Donnefort (35):
-      ring-buffer: Add page statistics to the meta-page
-      ring-buffer: Store bpage pointers into subbuf_ids
-      ring-buffer: Introduce ring-buffer remotes
-      ring-buffer: Add non-consuming read for ring-buffer remotes
-      tracing: Introduce trace remotes
-      tracing: Add reset to trace remotes
-      tracing: Add non-consuming read to trace remotes
-      tracing: Add init callback to trace remotes
-      tracing: Add events to trace remotes
-      tracing: Add events/ root files to trace remotes
-      tracing: Add helpers to create trace remote events
-      ring-buffer: Export buffer_data_page and macros
-      tracing: Introduce simple_ring_buffer
-      tracing: Add a trace remote module for testing
-      tracing: selftests: Add trace remote tests
-      Documentation: tracing: Add tracing remotes
-      tracing: load/unload page callbacks for simple_ring_buffer
-      tracing: Check for undefined symbols in simple_ring_buffer
-      KVM: arm64: Add PKVM_DISABLE_STAGE2_ON_PANIC
-      KVM: arm64: Add clock support to nVHE/pKVM hyp
-      KVM: arm64: Initialise hyp_nr_cpus for nVHE hyp
-      KVM: arm64: Support unaligned fixmap in the pKVM hyp
-      KVM: arm64: Add tracing capability for the nVHE/pKVM hyp
-      KVM: arm64: Add trace remote for the nVHE/pKVM hyp
-      KVM: arm64: Sync boot clock with the nVHE/pKVM hyp
-      KVM: arm64: Add trace reset to the nVHE/pKVM hyp
-      KVM: arm64: Add event support to the nVHE/pKVM hyp and trace remote
-      KVM: arm64: Add hyp_enter/hyp_exit events to nVHE/pKVM hyp
-      KVM: arm64: Add selftest event support to nVHE/pKVM hyp
-      tracing: selftests: Add hypervisor trace remote tests
-      KVM: arm64: Fix out-of-tree build for nVHE/pKVM tracing
-      tracing: Update undefined symbols allow list for simple_ring_buffer
-      tracing: Generate undef symbols allowlist for simple_ring_buffer
-      tracing: Non-consuming read for trace remotes with an offline CPU
-      tracing: selftests: Extend hotplug testing for trace remotes
-
-Wei-Lin Chang (2):
-      KVM: arm64: ptdump: Make KVM ptdump code s2 mmu aware
-      KVM: arm64: nv: Expose shadow page tables in debugfs
-
-Will Deacon (44):
-      KVM: arm64: Disable TRBE Trace Buffer Unit when running in guest context
-      KVM: arm64: Disable SPE Profiling Buffer when running in guest context
-      KVM: arm64: Don't pass host_debug_state to BRBE world-switch routines
-      KVM: arm64: Remove unused PKVM_ID_FFA definition
-      KVM: arm64: Don't leak stage-2 page-table if VM fails to init under pKVM
-      KVM: arm64: Move handle check into pkvm_pgtable_stage2_destroy_range()
-      KVM: arm64: Rename __pkvm_pgtable_stage2_unmap()
-      KVM: arm64: Don't advertise unsupported features for protected guests
-      KVM: arm64: Remove is_protected_kvm_enabled() checks from hypercalls
-      KVM: arm64: Ignore MMU notifier callbacks for protected VMs
-      KVM: arm64: Prevent unsupported memslot operations on protected VMs
-      KVM: arm64: Ignore -EAGAIN when mapping in pages for the pKVM host
-      KVM: arm64: Split teardown hypercall into two phases
-      KVM: arm64: Introduce __pkvm_host_donate_guest()
-      KVM: arm64: Hook up donation hypercall to pkvm_pgtable_stage2_map()
-      KVM: arm64: Handle aborts from protected VMs
-      KVM: arm64: Introduce __pkvm_reclaim_dying_guest_page()
-      KVM: arm64: Hook up reclaim hypercall to pkvm_pgtable_stage2_destroy()
-      KVM: arm64: Factor out pKVM host exception injection logic
-      KVM: arm64: Support translation faults in inject_host_exception()
-      KVM: arm64: Avoid pointless annotation when mapping host-owned pages
-      KVM: arm64: Generalise kvm_pgtable_stage2_set_owner()
-      KVM: arm64: Introduce host_stage2_set_owner_metadata_locked()
-      KVM: arm64: Change 'pkvm_handle_t' to u16
-      KVM: arm64: Annotate guest donations with handle and gfn in host stage-2
-      KVM: arm64: Introduce hypercall to force reclaim of a protected page
-      KVM: arm64: Reclaim faulting page from pKVM in spurious fault handler
-      KVM: arm64: Return -EFAULT from VCPU_RUN on access to a poisoned pte
-      KVM: arm64: Add hvc handler at EL2 for hypercalls from protected VMs
-      KVM: arm64: Implement the MEM_SHARE hypercall for protected VMs
-      KVM: arm64: Implement the MEM_UNSHARE hypercall for protected VMs
-      KVM: arm64: Allow userspace to create protected VMs when pKVM is enabled
-      KVM: arm64: Add some initial documentation for pKVM
-      KVM: arm64: Extend pKVM page ownership selftests to cover guest donation
-      KVM: arm64: Register 'selftest_vm' in the VM table
-      KVM: arm64: Extend pKVM page ownership selftests to cover forced reclaim
-      KVM: arm64: Extend pKVM page ownership selftests to cover guest hvcs
-      KVM: arm64: Rename PKVM_PAGE_STATE_MASK
-      drivers/virt: pkvm: Add Kconfig dependency on DMA_RESTRICTED_POOL
-      KVM: arm64: Prevent teardown finalisation of referenced 'hyp_vm'
-      KVM: arm64: Allow get_pkvm_hyp_vm() to take a reference to a dying VM
-      KVM: arm64: Don't hold 'vm_table_lock' across guest page reclaim
-      KVM: arm64: Don't leave mmu->pgt dangling on kvm_init_stage2_mmu() error
-      KVM: arm64: Destroy stage-2 page-table in kvm_arch_destroy_vm()
-
-Zenghui Yu (Huawei) (2):
-      KVM: arm64: ptdump: Initialize parser_state before pgtable walk
-      KVM: arm64: selftests: Avoid testing the IMPDEF behavior
-
- Documentation/admin-guide/kernel-parameters.txt    |    4 +-
- Documentation/trace/index.rst                      |   11 +
- Documentation/trace/remotes.rst                    |   66 +
- Documentation/virt/kvm/api.rst                     |    6 +-
- Documentation/virt/kvm/arm/index.rst               |    1 +
- Documentation/virt/kvm/arm/pkvm.rst                |  106 ++
- Documentation/virt/kvm/devices/arm-vgic-v5.rst     |   50 +
- Documentation/virt/kvm/devices/index.rst           |    1 +
- Documentation/virt/kvm/devices/vcpu.rst            |    5 +-
- arch/arm64/include/asm/el2_setup.h                 |    4 +-
- arch/arm64/include/asm/kvm_asm.h                   |   44 +-
- arch/arm64/include/asm/kvm_define_hypevents.h      |   16 +
- arch/arm64/include/asm/kvm_host.h                  |   50 +-
- arch/arm64/include/asm/kvm_hyp.h                   |   14 +-
- arch/arm64/include/asm/kvm_hypevents.h             |   60 +
- arch/arm64/include/asm/kvm_hyptrace.h              |   26 +
- arch/arm64/include/asm/kvm_mmu.h                   |    4 +
- arch/arm64/include/asm/kvm_pgtable.h               |   45 +-
- arch/arm64/include/asm/kvm_pkvm.h                  |    4 +-
- arch/arm64/include/asm/sysreg.h                    |   13 +-
- arch/arm64/include/asm/virt.h                      |    9 +
- arch/arm64/include/asm/vncr_mapping.h              |    3 +
- arch/arm64/include/uapi/asm/kvm.h                  |    1 +
- arch/arm64/kernel/cpufeature.c                     |    1 +
- arch/arm64/kernel/hyp-stub.S                       |    1 -
- arch/arm64/kernel/image-vars.h                     |    4 +
- arch/arm64/kernel/vmlinux.lds.S                    |   18 +
- arch/arm64/kvm/Kconfig                             |   64 +-
- arch/arm64/kvm/Makefile                            |    2 +
- arch/arm64/kvm/arch_timer.c                        |  102 +-
- arch/arm64/kvm/arm.c                               |   69 +-
- arch/arm64/kvm/config.c                            |  127 +-
- arch/arm64/kvm/emulate-nested.c                    |   68 +
- arch/arm64/kvm/handle_exit.c                       |    2 +-
- arch/arm64/kvm/hyp/include/hyp/switch.h            |   27 +
- arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h        |   23 +
- arch/arm64/kvm/hyp/include/nvhe/clock.h            |   16 +
- arch/arm64/kvm/hyp/include/nvhe/define_events.h    |   14 +
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h      |   12 +-
- arch/arm64/kvm/hyp/include/nvhe/memory.h           |   12 +-
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h             |    7 +-
- arch/arm64/kvm/hyp/include/nvhe/trace.h            |   70 +
- arch/arm64/kvm/hyp/include/nvhe/trap_handler.h     |    2 +
- arch/arm64/kvm/hyp/nvhe/Makefile                   |    8 +-
- arch/arm64/kvm/hyp/nvhe/clock.c                    |   65 +
- arch/arm64/kvm/hyp/nvhe/debug-sr.c                 |  116 +-
- arch/arm64/kvm/hyp/nvhe/events.c                   |   25 +
- arch/arm64/kvm/hyp/nvhe/ffa.c                      |   28 +-
- arch/arm64/kvm/hyp/nvhe/host.S                     |   13 +-
- arch/arm64/kvm/hyp/nvhe/hyp-init.S                 |   41 +-
- arch/arm64/kvm/hyp/nvhe/hyp-main.c                 |  294 +++--
- arch/arm64/kvm/hyp/nvhe/hyp.lds.S                  |    6 +
- arch/arm64/kvm/hyp/nvhe/mem_protect.c              |  587 ++++++++-
- arch/arm64/kvm/hyp/nvhe/mm.c                       |    4 +-
- arch/arm64/kvm/hyp/nvhe/pkvm.c                     |  239 +++-
- arch/arm64/kvm/hyp/nvhe/psci-relay.c               |   45 +-
- arch/arm64/kvm/hyp/nvhe/setup.c                    |    4 +-
- arch/arm64/kvm/hyp/nvhe/stacktrace.c               |    6 +-
- arch/arm64/kvm/hyp/nvhe/switch.c                   |   23 +-
- arch/arm64/kvm/hyp/nvhe/sys_regs.c                 |   18 +-
- arch/arm64/kvm/hyp/nvhe/trace.c                    |  306 +++++
- arch/arm64/kvm/hyp/pgtable.c                       |   33 +-
- arch/arm64/kvm/hyp/vgic-v5-sr.c                    |  166 +++
- arch/arm64/kvm/hyp/vhe/Makefile                    |    2 +-
- arch/arm64/kvm/hyp_trace.c                         |  442 +++++++
- arch/arm64/kvm/hyp_trace.h                         |   11 +
- arch/arm64/kvm/mmu.c                               |  624 +++++----
- arch/arm64/kvm/nested.c                            |   11 +-
- arch/arm64/kvm/pkvm.c                              |  159 ++-
- arch/arm64/kvm/pmu-emul.c                          |   20 +-
- arch/arm64/kvm/ptdump.c                            |   79 +-
- arch/arm64/kvm/stacktrace.c                        |    8 +-
- arch/arm64/kvm/sys_regs.c                          |  188 ++-
- arch/arm64/kvm/vgic/vgic-init.c                    |  228 +++-
- arch/arm64/kvm/vgic/vgic-kvm-device.c              |  107 +-
- arch/arm64/kvm/vgic/vgic-mmio.c                    |   40 +-
- arch/arm64/kvm/vgic/vgic-v3.c                      |    2 +-
- arch/arm64/kvm/vgic/vgic-v5.c                      |  499 ++++++-
- arch/arm64/kvm/vgic/vgic.c                         |  173 ++-
- arch/arm64/kvm/vgic/vgic.h                         |   53 +-
- arch/arm64/mm/fault.c                              |   33 +-
- arch/arm64/tools/sysreg                            |  480 +++++++
- drivers/irqchip/irq-gic-v5.c                       |   18 +
- drivers/virt/coco/pkvm-guest/Kconfig               |    2 +-
- fs/tracefs/inode.c                                 |    1 +
- include/kvm/arm_arch_timer.h                       |    8 +-
- include/kvm/arm_pmu.h                              |    5 +-
- include/kvm/arm_vgic.h                             |  191 ++-
- include/linux/irqchip/arm-gic-v5.h                 |   27 +
- include/linux/kvm_host.h                           |    1 +
- include/linux/ring_buffer.h                        |   58 +
- include/linux/ring_buffer_types.h                  |   41 +
- include/linux/simple_ring_buffer.h                 |   65 +
- include/linux/trace_remote.h                       |   48 +
- include/linux/trace_remote_event.h                 |   33 +
- include/trace/define_remote_events.h               |   73 ++
- include/uapi/linux/kvm.h                           |    7 +
- include/uapi/linux/trace_mmap.h                    |    8 +-
- kernel/trace/Kconfig                               |   14 +
- kernel/trace/Makefile                              |   59 +
- kernel/trace/remote_test.c                         |  261 ++++
- kernel/trace/remote_test_events.h                  |   10 +
- kernel/trace/ring_buffer.c                         |  354 ++++-
- kernel/trace/simple_ring_buffer.c                  |  517 ++++++++
- kernel/trace/trace.c                               |    4 +-
- kernel/trace/trace.h                               |    7 +
- kernel/trace/trace_remote.c                        | 1384 ++++++++++++++++++++
- tools/arch/arm64/include/uapi/asm/kvm.h            |    1 +
- tools/include/uapi/linux/kvm.h                     |    2 +
- .../selftests/ftrace/test.d/remotes/buffer_size.tc |   25 +
- .../selftests/ftrace/test.d/remotes/functions      |   99 ++
- .../selftests/ftrace/test.d/remotes/hotplug.tc     |   88 ++
- .../test.d/remotes/hypervisor/buffer_size.tc       |   11 +
- .../ftrace/test.d/remotes/hypervisor/hotplug.tc    |   11 +
- .../ftrace/test.d/remotes/hypervisor/reset.tc      |   11 +
- .../ftrace/test.d/remotes/hypervisor/trace.tc      |   11 +
- .../ftrace/test.d/remotes/hypervisor/trace_pipe.tc |   11 +
- .../ftrace/test.d/remotes/hypervisor/unloading.tc  |   11 +
- .../selftests/ftrace/test.d/remotes/reset.tc       |   90 ++
- .../selftests/ftrace/test.d/remotes/trace.tc       |  102 ++
- .../selftests/ftrace/test.d/remotes/trace_pipe.tc  |  102 ++
- .../selftests/ftrace/test.d/remotes/unloading.tc   |   41 +
- tools/testing/selftests/kvm/Makefile.kvm           |    3 +-
- tools/testing/selftests/kvm/arm64/at.c             |   14 +-
- tools/testing/selftests/kvm/arm64/no-vgic-v3.c     |  177 ---
- tools/testing/selftests/kvm/arm64/no-vgic.c        |  297 +++++
- tools/testing/selftests/kvm/arm64/set_id_regs.c    |   52 +-
- tools/testing/selftests/kvm/arm64/vgic_v5.c        |  228 ++++
- tools/testing/selftests/kvm/include/arm64/gic_v5.h |  150 +++
- 129 files changed, 10017 insertions(+), 1086 deletions(-)
- create mode 100644 Documentation/trace/remotes.rst
- create mode 100644 Documentation/virt/kvm/arm/pkvm.rst
- create mode 100644 Documentation/virt/kvm/devices/arm-vgic-v5.rst
- create mode 100644 arch/arm64/include/asm/kvm_define_hypevents.h
- create mode 100644 arch/arm64/include/asm/kvm_hypevents.h
- create mode 100644 arch/arm64/include/asm/kvm_hyptrace.h
- create mode 100644 arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h
- create mode 100644 arch/arm64/kvm/hyp/include/nvhe/clock.h
- create mode 100644 arch/arm64/kvm/hyp/include/nvhe/define_events.h
- create mode 100644 arch/arm64/kvm/hyp/include/nvhe/trace.h
- create mode 100644 arch/arm64/kvm/hyp/nvhe/clock.c
- create mode 100644 arch/arm64/kvm/hyp/nvhe/events.c
- create mode 100644 arch/arm64/kvm/hyp/nvhe/trace.c
- create mode 100644 arch/arm64/kvm/hyp/vgic-v5-sr.c
- create mode 100644 arch/arm64/kvm/hyp_trace.c
- create mode 100644 arch/arm64/kvm/hyp_trace.h
- create mode 100644 include/linux/ring_buffer_types.h
- create mode 100644 include/linux/simple_ring_buffer.h
- create mode 100644 include/linux/trace_remote.h
- create mode 100644 include/linux/trace_remote_event.h
- create mode 100644 include/trace/define_remote_events.h
- create mode 100644 kernel/trace/remote_test.c
- create mode 100644 kernel/trace/remote_test_events.h
- create mode 100644 kernel/trace/simple_ring_buffer.c
- create mode 100644 kernel/trace/trace_remote.c
- create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/buffer_size.tc
- create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/functions
- create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/hotplug.tc
- create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/hypervisor/buffer_size.tc
- create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/hypervisor/hotplug.tc
- create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/hypervisor/reset.tc
- create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/hypervisor/trace.tc
- create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/hypervisor/trace_pipe.tc
- create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/hypervisor/unloading.tc
- create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/reset.tc
- create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/trace.tc
- create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/trace_pipe.tc
- create mode 100644 tools/testing/selftests/ftrace/test.d/remotes/unloading.tc
- delete mode 100644 tools/testing/selftests/kvm/arm64/no-vgic-v3.c
- create mode 100644 tools/testing/selftests/kvm/arm64/no-vgic.c
- create mode 100644 tools/testing/selftests/kvm/arm64/vgic_v5.c
- create mode 100644 tools/testing/selftests/kvm/include/arm64/gic_v5.h
 
