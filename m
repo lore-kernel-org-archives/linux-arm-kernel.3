@@ -4,79 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A7E0105D9B4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 09:41:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9555D105D9BE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 09:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ymap6qnTrcZjA2wjOv/aJIypsrfZm0ThDKHwcJw6fQA=; b=av+RvDGdQ8qIoFJOI99KKBvCCM
-	kxLO82sulaAeK/XgC72mkN1wWnvXyh5vM55VioYr91pUSEqcNuuxOSLNjCqTby7u1jfRUNEYpSuCL
-	ai5bZ65Y4U+mOELCM24T+JzJb7Lmla5ixpWc9utvm5D8WCqPJCtVIVrLp8c+k+qhpr1HGJjDhbGug
-	diGpm3AukMyYNr75d7YnrkA5mqvQBLI5r39Cxvmo5mzG9C8m2V6jjxzQmdXt512mlsls+S45FFyu4
-	sQ/EZQH41/p2tTNE5M0RB72AgXqRp+adHr7ETC/qTvQWcGtysiMa28nFrJXE9R7nXDLT5u774BVGE
-	37dlReeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=n7bosjwbU5FTrYEendiBfTXm4znd5VvXDOpOv0gXMX0=; b=dOkRb3qvtNqa4gl8VhmYjEmjXQ
+	obynM/e8zT6yXvrhuayhH2Hu1e5XSCqTB3ed43S3/Q2Mc8O9zU7+DaB00ZiKSUQMpQ5g5Z/o1laQ4
+	04xiQH0TEkF/VSU8h0M4e33QsW/QDjNC+uwGkL7MZoMgff1zPwijMC63/mnY2eTwVYqxSsAUVarym
+	wrqSHzkL7lKZwDC2vKjEi1FJbdtlJBjsnUqPvHJIYA9p2ncP5TMX3ITR68CV12bATDNlujAZc741+
+	Vz3ilbIdP3c7pEHOpxaKMyUeDttkynUk5jbhBYwo+S/XSfdAhg1YYA3C6QCoCW1cKdFLk2mPZDMk8
+	r5AiCa6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAPPn-00000008czm-04KV;
-	Wed, 08 Apr 2026 09:41:39 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1wAPQ7-00000008d3D-1gsn;
+	Wed, 08 Apr 2026 09:41:59 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAPPl-00000008czB-0RWH
+	id 1wAPQ4-00000008d23-3ZUU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 09:41:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ymap6qnTrcZjA2wjOv/aJIypsrfZm0ThDKHwcJw6fQA=; b=KBRtZISkGajYEF77tW0PaVeWQX
-	cPZnzgBxvtuhhdl0AWKtISEgdRk5ygONloyCeyvc7bShsFUU291gw31NnmZThiKumCavoDUxWZ7ht
-	cVFxKfusOkbLHw7diDcG/m/WO3KmVv7Y38vbfzTiDlCH3hIE7MQt+BAIhGaN+SOZknZvPt/nDFVer
-	nX9Wo9T5rTYa1vxaHQ/lmKiB9p4+CfBiZll05OfJ9M7/jxzZGMStDbGxzi0qdRsZw0SJavADbkyRZ
-	OUT8++lqg326oe/ePFqZ6aNhK2gp3lxLY6XKiSo7EBlX3bdqQV2MVuRQa7MzXTkTRzYo9u5SC8NNU
-	w5ecUjoQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36872 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1wAPCB-0000000024F-27WA;
-	Wed, 08 Apr 2026 10:27:35 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1wAPC6-0000000F7kr-1b7i;
-	Wed, 08 Apr 2026 10:27:30 +0100
-In-Reply-To: <adYfPBHsXxQUsMyr@shell.armlinux.org.uk>
-References: <adYfPBHsXxQUsMyr@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Samuel Holland <samuel@sholland.org>
-Subject: [PATCH RFC net-next 10/10] net: stmmac: only print receive COE type
- for GMAC cores
+	Wed, 08 Apr 2026 09:41:58 +0000
+Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wAPQ1-0006Ee-CC; Wed, 08 Apr 2026 11:41:53 +0200
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: soc@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	kernel@pengutronix.de,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Subject: [GIT PULL] Reset controller fixes for v7.0, part 3
+Date: Wed,  8 Apr 2026 11:41:52 +0200
+Message-ID: <20260408094152.1698594-1-p.zabel@pengutronix.de>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1wAPC6-0000000F7kr-1b7i@rmk-PC.armlinux.org.uk>
-Date: Wed, 08 Apr 2026 10:27:30 +0100
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_024137_146791_7B3FABBF 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20260408_024156_885371_3D755348 
+X-CRM114-Status: UNSURE (   6.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,31 +64,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As identified in the previous commit, only GMAC cores have a COE type,
-but priv->snpsver's numberspace is core specific. Change the test for
-printing this to check the core type instead of checking for the
-Synopssys IP version being < v4.0, which will incorrectly match XGMAC
-cores.
+Dear arm-soc maintainers,
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The following changes since commit a0e0c2f8c5f32b675f58e25a9338283cedb5ad2b:
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 93c031b3cfd5..f5fe97c1abd4 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -7461,7 +7461,7 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
- 	if (priv->plat->rx_coe) {
- 		priv->hw->rx_csum = priv->plat->rx_coe;
- 		dev_info(priv->device, "RX Checksum Offload Engine supported\n");
--		if (priv->snpsver < DWMAC_CORE_4_00)
-+		if (priv->plat->core_type == DWMAC_CORE_GMAC)
- 			dev_info(priv->device, "COE Type %d\n", priv->hw->rx_csum);
- 	}
- 	if (priv->plat->tx_coe)
--- 
-2.47.3
+  reset: spacemit: k3: Decouple composite reset lines (2026-03-23 12:25:47 +0100)
 
+are available in the Git repository at:
+
+  https://git.pengutronix.de/git/pza/linux.git tags/reset-fixes-for-v7.0-3
+
+for you to fetch changes up to 9797524ef2b69c6b187b55bd844eb72a8c1cbd99:
+
+  reset: amlogic: t7: Fix null reset ops (2026-03-31 17:19:18 +0200)
+
+----------------------------------------------------------------
+Reset controller fixes for v7.0, part 3
+
+* Add missing reset ops for amlogic,t7-reset to the reset-meson driver.
+  The resets are unused as of now, but as soon as they are, the driver
+  would otherwise run into a NULL pointer dereference.
+
+----------------------------------------------------------------
+Ronald Claveau (1):
+      reset: amlogic: t7: Fix null reset ops
+
+ drivers/reset/amlogic/reset-meson.c | 1 +
+ 1 file changed, 1 insertion(+)
 
