@@ -4,61 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B72FD5F8F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 07:52:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B25EFD5F8F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 07:54:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dJkcrKpMsomWsfu3HRoQuW6Uqe86+81cvDsG/ByrGck=; b=Yfz7T4weJmnt//U/pXmLSqtXBX
-	clFm28qtZyjyKUvfVz6aP3/4k25bZUudhWlm6L8ghpPLHOtVlFojKhbyVl8dfHgFh+jiphqs2NEtc
-	01L5/inLLsffWsrQrPyzMtFVn6VZoFlHePFWtrpvv+cliQKe8EHSKWzu75+5c5v4+gDWu1yaTMl6F
-	FvHHAMG7fTERhDAn4JomUVqc99K7GbhVz9NaRjBONErek/6WSyR3Ie9lTNbvbpIxsAYnxSM7F5Y8+
-	+YbWx10KsBZ29RaTmMDurrifJeaOYuw4dcRaG3Kx3r+JA2f+pRhXu+DV83D+CNqk912Fvy5MSXIB8
-	vG5KV73w==;
+	bh=no0JlE1etfTOTF9xavAp0XGVcYBURsredbIseFLRjs4=; b=PF5GnUgbSsi2qXVW2/n5rGND3Z
+	TmkzqJuIVqVmXXdN7C52dBwnjmuVSh0q0kVZNvMK3fAelHxEtmIDE2HQvV7/BSJMOd/FmV/kRWJfW
+	/1p0t2s9rW3zYM8kd7jG0NiNUcGr82KCdDA/QtkkYYIlZK6KpFlx6kdf0f0dg2UHdeFThFFfyYLtY
+	44rDAmvLYqfcCWFnPB6q8TdS3pGaifoTE8vLGW+BScvdYj2BwPu/CAO6oXjgWlyuWrsKc8vOetxGI
+	lFncingjUy8ca0Y/AIbkijT2azejmb4MJzWF/HT5Vfo4unbiWkKcMPCebNZLKShlKEXxWHzwGaXpI
+	jDIoZ98A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wANiC-00000008TC8-0nsx;
-	Wed, 08 Apr 2026 07:52:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wANjz-00000008TQV-38Rx;
+	Wed, 08 Apr 2026 07:54:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wANiA-00000008TBq-2oUD
+	id 1wANjy-00000008TQO-0hN9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 07:52:30 +0000
+	Wed, 08 Apr 2026 07:54:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 02D35600AD;
-	Wed,  8 Apr 2026 07:52:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52CDBC19424;
-	Wed,  8 Apr 2026 07:52:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 783396011F;
+	Wed,  8 Apr 2026 07:54:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07F6FC19424;
+	Wed,  8 Apr 2026 07:54:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775634749;
-	bh=xNY9tEvKoYhfTQH3M8/Q4r7s7A/d71rffbc/9uF1Xa8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ih4NSeC2UtjrjEgv+qhj7RtI0dtNt/8E6c+4i94k1Sj4TamaIc7W7ZxK5Nm3QtmCC
-	 Vd760WYlfNXMixdwpwsP9oZDAvw006FAcAu3INDBMcTNgYdsHgQizXVaxgh+9qQrDi
-	 aEOoCclvi3jirOCzCYmkZ4X/4BZG7dPnqnX2ySRZSg3/gT+sH+q6ZQgHd/0VtTlVwS
-	 H4dkYCWlUU8f9MFq91Kxjd18brVjj1jF81dUN5DG2ePwLMEu/HVqu+5IlOSSFpbBjW
-	 aBNIQQthwmBjWJCTX63DLrRjrLEsatuBMFYVSJ6yGjFIvHfG9DgQMXmEwBfm8Y7xtw
-	 LxCvoacfK38aQ==
-Date: Wed, 8 Apr 2026 09:52:27 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Colin Huang <u8813345@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, colin.huang2@amd.com
-Subject: Re: [PATCH 2/3] ARM: dts: aspeed: anacapa: add EVT1 devicetree and
- point wrapper to it
-Message-ID: <20260408-glorious-vehement-robin-b6def3@quoll>
-References: <20260407-anacapa-devlop-phase-devicetree-v1-0-97b96367cac3@gmail.com>
- <20260407-anacapa-devlop-phase-devicetree-v1-2-97b96367cac3@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260407-anacapa-devlop-phase-devicetree-v1-2-97b96367cac3@gmail.com>
+	s=k20201202; t=1775634861;
+	bh=VBIGF5AN9ebmM6kyFi+XFeTVPotW9wSqJLoFDMY7mQQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=YW+P323Bi1dBRcDBdB+yn4AdVRrM0FFHP9wyEb4ajhbSCpJXYBHtUm78uhrSp9BD0
+	 qaOWDYMr+Yvj7UxnWQ4bJEpk1jHF6fUWgLWaKAEY9U7PttUQLzEKNbYfFHEq5bhPvs
+	 wIrqzs295oD9fp/XP6jEiP2FkQhZCzxVuZIGcFIx+A5GSmFDn97dJQmLe79dFXq3M0
+	 6l7FsCeEAOToZpiSSS/IUqWIng8seUXLWMIlzhWcate0KmaKd1SuGv4LYq8MmjYYrN
+	 0cgA45yPkn8BsNSDjuqSiW3JQXmuqdEZY1UpJxG4l7QC2k5RvWa+tUBB+yreTcQB6Q
+	 ubpXegf08jb4w==
+Received: from 82-132-239-13.dab.02.net ([82.132.239.13] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wANjr-00000009ohr-1WG1;
+	Wed, 08 Apr 2026 07:54:18 +0000
+Date: Wed, 08 Apr 2026 08:54:03 +0100
+Message-ID: <87wlyhc2g4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: David Woodhouse <dwmw2@infradead.org>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	David Woodhouse <dwmw@amazon.co.uk>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	Kees Cook <kees@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 2/3] KVM: arm64: vgic: Allow userspace to set IIDR revision 1
+In-Reply-To: <20260407210949.2076251-3-dwmw2@infradead.org>
+References: <20260407210949.2076251-1-dwmw2@infradead.org>
+	<20260407210949.2076251-3-dwmw2@infradead.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.239.13
+X-SA-Exim-Rcpt-To: dwmw2@infradead.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, shuah@kernel.org, dwmw@amazon.co.uk, rananta@google.com, eric.auger@redhat.com, kees@kernel.org, arnd@arndb.de, nathan@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,45 +98,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 07, 2026 at 09:54:33PM +0800, Colin Huang wrote:
-> This change introduces a development-phase devicetree for the
-> Facebook Anacapa BMC EVT1 hardware revision and updates the Anacapa
-> wrapper DTS to reference it.
+On Tue, 07 Apr 2026 21:27:03 +0100,
+David Woodhouse <dwmw2@infradead.org> wrote:
 > 
-> A dedicated EVT1 DTS is added for revision-specific hardware while
-> keeping a single, Anacapa entrypoint used by the build and deployment
-> flow. The top-level aspeed-bmc-facebook-anacapa.dts
+> From: David Woodhouse <dwmw@amazon.co.uk>
 > 
-> Signed-off-by: Colin Huang <u8813345@gmail.com>
+> Allow userspace to select GICD_IIDR revision 1, which restores the
+> original pre-d53c2c29ae0d ("KVM: arm/arm64: vgic: Allow configuration
+> of interrupt groups") behaviour where interrupt groups are not
+> guest-configurable.
+
+I'm a bit surprised by this.
+
+Either your guest knows that the group registers are not writable and
+already deals with the buggy behaviour by not configuring the groups
+(or configuring them in a way that matches what the implementation
+does). Or it configures them differently and totally fails to handle
+the interrupts as they are delivered using the wrong exception type,
+if at all.
+
+I'd expect that your guests fall in the former category and not the
+latter, as we'd be discussing a very different problem. And my vague
+recollection of this issue is that we had established that as long as
+the reset values were unchanged, there was no harm in letting things
+rip.
+
+So what is this *really* fixing?
+
+> 
+> When revision 1 is selected:
+>  - GICv2: IGROUPR reads as zero (group 0), writes are ignored
+>  - GICv3: IGROUPR reads as all-ones (group 1), writes are ignored
+>  - v2_groups_user_writable is not set
+> 
+> This is implemented by checking the implementation revision in
+> vgic_mmio_read_group() and vgic_mmio_write_group() and returning
+> the fixed values when the revision is below 2.
+> 
+> Fixes: d53c2c29ae0d ("KVM: arm/arm64: vgic: Allow configuration of interrupt groups")
+> Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
 > ---
->  .../aspeed/aspeed-bmc-facebook-anacapa-evt1.dts    | 1069 ++++++++++++++++++++
->  .../dts/aspeed/aspeed-bmc-facebook-anacapa.dts     | 1064 +------------------
->  2 files changed, 1070 insertions(+), 1063 deletions(-)
+>  arch/arm64/kvm/vgic/vgic-mmio-v2.c |  5 +++++
+>  arch/arm64/kvm/vgic/vgic-mmio-v3.c |  4 ++++
+>  arch/arm64/kvm/vgic/vgic-mmio.c    | 15 +++++++++++++++
+>  include/kvm/arm_vgic.h             |  1 +
+>  4 files changed, 25 insertions(+)
 > 
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt1.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt1.dts
-> new file mode 100644
-> index 000000000000..a29b7fa1155b
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt1.dts
-> @@ -0,0 +1,1069 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
+> diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v2.c b/arch/arm64/kvm/vgic/vgic-mmio-v2.c
+> index 0643e333db35..14aa49f86f60 100644
+> --- a/arch/arm64/kvm/vgic/vgic-mmio-v2.c
+> +++ b/arch/arm64/kvm/vgic/vgic-mmio-v2.c
+> @@ -20,6 +20,8 @@
+>   * Revision 1: Report GICv2 interrupts as group 0 instead of group 1
+>   * Revision 2: Interrupt groups are guest-configurable and signaled using
+>   * 	       their configured groups.
+> + * Revision 3: GICv2 behaviour is unchanged from revision 2.
+> + * 	       (GICv3 gains GICR_CTLR.{IR,CES}; see vgic-mmio-v3.c)
+
+nit: I don't think we need cross-version documentation, so just drop
+the second line.
+
+>   */
+>  
+>  static unsigned long vgic_mmio_read_v2_misc(struct kvm_vcpu *vcpu,
+> @@ -93,6 +95,9 @@ static int vgic_mmio_uaccess_write_v2_misc(struct kvm_vcpu *vcpu,
+>  		 */
+>  		reg = FIELD_GET(GICD_IIDR_REVISION_MASK, val);
+>  		switch (reg) {
+> +		case KVM_VGIC_IMP_REV_1:
+> +			dist->implementation_rev = reg;
+> +			return 0;
+>  		case KVM_VGIC_IMP_REV_2:
+>  		case KVM_VGIC_IMP_REV_3:
+>  			vcpu->kvm->arch.vgic.v2_groups_user_writable = true;
+
+nit: move the v1 handling down with a fallthrough in v2/v3 so that we
+don't duplicate the basic handling:
+
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v2.c b/arch/arm64/kvm/vgic/vgic-mmio-v2.c
+index 406845b3117cf..34f8b2b615fc5 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio-v2.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio-v2.c
+@@ -96,6 +96,8 @@ static int vgic_mmio_uaccess_write_v2_misc(struct kvm_vcpu *vcpu,
+ 		case KVM_VGIC_IMP_REV_2:
+ 		case KVM_VGIC_IMP_REV_3:
+ 			vcpu->kvm->arch.vgic.v2_groups_user_writable = true;
++			fallthrough;
++		case KVM_VGIC_IMP_REV_1:
+ 			dist->implementation_rev = reg;
+ 			return 0;
+ 		default:
+
+> diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+> index 5913a20d8301..0130db71cfc9 100644
+> --- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+> +++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+> @@ -74,8 +74,11 @@ bool vgic_supports_direct_sgis(struct kvm *kvm)
+>  /*
+>   * The Revision field in the IIDR have the following meanings:
+>   *
+> + * Revision 1: Interrupt groups are not guest-configurable.
+> + * 	       IGROUPR reads as all-ones (group 1), writes ignored.
+>   * Revision 2: Interrupt groups are guest-configurable and signaled using
+>   * 	       their configured groups.
+> + * Revision 3: GICR_CTLR.{IR,CES} are advertised.
+>   */
+>  
+>  static unsigned long vgic_mmio_read_v3_misc(struct kvm_vcpu *vcpu,
+> @@ -196,6 +199,7 @@ static int vgic_mmio_uaccess_write_v3_misc(struct kvm_vcpu *vcpu,
+>  
+>  		reg = FIELD_GET(GICD_IIDR_REVISION_MASK, val);
+>  		switch (reg) {
+> +		case KVM_VGIC_IMP_REV_1:
+>  		case KVM_VGIC_IMP_REV_2:
+>  		case KVM_VGIC_IMP_REV_3:
+>  			dist->implementation_rev = reg;
+> diff --git a/arch/arm64/kvm/vgic/vgic-mmio.c b/arch/arm64/kvm/vgic/vgic-mmio.c
+> index a573b1f0c6cb..9eb95f13b9b6 100644
+> --- a/arch/arm64/kvm/vgic/vgic-mmio.c
+> +++ b/arch/arm64/kvm/vgic/vgic-mmio.c
+> @@ -48,6 +48,17 @@ unsigned long vgic_mmio_read_group(struct kvm_vcpu *vcpu,
+>  	u32 value = 0;
+>  	int i;
+>  
+> +	/*
+> +	 * Revision 1 and below: groups are not guest-configurable.
+> +	 * GICv2 reports all interrupts as group 0 (RAZ).
+> +	 * GICv3 reports all interrupts as group 1 (RAO).
+> +	 */
+> +	if (vgic_get_implementation_rev(vcpu) < KVM_VGIC_IMP_REV_2) {
+> +		if (vcpu->kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3)
+> +			return -1UL;
+
+Hmmm... This can only be a 32bit access, so returning non-zero bits in
+the top half is weird. It will be narrowed down before hitting the
+guest, but still. Anyway, see below.
+
+> +		return 0;
+> +	}
 > +
-> +/dts-v1/;
-> +#include "aspeed-g6.dtsi"
-> +#include <dt-bindings/gpio/aspeed-gpio.h>
-> +#include <dt-bindings/i2c/i2c.h>
+
+Why is this needed at all? The group reset values are already the
+expected ones for v1, and as long as we prevent writes, the reported
+group configuration will be as expected.
+
+>  	/* Loop over all IRQs affected by this read */
+>  	for (i = 0; i < len * 8; i++) {
+>  		struct vgic_irq *irq = vgic_get_vcpu_irq(vcpu, intid + i);
+> @@ -73,6 +84,10 @@ void vgic_mmio_write_group(struct kvm_vcpu *vcpu, gpa_t addr,
+>  	int i;
+>  	unsigned long flags;
+>  
+> +	/* Revision 1 and below: groups are not guest-configurable. */
+> +	if (vgic_get_implementation_rev(vcpu) < KVM_VGIC_IMP_REV_2)
+> +		return;
 > +
-> +/ {
-> +	model = "Facebook Anacapa BMC";
-> +	compatible = "facebook,anacapa-bmc-evt1",
-> +		     "facebook,anacapa-bmc",
-> +		     "aspeed,ast2600";
+>  	for (i = 0; i < len * 8; i++) {
+>  		struct vgic_irq *irq = vgic_get_vcpu_irq(vcpu, intid + i);
+>  
+> diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+> index f2eafc65bbf4..90fb6cd3c91c 100644
+> --- a/include/kvm/arm_vgic.h
+> +++ b/include/kvm/arm_vgic.h
+> @@ -248,6 +248,7 @@ struct vgic_dist {
+>  
+>  	/* Implementation revision as reported in the GICD_IIDR */
+>  	u32			implementation_rev;
+> +#define KVM_VGIC_IMP_REV_1	1 /* GICv2 interrupts as group 0 */
+>  #define KVM_VGIC_IMP_REV_2	2 /* GICv2 restorable groups */
+>  #define KVM_VGIC_IMP_REV_3	3 /* GICv3 GICR_CTLR.{IW,CES,RWP} */
+>  #define KVM_VGIC_IMP_REV_LATEST	KVM_VGIC_IMP_REV_3
 
-Test your DTS before you send, not after. Your binding clearly said
-something else.
+Thanks,
 
+	M.
 
-Best regards,
-Krzysztof
-
+-- 
+Jazz isn't dead. It just smells funny.
 
