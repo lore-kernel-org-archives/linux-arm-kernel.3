@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83CD610F9968
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 19:41:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A467F10F9972
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 19:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9wv0AWcHgu06bDFm+BUwIIlJ6phYQwKz8lXRSI36ll0=; b=WcG7EDYfKLAsptu2C09dCBOsuF
-	bBEIddB40CEAazq8cYmVIX4vBWEfyStib29RI+txkNqgrBr4NdHUeIFCKWOzJ20APnm81/z3Y27c1
-	1ddSeoFxnTnLAnJzOojt3a24fZS8vLaqaB7jVJr5C3T52c6wP/e90aOtg09RPs8WBgMldOSgvPvpr
-	Le1uwwyqXj4i0GE3Jo6lgoAdaiygYURTAaI/Ef6PhnX4rjgqsG8Nw/l1miCHMMx++DDddp7tpNlQf
-	ob3smV17RxmIVKLHTik2ynPn1YLA5Lf3nvy/1/r0+ny/xCUbwFxDBYcUCvaDWiRLALfC9dKqe6JSG
-	GJqzGk5Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f4zUBIFw/HF5dirv0NLFw/6PIijmCuYxXH2VDwMiCbM=; b=O3dAMIXcGGmOSrAqo9qB5pRsOm
+	At7Tw51K3Sduq/4RzyXUtKpze7x3yIx3YZiFOFQDKNBwxuJFKskq7hn5QARIZHfcgR2nTYSWMJEHX
+	umISmvSSVw1iZlsDx3JXyfLzhCly6zG3642tTEj0adoqcSnzB8HBjjgjURlOohLDM2TaLpVzLaRi8
+	pb22DEStxQBRI0Ij6eF9pAHEycx7ABEvyjGdUZjOgl4b0K4qXqFVQAy5mWlOQ/h0O3zPWeyFH8mZh
+	rQG9qOu4ZfjpyYfYEayYTopotBbKantiRKSfPbeMnK34tKxbqUEAokX6SBflKQPLCIQ3hmSvRdquq
+	QJW0eYUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAYmS-00000009K8X-0nM6;
-	Wed, 08 Apr 2026 19:41:40 +0000
+	id 1wAYmk-00000009KCW-3Lyi;
+	Wed, 08 Apr 2026 19:41:58 +0000
 Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAYmO-00000009K7k-00n9;
-	Wed, 08 Apr 2026 19:41:37 +0000
+	id 1wAYmh-00000009KBG-3Mmm;
+	Wed, 08 Apr 2026 19:41:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1775677296; x=1807213296;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=m2f0MgviSe4n7FamZwL8P5PBCKEndEE+/KV0B5nZuDg=;
-  b=VRVUWw87ifky6nWudnWM0PAhXNiiBXS+1XcesHaXOXAgMWIVhVO11Od9
-   HOgFscmQL+S/DB+wt9QzHUIVWxmvx0fjKvBs08Wzh9/8nPnSMzbm9OqPH
-   Ymb1g8NNO/9C33Z1fh99L9BK1DqORmY9fkt1mJTxJY5ofv1ZksZhtlTYt
-   IFuUh11PNNsjQsB2YgUR/BV5WSL+TdsPrDCn7IhYpf3Sl/oD6DzYTyyub
-   VVj7en3dWfbaMfNMvfidHEpTSZfLGcp/KYGJjAHZWlsCSAf7TnUM2OvBN
-   bDOJ9xvz7UHnnKcGKQ6i1i9GxAxBV4zvqFw3dKMV4jcWvuRLwHkD6HCIP
+  t=1775677316; x=1807213316;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=1+enQnmuX1LnH5Cl4aiWgRetEzO2ZLiVdEHYf6jTViE=;
+  b=KLRrgwOi8p0BD57lDfZcx0bwdqXUxbU8Lh8Oxt5jkiZUa8PWkJZ9w3qP
+   S1XJ8o3H9r6CJOi/lIb4b4/7vMLivGiAUVeJVoCreqS7+ubqfN3HDqfMZ
+   Y3nB9vqr6cJCELilzXOuxFFvNevTGAtAcpQLB2Nfqb8Dd/y+8OexDERlH
+   Qr+vAr5JZATHJ8JYi7Fwc9MXRyzV6yislXejQj1NXIid45aL4fGPseMGu
+   do5h6jH22Gy2Mdsr67TWnf8Fo5CBhIqdwQM6wYm8SG4rSBTzG+drrfZK8
+   aKcZjj86+kV5Gv4Hppe+7YORzcvqB4XsKR1eVEmI3UyBTFOFzd+6QhWdh
    A==;
-X-CSE-ConnectionGUID: SzpP8guWTwqrrRyYczx5ig==
-X-CSE-MsgGUID: mN41o4hoQeGie6aimAUivA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11753"; a="88056882"
+X-CSE-ConnectionGUID: Ld71k0IyTPS0AOTHmKABdg==
+X-CSE-MsgGUID: dr4WqHJ0RzK7TC0p/8OTHw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11753"; a="88056896"
 X-IronPort-AV: E=Sophos;i="6.23,168,1770624000"; 
-   d="scan'208";a="88056882"
+   d="scan'208";a="88056896"
 Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2026 12:41:34 -0700
-X-CSE-ConnectionGUID: XAD6QAc2SwKwIrhvqhfXHg==
-X-CSE-MsgGUID: 8wH8aIgPT6WijufKP3yuHw==
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2026 12:41:55 -0700
+X-CSE-ConnectionGUID: fF6AKzoqTu+53pqR3F15Mw==
+X-CSE-MsgGUID: tCjcqbXvQbSX7dUs/GlmFg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.23,168,1770624000"; 
-   d="scan'208";a="222053320"
+   d="scan'208";a="222053356"
 Received: from gklab-103a-129.igk.intel.com ([10.91.103.129])
-  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2026 12:41:30 -0700
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2026 12:41:52 -0700
 From: Dawid Glazik <dawid.glazik@linux.intel.com>
 To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
 	Rob Herring <robh@kernel.org>,
@@ -66,18 +66,20 @@ Cc: linux-i3c@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	Frank Li <Frank.Li@nxp.com>,
 	Dawid Glazik <dawid.glazik@linux.intel.com>,
-	Maciej Lawniczak <maciej.lawniczak@intel.com>
-Subject: [PATCH v3 0/3] ARM: dts: aspeed-g6: add AST2600 I3C nodes and bindings
-Date: Wed,  8 Apr 2026 22:34:32 +0200
-Message-ID: <cover.1775679285.git.dawid.glazik@linux.intel.com>
+	Maciej Lawniczak <maciej.lawniczak@intel.com>,
+	Jeremy Kerr <jk@codeconstruct.com.au>
+Subject: [PATCH v3 1/3] ARM: dts: aspeed-g6: move i2c controllers directly into apb node
+Date: Wed,  8 Apr 2026 22:34:33 +0200
+Message-ID: <e50c40a2dfefe3e400abf0aa0bbdec1ca141b00a.1775679285.git.dawid.glazik@linux.intel.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1775679285.git.dawid.glazik@linux.intel.com>
+References: <cover.1775679285.git.dawid.glazik@linux.intel.com>
 MIME-Version: 1.0
 Organization: Intel Technology Poland sp. z o.o. - ul. Slowackiego 173, 80-298 Gdansk - KRS 101882 - NIP 957-07-52-316
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_124136_094996_62776887 
-X-CRM114-Status: UNSURE (   7.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260408_124155_861650_E8699761 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,31 +94,534 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series reworks and resubmits AST2600 I3C DTS updates that were
-originally posted in 2024, but stalled without further upstream
-progress.[1] The series was rebased onto the current tree and merge
-conflicts were resolved.
+We currently have the apb's mapping of the i2c controller space as a
+labelled mostly-empty node:
 
-The patches first move i2c nodes under the APB simple-bus for layout
-consistency, then add AST2600 I3C controller nodes in aspeed-g6.dtsi
-and finally add the missing dt-binding for AST2600 I3C global
-registers. Jeremy agreed in a separate email thread that I can continue
-this series under my authorship.
+  apb {
+    i2c: bus@1e78a000 {
+      ranges = <...>;
+    };
+  }
 
-Link: https://lore.kernel.org/all/9d8c03d742fa9767f30e23d75ddf0baf4296c88e.1714647917.git.jk@codeconstruct.com.au/
+... and then define the contents of the i2c block later:
 
-Dawid Glazik (3):
-  ARM: dts: aspeed-g6: move i2c controllers directly into apb node
-  ARM: dts: aspeed-g6: Add nodes for i3c controllers
-  dt-bindings: i3c: Add AST2600 I3C global registers
+  i2c: {
+    i2c0: i2c-bus@80 {
+      reg = <0x80 0x80>;
+    };
+    i2c1: i2c-bus@100 {
+      reg = <0x100 0x80>;
+    };
+  }
 
- .../i3c/aspeed,ast2600-i3c-global.yaml        |  55 ++
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi       | 549 ++++++++++--------
- 2 files changed, 377 insertions(+), 227 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/i3c/aspeed,ast2600-i3c-global.yaml
+Krzysztof mentions[1] that isn't convention though, with the top-level
+simple-bus being empty and linked via the label. So, drop the label
+usage and move the i2c bus definition into the simple-bus node directly
+under the apb:
 
+  apb {
+     bus@1e78a000 {
+      ranges = <...>;
 
-base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+      i2c0: i2c-bus@80 {
+        reg = <0x80 0x80>;
+      };
+      i2c1: i2c-bus@100 {
+        reg = <0x100 0x80>;
+      };
+    };
+  }
+
+This will allow us to be consistent when we add new definitions for the
+i3c nodes, which would require the latter format.
+
+Link: https://lore.kernel.org/linux-devicetree/c5331cf8-7295-4e6a-ba39-e0751a2c357e@kernel.org/ [1]
+Originally-by: Jeremy Kerr <jk@codeconstruct.com.au>
+Signed-off-by: Dawid Glazik <dawid.glazik@linux.intel.com>
+---
+v3:
+ - wasn't sure about target tree - picked the one pointed in
+	https://docs.kernel.org/process/maintainer-soc.html
+ - pick up series after two years
+ - rebase on top of latest tree and solve conflicts
+ - as agreed with Jeremy off-list, he said I can take authorship of this going forward
+v2:
+ - new patch: reorganise i2c nodes before adding new-format i3c nodes
+---
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 452 ++++++++++++------------
+ 1 file changed, 225 insertions(+), 227 deletions(-)
+
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+index 189bc3bbb47c..f5641128614f 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+@@ -835,11 +835,235 @@ uart9: serial@1e790300 {
+ 				status = "disabled";
+ 			};
+ 
+-			i2c: bus@1e78a000 {
++			bus@1e78a000 {
+ 				compatible = "simple-bus";
+ 				#address-cells = <1>;
+ 				#size-cells = <1>;
+ 				ranges = <0 0x1e78a000 0x1000>;
++
++				i2c0: i2c@80 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0x80 0x80>;
++					compatible = "aspeed,ast2600-i2c-bus";
++					clocks = <&syscon ASPEED_CLK_APB2>;
++					resets = <&syscon ASPEED_RESET_I2C>;
++					interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
++					bus-frequency = <100000>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_i2c1_default>;
++					status = "disabled";
++				};
++
++				i2c1: i2c@100 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0x100 0x80>;
++					compatible = "aspeed,ast2600-i2c-bus";
++					clocks = <&syscon ASPEED_CLK_APB2>;
++					resets = <&syscon ASPEED_RESET_I2C>;
++					interrupts = <GIC_SPI 111 IRQ_TYPE_LEVEL_HIGH>;
++					bus-frequency = <100000>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_i2c2_default>;
++					status = "disabled";
++				};
++
++				i2c2: i2c@180 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0x180 0x80>;
++					compatible = "aspeed,ast2600-i2c-bus";
++					clocks = <&syscon ASPEED_CLK_APB2>;
++					resets = <&syscon ASPEED_RESET_I2C>;
++					interrupts = <GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH>;
++					bus-frequency = <100000>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_i2c3_default>;
++					status = "disabled";
++				};
++
++				i2c3: i2c@200 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0x200 0x80>;
++					compatible = "aspeed,ast2600-i2c-bus";
++					clocks = <&syscon ASPEED_CLK_APB2>;
++					resets = <&syscon ASPEED_RESET_I2C>;
++					interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>;
++					bus-frequency = <100000>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_i2c4_default>;
++					status = "disabled";
++				};
++
++				i2c4: i2c@280 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0x280 0x80>;
++					compatible = "aspeed,ast2600-i2c-bus";
++					clocks = <&syscon ASPEED_CLK_APB2>;
++					resets = <&syscon ASPEED_RESET_I2C>;
++					interrupts = <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH>;
++					bus-frequency = <100000>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_i2c5_default>;
++					status = "disabled";
++				};
++
++				i2c5: i2c@300 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0x300 0x80>;
++					compatible = "aspeed,ast2600-i2c-bus";
++					clocks = <&syscon ASPEED_CLK_APB2>;
++					resets = <&syscon ASPEED_RESET_I2C>;
++					interrupts = <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH>;
++					bus-frequency = <100000>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_i2c6_default>;
++					status = "disabled";
++				};
++
++				i2c6: i2c@380 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0x380 0x80>;
++					compatible = "aspeed,ast2600-i2c-bus";
++					clocks = <&syscon ASPEED_CLK_APB2>;
++					resets = <&syscon ASPEED_RESET_I2C>;
++					interrupts = <GIC_SPI 116 IRQ_TYPE_LEVEL_HIGH>;
++					bus-frequency = <100000>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_i2c7_default>;
++					status = "disabled";
++				};
++
++				i2c7: i2c@400 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0x400 0x80>;
++					compatible = "aspeed,ast2600-i2c-bus";
++					clocks = <&syscon ASPEED_CLK_APB2>;
++					resets = <&syscon ASPEED_RESET_I2C>;
++					interrupts = <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>;
++					bus-frequency = <100000>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_i2c8_default>;
++					status = "disabled";
++				};
++
++				i2c8: i2c@480 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0x480 0x80>;
++					compatible = "aspeed,ast2600-i2c-bus";
++					clocks = <&syscon ASPEED_CLK_APB2>;
++					resets = <&syscon ASPEED_RESET_I2C>;
++					interrupts = <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>;
++					bus-frequency = <100000>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_i2c9_default>;
++					status = "disabled";
++				};
++
++				i2c9: i2c@500 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0x500 0x80>;
++					compatible = "aspeed,ast2600-i2c-bus";
++					clocks = <&syscon ASPEED_CLK_APB2>;
++					resets = <&syscon ASPEED_RESET_I2C>;
++					interrupts = <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>;
++					bus-frequency = <100000>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_i2c10_default>;
++					status = "disabled";
++				};
++
++				i2c10: i2c@580 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0x580 0x80>;
++					compatible = "aspeed,ast2600-i2c-bus";
++					clocks = <&syscon ASPEED_CLK_APB2>;
++					resets = <&syscon ASPEED_RESET_I2C>;
++					interrupts = <GIC_SPI 120 IRQ_TYPE_LEVEL_HIGH>;
++					bus-frequency = <100000>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_i2c11_default>;
++					status = "disabled";
++				};
++
++				i2c11: i2c@600 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0x600 0x80>;
++					compatible = "aspeed,ast2600-i2c-bus";
++					clocks = <&syscon ASPEED_CLK_APB2>;
++					resets = <&syscon ASPEED_RESET_I2C>;
++					interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>;
++					bus-frequency = <100000>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_i2c12_default>;
++					status = "disabled";
++				};
++
++				i2c12: i2c@680 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0x680 0x80>;
++					compatible = "aspeed,ast2600-i2c-bus";
++					clocks = <&syscon ASPEED_CLK_APB2>;
++					resets = <&syscon ASPEED_RESET_I2C>;
++					interrupts = <GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>;
++					bus-frequency = <100000>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_i2c13_default>;
++					status = "disabled";
++				};
++
++				i2c13: i2c@700 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0x700 0x80>;
++					compatible = "aspeed,ast2600-i2c-bus";
++					clocks = <&syscon ASPEED_CLK_APB2>;
++					resets = <&syscon ASPEED_RESET_I2C>;
++					interrupts = <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
++					bus-frequency = <100000>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_i2c14_default>;
++					status = "disabled";
++				};
++
++				i2c14: i2c@780 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0x780 0x80>;
++					compatible = "aspeed,ast2600-i2c-bus";
++					clocks = <&syscon ASPEED_CLK_APB2>;
++					resets = <&syscon ASPEED_RESET_I2C>;
++					interrupts = <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>;
++					bus-frequency = <100000>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_i2c15_default>;
++					status = "disabled";
++				};
++
++				i2c15: i2c@800 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0x800 0x80>;
++					compatible = "aspeed,ast2600-i2c-bus";
++					clocks = <&syscon ASPEED_CLK_APB2>;
++					resets = <&syscon ASPEED_RESET_I2C>;
++					interrupts = <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>;
++					bus-frequency = <100000>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_i2c16_default>;
++					status = "disabled";
++				};
+ 			};
+ 
+ 			fsim0: fsi@1e79b000 {
+@@ -870,229 +1094,3 @@ fsim1: fsi@1e79b100 {
+ };
+ 
+ #include "aspeed-g6-pinctrl.dtsi"
+-
+-&i2c {
+-	i2c0: i2c@80 {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		reg = <0x80 0x80>;
+-		compatible = "aspeed,ast2600-i2c-bus";
+-		clocks = <&syscon ASPEED_CLK_APB2>;
+-		resets = <&syscon ASPEED_RESET_I2C>;
+-		interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
+-		bus-frequency = <100000>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_i2c1_default>;
+-		status = "disabled";
+-	};
+-
+-	i2c1: i2c@100 {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		reg = <0x100 0x80>;
+-		compatible = "aspeed,ast2600-i2c-bus";
+-		clocks = <&syscon ASPEED_CLK_APB2>;
+-		resets = <&syscon ASPEED_RESET_I2C>;
+-		interrupts = <GIC_SPI 111 IRQ_TYPE_LEVEL_HIGH>;
+-		bus-frequency = <100000>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_i2c2_default>;
+-		status = "disabled";
+-	};
+-
+-	i2c2: i2c@180 {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		reg = <0x180 0x80>;
+-		compatible = "aspeed,ast2600-i2c-bus";
+-		clocks = <&syscon ASPEED_CLK_APB2>;
+-		resets = <&syscon ASPEED_RESET_I2C>;
+-		interrupts = <GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH>;
+-		bus-frequency = <100000>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_i2c3_default>;
+-		status = "disabled";
+-	};
+-
+-	i2c3: i2c@200 {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		reg = <0x200 0x80>;
+-		compatible = "aspeed,ast2600-i2c-bus";
+-		clocks = <&syscon ASPEED_CLK_APB2>;
+-		resets = <&syscon ASPEED_RESET_I2C>;
+-		interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>;
+-		bus-frequency = <100000>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_i2c4_default>;
+-		status = "disabled";
+-	};
+-
+-	i2c4: i2c@280 {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		reg = <0x280 0x80>;
+-		compatible = "aspeed,ast2600-i2c-bus";
+-		clocks = <&syscon ASPEED_CLK_APB2>;
+-		resets = <&syscon ASPEED_RESET_I2C>;
+-		interrupts = <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH>;
+-		bus-frequency = <100000>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_i2c5_default>;
+-		status = "disabled";
+-	};
+-
+-	i2c5: i2c@300 {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		reg = <0x300 0x80>;
+-		compatible = "aspeed,ast2600-i2c-bus";
+-		clocks = <&syscon ASPEED_CLK_APB2>;
+-		resets = <&syscon ASPEED_RESET_I2C>;
+-		interrupts = <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH>;
+-		bus-frequency = <100000>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_i2c6_default>;
+-		status = "disabled";
+-	};
+-
+-	i2c6: i2c@380 {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		reg = <0x380 0x80>;
+-		compatible = "aspeed,ast2600-i2c-bus";
+-		clocks = <&syscon ASPEED_CLK_APB2>;
+-		resets = <&syscon ASPEED_RESET_I2C>;
+-		interrupts = <GIC_SPI 116 IRQ_TYPE_LEVEL_HIGH>;
+-		bus-frequency = <100000>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_i2c7_default>;
+-		status = "disabled";
+-	};
+-
+-	i2c7: i2c@400 {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		reg = <0x400 0x80>;
+-		compatible = "aspeed,ast2600-i2c-bus";
+-		clocks = <&syscon ASPEED_CLK_APB2>;
+-		resets = <&syscon ASPEED_RESET_I2C>;
+-		interrupts = <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>;
+-		bus-frequency = <100000>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_i2c8_default>;
+-		status = "disabled";
+-	};
+-
+-	i2c8: i2c@480 {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		reg = <0x480 0x80>;
+-		compatible = "aspeed,ast2600-i2c-bus";
+-		clocks = <&syscon ASPEED_CLK_APB2>;
+-		resets = <&syscon ASPEED_RESET_I2C>;
+-		interrupts = <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>;
+-		bus-frequency = <100000>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_i2c9_default>;
+-		status = "disabled";
+-	};
+-
+-	i2c9: i2c@500 {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		reg = <0x500 0x80>;
+-		compatible = "aspeed,ast2600-i2c-bus";
+-		clocks = <&syscon ASPEED_CLK_APB2>;
+-		resets = <&syscon ASPEED_RESET_I2C>;
+-		interrupts = <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>;
+-		bus-frequency = <100000>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_i2c10_default>;
+-		status = "disabled";
+-	};
+-
+-	i2c10: i2c@580 {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		reg = <0x580 0x80>;
+-		compatible = "aspeed,ast2600-i2c-bus";
+-		clocks = <&syscon ASPEED_CLK_APB2>;
+-		resets = <&syscon ASPEED_RESET_I2C>;
+-		interrupts = <GIC_SPI 120 IRQ_TYPE_LEVEL_HIGH>;
+-		bus-frequency = <100000>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_i2c11_default>;
+-		status = "disabled";
+-	};
+-
+-	i2c11: i2c@600 {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		reg = <0x600 0x80>;
+-		compatible = "aspeed,ast2600-i2c-bus";
+-		clocks = <&syscon ASPEED_CLK_APB2>;
+-		resets = <&syscon ASPEED_RESET_I2C>;
+-		interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>;
+-		bus-frequency = <100000>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_i2c12_default>;
+-		status = "disabled";
+-	};
+-
+-	i2c12: i2c@680 {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		reg = <0x680 0x80>;
+-		compatible = "aspeed,ast2600-i2c-bus";
+-		clocks = <&syscon ASPEED_CLK_APB2>;
+-		resets = <&syscon ASPEED_RESET_I2C>;
+-		interrupts = <GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>;
+-		bus-frequency = <100000>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_i2c13_default>;
+-		status = "disabled";
+-	};
+-
+-	i2c13: i2c@700 {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		reg = <0x700 0x80>;
+-		compatible = "aspeed,ast2600-i2c-bus";
+-		clocks = <&syscon ASPEED_CLK_APB2>;
+-		resets = <&syscon ASPEED_RESET_I2C>;
+-		interrupts = <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
+-		bus-frequency = <100000>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_i2c14_default>;
+-		status = "disabled";
+-	};
+-
+-	i2c14: i2c@780 {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		reg = <0x780 0x80>;
+-		compatible = "aspeed,ast2600-i2c-bus";
+-		clocks = <&syscon ASPEED_CLK_APB2>;
+-		resets = <&syscon ASPEED_RESET_I2C>;
+-		interrupts = <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>;
+-		bus-frequency = <100000>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_i2c15_default>;
+-		status = "disabled";
+-	};
+-
+-	i2c15: i2c@800 {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		reg = <0x800 0x80>;
+-		compatible = "aspeed,ast2600-i2c-bus";
+-		clocks = <&syscon ASPEED_CLK_APB2>;
+-		resets = <&syscon ASPEED_RESET_I2C>;
+-		interrupts = <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>;
+-		bus-frequency = <100000>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_i2c16_default>;
+-		status = "disabled";
+-	};
+-};
 -- 
 2.43.0
 
