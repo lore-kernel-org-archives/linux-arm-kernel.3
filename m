@@ -4,83 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F3BCFD5F86
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 06:49:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A051EFD5F7F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 06:51:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Q/MofJKHc8I+/Pub8F3lPg5UDKLJc1Wt+gTwGRRfhuM=; b=dsU564Hv41nUspqiDXA9ehC9ub
-	/IVWMiq0pXzvwIvOzS7I7RKz7s0pg82inlV1VecBHRGYYrrqs+AB47PRRdHVeI//reCUgaForkSq3
-	1MQ8NZg213xwntd9gEE35nHMLQQKJir4tOB4YI8NQHjIhzgLvDJNG9RlChcoxu20lDYbxpZH2mpbn
-	yAsrha1c1FSQtvG8LzG3dJ0fkjpvEWnYQeiQbMUIen1Voa6FtET8tb3o8YdFeYt5BzexQfDpbG/Xu
-	7pOmS49nnwtKkCP5zP4QOLCdxUdDde01n8Tp5OX0n4GUoT7/mq0mzlICudWHgnPUTY3KnZm2UDEkr
-	j8qp66WQ==;
+	bh=U521sUYf25ASEfCtOQX+Ill+lllnFxxt3OJbaB5Iblc=; b=ou2GvfeJQF/q1Mqsa8sL+idJ9q
+	mNLSqG/xt1cOv0nmT3OKELbSG9ftypdPsVfRNy41lYdpK56ClCMWB7RPd5bsoP7/8hB5JrH6OkE/D
+	FSnClLoytEx4HsidR4IH15LUgCYSgPnbYcIaOgV0dhCH/ZL9QCari/1mWfYGA7BrDE0zqmmsAYwg0
+	alf2/DR0rFmUfxOf5dI6UC423BLT/xz38lE/H56zYIVcqySgQ3o0/LyjHLMCUzXkBqr4OIIqKsIJ/
+	Y6RIu9wA1NNDlPLQRcE8/Vh8OMJuFUIKPqR2Q9m6NuhyKcZZTbbeM+OA+Ux+teoiywrCx00PPdjbm
+	wpME961Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAMjX-00000008Mzj-4Bcb;
-	Wed, 08 Apr 2026 06:49:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wAMkm-00000008NE4-2nO8;
+	Wed, 08 Apr 2026 06:51:08 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAMjW-00000008MzJ-20rN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 08 Apr 2026 06:49:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=Q/MofJKHc8I+/Pub8F3lPg5UDKLJc1Wt+gTwGRRfhuM=; b=cCnIT9xVY6xmqdAC+h+kw8z5Bx
-	h9dHrSg5k1MjBrsiWZEky0VfEjjrfaJfQY1c5X+xEt3BClcBIs1jvhLgt9e97OLllSWW/U3ktYwP/
-	Enn25E3n+Y4UzAk2gpoTE1iZhxUl6JHyLeD3rKf/VC5ilptibggmQ/2O1CZfucivbRH5RadbB5D/H
-	6vTN4jMiZLSNrUTQhiaBZmg5cUFQdLt2IDHIn/um9NSOJCQgtIxY/VZqYrhBCZH8bUvkxGJWyCHUu
-	AHXE5FgGEw7mn+K4ZKdCbxiDsmXgT+d6tjrZ7+gjXvOXx18A5R5SKaXArdVROzsKhu7C1MW521EYM
-	n6VmoiRA==;
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAMjT-00000009ULJ-1N4K
+	id 1wAMkk-00000008NDQ-0SES
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 06:49:49 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-b6ce6d1d3dcso2068964a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 23:49:46 -0700 (PDT)
+	Wed, 08 Apr 2026 06:51:07 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-35d965648a2so4601406a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Apr 2026 23:51:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1775630985; x=1776235785; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1775631065; x=1776235865; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q/MofJKHc8I+/Pub8F3lPg5UDKLJc1Wt+gTwGRRfhuM=;
-        b=XMgmur57rWhU4HMMDyFNv4DM+U22ieuY6n22HoxEFF8Aqu9OSK7Xj6JS7n3bQK9x13
-         0ygZiRTpSp6H3JPh0Q1eU+ET7fJZk+ZYy3Qz8ukYgqvZ1CLeDF1O3O3REN9mpNIhESYt
-         3YNn01z3LANK9Cdv6271Y8dOOdjn+R7a8AGsQ=
+        bh=U521sUYf25ASEfCtOQX+Ill+lllnFxxt3OJbaB5Iblc=;
+        b=hm3TPyYzmlHHHUdVnPbtmB7udJ+ty5w2Fs2FWPm7elzuK1C5sJNkEq1bkZPc2hH4Gx
+         E6BNsn5DVGyaWXLI71kc2JFQb9481w4KnrYpLx6ENECyRIQQp05QMx6+OLBbSWOF1k/G
+         Ew6N/f217RQyJWi/AUSAGpcV90pmktU7m+e1E=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775630985; x=1776235785;
+        d=1e100.net; s=20251104; t=1775631065; x=1776235865;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Q/MofJKHc8I+/Pub8F3lPg5UDKLJc1Wt+gTwGRRfhuM=;
-        b=ZFapPuZJlYtq+eL7kL3ls2/8fD167N9o73rFnZvx/froSsSSgIXBNrwUflymtoNTFD
-         AvP2SpWdDe+922R9aogW/ThRDqBVpR+XvdHSVyDoZ9xxidl+70ArdW/fB411Jk5MhW3f
-         TZBqEO3vmjXd6rr8pfc6qCC6gykir5egiJtaqRHx9qhLr00l92QW+VxlKkdM1SIIQJ0f
-         jBuX8xZc++2VamR+72orMPnP09GYb2SdyQFuQrjVrgsyJCuZb6iVoUUZRBZHG6aVmGuT
-         ebNyCJAvjNLKI9XssZLAL56JIVKSrx0C8tYzZZm5GDk3ZQGMsDl1X8fy/JHvY1W1fMpE
-         vvXA==
-X-Forwarded-Encrypted: i=1; AJvYcCXnowGh0+lDJmzclwGumNOf08vLktHPhNh63zbhAgg2jRXbV6SFz4xuFJugGAaQ7klKckOXK79qqxoYCv5hpY9S@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoIdLgc6h7eQ67GFe9paddoR4JWfb7rLiCcG/fWvASbhZ3YW9O
-	x/0HsyeT8JWTWz5/hAPaRcRn/XUgLbLwel+zWx1iqXA2kPtNqrBGbL7uQ5nCsiwi/w==
-X-Gm-Gg: AeBDieuJ2MOy4BLACWYjehT1aVrdQezZwx/pFN6x7hb0oGIGaV2yUz7VuLzl/UziCD8
-	t3TGPYVNB00LWpHgHkb5nl8xYMQqsKQmytSQQcBgprYjYnTek6rdKGTRRb+5+a6Z8yJjmzJV0s5
-	+803VHcBGjKeUVvEcFDHh6aCm9LVYC1oR6MA7gzICixclm/g9eQn1dRnkwCBPGwga+qVkoe6+wq
-	8O8EHmCETTSKTcTxGuQCEggsWPTN1Xnq1NTTwxF8I2XIcVNFpel4bTomjYwsK/BnoefRBhb+000
-	q9oRtz7Zkh4gq5+HVMioM8jdYZBDihKTg7v5UgUlqdDaDXLAAnIF/NK2jXEeEU2FRFEZ/IqKGg5
-	td9MsqFDFHMwGya/qy8ylr8b/9Zep3OpyoIykAbvBJ4zpkxVJXoVMaoF2Y/aw5lKdDU1GSa7R0l
-	E1c+sfNwOJQnkmwf+ZbKVZ7g8MPkMqqo0WURA1Tz2Ttuk3a2LFTeHflrUsMYqxNAnt957knCKGy
-	mgxnz68
-X-Received: by 2002:a05:6a20:7493:b0:398:9ae9:710f with SMTP id adf61e73a8af0-39f2ef7e3admr21007463637.13.1775630984895;
-        Tue, 07 Apr 2026 23:49:44 -0700 (PDT)
+        bh=U521sUYf25ASEfCtOQX+Ill+lllnFxxt3OJbaB5Iblc=;
+        b=TCmK+Wocc76qN/iWgEmIdWDGAiWrMd/I2rNHmNF/L6lHp1meN/ya5UHnyx32DAhlV2
+         IO4pYy4bRsrqKx7g6F9VgTxPXDXYjIN9ixFj6upAvRbCpC5KubGR5TL/sE1nUm5BDBwY
+         +Hy4dtCoFw613cgrOSLArrbAzfozhmzE5HibpT+OKnCTUW2YbMsgWR9Ps7aXR32lYjte
+         3YTQNeMPiTrpTyCJABNUr7SyZUhthPp91YxLN83vOyIJw+Za/v9wsYhKdT/DFaDkTTRC
+         dCIWO207eqzPfdBhPVeXG8GfeoVhygxp425y0EEvxj/fgDf7jtWpjXeCvMoEcEglKk2Q
+         0B7A==
+X-Forwarded-Encrypted: i=1; AJvYcCV0pnIgJt1CSvZZG9Adxq3VGE1uXF3N9TfZkUeEUVO5DPZbMaWfABoYkDz7q8GPPetnhcAqvYgkzt+9Wm3vNy4Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRhdeF4SJdm9kuWqEvDgKt5Tb8nYzOtW8PyT5++FJ2lktJy91N
+	8/nOgzLFOA+XJ5G1ZbKffsPRqOC44tMQiy/QyUgdrzJgQuyNuwQTI1BM2rw6S9YRxLUPxq6OyWd
+	WX2g=
+X-Gm-Gg: AeBDievBHaWYxJ1ARu4wy+AsGdWksriF5C0gpOzA/Vu0Tnnafk/UvDrSR8Y19qUJSfS
+	608kSDv7NynpPp0i+mfaxD2y2dOqh4Z05NKazytSKN0oPKaI63t16rRDQWx/aYkzckvkrP49GC6
+	NiV2lo8O/AfMUqPm0ChrwJQPs+63FenSJDPbzobU26SNbdg5QGW3T/oUzI1ShjLTy5xbzVT/KtB
+	XOYkQkX00J6mOiMeQLCvaPdfAdxAGgiTmb/d77DZrJ1hxR37Au4tnN+8rzJsUlQOXdaOzAbNkp/
+	Xq77ZZLTCjr3OeYcUiNjLTS2mL4SlN2bCiw4Y6MoMnP0XjAx/QPMpk9vjYZ40QMNLr1pp/BlTK1
+	mvowc/mxo1T2we5EFnrlfzPrWNp3ytiqKyoiLZcYfU6bgR04yOHDKxDUQuRoOoQ66voeajyAWar
+	foM7NEFdZdFI0OPgRe+6A2tGTeJgu+5+8FYcpoxlzEKwr1Okp8gp35SJ6Jb0FNhD7BtsAVjLovx
+	DdX43LH13NgimXkDy4=
+X-Received: by 2002:a17:90b:4f43:b0:359:f3b1:6811 with SMTP id 98e67ed59e1d1-35de67db862mr18680927a91.1.1775631064757;
+        Tue, 07 Apr 2026 23:51:04 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:f0e3:c8b2:74ff:70d1])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c76c6561fe9sm17036136a12.15.2026.04.07.23.49.42
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35dbe959886sm24889460a91.14.2026.04.07.23.51.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Apr 2026 23:49:44 -0700 (PDT)
+        Tue, 07 Apr 2026 23:51:04 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Inki Dae <inki.dae@samsung.com>,
 	Seung-Woo Kim <sw0312.kim@samsung.com>,
@@ -93,17 +79,16 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	dri-devel@lists.freedesktop.org,
 	linux-samsung-soc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH] drm/exynos/gem: Fix printk specifier for gem_object.size and dma_addr
-Date: Wed,  8 Apr 2026 14:49:34 +0800
-Message-ID: <20260408064936.1342321-1-wenst@chromium.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] drm/exynos/fimd: fix register offset type in fimd_trigger()
+Date: Wed,  8 Apr 2026 14:50:54 +0800
+Message-ID: <20260408065055.1353444-1-wenst@chromium.org>
 X-Mailer: git-send-email 2.53.0.1213.gd9a14994de-goog
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_074947_549785_15F28B46 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20260407_235106_148130_C9ABCDA5 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,56 +103,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the recent change to use the GEM base object's size field instead of
-the exynos_gem object's additional field, the printk format was not
-adjusted for the change to size_t type. This causes a new warning on
-platforms on which size_t is not unsigned long.
+Sparse reports:
 
-Fix this by using the correct "%zx" type.
+    exynos_drm_fimd.c:992:39: warning: incorrect type in initializer (different address spaces)
+    exynos_drm_fimd.c:992:39:    expected void *timing_base
+    exynos_drm_fimd.c:992:39:    got void [noderef] __iomem *
+    exynos_drm_fimd.c:1005:33: warning: incorrect type in argument 1 (different address spaces)
+    exynos_drm_fimd.c:1005:33:    expected void const volatile [noderef] __iomem *addr
+    exynos_drm_fimd.c:1005:33:    got void *
+    exynos_drm_fimd.c:1007:33: warning: incorrect type in argument 2 (different address spaces)
+    exynos_drm_fimd.c:1007:33:    expected void volatile [noderef] __iomem *addr
+    exynos_drm_fimd.c:1007:33:    got void *
 
-While at it, fix the specifier for dma_addr so that the cast to unsigned
-long is not longer needed.
+Add "__iomem" to *timing_base to fix its type.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202604081331.jSJQSVmg-lkp@intel.com/
-Fixes: 11e898373fba ("drm/exynos: Drop exynos_drm_gem.size field")
+Fixes: 3854fab24e89 ("drm/exynos: fimd: support LCD I80 interface")
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
-This is only compile tested. Build for ARM 32-bit confirms the warning
-is fixed. Sorry for the noise.
-
-The commit hash used in the Fixes tag is the current one seen in
-exynos-drm-next.
+random warning I found while checking for the size_t warning.
 ---
- drivers/gpu/drm/exynos/exynos_drm_gem.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/exynos/exynos_drm_fimd.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_gem.c b/drivers/gpu/drm/exynos/exynos_drm_gem.c
-index d9d42809a1a9..f264e170bc26 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_gem.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_gem.c
-@@ -66,8 +66,8 @@ static int exynos_drm_alloc_buf(struct exynos_drm_gem *exynos_gem, bool kvmap)
- 	if (kvmap)
- 		exynos_gem->kvaddr = exynos_gem->cookie;
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_fimd.c b/drivers/gpu/drm/exynos/exynos_drm_fimd.c
+index b6abdc4f2b0a..695d3515d421 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_fimd.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_fimd.c
+@@ -989,7 +989,7 @@ static void fimd_trigger(struct device *dev)
+ {
+ 	struct fimd_context *ctx = dev_get_drvdata(dev);
+ 	const struct fimd_driver_data *driver_data = ctx->driver_data;
+-	void *timing_base = ctx->regs + driver_data->timing_base;
++	void __iomem *timing_base = ctx->regs + driver_data->timing_base;
+ 	u32 reg;
  
--	DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(0x%lx), size(0x%lx)\n",
--			(unsigned long)exynos_gem->dma_addr, exynos_gem->base.size);
-+	DRM_DEV_DEBUG_KMS(drm_dev_dma_dev(dev), "dma_addr(%pad), size(0x%zx)\n",
-+			  &exynos_gem->dma_addr, exynos_gem->base.size);
- 	return 0;
- }
- 
-@@ -80,8 +80,8 @@ static void exynos_drm_free_buf(struct exynos_drm_gem *exynos_gem)
- 		return;
- 	}
- 
--	DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(0x%lx), size(0x%lx)\n",
--			(unsigned long)exynos_gem->dma_addr, exynos_gem->base.size);
-+	DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(%pad), size(0x%zx)\n",
-+			  &exynos_gem->dma_addr, exynos_gem->base.size);
- 
- 	dma_free_attrs(drm_dev_dma_dev(dev), exynos_gem->base.size, exynos_gem->cookie,
- 			(dma_addr_t)exynos_gem->dma_addr,
+ 	 /*
 -- 
 2.53.0.1213.gd9a14994de-goog
 
