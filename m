@@ -4,52 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9555D105D9BE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 09:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 800601073C84
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 09:43:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=n7bosjwbU5FTrYEendiBfTXm4znd5VvXDOpOv0gXMX0=; b=dOkRb3qvtNqa4gl8VhmYjEmjXQ
-	obynM/e8zT6yXvrhuayhH2Hu1e5XSCqTB3ed43S3/Q2Mc8O9zU7+DaB00ZiKSUQMpQ5g5Z/o1laQ4
-	04xiQH0TEkF/VSU8h0M4e33QsW/QDjNC+uwGkL7MZoMgff1zPwijMC63/mnY2eTwVYqxSsAUVarym
-	wrqSHzkL7lKZwDC2vKjEi1FJbdtlJBjsnUqPvHJIYA9p2ncP5TMX3ITR68CV12bATDNlujAZc741+
-	Vz3ilbIdP3c7pEHOpxaKMyUeDttkynUk5jbhBYwo+S/XSfdAhg1YYA3C6QCoCW1cKdFLk2mPZDMk8
-	r5AiCa6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dtVN72wGnZ6TO0cAYb5J7S2eJNnpZu9n4ngwxR3LA7o=; b=nooYDhv2yzxzObtUNE+cmK1Z6d
+	4pt0+FYTxOs358KaUdxsdS+RYGJ5fXHJSv9vw2f2Rx7ZvYcw8PmT6q3Y1N9vZl8PjoFbWTRv1WHlk
+	Q/Yywbw+BFsYji+VwQjxzf8xsMvmRix2oANCtUB2p7b0rAQKGg9HJ5029Q60oTBIJZvg9J1SduKlD
+	Px1MOdwGSe4CkBEJIzkSG6Beeuv5lrTrxeZHCMweKJZ7JREwnzulKfYfK/I8wUcpBJOVq47dtmJ+U
+	PF9dPvA79A5oZ+UlJ4JRHa/r4QqBx+QgELUyjNYiaa4jcRoe/7bJYp+0j7FAyFpBlNiJlezKhsSpI
+	yue2sQDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAPQ7-00000008d3D-1gsn;
-	Wed, 08 Apr 2026 09:41:59 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1wAPRT-00000008dDo-3Eg4;
+	Wed, 08 Apr 2026 09:43:23 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAPQ4-00000008d23-3ZUU
+	id 1wAPRS-00000008dDU-0tC4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 09:41:58 +0000
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wAPQ1-0006Ee-CC; Wed, 08 Apr 2026 11:41:53 +0200
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: soc@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	kernel@pengutronix.de,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [GIT PULL] Reset controller fixes for v7.0, part 3
-Date: Wed,  8 Apr 2026 11:41:52 +0200
-Message-ID: <20260408094152.1698594-1-p.zabel@pengutronix.de>
-X-Mailer: git-send-email 2.47.3
+	Wed, 08 Apr 2026 09:43:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=dtVN72wGnZ6TO0cAYb5J7S2eJNnpZu9n4ngwxR3LA7o=; b=pMmFVqfW9d0y0Vunkjgw90tppX
+	e6SHEF9NLrmIAYbhuF6NYMuzwDOppOsK4e22goBrdIiKzvwduIXBRma6wH5ml1NdEv6wFPF46mgjY
+	ZjleLyH++ly3sn9TqN8TkvoxEpyRVEG/JnAG40jPB6MfzSIA1BCj91LVWhBomWJMcd4iaFjqmE6cF
+	6tn+0yEbovFt6d5tYDwYkcYq2HfcBD6VTd78TXwFg0EDFcrcCsX1oCgXHy24shjczrNA34YJABqLq
+	bWPkQB0TU6h7mui5mHBwDdhMZcH/sVs+TMusmJGUn/E/oJ+/eW9OAIhWiXviE4E+XFLAb9rge0YTg
+	vYTvPrrg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:33734 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1wAPC7-00000000244-1u7L;
+	Wed, 08 Apr 2026 10:27:31 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1wAPBw-0000000F7kf-0VA5;
+	Wed, 08 Apr 2026 10:27:20 +0100
+In-Reply-To: <adYfPBHsXxQUsMyr@shell.armlinux.org.uk>
+References: <adYfPBHsXxQUsMyr@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Samuel Holland <samuel@sholland.org>
+Subject: [PATCH RFC net-next 08/10] net: stmmac: simplify
+ stmmac_get_ethtool_stats()
 MIME-Version: 1.0
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1wAPBw-0000000F7kf-0VA5@rmk-PC.armlinux.org.uk>
+Date: Wed, 08 Apr 2026 10:27:20 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_024156_885371_3D755348 
-X-CRM114-Status: UNSURE (   6.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260408_024322_268817_58EA6A92 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,31 +91,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear arm-soc maintainers,
+As documented, stmmac_dma_diagnostic_fr() will return non-zero for
+all non-DWMAC_CORE_MAC100 core types.
 
-The following changes since commit a0e0c2f8c5f32b675f58e25a9338283cedb5ad2b:
+However, as DWMAC_CORE_MAC100 core types do not have DMA capabilities,
+priv->dma_cap.rmon and priv->dma_cap.eee will be zero, and thus there
+is no need to make this also conditional on the
+stmmac_dma_diagnostic_fr() return value.
 
-  reset: spacemit: k3: Decouple composite reset lines (2026-03-23 12:25:47 +0100)
+Remove this test and unindent the code, and remove unnecessary parens.
 
-are available in the Git repository at:
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ .../ethernet/stmicro/stmmac/stmmac_ethtool.c  | 60 +++++++++----------
+ 1 file changed, 28 insertions(+), 32 deletions(-)
 
-  https://git.pengutronix.de/git/pza/linux.git tags/reset-fixes-for-v7.0-3
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+index 0caa5b992519..77cb67f4c63c 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+@@ -519,9 +519,9 @@ static void stmmac_get_ethtool_stats(struct net_device *dev,
+ 	u32 rx_queues_count = priv->plat->rx_queues_to_use;
+ 	u32 tx_queues_count = priv->plat->tx_queues_to_use;
+ 	u64 napi_poll = 0, normal_irq_n = 0;
+-	int i, j = 0, pos, ret;
+ 	unsigned long count;
+ 	unsigned int start;
++	int i, j = 0, pos;
+ 
+ 	if (priv->dma_cap.asp) {
+ 		for (i = 0; i < STMMAC_SAFETY_FEAT_SIZE; i++) {
+@@ -531,42 +531,38 @@ static void stmmac_get_ethtool_stats(struct net_device *dev,
+ 		}
+ 	}
+ 
+-	/* Update the DMA HW counters for dwmac10/100 (DWMAC_CORE_MAC100),
+-	 * where this will return zero. Other core types will have a non-zero
+-	 * return value.
+-	 */
+-	ret = stmmac_dma_diagnostic_fr(priv, &priv->xstats, priv->ioaddr);
+-	if (ret) {
+-		/* If supported, for new GMAC chips expose the MMC counters */
+-		if (priv->dma_cap.rmon) {
+-			stmmac_mmc_read(priv, priv->mmcaddr, &priv->mmc);
++	/* Update the DMA HW counters for dwmac10/100 (DWMAC_CORE_MAC100). */
++	stmmac_dma_diagnostic_fr(priv, &priv->xstats, priv->ioaddr);
+ 
+-			for (i = 0; i < STMMAC_MMC_STATS_LEN; i++) {
+-				char *p;
+-				p = (char *)priv + stmmac_mmc[i].stat_offset;
++	/* If supported, for new GMAC chips expose the MMC counters */
++	if (priv->dma_cap.rmon) {
++		stmmac_mmc_read(priv, priv->mmcaddr, &priv->mmc);
+ 
+-				data[j++] = (stmmac_mmc[i].sizeof_stat ==
+-					     sizeof(u64)) ? (*(u64 *)p) :
+-					     (*(u32 *)p);
+-			}
+-		}
+-		if (priv->dma_cap.eee) {
+-			int val = phylink_get_eee_err(priv->phylink);
+-			if (val)
+-				priv->xstats.phy_eee_wakeup_error_n = val;
++		for (i = 0; i < STMMAC_MMC_STATS_LEN; i++) {
++			char *p = (char *)priv + stmmac_mmc[i].stat_offset;
++
++			data[j++] = stmmac_mmc[i].sizeof_stat == sizeof(u64) ?
++				    *(u64 *)p : *(u32 *)p;
+ 		}
++	}
+ 
+-		/* Only dwmac1000 and dwmac4 implements the MAC .debug() method.
+-		 * As there are different version spaces depending on core_type,
+-		 * make this conditional on the appropriate core type.
+-		 */
+-		if ((priv->plat->core_type == DWMAC_CORE_GMAC ||
+-		     priv->plat->core_type == DWMAC_CORE_GMAC4) &&
+-		    priv->snpsver >= DWMAC_CORE_3_50)
+-			stmmac_mac_debug(priv, priv->ioaddr,
+-					(void *)&priv->xstats,
+-					rx_queues_count, tx_queues_count);
++	if (priv->dma_cap.eee) {
++		int val = phylink_get_eee_err(priv->phylink);
++		if (val)
++			priv->xstats.phy_eee_wakeup_error_n = val;
+ 	}
++
++	/* Only dwmac1000 and dwmac4 implements the MAC .debug() method.
++	 * As there are different version spaces depending on core_type,
++	 * make this conditional on the appropriate core type.
++	 */
++	if ((priv->plat->core_type == DWMAC_CORE_GMAC ||
++	     priv->plat->core_type == DWMAC_CORE_GMAC4) &&
++	    priv->snpsver >= DWMAC_CORE_3_50)
++		stmmac_mac_debug(priv, priv->ioaddr,
++				(void *)&priv->xstats,
++				rx_queues_count, tx_queues_count);
++
+ 	for (i = 0; i < STMMAC_STATS_LEN; i++) {
+ 		char *p = (char *)priv + stmmac_gstrings_stats[i].stat_offset;
+ 		data[j++] = (stmmac_gstrings_stats[i].sizeof_stat ==
+-- 
+2.47.3
 
-for you to fetch changes up to 9797524ef2b69c6b187b55bd844eb72a8c1cbd99:
-
-  reset: amlogic: t7: Fix null reset ops (2026-03-31 17:19:18 +0200)
-
-----------------------------------------------------------------
-Reset controller fixes for v7.0, part 3
-
-* Add missing reset ops for amlogic,t7-reset to the reset-meson driver.
-  The resets are unused as of now, but as soon as they are, the driver
-  would otherwise run into a NULL pointer dereference.
-
-----------------------------------------------------------------
-Ronald Claveau (1):
-      reset: amlogic: t7: Fix null reset ops
-
- drivers/reset/amlogic/reset-meson.c | 1 +
- 1 file changed, 1 insertion(+)
 
