@@ -4,84 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 935F0FD5F87
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 08:12:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B522FD5F87
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 08:20:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OejBbrri3d9kPDDrk8EcFHpWkrzAozvlowpTGFN85e8=; b=LnDne821Osnk9wCdEwx/UeHlXd
-	huO1sX4i6BZZp2DAQEfGnImFj1ReBICZqhiOlx11Fsfji38g8cdH/HLTNW/0PKj62vP9xCLreE3MN
-	ucr0EXTQAHylsabOtYqfoqX/74/LCk0CxWeGjeYtadEoikGbZ6P5C+e7qQpkmBN0R2iUfXSQtdIl8
-	NUjkIAbxCqhdTSKdGNhGjp1NT0qvFygJmlTLdqSpRoUyrdR3BFSVnZPhtUWa6yRUGOuzUId5IYoiz
-	9TOfaCHr4/kWj2WMxSr3W82EQtGnbGB0PQ2MZDv4PO0kVjO06F7DVWADe6f0z1CtuJ0NEQsqYO7GY
-	wgLtdD1A==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VRd+Civy+geLALzWFHgxsIesA9wBU9+u1x5Mut66okY=; b=XPbyEQMhwH6PupdgKmREj+ahdz
+	lEtrFUAhKWN1LaOAE+niRotPpj7CLBjKSz9DmFBN7RMZn05i24YQAISxwq8fbni9ke0EXNR2O8amR
+	fMep9KrvmvWVlnj7WarNsEHwbDUXaumKgvZuD/eXt3oBi01RG0e3Ti24S0+FSMUdlqaRTUl22rgki
+	NBt//ahMVoOM+94Kv0yD8oltvxRW6kl54FjX2hHFgWYt9vl2oNGki+C2rs88YdHBcWE2gF4YEoOJt
+	kQMmnH/M5ETdNgMcxAkgYbe311zaCD02pO+MNHlBtWWrSkLNwhvMj6SmZ7WuCjDC1C1KbMD7fcxM5
+	392vqseA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAO13-00000008VBY-25W7;
-	Wed, 08 Apr 2026 08:12:01 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1wAO9C-00000008Vu6-31N2;
+	Wed, 08 Apr 2026 08:20:26 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAO10-00000008VAf-33v4
+	id 1wAO99-00000008VtO-1q3R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 08:12:00 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2b24fcc2b5dso39278155ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 01:11:58 -0700 (PDT)
+	Wed, 08 Apr 2026 08:20:26 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-43cff5dafc3so5114024f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 01:20:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1775635918; x=1776240718; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=OejBbrri3d9kPDDrk8EcFHpWkrzAozvlowpTGFN85e8=;
-        b=mERs6AHicarHwjDsNrDloE0/BOoC9qJB800QWK3jX3OlCeYds9EKSzwptqVl0LTw8E
-         FtgbE7tj0ZVbc9C5hfjxk3FhxiAE5MDySVKN2bya+rMLWN+jmaFkRLLRv5p5N9B6bMqD
-         BNoGZ6RfRfgNSqhINiLVvSuoL/UyOuJV5YWik=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775635918; x=1776240718;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1775636421; x=1776241221; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=OejBbrri3d9kPDDrk8EcFHpWkrzAozvlowpTGFN85e8=;
-        b=NVlIFNMGgfkGOVgy0exiT93OOm8CzAaG7c5007tGeGs9m6nW9FEBkLwLhjxqeWv8+B
-         ZIoBJ6rIcM7Rmaxm3h8cTfawr8yX9T3zAGmSD3kydykxCAjv4dfTJwEV0Rb+FWoT9rW2
-         r6x7F3iDbnXmVFuHx66MA1QZRHVCv4vfv+5WrMFdcuF8tvecLo1g+c3LXqWdyApZFS52
-         e17Zg8clY3PFv+ABXokAkUTCT0zqYweVDvA2LSXOyx8iIehjEpzfAbNCOnX9A0yfhZqQ
-         Dau+VnlWzECKLgIBCCUbDFdPGzKm/bhvfiYShdcA4CpqKzeCbje+HveM8jCKDtxlbj6N
-         rrSA==
-X-Forwarded-Encrypted: i=1; AJvYcCVSmtDbpP34MmXRGndzyumDGUANxXZwFbgWvC2GSHKK42VatQDTRqe/i6WP4LR6C6npm9cT49RqqdSoamGBg54C@lists.infradead.org
-X-Gm-Message-State: AOJu0YzucX/VWfJNlZiw3rTE/pqduz12yz+R7tki1oMtETZGZbGQ4j2d
-	EVpA/dm7E630mq1qyfMG/tvHSnYMzXIwSz5US1jA6Uw0j/lNGAZHbHSzVDWbHzeLxg==
-X-Gm-Gg: AeBDiet0502ZjAcmCggEte99/ucZIrTCk0A3f3XS6H0DQ+BU2EbScAyMX/JvdhG+omz
-	9Y44qMXOruyeuflGf8dK1lIjkZ9xAhL8a/0wsNa7z8VjEwSCD2hC6WXJHxoy03cufZSgfcK32xk
-	lsud+LXnVHLqJ6WyBJl3mD+nOiI8+jZquhMEWkZi2wFlmIURjFRT2n3WTceW3O0maV27ngKw3ps
-	apLFIEU7PFfdxjz1Odna4kI3tZlh1jkKIxTh7gX+DjRkXbfprHkYXHWerMu2WBgNha0GFxIgKHF
-	Uttw1BR1n2iESnrYxlD5V1oCwkqB+HfXxyaIHhEzO3PfHpHIFqKVoy7EVDGTWoPAGg7J+qOqGWA
-	Kg6bKQv7LCM6Cz6ttAgEPRQHu0Sfcd3XNJsnOWpnsqyn9FqAwm6UtX0oks+HdEFWGk1a76Tbjri
-	H+J8abIwI8zdBf+oVnEVkpjeqS0HgoFpT0KFvK8RnThkxB2YSyhALA27BoflfzZTLW9YY6V5C2G
-	GtQBvLK
-X-Received: by 2002:a17:902:e78b:b0:2b2:4d36:7ba with SMTP id d9443c01a7336-2b2815b522dmr216420835ad.0.1775635917710;
-        Wed, 08 Apr 2026 01:11:57 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:f0e3:c8b2:74ff:70d1])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b2749cbca2sm193388975ad.73.2026.04.08.01.11.56
+        bh=VRd+Civy+geLALzWFHgxsIesA9wBU9+u1x5Mut66okY=;
+        b=EtwK+rDW5DCVN/WklLdwj2E4Jhvg7zl+uVAUe5eRSpOCXy+8UJ3S4LMKQUNFmmhT/w
+         ftlHibTcTJo9jjt5NyHJgKR0Vf4i6UZxwLJAJNbbyWVGbgkwkHGlTQLSnjzUcwQdrAdS
+         0E1ECrh+beBjOkBmWPPz0V3UjIwFzjYjPcyRB9lqZwAWUFSY5xb96WsOnC32cSzgy0Cw
+         QiNwqvfN4tpXifKBjBRe4pqhm63SQCe7F6XQsUBwxxM0IpszwwwNQPUleR4Epu3A5Xnc
+         qdUmyvIQE2CXhr/2KiEWooVkIwK3zDt5VvbVYLnpHbkhuEPUxm+5I07CcWAcEdc5sZz/
+         4UNw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775636421; x=1776241221;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=VRd+Civy+geLALzWFHgxsIesA9wBU9+u1x5Mut66okY=;
+        b=dqbdNJo/L7jQrH7S5wdoPS1VCE5W44pCJK/QO4HttOlO10RLIrLjRJGXex0+8RxGnl
+         hXK1xMETxhyEmSOQNHHou9yJTISzEUfrpzccDdsV+l18ean94xOOKZYieAvHooc0Zzo+
+         o9V797FU7UOfuemgvBFjwveIEQPCagvs3yVaTPaXa8SFHchtaGQ3vp36inIzz1fz7uXu
+         RN/wJFV5V6uUv0m3a8Ec90wLTNe0sigKw8hO8v5iwowr5GtQ/aKPkT4FRCQ+x5M4fSYs
+         /GlL4qBqLcaXy1zRLTQXIcNvR2vq9Xpn/CsTn1LKERC8dmiu4h6J/nd8fTabEeUwb7B4
+         FKTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWs3p+3Ap5Yx8i6Comp9X9rE3wCZvQAjwBx1OhrPg9Q4JugmHQadU1xj/Bgux/xU/1feyao7puLHlSw6iONhd2p@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNwcERGI2T4gVKwB+pUMzs+OgUMfbv/hBxm7vUXf0FGz7ieFlV
+	nAJg5aoJn1dMLfwKEhUKSo1ZQQBS7ZjI63e6+nMLocRobGJ5Yp9UMrLCBGjFUGA2Eesg88Ct1Dt
+	Fa0RC
+X-Gm-Gg: AeBDietLqFDS+t0FycC0irag81aoXwXMDRL7wfnlYfJKS1cDGTXS4EZFLKXGHhH6iE4
+	XyAnOPayIRaYDWbLOMa/3PRjxzVSzlJQl+b8/xQuqvg3J4YqijYGi8l6NpZJmmMw6a2KPwx0bdQ
+	jYl5Jh8TwRmigbhg7sJO8Jpmgekm4ecPj4E5iWk9QdlHEHFfuFaAzJozLoztj4PCFBaek4Ia2ho
+	YM3ME5DZ7++BzHQX+j8vWvsMfOrnyvkwQNKEhK0MXyAQq6qs5sDwKhzdE5LaZ/1qtLXlZkzV84k
+	twPwUkbDchCOHyXKLKHYQnQ8Pcpnw3o7CHOelOxJj1qpArDZTQ8dNdSQaDc/NuprG2Uk3p4/GP7
+	GKbOLg5jMxQxfYvIX78H466ExaiBB5HMTCG4zsvYcjOh2F8CkfI/G57oA2qRYj66ZVRau3Xj7ox
+	5ZObtPS5KugzhteysKyAPiow==
+X-Received: by 2002:a05:6000:18a9:b0:43c:f90b:5663 with SMTP id ffacd0b85a97d-43d292d4753mr27905582f8f.37.1775636420996;
+        Wed, 08 Apr 2026 01:20:20 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:6715:3376:7379:78d8])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-43d1e2a6f1esm54494851f8f.2.2026.04.08.01.20.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Apr 2026 01:11:57 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] firmware: raspberrypi: Change dependency to ARCH_BCM2835 and COMPILE_TEST
-Date: Wed,  8 Apr 2026 16:11:49 +0800
-Message-ID: <20260408081150.1710717-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.53.0.1213.gd9a14994de-goog
+        Wed, 08 Apr 2026 01:20:20 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Stephen Boyd <sboyd@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, robh+dt <robh+dt@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jian Hu <jian.hu@amlogic.com>
+Cc: devicetree <devicetree@vger.kernel.org>, 
+ linux-clk <linux-clk@vger.kernel.org>, 
+ linux-amlogic <linux-amlogic@lists.infradead.org>, 
+ linux-kernel <linux-kernel@vger.kernel.org>, 
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>, 
+ Ferass El Hafidi <funderscore@postmarketos.org>
+In-Reply-To: <20260326092645.1053261-1-jian.hu@amlogic.com>
+References: <20260326092645.1053261-1-jian.hu@amlogic.com>
+Subject: Re: (subset) [PATCH v3 0/3] Add the missing mpll3 clock and clock
+ controller nodes
+Message-Id: <177563641892.1659838.16115307647051827681.b4-ty@b4>
+Date: Wed, 08 Apr 2026 10:20:18 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_011158_811991_2A620E28 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20260408_012023_637442_41E54475 
+X-CRM114-Status: UNSURE (   5.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,33 +113,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Raspberry Pi firmware driver has no compile dependencies on the
-BCM2835 mailbox driver. It's just a indirect runtime dependency: the
-driver only works on a Raspberry Pi.
+Applied to clk-meson (clk-meson-next), thanks!
 
-Change the dependency from BCM2835_MBOX to ARCH_BCM2835. Also allow
-compile tests. This allows drivers that have build time dependencies
-on this firmware driver to be compile tested as well.
+[1/3] dt-bindings: clock: amlogic: Fix redundant hyphen in "amlogic,t7-gp1--pll" string.
+      https://github.com/BayLibre/clk-meson/commit/6d6be1cca2c9
+[2/3] dt-bindings: clock: amlogic: t7: Add missing mpll3 parent clock
+      https://github.com/BayLibre/clk-meson/commit/87edca62c4f5
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
- drivers/firmware/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-index bbd2155d8483..f99d27c1f6a4 100644
---- a/drivers/firmware/Kconfig
-+++ b/drivers/firmware/Kconfig
-@@ -114,7 +114,7 @@ config ISCSI_IBFT
- 
- config RASPBERRYPI_FIRMWARE
- 	tristate "Raspberry Pi Firmware Driver"
--	depends on BCM2835_MBOX
-+	depends on ARCH_BCM2835 || COMPILE_TEST
- 	help
- 	  This option enables support for communicating with the firmware on the
- 	  Raspberry Pi.
--- 
-2.53.0.1213.gd9a14994de-goog
+Best regards,
+--
+Jerome
 
 
