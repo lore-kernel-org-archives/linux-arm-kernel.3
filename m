@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC571105D9AE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 09:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A7E0105D9B4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 09:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1HKasakdQPn3aMFJOmu7e2iJDfqBG60iaErJHrMCkJA=; b=MuUj6O/BNPk/6ULzntWAECnqfi
-	nesK3qevQF0M9pXKwDNdy4ab5YAX2ybbE4WSuuiMj3zzb2+geoJPSsSBHzc6vSE7mjuLKjng4aiCH
-	m14IGeSA81BrxLABJtO4B0I97ZWJ+iOWCvwihSYNtBHB8nULyu0mysgQErwVd/N2avvPdM9SF1ooz
-	8yL04/vuMDjKVOo0kSrojMVKIgrZ8m5j+YU749cwD2wgm5lJ6Axi/n8PWLn5JB8y/0eML00XrvBJ1
-	i52Tks26oI/W3/d3gIV3bZ7/Mq9zZd05S+0saDZIJzctrzVZR1dWxBR4sXN0e2UrBUpBP0KnBqNQe
-	ZNPftmQQ==;
+	bh=ymap6qnTrcZjA2wjOv/aJIypsrfZm0ThDKHwcJw6fQA=; b=av+RvDGdQ8qIoFJOI99KKBvCCM
+	kxLO82sulaAeK/XgC72mkN1wWnvXyh5vM55VioYr91pUSEqcNuuxOSLNjCqTby7u1jfRUNEYpSuCL
+	ai5bZ65Y4U+mOELCM24T+JzJb7Lmla5ixpWc9utvm5D8WCqPJCtVIVrLp8c+k+qhpr1HGJjDhbGug
+	diGpm3AukMyYNr75d7YnrkA5mqvQBLI5r39Cxvmo5mzG9C8m2V6jjxzQmdXt512mlsls+S45FFyu4
+	sQ/EZQH41/p2tTNE5M0RB72AgXqRp+adHr7ETC/qTvQWcGtysiMa28nFrJXE9R7nXDLT5u774BVGE
+	37dlReeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAPNS-00000008clY-3M1j;
-	Wed, 08 Apr 2026 09:39:14 +0000
+	id 1wAPPn-00000008czm-04KV;
+	Wed, 08 Apr 2026 09:41:39 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAPNQ-00000008cl4-0ovA
+	id 1wAPPl-00000008czB-0RWH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 09:39:13 +0000
+	Wed, 08 Apr 2026 09:41:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=1HKasakdQPn3aMFJOmu7e2iJDfqBG60iaErJHrMCkJA=; b=ixWTzvp4f+t4GhuXFYTrdH/aRd
-	3FOKn/IkoHkbFk+C3776O3PX94GwUOmeacik8WLrjYYwBNbDmfMV00pd4hTmlTfGPNDDml1HlupgV
-	uG88xMNXQGMrQFcrtf3jrvoXXH8j7LM3BRalWNTvuEofLcGzekrUAniQ9n/7ZlA2zaALx2cHogePZ
-	fiZvPfiKO85jm1il2ByWPSNfmc0p6VGplrZOB7KtH8Q4XN2zg515QJfiiOiiJv6aAUhUR+CXpugjx
-	FJigfk2Qg64/M4BfcWBsiMSwYXe5UPArYKR7M0Iyf1spmVIFgfYLxwNKLIUVUa/+bTyXDCCLetmxA
-	pPTTWNUQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:43584 helo=rmk-PC.armlinux.org.uk)
+	bh=ymap6qnTrcZjA2wjOv/aJIypsrfZm0ThDKHwcJw6fQA=; b=KBRtZISkGajYEF77tW0PaVeWQX
+	cPZnzgBxvtuhhdl0AWKtISEgdRk5ygONloyCeyvc7bShsFUU291gw31NnmZThiKumCavoDUxWZ7ht
+	cVFxKfusOkbLHw7diDcG/m/WO3KmVv7Y38vbfzTiDlCH3hIE7MQt+BAIhGaN+SOZknZvPt/nDFVer
+	nX9Wo9T5rTYa1vxaHQ/lmKiB9p4+CfBiZll05OfJ9M7/jxzZGMStDbGxzi0qdRsZw0SJavADbkyRZ
+	OUT8++lqg326oe/ePFqZ6aNhK2gp3lxLY6XKiSo7EBlX3bdqQV2MVuRQa7MzXTkTRzYo9u5SC8NNU
+	w5ecUjoQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36872 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1wAPC1-0000000023p-3pgt;
-	Wed, 08 Apr 2026 10:27:27 +0100
+	id 1wAPCB-0000000024F-27WA;
+	Wed, 08 Apr 2026 10:27:35 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1wAPBr-0000000F7ka-032o;
-	Wed, 08 Apr 2026 10:27:15 +0100
+	id 1wAPC6-0000000F7kr-1b7i;
+	Wed, 08 Apr 2026 10:27:30 +0100
 In-Reply-To: <adYfPBHsXxQUsMyr@shell.armlinux.org.uk>
 References: <adYfPBHsXxQUsMyr@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -66,17 +66,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
 	Samuel Holland <samuel@sholland.org>
-Subject: [PATCH RFC net-next 07/10] net: stmmac: limit MAC .debug() to
- dwmac1000 and dwmac4
+Subject: [PATCH RFC net-next 10/10] net: stmmac: only print receive COE type
+ for GMAC cores
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1wAPBr-0000000F7ka-032o@rmk-PC.armlinux.org.uk>
-Date: Wed, 08 Apr 2026 10:27:15 +0100
+Message-Id: <E1wAPC6-0000000F7kr-1b7i@rmk-PC.armlinux.org.uk>
+Date: Wed, 08 Apr 2026 10:27:30 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_023912_259117_7C4804A1 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20260408_024137_146791_7B3FABBF 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,47 +91,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Avoid a bare test against snpsver which has multiple different number
-spaces depending on the core type by testing for core types that
-implement the .debug() method. This documents that these statistics
-are only available on dwmac1000 and dwmac4 cores.
+As identified in the previous commit, only GMAC cores have a COE type,
+but priv->snpsver's numberspace is core specific. Change the test for
+printing this to check the core type instead of checking for the
+Synopssys IP version being < v4.0, which will incorrectly match XGMAC
+cores.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_ethtool.c    | 13 +++++++++++--
- 1 file changed, 11 insertions(+), 2 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-index 343cf903c0bf..0caa5b992519 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-@@ -531,7 +531,10 @@ static void stmmac_get_ethtool_stats(struct net_device *dev,
- 		}
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 93c031b3cfd5..f5fe97c1abd4 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -7461,7 +7461,7 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
+ 	if (priv->plat->rx_coe) {
+ 		priv->hw->rx_csum = priv->plat->rx_coe;
+ 		dev_info(priv->device, "RX Checksum Offload Engine supported\n");
+-		if (priv->snpsver < DWMAC_CORE_4_00)
++		if (priv->plat->core_type == DWMAC_CORE_GMAC)
+ 			dev_info(priv->device, "COE Type %d\n", priv->hw->rx_csum);
  	}
- 
--	/* Update the DMA HW counters for dwmac10/100 */
-+	/* Update the DMA HW counters for dwmac10/100 (DWMAC_CORE_MAC100),
-+	 * where this will return zero. Other core types will have a non-zero
-+	 * return value.
-+	 */
- 	ret = stmmac_dma_diagnostic_fr(priv, &priv->xstats, priv->ioaddr);
- 	if (ret) {
- 		/* If supported, for new GMAC chips expose the MMC counters */
-@@ -553,7 +556,13 @@ static void stmmac_get_ethtool_stats(struct net_device *dev,
- 				priv->xstats.phy_eee_wakeup_error_n = val;
- 		}
- 
--		if (priv->snpsver >= DWMAC_CORE_3_50)
-+		/* Only dwmac1000 and dwmac4 implements the MAC .debug() method.
-+		 * As there are different version spaces depending on core_type,
-+		 * make this conditional on the appropriate core type.
-+		 */
-+		if ((priv->plat->core_type == DWMAC_CORE_GMAC ||
-+		     priv->plat->core_type == DWMAC_CORE_GMAC4) &&
-+		    priv->snpsver >= DWMAC_CORE_3_50)
- 			stmmac_mac_debug(priv, priv->ioaddr,
- 					(void *)&priv->xstats,
- 					rx_queues_count, tx_queues_count);
+ 	if (priv->plat->tx_coe)
 -- 
 2.47.3
 
