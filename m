@@ -4,56 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C92F61073C9F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 11:46:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A1D1073CA0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 11:57:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iWCigTS0KAZbJIgeNlAz+fchjs6na1NDpvoRi/IohXM=; b=dDK+tCM5KrMarfj0apzkexWddw
-	j5AXC1ZVD3Gha2/OGAOsRjDYPW+Qc2ar7rElDpMWzY8lWVBsMh6P2m3KXpx3gm6Bq2r+X7wgTlgF2
-	y6B5yu4TBZd2Mevl0EF4fHye2PoH5P1JagizfKLxxAXY+A3cfHhliGahM2r+/NMRdu69Fa1HDbBtg
-	Gpb0Vy5WYZl0FMLNCfjx9FlszUntpQZL3G4D6Tgydz8VZAxBEJwUMs92apUY9Gb/AqHiMd+3fxTmN
-	HgNMSlV0bnyZQykxq0vxw6mA7823JQa/HcNwnRLTsuwbhBdSQMxn77KP2lYBki80hGhSsXgPYhP/5
-	FAExakbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=H7RqyZoJN9z5V3n2sk1+H3ltTIG04OTqXJTr7o236Hc=; b=r8wSqgaF0jkrgN5iOzb2uq7Qs9
+	+qZLbg+2+tp75rlEt9nDp8H9bZUbPCBUI7cmAcaFcG+oba3s+SFRKR+pI//zfvBA9oBg5wB/Vg0hq
+	3S8Km/EuImkfN/kfqHyoIaotfz4yhxpU2OtpyrNpV+8CR8LqZMFnM4JYU5cpC4l0TELOyEhDmIwYi
+	IM6SY37dE3bszt8xkpJ7lxDCxfDyLh7CzQ1YsHYs9GDBkO43RT8ZLh+fnoMrRmsDbyvTHOfiKQH+K
+	/5wNhTYdXBdJDy4gO+GWqDhteXRDYIXogPRahVRLygkmg45EMLhBYq9JywM37V07gEjn1kosTeL6D
+	wZ1fIngg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wARMN-00000008mLY-3QhL;
-	Wed, 08 Apr 2026 11:46:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wARX2-00000008mzP-31yV;
+	Wed, 08 Apr 2026 11:57:16 +0000
+Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wARML-00000008mLI-2AWb
+	id 1wARX0-00000008myu-0wXo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 11:46:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 53718600AD;
-	Wed,  8 Apr 2026 11:46:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B12E9C19421;
-	Wed,  8 Apr 2026 11:46:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1775648771;
-	bh=pXDdDq1OeM2ARLlFkfpX3cDC8uKfgPA6ypCaoec4WYI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OYau3CYoCiinWGWS1IN9aV5DKhmV5bFEpiTxh8xGhRNciKb02kkXhbAQKgsD/Qpue
-	 xnE6QPmxqn8QAIV8YzepAGlHD5P+GWSmRnWI/Ni3g4ryxKhlfxxPQGg2FH0ALex1P3
-	 gYIWtd7TeEENTnvhX0Mkzj6BanGa3A3jqAzWZDOs=
-Date: Wed, 8 Apr 2026 13:46:08 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Paul Geurts <paul.geurts@prodrive-technologies.com>
-Cc: srini@kernel.org, Frank.Li@nxp.com, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, p.zabel@pengutronix.de,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	martijn.de.gouw@prodrive-technologies.com
-Subject: Re: [PATCH] nvmem: imx-ocotp: Initialize in subsys_initcall
-Message-ID: <2026040852-crevice-hazily-adf4@gregkh>
-References: <20260408101901.2111140-1-paul.geurts@prodrive-technologies.com>
+	Wed, 08 Apr 2026 11:57:16 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4frM4D4Yy4z9tB8;
+	Wed,  8 Apr 2026 13:57:00 +0200 (CEST)
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of linux@timmermann.space designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=linux@timmermann.space
+From: Lukas Timmermann <linux@timmermann.space>
+Date: Wed, 08 Apr 2026 13:56:21 +0200
+Subject: [PATCH] ARM: dts: exynos: Add bluetooth support to manta
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260408101901.2111140-1-paul.geurts@prodrive-technologies.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260408-manta-bluetooth-v1-1-b7658e78359a@timmermann.space>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqAIBBA0avErBNMQ6KrRAutqSZKQy2C6O5ZL
+ d/i/wsCesIAdXaBx4MCOZtQ5Bl0k7YjMuqTQXCheMlLtmobNTPLjtG5OLFKqkJKLipjFKRq8zj
+ Q+R2b9nfYzYxdfDdw3w9zgKmscwAAAA==
+X-Change-ID: 20260404-manta-bluetooth-836133028bb6
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Lukas Timmermann <linux@timmermann.space>, 
+ Alexandre Marquet <tb@a-marquet.fr>
+X-Rspamd-Queue-Id: 4frM4D4Yy4z9tB8
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260408_045714_415302_19FD7DB0 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,51 +71,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 08, 2026 at 12:19:01PM +0200, Paul Geurts wrote:
-> The i.MX OCOTP driver is implemented as module_platform_driver();,
-> which makes it initialize in device_initcall(). This means that all
-> drivers referencing the clock driver nodes in the device tree are
-> deferred by fw_devlink.
-> 
-> As the OCOTP driver is arch specific, but dependent on the i.MX clock
-> driver, which is also initialized in arch_initcall(), explicitly
-> initialize the driver in subsys_initcall(). This makes sure the drivers
-> depending on fuses defined by OCOTP, which are initialized in
-> device_initcall() are not deferred.
-> 
-> Fixes: 3edba6b47e42 ("nvmem: imx-ocotp: Add i.MX6 OCOTP driver")
-> Signed-off-by: Paul Geurts <paul.geurts@prodrive-technologies.com>
-> ---
->  drivers/nvmem/imx-ocotp.c | 13 ++++++++++++-
->  1 file changed, 12 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
-> index 108d78d7f6cb..9b1e7bb14ced 100644
-> --- a/drivers/nvmem/imx-ocotp.c
-> +++ b/drivers/nvmem/imx-ocotp.c
-> @@ -638,7 +638,18 @@ static struct platform_driver imx_ocotp_driver = {
->  		.of_match_table = imx_ocotp_dt_ids,
->  	},
->  };
-> -module_platform_driver(imx_ocotp_driver);
-> +
-> +static int __init imx_ocotp_init(void)
-> +{
-> +	return platform_driver_register(&imx_ocotp_driver);
-> +}
-> +subsys_initcall(imx_ocotp_init);
+Enable the bcm4330-bt device for manta boards on serial0.
+Also adds the necessary pin definitions and interrupt handling for
+wakeup.
 
-This is not a subsystem, sorry, but this isn't ok for a single driver to
-use.
+Signed-off-by: Lukas Timmermann <linux@timmermann.space>
+Co-developed-by: Alexandre Marquet <tb@a-marquet.fr>
+Signed-off-by: Alexandre Marquet <tb@a-marquet.fr>
+---
+This patch depends on previous patches which are
+currently only found in linux-next.
+See: https://lore.kernel.org/all/177214038655.341086.4114348823043257597.b4-ty@kernel.org/
+---
+ arch/arm/boot/dts/samsung/exynos5250-manta.dts | 41 +++++++++++++++++++++++++-
+ 1 file changed, 40 insertions(+), 1 deletion(-)
 
-Please use the default level here, module_platform_driver() is correct,
-and handle the deferred probe correctly, that is what it is designed to
-do.  Playing games with init levels will not solve the root problem
-here, as was pointed out by the fact that you could load this module in
-any order and have the exact same problem you are attempting to "solve"
-here.
+diff --git a/arch/arm/boot/dts/samsung/exynos5250-manta.dts b/arch/arm/boot/dts/samsung/exynos5250-manta.dts
+index 24a27b342227..76d3657eb22f 100644
+--- a/arch/arm/boot/dts/samsung/exynos5250-manta.dts
++++ b/arch/arm/boot/dts/samsung/exynos5250-manta.dts
+@@ -461,6 +461,13 @@ acc_int: acc-int-pins {
+ 		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
+ 	};
+ 
++	bt_host_wakeup: bt-host-wakeup-pins {
++		samsung,pins = "gpx2-6";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_INPUT>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-drv = <EXYNOS4_PIN_DRV_LV1>;
++	};
++
+ 	max77686_irq: max77686-irq-pins {
+ 		samsung,pins = "gpx0-2";
+ 		samsung,pin-function = <EXYNOS_PIN_FUNC_F>;
+@@ -488,6 +495,20 @@ bh1721fvc_reset: bh1721fvc-reset-pins {
+ 		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
+ 	};
+ 
++	bt_reg_on: bt-reg-on-pins {
++		samsung,pins = "gph0-0";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
++		samsung,pin-con-pdn = <EXYNOS_PIN_PDN_PREV>;
++		samsung,pin-pud-pdn = <EXYNOS_PIN_PULL_NONE>;
++	};
++
++	bt_wake: bt-wake-pins {
++		samsung,pins = "gph1-3";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
++		samsung,pin-con-pdn = <EXYNOS_PIN_PDN_PREV>;
++		samsung,pin-pud-pdn = <EXYNOS_PIN_PULL_NONE>;
++	};
++
+ 	msense_reset: msense-reset-pins {
+ 		samsung,pins = "gpg2-0";
+ 		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
+@@ -536,7 +557,25 @@ &sd1_cmd {
+ 
+ /* Bluetooth */
+ &serial_0 {
+-	status = "disabled";
++	pinctrl-0 = <&uart0_data &uart0_fctl>;
++	pinctrl-names = "default";
++
++	bluetooth {
++		compatible = "brcm,bcm4330-bt";
++
++		pinctrl-0 = <&bt_reg_on &bt_wake &bt_host_wakeup>;
++		pinctrl-names = "default";
++
++		shutdown-gpios = <&gph0 0 GPIO_ACTIVE_HIGH>;
++		device-wakeup-gpios = <&gph1 3 GPIO_ACTIVE_HIGH>;
++
++		interrupt-parent = <&gpx2>;
++		interrupts = <6 IRQ_TYPE_EDGE_FALLING>;
++		interrupt-names = "host-wakeup";
++
++		clocks = <&max77686 MAX77686_CLK_PMIC>;
++		clock-names = "lpo";
++	};
+ };
+ 
+ /* GPS */
 
-thanks,
+---
+base-commit: e5f7e05a699f41275d6380c497293446034bc8af
+change-id: 20260404-manta-bluetooth-836133028bb6
 
-greg k-h
+Best regards,
+--  
+Lukas Timmermann <linux@timmermann.space>
+
 
