@@ -4,58 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80FBF10F995C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 17:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34F0C10F995C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 17:22:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+Wz7EWR6PFtBNGIpnKG6zlh6pWOtrnWRejKbkJ7zGIY=; b=sJ0CdBqMp3yCs+
-	1QowyyQbEHI5txqK2Xy3O3pOptaC2MONIjv7TsiHKk4DAhTzlxZhnIZadtQ/A88Qxwv4mmbWjyYag
-	VibkZ3c5scsSoGAAlPxSRPQYqCZ9/k9Bck/0Lx4n1yakBQ+nR1LFIKv5bx6hqYFmDWsAR+Q8lj/j9
-	PvVgWwFwvfmPI/Hx2gdFTusFuj108tuEwjfe0p1YL+SVJLwSwz9LZ26LFE50b7QjL8NUd16VPE/GD
-	zcYbZxCNxZS2OmfiLUbeNVuAbuuqK5e3xuiPfHEMS27hEd2DyyPaIo//DeSp116f+PhhqVA5/mZ3b
-	YcAc+Ry4H4nWgVNhR16A==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uGaHyLmHBgoLoCNYKyPIGDrV5F1S4zCIqJmASlnBZ3A=; b=NUdyrXMQpZCKKeM5TYN2/dWM8J
+	jQFfWmZqnK115ItLu+Bq5CHmdYKhHmq/dZ9AFgcU05o5Vk+VZdv3pMM5qu4BgxQhuvne4PcAL1JQS
+	zzePL/xzIXa0+MbHZgniuyWh115S/jOafUBYk5Xxabf0fHWkk9ckflXzxOsqU/z1h4jmWlMbek1lP
+	ker4OKBda8E+OmI3QPnclbN0gTO7MkzSVTVh4yAHEyuSPZUAzAH9S/+lVK4sHSuLmmMpph/gck0ip
+	dALC1l22FsN+Qwm36+sOjfiHqHjJzo8pcsf+ruJW1204bF77lzLffqnUbYa1V3Yk3INqU4RIoTNm6
+	mce8FLzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAWbk-00000009Afc-44gQ;
-	Wed, 08 Apr 2026 17:22:28 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wAWbr-00000009Aj6-21vn;
+	Wed, 08 Apr 2026 17:22:35 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAWbg-00000009Ae6-3AAa
+	id 1wAWbo-00000009AgP-2ZaR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 17:22:27 +0000
+	Wed, 08 Apr 2026 17:22:34 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 456FCC5AA9B;
-	Wed,  8 Apr 2026 17:22:54 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 47E504E42971;
+	Wed,  8 Apr 2026 17:22:30 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B83EE603CE;
-	Wed,  8 Apr 2026 17:22:19 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1D9A0104500F3;
-	Wed,  8 Apr 2026 19:22:12 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1C8F2603CE;
+	Wed,  8 Apr 2026 17:22:30 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 48C9D1045017E;
+	Wed,  8 Apr 2026 19:22:26 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1775668937; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=+Wz7EWR6PFtBNGIpnKG6zlh6pWOtrnWRejKbkJ7zGIY=;
-	b=vcE6F9Bm0xLbMFqR4xIAs+2HhyfGZTh0nQ6D037ZgVz1u7nNb8yF1TAaZN33ANBEfkW6Ba
-	P2doGxy3nCV/hxau4OL92CQcSNWoTKHWPrx95EhONQO0bTGPAGOkySAnxqsgkRYK1MIwbr
-	IsGUuCY/zZ6uUOJ4cCalg5CBqZLEIwdUqtNPRVclzZ6jzH+IFcoTRNN1b+CfoQHJgfFTiQ
-	oyrNiDChEJB6Yf7pM06krJIQuVxI6V2EEWJdjhCEyomF3Q0Iuy0fVVquwyjlcLvOgnZzS6
-	8shZsf2HkgPfDlWQPGqdOmQoMAeuLaHgb7P4DykRwvaA3wsQaec9E8kXADexqg==
+	t=1775668948; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=uGaHyLmHBgoLoCNYKyPIGDrV5F1S4zCIqJmASlnBZ3A=;
+	b=E66nM9myFRwMfkr0OM0M9oQJpaBhsTX5ozHVjqqf4ks+dpLVvMFwfXiublDGikuVlwG6uA
+	VZUfqBR3wO+PV1Xkp1reGxr4H3qje8p7D2b/QhEu9VsbpR3L+QRUHnYI23YKuTZHB3spPQ
+	L1C/0rDu0LuMqSPSNyyZVnxB946hsdMkra1KC0llYM5WUjaAGIam2mwSJomYWsAijnw0t9
+	xZiqmLo6UdQ+V4cd0cfzsCAAh9/1Zsd0f/roAyBG6tKWTGQmG4tS2/kbmccWqJob9tuEx1
+	nMjPuxr40nkhY9kmxIKcrLCjUi6pv7q8ryNs2dgrw+9ekipdna0KJ/ShsE1hgA==
 From: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
-Subject: [PATCH v5 0/5] Add support for AAEON SRG-IMX8P MCU
-Date: Wed, 08 Apr 2026 19:21:53 +0200
-Message-Id: <20260408-dev-b4-aaeon-mcu-driver-v5-0-ad98bd481668@bootlin.com>
+Date: Wed, 08 Apr 2026 19:21:57 +0200
+Subject: [PATCH v5 4/5] gpio: aaeon: Add GPIO driver for SRG-IMX8P MCU
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XQwWoDIRAG4FcJnmtxRt3EnvoeoQdHx0Zo1uKmk
- hL23euGlhBC0uM/MN8/zElMXDNP4mV1EpVbnnIZe7BPKxF2fnxnmWPPAhVaQAAZuUky0nsuo9y
- HLxlrblwlK944pmR8ItG3PyunfDzL27eed3k6lPp9LmqwTP83G0glraPkgXzQSb9SKYePPD6Hs
- l9KfgV8LAwUB0thwwnwSljuavh3y6AA9X0Ju+SSCUpRIhvoVtIXCdUDSXdJeXBGo1oPPtxK5iJ
- pNPcl06X+bwUQk1k7cy3N8/wDZHlEAuABAAA=
-X-Change-ID: 20251211-dev-b4-aaeon-mcu-driver-e0e89ebf4afb
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260408-dev-b4-aaeon-mcu-driver-v5-4-ad98bd481668@bootlin.com>
+References: <20260408-dev-b4-aaeon-mcu-driver-v5-0-ad98bd481668@bootlin.com>
+In-Reply-To: <20260408-dev-b4-aaeon-mcu-driver-v5-0-ad98bd481668@bootlin.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
  Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
@@ -71,28 +68,26 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
  Miquel Raynal <miquel.raynal@bootlin.com>, 
  "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Conor Dooley <conor.dooley@microchip.com>, 
  Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4278;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9293;
  i=thomas.perrot@bootlin.com; h=from:subject:message-id;
- bh=ays/7jNwW83CF93SHZVFHVvuLfD/wIAAwD4jrcSavkE=;
- b=owEB7QES/pANAwAKAZ/ACwVx/grtAcsmYgBp1o7Dcs3pGUCJVgH0wv4fifMTQ43eT7+gmyEq0
- GBStzGjCJiJAbMEAAEKAB0WIQSHQHfGpqMKIwOoEiGfwAsFcf4K7QUCadaOwwAKCRCfwAsFcf4K
- 7X3/DACUMsrlamPpXwrcTDRZAlqDJTA3mvxlKDttCd4kyVBnt2mOkeicVC7GHSaC18Ng3kSmDe8
- Gzlcv6JPWdLit91T/pO4cs5+8wUWpeZTA+6bTEfxHYCUFfUZsKO7cnvKoV45hE7wxRcYkJbshk4
- cehXRpVYtj+RzWEN7UwucBpvxAoJmhTD9lntAugndNIqM+hPPvD2IORRdUDNuE4Y/Xq9V+sjK2r
- uP157fvYGxkOPsRtd4iQuFo6/aJiFSvPrSf9FErodYvOO6nXMTAT/hN6rbbubtItFhKU8Qx2OA1
- yHMTUkBNxYfMsEyw5czyyqr6zlxnUpGEICeM2cfUl4x9fHAlTQyFQODqaRRLGsoMe+eqxR4d0wp
- eI/VOYtboYNZVbhSNkIMd6qiirnwV0QxTAGySTJ6xkDbEx3+0bubDWq5nuF66WuZaZ5HSe2c9zi
- D1U4J3HHA21BopSPjfATaQiFahDUPmx/VWOU8YHgQI27ZOsFm0U3QozGc2s4u+8UPLJZY=
+ bh=v9xa34NsM/733dZZsF2EFxXDKrVTDCSNlIjmbFFkKS4=;
+ b=owEB7QES/pANAwAKAZ/ACwVx/grtAcsmYgBp1o7DXswAZEWgkNODBVIH4qsAc1QkgxUO5Q5iN
+ +k/7iWtP/OJAbMEAAEKAB0WIQSHQHfGpqMKIwOoEiGfwAsFcf4K7QUCadaOwwAKCRCfwAsFcf4K
+ 7WfmC/wKcHMFCKPQ5kL5r7vwM0pN9xQ3Fvuk5oY6CP2SJpPTh9F4YRC5lc/C31PT2zHtfIXHjFs
+ efeHEsxOFDu5vKRo6RgE0TtdpBiNBsW1ODJ2wTipdM2kM5J/1yjmh0FzWkjPwXqqmMgoviCNceC
+ C5VPvzzfNNsbv0bTyJf5cxe1a01kjeUtDSZqjVN+sF5yHLHPDDTW99tK5Z6b9YyHFA1Yoldvm2y
+ +LEJa2beTrBJVbl1ci0QZcfQ7b/Q1pOVSxtgr8u7xBKLlxpiffTLFsEiXydXgQX7G5/QkxlFGdv
+ XAmmPmks6d8U+7/hKLmCtHoQR7LtqoT26EpALsC/q2pPLabd3i5njh+Xvpp4odGuBZGd2g+g9cb
+ 184wNgOxKwkN7z7uU2FZ9pa6CjMMkPW4aPcZZoTRgpDwVl3WUyppqnVaNfI1iZ+SnMYStfo/gD/
+ 0YRI2eiMFtx3lTDrHf3i269NJHjfpIlhqSXmeCj63E0xcG3GrsPFcZhvGG20+bkC7dGzc=
 X-Developer-Key: i=thomas.perrot@bootlin.com; a=openpgp;
  fpr=874077C6A6A30A2303A812219FC00B0571FE0AED
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_102225_105356_FC8AF255 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20260408_102232_793854_2CF00F66 
+X-CRM114-Status: GOOD (  23.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,91 +102,309 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series introduces support for the AAEON SRG-IMX8P embedded
-controller (MCU). The MCU is connected via I2C and provides GPIO and
-watchdog functionality for the SRG-IMX8P board.
+Add GPIO driver for the Aaeon SRG-IMX8P embedded controller. This
+driver supports 7 GPO (General Purpose Output) pins and 12 GPIO pins
+that can be configured as inputs or outputs.
 
-The series includes:
-- Device tree binding for the MFD driver
-- MFD driver that serves as the core driver for the MCU
-- GPIO driver implementing the GPIO functionality
-- Watchdog driver for system monitoring
-- MAINTAINERS entry for the new drivers
+The driver implements proper state management for GPO pins (which are
+output-only) and full direction control for GPIO pins. During probe,
+all pins are reset to a known state (GPOs low, GPIOs as inputs) to
+prevent undefined behavior across system reboots, as the MCU does not
+reset GPIO states on soft reboot.
 
-The drivers follow the standard Linux kernel subsystem patterns, with
-the MFD driver registering the sub-devices (GPIO and watchdog) which
-are then handled by their respective subsystem drivers.
-
+Co-developed-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
+Signed-off-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
+Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
 ---
-Changes in v5:
-- mfd: use heap-allocated DMA-safe buffers for I2C transfers, replacing
-  stack-allocated buffers in the regmap bus callbacks
-- mfd: switch from REGCACHE_NONE to REGCACHE_MAPLE; add volatile_reg
-  callback marking GPIO input read registers (opcode 0x72) as volatile;
-  add max_register
-- mfd: use PLATFORM_DEVID_AUTO instead of PLATFORM_DEVID_NONE
-- mfd: use MFD_CELL_BASIC() macro for cell definitions
-- mfd: use dev_err_probe() for regmap initialization error
-- Link to v4: https://lore.kernel.org/r/20260324-dev-b4-aaeon-mcu-driver-v4-0-afb011df4794@bootlin.com
+ MAINTAINERS                   |   1 +
+ drivers/gpio/Kconfig          |   9 ++
+ drivers/gpio/Makefile         |   1 +
+ drivers/gpio/gpio-aaeon-mcu.c | 229 ++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 240 insertions(+)
 
-Changes in v4:
-- mfd: switch to a custom regmap bus; remove aaeon_mcu_i2c_xfer() and the aaeon_mcu_dev struct
-- mfd: locking delegated to regmap's built-in mutex; drop explicit mutex
-- mfd: remove firmware version reading at probe time
-- gpio, watchdog: use regmap_read()/regmap_write() via dev_get_regmap()
-- include: replace aaeon_mcu_i2c_xfer() declaration with AAEON_MCU_REG() macro
-- dt-bindings: remove unused label from example node
-- Link to v3: https://lore.kernel.org/r/20260203-dev-b4-aaeon-mcu-driver-v3-0-0a19432076ac@bootlin.com
+diff --git a/MAINTAINERS b/MAINTAINERS
+index f91b6a1826d0..2538f8c4bc14 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -191,6 +191,7 @@ M:	Thomas Perrot <thomas.perrot@bootlin.com>
+ R:	Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml
++F:	drivers/gpio/gpio-aaeon-mcu.c
+ F:	drivers/mfd/aaeon-mcu.c
+ F:	include/linux/mfd/aaeon-mcu.h
+ 
+diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
+index c74da29253e8..4b37b5a15958 100644
+--- a/drivers/gpio/Kconfig
++++ b/drivers/gpio/Kconfig
+@@ -157,6 +157,15 @@ config GPIO_74XX_MMIO
+ 	    8 bits:	74244 (Input), 74273 (Output)
+ 	    16 bits:	741624 (Input), 7416374 (Output)
+ 
++config GPIO_AAEON_MCU
++	tristate "Aaeon MCU GPIO support"
++	depends on MFD_AAEON_MCU
++	help
++	  Select this option to enable GPIO support for the Aaeon SRG-IMX8P
++	  onboard MCU. This driver provides access to GPIO pins and GPO
++	  (General Purpose Output) pins controlled by the microcontroller.
++	  The driver handles both input and output configuration.
++
+ config GPIO_ALTERA
+ 	tristate "Altera GPIO"
+ 	select GPIOLIB_IRQCHIP
+diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
+index 2421a8fd3733..1ba6318bc558 100644
+--- a/drivers/gpio/Makefile
++++ b/drivers/gpio/Makefile
+@@ -29,6 +29,7 @@ obj-$(CONFIG_GPIO_104_IDI_48)		+= gpio-104-idi-48.o
+ obj-$(CONFIG_GPIO_104_IDIO_16)		+= gpio-104-idio-16.o
+ obj-$(CONFIG_GPIO_74X164)		+= gpio-74x164.o
+ obj-$(CONFIG_GPIO_74XX_MMIO)		+= gpio-74xx-mmio.o
++obj-$(CONFIG_GPIO_AAEON_MCU)		+= gpio-aaeon-mcu.o
+ obj-$(CONFIG_GPIO_ADNP)			+= gpio-adnp.o
+ obj-$(CONFIG_GPIO_ADP5520)		+= gpio-adp5520.o
+ obj-$(CONFIG_GPIO_ADP5585)		+= gpio-adp5585.o
+diff --git a/drivers/gpio/gpio-aaeon-mcu.c b/drivers/gpio/gpio-aaeon-mcu.c
+new file mode 100644
+index 000000000000..a37d3dc83795
+--- /dev/null
++++ b/drivers/gpio/gpio-aaeon-mcu.c
+@@ -0,0 +1,229 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Aaeon MCU GPIO driver
++ *
++ * Copyright (C) 2026 Bootlin
++ * Author: Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
++ * Author: Thomas Perrot <thomas.perrot@bootlin.com>
++ */
++
++#include <linux/bitops.h>
++#include <linux/gpio/driver.h>
++#include <linux/mfd/aaeon-mcu.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++
++#define AAEON_MCU_CONFIG_GPIO_INPUT	0x69
++#define AAEON_MCU_CONFIG_GPIO_OUTPUT	0x6F
++#define AAEON_MCU_READ_GPIO		0x72
++#define AAEON_MCU_WRITE_GPIO		0x77
++
++#define AAEON_MCU_CONTROL_GPO		0x6C
++
++#define MAX_GPIOS	12
++#define MAX_GPOS	7
++
++struct aaeon_mcu_gpio {
++	struct gpio_chip gc;
++	struct regmap *regmap;
++	DECLARE_BITMAP(dir_in, MAX_GPOS + MAX_GPIOS);
++	DECLARE_BITMAP(gpo_state, MAX_GPOS);
++};
++
++static int aaeon_mcu_gpio_config_input_cmd(struct aaeon_mcu_gpio *data,
++					   unsigned int offset)
++{
++	return regmap_write(data->regmap,
++			    AAEON_MCU_REG(AAEON_MCU_CONFIG_GPIO_INPUT, offset - 7),
++			    0);
++}
++
++static int aaeon_mcu_gpo_set_cmd(struct aaeon_mcu_gpio *data, unsigned int offset, int value)
++{
++	return regmap_write(data->regmap,
++			    AAEON_MCU_REG(AAEON_MCU_CONTROL_GPO, offset + 1),
++			    !!value);
++}
++
++static int aaeon_mcu_gpio_direction_input(struct gpio_chip *gc, unsigned int offset)
++{
++	struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
++	int ret;
++
++	if (offset < MAX_GPOS) {
++		dev_err(gc->parent,
++			"offset %d is a GPO (output-only) pin, cannot be configured as input\n",
++			offset);
++		return -EOPNOTSUPP;
++	}
++
++	ret = aaeon_mcu_gpio_config_input_cmd(data, offset);
++	if (ret < 0)
++		return ret;
++
++	__set_bit(offset, data->dir_in);
++
++	return 0;
++}
++
++static int aaeon_mcu_gpio_config_output_cmd(struct aaeon_mcu_gpio *data,
++					    unsigned int offset,
++					    int value)
++{
++	int ret;
++
++	ret = regmap_write(data->regmap,
++			   AAEON_MCU_REG(AAEON_MCU_CONFIG_GPIO_OUTPUT, offset - 7),
++			   0);
++	if (ret < 0)
++		return ret;
++
++	return regmap_write(data->regmap,
++			    AAEON_MCU_REG(AAEON_MCU_WRITE_GPIO, offset - 7),
++			    !!value);
++}
++
++static int aaeon_mcu_gpio_direction_output(struct gpio_chip *gc, unsigned int offset, int value)
++{
++	struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
++	int ret;
++
++	if (offset < MAX_GPOS) {
++		ret = aaeon_mcu_gpo_set_cmd(data, offset, value);
++		if (ret)
++			return ret;
++		__assign_bit(offset, data->gpo_state, value);
++		return 0;
++	}
++
++	ret = aaeon_mcu_gpio_config_output_cmd(data, offset, value);
++	if (ret < 0)
++		return ret;
++
++	__clear_bit(offset, data->dir_in);
++
++	return 0;
++}
++
++static int aaeon_mcu_gpio_get_direction(struct gpio_chip *gc, unsigned int offset)
++{
++	struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
++
++	return test_bit(offset, data->dir_in) ?
++		GPIO_LINE_DIRECTION_IN : GPIO_LINE_DIRECTION_OUT;
++}
++
++static int aaeon_mcu_gpio_get(struct gpio_chip *gc, unsigned int offset)
++{
++	struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
++	unsigned int rsp;
++	int ret;
++
++	if (offset < MAX_GPOS)
++		return test_bit(offset, data->gpo_state);
++
++	ret = regmap_read(data->regmap,
++			  AAEON_MCU_REG(AAEON_MCU_READ_GPIO, offset - 7),
++			  &rsp);
++	if (ret < 0)
++		return ret;
++
++	return rsp;
++}
++
++static int aaeon_mcu_gpio_set_cmd(struct aaeon_mcu_gpio *data, unsigned int offset, int value)
++{
++	return regmap_write(data->regmap,
++			    AAEON_MCU_REG(AAEON_MCU_WRITE_GPIO, offset - 7),
++			    !!value);
++}
++
++static int aaeon_mcu_gpio_set(struct gpio_chip *gc, unsigned int offset,
++			      int value)
++{
++	struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
++	int ret;
++
++	if (offset >= MAX_GPOS)
++		return aaeon_mcu_gpio_set_cmd(data, offset, value);
++
++	ret = aaeon_mcu_gpo_set_cmd(data, offset, value);
++	if (ret)
++		return ret;
++	__assign_bit(offset, data->gpo_state, value);
++	return 0;
++}
++
++static const struct gpio_chip aaeon_mcu_chip = {
++	.label			= "gpio-aaeon-mcu",
++	.owner			= THIS_MODULE,
++	.get_direction		= aaeon_mcu_gpio_get_direction,
++	.direction_input	= aaeon_mcu_gpio_direction_input,
++	.direction_output	= aaeon_mcu_gpio_direction_output,
++	.get			= aaeon_mcu_gpio_get,
++	.set			= aaeon_mcu_gpio_set,
++	.base			= -1,
++	.ngpio			= MAX_GPOS + MAX_GPIOS,
++	.can_sleep		= true,
++};
++
++static void aaeon_mcu_gpio_reset(struct aaeon_mcu_gpio *data, struct device *dev)
++{
++	unsigned int i;
++	int ret;
++
++	/* Reset all GPOs */
++	for (i = 0; i < MAX_GPOS; i++) {
++		ret = aaeon_mcu_gpo_set_cmd(data, i, 0);
++		if (ret < 0)
++			dev_warn(dev, "Failed to reset GPO %u state: %d\n", i, ret);
++		__clear_bit(i, data->dir_in);
++	}
++
++	/* Reset all GPIOs */
++	for (i = MAX_GPOS; i < MAX_GPOS + MAX_GPIOS; i++) {
++		ret = aaeon_mcu_gpio_config_input_cmd(data, i);
++		if (ret < 0)
++			dev_warn(dev, "Failed to reset GPIO %u state: %d\n", i, ret);
++		__set_bit(i, data->dir_in);
++	}
++}
++
++static int aaeon_mcu_gpio_probe(struct platform_device *pdev)
++{
++	struct aaeon_mcu_gpio *data;
++
++	data = devm_kzalloc(&pdev->dev, sizeof(*data), GFP_KERNEL);
++	if (!data)
++		return -ENOMEM;
++
++	data->regmap = dev_get_regmap(pdev->dev.parent, NULL);
++	if (!data->regmap)
++		return -ENODEV;
++
++	data->gc = aaeon_mcu_chip;
++	data->gc.parent = pdev->dev.parent;
++
++	/*
++	 * Reset all GPIO states to a known configuration. The MCU does not
++	 * reset GPIO state on soft reboot, only on power cycle (hard reboot).
++	 * Without this reset, GPIOs would retain their previous state across
++	 * reboots, which could lead to unexpected behavior.
++	 */
++	aaeon_mcu_gpio_reset(data, &pdev->dev);
++
++	return devm_gpiochip_add_data(&pdev->dev, &data->gc, data);
++}
++
++static struct platform_driver aaeon_mcu_gpio_driver = {
++	.driver = {
++		.name = "aaeon-mcu-gpio",
++	},
++	.probe = aaeon_mcu_gpio_probe,
++};
++module_platform_driver(aaeon_mcu_gpio_driver);
++
++MODULE_DESCRIPTION("GPIO interface for Aaeon MCU");
++MODULE_AUTHOR("Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>");
++MODULE_LICENSE("GPL");
 
-Changes in v3:
-- Renamed SRG-IMX8PL to SRG-IMX8P
-- dt-bindings: add gpio-controller properties as required
-- mfd: move struct aaeon_mcu_dev from header to .c file (private)
-- mfd: use guard(mutex) and devm_mutex_init() for cleanup
-- mfd: firmware version log changed to dev_dbg()
-- mfd: add select MFD_CORE to Kconfig
-- Kconfig: add || COMPILE_TEST to all three drivers
-- watchdog: add comments explaining hardware timeout and WDOG_HW_RUNNING
-- watchdog: remove unused platform_set_drvdata()
-- watchdog: add a function to query the status
-- Link to v2: https://lore.kernel.org/r/20260123-dev-b4-aaeon-mcu-driver-v2-0-9f4c00bfb5cb@bootlin.com
-
-Changes in v2:
-- Fold GPIO and watchdog bindings into MFD binding
-- Drop OF_GPIO dependency in GPIO Kconfig
-- Use __set_bit/__clear_bit/__assign_bit instead of atomic variants
-- Various driver cleanups and improvements
-- Link to v1: https://lore.kernel.org/r/20251212-dev-b4-aaeon-mcu-driver-v1-0-6bd65bc8ef12@bootlin.com
-
----
-Thomas Perrot (Schneider Electric) (5):
-      dt-bindings: vendor-prefixes: Add AAEON vendor prefix
-      dt-bindings: mfd: Add AAEON embedded controller
-      mfd: aaeon: Add SRG-IMX8P MCU driver
-      gpio: aaeon: Add GPIO driver for SRG-IMX8P MCU
-      watchdog: aaeon: Add watchdog driver for SRG-IMX8P MCU
-
- .../bindings/mfd/aaeon,srg-imx8p-mcu.yaml          |  67 ++++++
- .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
- MAINTAINERS                                        |  10 +
- drivers/gpio/Kconfig                               |   9 +
- drivers/gpio/Makefile                              |   1 +
- drivers/gpio/gpio-aaeon-mcu.c                      | 229 +++++++++++++++++++++
- drivers/mfd/Kconfig                                |  10 +
- drivers/mfd/Makefile                               |   1 +
- drivers/mfd/aaeon-mcu.c                            | 204 ++++++++++++++++++
- drivers/watchdog/Kconfig                           |  10 +
- drivers/watchdog/Makefile                          |   1 +
- drivers/watchdog/aaeon_mcu_wdt.c                   | 132 ++++++++++++
- include/linux/mfd/aaeon-mcu.h                      |  40 ++++
- 13 files changed, 716 insertions(+)
----
-base-commit: d358e5254674b70f34c847715ca509e46eb81e6f
-change-id: 20251211-dev-b4-aaeon-mcu-driver-e0e89ebf4afb
-
-Best regards,
 -- 
-Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
+2.53.0
 
 
