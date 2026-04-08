@@ -4,161 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 061FE10F9969
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 18:46:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83CD610F9968
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 19:41:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pypAsxqYL+n33QDzXngYgZMCZLrE7q7NL6cULV5F9yY=; b=1qkkDeZNVlaIYg8tdjMd6YXU4f
-	yoit1xkVUeynbybl72GMmXdefo1OWFwsNR9/w5O5Tq8If21j/vxzKbTXpdceY4iaEKooWcyrBZulf
-	gTiEruiWAlJ29saHKwyJVaB9n1KAmtiGgKXsCa51jsjwDBDnETOeTMkUEiHUPNCvW+ZVWNmK/F6oS
-	WqcEl5dIjRrn3bjTsjrOuhHA2IAXIREEx+51b8sg4rEaHzoiWB+w/7pR1N5Ot8p7gI/glVVA1NvaS
-	tb5LUhNEANJzJtMAwHMy+SMfbLSQpk06H1+tOBPi1dvSMGMVlyNMQA2vZ3wPyaB8uNaDj/SSYSw23
-	ajjyw9DQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9wv0AWcHgu06bDFm+BUwIIlJ6phYQwKz8lXRSI36ll0=; b=WcG7EDYfKLAsptu2C09dCBOsuF
+	bBEIddB40CEAazq8cYmVIX4vBWEfyStib29RI+txkNqgrBr4NdHUeIFCKWOzJ20APnm81/z3Y27c1
+	1ddSeoFxnTnLAnJzOojt3a24fZS8vLaqaB7jVJr5C3T52c6wP/e90aOtg09RPs8WBgMldOSgvPvpr
+	Le1uwwyqXj4i0GE3Jo6lgoAdaiygYURTAaI/Ef6PhnX4rjgqsG8Nw/l1miCHMMx++DDddp7tpNlQf
+	ob3smV17RxmIVKLHTik2ynPn1YLA5Lf3nvy/1/r0+ny/xCUbwFxDBYcUCvaDWiRLALfC9dKqe6JSG
+	GJqzGk5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAXuT-00000009H69-44Yf;
-	Wed, 08 Apr 2026 18:45:53 +0000
-Received: from mail-westeuropeazon11020101.outbound.protection.outlook.com ([52.101.69.101] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wAYmS-00000009K8X-0nM6;
+	Wed, 08 Apr 2026 19:41:40 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAXuR-00000009H4p-16WK
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 18:45:52 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=jc2cJlEVYzSEuJIoHUmrNwFGbmCs/lyODuGbpJ1CuAh+4iGnqepWfZb4XywZaRnivpsc5XsuLGvn5KUDCbYwxONWkVKH/YeR1qbFU+avJWbgN0MKQ4uwDZEvM8fX6siaLwF5dww8H3a0I+hrYmWVKoT9r91hwTxN5HsTaCG9RySHXmtTY67mr54My0nVagGhy9Nvth1yDpX4YtDq8Ukv9MzWAH/rvkbaW3pgJ7wztNpYz+M+llsIIjqcB5+yOm5lLG8bsfopJS9oemg1axqGhsM2EuWaBkXv7Is/77DdNwfB9pj1xlsW1ddt23GAnoBcW4a735/E0rYxFm5QxDOSiA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pypAsxqYL+n33QDzXngYgZMCZLrE7q7NL6cULV5F9yY=;
- b=Mf4N6YFyxI2+Ey4e1AfPWuAegEKvo0+Ug0T4gYrPFNQpIh6JNLej0B1W12xltvoRgEQdTmLQu5gfSO2A/4hbsMbya6XnzJ6U/XVipFvdYZe3OZ+wbmiD1ih9IlI93e0AsB+DfOxTZRIVedDEOnIKPu9J1fhIENKz3AYhIOEtQ5Wge+hAsouvba61llyHUnjKVvYTZGBFISnZw9rk1jZySUeryf7lHd3OBLLTxkGV2QjzMTCcuvyKg+pWiID9e/KA7KUQqqr3MWVzTxO71ycTpGxgUHadbYAlQanlZrqN10kdw7PGCDjHzMpaWrME+r9OMhbALyDPO61mJysrhxJpjg==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
- 52.17.62.50) smtp.rcpttodomain=gmail.com smtp.mailfrom=solid-run.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none
- header.from=solid-run.com; dkim=pass (signature was verified)
- header.d=solid-run.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=solid-run.com] dkim=[1,1,header.d=solid-run.com]
- dmarc=[1,1,header.from=solid-run.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solid-run.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pypAsxqYL+n33QDzXngYgZMCZLrE7q7NL6cULV5F9yY=;
- b=t53N7Pyfj1V1qlUKYHPbooOeM3G7Abcxn0xTS9UWOIP5ZtgbtUMI/JosvLmNYAn+YraT1ZT+juSlKH7PZN2pgQ55iDj9iIjJSSAtRPG/jHlO6SSPRdFTFqqtLNUvZOq1hRke5b9RLccIJmpEjQ8Kq5gVpM6PgDGq+qHSX6bBeDdkJGScYBLnnUzsbIYHm9/O73c4q1dUe/IoI8vRlpYznAnkvpGzkSVz1meKpXCvkY1VZL5qRqAF86WJEb8VWIBcwTaDsGWWePmdG+LWdc9uy+E+xOz9r6wtADesZsl2nyBxnOMRIvW4IlQMFN6j7gTRWyn/kZhDjqlT3hwm7R154A==
-Received: from CWLP265CA0438.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1d7::18)
- by VI0PR04MB10542.eurprd04.prod.outlook.com (2603:10a6:800:265::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Wed, 8 Apr
- 2026 18:45:43 +0000
-Received: from AMS1EPF00000047.eurprd04.prod.outlook.com
- (2603:10a6:400:1d7:cafe::3a) by CWLP265CA0438.outlook.office365.com
- (2603:10a6:400:1d7::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.37 via Frontend Transport; Wed,
- 8 Apr 2026 18:45:43 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 52.17.62.50)
- smtp.mailfrom=solid-run.com; dkim=pass (signature was verified)
- header.d=solid-run.com;dmarc=pass action=none header.from=solid-run.com;
-Received-SPF: Fail (protection.outlook.com: domain of solid-run.com does not
- designate 52.17.62.50 as permitted sender) receiver=protection.outlook.com;
- client-ip=52.17.62.50; helo=eu-dlp.cloud-sec-av.com;
-Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
- AMS1EPF00000047.mail.protection.outlook.com (10.167.16.135) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.17
- via Frontend Transport; Wed, 8 Apr 2026 18:45:42 +0000
-Received: from emails-1456500-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-6-209.eu-west-1.compute.internal [10.20.6.209])
-	by mta-outgoing-dlp-431-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id 84F83802A5;
-	Wed,  8 Apr 2026 18:45:42 +0000 (UTC)
-X-Mailbox-Line: From b'josua@solid-run.com' Wed Apr  8 18:45:36 2026
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JYbs36pgVeea7hCwkgRT/otG+KYIplcw4kOo6kbtnGscc6UQ7/bO8Gf2gEG+pGwWaT7EIIdX428sCxXWSj24ZuHGjKB5zioLg/UB8r4pRVa6h4DACpK1V+aODO/CvLOyk7L11IQh4Kwwu5Z/3UFXHaVQn1sxlegkg52L3MbQPQ3zqbLUaeqcn2aKmSqk98lu7tZFBmTfR9nAW2iN//x+38aooFls61SgBuCxCvawNlIhclwhP75a2n6s9i6cCbBbPRqbFE/5yWNaaaDB6i+ulOgEIeUrt2Px2XCO87XUGO+lEQJk4fIqTRsjYgys7zw69LFuiFf4KmCwGAqVQPETTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pypAsxqYL+n33QDzXngYgZMCZLrE7q7NL6cULV5F9yY=;
- b=CyvQNDXMEFrmEyaWlxwUs6IuXLclo8jjzY9IrUEPbleHWLq/ie6J3oMNQbOhFuDuQak/L3GFh30EAq3Zo7nmyv0JxOv1VpGqDfZvBG6y3Bi1K3uxFRZ5Tp6BcU2yYLsMQLsXtubaxbnq6hoSh+qxjCWQNRUlg8FNbHSJTcf9HdlUov7NI5mhY6j+DRz16B5RId49seRtqufks8Fwj6FFvWUjITPRZ5cs/e+tps8vXplPerQNrxgfbc/n0uEYE646NSxwJLaOOOQawNE4lm5BqETijz5qENmzDfdxzxtMo6DtmhrFlu9v7JfkWPnOpTTvrEsbgwOgFXkyoWyfzYfTfA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=solid-run.com; dmarc=pass action=none
- header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solid-run.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pypAsxqYL+n33QDzXngYgZMCZLrE7q7NL6cULV5F9yY=;
- b=t53N7Pyfj1V1qlUKYHPbooOeM3G7Abcxn0xTS9UWOIP5ZtgbtUMI/JosvLmNYAn+YraT1ZT+juSlKH7PZN2pgQ55iDj9iIjJSSAtRPG/jHlO6SSPRdFTFqqtLNUvZOq1hRke5b9RLccIJmpEjQ8Kq5gVpM6PgDGq+qHSX6bBeDdkJGScYBLnnUzsbIYHm9/O73c4q1dUe/IoI8vRlpYznAnkvpGzkSVz1meKpXCvkY1VZL5qRqAF86WJEb8VWIBcwTaDsGWWePmdG+LWdc9uy+E+xOz9r6wtADesZsl2nyBxnOMRIvW4IlQMFN6j7gTRWyn/kZhDjqlT3hwm7R154A==
-Received: from GVXPR04MB12057.eurprd04.prod.outlook.com
- (2603:10a6:150:313::24) by DU2PR04MB8904.eurprd04.prod.outlook.com
- (2603:10a6:10:2e3::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.20; Wed, 8 Apr
- 2026 18:45:32 +0000
-Received: from GVXPR04MB12057.eurprd04.prod.outlook.com
- ([fe80::14f1:a127:2988:de5b]) by GVXPR04MB12057.eurprd04.prod.outlook.com
- ([fe80::14f1:a127:2988:de5b%6]) with mapi id 15.20.9769.016; Wed, 8 Apr 2026
- 18:45:32 +0000
-From: Josua Mayer <josua@solid-run.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Frank Li
-	<Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel
- Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-CC: Yazan Shhady <yazan.shhady@solid-run.com>, Mikhail Anikin
-	<mikhail.anikin@solid-run.com>, Alexander Dahl <ada@thorsis.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 2/2] arm64: dts: imx8dxl: Add SolidRun SoM and
- HummingBoard
-Thread-Topic: [PATCH 2/2] arm64: dts: imx8dxl: Add SolidRun SoM and
- HummingBoard
-Thread-Index: AQHcx4bvr9BLL5JY8kGqWpBHUUp00bXVgLKA
-Date: Wed, 8 Apr 2026 18:45:32 +0000
-Message-ID: <1e716929-f54a-4b7b-a6ff-0f0a9814d9d0@solid-run.com>
-References: <20260408-imx8dxl-sr-som-v1-0-ce5a39acd713@solid-run.com>
- <20260408-imx8dxl-sr-som-v1-2-ce5a39acd713@solid-run.com>
-In-Reply-To: <20260408-imx8dxl-sr-som-v1-2-ce5a39acd713@solid-run.com>
-Accept-Language: de-DE, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=solid-run.com;
-x-ms-traffictypediagnostic: GVXPR04MB12057:EE_|DU2PR04MB8904:EE_|AMS1EPF00000047:EE_|VI0PR04MB10542:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0b1b5c1e-2925-4af6-b309-08de959f09b5
-x-cloud-sec-av-info: solidrun,office365_emails,sent,inline
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700021|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info-Original: JfyFMQlGyiSBOf/QX45tzf/q49ZXTDMKFTf7T96j7tPuqzm9razBxJgWb65boI/vTiOwbM8zRWDonSGbduHXmsM85IOIXfTUCl9tk0ZbupwnYvDpOaaAB2y2rshhrghcufnju8ZerrCvuFp1px+9M/RAh7YJ3rdgbsPM1cAcgab9fT4fbT86cWfXNWoUdrwlkN7Aj2yWaHZiOyAw/hSRmKQKQiGmNPdePyWYrGmsRPeuZa5K1irSx+ITc7DTPo02j/W53IVub7kjgN5Rb3UwGAI8Hvg4KgNxgPaVIWp9rRzEjZlyvwZHCFh6+mQR8kjVED9SlzKehhT7jM2SNonoMpgjg+xDuKevM7y8ZvG+J/56mFVkqOyCP+kX2czuQsNY1xgaPKiA1DRV1BKsjERU0jE/ZwlbFCBszkVxWbuQHo0nFwQBAUyBYwErEws0Nt5qsulfTPb6fwxKK7lD1z5dpWzbRI5q26Et7SjFGK/llaQW/TAI+VuPrJPMfYtUEDPG0cmuld4e/BvDVvLhfX8Jk1oI71Gac71SdKryxf72jJMsph4G3OoWXQoPwho+zW3ro3obdk8CoF09Dv/KFiQpSren4fM7OvWelw9I7e4QAevU2ZDsWEpr+ODKO7LM0aQnq+6++gHSqTO4ALPibSHwaoTNkHxOCUMglPxOuY2Dd9v2rjuubOXlvQNJpNCjRyyUYVml7d9nmO+i9whV9yJPozRevpLSbSSxDYVOJ3kZkPqgXNcROU29J3C1eJsjpMK0SfhFpzb3/0Cxhcm3ArQMww==
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12057.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700021)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <07D3E30B9EBF76498AA29032D47627E7@eurprd04.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1wAYmO-00000009K7k-00n9;
+	Wed, 08 Apr 2026 19:41:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1775677296; x=1807213296;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=m2f0MgviSe4n7FamZwL8P5PBCKEndEE+/KV0B5nZuDg=;
+  b=VRVUWw87ifky6nWudnWM0PAhXNiiBXS+1XcesHaXOXAgMWIVhVO11Od9
+   HOgFscmQL+S/DB+wt9QzHUIVWxmvx0fjKvBs08Wzh9/8nPnSMzbm9OqPH
+   Ymb1g8NNO/9C33Z1fh99L9BK1DqORmY9fkt1mJTxJY5ofv1ZksZhtlTYt
+   IFuUh11PNNsjQsB2YgUR/BV5WSL+TdsPrDCn7IhYpf3Sl/oD6DzYTyyub
+   VVj7en3dWfbaMfNMvfidHEpTSZfLGcp/KYGJjAHZWlsCSAf7TnUM2OvBN
+   bDOJ9xvz7UHnnKcGKQ6i1i9GxAxBV4zvqFw3dKMV4jcWvuRLwHkD6HCIP
+   A==;
+X-CSE-ConnectionGUID: SzpP8guWTwqrrRyYczx5ig==
+X-CSE-MsgGUID: mN41o4hoQeGie6aimAUivA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11753"; a="88056882"
+X-IronPort-AV: E=Sophos;i="6.23,168,1770624000"; 
+   d="scan'208";a="88056882"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2026 12:41:34 -0700
+X-CSE-ConnectionGUID: XAD6QAc2SwKwIrhvqhfXHg==
+X-CSE-MsgGUID: 8wH8aIgPT6WijufKP3yuHw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,168,1770624000"; 
+   d="scan'208";a="222053320"
+Received: from gklab-103a-129.igk.intel.com ([10.91.103.129])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2026 12:41:30 -0700
+From: Dawid Glazik <dawid.glazik@linux.intel.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	linux-aspeed@lists.ozlabs.org
+Cc: linux-i3c@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Frank Li <Frank.Li@nxp.com>,
+	Dawid Glazik <dawid.glazik@linux.intel.com>,
+	Maciej Lawniczak <maciej.lawniczak@intel.com>
+Subject: [PATCH v3 0/3] ARM: dts: aspeed-g6: add AST2600 I3C nodes and bindings
+Date: Wed,  8 Apr 2026 22:34:32 +0200
+Message-ID: <cover.1775679285.git.dawid.glazik@linux.intel.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: kuy+MRlQ+2ImuKGVm+LcRoqx7mhz119CPKQNAKYrMZR8PPQReMfEBriaZQWzjw7zYg2FTsdBe6/CVy++2pzbJ3yX7Jy13R0j3xvSQIj3B5Wp9gfVf0kUPv8yh7qm8Vn/cDPJMnCS0jGESA8GpUznTa8IS+tjE937g3LTp2GIbq3uoLhEKOhOxKFcnG2+1jMTm30D9y15kLlOpySPGv5EIgt+gKUBVAHPBc8hsSR70pMz0b7ilf4J0VKwdivOfT5v1/ejibUn87tXM1HKf6yi+PVo0oEczPM/6uMWXe3EajnDWCWn98e/s598z71KBAT6WARYNYZ+geAB9azhHi0q6w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8904
-X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2.checkpointcloudsec.com>
-X-CLOUD-SEC-AV-UUID: 1300e38fffd3402c98f06941094d8aa9:solidrun,office365_emails,sent,inline:eb28aa9cc6e2b22717c85a10bbb5412d
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS1EPF00000047.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: fadcf663-ce1c-4ba3-6c7d-08de959f0354
-X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|7416014|376014|36860700016|35042699022|82310400026|1800799024|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: CNMPBaqJmR+INkBTVjpJ2UFyZnygaoNGIkr7I/2kL8g9/LJe7dDeAMT36P1ff0hZ8FQCDiBGBYdtHW+7qQXyygZPlFmEqD79Jjlb9UxNtTZRx5AnB28LEqZiFkULhVYqOzurLc6q091l//oLVU5PbbHkFS6OQ7ucl4P+wjIn0iOpgmFln7fnAZ6aLCQxoWaoC+lVy7mJlyOT+pez2e/PXo38N/lDY8zQLG21kyLbZj4FfTGAM7V/VuKdWEts4OdjXv8pbm0KyhdOnCOx4MnXtN//P3zYnoDttL5J1pSL6+BA+BA87V3+g9omfmCVL2aGdBlt128Om8LWehGlVYrSBb59fGORBPxiOygglnI1dBOp7V1kGcvhnOO0XaeLc5pHNOWPt4WpJjufH11V25QTBmQAHDdWA/Cp6XQTTx2+aVkAIcwZcV9U29wvvBEOMYID8TzyEKGkrgzd25O68cexklDVn5mJ/NU1ptqClT+AaHGQMRfzC/GwedsUWG1PplBfowk+NjZPE1pU9cYb7TRur29PQxfB5Qyg5X2JHwlFYh/H1IjOXkleSBwS5SRJDmiJwT+LsW75/85YIaafj80mHVnYiO74Aqnfi1uQMxf1J8ZdJSFkpx2euOGtI1hZg8ySDW8bj+I4WSCJ4LWKdy4Rm+VwfLaMU3CL5kL3ZrwdfyTX/xQSUd8CyGgkIs9QfX1fNsKfkzlbM59bl4vMCO7nX2Q1BrijADALfJyFgV9c5aK4tJAeIb5hl3C7YmUyKHug
-X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(14060799003)(7416014)(376014)(36860700016)(35042699022)(82310400026)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: v8zkwTIB/LN2d8CWwAfpzppS90FkCvghyHDTfOpKj0JJXSOSGSoB5Gljk2zFOZVPasmVDRPm5eNSLw/M5KRgt3VIIWJXhoOW+l3uEAEpwMiVXA7bQVwETcwwh5JGJLNtNHv2eUYBmqkbgY02lVGl0U3HOa35S6ev7At50pYBvNCtKBCxanGzQkTwVvxZ2+KRROPj8N1V2ugDj7G14KyzKpuf7ovhNDI4qJzyqejLXv1Z7GAIlyZUGHunt3mcS1dA+hlrsXKkhfB5cAtOP1gcrOurjmMPlw9+s+756YItIMUq4cCJO3ZCORABjkH4mkj7RNgk2aCrqeAo8/GWEzBX36KabTHC2MOCeKGd8ZtmpYehbg4t/uXqdFASGeWOCPGhGB0+ieiML8fflw0feAcrwY3UlStjKCN5ZRMOMoirMcyJN/w7569FypvWlqFyZd5e
-X-OriginatorOrg: solid-run.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2026 18:45:42.7391
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b1b5c1e-2925-4af6-b309-08de959f09b5
-X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000047.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10542
+Organization: Intel Technology Poland sp. z o.o. - ul. Slowackiego 173, 80-298 Gdansk - KRS 101882 - NIP 957-07-52-316
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_114551_336947_5AB02568 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20260408_124136_094996_62776887 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,18 +92,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-QW0gMDguMDQuMjYgdW0gMjA6Mzggc2NocmllYiBKb3N1YSBNYXllcjoNCj4gQWRkIHN1cHBvcnQg
-Zm9yIHRoZSBTb2xpZFJ1biBpLk1YOERYTCBTeXN0ZW0tb24tTW9kdWxlIChyZXZpc2lvbiAyLjEp
-DQo+IGFuZCBpdHMgY29ycmVzcG9uZGluZyBldmFsdWF0aW9uIGNhcnJpZXIgYm9hcmQsIHRoZSBI
-dW1taW5nQm9hcmQNCj4gVGVsZW1hdGljcyAocmV2aXNpb24gMi4wKS4NCmN1dA0KPiBkaWZmIC0t
-Z2l0IGEvYXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OG1wLXNyLXNvbS5kdHNpIGIv
-YXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OG1wLXNyLXNvbS5kdHNpDQo+IGluZGV4
-IDNjZGIwYmMwYWI3MjEuLjE2ZDQyODBhMWFlNjUgMTAwNjQ0DQo+IC0tLSBhL2FyY2gvYXJtNjQv
-Ym9vdC9kdHMvZnJlZXNjYWxlL2lteDhtcC1zci1zb20uZHRzaQ0KPiArKysgYi9hcmNoL2FybTY0
-L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg4bXAtc3Itc29tLmR0c2kNCj4gQEAgLTEwLDcgKzEwLDYg
-QEAgLyB7DQo+ICAJY29tcGF0aWJsZSA9ICJzb2xpZHJ1bixpbXg4bXAtc3Itc29tIiwgImZzbCxp
-bXg4bXAiOw0KPiAgDQo+ICAJY2hvc2VuIHsNCj4gLQkJYm9vdGFyZ3MgPSAiZWFybHljb249ZWNf
-aW14NnEsMHgzMDg5MDAwMCwxMTUyMDAiOw0KPiAgCQlzdGRvdXQtcGF0aCA9ICZ1YXJ0MjsNCj4g
-IAl9Ow0KSSB3aWxsIGRyb3AgdGhpcyB1bmludGVudGlvbmFsIGNoYW5nZSBmb3IgbmV4dCByZXZp
-c2lvbiAuLi4gLi4uIGJ1dCBJJyBsbCB3YWl0IGEgd2hpbGUgZm9yIGNvbW1lbnRzLg==
+This series reworks and resubmits AST2600 I3C DTS updates that were
+originally posted in 2024, but stalled without further upstream
+progress.[1] The series was rebased onto the current tree and merge
+conflicts were resolved.
+
+The patches first move i2c nodes under the APB simple-bus for layout
+consistency, then add AST2600 I3C controller nodes in aspeed-g6.dtsi
+and finally add the missing dt-binding for AST2600 I3C global
+registers. Jeremy agreed in a separate email thread that I can continue
+this series under my authorship.
+
+Link: https://lore.kernel.org/all/9d8c03d742fa9767f30e23d75ddf0baf4296c88e.1714647917.git.jk@codeconstruct.com.au/
+
+Dawid Glazik (3):
+  ARM: dts: aspeed-g6: move i2c controllers directly into apb node
+  ARM: dts: aspeed-g6: Add nodes for i3c controllers
+  dt-bindings: i3c: Add AST2600 I3C global registers
+
+ .../i3c/aspeed,ast2600-i3c-global.yaml        |  55 ++
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi       | 549 ++++++++++--------
+ 2 files changed, 377 insertions(+), 227 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/i3c/aspeed,ast2600-i3c-global.yaml
+
+
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+-- 
+2.43.0
+
 
