@@ -4,96 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D7A410F994F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 15:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C79F10F9953
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 15:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6oB8sWft0bulZQQhndjF41bb2A55hZmeFDzZlsmEc5U=; b=yTwdM+aIh4Pe1eo4Y6KiOby3Me
-	isfdU9NJ5c6pB6mfZMCLBZNpaiMhAAClVvPuW7iWokGXjphNH0AmtFPuS8qqRPhXZxvr6PlDdfJrX
-	Po2Tnw794I0fg+FOwgmHGeYpwg+aJtfACApsuKHQ5qguejmIGdz4I4bNMrYVNi72/mA+CcACDs2Xl
-	o5D7VBPH5z3F6heNonpyS/BmngZMQxoxQNKsiQfj1TIDg11rb3UKtebosVPFPNCGxkILXBMCiPXj/
-	fVGlkfrZp6fTKMeeXNlpuZlcjUjlq178azaDh4kD9WO6SI5e/0OcwsFkl495sY16UTS33Urawg1Lh
-	Eqr7SCOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HbCkXwfJZY9tD/wAVGkphDf2fJR9TOiyZzkM3KRVHFE=; b=ANrHfi9AO/EmnXSFBsV1V+AlcU
+	qyU4JTx7+5Hpzyb0ZPaKtGavLVydTS6MfO0e5hHdj7YaNNo8b0ZoI0xuHB/TuzMlY/pnqSKdj1rJa
+	ks98fVEGsWYN/eMMOITZ/3YGLnPVI2jtlv7uCq7CVx5qnljob7O4eYm6MQLNmbHa+DFAuMPCwr0t3
+	XOTE/bQ6EJWKVZxjPhsQgmxn1Ts3jEGBSE6ubzjeNv94WPSv6B/StCdmMtbjZNmlNtvFI2jv1iuVr
+	WyOd7mVmC5qDFEWi/724ci0UGU52X91EbZfY6Kqy17qXa/aM7vSJIEclovOTsv9+3SaGn8FH8PtGC
+	rNudeKjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAUk3-0000000938l-0BpM;
-	Wed, 08 Apr 2026 15:22:55 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1wAUps-000000093WZ-1Pi9;
+	Wed, 08 Apr 2026 15:28:56 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAUk0-0000000938P-1dCG
+	id 1wAUpp-000000093Vm-0zHM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 15:22:53 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b8f9568e074so1093299366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 08:22:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1775661769; x=1776266569; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=6oB8sWft0bulZQQhndjF41bb2A55hZmeFDzZlsmEc5U=;
-        b=Enly+UTSkkVNP6RIOfGQZ4CdOMXP4ckTOo1j4F0NnyWVowG1kNW9T0KXB2iIOld9Kx
-         TuENnp5XS3LlpHM2ik3Ui03+KLxIUkGaGqHUU5VIYfJ205CKPFlt+fiJYOHHXKL4q8zL
-         ZqbvjWNGLiV48lt4aXw1CbbxRjZ/T0v7nAQ7c=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775661769; x=1776266569;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6oB8sWft0bulZQQhndjF41bb2A55hZmeFDzZlsmEc5U=;
-        b=aznQxV5Ga1XsKQaqPdMhNUlFgySg3PIA0yu7Uop4XcAp3Y3DqhCkfIW4+spKz450je
-         sYFBXH6mxpwHf8GGTRE1n+/uzv/p3C/8k3RQ6dot7PJVgpU+V4YOi1Rv84i9Lw2Rpxu3
-         Uac2U69cphtTcVzhua79CaKORK67HN6j/bZ8XXY+a8Ok7W/qLU2yf1/Vq8V9SL6tzdYS
-         oSkL3/um2Pc1GfcU4gJZVhtryc3Rf3VRMcfzUKWoJERDdfCAMjKN6SQI5biZbBwibRhk
-         1qkPocbTGDxowDG4DUeCjoONJaeCBHtH3voabwf1Ccs6TqE/g/I+v96Gvq//nrnQOkWr
-         Vb3g==
-X-Forwarded-Encrypted: i=1; AJvYcCV21QqBwmtfU9I7dQmm68P0MrazQpNc4KNbIibvelPfEiJJcUU9OhNseARjNPqIwM3OrC+X9Ldxz30obnHUt/Yf@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBUlxdV478cXiicIACJgClsQEqj5OrOBixujehXiKxcCBvlv9g
-	dd4VdDveS/cKXy/qK4UOLzWlOQzMNirn6OsNpvJqvpbLq+vSOMgpqGp/g3efPn0g24qauPDcWkT
-	bJdlwHdw=
-X-Gm-Gg: AeBDiev5BucuplmguT3K1ZERqaRmF4baUFJwILQ8XpxukuXUyVjgaSbwKym5F68mD8E
-	G6JN8P48VG3OmLqP0iwIZcLvgoZK85I3Fufa12GVWH6aChLS62yMAtoti3f381WEnmepjJIr2a/
-	91e3aWPGdwFk6JIvNP9f14ayOgIMXh3W685VTJ+09gY/YWmq3ByjeNF8r1RGfV1Q5wzYRJASnO4
-	3ukP2WuLfNAC0lbSIHq4Iv4Cbyms3yTnKH4PH99kP0hqv/JnpGsD9aooRoYzBlCPahLchYpYoWk
-	Qvks2I9CMIs0Zu0QyozZibJt7mosmQaJxGqkEGYUOegfM4QDZ5cs9jewQ1T5KMAHwilSVO/iC7o
-	f4Rw0SMvsYZCN2mt2bxTv9fMyLlf4f8zETz2ZljRGs8Od60ttUGX9D899A3DOoYfabQsDpvAJqv
-	l9PG42sXNhDT25IGuKsUiikrehSxt7VnsM7zYOV06L0zNnzoB/cup207die9CMqa9bv+BwlwiJI
-	Er/zME34+k=
-X-Received: by 2002:a17:907:97c3:b0:b97:992b:8806 with SMTP id a640c23a62f3a-b9c67422993mr1154116866b.11.1775661769453;
-        Wed, 08 Apr 2026 08:22:49 -0700 (PDT)
-Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com. [209.85.208.42])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b9c3c97229esm648695466b.4.2026.04.08.08.22.47
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 08 Apr 2026 08:22:47 -0700 (PDT)
-Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-66d24c6963bso11261448a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 08:22:47 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCW8eNSU6myeSXSJYzIiROWOWXdXLNoHrbfRz+2q+sGtUahEX6/sXLFskHBEmxXhGT1lgfVmeE8Qpc5ZRIJiwMPj@lists.infradead.org
-X-Received: by 2002:a05:6402:5305:b0:66e:aadc:2021 with SMTP id
- 4fb4d7f45d1cf-670047bb29amr83427a12.17.1775661767544; Wed, 08 Apr 2026
- 08:22:47 -0700 (PDT)
+	Wed, 08 Apr 2026 15:28:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1775662116; x=1776266916; i=wahrenst@gmx.net;
+	bh=HbCkXwfJZY9tD/wAVGkphDf2fJR9TOiyZzkM3KRVHFE=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=knIHjWbF8HaTDGhH0zMI7nplcWJLEdmCwo0vfTla2IMqZx8DpJebnCdRYaYmFh2/
+	 Q0dOsjJfn2cdLPqsz6cPrz/C9m42aWyxX+tkBMUoboOLU6N77Gsv+2LyXXSBYa09J
+	 9kScVSvZEkj/qbmBXJ/xETVVdig49KK/s+Rni+WDi403W5Qct9eHGoVXZgv3yxLIE
+	 AbX8lrksdQYcGPkkqjmtCJHie2PaioJ8O+Tif9uR9kS07+Y4fyaCbrO3MpxnHax7f
+	 W1WDMSxKITWol7vynOaPhUilRjGF1GAmL5l9SpHv06WhGlZ24X8XHtgBbvpfNp6fN
+	 6AWvfCAEs6I+7N0mkA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mg6dy-1vXZmf47NG-00aC0x; Wed, 08
+ Apr 2026 17:28:36 +0200
+Message-ID: <1ad05dc4-9eaa-4fc2-a665-e17521fd333c@gmx.net>
+Date: Wed, 8 Apr 2026 17:28:35 +0200
 MIME-Version: 1.0
-References: <adZTGOjjJrVJOcT8@shell.armlinux.org.uk> <adZfTi3R6jtsjXx-@shell.armlinux.org.uk>
-In-Reply-To: <adZfTi3R6jtsjXx-@shell.armlinux.org.uk>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Wed, 8 Apr 2026 08:22:30 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wi7+6Q5ptBNp6UGrNbgbk9jr1vsY9mJ5O3mH5RPjpBggQ@mail.gmail.com>
-X-Gm-Features: AQROBzDMX29dK6Ob4UI8k1Dcez-g32vHwaiLrL1sR7wyjWf7zr7a7LiEfyJC2DA
-Message-ID: <CAHk-=wi7+6Q5ptBNp6UGrNbgbk9jr1vsY9mJ5O3mH5RPjpBggQ@mail.gmail.com>
-Subject: Re: BUG: net-next (7.0-rc6 based and later) fails to boot on Jetson
- Xavier NX
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
-	linux-ext4@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Robin Murphy <robin.murphy@arm.com>, "Theodore Ts'o" <tytso@mit.edu>, 
-	Andreas Dilger <adilger.kernel@dilger.ca>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: Jacky Bai <ping.bai@nxp.com>, Alice Guo <alice.guo@nxp.com>,
+ Frank Li <Frank.Li@nxp.com>
+Cc: Fabio Estevam <festevam@gmail.com>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ "open list:GENERIC PM DOMAINS" <linux-pm@vger.kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>
+From: Stefan Wahren <wahrenst@gmx.net>
+Subject: Status of thermal support for i.MX93
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:YNsJGKS4LLEUQ89ZQ3ngiITspIRCO4Oq29gz/Qi3nXAz9/LGqmr
+ X9edet2wbaFqdybA0hV+PvDCARxU85c4eqVUkRjf+EII0kQMtpPOuZXDZdsX8ph8+JvL5WP
+ RT+q7uYqJ34c8NLPhDYIvEeiORDAk6DMqkH87AL3wfsLVDlwGvSvshLzr+ri/UGk3G1QZwF
+ xcyIktSiFD4AnD4ipf0uA==
+UI-OutboundReport: notjunk:1;M01:P0:ONX3p/zv0CM=;4Y52PKYbLWXzQNCkdQfEQMh0JP5 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_082252_726886_C67B2FB9 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20260408_082853_650004_F67D1563 
+X-CRM114-Status: UNSURE (   4.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,23 +94,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 8 Apr 2026 at 06:59, Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
->
-> > Now building straight -rc7. If that also fails, my plan is to start
-> > bisecting rc5..rc6, which will likely take most of the rest of the
-> > day. So, in the mean time I'm sending this as a heads-up that rc6
-> > and onwards has a problem.
->
-> Plain -rc7 fails (another random oops):
->
-> Now starting the bisect between 7.0-rc5 and 7.0-rc6.
+Hi,
 
-Thanks. Not what I wanted to hear at this point, but a bisect should
-get the culprit if this is at least sufficiently repeatable.
+AFAIK the thermal support for i.MX93 hasn't been mainlined yet. The last=
+=20
+version I can find is here [1].
 
-The exact symptoms and oops details may be random, but hopefully the
-"something bad happens" is reliable enough to bisect.
+Are there any plans to finish this work?
 
-              Linus
+Thanks
+
+[1] -=20
+https://lore.kernel.org/linux-arm-kernel/d9392dbc-806a-41df-8992-28c3d6132=
+309@linaro.org/#t=20
+
 
