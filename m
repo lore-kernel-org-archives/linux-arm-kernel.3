@@ -4,78 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7C241073C9E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 11:41:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D91DA1073C9F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 11:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cFVZM51ujgYl6062hVS6iRzVSZQWxsJgdzphCGIB/gw=; b=nP7MwYlXVHPECMUqRSP8zWQnFn
-	Fa9MNkOmwtafqAVmU8SgRRdZnd5xjoK1fXz9mThfxJJB37l9NYVuYdA7WGLNncXvlKX4wDVHXLlDT
-	+Ispp0ki7u5/rvipAQbJIpDy7/om6Cnh8OCH2z+8IMR1HtQZqoxRfVaaPE+45BgtjqwjFjlXByuRL
-	FNRgect8I3MgFt6TWrW9dICtFZc4+4nl2fKx5Hn5bylkMCg98Sd0zf3ALH0wNaKsy7BvWXoRMaWgP
-	w8dc1zBXuwCStUgChcvOI2onzSPxk+qW3XAQhk+gY48keLRZlpeY1F9RH6d+p+ZBsaCaU1/iQmM/a
-	Dhz3OUFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rj0zMko1GUZVYEH4QFbxKyXZOc0wTLNBV4ZWHGk83fw=; b=P+wlPQ0i5ROwuzCVUDfRHql5XQ
+	LwM6sF4lZvNeoN78nNcbjoe/pWRpCmNoniWI2VihxXQyXabRHUrftlaixnkr6l/ezUpNcdYwxs1xS
+	btzbPcG+SRal3RMq0h6UEtRZ7b3zf9ni4ujmJrkBu92DEmkVEM6I6drqS6NoZ9svOIScKwPRmBINH
+	MoRNcFP2ZXo6wFgEh7G/0aDKoHXgNiBCc/HaK4iR6eKtfwTE3x9FasKTpalB0Ltpw27Q65PbYe4s+
+	X5pDR7kxBkUfFFcKAY1OEBWYdH3XvaBAPEYea4TLDt0h2e/AdBAztnMl8eILz57jVW4MFkNLzGH2O
+	6B1jTZXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wARHi-00000008loe-485d;
-	Wed, 08 Apr 2026 11:41:26 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1wARJ9-00000008lww-1VQO;
+	Wed, 08 Apr 2026 11:42:55 +0000
+Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wARHg-00000008loA-0pJg
+	id 1wARJ6-00000008lw6-2rBK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 11:41:25 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-43d5651fedaso291894f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 04:41:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1775648481; x=1776253281; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=cFVZM51ujgYl6062hVS6iRzVSZQWxsJgdzphCGIB/gw=;
-        b=SpHuBkWYg7VX9ba1FrAMSOuFJrZOQ15a3JTjXh2qRpmlYWIdxtaX9wx+zO3NQG2Pc0
-         m0gDSKM68BUe4rH5gvBUpcYojEIuKQgHxb2sqWjfPzDoC7gziERIUI+AXZLrbss/85Wx
-         ASlqQha/cPbnrRBu8m/peif1xNj0C6DOsBs9Gv/lTPwSsqfp8wVdGMl+N6rfp0o46Tup
-         yS+JhRdPGImQ1pyCx81ALNbCoedJI3TVkbr4E1OBclE1TMnyPNy0cuXwD1h0JVgtY7+6
-         b7v35vM/wl2Wy/FsjI0ACxV/rYBEfdgsGGRMN4KB9wLVf+eBSrzrhPfczx6GIAtVO/aw
-         RhdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775648481; x=1776253281;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=cFVZM51ujgYl6062hVS6iRzVSZQWxsJgdzphCGIB/gw=;
-        b=bebgYXJGMCwcc6meS4WDoSFa+NUfysMLvUKrH/6xhYf9HTa9OSMuZeKmPTDeryofmv
-         JRHWyHfJs6Xln8qwUVlkOMXOay/51WOLen3/uOB/wHOvxrZQ44d+CzIfHPVrvXf3wbMI
-         Jf2jcqrJ5uPARXjgWlirvh/MYLQ4Mqaasohib9Jc2QMqq9BbGyaeGMPJqeV3ORb+f5P7
-         vxuKgtEnqxE35j3aYnBhL4pRb/e/JAYHKhT2hYOfNg34Lrq1KDMa0sjcFX4raHm8+MKf
-         yo4jDZKkRZzjaeI/cDXlrMGH6saaIE1Imqmcv+2nP//azna1rfn9+4c9fTgsoCij2t4P
-         64yQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWLKY78rTUeJCfr2rPvHRsyFGL9F6L4KI5jh4cem3SmGAZAm73x9VlkpqtRKNWTt5qG3j+li+gJ62fh8xCLnHfP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNmNTy3MdhrTIi3ws44824ROHtKVVI2NaUpXwZTMX6qqwXGJQ7
-	r5eF/91GALpA6GZLD26Y7nCBQ1PQ6a7cD6zlVIEZ+dnr/0EA1zrjF25uude90wH64YONibUOFaI
-	ac8KJIB45kmEXMoqzlB1Erpyhias7Lw==
-X-Received: from wrbdf4.prod.google.com ([2002:a5d:5b84:0:b0:43b:4e28:2766])
- (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4ec7:b0:488:9439:880d with SMTP id 5b1f17b1804b1-488997eb933mr275574805e9.29.1775648481567;
- Wed, 08 Apr 2026 04:41:21 -0700 (PDT)
-Date: Wed,  8 Apr 2026 11:41:18 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.53.0.1213.gd9a14994de-goog
-Message-ID: <20260408114118.422604-1-sebastianene@google.com>
-Subject: [PATCH v2] KVM: arm64: Reject non compliant SMCCC function calls in pKVM
-From: Sebastian Ene <sebastianene@google.com>
-To: catalin.marinas@arm.com, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	android-kvm@google.com
-Cc: joey.gouly@arm.com, korneld@google.com, maz@kernel.org, 
-	mrigendra.chaubey@gmail.com, oupton@kernel.org, perlarsen@google.com, 
-	sebastianene@google.com, suzuki.poulose@arm.com, will@kernel.org, 
-	yuzenghui@huawei.com
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 08 Apr 2026 11:42:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BQxdqJtevU0qRag21rlxB0gsUd8F3HPOBktwyxLXWQyO+iTiDaiE45bQQ7UBVkGCr3VQ4WmBs+qD+0sRWcVFsdH+LUjPYOnuX7FkFiElIGCgOC09jlacS8HtCfBAKye0Lmp6S7CRFF/FE2iIpWtGQrw59UYuC+qYWSR8f0sNkvh0SCj87ElRm/6Px0+WtukPHHpe4cPxHQRdYlEJduJ77c9jMqy+MxhvYbN3EUkmQov+aX96L4r4eY7D0qzQYX+Ar9/XWqQvL2lRJeIzgMP4Dbo07n4HbBknaPzlpjqAlKdPFakj3qOFZfWkgVKMh6cWfHWkJ6QNP0ODe07KsUVVPw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rj0zMko1GUZVYEH4QFbxKyXZOc0wTLNBV4ZWHGk83fw=;
+ b=oBenQ0I9f9e2pPP2QESHy2fz+qevj1yyBMkqWPXTHh2zzf/kf+zaKW0jl7jJ4Bcf1jXaYXsxvU6sXF+XsdEn1Xq+U2NXjrR/BnFSDN/zN37HQNwp8bXAU8C0U1ueAFARyl1nKr6M+0FFOJ9u98Av+xt/LRHcBeFPK9DtO3EYoNyV8SMZLnXmBskq8+Ek2MfTVbvpCWWqdkZRWyWZtPfGrsHB5Bj2Hm3i9cRy35lA11/Ro+LtZe7oa8b/wb2SKK71FQSlS/Co2tf7zrDjq6xYyVcleM7wdb8ywD3mpwE0xOtZdORoX3yQW/dc6kQkSEv9HgRMnmnRKkhuBQwB5smzpw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rj0zMko1GUZVYEH4QFbxKyXZOc0wTLNBV4ZWHGk83fw=;
+ b=rwBtflBK6ieKXo61Gsckgw1uvkYJnd1SbmBYkt6eZ+AhpCMlVfeMziF832KTTkbSUeeKvlU5SiS3KmwV2gctGFYeN/IIpPgHbJT/Jzj1QphTA/rYv/zgjoXRw+6HDajP9406gY/iCkUqjFyTMQJiixHquVjmAV1pw68XHiQCnLg=
+Received: from CH2PR05CA0058.namprd05.prod.outlook.com (2603:10b6:610:38::35)
+ by SA5PPFF1E6547B5.namprd12.prod.outlook.com (2603:10b6:80f:fc04::8ea) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Wed, 8 Apr
+ 2026 11:42:47 +0000
+Received: from CH3PEPF0000000B.namprd04.prod.outlook.com
+ (2603:10b6:610:38:cafe::a1) by CH2PR05CA0058.outlook.office365.com
+ (2603:10b6:610:38::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.32 via Frontend Transport; Wed,
+ 8 Apr 2026 11:42:46 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ CH3PEPF0000000B.mail.protection.outlook.com (10.167.244.38) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.17 via Frontend Transport; Wed, 8 Apr 2026 11:42:46 +0000
+Received: from SATLEXMB04.amd.com (10.181.40.145) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.17; Wed, 8 Apr
+ 2026 06:42:46 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 8 Apr
+ 2026 06:42:46 -0500
+Received: from xsjarunbala52.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Wed, 8 Apr 2026 06:42:45 -0500
+From: Ronak Jain <ronak.jain@amd.com>
+To: <michal.simek@amd.com>, <senthilnathan.thangaraj@amd.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<ronak.jain@amd.com>
+Subject: [PATCH 1/2] Documentation: ABI: add sysfs interface for ZynqMP CSU registers
+Date: Wed, 8 Apr 2026 04:42:43 -0700
+Message-ID: <20260408114244.2852015-2-ronak.jain@amd.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260408114244.2852015-1-ronak.jain@amd.com>
+References: <20260408114244.2852015-1-ronak.jain@amd.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+Received-SPF: None (SATLEXMB04.amd.com: ronak.jain@amd.com does not designate
+ permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF0000000B:EE_|SA5PPFF1E6547B5:EE_
+X-MS-Office365-Filtering-Correlation-Id: e07d61d3-ade3-415c-d4a5-08de9563f46b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|1800799024|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: AHz4ZXuzgP2R1DSsSgz4xvPltTNElwTHiEkHU4roy9gQrCPORK/89R1cibQBLwKsP9P8OTs3tuilKSK9WHPjZpLiRH7YEiIO4PUxSj1nUAkIUSwM/49e0ar5/iXWCnKDgS7dRtouNMgJifnojngsSrQlryZxwfgz8hp++XZ9S78Ln6Y85YMFSkrqvBgrBKsYPGMEiFwbwSnnGr6n8FK98GcQRqT0rWZ9y9JUN6SPFBTVkpBOJUR6AFNffz0dcSMJQ11CqcaZSQw7bhqrjefhDGtaPlRtftdMT246QzzRuD/5flBr3jS8m80kIR6D6a/gj1UXxBcfb/6CMS5w6RCZGvcupC5yaD5w31+Jyquc40gSuW8fbn44MAkTtLtQYwehuws+F+ZmKu+80/etSaRC1yHHApMzIID/FoKj8x4BkMm2Gq6OIv1j1EP81zr3IMhnVtizY1qnjrcJO/1FN+9+3Y2QbnIv4qbMGn9pU0Rmo3dzLNJuGD6yBG/cowpR9P6syACGmctdOqdLIHy8u5duxX7L/p7pt2Hesc9xchlbyDfLpyLB8XVdZGWPL4RI8oQEePt3mrMtZ7FxiwZ6zn5fN5NE7BTjHIIjVG96H3hyOfQzvyQkwBK2x8EK4blcfop1TJ8WAOolFc8DjYRCJMGgNNaVU+MWPJ8fz+61YjukB5rysVhiW1IdyTpUIb4xEN1sdFatjCqTKimryQuNlJgiCm39VoyeU4kI96TfXH6ERdbHkY4U43JbaJUKdOtrLTFnskI7mqvpJIC9/p9VHQ4epQ==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: wTOan48hX7qpJb7mMuY3ZpGo6bQ4tCgdU34aAIqQDn0PBLV0/OghVfc9FwDybJeRb2MdQM2I3KMsUk4zWdxuWTuB/Ib5qAKHSewQmkFjk5dvCvUfbK2NgoMp4Cjyd3IBD5wc1qOrv5zxLN3cI8vnxPap9tVR73yL+wU6cKgI4XXSFK9DkqLbrIVycWiwWFs8y+La/aryUSTDck0abJACKnzYS0nzZjer55+vNyAcYBAZdprcwRwKKYULfx82XlXjULvEp8dFylVwAxLIFNeVPwlX7ymH1n+ob4lZSCYLl8YogFiOFUqmmGBHGC4UVLmLXeKg3mgqbIHC/B46kjvBcEUBTDxYRcQ8fmfgGVF9Re1Sm7f9lA32kP3sQSbPCL+35aH3erXQz3d9/Ha02ZXioDjbN3WCUbtA/MnVHkb7dmYon5FsO6l081GijLLf9tKz
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2026 11:42:46.7651
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e07d61d3-ade3-415c-d4a5-08de9563f46b
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF0000000B.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA5PPFF1E6547B5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_044124_260438_3C2D9B60 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20260408_044252_719681_C350EF4C 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,49 +126,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prevent the propagation of a function-id that has the top bits set since
-this is not compliant with the SMCCC spec and can overlap with the
-already known function-id decoders. (eg. if we invoke an smc with
-0xffffffffc4000012 it will be decoded as a PSCI reset call). Instead,
-make it clear that we don't support it and return an error.
+Document the new sysfs interface that exposes Configuration Security
+Unit (CSU) registers through the zynqmp-firmware driver.
 
-Signed-off-by: Sebastian Ene <sebastianene@google.com>
+The interface is available under:
+
+  /sys/devices/platform/firmware:zynqmp-firmware/csu_registers/
+
+The CSU registers are discovered at boot time using the PM_QUERY_DATA
+firmware API. The following registers are currently supported:
+
+  - multiboot     (CSU_MULTI_BOOT)
+  - idcode        (CSU_IDCODE, read-only)
+  - pcap-status   (CSU_PCAP_STATUS, read-only)
+
+Read operations use the existing IOCTL_READ_REG firmware interface,
+while write operations use IOCTL_MASK_WRITE_REG.
+
+Access control is enforced by the firmware. Write attempts to
+read-only registers are rejected by firmware even though the sysfs file
+permissions allow writes.
+
+Document the ABI entry accordingly.
+
+Signed-off-by: Ronak Jain <ronak.jain@amd.com>
 ---
-NOTE: This is based on linux-next, next-20260407 to avoid a minor
-conflict with a previously submitted patch (commit cf6348af645b).  
+ .../ABI/stable/sysfs-driver-firmware-zynqmp   | 33 +++++++++++++++++++
+ 1 file changed, 33 insertions(+)
 
-Changelog:
-
-v1 -> v2:
-* dropped the changes to the function signature that were accepting
-  64-bit function-ids.
-* applied Mark's suggestion to make it clear that we don't accept non
-  standard SMCCC calls.
-* revised commit message & updated the title.
-
-Link to v1: 
-https://lore.kernel.org/all/20260401123201.389906-1-sebastianene@google.com/
-
----
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 73f2e0221e70..cca4b07c8d61 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -805,6 +805,10 @@ static void handle_host_smc(struct kvm_cpu_context *host_ctxt)
- 	}
+diff --git a/Documentation/ABI/stable/sysfs-driver-firmware-zynqmp b/Documentation/ABI/stable/sysfs-driver-firmware-zynqmp
+index c3fec3c835af..f537f7d9bb55 100644
+--- a/Documentation/ABI/stable/sysfs-driver-firmware-zynqmp
++++ b/Documentation/ABI/stable/sysfs-driver-firmware-zynqmp
+@@ -254,3 +254,36 @@ Description:
+ 		The expected result is 500.
  
- 	func_id &= ~ARM_SMCCC_CALL_HINTS;
-+	if (upper_32_bits(func_id)) {
-+		cpu_reg(host_ctxt, 0) = SMCCC_RET_NOT_SUPPORTED;
-+		goto exit_skip_instr;
-+	}
- 
- 	handled = kvm_host_psci_handler(host_ctxt, func_id);
- 	if (!handled)
+ Users:		Xilinx
++
++What:		/sys/devices/platform/firmware\:zynqmp-firmware/csu_registers/*
++Date:		March 2026
++KernelVersion:	7.1
++Contact:	"Ronak Jain" <ronak.jain@amd.com>
++Description:
++		Read/Write CSU (Configuration Security Unit) registers.
++
++		This interface provides dynamic access to CSU registers that are
++		discovered from the firmware at boot time using PM_QUERY_DATA API.
++
++		The supported registers are:
++
++		- multiboot: CSU_MULTI_BOOT register
++		- idcode: CSU_IDCODE register (read-only)
++		- pcap-status: CSU_PCAP_STATUS register (read-only)
++
++		Read operations use the existing IOCTL_READ_REG API.
++		Write operations use the existing IOCTL_MASK_WRITE_REG API.
++
++		The firmware enforces access control - read-only registers will reject
++		write attempts even though the sysfs permissions show write access.
++
++		Usage for reading::
++
++		    # cat /sys/devices/platform/firmware\:zynqmp-firmware/csu_registers/multiboot
++		    # cat /sys/devices/platform/firmware\:zynqmp-firmware/csu_registers/idcode
++
++		Usage for writing (mask and value are in hexadecimal)::
++
++		    # echo 0xFFFFFFF 0x0 > /sys/devices/platform/firmware\:zynqmp-firmware/csu_registers/multiboot
++
++Users:		Xilinx/AMD
 -- 
-2.53.0.1213.gd9a14994de-goog
+2.34.1
 
 
