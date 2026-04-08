@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B6DC1073CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 12:11:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF7461073CA5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 12:13:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4BRZY+pcnQ08ylQgO8G9gh28UYxAOGWlZSbhClXBliw=; b=0LvWfQDbWZ9Qsp1mVCx1CzWye1
-	ifHqPwrrDDoWEeIDxnh0ChmhccE3ext8UECsapIKO/GRqK/bGfgiq+O6kUWPnBmXRLJIC4ilA5dxB
-	oapAfEBX8pmLNjvicfP1KOiXaUs/fMPoHBe05h2c4KiE/CyOewZwJD7pnkuQKGvTEBnxlfSqlsJpz
-	kTu+sz505QDnp5niMvyGIuDkdmJf0DVYzpUMFUQokDdhlGzL/TJTgWIRVOddddkGXauZXTJZwG4HY
-	06/f5sj5ALS4b/ehHw1kjobtEPhqNc8D+i7A9HvsDD75tn+gWzXdxYN0bv+JXNsdUE5/7C/8ALget
-	LT+ryZ6w==;
+	bh=H5ScxPBx0kg7ANwrTp5zjzec2BzFmHNH/iCqb6c5JzU=; b=pjEKFR+54X60r3MvIH+3eqowaB
+	1yn70a3wud9dSc0w5B0BFsWKgJhk05RkFQHsJPRLkEoDmESgo01S94yZPHEHYq1O69YnxS+aabr7Z
+	DCNj3uLksmLGnzRUcfQ6Xaje/g18ThS/XpwgPBhIbMfoBugeVl2qnI9UrPutp2dW5EqrWGAjntfqq
+	uT3F3Zf5e5uaV7XVhsBpPIh/mr6jsRYsEG3SIHF8k49Af8ObGKSKpNTThLAZoW0XV9o+wSTdyiuQW
+	60a5VaGo9xgioSGRe6eZr5VNyAj1KozvLTHnMPsA4lDQ7ujyNfRPdk49A/67+DhL0MD3l/cmqdZT+
+	O2+Yta8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wARkz-00000008ncb-2d9R;
-	Wed, 08 Apr 2026 12:11:41 +0000
+	id 1wARmy-00000008nqW-0BGI;
+	Wed, 08 Apr 2026 12:13:44 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wARkx-00000008ncG-13jb
+	id 1wARmw-00000008npt-26ve
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 12:11:40 +0000
+	Wed, 08 Apr 2026 12:13:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 578674454B;
-	Wed,  8 Apr 2026 12:11:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1987C2BCB0;
-	Wed,  8 Apr 2026 12:11:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2E54E40521;
+	Wed,  8 Apr 2026 12:13:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B26D2C19424;
+	Wed,  8 Apr 2026 12:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775650298;
-	bh=Ol+xkN6yaT23Br6Zs3lLHk19S4Qvt/lfnkQJSV9CpQc=;
+	s=k20201202; t=1775650422;
+	bh=My9ex2aNfAQr85RMj/PNNceXRhuE1pGC/rvjjhvlKho=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TAkH2mAKU9+L0aYV86ZGKaI1Udhi48E07kE9syr+C0cYRaY7VSH8uj0mBczjN+P+O
-	 9BT6kqIYyxW2CeaNpFeuEqq8ZyT55dtf+rM/6WHiAjLM8Sz5QqSkxDCWmWXi4arYlN
-	 kqFm7R/hLIhvb0iy+4osKVJMvIRUj5ZeAiBEL5+LRCb5uEhQBGGmLHyxoWp3R2TDDz
-	 sBWxJGW131iejvn/cnrUdaZU/USSZLjRJrEMiRQiiYEqp3oC8ipfv7JblWXjHp8sv2
-	 B3BmlcbD7XIzfP1Y9qB+ZLnQJA258wJfBSU/vDn48ESNv8vXRSG8YTHIrZA9ddhu3e
-	 wpChoH8SkHo8w==
-Message-ID: <628a1d9b-cc16-4cf6-8c19-b6ed49af8492@kernel.org>
-Date: Wed, 8 Apr 2026 14:11:34 +0200
+	b=fm4pYk+i6DilsXsT+t8GY4iXYWcW035fNURZeBfTqXB9B2RHLiHuFxqigp1rueLf2
+	 IGKW4LWsJv2ucGAUoKuh2azO8SS5Wre66FjKiCABx/HucXfyegCmGc9lzI6vXZm9TK
+	 IRIn/uNZIhUCkHmI5GvnB0izbKU55WHY8/qhSYDgLF+SJ/S2EgfLoWg9Cy++NZmfVV
+	 zBhwO2uVX1GHHK9yz42oCR5YFqm6oBIxDibRsv1V8zutdmVYIKkkil68x+IhfAdKQ3
+	 G2j6eq6FwzrPCG9IfEdd/fZKO+YrDfABRPtn4RywDcud+oDOGYsONZgdcI5cfhD47D
+	 KWN2m7RrTEYHg==
+Message-ID: <c664368c-fe2c-42d8-b488-e9e30b342491@kernel.org>
+Date: Wed, 8 Apr 2026 14:13:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC V1 05/16] arm64/mm: Convert READ_ONCE() as pmdp_get() while
- accessing PMD
+Subject: Re: [RFC V1 00/16] arm64/mm: Enable 128 bit page table entries
 To: Anshuman Khandual <anshuman.khandual@arm.com>,
  linux-arm-kernel@lists.infradead.org
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -55,9 +54,10 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
  Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
  Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, kasan-dev@googlegroups.com
+ linux-mm@kvack.org
 References: <20260224051153.3150613-1-anshuman.khandual@arm.com>
- <20260224051153.3150613-6-anshuman.khandual@arm.com>
+ <a77b39a4-c6dd-4a8a-8ea4-2bdc31bd3601@kernel.org>
+ <8d2c9ecb-ae33-42f2-a8ed-66b3286b9286@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -104,13 +104,12 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260224051153.3150613-6-anshuman.khandual@arm.com>
+In-Reply-To: <8d2c9ecb-ae33-42f2-a8ed-66b3286b9286@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_051139_364184_F0DB13A3 
-X-CRM114-Status: UNSURE (   5.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260408_051342_587763_934FF87E 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,14 +124,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/24/26 06:11, Anshuman Khandual wrote:
-> Convert all READ_ONCE() based PMD accesses as pmdp_get() instead which will
-> support both D64 and D128 translation regime going forward.
+On 4/8/26 12:53, Anshuman Khandual wrote:
+> On 07/04/26 8:14 PM, David Hildenbrand (Arm) wrote:
+>> On 2/24/26 06:11, Anshuman Khandual wrote:
+>>> FEAT_D128 is a new arm architecture feature adding support for VMSAv9-128
+>>> translation system. FEAT_D128 is an optional feature from ARMV9.3 onwards.
+>>> So with this feature arm64 platforms could have two different translation
+>>> systems, VMSAv8-64 and VMSAv9-128 could selectively be enabled.
+>>>
+>>> FEAT_D128 adds 128 bit page table entries, thus supporting larger physical
+>>> and virtual address range while also expanding available room for more MMU
+>>> management feature bits both for HW and SW. 
+>>>
+>>> This series has been split into two parts. Generic MM changes followed by
+>>> arm64 platform changes, finally enabling D128 with a new config ARM64_D128.
+>>>
+>>> READ_ONCE() on page table entries get routed via level specific pxdp_get()
+>>> helpers which platforms could then override when required. These accessors
+>>> on arm64 platform help in ensuring page table accesses are performed in an
+>>> atomic manner while reading 128 bit page table entries.
+>>>
+>>> All ARM64_VA_BITS and ARM64_PA_BITS combinations for all page sizes are now
+>>> supported both on D64 and D128 translation regimes. Although new 56 bits VA
+>>> space is not yet supported. Similarly FEAT_D128 skip level is not supported
+>>> currently.
+>>>
+>>> Basic page table geometry has been changed with D128 as there are now fewer
+>>> entries per level. Please refer to the following table for leaf entry sizes
+>>>
+>>>                     D64              D128
+>>> ------------------------------------------------
+>>> | PAGE_SIZE |   PMD  |  PUD  |   PMD  |   PUD  |
+>>> -----------------------------|-----------------|
+>>> |     4K    |    2M  |  1G   |    1M  |  256M  |
+>>> |    16K    |   32M  | 64G   |   16M  |   16G  |
+>>> |    64K    |  512M  |  4T   |  256M  |    1T  |
+>>> ------------------------------------------------
+>>>
+>>
+>> Interesting. That means user space will have it even harder to optimize
+>> for THP sizes.
+>>
+>> What's the effect on cont-pte? Do they still span the same number of
+>> entries and there is effectively no change?
+> 
+> The numbers are the same for 4K base page size but will need
+> some changes for 16K and 64K base page sizes. Something that
+> git missed in this series, will fix it.
 
-You should mention the move from pmdp_test_and_clear_young(), and why it
-is performed.
-
-Nothing else jumped at me :)
+Oh, and it would be great to also clearly spell out the effect on
+hugetlb as well. I assume the available hugetlb sizes will change as well.
 
 -- 
 Cheers,
