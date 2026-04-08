@@ -4,97 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0036A1073CBC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 14:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBD021073CBC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 14:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q/HxfJDEIZsacxEvj6AcEnUXO0EJ6z7DmUUMEIj9M7s=; b=bQOndR1fv++1eAji6PrypRJmLv
-	G51gUN4i3Pg/3Ta/Nbi1w9Pudoztbjs5FZVNfmUXPMlR7sg4XLw+yBb2baWRWDI2KIPzGDirtqcIg
-	BJBnzvnlRopJxtntv8CMH6evyl5C9VpkgZDVOozpMWS3EpKRKrKsuqcnRnNupomrVWEi8jW80LKOh
-	pC94zCU4i0B0Rps22QZkSCxPzdFkccpecdTjY2IJ2mobqqk2KedltHCqC175HQG0jpIys0k8HLJXK
-	LEGQEtVPsNOOWG9p8uVKeLtQ+tHkYF+BMaGjj4akl26RCsxU1KVQFE6TV0krT+OLssMvSLIIPMVVa
-	3/d4h79A==;
+	bh=xBsJJwq3aAo0fN1L2VfiJuBT66sNDAZYxUUPKQMoEU0=; b=y7bYv8txUqrDaFuUCE2idrS82P
+	LIq3P/wgnlUYbODeltcLBHJ/lpqBsLsumTfuukNEBX3F4lWME/ud59hfz3NuwXkWjIqXLRvK+jLsb
+	fmxaGgiWevr1OkRjabwVRZSHXvVD8rFb03othuniMAuIJOVhXCLNpOAdngKz2j56Nj13k8JbbP5Se
+	ySkKn8DqrS6UMhra8PFGe3uoJn+DowJX9K8ycev0E0A5d9b9Iuh73uQ2ncbT1Mdj+5kx7H/pvfKTJ
+	+DwTjuXWxEwmfS2R7rwssz0ddx7/8iM4ctD2YtiL6+clhEIDZBZFkOEUQzO9mYmHtiRVs/eVo0yVk
+	1dX96dUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wATX8-00000008y8K-3QRX;
-	Wed, 08 Apr 2026 14:05:30 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wATZW-00000008yOG-3eXB;
+	Wed, 08 Apr 2026 14:07:58 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wATX6-00000008y7M-0LLK
+	id 1wATZU-00000008yNU-1ixP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 14:05:29 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-488a9033b2cso42106015e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 07:05:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1775657126; x=1776261926; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=q/HxfJDEIZsacxEvj6AcEnUXO0EJ6z7DmUUMEIj9M7s=;
-        b=XLVXiYfgDUVwB0UDrlGrsal2+uQCTCvnT+q+bUhGA2Y4lMKp1v/JsEGIh4R+grU2Gn
-         8Q82NccI3yvqUVVinHanOmNwJu1U6xSq3IKrHguy0WrtBQ+yx6dxUV0MVNNZaVcVckMl
-         o7Fjya2ajlGX+nDzqvmXzOeQQNPO9MZbuSdFHdOSTu1zULvAtWKaz5lxY18PFeBEssum
-         7crC7gjFQDmpbDTG4rnrd17bfWnqvMSD8BodhREp7eRZqQjtN0REgRcfvPBYCL1HsoeW
-         xD5+E8o08Ye3YIAPOlcwTWZoFduc8Lx3cL5tLnEW/lbj/QTqTm3E3F9jGinccaJePSsu
-         IwVQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775657126; x=1776261926;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=q/HxfJDEIZsacxEvj6AcEnUXO0EJ6z7DmUUMEIj9M7s=;
-        b=aZujziyzvSWyS5l93AIjJN4fUf+/C+BrSjeB4SJKlrr2195yk2bZ0OwavtO+b5z+xw
-         GlgNVv6Ct1Mu3pdThzyYRPSD8wjMbYnlCgwAzfODyy34k7F/Tw7D9nF+dDL6QvOeQdX+
-         tqvocw2iLTEuMUDSl4NqWcYhoU6fu4edXFY25y3+zlK7iuyBnEgOizV0hf6hHGqox9MX
-         QZneOiWTJGrJt3Cfq7EGeXA6cBJlDn4NV1N9s7rWxAsmD2QhL7xHpggoq1LoFlLzOJTQ
-         WHjhMtblOHeVih6t6LI1YiyRYVwv3y5cm2ASxyP8ALH7ZZAvSwIraAHvUwqHPYzlXCRo
-         KIgA==
-X-Forwarded-Encrypted: i=1; AJvYcCX7hfScPdpWS3QTa/ibY42tFMIuhqJ6cghTlOa2cgCWOAOQxmy80ynqBJWSZXIR61p8q6HhmsvxPdJQlXl/KHuH@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoDsxbwLzHCOsU0rr4p+lSZ/TLVJWjldq6MMKKZCqv+/DT4qwc
-	hYKvYO3euKenkq5tU6O/2snLd5fBwmxu4TGmaJMRYXqC1i5Re2I84+8g94A09ROMz+A=
-X-Gm-Gg: AeBDietuSWKtQMtUzhwkeYVhptreyjL5QCB0BujB2fueBEI46UPlva2VYqLdyVG6Qjf
-	Qd/01HANh+xbQDnM2LlcxbzJo8h7DLao5HA89G+sQTIzwqf9VVjY3/FsOD/fb9bkeq4OK/lVTZY
-	IAMWSlvtkT9Tytp3w9J2v9tPNmKBFdjMPUUIXlHFyI/V5cYJQT16wbp2oBbIe/5lunUlpxCCU9S
-	7k3JJu2zEXlfh2ajQE2Jg+/Pejkgmx9jcQQA6t98aSyZiHyoYI1LyJLV/yeO7b9D+xmK/2dPYru
-	SPGcL9vaD3TrnHhY8nl7DgFMJdHzyVgS1UJpqXJuGkKE8rr3KKa+zWsvfblBWzxGXKgr3Je3Ks2
-	K9x3/nY6EPdFovG+2GU1Cg2wgKJIKVpQNvO/vmTy4lpmrV2xAEPCtJ2kCmWG11LxpJRLLAyuGOS
-	CvjMidcWMzqSFZMhMbGx/1KXmHSaPu/W+iqvOTte1QPamPsO4yyXwuVasBenT5UT4UfREOOi2AY
-	bTteIZaZzkfpfKHvg==
-X-Received: by 2002:a05:600c:638e:b0:480:2521:4d92 with SMTP id 5b1f17b1804b1-488997b23c6mr299995865e9.24.1775657126171;
-        Wed, 08 Apr 2026 07:05:26 -0700 (PDT)
-Received: from localhost ([2a00:2381:fd67:101:9775:58c0:569c:bd74])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d1e2a6f08sm61358898f8f.6.2026.04.08.07.05.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 08 Apr 2026 07:05:25 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 08 Apr 2026 15:05:24 +0100
-Message-Id: <DHNTX1T5S2UO.28SO88SS2HDOZ@linaro.org>
-Cc: "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Peter Griffin"
- <peter.griffin@linaro.org>, <linux-samsung-soc@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 0/3] Exynos850 APM-to-AP mailbox support
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Tudor Ambarus" <tudor.ambarus@linaro.org>, "Krzysztof Kozlowski"
- <krzk@kernel.org>, "Sylwester Nawrocki" <s.nawrocki@samsung.com>, "Chanwoo
- Choi" <cw00.choi@samsung.com>, "Alim Akhtar" <alim.akhtar@samsung.com>,
- "Sam Protsenko" <semen.protsenko@linaro.org>, "Michael Turquette"
- <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Rob Herring"
- <robh@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Jassi Brar"
- <jassisinghbrar@gmail.com>
-X-Mailer: aerc 0.20.0
-References: <20260402-exynos850-ap2apm-mailbox-v2-0-ca5ffdff99d4@linaro.org>
- <d9c714fa-988c-4b0d-b756-c6e7a40da587@linaro.org>
-In-Reply-To: <d9c714fa-988c-4b0d-b756-c6e7a40da587@linaro.org>
+	Wed, 08 Apr 2026 14:07:57 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 1A9F15BCC1;
+	Wed,  8 Apr 2026 14:07:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1775657271; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=xBsJJwq3aAo0fN1L2VfiJuBT66sNDAZYxUUPKQMoEU0=;
+	b=chExnYNHZVd6FlMm0KVTdGdxr1iOqTnYs0eOmqY/NDE+R7ASlx9be4QtcQm322Cx/L1lnF
+	FmjbE976ZWnbCqGsd6hxWjpTHM+4afD1EJdbuCeDWVUXEH+Dkrs832GrkcKjWInszBYj0d
+	6YfdjLuwRTRKUsAeKFrjNb+iBIrrPNU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1775657271;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=xBsJJwq3aAo0fN1L2VfiJuBT66sNDAZYxUUPKQMoEU0=;
+	b=xdGis38rNXjq+3iIGU6GIiIqi/CK8kNi603q2wpt0k7FkCarq0ixd58TiSzXRlaXxA1qW7
+	TZK1Pug7lR8WK4Dw==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1775657271; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=xBsJJwq3aAo0fN1L2VfiJuBT66sNDAZYxUUPKQMoEU0=;
+	b=chExnYNHZVd6FlMm0KVTdGdxr1iOqTnYs0eOmqY/NDE+R7ASlx9be4QtcQm322Cx/L1lnF
+	FmjbE976ZWnbCqGsd6hxWjpTHM+4afD1EJdbuCeDWVUXEH+Dkrs832GrkcKjWInszBYj0d
+	6YfdjLuwRTRKUsAeKFrjNb+iBIrrPNU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1775657271;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=xBsJJwq3aAo0fN1L2VfiJuBT66sNDAZYxUUPKQMoEU0=;
+	b=xdGis38rNXjq+3iIGU6GIiIqi/CK8kNi603q2wpt0k7FkCarq0ixd58TiSzXRlaXxA1qW7
+	TZK1Pug7lR8WK4Dw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 80E424A0B3;
+	Wed,  8 Apr 2026 14:07:50 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id Bj9EHjZh1mn1TQAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Wed, 08 Apr 2026 14:07:50 +0000
+Message-ID: <5b08f041-b820-4c63-8e1b-b4348909bf0f@suse.de>
+Date: Wed, 8 Apr 2026 16:07:50 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/8] firmware: efi: Never declare sysfb_primary_display on
+ x86
+To: Ard Biesheuvel <ardb@kernel.org>,
+ Javier Martinez Canillas <javierm@redhat.com>, Arnd Bergmann
+ <arnd@arndb.de>, Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ kys@microsoft.com, haiyangz@microsoft.com, Wei Liu <wei.liu@kernel.org>,
+ decui@microsoft.com, Long Li <longli@microsoft.com>,
+ Helge Deller <deller@gmx.de>
+Cc: linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-efi@vger.kernel.org, linux-riscv@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
+ linux-fbdev@vger.kernel.org, kernel test robot <lkp@intel.com>
+References: <20260402092305.208728-1-tzimmermann@suse.de>
+ <20260402092305.208728-3-tzimmermann@suse.de>
+ <d0624a61-b96b-4b2f-89c2-029e8671039d@app.fastmail.com>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <d0624a61-b96b-4b2f-89c2-029e8671039d@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-4.30 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	ARC_NA(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	MIME_TRACE(0.00)[0:+];
+	RCPT_COUNT_TWELVE(0.00)[24];
+	FREEMAIL_TO(0.00)[kernel.org,redhat.com,arndb.de,linaro.org,xen0n.name,linux.intel.com,gmail.com,ffwll.ch,microsoft.com,gmx.de];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:helo,suse.com:url]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_070528_142535_B6F40B97 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20260408_070756_618405_64903056 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,25 +170,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu Apr 2, 2026 at 9:45 AM BST, Tudor Ambarus wrote:
-> Hi!
+Hi
+
+Am 08.04.26 um 15:45 schrieb Ard Biesheuvel:
+> Hi Thomas,
 >
-> On 4/2/26 5:20 AM, Alexey Klimov wrote:
->> This patch series introduces support for the APM-to-AP mailbox on the
->
-> If AP initiates the communication and APM responds, shouldn't this be cal=
-led
-> AP-to-APM mailbox?
+> On Thu, 2 Apr 2026, at 11:09, Thomas Zimmermann wrote:
+>> The x86 architecture comes with its own instance of the global
+>> state variable sysfb_primary_display. Never declare it in the EFI
+>> subsystem. Fix the test for CONFIG_FIRMWARE_EDID accordingly.
+>>
+>> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+>> Fixes: e65ca1646311 ("efi: export sysfb_primary_display for EDID")
+>> Cc: kernel test robot <lkp@intel.com>
+>> Cc: Arnd Bergmann <arnd@arndb.de>
+>> Cc: Thomas Zimmermann <tzimmermann@suse.de>
+>> Cc: Ard Biesheuvel <ardb@kernel.org>
+>> Cc: Ilias Apalodimas <ilias.apalodimas@linaro.org>
+>> Cc: linux-efi@vger.kernel.org
+>> ---
+>>   drivers/firmware/efi/efi-init.c | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+> Should this be sent out as a fix?
 
-Yes, there is some inconsistency in the naming, in the downstream too.
-If this has to be aligned with datasheet like in the comments to another
-patch in this series, then name should be APM-to-AP or APM2AP for that
-matter.
+Yes, please.
 
-But let's keep it logical. I will rename it to ap2apm and will re-check.
 
-Thanks,
-Alexey
+
+-- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
 
 
 
