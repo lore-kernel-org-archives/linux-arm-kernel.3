@@ -4,61 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEBC110FC442
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 21:03:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89A0810FC443
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 21:11:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i2a7q2IgX/NcU0MYyGISo/21RZi2Nok3PGAXn4bG1Po=; b=N3DQsoMnl9aR11OY+ptCnq1oht
-	o+jPIF5CoANDqDhBFa6f9FZDBSjgJ5u4J0tPlEaT1FB2x2h1fi0mmHmjVVPQ+v0JrqD/vQWEJ6lc0
-	Mbd/RQzFmWZlqniC9/JfCZgmu2U0lflmMxn9i5hqTa+JgA8CiXT6Ze7v0u01q/JV3a/pwiiryFgOg
-	rZ4Zk3FLn1g4kOoiG0k8YZit/Qcafr8fD/IhPBt2K4+p4wbqxRNFSNZciAIyuELKucCFc9ZgORINN
-	yvlpKCWPFb/sRA3d7Kz7gN+vk0QTYUWosGyVKVz2B45M2oepr+6bUr/XK5aaAS9stBjMedtNBrwwH
-	kX7RZ0eQ==;
+	bh=TYisYVKIgGGZp3/zTu7AGT0ZWouISUGwxKducl0azG8=; b=o1vXC12L48zUC/8Jpe7735isED
+	g4lE/Ll7AY+F2K5CbluvkPePjnhjxXvbN5BVP5XHVXTG2sNQQRt9Se7ubWWZu8xwCdIVYBtZ2VOf5
+	Aq6FcpQ4D0nCs2252KdosuE0FCC9WPS2gaJfv1+WW3wgvk6LTlM25FGEmjHBNf1VgrC/KpvF49b4G
+	/kTPjdgOeRj8SL3CEtsqC1WZjnKz6n+F+KudK9aDQBikINw9gW0pMt2seYgIepcSyiDqcgnL7TB6z
+	/uO3DfJMkKXUXA9lbiaY27yQspOstFQlKQT4gYjpB8hn2I6h+p4FngYx1OeILD6CQgKm1K9Wwvr5x
+	dmRn5rkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAa3a-00000009PWp-1e3x;
-	Wed, 08 Apr 2026 21:03:26 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wAaBi-00000009Q6m-2UsV;
+	Wed, 08 Apr 2026 21:11:50 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAa3X-00000009PVV-3Uj9;
-	Wed, 08 Apr 2026 21:03:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1775682199;
-	bh=LtL8zWRJDXdRoRijhg72rUTbqF2RwTDTiPsU4WYDaUA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=A5LHM2SIuPeAgKhLOKSz/dHZxIT7D4v3kxYiJ2ia3Y2Rs8opabz742k1NcJvZwGa0
-	 KInH9ggvtk43eWBYUmuSBn0n20NiQ59nljYgI9ab0PAdjecgecmuMx5iZpc2GuH111
-	 /T0LNPOXhoieJUXngos5i9bIpz+5O7954LUkFy28R0M3WU+Vi3gUbA6aQuA87dYbda
-	 RsWBXv8X8jQpJMJAhFbPvSef/fA3H64292McwOSFeSyVz0t1qT+14Vu4ZU8FIePkAS
-	 Z1Dm1y2BeMhL25KFyLU9d9YpVGJIOMuHs3SkypM4Exd3B+Ty/QXHyNNwZy7NHcxZF/
-	 SfE7oIzNIY5bw==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 17BDF17E0C83;
-	Wed,  8 Apr 2026 23:03:17 +0200 (CEST)
-Message-ID: <e1ee5e8e41dbc1dfe6f2ce3a43998b3a717fb56e.camel@collabora.com>
-Subject: Re: [PATCH] media: mtk-jpeg: cancel workqueue on release for
- supported platforms only
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, Bin Liu	
- <bin.liu@mediatek.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, Hans Verkuil	
- <hverkuil+cisco@kernel.org>, Fan Wu <fanwu01@zju.edu.cn>
-Cc: kernel@collabora.com, linux-media@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Date: Wed, 08 Apr 2026 17:03:16 -0400
-In-Reply-To: <20260401-mtk-jpeg-release-issue-v1-1-2271a1779340@collabora.com>
-References: <20260401-mtk-jpeg-release-issue-v1-1-2271a1779340@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+	id 1wAaBf-00000009Q66-28q7
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Apr 2026 21:11:48 +0000
+Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-50bbc41677dso2872171cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 14:11:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1775682706; x=1776287506; darn=lists.infradead.org;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=TYisYVKIgGGZp3/zTu7AGT0ZWouISUGwxKducl0azG8=;
+        b=iCS0dprN4sne6LSRLjVlZrsmhaxVbae1NXKHzeTdC9YpIXZtslmP5ENtiB/iwzRNqt
+         Ly8K55TTASHYDPTj+Q81qQnrRi03dgrI/u67Zv5zR9bwWUOaB0f+NCQXluf3r7gk/MKp
+         vA77IEiHd4TeCT5QLJbyD7FR+JAN8ixKdWVegCH5ahngBGvtwIg+pFY1Q4MGFhULch5s
+         18CyZ0Y8s2duuYae0d09CD0lHIGEA1eFTmYiE+ld0VJF3SHVcxrWYcl9OSrusWgwZjiF
+         aKOaBI0f1nQYIEomMFFRHTy16AEt03XxXUaZi3IQ8J4iJtp2EcoO7HyztXIFwSG+7yqe
+         T+/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775682706; x=1776287506;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TYisYVKIgGGZp3/zTu7AGT0ZWouISUGwxKducl0azG8=;
+        b=Z5J1NfWw+IHNnPObPRCDo0pXnoGxl6y/OKBmk1WfugBFpQmGBJQuO7YIt0Y3+37MOn
+         hsTEoluKqR5/uo/Cue3JWV9zoXehEeTIkmriz5va4YxOydR8Cx+tNk/3jkVDncdxUPG/
+         6eIigHR5+eGCjNlBgTMuvt0I4uyX5z5+GBSwu/ivgIjB2fE9YHKkwbfEB4fUlK7mWoqo
+         z6BqkZLej/PTmnUTGsPdSm0KxI1AXdo2NfgHOQbZ0NkPZVbRnJO9N4k4Nf7X9xg6K3v9
+         Pm1FtEO1lkWXsBebdaTxFVA7DwSHOYzKdOGWLxTa0TRHpwL8QXvrekN1Po7QoOfsySsr
+         hMHw==
+X-Forwarded-Encrypted: i=1; AJvYcCXmsbcF/Vmb6YCib74kYg19zXwmfC2r6KB2vD1NW5tEWtDB5YANtfGdIXVsb+dBhJOHMrHfd2lYMWGl1ODikNLi@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTrqKrbmQ5vX7q8UHfKU6azcNKBGtlX2AtbUb7LlS/sc/VxjrZ
+	Nv4aJjpj6cQ6iF0I2Aqsp/xZ4G1eGSE8nHkEHFR7vq36PE1G9Rpa+RMJag558nVi+7E=
+X-Gm-Gg: AeBDiev/Daq6FZkPPC8Qu6hOe4CprPdYq2sjWPIkKjl7M5qRul8tAolgx9jHjo9mSrk
+	Qvb8cRvsVdQqpauuioC5170So9zefcgquBqiRqSV3KQDB+mThaSYgKADuYa07uqDENdA+diBAgv
+	X3G9m2gtDfV+pC4D6/c5RE+Qs6ujOunqpdBXyJVmy0cgKFD+WNo88Wgl35r0nGUCeHYTI/iseA1
+	AOVJv+E1gAU3BK0HoYi8KqcoYqR6VLp80biBS5rV1e2rVKShBu7PkK96Rd6QkRCVCnXMQy4p0bY
+	GBU7a3JGc0Qwt5xOhNJPZfWh0OwzqlCgjmbCnZF40zXvoG10c1g5yKBU6rWZ5DSWXljkhtKrQCU
+	7k1Yg+y7SN3P3vbr9FIaqLhdDrSJwvhZZ8i2lAqUuJjLFU/zydUjQgvlSA5QHh50DnwWm4Lgl7K
+	0RPBWJHn2VATgFHzhwFy/aKlum+1BzlBZnJOklWVo=
+X-Received: by 2002:a05:622a:5a9a:b0:50d:7135:5631 with SMTP id d75a77b69052e-50dc21086b5mr14502351cf.6.1775682706003;
+        Wed, 08 Apr 2026 14:11:46 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:15:e06b::5ac? ([2606:6d00:15:e06b::5ac])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-50d4b885b69sm170660741cf.22.2026.04.08.14.11.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Apr 2026 14:11:45 -0700 (PDT)
+Message-ID: <8911674f2f86a4b75e1f44d6e9b66a28f6e74e56.camel@ndufresne.ca>
+Subject: Re: [RFC PATCH 1/7] media: v4l2-ctrls: Add V4L2_CID_MEMORY_USAGE
+ control
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>, Frank Li <Frank.li@nxp.com>, 
+ Detlev Casanova <detlev.casanova@collabora.com>
+Cc: linux-media@vger.kernel.org, mchehab@kernel.org,
+ hverkuil-cisco@xs4all.nl, 	sebastian.fricke@collabora.com,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, 	kernel@pengutronix.de,
+ festevam@gmail.com, linux-imx@nxp.com, xiahong.bao@nxp.com, 
+	eagle.zhou@nxp.com, imx@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Date: Wed, 08 Apr 2026 17:11:44 -0400
+In-Reply-To: <5c24fe3f-a1c7-4fd6-b5e6-c920bc3e7fcb@oss.nxp.com>
+References: <20260331072347.253-1-ming.qian@oss.nxp.com>
+	 <20260331072347.253-2-ming.qian@oss.nxp.com>
+	 <acvbOo17tU-s20BS@lizhi-Precision-Tower-5810>
+	 <079b1630abe5dd22e032797fc12925c9c79ea305.camel@ndufresne.ca>
+	 <d8c12ba1-5004-4a51-8a2b-3d500184778b@oss.nxp.com>
+	 <5c24fe3f-a1c7-4fd6-b5e6-c920bc3e7fcb@oss.nxp.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
  keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
  /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
  cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
@@ -71,14 +101,13 @@ Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
  iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
  ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
  bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
 Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-+6gXRB8C3U/+xLywTZ0i"
+	protocol="application/pgp-signature"; boundary="=-GjVrQf050XDh72y8B2Co"
 User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_140324_058376_787A891F 
-X-CRM114-Status: GOOD (  23.00  )
+X-CRM114-CacheID: sfid-20260408_141147_572964_AC74F8A5 
+X-CRM114-Status: GOOD (  36.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,99 +123,186 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-+6gXRB8C3U/+xLywTZ0i
+--=-GjVrQf050XDh72y8B2Co
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Le mercredi 01 avril 2026 =C3=A0 11:44 +0200, Louis-Alexis Eyraud a =C3=A9c=
-rit=C2=A0:
-> Since a recent fix the mtk_jpeg_release function cancels any pending
-> or running work present in the driver workqueue using
-> cancel_work_sync function.
-> Currently, only the multicore based variants use this workqueue and they
-> have the jpeg_worker platform data field initialized with a workqueue
-> callback function. For the others, this field value remain NULL by
-> default.
-> The cancel_work_sync function is unconditionally called in
-> mtk_jpeg_release function, even for the variants that do not use the
-> workqueue. This call generates a WARN_ON print in __flush_work because
-> the workqueue callback function presence check fails in __flush_work
-> function (used by cancel_work_sync).
+Le jeudi 02 avril 2026 =C3=A0 11:14 +0800, Ming Qian(OSS) a =C3=A9crit=C2=
+=A0:
+> Hi Nicolas,
 >=20
-> So, to avoid these warnings, call cancel_work_sync only if a workqueue
-> callback is defined in platform data.
+> On 4/1/2026 10:23 AM, Ming Qian(OSS) wrote:
+> > Hi Nicolas,
+> >=20
+> > On 3/31/2026 10:54 PM, Nicolas Dufresne wrote:
+> > > Le mardi 31 mars 2026 =C3=A0 10:33 -0400, Frank Li a =C3=A9crit :
+> > > > On Tue, Mar 31, 2026 at 03:23:11PM +0800, ming.qian@oss.nxp.com=C2=
+=A0wrote:
+> > > > > From: Ming Qian <ming.qian@oss.nxp.com>
+> > > > >=20
+> > > > > Add a new read-only control V4L2_CID_MEMORY_USAGE that allows
+> > > > > applications to query the total amount of memory currently used
+> > > > > by a device instance.
+> > > > >=20
+> > > > > This control reports the memory consumption in bytes, including
+> > > > > internal buffers, intermediate processing data, and other
+> > > > > driver-managed allocations. Applications can use this information
+> > > > > for debugging, resource monitoring, or making informed decisions
+> > > > > about buffer allocation strategies.
+> > > > >=20
+> > > > > Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+> > > > > ---
+> > > >=20
+> > > > Not sure why not export these information by debugfs, or any benefi=
+t vs
+> > > > debugfs?
+> > >=20
+> > > There is also a on-going proposal that uses fdinfo.
+> > >=20
+> > > Nicolas
+> > >=20
+> >=20
+> > Thanks for the reminder about the ongoing fdinfo proposal.
+> >=20
+> > Just to confirm, you are referring to Detlev=E2=80=99s ongoing fdinfo p=
+roposal,
+> > specifically this series:
+> > https://lore.kernel.org/lkml/20260212162328.192217-1-=20
+> > detlev.casanova@collabora.com/
+> >=20
+> > I will align my work with it and switch to using fdinfo.
+> > Once the show_fdinfo support from that series is merged, I will prepare
+> > the next revision of my patch accordingly.
+> >=20
+> > Regards,
+> > Ming
+> >=20
 >=20
-> Fixes: 34c519feef3e ("media: mtk-jpeg: fix use-after-free in release path=
- due to uncancelled work")
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> Regarding the discussion about using fdinfo instead of a V4L2 control, I
+> have two questions:
+>=20
+> 	1. Key consistency in fdinfo
+> 	fdinfo uses key=E2=80=93value pairs, which is flexible, but if multiple
+> 	drivers want to expose the same =E2=80=9Cmemory usage=E2=80=9D informati=
+on,
+> 	they need to agree on a common key name and meaning. Otherwise
+> 	user=E2=80=91space must handle each driver differently. A V4L2 control
+> 	naturally provides a unified interface without this coordination
+> 	effort.
+>=20
+>=20
+> 	2. Lack of notification in fdinfo
+> 	With a control, user=E2=80=91space can subscribe to control events and
+> 	receive notifications when the memory usage changes. fdinfo does
+> 	not have a built=E2=80=91in event mechanism, so users must either poll
+> 	or rely on additional eventfd=E2=80=91like or custom event mechanisms.
+>=20
+> Do you have any suggestions or existing practices to address these two
+> issues when using fdinfo?
+>=20
+> Thanks again for your time and comments.
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Added Detlev in CC. You can also refer to his work through:
 
-> ---
-> Patch to fix the following warning that occurs on boards such as
-> Mediatek Genio 510-EVK:
-> ```
-> WARNING: kernel/workqueue.c:4291 at __flush_work+0x320/0x340, CPU#1:
-> =C2=A0 v4l_id/409
-> ...
-> Call trace:
-> =C2=A0__flush_work+0x320/0x340 (P)
-> =C2=A0cancel_work_sync+0x6c/0x9c
-> =C2=A0mtk_jpeg_release+0x2c/0x84 [mtk_jpeg]
-> =C2=A0v4l2_release+0x8c/0xe8 [videodev]
-> =C2=A0__fput+0xcc/0x2e0
-> =C2=A0fput_close_sync+0x40/0x100
-> =C2=A0__arm64_sys_close+0x38/0x7c
-> =C2=A0invoke_syscall+0x54/0x10c
-> =C2=A0el0_svc_common.constprop.0+0xc0/0xe0
-> =C2=A0do_el0_svc+0x1c/0x34
-> =C2=A0el0_svc+0x34/0x108
-> =C2=A0el0t_64_sync_handler+0xa0/0xf0
-> =C2=A0el0t_64_sync+0x198/0x19c
-> ---[ end trace 0000000000000000 ]---
-> ```
->=20
-> It is based on linux-next (tag next-20260331) and has been tested on
-> Mediatek Genio 510-EVK (mt8390) and 1200-EVK (mt8395) boards.
-> ---
-> =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 3 ++-
-> =C2=A01 file changed, 2 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drive=
-rs/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> index 8c684756d5fc2524da3a67f67f0fdda894b676fc..d147ec48308110ae8520662e1=
-82dc0445447d8d0 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> @@ -1202,7 +1202,8 @@ static int mtk_jpeg_release(struct file *file)
-> =C2=A0	struct mtk_jpeg_dev *jpeg =3D video_drvdata(file);
-> =C2=A0	struct mtk_jpeg_ctx *ctx =3D mtk_jpeg_file_to_ctx(file);
-> =C2=A0
-> -	cancel_work_sync(&ctx->jpeg_work);
-> +	if (jpeg->variant->jpeg_worker)
-> +		cancel_work_sync(&ctx->jpeg_work);
-> =C2=A0	mutex_lock(&jpeg->lock);
-> =C2=A0	v4l2_m2m_ctx_release(ctx->fh.m2m_ctx);
-> =C2=A0	v4l2_ctrl_handler_free(&ctx->ctrl_hdl);
->=20
-> ---
-> base-commit: e5da3eef8dadab4e98b228725ca8948edd9d601f
-> change-id: 20260401-mtk-jpeg-release-issue-d8921970a250
->=20
-> Best regards,
+https://lore.kernel.org/all/20260212162328.192217-1-detlev.casanova@collabo=
+ra.com/
 
---=-+6gXRB8C3U/+xLywTZ0i
+Nicolas
+
+>=20
+> Regards,
+> Ming
+>=20
+> > > >=20
+> > > > Generanlly document should be first patch, then driver change.
+> > > >=20
+> > > > Frank
+> > > >=20
+> > > > > =C2=A0 drivers/media/v4l2-core/v4l2-ctrls-defs.c | 8 ++++++++
+> > > > > =C2=A0 include/uapi/linux/v4l2-controls.h=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 | 4 +++-
+> > > > > =C2=A0 2 files changed, 11 insertions(+), 1 deletion(-)
+> > > > >=20
+> > > > > diff --git a/drivers/media/v4l2-core/v4l2-ctrls-defs.c b/drivers/=
+=20
+> > > > > media/v4l2-core/v4l2-ctrls-defs.c
+> > > > > index 551426c4cd01..053db78ff661 100644
+> > > > > --- a/drivers/media/v4l2-core/v4l2-ctrls-defs.c
+> > > > > +++ b/drivers/media/v4l2-core/v4l2-ctrls-defs.c
+> > > > > @@ -831,6 +831,7 @@ const char *v4l2_ctrl_get_name(u32 id)
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 case V4L2_CID_ALPHA_COMPONENT:=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return "Alpha Component";
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 case V4L2_CID_COLORFX_CBCR:=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return "Color Effects, CbCr";
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 case V4L2_CID_COLORFX_RGB:=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 re=
+turn "Color Effects,=20
+> > > > > RGB";
+> > > > > +=C2=A0=C2=A0=C2=A0 case V4L2_CID_MEMORY_USAGE:=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 return "Memory Usage";
+> > > > >=20
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 /*
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 * Codec controls
+> > > > > @@ -1476,6 +1477,13 @@ void v4l2_ctrl_fill(u32 id, const char=20
+> > > > > **name, enum v4l2_ctrl_type *type,
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *min =3D 0=
+;
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *max =3D 0=
+xffff;
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
+> > > > > +=C2=A0=C2=A0=C2=A0 case V4L2_CID_MEMORY_USAGE:
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *type =3D V4L2_CTRL_T=
+YPE_INTEGER64;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *flags |=3D V4L2_CTRL=
+_FLAG_READ_ONLY;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *min =3D 0;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *max =3D S64_MAX;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *step =3D 1;
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 case V4L2_CID_FLASH_FAULT:
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 case V4L2_CID_JPEG_ACTIVE_MARKER:
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 case V4L2_CID_3A_LOCK:
+> > > > > diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/=
+=20
+> > > > > linux/v4l2-controls.h
+> > > > > index 68dd0c4e47b2..02c6f960d38e 100644
+> > > > > --- a/include/uapi/linux/v4l2-controls.h
+> > > > > +++ b/include/uapi/linux/v4l2-controls.h
+> > > > > @@ -110,8 +110,10 @@ enum v4l2_colorfx {
+> > > > > =C2=A0 #define V4L2_CID_COLORFX_CBCR=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (V4L2_CID_BASE+42)
+> > > > > =C2=A0 #define V4L2_CID_COLORFX_RGB=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (V4L2_CID_BASE+43)
+> > > > >=20
+> > > > > +#define V4L2_CID_MEMORY_USAGE=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (V4L2_CID_BASE+44)
+> > > > > +
+> > > > > =C2=A0 /* last CID + 1 */
+> > > > > -#define V4L2_CID_LASTP1=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (V4L2_CID_BASE+44)
+> > > > > +#define V4L2_CID_LASTP1=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (V4L2_CID_BASE+45)
+> > > > >=20
+> > > > > =C2=A0 /* USER-class private control IDs */
+> > > > >=20
+> > > > > --=20
+> > > > > 2.53.0
+> > > > >=20
+> >=20
+
+--=-GjVrQf050XDh72y8B2Co
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCadbClAAKCRDZQZRRKWBy
-9E6KAQCtbRF0ml8NeffxiE9e18nyCtOIJ/xHDrd3SH2HI970dAD/XJ0W+e8dQDx0
-9RWf/octwsctl+2l+vVTZvQdCYsnrgw=
-=6DRi
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCadbEkAAKCRDZQZRRKWBy
+9IqwAP4yeegqeo+AHSiM1jVlhyqY9eqH63qFPvFTBJmnvaPAbwEA5Z5akB+DPZtG
+ORNAuAa1vDoUmjl3VtozF6mFzAZBxgM=
+=Xjjv
 -----END PGP SIGNATURE-----
 
---=-+6gXRB8C3U/+xLywTZ0i--
+--=-GjVrQf050XDh72y8B2Co--
 
