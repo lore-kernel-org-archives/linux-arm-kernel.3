@@ -4,56 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58F30FD5F9C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 09:20:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 315CCFB518C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 09:26:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O998N0tGXzNBVWAcG5MVZE+q5zA46C6GPzB7F6kseTE=; b=CshpvBbBEhkPmRyowt1qxNK1zi
-	+OBumAq2aLs6m59t1MWg/owKg+yZi+OHZY+LlY5RAovx5sryoyQrMPBiRbTXgAwZvp6HnqBoE+jmx
-	bmXZNHotzTlbN0EiPAiWL9RYyY2FjgQd148a45H/MW6SI13dlBSBZs5O+1VGyP5Y585so/h7GCqh7
-	9rUgN1LX+EyMOviAOdHIqqOGzDxs1PWQACHc0U2MpupZK9Q3nomAccgjH85FU0fgsUWdohJ30zyrE
-	fITCXw/K2+BkluoYUdmb8O/n0TGsFJMxtrPAz97lRPTdRmRtYrFofRQInT2Vv3/7+zG1CXLj7lM9l
-	293v3nuw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=thoDyULEy80xUszvwV4YGikQLccE3AIuTyWYUwIhVXg=; b=POqbtpUvCQ5/eVoVqeCIYCDbvv
+	XI2RDetL5/gx6OpkqOHESsM0HPLNrrMgar84Zi3HnX8qc/o3EPTqH1SwYJKlJfWgiR2FtAlRY3G7+
+	l3gLE329GzteUel7sV9xW4aaNTT82l6CFm0n//ZUJB+8/azqPZ5xExk9HG13x49ZUKO9L7aajohdk
+	nWfaXR2nAlQ8kuYFW+2WaMXU+03XNlTI7JIVhju3VOUu5WkLdwX10STaf7nbQQc9Pu4oFN0FUYz+Z
+	gI2LQkl4/0dyxJMWjvxOfQJxaRY3hlz9zIl7dc9p0xctnYN7VoQaUraziKQio7gQIVWxdzatu/b6q
+	CmowU9og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAP4s-00000008b2F-4Adp;
-	Wed, 08 Apr 2026 09:20:03 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wAPBO-00000008bVI-0p0L;
+	Wed, 08 Apr 2026 09:26:46 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAP4r-00000008b1k-1Efw
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 08 Apr 2026 09:20:01 +0000
+	id 1wAPBL-00000008bUp-0NLm
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Apr 2026 09:26:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=O998N0tGXzNBVWAcG5MVZE+q5zA46C6GPzB7F6kseTE=; b=grQJSpZFqx8DwnmLmoU6WhTv7Q
-	iXuJuhH6W9Oni9WG1LPUr4Au/tQgNjcPO9X3BrfwgIALK72Jw33QzFfG3zjJvEgqAvAkd3/cQvkfV
-	F1BQlgWpN2fqyxZiUeOApp6kMfBwloAaTmgWswuZL/1mCwvmky2zKSodRWNTZsQXscK1eiuva3PXl
-	AZQpwwNj6FPobLibQ/1kbZVyGnpwge9FXc49TYgp/Rgx/2FBfOlNXU/N2yZ3tcXSMGln9jyHb6xRn
-	vAL2eS08YuAn2c6ef0NVSJzxxtLdSPO1HW106INDm+vxC01lRqX7aJZR1NGAtj8mMuZrsTwssHMd8
-	ucJG4VFA==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAP4p-000000058OY-0E1m;
-	Wed, 08 Apr 2026 09:19:59 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 7DBB4300289; Wed, 08 Apr 2026 11:19:57 +0200 (CEST)
-Date: Wed, 8 Apr 2026 11:19:57 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Thomas Gleixner <tglx@kernel.org>
-Subject: Re: [PATCH 00/10] arm64/entry:
-Message-ID: <20260408091957.GK3738010@noisy.programming.kicks-ass.net>
-References: <20260407131650.3813777-1-mark.rutland@arm.com>
- <87cy0a4gx7.ffs@tglx>
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=thoDyULEy80xUszvwV4YGikQLccE3AIuTyWYUwIhVXg=; b=W0wsZ9dB0ETevNMVK+H1yRd9hH
+	0aInVnNI8+yuUzJaT7Vb8dekviS61nnKO2XOY2XL+f3bVvaKlw6lADcP+rK0b3pTDpEG+20EVTLZv
+	ymF20IB4S3hIcVu7rL4GG8U/bAgIeqrpri3ISbzRCj2DQhsAn3c2nPO4VET++vxctzFxVfbyNvXpo
+	ZSacx8uHAk7dAsHeAZ0WAvWKVcp08uNvTKYkZ+uWoJcbhjVdt+aAgVXyrfeTEokif0l3B8PeFvTvy
+	E74o+PiL/MaoNof6/VE6HTKqOjetxSUhmPlndM2K+jaL4l7OU+tcZdyT+UHVYIJclsJcwzm3b0l2I
+	p5/6iM9A==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47356)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wAPB4-0000000022Z-27Wj;
+	Wed, 08 Apr 2026 10:26:27 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wAPAy-000000003Df-2tfK;
+	Wed, 08 Apr 2026 10:26:20 +0100
+Date: Wed, 8 Apr 2026 10:26:20 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, Chen-Yu Tsai <wens@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
+Subject: [PATCH RFC net-next 00/10] net: stmmac: clean up / fix synopsys IP
+ version checks
+Message-ID: <adYfPBHsXxQUsMyr@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <87cy0a4gx7.ffs@tglx>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260408_022643_562999_7B2F0794 
+X-CRM114-Status: GOOD (  29.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,37 +83,137 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, vladimir.murzin@arm.com, Catalin Marinas <catalin.marinas@arm.com>, ruanjinjie@huawei.com, linux-kernel@vger.kernel.org, Andy Lutomirski <luto@kernel.org>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 07, 2026 at 11:08:36PM +0200, Thomas Gleixner wrote:
-> On Tue, Apr 07 2026 at 14:16, Mark Rutland wrote:
-> > I've split the series into a prefix of changes for generic irqentry,
-> > followed by changes to the arm64 code. I'm hoping that we can queue the
-> > generic irqentry patches onto a stable branch, or take those via arm64.
-> > The patches are as follows:
-> >
-> > * Patches 1 and 2 are cleanup to the generic irqentry code. These have no
-> >   functional impact, and I think these can be taken regardless of the
-> >   rest of the series.
-> >
-> > * Patches 3 to 5 refactor the generic irqentry code as described above,
-> >   providing separate irqentry_{enter,exit}() functions and providing a
-> >   split form of irqentry_exit_to_kernel_mode() similar to what exists
-> >   for irqentry_exit_to_user_mode(). These patches alone should have no
-> >   functional impact.
-> 
-> I looked through them and I can't find any problem with them. I queued
-> them localy and added the missing kernel doc as I promised you on IRC.
-> 
-> As I have quite a conflict pending in the tip tree with other changes
-> related to the generic entry code, I suggest that I queue 1-5, tag them
-> for arm64 consumption and merge them into the conflicting branch to
-> avoid trouble with pull request ordering and headaches for the -next
-> people.
+Oh lookie, another relatively large stmmac patch series as a result of
+reviewing Jitendra Vegiraju's patch series! Yay! :(
 
-FWIW, for those 1-5
+This series cleans up and in some cases fixes the Synopsys IP version
+checks, which is a per-core numberspace.
 
-Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+For example, for dwmac1000 and dwmac4, we have versions such as v3.4 to
+up v5.2, which are represented by two BCD digits. For XGMAC, we have
+versions  v2.1 and v2.2 represented by 0x21 and 0x22 respectively. For
+XLGMAC, we have v2.0, which is 0x20.
+
+Note that hwif.c supports GMAC4 core type with the IP version in the
+range 0..0x40, which overlaps with the GMAC core type.
+
+Thus, testing the Synopsys IP version for <= v4.0 will match dwmac1000,
+potentially some dwmac4, and all xgmac and xlgmac cores. In some cases,
+the latter two are provably incorrect.
+
+The Synopsys IP version is named "synopsys_id" in the driver - as
+stated, it is the Synopsys IP version, and the register field is called
+snpsver. Use this name throughout the driver to avoid confusion. Also,
+dev_id seems to actually be userver.
+
+The first decision making change is for dche, which is only looked at
+by the dwmac4 DMA code which requires core_type == DWMAC_CORE_GMAC4.
+Thus, it makes no sense to merely look at the IP version. Since setting
+this to true makes no sense for non-GMAC4 cores, force it to false for
+non-DWMAC_CORE_GMAC4 cores.
+
+The MAC .debug() method is only populated by the dwmac1000 and dwmac4
+cores, yet the test checks only for the IP version >= v3.5. While this
+works today, it may not work in the future given the different version
+numberspaces. Make this conditional on DWMAC_CORE_GMAC or GMAC4 core
+types to limit the version check. Ideally, it would be better to
+move the version check inside the .dwbug() method implementation, but
+that would require the method signature to change.
+
+As getting to that point involved quite a bit of research, add comments
+into stmmac_get_ethtool_stats() so others don't have to re-analyse the
+code.
+
+Clean up the resulting code in stmmac_get_ethtool_stats() given the
+complexity, adding documentation for each test.
+
+Address the rx_coe handling, which checks for IP version >= v4.0 or
+the XGMAC core type. However, the members being printed are only
+present in the GMAC4 and XGMAC core type in one path, and GMAC in
+the other. There is an odd-ball which is sun8i, but we preserve its
+current behaviour. Also, given the research, add documentation in
+appropriate places. Note that priv->plat->rx_coe (and also
+priv->hw->rx_csum) has different value spaces depending on the core
+type - which is not nice.
+
+Lastly, make the printing of the COE type, which as identified above,
+depend on the GMAC core type.
+
+This leaves four locations unaddressed:
+
+1) PTP filter code:
+                case HWTSTAMP_FILTER_PTP_V2_EVENT:
+                        /* PTP v2/802.AS1 any layer, any kind of event packet */
+                        config->rx_filter = HWTSTAMP_FILTER_PTP_V2_EVENT;
+                        ptp_v2 = PTP_TCR_TSVER2ENA;
+                        snap_type_sel = PTP_TCR_SNAPTYPSEL_1;
+                        if (priv->snpsver < DWMAC_CORE_4_10)
+                                ts_event_en = PTP_TCR_TSEVNTENA;
+
+I don't yet have an answer for this one, but it does mean that
+PTP_TCR_TSEVNTENA will be set for XGMAC cores for
+HWTSTAMP_FILTER_PTP_V2_EVENT... if they have PTP support.
+
+2) riwt watchdog:
+        /* Rx Watchdog is available in the COREs newer than the 3.40.
+         * In some case, for example on bugged HW this feature
+         * has to be disable and this can be done by passing the
+         * riwt_off field from the platform.
+         */
+        if ((priv->snpsver >= DWMAC_CORE_3_50 ||
+             priv->plat->core_type == DWMAC_CORE_XGMAC) &&
+            !priv->plat->riwt_off) {
+                priv->use_riwt = 1;
+
+This to me looks like the version check is only really applicable for
+the DWMAC_CORE_GMAC core type. So, I'm thinking that:
+
+	if (priv->plat->core_type >= DWMAC_CORE_GMAC4 ||
+	    (priv->plat->core_type == DWMAC_CORE_GMAC &&
+	     priv->snpsver >= DWMAC_CORE_3_50)) {
+		if (!priv->plat->rwit_off) {
+		...
+
+would be clearer (note the splitting of the if() conditions which seems
+to me would be more readable than trying to munge it all into one
+expression.)
+
+3) max_mtu setup:
+        /* Set the maximum MTU.
+         *  For XGMAC cores, 16KiB.
+         *  For cores using enhanced descriptors or GMAC cores >= v4.00, 9kB.
+         *  For everything else, PAGE_SIZE - NET_SKB_PAD - NET_IP_ALIGN -
+         *   aligned skb_shared_info.
+         */
+        if (priv->plat->core_type == DWMAC_CORE_XGMAC)
+                ndev->max_mtu = XGMAC_JUMBO_LEN;
+        else if (priv->plat->enh_desc || priv->snpsver >= DWMAC_CORE_4_00)
+                ndev->max_mtu = JUMBO_LEN;
+        else
+                ndev->max_mtu = SKB_MAX_HEAD(NET_SKB_PAD + NET_IP_ALIGN);
+
+which I've previously identified is very buggy, and I'm not sure what
+the real tests here should be. I'm quite certain that the max_mtu
+values are basically completely wrong, especially in the last case.
+This needs a lot of analysis and comparing with documentation to get
+to the bottom of what the tests and resulting max_mtu values should
+actually be.
+
+ .../net/ethernet/stmicro/stmmac/dwmac-loongson.c   |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c  |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/hwif.c         | 54 +++++++++++-----------
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h       |  2 +-
+ .../net/ethernet/stmicro/stmmac/stmmac_ethtool.c   | 51 +++++++++++---------
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 24 ++++++----
+ drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c  |  8 ++--
+ include/linux/stmmac.h                             |  7 +++
+ 9 files changed, 85 insertions(+), 67 deletions(-)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
