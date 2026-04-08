@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD406105D98D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 09:27:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A60C7105D98D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 09:27:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KZiSegeFsbX6rV73Xt8FKnLevjwV0lgeOtK47cPkIg0=; b=QWYWXCG0oJE+RJI3NUIcwOGPD/
-	GJsTAPvfrwoE7Gi/CQarTA07xW0H46DBjtMm2w8xnZMu54BSG5qi3UOgwDGSmZWoRWqQQKGdtG21H
-	eBxLEBv0N1HZ6b5LXfhO/JtNxtPz1vz6cGH1EBu04o1GVqmqOOHBxHZ2ULSL73+tIDscYtCFHIy0d
-	21wWb2F/U2PctAa8z9LyLdTEhP4yHGfY6XceztfrTWhhCuKzrssXnKGNyf4u5acSfvMxhYekTb67Y
-	KQ//v/ihXJTq7fxjr6zxwrLyKwpdxJudar8tzlOzvYPGN4vo/Z+oxqYOuNsdWiiLYnKweVT5b+8zm
-	NBqjEI9A==;
+	bh=NnhKaayKX2ym3axLouWbyDpq6J08FaMtPXyF8+AIVRQ=; b=OH9x0aBK/LTkh3/sFspFcziISb
+	8bfrtJpLhH/YCfRZAgl0QBAMfsNfi6q8YdqvS2uP3/mC/IOBKmvd3SLUoTi5UvRkOaUM4GLm8J6I1
+	cHQZZNkFvUYku/QCwJUjsT7NIFGB1f97xQI2hZj+u/Axg//KmwNIUbg9EN/38gTMft1CZegHx3SSe
+	fwOk3rd8ba6PmNqX43BAWWBPUXUPhjhgAET9OPoRSfA0qyN19IazkUG6yRfeI4mz34JEyIMSxHqbu
+	s6SWMZpLH41vLbYYg+QucZriIzCuWav01/0K7ZHTPENprdZhYDw/PcTilb5XIl+eqkDhrEBXEdDWZ
+	fLLrZnoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAPC2-00000008bda-1Dej;
-	Wed, 08 Apr 2026 09:27:26 +0000
+	id 1wAPC9-00000008bg4-2RgW;
+	Wed, 08 Apr 2026 09:27:33 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAPBz-00000008bZ3-3k0s
+	id 1wAPC7-00000008bck-0zQK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 09:27:24 +0000
+	Wed, 08 Apr 2026 09:27:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=KZiSegeFsbX6rV73Xt8FKnLevjwV0lgeOtK47cPkIg0=; b=CYoTgO5+QDOiagpHtFAWN1UPNi
-	NMGcLgOokDZZJAwfqyECQs8M0fChSr1K9zLmqyrw+rdqBH2nS3bU4FfoPmO9d2NqovuwGEqdfFtL3
-	SZ7yT3LzdMEq7U/JYRa+zfD5B4n3NT/dS/V4+OjOfNjEPdxpWO8X80slDWvzmkyRh6DmkU79zgn/u
-	eWZc2lYVOaxP/js+TdShgmRdlTXfYlutJsKi3cmZptASLiEkHw/28RLM6yGVsGQU+U4ST5POBzc30
-	jP31Vu0ZPj+jh9ebjJq6Vks9q17RgabXWYVHBDmZap4QmrG6QLE7HwqMYkc4kkCQtkYPBySUQbB1M
-	noF8szBw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35130 helo=rmk-PC.armlinux.org.uk)
+	bh=NnhKaayKX2ym3axLouWbyDpq6J08FaMtPXyF8+AIVRQ=; b=C8O2NmSYhN3gcqt/4N8/XEsW4/
+	6LCi4AVhCwL+VBVW4gwYUj7fvUauUkWoYfqxGDbxBLMDaF57h4rqm+1+CN+5OPVdYa0LrLiaXYg/a
+	Zh/Rzp2NsVCy/qCU0GbjKtTumihSgCbkR2FA2DVXU7izrvjcbzAHc4yVqNTDAbsBU+wx8abvr1g9c
+	svIr2MjF+6UpTwuFCZkeUUj1wpxhNJ26N0HoCtRU1DLE0huxLLgpHYeVIu4f7s8JLhxvf2lkJ3jzX
+	+NVhjrfz1Sz9EQAPqrE8c9Bp4+zxHF8ndkUpEKQ56tlcNxVq/m/BE2ypKPrX5OvGhVfruBO+RQYVI
+	yz2fA7Ag==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35142 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1wAPBV-0000000022y-1HGJ;
-	Wed, 08 Apr 2026 10:26:53 +0100
+	id 1wAPBd-0000000023B-0iEH;
+	Wed, 08 Apr 2026 10:27:01 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1wAPBR-0000000F7ju-1fD9;
-	Wed, 08 Apr 2026 10:26:49 +0100
+	id 1wAPBW-0000000F7k0-2Dr7;
+	Wed, 08 Apr 2026 10:26:54 +0100
 In-Reply-To: <adYfPBHsXxQUsMyr@shell.armlinux.org.uk>
 References: <adYfPBHsXxQUsMyr@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -66,16 +66,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
 	Samuel Holland <samuel@sholland.org>
-Subject: [PATCH RFC net-next 02/10] net: stmmac: rename dev_id to userver
+Subject: [PATCH RFC net-next 03/10] net: stmmac: always fill in ver->userver
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1wAPBR-0000000F7ju-1fD9@rmk-PC.armlinux.org.uk>
-Date: Wed, 08 Apr 2026 10:26:49 +0100
+Message-Id: <E1wAPBW-0000000F7k0-2Dr7@rmk-PC.armlinux.org.uk>
+Date: Wed, 08 Apr 2026 10:26:54 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_022723_934739_4B78B432 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20260408_022731_281091_87ECF87E 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,101 +91,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Synopsys Databook and several implementation TRMs identify bits
-15:8 of the version register in dwmac v3.xx and v4.xx as "userver".
-We even print its value with "User ID". Rather than using "dev_id",
-use "userver" instead.
+Always fill in ver->userver irrespective of the core type. This has no
+functional impact but tidies up the code by removing an unnecessary
+conditional.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/hwif.c | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/hwif.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.c b/drivers/net/ethernet/stmicro/stmmac/hwif.c
-index 3774af66db48..830ff816ab4f 100644
+index 830ff816ab4f..aacf78d4a2ee 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/hwif.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/hwif.c
-@@ -15,7 +15,7 @@
- 
- struct stmmac_version {
- 	u8 snpsver;
--	u8 dev_id;
-+	u8 userver;
- };
- 
- static void stmmac_get_version(struct stmmac_priv *priv,
-@@ -26,7 +26,7 @@ static void stmmac_get_version(struct stmmac_priv *priv,
- 	u32 version;
- 
- 	ver->snpsver = 0;
--	ver->dev_id = 0;
-+	ver->userver = 0;
- 
- 	if (core_type == DWMAC_CORE_MAC100)
- 		return;
-@@ -48,7 +48,7 @@ static void stmmac_get_version(struct stmmac_priv *priv,
+@@ -47,8 +47,7 @@ static void stmmac_get_version(struct stmmac_priv *priv,
+ 		 FIELD_GET(DWMAC_SNPSVER, version));
  
  	ver->snpsver = FIELD_GET(DWMAC_SNPSVER, version);
- 	if (core_type == DWMAC_CORE_XGMAC)
--		ver->dev_id = FIELD_GET(DWMAC_USERVER, version);
-+		ver->userver = FIELD_GET(DWMAC_USERVER, version);
+-	if (core_type == DWMAC_CORE_XGMAC)
+-		ver->userver = FIELD_GET(DWMAC_USERVER, version);
++	ver->userver = FIELD_GET(DWMAC_USERVER, version);
  }
  
  static void stmmac_dwmac_mode_quirk(struct stmmac_priv *priv)
-@@ -111,7 +111,7 @@ int stmmac_reset(struct stmmac_priv *priv)
- static const struct stmmac_hwif_entry {
- 	enum dwmac_core_type core_type;
- 	u32 min_snpsver;
--	u32 dev_id;
-+	u32 userver;
- 	const struct stmmac_regs_off regs;
- 	const void *desc;
- 	const void *dma;
-@@ -247,7 +247,7 @@ static const struct stmmac_hwif_entry {
- 	}, {
- 		.core_type = DWMAC_CORE_XGMAC,
- 		.min_snpsver = DWXGMAC_CORE_2_10,
--		.dev_id = DWXGMAC_ID,
-+		.userver = DWXGMAC_ID,
- 		.regs = {
- 			.ptp_off = PTP_XGMAC_OFFSET,
- 			.mmc_off = MMC_XGMAC_OFFSET,
-@@ -269,7 +269,7 @@ static const struct stmmac_hwif_entry {
- 	}, {
- 		.core_type = DWMAC_CORE_XGMAC,
- 		.min_snpsver = DWXLGMAC_CORE_2_00,
--		.dev_id = DWXLGMAC_ID,
-+		.userver = DWXLGMAC_ID,
- 		.regs = {
- 			.ptp_off = PTP_XGMAC_OFFSET,
- 			.mmc_off = MMC_XGMAC_OFFSET,
-@@ -291,7 +291,7 @@ static const struct stmmac_hwif_entry {
- };
- 
- static const struct stmmac_hwif_entry *
--stmmac_hwif_find(enum dwmac_core_type core_type, u8 snpsver, u8 dev_id)
-+stmmac_hwif_find(enum dwmac_core_type core_type, u8 snpsver, u8 userver)
- {
- 	const struct stmmac_hwif_entry *entry;
- 	int i;
-@@ -305,7 +305,7 @@ stmmac_hwif_find(enum dwmac_core_type core_type, u8 snpsver, u8 dev_id)
- 		if (snpsver < entry->min_snpsver)
- 			continue;
- 		if (core_type == DWMAC_CORE_XGMAC &&
--		    dev_id != entry->dev_id)
-+		    userver != entry->userver)
- 			continue;
- 
- 		return entry;
-@@ -358,7 +358,7 @@ int stmmac_hwif_init(struct stmmac_priv *priv)
- 	/* Fallback to generic HW */
- 
- 	/* Use synopsys_id var because some setups can override this */
--	entry = stmmac_hwif_find(core_type, priv->synopsys_id, version.dev_id);
-+	entry = stmmac_hwif_find(core_type, priv->synopsys_id, version.userver);
- 	if (!entry) {
- 		dev_err(priv->device,
- 			"Failed to find HW IF (id=0x%x, gmac=%d/%d)\n",
 -- 
 2.47.3
 
