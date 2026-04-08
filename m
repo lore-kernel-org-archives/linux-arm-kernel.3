@@ -4,147 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34407FD5F88
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 07:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D057AFD5F82
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 07:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tkb5KvRXjWsndN94SzgyiYSYE/HyHwpBffQwwH4WpuU=; b=cZfk0UcAzUzYE3eRUmhg1eElYJ
-	Gsz4qGow9mIHlBIF7PlAy0LRWC0ssl9ifz3VYPYBBHAny+O6srXEfHUr5u4mSQRhU3sYcY8iBORAV
-	UAkvN8lszPNXYOGwKzbIXFPBLNjSfiqqhcyux1mwNxP8lMMbNv+T2GtOXbVG6x0Dbpwrve5raJnFs
-	VXpQVVn09qCGF2SbspjTEq8hhfkGzhrXKWbCO7waC2upVjj95eJY3jDIUDmb+YgdaYnr+nUBoYt7o
-	oqniaNndmMjrxJWQ6EHgj3g3Cf3PL/1BCLoxzgvP2MTrdXf1t2N4Gdrf+qakAkkQs7HaO2mp2W3aD
-	dqOW4c+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MbOGGRZRGKUC9wg/u4bagIerJWK0O28aWsRrCdAdIQM=; b=kAmRgOJk4KA/yerCMt98f9a5IA
+	AFLI6ztNRv9/KZJyX1BCUfh7URST3ePUhmfqVYNTKVJhdIuMRraOc7/lKCRDIYg3/vhAgrNxGuIu6
+	vnWooR1i0wQb3jCN9AzdzOrxc7xZrZl2OUtlrpAsvUXq1t2K0gSuSFq6MUUsWmbNwVG3Tm9ZlylMd
+	SmYlI0H/+KAZQ5I9oCgBE42jTpeKOBE6Y3ujK3m5ZsDcH9t5dL3nvh+uDMEEgDLfQi5NRbTzWhheh
+	r/gknhcWiZ+gT7Bie+5sgRIgDke4LOSm/xqzZ+YZcWxVLDZgTUjepmsuhzpzQUEgPzflTb527t9IY
+	xE0OwSVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wANBU-00000008PNU-2QxN;
-	Wed, 08 Apr 2026 07:18:44 +0000
-Received: from mail-japanwestazon11022088.outbound.protection.outlook.com ([40.107.75.88] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1wANEI-00000008PgD-35VG;
+	Wed, 08 Apr 2026 07:21:38 +0000
+Received: from mail-4318.protonmail.ch ([185.70.43.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wANBS-00000008PMf-1Ids
+	id 1wANEE-00000008PfJ-3JmN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 07:18:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dCtwc/YJq2yjQA1lXDafTblnvcDp6ZlvgPz5fkk8AV+MHP0yOcDePHgFkRjBjOIPCpXBirOglLroTIEnbC+pM18H2vjsFFXuPhmwp0iZ5FnD5zjwxpjrHU7UWHYk2GcNdrzulJ/h171z+hJS5avYhpzlWoOrQsefCHcP3pfvfJ0eQ7rkn1NkEt0RXXcIXK312aJ9RMbc2nuOoJdRnDWCEjxZRPt5vMNHQReZKpZp+XGRf/wTF47qyP9EyHan/1Ms1tlYWOh7XWEdN8I0K3OCEgIJQuOSWSpmkkpuWhczd/Siw0p4x48usYAS/cy5oGimw3qvVs9E/1jRzjSLrTMqeA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tkb5KvRXjWsndN94SzgyiYSYE/HyHwpBffQwwH4WpuU=;
- b=EQBdro3oOkg70T03YVjr1YjL1j3jVdJ0VD0V4YkdmVXkTC65SS1Hvp8/muBsDvnye90rDIFZxJL8UM5PQxW6hwuMScHLAAC+Th2KbSP9G14KMY3/2yQ833q2HByiwRvQUQbLdF6AgLIGvdxMRS+kmPggW+F0nSbNDmKi5qDxcJecs97Yw/Gm5kZ+sHI+TfVtekQwDbg81tSqcMF3jUV4+uebyWPG1/p6akg/qTBw0rWdUfA/uOPonfRbrKMjsWnhV216TFMZoIhOLIW93kWXYlb+e06fS/IUxzAAmhWdSlhgzhOeqDDZzIT79GMUiFNAya9rfc2kPNeXpKByvu9n8w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tkb5KvRXjWsndN94SzgyiYSYE/HyHwpBffQwwH4WpuU=;
- b=NWrDfnOb7YMjiJSq35uJKgZVh1TV+Pn+mOpOAhvH6exbpWRvJ9kZ/XEcBqsUiUXVSWTKamvJY8PEq2OisZwjzVnSxOu2xz3C9t7Tj+Ouq8xBu8C/Amb2OZJ8jjllcbIumJFib1oV4QLu6fQ9C2t6b5CoDpTGqKl7BhzLh+BQ+OIDCYYGxQVJZbmw5QdZKfa4llhEpueOzg9MSOk4FQZ8R4BxyPSKOoWimFM5XbDpH8CWNg41VtNxmAA6qvCqOTjWSUMIbJjkIRNaZfyzAm72qUmZlPx5/DK2Bu1OKSt70o1Yrdh/ksLEjA3GH9/dryObTxxVxzFrFvDyZFNN7zFBsw==
-Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com (2603:1096:408::791)
- by SE1PPFDC587DD38.apcprd06.prod.outlook.com (2603:1096:108:1::42c) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Wed, 8 Apr
- 2026 07:18:32 +0000
-Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
- ([fe80::8c70:cb01:78fb:d9c0]) by TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
- ([fe80::8c70:cb01:78fb:d9c0%6]) with mapi id 15.20.9769.015; Wed, 8 Apr 2026
- 07:18:32 +0000
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: Rob Herring <robh@kernel.org>
-CC: Jeremy Kerr <jk@codeconstruct.com.au>, Krzysztof Kozlowski
-	<krzk@kernel.org>, "andriy.shevchenko@linux.intel.com"
-	<andriy.shevchenko@linux.intel.com>, Andi Shyti <andi.shyti@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, "linux-i2c@vger.kernel.org"
-	<linux-i2c@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>
-Subject: RE: [PATCH v28 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
- global-regs and enable-dma properties
-Thread-Topic: [PATCH v28 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
- global-regs and enable-dma properties
-Thread-Index: AQHcwB5Ez31FCAF2H06H/moL1lfWeLXINCEAgAABqPCAAAIpgIAAAW0AgAADQQCAAAMycIAL3nkAgABfLfA=
-Date: Wed, 8 Apr 2026 07:18:32 +0000
-Message-ID: <TY2PPF5CB9A1BE604170FEFB84227925F09F25BA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-References: <20260330-upstream_i2c-v28-0-17bdae39c5cb@aspeedtech.com>
- <20260330-upstream_i2c-v28-2-17bdae39c5cb@aspeedtech.com>
- <20260331-fanatic-certain-bustard-fb13bc@quoll>
- <TY2PPF5CB9A1BE6F267C60EEC34B6A75400F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <09cbc12bea5707f794e139ea1bfafac82c2d2c12.camel@codeconstruct.com.au>
- <TY2PPF5CB9A1BE6EA5BABE55EB8A7003D22F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <72517fcf99a7453841ee75243dc54e735c10238f.camel@codeconstruct.com.au>
- <TY2PPF5CB9A1BE64B7988CD85A7189164E1F253A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <20260407204402.GA3641251-robh@kernel.org>
-In-Reply-To: <20260407204402.GA3641251-robh@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY2PPF5CB9A1BE6:EE_|SE1PPFDC587DD38:EE_
-x-ms-office365-filtering-correlation-id: 336d83ba-4238-414a-6d56-08de953f0a46
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700021|18002099003|22082099003|56012099003;
-x-microsoft-antispam-message-info: f2oxo6HNpztuDoZKRrarAe8e2WhBJ+ucNMA1RyKYod1mOGNxVFqnL0C7YoNy5+eQNHOQ4DCsmwGMa6OMVC0S5L071YlPIf73s8jBd0ucjaFf+8iYdKfTCrLbHDlzVo1SybU3+HnHpFVwKSl6x9q7mg8gW9lAFF1OaZ6Qz8nM5od2R1M+Vad9ZIp2XYmd3pkvXEacmsHBKDBmDJm1fHIhFWTw3FA7WrNNQdMaMW/6+vbZZlKepX20nIOiEQAZr8jKta5LW0LkRB7mKeF1J/0nTszrNfWvnrt9f0RQmCTVA4peVUUs9ZKRBOrBhMa1BDXnnmMemKSrlTPcgjLf4ihmn6UeNZxysHUcCk3fwg42lc3bo1P0lH0jlIChGk9eB/HIyWNqxJfXoavIwGAE/7/UPBJtveVSAu4YxpV31WPkIjE6v+n1UtLyT1B9OZFyaaOgsAhRAXr768n+5HF1/OgIjvFsv6FVISD4uT2SqSWUEHbKnlpsZF4mi0QxQA2Cy32PhegLyF0kwPzeqgdtQA3zTWONJ+oEZiPfxyjukF1qkKqbdoQw9zTK+2lJj6arwuUWG1960pYIqLFYb4gSbzy4REGGrTCS9YM528E4WEC53PYwphDRKw1tQWtD/0pvkqfhA6NlrYCYbjlgr4lbePB1Tx6bstiq6FkGT/2XSOx+H50inGE2so9Qx8qY2vcvf19sIvftHWgOS30uQBTIB6BxAg3/1lL1pQ71CZ001zymMuKwTXQXUdDfWLCRCvUxw8XA
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700021)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?8ZjnFRV48H9ueRQKfqXegXYc1qWi3ghtgy8NizznWIuQ5ssJfktygbTmktLs?=
- =?us-ascii?Q?WB4VS3t4Uk6upImk5fZyOjufMR5mum6u+b9JhdnDFeT5WlQVq2H+OpZFWkUb?=
- =?us-ascii?Q?ZTfEBUa2OEpDI1W7+RZeVmRaKXjfddzHhwBUHlf8iiZfULCi6q++v/exF4C3?=
- =?us-ascii?Q?27Gtt9Rna+SrO9DvCB54Gj8TF7IgavnBinViOtBOTmsSUS+ISIXHFozuuM/y?=
- =?us-ascii?Q?CPlQCOGw6RMV3P+j37T0indyKNngUCzLQXLIqcdkTawj2wgVT0kPKxsFAhn8?=
- =?us-ascii?Q?vNjYJs4UsuijWze4dBFh1wbnvmbEj4GMtXVKzLi+Tyr6yEpkqWRg8VqqsAEh?=
- =?us-ascii?Q?9IsScWG4CpTX0juo8oWIzHNoKPqF6g1gMG0tbv+onxsm7k+PIB24i/pVonJb?=
- =?us-ascii?Q?Ew3HC2N6OhrwROr6FyfsXaJWPp+lfq/ovz7cjfQvaKC0j6MP23ukWwsUFBIF?=
- =?us-ascii?Q?/qDGNG8YXsOC/jiHLu9fZQVHSj9s+Z15NCcjKerUk/tLfA1wYzqMHAPTVNhm?=
- =?us-ascii?Q?fKIQICEyNg1ip0fumDFk23q/Q4IM6TrXS6eD3Qa7Ic7u0rERVNexCVLIr8LM?=
- =?us-ascii?Q?Pq1E3oyge/69VI9Ar+VzTjO8GJIn0oYzz6Z+4ZOrtW1DiPtJq6hkoj9LdlKu?=
- =?us-ascii?Q?D8SMEkT3oLO6aHt5H0DrehOq14jpt6JPj8HyzBOHv7oNOSzYBC+KiPRMPjCj?=
- =?us-ascii?Q?1DhAhI5fk0Lec1ec2kILdmwTcXCDRR4jQ2GEs507Y2qQbWsGHpC1jHcLC9qA?=
- =?us-ascii?Q?Z/jE9x/rH6mt4m/0fIRRuEjeLniiEBi++wP0haxaP5bO+hpjAKOB30ytDCmN?=
- =?us-ascii?Q?1qGvS0JNYBlAjc5sd5BOyvIEVm94/X451qOaBtBCFYOJOK+DoM5z1YRxviuZ?=
- =?us-ascii?Q?E4di+zONDTmyz9bruZBfRiv9gYmgZuCpyE9NQD3gLp0ZhX1HUQsUMJ6UCrRX?=
- =?us-ascii?Q?E+3YMSMtZbDJO4fmOmNYJwiRyif60YfBf8ucHIM6x6bMz0MYzI1fXJlishYZ?=
- =?us-ascii?Q?AaV/MZWvWhmJ4jwBE2NxyCergnMpXLKrGUxfNVzFfXilT0oqZuwOEZWDoIFO?=
- =?us-ascii?Q?cu6N+z2NZ6sQaQo8+62eBgEEQYXKxHxsvv6L0StjG6bJ1A2FaIgaEg4XsiNq?=
- =?us-ascii?Q?tK4ashXqvEyBBArtKxKfCW+a8QTUrvBwKcPwJvwq3LK0v/8pMNCgQfMthdA/?=
- =?us-ascii?Q?qF9faPSLgii6tm8I5YxDVTdxQryqNH55KV2MhOdfnvNPMAxB31ReHylUyqe1?=
- =?us-ascii?Q?OgE8ZqNIrVyEvOq1oZMuazbPDhcB8klQ/KYtOcmpFaaMBtlwtEP2pES5MXTZ?=
- =?us-ascii?Q?RgpWA6iYNFfoxizQ/3s9rzPzWaxfUuc/aXWJi5Ub//8lN9/pEYQwXz0MJuIY?=
- =?us-ascii?Q?vqRrMQYFPfzRw+7kFIJ0VMoggtM9wZn4lmRygpg34bLDUiFctm7auL8pQzMz?=
- =?us-ascii?Q?a/XUqnx4Y9OiDJpm3T7f0JsiBk2E23Izk4SC/ITnByDeII9AYwSTdjR67K1D?=
- =?us-ascii?Q?DuPcdUr2JwRgUr2zpSCqc1fIffriz6/GsFHKh1euita1x+1smrU3V2wqume8?=
- =?us-ascii?Q?6wEgt1J4D3ptoDFOiBJoWBceNKOSDZ8mhn8sCVSIsk6jSZwyXV2UxDi4usQL?=
- =?us-ascii?Q?NhteXa24TsqOABHzcQeC8AghHXL5jZwuUt57UzBxfZE7QAO8cf2k3rB6jda5?=
- =?us-ascii?Q?2FvPtlOcoTR0TEktkXUp4kMSkX/03kMgG1gwU8cQYA2A2/K6ik9WN2ReebII?=
- =?us-ascii?Q?dgDKOeprqQ=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 08 Apr 2026 07:21:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flordal.net;
+	s=protonmail; t=1775632888; x=1775892088;
+	bh=MbOGGRZRGKUC9wg/u4bagIerJWK0O28aWsRrCdAdIQM=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=lQGO3y3YMaCA8kDO8TvKmTevFk/tJrkj/WdjGhLen9DlP89s0Y99bZnZy8tvJ1jSw
+	 rN2cl0J9WKuaOI5u2qLMOWqPNmkMIT4eRaC+jSmcVFbxwT5kko1EuoBZrVM15QVYlI
+	 IA+TuIW0v+51qKLl4ZlozYBkbaK+z25l+yrTUu0CnJ+y6P6r9JvhvwBUNipBbqMbyd
+	 5w7aDY4hATuRHvlBv9aDplAppb7JzGrjspnHj1bGBen3Fo1JMVs3bnhF3sGA+o5b8Z
+	 sJTcm637R5yS8dbupZaTloI4oi1p01mjELU2d/7cjeeBdyHvf8+TfdGVy2kyBC8Scs
+	 ORDCnAc4Pn/fA==
+Date: Wed, 08 Apr 2026 07:21:23 +0000
+To: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+From: Axel Flordal <axel@flordal.net>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Subject: [PATCH RESEND] arm64: dts: apple: fix spelling error
+Message-ID: <2338500.vFx2qVVIhK@fedora>
+Feedback-ID: 166586150:user:proton
+X-Pm-Message-ID: c48aabe3f901b14e1434363741495137f986d95f
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 336d83ba-4238-414a-6d56-08de953f0a46
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Apr 2026 07:18:32.0752
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: OO7VFp3hI6QSAVe72Ce0gWIVwt5gL1eeGFMFk8jvVyQPiB6aosrbUMcwf5L6UAzgv56JE8+NffDWQkZcF10fsECrO9NLmvKOvLGrb7yKnTw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE1PPFDC587DD38
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_001842_358980_CCDB76D2 
-X-CRM114-Status: GOOD (  33.45  )
+X-CRM114-CacheID: sfid-20260408_002135_760034_96A97EF8 
+X-CRM114-Status: UNSURE (   7.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,104 +67,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH v28 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add glob=
-al-regs
-> and enable-dma properties
->=20
-> On Tue, Mar 31, 2026 at 07:30:58AM +0000, Ryan Chen wrote:
-> > > Subject: Re: [PATCH v28 2/4] dt-bindings: i2c: ast2600-i2c.yaml: Add
-> > > global-regs and enable-dma properties
-> > >
-> > > Hi Ryan,
-> > >
-> > > > > Sounds reasonable, but before you do so, how are you planning to
-> > > > > manage the allocation of DMA channels across multiple i2c
-> peripherals?
-> > > > >
-> > > > The AST2600 I2C hardware has only one can use DMA at a time.
-> > > > To avoid the complexity of managing DMA channel contention, I plan
-> > > > to use buffer mode by default for all controllers, which still
-> > > > provides better performance than byte mode without requiring DMA
-> > > > channel
-> > > allocation.
-> > >
-> > > OK, but your wording there ("by default") implies that DMA is still
-> > > selectable for one controller peripheral. In which case: you still
-> > > have the problem of managing DMA channel contention, but now it's at
-> runtime instead.
-> > >
-> > > So my question still stands: how are you planning to enforce that
-> > > DMA is only enabled for one controller?
-> > >
-> > > Or are you planning to disable I2C DMA entirely on AST2600?
-> > Yes, This is my intent to do.
-> > Disable I2C DMA entirely on AST2600.
-> > If I remove DMA, should can I keep byte and buffer for sysfs?
->=20
+Change "configiguration" to "configuration".
 
-> 28 versions and it's still not clear when you need what mode. Sigh. The o=
-nly
-> thing better about sysfs then it's not my problem, but that really doesn'=
-t sound
-> much better.
->=20
-> DMA is only going to be useful for transfers above a certain size. If you=
- are
-> doing the typical SMBus style register accesses, then DMA is completely
-> useless. The setup DMA overhead is going to be greater than just directly
-> reading/writing the I2C controller FIFOs.
+Reviewed-by: Neal Gompa <neal@gompa.dev>
+Signed-off-by: Axel Flordal <axel@flordal.net>
+---
+Original patch: https://lore.kernel.org/asahi/CAEg-Je-KwNNGoi3mpPeNq3Jmtzj_=
+5seuj1Qeh2_1dt994iCJSA@mail.gmail.com/T/#t
+If this is unwanted I of course won't send again.
+---
+ arch/arm64/boot/dts/apple/spi1-nvram.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Sorry, why you think DMA overhead is greater than read/write FIFO?
-When enable DMA, all dma allocate will be initial in probe.
-And the DMA mode data is going to dram, that will be read/write data from
-dram. Compare with buffer mode, data is from FIFO register to read/write.
-So DMA will not have overhead.
+diff --git a/arch/arm64/boot/dts/apple/spi1-nvram.dtsi b/arch/arm64/boot/dt=
+s/apple/spi1-nvram.dtsi
+index 9740fbf200f0..d2720b307774 100644
+--- a/arch/arm64/boot/dts/apple/spi1-nvram.dtsi
++++ b/arch/arm64/boot/dts/apple/spi1-nvram.dtsi
+@@ -2,7 +2,7 @@
+ //
+ // Devicetree include for common spi-nor nvram flash.
+ //
+-// Apple uses a consistent configiguration for the nvram on all known M1* =
+and
++// Apple uses a consistent configuration for the nvram on all known M1* an=
+d
+ // M2* devices.
+ //
+ // Copyright The Asahi Linux Contributors
+--=20
+2.53.0
 
-> What's the size that makes DMA
-> useful? 16, 32, 64 bytes?=20
-The i2c ast2600 can be 4096 byte for each tx/rx dma,
-buffer mode is 32byte (16 byte for TX, 16 byte for RX).
 
->Something greater than the max size in buffer mode
-> probably. Really, provide some data that DMA gives better performance
-> and/or less CPU usage.=20
-In general i2c transfer len < buffer size. dma did not gain.=20
-But if large than buffer size (16 byte), it will reduce the cpu interrupt l=
-atency.
-For example, mctp transfer :=20
-https://github.com/torvalds/linux/blob/master/drivers/net/mctp/mctp-i2c.c#L=
-29
-mctp max len is 256, that will 1 interrupt for each package transfer.
-But in fifo mode will be 256/16 =3D 16 interrupts.
-Compare the smbus I2C_SMBUS_BLOCK_MAX is 32 byte + 2
-https://github.com/torvalds/linux/blob/master/include/uapi/linux/i2c.h#L145
-That is only (32 + 2)/16 =3D 2~3 interrupts. It may not gain more.=20
 
->If you set some minimum size and request DMA only
-> above that size, is there really that much contention?
-Sorry, I don't know your point here, could you give more your statement?
 
-> If there's some specific
-> device that really needs DMA, then make that device's driver request it a=
-nd
-> reserve it.
->=20
-> For byte mode, there's not a clear need nor description of why. Someone o=
-nce
-> long ago asked for it... Who cares, if they really want it, then the issu=
-e needs to
-> be described. If a certain device requires certain timing that byte mode
-> provides, then that should be some property the driver for the device
-> communicates to the controller. No need for DT nor sysfs in that case.
->=20
-I agree with your point.
-My proposal will remove byte mode. And keep dma/buffer. And remove sysfs fo=
-r=20
-transfer mode selection, default will be buffer mode. And keep properties
-aspeed,enable-dma, which indicate the channel have DMA capability to use.
-And if dts add aspeed,enable-dma, the i2c will use DMA otherwise will keep =
-buffer
-transfer, is it ok?
 
-=20
 
