@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD62E10F9951
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 15:30:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 612A610F9953
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 15:46:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uTfYgsa06Ay2axWJBUow1ftnzYOENBYQ2oa1xejaTn8=; b=LBi2RhlQ6MaoTASQLLz0AO92fO
-	pIIBIFTUD7Gr1mt86UvuUcbupdqwRh7+gXGamWOuU/Q3yP6DSgFbPKvBZwQPIDq9Gux2c2lJ4SYz6
-	dXWT/0GSG2REdbkEIXXK8BBT02eN4XHqflN6+LAsT4LyrQcyxjB+LASKUD1VIMPFutFIKkmGiY2YJ
-	bofU+vfXYNj91K1kjdhpbSSLYK023IcEx5yLlkFlzIm2ld13EcU0EwZmBYF5ic1fqyX7MbMwQJYhz
-	cNXsqGhWvow+H2G7W4F0yKNv+IwC18pTwaiDikObHfy40tGo5SECyT+JL68tzQgnaB/RE3D5e4g5E
-	41zrYGUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=opOrlb/i/gzEp4K+wOHoj+Q7FgwOYI1mQuHiAmp+YNk=; b=sBwC8M8nwBaqiRPnFTuoQXGewl
+	977bL8s8Xe9kqgryiQvE/Acaj5WuAWtHs2teJmr2u+s4IFhCZpa5Jp1qMyhhEzWn2Aq13UdTZ5PqN
+	726BFPERdAE/JF1eTS5my/QotAMJ/P4HJauYV4WZ7WsHIcTefl470EJu9I5mey2VjDjCo+HTGizFv
+	2Vv+FK6Fk2fMOrJrAzh1UUphGbAPgUbqsr8hiDeHHjGRVi3MANQ3+20G00HTFvLtqe/8HcvDJ6w1d
+	ertJe6nzOYoISEHyJoT+CaGP1a/6HRANdXQwZX0hakhb2n8qR1jZw8Bzse9VVZ5ZV0xv1EwbL95/4
+	FRENlt6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAUrU-000000093f8-38KX;
-	Wed, 08 Apr 2026 15:30:36 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAUrQ-000000093eb-3i8v
+	id 1wAV6O-000000094jD-2mL6;
+	Wed, 08 Apr 2026 15:46:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAV6K-000000094ir-0gMN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 15:30:34 +0000
-Received: from dfae2b116770.home.arpa (unknown [124.16.138.129])
-	by APP-05 (Coremail) with SMTP id zQCowAAntwqVdNZprBT1DA--.63068S2;
-	Wed, 08 Apr 2026 23:30:29 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: Georgi Djakov <djakov@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	linux-pm@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v2] interconnect: imx: fix use-after-free in imx_icc_node_init_qos()
-Date: Wed,  8 Apr 2026 15:30:22 +0000
-Message-Id: <20260408153022.401123-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Wed, 08 Apr 2026 15:45:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 282BB2D95;
+	Wed,  8 Apr 2026 08:45:49 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B5B43F641;
+	Wed,  8 Apr 2026 08:45:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775663154; bh=wU4fl4TVjcDvpPsgzmCAzBUjdKqZzT3ruEAOqBLPur8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ssiz1u3djmV8rAMYAoclPL8g16hGcki6QruDxNI05/Y3ecc9dW9TqAIuuLFyW8JO2
+	 n1teO/SX4wWUBVXyomhih13JTxZHQhdBdPd0Rs/ACO3Z/nRD/j66ovo4mVuaybMl/0
+	 WWyhFHASYxpriq9JB8deqR+XLi/8uBuRwIiymPQc=
+Date: Wed, 8 Apr 2026 16:45:50 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	will@kernel.org, mark.rutland@arm.com,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Liz Prucka <lizprucka@google.com>,
+	Seth Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v3 07/13] arm64: mm: Use hierarchical XN mapping for the
+ fixmap
+Message-ID: <adZ4LpvJJz-3K20O@arm.com>
+References: <20260320145934.2349881-15-ardb+git@google.com>
+ <20260320145934.2349881-22-ardb+git@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAAntwqVdNZprBT1DA--.63068S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7ur45WFyUuw4UuFWUXry5Jwb_yoW8Zw1fpF
-	W5GFWakry7WF4Ig3yvyw1q9Fyay342krZYgrW8G39Ig3s5tryrXry0y34rC3WrGryxAryF
-	yrWUtw1j9a15CFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9C14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW5WwCF04k20xvY0x0EwIxGrw
-	CFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE
-	14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
-	IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxK
-	x2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI
-	0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JU3HUDUUUUU=
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwkLA2nWbuALQwAAs-
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260320145934.2349881-22-ardb+git@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_083033_290976_457BB1E9 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20260408_084556_432651_6D06BBCB 
+X-CRM114-Status: GOOD (  22.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,58 +76,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The function imx_icc_node_init_qos() manually manages the reference count
-of struct device_node *dn using of_node_put(). However, some error paths
-use dn after the put, leading to use-after-free. Convert to automatic
-cleanup using __free(device_node) to ensure the reference is always
-released when dn goes out of scope.
+On Fri, Mar 20, 2026 at 03:59:42PM +0100, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> Nothing in the fixmap or in its vicinity requires executable
+> permissions, and given that it is placed at exactly 1 GiB from the end
+> of the virtual address space, we can safely set the hierarchical XN
+> attributes on the level 2 table entries covering the fixmap, without
+> running the risk of inadvertently taking away the executable permissions
+> on an adjacent mappings.
+> 
+> This is a hardening measure that reduces the risk of the fixmap being
+> abused to create executable mappings in the kernel address space.
+> 
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> ---
+>  arch/arm64/mm/fixmap.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+> index c5c5425791da..c3dd3c868cf5 100644
+> --- a/arch/arm64/mm/fixmap.c
+> +++ b/arch/arm64/mm/fixmap.c
+> @@ -48,7 +48,8 @@ static void __init early_fixmap_init_pte(pmd_t *pmdp, unsigned long addr)
+>  	if (pmd_none(pmd)) {
+>  		ptep = bm_pte[BM_PTE_TABLE_IDX(addr)];
+>  		__pmd_populate(pmdp, __pa_symbol(ptep),
+> -			       PMD_TYPE_TABLE | PMD_TABLE_AF);
+> +			       PMD_TYPE_TABLE | PMD_TABLE_AF |
+> +			       PMD_TABLE_PXN | PMD_TABLE_UXN);
+>  	}
+>  }
 
-Fixes: f0d8048525d7 ("interconnect: Add imx core driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
-Changes in v2:
-- Use auto cheanup to fix the problem.
----
- drivers/interconnect/imx/imx.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+Sashiko reckons this breaks kpti. I think that's valid but I couldn't
+reproduce it on qemu (maybe it doesn't implement hierarchical
+permissions). Then I tried FVP and the whole series panics (unrelated to
+kpti). With kvm-arm.mode=protected, I think kvm_ksym_ref() is lm_alias()
+and we have kvm_hyp_init_symbols() trying to flush the bss.
 
-diff --git a/drivers/interconnect/imx/imx.c b/drivers/interconnect/imx/imx.c
-index 9511f80cf041..e5fcdcb88cfb 100644
---- a/drivers/interconnect/imx/imx.c
-+++ b/drivers/interconnect/imx/imx.c
-@@ -120,7 +120,8 @@ static int imx_icc_node_init_qos(struct icc_provider *provider,
- 	struct imx_icc_node *node_data = node->data;
- 	const struct imx_icc_node_adj_desc *adj = node_data->desc->adj;
- 	struct device *dev = provider->dev;
--	struct device_node *dn = NULL;
-+	struct device_node *__free(device_nod) dn = of_parse_phandle(dev->of_node,
-+			adj->phandle_name, 0);
- 	struct platform_device *pdev;
- 
- 	if (adj->main_noc) {
-@@ -128,7 +129,6 @@ static int imx_icc_node_init_qos(struct icc_provider *provider,
- 		dev_dbg(dev, "icc node %s[%d] is main noc itself\n",
- 			node->name, node->id);
- 	} else {
--		dn = of_parse_phandle(dev->of_node, adj->phandle_name, 0);
- 		if (!dn) {
- 			dev_warn(dev, "Failed to parse %s\n",
- 				 adj->phandle_name);
-@@ -138,12 +138,10 @@ static int imx_icc_node_init_qos(struct icc_provider *provider,
- 		if (!of_device_is_available(dn)) {
- 			dev_warn(dev, "Missing property %s, skip scaling %s\n",
- 				 adj->phandle_name, node->name);
--			of_node_put(dn);
- 			return 0;
- 		}
- 
- 		pdev = of_find_device_by_node(dn);
--		of_node_put(dn);
- 		if (!pdev) {
- 			dev_warn(dev, "node %s[%d] missing device for %pOF\n",
- 				 node->name, node->id, dn);
+I'll drop it for now.
+
+Unable to handle kernel paging request at virtual address fff00000748f7000
+Mem abort info:
+  ESR = 0x0000000096000147
+** replaying previous printk message **
+  EC = 0x25: DABT (current EL), IL = 32 bits
+  SET = 0, FnV = 0
+  EA = 0, S1PTW = 0
+  FSC = 0x07: level 3 translation fault
+Data abort info:
+  ISV = 0, ISS = 0x00000147, ISS2 = 0x00000000
+  CM = 1, WnR = 1, TnD = 0, TagAccess = 0
+  GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+swapper pgtable: 4k pages, 52-bit VAs, pgdp=00000000f40ad000
+[fff00000748f7000] pgd=18000008fffff403, p4d=18000008ffffe403, pud=18000008ffffd403, pmd=18000008fffe9403, pte=00e80000f48f7406
+Internal error: Oops: 0000000096000147 [#1]  SMP
+Modules linked in:
+CPU: 1 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.0.0-rc3-00013-g6bb20b972b8c #2 PREEMPT
+Hardware name: FVP Base RevC (DT)
+pstate: 81400005 (Nzcv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+pc : dcache_clean_inval_poc+0x24/0x48
+lr : kvm_arm_init+0xb48/0x1338
+sp : ffff80008005bd20
+x29: ffff80008005bd60 x28: ffff95c63230b000 x27: 0000000000000004
+x26: 0000000000000001 x25: ffff95c631a160c0 x24: 0000000000000008
+x23: 0000000000000000 x22: 0000000000000000 x21: fff00000748f7000
+x20: 0000000000002000 x19: 0001101131111112 x18: 00000000ffffffff
+x17: ffff95c6321fdd88 x16: 0000000031427afd x15: 0000000000000100
+x14: 0000000000000000 x13: 0000000000077a9a x12: fff000087f805650
+x11: fff000087f805630 x10: ffffc1ffe005db08 x9 : 0000000000000000
+x8 : 0000000080000000 x7 : ffff80008005bc50 x6 : 000f63580145a000
+x5 : ffff95c6322f8000 x4 : 0000000000000000 x3 : 000000000000003f
+x2 : 0000000000000040 x1 : fff00000748f9000 x0 : fff00000748f7000
+Call trace:
+ dcache_clean_inval_poc+0x24/0x48 (P)
+ do_one_initcall+0x60/0x1d4
+ kernel_init_freeable+0x24c/0x2d4
+ kernel_init+0x24/0x140
+ ret_from_fork+0x10/0x20
+Code: 9ac32042 d1000443 8a230000 d503201f (d50b7e20)
+---[ end trace 0000000000000000 ]---
+
 -- 
-2.34.1
-
+Catalin
 
