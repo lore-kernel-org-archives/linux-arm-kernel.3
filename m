@@ -4,75 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2A310FC443
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 21:29:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8FA10FC440
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 21:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hQX7iZU1sLRdwZhoYb3R3nLptKkjtedR7BZxMeedyD4=; b=RCX0Vhq5YOvYX1mGoAqOGe95Wk
-	ZlVsCL3ksUnWNe8RMWcrQnNGhS3QqrkFeJzgowsSFFKkIcWUxyKHmquSBJpdyUtzWchdir4zzDHiN
-	MYfNpCMN0PSKMzN9kup79vytXbGGOblheWDucVrbtz012DZAuQCBhVgUpb30y2OWyN3kCCz4G627h
-	G3HejSeotY+qSLMHY+eiNXXYydkJVlzjR7rQGsr9Ry/sJaH6OWAEObhmyLJwMvmpc1IfB9Ye2szsH
-	llFoWGUqeSJubJcWDY2CGN+33wwpucKRsulct/cebK8WyjhDY0h2zg4d0xFDRMlzl9tGPxu9QeWa4
-	BA6vxPOg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0ZlSPMRj3+srXyOEPtV421yYfIPQI8//9hbBm9dm4MY=; b=s9bWTG3n7S7AnvK5SA9QSH226u
+	0X7/48oh/3qlDUdavPBPvx7LosmaavJXSNP58WJ55GV3hfdGcwnmLkhSayxH0JZX/4nXtU+UiUZEG
+	XfASijpbnOXCVSmdX0XmT9XWv40rBcUBkK+LnQbPeOQewEf0bavpaclTgq+yVKc+diW0PmtsINlfB
+	rNMedWywkQRH/c97+OjDgdks4myV6CypyVWQW95XoZekiRviJLTWP9Dn6MTXExHS8c9/ujiNofhwI
+	XMigzhw/v6zP1gzsfPMG35U2QmoPh37TJjkG6RQerejh09lN3T2qBFy4wlfB336Ekju6Jmw1LbASp
+	9JHQQf5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAaSz-00000009R7N-3BXv;
-	Wed, 08 Apr 2026 21:29:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAaSx-00000009R6q-0VuW
+	id 1wAaWI-00000009RIA-1XWL;
+	Wed, 08 Apr 2026 21:33:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAaWE-00000009RHR-2w63
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 21:29:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8079D444F9
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Apr 2026 21:29:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67205C2BCB5
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Apr 2026 21:29:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775683777;
-	bh=Y/lmxQXbhWG5INKynpR7jdhH5uj4BdkuJqvEO5FdF8Y=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=mShnAkf/k0d/LPFZwfdKiBYhDDRse6tKDagf1kPr0oc2h9w/psRVyY/VbUi3fNrb/
-	 UwejrwtODpxGK4z79tPZavt95SOnbd9sQLRlk39P65hH7VVNgNbtEk/e5DbB/+7/bP
-	 5B1vSYWraZaEkPnl8p2FqY/yFJPFQwjm9t9YWKptwjSJFVpG65JiB+ZDSD1GSyxYHm
-	 xfrrdmbqoXEBePOAjVHkqhnlYkckawhDLioIf+F6YK0jJTGJ2OKAppfEQDJOnhw7xM
-	 N678+2fkcGmpwmOX8M7g5QP1A2k0MROxHaQA2BcOtjrzzDO/BD8NZq4JkLEC3Lb2Fq
-	 4WwEwNJCm7Zrw==
-Received: by mail-qv1-f41.google.com with SMTP id 6a1803df08f44-8a00566c11bso3138906d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 14:29:37 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXdNXytiwcVHfwmrJaB9rjKVHN8tlpuz7wjm+fiSg2tf4Iz7/skpjCoM27Q6C6zmaITAc/H1Xg+EwScv5IC1W6v@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3NsLzH42qGNWet82FJEeTuXRu2nvAF8AlQ1RbX8VX5xk3q+Ul
-	6Gvg80ymArkHTR7FOG4zRRienz6X9p9lbFE4N0ojlAUr6yOvOUYPfqgb12WghJZUxYUvG+iGEaR
-	gaiT99Wokol+hZ7LOaEg40u8IOnLP1LA=
-X-Received: by 2002:a05:6214:1d0a:b0:8ac:74d7:dd14 with SMTP id
- 6a1803df08f44-8ac74d7debcmr15884866d6.34.1775683776598; Wed, 08 Apr 2026
- 14:29:36 -0700 (PDT)
+	Wed, 08 Apr 2026 21:33:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D77335D8;
+	Wed,  8 Apr 2026 14:32:52 -0700 (PDT)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1FBD23F7D8;
+	Wed,  8 Apr 2026 14:32:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775683978; bh=g3A6qMSW6cDns9VV5VEWAQeyFTIBH0u7yOFw0zPoou8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=AlCPDd9hHx8MV2WLagIsv6t8rGQrB/OzkE0mJ10qcUvM6CfdDFbTIwbtGwXtSofbF
+	 43cs5rliKNBokb1ulqs3aKS0+AgUNCNZ3LnZ1mCV0kWghGOI57DzKIP99a7MiVmf1Y
+	 N32CdqKZmM8tX+w0mbMLIk5zTVDOHEe+70/lHHGU=
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: gregkh@linuxfoundation.org
+Cc: leo.yan@linux.dev,
+	mike.leach@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	james.clark@linaro.org,
+	suzuki.poulose@arm.com
+Subject: [GIT PULL] coresight: Updates for Linux v7.1
+Date: Wed,  8 Apr 2026 22:32:48 +0100
+Message-ID: <20260408213248.3825788-1-suzuki.poulose@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260408025115.27368-1-baohua@kernel.org> <20260408025115.27368-4-baohua@kernel.org>
- <f661064f-269c-4e1d-8d6c-a9a2e50cd82c@arm.com>
-In-Reply-To: <f661064f-269c-4e1d-8d6c-a9a2e50cd82c@arm.com>
-From: Barry Song <baohua@kernel.org>
-Date: Thu, 9 Apr 2026 05:29:25 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4x-7tk6FPM5eN+o2=1ewbbCvrGYSG-qk1FybnhYAqU0xg@mail.gmail.com>
-X-Gm-Features: AQROBzDD8xzlg0Uj1HRs0Wqi-s5iSaX2fFmsZNIkL6fa0v5sA5A7gsWqrrxGDtU
-Message-ID: <CAGsJ_4x-7tk6FPM5eN+o2=1ewbbCvrGYSG-qk1FybnhYAqU0xg@mail.gmail.com>
-Subject: Re: [RFC PATCH 3/8] mm/vmalloc: Extend vmap_small_pages_range_noflush()
- to support larger page_shift sizes
-To: Dev Jain <dev.jain@arm.com>
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
-	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org, 
-	urezki@gmail.com, linux-kernel@vger.kernel.org, anshuman.khandual@arm.com, 
-	ryan.roberts@arm.com, ajd@linux.ibm.com, rppt@kernel.org, david@kernel.org, 
-	Xueyuan.chen21@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_142939_222869_DFFFBC04 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20260408_143302_899015_529673EF 
+X-CRM114-Status: UNSURE (   9.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,48 +71,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 8, 2026 at 7:08=E2=80=AFPM Dev Jain <dev.jain@arm.com> wrote:
->
->
->
-> On 08/04/26 8:21 am, Barry Song (Xiaomi) wrote:
-> > vmap_small_pages_range_noflush() provides a clean interface by taking
-> > struct page **pages and mapping them via direct PTE iteration. This
-> > avoids the page table zigzag seen when using
->
-> "Zigzag" is ambiguous. Just say "page table rewalk". Also please
-> elaborate on why the rewalk is happening currently.
+Hi Greg
 
-Sure=E2=80=94I=E2=80=99m not a native speaker, but =E2=80=9Czigzag=E2=80=9D=
- feels like
-=E2=80=9Crepeatedly walking the page tables back and forth=E2=80=9D to me.
-That=E2=80=99s exactly what I want to express.
+Please find the updates for CoreSight self-hosted tracing subsystem targeting
+v7.1
 
->
-> > vmap_range_noflush() for page_shift values other than PAGE_SHIFT.
-> >
-> > Extend it to support larger page_shift values, and add PMD- and
-> > contiguous-PTE mappings as well.
->
-> So we can drop the "small" here since now it supports larger chunks
-> as well.
+Kindly pull,
 
-I=E2=80=99m still struggling with the name, since we already have a
-function without =E2=80=9Csmall=E2=80=9D here:
+Suzuki
 
-int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
-                pgprot_t prot, struct page **pages, unsigned int page_shift=
-,
-                gfp_t gfp_mask)
 
->
-> Also at this point the code you add is a no-op since you pass PAGE_SHIFT.
-> Let us just squash patch 4 into this. This patch looks weird retaining
-> the pagetable-rewalk algorithm when it literally adds functionality
-> to avoid that.
+The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 
-Sure. will do.
+  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
 
-Thanks
-Barry
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git tags/coresight-next-v7.1
+
+for you to fetch changes up to 971f3474f8898ae8bbab19a9b547819a5e6fbcf1:
+
+  coresight: tpdm: fix invalid MMIO access issue (2026-04-07 12:29:42 +0100)
+
+----------------------------------------------------------------
+coresight: Updates for Linux v7.1
+
+CoreSight self hosted tracing subsystem updates for Linux v7.1, includes:
+
+ - Fix unregistration related issues
+ - Clean up CTI power management and sysfs code
+ - Miscellaneous fixes
+ - MAINTAINERS: Add Leo Yan as Reviewer
+ - MAINTAINERS: Update Mike's email address
+
+Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+
+----------------------------------------------------------------
+Elsanti (1):
+      drivers/hwtracing/coresight: remove unneeded variable in tmc_crashdata_release()
+
+Jie Gan (5):
+      coresight: ctcu: fix the spin_bug
+      coresight: cti: fix the check condition in inout_sel_store
+      coresight: platform: check the availability of the endpoint before parse
+      coresight: tpdm: add traceid_show for checking traceid
+      coresight: tpdm: fix invalid MMIO access issue
+
+Leo Yan (17):
+      coresight: cti: Move resource release to cti_remove()
+      coresight: Fix memory leak in coresight_alloc_device_name()
+      coresight: Get parent device reference after sink ID map allocation
+      coresight: Protect unregistration with mutex
+      coresight: Refactor output connection sysfs link cleanup
+      coresight: Refactor sysfs connection group cleanup
+      coresight: Move sink validation into etm_perf_add_symlink_sink()
+      coresight: Do not mix success path with failure handling
+      coresight: Unify bus unregistration via coresight_unregister()
+      coresight: cti: Make spinlock usage consistent
+      coresight: cti: Fix register reads
+      coresight: cti: Access ASICCTL only when implemented
+      coresight: cti: Remove CPU power management code
+      coresight: cti: Rename cti_active() to cti_is_active()
+      coresight: cti: Remove hw_powered flag
+      coresight: cti: Remove hw_enabled flag
+      coresight: cti: Properly handle negative offsets in cti_reg32_{show|store}()
+
+Mike Leach (1):
+      MAINTAINERS: Change e-mail address for reviewer
+
+Suzuki K Poulose (1):
+      MAINTAINERS: coresight: Add Leo Yan as Reviewer
+
+ .mailmap                                           |   1 +
+ .../ABI/testing/sysfs-bus-coresight-devices-tpdm   |  10 +
+ MAINTAINERS                                        |   5 +-
+ drivers/hwtracing/coresight/coresight-catu.c       |   4 +-
+ drivers/hwtracing/coresight/coresight-core.c       | 214 ++++++++------
+ drivers/hwtracing/coresight/coresight-ctcu-core.c  |   5 +-
+ drivers/hwtracing/coresight/coresight-cti-core.c   | 321 ++++-----------------
+ drivers/hwtracing/coresight/coresight-cti-sysfs.c  | 174 +++++------
+ drivers/hwtracing/coresight/coresight-cti.h        |  15 +-
+ drivers/hwtracing/coresight/coresight-dummy.c      |   7 +-
+ drivers/hwtracing/coresight/coresight-etb10.c      |   4 +-
+ drivers/hwtracing/coresight/coresight-etm-perf.c   |   5 +-
+ drivers/hwtracing/coresight/coresight-funnel.c     |   4 +-
+ drivers/hwtracing/coresight/coresight-platform.c   |   4 +-
+ drivers/hwtracing/coresight/coresight-priv.h       |   3 +-
+ drivers/hwtracing/coresight/coresight-replicator.c |   4 +-
+ drivers/hwtracing/coresight/coresight-stm.c        |   4 +-
+ drivers/hwtracing/coresight/coresight-tmc-core.c   |  15 +-
+ drivers/hwtracing/coresight/coresight-tnoc.c       |   4 +-
+ drivers/hwtracing/coresight/coresight-tpda.c       |   4 +-
+ drivers/hwtracing/coresight/coresight-tpdm.c       |  40 ++-
+ drivers/hwtracing/coresight/coresight-tpdm.h       |   2 +
+ drivers/hwtracing/coresight/coresight-tpiu.c       |   4 +-
+ drivers/hwtracing/coresight/ultrasoc-smb.c         |   4 +-
+ include/linux/coresight.h                          |  14 +-
+ 25 files changed, 363 insertions(+), 508 deletions(-)
 
