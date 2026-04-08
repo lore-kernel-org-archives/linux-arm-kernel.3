@@ -4,94 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 631A51073CB0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 13:28:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDA591073CB0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 13:31:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zNxMD4ebSTuVdeWGIOG/Mq97ZFOA7XKvnQijNMuyPBw=; b=3BX8uDRyZ1zm+e7CJJOtMHw7DH
-	WX6BsLwJfxDNRJASShWpcoZoCkH1dTzYlHQ5oNpEGxlN+wt3HNo4dNagtYbhOkYSCLfk+buMBT3hK
-	Tej32BtifZgYIsxjxG33DkdcK5TorFaRzu8zAAzQwidW/Rc2tQao1fqZZX3ot3dWKjbkHyGCrD2Rf
-	TcRIoHWcm28cLs5mUHHrhHEMaEApkrcPA+sEWh3VTPNoPZdwgU3nDdJAO6rk4qAnrByU4Dig0cdQ9
-	q3UmVG98GjEb1lUBL0NyY9NWpIT9OW3qoLvrZab/31GYI/+Iux3qQkqihxg/q/FeLR7a0yLjS5+jn
-	OYRb2aLA==;
+	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=U07YSVN+slV9dwpU0xNKzXX9xvEdAg1wb2kpmf8y7rE=; b=kEzhELuK8iLmx2nipc9ziJfMxj
+	XHH+7B4b8JN7rxYmCiAv6rDohLkEsjQH4Vv3+RyRQsnG/N3ItrR9YLaVP/cSa7wqcpu4Rf+qVNQGE
+	YpPCA4x8KSZqO58eZehxnTMAdmQ8wqaBohJOEimf6ALLrbm8oIPht+dHQDZ5m0SReMQFCGDhtGwnO
+	rpn04J5/VVOc1WxlVhjQ5BSx7tji1tEo50dqgsNJfpWrnha3Z3lQoDOtcp1tEn+UO/+RXekairrDb
+	GPbfI18tkHhk5JuiuOoU48VfqCur8MOSBE/uJVPL8Of8XieuIDNcQXBIrUjjcoB91YIuya0sSWm85
+	rZKyUfZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wASwq-00000008udx-1WqF;
-	Wed, 08 Apr 2026 13:28:00 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1wAT02-00000008uoS-3zYG;
+	Wed, 08 Apr 2026 13:31:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wASwo-00000008udc-0yrO
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 13:27:59 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-43b87970468so4821803f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 06:27:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1775654876; x=1776259676; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=zNxMD4ebSTuVdeWGIOG/Mq97ZFOA7XKvnQijNMuyPBw=;
-        b=qMxvpDtVGDYXFtTqltQ1IMKVSOOhX6vLOgTitij4Ilr609E6CNEbcE/hI+UcFCvJRu
-         A5N1ncv+ahD4BVI4d3Ulci2rtdscPwc3mvEvRnxCSvsSEczfK2yxVE0TWZbNYLXuCMrO
-         ayHY+G044/EcWccY3jEpT4ECQwDN/jyofKXEvnSx1uz91YJBaC1pamwsqIBzucxO7MN5
-         Lv4pwoqZYUNHsyeiiYFR2uL5BiXIlVSss3H8CMmRWs4QHLuJn4rmVO09EJY5eT/D7wWJ
-         hN0fvBXxtpnl56nmIP7bF2Jwg6XP+ZQmWCxkjiNcHUF2CqOp6UWajajv+/plVIVLqtKU
-         CgOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775654876; x=1776259676;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zNxMD4ebSTuVdeWGIOG/Mq97ZFOA7XKvnQijNMuyPBw=;
-        b=BjrMjWa23uN7HWwFjRY4TEGb5gEiverpzGsVkxuXeBCy8WkzjCHLcL3FmzvoqXaXIi
-         gOAOqV5c9DXRgo0KwwWWlsTnEEiR9j1pf1Eu5BDghDEO0i7S3myiYqKYaOG5bQArwXiC
-         nPYWc46A84gX0mrzZLS42Xx6S+HdS4S2dTUXf6zN8EuuUkXgAV3Lzd7HBXajM4+OKo6J
-         tuzGK+4T6iwyGAZ6a3p7vpO2fWBHt30EKGe5xWRvLo1vjYXW75dz2GJr8/fuB8TGAuJU
-         x4q1J0fDj31GZ1m+eG2mpICIA6YAY76oiB57VMkejY2uZVlgTMDi1UtKVggWAxkxHQNf
-         BvEw==
-X-Forwarded-Encrypted: i=1; AJvYcCXleqzx6DUgAA20lLH5ulrZZVcQQ3ece9sE3d1oIbm8AF+V+MWU2nurV7LZlK/VvRJVECgSqsg7USD0QrUlnKuB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyvrQPsKu59DoNPTUWygn4wVh2gCRPuS6p//d99uw0dx19+gKn
-	fBXY0BXcIDP0xvwgC5BBNKRfCr3nGc6C8Y7GfLIGb7OyAlHaih7ZXOMVUl3JG+h8KNI=
-X-Gm-Gg: AeBDievDjC263Uq59MJYMm+V/Tpx6XgCX7jP+3Q5GCIdIkp2k8VcQppLwQ5B1lM0OxD
-	CyaLLGoPCjfig6uKU50Fg0e46wC95h79DwE5Dho0uWMcN2nLOMalX4DAcCzmQ5WvnIRaokdOLV0
-	i2kWCaGL/XM/yxvTH5JDYd7yg2FpKW+vH4zkRObN8bBxNZIKsWSeXuIocInT2EYHR63LEzk9UFx
-	BY+YFgAx0N8vBYR1FvC9E+vEHsrDjGxUTawPqdurq9+oNRdvCPYi3qdhYxCy6A75Z5HwELTBDld
-	x9E+KW2Vm7UoqHsKFv0N6vmLkzMlvUeTAAqqqGeB6/ljsarx4OktVyaTV6JNmf3CJy7zIpOEefL
-	cqfXwKYDCSUq8lSFa1ql1tOX7lpCUR+csbqzmI3Zd7HFwei84SLFm7yY9tj6R3Yf2A1xN9S8UTx
-	ct5X3rlUMDQu5718tDDpQknKNSY8AO
-X-Received: by 2002:a05:6000:400a:b0:43c:f764:6256 with SMTP id ffacd0b85a97d-43d292dbb67mr31327840f8f.37.1775654875832;
-        Wed, 08 Apr 2026 06:27:55 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d1e4f1a99sm62321846f8f.32.2026.04.08.06.27.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 08 Apr 2026 06:27:55 -0700 (PDT)
-Message-ID: <511c0ae1-6ad4-4607-92b5-4ea2be2ee04d@linaro.org>
-Date: Wed, 8 Apr 2026 14:27:54 +0100
+	id 1wASzz-00000008unk-3xBn;
+	Wed, 08 Apr 2026 13:31:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A28AD44114;
+	Wed,  8 Apr 2026 13:31:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35A78C19421;
+	Wed,  8 Apr 2026 13:31:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1775655074;
+	bh=MdShFLWH5QPjrXvRDQGuCSptNh4eJfQ1ZFDMbiT05D0=;
+	h=Subject:To:Cc:From:Date:In-Reply-To:From;
+	b=JwkcLktSCKf1NlUL5ShsfIAEZ7wi+jn7PsaiOsu2hWLRk16/LLi5/NRkmkt1Y6OcX
+	 1HpiKz/gIxXlye9bUa/z0nsY7EuCvhIqgC71VARhMeDYTQUGDTBY0GaTiUtHJurA9A
+	 XOYkBHDQIKjKJJqLmijAjGc2FpLQE88quy+A4lMY=
+Subject: Patch "net: phy: allow MDIO bus PM ops to start/stop state machine for phylink-controlled PHY" has been added to the 6.1-stable tree
+To: 681739313@139.com,Z-1tiW9zjcoFkhwc@shell.armlinux.org.uk,andrew@lunn.ch,davem@davemloft.net,edumazet@google.com,f.fainelli@gmail.com,gregkh@linuxfoundation.org,hkallweit1@gmail.com,kuba@kernel.org,linux-arm-kernel@lists.infradead.org,linux-mediatek@lists.infradead.org,linux@armlinux.org.uk,matthias.bgg@gmail.com,pabeni@redhat.com,patches@lists.linux.dev,vladimir.oltean@nxp.com,wei.fang@nxp.com
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Wed, 08 Apr 2026 15:30:52 +0200
+In-Reply-To: <20260327015237.1713008-1-681739313@139.com>
+Message-ID: <2026040852-unpinned-dollop-b158@gregkh>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: tpda: fix race between refcnt check and
- register access
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
- Tao Zhang <tao.zhang@oss.qualcomm.com>
-References: <20260408-fix-race-condition-issue-v1-1-9a148d07e08f@oss.qualcomm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260408-fix-race-condition-issue-v1-1-9a148d07e08f@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=ANSI_X3.4-1968
 Content-Transfer-Encoding: 8bit
+X-stable: commit
+X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_062758_312234_7986E3A4 
-X-CRM114-Status: GOOD (  18.81  )
+X-CRM114-CacheID: sfid-20260408_063116_050217_F56FA030 
+X-CRM114-Status: GOOD (  31.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,125 +68,187 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+This is a note to let you know that I've just added the patch titled
 
-On 08/04/2026 2:23 pm, Jie Gan wrote:
-> Several sysfs show/store handlers check csdev->refcnt before acquiring
-> the spinlock, then access hardware registers inside the lock.  This is
-> a race: between the check and the lock acquisition, the following can
-> occur on another CPU:
-> 
->    CPU 0 (sysfs reader)              CPU 1 (disable path)
->    ─────────────────────────────     ──────────────────────────────────
->    refcnt == 1, check passes
->    [waiting for spinlock]            tpda_disable(): refcnt → 0
->                                      debug clock disabled
->    spinlock acquired
->    readl_relaxed()  ← FAULT/hang
-> 
-> tpda_disable() decrements csdev->refcnt under the same spinlock, so
-> moving the refcnt check inside the lock closes the race.
-> 
-> Fix all six affected sysfs handlers: global_flush_req_show/store,
-> syncr_mode_show, syncr_count_show, and port_flush_req_show/store.
-> 
-> Fixes: 8e1c358a3b0e ("coresight: tpda: add global_flush_req sysfs node")
-> Fixes: 33f04ead7c49 ("coresight: tpda: add logic to configure TPDA_SYNCR register")
-> Fixes: a089d585a7f4 ("coresight: tpda: add sysfs node to flush specific port")
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+    net: phy: allow MDIO bus PM ops to start/stop state machine for phylink-controlled PHY
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+to the 6.1-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
-> ---
->   drivers/hwtracing/coresight/coresight-tpda.c | 18 ++++++++++++------
->   1 file changed, 12 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
-> index 89c8f71f0aff..63a979312463 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpda.c
-> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
-> @@ -360,10 +360,10 @@ static ssize_t global_flush_req_show(struct device *dev,
->   	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   	unsigned long val;
->   
-> +	guard(spinlock)(&drvdata->spinlock);
->   	if (!drvdata->csdev->refcnt)
->   		return -EINVAL;
->   
-> -	guard(spinlock)(&drvdata->spinlock);
->   	val = readl_relaxed(drvdata->base + TPDA_CR);
->   	/* read global_flush_req bit */
->   	val &= TPDA_CR_FLREQ;
-> @@ -382,10 +382,13 @@ static ssize_t global_flush_req_store(struct device *dev,
->   	if (kstrtoul(buf, 0, &val))
->   		return -EINVAL;
->   
-> -	if (!drvdata->csdev->refcnt || !val)
-> +	if (!val)
->   		return -EINVAL;
->   
->   	guard(spinlock)(&drvdata->spinlock);
-> +	if (!drvdata->csdev->refcnt)
-> +		return -EINVAL;
-> +
->   	val = readl_relaxed(drvdata->base + TPDA_CR);
->   	/* set global_flush_req bit */
->   	val |= TPDA_CR_FLREQ;
-> @@ -404,10 +407,10 @@ static ssize_t syncr_mode_show(struct device *dev,
->   	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   	unsigned long val, syncr_val;
->   
-> +	guard(spinlock)(&drvdata->spinlock);
->   	if (!drvdata->csdev->refcnt)
->   		return -EINVAL;
->   
-> -	guard(spinlock)(&drvdata->spinlock);
->   	syncr_val = readl_relaxed(drvdata->base + TPDA_SYNCR);
->   	val = FIELD_GET(TPDA_SYNCR_MODE_CTRL_MASK, syncr_val);
->   
-> @@ -440,10 +443,10 @@ static ssize_t syncr_count_show(struct device *dev,
->   	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   	unsigned long val;
->   
-> +	guard(spinlock)(&drvdata->spinlock);
->   	if (!drvdata->csdev->refcnt)
->   		return -EINVAL;
->   
-> -	guard(spinlock)(&drvdata->spinlock);
->   	val = readl_relaxed(drvdata->base + TPDA_SYNCR);
->   	val &= TPDA_SYNCR_COUNT_MASK;
->   
-> @@ -478,10 +481,10 @@ static ssize_t port_flush_req_show(struct device *dev,
->   	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   	unsigned long val;
->   
-> +	guard(spinlock)(&drvdata->spinlock);
->   	if (!drvdata->csdev->refcnt)
->   		return -EINVAL;
->   
-> -	guard(spinlock)(&drvdata->spinlock);
->   	val = readl_relaxed(drvdata->base + TPDA_FLUSH_CR);
->   
->   	return sysfs_emit(buf, "0x%lx\n", val);
-> @@ -498,10 +501,13 @@ static ssize_t port_flush_req_store(struct device *dev,
->   	if (kstrtou32(buf, 0, &val))
->   		return -EINVAL;
->   
-> -	if (!drvdata->csdev->refcnt || !val)
-> +	if (!val)
->   		return -EINVAL;
->   
->   	guard(spinlock)(&drvdata->spinlock);
-> +	if (!drvdata->csdev->refcnt)
-> +		return -EINVAL;
-> +
->   	CS_UNLOCK(drvdata->base);
->   	writel_relaxed(val, drvdata->base + TPDA_FLUSH_CR);
->   	CS_LOCK(drvdata->base);
-> 
-> ---
-> base-commit: f3e6330d7fe42b204af05a2dbc68b379e0ad179e
-> change-id: 20260408-fix-race-condition-issue-d44203254b87
-> 
-> Best regards,
+The filename of the patch is:
+     net-phy-allow-mdio-bus-pm-ops-to-start-stop-state-machine-for-phylink-controlled-phy.patch
+and it can be found in the queue-6.1 subdirectory.
 
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
+
+
+From 681739313@139.com Fri Mar 27 02:52:59 2026
+From: Rajani Kantha <681739313@139.com>
+Date: Fri, 27 Mar 2026 09:52:37 +0800
+Subject: net: phy: allow MDIO bus PM ops to start/stop state machine for phylink-controlled PHY
+To: gregkh@linuxfoundation.org, stable@vger.kernel.org, vladimir.oltean@nxp.com
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org, andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk, davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com, f.fainelli@gmail.com, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, wei.fang@nxp.com
+Message-ID: <20260327015237.1713008-1-681739313@139.com>
+
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+
+[ Upstream commit fc75ea20ffb452652f0d4033f38fe88d7cfdae35 ]
+
+DSA has 2 kinds of drivers:
+
+1. Those who call dsa_switch_suspend() and dsa_switch_resume() from
+   their device PM ops: qca8k-8xxx, bcm_sf2, microchip ksz
+2. Those who don't: all others. The above methods should be optional.
+
+For type 1, dsa_switch_suspend() calls dsa_user_suspend() -> phylink_stop(),
+and dsa_switch_resume() calls dsa_user_resume() -> phylink_start().
+These seem good candidates for setting mac_managed_pm = true because
+that is essentially its definition [1], but that does not seem to be the
+biggest problem for now, and is not what this change focuses on.
+
+Talking strictly about the 2nd category of DSA drivers here (which
+do not have MAC managed PM, meaning that for their attached PHYs,
+mdio_bus_phy_suspend() and mdio_bus_phy_resume() should run in full),
+I have noticed that the following warning from mdio_bus_phy_resume() is
+triggered:
+
+	WARN_ON(phydev->state != PHY_HALTED && phydev->state != PHY_READY &&
+		phydev->state != PHY_UP);
+
+because the PHY state machine is running.
+
+It's running as a result of a previous dsa_user_open() -> ... ->
+phylink_start() -> phy_start() having been initiated by the user.
+
+The previous mdio_bus_phy_suspend() was supposed to have called
+phy_stop_machine(), but it didn't. So this is why the PHY is in state
+PHY_NOLINK by the time mdio_bus_phy_resume() runs.
+
+mdio_bus_phy_suspend() did not call phy_stop_machine() because for
+phylink, the phydev->adjust_link function pointer is NULL. This seems a
+technicality introduced by commit fddd91016d16 ("phylib: fix PAL state
+machine restart on resume"). That commit was written before phylink
+existed, and was intended to avoid crashing with consumer drivers which
+don't use the PHY state machine - phylink always does, when using a PHY.
+But phylink itself has historically not been developed with
+suspend/resume in mind, and apparently not tested too much in that
+scenario, allowing this bug to exist unnoticed for so long. Plus, prior
+to the WARN_ON(), it would have likely been invisible.
+
+This issue is not in fact restricted to type 2 DSA drivers (according to
+the above ad-hoc classification), but can be extrapolated to any MAC
+driver with phylink and MDIO-bus-managed PHY PM ops. DSA is just where
+the issue was reported. Assuming mac_managed_pm is set correctly, a
+quick search indicates the following other drivers might be affected:
+
+$ grep -Zlr PHYLINK_NETDEV drivers/ | xargs -0 grep -L mac_managed_pm
+drivers/net/ethernet/atheros/ag71xx.c
+drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+drivers/net/ethernet/microchip/lan966x/lan966x_main.c
+drivers/net/ethernet/freescale/dpaa2/dpaa2-mac.c
+drivers/net/ethernet/freescale/fs_enet/fs_enet-main.c
+drivers/net/ethernet/freescale/dpaa/dpaa_eth.c
+drivers/net/ethernet/freescale/ucc_geth.c
+drivers/net/ethernet/freescale/enetc/enetc_pf_common.c
+drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c
+drivers/net/ethernet/marvell/mvneta.c
+drivers/net/ethernet/marvell/prestera/prestera_main.c
+drivers/net/ethernet/mediatek/mtk_eth_soc.c
+drivers/net/ethernet/altera/altera_tse_main.c
+drivers/net/ethernet/wangxun/txgbe/txgbe_phy.c
+drivers/net/ethernet/meta/fbnic/fbnic_phylink.c
+drivers/net/ethernet/tehuti/tn40_phy.c
+drivers/net/ethernet/mscc/ocelot_net.c
+
+Make the existing conditions dependent on the PHY device having a
+phydev->phy_link_change() implementation equal to the default
+phy_link_change() provided by phylib. Otherwise, we implicitly know that
+the phydev has the phylink-provided phylink_phy_change() callback, and
+when phylink is used, the PHY state machine always needs to be stopped/
+started on the suspend/resume path. The code is structured as such that
+if phydev->phy_link_change() is absent, it is a matter of time until the
+kernel will crash - no need to further complicate the test.
+
+Thus, for the situation where the PM is not managed by the MAC, we will
+make the MDIO bus PM ops treat identically the phylink-controlled PHYs
+with the phylib-controlled PHYs where an adjust_link() callback is
+supplied. In both cases, the MDIO bus PM ops should stop and restart the
+PHY state machine.
+
+[1] https://lore.kernel.org/netdev/Z-1tiW9zjcoFkhwc@shell.armlinux.org.uk/
+
+Fixes: 744d23c71af3 ("net: phy: Warn about incorrect mdio_bus_phy_resume() state")
+Reported-by: Wei Fang <wei.fang@nxp.com>
+Tested-by: Wei Fang <wei.fang@nxp.com>
+Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+Link: https://patch.msgid.link/20250407094042.2155633-1-vladimir.oltean@nxp.com
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+Signed-off-by: Rajani Kantha <681739313@139.com>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ drivers/net/phy/phy_device.c |   31 +++++++++++++++++++++++++++++--
+ 1 file changed, 29 insertions(+), 2 deletions(-)
+
+--- a/drivers/net/phy/phy_device.c
++++ b/drivers/net/phy/phy_device.c
+@@ -247,6 +247,33 @@ static void phy_link_change(struct phy_d
+ 		phydev->mii_ts->link_state(phydev->mii_ts, phydev);
+ }
+ 
++/**
++ * phy_uses_state_machine - test whether consumer driver uses PAL state machine
++ * @phydev: the target PHY device structure
++ *
++ * Ultimately, this aims to indirectly determine whether the PHY is attached
++ * to a consumer which uses the state machine by calling phy_start() and
++ * phy_stop().
++ *
++ * When the PHY driver consumer uses phylib, it must have previously called
++ * phy_connect_direct() or one of its derivatives, so that phy_prepare_link()
++ * has set up a hook for monitoring state changes.
++ *
++ * When the PHY driver is used by the MAC driver consumer through phylink (the
++ * only other provider of a phy_link_change() method), using the PHY state
++ * machine is not optional.
++ *
++ * Return: true if consumer calls phy_start() and phy_stop(), false otherwise.
++ */
++static bool phy_uses_state_machine(struct phy_device *phydev)
++{
++	if (phydev->phy_link_change == phy_link_change)
++		return phydev->attached_dev && phydev->adjust_link;
++
++	/* phydev->phy_link_change is implicitly phylink_phy_change() */
++	return true;
++}
++
+ static bool mdio_bus_phy_may_suspend(struct phy_device *phydev)
+ {
+ 	struct device_driver *drv = phydev->mdio.dev.driver;
+@@ -307,7 +334,7 @@ static __maybe_unused int mdio_bus_phy_s
+ 	 * may call phy routines that try to grab the same lock, and that may
+ 	 * lead to a deadlock.
+ 	 */
+-	if (phydev->attached_dev && phydev->adjust_link)
++	if (phy_uses_state_machine(phydev))
+ 		phy_stop_machine(phydev);
+ 
+ 	if (!mdio_bus_phy_may_suspend(phydev))
+@@ -361,7 +388,7 @@ no_resume:
+ 		}
+ 	}
+ 
+-	if (phydev->attached_dev && phydev->adjust_link)
++	if (phy_uses_state_machine(phydev))
+ 		phy_start_machine(phydev);
+ 
+ 	return 0;
+
+
+Patches currently in stable-queue which might be from 681739313@139.com are
+
+queue-6.1/net-phy-move-phy_link_change-prior-to-mdio_bus_phy_may_suspend.patch
+queue-6.1/net-phy-fix-phy_uses_state_machine.patch
+queue-6.1/net-phy-allow-mdio-bus-pm-ops-to-start-stop-state-machine-for-phylink-controlled-phy.patch
 
