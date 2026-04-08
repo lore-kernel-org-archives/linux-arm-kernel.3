@@ -4,60 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B30BFFD5F88
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 08:38:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02517FD5F98
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 08:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rsh4UWNOaS4eWTQc6pohKYvgavIyTrpuDxRmK3Vhtgg=; b=tbFIkXozhepCMHvzKsmuQDdzMA
-	Ea94UVq0plk9dMXWYIm+4tZqA3gn74m7NHPVVuZJa/yNC/4IvRUQG5FnLs+l7fNl9tbreSNxyGQ2X
-	0IUvWoMLm7dl+N17dNmYAWJ6ne5DX88eq5W/THjIhXBltBFqJrl+g5AV9FtRYjZKALyj9mUat4psp
-	R9lIAtQeaOXbFJ1vILfTmpcvPGmHyoZjApus/V6HuvhBm9nm4lSmMqagzWV6WNh7NEj0K5JOABGK/
-	ZMTVp0yJR6xrsGaEv6+zwgZJAFLruXzLUfnQs7/rTDMzjB6v5z0A7AIhsdPLJTtrTpdRan9hf30kv
-	JGBJS3Iw==;
+	bh=F+b+vJqAa0rOHhuf6lMAativM30MZs8le5wdam8HCbE=; b=enw0OsLIacBKE6DxBiWDuDtlSu
+	/E6JVu9buMmQciy+BGh37UoDxQjyONeL56dWHJcM6LSuHDV4sc0DNcicBzsFMAwxUthCWAocEQ2ph
+	8OZLlf0Lrq0NgcoV7CHrkdGW2anvU5y2PmCLnFFTypWxhzy1sZQrv89d2jTriubE9irIfbHcWAaB/
+	pleq9H1OfU2Q4N4KufEMDg6xAWtofHQ44xJZK8MMp7k/3m/sQdcHpzaTr0gnMfKaVR/p4Nh15u/jg
+	gX3NNY0NMtp0J8LijxbMlnbKSz0rGk2/VlOzKthe4waz/PFlsKlJQTd1L0R/SNYwZAGzThQV1WP3f
+	DR/WKcpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAOQX-00000008WtZ-2WH2;
-	Wed, 08 Apr 2026 08:38:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wAORb-00000008X0b-2ylr;
+	Wed, 08 Apr 2026 08:39:27 +0000
+Received: from mail-norwayeastazon11013032.outbound.protection.outlook.com ([40.107.159.32] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAOQV-00000008Wt3-35za
+	id 1wAORY-00000008WzV-3Pmq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 08:38:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B22FF44479;
-	Wed,  8 Apr 2026 08:38:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C203C19424;
-	Wed,  8 Apr 2026 08:38:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775637498;
-	bh=tFO2wz8+moG8jwhFOJAx5x+1L99MAA6vAsWauEqfC8k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KmHU4vQta41BCXG19fXqoa5tTQlJEl6WHONqU7CIzw/YpkiDljrlZPIravgBwwtXQ
-	 EYMYZMKs8c/0GVDGXUQEC2sSMlB9/y01wj35boix4K9ORlZ2/e0rAZsCSq2vJDH/d5
-	 crp40HkhXdnIILqqTqe9D2YbS8Za8D0nvzoYScDW9CX1TEb1YafPe2k9Y1D6GkF2m4
-	 IVcVo9ZXmR+x0MmO3E4yACg2nFzr8OvkRE1PDCATHT6yk3nbsdHS82FddOq9EdvrBf
-	 j6AFyf1NddimzzhMBhiahr6Mq/saYVBjZ/4l4SuVwD5Dw2RC+S54O6+EjSDhMLB2nR
-	 m60qNuRTGtWbw==
-Date: Wed, 8 Apr 2026 11:38:15 +0300
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Ethan Luna <trunixcodes@zohomail.com>
-Cc: peterhuewe@gmx.de, jgg@ziepe.ca, nicolas.ferre@microchip.com,
-	claudiu.beznea@tuxon.dev, linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] tpm: i2c: atmel: fix block comment formatting
-Message-ID: <adYT9yeJBO9PhMBM@kernel.org>
-References: <20260324154354.6268-1-trunixcodes@zohomail.com>
+	Wed, 08 Apr 2026 08:39:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=e4qpYDll0xIEdDadVQIk+Ak5MFAd8RRh1ykQkrkIG5TUqad65qIKLcIibSW7/fc/QFJ3tEWgkiRp1Mt2ESTI82/eGGRRFmpRSiUFH7M1YejOhRcoe+h8ivf2s18l/+r1muN/SB6zruucAsIpsDaMKlDPRAL41CySICVX43HMS6soG63wyTRVIMU8P3uBCFMSWjnnQT/hlH0lKpqRHCZqKiR0KELyXCjGi2QPD+jgKJavSYoK2eLY0g4Rv+gIdxBetsGZ/olxqycd0KxBrYmTnwae5++zoYi6aDHUzuOKKIDtuE2/1RmeuettSq4UHKFUsa7JQp2e4xTHe9bYP6TABQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F+b+vJqAa0rOHhuf6lMAativM30MZs8le5wdam8HCbE=;
+ b=oD4rRruAkuNeSLXgrFKnrj+rKuRcexvrz5F6/1mjUICUFC99Dhe9qv/uICtXUE52FhET7oacEB23CpLUVGnay0FD308gpiLwgJf1DZy6OV1dl6AHpY0eH/5qGQeDSHKzXGQdVZNsQyiZTq+luXhjDKSa6CjyNoIvUrxrO6F3xOS7PUDsNsahsiGvp/fap/wHTedrB5cq6kpQdeo1hYt5T/K6D+1AhTc4wIflFmloIu/ho4gs2ZNzxENd4LnkmMT5pZORDkaoMecCRWtgR8VT5I33If1ZddkMB5SerofesrhT/Ffh4DBp3BL6U50vtUPvBJ0JH2zIH2/WBmmXlMHl3A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F+b+vJqAa0rOHhuf6lMAativM30MZs8le5wdam8HCbE=;
+ b=cTgNJUQmtdwroGA+Vae4hCVGhNXmepwKviJ+uDeAs+LCTVMUdCS+OyfztFqoN9Yl70UhU91+unfnYyNpoWgViieQQEVvkf1KvueKGFC/W7Q8MDT57FhUqqzmkhCCkr0EU8itcWhcEhgbrDFJeTF/h+/mUwN5Y2oXIu+M+y7j+NZaJZSj8lK9MYzA8G7wsDHuNkSwrIuvrSR/toqinMfkV6yWC2CuTli/zMdIlACCohmzG/zhdZaZoNGxeeAI+9xYCjoEEZgzwebjni58InShfPWh7R8ltoENJ/x57rdry8TGEAtkfEYfawc4irg4pSD9sh0V6JV292279Nodj1HCLA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by DBAPR04MB7381.eurprd04.prod.outlook.com (2603:10a6:10:1a2::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.28; Wed, 8 Apr
+ 2026 08:39:18 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64%3]) with mapi id 15.20.9769.016; Wed, 8 Apr 2026
+ 08:39:18 +0000
+Message-ID: <5ce48659-2c6c-4c60-a8e8-9031bdbaa2a3@nxp.com>
+Date: Wed, 8 Apr 2026 16:40:37 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: imx93-9x9-qsb: Add tianma,tm050rdh03 panel
+To: Frank Li <Frank.li@nxp.com>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260407-tianma-tm050rdh03-imx93-9x9-qsb-v1-1-24d514a62fdc@nxp.com>
+ <adTUkWvqVUhLiw_J@lizhi-Precision-Tower-5810>
+ <a31e926e-9e7e-4ba4-aafd-0f76f53fa176@nxp.com>
+ <adYKtjPvIgoK2oou@lizhi-Precision-Tower-5810>
+ <f5cd5da8-566d-4dff-b712-3d48927f97eb@nxp.com>
+ <adYRuAU5ueEKHK5l@lizhi-Precision-Tower-5810>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <adYRuAU5ueEKHK5l@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0182.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1b6::17) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260324154354.6268-1-trunixcodes@zohomail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|DBAPR04MB7381:EE_
+X-MS-Office365-Filtering-Correlation-Id: 09a33104-c9ac-4d63-a299-08de954a52d7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|19092799006|376014|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: jvkpQwh1xQ5tYPrSF5qz07CP6OtyEJxhoUfCKKBrYm6LhQyc1JWsWHYZtHJEn7HuzIVjx5llf5zPU2fzhW2EmeoeLZYGfeSS6f1V9/vRxM1wYAoUZ3AdCZnFWdHx5Z/C8s7qgcCl3pGkFnP7I1PfyghKZmyk5m+ZLgGZ3ZjBcW/dYLkUtpn2nclW0nfsX/QyX5nUaChLqQgaLINMKRDEWmmPwDheIrPfsoLVAUEN36dL46KRl/MEk481HdVmbZPHefDjNDf6ceM+fNGgJ+JVmVsyTh4bQrqpQxA0zK3XKmUf6EAlKWQXBXi9YRbFF+5zWf366wnhDi5/hU25Rbzz8Sl/lp8LbF5MH4IEAPs2SBfbU94uxnTwL0/gOY5jaQ3AB4aFhyXHmSuY7WEoVKJ2GBAY2qjZuyN/QbZP8Ac8bd1NMBcn1qxQRmezdYdtwePDNzNNTSsXbd/ElzVGcCwM5AsD5/Gc1szuoCaSBAWt0T4KbaJ7qWLXJ9DiHMEkcjK1yolvHbOa+jrEcRQrsNQO7hAvF8pVNwDBV5ksn2Q5qmgi7r26MughvlDjdseflLcQtoDfHBLk7JiuqfOSqgTGPmKkhABwojdLzOe1zBKiNKW46Fih7HpGiHHx1Q2gF6QG7wBeRFZ/3oQjFTtge/J6ed3DPgcYSSV4TGA5LfDMDJdnq4AF/JR6siuIZ7A5QpGEZZOsvr0zw0rM8w7c7AaZsFUyGyBBkX74VD0pi3OIr+xlYpwRxhzhd4nSJ5tVR+qc
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(19092799006)(376014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cndGQXI4YXBQL1NEYi9ubjlTTVFwRVdOYllsYk1qSDJsdnB6WEQvdG9ydEJC?=
+ =?utf-8?B?OUw0dEEwbW5JQm81OFlyS3djSlovQVBzYTd2Q0t4Rk52U0E4U2RLd1JFcDVh?=
+ =?utf-8?B?UmJyNXhWQ2tYMHZMQ29WOXJBSEkzQzg5Q2ZCY1N1UTVRbDlPaXU4Z3M2TlJP?=
+ =?utf-8?B?b3REajRycmM5eFI4NXU1U0tGTUN4eWJSRTBuVzFjQkNkVENHRTUwV3VLTk5H?=
+ =?utf-8?B?UjJ6SnlJOVlsY2hjZUNSekxUN29LMGtWTSt6YWNjZ1g0SHVzekJxbHhsWXly?=
+ =?utf-8?B?bS95ZWZMTEhiWG1ySmRiRUF0RzM5aWxxTGU0WXEwWEE5RjI3K211ZlFheE5z?=
+ =?utf-8?B?WlEwVE5ZcEZlbEk2b2FMS29KWitVeXIvNytUVXJEMXZlVVZ6NG43aE9lZHJF?=
+ =?utf-8?B?cGd2K0RWRThUZWQ5czlnSjlJVjRwdjdmVzZjeXpIaUFXc1JCaXN4L2JmT1RD?=
+ =?utf-8?B?RGQwblpIRWJ4aFVrbFNYakZwb1k3dEdyK3lJNFRickJ2NUY5aURxUXhZUHNt?=
+ =?utf-8?B?Kzc1aW05d29TOFVGSlVjQ0IwRWhLN0FpTUFxTWNQRURBWHZwSnpqQy9KME1J?=
+ =?utf-8?B?RmYxa1N0U1ZnditiYitmZEUvMDU4Q0QyUDBvK2lLd2hTVHo4eTkyTVNJc09F?=
+ =?utf-8?B?VHcwSkNuekpaeHltZmt1MlM2NSsrcVNQNDg5d1FTVDlWNkxJVFQxYXAxN0lt?=
+ =?utf-8?B?SUo3VGxQczgxcTd1aStma295eFZOMEMxSkJpZW0xempMKys3VjNRUWY2clpS?=
+ =?utf-8?B?blJwZEhqYlVnSWY1dkdZTFJ0c0NDMCt0NDNNZnpESThyaG1GOGtwVnRjT2Fp?=
+ =?utf-8?B?ZFMxZWZORjV6V2dNYnZUQ0ZEaVZqcmwvMzg4Nk1EZVV3aVMvVEoxa0NpMFhY?=
+ =?utf-8?B?bzdmWDZYVVJwTUkxUU5TWktpcWtOdFpKb0dWNHVOZkVhWklDeSt0VnNYeWNq?=
+ =?utf-8?B?SUdHWmpGWFljVU04Zk5yRVNzVElQSWFWSDRzQlFQMmxIcFN0UCt5UWVKZm56?=
+ =?utf-8?B?Smc0QWRvU0lzOEd5TWxGVzBRZFVQNU5wa2hiL1BVTGpCWEdjNnUyL1g5R2tE?=
+ =?utf-8?B?d0NuYmNzckpIdlpkQ1FRYWN3bmpHL1plR3ZRcit1OXRDYWNtNTVhTmloSEVP?=
+ =?utf-8?B?c1VnTmNrVkFGWXMvRDNyQ3lVLy9ob0kzZVRrNFEwVDlYK05teUs0eUtzVkFx?=
+ =?utf-8?B?RFp3REJVWmxsMExVRDZWVk14ZEU5NXA1WnVyaVpzUDhiMEpYSTZjVmc1d2x5?=
+ =?utf-8?B?c2VjSFBaRjZWcVI2TERZbUo3YUJkVlpEMzZwNnZVcExIaXFQNzhwYkppdWdV?=
+ =?utf-8?B?ZUl6R1U5RnJFL0hDNy9uTUxYRFdyZ0N4R1Y5bERveHBvQXFiMi9qcnhiL2hK?=
+ =?utf-8?B?TWp3Smw5MUFRU09lTEFxcXZLRWppWmlYOFNwMlRNS0lPT0xLYWE2VW1acTJt?=
+ =?utf-8?B?bFFtb2doa3FxenhUMlhvdFRGcUkvbkhrVFZLQmdqemdBbnJLdTdXV1BucDEx?=
+ =?utf-8?B?Q0hKcldsZ3ZzYTl4UVpvcEJUZU5naDFuWkNlRUFTM1NGQWFQZVE3M1BxV0Nu?=
+ =?utf-8?B?VllZV2x0WjY4aGJNa2Q1MjV4MndrNVFvRUNYNDNwUnFtdS9NQzZWeG9DMjVK?=
+ =?utf-8?B?d0VJZVo0YTBGM3V2VHBucGVyU0VTQmZQQnp2eEhkRzVySTZ0TGhSZ2w3NkxC?=
+ =?utf-8?B?M3hJeU45WGRkSjdkT1UwMzJsZXRkbEdpVDZWd1ZGVFBrN3d2K0dPakxzZm16?=
+ =?utf-8?B?MVc4dzk0NkgwQnNYVHM3SVUxM0ZJTVNZdmFmWm1hWVFFVjVJZytUK3dBb0l6?=
+ =?utf-8?B?NWs1KzJ4TG91ekNMNVU2SDNEMHlJaCtyZHR2MUxzK3lxT0Z5eHZTYTd6bGFI?=
+ =?utf-8?B?WGVJSUZMTjgwSUtxVUQxcnRKelZCaStUb0I5UWZmUmtyL2VMcGEvNGRWamo5?=
+ =?utf-8?B?N2R3Y0ZmQ1d5dFRFSjRNV0JjWUNKR3VSRThiMHY4TFNrZjZwUk1jcWxBNjNE?=
+ =?utf-8?B?d3RwYzZ4NkNFS3UxaUZuNTJyL2FUd2F1eWNwNm9aWDMrdTlIM1dGalVvQnhX?=
+ =?utf-8?B?SWUydkRrV0pUdURMa2dtVFI5L2dGUURnNytUeEZHb2RaRDBjREFwTEFJQ2du?=
+ =?utf-8?B?WmE3TldvcEZHTlNXdnI5M1JDUENIT0N6SmxEc1RGYUVRdVZNR3kreUlLZ1Nn?=
+ =?utf-8?B?UG50ekg1RlJKYjB3bUZmaTVCK2VxR2JxNy9EZjE4Rk04dlY1amdMMVBYbzJR?=
+ =?utf-8?B?RENDbnowaXl5U25LZTRaQ1pObTRwQkIwamgycVdSSHV4aWVjVFFsb1doQVNY?=
+ =?utf-8?B?M1Rnb0JYVEt1dThsY1M0aHQrb1JXeXB5clNLSXVFQnhjSWluM1VIQT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 09a33104-c9ac-4d63-a299-08de954a52d7
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2026 08:39:18.6524
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wh9Lf7A5Wmp3rKtBEn3l6gNdWiNhRbj+6YOkQaLxmV8QGRXygVl1iRkheyS16xZ7DaGbMze96TR7eFhSscFhZw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7381
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_013819_814106_384A1293 
-X-CRM114-Status: GOOD (  29.61  )
+X-CRM114-CacheID: sfid-20260408_013924_857666_C7FCACF1 
+X-CRM114-Status: GOOD (  21.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,117 +155,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 08:39:49AM -0700, Ethan Luna wrote:
-> Multiple block comments in tpm_i2c_atmel.c placed the closing '*/' on the
-> same line as the comment text. This violates the kernel's preferred
-> comment style, which requires the closing delimiter to appear on its
-> line.
-> 
-> Fix the formatting to improve readability and resolve checkpatch
-> warnings.
-> 
-> Signed-off-by: Ethan Luna <trunixcodes@zohomail.com>
-> ---
-> 
-> V1 -> V2: Fixed block comment formatting consistently across all multi-line comments
-> V2 -> V3: Fixed trailing whitespaces consistently across all multi-line comments
-> 
-> v1: https://lore.kernel.org/all/20260322193112.27010-1-trunixcodes@zohomail.com/
-> v2: https://lore.kernel.org/all/20260323134200.7766-1-trunixcodes@zohomail.com/
-> 
->  drivers/char/tpm/tpm_i2c_atmel.c | 34 +++++++++++++++++++++-----------
->  1 file changed, 23 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/char/tpm/tpm_i2c_atmel.c b/drivers/char/tpm/tpm_i2c_atmel.c
-> index 4f229656a8e2..9fd73049821f 100644
-> --- a/drivers/char/tpm/tpm_i2c_atmel.c
-> +++ b/drivers/char/tpm/tpm_i2c_atmel.c
-> @@ -31,9 +31,11 @@
->  
->  struct priv_data {
->  	size_t len;
-> -	/* This is the amount we read on the first try. 25 was chosen to fit a
-> +	/*
-> +	 * This is the amount we read on the first try. 25 was chosen to fit a
->  	 * fair number of read responses in the buffer so a 2nd retry can be
-> -	 * avoided in small message cases. */
-> +	 * avoided in small message cases.
-> +	 */
->  	u8 buffer[sizeof(struct tpm_header) + 25];
->  };
->  
-> @@ -58,7 +60,9 @@ static int i2c_atmel_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
->  	if (status < 0)
->  		return status;
->  
-> -	/* The upper layer does not support incomplete sends. */
-> +	/*
-> +	 * The upper layer does not support incomplete sends.
-> +	 */
->  	if (status != len)
->  		return -E2BIG;
->  
-> @@ -76,9 +80,11 @@ static int i2c_atmel_recv(struct tpm_chip *chip, u8 *buf, size_t count)
->  	if (priv->len == 0)
->  		return -EIO;
->  
-> -	/* Get the message size from the message header, if we didn't get the
-> +	/*
-> +	 * Get the message size from the message header, if we didn't get the
->  	 * whole message in read_status then we need to re-read the
-> -	 * message. */
-> +	 * message.
-> +	 */
->  	expected_len = be32_to_cpu(hdr->length);
->  	if (expected_len > count)
->  		return -ENOMEM;
-> @@ -111,15 +117,19 @@ static u8 i2c_atmel_read_status(struct tpm_chip *chip)
->  	struct i2c_client *client = to_i2c_client(chip->dev.parent);
->  	int rc;
->  
-> -	/* The TPM fails the I2C read until it is ready, so we do the entire
-> +	/*
-> +	 * The TPM fails the I2C read until it is ready, so we do the entire
->  	 * transfer here and buffer it locally. This way the common code can
-> -	 * properly handle the timeouts. */
-> +	 * properly handle the timeouts.
-> +	 */
->  	priv->len = 0;
->  	memset(priv->buffer, 0, sizeof(priv->buffer));
->  
->  
-> -	/* Once the TPM has completed the command the command remains readable
-> -	 * until another command is issued. */
-> +	/*
-> +	 * Once the TPM has completed the command the command remains readable
-> +	 * until another command is issued.
-> +	 */
->  	rc = i2c_master_recv(client, priv->buffer, sizeof(priv->buffer));
->  	dev_dbg(&chip->dev,
->  		"%s: sts=%d", __func__, rc);
-> @@ -172,9 +182,11 @@ static int i2c_atmel_probe(struct i2c_client *client)
->  
->  	dev_set_drvdata(&chip->dev, priv);
->  
-> -	/* There is no known way to probe for this device, and all version
-> +	/*
-> +	 * There is no known way to probe for this device, and all version
->  	 * information seems to be read via TPM commands. Thus we rely on the
-> -	 * TPM startup process in the common code to detect the device. */
-> +	 * TPM startup process in the common code to detect the device.
-> +	 */
->  
->  	return tpm_chip_register(chip);
->  }
-> -- 
-> 2.53.0
-> 
+On Wed, Apr 08, 2026 at 04:28:40AM -0400, Frank Li wrote:
+> On Wed, Apr 08, 2026 at 04:08:24PM +0800, Liu Ying wrote:
+>> On Wed, Apr 08, 2026 at 03:58:59AM -0400, Frank Li wrote:
+>>> On Wed, Apr 08, 2026 at 02:02:54PM +0800, Liu Ying wrote:
+>>>> Hi Frank,
+>>>>
+>>>> On Tue, Apr 07, 2026 at 05:55:29AM -0400, Frank Li wrote:
+>>>>> On Tue, Apr 07, 2026 at 05:15:31PM +0800, Liu Ying wrote:
+>>>>>> Support tianma,tm050rdh03 DPI panel on i.MX93 9x9 QSB.
+>>>>>>
+>>>>>> The panel connects with the QSB board through an adapter board[1]
+>>>>>> designed by NXP.
+>>>>>>
+>>>>>> Link: https://www.nxp.com/design/design-center/development-boards-and-designs/parallel-lcd-display:TM050RDH03-41 [1]
+>>>>>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+>>>>>> ---
+>>>>>>  arch/arm64/boot/dts/freescale/Makefile             |   2 +
+>>>>>>  .../imx93-9x9-qsb-ontat-kd50g21-40nt-a1.dtsi       | 110 +++++++++++++++++++++
+>>>>>>  .../imx93-9x9-qsb-ontat-kd50g21-40nt-a1.dtso       | 106 +-------------------
+>>>>>
+>>>>> Can you add some description about raname in commit message?
+>>>>
+>>>> I'll add some description about the file copy in commit message.
+>>>>
+>>>>> Use -C option to create patch.
+>>>>
+>>>> Will do.
+>>>>
+>>>>>
+>>>>> ...
+>>>>>> diff --git a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb-tianma-tm050rdh03.dtso b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb-tianma-tm050rdh03.dtso
+>>>>>> new file mode 100644
+>>>>>> index 000000000000..c233797ec28c
+>>>>>> --- /dev/null
+>>>>>> +++ b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb-tianma-tm050rdh03.dtso
+>>>>>> @@ -0,0 +1,14 @@
+>>>>>> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+>>>>>> +/*
+>>>>>> + * Copyright 2026 NXP
+>>>>>> + */
+>>>>>> +
+>>>>>> +#include <dt-bindings/gpio/gpio.h>
+>>>>>> +#include "imx93-9x9-qsb-ontat-kd50g21-40nt-a1.dtsi"
+>>>>>> +
+>>>>>> +&{/} {
+>>>>>> +	panel {
+>>>>>> +		compatible = "tianma,tm050rdh03";
+>>>>>> +		enable-gpios = <&pcal6524 8 GPIO_ACTIVE_HIGH>;
+>>>>>> +	};
+>>>>>> +};
+>>>>>
+>>>>> Is it possible to appply this overlay file and kd50g21-40nt-a1 overlay file
+>>>>>
+>>>>> to imx93-9x9-qsb.dtb, so needn't create dtsi.
+>>>>
+>>>> I'm sorry, I don't get your question here.
+>>>> Anyway, the DT overlays are needed, because the 40-pin EXP/PRI interface on
+>>>> the i.MX93 9x9 QSB board can not only connect to a DPI panel adapter board
+>>>> but also to an audio hat[2], and maybe more.  The newly introduced .dtsi
+>>>> file just aims to avoid duplicated code.
+>>>
+>>> My means apply two overlay files to dtb
+>>>
+>>> imx93-9x9-qsb-tianma-tm050rdh03-dtbs += imx93-9x9-qsb.dtb imx93-9x9-qsb-ontat-kd50g21-40nt-a1.dtbo imx93-9x9-qsb-tianma-tm050rdh03.dtbo
 
-Thank you.
+This ...
 
-Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
+>>>
+>>> In imx93-9x9-qsb-tianma-tm050rdh03.dtbo, only include
+>>> &{/} {
+>>> 	panel {
+>>> 		compatible = "tianma,tm050rdh03";
+>>> 		enable-gpios = <&pcal6524 8 GPIO_ACTIVE_HIGH>;
+>>> 	};
+>>> };
+>>
+>> If an user wants to use imx93-9x9-qsb.dtb and the DT overlay blob
+>> imx93-9x9-qsb-tianma-tm050rdh03.dtbo to enable the tianma,tm050rdh03
+>> DPI panel, then it won't work unless the user also apply
+>> imx93-9x9-qsb-ontat-kd50g21-40nt-a1.dtbo, right?
+>>
+>>>
+> 
+> Yes, imx93-9x9-qsb-tianma-tm050rdh03.dtb already created, which already
+> applied both overlay file.
 
-Applied.
+.... indicates that imx93-9x9-qsb-tianma-tm050rdh03.dtb is generated by
+applying both imx93-9x9-qsb-ontat-kd50g21-40nt-a1.dtbo and
+imx93-9x9-qsb-tianma-tm050rdh03.dtbo to imx93-9x9-qsb.dtb.
+While, imx93-9x9-qsb-tianma-tm050rdh03.dtbo(a DT overlay blob) just contains
+the panel node, which means that an user __cannot_ enable the tianma,tm050rdh03
+DPI panel by only applying it to imx93-9x9-qsb.dtb, unless the user also
+applies imx93-9x9-qsb-ontat-kd50g21-40nt-a1.dtbo.  That's why the .dtsi
+file is needed.
 
-BR, Jarkko
+> 
+> can the same board be use for imx91 or other evk boards?
+
+Yes, both tianma,tm050rdh03 and ontat,kd50g21-40nt-a1 DPI panels can be
+connected to i.MX91/93 11x11 EVK and 9x9 QSB boards.
+
+> 
+> Frank
+> 
+>>> Frank
+>>>>
+>>>> [2] https://www.nxp.com/design/design-center/development-boards-and-designs/mx93aud-hat-audio-board:MX93AUD-HAT
+>>>>
+>>>>>
+>>>>> Frank
+>>>>>>
+>>>>>> ---
+>>>>>> base-commit: 816f193dd0d95246f208590924dd962b192def78
+>>>>>> change-id: 20260407-tianma-tm050rdh03-imx93-9x9-qsb-6e4bbbde3d08
+>>>>>>
+>>>>>> Best regards,
+>>>>>> --
+>>>>>> Liu Ying <victor.liu@nxp.com>
+>>>>>>
+>>>>
+>>>> --
+>>>> Regards,
+>>>> Liu Ying
+>>
+>> --
+>> Regards,
+>> Liu Ying
+
+-- 
+Regards,
+Liu Ying
 
