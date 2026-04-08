@@ -4,91 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 679071073CAB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 12:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70B041073C93
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 12:59:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0HjLng+uQRNjm1z1zuTjy5y/w9qsZHRWlW+XuytMdIQ=; b=BHtJDgiuwR+1mjrb2hdDdI01BQ
-	pEn1U4leei9tmmq5EEtmL4YBtQ/JadcNG0JuoAtjjAHnmBJ6jJTw2DETaYZudVBelgEXwGPu4A/Pu
-	SM5MM1UTbDQvgGfo+kRdfOfxAxu2wSs2G3L/oRMWDv1qw+zy6Rn8wSzwuNhuH+9e21poQBD+aC3J9
-	22hbBjsudjQZm606UAqaPQH6DijgtANZ93Pbyb+ZVPeH4Ma3+foc6ce8sG59CyCykC/n2L7KrWprF
-	B5mevB9RQ13Wd9w/j6nI5ivfTl2pvnBJMtDI2f+Bzht5i3NRGRT2UthBAyhrnqECqt3eAppc5CZyF
-	3EUF3O5w==;
+	bh=eh2Ut171wqmOONOps9l0PZ9TIR9l30BuTl8yI4h9mus=; b=IApcKB/Xt8HkQoi8lsMjwUcjUV
+	RyfAQdmI398mN8kVNTw0lsC0d+EytKbRgCgA+mTUbmxVysDRj/JxuH8OY/+UDnHt3Hv2VYkeRgEWw
+	jfx/Fp22BHYbDI1Tu/x8AJeghWW8W7hxWzmuDx3mtqw6vLJu8iiKXc9JSFFoRC99udx9zTQRrChCs
+	Mv4O18BdaDgj2jExlgOIAwyaNMIBomJVPgIiG1MpBRRzu2QJPMwNolv6O4yjZHW56vc7pMlMcWVy/
+	Ma1KSjKvX0zQiq/pIdwQt0HgXUT22ppq0yYz1U7TEVa7QR5KmygLUohtkFnhvEcvgYJ7jtnkYq9WC
+	3/f+HUJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wASCC-00000008roQ-3Htt;
-	Wed, 08 Apr 2026 12:39:48 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1wASUx-00000008sf3-1XBf;
+	Wed, 08 Apr 2026 12:59:11 +0000
+Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wASCA-00000008ro2-0cri
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 12:39:47 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-483487335c2so63989035e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 05:39:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1775651984; x=1776256784; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=0HjLng+uQRNjm1z1zuTjy5y/w9qsZHRWlW+XuytMdIQ=;
-        b=S5QZSnm2fUyI+0gGgrWutSqH1RE6InXsaH/wQupNamhJsPwz5akbjmzfPNWp2+d6Qe
-         OAtE4Fw4i0Ls1YzNMzyFyDCv8i252KmsLdPVaMPAzRTVBoRaA4Cb9M3ZfCCaZtvg65KC
-         rIkd1OhQghqL/X1YEykJ9lAWtJ7mDEgR5dAKAu6DN2lFBAKXW/stLaFqLp2KqECDk5tU
-         E5HSnbuwfnZLgIAEO3Y1tmszAfe/Ej3b2T/fImVASf/C1Q+B+0SriHL4ZHTnUysagIdV
-         8scfDyMYKVDwhhvEvMvmMTRf1ec5ayzw0WI0EVF55lNK58D9KT12blfVGXoxNDnZ6JF6
-         SrMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775651984; x=1776256784;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0HjLng+uQRNjm1z1zuTjy5y/w9qsZHRWlW+XuytMdIQ=;
-        b=fzACYZOK91Ssc9EKYthV3G1QdwWX/iR9S0YpYzGZ7YDN4x2gC0lpxI6pwa3wy4EbjY
-         0YZByi0kMEd64WsaIFW+eujZODz0/JPzW5zLB5W9DxLLhLEjt8AAWDSzeM2w6kxwg7u4
-         nu8YTz312p10LBtp0+FbD20RbTGNtrQLExMrsp2T0LsXCcG+RK4kbCxyFbSlRk7AbdWx
-         yrB1LbXKSoHcjlMecZ3mwgdPe9DeMCnagZlNEylibENcnMRcTYINi5EIu2cS8nBWyHIv
-         +73No5cJoPNEmfcqXOZ/uoQ9uKT0h16J+m3JepSm7vcZGgG6Zg/6j4nri+PhFGP60DlT
-         +rYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVX3i1EqkaFuway575bFzEc6b42aXX+NjsRB0rT38ZprwybiCJWPjInXr3y/4AXof5/TugOvjCb47veeKS56h9e@lists.infradead.org
-X-Gm-Message-State: AOJu0YwR5vIK+KtZ7dJW0+7z745VdFoVgV6AyMsLUYsxSweczgtX8G5K
-	L/5iIKiql7J6wg/SUd85FXM/hrcgiXdN+aUG3SGt5E+JzEs/Ic2HYasxxUiaaZG6X5w=
-X-Gm-Gg: AeBDiev8+0v5iKMExvCnM7Z0V8SZctMKZMgU6vnAukfxKzJrNqiW/zq7Aal6mcuCK0j
-	eSPqsFX0X+vx19LdB3ejxiSG7Jn18AJaw3fzijyf4658gfmckScQgsNaM66XFajR0zwvU4IXjth
-	4jUTXBtdxVSipG/j3yLYkwKAxi2S3fnayN1eRVPfpRuJW4YC/d5DjH3oNhLr9sdNXzxRcm8woey
-	t8ptvFB1X6tIAQJrVKB1RhgLSudOIedNjJ26uGCif+pRcAMoY8rJpq2FXuRuH/k+ynmhynAIxbL
-	7bObtl/G4X0h/4ccDHtYPng8SF/CSfIWBwUD+www0d5mTxEtGPe3eUoTGKccFPhv4Gw3I7Aph5N
-	JJiLcTG7ALiEb5QPWuXe1kGvgUPOrLRhd5y9LWsMFPKFc6UeXX6pOBpZv19SWFJrwXhXvkoKyom
-	pE/QwqqCowjCvTLXEbJkwMB4zVO4Cr6Z7yJ3ISAfU=
-X-Received: by 2002:a05:600c:630a:b0:485:2fe9:336f with SMTP id 5b1f17b1804b1-488998e3cbemr295635395e9.30.1775651984088;
-        Wed, 08 Apr 2026 05:39:44 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4888a7165aasm642886245e9.14.2026.04.08.05.39.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 08 Apr 2026 05:39:43 -0700 (PDT)
-Message-ID: <73d5dfc1-b382-4d6d-ba19-90422f3a2705@linaro.org>
-Date: Wed, 8 Apr 2026 13:39:42 +0100
+	id 1wASUu-00000008seC-3uhx;
+	Wed, 08 Apr 2026 12:59:10 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E27B91ED994;
+	Wed,  8 Apr 2026 14:58:36 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1775653141; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=eh2Ut171wqmOONOps9l0PZ9TIR9l30BuTl8yI4h9mus=;
+	b=o0tmtt43vL9xqdVsg1urR/4VzYAuHc1fUgU/VJm410m6/gCRT/WDV44NhtCuZKyFmgj7LM
+	r137un5/F3ZTCsLF0JjLzau92j7RqN+4Zvmf1arTW4jTnSteX2YwSigaITaV6pboxUE7Uk
+	9JKxWVIzdkb34nD0lkWZyTCyswJbqrUQJr25VfGvwdexO58xUyTwtpLW5g8IkZfd/8NhvU
+	QZ+Pl+d+z7OrV2Rtdb3G6BHBVZ1uT06dkGImxiE13U9Q+dJVUmP5DmaEvoK6iF2zLDhbND
+	ZigUHx7vKo9ZbcYMKmjhAfMBzu/cnOAZkRjHV93vVOYF2RtdUkD1IcpDTZOP0w==
+Message-ID: <468d439b-9a83-484b-8ada-fabef2d6c8da@cjdns.fr>
+Date: Wed, 8 Apr 2026 14:58:35 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: etm4x: Correct TRCVMIDCCTLR1 save and restore
-To: Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-References: <20260408-arm_cs_fix_trcvmidcctlr1_typo-v1-1-6a5695363b46@arm.com>
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH v2 8/8] mips: dts: Add PCIe to EcoNet EN751221
+To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Cc: linux-mips@vger.kernel.org, naseefkm@gmail.com, mturquette@baylibre.com,
+ sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ ryder.lee@mediatek.com, jianjun.wang@mediatek.com, lpieralisi@kernel.org,
+ kwilczynski@kernel.org, mani@kernel.org, bhelgaas@google.com,
+ vkoul@kernel.org, neil.armstrong@linaro.org, p.zabel@pengutronix.de,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ nbd@nbd.name, ansuelsmth@gmail.com, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20260309131818.74467-1-cjd@cjdns.fr>
+ <20260309131818.74467-9-cjd@cjdns.fr> <adOo9xZxXT3FkufM@alpha.franken.de>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260408-arm_cs_fix_trcvmidcctlr1_typo-v1-1-6a5695363b46@arm.com>
+From: Caleb James DeLisle <cjd@cjdns.fr>
+In-Reply-To: <adOo9xZxXT3FkufM@alpha.franken.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_053946_229733_105823D3 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20260408_055909_209329_8D3FE3E8 
+X-CRM114-Status: UNSURE (   6.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,46 +80,25 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On 06/04/2026 14:37, Thomas Bogendoerfer wrote:
+> On Mon, Mar 09, 2026 at 01:18:18PM +0000, Caleb James DeLisle wrote:
+>> Add PCIe based on EN7528 PCIe driver, also add two MT76 wifi devices
+>> to SmartFiber XP8421-B.
+>>
+>> Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
+>> ---
+>>   arch/mips/boot/dts/econet/en751221.dtsi       | 114 ++++++++++++++++++
+>>   .../econet/en751221_smartfiber_xp8421-b.dts   |  21 ++++
+>>   arch/mips/econet/Kconfig                      |   2 +
+>>   3 files changed, 137 insertions(+)
+>>
+> applied to mips-next
 
-On 08/04/2026 1:31 pm, Leo Yan wrote:
-> It is a typo to use trcvmidcctlr0 to save and restore TRCVMIDCCTLR1.
-> Use trcvmidcctlr1 instead.
-> 
-> Fixes: f5bd523690d2 ("coresight: etm4x: Convert all register accesses")
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-etm4x-core.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index d565a73f0042e3e0b21fcf9cb94009cc25834d3d..c370b6bf45ef26aff29ee71630f86eae2487069a 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -1979,7 +1979,7 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
->   
->   	state->trcvmidcctlr0 = etm4x_read32(csa, TRCVMIDCCTLR0);
->   	if (drvdata->numvmidc > 4)
-> -		state->trcvmidcctlr0 = etm4x_read32(csa, TRCVMIDCCTLR1);
-> +		state->trcvmidcctlr1 = etm4x_read32(csa, TRCVMIDCCTLR1);
->   
->   	state->trcclaimset = etm4x_read32(csa, TRCCLAIMCLR);
->   
-> @@ -2102,7 +2102,7 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
->   
->   	etm4x_relaxed_write32(csa, state->trcvmidcctlr0, TRCVMIDCCTLR0);
->   	if (drvdata->numvmidc > 4)
-> -		etm4x_relaxed_write32(csa, state->trcvmidcctlr0, TRCVMIDCCTLR1);
-> +		etm4x_relaxed_write32(csa, state->trcvmidcctlr1, TRCVMIDCCTLR1);
->   
->   	etm4x_relaxed_write32(csa, state->trcclaimset, TRCCLAIMSET);
->   
-> 
-> ---
-> base-commit: 971f3474f8898ae8bbab19a9b547819a5e6fbcf1
-> change-id: 20260408-arm_cs_fix_trcvmidcctlr1_typo-3382c27d1c28
-> 
-> Best regards,
+Thank you very much.
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+Caleb
 
+>
+> Thomas.
+>
 
