@@ -4,142 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71A91FD5F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 07:38:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 785F5FD5F87
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Apr 2026 07:47:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pgjc+iDhtRtK3JACWAL8i9BfyIOhdj4DskF7Y0r/1rs=; b=arpcEmsZJruaB/G4xi56c1fJ5J
-	yIJA7N42qwOqO8Z2fCEI2MGF6LjTSnp8ziqbVB/XGTe1mYVTmykXlagSouezkYnlc8+ZtihxdZDyN
-	G9lP9K1BVIU2f+QqnWBJK4euyTVRk76jQxs3cpXJzMh12nhLCGzY9O4wsiE8S9qlx6Y+V7cvxxndX
-	k4KvcWgx0ocQKgGG3c5NpXBW4aOejuyI4jX04DOWOo0ChdFDGAhqvw0tTWT0tMy8kx2NXkHN2bm1g
-	1misx8E2rS/nEIB2zRejguvGd6a4WdXn4ePaaI4zKoxSZXjOpFIu0bysxlVTvGHGN+pc7KBoQsylI
-	Yast8bUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l4pMTBTUeyFRIOglfPk+qmI18Er2Hkt4GWuhLd69r8Q=; b=aX/eQPWiVeRG+XGlyVtUZL46+h
+	C1HoxR3Vb42KBIsILZdfIRelXMTU416+eZiFM8hRI5aL85Qbvl3QKSYf1kBZnQ5WPpToaEA3IIp8M
+	ELr0abiFC0FwRgJ1g31iLu269gvhghp2+FIeYzChZUzk14YJEEtrhY/1mKKQ6rfJqkKuqc8V5a5Ew
+	KYbk2kbk7Qt7bwqJftxw8r9tFBvMYm8a6VLg/QMmCYubiEJJmFvT6ckQeMV4HK0ORfQa+oc5yBG20
+	b0bEJAZeHmQDHcKdNQtAAW8NchLLlFeg0JNnMTwwiRLXZ5Q6dVZWVjqFkSqQP+sAho0LIHLf5+UPL
+	lVGowZuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wANUE-00000008Rs2-2sr8;
-	Wed, 08 Apr 2026 07:38:06 +0000
-Received: from mail-francesouthazon11011014.outbound.protection.outlook.com ([40.107.130.14] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wANdQ-00000008SQu-16rB;
+	Wed, 08 Apr 2026 07:47:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wANUC-00000008RrM-0XMR
+	id 1wANdO-00000008SQO-1DiY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Apr 2026 07:38:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ILkEPXNxJ+HeJXzhpbcriBQ1hss/CpaEihtALZRjwvgc0/SGqC6h2LWwAoShOaKJ1Bs7cc4wgdiIvnKID1+ZQbWN7k42Z9jL9CzCZ2RjB27U5D6LwIDpBNPRi1GrvnFcdp+73Z1b+5xi435FrtS9VbRb96MKkX2fIxPhRqXr6c7i50F8KKwLmucsmKNtpUEvTkje++o+5E7GngiwEFWRNDcLLWiUYNMVfjCo4nes4g74qrs8/p7niew0QUkDW47EW0Dp+wU6w30dmf3h6tnIEu3f+iWd9svN2L7GyKmtXSetdpgchHMnXHaFDHwqh2MKMBbB6Mn16Dj36Pr6ItITzQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Pgjc+iDhtRtK3JACWAL8i9BfyIOhdj4DskF7Y0r/1rs=;
- b=yZ/8Cmo663PHgMPONVcOj5ny5XoJ2WlvquBDs3aoZoC9InoykL28SGotrJ+QYvwory2MK8xU+vERnPSEEoX+D9Hn9XBq7IMkE/k5oSrIu4s8ERqnU5lTYoPoE07aLZc4RfIwmJwxo5kERAXSpOou8sIHAuYic8VLgs8tOJCGzMXt4sKReM3oVNgDaKjZthUuRDAWW3l5A/yPHCYFDvsXSYhfGFfjZ+VYGS0cjS4ZIL8Spz9LrY37OtQQRHGs1M5ahqReLuweMHPB+6LR0cgOcKhaCKv8nNyMXLWCMyBcVhmMn860yOZHoz+WEvly0BNuLeFnFrmoVtvrlWuZRavSfg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Pgjc+iDhtRtK3JACWAL8i9BfyIOhdj4DskF7Y0r/1rs=;
- b=eE2pNGg9Ux/GRHgepd3B+ayw6qdfJxbeQyWqysZAZmk1/OZfJyvw5FVWxGoeYBPZBUAmWueEwAsSwMxflBMtjSMlRAo33rc8H4ia6lh4BtonBIz7yeOYo3NI5AvWqIuJCtD8wwZunGNhR42Oizq94mb+qrIuRNbS8OOzXp1E97wn7npaEToYOyoFXm3y8nAYqW4dU2OOlfzgfBJMQwyK32j+Lz7mwn1mMj4a0MIIM3D7dVddsr/OwzDdulX7OAUCi7ItqWXy13LmP/o/dwrq2qAV5otckEduOqv4bCbiFju3371TfdG/fmlvigbSiJmRm7pQSIK/U4tEuV+aAnIolg==
-Received: from AM8PR04MB7284.eurprd04.prod.outlook.com (2603:10a6:20b:1dc::8)
- by DU4PR04MB10599.eurprd04.prod.outlook.com (2603:10a6:10:593::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Wed, 8 Apr
- 2026 07:37:58 +0000
-Received: from AM8PR04MB7284.eurprd04.prod.outlook.com
- ([fe80::9cd6:51bd:82b:98dc]) by AM8PR04MB7284.eurprd04.prod.outlook.com
- ([fe80::9cd6:51bd:82b:98dc%5]) with mapi id 15.20.9769.014; Wed, 8 Apr 2026
- 07:37:58 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: Jakub Kicinski <kuba@kernel.org>
-CC: Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir Oltean
-	<vladimir.oltean@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "f.fainelli@gmail.com" <f.fainelli@gmail.com>, Frank
- Li <frank.li@nxp.com>, "chleroy@kernel.org" <chleroy@kernel.org>,
-	"horms@kernel.org" <horms@kernel.org>, "linux@armlinux.org.uk"
-	<linux@armlinux.org.uk>, "andrew@lunn.ch" <andrew@lunn.ch>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>
-Subject: RE: [PATCH v4 net-next 07/14] net: enetc: add support for "Add" and
- "Delete" operations to IPFT
-Thread-Topic: [PATCH v4 net-next 07/14] net: enetc: add support for "Add" and
- "Delete" operations to IPFT
-Thread-Index: AQHcwQGeP/HV20mPxkKmaPorSbeZFrXMjUkAgAhC7jA=
-Date: Wed, 8 Apr 2026 07:37:58 +0000
-Message-ID: <AM8PR04MB72844F38B677543BE84ED605885BA@AM8PR04MB7284.eurprd04.prod.outlook.com>
-References: <20260331113025.1566878-8-wei.fang@nxp.com>
- <20260403011734.1795551-1-kuba@kernel.org>
-In-Reply-To: <20260403011734.1795551-1-kuba@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM8PR04MB7284:EE_|DU4PR04MB10599:EE_
-x-ms-office365-filtering-correlation-id: da041aa6-4c0e-4d80-7aae-08de9541c1a3
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|366016|1800799024|38070700021|22082099003|56012099003|18002099003;
-x-microsoft-antispam-message-info: gfuyhuNKRI6hs0PFdIdaNoro2Y5cA17B5tcllWF28I+kYMu8Zwt8JSP666+wWneGh8Ra37/j0SfjUT6CSvBWdcNkFI18ZGmN36ZovlZHFTf7iol5vmZ6rnZknGBmB9DOeDau+AMUXGxm9Lk0sXzjuQryFsatq9WARdGgoEQT+xHuGs1l2TXq8aw2M5QEJLA2RlzkU+LNrV7cC448Pbqpdm6LorptGoxbRQI3dPWC99eLiw0yZGqkH5i8W1rbfPtJej/EBArcRQwHzlkdvM4Ho8f3QLr/JFsWYdJ7B+WB4t7Fir2geBDy/W9DAFKkNmBXWcYu98vT4iQN6HJjNSL6kyFxg5MjK5Gm/WkA8mZT/8Pnk/h5/N8StlxD4EvG5anJ3DhO8K2Jdv1CUNb9uD7AtLGOSyvqPxw8kfi4ZJyxY3/DvG3HDomfUKtqVCoRchGHnIi0SgzPDaLlpJn/c7ezUmnHQcf2tdnjqA0WSEOBiBKoGM05sw5XPVOjLnCBrhc6ghXFxCPVrf59ImkFlWq2XDlA4qrnYne9zyzHd3S7Iw2TM1rtoR0h0VDFettJ5sgR9wumkbUQ6eNTMQO5ZTIMKyAGlDyl6aEvhnF87+9nWNpXgHsBxpbsUvjS1lpoAggKtEcsXEQwMV+ej3y3GEd/9aG2t4Ja2TeVVu5RRRRBTiPFXy5cP7TjOMJm9lYJgDuiMnXxCoQdogOVFYRPP0FC+jhiZp/UxN8RfQ9RRlGxNc0WtE2XFVmDY+FUt0KxOiqasuoFWCq7JIQKuvGR2eVoSw==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7284.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(366016)(1800799024)(38070700021)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?gVyzECq8b80JMrQaEnPMavQxaOSia4E3FVyZyJSGqV1jOEwe2LZcFC7c+xcx?=
- =?us-ascii?Q?GkUaGoyhbJWRSUen5GOX3COR79oOnJNiTJdloaHhhQx7kOdbOLfZj1Rv6aUC?=
- =?us-ascii?Q?LastaNKiTfbiBU+dXW93nt9OlzPV/unD5bpHIkcDraAl7ZFzCBF2/jLAKlBC?=
- =?us-ascii?Q?cjxcZWmpnhffUZNFmTds/ypIjwn07WkgWhAtDE4UqO2oSwv2HR5NFWhg7tEX?=
- =?us-ascii?Q?suZ4O37hbdorvuxmXMEv8zS7PV6fl++yNKzii/I03b3lceY+UJ/MruXkYv19?=
- =?us-ascii?Q?zu8RwUDLj/yM39C4O0dPX3VT0RBgKYgE5R2m7PLmiJOeAc3uTn7EcwPNEfkZ?=
- =?us-ascii?Q?x/s9P60dl7NAaIBoAIGtqD6VlQMmedkwLD8SVQIt2aYurTXKEsveHT3edfHz?=
- =?us-ascii?Q?ybz0t181QpPdmJMLnboEoJCHVeeVmZKfA41kOscoT2/r856DR/dOzeAfgsjU?=
- =?us-ascii?Q?FuMpXgKteLv/8vJgLaR7SlBZwxIXAxFgbpQQAWvbwSyppHlOhe3MFJeRZBVn?=
- =?us-ascii?Q?OGYUOi38GAs9wRbLb6Id3sQI9F9IKdE18M4O0LlfafFLFKTkeG3c5u0UXpvi?=
- =?us-ascii?Q?/uqOVvZwrXPUaA/Y49x4kCw+sVrRHHRJ6oIxuIXQGw22czxzI2d1GTOBSmmj?=
- =?us-ascii?Q?tNtx+G/1Mub+h/N55BQr/4+EVJlKrxbw2hHkeRlNqfH8NjMgATv2iA3/9jZs?=
- =?us-ascii?Q?3t6hcYtebsD1GzHzlbFPjs31mF9tzZbAxXaAxc0pxgSgmGvlCHq17UYWNedG?=
- =?us-ascii?Q?ldiSqeyMPJQb9RwoH+Z4ASRm9v1E3e/sNMLWBeBJwfbmMHPXvvrYgjTrSmZa?=
- =?us-ascii?Q?HI6vU2sbi0FDjch0wqjzLzS7b9tOyKqa1/em4cPzBiROo+j7ixgrUCrVVyd5?=
- =?us-ascii?Q?QMdoMKIohgT4V8Q7s6iQ/Cc4Uw5b+KXu3AOKKYEDDTKDT3lMXuW0O7GjYn7G?=
- =?us-ascii?Q?rW1JRaADWKxv76jGYIu6LyxVOK1dLVvu7B4KH4dVvoCoRJS1Hq6edHtbg2jj?=
- =?us-ascii?Q?9hL0sGVRlt8klIPkUnGtmd7orMvfprkglf/8DUbzq51gjDVPWk7JpCd2hZbK?=
- =?us-ascii?Q?IHhH5zbYvNg0F9QMs4cke/AG0ValqiqrhY5BHHK9eVLADHlrvxsu2Q++YsU5?=
- =?us-ascii?Q?zcepYS+k1J1h4Eqw6unwCB6aXlRFTLiUiIF8u85M0IgtzdPZ8/5h0Xa4Br5L?=
- =?us-ascii?Q?3SDcdnAw7s0I+KECWS03fjGDd5+RLMy436TYFmCjtU6LfsC7wEQh0TWlQkGs?=
- =?us-ascii?Q?PUMHFEAPeQieM0Hc6AAzfGoElK1Cbxuxr8pLNfK69c6/yYzVOBwCOQMSsif3?=
- =?us-ascii?Q?k5A6+LfjWsAVTVJtrThJlOWFpa4o7g3i/80zkvd/rjw/NFGLqkDGgTc/ig2W?=
- =?us-ascii?Q?zbwQI1MG8dCdZJGHGXIxSaa0KihaHbT86IepMO0OXSSoxOgULiHUpATPruoz?=
- =?us-ascii?Q?W39M8aaZfGsjTrukmnSJ1zcOrDj+QFdv6BzlN3qnLsmjUmn0LcmaSoE5iYJH?=
- =?us-ascii?Q?oJXutoUTm+i4M2FoqxHKbi1IUXI3snIqN8PfV+ZgKZcyuRLsRXvwrOeHT8h0?=
- =?us-ascii?Q?3szC2X36sVwkusKY3zgyZZjdZIu5Z7ZxodV+2vjqE3ciRooZ80EyK7P8XRo9?=
- =?us-ascii?Q?bO8uIPrdtit0nOWtNZ+eEPfyIxcA6Iu6RidIb86KXGIYNXI0NlhO6vTXPMAv?=
- =?us-ascii?Q?Rt3a/htq44m5/UobTlVj67V7qmOPr+v7VGPw7C2QkANO1iI/?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 08 Apr 2026 07:47:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4068043F2B
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Apr 2026 07:47:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21F91C19425
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Apr 2026 07:47:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775634453;
+	bh=6FGBj6R+3TxRy3lV+rTYpY2sUBGm3uINry4jtIg9hmo=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=rXQ4q2ULZrTR194/yg/YQc05sJXt8dCgV0yeKGyulNkmqpXy+tCd2qNDRyg8WzBYc
+	 WVlQDBQauUo/4kcKlC4qaQJp+gXOzJubLk7Um48P/KR/vDL6+Zqp/T9UbqJuuQ7yS7
+	 GGlTUYB9hWjyS0ATsxb5q4lIglsc0/GYBjKSEzAS2ndsjDZmuV7Cqq3tITdzES4Ohf
+	 eEYavR2JHvowp7jmF7oM/mAECQ1LEVJaGUk7wxSaUGBfe0+nV9k0IR7GDylLbSN/Mz
+	 X1HlBf8CwDzwutz2jBtrv+90Oi0tUSEZ7XFBonRTGLVSAJPrxHzovMyJPTq+f9JB/8
+	 D1ZKOzhZrRYrg==
+Received: by mail-yx1-f41.google.com with SMTP id 956f58d0204a3-6501547d7edso6219979d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 00:47:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCU1yNLD2KMnsaR11ARWQgqh6wf/57EXwba8vbraBw4iC3Z3ncoxpTzNUQFVtHPDEcsj0lJJI4ENoq9Sd9F3vscD@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwMsewVUj+/BP/9WUQw50hYZwGnB/ow7ib31VZ+dbuf5Ihnbo4
+	obna7pqN1LJ3xfIMBkng49tWTwKg5cIyJ0akjyX+py14SbDUXIVcsDJe2Z85vqFIqfVauPLOCLw
+	16amkID1pb6IZw+QwezlTcKOdBc0n5ec=
+X-Received: by 2002:a05:690c:102:b0:79a:40fb:9346 with SMTP id
+ 00721157ae682-7a4d6d26cf8mr204354257b3.20.1775634452513; Wed, 08 Apr 2026
+ 00:47:32 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7284.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: da041aa6-4c0e-4d80-7aae-08de9541c1a3
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Apr 2026 07:37:58.7284
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: lU8Jzw3qcjTBjYf6eiEhYVvAMfpQuo0y+/erRTiIyfs3OrIaz+eY+S3Dz/tzuugvWqTGT8OCb1VytAwjK7FzRQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10599
+References: <20260306-aarch64-clear-pages-c-v1-1-77c1bb0f1c21@kernel.org>
+ <ac7YJPo4Np2zxxEp@arm.com> <CAD++jL=G81=ueo7djqUETToE459kpFGniWvBwnYbJtmXrm8MFw@mail.gmail.com>
+ <adULAT2xus5z3HdQ@arm.com>
+In-Reply-To: <adULAT2xus5z3HdQ@arm.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 8 Apr 2026 09:47:20 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmMxj1C7sGz-Yt8Y+NC1CbrUTTSH4QvcZfYuJAcNoYYCQ@mail.gmail.com>
+X-Gm-Features: AQROBzCKD15vLZOPpJlr1WJAhz9pR_gLMWe3rxqqBD2IrNa8GJfdGMWD0iaN0Lk
+Message-ID: <CAD++jLmMxj1C7sGz-Yt8Y+NC1CbrUTTSH4QvcZfYuJAcNoYYCQ@mail.gmail.com>
+Subject: Re: [PATCH] arm64: clear_page[s] using memset
+To: Catalin Marinas <catalin.marinas@arm.com>, Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_003804_173442_F3F9EADE 
-X-CRM114-Status: GOOD (  18.32  )
+X-CRM114-CacheID: sfid-20260408_004734_369976_47D82348 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,69 +86,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > +int ntmp_ipft_add_entry(struct ntmp_user *user,
-> > +			struct ipft_entry_data *entry)
-> > +{
-> [ ... ]
-> > +	err =3D ntmp_alloc_data_mem(&data, (void **)&req);
-> > +	if (err)
-> > +		return err;
-> > +
-> > +	ntmp_fill_crd(&req->crd, user->tbl.ipft_ver, NTMP_QA_ENTRY_ID,
-> > +		      NTMP_GEN_UA_CFGEU | NTMP_GEN_UA_STSEU);
-> > +	req->ak.keye =3D entry->keye;
-> > +	req->cfge =3D entry->cfge;
->=20
-> The request sets NTMP_GEN_UA_STSEU to indicate statistics data is present=
-,
-> but struct ipft_req_ua does not appear to contain a match_count or STSE d=
-ata
-> field before cfge.
->=20
-> Since the hardware expects STSE data before CFGE data (as seen in
-> struct ipft_resp_query), will this cause the hardware to misinterpret the
-> first 8 bytes of cfge as the match_count, and then read the actual filter
-> configuration from out-of-bounds or uninitialized memory?
+On Tue, Apr 7, 2026 at 3:47=E2=80=AFPM Catalin Marinas <catalin.marinas@arm=
+.com> wrote:
+> On Tue, Apr 07, 2026 at 11:25:55AM +0200, Linus Walleij wrote:
+> > Quoting my own commit message hehe:
+> >
+> > > No performance regressions can be seen, the fastpath
+> > > benchmarks differences are in the noise.
+> >
+> > This was tested on hardware with Ryan Robert's fastpath tool.
+>
+> BTW, have you tried the perf bench mmap test again with the new
+> clear_page? Both with single page and multiple pages scenarios. And
+> ideally on more than one platform.
+>
+> Will pointed out (in a private chat) that current clear_page() uses
+> non-temporal stores while memset() doesn't. It may not make any
+> difference in practice but it would be good to have some numbers.
 
-Based on NETC manual, the STSE_DATA is present only for the commands
-which perform a query. So for the 'add' command, we do not need to
-provide the STSE_DATA buffer. And STSE_DATA is the statistics of the
-entry, which is stored in the internal buffer of IPF table. Performing
-NTMP_GEN_UA_STSEU is to reset the statistic counter when adding
-an entry.
+Hm interesting point, the perf bench mmap test isn't specifically
+in fastpath but since it tends to come up I guess we can add it?
 
-[...]
+Ryan: is it easy to add this test to fastpath? Or easy for me to do
+myself? I looked at the instructions but they were a bit intimidating...
 
-> > +struct ipft_pld_byte {
-> > +	u8 data;
-> > +	u8 mask;
-> > +};
-> > +
-> > +struct ipft_keye_data {
-> > +	__le16 precedence;
-> > +	__le16 resv0[3];
-> > +	__le16 frm_attr_flags;
-> > +#define IPFT_FAF_OVLAN		BIT(2)
-> > +#define IPFT_FAF_IVLAN		BIT(3)
-> > +#define IPFT_FAF_IP_HDR		BIT(7)
-> > +#define IPFT_FAF_IP_VER6	BIT(8)
-> > +#define IPFT_FAF_L4_CODE	GENMASK(11, 10)
-> > +#define  IPFT_FAF_TCP_HDR	1
-> > +#define  IPFT_FAF_UDP_HDR	2
-> > +#define  IPFT_FAF_SCTP_HDR	3
-> > +#define IPFT_FAF_WOL_MAGIC	BIT(12)
-> > +	__le16 frm_attr_flags_mask;
-> > +	__le16 dscp;
-> > +#define IPFT_DSCP		GENMASK(5, 0)
-> > +#define IPFT_DSCP_MASK		GENMASK(11, 0)
->=20
-> Does IPFT_DSCP_MASK completely overlap with IPFT_DSCP?
->=20
-> If it is defined as GENMASK(11, 0) instead of GENMASK(11, 6), using
-> FIELD_PREP with this mask will not shift the value into the upper bits,
-> which might overwrite the actual DSCP value in bits 0-5.
+The test is the following:
 
-Thanks, this is a bug, I will fix it.
+    We boot the kernel with cmdline like this:
+    "default_hugepagesz=3D1G hugepagesz=3D1G hugepages=3D32" to make sure
+    we have ample hugepages. This was then tested with the same
+    cmdline as the original series:
 
+    perf bench mem mmap -p 1GB -f demand -s 32GB -l 5
 
+    The first run was discarded as the memory hierarchy is cold on
+    the first run. Then I ran the above command 5 times and averaged
+    the throughput
+
+The x86 commit cb431accb36e51b64ce34b5cc4d5ed292895fd84
+also mentions this test:
+
+perf bench mem memset -k 1GB -f default -s 16GB
+
+I tried it on QEMU, no real benefits with either the previous or this
+patch, and no regressions either. (x86 passes -f x86-64-stosq
+which are some optimized memset instructions)
+
+Yours,
+Linus Walleij
 
