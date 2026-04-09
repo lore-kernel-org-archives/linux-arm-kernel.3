@@ -4,53 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52F3BE98FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 13:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C5F3EA3C5F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 13:52:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cRlSOieQwZuj3hHx9M8ISniqi6X9+3FvpqzcTyUW6ew=; b=Et5nI+s6tcywak3A9XUzgX6RU5
-	Xx47lRSzSp3xba3pU6sHWUQA4kSSx/vZFm6cUI1tsAHunqCJe+tCD0UHrrJ16Q4zMI/+N/D6RANcJ
-	h09PMiw5myJOAT2Nzpp4n5QG+9W5b+V2/bLSU7ux7kBTi6Mil9c3jViZp72tnpOYLvIr3hI32DdGR
-	6J0KyeIp1qD8Hm8Bur987PtZrmjwFPZbb6bnV88s5HHCzyD41R2/O46p5p3UduNp1vGqBK0nxOJg5
-	Pzgrdihi/aEBc7VSwjLSskicrcAj+fD4sp3y2htHpc/mUOScuHwie4u9m4KxbWcNi07HHqTS6zzrF
-	UMqtZydQ==;
+	bh=rbONOjpEdWG+zlSB2MQIAnZ4vH9X5RXZRoXTibgLGrE=; b=Jo2+H4FFJAUd5mJ1Slw00j6iwi
+	QAgyWOhha8j9Xo8EFE1nLK/wPVTSRPcDqPxZ6qXQHINAGggk9d/erR4nWcNUGOziX8X7Z7RKDSmMv
+	ka8lKpRiR0i3wtDC1hMvkS9//eDTbemPnaXoYnBF4ux7kv38bqUs3K/HjZkVUjCClWvJ0ZIoKKmg2
+	T9oeUzjlnt/VxvR91vgrSIznONlsHqJ7deWm1PZS0rpdvScxsuMOZE6RTnKskSQoLnmwxrPfltzDO
+	1Mms8NOVIUuc4eQsRjODdU9gMAZgT1YCSNQzkyD/YupMbCReqCTBbJYMG3rsoGeseIAPHOR1aLekb
+	Ah19oVUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wApnK-0000000Aa1j-02tB;
+	id 1wApnK-0000000Aa2b-2bXj;
 	Thu, 09 Apr 2026 13:51:42 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wApnD-0000000AZxP-12Cd;
-	Thu, 09 Apr 2026 13:51:37 +0000
+	id 1wApnE-0000000AZxv-1pfN;
+	Thu, 09 Apr 2026 13:51:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1775742692;
-	bh=Uf3oawvhkOYDFsuF3t/kHZrtN6yz3uwa92uWH3g5zZM=;
+	s=mail; t=1775742694;
+	bh=RSXqqXBeCA6gtCqM9bPU3XduJDdYCviviiS0NH06u4c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=jOsFp6YU19b4d9Al8Ya16eVbiA5JsxqAJk1Td7XesbTO3lecWg/CaHDjV0z88Z+wb
-	 DyGdSLd82ehcyXpESkkersjoow99twav8ffpVGSyo3ljejE60umkCJ9pbHze46LVhs
-	 oxjOOr/1tbekHy8UbuabqjGHmFVtrRN3wJcra9WNgm9OC1T/V4Q0YOy79DOrQlMl44
-	 3lMVLCTZyFfuGEWUpqiSDomLanqEgLF4fT7glpfMKA0b+hD3NKsbNNNTYA51Bg50BZ
-	 R9Oqk6nhI4gqtPtVmYnR9TjTyP1CWvkNOO90zFU29Aey0SxevVZ1FuUg+E6VCQVF+6
-	 wGCto+Wtu4K+w==
+	b=PlDuXPYh9iFHSE99Vm2uPMpq8YIeslosXFoEw/ERifLU7sIKFBhdYjMR67mIUTqcL
+	 BKQAAsO8b1fxdJeTAo85USrPI1TTe92V+WqNZRCq8NoPzC1uwM3kvRGrcQbrreopWF
+	 QxaPdeO+Cpm17dlxYy0krLms9pxmWDiCJdkXAOB1XPXwovFLeFdtk2DaO47ZNYM5SO
+	 z/koExQNhwgkvqshVz41gSGcD+5XnVDMSjPJ5CzErljR4YFQvPrmPjdLDeViWKqtSK
+	 cCCYj+L9zCS4YNAzxxEU3L1bmE3wzu/BqAlzI7Z7AdJ2OmRX/AnDncTt03DN+0LArf
+	 HPohmFozY/C7Q==
 Received: from [192.168.0.15] (unknown [100.64.0.170])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 09A3017E1313;
-	Thu,  9 Apr 2026 15:51:30 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D273817E1330;
+	Thu,  9 Apr 2026 15:51:32 +0200 (CEST)
 From: Detlev Casanova <detlev.casanova@collabora.com>
-Date: Thu, 09 Apr 2026 09:50:37 -0400
-Subject: [PATCH 2/7] media: v4l2-mem2mem: Remove WARN_ON() in
- v4l2_m2m_job_finish()
+Date: Thu, 09 Apr 2026 09:50:38 -0400
+Subject: [PATCH 3/7] media: rkvdec: Keep RCB to the correct size
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260409-rkvdec-multicore-v1-2-62b316abf0f7@collabora.com>
+Message-Id: <20260409-rkvdec-multicore-v1-3-62b316abf0f7@collabora.com>
 References: <20260409-rkvdec-multicore-v1-0-62b316abf0f7@collabora.com>
 In-Reply-To: <20260409-rkvdec-multicore-v1-0-62b316abf0f7@collabora.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -64,9 +63,8 @@ Cc: kernel@collabora.com, linux-media@vger.kernel.org,
  Detlev Casanova <detlev.casanova@collabora.com>
 X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_065135_947916_21C2161C 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260409_065136_622741_8FB7E8ED 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,37 +79,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This warning was added because there was no way, for drivers that support
-holding capture buffers to mark jobs done correctly without calling
-v4l2_m2m_buf_done_and_job_finish().
+Currently, if a video changes resolution, the RCB size might be too small
+and the HW could try to write out of the allocated buffer.
 
-Now that v4l2_m2m_buf_done_manual() has been introduced, it has become
-possible and drivers can use it with v4l2_m2m_job_finish() for finer
-grained buffer management.
+To fix that, make sure that the RCB size is validated for each run and
+increase the buffer size when needed.
 
+Fixes: e5640dbb991c ("media: rkvdec: Add RCB and SRAM support")
 Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
- drivers/media/v4l2-core/v4l2-mem2mem.c | 7 -------
- 1 file changed, 7 deletions(-)
+ .../media/platform/rockchip/rkvdec/rkvdec-rcb.c    | 26 +++++++++++++++---
+ .../media/platform/rockchip/rkvdec/rkvdec-rcb.h    |  3 ++-
+ drivers/media/platform/rockchip/rkvdec/rkvdec.c    | 31 +++++++++++-----------
+ 3 files changed, 40 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/media/v4l2-core/v4l2-mem2mem.c b/drivers/media/v4l2-core/v4l2-mem2mem.c
-index 7f9fad4f6807..27f7dd7974b5 100644
---- a/drivers/media/v4l2-core/v4l2-mem2mem.c
-+++ b/drivers/media/v4l2-core/v4l2-mem2mem.c
-@@ -487,13 +487,6 @@ void v4l2_m2m_job_finish(struct v4l2_m2m_dev *m2m_dev,
- 	unsigned long flags;
- 	bool schedule_next;
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
+index fdcf1f177379..191f78278c01 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
+@@ -17,6 +17,8 @@
+ struct rkvdec_rcb_config {
+ 	struct rkvdec_aux_buf *rcb_bufs;
+ 	size_t rcb_count;
++	u32 width;
++	u32 height;
+ };
  
--	/*
--	 * This function should not be used for drivers that support
--	 * holding capture buffers. Those should use
--	 * v4l2_m2m_buf_done_and_job_finish() instead.
--	 */
--	WARN_ON(m2m_ctx->out_q_ctx.q.subsystem_flags &
--		VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_BUF);
- 	spin_lock_irqsave(&m2m_dev->job_spinlock, flags);
- 	schedule_next = _v4l2_m2m_job_finish(m2m_dev, m2m_ctx);
- 	spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
+ static size_t rkvdec_rcb_size(const struct rcb_size_info *size_info,
+@@ -40,6 +42,21 @@ int rkvdec_rcb_buf_count(struct rkvdec_ctx *ctx)
+ 	return ctx->rcb_config->rcb_count;
+ }
+ 
++bool rkvdec_rcb_buf_validate_size(struct rkvdec_ctx *ctx)
++{
++	struct rkvdec_rcb_config *cfg = ctx->rcb_config;
++
++	bool ret = cfg && cfg->height >= ctx->decoded_fmt.fmt.pix_mp.height &&
++		   cfg->width >= ctx->decoded_fmt.fmt.pix_mp.width;
++
++	if (!ret && cfg) {
++		dev_dbg(ctx->dev->dev, "RCB size %ux%u -> %ux%u\n", cfg->width, cfg->height,
++			ctx->decoded_fmt.fmt.pix_mp.width, ctx->decoded_fmt.fmt.pix_mp.height);
++	}
++
++	return ret;
++}
++
+ void rkvdec_free_rcb(struct rkvdec_ctx *ctx)
+ {
+ 	struct rkvdec_dev *dev = ctx->dev;
+@@ -77,14 +94,15 @@ void rkvdec_free_rcb(struct rkvdec_ctx *ctx)
+ 		devm_kfree(dev->dev, cfg->rcb_bufs);
+ 
+ 	devm_kfree(dev->dev, cfg);
++
++	ctx->rcb_config = NULL;
+ }
+ 
+-int rkvdec_allocate_rcb(struct rkvdec_ctx *ctx,
++int rkvdec_allocate_rcb(struct rkvdec_ctx *ctx, u32 width, u32 height,
+ 			const struct rcb_size_info *size_info,
+ 			size_t rcb_count)
+ {
+ 	int ret, i;
+-	u32 width, height;
+ 	struct rkvdec_dev *rkvdec = ctx->dev;
+ 	struct rkvdec_rcb_config *cfg;
+ 
+@@ -105,8 +123,8 @@ int rkvdec_allocate_rcb(struct rkvdec_ctx *ctx,
+ 		goto err_alloc;
+ 	}
+ 
+-	width = ctx->decoded_fmt.fmt.pix_mp.width;
+-	height = ctx->decoded_fmt.fmt.pix_mp.height;
++	cfg->width = width;
++	cfg->height = height;
+ 
+ 	for (i = 0; i < rcb_count; i++) {
+ 		void *cpu = NULL;
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
+index 30e8002555c8..0662a4359bdf 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
+@@ -20,10 +20,11 @@ struct rcb_size_info {
+ 	enum rcb_axis axis;
+ };
+ 
+-int rkvdec_allocate_rcb(struct rkvdec_ctx *ctx,
++int rkvdec_allocate_rcb(struct rkvdec_ctx *ctx, u32 width, u32 height,
+ 			const struct rcb_size_info *size_info,
+ 			size_t rcb_count);
+ dma_addr_t rkvdec_rcb_buf_dma_addr(struct rkvdec_ctx *ctx, int id);
+ size_t rkvdec_rcb_buf_size(struct rkvdec_ctx *ctx, int id);
+ int rkvdec_rcb_buf_count(struct rkvdec_ctx *ctx);
++bool rkvdec_rcb_buf_validate_size(struct rkvdec_ctx *ctx);
+ void rkvdec_free_rcb(struct rkvdec_ctx *ctx);
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+index 1d1e9bfef8e9..31ddfcc58894 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+@@ -978,8 +978,7 @@ static int rkvdec_start_streaming(struct vb2_queue *q, unsigned int count)
+ {
+ 	struct rkvdec_ctx *ctx = vb2_get_drv_priv(q);
+ 	const struct rkvdec_coded_fmt_desc *desc;
+-	const struct rkvdec_variant *variant = ctx->dev->variant;
+-	int ret;
++	int ret = 0;
+ 
+ 	if (V4L2_TYPE_IS_CAPTURE(q->type))
+ 		return 0;
+@@ -988,20 +987,8 @@ static int rkvdec_start_streaming(struct vb2_queue *q, unsigned int count)
+ 	if (WARN_ON(!desc))
+ 		return -EINVAL;
+ 
+-	ret = rkvdec_allocate_rcb(ctx, variant->rcb_sizes, variant->num_rcb_sizes);
+-	if (ret)
+-		return ret;
+-
+-	if (desc->ops->start) {
++	if (desc->ops->start)
+ 		ret = desc->ops->start(ctx);
+-		if (ret)
+-			goto err_ops_start;
+-	}
+-
+-	return 0;
+-
+-err_ops_start:
+-	rkvdec_free_rcb(ctx);
+ 
+ 	return ret;
+ }
+@@ -1174,6 +1161,20 @@ static void rkvdec_device_run(void *priv)
+ 		return;
+ 	}
+ 
++	if (!rkvdec_rcb_buf_validate_size(ctx)) {
++		rkvdec_free_rcb(ctx);
++
++		ret = rkvdec_allocate_rcb(ctx,
++					  ctx->decoded_fmt.fmt.pix_mp.width,
++					  ctx->decoded_fmt.fmt.pix_mp.height,
++					  ctx->dev->variant->rcb_sizes,
++					  ctx->dev->variant->num_rcb_sizes);
++		if (ret) {
++			rkvdec_job_finish(ctx, VB2_BUF_STATE_ERROR);
++			return;
++		}
++	}
++
+ 	ret = desc->ops->run(ctx);
+ 	if (ret)
+ 		rkvdec_job_finish(ctx, VB2_BUF_STATE_ERROR);
 
 -- 
 2.53.0
