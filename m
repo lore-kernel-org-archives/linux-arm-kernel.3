@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42E67F364A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 17:07:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0FF0F364A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 17:09:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hw5rl7hKoAp15t/ckzEHSiAaaa/HtlnyL1QVUNxFAjY=; b=PmMnE9ejqILdYeJfxNRFxx4w+N
-	weom3R6OJSz1dufgIDdBYwNppwi/YDfyeJzeimkT+2Bwi7xHEynjuHPSLrDBVnD07iOo0JI+4IO0C
-	jikRlWSf+sInYmCL0XJzSihY0gga3heBnX/lXnYlSh+jpf5pZc4NAOjL1oF5zCfaOxQev2nmgrXKd
-	ftw3rMzRdXFINaeIXHeSR485G1+THz+IqWIXt6sRGeucNMhDwqq5rw/trleyTmliPyeXvPDE2nNCY
-	5F9gfsF35mjD5rcONyuR1Ry0yZuk8fdXk58dMJN0gX3214QemubwMEmlPWU+We8WWcMpJtcn6z1aK
-	ChAkV81g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wQHs+xJKsUMQO+6CCh7X3NX/2yXBo/WKUOrvcvLPWfg=; b=cwa62B7tj+ENyhaihHNHzodAiX
+	S8F3w+9lIZih4LMoCO+FMZIfyt1g4Uf93aggwCievPBX0Y2efXum8kMBbZfW67XhuDmKu8K/u1/KN
+	tzIYor5qpm+qrEp+9AKzFOw96gjOah59MrO+mMwE0hWLN2ng5Bjy6JqRo2YHndVlkjekUG6YtB/1l
+	7bl+8vo4yjXvpQDu9ufZrICrEP0k+YcLQiwEA6c6/4p3+HuQHeyJ/iAUZVqwZeYW42S5yvsi04Gns
+	+MuXHfKZXORK5+TzKoFJPmwkfp/EkfSZFgnLkbXt1VOGxZao4gWGlrVkU/2IBh7lGsLrPV9RMQHfI
+	2c28yjdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAsqg-0000000AyNZ-121i;
-	Thu, 09 Apr 2026 17:07:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wAssH-0000000AyXj-0b1W;
+	Thu, 09 Apr 2026 17:09:01 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAsqe-0000000AyNQ-3oxR
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 17:07:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EEB7D600CB;
-	Thu,  9 Apr 2026 17:07:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BE4FC4CEF7;
-	Thu,  9 Apr 2026 17:07:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775754439;
-	bh=Qn2W6ymOQnzMZzAiEKRjaRt2DpoQleoHBd1hJjdDNVQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=d6GGGUK9fyLxYtb0Imymy+JRC4wfApryM37CztZ5Brxdf3LLOhuMXEvGruSLvlNcr
-	 zCBkPnEOduOy+AdD+ATtqGHJ1+Do3+2u0PGiAjPtY9OP1U7ghTJQ6LWFHxFt1w5YWe
-	 ewf0I7MMd3ShKpl9DLeEucuJ0vbOfu1yeI2DKRNGVQYJgcc69B1vvp56lK0al67dil
-	 1T3Q3CDpupRSKMCt+W//odwZjWCU6Iltes/vHNFSWVOPSKhLASwhDLFnedJdUsYSij
-	 A6JFY5yym1IDXRJIE066zqa3wPI+Ll8SsXCvh1Jjg/yuZqgqEqvEI1KI7he0o4CvKB
-	 USZy9SA8GlxKA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wAsqa-0000000AKFc-4ASN;
-	Thu, 09 Apr 2026 17:07:17 +0000
-Date: Thu, 09 Apr 2026 18:07:16 +0100
-Message-ID: <86se942hbv.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: David Woodhouse <dwmw2@infradead.org>
-Cc: "Gutierrez Cantu, Bernardo"
- <bercantu@amazon.de>,
-	alexandru.elisei@arm.com,
-	alyssa@rosenzweig.io,
-	asahi@lists.linux.dev,
-	broonie@kernel.org,
-	catalin.marinas@arm.com,
-	james.morse@arm.com,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	marcan@marcan.st,
-	mathieu.poirier@linaro.org,
-	oliver.upton@linux.dev,
-	suzuki.poulose@arm.com,
-	sven@svenpeter.dev,
-	will@kernel.org
-Subject: Re: [PATCH] KVM: arm64: Add KVM_CAP_ARM_NATIVE_CACHE_CONFIG vcpu capability
-In-Reply-To: <7fb7b823c68e04321eb532a5b8ae21a818d4926d.camel@infradead.org>
-References: <b71910e202ac4a56a87c0e34df13cce058d46a76.camel@infradead.org>
-	<7fb7b823c68e04321eb532a5b8ae21a818d4926d.camel@infradead.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: dwmw2@infradead.org, bercantu@amazon.de, alexandru.elisei@arm.com, alyssa@rosenzweig.io, asahi@lists.linux.dev, broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, marcan@marcan.st, mathieu.poirier@linaro.org, oliver.upton@linux.dev, suzuki.poulose@arm.com, sven@svenpeter.dev, will@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wAssD-0000000AyWy-1ihi;
+	Thu, 09 Apr 2026 17:08:59 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 8B53CC5C18B;
+	Thu,  9 Apr 2026 17:09:30 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C09BA603E4;
+	Thu,  9 Apr 2026 17:08:55 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9BAF410450194;
+	Thu,  9 Apr 2026 19:08:50 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1775754534; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=wQHs+xJKsUMQO+6CCh7X3NX/2yXBo/WKUOrvcvLPWfg=;
+	b=MIZWIZeI6SDzL7xElyXrZcp1xP5FU/iv6TVLEMIzJzuy69V14+eWik9kRKFGixgQaD6ciS
+	Ddf0uG5jq9ljh6Qn4Bfo3Lo4wh3XkM6VJnIAAGk9dBUjHNGHVUxP2CdnVN7cr8dJaD0IMj
+	J0Syiixw7j9TNbIZj6PVG1Ugn2d1/iCHei/yCZMmd68Rx+dsZQxLDuWDrcTWQIm7QeB+QA
+	164m9FfPe/Owoxjn26H4BCuDi+FulELgNLV8kTRt7/wicDSenIEtyWuk+lzDtW7/7QYFln
+	hwwOk/KBfs0c9gD6gPRrMcw5DivnFR3liiquTWK6mqxqzChKFRM/bHEfHbbn+Q==
+From: Kory Maincent <kory.maincent@bootlin.com>
+Date: Thu, 09 Apr 2026 19:08:17 +0200
+Subject: [PATCH RFC 01/12] drm/i915/display/intel_sdvo: Fix double
+ connector destroy in error paths
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260409-feat_link_cap-v1-1-7069e8199ce2@bootlin.com>
+References: <20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com>
+In-Reply-To: <20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com>
+To: Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Dave Airlie <airlied@redhat.com>, 
+ Jesse Barnes <jbarnes@virtuousgeek.org>, Eric Anholt <eric@anholt.net>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Chris Wilson <chris@chris-wilson.co.uk>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Mark Yacoub <markyacoub@google.com>, Sean Paul <seanpaul@google.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, intel-gfx@lists.freedesktop.org, 
+ intel-xe@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Simona Vetter <simona.vetter@ffwll.ch>, 
+ Kory Maincent <kory.maincent@bootlin.com>
+X-Mailer: b4 0.14-dev-d4707
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260409_100857_598569_BF69746F 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,188 +98,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 09 Apr 2026 16:29:06 +0100,
-David Woodhouse <dwmw2@infradead.org> wrote:
->=20
-> [1  <text/plain; UTF-8 (quoted-printable)>]
-> From: David Woodhouse <dwmw@amazon.co.uk>
->=20
-> Commit 7af0c2534f4c5 ("KVM: arm64: Normalize cache configuration")
-> fabricates CLIDR_EL1 and CCSIDR_EL1 values instead of using the real
-> hardware values. While this provides consistent values across
-> heterogeneous CPUs, it does cause visible changes in the CPU model
-> exposed to guests.
->=20
-> The commit claims that userspace can restore the original values, but
-> there is no way for userspace to obtain the real CLIDR_EL1 register
-> value =E2=80=94 it is not fully reconstructible from sysfs, which lacks t=
-he
-> LoC, LoUU, and LoUIS fields.
->=20
-> Add a per-vcpu KVM_CAP_ARM_NATIVE_CACHE_CONFIG capability that reads
-> the real CLIDR_EL1 and all CCSIDR_EL1 values from the current physical
-> CPU and sets them on the vcpu.
->=20
-> This allows hypervisors to present the real hardware cache configuration
-> to guests, which is important for consistency of the environment across
-> kernel versions and for migration compatibility with hosts running
-> older kernels that exposed the real values.
->=20
-> Fixes: 7af0c2534f4c ("KVM: arm64: Normalize cache configuration")
-> Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
-> ---
->  Documentation/virt/kvm/api.rst                | 23 ++++++++
->  arch/arm64/include/asm/kvm_host.h             |  1 +
->  arch/arm64/kvm/arm.c                          | 17 ++++++
->  arch/arm64/kvm/sys_regs.c                     | 26 ++++++++++
->  include/uapi/linux/kvm.h                      |  1 +
->  tools/testing/selftests/kvm/Makefile.kvm      |  1 +
->  .../selftests/kvm/arm64/native_cache_config.c | 52 +++++++++++++++++++
->  7 files changed, 121 insertions(+)
->  create mode 100644 tools/testing/selftests/kvm/arm64/native_cache_config=
-.c
->=20
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.=
-rst
-> index e3b3bd9edeec..ee47dc07ceac 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -8930,6 +8930,29 @@ no-op.
-> =20
->  ``KVM_CHECK_EXTENSION`` returns the bitmask of exits that can be disable=
-d.
-> =20
-> +7.48 KVM_CAP_ARM_NATIVE_CACHE_CONFIG
-> +-------------------------------------
-> +
-> +:Architecture: arm64
-> +:Target: vcpu
-> +:Parameters: none
-> +:Returns: 0 on success, -ENOMEM on allocation failure, -EINVAL if
-> +          args[0] or flags are non-zero.
-> +
-> +This per-vcpu capability reads the real CLIDR_EL1 and CCSIDR_EL1 values
-> +from the physical CPU on which the ioctl is executed, and sets them on
-> +the vcpu. This replaces the fabricated cache configuration that KVM
-> +provides by default.
-> +
-> +The caller should ensure the vcpu thread is pinned to the desired
-> +physical CPU before invoking this capability, so that the correct cache
-> +topology is captured. On heterogeneous systems, different physical CPUs
-> +may have different cache configurations.
-> +
-> +After this capability is enabled, the vcpu's CLIDR_EL1 and CCSIDR_EL1
-> +values can still be overridden individually via ``KVM_SET_ONE_REG`` and
-> +the ``KVM_REG_ARM_DEMUX`` interface.
-> +
->  8. Other capabilities.
->  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> =20
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/k=
-vm_host.h
-> index a1bb025c641f..c9713a472c47 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -1296,6 +1296,7 @@ void kvm_sys_regs_create_debugfs(struct kvm *kvm);
->  void kvm_reset_sys_regs(struct kvm_vcpu *vcpu);
-> =20
->  int __init kvm_sys_reg_table_init(void);
-> +int kvm_vcpu_set_native_cache_config(struct kvm_vcpu *vcpu);
->  struct sys_reg_desc;
->  int __init populate_sysreg_config(const struct sys_reg_desc *sr,
->  				  unsigned int idx);
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 326a99fea753..579583e8dc5c 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -393,6 +393,10 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, lo=
-ng ext)
->  	case KVM_CAP_ARM_DISABLE_EXITS:
->  		r =3D KVM_ARM_DISABLE_VALID_EXITS;
->  		break;
-> +	case KVM_CAP_ARM_NATIVE_CACHE_CONFIG:
-> +	case KVM_CAP_ENABLE_CAP:
-> +		r =3D 1;
-> +		break;
->  	case KVM_CAP_SET_GUEST_DEBUG2:
->  		return KVM_GUESTDBG_VALID_MASK;
->  	case KVM_CAP_ARM_SET_DEVICE_ADDR:
-> @@ -1793,6 +1797,19 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
->  		r =3D kvm_arch_vcpu_ioctl_vcpu_init(vcpu, &init);
->  		break;
->  	}
-> +	case KVM_ENABLE_CAP: {
-> +		struct kvm_enable_cap cap;
-> +
-> +		r =3D -EFAULT;
-> +		if (copy_from_user(&cap, argp, sizeof(cap)))
-> +			break;
-> +
-> +		r =3D -EINVAL;
-> +		if (cap.cap =3D=3D KVM_CAP_ARM_NATIVE_CACHE_CONFIG &&
-> +		    !cap.args[0] && !cap.flags)
-> +			r =3D kvm_vcpu_set_native_cache_config(vcpu);
-> +		break;
-> +	}
->  	case KVM_SET_ONE_REG:
->  	case KVM_GET_ONE_REG: {
->  		struct kvm_one_reg reg;
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 1b4cacb6e918..c19d84e48f8b 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -484,6 +484,32 @@ static int set_ccsidr(struct kvm_vcpu *vcpu, u32 css=
-elr, u32 val)
->  	return 0;
->  }
-> =20
-> +int kvm_vcpu_set_native_cache_config(struct kvm_vcpu *vcpu)
-> +{
-> +	u32 csselr;
-> +
-> +	if (!vcpu->arch.ccsidr) {
-> +		vcpu->arch.ccsidr =3D kmalloc_array(CSSELR_MAX, sizeof(u32),
-> +						  GFP_KERNEL_ACCOUNT);
-> +		if (!vcpu->arch.ccsidr)
-> +			return -ENOMEM;
-> +	}
+intel_sdvo_connector_funcs registers intel_connector_destroy() as the
+.destroy callback. Once drm_connector_init_with_ddc() succeeds inside
+intel_sdvo_connector_init(), the DRM core takes ownership of the
+connector object and will call .destroy on teardown.
 
-Well, no.
+The error labels in intel_sdvo_tv_init() and intel_sdvo_lvds_init()
+call intel_connector_destroy() explicitly before returning false,
+causing it to be invoked twice: once in the error path and again by
+the DRM core through the registered .destroy callback.
 
-The moment you decide to expose all of the host's crap, you really
-need to put everything on the table. It means fully handling
-FEAT_CCIDX, which we were careful not to expose anywhere because it is
-a terrible idea.
+Remove the manual intel_connector_destroy() calls from the error labels
+and return false directly instead.
 
-So CCSIDR_EL1 becomes a 64bit value, is complemented with CCSIDR2_EL1,
-and needs to be advertised as such through the idregs.  CCSIDR2_EL1
-must be exposed to userspace and made writable, but only if the
-feature exists. You also need to conditionally undef CCSIDR2_EL1
-depending on the VM configuration.
+Fixes: 32aad86fe88e7 ("drm/i915/sdvo: Propagate errors from reading/writing control bus.")
+Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+---
 
-The "amusing" thing is that, before we introduced the cache hierarchy
-sanitisation, we would happily report something completely senseless
-on CCIDX hardware. It didn't matter, because nobody can make any use
-of that information, apart from EL3 firmware.
+Not tested as I don't have such hardware.
+---
+ drivers/gpu/drm/i915/display/intel_sdvo.c | 16 ++++------------
+ 1 file changed, 4 insertions(+), 12 deletions(-)
 
-But if you want this to be a reflection of the underlying HW, then so
-be it.
+diff --git a/drivers/gpu/drm/i915/display/intel_sdvo.c b/drivers/gpu/drm/i915/display/intel_sdvo.c
+index 2e1af9e869ded..6eb2b4b45a9b4 100644
+--- a/drivers/gpu/drm/i915/display/intel_sdvo.c
++++ b/drivers/gpu/drm/i915/display/intel_sdvo.c
+@@ -2873,16 +2873,12 @@ intel_sdvo_tv_init(struct intel_sdvo *intel_sdvo, u16 type)
+ 	}
+ 
+ 	if (!intel_sdvo_tv_create_property(intel_sdvo, intel_sdvo_connector, type))
+-		goto err;
++		return false;
+ 
+ 	if (!intel_sdvo_create_enhance_property(intel_sdvo, intel_sdvo_connector))
+-		goto err;
++		return false;
+ 
+ 	return true;
+-
+-err:
+-	intel_connector_destroy(connector);
+-	return false;
+ }
+ 
+ static bool
+@@ -2945,7 +2941,7 @@ intel_sdvo_lvds_init(struct intel_sdvo *intel_sdvo, u16 type)
+ 	}
+ 
+ 	if (!intel_sdvo_create_enhance_property(intel_sdvo, intel_sdvo_connector))
+-		goto err;
++		return false;
+ 
+ 	intel_bios_init_panel_late(display, &intel_connector->panel, NULL, NULL);
+ 
+@@ -2967,13 +2963,9 @@ intel_sdvo_lvds_init(struct intel_sdvo *intel_sdvo, u16 type)
+ 	intel_panel_init(intel_connector, NULL);
+ 
+ 	if (!intel_panel_preferred_fixed_mode(intel_connector))
+-		goto err;
++		return false;
+ 
+ 	return true;
+-
+-err:
+-	intel_connector_destroy(connector);
+-	return false;
+ }
+ 
+ static u16 intel_sdvo_filter_output_flags(u16 flags)
 
-> +	for (csselr =3D 0; csselr < CSSELR_MAX; csselr++) {
-> +		write_sysreg(csselr, csselr_el1);
-> +		isb();
-> +		vcpu->arch.ccsidr[csselr] =3D read_sysreg(ccsidr_el1);
+-- 
+2.43.0
 
-That's not how the selection register works. CLIDR_EL1 tells you what
-each cache level is (Instructions, Data, Unified, Tags), and that must
-be combined with the index (which doesn't start at bit 0).
-
-I also wonder how you reconcile not exposing MTE when the cache
-hierarchy indicate support for tags. That clearly contradicts "report
-what the HW has".
-
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
 
