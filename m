@@ -4,64 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37998E9DE5B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 07:44:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38339E9DE5B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 07:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lWhZiT6ZVrKSGBgIdxievknKh0u0rumlgFTvUrEEKek=; b=EuWLD74XpFpmQ+OIsc+ZVzjRAw
-	WSGZEdJ48WPoJ3gsL0DyzkYJEWtS6Wku37gG7w0DO3Z8eRWaj4I4mODXGTAfkL0Rl/k3VQ6Dz36xC
-	I43s2r5Y3UrEiqnmjhS1jfDfyAYzyA1QVmFfm94GL+hHY2LSWficENX4RHQrtDKpcfRrWFV2p0zJY
-	TmMOU2kxYc/Dc2RyGkYQdmukImoFXXYYTG7rGbS+PuVIb6Ek6iIB1DtZ1b9+KILMymbsoTqYct04k
-	ZSy7UAOi3DpQcmA9zigaWr+s2HvdjeiHtkUmcZwFEfHVQxJG4mmUE3cUaetgaCKQpCsHJdTNftnG7
-	mUbRipyg==;
+	bh=rxRaGky1PDExK5cCBC91gIZwwHEAgwUQ6PW8LpppLKE=; b=4WPd2Q+BOI0wdnYZ9B7hvp2eE+
+	898z7SaFIeEOIyZMZZ25sAsVBt6YVmf8se1MHI8U6sxGs0mS7binPF9UgsBwhmXxBFmVjfOgb1NRI
+	XhM8i7+ITO9zTsM2fXhb6SObpD5VpdwQh3WZM7CzoCFXjyvQISMffucs/OH2q7Ayq86Sgaq/72OBI
+	dRGBHs/F5Q528R8WPzN5mteWzWZIZimwGxvAafnrG5i7ZykYuWaaInrSxxvPIdK73ChU2E3cHUJKh
+	+X1wgNhcyGAwLWzey/CTB8R6JhiYG65PUNhE/WsDIuoZgIDoTY0o4/09XQbvEzLO6ldKYhJivAJ+Q
+	yiuw4Dlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAk3T-00000009s28-0tY8;
-	Thu, 09 Apr 2026 07:43:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wAk8B-00000009sRg-1fr8;
+	Thu, 09 Apr 2026 07:48:51 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAk3R-00000009s1a-0quf;
-	Thu, 09 Apr 2026 07:43:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A9F114049D;
-	Thu,  9 Apr 2026 07:43:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05C1EC4CEF7;
-	Thu,  9 Apr 2026 07:43:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775720636;
-	bh=uq/R6PmosWxaig3fB+at0I2ppDM6xQzhVCUmWXfCLIE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EVllBZVKxqZDb6GWFRf6NCvRGFukJ+3EsnP2wGG9WlFBKXTj1m8EIxNieXFokKcNC
-	 DY8z5BewLaM0clOfV8z+g1lmeigkmas2Ef6llkBYUOLKsmHrhs6frICytJD1gAsrKP
-	 ILgqkdcyErgC7vKK10MJFyN83omrsJUU66Wg5JXSURzCIb3ir1Ij3WrhC0G+47k5+2
-	 fOyhhnUVmELllc1kcdTZyR18jQlxhVRpMa5u74L1GuCocHwkhIB/mey17qCMktLJqH
-	 ipAjY8yoPibjVwitnUb53lOicQ19oNEt78twPkuxZBkzykgu0tVCNo/b3LtrTDEbtB
-	 v2GJLeLdgZMLA==
-Date: Thu, 9 Apr 2026 09:43:53 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Yu-Chun Lin <eleanor.lin@realtek.com>
-Cc: linusw@kernel.org, brgl@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, afaerber@suse.com, tychang@realtek.com, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-realtek-soc@lists.infradead.org, cy.huang@realtek.com, 
-	stanley_chang@realtek.com, james.tai@realtek.com
-Subject: Re: [PATCH v2 2/4] dt-bindings: gpio: realtek: Add
- realtek,rtd1625-gpio
-Message-ID: <20260409-heavy-colorful-monkey-e09d42@quoll>
-References: <20260408025243.1155482-1-eleanor.lin@realtek.com>
- <20260408025243.1155482-3-eleanor.lin@realtek.com>
+	id 1wAk89-00000009sRJ-15US
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Apr 2026 07:48:50 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-43b949bf4easo271805f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Apr 2026 00:48:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1775720927; x=1776325727; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=rxRaGky1PDExK5cCBC91gIZwwHEAgwUQ6PW8LpppLKE=;
+        b=EoFaC2SuUXdQ4C2V70w7NZ/p5UfilzLEF0hHHxaL4hrZGr9MIh0zsroMo6KwlC2e9S
+         AQrgW73bmJ0sMQrns3yBhgcCst2KQMkzSdPtgdlhDr8g+Dbl2prmlAZZFzKlIzIh3bJC
+         xbJnGlSvd4pxkPTpMdytzNUi5xDnCUNsTYBaoIngmXWn/QnnzoAeDBcZwhs1iVFLaj2v
+         92pLWlZFwBr7l8vUslM81LkYd3QL1jb2VGqhaNo1NwKGKylch90OGkFQ1+OyN3sT4Qf4
+         /2d8DqBKzOpGOnsYdar2kpGl1tD3doBCyvzZ/4nK53Mf7QZPP2HVB2ex9f/pKGq1hV/0
+         ZG+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775720927; x=1776325727;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rxRaGky1PDExK5cCBC91gIZwwHEAgwUQ6PW8LpppLKE=;
+        b=KW+BVV9RzsYg33NkwDf6Qu+deJGfN/gX/sRHtWAsfGC9CSKKJKu98//tlSmORSht3H
+         eHCMCGvw/uF3Nx4dtJBKY4wPh0136ylSlYRqLrEukEfrG3MWTDMEEUanrGDdRjRqgvFJ
+         3vU/m8BG+eguRhlcw9ClAv20PbZmk88st2Hx9LmMFMSAmyNk1dsh3j+L7+fV1pe5cOPF
+         oO21twVX8hWAMApkYkzcaUwhkpij3ptpDlQVFvGFwQEkDQD1TmVtukJyiSKUdaylDN+3
+         mhV7RYr8P8paiNWtfox3liM0ssAoFQ/hYAD3snle3QwSypMvoq9st2YeTj731EpNgOXM
+         IKMw==
+X-Forwarded-Encrypted: i=1; AJvYcCVgpziUoQo24N6sF+LpYzfr+GJFNncTKeEACHO8fEvkdck6alPbwQd0Uy45F04vxgt4hVWpjDtIKk5PUIZ4rh5H@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEpF/FEoORGMyYcg3H75CClRO9YKab51WSbN0s1iYGAFcbpvxZ
+	uQpFHMFI7a8Q3LJWD3gK3lzFiQzaKhYP4N63xYn15pSCJVwAmxj67zek
+X-Gm-Gg: AeBDiesDnIeDRqT0jZ8WzF1jDKksHkd/ZvoNKcXeF095TiB+anQpJu4VnpVF6DKLMIz
+	sEDvaB3fcHKc6GXlObqpaAfJGAzbmL8nfD0ZK8Vh4AbhAS8i5myEN3lK0sQcCvKwL+f61JmdvdW
+	tG4f0JBkxCMFtDfCzx75BFmcHI8QALvaS/DxePsKpeGtcCEsQWweCjVdLUkbROQSaCHn4+Tg1iU
+	qvbm6EXA71T8g/Wi+tLfyRDnQBfEW01rzkdQqbcFZqJy67GQlsqDM/BTxOSZww9uur2xFE3xJkq
+	pxVlRz4eIC5b/OT7HtvFv4CX9qCxV/xM+3Rycsg1lnHCKIiHzmRulGWmOoe4eCjceutQULtSNqe
+	PimcV1v/+d5wRCCZP5JOCEaPEv9zcaSKn1V9+p5TjG3Qq1u/iOKtTxMqiOxWESTFfKzrtePBhiQ
+	rmkoioSIMUvyRD8P1GP4YN3q70/+ztJytAZrMkoUlUYrjPY9O7wtfC0NmJIBzbefze+TbH2Yugv
+	k3qTr23BzkenDVEWnIw/MNpjfEiYVSIS0H7fNjM+wXtytcUibz9HA==
+X-Received: by 2002:a05:6000:2506:b0:43d:1598:2d6e with SMTP id ffacd0b85a97d-43d595bbc20mr3631331f8f.20.1775720926997;
+        Thu, 09 Apr 2026 00:48:46 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-144-20-233.cust.dsl.teletu.it. [93.144.20.233])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d1e2a6f5bsm59805211f8f.7.2026.04.09.00.48.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Apr 2026 00:48:46 -0700 (PDT)
+Date: Thu, 9 Apr 2026 09:48:44 +0200
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Primoz Fiser <primoz.fiser@norik.com>
+Subject: Re: [PATCH v1 2/3] arm64: dts: freescale: Add support for Variscite
+ VAR-SOM-MX91
+Message-ID: <addZ3BNYfwIrFBuG@Lord-Beerus.station>
+References: <cover.1775669847.git.stefano.r@variscite.com>
+ <1ed7e2100e3feb74c9f0006d5b88e1bba1ad4339.1775669847.git.stefano.r@variscite.com>
+ <adcdWdTcVR2T2F5c@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260408025243.1155482-3-eleanor.lin@realtek.com>
+In-Reply-To: <adcdWdTcVR2T2F5c@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_004357_258797_8282194E 
-X-CRM114-Status: UNSURE (   9.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260409_004849_311487_AD29B409 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,49 +117,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 08, 2026 at 10:52:41AM +0800, Yu-Chun Lin wrote:
-> +maintainers:
-> +  - Tzuyi Chang <tychang@realtek.com>
-> +
-> +description: |
-> +  GPIO controller for the Realtek RTD1625 SoC, featuring a per-pin register
-> +  architecture that differs significantly from earlier RTD series controllers.
-> +  Each GPIO has dedicated registers for configuration (direction, input/output
-> +  values, debounce), and interrupt control supporting edge and level detection
-> +  modes.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - realtek,rtd1625-iso-gpio
-> +      - realtek,rtd1625-isom-gpio
-> +
-> +  reg:
-> +    maxItems: 1
-> +    description: |
-> +      Memory region containing both interrupt control and GPIO
-> +      configuration registers in a contiguous address space.
-> +
-> +      For realtek,rtd1625-iso-gpio:
-> +        - Base + 0x0 ~ 0xff: Interrupt control registers
-> +        - Base + 0x100 ~ 0x397: GPIO configuration registers
-> +
-> +      For realtek,rtd1625-isom-gpio:
-> +        - Base + 0x0 ~ 0x1f: Interrupt control registers
-> +        - Base + 0x20 ~ 0x2f: GPIO configuration registers
+Hi Frank!
 
-Drop description, you are duplicating here DTS. Bindings do not need to
-serve as reference manual for the device.
+On Wed, Apr 08, 2026 at 11:30:33PM -0400, Frank Li wrote:
+> 
+> what' difference with imx93-var-som ? Can you reuse it?
+> 
 
-However when you state them like this and give them names, I have the
-same concerns as last time - please consult your datasheet whether this
-is really one address space.
+The imx91-var-som is conceptually similar to imx93-var-som, and I used
+it as a reference while preparing this DTS.
 
-With description dropped:
+However, it cannot be directly reused as there are several hardware
+differences between the two platforms, including SoC integration and
+peripheral configuration (e.g. pinctrl, and available IPs).
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+So a separate description is required for imx91.
 
 Best regards,
-Krzysztof
-
+Stefano
 
