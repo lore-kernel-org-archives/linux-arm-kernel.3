@@ -4,67 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11513F364B6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 21:12:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A3B3F364BA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 21:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W+QVhhRcZ+wnz8UL9kN1R3TtbKrhNjSuImzbBc7OTyc=; b=OZQn+JlHHCf2/5APYBDfYJ2/Jw
-	MwN+xs4X2LvnC4n6yxAesPKVl5CFIsUMF2szl1EOYXiVKd8VIHqozUFS3vnsztqSpIXtuQOhchnn6
-	eH7Z0NsxQuiwua09EAf6XlijRTTVcBWl7x2Qi/rnzVbT1BXqnN6mhWRmFLS5BlWjaCeXuEYJieAhf
-	WYEvCIEJqiCZ0nYX70B0/E4OoGc7g5+rrJ8sO/RK5brSfKrbxNFP/YSDqal3fpLYI4RDv/oOMjaKy
-	Do5FQv1+Ty+HrGLRzgSeVBy/MX26BXCc62NlMiXFO/Nqr1r9nTpumU7KFWJ4QP/bqYk0oa/gDni8+
-	bE4dqWkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=U30AFcv7lgMNUZ3ymlMVV/vyQq/k6Igfk7p7bVokTZ0=; b=OHS4hLTT5S872y
+	BGfHwTUAqOOrfqMgnV8fGZLAZTyMNacm+lBP/tgLQBJE2UiWu0faCw3YzTk8W/f509oLqIeedpWRH
+	aWucTWyga0fXRh8+T0fxLcpL1XsBjGoHvoPV+Ck2B/ahYTch6zN+Y8Ty5GYFELunXmocXzAdxTWUu
+	+2q8rvZtfDctM6rekp9IasI/YM4aLv8fS3gOz+zWxzOFnxT7vEXJl+T+bySqoxCK3HdIYaNxSrVms
+	WfYozaQOeziZYn88KkXmfARr5nQChMej7nxsLRhkPqtJFg8VpL/nxEpVyL5sfgP/bSDxI5SYAsuP+
+	xvEtsQRbOO6eSCDQCYqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAwfi-0000000BDUh-170y;
-	Thu, 09 Apr 2026 21:12:18 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wAwmQ-0000000BE64-0bO2;
+	Thu, 09 Apr 2026 21:19:14 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAwfh-0000000BDUa-02Ed
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 09 Apr 2026 21:12:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=W+QVhhRcZ+wnz8UL9kN1R3TtbKrhNjSuImzbBc7OTyc=; b=WzZmKf6cTDfScK1gk+1acnZhlr
-	G93RvaO6YUmLTxRxin5L8LZ2vp3pz9jHGvpTVk5E47nExzIAehMSGmWF4yAVB5M6I0KG0HVTC7I93
-	+tIFzTlJYrx4RBbtUqxfQdTCk5T2F8xu9fZu61c9SJLiEBniTZhRJ+UbBPPCjWNPxXxkO0hz0mErZ
-	bon9KwxkM46pfEdWd/kQUN4urdDsp67jRy84wnZdmmu/C8+FFM6Nt4kXbDsR/N7DSdXr4gT2NLpV0
-	q2CQgol/+K0gn2nYY3FLFKdlxC7OqpO41PkjsN1VwML4MsIqcbZ6q9/iXgwZBSmxgRj+dyxYv0TdH
-	45y8tHsw==;
-Received: from [172.31.31.148] (helo=u09cd745991455d.lumleys.internal)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAweG-0000000CPPo-0dZe;
-	Thu, 09 Apr 2026 21:11:34 +0000
-Message-ID: <65b108f99ff0bcc54609a37ef5c9ce07a72e4129.camel@infradead.org>
-Subject: Re: [PATCH] KVM: arm64: Add KVM_CAP_ARM_NATIVE_CACHE_CONFIG vcpu
- capability
-From: David Woodhouse <dwmw2@infradead.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: "Gutierrez Cantu, Bernardo" <bercantu@amazon.de>, 
- alexandru.elisei@arm.com, alyssa@rosenzweig.io, asahi@lists.linux.dev, 
- broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com, 
- kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, marcan@marcan.st, mathieu.poirier@linaro.org,
-  oliver.upton@linux.dev, suzuki.poulose@arm.com, sven@svenpeter.dev, 
- will@kernel.org
-Date: Thu, 09 Apr 2026 22:10:47 +0100
-In-Reply-To: <86qzoo2eba.wl-maz@kernel.org>
-References: <b71910e202ac4a56a87c0e34df13cce058d46a76.camel@infradead.org>
-	 <7fb7b823c68e04321eb532a5b8ae21a818d4926d.camel@infradead.org>
-	 <86se942hbv.wl-maz@kernel.org>
-	 <584931abfa8c6f6c9c8a1379d26ef6beb58db1cd.camel@infradead.org>
-	 <86qzoo2eba.wl-maz@kernel.org>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-AMcz7QLTiE7nyEtLfOUk"
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	id 1wAwmN-0000000BE5R-42L9
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Apr 2026 21:19:13 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-43d01d6b50cso1336036f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Apr 2026 14:19:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1775769549; x=1776374349; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=U30AFcv7lgMNUZ3ymlMVV/vyQq/k6Igfk7p7bVokTZ0=;
+        b=OuldBKMNqnKboblKZWO+omav/Q+KGGU9OZ/TIoBXqY0zXDzHPj75jJibXqykavUzia
+         af4L9ZYPq4XAr851NqCYqT96/Mqckc6V++hLCZc67Phv1UDNiqxJIZ/7BdCa3whsY1JM
+         BEL818HjUtmSoozKd21qoCVoMaXFrRXXNQATFGGF9vbgPSOZU3aEuqcddu1DZnsgy7jL
+         LxuxDvS95RJBITxDsEZo5PteyEB8We/vBbf9GGVzgE24V+EAlz51TamutZ5uH9A6UNtu
+         lVqNXjAfPoa0qOVn0fck/lUQ9RNrJZS5CNQTz4htRG2yTu7eNI8PZbtu/tI3X0+NLAkf
+         0DcA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775769549; x=1776374349;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=U30AFcv7lgMNUZ3ymlMVV/vyQq/k6Igfk7p7bVokTZ0=;
+        b=Fgnd5sFVOgGWnGYvKBqPaDMirGzxyhLUHI0EpOXE9WLnvat3Icl0/VsJsEkqTZ7CZd
+         CNQ/Se143YBw68TI8vyN6c7CHmCKanX+8oAsZ7DMFxd/nngkhCsjWJ/QIM2bdIldl4C7
+         6W9Gp2pCOwq+YFOpz9vyTvHU6vFSnebA2UOcWBywkXv83LPhOncTBJb9UE4r5nCbe4Wf
+         5zrFtHMxA8a7KfRJrBK2AGLV68rrMEcWX3Xi2POjd4w4v8wkEk2IApV9rEjII7gGeQE3
+         fdIJbJLW2DH3iPZt/Tt9dlFggwXyRbzwcAA6P07cO4+qxJdQvHJFJfuMi6vxK7FSqYDn
+         FrOw==
+X-Gm-Message-State: AOJu0YwFeTh0NKqV1KWfgViAx9owEBWgmK3uKjkmhKKKQSMacUHHy04C
+	tmIkuTjnpekrXD83uRb6y4Lbjd44fnhpmm2OMkHq2lQWD7FyWRDwMQKy
+X-Gm-Gg: AeBDiesOkvjpauvzgx6AYVyd0NKnO06QPpO/ZfwEQOOJO8shKcmjDpirXrrs+xaxbz2
+	5IUsPiACfmvENgrkoVIy1l0ZZhCq/Ay7tz5FfXsCIyRVkrgyqy9LPoBVeCzzCJUICInTeMlJoBF
+	Lf43hFygth4KD1HBVR5Rck+uAYcQXsQsPKNQunm9DPUNLAlBqD/SkXb08kAUuNjQ22t1eHocg/t
+	80JRhifY9Q3C6BFIs97MtBLVvtSZNXM1ZDbIcmZp+xeCARrrUfGJKKVhrmzq8bWEhveSjc4dnQy
+	CMTTmo6tKPfaeZXMdmLiYDxmqLMGi0/HmSxoGWrOdZrWI8BRFNF9mdhtkzFLHigZGhjipj2Yurx
+	E2pFtUn6l+tT5Bn4Fh2IpBiMOGxW1jOBWnLeQaP43S3qoHOEfLWIwp6d7lhFNRVgT4NmRnLCu/8
+	4McPCRmgdva3VVgQeb9OxtIRtmg/5f8VeD17ZFKysTmR4Ogi5yGXr6lWqoaqa6GC0gFPYLTOPUi
+	s+AfGaVnixIQPHEDwAda4E=
+X-Received: by 2002:a05:6000:2886:b0:43b:7ff5:fdf7 with SMTP id ffacd0b85a97d-43d642c8664mr792554f8f.29.1775769549372;
+        Thu, 09 Apr 2026 14:19:09 -0700 (PDT)
+Received: from [127.0.1.1] (93-140-227-38.adsl.net.t-com.hr. [93.140.227.38])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d63de2a53sm1797536f8f.5.2026.04.09.14.19.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Apr 2026 14:19:08 -0700 (PDT)
+From: =?utf-8?q?Duje_Mihanovi=C4=87?= <dujemihanovic32@gmail.com>
+Subject: [PATCH 0/4] samsung,coreprimevelte dt fixes
+Date: Thu, 09 Apr 2026 23:17:23 +0200
+Message-Id: <20260409-cprime-dt-fixes-v6-20-v1-0-8df6f88942c8@dujemihanovic.xyz>
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3LTQqAIBBA4avErBtQ0cKuEi1Ex5pFP2hEIN49a
+ fnxeAUyJaYMU1cg0cOZz6NB9h34zR0rIYdmUEIZqaRGfyXeCcONkV/K+AyoBHpprB69MzFYaO+
+ V6M9tnZdaPyhEy0BnAAAA
+X-Change-ID: 20251214-cprime-dt-fixes-v6-20-c15947ca5fd9
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Karel Balej <balejk@matfyz.cz>, 
+ David Wronek <david@mainlining.org>, phone-devel@vger.kernel.org, 
+ ~postmarketos/upstreaming@lists.sr.ht, 
+ =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
+X-Mailer: b4 0.15.1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=843; i=duje@dujemihanovic.xyz;
+ s=20260328; h=from:subject:message-id;
+ bh=TK7U0/XbzM8sVQEkZGsmbGPzqT8CPmOc8EOImm890/o=;
+ b=owGbwMvMwCW2z0j3+uHIyKOMp9WSGDJviJ/WYdkUH5InLrk8SERafMJdsX2/bQz2brQPZLvD/
+ Jjpolh8RykLgxgXg6yYIgvzUrlLfKnhEx2KbJNg5rAygQxh4OIUgImsrGL4p8ZyQuH3tztFn3d6
+ 7Ii2z/ndELVkeay3x0b5A/LSDz5GOzAyrLiuOu1Vh4fkDX+mypO6zH9v7A6fpB/jelq7rJxpl9s
+ RNgA=
+X-Developer-Key: i=duje@dujemihanovic.xyz; a=openpgp;
+ fpr=9BD463017690089DAA8DC266275F544B3B1B4792
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260409_141912_046608_A59836BF 
+X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,156 +114,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+A small assortment of DT fixes for samsung,coreprimevelte.
 
---=-AMcz7QLTiE7nyEtLfOUk
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Duje Mihanović <duje@dujemihanovic.xyz>
+---
+Duje Mihanović (4):
+      arm64: dts: marvell: samsung-coreprimevelte: Increase touchscreen voltage
+      arm64: dts: marvell: samsung,coreprimevelte: Use memory-region for framebuffer
+      arm64: dts: marvell: pxa1908: Add PSCI function IDs
+      arm64: dts: marvell: samsung-coreprimevelte: Add missing SDIO properties
 
-On Thu, 2026-04-09 at 19:12 +0100, Marc Zyngier wrote:
->=20
-> That only means you are doing a pretty bad job at supporting
-> guests. And yes, this is an issue for anything that expects to see
-> something meaningful in CCSIDR[]. The fact that none of your guests
-> hit that problem only means you're lacking coverage.
+ .../boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts   | 11 +++++++----
+ arch/arm64/boot/dts/marvell/mmp/pxa1908.dtsi                  |  5 ++++-
+ 2 files changed, 11 insertions(+), 5 deletions(-)
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20251214-cprime-dt-fixes-v6-20-c15947ca5fd9
 
-I think we just have a different idea of what it means to do a good job
-of supporting guests. For me, the most important thing is never to
-randomly change stuff underneath a running guest, even if it's a "bug
-fix".
+Best regards,
+--  
+Duje Mihanović <duje@dujemihanovic.xyz>
 
-Even fixing an egregious and obvious bug, like fixing the reported
-serial port type from the legacy 16550 to ACPI_DBG2_16550_WITH_GAS
-turned out to break FreeBSD, to pick just one recent example.
-
-Guest operating systems will often work with the environment they
-actually *had* already, regardless of the actual specifications or
-common sense. We don't have the luxury of just changing things
-underneath them and then saying "haha, well that should never have
-worked so screw you".
-
-Moving to the fixed model is obviously the plan, but it has to be done
-carefully and starting with new launches and new instance types and a
-rollback plan, not just randomly inflicted as an unexpected side-effect
-of a kernel upgrade.
-
-> From what I can read, anything from Neoverse V1 is affected.
->=20
-> >=20
-> > This isn't about introducing *new* behaviour; it's about allowing the
-> > existing established behaviour to be maintained so that we can have a
-> > *managed* transition to the new model (for new launches) rather than an
-> > unconditional uncontrolled change as the kernel gets upgraded.
->=20
-> Then fully implement "show me the cache hierarchy", read it out, and
-> write it back with whatever level of brokenness you intend to inflict
-> on your guests.
-
-Again, *compatibility* is the point here, not brokenness.
-
-> But I'm not reintroducing this particular bug.
-
-Fair enough. It's not like the x86 zoo; there are only a certain number
-of existing CPUs that I care about, that I need to enumerate. I can
-just hard-code the values for all of those in the VMM =E2=80=94 the kernel =
-does
-let me override the errantly-changed defaults, as the commit message
-said.
-
---=-AMcz7QLTiE7nyEtLfOUk
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDQwOTIxMTA0
-N1owLwYJKoZIhvcNAQkEMSIEIIabAoB/77HFbYsy8BXfgvl7jEYKS91ZTr3OoAkK4+4zMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIARbq5NH4l+1R/
-7xAQpU0qjccKxm329RPdfxZsbax4gu/tJ7IPQJV4A7w75OlCxhS/ji/wygwckzuaktzP4frycmbb
-3H+AqUZmwJ3laHTvd5uZW4n7LwyOJM5R/vHVbcoEyKqVsqTjXx091LTkTH/hPYzY39EnLyZDyv42
-JssznzsFrVI2Wjd33bxbwmYmkYf4EAILPywwNOLRywd9LRW4zmuCAzxcsjubCZc+0zNc+stLxZUe
-ZUZf5FsCTLN4S8vzWeqEYchUJAx2HWka2AOEYh/MOQGZt2n7LPz40g36vDxtkGb/ayYMLuW+P9IP
-Nm32mRly5t/7dllxecnmofWwvQzINPp1V6DgbHINVdCWNZNtHbG/VAiyG9qS7fycJr3aVgtIPMnk
-U2pOqczw8+eI+oaMR5O57zvKUhfxuCy+IXEPYc3REfmYxmABUrT0ZxorLrgjuK0C31DLtzWeCFzO
-4hGVK+1LOwUl2oBUk7zC8wBz7v7/GnOsoLdLMeYhyN+El3pTLqVTCJVgjDwXD6PEXqJoTBy7Ea+g
-2Zg+s5NNcPc4F767eXAoEsCDenijAkhmF2H30RWMOEEPZgr/u158evqUlU9w7wA/a31/v2bRyb/q
-V8ZocSV5RIhfX1F2b/wbwREmWqbRiLvopoK0IuQ2p+QBgzaZ7V5xcc4QEXOrKHEAAAAAAAA=
-
-
---=-AMcz7QLTiE7nyEtLfOUk--
 
