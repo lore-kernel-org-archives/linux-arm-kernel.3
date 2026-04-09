@@ -4,98 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC25EA3C59
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 12:54:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 884D1EA3C4E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 12:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X6+X8KtCjVEsQE5PZNXPbRjFX/a475Cwf6EH1k8MerA=; b=2rESFPQzPzAWLHb9eoZFTj8FMO
-	cxPDjZsSflEI6M8yBg1M2ZycDrVkkWF7VWPMfS3GrG10YsNxkARLAll0vumAMF2e8h2aw/wfvqRoB
-	yL3A5E9tuFy2Kwb/nNOIRKywy0H5Me4aGQkwANMiA1RjjfHiyb57L2TQgxSFxtXPyqFkUA+5O9f9p
-	H6neWY+BHtLINzQbyZ3lY8cEBJEhj8T+C2K0JEf9EEB2svewuRlxye49FeJogroqzwDdUXuYosVe9
-	xp3SYtErbBRnMZtFvPgy9Qrl6JR0m3HzJC0CYKsG5p+966Dse6R53pzbiG1Rw6hOfkePX0zhDq9gi
-	2ym+z5iA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JvtVGu3nQsM7HHjn3sCD4exp3RWfafRYBik80pZ8pdk=; b=UX3xsRWyAhhY8vMUH1T9y1tkxp
+	rhnlkKbisqAhA1qLqri3c5cRgRQ7KM8ErEEvxt7jfv+Xb6ckWVTZTor31RN7jdzXOFojYgESXkVZV
+	zuWo+/fOWAUM4MxH8wWRGBT/kvFrMMJW9VFJpFxjL0mnMBNPB9E4WDqsf/aYpXJPofA5gBHrpPyTI
+	M2mfGi4DHEhX7MIrgt6MAEg1aCSbujZHkIXk1XqRwboGvwKUyuuhoTLQQWvHUchCiqtQEm2315zSO
+	qqHg8qpJkonTAaV68h16uq/WCVIB8sUL54OTAG6RdWEvomGUrUBuxSpgxo7cSAPhJgDSD+P07re01
+	YKcgFbXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAoty-0000000APnq-3mIw;
-	Thu, 09 Apr 2026 12:54:32 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wAouc-0000000AQ0g-3KOM;
+	Thu, 09 Apr 2026 12:55:10 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAotx-0000000APmy-0FYo
+	id 1wAoua-0000000AQ03-2YFO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 12:54:30 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4889e045bc6so9025755e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Apr 2026 05:54:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1775739267; x=1776344067; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=X6+X8KtCjVEsQE5PZNXPbRjFX/a475Cwf6EH1k8MerA=;
-        b=bG0NfBVjMshVoF93P0jiXhcGahoM//JCEDbrRQIpPt3XGS3H329Zpff59n82j3n56O
-         ycXUtpzG96NfOevHZtsGEULKOfVx+IPSmh0s7LYAqw2i6sh+T80ehR7zus++2eocClxa
-         mUJQJNROUZqXaDrSxErC0OKDd3Nra+P/gBwbRs+jYHGgqlA+/+yI6egB+aEL/4Jb32aC
-         kcomJfRcXgJ44NrmSvrWyx8h8Wtk6NEgJG34ccsKDPprSu8ZocXaY1tbRXv9YVmPStE1
-         bvLaB6NpFIeSMqERjh0RTa0im5+aM1e02fB00EA088/gxtJAGznOKlWfR5HNlEbUbgW/
-         oBRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775739267; x=1776344067;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=X6+X8KtCjVEsQE5PZNXPbRjFX/a475Cwf6EH1k8MerA=;
-        b=cm+usPayFVXmcxnZj6nXzBRvwSb+08Xzl+PRj8QKiUjzdS1gc2hpa/BEkTXhCcGBry
-         B8kYUdbJ7qMyT+PxO/nmDInrhNwcx79gPnBxzozxXURwRfLeckouBiWpiOF3pg11qaYQ
-         7MrEAKJkzxSzkRDFitbr3FJry4WGCYPD28VWBN/JeOmt4fjrgx4yNn3UTMpEl9RTwiBj
-         u9ZEhTy6y0fBpDDJVTaU9Z5pUCUeml6ixdM9lZWR634LRqZFRvdvf5wv6CPDvVaK5r7P
-         xh/jU22haBXW/16ODAz/aDgREtq/2n63yCL45pXcQ6qk12SDbQq3IMcsVvGrAtJ8QKUK
-         tsnw==
-X-Forwarded-Encrypted: i=1; AJvYcCVj4z0GyM45RrLNeWGF69/7fYhgJaOF+jkKUYl0pqldguwhRHh+EZwupRUoVMr7c9KzONQq3cqqf+G45RmpCGga@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiIloODJ9gg4hEAYEn+VnJeH8KiC3EJRAEzKLgK35OYkUUcOSt
-	O2lYesSbUUuJjrxMtPIzpxouZHKzPRGg3nGNdrzMZtXTqCqAXjUvwW5acx3oBhbvRWM=
-X-Gm-Gg: AeBDieuVPIZ8xjU61Dal+qdnDDcWm1umY7aQbMzPn2ZwEjh2KVi2lPK5/UNUAWSBCb3
-	j83TLCIi/EHwpSIxkN9bmrBLeiD1CRRMI0JYYjtlpoiZHvH9e0pfT4UZ3G1qPn3pgfhKcT8DR4/
-	Ps9zi2iaTGTLHFTqZbSlrFzzx4NDPAPKUBVDDX00ZQqTg6lVSqlTtskCGN/QYJgKmDhcP3rqNoG
-	YOopR7WlIJJcqrYkwjCVO2BCHdxQP0DJjzN9MY6eJz/PMfPLdCwbOcwf1F5b9Ztz4qfknB9q96/
-	x/CYb4bklM5QKj7xq7ZbfHU6b53IDDKtrirZ5ZMcQwthcK6hlSpGP4PlDd/A+4s9gj710xtlvQ1
-	yC0cLXEeJCtrX4DioVGzIG1qA/FTdaeb2mP8p0wS3ijvhW795oC+2ayrYGgZwcaXs11G7tYWR9J
-	NhOSOT9IxTbYevPsA9Lila8v+CWOea
-X-Received: by 2002:a05:600c:c10f:b0:488:869c:edaa with SMTP id 5b1f17b1804b1-488ccfa937dmr34946715e9.7.1775739267062;
-        Thu, 09 Apr 2026 05:54:27 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488ccfbbb7fsm40549525e9.0.2026.04.09.05.54.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 09 Apr 2026 05:54:26 -0700 (PDT)
-Message-ID: <52ab7b4c-22e8-4567-beb4-f73295d87b78@linaro.org>
-Date: Thu, 9 Apr 2026 13:54:25 +0100
+	Thu, 09 Apr 2026 12:55:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=h4JouXOXgwBgEDfvhz+SUosQxPAG4Tegs5lszXeHs64/AwcKtSzNdJfpAY96G8EPTTVhVmUrhMu3yz5WgK+nxmhMUsbhGZFt5z74RYSgwCYnSw+qvvqcTrEReXWJl5mwbKI453A8KwO3/m4p7a0PVPhzDAMpGkmoMAN0MhTQEgGXXWqsSwOymMMfxRCeJBPCYj5dI3gAC7CHJaYJCyFt5Pnp4EdhoWLEotq2BHZ3GXRbGSfjNzC9kezTHkCFEDnniByS4kUDpnYVvMup+aPf5jrggJiWD+bBz4xxJEoEosMlnpjei7C652XHBzc+UcmoJun5EItzBIb9CkSQdf+Vtw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JvtVGu3nQsM7HHjn3sCD4exp3RWfafRYBik80pZ8pdk=;
+ b=wDXekjQptDivVHSBXxSoGOWiRcI1WB4VBoEvOrEkcj/jiqVo0W4XhfHgPmocYsW5zQqyOh1KdwG7QMjN8RJnZDxsVTCfI4TZzW38aaTvJFJDJqvzN5QyrKwfnwtfbvPmfpv4Ba0mnvh8NpOpkKTcKg8Fe8Twft0qDiTD5qa42BEbp1/DF+wpCx9Jwnp1xEIjYo+qdj9N9Uhy7aZNLsz6oqtZUO0qkRTO1jWcha0yFxU98AL6rdZYaDYFfGL6A663vcMl8Lcq/amGHFI3cZaYjW+3ZGzHguPdkHwliFSCOH+aVfR1QN5IOsJzTkedRbQn8BrUmSODH9POCnFcsVjPlw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 165.85.157.49) smtp.rcpttodomain=lists.infradead.org
+ smtp.mailfrom=gehealthcare.com; dmarc=fail (p=quarantine sp=quarantine
+ pct=100) action=quarantine header.from=gehealthcare.com; dkim=none (message
+ not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gehealthcare.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JvtVGu3nQsM7HHjn3sCD4exp3RWfafRYBik80pZ8pdk=;
+ b=KrBBe+Eec+iPODMH+oqIU4tr2l2pNJamrIHieR3YKRZVjcnu2STo6DAsl/Va5bRsiov3XMdFG9P8KfW+hSi+iT2HCyZsKXPvN1eOT3FUabZluyW6+iJDuSS8Hgd0UskQNIgsy7ejkieHnsMMJYJe7kvVZ+pxKZDHqer+Lzwa3HtBjPObDkVhK//+8VN/KnVG/kSBycJRN744UmqQbdORBpcrkTu3yw0l2UFgU6HytcjJjzKKtGdC4M+ACvpZ3E0XR8Jvrr38qaUOKudpm6OgBHMALAAGr5otpLAl/N2UWmu4/PSlJvEKIIrRCUxd6XAXTnTiJM7Avx7JOxtOYbNBlQ==
+Received: from SJ0PR05CA0095.namprd05.prod.outlook.com (2603:10b6:a03:334::10)
+ by PH0PR22MB3721.namprd22.prod.outlook.com (2603:10b6:510:161::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Thu, 9 Apr
+ 2026 12:55:02 +0000
+Received: from SJ5PEPF00000208.namprd05.prod.outlook.com
+ (2603:10b6:a03:334:cafe::70) by SJ0PR05CA0095.outlook.office365.com
+ (2603:10b6:a03:334::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.32 via Frontend Transport; Thu,
+ 9 Apr 2026 12:55:02 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 165.85.157.49)
+ smtp.mailfrom=gehealthcare.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=gehealthcare.com;
+Received-SPF: Fail (protection.outlook.com: domain of gehealthcare.com does
+ not designate 165.85.157.49 as permitted sender)
+ receiver=protection.outlook.com; client-ip=165.85.157.49;
+ helo=mkerelay1.compute.ge-healthcare.net;
+Received: from mkerelay1.compute.ge-healthcare.net (165.85.157.49) by
+ SJ5PEPF00000208.mail.protection.outlook.com (10.167.244.41) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.17 via Frontend Transport; Thu, 9 Apr 2026 12:55:01 +0000
+Received: from zoo11.fihel.lab.ge-healthcare.net (zoo11.fihel.lab.ge-healthcare.net [10.168.174.93])
+	by builder1.fihel.lab.ge-healthcare.net (Postfix) with ESMTP id 46542E57CC;
+	Thu,  9 Apr 2026 15:54:54 +0300 (EEST)
+From: Brian Ruley <brian.ruley@gehealthcare.com>
+To: Russell King <linux@armlinux.org.uk>,
+	Steve Capper <steve.capper@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Brian Ruley <brian.ruley@gehealthcare.com>,
+	Russell King <rmk+kernel@arm.linux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] mm/arm: pgtable: remove young bit check for pte_valid_user
+Date: Thu,  9 Apr 2026 15:54:45 +0300
+Message-ID: <20260409125446.981747-1-brian.ruley@gehealthcare.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 16/20] coresight: Add PM callbacks for sink device
-From: James Clark <james.clark@linaro.org>
-To: Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- Yeoreum Yun <yeoreum.yun@arm.com>, Mark Rutland <mark.rutland@arm.com>,
- Will Deacon <will@kernel.org>, Yabin Cui <yabinc@google.com>,
- Keita Morisaki <keyz@google.com>, Yuanfang Zhang
- <quic_yuanfang@quicinc.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>
-References: <20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be@arm.com>
- <20260405-arm_coresight_path_power_management_improvement-v10-16-13e94754a8be@arm.com>
- <e7c6f497-f8f0-409b-b80a-a064b222c08d@linaro.org>
-Content-Language: en-US
-In-Reply-To: <e7c6f497-f8f0-409b-b80a-a064b222c08d@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF00000208:EE_|PH0PR22MB3721:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 2c08d1b4-b746-47c4-6e1c-08de963736e9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700016|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: vJY+bj6GfH8oHIYCDJH/romW/Dlga0bFIR/jIYU28HJ9umzJa13Z1HOrMfhaR7bhK4byLlmNeCw9XLeTN4F9ZzySKYVhheIdDzOP+OTqkEFok66pA+yugnuilUqFr/GJcyk2zvuaC+Ix8OOeLhvGztnd94/COJOBVLsT55eEkvWzGl0SDyUxc1RZYNh3BGLN0Im0rvizXAUUMuBuTxtLMStyB2DdvTtk7EVtcBFtRTABN5pBZbgm4ilvwi85nF4zS1zlpUPWwsbBC1qV28hxXFS7s4JgsaDteUe/G1hNlrZ4+yfrthu89rLX0/shJwhjDLTPXo6l4Kku6Za/MeIPB+aa/7MY7OUTVHuIXy84gnmNzQxB+k0MSGE07U5CoVh+t+2gteKn87URxRr4S4KsE1Fe5NH5i8Wf+0BYqeaI1mujdgIaQqHG0+s6mNtkmRH1HrHR3Q7buZdctsxsHjNbgkmrbA9srvU/aE/tS/dxunIwhdWIdB/naqEaNJNuAnmeQGUyFAoSXrJ0BJVRSq8Z/AqfYeJbUtQqyIJMJbDMY5eG+bYpAoHpBFKl43Br8EiKDVZxjZVGxqe5ms5RBCl4PZeD8So2DJiVlOV3+wKEyISB0xl+4nEZR6V/8F0YMXPVCLINnArr8CWT0iughOqWfCyja4katDHlZ8WD8nzHvmMjXt9NUBCwB2MaLPpd5EtLOVKDyzQM7AVoW7kiyLKBXdyFgMrqGpEvUBsqKI7b85pT9ki89b/DrwCnF5pZ2t0o3YCdt3dGNsdEvDd+5X8SDA==
+X-Forefront-Antispam-Report: CIP:165.85.157.49;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mkerelay1.compute.ge-healthcare.net;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700016)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: aQpvOgjdHkhwyrAd3whe38xix9ZNsO7zjAOpVKZUQ0OiYysdEM4KRkujGfgaST83iJGH3Cbi6VmQauA9jE/ndA1sMgXGaIi5/vzi2z3dZkPR8F1L6g3uHnX5X/wkgID71ppR9MwJIbIMzW9sQ0MjdAtuEGdYmzqwNUF1SHJg84XTt0uZzoLIJWkRh4jLNv9QjvOK8eFJ/yUQz6RrEhzei9anf/NyH/HDnLVuXhzlEV5n+NyOzGJ2OUIS/yaegoUAjsEi6v+y3mY+itV5a1ZZVSaC4ZzqEehfXti/3ha5lpyre6yNE2cMphsO3U2FhGP5Z6wpD6kUxNwZoKTe+t1g4GvuQEcU+xMWXvuDubuME1653uiAfBWaS+pMtDYZT+p87x4B2H33RT3/DCiUfb+XRtMeoUvezY0IogYhLa9alBtM7dTmBJXP5IdVwGaaCIrM
+X-OriginatorOrg: gehealthcare.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2026 12:55:01.9420
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2c08d1b4-b746-47c4-6e1c-08de963736e9
+X-MS-Exchange-CrossTenant-Id: 9a309606-d6ec-4188-a28a-298812b4bbbf
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=9a309606-d6ec-4188-a28a-298812b4bbbf;Ip=[165.85.157.49];Helo=[mkerelay1.compute.ge-healthcare.net]
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-SJ5PEPF00000208.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR22MB3721
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_055429_155617_C8218906 
-X-CRM114-Status: GOOD (  39.84  )
+X-CRM114-CacheID: sfid-20260409_055508_646350_F8156D2B 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,170 +121,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Fixes cache desync, which can cause undefined instruction,
+translation and permission faults under heavy memory use.
 
+This is an old bug introduced in commit 1971188aa196 ("ARM: 7985/1: mm:
+implement pte_accessible for faulting mappings"), which included a check
+for the young bit of a PTE. The underlying assumption was that old pages
+are not cached, therefore, `__sync_icache_dcache' could be skipped
+entirely.
 
-On 09/04/2026 11:52 am, James Clark wrote:
-> 
-> 
-> On 05/04/2026 4:02 pm, Leo Yan wrote:
->> Unlike system level sinks, per-CPU sinks may lose power during CPU idle
->> states.  Currently, this applies specifically to TRBE.  This commit
->> invokes save and restore callbacks for the sink in the CPU PM notifier.
->>
->> If the sink provides PM callbacks but the source does not, this is
->> unsafe because the sink cannot be disabled safely unless the source
->> can also be controlled, so veto low power entry to avoid lockups.
->>
->> Tested-by: James Clark <james.clark@linaro.org>
->> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
->> Reviewed-by: James Clark <james.clark@linaro.org>
->> Signed-off-by: Leo Yan <leo.yan@arm.com>
->> ---
->>   drivers/hwtracing/coresight/coresight-core.c | 46 ++++++++++++++++++ 
->> ++++++++--
->>   1 file changed, 43 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/ 
->> hwtracing/coresight/coresight-core.c
->> index 
->> c1e8debc76aba7eb5ecf7efe2a3b9b8b3e11b10c..a918bf6398a932de30fe9b4947020cc4c1cfb2f7 100644
->> --- a/drivers/hwtracing/coresight/coresight-core.c
->> +++ b/drivers/hwtracing/coresight/coresight-core.c
->> @@ -1736,14 +1736,15 @@ static void coresight_release_device_list(void)
->>   /* Return: 1 if PM is required, 0 if skip, <0 on error */
->>   static int coresight_pm_check(struct coresight_path *path)
->>   {
->> -    struct coresight_device *source;
->> -    bool source_has_cb;
->> +    struct coresight_device *source, *sink;
->> +    bool source_has_cb, sink_has_cb;
->>       if (!path)
->>           return 0;
->>       source = coresight_get_source(path);
->> -    if (!source)
->> +    sink = coresight_get_sink(path);
->> +    if (!source || !sink)
->>           return 0;
->>       /* Don't save and restore if the source is inactive */
->> @@ -1759,16 +1760,36 @@ static int coresight_pm_check(struct 
->> coresight_path *path)
->>       if (source_has_cb)
->>           return 1;
->> +    sink_has_cb = coresight_ops(sink)->pm_save_disable &&
->> +              coresight_ops(sink)->pm_restore_enable;
->> +    /*
->> +     * It is not permitted that the source has no callbacks while the 
->> sink
->> +     * does, as the sink cannot be disabled without disabling the 
->> source,
->> +     * which may lead to lockups. Alternatively, the ETM driver should
->> +     * enable self-hosted PM mode at probe (see etm4_probe()).
->> +     */
->> +    if (sink_has_cb) {
->> +        pr_warn_once("coresight PM failed: source has no PM callbacks; "
->> +                 "cannot safely control sink\n");
-> 
-> This prints out on my Orion board on a fresh boot because of how 
-> pm_save_enable is setup there. Do we really need the configuration of 
-> pm_save_enable for ETE/TRBE if we know that it always needs saving?
-> 
-> It also stops warning if I rmmod and modprobe the module after booting. 
-> Seems like pm_save_enable is different depending on how the module is 
-> loaded which doesn't seem right.
-> 
->> +        return -EINVAL;
->> +    }
->> +
->>       return 0;
->>   }
->>   static int coresight_pm_device_save(struct coresight_device *csdev)
->>   {
->> +    if (!csdev || !coresight_ops(csdev)->pm_save_disable)
->> +        return 0;
->> +
->>       return coresight_ops(csdev)->pm_save_disable(csdev);
->>   }
->>   static void coresight_pm_device_restore(struct coresight_device *csdev)
->>   {
->> +    if (!csdev || !coresight_ops(csdev)->pm_restore_enable)
->> +        return;
->> +
->>       coresight_ops(csdev)->pm_restore_enable(csdev);
->>   }
->> @@ -1787,15 +1808,32 @@ static int coresight_pm_save(struct 
->> coresight_path *path)
->>       to = list_prev_entry(coresight_path_last_node(path), link);
->>       coresight_disable_path_from_to(path, from, to);
->> +    ret = coresight_pm_device_save(coresight_get_sink(path));
->> +    if (ret)
->> +        goto sink_failed;
->> +
-> 
-> The comment directly above this says "Up to the node before sink to 
-> avoid latency". But then this line goes and saves the sink anyway. So 
-> I'm not sure what's meant by the comment?
-> 
->>       return 0;
->> +
->> +sink_failed:
->> +    if (!coresight_enable_path_from_to(path, coresight_get_mode(source),
->> +                       from, to))
->> +        coresight_pm_device_restore(source);
->> +
->> +    pr_err("Failed in coresight PM save on CPU%d: %d\n",
->> +           smp_processor_id(), ret);
->> +    this_cpu_write(percpu_pm_failed, true);
-> 
-> Why does only a failing sink set percpu_pm_failed when failing to save 
-> the source exits early. Sashiko has a similar comment that this could 
-> result in restoring uninitialised source save data later, but a comment 
-> in this function about why the flow is like this would be helpful.
-> 
-> We have coresight_disable_path_from_to() which always succeeds and 
-> doesn't return an error. TRBE is the only sink with a pm_save_disable()
-> callback, but it always succeeds anyway.
-> 
-> Would it not be much simpler to require that sink save/restore callbacks 
-> always succeed and don't return anything? Seems like this 
-> percpu_pm_failed stuff is extra complexity for a scenario that doesn't 
-> exist? The only thing that can fail is saving the source but it doesn't 
-> goto sink_failed when that happens.
-> 
-> Ideally etm4_cpu_save() wouldn't have a return value either. It would be 
-> good if we could find away to skip or ignore the timeouts in there 
-> somehow because that's the only reason it can fail.
-> 
+However, under extreme memory pressure, page migrations happen
+frequently and the assumption of uncached "old" pages does not hold.
+Especially for systems that do not have swap, the migrated pages are
+unequivocally marked old. This presents a problem, as it is possible
+for the original page to be immediately mapped to another VA that
+happens to share the same cache index in VIPT I-cache (we found this
+bug on Cortex-A9). Without cache invalidation, the CPU will see the
+old mapping whose physical page can now be used for a different
+purpose, as illustrated below:
 
-etm4_disable_trace_unit() and etm4_enable_hw() also have timeouts but 
-the timeouts only print warnings, they don't cause early exits or return 
-error values.
+                Core                      Physical Memory
+  +-------------------------------+     +------------------+
+  | TLB                           |     |                  |
+  |  VA_A 0xb6e6f -> pfn_q        |     | pfn_q: code      |
+  +-------------------------------+     +------------------+
+  | I-cache                       |
+  |  set[VA_A bits] | tag=pfn_q   |
+  +-------------------------------+
 
-Can we do the same for etm4_cpu_save()? It would be better to read and 
-restore potentially 'unstable' register values than to early exit and 
-restore known uninitialised values as it is here.
+migrate (kcompactd):
+  1. copy pfn_q --> pfn_r
+  2. free pfn_q
+  3. pte: VA_a -> pfn_r
+  4. pte_mkold(pte) --> !young
+  5. ICIALLUIS skipped (because !young)
 
->> +    return ret;
->>   }
->>   static void coresight_pm_restore(struct coresight_path *path)
->>   {
->>       struct coresight_device *source = coresight_get_source(path);
->> +    struct coresight_device *sink = coresight_get_sink(path);
->>       struct coresight_node *from, *to;
->>       int ret;
->> +    coresight_pm_device_restore(sink);
->> +
->>       from = coresight_path_first_node(path);
->>       /* Up to the node before sink to avoid latency */
->>       to = list_prev_entry(coresight_path_last_node(path), link);
->> @@ -1808,6 +1846,8 @@ static void coresight_pm_restore(struct 
->> coresight_path *path)
->>       return;
->>   path_failed:
->> +    coresight_pm_device_save(sink);
->> +
->>       pr_err("Failed in coresight PM restore on CPU%d: %d\n",
->>              smp_processor_id(), ret);
->>
-> 
+pfn_src reused (OOM pressure):
+  pte: VA_B -> pfn_q (different code)
+
+bug:
+                Core                      Physical Memory
+  +-------------------------------+     +------------------+
+  | TLB (empty)                   |     | pfn_r: old code  |
+  +-------------------------------+     | pfn_q: new code  |
+  | I-cache                       |     +------------------+
+  |  set[VA_A bits] | tag=pfn_q   |<--- wrong instructions
+  +-------------------------------+
+
+This was verified on ba16-based board (i.MX6Quad/Dual, Cortex-A9) by
+instrumenting the migration code to track recently migrated pages in a
+ring buffer and then dumping them in the undefined instruction fault
+handler. The bug can be triggered with `stress-ng':
+
+  stress-ng --vm 4 --vm-bytes 2G --vm-method zero-one --verify
+
+Note that the system we tested on has only 2G of memory, so the test
+triggered the OOM-killer in our case.
+
+Fixes: 1971188aa196 ("ARM: 7985/1: mm: implement pte_accessible for faulting mappings")
+Signed-off-by: Brian Ruley <brian.ruley@gehealthcare.com>
+---
+ arch/arm/include/asm/pgtable.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/include/asm/pgtable.h b/arch/arm/include/asm/pgtable.h
+index 6fa9acd6a7f5..e3a5b4a9a65f 100644
+--- a/arch/arm/include/asm/pgtable.h
++++ b/arch/arm/include/asm/pgtable.h
+@@ -185,7 +185,7 @@ static inline pte_t *pmd_page_vaddr(pmd_t pmd)
+ #define pte_exec(pte)		(pte_isclear((pte), L_PTE_XN))
+ 
+ #define pte_valid_user(pte)	\
+-	(pte_valid(pte) && pte_isset((pte), L_PTE_USER) && pte_young(pte))
++	(pte_valid(pte) && pte_isset((pte), L_PTE_USER))
+ 
+ static inline bool pte_access_permitted(pte_t pte, bool write)
+ {
+-- 
+2.47.3
 
 
