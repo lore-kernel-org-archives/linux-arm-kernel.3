@@ -4,145 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BBD910FC466
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 03:02:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F349EE98FA4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 03:10:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RYUyxNlnzhfOE/C2EfPBg5ItunfGSVzcs54vUxgd1F4=; b=mycws33bEpVAljFNJyaDuksVNK
-	CLLbhXF+MjKa51drfb0Jk395ImOP6jTA0Gnzj5U9uxfP86GkPYcZZ8FlzGxUSjHTcsyEfMVxcAQGf
-	E2MAv4qdsFk9O2wbBhsMnl1o2xYiaqkxIFKdIXcaCt14rjVaE6gfAkNvNwUIAE8A0rIrsIFb+TbU9
-	wEju+E6b5ygAVtW2E7UScWTzrSCOEqL01UOkMhuGSSEKBrGyszSZMrRPSAspnLqDWc+xqwyGXjtHO
-	9ei9RPXxELis/fN2QvXydTPvGjG8mrYETXt2sPSfwrh36fxh3Sm4MHZ5a8CrmwwhKXxpBGdiiFDNQ
-	lkSXbf3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:CC:References:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=goK63dXoqgmGFxJSj3oZqeAKDskqJqNom9AprTqtONU=; b=DZsHxmGDbwmZCRgytPDU3ne+k4
+	KIm/N+hpeJpNwXsour7WeCMzi/awlGHs8/UsO/O9qRbY6U60z4JaAA3TRsOc6VKqKtL9arQgXolJQ
+	C/7Xm5u3OrTgvV4F87LJohFjfzeH0FS58bIeYvFsFg5EWssM4SM1Lbxzvl4nrGXFiWnyKaFjCz5/z
+	aOh7Q2OWcsg9EIAN0aSN5jbYOlFLfDakTJJTeIdk+YBvyCxhH+guxGJsebjE6shttIRKQVNwViBvb
+	DaoW8OuCOPyBcmdyRn+tFcfZbjbjn8Jl8kj5Y0jvlWTG7R6SgKcUX+kaMRsfVV7JB7rMDwpAKlx/n
+	9+262aXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAffM-00000009djC-2gUO;
-	Thu, 09 Apr 2026 03:02:48 +0000
-Received: from mail-northeuropeazon11012028.outbound.protection.outlook.com ([52.101.66.28] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wAfmp-00000009e6M-1Wjw;
+	Thu, 09 Apr 2026 03:10:31 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAffJ-00000009dim-3i8D
+	id 1wAfml-00000009e5A-35RN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 03:02:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ofc9NYT3+4m9Vmq4gO5YfiS7cDbJL5bRl8n1qh3hgc+bocP2nzwSdtMIQwYwwSjNyKemAjyGNVZAeukYuPIdOZUR3uVqab+sEgtIO9G7B8FxE0a2PAVl6rthkBQ1qM2kQr4OAyZ6DaSJFsB7TmTYIVk8eRq41Co/fCQ2Yn75fRyYMXrVnrTKeznkd1ofGqsF6XKYuB5INVByMKqW9pF1FWt4k5V/OwdzpFgr/YvQc2eYs+B9OcdhY9p1QW2nEqGiHdQChyH28pxU4QelmoXk4xrLkPE1MBi4iE/bxuiLufQpEf758fV1odUJsd6B7jMRlpNhoN5FvrG96Ku0+i8QtQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RYUyxNlnzhfOE/C2EfPBg5ItunfGSVzcs54vUxgd1F4=;
- b=G8o/E8fIegdj9T5dxiVW0/lTuHw7oJO+sHfL8FJF0bJm6Wshwolecsl9OgvxsMzRWx9iKYGS2mptxT4PNlRQ/AyjLEChM79cQWygrTjKeycYt+oMO6EnKCN7ho+anIaR1o/zU5BHs5JB1qnTZsK25NZY7Trr/aEoIq8bIRWOi8t2mGIWj9XX0ePM64dDHuMFStIo1eOvT1qEPp1LGQM1+PftxfBM3TFvdQuU3MzeUjKLTlv8vmGPX++KFZsNV64MMNsS3jiApoLFRgKSYGIXlWjfcnSII3++81lRl3M5UJ4X1ztI5KN+QL5quvYg7+fY0enPfQvYet4cV3GZqN8NWQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RYUyxNlnzhfOE/C2EfPBg5ItunfGSVzcs54vUxgd1F4=;
- b=Zz3ubw1Ejlbr0u7G+AtjELkqKC8GDGs2JtCBFKTcSqHrYO1CXIXk13OjICDo6uTLUGPzD+NjfkK3l1HwcKbJ6SsZnuGE0/BxhD/cp5glHW91vwtUFgMXAg7q10cFyVggp6QC0FQAlWFUCmYei5SdixrKHhVQCkw79MiiwY1/kTE02hr9Zr6FEUKDLE7oLmtQg4xEWoVfYtiqeTw6ZB32TjPIpH09eIAYxqchdV9ePvuMShgxhdMnwoa7P8GtBaLM2fRbCUE0N4bm170CO1vabraxEnE+kT0Mja2tL+hlUileqQS41cmcMbaFE1Lfbjsc4iEiNQH80hS/dtfqARx0oA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DU2PR04MB8630.eurprd04.prod.outlook.com (2603:10a6:10:2dd::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.18; Thu, 9 Apr
- 2026 03:02:40 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%3]) with mapi id 15.20.9723.030; Thu, 9 Apr 2026
- 03:02:40 +0000
-Date: Thu, 9 Apr 2026 11:05:00 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
-	Maud Spierings <maudspierings@gocontroll.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Josua Mayer <josua@solid-run.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Primoz Fiser <primoz.fiser@norik.com>
-Subject: Re: [PATCH v1 1/3] dt-bindings: arm: fsl: add Variscite VAR-SOM-MX91
- Boards
-Message-ID: <adcXXK7jPn+ynoU0@shlinux89>
-References: <cover.1775669847.git.stefano.r@variscite.com>
- <86635091cd5db0ecb7f07c5ad9d6f735ec349485.1775669847.git.stefano.r@variscite.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86635091cd5db0ecb7f07c5ad9d6f735ec349485.1775669847.git.stefano.r@variscite.com>
-X-ClientProxiedBy: SI2PR01CA0003.apcprd01.prod.exchangelabs.com
- (2603:1096:4:191::16) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Thu, 09 Apr 2026 03:10:29 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=goK63dXoqgmGFxJSj3oZqeAKDskqJqNom9AprTqtONU=;
+	b=qWcSvg30mqQfPCFpMkFX5+ZiAqiU1Qn4Id49F0Iv18zGl786wVMIF0GxkZ+dW30w5zSQidQ38
+	0wn9ZaD3udLn0pdGUhIw4DOKxzLBsGOqHifsd9zt85HSLy7t/Oc8eMZFnWnk+eM03kU+PJY5aDz
+	EdriAEkG4w7eZ38XM8myLQM=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4frlBc4yztz1cyPV;
+	Thu,  9 Apr 2026 11:03:52 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 6EC8C4055B;
+	Thu,  9 Apr 2026 11:10:06 +0800 (CST)
+Received: from kwepemn500004.china.huawei.com (7.202.194.145) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 9 Apr 2026 11:10:06 +0800
+Received: from [10.67.120.218] (10.67.120.218) by
+ kwepemn500004.china.huawei.com (7.202.194.145) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 9 Apr 2026 11:10:05 +0800
+Subject: Re: [PATCH] ACPI: APEI: Handle repeated SEA error interrupts storm
+ scenarios
+To: Shuai Xue <xueshuai@linux.alibaba.com>, "Rafael J. Wysocki"
+	<rafael@kernel.org>, "Luck, Tony" <tony.luck@intel.com>,
+	"linmiaohe@huawei.com" <linmiaohe@huawei.com>
+References: <20251030071321.2763224-1-hejunhao3@h-partners.com>
+ <CAJZ5v0h=QtcT7zhZEgrTjUk7EAk2OfbGG6BoEEv-3toKODMXQA@mail.gmail.com>
+ <bf42a19d-0f5d-48d8-91f5-febb8bfd06d3@linux.alibaba.com>
+ <9817f221-5b5f-7c25-ab94-cb04a854553a@h-partners.com>
+ <70b85b7c-5107-4f79-abf7-3cc5b7e1438d@linux.alibaba.com>
+ <ea31b6d3-fae5-ab5c-c10c-ed6901296498@h-partners.com>
+ <c72680a4-5133-4b93-8efb-2e72ce0ed7fa@linux.alibaba.com>
+ <22567fce-992c-89df-28fe-3d5959b8b205@h-partners.com>
+ <96f505ac-dc5e-45df-8641-deabb973b5f3@linux.alibaba.com>
+ <6e0b0ee0-2d1c-d0c1-fbaf-29438f62c502@h-partners.com>
+ <08c7aee3-b3a6-4696-b54f-0c7bc70a2929@linux.alibaba.com>
+CC: <bp@alien8.de>, <guohanjun@huawei.com>, <mchehab@kernel.org>,
+	<jarkko@kernel.org>, <yazen.ghannam@amd.com>, <jane.chu@oracle.com>,
+	<lenb@kernel.org>, <Jonathan.Cameron@huawei.com>,
+	<linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-edac@vger.kernel.org>,
+	<shiju.jose@huawei.com>, <tanxiaofei@huawei.com>, Linuxarm
+	<linuxarm@huawei.com>
+From: hejunhao <hejunhao3@h-partners.com>
+Message-ID: <ab28b141-40ff-2744-359c-ace1e1c6f869@h-partners.com>
+Date: Thu, 9 Apr 2026 11:10:04 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
+ Thunderbird/45.7.1
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DU2PR04MB8630:EE_
-X-MS-Office365-Filtering-Correlation-Id: 58925156-af3d-4c9f-4cf7-08de95e4763f
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|52116014|19092799006|1800799024|7416014|22082099003|38350700014|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: UkBQZGCWe+BuzHTXik/UwQSy8VpQCRAo/Df8QSDHNMrvz1g+3IqdryGsm0jJKVBnIbgWVmfCaB2de1YTWi7LT9CZIlpfWsayflGrXdnJC/lFeyztTVPorWlEKFtp/ZxJy0ITRBbmuTXsCQZ9OPO2Rbi0gGWbr2/dSLPn6c/WTdqgeNWrHweeBzBJWz6pQLaAxCSelamXPtF0PijXY/yICREniY9DoGUaFLtVOoQ/Ood5wX6fUvPp/dFstbZWtYrrWTz0yUjnkc/xGhqStqb6RQC+HKnoMJMdH0w3dqEqa0il2S923FFkxZCC1XNYqJxMzg26AEhXMoL1cKKAaQBMyujU5jHIK/qM5dODlU/PEMFlvClyplQp+ssC0KWi8Wm71hH9eOBhx9cZA5XsisLTrQzuaVkBxGQ1rLnrs2NKzfkQf2Aps3U6axYirb6twEUChVn3dkDk8H+IcYGOsPm/KyapQutZswhQGbfYi0lr1+HKjpUXxZcNMrf3RUHHl8VFsIjcFCK21Dp2JvYtOEpI//MzHVmEwMYizciQYfpF2IRGtVjje5tNBKoieCLr8XXiCgTIpQrWyyCFEUMlEM8Om/XWN8mO/22czuXEMUSmeZPwI3L4RkgT9R9gcO6nKCzYhCrkqMBtrdGETLeSwNlMTQsGOo+wFKr7A1IOlti4z37m+Ua0ax6dOsD91JpXku0ZVBy+zIDGu5fIzPwNszEjEM6oCQ3uiRTGAk2dDTWEskD3fKd3ybNW24ail72nVn2jTGLTIMkTG3VL0rWNLd0OH+tyzCFdH4KkZWqLzEe5loI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(52116014)(19092799006)(1800799024)(7416014)(22082099003)(38350700014)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?s+XdSlN/RWtTDJflhcqY/YOfropUgFUEWSyAjPu8WktriBoNui7lu1sBR7CI?=
- =?us-ascii?Q?rB5danTAz25eJPUjp4qHgZ51GJfKLJoLNKdm2OFIgNl+zfLWtKgoLTD55d+7?=
- =?us-ascii?Q?WbOI70j+oRi6Z1yvYWNaJtFOVgPu3VYHezbv2X8rmR7lm7fVrmFbXzCEyQnI?=
- =?us-ascii?Q?oWLuzBEp68QUP+S09xhYODPggKs7SHW/gIUh0CytpiZJjjoTHY0AsgZgPinF?=
- =?us-ascii?Q?SYYNPmB6wR2mb88HN7JlafkliDuGgcKp88+YtjnncbUlyynWHkmfQyPCfxfX?=
- =?us-ascii?Q?4pyBa7xfdPCjUS/LNmj6SN4A+T0/dfvJWT+0rdXqIJd1Nh0uzxVxepA77BPk?=
- =?us-ascii?Q?1Uy+31Ripw3XjCHgQo21dmD/Va9MRVQ+Pk2fPRty/BHLSPgibhvEijN1Rf3Z?=
- =?us-ascii?Q?NfbKuXYhYGDJoMS+IMFg2ZX+TxcUhiyZs69yBIpRviOu6Nf0yJsiIFbIx9L1?=
- =?us-ascii?Q?bpuGXV15ehyT0FaCFMsHg2TzebjpjFYFZuY4DjCe4DVvEQHcwb4/1pvzUr4J?=
- =?us-ascii?Q?0TvckTTwRtF2WGYgeeJIvN5WA2xdwc3DMNg/5WDC11TWE8n0dzVkh3El0VvT?=
- =?us-ascii?Q?0AQqnVAyNCdQDkCL2AcVksK+nOh/+LLXzjx+33N921hJVPQpLsinecpRYqju?=
- =?us-ascii?Q?pw/YyaQ3FO/AllbsuJIKPkPm2AcOoqk1VkqgIorQiivyGbH06QHRK59HzHmQ?=
- =?us-ascii?Q?PPp7oul4OQVKYdrjbJL0Rmg8ZfG6rhG5M9E0+K393Y5fP43Zwg0Ixne5an41?=
- =?us-ascii?Q?/mQdr5kIeC8VE9AggaR0UYmHw1/wlRIMW8Kh/bRFZOrax6XHaauqMr0zVjav?=
- =?us-ascii?Q?eFy2hd34WxfUkY/1qjhwAY24aglk+CEGphA5cG3D+gKUhK3mY0NSj1dsY4GP?=
- =?us-ascii?Q?fjWdW76/Ftsx0ZDTRPzAJscGcme8enoa/4sqZtrINSvZJrWjz2/wcbuCldNp?=
- =?us-ascii?Q?sZ7LQLAxSbPkR/VIzkqQxl6qfZf50FhoKFU4ld/IfX/0GdocdClpacvJuMxi?=
- =?us-ascii?Q?Uti/Z8QVLsZrk9sFAvl6PCNim6NaHu3q3k2qioIoDMZDpH6nXF0Dck6pUEnM?=
- =?us-ascii?Q?/h5AXCOVhIZw+wtya3I0v0lTxlQorhKYqox2OMZk2ps2IJBWpQxvAyFF6ylp?=
- =?us-ascii?Q?LmE3U9oDRoY7MTEnuqd21kBgPcHA8g54Win0efyqlFXuwDt6sBX67FJM5Sqw?=
- =?us-ascii?Q?gH2TuL2npWbtWwK0CTgo+8z7ScL1cfWysXvTd5Rv9A1N9xpEZa3erPBhECWc?=
- =?us-ascii?Q?JFpTf+6EDr54UDaGwdzbEQhtV0pGaPAX+C5ILSXAkX0iEuiBUwtTUJWOLjy/?=
- =?us-ascii?Q?QvDmJNRzG6ezEnaKOCD/JUm6QRNl1n1HoRzWH8EjzNepcFVrjwxbp0Vf+7le?=
- =?us-ascii?Q?us3EOBrogHwqE4k2MPtMjfJSrOHxxxiJwLM+e9MK55kchUOejejrWTp4ylRI?=
- =?us-ascii?Q?ZBpnJPyy/Fa1IUKJWa7uUz9la+ssBAK1bE3QK+HXevBYq1Wz7zhIslU5fO/9?=
- =?us-ascii?Q?Qgt7u5YKS9/MBwkQliji4Dh0sdK4Neomc2MqrYwIsG2RvMOUuEFDgaXQ9kYi?=
- =?us-ascii?Q?QeR5ydOFfMbiT+w3FyKtkgsuWRmJelKOp75+h+Ts52GaCphi3mTfnkOCpyhm?=
- =?us-ascii?Q?YBWtTTwqUEFQoEIjVv/dKOO/2h0T7F3E+7MGTCnky9AJhTZNO98Nyd/8q6uQ?=
- =?us-ascii?Q?kWgpJzaqNO0Djea472EHr7tQRKfCs/zLlz0XFRiihA624yOWOsK2JhJeIOC7?=
- =?us-ascii?Q?NUbVRJaH2A=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 58925156-af3d-4c9f-4cf7-08de95e4763f
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2026 03:02:40.4429
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Hittfp2M4Lp4IX4lbiL03WEUY1p4rXvIy6P8cHABDmaQ9yRgc+xPGfltlxRFeEP5MCnLnvglvVJZc16hSo1rQw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8630
+In-Reply-To: <08c7aee3-b3a6-4696-b54f-0c7bc70a2929@linux.alibaba.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.218]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemn500004.china.huawei.com (7.202.194.145)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_200245_932094_5A6FD12B 
-X-CRM114-Status: UNSURE (   5.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260408_201028_428940_3304CA97 
+X-CRM114-Status: GOOD (  20.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,13 +100,406 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 08, 2026 at 07:39:44PM +0200, Stefano Radaelli wrote:
->From: Stefano Radaelli <stefano.r@variscite.com>
->
->Add DT compatible strings for Variscite VAR-SOM-MX91 SoM and Symphony
->development carrier Board.
->
->Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
+On 2026/4/7 10:23, Shuai Xue wrote:
+>
+>
+> On 3/26/26 9:26 PM, hejunhao wrote:
+>>
+>> On 2026/3/25 20:40, Shuai Xue wrote:
+>>>
+>>>
+>>> On 3/25/26 5:24 PM, hejunhao wrote:
+>>>>
+>>>>
+>>>> On 2026/3/25 10:12, Shuai Xue wrote:
+>>>>> Hi, junhao
+>>>>>
+>>>>> On 3/24/26 6:04 PM, hejunhao wrote:
+>>>>>> Hi shuai xue,
+>>>>>>
+>>>>>>
+>>>>>> On 2026/3/3 22:42, Shuai Xue wrote:
+>>>>>>> Hi, junhao,
+>>>>>>>
+>>>>>>> On 2/27/26 8:12 PM, hejunhao wrote:
+>>>>>>>>
+>>>>>>>>
+>>>>>>>> On 2025/11/4 9:32, Shuai Xue wrote:
+>>>>>>>>>
+>>>>>>>>>
+>>>>>>>>> 在 2025/11/4 00:19, Rafael J. Wysocki 写道:
+>>>>>>>>>> On Thu, Oct 30, 2025 at 8:13 AM Junhao He <hejunhao3@h-partners.com> wrote:
+>>>>>>>>>>>
+>>>>>>>>>>> The do_sea() function defaults to using firmware-first mode, if supported.
+>>>>>>>>>>> It invoke acpi/apei/ghes ghes_notify_sea() to report and handling the SEA
+>>>>>>>>>>> error, The GHES uses a buffer to cache the most recent 4 kinds of SEA
+>>>>>>>>>>> errors. If the same kind SEA error continues to occur, GHES will skip to
+>>>>>>>>>>> reporting this SEA error and will not add it to the "ghes_estatus_llist"
+>>>>>>>>>>> list until the cache times out after 10 seconds, at which point the SEA
+>>>>>>>>>>> error will be reprocessed.
+>>>>>>>>>>>
+>>>>>>>>>>> The GHES invoke ghes_proc_in_irq() to handle the SEA error, which
+>>>>>>>>>>> ultimately executes memory_failure() to process the page with hardware
+>>>>>>>>>>> memory corruption. If the same SEA error appears multiple times
+>>>>>>>>>>> consecutively, it indicates that the previous handling was incomplete or
+>>>>>>>>>>> unable to resolve the fault. In such cases, it is more appropriate to
+>>>>>>>>>>> return a failure when encountering the same error again, and then proceed
+>>>>>>>>>>> to arm64_do_kernel_sea for further processing.
+>>>>>>>
+>>>>>>> There is no such function in the arm64 tree. If apei_claim_sea() returns
+>>>>>>
+>>>>>> Sorry for the mistake in the commit message. The function arm64_do_kernel_sea() should
+>>>>>> be arm64_notify_die().
+>>>>>>
+>>>>>>> an error, the actual fallback path in do_sea() is arm64_notify_die(),
+>>>>>>> which sends SIGBUS?
+>>>>>>>
+>>>>>>
+>>>>>> If apei_claim_sea() returns an error, arm64_notify_die() will call arm64_force_sig_fault(inf->sig /* SIGBUS */, , , ),
+>>>>>> followed by force_sig_fault(SIGBUS, , ) to force the process to receive the SIGBUS signal.
+>>>>>
+>>>>> So the process is expected to killed by SIGBUS?
+>>>>
+>>>> Yes. The devmem process is expected to terminate upon receiving a SIGBUS signal, you can
+>>>> see this at the last line of the test log after the patch is applied.
+>>>> For other processes whether it terminates depends on whether it catches the signal; the kernel is
+>>>> responsible for sending it immediately.
+>>>>
+>>>>>
+>>>>>>
+>>>>>>>>>>>
+>>>>>>>>>>> When hardware memory corruption occurs, a memory error interrupt is
+>>>>>>>>>>> triggered. If the kernel accesses this erroneous data, it will trigger
+>>>>>>>>>>> the SEA error exception handler. All such handlers will call
+>>>>>>>>>>> memory_failure() to handle the faulty page.
+>>>>>>>>>>>
+>>>>>>>>>>> If a memory error interrupt occurs first, followed by an SEA error
+>>>>>>>>>>> interrupt, the faulty page is first marked as poisoned by the memory error
+>>>>>>>>>>> interrupt process, and then the SEA error interrupt handling process will
+>>>>>>>>>>> send a SIGBUS signal to the process accessing the poisoned page.
+>>>>>>>>>>>
+>>>>>>>>>>> However, if the SEA interrupt is reported first, the following exceptional
+>>>>>>>>>>> scenario occurs:
+>>>>>>>>>>>
+>>>>>>>>>>> When a user process directly requests and accesses a page with hardware
+>>>>>>>>>>> memory corruption via mmap (such as with devmem), the page containing this
+>>>>>>>>>>> address may still be in a free buddy state in the kernel. At this point,
+>>>>>>>>>>> the page is marked as "poisoned" during the SEA claim memory_failure().
+>>>>>>>>>>> However, since the process does not request the page through the kernel's
+>>>>>>>>>>> MMU, the kernel cannot send SIGBUS signal to the processes. And the memory
+>>>>>>>>>>> error interrupt handling process not support send SIGBUS signal. As a
+>>>>>>>>>>> result, these processes continues to access the faulty page, causing
+>>>>>>>>>>> repeated entries into the SEA exception handler. At this time, it lead to
+>>>>>>>>>>> an SEA error interrupt storm.
+>>>>>>>
+>>>>>>> In such case, the user process which accessing the poisoned page will be killed
+>>>>>>> by memory_fauilre?
+>>>>>>>
+>>>>>>> // memory_failure():
+>>>>>>>
+>>>>>>>        if (TestSetPageHWPoison(p)) {
+>>>>>>>            res = -EHWPOISON;
+>>>>>>>            if (flags & MF_ACTION_REQUIRED)
+>>>>>>>                res = kill_accessing_process(current, pfn, flags);
+>>>>>>>            if (flags & MF_COUNT_INCREASED)
+>>>>>>>                put_page(p);
+>>>>>>>            action_result(pfn, MF_MSG_ALREADY_POISONED, MF_FAILED);
+>>>>>>>            goto unlock_mutex;
+>>>>>>>        }
+>>>>>>>
+>>>>>>> I think this problem has already been fixed by commit 2e6053fea379 ("mm/memory-failure:
+>>>>>>> fix infinite UCE for VM_PFNMAP pfn").
+>>>>>>>
+>>>>>>> The root cause is that walk_page_range() skips VM_PFNMAP vmas by default when
+>>>>>>> no .test_walk callback is set, so kill_accessing_process() returns 0 for a
+>>>>>>> devmem-style mapping (remap_pfn_range, VM_PFNMAP), making the caller believe
+>>>>>>> the UCE was handled properly while the process was never actually killed.
+>>>>>>>
+>>>>>>> Did you try the lastest kernel version?
+>>>>>>>
+>>>>>>
+>>>>>> I retested this issue on the kernel v7.0.0-rc4 with the following debug patch and was still able to reproduce it.
+>>>>>>
+>>>>>>
+>>>>>> @@ -1365,8 +1365,11 @@ static int ghes_in_nmi_queue_one_entry(struct ghes *ghes,
+>>>>>>            ghes_clear_estatus(ghes, &tmp_header, buf_paddr, fixmap_idx);
+>>>>>>
+>>>>>>            /* This error has been reported before, don't process it again. */
+>>>>>> -       if (ghes_estatus_cached(estatus))
+>>>>>> +       if (ghes_estatus_cached(estatus)) {
+>>>>>> +               pr_info("This error has been reported before, don't process it again.\n");
+>>>>>>                    goto no_work;
+>>>>>> +       }
+>>>>>>
+>>>>>> the test log Only some debug logs are retained here.
+>>>>>>
+>>>>>> [2026/3/24 14:51:58.199] [root@localhost ~]# taskset -c 40 busybox devmem 0x1351811824 32 0
+>>>>>> [2026/3/24 14:51:58.369] [root@localhost ~]# taskset -c 40 busybox devmem 0x1351811824 32
+>>>>>> [2026/3/24 14:51:58.458] [  130.558038][   C40] {1}[Hardware Error]: Hardware error from APEI Generic Hardware Error Source: 9
+>>>>>> [2026/3/24 14:51:58.459] [  130.572517][   C40] {1}[Hardware Error]: event severity: recoverable
+>>>>>> [2026/3/24 14:51:58.459] [  130.578861][   C40] {1}[Hardware Error]:  Error 0, type: recoverable
+>>>>>> [2026/3/24 14:51:58.459] [  130.585203][   C40] {1}[Hardware Error]:   section_type: ARM processor error
+>>>>>> [2026/3/24 14:51:58.459] [  130.592238][   C40] {1}[Hardware Error]:   MIDR: 0x0000000000000000
+>>>>>> [2026/3/24 14:51:58.459] [  130.598492][   C40] {1}[Hardware Error]:   Multiprocessor Affinity Register (MPIDR): 0x0000000081010400
+>>>>>> [2026/3/24 14:51:58.459] [  130.607871][   C40] {1}[Hardware Error]:   error affinity level: 0
+>>>>>> [2026/3/24 14:51:58.459] [  130.614038][   C40] {1}[Hardware Error]:   running state: 0x1
+>>>>>> [2026/3/24 14:51:58.459] [  130.619770][   C40] {1}[Hardware Error]:   Power State Coordination Interface state: 0
+>>>>>> [2026/3/24 14:51:58.459] [  130.627673][   C40] {1}[Hardware Error]:   Error info structure 0:
+>>>>>> [2026/3/24 14:51:58.459] [  130.633839][   C40] {1}[Hardware Error]:   num errors: 1
+>>>>>> [2026/3/24 14:51:58.459] [  130.639137][   C40] {1}[Hardware Error]:    error_type: 0, cache error
+>>>>>> [2026/3/24 14:51:58.459] [  130.645652][   C40] {1}[Hardware Error]:    error_info: 0x0000000020400014
+>>>>>> [2026/3/24 14:51:58.459] [  130.652514][   C40] {1}[Hardware Error]:     cache level: 1
+>>>>>> [2026/3/24 14:51:58.551] [  130.658073][   C40] {1}[Hardware Error]:     the error has not been corrected
+>>>>>> [2026/3/24 14:51:58.551] [  130.665194][   C40] {1}[Hardware Error]:    physical fault address: 0x0000001351811800
+>>>>>> [2026/3/24 14:51:58.551] [  130.673097][   C40] {1}[Hardware Error]:   Vendor specific error info has 48 bytes:
+>>>>>> [2026/3/24 14:51:58.551] [  130.680744][   C40] {1}[Hardware Error]:    00000000: 00000000 00000000 00000000 00000000  ................
+>>>>>> [2026/3/24 14:51:58.551] [  130.690471][   C40] {1}[Hardware Error]:    00000010: 00000000 00000000 00000000 00000000  ................
+>>>>>> [2026/3/24 14:51:58.552] [  130.700198][   C40] {1}[Hardware Error]:    00000020: 00000000 00000000 00000000 00000000  ................
+>>>>>> [2026/3/24 14:51:58.552] [  130.710083][ T9767] Memory failure: 0x1351811: recovery action for free buddy page: Recovered
+>>>>>> [2026/3/24 14:51:58.638] [  130.790952][   C40] This error has been reported before, don't process it again.
+>>>>>> [2026/3/24 14:51:58.903] [  131.046994][   C40] This error has been reported before, don't process it again.
+>>>>>> [2026/3/24 14:51:58.991] [  131.132360][   C40] This error has been reported before, don't process it again.
+>>>>>> [2026/3/24 14:51:59.969] [  132.071431][   C40] This error has been reported before, don't process it again.
+>>>>>> [2026/3/24 14:52:00.860] [  133.010255][   C40] This error has been reported before, don't process it again.
+>>>>>> [2026/3/24 14:52:01.927] [  134.034746][   C40] This error has been reported before, don't process it again.
+>>>>>> [2026/3/24 14:52:02.906] [  135.058973][   C40] This error has been reported before, don't process it again.
+>>>>>> [2026/3/24 14:52:03.971] [  136.083213][   C40] This error has been reported before, don't process it again.
+>>>>>> [2026/3/24 14:52:04.860] [  137.021956][   C40] This error has been reported before, don't process it again.
+>>>>>> [2026/3/24 14:52:06.018] [  138.131460][   C40] This error has been reported before, don't process it again.
+>>>>>> [2026/3/24 14:52:06.905] [  139.070280][   C40] This error has been reported before, don't process it again.
+>>>>>> [2026/3/24 14:52:07.886] [  140.009147][   C40] This error has been reported before, don't process it again.
+>>>>>> [2026/3/24 14:52:08.596] [  140.777368][   C40] {2}[Hardware Error]: Hardware error from APEI Generic Hardware Error Source: 9
+>>>>>> [2026/3/24 14:52:08.683] [  140.791921][   C40] {2}[Hardware Error]: event severity: recoverable
+>>>>>> [2026/3/24 14:52:08.683] [  140.798263][   C40] {2}[Hardware Error]:  Error 0, type: recoverable
+>>>>>> [2026/3/24 14:52:08.683] [  140.804606][   C40] {2}[Hardware Error]:   section_type: ARM processor error
+>>>>>> [2026/3/24 14:52:08.683] [  140.811641][   C40] {2}[Hardware Error]:   MIDR: 0x0000000000000000
+>>>>>> [2026/3/24 14:52:08.684] [  140.817895][   C40] {2}[Hardware Error]:   Multiprocessor Affinity Register (MPIDR): 0x0000000081010400
+>>>>>> [2026/3/24 14:52:08.684] [  140.827274][   C40] {2}[Hardware Error]:   error affinity level: 0
+>>>>>> [2026/3/24 14:52:08.684] [  140.833440][   C40] {2}[Hardware Error]:   running state: 0x1
+>>>>>> [2026/3/24 14:52:08.684] [  140.839173][   C40] {2}[Hardware Error]:   Power State Coordination Interface state: 0
+>>>>>> [2026/3/24 14:52:08.684] [  140.847076][   C40] {2}[Hardware Error]:   Error info structure 0:
+>>>>>> [2026/3/24 14:52:08.684] [  140.853241][   C40] {2}[Hardware Error]:   num errors: 1
+>>>>>> [2026/3/24 14:52:08.684] [  140.858540][   C40] {2}[Hardware Error]:    error_type: 0, cache error
+>>>>>> [2026/3/24 14:52:08.684] [  140.865055][   C40] {2}[Hardware Error]:    error_info: 0x0000000020400014
+>>>>>> [2026/3/24 14:52:08.684] [  140.871917][   C40] {2}[Hardware Error]:     cache level: 1
+>>>>>> [2026/3/24 14:52:08.684] [  140.877475][   C40] {2}[Hardware Error]:     the error has not been corrected
+>>>>>> [2026/3/24 14:52:08.764] [  140.884596][   C40] {2}[Hardware Error]:    physical fault address: 0x0000001351811800
+>>>>>> [2026/3/24 14:52:08.764] [  140.892499][   C40] {2}[Hardware Error]:   Vendor specific error info has 48 bytes:
+>>>>>> [2026/3/24 14:52:08.766] [  140.900145][   C40] {2}[Hardware Error]:    00000000: 00000000 00000000 00000000 00000000  ................
+>>>>>> [2026/3/24 14:52:08.767] [  140.909872][   C40] {2}[Hardware Error]:    00000010: 00000000 00000000 00000000 00000000  ................
+>>>>>> [2026/3/24 14:52:08.767] [  140.919598][   C40] {2}[Hardware Error]:    00000020: 00000000 00000000 00000000 00000000  ................
+>>>>>> [2026/3/24 14:52:08.768] [  140.929346][ T9767] Memory failure: 0x1351811: already hardware poisoned
+>>>>>> [2026/3/24 14:52:08.768] [  140.936072][ T9767] Memory failure: 0x1351811: Sending SIGBUS to busybox:9767 due to hardware memory corruption
+>>>>>
+>>>>> Did you cut off some logs here?
+>>>>
+>>>> I just removed some duplicate debug logs: "This error has already been...", these were added by myself.
+>>
+>> Hi, Shuai
+>
+> Hi, Junhao,
+>
+> Sorry for late reply.
+>
+>>
+>> Compared to the original commit message and the logs reproducing this issue
+>> on kernel v7.0.0-rc4, perhaps you are asking whether the current log is missing
+>> information such as 'NOTICE: SEA Handle'?
+>> These miss logs are from the firmware. To reduce serial output, the firmware has
+>> hidden these debug prints. However, using my own custom debug logs, I can
+>> still see that the kernel's do_sea() process is continuously running during the
+>> 10-second cache timeout. Although only one debug log is retained per second.
+>> This confirms that the issue is still present on the latest kernel v7.0.0-rc4.
+>>
+>>>>> The error log also indicates that the SIGBUS is delivered as expected.
+>>>>
+>>>> An SError occurs at kernel time 130.558038. Then, after 10 seconds, the kernel
+>>>> can re-enter the SEA processing flow and send the SIGBUS signal to the process.
+>>>> This 10-second delay corresponds to the cache timeout threshold of the
+>>>> ghes_estatus_cached() feature.
+>>>> Therefore, the purpose of this patch is to send the SIGBUS signal to the process
+>>>> immediately, rather than waiting for the timeout to expire.
+>>>
+>>> Hi, hejun,
+>>>
+>>> Sorry, but I am still not convinced by the log you provided.
+>>>
+>>> As I understand your commit message, there are two different cases being discussed:
+>>>
+>>> Case 1: memory error interrupt first, then SEA
+>>>
+>>> When hardware memory corruption occurs, a memory error interrupt is
+>>> triggered first. If the kernel later accesses the corrupted data, it may
+>>> then enter the SEA handler. In this case, the faulty page would already
+>>> have been marked poisoned by the memory error interrupt path, and the SEA
+>>> handling path would eventually send SIGBUS to the task accessing that page.
+>>>
+>>> Case 2: SEA first, then memory error interrupt
+>>>
+>>> Your commit message describes this as the problematic scenario:
+>>>
+>>> A user process directly accesses hardware-corrupted memory through a
+>>> PFNMAP-style mapping such as devmem. The page may still be in the free
+>>> buddy state when SEA is handled first. In that case, memory_failure()
+>>> poisons the page during SEA handling, but the process is not killed
+>>> immediately. Since the task continues accessing the same corrupted
+>>> location, it keeps re-entering the SEA handler, leading to an SEA storm.
+>>> Later, the memory error interrupt path also cannot kill the task, so the
+>>> system remains stuck in this repeated SEA loop.
+>> Yes.
+>>>
+>>> My concern is that your recent explanation and log seem to demonstrate
+>>> something different from what the commit message claims to fix.
+>>>
+>>>  From the log, what I can see is:
+>>>
+>>> the first SEA occurs,
+>>> the page is marked poisoned as a free buddy page,
+>>> repeated SEAs are suppressed by ghes_estatus_cached(),
+>>> after the cache timeout expires, the SEA path runs again,
+>>> then memory_failure() reports "already hardware poisoned" and SIGBUS is
+>>> sent to the busybox devmem process.
+>>> This seems to show a delayed SIGBUS delivery caused by the GHES cache
+>>> timeout, rather than clearly demonstrating the SEA storm problem described
+>>> in the commit message.
+>>>
+>>> So I think there is still a mismatch here:
+>>>
+>>> If the patch is intended to fix the SEA storm described in case 2,
+>>> then I would expect evidence that the storm still exists on the latest
+>>> kernel and that this patch is what actually breaks that loop.
+>>> If instead the patch is intended to avoid the 10-second delay before
+>>> SIGBUS delivery, then that should be stated explicitly, because that is
+>>> a different problem statement from what the current commit message says.
+>>> Also, regarding the devmem/PFNMAP case: I previously pointed to commit
+>>> 2e6053fea379 ("mm/memory-failure: fix infinite UCE for VM_PFNMAP pfn"),
+>>> which was meant to address the failure to kill tasks accessing poisoned
+>>> VM_PFNMAP mappings.
+>>>
+>>
+>> This patch was already merged prior to kernel v7.0.0-rc4, therefore, it cannot fix this issue.
+>>
+>> I reverted the patch on kernel v7.0.0-rc4 to reproduce the issue.
+>> The debug logs show that the message 'This error has already been...' persists
+>> for more than 10 seconds, and the printing cannot be stopped. so it fixes other issue.
+>
+> Thanks for confirm.
+>
+>>
+>>> So my main question is:
+>>>
+>>> Does the SEA storm issue still exist on the latest kernel version, or is
+>>> the remaining issue only that SIGBUS is delayed by the GHES estatus cache
+>>> timeout?
+>>
+>> We should not treat them separately.
+>
+> Agreed. Please update the commit message to explain the causal chain explicitly:
+
+Sure, Will fix in next version.
+
+>
+> - The first SEA poisons the free buddy page but does not kill the
+>   accessing task, because memory_failure() takes the free-buddy recovery
+>   path and never reaches kill_accessing_process().
+>
+> - The task re-enters the SEA handler repeatedly, but
+>   ghes_estatus_cached() suppresses all subsequent entries during the
+>   10-second window, preventing ghes_do_proc() from being called and
+>   blocking the MF_ACTION_REQUIRED-based SIGBUS delivery.
+>
+> - This suppression is what sustains the SEA storm.
+>
+>>
+>> In case 2, First SEA can only poisons the page, and then re-enter the SEA processing flow.
+>> Due to the reporting throttle of the ghes_estatus_cached(), SEA cannot timely invoke
+>> memory_failure()  to kill the task, the task will continues accessing the same corrupted
+>> location, then re-enter the SEA processing flow loop, so causing the SEA storm...
+>> Perhaps I never clearly explained why the SEA storm occurred.
+>
+> +cc Lin Miaohe for the memory_failure() discussion.
+>
+> Regarding the memory_failure() path: since SEA is a synchronous
+> notification, is_hest_syncnotify() returns true, ghesdo_proc() sets sync
+> = true, and MF_ACTION_REQUIRED is passed into ghes_do_memory_failure().
+> This means that on the second and subsequent SEAs (after cache expiry),
+> memory_failure() would reach the already-poisoned branch and call
+> kill_accessing_process() to terminate the task:
+>
+>
+>     if (TestSetPageHWPoison(p)) {
+>         res = -EHWPOISON;
+>         if (flags & MF_ACTION_REQUIRED)
+>             res = kill_accessing_process(current, pfn, flags);
+>         if (flags & MF_COUNT_INCREASED)
+>             put_page(p);
+>         action_result(pfn, MF_MSG_ALREADY_POISONED, MF_FAILED);
+>         goto unlock_mutex;
+>     }
+>
+> The patch short-circuits this by terminating the task earlier, via
+> arm64_notify_die(), on every cache-suppressed SEA. I have no objection
+> to killing the process early in this way.
+>
+> +cc Tony Luck for the ghes_notify_nmi path.
+>
+> One concern is the impact on ghes_notify_nmi().
+>
+> ghes_in_nmi_queue_one_entry() is shared between two callers:
+>
+> ghes_notify_sea() → ghes_in_nmi_spool_from_list(&ghes_sea, ...)
+> ghes_notify_nmi() → ghes_in_nmi_spool_from_list(&ghes_nmi, ...)
+
+Can we use fixmap_idx to distinguish between SEA and NMI? The basis for
+differentiation is that the parameters passed to ghes_in_nmi_spool_from_list()
+differ when these two exceptions are handled.
+
+ghes_in_nmi_spool_from_list(&ghes_sea, FIX_APEI_GHES_SEA)
+ghes_in_nmi_spool_from_list(&ghes_nmi, FIX_APEI_GHES_NMI)
+
+
+  diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
+  index 8acd2742bb27..5c0a7ecad7db 100644
+  --- a/drivers/acpi/apei/ghes.c
+  +++ b/drivers/acpi/apei/ghes.c
+  @@ -1365,8 +1365,11 @@ static int ghes_in_nmi_queue_one_entry(struct ghes *ghes,
+          ghes_clear_estatus(ghes, &tmp_header, buf_paddr, fixmap_idx);
+ 
+          /* This error has been reported before, don't process it again. */
+  -       if (ghes_estatus_cached(estatus))
+  +       if (ghes_estatus_cached(estatus)) {
+  +               if (fixmap_idx == FIX_APEI_GHES_SEA)
+  +                       rc = -ECANCELED;
+                  goto no_work;
+  +       }
+ 
+          llist_add(&estatus_node->llnode, &ghes_estatus_llist);
+
+Best regards,
+Junhao.
+
+>
+> For the NMI path, if ghes_estatuscached() hits and
+> ghesin_nmi_queue_one_entry() now returns -ECANCELED instead of 0,
+> ghesinnmi_spool_from_list() will not set ret = 0, and ghes_notify_nmi()
+> will return NMI_DONE instead of NMI_HANDLED. This tells the NMI handler
+> chain that no handler claimed the interrupt, which is semantically
+> incorrect — an active hardware error was observed, but deliberately
+> suppressed by the cache. NMI errors are asynchronous (sync = false,
+> MF_ACTION_REQUIRED not set), so there is no practical impact on the kill
+> path. However, returning NMI_DONE for a cache-suppressed NMI could cause
+> spurious warnings from the NMI dispatcher on some platforms. To avoid
+> this, I suggest scoping the -ECANCELED return to the synchronous (SEA)
+> case only. One approach is to pass a bool sync parameter down through
+> ghes_in_nmi_spool_from_list() and ghes_innmiqueue_one_entry(), returning
+> -ECANCELED on cache-hit only when sync is true. Alternatively, this
+> logic can be handled at the ghes_notify_sea() call site directly.
+>
+> Shuai
+> Thanks.
+> Shuai
+> .
+>
+
 
