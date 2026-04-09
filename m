@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23278EA3C4E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 11:34:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B6F9EA3C4E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 11:35:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+3AxzYcFt9VeCMpYuXxu6IYBoyPzW/ekyBRCfkbiO2g=; b=ZPhJjLPXdgTg0IsrVe6/uU6GCE
-	q+CK0bOpQGhjA2QwXQpbWYSshA277lAGjUcYbv80ktG1dKXxSztGWvwY0UBKqUJ10zkemeTYu2yfG
-	Y769QkzZN9T8Bp0Ty0uFI5vxRt+hOHYgEMW0EYLJMqxDGlN/rM/VHSZF79+NwUOt1Bkd7B074W+4c
-	rJNoc8he32nrSPsU5TtfYTrWT4dTgc7YTqpfvwJBP3qx2Q5RMb5U4jwyRkOxQoKlNyy1WN5ufHh0/
-	/KcMcw0TJMBDlDXJOZGuOUTSaYCJF1POYvEZaFEaig4ZzB3ZUv+VBBmGQ8Fm2uMUGbY3X/Z35FJGz
-	yfq5FyCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7bxARPIVl+BRCjDfeSHB427UW3MfoDns9x9QdeKC0ws=; b=UtR4qYEcpb6uAAFyVizsVtcZJ3
+	LvlbJbjJ1sbLNVwVN/O5zJUd4G0zNq3koGAWqdNcvpMa+sY3w8AJYWpAQpTg5jncuOEbuY+qirFRR
+	dtfuZsNkekjt+MabybyyLLlAPw87gi4nkJC6m9vGPJCu+66QyipzriCdweP+P3rYv9wYxfsk6EnzX
+	ieW6QfMZNP92QkjhyHHlecoivA2GkBhXhLqGCO93auzeCKEiC10y+idmucBskCOdLzCpZMWA2qfmE
+	liYWej5OMWWoyAvM7Hv4GO/zf9B8gBd4FFHzlvqi1UZAzgdOHPyBlOTrSvCeEa1nr/gY4eG6CgNmq
+	xhiZH0Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAne4-0000000AHY2-2a5K;
-	Thu, 09 Apr 2026 11:34:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAndz-0000000AHXg-3HEF
+	id 1wAnfB-0000000AHjE-1rnR;
+	Thu, 09 Apr 2026 11:35:09 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAnf3-0000000AHhb-3Qea
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 11:33:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 09BA12E98;
-	Thu,  9 Apr 2026 04:33:49 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A625A3F632;
-	Thu,  9 Apr 2026 04:33:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775734434; bh=CNq6QdX054NW/AuTIE+mAJAxxpPam5NVbcXRjsHjS0k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=I+t/jmSCB3TqxIVZidBOnZrV18cGfF6qdqizNuLLbeUk2GDK4TrUZp/j0ztz5O/WH
-	 MAo1UtFIXfwzxMfa2Z9nZnUNQENHfhZnZFWLbVNrEo2nB5c0Arkz0zqtPQqOYNAvA9
-	 5Un/Ngqb/zfogituQtsdZWWlcj4KAOgv8ZgL399w=
-Date: Thu, 9 Apr 2026 12:33:50 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 7/8] arm64/cpufeature: Define hwcaps for 2025 dpISA
- features
-Message-ID: <adeOnmy60AUQzSvo@arm.com>
-References: <20260302-arm64-dpisa-2025-v1-0-0855e7f41689@kernel.org>
- <20260302-arm64-dpisa-2025-v1-7-0855e7f41689@kernel.org>
+	Thu, 09 Apr 2026 11:35:03 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1wAneU-0000FE-P7; Thu, 09 Apr 2026 13:34:26 +0200
+Message-ID: <95e718b9-c281-4336-9c1e-3bf8aff68457@pengutronix.de>
+Date: Thu, 9 Apr 2026 13:34:25 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260302-arm64-dpisa-2025-v1-7-0855e7f41689@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clk: clk-imx8mm: Initialize clocks in arch_initcall
+To: Paul Geurts <paul.geurts@prodrive-technologies.com>
+Cc: martijn.de.gouw@prodrive-technologies.com,
+ Saravana Kannan <saravanak@google.com>, abelvesa@kernel.org,
+ peng.fan@nxp.com, mturquette@baylibre.com, sboyd@kernel.org,
+ Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, shawnguo@kernel.org, linux-clk@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <9f36af74-ef1a-4777-a1c3-ff13b68c2221@pengutronix.de>
+ <20260409091643.3787112-1-paul.geurts@prodrive-technologies.com>
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Content-Language: en-US, de-DE, de-BE
+In-Reply-To: <20260409091643.3787112-1-paul.geurts@prodrive-technologies.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_043357_496629_E942FD21 
-X-CRM114-Status: GOOD (  15.83  )
+X-CRM114-CacheID: sfid-20260409_043501_963304_CB9AECDE 
+X-CRM114-Status: GOOD (  31.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,51 +72,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 02, 2026 at 10:53:22PM +0000, Mark Brown wrote:
-> @@ -3290,11 +3295,13 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
->  	HWCAP_CAP(ID_AA64ISAR1_EL1, I8MM, IMP, CAP_HWCAP, KERNEL_HWCAP_I8MM),
->  	HWCAP_CAP(ID_AA64ISAR1_EL1, LS64, LS64, CAP_HWCAP, KERNEL_HWCAP_LS64),
->  	HWCAP_CAP(ID_AA64ISAR2_EL1, LUT, IMP, CAP_HWCAP, KERNEL_HWCAP_LUT),
-> +	HWCAP_CAP(ID_AA64ISAR2_EL1, LUT, LUT6, CAP_HWCAP, KERNEL_HWCAP_LUT6),
+Hello Paul,
 
-IIUC that's a LUTI6 SVE instruction which would not be available if
-SVE2p3 is not available (or SVE in general), though we have the
-equivalent SME one with SME2p3 (and a separate HWCAP for it). We should
-rename it to HWCAP_SVE_LUT6 and make it conditional on
-has_sve_feature().
+Cc += Saravana
 
-KVM will probably confuse guests here if SVE is disabled but the
-ISAR2.LUT field is not capped (I haven't checked). The conditional
-has_sve_feature() would solve this but it won't address the MRS
-emulation. Arguably it's a KVM problem for exposing inconsistent
-id regs: ISAR2.LUT==0b0010 is not permitted without SVE2p3 or SME2p3.
-But the spec isn't greatly written either - why does a field about
-AdvSIMD all of a sudden reports SVE instructions availability?
+On 4/9/26 11:16 AM, Paul Geurts wrote:
+>> Hello Paul,
+>>
+>> On 4/8/26 12:13 PM, Paul Geurts wrote:
+>>> The i.MX8MM clock driver is implemented as module_platform_driver();,
+>>> which makes it initialize in device_initcall(). This means that all
+>>> drivers referencing the clock driver nodes in the device tree are
+>>> deferred by fw_devlink, which are most of the i.MX8M platform drivers.
+>>>
+>>> Explicitly initialize the clock driver in arch_initcall(), to make sure
+>>> the clock driver is ready when the rest of the drivers are probed.
+>>>
+>>> Fixes: af7e7ee0e428 ("clk: imx8mm: Switch to platform driver")
+>>
+>> Your commit message doesn't explain why this was a problem for you.
+>> Does it delay your boot? What makes this patch a fix?
+> 
+> Yes I could update that in the commit description. The problem is that because
+> of this, _all_ hardware is initialized in late_initcall, as that is where
+> deferred probes are handled.
 
-On SME, unless I'm misreading the spec, the bits seem to have been
-written by three different people in isolation:
+There's no one initcall order that will make drivers across all systems
+equally happy. That's why there are probe deferrals in the first place.
 
-- ID_AA64ZFR0_EL1.SVEver + ID_AA64PFR1_EL1.SME (and if these weren't
-  enough, we have ID_AA64SMFR0_EL1.SMEver) tells us that SME2p3 is
-  implemented. LUTI6 is mandated by SME2p3
+> For embedded devices, some sign of life is
+> expected by most people during boot. Especially when an initrd needs to be
+> unpacked, this sign of life is going to take a very long time.
 
-- ID_AA64SMFR0_EL1.LUT6 means that the LUTI6 instruction is present but
-  this field can only be 0b1 with SME2p3
+Ok, so the problem is that the probes happen too late. Does the total
+boot time take considerably longer or are you just unhappy with the
+ordering?
 
-- ID_AA64ISAR2_EL1.LUT == 0b0010 means that LUTI6 instruction is present
-  (if SVE2p3 or SME2p3) and, again, that's the only value permitted by
-  SME2p3
+> Some display
+> controllers don't even get enough time to show the boot logo because of this.
+> I don't think the idea behind the initcall levels is that _everything_ is
+> initialized in late.
 
-So a lot of redundancy and we did end up reporting the fine-grained
-details to the user already. The SMExpy versions seem to be cumulative
-unless Arm decides to make some of the instructions optional (it still
-doesn't explain why we have the same information in SMFR0 and ISAR2). I
-guess that's where the fine-grained HWCAPs come in handy.
+I suspect we could improve the situation with "post-init-providers"
+hints, but I haven't used it myself so far.
+Maybe Saravana could give some advice once the problem is better understood?
 
-I wonder if the user would ever be able to parse these ID fields
-correctly if using the MRS emulation. We'd need to sanity-check KVM as
-well, not sure it proactively caps id fields.
+>> What happens if you build the driver as module with your changes applied?
+> 
+> On module insertion, there is no initcall level, and initialization is
+> performed on insertion (AFAIK). Fact is that the system would probably
+> not boot when this is built as a module, as there are no peripheral clocks
+> without it.
+
+Ok, then this is patch is not acceptable. What's buildable as module
+should work as module. I don't personally build it as module either, but
+removing the possibility will break users relying on it for Android GKI,
+I presume.
+
+We thus need to find a different, better, way.
+
+Cheers,
+Ahmad
+
+> 
+>>
+>> Cheers,
+>> Ahmad
+>>
+>>> +
+>>> +static void __exit imx8mm_clk_exit(void)
+>>> +{
+>>> +     platform_driver_unregister(&imx8mm_clk_driver);
+>>> +}
+>>> +module_exit(imx8mm_clk_exit);
+>>> +
+>>>  module_param(mcore_booted, bool, S_IRUGO);
+>>>  MODULE_PARM_DESC(mcore_booted, "See Cortex-M core is booted or not");
+>>>
+> 
+> Thanks!
+> Paul
+> 
+> 
 
 -- 
-Catalin
+Pengutronix e.K.                  |                             |
+Steuerwalder Str. 21              | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
+
 
