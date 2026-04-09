@@ -4,80 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2184EF31E22
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 14:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC794F31E22
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 14:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xycTcFNxgHwTsPMfmoDsEC5OOPouuPrQTCszlmexNTA=; b=41cR9ZuZzN9b5MK+rcjYI4Dvyk
-	6eC5518tAAQwh/mYHsQDEjyLkaGah8Z6ry4E9u27YIEG1NpKyBFNfIF+xhijgEidcLS3o1kRLHO5f
-	jCnSkykSczoCkH93k+FmLegmKInfjiUtJ9bhgFKzoDWfLzA0E0CeC2FV8EmQbR/5W94bu402WTt0F
-	u67UYlShJtgcNEVWjh473VxGXqnXz+LvD/Qgp2O0ZYSTco/1/6/WVQl/WqtHzmkukEuMRKck968GP
-	dp6eX3+J07cU2tqtdr9V9GMwmp0Z9mYtL7FEwCaCYpjEQ7Gv34H6qRZvU2Z0knAgenExy4/Aiakl9
-	Rl8si0Cg==;
+	bh=xVQznnJBSQd9emeSh73g5r0NuXwJPS2z8RDTs1vG41I=; b=nA/lAp3kVFkhLZhDwHw7mp6ZAg
+	jz8/SLgbZI2J9GSn4FcpyV6DihTEICZleOq+lbYO8ekOwenol15wnJE3YMgKrVwq0k3r4oY1WRQaL
+	SG8KS9+TTTB8/5ZzNOWmw5KANdRPEwj2jXUXYaSMqZNRwjRD2fWBgVxZ4vsjtxLQ7OsCl6nQWr1ny
+	ThfkrB/buAy1yW+ZlMQTe/LftQbGmAOFMN6ac/whVjFUxTf6q55JeX9UE+JBb1YOlNjyID/XGa3r+
+	DcM8OIEhqUOlxFFvF6HxXtAjfeSV6np7DzHGKgnEIBBzgq7RuyYQ2nUMcMxV2j7LDz8j8GzJQMua3
+	UCisWG+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAqE3-0000000AfhR-3ZDE;
-	Thu, 09 Apr 2026 14:19:19 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wAqFJ-0000000Ag1w-0e0M;
+	Thu, 09 Apr 2026 14:20:37 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAqDz-0000000Afgm-42fV;
-	Thu, 09 Apr 2026 14:19:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1775744353;
-	bh=V3M5/+eiv7Jh1DsCad4yjgGbVosE62VvCDePOQgvn2Q=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=b/HIGzlKrcfkgv8rRQQsJZfk38ZZtoJrU+KcIWQHLbTbt6jC3arUGATU6zOYzGmlR
-	 wkXMCqAvWB00m3AqjE5YXQtHwSboV2SZwu08mABVbDy+XH6vcNkl4DsJJG+TYCSpGm
-	 GP9ISEZlfOFhZQoBjN9AQSUsZ8I3+RnxvBmTjF/8p3aC37lJsuxLJcwD8SGnRbd2GS
-	 DAAd2qJb3wym6wgSQ3qRHdJjEgozgmiO3/wzYPesrUA8kBsVO7sCGWWV4yhijzTWw6
-	 GWVb95sXDO1tUS03CgyT2K3RxOl92ggg3Fp/6uMT4Dsdxvut6jiVzEuhhuSWnNS2qy
-	 Qt+E2TXZxmcNA==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BD1B117E0C83;
-	Thu,  9 Apr 2026 16:19:11 +0200 (CEST)
-Message-ID: <517dc6e9de0e284b3dc22952d9479616e6c8ec62.camel@collabora.com>
-Subject: Re: [PATCH 7/7] media: rkvdec: Add multicore IOMMU support
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>, Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Heiko Stuebner <heiko@sntech.de>, Hans Verkuil <hverkuil+cisco@kernel.org>,
- Jonas Karlman <jonas@kwiboo.se>
-Cc: kernel@collabora.com, linux-media@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Date: Thu, 09 Apr 2026 10:19:10 -0400
-In-Reply-To: <20260409-rkvdec-multicore-v1-7-62b316abf0f7@collabora.com>
-References: <20260409-rkvdec-multicore-v1-0-62b316abf0f7@collabora.com>
-	 <20260409-rkvdec-multicore-v1-7-62b316abf0f7@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-0Hey9sLhjTZTeirzEJYW"
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	id 1wAqEn-0000000AfuU-1JTX
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Apr 2026 14:20:36 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=nVBif5oLZWANvUI6gRLmY6CFW6nQEzXZ73784UfJZyWvnPFiGXceC62GcVlGnaEO6w3xkaL6iJW049eSGAEXzU4sw0nqLtU9MKp/B1gMzsBkWSvgWOQKLRcnOLrd6tjojTKNZhLQ7Nzg0/AmmkO6WHP2/++j8lDmU98xcbdJJAA5t23AvX4Z7qVwFd0W41ECY75Muf2Kc/gyLXWyHkwqXJ+n6TpiwAMgqa+PYqlw29ABFbD6Dlc4Ff6WRbbfRGl3Wg9D0d602PhlnOhRqGoX1gHI3RzQvzBNvb21kgK0w7YL2LDPlVwCBPJoPXKEmaO482hZsDZaOPtEwZ2VHRKnZw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xVQznnJBSQd9emeSh73g5r0NuXwJPS2z8RDTs1vG41I=;
+ b=BvJ8OXjEfjMiiRnMY1YU649Pf5RaSOosrwcYSpWVobjaLues6x43RG8wOnDregkb12TIX+iRO27lGyxUsqJ44UUSwaVmFY5UUNM6Ci13MWqAdn24bwsUHP/pPeAAzPgNeE7Y/ioDhzaYpgIzOqZgEUtxHSx8JqQxVscPXbgsnetKoxSKQK0A48z5PZfMDOXoAQshHgfXePDxZ+9QFTcfDy5gPbAEN3qNp7+WQBeHDg0ulpOqvkDUiDfosLCHVbH41W9ZI9xQantItQmpIRE03OTlLQc3Vvzn0ibSQK1FO2ppFEpyHJVXzR0xjzgQz/vJtPIuKh3waT3QMDce9a3zKw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xVQznnJBSQd9emeSh73g5r0NuXwJPS2z8RDTs1vG41I=;
+ b=AK4aEx41e8NsCcn+b3JXnjtIQBDCU9Pm2t4wHLc1ZAM2MjNXUQMOunwxsh7MW02Cci4Ls83OqkwiCo5vOpchF29ye6C7TXL/d/6J0KrWLbMFGI80CMC5XYrt5BklMF/5fzPh1sIL32khBUblt8NjAdwPSZ4HAiWwzZTJ0tTeKDA=
+Received: from PA7P264CA0249.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:371::16)
+ by DU0PR08MB8931.eurprd08.prod.outlook.com (2603:10a6:10:466::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.19; Thu, 9 Apr
+ 2026 14:19:52 +0000
+Received: from AM4PEPF00025F9C.EURPRD83.prod.outlook.com
+ (2603:10a6:102:371:cafe::e5) by PA7P264CA0249.outlook.office365.com
+ (2603:10a6:102:371::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.40 via Frontend Transport; Thu,
+ 9 Apr 2026 14:19:52 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM4PEPF00025F9C.mail.protection.outlook.com (10.167.16.11) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9818.0
+ via Frontend Transport; Thu, 9 Apr 2026 14:19:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OZH0EdxCWtpsO37vaM0A+KxywgkC9bxyh6qT3n6FBbWPkgD/zLsXe6Wy6VB3wPe1XGq7GT89+0q2X+3hPKKrCaVuzTWi2yc+3jbVcr/AxFc3BZwdXWxmh7kGm+D9whloFrWp7pDRXlodjuSYNOSRzMtkCnXupPtP+4pI9hju8t6Zgs6NV39GsW+IetPyu3xRORJIhmbYSAc9/dl5owULW2VBPOBEg0pXqglRaNkOv8lTX0gBxzuu+RCtLfWsZkDRIoa2pDY7gkSXe7RkOyvpIzOPxRt1+VbnPRkdlPaJZnPmrXXk/o9LV+S9KIr+chC1mkeTeOnb6TDeA7QZTwtLvw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xVQznnJBSQd9emeSh73g5r0NuXwJPS2z8RDTs1vG41I=;
+ b=ksRsiXMr8bJ/6cnQlepjqZ6Z28RjaM1EtYeQ5/9NYXwxzC6AOSOpVq3s+DVWt0dEoObuK76jo/dYXxHMps/KKdK/Ol2aDcfhzGfxirgT9yWKIF0QasO/FOqv4jde+LFdpgZv1JDCeU9HGDeXrOC8tT/MB3PIw3buLf45u/d+rfsTwqnaX68KXNqthCnxRBZciRmjrXTXUWCZ8TcFC9kFvHZd/0Wtld1C31dNVP7StGmYlHyMTKBBlZwTf6wOSEaj08pMxaSeTRZcGwzuczAr981wtW+Udx7mgM5/QiTiVvXyl+Ga0UKaTyy0bAfKP0/EA3mjGV8fanZokWdqdKBIOw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xVQznnJBSQd9emeSh73g5r0NuXwJPS2z8RDTs1vG41I=;
+ b=AK4aEx41e8NsCcn+b3JXnjtIQBDCU9Pm2t4wHLc1ZAM2MjNXUQMOunwxsh7MW02Cci4Ls83OqkwiCo5vOpchF29ye6C7TXL/d/6J0KrWLbMFGI80CMC5XYrt5BklMF/5fzPh1sIL32khBUblt8NjAdwPSZ4HAiWwzZTJ0tTeKDA=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com (2603:10a6:10:644::21)
+ by AS8PR08MB7911.eurprd08.prod.outlook.com (2603:10a6:20b:509::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Thu, 9 Apr
+ 2026 14:18:49 +0000
+Received: from DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f]) by DU4PR08MB11769.eurprd08.prod.outlook.com
+ ([fe80::d424:cd62:81a8:490f%5]) with mapi id 15.20.9769.016; Thu, 9 Apr 2026
+ 14:18:44 +0000
+Message-ID: <0cea9e3d-3081-4f34-b10d-6ae9c66f5216@arm.com>
+Date: Thu, 9 Apr 2026 15:18:43 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] arm64: mm: Fix rodata=full block mapping support
+ for realm guests
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
+ "David Hildenbrand (Arm)" <david@kernel.org>, Dev Jain <dev.jain@arm.com>,
+ Yang Shi <yang@os.amperecomputing.com>, Jinjiang Tu <tujinjiang@huawei.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20260330161705.3349825-1-ryan.roberts@arm.com>
+ <20260330161705.3349825-2-ryan.roberts@arm.com> <ac7VD4Z85nS30GCp@arm.com>
+ <1db93bd3-cb47-445b-b8ca-6de6f04b41cc@arm.com> <adU9KxLC7yKgmyJy@arm.com>
+ <d1ecba64-898f-433b-93d4-7a33b9c3f378@arm.com>
+Content-Language: en-US
+In-Reply-To: <d1ecba64-898f-433b-93d4-7a33b9c3f378@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: LO4P265CA0264.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:37c::15) To DU4PR08MB11769.eurprd08.prod.outlook.com
+ (2603:10a6:10:644::21)
 MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: DU4PR08MB11769:EE_|AS8PR08MB7911:EE_|AM4PEPF00025F9C:EE_|DU0PR08MB8931:EE_
+X-MS-Office365-Filtering-Correlation-Id: 50bf18c8-1103-4a0e-877c-08de964310ec
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info-Original: bJXMCjSfj58pdjslkjH8yT1t+PX3tW5BrwcsFTkmJrHcQvO/iKMx4Dtyhfkg80LFZGSpMHLvWqUYq5t6p1YiLC1+Y61PiTn6fuANufzWrXsm46oV3TjIY1sc2RL4guk3Atw0TNoDvHKe/dhgNpHN40Gy1KNA9/vXWlf/t5pHr3ARwndx80bsSOXInnKKE/C9l/nobsXlEef/9bw0saD5uiOegmlyvtJwjqxbYnhsaa4v7LibZtpJl0SOFGlbOYXEvq9mFBqb0gmpMhfHVZpI5UrKkWuYNo0bvQBbdfDvKRwJDcQXjkKA1V91AAlYgIcr7LU1wTF6sIqmsQ8+5VHKzHCgmeNnqCtxdFVkHoqOHVTvqSpei+S6MSpb656MGL1d5So/oPxyTJmEiBE9csQC3cGfrm8tv2u/kbAirME8eTmhtJT/DDa9Vp+J4DRj/fy5H0ybSVMDJdF7jgDRSZMuuySDMHtS1yQw5kKKOc8yZP4c+Sopa5RzhL9+rnZFq9PwWX2tPGQPQfNwBVlOFpwSCY9rsqgQCI/q7hVsmCqzTSgkswljR1E0Ci6PCIb+Fj0cksxPdGuEa6oSXMFrEuf5YBV1OrzyZvM2HYcZZSXXrTQs6YLZvIyomMYvGap4WCDqOI3EMtjfAgbh5jOc0i3iWxXfELjWEKjb5R80LUu7+xADAQb8woQA6bSKLKTAXyar
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR08MB11769.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: QUA5Dsvz35SBu+9Gm0pk57AJOXOc76RpcN9waAmKG+O99RyWX2MOhA0vfIZbm6szRH4vWLwU9C+nTgWUDhsbkQ67KTH6ASdelMOZPNkp/U4HYIqIppqeUBL8PiKI4Exqa/5348J/HH7Lp+nPnyNEG9sxHxG50LAl9qRM83VKJ+jyXRPmeKorJ1Csx043uDhQmxY0F/phqdwrMpolG/ywRFszg9ousPpzbzyd399KsokeWRz6g9+ho5ZsbwCqS7YyRS9YRj68+3gtbnBc7Tq01lM6l4zVCUIeIgh76rWTMYx5VDdVaaI2Qf44C8S2pGoycrP4Rl7r5hLI9r9MUNYdUQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB7911
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00025F9C.EURPRD83.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: b67fea42-dd68-442c-146c-08de9642e858
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|14060799003|376014|82310400026|35042699022|1800799024|13003099007|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: PMHo/NK1NhmG9JMnOEpXc6q/rZOMArNLZJmDRT3c3w3O0iC9PDP1mmm9sx5KDNamjEP+30iol11JO3I4JEKKPSMHjXw45Tj6lU5meSLILRP8HcTBbIJ8hxeNSb4LYjFBuFJ4dwg+zBct3FyN4EAwN3OY+OWPmN/kRTsVtAHDA+Hnra6whxGMo6nVFJmGYsY4LZDLiKBvGvjxJPLXf37fjD7bghCPQY7WYhLOJYwEkx50vjIgDu4HQAUnZzDuWVWSdKsNvgvt0xWFvfcC3e63EAcoT9f6vGh8lcyEZxkXVA1GhTJoasL/Vq+XoHw/CBvCWSyQThc2WGY4UYunn0M7NFem/Pq/h9rE/iKipoyfe8/WojsIIDI+dbPe/W4aBL0Z4Uwhh4qA99T+LBe/VU4csXmEA0cUoWbp9Rjw37AbDP/rpGALjyoKkce3Z6+MfbEiSOHaB9m9zgJb0hrLza/qz4qPhilubyRBoll04tGYWiCncICPyjpl/9uMkyr2dpRgPRB/5OUreWG+Gci1rHTDoXML/GRUahcD9R+ENT11zgfy3ZejZno4Ai4j8qerb4wmsBFFf5kgOCCWvMt/r56+LltCXY4C3F2wC5K61OxQoJDhP7f/up0LgThFTpZGZatX4n4FIH5rmR7pCmbl688O5SzIRE4BqJiKgeHtheVLnag8HtnQKU2AOEPKk3ALLD29f4upaSday9ELe1IT916ORA==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(14060799003)(376014)(82310400026)(35042699022)(1800799024)(13003099007)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: TsX6sguoKsKO0snC7KYmDshdw1XZP1Hstj6dSB99qFUeMGMnFi9VG7y+EMTwSptIvo4n/TzR8dqaflA7tOJan6hq4M6A5zkH0gz8lKfzOQH/VRsvESFnvbGbpTCwzz4uppGi/eLgjry8ywcpeRQ5AYuhUtVE1lGn5/VIF1lredJIOs3++q1FaoLVV2++CJoDV+CYxpO2cY2L/LcJ+B2FcC8Ml0mwPMfBfZvTVLx2BPYO/Z2fhNNExdg4gxlnPF+0HfsSF6NMeh90QDS3jWzcEFwzm3yXRVx7H3/ljVKUnxKxX9BvUzlW+jwuyftEsADO8UQJDSadGC22Gj1ctMM7uVegTbuuHLDUV+jKsJKLlvUpgQ/j+BvGgoTijFO8bgURe671iuU522EyPuSYvnlwzgNtcohJ8OUvxB13IEgQMHsYQXbVCmWr1or8nnPql7Cz
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2026 14:19:52.3098
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 50bf18c8-1103-4a0e-877c-08de964310ec
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00025F9C.EURPRD83.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB8931
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_071917_806146_9356777E 
-X-CRM114-Status: GOOD (  33.39  )
+X-CRM114-CacheID: sfid-20260409_072028_457985_2CB20C1F 
+X-CRM114-Status: GOOD (  19.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,312 +161,209 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-0Hey9sLhjTZTeirzEJYW
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Le jeudi 09 avril 2026 =C3=A0 09:50 -0400, Detlev Casanova a =C3=A9crit=C2=
-=A0:
-> As each core has its own IOMMU core, buffers must be mapped in each
-> core's IOMMU so that any run() call can use any core without having to
-> remap everything.
->=20
-> To do that, we use rockchip iommu domain's iommu devices list.
-> With that, one IOMMU domain can be mapped on multiple devices, meaning
-> that each call to iommu_map() will flush the new mapping on all devices
-> in the list.
->=20
-> The IOMMU domain that will have all devices in its list is the first
-> core's default domain.
->=20
-> Another domain cannot be used because VB2 allocates buffers through the
-> DMA engine, which uses iommu_get_dma_domain() to find the domain to map
-> buffers through.
->=20
-> The IOMMU restore function can still work as before, but needs to be more
-> explicit in what domain to attach the device to.
-> That is because detaching the empty domain will reattach the core's defau=
-lt
-> domain, which is wrong (except for the first "main" core).
->=20
-> The RCB temporary buffers are allocated in a dedicated SRAM, each
-> core has its own SRAM, so the mapping for each core's SRAM is added in th=
-e
-> global domain.
->=20
-> Everything else is mapped through the first core's default domain, making
-> the driver write the mappings on both IOMMU cores.
+On 09/04/2026 10:38, Suzuki K Poulose wrote:
+> On 07/04/2026 18:21, Catalin Marinas wrote:
+>> On Tue, Apr 07, 2026 at 10:57:35AM +0100, Suzuki K Poulose wrote:
+>>> On 02/04/2026 21:43, Catalin Marinas wrote:
+>>>> On Mon, Mar 30, 2026 at 05:17:02PM +0100, Ryan Roberts wrote:
+>>>>>    int split_kernel_leaf_mapping(unsigned long start, unsigned long 
+>>>>> end)
+>>>>>    {
+>>>>>        int ret;
+>>>>> -    /*
+>>>>> -     * !BBML2_NOABORT systems should not be trying to change 
+>>>>> permissions on
+>>>>> -     * anything that is not pte-mapped in the first place. Just 
+>>>>> return early
+>>>>> -     * and let the permission change code raise a warning if not 
+>>>>> already
+>>>>> -     * pte-mapped.
+>>>>> -     */
+>>>>> -    if (!system_supports_bbml2_noabort())
+>>>>> -        return 0;
+>>>>> -
+>>>>>        /*
+>>>>>         * If the region is within a pte-mapped area, there is no 
+>>>>> need to try to
+>>>>>         * split. Additionally, CONFIG_DEBUG_PAGEALLOC and 
+>>>>> CONFIG_KFENCE may
+>>>>>         * change permissions from atomic context so for those cases 
+>>>>> (which are
+>>>>>         * always pte-mapped), we must not go any further because 
+>>>>> taking the
+>>>>> -     * mutex below may sleep.
+>>>>> +     * mutex below may sleep. Do not call force_pte_mapping() here 
+>>>>> because
+>>>>> +     * it could return a confusing result if called from a 
+>>>>> secondary cpu
+>>>>> +     * prior to finalizing caps. Instead, 
+>>>>> linear_map_requires_bbml2 gives us
+>>>>> +     * what we need.
+>>>>>         */
+>>>>> -    if (force_pte_mapping() || is_kfence_address((void *)start))
+>>>>> +    if (!linear_map_requires_bbml2 || is_kfence_address((void 
+>>>>> *)start))
+>>>>>            return 0;
+>>>>> +    if (!system_supports_bbml2_noabort()) {
+>>>>> +        /*
+>>>>> +         * !BBML2_NOABORT systems should not be trying to change
+>>>>> +         * permissions on anything that is not pte-mapped in the 
+>>>>> first
+>>>>> +         * place. Just return early and let the permission change 
+>>>>> code
+>>>>> +         * raise a warning if not already pte-mapped.
+>>>>> +         */
+>>>>> +        if (system_capabilities_finalized())
+>>>>> +            return 0;
+>>>>> +
+>>>>> +        /*
+>>>>> +         * Boot-time: split_kernel_leaf_mapping_locked() allocates 
+>>>>> from
+>>>>> +         * page allocator. Can't split until it's available.
+>>>>> +         */
+>>>>> +        if (WARN_ON(!page_alloc_available))
+>>>>> +            return -EBUSY;
+>>>>> +
+>>>>> +        /*
+>>>>> +         * Boot-time: Started secondary cpus but don't know if they
+>>>>> +         * support BBML2_NOABORT yet. Can't allow splitting in this
+>>>>> +         * window in case they don't.
+>>>>> +         */
+>>>>> +        if (WARN_ON(num_online_cpus() > 1))
+>>>>> +            return -EBUSY;
+>>>>> +    }
+>>>>
+>>>> I think sashiko is over cautions here
+>>>> (https://sashiko.dev/#/patchset/20260330161705.3349825-1- 
+>>>> ryan.roberts@arm.com)
+>>>> but it has a somewhat valid point from the perspective of
+>>>> num_online_cpus() semantics. We have have num_online_cpus() == 1 while
+>>>> having a secondary CPU just booted and with its MMU enabled. I don't
+>>>> think we can have any asynchronous tasks running at that point to
+>>>> trigger a spit though. Even async_init() is called after smp_init().
+>>>>
+>>>> An option may be to attempt cpus_read_trylock() as this lock is 
+>>>> taken by
+>>>> _cpu_up(). If it fails, return -EBUSY, otherwise check 
+>>>> num_online_cpus()
+>>>> and unlock (and return -EBUSY if secondaries already started).
+>>>>
+>>>> Another thing I couldn't get my head around - IIUC is_realm_world()
+>>>> won't return true for map_mem() yet (if in a realm).
+>>>
+>>> That is correct. map_mem() comes from paginig_init(), which gets called
+>>> before arm64_rsi_init(). Realm check was delayed until psci_xx_init().
+>>> We had a version which parsed the DT for PSCI conduit early enough
+>>> to be able to make the SMC calls to detect the Realm. But there
+>>> were concerns around it.
+>>
+>> Ah, yes, I remember.
+>>
+>> Does it mean that commit 42be24a4178f ("arm64: Enable memory encrypt for
+>> Realms") was broken without rodata=full w.r.t. the linear map? Commit
+> 
+> Apparently, it looks like we missed this when we demoted the RSI
+> detection later.
+> 
+>> a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
+>> introduced force_pte_mapping() but it just copied the logic in the
+>> existing can_set_direct_map(). Looking at the linear_map_requires_bbml2
+>> assignment, we get (!is_realm_world() && is_realm_world()) and it
+>> cancels out, no effect on it but we don't get pte mappings either (even
+>> if we don't have BBML2).
+> 
+> Yep, that's right.
+>>
+>> I think we need at least some safety checks:
+>>
+>> 1. BBML2_NOABORT support on the boot CPU - continue with the existing
+>>     logic (as per Ryan's series)
+>>
+>> 2. !system_supports_bbml2_noabort() - split in
+>>     linear_map_maybe_split_to_ptes(). This does not currently happen
+>>     because linear_map_requires_bbml2 may be false in the absence of
+>>     rodata=full. Not sure how to fix this without some variable telling
+>>     us how the linear map was mapped. The requires_bbml2 flag doesn't
+>>
+>> 3. Panic in arm64_rsi_init() if !BBML2_NOABORT on the boot CPU _and_ we
+>>     have block mappings already. People can avoid it with rodata=full
+> 
+> It looks like this will be a common case :-(
 
-Just raising an issue with the patch ordering here. I'm worried in a git bi=
-sect,
-the driver will be broken until we apply this last patch. Can we make sure =
-that
-the driver bisects ? (or tell me if I'm wrong)
+Having another look, by default, arm64 boots with rodata=full, and users
+have to explicitly lower the bar by setting rodata=off or noalias. So
+this has been keeping us running ;-).
 
-Nicolas
+With rodata=off, I get the following for a Realm boot:
 
->=20
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
-> ---
-> =C2=A0.../media/platform/rockchip/rkvdec/rkvdec-rcb.c=C2=A0=C2=A0=C2=A0 |=
- 21 ++++++-------
-> =C2=A0.../media/platform/rockchip/rkvdec/rkvdec-rcb.h=C2=A0=C2=A0=C2=A0 |=
-=C2=A0 6 ++--
-> =C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec.c=C2=A0=C2=A0=C2=A0 |=
- 35 +++++++++++++++++-----
-> =C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec.h=C2=A0=C2=A0=C2=A0 |=
-=C2=A0 2 +-
-> =C2=A04 files changed, 44 insertions(+), 20 deletions(-)
->=20
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c b/driver=
-s/media/platform/rockchip/rkvdec/rkvdec-rcb.c
-> index 190fb7438e8c..977e37cf209b 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
-> @@ -57,7 +57,7 @@ bool rkvdec_rcb_buf_validate_size(struct rkvdec_ctx *ct=
-x)
-> =C2=A0	return ret;
-> =C2=A0}
-> =C2=A0
-> -void rkvdec_free_rcb(struct rkvdec_core *core)
-> +void rkvdec_free_rcb(struct rkvdec_dev *rkvdec, struct rkvdec_core *core=
-)
-> =C2=A0{
-> =C2=A0	struct rkvdec_rcb_config *cfg =3D core->rcb_config;
-> =C2=A0	unsigned long virt_addr;
-> @@ -76,12 +76,12 @@ void rkvdec_free_rcb(struct rkvdec_core *core)
-> =C2=A0		case RKVDEC_ALLOC_SRAM:
-> =C2=A0			virt_addr =3D (unsigned long)cfg->rcb_bufs[i].cpu;
-> =C2=A0
-> -			if (core->iommu_domain)
-> -				iommu_unmap(core->iommu_domain, virt_addr, rcb_size);
-> +			if (rkvdec->iommu_global_domain)
-> +				iommu_unmap(rkvdec->iommu_global_domain, virt_addr, rcb_size);
-> =C2=A0			gen_pool_free(core->sram_pool, virt_addr, rcb_size);
-> =C2=A0			break;
-> =C2=A0		case RKVDEC_ALLOC_DMA:
-> -			dma_free_coherent(core->dev,
-> +			dma_free_coherent(rkvdec->main_core->dev,
-> =C2=A0					=C2=A0 rcb_size,
-> =C2=A0					=C2=A0 cfg->rcb_bufs[i].cpu,
-> =C2=A0					=C2=A0 cfg->rcb_bufs[i].dma);
-> @@ -97,7 +97,8 @@ void rkvdec_free_rcb(struct rkvdec_core *core)
-> =C2=A0	core->rcb_config =3D NULL;
-> =C2=A0}
-> =C2=A0
-> -int rkvdec_allocate_rcb(struct rkvdec_core *core, u32 width, u32 height,
-> +int rkvdec_allocate_rcb(struct rkvdec_dev *rkvdec, struct rkvdec_core *c=
-ore,
-> +			u32 width, u32 height,
-> =C2=A0			const struct rcb_size_info *size_info,
-> =C2=A0			size_t rcb_count)
-> =C2=A0{
-> @@ -132,7 +133,7 @@ int rkvdec_allocate_rcb(struct rkvdec_core *core, u32=
- width, u32 height,
-> =C2=A0
-> =C2=A0		/* Try allocating an SRAM buffer */
-> =C2=A0		if (core->sram_pool) {
-> -			if (core->iommu_domain)
-> +			if (rkvdec->iommu_global_domain)
-> =C2=A0				rcb_size =3D ALIGN(rcb_size, SZ_4K);
-> =C2=A0
-> =C2=A0			cpu =3D gen_pool_dma_zalloc_align(core->sram_pool,
-> @@ -142,11 +143,11 @@ int rkvdec_allocate_rcb(struct rkvdec_core *core, u=
-32 width, u32 height,
-> =C2=A0		}
-> =C2=A0
-> =C2=A0		/* If an IOMMU is used, map the SRAM address through it */
-> -		if (cpu && core->iommu_domain) {
-> +		if (cpu && rkvdec->iommu_global_domain) {
-> =C2=A0			unsigned long virt_addr =3D (unsigned long)cpu;
-> =C2=A0			phys_addr_t phys_addr =3D dma;
-> =C2=A0
-> -			ret =3D iommu_map(core->iommu_domain, virt_addr, phys_addr,
-> +			ret =3D iommu_map(rkvdec->iommu_global_domain, virt_addr, phys_addr,
-> =C2=A0					rcb_size, IOMMU_READ | IOMMU_WRITE, 0);
-> =C2=A0			if (ret) {
-> =C2=A0				gen_pool_free(core->sram_pool,
-> @@ -166,7 +167,7 @@ int rkvdec_allocate_rcb(struct rkvdec_core *core, u32=
- width, u32 height,
-> =C2=A0ram_fallback:
-> =C2=A0		/* Fallback to RAM */
-> =C2=A0		if (!cpu) {
-> -			cpu =3D dma_alloc_coherent(core->dev,
-> +			cpu =3D dma_alloc_coherent(rkvdec->main_core->dev,
-> =C2=A0						 rcb_size,
-> =C2=A0						 &dma,
-> =C2=A0						 GFP_KERNEL);
-> @@ -189,7 +190,7 @@ int rkvdec_allocate_rcb(struct rkvdec_core *core, u32=
- width, u32 height,
-> =C2=A0	return 0;
-> =C2=A0
-> =C2=A0err_alloc:
-> -	rkvdec_free_rcb(core);
-> +	rkvdec_free_rcb(rkvdec, core);
-> =C2=A0
-> =C2=A0	return ret;
-> =C2=A0}
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h b/driver=
-s/media/platform/rockchip/rkvdec/rkvdec-rcb.h
-> index a12af9b7dc2b..d1149afe7fda 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
-> @@ -8,6 +8,7 @@
-> =C2=A0
-> =C2=A0#include <linux/types.h>
-> =C2=A0
-> +struct rkvdec_dev;
-> =C2=A0struct rkvdec_ctx;
-> =C2=A0struct rkvdec_core;
-> =C2=A0
-> @@ -21,11 +22,12 @@ struct rcb_size_info {
-> =C2=A0	enum rcb_axis axis;
-> =C2=A0};
-> =C2=A0
-> -int rkvdec_allocate_rcb(struct rkvdec_core *core, u32 width, u32 height,
-> +int rkvdec_allocate_rcb(struct rkvdec_dev *rkvdec, struct rkvdec_core *c=
-ore,
-> +			u32 width, u32 height,
-> =C2=A0			const struct rcb_size_info *size_info,
-> =C2=A0			size_t rcb_count);
-> =C2=A0dma_addr_t rkvdec_rcb_buf_dma_addr(struct rkvdec_ctx *ctx, int id);
-> =C2=A0size_t rkvdec_rcb_buf_size(struct rkvdec_ctx *ctx, int id);
-> =C2=A0int rkvdec_rcb_buf_count(struct rkvdec_ctx *ctx);
-> =C2=A0bool rkvdec_rcb_buf_validate_size(struct rkvdec_ctx *ctx);
-> -void rkvdec_free_rcb(struct rkvdec_core *core);
-> +void rkvdec_free_rcb(struct rkvdec_dev *rkvdec, struct rkvdec_core *core=
-);
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/me=
-dia/platform/rockchip/rkvdec/rkvdec.c
-> index c2818f1575ef..2930e9b64906 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> @@ -1204,9 +1204,9 @@ static void rkvdec_device_run(void *priv)
-> =C2=A0	}
-> =C2=A0
-> =C2=A0	if (!rkvdec_rcb_buf_validate_size(ctx)) {
-> -		rkvdec_free_rcb(ctx->core);
-> +		rkvdec_free_rcb(ctx->dev, ctx->core);
-> =C2=A0
-> -		ret =3D rkvdec_allocate_rcb(ctx->core,
-> +		ret =3D rkvdec_allocate_rcb(ctx->dev, ctx->core,
-> =C2=A0					=C2=A0 ctx->decoded_fmt.fmt.pix_mp.width,
-> =C2=A0					=C2=A0 ctx->decoded_fmt.fmt.pix_mp.height,
-> =C2=A0					=C2=A0 ctx->dev->variant->rcb_sizes,
-> @@ -1486,6 +1486,7 @@ static void rkvdec_v4l2_cleanup(struct rkvdec_dev *=
-rkvdec)
-> =C2=A0
-> =C2=A0static void rkvdec_iommu_restore(struct rkvdec_core *core)
-> =C2=A0{
-> +	int ret;
-> =C2=A0	if (core->empty_domain) {
-> =C2=A0		/*
-> =C2=A0		 * To rewrite mapping into the attached IOMMU core, attach a new =
-empty domain that
-> @@ -1494,8 +1495,14 @@ static void rkvdec_iommu_restore(struct rkvdec_cor=
-e *core)
-> =C2=A0		 * This is safely done in this interrupt handler to make sure no =
-memory get mapped
-> =C2=A0		 * through the IOMMU while the empty domain is attached.
-> =C2=A0		 */
-> -		iommu_attach_device(core->empty_domain, core->dev);
-> +		iommu_detach_device(core->curr_ctx->dev->iommu_global_domain, core->de=
-v);
-> +		ret =3D iommu_attach_device(core->empty_domain, core->dev);
-> +		if (ret)
-> +			dev_warn(core->dev, "Cannot attach empty domain: %d\n", ret);
-> =C2=A0		iommu_detach_device(core->empty_domain, core->dev);
-> +		ret =3D iommu_attach_device(core->curr_ctx->dev->iommu_global_domain, =
-core->dev);
-> +		if (ret)
-> +			dev_warn(core->dev, "Cannot attach global domain: %d\n", ret);
-> =C2=A0	}
-> =C2=A0}
-> =C2=A0
-> @@ -1858,6 +1865,8 @@ static int rkvdec_probe(struct platform_device *pde=
-v)
-> =C2=A0
-> =C2=A0	core =3D &rkvdec->cores[rkvdec->core_count++];
-> =C2=A0
-> +	core->id =3D rkvdec->core_count - 1;
-> +
-> =C2=A0	platform_set_drvdata(pdev, rkvdec);
-> =C2=A0	core->dev =3D &pdev->dev;
-> =C2=A0	INIT_DELAYED_WORK(&core->watchdog_work, rkvdec_watchdog_func);
-> @@ -1883,12 +1892,24 @@ static int rkvdec_probe(struct platform_device *p=
-dev)
-> =C2=A0			return PTR_ERR(core->link);
-> =C2=A0	}
-> =C2=A0
-> -	core->iommu_domain =3D iommu_get_domain_for_dev(&pdev->dev);
-> -	if (core->iommu_domain) {
-> +	if (iommu_get_domain_for_dev(&pdev->dev)) {
-> =C2=A0		core->empty_domain =3D iommu_paging_domain_alloc(core->dev);
-> =C2=A0
-> -		if (!core->empty_domain)
-> +		if (IS_ERR(core->empty_domain))
-> =C2=A0			dev_warn(core->dev, "cannot alloc new empty domain\n");
-> +
-> +		if (!rkvdec->iommu_global_domain) {
-> +			rkvdec->iommu_global_domain =3D iommu_get_domain_for_dev(core->dev);
-> +
-> +			if (IS_ERR(rkvdec->iommu_global_domain)) {
-> +				rkvdec->iommu_global_domain =3D NULL;
-> +				dev_warn_once(core->dev, "cannot alloc new global domain\n");
-> +			}
-> +		}
-> +
-> +		ret =3D iommu_attach_device(rkvdec->iommu_global_domain, core->dev);
-> +		if (ret)
-> +			dev_warn(core->dev, "cannot attach global domain to core %d\n", core-=
->id);
-> =C2=A0	}
-> =C2=A0
-> =C2=A0	ret =3D dma_set_coherent_mask(&pdev->dev, DMA_BIT_MASK(32));
-> @@ -1961,7 +1982,7 @@ static void rkvdec_remove(struct platform_device *p=
-dev)
-> =C2=A0		if (rkvdec->cores[i].empty_domain)
-> =C2=A0			iommu_domain_free(rkvdec->cores[i].empty_domain);
-> =C2=A0
-> -		rkvdec_free_rcb(&rkvdec->cores[i]);
-> +		rkvdec_free_rcb(rkvdec, &rkvdec->cores[i]);
-> =C2=A0	}
-> =C2=A0}
-> =C2=A0
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/me=
-dia/platform/rockchip/rkvdec/rkvdec.h
-> index 4f042a367dc0..ccd766b220c7 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-> @@ -135,7 +135,6 @@ struct rkvdec_core {
-> =C2=A0	void __iomem *link;
-> =C2=A0	struct delayed_work watchdog_work;
-> =C2=A0	struct gen_pool *sram_pool;
-> -	struct iommu_domain *iommu_domain;
-> =C2=A0	struct iommu_domain *empty_domain;
-> =C2=A0	struct rkvdec_rcb_config *rcb_config;
-> =C2=A0	struct rkvdec_ctx *curr_ctx;
-> @@ -155,6 +154,7 @@ struct rkvdec_dev {
-> =C2=A0	unsigned int available_core_count;
-> =C2=A0	spinlock_t cores_lock; /* serializes core list access */
-> =C2=A0	struct rkvdec_core *main_core;
-> +	struct iommu_domain *iommu_global_domain;
-> =C2=A0};
-> =C2=A0
-> =C2=A0struct rkvdec_ctx {
+[    0.000000] ------------[ cut here ]------------ 
 
---=-0Hey9sLhjTZTeirzEJYW
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+[    0.000000] WARNING: arch/arm64/mm/pageattr.c:61 at 
+pageattr_pmd_entry+0x78/0xe0, CPU#0: swapper/0
+[    0.000000] Modules linked in:
+[    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper Not tainted 7.0.0-rc1+ 
+#1889 PREEMPT
+[    0.000000] Hardware name: linux,dummy-virt (DT)
+[    0.000000] pstate: 800000c5 (Nzcv daIF -PAN -UAO -TCO -DIT -SSBS 
+BTYPE=--)
+[    0.000000] pc : pageattr_pmd_entry+0x78/0xe0
+[    0.000000] lr : walk_pgd_range+0x43c/0x970
+[    0.000000] sp : ffff800082343b70
+[    0.000000] x29: ffff800082343b70 x28: fff0000019600000 x27: 
+fff0000019580000
+[    0.000000] x26: ffff800082343c98 x25: fff000001d57ffff x24: 
+fff000001fffe000
+[    0.000000] x23: ffff8000810ae698 x22: fff000001fffd650 x21: 
+fff0000019780000
+[    0.000000] x20: fff000001d580000 x19: 0000000000000000 x18: 
+0000000000000030
+[    0.000000] x17: 0000000000004000 x16: 000000009fffc000 x15: 
+0000000000000020
+[    0.000000] x14: 0000000000003be4 x13: 0000000000000020 x12: 
+0000000000000000
+[    0.000000] x11: 0000000000000016 x10: 0000000000000015 x9 : 
+0000000000000013
+[    0.000000] x8 : 0000000000000015 x7 : 0000000080000000 x6 : 
+0000000000000000
+[    0.000000] x5 : 0078000099400405 x4 : fff000001fffd650 x3 : 
+ffff800082343c98
+[    0.000000] x2 : 0000000000080000 x1 : fff0000019580000 x0 : 
+0000000000000001
+[    0.000000] Call trace:
+[    0.000000]  pageattr_pmd_entry+0x78/0xe0 (P)
+[    0.000000]  walk_kernel_page_table_range_lockless+0x60/0xa0 
 
------BEGIN PGP SIGNATURE-----
+[    0.000000]  update_range_prot+0x80/0x128
+[    0.000000]  __set_memory_enc_dec.part.0+0x88/0x258
+[    0.000000]  realm_set_memory_decrypted+0x54/0x98
+[    0.000000]  set_memory_decrypted+0x38/0x58
+[    0.000000]  swiotlb_update_mem_attributes+0x44/0x58
+[    0.000000]  mem_init+0x24/0x38
+[    0.000000]  mm_core_init+0x94/0x140
+[    0.000000]  start_kernel+0x544/0xa18
+[    0.000000]  __primary_switched+0x88/0x98
+[    0.000000] ---[ end trace 0000000000000000 ]---
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCade1XgAKCRDZQZRRKWBy
-9DnKAQDJtAASe6SiickkeAzlO+XdvrxlSxhsCWnQxvtuFM97rwD+LI+0vIjaN001
-xcPK2Z7PRkSlDfAVJ24WRD4hWKGziwE=
-=fi3S
------END PGP SIGNATURE-----
 
---=-0Hey9sLhjTZTeirzEJYW--
+Suzuki
+
+> 
+>>
+>> 4. If (3) is a common case, a better alternative is to rewrite the
+>>     linear map sometime after arm64_rsi_init() but before we call
+>>     split_kernel_leaf_mapping().
+> 
+> We will explore this route.
+> 
+> The other option is to move the RSI detection (and the PSCI probe)
+> earlier to be able to make better decisions early on. I will play with
+> that a bit too.
+> 
+> Suzuki
+> 
+> 
+>>
+> 
+
 
