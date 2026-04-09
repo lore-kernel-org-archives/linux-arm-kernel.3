@@ -4,93 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CA02E9DE59
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 07:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ED50E9DE5A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 07:28:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6LGPCYqxydQp/EFMTOko81ZvOxyViuIVDf7MPL6ki1Q=; b=AkpZgrdrz1cRx83kUj3ojy/Uzn
-	HJ3U8pY/qVEdHVACElQ+kmPL7EzjYlEThwfsgGJQKB/91k5VeNVSlA6h054lXBo50Ck2haKPqmh5k
-	m0VvV3WjxC315bXRJjoCd9vZjLT5wIAI2e2bjAvcE3st2UQDji6h5mMUrv9jnvhEwy65Advaxkz5V
-	azXc/m9P/RqH00Nf7glZJXK51BVfClLwm9HbcIIaYNLuXSkaO1GK0HMX1TZY1BTPxwthWm2N9oqB2
-	CbHV58Vi13f5dkveVArbXSJx2l9OAntk1BTk5SW2kPJ1ATWr6+2lUBcUwhCVNW+0kUpUb78NINZhy
-	LIrVgoCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=613UmsT+jTo54xaDw1cFmp5OdRZv/pKg1pFcm53tXes=; b=pC4Sp/ebo9kkaMrpDKVrVgcnCu
+	KrkJhlKDZuWXXIvAWu/ezdwYsnsKe2O5nWMnU+zxWv/iGBJd4/lPh8x89TjggKM2oV/BwLeIW3atk
+	qgK6BSUCsinCft73y4DnVU1CO8SMede3vHmh+1CeyXAMIu3mpDdtSz9pf4J4xoiI6EOLZ7LggiELI
+	z1ZgWK/6RilxXYNDw81eZM9Z+A1T6Ar/+MY2lryCQiLJrl+DaYXdhQ3dtpzCD9ZfHTyoz4lY0H1ZJ
+	mOIfhTPl/gDVlxP6Dsh4VmA6hdgd+GYn6YhgYqdzA8YOJssovjXTAQEmfPwQ16TNe8MW7WEO3O4oG
+	EHxYVqQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAjkf-00000009qJM-229M;
-	Thu, 09 Apr 2026 07:24:33 +0000
-Received: from mail-m49222.qiye.163.com ([45.254.49.222])
+	id 1wAjoM-00000009qps-1z9y;
+	Thu, 09 Apr 2026 07:28:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAjkb-00000009qDs-1kNx;
-	Thu, 09 Apr 2026 07:24:30 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3a130ab6e;
-	Thu, 9 Apr 2026 15:24:24 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	victor.liu@nxp.com,
-	Frank.Li@nxp.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	inki.dae@samsung.com,
-	sw0312.kim@samsung.com,
-	kyungmin.park@samsung.com,
-	krzk@kernel.org,
-	jingoohan1@gmail.com,
-	p.zabel@pengutronix.de,
-	hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com
-Cc: Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	alim.akhtar@samsung.com,
-	dmitry.baryshkov@oss.qualcomm.com,
-	luca.ceresoli@bootlin.com,
-	nicolas.frattaroli@collabora.com,
-	dianders@chromium.org,
-	m.szyprowski@samsung.com,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v13 17/17] drm/bridge: analogix_dp: Apply panel_bridge helper
-Date: Thu,  9 Apr 2026 15:19:08 +0800
-Message-Id: <20260409071908.466294-5-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260409071908.466294-1-damon.ding@rock-chips.com>
-References: <20260409065301.446670-1-damon.ding@rock-chips.com>
- <20260409071908.466294-1-damon.ding@rock-chips.com>
+	id 1wAjoK-00000009qpT-38y6;
+	Thu, 09 Apr 2026 07:28:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C837144186;
+	Thu,  9 Apr 2026 07:28:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B795C4CEF7;
+	Thu,  9 Apr 2026 07:28:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775719699;
+	bh=wGp8rio3+O1LigJl7XJ1TouzLqDBv3x6HJpnWI0/Ifg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FloQYJ2c5SgdHHvn1NdU1cHQSeYqeBynECzDyAjAy4b8FuIRjOkBM61yBgn4oUO3Y
+	 knFq4qkQ0jAh/fq362EBXQ0nOWCgPyzxNwhnGsStS1gamecAmV6RB8QW+THelaMIrR
+	 brnznsxZ1n1LZxCs48N2fZ/PTWmsEVBN5s1ebZNIKH0tZ2nh3DKN0myG4THk15I32t
+	 qQiTrEYS5ZlrcJCzE1FcMDfby2vKslWs0GbHHanWLLXyq2bR4xEQzLOLr2MsaCNPLp
+	 cG7Aowyj1makyC//P3Cwy+gQiCeRbeg3An5LVouCxbVbxuLrUnBXkimPNOcWkN2w/Z
+	 D8O0+qZIPG7dg==
+Date: Thu, 9 Apr 2026 09:28:17 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Dawid Glazik <dawid.glazik@linux.intel.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, linux-aspeed@lists.ozlabs.org, linux-i3c@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Frank Li <Frank.Li@nxp.com>, Maciej Lawniczak <maciej.lawniczak@intel.com>
+Subject: Re: [PATCH v3 3/3] dt-bindings: i3c: Add AST2600 I3C global registers
+Message-ID: <20260409-beneficial-sociable-tamarin-dbcaeb@quoll>
+References: <cover.1775679285.git.dawid.glazik@linux.intel.com>
+ <7f55458097ef651b4fc46650254afd3fa7b87348.1775679285.git.dawid.glazik@linux.intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9d7120bea703a3kunm41c7027340af8a
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUtMQ1ZJHx5OGkNNQxlDHkJWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=c9+Yk+hiF9x0rhiMFUHFSwOUgwyyM/GIpw9K9LkkbtGwKaW1S98n0sGtCp82C5f6DeWHstdXXEjDT7rfOnNQLxtVhjobtUH5zzmHq/NihM7hwSyzYkHrskZGgpAtGyhcmO2P1i8MQp2FTAkAIChTAfIUPhT48vEQfga7EXPJOMw=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=6LGPCYqxydQp/EFMTOko81ZvOxyViuIVDf7MPL6ki1Q=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <7f55458097ef651b4fc46650254afd3fa7b87348.1775679285.git.dawid.glazik@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_002429_686013_7A81AB96 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20260409_002820_830221_D4FCD522 
+X-CRM114-Status: GOOD (  19.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,163 +75,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to unify the handling of the panel and bridge, apply
-panel_bridge helpers for Analogix DP driver. With this patch, the
-bridge support will also become available.
+On Wed, Apr 08, 2026 at 10:34:35PM +0200, Dawid Glazik wrote:
+> Introduce the device-tree bindings for I3C global registers found on
+> AST2600 SoCs.
+> 
+> Signed-off-by: Dawid Glazik <dawid.glazik@linux.intel.com>
+> ---
+> I wasn't sure if I should add newline at the end of the
+> file or not so I took
+> https://github.com/torvalds/linux/tree/master/Documentation/devicetree/bindings/i3c
+> as an example.
 
-The following changes have ben made:
-- Apply plane_bridge helper to wrap the panel as the bridge.
-- Remove the explicit panel APIs calls, which can be replaced with
-  the automic bridge APIs calls wrapped by the panel.
-- Remove the unnecessary analogix_dp_bridge_get_modes().
+Answer is: you cannot have patch warnings.
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-Tested-by: Heiko Stuebner <heiko@sntech.de> # rk3588
+Documentation/devicetree/bindings/i3c does not have patch warning, does
+it?
 
----
+> ---
+>  .../i3c/aspeed,ast2600-i3c-global.yaml        | 55 +++++++++++++++++++
+>  1 file changed, 55 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/i3c/aspeed,ast2600-i3c-global.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/i3c/aspeed,ast2600-i3c-global.yaml b/Documentation/devicetree/bindings/i3c/aspeed,ast2600-i3c-global.yaml
+> new file mode 100644
+> index 000000000000..edecc18796a9
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/i3c/aspeed,ast2600-i3c-global.yaml
+> @@ -0,0 +1,55 @@
+> +# SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/i3c/aspeed,ast2600-i3c-global.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: ASPEED AST2600 I3C Global Registers
+> +
+> +description: |
+> +  The AST2600 SoC provides a shared I3C global register block used by all
+> +  I3C controller instances. This block contains per-instance global
 
-Changes in v4:
-- Rename the &analogix_dp_plat_data.bridge to
-  &analogix_dp_plat_data.next_bridge.
+Why are you adding syscon to I3C controllers? Only I3C controllers go
+to i3c directory.
 
-Changes in v5:
-- Move panel_bridge addition a little forward.
-- Move next_bridge attachment from Analogix side to Rockchip/Exynos
-  side.
+syscons go soc.
 
-Changes in v6
-- Remove the unnecessary analogix_dp_bridge_get_modes().
-- Not to set DRM_BRIDGE_OP_MODES if the next is a panel.
-- Squash [PATCH v5 15/17]drm/bridge: analogix_dp: Remove panel
-  disabling and enabling in analogix_dp_set_bridge() into this
-  commit.
-- Fix the &drm_bridge->ops to DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_DETECT.
 
-Changes in v9:
-- Add Tested-by tag.
 
-Changes in v13:
-- Modify '(on rk3588)' to '# rk3588' for Tested-by tag.
----
- .../drm/bridge/analogix/analogix_dp_core.c    | 41 +++++--------------
- 1 file changed, 11 insertions(+), 30 deletions(-)
+> +  configuration fields, including controller instance ID and SDA pull-up
+> +  configuration.
+> +  Each I3C controller references this syscon node through the
+> +  aspeed,global-regs property.
+> +
+> +maintainers:
+> +  - Dawid Glazik <dawid.glazik@linux.intel.com>
+> +
+> +allOf:
+> +  - $ref: /schemas/mfd/syscon-common.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: aspeed,ast2600-i3c-global
+> +      - const: syscon
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  resets:
+> +    maxItems: 1
+> +
 
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index 7d30e4184a80..fb6b8aaa353b 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -749,9 +749,6 @@ static int analogix_dp_commit(struct analogix_dp_device *dp)
- {
- 	int ret;
- 
--	/* Keep the panel disabled while we configure video */
--	drm_panel_disable(dp->plat_data->panel);
--
- 	ret = analogix_dp_train_link(dp);
- 	if (ret) {
- 		dev_err(dp->dev, "unable to do link train, ret=%d\n", ret);
-@@ -771,9 +768,6 @@ static int analogix_dp_commit(struct analogix_dp_device *dp)
- 		return ret;
- 	}
- 
--	/* Safe to enable the panel now */
--	drm_panel_enable(dp->plat_data->panel);
--
- 	/* Check whether panel supports fast training */
- 	ret = analogix_dp_fast_link_train_detection(dp);
- 	if (ret)
-@@ -858,17 +852,6 @@ static int analogix_dp_disable_psr(struct analogix_dp_device *dp)
- 	return analogix_dp_send_psr_spd(dp, &psr_vsc, true);
- }
- 
--static int analogix_dp_bridge_get_modes(struct drm_bridge *bridge, struct drm_connector *connector)
--{
--	struct analogix_dp_device *dp = to_dp(bridge);
--	int num_modes = 0;
--
--	if (dp->plat_data->panel)
--		num_modes += drm_panel_get_modes(dp->plat_data->panel, connector);
--
--	return num_modes;
--}
--
- static const struct drm_edid *analogix_dp_bridge_edid_read(struct drm_bridge *bridge,
- 							   struct drm_connector *connector)
- {
-@@ -909,7 +892,7 @@ analogix_dp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *conne
- 	struct analogix_dp_device *dp = to_dp(bridge);
- 	enum drm_connector_status status = connector_status_disconnected;
- 
--	if (dp->plat_data->panel || dp->plat_data->next_bridge)
-+	if (dp->plat_data->next_bridge)
- 		return connector_status_connected;
- 
- 	if (!analogix_dp_detect_hpd(dp))
-@@ -995,8 +978,6 @@ static void analogix_dp_bridge_atomic_pre_enable(struct drm_bridge *bridge,
- 	/* Don't touch the panel if we're coming back from PSR */
- 	if (old_crtc_state && old_crtc_state->self_refresh_active)
- 		return;
--
--	drm_panel_prepare(dp->plat_data->panel);
- }
- 
- static int analogix_dp_set_bridge(struct analogix_dp_device *dp)
-@@ -1168,16 +1149,12 @@ static void analogix_dp_bridge_disable(struct drm_bridge *bridge)
- 	if (dp->dpms_mode != DRM_MODE_DPMS_ON)
- 		return;
- 
--	drm_panel_disable(dp->plat_data->panel);
--
- 	disable_irq(dp->irq);
- 
- 	analogix_dp_set_analog_power_down(dp, POWER_ALL, 1);
- 
- 	pm_runtime_put_sync(dp->dev);
- 
--	drm_panel_unprepare(dp->plat_data->panel);
--
- 	dp->fast_train_enable = false;
- 	dp->psr_supported = false;
- 	dp->dpms_mode = DRM_MODE_DPMS_OFF;
-@@ -1252,7 +1229,6 @@ static const struct drm_bridge_funcs analogix_dp_bridge_funcs = {
- 	.atomic_post_disable = analogix_dp_bridge_atomic_post_disable,
- 	.atomic_check = analogix_dp_bridge_atomic_check,
- 	.attach = analogix_dp_bridge_attach,
--	.get_modes = analogix_dp_bridge_get_modes,
- 	.edid_read = analogix_dp_bridge_edid_read,
- 	.detect = analogix_dp_bridge_detect,
- };
-@@ -1498,17 +1474,22 @@ int analogix_dp_bind(struct analogix_dp_device *dp, struct drm_device *drm_dev)
- 		return ret;
- 	}
- 
--	if (dp->plat_data->panel)
--		bridge->ops = DRM_BRIDGE_OP_MODES | DRM_BRIDGE_OP_DETECT;
--	else
--		bridge->ops = DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_DETECT;
--
-+	bridge->ops = DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_DETECT;
- 	bridge->of_node = dp->dev->of_node;
- 	bridge->type = DRM_MODE_CONNECTOR_eDP;
- 	ret = devm_drm_bridge_add(dp->dev, &dp->bridge);
- 	if (ret)
- 		goto err_unregister_aux;
- 
-+	if (dp->plat_data->panel) {
-+		dp->plat_data->next_bridge = devm_drm_panel_bridge_add(dp->dev,
-+								       dp->plat_data->panel);
-+		if (IS_ERR(dp->plat_data->next_bridge)) {
-+			ret = PTR_ERR(bridge);
-+			goto err_unregister_aux;
-+		}
-+	}
-+
- 	ret = drm_bridge_attach(dp->encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
- 	if (ret) {
- 		DRM_ERROR("failed to create bridge (%d)\n", ret);
--- 
-2.34.1
+I do not see any differences against syscon.yaml binding. Why do you
+need separate file? Look first how other platforms do it.
+
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    bus@1e7a0000 {
+> +        compatible = "simple-bus";
+> +        #address-cells = <1>;
+> +        #size-cells = <1>;
+> +        ranges = <0 0x1e7a0000 0x8000>;
+
+Drop entire node, not needed.
+
+> +
+> +        i3c-global@0 {
+> +            compatible = "aspeed,ast2600-i3c-global", "syscon";
+> +            reg = <0x0 0x1000>;
+> +            resets = <&syscon ASPEED_RESET_I3C_DMA>;
+> +        };
+> +    };
+> +...
+> \ No newline at end of file
+
+Patch warning.
+
+Best regards,
+Krzysztof
 
 
