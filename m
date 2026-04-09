@@ -4,110 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EF23F31E24
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 15:17:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9E60F31E22
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 15:20:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fkDdxDUbX2HsgaIt26d2ThmX3RrpwAJVbCMDE8hRHvk=; b=pE3IILCQWzHT4xPMU4aAZYi488
-	RFoFzfLxI1W4tFZdo8HRciqd6iKmPpK7YNyIghmMyMd6EwbfRFDO8IwdnPBtzCcadh3gWTkOQwr70
-	f96hEyI/hpPm6bCudOWcAfbD263/Q56rfC843HAqBMq9VFPAzLN8pJu9VPIl9Iaik7jYreirXb5Wt
-	BEUcfIxKc7eHSmm9SvCNjwO0HCkgXTB2NYdFjGlCQvtaXA7lOeANYQD0tmDlrjq7LXZ+1EAXuUwDG
-	CkNoPBRBhWRpocgP9YMoRaWxstvza4lGvsa1RfIxjZTbdcOAej1vPDlGQ8ZYyWfpqBgsyvJrjq8+m
-	DZbXyJuQ==;
+	bh=NmW/vqGshp0yC8wOjXUYK+Ppdn67/QE8TCkx2CxjBSA=; b=1hjTsmHRX9d9Dfj3Aqe3SgdEsF
+	1JeMB+kCmWeMdGx/Si6lb3rjN6zmV1RFjRDosR/ypkJkBAOB7JWNW2LmoP1pzjLUCcHCeCDXnzsrr
+	m/XkndXAfeGjCLlmLF+odoc8Y21A60niF6kJm+rFDkCCyGO33AOQt+HXJlm1EgbbhI+cRqc97U/ef
+	gYDSqrPWZnaFqELRVpiPig5+25hscL3Tx858h+CCgbaNE96L66MYu5OQJdLwXTV0MA0AArdj4GPW4
+	5tP7QKJyaxyBRl7UDm15ayyMSuilJibD9SoNtiUN0jHV7MKzCe/HkfF8DNsIqPxWxt0B9TwYixc3V
+	qUhg8gZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAr8e-0000000Amc3-1XV7;
-	Thu, 09 Apr 2026 15:17:48 +0000
-Received: from mail-westus3azon11010013.outbound.protection.outlook.com ([52.101.201.13] helo=PH7PR06CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAr8b-0000000AmbV-2HGA
+	id 1wArB0-0000000AmlY-3gMP;
+	Thu, 09 Apr 2026 15:20:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wArAy-0000000AmlA-1PYm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 15:17:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bYgOOHqrraztSGd7pp6zCg/3LxEhvowhQOY6jEiQWsUD9V3o/wdaliKmd3mPZFULqffpgwYKhNbeoOE4wTtvZSQs3lNrxs3Yei9x8Aoljg7kw0Bxl+v3eZJs2V2hxar5N9a+5gHhyo+GfSRUzxv/JO5jJtiRWp38w6BOisZ5MkBo8WSmJWvv1U1uXW1CNiUGTLyrHwZgPotL1uFTBp6ziSLqqMNuY6UzLZJlcNHoLfZ2FU2aOjlS1bDq+uOhOaQx4K8K96FLrEzp2LnVq09zm2KuqNcqE29Cp1MCNEx8JByJ/N0W3XbfMuttQy2z15i4N+rrf0SCTP/PcfIYSgemgw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fkDdxDUbX2HsgaIt26d2ThmX3RrpwAJVbCMDE8hRHvk=;
- b=UPMxTYtuH93PIXZI82M+pjaL+GrNhyOVDNr/g5DIh3Phk9FiHHqHV20SsyXWAmSF25FhoJuQAqZ4rc8nT9j7ni6MN/LS7R7e660nUVpZ/VsCL7+LkYT63iTzbE8+NnYuiX4v52ltcpUoVS+aiLyAwLzNxgqImoobHStSJaU60o7FenWFUUmtNFL4b/zXpek80/l1jvWyL68OjbTWSdQXrVvK7DsyygDPmdEmkXV1qfeZAA/pvKjVap2tLPE4LTpzDnvGEOUU+h8Ury7xv9aoicpVcnvr2QczMJHs76ZbNp1quGlNmb/3K3fJgzlPtX0bs1+WOvLv3vY2DOt43qvPKg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 165.85.157.49) smtp.rcpttodomain=lists.infradead.org
- smtp.mailfrom=gehealthcare.com; dmarc=fail (p=quarantine sp=quarantine
- pct=100) action=quarantine header.from=gehealthcare.com; dkim=none (message
- not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gehealthcare.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fkDdxDUbX2HsgaIt26d2ThmX3RrpwAJVbCMDE8hRHvk=;
- b=bDpM1hLh8FdB1tMpH1YYB4bJXBPHcxuQP5bmtpLkDYfm6+Wi5c592G/KlwfYeNUXfD2tPt/sqSgge67dxHrl9Q67iHBPhSU6vx8D1C2l2dmr4y8byLaURr6tjtf1F7rbHv9eWRjh5PemjVwjVJmmdNi2A/g1DbkHr+ae+6qWR+cqFwdRhii58EeinXpgrqqM8Ol3tNa8jPHWvjbAcsapZ0PuoYjcYaOY8hWj+voYyb0EcU5Ku65QPsT8txVl0wmeijz8nnEjDqG2ZBXB8W+g4TTgNd4KOQ+vQsHki0DnHOU8bCUhvCrBx5xvJhgS+uY3uP/+okgziAdb5pgMK7n+yw==
-Received: from BY3PR05CA0059.namprd05.prod.outlook.com (2603:10b6:a03:39b::34)
- by SA1PR22MB4745.namprd22.prod.outlook.com (2603:10b6:806:3cd::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.16; Thu, 9 Apr
- 2026 15:17:40 +0000
-Received: from CO1PEPF000066EC.namprd05.prod.outlook.com
- (2603:10b6:a03:39b:cafe::38) by BY3PR05CA0059.outlook.office365.com
- (2603:10b6:a03:39b::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.40 via Frontend Transport; Thu,
- 9 Apr 2026 15:17:39 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 165.85.157.49)
- smtp.mailfrom=gehealthcare.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=gehealthcare.com;
-Received-SPF: Fail (protection.outlook.com: domain of gehealthcare.com does
- not designate 165.85.157.49 as permitted sender)
- receiver=protection.outlook.com; client-ip=165.85.157.49;
- helo=mkerelay1.compute.ge-healthcare.net;
-Received: from mkerelay1.compute.ge-healthcare.net (165.85.157.49) by
- CO1PEPF000066EC.mail.protection.outlook.com (10.167.249.8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9769.17 via Frontend Transport; Thu, 9 Apr 2026 15:17:39 +0000
-Received: from zoo11.fihel.lab.ge-healthcare.net (zoo11.fihel.lab.ge-healthcare.net [10.168.174.93])
-	by builder1.fihel.lab.ge-healthcare.net (Postfix) with SMTP id BDF6CE57CC;
-	Thu,  9 Apr 2026 18:17:36 +0300 (EEST)
-Date: Thu, 9 Apr 2026 18:17:36 +0300
-From: Brian Ruley <brian.ruley@gehealthcare.com>
-To: Will Deacon <will@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>,
-	Steve Capper <steve.capper@arm.com>,
-	Russell King <rmk+kernel@arm.linux.org.uk>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] mm/arm: pgtable: remove young bit check for
- pte_valid_user
-Message-ID: <adfDEMK8EbIjPu3J@zoo11.fihel.lab.ge-healthcare.net>
-References: <20260409125446.981747-1-brian.ruley@gehealthcare.com>
- <adewJetUv6wMiz9o@willie-the-truck>
+	Thu, 09 Apr 2026 15:20:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B282C1E7D;
+	Thu,  9 Apr 2026 08:20:04 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B63A33F632;
+	Thu,  9 Apr 2026 08:20:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775748010; bh=KerjMnaZbfpIlkpvrXSliiJWrSFz9KRVNy8sm9UfXNg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SpeqoFZ70V9fK8ZbqkJX+IaOX6lOReIfZ5HI8HTLWt+OY0BTljBMQzT+Pe+cNm/rV
+	 gE/q6NzUJ7ceBGS8P5POeS16bJlewubyPHxMBWKgfM6hQFxbrG3kfGRbtDyJDKFr8E
+	 uKkPugUVopRi2ogCua++AfZf/JJg46wrGQVNLW2Q=
+Date: Thu, 9 Apr 2026 16:20:01 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Dev Jain <dev.jain@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Jinjiang Tu <tujinjiang@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] arm64: mm: Fix rodata=full block mapping support
+ for realm guests
+Message-ID: <adfDoatH8hj6zN7_@arm.com>
+References: <20260330161705.3349825-1-ryan.roberts@arm.com>
+ <20260330161705.3349825-2-ryan.roberts@arm.com>
+ <ac7VD4Z85nS30GCp@arm.com>
+ <ac-W9oNM_O5RTtaf@arm.com>
+ <beacee23-c177-47a1-b8b5-743844b617a8@arm.com>
+ <adTPFrlVCEt-hioX@arm.com>
+ <bc4a0246-33bb-443e-a885-a31b24d4a022@arm.com>
+ <adTh8d9k3y5ybemL@arm.com>
+ <567dff89-9f0f-40a0-ab10-22e061b4faaf@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <adewJetUv6wMiz9o@willie-the-truck>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000066EC:EE_|SA1PR22MB4745:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4892cdb2-35b5-4313-cfef-08de964b238c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|376014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: m6eABwMTUGNAPPJ9mEylLXwZmLYCBvg7rF0cit6i9LQ+bTX0Im7K4C4V44rn+KY6zpWIku0vxe1zZ3OBBzubbec9u84ApxXAwz+OVnM2xEQ8U4k8P+Lv5nGwQwO0aeFiMUMojrnmVh9hGouAmQpy3KmFXR3y7HX4tzGuvTTewyeLVn6AxP8Iq8Unu4BkL5CCXTok7HeeqK9sIFrgxqu1HfBLImjdbTo4beGOni1VPViIEZtT90K8jnOxAFMbIUtXf7AZfwlkpR9afH6aGkiMYa2tDIhnAdeqe/ym3MOaG/tw2SjTLPlshyZKSaAefibXTZ4PHyj+ME8Db9K7nwR8ofc0i9srf9zNOO0x5b3atbcz07ZSw4G33nOdUpWZT2L7x6fRZjXTQ/6j628A4Dwe/vIPbnU1J4tV4nCHjmbyTlNl9tMXdrtciQ+sPwlk3xUECV/Wng7wCR3ytzM7Yx5lYIYKQq74LGvP/al/VDs3x6tvsgaTA+Dow5YM0nla1nM6paI6lJ7vNTd11oCyUpcbkB9U+rgXoZRqfAVH93IrrgrZc97jRfbdKOr+rAEvXlMCyKwOmIxMEbvsfnocXQXO+dTkqzDgUBKc8HuM3prOa6OHEuyWQv+oyMgGVUcUVUbzHLi4PjzE9kGjTV/a1f8rPFmZXOPUGpYfzu+x2WZRZjtEHWCFUcIwQdhNo6aFgHr1ogN4mWzr+rgMxgCrx8mhqr2oEE388D99kD8EZpYFtBIgV2NtqxjRtfxAg5FRJ2eJFkxlHo0gqLlXzzGcIbOzzA==
-X-Forefront-Antispam-Report: CIP:165.85.157.49;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mkerelay1.compute.ge-healthcare.net;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(376014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: bzS4duv5TPlifPT9tAT3+FE8pF66ZzbIvsL044tAlhap1k1Ey9NLStjLSz256KoRTHUeuLapFN5RR9p9CHJfujKCMqSwnqSnsUkuTzPfuBJsqFL0sv7B+2Q9ZscnGzGRSMrLgXsYf/6z4mq/nw0jv6xssDBG0DrhXt4tfS0aZWBvY+MlDmMMMuF5ugZzKTQJy3K7uWdvsB/U4DA/qR7rYZUetk0daXUFeocOTDDWtqb47VU6vvg068oFJoYXFMakeZia1DDVeR8T9v6YYD+eIsK/eiW6EPxhP+9pAfA8Zoc7lnoeW6gtlEHZ8CQ5zYncX4iinna+P7BXbxNGcQKKkvd4Ylv6fu72a8NSBM7Qf1Q2h6MaVUJh2rct3tBlG84H2oQn+G9CMwwZZoD/RTbRe7WI8kVCJYmKVqiw6Q6u36kSQftaau+wYmsKUiiQyilv
-X-OriginatorOrg: gehealthcare.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2026 15:17:39.3233
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4892cdb2-35b5-4313-cfef-08de964b238c
-X-MS-Exchange-CrossTenant-Id: 9a309606-d6ec-4188-a28a-298812b4bbbf
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=9a309606-d6ec-4188-a28a-298812b4bbbf;Ip=[165.85.157.49];Helo=[mkerelay1.compute.ge-healthcare.net]
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-CO1PEPF000066EC.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR22MB4745
+In-Reply-To: <567dff89-9f0f-40a0-ab10-22e061b4faaf@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_081746_333153_5AB28A4C 
-X-CRM114-Status: GOOD (  44.19  )
+X-CRM114-CacheID: sfid-20260409_082012_527512_EEB81F54 
+X-CRM114-Status: GOOD (  23.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,155 +82,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Apr 09, Will Deacon wrote:
+On Thu, Apr 09, 2026 at 11:53:41AM +0200, Kevin Brodsky wrote:
+> On 07/04/2026 12:52, Catalin Marinas wrote:
+> >> if we have forced pte mapping then the value of
+> >> can_set_direct_map() is irrelevant - we will never need to split because we are
+> >> already pte-mapped.
+> >
+> > can_set_direct_map() is used in other places, so its value is
+> > relevant, e.g. sys_memfd_secret() is rejected if this function returns
+> > false.
 > 
-> On Thu, Apr 09, 2026 at 03:54:45PM +0300, Brian Ruley wrote:
-> > Fixes cache desync, which can cause undefined instruction,
-> > translation and permission faults under heavy memory use.
-> >
-> > This is an old bug introduced in commit 1971188aa196 ("ARM: 7985/1: mm:
-> > implement pte_accessible for faulting mappings"), which included a check
-> > for the young bit of a PTE. The underlying assumption was that old pages
-> > are not cached, therefore, `__sync_icache_dcache' could be skipped
-> > entirely.
-> >
-> > However, under extreme memory pressure, page migrations happen
-> > frequently and the assumption of uncached "old" pages does not hold.
-> > Especially for systems that do not have swap, the migrated pages are
-> > unequivocally marked old. This presents a problem, as it is possible
-> > for the original page to be immediately mapped to another VA that
-> > happens to share the same cache index in VIPT I-cache (we found this
-> > bug on Cortex-A9). Without cache invalidation, the CPU will see the
-> > old mapping whose physical page can now be used for a different
-> > purpose, as illustrated below:
-> >
-> >                 Core                      Physical Memory
-> >   +-------------------------------+     +------------------+
-> >   | TLB                           |     |                  |
-> >   |  VA_A 0xb6e6f -> pfn_q        |     | pfn_q: code      |
-> >   +-------------------------------+     +------------------+
-> >   | I-cache                       |
-> >   |  set[VA_A bits] | tag=pfn_q   |
-> >   +-------------------------------+
-> >
-> > migrate (kcompactd):
-> >   1. copy pfn_q --> pfn_r
-> >   2. free pfn_q
-> >   3. pte: VA_a -> pfn_r
-> >   4. pte_mkold(pte) --> !young
-> >   5. ICIALLUIS skipped (because !young)
-> >
-> > pfn_src reused (OOM pressure):
-> >   pte: VA_B -> pfn_q (different code)
-> >
-> > bug:
-> >                 Core                      Physical Memory
-> >   +-------------------------------+     +------------------+
-> >   | TLB (empty)                   |     | pfn_r: old code  |
-> >   +-------------------------------+     | pfn_q: new code  |
-> >   | I-cache                       |     +------------------+
-> >   |  set[VA_A bits] | tag=pfn_q   |<--- wrong instructions
-> >   +-------------------------------+
-> 
-> (nit: Do you have pfn_r and pfn_q mixed up in the "Physical Memory" box?)
+> Indeed, I have noticed this before: currently set_direct_map_*_noflush()
+> and other functions will either fail or do nothing if none of the
+> features (rodata=full, etc.) is enabled, even if we would be able to
+> split the linear map using BBML2-noabort.
 
-No, I don't think so. The intent was to show that whatever was copied
-from pfn_q is now in pfn_r while the old page (pfn_q) is now mapped to
-VA_B with new code/data. Maybe a classic case of poor naming on my part
-here. :-)
+That's what I have been trying to say to Ryan ;), can_set_direct_map()
+has different meanings depending on the caller: hint that it might split
+or asking whether splitting is permitted. The latter is not captured.
+Ignoring realms, if we have BBML2_NOABORT the kernel won't force pte
+mappings under the assumption that split_kernel_leaf_mapping() is safe.
+However set_direct_map_*_noflush() won't even reach the split function
+because the "can" part says "no, you can't".
 
-> 
-> > This was verified on ba16-based board (i.MX6Quad/Dual, Cortex-A9) by
-> > instrumenting the migration code to track recently migrated pages in a
-> > ring buffer and then dumping them in the undefined instruction fault
-> > handler. The bug can be triggered with `stress-ng':
-> >
-> >   stress-ng --vm 4 --vm-bytes 2G --vm-method zero-one --verify
-> >
-> > Note that the system we tested on has only 2G of memory, so the test
-> > triggered the OOM-killer in our case.
-> >
-> > Fixes: 1971188aa196 ("ARM: 7985/1: mm: implement pte_accessible for faulting mappings")
-> > Signed-off-by: Brian Ruley <brian.ruley@gehealthcare.com>
-> > ---
-> >  arch/arm/include/asm/pgtable.h | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm/include/asm/pgtable.h b/arch/arm/include/asm/pgtable.h
-> > index 6fa9acd6a7f5..e3a5b4a9a65f 100644
-> > --- a/arch/arm/include/asm/pgtable.h
-> > +++ b/arch/arm/include/asm/pgtable.h
-> > @@ -185,7 +185,7 @@ static inline pte_t *pmd_page_vaddr(pmd_t pmd)
-> >  #define pte_exec(pte)                (pte_isclear((pte), L_PTE_XN))
-> >
-> >  #define pte_valid_user(pte)  \
-> > -     (pte_valid(pte) && pte_isset((pte), L_PTE_USER) && pte_young(pte))
-> > +     (pte_valid(pte) && pte_isset((pte), L_PTE_USER))
-> 
-> This patch is from twelve years ago, so please forgive me for having
-> forgotten all of the details. However, my recollection is that when using
-> the classic/!lpae format (as you will be on Cortex-A9), page aging is
-> implemented by using invalid (translation faulting) ptes for 'old'
-> mappings.
-> 
-> So in the case you describe, we may well elide the I-cache maintenance,
-> but won't we also put down an invalid pte? If we later take a fault
-> on that, we should then perform the cache maintenance when installing
-> the young entry (via ptep_set_access_flags()). The more interesting part
-> is probably when the mapping for 'VA_B' is installed to map 'pfn_q' but,
-> again, I would've expected the cache maintenance to happen just prior to
-> installing the valid (young) mapping.
-> 
-> Please can you help me to understand the problem better?
-> 
-> Will
+> What would make more sense to me is to enable the use of BBML2-noabort
+> unconditionally if !force_pte_mapping(). We can then have
+> can_set_direct_map() return true if we have BBML2-noabort, and we no
+> longer need to check it in map_mem().
 
-Hi,
+Indeed.
 
-I am, by no means, a domain expert either so I'll be deferring to your
-judgement. That said, I believe what you said is correct and the
-expectation is that we will later fault and then flush the cache and
-fault.
+> This is a functional change that doesn't have anything to do with realms
+> so it should probably be a separate series - happy to take care of it
+> once the dust settles on the realm handling.
 
-However, in the case I describe, if VA_B is mapped immediately to pfn_q
-after it been has unmapped and freed for VA_A, then it's quite possible
-that the page is still indexed in the cache. The hypothesis is that if
-VA_A and VA_B land in the same I-cache set and VA_A old cache entry
-still exists (tagged with pfn_q), then the CPU can fetch stale
-instructions because the tag will match. That's one reason why we need
-to invalidate the cache, but that will be skipped in the path:
+I think it can be done in parallel, it shouldn't interfere with realms.
+The realm part should just affect force_pte_mapping() and
+can_set_direct_map() should return just what's possible, not what may
+need to set the direct map.
 
-    migrate_pages
-     migrate_pages_batch
-      migrate_folio_move
-       remove_migration_ptes
-        remove_migration_pte
-         set_pte_at
-          set_ptes
-           __sync_icache_dcache  (skipped if !young)
-            set_pte_ext
-
-And migrated pages are always marked old:
-
-mm/migrate.c=static bool remove_migration_pte(struct folio *folio,
-mm/migrate.c:           if (!softleaf_is_migration_young(entry))
-mm/migrate.c:                   pte = pte_mkold(pte);
-
-include/linux/leafops.h:
-static inline bool softleaf_is_migration_young(softleaf_t entry)
-{
-        VM_WARN_ON_ONCE(!softleaf_is_migration(entry));
-
-        if (migration_entry_supports_ad())
-                return swp_offset(entry) & SWP_MIG_YOUNG;
-        /* Keep the old behavior of aging page after migration */
-        return false;
-}
-
-I might be misunderstanding something, this took us a while to figure
-out. But the patch seems to work for us. I hope I explained it a bit
-better now.
-
-Best regards,
-Brian
+-- 
+Catalin
 
