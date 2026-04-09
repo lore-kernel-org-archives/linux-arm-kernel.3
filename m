@@ -4,91 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CCFEF364C3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 22:37:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25B90F364CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 22:46:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LUR9CaBNt9BTojPYpYz3SGMVlU9FT4NjFzJTkIj7HIY=; b=Gdk6OnZzi4cjvACvmwZzr8ZHrY
-	j1ScIZa+LfqiY9e3pim2xFq0Rk2voQVKLgEJ6ZOn+iet3Y5wsI88JOHLPVdVs1bIB2U9ACi4VVrFC
-	s9Ax2jA1vNEFFJ353JsnLE+l6QB6JVqZjwgxOiDjnkQvwei3KhgU2X6MGJrIUyFHlDp8WRFJCpu8P
-	itYdWdvzKShemVyK9TTElbMDCd4TDvcvbjZZbjCruyv3jNYtdUfbwRBZrf3cJe/NFl/L379gjgTFq
-	PKpqWJK2xVvUtHfNLpCPh09b2JVvtJdgCBOZLzbo6pudtVMcbI3WATXWzmzh4Cyhq2cl0MzQk7hb0
-	SySnpv3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=me/OIO/1PANziuyvM33f8krzkyLdR1a4WHdYNDlGjpo=; b=JhNKhUwgdsW0xJuNOhdBWTQYQq
+	7Dp9sJ0jNYLPCFV3EpFWTImm/k+Fe7NcOYGsORL30Ixg/6NwcZxCvQLgRS+m7WlBLH8wXyyxrENrn
+	ZbShpdccaZweOaw3m8pO4KHw60nzhEuPIsSURPg7ooaiyvGU1ht5S5oU9flkS+m/gdNGoz/diON6P
+	o5oW7u0W3PhvknqXKzMPrymZc6CYl9sq2tqQ/XpwWlU251mtWo0me1WCiujtSUQcrGafQ+sZO+f67
+	LOX8EufmW1shy3WlLdIarTSw3yW/E9ZqIkbcV9fjmWir/mompseClD+GGg2pXUYG1cyDs7+xqvhXF
+	9ONX0MbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAy0S-0000000BI9l-3Nmr;
-	Thu, 09 Apr 2026 22:37:48 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wAy8O-0000000BITf-2BYW;
+	Thu, 09 Apr 2026 22:46:00 +0000
+Received: from mail-centralusazon11011046.outbound.protection.outlook.com ([52.101.62.46] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAy0P-0000000BI9G-2ynx;
-	Thu, 09 Apr 2026 22:37:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1775774261;
-	bh=mMZFlS36rjorHgR/mWWffVLLV2B7T9gk0BFFHkidN7c=;
-	h=From:Date:Subject:To:Cc:From;
-	b=WDgXoLNJg4XeYrwn12V6eES2wHHDyctKx1HgKhBZmIBtfD4b4zxRXznTdh2iZL4/c
-	 ugeQJuprMgY/NrMVOHrg3ESaYRN9baFIOpHocwgy6EHhZKXmcGGJWyFD8Mq6ccHe+t
-	 qjSbnY+eufxSJCX250lHByl5dGvgZQ38AV6zdbX2Z7k6ZnStw21pec9kTU/810ONXp
-	 riocy8rWXXgh3fLrK9HHQOowRtLPQiw3Ivu+X95AMPi0HW7eI3Ofhb17U6CkTQ7Dv2
-	 +pq91segVwXKaafhvtQh7yfucH+BAR5/oioRtGkewB4GwH1GZ1Biw+XD9/jROfqEeF
-	 S7wIquU+E6jIQ==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 38F1817E12B9;
-	Fri, 10 Apr 2026 00:37:41 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id EF4BB48002C; Thu, 09 Apr 2026 23:34:50 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 09 Apr 2026 23:34:41 +0200
-Subject: [PATCH RFC v2] drm/rockchip: vop2: Add clock rate mode check
+	id 1wAy8L-0000000BITK-44W7
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Apr 2026 22:45:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zC8Asoegxc5Pvsxlv8FLeturxjSn+2b3hIp+Tsk5/w8B/SZ4OVaocDWNkU03iu7caG7OMMOl6sKvPnk0MuborXFoyp9uf7qv0GzldY0HE5Di9S/cBn8TqthoZCDYlo8ogCjp6uLMwbgerl/9E7bsp/CwbMGQin78nIUOkgaR9zZozJOxgmg3FLzpuXlIRlSkJFWWbASDVNGYNpMhWUrZs888u2xvb+152P/Mc6skuDQ/vfkBhcoyFXajdSmUssv2VPBWuGaY3FghFb2CJEstTx8+x5iYc0Pb2plt/cn2bSQnD6o7KCDgRfkO2fXVOrw/y4ueCMm8awADwk2ynarNGw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=me/OIO/1PANziuyvM33f8krzkyLdR1a4WHdYNDlGjpo=;
+ b=QvJS/Nvn3c58qr+SUIZnVMIt8IEYCl8hXdSKkH2lKlh1xoYrEXbq11xCeONblwaMSctJi5dSBtvAT8mVjxKHQZft5xGIRvEVbpmnXpSUx5OmWIddj/LIQHeUMS20+OrxveRpmG3exWQDHI+K0LrSUf9Md2C+U+33id24yJTMwc8gBKMk/Zxnfwf83bLwpehB1kyefPYbJHC+dFa7xROW3e0E3h2PjrvQg01QRGsE++ZCB5MYGOvazvH65CiEAKAkG6SRnS68VH4qpaBmq8XvvmRP4+bReD1u3Hqp8ShthS6Svrd8U8gjGFyb52KeLC+HILr2C53HXMkMfOkkAg3Rig==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=me/OIO/1PANziuyvM33f8krzkyLdR1a4WHdYNDlGjpo=;
+ b=FhWGRA0veLqhQJPxddfh28Ig+wDAe8CNkV0usJH+6Np+G6Pk3WvmhbHuYXjueeC4fXQ5kLfGptki3PVYkxAy7/wIVjaIPTilNwc41QaAwGcIRXzxaiPuZqQ2YFfX9Kp04xt8osBkjplSzMIe/NtzZPZ2qugfC5nKPN7egTlMMQC90+b6Ro350lw8iN9f6YADu6GlkPK0ptZYTAM9Tt5nD6B3i0jcgYSEZDRAoo93lWu+fs+1MqNCqcjNwfX6Byo6+t05/fT4n7D61RkPEksk6M2Hh8PUfMarQkqTelNuIBnCyn4Ht0Rlu8zP2hxSG895sbsWEx7RQumwX32i6OKlYA==
+Received: from CH2PR15CA0021.namprd15.prod.outlook.com (2603:10b6:610:51::31)
+ by DS0PR12MB7851.namprd12.prod.outlook.com (2603:10b6:8:14a::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.20; Thu, 9 Apr
+ 2026 22:45:47 +0000
+Received: from CH2PEPF00000141.namprd02.prod.outlook.com
+ (2603:10b6:610:51:cafe::cb) by CH2PR15CA0021.outlook.office365.com
+ (2603:10b6:610:51::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.33 via Frontend Transport; Thu,
+ 9 Apr 2026 22:45:03 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ CH2PEPF00000141.mail.protection.outlook.com (10.167.244.74) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.17 via Frontend Transport; Thu, 9 Apr 2026 22:45:47 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 9 Apr
+ 2026 15:45:28 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Thu, 9 Apr 2026 15:45:28 -0700
+Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com
+ (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 9 Apr 2026 15:45:27 -0700
+Date: Thu, 9 Apr 2026 15:45:26 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: "Tian, Kevin" <kevin.tian@intel.com>
+CC: "jgg@nvidia.com" <jgg@nvidia.com>, "will@kernel.org" <will@kernel.org>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>, "bhelgaas@google.com"
+	<bhelgaas@google.com>, "joro@8bytes.org" <joro@8bytes.org>,
+	"praan@google.com" <praan@google.com>, "baolu.lu@linux.intel.com"
+	<baolu.lu@linux.intel.com>, "miko.lenczewski@arm.com"
+	<miko.lenczewski@arm.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "Williams, Dan J" <dan.j.williams@intel.com>,
+	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>, Vikram Sethi
+	<vsethi@nvidia.com>, "linux-cxl@vger.kernel.org" <linux-cxl@vger.kernel.org>
+Subject: Re: [PATCH v3 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Message-ID: <adgsBgXYy68GmxAf@Asurada-Nvidia>
+References: <cover.1772833963.git.nicolinc@nvidia.com>
+ <a0dd3e4cc5260f55bbec5b3ed6791def33028735.1772833963.git.nicolinc@nvidia.com>
+ <BN9PR11MB5276A6B1B103C4B0201458348C53A@BN9PR11MB5276.namprd11.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260409-vop2-clk-rate-check-v2-1-b207cfc427d7@collabora.com>
-X-B4-Tracking: v=1; b=H4sIAHAb2GkC/32NTQrCMBCFr1Jm7UgzYNq4EgQP4Fa6SMfRhv6kJ
- CUopXc39AAuv/d431shSnAS4VysECS56PyUgQ4FcGent6B7ZgYqSZekKkx+JuShx2AXQe6EeyR
- dkzZVVbNlyMs5yMt9dusD7rcrNDnsXFx8+O5PSe3VX2lSqNDUpj1po5Rp7YX9MNjWB3tkP0Kzb
- dsPGxQsFL8AAAA=
-X-Change-ID: 20260217-vop2-clk-rate-check-268269778cac
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>
-Cc: Daniel Stone <daniels@collabora.com>, 
- Alexey Charkov <alchark@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6139;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=mMZFlS36rjorHgR/mWWffVLLV2B7T9gk0BFFHkidN7c=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGnYG3pi93cTW4yCyNLQ/GfeLTF0kZ4v7mNL0
- OjnrUV3xsUT+YkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJp2Bt6AAoJENju1/PI
- O/qavSEP/A0aU+k3AfM0XGEz8p1RH76/YOZ9FzU2UErXy0i5r6jS48u4EPfvOr0xn4Syk6epyMz
- jm65iH6FdShVljTsPUvorvrLWAIpbdlNgmL0AF8meRHLaYMF+I0BWmIgJvK3X0MrC0WxLS4crKP
- hvmp/JbkwvTGg4yeTs/7Ec9KNpSvGgB60xyPw4ucCMzIwF1O36gritfoRIA3PoHWNJ9mzAnOW8J
- jEX6OgP2aIPAv4Htm6O04uqSsJVtaX7fgZr7zloX97kxZHrYKIjpUKEO5XTD4NSbY3kt7GQRqK0
- YhsO/NIA4/33Hg1tejWdUM6Wu0zcAv32GWb+4BKmFYitrzyz+nbdTwZnfSAgBaeJlIGvjmwehT+
- s2y4gFTnfVYSNLrtfQOs66BU1Exhbt3EHcH10uwpMqpMjWH5WkTB0rEUEhSWEGm2Q7snzmH23qv
- Gqk0ALPvoOH6eb5Fo3nzCMqPzgwjMpvNhZHhJ0ZK3MASBd+iGVBAQwBVZXD+limymSbkK1dqf7G
- Ktq7Cen14fOOvvt7Rsu/6j3WDRAlMvmfcP54KwFRlT7ymXfLMkcrioRvBnLKEc3YuYGijk9b3Ij
- /333Y5/ZlWPsuX4ObbS0f4/UZ+ntlgn3vt/j9HdYXWbYmObLME0CXGWJjdJgZ8CX3KP8rt3Lj5n
- aSKCmBd1HEPPoqMrHAxk4DA==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <BN9PR11MB5276A6B1B103C4B0201458348C53A@BN9PR11MB5276.namprd11.prod.outlook.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF00000141:EE_|DS0PR12MB7851:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8540e8b5-2729-43e7-cd57-08de9689be31
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|376014|7416014|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 9Ga+IriFArx4Lg+yse3Bjq5Di0Axc0aEJRwwmR+FDgUjUhgeOnuZWQftJ8LGBcVS4KqASSwjKmd0drqn1ZSaBxAMSiN3K7XVoFuhlgGoWcrGResfr2kzCHicxRIYV50h+LH+U4rqzFCkcGayXNFh7K3AoajWIWkAUAWj+gQ9alww4kElh835I8EPmL29FgA/divgqUwY5f+fM0qPZyDqb94g0lLsemgrPjPswYp99/i8QQWe/h+86FmgZhqRzGKS4W3NsBtLYtKJfKk+1p9w0pOVzCLVC4b5PyuyWXxXaYhbA4CnrQgYNWqMN9317Gu+IPuXtNKq1TUI6y47qPBBDeDQHpZsyPRi+ojqr8/yC0+tdY31SvLxJKY0wRprPfATG3Roo+Y+YRrhWFFOPSxDwjppCKinsCkvpwNM69Wfqg5Af/D75jx8litSN03nzDiO2tF3f4BkOyr29ZA4TBg83RUINvyUvHwwzhRXwEnzUCM1YjM5us1fK49in5T0mkUf4eoboqiNSHeGdba8u7FLRzLMGHrCd7043+bihkDTpwrFH4SLYH4uSsQhRMpN3zVCnMgaxsvlyV2h81RFt26kTjeGg00b/Sk3gHkj0Mf+eEv46ahXil5y1TQf7OibTOCZR78uqtqtL3ummFnHGsGRdUhbDCCT1LOKLRQMbJfHZg6E2/Rsi5q60AoYFwAJMtn+Dqw0HNhXPuQFYyuArCRJBou6M0HldHXPGYQjOnb94IUfWamBz4UAB2PTgKb4uBuriK8I+QPQ5OHTiyWZgeY5Uw==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(376014)(7416014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: +a99R+uzYKM4IVbwR89RVnLaRC5fNalNpBJpm/WVptFBREsaKk4OmAm3RGzd3JAuFu6BqVGkNgPjihjsn2Zy9GDJdsuvx50CXejJh9HaqT7+UB+czuSpFrIlGAcBrJMR48GSXNGUL3mEtBTh9I6NAMPb5ycDMXW+5v3YP8zu3HrJZiSsDLD2uVo2Nql7giDv/gHgiJR+zJkwWJkntyVtambYh81YUmM9YbT7/B4BVqXj1z0qqXZHhsHgDPY3tenxd2Yso4lPTY2oducY/1ROX0yXVp8HZOyh8FB3V86gYkQu8tuZ0xAJsnzvfR2yPyT4tRgDUzv99kK4XhvwtLeThE+9bZa2IOhXVtHcPv15hM/+7AYHWdX8Ca1b+eI0wiN9yR2gGFOUREe1h+tavLftcoLdY8q//jJqIPLQFsfYhxKzhQNptoxg4q8HtmDaYRr0
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2026 22:45:47.7307
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8540e8b5-2729-43e7-cd57-08de9689be31
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000141.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7851
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_153745_908527_B6D7128F 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20260409_154558_019301_AD69B12E 
+X-CRM114-Status: GOOD (  17.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,159 +139,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The display might offer modes, which exceed the maximum clock rate of a
-video output. This usually happens for displays that offer refresh rates
-above 60 Hz. This results in no picture (or a broken one) being displayed
-without manual intervention. Fix this by teaching the driver about the
-maximum achievable clock rates for each video port.
+On Tue, Mar 31, 2026 at 08:19:19AM +0000, Tian, Kevin wrote:
+> > From: Nicolin Chen <nicolinc@nvidia.com>
+> > Sent: Saturday, March 7, 2026 7:41 AM
+> > 
+> > Controlled by the IOMMU driver, ATS is usually enabled "on demand" when
+> > a
+> > device requests a translation service from its associated IOMMU HW running
+> > on the channel of a given PASID. This is working even when a device has no
+> > translation on its RID (i.e., the RID is IOMMU bypassed).
+> 
+> ATS is usually enabled "on demand" when a given PASID on the device
+> is attached to an I/O page table. Above sounds like there will be a software
+> action to enable ATS upon a device translation request.
+> > +/*
+> > + * CXL r4.0, sec 3.2.5.13 Memory Type on CXL.cache notes: to source
+> > requests on
+> > + * CXL.cache, devices need to get the Host Physical Address (HPA) from the
+> > Host
+> > + * by means of an ATS request on CXL.io.
+> > + *
+> > + * In other world, CXL.cache devices cannot access host physical memory
+> > without
+> > + * ATS.
+> > + */
+> 
+> s/world/words/
 
-The information about the maximum clock rates for each video channel and
-the tip about multiple pixels being processed per clock were provided by
-Andy Yan and roughly checked against the information available in the
-datasheet (which specifies limits like "2560x1600@60Hz with 10-bit"
-instead of a specific pixel rate).
+I have updated commit messages and inline comments. Thanks all for
+the reviews!
 
-For the video ports supporting a 600 MHz input clock, there is some
-logic to handle up to 4 pixels in parallel when needed resulting in
-the extra multiplier.
+One question regarding VM case: if a device is ats_always_on, while
+VM somehow doesn't set nested_domain->enable_ats. Should the kernel
+at least spit a warning, given that it would surely fail the device?
 
-Suggested-by: Andy Yan <andy.yan@rock-chips.com>
-Link: https://lore.kernel.org/linux-rockchip/1528d788.186b.19d08ed974c.Coremail.andyshrk@163.com/
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
-I've kept the RFC tag, as I'm not sure about the 4x parallel pixel
-processing. IIUIC all of the video ports with a maximum of 600 MHz
-input clock support it, considering they can go to 4K @ 120Hz,
-which is above 1.2GHz while Andy mentioned a max. support clock rate
-of 600 MHz.
----
-Changes in v2:
-- Link to v1: https://lore.kernel.org/r/20260217-vop2-clk-rate-check-v1-1-989b569119ba@collabora.com
-- based on v7.0-rc7
-- rename max_clock_rate into max_pixel_clock_rate to distinguish from
-  input clock
-- update max clock rates to the numbers provided by Andy Yan with
-  extra 4x multiplier for 4K 120Hz VPs
----
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c |  3 +++
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  1 +
- drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 10 ++++++++++
- 3 files changed, 14 insertions(+)
-
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index a195f5c819a2..35a0edda5375 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -1434,6 +1434,9 @@ static enum drm_mode_status vop2_crtc_mode_valid(struct drm_crtc *crtc,
- 	if (mode->hdisplay > vp->data->max_output.width)
- 		return MODE_BAD_HVALUE;
- 
-+	if (mode->clock > vp->data->max_pixel_clock_rate / 1000)
-+		return MODE_CLOCK_HIGH;
-+
- 	return MODE_OK;
- }
- 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index 9124191899ba..fd46913f3346 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-@@ -225,6 +225,7 @@ struct vop2_video_port_data {
- 	u16 gamma_lut_len;
- 	u16 cubic_lut_len;
- 	struct vop_rect max_output;
-+	u32 max_pixel_clock_rate;
- 	const u8 pre_scan_max_dly[4];
- 	unsigned int offset;
- 	/**
-diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-index f3950e8476a7..6ae3d506c476 100644
---- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-@@ -559,18 +559,21 @@ static const struct vop2_video_port_data rk3568_vop_video_ports[] = {
- 		.gamma_lut_len = 1024,
- 		.cubic_lut_len = 9 * 9 * 9,
- 		.max_output = { 4096, 2304 },
-+		.max_pixel_clock_rate = 600000000U,
- 		.pre_scan_max_dly = { 69, 53, 53, 42 },
- 		.offset = 0xc00,
- 	}, {
- 		.id = 1,
- 		.gamma_lut_len = 1024,
- 		.max_output = { 2048, 1536 },
-+		.max_pixel_clock_rate = 200000000U,
- 		.pre_scan_max_dly = { 40, 40, 40, 40 },
- 		.offset = 0xd00,
- 	}, {
- 		.id = 2,
- 		.gamma_lut_len = 1024,
- 		.max_output = { 1920, 1080 },
-+		.max_pixel_clock_rate = 150000000U,
- 		.pre_scan_max_dly = { 40, 40, 40, 40 },
- 		.offset = 0xe00,
- 	},
-@@ -775,6 +778,7 @@ static const struct vop2_video_port_data rk3576_vop_video_ports[] = {
- 		.gamma_lut_len = 1024,
- 		.cubic_lut_len = 9 * 9 * 9, /* 9x9x9 */
- 		.max_output = { 4096, 2304 },
-+		.max_pixel_clock_rate = 600000000U * 4,
- 		/* win layer_mix hdr  */
- 		.pre_scan_max_dly = { 10, 8, 2, 0 },
- 		.offset = 0xc00,
-@@ -785,6 +789,7 @@ static const struct vop2_video_port_data rk3576_vop_video_ports[] = {
- 		.gamma_lut_len = 1024,
- 		.cubic_lut_len = 729, /* 9x9x9 */
- 		.max_output = { 2560, 1600 },
-+		.max_pixel_clock_rate = 300000000U,
- 		/* win layer_mix hdr  */
- 		.pre_scan_max_dly = { 10, 6, 0, 0 },
- 		.offset = 0xd00,
-@@ -793,6 +798,7 @@ static const struct vop2_video_port_data rk3576_vop_video_ports[] = {
- 		.id = 2,
- 		.gamma_lut_len = 1024,
- 		.max_output = { 1920, 1080 },
-+		.max_pixel_clock_rate = 150000000U,
- 		/* win layer_mix hdr  */
- 		.pre_scan_max_dly = { 10, 6, 0, 0 },
- 		.offset = 0xe00,
-@@ -1061,6 +1067,7 @@ static const struct vop2_video_port_data rk3588_vop_video_ports[] = {
- 		.gamma_lut_len = 1024,
- 		.cubic_lut_len = 9 * 9 * 9, /* 9x9x9 */
- 		.max_output = { 4096, 2304 },
-+		.max_pixel_clock_rate = 600000000U * 4,
- 		/* hdr2sdr sdr2hdr hdr2hdr sdr2sdr */
- 		.pre_scan_max_dly = { 76, 65, 65, 54 },
- 		.offset = 0xc00,
-@@ -1070,6 +1077,7 @@ static const struct vop2_video_port_data rk3588_vop_video_ports[] = {
- 		.gamma_lut_len = 1024,
- 		.cubic_lut_len = 729, /* 9x9x9 */
- 		.max_output = { 4096, 2304 },
-+		.max_pixel_clock_rate = 600000000U * 4,
- 		.pre_scan_max_dly = { 76, 65, 65, 54 },
- 		.offset = 0xd00,
- 	}, {
-@@ -1078,12 +1086,14 @@ static const struct vop2_video_port_data rk3588_vop_video_ports[] = {
- 		.gamma_lut_len = 1024,
- 		.cubic_lut_len = 17 * 17 * 17, /* 17x17x17 */
- 		.max_output = { 4096, 2304 },
-+		.max_pixel_clock_rate = 600000000U * 4,
- 		.pre_scan_max_dly = { 52, 52, 52, 52 },
- 		.offset = 0xe00,
- 	}, {
- 		.id = 3,
- 		.gamma_lut_len = 1024,
- 		.max_output = { 2048, 1536 },
-+		.max_pixel_clock_rate = 150000000U,
- 		.pre_scan_max_dly = { 52, 52, 52, 52 },
- 		.offset = 0xf00,
- 	},
-
----
-base-commit: 591cd656a1bf5ea94a222af5ef2ee76df029c1d2
-change-id: 20260217-vop2-clk-rate-check-268269778cac
-
-Best regards,
--- 
-Sebastian Reichel <sebastian.reichel@collabora.com>
-
+Nicolin
 
