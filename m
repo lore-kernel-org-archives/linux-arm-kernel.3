@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A09EA3C20
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 09:59:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCF53EA3C22
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 10:11:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mqWq07LFl/mhr/By3ScTj/IISSNJIGZ9UdL8vYvunvI=; b=nK5UN6UVP/igjX5mo6a3CLTcP5
-	n8JbAFOH2wej5CwbaY5IUGMhGUGyeErJvCLNXNi5ML2w2IhR6Ui+U6cMQxhfJTEwRlY0M7iOA+uTw
-	Uy6jWvUrnQCxixDMbKWE79QciKniCORN5QexTU2xsFxP/Gws+UVOKGf1EzoYkpGdj85mp7I1XaqmE
-	mI1U8cRq+89jy2XOAl/nObG0lHVwhPJx/BTiOJdCtidEvRnX3Gj6VYTZ8hksBwlJdgOqJLKba2Qkc
-	X4/EX0l5awlcDi1aQv5E8G/Z11Cr3a8V1GS5plf1jChI0BRH1Dy1VLooXKd89CMJZtCNfDUYB4Zb0
-	G/jIT0HQ==;
+	bh=X2FigYED1pze1+QNonRTD2+UmVbmoc123ryoS8VxaOU=; b=gjr3gvreFfwmHG8XCeRsN3hmp9
+	vHjfFE9F8473PyUStnF4uvYaEcJFFAPbc670DQ5NNPeyaq4kxp6T6b4oWQxhymF7N4b8MAMktaxtQ
+	utxNQ2592/YXpqwZQDZlU1wn1lKGLD3zCw76C6ET6csGJrqSTE3umIMxyB0m6a2jchU2GwJ9JuSWU
+	C6zsyAMa9+jF6iIznic/AMLWXqgxVVE9d63I6yEKdo2NthMcgqStz0mSUrTxGdNGn+/suqaGz6Ier
+	B9yuyHF+0hZzd/RGeJSf9n8UYEInuRQfPBlxfjpJQ/kHsLGKKEhnw0vGr2k/iFd1cL9YKZgCtNeeV
+	l9O4KqvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAmAU-0000000A6ZO-2U1R;
-	Thu, 09 Apr 2026 09:59:23 +0000
-Received: from mail11.truemail.it ([217.194.8.81])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAmAK-0000000A6QL-42yF
+	id 1wAmLh-0000000A83f-2Emw;
+	Thu, 09 Apr 2026 10:10:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAmLf-0000000A82u-0ttQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 09:59:14 +0000
-Received: from francesco-nb.. (xcpe-178-82-120-96.dyn.res.sunrise.net [178.82.120.96])
-	by mail11.truemail.it (Postfix) with ESMTPA id C343420688;
-	Thu,  9 Apr 2026 11:59:10 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1775728751;
-	bh=mqWq07LFl/mhr/By3ScTj/IISSNJIGZ9UdL8vYvunvI=; h=From:To:Subject;
-	b=Hpsbd/JmhiKsY+3u0Tbh6tolVfO6hm3B0bFRKgxleZ8LGv7mOooNy0SoKZAKr5FUK
-	 gW3XKsTXrMiwKB0IP+Oun+TA+I4pYO09byXFIySISMV+oXfpYERP5GV7mhsij2Wvj4
-	 /n2wFBT836xfHuO6bi/gJ+tTMDDP5W0F9A0xxpQROIjaQBY5vtvDSz1o0YKorpYzmP
-	 X0A4z1AMW3Y6sw6A6O3zIFXE9PlII65fzRvSdC8IS4oaqw2m/uHKGYcXbUrXN35zfS
-	 2RnlEEWcrr6Jh8O13G9DxcgymNGYZigxX2WEi8HP54vBYbqbiKXPrQVIoRUAqBGzrr
-	 01/qx+I4kCNWg==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v1 7/7] arm64: dts: freescale: imx95-verdin: Add Zinnia
-Date: Thu,  9 Apr 2026 11:58:53 +0200
-Message-ID: <20260409095855.61252-8-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260409095855.61252-1-francesco@dolcini.it>
-References: <20260409095855.61252-1-francesco@dolcini.it>
+	Thu, 09 Apr 2026 10:10:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 73DAE3297;
+	Thu,  9 Apr 2026 03:10:46 -0700 (PDT)
+Received: from [10.164.148.43] (unknown [10.164.148.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5A9393F632;
+	Thu,  9 Apr 2026 03:10:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775729452; bh=xIGIsShfGZskdnuFPNvuPLkTAert80RGZC2aB1q7CjI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DoXJefwmEF4Xv70LZdkYk6MtFwB06HynMMQiS9dxHAGyDBhDs6tIQxU6JqGlaxxT1
+	 5l0KuSbVXUsmv7dZFj7pBdLci58Ix28p+xTpPcqqgCgREtAbIg718vw3jXbj/yM9py
+	 6vibhorVUqWAuDsmXYGl7v3TKTbr8WA+aB2BJdKI=
+Message-ID: <46fbd241-4d64-409a-b9dc-77e778ca088e@arm.com>
+Date: Thu, 9 Apr 2026 15:40:38 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 5/8] mm/vmalloc: map contiguous pages in batches for
+ vmap() if possible
+To: Barry Song <baohua@kernel.org>
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
+ urezki@gmail.com, linux-kernel@vger.kernel.org, anshuman.khandual@arm.com,
+ ryan.roberts@arm.com, ajd@linux.ibm.com, rppt@kernel.org, david@kernel.org,
+ Xueyuan.chen21@gmail.com
+References: <20260408025115.27368-1-baohua@kernel.org>
+ <20260408025115.27368-6-baohua@kernel.org>
+ <c54e12b0-1a35-48e1-b243-991de246a8ca@arm.com>
+ <CAGsJ_4yL3Y1Sr0MjTd6=ROC0jKf4JkCqNPODMh-m155rUFcS9g@mail.gmail.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <CAGsJ_4yL3Y1Sr0MjTd6=ROC0jKf4JkCqNPODMh-m155rUFcS9g@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_025913_340335_4D852CD4 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20260409_031055_352986_E632097F 
+X-CRM114-Status: GOOD (  32.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,534 +77,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Add Zinnia Carrier Board mated with Verdin iMX95.
 
-It features 1 x RS232, 1 x RS485, 1 x CAN, 3 x isolated digital I/O,
-2 x GBit/s Ethernet, a mini PCIe slot with USB / SIM card connector
-for a modem, USB and SD card interfaces.
+On 09/04/26 3:24 am, Barry Song wrote:
+> On Wed, Apr 8, 2026 at 10:03 PM Dev Jain <dev.jain@arm.com> wrote:
+>>
+>>
+>>
+>> On 08/04/26 8:21 am, Barry Song (Xiaomi) wrote:
+>>> In many cases, the pages passed to vmap() may include high-order
+>>> pages allocated with __GFP_COMP flags. For example, the systemheap
+>>> often allocates pages in descending order: order 8, then 4, then 0.
+>>> Currently, vmap() iterates over every page individually—even pages
+>>> inside a high-order block are handled one by one.
+>>>
+>>> This patch detects high-order pages and maps them as a single
+>>> contiguous block whenever possible.
+>>>
+>>> An alternative would be to implement a new API, vmap_sg(), but that
+>>> change seems to be large in scope.
+>>>
+>>> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+>>> ---
+>>>  mm/vmalloc.c | 51 +++++++++++++++++++++++++++++++++++++++++++++++++--
+>>>  1 file changed, 49 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+>>> index eba436386929..e8dbfada42bc 100644
+>>> --- a/mm/vmalloc.c
+>>> +++ b/mm/vmalloc.c
+>>> @@ -3529,6 +3529,53 @@ void vunmap(const void *addr)
+>>>  }
+>>>  EXPORT_SYMBOL(vunmap);
+>>>
+>>> +static inline int get_vmap_batch_order(struct page **pages,
+>>> +             unsigned int max_steps, unsigned int idx)
+>>> +{
+>>> +     unsigned int nr_pages;
+>>> +
+>>> +     if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMAP) ||
+>>> +                     ioremap_max_page_shift == PAGE_SHIFT)
+>>> +             return 0;
+>>> +
+>>> +     nr_pages = compound_nr(pages[idx]);
+>>> +     if (nr_pages == 1 || max_steps < nr_pages)
+>>> +             return 0;
+>>
+>> This assumes that the page array passed to vmap() will have compound pages
+>> if it is a higher order allocation.
+>>
+>> See rb_alloc_aux_page(). It gets higher-order allocations without passing
+>> GFP_COMP.
+>>
+>> That is why my implementation does not assume anything about the property
+>> of the pages.
+> 
+> If you’re asking about support for non-compound pages, I think
+> that’s fine. My current use case is dma-buf, where pages are
+> compound. I recall discussing this previously with David and
+> Uladzislau.
+> 
+> If you’re working with non-compound pages, I’m happy to add
+> support in the next version. I’m also happy to reuse some of your
+> code and credit you as Co-developed-by if you’re willing. I actually
+> prefer your __vmap_huge() name over my
+> vmap_contig_pages_range().
+> 
+> Does that make sense to you?
 
-Link: https://www.toradex.com/products/carrier-board/zinnia-carrier-board
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
- arch/arm64/boot/dts/freescale/Makefile        |   2 +
- .../freescale/imx95-verdin-nonwifi-zinnia.dts |  21 +
- .../freescale/imx95-verdin-wifi-zinnia.dts    |  21 +
- .../dts/freescale/imx95-verdin-zinnia.dtsi    | 429 ++++++++++++++++++
- 4 files changed, 473 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx95-verdin-nonwifi-zinnia.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx95-verdin-wifi-zinnia.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx95-verdin-zinnia.dtsi
+Yeah it will perhaps be better to have a fast-path detecting compound
+pages, and if not then checking contiguity. So sure please go ahead
+sharing some of my code and you can co-credit me.
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index c14ccf24210a..870b9c9b869f 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -518,11 +518,13 @@ dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-nonwifi-dev.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-nonwifi-ivy.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-nonwifi-mallow.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-nonwifi-yavia.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-nonwifi-zinnia.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-dahlia.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-dev.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-ivy.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-mallow.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-yavia.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-zinnia.dtb
- 
- imx95-15x15-evk-pcie0-ep-dtbs = imx95-15x15-evk.dtb imx-pcie0-ep.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk-pcie0-ep.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx95-verdin-nonwifi-zinnia.dts b/arch/arm64/boot/dts/freescale/imx95-verdin-nonwifi-zinnia.dts
-new file mode 100644
-index 000000000000..b9fa18f34e9a
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx95-verdin-nonwifi-zinnia.dts
-@@ -0,0 +1,21 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * https://www.toradex.com/computer-on-modules/verdin-arm-family/nxp-imx95
-+ * https://www.toradex.com/products/carrier-board/zinnia-carrier-board
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx95-verdin.dtsi"
-+#include "imx95-verdin-nonwifi.dtsi"
-+#include "imx95-verdin-zinnia.dtsi"
-+
-+/ {
-+	model = "Toradex Verdin iMX95 on Zinnia Board";
-+	compatible = "toradex,verdin-imx95-nonwifi-zinnia",
-+		     "toradex,verdin-imx95-nonwifi",
-+		     "toradex,verdin-imx95",
-+		     "fsl,imx95";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx95-verdin-wifi-zinnia.dts b/arch/arm64/boot/dts/freescale/imx95-verdin-wifi-zinnia.dts
-new file mode 100644
-index 000000000000..789614796370
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx95-verdin-wifi-zinnia.dts
-@@ -0,0 +1,21 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * https://www.toradex.com/computer-on-modules/verdin-arm-family/nxp-imx95
-+ * https://www.toradex.com/products/carrier-board/zinnia-carrier-board
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx95-verdin.dtsi"
-+#include "imx95-verdin-wifi.dtsi"
-+#include "imx95-verdin-zinnia.dtsi"
-+
-+/ {
-+	model = "Toradex Verdin iMX95 WB on Zinnia Board";
-+	compatible = "toradex,verdin-imx95-wifi-zinnia",
-+		     "toradex,verdin-imx95-wifi",
-+		     "toradex,verdin-imx95",
-+		     "fsl,imx95";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx95-verdin-zinnia.dtsi b/arch/arm64/boot/dts/freescale/imx95-verdin-zinnia.dtsi
-new file mode 100644
-index 000000000000..6409a6ead713
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx95-verdin-zinnia.dtsi
-@@ -0,0 +1,429 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Common dtsi for Verdin iMX95 SoM on Zinnia carrier board
-+ *
-+ * https://www.toradex.com/computer-on-modules/verdin-arm-family/nxp-imx95
-+ * https://www.toradex.com/products/carrier-board/zinnia-carrier-board
-+ */
-+
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/net/ti-dp83867.h>
-+
-+/ {
-+	aliases {
-+		eeprom1 = &carrier_eeprom;
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_zinnia_leds>;
-+
-+		/* LED1 Red - SODIMM 48 - LED1_R */
-+		led-1 {
-+			color = <LED_COLOR_ID_RED>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			function-enumerator = <1>;
-+			gpios = <&gpio5 7 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		/* LED1 Blue - SODIMM 46 - LED1_B */
-+		led-2 {
-+			color = <LED_COLOR_ID_BLUE>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			function-enumerator = <1>;
-+			gpios = <&gpio5 4 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		/* LED3 Red - SODIMM 44 - LED3_R */
-+		led-3 {
-+			color = <LED_COLOR_ID_RED>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			function-enumerator = <3>;
-+			gpios = <&gpio5 5 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		/* LED3 Green - SODIMM 54 - LED3_G */
-+		led-4 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			function-enumerator = <3>;
-+			gpios = <&gpio5 10 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		/* LED3 Blue - SODIMM 36 - LED3_B */
-+		led-5 {
-+			color = <LED_COLOR_ID_BLUE>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			function-enumerator = <3>;
-+			gpios = <&gpio2 20 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		/* LED4 Red - SODIMM 34 - LED4_R */
-+		led-6 {
-+			color = <LED_COLOR_ID_RED>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			function-enumerator = <4>;
-+			gpios = <&gpio2 21 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		/* LED4 Green - SODIMM 32 - LED4_G */
-+		led-7 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			function-enumerator = <4>;
-+			gpios = <&gpio2 26 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		/* LED4 Blue - SODIMM 30 - LED4_B */
-+		led-8 {
-+			color = <LED_COLOR_ID_BLUE>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			function-enumerator = <4>;
-+			gpios = <&gpio2 16 GPIO_ACTIVE_HIGH>;
-+		};
-+	};
-+
-+	/* Zinnia Power Supply Input Voltage */
-+	zinnia-1v8-voltage {
-+		compatible = "voltage-divider";
-+		full-ohms = <39000>; /* 12k + 27k */
-+		/* Verdin ADC_4 */
-+		io-channels = <&adc1 3>;
-+		output-ohms = <27000>;
-+	};
-+
-+	zinnia-3v3-voltage {
-+		compatible = "voltage-divider";
-+		full-ohms = <54000>; /* 27k + 27k */
-+		/* Verdin ADC_3 */
-+		io-channels = <&adc1 2>;
-+		output-ohms = <27000>;
-+	};
-+
-+	zinnia-5v-voltage {
-+		compatible = "voltage-divider";
-+		full-ohms = <39000>; /* 27k + 12k */
-+		/* Verdin ADC_2 */
-+		io-channels = <&adc1 1>;
-+		output-ohms = <12000>;
-+	};
-+
-+	zinnia-input-voltage {
-+		compatible = "voltage-divider";
-+		full-ohms = <204700>; /* 200k + 4.7k */
-+		/* Verdin ADC_1 */
-+		io-channels = <&adc1 0>;
-+		output-ohms = <4700>;
-+	};
-+};
-+
-+/* Verdin ADC_1, ADC_2, ADC_3 and ADC_4 */
-+&adc1 {
-+	status = "okay";
-+};
-+
-+/* Verdin ETH_1 (On-module PHY) */
-+&enetc_port0 {
-+	status = "okay";
-+};
-+
-+/* Verdin ETH_2_RGMII */
-+&enetc_port1 {
-+	phy-handle = <&ethphy2>;
-+	phy-mode = "rgmii-id";
-+
-+	status = "okay";
-+};
-+
-+/* Verdin CAN_1 */
-+&flexcan1 {
-+	status = "okay";
-+};
-+
-+&gpio1 {
-+	gpio-line-names =
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"", /* 10 */
-+		"",
-+		"",
-+		"",
-+		"",
-+		"";
-+};
-+
-+&gpio2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio1>, <&pinctrl_gpio2>, <&pinctrl_gpio3>;
-+	gpio-line-names =
-+		"DO1_EN", /* SODIMM 206 */ /* 0 */
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"", /* 10 */
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"DI1_EN", /* SODIMM 208 */
-+		"",
-+		"", /* 20 */
-+		"",
-+		"",
-+		"",
-+		"DI1_RB", /* SODIMM 210 */
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"", /* 30 */
-+		"";
-+};
-+
-+&gpio3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio6>;
-+	gpio-line-names =
-+		"", /* 0 */
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"", /* 10 */
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"", /* 20 */
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"DI2_EN", /* SODIMM 218 */
-+		"",
-+		"",
-+		"", /* 30 */
-+		"";
-+};
-+
-+&gpio4 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio5>;
-+	gpio-line-names =
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"", /* 10 */
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"", /* 20 */
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"DI2_RB", /* SODIMM 216 */
-+		"";
-+};
-+
-+&gpio5 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio4>, <&pinctrl_qspi1_io0_gpio>;
-+	gpio-line-names =
-+		"DI3_RB", /* SODIMM 56 */ /* 0 */
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"", /* 10 */
-+		"",
-+		"DO2_EN", /* SODIMM 212 */
-+		"",
-+		"",
-+		"",
-+		"",
-+		"";
-+};
-+
-+/* Verdin I2C_1 */
-+&lpi2c4 {
-+	status = "okay";
-+
-+	temperature-sensor@4f {
-+		compatible = "ti,tmp1075";
-+		reg = <0x4f>;
-+	};
-+
-+	carrier_eeprom: eeprom@57 {
-+		compatible = "st,24c02", "atmel,24c02";
-+		reg = <0x57>;
-+		pagesize = <16>;
-+	};
-+};
-+
-+/* Verdin SPI_1 */
-+&lpspi6 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_lpspi6>,
-+		    <&pinctrl_spi1_cs>,
-+		    <&pinctrl_uart8_cts_gpio>;
-+	cs-gpios = <&gpio2 14 GPIO_ACTIVE_LOW>,
-+		   <&som_gpio_expander 13 GPIO_ACTIVE_LOW>,
-+		   <&gpio4 29 GPIO_ACTIVE_LOW>;
-+
-+	tpm@2 {
-+		compatible = "infineon,slb9670", "tcg,tpm_tis-spi";
-+		reg = <2>;
-+		spi-max-frequency = <18500000>;
-+	};
-+};
-+
-+/* Verdin UART_3, used as the Linux console */
-+&lpuart1 {
-+	status = "okay";
-+};
-+
-+/* Verdin UART_1 */
-+&lpuart7 {
-+	status = "okay";
-+};
-+
-+/* Verdin UART_2, through RS485 transceiver */
-+&lpuart8 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart8>, <&pinctrl_uart8_rts>;
-+	rs485-rx-during-tx;
-+	linux,rs485-enabled-at-boot-time;
-+
-+	status = "okay";
-+};
-+
-+&netc_emdio {
-+	ethphy2: ethernet-phy@2 {
-+		reg = <2>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_eth2_rgmii_int>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <12 IRQ_TYPE_LEVEL_LOW>;
-+		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-+		ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-+	};
-+};
-+
-+&som_gpio_expander {
-+	gpio-line-names =
-+		"DO3_EN", /* SODIMM 220 */
-+		"DI3_EN", /* SODIMM 222 */
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"",
-+		"", /* 10 */
-+		"",
-+		"",
-+		"",
-+		"",
-+		"";
-+};
-+
-+/* Verdin USB_1 */
-+&usb2 {
-+	status = "okay";
-+};
-+
-+/* Verdin USB_2 */
-+&usb3 {
-+	status = "okay";
-+};
-+
-+&usb3_phy {
-+	status = "okay";
-+};
-+
-+/* Verdin SD_1 */
-+&usdhc2 {
-+	status = "okay";
-+};
-+
-+&scmi_iomuxc {
-+	pinctrl_uart8_cts_gpio: uart8ctsgrp {
-+		fsl,pins = <IMX95_PAD_GPIO_IO14__GPIO2_IO_BIT14	0x51e>; /* SODIMM 143 */
-+	};
-+
-+	pinctrl_zinnia_leds: zinnialedsgrp {
-+		fsl,pins = <IMX95_PAD_GPIO_IO16__GPIO2_IO_BIT16		0x11e>, /* SODIMM 30 */
-+			   <IMX95_PAD_GPIO_IO26__GPIO2_IO_BIT26		0x11e>, /* SODIMM 32 */
-+			   <IMX95_PAD_GPIO_IO21__GPIO2_IO_BIT21		0x11e>, /* SODIMM 34 */
-+			   <IMX95_PAD_GPIO_IO20__GPIO2_IO_BIT20		0x11e>, /* SODIMM 36 */
-+			   <IMX95_PAD_XSPI1_DATA5__GPIO5_IO_BIT5	0x11e>, /* SODIMM 44 */
-+			   <IMX95_PAD_XSPI1_DATA4__GPIO5_IO_BIT4	0x11e>, /* SODIMM 46 */
-+			   <IMX95_PAD_XSPI1_DATA7__GPIO5_IO_BIT7	0x11e>, /* SODIMM 48 */
-+			   <IMX95_PAD_XSPI1_SS0_B__GPIO5_IO_BIT10	0x11e>; /* SODIMM 54 */
-+	};
-+};
--- 
-2.47.3
+
+> 
+>>
+>> Also it may be useful to do regression-testing for the common case of
+>> vmap() with a single page (assuming it is common, I don't know), in
+>> which case we may have to special case it.
+> 
+> I agree, so I had Xueyuan test single pages and highlighted this
+> in the cover letter. There is no regression: "vmap() is 5.6×
+> faster when memory includes some order-8 pages, with no
+> regression observed for order-0 pages."
+> 
+>>
+>> My implementation requires opting in with VM_ALLOW_HUGE_VMAP - I suspect
+>> you may run into problems if you make vmap() do huge-mappings as best-effort
+>> by default. I am guessing this because ...
+>>
+>> Drivers can operate on individual pages, so vmalloc() calls split_page()
+>> and then does the block/cont mappings. This same issue should be present
+>> with vmap() too? In which case if we are to do huge-mappings by default
+>> then we can do split_page() after detecting contiguous chunks.
+>>
+>> But ... that may create problems for the caller of vmap() - vmap now
+>> has the changed the properties of the pages.
+> 
+> I don’t see this as a problem at all. Splitting pages does not
+> affect physical or virtual contiguity; it only changes the
+> contents of struct page objects, not the PTE/PMD mappings.
+> For ioremap, there isn’t even a struct page, yet the mappings
+> can still be huge.
+
+Okay so I was under the impression that *not* splitting the page
+will be problematic.
+
+But, vmalloc splits pages because the caller can operate on
+individual struct pages by vmalloc_to_page(). To the contrary,
+since the caller of vmap() decides what kind of pages to
+virtually-map, we don't have the problem I was raising. So
+I guess we are fine by making vmap do huge-mappings by default.
+
+> 
+> Thanks
+> Barry
 
 
