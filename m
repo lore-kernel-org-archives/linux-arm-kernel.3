@@ -4,128 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4912FF36B97
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 23:43:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3526CF36B97
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 23:50:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A0TnjXh3NP5Agu+yJBYFOEgfSAduMFzV6VuwzTqPjBM=; b=MmWWu+RCO+k39ijpT81n5Q4Rg/
-	VcijoUB2uzoYLl5ljybZcsJb2nlXGTwOlfJ5vxpsd/pv0uy89qYOFsc0E9euc25bxStGIrVJqJ3gy
-	Bz8xuTezz9bEnYf1FTzKR3CpPlNmQ+dPbsgPpNzSVKt8PaeIDYezHnBwGhbqKRfMPLEcDuyxRW+wG
-	8BmAyGT0GjEDupIjLiHXn7diivW3ZDXfRmX/PWvFoGk8a1Mldsj+1L+t4DtRbzr4xRJCMy6BX8Jes
-	SOeVnKY72TxdbQG/mUak8lHmpXX9HIKzTCRtG8JtswWw/U0CP4teut6cJlZDmZoNp2qJBhvtPXUYm
-	QJOUPxVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qfZ0a62nC8gi8r2vWXeQZFxyBKPoswQZVK9G6AlCBrU=; b=BWAXFmuN7BE5J4kO/pk9v+s7xj
+	CLgZWMK6OZtwXPHlaG5X525sogx4eeiCb7MBpQ9TDJNkPWK6bKbWkawgSUgnl3GjHmiNRr/Jx3T4Q
+	vc9/hxpXjXYn4wV4gmLiuZgyoOD38OxgSZSgSOXNvIFRoa9bLebCa2j7QirLADkzq1Uti8JQXFCDZ
+	8t8/oM42oqWQGXxWc2METK+uGhUZfBiP7PBlsenal0RTFhfdPLfwiM2IGgoCVQIVgGjXAPGZ582qt
+	Yn7PHbS15VRafurCDdfM54BUsMuJ8SgfcmtPnmQWoWie/RvWYRf2i04ydu8Iwr3UsaplTgb6gE0VU
+	QPsh6wJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAz2O-0000000BKoQ-0gLf;
-	Thu, 09 Apr 2026 23:43:52 +0000
-Received: from mail-eastusazon11011056.outbound.protection.outlook.com ([52.101.52.56] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1wAz9B-0000000BLB6-1AiO;
+	Thu, 09 Apr 2026 23:50:53 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAz2L-0000000BKo1-3YsW
+	id 1wAz98-0000000BLAh-0OrG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 23:43:50 +0000
+	Thu, 09 Apr 2026 23:50:52 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zBmqlB/LyO8LMBbqFMey7GgGP4EccA1/I+aK3Vl12+GpTpIfN2mrFFsx9mx27fxLyRMM+Uc9ya6IvgR9rN40i4rKDZMeHpR8tM/gbud1zuibb+f95q/eDFblwAAOoB/rsWSY5b2AgeYmjUhIDhhGu8Kw7BPn4d1RF38RZmCi+YtSW1qy9fW5zt3VLA1iXELrU5/8u5y9ccc0qTw0qa7Op8W1Xn1+kUqP3tFWZ1k6KvuFP6DbQTyJlc9FVwYBTO+BP8HAc0SJ/zs1PYOE5ndpKkiv4pqKTPk4TG66d7le6PtZsLYWJ+WF8ieLl7aFG9db5EY6OriI+phZdq2vrsQ53A==
+ b=o7GEbXR7yfqLimCPCmPXnWZ/ulaUh1H/Y/Ot+h6tjYtsd1OKWMGWQCkH4yBYEsGv6kTrh1rxadXSsPprelwfxKFu2O+opzIy31hw55xfoUQxYANlndkwohdSb85wFJcJp7hWK0VFPdBX1LCNGJY+nKbpWXg/fW3NqusRln5Ro6nT2FnQn3mGsSliOAMKQrX/cPXj2baRR3/CYJ6DCr1Ko2XdBM/xvooL/04vl2tef2EX+2lXqIYF6CVKn4IGkyu9XrD6gwfLyXA4aK9RYAhaOtiA1BhelwujzyKFoCgY/DkKQ7L2HP5oaWflyf9eaeQoBxMIGaxzrC64wZzeziNElA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A0TnjXh3NP5Agu+yJBYFOEgfSAduMFzV6VuwzTqPjBM=;
- b=owNwy2s8HMa/ULPb+G1d7DoryI+E4dSyD+KYuHbgXeeKLz/g+8v3WI+cqgcJBGj+RMqSwHK4ipUGYD2cKQKjlDUOVMpQLnPTF0o0ZHRN9fkqLPB2zw9PekOfyx7Uu632dXomVi5RHBHA4xjaHihVFpgxQ/r2X9N1SQF49psH06x4nnYy/8evskYDffN8dbk2ke6zuSreCnhkVtMlLWBajvzsXg33T0pP6e/dB1ndakEfDJD5BFrxEalIBT9s+dZEnC2ARSJcIod93VWopDbngpUb5Ql2JWESsXTr/XGRb5SmXfJNOk//aj8otTtfbSRBeTpSiEbdghZWyIezC7VOGg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ bh=qfZ0a62nC8gi8r2vWXeQZFxyBKPoswQZVK9G6AlCBrU=;
+ b=LlDvb2XrmurERgdCQq8sEV/FImNpZkjkz82LMzaUw6SiOIKMi6lQjx/p4Wj+Fcygw3Pk5CGRHmNxkLu0S3N3LrLUWHS+dm+6xtX21lVdcLxYrr6qJUj+p0HImLuIbkh9Wzlhd5caFRIvZbURAqzQFsmagJN2Dr6fda1yXJ3rLrKRqi3lDiDVdQHY6q7wLKcxgW1Tc8jIA4NsRSfZzXJP6bHOrTllBO2+wP8ePc2R5uBAIdAMOUclS8kCdE9DfO2U/5kfKB4vUYP6dEtnVoFV11bFZhXEJWU9aAids1SuHMeBEiZqtezUFayXNb3BhZKfG2G/QhZH42a2yirCTW5jrA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=A0TnjXh3NP5Agu+yJBYFOEgfSAduMFzV6VuwzTqPjBM=;
- b=KY+eEBT+2zJApgcA6bmN84thWVF6cXexNDzEr9/KMAQ1ZQWaU81PX1tiBHX4vwoPyNXxCwV06rOMF/QQOrYxawQJgr1GhA+F+cb5KQmTtjVcuAyrajPxQokssCYStN/TYSI2Id+NGavr012d9O4wmrpklNxRDp4z+NOP5DQXYtO4mrTtl6iV45xkKWWoB/NYtHDQtWW3eQW8jUjRRU3iVWm/D8wVGfPWRpGvQJbChaqlhgDd3MJMKbhtT4eCuktRG/Y6GXqzUjv+pH5ni9Ysj8gMuDLnB9lA5qjSLZhWMmOBFhKI0qrFcE+fl/Rs5oK2Hy+QuSe/gS6ZHgdCJnsNXA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by CH1PPF8423FDA82.namprd12.prod.outlook.com (2603:10b6:61f:fc00::617) with
+ bh=qfZ0a62nC8gi8r2vWXeQZFxyBKPoswQZVK9G6AlCBrU=;
+ b=vh+Bs+lIBZy5utb1FJSxbgQKw5yMV7gDlwKijoHfO3wh9vHYoYaBiB+jcWNKeKCkpAFwJ7ucyelZ6q9X6UZuvP8scsZIB8ccYgioXneVYNo1pU0JGmZ2MVjyKmmhu0tEJq0FYwDWz+sQcAbaGHmFOkc8M7cRZTE8Wr7v9pLgr9g=
+Received: from PH7P222CA0014.NAMP222.PROD.OUTLOOK.COM (2603:10b6:510:33a::16)
+ by MN6PR10MB7424.namprd10.prod.outlook.com (2603:10b6:208:473::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.15; Thu, 9 Apr
- 2026 23:43:40 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9791.032; Thu, 9 Apr 2026
- 23:43:40 +0000
-Date: Thu, 9 Apr 2026 20:43:39 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jpb@kernel.org,
-	praan@google.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
-	jonathan.cameron@huawei.com
-Subject: Re: [PATCH v4 04/10] iommu/arm-smmu-v3: Pass in IOTLB cache tag to
- arm_smmu_master_build_invs()
-Message-ID: <20260409234339.GY3357077@nvidia.com>
-References: <cover.1773949042.git.nicolinc@nvidia.com>
- <87419a1f7371643959a037f1ee7119ffa054a9a1.1773949042.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87419a1f7371643959a037f1ee7119ffa054a9a1.1773949042.git.nicolinc@nvidia.com>
-X-ClientProxiedBy: YT4PR01CA0224.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:eb::9) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.20; Thu, 9 Apr
+ 2026 23:50:44 +0000
+Received: from SN1PEPF0002BA50.namprd03.prod.outlook.com
+ (2603:10b6:510:33a:cafe::c9) by PH7P222CA0014.outlook.office365.com
+ (2603:10b6:510:33a::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.40 via Frontend Transport; Thu,
+ 9 Apr 2026 23:50:43 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ SN1PEPF0002BA50.mail.protection.outlook.com (10.167.242.73) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.17 via Frontend Transport; Thu, 9 Apr 2026 23:50:42 +0000
+Received: from DFLE214.ent.ti.com (10.64.6.72) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 9 Apr
+ 2026 18:50:42 -0500
+Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE214.ent.ti.com
+ (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 9 Apr
+ 2026 18:50:42 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE207.ent.ti.com
+ (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 9 Apr 2026 18:50:42 -0500
+Received: from [128.247.81.196] (uda0506412.dhcp.ti.com [128.247.81.196])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 639NofbG3411243;
+	Thu, 9 Apr 2026 18:50:42 -0500
+Message-ID: <68f2dd55-ed2f-468f-9b64-6907668d532f@ti.com>
+Date: Thu, 9 Apr 2026 18:50:41 -0500
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/4] firmware: ti_sci: Introduce BOARDCFG_MANAGED mode
+ for Jacinto family
+To: "Thomas Richard (TI)" <thomas.richard@bootlin.com>, Nishanth Menon
+	<nm@ti.com>, Tero Kristo <kristo@kernel.org>, Santosh Shilimkar
+	<ssantosh@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Stephen
+ Boyd" <sboyd@kernel.org>
+CC: Gregory CLEMENT <gregory.clement@bootlin.com>,
+	<richard.genoud@bootlin.com>, Udit Kumar <u-kumar1@ti.com>, Prasanth Mantena
+	<p-mantena@ti.com>, Abhash Kumar <a-kumar2@ti.com>, Thomas Petazzoni
+	<thomas.petazzoni@bootlin.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>, Dhruva Gole
+	<d-gole@ti.com>
+References: <20260407-ti-sci-jacinto-s2r-restore-irq-v5-0-97b28f2d93f9@bootlin.com>
+Content-Language: en-US
+From: Kendall Willis <k-willis@ti.com>
+In-Reply-To: <20260407-ti-sci-jacinto-s2r-restore-irq-v5-0-97b28f2d93f9@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH1PPF8423FDA82:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8223eac7-b089-4e31-6fda-08de9691d3e8
+X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA50:EE_|MN6PR10MB7424:EE_
+X-MS-Office365-Filtering-Correlation-Id: 33782074-4943-4d4f-a2cc-08de9692cfb4
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: 5ejgYd3kzC9cA5AKTGazAKo5m2K4Xh6sNgdOrFbHHcJbq1zIuNy7zdrg6TZcRJtNO205gRonkI20L+VW2HmxZTmUlZBO04delWCN2EktQHRgYSis0dBObGIb1hen/NpaWhCBuInTy1fbuRu4SqxZd4QqCesiQ4zp5C05GEVPtBu+kBh8YPfBTtikrWG4M9kq77gqYQWSiEg3ynitk/+L9ei7IE0Fg2CNnk5/eJqSU07yedkomRAC/79oU4f/eSdh73rMdG/mCoqasMze34Jtn84glRLIqkDr4U61+0PQ40LbRFjPHNH+bM3w3tFAjYQH8J4PPZJqgkHmgaAjdhspt2x3ug+AmVTpjS+XEqSwlvfubdVSWmznSQkUS5WLbE8WIpw0gGqSyLYU2/JEPdr5fBjaqmCo97iQuoYxKlr1UHqrXq3hkeHqNyo6NiyMMQFHP9vyMTW+CwO2L6HhbpbfJz3zLE1WVGYVSwRbdxQQrczCFDfMDHYYOHZmU0DaqO705mwuCZsA/AzgSSB8s296zBEsdFWT4kyjOuQEohg4N5UqAdRru3w4EzBAd67jCevYwYt70T+vic+FPAUMrD5gEYl6GRO9fhQtRyeyxZi83i+rgy7iyqnRpzsv7JOj75vZUG6MTIYuG34ufegYtkhbiPX4oLqRZgKZmPkBvOqNjDXuyOVZHEC3sxRKpLA90+GUnbGc9V8LcJUabvPars8J5NXaM27WPiAoFZ4O20M3zOc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700016|7416014|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: E9A6qfe6/euCzePj4sB/rwEsyM34ZCvOj6XwH6f03S5m+iQI3nUwuakdpkEfx3/FL5sFXeElDRsnZ3sY1rokIn3we9s246HNu4+djRXZUkN3gFz7U53jCysgNvrpyXZM3vYFYvQX2rbEG0MPvHpctwXPyIZWCWkw8s9UeVK1A2gXDfAScGFF+3TLAotsaZy08Y4RmVdmqAfwYuBcmkXKu71j3fxtqDn+OA9wYZN6MGAu9sA6pgHPlQAvxkM+T2E4vGovhzH7xm5/1VuPt8te7/vBzR5D7NJUXN3g8ZGP9tkEEQQIXIzytB/AWfdmeiqsgep8rxJpqdHuGtOo0TbnN/c6UDBFYTVg+85ZmB5drSTEH7MP1E0fObnRv/800z/R5fwEPdmHs/96HvMInIwMm+A7xKvTAAkJKYAxKul57sYRTmB16IlovATLKR3NslVHP1Yb6djv+RS6ZvaVqgkHIkkCgI1Hh+F6peCl95ayj/tQyQykWLjVXPFHj2MW+9WORqOPCilu1eHXnwyGbHGPd7FIE5gxo0FuRSyyWgwIrfsZl0iNe/mp56tX4QSnrOlOPIgJdzlfO5QJuePXawYuTzJ+5PP1b54QYKp1CYuK7LvmeqpCMpUr/pcUuUNNEmB8rCNDypJEX8oQXTlXvN835SwxKqYL0uu9dUnv530FML+6zs+wP/GkCoHnDJQRBBvCCniE9jjtR8sYPBPESFatmeZOH5W+CVu/JrjpHIa0bTa9SclfwZRaVoUyR5a5sWLnq7neb+Xl6MQA+Ar3a/TWbQ==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700016)(7416014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vz/su1qZUzB+EjIi/OSNK1Nuv/TLC+4flS7q0GOK1ToaWQdrf11tYsH+DpKt?=
- =?us-ascii?Q?2ehgQcubpHM70V0gDSu1/RrUGLyCv9368bo6k/Cw4lGaU2nstfkGa28enbEe?=
- =?us-ascii?Q?gDH0sUtbYsAMjaNWmdkhRcR/rvcAeTXKUhXDL31mcneNxqgsKSunqv+LAvxZ?=
- =?us-ascii?Q?s/JS0Th6e2EQckAhv6FmEN+1Bx8N+xItaHAAFroFbUUtwBDfXmFfFjyoPvvU?=
- =?us-ascii?Q?cOmbH6qaIadYw8q6UevvOy0O4qylBmmZnTqbGujP1CmQXxHNyrbm043ae2W/?=
- =?us-ascii?Q?6HOiGepNVQKLgz/M3emi/VLBlBfTf8e68ZrM/5ZwnWhDYyIn9bFvi+Pp+f/h?=
- =?us-ascii?Q?jJYeWdG1CloCY/dXVa2jDnACoJUZoAUJaqDbD0iIuHqooaoh5cLN0y680RKH?=
- =?us-ascii?Q?5SA6bBj66qKuxtoniv+D9AnYWmq1EmUhRaUH8kpmeSqZ1vqXK8CcBASmKGLH?=
- =?us-ascii?Q?dlp6/LsHhZRTsoCe6wOnMIf/PjInhs8RUO0QK4KFjiWX0f25JTAlCPq0ATnW?=
- =?us-ascii?Q?CQ454WYaprs36b/ym9rqlKWXphUvf3zOKjpSMdGKA2App/zlSGgrTewKVWQl?=
- =?us-ascii?Q?ef0OH9FUNNaPU+Zgqy5BbpbU6fGpkhuF3Q+6m6r0DiMbhiXjWif9N5E8P51H?=
- =?us-ascii?Q?p5mHNonmLFJB1yl3U2P5HSfWJ5tIFhGhOtE//+oExQp5emvlLijdA3533VDj?=
- =?us-ascii?Q?vNvA1+Hp+JW7jHdrnk3ZriBiv5UvR+RMjzFHw0XBnMIKYpT8xa1LaRPoQRrU?=
- =?us-ascii?Q?GOytIB9KxU+KvL9w25EUJ1ShLh//lxv0jGeIeD9LFE7M3Vl91Nz6GjleJzjt?=
- =?us-ascii?Q?QD0NwSlBiZRvEdMWqD16dlpMJJ4FuFoeWNumn0jE6yi4eqqawycsQ0ZpdwBG?=
- =?us-ascii?Q?utpvptPhnXYB2ur/I/s0pPmIJG1/VHDReaUn3w2gBCfzlSoRtt0hqJNXHRIa?=
- =?us-ascii?Q?YT6Hrc5x31z8zRO714v+/D6+RdoBawVmU0X0QIpwZWlngbqrcrZ5b2aI5y1d?=
- =?us-ascii?Q?4ftGl7MFJevpfhd3A5CTxQv3PHVIfyOldu9YXZczmHfAvFJ5uKMsg2NxAkTQ?=
- =?us-ascii?Q?06wB+G3xfZ/QFcvqS+vmEC13AWKfOCHYiW+p/QSmfaEeKRcrCrkDeBRPhdSk?=
- =?us-ascii?Q?uH0Jjks1plsKm9R6nXWTiZFwlyfWDI+A8fUt8fPlhJDZuPyXUV8EPQRvefvH?=
- =?us-ascii?Q?yo8qXq52rxCBF9yNrPD9ZDk67MOGELUBR8EjQ/YiKZd9zy2SknXkMGoGLe3p?=
- =?us-ascii?Q?muVL1tGBy44O7REp3TUbqRmfLT586Ty8WHuXsOVYJRtlRpJA1sCmBawBnS9q?=
- =?us-ascii?Q?vj1OfIKxmuwB9TZybk3CoFSNRd4OAn2plWA0XZovfw7KNXlPIm0p0JuLeenk?=
- =?us-ascii?Q?agxrrzz0rsF5AAygBl/0q30f1p8UCdMZTVf6Jmbr/0fN29WGidMPzrnSvAHQ?=
- =?us-ascii?Q?ehw1Gd6dVh4C1h5VbXK/LeHx6yjiPWf584GQWXkyvvluYXRGq2/Hl57nF3ds?=
- =?us-ascii?Q?hvviTdQOeIYAEpwS1E4YF6eeFmwUtgvZT8zQVzzTJVOBFuU9CzxmAlRNW2tJ?=
- =?us-ascii?Q?/o9CR95D6HJLYtED4KV5e2lL/naOqDjZfjDoO0YkPtkx3LRQ+U2mpKDtDnot?=
- =?us-ascii?Q?5WUSh7a4Jx2yZHNWfIhhWNwEzhho4BJJWpan6a30TKtv8oykG+UkcFF+gK7R?=
- =?us-ascii?Q?2pt+LZe9H03XPAt6ujTUpAyAis2GafdTOwFrAcbTXzr9sr8x?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8223eac7-b089-4e31-6fda-08de9691d3e8
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2026 23:43:40.7467
+X-MS-Exchange-AntiSpam-MessageData-0: MT1Fj93a9oDX+wxs67W6jMZ/mNmW2rJX/QmBeHn9/Z/tODRiT9P26tUGYUbeIp9QFmZAHfAtAmdyyU/is3cdWgLd8MppCX2qvtbi/wlE/EyzdVPXSSAU4KBE3IhQVM5MlDgBk2MKxNHgkv/PCAPdzT3k6D7ZlmQDzVBhhUsKhODXddLKILvKGg6a2zGOGpIAjM0tfLq8ny1Io70a9cY5axA1jXzbrHTWSi56PyDhNR9DpcnLqrgCLCA466T/Fhzr9bMLJHFNi1GzsidoUJHyI1+8d3uJ7QYGjwSC4xhoyo/fZd044h67lHbHOsQuGYZCRtt5Uqwk6oR4CJkWem7CMgKSYeU+0TAJ1rdBHsMwECEHse7YMTSzDpdRqVnH37l//+3VACJYS7o4gL/It5/zEtYt7g02jB84jLQE5SLHSOlXfDJSaZssWF/9nji6MG4a
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2026 23:50:42.6890
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: olLxhfnS5L1EPVc+Gs5MamhIc7rWgyVKl1we8DPavDpbwTFNL6CXkQSBEc0nSPCQ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPF8423FDA82
+X-MS-Exchange-CrossTenant-Network-Message-Id: 33782074-4943-4d4f-a2cc-08de9692cfb4
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA50.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR10MB7424
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_164349_887160_AAA17FAC 
-X-CRM114-Status: UNSURE (   7.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260409_165050_268332_8AABC412 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,15 +138,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 19, 2026 at 12:51:50PM -0700, Nicolin Chen wrote:
-> Now struct arm_smmu_attach_state carrys an IOTLB cache tag in invst->tag.
+On 4/7/26 09:25, Thomas Richard (TI) wrote:
+> This is the 5th iteration of this series. Nothing new, I just rebased on
+> v7.0-rc7, added Dhruva's RB tags, and use kzalloc_obj() in Patch 2.
 > 
-> Instead of getting the tag from smmu_domain again, pass in the invst->tag
-> to arm_smmu_master_build_invs(). This could simplify the function.
+> Best Regards,
+> Thomas
+> 
+> Signed-off-by: Thomas Richard (TI) <thomas.richard@bootlin.com>
 
-/This could simplify/This does simplify/
+For the series,
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Kendall Willis <k-willis@ti.com>
 
-Jason
+> ---
+> Changes in v5:
+> - rebase on v7.0-rc7.
+> - add Dhruva's RB tag.
+> - use kzalloc_obj() in ti_sci driver.
+> - Link to v4: https://lore.kernel.org/r/20260204-ti-sci-jacinto-s2r-restore-irq-v4-0-67820af39eac@bootlin.com
+> 
+> Changes in v4:
+> - rebase on linux-next next-20260202.
+> - fix BOARDCFG_MANAGED value.
+> - add MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST firmware capability.
+> - add MSG_FLAG_CAPS_LPM_CLK_CONTEXT_LOST firmware capability.
+> - Link to v3: https://lore.kernel.org/r/20251205-ti-sci-jacinto-s2r-restore-irq-v3-0-d06963974ad4@bootlin.com
+> 
+> Changes in v3:
+> - rebased on linux-next
+> - sci-clk: context_restore() operation restores also rate.
+> - Link to v2: https://lore.kernel.org/r/20251127-ti-sci-jacinto-s2r-restore-irq-v2-0-a487fa3ff221@bootlin.com
+> 
+> Changes in v2:
+> - ti_sci: use hlist to store IRQs.
+> - sci-clk: add context_restore operation
+> - ti_sci: restore clock parents during resume
+> - Link to v1: https://lore.kernel.org/r/20251017-ti-sci-jacinto-s2r-restore-irq-v1-0-34d4339d247a@bootlin.com
+> 
+> ---
+> Thomas Richard (TI) (4):
+>        firmware: ti_sci: add BOARDCFG_MANAGED mode support
+>        firmware: ti_sci: add support for restoring IRQs during resume
+>        clk: keystone: sci-clk: add restore_context() operation
+>        firmware: ti_sci: add support for restoring clock context during resume
+> 
+>   drivers/clk/keystone/sci-clk.c |  42 +++++++++--
+>   drivers/firmware/ti_sci.c      | 164 ++++++++++++++++++++++++++++++++++++++---
+>   drivers/firmware/ti_sci.h      |   6 ++
+>   3 files changed, 192 insertions(+), 20 deletions(-)
+> ---
+> base-commit: d843b67129e266054d8fa2e41e270a9f779381bd
+> change-id: 20251010-ti-sci-jacinto-s2r-restore-irq-428e008fd10c
+> 
+> Best regards,
+
 
