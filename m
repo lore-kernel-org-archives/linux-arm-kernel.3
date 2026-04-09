@@ -4,65 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D21F364A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 17:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E506FF364A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 18:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qGs61kKWlyg5aSvMvL1JO3HcvmBnSdYhJLX2u4HC90U=; b=gEVBta9YxHbuUyCJYXmxLOdYTt
-	KbFjoIhS6hr2gqRSbuSeq2Iry2/+E3KjpyXCqxncFSiRulZZcd0DUBVgx63gmhedfz+zfu2dIxQo/
-	BgRYFksJX58oOoIpjPAV3uPvinhWdOEAP6p3Gj5YHVB9qMhX+pkn0qfPZi7SgUAlPSAnXHTCthHZ8
-	6Eo3cXsBCZQRKPnM7dQoG1TqQs80wRCohCwcrENTcdy/OlGKkA09PMNwWnXyA9Lwq0zI3ZY0YBy5l
-	/py/OvDfkCKnrW2m5XSVzDKmjbnchQz7ilAZ7Irhfb68Bce5hPxUNdrB+NysOV/k7NqOsMrL8Megd
-	Or+3jUxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vYpYuC0n38W0nO+hluOO6jDvBMadgq+PwfBPn4EQ3kw=; b=OhtRSaGrfnz3yR
+	jsT66qJVVj8Kr/OeaHMvS/btrhIty+dBxziOGV3eApbEx/O6U1jU+kgLW41yTiAa1HLlsJc30l5Zs
+	NaUadWNvXoQyox2yCXZB4hQ7ZD/giGQmLWZa/KjzEDJNPYI7bRKyMk5BMVUqknv1aGQcqu491MFja
+	aNvEDkjHaD5WHH3qlbgjPqZaPtbgtQyrU5BwaYjYnFE6qD36AG+sblvNEbwU9XzALImMQum9de5ZY
+	MIGGSK0XBXdEtUbLaMW7wo8NeITiB6iQl3fzLZC25xAjEUKTGVXsmatZFjdzxxUFirurOoLCouwus
+	TfILyn3309Cz6D/VEgRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAtVB-0000000B2f2-1wjN;
-	Thu, 09 Apr 2026 17:49:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wAtqM-0000000B3ie-46Uz;
+	Thu, 09 Apr 2026 18:11:07 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAtV9-0000000B2eh-4C8G
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 09 Apr 2026 17:49:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=qGs61kKWlyg5aSvMvL1JO3HcvmBnSdYhJLX2u4HC90U=; b=QqRupec1HR1Xia8ODVCYXABS9h
-	Dj2UFVaQxQYESg5AFqpBYv/QVX4JLj2rLUSgD8ahY68UbxzZUCJIk6Nekm9Fd2HZMGgMOFpMM+bZg
-	iPH4DON5js918NzeXTpmjEjIJcfJORVxLexKXmdhKF0OFjf5OvOgFTB1Rw1/H+J/m2637485FrBgz
-	kObJib7YX2rZQGbTf12fem+QG0TH9xo8j0Sx/kP6gNnY2askRxsg/YxfjuPuaiAigvjQos3TaQjp+
-	ifsVw1IjA5+Jdkg1jAUdP6BlaUrymXvPEaETgTpziQdBhozVsDJb8fPIRChRoIXtFU+iYOIA5Kn7K
-	eQhHbZ6Q==;
-Received: from [172.31.31.148] (helo=u09cd745991455d.lumleys.internal)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAtV7-0000000CDWU-3EY9;
-	Thu, 09 Apr 2026 17:49:10 +0000
-Message-ID: <584931abfa8c6f6c9c8a1379d26ef6beb58db1cd.camel@infradead.org>
-Subject: Re: [PATCH] KVM: arm64: Add KVM_CAP_ARM_NATIVE_CACHE_CONFIG vcpu
- capability
-From: David Woodhouse <dwmw2@infradead.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: "Gutierrez Cantu, Bernardo" <bercantu@amazon.de>, 
- alexandru.elisei@arm.com, alyssa@rosenzweig.io, asahi@lists.linux.dev, 
- broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com, 
- kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, marcan@marcan.st, mathieu.poirier@linaro.org,
-  oliver.upton@linux.dev, suzuki.poulose@arm.com, sven@svenpeter.dev, 
- will@kernel.org
-Date: Thu, 09 Apr 2026 18:49:09 +0100
-In-Reply-To: <86se942hbv.wl-maz@kernel.org>
-References: <b71910e202ac4a56a87c0e34df13cce058d46a76.camel@infradead.org>
-	 <7fb7b823c68e04321eb532a5b8ae21a818d4926d.camel@infradead.org>
-	 <86se942hbv.wl-maz@kernel.org>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-BUtoEEHWtjgzs84gLrzz"
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	id 1wAtqK-0000000B3hr-0HsH
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Apr 2026 18:11:05 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 639CZV94780183
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 9 Apr 2026 18:11:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=vYpYuC0n38W0nO+hluOO6j
+	DvBMadgq+PwfBPn4EQ3kw=; b=oOv1WGiDKNP8CjOph4FPN5YWeLxm8jl8ZEPeHH
+	NxDmx0A+301t04L2xXkKAdJ+5J0BE1bJvrlZPk2oNNcNkl9NdhY5sx96RJW8eDwI
+	N0y+WxDQq3PtfXK1KKH+ffWlPPaLsE2aYb79UKSq8E8BrJCyKCb25Fg7w3ws6kHH
+	pumfCHyQrszHMnvkp3HMkrA6A4U2X/AtsSiwnjVbolVYINyEdNTcDZoN3ZlN7uah
+	D2/1VSFjAeHTtG+/90Xydm0G5cIyJc9/FAjArPJdpOfxBr0IudV6UEsdUdHsn21Y
+	mAoa0AtQ6/4npULpXkMuepFBdpHlFC6Nxm85bSSJR9sa25zw==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dec8hsd3g-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Apr 2026 18:11:03 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-c70ea91bfe1so690380a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Apr 2026 11:11:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1775758263; x=1776363063; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vYpYuC0n38W0nO+hluOO6jDvBMadgq+PwfBPn4EQ3kw=;
+        b=bfZFWIhWC+mR1NteSF6VleB6j9sYqbLNW9mumy/aU+0oBERLG2UJqACos5Z/M3W/P3
+         e+UnOo9W0Ft2JcmwCDCh0TZtwblTtP+RFt1kRLI1EiRLIoZeAqR+3jAn9ifYoFDsKOS8
+         6CuyH/+USm9Dd4cuLHN+MS4/W+uVuTAkGKwePjRO2K7ll55deJM7XmYsQaqnSa7TAjyC
+         m9HqPBIUlOIC7ffqNtK3k1tySx34J8EFkvfvjwJ4/ZhbadhEMk4bwCwTcXbWVFa7/8K/
+         TFRbUUJomx8mGf1+ScZ6FERSgDRY0wxqFw9nRwgM/dx/Z8ZHOHxEeZx8n8Drm7dR5SWO
+         ZVlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775758263; x=1776363063;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vYpYuC0n38W0nO+hluOO6jDvBMadgq+PwfBPn4EQ3kw=;
+        b=kvtnGdLmpD5NE9Ts36BceuE+5ePNsEtEO9pmWbHPdzI+alnHy+FOxvUoKyMTpXigz8
+         kDpNCiKVMdvhZ7Jv+CStbwSTyHUG3MpL8CbQucjilDxLt06RJiNSRwgkk5jzXS4I4vQr
+         UI8RB9Jttw54209viJyC0H44+hmCLUwOlTOTC0UqSL4iuvBYieE/gN3kHDkO1dxicKK1
+         Ou2Y01KkQfctjgQ06ifjOAdJbbi+zvhJecc+zdysFvHss2C6ltLX6eXCjCMc2Ns1Ac2p
+         gVIwEawXHAPSXt0KP5eXIS8x9p/pwjR77aTZsITK9cCpufEmVdVm47JaWAg99fw7B8yW
+         Vf4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUgL+8PvwKd8p7iM0uCJLCWOmTKmPYvSf66sYdhG8JdF3qCBF2OrZnyYCo9zxWb9hJFYiZPMH7GNYpS/jbgcbui@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywos6ZjJ8YykfauDoygkAdZdnC7W1rbJ7alX641YH+gQp56CDTy
+	KinHoUTE0zaQWgrr3wpy4DKdHSjdHqCfACFP+WQZIXnTQQVxVJfbVvwxtZRkaGRA+qghliG3t4F
+	ss5dhsmfxOOpADPkHisUhBfXHz/RLQy3Jz54JnUmQTG/LahALpZlRlabQCmb8VXeNz+7tdBe2uL
+	G9oQ==
+X-Gm-Gg: AeBDietxDfjeAmzgdnv0d87L1sn4QblJf3uYgRU3uJrY9JqSmXIetY0A0ajwMoH2T3c
+	jBM+gQTEfACkDBkXPK1My9U7wuKSCYHQtzyLTrkQzHJe1VMSxXFrNmT2KW+5/c3wEFNZ1ICVkGp
+	CITTSFGmWRKLu6AAvF6U+WVKTCm4GNrGgpp+SLCd+TbeIMJwwM0gTpeyVAdhb6Sk0NJBJmJ8WJK
+	URqM1GhGqi7zA4mrKpirZ/cMI+OUK4zYdc099X8swrBpP+ZLqGGK1wjmA/KVR1kjMgzHrgBqkpH
+	2woKj1iU9/Bsrz5HbptRmrmdZADxyhSibnFNl5PmCFMupQH7Yb/KqnaFHw4hNbXQFF7SAlXEcbu
+	U2KLs4TgxlL0MwKRBmize3RgcX/E2huLX2cVow0slCqJVuw==
+X-Received: by 2002:a05:6a20:1587:b0:39b:fbb2:5e46 with SMTP id adf61e73a8af0-39f2f0968d0mr27843582637.40.1775758262377;
+        Thu, 09 Apr 2026 11:11:02 -0700 (PDT)
+X-Received: by 2002:a05:6a20:1587:b0:39b:fbb2:5e46 with SMTP id adf61e73a8af0-39f2f0968d0mr27843534637.40.1775758261702;
+        Thu, 09 Apr 2026 11:11:01 -0700 (PDT)
+Received: from hu-tdas-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c7921a2d9ebsm66132a12.30.2026.04.09.11.10.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Apr 2026 11:11:01 -0700 (PDT)
+From: Taniya Das <taniya.das@oss.qualcomm.com>
+Subject: [PATCH v2 0/8] Add support for Video, Camera, Graphics clock
+ controllers on Eliza
+Date: Thu, 09 Apr 2026 23:40:41 +0530
+Message-Id: <20260409-eliza_mm_cc_v2-v2-0-bc0c6dd77bc5@oss.qualcomm.com>
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKHr12kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHQUlJIzE
+ vPSU3UzU4B8JSMDIzMDEwNL3dSczKrE+Nzc+OTk+DIjXXMDw2Rjk5SUJHOTVCWgpoKi1LTMCrC
+ B0bG1tQCG5W/qYAAAAA==
+X-Change-ID: 20260409-eliza_mm_cc_v2-701c34ddb74e
+To: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+        Imran Shaik <imran.shaik@oss.qualcomm.com>,
+        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org,
+        Taniya Das <taniya.das@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+X-Mailer: b4 0.15-dev-aa3f6
+X-Authority-Analysis: v=2.4 cv=PMM/P/qC c=1 sm=1 tr=0 ts=69d7ebb7 cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=O432ggMcIDbDob6sqXIA:9 a=QEXdDO2ut3YA:10
+ a=3WC7DwWrALyhR5TkjVHa:22
+X-Proofpoint-ORIG-GUID: P5rNjsYT-GKoU1E3LDi9TYR9k4okj4UF
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDA5MDE2NyBTYWx0ZWRfXy2BVmTw4rjAD
+ OrRDzQbEbTpqyj8/cm8X8D5fUKJxWfPuwhXFgLFmKbkZrXg2tl+ENsRf12KL0NqbxN/5I4E0JrT
+ zvfuztr0NnQcdS/ivxXLc+Yi7xRD+Ii7QBpIQBiiz6waQ8quGbCkRtqOf2+ByxAWB5N65TalrID
+ zIT+cMxq6BDFz2CZsX57wfevrekF9YgtLiX2y3T7lNrrrfvqLPtNj8HbkUwpPs0QcyFChydf8IY
+ 7yU4auJ+AdulYHxArf5VHjQlC+w2vqgrH2XMzFeAnteZA4lWYypDklS9xQhk/Au9g88MYdj3QKp
+ dSA6Y3SQr7MN+wVBOMdr9l9ng5kCPR3EHwt01Hbr5jSWNDMnoTdXVp83MJiU+jeckmAoFv0gMHD
+ 5FfS3mf4BzLLUvSqM7Qs8+/BzvqGoo6mPi4E0bXIWNOw80jhgmIqFerwsO7IQJJyGbIyAV//J1G
+ IoR+x/+TWePuuSnwdSQ==
+X-Proofpoint-GUID: P5rNjsYT-GKoU1E3LDi9TYR9k4okj4UF
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-09_04,2026-04-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 suspectscore=0 priorityscore=1501 adultscore=0
+ lowpriorityscore=0 bulkscore=0 phishscore=0 clxscore=1015 malwarescore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2604010000
+ definitions=main-2604090167
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260409_111104_142596_CD50F43C 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,307 +159,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add driver for Eliza SoC camera, graphics and Video clock controllers.
+The camera clock controller supports the cambist clock controller and
+the regular camera clock controller.
 
---=-BUtoEEHWtjgzs84gLrzz
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+The patches have been tested on Qualcomm Eliza MTP board.
 
-On Thu, 2026-04-09 at 18:07 +0100, Marc Zyngier wrote:
-> On Thu, 09 Apr 2026 16:29:06 +0100,
-> David Woodhouse <dwmw2@infradead.org> wrote:
-> >=20
-> > [1=C2=A0 <text/plain; UTF-8 (quoted-printable)>]
-> > From: David Woodhouse <dwmw@amazon.co.uk>
-> >=20
-> > Commit 7af0c2534f4c5 ("KVM: arm64: Normalize cache configuration")
-> > fabricates CLIDR_EL1 and CCSIDR_EL1 values instead of using the real
-> > hardware values. While this provides consistent values across
-> > heterogeneous CPUs, it does cause visible changes in the CPU model
-> > exposed to guests.
-> >=20
-> > The commit claims that userspace can restore the original values, but
-> > there is no way for userspace to obtain the real CLIDR_EL1 register
-> > value =E2=80=94 it is not fully reconstructible from sysfs, which lacks=
- the
-> > LoC, LoUU, and LoUIS fields.
-> >=20
-> > Add a per-vcpu KVM_CAP_ARM_NATIVE_CACHE_CONFIG capability that reads
-> > the real CLIDR_EL1 and all CCSIDR_EL1 values from the current physical
-> > CPU and sets them on the vcpu.
-> >=20
-> > This allows hypervisors to present the real hardware cache configuratio=
-n
-> > to guests, which is important for consistency of the environment across
-> > kernel versions and for migration compatibility with hosts running
-> > older kernels that exposed the real values.
-> >=20
-> > Fixes: 7af0c2534f4c ("KVM: arm64: Normalize cache configuration")
-> > Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
-> > ---
-> > =C2=A0Documentation/virt/kvm/api.rst=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 23 ++++++++
-> > =C2=A0arch/arm64/include/asm/kvm_host.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 1 +
-> > =C2=A0arch/arm64/kvm/arm.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 17 ++++++
-> > =C2=A0arch/arm64/kvm/sys_regs.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 | 26 ++++++++++
-> > =C2=A0include/uapi/linux/kvm.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 |=C2=A0 1 +
-> > =C2=A0tools/testing/selftests/kvm/Makefile.kvm=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 |=C2=A0 1 +
-> > =C2=A0.../selftests/kvm/arm64/native_cache_config.c | 52 ++++++++++++++=
-+++++
-> > =C2=A07 files changed, 121 insertions(+)
-> > =C2=A0create mode 100644 tools/testing/selftests/kvm/arm64/native_cache=
-_config.c
-> >=20
-> > diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/ap=
-i.rst
-> > index e3b3bd9edeec..ee47dc07ceac 100644
-> > --- a/Documentation/virt/kvm/api.rst
-> > +++ b/Documentation/virt/kvm/api.rst
-> > @@ -8930,6 +8930,29 @@ no-op.
-> > =C2=A0
-> > =C2=A0``KVM_CHECK_EXTENSION`` returns the bitmask of exits that can be =
-disabled.
-> > =C2=A0
-> > +7.48 KVM_CAP_ARM_NATIVE_CACHE_CONFIG
-> > +-------------------------------------
-> > +
-> > +:Architecture: arm64
-> > +:Target: vcpu
-> > +:Parameters: none
-> > +:Returns: 0 on success, -ENOMEM on allocation failure, -EINVAL if
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 args[0] or flag=
-s are non-zero.
-> > +
-> > +This per-vcpu capability reads the real CLIDR_EL1 and CCSIDR_EL1 value=
-s
-> > +from the physical CPU on which the ioctl is executed, and sets them on
-> > +the vcpu. This replaces the fabricated cache configuration that KVM
-> > +provides by default.
-> > +
-> > +The caller should ensure the vcpu thread is pinned to the desired
-> > +physical CPU before invoking this capability, so that the correct cach=
-e
-> > +topology is captured. On heterogeneous systems, different physical CPU=
-s
-> > +may have different cache configurations.
-> > +
-> > +After this capability is enabled, the vcpu's CLIDR_EL1 and CCSIDR_EL1
-> > +values can still be overridden individually via ``KVM_SET_ONE_REG`` an=
-d
-> > +the ``KVM_REG_ARM_DEMUX`` interface.
-> > +
-> > =C2=A08. Other capabilities.
-> > =C2=A0=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D
-> > =C2=A0
-> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm=
-/kvm_host.h
-> > index a1bb025c641f..c9713a472c47 100644
-> > --- a/arch/arm64/include/asm/kvm_host.h
-> > +++ b/arch/arm64/include/asm/kvm_host.h
-> > @@ -1296,6 +1296,7 @@ void kvm_sys_regs_create_debugfs(struct kvm *kvm)=
-;
-> > =C2=A0void kvm_reset_sys_regs(struct kvm_vcpu *vcpu);
-> > =C2=A0
-> > =C2=A0int __init kvm_sys_reg_table_init(void);
-> > +int kvm_vcpu_set_native_cache_config(struct kvm_vcpu *vcpu);
-> > =C2=A0struct sys_reg_desc;
-> > =C2=A0int __init populate_sysreg_config(const struct sys_reg_desc *sr,
-> > =C2=A0				=C2=A0 unsigned int idx);
-> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> > index 326a99fea753..579583e8dc5c 100644
-> > --- a/arch/arm64/kvm/arm.c
-> > +++ b/arch/arm64/kvm/arm.c
-> > @@ -393,6 +393,10 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, =
-long ext)
-> > =C2=A0	case KVM_CAP_ARM_DISABLE_EXITS:
-> > =C2=A0		r =3D KVM_ARM_DISABLE_VALID_EXITS;
-> > =C2=A0		break;
-> > +	case KVM_CAP_ARM_NATIVE_CACHE_CONFIG:
-> > +	case KVM_CAP_ENABLE_CAP:
-> > +		r =3D 1;
-> > +		break;
-> > =C2=A0	case KVM_CAP_SET_GUEST_DEBUG2:
-> > =C2=A0		return KVM_GUESTDBG_VALID_MASK;
-> > =C2=A0	case KVM_CAP_ARM_SET_DEVICE_ADDR:
-> > @@ -1793,6 +1797,19 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
-> > =C2=A0		r =3D kvm_arch_vcpu_ioctl_vcpu_init(vcpu, &init);
-> > =C2=A0		break;
-> > =C2=A0	}
-> > +	case KVM_ENABLE_CAP: {
-> > +		struct kvm_enable_cap cap;
-> > +
-> > +		r =3D -EFAULT;
-> > +		if (copy_from_user(&cap, argp, sizeof(cap)))
-> > +			break;
-> > +
-> > +		r =3D -EINVAL;
-> > +		if (cap.cap =3D=3D KVM_CAP_ARM_NATIVE_CACHE_CONFIG &&
-> > +		=C2=A0=C2=A0=C2=A0 !cap.args[0] && !cap.flags)
-> > +			r =3D kvm_vcpu_set_native_cache_config(vcpu);
-> > +		break;
-> > +	}
-> > =C2=A0	case KVM_SET_ONE_REG:
-> > =C2=A0	case KVM_GET_ONE_REG: {
-> > =C2=A0		struct kvm_one_reg reg;
-> > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> > index 1b4cacb6e918..c19d84e48f8b 100644
-> > --- a/arch/arm64/kvm/sys_regs.c
-> > +++ b/arch/arm64/kvm/sys_regs.c
-> > @@ -484,6 +484,32 @@ static int set_ccsidr(struct kvm_vcpu *vcpu, u32 c=
-sselr, u32 val)
-> > =C2=A0	return 0;
-> > =C2=A0}
-> > =C2=A0
-> > +int kvm_vcpu_set_native_cache_config(struct kvm_vcpu *vcpu)
-> > +{
-> > +	u32 csselr;
-> > +
-> > +	if (!vcpu->arch.ccsidr) {
-> > +		vcpu->arch.ccsidr =3D kmalloc_array(CSSELR_MAX, sizeof(u32),
-> > +						=C2=A0 GFP_KERNEL_ACCOUNT);
-> > +		if (!vcpu->arch.ccsidr)
-> > +			return -ENOMEM;
-> > +	}
->=20
-> Well, no.
->=20
-> The moment you decide to expose all of the host's crap, you really
-> need to put everything on the table. It means fully handling
-> FEAT_CCIDX, which we were careful not to expose anywhere because it is
-> a terrible idea.
+Changes in v2:
+ - rebased the patches on the latest linux-next.
+ - Add new bindings for Video and Camcc.
+ - Remove commented code in GPUCC (limiter code).
+ - Add device nodes for the corresponding clock controllers.
+ - Add RB-by tags for VideoCC and CamCC/Cambistmclk from v1.
+ - Link to v1: https://lore.kernel.org/r/20260317-eliza_mm_clock_controllers_v1-v1-0-4696eeda8cfb@oss.qualcomm.com
 
-The intent here is not to "expose all of the host's crap", but to
-maintain compatibility with what the kernel did before commit
-7af0c2534f4c. No need to expose FEAT_CCIDX.
+Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+---
+Taniya Das (8):
+      dt-bindings: clock: qcom: Add video clock controller on Eliza SoC
+      dt-bindings: clock: qcom: document the Eliza GPU Clock Controller
+      dt-bindings: clock: qcom: Add support for CAMCC for Eliza
+      clk: qcom: videocc: Add video clock controller driver for Eliza
+      clk: qcom: gpucc: Add GPU Clock Controller driver for Eliza
+      clk: qcom: camcc: Add support for camera clock controller for Eliza
+      arm64: defconfig: Enable clock controllers on Qualcomm Eliza SoC
+      arm64: dts: qcom: eliza: Add support for MM clock controllers
 
-> > +	for (csselr =3D 0; csselr < CSSELR_MAX; csselr++) {
-> > +		write_sysreg(csselr, csselr_el1);
-> > +		isb();
-> > +		vcpu->arch.ccsidr[csselr] =3D read_sysreg(ccsidr_el1);
->=20
-> That's not how the selection register works. CLIDR_EL1 tells you what
-> each cache level is (Instructions, Data, Unified, Tags), and that must
-> be combined with the index (which doesn't start at bit 0).
+ .../bindings/clock/qcom,eliza-camcc.yaml           |   55 +
+ .../bindings/clock/qcom,eliza-videocc.yaml         |   51 +
+ .../bindings/clock/qcom,sm8450-gpucc.yaml          |    3 +
+ arch/arm64/boot/dts/qcom/eliza.dtsi                |   54 +
+ arch/arm64/configs/defconfig                       |    3 +
+ drivers/clk/qcom/Kconfig                           |   28 +
+ drivers/clk/qcom/Makefile                          |    3 +
+ drivers/clk/qcom/cambistmclkcc-eliza.c             |  465 ++++
+ drivers/clk/qcom/camcc-eliza.c                     | 2803 ++++++++++++++++++++
+ drivers/clk/qcom/gpucc-eliza.c                     |  621 +++++
+ drivers/clk/qcom/videocc-eliza.c                   |  403 +++
+ .../dt-bindings/clock/qcom,eliza-cambistmclkcc.h   |   32 +
+ include/dt-bindings/clock/qcom,eliza-camcc.h       |  151 ++
+ include/dt-bindings/clock/qcom,eliza-gpucc.h       |   52 +
+ include/dt-bindings/clock/qcom,eliza-videocc.h     |   37 +
+ 15 files changed, 4761 insertions(+)
+---
+base-commit: db7efce4ae23ad5e42f5f55428f529ff62b86fab
+change-id: 20260409-eliza_mm_cc_v2-701c34ddb74e
 
-Ack, thanks. I'll rework that based on the old is_valid_cache()
-function.
+Best regards,
+-- 
+Taniya Das <taniya.das@oss.qualcomm.com>
 
-> I also wonder how you reconcile not exposing MTE when the cache
-> hierarchy indicate support for tags. That clearly contradicts "report
-> what the HW has".
-
-If that was an issue then it would already have been an issue before
-commit 7af0c2534f4 (and in kernels with that commit reverted), hosting
-millions of guests today.
-
-This isn't about introducing *new* behaviour; it's about allowing the
-existing established behaviour to be maintained so that we can have a
-*managed* transition to the new model (for new launches) rather than an
-unconditional uncontrolled change as the kernel gets upgraded.
-
---=-BUtoEEHWtjgzs84gLrzz
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDQwOTE3NDkw
-OVowLwYJKoZIhvcNAQkEMSIEIML3+/pb+uNwJPTCApRGqyBU+nV+PbaR6TCvQ5iY2AqWMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAwXD79QprztK5
-wl1xtJt7mtg575ug+dJwe6z9tUNQH4iTeAeLqa1Dv1NKGO8Fm8GsZkT+Xl0pU6TGvg3n0BmB9rj2
-zWg6kj33QnQpQwltjatpUJtnckUdLW9ETgk0xp+nBZC9Hoe2xd5eXJXGAHt6wgTy3wCQFAxAIKJY
-D7tjwCbKtXUBw+YqLkt2MufWponYTAiwkAM3bD22iuNaNdCMVvGr0BvCbuDuKLglcJ0IB0QFAyMs
-6bTl78npYpwGfWRi03LX/AqXByr9DwYa35TE2sdc0dgc9cbSQ++UWCJblM3ReaIrGrmr5XhUTmkm
-V7XOR2adwBPx9vZ/DULDbOuq17OOeY8ObOPpHgmEHxFdjsh8EnqfEPYgOrwwIZMMGeybNXUdxM65
-St1RxaRlyD0TcXQxx/UW5LbTQ732stQuNWNfSs22jRVE6ZSuj3M2onecC9PWg9uA7mc190lq9qJF
-hJruvOixj+/dB1Md4V9w4/rlYP25QmJkdeNCxado4Lmoj/znzHwe3Bp6t2hXRc0HUFFaBuS9NxVL
-r0o2OVwKMvdr+dafK8QUtKblJXHfWbCQTz07Sba4y5mhvOgcS7j8P4v+urzqrWAg/dc5ybCAZrvd
-dMQPKjpPJDS3SyNtsrfpyk6dUTr1q6SJGZIq03359QV9cXg4AlFN4JRjfsdo1T0AAAAAAAA=
-
-
---=-BUtoEEHWtjgzs84gLrzz--
 
