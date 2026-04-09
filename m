@@ -4,66 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EBDEE9DE6C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 08:48:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAA87E9DE68
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 08:57:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YMmUZDUf/JeRR+9mmvRkSEZUr5AtKJ+nfa5lgc3IPyY=; b=enN8X0G8kpPXm61lGS6lNEMSXH
-	TXLKkVs+F++Q7tIQMBDBfV9N+XZU23Q32OuNCX8ztzl3UWj2slIJ/hxM9qLhK7JqRIGWWgxP877z0
-	7fsf3HAGrm/VmcPEOSPn1yS+676FAPC18zy08zRZ/O5Grdm+kmJIlnmzqaBnrBbEdJebjyhjf1CiQ
-	ttyeMJ98F/g3LvTRbtwC37Ex6T1QP6F7+Gvsa85HleKPuaUjyEoHQ9AGaZsqHZZ5WsxoOE2yqgEjF
-	55mBEfbQ8aEUboNXC/DE4bajyvaVbygdDL84acrxaqRoiJRcDDJ80B5U8+xsbWsrOyJjNXSyh6q1v
-	HX6z0CiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=V4G9clivTCOBNDyXno+rGyGLMHPPjMdcWkYABxM2zhM=; b=bel5rmzw6HwFZerZSUKEAGs8JW
+	p2jyv29RcY/TWvaKP4yMFK9A4VyJj8MUI0eUPoYQkIKSqvieARYMW4p6osufOCcEVoLR/BYP+p+vq
+	RgbcoS2/hOd4mTP4IqCccy5gipf36tWqeAxehYjKOKax8ltcNX9EJmXrqkJ2VaFGRg9HVSWvjHKou
+	klD5PVy4ArDwTZhpprxz2qIILMkI4VXmiNqp0Hn2urzTwFr1+3jS3wXTXFVABKi1VYey2tcSbboLA
+	oSnE8cTwE0ahLAWGFEqAVcCGpFbt1E8KSyUEoeKK0xBc9KjYfQU7sAJMoJe79tKkmqIx8nS9Wr+FW
+	zqQ79JfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAl45-00000009ySG-3MeV;
-	Thu, 09 Apr 2026 08:48:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wAlCE-00000009zYO-1pyp;
+	Thu, 09 Apr 2026 08:57:06 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAl43-00000009yRi-1YPl
+	id 1wAlCB-00000009zXZ-2YnC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 08:48:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E599042DE6;
-	Thu,  9 Apr 2026 08:48:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41636C4CEF7;
-	Thu,  9 Apr 2026 08:48:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775724518;
-	bh=Ucrrm+UdDjJaW/Cy0XhWuFhqJm3EGIewHjfu8mGM1Hg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z9YuU1OK8hE77fbU342lH4ZxNDHUGbiWDT+bNv77/ibID3TxtJB/L7lnD5BHwT2YF
-	 RfmCi4Vi8/nRGhRmU0dz6z5TATqJAcNwrjiQzpnOcqTsYzPgAldDVHZY+wie3uuLIX
-	 SaoKKeFcbNmJVBB+gFz8iIiTCXogInrBUR1vBCRDMMxG9YNOMV64JmHFqIkenqEv9f
-	 skIv/KmbeI4Z+Qh0A3W3T0OsOuTMC5p0HLPkrwS+nSEt1whsmKZexnq4PccbqePGAu
-	 U426Wrvo4TLGE/Hvn4ebV6g9fQ8XZ9ZMR0Nbiy7V3INjewrIxucUU9mGx51nzHegFd
-	 rpA4Zl9s32ABw==
-Date: Thu, 9 Apr 2026 10:48:36 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Josua Mayer <josua@solid-run.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Yazan Shhady <yazan.shhady@solid-run.com>, 
-	Mikhail Anikin <mikhail.anikin@solid-run.com>, Alexander Dahl <ada@thorsis.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: Add SolidRun i.MX8DXL SoM and
- HummingBoard
-Message-ID: <20260409-peridot-lynx-from-uranus-75a502@quoll>
-References: <20260408-imx8dxl-sr-som-v1-0-ce5a39acd713@solid-run.com>
- <20260408-imx8dxl-sr-som-v1-1-ce5a39acd713@solid-run.com>
+	Thu, 09 Apr 2026 08:57:05 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 63BDF4E428C6;
+	Thu,  9 Apr 2026 08:57:00 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 325845FDEB;
+	Thu,  9 Apr 2026 08:57:00 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 39CAD10450269;
+	Thu,  9 Apr 2026 10:56:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1775725019; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=V4G9clivTCOBNDyXno+rGyGLMHPPjMdcWkYABxM2zhM=;
+	b=SxCsDT9A8FvofNq/CSqO7DGk07IOuXsLQhkPL2bM9i4TAmPdKj9KiebmbZ61LV7MCoaMYF
+	LH43g/x14Y1HInP5gNtSjiDQ5nkC7sOoF8Ec0AGyG66P06iGO0iL+HX9fSrOz3s6p7RJfZ
+	rwrFsvK2VLeZaOmDmdERBseLo63+S/ulzLxPKeQh0utI6GPj+hWl0Jo/WurvNwKGHGFXiv
+	OtoB9fIbjHlslRIqooKARtAqUcceZAQl+FxgH8NsSwDQ6qrh7oi1QZspmBPlpML6PEumrD
+	xOT0T6NFfQptzXOBEv0HCu3RzzjxA+rHAB0L9eEJLpJpjYyvAMNDu1tNwOGNIQ==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Arnd Bergmann <arnd@arndb.de>,  <arm@kernel.org>, soc@kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>, <linux-arm-kernel@lists.infradead.org>
+Subject: [GIT PULL] ARM: mvebu: dt for v7.1 (#1)
+Date: Thu, 09 Apr 2026 10:56:57 +0200
+Message-ID: <87qzoo3412.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260408-imx8dxl-sr-som-v1-1-ce5a39acd713@solid-run.com>
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_014839_446087_C58DC147 
-X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-CacheID: sfid-20260409_015703_782630_9344E3EF 
+X-CRM114-Status: UNSURE (   5.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,18 +72,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 08, 2026 at 08:38:36PM +0200, Josua Mayer wrote:
-> Add binding for the SolidRun i.MX8DXL based System on Module, and the
-> reference HummingBoard Telematics.
-> 
-> Signed-off-by: Josua Mayer <josua@solid-run.com>
-> ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 7 +++++++
->  1 file changed, 7 insertions(+)
+Hi,
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Here is the first pull request for dt for mvebu for v7.1.
 
-Best regards,
-Krzysztof
+Gregory
 
+The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+
+  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/gclement/mvebu.git tags/mve=
+bu-dt-7.1-1
+
+for you to fetch changes up to 29d8a380643521422a9907f3e982e142fe22d19e:
+
+  MAINTAINERS: drop file entry in Marvell Kirkwood and Armada SOC support (=
+2026-03-02 16:24:43 +0100)
+
+----------------------------------------------------------------
+mvebu dt for 7.1 (part 1)
+
+Drop unnecessary MAINTAINERS entry for non-existent Marvell db-falcon files
+
+----------------------------------------------------------------
+Lukas Bulwahn (1):
+      MAINTAINERS: drop file entry in Marvell Kirkwood and Armada SOC suppo=
+rt
+
+ MAINTAINERS | 1 -
+ 1 file changed, 1 deletion(-)
+
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
