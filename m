@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 724B5E98FDF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 16:27:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EBADEA3C4E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 16:28:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u5j/TI2O1rcb0qeld7rzH6RIr1gR8NaCoajZ7VtV8KY=; b=xNbjOstOv2x59ghMvA6GU/+tQA
-	1iTHt+RirkfXQwIkHtx7vLEhPQRrBFrzQV+6XDVvXacz8v4zQlMExqWotxXWb50NeAosGF2+JQxki
-	qImCqOO+qlNtV3ATCzekmZk6cZrbavShzLaz1HJVecrdhBtc8y5Dd5OR146fQ2rQnEQYWEsPKiPNR
-	0n9+Adeci9lAVFGWZnQBEj/DdVBhRWYYgmFBj6jklUKzhsAGGARyqjhlhdNsNtH0VTsZAvoohMEAF
-	pE4ghhGCSGfcLPYrru1fXpq+/ki3LU8ICDEIXsaSYILrZJgD2+495itbzMXJ7/x+Dil/iYYjvSSOw
-	w+wAm8Tw==;
+	bh=fUUHlu1N4CjPZuX0N0TWZbAyok7i7wpOT1uRT3SmERk=; b=ZxNgCZF/ESaOte39tYPZ8WijY1
+	OWyU75+qlLGdtnzFLfa9FSRjTKPzFy6odIfw0N17mVsJ0pFEWWRb2PlhwtcsJNlx10cxAiHeK/sfP
+	Nx2/JkaDw50XZeJ45Xo+VDclzQzx187rM3sfwYPbbCWnJ54+0Z5h9FK9BTIteWfWl3XzKBpwm5Cm9
+	eQvwUsxawbam0SDBBZcEylZYyMupVtXIgjSWIlpMmMxeSMvda05EXnhl7oXrliTFcMk5UjsUMDqsl
+	/3GiF/oXrNz/83mDcnQ8Zc/leEq2IXWgJ3yOdxp0yUXjnbtEuFRsiXDYKGa50vAia4cACBr2Hsq9I
+	ObMhnzYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAsEF-0000000Avep-0llO;
-	Thu, 09 Apr 2026 16:27:39 +0000
+	id 1wAsF6-0000000AvmZ-2HtN;
+	Thu, 09 Apr 2026 16:28:32 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAsEB-0000000AveR-49MJ
+	id 1wAsF4-0000000AvmD-0tiy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 16:27:37 +0000
+	Thu, 09 Apr 2026 16:28:31 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D0A96452F;
-	Thu,  9 Apr 2026 09:27:28 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 42F9B3F641;
-	Thu,  9 Apr 2026 09:27:33 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BE55C452F;
+	Thu,  9 Apr 2026 09:28:23 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 127023F641;
+	Thu,  9 Apr 2026 09:28:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775752054; bh=PcwHOgTB9v53Jq+fpgtd844vKQY3L9N5xVo3GA34vtA=;
+	t=1775752109; bh=mS0+4tVHW5CPuehmB2qvZU92Djvs7OnTPDGBJtsLHvc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GhMdL4zsviRSrkAvCluaZ4CN2guSJEMEzeGl6ns2I7u4o1Q62MLRtOtH+Yp+cWRgc
-	 Ov36T71k3Ojdcg664ExrE1EzqdCvlZ/8SrzMYQMqiKzTE3fQgTcfbaJZEjLM0ovUEA
-	 kpp/r1COurflGLA/F17bNg6OHddGlMD7jDmQ2F7U=
-Date: Thu, 9 Apr 2026 17:27:30 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Muhammad Usama Anjum <usama.anjum@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Thomas Huth <thuth@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Lance Yang <lance.yang@linux.dev>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: mte: Skip TFSR_EL1 checks and barriers in
- synchronous tag check mode
-Message-ID: <adfTco5h9P3kV9QT@arm.com>
-References: <20260311175054.3889093-1-usama.anjum@arm.com>
- <c347fdc9-90b4-43ac-8c2e-559248777ba8@kernel.org>
+	b=DDB4zHVRP754Y+6JyGLXpKvVICURuVCUvu19SAznMP4bCA6nqiMO7fo/IHa4I3FWp
+	 hK7XDfa23OPvzSAAD2wsEpQm4lzKFoXhI81C7H5a0m/+jflQU35DlXK17yMfez72Bu
+	 BiyNa2YBYSz0LFzfb4LHWC0PeimVwh9x1vbIhwSQ=
+Date: Thu, 9 Apr 2026 17:28:26 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Puranjay Mohan <puranjay@kernel.org>
+Cc: bpf@vger.kernel.org, Puranjay Mohan <puranjay12@gmail.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <martin.lau@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Rob Herring <robh@kernel.org>, Breno Leitao <leitao@debian.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, kernel-team@meta.com
+Subject: Re: [PATCH v2 2/4] perf: Fix uninitialized bitfields in
+ perf_clear_branch_entry_bitfields()
+Message-ID: <20260409162826.GX356832@e132581.arm.com>
+References: <20260318171706.2840512-1-puranjay@kernel.org>
+ <20260318171706.2840512-3-puranjay@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <c347fdc9-90b4-43ac-8c2e-559248777ba8@kernel.org>
+In-Reply-To: <20260318171706.2840512-3-puranjay@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_092736_173626_2BF613B7 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20260409_092830_296462_6A6CDF4C 
+X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,25 +81,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 25, 2026 at 12:46:40PM +0100, David Hildenbrand wrote:
-> On 3/11/26 18:50, Muhammad Usama Anjum wrote:
-> > In MTE synchronous mode, tag check faults are reported as immediate
-> > Data Abort exceptions. The TFSR_EL1.TF1 bit is never set, since faults
-> > never go through the asynchronous path. Therefore, reading TFSR_EL1
-> > and executing data and instruction barriers on kernel entry, exit,
-> > context switch, and suspend is unnecessary overhead in sync mode.
-> > 
-> > The exit path (mte_check_tfsr_exit) and the assembly paths
-> > (check_mte_async_tcf / clear_mte_async_tcf in entry.S) already had this
-> > check.
-> 
-> Right, that's for user space (TFSR_EL1.TF0 IIUC). What you are adding is
-> for KASAN. Maybe make that clearer.
+On Wed, Mar 18, 2026 at 10:16:56AM -0700, Puranjay Mohan wrote:
 
-Yeah, I'll tweak the commit message a bit. Even
-system_uses_mte_async_or_asymm_mode() should be renamed to something
-resembling kasan but I'll leave the function name as is for now.
+[...]
 
--- 
-Catalin
+> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+> index 48d851fbd8ea..d7f39b7e9cda 100644
+> --- a/include/linux/perf_event.h
+> +++ b/include/linux/perf_event.h
+
+BTW, I found you didn't include correct maintainers for perf core
+changes.  You might need to loop them in the new version.
 
