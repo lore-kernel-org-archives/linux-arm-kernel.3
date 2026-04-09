@@ -4,61 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08643F31E22
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 14:52:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A27F31E24
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 15:01:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hNFRjrU42Z6SYVO+w/DOnUGPmFLCpSMQlxr2/OLaq14=; b=mMZu3e6xxrIkBdVbc9D/AA7Cgd
-	Ho585WvTI++1UcmlLSwgTNG2G21ozPhS3j4oJ/7dWvrPg1aL7CKFXOOI7JjO9/CrbjP1NvP5DhGjg
-	tHlmIViErBpkOz4Bpgxrw3RXL8jt0CKcuLPeGcaVaJ3vx+sCl1dJVha/aBSKgbYxZoUe+k2vFemEY
-	ur/2IQxfa2MIt8P+84rldFmdjXQ46vUsiKDyqlPfz2nGVG4AJ8pQYKKghY+RSpnTlXs8cB/FKw+1/
-	nzPAMqVV8nai/NAkyyzfuEnGhl7OaxSWOEBbfy3AtbWuWcF3635jxV9+8BOuIQINm1D4kjwQs4opy
-	5x7V7ylQ==;
+	bh=ZAa6f1sQobFR6hiCOCOOW2kkrrVSoF8tuVYfYChI4uk=; b=2hqVfQwRrex5i257WVqe2HwDxS
+	nPLUD43T8ciyJ03pJWeU1Ky1ZuFrwQQbmnMnRCMvq3dNcTkvGhSbDqguA+daTSWEgyZgkE7eu07vP
+	iwbV7lIIU81pADIGmBfq36dfYzE0pxXeNLWyPvd4pPCIxjymJNVH/bNxXPsQFsQw1W9ewwxhlUs65
+	ui4UgRD779XJEJ69/MIEoUXelRuZ6A5wABvWVTvuII0/XjEnIq3kXLzvLZxRpToOOlpxT94jBEjS4
+	YXLkiKhLj93KKxC2PjylnJqoGkKsDqzmqnV4d4M3FvxRQbDLS3KgcoxjRyRcTwlISoq2TOyrQXzyI
+	oMzq9aIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAqjk-0000000AjwZ-0gtM;
-	Thu, 09 Apr 2026 14:52:04 +0000
+	id 1wAqtE-0000000AkzX-29CR;
+	Thu, 09 Apr 2026 15:01:52 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAqji-0000000Ajw1-1vLY
+	id 1wAqtC-0000000AkzO-43ae
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 09 Apr 2026 14:52:02 +0000
+	Thu, 09 Apr 2026 15:01:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
 	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=hNFRjrU42Z6SYVO+w/DOnUGPmFLCpSMQlxr2/OLaq14=; b=DHMRrDUS+PFfnPeJelsWuX1O4k
-	Io4bggwcxcvyrMwvEB/5TpkaVw3FXdHZs7VNG2KlwHaFTQXQu9bV1cv41Fzd0+MunOkwVGAlOzdAO
-	9wLvSBY8TigOUSCNC5n+5DtWzbcmElytlOtzzvCitNrRDEYDKp6JwvtSy8646oyxEyM1S/E6tDYu2
-	vT4EfEoeIiMMwZpYlbyyLhN1CW/AjLU0kAXQfTqTYwZqnFppFD3p5HQYbsmEzLpUqyhEUA5RjWtl9
-	w1zSquJp0m9zBd+mYXUOnUhR7v5HKilFPZfPVigeCzzvPIXC/CO8LRfEVtFaafzudzvUribjQ0Efo
-	waYVLsiA==;
+	bh=ZAa6f1sQobFR6hiCOCOOW2kkrrVSoF8tuVYfYChI4uk=; b=GiaUcG+P1TeZQ7TtwUm4e4s2aL
+	Phjdl1xlNltVDANdu9MDTDGe9uDtCHctS2ewtBCqMsX8a7kE5tyl/bYNBXPRUYHe0B8sQBIh0ONzO
+	E9cZOdyPqTDBHg253ch8pdjXLHe86Ur8Qv2efo3us+S6X0XgtFrxzxHQGQOlzBe/vESQNIz2neVB5
+	eiRucQpc6RhIYN4j/nXNoz3wHzdyJE9MMCLvb8cBII4w58f5bz+NxLKqaSpQ6/lJreDj5v78G7Om8
+	Pz75SAdfXZM2ztPMzGCaOq/rkPsijAg8XMkrDVaTOf709HkYEqqRKf3d6644lK5opls/DItWwhInt
+	fmh8v5jQ==;
 Received: from [172.31.31.148] (helo=u09cd745991455d.lumleys.internal)
 	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAqjf-0000000BvFm-3wLU;
-	Thu, 09 Apr 2026 14:52:00 +0000
-Message-ID: <254ca48a67779ccf9b9f60e2bb5796a305c03f95.camel@infradead.org>
-Subject: Re: [PATCH v7 7/7] KVM: arm64: Normalize cache configuration
+	id 1wAqtA-0000000BwB3-20zD;
+	Thu, 09 Apr 2026 15:01:48 +0000
+Message-ID: <8cca18f332ea4bfb0c9f9d6775b2c1284816dd5f.camel@infradead.org>
+Subject: Re: [EXTERNAL] [PATCH 2/3] KVM: arm64: vgic: Allow userspace to set
+ IIDR revision 1
 From: David Woodhouse <dwmw2@infradead.org>
 To: Marc Zyngier <maz@kernel.org>
-Cc: akihiko.odaki@daynix.com, "Gutierrez Cantu, Bernardo"
- <bercantu@amazon.de>,  alexandru.elisei@arm.com, alyssa@rosenzweig.io,
- asahi@lists.linux.dev,  broonie@kernel.org, catalin.marinas@arm.com,
- james.morse@arm.com,  kvmarm@lists.cs.columbia.edu, kvmarm@lists.linux.dev,
-  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- marcan@marcan.st, mathieu.poirier@linaro.org, oliver.upton@linux.dev, 
- suzuki.poulose@arm.com, sven@svenpeter.dev, will@kernel.org
-Date: Thu, 09 Apr 2026 15:51:59 +0100
-In-Reply-To: <86wlyg2r3i.wl-maz@kernel.org>
-References: <20230112023852.42012-8-akihiko.odaki@daynix.com>
-	 <b71910e202ac4a56a87c0e34df13cce058d46a76.camel@infradead.org>
-	 <86wlyg2r3i.wl-maz@kernel.org>
+Cc: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "shuah@kernel.org"
+	 <shuah@kernel.org>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, 
+ "joey.gouly@arm.com"
+	 <joey.gouly@arm.com>, "linux-kernel@vger.kernel.org"
+	 <linux-kernel@vger.kernel.org>, "catalin.marinas@arm.com"
+	 <catalin.marinas@arm.com>, "nathan@kernel.org" <nathan@kernel.org>, 
+ "pbonzini@redhat.com"
+	 <pbonzini@redhat.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
+ "arnd@arndb.de"
+	 <arnd@arndb.de>, "kees@kernel.org" <kees@kernel.org>, "will@kernel.org"
+	 <will@kernel.org>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, 
+ "oupton@kernel.org"
+	 <oupton@kernel.org>, "rananta@google.com" <rananta@google.com>, 
+ "linux-arm-kernel@lists.infradead.org"
+	 <linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
+	 <linux-kselftest@vger.kernel.org>, "eric.auger@redhat.com"
+	 <eric.auger@redhat.com>
+Date: Thu, 09 Apr 2026 16:01:48 +0100
+In-Reply-To: <86v7e02qoq.wl-maz@kernel.org>
+References: <20260407210949.2076251-1-dwmw2@infradead.org>
+	 <20260407210949.2076251-3-dwmw2@infradead.org>
+	 <87wlyhc2g4.wl-maz@kernel.org>
+	 <ffe9de5106d999365389c3ab17f357409dac1047.camel@amazon.co.uk>
+	 <86v7e02qoq.wl-maz@kernel.org>
 Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-kWqLsqUWPHxL54CrnK2x"
+	boundary="=-xpT07MiBO99LU65F6dIx"
 User-Agent: Evolution 3.52.3-0ubuntu1.1 
 MIME-Version: 1.0
 X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
@@ -77,87 +90,74 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-kWqLsqUWPHxL54CrnK2x
+--=-xpT07MiBO99LU65F6dIx
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, 2026-04-09 at 14:36 +0100, Marc Zyngier wrote:
-> On Thu, 09 Apr 2026 13:25:24 +0100,
-> David Woodhouse <dwmw2@infradead.org> wrote:
+On Thu, 2026-04-09 at 14:45 +0100, Marc Zyngier wrote:
+> On Wed, 08 Apr 2026 09:39:15 +0100,
+> "Woodhouse, David" <dwmw@amazon.co.uk> wrote:
 > >=20
-> > On Thu, 12 Jan 2023 at 11:38:52 +0900, Akihiko Odaki wrote:
-> > > Before this change, the cache configuration of the physical CPU was
-> > > exposed to vcpus. This is problematic because the cache configuration=
- a
-> > > vcpu sees varies when it migrates between vcpus with different cache
-> > > configurations.
-> > >=20
-> > > Fabricate cache configuration from the sanitized value, which holds t=
-he
-> > > CTR_EL0 value the userspace sees regardless of which physical CPU it
-> > > resides on.
-> > >=20
-> > > CLIDR_EL1 and CCSIDR_EL1 are now writable from the userspace so that
-> > > the VMM can restore the values saved with the old kernel.
+> > What if the guest boots under a new host kernel and finds the group
+> > registers are writable, and then is live migrated to an old host kernel
+> > on which they are not?
+>=20
+> That's your problem. KVM/arm64 never supported downgrading.
+
+Again, I don't know why you're saying this. It isn't true, and *can't*
+be true if KVM/arm64 is going to be anything more than a toy.
+
+> Not to mention that there is no valid GIC implementation that has RO
+> group registers. All you are doing is to inflict a hypervisor bug on
+> unsuspecting guests, for no good reason.
+
+It's not about "inflicting a hypervisor bug". It's about preserving the
+exact same environment that those millions of guests already *have*
+instead of taking the risk of changing things underneath them. And
+giving us a *path* to cleanly upgrading for new launches.
+
+> > What about hibernation, if the *boot* kernel in the guest configures
+> > the groups, but then transfers control back to the resumed guest kernel
+> > which had not?
+>=20
+> A guest that doesn't configures the groups cannot expect anything to
+> work. You'd have the exact same problem on bare-metal.
+>=20
 > >=20
-> > (commit 7af0c2534f4c5)
+> > > So what is this *really* fixing?
 > >=20
-> > How does the VMM set the values that the old kernel would have set?
->=20
-> By reading them at the source?
-
-Yes, but the VMM in EL0 *can't* read the source, can it?
-
-> > Let's say we're deploying a kernel with this change for the first time,
-> > and we need to ensure that we provide a consistent environment to
-> > guests, which can be live migrated back to an older host.
->=20
-> We have never guaranteed host downgrade. It almost never works.
-
-Huh? Host downgrade absolutely *does* work; KVM on Arm isn't a toy.
-We'd never be able to ship a new kernel if we didn't know we could roll
-it *back* if we needed to.
-
-I *know* that you know perfectly well that we actively test host
-downgrades prior to every rollout of a new kernel. So I'm a little
-confused about what you're trying to say here, Marc.
-
-> > So for new launches, we need to provide the values that the old kernel
-> > *would* have provided to the guest. A new launch isn't a migration;
-> > there are no "values saved with the old kernel".
->=20
-> And you can provide these values.
-
-If I know them, sure. But I don't, because:
-
-> > Userspace can't read the CLIDR_EL1 and CCSIDR_EL1 registers directly,
-> > and AFAICT not everything we need to reconstitute them is in sysfs. How
-> > is this supposed to work?
+> > I look at that question the other way round.
 > >=20
-> > Shouldn't this change have been made as a capability that the VMM can
-> > explicitly opt in or out of? Environments that don't do cross-CPU
-> > migration absolutely don't care about, and actively don't *want*, the
-> > sanitisation that this commit inflicted on us, surely?
+> > KVM has an established procedure for allowing userspace to control
+> > guest-visible changes, using the IIDR. First the host kernel which
+> > *supports* the change is rolled out, and only then does the VMM start
+> > to enable it for new launches.
+> >=20
+> > Even if we can address the questions above, and even if we can convince
+> > ourselves that those are the *only* questions to ask... why not follow
+> > the normal, safe, procedure? Especially given that there is already an
+> > IIDR value which corresponds to it.
+> >=20
+> > We don't *have* to YOLO it... and I don't want to :)
 >=20
-> I don't think a capability buys you anything. You want to expose
-> something to the guest? Make it so. You are in the favourable
-> situation to completely own the HW and the VMM.
+> That's hardly an argument, is it?
 
-Now that the values are writable, but userspace can't easily see *what*
-they would have been in the previous kernel. So having the capability
-to ask KVM to set them to those values seems like it might be useful.
+Er... yes, yes really it is an argument. I don't want to randomly
+inflict a device model change on *running* guests, and when they resume
+from hibernation, when I can preserve the existing behaviour.
 
-> > Am I missing something?
->=20
-> That you had over 3 years to voice your concern, and did nothing?
+It's weird enough that you claim that KVM doesn't support downgrading;
+now you seem to be claiming that it doesn't support retaining
+compatibility when *upgrading* either!
 
-I was looking more for technical input about how I might determine the
-original values to retain compatibility... but yes, I have given
-feedback that merely *reverting* the offending commit in previous
-kernel upgrades without actually doing anything to fix it properly
-wasn't the best choice.
+The ability to set IIDR like this was explicitly *designed* for this
+purpose, wasn't it? Why on earth would you object to being able to set
+it to KVM_VGIC_IMP_REV_1?
 
---=-kWqLsqUWPHxL54CrnK2x
+
+
+
+--=-xpT07MiBO99LU65F6dIx
 Content-Type: application/pkcs7-signature; name="smime.p7s"
 Content-Disposition: attachment; filename="smime.p7s"
 Content-Transfer-Encoding: base64
@@ -236,22 +236,22 @@ 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
-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
+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
-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
+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
 
 
---=-kWqLsqUWPHxL54CrnK2x--
+--=-xpT07MiBO99LU65F6dIx--
 
