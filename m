@@ -4,99 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43AC6EA3C4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 10:52:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1389EA3C4A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 10:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=diC0Gr1IYhIGgcqLTUwv/w+5+3AcqlMRR1F4lMh/V0U=; b=G+BkZe6xfnGqLx5dJsOqEM2/M0
-	bRwDEaGopz0qLyNn4uEeRURGL6NLpy5g8ctB0rNv5mA9zDcVUlifZ9+DaVFMy2VKSu1fBioN+XfhQ
-	Az4OVuyBsX3wrgc3wkR3tymt3Wm/RE0ptwJ7lnYsUwwpEwf7skbVqSuT2vAr8DLM0zDLY9opRuals
-	R0+qUWafku5Thfg1Ru7umfZBFAshX1Pc8KnIaKnmggBFxWEVKvKuZXY0jP8ENPEQumrCZoXNzD13o
-	x1zLNylh5C6noTbKhrvzu7OCb+G5Uvo8czlROb5DEKZSJAGmigC2L6/vjHvTdYgxOvGP1rcfrNDPk
-	ZcB6O0xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=00OgwhjvE58HPFHqLSXK/Zv2Ur++0Ezv5iC70n7exiI=; b=CBQcDncvmauDWZPZO4kjqCBm30
+	O96aCT0HwfLxHfScb68Gf7WWsbAeuN1ubQJPOYV2W1VFYuafsD6V6ExXDQOG/Iorm23AoX0MqsoLX
+	xvK77vW+Tt+vYZKkRCBRmXxEkXKe53qxsx+3kLKegXvNwJ3x4oEApW+/b1vJx6pTO0HtkUnh+9BVZ
+	9dozEyz1R8T9kyCuK3f4qqeEWdL32jgfHHXGx6EwKQzl5gc2KNO/GjcB2ik+A4Q9xJNqfIqMTVUuu
+	82fWRO3L0oK9JUcR5dbhh3KGOSQNFGV3MzwEpPwNuYYXVOYSbrVJIH7KwumkI19iGb4tDg5moWeD6
+	IdhxhZzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAmzg-0000000AByz-0ctL;
-	Thu, 09 Apr 2026 10:52:16 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAmzZ-0000000ABxp-2dbI
+	id 1wAmzp-0000000AC2U-42BB;
+	Thu, 09 Apr 2026 10:52:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAmzm-0000000AC1R-3ifX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 10:52:10 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-488afb0427eso10147815e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Apr 2026 03:52:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1775731928; x=1776336728; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=diC0Gr1IYhIGgcqLTUwv/w+5+3AcqlMRR1F4lMh/V0U=;
-        b=F4YDjYX/pR5me9uewgURa6JNo28aAnMXFQUNSZgFEOYaiBQH7Atm43vnpJBYYsS0Rj
-         bm8g/qHwDLe9yN2EwxBe5pdZRX81himpLw/ms5peCEMZten/hN+sZPmpQMEYSIZ+K19v
-         TkmO+wVE5gF9oOb+SCSUkNnRjAeLjR6OWFPTrxaisJmIi0lXB8yToSIeXtV2KFEn4SIU
-         bJNGyHjOWVsPlMxP/20DjJeORm1TvlEOKEu3HQ3l6l+55tErbue9PQ+Rh14rc5cf5d66
-         WqzKCbx3AoNp+3zBEYOYJHiogj+xGQVeo6hSl9Ce2FiaSHIul7kOUJ5cXyQQ//yXeK6Z
-         6FmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775731928; x=1776336728;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=diC0Gr1IYhIGgcqLTUwv/w+5+3AcqlMRR1F4lMh/V0U=;
-        b=b74T70WbMuVqjhuXC/HpVeLyfn6NkAsB0rP9R92csy9tTzXGFQeCPzY/eoS56AsVkF
-         3FY2QIqUj5Qmxx9iM9bAvBI9LBMM7sdiOupkIDCxzVi+uyZwwC2bJcFJx92/3ctu71Vd
-         rp7HnuU3PGZSUN4w7iOovjkLn4iuX4cijcjR2h4UuB31K5Jpj5G+02uBZGoz+md1c5P/
-         v4tCsGYIgGKUJji94dRlYmu0fv5AJSJOeho0xLxjqTY2KVOYi3AaqFTnGFhWfxlCisb+
-         1rL/B3epc8CFXdCJihIEaUHqhF5ahsXQpeyqFI1G6XCDzfcHHZPsXrX6w7dKZKGeM35L
-         /P3w==
-X-Forwarded-Encrypted: i=1; AJvYcCXhiI+G7AiS2AhGLDLhe80XYOlSfbaa5lMdTIssRitsOia/LBg+erQEmw0ixOb5daTvRf7UYdw2fKyKSv5jQzcG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yys7sc8CQzCJqVLJn5pFpqWYLBwdnh/OFraBErGHJXYyH41fBIw
-	7r5NArXwu0WaYpGiPfyh+4NdTE6QgjWuOpAO/Ycupvx82uI2z/zONEO9xYLekLy6YAc=
-X-Gm-Gg: AeBDiesPurOXmHILq2mWYPNI2odiBZ81qzXBhtXPZPJLbITiZgUcqq7dloGk+OrNvZq
-	A2aaEnynVE6D0R+vIS4NLBw2ZuYXc0nuaR2Gmf/l2V6N02zRFhTu7LwftkFOXKKdGWRTgDL4YSi
-	hrAsyiA2/HuZBg/yjzmiOx3a5EpvnwAejnwEcBvRdvEiKF8EYyEXH8olhf/8T8+IERLXw1UsfBZ
-	iSiL34UGZYeU3sHneDbpN7iwYgfHvddEXaZPhBbWlibeRBsrIVFonXdG8sbWsHpRxXvhVpBXlIp
-	nvfCQYiJx9/FBDPCpHRkSZKAJoASQHKdMBqLXDWE0IjtoTEJvpLiWx59/gn0OhdcJkiPPDVch+G
-	Xgo1in3cRmLYVwMGzNuVZaZcjdeVetNifWQWhIoI1Bi9W4O5oa1w+vvg8zwt7zhmhXgj1PfEi22
-	hjs+/xYztQ0YopNIyjkH+u4oBYHhEd
-X-Received: by 2002:a05:6000:2084:b0:43d:1e22:26c9 with SMTP id ffacd0b85a97d-43d292e24f4mr35429541f8f.42.1775731927489;
-        Thu, 09 Apr 2026 03:52:07 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d1e4e52a0sm63199443f8f.30.2026.04.09.03.52.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 09 Apr 2026 03:52:07 -0700 (PDT)
-Message-ID: <e2241b98-92a6-45e0-a9d3-061f1ed69ae1@linaro.org>
-Date: Thu, 9 Apr 2026 11:52:06 +0100
+	Thu, 09 Apr 2026 10:52:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D2653517;
+	Thu,  9 Apr 2026 03:52:15 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2688C3F632;
+	Thu,  9 Apr 2026 03:52:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775731941; bh=JhA+BE6gIOvzfklZpV3HvOOedmNWkkbMDfee5BYiMB4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rUwGOFO8/JfFFTQTz5Alv8657N9cUcl2Z+r4LAiH9OjHfXGloo/Cd5zcVQrlmfYKd
+	 0o1EgNjy+essvCBgLwG+5wMMsqGnGT1ewLrwEkv1rsj002F6VxYxmvaa2HdUIsflG1
+	 UOPSsq79ZgBxSB9qJA7wU52KTqF5XNocsobNlADk=
+Date: Thu, 9 Apr 2026 11:52:16 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Rob Herring <robh@kernel.org>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH V3 7/7] arm64/hw_breakpoint: Enable FEAT_Debugv8p9
+Message-ID: <adeE4MD0RgapI8aL@J2N7QTR9R3>
+References: <20241216040831.2448257-1-anshuman.khandual@arm.com>
+ <20241216040831.2448257-8-anshuman.khandual@arm.com>
+ <Z2AH1SN5CipWkkE4@J2N7QTR9R3>
+ <20260331225800.GA2082670-robh@kernel.org>
+ <ac5G8e4zWTdicDBs@J2N7QTR9R3>
+ <CAL_JsqLEBJ7Ok9TngWTqjaWY_LJCPtronv8=gnm=J0FymDKLCg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 17/20] coresight: trbe: Save and restore state across
- CPU low power state
-To: Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, Mark Rutland <mark.rutland@arm.com>,
- Will Deacon <will@kernel.org>, Yabin Cui <yabinc@google.com>,
- Keita Morisaki <keyz@google.com>, Yuanfang Zhang
- <quic_yuanfang@quicinc.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>
-References: <20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be@arm.com>
- <20260405-arm_coresight_path_power_management_improvement-v10-17-13e94754a8be@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260405-arm_coresight_path_power_management_improvement-v10-17-13e94754a8be@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAL_JsqLEBJ7Ok9TngWTqjaWY_LJCPtronv8=gnm=J0FymDKLCg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_035209_727005_A69D9086 
-X-CRM114-Status: GOOD (  30.65  )
+X-CRM114-CacheID: sfid-20260409_035223_009127_98EB285A 
+X-CRM114-Status: GOOD (  33.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,135 +81,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 05/04/2026 4:02 pm, Leo Yan wrote:
-> From: Yabin Cui <yabinc@google.com>
+On Thu, Apr 02, 2026 at 12:46:56PM -0500, Rob Herring wrote:
+> On Thu, Apr 2, 2026 at 5:37 AM Mark Rutland <mark.rutland@arm.com> wrote:
+> >
+> > On Tue, Mar 31, 2026 at 05:58:00PM -0500, Rob Herring wrote:
+> > > On Mon, Dec 16, 2024 at 10:58:29AM +0000, Mark Rutland wrote:
+> > > > On Mon, Dec 16, 2024 at 09:38:31AM +0530, Anshuman Khandual wrote:
+> > That said, the use of 'bp_per_reg' looks suspect given their
+> > arch_install_hw_breakpoint() and arch_uninstall_hw_breakpoint() modify
+> > that non-atomically.
 > 
-> TRBE context can be lost when a CPU enters low power states.  If a trace
-> source is restored while TRBE is not, tracing may run without an active
-> sink, which can lead to hangs on some devices (e.g., Pixel 9).
+> You don't believe the comment saying counter->ctx->lock is held?
 
-Can't this still happen if saving the source times out on "wait for 
-TRCSTATR.IDLE to go up"?
+Sorry, my concern here was that hw_breakpoint_handler() (which cannot
+hold the lock) consumes bp_per_reg[], and could race with the non-atomic
+modification in arch_install_hw_breakpoint() or
+arch_uninstall_hw_breakpoint().
 
-That would make coresight_pm_save() exit early, not saving the active 
-TRBE state. Then when coresight_pm_restore() is called it restores a 
-stale inactive sink, then enables the source again which is the state 
-that can hang.
+I've sent a more elaborate mail to x86 folk, with that and another issue
+caused by taking a breakpoint under arch_uninstall_hw_breakpoint():
 
-> 
-> The save and restore flows are described in the section K5.5 "Context
-> switching" of Arm ARM (ARM DDI 0487 L.a). This commit adds save and
-> restore callbacks with following the software usages defined in the
-> architecture manual.
-> 
-> During the restore flow, since TRBLIMITR_EL1.E resets to 0 on a warm
-> reset, the trace buffer unit is disabled when idle resume, it is safe to
-> restore base/pointer/status registers first and program TRBLIMITR_EL1
-> last.
-> 
-> Signed-off-by: Yabin Cui <yabinc@google.com>
-> Tested-by: James Clark <james.clark@linaro.org>
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Reviewed-by: James Clark <james.clark@linaro.org>
-> Co-developed-by: Leo Yan <leo.yan@arm.com>
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-trbe.c | 59 +++++++++++++++++++++++++++-
->   1 file changed, 58 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-> index 14e35b9660d76e47619cc6026b94929b3bb3e02b..c7cbca45f2debd4047b93283ea9fe5dd9e1f2ebf 100644
-> --- a/drivers/hwtracing/coresight/coresight-trbe.c
-> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-> @@ -116,6 +116,20 @@ static int trbe_errata_cpucaps[] = {
->    */
->   #define TRBE_WORKAROUND_OVERWRITE_FILL_MODE_SKIP_BYTES	256
->   
-> +/*
-> + * struct trbe_save_state: Register values representing TRBE state
-> + * @trblimitr		- Trace Buffer Limit Address Register value
-> + * @trbbaser		- Trace Buffer Base Register value
-> + * @trbptr		- Trace Buffer Write Pointer Register value
-> + * @trbsr		- Trace Buffer Status Register value
-> + */
-> +struct trbe_save_state {
-> +	u64 trblimitr;
-> +	u64 trbbaser;
-> +	u64 trbptr;
-> +	u64 trbsr;
-> +};
-> +
->   /*
->    * struct trbe_cpudata: TRBE instance specific data
->    * @trbe_flag		- TRBE dirty/access flag support
-> @@ -134,6 +148,7 @@ struct trbe_cpudata {
->   	enum cs_mode mode;
->   	struct trbe_buf *buf;
->   	struct trbe_drvdata *drvdata;
-> +	struct trbe_save_state save_state;
->   	DECLARE_BITMAP(errata, TRBE_ERRATA_MAX);
->   };
->   
-> @@ -1189,6 +1204,46 @@ static irqreturn_t arm_trbe_irq_handler(int irq, void *dev)
->   	return IRQ_HANDLED;
->   }
->   
-> +static int arm_trbe_save(struct coresight_device *csdev)
-> +{
-> +	struct trbe_cpudata *cpudata = dev_get_drvdata(&csdev->dev);
-> +	struct trbe_save_state *state = &cpudata->save_state;
-> +
-> +	state->trblimitr = read_sysreg_s(SYS_TRBLIMITR_EL1);
-> +
-> +	/* Disable the unit, ensure the writes to memory are complete */
-> +	if (state->trblimitr & TRBLIMITR_EL1_E)
-> +		trbe_drain_and_disable_local(cpudata);
-> +
-> +	state->trbbaser = read_sysreg_s(SYS_TRBBASER_EL1);
-> +	state->trbptr = read_sysreg_s(SYS_TRBPTR_EL1);
-> +	state->trbsr = read_sysreg_s(SYS_TRBSR_EL1);
-> +	return 0;
-> +}
-> +
-> +static void arm_trbe_restore(struct coresight_device *csdev)
-> +{
-> +	struct trbe_cpudata *cpudata = dev_get_drvdata(&csdev->dev);
-> +	struct trbe_save_state *state = &cpudata->save_state;
-> +
-> +	write_sysreg_s(state->trbbaser, SYS_TRBBASER_EL1);
-> +	write_sysreg_s(state->trbptr, SYS_TRBPTR_EL1);
-> +	write_sysreg_s(state->trbsr, SYS_TRBSR_EL1);
-> +
-> +	if (!(state->trblimitr & TRBLIMITR_EL1_E)) {
-> +		write_sysreg_s(state->trblimitr, SYS_TRBLIMITR_EL1);
-> +	} else {
-> +		/*
-> +		 * The section K5.5 Context switching, Arm ARM (ARM DDI 0487
-> +		 * L.a), S_PKLXF requires a Context synchronization event to
-> +		 * guarantee the Trace Buffer Unit will observe the new values
-> +		 * of the system registers.
-> +		 */
-> +		isb();
-> +		set_trbe_enabled(cpudata, state->trblimitr);
-> +	}
-> +}
-> +
->   static const struct coresight_ops_sink arm_trbe_sink_ops = {
->   	.enable		= arm_trbe_enable,
->   	.disable	= arm_trbe_disable,
-> @@ -1198,7 +1253,9 @@ static const struct coresight_ops_sink arm_trbe_sink_ops = {
->   };
->   
->   static const struct coresight_ops arm_trbe_cs_ops = {
-> -	.sink_ops	= &arm_trbe_sink_ops,
-> +	.pm_save_disable	= arm_trbe_save,
-> +	.pm_restore_enable	= arm_trbe_restore,
-> +	.sink_ops		= &arm_trbe_sink_ops,
->   };
->   
->   static ssize_t align_show(struct device *dev, struct device_attribute *attr, char *buf)
-> 
+  https://lore.kernel.org/lkml/adZWmPW8S9Y2pwkv@J2N7QTR9R3.cambridge.arm.com/
 
+I think we have a similar latent issue where we can take an breakpoint
+or watchpoint ad infinitum, described in more detail at the end of this
+mail.
+
+[...]
+
+> > > > | What prevents a race with an exception handler? e.g.
+> > > > |
+> > > > | * Does the structure of the code prevent that somehow?
+> > >
+> > > If you can't set a breakpoint/watchpoint in NOKPROBE_SYMBOL() annotated
+> > > code, you can't race.
+> >
+> > As above, I agree (with caveats), but I couldn't spot where this is
+> > enforced.
+> >
+> > > However, there's no such annotation for data. It looks like the kernel
+> > > policy is "don't do that" or disable all breakpoints/watchpoints.
+> >
+> > If we have to transiently disable watchpoints/breakpoints when
+> > manipulating the relevant HW registers, that sounds fine to me.
+> 
+> For wp/bp_on_reg, the ordering is 'data access, h/w accesses'. I think
+> we just need a barrier to enforce that ordering so the data access
+> (and then watchpoint) don't trigger in the middle of the h/w accesses.
+
+I assume that by 'h/w accesses' you mean MSRs to the system registers
+controlling breakpoints/watchpoints. Ordering-wise, I don't believe
+memory barriers are necessary here (explain in more detail below).
+However, I also think there's a latent issue here that might bite us
+with the new banking, described at the end of this mail.
+
+Both breakpoint and watchpoint exceptions are synchronous, meanning that
+they can only be taken from the specific instruction that triggered
+them.  However, updates to the watchpoint control registers *do* need a
+context synchronization event before they're guarnateed to take effect.
+
+For a sequence:
+
+    // Initially:
+    // - MDSCR, MDCR, DAIF.D permit debug exceptions at CurrentEL
+    // - No watchpoints enabled
+    
+    0x000:  LDR <val>, [<addr>]
+    0x004:  MSR DBGWVR<n>_EL1, <addr>
+    0x008:  MSR DBGWCR<n>_EL1, <configure_and_enable>
+    0x010:  LDR <val>, [<addr>]
+    0x014:  ISB
+    0x018:  LDR <val>, [<addr>]
+
+... we know:
+
+    (a) The LDR at 0x000 *cannot* trigger the watchpoint.
+    (b) The LDR at 0x010 *might* trigger the matchpoint.
+    (c) The LDR at 0x018 *must* trigger the watchpoint.
+
+For C code, we can enforce this order with barrier(), e.g.
+
+	val = *addr;
+	barrier();
+	write_sysreg(addr, DBGWVR<n>_EL1);
+	write_sysreg(configure_and_enable, DBGWCR<n>_EL1);
+	isb();
+
+... where the compiler cannot re-order the memory access (or
+write_sysreg(), or isb()) across the barrier(), and as isb() has a
+memory clobber, the same is true for isb().
+
+Likewise, for the inverse sequence:
+
+    // Initially:
+    // - MDSCR, MDCR, DAIF.D permit debug exceptions at CurrentEL
+    // - Watchpoint configured and enabled for <addr>
+
+    0x100:  LDR <val>, [<addr>]
+    0x104:  MSR DBGWCR<n>_EL1, <disable>
+    0x108:  LDR <val>, [<addr>]
+    0x110:  ISB
+    0x114:  LDR <val>, [<addr>]
+
+... we know:
+
+    (a) The LDR at 0x100 *must* trigger the watchpoint.
+    (b) The LDR at 0x108 *might* trigger the watchpoint.
+    (c) The LDR at 0x114 *cannot* trigger the watchpoint.
+
+> Any guidance on the flavor of dsb here? (And is there any guarantee
+> that the access is visible to the watchpoint h/w after a dsb
+> completes?)
+
+Hopefully the above was sufficient?
+
+As mentioned above, I think we have a latent issue where we can take a
+breakpoint or watchpoint under arch_uninstall_hw_breakpoint(), where we
+have:
+
+    arch_uninstall_hw_breakpoint(bp) {
+        ...
+	hw_breakpoint_control(bp, HW_BREAKPOINT_UNINSTALL) {
+	    ...
+	    hw_breakpoint_slot_setup(slots, max_slots, bp, HW_BREAKPOINT_UNINSTALL) {
+	         ...
+		 *slot = NULL;
+		 ...
+	    }
+	    ...
+	    write_wb_reg(ctrl_reg, i, 0) {
+	        ...
+	    	write_sysreg(0, ...);
+		isb();
+		...
+	    }
+	}
+    }
+
+The HW breakpoint/watchpoint associated with 'bp' could be triggered
+between setting '*slot' to NULL and the ISB. If that happens, then
+do_breakpoint() won't find 'bp', and will return *without* disabling the
+HW breakpoint or attempting to step.
+
+If that first exception was taken *before* the MSR in write_sysreg(),
+then nothing has changed, and the breakpoint/watchpoint will then be
+taken again ad infinitum.
+
+If that first exception was taken *after* the MSR in write_sysreg(), the
+context synchronization provided by exception entry/return will prevent
+it from being taken again.
+
+Building v6.19 and testing (with pseudo-NMI enabled):
+
+| #  grep write_wb_reg /proc/kallsyms
+| ffff80008004b980 t write_wb_reg
+| # ./perf-6.19 stat -a -C 1 -e 'mem:0xffff80008004b980/4:xk' true
+| rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+| rcu:     1-...0: (1 GPs behind) idle=2334/1/0x4000000000000000 softirq=140/140 fqs=2623
+| rcu:     (detected by 0, t=5252 jiffies, g=-859, q=7 ncpus=2)
+| Sending NMI from CPU 0 to CPUs 1:
+| NMI backtrace for cpu 1
+| CPU: 1 UID: 0 PID: 139 Comm: perf-6.19 Not tainted 6.19.0 #1 PREEMPT 
+| Hardware name: linux,dummy-virt (DT)
+| pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+| pc : write_wb_reg+0x0/0x250
+| lr : hw_breakpoint_control+0x164/0x248
+| sp : ffff800082d73980
+| pmr: 000000c0
+| x29: ffff800082d73980 x28: ffff000004692dc0 x27: ffff8000802708a0
+| x26: ffff00000473c000 x25: 0000000000000000 x24: 0000000000000000
+| x23: ffff00000473c000 x22: 0000000000000000 x21: ffff800082d73b70
+| x20: ffff00007fbd7b28 x19: ffff00000473c000 x18: 0000000000000000
+| x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+| x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+| x11: 0000000000000000 x10: 0000000000000000 x9 : 0000000000000000
+| x8 : 0000000000000001 x7 : 0000000000000001 x6 : 0000000000000010
+| x5 : 0000000000000001 x4 : 0000000000000006 x3 : ffff00000473c000
+| x2 : 0000000000000000 x1 : 0000000000000000 x0 : 0000000000000010
+| Call trace:
+|  write_wb_reg+0x0/0x250 (P)
+|  arch_uninstall_hw_breakpoint+0x14/0x20
+|  hw_breakpoint_del+0x10/0x20
+|  event_sched_out+0x8c/0x160
+|  group_sched_out+0x44/0xa0
+|  __perf_event_disable.part.0+0x114/0x120
+|  __perf_event_disable+0x1c/0x2c
+|  event_function+0x84/0xd8
+|  remote_function+0x50/0x64
+|  generic_exec_single+0x88/0xf0
+|  smp_call_function_single+0x90/0x1c8
+|  event_function_call+0x1d8/0x1e4
+|  _perf_event_disable+0x44/0x6c
+|  perf_event_for_each_child+0x38/0x84
+|  _perf_ioctl+0x19c/0xab8
+|  perf_ioctl+0x50/0x80
+|  __arm64_sys_ioctl+0xa4/0x100
+|  invoke_syscall.constprop.0+0x40/0xf0
+|  el0_svc_common.constprop.0+0x38/0xd8
+|  do_el0_svc+0x1c/0x28
+|  el0_svc+0x38/0x148
+|  el0t_64_sync_handler+0xa0/0xe4
+|  el0t_64_sync+0x1ac/0x1b0
+
+I think that ideally when diabling a breakpoint/watchpoint, we'd program
+the control register *before* manipulating the slot. The existing
+structure of the code is rather unhelpful for fixing that.
+
+While this does fall into "don't do that" territory, I do think we
+should aim for the kernel to survive rather than fall into a livelock.
+I'll take another look into this shortly -- I think we need a wider
+cleanup.
+
+Mark.
 
