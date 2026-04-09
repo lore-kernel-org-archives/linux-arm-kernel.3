@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5873BE9DE58
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 07:42:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37998E9DE5B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 07:44:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rNcl8bSxVcVlkHSwwPKzs5WXzuDdLXO9P/uvXT30wYQ=; b=tN+J4FIbHAJ1izdEp+rKJ6Z4Pm
-	LiDD9EZYmUx9K5Rl+mybaIF8200wQIS7Up4Jxu86CYs6LfQsw37mvIr0zEMhZjJKDy5ppcizYSyMY
-	sYo198oMlNXwYlbij83v6XNc26Ng6Umk4NxedKc6vL89qIr+nJq+QxsImRARco4l71UPnYpicpZqL
-	DCGKu+CAuhPLjrDO9aryg9xp3uf/4b5v2eH6dhV5p5wsUQyVsWVM3FH6BBCLW2baGbYG6LerSBmmq
-	56dFbDLMJipYQTJq4uh/TqOBSeHXGYNDT2/PsAiiQNZjplrmRFTNRewSP+xE86s9V5SFF0243PcSa
-	rhQWsIdw==;
+	bh=lWhZiT6ZVrKSGBgIdxievknKh0u0rumlgFTvUrEEKek=; b=EuWLD74XpFpmQ+OIsc+ZVzjRAw
+	WSGZEdJ48WPoJ3gsL0DyzkYJEWtS6Wku37gG7w0DO3Z8eRWaj4I4mODXGTAfkL0Rl/k3VQ6Dz36xC
+	I43s2r5Y3UrEiqnmjhS1jfDfyAYzyA1QVmFfm94GL+hHY2LSWficENX4RHQrtDKpcfRrWFV2p0zJY
+	TmMOU2kxYc/Dc2RyGkYQdmukImoFXXYYTG7rGbS+PuVIb6Ek6iIB1DtZ1b9+KILMymbsoTqYct04k
+	ZSy7UAOi3DpQcmA9zigaWr+s2HvdjeiHtkUmcZwFEfHVQxJG4mmUE3cUaetgaCKQpCsHJdTNftnG7
+	mUbRipyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAk2L-00000009rvG-3bfZ;
-	Thu, 09 Apr 2026 07:42:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAk2J-00000009ruv-1BT3
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 07:42:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 020763561;
-	Thu,  9 Apr 2026 00:42:40 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E2BFD3F632;
-	Thu,  9 Apr 2026 00:42:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775720565; bh=1WW7kSn9WxA8RcNQPxCAbLe2xCMWLXrH3wMCxgS7DNE=;
+	id 1wAk3T-00000009s28-0tY8;
+	Thu, 09 Apr 2026 07:43:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAk3R-00000009s1a-0quf;
+	Thu, 09 Apr 2026 07:43:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A9F114049D;
+	Thu,  9 Apr 2026 07:43:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05C1EC4CEF7;
+	Thu,  9 Apr 2026 07:43:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775720636;
+	bh=uq/R6PmosWxaig3fB+at0I2ppDM6xQzhVCUmWXfCLIE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d8GUs/B3jDW2frdZiV8QPiYbk9v18VZd7X15RxiS1RqB+79dOyj9M/gsATt3nMdbo
-	 sfUtUYCcV+gEJlbpIFOxTu0F6+OEFgVqJOQyRKt9wK39FJm3q0cUrfDwdmVVz7kTRT
-	 6fWMWLO4tHky73CtIu7mYttYuuLUx2FUb47JuCq0=
-Date: Thu, 9 Apr 2026 08:42:37 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
-	kernel@xen0n.name, hca@linux.ibm.com, gor@linux.ibm.com,
-	agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
-	svens@linux.ibm.com, oleg@redhat.com, tglx@kernel.org,
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
-	hpa@zytor.com, arnd@arndb.de, shuah@kernel.org,
-	kevin.brodsky@arm.com, yeoreum.yun@arm.com,
-	anshuman.khandual@arm.com, thuth@redhat.com, ryan.roberts@arm.com,
-	song@kernel.org, ziyao@disroot.org, linusw@kernel.org,
-	schuster.simon@siemens-energy.com, jremus@linux.ibm.com,
-	akpm@linux-foundation.org, mathieu.desnoyers@efficios.com,
-	kmal@cock.li, dvyukov@google.com, reddybalavignesh9979@gmail.com,
-	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-s390@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v14 2/4] asm-generic: Move TIF_SINGLESTEP to generic TIF
- bits
-Message-ID: <addYbV3_9eFZg_b4@J2N7QTR9R3>
-References: <20260320104222.1381274-1-ruanjinjie@huawei.com>
- <20260320104222.1381274-3-ruanjinjie@huawei.com>
+	b=EVllBZVKxqZDb6GWFRf6NCvRGFukJ+3EsnP2wGG9WlFBKXTj1m8EIxNieXFokKcNC
+	 DY8z5BewLaM0clOfV8z+g1lmeigkmas2Ef6llkBYUOLKsmHrhs6frICytJD1gAsrKP
+	 ILgqkdcyErgC7vKK10MJFyN83omrsJUU66Wg5JXSURzCIb3ir1Ij3WrhC0G+47k5+2
+	 fOyhhnUVmELllc1kcdTZyR18jQlxhVRpMa5u74L1GuCocHwkhIB/mey17qCMktLJqH
+	 ipAjY8yoPibjVwitnUb53lOicQ19oNEt78twPkuxZBkzykgu0tVCNo/b3LtrTDEbtB
+	 v2GJLeLdgZMLA==
+Date: Thu, 9 Apr 2026 09:43:53 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Yu-Chun Lin <eleanor.lin@realtek.com>
+Cc: linusw@kernel.org, brgl@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, afaerber@suse.com, tychang@realtek.com, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-realtek-soc@lists.infradead.org, cy.huang@realtek.com, 
+	stanley_chang@realtek.com, james.tai@realtek.com
+Subject: Re: [PATCH v2 2/4] dt-bindings: gpio: realtek: Add
+ realtek,rtd1625-gpio
+Message-ID: <20260409-heavy-colorful-monkey-e09d42@quoll>
+References: <20260408025243.1155482-1-eleanor.lin@realtek.com>
+ <20260408025243.1155482-3-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260320104222.1381274-3-ruanjinjie@huawei.com>
+In-Reply-To: <20260408025243.1155482-3-eleanor.lin@realtek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_004247_400010_979C605E 
-X-CRM114-Status: GOOD (  23.11  )
+X-CRM114-CacheID: sfid-20260409_004357_258797_8282194E 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,152 +76,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 20, 2026 at 06:42:20PM +0800, Jinjie Ruan wrote:
-> Currently, x86, ARM64, s390, and LoongArch all define and use
-> TIF_SINGLESTEP to track single-stepping state.
-
-Do the architectures actually use the flag in the same way?
-
-I'd expect that this is used subtly differently across those
-architectures, and so isn't necessarily generic.
-
-> Since this flag is shared across multiple major architectures and serves
-> a common purpose in the generic entry/exit paths, move TIF_SINGLESTEP
-> into the generic Thread Information Flags (TIF) infrastructure.
-> 
-> This consolidation reduces architecture-specific boilerplate code and
-> ensures consistency for generic features that rely on single-step
-> state tracking.
-
-Is it necessary to make this generic in order to move to generic irq
-flags? I'd expect that generic code cannot make use of this due to the
-different semantics across architectures, as noted abobve.
-
-I think it's probably better to keep this architecture-specific for now,
-where architectures can clearly define how they're using this bit.
-
-Am I missing some reason why it's necessary to make this generic?
-
-Mark.
-
-> Cc: Thomas Gleixner <tglx@kernel.org>
-> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Acked-by: Heiko Carstens <hca@linux.ibm.com> # s390
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  arch/loongarch/include/asm/thread_info.h | 11 +++++------
->  arch/s390/include/asm/thread_info.h      |  7 +++----
->  arch/x86/include/asm/thread_info.h       |  6 ++----
->  include/asm-generic/thread_info_tif.h    |  5 +++++
->  4 files changed, 15 insertions(+), 14 deletions(-)
-> 
-> diff --git a/arch/loongarch/include/asm/thread_info.h b/arch/loongarch/include/asm/thread_info.h
-> index 4d7117fcdc78..a2ec87f18e1d 100644
-> --- a/arch/loongarch/include/asm/thread_info.h
-> +++ b/arch/loongarch/include/asm/thread_info.h
-> @@ -70,6 +70,7 @@ register unsigned long current_stack_pointer __asm__("$sp");
->   */
->  #define HAVE_TIF_NEED_RESCHED_LAZY
->  #define HAVE_TIF_RESTORE_SIGMASK
-> +#define HAVE_TIF_SINGLESTEP
->  
->  #include <asm-generic/thread_info_tif.h>
->  
-> @@ -82,11 +83,10 @@ register unsigned long current_stack_pointer __asm__("$sp");
->  #define TIF_32BIT_REGS		21	/* 32-bit general purpose registers */
->  #define TIF_32BIT_ADDR		22	/* 32-bit address space */
->  #define TIF_LOAD_WATCH		23	/* If set, load watch registers */
-> -#define TIF_SINGLESTEP		24	/* Single Step */
-> -#define TIF_LSX_CTX_LIVE	25	/* LSX context must be preserved */
-> -#define TIF_LASX_CTX_LIVE	26	/* LASX context must be preserved */
-> -#define TIF_USEDLBT		27	/* LBT was used by this task this quantum (SMP) */
-> -#define TIF_LBT_CTX_LIVE	28	/* LBT context must be preserved */
-> +#define TIF_LSX_CTX_LIVE	24	/* LSX context must be preserved */
-> +#define TIF_LASX_CTX_LIVE	25	/* LASX context must be preserved */
-> +#define TIF_USEDLBT		26	/* LBT was used by this task this quantum (SMP) */
-> +#define TIF_LBT_CTX_LIVE	27	/* LBT context must be preserved */
->  
->  #define _TIF_NOHZ		BIT(TIF_NOHZ)
->  #define _TIF_USEDFPU		BIT(TIF_USEDFPU)
-> @@ -96,7 +96,6 @@ register unsigned long current_stack_pointer __asm__("$sp");
->  #define _TIF_32BIT_REGS		BIT(TIF_32BIT_REGS)
->  #define _TIF_32BIT_ADDR		BIT(TIF_32BIT_ADDR)
->  #define _TIF_LOAD_WATCH		BIT(TIF_LOAD_WATCH)
-> -#define _TIF_SINGLESTEP		BIT(TIF_SINGLESTEP)
->  #define _TIF_LSX_CTX_LIVE	BIT(TIF_LSX_CTX_LIVE)
->  #define _TIF_LASX_CTX_LIVE	BIT(TIF_LASX_CTX_LIVE)
->  #define _TIF_USEDLBT		BIT(TIF_USEDLBT)
-> diff --git a/arch/s390/include/asm/thread_info.h b/arch/s390/include/asm/thread_info.h
-> index 1bcd42614e41..95be5258a422 100644
-> --- a/arch/s390/include/asm/thread_info.h
-> +++ b/arch/s390/include/asm/thread_info.h
-> @@ -61,6 +61,7 @@ void arch_setup_new_exec(void);
->   */
->  #define HAVE_TIF_NEED_RESCHED_LAZY
->  #define HAVE_TIF_RESTORE_SIGMASK
-> +#define HAVE_TIF_SINGLESTEP
->  
->  #include <asm-generic/thread_info_tif.h>
->  
-> @@ -69,15 +70,13 @@ void arch_setup_new_exec(void);
->  #define TIF_GUARDED_STORAGE	17	/* load guarded storage control block */
->  #define TIF_ISOLATE_BP_GUEST	18	/* Run KVM guests with isolated BP */
->  #define TIF_PER_TRAP		19	/* Need to handle PER trap on exit to usermode */
-> -#define TIF_SINGLESTEP		21	/* This task is single stepped */
-> -#define TIF_BLOCK_STEP		22	/* This task is block stepped */
-> -#define TIF_UPROBE_SINGLESTEP	23	/* This task is uprobe single stepped */
-> +#define TIF_BLOCK_STEP		20	/* This task is block stepped */
-> +#define TIF_UPROBE_SINGLESTEP	21	/* This task is uprobe single stepped */
->  
->  #define _TIF_ASCE_PRIMARY	BIT(TIF_ASCE_PRIMARY)
->  #define _TIF_GUARDED_STORAGE	BIT(TIF_GUARDED_STORAGE)
->  #define _TIF_ISOLATE_BP_GUEST	BIT(TIF_ISOLATE_BP_GUEST)
->  #define _TIF_PER_TRAP		BIT(TIF_PER_TRAP)
-> -#define _TIF_SINGLESTEP	BIT(TIF_SINGLESTEP)
->  #define _TIF_BLOCK_STEP		BIT(TIF_BLOCK_STEP)
->  #define _TIF_UPROBE_SINGLESTEP	BIT(TIF_UPROBE_SINGLESTEP)
->  
-> diff --git a/arch/x86/include/asm/thread_info.h b/arch/x86/include/asm/thread_info.h
-> index 0067684afb5b..f59072ba1473 100644
-> --- a/arch/x86/include/asm/thread_info.h
-> +++ b/arch/x86/include/asm/thread_info.h
-> @@ -98,9 +98,8 @@ struct thread_info {
->  #define TIF_IO_BITMAP		22	/* uses I/O bitmap */
->  #define TIF_SPEC_FORCE_UPDATE	23	/* Force speculation MSR update in context switch */
->  #define TIF_FORCED_TF		24	/* true if TF in eflags artificially */
-> -#define TIF_SINGLESTEP		25	/* reenable singlestep on user return*/
-> -#define TIF_BLOCKSTEP		26	/* set when we want DEBUGCTLMSR_BTF */
-> -#define TIF_ADDR32		27	/* 32-bit address space on 64 bits */
-> +#define TIF_BLOCKSTEP		25	/* set when we want DEBUGCTLMSR_BTF */
-> +#define TIF_ADDR32		26	/* 32-bit address space on 64 bits */
->  
->  #define _TIF_SSBD		BIT(TIF_SSBD)
->  #define _TIF_SPEC_IB		BIT(TIF_SPEC_IB)
-> @@ -112,7 +111,6 @@ struct thread_info {
->  #define _TIF_SPEC_FORCE_UPDATE	BIT(TIF_SPEC_FORCE_UPDATE)
->  #define _TIF_FORCED_TF		BIT(TIF_FORCED_TF)
->  #define _TIF_BLOCKSTEP		BIT(TIF_BLOCKSTEP)
-> -#define _TIF_SINGLESTEP		BIT(TIF_SINGLESTEP)
->  #define _TIF_ADDR32		BIT(TIF_ADDR32)
->  
->  /* flags to check in __switch_to() */
-> diff --git a/include/asm-generic/thread_info_tif.h b/include/asm-generic/thread_info_tif.h
-> index da1610a78f92..b277fe06aee3 100644
-> --- a/include/asm-generic/thread_info_tif.h
-> +++ b/include/asm-generic/thread_info_tif.h
-> @@ -48,4 +48,9 @@
->  #define TIF_RSEQ		11	// Run RSEQ fast path
->  #define _TIF_RSEQ		BIT(TIF_RSEQ)
->  
-> +#ifdef HAVE_TIF_SINGLESTEP
-> +#define TIF_SINGLESTEP		12	/* reenable singlestep on user return*/
-> +#define _TIF_SINGLESTEP		BIT(TIF_SINGLESTEP)
-> +#endif
+On Wed, Apr 08, 2026 at 10:52:41AM +0800, Yu-Chun Lin wrote:
+> +maintainers:
+> +  - Tzuyi Chang <tychang@realtek.com>
 > +
->  #endif /* _ASM_GENERIC_THREAD_INFO_TIF_H_ */
-> -- 
-> 2.34.1
-> 
+> +description: |
+> +  GPIO controller for the Realtek RTD1625 SoC, featuring a per-pin register
+> +  architecture that differs significantly from earlier RTD series controllers.
+> +  Each GPIO has dedicated registers for configuration (direction, input/output
+> +  values, debounce), and interrupt control supporting edge and level detection
+> +  modes.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - realtek,rtd1625-iso-gpio
+> +      - realtek,rtd1625-isom-gpio
+> +
+> +  reg:
+> +    maxItems: 1
+> +    description: |
+> +      Memory region containing both interrupt control and GPIO
+> +      configuration registers in a contiguous address space.
+> +
+> +      For realtek,rtd1625-iso-gpio:
+> +        - Base + 0x0 ~ 0xff: Interrupt control registers
+> +        - Base + 0x100 ~ 0x397: GPIO configuration registers
+> +
+> +      For realtek,rtd1625-isom-gpio:
+> +        - Base + 0x0 ~ 0x1f: Interrupt control registers
+> +        - Base + 0x20 ~ 0x2f: GPIO configuration registers
+
+Drop description, you are duplicating here DTS. Bindings do not need to
+serve as reference manual for the device.
+
+However when you state them like this and give them names, I have the
+same concerns as last time - please consult your datasheet whether this
+is really one address space.
+
+With description dropped:
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Best regards,
+Krzysztof
+
 
