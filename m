@@ -4,59 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CE97E98FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 13:36:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D68FEA3C4E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 13:36:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NVBq9I32wjd5Ilt6dTkAOT6ab0TEUzTAeqRtcnHP2r4=; b=b20xZVSUUF3asqSLIPbaQL7H3c
-	XEKwRcKb1Wg559uOPTIr9rFyFnsw4LlOkh7NJANubnvW3YJ44K7XeT80h6RxElLvgV44Bi7QTsamO
-	AbryPr8GYnWjhuDeb0MYTsqA7iCjy5prAly4D9L15sjDm9FqhVMXgVClj58oBkRJmLmrzByu1QYgi
-	2547HPJLdH/TLER9yCMLxYyM5xcXR+rJug9bnJjnGDQXMnhKT02CzJJX1i5+Gk5m4DI3nyJVN375R
-	6yoUIMCAtGjIuKC+2xbl91e1uoB37ad10pKLS26WofU/IyIh5vjWj87NyVEnljx8kre+PEcrn48eE
-	5Tq5MPZQ==;
+	bh=wznX5A3ByL2CzKieG/HUhtnCDaBm+ikfbAOPob+cTk0=; b=UZJ6R6apYnsTFfcDjpaIVdOzXw
+	S27vTFe8T/R7zmMetZcxN1RxlstLGgN7HkhJmqqdJ7d9KrK44y3BxGWGFEJE6aWATT9ko8DWc96Hz
+	7Xlf3l8b889rOoS9ENww40hx3kG0TS1G2Fu/ELM797ZvhwN0kjJwghMlxYE+OFEE7BLshRyegBHqi
+	PTy8+296us7fmjybb0995fJcMTnS8BglCYjgrK4L/8aoLLbNMf7scblL9dlpv0jGZ2us5CZtBt4op
+	OtLqLSou6BMvR4e1cpXZ7XKOOK481IKycRxP9l8994s0x9rK5QYPWHM2KFOa1rfBXY3aeR8pM3hH3
+	RnFcrUiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wApYI-0000000AXGr-29pa;
-	Thu, 09 Apr 2026 13:36:10 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1wApYX-0000000AXLh-0FXY;
+	Thu, 09 Apr 2026 13:36:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wApY7-0000000AX9r-2z2l;
-	Thu, 09 Apr 2026 13:36:08 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.99)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1wApY2-0000000022P-3G0v;
-	Thu, 09 Apr 2026 13:35:54 +0000
-Date: Thu, 9 Apr 2026 14:35:46 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Frank Wunderlich <linux@fw-web.de>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	Andrew LaMarche <andrewjlamarche@gmail.com>
-Subject: Re: [PATCH v1 2/3] arm64: dts: mediatek: mt7988a-bpi-r4pro: update
- gpio-leds
-Message-ID: <aderMs16WpR9yPMe@makrotopia.org>
-References: <20260409131754.121737-1-linux@fw-web.de>
- <20260409131754.121737-3-linux@fw-web.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260409131754.121737-3-linux@fw-web.de>
+	id 1wApYU-0000000AXKQ-2GGu
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Apr 2026 13:36:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BD2A0429F5;
+	Thu,  9 Apr 2026 13:36:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 979D6C2BC87;
+	Thu,  9 Apr 2026 13:36:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775741780;
+	bh=GDn1DLacIU14AK7FEP/oZNxe8Zv3uw0qR8hvd50FNrw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=HAeetAG10hQOSi28lGmI8p6MQ6lUDjbpcZSKna3znj56XsevBbHIvmJ73H0EKGk4h
+	 geafC4hvDZBxOB/IwhyUAYSww5URj1sCfthRkP9DPXqvyB5ihAb1w4VErFikL+39DR
+	 JYmM1p7CzWe3cyNMHAc72RPsFMdGGB16vQsC1oPxp0PjVdKZ7reCqWgthVpYNSZcJ1
+	 OeCH+8PQCCFIbrBR0L5hkdyVE/QfI3AC4gA0YLvnDZXN9W09echBeNHD2aoQlSwOVN
+	 HaqEzTn5GOUH+9tM/idaNdF3b25sw4mL2rwGSGkwhX94LdkjNNc1CxI0TgyGJBWOCs
+	 kskToFhzh+JFQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wApYQ-0000000AGL8-0UYk;
+	Thu, 09 Apr 2026 13:36:18 +0000
+Date: Thu, 09 Apr 2026 14:36:17 +0100
+Message-ID: <86wlyg2r3i.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: David Woodhouse <dwmw2@infradead.org>
+Cc: akihiko.odaki@daynix.com,
+	"Gutierrez Cantu, Bernardo"
+ <bercantu@amazon.de>,
+	alexandru.elisei@arm.com,
+	alyssa@rosenzweig.io,
+	asahi@lists.linux.dev,
+	broonie@kernel.org,
+	catalin.marinas@arm.com,
+	james.morse@arm.com,
+	kvmarm@lists.cs.columbia.edu,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	marcan@marcan.st,
+	mathieu.poirier@linaro.org,
+	oliver.upton@linux.dev,
+	suzuki.poulose@arm.com,
+	sven@svenpeter.dev,
+	will@kernel.org
+Subject: Re: [PATCH v7 7/7] KVM: arm64: Normalize cache configuration
+In-Reply-To: <b71910e202ac4a56a87c0e34df13cce058d46a76.camel@infradead.org>
+References: <20230112023852.42012-8-akihiko.odaki@daynix.com>
+	<b71910e202ac4a56a87c0e34df13cce058d46a76.camel@infradead.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: dwmw2@infradead.org, akihiko.odaki@daynix.com, bercantu@amazon.de, alexandru.elisei@arm.com, alyssa@rosenzweig.io, asahi@lists.linux.dev, broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com, kvmarm@lists.cs.columbia.edu, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, marcan@marcan.st, mathieu.poirier@linaro.org, oliver.upton@linux.dev, suzuki.poulose@arm.com, sven@svenpeter.dev, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_063607_936566_021AE663 
-X-CRM114-Status: GOOD (  14.67  )
+X-CRM114-CacheID: sfid-20260409_063622_699483_7E147583 
+X-CRM114-Status: GOOD (  28.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,44 +101,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 09, 2026 at 03:17:50PM +0200, Frank Wunderlich wrote:
-> From: Frank Wunderlich <frank-w@public-files.de>
+On Thu, 09 Apr 2026 13:25:24 +0100,
+David Woodhouse <dwmw2@infradead.org> wrote:
 > 
-> On the official case the red LED is named ERR, the blue LED is named ACT.​​​​​​​​​​​​​​​​
-> Reflect these labels in function and set them default off.
+> On Thu, 12 Jan 2023 at 11:38:52 +0900, Akihiko Odaki wrote:
+> > Before this change, the cache configuration of the physical CPU was
+> > exposed to vcpus. This is problematic because the cache configuration a
+> > vcpu sees varies when it migrates between vcpus with different cache
+> > configurations.
+> > 
+> > Fabricate cache configuration from the sanitized value, which holds the
+> > CTR_EL0 value the userspace sees regardless of which physical CPU it
+> > resides on.
+> > 
+> > CLIDR_EL1 and CCSIDR_EL1 are now writable from the userspace so that
+> > the VMM can restore the values saved with the old kernel.
 > 
-> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> ---
->  .../boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi      | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
+> (commit 7af0c2534f4c5)
 > 
-> diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi
-> index 759f608d1081..7f770a76775a 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-pro.dtsi
-> @@ -61,14 +61,16 @@ gpio-leds {
->  
->  		led_red: sys-led-red {
->  			color = <LED_COLOR_ID_RED>;
-> +			function = LED_FUNCTION_FAULT;
->  			gpios = <&pca9555 15 GPIO_ACTIVE_HIGH>;
-> -			default-state = "on";
-> +			default-state = "off";
+> How does the VMM set the values that the old kernel would have set?
 
-Just drop 'default-state' entirely from both nodes.
+By reading them at the source?
 
->  		};
->  
->  		led_blue: sys-led-blue {
->  			color = <LED_COLOR_ID_BLUE>;
-> +			function = LED_FUNCTION_ACTIVITY;
->  			gpios = <&pca9555 14 GPIO_ACTIVE_HIGH>;
-> -			default-state = "on";
-> +			default-state = "off";
->  		};
->  	};
->  
-> -- 
-> 2.43.0
+> Let's say we're deploying a kernel with this change for the first time,
+> and we need to ensure that we provide a consistent environment to
+> guests, which can be live migrated back to an older host.
+
+We have never guaranteed host downgrade. It almost never works.
+
+> So for new launches, we need to provide the values that the old kernel
+> *would* have provided to the guest. A new launch isn't a migration;
+> there are no "values saved with the old kernel".
+
+And you can provide these values.
+
 > 
+> Userspace can't read the CLIDR_EL1 and CCSIDR_EL1 registers directly,
+> and AFAICT not everything we need to reconstitute them is in sysfs. How
+> is this supposed to work?
+>
+> Shouldn't this change have been made as a capability that the VMM can
+> explicitly opt in or out of? Environments that don't do cross-CPU
+> migration absolutely don't care about, and actively don't *want*, the
+> sanitisation that this commit inflicted on us, surely?
+
+I don't think a capability buys you anything. You want to expose
+something to the guest? Make it so. You are in the favourable
+situation to completely own the HW and the VMM.
+
+The stuff we are allowing the VMM to change are not directly relevant
+to the guest anyway (set/way per cache levels...), and were only
+actively breaking things.
+
+> Am I missing something?
+
+That you had over 3 years to voice your concern, and did nothing?
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
