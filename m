@@ -4,56 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B46EA3C59
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 13:51:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E407CEA3C5E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 13:52:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tLUr1VEWYdfR3jTQPZjyc/HNQBl6/i75LRiyRBYsARQ=; b=xFtp4WWA/EvJeK
-	ZdSoLCRGWd26W8N5FORrsut0FKiDiELYRKQFAYm3KWPwwe0xCFdqJJir49k8AS67odQ4WL3YAotoZ
-	XJxTHu2aWTwqanr5wDlHgolVLmhAAlNmdjeSLVFAIs2KF3K4MO5gyXiHL48XE8mxHyW1e0A1Df5vn
-	GOKw7nO8t1lBDraLL/YsE0j+NR++Xi5AwWI+0L0GR3N8GS/uWAjZBbH3PRJt0TzkI0VudDRh3453r
-	w2KOpdzGV4cLzYNFM6PuMLFpFGEaDJwEK4YSxBy5F5pzfGJKubdA7yKtLw5MMjB75iH8qjo28SVCr
-	6Mi/Rkf31UaIiYFhpVvg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+s0l6CgVHpXjxxEQxSFAhgRpNt1uE98jKbfCFhsnvhw=; b=R9AZ+DPRMo+MhP/iBNRCT9FZuy
+	HcV6SveFCR+vD7FUjW1NeevpM/ayFRhuNJSYg7fEcpzfv82I5vy5KH7X9CgvjuLfVDDpDr1u7BlnC
+	BtT+CmJ4h6oV2cLaAKi1nfeqQ6FbLwwrsmuknfIY0XxmqnlW5sOynu5Jt1WMaa9Lo9ojcST8+tm/6
+	VoLOZkqD1s/BCZOK6e5y6+21nM+LNb1GoJCkmid/XUEm5AgblDUqc9LtYVSX7QWCPulzSS7QF2ngS
+	t8W+lkjOJp5JIhu+IlOv82XsL6qRiUdK4MdyQ7KmgDz/EWz8pCBuLe3Hzsnm/NCpw5ENOS5Wi0o5u
+	CAZwUQ3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wApnG-0000000AZyk-1ODi;
-	Thu, 09 Apr 2026 13:51:38 +0000
+	id 1wApnJ-0000000Aa0l-1hRL;
+	Thu, 09 Apr 2026 13:51:41 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wApnB-0000000AZx8-16bz;
-	Thu, 09 Apr 2026 13:51:34 +0000
+	id 1wApnC-0000000AZx9-1JoL;
+	Thu, 09 Apr 2026 13:51:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1775742688;
-	bh=zb8Kdcld56GkDD3eedBbJU1WAMrgjQXCYOIVVPIDCuE=;
-	h=From:Subject:Date:To:Cc:From;
-	b=i54P+b5JUflbk2iAP5O3PJHSnKjPJHg0+jrZX+sOPe8KoX9ChZlc8aZPy/TMgV8R0
-	 Zhiv0TZpgVEx7/JYko257JDLmncVuXkQaPw7R7CEgTE6sUS14SFqSd6RFMl0Ud5F8y
-	 QEeLDC36E2QOvH8JY8aMPIZhSRSXRmt0s/s1ZQ+Jl+Q9iWH+JVT/FNm3Hnsiz0owCv
-	 +fuititxsucYcIDa0U2jFWQ4A+XYyzYrCI9mR0gM4PHLMedgYWTh+O2dnKFfdcW3/F
-	 QfQmj7OSSdn5N30KlYVuCmdFpVrK3rAVJJIbInfibb6Faw1L+AlelbEF+a63svX2NH
-	 GWyFnWPEawcHw==
+	s=mail; t=1775742690;
+	bh=EANjXK0pUgPsxuTannl80kTzacZ17wagSvF/zmR7XQE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=dXvO3xJxl7lDEOkIRDGLuC+39/Sm6Y2njQQiRjybGrV0XFhGDJ9mL99rvQktUq7cN
+	 VqFYAexEknC3JnYkGlCzdstdGN9PalgO49S6bStNXE5piAuVPXWxh5v8uypHd7Mltj
+	 KhlW0hg5HJg+jJjVATlAwO8MtJf97+deopOT6vum7r9xBfiL4IWuiRl+7zYLBD+XTO
+	 nRjJbzSkrl4GNPBHgmoeBfJZJWpYKtT2LY72khK5p9LqnpnJOxbWimZUSmlj/HnuLR
+	 hVlCld99uuUMyy1wucuS/xXkYmx6UdWdb8LwbDEb8SNcz5CnCsdegNBPmRdYMUT6fk
+	 xmDcvA5ir4z+w==
 Received: from [192.168.0.15] (unknown [100.64.0.170])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 47E1517E0CA9;
-	Thu,  9 Apr 2026 15:51:27 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2C1C917E0D23;
+	Thu,  9 Apr 2026 15:51:29 +0200 (CEST)
 From: Detlev Casanova <detlev.casanova@collabora.com>
-Subject: [PATCH 0/7] media: rkvdec: Enable multi-core support
-Date: Thu, 09 Apr 2026 09:50:35 -0400
-Message-Id: <20260409-rkvdec-multicore-v1-0-62b316abf0f7@collabora.com>
+Date: Thu, 09 Apr 2026 09:50:36 -0400
+Subject: [PATCH 1/7] media: v4l2-mem2mem: Add v4l2_m2m_buf_done_manual()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMSQ6DMAxA0asgrxspCVPoVSoWkBhwy1A5gJAQd
- yfA8i3+38EjE3p4RzswruRpGgPUKwLbVWOLglwwaKkzmUgj+Lc6tGJY+pnsxCgKY2LlqlTJXEP
- I/owNbffyUz72S/1FO18fOI4TEu/+mnQAAAA=
-X-Change-ID: 20260408-rkvdec-multicore-98831da51072
+Message-Id: <20260409-rkvdec-multicore-v1-1-62b316abf0f7@collabora.com>
+References: <20260409-rkvdec-multicore-v1-0-62b316abf0f7@collabora.com>
+In-Reply-To: <20260409-rkvdec-multicore-v1-0-62b316abf0f7@collabora.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
  Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
  Heiko Stuebner <heiko@sntech.de>, 
@@ -65,8 +63,8 @@ Cc: kernel@collabora.com, linux-media@vger.kernel.org,
  Detlev Casanova <detlev.casanova@collabora.com>
 X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_065133_559768_756D9CF5 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20260409_065134_500087_99AF219D 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,69 +79,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the driver is used for decoding on rk3588 and that the SoC has
-2 identical decoding cores, enable support for it.
+This function can be used to mark buffers as done, handling locking, but
+not finishing the job as it is done by v4l2_m2m_buf_done_and_finish_job().
 
-Instead of exposing 2 v4l2 devices to userspace, the driver will only
-expose one and handle the 2 cores transparently.
+To avoid copying similar code, a static function is added with an extra
+finish argument.
+The code path of v4l2_m2m_buf_done_and_finish_job() is unchanged.
 
-The 2 cores are able to work in parallel, but only contexts are
-parallelized: 1 stream, that uses 1 context, will only be able to use
-1 core as it usually needs previous frames already decoded to use as
-reference frames.
-To avoid complex scheduling, only different streams can use cores at the
-same time.
-
-To achieve this, the v4l2_m2m_buf_done_and_job_finish() had to be split
-in a done and a finish part (still keeping the unsplit function for other
-drivers). That allows the driver to get new jobs to run while the previous
-one is still running.
-The job_ready() callback is used to avoid scheduling multiple jobs from
-the same context.
-
-The IOMMU support is in a different commit, as it needed a bit more
-thought to work correctly, but I'm wondering if it should be merged with
-the multicore support commit.
-
-A fix for the RCB (Row and Cols Buffer) size computation is also provided
-as it was causing issues with some fluster tests.
-
-Performance-wise, fluster doesn't seem to run much faster, but I tested
-with an HEVC test video from Jellyfin and observed that frames start
-dropping with 6 concurrent gstreamer instances, instead of 4 without
-multi-core enabled.
+This allows for finer grained buffer management in drivers, scheduling
+new jobs before the previous one is finished and prepares for enabling
+multicore support in rkvdec.
 
 Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
-Detlev Casanova (7):
-      media: v4l2-mem2mem: Add v4l2_m2m_buf_done_manual()
-      media: v4l2-mem2mem: Remove WARN_ON() in v4l2_m2m_job_finish()
-      media: rkvdec: Keep RCB to the correct size
-      media: rkvdec: Remove unused need_reset
-      media: rkvdec: Add multicore support
-      media: rkvdec: Wait for all buffers before stop_streaming
-      media: rkvdec: Add multicore IOMMU support
+ drivers/media/v4l2-core/v4l2-mem2mem.c | 27 ++++++++++++++++++++++-----
+ include/media/v4l2-mem2mem.h           | 20 ++++++++++++++++++++
+ 2 files changed, 42 insertions(+), 5 deletions(-)
 
- .../media/platform/rockchip/rkvdec/rkvdec-h264.c   |  17 +-
- .../media/platform/rockchip/rkvdec/rkvdec-hevc.c   |  16 +-
- .../media/platform/rockchip/rkvdec/rkvdec-rcb.c    |  77 ++--
- .../media/platform/rockchip/rkvdec/rkvdec-rcb.h    |   8 +-
- .../platform/rockchip/rkvdec/rkvdec-vdpu381-h264.c |  24 +-
- .../platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c |  24 +-
- .../platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c |  24 +-
- .../platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c |  26 +-
- .../media/platform/rockchip/rkvdec/rkvdec-vp9.c    |  27 +-
- drivers/media/platform/rockchip/rkvdec/rkvdec.c    | 482 +++++++++++++--------
- drivers/media/platform/rockchip/rkvdec/rkvdec.h    |  31 +-
- drivers/media/v4l2-core/v4l2-mem2mem.c             |  34 +-
- include/media/v4l2-mem2mem.h                       |  20 +
- 13 files changed, 500 insertions(+), 310 deletions(-)
----
-base-commit: 3036cd0d3328220a1858b1ab390be8b562774e8a
-change-id: 20260408-rkvdec-multicore-98831da51072
+diff --git a/drivers/media/v4l2-core/v4l2-mem2mem.c b/drivers/media/v4l2-core/v4l2-mem2mem.c
+index a65cbb124cfe..7f9fad4f6807 100644
+--- a/drivers/media/v4l2-core/v4l2-mem2mem.c
++++ b/drivers/media/v4l2-core/v4l2-mem2mem.c
+@@ -503,9 +503,9 @@ void v4l2_m2m_job_finish(struct v4l2_m2m_dev *m2m_dev,
+ }
+ EXPORT_SYMBOL(v4l2_m2m_job_finish);
+ 
+-void v4l2_m2m_buf_done_and_job_finish(struct v4l2_m2m_dev *m2m_dev,
+-				      struct v4l2_m2m_ctx *m2m_ctx,
+-				      enum vb2_buffer_state state)
++static void _buf_done_and_job_finish(struct v4l2_m2m_dev *m2m_dev,
++				     struct v4l2_m2m_ctx *m2m_ctx,
++				     enum vb2_buffer_state state, bool finish)
+ {
+ 	struct vb2_v4l2_buffer *src_buf, *dst_buf;
+ 	bool schedule_next = false;
+@@ -532,13 +532,30 @@ void v4l2_m2m_buf_done_and_job_finish(struct v4l2_m2m_dev *m2m_dev,
+ 	 * before the CAPTURE buffer is done.
+ 	 */
+ 	v4l2_m2m_buf_done(src_buf, state);
+-	schedule_next = _v4l2_m2m_job_finish(m2m_dev, m2m_ctx);
++	if (finish)
++		schedule_next = _v4l2_m2m_job_finish(m2m_dev, m2m_ctx);
+ unlock:
+ 	spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
+ 
+-	if (schedule_next)
++	if (schedule_next || !finish)
+ 		v4l2_m2m_schedule_next_job(m2m_dev, m2m_ctx);
+ }
++
++
++void v4l2_m2m_buf_done_manual(struct v4l2_m2m_dev *m2m_dev,
++			      struct v4l2_m2m_ctx *m2m_ctx,
++			      enum vb2_buffer_state state)
++{
++	_buf_done_and_job_finish(m2m_dev, m2m_ctx, state, false);
++}
++EXPORT_SYMBOL(v4l2_m2m_buf_done_manual);
++
++void v4l2_m2m_buf_done_and_job_finish(struct v4l2_m2m_dev *m2m_dev,
++				      struct v4l2_m2m_ctx *m2m_ctx,
++				      enum vb2_buffer_state state)
++{
++	_buf_done_and_job_finish(m2m_dev, m2m_ctx, state, true);
++}
+ EXPORT_SYMBOL(v4l2_m2m_buf_done_and_job_finish);
+ 
+ void v4l2_m2m_suspend(struct v4l2_m2m_dev *m2m_dev)
+diff --git a/include/media/v4l2-mem2mem.h b/include/media/v4l2-mem2mem.h
+index 31de25d792b9..6a36fc885f5f 100644
+--- a/include/media/v4l2-mem2mem.h
++++ b/include/media/v4l2-mem2mem.h
+@@ -227,6 +227,26 @@ void v4l2_m2m_buf_done_and_job_finish(struct v4l2_m2m_dev *m2m_dev,
+ 				      struct v4l2_m2m_ctx *m2m_ctx,
+ 				      enum vb2_buffer_state state);
+ 
++/**
++ * v4l2_m2m_buf_done_manual() - manually mark the job as done, but do not
++ * finish it.
++ *
++ * @m2m_dev: opaque pointer to the internal data to handle M2M context
++ * @m2m_ctx: m2m context assigned to the instance given by struct &v4l2_m2m_ctx
++ * @state: vb2 buffer state passed to v4l2_m2m_buf_done().
++ *
++ * The function works the same way as v4l2_m2m_buf_done_and_job_finish()
++ * but does not inform the framework that the job has been finished,
++ * leaving the user the responsability to call v4l2_m2m_job_finish()
++ * when a buffer can be released to userspace.
++ *
++ * It allows driver to process new buffers, before the previous one is
++ * done.
++ */
++void v4l2_m2m_buf_done_manual(struct v4l2_m2m_dev *m2m_dev,
++			      struct v4l2_m2m_ctx *m2m_ctx,
++			      enum vb2_buffer_state state);
++
+ static inline void
+ v4l2_m2m_buf_done(struct vb2_v4l2_buffer *buf, enum vb2_buffer_state state)
+ {
 
-Best regards,
---  
-Detlev Casanova <detlev.casanova@collabora.com>
+-- 
+2.53.0
 
 
