@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4020F31E25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 14:49:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A20F31E22
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 14:49:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CR9mAVgxszVB53Zvua2wkg88/t3SzJ3xM3rQRaf39VM=; b=iRJUrEJroahp/pDoPbwn2ClVnc
-	aW9tH9KSzP8rVIXIIyYgIVGYwWLQNSxWZO4RNSsGl5aVE6/Wm0NnjIwIuG11KKzzMOLnh0qxYeiJW
-	VvJOcqtC2U0NNOUToF/78h95DxCW69Bt6hPqLn7GdFUGrynV8oBKhAX74uQHqTqouaW2fE56hBLt+
-	p+lGzMgQ8Eb8FLFHGon9w8ie4enEV9iNHcYzUyxK8WQ8xKOl9vNffElLI2SZP+mXHsqJzoETMoItT
-	fBMKlqxPUNgp5y/qw/rFBAQF8OrXdWBRCILf6M+pkPymXSOm5EcBC1l8Vi/wTy4KVe/PFwy5YjYyG
-	K8dubIyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YIIvMVaV8qE8drdDoy3orIwWiitdBwun+BeAUU71GJA=; b=3gglBsSZzWQ1Z5GCXiuk6lTYqv
+	UQy4pfrjQVXUirSLsON0vBAbXQ6NNJf7Z7ykbHzp4f9Eafyu9M7kdQK51tIGWOGbXmXUD3d6p06Od
+	YgWOkj6xUEbXaHGtEeXXWbjQPAE308TnG00CNJzCKn2+MF/tjsBxjfyDtm8MsL2CTm4oMttFnnVGk
+	x0ch97bLfbu9pNlVT3fMXa766mZpbEXKBaRJWSCKYraqnYeiA5qCl/6oFjuylGaEuS9Yp/rjv6mQt
+	qbSfRQ7FF2lkB29ubHcwn6d23Zqi+lLfL6leeDcIIzBz20GCSpya3jXwWGdC7xApSao1/PaEgooWR
+	eZb28LTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAqhE-0000000AjeW-1GZd;
-	Thu, 09 Apr 2026 14:49:28 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAqhC-0000000Ajdj-0Ho8;
-	Thu, 09 Apr 2026 14:49:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1775746150; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=FyjrxfSs10DNUXtp2oEHYFs+x2xKQ8PL/bNjEjVnYvjY/VhrzKYBHJX+axnbY+zEAVUkHcdpVuYnJw4Q/g39sk3s5OeFvw0P2FLS8d/QomWcda8gTRlqAepJmOMsRTSHUD/vz3P/G1aOSR4aPu789dzVIabWNDoY0XViC5aua+4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1775746150; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=CR9mAVgxszVB53Zvua2wkg88/t3SzJ3xM3rQRaf39VM=; 
-	b=aO3NY/k4Vpuq1VWM8zTwvg+eQzaYOyzzebFTlxTGc5Qn8cjfw3id3CsCA4pCNeFrIe0O5zXzzyOFf3BGsUT+V3bADfyUKGSGX8c/OkKkVMJfg0J2zJcpfK/knx3JqYskMN6g8o+1U/qOsGIzt4TwjRvD7DxEuw5MyNAXwpDeZKE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
-	dmarc=pass header.from=<detlev.casanova@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1775746150;
-	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=CR9mAVgxszVB53Zvua2wkg88/t3SzJ3xM3rQRaf39VM=;
-	b=OMrhomFcpM42/enJAPw7i8P9Z0b8+sCp4adXXJMG2Lo15WJzx5/4y927au7K32Hv
-	HhlMPripihSipxuNl/+Fup3Dao8Jh15qGEwNKY46ICj/Kj7MFkBYNoB1eNG7JZlkr9P
-	kS35stIgCPM6UfuCNgza+5cz/5s+rSd5Jlf2a4Dk=
-Received: by mx.zohomail.com with SMTPS id 177574614723085.36204229766054;
-	Thu, 9 Apr 2026 07:49:07 -0700 (PDT)
-Message-ID: <040f65ea-2559-4186-b733-3dc59a1ecc0b@collabora.com>
-Date: Thu, 9 Apr 2026 10:49:05 -0400
+	id 1wAqhe-0000000AjlB-37dr;
+	Thu, 09 Apr 2026 14:49:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAqhd-0000000AjkO-074k
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Apr 2026 14:49:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ACF242D95;
+	Thu,  9 Apr 2026 07:49:45 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 165083F632;
+	Thu,  9 Apr 2026 07:49:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775746191; bh=zEILdNNErAAbi/welUcKxk/5Wp5GJ77IpsQOPL7LSrg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=M1kX+QgmLUUlSgBHiwQzMU3oVoNn3h4t2g3urYq0YxgFjxIrlHShxNZjasKRW/Zkx
+	 wyZH/DY83em+qoRFWzT8E5BJanuuSY4gd2+1FNGmWCSYStunYBV57dSV9G/8VrnPea
+	 dLSDV0+5zHP62kayzaqG6fGlSu/jUxZ5sJ6F5MEI=
+Date: Thu, 9 Apr 2026 15:49:49 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Mike Leach <mike.leach@arm.com>
+Subject: Re: [PATCH v10 16/20] coresight: Add PM callbacks for sink device
+Message-ID: <20260409144949.GT356832@e132581.arm.com>
+References: <20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be@arm.com>
+ <20260405-arm_coresight_path_power_management_improvement-v10-16-13e94754a8be@arm.com>
+ <e7c6f497-f8f0-409b-b80a-a064b222c08d@linaro.org>
+ <f20b5a00-1d68-48d6-90c8-97dca2e279a4@arm.com>
+ <ffe95710-cd52-484e-821e-a3d92ba17c33@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/7] media: rkvdec: Add multicore IOMMU support
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Heiko Stuebner <heiko@sntech.de>, Hans Verkuil <hverkuil+cisco@kernel.org>,
- Jonas Karlman <jonas@kwiboo.se>
-Cc: kernel@collabora.com, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260409-rkvdec-multicore-v1-0-62b316abf0f7@collabora.com>
- <20260409-rkvdec-multicore-v1-7-62b316abf0f7@collabora.com>
- <517dc6e9de0e284b3dc22952d9479616e6c8ec62.camel@collabora.com>
-Content-Language: en-US
-From: Detlev Casanova <detlev.casanova@collabora.com>
-In-Reply-To: <517dc6e9de0e284b3dc22952d9479616e6c8ec62.camel@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+In-Reply-To: <ffe95710-cd52-484e-821e-a3d92ba17c33@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_074926_199031_6283A73E 
-X-CRM114-Status: GOOD (  30.55  )
+X-CRM114-CacheID: sfid-20260409_074953_180367_3941592F 
+X-CRM114-Status: GOOD (  27.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,268 +82,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+On Thu, Apr 09, 2026 at 03:30:56PM +0100, James Clark wrote:
 
-On 4/9/26 10:19, Nicolas Dufresne wrote:
-> Le jeudi 09 avril 2026 Ã  09:50 -0400, Detlev Casanova a Ã©critÂ :
->> As each core has its own IOMMU core, buffers must be mapped in each
->> core's IOMMU so that any run() call can use any core without having to
->> remap everything.
->>
->> To do that, we use rockchip iommu domain's iommu devices list.
->> With that, one IOMMU domain can be mapped on multiple devices, meaning
->> that each call to iommu_map() will flush the new mapping on all devices
->> in the list.
->>
->> The IOMMU domain that will have all devices in its list is the first
->> core's default domain.
->>
->> Another domain cannot be used because VB2 allocates buffers through the
->> DMA engine, which uses iommu_get_dma_domain() to find the domain to map
->> buffers through.
->>
->> The IOMMU restore function can still work as before, but needs to be more
->> explicit in what domain to attach the device to.
->> That is because detaching the empty domain will reattach the core's default
->> domain, which is wrong (except for the first "main" core).
->>
->> The RCB temporary buffers are allocated in a dedicated SRAM, each
->> core has its own SRAM, so the mapping for each core's SRAM is added in the
->> global domain.
->>
->> Everything else is mapped through the first core's default domain, making
->> the driver write the mappings on both IOMMU cores.
-> Just raising an issue with the patch ordering here. I'm worried in a git bisect,
-> the driver will be broken until we apply this last patch. Can we make sure that
-> the driver bisects ? (or tell me if I'm wrong)
-No, you're right. That's also why I mentioned it in the cover letter. 
-This commit is also not too big, so I'll merge the last 3 commits and 
-adapt the commit message to keep the information from the 3 (the commit 
-messages are why I wanted to keep them separate, but there is no good 
-way to keep them that way)
+[...]
 
-Detlev.
->
->> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
->> ---
->>  Â .../media/platform/rockchip/rkvdec/rkvdec-rcb.cÂ Â Â  | 21 ++++++-------
->>  Â .../media/platform/rockchip/rkvdec/rkvdec-rcb.hÂ Â Â  |Â  6 ++--
->>  Â drivers/media/platform/rockchip/rkvdec/rkvdec.cÂ Â Â  | 35 +++++++++++++++++-----
->>  Â drivers/media/platform/rockchip/rkvdec/rkvdec.hÂ Â Â  |Â  2 +-
->>  Â 4 files changed, 44 insertions(+), 20 deletions(-)
->>
->> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
->> index 190fb7438e8c..977e37cf209b 100644
->> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
->> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
->> @@ -57,7 +57,7 @@ bool rkvdec_rcb_buf_validate_size(struct rkvdec_ctx *ctx)
->>  Â 	return ret;
->>  Â }
->>   
->> -void rkvdec_free_rcb(struct rkvdec_core *core)
->> +void rkvdec_free_rcb(struct rkvdec_dev *rkvdec, struct rkvdec_core *core)
->>  Â {
->>  Â 	struct rkvdec_rcb_config *cfg = core->rcb_config;
->>  Â 	unsigned long virt_addr;
->> @@ -76,12 +76,12 @@ void rkvdec_free_rcb(struct rkvdec_core *core)
->>  Â 		case RKVDEC_ALLOC_SRAM:
->>  Â 			virt_addr = (unsigned long)cfg->rcb_bufs[i].cpu;
->>   
->> -			if (core->iommu_domain)
->> -				iommu_unmap(core->iommu_domain, virt_addr, rcb_size);
->> +			if (rkvdec->iommu_global_domain)
->> +				iommu_unmap(rkvdec->iommu_global_domain, virt_addr, rcb_size);
->>  Â 			gen_pool_free(core->sram_pool, virt_addr, rcb_size);
->>  Â 			break;
->>  Â 		case RKVDEC_ALLOC_DMA:
->> -			dma_free_coherent(core->dev,
->> +			dma_free_coherent(rkvdec->main_core->dev,
->>  Â 					Â  rcb_size,
->>  Â 					Â  cfg->rcb_bufs[i].cpu,
->>  Â 					Â  cfg->rcb_bufs[i].dma);
->> @@ -97,7 +97,8 @@ void rkvdec_free_rcb(struct rkvdec_core *core)
->>  Â 	core->rcb_config = NULL;
->>  Â }
->>   
->> -int rkvdec_allocate_rcb(struct rkvdec_core *core, u32 width, u32 height,
->> +int rkvdec_allocate_rcb(struct rkvdec_dev *rkvdec, struct rkvdec_core *core,
->> +			u32 width, u32 height,
->>  Â 			const struct rcb_size_info *size_info,
->>  Â 			size_t rcb_count)
->>  Â {
->> @@ -132,7 +133,7 @@ int rkvdec_allocate_rcb(struct rkvdec_core *core, u32 width, u32 height,
->>   
->>  Â 		/* Try allocating an SRAM buffer */
->>  Â 		if (core->sram_pool) {
->> -			if (core->iommu_domain)
->> +			if (rkvdec->iommu_global_domain)
->>  Â 				rcb_size = ALIGN(rcb_size, SZ_4K);
->>   
->>  Â 			cpu = gen_pool_dma_zalloc_align(core->sram_pool,
->> @@ -142,11 +143,11 @@ int rkvdec_allocate_rcb(struct rkvdec_core *core, u32 width, u32 height,
->>  Â 		}
->>   
->>  Â 		/* If an IOMMU is used, map the SRAM address through it */
->> -		if (cpu && core->iommu_domain) {
->> +		if (cpu && rkvdec->iommu_global_domain) {
->>  Â 			unsigned long virt_addr = (unsigned long)cpu;
->>  Â 			phys_addr_t phys_addr = dma;
->>   
->> -			ret = iommu_map(core->iommu_domain, virt_addr, phys_addr,
->> +			ret = iommu_map(rkvdec->iommu_global_domain, virt_addr, phys_addr,
->>  Â 					rcb_size, IOMMU_READ | IOMMU_WRITE, 0);
->>  Â 			if (ret) {
->>  Â 				gen_pool_free(core->sram_pool,
->> @@ -166,7 +167,7 @@ int rkvdec_allocate_rcb(struct rkvdec_core *core, u32 width, u32 height,
->>  Â ram_fallback:
->>  Â 		/* Fallback to RAM */
->>  Â 		if (!cpu) {
->> -			cpu = dma_alloc_coherent(core->dev,
->> +			cpu = dma_alloc_coherent(rkvdec->main_core->dev,
->>  Â 						 rcb_size,
->>  Â 						 &dma,
->>  Â 						 GFP_KERNEL);
->> @@ -189,7 +190,7 @@ int rkvdec_allocate_rcb(struct rkvdec_core *core, u32 width, u32 height,
->>  Â 	return 0;
->>   
->>  Â err_alloc:
->> -	rkvdec_free_rcb(core);
->> +	rkvdec_free_rcb(rkvdec, core);
->>   
->>  Â 	return ret;
->>  Â }
->> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
->> index a12af9b7dc2b..d1149afe7fda 100644
->> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
->> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
->> @@ -8,6 +8,7 @@
->>   
->>  Â #include <linux/types.h>
->>   
->> +struct rkvdec_dev;
->>  Â struct rkvdec_ctx;
->>  Â struct rkvdec_core;
->>   
->> @@ -21,11 +22,12 @@ struct rcb_size_info {
->>  Â 	enum rcb_axis axis;
->>  Â };
->>   
->> -int rkvdec_allocate_rcb(struct rkvdec_core *core, u32 width, u32 height,
->> +int rkvdec_allocate_rcb(struct rkvdec_dev *rkvdec, struct rkvdec_core *core,
->> +			u32 width, u32 height,
->>  Â 			const struct rcb_size_info *size_info,
->>  Â 			size_t rcb_count);
->>  Â dma_addr_t rkvdec_rcb_buf_dma_addr(struct rkvdec_ctx *ctx, int id);
->>  Â size_t rkvdec_rcb_buf_size(struct rkvdec_ctx *ctx, int id);
->>  Â int rkvdec_rcb_buf_count(struct rkvdec_ctx *ctx);
->>  Â bool rkvdec_rcb_buf_validate_size(struct rkvdec_ctx *ctx);
->> -void rkvdec_free_rcb(struct rkvdec_core *core);
->> +void rkvdec_free_rcb(struct rkvdec_dev *rkvdec, struct rkvdec_core *core);
->> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
->> index c2818f1575ef..2930e9b64906 100644
->> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
->> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
->> @@ -1204,9 +1204,9 @@ static void rkvdec_device_run(void *priv)
->>  Â 	}
->>   
->>  Â 	if (!rkvdec_rcb_buf_validate_size(ctx)) {
->> -		rkvdec_free_rcb(ctx->core);
->> +		rkvdec_free_rcb(ctx->dev, ctx->core);
->>   
->> -		ret = rkvdec_allocate_rcb(ctx->core,
->> +		ret = rkvdec_allocate_rcb(ctx->dev, ctx->core,
->>  Â 					Â  ctx->decoded_fmt.fmt.pix_mp.width,
->>  Â 					Â  ctx->decoded_fmt.fmt.pix_mp.height,
->>  Â 					Â  ctx->dev->variant->rcb_sizes,
->> @@ -1486,6 +1486,7 @@ static void rkvdec_v4l2_cleanup(struct rkvdec_dev *rkvdec)
->>   
->>  Â static void rkvdec_iommu_restore(struct rkvdec_core *core)
->>  Â {
->> +	int ret;
->>  Â 	if (core->empty_domain) {
->>  Â 		/*
->>  Â 		 * To rewrite mapping into the attached IOMMU core, attach a new empty domain that
->> @@ -1494,8 +1495,14 @@ static void rkvdec_iommu_restore(struct rkvdec_core *core)
->>  Â 		 * This is safely done in this interrupt handler to make sure no memory get mapped
->>  Â 		 * through the IOMMU while the empty domain is attached.
->>  Â 		 */
->> -		iommu_attach_device(core->empty_domain, core->dev);
->> +		iommu_detach_device(core->curr_ctx->dev->iommu_global_domain, core->dev);
->> +		ret = iommu_attach_device(core->empty_domain, core->dev);
->> +		if (ret)
->> +			dev_warn(core->dev, "Cannot attach empty domain: %d\n", ret);
->>  Â 		iommu_detach_device(core->empty_domain, core->dev);
->> +		ret = iommu_attach_device(core->curr_ctx->dev->iommu_global_domain, core->dev);
->> +		if (ret)
->> +			dev_warn(core->dev, "Cannot attach global domain: %d\n", ret);
->>  Â 	}
->>  Â }
->>   
->> @@ -1858,6 +1865,8 @@ static int rkvdec_probe(struct platform_device *pdev)
->>   
->>  Â 	core = &rkvdec->cores[rkvdec->core_count++];
->>   
->> +	core->id = rkvdec->core_count - 1;
->> +
->>  Â 	platform_set_drvdata(pdev, rkvdec);
->>  Â 	core->dev = &pdev->dev;
->>  Â 	INIT_DELAYED_WORK(&core->watchdog_work, rkvdec_watchdog_func);
->> @@ -1883,12 +1892,24 @@ static int rkvdec_probe(struct platform_device *pdev)
->>  Â 			return PTR_ERR(core->link);
->>  Â 	}
->>   
->> -	core->iommu_domain = iommu_get_domain_for_dev(&pdev->dev);
->> -	if (core->iommu_domain) {
->> +	if (iommu_get_domain_for_dev(&pdev->dev)) {
->>  Â 		core->empty_domain = iommu_paging_domain_alloc(core->dev);
->>   
->> -		if (!core->empty_domain)
->> +		if (IS_ERR(core->empty_domain))
->>  Â 			dev_warn(core->dev, "cannot alloc new empty domain\n");
->> +
->> +		if (!rkvdec->iommu_global_domain) {
->> +			rkvdec->iommu_global_domain = iommu_get_domain_for_dev(core->dev);
->> +
->> +			if (IS_ERR(rkvdec->iommu_global_domain)) {
->> +				rkvdec->iommu_global_domain = NULL;
->> +				dev_warn_once(core->dev, "cannot alloc new global domain\n");
->> +			}
->> +		}
->> +
->> +		ret = iommu_attach_device(rkvdec->iommu_global_domain, core->dev);
->> +		if (ret)
->> +			dev_warn(core->dev, "cannot attach global domain to core %d\n", core->id);
->>  Â 	}
->>   
->>  Â 	ret = dma_set_coherent_mask(&pdev->dev, DMA_BIT_MASK(32));
->> @@ -1961,7 +1982,7 @@ static void rkvdec_remove(struct platform_device *pdev)
->>  Â 		if (rkvdec->cores[i].empty_domain)
->>  Â 			iommu_domain_free(rkvdec->cores[i].empty_domain);
->>   
->> -		rkvdec_free_rcb(&rkvdec->cores[i]);
->> +		rkvdec_free_rcb(rkvdec, &rkvdec->cores[i]);
->>  Â 	}
->>  Â }
->>   
->> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
->> index 4f042a367dc0..ccd766b220c7 100644
->> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
->> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
->> @@ -135,7 +135,6 @@ struct rkvdec_core {
->>  Â 	void __iomem *link;
->>  Â 	struct delayed_work watchdog_work;
->>  Â 	struct gen_pool *sram_pool;
->> -	struct iommu_domain *iommu_domain;
->>  Â 	struct iommu_domain *empty_domain;
->>  Â 	struct rkvdec_rcb_config *rcb_config;
->>  Â 	struct rkvdec_ctx *curr_ctx;
->> @@ -155,6 +154,7 @@ struct rkvdec_dev {
->>  Â 	unsigned int available_core_count;
->>  Â 	spinlock_t cores_lock; /* serializes core list access */
->>  Â 	struct rkvdec_core *main_core;
->> +	struct iommu_domain *iommu_global_domain;
->>  Â };
->>   
->>  Â struct rkvdec_ctx {
+> > > > @@ -1759,16 +1760,36 @@ static int coresight_pm_check(struct
+> > > > coresight_path *path)
+> > > >       if (source_has_cb)
+> > > >           return 1;
+> > > > +    sink_has_cb = coresight_ops(sink)->pm_save_disable &&
+> > > > +              coresight_ops(sink)->pm_restore_enable;
+> > > > +    /*
+> > > > +     * It is not permitted that the source has no callbacks
+> > > > while the sink
+> > > > +     * does, as the sink cannot be disabled without disabling
+> > > > the source,
+> > > > +     * which may lead to lockups. Alternatively, the ETM driver should
+> > > > +     * enable self-hosted PM mode at probe (see etm4_probe()).
+> > > > +     */
+> > > > +    if (sink_has_cb) {
+> > > > +        pr_warn_once("coresight PM failed: source has no PM
+> > > > callbacks; "
+> > > > +                 "cannot safely control sink\n");
+> > > 
+> > > This prints out on my Orion board on a fresh boot because of how
+> > > pm_save_enable is setup there. Do we really need the configuration
+> > > of pm_save_enable for ETE/TRBE if we know that it always needs
+> > > saving?
 
+Yeah, I can remove this check and always bind CPU PM ops for ETE.
+
+> > > It also stops warning if I rmmod and modprobe the module after
+> > > booting. Seems like pm_save_enable is different depending on how the
+> > > module is loaded which doesn't seem right.
+> > 
+> > Thats because the warning is pr_warn_*once*()
+> 
+> I don't think so, I tested it with a printf instead of a warn once and also
+> tested modprobeing straight after a reboot.
+
+I am a bit surprised that Orion6 hits the CPU idle flow, as I observed
+that idle states are not enabled on my board:
+
+  # ls /sys/devices/system/cpu/cpu*/cpuidle
+  ls: cannot access '/sys/devices/system/cpu/cpu*/cpuidle': No such file or directory
+
+If you hit only once CPU idle notifier, it is good to add a
+dump_stack() in coresight_cpu_pm_notify and print the "cmd" argument,
+so we can know the calling coming from where.  I am a bit suspect it
+might be a glitch in CPUIdle layer.
+
+Thanks,
+Leo
 
