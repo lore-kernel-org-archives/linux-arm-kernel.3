@@ -4,61 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 243EBEA3C4E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 12:54:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC25EA3C59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 12:54:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/P89EixpuMDkfZMPoOcPrSfpMHc39bkBSv8E9AfpNwI=; b=l3D//YsGLFF/qO6vsG0Z5BLOKZ
-	M4PugVs4XUboF98UCLXf8w6TjYgsQG1/hVycdQiNnN2Z8GuT1g5GiR83vRjeOHLExLlVuG91GChdn
-	yvhNaKPwMPsByuMT7vfhjHBGHG8oT05umXIgbMX2Yxe4FI+UJD6jYXaigNzjNNux4t83ZrpfJSPOb
-	5H4UV914ZhEB6eFbjs0PeOPuQAiKklzbPyHuZ3gqJzT+CDlkjIXmWUEkSqZkI2QiDZN+EjW9ZO5fc
-	kBp5MUA8XSUuFDE8wBCF/J6XBiMCBLE0NlsrFAB2gqWS7/zIVKVNPmW3k7jvQCsGolCChXMxqD1Z9
-	gfH7yXMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X6+X8KtCjVEsQE5PZNXPbRjFX/a475Cwf6EH1k8MerA=; b=2rESFPQzPzAWLHb9eoZFTj8FMO
+	cxPDjZsSflEI6M8yBg1M2ZycDrVkkWF7VWPMfS3GrG10YsNxkARLAll0vumAMF2e8h2aw/wfvqRoB
+	yL3A5E9tuFy2Kwb/nNOIRKywy0H5Me4aGQkwANMiA1RjjfHiyb57L2TQgxSFxtXPyqFkUA+5O9f9p
+	H6neWY+BHtLINzQbyZ3lY8cEBJEhj8T+C2K0JEf9EEB2svewuRlxye49FeJogroqzwDdUXuYosVe9
+	xp3SYtErbBRnMZtFvPgy9Qrl6JR0m3HzJC0CYKsG5p+966Dse6R53pzbiG1Rw6hOfkePX0zhDq9gi
+	2ym+z5iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAotw-0000000APmz-0QpT;
-	Thu, 09 Apr 2026 12:54:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAots-0000000APmX-2w27
+	id 1wAoty-0000000APnq-3mIw;
+	Thu, 09 Apr 2026 12:54:32 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAotx-0000000APmy-0FYo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 12:54:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 29E252E98;
-	Thu,  9 Apr 2026 05:54:14 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8ACA63F641;
-	Thu,  9 Apr 2026 05:54:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775739259; bh=k8ZUgvOzjim9OThXmOBWSyqAsKksMfP+omJoVQBMvf0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T4DRxAJa20Q/Z+ePjJG9rU1tQb9LKDvcAJhlwsf4E7FJt+EA0qfPxYDfddYY7AKd1
-	 iUP1pvoSu1avRX5MvVxqn/wXLj23ddV8tNwJ+S+rOd9SST3UHzI7yU9sHTypnCFnxh
-	 /NuUkYtbeC5sFocK1OEMT4HjmbOZeClf/VmCp2Tg=
-Date: Thu, 9 Apr 2026 13:54:06 +0100
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH 1/2] KVM: arm64: Factor out TG0/1 decoding of VTCR and TCR
-Message-ID: <r2p37beybkrhqw6omsx27bjgsqbd4fml447onbk4g446k3wo7b@dd2hvqetmzjc>
-References: <20260406164618.3312473-1-weilin.chang@arm.com>
- <20260406164618.3312473-2-weilin.chang@arm.com>
- <87y0izb5o6.wl-maz@kernel.org>
+	Thu, 09 Apr 2026 12:54:30 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4889e045bc6so9025755e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Apr 2026 05:54:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1775739267; x=1776344067; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=X6+X8KtCjVEsQE5PZNXPbRjFX/a475Cwf6EH1k8MerA=;
+        b=bG0NfBVjMshVoF93P0jiXhcGahoM//JCEDbrRQIpPt3XGS3H329Zpff59n82j3n56O
+         ycXUtpzG96NfOevHZtsGEULKOfVx+IPSmh0s7LYAqw2i6sh+T80ehR7zus++2eocClxa
+         mUJQJNROUZqXaDrSxErC0OKDd3Nra+P/gBwbRs+jYHGgqlA+/+yI6egB+aEL/4Jb32aC
+         kcomJfRcXgJ44NrmSvrWyx8h8Wtk6NEgJG34ccsKDPprSu8ZocXaY1tbRXv9YVmPStE1
+         bvLaB6NpFIeSMqERjh0RTa0im5+aM1e02fB00EA088/gxtJAGznOKlWfR5HNlEbUbgW/
+         oBRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775739267; x=1776344067;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=X6+X8KtCjVEsQE5PZNXPbRjFX/a475Cwf6EH1k8MerA=;
+        b=cm+usPayFVXmcxnZj6nXzBRvwSb+08Xzl+PRj8QKiUjzdS1gc2hpa/BEkTXhCcGBry
+         B8kYUdbJ7qMyT+PxO/nmDInrhNwcx79gPnBxzozxXURwRfLeckouBiWpiOF3pg11qaYQ
+         7MrEAKJkzxSzkRDFitbr3FJry4WGCYPD28VWBN/JeOmt4fjrgx4yNn3UTMpEl9RTwiBj
+         u9ZEhTy6y0fBpDDJVTaU9Z5pUCUeml6ixdM9lZWR634LRqZFRvdvf5wv6CPDvVaK5r7P
+         xh/jU22haBXW/16ODAz/aDgREtq/2n63yCL45pXcQ6qk12SDbQq3IMcsVvGrAtJ8QKUK
+         tsnw==
+X-Forwarded-Encrypted: i=1; AJvYcCVj4z0GyM45RrLNeWGF69/7fYhgJaOF+jkKUYl0pqldguwhRHh+EZwupRUoVMr7c9KzONQq3cqqf+G45RmpCGga@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiIloODJ9gg4hEAYEn+VnJeH8KiC3EJRAEzKLgK35OYkUUcOSt
+	O2lYesSbUUuJjrxMtPIzpxouZHKzPRGg3nGNdrzMZtXTqCqAXjUvwW5acx3oBhbvRWM=
+X-Gm-Gg: AeBDieuVPIZ8xjU61Dal+qdnDDcWm1umY7aQbMzPn2ZwEjh2KVi2lPK5/UNUAWSBCb3
+	j83TLCIi/EHwpSIxkN9bmrBLeiD1CRRMI0JYYjtlpoiZHvH9e0pfT4UZ3G1qPn3pgfhKcT8DR4/
+	Ps9zi2iaTGTLHFTqZbSlrFzzx4NDPAPKUBVDDX00ZQqTg6lVSqlTtskCGN/QYJgKmDhcP3rqNoG
+	YOopR7WlIJJcqrYkwjCVO2BCHdxQP0DJjzN9MY6eJz/PMfPLdCwbOcwf1F5b9Ztz4qfknB9q96/
+	x/CYb4bklM5QKj7xq7ZbfHU6b53IDDKtrirZ5ZMcQwthcK6hlSpGP4PlDd/A+4s9gj710xtlvQ1
+	yC0cLXEeJCtrX4DioVGzIG1qA/FTdaeb2mP8p0wS3ijvhW795oC+2ayrYGgZwcaXs11G7tYWR9J
+	NhOSOT9IxTbYevPsA9Lila8v+CWOea
+X-Received: by 2002:a05:600c:c10f:b0:488:869c:edaa with SMTP id 5b1f17b1804b1-488ccfa937dmr34946715e9.7.1775739267062;
+        Thu, 09 Apr 2026 05:54:27 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488ccfbbb7fsm40549525e9.0.2026.04.09.05.54.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 09 Apr 2026 05:54:26 -0700 (PDT)
+Message-ID: <52ab7b4c-22e8-4567-beb4-f73295d87b78@linaro.org>
+Date: Thu, 9 Apr 2026 13:54:25 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87y0izb5o6.wl-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 16/20] coresight: Add PM callbacks for sink device
+From: James Clark <james.clark@linaro.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ Yeoreum Yun <yeoreum.yun@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+ Will Deacon <will@kernel.org>, Yabin Cui <yabinc@google.com>,
+ Keita Morisaki <keyz@google.com>, Yuanfang Zhang
+ <quic_yuanfang@quicinc.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>
+References: <20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be@arm.com>
+ <20260405-arm_coresight_path_power_management_improvement-v10-16-13e94754a8be@arm.com>
+ <e7c6f497-f8f0-409b-b80a-a064b222c08d@linaro.org>
+Content-Language: en-US
+In-Reply-To: <e7c6f497-f8f0-409b-b80a-a064b222c08d@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_055425_021790_277AE4DA 
-X-CRM114-Status: GOOD (  36.60  )
+X-CRM114-CacheID: sfid-20260409_055429_155617_C8218906 
+X-CRM114-Status: GOOD (  39.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,273 +110,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 07, 2026 at 08:17:29AM +0100, Marc Zyngier wrote:
-> On Mon, 06 Apr 2026 17:46:17 +0100,
-> Wei-Lin Chang <weilin.chang@arm.com> wrote:
-> > 
-> > The current code decodes TCR.TG0/TG1 and VTCR.TG0 inline at several
-> > places. Extract this logic into helpers so the granule size is derived
-> > in one place. This enables us to alter the effective granule size in
-> > the same place, which we will need in a later patch.
-> > 
-> > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
-> > ---
-> >  arch/arm64/kvm/at.c     | 73 +++++++++++++++++++++++++----------------
-> >  arch/arm64/kvm/nested.c | 70 ++++++++++++++++++++++++---------------
-> >  2 files changed, 89 insertions(+), 54 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-> > index c5c5644b1878..ff8ba30e917b 100644
-> > --- a/arch/arm64/kvm/at.c
-> > +++ b/arch/arm64/kvm/at.c
-> > @@ -135,14 +135,54 @@ static void compute_s1poe(struct kvm_vcpu *vcpu, struct s1_walk_info *wi)
-> >  	wi->e0poe = (wi->regime != TR_EL2) && (val & TCR2_EL1_E0POE);
-> >  }
-> >  
-> > +static unsigned int tg0_to_shift(u64 tg0)
-> > +{
-> 
-> It'd be better to abstract these helpers a bit more by making them
-> take the full TCR_ELx value, and to give them a slightly better name.
-> 
-> I'd suggest something like:
-> 
-> static unsigned int tcr_to_tg0_pgshift(u64 tcr)
-> {
-> 	u64 tg0 = tcr & TCR_TG0_MASK, tcr;
-> 
-> which makes it clear that the result is a page shift, as required by
-> wi->pgshift.
 
-Makes sense, I'll change it.
 
+On 09/04/2026 11:52 am, James Clark wrote:
 > 
-> > +	switch (tg0) {
-> > +	case TCR_EL1_TG0_4K:
-> > +		return 12;
-> > +	case TCR_EL1_TG0_16K:
-> > +		return 14;
-> > +	case TCR_EL1_TG0_64K:
 > 
-> Please don't mix the _EL1 definition and those without _EL1 in the
-> same file. For a start, that's not always EL1. Also, this makes very
-> hard to reason about what is shifted and what is not.
+> On 05/04/2026 4:02 pm, Leo Yan wrote:
+>> Unlike system level sinks, per-CPU sinks may lose power during CPU idle
+>> states.  Currently, this applies specifically to TRBE.  This commit
+>> invokes save and restore callbacks for the sink in the CPU PM notifier.
+>>
+>> If the sink provides PM callbacks but the source does not, this is
+>> unsafe because the sink cannot be disabled safely unless the source
+>> can also be controlled, so veto low power entry to avoid lockups.
+>>
+>> Tested-by: James Clark <james.clark@linaro.org>
+>> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+>> Reviewed-by: James Clark <james.clark@linaro.org>
+>> Signed-off-by: Leo Yan <leo.yan@arm.com>
+>> ---
+>>   drivers/hwtracing/coresight/coresight-core.c | 46 ++++++++++++++++++ 
+>> ++++++++--
+>>   1 file changed, 43 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/ 
+>> hwtracing/coresight/coresight-core.c
+>> index 
+>> c1e8debc76aba7eb5ecf7efe2a3b9b8b3e11b10c..a918bf6398a932de30fe9b4947020cc4c1cfb2f7 100644
+>> --- a/drivers/hwtracing/coresight/coresight-core.c
+>> +++ b/drivers/hwtracing/coresight/coresight-core.c
+>> @@ -1736,14 +1736,15 @@ static void coresight_release_device_list(void)
+>>   /* Return: 1 if PM is required, 0 if skip, <0 on error */
+>>   static int coresight_pm_check(struct coresight_path *path)
+>>   {
+>> -    struct coresight_device *source;
+>> -    bool source_has_cb;
+>> +    struct coresight_device *source, *sink;
+>> +    bool source_has_cb, sink_has_cb;
+>>       if (!path)
+>>           return 0;
+>>       source = coresight_get_source(path);
+>> -    if (!source)
+>> +    sink = coresight_get_sink(path);
+>> +    if (!source || !sink)
+>>           return 0;
+>>       /* Don't save and restore if the source is inactive */
+>> @@ -1759,16 +1760,36 @@ static int coresight_pm_check(struct 
+>> coresight_path *path)
+>>       if (source_has_cb)
+>>           return 1;
+>> +    sink_has_cb = coresight_ops(sink)->pm_save_disable &&
+>> +              coresight_ops(sink)->pm_restore_enable;
+>> +    /*
+>> +     * It is not permitted that the source has no callbacks while the 
+>> sink
+>> +     * does, as the sink cannot be disabled without disabling the 
+>> source,
+>> +     * which may lead to lockups. Alternatively, the ETM driver should
+>> +     * enable self-hosted PM mode at probe (see etm4_probe()).
+>> +     */
+>> +    if (sink_has_cb) {
+>> +        pr_warn_once("coresight PM failed: source has no PM callbacks; "
+>> +                 "cannot safely control sink\n");
+> 
+> This prints out on my Orion board on a fresh boot because of how 
+> pm_save_enable is setup there. Do we really need the configuration of 
+> pm_save_enable for ETE/TRBE if we know that it always needs saving?
+> 
+> It also stops warning if I rmmod and modprobe the module after booting. 
+> Seems like pm_save_enable is different depending on how the module is 
+> loaded which doesn't seem right.
+> 
+>> +        return -EINVAL;
+>> +    }
+>> +
+>>       return 0;
+>>   }
+>>   static int coresight_pm_device_save(struct coresight_device *csdev)
+>>   {
+>> +    if (!csdev || !coresight_ops(csdev)->pm_save_disable)
+>> +        return 0;
+>> +
+>>       return coresight_ops(csdev)->pm_save_disable(csdev);
+>>   }
+>>   static void coresight_pm_device_restore(struct coresight_device *csdev)
+>>   {
+>> +    if (!csdev || !coresight_ops(csdev)->pm_restore_enable)
+>> +        return;
+>> +
+>>       coresight_ops(csdev)->pm_restore_enable(csdev);
+>>   }
+>> @@ -1787,15 +1808,32 @@ static int coresight_pm_save(struct 
+>> coresight_path *path)
+>>       to = list_prev_entry(coresight_path_last_node(path), link);
+>>       coresight_disable_path_from_to(path, from, to);
+>> +    ret = coresight_pm_device_save(coresight_get_sink(path));
+>> +    if (ret)
+>> +        goto sink_failed;
+>> +
+> 
+> The comment directly above this says "Up to the node before sink to 
+> avoid latency". But then this line goes and saves the sink anyway. So 
+> I'm not sure what's meant by the comment?
+> 
+>>       return 0;
+>> +
+>> +sink_failed:
+>> +    if (!coresight_enable_path_from_to(path, coresight_get_mode(source),
+>> +                       from, to))
+>> +        coresight_pm_device_restore(source);
+>> +
+>> +    pr_err("Failed in coresight PM save on CPU%d: %d\n",
+>> +           smp_processor_id(), ret);
+>> +    this_cpu_write(percpu_pm_failed, true);
+> 
+> Why does only a failing sink set percpu_pm_failed when failing to save 
+> the source exits early. Sashiko has a similar comment that this could 
+> result in restoring uninitialised source save data later, but a comment 
+> in this function about why the flow is like this would be helpful.
+> 
+> We have coresight_disable_path_from_to() which always succeeds and 
+> doesn't return an error. TRBE is the only sink with a pm_save_disable()
+> callback, but it always succeeds anyway.
+> 
+> Would it not be much simpler to require that sink save/restore callbacks 
+> always succeed and don't return anything? Seems like this 
+> percpu_pm_failed stuff is extra complexity for a scenario that doesn't 
+> exist? The only thing that can fail is saving the source but it doesn't 
+> goto sink_failed when that happens.
+> 
+> Ideally etm4_cpu_save() wouldn't have a return value either. It would be 
+> good if we could find away to skip or ignore the timeouts in there 
+> somehow because that's the only reason it can fail.
+> 
 
-Thanks for pointing this out, will fix.
+etm4_disable_trace_unit() and etm4_enable_hw() also have timeouts but 
+the timeouts only print warnings, they don't cause early exits or return 
+error values.
 
-> 
-> > +	default:	/* IMPDEF: treat any other value as 64k */
-> > +		return 16;
-> > +	}
-> > +}
-> > +
-> > +static unsigned int tg1_to_shift(u64 tg1)
-> > +{
-> > +	switch (tg1) {
-> > +	case TCR_EL1_TG1_4K:
-> > +		return 12;
-> > +	case TCR_EL1_TG1_16K:
-> > +		return 14;
-> > +	case TCR_EL1_TG1_64K:
-> > +	default:	/* IMPDEF: treat any other value as 64k */
-> > +		return 16;
-> > +	}
-> > +}
-> > +
-> > +static u64 tcr_tg_shift(struct kvm *kvm, u64 tcr, bool upper_range)
-> > +{
-> > +	unsigned int shift;
-> > +
-> > +	/* Someone was silly enough to encode TG0/TG1 differently */
-> > +	if (upper_range)
-> > +		shift = tg1_to_shift(FIELD_GET(TCR_EL1_TG1_MASK, tcr));
-> > +	else
-> > +		shift = tg0_to_shift(FIELD_GET(TCR_EL1_TG0_MASK, tcr));
-> > +
-> > +	return shift;
-> > +}
-> > +
-> >  static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
-> >  			 struct s1_walk_result *wr, u64 va)
-> >  {
-> > -	u64 hcr, sctlr, tcr, tg, ps, ia_bits, ttbr;
-> > +	u64 hcr, sctlr, tcr, ps, ia_bits, ttbr;
-> >  	unsigned int stride, x;
-> > -	bool va55, tbi, lva;
-> > +	bool va55, tbi, lva, upper_range;
-> >  
-> >  	va55 = va & BIT(55);
-> > +	upper_range = va55 && wi->regime != TR_EL2;
-> >  
-> >  	if (vcpu_has_nv(vcpu)) {
-> >  		hcr = __vcpu_sys_reg(vcpu, HCR_EL2);
-> > @@ -173,35 +213,12 @@ static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
-> >  		BUG();
-> >  	}
-> >  
-> > -	/* Someone was silly enough to encode TG0/TG1 differently */
-> > -	if (va55 && wi->regime != TR_EL2) {
-> > +	if (upper_range)
-> >  		wi->txsz = FIELD_GET(TCR_T1SZ_MASK, tcr);
-> > -		tg = FIELD_GET(TCR_TG1_MASK, tcr);
-> > -
-> > -		switch (tg << TCR_TG1_SHIFT) {
-> > -		case TCR_TG1_4K:
-> > -			wi->pgshift = 12;	 break;
-> > -		case TCR_TG1_16K:
-> > -			wi->pgshift = 14;	 break;
-> > -		case TCR_TG1_64K:
-> > -		default:	    /* IMPDEF: treat any other value as 64k */
-> > -			wi->pgshift = 16;	 break;
-> > -		}
-> > -	} else {
-> > +	else
-> >  		wi->txsz = FIELD_GET(TCR_T0SZ_MASK, tcr);
-> > -		tg = FIELD_GET(TCR_TG0_MASK, tcr);
-> > -
-> > -		switch (tg << TCR_TG0_SHIFT) {
-> > -		case TCR_TG0_4K:
-> > -			wi->pgshift = 12;	 break;
-> > -		case TCR_TG0_16K:
-> > -			wi->pgshift = 14;	 break;
-> > -		case TCR_TG0_64K:
-> > -		default:	    /* IMPDEF: treat any other value as 64k */
-> > -			wi->pgshift = 16;	 break;
-> > -		}
-> > -	}
-> >  
-> > +	wi->pgshift = tcr_tg_shift(vcpu->kvm, tcr, upper_range);
-> >  	wi->pa52bit = has_52bit_pa(vcpu, wi, tcr);
-> >
-> >  	ia_bits = get_ia_size(wi);
-> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> > index 883b6c1008fb..2bfab3007cb3 100644
-> > --- a/arch/arm64/kvm/nested.c
-> > +++ b/arch/arm64/kvm/nested.c
-> > @@ -378,20 +378,36 @@ static int walk_nested_s2_pgd(struct kvm_vcpu *vcpu, phys_addr_t ipa,
-> >  	return 0;
-> >  }
-> >  
-> > -static void vtcr_to_walk_info(u64 vtcr, struct s2_walk_info *wi)
-> > +static unsigned int tg0_to_shift(u64 tg0)
-> 
-> Same comments as above.
+Can we do the same for etm4_cpu_save()? It would be better to read and 
+restore potentially 'unstable' register values than to early exit and 
+restore known uninitialised values as it is here.
 
-Ack.
+>> +    return ret;
+>>   }
+>>   static void coresight_pm_restore(struct coresight_path *path)
+>>   {
+>>       struct coresight_device *source = coresight_get_source(path);
+>> +    struct coresight_device *sink = coresight_get_sink(path);
+>>       struct coresight_node *from, *to;
+>>       int ret;
+>> +    coresight_pm_device_restore(sink);
+>> +
+>>       from = coresight_path_first_node(path);
+>>       /* Up to the node before sink to avoid latency */
+>>       to = list_prev_entry(coresight_path_last_node(path), link);
+>> @@ -1808,6 +1846,8 @@ static void coresight_pm_restore(struct 
+>> coresight_path *path)
+>>       return;
+>>   path_failed:
+>> +    coresight_pm_device_save(sink);
+>> +
+>>       pr_err("Failed in coresight PM restore on CPU%d: %d\n",
+>>              smp_processor_id(), ret);
+>>
+> 
 
-> 
-> > +{
-> > +	switch (tg0) {
-> > +	case VTCR_EL2_TG0_4K:
-> > +		return 12;
-> > +	case VTCR_EL2_TG0_16K:
-> > +		return 14;
-> > +	case VTCR_EL2_TG0_64K:
-> > +	default:	/* IMPDEF: treat any other value as 64k */
-> > +		return 16;
-> > +	}
-> > +}
-> > +
-> > +static u64 vtcr_tg0_shift(struct kvm *kvm, u64 vtcr)
-> > +{
-> > +	u64 tg0 = FIELD_GET(VTCR_EL2_TG0_MASK, vtcr);
-> > +	unsigned int shift = tg0_to_shift(tg0);
-> > +
-> > +	return shift;
-> 
-> shift is an unsigned int. Why is the return value a u64? Try and make
-> sure that types are consistent, even if they cast nicely in C.
-
-This is an error from me, I'll fix this.
-
-> 
-> > +}
-> > +
-> > +static size_t vtcr_tg0_size(struct kvm *kvm, u64 vtcr)
-> > +{
-> > +	return BIT(vtcr_tg0_shift(kvm, vtcr));
-> > +}
-> > +
-> > +static void vtcr_to_walk_info(struct kvm *kvm, u64 vtcr, struct s2_walk_info *wi)
-> 
-> This prototype reads bizarrely. vtcr is per CPU, the walk info is
-> evidently per CPU, and yet you pass a kvm struct.
-> 
-> Instead, rename this to:
-> 
-> static void setup_s2_walk(struct kvm_vcpu *vcpu,
-> 			  struct s2_walk_info *wi)
-> {
-> 	u64 vtcr = vcpu_read_sys_reg(vcpu, VTCR_EL2);
-> 
-> and call that directly. You can then extract vcpu->kvm as needed. It
-> also aligns the naming on the s1 part, which isn't a bad thing to do.
-
-Agreed, makes sense.
-
-> 
-> >  {
-> >  	wi->t0sz = vtcr & TCR_EL2_T0SZ_MASK;
-> > -
-> > -	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
-> > -	case VTCR_EL2_TG0_4K:
-> > -		wi->pgshift = 12;	 break;
-> > -	case VTCR_EL2_TG0_16K:
-> > -		wi->pgshift = 14;	 break;
-> > -	case VTCR_EL2_TG0_64K:
-> > -	default:	    /* IMPDEF: treat any other value as 64k */
-> > -		wi->pgshift = 16;	 break;
-> > -	}
-> > -
-> > +	wi->pgshift = vtcr_tg0_shift(kvm, vtcr);
-> >  	wi->sl = FIELD_GET(VTCR_EL2_SL0_MASK, vtcr);
-> >  	/* Global limit for now, should eventually be per-VM */
-> >  	wi->max_oa_bits = min(get_kvm_ipa_limit(),
-> > @@ -414,7 +430,7 @@ int kvm_walk_nested_s2(struct kvm_vcpu *vcpu, phys_addr_t gipa,
-> >  
-> >  	wi.baddr = vcpu_read_sys_reg(vcpu, VTTBR_EL2);
-> >  
-> > -	vtcr_to_walk_info(vtcr, &wi);
-> > +	vtcr_to_walk_info(vcpu->kvm, vtcr, &wi);
-> >  
-> >  	wi.be = vcpu_read_sys_reg(vcpu, SCTLR_EL2) & SCTLR_ELx_EE;
-> >  
-> > @@ -515,17 +531,19 @@ static u8 get_guest_mapping_ttl(struct kvm_s2_mmu *mmu, u64 addr)
-> >  	u64 tmp, sz = 0, vtcr = mmu->tlb_vtcr;
-> >  	kvm_pte_t pte;
-> >  	u8 ttl, level;
-> > +	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
-> > +	size_t tg0_size = vtcr_tg0_size(kvm, vtcr);
-> >  
-> > -	lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(mmu)->mmu_lock);
-> > +	lockdep_assert_held_write(&kvm->mmu_lock);
-> >  
-> > -	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
-> > -	case VTCR_EL2_TG0_4K:
-> > +	switch (tg0_size) {
-> > +	case SZ_4K:
-> >  		ttl = (TLBI_TTL_TG_4K << 2);
-> >  		break;
-> > -	case VTCR_EL2_TG0_16K:
-> > +	case SZ_16K:
-> >  		ttl = (TLBI_TTL_TG_16K << 2);
-> >  		break;
-> > -	case VTCR_EL2_TG0_64K:
-> > +	case SZ_64K:
-> 
-> All these unit changes make the patch harder to read than it should
-> be. Consider having a separate patch to do that.
-
-Understood, sure.
-
-Thanks for the feedback!
-Wei-Lin Chang
-
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Jazz isn't dead. It just smells funny.
 
