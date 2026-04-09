@@ -4,60 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 536A3F31E57
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 16:17:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 254F9F31E5E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 16:17:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7/0Z4iA8MYqYoJDet8ihx8V2ehS6VnOfD2yOFd3Jiz8=; b=uHPlLxOT0XKSBECpvwhGdsHICt
-	w3n02K9Q6IQjSZrgK79QyEjaoQ7j8FinI2NjLBK7yYizo4jAPV7kquvPpyV7Q5B4WuMrKTvw9waMc
-	t5wHCDLaeoj/ZDpRQdHamusBjEQ4J+OslHYf3CYN421u36N8wiTIaSO/M8GxRquGzGo20SEnOkGFh
-	BLExmy9YJ0Mo2RJj9forWlsNW/eIasW6ORUoesKIjcTy9BW+WhTqEgP+Mvn3eduhR3gL9rNdC2KNN
-	7klB4zHD+etzszigMHFMIglOahpv84kc8ha8w4+TVOt5lSeLAVVY4cDA/1Rzerjn9zso/chnWkTyB
-	SV5vkTRQ==;
+	bh=Dd++4tKmdtMOvBBnnnoIYGKrXxRrKVRPTAqrEQXWV6w=; b=WjecMOzCYFEOid0bmhNjR0vGc2
+	HAuNOoCrSM1w8CPaD/2m7Mfr9JMoP09XZKjE7vxGjZjO90SrfWd1W+xbI1AkQBrG/Y70bT0Qnoskr
+	JnA15H12GjqsreEYRxY7tlJmdQztjufbI1/ggT1CHTALNmsB4uNi3/3QDlDyd1fRudGRHrpG/Z1q3
+	pGFBUkopoETCtj5AxgTzvSxUGK5do56cDPoPADmrn9TA5e/kd/Y9suVJOLzhc1oiJsjMYWkzx5wN+
+	lx+ArB0EKK7KeGJCwBOSqDM2YMNxbRHfwb2Ur4sllJHNJIlVgcU1iDZCEU4d/xVYWCW77bA9HQQIX
+	XuFEB4MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAs41-0000000AuPB-2yqS;
-	Thu, 09 Apr 2026 16:17:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wAs47-0000000AuQh-0293;
+	Thu, 09 Apr 2026 16:17:11 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAs40-0000000AuP4-1MRD
+	id 1wAs45-0000000AuPc-0TAs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 16:17:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 61D6D600CB;
-	Thu,  9 Apr 2026 16:17:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FBF6C4CEF7;
-	Thu,  9 Apr 2026 16:17:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775751423;
-	bh=xfTIKtj5PwV74myDp2OytDSJiXzkqlmmQuhRTaEsOu4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QvNaBqC0APcc0tKfH69RdqAkFZFZBmiGyUnWAHpoCcPV6gs8Kp/jQHBVBJ/aLRpqM
-	 GizjPlN3OFjgFi4ZkIx6GSdj+XASzOKkMLGu4bI34Ya8jgD3aAd+xQIy4NqR4kF6I/
-	 /H9A6QCRVFGcLprEj/bdA3BNNPx+7h1WkcboP0culFUskstkrtkSIP0oycNrGx8Cus
-	 tHAqeMI5uiJIkCMGnOnhiwkX5VW+pxacU7d508qBhBUFKgKxC8hEDyngwyiIM2tD9p
-	 FrFs4eef89n/l5xFK3rz4ziuIBdqM58hxqaqTraz8GXJtH9R48ro/4qLZ8imO3GUAQ
-	 +7Chh8RPlyRzQ==
-Date: Thu, 9 Apr 2026 09:17:02 -0700
-From: Kees Cook <kees@kernel.org>
-To: Xu Laiguang <xulaiguang@lixiang.com>,
-	Ryan Roberts <ryan.roberts@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, gustavoars@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH] arm64: syscall: use cntvct_el0 for kstack offset
- randomization
-Message-ID: <202604090914.10F22B6@keescook>
-References: <20260409095322.1774250-1-xulaiguang@lixiang.com>
+	Thu, 09 Apr 2026 16:17:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Dd++4tKmdtMOvBBnnnoIYGKrXxRrKVRPTAqrEQXWV6w=; b=lzseZNXAHNB8VGospEKU+WILFk
+	sYd2bdEtrFdshGRKyzaYgpQpxiHtaRuC7qIiBSZ7cBGCBZEzEGvcVYdbaN3U0IndulheHaQqJLGKl
+	ZijNKS80e8Sz8pi3LZDRboXSmA9X7V/c+WQAsrHljmdsGa1gMhu81vlTFO605XcSec7J+OKQXQKX3
+	AmSnCO0TLxIUmPqhmJmax/aHPMXw/vptQ5efr1LG1hLyr5MAY7J/wlyRN4y6ZBVkVcKynvyLkK6Y6
+	Bc8z1VVZwnTXNQXvKHCG1QqeV+pFKrmHBMNwFVy6BVChKmKlgfYbPkJHJXKY6mGOpivm9giPrIVbL
+	reicNc8A==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51834)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wAs3z-000000003rq-3Ub9;
+	Thu, 09 Apr 2026 17:17:03 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wAs3v-000000004Ys-2ghu;
+	Thu, 09 Apr 2026 17:16:59 +0100
+Date: Thu, 9 Apr 2026 17:16:59 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-ext4@vger.kernel.org, dmaengine@vger.kernel.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Theodore Ts'o <tytso@mit.edu>,
+	Andreas Dilger <adilger.kernel@dilger.ca>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>
+Subject: Re: BUG: net-next (7.0-rc6 based and later) fails to boot on Jetson
+ Xavier NX
+Message-ID: <adfQ-44bKs2I4FrN@shell.armlinux.org.uk>
+References: <adZTGOjjJrVJOcT8@shell.armlinux.org.uk>
+ <adZfTi3R6jtsjXx-@shell.armlinux.org.uk>
+ <adZ9grUg71f518Fg@shell.armlinux.org.uk>
+ <adZ_ZmjcE8S22vR1@shell.armlinux.org.uk>
+ <3a1d0520-3402-47b2-9d7b-4e14a3cd07a4@arm.com>
+ <adayAMR_dEA6W5vW@shell.armlinux.org.uk>
+ <adeaiSAnkaggqPsA@willie-the-truck>
+ <CAHk-=whO3F1u+nme4cnYMy5baYmb7CH=wE63dcNaPLWD0vKaew@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260409095322.1774250-1-xulaiguang@lixiang.com>
+In-Reply-To: <CAHk-=whO3F1u+nme4cnYMy5baYmb7CH=wE63dcNaPLWD0vKaew@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260409_091709_153421_DFCDD8EE 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,94 +92,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 09, 2026 at 09:53:22AM +0000, Xu Laiguang wrote:
-> On PREEMPT_RT kernels, get_random_u16() can suffer significant lock
-> contention in the syscall hot path.  The batched entropy layer uses
-> local_lock, which on RT maps to a real spinlock.  When a batch refill
-> is in progress, other tasks on the same CPU block on the lock.  Under
-> heavy syscall load on a 24-core RT system, worst-case latencies of
-> 16.65ms have been observed.
+On Thu, Apr 09, 2026 at 08:37:53AM -0700, Linus Torvalds wrote:
+> On Thu, 9 Apr 2026 at 05:24, Will Deacon <will@kernel.org> wrote:
+> >
+> > On Wed, Apr 08, 2026 at 08:52:32PM +0100, Russell King (Oracle) wrote:
+> > > What's the status on the iommu fix? Is it merged into mainline yet?
+> > > If it isn't already, that means net-next remains unbootable going
+> > > into the merge window without manually carrying the fix locally.
+> >
+> > I'll pick it up for 7.0 in the iommu tree.
 > 
->  contended   total wait     max wait     caller
->        307     86.18 ms     16.65 ms     get_random_u16+0x64
-> 
-> The kstack offset randomization only needs 6 bits of entropy (the
-> value is masked by KSTACK_OFFSET_MAX to bits [9:4] on 64-bit).  This
-> does not require cryptographic-strength randomness -- the goal is to
-> make the kernel stack offset unpredictable enough to frustrate stack
-> layout attacks.
-> 
-> Other architectures already use lightweight hardware counters for this
-> purpose:
->   - x86:       rdtsc()              (arch/x86/include/asm/entry-common.h)
->   - powerpc:   mftb()               (arch/powerpc/kernel/syscall.c)
->   - loongarch: drdtime()            (arch/loongarch/kernel/syscall.c)
->   - s390:      get_tod_clock_fast()  (arch/s390/include/asm/entry-common.h)
-> 
-> Replace get_random_u16() with a bare read of cntvct_el0 (the ARM
-> generic timer virtual count register).  The read is performed without
-> ISB or arch_counter_enforce_ordering because kstack randomization does
-> not require timing accuracy -- only unpredictability.
-> 
-> Signed-off-by: Xu Laiguang <xulaiguang@lixiang.com>
+> ... and now it's in my tree.
 
-Everything here has been replaced recently. Can you check again with the
--next tree?
-
-https://git.kernel.org/pub/scm/linux/kernel/git/kees/linux.git/log/?h=for-next/hardening
-
-See commits:
-	randomize_kstack: Maintain kstack_offset per task
-	randomize_kstack: Unify random source across arches
-
--Kees
-
-> ---
->  arch/arm64/kernel/syscall.c | 17 ++++++++++++++++-
->  1 file changed, 16 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
-> index c062badd1a56..c0ee9fa529ca 100644
-> --- a/arch/arm64/kernel/syscall.c
-> +++ b/arch/arm64/kernel/syscall.c
-> @@ -35,6 +35,21 @@ static long __invoke_syscall(struct pt_regs *regs, syscall_fn_t syscall_fn)
->  	return syscall_fn(regs);
->  }
->  
-> +/*
-> + * Read the virtual counter without ISB or other ordering barriers.
-> + * This is intentional: kstack randomization only needs unpredictability,
-> + * not timing accuracy.  Speculative execution of the read, if it occurs,
-> + * actually helps by making the precise value less predictable to an
-> + * attacker.
-> + */
-> +static inline u64 kstack_entropy_cntvct(void)
-> +{
-> +	u64 cnt;
-> +
-> +	asm volatile("mrs %0, cntvct_el0" : "=r"(cnt));
-> +	return cnt;
-> +}
-> +
->  static void invoke_syscall(struct pt_regs *regs, unsigned int scno,
->  			   unsigned int sc_nr,
->  			   const syscall_fn_t syscall_table[])
-> @@ -62,7 +77,7 @@ static void invoke_syscall(struct pt_regs *regs, unsigned int scno,
->  	 *
->  	 * The resulting 6 bits of entropy is seen in SP[9:4].
->  	 */
-> -	choose_random_kstack_offset(get_random_u16());
-> +	choose_random_kstack_offset(kstack_entropy_cntvct());
->  }
->  
->  static inline bool has_syscall_work(unsigned long flags)
-> -- 
-> 2.43.0
-> 
-> 声明：这封邮件只允许文件接收者阅读，有很高的机密性要求。禁止其他人使用、打开、复制或转发里面的任何内容。如果本邮件错误地发给了你，请联系邮件发出者并删除这个文件。机密及法律的特权并不因为误发邮件而放弃或丧失。任何提出的观点或意见只属于作者的个人见解，并不一定代表本公司。
-> Disclaimer: This email is intended to be read only by the designated recipient of the document and has high confidentiality requirements. Anyone else is prohibited from using, opening, copying or forwarding any of the contents inside. If this email was sent to you by mistake, please contact the sender of the email and delete this file immediately. Confidentiality and legal privileges are not waived or lost by misdirected emails. Any views or opinions expressed in the email are those of the author and do not necessarily represent those of the Company.
-> 
+Thanks, I see you merged it prior to the net tree, which should mean
+the fix finds its way into net-next! Yay! Double thanks for that!
 
 -- 
-Kees Cook
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
