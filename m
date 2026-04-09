@@ -4,159 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29E2EF364C0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 21:53:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD2D1F364C3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 21:55:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hu81u8EXPjFrB34GvSJW9iQwsEy8qvlO31eh+EE0xPg=; b=E+22hHrNzbd0Wk3n+5fN8H8A4r
-	5xOz5yohakeMfA4QYuyVnhuM5NAoRIpDA1WpadHZKaBEvgchJhrY4skmW76Xu2QrU3XeeUBQYUVVt
-	4pHjCTwHlP7oXsa+9rryk1myAaEQItq0g8YkH/y8JxpSWVRZYocnxuPP9g/fR2c1SsU7i5OBjl5pi
-	22jR93sEOhzgGXR/FifAMiEegCjGZz9C505YLe0oz7H0sOK0a0LUBvgGvPRCOcSbty5RUT6/vuzDb
-	+6OaSfREpxZixJeB/PdgGTogi/oNuBm6G3BzkXBLD1Z2Cz9ZtXuKI5DPCd6SUwXfG9qs7aqGYgSPA
-	ggHR/bYA==;
+	bh=Eaeh07yJuXm1Xjx6dt3uV4RlgVhCaMHEOoFuj2hE2/A=; b=rcCMyL7EkVvg43F0tpCDhybVf1
+	YhoqHI/ciA5wiEzVA0wXOWsUk3ZpreGtzprm49e/+YRSEYcON9hfyWl16DTh7zhJRKvh7PVX7EiQR
+	b6R88egp9Z+6++x0LyGJKr1i6Kiiy+TOOsIXrY+SDfg3c4yunfwZUknLxkDnpSWDJLO+2qoeNMTd7
+	8nRnQKIh/4RflvtH6sSjHe0zNld9Upf/7czGVzQIeGgiAX02CaXkX+ZnVnDCwuCdfUYzUytDdqdE3
+	J0M8+/4h5zFQrD4vWVoN0j4HkisdTe9bEk1VzZOg3H5/bFaZtJy/SObqtvCcFzqi+v2nsO/PDJ20Y
+	Q6j/9VPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAxJP-0000000BFm0-3860;
-	Thu, 09 Apr 2026 21:53:19 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wAxLU-0000000BG0Q-0JAY;
+	Thu, 09 Apr 2026 21:55:28 +0000
+Received: from mail-swedencentralazon11013067.outbound.protection.outlook.com ([52.101.83.67] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAxJL-0000000BFkn-3k93
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 21:53:18 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 639JD3S32867026
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 9 Apr 2026 21:53:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=hu81u8EXPjFrB34GvSJW9iQw
-	sEy8qvlO31eh+EE0xPg=; b=GmT673w0E/j1Q74yC99wb3ajRMSsRLbCbIHUvSVP
-	uamrDGeWDu5NNk7G6tKX8jeB37nxu/H/C06C/S4yCJruDmrKx+ZLLLzPg3mclIP6
-	mSJmy3eZbHxVhMTwbP7fc/ATus+LU4btxJZkNij0IJGfTBasR8eTPtdAYkhavNPk
-	uRKgkE5/rQgpoYqNzOSkZrgr4DDhAZjoJYhMnELo5gQPSmcJA20p5gYGBIOs/rjO
-	DxahXh/NChmF8HdNyZIHzJDRHWzU05YKF8KSlIsWptwTNibxjz92qddG+8mnXzev
-	ypT8gPTdbW/WfZSg6miimVwvQCD63qVuSXz0MZsGx0OBcg==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4decayhwsg-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Apr 2026 21:53:15 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-50d812c898cso39254741cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Apr 2026 14:53:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1775771594; x=1776376394; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hu81u8EXPjFrB34GvSJW9iQwsEy8qvlO31eh+EE0xPg=;
-        b=Tl3oeSlhmTg7Sm9NSojnHbJjxjuYJD0Cc0EI6/Y2bg0lybLTymm8ZSo+D5LrKQKvFa
-         JXAMW6/WDhXh5KzfRh0sVPJJ5gkTn5N9CoItPeykFATWZGyDEsQELmF1Jp6WFTm2cgGh
-         YJwNOsE5Qhn7dly/O2Wnkil/eDNsgMJ1Kvgjng3HdnWg/RtdEpldWW0Us8EVoR6zGJgH
-         /Yt9yHcPbhh6BzQBgMyFPlpmCEqCB3eQXYjb3R7ik8bViRTzFL9B2wnKZFK/ZnQT4BUl
-         qBlzu6LRqlDsXXP3PZUG4APvYyB+fHp2FWMZ9fnun3U3HPqVuAuKMhDEt2mtphjG1Q7U
-         KrTA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775771594; x=1776376394;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hu81u8EXPjFrB34GvSJW9iQwsEy8qvlO31eh+EE0xPg=;
-        b=NI+WQTGznTb/RY8OVmSYzCBs0C6WI73834GsyWpO73+iL1FUEZYuyu1tOCfinoEPFD
-         zk/6qAmZuaGsPWmwYP6NPaVyqjTpNbj6tuUm2Zgl5mk4lb6FKHXLwbR8l4VmbMjuMQWv
-         4ueUI2frEKLwmBPOZwFRyQNk/4r3C4KFz4lMISPAGYMJmKv9M/pFZpyYwKP3ATOyvx0F
-         CxW1/OqmhHTa2JOhzoQFn8rS5RCMLCKryweczgoQKOm/vWpaiCsOgtO1a1ol6IvEQh1P
-         ycNCnwps43LKbKUgsQKtnYIbYrVt05npEszT9nDtAlr/vJc9Y/NVPb36W0LyS32DP0GZ
-         tZpg==
-X-Forwarded-Encrypted: i=1; AJvYcCVG3vXehybtN8XmizHN0GgQHkvIGol1UE1uex6FrurcxWUiqlButifJVRrABlK8hvYHq02Mm12dbJ+TW6JdRLpH@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqTXU0cNkM6WDKHl1vpBFDCLyyF1AkXoZn7hrnShZIxFXORyDY
-	LdIVSQJwDBoSL4JgIuVNNpZeGMr9TqBeljNEnRlk7m3NNSoAtCIiMMuiyVwz2xLI9+ImObrHniC
-	aZmsVdUDRWUQzNGk3rt0HIZCXYlotXvvbx8eufapO0I3dOqYJ6/stmv78Qr+ifZdjDngXwga2C/
-	Sjuw==
-X-Gm-Gg: AeBDiesGH1rPOVixuRxhO5Wo8ga5mKoi+NboGmANP8qfiTf805QUK2dXDtE71vyGeMR
-	/sSiHbOxFJByGHTl55sqVg6fXKCS3osnfEWGRFyM4gb4SbxLZj2h5X4yuZLzFJnh55SJ+NPG7CR
-	P9riDN7e8ea29TDIZVWImJvROkIpfdXvWCfP4XPoneeY/7xaXGVEEJwVyxdzfYshS5eyF4qLyA3
-	cJfHWDaXYjFs/08bI7zsW96iddniMUtHIFyNuRyWZq99YMzByn2ZSP04XUviBpLpska4zheMBmn
-	Kw/5mlT+33HPeohFAxbXQpjUBGb5i4DEH4v2QNK+8hNghaJ98pQOfry+6AxA6Rjm3tznH9c5OwK
-	YK8pR8+T5H8z5D8Qjwajfjk/VnnUrZKezRTBgUkgyJZvKa0fSW8CmbM3LAAvmSttxKqsVxk5e5w
-	Lwma7lj1rUt+0QJBxpk0ZMYGNarZTXB1WB700=
-X-Received: by 2002:a05:622a:9:b0:50d:7b0c:35de with SMTP id d75a77b69052e-50dd5c74756mr15755521cf.44.1775771593984;
-        Thu, 09 Apr 2026 14:53:13 -0700 (PDT)
-X-Received: by 2002:a05:622a:9:b0:50d:7b0c:35de with SMTP id d75a77b69052e-50dd5c74756mr15755051cf.44.1775771593478;
-        Thu, 09 Apr 2026 14:53:13 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38e49298f1csm1971861fa.12.2026.04.09.14.53.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Apr 2026 14:53:11 -0700 (PDT)
-Date: Fri, 10 Apr 2026 00:53:08 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Kory Maincent <kory.maincent@bootlin.com>
-Cc: Jani Nikula <jani.nikula@linux.intel.com>,
-        Rodrigo Vivi <rodrigo.vivi@intel.com>,
-        Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-        Tvrtko Ursulin <tursulin@ursulin.net>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Dave Airlie <airlied@redhat.com>,
-        Jesse Barnes <jbarnes@virtuousgeek.org>, Eric Anholt <eric@anholt.net>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Chris Wilson <chris@chris-wilson.co.uk>,
-        Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-        Mark Yacoub <markyacoub@google.com>, Sean Paul <seanpaul@google.com>,
-        Louis Chauvet <louis.chauvet@bootlin.com>,
-        intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
-        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-mediatek@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org,
-        Simona Vetter <simona.vetter@ffwll.ch>
-Subject: Re: [PATCH RFC 09/12] drm: Introduce drmm_connector_dp_init() with
- link training state properties
-Message-ID: <gmaxonri7y3k43pxsnxfnd23mydgrwsw2322v6m4yjoksqm7aj@4ehgvhzg2ubb>
-References: <20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com>
- <20260409-feat_link_cap-v1-9-7069e8199ce2@bootlin.com>
-MIME-Version: 1.0
+	id 1wAxLR-0000000BG01-3ah7;
+	Thu, 09 Apr 2026 21:55:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eVQ+DNODucp0vn/kDX+biGgTTKy7u8NwGsZla5ZNGSVAul3EYLwjTYOjoJ3VxP0vhxXcKTqYtKQWCiVLDa8VfldYz9ELDatTc0F37+AIMQx4TSfgHariPUlROoH6KpN6EMx6yhd8/JfY0o5spOPiWwZhkHQPCbeZCmRGeOkaDTgWOgxqGEqShohM7Pwpv5XsPU1iVPB4e8njaNtEO260JH2HGgqLvwYpmFvwkGuFlkkAqCowrLvLihsofgORCq8Xbaupz67RhdCFfetp6QRrunUSzmcD3+gg3Gxez4ynVzAJnw/FgrnRAmjx4b2hKpoDzFG4B6hORgHNmf0krRWfEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Eaeh07yJuXm1Xjx6dt3uV4RlgVhCaMHEOoFuj2hE2/A=;
+ b=RABFkVnbcJtlty77Q+r77e0XvoN5cvQcCBn+W2Qfx+TFp16/DgoKDU/QXEmzwf95bS9bhZwgtcifPlBmzzHbcpI7Mo+g3mgApmxcga0b0Znn/O/K3eq1O5d4177FvlKciI0f9fRiPrvACGu5LC9F0XGA5E0kI3PA/BgJ07ANbbUc4HGLOruGKUKffnysl4JUFahgp9v/UrRhlQvE94rX/Vf8f5JFPwKpboTkqJp5xjqzImS+yEEWyJzqYGan9HtG7Mb2jvtRMGOq/7FormmotxR7ad3IHzB/a2yKMt2T0C1dnpteZb+VXP/gtIDBroJSTyWYtlwOEZgWQUGUhnNV1g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Eaeh07yJuXm1Xjx6dt3uV4RlgVhCaMHEOoFuj2hE2/A=;
+ b=dkQWglMJVbGeK0ry059kaeX8Ka1CDL5k8upYZWzOzUpuEBeROE8IXFZkP3oGT+9gd4eDgU8Z65fYvv8i4+Mo5A5nbHuot43G5rHAORBDH8Dg66m4TK+IBrbS6yTSACZ6IU499WakRSCUYlo9hPAVSTz5NHC95kwE0QHMV96ADAAjEQmFK1AZRuJ+NpqWUTNLQ662/1EHIMG2NEKNjnbio8V9CiEAz7J24UkfSroTV9MFL3A10dZowpjACbESbbjZJUROFKFhNtRPBqlx+x7TUHxselW32wGu4qSdxcgAB5YvtdUqp7Y4oeYkjCYnso2pJa+QRLUJaepp22LEPnboSw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
+ by AS8PR04MB8786.eurprd04.prod.outlook.com (2603:10a6:20b:42d::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.42; Thu, 9 Apr
+ 2026 21:55:13 +0000
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9769.017; Thu, 9 Apr 2026
+ 21:55:13 +0000
+Date: Fri, 10 Apr 2026 00:55:09 +0300
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: Frank Wunderlich <linux@fw-web.de>
+Cc: Alexander Couzens <lynxis@fe80.eu>,
+	Daniel Golle <daniel@makrotopia.org>, Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Frank Wunderlich <frank-w@public-files.de>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [RFC net PATCH v1] net: pcs: pcs-mtk-lynxi: fix bpi-r3 serdes
+ configuration
+Message-ID: <20260409215509.si2dy63seo4iaspa@skbuf>
+References: <20260409133344.129620-1-linux@fw-web.de>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260409-feat_link_cap-v1-9-7069e8199ce2@bootlin.com>
-X-Authority-Analysis: v=2.4 cv=XtnK/1F9 c=1 sm=1 tr=0 ts=69d81fcb cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=P-IC7800AAAA:8
- a=E-m9dlAQy1ysB7IIWEIA:9 a=CjuIK1q_8ugA:10 a=dawVfQjAaf238kedN5IG:22
- a=d3PnA9EDa4IxuAV0gXij:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDA5MDIwMiBTYWx0ZWRfX7ay0mqs2C43G
- kJWEb8MlSfZudu23JYHBKRmZq8N5eMsUgVOBFSLUHdMW9JWsFXGOXzGmtp2ok9R4ZkTOc9Pzd8p
- ku137iPUrGBQiUhjURGfD2KmaC0RhJkkW9UdO8JlXl8qsMtoPMtLnXAYbCBrL+nYKS+7DM+064S
- zk60g5DrwRjOw2BzVmrI3N9uznKHQBp7hYZyHxADnG3aj695JYJDPd1gU3eCMO6gtyQu/oKaiut
- LOJBX80oNjO2TDkpT+BJIJMPZuFHZqr7olwCnddcH6EzZKpSBz380f3Oy6SW3K26kFEoFgmEhan
- adltJ8HxkLUtyZHronOj00eaX8UbrBNc30jjaLreIjH+jAyXBj+zLVKhDo9Hv+6S90rra8nHEiw
- U6YJtvwizVC+WpJ+IliSYS8iyR4/4OIucqYUOpDAicTeJmUoM+u+BjFmy9O6m9cBJxeN+oRP8NG
- ayC4BTCur77ivRUcTGA==
-X-Proofpoint-GUID: eE62KaOHn-AXfUdN134OYm_AIUJctuqT
-X-Proofpoint-ORIG-GUID: eE62KaOHn-AXfUdN134OYm_AIUJctuqT
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-09_04,2026-04-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 lowpriorityscore=0 clxscore=1015 malwarescore=0
- priorityscore=1501 bulkscore=0 phishscore=0 impostorscore=0 adultscore=0
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2604010000
- definitions=main-2604090202
+In-Reply-To: <20260409133344.129620-1-linux@fw-web.de>
+X-ClientProxiedBy: WA0P291CA0017.POLP291.PROD.OUTLOOK.COM
+ (2603:10a6:1d0:1::16) To AM9PR04MB8585.eurprd04.prod.outlook.com
+ (2603:10a6:20b:438::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|AS8PR04MB8786:EE_
+X-MS-Office365-Filtering-Correlation-Id: c0c95891-602e-4d86-7783-08de9682ad94
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|376014|7416014|10070799003|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: T3hMU5IzKa99jRcnppVE1EV1uPwJllOLONyzULly9Grm69DMeWtkhuMDkDHxpM1iAsWEsVIybs7C4BwG1Vrsp8ZJ7FNr56FLVzAR2094qvhqjEFznoi7z+NKNy1aMIlMQLbAtK3aetj87hOjskWStRhJcKQeA2K9yYwgMb/lItryXudlsVCQudKgrifOfkMsGNv/NBXp2n5Rp3uL+WoQBBXoj25M8WQske/qeJLAth8oH401ogNNT9B7oEYzWw1S9W8Vs2D+c+vfK0JVq/U6hLXKSCZk6xoE3rs6AAKYWu+ZYsKY6tPvWROzmVeJBvA1Hchnp2FW6b3g5Og6vHznZKVyiq34gYHRBTcVlgEDwHvsJGLj/VJRrKPFfZ24WvD1WA8vA4WxZ1dNrIYFtDPIg56BQO2hJem6XSCmRACCMcM7eIgaBoAZRWNS5TzOHLqa+Tmb6/aTsmnXyFxjxbHgvLe19eZnLZWd6EjlfpqwNQgSPYbLTmf9o8Pq5q7Wnjxo43EWrdgX8dV2mIxbWTMDJpbIBlPwIOFGV+PLIHj+vZ4IQfNM1sCEqGqnfiF26IIO2U0CxUnsghBQIkILmiSiZP5rFhoU1/PTXRahby/UZ8uhNiDifsK3Rmft069jKRe7ZVkJCYszknn4mzEECktbVvEg5oVvehkLQHKeZd5DW8gqUQybnUcFkDBgABR4Z5rzS4AaqtSJJ7sBXRMytontY8ruyZjbdMfr124CeOVg7HQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(376014)(7416014)(10070799003)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HG73DO5BnuBAhO1nV3tg9jUJIpkHdKIB410nIC8Jygt+52pk6LD5dSor7zXL?=
+ =?us-ascii?Q?QnQA6ab9SsDdQvYGzAZbaNVEYi9cQONbNrLIpP0e2HgQrx06iWZ4fcvEHmsx?=
+ =?us-ascii?Q?BGPCIkot/Nw78rb8FEM9NnjGyFnFekDS+5tRuM8bmkGCtG1fB+L3mdM6c0No?=
+ =?us-ascii?Q?IX8VqHBPa3KeCV106JBjen/Rt0FGx6+0EyxhrTpgwYCj9eaD5VxHelqlu/wp?=
+ =?us-ascii?Q?kSsmVlyWiFbhNadkTnaF+ufPShstWBqA3A5vogRxcXKAI2oP+yNLLzjQBIEU?=
+ =?us-ascii?Q?r74xLJyB/Hm5p/ioNtddPV98Lyry54X/h6e2MMTdEZJLzen4mxGfmm9oAk5s?=
+ =?us-ascii?Q?HAbU0sj+TxvhuiVvN46OCaXqk6Z70DqHdmw/oEMdbG/lizKr7TQB6e+zMrM2?=
+ =?us-ascii?Q?2dTeyD6+foeBxEBgiFZPK8+UTiubWabT4qukF6RB8YdjzfRN7/+Os+lYyAcq?=
+ =?us-ascii?Q?amqVDSmcGzu5UppRLOxK4lKSIHG+p8qTOTzitq+ETgE9JZkFUlpuhA77Eh0s?=
+ =?us-ascii?Q?Ygx6dmxRYenWPI0Ka2ldWC1k4cy4WeCRvxul5IuSyxWM++TO42cKKHltDwR/?=
+ =?us-ascii?Q?qUt6YdVvO7I3iEvYTJT6GwCQwmozjooTl9ZmprtXtHmBvNQD4JRcIYPMBjo0?=
+ =?us-ascii?Q?lvkG5Ha+seJjI+ZcfV1XpP8UODsfGalYqbCLuu9mCDqBKuufLK4AgLRryYGf?=
+ =?us-ascii?Q?UlBbOJHKFDt+jJ0slYTD+DEKRm+jhmiWAYlRMzCBtjgbyhX6qgeIXwrykQIY?=
+ =?us-ascii?Q?Us/fnnPjgXsLY3g6/9YbW4pakkn8UEgnOdKPI6J+zBU/YWIMZ0s2VZmxtjP/?=
+ =?us-ascii?Q?xKKPj7AU19DqxwASDJy5K6n4JOATKXTsZyM9suCiwqTvQIY9zF4mhyHJQrAc?=
+ =?us-ascii?Q?4V0w+rj/OcyJUP/8C2PG23nwmkc4frv2uth5yMIs8KrQe7uaW8xp+XUWjLiy?=
+ =?us-ascii?Q?6ZzgT7hHal0D1+FW/ECVApvmjBFaBcIveHiSHyOHjNHMWPnS1VvIrCfIvC+K?=
+ =?us-ascii?Q?1bwguDBPknhVcDH4mG5oBQsEOcJNZTfZnbkVDvYyQD8zcPfPcY1l1r+jWqVG?=
+ =?us-ascii?Q?7n0Px/yn//BGukJam6B5I1yw5KufgY8SsarRe0dOWd1VMC8Xn1l4iY6+kx5x?=
+ =?us-ascii?Q?42j7zb/wPO9v4W8TjdI0ChWwzB9bXiaolhRo9nG9JwlkDwvumQP4bF5gvo/k?=
+ =?us-ascii?Q?Q1BN6xO5loJTP/EhENN+eJNnFrnYIjuQ5HuwPqj3UO5zfML3RHP6ZZ5XD5CH?=
+ =?us-ascii?Q?OiU6kO+1x1C0q5gvm+ASPohxfmhft9aB2TKwxm3NN7j4EJxjBc7LWg0fGTZg?=
+ =?us-ascii?Q?ABmaBpD1WzKwaCkCVtsv7phxVOxQCb+bsdHiYau/xsySs89IGi5pPKi63CST?=
+ =?us-ascii?Q?99xYpNrbuQTT5ktXCB2Ds5PA+LFIfIq8PjcKAZb9akizClE7mn1qxryuMDo0?=
+ =?us-ascii?Q?cOUcg2vFaTTXPVRsgYnzzaZoxA9hRoeS595CHI/ZV9dLMeljsYVpTyVLVknR?=
+ =?us-ascii?Q?40OQfju+YqR6sv9YYJW+2ZnFtwjB3pgTiELQlnBe4Pa1C8DG0gZabWol0/d4?=
+ =?us-ascii?Q?3Zx/wm208YvDisNf14OfZf7heJw16UKlgZY4PwPf4j/96155wV5OllyiDK+p?=
+ =?us-ascii?Q?+IFkDH7KbV2Hc1xfR0jWFTWwlV94Xwk5pbL74Q0kvl+znMkoz0cbRcuHCyj9?=
+ =?us-ascii?Q?q3YeGZSR1j/VZB9BV6ha3l9F6LiHsOIUxdqiecPiJoUUFVYrCl/rThSVf7RX?=
+ =?us-ascii?Q?3FEwSVZ6H9Pu6V+KBHCYMayHb6djlYnR3xCTne7RRUCkNW9Op9UmUIDxklGY?=
+X-MS-Exchange-AntiSpam-MessageData-1: 7oMpV9dpqniYqOq/HrT0Q3qNefIgy/HctTo=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c0c95891-602e-4d86-7783-08de9682ad94
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2026 21:55:13.6754
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bb7Um7vzGEMzRMJNQOARjuAYiIanQKBKDmpnqXD1cVbkk7JBicmlmgbEBxMSKvacGtpNJPq3Uup3sa7XJuqV4Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8786
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_145315_961113_D6247562 
-X-CRM114-Status: GOOD (  27.75  )
+X-CRM114-CacheID: sfid-20260409_145525_899732_B6EDB889 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,153 +145,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 09, 2026 at 07:08:25PM +0200, Kory Maincent wrote:
-> Add a managed DisplayPort connector initialization helper,
-> drmm_connector_dp_init(), modeled after the existing HDMI counterpart
-> drmm_connector_hdmi_init(). Cleanup is handled automatically via a
-> DRM-managed action.
+On Thu, Apr 09, 2026 at 03:33:42PM +0200, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> The helper creates the following immutable connector properties to expose
-> DP link training capabilities and state to userspace:
+> Commit 8871389da151 introduces common pcs dts properties which writes
+> rx=normal,tx=normal polarity to register SGMSYS_QPHY_WRAP_CTRL of switch.
+> This is initialized with tx-bit set and so change inverts polarity
+> compared to before.
 > 
->   - num_lanes: bitmask of supported lane counts (1, 2, 4)
->   - link_rate: Array of supported link rates.
->   - dsc_en: Display Stream Compression supported
->   - voltage_swingN: per-lane voltage swing level bitmask
->   - pre-emphasisN: per-lane pre-emphasis level bitmask
+> It looks like mt7531 has tx polarity inverted in hardware and set tx-bit
+> by default to restore the normal polarity.
 > 
-> Link rates are passed by the driver in deca-kbps, following the DRM
-> convention, but exposed to userspace in kbps for clarity.
+> Till this patch the register write was only called when mediatek,pnswap
+> property was set which cannot be done for switch because the fw-node param
+> was always NULL from switch driver in the mtk_pcs_lynxi_create call.
 > 
-> Two additional helpers are provided to update and reset those properties
-> at runtime:
->   - drm_connector_dp_set_link_train_properties()
->   - drm_connector_dp_reset_link_train_properties()
+> Do not configure switch side like it's done before.
 > 
-> Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+> Fixes: 8871389da151 ("net: pcs: pcs-mtk-lynxi: deprecate "mediatek,pnswap"")
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 > ---
->  drivers/gpu/drm/Makefile           |   1 +
->  drivers/gpu/drm/drm_dp_connector.c | 344 +++++++++++++++++++++++++++++++++++++
->  include/drm/drm_connector.h        |  38 ++++
->  include/drm/drm_dp_connector.h     | 109 ++++++++++++
->  4 files changed, 492 insertions(+)
-> 
-> diff --git a/include/drm/drm_dp_connector.h b/include/drm/drm_dp_connector.h
-> new file mode 100644
-> index 0000000000000..77d2f4bb6df68
-> --- /dev/null
-> +++ b/include/drm/drm_dp_connector.h
-> @@ -0,0 +1,109 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +
-> +#ifndef DRM_DP_CONNECTOR_H_
-> +#define DRM_DP_CONNECTOR_H_
-> +
-> +#include <drm/drm_connector.h>
-> +
-> +#define DRM_DP_1LANE	BIT(0)
-> +#define DRM_DP_2LANE	BIT(1)
-> +#define DRM_DP_4LANE	BIT(2)
-> +#define DRM_NLANES_MASK (DRM_DP_1LANE | DRM_DP_2LANE | DRM_DP_4LANE)
-> +#define DRM_DP_VOLTAGE_SWING_LEVEL_0 BIT(0)
-> +#define DRM_DP_VOLTAGE_SWING_LEVEL_1 BIT(1)
-> +#define DRM_DP_VOLTAGE_SWING_LEVEL_2 BIT(2)
-> +#define DRM_DP_VOLTAGE_SWING_LEVEL_3 BIT(3)
-> +#define DRM_DP_VOLTAGE_SWING_LEVEL_MASK (DRM_DP_VOLTAGE_SWING_LEVEL_0 | \
-> +					 DRM_DP_VOLTAGE_SWING_LEVEL_1 | \
-> +					 DRM_DP_VOLTAGE_SWING_LEVEL_2 | \
-> +					 DRM_DP_VOLTAGE_SWING_LEVEL_3)
-> +#define DRM_DP_PRE_EMPH_LEVEL_0 BIT(0)
-> +#define DRM_DP_PRE_EMPH_LEVEL_1 BIT(1)
-> +#define DRM_DP_PRE_EMPH_LEVEL_2 BIT(2)
-> +#define DRM_DP_PRE_EMPH_LEVEL_3 BIT(3)
-> +#define DRM_DP_PRE_EMPH_LEVEL_MASK (DRM_DP_PRE_EMPH_LEVEL_0 | \
-> +				    DRM_DP_PRE_EMPH_LEVEL_1 | \
-> +				    DRM_DP_PRE_EMPH_LEVEL_2 | \
-> +				    DRM_DP_PRE_EMPH_LEVEL_3)
-> +
-> +/**
-> + * struct drm_connector_dp_link_train_caps - DRM DisplayPort link training
-> + * capabilities
 
-Those are not just link training caps. It is more like DP link caps.
-They make sense to be a part of the DP-related drm_connector part.
-
-> + */
-> +struct drm_connector_dp_link_train_caps {
-> +	/**
-> +	 * @nlanes: Bitmask of lanes number supported
-> +	 */
-> +	u8 nlanes;
-> +
-> +	/**
-> +	 * @nrates: Number of link rates supported
-> +	 */
-> +	u32 nrates;
-> +
-> +	/**
-> +	 * @rates: Array listing the supported link rates in deca-kbps
-> +	 */
-> +	const u32 *rates;
-> +
-> +	/**
-> +	 * @dsc: Display Stream Compression supported
-> +	 */
-> +	bool dsc;
-> +
-> +	/**
-> +	 * @v_swings: Bitmask of voltage swing level supported
-> +	 */
-> +	u8 v_swings;
-> +
-> +	/**
-> +	 * @pre_emphs: Bitmask of pre-emphasis level supported
-> +	 */
-> +	u8 pre_emphs;
-> +};
-> +
-> +/**
-> + * struct drm_connector_dp_link_train - DRM DisplayPort link training
-> + * information report
-> + */
-> +struct drm_connector_dp_link_train {
-
-THese define the current DP state. As such, they definitely make sense
-to be a part of the drm_connector.
-> +	/**
-> +	 * @nlanes: The number of lanes used
-> +	 */
-> +	u8 nlanes;
-> +
-> +	/**
-> +	 * @rates: Link rate value selected in deca-kbps
-> +	 */
-> +	u32 rate;
-> +
-> +	/**
-> +	 * @dsc: Display Stream Compression enabled
-> +	 */
-> +	bool dsc_en;
-> +
-> +	/**
-> +	 * @v_swings: Array listing the bitmask voltage swing level per lanes
-> +	 */
-> +	u8 v_swing[4];
-> +
-> +	/**
-> +	 * @pre_emph: Array listing the bitmask pre-emphasis level per lanes
-> +	 */
-> +	u8 pre_emph[4];
-
-Please consider following struct phy_configure_opts_dp (or using it as
-is). Overall, please refer the talk and (more important) the lightning
-resumee at this XDC. I have some bits and pieces ready in spite of that
-proposal, but I didn't have time to finish it.
-
-> +};
-> +
-
--- 
-With best wishes
-Dmitry
+Reviewed-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 
