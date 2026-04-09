@@ -4,89 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B36F364A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 18:12:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C601F364A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 18:33:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B3wLP1+28WerRcsUkk4PpD94H04YxGQOOZgVytM6kw4=; b=Q+CPZQZ83Ag5qyDVglqb4XqGOT
-	ey3G86Z7NPeV+DriPhZI4q4+kuQ0cZhaf0/JBXciA+XEQYlU3NGX3VXxHVC2cpPA28zWvawP9y+Gf
-	K1Rrn6AirldFt9KB58PaSeek39z0TZGtnUTXh0hWm1mZ/jwYL9EKC/e4/DCZATT+GhXXIY64EhFLH
-	Ihdg9UDCIozaJPhqMFbzCfeZj5/kOat1r3atoKmq7XbU35ksdMjVl3fQCBZzCd1IvQZedK6UqAe9B
-	7Ym3pStedqHwsOu0R7RvIJM4E0aKrVoYjQPneyAidS9Z9zwIrPxyddqYNFC9Nzf+MIlyy/B8e+oW7
-	dPGfAEgQ==;
+	bh=zpE7+x6WnT6OsjQpEgPED01LqDMlc6+faCosrOBzazI=; b=MMSCd4rE77CYLGTg7q5GQeWeKb
+	W8pAF2GKZlPzm/PLWq0tgFBplF/oDl25w0iKX2OCksJ1+omv0RfYnRIeS3SA8p4Lxfj5TiQO2tOPA
+	5z/IVgGKRHOCGyoJRQGH+xoOK/R83wCZRRxGp9hx/ZoAUC3xPYtOXqTG0qYVvTVFqelHTMbrst3WA
+	gn11lma2iAV7g/XZy+0qYDFYqtDw7bl5aL7DkebYdxhDTz7vT29E5CTtib9+HC6MDeM0dVYxVZ4Vy
+	PsqP4UlttqJJoRAod5c57KgbG2T58CagIlCUiqGe7ZI7GnvQkNAQvjs+PpM/9ILAyrfE/DVdn1pIM
+	7pyTcS1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAtrk-0000000B4Sj-1L1s;
-	Thu, 09 Apr 2026 18:12:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAtrh-0000000B4RP-3aHS
+	id 1wAuCF-0000000B5zp-1GAc;
+	Thu, 09 Apr 2026 18:33:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAuCC-0000000B5zS-18BN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 18:12:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 102F6434F3;
-	Thu,  9 Apr 2026 18:12:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0586C116C6;
-	Thu,  9 Apr 2026 18:12:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775758348;
-	bh=TloMv1Js3cfnfbaK5/vsyrnKC1ksJ9K4FLT3zhDUB/0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ODRfiiYf4kJgeXqv0GgF/ZPzRIcx/7cYzvJqp4zkaelwoP8TPPLFQG/mzXnBdWFJs
-	 /u3506HhJUL77oALgrDfFjUnWT58yE327bp4l+bmpTzaDOA9FjtgTeNGwXynMcLw3k
-	 HQ6eXwsyyMprd9HHyD1P1ZwvqtST7v4d/fdreQkU2W5T663qqK/3Z8k8ur6HyPU9PK
-	 0BAkNwN/gPXtcTz5CpCeA7g6Twxaol+yCNe+BZvqNPSatsyHC0TlAsojZAEeoZNH0j
-	 42xnbbl0JKD2a+Im6CP1Y6AWmbvr8aLpQ6hou65Tox8kWgWnQC0S6CRew1PDkBMwFF
-	 As54E0pnCU8oQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wAtre-0000000ALO5-1TYg;
-	Thu, 09 Apr 2026 18:12:26 +0000
-Date: Thu, 09 Apr 2026 19:12:25 +0100
-Message-ID: <86qzoo2eba.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: David Woodhouse <dwmw2@infradead.org>
-Cc: "Gutierrez Cantu, Bernardo" <bercantu@amazon.de>,
-	alexandru.elisei@arm.com,
-	alyssa@rosenzweig.io,
-	asahi@lists.linux.dev,
-	broonie@kernel.org,
-	catalin.marinas@arm.com,
-	james.morse@arm.com,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	marcan@marcan.st,
-	mathieu.poirier@linaro.org,
-	oliver.upton@linux.dev,
-	suzuki.poulose@arm.com,
-	sven@svenpeter.dev,
-	will@kernel.org
-Subject: Re: [PATCH] KVM: arm64: Add KVM_CAP_ARM_NATIVE_CACHE_CONFIG vcpu capability
-In-Reply-To: <584931abfa8c6f6c9c8a1379d26ef6beb58db1cd.camel@infradead.org>
-References: <b71910e202ac4a56a87c0e34df13cce058d46a76.camel@infradead.org>
-	<7fb7b823c68e04321eb532a5b8ae21a818d4926d.camel@infradead.org>
-	<86se942hbv.wl-maz@kernel.org>
-	<584931abfa8c6f6c9c8a1379d26ef6beb58db1cd.camel@infradead.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: dwmw2@infradead.org, bercantu@amazon.de, alexandru.elisei@arm.com, alyssa@rosenzweig.io, asahi@lists.linux.dev, broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, marcan@marcan.st, mathieu.poirier@linaro.org, oliver.upton@linux.dev, suzuki.poulose@arm.com, sven@svenpeter.dev, will@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 09 Apr 2026 18:33:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E40262008;
+	Thu,  9 Apr 2026 11:33:32 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E1043FAF5;
+	Thu,  9 Apr 2026 11:33:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775759618; bh=2Mke9B5xsH/9FIs5H7tLC+6ccGXXOxuntv3Vt8y46q4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SPxcErhrEGrfcTD6Otef5JEhCmD9tgWrdUbCZtE/ZbHXWQKao0p7SVr2LaWwhDwnT
+	 7Ad8rEg/X0nOWekqlpbOWRk3NwrmYCbm2aXm94fmBuPxceaIbJ36ndpYcz2EfDBu+a
+	 CIInQmS/s+86kndcxnpn3wZnaGnmfQcNGIlb8s0U=
+Date: Thu, 9 Apr 2026 19:33:34 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Yang Shi <yang@os.amperecomputing.com>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Dev Jain <dev.jain@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Jinjiang Tu <tujinjiang@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] arm64: mm: Fix rodata=full block mapping support
+ for realm guests
+Message-ID: <adfw_hNDsIWwSAIv@arm.com>
+References: <20260330161705.3349825-2-ryan.roberts@arm.com>
+ <ac7VD4Z85nS30GCp@arm.com>
+ <ac-W9oNM_O5RTtaf@arm.com>
+ <beacee23-c177-47a1-b8b5-743844b617a8@arm.com>
+ <adTPFrlVCEt-hioX@arm.com>
+ <bc4a0246-33bb-443e-a885-a31b24d4a022@arm.com>
+ <adTh8d9k3y5ybemL@arm.com>
+ <567dff89-9f0f-40a0-ab10-22e061b4faaf@arm.com>
+ <adfDoatH8hj6zN7_@arm.com>
+ <07054475-6b07-4b19-a393-cbe037adef8b@os.amperecomputing.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <07054475-6b07-4b19-a393-cbe037adef8b@os.amperecomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_111229_934430_300A8D78 
-X-CRM114-Status: GOOD (  49.77  )
+X-CRM114-CacheID: sfid-20260409_113340_429955_A038FEC7 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,233 +84,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 09 Apr 2026 18:49:09 +0100,
-David Woodhouse <dwmw2@infradead.org> wrote:
->=20
-> [1  <text/plain; UTF-8 (quoted-printable)>]
-> On Thu, 2026-04-09 at 18:07 +0100, Marc Zyngier wrote:
-> > On Thu, 09 Apr 2026 16:29:06 +0100,
-> > David Woodhouse <dwmw2@infradead.org> wrote:
-> > >=20
-> > > [1=C2=A0 <text/plain; UTF-8 (quoted-printable)>]
-> > > From: David Woodhouse <dwmw@amazon.co.uk>
-> > >=20
-> > > Commit 7af0c2534f4c5 ("KVM: arm64: Normalize cache configuration")
-> > > fabricates CLIDR_EL1 and CCSIDR_EL1 values instead of using the real
-> > > hardware values. While this provides consistent values across
-> > > heterogeneous CPUs, it does cause visible changes in the CPU model
-> > > exposed to guests.
-> > >=20
-> > > The commit claims that userspace can restore the original values, but
-> > > there is no way for userspace to obtain the real CLIDR_EL1 register
-> > > value =E2=80=94 it is not fully reconstructible from sysfs, which lac=
-ks the
-> > > LoC, LoUU, and LoUIS fields.
-> > >=20
-> > > Add a per-vcpu KVM_CAP_ARM_NATIVE_CACHE_CONFIG capability that reads
-> > > the real CLIDR_EL1 and all CCSIDR_EL1 values from the current physical
-> > > CPU and sets them on the vcpu.
-> > >=20
-> > > This allows hypervisors to present the real hardware cache configurat=
-ion
-> > > to guests, which is important for consistency of the environment acro=
-ss
-> > > kernel versions and for migration compatibility with hosts running
-> > > older kernels that exposed the real values.
-> > >=20
-> > > Fixes: 7af0c2534f4c ("KVM: arm64: Normalize cache configuration")
-> > > Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
-> > > ---
-> > > =C2=A0Documentation/virt/kvm/api.rst=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 23 ++++++++
-> > > =C2=A0arch/arm64/include/asm/kvm_host.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 1 +
-> > > =C2=A0arch/arm64/kvm/arm.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 17 ++++++
-> > > =C2=A0arch/arm64/kvm/sys_regs.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 | 26 ++++++++++
-> > > =C2=A0include/uapi/linux/kvm.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 |=C2=A0 1 +
-> > > =C2=A0tools/testing/selftests/kvm/Makefile.kvm=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 1 +
-> > > =C2=A0.../selftests/kvm/arm64/native_cache_config.c | 52 ++++++++++++=
-+++++++
-> > > =C2=A07 files changed, 121 insertions(+)
-> > > =C2=A0create mode 100644 tools/testing/selftests/kvm/arm64/native_cac=
-he_config.c
-> > >=20
-> > > diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/=
-api.rst
-> > > index e3b3bd9edeec..ee47dc07ceac 100644
-> > > --- a/Documentation/virt/kvm/api.rst
-> > > +++ b/Documentation/virt/kvm/api.rst
-> > > @@ -8930,6 +8930,29 @@ no-op.
-> > > =C2=A0
-> > > =C2=A0``KVM_CHECK_EXTENSION`` returns the bitmask of exits that can b=
-e disabled.
-> > > =C2=A0
-> > > +7.48 KVM_CAP_ARM_NATIVE_CACHE_CONFIG
-> > > +-------------------------------------
-> > > +
-> > > +:Architecture: arm64
-> > > +:Target: vcpu
-> > > +:Parameters: none
-> > > +:Returns: 0 on success, -ENOMEM on allocation failure, -EINVAL if
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 args[0] or fl=
-ags are non-zero.
-> > > +
-> > > +This per-vcpu capability reads the real CLIDR_EL1 and CCSIDR_EL1 val=
-ues
-> > > +from the physical CPU on which the ioctl is executed, and sets them =
-on
-> > > +the vcpu. This replaces the fabricated cache configuration that KVM
-> > > +provides by default.
-> > > +
-> > > +The caller should ensure the vcpu thread is pinned to the desired
-> > > +physical CPU before invoking this capability, so that the correct ca=
-che
-> > > +topology is captured. On heterogeneous systems, different physical C=
-PUs
-> > > +may have different cache configurations.
-> > > +
-> > > +After this capability is enabled, the vcpu's CLIDR_EL1 and CCSIDR_EL1
-> > > +values can still be overridden individually via ``KVM_SET_ONE_REG`` =
-and
-> > > +the ``KVM_REG_ARM_DEMUX`` interface.
-> > > +
-> > > =C2=A08. Other capabilities.
-> > > =C2=A0=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D
-> > > =C2=A0
-> > > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/a=
-sm/kvm_host.h
-> > > index a1bb025c641f..c9713a472c47 100644
-> > > --- a/arch/arm64/include/asm/kvm_host.h
-> > > +++ b/arch/arm64/include/asm/kvm_host.h
-> > > @@ -1296,6 +1296,7 @@ void kvm_sys_regs_create_debugfs(struct kvm *kv=
-m);
-> > > =C2=A0void kvm_reset_sys_regs(struct kvm_vcpu *vcpu);
-> > > =C2=A0
-> > > =C2=A0int __init kvm_sys_reg_table_init(void);
-> > > +int kvm_vcpu_set_native_cache_config(struct kvm_vcpu *vcpu);
-> > > =C2=A0struct sys_reg_desc;
-> > > =C2=A0int __init populate_sysreg_config(const struct sys_reg_desc *sr,
-> > > =C2=A0				=C2=A0 unsigned int idx);
-> > > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> > > index 326a99fea753..579583e8dc5c 100644
-> > > --- a/arch/arm64/kvm/arm.c
-> > > +++ b/arch/arm64/kvm/arm.c
-> > > @@ -393,6 +393,10 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm=
-, long ext)
-> > > =C2=A0	case KVM_CAP_ARM_DISABLE_EXITS:
-> > > =C2=A0		r =3D KVM_ARM_DISABLE_VALID_EXITS;
-> > > =C2=A0		break;
-> > > +	case KVM_CAP_ARM_NATIVE_CACHE_CONFIG:
-> > > +	case KVM_CAP_ENABLE_CAP:
-> > > +		r =3D 1;
-> > > +		break;
-> > > =C2=A0	case KVM_CAP_SET_GUEST_DEBUG2:
-> > > =C2=A0		return KVM_GUESTDBG_VALID_MASK;
-> > > =C2=A0	case KVM_CAP_ARM_SET_DEVICE_ADDR:
-> > > @@ -1793,6 +1797,19 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
-> > > =C2=A0		r =3D kvm_arch_vcpu_ioctl_vcpu_init(vcpu, &init);
-> > > =C2=A0		break;
-> > > =C2=A0	}
-> > > +	case KVM_ENABLE_CAP: {
-> > > +		struct kvm_enable_cap cap;
-> > > +
-> > > +		r =3D -EFAULT;
-> > > +		if (copy_from_user(&cap, argp, sizeof(cap)))
-> > > +			break;
-> > > +
-> > > +		r =3D -EINVAL;
-> > > +		if (cap.cap =3D=3D KVM_CAP_ARM_NATIVE_CACHE_CONFIG &&
-> > > +		=C2=A0=C2=A0=C2=A0 !cap.args[0] && !cap.flags)
-> > > +			r =3D kvm_vcpu_set_native_cache_config(vcpu);
-> > > +		break;
-> > > +	}
-> > > =C2=A0	case KVM_SET_ONE_REG:
-> > > =C2=A0	case KVM_GET_ONE_REG: {
-> > > =C2=A0		struct kvm_one_reg reg;
-> > > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> > > index 1b4cacb6e918..c19d84e48f8b 100644
-> > > --- a/arch/arm64/kvm/sys_regs.c
-> > > +++ b/arch/arm64/kvm/sys_regs.c
-> > > @@ -484,6 +484,32 @@ static int set_ccsidr(struct kvm_vcpu *vcpu, u32=
- csselr, u32 val)
-> > > =C2=A0	return 0;
-> > > =C2=A0}
-> > > =C2=A0
-> > > +int kvm_vcpu_set_native_cache_config(struct kvm_vcpu *vcpu)
-> > > +{
-> > > +	u32 csselr;
-> > > +
-> > > +	if (!vcpu->arch.ccsidr) {
-> > > +		vcpu->arch.ccsidr =3D kmalloc_array(CSSELR_MAX, sizeof(u32),
-> > > +						=C2=A0 GFP_KERNEL_ACCOUNT);
-> > > +		if (!vcpu->arch.ccsidr)
-> > > +			return -ENOMEM;
-> > > +	}
-> >=20
-> > Well, no.
-> >=20
-> > The moment you decide to expose all of the host's crap, you really
-> > need to put everything on the table. It means fully handling
-> > FEAT_CCIDX, which we were careful not to expose anywhere because it is
-> > a terrible idea.
->=20
-> The intent here is not to "expose all of the host's crap", but to
-> maintain compatibility with what the kernel did before commit
-> 7af0c2534f4c. No need to expose FEAT_CCIDX.
+On Thu, Apr 09, 2026 at 09:48:58AM -0700, Yang Shi wrote:
+> On 4/9/26 8:20 AM, Catalin Marinas wrote:
+> > On Thu, Apr 09, 2026 at 11:53:41AM +0200, Kevin Brodsky wrote:
+> > > What would make more sense to me is to enable the use of BBML2-noabort
+> > > unconditionally if !force_pte_mapping(). We can then have
+> > > can_set_direct_map() return true if we have BBML2-noabort, and we no
+> > > longer need to check it in map_mem().
+> > 
+> > Indeed.
+> 
+> I'm trying to wrap up my head for this discussion. IIUC, if none of the
+> features is enabled, it means we don't need do anything because the direct
+> map is not changed. For example, if vmalloc doesn't change direct map
+> permission when rodata != full, there is no need to call
+> set_direct_map_*_noflush(). So unconditionally checking BBML2_NOABORT will
+> change the behavior unnecessarily. Did I miss something?
+> 
+> I think the only exception is secretmem if I don't miss something.
+> Currently, secretmem is actually not supported if none of the features is
+> enabled. But BBML2_NOABORT allows to lift the restriction.
 
-That's not optional. Without FEAT_CCIDX, the guest cannot interpret
-the correct cache geometry.
+Yes, it's secretmem only AFAICT. I think execmem will only change the
+linear map if rodata_full anyway.
 
->=20
-> > > +	for (csselr =3D 0; csselr < CSSELR_MAX; csselr++) {
-> > > +		write_sysreg(csselr, csselr_el1);
-> > > +		isb();
-> > > +		vcpu->arch.ccsidr[csselr] =3D read_sysreg(ccsidr_el1);
-> >=20
-> > That's not how the selection register works. CLIDR_EL1 tells you what
-> > each cache level is (Instructions, Data, Unified, Tags), and that must
-> > be combined with the index (which doesn't start at bit 0).
->=20
-> Ack, thanks. I'll rework that based on the old is_valid_cache()
-> function.
->=20
-> > I also wonder how you reconcile not exposing MTE when the cache
-> > hierarchy indicate support for tags. That clearly contradicts "report
-> > what the HW has".
->=20
-> If that was an issue then it would already have been an issue before
-> commit 7af0c2534f4 (and in kernels with that commit reverted), hosting
-> millions of guests today.
-
-That only means you are doing a pretty bad job at supporting
-guests. And yes, this is an issue for anything that expects to see
-something meaningful in CCSIDR[]. The fact that none of your guests
-hit that problem only means you're lacking coverage.
-
-=46rom what I can read, anything from Neoverse V1 is affected.
-
->=20
-> This isn't about introducing *new* behaviour; it's about allowing the
-> existing established behaviour to be maintained so that we can have a
-> *managed* transition to the new model (for new launches) rather than an
-> unconditional uncontrolled change as the kernel gets upgraded.
-
-Then fully implement "show me the cache hierarchy", read it out, and
-write it back with whatever level of brokenness you intend to inflict
-on your guests.
-
-But I'm not reintroducing this particular bug.
-
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
+-- 
+Catalin
 
