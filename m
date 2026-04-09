@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AE49E9DE62
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 08:13:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542C1E9DE62
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 08:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HZbQdVfmKFQPrvXx2OWfxO1ipd5MSxGipNTJmcP0amc=; b=tpW4fN401qvDdQG9R+I9gU98Qn
-	CJI5eltqCSXmTTGFMsR8zb9r+RZfiHgLiUXQBmtRJ8z3FzBwRmOevOlXHv0qK8KVHq1VJQbotMkw8
-	XFfaFkxM9L8DtXan/L/sTjZlxAbUuK8w8E8tf0nuC+kIhRuiqOsymC0S0JDO9rv79Y7HnSZTF3Cto
-	Z97gYClc8c4vh3LaH14NoamlO88Adnez3GudvyuE/ipREbMt2yn/2BQQHYfOLnZ+mcrzU/7r/FLWh
-	f82PP1UeI7OrRmphY2ktrJ1T5wy3nk1/cAdPaaoDX1b8A8iB+4+tGYwtwjNRu6nim7qMTlxMmH/R6
-	qm8QANew==;
+	bh=aMOUTQ2n8ZdUSc9lx4PDrliZ+neBQXCbhBCvjHLo1wo=; b=iuIi48J4hzZVjQkc6nWKhyCptR
+	OKwuMlexVoxYsKLVVWi/PboO3kebnS2NBFrWqi+O5pPACA/yQK7JMKsJv4DmCgDDOuFHCtjMU7DHl
+	72BU6Z27vrG0WX7+XatZRSB84DjTOPYYW5gQzb8K9CV35fEBUJomDzSTm5wSMUi3sec5O96IaWdmI
+	Q0LbEt1v4abayKaYFOJ1bsQNQX/cjMb44F3E6otxreSTlfuvkWrelTucfQ8/vdYJSCL1BQH6ATG9b
+	m85S8C+2VLAa6XYfp48pwlrpimROCkTQDtBxmI5WSYROUDxZ93L030FxL13KtRVBfueTNZOjpjNiI
+	BcBhFCMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAkVz-00000009v74-3vnM;
-	Thu, 09 Apr 2026 08:13:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wAkXm-00000009vSu-018K;
+	Thu, 09 Apr 2026 08:15:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAkVw-00000009v6H-3cbP;
-	Thu, 09 Apr 2026 08:13:26 +0000
+	id 1wAkXj-00000009vSD-30YI;
+	Thu, 09 Apr 2026 08:15:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3400141A2F;
-	Thu,  9 Apr 2026 08:13:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89625C4CEF7;
-	Thu,  9 Apr 2026 08:13:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 55FEA4011B;
+	Thu,  9 Apr 2026 08:15:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A34BBC4CEF7;
+	Thu,  9 Apr 2026 08:15:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775722404;
-	bh=CgU7whiQMd3BptzzMKu/4KAdATHpRf7rC84jNQ/3l0M=;
+	s=k20201202; t=1775722515;
+	bh=aMOUTQ2n8ZdUSc9lx4PDrliZ+neBQXCbhBCvjHLo1wo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NQnXBfz4tEMNrwlgBQmt+XZHESHzNgKRETe5j7yv52Nyy4kCGlgHfEov2kff4zfov
-	 idfL+6y6wMUbGv0u28HKfAFrWFMF8PmKMIUXKOEHzYGbs8klp8+yYAdAGst8fzWBSL
-	 LwNW586jTkmrq+D8J+RbP5hnhbKH9f/yI11/ut/FPcKutJIdqYh5qv5SqIWct5uEMG
-	 v51hqf6T3pnvbo+i0BQxMh2XID1fP4S1MdxN462FRoGo+WWfmqVosjLJuP0/sKrsN7
-	 +8qe1uraHN/Xps2wmYKagbFIyEwkWHFHOhbxBK6gmGcxzzd/xQ0qebfJF7vJMESUQn
-	 CFHjXAo92atzQ==
-Date: Thu, 9 Apr 2026 10:13:21 +0200
+	b=Va9irgINaO3bh5yRUsexQXriLdkEha6HsQSYQbbnu1Rl3c/xxehk2mlOKjpnhCCto
+	 vRbzRaFU1JDJMuCHm46cGUsaQNqdBOPsUbhTyfDfO+CYFUmu3Mj/ikL28hrX4YcIwS
+	 YSWL067120ZH4sy2nSV5HX0Qtv+9h8aY9RVH1sIiFsBP9OdeazHEwsuZhjKU/mk9Kr
+	 2b1ug7oSahUJvSy+T95ZM7Ain69aWHK+MrgzJu4qlXCyArD9AtsyimMlV2SsAiw6bp
+	 LQbPTvAtPw9WlRSVCJGWuQPU+tpId5ffg5OuHmTgoVsfJIlfO7O9x9mfHNB+fembEe
+	 qBXWv8Rxt1zMQ==
+Date: Thu, 9 Apr 2026 10:15:12 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Gregor Herburger <gregor.herburger@linutronix.de>
 Cc: Rob Herring <robh@kernel.org>, 
@@ -51,18 +51,19 @@ Cc: Rob Herring <robh@kernel.org>,
 	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>, Stefan Wahren <wahrenst@gmx.net>, 
 	Srinivas Kandagatla <srini@kernel.org>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: nvmem: Add a binding for the RPi
- Firmware OTP register
-Message-ID: <20260409-intrepid-discerning-peacock-bbf19a@quoll>
+Subject: Re: [PATCH 3/3] arm64: dts: broadcom: bcm2712: Add the otp nodes to
+ firmware
+Message-ID: <20260409-imposing-strict-snail-5d2a6f@quoll>
 References: <20260408-rpi-otp-driver-v1-0-e02d1dbe6008@linutronix.de>
- <20260408-rpi-otp-driver-v1-1-e02d1dbe6008@linutronix.de>
+ <20260408-rpi-otp-driver-v1-3-e02d1dbe6008@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260408-rpi-otp-driver-v1-1-e02d1dbe6008@linutronix.de>
+In-Reply-To: <20260408-rpi-otp-driver-v1-3-e02d1dbe6008@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_011324_945442_E6E038A1 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20260409_011515_776674_CCCDD545 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,50 +78,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 08, 2026 at 10:00:15AM +0200, Gregor Herburger wrote:
-> The firmware running on the Raspberry Pi VideoCore can be used to access
-> OTP registers. There are two OTP regions (private and customer). Add a
-> binding for these.
+On Wed, Apr 08, 2026 at 10:00:17AM +0200, Gregor Herburger wrote:
+> The Raspberry Pi 5 has two OTP registers (private and customer), add these
+> to the devicetree.
 
-A nit, subject: drop second/last, redundant "a binding for the". The
-"dt-bindings" prefix is already stating that these are bindings.
-See also:
-https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
+So this sentence confirms my question on bindings - your device
+raspberrypi,bcm2835-firmware has these, thus you do not need these child
+nodes at all. Neither compatibles.
 
-> 
-> Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
-> ---
->  .../bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml | 18 ++++++++++++++++++
->  1 file changed, 18 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
-> index 983ea80eaec9..975c8927d75b 100644
-> --- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
-> +++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
-> @@ -137,6 +137,20 @@ required:
->    - compatible
->    - mboxes
->  
-> +patternProperties:
-> +  "^otp-(customer|private)$":
+Drop entire DTS and binding patches.
 
-Not a pattern but just "otp".
-
-> +    type: object
-> +    additionalProperties: false
-> +
-> +    properties:
-> +      compatible:
-> +        enum:
-> +          - raspberrypi,firmware-otp-customer
-> +          - raspberrypi,firmware-otp-private
-
-I don't understand why having OTP regions is not deducible from
-top-level compatible. I also do not get why do you need per OTP
-compatible.
-
-There are no resources here, so standard review would be "no" and you
-need strong justification in terms of DT.
+See also writing-bindings and DTS101 why we do not allow this.
 
 Best regards,
 Krzysztof
