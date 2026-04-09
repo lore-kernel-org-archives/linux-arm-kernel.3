@@ -4,146 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEE9CE9DE64
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 08:07:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3AABE9DE62
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 08:10:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qM/m6AwdwyIVhFOQUbXvoZabKUxpr7rQVsJRUNxy+y0=; b=JOtJTZnD8QkJEOLnaHRRDntF8n
-	H8IoVzeNRt66+lwDr1EtyIVnkkHfuR/CeUOxtHlsqNsr4ScGQeyc9O5VqaOISvSGWd5hqbC8D7KTc
-	JJg/xC1bT7dHBJiDV/NTmbBh4ZxmsXaivweYAo/rhhpHct9SvIgNojdwD9Y2gMipOED808YeewjCY
-	U7ihPCunY94NTGspcNIMTd1RdPaC8S0ouJvr4DZk/Y1yjsDMe01QlLQlMtevyj0CuFiWtk6eSjSYz
-	rfPmxwFSocnV96QrcmEiRBVybKUFarrZ1929vXP6R3dcO3evfxu7N+i3hFuh+qV2aySmSDOZn+tvf
-	b7xlNyvg==;
+	bh=21yOTrJ/B3IhYemXPT8N7nA43ixhW+PDClm3bW1M0dY=; b=sXg/VR5c0MkxZZCnYuc7lha2EA
+	AsZypllRJVkc2N2/QqQQd1VKOZ+JYdXfvmNvmWmmRZDmqKPAx9LNal0iR3KDJvHUpXpv5xJUvs7Ps
+	PKGq7NoUCX/KFqOZ/a20NNwRzv3Wehxgmw7VezQ9ClI+2i0VQZT17sAStMeSyRvWgGbbHagJTLF4U
+	00X2VHl0VneSV+TOderdqJiaIoxx3l+It9ezJjVN9Z6lKgpXCkgMBZ+DgxHzxa/GmjhI0o/qf1ByT
+	bsQxtoaDIp0IxkvYdWqrS4IdYtQaACJP/SiI8i24BhnDBr9gVr6bYWjZH8gAYVUO47wDG/2mFsIJU
+	K92Ot4Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAkQB-00000009uY7-2wKl;
-	Thu, 09 Apr 2026 08:07:27 +0000
-Received: from mail-francecentralazon11013059.outbound.protection.outlook.com ([40.107.162.59] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wAkTM-00000009uvc-1gPp;
+	Thu, 09 Apr 2026 08:10:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAkQ8-00000009uWh-2dj4
+	id 1wAkTJ-00000009uv2-3UBK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 08:07:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=c0qqScQjmGnBFCQ/4DTrD/Q7lD8U3xp5of6LZpBjpKNJNDkFz78QztAsCLLIIGHwhkx4pQNZuEdgPYtwbtTfPVg6L9nBfvSfQFzUdKYX6rCr27+ZSWIjRofO96j42MmSxNIjF64Q/5IruLgAfMe9vrDvapliksu5VngG/whjZYkkoMQyBS5CjK3+G3+9y6A5mIiVdwgRqNFNEg4Py0NTFeWx+Gt8Nb/l4/ZH4ui6qHwkBf+4eRQkEyKmiK99Whr8yh5QOg6XEEdCWlsnmWnOYPp0oNFuSoig/bou4TVPWrNDFBuNSqVGkF9a4TH8+4/vKVryVVpNcW3+fN4hb6yduA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qM/m6AwdwyIVhFOQUbXvoZabKUxpr7rQVsJRUNxy+y0=;
- b=ihosazG6zqpq3ug88ve/Ql9nWdUG4G2sm3GFnab++GwwBeBhgf00A0TTtG2JUBZsIBzmhdukQ08ED3ekIsOCITAkZ9tjZ8o5SPoCT4Td1tiLfbJo4aDKzWyRFvvewIJ6rHAeiX+8BR1nKLy7M2uhsyYfLa5t+AJ0mq0sYVutc5ghjBrNxkOUJ7trOfQHadEs2Rr5YV/G31UBq1S3Or/vWuOcp5xxok//TvBDg5JcsRWmnbIXP5KZ3xlPCkmstYTC3uYuxtQVJRoXyDlCuJ0hVnAIrRb5hdXVPSRVu7sR9njxM+6HYIQiQP6Tqcn+3qUqRGKiZJcNqXtlkZRbfKr94w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qM/m6AwdwyIVhFOQUbXvoZabKUxpr7rQVsJRUNxy+y0=;
- b=WLc68t38Vhp/E1ld5dqmuoseYXX1JKanlBM9MpkffOI/WV2Fno0Pr1M3wwEU/Zr1Qruujw0dyy79+txWHrORyg0v/GWC/7Ied2vd1Jos4HkNGmloRI+vTjedgjEm2bypq7Rj8Co3T3KW5aIs4zVWxpnGmKN38P1MipC/LyxfVh4nmR9+dKfVrYj2RO4d+/BEwH9wQkY03ZGPgekMyFz9nB/OLWvOgdmeq7dnF0bz9dUwKPOEOjTwAS2py9ePdrsPbbEER3gIT5C+wy9ITglfDa1awaSjvahmLU8yYLusaOpKrPhgi9/gkMBtCfK/Fn1TJd6N7Z8t1iXQjWmjJvjuNw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
- by VI2PR04MB10288.eurprd04.prod.outlook.com (2603:10a6:800:220::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Thu, 9 Apr
- 2026 08:07:16 +0000
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4]) by AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::f010:fca8:7ef:62f4%4]) with mapi id 15.20.9769.017; Thu, 9 Apr 2026
- 08:07:15 +0000
-Date: Thu, 9 Apr 2026 11:07:11 +0300
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Wei Fang <wei.fang@nxp.com>
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	Claudiu Manoil <claudiu.manoil@nxp.com>,
-	Clark Wang <xiaoning.wang@nxp.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-	"davem@davemloft.net" <davem@davemloft.net>,
-	"edumazet@google.com" <edumazet@google.com>,
-	"pabeni@redhat.com" <pabeni@redhat.com>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"f.fainelli@gmail.com" <f.fainelli@gmail.com>,
-	Frank Li <frank.li@nxp.com>,
-	"chleroy@kernel.org" <chleroy@kernel.org>,
-	"horms@kernel.org" <horms@kernel.org>,
-	"linux@armlinux.org.uk" <linux@armlinux.org.uk>,
-	"andrew@lunn.ch" <andrew@lunn.ch>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>
-Subject: Re: [PATCH v4 net-next 10/14] net: dsa: netc: introduce NXP NETC
- switch driver for i.MX94
-Message-ID: <20260409080711.j4kmavt7utef2kil@skbuf>
-References: <20260331113025.1566878-11-wei.fang@nxp.com>
- <20260403011738.1795644-1-kuba@kernel.org>
- <AM8PR04MB72840DBFC7F3FD578DFF6AF8885BA@AM8PR04MB7284.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <AM8PR04MB72840DBFC7F3FD578DFF6AF8885BA@AM8PR04MB7284.eurprd04.prod.outlook.com>
-X-ClientProxiedBy: WA2P291CA0040.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d0:1f::24) To AM9PR04MB8585.eurprd04.prod.outlook.com
- (2603:10a6:20b:438::13)
+	Thu, 09 Apr 2026 08:10:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3613044536;
+	Thu,  9 Apr 2026 08:10:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80C7EC4CEF7;
+	Thu,  9 Apr 2026 08:10:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775722241;
+	bh=J+SGhUD52q5MWINYcfndMkcY7ldyo5b2pp4NmBb+LWU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=q60cZPU9qf6dJig+MFrL+jfcD6RH0ObI/ZZwaOsOToE1hixUItSRWHxg2396ZJ2I/
+	 tQ4T8bsVdy6QqkGlZMxQ0EPDW18ip3rzgQrI/axSJitdOgIe3hYVa+YnbcwIbC3aNC
+	 VC3T3u5ycvdTTk9etEKVVJggnwD82PKUK9F67aFXIuMSea6KusYYv1lGkjJw/WbiTV
+	 x26xFdEcGWt+0ZuOK5IcjlMh1I6Uwgg50QlVg0+WgwZKUE1XqwerB271/DIOlzVkFT
+	 jfOoipRfIHgX0/q/m45EolCcCZkHpEIzYbHm53LIB/7f/xSInShH2ccyrU/7COSgzj
+	 R0tUajRsa09GQ==
+Date: Thu, 9 Apr 2026 10:10:38 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 1/3] dt-bindings: iommu: arm-smmu-v3: Allow PMU child
+ nodes
+Message-ID: <20260409-outstanding-arboreal-peacock-2de6f1@quoll>
+References: <20260408-smmu-perf-v1-0-d75dac96e828@nxp.com>
+ <20260408-smmu-perf-v1-1-d75dac96e828@nxp.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|VI2PR04MB10288:EE_
-X-MS-Office365-Filtering-Correlation-Id: 44d29ac3-c40e-47bd-64b0-08de960f02ed
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|10070799003|366016|1800799024|19092799006|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: P4Y9azEzIgp0cSA25iHKurtbnqBTcZYM61C1Z6YiXtt+vcc6xOp6CkDSs4TKyxqfRiJCzFwgoMCiR5qmgrQi+GZ6lxOHk3GrwOfiB939iqxW99YddzVAQp9ohsvWajgNpfIPQpBgu+PAcHq/P+yksDTptDqzUausOwaBr5Qih3jN6SLL68VMDUeeff/dWKAPXXNto7od+p4DHYig0L2S/Ir6oeSCOQdt/hR8diF6CaLi3NexT47jFcOxitqSm1kXiw9qCCbHNeRnCzbOCUmFhl/l9yTtrsj24Hy+jQ+JnDK0BvRdMmwWGvIBK86vumOHAo8/tq4iZApmawdntcHdrNLC0brreNFvacz+0942gqEUNjj/oSDRPt68SFXcxl/kFUKUxLFq9cH74APCpJhycmbQFgSWvhR0uwrroXfg2m4ss8P7DW+HGs45EyRZ7AmYFwA7cW4YJ+SkJubwUMQpX3/1p/of6tn2x9LKNFIRRKBcSoU/G0jcONK1kWQ/P8nc5zG8J1P9PjnMh3prlRDsyI239NuZ2/QMJ+FiS5VskvOveeDiSv92E0NcubhQITjz0aCe+2X/C7oOTSk5BK91aWv5BJglxE3wkNljmmqXga5PF88fjqp7U3ADvxXymtveeZKvwvdjMwW0mJvk1GzWNVTwU3VxZbj/GdYFDN+p7E5GYk7xiHDVTv/IdtMkDmtYx7ZXlgZPiFjHNkrsSoseur5PCCc4VZiJYTfgQO8Ldw0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(10070799003)(366016)(1800799024)(19092799006)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ipTUrx/RuadnRFQ22K3ej6zrK1dHL6fDTxReEQUCtENUneU/WdXYFQCSy5lg?=
- =?us-ascii?Q?VjUFhJCdkjCoAo8nPI9JpdtV4bPa3G6zXJb9N2wpNKzU58dRew1hrBS6PN6W?=
- =?us-ascii?Q?wuSESS0R2Wgd+PjYwMwQQRLn1QpVIPdwOpid+5rHm1pmt2/mOsNqZssHq3qB?=
- =?us-ascii?Q?nEp2rEnkSjbZaUSBtTz4f7EwFwERsMr1PP47l3bBJhCCIO7ksuLaICXrYXMs?=
- =?us-ascii?Q?vwqSrkFMNsDPPqLIeUvbpc3L6tOdNuoLeUGfSe8LktHyyqMW2M0n+CGpd4+e?=
- =?us-ascii?Q?nV7iqglNQ1FcpPynuyh+xIM9G0kaH7FP/Qql0G7vSFmW6hMJ+BaMJQHokoWE?=
- =?us-ascii?Q?08+QtkLxsxHbQmDP2f4FwzqZvTAS21lPXO8/2b2Y6xZ8Zjipc/dxsqraLcxU?=
- =?us-ascii?Q?y5mn0FCNbT4oIBTL5o7Vlz2guuRGKQOIeD5MrdAwX0RG0rtNQ8c9tK8r5/01?=
- =?us-ascii?Q?dBMC/vhR1TrB5lbaTv9EkpI2FhbrL3NMDFHVsg3kFoz7EdqGavGcxPNYHH9d?=
- =?us-ascii?Q?MAvN2zyfAEZqiBr1O8gQ7Fn/XYstT2j0ZPldKlJz7RW5zGWTWam6nALvpCLN?=
- =?us-ascii?Q?okzcWswOTaTJ19FLX9hAbUbwdg/EKqaJ5TVRP9uJ4xa2QlexrhaUQfqGEw57?=
- =?us-ascii?Q?h0JVAmxccCRp7OtcIwETfVBg8rys8vvpJrRY84Gq24qANVNT9QHIjR9ddHTa?=
- =?us-ascii?Q?3eDzhXEApMbicNoa2/IETW7WVhkB/WD4kwx75DoGnwuCrDn3fQiCsGOPwu1I?=
- =?us-ascii?Q?dQyF5FPmHvYRghG4oL24GylLIep5nGygx8ghCAh4Jvld439Mml7Ycq8nv8Gz?=
- =?us-ascii?Q?YolLxH9R6oYmgCkCG5XSuoTzGgUIo65SUA596ZTX6A+FelCz5O1FHitL2ase?=
- =?us-ascii?Q?nliUoxBEB6lNo76lHGxtcU7NaR8iVaZ7Rpb/7MbNiNZeYsn7Ze3D6pXKseyC?=
- =?us-ascii?Q?2R662Ds7n9zh68fEbbZRs+XpvfqZh85vRIpOTGkTk2+XUEMl45XujeWyc3d8?=
- =?us-ascii?Q?SKl8v0pk/Eyu3LtUjKyR4M15s48g1q8R4kYHF0mu8g0ani/j6DCrmRFzsMB8?=
- =?us-ascii?Q?vCRPMl6za1gRSMiuAp7/kwz6GvElwzTibI6OF+9vsXdP9Mnv6mVhNhTCekRt?=
- =?us-ascii?Q?rlr1em0/UXthsaqg9BPe18oLqogdSK+narhyP7s5l3lFUFYDxM+DfzrN0kJg?=
- =?us-ascii?Q?K1/tQoZPKPir/0Wvodxn8kTphHzSupZsYIXq1vMKy3SOsQ+HdS2n9v+OIR1u?=
- =?us-ascii?Q?dhtDpe8I+fnlZmE3txcEUGP0gdbaypOY1NI/AwuXfqOvvfSEOS1pHLNqiEVI?=
- =?us-ascii?Q?HdYV3GH5ZrcivnUJgy02Q9bTHIkuV3+nfcxOeZdtISUEVpu2OaWEgHweCsMg?=
- =?us-ascii?Q?uzg4NG6ddnh8vcNacKMcP7RBWPZ9Y8o+4Bhwrjl5nMGLcD3VY5LDb1QpvHvF?=
- =?us-ascii?Q?uziBnMESvFuIfmrKBoGNvSRxQ6JBAhN53ixQxS0qdv9Ui0Vb+njOZNwglEWP?=
- =?us-ascii?Q?MlrBtpORLj3ynGvb0vjH1cOW+Gg/jvI8ZL89vSoU2d4jB6CHLo9HKc0i3IJE?=
- =?us-ascii?Q?EhSlxvEgquc42HPFAIh90M591SMSou7geysvz7ZWZwmeze8XOjJ60JLoM/1i?=
- =?us-ascii?Q?b5BRY9cCQurkr7syAj8Su885+e+rNJH2JGuBgyIKxZmUN74fY+qqjR/SJtZH?=
- =?us-ascii?Q?eJceswGmG22tA5JomBqUrl8wALCRfLqo0Q1eb2iLK/qCSm8aJvFKfF2rvJIW?=
- =?us-ascii?Q?ymGXb+kB389HZkmYiyC9cPcc0kVBU1Jn2LUL4mhV6jdpJEaz+ycnvXuv1g0C?=
-X-MS-Exchange-AntiSpam-MessageData-1: tvBi4CkyNFc5kQ==
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 44d29ac3-c40e-47bd-64b0-08de960f02ed
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2026 08:07:15.2692
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: m341qPkSwnkfn3BWMo8jXmdmAwWRCplUNejKDA4j0VGb8KXWPNQDDoJ7c92ivslT7oC9kmnca+7TQ44TzcLAeA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10288
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260408-smmu-perf-v1-1-d75dac96e828@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_010724_676504_D3ADC20E 
-X-CRM114-Status: GOOD (  24.71  )
+X-CRM114-CacheID: sfid-20260409_011041_908522_107CB345 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,50 +77,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 08, 2026 at 11:59:24AM +0300, Wei Fang wrote:
-> > > +static int netc_init_switch_id(struct netc_switch *priv)
-> > > +{
-> > > +	struct netc_switch_regs *regs = &priv->regs;
-> > > +	struct dsa_switch *ds = priv->ds;
-> > > +
-> > > +	/* The value of 0 is reserved for the VEPA switch and cannot
-> > > +	 * be used.
-> > > +	 */
-> > > +	if (ds->index > SWCR_SWID || !ds->index) {
-> > > +		dev_err(priv->dev, "Switch index %d out of range\n",
-> > > +			ds->index);
-> > > +		return -ERANGE;
-> > > +	}
-> > 
-> > Does this check cause the probe to fail unconditionally for standard
-> > single-switch topologies?
-> > 
-> > The DSA core typically assigns ds->index = 0 by default for the first switch.
-> > Because !ds->index evaluates to true for index 0, this setup function will
-> > always fail unless the dsa,member property is explicitly overridden in the
-> > device tree.
+On Wed, Apr 08, 2026 at 03:51:15PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
 > 
-> As I mentioned in another mail, we added the 'dsa,member' property to the
-> netc switch DT-binding doc, specifying that the 'member' (switch index) value
-> cannot be 0. And 'dsa,member' is a required property for netc switch.
-> 
-> > 
-> > Could the driver translate the hardware ID internally, for example by writing
-> > ds->index + 1 to NETC_SWCR, rather than forcing this hardware-specific
-> > restriction onto the software DSA index?
-> 
-> The current approach is based on Vladimir's suggestion. I need to confirm with
-> Vladimir which approach is better.
-> 
-> Hi Vladimir,
-> 
-> What are your thoughts on this suggestion? Is this approach better?
+> The Arm SMMU v3 specification defines an optional PMCG (Performance
 
-I maintain it is preferable/simpler the way you are doing it, with a 1:1 mapping.
-The LLM's concern would be more valid if the switch were discrete and every
-board DTS author would have to remember to place the dsa,member property.
-But the switch OF node will live in an SoC dtsi.
+"optional" in a meaning some SMMUv3 implementations do not have it?
 
-Maybe you could put something along these lines in the commit message,
-hopefully the LLM will pick it up and stop complaining.
+> Monitor Control Group) block. Per MMU-700 TRM, it has three 64KB pages,
+> with TCU Performance Monitor Counter Group (PMCG) registers starting at
+> offset 0x02000 in page 0. So PMCG could be described as a child node of the
+> SMMU in Devicetree.
+> 
+> Add a patternProperties entry to the arm,smmu-v3 binding to allow child
+> nodes matching "pmu@<addr>" and reference the existing
+> arm,smmu-v3-pmcg.yaml schema.
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
+> index 82957334bea24402b583e47eb61b5724c91e4378..1d09c5476e5f1a7c3e5c935b677641ee6cc9897e 100644
+> --- a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
+> +++ b/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
+> @@ -50,6 +50,10 @@ properties:
+>              - cmdq-sync   # CMD_SYNC complete
+>              - priq        # PRI Queue not empty
+>  
+> +  '#address-cells': true
+
+Instead enum [1, 2]
+
+> +  '#size-cells': true
+
+Same here
+
+> +  ranges: true
+
+I guess only one mapping is allowed so:
+maxItems: 1
+
+> +
+>    '#iommu-cells':
+>      const: 1
+>  
+> @@ -83,6 +87,12 @@ properties:
+>        register access with page 0 offsets. Set for Cavium ThunderX2 silicon that
+>        doesn't support SMMU page1 register space.
+>  
+> +patternProperties:
+> +  '^pmu@[0-9a-f]+$':
+> +    type: object
+> +    $ref: /schemas/perf/arm,smmu-v3-pmcg.yaml#
+> +    unevaluatedProperties: false
+
+Please add another example with 4-space indentation.
+
+> +
+>  allOf:
+>    - if:
+>        not:
+> 
+> -- 
+> 2.37.1
+> 
 
