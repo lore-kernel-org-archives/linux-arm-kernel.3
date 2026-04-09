@@ -4,85 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8555F364A3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 17:48:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D21F364A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 17:49:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GOPVnYctauWroG2tZXF6QD2dB9fsyysY8ZThXl6u9is=; b=n75NqHQuJOlre6DiXF75TBqoRz
-	gVS3reK1ZVhhVhriVXlfc2czjUq5j50kWhUOafXPwOFKIqU5OYDJ62UE7Eyhazsk52+J5WQM1iVm4
-	+s3bh1SFpB5qC0xf15/maAiLiSslAzJrAvFbllqFNkyfq7U7OLYS/7ewhUklRoTuPeTGe66OmlWQM
-	w58cXe++6JOICrFWQzjAy3QV25AreKQeLifWULF/ZEtIUTXg9n9c95czEvVHdolgxkvIkeZ4taXJt
-	pjQ2h+6QjD/WbOmlKwmxYmcAgzoJDmXbcW1Sk+5LmQQIRakISGbQadu6bjALZu7T4uYtKw5QSgprD
-	KNJIcFow==;
+	bh=qGs61kKWlyg5aSvMvL1JO3HcvmBnSdYhJLX2u4HC90U=; b=gEVBta9YxHbuUyCJYXmxLOdYTt
+	KbFjoIhS6hr2gqRSbuSeq2Iry2/+E3KjpyXCqxncFSiRulZZcd0DUBVgx63gmhedfz+zfu2dIxQo/
+	BgRYFksJX58oOoIpjPAV3uPvinhWdOEAP6p3Gj5YHVB9qMhX+pkn0qfPZi7SgUAlPSAnXHTCthHZ8
+	6Eo3cXsBCZQRKPnM7dQoG1TqQs80wRCohCwcrENTcdy/OlGKkA09PMNwWnXyA9Lwq0zI3ZY0YBy5l
+	/py/OvDfkCKnrW2m5XSVzDKmjbnchQz7ilAZ7Irhfb68Bce5hPxUNdrB+NysOV/k7NqOsMrL8Megd
+	Or+3jUxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAtUY-0000000B2b0-0Sh1;
-	Thu, 09 Apr 2026 17:48:34 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wAtVB-0000000B2f2-1wjN;
+	Thu, 09 Apr 2026 17:49:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAtUV-0000000B2af-0wHE
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 17:48:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1775756907;
-	bh=GOPVnYctauWroG2tZXF6QD2dB9fsyysY8ZThXl6u9is=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=N8M0tP1+nTFtCAm5mYRVljVpT2KsF2bTDT0V8fBto+rM4y2hKDJSG+8OOLf3pp431
-	 tOh+9b5PSxXh6LqFjnBxm+yXl5la2tcB6OvOhSUfp8ai4fVpL4GBiro53So+ov/CKG
-	 L5DeyF3/g5084oqSbNFZ5ZBgdHWu3IafJpI8VrGWrb3LECStbWC31qezreRYEWU4/D
-	 gRGVhUHw3LIT2lG2aj4Bj4/MR0BYaxea1wzEEPLsjOijPToiMgge7v8deHiPDk+LxP
-	 rJ4dN7rkF/SjfwN/xnEG5R6hBe6M42MccGZ6ao+0WGfcb2uAltVOwOcSXPLwPPzWgc
-	 ARz0OyCOxTWhw==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id F1A3617E11F5;
-	Thu,  9 Apr 2026 19:48:25 +0200 (CEST)
-Message-ID: <30ac60a7d8671917cbb8ce2fe77c9264e42905dd.camel@collabora.com>
-Subject: Re: [PATCH] media: cedrus: skip invalid H.264 reference list entries
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>, mripard@kernel.org,
- mchehab@kernel.org, 	gregkh@linuxfoundation.org, wens@kernel.org,
- jernej.skrabec@gmail.com, 	samuel@sholland.org,
- linux-media@vger.kernel.org, linux-staging@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Date: Thu, 09 Apr 2026 13:48:23 -0400
-In-Reply-To: <adfGZHR9wM2d6-yJ@shepard>
-References: <20260324080856.56787-1-pengpeng@iscas.ac.cn>
-	 <adeqkmA9VhaPkSAk@shepard>
-	 <4bd5d70a6144f3e8d4356c182f314cf735f1921c.camel@collabora.com>
-	 <ade4Qe4OS04au2Ba@shepard>
-	 <a5f8c14becdc926f14ea852c8c5a2d4665a2ef8a.camel@collabora.com>
-	 <adfGZHR9wM2d6-yJ@shepard>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-Nv2A21rWHI35JGwK0I46"
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	id 1wAtV9-0000000B2eh-4C8G
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 09 Apr 2026 17:49:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=qGs61kKWlyg5aSvMvL1JO3HcvmBnSdYhJLX2u4HC90U=; b=QqRupec1HR1Xia8ODVCYXABS9h
+	Dj2UFVaQxQYESg5AFqpBYv/QVX4JLj2rLUSgD8ahY68UbxzZUCJIk6Nekm9Fd2HZMGgMOFpMM+bZg
+	iPH4DON5js918NzeXTpmjEjIJcfJORVxLexKXmdhKF0OFjf5OvOgFTB1Rw1/H+J/m2637485FrBgz
+	kObJib7YX2rZQGbTf12fem+QG0TH9xo8j0Sx/kP6gNnY2askRxsg/YxfjuPuaiAigvjQos3TaQjp+
+	ifsVw1IjA5+Jdkg1jAUdP6BlaUrymXvPEaETgTpziQdBhozVsDJb8fPIRChRoIXtFU+iYOIA5Kn7K
+	eQhHbZ6Q==;
+Received: from [172.31.31.148] (helo=u09cd745991455d.lumleys.internal)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAtV7-0000000CDWU-3EY9;
+	Thu, 09 Apr 2026 17:49:10 +0000
+Message-ID: <584931abfa8c6f6c9c8a1379d26ef6beb58db1cd.camel@infradead.org>
+Subject: Re: [PATCH] KVM: arm64: Add KVM_CAP_ARM_NATIVE_CACHE_CONFIG vcpu
+ capability
+From: David Woodhouse <dwmw2@infradead.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: "Gutierrez Cantu, Bernardo" <bercantu@amazon.de>, 
+ alexandru.elisei@arm.com, alyssa@rosenzweig.io, asahi@lists.linux.dev, 
+ broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com, 
+ kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, marcan@marcan.st, mathieu.poirier@linaro.org,
+  oliver.upton@linux.dev, suzuki.poulose@arm.com, sven@svenpeter.dev, 
+ will@kernel.org
+Date: Thu, 09 Apr 2026 18:49:09 +0100
+In-Reply-To: <86se942hbv.wl-maz@kernel.org>
+References: <b71910e202ac4a56a87c0e34df13cce058d46a76.camel@infradead.org>
+	 <7fb7b823c68e04321eb532a5b8ae21a818d4926d.camel@infradead.org>
+	 <86se942hbv.wl-maz@kernel.org>
+Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
+	boundary="=-BUtoEEHWtjgzs84gLrzz"
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_104831_442299_D582CA3F 
-X-CRM114-Status: GOOD (  28.02  )
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,126 +78,306 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-Nv2A21rWHI35JGwK0I46
+--=-BUtoEEHWtjgzs84gLrzz
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Le jeudi 09 avril 2026 =C3=A0 17:31 +0200, Paul Kocialkowski a =C3=A9crit=
-=C2=A0:
-> Hi,
->=20
-> On Thu 09 Apr 26, 10:39, Nicolas Dufresne wrote:
-> > Hi,
+On Thu, 2026-04-09 at 18:07 +0100, Marc Zyngier wrote:
+> On Thu, 09 Apr 2026 16:29:06 +0100,
+> David Woodhouse <dwmw2@infradead.org> wrote:
 > >=20
-> > Le jeudi 09 avril 2026 =C3=A0 16:31 +0200, Paul Kocialkowski a =C3=A9cr=
-it=C2=A0:
-> > > I think it make sense yes, but it would be good to document it in the=
- uAPI
-> > > document too.
+> > [1=C2=A0 <text/plain; UTF-8 (quoted-printable)>]
+> > From: David Woodhouse <dwmw@amazon.co.uk>
 > >=20
-> > Basically, extend in the M2M decoder spec(s) on the existing documentat=
-ion:
-> > =C2=A0=C2=A0=20
-> > =C2=A0=C2=A0 V4L2_BUF_FLAG_ERROR:
-> > =C2=A0=C2=A0 -
-> > =C2=A0=C2=A0 When this flag is set, the buffer has been dequeued succes=
-sfully, although
-> > =C2=A0=C2=A0 the data might **have been corrupted**. This is recoverabl=
-e, streaming may
-> > =C2=A0=C2=A0 continue as normal and the buffer may be reused normally. =
-Drivers set this
-> > =C2=A0=C2=A0 flag when the VIDIOC_DQBUF ioctl is called.
->=20
-> Well this part is about v4l2 buffers in general, not just m2m/decoders.
-> But I guess this mechanism would make sense for more device classes than =
-just
-> decoders, so we could indeed specify it there. Maybe with a sufficiently =
-broad
-> wording.
-
-This is current spec, I did meant to use that as basis and improve that cod=
-ec
-specific part.
-
->=20
-> But it would be good to also update the stateless decode document (and ma=
-ybe
-> stateful too) where V4L2_BUF_FLAG_ERROR is already mentionned a few times=
-.
-> We could indicate how this behavior related to reference frames there.
->=20
-> If we agree I could make a series with the following:
-> - Introduce a V4L2_H264_REF_MISSING 0xff define (same for HEVC)
-> - Update the v4l2_h264_reference doc to mention it
-> - Update the cedrus driver to error out (zero-size payload) when the L0/L=
-1 index
-> =C2=A0 is either V4L2_H264_REF_MISSING or an invalid index that doesn't e=
-xist in the
-> =C2=A0 DPB (same for HEVC)
-
-Base on what you reported, this is currently the shortest and safe thing to=
- do.
-
-> - Update the v4l2 buffer and stateless(+stateful) documents to mention th=
-at
-> =C2=A0 buffers marked with V4L2_BUF_FLAG_ERROR may or may not contain usa=
-ble (yet
-> =C2=A0 corrupted) data depending on the payload size and how it relates t=
-o reference
-> =C2=A0 frames.
-
-wfm
-
->=20
-> Then we could later envision having a mechanism (hopefully common) to fig=
-ure out
-> the best replacement to a given missing reference, which would allow cedr=
-us
-> (and maybe other drivers too) to return a frame with incorrect data inste=
-ad of
-> a zero-size payload error.
-
-Certainly, though from my experience best or any works quite well, and quit=
+> > Commit 7af0c2534f4c5 ("KVM: arm64: Normalize cache configuration")
+> > fabricates CLIDR_EL1 and CCSIDR_EL1 values instead of using the real
+> > hardware values. While this provides consistent values across
+> > heterogeneous CPUs, it does cause visible changes in the CPU model
+> > exposed to guests.
+> >=20
+> > The commit claims that userspace can restore the original values, but
+> > there is no way for userspace to obtain the real CLIDR_EL1 register
+> > value =E2=80=94 it is not fully reconstructible from sysfs, which lacks=
+ the
+> > LoC, LoUU, and LoUIS fields.
+> >=20
+> > Add a per-vcpu KVM_CAP_ARM_NATIVE_CACHE_CONFIG capability that reads
+> > the real CLIDR_EL1 and all CCSIDR_EL1 values from the current physical
+> > CPU and sets them on the vcpu.
+> >=20
+> > This allows hypervisors to present the real hardware cache configuratio=
+n
+> > to guests, which is important for consistency of the environment across
+> > kernel versions and for migration compatibility with hosts running
+> > older kernels that exposed the real values.
+> >=20
+> > Fixes: 7af0c2534f4c ("KVM: arm64: Normalize cache configuration")
+> > Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+> > ---
+> > =C2=A0Documentation/virt/kvm/api.rst=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 23 ++++++++
+> > =C2=A0arch/arm64/include/asm/kvm_host.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 1 +
+> > =C2=A0arch/arm64/kvm/arm.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 17 ++++++
+> > =C2=A0arch/arm64/kvm/sys_regs.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 | 26 ++++++++++
+> > =C2=A0include/uapi/linux/kvm.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 |=C2=A0 1 +
+> > =C2=A0tools/testing/selftests/kvm/Makefile.kvm=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 |=C2=A0 1 +
+> > =C2=A0.../selftests/kvm/arm64/native_cache_config.c | 52 ++++++++++++++=
++++++
+> > =C2=A07 files changed, 121 insertions(+)
+> > =C2=A0create mode 100644 tools/testing/selftests/kvm/arm64/native_cache=
+_config.c
+> >=20
+> > diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/ap=
+i.rst
+> > index e3b3bd9edeec..ee47dc07ceac 100644
+> > --- a/Documentation/virt/kvm/api.rst
+> > +++ b/Documentation/virt/kvm/api.rst
+> > @@ -8930,6 +8930,29 @@ no-op.
+> > =C2=A0
+> > =C2=A0``KVM_CHECK_EXTENSION`` returns the bitmask of exits that can be =
+disabled.
+> > =C2=A0
+> > +7.48 KVM_CAP_ARM_NATIVE_CACHE_CONFIG
+> > +-------------------------------------
+> > +
+> > +:Architecture: arm64
+> > +:Target: vcpu
+> > +:Parameters: none
+> > +:Returns: 0 on success, -ENOMEM on allocation failure, -EINVAL if
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 args[0] or flag=
+s are non-zero.
+> > +
+> > +This per-vcpu capability reads the real CLIDR_EL1 and CCSIDR_EL1 value=
+s
+> > +from the physical CPU on which the ioctl is executed, and sets them on
+> > +the vcpu. This replaces the fabricated cache configuration that KVM
+> > +provides by default.
+> > +
+> > +The caller should ensure the vcpu thread is pinned to the desired
+> > +physical CPU before invoking this capability, so that the correct cach=
 e
-better then skipping. But if it makes the HW unstable, or sending uninitial=
-ized
-data to the HW, I agree this is better to hard fail that frame now, enhance
-later. Also, be aware that some HW (RK3399 iirc) have error counters, so yo=
-u
-know how many macroblocks are not decoded properly. Other HW have error IRQ=
-,
-with a register that tells which macroblock it failed on. The reference dec=
-oder
-have optional support for software concealment for the failing macroblock, =
-the
-down side is that in the worse case you get an irq per block, which is quit=
-e a
-disaster performance whise.
-
+> > +topology is captured. On heterogeneous systems, different physical CPU=
+s
+> > +may have different cache configurations.
+> > +
+> > +After this capability is enabled, the vcpu's CLIDR_EL1 and CCSIDR_EL1
+> > +values can still be overridden individually via ``KVM_SET_ONE_REG`` an=
+d
+> > +the ``KVM_REG_ARM_DEMUX`` interface.
+> > +
+> > =C2=A08. Other capabilities.
+> > =C2=A0=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D
+> > =C2=A0
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm=
+/kvm_host.h
+> > index a1bb025c641f..c9713a472c47 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -1296,6 +1296,7 @@ void kvm_sys_regs_create_debugfs(struct kvm *kvm)=
+;
+> > =C2=A0void kvm_reset_sys_regs(struct kvm_vcpu *vcpu);
+> > =C2=A0
+> > =C2=A0int __init kvm_sys_reg_table_init(void);
+> > +int kvm_vcpu_set_native_cache_config(struct kvm_vcpu *vcpu);
+> > =C2=A0struct sys_reg_desc;
+> > =C2=A0int __init populate_sysreg_config(const struct sys_reg_desc *sr,
+> > =C2=A0				=C2=A0 unsigned int idx);
+> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> > index 326a99fea753..579583e8dc5c 100644
+> > --- a/arch/arm64/kvm/arm.c
+> > +++ b/arch/arm64/kvm/arm.c
+> > @@ -393,6 +393,10 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, =
+long ext)
+> > =C2=A0	case KVM_CAP_ARM_DISABLE_EXITS:
+> > =C2=A0		r =3D KVM_ARM_DISABLE_VALID_EXITS;
+> > =C2=A0		break;
+> > +	case KVM_CAP_ARM_NATIVE_CACHE_CONFIG:
+> > +	case KVM_CAP_ENABLE_CAP:
+> > +		r =3D 1;
+> > +		break;
+> > =C2=A0	case KVM_CAP_SET_GUEST_DEBUG2:
+> > =C2=A0		return KVM_GUESTDBG_VALID_MASK;
+> > =C2=A0	case KVM_CAP_ARM_SET_DEVICE_ADDR:
+> > @@ -1793,6 +1797,19 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
+> > =C2=A0		r =3D kvm_arch_vcpu_ioctl_vcpu_init(vcpu, &init);
+> > =C2=A0		break;
+> > =C2=A0	}
+> > +	case KVM_ENABLE_CAP: {
+> > +		struct kvm_enable_cap cap;
+> > +
+> > +		r =3D -EFAULT;
+> > +		if (copy_from_user(&cap, argp, sizeof(cap)))
+> > +			break;
+> > +
+> > +		r =3D -EINVAL;
+> > +		if (cap.cap =3D=3D KVM_CAP_ARM_NATIVE_CACHE_CONFIG &&
+> > +		=C2=A0=C2=A0=C2=A0 !cap.args[0] && !cap.flags)
+> > +			r =3D kvm_vcpu_set_native_cache_config(vcpu);
+> > +		break;
+> > +	}
+> > =C2=A0	case KVM_SET_ONE_REG:
+> > =C2=A0	case KVM_GET_ONE_REG: {
+> > =C2=A0		struct kvm_one_reg reg;
+> > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> > index 1b4cacb6e918..c19d84e48f8b 100644
+> > --- a/arch/arm64/kvm/sys_regs.c
+> > +++ b/arch/arm64/kvm/sys_regs.c
+> > @@ -484,6 +484,32 @@ static int set_ccsidr(struct kvm_vcpu *vcpu, u32 c=
+sselr, u32 val)
+> > =C2=A0	return 0;
+> > =C2=A0}
+> > =C2=A0
+> > +int kvm_vcpu_set_native_cache_config(struct kvm_vcpu *vcpu)
+> > +{
+> > +	u32 csselr;
+> > +
+> > +	if (!vcpu->arch.ccsidr) {
+> > +		vcpu->arch.ccsidr =3D kmalloc_array(CSSELR_MAX, sizeof(u32),
+> > +						=C2=A0 GFP_KERNEL_ACCOUNT);
+> > +		if (!vcpu->arch.ccsidr)
+> > +			return -ENOMEM;
+> > +	}
 >=20
-> What do you think?
-
-Yes, I'm happy with the proposal to get this moving forward.
-
-Nicolas
-
+> Well, no.
 >=20
-> All the best,
+> The moment you decide to expose all of the host's crap, you really
+> need to put everything on the table. It means fully handling
+> FEAT_CCIDX, which we were careful not to expose anywhere because it is
+> a terrible idea.
+
+The intent here is not to "expose all of the host's crap", but to
+maintain compatibility with what the kernel did before commit
+7af0c2534f4c. No need to expose FEAT_CCIDX.
+
+> > +	for (csselr =3D 0; csselr < CSSELR_MAX; csselr++) {
+> > +		write_sysreg(csselr, csselr_el1);
+> > +		isb();
+> > +		vcpu->arch.ccsidr[csselr] =3D read_sysreg(ccsidr_el1);
 >=20
-> Paul
+> That's not how the selection register works. CLIDR_EL1 tells you what
+> each cache level is (Instructions, Data, Unified, Tags), and that must
+> be combined with the index (which doesn't start at bit 0).
 
---=-Nv2A21rWHI35JGwK0I46
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+Ack, thanks. I'll rework that based on the old is_valid_cache()
+function.
 
------BEGIN PGP SIGNATURE-----
+> I also wonder how you reconcile not exposing MTE when the cache
+> hierarchy indicate support for tags. That clearly contradicts "report
+> what the HW has".
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCadfmaAAKCRDZQZRRKWBy
-9AfdAP9GiZ9AUUqZ2JJXJMWdLt5KTeBYnF0UqPDmYB9l/JTzwwD/SSbSjVel/rLp
-CxWSNudtOhoaGu+tHQJkTzmbI+OVpAI=
-=uM6R
------END PGP SIGNATURE-----
+If that was an issue then it would already have been an issue before
+commit 7af0c2534f4 (and in kernels with that commit reverted), hosting
+millions of guests today.
 
---=-Nv2A21rWHI35JGwK0I46--
+This isn't about introducing *new* behaviour; it's about allowing the
+existing established behaviour to be maintained so that we can have a
+*managed* transition to the new model (for new launches) rather than an
+unconditional uncontrolled change as the kernel gets upgraded.
+
+--=-BUtoEEHWtjgzs84gLrzz
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Transfer-Encoding: base64
+
+MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
+ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
+AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
+BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
+MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
+a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
+jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
+GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
+aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
+nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
+8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
+HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
+IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
+KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
+BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
+QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
+QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
+ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
+/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
+uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
+xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
+W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
+c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
+VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
+NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
+DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
+sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
+w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
+i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
+kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
+0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
+ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
+blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
+hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
+VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
+HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
+ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
+AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
+cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
+cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
+AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
+aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
+hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
+iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
+8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
+JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
+xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
+EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
+B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
+MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
+KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
+Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
+nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
+WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
+W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
+nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
+g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
+9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
+9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
+sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
+a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
+ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
+AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
+dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
+MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
+YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
+4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
+6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
+QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
+nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
+MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
+VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
+ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDQwOTE3NDkw
+OVowLwYJKoZIhvcNAQkEMSIEIML3+/pb+uNwJPTCApRGqyBU+nV+PbaR6TCvQ5iY2AqWMGQGCSsG
+AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
+cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
+VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
+cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAwXD79QprztK5
+wl1xtJt7mtg575ug+dJwe6z9tUNQH4iTeAeLqa1Dv1NKGO8Fm8GsZkT+Xl0pU6TGvg3n0BmB9rj2
+zWg6kj33QnQpQwltjatpUJtnckUdLW9ETgk0xp+nBZC9Hoe2xd5eXJXGAHt6wgTy3wCQFAxAIKJY
+D7tjwCbKtXUBw+YqLkt2MufWponYTAiwkAM3bD22iuNaNdCMVvGr0BvCbuDuKLglcJ0IB0QFAyMs
+6bTl78npYpwGfWRi03LX/AqXByr9DwYa35TE2sdc0dgc9cbSQ++UWCJblM3ReaIrGrmr5XhUTmkm
+V7XOR2adwBPx9vZ/DULDbOuq17OOeY8ObOPpHgmEHxFdjsh8EnqfEPYgOrwwIZMMGeybNXUdxM65
+St1RxaRlyD0TcXQxx/UW5LbTQ732stQuNWNfSs22jRVE6ZSuj3M2onecC9PWg9uA7mc190lq9qJF
+hJruvOixj+/dB1Md4V9w4/rlYP25QmJkdeNCxado4Lmoj/znzHwe3Bp6t2hXRc0HUFFaBuS9NxVL
+r0o2OVwKMvdr+dafK8QUtKblJXHfWbCQTz07Sba4y5mhvOgcS7j8P4v+urzqrWAg/dc5ybCAZrvd
+dMQPKjpPJDS3SyNtsrfpyk6dUTr1q6SJGZIq03359QV9cXg4AlFN4JRjfsdo1T0AAAAAAAA=
+
+
+--=-BUtoEEHWtjgzs84gLrzz--
 
