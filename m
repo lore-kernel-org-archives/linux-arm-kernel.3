@@ -4,64 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB13E9DE6F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 09:38:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 340D7E98FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 09:47:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SQvhiCtULeI5Kpyiu3qdjopaP2yiyCbzrbBNgDJg4p0=; b=tpp2M0ch0hFWxlR8VveSbphvcw
-	rtsg5hCfe/k/Sbt+aDSc2H4dlZMAQ10Y88h/ebOQYm7z0gg0vGKkxcUB2ZL6c3UWlQ9VqpltIRz2h
-	UfrfcFQlo8OlJouXFHE5WjW5r6Ixh4+Ywd5oa/Qngh1nakPlSB/dl+JF409hlJOEF3Wn4CSy4gJsr
-	HC4NYooZKfP5+hdruaFQ2gqBOj0ReNautYNjxSW/RXkC3Fm0ZANtcmxPkxe7RVJinSRZsT4ws6J2D
-	cjS3i3EXYCO7hY68f4zG1wIEPELNxC3dlLR7fa/TvFYS8rwOIsSzlUJVBptYX0vCy7e4qxakta14v
-	0RBcMjHw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7l9/EAy2qxglM3FAMRsj3AVvjR8HahU0Zh5bhJJH0bk=; b=WQCeER5Wlwrr66
+	DqXoMb8P0tSdHf2PdfmT7+HxHgx2Ic6rbS1SyC2iuCdoUEO4QjkCRkXEj2/UNMasy8eUN5W1/YiBh
+	sE+KDGOilZE7c59iHugLbIcc/dz697LleYlq/O33J5cOy8oklNdUJQdkQc4wh1FMlbNcX4dOLV/GP
+	A7jut2eha0oaj+Bz7T+Zsx3Ed4kCmWK2BVHfmxWV/JMcunn5Uh0lwYlFRh9KBd6P+JQ3LCj1pNzio
+	aX0UvSHH0iWDQxUI/+XGZHrO8w0q5nkb7V2pD0Qv9vKbXS6RT7m59k8csIxBDfMD2ZwuaZRp92I9V
+	p9LWT8lNvbRoLFJgJRvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAlq0-0000000A4CC-0C8c;
-	Thu, 09 Apr 2026 09:38:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAlpw-0000000A4Ba-3sBm
+	id 1wAlyV-0000000A4wD-0HQn;
+	Thu, 09 Apr 2026 09:46:59 +0000
+Received: from mail-westusazon11012025.outbound.protection.outlook.com ([52.101.43.25] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAlyS-0000000A4vm-1DhT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 09:38:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 141813561;
-	Thu,  9 Apr 2026 02:38:01 -0700 (PDT)
-Received: from [10.57.62.20] (unknown [10.57.62.20])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 63D833F641;
-	Thu,  9 Apr 2026 02:38:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775727486; bh=hgmnPKQeJdguRlzqCxqX311nWdNqYCRj8dOAtXBPPzw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hC/IvXMS8TJYS+ZWAlgtGthk/NXbUKaJl/BHJKb0sN78HuIrXfz5kLE6MTDTAlHLH
-	 6CfRBzNFwh+7vksFuaerj4PNEU7FXahuGZImTHrVJl7s8vasz3GOIFGZWLxVp5dE2h
-	 ARuPsj61IbfCGD+1Z9HcmG2GwWR3rZfJp5W3Hiis=
-Message-ID: <d1ecba64-898f-433b-93d4-7a33b9c3f378@arm.com>
-Date: Thu, 9 Apr 2026 10:38:03 +0100
+	Thu, 09 Apr 2026 09:46:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=U4YkOEyWtTGK8Xo5A6JY0HbmfqnRQqeat4Iv/fKR6hdQfQPPL453qPWAQKjRDGhRFJhm8kP5XLs9gzXrn4qT5jfsEiIxGfZzd7+AIIEiA0wRv1D7149ziFfYUQUivhpNif0oW+Z8MuFdPhpJyRRtMMPT2nFIFcAm+deTc/YVhMtzgOyBd7N+708zmZYBmw8qIDGOSxmA+ww2JXJx9tLbxj8qXcJdu6LRkyeuuBgrL/6M3g7NzDrHP9Omym4d/kPqArMJGOlkmSF8R8kLOpGFe5+G0NarP9adXnhA07vI0IbfjKvH5aSJ2KGta/NzbyfKdN45U3l2hcAjlMH88m/pRQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7l9/EAy2qxglM3FAMRsj3AVvjR8HahU0Zh5bhJJH0bk=;
+ b=ZmTa0W3qVtk07YT9SV4JT7iv9BS4PTl5jUC54kyBjZSxp56teCQa5VgGG+02zMB3E13MfXUGje1nLMCrhG5CozmJsL9hTYTWcSrJ/LBqavr2BMppmcDqvwmHfWFfsjyu8fRr1z5e3cjwsuWgLq7ETXYHwl7CJZwJWh2NYVTh/3lALLdD7+KtvYz0qRLpq6VpaKxUKv4RhMWqoxbC9UF2TILjkHCj//Zg8NL86RetaKh0txQ7E1hkW7cIbR0tZo0LcjqoKomQbdEiP1r6BjN4sdDZq5qrVYana6CHjjJ2KiptepMFo9beQjMnlxcO9tYA9CSolxMaz8MzuqRXy1B6zg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7l9/EAy2qxglM3FAMRsj3AVvjR8HahU0Zh5bhJJH0bk=;
+ b=Z/hxdAMMmJKfsQVpReKwxYB1qrU2EmcaWBOQ+ibN/6mJ+PoBPDqtZLUNAHDphkV3wap1DqqOxkUyEMxauqKWab+C9YUHFBUUJrD3rL4oTD04KKhW5nv/RGAxhisAe9KsT/2RvctEQU5KXO32uXfYvLWZvPW/RJI/mQdnXGYGhug=
+Received: from SJ0PR13CA0203.namprd13.prod.outlook.com (2603:10b6:a03:2c3::28)
+ by MW4PR10MB6607.namprd10.prod.outlook.com (2603:10b6:303:226::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.16; Thu, 9 Apr
+ 2026 09:46:50 +0000
+Received: from SJ1PEPF000023D0.namprd02.prod.outlook.com
+ (2603:10b6:a03:2c3:cafe::78) by SJ0PR13CA0203.outlook.office365.com
+ (2603:10b6:a03:2c3::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.40 via Frontend Transport; Thu,
+ 9 Apr 2026 09:46:50 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ SJ1PEPF000023D0.mail.protection.outlook.com (10.167.244.4) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.17 via Frontend Transport; Thu, 9 Apr 2026 09:46:50 +0000
+Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 9 Apr
+ 2026 04:46:48 -0500
+Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE215.ent.ti.com
+ (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 9 Apr
+ 2026 04:46:48 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE213.ent.ti.com
+ (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 9 Apr 2026 04:46:48 -0500
+Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6399khl13560263;
+	Thu, 9 Apr 2026 04:46:44 -0500
+Message-ID: <6a4aecff-f662-4620-8572-3309ea6a81e2@ti.com>
+Date: Thu, 9 Apr 2026 15:16:42 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] arm64: mm: Fix rodata=full block mapping support
- for realm guests
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
- "David Hildenbrand (Arm)" <david@kernel.org>, Dev Jain <dev.jain@arm.com>,
- Yang Shi <yang@os.amperecomputing.com>, Jinjiang Tu <tujinjiang@huawei.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20260330161705.3349825-1-ryan.roberts@arm.com>
- <20260330161705.3349825-2-ryan.roberts@arm.com> <ac7VD4Z85nS30GCp@arm.com>
- <1db93bd3-cb47-445b-b8ca-6de6f04b41cc@arm.com> <adU9KxLC7yKgmyJy@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <adU9KxLC7yKgmyJy@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v3 0/7] arm64: dts: ti: k3-am62a7-sk: Split r5f memory
+ region
+To: Rob Herring <robh@kernel.org>, "Markus Schneider-Pargmann (TI)"
+	<msp@baylibre.com>
+References: <20260318-topic-am62a-ioddr-dt-v6-19-v3-0-c41473cb23c3@baylibre.com>
+ <CAL_JsqJq=3z7SQX_26MGGRcmysnGHVke8aTwyDCesvOuQjEN+g@mail.gmail.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Content-Language: en-US
+In-Reply-To: <CAL_JsqJq=3z7SQX_26MGGRcmysnGHVke8aTwyDCesvOuQjEN+g@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D0:EE_|MW4PR10MB6607:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7b7e7186-5544-4494-1ef5-08de961cec5f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|82310400026|1800799024|7416014|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: xu2DmDrgDuX0iLJk0Xara/X+rnbRrtI2wH/twfB/0qw8X1FaYOls/fR1MrmalkxsoHbjoy5IxdnbS6rJ1ib65yYkq/ie39Lf+Ca89uaXg4Lbi62nAU9GqFWNytOhCnpiQ1/nD4Sikn5EaLVxgL//i85DKJQM5jrcYDjN3aQ8F1dRyjqdUjxVMNhxNV6fEovXcxfyggA6DVCBoeePRpweNWelntRMuRSCRRK9B/xTqB8EiNXLLaRmbjgbXzdUkLM/C5BD+jcy4RFTLIX/uy5o3/o3Zh3hCw9mFOqZOcyCoRZesBpf9A1vB46xVz2UeJa3aZWhY/7LL93qVqjbXP2Yow/deXUxRSXYxjR3E6BgQmVZEUYKTjTFuGMvqs6q0oHOstBD92QDUOyQoQ3BCc5UbDOtBQxbq6PBwpVscN83l1J/I1oLv4hbq6koUVPtxZ5MzkSR6PDW/VSWLWZlnz5ZeMx6PfuN32dIdYnQLJVFvID7AQjGoowTaDt6grWb+jXuOEP/daki1hdlWQGow60rBuiQtdH0eOdRiiTHKWJay5hmY/9tSnl8km1WycOlRwNeFlAzd4Gi+F87MVhD5kdAnWhQz3YtDTq5iioTbexMo0t1I0y+NmuQGPDBf/C7iwjlCHoNHYrg/JyeB5r3yrQGq5p69McdncrKnQiugpyG069ChUH8xYXqs8upClLOuwn10oPY7eHZ2UramLnBcAaAF9DOZ4X3/gxqeaYu1OlZ/to=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(82310400026)(1800799024)(7416014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: e93GMAIGeLeEp7oInMX8OOy19UCtAerA1HWqDW6/1rQJnOKcy2sEidI6IJnfHiD8t+DC5l/vb0Fn43NTibpGRFLIKhhgv2Ggjg3blLlst8Ld2gw1OQ3VTp5Dxv+4LuEiGnpXtkJOV9Jq4Vj6OHyUQ2cY3SV62UMEQANHCRG0QioEfT5BtpkOBeXWUWKeFZoceAX3BjPfu6DcW632X5ZZUQ6JW7GvCKYUBf+xXsnK+EdreE8OB2FDTESrKF/wNJ5P4bsAEMh4EL2NyUGL378qLwsCTcJkfKlPn5QHNRUWhKqrzxZSKhdLtcu1V/QNgxxt23bl1SO4yfzWie/4kkGKLOb93T7L9lTjwRHAEt1U29iUsFiiCtj6RTQYx0IX6E+ztUsHnhJcvgtCunIMkjpESZSHzTVvr1piI4uOAHv4KFSH34sJcwEvww3QVRZAOdgs
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2026 09:46:50.0684
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7b7e7186-5544-4494-1ef5-08de961cec5f
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D0.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB6607
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_023810_114472_33675527 
-X-CRM114-Status: GOOD (  34.56  )
+X-CRM114-CacheID: sfid-20260409_024656_539297_B666E502 
+X-CRM114-Status: GOOD (  18.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,133 +128,90 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Nishanth Menon <nm@ti.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Tero Kristo <kristo@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, Dhruva Gole <d-gole@ti.com>, Akashdeep Kaur <a-kaur@ti.com>, Kevin Hilman <khilman@baylibre.com>, Bjorn Andersson <andersson@kernel.org>, linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, Kendall Willis <k-willis@ti.com>, Vishal Mahaveer <vishalm@ti.com>, Sebin Francis <sebin.francis@ti.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/04/2026 18:21, Catalin Marinas wrote:
-> On Tue, Apr 07, 2026 at 10:57:35AM +0100, Suzuki K Poulose wrote:
->> On 02/04/2026 21:43, Catalin Marinas wrote:
->>> On Mon, Mar 30, 2026 at 05:17:02PM +0100, Ryan Roberts wrote:
->>>>    int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
->>>>    {
->>>>    	int ret;
->>>> -	/*
->>>> -	 * !BBML2_NOABORT systems should not be trying to change permissions on
->>>> -	 * anything that is not pte-mapped in the first place. Just return early
->>>> -	 * and let the permission change code raise a warning if not already
->>>> -	 * pte-mapped.
->>>> -	 */
->>>> -	if (!system_supports_bbml2_noabort())
->>>> -		return 0;
->>>> -
->>>>    	/*
->>>>    	 * If the region is within a pte-mapped area, there is no need to try to
->>>>    	 * split. Additionally, CONFIG_DEBUG_PAGEALLOC and CONFIG_KFENCE may
->>>>    	 * change permissions from atomic context so for those cases (which are
->>>>    	 * always pte-mapped), we must not go any further because taking the
->>>> -	 * mutex below may sleep.
->>>> +	 * mutex below may sleep. Do not call force_pte_mapping() here because
->>>> +	 * it could return a confusing result if called from a secondary cpu
->>>> +	 * prior to finalizing caps. Instead, linear_map_requires_bbml2 gives us
->>>> +	 * what we need.
->>>>    	 */
->>>> -	if (force_pte_mapping() || is_kfence_address((void *)start))
->>>> +	if (!linear_map_requires_bbml2 || is_kfence_address((void *)start))
->>>>    		return 0;
->>>> +	if (!system_supports_bbml2_noabort()) {
->>>> +		/*
->>>> +		 * !BBML2_NOABORT systems should not be trying to change
->>>> +		 * permissions on anything that is not pte-mapped in the first
->>>> +		 * place. Just return early and let the permission change code
->>>> +		 * raise a warning if not already pte-mapped.
->>>> +		 */
->>>> +		if (system_capabilities_finalized())
->>>> +			return 0;
->>>> +
->>>> +		/*
->>>> +		 * Boot-time: split_kernel_leaf_mapping_locked() allocates from
->>>> +		 * page allocator. Can't split until it's available.
->>>> +		 */
->>>> +		if (WARN_ON(!page_alloc_available))
->>>> +			return -EBUSY;
->>>> +
->>>> +		/*
->>>> +		 * Boot-time: Started secondary cpus but don't know if they
->>>> +		 * support BBML2_NOABORT yet. Can't allow splitting in this
->>>> +		 * window in case they don't.
->>>> +		 */
->>>> +		if (WARN_ON(num_online_cpus() > 1))
->>>> +			return -EBUSY;
->>>> +	}
->>>
->>> I think sashiko is over cautions here
->>> (https://sashiko.dev/#/patchset/20260330161705.3349825-1-ryan.roberts@arm.com)
->>> but it has a somewhat valid point from the perspective of
->>> num_online_cpus() semantics. We have have num_online_cpus() == 1 while
->>> having a secondary CPU just booted and with its MMU enabled. I don't
->>> think we can have any asynchronous tasks running at that point to
->>> trigger a spit though. Even async_init() is called after smp_init().
->>>
->>> An option may be to attempt cpus_read_trylock() as this lock is taken by
->>> _cpu_up(). If it fails, return -EBUSY, otherwise check num_online_cpus()
->>> and unlock (and return -EBUSY if secondaries already started).
->>>
->>> Another thing I couldn't get my head around - IIUC is_realm_world()
->>> won't return true for map_mem() yet (if in a realm).
+Hi Markus
+
+On 08/04/26 20:33, Rob Herring wrote:
+> On Wed, Mar 18, 2026 at 10:14 AM Markus Schneider-Pargmann (TI)
+> <msp@baylibre.com> wrote:
 >>
->> That is correct. map_mem() comes from paginig_init(), which gets called
->> before arm64_rsi_init(). Realm check was delayed until psci_xx_init().
->> We had a version which parsed the DT for PSCI conduit early enough
->> to be able to make the SMC calls to detect the Realm. But there
->> were concerns around it.
+>> Hi,
+>>
+>> Split the firmware memory region in more specific parts so it is better
+>> described where which information is stored. Specifically the LPM metadata
+>> region is important as bootloader software like U-Boot has to know where
+>> that data is to be able to read that data and resume from RAM.
+>>
+>> IO+DDR is a deep sleep state in which a few pins are set to be sensitive
+>> for wakeup while the DDR is kept in self refresh. Everything else is
+>> powered off.
+>>
+>> The changes in this series were suggested as part of the IO+DDR u-boot series:
+>>   https://lore.kernel.org/r/814c211f-a9eb-4311-bb84-165b1a69755f@ti.com
+>>
+>> There are currently no real users of the memory-region that is split in
+>> this series. The size of the memory-region in total stays the same.
+>> The new layout is derived from the software running on the r5f
+>> processor:
+>>   https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/examples/drivers/ipc/ipc_rpmsg_echo_linux/am62ax-sk/r5fss0-0_freertos/ti-arm-clang/linker.cmd#L172
+>>   https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/source/drivers/device_manager/sciclient.h#L459
+>>
+>> Additionally the two important devicetree nodes for resuming from IO+DDR
+>> have the bootph-pre-ram flag added as this data needs to be read before
+>> the RAM is in use.
+>>
+>> Best
+>> Markus
+>>
+>> Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
+>> ---
+>> Changes in v3:
+>> - Squash the enforcement of the memory-region-names requirement in the
+>>   patch adding the memory-region-names, as suggested.
+>> - Link to v2: https://lore.kernel.org/r/20260312-topic-am62a-ioddr-dt-v6-19-v2-0-37cb7ceec658@baylibre.com
+>>
+>> Changes in v2:
+>> - Make memory-region-names required if memory-region is present
+>> - Fixup memory-region and memory-region-names conditions. Require either
+>>   2 or 6 regions for memory-region and memory-region-names
+>> - Reword and restructure the binding documentation for memory-region and
+>>   memory-region-names
+>> - Add memory-region-names to all uses of memory-region
+>> - Link to v1: https://lore.kernel.org/r/20260303-topic-am62a-ioddr-dt-v6-19-v1-0-12fe72bb40d2@baylibre.com
+>>
+>> ---
+>> Markus Schneider-Pargmann (TI) (7):
+>>       dt-bindings: remoteproc: k3-r5f: Split up memory regions
+>>       dt-bindings: remoteproc: k3-r5f: Add memory-region-names
+>>       arm64: dts: ti: k3: Use memory-region-names for r5f
+>>       arm64: dts: ti: k3-am62a7-sk: Split r5f memory region
+>>       arm64: dts: ti: k3-am62p5-sk: Split r5f memory region
+>>       arm64: dts: ti: k3-am62a7-sk: Add r5f nodes to pre-ram bootphase
+>>       arm64: dts: ti: k3-am62p5-sk: Add r5f nodes to pre-ram bootphase
 > 
-> Ah, yes, I remember.
+> TI folks, Please make sure these dts patches are picked up for 7.1.
+> There's now a crap load of warnings in next with the binding change:
 > 
-> Does it mean that commit 42be24a4178f ("arm64: Enable memory encrypt for
-> Realms") was broken without rodata=full w.r.t. the linear map? Commit
+>      58 (ti,am62-r5fss): r5f@78000000: 'memory-region-names' is a
+> required property
 
-Apparently, it looks like we missed this when we demoted the RSI
-detection later.
+[...]
 
-> a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
-> introduced force_pte_mapping() but it just copied the logic in the
-> existing can_set_direct_map(). Looking at the linear_map_requires_bbml2
-> assignment, we get (!is_realm_world() && is_realm_world()) and it
-> cancels out, no effect on it but we don't get pte mappings either (even
-> if we don't have BBML2).
+> If they aren't applied, making  'memory-region-names' required needs
+> to be dropped from the binding.
+>
 
-Yep, that's right.
-> 
-> I think we need at least some safety checks:
-> 
-> 1. BBML2_NOABORT support on the boot CPU - continue with the existing
->     logic (as per Ryan's series)
-> 
-> 2. !system_supports_bbml2_noabort() - split in
->     linear_map_maybe_split_to_ptes(). This does not currently happen
->     because linear_map_requires_bbml2 may be false in the absence of
->     rodata=full. Not sure how to fix this without some variable telling
->     us how the linear map was mapped. The requires_bbml2 flag doesn't
-> 
-> 3. Panic in arm64_rsi_init() if !BBML2_NOABORT on the boot CPU _and_ we
->     have block mappings already. People can avoid it with rodata=full
-
-It looks like this will be a common case :-(
-
-> 
-> 4. If (3) is a common case, a better alternative is to rewrite the
->     linear map sometime after arm64_rsi_init() but before we call
->     split_kernel_leaf_mapping().
-
-We will explore this route.
-
-The other option is to move the RSI detection (and the PSCI probe)
-earlier to be able to make better decisions early on. I will play with
-that a bit too.
-
-Suzuki
+This breaks DT backward compatibility. Why is memory-region-names now a
+required item and cannot be assumed as "dma" and "firmware" as default?
+Is that intentional (should have at least had a Fixes tag then if the
+original definition was wrong)?
 
 
-> 
-
+-- 
+Regards
+Vignesh
+https://ti.com/opensource
 
