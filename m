@@ -4,102 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7857510FC456
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 01:58:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1E9710FC456
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 02:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rtu5J6mkYa7cAz+oGv/2J7Qnc58jCw+U8QvJQpdZOFw=; b=aLTSq8auV4XHy4JJDY9YqUkQD6
-	vTdWrHa3LXArSacdFBdXmEaEl95B2NU7RsXAGk9O092cffO5e8dr9BdUwR+tn43pMjwcFAMgtkNsj
-	x4AkXu/FNdIxoWjgHo0tiA6737iKXXJmehjuHSXt8EO2D6Qyb5MczoAw7mbXzM5T8trlGe/4oEhaU
-	KfxjpZ3+ecyc++0Oyq1dCkWMx89DxXGj27gBUYB8z4+agYQ6F5uCx2PzSNZXcwc0bt6MGyFBA9O73
-	9JP34Qv5qMwdK1cS98RT1Tyc9FM1/0xnzPtFcVe+e99oXL0DhqZNHeMRzeXsnWGsXRTPMZRCyzsXm
-	6wuOv3Yg==;
+	bh=Z25JyrfLG3qVKI301n0UK4wHEjU92XecGJncVBTWoLk=; b=dLo3IZ7C2OmBxK0NYSVutUs2TN
+	MBBDZPx9jXeYMEEf9t/RXW5LwSLP5PmxcYNRD0zaWn8LphqnyOg1BQW24B3Qe+42CctcIN0WzDyyM
+	K+u0VzKBICj1xcqOcznaj2SS3KDlYUjKS0bQHmXxqvwZAmM08npbJoz6A3PWi1wvWe2PpuGNraEtH
+	4AY7iB8ok2re8JJtpxnJThTdvBtyE4T65/Biqj9+vXv4s9NLz8E3mMaw2udn0U2v5T0jc+8vBcR9G
+	RBuM3ChbYs9KLnKJV6qUHYlcGRQuZY0dOD5lqXZ6Af2nCaSjYiAxO4MMU0wRHwqiETsFSyf2WjmZI
+	AdKF177g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAefL-00000009b2i-15TP;
-	Thu, 09 Apr 2026 01:58:43 +0000
-Received: from mail-dy1-x132b.google.com ([2607:f8b0:4864:20::132b])
+	id 1wAegk-00000009bCc-04uf;
+	Thu, 09 Apr 2026 02:00:10 +0000
+Received: from mail-francesouthazon11011019.outbound.protection.outlook.com ([40.107.130.19] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAefH-00000009b1b-3ESm
+	id 1wAegi-00000009bBU-1ovK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 01:58:41 +0000
-Received: by mail-dy1-x132b.google.com with SMTP id 5a478bee46e88-2d3eb307324so105129eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 18:58:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1775699918; x=1776304718; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rtu5J6mkYa7cAz+oGv/2J7Qnc58jCw+U8QvJQpdZOFw=;
-        b=grtxwQZKEtOXiVyrqRdUjowfs+vFQieTw5qgBm9XUHaCVjEftqe0aVKdx2fbaOsGqj
-         adfaAiIJxUzcq4HM7jlgs3piBafUXIpwxBFJiF4plzZ42wQe3AW1s/tBrVS20Ysnt02v
-         /Z6j7WNXvctoOQSF5QNUJol9sheO/8SpklX80=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775699918; x=1776304718;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rtu5J6mkYa7cAz+oGv/2J7Qnc58jCw+U8QvJQpdZOFw=;
-        b=J13SPZXZM1F+3GYTKPZdrWN5cRFLJ8Z6Xe2vXJ2NmJG28WDiWYZT0lNRp7vNjRgYil
-         CyyzsfwFD8nJuIFaoD9Nr9VjspsjCx/q4UCdut9/lx707gDBHTJxtO06thgMS/XSj6BV
-         ncoG6WLU1O9SNEZruaatVBGZJ5YA7/In/rzVXuBrPcme/WfvJnsDAYN8XbiRKUcTzHtY
-         OfGCAULcbLrUuLLo/qOFTEHDpiBhuijH9jHa4nHgUolm7j4DN2dEy+7dBOVYSidqZGqC
-         IFhbTtPKmvXkwASBAwRY0d0SJ9v8RMuRhusTK/kB0UVyt9tv9ZcYm2ldHEiFFq9HdphO
-         fQiw==
-X-Forwarded-Encrypted: i=1; AJvYcCXgHNsSm4r/qVJix+gz+iFOnaQDJv26ngIsI+SGkSZYz8gEDLMKKy9H0WvblFbCzJMPwonubiPHU3pZ3BCRN7uA@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeymlaSDq1dWGpYoeb/rZ7CUDxdMZnjWqB9AN+MK/OKLQypGVf
-	JF283rG9rHm8wrVL+5FHsmSglw25L4Woitzm5NGWvMb8/G+VO4NIbcgOotKEO/k2Dg==
-X-Gm-Gg: AeBDiesEii59oxvCONOsC3sj+aW6s8lYwW5A1eCm3TYNEdUq2r/5Et/3X/P3q+YK+9C
-	QzcDkuPnIaSZ7kunR39jnVcA6DlW5W7ByX2t8Vc29zn+L3ew9iFsK+G0arBKDX6ysqqwNVT5Z0I
-	hq/XBF1f8k+OA+JyzWT+5HbzOfkFJwnX711jX2olp/w+PA5uCYphcGGR3hUws3MOvoch4b4TGSs
-	0xTGJ4gli7GukLhJrDNW54ppEItPChHA7giBB/vsU4uEk3fmLyAKiLY51d+1E9GPEuVa6DV3Us7
-	kV2kVfho2B3uQcu08poxOSQOEQuImYGHv7kJkLDi9EczV7GCxnnyXjOEwBPLOigmP2XMiT8yO8E
-	l1sxJQVzq0OIM+QmxIqU8fx8cr2KjmKdzJbiPtDioL5P6ORKrr7Sgsl9Mxy9vyxxwE7tN4QeGS5
-	jf4xo3W5H11EOO2DmhycFNuLz3jcUciyFpOTeYmOrlsBAPyAeUK3LZykJBk2faew==
-X-Received: by 2002:a05:7301:6097:b0:2d1:a3ea:d8a5 with SMTP id 5a478bee46e88-2d40e9cace4mr857392eec.7.1775699918176;
-        Wed, 08 Apr 2026 18:58:38 -0700 (PDT)
-Received: from localhost ([2a00:79e0:2e7c:8:8419:d73b:6e27:ef7e])
-        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-2ca7c3010e9sm29435810eec.14.2026.04.08.18.58.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 08 Apr 2026 18:58:37 -0700 (PDT)
-Date: Wed, 8 Apr 2026 18:58:34 -0700
-From: Brian Norris <briannorris@chromium.org>
-To: Hongxing Zhu <hongxing.zhu@nxp.com>
-Cc: "manivannan.sadhasivam@oss.qualcomm.com" <manivannan.sadhasivam@oss.qualcomm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
-	Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
-	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
-	Niklas Cassel <cassel@kernel.org>,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-	Lukas Wunner <lukas@wunner.de>, Wilson Ding <dingwei@marvell.com>,
-	Miles Chen <minhuachen@google.com>
-Subject: Re: [PATCH v7 0/4] PCI: Add support for resetting the Root Ports in
- a platform specific way
-Message-ID: <adcHylFjFjhHT-tP@google.com>
-References: <20260310-pci-port-reset-v7-0-9dd00ccc25ab@oss.qualcomm.com>
- <AS8PR04MB883389FD2A016F9E02756B048C49A@AS8PR04MB8833.eurprd04.prod.outlook.com>
+	Thu, 09 Apr 2026 02:00:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rbWDd9DeGTqzm7e6mzzZbp3ebrmUr0Hry2qU7hCKVPsnUS+o6uQZPIXsXMS0R2IfZ7CFdyHU313zzmSRy1PGKT9JZKK08t9uye6KukdLfJW3RioMkGrJ/x1Z5kgJ9RjfPipO8yakp36+8/PuUpt0r4J1ZryofjeJYgFvND27bqYGq8iqAWPH0LWqTq117vzGzhMR7uig9cxF3IFotLIMnMx4rr+0e807h4xM7cv5VjReio59aae4LZ5CBzkSGxdVqt6cJ5peLOWwa4SwqXor5eWxI165/ThQLn1qtLSIE0UuuVvEV0uGmc52PDQBAL0fZbGWYm7zTH1YSJEd64taOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Z25JyrfLG3qVKI301n0UK4wHEjU92XecGJncVBTWoLk=;
+ b=FBROrvADgafFeDMG7+lZcpNEgH/5u3bpTrd/QPNEoXrTXXOMgmwsfpaiqXFlb9prH8vuepkjy/daj/eo3SWY1JXjm8JkstiWFHYdQjRbe0QvDoUS1dgfMy7zFOzxL80dopbWpOMt4YRvO5sppUNAIxirNL2+MDaOLCRVlQEDUvrhkz6lcU5T8+oO3HnPbkWbBrJUb0usljMWk4LMlJ0wxTT0nO+zyV8Km9fIntoEpiXNeaWvW0yq+uMm+aREYaRXzBZGbyYEsYjdimLwB259bRZbb6ngz5DHnW671flzNpNh7pAX86yFlJjpTaTwsPL6iY0ESVsOnfR8j0GFvHRfLA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Z25JyrfLG3qVKI301n0UK4wHEjU92XecGJncVBTWoLk=;
+ b=N9G+SfJsgR6xAkh9FMqI3tNqj0pVdU4M2WAIFo8GOKTXuFoBpihx2Oa3pPUTlKzVSOfEI+74fNQgBIBYUUu7zTxcCgWK6VqQETrFJFAZ9CLF0i0+QrVKh91Zc/T629Os5m5EbuGvmmaG3uTnlvC/GZl2jgsViajwo8GtQVDQvHLbk+fxNM8HezXC/me7A2qz4ZO4Rt+GECr61nKVJXCPUlg75n/TGcaCOjzk2DxMNTI1LAMl5LUyqzHa1ebo705Ue9+lVKQhTvMGXd0n4Gi3HQ1hKF83SYTEfQqLIj6j1SEsc4qW5eF2JNGsuReN+izGehSnAmvj91iKKk0l0zH3FA==
+Received: from VE1PR04MB7213.eurprd04.prod.outlook.com (2603:10a6:800:1b3::8)
+ by DB9PR04MB9580.eurprd04.prod.outlook.com (2603:10a6:10:307::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Thu, 9 Apr
+ 2026 01:59:57 +0000
+Received: from VE1PR04MB7213.eurprd04.prod.outlook.com
+ ([fe80::3e5c:ea79:66ab:c67b]) by VE1PR04MB7213.eurprd04.prod.outlook.com
+ ([fe80::3e5c:ea79:66ab:c67b%4]) with mapi id 15.20.9769.017; Thu, 9 Apr 2026
+ 01:59:56 +0000
+From: Jacky Bai <ping.bai@nxp.com>
+To: Stefan Wahren <wahrenst@gmx.net>, Alice Guo <alice.guo@nxp.com>, Frank Li
+	<frank.li@nxp.com>
+CC: Fabio Estevam <festevam@gmail.com>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	"open list:GENERIC PM DOMAINS" <linux-pm@vger.kernel.org>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Sascha Hauer <s.hauer@pengutronix.de>
+Subject: RE: Status of thermal support for i.MX93
+Thread-Topic: Status of thermal support for i.MX93
+Thread-Index: AQHcx2xk8+xl4qIVtEW7s8atZixwF7XV+Onw
+Date: Thu, 9 Apr 2026 01:59:56 +0000
+Message-ID: <VE1PR04MB7213F2EFD584BF30B1FA2B7F87582@VE1PR04MB7213.eurprd04.prod.outlook.com>
+References: <1ad05dc4-9eaa-4fc2-a665-e17521fd333c@gmx.net>
+In-Reply-To: <1ad05dc4-9eaa-4fc2-a665-e17521fd333c@gmx.net>
+Accept-Language: en-US, zh-CN
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VE1PR04MB7213:EE_|DB9PR04MB9580:EE_
+x-ms-office365-filtering-correlation-id: 4722b84f-faab-42ce-7e4c-08de95dbb2c4
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|19092799006|366016|18002099003|22082099003|56012099003|38070700021;
+x-microsoft-antispam-message-info: OmbNsT6TQsuchk7NYTy4pUThwKWGHNRIMpeI0hiT2jjGkI2B1dsxbrYGwAd69EEt+p0lR8oI/bO1+85epRQO6W9tustaoE6keh4/VlgZusD9c1nIDXj6YtofVxmGGjwXRGzjRixG1CkvgTlYhe970mTFqe/o5VmjC2nccuiM/93CSssBZ3qk6AOnh76t3GPYhHUvPLGKjlJRvLebYaykEBcJzWaklt+sYu31u7L+0tnqTEtrf32qdlqPtoQ/qnD8jNEzjIQ3mhHXx4fIPT1q/7REqspR4/HvqFM6PdGkTiSQqxW59cTgFeZglfBw6ntxK6xBg4yaKsNtXBptUFj5R/6TZmLRFUhL4k+P2AFHvKHthDcnaX3NfdCIPYejVB8oZtiXhU6PZ5KSkbbuIblsBX5NzmM7+h+4YqRxL6ID/ut8obTiBpQN8ubBpF2PDd2B64X+GjgAI07s1bPd3Dox9RqT4LzaGRoaVzr4uxKWM2MEcLsgTlOleip+iGHyV7QR908ByLdgA1V2+yC6jjl2rzv69EhyuymxVnbfonaj/P/Wt38cdLjPWran22tpGqFq2MT6S6dt1RARVeIcIPUPPGUX7kUw1O7ACgzwPCcNXyCuLyHfF27L/z+xPjjp675PvlXBypcomnL7N8kzbKwR3cjVcJXYSe+E9VqraGBcpEYG9CeYWA66muOEqzjddjQBHBeFqRn4vuuV6ozNMDzoc7DLKYgaz85ayFf4Mzg4pjGwZD+YwiV02lAaU3ia1VyxWGDdtGX/x7ITM4/14IZosQX2aG2sBluhomT2NI2Iboo=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VE1PR04MB7213.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(19092799006)(366016)(18002099003)(22082099003)(56012099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?htPRhcBqxTsBbkjn0Z1EPX0iCghVidnVj1R8qpCfliM9qZwzbwbi3aH+p4so?=
+ =?us-ascii?Q?5F8UOt47KWm8RDspZdfYlpO9M4dLf90RMIT1mhbYaPQRs9T4wXtRO0jfQXcp?=
+ =?us-ascii?Q?dTVPa4oJjTJ8q816stC3G8lJ7N+nI5xZ0xL66owWIrWkr7cRzcPk6fz2y3hJ?=
+ =?us-ascii?Q?ncnlP13dUwKMjzg+QhZlFchocSSD78Ecu9yyDjVl6ZKgGnJhXpC2cOWvadex?=
+ =?us-ascii?Q?SUymk/EeRMhfCpPsHJQZ7sEkM4kOCERLbRNfuuIyDaA8/gS242i+S59Vry8r?=
+ =?us-ascii?Q?EhjmMdIPmOKLG4unKsUC/Xdn2XSdif3PVYzZXb1DG1I1eeTg2k27MUb0XfRO?=
+ =?us-ascii?Q?0K/CFegYhGKHrxo0ZWFUYcGgfKes5JEHbR1DCk7Qysx00GFTF6Btg8MoYFv8?=
+ =?us-ascii?Q?Wv3/i1lThaegslZ25vt/FJGbPoADEb3GxOqD8aL4mCQne9zOnzJoOQF2QhAH?=
+ =?us-ascii?Q?tEnAq8Xs+eiSGT2+wQLI3eNIoDgHqAQcueq1C9lP4wmtTWbP5lCXS6wJ4gty?=
+ =?us-ascii?Q?kn5gvIYlKXA9UzUCMvbELkub37/IgB88GedVxfKTOAJZuBFZK/O3Hw3dcMUp?=
+ =?us-ascii?Q?lm6bfXLq+nlOGUBgPpKx8YdAzUJHe2s7cp+G01ObP4thrhYS9mt30QE3hGl1?=
+ =?us-ascii?Q?koINPjBCKacZWbRjHE7GF3ZrYDoxb5iBADCOlcsbqlweoG29pHe5EMpuasZC?=
+ =?us-ascii?Q?ZjLjaGg38Yz+KYI8UvP4Tzhmtsl/zAQ5vaSmOOAnLqzg2eDdMCliJ4d+UQo+?=
+ =?us-ascii?Q?HMS+nGs7yWYXUTOtCYoe2//H1Vzob02+AhT2ylLRcivkoVhtcBfeaD9wpjvO?=
+ =?us-ascii?Q?BDSPa5ClPY02kT8E/35RLKOmE6QWSpGOefRueYO28k5o2AuL90Ip/y2rneW+?=
+ =?us-ascii?Q?boe9Bw7wfSHgUJiojkduo4ZfsAhUgj27GSJiRek9f2PMC6O8rDI/C33YLXUH?=
+ =?us-ascii?Q?yQQG92YrNtNoNFiNwIrstu+OKiHvv4p6ctytX2OwChVwDzfOTdLfqpqzBKim?=
+ =?us-ascii?Q?1WsOuCmFZ+iCnz9eMzFmc/RmOxsDgvnRnIrHIUlLYlLgRwMaTWhWiMiURYQs?=
+ =?us-ascii?Q?YHpBjtVXFYEsA7X2eOTiZg57YfIS+wKhe0IZeLGNebhsIdgjFI00dJCSq8k2?=
+ =?us-ascii?Q?mksqGZCs0X/cU36JfbOy0qHQ9ogHEHfNBzeu9uAsyk3zawuGQiA2LTMjqQBn?=
+ =?us-ascii?Q?6547406XDOwnqy76iLLnOf7PqDzM34JpjafFna8iK7nmSPUgfKHgyWzDjbWo?=
+ =?us-ascii?Q?H8u9jOF9mfWRnFwJFilBBeotMXNWlIkPB0r0tch1VIuEjdjVRI7rgTAq6AnR?=
+ =?us-ascii?Q?fyu+r4pwrPKxEgrLrsitxKPjDUn2NLIMBoYn6POR3alTnkwLwpdkeqTnVtKk?=
+ =?us-ascii?Q?ghhCgwGQFRILkqq1ff6zPSa7l4KwYZ2b113VuvsRYN5FfoZBjP40Mf2YghcX?=
+ =?us-ascii?Q?cXePuls0YVOxBbx3jQd27VRvD4Py3cjFym0nJK1I0dnuw7lpACXsC96zidUM?=
+ =?us-ascii?Q?X5l0+x1/+mULEpjb6jpqclrwYMpZuRVXGpoc9Af5DIwrAZy/am00uuCtGGIe?=
+ =?us-ascii?Q?xCys/ObFnR3t5XTQEtygU9yagpXz6koKbjvlmzvTjvCR7slhIfr5+ra4s8Rt?=
+ =?us-ascii?Q?do/HAklZEzQTzfkodbCFCGLx6nHikGfX4itu1qUXCK+GmuNB9UvOnNhaIQCm?=
+ =?us-ascii?Q?TcUdPEzFCS1W20li7jsm+6QIoBXYLOJkvcksq0CzjqBUyeQQ?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <AS8PR04MB883389FD2A016F9E02756B048C49A@AS8PR04MB8833.eurprd04.prod.outlook.com>
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VE1PR04MB7213.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4722b84f-faab-42ce-7e4c-08de95dbb2c4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Apr 2026 01:59:56.2507
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: YFL32eihYw6pjJn0x6n74K56TxNbrsNXyKnJjzAI457Ezq+7epJp12LaHEpFAjRrRae0yTcweBAOFaaCfIg0cQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9580
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_185839_845217_5179B0D1 
-X-CRM114-Status: GOOD (  31.18  )
+X-CRM114-CacheID: sfid-20260408_190008_490423_AF19B94D 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,193 +139,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Richard and Mani,
+Hi Stefan,
 
-For the record, I've been using a form of an earlier version of this
-patchset in my environment for some time now, and I've run across
-problems that *might* relate to what Richard is reporting, but I'm not
-quite sure at the moment. Details below.
+> Subject: Status of thermal support for i.MX93
+>=20
+> Hi,
+>=20
+> AFAIK the thermal support for i.MX93 hasn't been mainlined yet. The last
+> version I can find is here [1].
+>=20
+> Are there any plans to finish this work?
+>=20
 
-On Wed, Mar 25, 2026 at 07:06:49AM +0000, Hongxing Zhu wrote:
-> Hi Mani:
-> I've accidentally encountered a new issue based on the reset root port patch-set.
-> After performing a few hot-reset operations, the PCIe link enters a continuous up/down cycling pattern.
-> 
-> I found that calling pci_reset_secondary_bus() first in pcibios_reset_secondary_bus() appears to resolve this issue.
-> Have you experienced a similar problem?
-> 
-> "
-> ...
-> [  141.897701] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000700) link up detected
-> [  142.086341] imx6q-pcie 4c300000.pcie: PCIe Gen.3 x1 link up
-> [  142.092038] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000c00) link down detected
-> ...
-> "
-> 
-> Platform: i.MX95 EVK board plus local Root Ports reset supports based on the #1 and #2 patches of v7 patch-set.
-> Notes of the logs:
-> - One Gen3 NVME device is connected.
-> - "./memtool 4c341058=0;./memtool 4c341058=1;" is used to toggle the LTSSM_EN bit to trigger the link down.
-> - Toggle BIT6 of Bridge Control Register to trigger hot reset by "./memtool 4c30003c=004001ff; ./memtool 4c30003c=000001ff;"
-> - The Root Port reset patches works correctly at first.
-> However, after several hot-reset triggers, the link enters a repeated down/up cycling state.
-> 
-> Logs:
-> [    3.553188] imx6q-pcie 4c300000.pcie: host bridge /soc/pcie@4c300000 ranges:
-> [    3.560308] imx6q-pcie 4c300000.pcie:       IO 0x006ff00000..0x006fffffff -> 0x0000000000
-> [    3.568525] imx6q-pcie 4c300000.pcie:      MEM 0x0910000000..0x091fffffff -> 0x0010000000
-> [    3.577314] imx6q-pcie 4c300000.pcie: config reg[1] 0x60100000 == cpu 0x60100000
-> [    3.796029] imx6q-pcie 4c300000.pcie: iATU: unroll T, 128 ob, 128 ib, align 4K, limit 1024G
-> [    4.003746] imx6q-pcie 4c300000.pcie: PCIe Gen.3 x1 link up
-> [    4.009553] imx6q-pcie 4c300000.pcie: PCI host bridge to bus 0000:00
-> root@imx95evk:~#
-> root@imx95evk:~#
-> root@imx95evk:~# ./memtool 4c341058=0;./memtool 4c341058=1; Writing 32-bit value 0x0 to address 0x4C341058
-> Writing 32-bit v
-> [   87.265348] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000d01) link down detected
-> alue 0x1 to adder
-> [   87.273106] imx6q-pcie 4c300000.pcie: Stop root bus and handle link down
-> ss 0x4C341058
-> [   87.281264] pcieport 0000:00:00.0: Recovering Root Port due to Link Down
-> [   87.289245] pci 0000:01:00.0: AER: can't recover (no error_detected callback)
-> root@imx95evk:~# [   87.514216] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000700) link up detected
-> [   87.702968] imx6q-pcie 4c300000.pcie: PCIe Gen.3 x1 link up
-> [   87.834983] pcieport 0000:00:00.0: Root Port has been reset
-> [   87.840714] pcieport 0000:00:00.0: AER: device recovery failed
-> [   87.846592] imx6q-pcie 4c300000.pcie: Rescan bus after link up is detected
-> [   87.855947] pcieport 0000:00:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+I thought Frank answered the comments and no further action to do from my s=
+ide, So it slipped
+From my memory.
 
-I've seen this same line ("bridge configuration invalid") before, and I
-believe that's because the saved state (pci_save_state(); more about
-this below) is invalid -- it contains 0 values in places where they
-should be non-zero. So when those values are restored
-(pci_restore_state()), we get confused.
+I just rechecked the comments history, it seems still have some comments ne=
+ed to be resolved.
+I will handle them and send out a new version.
 
-I believe we've pinned down one reason this invalid state occurs -- it's
-because of an automatic (mis)feature in the DesignWare PCIe hardware.
-Specifically, it's because of what the controller does during a surprise
-link-down error.
+Thx for point this out.
 
-From the Designware docs:
-
-  "[...] during normal operation, the link might fail and go down. After
-  this link-down event, the controller requests the DWC_pcie_clkrst.v
-  module to hot-reset the controller. There is no difference in the
-  handling of a link-down reset or a hot reset; the controller asserts
-  the link_req_rst_not output requesting the DWC_pcie_clkrst.v module to
-  reset the controller."
-
-In some of the adjacent documentation (and confirmed in local testing),
-it suggests that this automatic reset will also reset various DBI (i.e.,
-PCIe config space) registers. It also seems as if there's not really a
-good way to completely stop this automatic reset -- the docs mention
-some SW methods prevent the reset, but they all seem racy or incomplete.
-
-Anyway, I think this implies that patch 1 is somewhat wrong [1]. It
-includes some code like this:
-
-		pci_save_state(dev);
-		ret = host->reset_root_port(host, dev);
-		if (ret)
-			pci_err(dev, "Failed to reset Root Port: %d\n", ret);
-		else
-			/* Now restore it on success */
-			pci_restore_state(dev);
-
-That first line (pci_save_state()) is prone to saving invalid state,
-depending on whether the link-down event has finished flushing and
-resetting the controller yet or not. The resulting impact is a bit hard
-to judge, depending on what (mis)configuration you end up with.
-
-I also noticed commit a2f1e22390ac ("PCI/ERR: Ensure error
-recoverability at all times") was merged recently. With that change, I
-believe it is now safe to perform pci_restore_state() even without
-pci_save_state() here.
-
-So ... can we remove pci_save_state() from
-pcibios_reset_secondary_bus()? Might that help? It sounds like my above
-observations *may* match Richard's reports, but I'm not sure. And
-anyway, the documented hardware behavior is racy, so it's hard to
-propose a foolproof solution.
-
-Brian
-
-[1] At least, for DesignWare controllers.
-
-> [   87.864423] pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
-> 
-> root@imx95evk:~#
-> root@imx95evk:~# cat /proc/interrupts | grep lnk;
-> 273:          2          0          0          0          0          0    GICv3 342 Level     PCIe PME, lnk_notify
-> root@imx95evk:~#
-> root@imx95evk:~#
-> root@imx95evk:~# ./memtool 4c30003c=004001ff; ./memtool 4c30003c=000001ff; Writing 32-bit va
-> [  107.028086] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000d00) link down detected lue 0x4001FF to a
-> [  107.037018] imx6q-pcie 4c300000.pcie: Stop root bus and handle link down ddress 0x4C30003C
-> [  107.045137] pcieport 0000:00:00.0: Recovering Root Port due to Link Down
-> 
-> Writing 32-bit
-> [  107.053332] pci 0000:01:00.0: AER: can't recover (no error_detected callback)  value 0x1FF to address 0x4C30003C root@imx95evk:~#
-> [  107.282146] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000700) link up detected
-> [  107.470801] imx6q-pcie 4c300000.pcie: PCIe Gen.3 x1 link up
-> [  107.602823] pcieport 0000:00:00.0: Root Port has been reset
-> [  107.608601] pcieport 0000:00:00.0: AER: device recovery failed
-> [  107.614497] imx6q-pcie 4c300000.pcie: Rescan bus after link up is detected
-> [  107.623805] pcieport 0000:00:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-> [  107.632281] pci_bus 0000:01: busn_res: [bus 01] end is updated to 01
-> 
-> root@imx95evk:~#
-> root@imx95evk:~# cat /proc/interrupts | grep lnk;
-> 273:          4          0          0          0          0          0    GICv3 342 Level     PCIe PME, lnk_notify
-> root@imx95evk:~#
-> root@imx95evk:~# ./memtool 4c30003c=004001ff; ./memtool 4c30003c=000001ff; Writing 32-bit va
-> [  133.424041] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000d00) link down detected lue 0x4001FF to a
-> [  133.432954] imx6q-pcie 4c300000.pcie: Stop root bus and handle link down ddress 0x4C30003C
-> [  133.441106] pcieport 0000:00:00.0: Recovering Root Port due to Link Down
-> 
-> Writing 32-bit
-> [  133.449309] pci 0000:01:00.0: AER: can't recover (no error_detected callback)  value 0x1FF to address 0x4C30003C root@imx95evk:~#
-> [  133.677824] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000700) link up detected
-> [  133.870414] imx6q-pcie 4c300000.pcie: PCIe Gen.3 x1 link up
-> [  134.002534] pcieport 0000:00:00.0: Root Port has been reset
-> [  134.008307] pcieport 0000:00:00.0: AER: device recovery failed
-> [  134.014193] imx6q-pcie 4c300000.pcie: Rescan bus after link up is detected
-> [  134.023418] pcieport 0000:00:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-> [  134.031881] pci_bus 0000:01: busn_res: [bus 01] end is updated to 01
-> 
-> root@imx95evk:~# ./memtool 4c30003c=004001ff; ./memtool 4c30003c=000001ff; Writing 32-bit va
-> [  140.149713] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000d00) link down detected lue 0x4001FF to a
-> [  140.158614] imx6q-pcie 4c300000.pcie: Stop root bus and handle link down ddress 0x4C30003C
-> [  140.166779] pcieport 0000:00:00.0: Recovering Root Port due to Link Down
-> [  140.174981] pci 0000:01:00.0: AER: can't recover (no error_detected callback) Writing 32-bit value 0x1FF to address 0x4C30003C root@imx95evk:~#
-> [  140.401605] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000700) link up detected
-> [  140.590491] imx6q-pcie 4c300000.pcie: PCIe Gen.3 x1 link up
-> [  140.596206] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000c00) link down detected
-> 
-> root@imx95evk:~#
-> [  141.630311] pcieport 0000:00:00.0: Data Link Layer Link Active not set in 100 msec
-> [  141.637950] pcieport 0000:00:00.0: Failed to reset Root Port: -25
-> [  141.644095] pcieport 0000:00:00.0: AER: subordinate device reset failed
-> [  141.650883] pcieport 0000:00:00.0: AER: device recovery failed
-> [  141.656784] imx6q-pcie 4c300000.pcie: Stop root bus and handle link down
-> [  141.663520] pcieport 0000:00:00.0: Recovering Root Port due to Link Down
-> [  141.670271] pci 0000:01:00.0: AER: can't recover (no error_detected callback)
-> [  141.897701] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000700) link up detected
-> [  142.086341] imx6q-pcie 4c300000.pcie: PCIe Gen.3 x1 link up
-> [  142.092038] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000c00) link down detected
-> [  143.126273] pcieport 0000:00:00.0: Data Link Layer Link Active not set in 100 msec
-> [  143.133919] pcieport 0000:00:00.0: Failed to reset Root Port: -25
-> [  143.140052] pcieport 0000:00:00.0: AER: subordinate device reset failed
-> [  143.146747] pcieport 0000:00:00.0: AER: device recovery failed
-> [  143.152604] imx6q-pcie 4c300000.pcie: Stop root bus and handle link down
-> [  143.159314] pcieport 0000:00:00.0: Recovering Root Port due to Link Down
-> [  143.166022] pci 0000:01:00.0: AER: can't recover (no error_detected callback)
-> [  143.389723] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000700) link up detected
-> [  143.582294] imx6q-pcie 4c300000.pcie: PCIe Gen.3 x1 link up
-> [  143.587996] imx6q-pcie 4c300000.pcie: PCIe(LNK_STS:0x00000c00) link down detected
-> 
-> 
-> Thanks.
-> Best Regards
-> Richard Zhu
+BR
+> Thanks
+>=20
 
