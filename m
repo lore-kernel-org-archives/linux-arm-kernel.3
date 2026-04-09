@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F232F364A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 17:09:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA96DF364A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 17:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4zTCftcFdbHfd09YrMB7pNOLoJLsMARPpzU+VDQDU9A=; b=zX+X2jxkZWTkAa5FsgDBMJoZPp
-	hFBXSW/X0zlDW2eCQUtqMb7MX1swDqXOxOtP5oTtj8ll0TTQeuVwKYd3rJwbyMBclovDsYjXeScMn
-	qonin+d1L54M0ZnAFFtk05SSQ5uzw/LgcZv1jEhWytflUJgX7jg0bKuqeWHNfGirtSQ9BI7s8JgVM
-	33wm1lIVo9YrZaGEgf0J0yjKk8aEOVWlJxI2v1fVp/gT6oFiZ4a56X2xFECAu79tv2KbMxfCBgCku
-	7sWu/x/BMwSn1UMDq7Tll+/5s6UGFhsVZaefRBMN0XlcgsMIkQWd9Kf1ZaENHZb2gpIQFIAnBDW85
-	M51KRdgQ==;
+	bh=/BnmzacK3p+goeM6btgJOfufv2mmWaIWfzKl5rpCwvo=; b=FqGLKt6tskLzJ8QSOcK/qjaIO0
+	JYndF55Qc8Fkc1oza4V6cdaESnSvBwaN+yvSviXA2bW9GNXSuYm0j9pTCyq7dMTTEAc7w7LkLwG3u
+	OOsgP4FlwjC5oSzYvn0Dryi0eFG6mEoNN7eimi8vgCTIZi57lTrNdqGIPmUH+ug3ATV+R3Z/9s4h5
+	Yn0HYbKvIoZTcBMsBPcJZB5aqy30rGhgSF+GBPbhNWfO9Rg4cfC2rbKUp0KHuqsHO/UFq9i3TnPb7
+	6373vJZvTRqLpOqpERR9PgVA7lwFv+d3p6oHPRwuDexYHotzIet1Q6Sz3ErO4aPnG19D5KxYEv/hE
+	vVyu0FZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAssi-0000000Ayy2-1Mmz;
-	Thu, 09 Apr 2026 17:09:28 +0000
+	id 1wAssp-0000000Az8W-3lgO;
+	Thu, 09 Apr 2026 17:09:35 +0000
 Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAssa-0000000Ayoz-2vjM
+	id 1wAssi-0000000Ayws-26rP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 17:09:26 +0000
+	Thu, 09 Apr 2026 17:09:31 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id F3CA9C5C18D;
-	Thu,  9 Apr 2026 17:09:53 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id B82C9C5C18C;
+	Thu,  9 Apr 2026 17:10:01 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 34F8E603E4;
-	Thu,  9 Apr 2026 17:09:19 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 126CF104501D0;
-	Thu,  9 Apr 2026 19:09:13 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id EF788603E4;
+	Thu,  9 Apr 2026 17:09:26 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3464D10450194;
+	Thu,  9 Apr 2026 19:09:22 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1775754557; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1775754565; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=4zTCftcFdbHfd09YrMB7pNOLoJLsMARPpzU+VDQDU9A=;
-	b=f4o385lfqOAkrmNLvJ9Gebbr6dmxUMzNZxPRmLmKv3kF/71x+Ts4PIonuNEqt/77LxftL/
-	Is2Z+9xyBGoCTHvwhCaImazbNjTtN+QA/OMrCr0ceczKRJhX4d43m+xpAyfVfR1odEfkzr
-	vEeSPQh0tamrA+yZG/lLfboIdgIZ5LxjaWcS6AfiSRz7FCl+vv+So0j/tmq2BU6ztDP+pt
-	MfbixRkFrTpcbRgpgpzXzIB8w6WvhyHebsM5tGZHoDxebemRb+2NQp2wHxuDcNYlGLng9P
-	57c7aqybDXWFS8E1UpI7Y5jZw70rubz7/KbxN3JHbDLw11GVVq3G71fsTIX9Aw==
+	bh=/BnmzacK3p+goeM6btgJOfufv2mmWaIWfzKl5rpCwvo=;
+	b=Oe824Ul5L9Gw0jltQl/MVysrzJowGDJEKJbc+mY8J4VaAwMONI8kpaxS5gO0EqeUVBAADH
+	4EmQH3u86UybZeduObTEUDBmAQU/AEXAn8+3RZ/QkUJ9em59VJ1/Rt48tSYsjz3LxC/nN7
+	XKaY5jKhJsfpHij7aP3qggvp4xzeaebQaor74zWMPnK9Zi4YuYWFKETpJ32zjUwu7z/+Io
+	py57wstDhUuhzikracdWms22I6NlpF3yIN8Y13foCoTBXcTHmXWGxjJdeDCf2lWwCNFylb
+	ngvq3+VeDN1H9U96TlXOh0oFE24tsjBiEPI8E8ukt5VPoE/EB7Kj5hzCNe1Ezw==
 From: Kory Maincent <kory.maincent@bootlin.com>
-Date: Thu, 09 Apr 2026 19:08:23 +0200
-Subject: [PATCH RFC 07/12] drm/i915/display: Switch to managed for encoder
+Date: Thu, 09 Apr 2026 19:08:25 +0200
+Subject: [PATCH RFC 09/12] drm: Introduce drmm_connector_dp_init() with
+ link training state properties
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260409-feat_link_cap-v1-7-7069e8199ce2@bootlin.com>
+Message-Id: <20260409-feat_link_cap-v1-9-7069e8199ce2@bootlin.com>
 References: <20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com>
 In-Reply-To: <20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com>
 To: Jani Nikula <jani.nikula@linux.intel.com>, 
@@ -81,8 +82,8 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14-dev-d4707
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_100921_104274_F0507705 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20260409_100928_939793_E93B7F85 
+X-CRM114-Status: GOOD (  23.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,887 +98,569 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current i915 driver uses non-managed function to create encoder. It
-is not an issue yet, but in order to comply with the latest DRM
-requirement, convert this code to use drm and device managed helpers.
+Add a managed DisplayPort connector initialization helper,
+drmm_connector_dp_init(), modeled after the existing HDMI counterpart
+drmm_connector_hdmi_init(). Cleanup is handled automatically via a
+DRM-managed action.
 
-Assisted-by: Claude Code:2.1.90
+The helper creates the following immutable connector properties to expose
+DP link training capabilities and state to userspace:
+
+  - num_lanes: bitmask of supported lane counts (1, 2, 4)
+  - link_rate: Array of supported link rates.
+  - dsc_en: Display Stream Compression supported
+  - voltage_swingN: per-lane voltage swing level bitmask
+  - pre-emphasisN: per-lane pre-emphasis level bitmask
+
+Link rates are passed by the driver in deca-kbps, following the DRM
+convention, but exposed to userspace in kbps for clarity.
+
+Two additional helpers are provided to update and reset those properties
+at runtime:
+  - drm_connector_dp_set_link_train_properties()
+  - drm_connector_dp_reset_link_train_properties()
+
 Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
 ---
- drivers/gpu/drm/i915/display/g4x_dp.c        | 31 ++++++++---------
- drivers/gpu/drm/i915/display/g4x_hdmi.c      | 19 ++++-------
- drivers/gpu/drm/i915/display/icl_dsi.c       | 20 +++--------
- drivers/gpu/drm/i915/display/intel_crt.c     |  9 +++--
- drivers/gpu/drm/i915/display/intel_ddi.c     | 50 +++++++++++++++-------------
- drivers/gpu/drm/i915/display/intel_display.c |  8 -----
- drivers/gpu/drm/i915/display/intel_display.h |  1 -
- drivers/gpu/drm/i915/display/intel_dp_mst.c  | 20 +++--------
- drivers/gpu/drm/i915/display/intel_dvo.c     | 22 ++++++------
- drivers/gpu/drm/i915/display/intel_encoder.c |  6 ++--
- drivers/gpu/drm/i915/display/intel_encoder.h |  3 +-
- drivers/gpu/drm/i915/display/intel_lvds.c    | 13 +++-----
- drivers/gpu/drm/i915/display/intel_sdvo.c    | 45 +++++++++++--------------
- drivers/gpu/drm/i915/display/intel_tv.c      | 11 +++---
- drivers/gpu/drm/i915/display/vlv_dsi.c       | 22 +++++-------
- 15 files changed, 114 insertions(+), 166 deletions(-)
+ drivers/gpu/drm/Makefile           |   1 +
+ drivers/gpu/drm/drm_dp_connector.c | 344 +++++++++++++++++++++++++++++++++++++
+ include/drm/drm_connector.h        |  38 ++++
+ include/drm/drm_dp_connector.h     | 109 ++++++++++++
+ 4 files changed, 492 insertions(+)
 
-diff --git a/drivers/gpu/drm/i915/display/g4x_dp.c b/drivers/gpu/drm/i915/display/g4x_dp.c
-index 5e74d8a3ba5c8..99b6c5ce39b2a 100644
---- a/drivers/gpu/drm/i915/display/g4x_dp.c
-+++ b/drivers/gpu/drm/i915/display/g4x_dp.c
-@@ -7,6 +7,7 @@
- 
- #include <linux/string_helpers.h>
- 
-+#include <drm/drm_managed.h>
- #include <drm/drm_print.h>
- 
- #include "g4x_dp.h"
-@@ -1250,12 +1251,9 @@ static void g4x_dp_suspend_complete(struct intel_encoder *encoder)
- 	intel_encoder_link_check_flush_work(encoder);
- }
- 
--static void intel_dp_encoder_destroy(struct drm_encoder *encoder)
-+static void intel_dp_encoder_flush_work_cleanup(struct drm_device *drm, void *data)
- {
--	intel_dp_encoder_flush_work(encoder);
--
--	drm_encoder_cleanup(encoder);
--	kfree(enc_to_dig_port(to_intel_encoder(encoder)));
-+	intel_dp_encoder_flush_work(data);
- }
- 
- static void intel_dp_encoder_reset(struct drm_encoder *encoder)
-@@ -1276,7 +1274,6 @@ static void intel_dp_encoder_reset(struct drm_encoder *encoder)
- 
- static const struct drm_encoder_funcs intel_dp_enc_funcs = {
- 	.reset = intel_dp_encoder_reset,
--	.destroy = intel_dp_encoder_destroy,
- };
- 
- bool g4x_dp_init(struct intel_display *display,
-@@ -1298,22 +1295,26 @@ bool g4x_dp_init(struct intel_display *display,
- 		drm_dbg_kms(display->drm, "No VBT child device for DP-%c\n",
- 			    port_name(port));
- 
--	dig_port = intel_dig_port_alloc();
-+	dig_port = intel_dig_port_alloc(display->drm);
- 	if (!dig_port)
- 		return false;
- 
- 	intel_connector = intel_connector_alloc();
- 	if (!intel_connector)
--		goto err_connector_alloc;
-+		return false;
- 
- 	intel_encoder = &dig_port->base;
- 	encoder = &intel_encoder->base;
- 
- 	intel_encoder->devdata = devdata;
- 
--	if (drm_encoder_init(display->drm, &intel_encoder->base,
--			     &intel_dp_enc_funcs, DRM_MODE_ENCODER_TMDS,
--			     "DP %c", port_name(port)))
-+	if (drmm_encoder_init(display->drm, &intel_encoder->base,
-+			      &intel_dp_enc_funcs, DRM_MODE_ENCODER_TMDS,
-+			      "DP %c", port_name(port)))
-+		goto err_encoder_init;
+diff --git a/drivers/gpu/drm/Makefile b/drivers/gpu/drm/Makefile
+index e97faabcd7830..8ff08c2fb863e 100644
+--- a/drivers/gpu/drm/Makefile
++++ b/drivers/gpu/drm/Makefile
+@@ -42,6 +42,7 @@ drm-y := \
+ 	drm_color_mgmt.o \
+ 	drm_colorop.o \
+ 	drm_connector.o \
++	drm_dp_connector.o \
+ 	drm_crtc.o \
+ 	drm_displayid.o \
+ 	drm_drv.o \
+diff --git a/drivers/gpu/drm/drm_dp_connector.c b/drivers/gpu/drm/drm_dp_connector.c
+new file mode 100644
+index 0000000000000..b25637a4378d5
+--- /dev/null
++++ b/drivers/gpu/drm/drm_dp_connector.c
+@@ -0,0 +1,344 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2026 Google
++ * Author: Kory Maincent <kory.maincent@bootlin.com>
++ */
++#include <drm/drm_dp_connector.h>
++#include <drm/drm_print.h>
++#include <linux/list.h>
 +
-+	if (drmm_add_action_or_reset(display->drm,
-+				     intel_dp_encoder_flush_work_cleanup, encoder))
- 		goto err_encoder_init;
- 
- 	intel_encoder_link_check_init(intel_encoder, intel_dp_link_check);
-@@ -1411,18 +1412,14 @@ bool g4x_dp_init(struct intel_display *display,
- 
- 	dig_port->aux_ch = intel_dp_aux_ch(intel_encoder);
- 	if (dig_port->aux_ch == AUX_CH_NONE)
--		goto err_init_connector;
-+		goto err_encoder_init;
- 
- 	if (!intel_dp_init_connector(dig_port, intel_connector))
--		goto err_init_connector;
-+		goto err_encoder_init;
- 
- 	return true;
- 
--err_init_connector:
--	drm_encoder_cleanup(encoder);
- err_encoder_init:
- 	kfree(intel_connector);
--err_connector_alloc:
--	kfree(dig_port);
- 	return false;
- }
-diff --git a/drivers/gpu/drm/i915/display/g4x_hdmi.c b/drivers/gpu/drm/i915/display/g4x_hdmi.c
-index 5fe5067c4237c..45ee1ad504bc1 100644
---- a/drivers/gpu/drm/i915/display/g4x_hdmi.c
-+++ b/drivers/gpu/drm/i915/display/g4x_hdmi.c
-@@ -5,6 +5,7 @@
-  * HDMI support for G4x,ILK,SNB,IVB,VLV,CHV (HSW+ handled by the DDI code).
-  */
- 
-+#include <drm/drm_managed.h>
- #include <drm/drm_print.h>
- 
- #include "g4x_hdmi.h"
-@@ -562,7 +563,6 @@ static void chv_hdmi_pre_enable(struct intel_atomic_state *state,
- }
- 
- static const struct drm_encoder_funcs intel_hdmi_enc_funcs = {
--	.destroy = intel_encoder_destroy,
- };
- 
- static enum intel_hotplug_state
-@@ -686,21 +686,21 @@ bool g4x_hdmi_init(struct intel_display *display,
- 		drm_dbg_kms(display->drm, "No VBT child device for HDMI-%c\n",
- 			    port_name(port));
- 
--	dig_port = intel_dig_port_alloc();
-+	dig_port = intel_dig_port_alloc(display->drm);
- 	if (!dig_port)
- 		return false;
- 
- 	intel_connector = intel_connector_alloc();
- 	if (!intel_connector)
--		goto err_connector_alloc;
-+		return false;
- 
- 	intel_encoder = &dig_port->base;
- 
- 	intel_encoder->devdata = devdata;
- 
--	if (drm_encoder_init(display->drm, &intel_encoder->base,
--			     &intel_hdmi_enc_funcs, DRM_MODE_ENCODER_TMDS,
--			     "HDMI %c", port_name(port)))
-+	if (drmm_encoder_init(display->drm, &intel_encoder->base,
-+			      &intel_hdmi_enc_funcs, DRM_MODE_ENCODER_TMDS,
-+			      "HDMI %c", port_name(port)))
- 		goto err_encoder_init;
- 
- 	intel_encoder->hotplug = intel_hdmi_hotplug;
-@@ -763,16 +763,11 @@ bool g4x_hdmi_init(struct intel_display *display,
- 	intel_infoframe_init(dig_port);
- 
- 	if (!intel_hdmi_init_connector(dig_port, intel_connector))
--		goto err_init_connector;
-+		goto err_encoder_init;
- 
- 	return true;
--
--err_init_connector:
--	drm_encoder_cleanup(&intel_encoder->base);
- err_encoder_init:
- 	kfree(intel_connector);
--err_connector_alloc:
--	kfree(dig_port);
- 
- 	return false;
- }
-diff --git a/drivers/gpu/drm/i915/display/icl_dsi.c b/drivers/gpu/drm/i915/display/icl_dsi.c
-index afbaa0465842a..cfee173a2367a 100644
---- a/drivers/gpu/drm/i915/display/icl_dsi.c
-+++ b/drivers/gpu/drm/i915/display/icl_dsi.c
-@@ -30,6 +30,7 @@
- #include <drm/display/drm_dsc_helper.h>
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_fixed.h>
-+#include <drm/drm_managed.h>
- #include <drm/drm_mipi_dsi.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
-@@ -1775,13 +1776,7 @@ static bool gen11_dsi_initial_fastset_check(struct intel_encoder *encoder,
- 	return true;
- }
- 
--static void gen11_dsi_encoder_destroy(struct drm_encoder *encoder)
--{
--	intel_encoder_destroy(encoder);
--}
--
- static const struct drm_encoder_funcs gen11_dsi_encoder_funcs = {
--	.destroy = gen11_dsi_encoder_destroy,
- };
- 
- static const struct drm_connector_funcs gen11_dsi_connector_funcs = {
-@@ -1934,8 +1929,10 @@ void icl_dsi_init(struct intel_display *display,
- 	if (port == PORT_NONE)
- 		return;
- 
--	intel_dsi = kzalloc_obj(*intel_dsi);
--	if (!intel_dsi)
-+	intel_dsi = drmm_encoder_alloc(display->drm, struct intel_dsi, base.base,
-+				       &gen11_dsi_encoder_funcs,
-+				       DRM_MODE_ENCODER_DSI, "DSI %c", port_name(port));
-+	if (IS_ERR(intel_dsi))
- 		return;
- 
- 	intel_connector = intel_connector_alloc();
-@@ -1950,11 +1947,6 @@ void icl_dsi_init(struct intel_display *display,
- 
- 	encoder->devdata = devdata;
- 
--	/* register DSI encoder with DRM subsystem */
--	drm_encoder_init(display->drm, &encoder->base,
--			 &gen11_dsi_encoder_funcs,
--			 DRM_MODE_ENCODER_DSI, "DSI %c", port_name(port));
--
- 	encoder->pre_pll_enable = gen11_dsi_pre_pll_enable;
- 	encoder->pre_enable = gen11_dsi_pre_enable;
- 	encoder->enable = gen11_dsi_enable;
-@@ -2037,7 +2029,5 @@ void icl_dsi_init(struct intel_display *display,
- 
- err:
- 	drm_connector_cleanup(connector);
--	drm_encoder_cleanup(&encoder->base);
--	kfree(intel_dsi);
- 	kfree(intel_connector);
- }
-diff --git a/drivers/gpu/drm/i915/display/intel_crt.c b/drivers/gpu/drm/i915/display/intel_crt.c
-index 6aa6a1dd6e1b0..39bb115955f5a 100644
---- a/drivers/gpu/drm/i915/display/intel_crt.c
-+++ b/drivers/gpu/drm/i915/display/intel_crt.c
-@@ -31,6 +31,7 @@
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_crtc.h>
- #include <drm/drm_edid.h>
-+#include <drm/drm_managed.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- #include <video/vga.h>
-@@ -1004,7 +1005,6 @@ static const struct drm_connector_helper_funcs intel_crt_connector_helper_funcs
- 
- static const struct drm_encoder_funcs intel_crt_enc_funcs = {
- 	.reset = intel_crt_reset,
--	.destroy = intel_encoder_destroy,
- };
- 
- void intel_crt_init(struct intel_display *display)
-@@ -1041,8 +1041,9 @@ void intel_crt_init(struct intel_display *display)
- 		intel_de_write(display, adpa_reg, adpa);
- 	}
- 
--	crt = kzalloc_obj(struct intel_crt);
--	if (!crt)
-+	crt = drmm_encoder_alloc(display->drm, struct intel_crt, base.base,
-+				 &intel_crt_enc_funcs, DRM_MODE_ENCODER_DAC, "CRT");
-+	if (IS_ERR(crt))
- 		return;
- 
- 	connector = intel_connector_alloc();
-@@ -1058,8 +1059,6 @@ void intel_crt_init(struct intel_display *display)
- 				    DRM_MODE_CONNECTOR_VGA,
- 				    intel_gmbus_get_adapter(display, ddc_pin));
- 
--	drm_encoder_init(display->drm, &crt->base.base, &intel_crt_enc_funcs,
--			 DRM_MODE_ENCODER_DAC, "CRT");
- 
- 	intel_connector_attach_encoder(connector, &crt->base);
- 
-diff --git a/drivers/gpu/drm/i915/display/intel_ddi.c b/drivers/gpu/drm/i915/display/intel_ddi.c
-index ebefa889bc8c5..003287ad5bc59 100644
---- a/drivers/gpu/drm/i915/display/intel_ddi.c
-+++ b/drivers/gpu/drm/i915/display/intel_ddi.c
-@@ -31,6 +31,7 @@
- 
- #include <drm/display/drm_dp_helper.h>
- #include <drm/display/drm_scdc_helper.h>
-+#include <drm/drm_managed.h>
- #include <drm/drm_print.h>
- #include <drm/drm_privacy_screen_consumer.h>
- 
-@@ -4644,19 +4645,19 @@ static int intel_ddi_compute_config_late(struct intel_encoder *encoder,
- 	return 0;
- }
- 
--static void intel_ddi_encoder_destroy(struct drm_encoder *encoder)
-+static void intel_ddi_encoder_cleanup(struct drm_device *drm, void *data)
- {
--	struct intel_display *display = to_intel_display(encoder->dev);
--	struct intel_digital_port *dig_port = enc_to_dig_port(to_intel_encoder(encoder));
-+	struct intel_digital_port *dig_port = data;
-+	struct intel_display *display = to_intel_display(&dig_port->base);
- 
--	intel_dp_encoder_flush_work(encoder);
--	if (intel_encoder_is_tc(&dig_port->base))
--		intel_tc_port_cleanup(dig_port);
-+	intel_dp_encoder_flush_work(&dig_port->base.base);
- 	intel_display_power_flush_work(display);
--
--	drm_encoder_cleanup(encoder);
- 	kfree(dig_port->hdcp.port_data.streams);
--	kfree(dig_port);
-+}
-+
-+static void intel_tc_port_cleanup_action(struct drm_device *drm, void *data)
++/**
++ * drm_connector_dp_link_reset_properties() - Reset DisplayPort link configuration
++ * @connector: DRM connector
++ * @dp_link: Link training informations
++ *
++ * Returns: Zero on success, or an errno code otherwise.
++ */
++int
++drm_connector_dp_set_link_train_properties(struct drm_connector *connector,
++					   const struct drm_connector_dp_link_train *dp_link_train)
 +{
-+	intel_tc_port_cleanup(data);
- }
- 
- static void intel_ddi_encoder_reset(struct drm_encoder *encoder)
-@@ -4684,7 +4685,6 @@ static int intel_ddi_encoder_late_register(struct drm_encoder *_encoder)
- 
- static const struct drm_encoder_funcs intel_ddi_funcs = {
- 	.reset = intel_ddi_encoder_reset,
--	.destroy = intel_ddi_encoder_destroy,
- 	.late_register = intel_ddi_encoder_late_register,
- };
- 
-@@ -5243,16 +5243,20 @@ void intel_ddi_init(struct intel_display *display,
- 			    phy_name(phy));
- 	}
- 
--	dig_port = intel_dig_port_alloc();
-+	dig_port = intel_dig_port_alloc(display->drm);
- 	if (!dig_port)
- 		return;
- 
- 	encoder = &dig_port->base;
- 	encoder->devdata = devdata;
- 
--	drm_encoder_init(display->drm, &encoder->base, &intel_ddi_funcs,
--			 DRM_MODE_ENCODER_TMDS, "%s",
--			 intel_ddi_encoder_name(display, port, phy, &encoder_name));
-+	if (drmm_encoder_init(display->drm, &encoder->base, &intel_ddi_funcs,
-+			      DRM_MODE_ENCODER_TMDS, "%s",
-+			      intel_ddi_encoder_name(display, port, phy, &encoder_name)))
-+		return;
++	u32 lrate = 0;
++	int ret;
 +
-+	if (drmm_add_action_or_reset(display->drm, intel_ddi_encoder_cleanup, dig_port))
-+		return;
- 
- 	intel_encoder_link_check_init(encoder, intel_ddi_link_check);
- 
-@@ -5411,7 +5415,7 @@ void intel_ddi_init(struct intel_display *display,
- 	if (need_aux_ch(encoder, init_dp)) {
- 		dig_port->aux_ch = intel_dp_aux_ch(encoder);
- 		if (dig_port->aux_ch == AUX_CH_NONE)
--			goto err;
-+			return;
- 	}
- 
- 	/*
-@@ -5447,7 +5451,11 @@ void intel_ddi_init(struct intel_display *display,
- 		dig_port->unlock = intel_tc_port_unlock;
- 
- 		if (intel_tc_port_init(dig_port, is_legacy) < 0)
--			goto err;
-+			return;
-+
-+		if (drmm_add_action_or_reset(display->drm,
-+					     intel_tc_port_cleanup_action, dig_port))
-+			return;
- 	}
- 
- 	drm_WARN_ON(display->drm, port > PORT_I);
-@@ -5478,7 +5486,7 @@ void intel_ddi_init(struct intel_display *display,
- 
- 	if (init_dp) {
- 		if (intel_ddi_init_dp_connector(dig_port))
--			goto err;
-+			return;
- 
- 		dig_port->hpd_pulse = intel_dp_hpd_pulse;
- 
-@@ -5492,12 +5500,6 @@ void intel_ddi_init(struct intel_display *display,
- 	 */
- 	if (encoder->type != INTEL_OUTPUT_EDP && init_hdmi) {
- 		if (intel_ddi_init_hdmi_connector(dig_port))
--			goto err;
-+			return;
- 	}
--
--	return;
--
--err:
--	drm_encoder_cleanup(&encoder->base);
--	kfree(dig_port);
- }
-diff --git a/drivers/gpu/drm/i915/display/intel_display.c b/drivers/gpu/drm/i915/display/intel_display.c
-index 10b6c6fcb03f6..049a796da4c38 100644
---- a/drivers/gpu/drm/i915/display/intel_display.c
-+++ b/drivers/gpu/drm/i915/display/intel_display.c
-@@ -2192,14 +2192,6 @@ static void i9xx_crtc_disable(struct intel_atomic_state *state,
- 		i830_enable_pipe(display, pipe);
- }
- 
--void intel_encoder_destroy(struct drm_encoder *encoder)
--{
--	struct intel_encoder *intel_encoder = to_intel_encoder(encoder);
--
--	drm_encoder_cleanup(encoder);
--	kfree(intel_encoder);
--}
--
- static bool intel_crtc_supports_double_wide(const struct intel_crtc *crtc)
- {
- 	struct intel_display *display = to_intel_display(crtc);
-diff --git a/drivers/gpu/drm/i915/display/intel_display.h b/drivers/gpu/drm/i915/display/intel_display.h
-index 552a59d19e0f6..6c2681738e6b2 100644
---- a/drivers/gpu/drm/i915/display/intel_display.h
-+++ b/drivers/gpu/drm/i915/display/intel_display.h
-@@ -416,7 +416,6 @@ void intel_disable_transcoder(const struct intel_crtc_state *old_crtc_state);
- void i830_enable_pipe(struct intel_display *display, enum pipe pipe);
- void i830_disable_pipe(struct intel_display *display, enum pipe pipe);
- bool intel_has_pending_fb_unpin(struct intel_display *display);
--void intel_encoder_destroy(struct drm_encoder *encoder);
- struct drm_display_mode *
- intel_encoder_current_mode(struct intel_encoder *encoder);
- void intel_encoder_get_config(struct intel_encoder *encoder,
-diff --git a/drivers/gpu/drm/i915/display/intel_dp_mst.c b/drivers/gpu/drm/i915/display/intel_dp_mst.c
-index 887b6de14e467..5fe6fbcaf9371 100644
---- a/drivers/gpu/drm/i915/display/intel_dp_mst.c
-+++ b/drivers/gpu/drm/i915/display/intel_dp_mst.c
-@@ -30,6 +30,7 @@
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_edid.h>
- #include <drm/drm_fixed.h>
-+#include <drm/drm_managed.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- 
-@@ -1645,16 +1646,7 @@ static const struct drm_connector_helper_funcs mst_connector_helper_funcs = {
- 	.detect_ctx = mst_connector_detect_ctx,
- };
- 
--static void mst_stream_encoder_destroy(struct drm_encoder *encoder)
--{
--	struct intel_dp_mst_encoder *intel_mst = enc_to_mst(to_intel_encoder(encoder));
--
--	drm_encoder_cleanup(encoder);
--	kfree(intel_mst);
--}
--
- static const struct drm_encoder_funcs mst_stream_encoder_funcs = {
--	.destroy = mst_stream_encoder_destroy,
- };
- 
- static bool mst_connector_get_hw_state(struct intel_connector *connector)
-@@ -1850,18 +1842,16 @@ mst_stream_encoder_create(struct intel_digital_port *dig_port, enum pipe pipe)
- 	struct intel_dp_mst_encoder *intel_mst;
- 	struct intel_encoder *encoder;
- 
--	intel_mst = kzalloc_obj(*intel_mst);
--
--	if (!intel_mst)
-+	intel_mst = drmm_encoder_alloc(display->drm, struct intel_dp_mst_encoder,
-+				       base.base, &mst_stream_encoder_funcs,
-+				       DRM_MODE_ENCODER_DPMST, "DP-MST %c", pipe_name(pipe));
-+	if (IS_ERR(intel_mst))
- 		return NULL;
- 
- 	intel_mst->pipe = pipe;
- 	encoder = &intel_mst->base;
- 	intel_mst->primary = dig_port;
- 
--	drm_encoder_init(display->drm, &encoder->base, &mst_stream_encoder_funcs,
--			 DRM_MODE_ENCODER_DPMST, "DP-MST %c", pipe_name(pipe));
--
- 	encoder->type = INTEL_OUTPUT_DP_MST;
- 	encoder->power_domain = primary_encoder->power_domain;
- 	encoder->port = primary_encoder->port;
-diff --git a/drivers/gpu/drm/i915/display/intel_dvo.c b/drivers/gpu/drm/i915/display/intel_dvo.c
-index 405b33aca9dde..ea2f6426fd77d 100644
---- a/drivers/gpu/drm/i915/display/intel_dvo.c
-+++ b/drivers/gpu/drm/i915/display/intel_dvo.c
-@@ -31,6 +31,7 @@
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_crtc.h>
- #include <drm/drm_edid.h>
-+#include <drm/drm_managed.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- 
-@@ -372,18 +373,15 @@ static const struct drm_connector_helper_funcs intel_dvo_connector_helper_funcs
- 	.get_modes = intel_dvo_get_modes,
- };
- 
--static void intel_dvo_enc_destroy(struct drm_encoder *encoder)
-+static void intel_dvo_dev_destroy(struct drm_device *drm, void *data)
- {
--	struct intel_dvo *intel_dvo = enc_to_dvo(to_intel_encoder(encoder));
-+	struct intel_dvo *intel_dvo = data;
- 
- 	if (intel_dvo->dev.dev_ops->destroy)
- 		intel_dvo->dev.dev_ops->destroy(&intel_dvo->dev);
--
--	intel_encoder_destroy(encoder);
- }
- 
- static const struct drm_encoder_funcs intel_dvo_enc_funcs = {
--	.destroy = intel_dvo_enc_destroy,
- };
- 
- static int intel_dvo_encoder_type(const struct intel_dvo_device *dvo)
-@@ -494,7 +492,7 @@ void intel_dvo_init(struct intel_display *display)
- 	struct intel_encoder *encoder;
- 	struct intel_dvo *intel_dvo;
- 
--	intel_dvo = kzalloc_obj(*intel_dvo);
-+	intel_dvo = drmm_kzalloc(display->drm, sizeof(*intel_dvo), GFP_KERNEL);
- 	if (!intel_dvo)
- 		return;
- 
-@@ -517,13 +515,15 @@ void intel_dvo_init(struct intel_display *display)
- 	connector->get_hw_state = intel_dvo_connector_get_hw_state;
- 
- 	if (!intel_dvo_probe(display, intel_dvo)) {
--		kfree(intel_dvo);
- 		intel_connector_free(connector);
- 		return;
- 	}
- 
- 	assert_port_valid(display, intel_dvo->dev.port);
- 
-+	if (drmm_add_action_or_reset(display->drm, intel_dvo_dev_destroy, intel_dvo))
-+		return;
-+
- 	encoder->type = INTEL_OUTPUT_DVO;
- 	encoder->power_domain = POWER_DOMAIN_PORT_OTHER;
- 	encoder->port = intel_dvo->dev.port;
-@@ -533,10 +533,10 @@ void intel_dvo_init(struct intel_display *display)
- 		encoder->cloneable = BIT(INTEL_OUTPUT_ANALOG) |
- 			BIT(INTEL_OUTPUT_DVO);
- 
--	drm_encoder_init(display->drm, &encoder->base,
--			 &intel_dvo_enc_funcs,
--			 intel_dvo_encoder_type(&intel_dvo->dev),
--			 "DVO %c", port_name(encoder->port));
-+	drmm_encoder_init(display->drm, &encoder->base,
-+			  &intel_dvo_enc_funcs,
-+			  intel_dvo_encoder_type(&intel_dvo->dev),
-+			  "DVO %c", port_name(encoder->port));
- 
- 	drm_dbg_kms(display->drm, "[ENCODER:%d:%s] detected %s\n",
- 		    encoder->base.base.id, encoder->base.name,
-diff --git a/drivers/gpu/drm/i915/display/intel_encoder.c b/drivers/gpu/drm/i915/display/intel_encoder.c
-index d01b081a60740..2ebd1e4457482 100644
---- a/drivers/gpu/drm/i915/display/intel_encoder.c
-+++ b/drivers/gpu/drm/i915/display/intel_encoder.c
-@@ -5,6 +5,8 @@
- 
- #include <linux/workqueue.h>
- 
-+#include <drm/drm_managed.h>
-+
- #include "intel_display_core.h"
- #include "intel_display_types.h"
- #include "intel_encoder.h"
-@@ -104,11 +106,11 @@ void intel_encoder_shutdown_all(struct intel_display *display)
- 			encoder->shutdown_complete(encoder);
- }
- 
--struct intel_digital_port *intel_dig_port_alloc(void)
-+struct intel_digital_port *intel_dig_port_alloc(struct drm_device *drm)
- {
- 	struct intel_digital_port *dig_port;
- 
--	dig_port = kzalloc_obj(*dig_port);
-+	dig_port = drmm_kzalloc(drm, sizeof(*dig_port), GFP_KERNEL);
- 	if (!dig_port)
- 		return NULL;
- 
-diff --git a/drivers/gpu/drm/i915/display/intel_encoder.h b/drivers/gpu/drm/i915/display/intel_encoder.h
-index ace0fe1a8f27a..42f3982970065 100644
---- a/drivers/gpu/drm/i915/display/intel_encoder.h
-+++ b/drivers/gpu/drm/i915/display/intel_encoder.h
-@@ -6,6 +6,7 @@
- #ifndef __INTEL_ENCODER_H__
- #define __INTEL_ENCODER_H__
- 
-+struct drm_device;
- struct intel_digital_port;
- struct intel_display;
- struct intel_encoder;
-@@ -21,6 +22,6 @@ void intel_encoder_shutdown_all(struct intel_display *display);
- void intel_encoder_block_all_hpds(struct intel_display *display);
- void intel_encoder_unblock_all_hpds(struct intel_display *display);
- 
--struct intel_digital_port *intel_dig_port_alloc(void);
-+struct intel_digital_port *intel_dig_port_alloc(struct drm_device *drm);
- 
- #endif /* __INTEL_ENCODER_H__ */
-diff --git a/drivers/gpu/drm/i915/display/intel_lvds.c b/drivers/gpu/drm/i915/display/intel_lvds.c
-index e78a41e2b268c..7bb99eb44a5a4 100644
---- a/drivers/gpu/drm/i915/display/intel_lvds.c
-+++ b/drivers/gpu/drm/i915/display/intel_lvds.c
-@@ -37,6 +37,7 @@
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_crtc.h>
- #include <drm/drm_edid.h>
-+#include <drm/drm_managed.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- 
-@@ -517,7 +518,6 @@ static const struct drm_connector_funcs intel_lvds_connector_funcs = {
- };
- 
- static const struct drm_encoder_funcs intel_lvds_enc_funcs = {
--	.destroy = intel_encoder_destroy,
- };
- 
- static int intel_no_lvds_dmi_callback(const struct dmi_system_id *id)
-@@ -886,15 +886,14 @@ void intel_lvds_init(struct intel_display *display)
- 			    "LVDS is not present in VBT, but enabled anyway\n");
- 	}
- 
--	lvds_encoder = kzalloc_obj(*lvds_encoder);
--	if (!lvds_encoder)
-+	lvds_encoder = drmm_encoder_alloc(display->drm, struct intel_lvds_encoder, base.base,
-+					  &intel_lvds_enc_funcs, DRM_MODE_ENCODER_LVDS, "LVDS");
-+	if (IS_ERR(lvds_encoder))
- 		return;
- 
- 	connector = intel_connector_alloc();
--	if (!connector) {
--		kfree(lvds_encoder);
 +	if (!connector)
- 		return;
--	}
- 
- 	lvds_encoder->attached_connector = connector;
- 	encoder = &lvds_encoder->base;
-@@ -904,8 +903,6 @@ void intel_lvds_init(struct intel_display *display)
- 				    DRM_MODE_CONNECTOR_LVDS,
- 				    intel_gmbus_get_adapter(display, ddc_pin));
- 
--	drm_encoder_init(display->drm, &encoder->base, &intel_lvds_enc_funcs,
--			 DRM_MODE_ENCODER_LVDS, "LVDS");
- 
- 	encoder->enable = intel_enable_lvds;
- 	encoder->pre_enable = intel_pre_enable_lvds;
-diff --git a/drivers/gpu/drm/i915/display/intel_sdvo.c b/drivers/gpu/drm/i915/display/intel_sdvo.c
-index 6eb2b4b45a9b4..f5aaa38002674 100644
---- a/drivers/gpu/drm/i915/display/intel_sdvo.c
-+++ b/drivers/gpu/drm/i915/display/intel_sdvo.c
-@@ -36,6 +36,7 @@
- #include <drm/drm_crtc.h>
- #include <drm/drm_edid.h>
- #include <drm/drm_eld.h>
-+#include <drm/drm_managed.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- 
-@@ -2542,24 +2543,19 @@ static const struct drm_connector_helper_funcs intel_sdvo_connector_helper_funcs
- 	.atomic_check = intel_sdvo_atomic_check,
- };
- 
--static void intel_sdvo_encoder_destroy(struct drm_encoder *_encoder)
-+static void intel_sdvo_unselect_i2c_bus(struct intel_sdvo *sdvo);
++		return -ENODEV;
 +
-+static void intel_sdvo_cleanup(struct drm_device *drm, void *data)
- {
--	struct intel_encoder *encoder = to_intel_encoder(_encoder);
--	struct intel_sdvo *sdvo = to_sdvo(encoder);
-+	struct intel_sdvo *intel_sdvo = data;
- 	int i;
- 
--	for (i = 0; i < ARRAY_SIZE(sdvo->ddc); i++) {
--		if (sdvo->ddc[i].ddc_bus)
--			i2c_del_adapter(&sdvo->ddc[i].ddc);
-+	for (i = 0; i < ARRAY_SIZE(intel_sdvo->ddc); i++) {
-+		if (intel_sdvo->ddc[i].ddc_bus)
-+			i2c_del_adapter(&intel_sdvo->ddc[i].ddc);
- 	}
--
--	drm_encoder_cleanup(&encoder->base);
--	kfree(sdvo);
--};
--
--static const struct drm_encoder_funcs intel_sdvo_enc_funcs = {
--	.destroy = intel_sdvo_encoder_destroy,
--};
-+	intel_sdvo_unselect_i2c_bus(intel_sdvo);
++	if (dp_link_train->nlanes && !is_power_of_2(dp_link_train->nlanes & DRM_NLANES_MASK)) {
++		drm_err(connector->dev, "Wrong lane number");
++		return -EINVAL;
++	}
++
++	if (dp_link_train->rate) {
++		struct drm_property_enum *prop_enum;
++		bool found = false;
++
++		list_for_each_entry(prop_enum, &connector->dp.link_rate_property->enum_list, head) {
++			u32 parsed_rate;
++
++			/* Convert dp_link_train->rate from deca-kbps to kbps */
++			if (!kstrtou32(prop_enum->name, 10, &parsed_rate) &&
++			    dp_link_train->rate * 10 == parsed_rate) {
++				lrate = 1 << prop_enum->value;
++				found = true;
++				break;
++			}
++		}
++
++		if (!found) {
++			drm_err(connector->dev, "Wrong rate value");
++			return -EINVAL;
++		}
++	}
++
++	ret = drm_object_property_set_value(&connector->base, connector->dp.nlanes_property,
++					    dp_link_train->nlanes);
++	if (ret)
++		return ret;
++
++	ret = drm_object_property_set_value(&connector->base, connector->dp.link_rate_property,
++					    lrate);
++	if (ret)
++		return ret;
++
++	if (connector->dp.dsc_en_property) {
++		ret = drm_object_property_set_value(&connector->base, connector->dp.dsc_en_property,
++						    dp_link_train->dsc_en);
++		if (ret)
++			return ret;
++	}
++
++	for (int i = 0; i < 4; i++) {
++		if (connector->dp.v_swing_property[i]) {
++			ret = drm_object_property_set_value(&connector->base,
++							    connector->dp.v_swing_property[i],
++							    dp_link_train->v_swing[i]);
++			if (ret)
++				return ret;
++		}
++
++		if (connector->dp.pre_emph_property[i]) {
++			ret = drm_object_property_set_value(&connector->base,
++							    connector->dp.pre_emph_property[i],
++							    dp_link_train->pre_emph[i]);
++			if (ret)
++				return ret;
++		}
++	}
++
++	return ret;
 +}
- 
- static int
- intel_sdvo_guess_ddc_bus(struct intel_sdvo *sdvo,
-@@ -3381,8 +3377,9 @@ bool intel_sdvo_init(struct intel_display *display,
- 	if (!assert_sdvo_port_valid(display, port))
- 		return false;
- 
--	intel_sdvo = kzalloc_obj(*intel_sdvo);
--	if (!intel_sdvo)
-+	intel_sdvo = drmm_encoder_alloc(display->drm, struct intel_sdvo, base.base,
-+					NULL, 0, "SDVO %c", port_name(port));
-+	if (IS_ERR(intel_sdvo))
- 		return false;
- 
- 	/* encoder type will be decided later */
-@@ -3391,15 +3388,14 @@ bool intel_sdvo_init(struct intel_display *display,
- 	intel_encoder->power_domain = POWER_DOMAIN_PORT_OTHER;
- 	intel_encoder->port = port;
- 
--	drm_encoder_init(display->drm, &intel_encoder->base,
--			 &intel_sdvo_enc_funcs, 0,
--			 "SDVO %c", port_name(port));
--
- 	intel_sdvo->sdvo_reg = sdvo_reg;
- 	intel_sdvo->target_addr = intel_sdvo_get_target_addr(intel_sdvo) >> 1;
- 
- 	intel_sdvo_select_i2c_bus(intel_sdvo);
- 
-+	if (drmm_add_action_or_reset(display->drm, intel_sdvo_cleanup, intel_sdvo))
-+		return false;
++EXPORT_SYMBOL(drm_connector_dp_set_link_train_properties);
 +
- 	/* Read the regs to test if we can talk to the device */
- 	for (i = 0; i < 0x40; i++) {
- 		u8 byte;
-@@ -3408,7 +3404,7 @@ bool intel_sdvo_init(struct intel_display *display,
- 			drm_dbg_kms(display->drm,
- 				    "No SDVO device found on %s\n",
- 				    SDVO_NAME(intel_sdvo));
--			goto err;
-+			return false;
- 		}
- 	}
- 
-@@ -3428,7 +3424,7 @@ bool intel_sdvo_init(struct intel_display *display,
- 
- 	/* In default case sdvo lvds is false */
- 	if (!intel_sdvo_get_capabilities(intel_sdvo, &intel_sdvo->caps))
--		goto err;
-+		return false;
- 
- 	intel_sdvo->colorimetry_cap =
- 		intel_sdvo_get_colorimetry_cap(intel_sdvo);
-@@ -3439,7 +3435,7 @@ bool intel_sdvo_init(struct intel_display *display,
- 		ret = intel_sdvo_init_ddc_proxy(&intel_sdvo->ddc[i],
- 						intel_sdvo, i + 1);
- 		if (ret)
--			goto err;
-+			return false;
- 	}
- 
- 	if (!intel_sdvo_output_setup(intel_sdvo)) {
-@@ -3502,9 +3498,6 @@ bool intel_sdvo_init(struct intel_display *display,
- 
- err_output:
- 	intel_sdvo_output_cleanup(intel_sdvo);
--err:
--	intel_sdvo_unselect_i2c_bus(intel_sdvo);
--	intel_sdvo_encoder_destroy(&intel_encoder->base);
- 
- 	return false;
- }
-diff --git a/drivers/gpu/drm/i915/display/intel_tv.c b/drivers/gpu/drm/i915/display/intel_tv.c
-index 8fbf0adb56992..05df0acc6dc3e 100644
---- a/drivers/gpu/drm/i915/display/intel_tv.c
-+++ b/drivers/gpu/drm/i915/display/intel_tv.c
-@@ -33,6 +33,7 @@
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_crtc.h>
- #include <drm/drm_edid.h>
-+#include <drm/drm_managed.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- 
-@@ -1881,7 +1882,6 @@ static const struct drm_connector_helper_funcs intel_tv_connector_helper_funcs =
++/**
++ * drm_connector_dp_link_reset_properties() - Reset DisplayPort link configuration
++ * @connector: DRM connector
++ */
++void drm_connector_dp_reset_link_train_properties(struct drm_connector *connector)
++{
++	struct drm_connector_dp_link_train dp_link_train = {0};
++
++	drm_connector_dp_set_link_train_properties(connector, &dp_link_train);
++}
++EXPORT_SYMBOL(drm_connector_dp_reset_link_train_properties);
++
++static int drm_connector_create_nlanes_prop(struct drm_connector *connector,
++					    u8 sup_nlanes)
++{
++	static const struct drm_prop_enum_list props[] = {
++		{__builtin_ffs(DRM_DP_1LANE) - 1, "1" },
++		{__builtin_ffs(DRM_DP_2LANE) - 1, "2" },
++		{__builtin_ffs(DRM_DP_4LANE) - 1, "4" },
++	};
++	struct drm_property *prop;
++
++	if (drm_WARN_ON(connector->dev, sup_nlanes != (sup_nlanes & DRM_NLANES_MASK)))
++		return -EINVAL;
++
++	prop = drm_property_create_bitmask(connector->dev, DRM_MODE_PROP_IMMUTABLE,
++					   "num_lanes", props, ARRAY_SIZE(props),
++					   sup_nlanes);
++	if (!prop)
++		return -ENOMEM;
++
++	drm_object_attach_property(&connector->base, prop, 0);
++
++	connector->dp.nlanes_property = prop;
++
++	return 0;
++}
++
++static int drm_connector_create_lrate_prop(struct drm_connector *connector,
++					   u32 sup_nlrates,
++					   const u32 *sup_lrates)
++{
++	struct drm_prop_enum_list *props;
++	u32 supp_nlrates_bitmask = 0;
++	struct drm_property *prop;
++	int ret = 0;
++
++	if (!sup_nlrates || !sup_lrates)
++		return 0;
++
++	props = kcalloc(sup_nlrates, sizeof(*props), GFP_KERNEL);
++	if (!props)
++		return -ENOMEM;
++
++	for (int i = 0; i < sup_nlrates; i++) {
++		props[i].type = i;
++		/* Convert deca-kbps to kbps */
++		props[i].name = kasprintf(GFP_KERNEL, "%d", sup_lrates[i] * 10);
++		if (!props[i].name) {
++			while (i--)
++				kfree(props[i].name);
++			kfree(props);
++			return -ENOMEM;
++		}
++		supp_nlrates_bitmask |= 1 << i;
++	}
++
++	prop = drm_property_create_bitmask(connector->dev, DRM_MODE_PROP_IMMUTABLE,
++					   "link_rate", props, sup_nlrates,
++					   supp_nlrates_bitmask);
++	if (!prop) {
++		ret = -ENOMEM;
++		goto out;
++	}
++
++	drm_object_attach_property(&connector->base, prop, 0);
++
++	connector->dp.link_rate_property = prop;
++
++out:
++	for (int i = 0; i < sup_nlrates; i++)
++		kfree(props[i].name);
++
++	kfree(props);
++	return ret;
++}
++
++static int drm_connector_create_dsc_prop(struct drm_connector *connector)
++{
++	struct drm_property *prop;
++
++	prop = drm_property_create_bool(connector->dev, DRM_MODE_PROP_IMMUTABLE, "dsc_en");
++	if (!prop)
++		return -ENOMEM;
++
++	drm_object_attach_property(&connector->base, prop, 0);
++
++	connector->dp.dsc_en_property = prop;
++
++	return 0;
++}
++
++static int drm_connector_create_vswing_prop(struct drm_connector *connector,
++					    u8 sup_v_swings, int id)
++{
++	static const struct drm_prop_enum_list props[] = {
++		{__builtin_ffs(DRM_DP_VOLTAGE_SWING_LEVEL_0) - 1, "level_0" },
++		{__builtin_ffs(DRM_DP_VOLTAGE_SWING_LEVEL_1) - 1, "level_1" },
++		{__builtin_ffs(DRM_DP_VOLTAGE_SWING_LEVEL_2) - 1, "level_2" },
++		{__builtin_ffs(DRM_DP_VOLTAGE_SWING_LEVEL_3) - 1, "level_3" },
++	};
++	struct drm_property *prop;
++	char str[16];
++
++	if (!sup_v_swings)
++		return 0;
++
++	if (drm_WARN_ON(connector->dev, sup_v_swings != (sup_v_swings &
++						   DRM_DP_VOLTAGE_SWING_LEVEL_MASK)))
++		return -EINVAL;
++
++	snprintf(str, sizeof(str), "voltage_swing%d", id);
++	prop = drm_property_create_bitmask(connector->dev, DRM_MODE_PROP_IMMUTABLE,
++					   str, props, ARRAY_SIZE(props),
++					   sup_v_swings);
++	if (!prop)
++		return -ENOMEM;
++
++	drm_object_attach_property(&connector->base, prop, 0);
++
++	connector->dp.v_swing_property[id] = prop;
++
++	return 0;
++}
++
++static int drm_connector_create_pre_emph_prop(struct drm_connector *connector,
++					      u8 sup_pre_emph, int id)
++{
++	static const struct drm_prop_enum_list props[] = {
++		{__builtin_ffs(DRM_DP_PRE_EMPH_LEVEL_0) - 1, "level_0" },
++		{__builtin_ffs(DRM_DP_PRE_EMPH_LEVEL_1) - 1, "level_1" },
++		{__builtin_ffs(DRM_DP_PRE_EMPH_LEVEL_2) - 1, "level_2" },
++		{__builtin_ffs(DRM_DP_PRE_EMPH_LEVEL_3) - 1, "level_3" },
++	};
++	struct drm_property *prop;
++	char str[16];
++
++	if (!sup_pre_emph)
++		return 0;
++
++	if (drm_WARN_ON(connector->dev, sup_pre_emph != (sup_pre_emph &
++						   DRM_DP_PRE_EMPH_LEVEL_MASK)))
++		return -EINVAL;
++
++	snprintf(str, sizeof(str), "pre_emphasis%d", id);
++	prop = drm_property_create_bitmask(connector->dev, DRM_MODE_PROP_IMMUTABLE,
++					   str, props, ARRAY_SIZE(props),
++					   sup_pre_emph);
++	if (!prop)
++		return -ENOMEM;
++
++	drm_object_attach_property(&connector->base, prop, 0);
++
++	connector->dp.pre_emph_property[id] = prop;
++
++	return 0;
++}
++
++static int
++drm_connector_dp_create_props(struct drm_connector *connector,
++			      const struct drm_connector_dp_link_train_caps *dp_link_train_caps)
++{
++	u8 nlanes;
++	int ret;
++
++	ret = drm_connector_create_nlanes_prop(connector, dp_link_train_caps->nlanes);
++	if (ret)
++		return ret;
++
++	ret = drm_connector_create_lrate_prop(connector, dp_link_train_caps->nrates,
++					      dp_link_train_caps->rates);
++	if (ret)
++		return ret;
++
++	if (dp_link_train_caps->dsc) {
++		ret = drm_connector_create_dsc_prop(connector);
++		if (ret)
++			return ret;
++	}
++
++	nlanes = 1 << (fls(dp_link_train_caps->nlanes) - 1);
++	for (int i = 0; i < nlanes; i++) {
++		ret = drm_connector_create_vswing_prop(connector,
++						       dp_link_train_caps->v_swings, i);
++		if (ret)
++			return ret;
++
++		ret = drm_connector_create_pre_emph_prop(connector,
++							 dp_link_train_caps->pre_emphs, i);
++		if (ret)
++			return ret;
++	}
++
++	return 0;
++}
++
++/**
++ * drmm_connector_dp_init - Init a preallocated DisplayPort connector
++ * @dev: DRM device
++ * @connector: A pointer to the DisplayPort connector to init
++ * @funcs: callbacks for this connector
++ * @dp_link_train_caps: DisplayPort link training capabilities. The pointer
++ *			is not kept by the DRM core
++ * @connector_type: user visible type of the connector
++ * @ddc: optional pointer to the associated ddc adapter
++ *
++ * Initialises a preallocated DisplayPort connector. Connectors can be
++ * subclassed as part of driver connector objects.
++ *
++ * Cleanup is automatically handled with a call to
++ * drm_connector_cleanup() in a DRM-managed action.
++ *
++ * The connector structure should be allocated with drmm_kzalloc().
++ *
++ * The @drm_connector_funcs.destroy hook must be NULL.
++ *
++ * Returns:
++ * Zero on success, error code on failure.
++ */
++int drmm_connector_dp_init(struct drm_device *dev,
++			   struct drm_connector *connector,
++			   const struct drm_connector_funcs *funcs,
++			   const struct drm_connector_dp_link_train_caps *dp_link_train_caps,
++			   int connector_type,
++			   struct i2c_adapter *ddc)
++{
++	int ret;
++
++	if (!(connector_type == DRM_MODE_CONNECTOR_DisplayPort ||
++	      connector_type == DRM_MODE_CONNECTOR_eDP))
++		return -EINVAL;
++
++	if (!dp_link_train_caps)
++		return -EINVAL;
++
++	ret = drmm_connector_init(dev, connector, funcs, connector_type, ddc);
++	if (ret)
++		return ret;
++
++	return drm_connector_dp_create_props(connector, dp_link_train_caps);
++}
++EXPORT_SYMBOL(drmm_connector_dp_init);
+diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+index f83f28cae2075..df3a71fed35b1 100644
+--- a/include/drm/drm_connector.h
++++ b/include/drm/drm_connector.h
+@@ -1987,6 +1987,39 @@ struct drm_connector_cec {
+ 	void *data;
  };
  
- static const struct drm_encoder_funcs intel_tv_enc_funcs = {
--	.destroy = intel_encoder_destroy,
++/**
++ * struct drm_connector_dp - DRM Connector DisplayPort-related structure
++ */
++struct drm_connector_dp {
++	/**
++	 * @nlanes_property: Connector property to report the number of lanes
++	 */
++	struct drm_property *nlanes_property;
++
++	/**
++	 * @link_rate_property: Connector property to report the link rate
++	 */
++	struct drm_property *link_rate_property;
++
++	/**
++	 * @dsc_en_property: Connector property to report the Display Stream
++	 * Compression supporrt
++	 */
++	struct drm_property *dsc_en_property;
++
++	/**
++	 * @v_swing_property: Connector property to report the voltage
++	 * swing per lane
++	 */
++	struct drm_property *v_swing_property[4];
++
++	/**
++	 * @pre_emph_property: Connector property to report the
++	 * pre-emphasis per lane
++	 */
++	struct drm_property *pre_emph_property[4];
++};
++
+ /**
+  * struct drm_connector - central DRM connector control structure
+  *
+@@ -2410,6 +2443,11 @@ struct drm_connector {
+ 	 * @cec: CEC-related data.
+ 	 */
+ 	struct drm_connector_cec cec;
++
++	/**
++	 * @dp: DisplayPort-related variable and properties.
++	 */
++	struct drm_connector_dp dp;
  };
  
- static void intel_tv_add_properties(struct drm_connector *connector)
-@@ -1966,10 +1966,10 @@ intel_tv_init(struct intel_display *display)
- 	    (tv_dac_off & TVDAC_STATE_CHG_EN) != 0)
- 		return;
- 
--	intel_tv = kzalloc_obj(*intel_tv);
--	if (!intel_tv) {
-+	intel_tv = drmm_encoder_alloc(display->drm, struct intel_tv, base.base,
-+				      &intel_tv_enc_funcs, DRM_MODE_ENCODER_TVDAC, "TV");
-+	if (IS_ERR(intel_tv))
- 		return;
--	}
- 
- 	intel_connector = intel_connector_alloc();
- 	if (!intel_connector) {
-@@ -1996,9 +1996,6 @@ intel_tv_init(struct intel_display *display)
- 	drm_connector_init(display->drm, connector, &intel_tv_connector_funcs,
- 			   DRM_MODE_CONNECTOR_SVIDEO);
- 
--	drm_encoder_init(display->drm, &intel_encoder->base,
--			 &intel_tv_enc_funcs,
--			 DRM_MODE_ENCODER_TVDAC, "TV");
- 
- 	intel_encoder->compute_config = intel_tv_compute_config;
- 	intel_encoder->get_config = intel_tv_get_config;
-diff --git a/drivers/gpu/drm/i915/display/vlv_dsi.c b/drivers/gpu/drm/i915/display/vlv_dsi.c
-index d4db73c184e5c..e84edb6242716 100644
---- a/drivers/gpu/drm/i915/display/vlv_dsi.c
-+++ b/drivers/gpu/drm/i915/display/vlv_dsi.c
-@@ -30,6 +30,7 @@
- #include <drm/drm_crtc.h>
- #include <drm/drm_edid.h>
- #include <drm/drm_mipi_dsi.h>
-+#include <drm/drm_managed.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- 
-@@ -1531,7 +1532,6 @@ static void intel_dsi_unprepare(struct intel_encoder *encoder)
- }
- 
- static const struct drm_encoder_funcs intel_dsi_funcs = {
--	.destroy = intel_encoder_destroy,
- };
- 
- static enum drm_mode_status vlv_dsi_mode_valid(struct drm_connector *connector,
-@@ -1918,22 +1918,19 @@ void vlv_dsi_init(struct intel_display *display)
- 	else
- 		display->dsi.mmio_base = VLV_MIPI_BASE;
- 
--	intel_dsi = kzalloc_obj(*intel_dsi);
--	if (!intel_dsi)
-+	intel_dsi = drmm_encoder_alloc(display->drm, struct intel_dsi, base.base,
-+				       &intel_dsi_funcs, DRM_MODE_ENCODER_DSI,
-+				       "DSI %c", port_name(port));
-+	if (IS_ERR(intel_dsi))
- 		return;
- 
- 	connector = intel_connector_alloc();
--	if (!connector) {
--		kfree(intel_dsi);
-+	if (!connector)
- 		return;
--	}
- 
- 	encoder = &intel_dsi->base;
- 	intel_dsi->attached_connector = connector;
- 
--	drm_encoder_init(display->drm, &encoder->base, &intel_dsi_funcs,
--			 DRM_MODE_ENCODER_DSI, "DSI %c", port_name(port));
--
- 	encoder->compute_config = intel_dsi_compute_config;
- 	encoder->pre_enable = intel_dsi_pre_enable;
- 	if (display->platform.geminilake || display->platform.broxton)
-@@ -1985,14 +1982,14 @@ void vlv_dsi_init(struct intel_display *display)
- 		host = intel_dsi_host_init(intel_dsi, &intel_dsi_host_ops,
- 					   port);
- 		if (!host)
--			goto err;
-+			return;
- 
- 		intel_dsi->dsi_hosts[port] = host;
- 	}
- 
- 	if (!intel_dsi_vbt_init(intel_dsi, MIPI_DSI_GENERIC_PANEL_ID)) {
- 		drm_dbg_kms(display->drm, "no device found\n");
--		goto err;
-+		return;
- 	}
- 
- 	/* Use clock read-back from current hw-state for fastboot */
-@@ -2050,8 +2047,5 @@ void vlv_dsi_init(struct intel_display *display)
- 
- err_cleanup_connector:
- 	drm_connector_cleanup(&connector->base);
--err:
--	drm_encoder_cleanup(&encoder->base);
--	kfree(intel_dsi);
- 	kfree(connector);
- }
+ #define obj_to_connector(x) container_of(x, struct drm_connector, base)
+diff --git a/include/drm/drm_dp_connector.h b/include/drm/drm_dp_connector.h
+new file mode 100644
+index 0000000000000..77d2f4bb6df68
+--- /dev/null
++++ b/include/drm/drm_dp_connector.h
+@@ -0,0 +1,109 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
++#ifndef DRM_DP_CONNECTOR_H_
++#define DRM_DP_CONNECTOR_H_
++
++#include <drm/drm_connector.h>
++
++#define DRM_DP_1LANE	BIT(0)
++#define DRM_DP_2LANE	BIT(1)
++#define DRM_DP_4LANE	BIT(2)
++#define DRM_NLANES_MASK (DRM_DP_1LANE | DRM_DP_2LANE | DRM_DP_4LANE)
++#define DRM_DP_VOLTAGE_SWING_LEVEL_0 BIT(0)
++#define DRM_DP_VOLTAGE_SWING_LEVEL_1 BIT(1)
++#define DRM_DP_VOLTAGE_SWING_LEVEL_2 BIT(2)
++#define DRM_DP_VOLTAGE_SWING_LEVEL_3 BIT(3)
++#define DRM_DP_VOLTAGE_SWING_LEVEL_MASK (DRM_DP_VOLTAGE_SWING_LEVEL_0 | \
++					 DRM_DP_VOLTAGE_SWING_LEVEL_1 | \
++					 DRM_DP_VOLTAGE_SWING_LEVEL_2 | \
++					 DRM_DP_VOLTAGE_SWING_LEVEL_3)
++#define DRM_DP_PRE_EMPH_LEVEL_0 BIT(0)
++#define DRM_DP_PRE_EMPH_LEVEL_1 BIT(1)
++#define DRM_DP_PRE_EMPH_LEVEL_2 BIT(2)
++#define DRM_DP_PRE_EMPH_LEVEL_3 BIT(3)
++#define DRM_DP_PRE_EMPH_LEVEL_MASK (DRM_DP_PRE_EMPH_LEVEL_0 | \
++				    DRM_DP_PRE_EMPH_LEVEL_1 | \
++				    DRM_DP_PRE_EMPH_LEVEL_2 | \
++				    DRM_DP_PRE_EMPH_LEVEL_3)
++
++/**
++ * struct drm_connector_dp_link_train_caps - DRM DisplayPort link training
++ * capabilities
++ */
++struct drm_connector_dp_link_train_caps {
++	/**
++	 * @nlanes: Bitmask of lanes number supported
++	 */
++	u8 nlanes;
++
++	/**
++	 * @nrates: Number of link rates supported
++	 */
++	u32 nrates;
++
++	/**
++	 * @rates: Array listing the supported link rates in deca-kbps
++	 */
++	const u32 *rates;
++
++	/**
++	 * @dsc: Display Stream Compression supported
++	 */
++	bool dsc;
++
++	/**
++	 * @v_swings: Bitmask of voltage swing level supported
++	 */
++	u8 v_swings;
++
++	/**
++	 * @pre_emphs: Bitmask of pre-emphasis level supported
++	 */
++	u8 pre_emphs;
++};
++
++/**
++ * struct drm_connector_dp_link_train - DRM DisplayPort link training
++ * information report
++ */
++struct drm_connector_dp_link_train {
++	/**
++	 * @nlanes: The number of lanes used
++	 */
++	u8 nlanes;
++
++	/**
++	 * @rates: Link rate value selected in deca-kbps
++	 */
++	u32 rate;
++
++	/**
++	 * @dsc: Display Stream Compression enabled
++	 */
++	bool dsc_en;
++
++	/**
++	 * @v_swings: Array listing the bitmask voltage swing level per lanes
++	 */
++	u8 v_swing[4];
++
++	/**
++	 * @pre_emph: Array listing the bitmask pre-emphasis level per lanes
++	 */
++	u8 pre_emph[4];
++};
++
++int drmm_connector_dp_init(struct drm_device *dev,
++			   struct drm_connector *connector,
++			   const struct drm_connector_funcs *funcs,
++			   const struct drm_connector_dp_link_train_caps *dp_link_train_caps,
++			   int connector_type,
++			   struct i2c_adapter *ddc);
++
++int
++drm_connector_dp_set_link_train_properties(struct drm_connector *con,
++					   const struct drm_connector_dp_link_train *dp_link_train);
++
++void drm_connector_dp_reset_link_train_properties(struct drm_connector *connector);
++
++#endif // DRM_DP_CONNECTOR_H_
 
 -- 
 2.43.0
