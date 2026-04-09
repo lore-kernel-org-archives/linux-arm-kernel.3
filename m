@@ -4,117 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07E69E9DE42
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 07:16:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A8DCE9DE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 07:22:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oe3nXi3MksZ/zzMDWTo1aUe2SLuhiwXfdP4fHNJIY9o=; b=WOBFSVkRu7f/CEculCg7+bTlWL
-	f8OUYVWxxrlifqn17F9k3XdZyogDIWOgEVvQXD0xWyunGTs71Y+4L/Jdlnpf2QdkGIA9WCMStshdL
-	BNVfe78T5ENB054vyGW+g1e1frfnWzjZzp41iJNMJQQxHAWJa9UFRBJxPYDh34ZGA9y3yCr4JfQD8
-	8Xsk+yum+khB8gHrI7IF7ECcaE69ZoXVq5vPCO5wuAAmlYAsjgTaO7FLiDPCYtU0cZ3NJzMMIIvMa
-	OYgsdcBOIvr98rwuatR6sIjmUx39/obz8SJ/ySsGy6QGkzuyvtE2zkCom5472td1GxkA3EoyLRnPZ
-	ezj5X6/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5RvqEABb/R4d69OWzl8SOspPp4AZhhjnkLdrc56n6n0=; b=yXT8XsBt8g7Cv6UwU6hOb0x5lJ
+	I5Yt73PAiejH53m1c9QtrGPb0ODcCKdZF1IqTN3ptcS8HcETxw2FiD6nTOW/DlJxhLxKT8H+vIn3c
+	bKZnsk79c9r9y/9aE+0O6zPyLk2WJylpFCXVO+KOqgXtqQXrazOjm80+tTm98jfGgL5ZTEMMP/K+g
+	Q6EiNury0irj/CsVC78aCULvUAUK92OdALjjnyecZbt/pvx8JLj0lMMT/zCfQQcGiwHiKniUg5y9X
+	HBd9QCkcJI9fShBEizAwM7YHJk5DGYubdbltJ0PM8dQBehySPYfKchwkQm/sUGPGAL/o2i6PUM+y/
+	TDPqXPrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAjd2-00000009pLU-0rkq;
-	Thu, 09 Apr 2026 07:16:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wAjiw-00000009psj-1Rs3;
+	Thu, 09 Apr 2026 07:22:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAjd0-00000009pLO-3yNF
+	id 1wAjiu-00000009psK-0Bmq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 07:16:39 +0000
+	Thu, 09 Apr 2026 07:22:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CC0AE600AD;
-	Thu,  9 Apr 2026 07:16:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE062C4CEF7;
-	Thu,  9 Apr 2026 07:16:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775718997;
-	bh=SQQTgB16fkn2r5LFqJgkQGrqfbbM/ijT1oL0qYOPkiU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Pz2j82hrW1yV55F7NTp1ihsn2UUSRALjmnGBf0Zwr485AFpOihDG0fBLakDyJxEp9
-	 Wni+5mYmmis+po6LNrut5AZwGuu1l8M8oTynZ7+yNsJK7z95Z8m6b0emxb5BUpCwOG
-	 /LA/K1udj/3/LiqARXGigwgTWA43S2+wLu7Wwk6DgA0gt3Tp5HvGO2K6yKN1OfNJGO
-	 69/90mDsoGfFgjAYR407cGVMZ/ZsfCXgpzRgiPpS6wDWfSFcMH8seOLU7azSsa9YOh
-	 Dxpm47hYVTSTcfg79Zrfh5pMRzWd/a0InYLDJZc8a3vOhvC4CtqWy3eatfQWg7htbB
-	 vwfRiApVEZwsQ==
-Message-ID: <44624242-57b7-4cab-a511-3ed5fb0b0317@kernel.org>
-Date: Thu, 9 Apr 2026 09:16:30 +0200
+	by sea.source.kernel.org (Postfix) with ESMTP id CA61F43BEE;
+	Thu,  9 Apr 2026 07:22:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D861C4CEF7;
+	Thu,  9 Apr 2026 07:22:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1775719362;
+	bh=MQb1+Jz5y5Ig3kVCSoDtWT7H8WWW5yDB7zkk7JBDwUo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=q1zsWJxfTZ2UnakZqhLAUyGulBFoxIdQL5WsCy7JJ9x9ln76eAcO/oj/qEr0XA6Fs
+	 r7wo4DK2J+MQOU5xJFC/Uyg2UiWZX67nRkknM5ozxrIc/i2C0tY9gLYqweQVTpVNQm
+	 cJ+rGtPfscredyl00ZcxaB2WtkYUFLFFGcacG0jw=
+Date: Thu, 9 Apr 2026 09:21:45 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: leo.yan@linux.dev, mike.leach@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	james.clark@linaro.org
+Subject: Re: [GIT PULL] coresight: Updates for Linux v7.1
+Message-ID: <2026040937-starboard-circling-cff9@gregkh>
+References: <20260408213248.3825788-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/3] dt-bindings: arm: fsl: add Variscite VAR-SOM-MX91
- Boards
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com, Stefano Radaelli <stefano.r@variscite.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
- Dario Binacchi <dario.binacchi@amarulasolutions.com>,
- Markus Niebel <Markus.Niebel@ew.tq-group.com>,
- Maud Spierings <maudspierings@gocontroll.com>,
- Alexander Stein <alexander.stein@ew.tq-group.com>,
- Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
- Josua Mayer <josua@solid-run.com>,
- Francesco Dolcini <francesco.dolcini@toradex.com>,
- Primoz Fiser <primoz.fiser@norik.com>
-References: <cover.1775669847.git.stefano.r@variscite.com>
- <86635091cd5db0ecb7f07c5ad9d6f735ec349485.1775669847.git.stefano.r@variscite.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <86635091cd5db0ecb7f07c5ad9d6f735ec349485.1775669847.git.stefano.r@variscite.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260408213248.3825788-1-suzuki.poulose@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260409_002244_121171_6354B171 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,18 +70,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/04/2026 19:39, Stefano Radaelli wrote:
-> From: Stefano Radaelli <stefano.r@variscite.com>
+On Wed, Apr 08, 2026 at 10:32:48PM +0100, Suzuki K Poulose wrote:
+> Hi Greg
 > 
-> Add DT compatible strings for Variscite VAR-SOM-MX91 SoM and Symphony
-> development carrier Board.
+> Please find the updates for CoreSight self-hosted tracing subsystem targeting
+> v7.1
 > 
-> Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
-> ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
+> Kindly pull,
+> 
+> Suzuki
+> 
+> 
+> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+> 
+>   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+> 
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git tags/coresight-next-v7.1
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Pulled and pushed out, thanks.
 
-Best regards,
-Krzysztof
+greg k-h
 
