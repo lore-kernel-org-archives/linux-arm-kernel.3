@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C60F364A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 17:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA3ADF364A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 17:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vkWOcKx6uUnLGWEeSpSMD8GMbN5TDhNOCyHUzp+VpLg=; b=iQFclRt0IM+TWx
-	23oP2ZKhBOubemVq+cSug7heqcdfIFExjFRO4SEa8VcxoPTZ/w8mpRSJSKa/scd+5CuMlG8xmd+RZ
-	xJ2FDTFleZ10S7mDomkPVsGbSSmFY41evF8/hfnD6WZBpPqEPTpO5wSUeqFT6v0QlLQ1ZqTRP/Cl3
-	axS8yqSuG4Z7goY9BMFjqko1EjWOdQbsboGfGLmMWKq9KJPXUhca/uUUgkU930d8kAn+X+ic2+FxW
-	FFhNYsKaHrwy74DuJRLxbfo2RazHSxprnsHQQJpKqiPUYRo/MDcYCEEdwVvSzzLQyOJ0iJDTd2OY+
-	cT1Tq/KiIhk5VM1sWNWQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NhYzqxeLYhJJ/6ErxgYsDp7OCqAbT6h4r7mS/NeBN9E=; b=dS4GTIiQV8YsxOxU9ETnrHKlPk
+	nTGseifHSFRBNuDpkV0hJL8G+fY8XXgy5Mg3yltfV9R8QciSFuTb9/+HjTErerxZGWZUiXQGxEmxU
+	VCVjCeIrNiyrGYtsAGk3kiBtwFuGObdIdF/Y1Eg4Y3aGtl5ch/iyQA5NzJtKsx9Qpdt9Rl472R6Sd
+	rvAzm4Domd3n0MPs31L7UrgXW4e15FatIv4XRoUAIjmx/y/ScZ2YYv0HMbpQ97b/IUTqKdDv19qCS
+	3izEPmdItKn+gC32Q388/d8xJAUczYfQvlQQTzzL/geM/O5QVGozP9eklx5+dgomyoQFuz/QnhxOe
+	Mp1MSNhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAssH-0000000AyYF-33Kv;
-	Thu, 09 Apr 2026 17:09:01 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wAssL-0000000AybH-1RoD;
+	Thu, 09 Apr 2026 17:09:05 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAssC-0000000AyWu-2YWl;
-	Thu, 09 Apr 2026 17:08:59 +0000
+	id 1wAssI-0000000AyXi-3Ceo;
+	Thu, 09 Apr 2026 17:09:04 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id EF74FC5C18A;
-	Thu,  9 Apr 2026 17:09:26 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 7A5C81A3253;
+	Thu,  9 Apr 2026 17:08:59 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 00587603E4;
-	Thu,  9 Apr 2026 17:08:51 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B8770104500F2;
-	Thu,  9 Apr 2026 19:08:41 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 4E569603E4;
+	Thu,  9 Apr 2026 17:08:59 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 63A85104500F2;
+	Thu,  9 Apr 2026 19:08:54 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1775754530; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=vkWOcKx6uUnLGWEeSpSMD8GMbN5TDhNOCyHUzp+VpLg=;
-	b=hxpi7DsxOvnrGkGEMd+Aa5L7+cTR44o6q+DIIYM+E88DF08NNiyGSA36Z9B4uTkPe9PTf3
-	Y1Mk2/KNjvIiSUnjp+GTl2o32jI/r0soNWm+SBkJliCgN3BwZxRrxdFL58Hk5UBNyxxU66
-	o+th6eHU1A4yNEroonMDElx+4JgdLv68aWDmEACMzOD1Xf7fT9k/ovMBns/p6sTn+D53D5
-	l7gP3O7x9X7kwvGIhScbDAZh4NjOCoYvale6z4mrsLdOhSQuGo7Ka7dpGxuFmJhyLYlxXv
-	2XEYp9Ki+p27ZZgvpeUgFNv70GwDkdOH64xkmoWbfBfPWMfBPLAuprjOnPcl3g==
+	t=1775754537; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=NhYzqxeLYhJJ/6ErxgYsDp7OCqAbT6h4r7mS/NeBN9E=;
+	b=Esilw5jBNt2HrURjOGXsg52LiDQiFuR0QII4Q91Rpe6T0eEUWE3VvQMHZ+yKKX+MzIInVx
+	3roiCnEIl7sK/Fr89SK+iIVzA3aSLyUJpoSanEFRF/PUhnZide9jpzZBl2ql4TVzB0w5Jy
+	LketgkWtt6ykso5AUT4CbjuyQcVFnYbFo6hZAYsEQJK6mcsV5/fOfmMibllUS1SJL0eIOr
+	8dQxWlx4hITtWuQWnURGImJNSoHUjGMi0ZvaiW2tux7699tL+xK3EcK4Xd/2EUQWkThmuU
+	OwDnYjTfVFwSjKHvtXFGcZGePvXwyZy/qN6G69EvEzyBFbOtXBTcNd80Pmw9CQ==
 From: Kory Maincent <kory.maincent@bootlin.com>
-Subject: [PATCH RFC 00/12] Add support for DisplayPort link training
- information report
-Date: Thu, 09 Apr 2026 19:08:16 +0200
-Message-Id: <20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com>
+Date: Thu, 09 Apr 2026 19:08:18 +0200
+Subject: [PATCH RFC 02/12] drm/i915/display/intel_lvds: Drop redundant
+ manual cleanup on init failure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAADd12kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDIyMz3bTUxJL4nMy87PjkxAJdI4PkpCSzNGPDFBMDJaCegqLUtMwKsHn
- RSkFuzkqxtbUAHOP6R2QAAAA=
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260409-feat_link_cap-v1-2-7069e8199ce2@bootlin.com>
+References: <20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com>
+In-Reply-To: <20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com>
 To: Jani Nikula <jani.nikula@linux.intel.com>, 
  Rodrigo Vivi <rodrigo.vivi@intel.com>, 
  Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
@@ -81,8 +81,8 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14-dev-d4707
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_100857_248627_A3DD901E 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20260409_100902_953181_EC8FC969 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,108 +97,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DisplayPort link training negotiates the physical-layer parameters needed
-for a reliable connection: lane count, link rate, voltage swing,
-pre-emphasis, and optionally Display Stream Compression (DSC). Currently,
-each driver exposes this state in its own way, often through
-driver-specific debugfs entries, with no standard interface for userspace
-diagnostic and monitoring tools.
+intel_lvds_init() had a goto-based error path that manually called
+drm_connector_cleanup(), drm_encoder_cleanup(), kfree() and
+intel_connector_free() when no LVDS panel mode could be found.
 
-This series introduces a generic, DRM-managed framework for exposing DP
-link training state as standard connector properties, modeled after the
-existing HDMI helper drmm_connector_hdmi_init().
+Once drm_connector_init_with_ddc() and drm_encoder_init() have been
+called, the DRM core takes ownership of these objects and will invoke
+their .destroy callbacks (intel_connector_destroy and
+intel_encoder_destroy) during device teardown. The manual cleanup in
+the failed: label is therefore redundant.
 
-The new drmm_connector_dp_init() helper initializes a DP connector and
-registers the following connector properties to expose the negotiated link
-state to userspace:
+Remove it and replace the goto with a simple early return.
 
-- num_lanes:      negotiated lane count (1, 2 or 4)
-- link_rate:      negotiated link rate
-- dsc_en:         whether Display Stream Compression is active
-- voltage_swingN: per-lane voltage swing level (lanes 0-3)
-- pre_emphasisN:  per-lane pre-emphasis level (lanes 0-3)
-
-Two runtime helpers update and clear these properties when link training
-completes or the link goes down:
-- drm_connector_dp_set_link_train_properties()
-- drm_connector_dp_reset_link_train_properties()
-
-Two drivers are updated as reference implementations: i915 (direct
-connector path) and MediaTek (via the bridge connector framework using a
-new DRM_BRIDGE_OP_DP flag). The i915 patches are preceded by a series of
-conversions to DRM managed resources, which are required before adopting
-drmm_connector_dp_init().
-
-The MST case in i915 driver is not supported yet.
-
-Patches 1-3:  Fix two error-path cleanup bugs in i915 sdvo and lvds
-[Will probably be sent standalone]
-Patches 4-8: Convert i915 display resources to DRM managed lifetime
-Patch 9: Introduce the core drmm_connector_dp_init() framework
-Patch 10: Wire the i915 DP connector to use the new helpers
-Patch 11: Introduce DRM_BRIDGE_OP_DP and wire bridge connectors
-Patch 12: Wire the MediaTek DP bridge to the new helpers [untested]
-
+Fixes: 79e539453b34e ("DRM: i915: add mode setting support")
 Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
 ---
-Kory Maincent (12):
-      drm/i915/display/intel_sdvo: Fix double connector destroy in error paths
-      drm/i915/display/intel_lvds: Drop redundant manual cleanup on init failure
-      drm/i915/display/intel_dp: Drop redundant intel_dp_aux_fini() on init failure
-      drm/i915/display: Switch to drmm_mode_config_init() and drop manual cleanup
-      drm/i915/display: Switch to managed for crtc
-      drm/i915/display: Switch to managed for plane
-      drm/i915/display: Switch to managed for encoder
-      drm/i915/display: Switch to managed for connector
-      drm: Introduce drmm_connector_dp_init() with link training state properties
-      drm/i915/display/dp: Adopt dp_connector helpers to expose link training state
-      drm/bridge: Wire drmm_connector_dp_init() via new DRM_BRIDGE_OP_DP flag
-      drm/mediatek: Use dp_connector helpers to report link training state
 
- drivers/gpu/drm/Makefile                           |   1 +
- drivers/gpu/drm/display/drm_bridge_connector.c     |  26 +-
- drivers/gpu/drm/drm_dp_connector.c                 | 344 +++++++++++++++++++++
- drivers/gpu/drm/i915/display/g4x_dp.c              |  39 +--
- drivers/gpu/drm/i915/display/g4x_hdmi.c            |  27 +-
- drivers/gpu/drm/i915/display/i9xx_plane.c          |  97 +++---
- drivers/gpu/drm/i915/display/icl_dsi.c             |  50 ++-
- drivers/gpu/drm/i915/display/intel_connector.c     |  26 +-
- drivers/gpu/drm/i915/display/intel_connector.h     |   5 +-
- drivers/gpu/drm/i915/display/intel_crt.c           |  28 +-
- drivers/gpu/drm/i915/display/intel_crtc.c          | 102 +++---
- drivers/gpu/drm/i915/display/intel_cursor.c        |  41 ++-
- drivers/gpu/drm/i915/display/intel_ddi.c           |  64 ++--
- drivers/gpu/drm/i915/display/intel_display.c       |   8 -
- drivers/gpu/drm/i915/display/intel_display.h       |   1 -
- .../gpu/drm/i915/display/intel_display_driver.c    |  37 ++-
- drivers/gpu/drm/i915/display/intel_dp.c            |  43 ++-
- .../gpu/drm/i915/display/intel_dp_link_training.c  |  25 ++
- drivers/gpu/drm/i915/display/intel_dp_mst.c        |  33 +-
- drivers/gpu/drm/i915/display/intel_dvo.c           |  43 +--
- drivers/gpu/drm/i915/display/intel_encoder.c       |   6 +-
- drivers/gpu/drm/i915/display/intel_encoder.h       |   3 +-
- drivers/gpu/drm/i915/display/intel_hdmi.c          |  15 +-
- drivers/gpu/drm/i915/display/intel_lvds.c          |  45 ++-
- drivers/gpu/drm/i915/display/intel_plane.c         |  45 +--
- drivers/gpu/drm/i915/display/intel_plane.h         |   5 +-
- drivers/gpu/drm/i915/display/intel_sdvo.c          | 134 +++-----
- drivers/gpu/drm/i915/display/intel_sprite.c        | 119 ++++---
- drivers/gpu/drm/i915/display/intel_tv.c            |  26 +-
- drivers/gpu/drm/i915/display/skl_universal_plane.c | 102 +++---
- drivers/gpu/drm/i915/display/vlv_dsi.c             |  42 +--
- drivers/gpu/drm/mediatek/mtk_dp.c                  |  34 +-
- include/drm/drm_bridge.h                           |  13 +
- include/drm/drm_connector.h                        |  38 +++
- include/drm/drm_dp_connector.h                     | 109 +++++++
- 35 files changed, 1125 insertions(+), 651 deletions(-)
+Not tested as I don't have such hardware.
 ---
-base-commit: db5a75cfd29766536be62aece9f19c6e7a858fa6
-change-id: 20260226-feat_link_cap-20cbb6f31d40
+ drivers/gpu/drm/i915/display/intel_lvds.c | 14 ++++----------
+ 1 file changed, 4 insertions(+), 10 deletions(-)
 
-Best regards,
+diff --git a/drivers/gpu/drm/i915/display/intel_lvds.c b/drivers/gpu/drm/i915/display/intel_lvds.c
+index cc6d4bfcff102..e78a41e2b268c 100644
+--- a/drivers/gpu/drm/i915/display/intel_lvds.c
++++ b/drivers/gpu/drm/i915/display/intel_lvds.c
+@@ -991,8 +991,10 @@ void intel_lvds_init(struct intel_display *display)
+ 	mutex_unlock(&display->drm->mode_config.mutex);
+ 
+ 	/* If we still don't have a mode after all that, give up. */
+-	if (!intel_panel_preferred_fixed_mode(connector))
+-		goto failed;
++	if (!intel_panel_preferred_fixed_mode(connector)) {
++		drm_dbg_kms(display->drm, "No LVDS modes found, disabling.\n");
++		return;
++	}
+ 
+ 	intel_panel_init(connector, drm_edid);
+ 
+@@ -1005,12 +1007,4 @@ void intel_lvds_init(struct intel_display *display)
+ 	lvds_encoder->a3_power = lvds & LVDS_A3_POWER_MASK;
+ 
+ 	return;
+-
+-failed:
+-	drm_dbg_kms(display->drm, "No LVDS modes found, disabling.\n");
+-	drm_connector_cleanup(&connector->base);
+-	drm_encoder_cleanup(&encoder->base);
+-	kfree(lvds_encoder);
+-	intel_connector_free(connector);
+-	return;
+ }
+
 -- 
-Köry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+2.43.0
 
 
