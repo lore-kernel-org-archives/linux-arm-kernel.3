@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50161F31E42
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 15:47:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D432AF31E45
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 15:47:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I6mnIoMwQGSuHjHjLVfRnXnzAB6xS7ZmlkuOJOt+Ckg=; b=DcC7buLJDHO9ymEaNFfcMWeqiq
-	bktq1ETo5gAXVR4XghcMzoTCzvJ8yA1pm7ZKAPT7ABX32LPgDB+tqGU9s35q1fknyqCit5NnDZU1y
-	NszY3OBACCOha99vuZGDykyIpkPTTiuJb77PRdMjxQCp1jupYmdw3LRTD9R2xQIxA/a0Jpfp8YirR
-	brgCYvcbKFuj6wGHJH/ZtbQroP2EERUoZdVgdJENQlCLYkJjtByhHOXq5qCm0zMTApKuhdkCBrmi+
-	WDbVCV8yz74H0/1Yyji0bsFxOTfvZqLVynGPhR5gGHXf/Bwi3WtchTQ7N3ItCszit+aunxCjT7Qv0
-	Bn/ykhEA==;
+	bh=FenlZU+Q9fcqz4rTVQF15NxhkdYoxpJFDd83oJEXDMg=; b=UFzc4Iy1DdJPCbeU4RTG9ZNKIZ
+	nMsdzeI4i8uMpwHCwSYmufGjxXqwCI/qRd+GmlKae1omVGSK33OtYRYmKRb0OyrwUD/7j28RvE+mh
+	JCrlQ4o+E3njohyzn2yd7yg8ngDgQTUTIFb1b3VdfqrikC0VEs0VTCR7aa0fttlcdXWemDcZXOiCA
+	PO6Tf3InFSuS7I8OyltqOWYREjjbtSpqMOWBrOdxMdqOuLwe3Tv2N80cfY5oLV9WlV46feIm28gLJ
+	qLx7aIUwcj/T053vkGMsoKH0ABTHYQYiK9BxH7fiWd7mcLdTBfdsz20GjIqkJ3uHYUZ8OIA+w9LLo
+	jw+JtLnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wArbN-0000000Apxj-048x;
-	Thu, 09 Apr 2026 15:47:29 +0000
+	id 1wArbc-0000000AqBl-2qS8;
+	Thu, 09 Apr 2026 15:47:44 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wArbK-0000000Aput-3ybp;
-	Thu, 09 Apr 2026 15:47:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1775749612; cv=none; 
+	id 1wArbY-0000000Aq8b-49qb;
+	Thu, 09 Apr 2026 15:47:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1775749628; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=k5wsHZqs8L+oKRgVRkY8cPiIOySNMwHwWkx4c0922ZaauxvbHMFPU9pbeeexvl/BIofV5KA+Y04brvzxKTwE3ZaZqutVb8m3QyN5ik0ziYMZS9m8ATlDGEVLgZC4yxQWLaPjghi12txbQfcjFzJEx/5aRii+kfmO6H1E7gZf/5A=
+	b=chVmjwjSndd65aozBzT5hpWg6KtdAHOO5RMyw4KnX2Qqh16jF2LD+fKuY0h7d4IizxquxdWoP0EBIEokSVWfrGPTSU6ooWkag9Osc3a5pjmDzfokmY62BliqJ6d97ET4TtOnNiklqOtsDwCVbsaW5lkHEPJKMhnH9e0TYH0YCqs=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1775749612; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=I6mnIoMwQGSuHjHjLVfRnXnzAB6xS7ZmlkuOJOt+Ckg=; 
-	b=bw7dZk18klANxrdlYQ33B1dnq81pbOWKx4zFCQYROK8pacU4JMvvd5vXGLGZeBM1sSF+l7jhHRyIIXt9zxLqvoNkcacBP1cMbImwoOrBN4jRUvdCqrU4cfqSH90meCZLBwKq1rB14m5fdEToBItnyVnzzDzrK991zcXNB3tVy5g=
+	t=1775749628; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=FenlZU+Q9fcqz4rTVQF15NxhkdYoxpJFDd83oJEXDMg=; 
+	b=QXZrWsZqOCtwwyC7w8ZsjScOwSoha4grbvFFC6qWp4PECtDqkfFOECtC987vCDTuIddHhC1CePM1k3mBaHfgJMimtVMTZinENYKEC3IDnbMVfOV3LTo7UBd/E05rrggaxZ1MgqDnZOGRkWuoEKgY3duXhxqx9w4TZzOn/87B1Nc=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1775749612;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1775749628;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=I6mnIoMwQGSuHjHjLVfRnXnzAB6xS7ZmlkuOJOt+Ckg=;
-	b=i/Ob1r1CUogmn8cyQXldTZMcHG0YKvmwzRswzISCIRtBwWqPUsfEXewpEU01egsQ
-	Ji1xsGGKx7C/y0BUI5glB8BTeVgYAeRoJNdflFEjO4ILvHAwrW6KY57I2IHCBwQR3va
-	BwdqafmrcL2OH/e+vt00GjR4qhiE5fuLEH+D/kaw=
-Received: by mx.zohomail.com with SMTPS id 1775749611020224.4611688699132;
-	Thu, 9 Apr 2026 08:46:51 -0700 (PDT)
+	bh=FenlZU+Q9fcqz4rTVQF15NxhkdYoxpJFDd83oJEXDMg=;
+	b=CtG/PFDyKXi1BngC3NP7+Bj3663Ini6SdCyzf5KGH2cTGT4/IFV53r71O6tmIFM4
+	BcUApzIOH8RCicCSMt2qs/nBDDgOcT8TCOiFxaoQT1AABVecU4JNuMnKlGo17ylO7Pc
+	kX8DexrZ18saCKXCaPp7sTuAF70FcINqGmKVWxEk=
+Received: by mx.zohomail.com with SMTPS id 1775749626269513.6299910266216;
+	Thu, 9 Apr 2026 08:47:06 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Thu, 09 Apr 2026 17:45:02 +0200
-Subject: [PATCH v12 12/25] drm/rockchip: Add YUV422 output mode constants
- for VOP2
+Date: Thu, 09 Apr 2026 17:45:04 +0200
+Subject: [PATCH v12 14/25] drm/rockchip: vop2: Recognise 10-bit YUV422 as
+ YUV format
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260409-color-format-v12-12-ce84e1817a27@collabora.com>
+Message-Id: <20260409-color-format-v12-14-ce84e1817a27@collabora.com>
 References: <20260409-color-format-v12-0-ce84e1817a27@collabora.com>
 In-Reply-To: <20260409-color-format-v12-0-ce84e1817a27@collabora.com>
 To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
@@ -82,12 +82,11 @@ Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org,
  intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
  linux-doc@vger.kernel.org, 
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Andy Yan <andyshrk@163.com>
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_084727_049470_666AAFDB 
-X-CRM114-Status: UNSURE (   9.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260409_084741_098285_ABD42B82 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,37 +101,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Rockchip display controller has a general YUV422 output mode, and
-some SoC-specific connector-specific output modes for RK3576.
+The Rockchip VOP2 video output driver has a "is_yuv_output" function,
+which returns true when a given bus format is a YUV format, and false
+otherwise.
 
-Add them, based on the values in downstream and the TRM (dsp_out_mode in
-RK3576 TRM Part 2, register POST*_CTRL_POST_DSP_CTRL).
+This switch statement is lacking the bus format used for YUV422 10-bit.
 
-Reviewed-by: Andy Yan <andyshrk@163.com>
+Add the two component orderings of the YUV422 10-bit bus formats to the
+switch statement.
+
+Fixes: 604be85547ce ("drm/rockchip: Add VOP2 driver")
+Reviewed-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/rockchip/rockchip_drm_drv.h | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_drv.h b/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
-index 2e86ad00979c..4705dc6b8bd7 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
-@@ -30,10 +30,14 @@
- #define ROCKCHIP_OUT_MODE_P565		2
- #define ROCKCHIP_OUT_MODE_BT656		5
- #define ROCKCHIP_OUT_MODE_S888		8
-+#define ROCKCHIP_OUT_MODE_YUV422	9
- #define ROCKCHIP_OUT_MODE_S888_DUMMY	12
- #define ROCKCHIP_OUT_MODE_YUV420	14
- /* for use special outface */
- #define ROCKCHIP_OUT_MODE_AAAA		15
-+/* SoC specific output modes */
-+#define ROCKCHIP_OUT_MODE_YUV422_RK3576_DP	12
-+#define ROCKCHIP_OUT_MODE_YUV422_RK3576_HDMI	13
- 
- /* output flags */
- #define ROCKCHIP_OUTPUT_DSI_DUAL	BIT(0)
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index d3b76e7e785e..59d15bacf023 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -352,6 +352,8 @@ static bool is_yuv_output(u32 bus_format)
+ 	switch (bus_format) {
+ 	case MEDIA_BUS_FMT_YUV8_1X24:
+ 	case MEDIA_BUS_FMT_YUV10_1X30:
++	case MEDIA_BUS_FMT_YUYV10_1X20:
++	case MEDIA_BUS_FMT_UYVY10_1X20:
+ 	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
+ 	case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
+ 	case MEDIA_BUS_FMT_YUYV8_2X8:
 
 -- 
 2.53.0
