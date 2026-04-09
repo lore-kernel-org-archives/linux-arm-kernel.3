@@ -4,66 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC66310FC465
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 02:08:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5EA410FC465
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 02:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UaytnJ6ZCFlO4gD8gW+Y2+bllQtwZ5ZchyRx+p3OVfA=; b=tc5udhDjAIRK7+RKLmSqkS4EWc
-	FvWkLBhqfOOCUjV2P8/0z99YxxfIzYn5V0gOL89255WzhL8Ap/Olr+414m56bQ43SeH2k5EiSN/a2
-	yqvxbw8ozYN5LtakQ39jnBiK7CWH67gPAZR2rGNiFKdhuSyoPBjF8LuFDjEBjFTrQ5H7Je5o2gjC5
-	V+5YjsZ3cR0I1aL2glDLLHzeSQZ2QLZO/jvSmuLwJTF5ZnUN38xxXdkyljHaC2RVO7E+siWWXI+/u
-	liaCbxgg7Db0zDkKGNG2llzpAz/kxhJp+oNDMH/tiaHJj6cTpoZecEE0z6pzosAOrm7VbLKl2YrtX
-	oVCMpSyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bsuciZSmvaZ6QqR6Op1G+sJMUyo49B+ntVVQ860feP0=; b=Rs+SeXf+1U3Vh3059JcDnqWehL
+	itomtbLFGm+TRDORgKo8nvTmaX2KK4szAg9effIFGKAbVcTYCcSCmHWha0dCnSSlN1uLk2x4ITr0r
+	llSD2NPUpKt4w5tm4slHWRymr84jPO/VvBKT09vK4u881BUT9ahlELIDmhnMsGtC6Z9Au8fY25/Ee
+	i9RnuLSE4QlE1Vid5t/MEgWbli6L2wrxlgUTIVe8BjRONb5iAGSUVWbaX/fYvqwfKJafsL2avaKmG
+	SmtjD3wDcoQJIayZU7lgFBPPOfcHc3hnMQH0UBg43xJaGAdwjFXF/rbponyz4w6wYdwH/csdL3eDA
+	bwC/8QOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAeou-00000009bW0-1Ll1;
-	Thu, 09 Apr 2026 02:08:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAeor-00000009bVf-0gca
+	id 1wAeyR-00000009c26-4AYg;
+	Thu, 09 Apr 2026 02:18:28 +0000
+Received: from mail-northeuropeazon11010061.outbound.protection.outlook.com ([52.101.84.61] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAeyO-00000009c1c-3LXc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 02:08:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8C34B35C7;
-	Wed,  8 Apr 2026 19:08:24 -0700 (PDT)
-Received: from [10.164.18.48] (unknown [10.164.18.48])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B712B3F7D8;
-	Wed,  8 Apr 2026 19:08:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775700510; bh=nb/Ldn1rG04kuyp/Gu2fW/d/DdD/8muloilUcAfi43U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=q4o7vSn0CL3AE34IYW0A28ObmyC0/AovqMKiX8ETjREHWSV3hA/69vGjO4TEGCuXl
-	 uxgKPmx5HpNKOENAA6d1klBtQOq5eCKj7Z/LFS6EYS4RU/mRRFjEfNhxoUYDreWYJ7
-	 NnDQYFf/oHSxnHRrbb6eQa5wWiF9uyl5KKVRtj3c=
-Message-ID: <1d3df806-fdf5-4cd8-960a-9ebb707de575@arm.com>
-Date: Thu, 9 Apr 2026 07:38:23 +0530
-MIME-Version: 1.0
+	Thu, 09 Apr 2026 02:18:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nq/mcEPxcgKG7qWxigd8Z/G2zH7Il5OErZYlyKs66XmP2UdYoi9sSfG7msIyl+qcM0tmY7GnU9RIRbUZevBiib2K18U8TQzP9Lk/u5vCXV1vM1bVf5ntaJle4L0PnVBUIlg16Q4fGKo4V5qjDoRdFM6w3OUzky6zdpv6CrV5r6g2ijx3WAKEtu2nlMrPkAuY0UAorVaadoAut0g1VNqL0UkpQqunlhbnsXuRpfdvxABhNpBx/Bn2zp94zebAIKCh4T6sRYVMvIoOyQSHcNF0ZncL9F81z28Lt3gWUlb3GyHxdwDWmUStyBonhHjBtsfp6x52z84I3i1lGcLtDJmdIg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bsuciZSmvaZ6QqR6Op1G+sJMUyo49B+ntVVQ860feP0=;
+ b=irwUutq3ScaJ8deQlIE16HGmuZbmLnwUCNuo4R0cy7rcxi7xdceONFwwTun+x57w6Wibc8ZGU/ahVBJvIm6J3t8utm4np9ClLAu2m73WHp+Lk/s11VjxvSTzxyn2LV2myLT1dqYI8uBCtF/7Kht24JgQbAHHfRvWItdbnOgcPTW0K1D6DWxH2pdKqNagB8VTwG/40ftwFq9/JNFNpDAIsVEg8CvU7l+ApS+WCxzXeEyFxrak1Cn47OTZKFaQgbq0RKDsl0pvrTd0R+5MjGersrtZwvgwdwjOlu4pV4m1sVVOo7kTLAXXxUSlQ/s0vhUIOZdDumfKRpbe4YAtyrktZg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bsuciZSmvaZ6QqR6Op1G+sJMUyo49B+ntVVQ860feP0=;
+ b=iebWO+ErVFwCFHUyV4xqqE5IjqKwagcI5x5A66RdgtfxgkaXFcfCCGbqRNT/QJM+nNCl+gFSK89YMyk+Vm04eLFsAd+ObraXt6aU23yszUCTLtf7VqRcntjMOyc2mm0lgk/o4N0Nnf+8lS3/lKuCIB4it5R5mDFgFM/ERfMxLqaHX5Jp00OZ3tqYkGfl9KjJ+yR+hNWlZQKpl/9Wur2W7PBnXN9/+u3WEMTS5AYMhbQHPWc7F7QOlmN84xvF/VQw/TeuJYKFnKvJFHJs8IoYGTf4WExuAv0Yt54/k7CQN6ehPrZptS+j7AZ/74pxouaSUv7fUh2fr7ZHmA+7gohngw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by AM8PR04MB7283.eurprd04.prod.outlook.com (2603:10a6:20b:1c7::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Thu, 9 Apr
+ 2026 02:18:20 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64%3]) with mapi id 15.20.9769.016; Thu, 9 Apr 2026
+ 02:18:20 +0000
+Message-ID: <17dc43ce-5e18-41d7-8d4a-88b5c746d610@nxp.com>
+Date: Thu, 9 Apr 2026 10:19:40 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC V1 00/16] arm64/mm: Enable 128 bit page table entries
-To: "David Hildenbrand (Arm)" <david@kernel.org>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
- Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20260224051153.3150613-1-anshuman.khandual@arm.com>
- <a77b39a4-c6dd-4a8a-8ea4-2bdc31bd3601@kernel.org>
- <8d2c9ecb-ae33-42f2-a8ed-66b3286b9286@arm.com>
- <c664368c-fe2c-42d8-b488-e9e30b342491@kernel.org>
+Subject: Re: [PATCH] arm64: dts: imx93-9x9-qsb: Add tianma,tm050rdh03 panel
+To: Frank Li <Frank.li@nxp.com>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260407-tianma-tm050rdh03-imx93-9x9-qsb-v1-1-24d514a62fdc@nxp.com>
+ <adTUkWvqVUhLiw_J@lizhi-Precision-Tower-5810>
+ <a31e926e-9e7e-4ba4-aafd-0f76f53fa176@nxp.com>
+ <adYKtjPvIgoK2oou@lizhi-Precision-Tower-5810>
+ <f5cd5da8-566d-4dff-b712-3d48927f97eb@nxp.com>
+ <adYRuAU5ueEKHK5l@lizhi-Precision-Tower-5810>
+ <5ce48659-2c6c-4c60-a8e8-9031bdbaa2a3@nxp.com>
+ <adYy9xesCKsYWNBg@lizhi-Precision-Tower-5810>
+From: Liu Ying <victor.liu@nxp.com>
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <c664368c-fe2c-42d8-b488-e9e30b342491@kernel.org>
+In-Reply-To: <adYy9xesCKsYWNBg@lizhi-Precision-Tower-5810>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0165.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1ba::7) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AM8PR04MB7283:EE_
+X-MS-Office365-Filtering-Correlation-Id: b6cedb84-8a2d-4312-b9ae-08de95de44f1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|19092799006|1800799024|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 4U5dWm62JbZnh5QoFjycGjPk3Gxa7WvqPubdAKSB7IeyP7LbISWVPbwpilV2ruLAkfv1rS5RfdxRAxVF1n0zCFQ0I73+5lkx4QS4dxkA6TS8o9pmADzoqRoGh42DUVyf3nwaPxyg26v/aCuzoNLW3oufpx/iIFoBxpqkjOrlJivPzlZ7Ozit+hqK6me76HHJsPhLYHs8rrdUCxJ3QXUsUZdFHuY2MSbd54XQ7e2vB16kQexMQDI5zbphFo+a+gK6AlLVRpQImLajLG1pM59Nubq2ZAa58I8b4SRafEt2BNH0VD45K/mEGDHFgP5wgFlQwNmuCf9PseC81xP5KPEa8QKL1iZBXU8CU49XdAIXAvISgBZrg/v+aBzJI4E/h8hNxyuItJFoG7FbRSKVN1raMib1aXftLUOSDhwbZIF40SHqq9a0aE/NQMFbCVb38EXSpU2tJw9jsif0wVZoIj4lSspTLnyb7OFTGMx2OIoFyt0W/Ib83wv2v7+b4L2L0bB2FCkFS0G+g1/uqf0JOOVFFDE1wy+wNZhk4J+BzNP24hULKzv2zmCiUEApf0/B3f5rF/CrgxCRg2ziJPZZcghKIfyVIgh97imyNLyqmoV0IsBHrf05X5/knucMI340s41LG9d1V3gj0G60y1BJnr9ktNNH4ri+wB7xinjyBVNCzoQU50StpNIkTaNxU3nHfEAElaHq0VQa58Ty/p1Y00Xk77j/JXoVO1FdTpWpzSXjY30=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(19092799006)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dzZkenBNQTJQK3ZMYWtDOFFpL2RQZ0d6MzBNSlFNL2tTNXZiVzcrYkRjUENq?=
+ =?utf-8?B?Sm5KM3hHSG14QWF3Zlk5WjNsN2VZZXFSVTNxRWpyZFBRVzNwVHZnSEp0TmI3?=
+ =?utf-8?B?MU1KR1RBQzg2NE1sSnBKcm92Rnd6OEx2VlNpclNGRTF5U2s3clBON0FTSnVP?=
+ =?utf-8?B?UWJLbWd6N1BUUFZwYzhNOFpEQXh0ZTc4a2FpMWw2emgwenRjOFE3RUxkYTh2?=
+ =?utf-8?B?RWp1S1RSOERYWUZReUowQ1pGdkJzcnpVMHdyTC9EOHNaY09FYnZBR3RwTkVn?=
+ =?utf-8?B?VmxSZ0pSNExiQ2I0eng2VzZ5ajFOR0pNU2djdWkxUlF4NitTcVlJaG1KRTVG?=
+ =?utf-8?B?MGl1bVN0RTd0WWhhMVk5RGo5WTFvRHlXQ1BobEprN2FpTjdhVXVzakEreldz?=
+ =?utf-8?B?MmcvRVltU0JyTGdJRFJTNmpwMUR4bnJvaXkrNWNtaDdHVEpwNDRoMnF5T1E4?=
+ =?utf-8?B?WVhTVm1QN0Q1a3Uvd3UvZ1g4U1YyYkRDbFo5VkNCaHIxMG1QZExrSytuckls?=
+ =?utf-8?B?bWFPMHNUZ3lpcCtwY0ZmZXJPZGE4VUVqcmwzWERJWjc2bkNDWFR5OHVuUU85?=
+ =?utf-8?B?OGo3Z3piWkYwNE8wd0YwSWt2S1dTNnhES29PTlB1aVZpTHcrSkxDTzkzRS90?=
+ =?utf-8?B?RVp2WlIyQjN1VjFSVTBnN092R3pGUkJaM01KVW4rdU9CeGZpOE1XbEo2TU4v?=
+ =?utf-8?B?dWJ0cjdYRWp1OFowRzE5OVZ6ZG12cUM3c0d4ZmtzdWk4cEYyUUZlZU5zc3dM?=
+ =?utf-8?B?eTlNTkZqOEdvdDcveFY0REsvbmtEZWtWOHc4b3F1T1BpSFhiOTQyVVlzUStR?=
+ =?utf-8?B?VW5aV1dXWEJGeHVOUkgxWmU2Nm55VjI2WlJ5L1hON1k0UTRuUm4xVDhHTlJs?=
+ =?utf-8?B?aWZDUUpsZEZjS1Q5YWZ6RVJpUHd2VnB5d3VSK00rSFUwd0xRaFZBZnVlYzVC?=
+ =?utf-8?B?ZW0yN3gyVWdSTDdhS0VMMENZR1lyZkhZRk1UV0wwY2h1NzVFVXg1VzJxbWJW?=
+ =?utf-8?B?VUVhSmEyUC9aOS91RUwrempQdjhuSUZrWTRocHcxeVNkTyswOG04Zmc4REU1?=
+ =?utf-8?B?WWxtVStBUDFERy84dWw3YStlcnZNNmorR2Jsd1RaUEdMZkxWeXlIalhpVzVp?=
+ =?utf-8?B?TVdRdlgvUDRwMDBjRUgzL2xaWktWV21EYkkybThPZ0NnRktjNW9lMUtWZ2g3?=
+ =?utf-8?B?UDhNYjcvMnd3Tnlqc2lqVGYvRkJrcW5PRkVzc0lsanNkaTV1b0JCWHlsSmVl?=
+ =?utf-8?B?bU1oQUpWSnFuZWlBWnFkbWE0OVhUa2k5K0dRTUYveFBaNUZKZnhDM3JaVzJY?=
+ =?utf-8?B?bmxEbEJ1OFZnaWd0TnNtamNlZFZ4eGdPZkxKcHhBQ0xLbG1KSTZHRkNza2NM?=
+ =?utf-8?B?Y1dlTytZOEhXcllNenU3VU1ldUJOK3lFQVFKV1Uvam81YW4xSS9DbmpOYUdB?=
+ =?utf-8?B?RityNnYrVmRFWWM2Sk13VTQ3bzZoQ0phQlFYL1pITzZ4Q1AzQ25DZkZ6YkpE?=
+ =?utf-8?B?VVFEbFpCTFA5U0VhdjI2Qk14UUhNbFZneXFvdk9hRHZyVnBZTXF1QXBmb2dt?=
+ =?utf-8?B?KysxRndkallOWmVlUndQUjRmbk5zSEM3ZWpZMkRsMXN1SGg2R1NjbG14RnNN?=
+ =?utf-8?B?SUNEZVNvRzJWME93b0NVR1ByRkNmZjNHeUtJL2laeW9GYzhVVzhET2RPZVc0?=
+ =?utf-8?B?bHVvek1rU2VxU0RxUkwvMi9DcmR2bTR0K2dDWkJoRU5NcHVoQ3JBNmE3UDYr?=
+ =?utf-8?B?VWdYQjFmY2MwK3IxY3J3a09ZeDZFaStqWmJDcUVRenA2SnZSbFdmNDUvaFBk?=
+ =?utf-8?B?SnlEWkxkYjN2bDVoNWR0QXVkY2VUWE55L3dsV1JMVzBubnE2N2RLMGdBcWtT?=
+ =?utf-8?B?L1UvaFJPVUhTcDB1c09UbXdzbHZTQkw2V29MaTNndDFCM2c0UWJtY2lyU2Rs?=
+ =?utf-8?B?UVhjVmJ1cWlOaGZCYUlIVmJxQzNzMFlIeW5Ca1pJd3JWM3BGRHIvVVEwMmhh?=
+ =?utf-8?B?VXdQakxXUEkxbUppaGFLV0J4clpCa1IzZ0dlNkoyT0FFQ090Ui9OdHhZUnJo?=
+ =?utf-8?B?enJyZWdiTWpjOWkrN2UreVczOHorbFJuUWRYQ1ROMUdDMUY2M2ZBNnkzWVBt?=
+ =?utf-8?B?bEpHUkFXOStxa1Y4aW5BL3lhcnh4di83dFpBVHhmOE5uQ1oyUWdQdDFzeXFE?=
+ =?utf-8?B?Y3djSlU5a1pWcU1ORmpCc3BoTWs2aFpmYzU5OXJwUlp5MHpaenR6djRGUmdG?=
+ =?utf-8?B?Tmw4MDlhbU9mNTVGR2xQK3FEZ0dsLzE3ZnBLeXRFMFhjdE1xSWFSVHh1OHQw?=
+ =?utf-8?B?VXFjMUVjNVI5all2MHRybFBVb1hRbG9nRFVCQ2NIQkdZTUNZS091UT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b6cedb84-8a2d-4312-b9ae-08de95de44f1
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2026 02:18:20.6863
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Fv7OBSibfbR7a7+Bs+2gPJ1wyTXDC9/bDuynRdPBHkSCWx9FpIzCfDHVOU/stz7VB/3s5HtAcgQddEcMbq6YBw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7283
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_190833_363521_3FAABF23 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20260408_191824_869049_3432152A 
+X-CRM114-Status: GOOD (  22.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,60 +157,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 08/04/26 5:43 PM, David Hildenbrand (Arm) wrote:
-> On 4/8/26 12:53, Anshuman Khandual wrote:
->> On 07/04/26 8:14 PM, David Hildenbrand (Arm) wrote:
->>> On 2/24/26 06:11, Anshuman Khandual wrote:
->>>> FEAT_D128 is a new arm architecture feature adding support for VMSAv9-128
->>>> translation system. FEAT_D128 is an optional feature from ARMV9.3 onwards.
->>>> So with this feature arm64 platforms could have two different translation
->>>> systems, VMSAv8-64 and VMSAv9-128 could selectively be enabled.
->>>>
->>>> FEAT_D128 adds 128 bit page table entries, thus supporting larger physical
->>>> and virtual address range while also expanding available room for more MMU
->>>> management feature bits both for HW and SW. 
->>>>
->>>> This series has been split into two parts. Generic MM changes followed by
->>>> arm64 platform changes, finally enabling D128 with a new config ARM64_D128.
->>>>
->>>> READ_ONCE() on page table entries get routed via level specific pxdp_get()
->>>> helpers which platforms could then override when required. These accessors
->>>> on arm64 platform help in ensuring page table accesses are performed in an
->>>> atomic manner while reading 128 bit page table entries.
->>>>
->>>> All ARM64_VA_BITS and ARM64_PA_BITS combinations for all page sizes are now
->>>> supported both on D64 and D128 translation regimes. Although new 56 bits VA
->>>> space is not yet supported. Similarly FEAT_D128 skip level is not supported
->>>> currently.
->>>>
->>>> Basic page table geometry has been changed with D128 as there are now fewer
->>>> entries per level. Please refer to the following table for leaf entry sizes
->>>>
->>>>                     D64              D128
->>>> ------------------------------------------------
->>>> | PAGE_SIZE |   PMD  |  PUD  |   PMD  |   PUD  |
->>>> -----------------------------|-----------------|
->>>> |     4K    |    2M  |  1G   |    1M  |  256M  |
->>>> |    16K    |   32M  | 64G   |   16M  |   16G  |
->>>> |    64K    |  512M  |  4T   |  256M  |    1T  |
->>>> ------------------------------------------------
->>>>
->>>
->>> Interesting. That means user space will have it even harder to optimize
->>> for THP sizes.
->>>
->>> What's the effect on cont-pte? Do they still span the same number of
->>> entries and there is effectively no change?
+On Wed, Apr 08, 2026 at 06:50:31AM -0400, Frank Li wrote:
+> On Wed, Apr 08, 2026 at 04:40:37PM +0800, Liu Ying wrote:
+>> On Wed, Apr 08, 2026 at 04:28:40AM -0400, Frank Li wrote:
+> ...
+>>>>>>>
+>>>>>>> Is it possible to appply this overlay file and kd50g21-40nt-a1 overlay file
+>>>>>>>
+>>>>>>> to imx93-9x9-qsb.dtb, so needn't create dtsi.
+>>>>>>
+>>>>>> I'm sorry, I don't get your question here.
+>>>>>> Anyway, the DT overlays are needed, because the 40-pin EXP/PRI interface on
+>>>>>> the i.MX93 9x9 QSB board can not only connect to a DPI panel adapter board
+>>>>>> but also to an audio hat[2], and maybe more.  The newly introduced .dtsi
+>>>>>> file just aims to avoid duplicated code.
+>>>>>
+>>>>> My means apply two overlay files to dtb
+>>>>>
+>>>>> imx93-9x9-qsb-tianma-tm050rdh03-dtbs += imx93-9x9-qsb.dtb imx93-9x9-qsb-ontat-kd50g21-40nt-a1.dtbo imx93-9x9-qsb-tianma-tm050rdh03.dtbo
 >>
->> The numbers are the same for 4K base page size but will need
->> some changes for 16K and 64K base page sizes. Something that
->> git missed in this series, will fix it.
+>> This ...
+>>
+>>>>>
+>>>>> In imx93-9x9-qsb-tianma-tm050rdh03.dtbo, only include
+>>>>> &{/} {
+>>>>> 	panel {
+>>>>> 		compatible = "tianma,tm050rdh03";
+>>>>> 		enable-gpios = <&pcal6524 8 GPIO_ACTIVE_HIGH>;
+>>>>> 	};
+>>>>> };
+>>>>
+>>>> If an user wants to use imx93-9x9-qsb.dtb and the DT overlay blob
+>>>> imx93-9x9-qsb-tianma-tm050rdh03.dtbo to enable the tianma,tm050rdh03
+>>>> DPI panel, then it won't work unless the user also apply
+>>>> imx93-9x9-qsb-ontat-kd50g21-40nt-a1.dtbo, right?
+>>>>
+>>>>>
+>>>
+>>> Yes, imx93-9x9-qsb-tianma-tm050rdh03.dtb already created, which already
+>>> applied both overlay file.
+>>
+>> .... indicates that imx93-9x9-qsb-tianma-tm050rdh03.dtb is generated by
+>> applying both imx93-9x9-qsb-ontat-kd50g21-40nt-a1.dtbo and
+>> imx93-9x9-qsb-tianma-tm050rdh03.dtbo to imx93-9x9-qsb.dtb.
+>> While, imx93-9x9-qsb-tianma-tm050rdh03.dtbo(a DT overlay blob) just contains
+>> the panel node, which means that an user __cannot_ enable the tianma,tm050rdh03
+>> DPI panel by only applying it to imx93-9x9-qsb.dtb, unless the user also
+>> applies imx93-9x9-qsb-ontat-kd50g21-40nt-a1.dtbo.  That's why the .dtsi
+>> file is needed.
 > 
-> Oh, and it would be great to also clearly spell out the effect on
-> hugetlb as well. I assume the available hugetlb sizes will change as well.
+> what's problem if we require user do that? Makefile already create finial
+> imx93-9x9-qsb-tianma-tm050rdh03.dtb.
 
-Sure will update the required information in the commit message as well as in
-file arch/arm64/mm/hugetlb.c, where HugeTLB sizes support matrix is enlisted.
+The problem is that the user would apply imx93-9x9-qsb-tianma-tm050rdh03.dtbo
+to imx93-9x9-qsb.dtb to enable the tianma,tm050rdh03 DPI panel, say in the
+U-boot stage with the 'fdt' command, which is fairly a typical usecase, just
+like the user would apply imx93-9x9-qsb-ontat-kd50g21-40nt-a1.dtbo to
+imx93-9x9-qsb.dtb to enable the ontat,kd50g21-40nt-a1 DPI panel.  We cannot
+ask the user to additionally apply imx93-9x9-qsb-ontat-kd50g21-40nt-a1.dtbo
+to enable the tianma,tm050rdh03 DPI panel, because that's very confusing.
+
+Note that imx93-9x9-qsb-tianma-tm050rdh03.dtb certainly can be used to
+enable the tianma,tm050rdh03 DPI panel, but in addition to that,
+imx93-9x9-qsb.dtb + imx93-9x9-qsb-tianma-tm050rdh03.dtbo can also be
+used to enable the panel.
+
+> 
+> Any user really apply dtso manaully without use kernel's Makefile?
+
+That's not relevant.
+The point is that imx93-9x9-qsb-tianma-tm050rdh03.dtbo would be generated
+and applied by the user to imx93-9x9-qsb.dtb to enable the tianma,tm050rdh03
+DPI panel.
+
+> 
+>>
+>>>
+>>> can the same board be use for imx91 or other evk boards?
+>>
+>> Yes, both tianma,tm050rdh03 and ontat,kd50g21-40nt-a1 DPI panels can be
+>> connected to i.MX91/93 11x11 EVK and 9x9 QSB boards.
+> 
+> Is it possible to use one overlay files for all imx91/imx93 boards?
+
+No, that's impossible, because they use GPIO backlight or PWM backlight,
+different GPIOs to enable DPI panels and different GPIO hogs.
+
+> 
+> Frank
+>>
+>>>
+>>> Frank
+>>>
+>>>>> Frank
+>>>>>>
+>>>>>> [2] https://www.nxp.com/design/design-center/development-boards-and-designs/mx93aud-hat-audio-board:MX93AUD-HAT
+>>>>>>
+>>>>>>>
+>>>>>>> Frank
+>>>>>>>>
+>>>>>>>> ---
+>>>>>>>> base-commit: 816f193dd0d95246f208590924dd962b192def78
+>>>>>>>> change-id: 20260407-tianma-tm050rdh03-imx93-9x9-qsb-6e4bbbde3d08
+>>>>>>>>
+>>>>>>>> Best regards,
+>>>>>>>> --
+>>>>>>>> Liu Ying <victor.liu@nxp.com>
+>>>>>>>>
+>>>>>>
+>>>>>> --
+>>>>>> Regards,
+>>>>>> Liu Ying
+>>>>
+>>>> --
+>>>> Regards,
+>>>> Liu Ying
+>>
+>> --
+>> Regards,
+>> Liu Ying
+
+-- 
+Regards,
+Liu Ying
 
