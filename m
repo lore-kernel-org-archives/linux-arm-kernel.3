@@ -4,69 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1389EA3C4A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 10:52:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B5D6EA3C23
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 10:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=00OgwhjvE58HPFHqLSXK/Zv2Ur++0Ezv5iC70n7exiI=; b=CBQcDncvmauDWZPZO4kjqCBm30
-	O96aCT0HwfLxHfScb68Gf7WWsbAeuN1ubQJPOYV2W1VFYuafsD6V6ExXDQOG/Iorm23AoX0MqsoLX
-	xvK77vW+Tt+vYZKkRCBRmXxEkXKe53qxsx+3kLKegXvNwJ3x4oEApW+/b1vJx6pTO0HtkUnh+9BVZ
-	9dozEyz1R8T9kyCuK3f4qqeEWdL32jgfHHXGx6EwKQzl5gc2KNO/GjcB2ik+A4Q9xJNqfIqMTVUuu
-	82fWRO3L0oK9JUcR5dbhh3KGOSQNFGV3MzwEpPwNuYYXVOYSbrVJIH7KwumkI19iGb4tDg5moWeD6
-	IdhxhZzw==;
+	bh=2t7Rh31O/cnJYSHLoy6/znK3rUYDAJ6C6u7KKmwoByY=; b=GZDtvoKDT2ISu0Ek1n9Uu03+AM
+	LtwJe9PG7HIr1etjBnszPl1ON/hZXaGiTdGX5Jqj23P9EUcEmGHRawTFCmjfI4U4Ul9AxfLT7yx3P
+	iNgj50sn5pAQzuG23isrfYrq9eFmHQqEStPyY0e9qeWsYiI9Spo+fAsfuKY1X/aAB9ERPIPwDl+77
+	Xlbmh16l2ghSMSR6eHsqBRiGkLMv8BwRfaF71Mh7pZJeyFlrO4ItFGlB5iE8RzawsugfSGomCQ88Z
+	lHC2E45XvvqlBbtL0IGIDJ6D8yS/X78ecwl3Tvpwj/+xMBlqmWDvLq1EPy8SJz/28IwLgM5OSQD4K
+	2zhbqYCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAmzp-0000000AC2U-42BB;
-	Thu, 09 Apr 2026 10:52:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAmzm-0000000AC1R-3ifX
+	id 1wAn5Q-0000000ACrs-3GNN;
+	Thu, 09 Apr 2026 10:58:12 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAn5N-0000000ACpC-2GTe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 10:52:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D2653517;
-	Thu,  9 Apr 2026 03:52:15 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2688C3F632;
-	Thu,  9 Apr 2026 03:52:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775731941; bh=JhA+BE6gIOvzfklZpV3HvOOedmNWkkbMDfee5BYiMB4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rUwGOFO8/JfFFTQTz5Alv8657N9cUcl2Z+r4LAiH9OjHfXGloo/Cd5zcVQrlmfYKd
-	 0o1EgNjy+essvCBgLwG+5wMMsqGnGT1ewLrwEkv1rsj002F6VxYxmvaa2HdUIsflG1
-	 UOPSsq79ZgBxSB9qJA7wU52KTqF5XNocsobNlADk=
-Date: Thu, 9 Apr 2026 11:52:16 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH V3 7/7] arm64/hw_breakpoint: Enable FEAT_Debugv8p9
-Message-ID: <adeE4MD0RgapI8aL@J2N7QTR9R3>
-References: <20241216040831.2448257-1-anshuman.khandual@arm.com>
- <20241216040831.2448257-8-anshuman.khandual@arm.com>
- <Z2AH1SN5CipWkkE4@J2N7QTR9R3>
- <20260331225800.GA2082670-robh@kernel.org>
- <ac5G8e4zWTdicDBs@J2N7QTR9R3>
- <CAL_JsqLEBJ7Ok9TngWTqjaWY_LJCPtronv8=gnm=J0FymDKLCg@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Thu, 09 Apr 2026 10:58:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SavmfxJyzmHPxZP/sdTphlIieWj2vEvqCVl/GXGP0Xh0mjgzFtuhMz8yzlcoNehT2d0yGfxjV9lPZkEUyrserB84CfgwPRC45QlpKtZBxu69k6HUunGObxq8UFRLJa/PFgL09+OnAWFkV1UcPzMhx4+eOkf9BdfbThyJbyyEsEUkM3GfDkoBG0XDM3ELmtATJDvFG+nc5DCwG1XAukXm57h21bzS0NPFBFR99302ddTVG0pqWKY6J7lE9dqQuIvW2U1eTdXO5Et7Se9kQl3r6qtun28u/a6UjDA87diIzmS+HnydMp6I/NnzEFUqmG1FMZHAEhaqEmachVB3yi08ww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2t7Rh31O/cnJYSHLoy6/znK3rUYDAJ6C6u7KKmwoByY=;
+ b=ERbLVNwJ7pB18Bdaici0EHxay7CnSpohd5jfLhrbkuKnHm2W/raXoRWCczCR2fG7RnI17hHwmRSb+wA7E9DFZc66RrMAhATE9iXUuZ6z6C6sguo+gs8UaayR7dAx+umwzadHjQl8n9zGdJQo2b7HnvjV21zOK0QR4bWX3+1mmUFeFKuatK85+vJXQLGwPV9nRs04u/Nem1KU3P82kipNXFTOvrvTzNdgwwTBLLT0S02NK3hFPupnNQrrxfDs+Gy7weZJIiMBjmn0oTw+7U6AZef+Vh3a+bGApVk2rkQac0yPpDrUVj+StW/SviPyyOWndaHZ1icBPCP2u4GX19+FAg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2t7Rh31O/cnJYSHLoy6/znK3rUYDAJ6C6u7KKmwoByY=;
+ b=Z/sIflwrE3q3R4Asab1fm0ZX1LmS6+3WTxgZwwm5WR92V80oAeEAodWOR1zz8R/h5JW3GDM+ktbqf4iX6NG0SvT/QN8XrE9ldH0mPbwRYSuOwoPTNm6CaHuaDjbe7WvKzdv0FpnFstQ+tbO89LRI+9ggW9acnEvHUgcBMJxdOSkFw2qhidoR5XJqNT4IUqfbnNs59FsUARosjTS5mbd0Mqkb5AURf+3oBwezFGl2IkepdCvakJOg3mxxJpXitRZuxZsOE09ebRYQsVIEcljBWCDqnWwQBX0QVEEz3zTh0xLG3wc4dr8+boc6TxEscTL8uySK/ZucL+cUjhzTpEVzGg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by PA4PR04MB7918.eurprd04.prod.outlook.com (2603:10a6:102:c7::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.20; Thu, 9 Apr
+ 2026 10:58:03 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9769.018; Thu, 9 Apr 2026
+ 10:58:03 +0000
+Date: Thu, 9 Apr 2026 06:57:55 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/1] ARM: dts: imx6ul: add #io-channel-cells to ADC
+Message-ID: <adeGM96R99hgp4Xd@lizhi-Precision-Tower-5810>
+References: <20260409101759.4159324-1-alexander.stein@ew.tq-group.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAL_JsqLEBJ7Ok9TngWTqjaWY_LJCPtronv8=gnm=J0FymDKLCg@mail.gmail.com>
+In-Reply-To: <20260409101759.4159324-1-alexander.stein@ew.tq-group.com>
+X-ClientProxiedBy: SA1P222CA0089.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:35e::19) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA4PR04MB7918:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3f604917-9601-4974-42de-08de9626df21
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|366016|7416014|19092799006|1800799024|38350700014|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: LoIx+RcOFvsG/rrZcGZCmmr5FpBs5FrHbYYdS5poUi5wfTj55HSdDNOkKT5UHb4mdCcc+K8ubL81ggjKdJVWG8uhdURKANVfMIAqOZH0/kcPMM72xk+/smLJhOk6p8sVZLtnutsiSdnyyn4wGI/ReNWDQ2PqlrHJj38iUG/q1xUHbtpoZdh7Wy9VAhF4ZrnkKC/D0fu7Tx3O7GF7ExbEqb87cih2MuI2ENKYzH9dfmMR/LW6YM1hSXnuuP4jPW4qBcRIKUtM1yCVsjRhnmj33tYzdL9ugnjcqFRPOapoQxnj0lVG8ZZLif+K/RSp/ZgslAhMejJRb6KEV9kQ6zpYnPFuxpmGxrlCc0Y1thy1PPEtxMF9PNyQ+aZPZAh24H3wgkBRt81oM8Q0HBG48NE2pyDU3ZReZlC8XuUdQ6JlhSRMXbuXJCiHw4VYptcB6mFX7XHbqYtQIQvFQTHmDGfrQiMJJT17aml2y5jDLz7DGZl/Vw0Juvw96Rvh7mr8itpMJ26S4rC0xwg8+U3AedP07fEB0COK2AyfndLB/tSj+T7OJksPNS6pvmGzw9sjuh7J3H+4fx6ywfa/M0etKPiPASj2LmDSqm8D80z8eJm27pyVt3Xomg5T0eTjZy7hsOI8CfEC7cMRvDOjxLEJITINArWg8r77L4LRg24L3MUkcBs91yi0x1a2xVmmnsjsPK7QU7HkzrLhxa5h1UvJTMrvzvcLFZs9WsHAu3HLiWXsx/KH+IHe9TFPeRqxTfOv6zu1F0OHfK/jQKL+2MSSatFIucF6EAkfGlbqjsK85TIu5MM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(366016)(7416014)(19092799006)(1800799024)(38350700014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YkFNgZlauUCTxkQuIGPcsy1NgaQ8C7ifkR+EC4hRD6FuCr5oj2iPnfdN3Lfs?=
+ =?us-ascii?Q?+093G0Vfyimn/FAmvVLNfFbvAXVOi2Uf6uRhOfa5Mxuq/3wQpDRDrZ6i4uDz?=
+ =?us-ascii?Q?3BWXXbY3sxoCDFkFHSxTJeqMQhXyhzpZuLUZdiK2lqIow4rP/OCKbNTfCYBT?=
+ =?us-ascii?Q?i+3mGVo/KgzSc3ZzJGA/EHlaGUAS9Gj9hEVmAwafrEqgR1aEFPfCEqlNPaK8?=
+ =?us-ascii?Q?7Fzx6HIqkvZYHFk87xgi322aYt5SK+MvlvkowbUUViEvmbXcbTL+XBz+8vJV?=
+ =?us-ascii?Q?4q2TSx0JZJcoPmaE01tJuvK9ujLZI3Fvzagw50sTiwY7rNeLvYjC15uIBh+o?=
+ =?us-ascii?Q?1f2CQlu9fXh2BKVsbeV/2HZthDG1WWsP7adxobZmw9bvL8DNByGC11bIKNNr?=
+ =?us-ascii?Q?EmkurpvvJrZkH3Aa+DH6CSm45FIBxpCMl0XhL0CxStQQwAMNdFYrsFKlINAU?=
+ =?us-ascii?Q?/ReskezwMey+iL3heW1+x0V4lrdGfnw/a3Plna1RcxXLfznKOcgoDRpyTcm3?=
+ =?us-ascii?Q?j1oedFrwW276Rcn+fvpeVD2f6LXJ/IfE7UqUm2+ho9rLOGqHTDlkQxboiV9I?=
+ =?us-ascii?Q?BKOLDtPza3wN8iNi2M9xlFOrUSPOWfl5G9YKn4mCUGAvuVOKaxHNEHyNgFUX?=
+ =?us-ascii?Q?KYuCRKuOtPSwCuKeAA6Pwi3Q7IhR9QoMRWfokBDrN6EKR6Y1ZylSlyzWQkzm?=
+ =?us-ascii?Q?RkHhlegyoz1R2L7PlsrohZbzMEy0TpMxaLScH+1Yit+FZ8SlnBl5X8Urkie9?=
+ =?us-ascii?Q?87Vb39QlOEy1GH2pa4DpAQ+wkDfT+4YNKasNk7ZtOzPxpGRtxjX1R6i6XByf?=
+ =?us-ascii?Q?ppx4bA5atMaJQlOM96hC004N2i0/86mXbRe9u7qaYTSOpUIqZBfy7y79Ecph?=
+ =?us-ascii?Q?8ocKsQ34c5RFgBIdcBzChi7WmjmskcOuTA/QACh3hi2eYzakvhqzv9KDq8vE?=
+ =?us-ascii?Q?GpwT8cbsLdc1MGAjNOZXa8/Me67FP0AYxIfkPsufRRHXD/0GsWIPN5/MvqYK?=
+ =?us-ascii?Q?7PNjGPiGrvW+VPxSJeBm2KIBs9hgtj2AjDAoV0dVHtw2/3B3afzXo2H7A2KT?=
+ =?us-ascii?Q?sBExxfD5Rz2ylcOWZ92Z4iQo99UuBuusDNK+AClTP8KcNVIiL1crDAHJmzE/?=
+ =?us-ascii?Q?sV/ywjd6jRPJXc54hdsv63UZ3F8SewQpkBVfshCIhRnAErOLaLFOq92kCAtc?=
+ =?us-ascii?Q?wH9W/N6vh34XXfu5mnCvpH0B+C7xAA3qknK3inr0embTLJuKD/vsy7SCnP/h?=
+ =?us-ascii?Q?EUnttk7QRApihuuDbmybUUCI2kbPwBV+DTWjgF9CwREDbGFMng8b5+8jp0Yt?=
+ =?us-ascii?Q?rEPOiLPndW4gez14ZphoBTNf8yYSabWjkVAb7EcEnlSZn+Ai5ja6vmSTvRp0?=
+ =?us-ascii?Q?QU4/61Qbiw6EH1+YkVaKLo6Wi9lEPT7OYNGubKwW/09DL+OlJOrzCyca22nn?=
+ =?us-ascii?Q?dPzJm8cWM6XeUcB0Y2+Hxbxin1B8zJCioX5yqWb+QF9Q8iZzzUdPnU3ruUru?=
+ =?us-ascii?Q?pg3MAc6ljRDJAk/0UT+3+W/LFFI/G4hXMH4e/Hp0kqQEOLX1OdE35mofSTmG?=
+ =?us-ascii?Q?cdZYgu3Rx785iNe0xP8LhSFFyPeosVxrciMyLi29jC+BcnIIS8QEG5TM2xBR?=
+ =?us-ascii?Q?e+mInSMqVnpCt/LxNSLs3g7xnBp++Yvoh0t5lyW7wwzjzAARcITJwTfSTuvS?=
+ =?us-ascii?Q?jexMCLD2CIkJyG55XuuWpwE4K7ElWAUZYnUWD0R+egnkjeRzLdtyLpQcXipl?=
+ =?us-ascii?Q?ANo5OgHxiw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3f604917-9601-4974-42de-08de9626df21
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2026 10:58:03.1619
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cTWgGzyxbX7oLENc/K+ZRQPE+p0UpNbN0eZooS0huTdqATdLkm5D2Tu395CV1JUvix94cH3XtiywpyCZHQBcCw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7918
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_035223_009127_98EB285A 
-X-CRM114-Status: GOOD (  33.78  )
+X-CRM114-CacheID: sfid-20260409_035809_601183_2CA93515 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,216 +140,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 02, 2026 at 12:46:56PM -0500, Rob Herring wrote:
-> On Thu, Apr 2, 2026 at 5:37 AM Mark Rutland <mark.rutland@arm.com> wrote:
-> >
-> > On Tue, Mar 31, 2026 at 05:58:00PM -0500, Rob Herring wrote:
-> > > On Mon, Dec 16, 2024 at 10:58:29AM +0000, Mark Rutland wrote:
-> > > > On Mon, Dec 16, 2024 at 09:38:31AM +0530, Anshuman Khandual wrote:
-> > That said, the use of 'bp_per_reg' looks suspect given their
-> > arch_install_hw_breakpoint() and arch_uninstall_hw_breakpoint() modify
-> > that non-atomically.
-> 
-> You don't believe the comment saying counter->ctx->lock is held?
+On Thu, Apr 09, 2026 at 12:17:57PM +0200, Alexander Stein wrote:
+> From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+>
+> This commit adds io-channel-cells property to the ADC node. This
 
-Sorry, my concern here was that hw_breakpoint_handler() (which cannot
-hold the lock) consumes bp_per_reg[], and could race with the non-atomic
-modification in arch_install_hw_breakpoint() or
-arch_uninstall_hw_breakpoint().
+Avoid use words "This patch/commit".
 
-I've sent a more elaborate mail to x86 folk, with that and another issue
-caused by taking a breakpoint under arch_uninstall_hw_breakpoint():
+Add io-channel-cells property to the ADC node. This is required ...
 
-  https://lore.kernel.org/lkml/adZWmPW8S9Y2pwkv@J2N7QTR9R3.cambridge.arm.com/
-
-I think we have a similar latent issue where we can take an breakpoint
-or watchpoint ad infinitum, described in more detail at the end of this
-mail.
-
-[...]
-
-> > > > | What prevents a race with an exception handler? e.g.
-> > > > |
-> > > > | * Does the structure of the code prevent that somehow?
-> > >
-> > > If you can't set a breakpoint/watchpoint in NOKPROBE_SYMBOL() annotated
-> > > code, you can't race.
-> >
-> > As above, I agree (with caveats), but I couldn't spot where this is
-> > enforced.
-> >
-> > > However, there's no such annotation for data. It looks like the kernel
-> > > policy is "don't do that" or disable all breakpoints/watchpoints.
-> >
-> > If we have to transiently disable watchpoints/breakpoints when
-> > manipulating the relevant HW registers, that sounds fine to me.
-> 
-> For wp/bp_on_reg, the ordering is 'data access, h/w accesses'. I think
-> we just need a barrier to enforce that ordering so the data access
-> (and then watchpoint) don't trigger in the middle of the h/w accesses.
-
-I assume that by 'h/w accesses' you mean MSRs to the system registers
-controlling breakpoints/watchpoints. Ordering-wise, I don't believe
-memory barriers are necessary here (explain in more detail below).
-However, I also think there's a latent issue here that might bite us
-with the new banking, described at the end of this mail.
-
-Both breakpoint and watchpoint exceptions are synchronous, meanning that
-they can only be taken from the specific instruction that triggered
-them.  However, updates to the watchpoint control registers *do* need a
-context synchronization event before they're guarnateed to take effect.
-
-For a sequence:
-
-    // Initially:
-    // - MDSCR, MDCR, DAIF.D permit debug exceptions at CurrentEL
-    // - No watchpoints enabled
-    
-    0x000:  LDR <val>, [<addr>]
-    0x004:  MSR DBGWVR<n>_EL1, <addr>
-    0x008:  MSR DBGWCR<n>_EL1, <configure_and_enable>
-    0x010:  LDR <val>, [<addr>]
-    0x014:  ISB
-    0x018:  LDR <val>, [<addr>]
-
-... we know:
-
-    (a) The LDR at 0x000 *cannot* trigger the watchpoint.
-    (b) The LDR at 0x010 *might* trigger the matchpoint.
-    (c) The LDR at 0x018 *must* trigger the watchpoint.
-
-For C code, we can enforce this order with barrier(), e.g.
-
-	val = *addr;
-	barrier();
-	write_sysreg(addr, DBGWVR<n>_EL1);
-	write_sysreg(configure_and_enable, DBGWCR<n>_EL1);
-	isb();
-
-... where the compiler cannot re-order the memory access (or
-write_sysreg(), or isb()) across the barrier(), and as isb() has a
-memory clobber, the same is true for isb().
-
-Likewise, for the inverse sequence:
-
-    // Initially:
-    // - MDSCR, MDCR, DAIF.D permit debug exceptions at CurrentEL
-    // - Watchpoint configured and enabled for <addr>
-
-    0x100:  LDR <val>, [<addr>]
-    0x104:  MSR DBGWCR<n>_EL1, <disable>
-    0x108:  LDR <val>, [<addr>]
-    0x110:  ISB
-    0x114:  LDR <val>, [<addr>]
-
-... we know:
-
-    (a) The LDR at 0x100 *must* trigger the watchpoint.
-    (b) The LDR at 0x108 *might* trigger the watchpoint.
-    (c) The LDR at 0x114 *cannot* trigger the watchpoint.
-
-> Any guidance on the flavor of dsb here? (And is there any guarantee
-> that the access is visible to the watchpoint h/w after a dsb
-> completes?)
-
-Hopefully the above was sufficient?
-
-As mentioned above, I think we have a latent issue where we can take a
-breakpoint or watchpoint under arch_uninstall_hw_breakpoint(), where we
-have:
-
-    arch_uninstall_hw_breakpoint(bp) {
-        ...
-	hw_breakpoint_control(bp, HW_BREAKPOINT_UNINSTALL) {
-	    ...
-	    hw_breakpoint_slot_setup(slots, max_slots, bp, HW_BREAKPOINT_UNINSTALL) {
-	         ...
-		 *slot = NULL;
-		 ...
-	    }
-	    ...
-	    write_wb_reg(ctrl_reg, i, 0) {
-	        ...
-	    	write_sysreg(0, ...);
-		isb();
-		...
-	    }
-	}
-    }
-
-The HW breakpoint/watchpoint associated with 'bp' could be triggered
-between setting '*slot' to NULL and the ISB. If that happens, then
-do_breakpoint() won't find 'bp', and will return *without* disabling the
-HW breakpoint or attempting to step.
-
-If that first exception was taken *before* the MSR in write_sysreg(),
-then nothing has changed, and the breakpoint/watchpoint will then be
-taken again ad infinitum.
-
-If that first exception was taken *after* the MSR in write_sysreg(), the
-context synchronization provided by exception entry/return will prevent
-it from being taken again.
-
-Building v6.19 and testing (with pseudo-NMI enabled):
-
-| #  grep write_wb_reg /proc/kallsyms
-| ffff80008004b980 t write_wb_reg
-| # ./perf-6.19 stat -a -C 1 -e 'mem:0xffff80008004b980/4:xk' true
-| rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-| rcu:     1-...0: (1 GPs behind) idle=2334/1/0x4000000000000000 softirq=140/140 fqs=2623
-| rcu:     (detected by 0, t=5252 jiffies, g=-859, q=7 ncpus=2)
-| Sending NMI from CPU 0 to CPUs 1:
-| NMI backtrace for cpu 1
-| CPU: 1 UID: 0 PID: 139 Comm: perf-6.19 Not tainted 6.19.0 #1 PREEMPT 
-| Hardware name: linux,dummy-virt (DT)
-| pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-| pc : write_wb_reg+0x0/0x250
-| lr : hw_breakpoint_control+0x164/0x248
-| sp : ffff800082d73980
-| pmr: 000000c0
-| x29: ffff800082d73980 x28: ffff000004692dc0 x27: ffff8000802708a0
-| x26: ffff00000473c000 x25: 0000000000000000 x24: 0000000000000000
-| x23: ffff00000473c000 x22: 0000000000000000 x21: ffff800082d73b70
-| x20: ffff00007fbd7b28 x19: ffff00000473c000 x18: 0000000000000000
-| x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-| x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
-| x11: 0000000000000000 x10: 0000000000000000 x9 : 0000000000000000
-| x8 : 0000000000000001 x7 : 0000000000000001 x6 : 0000000000000010
-| x5 : 0000000000000001 x4 : 0000000000000006 x3 : ffff00000473c000
-| x2 : 0000000000000000 x1 : 0000000000000000 x0 : 0000000000000010
-| Call trace:
-|  write_wb_reg+0x0/0x250 (P)
-|  arch_uninstall_hw_breakpoint+0x14/0x20
-|  hw_breakpoint_del+0x10/0x20
-|  event_sched_out+0x8c/0x160
-|  group_sched_out+0x44/0xa0
-|  __perf_event_disable.part.0+0x114/0x120
-|  __perf_event_disable+0x1c/0x2c
-|  event_function+0x84/0xd8
-|  remote_function+0x50/0x64
-|  generic_exec_single+0x88/0xf0
-|  smp_call_function_single+0x90/0x1c8
-|  event_function_call+0x1d8/0x1e4
-|  _perf_event_disable+0x44/0x6c
-|  perf_event_for_each_child+0x38/0x84
-|  _perf_ioctl+0x19c/0xab8
-|  perf_ioctl+0x50/0x80
-|  __arm64_sys_ioctl+0xa4/0x100
-|  invoke_syscall.constprop.0+0x40/0xf0
-|  el0_svc_common.constprop.0+0x38/0xd8
-|  do_el0_svc+0x1c/0x28
-|  el0_svc+0x38/0x148
-|  el0t_64_sync_handler+0xa0/0xe4
-|  el0t_64_sync+0x1ac/0x1b0
-
-I think that ideally when diabling a breakpoint/watchpoint, we'd program
-the control register *before* manipulating the slot. The existing
-structure of the code is rather unhelpful for fixing that.
-
-While this does fall into "don't do that" territory, I do think we
-should aim for the kernel to survive rather than fall into a livelock.
-I'll take another look into this shortly -- I think we need a wider
-cleanup.
-
-Mark.
+Frank
+> property is required in order for an IIO consumer driver to work.
+>
+> Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> ---
+>  arch/arm/boot/dts/nxp/imx/imx6ul.dtsi | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul.dtsi
+> index 24541fdf49ceb..d2bfa08b5e767 100644
+> --- a/arch/arm/boot/dts/nxp/imx/imx6ul.dtsi
+> +++ b/arch/arm/boot/dts/nxp/imx/imx6ul.dtsi
+> @@ -951,6 +951,7 @@ adc1: adc@2198000 {
+>  				interrupts = <GIC_SPI 100 IRQ_TYPE_LEVEL_HIGH>;
+>  				clocks = <&clks IMX6UL_CLK_ADC1>;
+>  				clock-names = "adc";
+> +				#io-channel-cells = <1>;
+>  				fsl,adck-max-frequency = <30000000>, <40000000>,
+>  							 <20000000>;
+>  				status = "disabled";
+> --
+> 2.43.0
+>
 
