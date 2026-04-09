@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A0FBF31E24
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 15:24:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65890F31E31
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 15:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wvdt51mR/Toqjs2o9UUo5BWq1kaU2F3DsCOGN6U9GmI=; b=0QXeDpzjtEwOtmPmj3e758W3fY
-	iS4bZAs+lkjxjK/cTB+RTUwUPnOOaunROU3N7KgYrqD0zCTh+xqlPkcta0n+xdhCUx6pqWBMcNkrH
-	iwo1/HZaluDwjoAUJMAeFnxkayYaMOOiKzl7knrB99w2c7qOJ+DqTT9Mx5fLSD80nt3uZWRf5wf7F
-	TdgMZaaXW7UEfA2L2l46vucobg11tHOETU282bee7B3dSWzGZb7JmrB9ic01niRNPCwtWcQzfFQjp
-	VMqlged9UbEiSoMSC5ZajslDzfpUsjyEW41SJIsefmDqRS/+27I4RQEU967KAy9YUBdcsBsiHMgV4
-	Y+r7Htgg==;
+	bh=bhFlBoSxjJMIlReh1caBfDI3G8k5kHCJIUA4Zgiq094=; b=NQo7/Y6/V8Cpav6fPBbocp88SJ
+	sUkhk+lI4MSQf/Dygw8WUDTt7nGAswLLWM7VJ+oa0k7Pn9r07Kes3WJ9mneWdvTuP/B21G7U+5aYQ
+	8HRqOZGAv5wS9FpxUBsnFh9wGqOaRy15p9aj0VSVoBHBTrcwoUw74yUs59U5fnCV31oTucdgsIh3+
+	6l7PBbkgfDVF9b5twEpoDoPnOLWkq/4Y4rcsl1ELHQT7QB2sHYX5PLAsgiwT+wKWhZR7RoS6gOu+R
+	mNFVz8PMDjGH3wtqYRkSQdBB3YuO8DGA/HrtuCD6AiYEQgD9zd1eKVUReG5phCRt0abBOwWWtAP1j
+	HEf6czfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wArFG-0000000AnLW-2g4B;
-	Thu, 09 Apr 2026 15:24:38 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wArJf-0000000AnfA-2Bii;
+	Thu, 09 Apr 2026 15:29:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wArFD-0000000AnL4-47N6;
-	Thu, 09 Apr 2026 15:24:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1775748272;
-	bh=yRJ6u8GyYNSSyoKD5an4lWZMD1f6h28LyhWT410oxrY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=Qn0EHVcpR0kF3s1EQhDIZZhJ47WXsX2Ummf6vGbt5BhJvR0hTtKT9sgGOUQkKKYaV
-	 CH3YB3qvt4QeRYwI20Ag2IxOKECqqLBMDo8UPx5sz7kwOVwX9VkWc6ifMILxpRcbyf
-	 pqF3bUrGHk+TUKBL3ulV3ghGDer3gvyOWSCVNY7dLHQoDi5qaJRnqzvnxo/ztcuRqP
-	 GGy89HOHO/vElb7llCrz7ntJ961XWntYt1dK8P55dJuCjM5KTPmcG7T/xeD4D67cez
-	 UbgnHOn0YBchfH48sxcu9cPxpZG4DAKrY372928RuXkZq+Dzwr0Lqa2P0/VOJkl6RC
-	 Jvbxc85pPyZ4A==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 037FC17E12E2;
-	Thu,  9 Apr 2026 17:24:30 +0200 (CEST)
-Message-ID: <e6f8f62568a385cc6d98856f480bd469882b274a.camel@collabora.com>
-Subject: Re: [PATCH 7/7] media: rkvdec: Add multicore IOMMU support
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>, Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Heiko Stuebner <heiko@sntech.de>, Hans Verkuil <hverkuil+cisco@kernel.org>,
- Jonas Karlman <jonas@kwiboo.se>
-Cc: kernel@collabora.com, linux-media@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Date: Thu, 09 Apr 2026 11:24:29 -0400
-In-Reply-To: <040f65ea-2559-4186-b733-3dc59a1ecc0b@collabora.com>
-References: <20260409-rkvdec-multicore-v1-0-62b316abf0f7@collabora.com>
-	 <20260409-rkvdec-multicore-v1-7-62b316abf0f7@collabora.com>
-	 <517dc6e9de0e284b3dc22952d9479616e6c8ec62.camel@collabora.com>
-	 <040f65ea-2559-4186-b733-3dc59a1ecc0b@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-oRdpf3vSzts/F/hutoEG"
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	id 1wArJd-0000000Aneo-3kie
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 09 Apr 2026 15:29:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=bhFlBoSxjJMIlReh1caBfDI3G8k5kHCJIUA4Zgiq094=; b=n1/wrVAsdN9fGhc8RZ64w59501
+	RFjiXhsGPvJzLhzK66hPBeOi7W+SHeD7X8qh5O2wlDWC7wVaRt0ioegU4bmrGwj8VjiZNKmhq2vp9
+	1JkWLD12veXOidcn7xGiUciTe541y6cF15mBmXHPu9gYkNn/R9yViA7ODqi52uUTKvyGhvxgmPMtT
+	72bZhf7cCX7E0TIvaduKJQJFZnuq7dgHqhPCQ4Fhah6rg8Qw5uMV8CZim5gT6DKfy5Ui8KR5/dst6
+	n28Og+N+m819DFgtltBDr8sGxLlg+Z9fE4V33HMXv0fpx1384DYweuuLO/gxek+f42LpkV6KZEkfU
+	+B3av7kA==;
+Received: from [172.31.31.148] (helo=u09cd745991455d.lumleys.internal)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wArJa-0000000BzQE-3Uqh;
+	Thu, 09 Apr 2026 15:29:06 +0000
+Message-ID: <7fb7b823c68e04321eb532a5b8ae21a818d4926d.camel@infradead.org>
+Subject: [PATCH] KVM: arm64: Add KVM_CAP_ARM_NATIVE_CACHE_CONFIG vcpu
+ capability
+From: David Woodhouse <dwmw2@infradead.org>
+To: akihiko.odaki@daynix.com, "Gutierrez Cantu, Bernardo"
+ <bercantu@amazon.de>
+Cc: alexandru.elisei@arm.com, alyssa@rosenzweig.io, asahi@lists.linux.dev, 
+	broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com, 
+	kvmarm@lists.cs.columbia.edu, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	marcan@marcan.st, mathieu.poirier@linaro.org, maz@kernel.org, 
+	oliver.upton@linux.dev, suzuki.poulose@arm.com, sven@svenpeter.dev, 
+	will@kernel.org
+Date: Thu, 09 Apr 2026 16:29:06 +0100
+In-Reply-To: <b71910e202ac4a56a87c0e34df13cce058d46a76.camel@infradead.org>
+References: <b71910e202ac4a56a87c0e34df13cce058d46a76.camel@infradead.org>
+Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
+	boundary="=-fUCIPL1EFDn51viUi3G3"
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_082436_376852_82E0F2E6 
-X-CRM114-Status: GOOD (  38.52  )
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,354 +77,351 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-oRdpf3vSzts/F/hutoEG
+--=-fUCIPL1EFDn51viUi3G3
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Le jeudi 09 avril 2026 =C3=A0 10:49 -0400, Detlev Casanova a =C3=A9crit=C2=
-=A0:
-> Hi Nicolas,
->=20
-> On 4/9/26 10:19, Nicolas Dufresne wrote:
-> > Le jeudi 09 avril 2026 =C3=A0 09:50 -0400, Detlev Casanova a =C3=A9crit=
-=C2=A0:
-> > > As each core has its own IOMMU core, buffers must be mapped in each
-> > > core's IOMMU so that any run() call can use any core without having t=
-o
-> > > remap everything.
-> > >=20
-> > > To do that, we use rockchip iommu domain's iommu devices list.
-> > > With that, one IOMMU domain can be mapped on multiple devices, meanin=
-g
-> > > that each call to iommu_map() will flush the new mapping on all devic=
-es
-> > > in the list.
-> > >=20
-> > > The IOMMU domain that will have all devices in its list is the first
-> > > core's default domain.
-> > >=20
-> > > Another domain cannot be used because VB2 allocates buffers through t=
-he
-> > > DMA engine, which uses iommu_get_dma_domain() to find the domain to m=
-ap
-> > > buffers through.
-> > >=20
-> > > The IOMMU restore function can still work as before, but needs to be =
-more
-> > > explicit in what domain to attach the device to.
-> > > That is because detaching the empty domain will reattach the core's d=
-efault
-> > > domain, which is wrong (except for the first "main" core).
-> > >=20
-> > > The RCB temporary buffers are allocated in a dedicated SRAM, each
-> > > core has its own SRAM, so the mapping for each core's SRAM is added i=
-n the
-> > > global domain.
-> > >=20
-> > > Everything else is mapped through the first core's default domain, ma=
-king
-> > > the driver write the mappings on both IOMMU cores.
-> > Just raising an issue with the patch ordering here. I'm worried in a gi=
-t bisect,
-> > the driver will be broken until we apply this last patch. Can we make s=
-ure that
-> > the driver bisects ? (or tell me if I'm wrong)
-> No, you're right. That's also why I mentioned it in the cover letter.=20
-> This commit is also not too big, so I'll merge the last 3 commits and=20
-> adapt the commit message to keep the information from the 3 (the commit=
+From: David Woodhouse <dwmw@amazon.co.uk>
+
+Commit 7af0c2534f4c5 ("KVM: arm64: Normalize cache configuration")
+fabricates CLIDR_EL1 and CCSIDR_EL1 values instead of using the real
+hardware values. While this provides consistent values across
+heterogeneous CPUs, it does cause visible changes in the CPU model
+exposed to guests.
+
+The commit claims that userspace can restore the original values, but
+there is no way for userspace to obtain the real CLIDR_EL1 register
+value =E2=80=94 it is not fully reconstructible from sysfs, which lacks the
+LoC, LoUU, and LoUIS fields.
+
+Add a per-vcpu KVM_CAP_ARM_NATIVE_CACHE_CONFIG capability that reads
+the real CLIDR_EL1 and all CCSIDR_EL1 values from the current physical
+CPU and sets them on the vcpu.
+
+This allows hypervisors to present the real hardware cache configuration
+to guests, which is important for consistency of the environment across
+kernel versions and for migration compatibility with hosts running
+older kernels that exposed the real values.
+
+Fixes: 7af0c2534f4c ("KVM: arm64: Normalize cache configuration")
+Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+---
+ Documentation/virt/kvm/api.rst                | 23 ++++++++
+ arch/arm64/include/asm/kvm_host.h             |  1 +
+ arch/arm64/kvm/arm.c                          | 17 ++++++
+ arch/arm64/kvm/sys_regs.c                     | 26 ++++++++++
+ include/uapi/linux/kvm.h                      |  1 +
+ tools/testing/selftests/kvm/Makefile.kvm      |  1 +
+ .../selftests/kvm/arm64/native_cache_config.c | 52 +++++++++++++++++++
+ 7 files changed, 121 insertions(+)
+ create mode 100644 tools/testing/selftests/kvm/arm64/native_cache_config.c
+
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rs=
+t
+index e3b3bd9edeec..ee47dc07ceac 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -8930,6 +8930,29 @@ no-op.
 =20
-> messages are why I wanted to keep them separate, but there is no good=20
-> way to keep them that way)
+ ``KVM_CHECK_EXTENSION`` returns the bitmask of exits that can be disabled.
+=20
++7.48 KVM_CAP_ARM_NATIVE_CACHE_CONFIG
++-------------------------------------
++
++:Architecture: arm64
++:Target: vcpu
++:Parameters: none
++:Returns: 0 on success, -ENOMEM on allocation failure, -EINVAL if
++          args[0] or flags are non-zero.
++
++This per-vcpu capability reads the real CLIDR_EL1 and CCSIDR_EL1 values
++from the physical CPU on which the ioctl is executed, and sets them on
++the vcpu. This replaces the fabricated cache configuration that KVM
++provides by default.
++
++The caller should ensure the vcpu thread is pinned to the desired
++physical CPU before invoking this capability, so that the correct cache
++topology is captured. On heterogeneous systems, different physical CPUs
++may have different cache configurations.
++
++After this capability is enabled, the vcpu's CLIDR_EL1 and CCSIDR_EL1
++values can still be overridden individually via ``KVM_SET_ONE_REG`` and
++the ``KVM_REG_ARM_DEMUX`` interface.
++
+ 8. Other capabilities.
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+=20
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm=
+_host.h
+index a1bb025c641f..c9713a472c47 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1296,6 +1296,7 @@ void kvm_sys_regs_create_debugfs(struct kvm *kvm);
+ void kvm_reset_sys_regs(struct kvm_vcpu *vcpu);
+=20
+ int __init kvm_sys_reg_table_init(void);
++int kvm_vcpu_set_native_cache_config(struct kvm_vcpu *vcpu);
+ struct sys_reg_desc;
+ int __init populate_sysreg_config(const struct sys_reg_desc *sr,
+ 				  unsigned int idx);
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 326a99fea753..579583e8dc5c 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -393,6 +393,10 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long=
+ ext)
+ 	case KVM_CAP_ARM_DISABLE_EXITS:
+ 		r =3D KVM_ARM_DISABLE_VALID_EXITS;
+ 		break;
++	case KVM_CAP_ARM_NATIVE_CACHE_CONFIG:
++	case KVM_CAP_ENABLE_CAP:
++		r =3D 1;
++		break;
+ 	case KVM_CAP_SET_GUEST_DEBUG2:
+ 		return KVM_GUESTDBG_VALID_MASK;
+ 	case KVM_CAP_ARM_SET_DEVICE_ADDR:
+@@ -1793,6 +1797,19 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
+ 		r =3D kvm_arch_vcpu_ioctl_vcpu_init(vcpu, &init);
+ 		break;
+ 	}
++	case KVM_ENABLE_CAP: {
++		struct kvm_enable_cap cap;
++
++		r =3D -EFAULT;
++		if (copy_from_user(&cap, argp, sizeof(cap)))
++			break;
++
++		r =3D -EINVAL;
++		if (cap.cap =3D=3D KVM_CAP_ARM_NATIVE_CACHE_CONFIG &&
++		    !cap.args[0] && !cap.flags)
++			r =3D kvm_vcpu_set_native_cache_config(vcpu);
++		break;
++	}
+ 	case KVM_SET_ONE_REG:
+ 	case KVM_GET_ONE_REG: {
+ 		struct kvm_one_reg reg;
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 1b4cacb6e918..c19d84e48f8b 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -484,6 +484,32 @@ static int set_ccsidr(struct kvm_vcpu *vcpu, u32 cssel=
+r, u32 val)
+ 	return 0;
+ }
+=20
++int kvm_vcpu_set_native_cache_config(struct kvm_vcpu *vcpu)
++{
++	u32 csselr;
++
++	if (!vcpu->arch.ccsidr) {
++		vcpu->arch.ccsidr =3D kmalloc_array(CSSELR_MAX, sizeof(u32),
++						  GFP_KERNEL_ACCOUNT);
++		if (!vcpu->arch.ccsidr)
++			return -ENOMEM;
++	}
++
++	local_irq_disable();
++
++	__vcpu_assign_sys_reg(vcpu, CLIDR_EL1, read_sysreg(clidr_el1));
++
++	for (csselr =3D 0; csselr < CSSELR_MAX; csselr++) {
++		write_sysreg(csselr, csselr_el1);
++		isb();
++		vcpu->arch.ccsidr[csselr] =3D read_sysreg(ccsidr_el1);
++	}
++
++	local_irq_enable();
++
++	return 0;
++}
++
+ static bool access_rw(struct kvm_vcpu *vcpu,
+ 		      struct sys_reg_params *p,
+ 		      const struct sys_reg_desc *r)
+diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+index 694cf699ed0a..2d8bbb4dd69b 100644
+--- a/include/uapi/linux/kvm.h
++++ b/include/uapi/linux/kvm.h
+@@ -995,6 +995,7 @@ struct kvm_enable_cap {
+ #define KVM_CAP_S390_USER_OPEREXEC 246
+ #define KVM_CAP_S390_KEYOP 247
+ #define KVM_CAP_ARM_DISABLE_EXITS 248
++#define KVM_CAP_ARM_NATIVE_CACHE_CONFIG 249
+=20
+ struct kvm_irq_routing_irqchip {
+ 	__u32 irqchip;
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selft=
+ests/kvm/Makefile.kvm
+index ad9f9fa181a1..8e05cc8ec204 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -182,6 +182,7 @@ TEST_GEN_PROGS_arm64 +=3D arm64/vgic_group_iidr
+ TEST_GEN_PROGS_arm64 +=3D arm64/vgic_group_v2
+ TEST_GEN_PROGS_arm64 +=3D arm64/vpmu_counter_access
+ TEST_GEN_PROGS_arm64 +=3D arm64/no-vgic-v3
++TEST_GEN_PROGS_arm64 +=3D arm64/native_cache_config
+ TEST_GEN_PROGS_arm64 +=3D arm64/idreg-idst
+ TEST_GEN_PROGS_arm64 +=3D arm64/kvm-uuid
+ TEST_GEN_PROGS_arm64 +=3D access_tracking_perf_test
+diff --git a/tools/testing/selftests/kvm/arm64/native_cache_config.c b/tool=
+s/testing/selftests/kvm/arm64/native_cache_config.c
+new file mode 100644
+index 000000000000..4afea32f2348
+--- /dev/null
++++ b/tools/testing/selftests/kvm/arm64/native_cache_config.c
+@@ -0,0 +1,52 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * native_cache_config.c - Test KVM_CAP_ARM_NATIVE_CACHE_CONFIG
++ *
++ * Verify that enabling the capability populates the vcpu's CLIDR_EL1
++ * with the real hardware value instead of the fabricated default.
++ */
++#include "test_util.h"
++#include "kvm_util.h"
++#include "processor.h"
++
++#define CLIDR_EL1_REG_ID ARM64_SYS_REG(3, 1, 0, 0, 1)
++
++int main(int argc, char *argv[])
++{
++	struct kvm_enable_cap cap =3D {
++		.cap =3D KVM_CAP_ARM_NATIVE_CACHE_CONFIG,
++	};
++	struct kvm_vcpu *vcpu;
++	struct kvm_vm *vm;
++	uint64_t clidr_before, clidr_after;
++	int r;
++
++	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_NATIVE_CACHE_CONFIG));
++
++	vm =3D vm_create_with_one_vcpu(&vcpu, NULL);
++
++	/* Read the fabricated CLIDR_EL1 */
++	clidr_before =3D vcpu_get_reg(vcpu, CLIDR_EL1_REG_ID);
++
++	/* Enable native cache config */
++	r =3D __vcpu_ioctl(vcpu, KVM_ENABLE_CAP, &cap);
++	TEST_ASSERT(!r, "KVM_ENABLE_CAP failed: %d (errno %d)", r, errno);
++
++	/* Read CLIDR_EL1 again */
++	clidr_after =3D vcpu_get_reg(vcpu, CLIDR_EL1_REG_ID);
++
++	pr_info("CLIDR_EL1 before: 0x%016lx\n", clidr_before);
++	pr_info("CLIDR_EL1 after:  0x%016lx\n", clidr_after);
++
++	TEST_ASSERT(clidr_after !=3D 0,
++		    "CLIDR_EL1 should not be zero after native config");
++
++	/* Invalid: non-zero args should fail */
++	cap.args[0] =3D 1;
++	r =3D __vcpu_ioctl(vcpu, KVM_ENABLE_CAP, &cap);
++	TEST_ASSERT(r =3D=3D -1 && errno =3D=3D EINVAL,
++		    "Non-zero args should fail: got %d errno %d", r, errno);
++
++	kvm_vm_free(vm);
++	return 0;
++}
+--=20
+2.43.0
 
 
-Unless we can implement everything, but only turn the multicore switch on i=
-n a
-final patch ? Basically removing the code that enable other cores at the en=
-d.
-But I don't want more code just to justify this, the break nice is nice for
-review fwiw, but if squashing is the way, let it be.
 
-Nicolas
+--=-fUCIPL1EFDn51viUi3G3
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Transfer-Encoding: base64
 
->=20
-> Detlev.
-> >=20
-> > > Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
-> > > ---
-> > > =C2=A0=C2=A0.../media/platform/rockchip/rkvdec/rkvdec-rcb.c=C2=A0=C2=
-=A0=C2=A0 | 21 ++++++-------
-> > > =C2=A0=C2=A0.../media/platform/rockchip/rkvdec/rkvdec-rcb.h=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 6 ++--
-> > > =C2=A0=C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec.c=C2=A0=C2=
-=A0=C2=A0 | 35 +++++++++++++++++-----
-> > > =C2=A0=C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec.h=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 2 +-
-> > > =C2=A0=C2=A04 files changed, 44 insertions(+), 20 deletions(-)
-> > >=20
-> > > diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c b/dr=
-ivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
-> > > index 190fb7438e8c..977e37cf209b 100644
-> > > --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
-> > > +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
-> > > @@ -57,7 +57,7 @@ bool rkvdec_rcb_buf_validate_size(struct rkvdec_ctx=
- *ctx)
-> > > =C2=A0=C2=A0	return ret;
-> > > =C2=A0=C2=A0}
-> > > =C2=A0=20
-> > > -void rkvdec_free_rcb(struct rkvdec_core *core)
-> > > +void rkvdec_free_rcb(struct rkvdec_dev *rkvdec, struct rkvdec_core *=
-core)
-> > > =C2=A0=C2=A0{
-> > > =C2=A0=C2=A0	struct rkvdec_rcb_config *cfg =3D core->rcb_config;
-> > > =C2=A0=C2=A0	unsigned long virt_addr;
-> > > @@ -76,12 +76,12 @@ void rkvdec_free_rcb(struct rkvdec_core *core)
-> > > =C2=A0=C2=A0		case RKVDEC_ALLOC_SRAM:
-> > > =C2=A0=C2=A0			virt_addr =3D (unsigned long)cfg->rcb_bufs[i].cpu;
-> > > =C2=A0=20
-> > > -			if (core->iommu_domain)
-> > > -				iommu_unmap(core->iommu_domain, virt_addr, rcb_size);
-> > > +			if (rkvdec->iommu_global_domain)
-> > > +				iommu_unmap(rkvdec->iommu_global_domain, virt_addr, rcb_size);
-> > > =C2=A0=C2=A0			gen_pool_free(core->sram_pool, virt_addr, rcb_size);
-> > > =C2=A0=C2=A0			break;
-> > > =C2=A0=C2=A0		case RKVDEC_ALLOC_DMA:
-> > > -			dma_free_coherent(core->dev,
-> > > +			dma_free_coherent(rkvdec->main_core->dev,
-> > > =C2=A0=C2=A0					=C2=A0 rcb_size,
-> > > =C2=A0=C2=A0					=C2=A0 cfg->rcb_bufs[i].cpu,
-> > > =C2=A0=C2=A0					=C2=A0 cfg->rcb_bufs[i].dma);
-> > > @@ -97,7 +97,8 @@ void rkvdec_free_rcb(struct rkvdec_core *core)
-> > > =C2=A0=C2=A0	core->rcb_config =3D NULL;
-> > > =C2=A0=C2=A0}
-> > > =C2=A0=20
-> > > -int rkvdec_allocate_rcb(struct rkvdec_core *core, u32 width, u32 hei=
-ght,
-> > > +int rkvdec_allocate_rcb(struct rkvdec_dev *rkvdec, struct rkvdec_cor=
-e *core,
-> > > +			u32 width, u32 height,
-> > > =C2=A0=C2=A0			const struct rcb_size_info *size_info,
-> > > =C2=A0=C2=A0			size_t rcb_count)
-> > > =C2=A0=C2=A0{
-> > > @@ -132,7 +133,7 @@ int rkvdec_allocate_rcb(struct rkvdec_core *core,=
- u32 width, u32 height,
-> > > =C2=A0=20
-> > > =C2=A0=C2=A0		/* Try allocating an SRAM buffer */
-> > > =C2=A0=C2=A0		if (core->sram_pool) {
-> > > -			if (core->iommu_domain)
-> > > +			if (rkvdec->iommu_global_domain)
-> > > =C2=A0=C2=A0				rcb_size =3D ALIGN(rcb_size, SZ_4K);
-> > > =C2=A0=20
-> > > =C2=A0=C2=A0			cpu =3D gen_pool_dma_zalloc_align(core->sram_pool,
-> > > @@ -142,11 +143,11 @@ int rkvdec_allocate_rcb(struct rkvdec_core *cor=
-e, u32 width, u32 height,
-> > > =C2=A0=C2=A0		}
-> > > =C2=A0=20
-> > > =C2=A0=C2=A0		/* If an IOMMU is used, map the SRAM address through it=
- */
-> > > -		if (cpu && core->iommu_domain) {
-> > > +		if (cpu && rkvdec->iommu_global_domain) {
-> > > =C2=A0=C2=A0			unsigned long virt_addr =3D (unsigned long)cpu;
-> > > =C2=A0=C2=A0			phys_addr_t phys_addr =3D dma;
-> > > =C2=A0=20
-> > > -			ret =3D iommu_map(core->iommu_domain, virt_addr, phys_addr,
-> > > +			ret =3D iommu_map(rkvdec->iommu_global_domain, virt_addr, phys_ad=
-dr,
-> > > =C2=A0=C2=A0					rcb_size, IOMMU_READ | IOMMU_WRITE, 0);
-> > > =C2=A0=C2=A0			if (ret) {
-> > > =C2=A0=C2=A0				gen_pool_free(core->sram_pool,
-> > > @@ -166,7 +167,7 @@ int rkvdec_allocate_rcb(struct rkvdec_core *core,=
- u32 width, u32 height,
-> > > =C2=A0=C2=A0ram_fallback:
-> > > =C2=A0=C2=A0		/* Fallback to RAM */
-> > > =C2=A0=C2=A0		if (!cpu) {
-> > > -			cpu =3D dma_alloc_coherent(core->dev,
-> > > +			cpu =3D dma_alloc_coherent(rkvdec->main_core->dev,
-> > > =C2=A0=C2=A0						 rcb_size,
-> > > =C2=A0=C2=A0						 &dma,
-> > > =C2=A0=C2=A0						 GFP_KERNEL);
-> > > @@ -189,7 +190,7 @@ int rkvdec_allocate_rcb(struct rkvdec_core *core,=
- u32 width, u32 height,
-> > > =C2=A0=C2=A0	return 0;
-> > > =C2=A0=20
-> > > =C2=A0=C2=A0err_alloc:
-> > > -	rkvdec_free_rcb(core);
-> > > +	rkvdec_free_rcb(rkvdec, core);
-> > > =C2=A0=20
-> > > =C2=A0=C2=A0	return ret;
-> > > =C2=A0=C2=A0}
-> > > diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h b/dr=
-ivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
-> > > index a12af9b7dc2b..d1149afe7fda 100644
-> > > --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
-> > > +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
-> > > @@ -8,6 +8,7 @@
-> > > =C2=A0=20
-> > > =C2=A0=C2=A0#include <linux/types.h>
-> > > =C2=A0=20
-> > > +struct rkvdec_dev;
-> > > =C2=A0=C2=A0struct rkvdec_ctx;
-> > > =C2=A0=C2=A0struct rkvdec_core;
-> > > =C2=A0=20
-> > > @@ -21,11 +22,12 @@ struct rcb_size_info {
-> > > =C2=A0=C2=A0	enum rcb_axis axis;
-> > > =C2=A0=C2=A0};
-> > > =C2=A0=20
-> > > -int rkvdec_allocate_rcb(struct rkvdec_core *core, u32 width, u32 hei=
-ght,
-> > > +int rkvdec_allocate_rcb(struct rkvdec_dev *rkvdec, struct rkvdec_cor=
-e *core,
-> > > +			u32 width, u32 height,
-> > > =C2=A0=C2=A0			const struct rcb_size_info *size_info,
-> > > =C2=A0=C2=A0			size_t rcb_count);
-> > > =C2=A0=C2=A0dma_addr_t rkvdec_rcb_buf_dma_addr(struct rkvdec_ctx *ctx=
-, int id);
-> > > =C2=A0=C2=A0size_t rkvdec_rcb_buf_size(struct rkvdec_ctx *ctx, int id=
-);
-> > > =C2=A0=C2=A0int rkvdec_rcb_buf_count(struct rkvdec_ctx *ctx);
-> > > =C2=A0=C2=A0bool rkvdec_rcb_buf_validate_size(struct rkvdec_ctx *ctx)=
-;
-> > > -void rkvdec_free_rcb(struct rkvdec_core *core);
-> > > +void rkvdec_free_rcb(struct rkvdec_dev *rkvdec, struct rkvdec_core *=
-core);
-> > > diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/driver=
-s/media/platform/rockchip/rkvdec/rkvdec.c
-> > > index c2818f1575ef..2930e9b64906 100644
-> > > --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> > > +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> > > @@ -1204,9 +1204,9 @@ static void rkvdec_device_run(void *priv)
-> > > =C2=A0=C2=A0	}
-> > > =C2=A0=20
-> > > =C2=A0=C2=A0	if (!rkvdec_rcb_buf_validate_size(ctx)) {
-> > > -		rkvdec_free_rcb(ctx->core);
-> > > +		rkvdec_free_rcb(ctx->dev, ctx->core);
-> > > =C2=A0=20
-> > > -		ret =3D rkvdec_allocate_rcb(ctx->core,
-> > > +		ret =3D rkvdec_allocate_rcb(ctx->dev, ctx->core,
-> > > =C2=A0=C2=A0					=C2=A0 ctx->decoded_fmt.fmt.pix_mp.width,
-> > > =C2=A0=C2=A0					=C2=A0 ctx->decoded_fmt.fmt.pix_mp.height,
-> > > =C2=A0=C2=A0					=C2=A0 ctx->dev->variant->rcb_sizes,
-> > > @@ -1486,6 +1486,7 @@ static void rkvdec_v4l2_cleanup(struct rkvdec_d=
-ev *rkvdec)
-> > > =C2=A0=20
-> > > =C2=A0=C2=A0static void rkvdec_iommu_restore(struct rkvdec_core *core=
-)
-> > > =C2=A0=C2=A0{
-> > > +	int ret;
-> > > =C2=A0=C2=A0	if (core->empty_domain) {
-> > > =C2=A0=C2=A0		/*
-> > > =C2=A0=C2=A0		 * To rewrite mapping into the attached IOMMU core, att=
-ach a new empty domain that
-> > > @@ -1494,8 +1495,14 @@ static void rkvdec_iommu_restore(struct rkvdec=
-_core *core)
-> > > =C2=A0=C2=A0		 * This is safely done in this interrupt handler to mak=
-e sure no memory get mapped
-> > > =C2=A0=C2=A0		 * through the IOMMU while the empty domain is attached=
-.
-> > > =C2=A0=C2=A0		 */
-> > > -		iommu_attach_device(core->empty_domain, core->dev);
-> > > +		iommu_detach_device(core->curr_ctx->dev->iommu_global_domain, core=
-->dev);
-> > > +		ret =3D iommu_attach_device(core->empty_domain, core->dev);
-> > > +		if (ret)
-> > > +			dev_warn(core->dev, "Cannot attach empty domain: %d\n", ret);
-> > > =C2=A0=C2=A0		iommu_detach_device(core->empty_domain, core->dev);
-> > > +		ret =3D iommu_attach_device(core->curr_ctx->dev->iommu_global_doma=
-in, core->dev);
-> > > +		if (ret)
-> > > +			dev_warn(core->dev, "Cannot attach global domain: %d\n", ret);
-> > > =C2=A0=C2=A0	}
-> > > =C2=A0=C2=A0}
-> > > =C2=A0=20
-> > > @@ -1858,6 +1865,8 @@ static int rkvdec_probe(struct platform_device =
-*pdev)
-> > > =C2=A0=20
-> > > =C2=A0=C2=A0	core =3D &rkvdec->cores[rkvdec->core_count++];
-> > > =C2=A0=20
-> > > +	core->id =3D rkvdec->core_count - 1;
-> > > +
-> > > =C2=A0=C2=A0	platform_set_drvdata(pdev, rkvdec);
-> > > =C2=A0=C2=A0	core->dev =3D &pdev->dev;
-> > > =C2=A0=C2=A0	INIT_DELAYED_WORK(&core->watchdog_work, rkvdec_watchdog_=
-func);
-> > > @@ -1883,12 +1892,24 @@ static int rkvdec_probe(struct platform_devic=
-e *pdev)
-> > > =C2=A0=C2=A0			return PTR_ERR(core->link);
-> > > =C2=A0=C2=A0	}
-> > > =C2=A0=20
-> > > -	core->iommu_domain =3D iommu_get_domain_for_dev(&pdev->dev);
-> > > -	if (core->iommu_domain) {
-> > > +	if (iommu_get_domain_for_dev(&pdev->dev)) {
-> > > =C2=A0=C2=A0		core->empty_domain =3D iommu_paging_domain_alloc(core->=
-dev);
-> > > =C2=A0=20
-> > > -		if (!core->empty_domain)
-> > > +		if (IS_ERR(core->empty_domain))
-> > > =C2=A0=C2=A0			dev_warn(core->dev, "cannot alloc new empty domain\n")=
-;
-> > > +
-> > > +		if (!rkvdec->iommu_global_domain) {
-> > > +			rkvdec->iommu_global_domain =3D iommu_get_domain_for_dev(core->de=
-v);
-> > > +
-> > > +			if (IS_ERR(rkvdec->iommu_global_domain)) {
-> > > +				rkvdec->iommu_global_domain =3D NULL;
-> > > +				dev_warn_once(core->dev, "cannot alloc new global domain\n");
-> > > +			}
-> > > +		}
-> > > +
-> > > +		ret =3D iommu_attach_device(rkvdec->iommu_global_domain, core->dev=
-);
-> > > +		if (ret)
-> > > +			dev_warn(core->dev, "cannot attach global domain to core %d\n", c=
-ore->id);
-> > > =C2=A0=C2=A0	}
-> > > =C2=A0=20
-> > > =C2=A0=C2=A0	ret =3D dma_set_coherent_mask(&pdev->dev, DMA_BIT_MASK(3=
-2));
-> > > @@ -1961,7 +1982,7 @@ static void rkvdec_remove(struct platform_devic=
-e *pdev)
-> > > =C2=A0=C2=A0		if (rkvdec->cores[i].empty_domain)
-> > > =C2=A0=C2=A0			iommu_domain_free(rkvdec->cores[i].empty_domain);
-> > > =C2=A0=20
-> > > -		rkvdec_free_rcb(&rkvdec->cores[i]);
-> > > +		rkvdec_free_rcb(rkvdec, &rkvdec->cores[i]);
-> > > =C2=A0=C2=A0	}
-> > > =C2=A0=C2=A0}
-> > > =C2=A0=20
-> > > diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/driver=
-s/media/platform/rockchip/rkvdec/rkvdec.h
-> > > index 4f042a367dc0..ccd766b220c7 100644
-> > > --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-> > > +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-> > > @@ -135,7 +135,6 @@ struct rkvdec_core {
-> > > =C2=A0=C2=A0	void __iomem *link;
-> > > =C2=A0=C2=A0	struct delayed_work watchdog_work;
-> > > =C2=A0=C2=A0	struct gen_pool *sram_pool;
-> > > -	struct iommu_domain *iommu_domain;
-> > > =C2=A0=C2=A0	struct iommu_domain *empty_domain;
-> > > =C2=A0=C2=A0	struct rkvdec_rcb_config *rcb_config;
-> > > =C2=A0=C2=A0	struct rkvdec_ctx *curr_ctx;
-> > > @@ -155,6 +154,7 @@ struct rkvdec_dev {
-> > > =C2=A0=C2=A0	unsigned int available_core_count;
-> > > =C2=A0=C2=A0	spinlock_t cores_lock; /* serializes core list access */
-> > > =C2=A0=C2=A0	struct rkvdec_core *main_core;
-> > > +	struct iommu_domain *iommu_global_domain;
-> > > =C2=A0=C2=A0};
-> > > =C2=A0=20
-> > > =C2=A0=C2=A0struct rkvdec_ctx {
+MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
+ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
+AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
+BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
+MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
+a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
+jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
+GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
+aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
+nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
+8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
+HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
+IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
+KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
+BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
+QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
+QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
+ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
+/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
+uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
+xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
+W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
+c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
+VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
+NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
+DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
+sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
+w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
+i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
+kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
+0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
+ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
+blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
+hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
+VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
+HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
+ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
+AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
+cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
+cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
+AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
+aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
+hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
+iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
+8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
+JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
+xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
+EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
+B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
+MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
+KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
+Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
+nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
+WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
+W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
+nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
+g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
+9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
+9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
+sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
+a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
+ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
+AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
+dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
+MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
+YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
+4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
+6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
+QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
+nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
+MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
+VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
+ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDQwOTE1Mjkw
+NlowLwYJKoZIhvcNAQkEMSIEIPrb4sAbwyGGmhl8RCmV91WUQVEXNPX7a4TNoYjFQgB0MGQGCSsG
+AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
+cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
+VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
+cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIASzmOmHGAMRP7
+9n7AenkM+O+s/RYpGbb7rMpy3vbezprJ3C9xy4SNX4LZtqpE2ZJDa6uc22qaHNWSDDJj5Yaj9I8e
+fOu5/PaENHMbhfLT+K/jFHrA3et/UAGj6+BtzhkDjkUq82hHAz/9qwZI7GhxcZ3oYOMdENMIXKeQ
+zoUjT22E3DdLgU1lHvzo5KGE1s7CG22q/zDxbY9tRx5PoVKfkH9rRP7wov63BH08KdwxjYNV5Wu3
+qrmGOLRA8ZWeZxKr7vm1ntL/OlVWV1LrJT4vCnt28Ekx3TU1ujGucNjbwkNInK6LnyJr7dRFtVz4
+SmZ6ZOZI57HuXdgXjmUkzZ9p903+lycSj680jOz1uBxuK/vkKLnJDVJxR44WpB04gUUpMlzkyQkX
+TwWJeSkwDwt6k93k/92f5RzrdQ8xYhTi3Ky0VYYC8QkH230Vve18vqxyyg5q1yl0QFJiIbFSQqz9
+0iYkJu1r4VghT1HDRVcan4hO+5+BU9r1JMlV2Rt20tBMZzf9CxRikeiffdOWcO8Z1pYGCiPt+3UA
+UTasQMnU/F9BleDKFuIDPJHotTcCpCulejb5i1R5TpgWRped6RYGGYIaCXj9EEe1pgSBowHFsyya
+xSss0OPlAWZuEcP7ZE/4Nkv3cFPrV2hT4Gba+7l5DlpC3/xCwYDeZj3wm22pNYUAAAAAAAA=
 
---=-oRdpf3vSzts/F/hutoEG
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCadfErQAKCRDZQZRRKWBy
-9Pn/AP9pfr2vN+orSi7oPIBk4oXz2hHxU/tyhhj0mADYVEsFdAD/ehYDStpNd56v
-9rN/y/2K/yzi6YC3Sl9puEs8mjZO7Ak=
-=ukm5
------END PGP SIGNATURE-----
-
---=-oRdpf3vSzts/F/hutoEG--
+--=-fUCIPL1EFDn51viUi3G3--
 
