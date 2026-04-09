@@ -4,55 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02B94E9DE58
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 07:36:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5873BE9DE58
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 07:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DRzilr7Q28rxGC9wOBO2rN3EFNJoZGxZHbTJXpNPXMY=; b=jW7E1VH3F9XnwVhu/m6hsS1zi5
-	QCfJfKom1HDRPfrzJyAGf8RJjH65fDNjxr865nRC14aK46nBxxVRxF2JZN7pUErCARzMl6O/oxGmd
-	iHsnPL+8eJFOEkJV0Km9w+/D3zJFv/xi82rUX8NqIGQmiNYJ81ThXYkKwFcMpqasQKMnHkA5+KvKI
-	fI+E9WmHb6LB0MhmucXszGgOh4tUn9ZXziHefFNhOuvetoaMMG4vbteMMBaJd3RoUbTaKcAsuAn9Y
-	FhtNWf2wNlM6aqwEGMBdQanEGkyc5mlKcz2qlOFQkb43QubZQOlapZzXufFCB3ubwAbjMI6k57WLU
-	vVqAvQNw==;
+	bh=rNcl8bSxVcVlkHSwwPKzs5WXzuDdLXO9P/uvXT30wYQ=; b=tN+J4FIbHAJ1izdEp+rKJ6Z4Pm
+	LiDD9EZYmUx9K5Rl+mybaIF8200wQIS7Up4Jxu86CYs6LfQsw37mvIr0zEMhZjJKDy5ppcizYSyMY
+	sYo198oMlNXwYlbij83v6XNc26Ng6Umk4NxedKc6vL89qIr+nJq+QxsImRARco4l71UPnYpicpZqL
+	DCGKu+CAuhPLjrDO9aryg9xp3uf/4b5v2eH6dhV5p5wsUQyVsWVM3FH6BBCLW2baGbYG6LerSBmmq
+	56dFbDLMJipYQTJq4uh/TqOBSeHXGYNDT2/PsAiiQNZjplrmRFTNRewSP+xE86s9V5SFF0243PcSa
+	rhQWsIdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAjw2-00000009rVQ-48LL;
-	Thu, 09 Apr 2026 07:36:18 +0000
+	id 1wAk2L-00000009rvG-3bfZ;
+	Thu, 09 Apr 2026 07:42:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAjvz-00000009rV1-0zOp
+	id 1wAk2J-00000009ruv-1BT3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 07:36:17 +0000
+	Thu, 09 Apr 2026 07:42:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2079F3535;
-	Thu,  9 Apr 2026 00:36:05 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 020763561;
+	Thu,  9 Apr 2026 00:42:40 -0700 (PDT)
 Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D04403F632;
-	Thu,  9 Apr 2026 00:36:06 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E2BFD3F632;
+	Thu,  9 Apr 2026 00:42:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775720170; bh=VG9O/MXhk5kfHQlJZEXYZ4xci9IVkuU0lANbgOZURvo=;
+	t=1775720565; bh=1WW7kSn9WxA8RcNQPxCAbLe2xCMWLXrH3wMCxgS7DNE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Q9VP2Hzs+cOng5UdTQLU6AyejTLMWJ2eZ/CCY/QKSYuqFCMURuyxEB6ehcxCJzne+
-	 JN3ueVRkdwTJB9NWdm5Eq+ORWImPY0iYfwiLr6zbZPEHwDZeYTUhYyUUwxUqzOGoSV
-	 7myhTyVWCvyzfSxZSFGoToGUCuF0NE+yp/Be4H3Q=
-Date: Thu, 9 Apr 2026 08:36:01 +0100
+	b=d8GUs/B3jDW2frdZiV8QPiYbk9v18VZd7X15RxiS1RqB+79dOyj9M/gsATt3nMdbo
+	 sfUtUYCcV+gEJlbpIFOxTu0F6+OEFgVqJOQyRKt9wK39FJm3q0cUrfDwdmVVz7kTRT
+	 6fWMWLO4tHky73CtIu7mYttYuuLUx2FUb47JuCq0=
+Date: Thu, 9 Apr 2026 08:42:37 +0100
 From: Mark Rutland <mark.rutland@arm.com>
 To: Jinjie Ruan <ruanjinjie@huawei.com>
-Subject: Re: [PATCH v14 00/10] arm64: entry: Convert to Generic Entry
-Message-ID: <addW4dkDgul4UrBY@J2N7QTR9R3>
-References: <20260320102620.1336796-1-ruanjinjie@huawei.com>
- <174e6d08-4922-f42f-2899-4c5b0df13469@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+	kernel@xen0n.name, hca@linux.ibm.com, gor@linux.ibm.com,
+	agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
+	svens@linux.ibm.com, oleg@redhat.com, tglx@kernel.org,
+	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+	hpa@zytor.com, arnd@arndb.de, shuah@kernel.org,
+	kevin.brodsky@arm.com, yeoreum.yun@arm.com,
+	anshuman.khandual@arm.com, thuth@redhat.com, ryan.roberts@arm.com,
+	song@kernel.org, ziyao@disroot.org, linusw@kernel.org,
+	schuster.simon@siemens-energy.com, jremus@linux.ibm.com,
+	akpm@linux-foundation.org, mathieu.desnoyers@efficios.com,
+	kmal@cock.li, dvyukov@google.com, reddybalavignesh9979@gmail.com,
+	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-s390@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v14 2/4] asm-generic: Move TIF_SINGLESTEP to generic TIF
+ bits
+Message-ID: <addYbV3_9eFZg_b4@J2N7QTR9R3>
+References: <20260320104222.1381274-1-ruanjinjie@huawei.com>
+ <20260320104222.1381274-3-ruanjinjie@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <174e6d08-4922-f42f-2899-4c5b0df13469@huawei.com>
+In-Reply-To: <20260320104222.1381274-3-ruanjinjie@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_003615_452202_E3E73ACE 
-X-CRM114-Status: GOOD (  42.11  )
+X-CRM114-CacheID: sfid-20260409_004247_400010_979C605E 
+X-CRM114-Status: GOOD (  23.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,210 +81,155 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: peterz@infradead.org, catalin.marinas@arm.com, ldv@strace.io, song@kernel.org, edumazet@google.com, will@kernel.org, mingo@kernel.org, kees@kernel.org, thuth@redhat.com, ryan.roberts@arm.com, arnd@arndb.de, anshuman.khandual@arm.com, kevin.brodsky@arm.com, pengcan@kylinos.cn, broonie@kernel.org, mathieu.desnoyers@efficios.com, luto@kernel.org, linux-arm-kernel@lists.infradead.org, wad@chromium.org, linusw@kernel.org, oleg@redhat.com, linux-kernel@vger.kernel.org, tglx@kernel.org, liqiang01@kylinos.cn, yeoreum.yun@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jinjie,
+On Fri, Mar 20, 2026 at 06:42:20PM +0800, Jinjie Ruan wrote:
+> Currently, x86, ARM64, s390, and LoongArch all define and use
+> TIF_SINGLESTEP to track single-stepping state.
 
-On Thu, Apr 09, 2026 at 02:29:04PM +0800, Jinjie Ruan wrote:
-> On 2026/3/20 18:26, Jinjie Ruan wrote:
-> > Currently, x86, Riscv, Loongarch use the Generic Entry which makes
-> > maintainers' work easier and codes more elegant. arm64 has already
-> > successfully switched to the Generic IRQ Entry in commit
-> > b3cf07851b6c ("arm64: entry: Switch to generic IRQ entry"), it is
-> > time to completely convert arm64 to Generic Entry.
-> > 
-> > The goal is to bring arm64 in line with other architectures that already
-> > use the generic entry infrastructure, reducing duplicated code and
-> > making it easier to share future changes in entry/exit paths, such as
-> > "Syscall User Dispatch" and RSEQ optimizations.
+Do the architectures actually use the flag in the same way?
+
+I'd expect that this is used subtly differently across those
+architectures, and so isn't necessarily generic.
+
+> Since this flag is shared across multiple major architectures and serves
+> a common purpose in the generic entry/exit paths, move TIF_SINGLESTEP
+> into the generic Thread Information Flags (TIF) infrastructure.
 > 
-> Hi,
-> 
-> Just a quick ping to see if this series is good to go. Do I need to
-> provide a new version rebased on the latest arm64 for-next/generic-entry
-> branches, or is the current version acceptable?
+> This consolidation reduces architecture-specific boilerplate code and
+> ensures consistency for generic features that rely on single-step
+> state tracking.
 
-Sorry, this is on my list to review, but I've been busy fixing other
-issues (e.g. the preemption issues from moving to generic irqentry), and
-haven't yet had the time to go over this in detail.
+Is it necessary to make this generic in order to move to generic irq
+flags? I'd expect that generic code cannot make use of this due to the
+different semantics across architectures, as noted abobve.
 
-This series might be fine as-is, but given that it's incredibly easy to
-introduce subtle and hard-to-fix regressions to user ABI, I don't think
-we can assume that it's safe until we've gone over it thoroughly.
+I think it's probably better to keep this architecture-specific for now,
+where architectures can clearly define how they're using this bit.
 
-For the moment, no need to resend. If you haven't received comments by
-v7.1-rc1, please rebase and resend then.
+Am I missing some reason why it's necessary to make this generic?
 
-Thanks,
 Mark.
 
-> > This patch set is rebased on arm64 for-next/core. This series contains
-> > foundational updates for arm64. As suggested by Linus Walleij, these 10
-> > patches are being submitted separately for inclusion in the arm64 tree.
-> > 
-> > And the performance benchmarks results on qemu-kvm are below:
-> > 
-> > perf bench syscall usec/op (-ve is improvement)
-> > 
-> > | Syscall | Base        | Generic Entry | change % |
-> > | ------- | ----------- | ------------- | -------- |
-> > | basic   | 0.123997    | 0.120872      | -2.57    |
-> > | execve  | 512.1173    | 504.9966      | -1.52    |
-> > | fork    | 114.1144    | 113.2301      | -1.06    |
-> > | getpgid | 0.120182    | 0.121245      | +0.9     |
-> > 
-> > perf bench syscall ops/sec (+ve is improvement)
-> > 
-> > | Syscall | Base     | Generic Entry| change % |
-> > | ------- | -------- | ------------ | -------- |
-> > | basic   | 8064712  | 8273212      | +2.48    |
-> > | execve  | 1952     | 1980         | +1.52    |
-> > | fork    | 8763     | 8832         | +1.06    |
-> > | getpgid | 8320704  | 8247810      | -0.9     |
-> > 
-> > Therefore, the syscall performance variation ranges from a 1% regression
-> > to a 2.5% improvement.
-> > 
-> > It was tested ok with following test cases on QEMU virt platform:
-> >  - Stress-ng CPU stress test.
-> >  - Hackbench stress test.
-> >  - "sud" selftest testcase.
-> >  - get_set_sud, get_syscall_info, set_syscall_info, peeksiginfo
-> >    in tools/testing/selftests/ptrace.
-> >  - breakpoint_test_arm64 in selftests/breakpoints.
-> >  - syscall-abi and ptrace in tools/testing/selftests/arm64/abi
-> >  - fp-ptrace, sve-ptrace, za-ptrace in selftests/arm64/fp.
-> >  - vdso_test_getrandom in tools/testing/selftests/vDSO
-> >  - Strace tests.
-> >  - slice_test for rseq optimizations.
-> > 
-> > The test QEMU configuration is as follows:
-> > 
-> > 	qemu-system-aarch64 \
-> > 		-M virt \
-> > 		-enable-kvm \
-> > 		-cpu host \
-> > 		-kernel Image \
-> > 		-smp 8 \
-> > 		-m 512m \
-> > 		-nographic \
-> > 		-no-reboot \
-> > 		-device virtio-rng-pci \
-> > 		-append "root=/dev/vda rw console=ttyAMA0 kgdboc=ttyAMA0,115200 \
-> > 			earlycon preempt=voluntary irqchip.gicv3_pseudo_nmi=1 audit=1" \
-> > 		-drive if=none,file=images/rootfs.ext4,format=raw,id=hd0 \
-> > 		-device virtio-blk-device,drive=hd0 \
-> > 
-> > Changes in v14:
-> > - Initialize ret = 0 in syscall_trace_enter().
-> > - Split into two patch sets as Linus Walleij suggested, so this patch set
-> >   can be applied separately to the arm64 tree.
-> > - Rebased on arm64 for-next/core branch.
-> > - Collect Reviewed-by and Acked-by.
-> > - Link to v13 resend: https://lore.kernel.org/all/20260317082020.737779-15-ruanjinjie@huawei.com/
-> > 
-> > Changes in v13 resend:
-> > - Fix exit_to_user_mode_prepare_legacy() issues.
-> > - Also move TIF_SINGLESTEP to generic TIF infrastructure for loongarch.
-> > - Use generic TIF bits for arm64 and moving TIF_SINGLESTEP to
-> >   generic TIF for related architectures separately.
-> > - Refactor syscall_trace_enter/exit() to accept flags and Use
-> >   syscall_get_nr() helper separately.
-> > - Tested with slice_test for rseq optimizations.
-> > - Add acked-by.
-> > - Link to v13: https://lore.kernel.org/all/20260313094738.3985794-1-ruanjinjie@huawei.com/
-> > 
-> > Changes in v13:
-> > - Rebased on v7.0-rc3, so drop the firt applied arm64 patch.
-> > - Use generic TIF bits to enables RSEQ optimization.
-> > - Update most of the commit message to make it more clear.
-> > - Link to v12: https://lore.kernel.org/all/20260203133728.848283-1-ruanjinjie@huawei.com/
-> > 
-> > Changes in v12:
-> > - Rebased on "sched/core", so remove the four generic entry patches.
-> > - Move "Expand secure_computing() in place" and
-> >   "Use syscall_get_arguments() helper" patch forward, which will group all
-> >   non-functional cleanups at the front.
-> > - Adjust the explanation for moving rseq_syscall() before
-> >   audit_syscall_exit().
-> > - Link to v11: https://lore.kernel.org/all/20260128031934.3906955-1-ruanjinjie@huawei.com/
-> > 
-> > Changes in v11:
-> > - Remove unused syscall in syscall_trace_enter().
-> > - Update and provide a detailed explanation of the differences after
-> >   moving rseq_syscall() before audit_syscall_exit().
-> > - Rebased on arm64 (for-next/entry), and remove the first applied 3 patchs.
-> > - syscall_exit_to_user_mode_work() for arch reuse instead of adding
-> >   new syscall_exit_to_user_mode_work_prepare() helper.
-> > - Link to v10: https://lore.kernel.org/all/20251222114737.1334364-1-ruanjinjie@huawei.com/
-> > 
-> > Changes in v10:
-> > - Rebased on v6.19-rc1, rename syscall_exit_to_user_mode_prepare() to
-> >   syscall_exit_to_user_mode_work_prepare() to avoid conflict.
-> > - Also inline syscall_trace_enter().
-> > - Support aarch64 for sud_benchmark.
-> > - Update and correct the commit message.
-> > - Add Reviewed-by.
-> > - Link to v9: https://lore.kernel.org/all/20251204082123.2792067-1-ruanjinjie@huawei.com/
-> > 
-> > Changes in v9:
-> > - Move "Return early for ptrace_report_syscall_entry() error" patch ahead
-> >   to make it not introduce a regression.
-> > - Not check _TIF_SECCOMP/SYSCALL_EMU for syscall_exit_work() in
-> >   a separate patch.
-> > - Do not report_syscall_exit() for PTRACE_SYSEMU_SINGLESTEP in a separate
-> >   patch.
-> > - Add two performance patch to improve the arm64 performance.
-> > - Add Reviewed-by.
-> > - Link to v8: https://lore.kernel.org/all/20251126071446.3234218-1-ruanjinjie@huawei.com/
-> > 
-> > Changes in v8:
-> > - Rename "report_syscall_enter()" to "report_syscall_entry()".
-> > - Add ptrace_save_reg() to avoid duplication.
-> > - Remove unused _TIF_WORK_MASK in a standalone patch.
-> > - Align syscall_trace_enter() return value with the generic version.
-> > - Use "scno" instead of regs->syscallno in el0_svc_common().
-> > - Move rseq_syscall() ahead in a standalone patch to clarify it clearly.
-> > - Rename "syscall_trace_exit()" to "syscall_exit_work()".
-> > - Keep the goto in el0_svc_common().
-> > - No argument was passed to __secure_computing() and check -1 not -1L.
-> > - Remove "Add has_syscall_work() helper" patch.
-> > - Move "Add syscall_exit_to_user_mode_prepare() helper" patch later.
-> > - Add miss header for asm/entry-common.h.
-> > - Update the implementation of arch_syscall_is_vdso_sigreturn().
-> > - Add "ARCH_SYSCALL_WORK_EXIT" to be defined as "SECCOMP | SYSCALL_EMU"
-> >   to keep the behaviour unchanged.
-> > - Add more testcases test.
-> > - Add Reviewed-by.
-> > - Update the commit message.
-> > - Link to v7: https://lore.kernel.org/all/20251117133048.53182-1-ruanjinjie@huawei.com/
-> > 
-> > Jinjie Ruan (10):
-> >   arm64/ptrace: Refactor syscall_trace_enter/exit() to accept flags
-> >     parameter
-> >   arm64/ptrace: Use syscall_get_nr() helper for syscall_trace_enter()
-> >   arm64/ptrace: Expand secure_computing() in place
-> >   arm64/ptrace: Use syscall_get_arguments() helper for audit
-> >   arm64: ptrace: Move rseq_syscall() before audit_syscall_exit()
-> >   arm64: syscall: Introduce syscall_exit_to_user_mode_work()
-> >   arm64/ptrace: Define and use _TIF_SYSCALL_EXIT_WORK
-> >   arm64/ptrace: Skip syscall exit reporting for PTRACE_SYSEMU_SINGLESTEP
-> >   arm64: entry: Convert to generic entry
-> >   arm64: Inline el0_svc_common()
-> > 
-> >  arch/arm64/Kconfig                    |   2 +-
-> >  arch/arm64/include/asm/entry-common.h |  76 +++++++++++++++++
-> >  arch/arm64/include/asm/syscall.h      |  19 ++++-
-> >  arch/arm64/include/asm/thread_info.h  |  16 +---
-> >  arch/arm64/kernel/debug-monitors.c    |   7 ++
-> >  arch/arm64/kernel/entry-common.c      |  25 ++++--
-> >  arch/arm64/kernel/ptrace.c            | 115 --------------------------
-> >  arch/arm64/kernel/signal.c            |   2 +-
-> >  arch/arm64/kernel/syscall.c           |  29 ++-----
-> >  include/linux/irq-entry-common.h      |   8 --
-> >  include/linux/rseq_entry.h            |  18 ----
-> >  11 files changed, 130 insertions(+), 187 deletions(-)
-> > 
+> Cc: Thomas Gleixner <tglx@kernel.org>
+> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
+> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> Acked-by: Heiko Carstens <hca@linux.ibm.com> # s390
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>  arch/loongarch/include/asm/thread_info.h | 11 +++++------
+>  arch/s390/include/asm/thread_info.h      |  7 +++----
+>  arch/x86/include/asm/thread_info.h       |  6 ++----
+>  include/asm-generic/thread_info_tif.h    |  5 +++++
+>  4 files changed, 15 insertions(+), 14 deletions(-)
+> 
+> diff --git a/arch/loongarch/include/asm/thread_info.h b/arch/loongarch/include/asm/thread_info.h
+> index 4d7117fcdc78..a2ec87f18e1d 100644
+> --- a/arch/loongarch/include/asm/thread_info.h
+> +++ b/arch/loongarch/include/asm/thread_info.h
+> @@ -70,6 +70,7 @@ register unsigned long current_stack_pointer __asm__("$sp");
+>   */
+>  #define HAVE_TIF_NEED_RESCHED_LAZY
+>  #define HAVE_TIF_RESTORE_SIGMASK
+> +#define HAVE_TIF_SINGLESTEP
+>  
+>  #include <asm-generic/thread_info_tif.h>
+>  
+> @@ -82,11 +83,10 @@ register unsigned long current_stack_pointer __asm__("$sp");
+>  #define TIF_32BIT_REGS		21	/* 32-bit general purpose registers */
+>  #define TIF_32BIT_ADDR		22	/* 32-bit address space */
+>  #define TIF_LOAD_WATCH		23	/* If set, load watch registers */
+> -#define TIF_SINGLESTEP		24	/* Single Step */
+> -#define TIF_LSX_CTX_LIVE	25	/* LSX context must be preserved */
+> -#define TIF_LASX_CTX_LIVE	26	/* LASX context must be preserved */
+> -#define TIF_USEDLBT		27	/* LBT was used by this task this quantum (SMP) */
+> -#define TIF_LBT_CTX_LIVE	28	/* LBT context must be preserved */
+> +#define TIF_LSX_CTX_LIVE	24	/* LSX context must be preserved */
+> +#define TIF_LASX_CTX_LIVE	25	/* LASX context must be preserved */
+> +#define TIF_USEDLBT		26	/* LBT was used by this task this quantum (SMP) */
+> +#define TIF_LBT_CTX_LIVE	27	/* LBT context must be preserved */
+>  
+>  #define _TIF_NOHZ		BIT(TIF_NOHZ)
+>  #define _TIF_USEDFPU		BIT(TIF_USEDFPU)
+> @@ -96,7 +96,6 @@ register unsigned long current_stack_pointer __asm__("$sp");
+>  #define _TIF_32BIT_REGS		BIT(TIF_32BIT_REGS)
+>  #define _TIF_32BIT_ADDR		BIT(TIF_32BIT_ADDR)
+>  #define _TIF_LOAD_WATCH		BIT(TIF_LOAD_WATCH)
+> -#define _TIF_SINGLESTEP		BIT(TIF_SINGLESTEP)
+>  #define _TIF_LSX_CTX_LIVE	BIT(TIF_LSX_CTX_LIVE)
+>  #define _TIF_LASX_CTX_LIVE	BIT(TIF_LASX_CTX_LIVE)
+>  #define _TIF_USEDLBT		BIT(TIF_USEDLBT)
+> diff --git a/arch/s390/include/asm/thread_info.h b/arch/s390/include/asm/thread_info.h
+> index 1bcd42614e41..95be5258a422 100644
+> --- a/arch/s390/include/asm/thread_info.h
+> +++ b/arch/s390/include/asm/thread_info.h
+> @@ -61,6 +61,7 @@ void arch_setup_new_exec(void);
+>   */
+>  #define HAVE_TIF_NEED_RESCHED_LAZY
+>  #define HAVE_TIF_RESTORE_SIGMASK
+> +#define HAVE_TIF_SINGLESTEP
+>  
+>  #include <asm-generic/thread_info_tif.h>
+>  
+> @@ -69,15 +70,13 @@ void arch_setup_new_exec(void);
+>  #define TIF_GUARDED_STORAGE	17	/* load guarded storage control block */
+>  #define TIF_ISOLATE_BP_GUEST	18	/* Run KVM guests with isolated BP */
+>  #define TIF_PER_TRAP		19	/* Need to handle PER trap on exit to usermode */
+> -#define TIF_SINGLESTEP		21	/* This task is single stepped */
+> -#define TIF_BLOCK_STEP		22	/* This task is block stepped */
+> -#define TIF_UPROBE_SINGLESTEP	23	/* This task is uprobe single stepped */
+> +#define TIF_BLOCK_STEP		20	/* This task is block stepped */
+> +#define TIF_UPROBE_SINGLESTEP	21	/* This task is uprobe single stepped */
+>  
+>  #define _TIF_ASCE_PRIMARY	BIT(TIF_ASCE_PRIMARY)
+>  #define _TIF_GUARDED_STORAGE	BIT(TIF_GUARDED_STORAGE)
+>  #define _TIF_ISOLATE_BP_GUEST	BIT(TIF_ISOLATE_BP_GUEST)
+>  #define _TIF_PER_TRAP		BIT(TIF_PER_TRAP)
+> -#define _TIF_SINGLESTEP	BIT(TIF_SINGLESTEP)
+>  #define _TIF_BLOCK_STEP		BIT(TIF_BLOCK_STEP)
+>  #define _TIF_UPROBE_SINGLESTEP	BIT(TIF_UPROBE_SINGLESTEP)
+>  
+> diff --git a/arch/x86/include/asm/thread_info.h b/arch/x86/include/asm/thread_info.h
+> index 0067684afb5b..f59072ba1473 100644
+> --- a/arch/x86/include/asm/thread_info.h
+> +++ b/arch/x86/include/asm/thread_info.h
+> @@ -98,9 +98,8 @@ struct thread_info {
+>  #define TIF_IO_BITMAP		22	/* uses I/O bitmap */
+>  #define TIF_SPEC_FORCE_UPDATE	23	/* Force speculation MSR update in context switch */
+>  #define TIF_FORCED_TF		24	/* true if TF in eflags artificially */
+> -#define TIF_SINGLESTEP		25	/* reenable singlestep on user return*/
+> -#define TIF_BLOCKSTEP		26	/* set when we want DEBUGCTLMSR_BTF */
+> -#define TIF_ADDR32		27	/* 32-bit address space on 64 bits */
+> +#define TIF_BLOCKSTEP		25	/* set when we want DEBUGCTLMSR_BTF */
+> +#define TIF_ADDR32		26	/* 32-bit address space on 64 bits */
+>  
+>  #define _TIF_SSBD		BIT(TIF_SSBD)
+>  #define _TIF_SPEC_IB		BIT(TIF_SPEC_IB)
+> @@ -112,7 +111,6 @@ struct thread_info {
+>  #define _TIF_SPEC_FORCE_UPDATE	BIT(TIF_SPEC_FORCE_UPDATE)
+>  #define _TIF_FORCED_TF		BIT(TIF_FORCED_TF)
+>  #define _TIF_BLOCKSTEP		BIT(TIF_BLOCKSTEP)
+> -#define _TIF_SINGLESTEP		BIT(TIF_SINGLESTEP)
+>  #define _TIF_ADDR32		BIT(TIF_ADDR32)
+>  
+>  /* flags to check in __switch_to() */
+> diff --git a/include/asm-generic/thread_info_tif.h b/include/asm-generic/thread_info_tif.h
+> index da1610a78f92..b277fe06aee3 100644
+> --- a/include/asm-generic/thread_info_tif.h
+> +++ b/include/asm-generic/thread_info_tif.h
+> @@ -48,4 +48,9 @@
+>  #define TIF_RSEQ		11	// Run RSEQ fast path
+>  #define _TIF_RSEQ		BIT(TIF_RSEQ)
+>  
+> +#ifdef HAVE_TIF_SINGLESTEP
+> +#define TIF_SINGLESTEP		12	/* reenable singlestep on user return*/
+> +#define _TIF_SINGLESTEP		BIT(TIF_SINGLESTEP)
+> +#endif
+> +
+>  #endif /* _ASM_GENERIC_THREAD_INFO_TIF_H_ */
+> -- 
+> 2.34.1
+> 
 
