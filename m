@@ -4,66 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5884F31E5B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 16:11:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 490F1F31E5B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 16:14:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I+KV0QnGckaExfkug9cCU4y3P+vD9VBLgvWzicrI2fY=; b=2IZITlo5oyd40otjxe668+HJh6
-	ywgAanZ6E1hOIqNTBYk7R4B41Wfy6mUPEiw3gPMrJDiZ7q4wlrwbzohovn0myNyipZ5hlEOqD+5Nt
-	HnEMSR5Lcwef4h5kFQzzDR27Vk7LEGLNyWdfHLWnXXq4oZojx9Rrlm7cpb2IesnZ3wQgVC33UqQ3I
-	Nw+G2WNhDszwJ5BRTlDVwMSRdXHe3x7MMsGjK195spOaRlS86Co6a+8+y4iOZHuOHx1g1Toh04Hrt
-	hVD4cfz+cjQPV556qMdH0Xa8Zo9qh7kTbvP+41c6EsJy+Xam1i/LaMvJ29zzIjaoatqScNZyS/fGe
-	do+RCCvg==;
+	bh=bBKgfLsTkzPVnY3AYieDVnJ/jktPCR6tcs7xRYIk1ro=; b=FPUFnDxNcH3VwYwa2w1kbdmESU
+	L4XISVJ1LkQLPovzvVAoFf7vBvvj9PQ/RC4euspvxsdXa3VKNhVNaJ0pmP4jRLNryTxldX1dbLogl
+	vH2+/YPHplIw33VaALNyZaqx27jG3CEednPfHgOTaTebVw6nC7Ec9Ahm9W+z6qXXbcRJ6gggMOlPe
+	1S+97ABbo+zKze8gmHdw6IxGJpj8xLeLLMo3s89fM7QUhv4qjZk+wnao9aAInL+38Vfi56MVAvMhw
+	lwhgMIG9gmVug2GTaNE2Y/X9i4EhzWXpx2NvgRt5AV9UNDa1+DUDJqv8Z3JErbWeHp/fE5gtoODdD
+	uZMx3fQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAryD-0000000AtfP-1Snb;
-	Thu, 09 Apr 2026 16:11:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wAs0l-0000000Atsj-0Ect;
+	Thu, 09 Apr 2026 16:13:43 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAryA-0000000Atf2-1i1U
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 09 Apr 2026 16:11:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=I+KV0QnGckaExfkug9cCU4y3P+vD9VBLgvWzicrI2fY=; b=gus/ft4uJhNae7GDB8IPdbYyYr
-	h+XyhrewJfdC/FeiJc2geS2FPJHLpobAYO+3zaLsFBJ1DvFBQu6bdg1SqlmHWK3Y3T5iy3eDExtnp
-	VvTQgWEL9asM9EJ4VcTPPohtxaxfZpbiaCehQ3BHBIWdb03tKN7BvEXKKTxpxG4tkrV1fIjO+GOfo
-	PrAPueyGonJp1D+BN6lh2CaBAr/t6bYmCAnMrCERiQnqYX80r89k3zbdqxuU1xD5QIva6zzP9IDhp
-	B8zm49h66VfLmsVABsXegPb12dQTg/M3ZYEhZxClcS6S+qh9C0XVqBkHHEOUs3ev7+cZOO904fgmn
-	4nqheNuw==;
-Received: from [172.31.31.148] (helo=u09cd745991455d.lumleys.internal)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAry6-0000000C5iu-3WWW;
-	Thu, 09 Apr 2026 16:10:59 +0000
-Message-ID: <7081de47440cfefd1cf0600473cd18ed53d4e052.camel@infradead.org>
-Subject: Re: [PATCH v7 7/7] KVM: arm64: Normalize cache configuration
-From: David Woodhouse <dwmw2@infradead.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: "Gutierrez Cantu, Bernardo" <bercantu@amazon.de>, 
- alexandru.elisei@arm.com, alyssa@rosenzweig.io, asahi@lists.linux.dev, 
- broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com, 
- kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, marcan@marcan.st, mathieu.poirier@linaro.org,
-  oliver.upton@linux.dev, suzuki.poulose@arm.com, sven@svenpeter.dev, 
- will@kernel.org
-Date: Thu, 09 Apr 2026 17:10:58 +0100
-In-Reply-To: <86tstk2l4w.wl-maz@kernel.org>
-References: <20230112023852.42012-8-akihiko.odaki@daynix.com>
-	 <b71910e202ac4a56a87c0e34df13cce058d46a76.camel@infradead.org>
-	 <86wlyg2r3i.wl-maz@kernel.org>
-	 <254ca48a67779ccf9b9f60e2bb5796a305c03f95.camel@infradead.org>
-	 <86tstk2l4w.wl-maz@kernel.org>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-xzkmjBBbsJKO86yZuO/f"
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	id 1wAs0f-0000000Atrh-28k7
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Apr 2026 16:13:39 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-43cfbd17589so785139f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Apr 2026 09:13:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1775751215; x=1776356015; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=bBKgfLsTkzPVnY3AYieDVnJ/jktPCR6tcs7xRYIk1ro=;
+        b=FIwwa8XhCTMNBwIf73ZTb41R0nqUeskJkiwAcyfoGafeK4Bd3abiSIJzwk882f4CJY
+         9Phk5EUAAcFwG+7cPYfZYOHEMjehnIdDv5JLwQyQY4C2yYtsOZlkibkR6A7xbK7oVKag
+         YMweYu9M9De0vXzcOZSHd+CL8bRRUDfJEF8umVmea+nJbIKhPRjXoAjpPxE6Xd9/z1r3
+         +lD4tJMfK58oaFWdKZV/o+jB39Tqc7K3CGOiqVZZhmmeUWnAKMVsu+UCeXjQgZzKnBa+
+         Wsv681bMTGwhTFfP64+XbtHilqCRGYYbQfCXo8/uW2OBEe2ElEKLSXUOw5wvLKynJxhS
+         84ng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775751215; x=1776356015;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bBKgfLsTkzPVnY3AYieDVnJ/jktPCR6tcs7xRYIk1ro=;
+        b=kCI/MQikuTY4q4XChPF8amdypUouus8TUyreexHsV4Zx0khwFsPr5GSnvxD8nPLOnc
+         +OGxVTyYZKUROZh38UBAunJyAYHcd1BUYCNKYWhjuzbxzxF4TynvP8LYJ4TJ4J8QYj+4
+         //WDOQhq3Ew0IW5zTQWoeFRYHEa+41/r0Foc4/OSgkRqphYRIeY99XRYmrs6ElONaGXZ
+         leaxOliHw584WkEyKj2MlRn7a0Baugm2RPH3/2uU4MsZn7JCjKPFmlxNcq1BoMDB4Ss0
+         yypatDEwW/MPbSEAhaEonpPDPLosg3juCQN6lcPa+Ype0Mod/rZ1v/kmzlSmKx6v9iaa
+         AUkA==
+X-Forwarded-Encrypted: i=1; AJvYcCW6Z1P+Eb3wiaCsoN2ZUTBz7EreTn1DPc54qiuuR4lnxy21VOKJLkCV1DR/Rd7tOPGwYMiXNFDKih0uX5k1Fz9R@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4xK723VK0uNPaDTMlWzhVsPZroOM0L3uP2mG2U/vFZjeQSc6x
+	67O1MMCFhDEvZ2jwbukDxp+leEROdO8jRBd/90ttweZ2eDnfkmZtq16zr1nZp/csViI=
+X-Gm-Gg: AeBDievycVqZwxlW7idLmm3KMfLP0u3gA9kvrZglUe8Pw5dNXBpTOB0MNc+KjN44cfP
+	GhCifnqwsRByR79zFd0bZbqfXdfbpVyUWzNUizX7x3FXHclf7Zz9VzzBqmGBvTneoTOx0uL+y0o
+	3VLCmtLqcBa20FlGolGxD/7WdOPoveVKvvJutOekt6BLzzHU9pjzD5Y6e3dyp+tRJB6vhvDQbDr
+	TGOvb7XANoXWEdR5AH2HpFB7kHNpsHSIZ5ij+FHbkSKzjtqgLf9aG2RJRcbqL8l8L963MGuNMEA
+	vD3dnZiIhA+hVOwb1KuAuO/gy9ySMw+jnG+0+M6oXSwL4WB5l1W9ilXYjYlBUMWWWwTsQVYQdxk
+	vFlMsTEJZmGkcfgNbirNDgJP6CerfiHndQI99bLAyomrsk3FjS+YwT9/pNfSfBursuDvUopDcZt
+	Uahpgaxiq78CAynFseYmzQAl+4XqsGA2c/gF6wmGE7jPn02SNOkQ==
+X-Received: by 2002:a05:6000:4310:b0:43c:ffcc:b682 with SMTP id ffacd0b85a97d-43d5a1a21ecmr6369277f8f.33.1775751214675;
+        Thu, 09 Apr 2026 09:13:34 -0700 (PDT)
+Received: from localhost (93-41-3-120.ip79.fastwebnet.it. [93.41.3.120])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d1e2a720dsm69291174f8f.4.2026.04.09.09.13.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Apr 2026 09:13:34 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Thu, 9 Apr 2026 18:16:41 +0200
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
+Cc: Andrea della Porta <andrea.porta@suse.com>, linux-pwm@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Naushir Patuck <naush@raspberrypi.com>,
+	Stanimir Varbanov <svarbanov@suse.de>
+Subject: Re: [PATCH 2/3] pwm: rp1: Add RP1 PWM controller driver
+Message-ID: <adfQ6Tvst3Vd1Mxe@apocalypse>
+References: <cover.1775223441.git.andrea.porta@suse.com>
+ <28e29fbfc20c0b8a115d006233c2759d8f49e639.1775223441.git.andrea.porta@suse.com>
+ <adLTwOTbkJ0VQXy6@monoceros>
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <adLTwOTbkJ0VQXy6@monoceros>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260409_091337_629982_89A58E96 
+X-CRM114-Status: GOOD (  50.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,163 +110,402 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Uwe,
 
---=-xzkmjBBbsJKO86yZuO/f
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On 23:45 Sun 05 Apr     , Uwe Kleine-König wrote:
+> Hello Andrea,
+> 
+> On Fri, Apr 03, 2026 at 04:31:55PM +0200, Andrea della Porta wrote:
+> > From: Naushir Patuck <naush@raspberrypi.com>
+> > 
+> > The Raspberry Pi RP1 southbridge features an embedded PWM
+> > controller with 4 output channels, alongside an RPM interface
+> > to read the fan speed on the Raspberry Pi 5.
+> > 
+> > Add the supporting driver.
+> > 
+> > Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
+> > Co-developed-by: Stanimir Varbanov <svarbanov@suse.de>
+> > Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > ---
+> >  drivers/pwm/Kconfig   |  10 ++
+> >  drivers/pwm/Makefile  |   1 +
+> >  drivers/pwm/pwm-rp1.c | 244 ++++++++++++++++++++++++++++++++++++++++++
+> >  3 files changed, 255 insertions(+)
+> >  create mode 100644 drivers/pwm/pwm-rp1.c
+> > 
+> > diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+> > index 6f3147518376a..22e4fc6385da2 100644
+> > --- a/drivers/pwm/Kconfig
+> > +++ b/drivers/pwm/Kconfig
+> > @@ -625,6 +625,16 @@ config PWM_ROCKCHIP
+> >  	  Generic PWM framework driver for the PWM controller found on
+> >  	  Rockchip SoCs.
+> >  
+> > +config PWM_RP1
+> 
+> I prefer PWM_RASPBERRYPI1, or PWM_RASPBERRYPI_RP1 here.
 
-On Thu, 2026-04-09 at 16:45 +0100, Marc Zyngier wrote:
-> On Thu, 09 Apr 2026 15:51:59 +0100, David Woodhouse <dwmw2@infradead.org>=
- wrote:
-> > On Thu, 2026-04-09 at 14:36 +0100, Marc Zyngier wrote:
->=20
-> > > We have never guaranteed host downgrade. It almost never works.
-> >
-> > Huh? Host downgrade absolutely *does* work; KVM on Arm isn't a toy.
-> > We'd never be able to ship a new kernel if we didn't know we could roll
-> > it *back* if we needed to.
->=20
-> You have clearly been lucky so far, because I'd never such claim.
+Ack.
 
-It's not luck. We do a *lot* of testing, both within the guest checking
-that what it sees is identical between old and new environments, and
-repeated live upgrade/downgrade cycles between versions as well as
-migration back and forth, and hibernate/resume from one to the other.
+> 
+> > +	tristate "RP1 PWM support"
+> > +	depends on MISC_RP1 || COMPILE_TEST
+> > +	depends on HWMON
+> > +	help
+> > +	  PWM framework driver for Raspberry Pi RP1 controller
+> > +
+> > +	  To compile this driver as a module, choose M here: the module
+> > +	  will be called pwm-rp1.
+> > +
+> >  config PWM_SAMSUNG
+> >  	tristate "Samsung PWM support"
+> >  	depends on PLAT_SAMSUNG || ARCH_S5PV210 || ARCH_EXYNOS || COMPILE_TEST
+> > diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+> > index 0dc0d2b69025d..895a7c42fe9c0 100644
+> > --- a/drivers/pwm/Makefile
+> > +++ b/drivers/pwm/Makefile
+> > @@ -56,6 +56,7 @@ obj-$(CONFIG_PWM_RENESAS_RZG2L_GPT)	+= pwm-rzg2l-gpt.o
+> >  obj-$(CONFIG_PWM_RENESAS_RZ_MTU3)	+= pwm-rz-mtu3.o
+> >  obj-$(CONFIG_PWM_RENESAS_TPU)	+= pwm-renesas-tpu.o
+> >  obj-$(CONFIG_PWM_ROCKCHIP)	+= pwm-rockchip.o
+> > +obj-$(CONFIG_PWM_RP1)		+= pwm-rp1.o
+> >  obj-$(CONFIG_PWM_SAMSUNG)	+= pwm-samsung.o
+> >  obj-$(CONFIG_PWM_SIFIVE)	+= pwm-sifive.o
+> >  obj-$(CONFIG_PWM_SL28CPLD)	+= pwm-sl28cpld.o
+> > diff --git a/drivers/pwm/pwm-rp1.c b/drivers/pwm/pwm-rp1.c
+> > new file mode 100644
+> > index 0000000000000..0a1c1c1dd27e9
+> > --- /dev/null
+> > +++ b/drivers/pwm/pwm-rp1.c
+> > @@ -0,0 +1,244 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * pwm-rp1.c
+> > + *
+> > + * Raspberry Pi RP1 PWM.
+> > + *
+> > + * Copyright © 2026 Raspberry Pi Ltd.
+> > + *
+> > + * Author: Naushir Patuck (naush@raspberrypi.com)
+> > + *
+> > + * Based on the pwm-bcm2835 driver by:
+> > + * Bart Tanghe <bart.tanghe@thomasmore.be>
+> > + */
+> 
+> Please add a paragraph here named "Limitations" in the same format as
+> several other drivers describing how the driver behaves on disable and
+> configuration changes (can glitches occur? Is the currently running
+> period completed or aborted?)
 
-> >=20
-> > I *know* that you know perfectly well that we actively test host
-> > downgrades prior to every rollout of a new kernel. So I'm a little
-> > confused about what you're trying to say here, Marc.
->=20
-> I said exactly this: we make no effort to ensure that a guest started
-> on a version of the kernel can be migrated to an older version -- the
-> state space might be different.
+Ack.
 
-You said "it almost never works". If that were the case, then I would
-suggest that KVM on arm64 would be entirely unsuitable as a production
-platform for virtual hosting. But thankfully it isn't my experience at
-all.
+> 
+> > +#include <linux/bitops.h>
+> > +#include <linux/clk.h>
+> > +#include <linux/err.h>
+> > +#include <linux/hwmon.h>
+> > +#include <linux/io.h>
+> > +#include <linux/module.h>
+> > +#include <linux/of.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/pwm.h>
+> > +
+> > +#define PWM_GLOBAL_CTRL		0x000
+> > +#define PWM_CHANNEL_CTRL(x)	(0x014 + ((x) * 0x10))
+> > +#define PWM_RANGE(x)		(0x018 + ((x) * 0x10))
+> > +#define PWM_PHASE(x)		(0x01C + ((x) * 0x10))
+> > +#define PWM_DUTY(x)		(0x020 + ((x) * 0x10))
+> > +
+> > +/* 8:FIFO_POP_MASK + 0:Trailing edge M/S modulation */
+> > +#define PWM_CHANNEL_DEFAULT	(BIT(8) + BIT(0))
+> > +#define PWM_CHANNEL_ENABLE(x)	BIT(x)
+> > +#define PWM_POLARITY		BIT(3)
+> > +#define SET_UPDATE		BIT(31)
+> > +#define PWM_MODE_MASK		GENMASK(1, 0)
+> > +
+> > +#define NUM_PWMS		4
+> 
+> Please prefix all #defines by something driver specific (e.g. RP1_PWM_).
 
-Sure, we've occasionally found breakage, such as this commit and the
-vGIC 'IMP_REV_1' thing being discussed in a separate thread, but those
-are the exceptions rather than the norm.
+Ack.
 
-(And yes, we need to do better than just reverting the offending
-commits when we find them, and fix the issues properly upstream. Which
-is what I'm doing now, belatedly).
+> 
+> > +
+> > +struct rp1_pwm {
+> > +	void __iomem	*base;
+> > +	struct clk	*clk;
+> > +};
+> > +
+> > +static const struct hwmon_channel_info * const rp1_fan_hwmon_info[] = {
+> > +	HWMON_CHANNEL_INFO(fan, HWMON_F_INPUT),
+> > +	NULL
+> > +};
+> > +
+> > +static umode_t rp1_fan_hwmon_is_visible(const void *data, enum hwmon_sensor_types type,
+> > +					u32 attr, int channel)
+> > +{
+> > +	umode_t mode = 0;
+> > +
+> > +	if (type == hwmon_fan && attr == hwmon_fan_input)
+> > +		mode = 0444;
+> > +
+> > +	return mode;
+> > +}
+> > +
+> > +static int rp1_fan_hwmon_read(struct device *dev, enum hwmon_sensor_types type,
+> > +			      u32 attr, int channel, long *val)
+> > +{
+> > +	struct rp1_pwm *rp1 = dev_get_drvdata(dev);
+> > +
+> > +	if (type != hwmon_fan || attr != hwmon_fan_input)
+> > +		return -EOPNOTSUPP;
+> > +
+> > +	*val = readl(rp1->base + PWM_PHASE(2));
+> > +
+> > +	return 0;
+> > +}
+> 
+> I don't like having hwmon bits in pwm drivers. Is the PWM only usable
+> for a fan? I guess the hwmon parts should be dropped and a pwm-fan
+> defined in dt.
 
-> >=20
-> > Now that the values are writable, but userspace can't easily see *what*
-> > they would have been in the previous kernel. So having the capability
-> > to ask KVM to set them to those values seems like it might be useful.
->=20
-> Well, it's only a patch away.
+The pwm-fan generic driver expects an interrupt to count the RPM, while
+on RP1 this data is passed via a register filled by the RP1 fw running
+on the internal core. Instead of changing the generic pwm-fan driver,
+I'll add a syscon to export this register which will be read by a new
+device/driver registering an hwmon device.
 
-Indeed so. When I asked what I was missing, I was *kind* of hoping
-someone would tell me I'm wrong and that I can get the original values
-from userspace either through sysfs or some other means, but in the
-absence of that:
-https://lore.kernel.org/lkml/7fb7b823c68e04321eb532a5b8ae21a818d4926d.camel=
-@infradead.org/
+> 
+> > +static const struct hwmon_ops rp1_fan_hwmon_ops = {
+> > +	.is_visible = rp1_fan_hwmon_is_visible,
+> > +	.read = rp1_fan_hwmon_read,
+> > +};
+> > +
+> > +static const struct hwmon_chip_info rp1_fan_hwmon_chip_info = {
+> > +	.ops = &rp1_fan_hwmon_ops,
+> > +	.info = rp1_fan_hwmon_info,
+> > +};
+> > +
+> > +static void rp1_pwm_apply_config(struct pwm_chip *chip, struct pwm_device *pwm)
+> > +{
+> > +	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
+> > +	u32 value;
+> > +
+> > +	value = readl(rp1->base + PWM_GLOBAL_CTRL);
+> > +	value |= SET_UPDATE;
+> > +	writel(value, rp1->base + PWM_GLOBAL_CTRL);
+> > +}
+> > +
+> > +static int rp1_pwm_request(struct pwm_chip *chip, struct pwm_device *pwm)
+> > +{
+> > +	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
+> > +
+> > +	writel(PWM_CHANNEL_DEFAULT, rp1->base + PWM_CHANNEL_CTRL(pwm->hwpwm));
+> 
+> Please add a comment about what this does.
 
-(Lore is being insanely slow today but it *will* be there, and the
-marc.info first alternative it offers does already have the message).
+Ack.
 
---=-xzkmjBBbsJKO86yZuO/f
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
+> 
+> > +	return 0;
+> > +}
+> > +
+> > +static void rp1_pwm_free(struct pwm_chip *chip, struct pwm_device *pwm)
+> > +{
+> > +	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
+> > +	u32 value;
+> > +
+> > +	value = readl(rp1->base + PWM_CHANNEL_CTRL(pwm->hwpwm));
+> > +	value &= ~PWM_MODE_MASK;
+> > +	writel(value, rp1->base + PWM_CHANNEL_CTRL(pwm->hwpwm));
+> > +
+> > +	rp1_pwm_apply_config(chip, pwm);
+> 
+> What is the purpose of this call?
 
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDQwOTE2MTA1
-OFowLwYJKoZIhvcNAQkEMSIEIAo8n/412xEqESgUX76rLyr6HbWhdjGMqJh6gciAgh4MMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAfO14zXPuxTir
-wVC4+Qi9ZZGnbnq+aDP1fNUlv2Tlzii2f5e3WgrKdGMLpXdSQYT07KtuIbr2LOIs+tcPaoTVW5Bt
-wzTFu2TCE8/S0d/4LC58AT8JBgGyXhVkc+b4N28wZHZLQWcYIaUjygFIxIREKP+yrlsI7J5NT3vH
-DDNLpcbBFueVrXxjbdGYV2X2Am+AqQa59X94WfquA/ueol8w8xhT9HTc4ao2f0BVylQhqIjDjT/C
-ohZ/9BVvv7g3Jq5x33CchDo1OKVly9NY168o7cphjpye/hxAGpy8mquLP2L0/0HiYIzK2K8vmQDf
-E/d6X4MYtwcJ4BZ04UFGVR5S+HDe4xaZgafRCT8lr2AvUwXYnfSUIv1l70Hgc6bF4n0hNrezoVc9
-34uezSpBlfdir0beGhPJa+TUOnbsZ9+0lMd5DtPOMDA6O2IyhGVcxVVsrFtUAth1ruHQ5mCa5gxJ
-gW6+7TT7Ej1FJVeyFsvU0yC7wVT0AYaT13HOuXgm6gKaxwr6u/Sks5HKag/MBWQ+9rHX9FSghKvO
-yIU83jSmaHoKe0UP2ipwhvsmYRgTSkjcPmjCBrqSxjNiOuZuyZymzeZ4MggrIOkNEKY/EYmQ9K2s
-m9qlHrg9mU5pMnO67Brnmmb4YDfrwthkV5IXqyilrc0nwwLdXDkY1BsAZqlnTxgAAAAAAAA=
+To update the configuration on the next PWM strobe in order to avoid
+glitches. I'll add a short comment in the code.
+
+> 
+> > +}
+> > +
+> > +static int rp1_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+> > +			 const struct pwm_state *state)
+> > +{
+> > +	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
+> > +	unsigned long clk_rate = clk_get_rate(rp1->clk);
+> > +	unsigned long clk_period;
+> > +	u32 value;
+> > +
+> > +	if (!clk_rate) {
+> > +		dev_err(&chip->dev, "failed to get clock rate\n");
+> > +		return -EINVAL;
+> > +	}
+> > +
+> > +	/* set period and duty cycle */
+> > +	clk_period = DIV_ROUND_CLOSEST(NSEC_PER_SEC, clk_rate);
+> 
+> DIV_ROUND_CLOSEST is wrong here. (I don't go into details as .apply()
+> should be dropped.)
+
+Ack.
+
+> 
+> > +	writel(DIV_ROUND_CLOSEST(state->duty_cycle, clk_period),
+> 
+> Dividing by the result of a division loses precision.
+> 
+> > +	       rp1->base + PWM_DUTY(pwm->hwpwm));
+> > +
+> > +	writel(DIV_ROUND_CLOSEST(state->period, clk_period),
+> > +	       rp1->base + PWM_RANGE(pwm->hwpwm));
+> > +
+> > +	/* set polarity */
+> > +	value = readl(rp1->base + PWM_CHANNEL_CTRL(pwm->hwpwm));
+> > +	if (state->polarity == PWM_POLARITY_NORMAL)
+> > +		value &= ~PWM_POLARITY;
+> > +	else
+> > +		value |= PWM_POLARITY;
+> > +	writel(value, rp1->base + PWM_CHANNEL_CTRL(pwm->hwpwm));
+> > +
+> > +	/* enable/disable */
+> > +	value = readl(rp1->base + PWM_GLOBAL_CTRL);
+> > +	if (state->enabled)
+> > +		value |= PWM_CHANNEL_ENABLE(pwm->hwpwm);
+> > +	else
+> > +		value &= ~PWM_CHANNEL_ENABLE(pwm->hwpwm);
+> > +	writel(value, rp1->base + PWM_GLOBAL_CTRL);
+> > +
+> > +	rp1_pwm_apply_config(chip, pwm);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static const struct pwm_ops rp1_pwm_ops = {
+> > +	.request = rp1_pwm_request,
+> > +	.free = rp1_pwm_free,
+> > +	.apply = rp1_pwm_apply,
+> 
+> Please implement the waveform callbacks instead of .apply().
+
+Ack.
+
+> 
+> > +};
+> > +
+> > +static int rp1_pwm_probe(struct platform_device *pdev)
+> > +{
+> > +	struct device *dev = &pdev->dev;
+> > +	struct device *hwmon_dev;
+> > +	struct pwm_chip *chip;
+> > +	struct rp1_pwm *rp1;
+> > +	int ret;
+> > +
+> > +	chip = devm_pwmchip_alloc(dev, NUM_PWMS, sizeof(*rp1));
+> > +	if (IS_ERR(chip))
+> > +		return PTR_ERR(chip);
+> > +
+> > +	rp1 = pwmchip_get_drvdata(chip);
+> > +
+> > +	rp1->base = devm_platform_ioremap_resource(pdev, 0);
+> > +	if (IS_ERR(rp1->base))
+> > +		return PTR_ERR(rp1->base);
+> > +
+> > +	rp1->clk = devm_clk_get_enabled(dev, NULL);
+> > +	if (IS_ERR(rp1->clk))
+> > +		return dev_err_probe(dev, PTR_ERR(rp1->clk), "clock not found\n");
+> 
+> Please start error messages with a capital letter.
+
+Ack.
+
+> 
+> > +
+> > +	ret = devm_clk_rate_exclusive_get(dev, rp1->clk);
+> 
+> After this call you can determine the rate just once and fail if it's ==
+> 0.
+
+Ack.
+
+> 
+> > +	if (ret)
+> > +		return dev_err_probe(dev, ret, "fail to get exclusive rate\n");
+> > +
+> > +	chip->ops = &rp1_pwm_ops;
+> > +
+> > +	platform_set_drvdata(pdev, chip);
+> > +
+> > +	ret = devm_pwmchip_add(dev, chip);
+> > +	if (ret)
+> > +		return dev_err_probe(dev, ret, "failed to register PWM chip\n");
+> > +
+> > +	hwmon_dev = devm_hwmon_device_register_with_info(dev, "rp1_fan_tach", rp1,
+> > +							 &rp1_fan_hwmon_chip_info,
+> > +							 NULL);
+> > +
+> > +	if (IS_ERR(hwmon_dev))
+> > +		return dev_err_probe(dev, PTR_ERR(hwmon_dev),
+> > +				     "failed to register hwmon fan device\n");
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int rp1_pwm_suspend(struct device *dev)
+> > +{
+> > +	struct rp1_pwm *rp1 = dev_get_drvdata(dev);
+> > +
+> > +	clk_disable_unprepare(rp1->clk);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int rp1_pwm_resume(struct device *dev)
+> > +{
+> > +	struct rp1_pwm *rp1 = dev_get_drvdata(dev);
+> > +
+> > +	return clk_prepare_enable(rp1->clk);
+> 
+> Hmm, if this fails and then the driver is unbound, the clk operations
+> are not balanced.
+
+I'll add some flags to check if the clock is really enabled or not.
+
+Regards,
+Andrea
+
+> 
+> > +}
+> > +
+> > +static DEFINE_SIMPLE_DEV_PM_OPS(rp1_pwm_pm_ops, rp1_pwm_suspend, rp1_pwm_resume);
+> > +
+> > +static const struct of_device_id rp1_pwm_of_match[] = {
+> > +	{ .compatible = "raspberrypi,rp1-pwm" },
+> > +	{ /* sentinel */ }
+> > +};
+> > +MODULE_DEVICE_TABLE(of, rp1_pwm_of_match);
+> > +
+> > +static struct platform_driver rp1_pwm_driver = {
+> > +	.probe = rp1_pwm_probe,
+> > +	.driver = {
+> > +		.name = "rp1-pwm",
+> > +		.of_match_table = rp1_pwm_of_match,
+> > +		.pm = pm_ptr(&rp1_pwm_pm_ops),
+> > +	},
+> > +};
+> > +module_platform_driver(rp1_pwm_driver);
+> > +
+> > +MODULE_DESCRIPTION("RP1 PWM driver");
+> > +MODULE_AUTHOR("Naushir Patuck <naush@raspberrypi.com>");
+> > +MODULE_LICENSE("GPL");
+> > -- 
+> > 2.35.3
+> > 
+> 
+> Best regards
+> Uwe
 
 
---=-xzkmjBBbsJKO86yZuO/f--
 
