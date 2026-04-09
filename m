@@ -4,61 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E7E5E9DE62
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 08:17:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF09E9DE68
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 08:28:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E+lRhdHDVBJrTkG1AmezHRrGltYZhkhVeZypFBMsKvo=; b=WlJ/RKvvkEJwaXaNaCkw5P8hTQ
-	0F5gAMbjHjx9C/ug/Mu1GablPFwXyMNacuF+1CGBpPJXyHSzWcDW5VZCkPkJ2zNQD6ESpu5tjM+2I
-	F5N7dQq1bavGT7uqB3oUkIefm32dnSjLNu/H06Wqit8JAPOYcmVUoHjMBH4hdvVgoMIhYC81k79Dn
-	pFlvQmTaPRFe2gNexBDacDDVbi9ohutoo5fvWP18WQAo5w//2AR99Z6a3qdZwLIvth8RNqeYIP7Sk
-	wjtahRZra4buQumt79eTmS9VxRM+ovzJa/UEjIDIg0dNjTOlWBz57rAA2Am85bdWincZ5pbWCCNeR
-	jqqx8Xrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aTaUCr1A2I+1wqTvl3TKv6QTLEetojWJo60VzPZFc+A=; b=lty8PPnzopPVwokR0JtyfKZ7oL
+	MkSO2XeOmpMoGWtV2SJgus7vKd5jof1XrjX9BAOVXWl+R7m/aFogrxGVDWwOKDLG7u6AM5EsrKt9k
+	D/J5UdtPephHi1BomhIZEkAiCKxevZGCoQfTYpLxO53ctbhYXkYb2hpf1wVmsHq15O6imjYk2M8sV
+	8EF7etIq1NYIPyI1MYTMH0b011bhtXMRfoajs0g+SDr5iV8T6rBUxIfgjcXWrpQQ1aedKmii53vTg
+	Sw7Rn3SeaUhBv5zQKmTfj7s3gbF4hUiRqv1XEQ40b0PRLabswxV0IhgTVyJ/VNx5SM7b6+eH3zd3W
+	XKStQGsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAkZx-00000009vtk-2WPO;
-	Thu, 09 Apr 2026 08:17:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wAkkE-00000009wZG-10bn;
+	Thu, 09 Apr 2026 08:28:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAkZw-00000009vta-25tX;
-	Thu, 09 Apr 2026 08:17:32 +0000
+	id 1wAkkB-00000009wYp-2Uzb
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Apr 2026 08:28:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6CD76600AD;
-	Thu,  9 Apr 2026 08:17:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D54DC4CEF7;
-	Thu,  9 Apr 2026 08:17:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5BF56440F0
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Apr 2026 08:28:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BD30C2BCAF
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  9 Apr 2026 08:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775722651;
-	bh=sPCrS7Vxsq6SyoOdi8MM943FRV/lGQdBwPfGUAhtoiE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZULk9AoFoGK/bsWIrEczQm+RKRre0K8iu4RVp8K7KIsNSixdhhWMn8KJtAQtC8F4Y
-	 nr8Ljqk5J+0stJmGOuYkPiurEWOTFiQbRhjU44q1mBt7ebBABamq0fJyF2ZdEo61iw
-	 JUtWr+X3NwsF5UKpUIiW8m1apbvd7qkKKM7hzV58QMA94pnRkN8TEgBc88FuS8S9qf
-	 0ypubbDQX+BXP0kwRNOCWkIW+Vf5Rhj3hVrwIjAfYEz7Xc11Au4bJmamJFeOEPDsvX
-	 GoHlHV+uA7b/mtlls1wH1x29hs8TpcYTxTr8bOlWsAaJHT9XSdUpYMUlaVGLCqLWuQ
-	 iuU5lQbeswGnA==
-Date: Thu, 9 Apr 2026 10:17:28 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Gregor Herburger <gregor.herburger@linutronix.de>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>, Stefan Wahren <wahrenst@gmx.net>, 
-	Srinivas Kandagatla <srini@kernel.org>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] nvmem: Add the Raspberry Pi OTP driver
-Message-ID: <20260409-pearl-turkey-of-adventure-815ffe@quoll>
-References: <20260408-rpi-otp-driver-v1-0-e02d1dbe6008@linutronix.de>
- <20260408-rpi-otp-driver-v1-2-e02d1dbe6008@linutronix.de>
+	s=k20201202; t=1775723286;
+	bh=aTaUCr1A2I+1wqTvl3TKv6QTLEetojWJo60VzPZFc+A=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=hFmWyjvjjainN0waFI5SgxxVEcVbJNwNrL0mx+XuPVAsRyyMkxghRurUAIU+4uiOf
+	 fXljosaAod1JlDrJMGbseZ9MuWHidtbqP+d6gC5EYv2oJ8BKH0kdy/rebKAbU0ShkJ
+	 ANEHl4nDw5Wfvrm27lOHVgA84IclOfaZ7z5Wr5XkxQtFCNzpbRADM9pBYskD/2rVQh
+	 RV7WryA3gluS5oyR8WvDWPPq0YicpANCGngJcqdFAOAd3bVB4Po+JJse43tdThFCEj
+	 23BvfTpLx0m7cN62ig1JkvJJZTB+ysqsXcPoVJnTO7lWAiOOhqrW7PQCrE9fP7ptz2
+	 VJhgVubw101hA==
+Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-7a43424f861so5440067b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Apr 2026 01:28:06 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUZVuvlAnLIthPUEHtBGQxuSWAm0AofDUDaV7lqpn6kx1oro50Dr9K3JVO1kysBdDQ/EgOfJFdm6EbD/i4v69kf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/3OwyskhXanqShBtdoFCYiYJZEot0Dde6GKBmXcsyTAvYvUCm
+	oKPqZNw+bBObCl9G0YrXmYd8V+UQrE6Mrphz9uAbQlDBiN6GhUCrTf/JIk9qF427rAcogrXg9ai
+	9yImj8LEVDBCn+wA45+vQPu6ktdLNxvc=
+X-Received: by 2002:a05:690c:86:b0:79f:b903:88be with SMTP id
+ 00721157ae682-7adf1f63befmr26878747b3.16.1775723285630; Thu, 09 Apr 2026
+ 01:28:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260408-rpi-otp-driver-v1-2-e02d1dbe6008@linutronix.de>
+References: <20260320-apple-m3-initial-devicetrees-v1-0-5842e1e393a8@jannau.net>
+ <20260320-apple-m3-initial-devicetrees-v1-5-5842e1e393a8@jannau.net>
+In-Reply-To: <20260320-apple-m3-initial-devicetrees-v1-5-5842e1e393a8@jannau.net>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 9 Apr 2026 10:27:54 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkcoSyt4ag=Vtf0HW+UhnvXAQH=RqdiZ0LB17UdURjTCg@mail.gmail.com>
+X-Gm-Features: AQROBzCBPK9j1p1wyGlpXng0vuJPY67DBxyZqUb3UmeFzFxdcTXTQHWBijmLSC0
+Message-ID: <CAD++jLkcoSyt4ag=Vtf0HW+UhnvXAQH=RqdiZ0LB17UdURjTCg@mail.gmail.com>
+Subject: Re: [PATCH 5/9] dt-bindings: pinctrl: apple,pinctrl: Add t8122 compatible
+To: Janne Grunau <j@jannau.net>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
+	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, 
+	Mark Kettenis <kettenis@openbsd.org>, Andi Shyti <andi.shyti@kernel.org>, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
+	Sasha Finkelstein <fnkl.kernel@gmail.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org, 
+	linux-pwm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260409_012807_651595_9CC9BD9E 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,36 +92,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 08, 2026 at 10:00:16AM +0200, Gregor Herburger wrote:
-> Raspberry Pis have OTP registers which can be accessed through the
-> videocore firmware. Add a nvmem driver to support these OTP registers.
-> 
-> Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
-> ---
->  drivers/nvmem/Kconfig                      |  12 +++
->  drivers/nvmem/Makefile                     |   1 +
->  drivers/nvmem/raspberrypi-otp.c            | 159 +++++++++++++++++++++++++++++
->  include/soc/bcm2835/raspberrypi-firmware.h |   2 +
->  4 files changed, 174 insertions(+)
-> 
-> diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
-> index 74ddbd0f79b0..892d05fe67be 100644
-> --- a/drivers/nvmem/Kconfig
-> +++ b/drivers/nvmem/Kconfig
-> @@ -483,4 +483,16 @@ config NVMEM_QORIQ_EFUSE
->  	  This driver can also be built as a module. If so, the module
->  	  will be called nvmem_qoriq_efuse.
->  
-> +config NVMEM_RASPBERRYPI_OTP
-> +	tristate "Raspberry Pi OTP support"
-> +	# Make sure not 'y' when RASPBERRYPI_FIRMWARE is 'm'. This can only
-> +	# happen when COMPILE_TEST=y, hence the added !RASPBERRYPI_FIRMWARE.
+On Fri, Mar 20, 2026 at 1:23=E2=80=AFPM Janne Grunau <j@jannau.net> wrote:
 
-Drop comment and use standard rules for multiple modules.
+> The pin controller on the Apple silicon t8122 (M3) SoC is compatible
+> with the existing driver. Add "apple,t8122-pinctrl" as SoC specific
+> compatible under "apple,t8103-pinctrl" used by the driver.
+>
+> Signed-off-by: Janne Grunau <j@jannau.net>
 
-https://lwn.net/Articles/944368/
+This patch applied to the pinctrl tree for v7.1.
 
-Best regards,
-Krzysztof
-
+Yours,
+Linus Walleij
 
