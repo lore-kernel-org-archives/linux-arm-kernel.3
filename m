@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87B51EA3C4E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 12:25:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E97CEA3C4E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 12:25:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Co/4Ve9n6VtY3ahQ6O+ULQzOFl8L54M5+KbBmDwRrjk=; b=VzIP5ymZRtMKGKaSZPUZcCp8oE
-	kedZIh3RfxBXOqLn3b46eVqdXPDzxCqFd8TIZZW7fOWwCzqmC1wdDNs62CjZ8vuIrG/l773+h7RPg
-	VgjKO4fx2gNpmg0YqhGnJ0w9vn/PPNJ90wcvuIgkaS8HtANUrSdaRjI8KTLeX6vtAMaVV2CFPQZwf
-	wyIYksdNourXslZKB0VtJpVT1FGS24j7NhSbOi5l2LH4RX5uMuuZbDBFHxOkdtttGD0jvdfFj3VDP
-	YDSsTVHqzT/RGNWeyOPSwvSTda0oe9DXQxcs3xUI+MGOioHUPRhaWtcBadsbJ4wLh1zE9zoXN6ZDA
-	6gtCMKWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=RnRdkkIeOFnERozHMnrNTAGS9txoTqjhyP3a7gFQQHw=; b=PDrdDsABDEhvTs
+	3mRArCNHeKrGvC9ls5VYMsjdB9iAzYGjk5Fqn795nc5vsy+hk40NFIc/pvCyNLGHavMnWTBXrsmXP
+	RyHAdOs+DrLWytQtkhUDen+azF5gdYI26foFru6K/JwyDF52xSQ7VTmZfGEwAvQIZkhmSH0KNHwjQ
+	kUnNv91LXyU/Q1mlOMd8kHWaxnqXY9SKLYYOOKJuSNPXKFlyAE9psOjnai7OOHk/dhe5a3vYZfJ8a
+	sIqaB2FDcZuJPToL3iq6Vfruc9E9yoyV5jDuBsPnHZbBaEzCUUgwd4uwACSxg6IfXB1DbgZzDHV5G
+	SMMitaQpQz8IhlmfEPqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAoRg-0000000AND2-29Ac;
-	Thu, 09 Apr 2026 12:25:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wAoRt-0000000ANGF-3U5v;
+	Thu, 09 Apr 2026 12:25:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAoRe-0000000ANCZ-0gcP
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 12:25:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5BA104341F;
-	Thu,  9 Apr 2026 12:25:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E696BC4CEF7;
-	Thu,  9 Apr 2026 12:25:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775737513;
-	bh=PzGc744IfLosoYW/4TYIUb0+vQyy/eIOqkVjcY5usVM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=D+mBCCTm9aFfhSUlUFqw7wrHppv2f4W7eKSm69uxuv5Z2uuExwh2/9eCTIjI6xH0m
-	 28Hmy03nH48fD8BLpZeHYWQgRV2z9yHvvNL+A7Xj9CQAJY7VTnkehdsCEK8SlQ/dXN
-	 8SanpPUp8lKo713jj0QT4nvCvTMxbBwnQJS8M5GYFNAW0yVt7ixghSjhYLA0X2C71X
-	 zxAupitBEFW/QW2bKOhuwAbQ8AsGI7ive/vhGkvWOywiAQlBsI+FUWfUCAdl1RV+gR
-	 lL+r8hNCTYz90ZpdUgejiQ0ufQxoWP5uKarpT/pyxot/ETPyd0BV3bPjGgQxpYaRsn
-	 todkMfrFJn0dg==
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	linux-clk@vger.kernel.org,
-	Sylwester Nawrocki <snawrocki@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] clk: samsung: drivers for v7.1
-Date: Thu,  9 Apr 2026 14:25:03 +0200
-Message-ID: <20260409122504.71017-2-krzk@kernel.org>
-X-Mailer: git-send-email 2.51.0
+	id 1wAoRr-0000000ANFk-3byK
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 09 Apr 2026 12:25:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:References;
+	bh=RnRdkkIeOFnERozHMnrNTAGS9txoTqjhyP3a7gFQQHw=; b=dXrxA8mH2nN1kRRptHzp1z1QES
+	ztTjow5XN+6jLAY1Gyc+xglRIUSJ16xHLbfd770sZBKhAwbzPoWL2lavXMqdO9Ud908bHOCad3uUV
+	hk8oAjAPEDzkKqIg8N3DvlzY8s4qrcIWVjJRE4+874cqTj+06BrG/5EwN2VqMI6wMx1vx6zOqcIJf
+	J0g8REwC4DIlA3civOPEZTLWE1BS+kCvALpcOKAMv/Of8nKrwDIRnFXLcGKsjx267ZCyQlwqI6w2D
+	TG2Fb1/EnQMWXNQbfR2jWEPiFL+Tme7z8eW2luWZsKdntAsX3nirdSQrxr8K5C9JQGVishIFekH3g
+	E+NZ9R7A==;
+Received: from [172.31.31.148] (helo=u09cd745991455d.lumleys.internal)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAoRo-0000000BftE-0e6V;
+	Thu, 09 Apr 2026 12:25:24 +0000
+Message-ID: <b71910e202ac4a56a87c0e34df13cce058d46a76.camel@infradead.org>
+Subject: Re: [PATCH v7 7/7] KVM: arm64: Normalize cache configuration
+From: David Woodhouse <dwmw2@infradead.org>
+To: akihiko.odaki@daynix.com, "Gutierrez Cantu, Bernardo"
+ <bercantu@amazon.de>
+Cc: alexandru.elisei@arm.com, alyssa@rosenzweig.io, asahi@lists.linux.dev, 
+	broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com, 
+	kvmarm@lists.cs.columbia.edu, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	marcan@marcan.st, mathieu.poirier@linaro.org, maz@kernel.org, 
+	oliver.upton@linux.dev, suzuki.poulose@arm.com, sven@svenpeter.dev, 
+	will@kernel.org
+Date: Thu, 09 Apr 2026 13:25:24 +0100
+In-Reply-To: <20230112023852.42012-8-akihiko.odaki@daynix.com>
+Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
+	boundary="=-ZZjCevT/iXURwbP7KwJb"
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2759; i=krzk@kernel.org; h=from:subject; bh=PzGc744IfLosoYW/4TYIUb0+vQyy/eIOqkVjcY5usVM=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBp15qggmUZ3kZpp2bVcyGYL99GjodD8u7JOCp85 BWyWyjGyHqJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCadeaoAAKCRDBN2bmhouD 1x8vD/47Otrj+RkgOUhE4x6o4gLRbj8uIwUT1Kl/+IvbYl1Zb0h0m9JVQSHu9Dljpqa8sZsLBLI +0bARVU4n5OaCpQ6gcVaGYB8TRwdiuopLwICEi6UApL0Uz9FCgtZuz6PIw/a5jo2SggD0WRAs6V n3mA6/fIs0KMoMgWnjV6ouWUib7yl/SFE8tk2H2GvyHODv3+0ZCemLCmWjjx9KlrE1UrZHlO5M5 HOO/WoRiDF5D+so1M5reTEiVdnR0KFcBcIt3SZwy1BS60mZxiodcNp2zLv50afP8l/VVAoabEP3 Ijlua8KJB+sGC3lRcNnfp6s//0APB0XZFRTMDUAadjAdz2XSc5NigHP6YZFBPThfZYJuSxIfIiF lLGQ6lxuoacmmLngyYHk41mRUOW7Ee5u/KeIB9B2u54seHTbFAq/2V+6cx7/wM08tM72/LFCqTk Lb3pIBMJnmF1iDcYMhbjJ3YqrHQsVyXcKtuF/nIecqbReLvs5B05eKl1WndGkq2JZLf6XHxbOPx CBXckWYBJesypbiIYOdqZhoSiPv6tyeaQL0Q+g/BUKxvizbMLdZlgtbEBHs2yjvpAtgYrWqSZCl hfr5lDegZpnDOkHoL92dIjv3tVZSEd+Bd4cFErlmN4z+Hc1XHOtKznZFRPRrEkD6dxqWW9P/ceD n4wloye2NfPGYZQ==
-X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_052514_246725_CB930CE0 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +74,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 
-  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+--=-ZZjCevT/iXURwbP7KwJb
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-are available in the Git repository at:
+On Thu, 12 Jan 2023 at 11:38:52 +0900, Akihiko Odaki wrote:
+> Before this change, the cache configuration of the physical CPU was
+> exposed to vcpus. This is problematic because the cache configuration a
+> vcpu sees varies when it migrates between vcpus with different cache
+> configurations.
+>=20
+> Fabricate cache configuration from the sanitized value, which holds the
+> CTR_EL0 value the userspace sees regardless of which physical CPU it
+> resides on.
+>=20
+> CLIDR_EL1 and CCSIDR_EL1 are now writable from the userspace so that
+> the VMM can restore the values saved with the old kernel.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-clk-7.1
+(commit 7af0c2534f4c5)
 
-for you to fetch changes up to e57c36bc1a3e459239ead492ebce731a88a264b1:
+How does the VMM set the values that the old kernel would have set?
 
-  clk: samsung: exynos850: Add APM-to-AP mailbox clock (2026-03-24 13:43:19 +0100)
+Let's say we're deploying a kernel with this change for the first time,
+and we need to ensure that we provide a consistent environment to
+guests, which can be live migrated back to an older host.
 
-----------------------------------------------------------------
-Samsung SoC clock drivers changes for v7.1
+So for new launches, we need to provide the values that the old kernel
+*would* have provided to the guest. A new launch isn't a migration;
+there are no "values saved with the old kernel".
 
-1. Axis ARTPEC-9: Add new PLL clocks and new drivers for eight clock
-   controllers on the SoC.
-2. ExynosAutov920: Add G3D (GPU) clock controller.
-3. Exynos850: Define missing clock for the APM mailbox.
-4. Few compiler warning fixes cleanups.
+Userspace can't read the CLIDR_EL1 and CCSIDR_EL1 registers directly,
+and AFAICT not everything we need to reconstitute them is in sysfs. How
+is this supposed to work?
 
-----------------------------------------------------------------
-Alexey Klimov (2):
-      dt-bindings: clock: exynos850: Add APM_AP MAILBOX clock
-      clk: samsung: exynos850: Add APM-to-AP mailbox clock
+Shouldn't this change have been made as a capability that the VMM can
+explicitly opt in or out of? Environments that don't do cross-CPU
+migration absolutely don't care about, and actively don't *want*, the
+sanitisation that this commit inflicted on us, surely?
 
-André Draszik (1):
-      clk: samsung: gs101: harmonise symbol names (clock arrays)
+Am I missing something?
 
-GyoungBo Min (3):
-      dt-bindings: clock: Add ARTPEC-9 clock controller
-      clk: samsung: Add clock PLL support for ARTPEC-9 SoC
-      clk: samsung: artpec-9: Add initial clock support for ARTPEC-9 SoC
 
-Krzysztof Kozlowski (3):
-      clk: samsung: pll: Fix possible truncation in a9fraco recalc rate
-      clk: samsung: Use %pe format to simplify
-      Merge branch 'for-v7.1/dt-bindings-clk' into next/clk
 
-Raghav Sharma (2):
-      dt-bindings: clock: exynosautov920: add G3D clock definitions
-      clk: samsung: exynosautov920: add block G3D clock support
 
- .../bindings/clock/axis,artpec9-clock.yaml         |  232 ++++
- .../clock/samsung,exynosautov920-clock.yaml        |   21 +
- drivers/clk/samsung/Makefile                       |    1 +
- drivers/clk/samsung/clk-artpec9.c                  | 1224 ++++++++++++++++++++
- drivers/clk/samsung/clk-exynos850.c                |    7 +-
- drivers/clk/samsung/clk-exynosautov920.c           |   52 +
- drivers/clk/samsung/clk-gs101.c                    |   52 +-
- drivers/clk/samsung/clk-pll.c                      |  185 ++-
- drivers/clk/samsung/clk-pll.h                      |   17 +
- drivers/clk/samsung/clk.c                          |    4 +-
- include/dt-bindings/clock/axis,artpec9-clk.h       |  195 ++++
- include/dt-bindings/clock/exynos850.h              |    1 +
- include/dt-bindings/clock/samsung,exynosautov920.h |    6 +
- 13 files changed, 1960 insertions(+), 37 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/clock/axis,artpec9-clock.yaml
- create mode 100644 drivers/clk/samsung/clk-artpec9.c
- create mode 100644 include/dt-bindings/clock/axis,artpec9-clk.h
+
+
+
+--=-ZZjCevT/iXURwbP7KwJb
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Transfer-Encoding: base64
+
+MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
+ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
+AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
+BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
+MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
+a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
+jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
+GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
+aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
+nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
+8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
+HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
+IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
+KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
+BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
+QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
+QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
+ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
+/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
+uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
+xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
+W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
+c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
+VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
+NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
+DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
+sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
+w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
+i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
+kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
+0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
+ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
+blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
+hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
+VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
+HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
+ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
+AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
+cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
+cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
+AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
+aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
+hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
+iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
+8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
+JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
+xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
+EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
+B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
+MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
+KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
+Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
+nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
+WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
+W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
+nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
+g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
+9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
+9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
+sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
+a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
+ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
+AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
+dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
+MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
+YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
+4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
+6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
+QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
+nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
+MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
+VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
+ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDQwOTEyMjUy
+NFowLwYJKoZIhvcNAQkEMSIEIBcZr1js0uU6ozjBLD2Hy6GQ1tvOL6TXI/NWwpRh74MGMGQGCSsG
+AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
+cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
+VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
+cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAziBAqMwXIfyn
+QexephWUhvrmu62/jirki2ElNorrCURYI9/r+LBjtKIRYMYl17lJ0ciaZsUKldenQ5bnDZfPdcI4
+Rs8lI4bc9Bh/gXvItUOk6BLzf5r3d4lCQEOSW2tNKL1MjxijRw4n0V5DSQJ6opEBPCn6kaKQL7Oo
+5FKPFyaJDony6ECF+dBe/kXmwfH917PFFOoIOiQ0u/Z2wnNiC8GShjOvjwDWBekbmydlXkSEBWXy
++gcOdA7ndjal2T/LcOwmOKKmnoGLXLMqVOEpPJ4HJA+Xt86Z5qS/AKBgt+2gnHjEXdtlh+2GCrCU
+FiyPZEix5mOG2WPQz1MO3eF8SZBf3nWXX0yMyWBppD5rnt8mTthUUrwAJAq8z2YuBdUj2+L8+6Zk
+vKZeq7buc5xVRAcpp/xJ6T2QRSUxawOZPP9yENbAtNnYQ1cDHedmrGztnuCt0hgC5pIZfep02ifj
+56PZYV8zDhVJ3YZk6DEbDb5v7ZvfxSy54C7JMVGbKyTGFrTxpB58zyOVW5SknG5zM7zlKk0nDDUs
+63sfr0CIrI8lG2cm+PpUxa6hiTboTA67jX/d1ZR2NKhnajL5pHj3tB2zJatP+j61ZHj770bNjqTv
+zfeCHLVrnNllyZlgsJHd1MvBjb9RSPeR5stVj2HOOhjnb+uTPEZVS2zbriqAjYUAAAAAAAA=
+
+
+--=-ZZjCevT/iXURwbP7KwJb--
 
