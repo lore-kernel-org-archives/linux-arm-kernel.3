@@ -4,89 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC12DF31E31
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 15:45:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5E63F31E44
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 15:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G9h/BUcB8IHEauzcEwlgjyxakGZobrNdMzDSAfArNCY=; b=Jr3pWSDzdYSBmfBmqGR6QpHvoV
-	9AgykvccUlm6y4dfXNFx7PWvI0+A0gFK5ESy2is42lVrLnMsEeoN2zsJptey0lQ4TN+MzptphI5G/
-	Q7Nh/LHQideUeVYtNwjEFHzS5cx17P5j0yzlkAJRoqvTDul7sZ4bUZvGpT+Ko3Si9wj3PWMLiDE00
-	u8OKgi6fnq4MlVVqMgAhfELKzHig4ZzDpHDqbY7Kf68NjBXhAVsUe6G4X0sQluyWx3YFe6lVLHFzs
-	EQy6f7Wrsbw9jxW+RHyzo2vsWAW1QlH5b8BrlSWj99EeXbwVWWhFtNbsTkDN2Biwr4cIUFWH7HW/Y
-	jgE7ydjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0aHLj5HMmgBNp83PkRXSBCxnfFGY6jOss5iAqSsZMsg=; b=o4J3VE02hs+4tCh9KlsT6qb8JN
+	ijFnNlvPaqe/5wtN8kstk0hDDUtLpoUs6w7NWF2GTlgSabTR/6SaueXC74x8j+giOkCr+AhJEpXiw
+	LGQGMw/hmpPmLUF5/mOe0XH94swOKrKcLoq4rEx1ANHtol6D7yjdvfUc4VCf6vwC0cpPb2pniCOQ4
+	eB4liVIyVaJxeoDFWCjv/UFvvboL0Dgq4SvumEAWqNwYq4vKd1ZtCUw8qO1Bg0yDc/1xiXc717usP
+	3uxYO7Nxj7Rp2bCyGRAl39y2JZamjDTizgk5rIjhKPhW6HQ9tuR6iKzp23gVdWyCJ8lN89PwMzRaj
+	KJiyaZow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wArZB-0000000AouT-2ldt;
-	Thu, 09 Apr 2026 15:45:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wAraC-0000000Ap6i-3x3m;
+	Thu, 09 Apr 2026 15:46:16 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wArZ5-0000000Aotc-2Wge
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 15:45:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A97ED44026;
-	Thu,  9 Apr 2026 15:45:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 834E7C4CEF7;
-	Thu,  9 Apr 2026 15:45:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775749506;
-	bh=J6uiOo4APYV7VEgCDfwDN+sbPUnXpMBRqqY6RsCKT5c=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Mh+SqBu9kZ5UZJFuJAfr+D4QAjyXGfs1nMUS6KUL+ByVAfviO/LbQb8XMitubiSPY
-	 5GO7pqYpIV7ylUi27n0wC2wz0UFjOb4xyRir1O+A6FNhaY7sMBWdJDF21nnwLixZRE
-	 MnqUR4yH/uv5m67n1AMRQAvbeKbUd0Py0sP3BS/jZ2j11kNKxh/xE5lEOxbS8LElTw
-	 ROP93FZzJ8tUzDB6A29zCYUI1A71zpGa1P5vyHJeJf8vtCU678wy6017pkbqZ5PKKS
-	 a/K6a37maNHR7Ijx1Y11S3JQpiLkvoAdd/rgtbkAUaXoj83BbeNVV8ZyPQWUiXdrBV
-	 m7fnDjRWAVTbQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wArZ2-0000000AIrt-0Y6e;
-	Thu, 09 Apr 2026 15:45:04 +0000
-Date: Thu, 09 Apr 2026 16:45:03 +0100
-Message-ID: <86tstk2l4w.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: David Woodhouse <dwmw2@infradead.org>
-Cc: "Gutierrez Cantu, Bernardo"
- <bercantu@amazon.de>,
-	alexandru.elisei@arm.com,
-	alyssa@rosenzweig.io,
-	asahi@lists.linux.dev,
-	broonie@kernel.org,
-	catalin.marinas@arm.com,
-	james.morse@arm.com,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	marcan@marcan.st,
-	mathieu.poirier@linaro.org,
-	oliver.upton@linux.dev,
-	suzuki.poulose@arm.com,
-	sven@svenpeter.dev,
-	will@kernel.org
-Subject: Re: [PATCH v7 7/7] KVM: arm64: Normalize cache configuration
-In-Reply-To: <254ca48a67779ccf9b9f60e2bb5796a305c03f95.camel@infradead.org>
-References: <20230112023852.42012-8-akihiko.odaki@daynix.com>
-	<b71910e202ac4a56a87c0e34df13cce058d46a76.camel@infradead.org>
-	<86wlyg2r3i.wl-maz@kernel.org>
-	<254ca48a67779ccf9b9f60e2bb5796a305c03f95.camel@infradead.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: dwmw2@infradead.org, bercantu@amazon.de, alexandru.elisei@arm.com, alyssa@rosenzweig.io, asahi@lists.linux.dev, broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, marcan@marcan.st, mathieu.poirier@linaro.org, oliver.upton@linux.dev, suzuki.poulose@arm.com, sven@svenpeter.dev, will@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wAraA-0000000Ap5v-0mOe;
+	Thu, 09 Apr 2026 15:46:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1775749529; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=agtvjI+pnCHz0Ag5AvYiFRNstTcoVeRzJr2ju9Iyrz7duW44QPjIdWE/RTvXPiaIkROkvIF/m8BScyofYHpejunH+UHawFZY87zy7zslmTy3Ww85ZWuyQUqvPx5gKv/WgC6Y9mvVbbc9T9Gp9zppXGrUcb6uN3DLi1vr81wjPME=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1775749529; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=0aHLj5HMmgBNp83PkRXSBCxnfFGY6jOss5iAqSsZMsg=; 
+	b=e4LCxLOyczxpIS9KNm4syXFPr49A13WdJ7Gf5QngNgklPJobpRr3iGa6lO/dX67X29tSJg7rnET+LvQaQbd1icfe/T2VZss3kvlvf4Bxtl5FXaVWxgaNalZJmzqDwC3afNHotRXVdBKMuumW3dIzRw5ekizmLWN7XgQZgttbvPU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1775749529;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=0aHLj5HMmgBNp83PkRXSBCxnfFGY6jOss5iAqSsZMsg=;
+	b=kpGDp8lxI0LvIat8Nawp4fI3E1DpcgR2NVh1ygDF7OM5LvH1ecJ8MWrO/ExySrEA
+	ft9VANFyfoTuhBYYeSwDKtjYzqQq+N4Sci7lKQqH2ORyVS/4ET3804XQsOtcKHkQAzH
+	I6ynkkoYfznHt3lbgx05C4n+viwMyQ65vm6D2qGY=
+Received: by mx.zohomail.com with SMTPS id 1775749528163568.8972502812666;
+	Thu, 9 Apr 2026 08:45:28 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Thu, 09 Apr 2026 17:44:51 +0200
+Subject: [PATCH v12 01/25] drm/amd/display: Remove unnecessary
+ SIGNAL_TYPE_HDMI_TYPE_A check
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260409-color-format-v12-1-ce84e1817a27@collabora.com>
+References: <20260409-color-format-v12-0-ce84e1817a27@collabora.com>
+In-Reply-To: <20260409-color-format-v12-0-ce84e1817a27@collabora.com>
+To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+ Rodrigo Siqueira <siqueira@igalia.com>, 
+ Alex Deucher <alexander.deucher@amd.com>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>
+Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+ linux-doc@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Werner Sembach <wse@tuxedocomputers.com>, 
+ Andri Yngvason <andri@yngvason.is>
+X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_084507_684661_139454BB 
-X-CRM114-Status: GOOD (  42.30  )
+X-CRM114-CacheID: sfid-20260409_084614_277662_B664C68F 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,90 +102,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 09 Apr 2026 15:51:59 +0100,
-David Woodhouse <dwmw2@infradead.org> wrote:
-> 
-> [1  <text/plain; UTF-8 (quoted-printable)>]
-> On Thu, 2026-04-09 at 14:36 +0100, Marc Zyngier wrote:
-> > On Thu, 09 Apr 2026 13:25:24 +0100,
-> > David Woodhouse <dwmw2@infradead.org> wrote:
-> > > 
-> > > On Thu, 12 Jan 2023 at 11:38:52 +0900, Akihiko Odaki wrote:
-> > > > Before this change, the cache configuration of the physical CPU was
-> > > > exposed to vcpus. This is problematic because the cache configuration a
-> > > > vcpu sees varies when it migrates between vcpus with different cache
-> > > > configurations.
-> > > > 
-> > > > Fabricate cache configuration from the sanitized value, which holds the
-> > > > CTR_EL0 value the userspace sees regardless of which physical CPU it
-> > > > resides on.
-> > > > 
-> > > > CLIDR_EL1 and CCSIDR_EL1 are now writable from the userspace so that
-> > > > the VMM can restore the values saved with the old kernel.
-> > > 
-> > > (commit 7af0c2534f4c5)
-> > > 
-> > > How does the VMM set the values that the old kernel would have set?
-> > 
-> > By reading them at the source?
-> 
-> Yes, but the VMM in EL0 *can't* read the source, can it?
+From: Werner Sembach <wse@tuxedocomputers.com>
 
-Again, this is designed for migration, and snapshoting the source
-values gives you the expected result.
+Remove unnecessary SIGNAL_TYPE_HDMI_TYPE_A check that was performed in the
+drm_mode_is_420_only() case, but not in the drm_mode_is_420_also() &&
+force_yuv420_output case.
 
->
-> > > Let's say we're deploying a kernel with this change for the first time,
-> > > and we need to ensure that we provide a consistent environment to
-> > > guests, which can be live migrated back to an older host.
-> > 
-> > We have never guaranteed host downgrade. It almost never works.
-> 
-> Huh? Host downgrade absolutely *does* work; KVM on Arm isn't a toy.
-> We'd never be able to ship a new kernel if we didn't know we could roll
-> it *back* if we needed to.
+Without further knowledge if YCbCr 4:2:0 is supported outside of HDMI,
+there is no reason to use RGB when the display
+reports drm_mode_is_420_only() even on a non HDMI connection.
 
-You have clearly been lucky so far, because I'd never such claim.
+This patch also moves both checks in the same if-case. This  eliminates an
+extra else-if-case.
 
-> 
-> I *know* that you know perfectly well that we actively test host
-> downgrades prior to every rollout of a new kernel. So I'm a little
-> confused about what you're trying to say here, Marc.
+Signed-off-by: Werner Sembach <wse@tuxedocomputers.com>
+Signed-off-by: Andri Yngvason <andri@yngvason.is>
+Tested-by: Andri Yngvason <andri@yngvason.is>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+ drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
 
-I said exactly this: we make no effort to ensure that a guest started
-on a version of the kernel can be migrated to an older version -- the
-state space might be different.
-
-> 
-> > > So for new launches, we need to provide the values that the old kernel
-> > > *would* have provided to the guest. A new launch isn't a migration;
-> > > there are no "values saved with the old kernel".
-> > 
-> > And you can provide these values.
-> 
-> If I know them, sure. But I don't, because:
-> 
-> > > Userspace can't read the CLIDR_EL1 and CCSIDR_EL1 registers directly,
-> > > and AFAICT not everything we need to reconstitute them is in sysfs. How
-> > > is this supposed to work?
-> > > 
-> > > Shouldn't this change have been made as a capability that the VMM can
-> > > explicitly opt in or out of? Environments that don't do cross-CPU
-> > > migration absolutely don't care about, and actively don't *want*, the
-> > > sanitisation that this commit inflicted on us, surely?
-> > 
-> > I don't think a capability buys you anything. You want to expose
-> > something to the guest? Make it so. You are in the favourable
-> > situation to completely own the HW and the VMM.
-> 
-> Now that the values are writable, but userspace can't easily see *what*
-> they would have been in the previous kernel. So having the capability
-> to ask KVM to set them to those values seems like it might be useful.
-
-Well, it's only a patch away.
-
-	M.
+diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+index c2066319772b..ad9714382d5f 100644
+--- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
++++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+@@ -6780,12 +6780,9 @@ static void fill_stream_properties_from_drm_display_mode(
+ 	timing_out->v_border_top = 0;
+ 	timing_out->v_border_bottom = 0;
+ 	/* TODO: un-hardcode */
+-	if (drm_mode_is_420_only(info, mode_in)
+-			&& stream->signal == SIGNAL_TYPE_HDMI_TYPE_A)
+-		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR420;
+-	else if (drm_mode_is_420_also(info, mode_in)
+-			&& aconnector
+-			&& aconnector->force_yuv420_output)
++	if (drm_mode_is_420_only(info, mode_in) ||
++	    (aconnector && aconnector->force_yuv420_output &&
++	     drm_mode_is_420_also(info, mode_in)))
+ 		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR420;
+ 	else if ((connector->display_info.color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422))
+ 			&& aconnector
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.53.0
+
 
