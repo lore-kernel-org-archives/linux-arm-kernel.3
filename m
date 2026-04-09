@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D9EE98FDD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 09:50:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82DC0E98FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 09:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JqDGV9Plf6MZGufAJW+skCQprjymwDjRJ4nQnJSDPKs=; b=wXvceKyEVtwfrZ6D1eLlZ36eMo
-	je0LORdbviPerRW23V8TB61NfTH703/r+ylWdK1oHkrjlw8X48lLhuoqzvRBZ979Zkub4+7wKs3qG
-	pfGePQbunqWhCmU/U6/r+H9bO6IOwhl5U63tlnLO35Z/FAnMei0kG+LbmZXGsz6qcg/2UK9y/dC5p
-	8gbWUxk9tHvfmZ0alx5Md1x3T1xhCSlBhgnU2kZUPAMVrF+A+XbpnHXTQYtd6PteSS9nssr+GC8wy
-	PVQLE3Cx2VKcLyELsPIcJwrzRoVfMedfCO8vqbIEX1nkSsEca9zGPMGBDZjjaIslj8383G948oHFF
-	RW1WJB+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QhV34Pc+pkOLI+WwjcRnm/3IpWJhftPzSFRTNKk0g4Y=; b=et+6UTH1DuL2h6fyQw5yUajEo/
+	wYgQ7GsedVvJIUtoZBMPkBs1aNRQ6+Ef/DPLLxextkrjjNKShwf81oCz9oOZNuO6y1K43rse+QZ34
+	ujf1Gud3dGK216a8k8Y8wOFLJMF+C0jn3uniKlSoBDdhMZLX7o9fog2qJhnD5gzfwy9zb8dBniPYG
+	FhLqt30ZEP/lJz+jrXI1MnUAcGp0ui/nR9mFLmJksjhNt1PnHF31ouJaR5H7a58QL+7iI04oizAG0
+	cOyxe4ti0FaLNVkd+3vkN/5qYb9D3Vqld6JVCOiwBQHGOU/ywpeJNJn75WMMkiUcSXfb+Fq3xqKzI
+	DAJMN+jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAm1S-0000000A5Kk-254N;
-	Thu, 09 Apr 2026 09:50:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAm1P-0000000A5Jb-37P7;
-	Thu, 09 Apr 2026 09:50:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4A6EA407B5;
-	Thu,  9 Apr 2026 09:49:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D49A8C4CEF7;
-	Thu,  9 Apr 2026 09:49:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775728198;
-	bh=BjHgzWPU4OMPOehpMtEWVLp3gJWo8761wDntRpP7FUM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qRXm6yKtFM4JonFvvIPvLquXxSuua7wUDhiSi4nuNc+n1HUAG0Hic97qoWEMA13na
-	 llhWgdVpWdByBAERoJ/zilD0GC/FmqkhLxOx6sUYxkLsQygWNXbzhTC+qSSYvCzDDI
-	 9p1Eas9Ga0iOyrEbW5fTgEfRHhCn22qhsL6GjxiHM8NvhoDPEYIIQCQFOSeF6gO3WT
-	 WJ+zGKYikv5e9tHVN2Vf/YbjRjYPbD7kdpJRYQX46Gd7HQG75ItC3VM1GHk0i64bDl
-	 LB/wSCFfFi8AOzDbIH0ECovwAYQ8SYkUEvFQZh4utnQTLRFdp6QdPKBS5wI4a5V77w
-	 yBepCnWs55MBw==
-Date: Thu, 9 Apr 2026 11:49:52 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Anand Moon <linux.amoon@gmail.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	"open list:GENERIC PHY FRAMEWORK" <linux-phy@lists.infradead.org>,
-	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1] phy: rockchip-snps-pcie3:phy: Configure clkreq_n and
- PowerDown for all lanes
-Message-ID: <add2QFfHd5Jv9XU7@fedora>
-References: <20260409044939.7647-1-linux.amoon@gmail.com>
+	id 1wAm5A-0000000A5tu-2GFD;
+	Thu, 09 Apr 2026 09:53:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAm58-0000000A5tB-3K2Q
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Apr 2026 09:53:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 001883297;
+	Thu,  9 Apr 2026 02:53:42 -0700 (PDT)
+Received: from [10.43.18.23] (e126510-lin.lund.arm.com [10.43.18.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CD0913F641;
+	Thu,  9 Apr 2026 02:53:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775728427; bh=QhV34Pc+pkOLI+WwjcRnm/3IpWJhftPzSFRTNKk0g4Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ppy4nXOSL+Svl8Wj1/y+NNtzd/8t4TDG3CiO9YiESM4YRZoLvAgT0Z/WX4+mMvgbY
+	 YUrbFqOsE4ObqBqYgXid652Muy2bAbRU7OPwUPhpXk9JEHYayM63jMVRp1ALbhe4lW
+	 DZXIJcvLOX/9RibKmZN/7akNpnkNknwodP2aPbCU=
+Message-ID: <567dff89-9f0f-40a0-ab10-22e061b4faaf@arm.com>
+Date: Thu, 9 Apr 2026 11:53:41 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260409044939.7647-1-linux.amoon@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] arm64: mm: Fix rodata=full block mapping support
+ for realm guests
+To: Catalin Marinas <catalin.marinas@arm.com>,
+ Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>, "David Hildenbrand (Arm)"
+ <david@kernel.org>, Dev Jain <dev.jain@arm.com>,
+ Yang Shi <yang@os.amperecomputing.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Jinjiang Tu <tujinjiang@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20260330161705.3349825-1-ryan.roberts@arm.com>
+ <20260330161705.3349825-2-ryan.roberts@arm.com> <ac7VD4Z85nS30GCp@arm.com>
+ <ac-W9oNM_O5RTtaf@arm.com> <beacee23-c177-47a1-b8b5-743844b617a8@arm.com>
+ <adTPFrlVCEt-hioX@arm.com> <bc4a0246-33bb-443e-a885-a31b24d4a022@arm.com>
+ <adTh8d9k3y5ybemL@arm.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <adTh8d9k3y5ybemL@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_024959_803652_1ADED507 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260409_025350_872347_11F20116 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,30 +80,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+Shawn
+On 07/04/2026 12:52, Catalin Marinas wrote:
+>> if we have forced pte mapping then the value of
+>> can_set_direct_map() is irrelevant - we will never need to split because we are
+>> already pte-mapped.
+> can_set_direct_map() is used in other places, so its value is
+> relevant, e.g. sys_memfd_secret() is rejected if this function returns
+> false.
 
-Hello Anand,
+Indeed, I have noticed this before: currently set_direct_map_*_noflush()
+and other functions will either fail or do nothing if none of the
+features (rodata=full, etc.) is enabled, even if we would be able to
+split the linear map using BBML2-noabort.
 
-On Thu, Apr 09, 2026 at 10:19:30AM +0530, Anand Moon wrote:
-> During the rk3588_p3phy_init sequence, the driver now explicitly
+What would make more sense to me is to enable the use of BBML2-noabort
+unconditionally if !force_pte_mapping(). We can then have
+can_set_direct_map() return true if we have BBML2-noabort, and we no
+longer need to check it in map_mem().
 
-Please use imperative mood, active voice.
+This is a functional change that doesn't have anything to do with realms
+so it should probably be a separate series - happy to take care of it
+once the dust settles on the realm handling.
 
-
-> configures each lane's CON0 register to ensure
-> - PIPE 4.3 Compliance: clkreq_n (bit 6) is forced low (asserted) to meet
->   sideband signal requirements.
-> - Active Power State: PowerDown[3:0] (bits 11:8) is set to P0
->   (Normal Operational State) to ensure the PHY is fully powered and ready
->   for link training.
-> 
-> These changes ensure that all lanes are consistently transitioned from
-> reset into a known-good operational state, preventing undefined behavior
-> and ensuring the PHY is ready for high-speed data transmission.
-
-First describe the problem, then describe how you fix it.
-
-
-Kind regards,
-Niklas
+- Kevin
 
