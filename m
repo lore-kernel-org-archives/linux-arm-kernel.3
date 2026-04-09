@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFC74EA3C5E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 13:53:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 043FEEA3C5F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 13:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uDrg/iyO4oCPIFPUJuJ2BP1Cw6fxLpLq6J0oCMOgwaI=; b=dQ4Gfjsx5Oct2Ph5KzDN1h9Ev+
-	uMiuArDh1zrk8yeEIlUiBw2dDz56+DKNiXEmhbWpQ7A9q5iIdbQ/qMkIOI2NHq06hI+EYK7VFaSFL
-	htQhNaXkP5hncwH3RZz8pDJM8ss30SsAsNzYLV5SqkZSevy6sKGbQK+3jH7t2fjBa8s8QcISuUZwN
-	h5HodiKPvJOQX15H5iVyCfGqVZDSKhWoVcFZ7Gsn6kFz29YYfKG+iDcf+jpuXS5k7IfnPQOEfM30K
-	EoN6w9yvTgGE2xj7FvpqL3OCqEefQgEy9tcxHfzxs0m36vi6rwonElk40b14/rgwn8XaJ3Wy6tIBR
-	vqJZGv+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=24hA1l9NAmNo3LU0r4Q8hfjssSJC6vwBl2Dt0Dwe1A4=; b=kC608qQ5rxHSpgijaeNEp74MgG
+	F5c2J9XxFgoFrQY89BxUO6Cz1eCanSB7btT+rUswWk+w7cVMLU4DtP0Lp6tEqmheXYT3h/uCPpNNI
+	4Shc40yGXXJSJOOFyAa1z+G8UZQlCpQapCd8fgm3Exif9kPMoAgI6OhN5/POq0ugOrkpP73wAvfy4
+	taMefo0HF39yGl0zHsUo9IF8x77ygY9xzb1KhzYY3mlXt9UixrSpl/t/7opyJggUyBF1VlwcAtEqq
+	iCkOBAMM/DmOclPIZFB5BYaXqt4nDISh9p2HSgV7VAFmo8i0N9GlHa/V+T8zZUYuj5bcRILTojfnp
+	VRviNGVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wApoY-0000000Aacv-2f7f;
-	Thu, 09 Apr 2026 13:53:07 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wAppY-0000000AbAS-2y4F;
+	Thu, 09 Apr 2026 13:54:00 +0000
+Received: from mail.netfilter.org ([217.70.190.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wApnN-0000000Aa4J-3WFB;
-	Thu, 09 Apr 2026 13:52:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1775742702;
-	bh=MF7T/Jpkt7WSkcB4j1vMJJa1MuRvCoF8Hv7YRWQJ6sY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=AkAW4qi0+/to1+Q3rWnzbjE1xvSl8XY/WbKSEGQIk7Up3CO6+JgEQ6phLN4ETzu1T
-	 1vLM9B8MXBL7QYKQdu4JFvtVZ6b2SKdnzIPigiVxmYovseOlYrFaSlSqk4AyRpKvDo
-	 fzY7+L3QyJBMtd6MC0hvdyOCL9WXg7qIaiYDooQjia9013fgAmysoOkPtrHewvoTCX
-	 vPjdoLak+KNatg8/pkjzPgZ5t2Ynmc/YpM7uE7QIhTdOcuyS5ttRmPlH24CmAQtjTn
-	 UAtJlmpKewlEa1sK6DYgh5Znpuc9jQZgRJWtXZlbnS8QxzVrTxZHz+i/5tiNWW/dzY
-	 4j9QcoaBhX//Q==
-Received: from [192.168.0.15] (unknown [100.64.0.170])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7A5FD17E138B;
-	Thu,  9 Apr 2026 15:51:40 +0200 (CEST)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-Date: Thu, 09 Apr 2026 09:50:42 -0400
-Subject: [PATCH 7/7] media: rkvdec: Add multicore IOMMU support
+	id 1wApoY-0000000AaWx-0v5x;
+	Thu, 09 Apr 2026 13:53:27 +0000
+Received: from netfilter.org (mail-agni [217.70.190.124])
+	by mail.netfilter.org (Postfix) with UTF8SMTPSA id 23EDC60179;
+	Thu,  9 Apr 2026 15:52:44 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
+	s=2025; t=1775742764;
+	bh=24hA1l9NAmNo3LU0r4Q8hfjssSJC6vwBl2Dt0Dwe1A4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NdyAj/K3A2fPx/giXVVKQfyeH1WrYGjmd5lMbaoH1QqoyrngAHcQzJ3fRY/9OoY1A
+	 NjZ6OQLJnbvbkIOfUfmcyapser63R/ikzngMBy2uW/5y45Zh3PNUUcVWIyhtNJdlIO
+	 BDcFCa5yWR1P01MYbLfQgaBmyr49Ai8Iz9nPqwuuw5ARrwxQ6LhMv+FCWUtQX8zSrr
+	 aSY7vcjWtGcJ/BCtwkDNumkVzR7KzNlcAyi9gPan7X+vn0zG4aXjXkcDin0MeXZe6+
+	 ZCGJSK4iUmtZMnfkXlRBA1texNhTbl4s2z7GndweiSlFXJfrHzWsBco+zErMdXGCP+
+	 RDDEAuVznrUMg==
+Date: Thu, 9 Apr 2026 15:52:41 +0200
+From: Pablo Neira Ayuso <pablo@netfilter.org>
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: Felix Fietkau <nbd@nbd.name>, John Crispin <john@phrozen.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Simon Horman <horms@kernel.org>, Florian Westphal <fw@strlen.de>,
+	Phil Sutter <phil@nwl.cc>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org
+Subject: Re: [PATCH RFC net-next 0/4] improve hw flow offload byte accounting
+Message-ID: <adevKeasLkEB5zZ4@chamomile>
+References: <cover.1775739840.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260409-rkvdec-multicore-v1-7-62b316abf0f7@collabora.com>
-References: <20260409-rkvdec-multicore-v1-0-62b316abf0f7@collabora.com>
-In-Reply-To: <20260409-rkvdec-multicore-v1-0-62b316abf0f7@collabora.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Hans Verkuil <hverkuil+cisco@kernel.org>, Jonas Karlman <jonas@kwiboo.se>
-Cc: kernel@collabora.com, linux-media@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, 
- Detlev Casanova <detlev.casanova@collabora.com>
-X-Mailer: b4 0.15.1
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <cover.1775739840.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_065158_705779_8C0C0B92 
-X-CRM114-Status: GOOD (  24.04  )
+X-CRM114-CacheID: sfid-20260409_065305_515764_60448F6E 
+X-CRM114-Status: GOOD (  17.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,257 +79,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As each core has its own IOMMU core, buffers must be mapped in each
-core's IOMMU so that any run() call can use any core without having to
-remap everything.
+On Thu, Apr 09, 2026 at 02:07:22PM +0100, Daniel Golle wrote:
+> Hardware flow counters report raw byte counts whose semantics
+> vary by vendor -- some count ingress L2 frames, others egress
+> L2, others L3. The nf_flow_table framework currently passes
+> these bytes straight to conntrack without conversion, and
+> sub-interfaces (VLAN, PPPoE) that are bypassed by hw offload
+> never see any counter updates at all.
 
-To do that, we use rockchip iommu domain's iommu devices list.
-With that, one IOMMU domain can be mapped on multiple devices, meaning
-that each call to iommu_map() will flush the new mapping on all devices
-in the list.
+I see, but that is part of the feature itself? Why pretend that these
+interface are really seeing traffic while they don't. This aspiration
+of trying to do all hardware offload fully transparent (when it is not
+the case, not mentioning semantic changes in how packet handling is
+done compared to the software plane) does not sound convincing to me.
 
-The IOMMU domain that will have all devices in its list is the first
-core's default domain.
+On top of this, this issue also exists in the software plane: Devices
+that are bypasses do not get their counters bumped.
 
-Another domain cannot be used because VB2 allocates buffers through the
-DMA engine, which uses iommu_get_dma_domain() to find the domain to map
-buffers through.
+Maybe if this is really a requirement, then this should address the
+issue for software too, but is it worth the effort to add
+infrastructure for this purpose?
 
-The IOMMU restore function can still work as before, but needs to be more
-explicit in what domain to attach the device to.
-That is because detaching the empty domain will reattach the core's default
-domain, which is wrong (except for the first "main" core).
-
-The RCB temporary buffers are allocated in a dedicated SRAM, each
-core has its own SRAM, so the mapping for each core's SRAM is added in the
-global domain.
-
-Everything else is mapped through the first core's default domain, making
-the driver write the mappings on both IOMMU cores.
-
-Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
----
- .../media/platform/rockchip/rkvdec/rkvdec-rcb.c    | 21 ++++++-------
- .../media/platform/rockchip/rkvdec/rkvdec-rcb.h    |  6 ++--
- drivers/media/platform/rockchip/rkvdec/rkvdec.c    | 35 +++++++++++++++++-----
- drivers/media/platform/rockchip/rkvdec/rkvdec.h    |  2 +-
- 4 files changed, 44 insertions(+), 20 deletions(-)
-
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
-index 190fb7438e8c..977e37cf209b 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
-@@ -57,7 +57,7 @@ bool rkvdec_rcb_buf_validate_size(struct rkvdec_ctx *ctx)
- 	return ret;
- }
- 
--void rkvdec_free_rcb(struct rkvdec_core *core)
-+void rkvdec_free_rcb(struct rkvdec_dev *rkvdec, struct rkvdec_core *core)
- {
- 	struct rkvdec_rcb_config *cfg = core->rcb_config;
- 	unsigned long virt_addr;
-@@ -76,12 +76,12 @@ void rkvdec_free_rcb(struct rkvdec_core *core)
- 		case RKVDEC_ALLOC_SRAM:
- 			virt_addr = (unsigned long)cfg->rcb_bufs[i].cpu;
- 
--			if (core->iommu_domain)
--				iommu_unmap(core->iommu_domain, virt_addr, rcb_size);
-+			if (rkvdec->iommu_global_domain)
-+				iommu_unmap(rkvdec->iommu_global_domain, virt_addr, rcb_size);
- 			gen_pool_free(core->sram_pool, virt_addr, rcb_size);
- 			break;
- 		case RKVDEC_ALLOC_DMA:
--			dma_free_coherent(core->dev,
-+			dma_free_coherent(rkvdec->main_core->dev,
- 					  rcb_size,
- 					  cfg->rcb_bufs[i].cpu,
- 					  cfg->rcb_bufs[i].dma);
-@@ -97,7 +97,8 @@ void rkvdec_free_rcb(struct rkvdec_core *core)
- 	core->rcb_config = NULL;
- }
- 
--int rkvdec_allocate_rcb(struct rkvdec_core *core, u32 width, u32 height,
-+int rkvdec_allocate_rcb(struct rkvdec_dev *rkvdec, struct rkvdec_core *core,
-+			u32 width, u32 height,
- 			const struct rcb_size_info *size_info,
- 			size_t rcb_count)
- {
-@@ -132,7 +133,7 @@ int rkvdec_allocate_rcb(struct rkvdec_core *core, u32 width, u32 height,
- 
- 		/* Try allocating an SRAM buffer */
- 		if (core->sram_pool) {
--			if (core->iommu_domain)
-+			if (rkvdec->iommu_global_domain)
- 				rcb_size = ALIGN(rcb_size, SZ_4K);
- 
- 			cpu = gen_pool_dma_zalloc_align(core->sram_pool,
-@@ -142,11 +143,11 @@ int rkvdec_allocate_rcb(struct rkvdec_core *core, u32 width, u32 height,
- 		}
- 
- 		/* If an IOMMU is used, map the SRAM address through it */
--		if (cpu && core->iommu_domain) {
-+		if (cpu && rkvdec->iommu_global_domain) {
- 			unsigned long virt_addr = (unsigned long)cpu;
- 			phys_addr_t phys_addr = dma;
- 
--			ret = iommu_map(core->iommu_domain, virt_addr, phys_addr,
-+			ret = iommu_map(rkvdec->iommu_global_domain, virt_addr, phys_addr,
- 					rcb_size, IOMMU_READ | IOMMU_WRITE, 0);
- 			if (ret) {
- 				gen_pool_free(core->sram_pool,
-@@ -166,7 +167,7 @@ int rkvdec_allocate_rcb(struct rkvdec_core *core, u32 width, u32 height,
- ram_fallback:
- 		/* Fallback to RAM */
- 		if (!cpu) {
--			cpu = dma_alloc_coherent(core->dev,
-+			cpu = dma_alloc_coherent(rkvdec->main_core->dev,
- 						 rcb_size,
- 						 &dma,
- 						 GFP_KERNEL);
-@@ -189,7 +190,7 @@ int rkvdec_allocate_rcb(struct rkvdec_core *core, u32 width, u32 height,
- 	return 0;
- 
- err_alloc:
--	rkvdec_free_rcb(core);
-+	rkvdec_free_rcb(rkvdec, core);
- 
- 	return ret;
- }
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
-index a12af9b7dc2b..d1149afe7fda 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
-@@ -8,6 +8,7 @@
- 
- #include <linux/types.h>
- 
-+struct rkvdec_dev;
- struct rkvdec_ctx;
- struct rkvdec_core;
- 
-@@ -21,11 +22,12 @@ struct rcb_size_info {
- 	enum rcb_axis axis;
- };
- 
--int rkvdec_allocate_rcb(struct rkvdec_core *core, u32 width, u32 height,
-+int rkvdec_allocate_rcb(struct rkvdec_dev *rkvdec, struct rkvdec_core *core,
-+			u32 width, u32 height,
- 			const struct rcb_size_info *size_info,
- 			size_t rcb_count);
- dma_addr_t rkvdec_rcb_buf_dma_addr(struct rkvdec_ctx *ctx, int id);
- size_t rkvdec_rcb_buf_size(struct rkvdec_ctx *ctx, int id);
- int rkvdec_rcb_buf_count(struct rkvdec_ctx *ctx);
- bool rkvdec_rcb_buf_validate_size(struct rkvdec_ctx *ctx);
--void rkvdec_free_rcb(struct rkvdec_core *core);
-+void rkvdec_free_rcb(struct rkvdec_dev *rkvdec, struct rkvdec_core *core);
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index c2818f1575ef..2930e9b64906 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-@@ -1204,9 +1204,9 @@ static void rkvdec_device_run(void *priv)
- 	}
- 
- 	if (!rkvdec_rcb_buf_validate_size(ctx)) {
--		rkvdec_free_rcb(ctx->core);
-+		rkvdec_free_rcb(ctx->dev, ctx->core);
- 
--		ret = rkvdec_allocate_rcb(ctx->core,
-+		ret = rkvdec_allocate_rcb(ctx->dev, ctx->core,
- 					  ctx->decoded_fmt.fmt.pix_mp.width,
- 					  ctx->decoded_fmt.fmt.pix_mp.height,
- 					  ctx->dev->variant->rcb_sizes,
-@@ -1486,6 +1486,7 @@ static void rkvdec_v4l2_cleanup(struct rkvdec_dev *rkvdec)
- 
- static void rkvdec_iommu_restore(struct rkvdec_core *core)
- {
-+	int ret;
- 	if (core->empty_domain) {
- 		/*
- 		 * To rewrite mapping into the attached IOMMU core, attach a new empty domain that
-@@ -1494,8 +1495,14 @@ static void rkvdec_iommu_restore(struct rkvdec_core *core)
- 		 * This is safely done in this interrupt handler to make sure no memory get mapped
- 		 * through the IOMMU while the empty domain is attached.
- 		 */
--		iommu_attach_device(core->empty_domain, core->dev);
-+		iommu_detach_device(core->curr_ctx->dev->iommu_global_domain, core->dev);
-+		ret = iommu_attach_device(core->empty_domain, core->dev);
-+		if (ret)
-+			dev_warn(core->dev, "Cannot attach empty domain: %d\n", ret);
- 		iommu_detach_device(core->empty_domain, core->dev);
-+		ret = iommu_attach_device(core->curr_ctx->dev->iommu_global_domain, core->dev);
-+		if (ret)
-+			dev_warn(core->dev, "Cannot attach global domain: %d\n", ret);
- 	}
- }
- 
-@@ -1858,6 +1865,8 @@ static int rkvdec_probe(struct platform_device *pdev)
- 
- 	core = &rkvdec->cores[rkvdec->core_count++];
- 
-+	core->id = rkvdec->core_count - 1;
-+
- 	platform_set_drvdata(pdev, rkvdec);
- 	core->dev = &pdev->dev;
- 	INIT_DELAYED_WORK(&core->watchdog_work, rkvdec_watchdog_func);
-@@ -1883,12 +1892,24 @@ static int rkvdec_probe(struct platform_device *pdev)
- 			return PTR_ERR(core->link);
- 	}
- 
--	core->iommu_domain = iommu_get_domain_for_dev(&pdev->dev);
--	if (core->iommu_domain) {
-+	if (iommu_get_domain_for_dev(&pdev->dev)) {
- 		core->empty_domain = iommu_paging_domain_alloc(core->dev);
- 
--		if (!core->empty_domain)
-+		if (IS_ERR(core->empty_domain))
- 			dev_warn(core->dev, "cannot alloc new empty domain\n");
-+
-+		if (!rkvdec->iommu_global_domain) {
-+			rkvdec->iommu_global_domain = iommu_get_domain_for_dev(core->dev);
-+
-+			if (IS_ERR(rkvdec->iommu_global_domain)) {
-+				rkvdec->iommu_global_domain = NULL;
-+				dev_warn_once(core->dev, "cannot alloc new global domain\n");
-+			}
-+		}
-+
-+		ret = iommu_attach_device(rkvdec->iommu_global_domain, core->dev);
-+		if (ret)
-+			dev_warn(core->dev, "cannot attach global domain to core %d\n", core->id);
- 	}
- 
- 	ret = dma_set_coherent_mask(&pdev->dev, DMA_BIT_MASK(32));
-@@ -1961,7 +1982,7 @@ static void rkvdec_remove(struct platform_device *pdev)
- 		if (rkvdec->cores[i].empty_domain)
- 			iommu_domain_free(rkvdec->cores[i].empty_domain);
- 
--		rkvdec_free_rcb(&rkvdec->cores[i]);
-+		rkvdec_free_rcb(rkvdec, &rkvdec->cores[i]);
- 	}
- }
- 
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-index 4f042a367dc0..ccd766b220c7 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-@@ -135,7 +135,6 @@ struct rkvdec_core {
- 	void __iomem *link;
- 	struct delayed_work watchdog_work;
- 	struct gen_pool *sram_pool;
--	struct iommu_domain *iommu_domain;
- 	struct iommu_domain *empty_domain;
- 	struct rkvdec_rcb_config *rcb_config;
- 	struct rkvdec_ctx *curr_ctx;
-@@ -155,6 +154,7 @@ struct rkvdec_dev {
- 	unsigned int available_core_count;
- 	spinlock_t cores_lock; /* serializes core list access */
- 	struct rkvdec_core *main_core;
-+	struct iommu_domain *iommu_global_domain;
- };
- 
- struct rkvdec_ctx {
-
--- 
-2.53.0
-
+> This series lets drivers declare what their counters represent,
+> so the framework can normalize to L3 for conntrack and
+> propagate per-layer stats to encap sub-interfaces.
+> 
+> Questions:
+>  - Sub-interface stats accesses vlan_dev_priv() directly --
+>    should there be a generic netdev callback instead?
+>  - Are there hw offload drivers whose counters do not fit the
+>    ingress-L2 / egress-L2 / L3 model?
+> 
+> Daniel Golle (4):
+>   net: flow_offload: let drivers report byte counter semantics
+>   nf_flow_table: track sub-interface and bridge ifindex in flow tuple
+>   nf_flow_table: convert hw byte counts and update sub-interface stats
+>   net: ethernet: mtk_eth_soc: report INGRESS_L2 byte_type in flow stats
+> 
+>  .../net/ethernet/mediatek/mtk_ppe_offload.c   |   1 +
+>  include/net/flow_offload.h                    |   7 +
+>  include/net/netfilter/nf_flow_table.h         |   5 +
+>  net/netfilter/nf_flow_table_core.c            |   2 +
+>  net/netfilter/nf_flow_table_offload.c         | 174 +++++++++++++++++-
+>  net/netfilter/nf_flow_table_path.c            |   8 +
+>  6 files changed, 195 insertions(+), 2 deletions(-)
+> 
+> -- 
+> 2.53.0
 
