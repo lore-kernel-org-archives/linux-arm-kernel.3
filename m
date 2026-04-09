@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 259EFF364AF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 18:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88931F364A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 18:40:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/8jD3qlSvbfRSD6jyNQlkUXDi3Y54XOi3v8k4yH2YtI=; b=uSITkqE5lpUcyEDVaIi8/TchiY
-	GNCnw8LVwIknp6lH44rUtm5LUm37TLP1ARZjWqUCoKhaVtrlLq40FpM8IYJdJMcXkp8pfSIHjJprv
-	zLwshls9velwCq9Y4YTjb8FmlhiKt3nVkrGe9MYAU2T4VG6emJhvgV/vFoAjyirlX4MnMb2uAHHb7
-	6OxpfD2kG9oOnHQeRQjm69TkQEnwkGKaN+un+i4DqYIj7Gumre5rF8StREy8rh3wb3SL5P6Datwib
-	IJjUMNa5YThivComA9XZHcsSzZFsOKQBM3j6ulUZm5sh4qhbSUhuxNTEDUlmOE9yxIkKEMXz/VMYq
-	+DZ6A0pg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=99WvpafNgC00TdwhpxyflrZyk31T3nLUtaw4nZnTa3A=; b=O2XTC6rLyIwwH7BLO0JDLnr76Z
+	A2Add9payOPFl+z+UyRdSKopja5SiVAgSHNelYLts4aXIS9JUPkI4/cFKgS2ATev5smiLgyVATMCy
+	KOL1F+Y3NAR9mRWjYLnHWZ4/rJqOvfzMJ+bYlu02MByey4YfCEz+wBOa1yFb+N+snfB2ISVI2PIW9
+	+JflRnsw8f5kkcF03On5KAbvvyASR/QpPvRRvVoy5R+egTBxkZjSe1LXtcV16BGRfXb/R0AEr1r9y
+	g0X6Qavq7wgxdrCt1LhMXRMuFHCX8sz9bRSWb5CHTv/JLZhxurERbP8J3j4EN6zMRDXOU3eekmukE
+	PuHd9M4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAuHv-0000000B6Pk-3f5c;
-	Thu, 09 Apr 2026 18:39:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAuHt-0000000B6PO-1pCl
+	id 1wAuJ3-0000000B6X4-0zRs;
+	Thu, 09 Apr 2026 18:40:45 +0000
+Received: from mail-106105.protonmail.ch ([79.135.106.105])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wAuIz-0000000B6WS-05Wn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 18:39:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 395F52008;
-	Thu,  9 Apr 2026 11:39:26 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A69853FAF5;
-	Thu,  9 Apr 2026 11:39:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775759971; bh=eLtatk8dvIzX0/T6Px2m9HfmszgWad2HE0vjpwe8k0I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=okEE0VcjD3VfA/NdFrDuLTa0Sb7Ye2SjTOINsQMHerFH2eedXEEKqDo2auD0EHVjr
-	 Kpf0wJbUtnuBSuU2oJGRsJxadRLviyPNMmtalU8DAVC49LkMGtbQqJvsO8c3Ofg0Si
-	 hF4OhUyVa1l7HhzkAePFJ5u8TEmN8UzAPLFjyziI=
-Date: Thu, 9 Apr 2026 19:39:27 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <shuah@kernel.org>, Mark Brown <broonie@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: (subset) [PATCH 0/8] arm64: Implement support for 2025 dpISA
- extensions
-Message-ID: <adfyX_jaVIKeSy_Q@arm.com>
-References: <20260302-arm64-dpisa-2025-v1-0-0855e7f41689@kernel.org>
- <177575970227.3883927.939712260390088306.b4-ty@arm.com>
+	Thu, 09 Apr 2026 18:40:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxsw.ie;
+	s=protonmail; t=1775760035; x=1776019235;
+	bh=99WvpafNgC00TdwhpxyflrZyk31T3nLUtaw4nZnTa3A=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=H0phYpxsB7XPwLrtnfyBN6mvMhy+ifqvS1OVIwQxLRbLu8/GIAUFfTRcvbzZqfwUV
+	 rf8I0GJvkpeiYA7OYVE9V7phE3AVR7XIXIaT/hOTsJi0wtvBchGd62vHCp1vCL+nnO
+	 LNDmcVP7zqZO0xDNBRiSFIhY9OpPljgIDI8YIe/gtviZUuFKWpZG1O8jApfZbg3N/r
+	 rKPWxjUKgn2LM+AoTjoa5qZyU0nhes1r9A3QqjVQOgipr67e4jJmxQ+gVRK88m5Kuw
+	 j9neUNX1uiAKmodUnlM26VR0bDRNzJE0U4IpI0T8eKqoydCcp8mQzFJ2KvOfXlhBii
+	 pYO2VWTYUkeIw==
+Date: Thu, 09 Apr 2026 18:40:29 +0000
+To: Taniya Das <taniya.das@oss.qualcomm.com>, Bjorn Andersson <andersson@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
+From: Bryan O'Donoghue <bod.linux@nxsw.ie>
+Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>, Imran Shaik <imran.shaik@oss.qualcomm.com>, Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 8/8] arm64: dts: qcom: eliza: Add support for MM clock controllers
+Message-ID: <cb5a40e8-e2e3-4ed9-a9c6-0daa9f408710@nxsw.ie>
+In-Reply-To: <20260409-eliza_mm_cc_v2-v2-8-bc0c6dd77bc5@oss.qualcomm.com>
+References: <20260409-eliza_mm_cc_v2-v2-0-bc0c6dd77bc5@oss.qualcomm.com> <20260409-eliza_mm_cc_v2-v2-8-bc0c6dd77bc5@oss.qualcomm.com>
+Feedback-ID: 136405006:user:proton
+X-Pm-Message-ID: c775f395f3f55a1766c8ed589cec7719a6c679ab
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <177575970227.3883927.939712260390088306.b4-ty@arm.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_113933_538719_5CB08378 
-X-CRM114-Status: GOOD (  15.90  )
+X-CRM114-CacheID: sfid-20260409_114042_629092_639DB029 
+X-CRM114-Status: UNSURE (   5.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,40 +70,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 09, 2026 at 07:35:02PM +0100, Catalin Marinas wrote:
-> On Mon, 02 Mar 2026 22:53:15 +0000, Mark Brown wrote:
-> > The 2025 dpISA extensions introduce a number of architecture features
-> > all of which are fairly straightforward from a kernel point of view
-> > since they only introduce new instructions, not any architecture state.
-> > 
-> > All the relevant newly added ID registers are already exported by KVM,
-> > all non-RES0 bits in ID_AA64ZFR0_EL1 and ID_AA64FPFR0_EL1 are writable
-> > and the updates to ID_AA64ISARx_EL1 are all additional values in already
-> > exported bitfields.
-> > 
-> > [...]
-> 
-> Applied to arm64 (for-next/sysreg), thanks! That's only the sysreg
-> definitions as these are stable. I also applied the KERNEL_HWCAP_*
-> generation on a different branch.
-> 
-> [2/8] arm64/sysreg: Update ID_AA64ISAR0_EL1 description to DDI0601 2025-12
->       https://git.kernel.org/arm64/c/b964aa8d68f7
-> [3/8] arm64/sysreg: Update ID_AA64ISAR2_EL1 description to DDI0601 2025-12
->       https://git.kernel.org/arm64/c/bb5e1e540501
-> [4/8] arm64/sysreg: Update ID_AA64FPFR0_EL1 description to DDI0601 2025-12
->       https://git.kernel.org/arm64/c/d74576b51ba6
-> [5/8] arm64/sysreg: Update ID_AA64ZFR0_EL1 description to DDI0601 2025-12
->       https://git.kernel.org/arm64/c/bf56250f34a4
-> [6/8] arm64/sysreg: Update ID_AA64SMFR0_EL1 description to DDI0601 2025-12
->       https://git.kernel.org/arm64/c/306736fd5155
+On 09/04/2026 19:10, Taniya Das wrote:
+> +=09=09videocc: clock-controller@aaf0000 {
+> +=09=09=09compatible =3D "qcom,eliza-videocc";
+> +=09=09=09reg =3D <0x0 0xaaf0000 0x0 0x10000>;
+> +
+> +=09=09=09clocks =3D <&bi_tcxo_div2>,
+> +=09=09=09=09 <&sleep_clk>,
+> +=09=09=09=09 <&gcc GCC_VIDEO_AHB_CLK>;
+> +
+> +=09=09=09#clock-cells =3D <1>;
+> +=09=09=09#reset-cells =3D <1>;
+> +=09=09=09#power-domain-cells =3D <1>;
+> +=09=09};
+> +
+> +=09=09camcc: clock-controller@ade0000 {
+> +=09=09=09compatible =3D "qcom,eliza-camcc";
+> +=09=09=09reg =3D <0x0 0x0ade0000 0x0 0x20000>;
+> +
+> +=09=09=09clocks =3D <&gcc GCC_CAMERA_AHB_CLK>,
+> +=09=09=09=09 <&bi_tcxo_div2>,
+> +=09=09=09=09 <&sleep_clk>;
+> +
+> +=09=09=09#clock-cells =3D <1>;
+> +=09=09=09#reset-cells =3D <1>;
+> +=09=09};
 
-b4 ty got confused with two emails for the same series, so only one went
-out. The first patch is on for-next/misc:
+This looks odd.
 
-[1/8] arm64/hwcap: Generate the KERNEL_HWCAP_ definitions for the hwcaps
-      https://git.kernel.org/arm64/c/abed23c3c44f
+Why do these two controllers have no power-domains ?
 
--- 
-Catalin
+---
+bod
+
 
