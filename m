@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7697E9DE7B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 09:29:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85CCBE9DE6F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 09:33:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lIif65eSnKZZaprFXqjN75JZuJJHcWvNQCddZgD/t4k=; b=GQdd5jlX2fkT17UjPFFvPBwcYI
-	kGozBZs9BtEYUrjOSf5u/Ise1rPP/thFvKtp6t5TsrjNJWKvhOv+SESz3Yq3v1fw+IfjF0b7wffqr
-	x4b5Q0BiQw9krAbTgv/wZs5BWikt2wAwfyzHeAVCwIBb1wsYj+U/mGUwg1ICFH4a/9d7521gOcW8l
-	PcHEQjMtJVjkiB83+DLTtS3pqzoMlkZ/KBnbl6VI7p21DLoUeGPPJNuSqNzOl2N5Onwo3OrkZ26lo
-	aQOG51Jlj0VKTuorcuc/RzEypBc9pH/Xjj7FfTJu4/OJX8qH+J165CFR7BhqYXNI1/5/ejoLPHBCM
-	cgvwhSEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=N5jGRa8k8ho44x6kxKXfOn0v5fdgNOC2UYBlehneq68=; b=BDkNXfGks1AHA3cgUCHrlIIV1g
+	ibpqXQoG6iEOvDzcZxPsutr8CpwUytGzyH//afB59hQ3W3ToLkGs4+bH/nXfiwsqO7GuDRZixf699
+	JiMahb50QCj58NG6X+uXF0bD48MkiDy7NUzPgVEBmhOK5hjhesN6uzc+zAz7ugOrcSeoPQHZEfl+L
+	os7JTefSkwHmlsQg++3RjoozPlEln7cvrRmazQCHlVfBQr3mBFlF87rGwQ21b1smG31NkTc5JHmiz
+	aSGopLVc4lOWjdpp+TeKF1hOVqfVjKS55j/HszOvZE2hSMoPi7/8GptSs9UXmAriX9fNulxJs71Oo
+	JRoapvYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAlhG-0000000A3Ft-0hAR;
-	Thu, 09 Apr 2026 09:29:10 +0000
-Received: from mail.prodrive-technologies.com ([212.61.153.67])
+	id 1wAllK-0000000A3im-1TZE;
+	Thu, 09 Apr 2026 09:33:22 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAlhC-0000000A3FL-3w95
+	id 1wAllG-0000000A3hz-3eXs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 09:29:08 +0000
-Received: from EXCOP01.bk.prodrive.nl (10.1.0.22) by EXCOP02.bk.prodrive.nl
- (10.1.0.91) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.39; Thu, 9 Apr
- 2026 11:29:03 +0200
-Received: from lnxdevrm02.bk.prodrive.nl (10.1.1.121) by
- EXCOP01.bk.prodrive.nl (10.1.0.22) with Microsoft SMTP Server id 15.2.1748.39
- via Frontend Transport; Thu, 9 Apr 2026 11:29:03 +0200
-Received: from paugeu by lnxdevrm02.bk.prodrive.nl with local (Exim 4.96)
-	(envelope-from <paul.geurts@prodrive-technologies.com>)
-	id 1wAlh9-00GNSA-2r;
-	Thu, 09 Apr 2026 11:29:03 +0200
-From: Paul Geurts <paul.geurts@prodrive-technologies.com>
-To: <peng.fan@nxp.com>
-CC: <abelvesa@kernel.org>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
-	<Frank.Li@nxp.com>, <s.hauer@pengutronix.de>, <kernel@pengutronix.de>,
-	<festevam@gmail.com>, <shawnguo@kernel.org>, <linux-clk@vger.kernel.org>,
-	<imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <martijn.de.gouw@prodrive-technologies.com>,
-	<paul.geurts@prodrive-technologies.com>
-Subject: Re: [PATCH] clk: clk-imx8mm: Initialize clocks in arch_initcall
-Date: Thu, 9 Apr 2026 11:29:03 +0200
-Message-ID: <20260409092903.3903393-1-paul.geurts@prodrive-technologies.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <addMdwvnDkCMJxhx@shlinux89>
-References: <addMdwvnDkCMJxhx@shlinux89>
+	Thu, 09 Apr 2026 09:33:20 +0000
+Received: from francesco-nb.. (xcpe-178-82-120-96.dyn.res.sunrise.net [178.82.120.96])
+	by mail11.truemail.it (Postfix) with ESMTPA id 0BC611F920;
+	Thu,  9 Apr 2026 11:33:12 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1775727192;
+	bh=N5jGRa8k8ho44x6kxKXfOn0v5fdgNOC2UYBlehneq68=; h=From:To:Subject;
+	b=C+P/oFvCdmVwP4vHysF2vWWDgKM/64WHarjEP+UGhuf8l2Z4GAha7Sg3Bmq1HzMn9
+	 gkAVLAIyt98JV1NojyNqNxBhKoMlyZ5Xqbs1+mOfV5pXoHMZNI7lYXSArsa9pwP3Kq
+	 CmCIwZpM6qBbeJ6BT9zvZarvKvuSMhnoArqO1jCGQsGhQ/ZvXlZYD0ZgT38H5LPrBB
+	 WmQAfRSHk83NQ4CUyVjpd7n0XxgRoq2XfXmavDC7i/SVhVnhhCXTM8pO+D9oz7QgtS
+	 MruburPXk2RTlwqfVj4i30KXX4/TBjnn22ew77kX4QhsSX6+0SFDv61C0jtYG9SmWM
+	 B6hZ0te5O0vlQ==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] arm64: dts: freescale: imx95-verdin-ivy: fix RS485 RTS polarity
+Date: Thu,  9 Apr 2026 11:33:04 +0200
+Message-ID: <20260409093307.56471-1-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_022906_977244_97649E52 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20260409_023319_093376_1C9B1A72 
+X-CRM114-Status: UNSURE (   7.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,26 +76,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Wed, Apr 08, 2026 at 12:13:13PM +0200, Paul Geurts wrote:
-> >The i.MX8MM clock driver is implemented as module_platform_driver();,
-> >which makes it initialize in device_initcall(). This means that all
-> >drivers referencing the clock driver nodes in the device tree are
-> >deferred by fw_devlink, which are most of the i.MX8M platform drivers.
-> >
-> >Explicitly initialize the clock driver in arch_initcall(), to make sure
-> >the clock driver is ready when the rest of the drivers are probed.
-> 
-> Let's keep as it is, changing to arch_initcall() is not allowed.
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Why is it not allowed? This is an arch driver, so I think it should be
-initialized in arch? I don't think the initcall system was intended to
-initialize everything in late_initcall, which is effectively what this
-problem is causing.
+Fix the RS485 functionality, the RS485 RTS signal is active high on Ivy.
 
-> 
-> Thanks,
-> Peng
+Fixes: f33a1f9a942c ("arm64: dts: freescale: imx95-verdin: Add Ivy carrier board")
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+---
+ arch/arm64/boot/dts/freescale/imx95-verdin-ivy.dtsi | 1 -
+ 1 file changed, 1 deletion(-)
 
-Thanks!
-Paul
+diff --git a/arch/arm64/boot/dts/freescale/imx95-verdin-ivy.dtsi b/arch/arm64/boot/dts/freescale/imx95-verdin-ivy.dtsi
+index 8337c8b25f05..ff31f7c48cfb 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-verdin-ivy.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95-verdin-ivy.dtsi
+@@ -452,7 +452,6 @@ &lpuart7 {
+ 
+ /* Verdin UART_2, through RS485 transceiver */
+ &lpuart8 {
+-	rs485-rts-active-low;
+ 	rs485-rx-during-tx;
+ 	linux,rs485-enabled-at-boot-time;
+ 
+-- 
+2.47.3
+
 
