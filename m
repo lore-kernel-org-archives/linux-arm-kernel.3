@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DDE6F31E21
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 14:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B55C6F31E28
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 14:22:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9C+NpEKos04qPELYWWqTjo60xTv/UJSaxtWUp97Wxog=; b=g6JSFi7NGMpKLQg7o+6RT6WhrY
-	xk9vkteKa0a9aPMmiASyixmhpk/zynnQBpxj4PkAmSLikyrV4CYUdDirAYx6+YWg1YvqVYjMzrHi1
-	AGPqVsZ/1qPY4RYLmFvHradX9qYJyO6CjEqR986RtVmBVanJMNKdl5O7/U/vntoNQl7tRBu8gnQq4
-	aeEpu5A7hOxEIGDuhgjijFJknQvFUIXiD6kihO5j4qPp7II8/9aH5C15B0bc12tbIQIHWo3zgx5XH
-	JXUU15KH6rcIsCUphl6RCPokdmLjqrrOuWQfUUNmxHYTHAl1sJEaekMxtErEEATik1ZhTCAIhwZhW
-	RS7KJKXQ==;
+	bh=M02TVSfJ/9vSNYEyU/7aDtDFaJupWn6ab5dtRvMPr8g=; b=WdQuPXBNrB1LYkUWsTxlZEnEbx
+	1hgEyXSQNKLuAdiyjuBjVnqHsxJLzpoRQRCY7yEAs3XM8yH99YP9eCOlUr5/qo1r+sF9Z/zReTLQq
+	8L9bgVOf9zj8KmM0l9/n0TGBAzH20tj5rY+jypdxbDrWgkr7y3/JkVs4Nk7i6LcPsTz4gUQLyDS15
+	VtLGA2u5Dooz95bw4+bR8Fl+7XNBwfSQFOOfu8VWqy1zskicl0IO2ZrO02/eT9ENnY0G6r2yHujP2
+	ca4V4zliCmR/Hcv39mc1EL3yX7KlmddyZrTcxMP7Cv+ZnnQ2VB7kqvZvuDaCvG+YnGwpqUYThDtoq
+	c3INGBqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAqGI-0000000AgKv-3qqN;
-	Thu, 09 Apr 2026 14:21:39 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1wAqGk-0000000AgXb-3LZF;
+	Thu, 09 Apr 2026 14:22:06 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAqFs-0000000AgDG-06to
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 14:21:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=9C+NpEKos04qPELYWWqTjo60xTv/UJSaxtWUp97Wxog=; b=RrhOlAbwPvZR/LsA2IHp9I2pnU
-	ItnDtGi8y4npn4wzlm+PE6o+cCwWsHI3L9Rumy/YjLsyuHrzYgH1lUsknw4HHJceXjJPcnxdvb4Ih
-	7pbSsiYsB2EuHWmkdEVHjvvzm5ffw66zipyN4Km86ifUbMsQj9qGRP0GXQkuJ800qNbwbuT9UT//V
-	qkmcEhpRfjFdUBqFNfgZRfhsI/bipGMbri/9KGyDoJM/M6kMNnXnH6ooizs/vDPJ3ei1tNJqMusYx
-	6vUUCW1KzJ/kT++/V+O69VXv+eIctNGVZ0AYxRciHenNG2k6E3qnIanH5KB7p+wgs5z5UqpEj2EcM
-	wN0CPBZg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60924)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1wAqFo-000000003hw-0TBl;
-	Thu, 09 Apr 2026 15:21:08 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1wAqFm-000000004Sy-2bp8;
-	Thu, 09 Apr 2026 15:21:06 +0100
-Date: Thu, 9 Apr 2026 15:21:06 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Will Deacon <will@kernel.org>
-Cc: Brian Ruley <brian.ruley@gehealthcare.com>,
-	Steve Capper <steve.capper@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] mm/arm: pgtable: remove young bit check for
- pte_valid_user
-Message-ID: <ade10izJR3YocPr0@shell.armlinux.org.uk>
-References: <20260409125446.981747-1-brian.ruley@gehealthcare.com>
- <adewJetUv6wMiz9o@willie-the-truck>
+	id 1wAqGe-0000000AgSZ-0OR2;
+	Thu, 09 Apr 2026 14:22:05 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1wAqGT-000000002Iq-2EUP;
+	Thu, 09 Apr 2026 14:21:49 +0000
+Date: Thu, 9 Apr 2026 15:21:45 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Pablo Neira Ayuso <pablo@netfilter.org>
+Cc: Felix Fietkau <nbd@nbd.name>, John Crispin <john@phrozen.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Simon Horman <horms@kernel.org>, Florian Westphal <fw@strlen.de>,
+	Phil Sutter <phil@nwl.cc>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org
+Subject: Re: [PATCH RFC net-next 0/4] improve hw flow offload byte accounting
+Message-ID: <ade1-dlugvWF7IzB@makrotopia.org>
+References: <cover.1775739840.git.daniel@makrotopia.org>
+ <adevKeasLkEB5zZ4@chamomile>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <adewJetUv6wMiz9o@willie-the-truck>
+In-Reply-To: <adevKeasLkEB5zZ4@chamomile>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_072112_460107_A394462A 
-X-CRM114-Status: GOOD (  36.59  )
+X-CRM114-CacheID: sfid-20260409_072200_504606_CC2911DC 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,115 +73,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 09, 2026 at 02:56:53PM +0100, Will Deacon wrote:
-> On Thu, Apr 09, 2026 at 03:54:45PM +0300, Brian Ruley wrote:
-> > Fixes cache desync, which can cause undefined instruction,
-> > translation and permission faults under heavy memory use.
-> > 
-> > This is an old bug introduced in commit 1971188aa196 ("ARM: 7985/1: mm:
-> > implement pte_accessible for faulting mappings"), which included a check
-> > for the young bit of a PTE. The underlying assumption was that old pages
-> > are not cached, therefore, `__sync_icache_dcache' could be skipped
-> > entirely.
-> > 
-> > However, under extreme memory pressure, page migrations happen
-> > frequently and the assumption of uncached "old" pages does not hold.
-> > Especially for systems that do not have swap, the migrated pages are
-> > unequivocally marked old. This presents a problem, as it is possible
-> > for the original page to be immediately mapped to another VA that
-> > happens to share the same cache index in VIPT I-cache (we found this
-> > bug on Cortex-A9). Without cache invalidation, the CPU will see the
-> > old mapping whose physical page can now be used for a different
-> > purpose, as illustrated below:
-> > 
-> >                 Core                      Physical Memory
-> >   +-------------------------------+     +------------------+
-> >   | TLB                           |     |                  |
-> >   |  VA_A 0xb6e6f -> pfn_q        |     | pfn_q: code      |
-> >   +-------------------------------+     +------------------+
-> >   | I-cache                       |
-> >   |  set[VA_A bits] | tag=pfn_q   |
-> >   +-------------------------------+
-> > 
-> > migrate (kcompactd):
-> >   1. copy pfn_q --> pfn_r
-> >   2. free pfn_q
-> >   3. pte: VA_a -> pfn_r
-> >   4. pte_mkold(pte) --> !young
-> >   5. ICIALLUIS skipped (because !young)
-> > 
-> > pfn_src reused (OOM pressure):
-> >   pte: VA_B -> pfn_q (different code)
-> > 
-> > bug:
-> >                 Core                      Physical Memory
-> >   +-------------------------------+     +------------------+
-> >   | TLB (empty)                   |     | pfn_r: old code  |
-> >   +-------------------------------+     | pfn_q: new code  |
-> >   | I-cache                       |     +------------------+
-> >   |  set[VA_A bits] | tag=pfn_q   |<--- wrong instructions
-> >   +-------------------------------+
+On Thu, Apr 09, 2026 at 03:52:41PM +0200, Pablo Neira Ayuso wrote:
+> On Thu, Apr 09, 2026 at 02:07:22PM +0100, Daniel Golle wrote:
+> > Hardware flow counters report raw byte counts whose semantics
+> > vary by vendor -- some count ingress L2 frames, others egress
+> > L2, others L3. The nf_flow_table framework currently passes
+> > these bytes straight to conntrack without conversion, and
+> > sub-interfaces (VLAN, PPPoE) that are bypassed by hw offload
+> > never see any counter updates at all.
 > 
-> (nit: Do you have pfn_r and pfn_q mixed up in the "Physical Memory" box?)
+> I see, but that is part of the feature itself? Why pretend that these
+> interface are really seeing traffic while they don't. This aspiration
+> of trying to do all hardware offload fully transparent (when it is not
+> the case, not mentioning semantic changes in how packet handling is
+> done compared to the software plane) does not sound convincing to me.
+
+Please explain what you mean by offloading not being fully
+transparent. If the MAC hardware offloads VLAN encap/decap, for
+example, we also maintain the counters correctly (it just so happens),
+just the flow-offloading case results in a weird overall picture:
+hardware interface counters keep increasing, encap interfaces (802.1Q,
+PPPoE) don't. That makes it confusing and hard to understand what's
+happening when only looking at the interface counters (ie. "what is
+all that traffic on my physical WAN interface which isn't PPPoE? Can't
+be that all of that is the modems management interface, SNMP, ...")
+
 > 
-> > This was verified on ba16-based board (i.MX6Quad/Dual, Cortex-A9) by
-> > instrumenting the migration code to track recently migrated pages in a
-> > ring buffer and then dumping them in the undefined instruction fault
-> > handler. The bug can be triggered with `stress-ng':
-> > 
-> >   stress-ng --vm 4 --vm-bytes 2G --vm-method zero-one --verify
-> > 
-> > Note that the system we tested on has only 2G of memory, so the test
-> > triggered the OOM-killer in our case.
-> > 
-> > Fixes: 1971188aa196 ("ARM: 7985/1: mm: implement pte_accessible for faulting mappings")
-> > Signed-off-by: Brian Ruley <brian.ruley@gehealthcare.com>
-> > ---
-> >  arch/arm/include/asm/pgtable.h | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/arm/include/asm/pgtable.h b/arch/arm/include/asm/pgtable.h
-> > index 6fa9acd6a7f5..e3a5b4a9a65f 100644
-> > --- a/arch/arm/include/asm/pgtable.h
-> > +++ b/arch/arm/include/asm/pgtable.h
-> > @@ -185,7 +185,7 @@ static inline pte_t *pmd_page_vaddr(pmd_t pmd)
-> >  #define pte_exec(pte)		(pte_isclear((pte), L_PTE_XN))
-> >  
-> >  #define pte_valid_user(pte)	\
-> > -	(pte_valid(pte) && pte_isset((pte), L_PTE_USER) && pte_young(pte))
-> > +	(pte_valid(pte) && pte_isset((pte), L_PTE_USER))
+> On top of this, this issue also exists in the software plane: Devices
+> that are bypasses do not get their counters bumped.
 > 
-> This patch is from twelve years ago, so please forgive me for having
-> forgotten all of the details. However, my recollection is that when using
-> the classic/!lpae format (as you will be on Cortex-A9), page aging is
-> implemented by using invalid (translation faulting) ptes for 'old'
-> mappings.
+> Maybe if this is really a requirement, then this should address the
+> issue for software too, but is it worth the effort to add
+> infrastructure for this purpose?
 
-It is.
+To me it would feel more correct to see counters increasing also
+for offloaded traffic on software interfaces such as PPPoE or VLAN.
 
-> So in the case you describe, we may well elide the I-cache maintenance,
-> but won't we also put down an invalid pte?
+I honestly didn't think about the software fastpath, and yes, I think
+it should be addressed there too.
 
-Correct.
+> > This series lets drivers declare what their counters represent,
+> > so the framework can normalize to L3 for conntrack and
+> > propagate per-layer stats to encap sub-interfaces.
 
-> If we later take a fault
-> on that, we should then perform the cache maintenance when installing
-> the young entry (via ptep_set_access_flags()).
-
-Correct again.
-
-> The more interesting part
-> is probably when the mapping for 'VA_B' is installed to map 'pfn_q' but,
-> again, I would've expected the cache maintenance to happen just prior to
-> installing the valid (young) mapping.
-
-Also correct - for the new PTE to become accessible in userspace, we
-would need to establish a young PTE, which will result in set_ptes()
-being called, and that should trigger __flush_icache_all() which will
-flush the _entire_ instruction cache, which will remove any stale
-entries for the old mapping that is no longer accessible.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+This part could also been seen as an independent fix as currently
+conntrack stats for the same traffic differ in case of software
+offloading (pure L3 bytes) and hardware offloading (L2 ingress bytes
+in case of mtk_ppe).
 
