@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF4F6EA3C5E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 13:52:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBCD4EA3C5E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 13:52:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+UOjaI3iVPYi1dT+UAukN7BHSO+ocNBqoMnpe2lDsdA=; b=AAyEMNhk+y7ATaIvFMJiJve/AI
-	HU6xcA3Rn4wRgblgOyypQu88dBPGijDIINcqYvf1XxKw2ekkxnRjrlYs8E6uHaHLp6L5pQFzJG6lK
-	T+FhiVEP/qQCB5gps1ue9clJXeMpreNteztR3UjL7/PAR9dXXMPJ0rlZGgJnSBDTCuBEShNSKGTBX
-	JJnnniyU9Dhdg8cI4TD2rLWnn5/EIHosE8MsHijavCg0DC1OUdmopnm8xV3HxUVVtDYVEbkaghBn5
-	HYOqbEuJIRaEDEIFs9fqy3fOwHU2cJ1m4cw5AdazkyKwn8MKriYDlKfQKNKQkPhBCqKrQySIcSh+f
-	MwfeCpww==;
+	bh=NP2RJ66pcWorJoxBXQYII24RrX/72c449YHlQi1jxp8=; b=1jdIlUVaD3DdoAphaVm2rSMjVH
+	vt9r0cgdOlWFF3gLb87fRA1MNmNrYG5YHpwC1OT38xdVf2nW49/gobPunGqSMe74c2rN53/7GRUZQ
+	QodD1L+8YezZzKN9uCue9+wj0aA1Lb25DlvIqtMHuU0Ay8Nn39WO0GWI5YLXqyDNb8BSFh0fsKLYX
+	BE+CubAncEUTbXnU0cl9NvS0AWF2O8TOYsWgOryveSCEUtBI6ZYojEYM3hET0IZEFdKxpjtuWGJ43
+	MlNMKySPzBv5MaIMskPuq0uSeWanP8RZBNupjsq8Y3S4yDIauo/O79HEoYSNz96zKNsY/Oy/ZP3DW
+	joDLSpAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wApnl-0000000AaHy-2BFF;
-	Thu, 09 Apr 2026 13:52:09 +0000
+	id 1wApnm-0000000AaJV-0jJa;
+	Thu, 09 Apr 2026 13:52:10 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wApnH-0000000AZyb-0TP5;
-	Thu, 09 Apr 2026 13:51:40 +0000
+	id 1wApnL-0000000Aa0j-06UZ;
+	Thu, 09 Apr 2026 13:51:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1775742696;
-	bh=KyzQwUnfDm1fztBC6M2uhc6YYJnSNz50uKom2fCwuZQ=;
+	s=mail; t=1775742700;
+	bh=DMIweKgSOV3fIxZqhTvgTz9sRtOIz37xELaVKWgzSTk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=l4XS61sDtun10RvRrmAQdt2YKZsc3mBoeRg457cBWGGTuDs9yhOa93DjK/eKkcis/
-	 I2jBM8k7jCXzYrakt2XSG/SUk+l3jYS0EN9pPNVJb45KOl9scpyPpxGFWTIw7QC0gQ
-	 jOjaQDiSsKbnF1N7LAFSnfWJZ3zee3/v9sIi+a4DHcQ+Vmm1dq8Q82wEr7pUTLkUj6
-	 LykLGfPf9suuSmY/syNld4fwOqDt+pJ6tlgud/jlwlMDKpO/Bj1hzOY7/BOvP58UIW
-	 +3bNDUZyohkpOSW3EJvvvn70SBDrd6CIwaJga2/V6QSTkv3EST0WAPHSTi6mCuUwOg
-	 Pu3/rB7H6f5DQ==
+	b=Ve14zFZ9i+yeRKHWwgsEz5P+v66JA7tDwkhMXZ8Aalp5WOttwW2F5W0TQZZewlpoJ
+	 t/kLOh5SFVIq5WxxuSXqVbF6yXe6HQBr0OOJQeJyxtMMZj95KtJlJQhy7j3KjXm7DA
+	 sGOp9IFCYRPFY0fbpcko5kapedROjNDeC1OzcGP1l8i/XQd/3maQ1+ECYIJtoCeRwn
+	 YQ+y3EkW+q36PQcIVx7+/Q0fP4EIITjFc0n+ojtaREikctWPozUstChODtV5+ALBRy
+	 KpkGnHQet7Phb9FTqzaju4OmfzE89sRE22rA1fkEHR0ZRjMKAMUkYlhNmsc0YJUx/q
+	 3zgblwtSl+oJA==
 Received: from [192.168.0.15] (unknown [100.64.0.170])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AAE7917E1340;
-	Thu,  9 Apr 2026 15:51:34 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A9F4417E1380;
+	Thu,  9 Apr 2026 15:51:38 +0200 (CEST)
 From: Detlev Casanova <detlev.casanova@collabora.com>
-Date: Thu, 09 Apr 2026 09:50:39 -0400
-Subject: [PATCH 4/7] media: rkvdec: Remove unused need_reset
+Date: Thu, 09 Apr 2026 09:50:41 -0400
+Subject: [PATCH 6/7] media: rkvdec: Wait for all buffers before
+ stop_streaming
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260409-rkvdec-multicore-v1-4-62b316abf0f7@collabora.com>
+Message-Id: <20260409-rkvdec-multicore-v1-6-62b316abf0f7@collabora.com>
 References: <20260409-rkvdec-multicore-v1-0-62b316abf0f7@collabora.com>
 In-Reply-To: <20260409-rkvdec-multicore-v1-0-62b316abf0f7@collabora.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -63,8 +64,8 @@ Cc: kernel@collabora.com, linux-media@vger.kernel.org,
  Detlev Casanova <detlev.casanova@collabora.com>
 X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_065139_324661_32FCBA92 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20260409_065143_638698_C5F8C85B 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,57 +80,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A left-over from the iommu restore mecanism was forgotten.
-As need_reset is never set to true, the if has no use.
+Because the jobs are marked as finished before the buffer are marked
+as done, the stop_streaming callback can be called while the decoder
+is still running.
 
-The actual restore function is called above it vase the IRQ isn't in a
-success status.
+This could even go further and deallocate buffers that are still
+being used by the hardware.
+
+Fortunately, to avoid that, the vb2_wait_for_all_buffers() function
+can be used at the beginning of the stop_streaming callback to make sure
+that cleanup functions are called after the last buffer has been returned
+to the queue.
 
 Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
- drivers/media/platform/rockchip/rkvdec/rkvdec.c | 8 --------
- 1 file changed, 8 deletions(-)
+ drivers/media/platform/rockchip/rkvdec/rkvdec.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index 31ddfcc58894..db2731af06cf 100644
+index 5667d625f016..c2818f1575ef 100644
 --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
 +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-@@ -1462,7 +1462,6 @@ static irqreturn_t vdpu381_irq_handler(struct rkvdec_ctx *ctx)
- {
- 	struct rkvdec_dev *rkvdec = ctx->dev;
- 	enum vb2_buffer_state state;
--	bool need_reset = 0;
- 	u32 status;
+@@ -1027,6 +1027,8 @@ static void rkvdec_stop_streaming(struct vb2_queue *q)
  
- 	status = readl(rkvdec->regs + VDPU381_REG_STA_INT);
-@@ -1478,9 +1477,6 @@ static irqreturn_t vdpu381_irq_handler(struct rkvdec_ctx *ctx)
- 			rkvdec_iommu_restore(rkvdec);
+ 		if (desc->ops->stop)
+ 			desc->ops->stop(ctx);
++
++		vb2_wait_for_all_buffers(q);
  	}
  
--	if (need_reset)
--		rkvdec_iommu_restore(rkvdec);
--
- 	if (cancel_delayed_work(&rkvdec->watchdog_work))
- 		rkvdec_job_finish(ctx, state);
- 
-@@ -1491,7 +1487,6 @@ static irqreturn_t vdpu383_irq_handler(struct rkvdec_ctx *ctx)
- {
- 	struct rkvdec_dev *rkvdec = ctx->dev;
- 	enum vb2_buffer_state state;
--	bool need_reset = 0;
- 	u32 status;
- 
- 	status = readl(rkvdec->link + VDPU383_LINK_STA_INT);
-@@ -1507,9 +1502,6 @@ static irqreturn_t vdpu383_irq_handler(struct rkvdec_ctx *ctx)
- 		rkvdec_iommu_restore(rkvdec);
- 	}
- 
--	if (need_reset)
--		rkvdec_iommu_restore(rkvdec);
--
- 	if (cancel_delayed_work(&rkvdec->watchdog_work))
- 		rkvdec_job_finish(ctx, state);
- 
+ 	rkvdec_queue_cleanup(q, VB2_BUF_STATE_ERROR);
 
 -- 
 2.53.0
