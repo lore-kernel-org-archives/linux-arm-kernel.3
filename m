@@ -4,97 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57E9DEA3C59
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 13:45:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B46EA3C59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 13:51:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vCXEjEzw6Nc0u2HRk3Ki8Amy/rBfim8G6PYAFVir7Ak=; b=mvGjdhvNIAUDyY57ShG1Y69WQp
-	vtVfxLm2x2ZAeHz74Kxk/lneG2GwaP9fMPNhpbWA1KLgE1b75JispWhFkMSa8e2jpHJsHno+l7GBv
-	+3CRjDq4NvuWt+umItWV92xdIqzkVsllo3qTOArkaLnCiddjSoURBR4mHVkTAhc0AWUSQaIXid3hA
-	okB547ZH+3CbJU1l9gBqoNHua4kKgDrqYu2UTqmGZcP3AWfgiDNUGhkRYX6rM3HAa5FuR9goNYHnM
-	FyxWzyyyHyqC1Ei6DRoOgA9b+KKHH6LSlzKCxaSSu0TVBLMhw3rN4Fm04QnI9VTmn9Z3Mapgg7gA9
-	p28XTwrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tLUr1VEWYdfR3jTQPZjyc/HNQBl6/i75LRiyRBYsARQ=; b=xFtp4WWA/EvJeK
+	ZdSoLCRGWd26W8N5FORrsut0FKiDiELYRKQFAYm3KWPwwe0xCFdqJJir49k8AS67odQ4WL3YAotoZ
+	XJxTHu2aWTwqanr5wDlHgolVLmhAAlNmdjeSLVFAIs2KF3K4MO5gyXiHL48XE8mxHyW1e0A1Df5vn
+	GOKw7nO8t1lBDraLL/YsE0j+NR++Xi5AwWI+0L0GR3N8GS/uWAjZBbH3PRJt0TzkI0VudDRh3453r
+	w2KOpdzGV4cLzYNFM6PuMLFpFGEaDJwEK4YSxBy5F5pzfGJKubdA7yKtLw5MMjB75iH8qjo28SVCr
+	6Mi/Rkf31UaIiYFhpVvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAphA-0000000AYhR-2E4i;
-	Thu, 09 Apr 2026 13:45:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wApnG-0000000AZyk-1ODi;
+	Thu, 09 Apr 2026 13:51:38 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAph3-0000000AYgB-48f4
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 13:45:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DCF1D60125;
-	Thu,  9 Apr 2026 13:45:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C6EFC4CEF7;
-	Thu,  9 Apr 2026 13:45:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775742312;
-	bh=eq8if797wFl6ufcGFq/diuqKdbrPEilao+Lf3/c2Jaw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=EbJEneOG7FTCc3lWUwOtZr9eysP74IJKxUgTvtOM0rsjRRUbCBE1ARNjGHIQ9/40h
-	 M4Y8T03KS8vyz2tlMsE1BrfuD3TN3/wPU1YQGOzOQPKvkIzpHre84BerUHsFDsYRUy
-	 PiDoiyBfflr2JF5f+Q1GEEKjJ4VZM6MNYJ3HxQOXf9ojT8vKXeXWWPjxJdDwZ2BIHI
-	 HN9ls3H14GV/0ricbKGpXcFkbB7LxS6IFuygZYuSUvABSw1wCYz6Y/VzJq/CERGn41
-	 pj1u+gmXGlaS+xqzcIoumcZ4p+1fR+iv1x+AKJtY8GmAl0vXK4nNUgXoe1yFrRrL4r
-	 JYAsgy3RZgCyQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wAph0-0000000AGYy-1SET;
-	Thu, 09 Apr 2026 13:45:10 +0000
-Date: Thu, 09 Apr 2026 14:45:09 +0100
-Message-ID: <86v7e02qoq.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: "Woodhouse, David" <dwmw@amazon.co.uk>
-Cc: "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"shuah@kernel.org"
-	<shuah@kernel.org>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-	"catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>,
-	"nathan@kernel.org" <nathan@kernel.org>,
-	"pbonzini@redhat.com" <pbonzini@redhat.com>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"arnd@arndb.de" <arnd@arndb.de>,
-	"kees@kernel.org"
-	<kees@kernel.org>,
-	"will@kernel.org" <will@kernel.org>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"oupton@kernel.org"
-	<oupton@kernel.org>,
-	"rananta@google.com" <rananta@google.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>,
-	"eric.auger@redhat.com"
-	<eric.auger@redhat.com>
-Subject: Re: [PATCH 2/3] KVM: arm64: vgic: Allow userspace to set IIDR revision 1
-In-Reply-To: <ffe9de5106d999365389c3ab17f357409dac1047.camel@amazon.co.uk>
-References: <20260407210949.2076251-1-dwmw2@infradead.org>
-	<20260407210949.2076251-3-dwmw2@infradead.org>
-	<87wlyhc2g4.wl-maz@kernel.org>
-	<ffe9de5106d999365389c3ab17f357409dac1047.camel@amazon.co.uk>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: dwmw@amazon.co.uk, kvm@vger.kernel.org, shuah@kernel.org, yuzenghui@huawei.com, joey.gouly@arm.com, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, nathan@kernel.org, pbonzini@redhat.com, kvmarm@lists.linux.dev, arnd@arndb.de, kees@kernel.org, will@kernel.org, suzuki.poulose@arm.com, oupton@kernel.org, rananta@google.com, linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, eric.auger@redhat.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wApnB-0000000AZx8-16bz;
+	Thu, 09 Apr 2026 13:51:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1775742688;
+	bh=zb8Kdcld56GkDD3eedBbJU1WAMrgjQXCYOIVVPIDCuE=;
+	h=From:Subject:Date:To:Cc:From;
+	b=i54P+b5JUflbk2iAP5O3PJHSnKjPJHg0+jrZX+sOPe8KoX9ChZlc8aZPy/TMgV8R0
+	 Zhiv0TZpgVEx7/JYko257JDLmncVuXkQaPw7R7CEgTE6sUS14SFqSd6RFMl0Ud5F8y
+	 QEeLDC36E2QOvH8JY8aMPIZhSRSXRmt0s/s1ZQ+Jl+Q9iWH+JVT/FNm3Hnsiz0owCv
+	 +fuititxsucYcIDa0U2jFWQ4A+XYyzYrCI9mR0gM4PHLMedgYWTh+O2dnKFfdcW3/F
+	 QfQmj7OSSdn5N30KlYVuCmdFpVrK3rAVJJIbInfibb6Faw1L+AlelbEF+a63svX2NH
+	 GWyFnWPEawcHw==
+Received: from [192.168.0.15] (unknown [100.64.0.170])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: detlev)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 47E1517E0CA9;
+	Thu,  9 Apr 2026 15:51:27 +0200 (CEST)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+Subject: [PATCH 0/7] media: rkvdec: Enable multi-core support
+Date: Thu, 09 Apr 2026 09:50:35 -0400
+Message-Id: <20260409-rkvdec-multicore-v1-0-62b316abf0f7@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMSQ6DMAxA0asgrxspCVPoVSoWkBhwy1A5gJAQd
+ yfA8i3+38EjE3p4RzswruRpGgPUKwLbVWOLglwwaKkzmUgj+Lc6tGJY+pnsxCgKY2LlqlTJXEP
+ I/owNbffyUz72S/1FO18fOI4TEu/+mnQAAAA=
+X-Change-ID: 20260408-rkvdec-multicore-98831da51072
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Heiko Stuebner <heiko@sntech.de>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Hans Verkuil <hverkuil+cisco@kernel.org>, Jonas Karlman <jonas@kwiboo.se>
+Cc: kernel@collabora.com, linux-media@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Detlev Casanova <detlev.casanova@collabora.com>
+X-Mailer: b4 0.15.1
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260409_065133_559768_756D9CF5 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,76 +81,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 08 Apr 2026 09:39:15 +0100,
-"Woodhouse, David" <dwmw@amazon.co.uk> wrote:
->=20
-> [1  <multipart/signed (en-US) (7bit)>]
-> [1.1  <text/plain; UTF-8 (quoted-printable)>]
-> On Wed, 2026-04-08 at 08:54 +0100, Marc Zyngier wrote:
-> > On Tue, 07 Apr 2026 21:27:03 +0100,
-> > David Woodhouse <dwmw2@infradead.org> wrote:
-> > >=20
-> > > From: David Woodhouse <dwmw@amazon.co.uk>
-> > >=20
-> > > Allow userspace to select GICD_IIDR revision 1, which restores the
-> > > original pre-d53c2c29ae0d ("KVM: arm/arm64: vgic: Allow configuration
-> > > of interrupt groups") behaviour where interrupt groups are not
-> > > guest-configurable.
-> >=20
-> > I'm a bit surprised by this.
-> >=20
-> > Either your guest knows that the group registers are not writable and
-> > already deals with the buggy behaviour by not configuring the groups
-> > (or configuring them in a way that matches what the implementation
-> > does). Or it configures them differently and totally fails to handle
-> > the interrupts as they are delivered using the wrong exception type,
-> > if at all.
-> >=20
-> > I'd expect that your guests fall in the former category and not the
-> > latter, as we'd be discussing a very different problem. And my vague
-> > recollection of this issue is that we had established that as long as
-> > the reset values were unchanged, there was no harm in letting things
-> > rip.
->=20
-> What if the guest boots under a new host kernel and finds the group
-> registers are writable, and then is live migrated to an old host kernel
-> on which they are not?
+Since the driver is used for decoding on rk3588 and that the SoC has
+2 identical decoding cores, enable support for it.
 
-That's your problem. KVM/arm64 never supported downgrading.
+Instead of exposing 2 v4l2 devices to userspace, the driver will only
+expose one and handle the 2 cores transparently.
 
-Not to mention that there is no valid GIC implementation that has RO
-group registers. All you are doing is to inflict a hypervisor bug on
-unsuspecting guests, for no good reason.
+The 2 cores are able to work in parallel, but only contexts are
+parallelized: 1 stream, that uses 1 context, will only be able to use
+1 core as it usually needs previous frames already decoded to use as
+reference frames.
+To avoid complex scheduling, only different streams can use cores at the
+same time.
 
-> What about hibernation, if the *boot* kernel in the guest configures
-> the groups, but then transfers control back to the resumed guest kernel
-> which had not?
+To achieve this, the v4l2_m2m_buf_done_and_job_finish() had to be split
+in a done and a finish part (still keeping the unsplit function for other
+drivers). That allows the driver to get new jobs to run while the previous
+one is still running.
+The job_ready() callback is used to avoid scheduling multiple jobs from
+the same context.
 
-A guest that doesn't configures the groups cannot expect anything to
-work. You'd have the exact same problem on bare-metal.
+The IOMMU support is in a different commit, as it needed a bit more
+thought to work correctly, but I'm wondering if it should be merged with
+the multicore support commit.
 
->=20
-> > So what is this *really* fixing?
->=20
-> I look at that question the other way round.
->=20
-> KVM has an established procedure for allowing userspace to control
-> guest-visible changes, using the IIDR. First the host kernel which
-> *supports* the change is rolled out, and only then does the VMM start
-> to enable it for new launches.
->=20
-> Even if we can address the questions above, and even if we can convince
-> ourselves that those are the *only* questions to ask... why not follow
-> the normal, safe, procedure?=C2=A0Especially given that there is already =
-an
-> IIDR value which corresponds to it.
->=20
-> We don't *have* to YOLO it... and I don't want to :)
+A fix for the RCB (Row and Cols Buffer) size computation is also provided
+as it was causing issues with some fluster tests.
 
-That's hardly an argument, is it?
+Performance-wise, fluster doesn't seem to run much faster, but I tested
+with an HEVC test video from Jellyfin and observed that frames start
+dropping with 6 concurrent gstreamer instances, instead of 4 without
+multi-core enabled.
 
-	M.
+Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+---
+Detlev Casanova (7):
+      media: v4l2-mem2mem: Add v4l2_m2m_buf_done_manual()
+      media: v4l2-mem2mem: Remove WARN_ON() in v4l2_m2m_job_finish()
+      media: rkvdec: Keep RCB to the correct size
+      media: rkvdec: Remove unused need_reset
+      media: rkvdec: Add multicore support
+      media: rkvdec: Wait for all buffers before stop_streaming
+      media: rkvdec: Add multicore IOMMU support
 
---=20
-Without deviation from the norm, progress is not possible.
+ .../media/platform/rockchip/rkvdec/rkvdec-h264.c   |  17 +-
+ .../media/platform/rockchip/rkvdec/rkvdec-hevc.c   |  16 +-
+ .../media/platform/rockchip/rkvdec/rkvdec-rcb.c    |  77 ++--
+ .../media/platform/rockchip/rkvdec/rkvdec-rcb.h    |   8 +-
+ .../platform/rockchip/rkvdec/rkvdec-vdpu381-h264.c |  24 +-
+ .../platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c |  24 +-
+ .../platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c |  24 +-
+ .../platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c |  26 +-
+ .../media/platform/rockchip/rkvdec/rkvdec-vp9.c    |  27 +-
+ drivers/media/platform/rockchip/rkvdec/rkvdec.c    | 482 +++++++++++++--------
+ drivers/media/platform/rockchip/rkvdec/rkvdec.h    |  31 +-
+ drivers/media/v4l2-core/v4l2-mem2mem.c             |  34 +-
+ include/media/v4l2-mem2mem.h                       |  20 +
+ 13 files changed, 500 insertions(+), 310 deletions(-)
+---
+base-commit: 3036cd0d3328220a1858b1ab390be8b562774e8a
+change-id: 20260408-rkvdec-multicore-98831da51072
+
+Best regards,
+--  
+Detlev Casanova <detlev.casanova@collabora.com>
+
 
