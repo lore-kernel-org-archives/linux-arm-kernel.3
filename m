@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B81AEA3C4E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 12:25:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87B51EA3C4E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 12:25:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+1nL/5ruTLWXWmm1oZwROsAmjQKPkwhPsC9Nu9qN/dg=; b=iaDVAKfdjACaq0ILwZg0Vv+l4N
-	eKkQYAXj+jhjilkFGPs9oiDoQrnc07BuGwPTD3n+gqoeECdwmTVxAEwk6pRhDTDgB8MYPZYNknpWs
-	5kEQwct8Ywq0PKISkZHNrC7OiB0twJngnGuAquOhpLGsqln4sEMKiWS2M2vff/dlPdjZacdKRGxtP
-	e90df5zRr1xn4hQNWdyU2+V6ePpqEDxPYCX/AIdXMw2xBo75LLcDUT5MGqO5aD+0BFh4RX30miDzw
-	9bY2/rSZRAiU/DlXZ7T/4oEkqeGEqEVMwqpzaY854zbzSf03IVCmcHmKvx12a12GxcUmjAwdo2CGn
-	TKEn0e/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Co/4Ve9n6VtY3ahQ6O+ULQzOFl8L54M5+KbBmDwRrjk=; b=VzIP5ymZRtMKGKaSZPUZcCp8oE
+	kedZIh3RfxBXOqLn3b46eVqdXPDzxCqFd8TIZZW7fOWwCzqmC1wdDNs62CjZ8vuIrG/l773+h7RPg
+	VgjKO4fx2gNpmg0YqhGnJ0w9vn/PPNJ90wcvuIgkaS8HtANUrSdaRjI8KTLeX6vtAMaVV2CFPQZwf
+	wyIYksdNourXslZKB0VtJpVT1FGS24j7NhSbOi5l2LH4RX5uMuuZbDBFHxOkdtttGD0jvdfFj3VDP
+	YDSsTVHqzT/RGNWeyOPSwvSTda0oe9DXQxcs3xUI+MGOioHUPRhaWtcBadsbJ4wLh1zE9zoXN6ZDA
+	6gtCMKWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAoRM-0000000AN9v-0t6a;
-	Thu, 09 Apr 2026 12:24:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wAoRg-0000000AND2-29Ac;
+	Thu, 09 Apr 2026 12:25:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAoRL-0000000AN9p-3Ouw
+	id 1wAoRe-0000000ANCZ-0gcP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 12:24:55 +0000
+	Thu, 09 Apr 2026 12:25:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EE9BA600CB;
-	Thu,  9 Apr 2026 12:24:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57C7DC4CEF7;
-	Thu,  9 Apr 2026 12:24:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5BA104341F;
+	Thu,  9 Apr 2026 12:25:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E696BC4CEF7;
+	Thu,  9 Apr 2026 12:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775737494;
-	bh=+1nL/5ruTLWXWmm1oZwROsAmjQKPkwhPsC9Nu9qN/dg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Or8EBxzrYN9MfDJbRvOtdt1enEsBiRhwf2xAmGCeGWnRbDgAjYyImwh4JZtV8/X4z
-	 iCIhgIv/ATz1RUlDNVFXgBNAmPG6CjeP2vZA62UwGaFuXrldJBRg2nTR39TN0VocbN
-	 /aaff+eUgpsF0JAaMsj+cJ7GYU4N+A1j+REfgSDn6pRjXrxOLDHTH8C/TLNFrHkefo
-	 /4cVI/CE5qTfHfDV7QoAnlMEZoElWGRAt9aIYrXQWGiOhoZEhm6nkFXdHQi4e1/q8J
-	 AR+IlbUocInVVkhp8YaAbRTjvEw5nihRwhidGTBGYI1TdNmLnYGpKXGNtRIbjz1vFp
-	 kDLjIk95LJJWQ==
-Date: Thu, 9 Apr 2026 13:24:41 +0100
-From: Will Deacon <will@kernel.org>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Robin Murphy <robin.murphy@arm.com>, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, linux-ext4@vger.kernel.org,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	dmaengine@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Theodore Ts'o <tytso@mit.edu>,
-	Andreas Dilger <adilger.kernel@dilger.ca>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>
-Subject: Re: BUG: net-next (7.0-rc6 based and later) fails to boot on Jetson
- Xavier NX
-Message-ID: <adeaiSAnkaggqPsA@willie-the-truck>
-References: <adZTGOjjJrVJOcT8@shell.armlinux.org.uk>
- <adZfTi3R6jtsjXx-@shell.armlinux.org.uk>
- <adZ9grUg71f518Fg@shell.armlinux.org.uk>
- <adZ_ZmjcE8S22vR1@shell.armlinux.org.uk>
- <3a1d0520-3402-47b2-9d7b-4e14a3cd07a4@arm.com>
- <adayAMR_dEA6W5vW@shell.armlinux.org.uk>
+	s=k20201202; t=1775737513;
+	bh=PzGc744IfLosoYW/4TYIUb0+vQyy/eIOqkVjcY5usVM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=D+mBCCTm9aFfhSUlUFqw7wrHppv2f4W7eKSm69uxuv5Z2uuExwh2/9eCTIjI6xH0m
+	 28Hmy03nH48fD8BLpZeHYWQgRV2z9yHvvNL+A7Xj9CQAJY7VTnkehdsCEK8SlQ/dXN
+	 8SanpPUp8lKo713jj0QT4nvCvTMxbBwnQJS8M5GYFNAW0yVt7ixghSjhYLA0X2C71X
+	 zxAupitBEFW/QW2bKOhuwAbQ8AsGI7ive/vhGkvWOywiAQlBsI+FUWfUCAdl1RV+gR
+	 lL+r8hNCTYz90ZpdUgejiQ0ufQxoWP5uKarpT/pyxot/ETPyd0BV3bPjGgQxpYaRsn
+	 todkMfrFJn0dg==
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	linux-clk@vger.kernel.org,
+	Sylwester Nawrocki <snawrocki@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] clk: samsung: drivers for v7.1
+Date: Thu,  9 Apr 2026 14:25:03 +0200
+Message-ID: <20260409122504.71017-2-krzk@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <adayAMR_dEA6W5vW@shell.armlinux.org.uk>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2759; i=krzk@kernel.org; h=from:subject; bh=PzGc744IfLosoYW/4TYIUb0+vQyy/eIOqkVjcY5usVM=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBp15qggmUZ3kZpp2bVcyGYL99GjodD8u7JOCp85 BWyWyjGyHqJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCadeaoAAKCRDBN2bmhouD 1x8vD/47Otrj+RkgOUhE4x6o4gLRbj8uIwUT1Kl/+IvbYl1Zb0h0m9JVQSHu9Dljpqa8sZsLBLI +0bARVU4n5OaCpQ6gcVaGYB8TRwdiuopLwICEi6UApL0Uz9FCgtZuz6PIw/a5jo2SggD0WRAs6V n3mA6/fIs0KMoMgWnjV6ouWUib7yl/SFE8tk2H2GvyHODv3+0ZCemLCmWjjx9KlrE1UrZHlO5M5 HOO/WoRiDF5D+so1M5reTEiVdnR0KFcBcIt3SZwy1BS60mZxiodcNp2zLv50afP8l/VVAoabEP3 Ijlua8KJB+sGC3lRcNnfp6s//0APB0XZFRTMDUAadjAdz2XSc5NigHP6YZFBPThfZYJuSxIfIiF lLGQ6lxuoacmmLngyYHk41mRUOW7Ee5u/KeIB9B2u54seHTbFAq/2V+6cx7/wM08tM72/LFCqTk Lb3pIBMJnmF1iDcYMhbjJ3YqrHQsVyXcKtuF/nIecqbReLvs5B05eKl1WndGkq2JZLf6XHxbOPx CBXckWYBJesypbiIYOdqZhoSiPv6tyeaQL0Q+g/BUKxvizbMLdZlgtbEBHs2yjvpAtgYrWqSZCl hfr5lDegZpnDOkHoL92dIjv3tVZSEd+Bd4cFErlmN4z+Hc1XHOtKznZFRPRrEkD6dxqWW9P/ceD n4wloye2NfPGYZQ==
+X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260409_052514_246725_CB930CE0 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,12 +81,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 08, 2026 at 08:52:32PM +0100, Russell King (Oracle) wrote:
-> What's the status on the iommu fix? Is it merged into mainline yet?
-> If it isn't already, that means net-next remains unbootable going
-> into the merge window without manually carrying the fix locally.
+The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 
-I'll pick it up for 7.0 in the iommu tree.
+  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
 
-Will
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-clk-7.1
+
+for you to fetch changes up to e57c36bc1a3e459239ead492ebce731a88a264b1:
+
+  clk: samsung: exynos850: Add APM-to-AP mailbox clock (2026-03-24 13:43:19 +0100)
+
+----------------------------------------------------------------
+Samsung SoC clock drivers changes for v7.1
+
+1. Axis ARTPEC-9: Add new PLL clocks and new drivers for eight clock
+   controllers on the SoC.
+2. ExynosAutov920: Add G3D (GPU) clock controller.
+3. Exynos850: Define missing clock for the APM mailbox.
+4. Few compiler warning fixes cleanups.
+
+----------------------------------------------------------------
+Alexey Klimov (2):
+      dt-bindings: clock: exynos850: Add APM_AP MAILBOX clock
+      clk: samsung: exynos850: Add APM-to-AP mailbox clock
+
+André Draszik (1):
+      clk: samsung: gs101: harmonise symbol names (clock arrays)
+
+GyoungBo Min (3):
+      dt-bindings: clock: Add ARTPEC-9 clock controller
+      clk: samsung: Add clock PLL support for ARTPEC-9 SoC
+      clk: samsung: artpec-9: Add initial clock support for ARTPEC-9 SoC
+
+Krzysztof Kozlowski (3):
+      clk: samsung: pll: Fix possible truncation in a9fraco recalc rate
+      clk: samsung: Use %pe format to simplify
+      Merge branch 'for-v7.1/dt-bindings-clk' into next/clk
+
+Raghav Sharma (2):
+      dt-bindings: clock: exynosautov920: add G3D clock definitions
+      clk: samsung: exynosautov920: add block G3D clock support
+
+ .../bindings/clock/axis,artpec9-clock.yaml         |  232 ++++
+ .../clock/samsung,exynosautov920-clock.yaml        |   21 +
+ drivers/clk/samsung/Makefile                       |    1 +
+ drivers/clk/samsung/clk-artpec9.c                  | 1224 ++++++++++++++++++++
+ drivers/clk/samsung/clk-exynos850.c                |    7 +-
+ drivers/clk/samsung/clk-exynosautov920.c           |   52 +
+ drivers/clk/samsung/clk-gs101.c                    |   52 +-
+ drivers/clk/samsung/clk-pll.c                      |  185 ++-
+ drivers/clk/samsung/clk-pll.h                      |   17 +
+ drivers/clk/samsung/clk.c                          |    4 +-
+ include/dt-bindings/clock/axis,artpec9-clk.h       |  195 ++++
+ include/dt-bindings/clock/exynos850.h              |    1 +
+ include/dt-bindings/clock/samsung,exynosautov920.h |    6 +
+ 13 files changed, 1960 insertions(+), 37 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/axis,artpec9-clock.yaml
+ create mode 100644 drivers/clk/samsung/clk-artpec9.c
+ create mode 100644 include/dt-bindings/clock/axis,artpec9-clk.h
 
