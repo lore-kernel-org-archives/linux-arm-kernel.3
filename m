@@ -4,67 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF39EA3C55
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 11:57:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AB65EA3C59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 11:58:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BFGPXXDO5Qs7zdZxT8hLPVa+m/HFux3xI7M/xg68NOg=; b=RtwwF/hAvxZsTnS0kOGAWVZ9Ko
-	B15BIBpOp5mJOVk+7aPGRIe8XJsMyEqEttx7g1TQ6dAra5DPorsjmoh50KTUQGRwwu58njj6EmIMY
-	4Z0mfJCYr1aIpUYy0kJoyhccqwUIF+aFS6S+73rrhOdjJEK9W4FgldiGwk1chSc/dWpf7WZWTYKH0
-	+BlzZfPBRCPhEmdMc2c02Q/28f4KlCC8EcUkgGrEd5HJqoorn+J0ntCT+PM0FCMyw7VJO02y2NS8l
-	LHE/kRwEFQYovbOggA3VxBMZ/oTTe1bPYu3yFuCm6auFJktcgKZXBzC6wthzgPmqvWGnm4g/hZHYf
-	lUA5YGGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cu91uC2OuwLs6uadNX9Spimyo5+gB9vkHExvAWjsviY=; b=sZRbBCsQlVeca4/VTjzP1K3dG6
+	wgzaQopidkKGfaXJkEeNonInpik3Ux1mkeQ3QoSlTtknhG2YVMWYSl494hqUyMqW/ClUAmELFtkgi
+	kGAdwiwuF2NmNOI8Oc0eKMZWwFqxvj4hOln6YYla5CN5rtOxrXR8YhbTgazibzj/nKgI8cWcIvjfZ
+	Hci4yfo3HDfkVqywdodPOvMQw/HKSbc+Gkqik7dzyhiLORo8EcV9knxn07wt/mzIk9xu93RMCS+6d
+	Xay//+JPY+LnoXN2iz4FGkixBdqLnkCpKaW6nlUSSKug3v/sgduHKvLzinUNn4UG0m/psRriqn2Xp
+	1vNtNeKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAo0r-0000000AKE7-2i7k;
-	Thu, 09 Apr 2026 11:57:33 +0000
-Received: from out-187.mta1.migadu.com ([95.215.58.187])
+	id 1wAo1t-0000000AKQo-01Aq;
+	Thu, 09 Apr 2026 11:58:37 +0000
+Received: from mail-westeuropeazon11013026.outbound.protection.outlook.com ([52.101.72.26] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAo0m-0000000AKAy-3dSc
+	id 1wAo1q-0000000AKPe-0sHn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 11:57:32 +0000
-Date: Thu, 9 Apr 2026 13:57:11 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grimler.se; s=key1;
-	t=1775735843;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BFGPXXDO5Qs7zdZxT8hLPVa+m/HFux3xI7M/xg68NOg=;
-	b=m8px0pa4oDHJtsNk67FPcWrtxJeJL/+yzfNUBnSjINro0E7q9OFfyG/ExZxkJlUfT0UCyp
-	VIvz7jjaM5Xexsc/01v4C0OlM6g9GaD4xP1pdkLi//MzTRoUVWd3NDV5mvsG9efNPSQKW6
-	wugKQU0tfFHBsvSHy6lqhxXJR+ShYAo=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Henrik Grimler <henrik@grimler.se>
-To: Alexey Klimov <alexey.klimov@linaro.org>
-Cc: Sam Protsenko <semen.protsenko@linaro.org>,
-	linux-samsung-soc@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 5/7] soc: samsung: exynos-pmu: add Exynos850 CPU
- hotplug support
-Message-ID: <20260409115630.GA15706@localhost>
-References: <20260401-exynos850-cpuhotplug-v2-0-c5a760a3e259@linaro.org>
- <20260401-exynos850-cpuhotplug-v2-5-c5a760a3e259@linaro.org>
+	Thu, 09 Apr 2026 11:58:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bQwfmvo/riuXM34jthbePUo+ST4rcwBjxMcczX77Va+a4jkJZ5Q6Gk7/iL86ObqVaotTbSs+moCh+U31trsLV7w3rbfx7bcos5dDdlVrlEfIPjsOqQC4dqL7/Ag6wIdp6E9Odb1uQWOkNElvrGp+SaNzsEnO+jCiN9NP1Wl0zzPBMKtOJ77eo1HcetoE+ex60YET08JK40obVYC8pwKS5gfdJj9oswCiwC0xTKoPaiTgZ9dt1MtjRD02JoYK0AKQwCwtItFjbkajV4FAJl7H15hOHR8DaKLW/tMJkyPUGlYVO5A/Ji7BYfqPBB7SPOzeKNKz5Q/UoLUi9hruibvt8A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cu91uC2OuwLs6uadNX9Spimyo5+gB9vkHExvAWjsviY=;
+ b=snknczhLP4HR47b+ANAOAUeAaNFUHt+3PWOsYYEVQegyWhJSZiFlCwl+4z1HRr+9BV1CHsgLiyPsn3QtgWyjDV9MguqOxzdEd4H3uPD4UwCDIAeUrLa4vY6AXJzwqYxniXmcY1CmC44T0OL2Lu+iBjhleDlWErfumzSqJn9Fr893u9pGQ7XQiF6ujmEvxpPjhrxfQkw7vn8ASZ+l7oeopqvNxO2asYmUklDyIWLyfEXx1658aLTP8fFeLgZmaPBxOCrA0aNFJ/63D6Jv7domp+P/2DIxUqH6CUDXw/4WZ1djW9+DntPT7hpHg6/ZDSkdDtISvH7fo2eQMUGVby+kQQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cu91uC2OuwLs6uadNX9Spimyo5+gB9vkHExvAWjsviY=;
+ b=rxH2bVXEth38a0O6tVV57jmxybC/Jc6eKEMbM7Z6R3uBjYPEgUcYVWK3BZRSo9GSCaI3mw7qZ+eZ1duWVmZ9TzRb1xerjtWBMRRmacyVHUM+RrjTg1Y9Yz1Ps8ddYkrodjKxJQ6ti+XnJ3KS0NPFPGixp4z1Cuv02hlswo/v3Pq459v6wp0EQwUMubnowNf4a3zmyaUqpVWOq2ZO2r256IuZZ/tJ47MbTPqnuOjJSDsy261ArEMQhDIbcWbKK0X0bRnfomxUzk8+GRJySDgvc5gt9S5CVX+ezS8ALi0bSSzUO3I+soeFZBk1oodIvSfRfdt+jmpdCf+lhNL+Oa7g0A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by VI0PR04MB10686.eurprd04.prod.outlook.com (2603:10a6:800:25d::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.42; Thu, 9 Apr
+ 2026 11:58:28 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%3]) with mapi id 15.20.9723.030; Thu, 9 Apr 2026
+ 11:58:27 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: [PATCH 0/3] arm64: dts: imx95: Update for smmu
+Date: Thu, 09 Apr 2026 20:00:00 +0800
+Message-Id: <20260409-imx95-s-dts-v1-0-858e83ae1a37@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMCU12kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDEwNL3czcCktT3WLdlJJi3VSLNEOjlGRLk2QjSyWgjoKi1LTMCrBp0bG
+ 1tQDSopD7XQAAAA==
+X-Change-ID: 20260409-imx95-s-dts-e8f12dc94c29
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: MA5P287CA0073.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1b3::6) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260401-exynos850-cpuhotplug-v2-5-c5a760a3e259@linaro.org>
-X-Migadu-Flow: FLOW_OUT
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI0PR04MB10686:EE_
+X-MS-Office365-Filtering-Correlation-Id: d9e0aef0-648c-4556-c96c-08de962f4f4f
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|7416014|52116014|1800799024|38350700014|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 8VINqRaUxrWSDm3BxaHUDPxkf9Ywt6lBe8adksCYJTd4WlWl7zGXGE9lii2JHPC3YPymxu6TGY0o3isv/EpnNtGstvdyA+fNtgMORtm3o3UTbjmb141490vJ8bwhaIo+81anxJwNF5UUVijTX388IXn2EGD3rNwVfUfr1lAENqLs73w8+fU6TrdY2f06dJSzFck6v1TgcNz6BXhWxSIW4965NVq171H134sJE7Vfddmk+bj/IavSxaCzCyJgNPnDM7grL4r6JJVr9qB4mEX2feS90P9cXuV2x3JI19uDq+66Ma2XOkY6K1gqWW/BnEB4Dixv2To5niFw3qAQtu+O4l7I/Dae+qn6MCFPoRalpjduJIm3lptyYXxf5Vxt8BqnHUo5fev2ZfMOYaRRR6KIkz/IIT34nirg+J48bMwgPCth0vcHv50s0zjK2nHdgH+s/nK2+m/bytRiO/ehf9oARj9tbH7BheqJDh9vLy2+4yrr2YPHdyZ34JHNxSip6RlozxW9r2fgKsOV2Jb4HIZwvfSBrogwmXn3WDpcCU6BVnV++AGO1De3jraXyUYaslpHO2dPcONtOW7RCQ6dZMr3CZXzNx5Yxfl1EwTMMC5POucIkzb//rpWLahHtMPUvz6aTy1zy1rXPKEy8r49+caP5tyrA7DtfFxdeWNbBp+Q/ztj+CDJwe6XdCJ2TB5IVsybdCYAKYSKPTLW4MrOMfAxmnZNWbj0hqNr4ifEouADSiQQEJ0Y02Dlwfd3NBUqAXzjjEkh4+MSmXdKaxiswFTeeW0L/G0qamSM62QUbLlJcW8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(7416014)(52116014)(1800799024)(38350700014)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M1JOVjlmSTl0YjNEV0hmVDJ5RXNzNHJJWjZMUW0wREROcFVrM21OcWlQRy9j?=
+ =?utf-8?B?QlJRRmRuZWkyc0FCSWxBeGxrZDV0c2wrbUxFUmhtL3huTUlOdW5IUjZmd2xv?=
+ =?utf-8?B?SUU4bTNrREU5MWhvVXdqaUxIMHYya2poWm4zcExtRFdoOGlqUXRodWZyUlZO?=
+ =?utf-8?B?bkl0dGc0azQ2QlQ5Y0VTU3JUSW1iRml2K05hUkVHazc2VXNzYUZLcFFzdkJ2?=
+ =?utf-8?B?WjgyQWlxVFlVeGJaRTRZWC9MK2Q5OWhQSktHWVBSZXFNbWwzSXlhU1BOaDMv?=
+ =?utf-8?B?K0F0ZzRQL3h0QkcwakY0cVV0NlBHRE43WUN6Vk9HNk94bnV0OS8xRSttZXdN?=
+ =?utf-8?B?LzhSRHZDMmRNc2lqRTV0TE9BN1B0bnM4Vkw0bHhLTEhEazVPNjJKQ1YvOG1S?=
+ =?utf-8?B?QVhRQS82ZE1JcEdzMWVJOFRRNDVQVU9FNlBIcitlNGsxYVp5b3QwM1BRVUJM?=
+ =?utf-8?B?UVFBR3RvMXQwdjVWSXR2d0gvWkZPTXo2WFJHSDlmRDIzMVVVNkZMcXdzaHdt?=
+ =?utf-8?B?L2l3aHltbnd0NkUwbUZzOUhzSWlVUmtXYnN6a3BCUXh5SzNpWTVuUDFYNENT?=
+ =?utf-8?B?bkRjMGpvSjAycE5XOUttQ1BZY2JlZy9xekVZdm1sdm5PRFQremxRSmRzU3F3?=
+ =?utf-8?B?NUg5SDgxN0RVUk9WQ2NQL0Y3V1VkSjNBYkhvRG9JdE53UWNpSkpsK3dxeFJi?=
+ =?utf-8?B?K2hRdVlRNjBUUnpoUU9hZy8rU0MvcVFtdjlSemJCT0EyM1hFS3o5MndvTERh?=
+ =?utf-8?B?OVA3RW1oTXEyVHJ0dnpMdU1zbGVzTENkTjhmZlBsQk1QRGpmZldaZHVZVkgv?=
+ =?utf-8?B?VWJwU01nd2ZVeFFVdTNnb2M2TTU3OTZUK0hkZXRQUC9KU2pvQ0JQYTJXU3Fk?=
+ =?utf-8?B?dWcyOTdQaVlsNzF1UFIxTHJQdXErS2R3SFBsMXlzREtmOVBNUncvcHRNZkhJ?=
+ =?utf-8?B?c205WTF2NXY2K3V6ZUdKcmNmaDJRTnJvUDh1dFZ4TFJ5WUFha0s4WDA3aExW?=
+ =?utf-8?B?MGhJeXorUDdCK1o0cWpDL09nTVZJQUd6NkhKMDVCWDZ1blFoeFkzVUU5WUpB?=
+ =?utf-8?B?NFFUM1l5aWs0eTVCbThlQjlSTUVKc2tXdExDcXRBMzh1bDh3aDVwR3J0UGdp?=
+ =?utf-8?B?L0NjWkdlT1dTYVR2cXpMR3Yyd3VKTEhoZFdjSm82YmJQRXd1TDJDOG16aUpY?=
+ =?utf-8?B?cjJCQmthcTVpY2hMcEl4VitHdmFSOW1SYTRXWEZSOUNmUHZLQnB2eGtXYml4?=
+ =?utf-8?B?RlF4SThVcjN0eUNUc05BUEpMaE5aZ01pOHB0MXh3YXlxK3BET2w5VURoNWQv?=
+ =?utf-8?B?bWdMaXhJZkpEbVZwWmFMVHhLNWtVZU9xK052TVNPdW1iNlNQVzZJTStpZjEv?=
+ =?utf-8?B?blRwemlvakY2MHB4K1YwOVVTY0NteFBBb2Z2SmtKWnlDODlyWU8ydUp6T3o2?=
+ =?utf-8?B?NGVSV3ZDTEVYR1dPTW5YMHFGc3k0V0lPeDhlVzlTM2M0M1FiS1dYK2tlRVU1?=
+ =?utf-8?B?Y1RGNGJoNVRTSk9ZY0JKTlZUK0x0c1RwN1dQVjVsZGVTS0pxeHNRcnJLMzlO?=
+ =?utf-8?B?d2JUQ0hhYWgzOWtTU3krdHFzMnR4V25vaWdrRXB3a0ZFVDI1c3QrcDNlM0gw?=
+ =?utf-8?B?ZGNSMmk0d2xIOGVxMSs4U0wzdkRodzhRcEkwZmpoWXNrRGl0R0hWblNLc01E?=
+ =?utf-8?B?KzdyUDNlR0pqWU96ZGhaU0lXOWRrSGxmbXlRSjBSODIyRTR5QlpXSEZZRjJV?=
+ =?utf-8?B?d3dUUlZ4MTBsNldRL2Z2UUt0ZVJoTnF2UzFDRkJkTHcrVkJFN1BUMDRtMDhI?=
+ =?utf-8?B?VDdBcGpML1ZFd1dHeVZPOUFZcmlJb1F4cEQwRlkwS3pTQW1pY2p2RDRGOEhI?=
+ =?utf-8?B?NW1YSStJOWZRdkFETkZPSDJBejdoWUNRczZJMEZiaS9mZDBtU3pHRUZxQ0k4?=
+ =?utf-8?B?ZTlyZUFpcE9iOTNFSzVNbjRqVS9GQVd1T2FUeUozNVN2K1M2eWd3T0Uya1hv?=
+ =?utf-8?B?RXMzTy9FejliTW1LTUtJQ2F3WVRpUldhNGNDTVFLVE1RZ1NYR29uQWlFbXZ2?=
+ =?utf-8?B?Q1hCMHU0cEpmZ0JrUTROMzZFdmhKZ1U5WFVxendHZERJWm1QeGtUMzlUZTRL?=
+ =?utf-8?B?c1I0RUdOYVVKNzJQN1FVb0RjUmEyMzhUUmRwSDZxSGorVzhoQkZVbUhHOW9C?=
+ =?utf-8?B?U0dGa2ZydVMvWkVya245VTZlU0MvMTBKWU5qK0hUVTk2ZnQydXpMb05WZTBQ?=
+ =?utf-8?B?OGw0WTFmSjk0VWptWTNGbE40b0ZFMm02SDh2RytSVGQ1VWxsbTJVeklhNVBw?=
+ =?utf-8?B?SHJ5dER0RnhSSm9CVDJhaU9JS1kyR05hd2U5QzNFRHdlU2wyOFNQUT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d9e0aef0-648c-4556-c96c-08de962f4f4f
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2026 11:58:27.3499
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nyFdWJbXP4vhVkjtP1U2iZK7yZy7NQqu3bSeDgyCMA7cIDkRadIlquat9vtseus/6oe2+jNMCy/wGGEHQN/CQA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10686
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_045731_212628_FAD499BA 
-X-CRM114-Status: GOOD (  25.54  )
+X-CRM114-CacheID: sfid-20260409_045834_252881_BA40C306 
+X-CRM114-Status: UNSURE (   6.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,195 +155,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexey,
+Update smmu reg size
+Add SMMU PMU nodes
+Enable SMMU by default and add iommus property for sdhc/edma.
 
-This patch breaks compilation for arm(32) exynos devices. Compiling
-with exynos_defconfig I get:
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Peng Fan (3):
+      arm64: dts: imx95: Correct SMMU reg
+      arm64: dts: imx95: Add SMMU PMU nodes
+      arm64: dts: imx95: Add iommus property and enable SMMU
 
-[ ... ]
-  CC      drivers/soc/samsung/exynos850-pmu.o
-  CC [M]  fs/squashfs/page_actor.o
-../drivers/soc/samsung/exynos850-pmu.c:17:21: error: call to undeclared function 'MPIDR_AFFINITY_LEVEL'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-   17 |         u32 this_cluster = MPIDR_AFFINITY_LEVEL(read_cpuid_mpidr(), 2);
-      |                            ^
-../drivers/soc/samsung/exynos850-pmu.c:17:42: error: call to undeclared function 'read_cpuid_mpidr'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-   17 |         u32 this_cluster = MPIDR_AFFINITY_LEVEL(read_cpuid_mpidr(), 2);
-      |                                                 ^
-../drivers/soc/samsung/exynos850-pmu.c:48:21: error: call to undeclared function 'MPIDR_AFFINITY_LEVEL'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-   48 |         u32 this_cluster = MPIDR_AFFINITY_LEVEL(read_cpuid_mpidr(), 2);
-      |                            ^
-../drivers/soc/samsung/exynos850-pmu.c:48:42: error: call to undeclared function 'read_cpuid_mpidr'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-   48 |         u32 this_cluster = MPIDR_AFFINITY_LEVEL(read_cpuid_mpidr(), 2);
-      |                                                 ^
-4 errors generated.
-make[6]: *** [../scripts/Makefile.build:289: drivers/soc/samsung/exynos850-pmu.o] Error 1
-make[5]: *** [../scripts/Makefile.build:548: drivers/soc/samsung] Error 2
-make[4]: *** [../scripts/Makefile.build:548: drivers/soc] Error 2
-make[3]: *** [../scripts/Makefile.build:548: drivers] Error 2
-make[3]: *** Waiting for unfinished jobs....
-[ ... ]
+ arch/arm64/boot/dts/freescale/imx95.dtsi | 91 +++++++++++++++++++++++++++++++-
+ 1 file changed, 89 insertions(+), 2 deletions(-)
+---
+base-commit: db7efce4ae23ad5e42f5f55428f529ff62b86fab
+change-id: 20260409-imx95-s-dts-e8f12dc94c29
 
 Best regards,
-Henrik Grimler
+-- 
+Peng Fan <peng.fan@nxp.com>
 
-On Wed, Apr 01, 2026 at 05:51:58AM +0100, Alexey Klimov wrote:
-> Add cpuhotplug support for Exynos850 platforms. This SoC requires
-> its own specific set of writes/updates to PMU and PMU interrupts
-> generation block in order to put a CPU or a group of CPUs into
-> a different sleep states or prepare these entities for a CPU_OFF
-> or wake-up out of idle state or after CPU online.
-> Without these writes/updates the CPU(s) wake-up or online fails.
-> While at this, also add description of Exynos850 PMU registers.
-> 
-> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
-> ---
->  drivers/soc/samsung/Makefile                |  2 +-
->  drivers/soc/samsung/exynos-pmu.c            |  1 +
->  drivers/soc/samsung/exynos-pmu.h            |  1 +
->  drivers/soc/samsung/exynos850-pmu.c         | 78 +++++++++++++++++++++++++++++
->  include/linux/soc/samsung/exynos-regs-pmu.h |  5 ++
->  5 files changed, 86 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/soc/samsung/Makefile b/drivers/soc/samsung/Makefile
-> index 636a762608c9..7f544e3c1fcc 100644
-> --- a/drivers/soc/samsung/Makefile
-> +++ b/drivers/soc/samsung/Makefile
-> @@ -7,7 +7,7 @@ exynos_chipid-y			+= exynos-chipid.o exynos-asv.o
->  obj-$(CONFIG_EXYNOS_USI)	+= exynos-usi.o
->  
->  obj-$(CONFIG_EXYNOS_PMU)	+= exynos_pmu.o
-> -exynos_pmu-y			+= exynos-pmu.o gs101-pmu.o
-> +exynos_pmu-y			+= exynos-pmu.o gs101-pmu.o exynos850-pmu.o
->  
->  obj-$(CONFIG_EXYNOS_PMU_ARM_DRIVERS)	+= exynos3250-pmu.o exynos4-pmu.o \
->  					exynos5250-pmu.o exynos5420-pmu.o
-> diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
-> index 4e5fcc01e5e0..daa870ba88f5 100644
-> --- a/drivers/soc/samsung/exynos-pmu.c
-> +++ b/drivers/soc/samsung/exynos-pmu.c
-> @@ -133,6 +133,7 @@ static const struct of_device_id exynos_pmu_of_device_ids[] = {
->  		.compatible = "samsung,exynos7-pmu",
->  	}, {
->  		.compatible = "samsung,exynos850-pmu",
-> +		.data = &exynos850_pmu_data,
->  	},
->  	{ /*sentinel*/ },
->  };
-> diff --git a/drivers/soc/samsung/exynos-pmu.h b/drivers/soc/samsung/exynos-pmu.h
-> index 186299a049a8..4202d3cd94c9 100644
-> --- a/drivers/soc/samsung/exynos-pmu.h
-> +++ b/drivers/soc/samsung/exynos-pmu.h
-> @@ -102,6 +102,7 @@ extern const struct exynos_pmu_data exynos5250_pmu_data;
->  extern const struct exynos_pmu_data exynos5420_pmu_data;
->  #endif
->  extern const struct exynos_pmu_data gs101_pmu_data;
-> +extern const struct exynos_pmu_data exynos850_pmu_data;
->  
->  extern void pmu_raw_writel(u32 val, u32 offset);
->  extern u32 pmu_raw_readl(u32 offset);
-> diff --git a/drivers/soc/samsung/exynos850-pmu.c b/drivers/soc/samsung/exynos850-pmu.c
-> new file mode 100644
-> index 000000000000..b3841547577a
-> --- /dev/null
-> +++ b/drivers/soc/samsung/exynos850-pmu.c
-> @@ -0,0 +1,78 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright 2026 Linaro Ltd.
-> + *
-> + * Exynos850 PMU support
-> + */
-> +
-> +#include <linux/soc/samsung/exynos-pmu.h>
-> +#include <linux/soc/samsung/exynos-regs-pmu.h>
-> +#include <linux/regmap.h>
-> +
-> +#include "exynos-pmu.h"
-> +
-> +static int exynos850_cpu_pmu_offline(struct exynos_pmu_context *pmu_context, unsigned int cpu)
-> +	__must_hold(&pmu_context->cpupm_lock)
-> +{
-> +	u32 this_cluster = MPIDR_AFFINITY_LEVEL(read_cpuid_mpidr(), 2);
-> +	u32 cluster_cpu = MPIDR_AFFINITY_LEVEL(read_cpuid_mpidr(), 1);
-> +	unsigned int cpuhint = smp_processor_id();
-> +	u32 reg, mask;
-> +
-> +	/* set cpu inform hint */
-> +	regmap_write(pmu_context->pmureg, EXYNOS850_CPU_INFORM(cpuhint),
-> +		     CPU_INFORM_C2);
-> +
-> +	mask = BIT(cpu);
-> +	regmap_update_bits(pmu_context->pmuintrgen, EXYNOS_GRP2_INTR_BID_ENABLE,
-> +			   mask, BIT(cpu));
-> +
-> +	regmap_read(pmu_context->pmuintrgen, EXYNOS_GRP1_INTR_BID_UPEND, &reg);
-> +	regmap_write(pmu_context->pmuintrgen, EXYNOS_GRP1_INTR_BID_CLEAR,
-> +		     reg & mask);
-> +
-> +	mask = (BIT(cpu + 8));
-> +	regmap_read(pmu_context->pmuintrgen, EXYNOS_GRP1_INTR_BID_UPEND, &reg);
-> +	regmap_write(pmu_context->pmuintrgen, EXYNOS_GRP1_INTR_BID_CLEAR,
-> +		     reg & mask);
-> +
-> +	regmap_update_bits(pmu_context->pmureg,
-> +			   EXYNOS850_CLUSTER_CPU_INT_EN(this_cluster, cluster_cpu),
-> +			   1 << 3, 1 << 3);
-> +	return 0;
-> +}
-> +
-> +static int exynos850_cpu_pmu_online(struct exynos_pmu_context *pmu_context, unsigned int cpu)
-> +	__must_hold(&pmu_context->cpupm_lock)
-> +{
-> +	u32 this_cluster = MPIDR_AFFINITY_LEVEL(read_cpuid_mpidr(), 2);
-> +	u32 cluster_cpu = MPIDR_AFFINITY_LEVEL(read_cpuid_mpidr(), 1);
-> +	unsigned int cpuhint = smp_processor_id();
-> +	u32 reg, mask;
-> +
-> +	/* clear cpu inform hint */
-> +	regmap_write(pmu_context->pmureg, EXYNOS850_CPU_INFORM(cpuhint),
-> +		     CPU_INFORM_CLEAR);
-> +
-> +	mask = BIT(cpu);
-> +
-> +	regmap_update_bits(pmu_context->pmuintrgen, EXYNOS_GRP2_INTR_BID_ENABLE,
-> +			   mask, (0 << cpu));
-> +
-> +	regmap_read(pmu_context->pmuintrgen, EXYNOS_GRP2_INTR_BID_UPEND, &reg);
-> +
-> +	regmap_write(pmu_context->pmuintrgen, EXYNOS_GRP2_INTR_BID_CLEAR,
-> +		     reg & mask);
-> +
-> +	regmap_update_bits(pmu_context->pmureg,
-> +			   EXYNOS850_CLUSTER_CPU_INT_EN(this_cluster, cluster_cpu),
-> +			   1 << 3, 0 << 3);
-> +	return 0;
-> +}
-> +
-> +const struct exynos_pmu_data exynos850_pmu_data = {
-> +	.pmu_cpuhp = true,
-> +	.cpu_pmu_offline = exynos850_cpu_pmu_offline,
-> +	.cpu_pmu_online = exynos850_cpu_pmu_online,
-> +};
-> +
-> diff --git a/include/linux/soc/samsung/exynos-regs-pmu.h b/include/linux/soc/samsung/exynos-regs-pmu.h
-> index 9c4d3da41dbf..93c4d724c8ea 100644
-> --- a/include/linux/soc/samsung/exynos-regs-pmu.h
-> +++ b/include/linux/soc/samsung/exynos-regs-pmu.h
-> @@ -1015,6 +1015,11 @@
->  #define EXYNOS_GRP2_INTR_BID_UPEND				(0x0208)
->  #define EXYNOS_GRP2_INTR_BID_CLEAR				(0x020c)
->  
-> +/* Exynos850 PMU Alive */
-> +#define EXYNOS850_CPU_INFORM(cpu)		(0x0860 + ((cpu) & 7) * 4)
-> +#define EXYNOS850_CLUSTER_CPU_OFFSET(cl, cpu)	(0x1000 + ((cl * 0x400) + ((cpu) * 0x80)))
-> +#define EXYNOS850_CLUSTER_CPU_INT_EN(cl, cpu)	(EXYNOS850_CLUSTER_CPU_OFFSET(cl, cpu) + 0x44)
-> +
->  /* exynosautov920 */
->  #define EXYNOSAUTOV920_PHY_CTRL_USB20				(0x0710)
->  #define EXYNOSAUTOV920_PHY_CTRL_USB31				(0x0714)
-> 
-> -- 
-> 2.51.0
-> 
-> 
 
