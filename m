@@ -4,68 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3548BF31E31
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 15:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC12DF31E31
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 15:45:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hILjoPgiqB9ArBx18oLL5Kq/RwJaRbmI53OkeTSDO2c=; b=oqG/S7yzOeHWLeuykcMIbvbZ08
-	bIPcGPLBcjD0E2k/V2uQJccU2pKFQIWeq0cFrfWzrft24but3FrAS6PaEgKhf2rhVply/XPSDz8x2
-	ZA1kXHOL8YwRmJ2kD+59B+Hz0YL+t9guRsPw+4BFnBHt5t4zACBEVqBAxC4p7eoiuOxYzkUgmjbpb
-	mFut/som+uAJQLsikPsDT6dp9NZW//R4yY3waEoK/hrbPuvHwP7Soy+DdX5/5GkrDrOTpxUL/xXQ1
-	SIfydO82df2r37syrGHbPecZiuQWNEpWy6xicPx2wBs5sDX9VTxGwVfnHuDNH3xvIvN7JuB/eYTWn
-	2VrovV3g==;
+	bh=G9h/BUcB8IHEauzcEwlgjyxakGZobrNdMzDSAfArNCY=; b=Jr3pWSDzdYSBmfBmqGR6QpHvoV
+	9AgykvccUlm6y4dfXNFx7PWvI0+A0gFK5ESy2is42lVrLnMsEeoN2zsJptey0lQ4TN+MzptphI5G/
+	Q7Nh/LHQideUeVYtNwjEFHzS5cx17P5j0yzlkAJRoqvTDul7sZ4bUZvGpT+Ko3Si9wj3PWMLiDE00
+	u8OKgi6fnq4MlVVqMgAhfELKzHig4ZzDpHDqbY7Kf68NjBXhAVsUe6G4X0sQluyWx3YFe6lVLHFzs
+	EQy6f7Wrsbw9jxW+RHyzo2vsWAW1QlH5b8BrlSWj99EeXbwVWWhFtNbsTkDN2Biwr4cIUFWH7HW/Y
+	jgE7ydjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wArYi-0000000Aoqd-1T9N;
-	Thu, 09 Apr 2026 15:44:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wArYg-0000000AoqI-0KFI
+	id 1wArZB-0000000AouT-2ldt;
+	Thu, 09 Apr 2026 15:45:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wArZ5-0000000Aotc-2Wge
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 15:44:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 433162BC4;
-	Thu,  9 Apr 2026 08:44:34 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A2CF53F632;
-	Thu,  9 Apr 2026 08:44:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775749480; bh=4RWl0dTNtutbYNl6i0YeFr+pdN+hsAkInOddbhx/bvE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jjR3NWRll6qDAfDUiVc7XXWoV122na/DvBKoEUqlEPbU2mN/UzUVqLSez1iuc1uZO
-	 GjHlSRv1t+hyRW1zmFUci0PCqfU/XqGT2qwUaCpUimRBcqKNC/VENe/D6i+CnzNqEY
-	 otMER8GmumQmHDlxx5l8qujC8iwpXZka/EVmKHf0=
-Date: Thu, 9 Apr 2026 16:44:37 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
-	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>
-Subject: Re: [PATCH v10 16/20] coresight: Add PM callbacks for sink device
-Message-ID: <20260409154437.GU356832@e132581.arm.com>
-References: <20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be@arm.com>
- <20260405-arm_coresight_path_power_management_improvement-v10-16-13e94754a8be@arm.com>
- <e7c6f497-f8f0-409b-b80a-a064b222c08d@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <e7c6f497-f8f0-409b-b80a-a064b222c08d@linaro.org>
+	Thu, 09 Apr 2026 15:45:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A97ED44026;
+	Thu,  9 Apr 2026 15:45:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 834E7C4CEF7;
+	Thu,  9 Apr 2026 15:45:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775749506;
+	bh=J6uiOo4APYV7VEgCDfwDN+sbPUnXpMBRqqY6RsCKT5c=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Mh+SqBu9kZ5UZJFuJAfr+D4QAjyXGfs1nMUS6KUL+ByVAfviO/LbQb8XMitubiSPY
+	 5GO7pqYpIV7ylUi27n0wC2wz0UFjOb4xyRir1O+A6FNhaY7sMBWdJDF21nnwLixZRE
+	 MnqUR4yH/uv5m67n1AMRQAvbeKbUd0Py0sP3BS/jZ2j11kNKxh/xE5lEOxbS8LElTw
+	 ROP93FZzJ8tUzDB6A29zCYUI1A71zpGa1P5vyHJeJf8vtCU678wy6017pkbqZ5PKKS
+	 a/K6a37maNHR7Ijx1Y11S3JQpiLkvoAdd/rgtbkAUaXoj83BbeNVV8ZyPQWUiXdrBV
+	 m7fnDjRWAVTbQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wArZ2-0000000AIrt-0Y6e;
+	Thu, 09 Apr 2026 15:45:04 +0000
+Date: Thu, 09 Apr 2026 16:45:03 +0100
+Message-ID: <86tstk2l4w.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: David Woodhouse <dwmw2@infradead.org>
+Cc: "Gutierrez Cantu, Bernardo"
+ <bercantu@amazon.de>,
+	alexandru.elisei@arm.com,
+	alyssa@rosenzweig.io,
+	asahi@lists.linux.dev,
+	broonie@kernel.org,
+	catalin.marinas@arm.com,
+	james.morse@arm.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	marcan@marcan.st,
+	mathieu.poirier@linaro.org,
+	oliver.upton@linux.dev,
+	suzuki.poulose@arm.com,
+	sven@svenpeter.dev,
+	will@kernel.org
+Subject: Re: [PATCH v7 7/7] KVM: arm64: Normalize cache configuration
+In-Reply-To: <254ca48a67779ccf9b9f60e2bb5796a305c03f95.camel@infradead.org>
+References: <20230112023852.42012-8-akihiko.odaki@daynix.com>
+	<b71910e202ac4a56a87c0e34df13cce058d46a76.camel@infradead.org>
+	<86wlyg2r3i.wl-maz@kernel.org>
+	<254ca48a67779ccf9b9f60e2bb5796a305c03f95.camel@infradead.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: dwmw2@infradead.org, bercantu@amazon.de, alexandru.elisei@arm.com, alyssa@rosenzweig.io, asahi@lists.linux.dev, broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, marcan@marcan.st, mathieu.poirier@linaro.org, oliver.upton@linux.dev, suzuki.poulose@arm.com, sven@svenpeter.dev, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_084442_240217_9CE931AD 
-X-CRM114-Status: GOOD (  31.06  )
+X-CRM114-CacheID: sfid-20260409_084507_684661_139454BB 
+X-CRM114-Status: GOOD (  42.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,82 +101,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 09, 2026 at 11:52:00AM +0100, James Clark wrote:
-
-[...]
-
-> > @@ -1787,15 +1808,32 @@ static int coresight_pm_save(struct coresight_path *path)
-> >   	to = list_prev_entry(coresight_path_last_node(path), link);
-> >   	coresight_disable_path_from_to(path, from, to);
-> > +	ret = coresight_pm_device_save(coresight_get_sink(path));
-> > +	if (ret)
-> > +		goto sink_failed;
-> > +
+On Thu, 09 Apr 2026 15:51:59 +0100,
+David Woodhouse <dwmw2@infradead.org> wrote:
 > 
-> The comment directly above this says "Up to the node before sink to avoid
-> latency". But then this line goes and saves the sink anyway. So I'm not sure
-> what's meant by the comment?
-
-I will refine the comment to: "Control the path up to the node before
-the _system_ sink to avoid latency caused by memory copying; afterwards,
-saves context if the sink provides a callback".
-
-
-> >   	return 0;
-> > +
-> > +sink_failed:
-> > +	if (!coresight_enable_path_from_to(path, coresight_get_mode(source),
-> > +					   from, to))
-> > +		coresight_pm_device_restore(source);
-> > +
-> > +	pr_err("Failed in coresight PM save on CPU%d: %d\n",
-> > +	       smp_processor_id(), ret);
-> > +	this_cpu_write(percpu_pm_failed, true);
+> [1  <text/plain; UTF-8 (quoted-printable)>]
+> On Thu, 2026-04-09 at 14:36 +0100, Marc Zyngier wrote:
+> > On Thu, 09 Apr 2026 13:25:24 +0100,
+> > David Woodhouse <dwmw2@infradead.org> wrote:
+> > > 
+> > > On Thu, 12 Jan 2023 at 11:38:52 +0900, Akihiko Odaki wrote:
+> > > > Before this change, the cache configuration of the physical CPU was
+> > > > exposed to vcpus. This is problematic because the cache configuration a
+> > > > vcpu sees varies when it migrates between vcpus with different cache
+> > > > configurations.
+> > > > 
+> > > > Fabricate cache configuration from the sanitized value, which holds the
+> > > > CTR_EL0 value the userspace sees regardless of which physical CPU it
+> > > > resides on.
+> > > > 
+> > > > CLIDR_EL1 and CCSIDR_EL1 are now writable from the userspace so that
+> > > > the VMM can restore the values saved with the old kernel.
+> > > 
+> > > (commit 7af0c2534f4c5)
+> > > 
+> > > How does the VMM set the values that the old kernel would have set?
+> > 
+> > By reading them at the source?
 > 
-> Why does only a failing sink set percpu_pm_failed when failing to save the
-> source exits early.
+> Yes, but the VMM in EL0 *can't* read the source, can it?
 
-My purpose is to use "percpu_pm_failed == true" to prevent further
-issues if we already know the link has failed.  To be clear, this is not
-a recovery mechanism; it simply means "if link enabling or disabling
-fails in CPU PM, do not continue to avoid potential hardware lockups.”
+Again, this is designed for migration, and snapshoting the source
+values gives you the expected result.
 
-The source save failure is a bit special, it fails at the beginning of
-the CoreSight CPU PM flow, and the returned error prevents the CPU idle
-flow from proceeding.  As a result, there is nothing further to do.
-
-> Sashiko has a similar comment that this could result in
-> restoring uninitialised source save data later, but a comment in this
-> function about why the flow is like this would be helpful.
-
-The comment of "Restoring uninitialised source save data later" does not
-make sense.
-
-When the save fails, the notifier only rolls back the callbacks that ran
-before the failing callback by invoking CPU_PM_ENTER_FAILED.  And there
-is no CPU_PM_EXIT, as the idle state is never entered.
-
-> We have coresight_disable_path_from_to() which always succeeds and doesn't
-> return an error. TRBE is the only sink with a pm_save_disable()
-> callback, but it always succeeds anyway.
+>
+> > > Let's say we're deploying a kernel with this change for the first time,
+> > > and we need to ensure that we provide a consistent environment to
+> > > guests, which can be live migrated back to an older host.
+> > 
+> > We have never guaranteed host downgrade. It almost never works.
 > 
-> Would it not be much simpler to require that sink save/restore callbacks
-> always succeed and don't return anything? Seems like this percpu_pm_failed
-> stuff is extra complexity for a scenario that doesn't exist? The only thing
-> that can fail is saving the source but it doesn't goto sink_failed when that
-> happens.
+> Huh? Host downgrade absolutely *does* work; KVM on Arm isn't a toy.
+> We'd never be able to ship a new kernel if we didn't know we could roll
+> it *back* if we needed to.
 
-As you suggested, I can simplify the code with assuming sink ops
-always success, but we might expect complaints from Sashiko.
+You have clearly been lucky so far, because I'd never such claim.
 
-> Ideally etm4_cpu_save() wouldn't have a return value either. It would be
-> good if we could find away to skip or ignore the timeouts in there somehow
-> because that's the only reason it can fail.
+> 
+> I *know* that you know perfectly well that we actively test host
+> downgrades prior to every rollout of a new kernel. So I'm a little
+> confused about what you're trying to say here, Marc.
 
-Seems to me, ETMv4 has a timeout log and returns error is not bad, as
-it can be helpful to locate issue in a cheap way (sometimes, hang
-issue caused by lockup might be a time-consumed debugging).
+I said exactly this: we make no effort to ensure that a guest started
+on a version of the kernel can be migrated to an older version -- the
+state space might be different.
 
-Thanks,
-Leo
+> 
+> > > So for new launches, we need to provide the values that the old kernel
+> > > *would* have provided to the guest. A new launch isn't a migration;
+> > > there are no "values saved with the old kernel".
+> > 
+> > And you can provide these values.
+> 
+> If I know them, sure. But I don't, because:
+> 
+> > > Userspace can't read the CLIDR_EL1 and CCSIDR_EL1 registers directly,
+> > > and AFAICT not everything we need to reconstitute them is in sysfs. How
+> > > is this supposed to work?
+> > > 
+> > > Shouldn't this change have been made as a capability that the VMM can
+> > > explicitly opt in or out of? Environments that don't do cross-CPU
+> > > migration absolutely don't care about, and actively don't *want*, the
+> > > sanitisation that this commit inflicted on us, surely?
+> > 
+> > I don't think a capability buys you anything. You want to expose
+> > something to the guest? Make it so. You are in the favourable
+> > situation to completely own the HW and the VMM.
+> 
+> Now that the values are writable, but userspace can't easily see *what*
+> they would have been in the previous kernel. So having the capability
+> to ask KVM to set them to those values seems like it might be useful.
+
+Well, it's only a patch away.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
