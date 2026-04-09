@@ -4,153 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90A3A10FC460
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 00:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9C8910FC456
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 01:48:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q5KZdkQz73VXmwaxOANgI+OJtLYoSri/GxY+gJ9gMeQ=; b=IwKptjZcNySDhTXxhqn9ywMPi/
-	ZsV0g8psWAUu6rFhtPNdTWgXclxMbEc2gpTZAto8OZVnR4bjtIqSzWNv2/xPuchwFsS3IdVpf3RvG
-	+4IccatRULkIvZDDB7daWApmX5CojIcc0BpEmXsLj2WOSnYMCm7tVFTLEOFURu/nzjQeMSZeFSIuH
-	mQNNYGdk4L3jUti20RirmeU+Fp3q/GMSDHmCpujisAbHF1rjd7ucRUC7Eh+cm8NgeRFcbfmoy2v3+
-	N2r5uZRgWDFgWKhmLsNrr8rg5Nm2pFV2f4FistiTM94FFmO6wYqG7HKs9Mwbohtbg2iLSDwVloMAK
-	uA6xJbqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bMVy6z35ZLJhTi82Sl8QaK6YUF4LfLQ2EPx4PMUuZ6w=; b=lJsm3yFFafdMU8iD2kbhJMQnW5
+	Hphz7GtrhwCJYUn4Q3U20chB/E4rfalYidWw7DoQqm7wjjSr72qUnL7lG5HDE5061BSRNCg9CTJXO
+	SA4QzJqVPi+U7ALpx5xTW2gcLPPe32lJrX2Y3oDhpk7VUAPgzvhGu4e3QciXoNafZq85vi3t9OIVC
+	52J4oks6zVHQaIW6sD4d8Ldo9ZUH6MiyHayM/fiKdFF9qvgDHzD9B+xKXdcCFiJY4uT1zLIlTiwtk
+	ZUOJ/2N+BSM0SaLK4J4QQuKolW7c1V9zduYmpV/qq6N62ylo8zKzIP9J1acVicXp+2SMKYstnSsL6
+	udwU4JLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAdGJ-00000009Xy0-39wc;
-	Thu, 09 Apr 2026 00:28:47 +0000
-Received: from mail-swedencentralazon11013070.outbound.protection.outlook.com ([52.101.83.70] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wAeVL-00000009aar-47ck;
+	Thu, 09 Apr 2026 01:48:24 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAdGF-00000009Xxf-476h
+	id 1wAeVI-00000009aaW-3Afz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 00:28:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=q1keNcvoSJJIjJfNO+ql5WWxMb+opqw8JiFXbKbI8GizTR3PQzj42Pd+Md4IeXDQbPmC9M3DKFcJA/nMukAmfUOiDV/inT1tDJcdUgmoNAFeLY1en5GUwNge0QjGJKidEL2PcpzDSM/ftbYRNkfSMyOxNyZgssxY0qABCF43V1Fkl/5RaHQdyIL14upf/qEE/Iw1S83O42MY9wOKsMgEqv/VvdDJjF82snv/r3CTD/dPz26SBVWW0yXU8jWGnC6EixGtQSFvblHkn9ecJHWd5tWeLvRDdaT20Oho6URQqa8WBP/4YDuu8jQDwSHODpJUxUyVAOWpDJgsggq/Oy8F+Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q5KZdkQz73VXmwaxOANgI+OJtLYoSri/GxY+gJ9gMeQ=;
- b=BHL+1EDZ3IVCPhsD/um9v0dnPRoqRaKWAUh2J1/nshnzLxLmYKvwqtRKlYh1uHN2gLO0zGrQ+UCThw7+aceUNzFf4iJ6+/TQOj9Y+GaKokb/ITo24ABgEbzFI1A2dQHgAbIyu7twGUz0vsvbBlHDeCJKdFuFQ36e6/oC6bF6b1t4aAW+FRwkqrc/99S0D9ewnuBhmVXSEKye6ZOHPCPi2aVs31fbjkjq/RZJlRdspX8LeXb03KO6C6FlTgOEBnanyvJgqIHeXNSlc0+cypKLnKoYF2fEK1/XLd2IJIzej4y0W8f7j65gwAR8FDhVj3agkFmV9rksDb0+pi5nsiedrQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q5KZdkQz73VXmwaxOANgI+OJtLYoSri/GxY+gJ9gMeQ=;
- b=mgxtkZzTKjTV8XB9SQbvb7AYkyNxGdXF4O7ZshPYEbvGn+Mg1/6M+o/QzZT70Zjly2eNSUtjj8BT3qABaddfDUDbRDBVuC4VQ00mpwYIhUJk5z19biABsPyBef4LzWLccG/3MYo6AqWX54TlYM7BHT0PJQRo5BcZ/k3MjKwSH/nrBZWvNq2cHCapugmm3ljCmGPRaYgC7QxmAOjXdKrnLZn80QPK51IMm+jmAKLs146LAza9p2R/YM9fqCP2kcdiENR9Z88Qo9LkY24hgz5e0YjJT+A6ndAB5mIbbMN6qoYNQPdbTRXQKJOz1uiDEY67EkH5oy91Jdo7LKbw+UESIQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM6PR04MB11267.eurprd04.prod.outlook.com (2603:10a6:20b:6d1::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.20; Thu, 9 Apr
- 2026 00:28:35 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::4972:7eaa:b9f6:7b5e%3]) with mapi id 15.20.9723.030; Thu, 9 Apr 2026
- 00:28:35 +0000
-Date: Thu, 9 Apr 2026 08:30:54 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Peng Fan <peng.fan@nxp.com>, Bjorn Andersson <andersson@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 2/3] remoteproc: imx_rproc: Pass bootaddr to SM
- CPU/LMM reset vector
-Message-ID: <adbzPl7ydUvb+MIS@shlinux89>
-References: <20260327-imx943-rproc-v2-0-a547a3588730@nxp.com>
- <20260327-imx943-rproc-v2-2-a547a3588730@nxp.com>
- <acqjS440STRl2sK2@p14s>
- <acs2PAZq2k3zjmDW@shlinux89>
- <adUghiyZbe3fmcNX@p14s>
- <PAXPR04MB8459AA009C932EB9D6139A11885BA@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <adZ4WIaC6WN97JhR@p14s>
+	Thu, 09 Apr 2026 01:48:22 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 638L1War469930
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 9 Apr 2026 01:48:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	bMVy6z35ZLJhTi82Sl8QaK6YUF4LfLQ2EPx4PMUuZ6w=; b=HN6dFC1OsTG9YN8K
+	yt19jf0A0AOyT/MnpEHNnWQc5WjjmzsoRs2Eulnj73Zx2EXQiXLncqExanNwQ6KD
+	da7dckIQA089LbKqe5u6MgsArFFg/Z6rwJjLqUprfmMYoACltzIvQLAOJNWXTNQt
+	/X5XQEKSLG8uhhklJN4g5S5StNbr9dgm+wrjyDqCS1cTi0AIzofC/loEXXik8rem
+	OaumlHwlO3bE68qpPWUbchcC3AXRNUIeFdFeBEGydv82YJ9pJle8g0K1CKWXK6oN
+	EBQviGacDr1Yk/t0ZdKXhKahGHfdhLVsla+uVIxLhAs8a+DVdwrY9J0XFrzplagl
+	7ffR1A==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dduvv1f3u-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Apr 2026 01:48:19 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-50d8dac6233so10867771cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Apr 2026 18:48:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1775699299; x=1776304099; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=bMVy6z35ZLJhTi82Sl8QaK6YUF4LfLQ2EPx4PMUuZ6w=;
+        b=h/EaSOzz6I58XJaLCblWirZPXf6oXdTSMlCwmxrjLPv4IYZR+rcR/vgqkoHngMQsY4
+         S4dfBeO4cdiSTTdYYeuRUg/GrVbl8IuVJqnmgShCz32YSHknO4spAAWnYp1kMU5Y6hXC
+         hUdMqwcEelXh5/6SV8CfLdkM0T7IFAmDe612m0jmjhWPM8hPX6JOa+W81CcwbWVavGs2
+         DOAdEy5gSrkbaYi2wW0MdErgKWJFZKtbwaKqkSAJmcxkgkSM9s0U+3PDRTlrfAmAJ6Ha
+         FcEFFg5Z5or4ZzmAPpnzuKRYVt6+U77Sq54Kpc2jN7T+sdPoNiloHfCCAVA5VbJl+rRL
+         KqPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775699299; x=1776304099;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bMVy6z35ZLJhTi82Sl8QaK6YUF4LfLQ2EPx4PMUuZ6w=;
+        b=X0HFxf/EQ5AvVEn0kmbfU33fO+zcVO8fbhVniGoekBwvo6o0NUJuOA/eubywB2aDk5
+         O6pl+Rwh5+4ZXjCcxXakP2sLMjH1LNUTHJC7x7piXqAvqulHM1r9FZSHohSdLBPEHEZ0
+         iSBOQlHKUh/c4BUULhsLf6zFpJr9Ax10VPeCfkPQ+NcAao39Dr76pI7jHjOJpWUaBBqs
+         hYpRjsgejy4J5xUXWJML6Du+khQuRLWGEXpO7jXbzwR7YBXwYvVwBn45YWCKM99JlFh1
+         wg5k3bjR61bOkUR2pITi/dpBVzCevZd6r/pO2HAdqDqQ106H7TkTF4LobOAonDoK92Gf
+         zmoA==
+X-Forwarded-Encrypted: i=1; AJvYcCVqLgAuuBgmii8ol5fmPwya61IWeZweaY3sxuVTW4U32Pt/fJt+wVYU3Nl9YAMUV1rN/1vx1/o2gE5Lksl+mKbA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxslHeEBeYb3KXNIefAO1q9PStSHJitm5O5gTdBX5G+iEZp1FTd
+	lHqAimrzDcgVDAW+nJj8335qn0uLmyFrX0RaeONHooneWEdeSvynpMd/EHdc0NJ8K+CXkkebCrI
+	YvH/B8ZmCcEsx84QE0nkeQgrZEk+sQX7ijwvHMsXz5j0DRKsGDQJWgud+Vgh0bngnruTc6hdO2/
+	8HaA==
+X-Gm-Gg: AeBDievLby2qfUauoM3O1sGPl+DiZ2+ltaCEM8exvEVLWDw3NM9qaH5b90gj/r2Wkdi
+	do/+sEP1VoIJwePzsVKKQDIc1mqMymP+Ok6hwxHwxSax0IBvIGjN+F5tVI38wJhWFxpmx+4U/98
+	c+LqSGfkykZHO9q3OSa+FxcME750eeRUvig6IzKMeFQbq5H7meHbAW9JClDYMkE/W7GCHEuRaFb
+	hrOyvHCmqu4tISkNOvQHKfeTMe82OSBIzPGeRDKV0un9OjyDOZHP0BTTE/ordubDYvltxAnTqDT
+	aYRkyfOeDEyTrMlvJowHHrEzQlDpyiQA5iasu4ShUDSkx/hL132gkKW0uQK/TMLjTmRX+ZJxMNc
+	vYzeseL785Xjh2dgbNpywotuhko9kyQPJN63fdYNJJzPSup9GVkdm+r0kKZnAX6YVk1eYJmVLBO
+	pRgCW6SLVHVtRqrutpeDAnogGEhQtyfS3/DQ4=
+X-Received: by 2002:a05:622a:4a86:b0:50b:4522:d0a0 with SMTP id d75a77b69052e-50dc2222918mr25894591cf.34.1775699298703;
+        Wed, 08 Apr 2026 18:48:18 -0700 (PDT)
+X-Received: by 2002:a05:622a:4a86:b0:50b:4522:d0a0 with SMTP id d75a77b69052e-50dc2222918mr25894331cf.34.1775699298204;
+        Wed, 08 Apr 2026 18:48:18 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a2c6ccc9bcsm5055295e87.57.2026.04.08.18.48.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Apr 2026 18:48:16 -0700 (PDT)
+Date: Thu, 9 Apr 2026 04:48:14 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: bibek.patro@oss.qualcomm.com
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+        Dmitry Baryshkov <lumag@kernel.org>, iommu@lists.linux.dev,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, srinivas.kandagatla@oss.qualcomm.com
+Subject: Re: [PATCH] iommu/arm-smmu-qcom: Fix fastrpc compatible string in
+ ACTLR client match table
+Message-ID: <5npqhtczzsxxgxbs5mxjk3bvtypcd6cytec2wlsvykjbmg3zkh@cx6axr72b6uw>
+References: <20260408130825.3268733-1-bibek.patro@oss.qualcomm.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <adZ4WIaC6WN97JhR@p14s>
-X-ClientProxiedBy: MA5P287CA0162.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1ba::17) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM6PR04MB11267:EE_
-X-MS-Office365-Filtering-Correlation-Id: 75220f92-dd26-4201-27b5-08de95ceefaf
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|19092799006|7416014|1800799024|38350700014|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 6mghSCfTn7tWfr2nMHH63oG4srDfxrQp72OeR8j+6Tha1XmCFNcFCoAsja2P8JYSzKVt6X12YJN8MzsopZP9x9xYkCzcllrX1XlQRbVMmp+BKJ+68psgGztV9u00JMC3AdT3Nmn4VofsxRKQKAwcL9W8HT6ggUNCRUdbpO82tknOCrmukrsj98ZPfO2Mf2fLE7vuVRaHTjGcNNJybRj7VDMkC1fBYD4Uo6BeV64gCeNwRM1gSAaDtN0iNScoZORbpvvk0x06178AIzPfEjL05PtKeONflM1Pfys71BoduDCvS60semGHQR9vwdngapDl7ZBR5M1rsgpMSoCnR18Z4ky0O+m67TWhXfcqG3TbgYqu656phvjRoX+LJnu74vox7fs8MskTeNx0DqExJ7Gefk5fK8rQQNT2JyRfDQ/kSqS63uwYOCwimkb54AU7SXpyCxfU5wFYpaQxeaB79TJUgUcrHF2pu5qz61CjARfZ7APgJC6m7vL4RK/YDnmoGJcJf8+2atavR0+0lRiovKoAF0YyjzX+baMOHNGVVy2Icu891qP66X6Kh2sizoh/sL4jgTbY46xGBAihw4gM6U/mZmJdIw3qoht4NQ4ZdfszyrBQ6dSzf7BpxapuKTIrYqIb5Ok1ST32XpjL6JZDXauAOSaYxUXm/l2m2GhzaAVFiQ7QYs4kY0T43dYsOfI5Ueq+RktlZYH7cHj4lXQRv+55jXkNC+1g4nXNi/QPjcFvUEzH5xQSps7Dy1QT6jdbCvY5tyB35aNzkm5lo7LwkYU8OAUM4DzjejgcXa0MCtYd4UE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(19092799006)(7416014)(1800799024)(38350700014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dlBhMmZGbkUrSXlkZVlXWDBNN2V4LzlKOVVYWlhYckZEbk9xT3NNNVcvRzcv?=
- =?utf-8?B?dFJtWXM5MFB5dmkzRk9nNVltMXhVb3NYU2N3MW9mOHB6RFd4Q0hjL25XRjht?=
- =?utf-8?B?RGJpZ1oxbis3c3JUc1p2bm1zR1UxRDZDVVZiL0IwQmd6MXRYWjFqODBWdW05?=
- =?utf-8?B?dTBOamtnbEFwRVFvZ01GRjNINzE1Q1MxbFdtekhWMzZCM3ZxU0ZtVDlRVDJG?=
- =?utf-8?B?N3IwdERkbXpqZkF5Q1lyaGpNY3VCUnNFZi9SWjIvc0tpQ0JRTkJ3NXUyUjNr?=
- =?utf-8?B?YTJlS0k1NU5qajJYNW5BWFViWFFwSmNPNmtFeDYwTjNMcEg4ODY1UXptd2Fs?=
- =?utf-8?B?WUJSL2hXU0czU3luQWEvQWV2WmE3N01vRis5YnNkbWM4VWpqRUc0cUZrdHdI?=
- =?utf-8?B?ck4xaTRzc2JrYVc0b29uQ2tBSDJ3VjlUUHY0WDF3eG0zbEsreFIzcHRTWXhn?=
- =?utf-8?B?QWZUUTFVY0hHM1dYRHNxYUFSQVVra0g4MEdNZFR1N0JJNENucHFBM2IxTkVu?=
- =?utf-8?B?UHh0ak92VW50cVVTUVc3aHhrck9naDVHK2FhRk1uTFFmOStrZk9kOTE2NWZX?=
- =?utf-8?B?SlhoaEVHMHNscE5jbWxtUDF6a1NHZFJkMDR6MGRNZUtkOTNsQTg5cXk3Tmdj?=
- =?utf-8?B?Sk1tSEdPRzlDZWFvYUg0NG1NaXJHZENvSG5WUFZ2VVQ2U2ZxWGI2bFB6bDNO?=
- =?utf-8?B?VmZqWm5BWnpFeUpFYU1QMzEwbU9CZll3SFhOeXM1Unh3UDdHTDliZjh1bzVJ?=
- =?utf-8?B?bWJYZTFjWXJsLy9DUTcvTTZOU2RTSmpkd3FzMklXRGc2VXJyL2NJaDdwNXRT?=
- =?utf-8?B?NVVUMUM4Q0dLZkZEU0pDUWt6VUhqM0RrNGV5SzZ4WmJobVBkeVozUm5PT0RE?=
- =?utf-8?B?L1NDODNzT2RsdW01NnJWcE53dmNUbmUxaVNTWkx3SXVFeHRKSklmZlhlQVB0?=
- =?utf-8?B?Zko3ak9oSzBkVkR2T2NqNmdFeFlYcDZUWFAvR0xDdHVJRkl0VUMzcm9kbEJ0?=
- =?utf-8?B?TUxaNW52Y2dYVzJxdHdENU5xSEtMSEoydWsvMXU1bXY5b2Ntd1NmTDd2MXFp?=
- =?utf-8?B?V1NqN2FPZW9hdWpIM3dVcHdkaFNkR2ZPWHFQY1htS0ZLczJrcWFxTGVRTEhR?=
- =?utf-8?B?MFQvWmlTUWFhWTZnUFVieWtzNlBIK0xyMTY4Qzhsa2p2bmdMek85aW5rNC9a?=
- =?utf-8?B?Wm5Sb3NQNnFydEtTcFhueFNMR1hYNFByTDlzdllISGN2MlR5SDUySEF2TkhF?=
- =?utf-8?B?eWdNZlk3RHFUT0REWTZlMXFMaU51USsyRUdkMXg5eldaQ2l5WVNNQkZQZzlG?=
- =?utf-8?B?SFZIWnIyUmVMSDlKWUFHS1hmeGJoNCtDU25lS0g5NHVicVJ0QkR6Q0dLMm15?=
- =?utf-8?B?MHZjSE5YdFdpYzA4ek9jbzNZSmdIN1pYRzRQWlJSZHJ1QUhSUFBtWmlnSUNw?=
- =?utf-8?B?ZEEwNnA2Tnl1cDRUNEU0MndlbkJ5TlpkdmtYVEU1d09uTEZBbHVSUTZVZElk?=
- =?utf-8?B?bDFIZFFldmRZS01rclExZ2tKYWh0elFOc3VacnMzcGZQd2Y5a1VJRFFYQWIv?=
- =?utf-8?B?cUY2YmlUbXRuZWgrZ1lTNXhxRXNtMm01ZTBlNXhmVGhnWC80S29nVFdPMWpa?=
- =?utf-8?B?TWM3V3lFQUNIV0RmTTM4VUliZ1hEajhBeFBoU2tDLzdxejNxempDWmVoTE15?=
- =?utf-8?B?Q2gxcS9qRzdPbTVWVU1lMXhkb2RYcU8wajMvSGR2bDFmeVF6N2NxRUpCcFRt?=
- =?utf-8?B?d3VHdXlvS2hPa0lsZFh1U0twWHFvNlpUcnpiVW1YM3ZCZzdmblRJYXhJby9h?=
- =?utf-8?B?N1VkUUZvN09BODkweXZ5K3NsYXIyOGJHRUsxMTdlbWloOWl4YmoxYXVVYjdI?=
- =?utf-8?B?STNzOUt2WHp1ZStYelJiQlhpMElmM0UzSmJWemVLOU1Sc2hDU0RhQ2c2SlVH?=
- =?utf-8?B?VWNYamFucjJMaGRUeXZzQzN4cDJma21adjU1dTk3N2tJRWZZRHU0Y1BnZmpH?=
- =?utf-8?B?TjhQdlRKYmsyWGl5NjJBMFppTWx6aG9KYzhjZG5ZaWxFQ21ubS92TFJVek5L?=
- =?utf-8?B?Z0JuR1krK1VObGx1aGJPSDg1RWxXMjdscG04ZHIvb1kvZGlIYjlpSTNSc0VI?=
- =?utf-8?B?SE04cFZNbUFrNnpLTlZWUXZVcUtmZDdPcDA0OXBIWjJRUWVWMHQxSzhZbEll?=
- =?utf-8?B?ZFRzV0pQK2gzVi9nU0NFREtNTHlMU3RMRVQzTmVacExsaVcwSk5WN0NPTnUx?=
- =?utf-8?B?amorTUNWUEdlWHV4Q2VCNFVGRmRRUDF4aXFLYnNYZ2JlUVVoVk03U1BmcU94?=
- =?utf-8?B?RXMvYWJ1MHE2MXM3Sy9WTDF2R0xwWmtYVEUxSlNHNEwxS2dTdHdVQT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 75220f92-dd26-4201-27b5-08de95ceefaf
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2026 00:28:35.4814
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BifCW/+z/1jLkrY1vLR/L7VfjEFOIHq/kROO6/MUzy6HYJLbbrJkjayyiyo2qt6/C86NDKML7XL+owiDvKTMRg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM6PR04MB11267
+In-Reply-To: <20260408130825.3268733-1-bibek.patro@oss.qualcomm.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDA5MDAxNCBTYWx0ZWRfXznQdkinGE0Jn
+ xpFwvG/ua3EwuqnBdrVqi14dFAKkJqCk10mNxeeuItgNh/GfhKSIKmP5xeJdLe2J75L9E11OMlE
+ v4s/5ws9rnAx7UvzMwFP85GXO2EuJmVutYTDq7MLsC/VKr6S72CRUHLGvc8m3LmGXjH5swxL142
+ gaFz6k8IF8xdagb6Rj/NlPPsNhn4VwRkQ/ti3aMv9Zl14X6Z/vDNHlQlbwmwLY/tk2NFhiJoIYY
+ oN1lu8nK63ufLXRVLSw76VetPII/LxZvizcdnWcOUxHMR9A+/O8ZdhxUoATDQ1uMlS6JCVI5xC5
+ ZQfdFvfAYy/GpHjm8m3u0jL9KKJ1zmheS/4F+B06MCoK10UTIFmv3IX/SJxLLG1N7alTv5MS4CP
+ K6OKDJCHpdvhMVK8o6OZVztk79S5vlDAM4E3/GoG4PLBmQCzNxt1oMFOw5WwC3sVeKL3QOInoZ9
+ jvzDGTb6x4gNQaj547g==
+X-Authority-Analysis: v=2.4 cv=DrxmPm/+ c=1 sm=1 tr=0 ts=69d70563 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=3yG1jlHAEcHsLBmebVcA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-ORIG-GUID: BsO96zBCw6at5__42EulnlXsagg-L9fy
+X-Proofpoint-GUID: BsO96zBCw6at5__42EulnlXsagg-L9fy
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-08_07,2026-04-08_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 impostorscore=0 phishscore=0 suspectscore=0 bulkscore=0
+ priorityscore=1501 clxscore=1015 lowpriorityscore=0 adultscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604090014
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260408_172844_313923_DCC12F67 
-X-CRM114-Status: GOOD (  26.70  )
+X-CRM114-CacheID: sfid-20260408_184820_804175_0CE42575 
+X-CRM114-Status: GOOD (  25.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,108 +148,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 08, 2026 at 09:46:32AM -0600, Mathieu Poirier wrote:
->On Wed, Apr 08, 2026 at 01:30:16AM +0000, Peng Fan wrote:
->> > Subject: Re: [PATCH v2 2/3] remoteproc: imx_rproc: Pass bootaddr to
->> > SM CPU/LMM reset vector
->> > 
->> [...]
->> > 
->> > >
->> > > Aligning the ELF entry point with the hardware reset base on
->> > Cortex‑M
->> > > systems is possible, but it comes with several risks.
->> > 
->> > I'm not asking to align the ELF entry point with the hardware reset base.
->> > All I want is to have the correct start address embedded in the ELF file
->> > to avoid having to use a mask.
->> 
->> I see, per my understanding:
->> FreeRTOS typically exposes __isr_vector, which corresponds to the hardware
->> reset / vector table base.
->> Zephyr (Cortex‑M) exposes _vector_table, which serves the same purpose.
->> I am not certain about other RTOSes, but the pattern seems consistent:
->> the vector table base is already available as a named ELF symbol.
->> 
->> Given that, if the preferred approach is to parse the ELF and explicitly
->> retrieve the hardware reset base, I can update the implementation accordingly.
->> If you prefer to parse the elf file to get the hardware reset base,
->> I could update to use them.
->> 
->> Options1: Something as below:
->> 1. Include rproc_elf_find_symbol in remoteproc_elf_loader.c
->> 2. Use below in imx_rproc.c
->> ret = rproc_elf_find_symbol(rproc, fw, "__isr_vector", &vector_base);
->> if (ret)
->>     ret = rproc_elf_find_symbol(rproc, fw, "__vector_table", &vector_base);
->> 
->> if (!ret)
->>     rproc->bootaddr = vector_base
->> else
->>    dev_info(dev, "no __isr_vector or __vector_table\n")
->
->No
+On Wed, Apr 08, 2026 at 06:38:25PM +0530, bibek.patro@oss.qualcomm.com wrote:
+> From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+> 
+> The qcom_smmu_actlr_client_of_match table contained "qcom,fastrpc" as
+> the compatible string for applying ACTLR prefetch settings to FastRPC
+> devices. However, "qcom,fastrpc" is the compatible string for the parent
+> rpmsg channel node, which is not an IOMMU client — it carries no
+> "iommus" property in the device tree and is never attached to an SMMU
+> context bank.
+> 
+> The actual IOMMU clients are the compute context bank (CB) child nodes,
+> which use the compatible string "qcom,fastrpc-compute-cb". These nodes
+> carry the "iommus" property and are probed by fastrpc_cb_driver via
+> fastrpc_cb_probe(), which sets up the DMA mask and IOMMU mappings for
+> each FastRPC session. The device tree structure is:
+> 
+>   fastrpc {
+>       compatible = "qcom,fastrpc";        /* rpmsg channel, no iommus */
+>       ...
+>       compute-cb@3 {
+>           compatible = "qcom,fastrpc-compute-cb";
+>           iommus = <&apps_smmu 0x1823 0x0>;  /* actual IOMMU client */
+>       };
+>   };
+> 
+> Since qcom_smmu_set_actlr_dev() calls of_match_device() against the
+> device being attached to the SMMU context bank, the "qcom,fastrpc"
+> entry was never matching any device. As a result, the ACTLR prefetch
+> settings (PREFETCH_DEEP | CPRE | CMTLB) were silently never applied
+> for FastRPC compute context banks.
+> 
+> Fix this by replacing "qcom,fastrpc" with "qcom,fastrpc-compute-cb"
+> in the match table so that the ACTLR settings are correctly applied
+> to the compute CB devices that are the true IOMMU clients.
+> 
+> Assisted-by: Anthropic:claude-4-6-sonnet
+> Fixes: 3e35c3e725de ("iommu/arm-smmu: Add ACTLR data and support for qcom_smmu_500")
+> Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+> ---
+> 
+> While there is an ongoing discussion [1] on how to differentiate ACTLR
+> prefetch settings between compute DSP and audio DSP fastrpc devices, it
+> is necessary to first fix the compatible string to "qcom,fastrpc-compute-cb".
+> Both compute DSP and audio DSP fastrpc nodes use this compatible string,
+> so both will receive the ACTLR settings after this fix. However, for
+> audio DSP devices the effect remains the same as the current
+> state since they do not actively use prefetch — the write is effectively
+> a NOP for them. The fix is meaningful for compute DSP devices, which
+> actively use prefetch and were previously being silently skipped.
+> 
+> [1]: https://lore.kernel.org/all/9b4c895a-c822-40e6-bb92-8fdcd09c82d3@oss.qualcomm.com/
+> 
+>  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
 
-If your concern is about rproc->bootaddr, I could introduce
-imx_rproc->vector_base for i.MX.  Please help detail a bit.
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
->
->> 
->> This makes the hardware reset base explicit, avoids masking e_entry.
->> 
->> Option 2: User‑provided reset symbol via sysfs 
->> As an alternative, we could expose a sysfs attribute,
->> e.g. reset_symbol, allowing users to specify the symbol name
->> to be used as the reset base:
->> 
->> echo __isr_vector > /sys/class/remoteproc/remoteprocX/reset_symbol
->> 
->
->Definitely not.
->
->The definition of e_entry in the specification is clear, i.e "the address of the
->entry point from where the process starts executing".  If masking is required
->because the tool that puts the image together gets the wrong address, then it
->should be fixed.
 
-The hardware reset base is the address from which the hardware fetches the
-initial stack pointer and program counter values and loads them into the SP
-and PC registers.  In contrast, bootaddr (i.e. e_entry) represents the address
-at which the CPU starts executing code (the PC value after reset). As you
-pointed out earlier, this distinction is clear.
-
-In our case, we need to obtain the hardware reset base and pass that value to
-the system firmware. However, e_entry should not be set to the hardware reset
-base. Doing so would introduce the issues I described in [1]. This means we
-should not modify the Zephyr or FreeRTOS build outputs to make e_entry equal
-to the hardware reset base.
-
-Given these constraints, the feasible solutions I can see are either:
-- option 1 (explicitly retrieving the hardware reset base), or
-- continuing to use masking.
-
-Please suggest.
-
-[1] https://lore.kernel.org/all/acs2PAZq2k3zjmDW@shlinux89/
-
-Thanks,
-Peng
-
->
->> The remoteproc core would then resolve that symbol from
->> the ELF and set rproc->bootaddr accordingly.
->> This provides maximum flexibility but does introduce a new user‑visible ABI,
->> so I see it more as an opt‑in or fallback mechanism.
->> 
->> Please let me know which approach you prefer, and I will update
->> this series accordingly in v3..
->> 
->> Thanks,
->> Peng.
->> 
->> 
->> > 
->> > > 1, Semantic mismatch (ELF vs. hardware behavior) 2, Debuggers may
->> > > attempt to set breakpoints or start execution at the entry symbol
->> > >
+-- 
+With best wishes
+Dmitry
 
