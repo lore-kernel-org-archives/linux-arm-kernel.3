@@ -4,117 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B75BBF364B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 19:47:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 287E8F364BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 20:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x07r8VwaVwP1ur3rwdzfgwsdYnvs9VluKudbFuuN5PM=; b=DCgio/FMtoMkNhhqlyqNcpi647
-	iLKCaM5AUBm7fKrBApR9aEdfZGDtv6QN5+T/pt6wqpX5E68AumZGtuD7LBhsbOlYSb3GrdcYZvXnT
-	Cy28FwThKyuV5uWro6NXAH1TkHw3PDNleNiflynC8p6qZFBSV0cibvCA2gQxDP5dsER/VYCf+QDLW
-	wjZW0gLCeC0zVYOktzuwiHCHwYXRnhX9oI71Mwvtj9T3rcady74uEYEaZY5P0xEsEnYfvD8Ryqont
-	zs92IRImzkAgYa221WacqnEpLqyCR0xr+zEo33x6NmFzoidhX8Y2Pw3+CUhwM1asF0owjUhFzgZX9
-	vzDKnjbw==;
+	bh=QkLdAaMDjOfhMVF4WNfz8y+R/V14WgJPGVdFaHyIJ4s=; b=UFnIFokduDdc2DGPVQGsAJPOMw
+	j06aTSBV3qLlsJXQJHVrv+V6oPsk/Z+mWuWbz76Fou6gqVnQz2eOTPrjMx4V8UJBh8+80pmswxLEd
+	KnmJo7h4zywGveYnAdKxvZuLOLnv7b6mv9dJgC0N0l4ftcnUdHtWE4ACoDLAxvNCbVKbK5mdJw1fT
+	cYm3AkpZ0ASHPEFwtKVfMahuyNasZv1vKF8UH9kxk9/yNaNCp+wGflY+bU9U82TiJ7uJLIhsHBRd/
+	WlHrU+NwiYyc6pDK93HjE0f8AjdHwACml73ePBb8kfyx1NX2a/T0X+tm4rbXqIIERQytqCzR6Ng3X
+	7aDPnZiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAvLq-0000000B9u8-2SUJ;
-	Thu, 09 Apr 2026 19:47:42 +0000
-Received: from mail-southcentralusazon11013068.outbound.protection.outlook.com ([40.93.196.68] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1wAw7C-0000000BBr5-2mSf;
+	Thu, 09 Apr 2026 20:36:38 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAvLk-0000000B9ra-1eFV
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 19:47:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=O9D0O7+wycgpMPQOlSBBVCixBJQJOL5jvKlOQaG9P/rg6ISfSNItiRS4O3NJ9CjV3UyH2MocdSBHJ6Pm5Ze+wLOzxfJpTQooOO/5CSxcDh8fBHhFhwjermSlJJObdSp0xYU+bUgf4PM0l8ylE9plpYQgAsF+a/rSBO0pIRsMEqw7Bxww+JLQgquAYCTXi/tq55o41anVxX+d53tTptKTYPowdTjtFF7/lbue5Y2QYRXHi1/aWYb42Uifs0gvOzpRBDwDVe4QiJHsxI0ghyTwFk8dJ55B/1Y+YwQrxJmL8dxnw3LOXbLlEuH7sF+xRVT2yjqAbOBjNFw8l7NrYRLASQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=x07r8VwaVwP1ur3rwdzfgwsdYnvs9VluKudbFuuN5PM=;
- b=jAJOq87OuKEwktMUsXi8Lh2eR+1OfQhz84ChknfYtQCY+TZQYCcP8416cgtm4t/e8f9nVmg3SarwCT0cbtlwAMd13ToKb3PqjpJ8VzgqHmUlk/9ZlOSE37TOG5bMkqymclg5MMTMzryXKmcG6Ndi2H7UyFRlNLGArSTawHQ7PL2hpQTJFBi1U54BQ3FOvaUrYkkhzEG/mb0mVK7UDnKND/dDBgSBXU3prbAm1CGuZ7y2SasoPJ9RtRMsT7rbOiQQA3lL09SlmLkVAwTmqSsi+dOBJtX/+Vbq5qsMaz+Vg6TyepT1mr2dSVLYWAc2HogBob3qPNgsBcJy9BYA+nAmtA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=x07r8VwaVwP1ur3rwdzfgwsdYnvs9VluKudbFuuN5PM=;
- b=OQ/MmDkrc378HYRp4epNd4FftOdb+O+J5/DKyQBiQtEN5Y+NinGukOynyrhuVr7L1OjhkYuFGtCbRY99xe3udB0xDglimQG47GngxXIVecOhadO3GUuSharA3dSBfBoE9mhqhuG5JhmgzMU0KK6y8yk6nPJ1R9844Jui/kN0VU71AYbNdVciD9eyH2f3Nlq3MW/gnOrdWp1nzdMRc2PHZpV1pwitQP1Exrdh8n1iwM5G/+m12PPO6UQSv4kMALtuiEh9arDRgvLiunbHG4xC8LHRsJAP4S+UuVlOsbdAm247QhwAkdyQKna1rklcA5N5B7N+4VpvXguzeOfcSjHiNw==
-Received: from SJ0PR05CA0202.namprd05.prod.outlook.com (2603:10b6:a03:330::27)
- by IA1PR12MB7613.namprd12.prod.outlook.com (2603:10b6:208:42a::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.21; Thu, 9 Apr
- 2026 19:47:27 +0000
-Received: from SJ5PEPF00000203.namprd05.prod.outlook.com
- (2603:10b6:a03:330:cafe::3e) by SJ0PR05CA0202.outlook.office365.com
- (2603:10b6:a03:330::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.41 via Frontend Transport; Thu,
- 9 Apr 2026 19:47:27 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SJ5PEPF00000203.mail.protection.outlook.com (10.167.244.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9769.17 via Frontend Transport; Thu, 9 Apr 2026 19:47:27 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 9 Apr
- 2026 12:47:10 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 9 Apr
- 2026 12:47:10 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Thu, 9 Apr 2026 12:47:09 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <will@kernel.org>, <robin.murphy@arm.com>
-CC: <jamien@nvidia.com>, <joro@8bytes.org>, <praan@google.com>,
-	<baolu.lu@linux.intel.com>, <kevin.tian@intel.com>, <smostafa@google.com>,
-	<miko.lenczewski@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<stable@vger.kernel.org>
-Subject: [PATCH rc v1 1/4] iommu/arm-smmu-v3: Add arm_smmu_adopt_strtab() for kdump
-Date: Thu, 9 Apr 2026 12:46:50 -0700
-Message-ID: <30c7c51c8771722813a9cf54dae7a1b5d0aeb65d.1775763475.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1775763475.git.nicolinc@nvidia.com>
-References: <cover.1775763475.git.nicolinc@nvidia.com>
+	id 1wAw79-0000000BBqV-1DeE;
+	Thu, 09 Apr 2026 20:36:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1775766995; x=1807302995;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=7gfLzB8DThL8+awFaM0AEeeHbksinJ+rqvsNTvEFvlE=;
+  b=GsZyGA7oZTp3+f8IBpl/yJU/AXsdTSu+1D/jK/jx1ADH0F+npluyEmiG
+   JFiMUiwYrHGhMbZSdEVpqX1C2eI4GmUSJqLmdgeekwrj8i291a5aj8TmM
+   V/F5aaK4BlklV6BbnJrjagSU+z43EBKFOJ5hmRnmA0xLh7QCnQMezKqS+
+   A77/H+ppVHMHzpc3gZaKwJEHkdmgJrJVVqbJEU9YEmD41fVVwpphfo/mN
+   HRRMpijHFuS1Cd76eUAmqzjRRloSLTXLvt/kHK775Ys8vGw5cEW5ZGHsK
+   tyvgobyHrH4tVhlN3nZF8WCqK4tHHFANseeifOvtbJpOKBb5mF2/C+8Te
+   g==;
+X-CSE-ConnectionGUID: HXaz0GKPSCGUo1aNQwZgaw==
+X-CSE-MsgGUID: wAp9LlUnQ3SPl65iEwwXmw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11754"; a="87410709"
+X-IronPort-AV: E=Sophos;i="6.23,170,1770624000"; 
+   d="scan'208";a="87410709"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Apr 2026 13:36:32 -0700
+X-CSE-ConnectionGUID: c13WNi39SJCjK+TGxfSMKA==
+X-CSE-MsgGUID: S/n0EwMKQ0S41l0IShj9Zw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,170,1770624000"; 
+   d="scan'208";a="229161704"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.216])
+  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Apr 2026 13:36:24 -0700
+Date: Thu, 9 Apr 2026 23:36:21 +0300
+From: Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>
+To: Kory Maincent <kory.maincent@bootlin.com>
+Cc: Jani Nikula <jani.nikula@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Dave Airlie <airlied@redhat.com>,
+	Jesse Barnes <jbarnes@virtuousgeek.org>,
+	Eric Anholt <eric@anholt.net>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chris Wilson <chris@chris-wilson.co.uk>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Mark Yacoub <markyacoub@google.com>,
+	Sean Paul <seanpaul@google.com>,
+	Louis Chauvet <louis.chauvet@bootlin.com>,
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Simona Vetter <simona.vetter@ffwll.ch>
+Subject: Re: [PATCH RFC 00/12] Add support for DisplayPort link training
+ information report
+Message-ID: <adgNxaFhbQaxC5E_@intel.com>
+References: <20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF00000203:EE_|IA1PR12MB7613:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5ec4d40f-4795-4b99-50d8-08de9670d410
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700016|1800799024|82310400026|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: UQmwfwn4EVP8rAfyrJhGQFJlSn5r3NAVFgf/iwRJxmmL1oiirWmcHuALkUtLdjhjV+YOqkMZfnltDgGHxt5Qf+SqESVKjhKjWpMelCU7JpI5uS0WwjgthJAdIeoBRnmFwCsmixOamXf96ET9WApUzXUkpPkBsIsoDgSv8AJ6QOnt5OB9yVh880aCcviV6U8M/Dqzp2/rrdIGBY3DILn9ijN98xoVySbZx3rx36mlfxNrZ29TnE1xWYg1OHLBL3G8uN+HRayrDxXSqbXI5cyxHZl6qhvJ+bOWgOZVV3uL9FVf/lKphoVBd0pHNS00JXWtmUsh0tOtviPEprJutQVAWybA7VcYCRxwqx/NLDgQLCTP8nQU8hubzQ6lfBErPywSF6ymAoysdYJoEEvk+1lU/Qpqb6EGRmk2I8Wc+tPg+QSAIMaKI++PNSnVy070Ujjd3LqJkmgA1F4Y12q7lvZQGYuUw9AeiM0kEYF+2J7qzkPlFnUrt828zhWucgN97ty6eAsDesSWJzJCiCLcku4sUt3nD5hskao3o7MRTUAdbi6s+tD8cwWcenb9YZKVEy3ig7hRnHIQIiTm8sV20f+nsPpbRx5VjrLC9FuHK9pvxqY7jwXz5sm8rSZ59YHo92E3SMrl87w0+L9I9hWwZlYUnFJQykcD99wDxR00Se5lFCjsos+F3V7lY0G1zpukkkZIiQjyXjhMzlf9xaNXkGKOD2rGEV0BIoTS42wf+YN6Lfb1mNC7CiFjQB0TzdyAmXLEJeA+97SrL6Md5Q0BrWMfqQ==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(1800799024)(82310400026)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: +viQYQPo88ZkpyXPrtmjrEiNSRji5apPXMoKNRKrnUf6/5x9fW7qmoHcBxzodNAdZ6nOrgjvHBOcmVVMJGtq/Gul1Az5aKnFfRwIn4bKLjmk3PhnYI5N06dRsyWa0Yk8CNEWhKYIg3ZvlANhF0iYpxAMwfsei4QSSX1ljKQlMg2TXUeBkY9RIvNuJ58h0sJS5R4OD6bj1OZgWKTIWpaVEOh6kydge7hzTkdVIfNjXeddNI0oy6Rn6LCPfqegl2Aqngl+o+11gqGV1/yiBPycrKzcMQcu9eAsW9Wna97YYApwk4RrWmOa1UFKEEkEZO0qSt0LXi+U+OOqqb73IeexvJh9jZp/ptb9699Wvd2VyYP0LdbSyf7+lzFrbAlKbCFZJ6/TfKcyGAYdx0Nyyn9Jq0DnybctxgPeCAloe0ohPDk//+O17cTzHs2hbWwBWhs0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Apr 2026 19:47:27.1121
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5ec4d40f-4795-4b99-50d8-08de9670d410
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000203.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7613
+In-Reply-To: <20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com>
+X-Patchwork-Hint: comment
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_124737_787050_8937C2E4 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20260409_133635_365920_B38AB04D 
+X-CRM114-Status: GOOD (  24.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,169 +116,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When transitioning to a kdump kernel, the primary kernel might have crashed
-while endpoint devices were actively bus-mastering DMA. Currently, the SMMU
-driver aggressively resets the hardware during probe by clearing CR0_SMMUEN
-and setting the Global Bypass Attribute (GBPA) to ABORT.
+On Thu, Apr 09, 2026 at 07:08:16PM +0200, Kory Maincent wrote:
+> DisplayPort link training negotiates the physical-layer parameters needed
+> for a reliable connection: lane count, link rate, voltage swing,
+> pre-emphasis, and optionally Display Stream Compression (DSC). Currently,
+> each driver exposes this state in its own way, often through
+> driver-specific debugfs entries, with no standard interface for userspace
+> diagnostic and monitoring tools.
+> 
+> This series introduces a generic, DRM-managed framework for exposing DP
+> link training state as standard connector properties, modeled after the
+> existing HDMI helper drmm_connector_hdmi_init().
+> 
+> The new drmm_connector_dp_init() helper initializes a DP connector and
+> registers the following connector properties to expose the negotiated link
+> state to userspace:
+> 
+> - num_lanes:      negotiated lane count (1, 2 or 4)
+> - link_rate:      negotiated link rate
+> - dsc_en:         whether Display Stream Compression is active
+> - voltage_swingN: per-lane voltage swing level (lanes 0-3)
+> - pre_emphasisN:  per-lane pre-emphasis level (lanes 0-3)
 
-In a kdump scenario, this aggressive reset is highly destructive:
-a) If GBPA is set to ABORT, in-flight DMA will be aborted, generating fatal
-   PCIe AER or SErrors that may panic the kdump kernel
-b) If GBPA is set to BYPASS, in-flight DMA targeting some IOVAs will bypass
-   the SMMU and corrupt the physical memory at those 1:1 mapped IOVAs.
+I don't see why any real userspace would be interested in those (apart
+from maybe DSC). If this is just for diagnostics and whatnot then I
+think sysfs/debugfs could be a better fit.
 
-To safely absorb in-flight DMA, the kdump kernel must leave SMMUEN=1 intact
-and avoid modifying STRTAB_BASE. This allows HW to continue translating in-
-flight DMA using the crashed kernel's page tables until the endpoint device
-drivers probe and quiesce their respective hardware.
+> 
+> Two runtime helpers update and clear these properties when link training
+> completes or the link goes down:
+> - drm_connector_dp_set_link_train_properties()
+> - drm_connector_dp_reset_link_train_properties()
+> 
+> Two drivers are updated as reference implementations: i915 (direct
+> connector path) and MediaTek (via the bridge connector framework using a
+> new DRM_BRIDGE_OP_DP flag). The i915 patches are preceded by a series of
+> conversions to DRM managed resources, which are required before adopting
+> drmm_connector_dp_init().
+> 
+> The MST case in i915 driver is not supported yet.
+> 
+> Patches 1-3:  Fix two error-path cleanup bugs in i915 sdvo and lvds
+> [Will probably be sent standalone]
+> Patches 4-8: Convert i915 display resources to DRM managed lifetime
+> Patch 9: Introduce the core drmm_connector_dp_init() framework
+> Patch 10: Wire the i915 DP connector to use the new helpers
+> Patch 11: Introduce DRM_BRIDGE_OP_DP and wire bridge connectors
+> Patch 12: Wire the MediaTek DP bridge to the new helpers [untested]
+> 
+> Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+> ---
+> Kory Maincent (12):
+>       drm/i915/display/intel_sdvo: Fix double connector destroy in error paths
+>       drm/i915/display/intel_lvds: Drop redundant manual cleanup on init failure
+>       drm/i915/display/intel_dp: Drop redundant intel_dp_aux_fini() on init failure
+>       drm/i915/display: Switch to drmm_mode_config_init() and drop manual cleanup
+>       drm/i915/display: Switch to managed for crtc
+>       drm/i915/display: Switch to managed for plane
+>       drm/i915/display: Switch to managed for encoder
+>       drm/i915/display: Switch to managed for connector
+>       drm: Introduce drmm_connector_dp_init() with link training state properties
+>       drm/i915/display/dp: Adopt dp_connector helpers to expose link training state
+>       drm/bridge: Wire drmm_connector_dp_init() via new DRM_BRIDGE_OP_DP flag
+>       drm/mediatek: Use dp_connector helpers to report link training state
+> 
+>  drivers/gpu/drm/Makefile                           |   1 +
+>  drivers/gpu/drm/display/drm_bridge_connector.c     |  26 +-
+>  drivers/gpu/drm/drm_dp_connector.c                 | 344 +++++++++++++++++++++
+>  drivers/gpu/drm/i915/display/g4x_dp.c              |  39 +--
+>  drivers/gpu/drm/i915/display/g4x_hdmi.c            |  27 +-
+>  drivers/gpu/drm/i915/display/i9xx_plane.c          |  97 +++---
+>  drivers/gpu/drm/i915/display/icl_dsi.c             |  50 ++-
+>  drivers/gpu/drm/i915/display/intel_connector.c     |  26 +-
+>  drivers/gpu/drm/i915/display/intel_connector.h     |   5 +-
+>  drivers/gpu/drm/i915/display/intel_crt.c           |  28 +-
+>  drivers/gpu/drm/i915/display/intel_crtc.c          | 102 +++---
+>  drivers/gpu/drm/i915/display/intel_cursor.c        |  41 ++-
+>  drivers/gpu/drm/i915/display/intel_ddi.c           |  64 ++--
+>  drivers/gpu/drm/i915/display/intel_display.c       |   8 -
+>  drivers/gpu/drm/i915/display/intel_display.h       |   1 -
+>  .../gpu/drm/i915/display/intel_display_driver.c    |  37 ++-
+>  drivers/gpu/drm/i915/display/intel_dp.c            |  43 ++-
+>  .../gpu/drm/i915/display/intel_dp_link_training.c  |  25 ++
+>  drivers/gpu/drm/i915/display/intel_dp_mst.c        |  33 +-
+>  drivers/gpu/drm/i915/display/intel_dvo.c           |  43 +--
+>  drivers/gpu/drm/i915/display/intel_encoder.c       |   6 +-
+>  drivers/gpu/drm/i915/display/intel_encoder.h       |   3 +-
+>  drivers/gpu/drm/i915/display/intel_hdmi.c          |  15 +-
+>  drivers/gpu/drm/i915/display/intel_lvds.c          |  45 ++-
+>  drivers/gpu/drm/i915/display/intel_plane.c         |  45 +--
+>  drivers/gpu/drm/i915/display/intel_plane.h         |   5 +-
+>  drivers/gpu/drm/i915/display/intel_sdvo.c          | 134 +++-----
+>  drivers/gpu/drm/i915/display/intel_sprite.c        | 119 ++++---
+>  drivers/gpu/drm/i915/display/intel_tv.c            |  26 +-
+>  drivers/gpu/drm/i915/display/skl_universal_plane.c | 102 +++---
+>  drivers/gpu/drm/i915/display/vlv_dsi.c             |  42 +--
+>  drivers/gpu/drm/mediatek/mtk_dp.c                  |  34 +-
+>  include/drm/drm_bridge.h                           |  13 +
+>  include/drm/drm_connector.h                        |  38 +++
+>  include/drm/drm_dp_connector.h                     | 109 +++++++
+>  35 files changed, 1125 insertions(+), 651 deletions(-)
+> ---
+> base-commit: db5a75cfd29766536be62aece9f19c6e7a858fa6
+> change-id: 20260226-feat_link_cap-20cbb6f31d40
+> 
+> Best regards,
+> -- 
+> Köry Maincent, Bootlin
+> Embedded Linux and kernel engineering
+> https://bootlin.com
 
-However, the ARM SMMUv3 architecture specification states that updating the
-SMMU_STRTAB_BASE register while SMMUEN == 1 is UNPREDICTABLE or ignored.
-
-This leaves a kdump kernel no choice but to adopt the stream table from the
-crashed kernel.
-
-Introduce ARM_SMMU_OPT_KDUMP and arm_smmu_adopt_strtab() that does memremap
-on all the stream tables extracted from STRTAB_BASE and STRTAB_BASE_CFG.
-
-The option will be set in arm_smmu_device_hw_probe().
-
-Fixes: b63b3439b856 ("iommu/arm-smmu-v3: Abort all transactions if SMMU is enabled in kdump kernel")
-Cc: stable@vger.kernel.org # v6.12+
-Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  1 +
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 99 ++++++++++++++++++++-
- 2 files changed, 99 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index ef42df4753ec4..74950d98ba09f 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -861,6 +861,7 @@ struct arm_smmu_device {
- #define ARM_SMMU_OPT_MSIPOLL		(1 << 2)
- #define ARM_SMMU_OPT_CMDQ_FORCE_SYNC	(1 << 3)
- #define ARM_SMMU_OPT_TEGRA241_CMDQV	(1 << 4)
-+#define ARM_SMMU_OPT_KDUMP		(1 << 5)
- 	u32				options;
- 
- 	struct arm_smmu_cmdq		cmdq;
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index f6901c5437edc..8a1de3a67f78c 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4553,11 +4553,108 @@ static int arm_smmu_init_strtab_linear(struct arm_smmu_device *smmu)
- 	return 0;
- }
- 
-+static int arm_smmu_adopt_strtab_2lvl(struct arm_smmu_device *smmu, u32 cfg_reg,
-+				      dma_addr_t dma)
-+{
-+	u32 log2size = FIELD_GET(STRTAB_BASE_CFG_LOG2SIZE, cfg_reg);
-+	u32 split = FIELD_GET(STRTAB_BASE_CFG_SPLIT, cfg_reg);
-+	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
-+	u32 num_l1_ents;
-+	int i;
-+
-+	if (log2size < split) {
-+		dev_err(smmu->dev, "kdump: invalid log2size %u < split %u\n",
-+			log2size, split);
-+		return -EINVAL;
-+	}
-+
-+	if (split != STRTAB_SPLIT) {
-+		dev_err(smmu->dev,
-+			"kdump: unsupported STRTAB_SPLIT %u (expected %u)\n",
-+			split, STRTAB_SPLIT);
-+		return -EINVAL;
-+	}
-+
-+	num_l1_ents = 1 << (log2size - split);
-+	cfg->l2.l1_dma = dma;
-+	cfg->l2.num_l1_ents = num_l1_ents;
-+	cfg->l2.l1tab = devm_memremap(
-+		smmu->dev, dma, num_l1_ents * sizeof(struct arm_smmu_strtab_l1),
-+		MEMREMAP_WB);
-+	if (!cfg->l2.l1tab)
-+		return -ENOMEM;
-+
-+	cfg->l2.l2ptrs = devm_kcalloc(smmu->dev, num_l1_ents,
-+				      sizeof(*cfg->l2.l2ptrs), GFP_KERNEL);
-+	if (!cfg->l2.l2ptrs)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < num_l1_ents; i++) {
-+		u64 l2ptr = le64_to_cpu(cfg->l2.l1tab[i].l2ptr);
-+		u32 span = FIELD_GET(STRTAB_L1_DESC_SPAN, l2ptr);
-+		dma_addr_t l2_dma = l2ptr & STRTAB_L1_DESC_L2PTR_MASK;
-+
-+		if (span && l2_dma) {
-+			cfg->l2.l2ptrs[i] = devm_memremap(
-+				smmu->dev, l2_dma,
-+				sizeof(struct arm_smmu_strtab_l2), MEMREMAP_WB);
-+			if (!cfg->l2.l2ptrs[i])
-+				return -ENOMEM;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int arm_smmu_adopt_strtab_linear(struct arm_smmu_device *smmu,
-+					u32 cfg_reg, dma_addr_t dma)
-+{
-+	u32 log2size = FIELD_GET(STRTAB_BASE_CFG_LOG2SIZE, cfg_reg);
-+	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
-+
-+	cfg->linear.ste_dma = dma;
-+	cfg->linear.num_ents = 1 << log2size;
-+	cfg->linear.table = devm_memremap(smmu->dev, dma,
-+					  cfg->linear.num_ents *
-+						  sizeof(struct arm_smmu_ste),
-+					  MEMREMAP_WB);
-+	if (!cfg->linear.table)
-+		return -ENOMEM;
-+	return 0;
-+}
-+
-+static int arm_smmu_adopt_strtab(struct arm_smmu_device *smmu)
-+{
-+	u32 cfg_reg = readl_relaxed(smmu->base + ARM_SMMU_STRTAB_BASE_CFG);
-+	u64 base_reg = readq_relaxed(smmu->base + ARM_SMMU_STRTAB_BASE);
-+	u32 fmt = FIELD_GET(STRTAB_BASE_CFG_FMT, cfg_reg);
-+	dma_addr_t dma = base_reg & STRTAB_BASE_ADDR_MASK;
-+	int ret;
-+
-+	dev_info(smmu->dev, "kdump: adopting crashed kernel's stream table\n");
-+
-+	if (fmt == STRTAB_BASE_CFG_FMT_2LVL) {
-+		/* Enforce 2-level feature flag to match the adopted table */
-+		smmu->features |= ARM_SMMU_FEAT_2_LVL_STRTAB;
-+		ret = arm_smmu_adopt_strtab_2lvl(smmu, cfg_reg, dma);
-+	} else if (fmt == STRTAB_BASE_CFG_FMT_LINEAR) {
-+		/* Force linear feature flag to match the adopted table */
-+		smmu->features &= ~ARM_SMMU_FEAT_2_LVL_STRTAB;
-+		ret = arm_smmu_adopt_strtab_linear(smmu, cfg_reg, dma);
-+	} else {
-+		dev_err(smmu->dev, "kdump: invalid STRTAB format %u\n", fmt);
-+		ret = -EINVAL;
-+	}
-+	return ret;
-+}
-+
- static int arm_smmu_init_strtab(struct arm_smmu_device *smmu)
- {
- 	int ret;
- 
--	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)
-+	if (smmu->options & ARM_SMMU_OPT_KDUMP)
-+		ret = arm_smmu_adopt_strtab(smmu);
-+	else if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)
- 		ret = arm_smmu_init_strtab_2lvl(smmu);
- 	else
- 		ret = arm_smmu_init_strtab_linear(smmu);
 -- 
-2.43.0
-
+Ville Syrjälä
+Intel
 
