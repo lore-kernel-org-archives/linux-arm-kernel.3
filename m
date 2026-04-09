@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2230EE98FDF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 09:59:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C51CDEA3C21
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Apr 2026 09:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3oeln9JFl3xMIZpXa990FnDvFwc3Ph1pCSyvABpPHh8=; b=d2I+ngDyx0AJfw+z4rPSOuoeRb
-	CKiwhOpYUfIqNYA4IlcicGimyKEZBEKz6oYCztpZwVpkho3bA4s/xHrsUFz4di5AdW6wCsZiTX6Je
-	qjwWvNwiIZEzwTgjI3PaiPhEqfNgH7AfDx4qyZgDLZsjC65Uw6IIf17cTifOvMQBnnsYedSGw06yu
-	rWwFzikSMujI7SphZrKooJswmmfSC0Fg4aomSXcGAlm6OMc0y2SQYlbm6Dwf3ZeajeXTo7bZNhsmr
-	KsA7KJNddM55873EvOfn2qQ92q46WKXDGjBetZqmxeWMVRMQmmxCBMZiQQYKs4SYy8oWUD9EV6odY
-	CbIn/VkQ==;
+	bh=YRXhxiMdcV9E6STZeVzhXB2Y6uGvSTwnSvSng5/Orh4=; b=wo5tv/lZbHybCmtLHpFkDhRFUb
+	zb3xPl81VlmSv5izSZ6H/FOHKH2We0Vyd1SWY5ux412q5CgjCByfays5VTyMDi+IOFF23UabMp7Ef
+	HGH6ilXud3wu3cAyxHA6ABAeQbuw8UHyh3D58vSsUXEIJ29Vfc+aBDWHKBTN4dLIJo6anc1VmoVMf
+	bWJ3OcGXBfEBT9GUepEcphh7HfJvF9xKkIgpx+J60BeCLR8/SaaTC5d2TzU7l7yxlpsLM9bbC6Do6
+	2jXB59CHlX//w6IvVEVoFjHQRgp8AS4cYct1UsUMKTxBvcfVbroX16e1iRS+WLg+MNd3x/pyVDtAR
+	sk1bKMSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAmAN-0000000A6Tj-465l;
-	Thu, 09 Apr 2026 09:59:15 +0000
+	id 1wAmAO-0000000A6UJ-2f5t;
+	Thu, 09 Apr 2026 09:59:16 +0000
 Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAmAI-0000000A6PF-42Ws
+	id 1wAmAK-0000000A6Px-04Ui
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Apr 2026 09:59:12 +0000
+	Thu, 09 Apr 2026 09:59:14 +0000
 Received: from francesco-nb.. (xcpe-178-82-120-96.dyn.res.sunrise.net [178.82.120.96])
-	by mail11.truemail.it (Postfix) with ESMTPA id BA2FE2035D;
-	Thu,  9 Apr 2026 11:59:08 +0200 (CEST)
+	by mail11.truemail.it (Postfix) with ESMTPA id 7313A20374;
+	Thu,  9 Apr 2026 11:59:09 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1775728749;
-	bh=3oeln9JFl3xMIZpXa990FnDvFwc3Ph1pCSyvABpPHh8=; h=From:To:Subject;
-	b=ajF8FaMnzUqXRCsZ7aDfsCwGHWoT0NO4zdp3CT8on86/aAEe2KcEZ5GeiqhH0l1yV
-	 iReHRUBmD4YDhgYUSiNiLLJi9zQBcKAZrYHB5c/jGEP+e+PVPExjZK1eDnhkR3ojh0
-	 arzfid+SVOgW1ezZ9dwQA5lz005ne1hK6EggnsgWmI5k23ZysrvRAs4oqAAGuqHdP5
-	 2oIUC+GCn8K8ad80qasZ7OohRiqWkOW088ou7wL3li4K/SS51z4k9o14Byj4NGrrFw
-	 54E209QplebTwrSrZ0447x+9jEYlDplhaYtLBQSwCp+uWzInNiabrarLo3zkmvN9x8
-	 qrXNvtsWhT+tg==
+	s=default; t=1775728750;
+	bh=YRXhxiMdcV9E6STZeVzhXB2Y6uGvSTwnSvSng5/Orh4=; h=From:To:Subject;
+	b=Afj2JdAJNnrNU7jTNWy0yvHjypfptX+uvV4bo0h9Eyd2USHro7I6VNcgZshMOkF1r
+	 eu2GnI5IhnMAYzeif+EkOr5tkE5GoZX6NiwizQ7w51o1J6t6KZ25/0HcWV3VnxHd7O
+	 DOqvTklJyLMuQRL4Oqh+ULAJq1Kh4Ua3ndzgEiHJAV1lKcKWP3/+MCkbOVscYtf4Qw
+	 TxDAGLwMxUXG/n7IPUT6QwKl4pyq8LQxj9T2vC5Y62A+eqRcSypEeKaP0czEGTfrAm
+	 Hx5COl0hGI5IAcOciwkgYH2lrG+EDMPxtRo5Ab2tU9J6GJkmwzFLstEXG40p0vYEiG
+	 c/bWZ6r289lzA==
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -53,18 +53,17 @@ Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v1 4/7] arm64: dts: freescale: imx8mp-verdin: Split UART_2 pinctrl group
-Date: Thu,  9 Apr 2026 11:58:50 +0200
-Message-ID: <20260409095855.61252-5-francesco@dolcini.it>
+Subject: [PATCH v1 5/7] arm64: dts: freescale: imx8mp-verdin: Add Zinnia
+Date: Thu,  9 Apr 2026 11:58:51 +0200
+Message-ID: <20260409095855.61252-6-francesco@dolcini.it>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260409095855.61252-1-francesco@dolcini.it>
 References: <20260409095855.61252-1-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_025911_156079_3996554E 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260409_025912_377539_8012BE6D 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,48 +80,524 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Some carrier board reuse the UART_2 control signals as GPIO, split
-the pinctrl RTS/CTS in separated nodes to maximize flexibility.
+Add Zinnia Carrier Board mated with Verdin iMX8M Plus.
 
+It features 1 x RS232, 1 x RS485, 1 x CAN, 3 x isolated digital I/O,
+2 x GBit/s Ethernet, a mini PCIe slot with USB / SIM card connector
+for a modem, USB and SD card interfaces.
+
+Link: https://www.toradex.com/products/carrier-board/zinnia-carrier-board
 Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 ---
- arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/freescale/Makefile        |   2 +
+ .../imx8mp-verdin-nonwifi-zinnia.dts          |  21 +
+ .../freescale/imx8mp-verdin-wifi-zinnia.dts   |  21 +
+ .../dts/freescale/imx8mp-verdin-zinnia.dtsi   | 422 ++++++++++++++++++
+ 4 files changed, 466 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-verdin-nonwifi-zinnia.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-verdin-wifi-zinnia.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-verdin-zinnia.dtsi
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi
-index d31f8082394f..9fee2cf9ef54 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin.dtsi
-@@ -846,7 +846,7 @@ &uart1 {
- /* Verdin UART_2 */
- &uart2 {
- 	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_uart2>;
-+	pinctrl-0 = <&pinctrl_uart2>, <&pinctrl_uart2_cts>, <&pinctrl_uart2_rts>;
- 	uart-has-rtscts;
- };
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index 072df4128716..c14ccf24210a 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -347,11 +347,13 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-nonwifi-dev.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-nonwifi-ivy.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-nonwifi-mallow.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-nonwifi-yavia.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-nonwifi-zinnia.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-dahlia.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-dev.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-ivy.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-mallow.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-yavia.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mp-verdin-wifi-zinnia.dtb
  
-@@ -1277,10 +1277,18 @@ pinctrl_uart1: uart1grp {
- 			<MX8MP_IOMUXC_UART1_TXD__UART1_DCE_TX		0x1c4>;	/* SODIMM 131 */
- 	};
- 
-+	pinctrl_uart2_cts: uart2ctsgrp {
-+		fsl,pins =
-+			<MX8MP_IOMUXC_SD1_DATA4__UART2_DCE_RTS		0x1c4>;	/* SODIMM 143 */
+ imx8mp-evk-lvds0-imx-dlvds-hdmi-channel0-dtbs += imx8mp-evk.dtb imx8mp-evk-lvds0-imx-dlvds-hdmi-channel0.dtbo
+ imx8mp-evk-lvds0-imx-lvds-hdmi-dtbs += imx8mp-evk.dtb imx8mp-evk-lvds0-imx-lvds-hdmi.dtbo
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin-nonwifi-zinnia.dts b/arch/arm64/boot/dts/freescale/imx8mp-verdin-nonwifi-zinnia.dts
+new file mode 100644
+index 000000000000..e78b25d65c94
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin-nonwifi-zinnia.dts
+@@ -0,0 +1,21 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * https://www.toradex.com/computer-on-modules/verdin-arm-family/nxp-imx-8m-plus
++ * https://www.toradex.com/products/carrier-board/zinnia-carrier-board
++ */
++
++/dts-v1/;
++
++#include "imx8mp-verdin.dtsi"
++#include "imx8mp-verdin-nonwifi.dtsi"
++#include "imx8mp-verdin-zinnia.dtsi"
++
++/ {
++	model = "Toradex Verdin iMX8M Plus on Zinnia";
++	compatible = "toradex,verdin-imx8mp-nonwifi-zinnia",
++		     "toradex,verdin-imx8mp-nonwifi",
++		     "toradex,verdin-imx8mp",
++		     "fsl,imx8mp";
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin-wifi-zinnia.dts b/arch/arm64/boot/dts/freescale/imx8mp-verdin-wifi-zinnia.dts
+new file mode 100644
+index 000000000000..85eb56524314
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin-wifi-zinnia.dts
+@@ -0,0 +1,21 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * https://www.toradex.com/computer-on-modules/verdin-arm-family/nxp-imx-8m-plus
++ * https://www.toradex.com/products/carrier-board/zinnia-carrier-board
++ */
++
++/dts-v1/;
++
++#include "imx8mp-verdin.dtsi"
++#include "imx8mp-verdin-wifi.dtsi"
++#include "imx8mp-verdin-zinnia.dtsi"
++
++/ {
++	model = "Toradex Verdin iMX8M Plus WB on Zinnia";
++	compatible = "toradex,verdin-imx8mp-wifi-zinnia",
++		     "toradex,verdin-imx8mp-wifi",
++		     "toradex,verdin-imx8mp",
++		     "fsl,imx8mp";
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin-zinnia.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-verdin-zinnia.dtsi
+new file mode 100644
+index 000000000000..6beb2f2f4548
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin-zinnia.dtsi
+@@ -0,0 +1,422 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * Common dtsi for Verdin IMX8MP SoM on Zinnia carrier board
++ *
++ * https://www.toradex.com/computer-on-modules/verdin-arm-family/nxp-imx-8m-plus
++ * https://www.toradex.com/products/carrier-board/zinnia-carrier-board
++ */
++
++#include <dt-bindings/leds/common.h>
++#include <dt-bindings/net/ti-dp83867.h>
++
++/ {
++	leds {
++		compatible = "gpio-leds";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_zinnia_leds>;
++
++		/* LED1 Red - SODIMM 48 - LED1_R */
++		led-1 {
++			color = <LED_COLOR_ID_RED>;
++			default-state = "off";
++			function = LED_FUNCTION_STATUS;
++			function-enumerator = <1>;
++			gpios = <&gpio4 30 GPIO_ACTIVE_HIGH>;
++		};
++
++		/* LED1 Blue - SODIMM 46 - LED1_B */
++		led-2 {
++			color = <LED_COLOR_ID_BLUE>;
++			default-state = "off";
++			function = LED_FUNCTION_STATUS;
++			function-enumerator = <1>;
++			gpios = <&gpio5 01 GPIO_ACTIVE_HIGH>;
++		};
++
++		/* LED3 Red - SODIMM 44 - LED3_R */
++		led-3 {
++			color = <LED_COLOR_ID_RED>;
++			default-state = "off";
++			function = LED_FUNCTION_STATUS;
++			function-enumerator = <3>;
++			gpios = <&gpio4 31 GPIO_ACTIVE_HIGH>;
++		};
++
++		/* LED3 Green - SODIMM 54 - LED3_G */
++		led-4 {
++			color = <LED_COLOR_ID_GREEN>;
++			default-state = "off";
++			function = LED_FUNCTION_STATUS;
++			function-enumerator = <3>;
++			gpios = <&gpio3 1 GPIO_ACTIVE_HIGH>;
++		};
++
++		/* LED3 Blue - SODIMM 36 - LED3_B */
++		led-5 {
++			color = <LED_COLOR_ID_BLUE>;
++			default-state = "off";
++			function = LED_FUNCTION_STATUS;
++			function-enumerator = <3>;
++			gpios = <&gpio4 2 GPIO_ACTIVE_HIGH>;
++		};
++
++		/* LED4 Red - SODIMM 34 - LED4_R */
++		led-6 {
++			color = <LED_COLOR_ID_RED>;
++			default-state = "off";
++			function = LED_FUNCTION_STATUS;
++			function-enumerator = <4>;
++			gpios = <&gpio3 19 GPIO_ACTIVE_HIGH>;
++		};
++
++		/* LED4 Green - SODIMM 32 - LED4_G */
++		led-7 {
++			color = <LED_COLOR_ID_GREEN>;
++			default-state = "off";
++			function = LED_FUNCTION_STATUS;
++			function-enumerator = <4>;
++			gpios = <&gpio3 22 GPIO_ACTIVE_HIGH>;
++		};
++
++		/* LED4 Blue - SODIMM 30 - LED4_B */
++		led-8 {
++			color = <LED_COLOR_ID_BLUE>;
++			default-state = "off";
++			function = LED_FUNCTION_STATUS;
++			function-enumerator = <4>;
++			gpios = <&gpio3 25 GPIO_ACTIVE_HIGH>;
++		};
 +	};
 +
-+	pinctrl_uart2_rts: uart2rtsgrp {
-+		fsl,pins =
-+			<MX8MP_IOMUXC_SD1_DATA5__UART2_DCE_CTS		0x1c4>;	/* SODIMM 141 */
++	zinnia-1v8-voltage {
++		compatible = "voltage-divider";
++		full-ohms = <39000>; /* 12k + 27k */
++		/* Verdin ADC_4 */
++		io-channels = <&verdin_som_adc 4>;
++		output-ohms = <27000>;
 +	};
 +
- 	pinctrl_uart2: uart2grp {
- 		fsl,pins =
--			<MX8MP_IOMUXC_SD1_DATA4__UART2_DCE_RTS		0x1c4>,	/* SODIMM 143 */
--			<MX8MP_IOMUXC_SD1_DATA5__UART2_DCE_CTS		0x1c4>,	/* SODIMM 141 */
- 			<MX8MP_IOMUXC_UART2_RXD__UART2_DCE_RX		0x1c4>,	/* SODIMM 137 */
- 			<MX8MP_IOMUXC_UART2_TXD__UART2_DCE_TX		0x1c4>; /* SODIMM 139 */
- 	};
++	zinnia-3v3-voltage {
++		compatible = "voltage-divider";
++		full-ohms = <54000>; /* 27k + 27k */
++		/* Verdin ADC_3 */
++		io-channels = <&verdin_som_adc 5>;
++		output-ohms = <27000>;
++	};
++
++	zinnia-5v-voltage {
++		compatible = "voltage-divider";
++		full-ohms = <39000>; /* 27k + 12k */
++		/* Verdin ADC_2 */
++		io-channels = <&verdin_som_adc 6>;
++		output-ohms = <12000>;
++	};
++
++	/* Zinnia Power Supply Input Voltage */
++	zinnia-input-voltage {
++		compatible = "voltage-divider";
++		full-ohms = <204700>; /* 200k + 4.7k */
++		/* Verdin ADC_1 */
++		io-channels = <&verdin_som_adc 7>;
++		output-ohms = <4700>;
++	};
++};
++
++/* Verdin SPI_1 */
++&ecspi1 {
++	pinctrl-0 = <&pinctrl_ecspi1>, <&pinctrl_uart2_cts_gpio>;
++	cs-gpios = <&gpio2 6 GPIO_ACTIVE_LOW>, <&gpio5 9 GPIO_ACTIVE_LOW>;
++
++	status = "okay";
++
++	tpm@1 {
++		compatible = "infineon,slb9670", "tcg,tpm_tis-spi";
++		reg = <1>;
++		spi-max-frequency = <18500000>;
++	};
++};
++
++/* EEPROM on Zinnia */
++&eeprom_carrier_board {
++	status = "okay";
++};
++
++/* Verdin ETH_1 */
++&eqos {
++	status = "okay";
++};
++
++/* Verdin ETH_2 */
++&fec {
++	phy-handle = <&ethphy2>;
++	phy-mode = "rgmii-id";
++
++	status = "okay";
++};
++
++&verdin_eth2_mdio {
++	ethphy2: ethernet-phy@2 {
++		reg = <2>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <18 IRQ_TYPE_LEVEL_LOW>;
++		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
++		ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
++	};
++};
++
++/* Verdin CAN_1 */
++&flexcan1 {
++	status = "okay";
++};
++
++&gpio1 {
++	gpio-line-names =
++		"DO1_EN", /* 0 */ /* SODIMM 206 */
++		"DI1_EN", /* SODIMM 208 */
++		"",
++		"",
++		"",
++		"DI1_RB", /* SODIMM 210 */
++		"DO2_EN", /* SODIMM 212 */
++		"DI2_RB", /* SODIMM 216 */
++		"DI2_EN", /* SODIMM 218 */
++		"",
++		"", /* 10 */
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"", /* 20 */
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"";
++};
++
++&gpio2 {
++	gpio-line-names =
++		"", /* 0 */
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"", /* 10 */
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		""; /* 20 */
++};
++
++&gpio3 {
++	gpio-line-names =
++		"", /* 0 */
++		"",
++		"",
++		"",
++		"",
++		"",
++		"DI3_RB", /* SODIMM 56 */
++		"",
++		"",
++		"",
++		"", /* 10 */
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"", /* 20 */
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"";
++};
++
++&gpio4 {
++	gpio-line-names =
++		"", /* 0 */
++		"DI3_EN", /* SODIMM 222 */
++		"",
++		"DO3_EN", /* SODIMM 220 */
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"", /* 10 */
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"", /* 20 */
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"", /* 30 */
++		"";
++};
++
++&gpio5 {
++	gpio-line-names =
++		"", /* 0 */
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"", /* 10 */
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"", /* 20 */
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"",
++		"";
++};
++
++/* Temperature sensor on Zinnia */
++&hwmon_temp {
++	compatible = "ti,tmp1075";
++
++	status = "okay";
++};
++
++/* Verdin I2C_1 */
++&i2c4 {
++	status = "okay";
++};
++
++/* Verdin UART_1 */
++&uart1 {
++	status = "okay";
++};
++
++/* Verdin UART_2 */
++&uart2 {
++	pinctrl-0 = <&pinctrl_uart2>, <&pinctrl_uart2_rts>;
++	linux,rs485-enabled-at-boot-time;
++	rs485-rx-during-tx;
++
++	status = "okay";
++};
++
++/* Verdin UART_3 */
++&uart3 {
++	status = "okay";
++};
++
++/* Verdin USB_1 */
++&usb3_0 {
++	status = "okay";
++};
++
++&usb3_phy0 {
++	status = "okay";
++};
++
++/* Verdin USB_2 */
++&usb3_1 {
++	status = "okay";
++};
++
++&usb3_phy1 {
++	status = "okay";
++};
++
++/* Verdin SD_1 */
++&usdhc2 {
++	status = "okay";
++};
++
++&iomuxc {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_gpio1>,
++		    <&pinctrl_gpio2>,
++		    <&pinctrl_gpio3>,
++		    <&pinctrl_gpio4>,
++		    <&pinctrl_gpio5>,
++		    <&pinctrl_gpio6>,
++		    <&pinctrl_gpio7>,
++		    <&pinctrl_gpio8>,
++		    <&pinctrl_qspi1_io0_gpio>;
++
++	pinctrl_uart2_cts_gpio: gpio2io6grp {
++		fsl,pins = <MX8MP_IOMUXC_SD1_DATA4__GPIO2_IO06	0x184>;	/* SODIMM 143 */
++	};
++
++	pinctrl_qspi1_io0_gpio: gpio3io6grp {
++		fsl,pins = <MX8MP_IOMUXC_NAND_DATA00__GPIO3_IO06	0x184>;	/* SODIMM 56 */
++	};
++
++	pinctrl_zinnia_leds: zinnialedsgrp {
++		fsl,pins =
++			<MX8MP_IOMUXC_SAI5_MCLK__GPIO3_IO25	0x16>, /* SODIMM 30 */
++			<MX8MP_IOMUXC_SAI5_RXD1__GPIO3_IO22	0x16>, /* SODIMM 32 */
++			<MX8MP_IOMUXC_SAI5_RXFS__GPIO3_IO19	0x16>, /* SODIMM 34 */
++			<MX8MP_IOMUXC_SAI1_RXD0__GPIO4_IO02	0x16>, /* SODIMM 36 */
++			<MX8MP_IOMUXC_SAI3_TXFS__GPIO4_IO31	0x16>, /* SODIMM 44 */
++			<MX8MP_IOMUXC_SAI3_TXD__GPIO5_IO01	0x16>, /* SODIMM 46 */
++			<MX8MP_IOMUXC_SAI3_RXD__GPIO4_IO30	0x16>, /* SODIMM 48 */
++			<MX8MP_IOMUXC_NAND_CE0_B__GPIO3_IO01	0x16>; /* SODIMM 54 */
++	};
++};
 -- 
 2.47.3
 
