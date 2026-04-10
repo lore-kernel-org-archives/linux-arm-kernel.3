@@ -4,67 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69221F45A0D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 21:36:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9A85F45A0F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 21:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:In-Reply-To:References:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U0qPGiP06/FJyuhmS2u9RGZ3nvbtn35FKMvhoZt6Of0=; b=oPYTd4XwJYOJpqDwe5lie7EeIu
-	KLvNlYXuz0YbPYn8o45eA6y96BU2lDPEU0Q/tmbhekJ/SDtEvoSgGy1KHmjuQlekGBINX7hFbUKHp
-	F0ZDgkXtJq2hmVhTzF3nzeinkpMhSKJ2CgtO9eL6ZlynXvW1DLng6LgMtBqkspB8CeFiF/10V0ecW
-	+B4x8PdVebWgnd8Q/fsYKTdqbdUiLeNz5s0EDuwPguNJ/7GRmoD46iepIPYvbgV9RXTByLw+ZGe9l
-	YWYvi3X/4oCD20q9xzJkq5+XIhYAEwpBT7bfeWKHtP9uqQZE/ZvfudTnRhpW0QD4fBRHc6zkea7OM
-	/YhSZ6Gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uOQgLd2gKaEsA0eudkvAFUA3YIhovBiiI7oQgSr3Y6U=; b=oej45aNfcTV2AjlRs7ujNd1INp
+	xgkAXLA8vRr4IXFDOg3KcJGCjfv0zQOp3lnHhVNwSNkWuHWVDjFeCire4TvNLlKrcODLhzI9Z/6Tc
+	SMbYAl9ZsrWZUdIfbcdX1yI9zvG/0GTCKafW2cD4SKAtOwDO86yqgkcmOX2Pu1GhMsDhiQ3iUs/Nt
+	wRlN9rVhiq/zWfbzHyTPW9lZORyNGKzATGvSKbePK0GjaGVuTKjbxfMop1fkAkHqK+GijAoFB7syS
+	wGFPow+l9Sq6URmi5ZbQaSVxGAv0z5PPd77IAYmkGfPx8DvZb+fK1UmC6bUiwzlQpFrTeRDpoQGrL
+	XIPoqrHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBJX0-0000000Cpmr-3CLA;
-	Fri, 10 Apr 2026 21:36:50 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBJWx-0000000CpmV-3ilY
+	id 1wBJbZ-0000000Cq21-1s6t;
+	Fri, 10 Apr 2026 21:41:33 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wBJbX-0000000Cq1i-1A1j
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 21:36:49 +0000
-Received: from DairyQueen (unknown [52.148.171.5])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 4A00B20B710C;
-	Fri, 10 Apr 2026 14:36:45 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 4A00B20B710C
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1775857005;
-	bh=U0qPGiP06/FJyuhmS2u9RGZ3nvbtn35FKMvhoZt6Of0=;
-	h=From:To:Cc:References:In-Reply-To:Subject:Date:From;
-	b=PbQfq9X2IkH3uKdwQ0U9n40tSHha2wO/HIbnFwCziRNXkQy5dH/q97g/ozBnQtk7l
-	 mYDKTNwkZ759hTDcYvMWl+aSk5VuMNbE0WS9tG7Es4FTjZAFUUzBUF7wD/J/uUDkx8
-	 E/Fi+MzGNChm2+RKfXvQAYr12OPPASNnQ2wyBfN4=
-From: "Kameron Carr" <kameroncarr@linux.microsoft.com>
-To: "'Catalin Marinas'" <catalin.marinas@arm.com>
-Cc: <will@kernel.org>,
-	<suzuki.poulose@arm.com>,
-	<steven.price@arm.com>,
-	<ryan.roberts@arm.com>,
-	<dev.jain@arm.com>,
-	<yang@os.amperecomputing.com>,
-	<shijie@os.amperecomputing.com>,
-	<kevin.brodsky@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260406213317.216171-1-kameroncarr@linux.microsoft.com> <adjZpFIgXQYOvyTq@arm.com>
-In-Reply-To: <adjZpFIgXQYOvyTq@arm.com>
-Subject: RE: [RFC PATCH] arm64: mm: support set_memory_encrypted/decrypted for vmalloc addresses
-Date: Fri, 10 Apr 2026 14:36:42 -0700
-Message-ID: <001301dcc932$21cb6d80$65624880$@linux.microsoft.com>
+	Fri, 10 Apr 2026 21:41:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OqYSv1R0VbsjErzQDF+dAy9kPhMAxSI5YRjtn1522gAUvSwJrh0+cJCmDCvq7L1bYdSYhMMR7tVNLjq0bFI3aonqeXA5asLBB9eKkdn+GgZDecQGNf1RLc2BlHFudZBQgREmL4/4o1rSg80sS+1tA5fP4icRyciL/0xbHJq9RggyalwWJzwMr12Py/JmObDjoJPJZrYQbGws29v1yoBdvC4PQMcPXs6atLeHThCz3Jy6cqQB6XHXfEcBspF4mcYPuILmIlwIWZu8Jv90eA2BOcZ/k3PCi+SyZGa6xlo/XiAIMxCkZtYFCSibZuYmu1zkImgFMlICDRJyYoFXl+uRpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uOQgLd2gKaEsA0eudkvAFUA3YIhovBiiI7oQgSr3Y6U=;
+ b=vUQejC4q3ynBYQXrsU3xLeRkIxzJ07ph7L1ap5QWl3tLurPgbZZ1nZlF1m/AA78U5N2obhQK3kSTJxcd27+RK8gjwnB3NtRrikQje1tes5/UDwpNlK0miLxN9S8O9I+TNSxO8fOQDTpd8WH+MgrecY3/l5CJfsk5/BgDuQYLc5WO2CjQ53u/YgpyiryBTNKR41/ljTHE2Ol+buJl4x1JSAvTgM4du7mc3tltMNfKdcYJM5u7I/Rnoi+SfReAe56Owb0TeQThsaelotale/cm6MMt4FYr6aujeMqJQQqCvIEnK5Pna4RALehEk7JRaC50nT6kUmdc+NcG9JAuyKRwEQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uOQgLd2gKaEsA0eudkvAFUA3YIhovBiiI7oQgSr3Y6U=;
+ b=aYjXLyxJJLyGmXm64B109ydfwCLrpKbD7NpYU6Zcem77WfjmIvJ9hcJXh3RpJC/ssI+Aemb7ZBh/chV5aGgfCgmvjQZD5AqG9YA/CrlGilgxSRD3UQ6au5hKMWQ15ifBH0LvNmk5TBYGsBom9y03CA+o6IndCOh4u3NArrX3yQ1Hy3W2+NXHeCB5vbc5pZ4uYdMwcvZUbUlDdYXkNbOlZgdIttWmSArwX7YLeQ2gwQoGEFSThhmNQwrI3xJymMa4Iq2k0WMb9aFA3j0lOQ8KfGEehvZY4DJU//ghOS0sGCPsQ44BE+qO9mVgwYCToqD3+cUv9pAP4Nyox/qrhbIXtQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by PH7PR12MB5712.namprd12.prod.outlook.com (2603:10b6:510:1e3::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9791.33; Fri, 10 Apr
+ 2026 21:41:17 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9791.032; Fri, 10 Apr 2026
+ 21:41:17 +0000
+Date: Fri, 10 Apr 2026 18:41:15 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jpb@kernel.org,
+	praan@google.com, smostafa@google.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
+	jonathan.cameron@huawei.com
+Subject: Re: [PATCH v4 03/10] iommu/arm-smmu-v3: Store IOTLB cache tags in
+ struct arm_smmu_attach_state
+Message-ID: <20260410214115.GC2588311@nvidia.com>
+References: <cover.1773949042.git.nicolinc@nvidia.com>
+ <ceb8150f229ee7bd355ec42d23e422ae2185492e.1773949042.git.nicolinc@nvidia.com>
+ <20260409234223.GX3357077@nvidia.com>
+ <adlG0QTAzdh9vA4M@Asurada-Nvidia>
+ <20260410204709.GB2588311@nvidia.com>
+ <adlqZLZMr9VfnKse@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <adlqZLZMr9VfnKse@Asurada-Nvidia>
+X-ClientProxiedBy: MN2PR03CA0025.namprd03.prod.outlook.com
+ (2603:10b6:208:23a::30) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-Content-Type: text/plain;
-	charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQDZ5dKfOR6ho5ixVw3NahcWfi2iMwMH8E/Gt8YywzA=
-Content-Language: en-us
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH7PR12MB5712:EE_
+X-MS-Office365-Filtering-Correlation-Id: e3d4c134-d319-46b6-60a9-08de9749e54f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: Tb7W6kKfR28Xl3HrL7YP9GkDPiuko+V86krxaK6Z+2FZ9OuDA7FDUtir2a9yLApWWTUVvJfTJVCbT+8fBAyzLN35nEB+DaowbF9PnZB5oQfvfpRYkDsINiT0psIxdyUAMwgc33noWwECEXiZHgbKb8En4TE+B1Cm0ulE+WPDd9Lb7Bf/w4msOLVV8di/hIUySP5l7iqYQ281GlqBHn/8KjzErnkqz+/7gMK0eJsCzd0bMRmJFiuZYiXlvx8spM+5y69nSekZvYztZEO0R56U1A2cb/GXI29qEATf8bIwatXWFrm3ujkd8AcKIN8wEvKRruNwE3750CZR0qHZkUwoQ0Bdr5x+GNmJ7IJYK8fTkS2j3a6nTAH/25p4bFTNnJUZa7X6dKSo1fTuVE662K5hG2MQgZ1oNJRMXemlOxNPgGrPp9OSgXkunr83VmB0YLgEtHosKuiYtl/I2RoHsC6HEi4w8Lfgh5WvrRIAxsbqyjRtYVcV1/4W/BI6cV5Mif1iHE+ST6pexAQfUyVdW1v3buLseniZ4GEBW7SY3ItdA1DZQO3LTSkdjxf8N1utDbVjbMZXCE6nqJrMmXKc48Q6qldaPysvvYa5zUwXVHIr+OORsl1YIegM55OW7ShpHvodaCabGvgwYUzhVzPzWo7p5ElXC+AQK8GSnLk77zOkDn+h53MljIREbg/O2G5cQjhbQ6SS286//Pf5nc+rk10MD+36+xgt1K6jxCRgjqwHp6E=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zGQh5HOoCrl/J3iU3d5KtEYSR4TiYfdr43VX83YbrudjFPvGLzEsJGllCuIv?=
+ =?us-ascii?Q?MRnr10JOnYQfjTEsIZDvXz7fJObd/cfOQq6yG2INkI7Ok2zD5ycnr0Vuc7a9?=
+ =?us-ascii?Q?5jYKzuLBK+Jr8jqI2MFFIkVdXAcdXaVfPN06vVaXA5Fz+jNWP6nJ+xcURXY0?=
+ =?us-ascii?Q?42x6sJRaW9jvIDuLbD1d4tYh8hUBbVE6T0y8YoOBEhOelcLQtZTgfjX1ntYc?=
+ =?us-ascii?Q?BS51Z6RId2bYp9L9hQzyZ/3WVlmSeLICqtiTU0tSDRote35Y7zOdZtR1xB52?=
+ =?us-ascii?Q?C2m+hC2GlQK1zUIDI044kg5TwvsXhQxtYtryeNBjjTPDygukza9dgL/+Jy9J?=
+ =?us-ascii?Q?yHcvko0zyvROLHI1hdWCORo6yJ/EqhGoWxxfbu6k8LaoQnxAPOEtDr7VZCs7?=
+ =?us-ascii?Q?8/snCDYa5m06HV/S+BvifJua5XhMl3q0IuZkgmtflYuWmB5kDq8q6nLiKh9Y?=
+ =?us-ascii?Q?TPat6rI3AKjj+L5o5kdaGMT/n+hqxvx4zwCQch3ksZAdr4XL0HOyyDmvP4sZ?=
+ =?us-ascii?Q?ush0WnEZQbdt8keVfMdbGkrMKGfWwA+x7NM8HQQLfn3AGXkVzDxIKvsNLdc6?=
+ =?us-ascii?Q?ohvy7Cc31fB+TjFtXaodWqUhCh7GVn+4s8k+CyLR+hMBdrABZ3RZKfgOaDpD?=
+ =?us-ascii?Q?xISUAxhibR1mS7YSUai1fPr24Iw0LhHDxxSAze4zXQKI1is2G2hpD26LmCIU?=
+ =?us-ascii?Q?ektL7wV81d2ryo8Jd1Ggg0RZFDXBbav6/hRYEfzDk2y0UUFk9jwMSdokgCSE?=
+ =?us-ascii?Q?89Rn7JYwuOMf/0Amq8egFeJHg+1JOfIVOxUZTc/GqSaNEN8P2bXvdDGmuDzb?=
+ =?us-ascii?Q?pzS5DFVmcx2Nu2/n0/MrGOQRhs/RmDU0YcVCtGX1ivLQ5nYUnc19/ol+f+a0?=
+ =?us-ascii?Q?E8mbRUMrhaW7kxx9GrGEIHxLFOhsQJmTcmr4iJrgGWsf+UwyGfaxQ8v4kCo+?=
+ =?us-ascii?Q?WG4yjGVRk23BSCXtBvVAYbys+z+UH0kylbeOsuzroNBqnA56WJPpRWcFUh+E?=
+ =?us-ascii?Q?Xs4uGvf4tb4uEIYNdMRy2NYjHCNcPE1UgRtRBpRe4VOgsgohec1tAQY47eR6?=
+ =?us-ascii?Q?65Bj+3kXo/73ldt2QbgHeq9zBP4bvxp6UXeSuGP0Tm7bqH3by7qXEsZX2/q1?=
+ =?us-ascii?Q?KjdRGdJiX8CQSWzB+QZufW11FxN+oVGARysD3zYFnkeWa5vok5LK34BgCHSf?=
+ =?us-ascii?Q?7D06PafTJshtoriZkzTQy+PVcCZCMPd57FuQrie2g6LB9i1+SCr9KA4Zko01?=
+ =?us-ascii?Q?v4gkarhKm893UCCduAwZasuJgt2ddY0GF4DuWXAVU6kkHLJ74QCD7KRTYpRd?=
+ =?us-ascii?Q?pH9rYbe0FPigaxeV0XUvn4VivOTiEbQlhtRpKjGkfC2z0iKo5xkYLsLSQZso?=
+ =?us-ascii?Q?E7vMBwAaD7wIQJ5ORFn7qhNjkiukJ54CKb3mTJ19MiN4W8qyBzJgLXoJmZYe?=
+ =?us-ascii?Q?33qZx52OpyTrALzMPfxdR6jHHPANhkwzBbly3CeooOp1DI/51vRWLqQo4nyN?=
+ =?us-ascii?Q?hC3wr5ql8pAhIN2NNEY3pDj7AuZtdLXL+H20yS8ukNFGfSXZVT7ka8VqD/ds?=
+ =?us-ascii?Q?tIG2IvIDFrKVprdwntUsl9XwPvf0MkuKxQCYs6CGyEmkFmT1+TSgPtDjqV/E?=
+ =?us-ascii?Q?TuQLTxI4RJXHtXTb6oOpGQOTQRJdYuLKSU461bFwBtxPbdAbeyprZI5YtPYK?=
+ =?us-ascii?Q?QE1pNLEBD2236qUQhDsCcLsQik3/ie/Ydb8OZHcfHtRBE0Yh?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e3d4c134-d319-46b6-60a9-08de9749e54f
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2026 21:41:17.0265
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: f0y5/JGRYAwGuGwWKHAvCfvB9BNANSVWXrPLVuZu79oFh7dNGjaWL8iFHLqmkDdE
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5712
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_143647_981004_B765B81F 
-X-CRM114-Status: GOOD (  18.14  )
+X-CRM114-CacheID: sfid-20260410_144131_339294_C158CD0D 
+X-CRM114-Status: UNSURE (   7.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,49 +144,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, April 10, 2026 4:06 AM, Catalin Marinas wrote:
-> Could you give more details about the user of set_memory_decrypted() on
-> vmalloc()'ed addresses? I think this came up in the past and I wondered
-> whether something like GFP_DECRYPTED would be simpler to implement (even
-> posted a hack but without vmalloc() support). If it is known upfront
-> that the memory will be decrypted, it's easier/cheaper to do this on the
-> page allocation time to change the linear map and just use
-> pgprot_decrypted() for vmap(). No need to rewrite the page table after
-> mapping the pages.
+On Fri, Apr 10, 2026 at 02:23:48PM -0700, Nicolin Chen wrote:
 
-Thank you for the review. I understand that my approach is not ideal in
-terms of speed / cost. For my use case it was not an issue since the
-memory is typically only initialized once during device initialization,
-but I understand there could be a larger performance impact in other
-uses.
+> Reworking the SVA code, I found arm_smmu_update_s1_domain_cd_entry
+> is marked as __maybe_unused and not getting called anywhere(?). Do
+> you recall why we kept it?
 
-The use case I am interested in is Hyper-V netvsc
-(drivers/net/hyperv/netvsc.c). The network driver allocates large send
-and receive buffers (typically 16MB+) with vzalloc(), then registers them
-as Guest Physical Address Descriptor Lists (GPADLs) via
-vmbus_establish_gpadl(). Inside __vmbus_establish_gpadl()
-(drivers/hv/channel.c), set_memory_decrypted() is called on the buffer so
-the hypervisor can access the shared memory.
+I intended to send the vBTM support that uses it, and now that this is
+done it can work properly without races. So lets hang on, I was
+meaning to look at that soon
 
-In this use case, whether to decrypt the memory can always be known at
-time of allocation, so a solution like GFP_DECRYPTED is an option.
-
-I think I found the hack you mentioned
-(https://lore.kernel.org/linux-arm-kernel/ZmNJdSxSz-sYpVgI@arm.com/). The
-feedback in Michael Kelley's reply covers the key considerations well. He
-likely had netvsc's use of vmalloc in mind when he made the point
-"GFP_DECRYPTED should work for the three memory allocation interfaces and
-their variants: alloc_pages(), kmalloc(), and vmalloc()." His other
-points already cover the concerns I had in mind around handling errors
-from set_memory_decrypted()/encrypted(), etc.
-
-What is the current status of your proposed GFP_DECRYPTED implementation?
-Is this something you are actively working on?
-
-I'd be happy to work on an RFC following the GFP_DECRYPTED approach if
-you think that's the right direction.
-
-Regards,
-Kameron Carr
-
+Jason
 
