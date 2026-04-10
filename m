@@ -4,139 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB8EFF44840
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 11:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 236FFF44844
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 11:44:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NT/+rXZTuacqov1mq7SF0lV8RvQ3HiZKImY7BxOQLMs=; b=jJMzP7CmZycRYLuBEaPtSnAKHa
-	77RlEfWozEvVppe3yUPETncXm7KKNiEaNOxOtmn6qxuYwiPRJv/hg0QYYiJebG1sF9clLvSMxltlO
-	G+2vvcSnSdrTCdB7E6Xpp3qtoO7OjOzYa8165+a0gJ1G9s5aqQ2ee4juqolNz9W7sOIqa14T1U1gn
-	CTRRfDEYX4MNi4jZcV4OPOjLpXfS+3imCcSBHGNChDmv3uNItXpXUmJkGWh8ZEpxifyMY7DWBK4T7
-	j4UEGO0hD4T2s5MgpFpYBNbd8vf9LTJrPKj+7jIImsQkTW/QHHWubEJPT3KPS08b7BVV3wgMch2Px
-	YDKhPwGg==;
+	bh=eAjsR4dXAz5nN/iA5znXAF8eBGinTPG8aT8GFMzcLFI=; b=G7IU7KJxvF6+Qi9gj3K8g7i/dD
+	oXC4EtwCDpCt4MfLE87nkVwmQunjCH7842UQoT3jz+uHNcymuTqeYSow6sgFq4xgaxR6KuPtlT5Xc
+	GlXkF7tIoGUmilvY2R2XTCZXCbne2gJjUHLdDPSnSSWZzePoC07Mfh0hRhVSCqvC9csJoMapHGBug
+	QDa5fDFFA03lSkUjWQlxcPmY+B3jGJ97mT+eiP2O22XQsZwN46Mo9s7ZOiWQJQ1hPVd8N1ZT0Afvm
+	dbgY8ClKL/EHHKLeW7pvCCdPN4hRIRva4xbgeSYBWQGpWW6Fz1qLIkY8pY+zIHftojiX/FEDJQy2d
+	06CwV09Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBA3Z-0000000C5H0-2wEM;
-	Fri, 10 Apr 2026 11:29:49 +0000
-Received: from mail-northeuropeazon11020092.outbound.protection.outlook.com ([52.101.84.92] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wBAHK-0000000C659-14UD;
+	Fri, 10 Apr 2026 11:44:02 +0000
+Received: from mail-eastusazon11011007.outbound.protection.outlook.com ([52.101.52.7] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBA3X-0000000C5GS-40fR;
-	Fri, 10 Apr 2026 11:29:49 +0000
+	id 1wBAHH-0000000C64L-189U
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Apr 2026 11:44:00 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oImK0vDzsT16hDc5UqP8zzg6RgQrlYZt2B6xXDz7fXkCPwDjhKPl12DzskIRlTjLrd3+7LqLhURaqOJi/QVdQGCcIWBa6wzgVVnoqB7DTVWcT8Sm9WsjI+Lmte3P1PSEdg31FM7wK4m3FtlTkssDzmkTA8QBV+NalVA+LGgMQMS55gONVr3Y3uRW7Id3rcFp7hIfj8kxZ/TbLQGOgOQSDtWZykteJxYGnR0kD9wrvpKILJ3fK84LiVF/DZaSDFaY5XevyG+/qW7eV2NTB1Uhv6dOYTPPe1hSvBAyldtnWuagMIzpwrb6sYQGRmEopSQaSPafLV3mFkS/Bzp58WbOJA==
+ b=Qn6Z6OzM3ku4U0/bM0BqscVieYXM09jDvw/wrTj2vT25wQTfxrBqle3BZKpRBZ/QVjKFktjUIRcaSv/3NwvDO7ENNVzRmm0FPQXL0bWVNAoFUVMxyBZ9juD8/5s2tk5iy44lDfWGGDeeyl//RC/qpOxlrUbvUeVKxRRPy7iAPY2Di4fPuOG1z3yL/UIi9r9Z/Hhb9ttkDETjEVshN4J8E8DjeoB1hJk7RD8Uf0Tg+cRLbA5J5mpsoNyqKtcQuZQWxLYDo5Iil2YReVfVCvJmbfcrQd36YNN1GqtseooWJEdsd1t4qk3pbyR8E7QHJ0SgqHQ3PiO9ATIsG5iNVPCpcw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NT/+rXZTuacqov1mq7SF0lV8RvQ3HiZKImY7BxOQLMs=;
- b=Y6hEf3Nvw3n9TSNqV2h+OiwXld2d1W+4sPkJQ+h+0NEFw7bIGMinuWnSTrz84yUyykfE21YFtN76BfZCDEEgkmcRhcEkq2capDTCNbdYbmzBT17Rp16pNAQfvbp2Bx32mJ+kcz3CNykHcfPjaa0dunghvIQ9OFjDusMJedZsmDTPZ046XPKkH0OtEXoUrjNQT/Vu25TUFDFpZpc2rO4KMaEsCk4noAMs+kabKUjirIXWvT8rYX0ZY/+TcbbMAFHXm8mYLQmUH1SA+IPML/FnyKn7Fo6Zw0/TwYHyL8+fMjWbD6F9dPRk8uWmHbviIN2gDg779BSlNWYS6bvWqOIgUA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=genexis.eu;
- dkim=pass header.d=genexis.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=genexis.eu;
+ bh=eAjsR4dXAz5nN/iA5znXAF8eBGinTPG8aT8GFMzcLFI=;
+ b=mnS7DGvU1kIf6HBgKlSHTuOYFrls4HnLxQcMX3PkSVUa99FP361XraExrvns8ipbFDPQgnoOg7TdXq2YD+HBz3l3VwfUGanH0cH5NkTduYPLZ3xSgRf+CG8P5ju+id/UbGBEtBKIGhUSXTJmQ32c88hUUhEUorpPWiUpCbz/+BHZQLTw0/Fogze57aFQnvcESlsAn4+YLC5ZKj8N+FwEBX69YZyFM0mJi4yPTy0fF93CT0Er4oB9npVquH9sB+0dTAu0CkSyA3gQgLNwFcxstkWa5Sj612U96FA9vYOfuaXX+cbNyuBeYVaK5qLzP75wgZW/4nRJ8Lx9n/LbIPtN2A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 165.85.157.49) smtp.rcpttodomain=lists.infradead.org
+ smtp.mailfrom=gehealthcare.com; dmarc=fail (p=quarantine sp=quarantine
+ pct=100) action=quarantine header.from=gehealthcare.com; dkim=none (message
+ not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gehealthcare.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NT/+rXZTuacqov1mq7SF0lV8RvQ3HiZKImY7BxOQLMs=;
- b=RObgzcj0V5QnTtQa81n6pzQzPCi5jPQ/X7KE1+IMvNLKLp9wZ0+I8vyfAcyNAxKLk7p4HX5XaScoruQwfyoqhsFMNcEBCeE86o1YdKxB08AyyJs/DZ5TEypT5quZJipe0+zHu5oMuq5dq9uCl+ThtNvBLFgdO9K3A96FGaQj0aqiMieHGiDN2XDUaMlcgmmnmNlxGnB5KXFMDkfuZgOuH0miKrCsj8FVx4rFjBTLiQcm7vHQVfJy+kdj11GW0W3bUwp3w0p+EtsPUiEIsQHokXwHKTd2XqGLuHsY2tAzTGiBtKPEpCnvHUOIjyKN40tQyS5bpLku4MVTfkFdzrMFKg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=genexis.eu;
-Received: from DB9PR08MB6697.eurprd08.prod.outlook.com (2603:10a6:10:2ad::14)
- by AM8PR08MB6498.eurprd08.prod.outlook.com (2603:10a6:20b:364::11) with
+ bh=eAjsR4dXAz5nN/iA5znXAF8eBGinTPG8aT8GFMzcLFI=;
+ b=Ouujr8qoJsLi65aJO22FY/vA6p/ulFoTL7bUU27gj8lwxCdKov7UKp2sVm7RTSk8Wi3bxUJKt3xalQ6gYWu7GLqQp7kzhnei38tBmUZvNvln++pPICcNDCBMsW1saEaIBltGPOOU901Nal2XO+q6DSwHvcHnwn1o6Vw9c3vcHZn0mygNJG9y1unJT2rNNm1iB9GSnSIZYYKkaejy5onZ1jGyJguau2OUKvMKSJZOn84bGGiRuSS0uOhsScZ2Nr9uvfcHxkmvK3dPlq5ClDgTN0NenGYut7Tfbx7g6zs6kHC9i60SZG1PiYWc87Ci163p2X5I2ofBltz1xow99sLUKw==
+Received: from DM5PR08CA0060.namprd08.prod.outlook.com (2603:10b6:4:60::49) by
+ SA1PR22MB5154.namprd22.prod.outlook.com (2603:10b6:806:3c7::18) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.19; Fri, 10 Apr
- 2026 11:29:40 +0000
-Received: from DB9PR08MB6697.eurprd08.prod.outlook.com
- ([fe80::bdec:3e95:6614:441f]) by DB9PR08MB6697.eurprd08.prod.outlook.com
- ([fe80::bdec:3e95:6614:441f%7]) with mapi id 15.20.9769.041; Fri, 10 Apr 2026
- 11:29:40 +0000
-Message-ID: <bd486b55-a8d7-4811-965a-aa1f3dc98e30@genexis.eu>
-Date: Fri, 10 Apr 2026 13:29:38 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 04/12] net: airoha: Rely on net_device pointer
- in HTB callbacks
-To: Jakub Kicinski <kuba@kernel.org>, lorenzo@kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- ansuelsmth@gmail.com, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20260406-airoha-eth-multi-serdes-v3-4-ab6ea49d59ff@kernel.org>
- <20260410025722.1809973-1-kuba@kernel.org>
-Content-Language: en-US
-From: Benjamin Larsson <benjamin.larsson@genexis.eu>
-In-Reply-To: <20260410025722.1809973-1-kuba@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: GVZP280CA0027.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:150:276::13) To DB9PR08MB6697.eurprd08.prod.outlook.com
- (2603:10a6:10:2ad::14)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.18; Fri, 10 Apr
+ 2026 11:43:53 +0000
+Received: from DS2PEPF00003442.namprd04.prod.outlook.com
+ (2603:10b6:4:60:cafe::7d) by DM5PR08CA0060.outlook.office365.com
+ (2603:10b6:4:60::49) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.32 via Frontend Transport; Fri,
+ 10 Apr 2026 11:43:33 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 165.85.157.49)
+ smtp.mailfrom=gehealthcare.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=gehealthcare.com;
+Received-SPF: Fail (protection.outlook.com: domain of gehealthcare.com does
+ not designate 165.85.157.49 as permitted sender)
+ receiver=protection.outlook.com; client-ip=165.85.157.49;
+ helo=mkerelay2.compute.ge-healthcare.net;
+Received: from mkerelay2.compute.ge-healthcare.net (165.85.157.49) by
+ DS2PEPF00003442.mail.protection.outlook.com (10.167.17.69) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.17 via Frontend Transport; Fri, 10 Apr 2026 11:43:51 +0000
+Received: from zoo11.fihel.lab.ge-healthcare.net (zoo11.fihel.lab.ge-healthcare.net [10.168.174.93])
+	by builder1.fihel.lab.ge-healthcare.net (Postfix) with ESMTP id 4F51CD9C13;
+	Fri, 10 Apr 2026 14:43:49 +0300 (EEST)
+From: Brian Ruley <brian.ruley@gehealthcare.com>
+To: Russell King <linux@armlinux.org.uk>
+Cc: Russell King <rmk+kernel@arm.linux.org.uk>,
+	Will Deacon <will@kernel.org>,
+	Steve Capper <steve.capper@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Brian Ruley <brian.ruley@gehealthcare.com>
+Subject: [RFC PATCH] test: mm/arm: pgtable: remove young bit check for pte_valid_user
+Date: Fri, 10 Apr 2026 14:43:36 +0300
+Message-ID: <20260410114336.983057-1-brian.ruley@gehealthcare.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <adjcc7QvquXI3G0Q@shell.armlinux.org.uk>
+References: <adjcc7QvquXI3G0Q@shell.armlinux.org.uk>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR08MB6697:EE_|AM8PR08MB6498:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2dda6686-9857-41ae-3fb6-08de96f47446
+X-MS-TrafficTypeDiagnostic: DS2PEPF00003442:EE_|SA1PR22MB5154:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: cf92ac79-ee9b-4f51-4594-08de96f67029
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: LfaL61M9qCbNeNyy2ynzZaoyJ3QM3suxd3YyTeNuYJFGuN/7+KUY95ly9jDCAou6N3y1fOdD5hH+GcKxH2PXkrPO71Qol3cMwjQ4IEiLHvrG1Rl8v7/SWuG55wvlkpqzMf6Yskk8ULjFEA+Bps9x1LndONw8e7laTpaymvHiOtyJDYEGMeeQj/b6uh4pyJr3Txo8zHLxpuO6UBCxzfJdciuoOv42jZVsqG2sKw+E1CCiF/cktlpwx37J2cGVTOHZVc2IXPxUVLFQsBfZ/uuGRgOasIbLRCIOfu2EDY3AFfCU/rz5zDCOS0VIZ7gtFkVwOkyDTzteBCpCZAmjUwiz1VkyWAWZxvL8yu+hmJPs8rsLtfsiEyfa7CKmLDEIXBnAKXC4i68OYnF4rej99xhd+ZdjxP5OuPb1vcFuERcN/lVm507VxfrGoRD6oWd9tmCyz5bJk52GJVzGSVp+OCTL6ltSA58xT6fr3lylUUQHNvwYm4GXsEAicxC1JojXNYcmeMX6vc/MgQUD3+NAT66mUe1dbPt6JA2VuXdqOigib/QeoiVC2FTJmToN9a17QY7HgejzF4pe0+FaJokHirw2jukyIYY1ug6ipCoFn3WXR200zJyC414dPhApr+KcoHKZGUeCl9shLlAZ1dvz6O9Fl6h3xTRXsn8hNq4QtcgkJjoDX+5EB0dy+Jjj/BvNqlHeR3lPCaf2cinJ+cdGUlFm5kZHQrbu/Fcrx/YUoGXIvrs=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR08MB6697.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|376014|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 0TRuMMSZqee/OBNC6Cqn78F9lhY0X5lCUYt01fG7AgipH9qfa5gpd3VviH/LrUQaRSuQ9blwQd9Edin+PozjH701PzKDoIJYMnUUepp7s7TJvKJ9u7eDvro801P5+mr6gmIKb0qam1q3HoTKgbX40Ps1UXvram/zupEW0tDFRE/ujkb61CKSBQD2Ye1yCO9l3no6fXct9LmCfxrQ72C72Wqh669Mc9+8e79Kd8vpVnioH/e+9m1mhwmt822hjn6Fl77zJulLTLdq3/mX2nOYGXddjRvue6FLH/fguv1qEaZUNp5LYcyvTui0yiyzwG1m1Zn1rqBmnKJICjEU0SdBHk+AiRh/tx/vnrpGvkps9qh5AENLknzRDShGkFB8hcgvpo20j1ogA/DxNVQL/DhTLfYekKG0SEa55h1xK72AH41GEW3CR/3pqJGomTBkHTAhJdmfsJbJ2AID1SBZ9YOfeu3tcD8LpjkquaHpKjVkAaBaYsO9Sjs7aqLa3Kx53RZo5m5LS9avESmTD5RGwj1zcDIJbIEj3dv0BUgvGM2w0hf0k3LJ7iBEQ2Jcg7Xc8jsIb8gLL/gPuU7oyQTabIVdxWjkk3ZekZQGZX5txcaxtWwDjJSuYUGT5nG3jcqvShezpU+Xen64/sK3Nm/iH+BD4TW2HDRjgcYYYHRi4fsvOsGY8EJ1zp1wGPLrXLnt+fopM9eSuHlRTBmpKbNVqe68tfaM3EpwVdJLmfG9Yghi46cg8feS5PxM5Vncy/9gMJ8ucLUiGcxZ5c8IrKzokeoKlQ==
+X-Forefront-Antispam-Report: CIP:165.85.157.49;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mkerelay2.compute.ge-healthcare.net;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(376014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UFczaXFUanU0ZTVqRVEyNjdJUy9PWVMxY0RQQnVMbzVZcEg1VEVHNjF3RUxJ?=
- =?utf-8?B?K09xaUxsQTI5dnlPeUF2bys4MXlnQ0ZaS3JMNmc3SUNCck04TW4rNTNvM0RH?=
- =?utf-8?B?dVV6bncwU25qYjlOdkZYU2l4MjQ0R1pXdUZTQlhLS0o4NWVTdVJja2d2QWI1?=
- =?utf-8?B?b2gxTzZCZXkxUXNSaExtaUw4NjRZRzMycnlUVnZLVjc1SU1yQlZ3M0prMitv?=
- =?utf-8?B?UmpPVXp4TmxHbGlHQ0R3REFRbmhONVoySFFZaVBXWXhNU0lXRnlxQWF1YlYy?=
- =?utf-8?B?TUVvbGN2eU5Qd2N6WXd3bmxsbmpFYnRRQVJCWWNVMEF1MURyYS9vaFNDUlJn?=
- =?utf-8?B?Wit6M25qakxrdTdyL1hFcFcvVGJzUVVKYXU1QUI1OG5IaUJESWt3K1NGWTZ1?=
- =?utf-8?B?c25NSng1NVFVWGhGVE5naWpHMnNucktSUEFsTFRmRit2d0pmSmtDc1RYeEhO?=
- =?utf-8?B?azFkNXlnTW9IMlRNeUxsSG44YTJWZUF2d1p1Z1FMcUpseVUvRmhhVEVEcXpU?=
- =?utf-8?B?YWdiQXFkaUhqT2Y4NmVYU1c3Tzh0bkZIbXRLL1NCRHdrem0vN281L3paZFJq?=
- =?utf-8?B?dGQ0VzFIT3J6VFlFWjdaL2dkU1RXNmlnWG1oNGRMT3VRRy9ZV0hLMW9JTUg2?=
- =?utf-8?B?SU9jc09GRm1HUmJNQ1FkY1Z4UnZ4WS94WUlPNWk4OVIyWG1hSll6QlNOMUlF?=
- =?utf-8?B?UlpuTkJsVVhmN2hGYWt5eEp5bjZiWmE5MnVjeExBOENpNE1zSUtQSHdpemU2?=
- =?utf-8?B?UysxZG11M1JMbnV3NUpIazFRVVkzRGVkZmEzMXd3Tk1YS3hSdG43VE12L2xT?=
- =?utf-8?B?U1MvallmREI2SmdrQmd4bzF4dW9iVVVDbVF0d3BsdmNFOFRINnhESmo4VkVr?=
- =?utf-8?B?NjJLSzhvb2NWbTRrWm5yMzNiM3dVVjVmQjVVeGJpY1lCUElnbmpVanRTYWh0?=
- =?utf-8?B?QkpZSkNQaDJ6aHBOaDAwQjM5OGFQRHBKd2pMNUVUNGp4RDNTMko0eCtQTTMw?=
- =?utf-8?B?R2ZPMDhmTncrK2ZEL0w0b0dKamF4NGgzemRPczJHUXdkL003RzlxaDNwUS9y?=
- =?utf-8?B?Y1RDamFLWXdmODNsU0JzSWtsbmdTaDRmb25PZU1iQ29kajhScTRFa2FiWHJr?=
- =?utf-8?B?NWl2bEN2djRhYmc2OFNUQlRLSkFQaUNoYzRkL1JUZHVrWlhHOEtudXpRM3ZP?=
- =?utf-8?B?dHdONm9KRHNjOVRWMmIxSGZJVWt5aWs4WWdCeWt6OE5qS0g0MFF2VUh6MDFF?=
- =?utf-8?B?NkFjeG4zbEJXSlVyWFNwc050UTRCN2FySnRPYktJZ3hNK2drT0NTNGpLZWhx?=
- =?utf-8?B?Y1I4Q2hNY1dNcW8xeDZzRmFucE50aEQzbmJYenZVQzRFNE5SL1RvMVh5QmR1?=
- =?utf-8?B?cmxYL2xubkdmenNzOFlXNkhtWGh1NkI4Ky9mVEwvMzBlOE5ocU5SZ01VWTBo?=
- =?utf-8?B?dWQ2S2pkdjNjRGNUT2orMGh6VC91QmZibmpsb1RkQjRzK0VVL09odkxrd3h1?=
- =?utf-8?B?R0owMlBrU1VVTEZkcEFNaHF5RGFPc3pyd1lkTnNUTG1ENWJNcVJHTXV5YSs0?=
- =?utf-8?B?RUtOWGh5VzhtQVFPbkZpZVMrSS9PT3pLdmJjWVVSTHpyUDMzYnlFNjR3L1l4?=
- =?utf-8?B?UGd5Ym1zNEJCWU5QWG91alJkeVlCckcxTlpSYW1MczZmdFBqZWVNdjZHSzFD?=
- =?utf-8?B?blNYejkzVUpZV3hrQWlZM2hSTWJDUmlsU29kdllGcWdyenpJTE9INU1XTSth?=
- =?utf-8?B?c2JZMnY3TFczQ2FmTXBiaUdkOE9raE1PMlU0R3ZzMy9FRlVmS09aUjZYQlVT?=
- =?utf-8?B?NkUvZmJGZE0vWGI3T2taM0JGOC95SDRhQjM3KzdLb0VkNWlBSkIxUnh4WDRW?=
- =?utf-8?B?NVg5VkptMitEeXhhSGVJTkNtMHgzZTdFT2dsVzJuQzZiWlpwYUlsR05tS0tJ?=
- =?utf-8?B?YmFqdUczcXBvelhBOHZNcUFoNytUZlM5RmlySi8rbWFMVjFkaVlFVUVyYmVp?=
- =?utf-8?B?dE5wOGxQUk9udktBdjh2NTRRM0lsZDJXY0pBOVQvUDR4NkVwSnV0UG44MDFT?=
- =?utf-8?B?QXY2bTJWcXo3akFxbThaUzk0UElTc1ZGdFdCZGNQN0NkbDU1dnA2bGUybGZR?=
- =?utf-8?B?akxHUGQ2RHNxSUxPNElUTFg3RWFmNldVZmNRdFFSdjU5Wmo3ZWhtYlpwbTFK?=
- =?utf-8?B?a1h1UHQzR2F2S0crdnBPVDBLWUVzQ0NFc3FIb2hLVGYvY0tQb05SZXNLWHEy?=
- =?utf-8?B?RlNNZit1bXMwdXd6Q2pNNFVob2VwdlNnZ2o3Y0REL1FSZFd4TE91NHcvT3pa?=
- =?utf-8?B?dWEwT09zM3FJODlGYnR5VHgybk9IdnRpeGxrUlNqYWpIbTVraUVBeXpqby9s?=
- =?utf-8?Q?Dn2uvTu2yo6uJxME=3D?=
-X-OriginatorOrg: genexis.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2dda6686-9857-41ae-3fb6-08de96f47446
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR08MB6697.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2026 11:29:40.2223
+X-MS-Exchange-AntiSpam-MessageData-0: tOqc36GYiraBi/TPofd+FJNbfHncyx0XAXeLw4LamtI7ulJ1UE68+5Ba5jHNpxpG4wwEalKwYYdZJ1jA38MubDbJmw005DxAsENJKK5++7IFCSeYvny4GmEFXdO2uhlLt4PksxPlXg+z4qhSMDmVxbMj+pMzguxPEYnHqowQ45KyIcvueVohc5V2BQazcypjYjhsEPC8eRREEBfWMl4KupeEq6eXq5SbMhSaAbJ9uwL7yTYSKJP8ChDRYdMdHz4IEqaXVloUGDYoP+c/X/eFNdB0N9nwOk8Lw3V9qK6MOnn71GPhdy0BPzFSZj/C6oKitimyCJSJqUf/2FpW7TdIlK77m95InuNXLvaI8JuH0hQvIFpNo/Gm4lkIzdTnKwosIS/6PtCDy9B9Gka2QbjEjCL+rUK2yTFk+6bVrYUNCC/Tv1sGjxsTlOe1CzvySzlV
+X-OriginatorOrg: gehealthcare.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2026 11:43:51.9019
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9ck+g9IIzMQzrNLNrXd29nsoZ6/NjDnBVaW8yvT+fISAJctfJZVRioZqEi4RFj/kUXMst9NArbyxNL1KFzEQ7AmIvVfQg4Qp0oW7jMEFGbI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR08MB6498
+X-MS-Exchange-CrossTenant-Network-Message-Id: cf92ac79-ee9b-4f51-4594-08de96f67029
+X-MS-Exchange-CrossTenant-Id: 9a309606-d6ec-4188-a28a-298812b4bbbf
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=9a309606-d6ec-4188-a28a-298812b4bbbf;Ip=[165.85.157.49];Helo=[mkerelay2.compute.ge-healthcare.net]
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-DS2PEPF00003442.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR22MB5154
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_042948_019702_EA3D821D 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20260410_044359_314366_96FBB44C 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,61 +123,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/04/2026 04:57, Jakub Kicinski wrote:
-> This is an AI-generated review of your patch. The human sending this
-> email says "For your consideration."
-> ---
-> net: airoha: Introduce WAN device flag
-> 
-> This commit introduces a WAN flag to specify whether a device is used to
-> transmit or receive WAN or LAN traffic. It enables specifying multiple LAN
-> devices but limits the configuration to a single WAN device.
-> 
+Instrumentation to print recently migrated pages in undefined
+instruction handler. This was used to determine if the faulting address
+was migrated earlier.
 
-[...]
+Signed-off-by: Brian Ruley <brian.ruley@gehealthcare.com>
+---
+Not intended for integration. This is just to share the testing details.
+---
+ arch/arm/kernel/traps.c |  5 ++++
+ mm/migrate.c            | 53 +++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 58 insertions(+)
 
->> +		fallthrough;
->> +	}
->> +	case AIROHA_GDM2_IDX:
->> +		/* GDM2 is always used as wan */
->> +		dev->flags |= PRIV_FLAG_WAN;
->>   		break;
->>   	default:
->>   		break;
->>   	}
->>   
->> -	for (i = 0; i < eth->soc->num_ppe; i++)
->> -		airoha_ppe_set_cpu_port(dev, i, airoha_get_fe_port(dev));
->> +	airoha_dev_set_qdma(dev);
->> +	airoha_set_macaddr(dev, netdev->dev_addr);
-> 
-> Since the commit message notes it is possible to specify multiple LAN
-> devices, does unconditionally calling airoha_set_macaddr() for each
-> device overwrite the single shared hardware LAN MAC register?
-> 
-> If so, could this cause only the last initialized LAN device to have its MAC
-> correctly programmed into the hardware, leading to dropped unicast
-> packets for the other LAN interfaces?
-> 
->> +
->> +	if (!airoha_is_lan_gdm_dev(dev) &&
->> +	    (port->id == AIROHA_GDM3_IDX || port->id == AIROHA_GDM4_IDX)) {
->> +		int err;
-> 
-> [ ... ]
+diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
+index afbd2ebe5c39..64ef872f1555 100644
+--- a/arch/arm/kernel/traps.c
++++ b/arch/arm/kernel/traps.c
+@@ -28,6 +28,8 @@
+ #include <linux/irq.h>
+ #include <linux/vmalloc.h>
+ 
++void migrate_exec_log_dump(unsigned long fault_addr);
++
+ #include <linux/atomic.h>
+ #include <asm/cacheflush.h>
+ #include <asm/exception.h>
+@@ -490,6 +492,9 @@ asmlinkage void do_undefinstr(struct pt_regs *regs)
+ 		dump_instr(KERN_INFO, regs);
+ 	}
+ #endif
++	if (user_mode(regs))
++		migrate_exec_log_dump((unsigned long)pc);
++
+ 	arm_notify_die("Oops - undefined instruction", regs,
+ 		       SIGILL, ILL_ILLOPC, pc, 0, 6);
+ }
+diff --git a/mm/migrate.c b/mm/migrate.c
+index 2c3d489ecf51..987d0376b433 100644
+--- a/mm/migrate.c
++++ b/mm/migrate.c
+@@ -48,6 +48,54 @@
+ 
+ #include <trace/events/migrate.h>
+ 
++
++/* Debug: track recent exec page migrations */
++#define MIGRATE_EXEC_LOG_SIZE 8
++struct migrate_exec_entry {
++	unsigned long addr;
++	unsigned long old_pfn;
++	unsigned long new_pfn;
++	unsigned int pid;
++	bool flushed;
++};
++static DEFINE_PER_CPU(struct migrate_exec_entry[MIGRATE_EXEC_LOG_SIZE], migrate_exec_log);
++static DEFINE_PER_CPU(unsigned int, migrate_exec_idx);
++
++void migrate_exec_log_add(unsigned long addr, unsigned long old_pfn,
++			  unsigned long new_pfn, bool flushed)
++{
++	unsigned int idx = __this_cpu_read(migrate_exec_idx);
++	struct migrate_exec_entry *log = this_cpu_ptr(migrate_exec_log);
++	struct migrate_exec_entry *e = &log[idx];
++
++	e->addr = addr;
++	e->old_pfn = old_pfn;
++	e->new_pfn = new_pfn;
++	e->pid = current->pid;
++	e->flushed = flushed;
++	__this_cpu_write(migrate_exec_idx, (idx + 1) % MIGRATE_EXEC_LOG_SIZE);
++}
++
++void migrate_exec_log_dump(unsigned long fault_addr)
++{
++	int cpu;
++
++	pr_err("SIGILL at %lx pid %d, recent exec migrations:\n",
++	       fault_addr, current->pid);
++	for_each_online_cpu(cpu) {
++		struct migrate_exec_entry *log = per_cpu(migrate_exec_log, cpu);
++		int i;
++		for (i = 0; i < MIGRATE_EXEC_LOG_SIZE; i++) {
++			if (log[i].addr == 0)
++				continue;
++			pr_err("  cpu%d: addr=%lx old_pfn=%lx new_pfn=%lx pid=%d flushed=%d%s\n",
++			       cpu, log[i].addr, log[i].old_pfn, log[i].new_pfn,
++			       log[i].pid, log[i].flushed,
++			       (PAGE_ALIGN(fault_addr) == PAGE_ALIGN(log[i].addr)) ?
++			       " *** MATCH ***" : "");
++		}
++	}
++}
+ #include "internal.h"
+ #include "swap.h"
+ 
+@@ -434,6 +482,11 @@ static bool remove_migration_pte(struct folio *folio,
+ 			else
+ 				folio_add_file_rmap_pte(folio, new, vma);
+ 			set_pte_at(vma->vm_mm, pvmw.address, pvmw.pte, pte);
++
++			if (vma->vm_flags & VM_EXEC)
++				migrate_exec_log_add(pvmw.address,
++					swp_offset(entry), page_to_pfn(new),
++					pte_young(pte));
+ 		}
+ 		if (READ_ONCE(vma->vm_flags) & VM_LOCKED)
+ 			mlock_drain_local();
+-- 
+2.47.3
 
-Hi, the frame engine can be configured with a range of wan mac addresses 
-and a range of lan mac addresses via registers that set the top 24 bits 
-and then 2 registers that form a range of the low 24 bits.
-
-Documentation says that packets that fall into this mac address range 
-either on the lan side or the wan side are to be treated as layer 3 
-packages and if a packet is not then it will be handled as a layer 2 packet.
-
-The exact implication of this and if it actually matters is unknown. But 
-traffic that comes in on an interface that is not matched by an 
-acceleration flow is usually forwarded to the cpu for further processing.
-
-MvH
-Benjamin Larsson
 
