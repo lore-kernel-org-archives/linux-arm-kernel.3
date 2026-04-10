@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7751FF459EF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 15:12:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A18F459EF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 15:12:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EXHlGFMchLrXYOokJ8ts+4KkFjNcUBKWcgC6HquieuA=; b=aPpDhLbwBng8VEhuIQFOH6KB6D
-	jqN3JxDuLu6FFiHfksvnaomT+V/BISbIQWXknEczGbUYze7xcMbL59xRkMLL+8119WD78nzDpiGdM
-	bYD7stdDMy798KGNZLEnUIRLDRzK9lTeFPxV0fFItqF4ef0yCVzRlHQEFpaD8fSqK099VddxsWaRE
-	5EJpiUZiQ/bZ1vt0IRchJ9ijkrbXiNkGOFI9lezht6ZPvuEJ1zdUqEA0mncw/cEub0LD8cgPBwa4P
-	cW9v7XjPMarMSuPv30eU4b1zM+hSGDVYEMJDzfBtQYru2ROqLg/cP1tDT0lV/wg51ZJjfB1sQGApF
-	2hS2qAxQ==;
+	bh=e5jtY1ViiQf+C79ooKqHog9lVoqX1IC1g6uankYpXiQ=; b=sttGg7I+IZrmIesGRnC9iM2oNu
+	TWupzIhJD6OemtxYcoE3c7F1H7lv5LBTTU6aq7fRzeKVxbTS2/DtwKnbwBM+fSG3E1GwgVkW3mweW
+	4udaNaKO/9fRLWh04U3Zr6KzN4EsstRPJed+b21e/4q5HWxO9bLqNkxwHuCWcIxL1GcsRCCu8s1FH
+	gn93fPdTCqPqeJ+nP4lVn0SUo6I02wFNAugZUwsnqjUBbGoYEbP1FkWjgOU8EZSctSlnOZ18aQJXb
+	3SVQ4nQrU6cFFeJQSf5pxw3N0PAnUWWKZYcul3tZj3NkEetTnSylJGHzgONNxkNOIoNZUP+F1ppuF
+	3nVTNPMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBDWk-0000000CQMQ-0Bc4;
-	Fri, 10 Apr 2026 15:12:10 +0000
+	id 1wBDWq-0000000CQOT-1XCY;
+	Fri, 10 Apr 2026 15:12:16 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBDWh-0000000CQLh-1Bhc
+	id 1wBDWn-0000000CQNW-3K0U
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 15:12:08 +0000
+	Fri, 10 Apr 2026 15:12:15 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C88221CE2;
-	Fri, 10 Apr 2026 08:12:00 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 536F01CE2;
+	Fri, 10 Apr 2026 08:12:07 -0700 (PDT)
 Received: from [10.1.29.18] (e122027.cambridge.arm.com [10.1.29.18])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 390203FAA1;
-	Fri, 10 Apr 2026 08:12:02 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 25E513FAA1;
+	Fri, 10 Apr 2026 08:12:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775833926; bh=SgeTFShUt5ftBYW+tYad/4IX9OU1k7JOPTiu6AXMfNA=;
+	t=1775833933; bh=GJKcHTezPstrZHtfO15ScOCgcXew2OM8/KUMjRAZidQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Whp3kSZI4EIQPricoHgPcGQcXYQwuSke488yFcKXb6hzahgn750nLaoY/rSPGuvLi
-	 tSYSQ1ywveATyALdJ8/51zIi6U4Rws6qWSNF/a0yWgAP4tf+qUq64Mw/L2K5vBUewu
-	 nRwsd0tfQiFuWXWhC4EynyHREF6tIFfxgM8rJz1g=
-Message-ID: <3845a15c-46d4-41c6-b645-8fbbead34761@arm.com>
-Date: Fri, 10 Apr 2026 16:12:01 +0100
+	b=QnNDrSZNUzYW/9X57giTRgy3j3izu/JL37kvNQVkk3HfGfFTTYVLTzc+VKrrGKHQ2
+	 sghnshPzg7CRgelAd9jTPw6uhj6OlF4HZVCk1KRFVYcniSC0w9iAMTouf6gXq+b33V
+	 siT7P8g5+ChI8QW5j5triYs4S5BA1leyEpwB5Dlc=
+Message-ID: <04db668a-bb9e-40e4-b974-ba3a6a14bda1@arm.com>
+Date: Fri, 10 Apr 2026 16:12:08 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 21/48] arm64: RMI: Handle RMI_EXIT_RIPAS_CHANGE
+Subject: Re: [PATCH v13 24/48] arm64: RMI: Allow populating initial contents
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
  kvmarm@lists.linux.dev
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
@@ -59,16 +59,16 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
  <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
  Vishal Annapurve <vannapurve@google.com>
 References: <20260318155413.793430-1-steven.price@arm.com>
- <20260318155413.793430-22-steven.price@arm.com>
- <59c83ace-c8be-4c71-99b6-cd5f085a3063@arm.com>
+ <20260318155413.793430-25-steven.price@arm.com>
+ <7ab3dcd2-23b9-45a6-84ef-9617c4614c0a@arm.com>
 From: Steven Price <steven.price@arm.com>
 Content-Language: en-GB
-In-Reply-To: <59c83ace-c8be-4c71-99b6-cd5f085a3063@arm.com>
+In-Reply-To: <7ab3dcd2-23b9-45a6-84ef-9617c4614c0a@arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_081207_443584_B4B527AE 
-X-CRM114-Status: GOOD (  21.40  )
+X-CRM114-CacheID: sfid-20260410_081213_912188_BEDC608F 
+X-CRM114-Status: GOOD (  31.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,49 +83,257 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/03/2026 11:15, Suzuki K Poulose wrote:
-> Hi Steven
-> 
+On 23/03/2026 11:32, Suzuki K Poulose wrote:
 > On 18/03/2026 15:53, Steven Price wrote:
->> The guest can request that a region of it's protected address space is
->> switched between RIPAS_RAM and RIPAS_EMPTY (and back) using
->> RSI_IPA_STATE_SET. This causes a guest exit with the
->> RMI_EXIT_RIPAS_CHANGE code. We treat this as a request to convert a
->> protected region to unprotected (or back), exiting to the VMM to make
->> the necessary changes to the guest_memfd and memslot mappings. On the
->> next entry the RIPAS changes are committed by making RMI_RTT_SET_RIPAS
->> calls.
+>> The VMM needs to populate the realm with some data before starting (e.g.
+>> a kernel and initrd). This is measured by the RMM and used as part of
+>> the attestation later on.
 >>
->> The VMM may wish to reject the RIPAS change requested by the guest. For
->> now it can only do this by no longer scheduling the VCPU as we don't
->> currently have a usecase for returning that rejection to the guest, but
->> by postponing the RMI_RTT_SET_RIPAS changes to entry we leave the door
->> open for adding a new ioctl in the future for this purpose.
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> Changes since v12:
+>>   * The ioctl now updates the structure with the amount populated rather
+>>     than returning this through the ioctl return code.
+>>   * Use the new RMM v2.0 range based RMI calls.
+>>   * Adapt to upstream changes in kvm_gmem_populate().
+>> Changes since v11:
+>>   * The multiplex CAP is gone and there's a new ioctl which makes use of
+>>     the generic kvm_gmem_populate() functionality.
+>> Changes since v7:
+>>   * Improve the error codes.
+>>   * Other minor changes from review.
+>> Changes since v6:
+>>   * Handle host potentially having a larger page size than the RMM
+>>     granule.
+>>   * Drop historic "par" (protected address range) from
+>>     populate_par_region() - it doesn't exist within the current
+>>     architecture.
+>>   * Add a cond_resched() call in kvm_populate_realm().
+>> Changes since v5:
+>>   * Refactor to use PFNs rather than tracking struct page in
+>>     realm_create_protected_data_page().
+>>   * Pull changes from a later patch (in the v5 series) for accessing
+>>     pages from a guest memfd.
+>>   * Do the populate in chunks to avoid holding locks for too long and
+>>     triggering RCU stall warnings.
+>> ---
+>>   arch/arm64/include/asm/kvm_rmi.h |   4 ++
+>>   arch/arm64/kvm/Kconfig           |   1 +
+>>   arch/arm64/kvm/arm.c             |  13 ++++
+>>   arch/arm64/kvm/rmi.c             | 111 +++++++++++++++++++++++++++++++
+>>   4 files changed, 129 insertions(+)
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/
+>> asm/kvm_rmi.h
+>> index 46b0cbe6c202..bf663bb240c4 100644
+>> --- a/arch/arm64/include/asm/kvm_rmi.h
+>> +++ b/arch/arm64/include/asm/kvm_rmi.h
+>> @@ -96,6 +96,10 @@ int kvm_rec_enter(struct kvm_vcpu *vcpu);
+>>   int kvm_rec_pre_enter(struct kvm_vcpu *vcpu);
+>>   int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_status);
+>>   +struct kvm_arm_rmi_populate;
+>> +
+>> +int kvm_arm_rmi_populate(struct kvm *kvm,
+>> +             struct kvm_arm_rmi_populate *arg);
+>>   void kvm_realm_unmap_range(struct kvm *kvm,
+>>                  unsigned long ipa,
+>>                  unsigned long size,
+>> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+>> index 1cac6dfc0972..b495dfd3a8b4 100644
+>> --- a/arch/arm64/kvm/Kconfig
+>> +++ b/arch/arm64/kvm/Kconfig
+>> @@ -39,6 +39,7 @@ menuconfig KVM
+>>       select GUEST_PERF_EVENTS if PERF_EVENTS
+>>       select KVM_GUEST_MEMFD
+>>       select KVM_GENERIC_MEMORY_ATTRIBUTES
+>> +    select HAVE_KVM_ARCH_GMEM_POPULATE
+>>       help
+>>         Support hosting virtualized guest machines.
+>>   diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>> index badb94b398bc..43d05da7e694 100644
+>> --- a/arch/arm64/kvm/arm.c
+>> +++ b/arch/arm64/kvm/arm.c
+>> @@ -2089,6 +2089,19 @@ int kvm_arch_vm_ioctl(struct file *filp,
+>> unsigned int ioctl, unsigned long arg)
+>>               return -EFAULT;
+>>           return kvm_vm_ioctl_get_reg_writable_masks(kvm, &range);
+>>       }
+>> +    case KVM_ARM_RMI_POPULATE: {
+>> +        struct kvm_arm_rmi_populate req;
+>> +        int ret;
+>> +
+>> +        if (!kvm_is_realm(kvm))
+>> +            return -ENXIO;
+>> +        if (copy_from_user(&req, argp, sizeof(req)))
+>> +            return -EFAULT;
+>> +        ret = kvm_arm_rmi_populate(kvm, &req);
+>> +        if (copy_to_user(argp, &req, sizeof(req)))
+>> +            return -EFAULT;
+>> +        return ret;
+>> +    }
+>>       default:
+>>           return -EINVAL;
+>>       }
+>> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+>> index 13eed6f0b9eb..b48f4e12e4e0 100644
+>> --- a/arch/arm64/kvm/rmi.c
+>> +++ b/arch/arm64/kvm/rmi.c
+>> @@ -718,6 +718,80 @@ void kvm_realm_unmap_range(struct kvm *kvm,
+>> unsigned long start,
+>>           realm_unmap_private_range(kvm, start, end, may_block);
+>>   }
+>>   +static int realm_create_protected_data_page(struct kvm *kvm,
 > 
-> I have been thinking about this. Today we do a KVM_MEMORY_FAULT_EXIT
-> to the VMM to handle the request. The other option is to make this
-> a KVM_EXIT_HYPERCALL with SMC_RSI_SET_RIPAS. But this would leak RSI
-> implementation to the VMM. The advantage is that the VMM can provide
-> a clear response RSI_ACCEPT vs RSI_REJECT (including accepting a partial
-> range) and KVM can satisfy the RMI_RTT_SET_RIPAS.
-
-Faking up hypercalls based on a very narrow interface seems like a bad
-API design. The guest is of course perfectly allowed to have another
-interface directly to the VMM to communicate intent.
-
-> We may end up doing something similar for Device assignment too, where
-> the VMM gets a chance to reject any inconsistent device mappings.
+> minor nit: To align with the RMM ABI, could we rename this to :
 > 
-> Like you mentioned, the VMM can stop the Realm today as an alternate
-> approach.
-The intention here is that we start with a very basic interface and can
-then extend it when we work out how to handle rejection. The ordering in
-the kernel is explicitly to allow that extension. I get the impression
-that device assignment has a much better justification for handling the
-reject flow so it's probably best to leave that until device assignment
-is implemented.
+>     realm_data_map_init() ?
+
+Makes sense - I have to admit there is a bit of cruft in some of the
+names because the spec keeps changing ;)
+
+>> +                        unsigned long ipa,
+>> +                        kvm_pfn_t dst_pfn,
+>> +                        kvm_pfn_t src_pfn,
+>> +                        unsigned long flags)
+>> +{
+>> +    struct realm *realm = &kvm->arch.realm;
+>> +    phys_addr_t rd = virt_to_phys(realm->rd);
+>> +    phys_addr_t dst_phys, src_phys;
+>> +    int ret;
+>> +
+>> +    dst_phys = __pfn_to_phys(dst_pfn);
+>> +    src_phys = __pfn_to_phys(src_pfn);
+>> +
+>> +    if (delegate_page(dst_phys))
+>> +        return -ENXIO;
+>> +
+>> +    ret = rmi_rtt_data_map_init(rd, dst_phys, ipa, src_phys, flags);
+>> +    if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
+>> +        /* Create missing RTTs and retry */
+>> +        int level = RMI_RETURN_INDEX(ret);
+>> +
+>> +        KVM_BUG_ON(level == RMM_RTT_MAX_LEVEL, kvm);
+> 
+> A buggy VMM can trigger this by calling RMI_POPULATE twice ? Should we
+> return -ENXIO here rather ? The delegate_page() above could prevent
+> normal cases, but is the VMM allowed to somehow trigger a "pfn" change
+> backing the KVM ? Either way, this need not be Fatal ?
+
+I believe KVM_BUG_ON is only fatal to the VM - it won't take down the
+host (KVM_BUG_ON_DATA_CORRUPTION() is for that). AFAICT the
+delegate_page() check should catch this case, but in the event that it
+doesn't then this will kill the VM but otherwise recover.
+
+Of course if it turns out there is a way of a VMM hitting this we might
+need to tone down the error handling to something a bit quieter. But I
+think it would also be good to get an understanding of how this can happen.
 
 Thanks,
 Steve
+
+> Otherwise looks good to me.
+> 
+> Suzuki
+> 
+> 
+>> +
+>> +        ret = realm_create_rtt_levels(realm, ipa, level,
+>> +                          RMM_RTT_MAX_LEVEL, NULL);
+>> +        if (!ret) {
+>> +            ret = rmi_rtt_data_map_init(rd, dst_phys, ipa, src_phys,
+>> +                            flags);
+>> +        }
+>> +    }
+>> +
+>> +    if (ret) {
+>> +        if (WARN_ON(undelegate_page(dst_phys))) {
+>> +            /* Undelegate failed, so we leak the page */
+>> +            get_page(pfn_to_page(dst_pfn));
+>> +        }
+>> +    }
+>> +
+>> +    return ret;
+>> +}
+>> +
+>> +static int populate_region_cb(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
+>> +                  struct page *src_page, void *opaque)
+>> +{
+>> +    unsigned long data_flags = *(unsigned long *)opaque;
+>> +    phys_addr_t ipa = gfn_to_gpa(gfn);
+>> +
+>> +    if (!src_page)
+>> +        return -EOPNOTSUPP;
+>> +
+>> +    return realm_create_protected_data_page(kvm, ipa, pfn,
+>> +                        page_to_pfn(src_page),
+>> +                        data_flags);
+>> +}
+>> +
+>> +static long populate_region(struct kvm *kvm,
+>> +                gfn_t base_gfn,
+>> +                unsigned long pages,
+>> +                u64 uaddr,
+>> +                unsigned long data_flags)
+>> +{
+>> +    long ret = 0;
+>> +
+>> +    mutex_lock(&kvm->slots_lock);
+>> +    mmap_read_lock(current->mm);
+>> +    ret = kvm_gmem_populate(kvm, base_gfn, u64_to_user_ptr(uaddr),
+>> pages,
+>> +                populate_region_cb, &data_flags);
+>> +    mmap_read_unlock(current->mm);
+>> +    mutex_unlock(&kvm->slots_lock);
+>> +
+>> +    return ret;
+>> +}
+>> +
+>>   enum ripas_action {
+>>       RIPAS_INIT,
+>>       RIPAS_SET,
+>> @@ -815,6 +889,43 @@ static int realm_ensure_created(struct kvm *kvm)
+>>       return -ENXIO;
+>>   }
+>>   +int kvm_arm_rmi_populate(struct kvm *kvm,
+>> +             struct kvm_arm_rmi_populate *args)
+>> +{
+>> +    unsigned long data_flags = 0;
+>> +    unsigned long ipa_start = args->base;
+>> +    unsigned long ipa_end = ipa_start + args->size;
+>> +    long pages_populated;
+>> +    int ret;
+>> +
+>> +    if (args->reserved ||
+>> +        (args->flags & ~KVM_ARM_RMI_POPULATE_FLAGS_MEASURE) ||
+>> +        !IS_ALIGNED(ipa_start, PAGE_SIZE) ||
+>> +        !IS_ALIGNED(ipa_end, PAGE_SIZE) ||
+>> +        !IS_ALIGNED(args->source_uaddr, PAGE_SIZE))
+>> +        return -EINVAL;
+>> +
+>> +    ret = realm_ensure_created(kvm);
+>> +    if (ret)
+>> +        return ret;
+>> +
+>> +    if (args->flags & KVM_ARM_RMI_POPULATE_FLAGS_MEASURE)
+>> +        data_flags |= RMI_MEASURE_CONTENT;
+>> +
+>> +    pages_populated = populate_region(kvm, gpa_to_gfn(ipa_start),
+>> +                      args->size >> PAGE_SHIFT,
+>> +                      args->source_uaddr, data_flags);
+>> +
+>> +    if (pages_populated < 0)
+>> +        return pages_populated;
+>> +
+>> +    args->size -= pages_populated << PAGE_SHIFT;
+>> +    args->source_uaddr += pages_populated << PAGE_SHIFT;
+>> +    args->base += pages_populated << PAGE_SHIFT;
+>> +
+>> +    return 0;
+>> +}
+>> +
+>>   static void kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
+>>   {
+>>       struct kvm *kvm = vcpu->kvm;
+> 
 
 
