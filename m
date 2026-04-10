@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79EEEF44850
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:20:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EF95F4484C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=T5BmJ1FF4HBJvfl1JxkNrWx4X3v6jSPy5n7OMhgiRsc=; b=CDNoClQYdRu0Om
-	wDGmIRzyd5jK/yAFM4TBz829h9NIvXFFXjJ5dG4LC2FPBxC69RdQCnufSEakpZnV4GHBoEAGqrD03
-	iJPb2bCx95MonjUGaNRZxlsfm01jb1JXOpevMRKKgZ45fhk3mhqM0hiF22FU1c3wUTOqimHfFF73/
-	vw8wJfMiTrFLKBfc0JsoeOXwtwHqiQgIf/L+J0Hq7S+HQVuGbD0bzJLjZV3j58MVkrzwCBN1FTCeY
-	1nRoi8vS6clXgDIGeyjtkFAW6HJp20N68cXpCrnejxv2OrN4yCnba50G68bgl/RE/Pqom0rb23a7Q
-	ts3wYMQB/YPjzY/hPT3Q==;
+	List-Owner; bh=vKymtlo11yiDU4TLKycOojSP+rmgc8Jkf+2yejheXps=; b=A2imFia90VIkEL
+	w5+S2Di9GpltmZBKej6gtwHfoGzMZJoPoYapwPiMGrAP0nI3yPLPNiMBD6RT2O3rprm26V89TkehY
+	OAr6Ew5wGGEM0oYsi7ZSV+paAWVyH1wGVIffDHyrrv1MKeZ91+W6TTVm8HddAxm/tB/IgbpoMGdUN
+	TnMSdDevXP+XBJBock3fy1FhxpZJSPT8JPBzMGu9jlvuvmq8Wpl6YWEmTV+zfcyvjjrwDaBDyazaQ
+	EsMI+9/9dMP9xhwiVV3iO04NOMSXifKt+1S9MXxNvNhbnOS8NvcM2xBfjr9f1SqNyJ6oQUKpCAAo/
+	7caUaqXgLcV/gKXqyJdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAqo-0000000CBk8-3TJZ;
-	Fri, 10 Apr 2026 12:20:42 +0000
+	id 1wBAr3-0000000CC6c-3hCu;
+	Fri, 10 Apr 2026 12:20:57 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAqh-0000000CBXj-1NMf;
-	Fri, 10 Apr 2026 12:20:35 +0000
+	id 1wBAqr-0000000CBmv-3hT3;
+	Fri, 10 Apr 2026 12:20:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6C7C26024D;
-	Fri, 10 Apr 2026 12:20:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59123C2BC87;
-	Fri, 10 Apr 2026 12:20:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D2A206111B;
+	Fri, 10 Apr 2026 12:20:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C04A4C19425;
+	Fri, 10 Apr 2026 12:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775823634;
-	bh=dDZlZkUBE8Yoz+Mf4b2btSZILqeS3wHEYjrON1rjw6U=;
+	s=k20201202; t=1775823643;
+	bh=ZI1DuZTKY+73ZiUZu5YDxjD9E28Vsj2HJPMLgb9lTAs=;
 	h=Date:From:To:Cc:Subject:References:From;
-	b=UsSMuuI0fLabe+4dL8zTL2gq7n1Qam6gWMJ4FfKEoBXmYXreb34mK0jfpqexOCcjk
-	 URd+7aIYau5Paex32UCyAHBB1baazBC53HlWWmD8jGnelNjcRxfUYPATekVzRrqJDT
-	 SM4YYaTAd2jF6zuzF3s9v75IAyeOupGmOZUxJte/r7FKLtBw0S1j/Gfer+oeitcrs9
-	 GcWasj5F60hnX72mh29rwAv4UlAzszLEnt4a+71ByOcLxgUh/fQSei1PCaUTQnLPFS
-	 AyV/TWXRXX6WJrt/PID7Ovi55s49ArxiVCGwFwMjqqfxuev0KPjerElNRcERH69T8a
-	 bfdJGP+BHG9rw==
-Date: Fri, 10 Apr 2026 14:20:31 +0200
-Message-ID: <20260410120319.263143276@kernel.org>
+	b=aKc8BIj04xl8fMPMfIdxvFnc9Be7sg+HcqnW4NP8XAVA8CoHWWZUH1TGoEDd3vKKD
+	 FNpRo6Iom4qBRwumLXapTj7hfgRDejsC7j6E+L/Vx4C85D2LE1/deOAcMcctONxvIo
+	 HMR5AMjZPk8wC2GcrGQEDXlt0rYZP0bNeTIqA2wyhnF5OK38Pv/q09G+oh4E6MeUyG
+	 /IRrdxDk2wKuJ9eIif/wOJjQhHy2AsumkYu8PWY0TnTc6wXQmoLW+lJrShxrt0E6Gb
+	 m+nyDRqFv+r0pZBlp7wkM/XjcKkMGym/WCszxlys26yMLXsGUqt11/GgfHwii1mXtv
+	 FSYiSRKkHgM1Q==
+Date: Fri, 10 Apr 2026 14:20:40 +0200
+Message-ID: <20260410120319.397219631@kernel.org>
 User-Agent: quilt/0.68
 From: Thomas Gleixner <tglx@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- linux-arm-kernel@lists.infradead.org,
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+ linux-m68k@lists.linux-m68k.org,
  Arnd Bergmann <arnd@arndb.de>,
  x86@kernel.org,
  Lu Baolu <baolu.lu@linux.intel.com>,
@@ -76,10 +76,10 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
  Richard Henderson <richard.henderson@linaro.org>,
  linux-alpha@vger.kernel.org,
  Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>,
  Huacai Chen <chenhuacai@kernel.org>,
  loongarch@lists.linux.dev,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- linux-m68k@lists.linux-m68k.org,
  Dinh Nguyen <dinguyen@kernel.org>,
  Jonas Bonn <jonas@southpole.se>,
  linux-openrisc@vger.kernel.org,
@@ -93,7 +93,7 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
  linux-s390@vger.kernel.org,
  "David S. Miller" <davem@davemloft.net>,
  sparclinux@vger.kernel.org
-Subject: [patch 25/38] arm64: Select ARCH_HAS_RANDOM_ENTROPY
+Subject: [patch 27/38] m68k: Select ARCH_HAS_RANDOM_ENTROPY
 References: <20260410120044.031381086@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -111,193 +111,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The only remaining usage of get_cycles() is to provide random_get_entropy().
+The only remaining usage of get_cycles() is to provide
+random_get_entropy().
 
-Switch arm64 over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY
-and providing random_get_entropy() in asm/random.h.
-
-As a consequence this unearthed a nasty include dependecy hell where random
-code including rqspinlock.h relies on a magic include of asm/arch_timer.h.
-Including the headers in asm/random.h turned out to be impossible as well.
-
-The only solution for now is to uninline random_get_entropy().  Fix up all
-other dependencies on the content of asm/timex.h in those files which
-really depend on it.
+Switch m68k over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY and
+providing random_get_entropy() in asm/random.h.
 
 Remove asm/timex.h as it has no functionality anymore.
 
 Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: linux-m68k@lists.linux-m68k.org
 ---
- arch/arm64/Kconfig                      |    1 +
- arch/arm64/include/asm/io.h             |    5 +++--
- arch/arm64/include/asm/random.h         |   11 +++++++++++
- arch/arm64/include/asm/rqspinlock.h     |    1 +
- arch/arm64/include/asm/timex.h          |   18 ------------------
- arch/arm64/kernel/time.c                |    6 ++++++
- arch/arm64/kernel/topology.c            |    1 +
- arch/arm64/kernel/traps.c               |    1 +
- arch/arm64/kvm/emulate-nested.c         |    1 +
- arch/arm64/kvm/hyp/include/hyp/switch.h |    1 +
- arch/arm64/lib/delay.c                  |    1 +
- drivers/irqchip/irq-apple-aic.c         |    1 +
- 12 files changed, 28 insertions(+), 20 deletions(-)
+ arch/m68k/Kconfig              |    1 +
+ arch/m68k/amiga/config.c       |    1 +
+ arch/m68k/include/asm/random.h |   14 ++++++++++++++
+ arch/m68k/include/asm/timex.h  |   25 -------------------------
+ arch/m68k/kernel/time.c        |    2 +-
+ 5 files changed, 17 insertions(+), 26 deletions(-)
 
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -45,6 +45,7 @@ config ARM64
- 	select ARCH_HAS_PREEMPT_LAZY
- 	select ARCH_HAS_PTDUMP
- 	select ARCH_HAS_PTE_SPECIAL
+--- a/arch/m68k/Kconfig
++++ b/arch/m68k/Kconfig
+@@ -8,6 +8,7 @@ config M68K
+ 	select ARCH_HAS_CPU_FINALIZE_INIT if MMU
+ 	select ARCH_HAS_CURRENT_STACK_POINTER
+ 	select ARCH_HAS_DMA_PREP_COHERENT if M68K_NONCOHERENT_DMA && !COLDFIRE
 +	select ARCH_HAS_RANDOM_ENTROPY
- 	select ARCH_HAS_HW_PTE_YOUNG
- 	select ARCH_HAS_SETUP_DMA_OPS
- 	select ARCH_HAS_SET_DIRECT_MAP
---- a/arch/arm64/include/asm/io.h
-+++ b/arch/arm64/include/asm/io.h
-@@ -100,12 +100,13 @@ static __always_inline u64 __raw_readq(c
- ({									\
- 	unsigned long tmp;						\
- 									\
--	dma_rmb();								\
-+	dma_rmb();							\
- 									\
- 	/*								\
- 	 * Create a dummy control dependency from the IO read to any	\
- 	 * later instructions. This ensures that a subsequent call to	\
--	 * udelay() will be ordered due to the ISB in get_cycles().	\
-+	 * udelay() will be ordered due to the ISB in			\
-+	 * arm_timer_read_counter().					\
- 	 */								\
- 	asm volatile("eor	%0, %1, %1\n"				\
- 		     "cbnz	%0, ."					\
+ 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE if M68K_NONCOHERENT_DMA
+ 	select ARCH_HAVE_NMI_SAFE_CMPXCHG if RMW_INSNS
+ 	select ARCH_MIGHT_HAVE_PC_PARPORT if ISA
+--- a/arch/m68k/amiga/config.c
++++ b/arch/m68k/amiga/config.c
+@@ -36,6 +36,7 @@
+ #include <asm/machdep.h>
+ #include <asm/io.h>
+ #include <asm/config.h>
++#include <asm/random.h>
+ 
+ #include "amiga.h"
+ 
 --- /dev/null
-+++ b/arch/arm64/include/asm/random.h
-@@ -0,0 +1,11 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2012 ARM Ltd.
-+ */
-+#ifndef __ASM_RANDOM_H
-+#define __ASM_RANDOM_H
++++ b/arch/m68k/include/asm/random.h
+@@ -0,0 +1,14 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASMm68K_RANDOM_H
++#define _ASMm68K_RANDOM_H
 +
-+/* Out of line to avoid recursive include hell */
-+unsigned long random_get_entropy(void);
++extern unsigned long (*mach_random_get_entropy)(void);
 +
-+#endif
---- a/arch/arm64/include/asm/rqspinlock.h
-+++ b/arch/arm64/include/asm/rqspinlock.h
-@@ -2,6 +2,7 @@
- #ifndef _ASM_RQSPINLOCK_H
- #define _ASM_RQSPINLOCK_H
- 
-+#include <asm/arch_timer.h>
- #include <asm/barrier.h>
- 
- /*
---- a/arch/arm64/include/asm/timex.h
-+++ /dev/null
-@@ -1,18 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * Copyright (C) 2012 ARM Ltd.
-- */
--#ifndef __ASM_TIMEX_H
--#define __ASM_TIMEX_H
--
--#include <asm/arch_timer.h>
--
--/*
-- * Use the current timer as a cycle counter since this is what we use for
-- * the delay loop.
-- */
--#define get_cycles()	arch_timer_read_counter()
--
--#include <asm-generic/timex.h>
--
--#endif
---- a/arch/arm64/kernel/time.c
-+++ b/arch/arm64/kernel/time.c
-@@ -29,6 +29,7 @@
- 
- #include <clocksource/arm_arch_timer.h>
- 
-+#include <asm/arch_timer.h>
- #include <asm/thread_info.h>
- #include <asm/paravirt.h>
- 
-@@ -52,6 +53,11 @@ unsigned long profile_pc(struct pt_regs
- }
- EXPORT_SYMBOL(profile_pc);
- 
-+static unsigned long random_get_entropy(void)
++static inline unsigned long random_get_entropy(void)
 +{
-+	return arch_timer_read_counter();
++	if (mach_random_get_entropy)
++		return mach_random_get_entropy();
++	return random_get_entropy_fallback();
 +}
 +
- void __init time_init(void)
- {
- 	u32 arch_timer_rate;
---- a/arch/arm64/kernel/topology.c
-+++ b/arch/arm64/kernel/topology.c
-@@ -21,6 +21,7 @@
- #include <linux/sched/isolation.h>
- #include <linux/xarray.h>
++#endif
+--- a/arch/m68k/include/asm/timex.h
++++ /dev/null
+@@ -1,25 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-/*
+- * linux/include/asm-m68k/timex.h
+- *
+- * m68k architecture timex specifications
+- */
+-#ifndef _ASMm68K_TIMEX_H
+-#define _ASMm68K_TIMEX_H
+-
+-static inline cycles_t get_cycles(void)
+-{
+-	return 0;
+-}
+-
+-extern unsigned long (*mach_random_get_entropy)(void);
+-
+-static inline unsigned long random_get_entropy(void)
+-{
+-	if (mach_random_get_entropy)
+-		return mach_random_get_entropy();
+-	return random_get_entropy_fallback();
+-}
+-#define random_get_entropy	random_get_entropy
+-
+-#endif
+--- a/arch/m68k/kernel/time.c
++++ b/arch/m68k/kernel/time.c
+@@ -26,12 +26,12 @@
+ #include <asm/machdep.h>
+ #include <asm/io.h>
+ #include <asm/irq_regs.h>
++#include <asm/random.h>
  
-+#include <asm/arch_timer.h>
- #include <asm/cpu.h>
- #include <asm/cputype.h>
- #include <asm/topology.h>
---- a/arch/arm64/kernel/traps.c
-+++ b/arch/arm64/kernel/traps.c
-@@ -30,6 +30,7 @@
- #include <linux/ubsan.h>
- #include <linux/cfi.h>
- 
-+#include <asm/arch_timer.h>
- #include <asm/atomic.h>
- #include <asm/bug.h>
- #include <asm/cpufeature.h>
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -7,6 +7,7 @@
- #include <linux/kvm.h>
- #include <linux/kvm_host.h>
- 
-+#include <asm/arch_timer.h>
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_nested.h>
- 
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -18,6 +18,7 @@
- 
- #include <kvm/arm_psci.h>
- 
-+#include <asm/arch_timer.h>
- #include <asm/barrier.h>
- #include <asm/cpufeature.h>
- #include <asm/extable.h>
---- a/arch/arm64/lib/delay.c
-+++ b/arch/arm64/lib/delay.c
-@@ -14,6 +14,7 @@
+ #include <linux/time.h>
  #include <linux/timex.h>
+ #include <linux/profile.h>
  
- #include <clocksource/arm_arch_timer.h>
-+#include <asm/arch_timer.h>
+-
+ unsigned long (*mach_random_get_entropy)(void);
+ EXPORT_SYMBOL_GPL(mach_random_get_entropy);
  
- #define USECS_TO_CYCLES(time_usecs)			\
- 	xloops_to_cycles((time_usecs) * 0x10C7UL)
---- a/drivers/irqchip/irq-apple-aic.c
-+++ b/drivers/irqchip/irq-apple-aic.c
-@@ -55,6 +55,7 @@
- #include <linux/jump_label.h>
- #include <linux/limits.h>
- #include <linux/of_address.h>
-+#include <asm/arch_timer.h>
- #include <linux/slab.h>
- #include <asm/apple_m1_pmu.h>
- #include <asm/cputype.h>
 
 
