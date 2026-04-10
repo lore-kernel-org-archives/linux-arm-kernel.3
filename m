@@ -4,59 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B170F364DB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 11:06:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E92F44842
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 11:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y8NdNRGtwhtWcDNvSDVggpyHxQmncgqsTb92i4P+zdo=; b=QENZ35HupyjD6o/8ypIuCpqurE
-	wOoUi9badiXmFloA4ZsWKGL5CDna/q0ahxGyqBlNeE2bwssb2Lx/v4va1J5REXbHQHTXqV5QIowFI
-	cjAd9R4ypNR4XCs4TejicsPGAbEK53Dv36aKU8IjfP12Q7MesaewN2kObzau+kC/3IfYPziyVD7+T
-	URaqjixk+qIx38I6+oQlBn6v7HXTKp7i0NKVooHXVJIdpY663OZlMNy7eO/VMf3sQkmCJV4gWrv+g
-	Sya1PdK2IzYCSjwjSsz7zLy+SzdwXc0Ls+KBRhI/Em1sPrhF6ZS87dU8gqpUF9CoyvP29cMxnkZ30
-	pHs3cD0Q==;
+	bh=dmNbR1bJ/kcSUFG1hDL1Mddu+47MWFT9b9TQ0fiwSaQ=; b=qbduxudq31lzr+q7NJPqJm5MIs
+	6n6R/xiZ9VtOHO8fYGTDLnYeoiHn+XECKGMSxWUgNu9EEnufWKxv0F3ug5OTlzvC4w22wsuFYyR7Y
+	AINmw1QuWuqnAf4p1VrFZgiC5jxXpw9n2XnTj+f0b/ucbfFI5IpDoXI0Ui+S2rcljIlJpOEcHki7E
+	NVGTbEhwSMWhoAXoVYnaEst4GxbUS61AxThSiE8Vl6meeEkAkpO6aUZGh5JqCzwXrcYXMR1tQ6mZm
+	TKYeX4Hlqa9agQJX9rbstKiPN/yO0gITF8Ty4NV8LdFw+z+SmmeBlMBKB+0GG+KEi8xIq9OxyJBeY
+	tbw4e79A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB9gs-0000000C3aK-0FhD;
-	Fri, 10 Apr 2026 11:06:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB9gp-0000000C3ZF-14em
+	id 1wB9sS-0000000C4bY-2joM;
+	Fri, 10 Apr 2026 11:18:20 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wB9sP-0000000C4b9-1Puf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 11:06:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 182982682;
-	Fri, 10 Apr 2026 04:06:11 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0A1EF3FAF5;
-	Fri, 10 Apr 2026 04:06:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775819176; bh=1zPAYfJ4alGeBTx9+bPmnEwVBkcQtAPgmbjN7nc0Fag=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VwBgSBJoksX644oGKv4mneqiYz7YCISSwJEiPHkWj/MMSv/GVUZbGA9Q9x4Emk5qG
-	 NGF+vcjNByj0MDlAn6qjPEt1VOG3A/g828rYT7GsLwc7jwAg10LJEIaR9JiD9iv7Og
-	 bIoINeNP6Eb1mPGe03KcWgpGktjF1V77SfS//pI0=
-Date: Fri, 10 Apr 2026 12:06:12 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Kameron Carr <kameroncarr@linux.microsoft.com>
-Cc: will@kernel.org, suzuki.poulose@arm.com, steven.price@arm.com,
-	ryan.roberts@arm.com, dev.jain@arm.com, yang@os.amperecomputing.com,
-	shijie@os.amperecomputing.com, kevin.brodsky@arm.com,
+	Fri, 10 Apr 2026 11:18:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=dmNbR1bJ/kcSUFG1hDL1Mddu+47MWFT9b9TQ0fiwSaQ=; b=SqyXaaNMA/1GZUz4J+Xb872qHC
+	RSiOgQTVi/+G0KOF9zAdWiPn4WsSRHyfmkB+e0L9cCYEYbZLDQdSrqJykQ+QB19tV+9HPDAedoRC2
+	Ohu1gCqupbDXAi86Aqm+5VatNQZFiRZSKclNzDe6OSPERqBDjWUX5ESJ2tT1LdBKhsTGW6DB8FIT1
+	f7A5j0VZ3kin0zFgML0FOQZMprRJbF01wTDrGUL2+cdEootUntCPlDpu4DsE/NZw8a/UnGX4AFZg5
+	7njhoI+3TygNUP1bBkUCcf6aOBOqUxnplvKiuoaivmK3bE8TLVVBKhmTDfaHi7Yzcu+XG8bf5WtzZ
+	jdHqMjYw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:37780)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wB9sK-000000004nB-42Nb;
+	Fri, 10 Apr 2026 12:18:13 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wB9sJ-000000005ZR-23Wv;
+	Fri, 10 Apr 2026 12:18:11 +0100
+Date: Fri, 10 Apr 2026 12:18:11 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Brian Ruley <brian.ruley@gehealthcare.com>
+Cc: Will Deacon <will@kernel.org>, Steve Capper <steve.capper@arm.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH] arm64: mm: support set_memory_encrypted/decrypted
- for vmalloc addresses
-Message-ID: <adjZpFIgXQYOvyTq@arm.com>
-References: <20260406213317.216171-1-kameroncarr@linux.microsoft.com>
+Subject: Re: [PATCH] mm/arm: pgtable: remove young bit check for
+ pte_valid_user
+Message-ID: <adjcc7QvquXI3G0Q@shell.armlinux.org.uk>
+References: <20260409125446.981747-1-brian.ruley@gehealthcare.com>
+ <adewJetUv6wMiz9o@willie-the-truck>
+ <adfDEMK8EbIjPu3J@zoo11.fihel.lab.ge-healthcare.net>
+ <adfNN33QIOP3VfDm@shell.armlinux.org.uk>
+ <adjYlUk8_JjPivNi@zoo11.fihel.lab.ge-healthcare.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260406213317.216171-1-kameroncarr@linux.microsoft.com>
+In-Reply-To: <adjYlUk8_JjPivNi@zoo11.fihel.lab.ge-healthcare.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_040619_349014_1572FA0C 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20260410_041817_659302_2F965001 
+X-CRM114-Status: GOOD (  27.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,31 +83,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 06, 2026 at 02:33:17PM -0700, Kameron Carr wrote:
-> Currently __set_memory_enc_dec() only handles linear map (lm) addresses
-> and returns -EINVAL for anything else. This means callers using
-> vmalloc'd buffers cannot mark memory as shared/protected with the RMM
-> via set_memory_decrypted()/set_memory_encrypted().
+On Fri, Apr 10, 2026 at 02:01:41PM +0300, Brian Ruley wrote:
+> Thank you for the clarification, this is very educational for me.
+> I understand your scepticism, and I can't explain what's going on based
+> on what you replied. However, I do honestly believe there is a problem
+> here. I'll share the exact testing details and the instrumentation
+> we added that convinced us to reach out at the end. One idea we also
+> had was that could cache aliasing be happening here.
 > 
-> Extend the implementation to handle vmalloc (non-linear-map) addresses
-> by introducing __set_va_addr_enc_dec(). For vmalloc addresses, the page
-> table entries are not contiguous in the physical address space, so the
-> function walks the vm_area's pages array and issues per-page RSI calls
-> to transition each page between shared and protected states.
+> To clarify any potential misunderstanding, we've observed the
+> following:
 > 
-> The original linear-map path is factored out into __set_lm_addr_enc_dec(),
-> and __set_memory_enc_dec() now dispatches to the appropriate helper based
-> on whether the address is a linear map address.
+> - Sporadic SIGILL and SIGSEGV under memory pressure
+> - Scales with core count, i.e., quad core more likely to reproduce
+>   than dual core. We haven't observed an issue on single core.
+> - Coredumps show valid instructions at the faulting PC.
+>   The CPU executed something different from what's in memory.
+>   This pointed us to stale I-cache.
+> - Instrumentation indicates a correlation.
+>   A per-CPU ring buffer tracking exec page migrations was dumped on
+>   SIGILL. The faulting PC matched a recently migrated pages.
+> - We started seeing this after upgrade 6.1->6.12->6.18. We bisected
+>   two commits which had an impact, but we weren't convinced that
+>   either was the root cause: 5dfab109d5193e6c224d96cabf90e9cc2c039884
+>   and 6faea3422e3b4e8de44a55aa3e6e843320da66d2.
+> - Failed processes include systemd, tar, bash, ...
+> - Debug options, e.g., page poisoning, seems to hide the bug
+> 
+> 
+> > So you're saying that stress-ng doesn't reproduce this bug but
+> triggers the OOM-killer... confused.
+> 
+> Apologies for the confusion. I meant that with `stress-ng' we created
+> the memory pressure and OOM might have played a role in exposing the
+> "bug" as we (at the time) believed that anything that would trigger
+> memory free/reclaims and page migration was the key. One note I'll add
+> is that in our test we invoked stress-ng for 2 minutes (--timeout 2m)
+> and after each we would reboot the device. We had observed that reboots
+> seemed to have a discernible effect on the occurence in earlier testing
+> so we kept that in. I'm beginning to doubt if it had an effect now,
+> and unfortunately it's all anecdotal.
+> 
+> One more thing, even if you don't accept the patch, is this patch
+> harmful in any way or is it just sub-optimal?
+> 
+> I'll send the instrumentation patch as a follow-up, migh be there's a
+> flaw in it.
 
-Could you give more details about the user of set_memory_decrypted() on
-vmalloc()'ed addresses? I think this came up in the past and I wondered
-whether something like GFP_DECRYPTED would be simpler to implement (even
-posted a hack but without vmalloc() support). If it is known upfront
-that the memory will be decrypted, it's easier/cheaper to do this on the
-page allocation time to change the linear map and just use
-pgprot_decrypted() for vmap(). No need to rewrite the page table after
-mapping the pages.
+I'll try it - I have Cortex A9 systems (some which I rely on...)
+
+Please can you also try to track the history of what happens for
+the PTEs corresponding to the old and new PFN?
+
+Thanks.
 
 -- 
-Catalin
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
