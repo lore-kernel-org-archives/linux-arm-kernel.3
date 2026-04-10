@@ -4,131 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A131BF36BA6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 03:16:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F027CF36BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 03:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EmL9UpavVjEYFNKryF6KV/LikMpxuqEqdZ5cRN/zxdU=; b=Hu+VAYiu9nj5GNx2CUpmalIreH
-	O+lO/ByjXVmmARoLQcSw5qiyp45qLsQDy9NMmemszMiJBevQf7+Ca/4wjIZaErfUCYhDWcZYG6SjH
-	rz6War+srHrpxX3HM5z1xfY2B5YFkryLoTgXQQ5+DSVSSUddk7/AE2SIW8FHBRdXGi61aWD6siKGX
-	vjOLza2iZzjxxgGBsgPzrAdjZi9okYeyKYx2r224mzRiZi5QoltDAIw1yMLQJqFAM4uRpfYGVVuQ9
-	/n0WJY6tfXLR+sji/vuGVzYtnUjwd3Fr8yBW20yPTooJg/fc5AEemJgwTb2J1VnYFyXEWa0SFBnJO
-	N99raBtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HHdIs+WY6R5DaoZ/DJBQW/O2KE9/mI5VCbJg5HKZ1ms=; b=UPS4Df+GemWlGl1bciluNkPlHx
+	SvXQ8I4ugh7AZMo5L+fMGDywrqMCtsPL2SGEsSeZHK7AUTx6zowWlXEZIIQis8W2nzreKEjuIJpqS
+	FMGLHKf05hYeqS1VulyyEgIs4O4deSAzdHAZ8c+aZy0PIdcrpy5SfvaqsQzsyo2sfomoJjAnSmrIw
+	9EBA0W8oJ5zD00Lbw2UPWWL2169Xb3biXB6DW/MFSRXjBHx2NTQeAB4ScGXHyPXqD23dUBTIGo+qw
+	F+iDZhLm6s+9yZ2k0HfXAMQPw6/GAmjT41t7eGSNpzEDx45t9s2e+J+N5mVWz4NaNd3bw3iGJxOdp
+	1/bE9lkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB2Lb-0000000BWqk-23HT;
-	Fri, 10 Apr 2026 03:15:55 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB2LZ-0000000BWop-0RS3
+	id 1wB2SH-0000000BXEW-0aoJ;
+	Fri, 10 Apr 2026 03:22:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wB2SE-0000000BXEB-2A7j
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 03:15:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=w3lx6pjkkdFfy9SVHwm1t0spOP6MdWdk0Q8Oxhs3OqergSqZgbaIdbKaVeKpE8IB1SchlXSRdPdt8Gh1QwtV4jpbh3Yag3CyrMCNU48C4ikxUTxnNstI3VUM+C5zAgPjc4SW5B/XTvwg6HX/wtVAOsRYXwVzSjPRmVxyotLny0/liKFP4v+rAL0DB+gSTMyI1vErWbaxlRQRoDQ/ZBRhSmTyYbg0P9YnyrVHzsmGgp6oemJUdSxhxmWJtyde+5wDIGudenJam2qrBVmx7e8t8z8hYQHsyVExggpC3klmreotAHjYATu5uQ4k4+LnlhHnVKV8df8cofI5RR3AS2irEQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EmL9UpavVjEYFNKryF6KV/LikMpxuqEqdZ5cRN/zxdU=;
- b=pF2INOLNqGaLS92gNW5iMQ629mc6PrawRh/sLSjxh+l+TbrD8phJT30kbtalwF9ywhYYNW7aTaiMYYqbFUVyHbVSnaq1ZQcig/pTR5JZL3EdUlNq5eAme/I4lqA4sW0GjLFmcTySDhffDGvQHrTCrL2gwgQMKzqSwJRXL2Z7hHir9eoudpa1q9wMG6L69IHG8NQM1cDwFKOY4zKGy0pyHnExPObK/jmCucmcOqKGXFpYSfO7Hj9koy/pJjcjA7m8uLmDO4GEHkLjcqtybfpea9uTAaZmnfnFjVBqVD281qXb9jHMXNCdzlmfq2yRshm5xpp0q06rLD5SAD2hkvD0qw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EmL9UpavVjEYFNKryF6KV/LikMpxuqEqdZ5cRN/zxdU=;
- b=Gb4RiybajgNZ33TIeZExf4jkb/J6SBKnlWKV+oypUAAsbLZRi6fhUm8JPFREd6e7ncdWxIGyxjr6TrtHxKr5xHjno3q1OkSTyWxkM1JesmVRgZ/LPdTP7f0SqXCGylGlD7kKEXe+jYbdG9041+tV/fUpRhsDRcFCS8rRte5guZHo65SkvcLmi0V1WBfkBrZ9A8WEixLmKLIpclXWQhSbeDAxm6wbbnfsiqMDVwhxZGX6lrP9OnKShrdSBVyr8Nk6YW8eJW7N/34ibPr2x5O56L1aeRcpnuRTdPTjVnFWNfrxoc0DSHGvcCVYCy1CJMneWEePayIAPZxgPkneJy1FTw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
- by AMDPR04MB11606.eurprd04.prod.outlook.com (2603:10a6:20b:71f::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.17; Fri, 10 Apr
- 2026 03:15:46 +0000
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86%4]) with mapi id 15.20.9769.018; Fri, 10 Apr 2026
- 03:15:45 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: abelvesa@kernel.org,
-	peng.fan@nxp.com,
-	mturquette@baylibre.com,
-	sboyd@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-clk@vger.kernel.org,
-	imx@nxp.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel@pengutronix.de,
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: [PATCH v1] clk: imx95-blk-ctl: Add func_out_en clock for i.MX9x PCIe
-Date: Fri, 10 Apr 2026 11:16:56 +0800
-Message-Id: <20260410031656.2578632-1-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5P287CA0231.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1b1::7) To AS8PR04MB8833.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::19)
+	Fri, 10 Apr 2026 03:22:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EB3061C25;
+	Thu,  9 Apr 2026 20:22:36 -0700 (PDT)
+Received: from [10.163.181.107] (unknown [10.163.181.107])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AEDB83F641;
+	Thu,  9 Apr 2026 20:22:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775791362; bh=R3qfDw7crVOy8R1j2TZwYuQoVv5jXQP+cKnUXI5OagA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=G+yp2+waAu91yxXfiqb8dbQfzSXCQ1iHAvULnso7HPiYfR827OieVKrhS5V8+wMqa
+	 q1uW/KbgMfpSlCI44/PT4LXYYbfuLIob2IuOvEmmbUJ3kc2wPSsuZiSlD7bfEPfKmU
+	 dGKDbHoGuZZS/wmvK934atJ8TP8nhwh7yAPgkalg=
+Message-ID: <ac73cc87-8663-4d45-8c0f-4a01ffc0fc29@arm.com>
+Date: Fri, 10 Apr 2026 08:52:33 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|AMDPR04MB11606:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0d3d0b8d-a3a0-426c-70e1-08de96af74cf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|52116014|38350700014|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 03PBGURpLNMyYneaUErtU7+XSOQxGDPtYGgycp4tolnHXKdO5scED5ADRUgh2S0YCfGQLIz1PY3fyotLg2lILQkhsNyrEx/4h/CblegOzIYOzX+hvehut/APM1y5XTOYN8mqXo0vdwmRpCLjJFCMEA+6Eh9B/mWholpLl4N1VMtiNjRABjOhGJZhgdMjMasBH/CGYpToF5OR9XxZ2GQgFUlnXNG2/cv6dRfU+y3Z5fSIHiwdOQamnmV3kSdSadH0gd1w711y1Q2jDvHKUqEYi5KUdHrlqsBUSTNH+m26CGdfTsUpbuwDcgeRyVJmTEKSf7oAT7/w+SJEJ0h8Yzi4fkAg/2z0uScbrly44PYA+gcOp7t9Qhbno0pI8bykW94ikWlkIFM5r3WKApfuZwux2xInGeCzO82bHDSUa/SLUM36kkto9GZqJ0X+iIpc0wlQJWlINAEElCx9r4q0oEXuenJvteCRQPhWNrKqR1WTjoSBSX7uzBRD1a1PQyRu9gLQlVrSSQMZ8ZwU+hy3GVAMOBnv+Wp+NW/59LZNoc7KBTz/oWxdXaG3DSUr96xBBohLBrpHCet94vCJcRyEatJq5a6G0vivOmJ87ilgJsky4jcOC8VFUSRYMB4Wkb/74cuEYa7x+Y+C9YRqpOrCdJTE6y1Yhs3DF5L5Zm1ujRR03GDvydOzED7e9S/QM0UOQmKP77V2LT1hIRyNSjknrBKysk+p5zINOFMjyy5ihzSpOystlKrFepYreqzbTqrJzbcJQYPhPbNRSmrzkmLSRmlDx1jKBuvm3tZrJmW38/rjjcE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(52116014)(38350700014)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iqJe3HvqmnWBBrSPyM72DNEjdEX2AY0RJBC4kOqj4KZBx4Bb7o34rCy+BUuk?=
- =?us-ascii?Q?LvJIfs+Yz54VzYWZaBOM3V+z6Ox/l7twjkJKfbL80JgIEA78N6OuMtBTPf9l?=
- =?us-ascii?Q?qQO/5m3QrExYQ8gv5mrPq0D6HdWRZi+Ksg3MPMNfhhWqi9pdI0RjE85M5myU?=
- =?us-ascii?Q?R3q6aL8mfpD8GC0OKkmaMrqbSMfaUXeiRT/bt1IL/q3R/2VPPrOYajWCKh5s?=
- =?us-ascii?Q?GstvMOfKu84wCXp+CQxYG1YKdlDoOAvmSmc0W+P/LuUJ9kGcHrM8KUT4gVfj?=
- =?us-ascii?Q?wIt+VC4hOfMSKjASo5IMgrAnQNLrZEjeDOhetUZoR6PyH9bEbkdlM1e/3Maf?=
- =?us-ascii?Q?ddzNVXFjE4KMES0qZdoWEPfBzj0j0Dn+Pb6hpCELLmbIpuZHNd0ueC+rhsyF?=
- =?us-ascii?Q?G0E5sxqUldUZixRgxmibWlh/mtmYqo3Wc7SqjJJaqgl0W5Z32fl6+I5SAAR5?=
- =?us-ascii?Q?mETJ+LBn2Iic1ccKE0oLxjG3v7p5wSlOvplkL8NWLejyHzlBGYUsvdfDquU9?=
- =?us-ascii?Q?IhwR1CtwF8VY2rdLgmY03ZyK4mY282UD1ZRoJ8D+NjWkVgNcMfPo8nuO7wK0?=
- =?us-ascii?Q?KJYxTpM3F9DOQK7vLTh7gYtnXk7aB0+lXCTcb0CT0FyVZhyh1ZLZFmFD8GD7?=
- =?us-ascii?Q?PqZ5DeG06Pv+suLDnilkGar5RqLuuzSFb5OUEeA+sLYZ56LeyjpKVnp1KhFQ?=
- =?us-ascii?Q?dK5pEM3+bjz7bZJVgo72i9p4DcjPFpQSkpKZcthwl/vwA8Lv5QHuPbe5UX50?=
- =?us-ascii?Q?0hzutNHn10rw/lLm2mEl91g41EgWyGrKn5NmKCS22hv+497eXtq+50Xac2lN?=
- =?us-ascii?Q?7hMqHcRWx7coPqBt6h2He24oGl2Fwr2hZNvGBbSyGlr3GnBYBREgsOS/zxa1?=
- =?us-ascii?Q?YG3JIlM7VTZlZ1E9D8mmE4cfaKYFe+aUf7VSqNOJWKlpy9jk1lgDjDcfdsIp?=
- =?us-ascii?Q?SFo21WrW2ahdzRW6NX1M1bYiAYkDiAnqdMwjuOhpJZrafxz35WhOa7UbpUnP?=
- =?us-ascii?Q?ngcHdDmRERP9h4fXB+CGQpx4YtjIVJEMP6jDJp5DyCGs/0gIfoHse3NziPwV?=
- =?us-ascii?Q?a8KuHx+2LXAEKxB7o3bEUj+3CXGFBOfu+idd2qHu+vhiM6BFz/7yqXKi49UI?=
- =?us-ascii?Q?3iW7aJP/WZb5j5rB6r/FLE8b6OSJrHNev1TXRfUImlcD0B6zN93+XjjbBG3z?=
- =?us-ascii?Q?QInIrtRpkIyJWAfxcayeJCD2wH2bmS+zJZnQTZsXTThkHw7ebHYbvLjD324O?=
- =?us-ascii?Q?B3LijE1disaZOG3K+cWk8PMAu0e6tf7BzCY86t/YM1vcysNJpehyu4zcbHhy?=
- =?us-ascii?Q?KbM1HcJdymJ5Tpa4M9FJZcHU5sl2J0TScZgL2PQ+d4iJltig0oy0YHM+mmB5?=
- =?us-ascii?Q?/r2f4urn3DO94QByaBUKojFcExvkk15zRERdbcsedO6EY95uRWBUU6RMPS0y?=
- =?us-ascii?Q?FRgFHk8P+Ue6l+PhF9mp9WuCWXk+aG8msOw682EaxjfBidJAqn20BVsW9MPw?=
- =?us-ascii?Q?kbUy7/qH1Bm8swH6T+WMFTvs42mCCku6EvoXUlM/qcO3+00bE25LybGPP70g?=
- =?us-ascii?Q?eSaGKLOZkOpra6SYda0OpPTdwyD39F2UtFcshpw5khyhq9vLRtbfs29vvCVs?=
- =?us-ascii?Q?GZon1LHUkcEnc1Qr7RaMLO1ThiqaA8/tO0FeQEdBO8UsQXz/Qp7ay+Z2jbLB?=
- =?us-ascii?Q?YNzYJsEpgcCB2Ypkgkqx4P1RCGeJO5LLOuErgECkoAbijrWFKcnDjj85JccF?=
- =?us-ascii?Q?2KtgJ2U+1Q=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0d3d0b8d-a3a0-426c-70e1-08de96af74cf
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2026 03:15:45.9372
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: M961+9p0ds4NQf4cRsVeKILgGldErOzWCGoKRLArYKfC0EOEJ+ZnMxYFpyYVu1qC9KTt/nWDp+TE/R3RmeO1Ng==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR04MB11606
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC V1 14/16] arm64/mm: Enable fixmap with 5 level page table
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
+ Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20260224051153.3150613-1-anshuman.khandual@arm.com>
+ <20260224051153.3150613-15-anshuman.khandual@arm.com>
+ <4382c90a-bc92-470e-9aa7-4666753479ca@kernel.org>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <4382c90a-bc92-470e-9aa7-4666753479ca@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_201553_165829_F8976D38 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20260409_202246_699049_E210A547 
+X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,61 +78,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When internal PLL clock is used as PCIe REF clock, the BIT6(CREF_EN) and
-BIT2(FUNC_OUTPUT_EN) control the PCIE_REF_OUT_CLK.
 
-If the default value of BIT6(CREF_EN)&BIT2(FUNC_OUTPUT_EN) is 1b'1.
-With the typical 100-ohm termination on the board, this results in
-approximately 6mA of power consumption.
 
-When PCIe internal PLL clock is not enabled, these two bits should
-be cleared to 1b'0 to eliminate this power consumption.
+On 08/04/26 5:59 PM, David Hildenbrand (Arm) wrote:
+> On 2/24/26 06:11, Anshuman Khandual wrote:
+>> Enable fixmap with 5 level page table when required. This creates table
+>> entries at the PGD level. Add a fallback stub for pgd_page_paddr() when
+>> (PGTBALE_LEVELS <= 4) which helps in intercepting any unintended usage.
+> 
+> Can you add the "why" ?
 
-Add a func_out_en clock for i.MX9x PCIe to serve as the parent gate clock
-of the CREF_EN (BIT6) gate clock. Both of these two gate clocks enable
-the output of the internal 100MHz differential reference clock.
+Following reworded commit message should work ?
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
----
- drivers/clk/imx/clk-imx95-blk-ctl.c | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
+------------------------------------------------------------------
+arm64/mm: Enable fixmap with 5 level page table
 
-diff --git a/drivers/clk/imx/clk-imx95-blk-ctl.c b/drivers/clk/imx/clk-imx95-blk-ctl.c
-index 56bed4471995..1f9259f45607 100644
---- a/drivers/clk/imx/clk-imx95-blk-ctl.c
-+++ b/drivers/clk/imx/clk-imx95-blk-ctl.c
-@@ -286,18 +286,28 @@ static const struct imx95_blk_ctl_dev_data netcmix_dev_data = {
- static const struct imx95_blk_ctl_clk_dev_data hsio_blk_ctl_clk_dev_data[] = {
- 	[0] = {
- 		.name = "hsio_blk_ctl_clk",
--		.parent_names = (const char *[]){ "hsio_pll", },
-+		.parent_names = (const char *[]){ "func_out_en", },
- 		.num_parents = 1,
- 		.reg = 0,
- 		.bit_idx = 6,
- 		.bit_width = 1,
- 		.type = CLK_GATE,
- 		.flags = CLK_SET_RATE_PARENT,
-+	},
-+	[1] = {
-+		.name = "func_out_en",
-+		.parent_names = (const char *[]){ "hsio_pll", },
-+		.num_parents = 1,
-+		.reg = 0,
-+		.bit_idx = 2,
-+		.bit_width = 1,
-+		.type = CLK_GATE,
-+		.flags = CLK_SET_RATE_PARENT,
- 	}
- };
- 
- static const struct imx95_blk_ctl_dev_data hsio_blk_ctl_dev_data = {
--	.num_clks = 1,
-+	.num_clks = ARRAY_SIZE(hsio_blk_ctl_clk_dev_data),
- 	.clk_dev_data = hsio_blk_ctl_clk_dev_data,
- 	.clk_reg_offset = 0,
- };
--- 
-2.37.1
+FEAT_D128 halves PTRS_PER_PXX thus shrinking the VA range coverage 
+for each page table level. Hence in order to preserve all existing
+VA range configurations, some geometry now need to become 5-level.
 
+Since fixmap is used to build and manipulate page tables early on
+during boot the mapping must also gain that additional level which
+was not required earlier.
+
+Enable fixmap with 5 level page table when required. This creates table
+entries at the PGD level. Add a fallback stub for pgd_page_paddr() when
+(PGTBALE_LEVELS <= 4) which helps in intercepting any unintended usage.
+-------------------------------------------------------------------
 
