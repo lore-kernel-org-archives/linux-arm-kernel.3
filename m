@@ -4,99 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F005F44868
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 13:46:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24CA1F44868
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 13:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UO23niezElZIPksvH1GF8l70Cs5yLVefVLzmUuVpdSQ=; b=0eJF5/3ihspeRuuEKvJhetnSCD
-	i8DTM49FgBVsBX3rRWyeTR+dBzsaa/NWSb4enTB6HQRg7SCPlA3Tx08ubcXbZsh1m64yvQaiR3xd+
-	/tD142jk/f2aC5624XAM6C2dy4UjmrvHQLg0kLwMbRi8iZ/oPdokU83yHRTnETEq4RiRVH2wN7tW4
-	4tjNc7SBWshtVfIIZUxmx4fRHkls2K4OYtFNIwb9hCLcSf1aji+N3beXUG1lrc/8tN1+9r9eJa6dU
-	p6NAVbYe67M/zf/XJUyqaQMapKNVfGAsyDeLSon4OYf+Q8mP3C2XOA+2cCcPMz9rXzIqhcnYC4fiG
-	Pm3KqOfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=39NAX6pobMDiRW03bJAv0Hw/rcf7l7+Va+PozAyLXsE=; b=CFRAv5wKZ303PgXLGp1RieHe7f
+	X4KihWBGBaAbN0mbMtzI54jttsjuOcT/mSvTEwkdGi4CYH+DZxurX5mP4gZ0EkgdwNkZkNobT960m
+	iTlZhItrlHIkYqBjKBx6/4Z+ge5bXjJ0QvnN6XNPxcVfiwpDiee3rjkp3RTbXDD3J4TLj87PbojCy
+	32Zwkh/cTDlVXlOodRRneoPdnUpj0v31SHwRz8w6/ikzaXngUafiNEt50LafimXtANu6an5WNIJx8
+	mqcCbR4biDjksRd54ez3xvAzD9lw72w7b2qVMNyctFJKCsuedRSAtdu+1+yz1cGqhBPHJDSirshzX
+	IScftMqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBCBO-0000000CKxU-3oit;
-	Fri, 10 Apr 2026 13:46:02 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1wBCFf-0000000CLGt-3Rd6;
+	Fri, 10 Apr 2026 13:50:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBCBL-0000000CKx0-2sMM;
-	Fri, 10 Apr 2026 13:46:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1775828760; x=1807364760;
-  h=message-id:date:mime-version:cc:subject:to:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=XhwVNk7AmxnQFYYbofWW0xn2GGcCMLifpnTZm0hI0iw=;
-  b=ng0mvvabzgIKdiXmSpfXr7k5tsoj43SGqf+x8LYkaWRuBYTDYqpW4cDR
-   VT3YcsqUG+Bzwv8y2ONbrEYbqVUUBwB9rq3IF9V0+ei0jt51PUYHzJ0Rc
-   IQfjkET84Db29mSO9aVWzh+0OvrM7wSp1avz7/D6kjTUwyOnnV3XbV+pg
-   UrNtUAGkhShG5b33OECHbJUO89NZU1UOcFLc9LOCGE5G84W9y1VTS4+Tr
-   UjAvZTRV4v5PYeb+bAs+NJkgvs7U7Pc6c1fdj1hXO0d3A9zT9ZjzFWdh3
-   D0bF03Y3eiliB9hKiz07tLE+cAklfAsAjOYZXPZqNNl6sujilfw20myq1
-   w==;
-X-CSE-ConnectionGUID: pK1RlR6hQp2jzjJq+oUZBQ==
-X-CSE-MsgGUID: COnKp1voS262Do7FYT8QUQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11755"; a="88229152"
-X-IronPort-AV: E=Sophos;i="6.23,171,1770624000"; 
-   d="scan'208";a="88229152"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2026 06:45:56 -0700
-X-CSE-ConnectionGUID: 5EGNTPxSQP+GmiqHTb7hcA==
-X-CSE-MsgGUID: poU0WXXBR3aVBOf3UOJDiA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,171,1770624000"; 
-   d="scan'208";a="225932507"
-Received: from blu2-mobl.ccr.corp.intel.com (HELO [10.124.248.249]) ([10.124.248.249])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2026 06:45:46 -0700
-Message-ID: <9db9515b-08e8-47bd-aced-206ac183195a@linux.intel.com>
-Date: Fri, 10 Apr 2026 21:45:43 +0800
+	id 1wBCFe-0000000CLGj-1SEb
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Apr 2026 13:50:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 53EA26024D;
+	Fri, 10 Apr 2026 13:50:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53559C19425;
+	Fri, 10 Apr 2026 13:50:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775829025;
+	bh=39NAX6pobMDiRW03bJAv0Hw/rcf7l7+Va+PozAyLXsE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GPqER8zBALj1mdN+bTW+ENjK3Iz9tCxXSiON1IrcWMBqckqHOkL8gmJsZHFDpoSn3
+	 fNnkNhnuM8YALPABGCBGy1pGA3Enr10HET+x/Id1HYgTr9mx/LOETSJmhxv0gYAGug
+	 uUPS20jrknJe95xMg9xHnK4DfOg6cHnr4oAgLSJPSYAxGvd1jsK7ROVuYyMsTxCE/v
+	 cVyf89R3C32BrRXnmutnmp/+5Z35DNV3USKJol8er2b/ZJcfGJ+QIngV6CVQWKmw+e
+	 1glwA8bGhawBmt7WXCthBv4XrTFKn8hGxRGo7w4aCbqGZJsaZOcatLYCgiHmhrWemJ
+	 HT08plIvK5jhA==
+Date: Fri, 10 Apr 2026 14:50:14 +0100
+From: Lorenzo Stoakes <ljs@kernel.org>
+To: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+Cc: Usama Arif <usama.arif@linux.dev>, 
+	Andrew Morton <akpm@linux-foundation.org>, david@kernel.org, willy@infradead.org, ryan.roberts@arm.com, 
+	linux-mm@kvack.org, r@hev.cc, jack@suse.cz, ajd@linux.ibm.com, apopple@nvidia.com, 
+	baohua@kernel.org, baolin.wang@linux.alibaba.com, brauner@kernel.org, 
+	catalin.marinas@arm.com, dev.jain@arm.com, kees@kernel.org, kevin.brodsky@arm.com, 
+	lance.yang@linux.dev, Liam.Howlett@oracle.com, linux-arm-kernel@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, mhocko@suse.com, npache@redhat.com, 
+	pasha.tatashin@soleen.com, rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com, 
+	Al Viro <viro@zeniv.linux.org.uk>, ziy@nvidia.com, hannes@cmpxchg.org, kas@kernel.org, 
+	shakeel.butt@linux.dev, leitao@debian.org, kernel-team@meta.com
+Subject: Re: [PATCH v3 0/4] mm: improve large folio readahead and alignment
+ for exec memory
+Message-ID: <adj_SXXEwyi3bxum@lucifer>
+References: <20260402181326.3107102-1-usama.arif@linux.dev>
+ <803a0c15-0a6a-4c00-b6b3-eaae56d5fc15@linux.dev>
+ <adjkCOiLgZ_-zovg@lucifer>
+ <adjllNan2vgBNBHJ@lucifer>
+ <5f99b289-629c-47c4-bef0-966d6678a2a8@linux.dev>
+ <adjrKwgiZwXR9epk@lucifer>
+ <40f31e5a-7161-4b17-af03-52b3a28a113e@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: baolu.lu@linux.intel.com, x86@kernel.org, iommu@lists.linux.dev,
- Arnd Bergmann <arnd@arndb.de>, Michael Grzeschik
- <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org,
- linux-wireless@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>,
- linux-crypto@vger.kernel.org, Vlastimil Babka <vbabka@kernel.org>,
- linux-mm@kvack.org, David Woodhouse <dwmw2@infradead.org>,
- Bernie Thompson <bernie@plugable.com>, linux-fbdev@vger.kernel.org,
- Theodore Tso <tytso@mit.edu>, linux-ext4@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Marco Elver <elver@google.com>,
- Dmitry Vyukov <dvyukov@google.com>, kasan-dev@googlegroups.com,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Thomas Sailer <t.sailer@alumni.ethz.ch>, linux-hams@vger.kernel.org,
- "Jason A. Donenfeld" <Jason@zx2c4.com>,
- Richard Henderson <richard.henderson@linaro.org>,
- linux-alpha@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>,
- Huacai Chen <chenhuacai@kernel.org>, loongarch@lists.linux.dev,
- Geert Uytterhoeven <geert@linux-m68k.org>, linux-m68k@lists.linux-m68k.org,
- Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
- linux-openrisc@vger.kernel.org, Helge Deller <deller@gmx.de>,
- linux-parisc@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>,
- linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>,
- linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>,
- linux-s390@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
- sparclinux@vger.kernel.org
-Subject: Re: [patch 09/38] iommu/vt-d: Use sched_clock() instead of
- get_cycles()
-To: Thomas Gleixner <tglx@kernel.org>, LKML <linux-kernel@vger.kernel.org>
-References: <20260410120044.031381086@kernel.org>
- <20260410120318.187521447@kernel.org>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <20260410120318.187521447@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_064559_773845_FEC2D0D7 
-X-CRM114-Status: GOOD (  10.48  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <40f31e5a-7161-4b17-af03-52b3a28a113e@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,30 +83,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/10/2026 8:19 PM, Thomas Gleixner wrote:
-> Calculating the timeout from get_cycles() is a historical leftover without
-> any functional requirement.
-> 
-> Use ktime_get() instead.
+On Fri, Apr 10, 2026 at 03:29:12PM +0200, Vlastimil Babka (SUSE) wrote:
+> On 4/10/26 14:24, Lorenzo Stoakes wrote:
+> > On Fri, Apr 10, 2026 at 01:19:08PM +0100, Usama Arif wrote:
+> >> >> Thanks, Lorenzo
+> >> >
+> >> > (Note that we're in a 'quiet period' from here until -rc1 of next cycle and
+> >> > won't be taking anything new until then. We plan to do this from around rc5 or
+> >> > rc6 of each cycle in future).
+> >>
+> >> Thanks! Just wanted to check, as I am always confused about this. Is it ok
+> >> to send patches for review for next release at this time? So that they
+> >> are in a good state when rc1 comes. I wanted to send PMD swap entries
+> >> for review after I am finished testing, but I want them for review for
+> >> next release.
+> >
+> > I think different people have different views on that :)
+> >
+> > I mean it's debateable whether having a glut of new material on day one of -rc1
+> > is preferable to having a bunch come in that might or might not get lost along
+> > the way :)
+> >
+> > I personally feel it'd be better to send during the cycle window rather than
+> > before but I suspect others disagree with that!
+> >
+> > So from your point of view, feel free to do what you like, but maybe David +
+> > others would want to chime in with their opinions?
+>
+> For me the more important part of the quiet period is that patches can't be
+> merged, so there's less urgency to review them immediately. So I think it's
+> fine to still send patches, but not having expectations about quick
+> response, as people might be taking time off.
+>
+> On the other hand it would be better if new series could mature in this
+> quiet period, so there would be less work after rc1. But the key to making
+> that possible I think is to feel less urgency/being overwhelmed also in the
+> non-quiet period (rc1-rc5/6). Then it's should be less necessary to take
+> time off during the quiet period. So hopefully we'll get there through
+> involving more reviewers, and by having more submaintainers agency.
 
-The subject line says "Use sched_clock() ...", but the implementation
-actually uses ktime_get(). Is it a typo or anything I misunderstood?
+Yeah I sympathise with that.
 
-Other parts look good to me,
+But until we for-sure have <you know what :))> signoff, I worry about the risk
+of series 'just being taken' at -rc1 because it maybe seems easier to do that,
+and then we have a series from 5 weeks ago you forgot about suddenly crop up.
 
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+So I guess the more nuanced take I have is:
 
-> 
-> Signed-off-by: Thomas Gleixner<tglx@kernel.org>
-> Cc:x86@kernel.org
-> Cc: Lu Baolu<baolu.lu@linux.intel.com>
-> Cc:iommu@lists.linux.dev
-> ---
->   arch/x86/include/asm/iommu.h |    3 ---
->   drivers/iommu/intel/dmar.c   |    4 ++--
->   drivers/iommu/intel/iommu.h  |    8 ++++++--
->   3 files changed, 8 insertions(+), 7 deletions(-)
+Once we have a robust set up end-to-end _that can handle_ having series that are
+deferred to next cycle without risk of things getting mixed up - then that makes
+sense, yes.
 
-Thanks,
-baolu
+But while there's still a bit of uncertainty around that, then I'd rather not.
+
+But I think if people DO just resend their stuff in -rc1 then we're OK and it
+addresses my concerns.
+
+One thing we could do here is to tag series appropriately like:
+
+[PATCH v7.2] 00/42
+
+To make it clear where it's intended to head to.
+
+P.S. Having the 'quiet period' REALLY REALLY helps. So thanks for that Andrew!
+
+>
+> Vlastimil
+
+Thanks, Lorenzo
 
