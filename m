@@ -4,128 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6500F36B97
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 00:36:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00973F36B97
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 00:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3TSMAFk6dwRAZyxFmsiZ3Nsk8QbWbYIEiJCUQLBoQ6o=; b=fR1YG4N8U3FFAZ3olqZrhw6iEC
-	YKjUn3pjgGJbjnqSUFl9o4W9GUWlMRA3qM4qm6q2xUp4ugUvi+fiShjE915Mtu8eYE/KTTYabrCQ3
-	OkMR1GpM9dGKj8shNc9kGgdbGgup4BAB5yWaNyGRTZ/s4EThbcW/sD/WN5By1v7Rxpqvbb292QSuQ
-	xyFTqzCvTeJzjmE7SRA6epqaalVYlfXNv3UlDDQ4hpIs32PHqpZlf97XJxUpBReRD/ehK6vW9Wblp
-	ex3ZoZbxC++NXib1k3KCPz3lpLrHW9mjSB22u34xfTB04Qy4YjlYqNZRO3vax470G4wdf3oSuu1lZ
-	XhCmlFbg==;
+	bh=tqN2cIzftfYEekrpgNPDXUdrBnoMgDEUwL6BuRfPeX8=; b=jFHxFJwQsl33KtTk+5xi9RDW3x
+	qxuVeEij3CEGbNKuX2CCVFXtfL8x38cxe/8BgjJTgiJErbuh6uqYm2qi6imQ56o2oNoEyqDUcyXaA
+	KcsZTamhtqrhMS7fB5Kcrpk7Qgm2R4VAhUgUD4Xyq8VrGjNpjoSocWokG62VcT6oYqwQYOJtPxioX
+	BglnbE/M4u94+p2KKYVAgaT3UEQjLfvG4D1jLPvjKixKx9qA+AnsFsjfSYgY5LIamnuQMgQgu8CUX
+	uCdD002mRpJznYLADKtBL2U+rRXtH5HDDwvL3Q94s3c2zK0JagnKza0UpqLFjHd4RE1/ElOHzs5LL
+	EH1HLc9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAzrO-0000000BNHc-2csu;
-	Fri, 10 Apr 2026 00:36:34 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1wB00U-0000000BNaA-2ctm;
+	Fri, 10 Apr 2026 00:45:58 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wAzrL-0000000BNHC-3IVf
+	id 1wB00R-0000000BNZp-0jJ0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 00:36:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hKkSbcTQJEzqcGRS5UK4IXjEPc8RDmRze5v5qFF7B6HwXWvN+3CUGXd+QuSRdTy+/uom8MKIcYZWnZg+g3bZX25zIlNFBdZZNg4lmuA0Y2oSNeLKT3KrV/8GJRyaT8/MPDzBJsgbaJy+AiMyxx/CthnlKI6jmVEv8XJbhIcHg7KsBNEBuelRUFmNyuK660SLt4KWBRldrL/ELeodra5maHZVHTD9et73PJgcZ98DAamrqMGd9FnusSP7PAXiJEDbjk0NYx+5nnIM1tll2lSFl4l4eToIj8xB033WZ2k+csVNxppaXC94Uezoy35emAKYaHgXMpZEP46zDD2rE4TUBw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3TSMAFk6dwRAZyxFmsiZ3Nsk8QbWbYIEiJCUQLBoQ6o=;
- b=kANF5BHv53jS1ZKKy4VMHcVDD0kKYvYbnobp4v8ij5mC95EWSZdLgTPlAxmmpdLQ5VetOgG2WFWimRDZvyMHYqA/u2AfGU5fpbqHTWL7GGd2Nr69Kb/H9QfBt7VbGJtJJ5cJe2PrxzE6R3zETKnyD/xMYzdUO8/0FOqtsYuYoEZuQslDuqInESeoZo5IKNG0B0fowDZ/G/YNKdL62HnHA1BCDSUezjeqN+7ZUES+f0+eRKsxVJxXJw64ADCfwt59TMx+fTVTQ88LGSR/86MihVz04fYTSW9k9P6952mmhAenPQFD1VaaNECaRGrtN7Sd90Bn/DbPRpgX51hdOZ/Gng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3TSMAFk6dwRAZyxFmsiZ3Nsk8QbWbYIEiJCUQLBoQ6o=;
- b=l7k0K7gyVG0E3E3/POl8MmsLzzCa2jYwBCpxp+dnI71NUVrDAQHKQdt04FXdjf3n6L+FmnRPrs//RUCzxlQ8sB4u4ISge36z1HTgvRAeX57WBuyZJz82vB93d6NUKQGBhPnbTgczn4q5jdd5gKsjRw/KyHd7Lt3295M33tKTL1VrTyRL2r73FBz4s5KbbjZz3fj+6y3NlS97HKzXURthKhJzfUIT+4rlhyOJmdX3uen0Ha8PDJpfIGPpPVZEAUiLXcjWD7P6QTkYiIk4qPaCZ+Oc+Fe+zajdndKMpkciaBANI9GURfhdLat7k9FpI9y9S3eNqQIUTBk5NILUEgaMZg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by CH2PR12MB4136.namprd12.prod.outlook.com (2603:10b6:610:a4::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9791.33; Fri, 10 Apr
- 2026 00:36:25 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9791.032; Fri, 10 Apr 2026
- 00:36:25 +0000
-Date: Thu, 9 Apr 2026 21:36:24 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jpb@kernel.org,
-	praan@google.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
-	jonathan.cameron@huawei.com
-Subject: Re: [PATCH v4 10/10] iommu/arm-smmu-v3: Allow sharing domain across
- SMMUs
-Message-ID: <20260410003624.GE3357077@nvidia.com>
-References: <cover.1773949042.git.nicolinc@nvidia.com>
- <5293b61417f96dd58f25fe797e7d0c20dbe30da8.1773949042.git.nicolinc@nvidia.com>
- <20260410003223.GD3357077@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260410003223.GD3357077@nvidia.com>
-X-ClientProxiedBy: BL1PR13CA0091.namprd13.prod.outlook.com
- (2603:10b6:208:2b9::6) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Fri, 10 Apr 2026 00:45:57 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2b24fcc2b5dso10894245ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Apr 2026 17:45:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1775781954; x=1776386754; darn=lists.infradead.org;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tqN2cIzftfYEekrpgNPDXUdrBnoMgDEUwL6BuRfPeX8=;
+        b=J7kvhO04Z3rd2ejb2y8NyiXpcxvJL/S8bpcO7XeWUvw8O00bRYnta+xVG0Y5XI7W4s
+         +24EjiHEu9P08/OzFSiaYXyrrsOFDfY0oggCNDkli1JgJEedY+Xxzdc4+7095oWK7ip7
+         szsrZPi/1dPw83ndT+uFFI+8zzCPG5zRCD7SMdNJ0TiADm0iBPR0V5Quq1RFaDiu66VR
+         IWQ0/Gr3MH3kOCgKpEblBmw6OKbJq6jLUA2ozVh7pRvFb9IS21VrxS6BK4FyEMji1qlJ
+         VYzf6290zI8Hi8aI/23DX3Yc8A2fHYyqyPGdgf8hvtZ6uHb3xNrwWgjhebhAf0fXbVar
+         FfSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775781954; x=1776386754;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tqN2cIzftfYEekrpgNPDXUdrBnoMgDEUwL6BuRfPeX8=;
+        b=PNorqMIMFMFqhJRSJa3QV7AA6bMOlMXsUBgEvMioXIKvrIt71CStSt+b+d2cGBJAqD
+         0683AmftC+RShg3bG0DtWyCHAZE5gqNCbX/tyNLYp7eLk4WTjQiWiAXr8A80pkW5tXmK
+         qALgd/oape7pYS8wx4DqiXYS0QzTjVEcPL2ICRZfEyJLr+ajK7Ad9gInm8vAv8+KtyWt
+         x/d9hfb87YtjJMRu34VWYO8fmxXsdMJkaiuXUTYeBvvCEGb8Ujoux9DimLKJLhfCS5ph
+         IxRI4dwl3s98zrM8tX8OvqkXAtTTwB678uWS/P4m6222RoCwZ3UdrzBynki8P8YkbeCX
+         chCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXCXnvzIHCqyQqu0V7LkTH7qVwVuat6KcaRKpk66SfbJRy54w0oieEG0eCyuYK+nZhBbPe3YTCg9l5llL4Yhn+7@lists.infradead.org
+X-Gm-Message-State: AOJu0YyA/02Zbqd5OuKBelRQNMImOf+w+BmLHUe2MCxRjgWjRGRZSS6n
+	vJSIo+S1sd4pMztBtWhR9Xon4tIjF6/4+I4UKAajAAdgqIEH4x8cEgMpaHALOdEfJ8c=
+X-Gm-Gg: AeBDiesjj7u19XBAwcEBLN22UcPtE9FMS5gnlrk/zWZ5pmgHy8oJw6emxLKVLOdIDtC
+	wIhz81UDF9JaHEqkMg1EXCcuASbLvyNVyzYLg5nNzYs7yMU9nf0UD6vL0ba1JBSxKw31ugEaST+
+	eL8s3dd+MGhEMES465zwO6uk6Apm+SwR3avbSsw7g5wBWbAL6AZSE0K0j6n9fOamy0M5Ocdx7CR
+	4CU0/M8tf5lCKV6e2Vz/JwUuLnFDW87mffmMFFO3IJMROVS84a24xvgRKS1JUOytArS32lQliBj
+	wmzA8rBRdH49S+R2urn7RwtocX1bgYwZPRhSahwmE0yT9J8Xv+AVSS4c0ubs2GfkAnq+Yakc/cF
+	ZtloicC8yBTsL4Egdcs0741ia1s+/9X3k3Tzo6PqEJTwNXZNSVzOj/1E5OMl/hdO4lnL+G9q+Qa
+	tOtAaEKiVANuGi0kS3Prw=
+X-Received: by 2002:a17:903:1b6e:b0:2ae:3b9b:db34 with SMTP id d9443c01a7336-2b2d5aa0becmr10846795ad.42.1775781953566;
+        Thu, 09 Apr 2026 17:45:53 -0700 (PDT)
+Received: from localhost ([97.126.187.42])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b2d4f469casm7488445ad.81.2026.04.09.17.45.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Apr 2026 17:45:52 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/3] pmdomain: core: add support for
+ power-domains-child-ids
+In-Reply-To: <CAPDyKFquJ7K4NcWuKMr1sjrnFVVPGAeLCiSF_FhvJf9Frbn1uA@mail.gmail.com>
+References: <20260310-topic-lpm-pmdomain-child-ids-v1-0-5361687a18ff@baylibre.com>
+ <20260310-topic-lpm-pmdomain-child-ids-v1-2-5361687a18ff@baylibre.com>
+ <CAPDyKFquJ7K4NcWuKMr1sjrnFVVPGAeLCiSF_FhvJf9Frbn1uA@mail.gmail.com>
+Date: Thu, 09 Apr 2026 17:45:52 -0700
+Message-ID: <7h4iljskvz.fsf@baylibre.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH2PR12MB4136:EE_
-X-MS-Office365-Filtering-Correlation-Id: cb3e4251-c362-4e32-ac76-08de96993246
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: WoeGL39TNbfbWipCYiSU29ofYXND4aQb1tFXdpicVfLtpNTWhWljhdeHrbACII59HpzzH9s7WK/SUq5C3TS3MlWQZkGlhGL0o7ubu+pKhj4NLUC2z0jtBqQtV4iWPyxS7wB/drCvthu806450VsI3Mg/i11jYnq8Qk5l8u5w0WYWs2kFUTjtQ5uUfwUbUkCbF95cEAkrugP7PWSJmT+S5MjQZo+CTd4Gd1PkDXiHff0Ge9H4mo66XQA1eGwiO45V0uqZIjTHx6nt/U7dudU1uJw+1vtI8MW8PF8nocyWXOeVi30sL0RQSGy3HesfB1vgv0bAECrqnKNPe9NTE7nbVEmYvCk29ES0L3ORxTPFriA15pG9C1Co1GzAUZW+njy6YwNS89gyw0s9HNMxiivDb5MMg1JtXgBSFS1+imeI/zPZqsMvTQhHV5O3VNMEQnrQCrIs7zqovAhy6/IUhVm6MDqWgSlBCecO6zDb94YvNpaPMZYb2NGNu8iTwvJ4EjAfdER7krwVNLrw+I0JsSJEdbd+UfW5DooKhMLYmyN69t2CyGxlu2nObo/LRizPHF4LyzIyBXTAjKdWcABciw68UE+NQhjgFT1i3DbRDuqxgtN1kJwFgGk7RSxsEBR10czdp1mIwbpcoa3irlo8xjVj6Y156rdwUQpA/Tetu8b+h7rN1fgsqeV4CRVXtfB8YXFDvQpWhBuOj1hyR2l60AWyySbQMGyIDG8qjXmcIOKGogI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?s/Hj7e6vvzvdIjzwO3r/xknkNAtDGNXqwT2/H1RDx2na7JfGirnEJqeeJqWG?=
- =?us-ascii?Q?7lkcsQ5EXifzuwCGRloVimi6H7TIulRlKSO8aXj3Ectk2JPwyhU0o+IL/iD3?=
- =?us-ascii?Q?L6TrpN84oHuSTkRa9CxQ74DATBJDAHfcG73Bms3lKKuFLJwHEBNH4X8SdUAd?=
- =?us-ascii?Q?0RbhKfIsrxMNa9naLhHPYApRQdU1Tq4XaW9qdZeeuz/uqU5i5UULRYwHGWba?=
- =?us-ascii?Q?Bt1QmnSCkcb9ioUppECw33dqekMyQyZfVJceV2E1yK+gPXxAUGlOy36ebIpf?=
- =?us-ascii?Q?ql0RpGUfRa9ydxGHrCu7PDadzVKfKS+Ql3/x0Z09wFvQy/b8u5GALkcwsrm4?=
- =?us-ascii?Q?3od5xGeQX16hlrP6QuZXzsXbnNSKHYbuy1+Wv7CK6uzRGg4tsvQOuLpreoyV?=
- =?us-ascii?Q?ekPro/eyGl0lIqMjtwbOTyqLmoSD4uQDARD6J7UlFnj0wA0UHR8KZurFyg+J?=
- =?us-ascii?Q?P9K+cRdyqsjcxVkJUl8ysrVBLtJ5M3hBd9wFeBI/7oroURbYlkSNZDds3HNB?=
- =?us-ascii?Q?qRmMzjBtdLJpeQSZLHC1oSiMqbWf2gKyDCsvl7dhSlkkC/0gN7Zc8+QH/I33?=
- =?us-ascii?Q?4XQSyeJTAcJJeJwS1v/Dfzpn5Ol+n94xFZGSmXeoG1HRDHOVJ1yrytkVa+Ic?=
- =?us-ascii?Q?tWyE/aJMQrsDxnigvhok9MBsLn1pkawB4Qs0ISUjvBwtRXpfQCpBYfr/31Zv?=
- =?us-ascii?Q?+aql7JLYQgVfXKXTrozqSoVdjYKI0Pfmqmm+kY3yRTGvByAf9P5rVhJtiwxL?=
- =?us-ascii?Q?8xZs9t4EAw/Olnf9rYwiVuW9vyXkmET8GUOlAbB6h402B7kFPHo7vTGnryXs?=
- =?us-ascii?Q?vC0E5oiplfqFX57ryz6l2b77rLKaW4Q0ZWhnnRECYylmkuKaq8wYulAXSGMF?=
- =?us-ascii?Q?Vfjn9GliF/1M6oQbnOnOS3X7PNYsXpwaVtkNL7OnbI3Xw8/+Kh20H9LIa1kH?=
- =?us-ascii?Q?yz1QZ5X4AQbOmOCQM5p3Xg1plO35tn6rXF9ndLvJYYSoEp1DLv8db04eLQ7L?=
- =?us-ascii?Q?+UWZiksuFLiiwzeFWXZaC7e+I0YXBNqnQ4jy7OOd+Hvjt4eVeMDx/G6QKZVz?=
- =?us-ascii?Q?s9gTJJvJTQTTWwyf1uuti4viLp7E64g7rl7Lnd8Fj+L6e+V7w/+y+qhZJt/N?=
- =?us-ascii?Q?3v6w8XVZC0vLaqWxRvqtGBXdoxyr5eXLmHf69eFpa/Rfp/sMmMPQv2RbSqjR?=
- =?us-ascii?Q?cjv6EdEjXz94BUfm95TcV/Q/GBmItqRA5nHQ+yAKUtFvH1jItZ9iMqNIPMQB?=
- =?us-ascii?Q?J+cb4VeHNprX2zS6q7mvtfWjxMexEZfotSwXrcmqFs3177ylx0uChx2kI8Md?=
- =?us-ascii?Q?cUZU/Suecu/O/+fE55RWORwcWyed4b1+mmMv0+vJVj/2hxgDwUNlSJc4h41g?=
- =?us-ascii?Q?B8leCaR7E6zpdxp/pN6IL9a+EVG6O4OqwZ+A3kZss0EBr+VN5AiuSnKGbbo4?=
- =?us-ascii?Q?QG/+Co8lV4gGUpTm5DXFj3Y+4dHZAHGGYsOZDttEF/ETLaIVcK2WAOMu3o63?=
- =?us-ascii?Q?iBfrDyovtXWWPYv3b20zMVOgPyj5vQShYQf9+ohnZWQYHxhJ8mG5K1XOHZKG?=
- =?us-ascii?Q?hMOJ/4eJ6EHqaiFchM81LJRS+VaNz1AmTl7GA8piCGx5KWqHGmH8ccYBdSQq?=
- =?us-ascii?Q?wC0H3TVjifH2uX2qk3tzwcDEq0HhSZ8sVry+JQqlou7adlcwjuR+ayyXCv6S?=
- =?us-ascii?Q?EKfT3cNgH7u837oYABFnuV0KdZpiJanglnXALgvDR8ldUtUN?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cb3e4251-c362-4e32-ac76-08de96993246
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2026 00:36:25.2354
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NYlP7N/S7a/QSG/hhZL6JE+MwHY+5K4+5UNNHVvqshqVoiDoWD87sIn0CL29KdBp
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4136
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_173631_851231_B6BCBF28 
-X-CRM114-Status: GOOD (  17.68  )
+X-CRM114-CacheID: sfid-20260409_174555_479395_7DB3E339 
+X-CRM114-Status: GOOD (  49.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,69 +101,269 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 09, 2026 at 09:32:23PM -0300, Jason Gunthorpe wrote:
-> On Thu, Mar 19, 2026 at 12:51:56PM -0700, Nicolin Chen wrote:
-> > @@ -987,6 +988,32 @@ struct arm_smmu_nested_domain {
-> >  	__le64 ste[2];
-> >  };
-> >  
-> > +static inline bool
-> > +arm_smmu_domain_can_share(struct arm_smmu_domain *smmu_domain,
-> > +			  struct arm_smmu_device *new_smmu)
-> > +{
-> 
-> Probably a bit big for an inline
-> 
-> > +	struct io_pgtable *pgtbl =
-> > +		io_pgtable_ops_to_pgtable(smmu_domain->pgtbl_ops);
-> > +
-> > +	if (pgtbl->fmt == ARM_64_LPAE_S1 &&
-> > +	    !(new_smmu->features & ARM_SMMU_FEAT_TRANS_S1))
-> > +		return false;
-> > +	if (pgtbl->fmt == ARM_64_LPAE_S2 &&
-> > +	    !(new_smmu->features & ARM_SMMU_FEAT_TRANS_S2))
-> > +		return false;
-> > +	if (pgtbl->cfg.pgsize_bitmap & ~new_smmu->pgsize_bitmap)
-> > +		return false;
-> 
-> I think this should check the lowest set bit in the
-> domain->pgsize_bitmap is set in new_smmu->pgsize_bitmap
-> 
-> ie that the selected tg is supported.
-> 
-> The cfg.pgsize_bitmap is something a little different IIRC
-> 
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Ulf Hansson <ulf.hansson@linaro.org> writes:
 
-Though something else is missing here, I expected this to be removed too:
+> On Wed, 11 Mar 2026 at 01:19, Kevin Hilman (TI) <khilman@baylibre.com> wrote:
+>>
+>> Currently, PM domains can only support hierarchy for simple
+>> providers (e.g. ones with #power-domain-cells = 0).
+>>
+>> Add support for oncell providers as well by adding a new property
+>> `power-domains-child-ids` to describe the parent/child relationship.
+>>
+>> For example, an SCMI PM domain provider has multiple domains, each of
+>> which might be a child of diffeent parent domains. In this example,
+>> the parent domains are MAIN_PD and WKUP_PD:
+>>
+>>     scmi_pds: protocol@11 {
+>>         reg = <0x11>;
+>>         #power-domain-cells = <1>;
+>>         power-domains = <&MAIN_PD>, <&WKUP_PD>;
+>>         power-domains-child-ids = <15>, <19>;
+>>     };
+>>
+>> With this example using the new property, SCMI PM domain 15 becomes a
+>> child domain of MAIN_PD, and SCMI domain 19 becomes a child domain of
+>> WKUP_PD.
+>>
+>> To support this feature, add two new core functions
+>>
+>> - of_genpd_add_child_ids()
+>> - of_genpd_remove_child_ids()
+>>
+>> which can be called by pmdomain providers to add/remove child domains
+>> if they support the new property power-domains-child-ids.
+>>
+>> Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
+>
+> Thanks for working on this! It certainly is a missing feature!
 
-struct arm_smmu_domain {
-	struct arm_smmu_device		*smmu;
+You're welcome, thanks for the detailed review.
 
-What is left using it?
+>> ---
+>>  drivers/pmdomain/core.c   | 169 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+>>  include/linux/pm_domain.h |  16 ++++++++++++++++
+>>  2 files changed, 185 insertions(+)
+>>
+>> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+>> index 61c2277c9ce3..acb45dd540b7 100644
+>> --- a/drivers/pmdomain/core.c
+>> +++ b/drivers/pmdomain/core.c
+>> @@ -2909,6 +2909,175 @@ static struct generic_pm_domain *genpd_get_from_provider(
+>>         return genpd;
+>>  }
+>>
+>> +/**
+>> + * of_genpd_add_child_ids() - Parse power-domains-child-ids property
+>> + * @np: Device node pointer associated with the PM domain provider.
+>> + * @data: Pointer to the onecell data associated with the PM domain provider.
+>> + *
+>> + * Parse the power-domains and power-domains-child-ids properties to establish
+>> + * parent-child relationships for PM domains. The power-domains property lists
+>> + * parent domains, and power-domains-child-ids lists which child domain IDs
+>> + * should be associated with each parent.
+>> + *
+>> + * Returns 0 on success, -ENOENT if properties don't exist, or negative error code.
+>
+> I think we should avoid returning specific error codes for specific
+> errors, simply because it usually becomes messy.
+>
+> If I understand correctly the intent here is to allow the caller to
+> check for -ENOENT and potentially avoid bailing out as it may not
+> really be an error, right?
 
-static int arm_smmu_s1_set_dev_pasid(struct iommu_domain *domain,
-				     struct device *dev, ioasid_t id,
-				     struct iommu_domain *old)
+Right, -ENOENT is not an error of parsing, it's to indicate that there
+are no child-ids to be parsed.
 
-int arm_smmu_set_pasid(struct arm_smmu_master *master,
-		       struct arm_smmu_domain *smmu_domain, ioasid_t pasid,
-		       struct arm_smmu_cd *cd, struct iommu_domain *old,
-		       arm_smmu_make_cd_fn make_cd_fn)
+> Perhaps a better option is to return the number of children for whom
+> we successfully assigned parents. Hence 0 or a positive value allows
+> the caller to understand what happened. More importantly, a negative
+> error code then really becomes an error for the caller to consider.
 
-Thous should use the new helper right? It should work for a S1 domain
-too.
+I explored this a bit, but it gets messy quick.  It means we have to
+track cases where only some of the children were added as well as when
+all children were added.   Personally, I think this should be an "all or
+nothing" thing.  If all the children cannot be parsed/added, then none
+of them should be added.
 
-static void arm_smmu_flush_iotlb_all(struct iommu_domain *domain)
-{
-	struct arm_smmu_domain *smmu_domain = to_smmu_domain(domain);
+This also allows the remove to not have to care about how many were
+added, and just remove them all, with the additional benefit of not
+having to track the state of how many children were successfully added.
 
-	if (smmu_domain->smmu)
-		arm_smmu_tlb_inv_context(smmu_domain);
-}
+>> + */
+>> +int of_genpd_add_child_ids(struct device_node *np,
+>> +                          struct genpd_onecell_data *data)
+>> +{
+>> +       struct of_phandle_args parent_args;
+>> +       struct generic_pm_domain *parent_genpd, *child_genpd;
+>> +       struct of_phandle_iterator it;
+>> +       const struct property *prop;
+>> +       const __be32 *item;
+>> +       u32 child_id;
+>> +       int ret;
+>> +
+>> +       /* Check if both properties exist */
+>> +       if (of_count_phandle_with_args(np, "power-domains", "#power-domain-cells") <= 0)
+>> +               return -ENOENT;
+>> +
+>> +       prop = of_find_property(np, "power-domains-child-ids", NULL);
+>> +       if (!prop)
+>> +               return -ENOENT;
+>> +
+>> +       item = of_prop_next_u32(prop, NULL, &child_id);
+>
+> Perhaps it's easier to check if of_property_count_u32_elems() returns
+> the same number as of_count_phandle_with_args() above? If it doesn't,
+> something is wrong, and there is no need to continue.
 
-I suspect that is just dead code now, it is from before finalize was
-part of alloc?
+Agreed. Will add.
 
-Jason
+> This way you also know the number of loops upfront that must iterate
+> through all indexes. This should allow us to use a simpler for-loop
+> below, I think. In this case you can also use
+> of_property_read_u32_index() instead.
+
+OK.
+
+>> +
+>> +       /* Iterate over power-domains phandles and power-domains-child-ids in lockstep */
+>> +       of_for_each_phandle(&it, ret, np, "power-domains", "#power-domain-cells", 0) {
+>> +               if (!item) {
+>> +                       pr_err("power-domains-child-ids shorter than power-domains for %pOF\n", np);
+>> +                       ret = -EINVAL;
+>> +                       goto err_put_node;
+>> +               }
+>> +
+>> +               /*
+>> +                * Fill parent_args from the iterator. it.node is released by
+>> +                * the next of_phandle_iterator_next() call at the top of the
+>> +                * loop, or by the of_node_put() on the error path below.
+>> +                */
+>> +               parent_args.np = it.node;
+>> +               parent_args.args_count = of_phandle_iterator_args(&it, parent_args.args,
+>> +                                                                 MAX_PHANDLE_ARGS);
+>> +
+>> +               /* Get the parent domain */
+>> +               parent_genpd = genpd_get_from_provider(&parent_args);
+>
+> Before getting the parent_genpd like this, we need to take the
+> gpd_list_lock. The lock must be held when genpd_add_subdomain() is
+> being called.
+
+Good catch, thanks.
+
+>> +               if (IS_ERR(parent_genpd)) {
+>> +                       pr_err("Failed to get parent domain for %pOF: %ld\n",
+>> +                              np, PTR_ERR(parent_genpd));
+>> +                       ret = PTR_ERR(parent_genpd);
+>> +                       goto err_put_node;
+>> +               }
+>> +
+>> +               /* Validate child ID is within bounds */
+>> +               if (child_id >= data->num_domains) {
+>> +                       pr_err("Child ID %u out of bounds (max %u) for %pOF\n",
+>> +                              child_id, data->num_domains - 1, np);
+>> +                       ret = -EINVAL;
+>> +                       goto err_put_node;
+>> +               }
+>> +
+>> +               /* Get the child domain */
+>> +               child_genpd = data->domains[child_id];
+>> +               if (!child_genpd) {
+>> +                       pr_err("Child domain %u is NULL for %pOF\n", child_id, np);
+>> +                       ret = -EINVAL;
+>> +                       goto err_put_node;
+>> +               }
+>> +
+>> +               /* Establish parent-child relationship */
+>> +               ret = genpd_add_subdomain(parent_genpd, child_genpd);
+>> +               if (ret) {
+>> +                       pr_err("Failed to add child domain %u to parent in %pOF: %d\n",
+>> +                              child_id, np, ret);
+>> +                       goto err_put_node;
+>> +               }
+>> +
+>> +               pr_debug("Added child domain %u (%s) to parent %s for %pOF\n",
+>> +                        child_id, child_genpd->name, parent_genpd->name, np);
+>> +
+>> +               item = of_prop_next_u32(prop, item, &child_id);
+>> +       }
+>> +
+>> +       /* of_for_each_phandle returns -ENOENT at natural end-of-list */
+>> +       if (ret && ret != -ENOENT)
+>> +               return ret;
+>> +
+>> +       /* All power-domains phandles were consumed; check for trailing child IDs */
+>> +       if (item) {
+>> +               pr_err("power-domains-child-ids longer than power-domains for %pOF\n", np);
+>> +               return -EINVAL;
+>> +       }
+>> +
+>> +       return 0;
+>> +
+>> +err_put_node:
+>
+> This isn't a suffient error handling.
+>
+> If we successfully added child domains using genpd_add_subdomain(), we
+> must remove them here, by calling pm_genpd_remove_subdomain() in the
+> reverse order as we just added them.
+
+OK, I was relying on the remove function to cleanup, but you're right,
+if there's a falure during the add, it should be unwound before
+returning.
+
+>> +       of_node_put(it.node);
+>> +       return ret;
+>> +}
+>> +EXPORT_SYMBOL_GPL(of_genpd_add_child_ids);
+>> +
+>> +/**
+>> + * of_genpd_remove_child_ids() - Remove parent-child PM domain relationships
+>> + * @np: Device node pointer associated with the PM domain provider.
+>> + * @data: Pointer to the onecell data associated with the PM domain provider.
+>> + *
+>> + * Reverses the effect of of_genpd_add_child_ids() by parsing the same
+>> + * power-domains and power-domains-child-ids properties and calling
+>> + * pm_genpd_remove_subdomain() for each established relationship.
+>> + *
+>> + * Returns 0 on success, -ENOENT if properties don't exist, or negative error
+>> + * code on failure.
+>> + */
+>> +int of_genpd_remove_child_ids(struct device_node *np,
+>> +                          struct genpd_onecell_data *data)
+>> +{
+>> +       struct of_phandle_args parent_args;
+>> +       struct generic_pm_domain *parent_genpd, *child_genpd;
+>> +       struct of_phandle_iterator it;
+>> +       const struct property *prop;
+>> +       const __be32 *item;
+>> +       u32 child_id;
+>> +       int ret;
+>> +
+>> +       /* Check if both properties exist */
+>> +       if (of_count_phandle_with_args(np, "power-domains", "#power-domain-cells") <= 0)
+>> +               return -ENOENT;
+>> +
+>> +       prop = of_find_property(np, "power-domains-child-ids", NULL);
+>> +       if (!prop)
+>> +               return -ENOENT;
+>> +
+>> +       item = of_prop_next_u32(prop, NULL, &child_id);
+>
+> Similar comments as for of_genpd_add_child_ids().
+>
+> Moreover, I think we should remove the children in the reverse order
+> of how we added them.
+
+I'm curious why does the order matter?  The children are all siblings
+(no hierarchy), so why would the order be important?
+
+I'm not ware of a phandle iterator/helper to parse in the reverse, so
+that would mean iterating once to create a list, and then walking it in
+reverse.  Seems unnecessary.
+
+Thanks again for the detailed review,
+
+Kevin
 
