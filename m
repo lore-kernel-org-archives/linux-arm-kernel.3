@@ -4,100 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 472C3E99071
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 10:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ACB3E99076
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 10:35:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZKnPag+J1FK879lrPixqSysMm2rbphTSL3HqF/0DRQk=; b=HJaJ0+Im6IoeWULhuuOhMvfQj9
-	cz3Mh25PvSWH3IskKMP4MBNC+5Kf9FO8uncp+ECoNspO5EVGpJIm6L77U3HIJ/5ZukhEQy3fF60P+
-	Jz/4vN4uSpxkUGZ4c5R0PPHbKJE++fs+DCanMSusdM+OuvRC9PKORyL2T24MPMHF1rpXvIUaw5+R4
-	y8yb6ImP2TxhZzpYsoscbvRR1lWk2jkNnfI8kv6VsK/ptnKrAamH7lOSD+DLQpyNM9uGcE416p9WC
-	0arVMtvxUJqM4fsM1Mw48iRcaonEGuul55PE0T8u/V6zv++zyWkzrsacRYIg1qfAb7L2SRGMg9DZR
-	juwJS0HA==;
+	bh=AA9GssIJnHjp+0pJ/YA3uwcbFGvbPnxMKsonzlgOy7E=; b=k6cS9OEtz5PK/tiJvGou5bwIpr
+	PIE0tR99bsJXOzr2bUEgB1kmckrl5/EnKI7bfOlp/geJPvfT/zeL2wulMTiSEjhxrTb9VQwu5cyik
+	0s2pbk+jWnzLZimf+f7hZQdkvEXsQhxgIoy8VbtVtp61y0Ui44Bl78loUnwAjxaeXn8eQfv4OOrzr
+	PE62WYTU5kh+hi6NqCqRrlg9+TFnyEU+BWKzO62NtA3XdFTRaATTl6SJCm5T1pl+knfYmClyGbrOw
+	QHRNsepdHLCNuZrUAILtENSYccurHi4beH9pp+XDuQLLKu48HSyQyKgtIrTS1TdFEKQGDDBaHcCc7
+	sjwV81Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB92Q-0000000C0Jp-2w5I;
-	Fri, 10 Apr 2026 10:24:34 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1wB9Ce-0000000C0sU-2PmU;
+	Fri, 10 Apr 2026 10:35:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB92N-0000000C0Iy-28ni
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 10:24:33 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-43d5e87a507so1416521f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 03:24:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1775816670; x=1776421470; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ZKnPag+J1FK879lrPixqSysMm2rbphTSL3HqF/0DRQk=;
-        b=Q9+WFEkc/LKfQ1KV/DwDK3jxWxv7Q7HFv6uNw4tmg63dUrmPOesbWXtmUzHThvRIVP
-         KdeuUnGiKlqVLxJ6/miARrnKIAYjOOO0ne942LNs+6ck6RmzEWDgLBpB2Bi1R78JbLc9
-         AiIueBZHVMz+PMRECl5ArMH2Lkd4sX/F9I4feDsU0XhFscHShLRxuXwqqr4+wz7qQhd6
-         oYEKqtRExAJSg4OQ6Ix1O7AEYXnVkSmo+mPtVPOxwc9MqWzbtiLZJVrE6k5uTM4YJKTv
-         fWys6SGiYI4E9q9y0aoUoC+Qz+cof8zkUXWqgW9p6p4CKjUNey3QaCn4rtef0m5toMyU
-         FnVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775816670; x=1776421470;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZKnPag+J1FK879lrPixqSysMm2rbphTSL3HqF/0DRQk=;
-        b=tCnh4Q0tFB/KSVedEZFAa5dshP9v5/sbPPWsjLaJyATNRLrmVQ2KOmfpyKz2MMXeaN
-         YjwWtUZ9+NPLnBGjI0mtlheNxus2XLKCkyOYj3PysFxW578SXK5uw4hKeWyBrt7L6WAM
-         kKxFVWXzp3IoL/RoUirPy6we5bUbkoc73i+Azcg5rwrl/4xgJCFpD/Bv+ai0Kyn/rah0
-         AvXkv6Cn3O+4y46rFqYQnixFj1DvaDRw8AYG8y0lk9oP3USCLXBUFX2eELXpHPhd79fc
-         a2tSGZfwBUoooXaR7P6ml6ePrwlz13hPZL34vdAAlLOeGYFbUzVK5a0i3IVV1MXBazUe
-         LkxA==
-X-Forwarded-Encrypted: i=1; AJvYcCViu8/O7yEpZKwbabA2vxKNuGyBF/orYQ6pv87dmYcZ5zi85eZaN+dREtOtAvl0ZcvN21VG+22pTdb+lkPYIHXZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxD0ILdUGjgTvxWyv0Wm4iYjne8Ta4tTeNPlWY59cIVqmwMrO0i
-	F/JLT6k70MtDM+zrnmqHXh9GxY6nLaTja9Ybjp8Ha32ZeQz0Vg6ytz0sX7xHEf92RcY=
-X-Gm-Gg: AeBDieumwwsE+ZV4AMYjVsGK5lNl0qSlarLYd2hbNR6OxF8y2HL3tK5BRYGYX4NtVQ7
-	NDmv0doFNvKZWBEOmMmi9u3CEiaetjcpjMXa0lPXOvhDvNb1E07y5l1WuRI8X30TCXn0fVbiYG1
-	A6W6pUHZ0ldortIrKPjrqqmpSKiBQZN3HVTKONGxwUxYbnR7KzXACCIg79WE9WDFUcsZazP4v6E
-	NTctIW31ZMNYlQVIpjy8tMINgaVaQ1WJFXIIW/ovxF6llRR07DlghVjyLSV4uLh6TcLi960k5Ow
-	TIq4UJ41jxutylEnpRHZthbpsRLdcpqBtRlp5FRVwN2K59iEqgv7FhULmPa/dspeaPW1s6KXb3e
-	wc+eCiOJp1u7ewPzUHKMvvj7iT9aiDXBBXmyfHaTd+rJ1R5x3uqwmsQX6jEH1VYU+PehuriTpH8
-	Op8FwnxjcBtGkM+ed8GsCOdUYJjiIxUYi3E6GeQhU5V27DynhFqA==
-X-Received: by 2002:a05:6000:402a:b0:43b:8f23:a87b with SMTP id ffacd0b85a97d-43d642d9d59mr3841629f8f.44.1775816669353;
-        Fri, 10 Apr 2026 03:24:29 -0700 (PDT)
-Received: from localhost (93-41-3-120.ip79.fastwebnet.it. [93.41.3.120])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d63e5c981sm6454744f8f.33.2026.04.10.03.24.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Apr 2026 03:24:29 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Fri, 10 Apr 2026 12:27:35 +0200
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
-Cc: Andrea della Porta <andrea.porta@suse.com>, linux-pwm@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Naushir Patuck <naush@raspberrypi.com>,
-	Stanimir Varbanov <svarbanov@suse.de>
-Subject: Re: [PATCH 2/3] pwm: rp1: Add RP1 PWM controller driver
-Message-ID: <adjQl37-6a--_y3Y@apocalypse>
-References: <cover.1775223441.git.andrea.porta@suse.com>
- <28e29fbfc20c0b8a115d006233c2759d8f49e639.1775223441.git.andrea.porta@suse.com>
- <adLTwOTbkJ0VQXy6@monoceros>
- <adfQ6Tvst3Vd1Mxe@apocalypse>
- <adiW1tBC8Imd14LD@monoceros>
+	id 1wB9Cc-0000000C0sK-3dG7;
+	Fri, 10 Apr 2026 10:35:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 083DC60126;
+	Fri, 10 Apr 2026 10:35:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 653FFC19421;
+	Fri, 10 Apr 2026 10:35:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775817305;
+	bh=NbLMW9yD5qW6WB9yg4ttyR+1tADafNTIh7LxC+xpkQU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GARQ2WLjSg5318qxd44xvfOHr5o4PZb8ep4XJU+jy7EVLExVz0fmJ77P/dHWqM+Zs
+	 IPaWAUkJqA77hhpaFOvT1fsyzy4d3ezpyDco1x7J67X0LZrZ0Y5/NF8iQzYKY6kIhJ
+	 IbK7eOtENWVJv1XFZPJMYYExQwwc/WludzAO6ZRcCKEIfGd1C8ZOFLmQRfIKvZNHMU
+	 QbQQCLeK966dblNIiSag1XSlSch4p+ogRF5Dr3g0St9h/d8088Y01/g+IQfllG/UCv
+	 kWFiSUHXGphB09x4dJuKVJ8+REimujKAO44foNPi6UwmlJ4M7tYfydKq64eb6Ak4UE
+	 /QTceuKQGeYFQ==
+Date: Fri, 10 Apr 2026 12:35:03 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, ansuelsmth@gmail.com,
+	benjamin.larsson@genexis.eu, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, Xuegang Lu <xuegang.lu@airoha.com>
+Subject: Re: [PATCH net-next v3 10/12] net: airoha: Do not stop GDM port if
+ it is shared
+Message-ID: <adjSV_ITucZItPjb@lore-desk>
+References: <20260406-airoha-eth-multi-serdes-v3-10-ab6ea49d59ff@kernel.org>
+ <20260410025726.1810041-1-kuba@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="8LLt8ct3/nBL/EoR"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <adiW1tBC8Imd14LD@monoceros>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_032431_591125_4FF15D69 
-X-CRM114-Status: GOOD (  29.29  )
+In-Reply-To: <20260410025726.1810041-1-kuba@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,72 +74,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Uwe,
 
-On 08:27 Fri 10 Apr     , Uwe Kleine-König wrote:
-> Hello Andrea,
-> 
-> On Thu, Apr 09, 2026 at 06:16:41PM +0200, Andrea della Porta wrote:
-> > On 23:45 Sun 05 Apr     , Uwe Kleine-König wrote:
-> > > On Fri, Apr 03, 2026 at 04:31:55PM +0200, Andrea della Porta wrote:
-> > > > +static void rp1_pwm_free(struct pwm_chip *chip, struct pwm_device *pwm)
-> > > > +{
-> > > > +	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
-> > > > +	u32 value;
-> > > > +
-> > > > +	value = readl(rp1->base + PWM_CHANNEL_CTRL(pwm->hwpwm));
-> > > > +	value &= ~PWM_MODE_MASK;
-> > > > +	writel(value, rp1->base + PWM_CHANNEL_CTRL(pwm->hwpwm));
-> > > > +
-> > > > +	rp1_pwm_apply_config(chip, pwm);
-> > > 
-> > > What is the purpose of this call?
-> > 
-> > To update the configuration on the next PWM strobe in order to avoid
-> > glitches. I'll add a short comment in the code.
-> 
-> .pwm_free() should not touch the hardware configuration. Changing the
-> pinmuxing (which I guess is the purpose of clearing PWM_MODE_MASK) is
-> somewhat a grey area. If that saves energy, that's okish. Otherwise
-> not interfering with the operation of the PWM (e.g. to keep a display on
-> during kexec or so) is preferred.
+--8LLt8ct3/nBL/EoR
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Sorry I should've been more clear on this. The pinmux/conf is not changed
-at all by this mask, only the PWM output mode is. The controller can output
-several type of waveforms and clearing PWM_MODE_MASK is just setting the
-controller to output a 0, which is the reset default i.e. the same value
-as just before exporting the channel.
-I guess this is the expected behaviour in case of a fan, it should stop
-spinning in case you unexport the pwm channel, but I see it could be
-different with displays.
-Honestly I don't have a strong opinion about that, please just let me
-know if I should drop that pwm_free entirely.
+> This is an AI-generated review of your patch. The human sending this
+> email says "For your consideration."
+> ---
+> net: airoha: Do not stop GDM port if it is shared
+>=20
+> Theoretically, in the current codebase, two independent net_devices can
+> be connected to the same GDM port so we need to check the GDM port is not
+> used by any other running net_device before setting the forward
+> configuration to FE_PSE_PORT_DROP.
+>=20
+> Tested-by: Xuegang Lu <xuegang.lu@airoha.com>
+>=20
+> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
+ernet/airoha/airoha_eth.c
+> > index fd27ba13029bd..5b0cd37b155e4 100644
+> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+>=20
+> [ ... ]
+>=20
+> > @@ -1688,18 +1693,18 @@ static int airoha_dev_stop(struct net_device *n=
+etdev)
+> >  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> >  	struct airoha_gdm_port *port =3D dev->port;
+> >  	struct airoha_qdma *qdma =3D dev->qdma;
+> > -	int i, err;
+> > +	int i;
+> > =20
+> >  	netif_tx_disable(netdev);
+> > -	err =3D airoha_set_vip_for_gdm_port(dev, false);
+> > -	if (err)
+> > -		return err;
+> > -
+> >  	for (i =3D 0; i < ARRAY_SIZE(qdma->q_tx); i++)
+> >  		netdev_tx_reset_subqueue(netdev, i);
+> > =20
+> > -	airoha_set_gdm_port_fwd_cfg(qdma->eth, REG_GDM_FWD_CFG(port->id),
+> > -				    FE_PSE_PORT_DROP);
+> > +	if (atomic_dec_and_test(&port->users)) {
+> > +		airoha_set_vip_for_gdm_port(dev, false);
+> > +		airoha_set_gdm_port_fwd_cfg(qdma->eth,
+> > +					    REG_GDM_FWD_CFG(port->id),
+> > +					    FE_PSE_PORT_DROP);
+> > +	}
+> > =20
+> >  	if (atomic_dec_and_test(&qdma->users)) {
+> >  		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
+> > 				  GLOBAL_CFG_TX_DMA_EN_MASK |
+> > 				  GLOBAL_CFG_RX_DMA_EN_MASK);
+> >=20
+> > 		for (i =3D 0; i < ARRAY_SIZE(qdma->q_tx); i++) {
+> > 			if (!qdma->q_tx[i].ndesc)
+> > 				continue;
+> >=20
+> > 			airoha_qdma_cleanup_tx_queue(&qdma->q_tx[i]);
+> > 		}
+> > 	}
+>=20
+> This problem wasn't introduced by this patch, but does the QDMA teardown
+> path have a DMA corruption vulnerability here?
+>=20
+> When GLOBAL_CFG_TX_DMA_EN_MASK is cleared, it fails to poll
+> GLOBAL_CFG_TX_DMA_BUSY_MASK, proceeding to unmap memory while the hardware
+> DMA engine may still be processing in-flight descriptors.
+>=20
+> Furthermore, airoha_qdma_cleanup_tx_queue() unmaps the DMA addresses and
+> frees the SKBs, but it does not appear to clear the physical hardware
+> descriptors or reset the hardware ring pointers (REG_TX_CPU_IDX /
+> REG_TX_DMA_IDX).
+>=20
+> When the device is later reopened in airoha_dev_open(),
+> GLOBAL_CFG_TX_DMA_EN_MASK is set again without re-initializing the rings.
+> Will the hardware DMA engine resume fetching from its previous index,
+> processing stale descriptors whose backing memory was already unmapped
+> and freed?
 
-> 
-> > > > +static int rp1_pwm_resume(struct device *dev)
-> > > > +{
-> > > > +	struct rp1_pwm *rp1 = dev_get_drvdata(dev);
-> > > > +
-> > > > +	return clk_prepare_enable(rp1->clk);
-> > > 
-> > > Hmm, if this fails and then the driver is unbound, the clk operations
-> > > are not balanced.
-> > 
-> > I'll add some flags to check if the clock is really enabled or not.
-> 
-> To be honest, I guess that is a problem of several drivers, not only in
-> drivers/pwm. If this complicates the driver, I guess addressing this
-> isn't very critical.
+ack, I will work on it with a dedicated patch.
 
-I'll come up with something, we can always drop this check if deemed
-too 'noisy'. 
+>=20
+> [ ... ]
+>=20
+> > @@ -1851,10 +1856,22 @@ static void airoha_dev_get_stats64(struct net_d=
+evice *netdev,
+> >  static int airoha_dev_change_mtu(struct net_device *netdev, int mtu)
+> >  {
+> >  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> > +	u32 cur_len, len =3D ETH_HLEN + mtu + ETH_FCS_LEN;
+> >  	struct airoha_gdm_port *port =3D dev->port;
+> > -	u32 len =3D ETH_HLEN + mtu + ETH_FCS_LEN;
+> >  	struct airoha_eth *eth =3D dev->eth;
+> > =20
+> > +	cur_len =3D FIELD_GET(GDM_LONG_LEN_MASK,
+> > +			    airoha_fe_rr(eth, REG_GDM_LEN_CFG(port->id)));
+> > +	if (len < cur_len) {
+> > +		u8 port_refcnt =3D atomic_read(&port->users);
+> > +
+> > +		/* We can decrease the device MTU just if the GDM port is
+> > +		 * not shared or if the other device is not running.
+> > +		 */
+> > +		if (port_refcnt > 1 || (port_refcnt && !netif_running(netdev)))
+> > +			return -EBUSY;
+> > +	}
+> > +
+>=20
+> Does this MTU decrease validation create a state trap on shared ports?
+>=20
+> If both eth0 and eth1 (sharing a port) are up, and a user increases eth0 =
+MTU
+> to 9000, the hardware MTU updates to 9000. If the user then tries to lower
+> eth0 MTU back to 1500, len < cur_len evaluates to true. Because eth1 is a=
+lso
+> up (port_refcnt > 1), this returns -EBUSY.
+>=20
+> This would prevent either interface from decreasing its MTU without fully
+> bringing down the sibling interface.
+>=20
+> Should the software netdev->mtu be decoupled from the hardware validation,
+> allowing valid MTU changes in software while dynamically programming the
+> hardware MTU to the maximum of all currently up interfaces on the shared
+> port?
 
-Many thanks,
-Andrea
+It seems more correct to me avoid receiving in the stack packet bigger than=
+ the
+configured 'SW MTU".
 
-> 
-> Best regards
-> Uwe
+Regards,
+Lorenzo
 
 
+--8LLt8ct3/nBL/EoR
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCadjSVwAKCRA6cBh0uS2t
+rKGBAQDRSN/e8N+6AoxvLopfJBHvUijN7q4xUeofQsEYNntjygEAhNk5cQC8KD5p
+37hLOLJqsp50UUBwxSDUH4e9phnmyAQ=
+=5Ae+
+-----END PGP SIGNATURE-----
+
+--8LLt8ct3/nBL/EoR--
 
