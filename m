@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A05D3E99050
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 07:47:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AA14E99050
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 07:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2u8807k80N/o8AudH72Q0tlw56Nmjjod+/Et+0EN0Jw=; b=B0DLC8FJujgMkvYzdgeFj8dDpN
-	zZ6SRU1yTSsGdZvShbSEug5bQk0OVfbT9EIp+1hrPzSUvmkbSQ8B9UwlcheS2dypJwpQ964575Icu
-	4k7u4EqXXM96RrWm0BHR624q6bw5oicxTkcU0W+mH0K1q89VUqu82ElFgJwCjjfg9L2SLsit5t+S4
-	3AqOYtFDI11e9HOkE5rcJBXva+hA7kCV6L9E2189Qd+jpy6zvaqkEbQi0X9BX9rAbEnIyDfpp3zRd
-	BbZkl3dQJ1JGMH/FV2gHkpAS1C/QQzUvKaNEbn767E19GqgGOOunsHgjUQifN3dqbdH/H5zczbtZC
-	logDRaIw==;
+	bh=B1BxrsFUKX6jqT453u4B/bslW6vUL7jkrbnkrOn6egc=; b=pXmNZFX6UElW6LVRvSV8VUIdMv
+	4txqFfBzy9RGJ2a4oKXbmqSpCF+yeuZie7EhCLFbgHMeWY7krbvZaqZyWczholTEJEDR4cFJCpDiQ
+	5l/EAwD9QlYZTVwDzAL/FGYlJyWe7DcR3lFDM69tN5npwP+sSAufEwHa/pBQOCC8fYLX1LW6zVhvc
+	FzoqBNyWZxrGY77qKamE1aPVXHKofvJvgwBesbfstziwvB7SpqKxH8isziwVbrF8Qd6V5g+o6uFzu
+	PjpIb+qnDRFX72DqxEpe4jlYB55IG2dtz1UgM/xBXKsHJeqhoayBk7iOCe88dygUOZiYcuQg4omSl
+	943MBj+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB6a4-0000000BnIL-33cW;
-	Fri, 10 Apr 2026 07:47:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wB6dM-0000000BnV3-1cuc;
+	Fri, 10 Apr 2026 07:50:32 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB6a2-0000000BnI0-0vnS
+	id 1wB6dJ-0000000BnUf-24YE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 07:47:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5ED2C418B6;
-	Fri, 10 Apr 2026 07:47:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1D84C19421;
-	Fri, 10 Apr 2026 07:47:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775807225;
-	bh=2u8807k80N/o8AudH72Q0tlw56Nmjjod+/Et+0EN0Jw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d/Lj+MarNqx6wijAaL5jxtCcWbdC0kz7Q28QWsdJ4WXMz4xxJkyRQ9WNdR6qJ1e0F
-	 8KQ4RAo58xextt+8r3VF97htN8KRKAbQ2kjTF6ZK97Oh6QDzfYNSf/BkFLOEOoa6NO
-	 Q10nhfmEbTGUawwua1uIZOAVehA4lcGuqqu5SwebL9OtKA4w/D1KiwTRN19nf58TQS
-	 XFb35lJrQtrnEH3rCBHE2jqsQC+cStp5vn4od/hqtkhS5kVOM1DPXbJISZMzYGYjP9
-	 Q7YMtm2YE5NSaPy5wZ/pHYBRldj0lqFylvtujP9DG5mDJDgDJxLq/lPqWIowSkg9mY
-	 QxhqyO/XdS3GA==
-Date: Fri, 10 Apr 2026 09:47:02 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Taniya Das <taniya.das@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Ajit Pandey <ajit.pandey@oss.qualcomm.com>, 
-	Imran Shaik <imran.shaik@oss.qualcomm.com>, Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>, 
-	linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/8] dt-bindings: clock: qcom: Add support for CAMCC
- for Eliza
-Message-ID: <20260410-hasty-pony-of-tempering-4f0a47@quoll>
-References: <20260409-eliza_mm_cc_v2-v2-0-bc0c6dd77bc5@oss.qualcomm.com>
- <20260409-eliza_mm_cc_v2-v2-3-bc0c6dd77bc5@oss.qualcomm.com>
+	Fri, 10 Apr 2026 07:50:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=B1BxrsFUKX6jqT453u4B/bslW6vUL7jkrbnkrOn6egc=; b=a4OlywblGMI3RLpc/SxnvAjiYp
+	hBQ2RFziq7gw7crLvOQT4/8c9Ml8bV/Kajls5SLyyMa9plyXZWrLAvg4Dlcd5085D1sFMVb+m+egg
+	utCpC0dSxe+lM1a77OsHX8XgstoACYu+DYpHq4n5MgTMULv7kcS5Y87ZKs7DjZS94Z0DuO3kQPwak
+	WBm8Zw3yKG6PVMKwCl3iChgH6AKDnBVNaXA2c/56nJL3Qka2zqCT+kbxbMZM70iAOls+gtCAgGn7W
+	c77RGstUTegUNzrhum9gFYjKQtlt8NjmpP97w8w5A1Zdpz0TeoTFRrNgwqUj9/urh+DTKzTEP1PJM
+	XnZQvAVw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36062)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wB6d2-000000004bi-0CC0;
+	Fri, 10 Apr 2026 08:50:12 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wB6cv-000000005S9-3wXl;
+	Fri, 10 Apr 2026 08:50:05 +0100
+Date: Fri, 10 Apr 2026 08:50:05 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: KhaiWenTan <khai.wen.tan@linux.intel.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, maxime.chevallier@bootlin.com,
+	ovidiu.panait.rb@renesas.com, vladimir.oltean@nxp.com,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	yoong.siang.song@intel.com, hong.aun.looi@intel.com,
+	khai.wen.tan@intel.com
+Subject: Re: [PATCH net 1/1] net: stmmac: Update default_an_inband before
+ passing value to phylink_config
+Message-ID: <adirrTJujEsrsK4F@shell.armlinux.org.uk>
+References: <20260410020735.327590-1-khai.wen.tan@linux.intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260409-eliza_mm_cc_v2-v2-3-bc0c6dd77bc5@oss.qualcomm.com>
+In-Reply-To: <20260410020735.327590-1-khai.wen.tan@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_004706_307486_19633FB4 
-X-CRM114-Status: UNSURE (   7.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260410_005029_555569_9C59F38D 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,12 +85,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 09, 2026 at 11:40:44PM +0530, Taniya Das wrote:
-> Update the compatible and the bindings for CAMCC support on Eliza SoC.
+On Fri, Apr 10, 2026 at 10:07:35AM +0800, KhaiWenTan wrote:
+> get_interfaces() will update both the plat->phy_interfaces and
+> mdio_bus_data->default_an_inband based on reading a SERDES register.
+> 
+> Therefore, we moved the priv->plat->get_interfaces() to be executed
+> first before assigning mdio_bus_data->default_an_inband to
+> config->default_an_inband to ensure default_an_inband is in correct
+> value during PHY setup.
+> 
+> Fixes: ca732e990fc8 ("net: stmmac: add get_interfaces() platform method")
+> Signed-off-by: KhaiWenTan <khai.wen.tan@linux.intel.com>
 
-I do not see any update here. Also, no improvements after v1 comments.
+Patch looks good, but the blamed commit is wrong.
 
-Best regards,
-Krzysztof
+d3836052fe09 ("net: stmmac: intel: convert speed_mode_2500() to get_interfaces()")
 
+introduced the problem.
+
+The commit message could also do with mentioning that dwmac-intel
+regressed result of that commit.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
