@@ -4,51 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CCC0F44847
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:21:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E765F44847
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:cc:Content-Type:MIME-Version
+	:References:Subject:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=cA5fsHKS5zMwzBxci+DP1Qed/9F1OdcNJnHEKWRTFD0=; b=U+ZEVIdDMEoExC
-	xodMFjP3SMAabgzKZ0vx7hYHX9BfbLv2Mp8KzrdQoD56jVxKegIWQPJWzVOJkDUG9bUdVj7YOQD60
-	F4wP1vUnEPx1POtx8kOV7HYUGqKA2/weaap5bvhq/RYeym+eSe7Z9fRooeqOqY8epqXspS5BJUyej
-	SzrEXSI0X72ShPS5L4GSxoZGHwPUa4pFYJ8KqvYLiZWnojMDmAomd33d4B15bANs8pfaUJivhtroV
-	mX4kYpqArYPT4nISqlceeSpDiSK6/gFCjlUeVmb+OZ9UvPjJX8wOTrJfNHnI0RK5Qbc9pXF6ILg/3
-	m65ND2gIvYIkdPDAAh6w==;
+	List-Owner; bh=3WqzD1BC+z45VcMri6kLvM7P1mn3ZaD16FZdnQ1IdlQ=; b=aJ0TH+roqmeoPg
+	hoZKcaU8XKQ3yV8NWRk9hM1jVuwira27VdhNz6SUPe99gNIO3DobaFLlhkt4fulhXxAhCXKUI0Bzj
+	zPJD0Y2Iefh177MAx8MyXakQpODuKS+y9WTVkwDWzObHellqVHzoQp9wngN/Yb3LlalokDxIHRrp2
+	nV6kRz4xW2uP5Zbl60k/TU2ceuWljJlIWg4qeWx/Sm7UQ18ow76P3D+7hWuzqpVhfiXqf7AFnXl+Z
+	mz5fNpFASI1XxIS5rGpGJQmLPuqyXFyK6oUyhrRPz9q568UQy/WezFTsHm48lADb+5QCxnO0q0Duz
+	cGiwMorOK4AbP6nIUKKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAr1-0000000CC2v-2XN7;
-	Fri, 10 Apr 2026 12:20:55 +0000
+	id 1wBArB-0000000CCJr-1AWW;
+	Fri, 10 Apr 2026 12:21:05 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAqm-0000000CBfk-28Kz;
-	Fri, 10 Apr 2026 12:20:42 +0000
+	id 1wBAqv-0000000CBsx-1O7g;
+	Fri, 10 Apr 2026 12:20:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1605941780;
-	Fri, 10 Apr 2026 12:20:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B1D3C2BC9E;
-	Fri, 10 Apr 2026 12:20:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7012141780;
+	Fri, 10 Apr 2026 12:20:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9315FC19425;
+	Fri, 10 Apr 2026 12:20:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775823639;
-	bh=xuHY9CZoFUC3Uh1usl17ZiiMpll/sjP+R8Uwlr/gPtE=;
-	h=Date:From:To:Cc:Subject:References:From;
-	b=q1INVKXpZHtktKQFtR7J0+4UmhxfrqTk44NJDJ9JcHhB06YLNiRtKSdKF4mgJVuJK
-	 SbcmSgsMKGBRlcg33rDyUOrFSOUDUDhFVtStbWiiXhg+24Wo0rvXGROWGoPGbTgWpY
-	 1QIfeqOqXuPtKqCTAnTH/4z6y5eKaf0+C4alVsAJYiVtcktTob8TzqOeasZ85w0p7X
-	 BtZas6qdu0vK0vHim0/6rol7iQm8En5aXNu+7ovbB+IOTj4HSKX+ow5cG7qCECZo1T
-	 4BmBLkbX+cyQgBzFeuQcBUbwDEtuOB2nQvII7+MypdiMTP4ticoX+aM+zON4QU+Q9r
-	 WXrWSNCF41x9w==
-Date: Fri, 10 Apr 2026 14:20:35 +0200
-Message-ID: <20260410120319.330598126@kernel.org>
+	s=k20201202; t=1775823648;
+	bh=Rixu9UkxBpBa/pCcYjAm91Mos3e7PJEWty4VuN8Giko=;
+	h=Date:From:To:Subject:References:cc:From;
+	b=e2TX+7hqQyBiWzo8NI5NRXrCTX+aQLO1om6YbdKnBp1t6r+3gdVVwFgSRp0YguQNn
+	 Jlc+qQUu+TDLRhNxs0vDUgKc/64bw4Xr/nrLXGcr9x8N+WxcYYAWKz/hetumLTTXiH
+	 IOZQe6vf3JeallzAbQOuDlVku9VS3q2KBCLecHsxJ+DIPpUILukw8IDg9/7PZ2ubbz
+	 C8W0nQsdyxy0TL4ubCO16dsYj5itsv1q3iQDjbYKDrJAHUzFBqI36jq5cjES+sc4w7
+	 L7ELcmmojjtISrbWTN6OaCnE72An4bb94Nrrp4eO37cDQXx+zCdhzTRuhaN3nbGiT3
+	 axWFURoe64Leg==
+Date: Fri, 10 Apr 2026 14:20:45 +0200
+Message-ID: <20260410120319.462206386@kernel.org>
 User-Agent: quilt/0.68
 From: Thomas Gleixner <tglx@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: Huacai Chen <chenhuacai@kernel.org>,
- loongarch@lists.linux.dev,
- Arnd Bergmann <arnd@arndb.de>,
+Subject: [patch 28/38] mips: Select ARCH_HAS_RANDOM_ENTROPY
+References: <20260410120044.031381086@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+cc: Arnd Bergmann <arnd@arndb.de>,
  x86@kernel.org,
  Lu Baolu <baolu.lu@linux.intel.com>,
  iommu@lists.linux.dev,
@@ -78,6 +80,8 @@ Cc: Huacai Chen <chenhuacai@kernel.org>,
  Russell King <linux@armlinux.org.uk>,
  linux-arm-kernel@lists.infradead.org,
  Catalin Marinas <catalin.marinas@arm.com>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ loongarch@lists.linux.dev,
  Geert Uytterhoeven <geert@linux-m68k.org>,
  linux-m68k@lists.linux-m68k.org,
  Dinh Nguyen <dinguyen@kernel.org>,
@@ -93,13 +97,9 @@ Cc: Huacai Chen <chenhuacai@kernel.org>,
  linux-s390@vger.kernel.org,
  "David S. Miller" <davem@davemloft.net>,
  sparclinux@vger.kernel.org
-Subject: [patch 26/38] loongarch: Select ARCH_HAS_RANDOM_ENTROPY
-References: <20260410120044.031381086@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_052041_205260_927CFC5D 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20260410_052049_542395_E2D5D1ED 
+X-CRM114-Status: GOOD (  25.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,75 +114,288 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The only remaining non-architecture usage of get_cycles() is to provide
-random_get_entropy().
+The only remaining usage of get_cycles() is to provide random_get_entropy().
 
-Switch loongarch over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY
+Switch mips over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY
 and providing random_get_entropy() in asm/random.h.
 
-Add 'asm/timex.h' includes to the relevant files, so the global include can
-be removed once all architectures are converted over.
+As a consequence this unearthed a nasty include dependency hell because
+arbitrary code relies on a magic include of asm/timex.h. Including the
+headers in asm/random.h turned out to be impossible as well.
+
+The only solution for now is to uninline random_get_entropy().  Fix up all
+other dependencies on the content of asm/timex.h in those files which
+really depend on it.
+
+Remove asm/timex.h as it has no functionality anymore.
 
 Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-Cc: Huacai Chen <chenhuacai@kernel.org>
-Cc: loongarch@lists.linux.dev
 ---
- arch/loongarch/Kconfig              |    1 +
- arch/loongarch/include/asm/random.h |   15 +++++++++++++++
- arch/loongarch/kernel/syscall.c     |    1 +
- arch/loongarch/lib/delay.c          |    2 +-
- 4 files changed, 18 insertions(+), 1 deletion(-)
+ arch/mips/Kconfig              |    1 
+ arch/mips/generic/init.c       |    1 
+ arch/mips/include/asm/random.h |    7 +++
+ arch/mips/include/asm/timex.h  |   92 -----------------------------------------
+ arch/mips/kernel/pm-cps.c      |    1 
+ arch/mips/kernel/proc.c        |    1 
+ arch/mips/kernel/relocate.c    |    1 
+ arch/mips/kernel/time.c        |   53 +++++++++++++++++++++++
+ arch/mips/lib/dump_tlb.c       |    1 
+ arch/mips/mm/cache.c           |    1 
+ 10 files changed, 66 insertions(+), 93 deletions(-)
 
---- a/arch/loongarch/Kconfig
-+++ b/arch/loongarch/Kconfig
-@@ -26,6 +26,7 @@ config LOONGARCH
- 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
- 	select ARCH_HAS_PREEMPT_LAZY
- 	select ARCH_HAS_PTE_SPECIAL
-+	select ARCH_HAS_RANDOM_ENTROPY
- 	select ARCH_HAS_SET_MEMORY
- 	select ARCH_HAS_SET_DIRECT_MAP
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -19,6 +19,7 @@ config MIPS
  	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
+ 	select ARCH_HAS_UBSAN
+ 	select ARCH_HAS_GCOV_PROFILE_ALL
++	select ARCH_HAS_RANDOM_ENTROPY
+ 	select ARCH_KEEP_MEMBLOCK
+ 	select ARCH_USE_BUILTIN_BSWAP
+ 	select ARCH_USE_CMPXCHG_LOCKREF if 64BIT
+--- a/arch/mips/generic/init.c
++++ b/arch/mips/generic/init.c
+@@ -12,6 +12,7 @@
+ #include <linux/of_fdt.h>
+ 
+ #include <asm/bootinfo.h>
++#include <asm/cpu-type.h>
+ #include <asm/fw/fw.h>
+ #include <asm/irq_cpu.h>
+ #include <asm/machine.h>
 --- /dev/null
-+++ b/arch/loongarch/include/asm/random.h
-@@ -0,0 +1,15 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2020-2022 Loongson Technology Corporation Limited
-+ */
++++ b/arch/mips/include/asm/random.h
+@@ -0,0 +1,7 @@
++/* SPDX-License-Identifier: GPL-v2.0-only */
 +#ifndef _ASM_RANDOM_H
 +#define _ASM_RANDOM_H
 +
-+#include <asm/timex.h>
-+
-+static inline unsigned long random_get_entropy(void)
-+{
-+	return get_cycles();
-+}
++unsigned long random_get_entropy(void);
 +
 +#endif /*  _ASM_RANDOM_H */
---- a/arch/loongarch/kernel/syscall.c
-+++ b/arch/loongarch/kernel/syscall.c
-@@ -19,6 +19,7 @@
- #include <asm/loongarch.h>
- #include <asm/signal.h>
- #include <asm/switch_to.h>
-+#include <asm/timex.h>
- #include <asm-generic/syscalls.h>
- 
- #undef __SYSCALL
---- a/arch/loongarch/lib/delay.c
-+++ b/arch/loongarch/lib/delay.c
-@@ -5,9 +5,9 @@
- #include <linux/delay.h>
- #include <linux/export.h>
- #include <linux/smp.h>
--#include <linux/timex.h>
- 
+--- a/arch/mips/include/asm/timex.h
++++ /dev/null
+@@ -1,92 +0,0 @@
+-/*
+- * This file is subject to the terms and conditions of the GNU General Public
+- * License.  See the file "COPYING" in the main directory of this archive
+- * for more details.
+- *
+- * Copyright (C) 1998, 1999, 2003 by Ralf Baechle
+- * Copyright (C) 2014 by Maciej W. Rozycki
+- */
+-#ifndef _ASM_TIMEX_H
+-#define _ASM_TIMEX_H
+-
+-#ifdef __KERNEL__
+-
+-#include <linux/compiler.h>
+-
+-#include <asm/cpu.h>
+-#include <asm/cpu-features.h>
+-#include <asm/mipsregs.h>
+-#include <asm/cpu-type.h>
+-
+-/*
+- * Standard way to access the cycle counter.
+- * Currently only used on SMP for scheduling.
+- *
+- * Only the low 32 bits are available as a continuously counting entity.
+- * But this only means we'll force a reschedule every 8 seconds or so,
+- * which isn't an evil thing.
+- *
+- * We know that all SMP capable CPUs have cycle counters.
+- */
+-
+-/*
+- * On R4000/R4400 an erratum exists such that if the cycle counter is
+- * read in the exact moment that it is matching the compare register,
+- * no interrupt will be generated.
+- *
+- * There is a suggested workaround and also the erratum can't strike if
+- * the compare interrupt isn't being used as the clock source device.
+- * However for now the implementation of this function doesn't get these
+- * fine details right.
+- */
+-static inline int can_use_mips_counter(unsigned int prid)
+-{
+-	int comp = (prid & PRID_COMP_MASK) != PRID_COMP_LEGACY;
+-
+-	if (__builtin_constant_p(cpu_has_counter) && !cpu_has_counter)
+-		return 0;
+-	else if (__builtin_constant_p(cpu_has_mips_r) && cpu_has_mips_r)
+-		return 1;
+-	else if (likely(!__builtin_constant_p(cpu_has_mips_r) && comp))
+-		return 1;
+-	/* Make sure we don't peek at cpu_data[0].options in the fast path! */
+-	if (!__builtin_constant_p(cpu_has_counter))
+-		asm volatile("" : "=m" (cpu_data[0].options));
+-	if (likely(cpu_has_counter &&
+-		   prid > (PRID_IMP_R4000 | PRID_REV_ENCODE_44(15, 15))))
+-		return 1;
+-	else
+-		return 0;
+-}
+-
+-static inline cycles_t get_cycles(void)
+-{
+-	if (can_use_mips_counter(read_c0_prid()))
+-		return read_c0_count();
+-	else
+-		return 0;	/* no usable counter */
+-}
+-#define get_cycles get_cycles
+-
+-/*
+- * Like get_cycles - but where c0_count is not available we desperately
+- * use c0_random in an attempt to get at least a little bit of entropy.
+- */
+-static inline unsigned long random_get_entropy(void)
+-{
+-	unsigned int c0_random;
+-
+-	if (can_use_mips_counter(read_c0_prid()))
+-		return read_c0_count();
+-
+-	if (cpu_has_3kex)
+-		c0_random = (read_c0_random() >> 8) & 0x3f;
+-	else
+-		c0_random = read_c0_random() & 0x3f;
+-	return (random_get_entropy_fallback() << 6) | (0x3f - c0_random);
+-}
+-#define random_get_entropy random_get_entropy
+-
+-#endif /* __KERNEL__ */
+-
+-#endif /*  _ASM_TIMEX_H */
+--- a/arch/mips/kernel/pm-cps.c
++++ b/arch/mips/kernel/pm-cps.c
+@@ -13,6 +13,7 @@
+ #include <asm/asm-offsets.h>
+ #include <asm/cacheflush.h>
+ #include <asm/cacheops.h>
++#include <asm/cpu-type.h>
+ #include <asm/idle.h>
+ #include <asm/mips-cps.h>
+ #include <asm/mipsmtregs.h>
+--- a/arch/mips/kernel/proc.c
++++ b/arch/mips/kernel/proc.c
+@@ -11,6 +11,7 @@
+ #include <asm/bootinfo.h>
+ #include <asm/cpu.h>
+ #include <asm/cpu-features.h>
++#include <asm/cpu-type.h>
+ #include <asm/idle.h>
+ #include <asm/mipsregs.h>
  #include <asm/processor.h>
-+#include <asm/timex.h>
+--- a/arch/mips/kernel/relocate.c
++++ b/arch/mips/kernel/relocate.c
+@@ -13,7 +13,6 @@
+ #include <asm/fw/fw.h>
+ #include <asm/sections.h>
+ #include <asm/setup.h>
+-#include <asm/timex.h>
+ #include <linux/elf.h>
+ #include <linux/kernel.h>
+ #include <linux/libfdt.h>
+--- a/arch/mips/kernel/time.c
++++ b/arch/mips/kernel/time.c
+@@ -2,6 +2,7 @@
+ /*
+  * Copyright 2001 MontaVista Software Inc.
+  * Author: Jun Sun, jsun@mvista.com or jsun@junsun.net
++ * Copyright (C) 1998, 1999, 2003 by Ralf Baechle
+  * Copyright (c) 2003, 2004  Maciej W. Rozycki
+  *
+  * Common time service routines for MIPS machines.
+@@ -21,9 +22,12 @@
+ #include <linux/cpufreq.h>
+ #include <linux/delay.h>
  
- void __delay(unsigned long cycles)
++#include <asm/cpu.h>
+ #include <asm/cpu-features.h>
+ #include <asm/cpu-type.h>
+ #include <asm/div64.h>
++#include <asm/mipsregs.h>
++#include <asm/random.h>
+ #include <asm/time.h>
+ 
+ #ifdef CONFIG_CPU_FREQ
+@@ -150,6 +154,55 @@ static __init int cpu_has_mfc0_count_bug
+ 	return 0;
+ }
+ 
++
++/*
++ * On R4000/R4400 an erratum exists such that if the cycle counter is
++ * read in the exact moment that it is matching the compare register,
++ * no interrupt will be generated.
++ *
++ * There is a suggested workaround and also the erratum can't strike if
++ * the compare interrupt isn't being used as the clock source device.
++ * However for now the implementation of this function doesn't get these
++ * fine details right.
++ */
++static inline int can_use_mips_counter(unsigned int prid)
++{
++	int comp = (prid & PRID_COMP_MASK) != PRID_COMP_LEGACY;
++
++	if (__builtin_constant_p(cpu_has_counter) && !cpu_has_counter)
++		return 0;
++	else if (__builtin_constant_p(cpu_has_mips_r) && cpu_has_mips_r)
++		return 1;
++	else if (likely(!__builtin_constant_p(cpu_has_mips_r) && comp))
++		return 1;
++	/* Make sure we don't peek at cpu_data[0].options in the fast path! */
++	if (!__builtin_constant_p(cpu_has_counter))
++		asm volatile("" : "=m" (cpu_data[0].options));
++	if (likely(cpu_has_counter &&
++		   prid > (PRID_IMP_R4000 | PRID_REV_ENCODE_44(15, 15))))
++		return 1;
++	else
++		return 0;
++}
++
++/*
++ * Like get_cycles - but where c0_count is not available we desperately
++ * use c0_random in an attempt to get at least a little bit of entropy.
++ */
++unsigned long random_get_entropy(void)
++{
++	unsigned int c0_random;
++
++	if (can_use_mips_counter(read_c0_prid()))
++		return read_c0_count();
++
++	if (cpu_has_3kex)
++		c0_random = (read_c0_random() >> 8) & 0x3f;
++	else
++		c0_random = read_c0_random() & 0x3f;
++	return (random_get_entropy_fallback() << 6) | (0x3f - c0_random);
++}
++
+ void __init time_init(void)
  {
+ 	plat_time_init();
+--- a/arch/mips/lib/dump_tlb.c
++++ b/arch/mips/lib/dump_tlb.c
+@@ -8,6 +8,7 @@
+ #include <linux/kernel.h>
+ #include <linux/mm.h>
+ 
++#include <asm/cpu-type.h>
+ #include <asm/hazards.h>
+ #include <asm/mipsregs.h>
+ #include <asm/mmu_context.h>
+--- a/arch/mips/mm/cache.c
++++ b/arch/mips/mm/cache.c
+@@ -22,6 +22,7 @@
+ #include <asm/processor.h>
+ #include <asm/cpu.h>
+ #include <asm/cpu-features.h>
++#include <asm/cpu-type.h>
+ #include <asm/setup.h>
+ #include <asm/pgtable.h>
+ 
 
 
