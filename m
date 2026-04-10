@@ -4,75 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF99AF44868
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 13:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7830F44869
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 13:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DqL1GrdEAJcl9acbfnmWZiJ733NBeYHp8APhAnCH1ek=; b=S07XhI7yDT1Z4yHRBDuQnGzgnt
-	i0bQlGEqJcGlJfr/5RfPFEeBXLY0JRgRwyiHC5Y3OZFeRqz7cdOGCXxkthvN12ERXefEUYvdN+1MM
-	4U6d170LxmsF3RK72sAPQGNtKyE3eTt7hOMW0qmwm8oDB1C0e/geLaEdpqEh72mIYNSDJQiLGw8ba
-	AXyyBJ4fhY0kp0RWX13UuG7dx2pdkqfhqeDIAoN7pxIRoYJicjDeYrHBIO9stBAXEP8xKuV/XBTyS
-	TczoU9FqJcQOcJOgaCP3/CU6wkOk0K1hw1TpBPXyjd+X3FQgstRA5R+yXXNZAGupQ7+9OyFpC6umL
-	JDo7G7xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iCXB7w7ko4o+lkpt1Tfr/OwLPxl1m2l/vGRhYm7vF9w=; b=bUr5d6bAyjgqjvmKM90GlbK0NP
+	HGsXr/FqJQJa/iCO3UJb8Ji9p+PhJEmxr0d37Eyn0/6diYxrVOis6iPpmePL4ONlRbwNW8z9/Y7aE
+	wsgeM7MldUfX9QYlz8pyMcFkBO2rIRUdHsErFHpTbRwwRqrNL2gVQS/7fu1ONcma3ueQSDKiT2QOI
+	4G3DuxvJeWJW34GjMmWkkmXmvdpw0HXqzd3nnDkSjo9RxPwzaitbDzN2AgYTKgkQ26T/ctOBXSotu
+	vyIzafyL5O+urkTfP7p4lIF9uLHE29Se29SD2C1r8b5wgFvH2X9hcRtwmZmR3Ll8+QzdJfyDcQHkA
+	xu/vf/Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBBvJ-0000000CJuE-3Ff5;
-	Fri, 10 Apr 2026 13:29:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wBC5j-0000000CKUB-3GPC;
+	Fri, 10 Apr 2026 13:40:11 +0000
+Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBBvG-0000000CJts-3y69
+	id 1wBC5g-0000000CKTJ-49sM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 13:29:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D8F7940728;
-	Fri, 10 Apr 2026 13:29:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 347F1C19421;
-	Fri, 10 Apr 2026 13:29:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775827761;
-	bh=BGTVhOVa+Fdq7E52HiKwBfIFKgu77QwjCb2aXOQf+Ws=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lz3e7crtUJ7MuP6SM2Vx3dNuc7GOeW4ksMX1JVpBZY0vOH3PfyBr/8ho2CDhwu9nm
-	 ojGoibQSGNm8/3W2av8EBOabOBZdX0DPf4dmTgWp1beeYIK03Q/pUKcx0LYuE11fgu
-	 kDGFZ4Bof7AAQUUtXjLoycQKPFY3ZLvSDzMQxRnPLUut0+TUHENXf3DDwAB2hCgoEq
-	 SSUT00TR1RUZyfzZJWbdBuYu+iV0qRuXh7YXt1RQnlyHMxa6tjvVTbPeDwRWKMdi3+
-	 nmAPqnMaJzMcITQMPPShhTDjBJUaP5AZhvJYbXHmUed3/UJ1XC/SFkAQA/rCp7K/Cl
-	 +M3elzl8XckDg==
-Message-ID: <40f31e5a-7161-4b17-af03-52b3a28a113e@kernel.org>
-Date: Fri, 10 Apr 2026 15:29:12 +0200
+	Fri, 10 Apr 2026 13:40:10 +0000
+Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-1279eced0b9so3035209c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 06:40:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775828407; cv=none;
+        d=google.com; s=arc-20240605;
+        b=RMl0hWzRZov9Kj7Od7wFmkGGMgzXUO6/J3dmSoj+UJ09NZn5u1Opo2y5wVM5a48LJx
+         hjuErnCGOligb5YRb+8gylDULdjbbJ+YMIiKvTS0PMkg6zSVI/xMxvue3145rc8FgWH6
+         CL4u+cwpk0xYnDidgkK70uZ/IPyAwNmx8DY7C4D7FayhI2+yr4uzTPkd+kXUj7R4DnKs
+         kjA18FOThJm4j8HtLzQgoIgl8Y139i79PeaZYnoURSDcLPldFtGMvzSWqq4uO2YCx4M1
+         SlZoXzj0DgPmKOszJfotRuHUr/hBJdCMReQVCV0UUPA+e84ikNr41zR39h5BqoXmXN1V
+         hLXw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=iCXB7w7ko4o+lkpt1Tfr/OwLPxl1m2l/vGRhYm7vF9w=;
+        fh=/9hq86XmmXl1SrcvEmV+lfn7JBWmifysGP1tVqqPSsc=;
+        b=g/R9GzbdyoWRhb3iiouYx9AyYWrsOL1fb9sZ0UwWOHMn7JZpdseu5mKXTQ2Q82bhG/
+         2G3lKfRwb/z2YWihgAH8oNrefgYHxmFvDttui2xTqH8Kooy5+nyGSH8xpI4221HxTebM
+         4ofjg69rRLCYQ/IyNbGmaYSiS5PNAxwlruSkyoKGba+6iKlfz6Ik1XlmOi5K83bBP/s2
+         puFocBZm7axm7f1nOQ8Gj31cbGuGnk2L13jZqsJp5pp2BavM1EAl5j14WkXjLXayJJeM
+         AFzqEjjpzpvTWWUq+yRHAMwiXZ6yjUvWAS8mWkfMMw4aVWm28eYx4kHs08gwDNynJ8t0
+         9Efw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1775828407; x=1776433207; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=iCXB7w7ko4o+lkpt1Tfr/OwLPxl1m2l/vGRhYm7vF9w=;
+        b=LQs46EfBKyQi8bjGZc/shWUpNuXhL01LJmtMpaqVSG56suvV4q+KJrg7qRuE5AR7UG
+         2ys/oNN93wyjpCRaSIrjyvIMI7dCIVyGXhVM5pxkpvifXkp9F6I688F51y176v3rLLJv
+         dn9SmUZWI/roG3YrOoQHq53/9otBw9DHsFj9x3FtwzxpK0+LjnazmO2LKHnFke7ZeO78
+         N6HSR7RV1O8R4EpB34BpDO6ZOUDIBHkP0pxIEDNQdFQ+0M84oEva8D1WESVNTtZvdDQN
+         PTvcaDriST+M1T1f64yv9TebkinyHY1zQ8k8MVSwX408DDDXzkz9ozD28zlDGfQB1wO+
+         yY1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775828407; x=1776433207;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iCXB7w7ko4o+lkpt1Tfr/OwLPxl1m2l/vGRhYm7vF9w=;
+        b=oZ7n7RQhxbq9MvRiZ+LB6skpZugBLJMpPGfDAA1Lr4n3hfbDrLm2YHt3uvnB9lN6NS
+         qy78z2ZFb43Fh/ZbCy3qKOVpMEkcqq5M8RMNbmTzVKHSPiTXGM+wUk3F+oruCZno3Gcy
+         Fl+LYEMr9nCq72BtezZn/8vd4rkP3bI6/cHl0bFN1Te27MbqUPnpF+UU9beeqNDAyYjx
+         4pUJDyfQQWMvtRB3N47Gr7kYFgrp52pJPGVXVB3/KDe6tRVkdBKfqAwkC/dk2flY1+zk
+         8RHvgiOji2M9zH5cMrbTRgNenpALSoRL9Y5KBmBY7zXXyDQt4qkXUXeUkI3PgtBGleaT
+         h7qA==
+X-Forwarded-Encrypted: i=1; AJvYcCX3jw3J0MbSAahmgYTePkyAIJdZRwiJiUmNDQuIWgVBOBos5X99QtxSuwUc+C+xTTBCcVw+Zt3aEgcoNvHyUTFG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3vG2ytprh7umQuWI2zNjezdxtyrvcigQy1vVqEoLdAxLloRWB
+	gfTF4bwaXMv0ZSD0EhzAkm8Xgbx/gIBnuGaSlpLSn3yStZGzJXe3o8suvbqA0XvWI+OBBUZ5JYW
+	tP/tl1ilIY+5yN9NnGyrQ+lwwxha6APef25jcK7S2
+X-Gm-Gg: AeBDieuH9hspvcSVP5hAE7jEJDWJua5gNeDkgjcnoZUsvax3NB0GnpVFOihzmKyZBIV
+	rD7dna2n3Xu91iGzEgRTvcG/Is5PrK1lPVdNo1lGpVoB1dGeIKHVW276vCc/T/ff0wLIdQEeEaf
+	/pF0jBPcCjOxMbaL3ev2qpi8xiDtckvUHl9v5uN86JrlQS30E6iakxrsN2hrjfOfBSM9MK46U2e
+	Wlfq12sTc1WAhynsS0BwFdKITrroDRBsJ+wU+J5xel32hZj9nwCtkByhXK44nTjgpf7S/RVbYBp
+	1zP52w84Sb4FcbQ/comLyrb5Pc3zV9jAoAkuNjEt7Fyh+Ftx
+X-Received: by 2002:a05:7022:fa04:b0:12c:2ed4:62fa with SMTP id
+ a92af1059eb24-12c34ef907emr1882312c88.32.1775828406651; Fri, 10 Apr 2026
+ 06:40:06 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/4] mm: improve large folio readahead and alignment
- for exec memory
-Content-Language: en-US
-To: Lorenzo Stoakes <ljs@kernel.org>, Usama Arif <usama.arif@linux.dev>
-Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org,
- willy@infradead.org, ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc,
- jack@suse.cz, ajd@linux.ibm.com, apopple@nvidia.com, baohua@kernel.org,
- baolin.wang@linux.alibaba.com, brauner@kernel.org, catalin.marinas@arm.com,
- dev.jain@arm.com, kees@kernel.org, kevin.brodsky@arm.com,
- lance.yang@linux.dev, Liam.Howlett@oracle.com,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, mhocko@suse.com, npache@redhat.com,
- pasha.tatashin@soleen.com, rmclure@linux.ibm.com, rppt@kernel.org,
- surenb@google.com, Al Viro <viro@zeniv.linux.org.uk>, ziy@nvidia.com,
- hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
- leitao@debian.org, kernel-team@meta.com
-References: <20260402181326.3107102-1-usama.arif@linux.dev>
- <803a0c15-0a6a-4c00-b6b3-eaae56d5fc15@linux.dev> <adjkCOiLgZ_-zovg@lucifer>
- <adjllNan2vgBNBHJ@lucifer> <5f99b289-629c-47c4-bef0-966d6678a2a8@linux.dev>
- <adjrKwgiZwXR9epk@lucifer>
-From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-In-Reply-To: <adjrKwgiZwXR9epk@lucifer>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260410120044.031381086@kernel.org> <20260410120318.862164111@kernel.org>
+In-Reply-To: <20260410120318.862164111@kernel.org>
+From: Marco Elver <elver@google.com>
+Date: Fri, 10 Apr 2026 15:39:30 +0200
+X-Gm-Features: AQROBzBE-9UxDQG5mMJLgipEeL_Y5pwE-Y_PUrJGxDBLilqBu51b8lLzxdip708
+Message-ID: <CANpmjNO1vsO1LT6xijhz3nsjQa+_A=9omfgOSz=aGn293-LqTg@mail.gmail.com>
+Subject: Re: [patch 19/38] kcsan: Replace get_cycles() usage
+To: Thomas Gleixner <tglx@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, Dmitry Vyukov <dvyukov@google.com>, 
+	kasan-dev@googlegroups.com, Arnd Bergmann <arnd@arndb.de>, x86@kernel.org, 
+	Lu Baolu <baolu.lu@linux.intel.com>, iommu@lists.linux.dev, 
+	Michael Grzeschik <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org, 
+	linux-wireless@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>, 
+	linux-crypto@vger.kernel.org, Vlastimil Babka <vbabka@kernel.org>, linux-mm@kvack.org, 
+	David Woodhouse <dwmw2@infradead.org>, Bernie Thompson <bernie@plugable.com>, linux-fbdev@vger.kernel.org, 
+	Theodore Tso <tytso@mit.edu>, linux-ext4@vger.kernel.org, 
+	Andrew Morton <akpm@linux-foundation.org>, Uladzislau Rezki <urezki@gmail.com>, 
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Thomas Sailer <t.sailer@alumni.ethz.ch>, 
+	linux-hams@vger.kernel.org, "Jason A. Donenfeld" <Jason@zx2c4.com>, 
+	Richard Henderson <richard.henderson@linaro.org>, linux-alpha@vger.kernel.org, 
+	Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Huacai Chen <chenhuacai@kernel.org>, 
+	loongarch@lists.linux.dev, Geert Uytterhoeven <geert@linux-m68k.org>, 
+	linux-m68k@lists.linux-m68k.org, Dinh Nguyen <dinguyen@kernel.org>, 
+	Jonas Bonn <jonas@southpole.se>, linux-openrisc@vger.kernel.org, 
+	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org, 
+	Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org, 
+	Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org, 
+	Heiko Carstens <hca@linux.ibm.com>, linux-s390@vger.kernel.org, 
+	"David S. Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_062923_029185_089EA758 
-X-CRM114-Status: GOOD (  20.18  )
+X-CRM114-CacheID: sfid-20260410_064009_039461_91D38CA8 
+X-CRM114-Status: GOOD (  22.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,43 +134,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/10/26 14:24, Lorenzo Stoakes wrote:
-> On Fri, Apr 10, 2026 at 01:19:08PM +0100, Usama Arif wrote:
->> >> Thanks, Lorenzo
->> >
->> > (Note that we're in a 'quiet period' from here until -rc1 of next cycle and
->> > won't be taking anything new until then. We plan to do this from around rc5 or
->> > rc6 of each cycle in future).
->>
->> Thanks! Just wanted to check, as I am always confused about this. Is it ok
->> to send patches for review for next release at this time? So that they
->> are in a good state when rc1 comes. I wanted to send PMD swap entries
->> for review after I am finished testing, but I want them for review for
->> next release.
-> 
-> I think different people have different views on that :)
-> 
-> I mean it's debateable whether having a glut of new material on day one of -rc1
-> is preferable to having a bunch come in that might or might not get lost along
-> the way :)
-> 
-> I personally feel it'd be better to send during the cycle window rather than
-> before but I suspect others disagree with that!
-> 
-> So from your point of view, feel free to do what you like, but maybe David +
-> others would want to chime in with their opinions?
+On Fri, 10 Apr 2026 at 14:20, Thomas Gleixner <tglx@kernel.org> wrote:
+>
+> KCSAN uses get_cycles() for two purposes:
+>
+>   1) Seeding the random state with get_cycles() is a historical leftover.
+>
+>   2) The microbenchmark uses get_cycles(), which provides an unit less
+>      counter value and is not guaranteed to be functional on all
+>      systems/platforms.
+>
+> Use random_get_entropy() for seeding the random state and ktime_get() which
+> is universaly functional and provides at least a comprehensible unit.
+>
+> This is part of a larger effort to remove get_cycles() usage from
+> non-architecture code.
+>
+> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
+> Cc: Marco Elver <elver@google.com>
+> Cc: Dmitry Vyukov <dvyukov@google.com>
+> Cc: kasan-dev@googlegroups.com
 
-For me the more important part of the quiet period is that patches can't be
-merged, so there's less urgency to review them immediately. So I think it's
-fine to still send patches, but not having expectations about quick
-response, as people might be taking time off.
+Reviewed-by: Marco Elver <elver@google.com>
 
-On the other hand it would be better if new series could mature in this
-quiet period, so there would be less work after rc1. But the key to making
-that possible I think is to feel less urgency/being overwhelmed also in the
-non-quiet period (rc1-rc5/6). Then it's should be less necessary to take
-time off during the quiet period. So hopefully we'll get there through
-involving more reviewers, and by having more submaintainers agency.
-
-Vlastimil
+> ---
+>  kernel/kcsan/core.c    |    2 +-
+>  kernel/kcsan/debugfs.c |    8 ++++----
+>  2 files changed, 5 insertions(+), 5 deletions(-)
+>
+> --- a/kernel/kcsan/core.c
+> +++ b/kernel/kcsan/core.c
+> @@ -798,7 +798,7 @@ void __init kcsan_init(void)
+>         BUG_ON(!in_task());
+>
+>         for_each_possible_cpu(cpu)
+> -               per_cpu(kcsan_rand_state, cpu) = (u32)get_cycles();
+> +               per_cpu(kcsan_rand_state, cpu) = (u32)random_get_entropy();
+>
+>         /*
+>          * We are in the init task, and no other tasks should be running;
+> --- a/kernel/kcsan/debugfs.c
+> +++ b/kernel/kcsan/debugfs.c
+> @@ -58,7 +58,7 @@ static noinline void microbenchmark(unsi
+>  {
+>         const struct kcsan_ctx ctx_save = current->kcsan_ctx;
+>         const bool was_enabled = READ_ONCE(kcsan_enabled);
+> -       u64 cycles;
+> +       ktime_t nsecs;
+>
+>         /* We may have been called from an atomic region; reset context. */
+>         memset(&current->kcsan_ctx, 0, sizeof(current->kcsan_ctx));
+> @@ -70,16 +70,16 @@ static noinline void microbenchmark(unsi
+>
+>         pr_info("%s begin | iters: %lu\n", __func__, iters);
+>
+> -       cycles = get_cycles();
+> +       nsecs = ktime_get();
+>         while (iters--) {
+>                 unsigned long addr = iters & ((PAGE_SIZE << 8) - 1);
+>                 int type = !(iters & 0x7f) ? KCSAN_ACCESS_ATOMIC :
+>                                 (!(iters & 0xf) ? KCSAN_ACCESS_WRITE : 0);
+>                 __kcsan_check_access((void *)addr, sizeof(long), type);
+>         }
+> -       cycles = get_cycles() - cycles;
+> +       nsecs = ktime_get() - nsecs;
+>
+> -       pr_info("%s end   | cycles: %llu\n", __func__, cycles);
+> +       pr_info("%s end   | nsecs: %llu\n", __func__, nsecs);
+>
+>         WRITE_ONCE(kcsan_enabled, was_enabled);
+>         /* restore context */
+>
 
