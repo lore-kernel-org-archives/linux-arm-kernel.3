@@ -4,79 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D36EE99050
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 07:42:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33924E9904F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 07:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
-	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MHNH9UXB0cyYa0OWDg7so8oezJOoutLQTfep4KfFZOA=; b=W/A1UU8B1K+zv0gbaiBbHOaMOe
-	fFixa7XMhnEK3N5Bd/072Fl3qeamxbTSHHFttobs1etVbhRpgHyI/YdT7U26g+vsOSZG2w1PvKSXW
-	As9DuucQmXJl4p7pK+nRF9uVMZ7xdOyDK1xbXQIjGZXvaX5lMaTYn/OoOeqBz53qe1s6mFKjtiD/B
-	2ijLeOKVpi2UFVgWM0u5PSxWpEKw7E8IREISmVfy70h8kmpEXWmImUd/REOWQMFlyFS6nCSrrvUVp
-	1sIvK6B4S8d0oWEc49xrwOxh99jwjpOB3/RYVVshzd8LD9Dimptz0rtrC4xr1tFh6En3hcP30q9tT
-	qzHQJbFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kUPJYD2mvk9MkO6ZjBKjxBKPbi8Nb+tFhqEtJZHM5Fo=; b=xFqBATih489AsaKKhOJvK0bwLv
+	18HMF8/0ZRz69yA7lKXA9aRnrBC0c+CBv3G4OeW8dyn7IrE4VHdFq/chZTphCd0TrH6eWYv4ZBFC/
+	w2ClqltEZ5gGXf2YfMkI3/+fB5CB0WxtnNaJ1vNjSalNKlyQ5HXPuYNPqhz5oHs8vgUMYk/zAJWNK
+	JUXtM3xZfkhDAq1+dGSXBtSekiFxE8Og+wT4HMufFFT+/Ti+LScCQGCnJsFrefVKMxH8TVeon9lzi
+	pgmwVTOESPJwHIZHydZwemALsBj+fUQsRgWPf4xoOcUWI9dgEY+TcD4eaij1KV8BcrC7suHwFDhKg
+	mKLG2CKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB6VR-0000000Bm5q-1pR2;
-	Fri, 10 Apr 2026 07:42:21 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB6VN-0000000Bm4x-2KoY
+	id 1wB6WS-0000000BmJO-28UM;
+	Fri, 10 Apr 2026 07:43:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wB6WQ-0000000BmI3-1W0k
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 07:42:20 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 525981A325A;
-	Fri, 10 Apr 2026 07:42:14 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 165CE603F0;
-	Fri, 10 Apr 2026 07:42:14 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D03FF1045001D;
-	Fri, 10 Apr 2026 09:41:59 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1775806932; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=MHNH9UXB0cyYa0OWDg7so8oezJOoutLQTfep4KfFZOA=;
-	b=fb6SynIsvC1cwH9UKMqmu4ZqdazkS5hj4bRDu9pSaGAYro1/prY1xJlayMW0oVjkSSaa8u
-	X2jxQ54EkZg+y6nChj6kz3mRVp7dNOtBI28A4cBrBEtqEN66r3BmY9QrxKOkp0HxY4tu2C
-	uwVKIKo6SUQzn0KW5PgsgF6hoSux+egTxZbMMxHUHhai10afej68DxjClWB2HDRxFaz3yJ
-	WlpUgceB2XIpYBiD3OIddnvBOoBsQJ7GRfS2x0EE84QrzerRTDZJwP+0vyblHujmoMcsKt
-	8LphUmAUnRscmt/LZ4XLaCBeKy45DwJF+Zm9WA3ObZBdXzaPWXpynlPIi53/wg==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 10 Apr 2026 09:41:58 +0200
-Message-Id: <DHPB0K9AHVR3.33XQ35I1GV96N@bootlin.com>
-To: "Damon Ding" <damon.ding@rock-chips.com>, <andrzej.hajda@intel.com>,
- <neil.armstrong@linaro.org>, <rfoss@kernel.org>,
- <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
- <tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
- <victor.liu@nxp.com>, <Frank.Li@nxp.com>, <shawnguo@kernel.org>,
- <s.hauer@pengutronix.de>, <inki.dae@samsung.com>, <sw0312.kim@samsung.com>,
- <kyungmin.park@samsung.com>, <krzk@kernel.org>, <jingoohan1@gmail.com>,
- <p.zabel@pengutronix.de>, <hjc@rock-chips.com>, <heiko@sntech.de>,
- <andy.yan@rock-chips.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v13 11/17] drm/bridge: analogix_dp: Apply
- drm_bridge_connector helper
-Cc: <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
- <jernej.skrabec@gmail.com>, <kernel@pengutronix.de>, <festevam@gmail.com>,
- <alim.akhtar@samsung.com>, <dmitry.baryshkov@oss.qualcomm.com>,
- <nicolas.frattaroli@collabora.com>, <dianders@chromium.org>,
- <m.szyprowski@samsung.com>, <linux-kernel@vger.kernel.org>,
- <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-samsung-soc@vger.kernel.org>, <linux-rockchip@lists.infradead.org>
-X-Mailer: aerc 0.20.1
-References: <20260409065301.446670-1-damon.ding@rock-chips.com>
- <20260409065301.446670-12-damon.ding@rock-chips.com>
-In-Reply-To: <20260409065301.446670-12-damon.ding@rock-chips.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	Fri, 10 Apr 2026 07:43:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 91F711CE2;
+	Fri, 10 Apr 2026 00:43:13 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E07913FAF5;
+	Fri, 10 Apr 2026 00:43:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775806999; bh=PQO7zOkrnH5khIgNVMnJx0EZ1WFsZepjGJasGOXUV/w=;
+	h=From:To:Cc:Subject:Date:From;
+	b=AJ3QDhm0mLy8uMayoCsBnCbXUUa4a+RT6NEGvtzVCiSPO6TzTwBopsEtLPot3eKsy
+	 wt2xm1HzL7ln62R460LD8I8Mo5dToQCczpYJlx1Ck3+xeTVQ8mcV7jVJhTihgJDl5Z
+	 kMhzHFhfSbGcOgSHeN2ksvgRha+Ly9TkJzzveX4w=
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: suzuki.poulose@arm.com,
+	mike.leach@arm.com,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	leo.yan@arm.com,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v2 0/5] fix inconsistencies with sysfs configuration in etmX
+Date: Fri, 10 Apr 2026 08:43:05 +0100
+Message-Id: <20260410074310.2693385-1-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_004217_764478_2BED6CFA 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20260410_004322_434020_1D7C77B2 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,104 +73,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Damon,
+The current ETMx configuration via sysfs can lead to the following
+inconsistencies:
 
-On Thu Apr 9, 2026 at 8:52 AM CEST, Damon Ding wrote:
-> Initialize bridge_connector for both Rockchip and Exynos encoder sides.
-> Then, make DRM_BRIDGE_ATTACH_NO_CONNECTOR mandatory for Analogix bridge
-> side, as the private &drm_connector is no longer created.
->
-> The previous &drm_connector_funcs and &drm_connector_helper_funcs APIs
-> are replaced by the corresponding &drm_bridge_funcs APIs:
->
-> analogix_dp_atomic_check() -> analogix_dp_bridge_atomic_check()
-> analogix_dp_detect()       -> analogix_dp_bridge_detect()
-> analogix_dp_get_modes()    -> analogix_dp_bridge_get_modes()
->                               analogix_dp_bridge_edid_read()
->
-> Additionally, the compatibilities of Analogix DP bridge based on whether
-> the next bridge is a 'panel'. If it is, OP_MODES and OP_DETECT are
-> supported; If not (the next bridge is a 'monitor' or a bridge chip),
-> OP_EDID and OP_DETECT are supported.
->
-> The devm_drm_bridge_add() is placed in analogix_dp_bind() instead of
-> analogix_dp_probe(), because the type of next bridge (the panel, monitor
-> or bridge chip) can only be determined after the probe process has fully
-> completed.
->
-> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> Tested-by: Heiko Stuebner <heiko@sntech.de> # rk3588
+  - If a configuration is modified via sysfs while a perf session is
+    active, the running configuration may differ between before
+    a sched-out and after a subsequent sched-in.
 
-I noticed two issues, sorry I haven't catched them before...
+  - If a perf session and sysfs session tries to enable concurrently,
+    configuration from configfs could be corrupted (etm4).
 
-> @@ -1580,7 +1533,8 @@ EXPORT_SYMBOL_GPL(analogix_dp_unbind);
->
->  int analogix_dp_start_crc(struct drm_connector *connector)
->  {
-> -	struct analogix_dp_device *dp =3D to_dp(connector);
-> +	struct analogix_dp_device *dp;
-> +	struct drm_bridge *bridge;
->
->  	if (!connector->state->crtc) {
->  		DRM_ERROR("Connector %s doesn't currently have a CRTC.\n",
-> @@ -1588,13 +1542,26 @@ int analogix_dp_start_crc(struct drm_connector *c=
-onnector)
->  		return -EINVAL;
->  	}
->
-> +	bridge =3D drm_bridge_chain_get_first_bridge(connector->encoder);
-> +	if (bridge->type !=3D DRM_MODE_CONNECTOR_eDP)
-> +		return -EINVAL;
-> +
-> +	dp =3D to_dp(bridge);
-> +
->  	return drm_dp_start_crc(&dp->aux, connector->state->crtc);
->  }
+  - There is chance to corrupt drvdata->config if perf session tries
+    to enabled among handling cscfg_csdev_disable_active_config()
+    in etm4_disable_sysfs() (etm4).
 
-drm_bridge_chain_get_first_bridge() takes a reference, you must call
-drm_bridge_put(bridge) before returning. Given there are two return paths I
-suggest:
+To resolve these inconsistencies, the configuration should be separated into:
 
--	struct drm_bridge *bridge;
+  - active_config, which is applied configuration for the current session
+  - config, which stores the settings configured via sysfs.
 
--	bridge =3D drm_bridge_chain_get_first_bridge(connector->encoder);
-+	struct drm_bridge *bridge __free(drm_bridge_put) =3D
-+		drm_bridge_chain_get_first_bridge(connector->encoder);
+and apply configuration from configfs after taking a mode.
 
->  EXPORT_SYMBOL_GPL(analogix_dp_start_crc);
->
->  int analogix_dp_stop_crc(struct drm_connector *connector)
->  {
-> -	struct analogix_dp_device *dp =3D to_dp(connector);
-> +	struct analogix_dp_device *dp;
-> +	struct drm_bridge *bridge;
-> +
-> +	bridge =3D drm_bridge_chain_get_first_bridge(connector->encoder);
-> +	if (bridge->type !=3D DRM_MODE_CONNECTOR_eDP)
-> +		return -EINVAL;
-> +
-> +	dp =3D to_dp(bridge);
->
->  	return drm_dp_stop_crc(&dp->aux);
->  }
 
-Same here:
+This patch based on v7.0-rc7
 
--	struct drm_bridge *bridge;
 
--	bridge =3D drm_bridge_chain_get_first_bridge(connector->encoder);
-+	struct drm_bridge *bridge __free(drm-bridge_put) =3D
-+		drm_bridge_chain_get_first_bridge(connector->encoder);
+Patch History
+=============
 
-With the above two changes you can add to v14:
+from v1 to v2
+  - rebased to v7.0-rc7.
+  - introduce etmX_caps structure to save etmX's capabilities.
+  - remove ss_status from etmv4_config.
+  - modify active_config after taking a mode (perf/sysfs).
+  - https://lore.kernel.org/all/20260317181705.2456271-1-yeoreum.yun@arm.com/
 
-+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Yeoreum Yun (5):
+  coresight: etm4x: introduce struct etm4_caps
+  coresight: etm4x: exclude ss_status from drvdata->config
+  coresight: etm4x: fix inconsistencies with sysfs configration
+  coresight: etm3x: introduce struct etm_caps
+  coresight: etm3x: fix inconsistencies with sysfs configration
 
-Luca
+ drivers/hwtracing/coresight/coresight-etm.h   |  42 ++-
+ .../coresight/coresight-etm3x-core.c          |  53 +--
+ .../coresight/coresight-etm3x-sysfs.c         |  14 +-
+ .../hwtracing/coresight/coresight-etm4x-cfg.c |   3 +-
+ .../coresight/coresight-etm4x-core.c          | 322 ++++++++++--------
+ .../coresight/coresight-etm4x-sysfs.c         | 192 ++++++-----
+ drivers/hwtracing/coresight/coresight-etm4x.h | 180 +++++-----
+ 7 files changed, 450 insertions(+), 356 deletions(-)
 
+
+base-commit: 591cd656a1bf5ea94a222af5ef2ee76df029c1d2
 --
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+
 
