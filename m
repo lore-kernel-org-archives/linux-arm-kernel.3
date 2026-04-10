@@ -4,69 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5BF4F44847
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:13:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73C8DF44850
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:18:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W0BvSXReYSRRwgUShrYlU35UKMeEmkue4ENtTgSs2TQ=; b=LnMUQzMLIOvflvdRDwzPXHVBPJ
-	y8uG0ZOm3yKNto0ysMdasmM/Ek9wP5DD6rI+239jp0k+twXsZrWWzDjzKFcuRIKmxGfAe7lKcieRU
-	joea4EQJKRkpAUAHU4L18Wz+6sBwmrhi6UpFERyCiFRL/zEngN4oPqbPqKHYLFGlY1Sr1u4GcQymJ
-	bJQ3j8j0fWVSd199Qse9ScaoZchlgItwhe/KKhgqjtMRkNvqmQ58fBEUJ2Cnd2v9hup7bylkBNqXs
-	ssvM0TgVwaNmptPmCXtuR66oFffOPJ8pgyPWYPrmEsPmyKnF940KH8nFS3oymWS98N3aqeZloT03a
-	H0vJJp8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:cc:Subject:To:From:
+	Message-ID:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RGZWkdQ4vdhJ/zmTXBMfmAASwOBRdYWIY356UL1Iu/0=; b=Ny5XUgk++w6+HHHBlv2gPKIDza
+	oofx7fUJ4SoYMfcctGux3VCOx5Q75hQsdD76HrCDmp3j6KppZUtu0fXGTl3wjGUPia9yabCH8nQDX
+	e5eHqngFJd3Qid96l+tTKQvKHJc6XSDqZBtee0AclAXA1dy7UZEszzHHsax/mjCjm+UvjAiFuLxeE
+	oZyMM/ZztmrwcwY/gd50CKHOcXBGPBQ7a7n5Hy+DB3OBoGACQw1D+wclTtu0YiET/PnKb0jlq4Yum
+	t5GWyU1GgvqiDqqLmrM9SfCxn/sDLzMh+xMt9CtF5rmwjE21068IHmkAecY0Dj0Ee7hbIsz6mB4iH
+	7MRM/ygg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAkE-0000000C8Od-1sS5;
-	Fri, 10 Apr 2026 12:13:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wBAok-0000000C92r-0X17;
+	Fri, 10 Apr 2026 12:18:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAkC-0000000C8OX-1MF7
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 12:13:52 +0000
+	id 1wBAoi-0000000C92g-2X4E;
+	Fri, 10 Apr 2026 12:18:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 72AB96024D;
-	Fri, 10 Apr 2026 12:13:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 945D6C19421;
-	Fri, 10 Apr 2026 12:13:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6FD0B6024D;
+	Fri, 10 Apr 2026 12:18:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CF16C19421;
+	Fri, 10 Apr 2026 12:18:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775823231;
-	bh=Mr9yxOrAKcnkKOYz0gBol4ytGWhmvk0ZGMLSGWC88UA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tLzPZ7sleIRkgRUbRXWJDZwu1lql5NkDTsfvi2l3sWZDBGqnMUC2nUk1cHxoBxMms
-	 ULDJrUVTDHlAlvO4n4FTXnygk1oB0t7mC27YH2+j4No4IUzJiDsOhxw/ZGMhp3hMiR
-	 Rb8doK3idFBNSpQ4O2TMorkL/hJ4kVEGTS+3/iyOkqsJsKSL9TLtn8ihSbHVjAIBWN
-	 lL7SOh7tk79CxmERhjRi2vxcjvOUErXbhEh2C8uiy9umOXz1xoR4jYSL2+psJkS5fo
-	 G+pL7nyUzc4fZfkE9V5r6FA45of6iVKUaFTxQRjFjWRxSQ9GinlVMdY0TNMf1f81VN
-	 RCSjyXxfG69wA==
-Date: Fri, 10 Apr 2026 13:13:40 +0100
-From: Lorenzo Stoakes <ljs@kernel.org>
-To: Usama Arif <usama.arif@linux.dev>
-Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org, 
-	willy@infradead.org, ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc, jack@suse.cz, 
-	ajd@linux.ibm.com, apopple@nvidia.com, baohua@kernel.org, 
-	baolin.wang@linux.alibaba.com, brauner@kernel.org, catalin.marinas@arm.com, dev.jain@arm.com, 
-	kees@kernel.org, kevin.brodsky@arm.com, lance.yang@linux.dev, 
-	Liam.Howlett@oracle.com, linux-arm-kernel@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, mhocko@suse.com, npache@redhat.com, 
-	pasha.tatashin@soleen.com, rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com, 
-	vbabka@kernel.org, Al Viro <viro@zeniv.linux.org.uk>, ziy@nvidia.com, 
-	hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev, leitao@debian.org, 
-	kernel-team@meta.com
-Subject: Re: [PATCH v3 0/4] mm: improve large folio readahead and alignment
- for exec memory
-Message-ID: <adjotZ6nXqDk0GKS@lucifer>
-References: <20260402181326.3107102-1-usama.arif@linux.dev>
- <803a0c15-0a6a-4c00-b6b3-eaae56d5fc15@linux.dev>
- <adjkCOiLgZ_-zovg@lucifer>
- <262a41db-a425-4362-bb67-df61119625d5@linux.dev>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <262a41db-a425-4362-bb67-df61119625d5@linux.dev>
+	s=k20201202; t=1775823511;
+	bh=xG6Zhe4Reh8n1CuuXKHsxMx4yyA7cv5SRNW/ce+u7MA=;
+	h=Date:From:To:Subject:cc:From;
+	b=X6IRMdbNwD/1TPVTuuT38dax3aETJdTvvykNWi23GiBjWbaPnFiS31YP2+3+rHYnr
+	 +yBiYqSiaFZumAFwSR+NEqA6PxsCix9KHXp0BGVkWu/kFUlz/YIdIICieWTokegmLh
+	 Yr8j8VsIfTTYuyizZOa5fjt2rtqvhW2e+npoz/WBNOWVCp5m8FdgfGaOB54VOYpbJT
+	 yU3PgzyY9/f2Y08BZe1qPEkZ4DBScL99CvOU6Da3YpVoCSH2byw56W+6qCVZbtJoMm
+	 0joIfHOTvLdlWQN0yWziORYb41f8Ajm7GcTfuGZTXlFCF7Y90aZDQyz+rgc1XQsGrv
+	 br4n1yhF6vGQA==
+Date: Fri, 10 Apr 2026 14:18:27 +0200
+Message-ID: <20260410120044.031381086@kernel.org>
+User-Agent: quilt/0.68
+From: Thomas Gleixner <tglx@kernel.org>
+To: LKML <linux-kernel@vger.kernel.org>
+Subject: [patch 00/38] treewide: Cleanup LATCH,
+ CLOCK_TICK_RATE and get_cycles() [ab]use
+cc: Arnd Bergmann <arnd@arndb.de>,
+ x86@kernel.org,
+ Lu Baolu <baolu.lu@linux.intel.com>,
+ iommu@lists.linux.dev,
+ Michael Grzeschik <m.grzeschik@pengutronix.de>,
+ netdev@vger.kernel.org,
+ linux-wireless@vger.kernel.org,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ linux-crypto@vger.kernel.org,
+ Vlastimil Babka <vbabka@kernel.org>,
+ linux-mm@kvack.org,
+ David Woodhouse <dwmw2@infradead.org>,
+ Bernie Thompson <bernie@plugable.com>,
+ linux-fbdev@vger.kernel.org,
+ "Theodore Tso" <tytso@mit.edu>,
+ linux-ext4@vger.kernel.org,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>,
+ Marco Elver <elver@google.com>,
+ Dmitry Vyukov <dvyukov@google.com>,
+ kasan-dev@googlegroups.com,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Thomas Sailer <t.sailer@alumni.ethz.ch>,
+ linux-hams@vger.kernel.org,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>,
+ Richard Henderson <richard.henderson@linaro.org>,
+ linux-alpha@vger.kernel.org,
+ Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ loongarch@lists.linux.dev,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ linux-m68k@lists.linux-m68k.org,
+ Dinh Nguyen <dinguyen@kernel.org>,
+ Jonas Bonn <jonas@southpole.se>,
+ linux-openrisc@vger.kernel.org,
+ Helge Deller <deller@gmx.de>,
+ linux-parisc@vger.kernel.org,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ linuxppc-dev@lists.ozlabs.org,
+ Paul Walmsley <pjw@kernel.org>,
+ linux-riscv@lists.infradead.org,
+ Heiko Carstens <hca@linux.ibm.com>,
+ linux-s390@vger.kernel.org,
+ "David S. Miller" <davem@davemloft.net>,
+ sparclinux@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,90 +109,289 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 01:05:40PM +0100, Usama Arif wrote:
->
->
-> On 10/04/2026 12:55, Lorenzo Stoakes wrote:
-> > On Fri, Apr 10, 2026 at 12:03:03PM +0100, Usama Arif wrote:
-> >>
-> >>
-> >> On 02/04/2026 19:08, Usama Arif wrote:
-> >>> v2 -> v3: https://lore.kernel.org/all/20260320140315.979307-1-usama.arif@linux.dev/
-> >>> - Take into account READ_ONLY_THP_FOR_FS for elf alignment by aligning
-> >>>   to HPAGE_PMD_SIZE limited to 2M (Rui)
-> >>> - Reviewed-by tags for patch 1 from Kiryl and Jan
-> >>> - Remove preferred_exec_order() (Jan)
-> >>> - Change ra->order to HPAGE_PMD_ORDER if vma_pages(vma) >= HPAGE_PMD_NR
-> >>>   otherwise use exec_folio_order() with gfp &= ~__GFP_RECLAIM for
-> >>>   do_sync_mmap_readahead().
-> >>> - Change exec_folio_order() to return 2M (cont-pte size) for 64K base
-> >>>   page size for arm64.
-> >>> - remove bprm->file NULL check (Matthew)
-> >>> - Change filp to file (Matthew)
-> >>> - Improve checking of p_vaddr and p_vaddr (Rui and Matthew)
-> >>>
-> >>
-> >> Hello!
-> >>
-> >> Just wanted to check if there was any feedback/review on the latest
-> >> revision?
-> >
-> > It's -rc7, this is definitely something for next cycle :)
-> >
->
-> Yeah no worries! Just wanted to check what people thought about it!
+First of all sorry for the insanely big Cc list, but people can't make
+their mind up whether they want to be Cc'ed on everything or not. So I'm
+opting for the worst case to cater to the people who want to be Cc'ed on
+everything and assume that the rest of you got used to it by now. I really
+wanted this to be more confined but a treewide cleanup does not give a lot
+of options.
 
-We'll come back to it! With LSF coming too I think people are fairly distracted
-as well.
+That said, let me explain what this is about.
 
->
-> > On my part, my upstream bandwidth has drastically reduced, and review is
-> > probably going to have to be a hobbyist thing at least for now.
-> >
-> > Also, not to be mean but:
-> >
-> > $ git log -E -i --grep "(Reviewed|Acked)-by: Usama Arif" --oneline | wc -l
-> > 21
-> >
-> > So... :)
-> >
-> > Review in mm is very lop-sided, let's try to balance it out a bit!
-> >
->
-> Ah yeah actually I have been reviewing a lot over the last few months.
+  1) LATCH
 
-Good :)
+     The LATCH define goes back to Linux version 0.1 and has survived until
+     today for the very wrong reasons.
 
-> I dont ack patches that have already been acked-by/reviewed-by maintainers.
+     Initially it was based on the x86 PIT frequency and also steered the
+     timekeeping conversions.
 
-You should do that, it is meaningful. If you think a patch is OK, it's how you
-say so!
+     With the arrival of non x86 architectures it got changed to be based
+     on CLOCK_TICK_RATE in order not to change core code which depended on
+     LATCH.
 
-Maintainers get things wrong too by the way, assume we are wrong and try to find
-issues, this is how a healthy technical community operates (as long as everybody
-is civil about it :)
+     That all got meaningless when timers, timekeeping and scheduling
+     infrastructure got rewritten more than two decades ago.
 
-> as I am not sure if it adds anything. I never really cared about Reviewed/Acked
-> by/patch count but I can start adding tags if it helps in stats.
+     But there is still a lonely survivor in arch/x86/kernel/apm_32.c
+     which dates back to Linux 1.3.46 (Dec. 1995)
 
-It's the only metric I can quickly bring up, so sorry that in this case I got it
-wrong, but the overall point remains the same - we want to see a balance of
-review and contributions, right now the two are really very lopsided!
+     Which causes the next historical gem
 
->
-> The reviews I have done over the last week alone:
-> https://lore.kernel.org/all/20260408122307.1360475-1-usama.arif@linux.dev/
-> https://lore.kernel.org/all/20260408123700.1596800-1-usama.arif@linux.dev/
-> https://lore.kernel.org/all/20260409142256.131676-1-usama.arif@linux.dev/
-> https://lore.kernel.org/all/20260410114809.3592720-1-usama.arif@linux.dev/
-> https://lore.kernel.org/all/20260410112433.3248586-1-usama.arif@linux.dev/
-> https://lore.kernel.org/all/20260331103451.1070175-1-usama.arif@linux.dev/T/#t
-> https://lore.kernel.org/all/20260401152343.3294686-1-usama.arif@linux.dev/
->
->
->
->
->
+  2) CLOCK_TICK_RATE
 
-Cheers, Lorenzo
+     When Linux got expanded beyond i386 LATCH was made "flexible" by
+     basing it on CLOCK_TICK_RATE to adjust for other frequencies than the
+     i386 PIT frequency.
+
+     As LATCH this got meaningless long ago and for amusement value it got
+     copied into new architectures arriving way after it got obsolete for
+     no reason but with comments to the effect that it's meaningless
+
+     And of course it had a lonely survivor in arch/x86/kernel/setup.c
+     despite it being only an alias for PIT_TICK_RATE for a very long time.
+
+  3) get_cycles()
+
+     That was introduced in 2.1.133pre4 (Dec. 1998) to utilize the back
+     then brand new TSC. The introduction broke everything except i386 SMP
+     with a CPU having a TSC and got then fixed up within a couple of days
+     with empty stubs returning 0 and #ifdeffery for CONFIG_TSC before the
+     2.2.0 release.
+
+     It's amusing that the naming deliberately ignored that TSC is the
+     acronym for Time Stamp Counter and not Cycle Counter and rather went
+     for the underlying coincidence that the TSC was running at the same
+     fixed frequency as the CPU core.
+
+     That turned out to be interesting when CPUs started to have frequency
+     scaling as the TSC then turned into a variable frequency random number
+     generator.
+
+     A decade later CPU designers came to senses and made the TSC invariant
+     usually running at the nominal CPU frequency, which allowed to use it
+     for reliable timekeeping purposes.
+
+     Non x86 architectures implemented get_cycles() based on whatever
+     continuously running counter they had available in their CPUs. Some of
+     them actual CPU cycle counters, but many of them running at a fixed
+     frequency which was completely unrelated to CPU cycles.
+
+     Around 2004/5 the timekeeping subsystem was completely rewritten and
+     made generic along with the scheduling clock and other related
+     infrastructure. With that rewrite get_cycles() got mostly obsolete,
+     but despite it being on the todo list of quite some people it never
+     ceased to exist and it was just a conveniance vehicle to base other
+     things like the recent addition of random_get_entropy() on top with a
+     hideous #ifdef/#define macro maze.
+
+     The other remaining use cases are mostly debugging and testing
+     code. Especially the usage in performance test code is hillarious at
+     best. While the name get_cycles() suggests that it provides access to
+     CPU cycles the reality is that it provides a unspecified counter for
+     most systems, where a lot of architectures simply return 0 because
+     they either do not have such a counter or did not bother to implement
+     it at all.
+
+     So in fact get_cycles() should have been renamed to get_bogo_cycles()
+     long ago matching the BogoMIPS "impress your friends" printk which
+     still exists for historical amusement value.
+
+     But the real solution is to remove it all together instead of
+     proliferating the bogosity.
+
+
+This is what this series does with the following steps:
+
+   1) Cleanup some header dependency hell which got unearthed by the
+      restructuring and went unnoticed so far. It's amazing how the kernel
+      build system magically "works". This affects not only x86, but the
+      main fallout was observed and fixed there. ARM64 and MIPS are at
+      least as bad as they silently rely on the accidental asm/timex.h
+      include through a variety of generic headers to make their
+      architecture code compile. See the changelog and patches specific to
+      those two.
+
+   2) Removal of LATCH
+
+   3) Removal of CLOCK_TICK_RATE
+
+   4) Consolidation of cycles_t which was a typedef in asm/timex.h
+
+   5) Cleanup of read_current_timer() which is only used for delay
+      calibration and has nothing to do with get_cycles()
+
+   6) Cleanup of get_cycles() usage in debug and test code
+
+   7) Decoupling of random_get_entropy() from get_cycles()
+
+   8) Removal of asm/timex.h includes except for architecture internal
+      usage where necessary.
+
+At the end get_cycles() survives in a couple of architectures as a purely
+architecture internal implementation detail.
+
+This survives compile testing on all architectures except hexagon and nios2
+because the current cross tools based on gcc15 do not offer a compiler for
+them anymore. Boot tested on x86 and some qemu instances covering only a
+few architectures.
+
+The series applies on v7.0-rc7 and with very minor conflicts on -next. It
+is also available from git:
+
+    git://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git getcycles-v1
+
+Thanks,
+
+	tglx
+---
+ arch/alpha/include/asm/timex.h                 |   33 --------
+ arch/arc/include/asm/timex.h                   |   15 ---
+ arch/arm/include/asm/timex.h                   |   16 ---
+ arch/arm64/include/asm/timex.h                 |   18 ----
+ arch/hexagon/include/asm/timex.h               |   23 -----
+ arch/m68k/include/asm/timex.h                  |   42 ----------
+ arch/microblaze/include/asm/timex.h            |   13 ---
+ arch/mips/include/asm/timex.h                  |  102 -------------------------
+ arch/sh/include/asm/timex.h                    |   24 -----
+ arch/sparc/include/asm/timex.h                 |    9 --
+ arch/sparc/include/asm/timex_32.h              |   14 ---
+ arch/um/include/asm/timex.h                    |    9 --
+ b/Documentation/fb/udlfb.rst                   |    4 
+ b/arch/Kconfig                                 |   10 ++
+ b/arch/alpha/Kconfig                           |    1 
+ b/arch/alpha/include/asm/random.h              |   14 +++
+ b/arch/arm/Kconfig                             |    2 
+ b/arch/arm/include/asm/delay.h                 |    1 
+ b/arch/arm/include/asm/random.h                |   14 +++
+ b/arch/arm/lib/delay.c                         |   14 +--
+ b/arch/arm/mach-omap1/Kconfig                  |    2 
+ b/arch/arm64/Kconfig                           |    2 
+ b/arch/arm64/include/asm/io.h                  |    5 -
+ b/arch/arm64/include/asm/ptp_vmclock.h         |   12 ++
+ b/arch/arm64/include/asm/random.h              |   11 ++
+ b/arch/arm64/include/asm/rqspinlock.h          |    1 
+ b/arch/arm64/kernel/time.c                     |    6 +
+ b/arch/arm64/kernel/topology.c                 |    1 
+ b/arch/arm64/kernel/traps.c                    |    1 
+ b/arch/arm64/kvm/emulate-nested.c              |    1 
+ b/arch/arm64/kvm/hyp/include/hyp/switch.h      |    1 
+ b/arch/arm64/lib/delay.c                       |    1 
+ b/arch/hexagon/Kconfig                         |    1 
+ b/arch/hexagon/kernel/time.c                   |    8 +
+ b/arch/loongarch/Kconfig                       |    1 
+ b/arch/loongarch/include/asm/random.h          |   15 +++
+ b/arch/loongarch/include/asm/timex.h           |    2 
+ b/arch/loongarch/kernel/relocate.c             |    1 
+ b/arch/loongarch/kernel/syscall.c              |    1 
+ b/arch/loongarch/lib/delay.c                   |    2 
+ b/arch/m68k/Kconfig                            |    1 
+ b/arch/m68k/amiga/config.c                     |    1 
+ b/arch/m68k/include/asm/random.h               |   14 +++
+ b/arch/m68k/kernel/time.c                      |    2 
+ b/arch/mips/Kconfig                            |    1 
+ b/arch/mips/generic/init.c                     |    1 
+ b/arch/mips/include/asm/random.h               |    7 +
+ b/arch/mips/kernel/pm-cps.c                    |    1 
+ b/arch/mips/kernel/proc.c                      |    1 
+ b/arch/mips/kernel/relocate.c                  |    2 
+ b/arch/mips/kernel/time.c                      |   53 ++++++++++++
+ b/arch/mips/lib/dump_tlb.c                     |    1 
+ b/arch/mips/mm/cache.c                         |    1 
+ b/arch/nios2/Kconfig                           |    1 
+ b/arch/nios2/include/asm/random.h              |   14 +++
+ b/arch/nios2/include/asm/timex.h               |    7 -
+ b/arch/nios2/kernel/time.c                     |    4 
+ b/arch/openrisc/Kconfig                        |    2 
+ b/arch/openrisc/include/asm/random.h           |   12 ++
+ b/arch/openrisc/include/asm/timex.h            |   10 --
+ b/arch/openrisc/lib/delay.c                    |    8 -
+ b/arch/parisc/Kconfig                          |    1 
+ b/arch/parisc/include/asm/random.h             |   12 ++
+ b/arch/parisc/include/asm/timex.h              |   10 --
+ b/arch/parisc/kernel/processor.c               |    1 
+ b/arch/parisc/kernel/time.c                    |    1 
+ b/arch/powerpc/Kconfig                         |    1 
+ b/arch/powerpc/include/asm/random.h            |   13 +++
+ b/arch/powerpc/include/asm/timex.h             |   25 ------
+ b/arch/powerpc/platforms/cell/spufs/switch.c   |    5 -
+ b/arch/riscv/Kconfig                           |    2 
+ b/arch/riscv/include/asm/random.h              |   25 ++++++
+ b/arch/riscv/include/asm/timex.h               |   23 -----
+ b/arch/riscv/kernel/unaligned_access_speed.c   |    1 
+ b/arch/riscv/kvm/vcpu_timer.c                  |    1 
+ b/arch/riscv/lib/delay.c                       |    8 +
+ b/arch/s390/Kconfig                            |    1 
+ b/arch/s390/include/asm/random.h               |   12 ++
+ b/arch/s390/include/asm/timex.h                |   10 --
+ b/arch/s390/kernel/time.c                      |    1 
+ b/arch/s390/kernel/vtime.c                     |    1 
+ b/arch/sparc/Kconfig                           |    2 
+ b/arch/sparc/include/asm/random.h              |   15 +++
+ b/arch/sparc/include/asm/timex_64.h            |   20 ----
+ b/arch/sparc/kernel/pcic.c                     |    1 
+ b/arch/sparc/kernel/time_32.c                  |    1 
+ b/arch/sparc/kernel/time_64.c                  |    4 
+ b/arch/sparc/vdso/vclock_gettime.c             |    1 
+ b/arch/x86/Kconfig                             |    4 
+ b/arch/x86/include/asm/iommu.h                 |    3 
+ b/arch/x86/include/asm/msr.h                   |    5 -
+ b/arch/x86/include/asm/percpu.h                |    5 -
+ b/arch/x86/include/asm/percpu_types.h          |   17 ++++
+ b/arch/x86/include/asm/ptp_vmclock.h           |   12 ++
+ b/arch/x86/include/asm/pvclock.h               |    1 
+ b/arch/x86/include/asm/random.h                |   12 --
+ b/arch/x86/include/asm/smp.h                   |    2 
+ b/arch/x86/include/asm/tsc.h                   |   11 --
+ b/arch/x86/include/asm/vdso/gettimeofday.h     |    5 -
+ b/arch/x86/kernel/apm_32.c                     |    4 
+ b/arch/x86/kernel/cpu/mce/core.c               |    1 
+ b/arch/x86/kernel/nmi.c                        |    1 
+ b/arch/x86/kernel/setup.c                      |    2 
+ b/arch/x86/kernel/smpboot.c                    |    1 
+ b/arch/x86/kernel/tsc.c                        |   12 +-
+ b/arch/x86/lib/delay.c                         |    8 -
+ b/crypto/jitterentropy-kcapi.c                 |    1 
+ b/crypto/tcrypt.c                              |   84 ++++++++++----------
+ b/drivers/iommu/intel/dmar.c                   |    4 
+ b/drivers/iommu/intel/iommu.h                  |    8 +
+ b/drivers/irqchip/irq-apple-aic.c              |    1 
+ b/drivers/misc/sgi-gru/gruhandles.c            |   20 +---
+ b/drivers/misc/sgi-gru/grukservices.c          |    3 
+ b/drivers/misc/sgi-gru/grutlbpurge.c           |    5 -
+ b/drivers/net/arcnet/arc-rimi.c                |    4 
+ b/drivers/net/arcnet/arcdevice.h               |   20 ----
+ b/drivers/net/arcnet/com20020.c                |    6 -
+ b/drivers/net/arcnet/com90io.c                 |    6 -
+ b/drivers/net/arcnet/com90xx.c                 |    4 
+ b/drivers/net/hamradio/baycom_epp.c            |   51 ------------
+ b/drivers/net/wireless/ath/wil6210/debugfs.c   |    2 
+ b/drivers/net/wireless/ath/wil6210/txrx.c      |    6 -
+ b/drivers/net/wireless/ath/wil6210/txrx_edma.c |    4 
+ b/drivers/net/wireless/ath/wil6210/wil6210.h   |    3 
+ b/drivers/ptp/Kconfig                          |    6 -
+ b/drivers/ptp/ptp_vmclock.c                    |    6 -
+ b/drivers/video/fbdev/udlfb.c                  |   24 ++---
+ b/fs/ext4/mballoc.c                            |    4 
+ b/include/asm-generic/Kbuild                   |    2 
+ b/include/asm-generic/percpu_types.h           |   20 ++++
+ b/include/linux/compiler_types.h               |    1 
+ b/include/linux/delay.h                        |    2 
+ b/include/linux/jiffies.h                      |    3 
+ b/include/linux/random.h                       |   18 ++++
+ b/include/linux/timex.h                        |   26 ------
+ b/include/linux/types.h                        |    6 +
+ b/init/calibrate.c                             |   19 ++--
+ b/kernel/kcsan/core.c                          |    3 
+ b/kernel/kcsan/debugfs.c                       |    8 -
+ b/kernel/time/timer.c                          |    1 
+ b/lib/interval_tree_test.c                     |   17 +---
+ b/lib/rbtree_test.c                            |   47 +++++------
+ b/lib/test_vmalloc.c                           |   10 +-
+ b/mm/kasan/sw_tags.c                           |    2 
+ b/mm/slub.c                                    |   37 +++++----
+ include/asm-generic/timex.h                    |   23 -----
+ 146 files changed, 622 insertions(+), 796 deletions(-)
+
+
 
