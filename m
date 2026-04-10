@@ -4,120 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED224F459E5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 22:07:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7178F45A0F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 22:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mHQY2sKvQ6ToTZWyHX+tcNsJY/woHZyxFxEt2908S7Y=; b=kQHqJ0qsEh20leexWHr1FMy5hy
-	C2N0Q356oEuN6zJ0R6+WDynOm6W9IlGtPTjzgB8q43UJbR77daBROWXY4m6W8zYWtJ4i32GStVBXG
-	BLy6ok4bFI6xKpdifAmw0A7GeTzoPbFKOmG7IV6+T/PjFYCdMGM51HkQeiraTLO+QcjOMs80ovj58
-	J93ZiS/DS/y1PVFSVUWbj0lSogKH+d4CMYqo3zmZNyuNYkIIwdNf3RepnJpvV302Et6SswPteFDUq
-	8/lbxfg662S9Qcc8BTXRcVukqoYZ0180RGSWBYiTWkLBZ3LFWEn+nq++8Jabh3Belk3HOaEzge6Fn
-	IXLjZ1gw==;
+	bh=oO2Iz58ZlsFu3Y4x3hOSK/rbD3OpjMOM0bJqqqYROA0=; b=pqUJp/EV4HEQCTXqweUz0uR3dP
+	MU4x6vq4Wd5Ox1bahVJOXtOK2y3oPhouwWn3IQYHIGExoIHYagE3q+Sx4bAajMHNmsehoPoC6B1mA
+	NqnoJ9dr/IXgHWpR2NoMmL4KIGPfGK1cZRC09hwSn+LqAkXhrJpOq1A6IJCntMb+oAiY/5v7OklSm
+	YDnk4qc5IikFIx3EUkS/+wEUZQJv+5wQQMTywtlZjuViZ5rWTMn4lkV2O9doO9JvtdCsTVtS9aGQe
+	QlocrUTEt1fhf1Jygf65ThVEnuhPUUSf7I2ImfQWDdtpN2F0Rfj0S+l6SY9zEEv9YEh4uYizplCgd
+	Iw343v9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBK0H-0000000CrBB-3TQr;
-	Fri, 10 Apr 2026 22:07:05 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1wBKID-0000000CsYk-0MTV;
+	Fri, 10 Apr 2026 22:25:37 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBK0E-0000000CrAK-0lsv
+	id 1wBKIA-0000000CsYL-1ARQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 22:07:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=s1k50b1wEFvgSsKb2bhpPRAd222KE3+KWT0z+aHn2KYD1gBPqGxzDs7ChRPnBkekIrD71X/7k7NFxmFm/HZ0n+tcUMGocQFqPhroeEyoX5mxU4DjKG9DalXpIZgkSDRglhFacZ7z2KcpAOOrXdp2co6Vm4fZlILzHOA6gtvuaOBn/Xgg4jMfeihRLRE/PjV5RuiCMTKgKwtG/J04y9YMc5EuBvDh6+PNr/ILNzWJnQaXwaEB4vn6H4T5Xrh3gfHkkJ+Y6tZWNNa6eLimWElupC0cAwDyJntOX3Xq4jpCsszznaBdQC5d4JYS1HCi7sF6msJBuWWQjGxLfsE3WfSKCw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mHQY2sKvQ6ToTZWyHX+tcNsJY/woHZyxFxEt2908S7Y=;
- b=t00ClX+84AHziOqzQdMaGmqxdD1WsTdyfN+VHd+PGivEs9c+CNocO6+4UgKEu9LjxgKZZiM0Q/+eYWdUzRIALLpnMrQafCmx7yYA/V5yB+4zD+Q5zhIlYBa3K5wq2sNptKNot97gKv+t2gkLmLI2EDsXPpWuOAcLD77aqPyd6eNIhmG6zeEop1gWOXg8XcuF6HgbGkYrjDP8n8Mr0XIHxB2CPnl3zxCOoBlGJkB/qs1CtGZRr/yEmqzzuZKaDgwd+SHxDdXT4v+dikrD2a1mtPPNcvG0y6slf7VQQdF+NSolrj0emuNf0MM9cMyQ9X/n6rq3yTB2hVj1cizD5R4Shw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mHQY2sKvQ6ToTZWyHX+tcNsJY/woHZyxFxEt2908S7Y=;
- b=uGH9MgYUqidD9BIgOTka2HEO+U4S+5zPCLf4OwIn/HG64ODHb39VuhAnyySiL95H+oKVC3Jm0azHP+IzrLR2R3c/1jJBvg9w4XCilREdlkLPAgprfJWvKm0+ohMygyWzO0q0n2eqwiG4RyaZm0YyLizmKsOpoTUEnQ01QFULwzwLkVF+fNNAib62OLnhoWxC4stMnnCN3DFPBPbRsgLvNdWKPSLxaegcO/6Z2iwKE+Osf6ATtHluAAY7vWCQPlHmuJ42n3heLdpmZo9BPtrwtMmoRVXhFqudgGcw5vXXSDfRJC5rwrxuJkJyrwN6vglJEgDOJQAeMVuRWqu6mQVDQw==
-Received: from PH8PR02CA0023.namprd02.prod.outlook.com (2603:10b6:510:2d0::15)
- by PH8PR12MB7280.namprd12.prod.outlook.com (2603:10b6:510:220::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.42; Fri, 10 Apr
- 2026 22:06:48 +0000
-Received: from CY4PEPF0000FCC0.namprd03.prod.outlook.com
- (2603:10b6:510:2d0:cafe::e0) by PH8PR02CA0023.outlook.office365.com
- (2603:10b6:510:2d0::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.45 via Frontend Transport; Fri,
- 10 Apr 2026 22:06:48 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- CY4PEPF0000FCC0.mail.protection.outlook.com (10.167.242.102) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9769.17 via Frontend Transport; Fri, 10 Apr 2026 22:06:47 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 10 Apr
- 2026 15:06:35 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Fri, 10 Apr 2026 15:06:34 -0700
-Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 10 Apr 2026 15:06:34 -0700
-Date: Fri, 10 Apr 2026 15:06:32 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<jpb@kernel.org>, <praan@google.com>, <smostafa@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>,
-	<jonathan.cameron@huawei.com>
-Subject: Re: [PATCH v4 09/10] iommu/arm-smmu-v3: Remove ASID/VMID from
- arm_smmu_domain
-Message-ID: <adl0aEfBAKmBsMs6@Asurada-Nvidia>
-References: <cover.1773949042.git.nicolinc@nvidia.com>
- <b6d87a722635d29e896b277cb60f0208859073d6.1773949042.git.nicolinc@nvidia.com>
- <20260410002734.GC3357077@nvidia.com>
+	Fri, 10 Apr 2026 22:25:35 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-35d965648a2so2206845a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 15:25:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1775859933; x=1776464733; darn=lists.infradead.org;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=oO2Iz58ZlsFu3Y4x3hOSK/rbD3OpjMOM0bJqqqYROA0=;
+        b=LeKV3Ll0s5OlnJnhfg3CYAgKR3lUHLgbP8KlmDuUlE2rWygAZN3gZPSr1iDZuLmFb2
+         d8vF9kAYVlCBm2VPBaOCzsVOFa9Do/FjFtFU3M1JWm2GIGHas7lhZoSdcVGPlRo/w2i7
+         Gg+cnK4FRt5RAxz7DJ8+AI/vUDGpHAB/jmPr7f9OS6yaheDaKLReqWb6IqmRCO1qMF/9
+         CO2S40/nTfZdmovFCIz+yaKBScR/xnTJvdBorDGtSVnzZYjzyPi5ZeEVEfb8I9PkDEwV
+         rjmB52zBYEZHg+IybS1YiEI9COEniMGf3wKlg1Wo6ZjjpkitRy9nXmP/eHKzkd2s45Ht
+         UB1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775859933; x=1776464733;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=oO2Iz58ZlsFu3Y4x3hOSK/rbD3OpjMOM0bJqqqYROA0=;
+        b=CgmPyigkfhP3fvCnjydh7dt5P5WWIFdJcoZFKy33AAHlFR9i5TQu2NZibUG/SmngGf
+         djijh/j5j+cNu6S0YHFyErzSLGb+UdzcA6uM5VoMmMxxvJif7v8V26WrSgmh3imxR3av
+         Fv41toB+TO1+YE1eALKC01zEybjwZ9S7wl0vWZ7Il6vtSZjJTS8osnWP4sar/5IDnTV4
+         6OQxbp4s0qcJl//kfDg+AGRjsG3n3uezwezImUR97utB5PJ0WRC57MLqEo/fwVuICmW8
+         W9mf6Da+L1qOvoYhPuj9Onn0svNPmh6/PNvps1SbnOwR2K9+8KzO1RTK0hSMZVcYMT3F
+         1g/w==
+X-Forwarded-Encrypted: i=1; AJvYcCXKvktEJ1JXGg50xHuoQx0qVzFFr8X1W/KJuOKVIpF8srCC2bMcos3IVfmHAIyCcaFEEFbN536sx9QYDtEomaf8@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbQApaUs38CDTbIOt0xff7NTVe+1FHyU4J/PytbK5G8VvcYCiZ
+	uC0wbTyfmYkZ28rUCO3gQeFve/BkPjKCHfMsxovYIEPPyCPVw13zom0D4krEsXmXf30=
+X-Gm-Gg: AeBDietJjQhvgCSc5+P5VWTH9Pv+qaWDo+EyNtWkwMimd+9yrdKRWIP+7aR+58IVykc
+	rfnH92HwO6lnh+pyUauKiMot8CLEx+mkmGWs3S+nQFQzoIwZGs18CsieT4O1vS3u6dvJbqEFjcr
+	tu7Nzwn1830/pPe0YFN455IBF8DiZi+UsUNH3U5SxsVy+nuCwlIXDQUFXZHwLnTunYTD9Hbs3jY
+	7sdSZgWmJyJyUFO3M18dy8dFEdk39+dJoHwHHEIAMHLK4IA5qw+bKsMJQIhFbAP4T5d8nWSF5de
+	oX0/YbDhQcrWKx2z9r6l7SmFQ4fiusQis3T2/TWbCD29mYBnTICP4P27LgzXNvYVkoYpdxdymAK
+	4aPQ5x7M1UD8BadKckPN3KDRw/qU4WsakRZQsD6a2SY4reJPy7R2P4lwL+ki/jrkVwDxYU/DejT
+	PCDEz2DtZVNiebBoQFz3A=
+X-Received: by 2002:a17:90b:35cd:b0:359:1130:1047 with SMTP id 98e67ed59e1d1-35e428524cbmr5346124a91.17.1775859933169;
+        Fri, 10 Apr 2026 15:25:33 -0700 (PDT)
+Received: from localhost ([97.126.187.42])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35e41336a20sm6073059a91.14.2026.04.10.15.25.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 Apr 2026 15:25:32 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/3] pmdomain: core: add support for
+ power-domains-child-ids
+In-Reply-To: <CAPDyKFrR2zyMFXTAkKs1XRgB-u5jSP256g730s=7SLuOZKsKVg@mail.gmail.com>
+References: <20260310-topic-lpm-pmdomain-child-ids-v1-0-5361687a18ff@baylibre.com>
+ <20260310-topic-lpm-pmdomain-child-ids-v1-2-5361687a18ff@baylibre.com>
+ <CAPDyKFquJ7K4NcWuKMr1sjrnFVVPGAeLCiSF_FhvJf9Frbn1uA@mail.gmail.com>
+ <7h4iljskvz.fsf@baylibre.com>
+ <CAPDyKFrR2zyMFXTAkKs1XRgB-u5jSP256g730s=7SLuOZKsKVg@mail.gmail.com>
+Date: Fri, 10 Apr 2026 15:25:32 -0700
+Message-ID: <7hqzomqwpv.fsf@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260410002734.GC3357077@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC0:EE_|PH8PR12MB7280:EE_
-X-MS-Office365-Filtering-Correlation-Id: 60835ea3-1edc-41d5-f815-08de974d75ea
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|376014|7416014|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: RTcrAO0DOhJ8bCBx4Ku/OYuMCE9khHB/WoLyrg3LyqtSQj0I54h7Ml5ApevL0Z3i9Q3K+6ulT+1Ksu0LqDzN8CoJ1I9iScsj3g+fl+I4dIItNns0gIJpXGOgyJ7P2mUSRRjvkx6C1Hmb9gLmpmXpcCgDNo+Plidg1qEK5k8ZkcRZ/YDh/uL+9BQPvY9xTxNCOWF7XCMn6rmCOn2TNB+kEZwHTJwyQVw2PxDH7cDM4vtYTeAxlcfK0x+qQD2lNs8pHTCOew/zSAn7NcxW6AXkhDz8bBoJPe0l3oGXhH809C28XlK4rNMECbOaFwY+TWuuqcJH7L5+qJUj19AwCgM9joZPL8FC8bbMr3nYs8P6zcELr8HJp59tUxGveYfbbF89Sb9UTA7A9f9F+mOG6yZcmdeHs19slf9WWbl6smOWJu/n9gCBWtM22kQ1yaPDEkDROU1/GiNxI3MQW6rD/Ty1piAI5pyvM8Je+j7hIdiwdPFjdditmezYkqKK88rzgrcef3MTgtuI1drJVCLhfZHukK7v1M4IPwN05ajFKnGWtCVOir+8WyDKVfLLSR6SwTsqmtEaHT2IlNKftYhIAYZmxENb3nlipNx+pLwPxPNtu6F5FaMailAo05CeMpaTMqEPmz6UpllTRGodLQZCJutC2XuS3csK/ythaP2dyOLo0hIH40/0K+n1LX++BFPlCaGeUJV/H7XVHaxSwlBG6cD28a8xvBW0A3j5nXozBBSW6FR5nks2LJJ1qdR0QELS9t3ieidjQeo3FwTqAHnLtM2RQQ==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(376014)(7416014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: zK59KaLunRjGuVaSq91smkR+2mGYCJOGAgKqZL6lEmYRVnIYnWTDA8WBP44QGXJZvxLvdAEXKqx3amQOtHadGc6Wu4Mk2oJ+fvnOA4q/eSc9gk+lunqzHYvsgvnO/kZ8zIBkft+UGzezu64ZgH5uqWVzBoX0WQdtxal2HaCR92SwBc+ILjCjEghyYEFCrWKaHJr54d8UWJkQ2ZsbnaWV9nQqFELeVCj9oZwhjpbCGDLfmGneUdDZe5uTDC8cvIhwoUe4iLOVs1zJGxT6ijrjLWIuCbvbB/PaSy1Cff8vxvOq1rRVk3OLgUwfwXddj6/n1E4SFlk23hMpDcdprFJKziXJtEX6q6JtR9oDJCsjmGka6pz/azFfjRi2JeqC/sQ1BoNAtoPxZl/67fyyZ+qjCjrF5ypxKaAakE8U0yz+qZl3bE3KCTOnjojSJIUhjwyx
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2026 22:06:47.7205
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 60835ea3-1edc-41d5-f815-08de974d75ea
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCC0.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7280
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_150702_231976_340EACD7 
-X-CRM114-Status: GOOD (  17.58  )
+X-CRM114-CacheID: sfid-20260410_152534_345343_B7C5F455 
+X-CRM114-Status: GOOD (  34.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,39 +103,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 09, 2026 at 09:27:34PM -0300, Jason Gunthorpe wrote:
-> On Thu, Mar 19, 2026 at 12:51:55PM -0700, Nicolin Chen wrote:
-> > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> > index 846a278fa5469..0e48264ccd01b 100644
-> > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> > @@ -300,14 +300,6 @@ static void arm_smmu_sva_domain_free(struct iommu_domain *domain)
-> >  	 */
-> >  	arm_smmu_domain_inv(smmu_domain);
-> >  
-> > -	/*
-> > -	 * Notice that the arm_smmu_mm_arch_invalidate_secondary_tlbs op can
-> > -	 * still be called/running at this point. We allow the ASID to be
-> > -	 * reused, and if there is a race then it just suffers harmless
-> > -	 * unnecessary invalidation.
-> > -	 */
-> > -	xa_erase(&arm_smmu_asid_xa, smmu_domain->cd.asid);
-> > -
-> 
-> I don't think this artifact has disappeared so the comment should
-> probably remain too. It has become slightly different because it is
-> now running under RCU protections so it will clear alot faster.
+Ulf Hansson <ulf.hansson@linaro.org> writes:
 
-By taking a closer look, I think either the arm_smmu_domain_inv call
-above or any concurrent arm_smmu_mm_arch_invalidate_secondary_tlbs
-call is a NOP now?
+> On Fri, 10 Apr 2026 at 02:45, Kevin Hilman <khilman@baylibre.com> wrote:
+>>
+>> Ulf Hansson <ulf.hansson@linaro.org> writes:
+>>
+>> > On Wed, 11 Mar 2026 at 01:19, Kevin Hilman (TI) <khilman@baylibre.com> wrote:
+>> >>
+>> >> Currently, PM domains can only support hierarchy for simple
+>> >> providers (e.g. ones with #power-domain-cells = 0).
+>> >>
+>> >> Add support for oncell providers as well by adding a new property
+>> >> `power-domains-child-ids` to describe the parent/child relationship.
+>> >>
+>> >> For example, an SCMI PM domain provider has multiple domains, each of
+>> >> which might be a child of diffeent parent domains. In this example,
+>> >> the parent domains are MAIN_PD and WKUP_PD:
+>> >>
+>> >>     scmi_pds: protocol@11 {
+>> >>         reg = <0x11>;
+>> >>         #power-domain-cells = <1>;
+>> >>         power-domains = <&MAIN_PD>, <&WKUP_PD>;
+>> >>         power-domains-child-ids = <15>, <19>;
+>> >>     };
+>> >>
+>> >> With this example using the new property, SCMI PM domain 15 becomes a
+>> >> child domain of MAIN_PD, and SCMI domain 19 becomes a child domain of
+>> >> WKUP_PD.
+>> >>
+>> >> To support this feature, add two new core functions
+>> >>
+>> >> - of_genpd_add_child_ids()
+>> >> - of_genpd_remove_child_ids()
+>> >>
+>> >> which can be called by pmdomain providers to add/remove child domains
+>> >> if they support the new property power-domains-child-ids.
+>> >>
+>> >> Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
+>> >
+>> > Thanks for working on this! It certainly is a missing feature!
+>>
+>> You're welcome, thanks for the detailed review.
+>>
+>> >> ---
+>> >>  drivers/pmdomain/core.c   | 169 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+>> >>  include/linux/pm_domain.h |  16 ++++++++++++++++
+>> >>  2 files changed, 185 insertions(+)
+>> >>
+>> >> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+>> >> index 61c2277c9ce3..acb45dd540b7 100644
+>> >> --- a/drivers/pmdomain/core.c
+>> >> +++ b/drivers/pmdomain/core.c
+>> >> @@ -2909,6 +2909,175 @@ static struct generic_pm_domain *genpd_get_from_provider(
+>> >>         return genpd;
+>> >>  }
+>> >>
+>> >> +/**
+>> >> + * of_genpd_add_child_ids() - Parse power-domains-child-ids property
+>> >> + * @np: Device node pointer associated with the PM domain provider.
+>> >> + * @data: Pointer to the onecell data associated with the PM domain provider.
+>> >> + *
+>> >> + * Parse the power-domains and power-domains-child-ids properties to establish
+>> >> + * parent-child relationships for PM domains. The power-domains property lists
+>> >> + * parent domains, and power-domains-child-ids lists which child domain IDs
+>> >> + * should be associated with each parent.
+>> >> + *
+>> >> + * Returns 0 on success, -ENOENT if properties don't exist, or negative error code.
+>> >
+>> > I think we should avoid returning specific error codes for specific
+>> > errors, simply because it usually becomes messy.
+>> >
+>> > If I understand correctly the intent here is to allow the caller to
+>> > check for -ENOENT and potentially avoid bailing out as it may not
+>> > really be an error, right?
+>>
+>> Right, -ENOENT is not an error of parsing, it's to indicate that there
+>> are no child-ids to be parsed.
+>>
+>> > Perhaps a better option is to return the number of children for whom
+>> > we successfully assigned parents. Hence 0 or a positive value allows
+>> > the caller to understand what happened. More importantly, a negative
+>> > error code then really becomes an error for the caller to consider.
+>>
+>> I explored this a bit, but it gets messy quick.  It means we have to
+>> track cases where only some of the children were added as well as when
+>> all children were added.   Personally, I think this should be an "all or
+>> nothing" thing.  If all the children cannot be parsed/added, then none
+>> of them should be added.
+>>
+>> This also allows the remove to not have to care about how many were
+>> added, and just remove them all, with the additional benefit of not
+>> having to track the state of how many children were successfully added.
+>>
+>
+> I fully agree, it should be all or nothing. Failing with one
+> child/parent should end up with an error code being returned.
+>
+> That said, it still seems to make perfect sense to return the number
+> of children for whom we assigned parents for, no?
 
-We reworked the ASID lifecycle, which now ends when the last device
-detaches. So, ASID was free-ed in arm_smmu_iotlb_tag_free() that did
-a per-ASID flush also.
+No, because what will the caller use that number for?  If we are
+assuming "all or nothing", what would we use it for (other than a debug print?)
 
-So, when freeing the SVA domain here, the domain should have an empty
-invalidation array and the HW cache is flushed as well, right?
+It also makes it a bit confusing what a zero return value means.  Does
+that mean success?  Or that zero children were added (which would be
+fail.)
 
-Nicolin
+I prefer to keep it as is.
+
+Kevin
 
