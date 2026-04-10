@@ -4,89 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF21F44860
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 13:08:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0F79F44868
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 13:14:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KAmExev6QREqTu9zo7T3RzeKjeGOvRTDyJ1tg+D3lYI=; b=B3Hb77Vx8tv8fazyDCr5n7nzxC
-	vBK8hQQdCfoihyYz0mHNuTgHyxuli7DUAYcGmoLtIhZHu8mtnHNVVSLFBI3ZGJKNtp2w4HTSaeHSD
-	5b05xKZ3jfURapVFkvYgWOgFoC909SY4o+4TeXmKvUzKxrmrdP2DGYdAyj6STKIAKebM9Urq4Va64
-	51N8lCAqB0D5vAs/iWKyOU+gBPuTnibliFZyaBu5b1SH1JObjmnDZZKMtcjabiIe6SIHbJmHYhZpb
-	5gP48q+f144Iz7OLxzbKWiE+wBAEllmKzhaLQwsvC80CQCpEcdYjCRcXrDSQvUdO8YIn9qCNxuxbz
-	Z/oT3Ftg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5eCOPn79mwH4Ca9kbCGIq0SRkJ8dL3+eE1sfjSyo2h4=; b=eDSWc44BNLHvpqgL4VGsUp/pEX
+	rejPJ5R3Sj+Ls9M67iwoCA07ul0a+rUjb1P8TfKH1fWa16CXYgb2ai9RjQWJ53K4jOuoeHPoRy9WY
+	vj7QXmMW1Qp5q7Qb83mTgj+sSQkaUBBNAm7A/BgB9L6yNaphqpr4P/yFVlifCo4KK+O551eRR5ND+
+	eyZRYCpTyOkJbuOB3L2vkrBfnoGlAG7ru33IBGhAh+qhmauZXwIZhJK+SuWuTMIb65WtyvZLWU6Fi
+	QWbxJpWTYW94SVAJhtxFTOmI8b2yg/fRHpDF2unjgqcXXGSXRS9KwgTk0M2gsHlIs/zae9XLPcqLg
+	vWQv/XbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBBaf-0000000CI9p-2AJ2;
-	Fri, 10 Apr 2026 13:08:05 +0000
+	id 1wBBhA-0000000CIZL-3BRw;
+	Fri, 10 Apr 2026 13:14:48 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBBae-0000000CI9Y-2H8H
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 10 Apr 2026 13:08:04 +0000
+	id 1wBBh9-0000000CIYX-1n2u;
+	Fri, 10 Apr 2026 13:14:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:In-Reply-To:References;
-	bh=KAmExev6QREqTu9zo7T3RzeKjeGOvRTDyJ1tg+D3lYI=; b=MZ/xhFPKrZIuExJ0fGiLhWRbWA
-	9yQkFsocQ1f8FCTfkscoydbEyYpwlmntQ+R8MUI+NdQmN/CL5XeGMIJiRq9/gZca4+QPcL05THrpB
-	cPo6JyCVCCIvnmUpX64dVlFTPUd7YXC+4ZPE6wU8mOrII4HNAVOKL1QUnO2LVRDvDk8R+H2YhqJdG
-	C5S7JXa8wsiFMoomfTp8g/xKDQ2MiGX4L9jgzy4KewymzM/Fj1VtbaEfql17Y0LJNPO7ydfh9hsCB
-	dySyAvH+B8tO0kd6tsW2JpFSPq8e+QV4LsSbay6x9NLUidy2ACZ+OaQI/YbCUMEamAy//TDt1NN+m
-	gLlCGh3Q==;
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=5eCOPn79mwH4Ca9kbCGIq0SRkJ8dL3+eE1sfjSyo2h4=; b=TycpUXfBloVp1q+Q8/HEv/GKLz
+	MPy5lqtK9NoXfauWbJplTP/v4/S4zIBbFnjemahrYtpVisxTL+FTeaLfi97yro+PrcfTTbatX8Dia
+	NS3jnI+p4ZDpAbxLivFLfvnyR+SLIoucI8mF0uAZ+tYtHsFa9gAerVT18Av3mvRPyxJNySFSQMv6g
+	I9ayJJuAG6AyjJQ9PjmJv9Ipgu7V/KE9L7w7CSde2WOdBkCqAIsOQMHZl9I/rO+wK9EJc/XVGcKgI
+	JPnyxvld9b73qPa9ysfRIE5BhD21n82ch0Q3t812AtOjSu5i5Cyij8rZl6WYIJyauvncGsWlMN6rv
+	QHvW/NuA==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBBab-0000000DXd6-2r6N
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 13:08:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
-	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=KAmExev6QREqTu9zo7T3RzeKjeGOvRTDyJ1tg+D3lYI=; b=xexf2kxTPDrbMyYxOBx+Da6zK2
-	QqFHWAFjua9yf/IB+3akKUPG7JTrHa8hMEym0SmTgRp9p8PVALgL9xZKPWHZ6b4VUMwtTQ1fhWILz
-	I2EZj0Gekcg1lnBU2Be/tobXR40ZGUMnGvxSDB+gjIE/NpLdQ4PdNYo6f4MiSBGjL7l31r9vxw8Mx
-	FDwkYcIk1oTeAS4/j5ptdYhDEzy5ojgjq59zglqvk4tX0oUpYy6m25AFE+zYcQSPwDMxAT8QzUJD8
-	wDnbeIx9sPGDaMi7DF8TOgQmDFCsgYcEFdcAi03tD9+jR7Ug6u2H+3Pyy+J7x6He8FShvG5XCqYJv
-	Tb5xElCg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:51554 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1wBBaS-0000000050J-0ZTQ;
-	Fri, 10 Apr 2026 14:07:52 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1wBBaR-0000000GZHR-1dbM;
-	Fri, 10 Apr 2026 14:07:51 +0100
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Sam Edwards <cfsworks@gmail.com>
-Subject: [PATCH net-next] net: stmmac: enable RPS and RBU interrupts
+	id 1wBBh6-0000000DYot-1BAu;
+	Fri, 10 Apr 2026 13:14:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 91AE444141;
+	Fri, 10 Apr 2026 13:14:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 244F8C19421;
+	Fri, 10 Apr 2026 13:14:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775826879;
+	bh=mQ/7OrrwieJDTdrH7hooz4EEuxSFq4IEqgQU97DnhbE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=L+I3U6gU0OxyPmQwzoqXjiYH+t54Yehw5ewLHCuioPKr8KMz6sHE7MaTydXX6Igmv
+	 +2iM+/lwImgN+0lJbzlr3uC1yPV3kTzA+TxM+9NiQhUZLcXlshdlFkqCdLiOpxdIHB
+	 Hkh/TS4sTMKxPhihYha/+QFydpIgHWLpkYTQx7MlAzhWXjTZfWqTBFeEZSxLgjPR83
+	 hdzMrTfS4IWLvGQKrq6KfQYbQJMkBO3kCZzmAGz0kdw6tyBjqcEscPt5qwYxawDE/V
+	 JYQxffvP869eX9CC5YyLB95QBAF/vAK18VkgOlrOi5NOImbPjnRVYJs+HnEDhG9Ca0
+	 /JQXer2WhHuJg==
+Date: Fri, 10 Apr 2026 15:14:37 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, ansuelsmth@gmail.com,
+	benjamin.larsson@genexis.eu, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH net-next v3 01/12] dt-bindings: net: airoha: Add EN7581
+ ethernet-ports properties
+Message-ID: <adj3vW7TKXccLSXa@lore-desk>
+References: <20260406-airoha-eth-multi-serdes-v3-1-ab6ea49d59ff@kernel.org>
+ <20260410025717.1809904-1-kuba@kernel.org>
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="w8PmPGRkvaOhX7h0"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1wBBaR-0000000GZHR-1dbM@rmk-PC.armlinux.org.uk>
-Date: Fri, 10 Apr 2026 14:07:51 +0100
+In-Reply-To: <20260410025717.1809904-1-kuba@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_140801_821197_E7C1B395 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260410_141444_732390_900F5F9A 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,52 +91,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable receive process stopped and receive buffer unavailable
-interrupts, so that the statistic counters can be updated.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
-Since we are seeing receive buffer exhaustion on several platforms,
-let's enable the interrupts so the statistics we publish via ethtool -S
-actually work to aid diagnosis. I've been in two minds about whether
-to send this patch, but given the problems with stmmac at the moment,
-I think it should be merged.
+--w8PmPGRkvaOhX7h0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
- drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h | 6 ++++++
- 1 file changed, 6 insertions(+)
+> This is an AI-generated review of your patch. The human sending this
+> email says "For your consideration."
+> ---
+> dt-bindings: net: airoha: Add EN7581 ethernet-ports properties
+>=20
+> This commit introduces the ethernet-port property to model a net_device
+> connected via an external arbiter to the GDM3 or GDM4 ports on EN7581
+> and AN7583 SoCs.
+>=20
+> > diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-eth.ya=
+ml b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
+> > index fbe2ddcdd909c..ebbd433e9c9fb 100644
+> > --- a/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
+> > +++ b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
+> > @@ -130,6 +130,30 @@ patternProperties:
+> >          maximum: 4
+> >          description: GMAC port identifier
+> > =20
+> > +      '#address-cells':
+> > +        const: 1
+> > +      '#size-cells':
+> > +        const: 0
+> > +
+> > +    patternProperties:
+> > +      "^ethernet-port@[0-5]$":
+>=20
+> The commit message states that GDM1 and GDM2 do not support connection
+> with the external arbiter. However, since this pattern property appears to
+> be placed inside the generic ^ethernet@[1-4]$ block, does this allow a
+> device tree to incorrectly configure ethernet-port subnodes on ethernet@1
+> or ethernet@2 and still pass schema validation?
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-index af6580332d49..43b036d4e95b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-@@ -99,6 +99,8 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
- #define DMA_CHAN_INTR_ENA_NIE_4_10	BIT(15)
- #define DMA_CHAN_INTR_ENA_AIE_4_10	BIT(14)
- #define DMA_CHAN_INTR_ENA_FBE		BIT(12)
-+#define DMA_CHAN_INTR_ENA_RPS		BIT(8)
-+#define DMA_CHAN_INTR_ENA_RBU		BIT(7)
- #define DMA_CHAN_INTR_ENA_RIE		BIT(6)
- #define DMA_CHAN_INTR_ENA_TIE		BIT(0)
- 
-@@ -107,6 +109,8 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
- 					 DMA_CHAN_INTR_ENA_TIE)
- 
- #define DMA_CHAN_INTR_ABNORMAL		(DMA_CHAN_INTR_ENA_AIE | \
-+					 DMA_CHAN_INTR_ENA_RPS | \
-+					 DMA_CHAN_INTR_ENA_RBU | \
- 					 DMA_CHAN_INTR_ENA_FBE)
- /* DMA default interrupt mask for 4.00 */
- #define DMA_CHAN_INTR_DEFAULT_MASK	(DMA_CHAN_INTR_NORMAL | \
-@@ -117,6 +121,8 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
- 					 DMA_CHAN_INTR_ENA_TIE)
- 
- #define DMA_CHAN_INTR_ABNORMAL_4_10	(DMA_CHAN_INTR_ENA_AIE_4_10 | \
-+					 DMA_CHAN_INTR_ENA_RPS | \
-+					 DMA_CHAN_INTR_ENA_RBU | \
- 					 DMA_CHAN_INTR_ENA_FBE)
- /* DMA default interrupt mask for 4.10a */
- #define DMA_CHAN_INTR_DEFAULT_MASK_4_10	(DMA_CHAN_INTR_NORMAL_4_10 | \
--- 
-2.47.3
+ack, I will fix it in v4
 
+>=20
+> Could this be restricted to GDM3 and GDM4, perhaps by splitting the
+> patternProperties or using an if/then block based on the reg property?
+>=20
+> > +        type: object
+> > +        unevaluatedProperties: false
+> > +        $ref: ethernet-controller.yaml#
+>=20
+> Does referencing ethernet-controller.yaml cause a validation conflict her=
+e?
+>=20
+> The ethernet-controller.yaml schema enforces a strict nodename pattern
+> of ^ethernet(@.*)?$. Since these new nodes use the -port suffix and are
+> named ethernet-port@X, will they unconditionally fail the node name
+> validation enforced by the referenced schema during dt_binding_check?
+
+ack, I will fix it in v4
+
+Regards,
+Lorenzo
+
+>=20
+> [ ... ]
+> --=20
+> pw-bot: cr
+
+--w8PmPGRkvaOhX7h0
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCadj3vQAKCRA6cBh0uS2t
+rBlnAQChofOe0utPGIDu5PUixZsRZzjAtGGT6M2YM583zTPi5wD9H2ST3gaJBBny
+9/CzLBUS8ZiATfT1pwiaaFdOA9BHig0=
+=dppY
+-----END PGP SIGNATURE-----
+
+--w8PmPGRkvaOhX7h0--
 
