@@ -4,86 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DA27F459EF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 16:49:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C24F1F459F7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 16:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/xfAfRiou5rQEdVsQlWtPiOI3m6GZRMztNtx/4BabnY=; b=FSXRmYACJaGA+cT9MkiHEgs8PN
-	fog+eFcfPzLxx8B6gK8K0Jwz+SIzlHYVxcnqzDsKRQWndlGoNIQ+d2NA6i9YiD3Kfqe+h15PNJfLc
-	0UMsZXOvetFebQkkio9KECgNUG5M8dQE/X9Ki83GokAhAPbdaEQttiTUFLlVTe6oejjXnPBiJB2z8
-	7tHYyz+CCtG6y5ojj2gzioylHnO5emJsHjwkQV6IqaGV2MQ9f3hvqgsz1RwvzBefUMhncgK+erKWw
-	ENgKRwiyMb1cAeIfanUV3/PVXnV2/4ENAwITTTqMJC/BGTQuEpwhiFP9a4nLhbzfZGnQm+aPCfpv1
-	2fcRr8ng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BQjQsqYkkTPxyxnrSNMex01Xco2HiyveR1lAVHYiUeQ=; b=Ugiv50pSEwbzOG8b8FZlIJJLU2
+	ed2nsbhXpspTG9begL0TFw7tTbbFmHG00huol2Z2Qcw2aGLH6fdu0yYkCH5X+esVTHj6F75r8Vfau
+	58cl3qqZIaReXfj1nmo+sFv1kaPniKYgKdf4tRgNY/glqi9v7ZHv8qzgT3CkscJYOaKBiz4BLmmsi
+	AM+BsqFJF6iG//0MYmVC6iDSHhU25rrogYcXIic6GraMkz3tGbsrTyOJv3CBLud1XmVbNC2DSU1w3
+	dCcw2lbzKhkOIo7thmfL//yzv/uIjZQnt1MSOE+3TG5tyL9ajfOk6aeob6HtSL+tffT7MTfFuYOLy
+	V89jE5bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBF2n-0000000CZ6z-30IC;
-	Fri, 10 Apr 2026 16:49:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wBF3m-0000000CZh6-1ZH6;
+	Fri, 10 Apr 2026 16:50:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBF2k-0000000CZ1U-1rpO;
-	Fri, 10 Apr 2026 16:49:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=/xfAfRiou5rQEdVsQlWtPiOI3m6GZRMztNtx/4BabnY=; b=Uz83vIdA/wLgCnMvnrNuFw8DMQ
-	tDrOB0kgMnmSLY9pQrF2uoYSZ8Ilwx5bxbTuKGQJmx6nSrA2ETWWbOE4qAW7Ow8DG0AlIlHGTvdNd
-	Ha6jIix5YHGLDHUZXTFL8TCPJF5ej5h/WX3kewk1FCSTjMzpQj5zTj0PKRMnDV0HILvhQcqtE1Clv
-	auksuvpGZJClpTnwE02yJCD5wTjFn+dUv0kJyNcUvkFGfOd/KLP1oNRqfHvcwUzLjsIamcy2PNDpp
-	RNTZ9FXIB+AZt7C9WkG5GIARMwJ6aJVagzatwou+ThgdiOUPIJ5dL4bHi56/9ZeeWNxqFJii2UXA8
-	RqrZNFug==;
-Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBF2g-0000000DwdN-2B5N;
-	Fri, 10 Apr 2026 16:49:17 +0000
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1775839740;
-	bh=zbgRfmKb31HDgkan9Fy8S+p1BOUmWfaoe9tmTB9hGac=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=V8cYyD9bEpwmmkTC/R7Qz5FjheScvjl8nZ5M8pQ41u89djP5EFMB8CTdxr004BJzm
-	 N70SjO/+XSlnZQ5g3u+y70Puhe46UGJWDTDsn99BXyRXS9y4GDpSEYoAF8DSUnrTsJ
-	 vTR+2xxzZQKCX9tDDf11eygThjC1pcZepzqs8tOw=
-Date: Fri, 10 Apr 2026 18:48:09 +0200
-Subject: [PATCH 8/8] arm64: dts: amlogic: t7: khadas-vim4: Add fan cooling
- to thermal zones
+	id 1wBF3l-0000000CZgu-15Zh
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Apr 2026 16:50:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5242A6024D;
+	Fri, 10 Apr 2026 16:50:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 631D6C19421;
+	Fri, 10 Apr 2026 16:50:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775839820;
+	bh=pMfWqUL50U9uJZvRyzRrUAe3IDyJM8UFSorNX2tsNw8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ny2puyZQhUYAM+38B7qKb965c/CJi/dQvWVVygiDPaMFJZfFaLeP4RaRskNk13DON
+	 6ym39KDsGfHhM09JcFQzMTZ4PFIgyTaMSpY5XEykAzULo0NDROV+oxtP7Bf5sdtunF
+	 2uAto/1nsJhOBTwGluX6gur+zNBhw9v9tqwrdd+IhTRWmFTmiqvZycWybZPc5KPUn6
+	 Qzkza6IO6B4S2mALuqFGtJ1zDi2k2z6kFRaQyr49P1Y76rfgvW/08vSu+1edx0N0/O
+	 nEXf2pVAL20jvy39DDLiQ9GD7aMHo6SZJQvxi1XUJ7coxL1a5SwdEyqW3vNiS3MCxt
+	 LrhnR4ApN7WIQ==
+Date: Fri, 10 Apr 2026 09:50:16 -0700
+From: Namhyung Kim <namhyung@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Al Grant <al.grant@arm.com>, linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Leo Yan <leo.yan@arm.com>
+Subject: Re: [PATCH v2 0/6] perf arm_spe: Dump IMPDEF events
+Message-ID: <adkqSLNceF2OQuBo@google.com>
+References: <20260407-james-spe-impdef-decode-v2-0-55d3ef997c48@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260410-add-thermal-t7-vim4-v1-8-19f2b8da74d7@aliel.fr>
-References: <20260410-add-thermal-t7-vim4-v1-0-19f2b8da74d7@aliel.fr>
-In-Reply-To: <20260410-add-thermal-t7-vim4-v1-0-19f2b8da74d7@aliel.fr>
-To: Guillaume La Roque <glaroque@baylibre.com>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Ronald Claveau <linux-kernel-dev@aliel.fr>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openssh-sha256; t=1775839732; l=2874;
- i=linux-kernel-dev@aliel.fr; s=id_ed25519; h=from:subject:message-id;
- bh=zbgRfmKb31HDgkan9Fy8S+p1BOUmWfaoe9tmTB9hGac=;
- b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgMGec55oxeeisqykQiUedekMYyOnR9
- BG9E/7rDWyqdNoAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
- QC2gP6l2ZGwBwfkdmnqHoopj7P0pXQieYHCsQz4S7Isj+ycLZJpj4jxyYI8NLM4ceXReP/Ntm/y
- vy0wj2kaYsQY=
-X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openssh;
- fpr=SHA256:kch4osYZ6A1BrPps5AUs6KnfdE2wm4ocMtyTc8TmZMs
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_174914_660997_965A6166 
-X-CRM114-Status: UNSURE (   8.34  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260407-james-spe-impdef-decode-v2-0-55d3ef997c48@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,140 +78,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an active trip at 50°C to all six thermal zones and map it to the
-khadas_mcu fan controller, using cooling states 30 to 100.
+Hi James,
 
-Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
----
- .../dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts  | 102 +++++++++++++++++++++
- 1 file changed, 102 insertions(+)
+On Tue, Apr 07, 2026 at 03:05:14PM +0100, James Clark wrote:
+> In the Arm SPE raw data dump, IMPDEF events aren't printed. Add the
+> ability to add names for some known events or print the raw event number
+> for unknown events.
+> 
+> For example:
+> 
+>   $ perf report -D
+> 
+>   ... ARM SPE data: size 0xd000 bytes
+>   00000000: b0 18 c6 32 80 00 80 ff a0  PC 0xff80008032c618 el1 ns=1
+>   00000009: 64 e7 42 00 00              CONTEXT 0x42e7 el1
+>   0000000e: 00 00 00 00 00              PAD
+>   00000013: 49 00                       LD GP-REG
+>   00000015: 52 16 10               	EV RETIRED L1D-ACCESS TLB-ACCESS
+> 
+> On N1 the event line becomes:
+> 
+>   00000015: 52 16 10                    EV RETIRED L1D-ACCESS TLB-ACCESS LATE-PREFETCH
+> 
+> Or on other cores it becomes:
+> 
+>   00000015: 52 16 10                    EV RETIRED L1D-ACCESS TLB-ACCESS IMPDEF:12
+> 
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+> Changes in v2:
+> - Put MIDR in arm_spe_pkt (Leo)
+> - Use for_each_set_bit() (Leo)
+> - Use BIT_ULL() to fix 32bit builds (Ian)
+> - Don't call strtol() with NULL (Ian)
+> - Link to v1: https://lore.kernel.org/r/20260401-james-spe-impdef-decode-v1-0-ad0d372c220c@linaro.org
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-index 5d7f5390f3a66..ba9219073dd0a 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-@@ -157,6 +157,74 @@ wifi32k: wifi32k {
- 	};
- };
- 
-+&a53_thermal {
-+	trips {
-+		a53_active: a53-active {
-+			temperature = <50000>; /* millicelsius */
-+			hysteresis = <2000>; /* millicelsius */
-+			type = "active";
-+		};
-+	};
-+
-+	cooling-maps {
-+		map {
-+			trip = <&a53_active>;
-+			cooling-device = <&khadas_mcu 30 100>;
-+		};
-+	};
-+};
-+
-+&a73_thermal {
-+	trips {
-+		a73_active: a73-active {
-+			temperature = <50000>; /* millicelsius */
-+			hysteresis = <2000>; /* millicelsius */
-+			type = "active";
-+		};
-+	};
-+
-+	cooling-maps {
-+		map {
-+			trip = <&a73_active>;
-+			cooling-device = <&khadas_mcu 30 100>;
-+		};
-+	};
-+};
-+
-+&gpu_thermal {
-+	trips {
-+		gpu_active: gpu-active {
-+			temperature = <50000>; /* millicelsius */
-+			hysteresis = <2000>; /* millicelsius */
-+			type = "active";
-+		};
-+	};
-+
-+	cooling-maps {
-+		map {
-+			trip = <&gpu_active>;
-+			cooling-device = <&khadas_mcu 30 100>;
-+		};
-+	};
-+};
-+
-+&hevc_thermal {
-+	trips {
-+		hevc_active: hevc-active {
-+			temperature = <50000>; /* millicelsius */
-+			hysteresis = <2000>; /* millicelsius */
-+			type = "active";
-+		};
-+	};
-+
-+	cooling-maps {
-+		map {
-+			trip = <&hevc_active>;
-+			cooling-device = <&khadas_mcu 30 100>;
-+		};
-+	};
-+};
-+
- &i2c_m_ao_a {
- 	status = "okay";
- 	pinctrl-0 = <&i2c0_ao_d_pins>;
-@@ -170,6 +238,23 @@ khadas_mcu: system-controller@18 {
- 	};
- };
- 
-+&nna_thermal {
-+	trips {
-+		nna_active: nna-active {
-+			temperature = <50000>; /* millicelsius */
-+			hysteresis = <2000>; /* millicelsius */
-+			type = "active";
-+		};
-+	};
-+
-+	cooling-maps {
-+		map {
-+			trip = <&nna_active>;
-+			cooling-device = <&khadas_mcu 30 100>;
-+		};
-+	};
-+};
-+
- &pwm_ab {
- 	status = "okay";
- 	pinctrl-0 = <&pwm_a_pins>;
-@@ -266,3 +351,20 @@ &uart_a {
- 	clocks = <&xtal>, <&xtal>, <&xtal>;
- 	clock-names = "xtal", "pclk", "baud";
- };
-+
-+&vpu_thermal {
-+	trips {
-+		vpu_active: vpu-active {
-+			temperature = <50000>; /* millicelsius */
-+			hysteresis = <2000>; /* millicelsius */
-+			type = "active";
-+		};
-+	};
-+
-+	cooling-maps {
-+		map {
-+			trip = <&vpu_active>;
-+			cooling-device = <&khadas_mcu 30 100>;
-+		};
-+	};
-+};
+I'm getting this on 32-bit build.
 
--- 
-2.49.0
+  In file included from /linux/tools/include/linux/bitmap.h:8,                    
+                   from util/arm-spe-decoder/arm-spe-pkt-decoder.c:11:            
+  util/arm-spe-decoder/arm-spe-pkt-decoder.c: In function 'arm_spe_pkt_desc_event':
+  util/arm-spe-decoder/arm-spe-pkt-decoder.c:377:37: error: passing argument 1 of 'find_first_bit' from incompatible pointer type [-Werror=incompatible-pointer-types]
+    377 |                 for_each_set_bit(i, &payload, 64) {                      
+  /linux/tools/include/linux/bitops.h:55:38: note: in definition of macro 'for_each_set_bit'
+     55 |         for ((bit) = find_first_bit((addr), (size));            \       
+        |                                      ^~~~                               
+  In file included from /linux/tools/include/linux/bitmap.h:9:                    
+  /linux/tools/include/linux/find.h:118:51: note: expected 'const long unsigned int *' but argument is of type 'u64 *' {aka 'long long unsigned int *'}
+    118 | unsigned long find_first_bit(const unsigned long *addr, unsigned long size)
+        |                              ~~~~~~~~~~~~~~~~~~~~~^~~~
 
+Thanks,
+Namhyung
+
+> 
+> ---
+> James Clark (6):
+>       perf arm_spe: Make a function to get the MIDR
+>       perf arm_spe: Handle missing CPU IDs
+>       perf arm_spe: Store MIDR in arm_spe_pkt
+>       perf arm_spe: Turn event name mappings into an array
+>       perf arm_spe: Decode Arm N1 IMPDEF events
+>       perf arm_spe: Print remaining IMPDEF event numbers
+> 
+>  tools/perf/util/arm-spe-decoder/Build              |   2 +
+>  tools/perf/util/arm-spe-decoder/arm-spe-decoder.c  |  17 ++-
+>  tools/perf/util/arm-spe-decoder/arm-spe-decoder.h  |   3 +-
+>  .../util/arm-spe-decoder/arm-spe-pkt-decoder.c     | 144 ++++++++++++++-------
+>  .../util/arm-spe-decoder/arm-spe-pkt-decoder.h     |   5 +-
+>  tools/perf/util/arm-spe.c                          |  62 ++++++---
+>  6 files changed, 158 insertions(+), 75 deletions(-)
+> ---
+> base-commit: 74e2dbe7be5037a5e5eed6bc1ad562747ac88566
+> change-id: 20260331-james-spe-impdef-decode-d944f4fdcff7
+> 
+> Best regards,
+> -- 
+> James Clark <james.clark@linaro.org>
+> 
 
