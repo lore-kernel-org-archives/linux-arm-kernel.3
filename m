@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A3A0F459F5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 16:28:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E27E9F459EF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 16:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=djz8Fg9XnT6VVYbCR0fwt3rZU8ifS6ZwQGEz+FJ7IBI=; b=m2eTGXgUZYCe5gtVtJ1Olz3ADS
-	uzTgU8GsoMpvpVfEsxAjQ3aCEH6DzLJzx/lW73gDWtMXckWeUuhqmhi7PIyQT2mpt/Dw1jyRzu9Wa
-	h76muzlnkfycEVz00EeCVKnqe/eDdVHCyMWlb3yVjcV9iN4FzvbhVTpsqihjsZ7D+vjVz2aXLQE5t
-	LPR2yiwjKCXGmAJJLCJBr146dkroW9J2sojQZrq/tacZnRVWlN2wMuvui2Cg6qgbJwGlBR4vyZB6X
-	Y9yPdPkAZCMtpEy5JzuaEKYIGcyqRVGuIwwuaeY5YvOvd00NJTgo6MwlZDJDlzFki52Hhvbi56S2e
-	i91zsBmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qyGCQ4FXW0WQT8ERovOKbSnHjICddwiSi8mcOlHK1iY=; b=3kL9bhEFJI/hLcIKukq/HxL/fl
+	YQsYxhESJ5DCRlbxusGLUZBa96t0kHoYKrqOrZPi8hhpQi+519rRxovo5CubqaKi37mOV2K5V/p6I
+	Joeg74HEUTjb2Rgu5PC/LEuLFL1tJbSgO6rYDXcOi53V7bvXi947D9HxlsU0DQQNmiLE/nsbsd6wD
+	+RqDOkd6ftFT6CdgNIjvvaWGioQThumrpvMZZaxjX8tSjM/15ChfBpBgtjb0xt1fmo8GGGeM0aY1c
+	pDVzuF6jpfQ03W+i5MA2RqdGXtHCjx0bdpHu7ixeV4VCbdH4qBpafZUnlquoP4ffyg/T+Y5cwBXeC
+	meu8AXZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBEiq-0000000CXiw-2UXn;
-	Fri, 10 Apr 2026 16:28:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wBEoV-0000000CY22-2dUa;
+	Fri, 10 Apr 2026 16:34:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBEio-0000000CXib-2pqr;
-	Fri, 10 Apr 2026 16:28:42 +0000
+	id 1wBEoT-0000000CY1w-48c6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Apr 2026 16:34:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 959AE60126;
-	Fri, 10 Apr 2026 16:28:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD729C19421;
-	Fri, 10 Apr 2026 16:28:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0CEF060125;
+	Fri, 10 Apr 2026 16:34:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2098AC19421;
+	Fri, 10 Apr 2026 16:34:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775838521;
-	bh=osnLMVmDFnwHE+le2JetnpP1rDIKNK8VoMDGuRUbSkQ=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=SBSKGPyPzmGKQV/LPkTTrX4Wzsb/pXU3HGU5yRXBVHjmEQOeIdBpFtwfCUctVP/+n
-	 I6q3Iqvpw0u/RR2FW0TjkmFWABT/+NJoZitoLyGeHDovSxoio1o28JGKuJUuHNCf7A
-	 JJmGz/nfc4/F+CRJzJ0Weu2tAqUx6Fi5s3X68IwxG1ohEWMqr82C5JG81vAsocKum5
-	 f3Iz3mlVW3MfBZfkIKqbu8en+ncQKZS8AldyP/rkAYMZw6dccC0THYz9MFrH7Cf+wH
-	 7AzS4xz39CuT7UMi4bQOUybx7ibVCY4QCF03+PEGOvq9fFInNdOwmpIBnGx6u7VDj6
-	 mEwnGcADPUqNg==
-From: Mark Brown <broonie@kernel.org>
-To: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
- linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Pei Xiao <xiaopei01@kylinos.cn>
-In-Reply-To: <20263f885f1a9c9d559f95275298cd6de4b11ed5.1775546401.git.xiaopei01@kylinos.cn>
-References: <20263f885f1a9c9d559f95275298cd6de4b11ed5.1775546401.git.xiaopei01@kylinos.cn>
-Subject: Re: [PATCH V2] spi: mtk-snfi: unregister ECC engine on probe
- failure and remove() callback
-Message-Id: <177582518300.1175120.4251320554598514411.b4-ty@b4>
-Date: Fri, 10 Apr 2026 13:46:23 +0100
+	s=k20201202; t=1775838872;
+	bh=0GNmJYWWFmVhVV4nIg36bDblcBd/4S2M8hMuiDQOjUk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=h6yRzHumYoqUvW46IDcJv1biGCgOPkVYHTUQJAaejVyV7yGNVQJD+bZkpzsdPp/rz
+	 fDEMkqIQLmW3rSuKyrw1YbMsPwg2IqL+q9i/IaY+YrHznB2IeUwuAO7L1QnmSYtxMn
+	 En1ZeXUAkbMjJ10NH+F0uKR6SiHNvRE8ATe7whYZh9bbFh2w4zGdzRo9islLpHmw+a
+	 ahyobHPsqJ/PnCPQNt2AiNLrW7JKbmQSliRGjI6G1rQIJ7IpUEJgsl3DwxHmAOmaLx
+	 ZtVkMqX6UXr8VzRLZtfzqZEVQ7hhWAaN1QOxNfyvtcs1LfZHwEui7WZ47ODNMdsZOX
+	 khotrbWqMUKmA==
+Date: Fri, 10 Apr 2026 22:04:20 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Thierry Reding <thierry.reding@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
+	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, Michal Simek <michal.simek@amd.com>, 
+	Kevin Xie <kevin.xie@starfivetech.com>, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>, 
+	Manikanta Maddireddy <mmaddireddy@nvidia.com>
+Subject: Re: [PATCH v4 3/4] PCI: tegra: Add Tegra264 support
+Message-ID: <ukeelrtmjgxxwlkkzsojygzo6us5ijshis66a4x2a44hg4bw25@hggglahvrajy>
+References: <20260402-tegra264-pcie-v4-0-21e2e19987e8@nvidia.com>
+ <20260402-tegra264-pcie-v4-3-21e2e19987e8@nvidia.com>
+ <iaoee5r5e2w52fap7ex23wdikbuvpjpesinedgjkehsedszhzo@64yoo2avmxle>
+ <adTAVYEzfD9FQl8N@orome>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1160; i=broonie@kernel.org;
- h=from:subject:message-id; bh=osnLMVmDFnwHE+le2JetnpP1rDIKNK8VoMDGuRUbSkQ=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBp2SU2RitBbmkr8ekYufID3Vy04zsNcEbuqOtOz
- +A98eHez3eJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCadklNgAKCRAk1otyXVSH
- 0A34B/4vClavqfgu41Z3rhEFRB53rXHsRwu4oH0nExrZ3ppSyOO7D81I5wYge7HBJ7ew14LxO3D
- D7zQ2c6ujCwAo/Z7ALYVtrQJAlXrebXMEGwCBPWphtEoOv/3Rapazu3KqoXDupzQRXU+e41ZpKq
- Ru1LAi3tRel7/VvAwqeWdLwJ67yTmjO/lkRmbYs2VuWhTX9tIrmQHEXgEvky23G/pKPwrcW/46y
- K/Sh2hapWlAN3OZ6wDBdMLmQypCA8buxp6mEOULQIVYY5LUQPQuzjPSUUZaxsP3UW6Hiw/m+R2d
- RXp0785TpsfiKldsT36xgClIFNtcy2lDHtK7lBYGloMztQyA
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <adTAVYEzfD9FQl8N@orome>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,35 +81,339 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 07 Apr 2026 15:26:59 +0800, Pei Xiao wrote:
-> spi: mtk-snfi: unregister ECC engine on probe failure and remove() callback
+On Tue, Apr 07, 2026 at 11:38:28AM +0200, Thierry Reding wrote:
+> On Thu, Apr 02, 2026 at 11:02:02PM +0530, Manivannan Sadhasivam wrote:
+> > On Thu, Apr 02, 2026 at 04:27:37PM +0200, Thierry Reding wrote:
+> > > From: Thierry Reding <treding@nvidia.com>
+> > > 
+> > > Add a driver for the PCIe controller found on NVIDIA Tegra264 SoCs. The
+> > > driver is very small, with its main purpose being to set up the address
+> > > translation registers and then creating a standard PCI host using ECAM.
+> > > 
+> > > Signed-off-by: Manikanta Maddireddy <mmaddireddy@nvidia.com>
+> > > Signed-off-by: Thierry Reding <treding@nvidia.com>
+> > 
+> > What is the rationale for adding a new driver? Can't you reuse the existing one?
+> > If so, that should be mentioned in the description.
+> 
+> Which existing one? Tegra PCI controllers for previou generations
+> (Tegra194 and Tegra234) were DesignWare IP, but Tegra264 is an internal
+> IP, so the programming is entirely different. I'll add something to that
+> effect to the commit message.
+> 
 
-Applied to
+Yikes! I completely missed that this is a non-dwc driver. Sorry for the noise.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.1
+> > > diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
+> > > index 5aaed8ac6e44..6ead04f7bd6e 100644
+> > > --- a/drivers/pci/controller/Kconfig
+> > > +++ b/drivers/pci/controller/Kconfig
+> > > @@ -254,7 +254,15 @@ config PCI_TEGRA
+> > >  	select IRQ_MSI_LIB
+> > >  	help
+> > >  	  Say Y here if you want support for the PCIe host controller found
+> > > -	  on NVIDIA Tegra SoCs.
+> > > +	  on NVIDIA Tegra SoCs (Tegra20 through Tegra186).
+> > > +
+> > > +config PCIE_TEGRA264
+> > > +	bool "NVIDIA Tegra264 PCIe controller"
+> > 
+> > This driver seems to be using external MSI controller. So it can be built as a
+> > module. Also, you have the remove() callback for some reason.
+> 
+> Okay, I can turn this into a tristate symbol.
+> 
+> > > +	depends on ARCH_TEGRA || COMPILE_TEST
+> > > +	depends on PCI_MSI
+> > 
+> > Why?
+> 
+> I suppose it's not necessary in the sense of it being a build
+> dependency. At runtime, however, the root complex is not useful if PCI
+> MSI is not enabled. We can drop this dependency and rely on .config to
+> have it enabled as needed.
+> 
 
-Thanks!
+Yes. I think the rationale is to depend on the symbols that the driver needs for
+build dependency.
 
-[1/1] spi: mtk-snfi: unregister ECC engine on probe failure and remove() callback
-      https://git.kernel.org/broonie/spi/c/ab00febad191
+> > > diff --git a/drivers/pci/controller/pcie-tegra264.c b/drivers/pci/controller/pcie-tegra264.c
+> > > new file mode 100644
+> > > index 000000000000..3ce1ad971bdb
+> > > --- /dev/null
+> > > +++ b/drivers/pci/controller/pcie-tegra264.c
+> [...]
+> > > +struct tegra264_pcie {
+> > > +	struct device *dev;
+> > > +	bool link_up;
+> > 
+> > Keep bool types at the end to avoid holes.
+> 
+> Done.
+> 
+> > > +static int tegra264_pcie_parse_dt(struct tegra264_pcie *pcie)
+> > > +{
+> > > +	int err;
+> > > +
+> > > +	pcie->wake_gpio = devm_gpiod_get_optional(pcie->dev, "nvidia,pex-wake",
+> > 
+> > You should switch to standard 'wake-gpios' property.
+> 
+> Will do.
+> 
+> > > +						  GPIOD_IN);
+> > > +	if (IS_ERR(pcie->wake_gpio))
+> > > +		return PTR_ERR(pcie->wake_gpio);
+> > > +
+> > > +	if (pcie->wake_gpio) {
+> > 
+> > Since you are bailing out above, you don't need this check.
+> 
+> I think we still want to have this check to handle the case of optional
+> wake GPIOs. Not all controllers may have this wired up and
+> devm_gpiod_get_optional() will return NULL (not an ERR_PTR()-encoded
+> error) if the wake-gpios property is missing.
+> 
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+Ok. In that case you can just bail out:
+	if (!pcie->wake_gpio)
+		return 0;
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+> > > +static void tegra264_pcie_bpmp_set_rp_state(struct tegra264_pcie *pcie)
+> > 
+> > I don't think this function name is self explanatory. Looks like it is turning
+> > off the PCIe controller, so how about tegra264_pcie_power_off()?
+> 
+> Agreed. The name is a relic from when this was potentially being used to
+> toggle on and off the controller. But it's only used for disabling, so
+> tegra264_pcie__power_off() sounds much better.
+> 
+> > > +{
+> > > +	struct tegra_bpmp_message msg = {};
+> > > +	struct mrq_pcie_request req = {};
+> > > +	int err;
+> > > +
+> > > +	req.cmd = CMD_PCIE_RP_CONTROLLER_OFF;
+> > > +	req.rp_ctrlr_off.rp_controller = pcie->ctl_id;
+> > > +
+> > > +	msg.mrq = MRQ_PCIE;
+> > > +	msg.tx.data = &req;
+> > > +	msg.tx.size = sizeof(req);
+> > > +
+> > > +	err = tegra_bpmp_transfer(pcie->bpmp, &msg);
+> > > +	if (err)
+> > > +		dev_info(pcie->dev, "failed to turn off PCIe #%u: %pe\n",
+> > 
+> > Why not dev_err()?
+> > 
+> > > +			 pcie->ctl_id, ERR_PTR(err));
+> > > +
+> > > +	if (msg.rx.ret)
+> > > +		dev_info(pcie->dev, "failed to turn off PCIe #%u: %d\n",
+> > 
+> > Same here.
+> 
+> These are not fatal errors and are safe to ignore. dev_err() seemed too
+> strong for this. They also really shouldn't happen. Though I now realize
+> that's a bad argument, or rather, actually an argument for making them
+> dev_err() so that they do stand out if they really should happen.
+> 
+> > 
+> > > +			 pcie->ctl_id, msg.rx.ret);
+> > > +}
+> > > +
+> > > +static void tegra264_pcie_icc_set(struct tegra264_pcie *pcie)
+> > > +{
+> > > +	u32 value, speed, width, bw;
+> > > +	int err;
+> > > +
+> > > +	value = readw(pcie->ecam + XTL_RC_PCIE_CFG_LINK_STATUS);
+> > > +	speed = FIELD_GET(PCI_EXP_LNKSTA_CLS, value);
+> > > +	width = FIELD_GET(PCI_EXP_LNKSTA_NLW, value);
+> > > +
+> > > +	bw = width * (PCIE_SPEED2MBS_ENC(speed) / BITS_PER_BYTE);
+> > > +	value = MBps_to_icc(bw);
+> > 
+> > So this becomes, 'width * (PCIE_SPEED2MBS_ENC(speed) / 8) * 1000 / 8'. But don't
+> > you want, 'width * (PCIE_SPEED2MBS_ENC(speed)) * 1000 / 8'?
+> 
+> This is M*B*ps_to_icc(), not M*b*ps_to_icc(), so we do in fact get the
+> latter. I almost fell for this as well because I got confused by some of
+> these macros being all-caps and other times the case actually mattering.
+> 
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+Oops, I was misleaded too. But you can simply do:
+	bw = Mbps_to_icc(width * PCIE_SPEED2MBS_ENC(speed));
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+> > > +	err = icc_set_bw(pcie->icc_path, bw, bw);
 
-Thanks,
-Mark
+And here you were setting the MBps, not Kbps.
 
+> > > +	if (err < 0)
+> > > +		dev_err(pcie->dev,
+> > > +			"failed to request bandwidth (%u MBps): %pe\n",
+> > > +			bw, ERR_PTR(err));
+> > 
+> > So you don't want to error out if this fails?
+> 
+> No. This is not a fatal error and the system will continue to work,
+> albeit perhaps at suboptimal performance. Given that Ethernet and mass
+> storage are connected to these, a failure to set the bandwidth and
+> erroring out here may leave the system unusable, but continuing on would
+> let the system boot and update firmware, kernel or whatever to recover.
+> 
+> I'll add a comment explaining this.
+> 
+
+Yeah, that'll help.
+
+> [...]
+> > > +static void tegra264_pcie_init(struct tegra264_pcie *pcie)
+> > > +{
+> > > +	enum pci_bus_speed speed;
+> > > +	unsigned int i;
+> > > +	u32 value;
+> > > +
+> > > +	/* bring the link out of reset */
+> > 
+> > s/link/controller or endpoint?
+> 
+> This controls the PERST# signal, so I guess "endpoint" would be more
+> correct.
+> 
+
+Yes!
+
+> > > +	value = readl(pcie->xtl + XTL_RC_MGMT_PERST_CONTROL);
+> > > +	value |= XTL_RC_MGMT_PERST_CONTROL_PERST_O_N;
+> > > +	writel(value, pcie->xtl + XTL_RC_MGMT_PERST_CONTROL);
+> > > +
+> > > +	if (!tegra_is_silicon()) {
+> > 
+> > This looks like some pre-silicon validation thing. Do you really want it to be
+> > present in the upstream driver?
+> 
+> At this point there is silicon for this chip, but we've been trying to
+> get some of the pre-silicon code merged upstream as well because
+> occasionally people will want to run upstream on simulation, even after
+> silicon is available. At other times we may want to reuse these drivers
+> on future chips during pre-silicon validation.
+> 
+> Obviously there needs to be a balance. We don't want to have excessive
+> amounts of code specifically for pre-silicon validation, but in
+> relatively simple cases like this it is useful.
+> 
+
+Ok, fine with me.
+
+> > 
+> > > +		dev_info(pcie->dev,
+> > > +			 "skipping link state for PCIe #%u in simulation\n",
+> > > +			 pcie->ctl_id);
+> > > +		pcie->link_up = true;
+> > > +		return;
+> > > +	}
+> > > +
+> > > +	for (i = 0; i < PCIE_LINK_WAIT_MAX_RETRIES; i++) {
+> > > +		if (tegra264_pcie_link_up(pcie, NULL))
+> > > +			break;
+> > > +
+> > > +		usleep_range(PCIE_LINK_WAIT_US_MIN, PCIE_LINK_WAIT_US_MAX);
+> > > +	}
+> > > +
+
+[...]
+
+> > > +	pm_runtime_get_sync(dev);
+> > > +
+> > > +	/* sanity check that programmed ranges match what's in DT */
+> > > +	if (!tegra264_pcie_check_ranges(pdev)) {
+> > > +		err = -EINVAL;
+> > > +		goto put_pm;
+> > > +	}
+> > > +
+> > > +	pcie->cfg = pci_ecam_create(dev, res, bus->res, &pci_generic_ecam_ops);
+> > > +	if (IS_ERR(pcie->cfg)) {
+> > > +		err = dev_err_probe(dev, PTR_ERR(pcie->cfg),
+> > > +				    "failed to create ECAM\n");
+> > > +		goto put_pm;
+> > > +	}
+> > > +
+> > > +	bridge->ops = (struct pci_ops *)&pci_generic_ecam_ops.pci_ops;
+> > > +	bridge->sysdata = pcie->cfg;
+> > > +	pcie->ecam = pcie->cfg->win;
+> > > +
+> > > +	tegra264_pcie_init(pcie);
+> > > +
+> > > +	if (!pcie->link_up)
+> > > +		goto free;
+> > 
+> > goto free_ecam;
+> 
+> It's not clear to me, but are you suggesting to rename the existing
+> "free" label to "free_ecam"? I can do that.
+> 
+
+Yeah, I was just asking for a rename.
+
+> > > +	err = pci_host_probe(bridge);
+> > > +	if (err < 0) {
+> > > +		dev_err(dev, "failed to register host: %pe\n", ERR_PTR(err));
+> > 
+> > dev_err_probe()
+> 
+> Okay.
+> 
+> > 
+> > > +		goto free;
+> > > +	}
+> > > +
+> > > +	return err;
+> > 
+> > return 0;
+> 
+> Done.
+> 
+> [...]
+> > > +static int tegra264_pcie_resume_noirq(struct device *dev)
+> > > +{
+> > > +	struct tegra264_pcie *pcie = dev_get_drvdata(dev);
+> > > +	int err;
+> > > +
+> > > +	if (pcie->wake_gpio && device_may_wakeup(dev)) {
+> > > +		err = disable_irq_wake(pcie->wake_irq);
+> > > +		if (err < 0)
+> > > +			dev_err(dev, "failed to disable wake IRQ: %pe\n",
+> > > +				ERR_PTR(err));
+> > > +	}
+> > > +
+> > > +	if (pcie->link_up == false)
+> > > +		return 0;
+> > > +
+> > > +	tegra264_pcie_init(pcie);
+> > > +
+> > 
+> > Why do you need init() here without deinit() in tegra264_pcie_suspend_noirq()?
+> 
+> That's because when we come out of suspend the link may have gone down
+> again, so we need to take the endpoint out of reset to retrigger the
+> link training. I think we could possibly explicitly clear that PERST_O_N
+> bit in the PERST_CONTROL register in a new tegra264_pcie_deinit() to
+> mirror what tegra264_pcie_init() does, but it's automatically done by
+> firmware anyway, so not needed.
+> 
+
+Hmm, so firmware asserts PERST# at the end of suspend? It is not clear to me why
+it is doing so. But for symmetry I'd like to do it in tegra264_pcie_deinit().
+
+Also, I'm not certain about the 'pcie->link_up' check here. If it is 'false',
+then probe() should've failed. So why do you need the check here anyway?
+
+Maybe you should get rid of this check and return the link status from
+tegra264_pcie_init() directly?
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
