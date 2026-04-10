@@ -4,122 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7830F44869
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 13:40:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBF08F4485A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 13:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iCXB7w7ko4o+lkpt1Tfr/OwLPxl1m2l/vGRhYm7vF9w=; b=bUr5d6bAyjgqjvmKM90GlbK0NP
-	HGsXr/FqJQJa/iCO3UJb8Ji9p+PhJEmxr0d37Eyn0/6diYxrVOis6iPpmePL4ONlRbwNW8z9/Y7aE
-	wsgeM7MldUfX9QYlz8pyMcFkBO2rIRUdHsErFHpTbRwwRqrNL2gVQS/7fu1ONcma3ueQSDKiT2QOI
-	4G3DuxvJeWJW34GjMmWkkmXmvdpw0HXqzd3nnDkSjo9RxPwzaitbDzN2AgYTKgkQ26T/ctOBXSotu
-	vyIzafyL5O+urkTfP7p4lIF9uLHE29Se29SD2C1r8b5wgFvH2X9hcRtwmZmR3Ll8+QzdJfyDcQHkA
-	xu/vf/Jw==;
+	bh=LqP6MZ/X3JZngH/ljagVF5jBd2WE3YkVVyVY71Hxwg8=; b=w4gxcneHCNOuOnYWPA4h8/gT2S
+	yEoAXsZ7i20ureuI055hSYm1zKjTnNvyzBgtD1Mn9swi4XufW+IiLD9arusryG5/i2k4EuC1dqMF6
+	sN/G7jwAiW9VKuXYH/H0HtP8f8J0A4X7cTv8oyCEwu5jOSCpBuAiSdEqH41mbpInhHKjRX04w/vxh
+	yDN16OExuUb4xYr/GE+Wy6IP15rE3o77FDQPTzZB5MarpmvTUyJPEiBGcPGIlb6fqbpftlLtkVH1X
+	iydAfHTxibrGSuPp3LcAd6bypRn7rsxRkatHIhDj/WS0d6XdDcLLKS4XsHjLU7f1XTqdkA4neRBpY
+	tvL/WoXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBC5j-0000000CKUB-3GPC;
-	Fri, 10 Apr 2026 13:40:11 +0000
-Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
+	id 1wBC8T-0000000CKlH-1HYE;
+	Fri, 10 Apr 2026 13:43:01 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBC5g-0000000CKTJ-49sM
+	id 1wBC8P-0000000CKku-27kU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 13:40:10 +0000
-Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-1279eced0b9so3035209c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 06:40:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1775828407; cv=none;
-        d=google.com; s=arc-20240605;
-        b=RMl0hWzRZov9Kj7Od7wFmkGGMgzXUO6/J3dmSoj+UJ09NZn5u1Opo2y5wVM5a48LJx
-         hjuErnCGOligb5YRb+8gylDULdjbbJ+YMIiKvTS0PMkg6zSVI/xMxvue3145rc8FgWH6
-         CL4u+cwpk0xYnDidgkK70uZ/IPyAwNmx8DY7C4D7FayhI2+yr4uzTPkd+kXUj7R4DnKs
-         kjA18FOThJm4j8HtLzQgoIgl8Y139i79PeaZYnoURSDcLPldFtGMvzSWqq4uO2YCx4M1
-         SlZoXzj0DgPmKOszJfotRuHUr/hBJdCMReQVCV0UUPA+e84ikNr41zR39h5BqoXmXN1V
-         hLXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=iCXB7w7ko4o+lkpt1Tfr/OwLPxl1m2l/vGRhYm7vF9w=;
-        fh=/9hq86XmmXl1SrcvEmV+lfn7JBWmifysGP1tVqqPSsc=;
-        b=g/R9GzbdyoWRhb3iiouYx9AyYWrsOL1fb9sZ0UwWOHMn7JZpdseu5mKXTQ2Q82bhG/
-         2G3lKfRwb/z2YWihgAH8oNrefgYHxmFvDttui2xTqH8Kooy5+nyGSH8xpI4221HxTebM
-         4ofjg69rRLCYQ/IyNbGmaYSiS5PNAxwlruSkyoKGba+6iKlfz6Ik1XlmOi5K83bBP/s2
-         puFocBZm7axm7f1nOQ8Gj31cbGuGnk2L13jZqsJp5pp2BavM1EAl5j14WkXjLXayJJeM
-         AFzqEjjpzpvTWWUq+yRHAMwiXZ6yjUvWAS8mWkfMMw4aVWm28eYx4kHs08gwDNynJ8t0
-         9Efw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 10 Apr 2026 13:42:59 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-488a041eae5so14669235e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 06:42:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1775828407; x=1776433207; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1775828575; x=1776433375; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=iCXB7w7ko4o+lkpt1Tfr/OwLPxl1m2l/vGRhYm7vF9w=;
-        b=LQs46EfBKyQi8bjGZc/shWUpNuXhL01LJmtMpaqVSG56suvV4q+KJrg7qRuE5AR7UG
-         2ys/oNN93wyjpCRaSIrjyvIMI7dCIVyGXhVM5pxkpvifXkp9F6I688F51y176v3rLLJv
-         dn9SmUZWI/roG3YrOoQHq53/9otBw9DHsFj9x3FtwzxpK0+LjnazmO2LKHnFke7ZeO78
-         N6HSR7RV1O8R4EpB34BpDO6ZOUDIBHkP0pxIEDNQdFQ+0M84oEva8D1WESVNTtZvdDQN
-         PTvcaDriST+M1T1f64yv9TebkinyHY1zQ8k8MVSwX408DDDXzkz9ozD28zlDGfQB1wO+
-         yY1Q==
+        bh=LqP6MZ/X3JZngH/ljagVF5jBd2WE3YkVVyVY71Hxwg8=;
+        b=nV6OIgv9W0ZIscpO49OV8HmUujAcY5Uk/HED76cjS1VHUmEh9YAuEUmaQuRHn3sQ5o
+         NexFtzIHFNIysU3Qhlg/1hxTHDUPUkVVyAeKoAiT8RX/pLudPMQE9rtdYKry27+lFAlN
+         RLE8DD3KBC5OxmPfDAnH+IQfz7RrGTVshlXAES9KpzIlPy3R5GHpyJbDij9T92KgIzI2
+         EJC9EqY7byy4o3UPek3Ig0NKItvCPtefhbNYrb+nlYmv5sFthalT3eOqXPh6WY2cFCsk
+         ijyCow+D17aXnM7agGuK8pvjTZIUcT7fo/c09xoMQ+i7tRG9guN5/Gcs7LgnGBIkEiFP
+         sXkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775828407; x=1776433207;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
+        d=1e100.net; s=20251104; t=1775828575; x=1776433375;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iCXB7w7ko4o+lkpt1Tfr/OwLPxl1m2l/vGRhYm7vF9w=;
-        b=oZ7n7RQhxbq9MvRiZ+LB6skpZugBLJMpPGfDAA1Lr4n3hfbDrLm2YHt3uvnB9lN6NS
-         qy78z2ZFb43Fh/ZbCy3qKOVpMEkcqq5M8RMNbmTzVKHSPiTXGM+wUk3F+oruCZno3Gcy
-         Fl+LYEMr9nCq72BtezZn/8vd4rkP3bI6/cHl0bFN1Te27MbqUPnpF+UU9beeqNDAyYjx
-         4pUJDyfQQWMvtRB3N47Gr7kYFgrp52pJPGVXVB3/KDe6tRVkdBKfqAwkC/dk2flY1+zk
-         8RHvgiOji2M9zH5cMrbTRgNenpALSoRL9Y5KBmBY7zXXyDQt4qkXUXeUkI3PgtBGleaT
-         h7qA==
-X-Forwarded-Encrypted: i=1; AJvYcCX3jw3J0MbSAahmgYTePkyAIJdZRwiJiUmNDQuIWgVBOBos5X99QtxSuwUc+C+xTTBCcVw+Zt3aEgcoNvHyUTFG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3vG2ytprh7umQuWI2zNjezdxtyrvcigQy1vVqEoLdAxLloRWB
-	gfTF4bwaXMv0ZSD0EhzAkm8Xgbx/gIBnuGaSlpLSn3yStZGzJXe3o8suvbqA0XvWI+OBBUZ5JYW
-	tP/tl1ilIY+5yN9NnGyrQ+lwwxha6APef25jcK7S2
-X-Gm-Gg: AeBDieuH9hspvcSVP5hAE7jEJDWJua5gNeDkgjcnoZUsvax3NB0GnpVFOihzmKyZBIV
-	rD7dna2n3Xu91iGzEgRTvcG/Is5PrK1lPVdNo1lGpVoB1dGeIKHVW276vCc/T/ff0wLIdQEeEaf
-	/pF0jBPcCjOxMbaL3ev2qpi8xiDtckvUHl9v5uN86JrlQS30E6iakxrsN2hrjfOfBSM9MK46U2e
-	Wlfq12sTc1WAhynsS0BwFdKITrroDRBsJ+wU+J5xel32hZj9nwCtkByhXK44nTjgpf7S/RVbYBp
-	1zP52w84Sb4FcbQ/comLyrb5Pc3zV9jAoAkuNjEt7Fyh+Ftx
-X-Received: by 2002:a05:7022:fa04:b0:12c:2ed4:62fa with SMTP id
- a92af1059eb24-12c34ef907emr1882312c88.32.1775828406651; Fri, 10 Apr 2026
- 06:40:06 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260410120044.031381086@kernel.org> <20260410120318.862164111@kernel.org>
-In-Reply-To: <20260410120318.862164111@kernel.org>
-From: Marco Elver <elver@google.com>
-Date: Fri, 10 Apr 2026 15:39:30 +0200
-X-Gm-Features: AQROBzBE-9UxDQG5mMJLgipEeL_Y5pwE-Y_PUrJGxDBLilqBu51b8lLzxdip708
-Message-ID: <CANpmjNO1vsO1LT6xijhz3nsjQa+_A=9omfgOSz=aGn293-LqTg@mail.gmail.com>
-Subject: Re: [patch 19/38] kcsan: Replace get_cycles() usage
-To: Thomas Gleixner <tglx@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, Dmitry Vyukov <dvyukov@google.com>, 
-	kasan-dev@googlegroups.com, Arnd Bergmann <arnd@arndb.de>, x86@kernel.org, 
-	Lu Baolu <baolu.lu@linux.intel.com>, iommu@lists.linux.dev, 
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, netdev@vger.kernel.org, 
-	linux-wireless@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>, 
-	linux-crypto@vger.kernel.org, Vlastimil Babka <vbabka@kernel.org>, linux-mm@kvack.org, 
-	David Woodhouse <dwmw2@infradead.org>, Bernie Thompson <bernie@plugable.com>, linux-fbdev@vger.kernel.org, 
-	Theodore Tso <tytso@mit.edu>, linux-ext4@vger.kernel.org, 
-	Andrew Morton <akpm@linux-foundation.org>, Uladzislau Rezki <urezki@gmail.com>, 
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Thomas Sailer <t.sailer@alumni.ethz.ch>, 
-	linux-hams@vger.kernel.org, "Jason A. Donenfeld" <Jason@zx2c4.com>, 
-	Richard Henderson <richard.henderson@linaro.org>, linux-alpha@vger.kernel.org, 
-	Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Huacai Chen <chenhuacai@kernel.org>, 
-	loongarch@lists.linux.dev, Geert Uytterhoeven <geert@linux-m68k.org>, 
-	linux-m68k@lists.linux-m68k.org, Dinh Nguyen <dinguyen@kernel.org>, 
-	Jonas Bonn <jonas@southpole.se>, linux-openrisc@vger.kernel.org, 
-	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org, 
-	Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org, 
-	Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org, 
-	Heiko Carstens <hca@linux.ibm.com>, linux-s390@vger.kernel.org, 
-	"David S. Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+        bh=LqP6MZ/X3JZngH/ljagVF5jBd2WE3YkVVyVY71Hxwg8=;
+        b=MvrmUeZYd5NYv6O1hSa74Rox07nER3IZvTyu3WZ5ZCjHnaT1PSe9fyEorxliMbGG8b
+         xT/CkkIdOX/XUYo/z1+9HzMYjb4ZTj7R5HmmJh+6Ldda3TA1sZq4saHmJP0aItANAafx
+         ZOit/SvdNtIJZbVAODtqeoAhyGI4Mcv8dQKn6BzkLNE6V/MGXtC/7LYoEHXNOVsagAlG
+         BIGNRl94xDfKadbWN/+vqvXCoUluNUmk+ZBtJpA0lnVEB1MXNOdaKK+dspwVc6nkuI7i
+         bh3Q6avyJX5jTLbMY4K7zvPBRLA8NoC4K8ip3J88yUaeJZ6LWJwyFMQ2aW6z/fDzvPbR
+         wo7g==
+X-Forwarded-Encrypted: i=1; AJvYcCUqBu0TrCIxdQfv52od7u4K2rI6zL2wxSlxfmWIOw3+JX/kSW322w5A8/nBmlH6mBCYK4TAowrBovw488xXVVBt@lists.infradead.org
+X-Gm-Message-State: AOJu0YwlIiK8r0gzUum9BXTFXzUhWf0TdBbXrkg9bSi34jy/pp3X2ubq
+	FcHaMxqeGYMPEjg+EqmJ0FgBMUsMuDXZolWyaipxLfICVSn8SCxM9CM5ASzvkXPzNSk=
+X-Gm-Gg: AeBDies+R/CIjx8mZbHj8+pm+sMUWzBfDP7NUbFjqTEMkS9LxxISEwGhx/+0HNpZWBz
+	cYbSYuWZ/kYDPTsBf8EkFp2S68sWBZAenN+sZ2M1FBJIzIk9jYQZD1d19sRNpIQwyZhp5q+IXW5
+	n8ifngpvxCd1nk6uqC22motL6Lzsv3NkL0QYVCaXa4dO6zQSuTPN2JV409IlvQ9I5JIKr3hQS3d
+	3N56xroBD9vEDXGnx+5uoMyggCndE93TverXJB0hf6o/Fm3Ouwvj/BSrQbif0X6aMdHMlP0MnB/
+	5otMRFV1bW4MMPIqT9wrFTOWdf85BZes3E7oM1rlGz7oOPFMdxvQwsGybMUn311iDBC3iUm7R2Y
+	nzl7qbPeMFJmr5h5JCPv6MggtcuEX7CWi5uVNv8qA1Dpu5KyvRfh6OFL36exHUx4H7Ex751IWDw
+	tkBdDmqy63NbnrHg==
+X-Received: by 2002:a05:600d:8449:b0:488:b683:a421 with SMTP id 5b1f17b1804b1-488d683d51bmr33002115e9.19.1775828575183;
+        Fri, 10 Apr 2026 06:42:55 -0700 (PDT)
+Received: from localhost ([195.52.170.1])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488d5b3cbb2sm76078325e9.13.2026.04.10.06.42.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 Apr 2026 06:42:54 -0700 (PDT)
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=fce1b4727364f5973feb041246ca85370b02d5848da19ed76fba443450be;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Fri, 10 Apr 2026 15:42:48 +0200
+Message-Id: <DHPIOTXA81M3.AHBN8M49ENG5@baylibre.com>
+Cc: "Vishal Mahaveer" <vishalm@ti.com>, "Kevin Hilman"
+ <khilman@baylibre.com>, "Dhruva Gole" <d-gole@ti.com>, "Sebin Francis"
+ <sebin.francis@ti.com>, "Kendall Willis" <k-willis@ti.com>, "Akashdeep
+ Kaur" <a-kaur@ti.com>, <linux-remoteproc@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 4/7] arm64: dts: ti: k3-am62a7-sk: Split r5f memory
+ region
+From: "Markus Schneider-Pargmann" <msp@baylibre.com>
+To: "Vignesh Raghavendra" <vigneshr@ti.com>, "Markus Schneider-Pargmann
+ (TI)" <msp@baylibre.com>, "Bjorn Andersson" <andersson@kernel.org>,
+ "Mathieu Poirier" <mathieu.poirier@linaro.org>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Suman Anna" <s-anna@ti.com>, "Nishanth
+ Menon" <nm@ti.com>, "Tero Kristo" <kristo@kernel.org>
+X-Mailer: aerc 0.21.0-126-g9e77103592fe
+References: <20260318-topic-am62a-ioddr-dt-v6-19-v3-0-c41473cb23c3@baylibre.com> <20260318-topic-am62a-ioddr-dt-v6-19-v3-4-c41473cb23c3@baylibre.com> <8673745d-aad2-49d3-b3af-556de7037b69@ti.com>
+In-Reply-To: <8673745d-aad2-49d3-b3af-556de7037b69@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_064009_039461_91D38CA8 
-X-CRM114-Status: GOOD (  22.31  )
+X-CRM114-CacheID: sfid-20260410_064257_819933_1722A863 
+X-CRM114-Status: GOOD (  21.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,75 +109,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Apr 2026 at 14:20, Thomas Gleixner <tglx@kernel.org> wrote:
->
-> KCSAN uses get_cycles() for two purposes:
->
->   1) Seeding the random state with get_cycles() is a historical leftover.
->
->   2) The microbenchmark uses get_cycles(), which provides an unit less
->      counter value and is not guaranteed to be functional on all
->      systems/platforms.
->
-> Use random_get_entropy() for seeding the random state and ktime_get() which
-> is universaly functional and provides at least a comprehensible unit.
->
-> This is part of a larger effort to remove get_cycles() usage from
-> non-architecture code.
->
-> Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-> Cc: Marco Elver <elver@google.com>
-> Cc: Dmitry Vyukov <dvyukov@google.com>
-> Cc: kasan-dev@googlegroups.com
+--fce1b4727364f5973feb041246ca85370b02d5848da19ed76fba443450be
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Reviewed-by: Marco Elver <elver@google.com>
+Hi Vignesh,
 
-> ---
->  kernel/kcsan/core.c    |    2 +-
->  kernel/kcsan/debugfs.c |    8 ++++----
->  2 files changed, 5 insertions(+), 5 deletions(-)
+On Fri Apr 10, 2026 at 6:30 AM CEST, Vignesh Raghavendra wrote:
+> Hi Markus
 >
-> --- a/kernel/kcsan/core.c
-> +++ b/kernel/kcsan/core.c
-> @@ -798,7 +798,7 @@ void __init kcsan_init(void)
->         BUG_ON(!in_task());
+> On 18/03/26 20:43, Markus Schneider-Pargmann (TI) wrote:
+>> Split the firmware memory region in more specific parts so it is better
+>> described where to find which information. Specifically the LPM metadata
+>> region is important as bootloader software like U-Boot has to know where
+>> that data is to be able to read that data.
+>>=20
+>> Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
+>> ---
+>>  arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 40 ++++++++++++++++++++++++++=
++++++--
+>>  1 file changed, 38 insertions(+), 2 deletions(-)
+>>=20
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/d=
+ts/ti/k3-am62a7-sk.dts
+>> index e99bdbc2e0cbdf858f1631096f9c2a086191bab3..c381cc33064ec427751a9ac5=
+bcdff745a9559a89 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+>> @@ -59,9 +59,33 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 =
+{
+>>  			no-map;
+>>  		};
+>> =20
+>> -		wkup_r5fss0_core0_memory_region: memory@9c900000 {
+>> +		wkup_r5fss0_core0_ipc_region: memory@9c900000 {
 >
->         for_each_possible_cpu(cpu)
-> -               per_cpu(kcsan_rand_state, cpu) = (u32)get_cycles();
-> +               per_cpu(kcsan_rand_state, cpu) = (u32)random_get_entropy();
+> There are still references to wkup_r5fss0_core0_memory_region in
+> k3-am62a-ti-ipc-firmware.dtsi (same comment applies to next 2 patches as
+> well)
 >
->         /*
->          * We are in the init task, and no other tasks should be running;
-> --- a/kernel/kcsan/debugfs.c
-> +++ b/kernel/kcsan/debugfs.c
-> @@ -58,7 +58,7 @@ static noinline void microbenchmark(unsi
->  {
->         const struct kcsan_ctx ctx_save = current->kcsan_ctx;
->         const bool was_enabled = READ_ONCE(kcsan_enabled);
-> -       u64 cycles;
-> +       ktime_t nsecs;
->
->         /* We may have been called from an atomic region; reset context. */
->         memset(&current->kcsan_ctx, 0, sizeof(current->kcsan_ctx));
-> @@ -70,16 +70,16 @@ static noinline void microbenchmark(unsi
->
->         pr_info("%s begin | iters: %lu\n", __func__, iters);
->
-> -       cycles = get_cycles();
-> +       nsecs = ktime_get();
->         while (iters--) {
->                 unsigned long addr = iters & ((PAGE_SIZE << 8) - 1);
->                 int type = !(iters & 0x7f) ? KCSAN_ACCESS_ATOMIC :
->                                 (!(iters & 0xf) ? KCSAN_ACCESS_WRITE : 0);
->                 __kcsan_check_access((void *)addr, sizeof(long), type);
->         }
-> -       cycles = get_cycles() - cycles;
-> +       nsecs = ktime_get() - nsecs;
->
-> -       pr_info("%s end   | cycles: %llu\n", __func__, cycles);
-> +       pr_info("%s end   | nsecs: %llu\n", __func__, nsecs);
->
->         WRITE_ONCE(kcsan_enabled, was_enabled);
->         /* restore context */
->
+> Dont those need to be updated too?
+
+I only updated the sk boards as these are the only ones that have IO+DDR
+support that I know works and need the new memory region layout. But
+thinking about this, updating the memory region structure shouldn't be a
+problem for the other boards either, of course I can't tell if IO+DDR
+would work on them, but the new memory region layout shouldn't break
+anything.
+
+I can respin the series or do a followup series with modifications for
+all boards if you like.
+
+Best
+Markus
+
+--fce1b4727364f5973feb041246ca85370b02d5848da19ed76fba443450be
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iKMEABYKAEsWIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCadj+WBsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMiwyLDIRHG1zcEBiYXlsaWJyZS5jb20ACgkQhcFWaZAVSlOm
+TwEA3u6RqiPdFMVzltU2VOokKlHJ2REIqs5yRIMNmRsfRb0BALqUuasImLphT+IM
+k1FzSwoCFPxGLFA9l7C4E3YR3HIE
+=b2//
+-----END PGP SIGNATURE-----
+
+--fce1b4727364f5973feb041246ca85370b02d5848da19ed76fba443450be--
 
