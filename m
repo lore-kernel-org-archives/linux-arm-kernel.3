@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01145EA3C5C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 10:41:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F651E99076
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 10:41:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/73f3/gKMGjhlSVUm1EFqbVBE3w9N0gOSLL9TifoTSo=; b=u2D5xo7rlqTH5DmizEXb12BQMl
-	a4DRjm1QXpYg0sJVzSDfE+jWtcMvtBdW1z0U9TRzI9pf6Re0Kg4dXdetyoNAKBvmezDUSkRf8INWi
-	chXH8Uo1a0rZyHmoTcJhplppzpE3P5f3YgQiL5zXOVZ9bWAv4ppF2oHQvb/DRQk5Sl5AP5hgCz0TJ
-	1DK84D/rtgATbNZ8lqdGKib5XHkeYdpAHoFwLFfZ7iZHP77TruDRfjKaMxBXPxf6ZPwVmKMGDYEnq
-	LN7XL05PeF2puJh8Il3ubm0og8kN7MXPdh9g37HPfl+/1Cv0YcL2bGUIZG3uVycXNsHVjYm8HiCpm
-	u8qC6gSw==;
+	bh=Nm+wP/DxtqDeb0bHdnh1xnktH2NnKja4jlZQ2gGkpXg=; b=1Z4+basIxNOpbmrlhtc9U37SU3
+	fzRxdM9RlTh+ddpF1eCT5USULvoZjnS9vETIpc5ksQ9uw9ql0Tanpkml3zxphude667UdHUc2ZxEN
+	54c1MWxCrVR8VEv9+3IcfeWnZ5b2so/Ib2fno2XUllkxyunv8C4/jjjUt0t8r9ajaRt+gVv5fPtp9
+	H5QH28GWrruMv8h/a3GP3xNQKuqBm9e4zu3691xJG4iLLNDTufCE/Z0FOPAWV4pVIyJ8TJAJelINj
+	CKmxejEMkOL2NIgz+diQsy8jJT4Ujm2h+Bu6yCFwSs0Fh2aR7zvdXbOF19j6jHfjNGvr57ln/WgE7
+	o5Gus0kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB9IY-0000000C1Gg-0VyV;
-	Fri, 10 Apr 2026 10:41:14 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	id 1wB9Ib-0000000C1J2-1tmf;
+	Fri, 10 Apr 2026 10:41:17 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB9IT-0000000C1EX-3ZOu
+	id 1wB9IW-0000000C1FG-37k9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 10:41:10 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-38dd9c6840aso16060151fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 03:41:09 -0700 (PDT)
+	Fri, 10 Apr 2026 10:41:13 +0000
+Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-38dd9c6840aso16060701fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 03:41:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1775817668; x=1776422468; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1775817671; x=1776422471; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=/73f3/gKMGjhlSVUm1EFqbVBE3w9N0gOSLL9TifoTSo=;
-        b=ajS9/Lruf2RnLZGSPh9etYCgyPYN5BY2tMYbC3lYQbTM7EcNbSFTobfBnMs0iw7Dqv
-         GJ7C5g08VM2JHtA7A+IWoLNg1SPf2lAQjeY4mIftBJkcGokpP6rSbp3fWL3CKvzmwLd6
-         lFFHTgZe6COrROu/nX3/tNJnt5jpYDPuaRmYNWIZkEYtqX+Df4Qrw2t/Dgib2x/HjrG3
-         YaMw+KttqAoTruVFS7mFiwRbClLhV0VrrbGAgTGrIpoZr9qMVgzWhagOX9npL2BKCFjS
-         29NAB3eqzwyXcOblrOj7WZlGqfn+SMGqrxZHduNdGlJLMMLgF3xfMh/OLPL7dLwk0b9n
-         Wpsg==
+        bh=Nm+wP/DxtqDeb0bHdnh1xnktH2NnKja4jlZQ2gGkpXg=;
+        b=g/3CPwuFNdDpVm8Sd1JPPYtuODcjnh/VDOwANM2Pfqx2R1FvI2sZc5PM7fRtS5fSv+
+         PfF4xGiiFuoqwzVFbp3x6auninhmYi4NYQJGCgxvtTykUnF+Pp+RVJ1rcAfopiv33gMO
+         akeaw43Dtejl7KoBbVCn9VDIjPALstq5JmnwoWBoaEHQf+QBbfvNPfg+6j548dG2ivFd
+         vu1YiTs+032v6XGOvA58q8ORO3XDK8ZXxMgisdXoko+rCQW3Ol2BcA9xRp/vK2YBb4yN
+         kADY44ykfBdBZukAqfjyiU50fOX57IlIVmJ4GW/msA0hYi7cqm+4m+t1EJoi9kO6Ygle
+         Vhaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775817668; x=1776422468;
+        d=1e100.net; s=20251104; t=1775817671; x=1776422471;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=/73f3/gKMGjhlSVUm1EFqbVBE3w9N0gOSLL9TifoTSo=;
-        b=tDnIaKGKUvvWIV2quKh9Dihb9dQa/hj4PVXbgD5buDRG7M0KVQnxBjAU3GAtgey3bT
-         54Zp3W/eQ3PT5WkJnPpCHwE0S2ITEYEoDu1ZVHKodtbJXgsIxcgmiQ0oh+xWZJpVGRyM
-         AHQFgaPUI9DDwg90IWRNb5YbANNUTJ40ziIXi7jt6ewTAeaQER/x5CmVA2qgZm7SUJKc
-         2YlKy6Gwjnb9UKMVoNdXkaCRfx0R/0FvXomCuCcEZ8kRJl6XCeJJFCtoCsRbx8VPotGe
-         vuBchd56k389++MnfoNcK+HXDICje6mXfDoNystMneDDIsfhc6unrRGDntVY7A1fSWar
-         Qjag==
-X-Forwarded-Encrypted: i=1; AJvYcCWsW7czYIzqTk8MpxmV9McsmVnzTIK9YA4h5zsuPzRDltbUHYZ9HaABEn0WPYq+9TM0UI0XVfCd/TklLJUUVrGz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzpsg3VxJe+ATswgC5ST40BrHVef+CUN235Vkaa0tFYGwpzewOu
-	jEgzQ40pkBFvqqKt2mVnzL2/fipDaqVXHgPw7l7aYAmm+J3Gh2asfEy+Pf4zzszV8RY=
-X-Gm-Gg: AeBDiettRHRs8GOHK6RgHa3ZVLVgI5RU59xerFcEVFp027Yz6Wc/fm2JXYBhjpw3rq7
-	+GbQZzZNhJICWH0NwXtg+Xv8QDMVMcY5tAf4j45Ggs0gi/XOkYUgvYMoJdQVBFoScz603KEq0Lo
-	hb0GZdkujn1IWcUDjY0PKnySPfMSxh/Bp3F+NhzaLStLCM87ysqsAixT6wZkBYh50G/8Ivr4U8l
-	O3ZZowjhvikME5/VOI7GsBZgMyZVDibFFDzNHCYw+lA8MCcclJ96zekIvPYxaDTH/1Eyk5MJPKH
-	DuxARfalU8V7Ee+b+b6qdtS3kUGRQ6IVSPHU3bbQZvVrq8Aj+05k7ddojMob3bfmKHQK5DM0HUA
-	xpD7T7bE/WIMJpa0K31k/1VwZJkFIJXShdxFjEKUFcMkbYnHXWZAwSfkA8hI/wAfV7OddAaLkZF
-	Il0P+P2I7fsB+FTNjtbnHF91aUqOGDp+KsUOYfdPPtTM2raYCfOhBSSqCMkztbeHcquYnc+VcD
-X-Received: by 2002:a2e:be9b:0:b0:38c:6b7:ad39 with SMTP id 38308e7fff4ca-38e4bee2130mr9021011fa.13.1775817667538;
-        Fri, 10 Apr 2026 03:41:07 -0700 (PDT)
+        bh=Nm+wP/DxtqDeb0bHdnh1xnktH2NnKja4jlZQ2gGkpXg=;
+        b=f85m6YtdMHv+U7vXyNQranrNo7Qu7VLJRrxvLtwlE0L3TChAdIXb6H2yclbOWtEZhj
+         9utO+uMwsfIYZkz9GxlOpNrlV/WDS88zlDOZDiLP+70Rqw85v1kHr5U3tGEzRjZyhLjZ
+         3Zj4/QZkc8SwTv8+pdhBzX2HynEJ6sU4Eup57c+UJKHSxic/Vad3jEyDYE/r4Dl0KPdH
+         eqSAT47/lrnnCpJl/vNE5h0/9vxPQ4kl2E8LYh5pHvr12SwXbL4za4gazPCcRBn8sYOJ
+         PuqtBzCB1Lpe3VGlL/TQjkrXkkLikEXRULz/T2fMVmTh2VlA1Xo2uFyHI0DembXYjg0c
+         Eztg==
+X-Forwarded-Encrypted: i=1; AJvYcCXZnZDw0deuSE5R0w3INaX0oqhVh4a0iFDmZS4Fhqcv+d2UHc8SVLqghq2IXunR8k6nb2sSXfe2nUm3syzS12KV@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTKmJOeSi4Pzb1old3Nxdq0AmvzCu4UH+EpuQFIll/IatOGvxr
+	lViYyN8l0gqArudBMryI0nsnxT4HNeKN/K5U1tldlNrltLZ4Hk6sHjnDHcCQ8CzqMHg=
+X-Gm-Gg: AeBDiev+vxFQcwnJtwki4vFC2NnkwnST1J4p0j3Aj1LEdUFIBeECBx7WFidVRIU9ycD
+	wc6Fpf/ppvvBXLOVDuQl7c1o8ZI+LTpAjOolKgL/y7Vwy6G726mG5zVPznND8wMrR8lzdswPFry
+	mKzq2a3nnQnxOVF2jEg6kZ4wuYF/clukOBzhAiqAm8s2rPof4jUOyCwNl5A5CsoDXEV7NYO/MWv
+	YTpLtGLRrELqUCcAaz/F2pzx0IxSSUVgOwk7u6LsJ1blk724TmfUxE80NmF1r2aZele8x+yttvS
+	54EEE3J/DTIw9edu800kK8TJ8g7HqI5xoSmPhSI7qzPGidRqVAnfiW4BX2QdzTU8YOaApMTaYOY
+	U338VANVgAhOFld8NuYZsCseZsipLs20qAsTMV9rJvMJxBSfMFC6p8ZjWw0AFgL3C9xVxXpGA77
+	OKEvEhH8BuQmmhy80O+19lEX2Zu2eRHa6j1jLFjO6jEK7PsT7RoAi2x+4DF44KMVsTYu1+EzBJ
+X-Received: by 2002:a05:651c:b21:b0:38e:2445:fca2 with SMTP id 38308e7fff4ca-38e4c052e2bmr7575221fa.31.1775817670439;
+        Fri, 10 Apr 2026 03:41:10 -0700 (PDT)
 Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38e495455acsm5588331fa.23.2026.04.10.03.41.06
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38e495455acsm5588331fa.23.2026.04.10.03.41.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Apr 2026 03:41:06 -0700 (PDT)
+        Fri, 10 Apr 2026 03:41:10 -0700 (PDT)
 From: Ulf Hansson <ulf.hansson@linaro.org>
 To: Saravana Kannan <saravanak@kernel.org>,
 	"Rafael J . Wysocki" <rafael@kernel.org>,
@@ -93,17 +93,17 @@ Cc: Sudeep Holla <sudeep.holla@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH v2 1/9] driver core: Enable suppliers to implement fine grained sync_state support
-Date: Fri, 10 Apr 2026 12:40:44 +0200
-Message-ID: <20260410104058.83748-2-ulf.hansson@linaro.org>
+Subject: [PATCH v2 3/9] pmdomain: core: Move genpd_get_from_provider()
+Date: Fri, 10 Apr 2026 12:40:46 +0200
+Message-ID: <20260410104058.83748-4-ulf.hansson@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260410104058.83748-1-ulf.hansson@linaro.org>
 References: <20260410104058.83748-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_034109_918518_EDFBC32E 
-X-CRM114-Status: GOOD (  22.39  )
+X-CRM114-CacheID: sfid-20260410_034112_813717_1F2994C6 
+X-CRM114-Status: GOOD (  18.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,74 +118,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The common sync_state support isn't fine grained enough for some types of
-suppliers, like power domains for example. Especially when a supplier
-provides multiple independent power domains, each with their own set of
-consumers. In these cases we need to wait for all consumers for all the
-provided power domains before invoking the supplier's ->sync_state().
+To prepare for subsequent changes and to avoid an unnecessary function
+declaration, let's move genpd_get_from_provider() a bit earlier in the
+code.
 
-To allow a more fine grained sync_state support to be implemented on per
-supplier's driver basis, let's add a new optional callback. As soon as
-there is an update worth to consider in regards to managing sync_state for
-a supplier device, __device_links_queue_sync_state() invokes the callback.
-
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
 Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
- drivers/base/core.c           | 7 ++++++-
- include/linux/device/driver.h | 7 +++++++
- 2 files changed, 13 insertions(+), 1 deletion(-)
+ drivers/pmdomain/core.c | 70 ++++++++++++++++++++---------------------
+ 1 file changed, 35 insertions(+), 35 deletions(-)
 
-diff --git a/drivers/base/core.c b/drivers/base/core.c
-index 09b98f02f559..4085a011d8ca 100644
---- a/drivers/base/core.c
-+++ b/drivers/base/core.c
-@@ -1106,7 +1106,9 @@ int device_links_check_suppliers(struct device *dev)
-  * Queues a device for a sync_state() callback when the device links write lock
-  * isn't held. This allows the sync_state() execution flow to use device links
-  * APIs.  The caller must ensure this function is called with
-- * device_links_write_lock() held.
-+ * device_links_write_lock() held.  Note, if the optional queue_sync_state()
-+ * callback has been assigned too, it gets called for every update to allowing a
-+ * more fine grained support to be implemented on per supplier basis.
-  *
-  * This function does a get_device() to make sure the device is not freed while
-  * on this list.
-@@ -1126,6 +1128,9 @@ static void __device_links_queue_sync_state(struct device *dev,
- 	if (dev->state_synced)
- 		return;
+diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+index 4d32fc676aaf..ad57846f02a3 100644
+--- a/drivers/pmdomain/core.c
++++ b/drivers/pmdomain/core.c
+@@ -2664,6 +2664,41 @@ static bool genpd_present(const struct generic_pm_domain *genpd)
+ 	return ret;
+ }
  
-+	if (dev->driver && dev->driver->queue_sync_state)
-+		dev->driver->queue_sync_state(dev);
++/**
++ * genpd_get_from_provider() - Look-up PM domain
++ * @genpdspec: OF phandle args to use for look-up
++ *
++ * Looks for a PM domain provider under the node specified by @genpdspec and if
++ * found, uses xlate function of the provider to map phandle args to a PM
++ * domain.
++ *
++ * Returns a valid pointer to struct generic_pm_domain on success or ERR_PTR()
++ * on failure.
++ */
++static struct generic_pm_domain *genpd_get_from_provider(
++					const struct of_phandle_args *genpdspec)
++{
++	struct generic_pm_domain *genpd = ERR_PTR(-ENOENT);
++	struct of_genpd_provider *provider;
 +
- 	list_for_each_entry(link, &dev->links.consumers, s_node) {
- 		if (!device_link_test(link, DL_FLAG_MANAGED))
- 			continue;
-diff --git a/include/linux/device/driver.h b/include/linux/device/driver.h
-index bbc67ec513ed..bc9ae1cbe03c 100644
---- a/include/linux/device/driver.h
-+++ b/include/linux/device/driver.h
-@@ -68,6 +68,12 @@ enum probe_type {
-  *		be called at late_initcall_sync level. If the device has
-  *		consumers that are never bound to a driver, this function
-  *		will never get called until they do.
-+ * @queue_sync_state: Similar to the ->sync_state() callback, but called to
-+ *		allow syncing device state to software state in a more fine
-+ *		grained way. It is called when there is an updated state that
-+ *		may be worth to consider for any of the consumers linked to
-+ *		this device. If implemented, the ->sync_state() callback is
-+ *		required too.
-  * @remove:	Called when the device is removed from the system to
-  *		unbind a device from this driver.
-  * @shutdown:	Called at shut-down time to quiesce the device.
-@@ -110,6 +116,7 @@ struct device_driver {
++	if (!genpdspec)
++		return ERR_PTR(-EINVAL);
++
++	mutex_lock(&of_genpd_mutex);
++
++	/* Check if we have such a provider in our array */
++	list_for_each_entry(provider, &of_genpd_providers, link) {
++		if (provider->node == genpdspec->np)
++			genpd = provider->xlate(genpdspec, provider->data);
++		if (!IS_ERR(genpd))
++			break;
++	}
++
++	mutex_unlock(&of_genpd_mutex);
++
++	return genpd;
++}
++
+ static void genpd_sync_state(struct device *dev)
+ {
+ 	return of_genpd_sync_state(dev->of_node);
+@@ -2889,41 +2924,6 @@ void of_genpd_del_provider(struct device_node *np)
+ }
+ EXPORT_SYMBOL_GPL(of_genpd_del_provider);
  
- 	int (*probe) (struct device *dev);
- 	void (*sync_state)(struct device *dev);
-+	void (*queue_sync_state)(struct device *dev);
- 	int (*remove) (struct device *dev);
- 	void (*shutdown) (struct device *dev);
- 	int (*suspend) (struct device *dev, pm_message_t state);
+-/**
+- * genpd_get_from_provider() - Look-up PM domain
+- * @genpdspec: OF phandle args to use for look-up
+- *
+- * Looks for a PM domain provider under the node specified by @genpdspec and if
+- * found, uses xlate function of the provider to map phandle args to a PM
+- * domain.
+- *
+- * Returns a valid pointer to struct generic_pm_domain on success or ERR_PTR()
+- * on failure.
+- */
+-static struct generic_pm_domain *genpd_get_from_provider(
+-					const struct of_phandle_args *genpdspec)
+-{
+-	struct generic_pm_domain *genpd = ERR_PTR(-ENOENT);
+-	struct of_genpd_provider *provider;
+-
+-	if (!genpdspec)
+-		return ERR_PTR(-EINVAL);
+-
+-	mutex_lock(&of_genpd_mutex);
+-
+-	/* Check if we have such a provider in our array */
+-	list_for_each_entry(provider, &of_genpd_providers, link) {
+-		if (provider->node == genpdspec->np)
+-			genpd = provider->xlate(genpdspec, provider->data);
+-		if (!IS_ERR(genpd))
+-			break;
+-	}
+-
+-	mutex_unlock(&of_genpd_mutex);
+-
+-	return genpd;
+-}
+-
+ /**
+  * of_genpd_add_device() - Add a device to an I/O PM domain
+  * @genpdspec: OF phandle args to use for look-up PM domain
 -- 
 2.43.0
 
