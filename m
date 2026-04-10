@@ -4,91 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59536E99050
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 07:56:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7687DE99053
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 08:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1gYxyowuHupE/P8ao3pa6ZgxztqPahT8BS261CIm2ZA=; b=qqYhvISEBiBQVvySrjkid48w4G
-	7ikHrnlT8qp9PjSuGmF1aD7KrJaUV1lJ2y5oy3E/Pcc/7fZqvvuFAU8RX5Us32bb9RFSxxpPCbKUc
-	Q5F2ju7NszeHIJMKoQ4RLyv6LCLcjbzdvwd7uLrgUbPnHKRGasm2lxD8G7vc6JG5R/ZJkWXrhg30I
-	3ERujcoWWD0ESIvICqrWN0ZNMH7+wI/F/qGCeIeXAs1Lahf1l0bKRDE5OBvnbMrmU4h2gK7vVYbdr
-	WMOFRPTCxXDfQc0WsB9Nlz0300F/LzV09T6BsbvWCqkohKALoTH1VDwC3eha1zHYSCcJEWEYKR/zM
-	lI1zdDWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FlkvDopMbw59+z0XdHrMqtDa5KxFChBVJQJSz0U20X0=; b=KpKQ03rGEd3q7DVeUFUbqFYkMC
+	ONBQQoEigRSvKIfbKOCHE/rirou0SdDv69xRpePUhUyreFrzgNBqlLrgrSdFiwbTNsZd1Trh5LYQ9
+	o6yPiLisZhFp9cemc8bbf8xTVzR4g8tptjTfZCCJIlQ58KFVS2I4yM5v5lEeBbT6gTPR0bJ6BG+T4
+	qvRKgKtzceZA+zc+vlKvz5/iuGdxQBDhC3OswhL5pN9Xi05hfmW2B2Hlytpex5iqJLdXQfQaqAFxJ
+	Im/dwnpgc1gVfNZetVav8NnP0Ycgl5JQbWtCHJtdVWjXMO0Cz0khjhLSri4Z0Tpw326fohdNS/4Xi
+	EhiY1Csw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB6iX-0000000Bnql-2EmA;
-	Fri, 10 Apr 2026 07:55:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wB72D-0000000BpRD-2YaU;
+	Fri, 10 Apr 2026 08:16:13 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB6iV-0000000BnqW-26yy;
-	Fri, 10 Apr 2026 07:55:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=1gYxyowuHupE/P8ao3pa6ZgxztqPahT8BS261CIm2ZA=; b=pR0W9t3XbjhnS7BAeW2gb1uAhm
-	IFwptKhIMXPVKY2ax6MqdQah7k4t2QuSyvkfB/L2XL2yX0rAMiOdAPI0nC3awwLqMImN8rPpSi4pq
-	QluqwFPq5J/w2fFIkKK2Ukz5gkC8PR5X+et5NvEmZR4DIKC24t5/TOAqjAbtb0jp49xv00hwWIvwJ
-	oK8jry4qDZ8tTtQHgF6iP99+mRTZxEq8Qhg3V2ufpWYyqvY/kSgggMHLRFORSDu3A7dLb3pQujzeU
-	XBu9cRwOFrTnnc8ZkqoOgz7O8iuSPHJ4uhogCwEXcDyXQfP231+LpCOZjEvIJTKL67of4gdoiLQJz
-	0C1Ksm8Q==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB6iR-0000000D2JO-1ov1;
-	Fri, 10 Apr 2026 07:55:50 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 63A7rJ7Y12629035, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1775807599; bh=1gYxyowuHupE/P8ao3pa6ZgxztqPahT8BS261CIm2ZA=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=kmMrAIRU6RE8rn9yNwdzSWQeK9lNqkY+Q0SKbuId3utRpkOIscr+P4gnkV67zmbto
-	 KSnI1nto9nNw1lToxXPdvvStyI9Rv4w6Wdug9CXcypbowX1V/w7Cul/sIiQWruNtXO
-	 DMz69JEuDjNCtZCBw3TGIiPLtdO8h1IlCXKZaRg3VDQczfkBmNnNs75IaWpO8BfxgA
-	 q5faJR5Y1I5KBOza8xxPB4QVi6+AzG1qrZrL/Hwa1oyJyrK0D71SfpndnbG1yT7+vD
-	 PNCPY/5ztoe3U0NKL3n5DF5+DtAH5YXld8WSd8iQLOtZwseEMjarFoPM+Xe/BOnkix
-	 L3NXunJTheZOw==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.26/5.94) with ESMTPS id 63A7rJ7Y12629035
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 10 Apr 2026 15:53:19 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Fri, 10 Apr 2026 15:53:18 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Fri, 10 Apr 2026 15:53:18 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS05.realtek.com.tw
- (10.21.1.55) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Fri, 10 Apr 2026 15:53:18 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <bmasney@redhat.com>
-CC: <afaerber@suse.com>, <conor+dt@kernel.org>, <cy.huang@realtek.com>,
-        <cylee12@realtek.com>, <devicetree@vger.kernel.org>,
-        <eleanor.lin@realtek.com>, <james.tai@realtek.com>,
-        <jyanchou@realtek.com>, <krzk+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>,
-        <linux-realtek-soc@lists.infradead.org>, <mturquette@baylibre.com>,
-        <p.zabel@pengutronix.de>, <robh@kernel.org>, <sboyd@kernel.org>,
-        <stanley_chang@realtek.com>
-Subject: Re: [PATCH v6 04/10] clk: realtek: Add support for phase locked loops (PLLs)
-Date: Fri, 10 Apr 2026 15:53:18 +0800
-Message-ID: <20260410075318.2854478-1-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <ac_SX1UJRqiBH2iM@redhat.com>
-References: <ac_SX1UJRqiBH2iM@redhat.com>
+	id 1wB72A-0000000BpQ9-3aVm
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Apr 2026 08:16:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1775808971; x=1807344971;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=FlkvDopMbw59+z0XdHrMqtDa5KxFChBVJQJSz0U20X0=;
+  b=iy1Mfw/9W/spgURQjZP9GawPmcpBRAOvQT5FQBqDv2dav2QoTCF7FgtW
+   rijUKIY4mm4Xj85qef32QiYD0A+GFc+a8rjIjqOkrmPgbZESjV/w/qF2w
+   DQtgqVEOHL4Y1Kb9e2UAjQOh7kQHrAHZaVWTW2dzfb7czWPXB5/wEKBx7
+   l/Konie33ccOmSI21baQVTOqWRMXStSdhR29qSEpLoSf+nZMHgFnNAv8Q
+   XWKm6Mnj9/K9LT5faEsC/KCYvQJxPKcyLH25W3+1I0MReeiAyz2XTVFs/
+   IfLMd7n18dXk9FbcHQLSnDlx/JdYHTlr+4edjeb0M5hShfC6oTI1AmBjP
+   g==;
+X-CSE-ConnectionGUID: THIlZzSaT+2Yf2ZFIrDBmA==
+X-CSE-MsgGUID: F91C134HTkuhZk/z93zcFw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11754"; a="76715077"
+X-IronPort-AV: E=Sophos;i="6.23,171,1770624000"; 
+   d="scan'208";a="76715077"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2026 01:16:10 -0700
+X-CSE-ConnectionGUID: GIvxrKJuT6K0PufgwPoptQ==
+X-CSE-MsgGUID: lxTmbZwsRLa7jymHZyxuzQ==
+X-ExtLoop1: 1
+Received: from unknown (HELO localhost.png.intel.com) ([10.107.255.31])
+  by fmviesa003.fm.intel.com with ESMTP; 10 Apr 2026 01:16:06 -0700
+From: KhaiWenTan <khai.wen.tan@linux.intel.com>
+To: linux@armlinux.org.uk
+Cc: alexandre.torgue@foss.st.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	hong.aun.looi@intel.com,
+	khai.wen.tan@intel.com,
+	khai.wen.tan@linux.intel.com,
+	kuba@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	maxime.chevallier@bootlin.com,
+	mcoquelin.stm32@gmail.com,
+	netdev@vger.kernel.org,
+	ovidiu.panait.rb@renesas.com,
+	pabeni@redhat.com,
+	vladimir.oltean@nxp.com,
+	yoong.siang.song@intel.com
+Subject: Re: [PATCH net 1/1] net: stmmac: Update default_an_inband before passing value to phylink_config
+Date: Fri, 10 Apr 2026 15:53:41 +0800
+Message-ID: <20260410075341.5806-1-khai.wen.tan@linux.intel.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <adirrTJujEsrsK4F@shell.armlinux.org.uk>
+References: <adirrTJujEsrsK4F@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_085548_435372_B9E026AF 
-X-CRM114-Status: GOOD (  20.43  )
+X-CRM114-CacheID: sfid-20260410_011610_929607_C9CEF4A7 
+X-CRM114-Status: UNSURE (   4.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,81 +98,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Brian,
+Hi Russell,
 
-> Hi Cheng-Yu and Yu-Chun,
->
-> On Thu, Apr 02, 2026 at 03:39:51PM +0800, Yu-Chun Lin wrote:
-> > From: Cheng-Yu Lee <cylee12@realtek.com>
-> >
-> > Provide a full set of PLL operations for programmable PLLs and a read-only
-> > variant for fixed or hardware-managed PLLs.
-> >
-> > Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-> > Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> > Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> > ---
-> > +static int clk_pll_set_rate(struct clk_hw *hw, unsigned long rate,
-> > +			    unsigned long parent_rate)
-> > +{
-> > +	struct clk_pll *clkp = to_clk_pll(hw);
-> > +	const struct freq_table *fv;
-> > +	int ret;
-> > +
-> > +	fv = ftbl_find_by_rate(clkp->freq_tbl, rate);
-> > +	if (!fv || fv->rate != rate)
-> > +		return -EINVAL;
-> > +
-> > +	if (clkp->seq_pre_set_freq) {
-> > +		ret = regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_pre_set_freq,
-> > +					     clkp->num_seq_pre_set_freq);
-> > +		if (ret)
-> > +			return ret;
-> > +	}
-> > +
-> > +	ret = regmap_update_bits(clkp->clkr.regmap, clkp->freq_reg,
-> > +				 clkp->freq_mask, fv->val);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	if (clkp->seq_post_set_freq) {
-> > +		ret = regmap_multi_reg_write(clkp->clkr.regmap, clkp->seq_post_set_freq,
-> > +					     clkp->num_seq_post_set_freq);
-> > +		if (ret)
-> > +			return ret;
-> > +	}
-> > +
-> > +	if (is_power_on(clkp)) {
-> > +		ret = wait_freq_ready(clkp);
->
-> I should have checked Sashiko before I hit send on my last review.
-> https://sashiko.dev/#/patchset/20260402073957.2742459-1-eleanor.lin%40realtek.com
->
-> It suggested the following:
->
->    In the Common Clock Framework, .set_rate executes under the prepare_lock
->    mutex, while .enable and .disable execute under the enable_lock spinlock.
->
->    Could an interleaved clk_pll_enable() corrupt the hardware state by running
->    its seq_power_on sequence concurrently with these multi-step register
->    updates?
->
->    There also appears to be a potential race condition later in this function:
->
->        if (is_power_on(clkp)) {
->            ret = wait_freq_ready(clkp);
->            ...
->        }
->    
->    If .disable() powers off the PLL right before wait_freq_ready() is called,
->    will wait_freq_ready() poll a disabled PLL and erroneously return
->    -ETIMEDOUT? Is a private spinlock needed to serialize these operations?
->
-> Brian
->
-
-Agreed, I will add a private spinlock here.
-
-Best Regards,
-Yu-Chun
+Thanks for the review. I will address the comments in v2.
 
