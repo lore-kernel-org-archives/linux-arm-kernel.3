@@ -4,66 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C24F1F459F7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 16:50:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B29F459F7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 16:51:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BQjQsqYkkTPxyxnrSNMex01Xco2HiyveR1lAVHYiUeQ=; b=Ugiv50pSEwbzOG8b8FZlIJJLU2
-	ed2nsbhXpspTG9begL0TFw7tTbbFmHG00huol2Z2Qcw2aGLH6fdu0yYkCH5X+esVTHj6F75r8Vfau
-	58cl3qqZIaReXfj1nmo+sFv1kaPniKYgKdf4tRgNY/glqi9v7ZHv8qzgT3CkscJYOaKBiz4BLmmsi
-	AM+BsqFJF6iG//0MYmVC6iDSHhU25rrogYcXIic6GraMkz3tGbsrTyOJv3CBLud1XmVbNC2DSU1w3
-	dCcw2lbzKhkOIo7thmfL//yzv/uIjZQnt1MSOE+3TG5tyL9ajfOk6aeob6HtSL+tffT7MTfFuYOLy
-	V89jE5bQ==;
+	bh=SpxvvvMHwW5S8XFerq/zSXfHt58MP2iwELTOcvUXtTA=; b=hSkJ+0UVUTxvke+MgFDxWV67fN
+	KoJS2HpuDd92tA6j63l1e/DxtkULiX9hySezN0mvq51QKjNhB7BFA8fp3PrHL06S0B8Yom/HbxhNu
+	3oDeoBbLnkgSx+zQC2ms8AMujJxfXt6BEqLeUbO+ZsDvcpUi6Yu3GvXYfpGcXX69Hsu1c6RJWdkK8
+	DpLEpovuDsGYH4KLreGWxHwdvfZtiZKvhZdmwtCkc19/DYflkOSsIl6pvAVobEvLppakuPCdvy0ao
+	iZrok1RpLbd5Waou7/EdKY78TXUZBRW+25KIJUIWrN7ksKhbXtRFClfVH7FNXg5NoVx4EpN3ELI0D
+	mGtdAC5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBF3m-0000000CZh6-1ZH6;
-	Fri, 10 Apr 2026 16:50:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBF3l-0000000CZgu-15Zh
+	id 1wBF4w-0000000CZrc-1ICf;
+	Fri, 10 Apr 2026 16:51:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wBF4t-0000000CZqv-055G
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 16:50:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5242A6024D;
-	Fri, 10 Apr 2026 16:50:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 631D6C19421;
-	Fri, 10 Apr 2026 16:50:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775839820;
-	bh=pMfWqUL50U9uJZvRyzRrUAe3IDyJM8UFSorNX2tsNw8=;
+	Fri, 10 Apr 2026 16:51:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5074647E0;
+	Fri, 10 Apr 2026 09:51:23 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F97B3F632;
+	Fri, 10 Apr 2026 09:51:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775839889; bh=qdVzseOvTWqCZ+np1uwpYSC5FbMzSZB0d74LiMoUtd0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ny2puyZQhUYAM+38B7qKb965c/CJi/dQvWVVygiDPaMFJZfFaLeP4RaRskNk13DON
-	 6ym39KDsGfHhM09JcFQzMTZ4PFIgyTaMSpY5XEykAzULo0NDROV+oxtP7Bf5sdtunF
-	 2uAto/1nsJhOBTwGluX6gur+zNBhw9v9tqwrdd+IhTRWmFTmiqvZycWybZPc5KPUn6
-	 Qzkza6IO6B4S2mALuqFGtJ1zDi2k2z6kFRaQyr49P1Y76rfgvW/08vSu+1edx0N0/O
-	 nEXf2pVAL20jvy39DDLiQ9GD7aMHo6SZJQvxi1XUJ7coxL1a5SwdEyqW3vNiS3MCxt
-	 LrhnR4ApN7WIQ==
-Date: Fri, 10 Apr 2026 09:50:16 -0700
-From: Namhyung Kim <namhyung@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Al Grant <al.grant@arm.com>, linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Leo Yan <leo.yan@arm.com>
-Subject: Re: [PATCH v2 0/6] perf arm_spe: Dump IMPDEF events
-Message-ID: <adkqSLNceF2OQuBo@google.com>
-References: <20260407-james-spe-impdef-decode-v2-0-55d3ef997c48@linaro.org>
+	b=c2fTK+TazfaOYZ3jSTWmVNW1wplv3FpCrvaAgb28d29sxEmAgsCDF7OgHKd+mNjk/
+	 tOqOVR2tuUKOd6vuV0hSpZs8nFu/BeCTDfno67+foQKUJRhDBmn/zkSAViUW4S5vXv
+	 OxGBLhyLgX8VkyV7+mOOMMxDhbekccZTwjN1rZ3A=
+Date: Fri, 10 Apr 2026 17:51:25 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Sami Mujawar <sami.mujawar@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	catalin.marinas@arm.com, will@kernel.org, steven.price@arm.com,
+	suzuki.poulose@arm.com, gshan@redhat.com,
+	Jagdish Gediya <Jagdish.Gediya@arm.com>
+Subject: Re: [PATCH 1/1] virt: arm-cca-guest: fix error check for
+ RSI_INCOMPLETE
+Message-ID: <adkqjW5HzEfg3CZq@e129823.arm.com>
+References: <20260410163636.259443-1-sami.mujawar@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260407-james-spe-impdef-decode-v2-0-55d3ef997c48@linaro.org>
+In-Reply-To: <20260410163636.259443-1-sami.mujawar@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260410_095131_228558_1944682F 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,82 +71,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+Look good to me.
 
-On Tue, Apr 07, 2026 at 03:05:14PM +0100, James Clark wrote:
-> In the Arm SPE raw data dump, IMPDEF events aren't printed. Add the
-> ability to add names for some known events or print the raw event number
-> for unknown events.
-> 
-> For example:
-> 
->   $ perf report -D
-> 
->   ... ARM SPE data: size 0xd000 bytes
->   00000000: b0 18 c6 32 80 00 80 ff a0  PC 0xff80008032c618 el1 ns=1
->   00000009: 64 e7 42 00 00              CONTEXT 0x42e7 el1
->   0000000e: 00 00 00 00 00              PAD
->   00000013: 49 00                       LD GP-REG
->   00000015: 52 16 10               	EV RETIRED L1D-ACCESS TLB-ACCESS
-> 
-> On N1 the event line becomes:
-> 
->   00000015: 52 16 10                    EV RETIRED L1D-ACCESS TLB-ACCESS LATE-PREFETCH
-> 
-> Or on other cores it becomes:
-> 
->   00000015: 52 16 10                    EV RETIRED L1D-ACCESS TLB-ACCESS IMPDEF:12
-> 
-> Signed-off-by: James Clark <james.clark@linaro.org>
+Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+
+On Fri, Apr 10, 2026 at 05:36:36PM +0100, Sami Mujawar wrote:
+> The RSI interface can return RSI_INCOMPLETE when a report spans
+> multiple granules. This is an expected condition and should not be
+> treated as a fatal error.
+>
+> Currently, arm_cca_report_new() checks for `info.result != RSI_SUCCESS`
+> and bails out, which incorrectly flags RSI_INCOMPLETE as a failure.
+> Fix the check to only break out on results other than RSI_SUCCESS or
+> RSI_INCOMPLETE.
+>
+> This ensures partial reports are handled correctly and avoids spurious
+> -ENXIO errors when generating attestation reports.
+>
+> Fixes: 7999edc484ca ("virt: arm-cca-guest: TSM_REPORT support for realms")
+> Signed-off-by: Sami Mujawar <sami.mujawar@arm.com>
+> Reported-by: Jagdish Gediya <Jagdish.Gediya@arm.com>
 > ---
-> Changes in v2:
-> - Put MIDR in arm_spe_pkt (Leo)
-> - Use for_each_set_bit() (Leo)
-> - Use BIT_ULL() to fix 32bit builds (Ian)
-> - Don't call strtol() with NULL (Ian)
-> - Link to v1: https://lore.kernel.org/r/20260401-james-spe-impdef-decode-v1-0-ad0d372c220c@linaro.org
+>  drivers/virt/coco/arm-cca-guest/arm-cca-guest.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> index 0c9ea24a200c..66d00b6ceb78 100644
+> --- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> +++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> @@ -157,7 +157,8 @@ static int arm_cca_report_new(struct tsm_report *report, void *data)
+>  		} while (info.result == RSI_INCOMPLETE &&
+>  			 info.offset < RSI_GRANULE_SIZE);
+>
+> -		if (info.result != RSI_SUCCESS) {
+> +		/* Break out in case of failure */
+> +		if (info.result != RSI_SUCCESS && info.result != RSI_INCOMPLETE) {
+>  			ret = -ENXIO;
+>  			token_size = 0;
+>  			goto exit_free_granule_page;
+> --
+> SAMI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+>
 
-I'm getting this on 32-bit build.
-
-  In file included from /linux/tools/include/linux/bitmap.h:8,                    
-                   from util/arm-spe-decoder/arm-spe-pkt-decoder.c:11:            
-  util/arm-spe-decoder/arm-spe-pkt-decoder.c: In function 'arm_spe_pkt_desc_event':
-  util/arm-spe-decoder/arm-spe-pkt-decoder.c:377:37: error: passing argument 1 of 'find_first_bit' from incompatible pointer type [-Werror=incompatible-pointer-types]
-    377 |                 for_each_set_bit(i, &payload, 64) {                      
-  /linux/tools/include/linux/bitops.h:55:38: note: in definition of macro 'for_each_set_bit'
-     55 |         for ((bit) = find_first_bit((addr), (size));            \       
-        |                                      ^~~~                               
-  In file included from /linux/tools/include/linux/bitmap.h:9:                    
-  /linux/tools/include/linux/find.h:118:51: note: expected 'const long unsigned int *' but argument is of type 'u64 *' {aka 'long long unsigned int *'}
-    118 | unsigned long find_first_bit(const unsigned long *addr, unsigned long size)
-        |                              ~~~~~~~~~~~~~~~~~~~~~^~~~
-
-Thanks,
-Namhyung
-
-> 
-> ---
-> James Clark (6):
->       perf arm_spe: Make a function to get the MIDR
->       perf arm_spe: Handle missing CPU IDs
->       perf arm_spe: Store MIDR in arm_spe_pkt
->       perf arm_spe: Turn event name mappings into an array
->       perf arm_spe: Decode Arm N1 IMPDEF events
->       perf arm_spe: Print remaining IMPDEF event numbers
-> 
->  tools/perf/util/arm-spe-decoder/Build              |   2 +
->  tools/perf/util/arm-spe-decoder/arm-spe-decoder.c  |  17 ++-
->  tools/perf/util/arm-spe-decoder/arm-spe-decoder.h  |   3 +-
->  .../util/arm-spe-decoder/arm-spe-pkt-decoder.c     | 144 ++++++++++++++-------
->  .../util/arm-spe-decoder/arm-spe-pkt-decoder.h     |   5 +-
->  tools/perf/util/arm-spe.c                          |  62 ++++++---
->  6 files changed, 158 insertions(+), 75 deletions(-)
-> ---
-> base-commit: 74e2dbe7be5037a5e5eed6bc1ad562747ac88566
-> change-id: 20260331-james-spe-impdef-decode-d944f4fdcff7
-> 
-> Best regards,
-> -- 
-> James Clark <james.clark@linaro.org>
-> 
+--
+Sincerely,
+Yeoreum Yun
 
