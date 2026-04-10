@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A1FFF4484C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79EEEF44850
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:20:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,56 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=ckn3790Plbsh2S84qXvQH3wmGMizlSPUdQHepF2eyP4=; b=CXXdwvk71ewkhE
-	nzWtoRS6V6FoSthXE8Rcuepv3PCIWRMhGo6GDbmBwdfAj8YnZlMi3mpmD2Jb39nuIRyDODCgE0+Xh
-	4Kr27fG6V7j+O4rKVi4sezHBoMp5Rdblq6cqldMR0EMMBn3hed36t778ZG8i5APTkemx6p9zMQCxB
-	dW5fm1X5v+yzAdKAhiPGYtDZ/echACbJKPhYALykIfgBXFX5ssO+scrscIvYadm9Kbp2kncELnaoN
-	ShtBCJD1JRZ8AXA82sZBmSzgt8513IwUTzaBXLR4DedJSqP3KGkokMYUQCRGO0z71p2bGz3n2pOlb
-	WE6MV3BKFjvNNeIEWfvw==;
+	List-Owner; bh=T5BmJ1FF4HBJvfl1JxkNrWx4X3v6jSPy5n7OMhgiRsc=; b=CDNoClQYdRu0Om
+	wDGmIRzyd5jK/yAFM4TBz829h9NIvXFFXjJ5dG4LC2FPBxC69RdQCnufSEakpZnV4GHBoEAGqrD03
+	iJPb2bCx95MonjUGaNRZxlsfm01jb1JXOpevMRKKgZ45fhk3mhqM0hiF22FU1c3wUTOqimHfFF73/
+	vw8wJfMiTrFLKBfc0JsoeOXwtwHqiQgIf/L+J0Hq7S+HQVuGbD0bzJLjZV3j58MVkrzwCBN1FTCeY
+	1nRoi8vS6clXgDIGeyjtkFAW6HJp20N68cXpCrnejxv2OrN4yCnba50G68bgl/RE/Pqom0rb23a7Q
+	ts3wYMQB/YPjzY/hPT3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAqn-0000000CBhl-1as1;
-	Fri, 10 Apr 2026 12:20:41 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wBAqo-0000000CBk8-3TJZ;
+	Fri, 10 Apr 2026 12:20:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAqg-0000000CBTN-0Wxi;
-	Fri, 10 Apr 2026 12:20:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
-	Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To;
-	bh=ckn3790Plbsh2S84qXvQH3wmGMizlSPUdQHepF2eyP4=; b=j/SdxwAawpRlpmm9S4X4EfD40P
-	TOGHHQ+Th308Jqu9n6lTdagIrBDs+tdXu3wTuxnB9Me6KEhMAhb9noHOCUVUdxS0hRbQ/e/YFQ8P/
-	m892jQJvWex/z3JyqmrMdv38mEXtvq61biYo/Mup3raFg2iz68QdSSpbhRKqQQMN0niNLk0vw5NTI
-	8Eau03X0Rn0oDhC6RexEjx1jI42OqDEeo/sSaoaKnwEJm7CUTP6QyzAlGSrTJeueoh/uZ9exr7PV7
-	WwblWml/L6qyBYXb+4W4SNx3keqwfnVMUDUkTq7bphi3jsDmNYn3nV4gwBlEAwKhLZjXezYbDIUaW
-	cuj/8XMw==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAqc-00000009LVU-1PsW;
-	Fri, 10 Apr 2026 12:20:32 +0000
+	id 1wBAqh-0000000CBXj-1NMf;
+	Fri, 10 Apr 2026 12:20:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A040C438DE;
-	Fri, 10 Apr 2026 12:20:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B8D1C2BCAF;
-	Fri, 10 Apr 2026 12:20:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6C7C26024D;
+	Fri, 10 Apr 2026 12:20:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59123C2BC87;
+	Fri, 10 Apr 2026 12:20:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775823624;
-	bh=oFanz67wDB6XocOAPDGw4dDZpTIkPCesLmisdDG6nxo=;
+	s=k20201202; t=1775823634;
+	bh=dDZlZkUBE8Yoz+Mf4b2btSZILqeS3wHEYjrON1rjw6U=;
 	h=Date:From:To:Cc:Subject:References:From;
-	b=c0dC5JtrlZ2hDwVhQHVakSSF0GbYurUcyOeInN2NikRGB2GB116TXZbw4nZgMtYST
-	 +trrlORaNRGlhOHpfrC+lW1HFBRAEy8GyOUXKZu1wlydXKozlVO6l7tAEsojNrD9kY
-	 z8EDy3AU6BDmVg1em2KMGfc38GeNfIIV9PZdmIDh6XXPID1ZvpPfEKL37BFIXkriEy
-	 vg9bLTMeocXCte6TCzTTMg21Eh6HrXJDyZdGV1tmWvL/lAElJukNPv/QpJCLNXioOw
-	 AQtioNlgi2FcvW/yMQPolJ5GR/97GritVQBv4kElLuN4ah4YH0PTQC3eZtbzxU1vfd
-	 IORnVjKLVUNIw==
-Date: Fri, 10 Apr 2026 14:20:21 +0200
-Message-ID: <20260410120319.131582521@kernel.org>
+	b=UsSMuuI0fLabe+4dL8zTL2gq7n1Qam6gWMJ4FfKEoBXmYXreb34mK0jfpqexOCcjk
+	 URd+7aIYau5Paex32UCyAHBB1baazBC53HlWWmD8jGnelNjcRxfUYPATekVzRrqJDT
+	 SM4YYaTAd2jF6zuzF3s9v75IAyeOupGmOZUxJte/r7FKLtBw0S1j/Gfer+oeitcrs9
+	 GcWasj5F60hnX72mh29rwAv4UlAzszLEnt4a+71ByOcLxgUh/fQSei1PCaUTQnLPFS
+	 AyV/TWXRXX6WJrt/PID7Ovi55s49ArxiVCGwFwMjqqfxuev0KPjerElNRcERH69T8a
+	 bfdJGP+BHG9rw==
+Date: Fri, 10 Apr 2026 14:20:31 +0200
+Message-ID: <20260410120319.263143276@kernel.org>
 User-Agent: quilt/0.68
 From: Thomas Gleixner <tglx@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: Richard Henderson <richard.henderson@linaro.org>,
- linux-alpha@vger.kernel.org,
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ linux-arm-kernel@lists.infradead.org,
  Arnd Bergmann <arnd@arndb.de>,
  x86@kernel.org,
  Lu Baolu <baolu.lu@linux.intel.com>,
@@ -87,9 +73,9 @@ Cc: Richard Henderson <richard.henderson@linaro.org>,
  Thomas Sailer <t.sailer@alumni.ethz.ch>,
  linux-hams@vger.kernel.org,
  "Jason A. Donenfeld" <Jason@zx2c4.com>,
+ Richard Henderson <richard.henderson@linaro.org>,
+ linux-alpha@vger.kernel.org,
  Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>,
  Huacai Chen <chenhuacai@kernel.org>,
  loongarch@lists.linux.dev,
  Geert Uytterhoeven <geert@linux-m68k.org>,
@@ -107,13 +93,10 @@ Cc: Richard Henderson <richard.henderson@linaro.org>,
  linux-s390@vger.kernel.org,
  "David S. Miller" <davem@davemloft.net>,
  sparclinux@vger.kernel.org
-Subject: [patch 23/38] alpha: Select ARCH_HAS_RANDOM_ENTROPY
+Subject: [patch 25/38] arm64: Select ARCH_HAS_RANDOM_ENTROPY
 References: <20260410120044.031381086@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_132030_703192_7AF2F5B0 
-X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,78 +111,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The only remaining usage of get_cycles() is to provide
-random_get_entropy().
+The only remaining usage of get_cycles() is to provide random_get_entropy().
 
-Switch alpha over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY
+Switch arm64 over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY
 and providing random_get_entropy() in asm/random.h.
+
+As a consequence this unearthed a nasty include dependecy hell where random
+code including rqspinlock.h relies on a magic include of asm/arch_timer.h.
+Including the headers in asm/random.h turned out to be impossible as well.
+
+The only solution for now is to uninline random_get_entropy().  Fix up all
+other dependencies on the content of asm/timex.h in those files which
+really depend on it.
 
 Remove asm/timex.h as it has no functionality anymore.
 
 Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-Cc: Richard Henderson <richard.henderson@linaro.org>
-Cc: linux-alpha@vger.kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
 ---
- arch/alpha/Kconfig              |    1 +
- arch/alpha/include/asm/random.h |   14 ++++++++++++++
- arch/alpha/include/asm/timex.h  |   26 --------------------------
- 3 files changed, 15 insertions(+), 26 deletions(-)
+ arch/arm64/Kconfig                      |    1 +
+ arch/arm64/include/asm/io.h             |    5 +++--
+ arch/arm64/include/asm/random.h         |   11 +++++++++++
+ arch/arm64/include/asm/rqspinlock.h     |    1 +
+ arch/arm64/include/asm/timex.h          |   18 ------------------
+ arch/arm64/kernel/time.c                |    6 ++++++
+ arch/arm64/kernel/topology.c            |    1 +
+ arch/arm64/kernel/traps.c               |    1 +
+ arch/arm64/kvm/emulate-nested.c         |    1 +
+ arch/arm64/kvm/hyp/include/hyp/switch.h |    1 +
+ arch/arm64/lib/delay.c                  |    1 +
+ drivers/irqchip/irq-apple-aic.c         |    1 +
+ 12 files changed, 28 insertions(+), 20 deletions(-)
 
---- a/arch/alpha/Kconfig
-+++ b/arch/alpha/Kconfig
-@@ -5,6 +5,7 @@ config ALPHA
- 	select ARCH_32BIT_USTAT_F_TINODE
- 	select ARCH_HAS_CURRENT_STACK_POINTER
- 	select ARCH_HAS_DMA_OPS if PCI
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -45,6 +45,7 @@ config ARM64
+ 	select ARCH_HAS_PREEMPT_LAZY
+ 	select ARCH_HAS_PTDUMP
+ 	select ARCH_HAS_PTE_SPECIAL
 +	select ARCH_HAS_RANDOM_ENTROPY
- 	select ARCH_MIGHT_HAVE_PC_PARPORT
- 	select ARCH_MIGHT_HAVE_PC_SERIO
- 	select ARCH_MODULE_NEEDS_WEAK_PER_CPU if SMP
+ 	select ARCH_HAS_HW_PTE_YOUNG
+ 	select ARCH_HAS_SETUP_DMA_OPS
+ 	select ARCH_HAS_SET_DIRECT_MAP
+--- a/arch/arm64/include/asm/io.h
++++ b/arch/arm64/include/asm/io.h
+@@ -100,12 +100,13 @@ static __always_inline u64 __raw_readq(c
+ ({									\
+ 	unsigned long tmp;						\
+ 									\
+-	dma_rmb();								\
++	dma_rmb();							\
+ 									\
+ 	/*								\
+ 	 * Create a dummy control dependency from the IO read to any	\
+ 	 * later instructions. This ensures that a subsequent call to	\
+-	 * udelay() will be ordered due to the ISB in get_cycles().	\
++	 * udelay() will be ordered due to the ISB in			\
++	 * arm_timer_read_counter().					\
+ 	 */								\
+ 	asm volatile("eor	%0, %1, %1\n"				\
+ 		     "cbnz	%0, ."					\
 --- /dev/null
-+++ b/arch/alpha/include/asm/random.h
-@@ -0,0 +1,14 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASMALPHA_RANDOM_H
-+#define _ASMALPHA_RANDOM_H
++++ b/arch/arm64/include/asm/random.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2012 ARM Ltd.
++ */
++#ifndef __ASM_RANDOM_H
++#define __ASM_RANDOM_H
 +
-+/* Use the cycle counter for entropy. */
-+static inline unsigned long random_get_entropy(void)
-+{
-+	unsigned long ret;
-+
-+	__asm__ __volatile__ ("rpcc %0" : "=r"(ret));
-+	return ret;
-+}
++/* Out of line to avoid recursive include hell */
++unsigned long random_get_entropy(void);
 +
 +#endif
---- a/arch/alpha/include/asm/timex.h
+--- a/arch/arm64/include/asm/rqspinlock.h
++++ b/arch/arm64/include/asm/rqspinlock.h
+@@ -2,6 +2,7 @@
+ #ifndef _ASM_RQSPINLOCK_H
+ #define _ASM_RQSPINLOCK_H
+ 
++#include <asm/arch_timer.h>
+ #include <asm/barrier.h>
+ 
+ /*
+--- a/arch/arm64/include/asm/timex.h
 +++ /dev/null
-@@ -1,26 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
+@@ -1,18 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only */
 -/*
-- * linux/include/asm-alpha/timex.h
-- *
-- * ALPHA architecture timex specifications
+- * Copyright (C) 2012 ARM Ltd.
 - */
--#ifndef _ASMALPHA_TIMEX_H
--#define _ASMALPHA_TIMEX_H
+-#ifndef __ASM_TIMEX_H
+-#define __ASM_TIMEX_H
+-
+-#include <asm/arch_timer.h>
 -
 -/*
-- * Standard way to access the cycle counter.
-- * Currently only used on SMP for scheduling.
-- *
-- * Only the low 32 bits are available as a continuously counting entity. 
-- * But this only means we'll force a reschedule every 8 seconds or so,
-- * which isn't an evil thing.
+- * Use the current timer as a cycle counter since this is what we use for
+- * the delay loop.
 - */
--static inline cycles_t get_cycles (void)
--{
--	cycles_t ret;
--	__asm__ __volatile__ ("rpcc %0" : "=r"(ret));
--	return ret;
--}
--#define get_cycles get_cycles
+-#define get_cycles()	arch_timer_read_counter()
+-
+-#include <asm-generic/timex.h>
 -
 -#endif
+--- a/arch/arm64/kernel/time.c
++++ b/arch/arm64/kernel/time.c
+@@ -29,6 +29,7 @@
+ 
+ #include <clocksource/arm_arch_timer.h>
+ 
++#include <asm/arch_timer.h>
+ #include <asm/thread_info.h>
+ #include <asm/paravirt.h>
+ 
+@@ -52,6 +53,11 @@ unsigned long profile_pc(struct pt_regs
+ }
+ EXPORT_SYMBOL(profile_pc);
+ 
++static unsigned long random_get_entropy(void)
++{
++	return arch_timer_read_counter();
++}
++
+ void __init time_init(void)
+ {
+ 	u32 arch_timer_rate;
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -21,6 +21,7 @@
+ #include <linux/sched/isolation.h>
+ #include <linux/xarray.h>
+ 
++#include <asm/arch_timer.h>
+ #include <asm/cpu.h>
+ #include <asm/cputype.h>
+ #include <asm/topology.h>
+--- a/arch/arm64/kernel/traps.c
++++ b/arch/arm64/kernel/traps.c
+@@ -30,6 +30,7 @@
+ #include <linux/ubsan.h>
+ #include <linux/cfi.h>
+ 
++#include <asm/arch_timer.h>
+ #include <asm/atomic.h>
+ #include <asm/bug.h>
+ #include <asm/cpufeature.h>
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -7,6 +7,7 @@
+ #include <linux/kvm.h>
+ #include <linux/kvm_host.h>
+ 
++#include <asm/arch_timer.h>
+ #include <asm/kvm_emulate.h>
+ #include <asm/kvm_nested.h>
+ 
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -18,6 +18,7 @@
+ 
+ #include <kvm/arm_psci.h>
+ 
++#include <asm/arch_timer.h>
+ #include <asm/barrier.h>
+ #include <asm/cpufeature.h>
+ #include <asm/extable.h>
+--- a/arch/arm64/lib/delay.c
++++ b/arch/arm64/lib/delay.c
+@@ -14,6 +14,7 @@
+ #include <linux/timex.h>
+ 
+ #include <clocksource/arm_arch_timer.h>
++#include <asm/arch_timer.h>
+ 
+ #define USECS_TO_CYCLES(time_usecs)			\
+ 	xloops_to_cycles((time_usecs) * 0x10C7UL)
+--- a/drivers/irqchip/irq-apple-aic.c
++++ b/drivers/irqchip/irq-apple-aic.c
+@@ -55,6 +55,7 @@
+ #include <linux/jump_label.h>
+ #include <linux/limits.h>
+ #include <linux/of_address.h>
++#include <asm/arch_timer.h>
+ #include <linux/slab.h>
+ #include <asm/apple_m1_pmu.h>
+ #include <asm/cputype.h>
 
 
