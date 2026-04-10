@@ -4,82 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2A8BF4484C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:23:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42A59F44847
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:24:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VvvpJ/qL3MAP3HugIiBTVzG72IPcnHfG1iqnkHNtFTQ=; b=aMfs80GJxqelJ2UeI23jWTWzHi
-	ef4Pxq9FMPBbGRpBGSUPGokDftM4Q5yiyK8YpGB1fxEMTcXe9Ua/kVhItYGFNRI+hmddy2o/7jlLN
-	iPfc2MvzWaiz9uezN61ExBrg8frRhpkLHQTdQqzV6hiK+UorOpgS+ODdqzkWC+O2FJ9fahl1kw7Ic
-	idtzkfnXLXZsxR4wsJUgBNmI5WfQrzJiVsOOPPYaJBa9gGmpccKiBVFxoICscBRVYrB0WTckOeJQG
-	8igcm38i0OO/EIe390GI7EYHMWjlpGbgJlWXBImnlZTSeTXrxyC5A7lwDdEY0nLRGZHukR+pTML8Z
-	UhLWeNLA==;
+	bh=aj5XakvMrHZUrDyYKVsZg4rC5Dtcr4vUwdSNgZSmn+s=; b=pMRhqXKHxY19tsb24kiH5t+iBH
+	SccspcKY28tjX0fKnR2ZRRC2blNPzjW0MmWycDo5xGTbHIk/f3u+Vcw8x5st+mpBQ2gJJjCNe3/bX
+	32UwHJgOKPT0dr3xRnPTuiSrITFINsSs5jcnwtwXbd5FtJt9iRBUwYaJmKn+XOEykNUIFZOvUeNJI
+	z4mAEN5caUMMiYCArVPMHlWKqoNWxnayGQNbT3E30Jsnx8fispRJXc0jgkd1ZPml3ZwY9tgOjtoLh
+	CEqA7l4LhT58lCWfZt2n63GNqXJCF19tsfITSlrOHt3f7J0HgauQ8aMQL0Dz82vulD/uQq1VYiLLT
+	OMWQ3kuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAtf-0000000CFHW-1wTN;
-	Fri, 10 Apr 2026 12:23:39 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1wBAuT-0000000CFMo-3ODQ;
+	Fri, 10 Apr 2026 12:24:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAtc-0000000CFGx-2Ulc
+	id 1wBAuR-0000000CFMb-3cMG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 12:23:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=VvvpJ/qL3MAP3HugIiBTVzG72IPcnHfG1iqnkHNtFTQ=; b=U0tX3hmjJcm8tsXTtdEAC8/h1W
-	LON04cNtMGN8ZEK5ppHySEkXKvnn92S3XIVyNP8bh0+prT160P9lajYz9nNr8GP8yRL0I4fafk5PN
-	KLYE90UPlcZ+rAW09ET5aYUFiMcrf2ESf2opJ6EHeZR7tvkvUdkZBuy4wz616K+HvIg5cSYnIMXQn
-	gV4s34DVxbYM+8GjhifF6nnLLBlsYESvPpqIzHE0OGETx49mCX1fLnsuBVrvHliHlozGUAG9p5iWU
-	yGoT4MXjdD9iuGw9ng9OZEZUktWdzOkiOVDGVEWRZugPHSXmgRE4pR4a+MTa5RaFtrbsII9YxQee2
-	mRZSapog==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:52432)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1wBAtN-000000004xu-3ZEF;
-	Fri, 10 Apr 2026 13:23:21 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1wBAtJ-000000005cT-2CP5;
-	Fri, 10 Apr 2026 13:23:17 +0100
-Date: Fri, 10 Apr 2026 13:23:17 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Sam Edwards <cfsworks@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Baruch Siach <baruch@tkos.co.il>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v4 0/2] stmmac crash/stall fixes when under memory
- pressure
-Message-ID: <adjrtRSepmac2hpN@shell.armlinux.org.uk>
-References: <20260401041929.12392-1-CFSworks@gmail.com>
- <ac6kfQ98Xjt3dCGj@shell.armlinux.org.uk>
- <CAH5Ym4g3pbU_bWzMwJMdhEFv4K2sp3pty3g04=0=9Z80_LzW1w@mail.gmail.com>
+	Fri, 10 Apr 2026 12:24:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F3D916024D;
+	Fri, 10 Apr 2026 12:24:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2810BC19421;
+	Fri, 10 Apr 2026 12:24:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775823866;
+	bh=u3shdn/VhTUrysknc+IWeX13Mypw2Gqe8IMtP46BvmE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YKHcdKXE2kz4m0NEBd5EKtByrIIew2xRPM9M6TUF00occZ4EyMKOt2YUdYVsHnCo0
+	 fNSRX0fb0Hbd2twIm/dyttA2LN+TqLTdZ909pvkhZS8h7pGn7Yhva68ZtJqsZLZ/If
+	 tdguzE3v/3GvKP5hHIRnkjjVac850Gdb2uNM2zbSio5tgjmijdEdz+01rtEvdJNKjY
+	 QY9VKGe7uu/nk/E51BxqhEmmdYN1W/PvkHS3utdN+SbGU+hY3BJSyQa4VKOyVStKX+
+	 7rhSZO2S67XO/uptDkC1XS9crG8eNVR7QT+21pAsNytGil3CdbYboU0ETriEW7gqau
+	 PEplVxGXwpW0Q==
+Date: Fri, 10 Apr 2026 13:24:16 +0100
+From: Lorenzo Stoakes <ljs@kernel.org>
+To: Usama Arif <usama.arif@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org, 
+	willy@infradead.org, ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc, jack@suse.cz, 
+	ajd@linux.ibm.com, apopple@nvidia.com, baohua@kernel.org, 
+	baolin.wang@linux.alibaba.com, brauner@kernel.org, catalin.marinas@arm.com, dev.jain@arm.com, 
+	kees@kernel.org, kevin.brodsky@arm.com, lance.yang@linux.dev, 
+	Liam.Howlett@oracle.com, linux-arm-kernel@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, mhocko@suse.com, npache@redhat.com, 
+	pasha.tatashin@soleen.com, rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com, 
+	vbabka@kernel.org, Al Viro <viro@zeniv.linux.org.uk>, ziy@nvidia.com, 
+	hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev, leitao@debian.org, 
+	kernel-team@meta.com
+Subject: Re: [PATCH v3 0/4] mm: improve large folio readahead and alignment
+ for exec memory
+Message-ID: <adjrKwgiZwXR9epk@lucifer>
+References: <20260402181326.3107102-1-usama.arif@linux.dev>
+ <803a0c15-0a6a-4c00-b6b3-eaae56d5fc15@linux.dev>
+ <adjkCOiLgZ_-zovg@lucifer>
+ <adjllNan2vgBNBHJ@lucifer>
+ <5f99b289-629c-47c4-bef0-966d6678a2a8@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAH5Ym4g3pbU_bWzMwJMdhEFv4K2sp3pty3g04=0=9Z80_LzW1w@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_052336_635970_EA22DB39 
-X-CRM114-Status: GOOD (  26.25  )
+In-Reply-To: <5f99b289-629c-47c4-bef0-966d6678a2a8@linux.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,118 +82,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 02, 2026 at 10:39:32AM -0700, Sam Edwards wrote:
-> On Thu, Apr 2, 2026 at 10:16 AM Russell King (Oracle)
-> <linux@armlinux.org.uk> wrote:
-> > I've tested this on my Jetson Xavier platform. One of the issues I've
-> > had is that running iperf3 results in the receive side stalling because
-> > it runs out of descriptors. However, despite the receive ring
-> > eventually being re-filled and the hardware appropriately prodded, it
-> > steadfastly refuses to restart, despite the descriptors having been
-> > updated.
-> 
-> Hi Russell,
-> 
-> Just to make sure I understand correctly: before my patches, you've
-> been observing this problem on Xavier for a while (no interrupts, ring
-> goes dry); with my patches, the ring is refilled, but the dwmac5
-> doesn't resume DMA. (Ah, just saw your follow-up email.)
-> 
-> > Any ideas?
-> 
-> Off the top of my head, my hypothesis is that dwmac5 has an additional
-> tripwire when the receive DMA is exhausted, and the
-> stmmac_set_rx_tail_ptr()/stmmac_enable_dma_reception() at the end of
-> stmmac_rx_refill() aren't sufficient to wake it back up.
-> 
-> I think this is new to dwmac5, because my RK3588 (dwmac4.20 iirc)
-> happily resumes after the same condition.
-> 
-> You gave a lot of info; thanks! I'll try to scrape up some
-> documentation on dwmac5 to see if there's something more
-> stmmac_rx_refill() ought to be doing. I think I have a Xavier NX
-> around here somewhere, I'll see if I can repro the problem.
+On Fri, Apr 10, 2026 at 01:19:08PM +0100, Usama Arif wrote:
+>
+>
+> On 10/04/2026 12:57, Lorenzo Stoakes wrote:
+> > On Fri, Apr 10, 2026 at 12:55:42PM +0100, Lorenzo Stoakes wrote:
+> >> On Fri, Apr 10, 2026 at 12:03:03PM +0100, Usama Arif wrote:
+> >>>
+> >>>
+> >>> On 02/04/2026 19:08, Usama Arif wrote:
+> >>>> v2 -> v3: https://lore.kernel.org/all/20260320140315.979307-1-usama.arif@linux.dev/
+> >>>> - Take into account READ_ONLY_THP_FOR_FS for elf alignment by aligning
+> >>>>   to HPAGE_PMD_SIZE limited to 2M (Rui)
+> >>>> - Reviewed-by tags for patch 1 from Kiryl and Jan
+> >>>> - Remove preferred_exec_order() (Jan)
+> >>>> - Change ra->order to HPAGE_PMD_ORDER if vma_pages(vma) >= HPAGE_PMD_NR
+> >>>>   otherwise use exec_folio_order() with gfp &= ~__GFP_RECLAIM for
+> >>>>   do_sync_mmap_readahead().
+> >>>> - Change exec_folio_order() to return 2M (cont-pte size) for 64K base
+> >>>>   page size for arm64.
+> >>>> - remove bprm->file NULL check (Matthew)
+> >>>> - Change filp to file (Matthew)
+> >>>> - Improve checking of p_vaddr and p_vaddr (Rui and Matthew)
+> >>>>
+> >>>
+> >>> Hello!
+> >>>
+> >>> Just wanted to check if there was any feedback/review on the latest
+> >>> revision?
+> >>
+> >> It's -rc7, this is definitely something for next cycle :)
+> >>
+> >> On my part, my upstream bandwidth has drastically reduced, and review is
+> >> probably going to have to be a hobbyist thing at least for now.
+> >>
+> >> Also, not to be mean but:
+> >>
+> >> $ git log -E -i --grep "(Reviewed|Acked)-by: Usama Arif" --oneline | wc -l
+> >> 21
+> >>
+> >> So... :)
+> >>
+> >> Review in mm is very lop-sided, let's try to balance it out a bit!
+> >>
+> >>>
+> >>> Thanks!
+> >>>
+> >>
+> >> Thanks, Lorenzo
+> >
+> > (Note that we're in a 'quiet period' from here until -rc1 of next cycle and
+> > won't be taking anything new until then. We plan to do this from around rc5 or
+> > rc6 of each cycle in future).
+>
+> Thanks! Just wanted to check, as I am always confused about this. Is it ok
+> to send patches for review for next release at this time? So that they
+> are in a good state when rc1 comes. I wanted to send PMD swap entries
+> for review after I am finished testing, but I want them for review for
+> next release.
 
-I've added dma_rmb() into dwmac4_wrback_get_tx_status() and
-dwmac4_wrback_get_rx_status(), and with that I've had an iperf3
-instance finally complete... but only once:
+I think different people have different views on that :)
 
-root@tegra-ubuntu:~# iperf3 -c 192.168.248.1 -R
-Connecting to host 192.168.248.1, port 5201
-Reverse mode, remote host 192.168.248.1 is sending
-[  5] local 192.168.248.174 port 42232 connected to 192.168.248.1 port 5201
-[ ID] Interval           Transfer     Bitrate
-[  5]   0.00-1.00   sec  50.8 MBytes   426 Mbits/sec
-[  5]   1.00-2.00   sec  54.9 MBytes   460 Mbits/sec
-[  5]   2.00-3.00   sec  54.0 MBytes   453 Mbits/sec
-[  5]   3.00-4.00   sec  53.8 MBytes   452 Mbits/sec
-[  5]   4.00-5.00   sec  52.4 MBytes   438 Mbits/sec
-[  5]   5.00-6.00   sec  54.3 MBytes   455 Mbits/sec
-[  5]   6.00-7.00   sec  53.7 MBytes   452 Mbits/sec
-[  5]   7.00-8.00   sec  52.8 MBytes   443 Mbits/sec
-[  5]   8.00-9.00   sec  53.7 MBytes   451 Mbits/sec
-[  5]   9.00-10.00  sec  54.3 MBytes   455 Mbits/sec
-- - - - - - - - - - - - - - - - - - - - - - - - -
-[ ID] Interval           Transfer     Bitrate         Retr
-[  5]   0.00-10.01  sec   537 MBytes   450 Mbits/sec   13             sender
-[  5]   0.00-10.00  sec   535 MBytes   448 Mbits/sec                  receiver
+I mean it's debateable whether having a glut of new material on day one of -rc1
+is preferable to having a bunch come in that might or might not get lost along
+the way :)
 
-iperf Done.
+I personally feel it'd be better to send during the cycle window rather than
+before but I suspect others disagree with that!
 
-So, it seems better, but not completely solved.
+So from your point of view, feel free to do what you like, but maybe David +
+others would want to chime in with their opinions?
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
-index 2994df41ec2c..119f31c94b61 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
-@@ -17,10 +17,12 @@ static int dwmac4_wrback_get_tx_status(struct stmmac_extra_stats *x,
- 				       struct dma_desc *p,
- 				       void __iomem *ioaddr)
- {
--	u32 tdes3 = le32_to_cpu(p->des3);
-+	u32 tdes3;
- 	int ret = tx_done;
- 
- 	/* Get tx owner first */
-+	dma_rmb();
-+	tdes3 = le32_to_cpu(p->des3);
- 	if (unlikely(tdes3 & TDES3_OWN))
- 		return tx_dma_own;
- 
-@@ -70,12 +72,12 @@ static int dwmac4_wrback_get_tx_status(struct stmmac_extra_stats *x,
- static int dwmac4_wrback_get_rx_status(struct stmmac_extra_stats *x,
- 				       struct dma_desc *p)
- {
--	u32 rdes1 = le32_to_cpu(p->des1);
--	u32 rdes2 = le32_to_cpu(p->des2);
--	u32 rdes3 = le32_to_cpu(p->des3);
-+	u32 rdes1, rdes2, rdes3;
- 	int message_type;
- 	int ret = good_frame;
- 
-+	dma_rmb();
-+	rdes3 = le32_to_cpu(p->des3);
- 	if (unlikely(rdes3 & RDES3_OWN))
- 		return dma_own;
- 
-@@ -107,6 +109,7 @@ static int dwmac4_wrback_get_rx_status(struct stmmac_extra_stats *x,
- 
- 	message_type = FIELD_GET(RDES1_PTP_MSG_TYPE_MASK, rdes1);
- 
-+	rdes1 = le32_to_cpu(p->des1);
- 	if (rdes1 & RDES1_IP_HDR_ERROR) {
- 		x->ip_hdr_err++;
- 		ret |= csum_none;
-@@ -152,6 +155,7 @@ static int dwmac4_wrback_get_rx_status(struct stmmac_extra_stats *x,
- 	if (rdes1 & RDES1_TIMESTAMP_DROPPED)
- 		x->timestamp_dropped++;
- 
-+	rdes2 = le32_to_cpu(p->des2);
- 	if (unlikely(rdes2 & RDES2_SA_FILTER_FAIL)) {
- 		x->sa_rx_filter_fail++;
- 		ret = discard_frame;
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Thanks, Lorenzo
 
