@@ -4,91 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0619CF44868
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 14:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 201BDF44873
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 14:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+Qakn0FJV2FBpwkXmougwk+gggl5jahhhLBXSrL2j1Q=; b=uEHMSrXOvT3InhRol5XUdR8+K2
-	+VwHivjNpl4Cwhtqnh979T0FvPQk9B5HyyOdvzC8blI5EajxQbQ/b5FtbhQ8GRlJn7M2oRkJPBOSd
-	s+xlJL9BBYs+GZjaHb5RjmW3l/+RHZ/Gg3WPwFoU08rtKxZ+aJYFZaINevGFvZZUrnCFp/jZ/LCw3
-	duY3XHBhG5nUoYZl6GJwoHoQtzcFrVdGyM/O7jEMhB6PLyo2MEZfzDStezInjMR3zQAttsStFmUsH
-	uXR3kR0PR2RHZotiqniC8+Y8Z1D3AADbnpYY8l0RGJFpoe4dlu3xCvC/Ca8BH4isSGIKAPa8FCNhI
-	7k9uppEg==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9zLHnTtMqw0wWzWI7j+3+Qz08IlRB+2G4Qkl+hxqDWo=; b=2M1JFayewOQAWK8aczFIpxep34
+	3jTPNeH1NaQnobenPWCbiaQmyViYWcyOzeSZ5svwZHv4KoQo2LTTy0AuIXrydIz8eSg0Oj68mrN1M
+	xmpo7POZW8Xpn8RzMKa7z8bRBCiJqRrzHlpvSAdOrD7RX/8wmF0NQfoIcWqDJALBxqZ/rWYr7d4/g
+	GBvSbMs7hcp5IqY9E1RrOm2EpgOyoCl15/piR8LEZ1LoaQlaMj1JtrYbe7/9m67KHUUkHlzCRSxot
+	uig+Fmfprn/yzrWvM6++3n7d3titDnaknGAZIdkHDo8ZI12r/OzXafeoSTKWMIheyHtOw2+GnYzcH
+	JYanqnPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBCk1-0000000CNVe-1slp;
-	Fri, 10 Apr 2026 14:21:49 +0000
-Received: from mx0a-0016f401.pphosted.com ([67.231.148.174])
+	id 1wBCkI-0000000CNXg-3FYS;
+	Fri, 10 Apr 2026 14:22:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBCjy-0000000CNVI-1skV
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 14:21:47 +0000
-Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63A6ajbh347876;
-	Fri, 10 Apr 2026 07:21:41 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=pfpt0220; bh=+Qakn0FJV2FBpwkXmougwk+
-	gggl5jahhhLBXSrL2j1Q=; b=c+OFWgl+LR3bgAeItfhdudp5CQUUTm+3Ob0R6N8
-	n3gM92l0gR2yErQYdrp+S4ty9RMEOHfmRloTC2AFnhdRFtcYTSFBmiPfzvGjgRDX
-	F7ijCOi0NJCcN15Q/DF5UmKmaxxU0uyP1Q2dWmNT8XtKq8xFtBLPSRpmmaCAn1Zw
-	5XnrnttsFG1uOaAMQOJMO9NG721CIRWX2nkl0XInYGAo/OcU6gI9ILBwQA5YayYi
-	peSdNBNmnz9zSXd4CJlplKrU7oaEx6S4GCIfoaNPOGqhiLTSknicrAXK6HmBg5mX
-	ZeYS9zdsNp/I29PthtnEYMFFeltsPPk0A6FR2wscdfft1nw==
-Received: from dc5-exch05.marvell.com ([199.233.59.128])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4dee00jpkj-2
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Apr 2026 07:21:41 -0700 (PDT)
-Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Fri, 10 Apr 2026 07:21:40 -0700
-Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
- (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
- Transport; Fri, 10 Apr 2026 07:21:40 -0700
-Received: from rkannoth-OptiPlex-7090.. (unknown [10.28.36.165])
-	by maili.marvell.com (Postfix) with ESMTP id 657243F708D;
-	Fri, 10 Apr 2026 07:21:36 -0700 (PDT)
-From: Ratheesh Kannoth <rkannoth@marvell.com>
-To: <linux-pci@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <bhelgaas@google.com>
-CC: <will@kernel.org>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
-        <mani@kernel.org>, <robh@kernel.org>, <vidyas@nvidia.com>,
-        Ratheesh Kannoth
-	<rkannoth@marvell.com>,
-        Bjorn Helgaas <helgaas@kernel.org>
-Subject: [PATCH] PCI: host-common: Request bus reassignment when not probe-only
-Date: Fri, 10 Apr 2026 19:51:24 +0530
-Message-ID: <20260410142124.2673056-1-rkannoth@marvell.com>
-X-Mailer: git-send-email 2.43.0
+	id 1wBCkH-0000000CNXM-2gIM;
+	Fri, 10 Apr 2026 14:22:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=9zLHnTtMqw0wWzWI7j+3+Qz08IlRB+2G4Qkl+hxqDWo=; b=dZiwuji0A5EkSuY+asOzWqc7v5
+	igvMZe1SlTsWrTCjshroBPSFjPuqCqpc/ndTYw3KAZPqUwzcVxi7TUWxDQOYjG/mAhUvJjlf8uMhk
+	I37UoeeAJDYSaD0haAzCV/hJrRJlymslxe9+QjzWOEFPDiVVGoF3TzYY2/h51pqWYFTepR1sxV9Vx
+	2Ez2LKMP/W7bG9F4dhF8dKqpu3gue2CUTLCeQ9POqAOX9hQuKCcaA3Jv7g4fbVByoJztkh5NCkXb0
+	VLnD/CQOBYkmXcQX9CUYwx0MmDTiaLmDHZ7kdAmFB8YjG883YRh27d0lWFbMnEhgx4BOaEQ86hv8f
+	7YW6BTtg==;
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wBCkE-0000000DeU8-2uk7;
+	Fri, 10 Apr 2026 14:22:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1775830871; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Jn/Tmj19i3gOK6f9TWANjUnYtLOPBQJNqcx0tOvjD6UpoX8CURmIgJHUNdecp8Pw0CljdDunOXYctaIxdBHusanURm0wQacxVoaGiqrv4X1c2DA8c8Y0+8I4KFWu1BkOG6EKYiSMzeB/aMXduHDEnhJaZkibDPCNqKz5tzzC2w0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1775830871; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=9zLHnTtMqw0wWzWI7j+3+Qz08IlRB+2G4Qkl+hxqDWo=; 
+	b=YYqZ7rPD2KtIX1IkeI5KwpQUzCS1ufbR7X+rw1FRYUs1PdogLTcepHPQHDUFTuX4/XqMYUliTgNli96hFqCPikJoz7GZp8BfKi27RdJ/soknA9PpgKQ9gi/D846d2zCYSaUSm/Cc3/QnFgD5R/p82+/jayc8xDqUoa0hzflpqSg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1775830871;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=9zLHnTtMqw0wWzWI7j+3+Qz08IlRB+2G4Qkl+hxqDWo=;
+	b=CVwPR2JjdsnnJHG3iLLKNbX4wAsiZCkL3NtXjldGLNGHKv8/5VoQA1Jn4biRiq67
+	//9zWXRFyP5j6alWl4gj1F2804zm/gplOKweJwC3iihVZHcLBnJ1hRq5pRUvZc8NkjE
+	dyhmroMYyfJueA+zxqQg6lsQ7hpMUqCrpzHbjqJ0=
+Received: by mx.zohomail.com with SMTPS id 1775830869992203.62896287388855;
+	Fri, 10 Apr 2026 07:21:09 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
+ Rodrigo Siqueira <siqueira@igalia.com>,
+ Alex Deucher <alexander.deucher@amd.com>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Sandy Huang <hjc@rock-chips.com>,
+ Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Jani Nikula <jani.nikula@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ kernel@collabora.com, amd-gfx@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ linux-doc@vger.kernel.org
+Subject: Re: [PATCH v12 04/25] drm/bridge: Act on the DRM color format property
+Date: Fri, 10 Apr 2026 16:21:00 +0200
+Message-ID: <4810558.ElGaqSPkdT@workhorse>
+In-Reply-To: <edeq6wxmwzvovfoo6pvih6dybwszf3tahg7nvqkjrw3qxllbfd@jwejh2sgb5eh>
+References: <20260409-color-format-v12-0-ce84e1817a27@collabora.com>
+ <20260409-color-format-v12-4-ce84e1817a27@collabora.com>
+ <edeq6wxmwzvovfoo6pvih6dybwszf3tahg7nvqkjrw3qxllbfd@jwejh2sgb5eh>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEwMDEzNCBTYWx0ZWRfX7j/IeWNhisvw
- qzoHbH2T+OyCoQukUsfQzLK5/IfjHD14qCEeITvLDCnBg4Z3lN5++gtg5guO2CA+YvyLJbiRH9n
- /v3xDKTRDFUtnUvGlGOBG/o43AirYcRvKJ7FYNlDl58budH/QP9CNcDGzfnu1usvdXgb1Ud5dNu
- fKBBb7OEa7L3fm45Qs6mXjncAWZKKxvQ6uceDNCVXNWx8kTQh2DD1f2GCqR3QFjTmXI45W29UVy
- rnTtkb9gMFHldnTol39f/7OtfoAPzOmYrlFCbILazHLmRwiw6XYUJ5I4xoHjEvcwzhEL8CHExfF
- 7wQ6PTMGoCyjUhGIm5uclZgJCmIOl3/QpURoteXHH8GlWglNy5l04jPVOKdotECwHeDmOD3t1A8
- A8HZVsfKr3EFDRiv1dTGMhk1U9HB7dT4M2b4G14icE+TvLArohxD9cM1QMmCjmXZya3nQTggaaI
- xFK3qgMD8Q4eFjniHVA==
-X-Authority-Analysis: v=2.4 cv=M/d97Sws c=1 sm=1 tr=0 ts=69d90775 cx=c_pps
- a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
- a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
- a=TtqV-g6YmW1Jfm2GSLaY:22 a=VwQbUJbxAAAA:8 a=Ikd4Dj_1AAAA:8 a=M5GUcnROAAAA:8
- a=UhbZHETWtGs1wiOFpMcA:9 a=OBjm3rFKGHvpk9ecZwUJ:22
-X-Proofpoint-GUID: YyaNPm2MXTb1M0cv0B4Im0gwWN2FQ2kB
-X-Proofpoint-ORIG-GUID: YyaNPm2MXTb1M0cv0B4Im0gwWN2FQ2kB
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-10_04,2026-04-09_02,2025-10-01_01
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_072146_493714_38234CBD 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20260410_152202_958477_83C4A040 
+X-CRM114-Status: GOOD (  41.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,41 +114,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pci_host_common_init() is used by several generic ECAM host drivers.
-After PCI core changes around pci_flags and preserve_config, these hosts
-no longer opted into full bus number reassignment the way they did
-before.
+On Friday, 10 April 2026 00:08:24 Central European Summer Time Dmitry Baryshkov wrote:
+> On Thu, Apr 09, 2026 at 05:44:54PM +0200, Nicolas Frattaroli wrote:
+> > The new DRM color format property allows userspace to request a specific
+> > color format on a connector. In turn, this fills the connector state's
+> > color_format member to switch color formats.
+> > 
+> > Make drm_bridges consider the color_format set in the connector state
+> > during the atomic bridge check. For bridges that represent HDMI bridges,
+> > rely on whatever format the HDMI logic set. Reject any output bus
+> > formats that do not correspond to the requested color format.
+> > 
+> > Non-HDMI last bridges with DRM_CONNECTOR_COLOR_FORMAT_AUTO set will end
+> > up choosing the first output format that functions to make a whole
+> > recursive bridge chain format selection succeed.
+> > 
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> >  drivers/gpu/drm/drm_bridge.c | 89 +++++++++++++++++++++++++++++++++++++++++++-
+> >  1 file changed, 88 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+> > index ba80bebb5685..7c1516864d96 100644
+> > --- a/drivers/gpu/drm/drm_bridge.c
+> > +++ b/drivers/gpu/drm/drm_bridge.c
+> > @@ -1150,6 +1150,47 @@ static int select_bus_fmt_recursive(struct drm_bridge *first_bridge,
+> >  	return ret;
+> >  }
+> >  
+> > +static bool __pure bus_format_is_color_fmt(u32 bus_fmt, enum drm_connector_color_format fmt)
+> > +{
+> > +	if (fmt == DRM_CONNECTOR_COLOR_FORMAT_AUTO)
+> > +		return true;
+> > +
+> > +	switch (bus_fmt) {
+> > +	case MEDIA_BUS_FMT_FIXED:
+> > +		return true;
+> > +	case MEDIA_BUS_FMT_RGB888_1X24:
+> > +	case MEDIA_BUS_FMT_RGB101010_1X30:
+> > +	case MEDIA_BUS_FMT_RGB121212_1X36:
+> > +	case MEDIA_BUS_FMT_RGB161616_1X48:
+> > +		return fmt == DRM_CONNECTOR_COLOR_FORMAT_RGB444;
+> > +	case MEDIA_BUS_FMT_YUV8_1X24:
+> > +	case MEDIA_BUS_FMT_YUV10_1X30:
+> > +	case MEDIA_BUS_FMT_YUV12_1X36:
+> > +	case MEDIA_BUS_FMT_YUV16_1X48:
+> > +		return fmt == DRM_CONNECTOR_COLOR_FORMAT_YCBCR444;
+> > +	case MEDIA_BUS_FMT_UYVY8_1X16:
+> > +	case MEDIA_BUS_FMT_VYUY8_1X16:
+> > +	case MEDIA_BUS_FMT_YUYV8_1X16:
+> > +	case MEDIA_BUS_FMT_YVYU8_1X16:
+> > +	case MEDIA_BUS_FMT_UYVY10_1X20:
+> > +	case MEDIA_BUS_FMT_YUYV10_1X20:
+> > +	case MEDIA_BUS_FMT_VYUY10_1X20:
+> > +	case MEDIA_BUS_FMT_YVYU10_1X20:
+> > +	case MEDIA_BUS_FMT_UYVY12_1X24:
+> > +	case MEDIA_BUS_FMT_VYUY12_1X24:
+> > +	case MEDIA_BUS_FMT_YUYV12_1X24:
+> > +	case MEDIA_BUS_FMT_YVYU12_1X24:
+> > +		return fmt == DRM_CONNECTOR_COLOR_FORMAT_YCBCR422;
+> > +	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
+> > +	case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
+> > +	case MEDIA_BUS_FMT_UYYVYY12_0_5X36:
+> > +	case MEDIA_BUS_FMT_UYYVYY16_0_5X48:
+> > +		return fmt == DRM_CONNECTOR_COLOR_FORMAT_YCBCR420;
+> > +	default:
+> > +		return false;
+> > +	}
+> > +}
+> > +
+> >  /*
+> >   * This function is called by &drm_atomic_bridge_chain_check() just before
+> >   * calling &drm_bridge_funcs.atomic_check() on all elements of the chain.
+> > @@ -1193,6 +1234,7 @@ drm_atomic_bridge_chain_select_bus_fmts(struct drm_bridge *bridge,
+> >  	struct drm_encoder *encoder = bridge->encoder;
+> >  	struct drm_bridge_state *last_bridge_state;
+> >  	unsigned int i, num_out_bus_fmts = 0;
+> > +	enum drm_connector_color_format fmt;
+> >  	u32 *out_bus_fmts;
+> >  	int ret = 0;
+> >  
+> > @@ -1234,13 +1276,58 @@ drm_atomic_bridge_chain_select_bus_fmts(struct drm_bridge *bridge,
+> >  			out_bus_fmts[0] = MEDIA_BUS_FMT_FIXED;
+> >  	}
+> >  
+> > +	/*
+> > +	 * On HDMI connectors, use the output format chosen by whatever does the
+> > +	 * HDMI logic. For everyone else, just trust that the bridge out_bus_fmts
+> > +	 * are sorted by preference for %DRM_CONNECTOR_COLOR_FORMAT_AUTO, as
+> > +	 * bus_format_is_color_fmt() always returns true for AUTO.
+> > +	 */
+> > +	if (last_bridge->type == DRM_MODE_CONNECTOR_HDMIA) {
+> 
+> I still think this is misplaced (and misidentified). Consider HDMI
+> bridge being routed to the DVI-D connector. The last bridge would have
+> different type, but the HDMI-specific logic must still be applied. The
+> bridge must use RGB444, but it must be handled in a generic way.
 
-When PCI_PROBE_ONLY is not set, add PCI_REASSIGN_ALL_BUS so
-pci_scan_bridge_extend() takes the reassignment path: bus numbers can be
-assigned from firmware EA data (e.g. pci_ea_fixed_busnrs()). Skip the
-flag in probe-only mode so existing assignments are not overridden.
+Thanks for the review. I was hoping that an HDMI bridge chain going to
+a DVI connector would be a DRM_MODE_CONNECTOR_HDMIB thing, but apparently
+not. I also don't know however how doing this in the drm bridge connector
+helps us here. I guess we'd call into a drm_bridge_connector specific
+function with the connector format and connector, and get an output
+format in return, and said function checks that if any bridge in the
+bridge connector is HDMI it uses the HDMI logic? That would conflict
+with the following case from what I understand:
 
-CC: Bjorn Helgaas <helgaas@kernel.org>
-CC: Vidya Sagar <vidyas@nvidia.com>
-Fixes: 7246a4520b4b ("PCI: Use preserve_config in place of pci_flags")
-Link: https://lore.kernel.org/netdev/adcXzcz2wWJFw4d7@rkannoth-OptiPlex-7090/
-Signed-off-by: Ratheesh Kannoth <rkannoth@marvell.com>
----
- drivers/pci/controller/pci-host-common.c | 4 ++++
- 1 file changed, 4 insertions(+)
+> Or other way around, a DVI bridge being routed through the HDMI
+> connector (thinking about PandaBoard here). The combo should not go
+> through the HDMI-specific color format selection although the last
+> bridge in the chanin is the HDMI-A bridge.
 
-diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-index d6258c1cffe5..860783553cca 100644
---- a/drivers/pci/controller/pci-host-common.c
-+++ b/drivers/pci/controller/pci-host-common.c
-@@ -68,6 +68,10 @@ int pci_host_common_init(struct platform_device *pdev,
- 	if (IS_ERR(cfg))
- 		return PTR_ERR(cfg);
- 
-+	/* Do not reassign resources if probe only */
-+	if (!pci_has_flag(PCI_PROBE_ONLY))
-+		pci_add_flags(PCI_REASSIGN_ALL_BUS);
-+
- 	bridge->sysdata = cfg;
- 	bridge->ops = (struct pci_ops *)&ops->pci_ops;
- 	bridge->enable_device = ops->enable_device;
--- 
-2.43.0
+In that case, wouldn't the recursive bridge bus format selection
+take care of this? I assume the DVI bridge will only allow RGB444,
+and one of the bridges that follow it is an HDMI bridge for the
+HDMI connector that's physically on the board.
+
+In such a case, if the HDMI state helpers came up with something
+other than RGB444, the select_bus_fmt_recursive below would fail
+as expected, since it won't be able to find an output that
+satisfies the constraints given by the DVI bridge.
+
+> I think all these cases should be handled by the connector, which knows
+> if there is an OP_HDMI bridge in the chain or not.
+
+Kind regards,
+Nicolas Frattaroli
+
+> > +		drm_dbg_kms(last_bridge->dev,
+> > +			    "HDMI bridge requests format %s\n",
+> > +			    drm_hdmi_connector_get_output_format_name(
+> > +				    conn_state->hdmi.output_format));
+> > +		switch (conn_state->hdmi.output_format) {
+> > +		case DRM_OUTPUT_COLOR_FORMAT_RGB444:
+> > +			fmt = DRM_CONNECTOR_COLOR_FORMAT_RGB444;
+> > +			break;
+> > +		case DRM_OUTPUT_COLOR_FORMAT_YCBCR444:
+> > +			fmt = DRM_CONNECTOR_COLOR_FORMAT_YCBCR444;
+> > +			break;
+> > +		case DRM_OUTPUT_COLOR_FORMAT_YCBCR422:
+> > +			fmt = DRM_CONNECTOR_COLOR_FORMAT_YCBCR422;
+> > +			break;
+> > +		case DRM_OUTPUT_COLOR_FORMAT_YCBCR420:
+> > +			fmt = DRM_CONNECTOR_COLOR_FORMAT_YCBCR420;
+> > +			break;
+> > +		default:
+> > +			ret = -EINVAL;
+> > +			goto out_free_bus_fmts;
+> > +		}
+> > +	} else {
+> > +		fmt = conn_state->color_format;
+> > +		drm_dbg_kms(last_bridge->dev, "Non-HDMI bridge requests format %d\n", fmt);
+> > +	}
+> > +
+> >  	for (i = 0; i < num_out_bus_fmts; i++) {
+> > +		if (!bus_format_is_color_fmt(out_bus_fmts[i], fmt)) {
+> > +			drm_dbg_kms(last_bridge->dev,
+> > +				    "Skipping bus format 0x%04x as it doesn't match format %d\n",
+> > +				    out_bus_fmts[i], fmt);
+> > +			ret = -ENOTSUPP;
+> > +			continue;
+> > +		}
+> >  		ret = select_bus_fmt_recursive(bridge, last_bridge, crtc_state,
+> >  					       conn_state, out_bus_fmts[i]);
+> > -		if (ret != -ENOTSUPP)
+> > +		if (ret != -ENOTSUPP) {
+> > +			drm_dbg_kms(last_bridge->dev,
+> > +				    "Found bridge chain ending with bus format 0x%04x\n",
+> > +				    out_bus_fmts[i]);
+> >  			break;
+> > +		}
+> >  	}
+> >  
+> > +out_free_bus_fmts:
+> >  	kfree(out_bus_fmts);
+> >  
+> >  	return ret;
+> > 
+> 
+> 
+
+
+
 
 
