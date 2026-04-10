@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B5FAE9906B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 10:04:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 487BAE99068
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 10:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=05suUoDV/eqVfZ6nbZiO8HM7wRagEdZWg0v7ZUCvxMg=; b=z25NRPxXHe67lmSWDHxqxsBPr9
-	TZJHfQQuX6EnoVb/KfEuoDPNam5saaiQM9lY1egVS6KGAmDwrsXfa820iz5PZ2ufSPMROK47Yne8T
-	BeLiscm2pc4E7sarougCYaCisjb0r51Ll3Qp3X6pG1I1I3ZrVkmF3Eqrchruc1a9qKtiUYpp71D1N
-	PQlBWii2iKNEaaBPMVpccHjaFZmeEBbmOL8owq5/WCxF2dKjbD5ufDk7dIQmOuWVF8CLWj2rtnR0t
-	xX9IJLLvgRg1njfB7/d8BJ1IkcPteJ14LRT94AYSH8WlFQ6tFtnWMU0yT/6sNbFbj/NE+FcRharBN
-	owA1SziQ==;
+	bh=7aF/QiwhkBV0MmxjcE0bcp28G/Ik9V0mC2ZUjIV/GRY=; b=XjAfNjkjawmkCvz8pvyeOP0dYc
+	vccCArxMkO0oejUuVu+om6OHL2js0o2I3S8In6T2/m7zeU+2bpkFK7R0OveRR5OoUjZV/Bfw/cRbx
+	kdQ3chPm0cxmKiD0ShlKQX5RmIwqgwFwszCStso9DN+BIGCQimF7sexu4dUxyWjqOVwGH1b+3mojP
+	55H9JSwk3o0jViUG+fUc0Sy0WH4Jl5HXWzDg3u786Aqp8IIIfsdgvjPAKUc0v+6pXA9uAm3cmniaQ
+	4H3n8WZth3f+hv3Q6i2uUA4t2mespotGBDHOd6Q0QZz1YVYJupdzeIYCf/p+JIOhEPvwXwipm4r2W
+	o4pkwv5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB8iU-0000000ByHc-0o6V;
-	Fri, 10 Apr 2026 10:03:58 +0000
-Received: from [64.106.246.77] (helo=mail-sc.amlogic.com)
+	id 1wB8xI-0000000C00B-0qlD;
+	Fri, 10 Apr 2026 10:19:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB8iR-0000000ByEy-3i5n;
-	Fri, 10 Apr 2026 10:03:56 +0000
-Received: from rd03-sz.software.amlogic (10.28.11.121) by mailsc.amlogic.com
- (10.8.11.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Fri, 10 Apr
- 2026 03:02:52 -0700
-From: Jian Hu <jian.hu@amlogic.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>, Jerome Brunet
-	<jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, "Michael
- Turquette" <mturquette@baylibre.com>, Martin Blumenstingl
-	<martin.blumenstingl@googlemail.com>, robh+dt <robh+dt@kernel.org>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
-CC: Jian Hu <jian.hu@amlogic.com>, devicetree <devicetree@vger.kernel.org>,
-	linux-amlogic <linux-amlogic@lists.infradead.org>, linux-kernel
-	<linux-kernel@vger.kernel.org>, linux-arm-kernel
-	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH 4/4] arm64: dts: amlogic: t7: Add clk measure support
-Date: Fri, 10 Apr 2026 18:03:29 +0800
-Message-ID: <20260410100329.3167482-5-jian.hu@amlogic.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20260410100329.3167482-1-jian.hu@amlogic.com>
-References: <20260410100329.3167482-1-jian.hu@amlogic.com>
+	id 1wB8xH-0000000C000-0GxQ;
+	Fri, 10 Apr 2026 10:19:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2690760018;
+	Fri, 10 Apr 2026 10:19:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C024C19421;
+	Fri, 10 Apr 2026 10:19:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775816353;
+	bh=Fj4C42BDLN7WQk1jqppya3iWTXB2OunJypTGFWlANfg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DchYC5sZrS7vic2vzXpvGKEdMa5fMHDqxyZi+AppNhi5KqE50w1BYhg4huLouHa0E
+	 OW4wYOYt/WeyLq1b2siLuKLGsvTaf2WsfGRyKw3DLB7RmMk9vE6Kov34OIR3dOzBXL
+	 ypAHcdN658wDYgocim+4bClKd++05SUL9bXWw/WmtsGENzMQvN0pqd9xZ3P3s9CcCX
+	 Gqid/GyVKFR+O7rn03/hfku78oMub146JP6CLV8yHSdbRyES7ZwSaywBZnZccsdjFn
+	 GY8Ow4RyldTUuwF1KvxeVAPeaMGDMIDahgnklMkS9tE1xcc2fkXQQBQwDABjkcYaze
+	 rHHfiDVc0Zn2Q==
+Date: Fri, 10 Apr 2026 12:19:11 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, ansuelsmth@gmail.com,
+	benjamin.larsson@genexis.eu, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH net-next v3 09/12] net: airoha: Support multiple
+ net_devices for a single FE GDM port
+Message-ID: <adjOn0550QWZ-YdY@lore-desk>
+References: <20260406-airoha-eth-multi-serdes-v3-9-ab6ea49d59ff@kernel.org>
+ <20260410025724.1810007-1-kuba@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.28.11.121]
-X-ClientProxiedBy: mailsh.amlogic.com (10.18.11.5) To mailsc.amlogic.com
- (10.8.11.35)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_030355_925532_E644631E 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Aybuzh65bmgfKOa2"
+Content-Disposition: inline
+In-Reply-To: <20260410025724.1810007-1-kuba@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,30 +74,283 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the clock measure device to the T7 SoC family.
 
-Signed-off-by: Jian Hu <jian.hu@amlogic.com>
----
- arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+--Aybuzh65bmgfKOa2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-index 7fe72c94ed62..cec2ea74850d 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-@@ -701,6 +701,11 @@ pwm_ao_cd: pwm@60000 {
- 				status = "disabled";
- 			};
- 
-+			clock-measurer@48000 {
-+				compatible = "amlogic,t7-clk-measure";
-+				reg = <0x0 0x48000 0x0 0x1c>;
-+			};
-+
- 			sd_emmc_a: mmc@88000 {
- 				compatible = "amlogic,t7-mmc", "amlogic,meson-axg-mmc";
- 				reg = <0x0 0x88000 0x0 0x800>;
--- 
-2.47.1
+On Apr 09, Jakub Kicinski wrote:
+> This is an AI-generated review of your patch. The human sending this
+> email says "For your consideration."
+> ---
+> net: airoha: Support multiple net_devices for a single FE GDM port
+>=20
+> This commit introduces support for mapping multiple net_device interfaces
+> to a single Frame Engine (FE) GDM port via an external hardware arbiter.
+> It updates the rx/tx paths, port allocation, and registration logic to
+> handle the new net_device array.
+>=20
+> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
+ernet/airoha/airoha_eth.c
+> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> [ ... ]
+> > @@ -615,9 +617,8 @@ static int airoha_qdma_rx_process(struct airoha_que=
+ue *q, int budget)
+> >  		u32 hash, reason, msg1 =3D le32_to_cpu(desc->msg1);
+> >  		struct page *page =3D virt_to_head_page(e->buf);
+> >  		u32 desc_ctrl =3D le32_to_cpu(desc->ctrl);
+> > -		struct airoha_gdm_port *port;
+> > -		struct net_device *netdev;
+> > -		int data_len, len, p;
+> > +		struct airoha_gdm_dev *dev;
+> > +		int data_len, len;
+> > =20
+> >  		if (!(desc_ctrl & QDMA_DESC_DONE_MASK))
+> >  			break;
+>=20
+> While looking at this code, I noticed an issue that predates this patch.
+> Can the lack of a memory barrier after checking the descriptor ownership =
+bit
+> cause stale reads?
+>=20
+> The driver checks QDMA_DESC_DONE_MASK to verify that the hardware has fin=
+ished
+> writing the descriptor. However, it reads desc->msg1 before this check and
+> without a dma_rmb():
+>=20
+> 		u32 hash, reason, msg1 =3D le32_to_cpu(desc->msg1);
+> 		struct page *page =3D virt_to_head_page(e->buf);
+> 		u32 desc_ctrl =3D le32_to_cpu(desc->ctrl);
+>=20
+> 		if (!(desc_ctrl & QDMA_DESC_DONE_MASK))
+> 			break;
+>=20
+> Since weakly ordered architectures can reorder memory reads, could the CPU
+> prefetch msg1 before the DMA engine writes the new descriptor values, lea=
+ding
+> to routing the packet to the wrong gdm_dev?
 
+This issue has been already fixed with the following commit:
+
+commit 4ae0604a0673e11e2075b178387151fcad5111b5
+Author: Lorenzo Bianconi <lorenzo@kernel.org>
+Date:   Tue Apr 7 08:48:04 2026 +0200
+
+    net: airoha: Add dma_rmb() and READ_ONCE() in airoha_qdma_rx_process()
+   =20
+    Add missing dma_rmb() in airoha_qdma_rx_process routine to make sure the
+    DMA read operations are completed when the NIC reports the processing on
+    the current descriptor is done. Moreover, add missing READ_ONCE() in
+    airoha_qdma_rx_process() for DMA descriptor control fields in order to
+    avoid any compiler reordering.
+
+>=20
+> [ ... ]
+> > @@ -1764,9 +1765,7 @@ static int airoha_set_gdm2_loopback(struct airoha=
+_gdm_dev *dev)
+> >  	airoha_fe_clear(eth, REG_FE_VIP_PORT_EN, BIT(AIROHA_GDM2_IDX));
+> >  	airoha_fe_clear(eth, REG_FE_IFC_PORT_EN, BIT(AIROHA_GDM2_IDX));
+> > =20
+> > -	/* XXX: handle XSI_USB_PORT and XSI_PCE1_PORT */
+> > -	nbq =3D port->id =3D=3D AIROHA_GDM3_IDX && airoha_is_7581(eth) ? 4 : =
+0;
+> > -	src_port =3D eth->soc->ops.get_src_port_id(port, nbq);
+> > +	src_port =3D eth->soc->ops.get_src_port_id(port, dev->nbq);
+> >  	if (src_port < 0)
+> >  		return src_port;
+>=20
+> Can configuring the loopback for one device break connectivity for other
+> devices sharing the same port?
+>=20
+> When multiple net_devices (like PCIE0 and PCIE1 on GDM3) open and call
+> airoha_set_gdm2_loopback(), they modify global hardware registers such as
+> REG_FE_WAN_PORT.
+>=20
+> Since WAN0_MASK is unconditionally updated to track the current device's
+> src_port:
+>=20
+> 	airoha_fe_rmw(eth, REG_FE_WAN_PORT,
+> 		      WAN1_EN_MASK | WAN1_MASK | WAN0_MASK,
+> 		      FIELD_PREP(WAN0_MASK, src_port));
+>=20
+> won't the last configured device clobber the hardware state for the other=
+s?
+
+This issue is fixed with the following patch in the series:
+
+commit 008995bd8f39c5fdf37a933fa3c962e7ef52e8c6
+Author: Lorenzo Bianconi <lorenzo@kernel.org>
+Date:   Fri Apr 3 12:07:27 2026 +0200
+
+    net: airoha: Introduce WAN device flag
+   =20
+    Introduce WAN flag to specify if a given device is used to transmit/rec=
+eive
+    WAN or LAN traffic. Current codebase supports specifying LAN/WAN device
+    configuration in ndo_init() callback during device bootstrap.
+    Please note it is possible to specify multiple LAN devices but just a
+    single WAN one.
+
+>=20
+> [ ... ]
+> > @@ -1987,7 +1986,8 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff=
+ *skb,
+> >  	}
+> > =20
+> >  	fport =3D airoha_get_fe_port(dev);
+> > -	msg1 =3D FIELD_PREP(QDMA_ETH_TXMSG_FPORT_MASK, fport) |
+> > +	msg1 =3D FIELD_PREP(QDMA_ETH_TXMSG_NBOQ_MASK, dev->nbq) |
+> > +	       FIELD_PREP(QDMA_ETH_TXMSG_FPORT_MASK, fport) |
+> >  	       FIELD_PREP(QDMA_ETH_TXMSG_METER_MASK, 0x7f);
+> > =20
+> >  	q =3D &qdma->q_tx[qid];
+>=20
+> Does sharing the hardware QDMA TX queues among multiple net_device instan=
+ces
+> introduce a permanent transmit stall?
+>=20
+> In airoha_dev_xmit(), if a shared hardware queue is full, the driver stop=
+s the
+> netdev_queue of the specific netdev making the call:
+>=20
+> 	if (q->queued + nr_frags >=3D q->ndesc) {
+> 		/* not enough space in the queue */
+> 		netif_tx_stop_queue(txq);
+> 		spin_unlock_bh(&q->lock);
+> 		return NETDEV_TX_BUSY;
+> 	}
+>=20
+> However, the TX completion handler (airoha_tx_irq_process()) only wakes t=
+he
+> queue of the netdev attached to the completed packet. If an interface's TX
+> queue is stopped but it has no pending packets in the hardware queue (bec=
+ause
+> another interface filled it), will it ever get woken up?
+
+This issue is orthogonal to this series and it will be fixed with a dedicat=
+ed
+patch.
+
+>=20
+> [ ... ]
+> > @@ -2955,11 +2958,25 @@ static int airoha_alloc_gdm_device(struct airoh=
+a_eth *eth,
+> >  			 netdev->dev_addr);
+> >  	}
+> > =20
+> > +	/* Allowed nbq for EN7581 on GDM3 port are 4 and 5 for PCIE0
+> > +	 * and PCIE1 respectively.
+> > +	 */
+> > +	index =3D nbq;
+> > +	if (index && airoha_is_7581(eth) && port->id =3D=3D AIROHA_GDM3_IDX)
+> > +		index -=3D 4;
+> > +
+> > +	if (index >=3D ARRAY_SIZE(port->devs) || port->devs[index]) {
+> > +		dev_err(eth->dev, "invalid nbq id: %d\n", nbq);
+> > +		return -EINVAL;
+> > +	}
+> > +
+> > +	netdev->dev.of_node =3D of_node_get(np);
+> >  	dev =3D netdev_priv(netdev);
+>=20
+> Does this code leak the of_node reference?
+>=20
+> The node reference is explicitly incremented via of_node_get(np). The net=
+working
+> core does not automatically drop explicit of_node references on free_netd=
+ev().
+> Without a matching of_node_put() in the error paths or the driver's teard=
+own
+> function (airoha_remove()), will this reference permanently leak when the=
+ device
+> is destroyed?
+
+ack, I will fix it in v4.
+
+>=20
+> [ ... ]
+> > @@ -3003,7 +3021,43 @@ static int airoha_alloc_gdm_port(struct airoha_e=
+th *eth,
+> >  	if (err)
+> >  		return err;
+> > =20
+> > -	return airoha_alloc_gdm_device(eth, port, np);
+> > +	for_each_child_of_node(np, node) {
+> > +		/* Multiple external serdes connected to the FE GDM port via an
+> > +		 * external arbiter.
+> > +		 */
+> > +		const __be32 *nbq_ptr;
+> > +		int nbq;
+> > +
+> > +		if (!of_device_is_compatible(node, "airoha,eth-port"))
+> > +			continue;
+> > +
+> > +		d++;
+> > +		if (!of_device_is_available(node))
+> > +			continue;
+> > +
+> > +		nbq_ptr =3D of_get_property(node, "reg", NULL);
+> > +		if (!nbq_ptr) {
+> > +			dev_err(eth->dev, "missing nbq id\n");
+> > +			of_node_put(node);
+> > +			return -EINVAL;
+> > +		}
+> > +
+> > +		/* Verify the provided nbq parameter is valid */
+> > +		nbq =3D be32_to_cpup(nbq_ptr);
+> > +		err =3D eth->soc->ops.get_src_port_id(port, nbq);
+> > +		if (err < 0) {
+> > +			of_node_put(node);
+> > +			return err;
+> > +		}
+> > +
+> > +		err =3D airoha_alloc_gdm_device(eth, port, nbq, node);
+> > +		if (err) {
+> > +			of_node_put(node);
+> > +			return err;
+> > +		}
+> > +	}
+> > +
+> > +	return !d ? airoha_alloc_gdm_device(eth, port, 0, np) : 0;
+> >  }
+>=20
+> Does passing 0 for nbq in the fallback path break older device trees on t=
+he
+> EN7581 SoC?
+>=20
+> Later, when the interface is brought up, airoha_set_gdm2_loopback() calls
+> airoha_en7581_get_src_port_id(), which returns -EINVAL for GDM3 if nbq is
+> not 4 or 5:
+>=20
+> 	switch (port->id) {
+> 	case AIROHA_GDM3_IDX:
+> 		/* 7581 SoC supports PCIe serdes on GDM3 port */
+> 		if (nbq =3D=3D 4)
+> 			return HSGMII_LAN_7581_PCIE0_SRCPORT;
+> 		if (nbq =3D=3D 5)
+> 			return HSGMII_LAN_7581_PCIE1_SRCPORT;
+> 		break;
+>=20
+> If nbq is hardcoded to 0 for legacy DTs, won't this cause interface
+> initialization to fail unconditionally for GDM3?
+
+ack, I will fix it in v4.
+
+Regards,
+Lorenzo
+
+--Aybuzh65bmgfKOa2
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCadjOnwAKCRA6cBh0uS2t
+rJASAP9J84H1ZIlSgkxdU7WMyi5p/tZM5uZwUHj5u+PXljlaiQEApmQOhjtESrZr
+mYT48YUrqHkMigBz7vCYWLpaAQQVagQ=
+=hFjV
+-----END PGP SIGNATURE-----
+
+--Aybuzh65bmgfKOa2--
 
