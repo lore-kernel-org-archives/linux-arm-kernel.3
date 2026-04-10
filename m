@@ -4,132 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9A85F45A0F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 21:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BD42F45A0F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 21:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uOQgLd2gKaEsA0eudkvAFUA3YIhovBiiI7oQgSr3Y6U=; b=oej45aNfcTV2AjlRs7ujNd1INp
-	xgkAXLA8vRr4IXFDOg3KcJGCjfv0zQOp3lnHhVNwSNkWuHWVDjFeCire4TvNLlKrcODLhzI9Z/6Tc
-	SMbYAl9ZsrWZUdIfbcdX1yI9zvG/0GTCKafW2cD4SKAtOwDO86yqgkcmOX2Pu1GhMsDhiQ3iUs/Nt
-	wRlN9rVhiq/zWfbzHyTPW9lZORyNGKzATGvSKbePK0GjaGVuTKjbxfMop1fkAkHqK+GijAoFB7syS
-	wGFPow+l9Sq6URmi5ZbQaSVxGAv0z5PPd77IAYmkGfPx8DvZb+fK1UmC6bUiwzlQpFrTeRDpoQGrL
-	XIPoqrHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=slUZjkZ8Yz3AO3WsKfSeqPWS14L/ZZJ2G4RFH5lD4y8=; b=C5S5Zn7B/FS3sRM9ROoKCxepQ+
+	FDn4bd0g0DU1LJME/2OQ1V3mFvFPM5X0aSvCDUgt48jOrNQcAnhmMcfXfiLg2lLMBpRBmuLwTVO1W
+	+Tgo3spBEh6C6WVNBDQ2mI8VSVriP8QVslVQ6LTyFt3SMR+Ttln5WVKuAZbigS/wi9yTSjAOwvxbb
+	Phxm+0ByVBftlFmNKYAlEbn8sRRrAGcCstc+uIR3VD0TTQgyRJsorLhPgigIXlutgfFGOUKpesMqj
+	2xeGpbWyjCYne62jueKJvqUZpupWXA9EGGep129s141fJgGZRNnstVxiuYkQKNqtIz+Z//SdACnbR
+	wix+HkYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBJbZ-0000000Cq21-1s6t;
-	Fri, 10 Apr 2026 21:41:33 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1wBJkI-0000000CqNL-1yIt;
+	Fri, 10 Apr 2026 21:50:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBJbX-0000000Cq1i-1A1j
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 21:41:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OqYSv1R0VbsjErzQDF+dAy9kPhMAxSI5YRjtn1522gAUvSwJrh0+cJCmDCvq7L1bYdSYhMMR7tVNLjq0bFI3aonqeXA5asLBB9eKkdn+GgZDecQGNf1RLc2BlHFudZBQgREmL4/4o1rSg80sS+1tA5fP4icRyciL/0xbHJq9RggyalwWJzwMr12Py/JmObDjoJPJZrYQbGws29v1yoBdvC4PQMcPXs6atLeHThCz3Jy6cqQB6XHXfEcBspF4mcYPuILmIlwIWZu8Jv90eA2BOcZ/k3PCi+SyZGa6xlo/XiAIMxCkZtYFCSibZuYmu1zkImgFMlICDRJyYoFXl+uRpg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uOQgLd2gKaEsA0eudkvAFUA3YIhovBiiI7oQgSr3Y6U=;
- b=vUQejC4q3ynBYQXrsU3xLeRkIxzJ07ph7L1ap5QWl3tLurPgbZZ1nZlF1m/AA78U5N2obhQK3kSTJxcd27+RK8gjwnB3NtRrikQje1tes5/UDwpNlK0miLxN9S8O9I+TNSxO8fOQDTpd8WH+MgrecY3/l5CJfsk5/BgDuQYLc5WO2CjQ53u/YgpyiryBTNKR41/ljTHE2Ol+buJl4x1JSAvTgM4du7mc3tltMNfKdcYJM5u7I/Rnoi+SfReAe56Owb0TeQThsaelotale/cm6MMt4FYr6aujeMqJQQqCvIEnK5Pna4RALehEk7JRaC50nT6kUmdc+NcG9JAuyKRwEQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uOQgLd2gKaEsA0eudkvAFUA3YIhovBiiI7oQgSr3Y6U=;
- b=aYjXLyxJJLyGmXm64B109ydfwCLrpKbD7NpYU6Zcem77WfjmIvJ9hcJXh3RpJC/ssI+Aemb7ZBh/chV5aGgfCgmvjQZD5AqG9YA/CrlGilgxSRD3UQ6au5hKMWQ15ifBH0LvNmk5TBYGsBom9y03CA+o6IndCOh4u3NArrX3yQ1Hy3W2+NXHeCB5vbc5pZ4uYdMwcvZUbUlDdYXkNbOlZgdIttWmSArwX7YLeQ2gwQoGEFSThhmNQwrI3xJymMa4Iq2k0WMb9aFA3j0lOQ8KfGEehvZY4DJU//ghOS0sGCPsQ44BE+qO9mVgwYCToqD3+cUv9pAP4Nyox/qrhbIXtQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by PH7PR12MB5712.namprd12.prod.outlook.com (2603:10b6:510:1e3::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9791.33; Fri, 10 Apr
- 2026 21:41:17 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9791.032; Fri, 10 Apr 2026
- 21:41:17 +0000
-Date: Fri, 10 Apr 2026 18:41:15 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jpb@kernel.org,
-	praan@google.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
-	jonathan.cameron@huawei.com
-Subject: Re: [PATCH v4 03/10] iommu/arm-smmu-v3: Store IOTLB cache tags in
- struct arm_smmu_attach_state
-Message-ID: <20260410214115.GC2588311@nvidia.com>
-References: <cover.1773949042.git.nicolinc@nvidia.com>
- <ceb8150f229ee7bd355ec42d23e422ae2185492e.1773949042.git.nicolinc@nvidia.com>
- <20260409234223.GX3357077@nvidia.com>
- <adlG0QTAzdh9vA4M@Asurada-Nvidia>
- <20260410204709.GB2588311@nvidia.com>
- <adlqZLZMr9VfnKse@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <adlqZLZMr9VfnKse@Asurada-Nvidia>
-X-ClientProxiedBy: MN2PR03CA0025.namprd03.prod.outlook.com
- (2603:10b6:208:23a::30) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	id 1wBJkF-0000000CqMs-2byW;
+	Fri, 10 Apr 2026 21:50:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D38F840676;
+	Fri, 10 Apr 2026 21:50:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65045C19421;
+	Fri, 10 Apr 2026 21:50:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775857830;
+	bh=iD8czcUowCPG2OArYOu3JAmcxL8vXZ/XaCzkp4i8yFA=;
+	h=From:Date:Subject:To:Cc:From;
+	b=qkGHp8fc/cJljfObQtZbwKW6AhJaNItV3Npg9TaRNgGsoVm0rLa1zRIvevuyJWu9X
+	 zuKBGCWy1TokziWMFg/cbAWTNrP0Y8Xv4ophkdXB2HyUpxHvKN/cxjj2kqeHFJ1Hn8
+	 UBPCmOZyVFbztzXJFHtXShmzBAWhJgplE4GZq578cNQq6v43jS4l9F0ajkEV//r4Oj
+	 X9LYywpq2zKLOyGeZxA3HhaVPbSUqj32xDHbOmWmHf01BO6h2nOWSWd7U7GyftOCng
+	 TIztkDZoJib9khc9DvpZfyulMePBxeRmN4kPhmHSXA2MqKu4NYqYbSh6rDL1+ps612
+	 M3zifuX7it+jg==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Fri, 10 Apr 2026 23:49:49 +0200
+Subject: [PATCH net] net: airoha: Add missing bits in
+ airoha_qdma_cleanup_tx_queue()
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH7PR12MB5712:EE_
-X-MS-Office365-Filtering-Correlation-Id: e3d4c134-d319-46b6-60a9-08de9749e54f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: Tb7W6kKfR28Xl3HrL7YP9GkDPiuko+V86krxaK6Z+2FZ9OuDA7FDUtir2a9yLApWWTUVvJfTJVCbT+8fBAyzLN35nEB+DaowbF9PnZB5oQfvfpRYkDsINiT0psIxdyUAMwgc33noWwECEXiZHgbKb8En4TE+B1Cm0ulE+WPDd9Lb7Bf/w4msOLVV8di/hIUySP5l7iqYQ281GlqBHn/8KjzErnkqz+/7gMK0eJsCzd0bMRmJFiuZYiXlvx8spM+5y69nSekZvYztZEO0R56U1A2cb/GXI29qEATf8bIwatXWFrm3ujkd8AcKIN8wEvKRruNwE3750CZR0qHZkUwoQ0Bdr5x+GNmJ7IJYK8fTkS2j3a6nTAH/25p4bFTNnJUZa7X6dKSo1fTuVE662K5hG2MQgZ1oNJRMXemlOxNPgGrPp9OSgXkunr83VmB0YLgEtHosKuiYtl/I2RoHsC6HEi4w8Lfgh5WvrRIAxsbqyjRtYVcV1/4W/BI6cV5Mif1iHE+ST6pexAQfUyVdW1v3buLseniZ4GEBW7SY3ItdA1DZQO3LTSkdjxf8N1utDbVjbMZXCE6nqJrMmXKc48Q6qldaPysvvYa5zUwXVHIr+OORsl1YIegM55OW7ShpHvodaCabGvgwYUzhVzPzWo7p5ElXC+AQK8GSnLk77zOkDn+h53MljIREbg/O2G5cQjhbQ6SS286//Pf5nc+rk10MD+36+xgt1K6jxCRgjqwHp6E=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zGQh5HOoCrl/J3iU3d5KtEYSR4TiYfdr43VX83YbrudjFPvGLzEsJGllCuIv?=
- =?us-ascii?Q?MRnr10JOnYQfjTEsIZDvXz7fJObd/cfOQq6yG2INkI7Ok2zD5ycnr0Vuc7a9?=
- =?us-ascii?Q?5jYKzuLBK+Jr8jqI2MFFIkVdXAcdXaVfPN06vVaXA5Fz+jNWP6nJ+xcURXY0?=
- =?us-ascii?Q?42x6sJRaW9jvIDuLbD1d4tYh8hUBbVE6T0y8YoOBEhOelcLQtZTgfjX1ntYc?=
- =?us-ascii?Q?BS51Z6RId2bYp9L9hQzyZ/3WVlmSeLICqtiTU0tSDRote35Y7zOdZtR1xB52?=
- =?us-ascii?Q?C2m+hC2GlQK1zUIDI044kg5TwvsXhQxtYtryeNBjjTPDygukza9dgL/+Jy9J?=
- =?us-ascii?Q?yHcvko0zyvROLHI1hdWCORo6yJ/EqhGoWxxfbu6k8LaoQnxAPOEtDr7VZCs7?=
- =?us-ascii?Q?8/snCDYa5m06HV/S+BvifJua5XhMl3q0IuZkgmtflYuWmB5kDq8q6nLiKh9Y?=
- =?us-ascii?Q?TPat6rI3AKjj+L5o5kdaGMT/n+hqxvx4zwCQch3ksZAdr4XL0HOyyDmvP4sZ?=
- =?us-ascii?Q?ush0WnEZQbdt8keVfMdbGkrMKGfWwA+x7NM8HQQLfn3AGXkVzDxIKvsNLdc6?=
- =?us-ascii?Q?ohvy7Cc31fB+TjFtXaodWqUhCh7GVn+4s8k+CyLR+hMBdrABZ3RZKfgOaDpD?=
- =?us-ascii?Q?xISUAxhibR1mS7YSUai1fPr24Iw0LhHDxxSAze4zXQKI1is2G2hpD26LmCIU?=
- =?us-ascii?Q?ektL7wV81d2ryo8Jd1Ggg0RZFDXBbav6/hRYEfzDk2y0UUFk9jwMSdokgCSE?=
- =?us-ascii?Q?89Rn7JYwuOMf/0Amq8egFeJHg+1JOfIVOxUZTc/GqSaNEN8P2bXvdDGmuDzb?=
- =?us-ascii?Q?pzS5DFVmcx2Nu2/n0/MrGOQRhs/RmDU0YcVCtGX1ivLQ5nYUnc19/ol+f+a0?=
- =?us-ascii?Q?E8mbRUMrhaW7kxx9GrGEIHxLFOhsQJmTcmr4iJrgGWsf+UwyGfaxQ8v4kCo+?=
- =?us-ascii?Q?WG4yjGVRk23BSCXtBvVAYbys+z+UH0kylbeOsuzroNBqnA56WJPpRWcFUh+E?=
- =?us-ascii?Q?Xs4uGvf4tb4uEIYNdMRy2NYjHCNcPE1UgRtRBpRe4VOgsgohec1tAQY47eR6?=
- =?us-ascii?Q?65Bj+3kXo/73ldt2QbgHeq9zBP4bvxp6UXeSuGP0Tm7bqH3by7qXEsZX2/q1?=
- =?us-ascii?Q?KjdRGdJiX8CQSWzB+QZufW11FxN+oVGARysD3zYFnkeWa5vok5LK34BgCHSf?=
- =?us-ascii?Q?7D06PafTJshtoriZkzTQy+PVcCZCMPd57FuQrie2g6LB9i1+SCr9KA4Zko01?=
- =?us-ascii?Q?v4gkarhKm893UCCduAwZasuJgt2ddY0GF4DuWXAVU6kkHLJ74QCD7KRTYpRd?=
- =?us-ascii?Q?pH9rYbe0FPigaxeV0XUvn4VivOTiEbQlhtRpKjGkfC2z0iKo5xkYLsLSQZso?=
- =?us-ascii?Q?E7vMBwAaD7wIQJ5ORFn7qhNjkiukJ54CKb3mTJ19MiN4W8qyBzJgLXoJmZYe?=
- =?us-ascii?Q?33qZx52OpyTrALzMPfxdR6jHHPANhkwzBbly3CeooOp1DI/51vRWLqQo4nyN?=
- =?us-ascii?Q?hC3wr5ql8pAhIN2NNEY3pDj7AuZtdLXL+H20yS8ukNFGfSXZVT7ka8VqD/ds?=
- =?us-ascii?Q?tIG2IvIDFrKVprdwntUsl9XwPvf0MkuKxQCYs6CGyEmkFmT1+TSgPtDjqV/E?=
- =?us-ascii?Q?TuQLTxI4RJXHtXTb6oOpGQOTQRJdYuLKSU461bFwBtxPbdAbeyprZI5YtPYK?=
- =?us-ascii?Q?QE1pNLEBD2236qUQhDsCcLsQik3/ie/Ydb8OZHcfHtRBE0Yh?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e3d4c134-d319-46b6-60a9-08de9749e54f
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2026 21:41:17.0265
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: f0y5/JGRYAwGuGwWKHAvCfvB9BNANSVWXrPLVuZu79oFh7dNGjaWL8iFHLqmkDdE
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5712
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260410-airoha_qdma_cleanup_tx_queue-fix-net-v1-1-b7171c8f1e78@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2NUQqDMBAFryL73YWotba9ipSw6IsutFETUwTx7
+ g39HN7w5qCIoIj0LA4K+GrU2WcoLwX1k/gRrENmqkx1M9fSsGiYJ7Hr8BHbvyE+LXbb7ZqQwE5
+ 39tj4Uddt4xrgbhzlqyUgT/9MR1mg13n+ABFerMx7AAAA
+X-Change-ID: 20260410-airoha_qdma_cleanup_tx_queue-fix-net-93375f5ee80f
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_144131_339294_C158CD0D 
-X-CRM114-Status: UNSURE (   7.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260410_145031_708091_46C81143 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,15 +77,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 02:23:48PM -0700, Nicolin Chen wrote:
+Similar to airoha_qdma_cleanup_rx_queue(), reset DMA TX descriptors in
+airoha_qdma_cleanup_tx_queue routine. Moreover, reset TX_DMA_IDX to
+TX_CPU_IDX to notify the NIC the QDMA TX ring is empty.
 
-> Reworking the SVA code, I found arm_smmu_update_s1_domain_cd_entry
-> is marked as __maybe_unused and not getting called anywhere(?). Do
-> you recall why we kept it?
+Fixes: 23020f0493270 ("net: airoha: Introduce ethernet support for EN7581 SoC")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_eth.c | 31 ++++++++++++++++++++++++++++---
+ 1 file changed, 28 insertions(+), 3 deletions(-)
 
-I intended to send the vBTM support that uses it, and now that this is
-done it can work properly without races. So lets hang on, I was
-meaning to look at that soon
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 9285a68f435f..963ab7b8d166 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -1044,13 +1044,17 @@ static int airoha_qdma_init_tx(struct airoha_qdma *qdma)
+ 
+ static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
+ {
+-	struct airoha_eth *eth = q->qdma->eth;
+-	int i;
++	struct airoha_qdma *qdma = q->qdma;
++	struct airoha_eth *eth = qdma->eth;
++	int i, qid = q - &qdma->q_tx[0];
++	struct airoha_queue_entry *e;
++	u16 index;
+ 
+ 	spin_lock_bh(&q->lock);
+ 	for (i = 0; i < q->ndesc; i++) {
+-		struct airoha_queue_entry *e = &q->entry[i];
++		struct airoha_qdma_desc *desc = &q->desc[i];
+ 
++		e = &q->entry[i];
+ 		if (!e->dma_addr)
+ 			continue;
+ 
+@@ -1060,8 +1064,29 @@ static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
+ 		e->dma_addr = 0;
+ 		e->skb = NULL;
+ 		list_add_tail(&e->list, &q->tx_list);
++
++		/* Reset DMA descriptor */
++		WRITE_ONCE(desc->ctrl, 0);
++		WRITE_ONCE(desc->addr, 0);
++		WRITE_ONCE(desc->data, 0);
++		WRITE_ONCE(desc->msg0, 0);
++		WRITE_ONCE(desc->msg1, 0);
++		WRITE_ONCE(desc->msg2, 0);
++
+ 		q->queued--;
+ 	}
++
++	e = list_first_entry(&q->tx_list, struct airoha_queue_entry,
++			     list);
++	index = e - q->entry;
++	/* Set TX_DMA_IDX to TX_CPU_IDX to notify the hw the QDMA TX ring is
++	 * empty.
++	 */
++	airoha_qdma_rmw(qdma, REG_TX_CPU_IDX(qid), TX_RING_CPU_IDX_MASK,
++			FIELD_PREP(TX_RING_CPU_IDX_MASK, index));
++	airoha_qdma_rmw(qdma, REG_TX_DMA_IDX(qid), TX_RING_DMA_IDX_MASK,
++			FIELD_PREP(TX_RING_DMA_IDX_MASK, index));
++
+ 	spin_unlock_bh(&q->lock);
+ }
+ 
 
-Jason
+---
+base-commit: 12ff2a4aee6c86746623d5aed24389dbf6dffded
+change-id: 20260410-airoha_qdma_cleanup_tx_queue-fix-net-93375f5ee80f
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
