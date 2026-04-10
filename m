@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 740B6F44857
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:52:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 650D1F44852
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:56:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eNvhm9CinR/mt5QMcH9sbvegFYB8q1e3BDZdoArdfcM=; b=hjHRdRmfoVqddxyNPusWRA3i27
-	LaK3xg8tuYjFobYtZFFUk31eSbp9k90V8zjMknoYuQdz8Epr/EtO+TNKrhYCPcnlkW6oVWJlp087h
-	AJ+3leOSkL4RWYh1iTFWpWoO3jOvgY25fP6Dau2ErzR7WPwB8BkhQA5UTcDDQECJdTpdLXFGnE2jZ
-	UJ4Io8zGEBtOO9zciNabamAHZTSlnObeQl2cO/ioecmB3Am0GuhCuLOZmjwtpFKDUbkmvIimfr62+
-	JUqwRsuZ1MO4TqaInZKY5nmE5jxQYmbiMFnIZ61+nCxB2xtzvITmmDzDZ3WwTzF+vGGbnYr9hkaDT
-	HdGZIHUQ==;
+	bh=iW0Oo2aQRVWsQ+KWRJUXjD4J1PF0F2a9N+D1rSRgV5Y=; b=XPNqBX1vjVkXTl3B5ejntfyUfN
+	tweF4gCBnT/9+qgxkK68rnAu705fq+sTJzyC12AAmUqyATuaEemUanaRkxeRHrYGkpvhuCbuJdF1d
+	RYuIIbmniPxpeS0/j0TMeROo6SuvEO88O2wrbySbd5sYTmN3mo5jPx0oUsIJZVzrrsfrlOO10cguu
+	BOTZJ0zJx2/A8ancBohh7dxmxgE26y2DhhwEXovbVgWu2Da6MS+o3OtjN6itSnqM9QV4/mSawLVhU
+	LJRWx0DmtRf9mtS13uSTaY7FlnLX2JGzBIZAdDPYExIMopcdCsOS6FHTrpCyYuppeNbOJsYyv9Ddu
+	Z/Osfu7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBBLR-0000000CGz5-20I0;
-	Fri, 10 Apr 2026 12:52:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBBLP-0000000CGyb-3yNI;
-	Fri, 10 Apr 2026 12:52:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D6BF161119;
-	Fri, 10 Apr 2026 12:52:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B7EAC19421;
-	Fri, 10 Apr 2026 12:52:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775825538;
-	bh=zuuCDFpBIYwYCymvnfHsVnlCyTNDji9hQDQRq6t3Qvw=;
+	id 1wBBOv-0000000CHF0-1J8u;
+	Fri, 10 Apr 2026 12:55:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wBBOs-0000000CHEf-3KsC
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Apr 2026 12:55:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 92FFF2682;
+	Fri, 10 Apr 2026 05:55:47 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6D0343F632;
+	Fri, 10 Apr 2026 05:55:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775825753; bh=EgtBwMlpyhfM8ZfymPNKAwWg1Gmr8wIYYbKMCE5HI7M=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aggJ54El2gifA4t0ODO4iu3a7rNJ7EPppvZAilEijwKJRJ74De2JT3xUkfdQJUv1g
-	 gt802ZPmbRRt4g5zE7yUEBTWLryVsXlYdO6MtO9amEcS7aTU8fGl12ps85ZG2n6jiQ
-	 SoCLAD1c+XvTTpHdZYsIfDmrbOrUcTfBRf6oUMo3paJbbm9vqm4D4RfW35SN72Am+L
-	 G3vPRpbdFI9B36RlTNTRBKcqxXqLC+yqeqPP4QExF/cLE0LjyF5aRjLEB4Ce0Y/3wE
-	 MPm8G0FPOvcd8hizllvb88zlG7rnsnEeM3I8BunjBJIMnla7cvBAjM4aRwIRChmNrd
-	 SeE0RMAIc1TyA==
-Date: Fri, 10 Apr 2026 14:52:16 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, ansuelsmth@gmail.com,
-	benjamin.larsson@genexis.eu, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v3 02/12] net: airoha: Set PPE cpu port for GDM2
- if loopback is enabled
-Message-ID: <adjygGm5fYHhoPza@lore-desk>
-References: <20260406-airoha-eth-multi-serdes-v3-2-ab6ea49d59ff@kernel.org>
- <20260410025720.1809934-1-kuba@kernel.org>
+	b=B163r15tUe0QKU3ATwxo1U4H9n2y1NU+HKxcQKQDAJXlJiPK1bH3fk0fuJ+KgO627
+	 KioUVJuK0kpwckx39uUgR8urd3G+bwUZm6boljVwzgBbNXQIf2BOhLcYzm1flLAjut
+	 FgKizL99xLGx6QBbSwRWpZiymLmXpvytS/1LUaeI=
+Date: Fri, 10 Apr 2026 13:55:49 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, James Morse <james.morse@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v5 4/4] arm64: errata: Work around early CME DVMSync
+ acknowledgement
+Message-ID: <adjzVTjEOz7DGmW4@arm.com>
+References: <20260407102848.2266988-1-catalin.marinas@arm.com>
+ <20260407102848.2266988-5-catalin.marinas@arm.com>
+ <adjohQBfrHVc1HIh@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="jU4TpBQMci5bfaI7"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260410025720.1809934-1-kuba@kernel.org>
+In-Reply-To: <adjohQBfrHVc1HIh@willie-the-truck>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260410_055554_955693_05545821 
+X-CRM114-Status: GOOD (  21.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,114 +72,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---jU4TpBQMci5bfaI7
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-> This is an AI-generated review of your patch. The human sending this
-> email says "For your consideration."
-> ---
-> net: airoha: Move airoha_qdma pointer in airoha_gdm_dev struct
->=20
-> This commit moves the airoha_qdma pointer from the airoha_gdm_port struct
-> to the airoha_gdm_dev struct. This ensures the QDMA block used depends on
-> the specific net_device WAN/LAN configuration.
->=20
-> [ ... ]
->=20
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
->=20
-> [ ... ]
->=20
-> > @@ -1497,9 +1498,10 @@ static void airoha_qdma_stop_napi(struct airoha_=
-qdma *qdma)
-> >  	}
+On Fri, Apr 10, 2026 at 01:09:41PM +0100, Will Deacon wrote:
+> On Tue, Apr 07, 2026 at 11:28:44AM +0100, Catalin Marinas wrote:
+> > diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+> > index 489554931231..4c328b7c79ba 100644
+> > --- a/arch/arm64/kernel/process.c
+> > +++ b/arch/arm64/kernel/process.c
+> > @@ -26,6 +26,7 @@
+> >  #include <linux/reboot.h>
+> >  #include <linux/interrupt.h>
+> >  #include <linux/init.h>
+> > +#include <linux/cpumask.h>
+> >  #include <linux/cpu.h>
+> >  #include <linux/elfcore.h>
+> >  #include <linux/pm.h>
+> > @@ -339,8 +340,41 @@ void flush_thread(void)
+> >  	flush_gcs();
 > >  }
-> > =20
-> > -static void airoha_update_hw_stats(struct airoha_gdm_port *port)
-> > +static void airoha_update_hw_stats(struct airoha_gdm_dev *dev)
-> >  {
-> > -	struct airoha_eth *eth =3D port->qdma->eth;
-> > +	struct airoha_gdm_port *port =3D dev->port;
-> > +	struct airoha_eth *eth =3D dev->eth;
-> >  	u32 val, i =3D 0;
-> > =20
-> >  	spin_lock(&port->stats.lock);
->=20
-> This isn't a bug introduced by this patch, but does this spin_lock()
-> carry a deadlock risk?
->=20
-> Because ndo_get_stats64() can be called from atomic context (e.g., from a
-> softirq), if a process context caller holds port->stats.lock and is
-> interrupted by a softirq on the same CPU that also triggers dev_get_stats=
-(),
-> the softirq could spin forever waiting for the lock.
->=20
-> Should this be upgraded to spin_lock_bh() to ensure local softirqs are
-> disabled during the critical section?
+> >  
+> > +#ifdef CONFIG_ARM64_ERRATUM_4193714
+> > +
+> > +static void arch_dup_tlbbatch_mask(struct task_struct *dst)
+> > +{
+> > +	/*
+> > +	 * Clear the inherited cpumask with memset() to cover both cases where
+> > +	 * cpumask_var_t is a pointer or an array. It will be allocated lazily
+> > +	 * in sme_dvmsync_add_pending() if CPUMASK_OFFSTACK=y.
+> > +	 */
+> > +	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
+> > +		memset(&dst->tlb_ubc.arch.cpumask, 0,
+> > +		       sizeof(dst->tlb_ubc.arch.cpumask));
+> 
+> nit: use cpumask_clear() instead?
 
-I was not able to spot any point in the networking stack where
-ndo_get_stats64 callback is run from a softirq. Moreover,
-airoha_update_hw_stats() is never executed in any napi in airoha_eth
-driver. It seems to me spin_lock() is enough here. Am I missing something?
+I tried to explain in the comment above. The memset() is on purpose to
+avoid #ifdef CPUMASK_OFFSTACK. When enabled, cpumask_var_t is a pointer
+and we want it set to NULL (for later lazy allocation) rather than
+clearing the parent's cpumask. I had the diff below initially but it
+looked uglier. Or we make the erratum dependent on !CPUMASK_OFFSTACK but
+it won't get compile coverage with defconfig.
 
->=20
-> [ ... ]
->=20
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> > @@ -534,12 +534,12 @@ struct airoha_qdma {
-> > =20
-> >  struct airoha_gdm_dev {
-> >  	struct airoha_gdm_port *port;
-> > +	struct airoha_qdma *qdma;
-> >  	struct net_device *dev;
-> >  	struct airoha_eth *eth;
-> >  };
-> > =20
-> >  struct airoha_gdm_port {
-> > -	struct airoha_qdma *qdma;
-> >  	struct airoha_gdm_dev *dev;
-> >  	int id;
->=20
-> This isn't a bug introduced by this patch, but since the qdma pointer
-> is being moved to better align with the hardware structure, should=20
-> qos_sq_bmap, cpu_tx_packets, and fwd_tx_packets be moved to=20
-> struct airoha_qdma as well?
->=20
-> Because QDMA1 is shared by all WAN ports (GDM 2, 3, 4) and qos_sq_bmap
-> is currently tracked per-port instead of per-QDMA, each WAN port=20
-> independently allocates QDMA1 channels starting from index 0. Does this=
-=20
-> cause different ports to overwrite each other's hardware QoS configuratio=
-ns=20
-> in the shared QDMA1 block?
->=20
-> Furthermore, cpu_tx_packets and fwd_tx_packets cache per-channel ETS
-> hardware counters but are single u64 scalar variables in the port structu=
-re.
-> When querying stats for multiple channels, do these scalar caches get
-> overwritten with values from completely different channels, resulting in
-> incorrect delta calculations?
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index 4c328b7c79ba..9294cbd35cce 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -345,13 +345,18 @@ void flush_thread(void)
+ static void arch_dup_tlbbatch_mask(struct task_struct *dst)
+ {
+ 	/*
+-	 * Clear the inherited cpumask with memset() to cover both cases where
+-	 * cpumask_var_t is a pointer or an array. It will be allocated lazily
+-	 * in sme_dvmsync_add_pending() if CPUMASK_OFFSTACK=y.
++	 * Don't inherit the parent's tlbbatch cpumask.
++	 *
++	 * With CPUMASK_OFFSTACK=y, cpumask_var_t is a pointer. Reset it so
++	 * that it will be allocated lazily in sme_dvmsync_add_pending().
+ 	 */
+-	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
+-		memset(&dst->tlb_ubc.arch.cpumask, 0,
+-		       sizeof(dst->tlb_ubc.arch.cpumask));
++	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714)) {
++#ifdef CONFIG_CPUMASK_OFFSTACK
++		dst->tlb_ubc.arch.cpumask = NULL;
++#else
++		cpumask_clear(dst->tlb_ubc.arch.cpumask);
++#endif
++	}
+ }
 
-ack, I will fix it in v4.
+ static void arch_release_tlbbatch_mask(struct task_struct *tsk)
 
-Regards,
-Lorenzo
-
---jU4TpBQMci5bfaI7
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCadjygAAKCRA6cBh0uS2t
-rAmpAQCSpwTbuYHGGRmUj36P1TRUbM5XJ248xde7FVOJfAtYwAD+Pi6va2remwkz
-5cZ1xinWhYE5QyISrzvQr4SzJzJYcAA=
-=sr7/
------END PGP SIGNATURE-----
-
---jU4TpBQMci5bfaI7--
+-- 
+Catalin
 
