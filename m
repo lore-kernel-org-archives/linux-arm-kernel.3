@@ -4,102 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 201BDF44873
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 14:22:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E49A9F459EE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 15:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9zLHnTtMqw0wWzWI7j+3+Qz08IlRB+2G4Qkl+hxqDWo=; b=2M1JFayewOQAWK8aczFIpxep34
-	3jTPNeH1NaQnobenPWCbiaQmyViYWcyOzeSZ5svwZHv4KoQo2LTTy0AuIXrydIz8eSg0Oj68mrN1M
-	xmpo7POZW8Xpn8RzMKa7z8bRBCiJqRrzHlpvSAdOrD7RX/8wmF0NQfoIcWqDJALBxqZ/rWYr7d4/g
-	GBvSbMs7hcp5IqY9E1RrOm2EpgOyoCl15/piR8LEZ1LoaQlaMj1JtrYbe7/9m67KHUUkHlzCRSxot
-	uig+Fmfprn/yzrWvM6++3n7d3titDnaknGAZIdkHDo8ZI12r/OzXafeoSTKWMIheyHtOw2+GnYzcH
-	JYanqnPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XwcLUwStkvv7OrFfh9QcJ2c+7CWiWv6tIoqyAlbmpDk=; b=Z7a69Chf4AcgtQ5feHfet3MH8Q
+	JCSPG1nCR/9/k1EiDSdBNoefQpmYNruaDwSWWqDjyVVqgfrQIiJmDsKar359WOHJ5RtEsq9TeKxOT
+	Q01+sDPkLcQRwaRojQHbRoLf7xJlia0imeZH1UnFnabNcfqt31jywe+onExvO5A9PbEdlRX27OKu7
+	5sgsuAQeTzuVLqZwOrF2hkgEmlG87TGxVVpuVjB4Br043vgy62GykfZ22q4yoY7pRbYDZ+TR2N/lw
+	lf3VfCbCy6GJYEp9AJ1LmgnX968tXaXMFFI7mU6YPdFFxxvSSltjGkEKpeu9cMAEoJQDa0R1dQHwR
+	s/Soy/nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBCkI-0000000CNXg-3FYS;
-	Fri, 10 Apr 2026 14:22:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBCkH-0000000CNXM-2gIM;
-	Fri, 10 Apr 2026 14:22:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=9zLHnTtMqw0wWzWI7j+3+Qz08IlRB+2G4Qkl+hxqDWo=; b=dZiwuji0A5EkSuY+asOzWqc7v5
-	igvMZe1SlTsWrTCjshroBPSFjPuqCqpc/ndTYw3KAZPqUwzcVxi7TUWxDQOYjG/mAhUvJjlf8uMhk
-	I37UoeeAJDYSaD0haAzCV/hJrRJlymslxe9+QjzWOEFPDiVVGoF3TzYY2/h51pqWYFTepR1sxV9Vx
-	2Ez2LKMP/W7bG9F4dhF8dKqpu3gue2CUTLCeQ9POqAOX9hQuKCcaA3Jv7g4fbVByoJztkh5NCkXb0
-	VLnD/CQOBYkmXcQX9CUYwx0MmDTiaLmDHZ7kdAmFB8YjG883YRh27d0lWFbMnEhgx4BOaEQ86hv8f
-	7YW6BTtg==;
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBCkE-0000000DeU8-2uk7;
-	Fri, 10 Apr 2026 14:22:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1775830871; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Jn/Tmj19i3gOK6f9TWANjUnYtLOPBQJNqcx0tOvjD6UpoX8CURmIgJHUNdecp8Pw0CljdDunOXYctaIxdBHusanURm0wQacxVoaGiqrv4X1c2DA8c8Y0+8I4KFWu1BkOG6EKYiSMzeB/aMXduHDEnhJaZkibDPCNqKz5tzzC2w0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1775830871; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=9zLHnTtMqw0wWzWI7j+3+Qz08IlRB+2G4Qkl+hxqDWo=; 
-	b=YYqZ7rPD2KtIX1IkeI5KwpQUzCS1ufbR7X+rw1FRYUs1PdogLTcepHPQHDUFTuX4/XqMYUliTgNli96hFqCPikJoz7GZp8BfKi27RdJ/soknA9PpgKQ9gi/D846d2zCYSaUSm/Cc3/QnFgD5R/p82+/jayc8xDqUoa0hzflpqSg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1775830871;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=9zLHnTtMqw0wWzWI7j+3+Qz08IlRB+2G4Qkl+hxqDWo=;
-	b=CVwPR2JjdsnnJHG3iLLKNbX4wAsiZCkL3NtXjldGLNGHKv8/5VoQA1Jn4biRiq67
-	//9zWXRFyP5j6alWl4gj1F2804zm/gplOKweJwC3iihVZHcLBnJ1hRq5pRUvZc8NkjE
-	dyhmroMYyfJueA+zxqQg6lsQ7hpMUqCrpzHbjqJ0=
-Received: by mx.zohomail.com with SMTPS id 1775830869992203.62896287388855;
-	Fri, 10 Apr 2026 07:21:09 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
- Rodrigo Siqueira <siqueira@igalia.com>,
- Alex Deucher <alexander.deucher@amd.com>,
- Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Sandy Huang <hjc@rock-chips.com>,
- Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- kernel@collabora.com, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- linux-doc@vger.kernel.org
-Subject: Re: [PATCH v12 04/25] drm/bridge: Act on the DRM color format property
-Date: Fri, 10 Apr 2026 16:21:00 +0200
-Message-ID: <4810558.ElGaqSPkdT@workhorse>
-In-Reply-To: <edeq6wxmwzvovfoo6pvih6dybwszf3tahg7nvqkjrw3qxllbfd@jwejh2sgb5eh>
-References: <20260409-color-format-v12-0-ce84e1817a27@collabora.com>
- <20260409-color-format-v12-4-ce84e1817a27@collabora.com>
- <edeq6wxmwzvovfoo6pvih6dybwszf3tahg7nvqkjrw3qxllbfd@jwejh2sgb5eh>
+	id 1wBDWV-0000000CQJ3-1tdX;
+	Fri, 10 Apr 2026 15:11:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wBDWT-0000000CQIi-02HM
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Apr 2026 15:11:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1675C1CE2;
+	Fri, 10 Apr 2026 08:11:46 -0700 (PDT)
+Received: from [10.1.29.18] (e122027.cambridge.arm.com [10.1.29.18])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A8C5E3FAA1;
+	Fri, 10 Apr 2026 08:11:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775833911; bh=E99sP2/l4L5lvxnw08AtVWLovpakAPKrpGL1rB4Sp50=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CrmU8kkAeCl1T9/hmXUaLRliTr0TNVc9sV4DJWOLfxYL/aUmKlbSXPegSJZ7pL/9s
+	 xjsl0yUu6nwA16fsWB7zsWmxwhi99CPbGi5ATNyYOBdphSX4sLrK3PVvamQUdYnIzo
+	 qqAtvqp+s3ylu2oMLMmGk5c90etdx5Kcz6XdbI+E=
+Message-ID: <7f01c643-ccd6-4d8d-ae79-9eb3584e433f@arm.com>
+Date: Fri, 10 Apr 2026 16:11:45 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 15/48] arm64: RMI: RTT tear down
+To: Wei-Lin Chang <weilin.chang@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>
+References: <20260318155413.793430-1-steven.price@arm.com>
+ <20260318155413.793430-16-steven.price@arm.com>
+ <knluksqra3k56kjisorhids7lm6hzqqqp7s4kq47cribh66hos@ctatngbv263v>
+ <ef49030f-1ee7-4473-acc7-c8900acb977d@arm.com>
+ <5chegrtlkmet4n5u53wmjbpyflul2dy5o6lpevvxo3hycvyszx@3ogzwuvsbvr3>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <5chegrtlkmet4n5u53wmjbpyflul2dy5o6lpevvxo3hycvyszx@3ogzwuvsbvr3>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_152202_958477_83C4A040 
-X-CRM114-Status: GOOD (  41.13  )
+X-CRM114-CacheID: sfid-20260410_081153_155145_01251ADC 
+X-CRM114-Status: GOOD (  43.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,187 +87,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, 10 April 2026 00:08:24 Central European Summer Time Dmitry Baryshkov wrote:
-> On Thu, Apr 09, 2026 at 05:44:54PM +0200, Nicolas Frattaroli wrote:
-> > The new DRM color format property allows userspace to request a specific
-> > color format on a connector. In turn, this fills the connector state's
-> > color_format member to switch color formats.
-> > 
-> > Make drm_bridges consider the color_format set in the connector state
-> > during the atomic bridge check. For bridges that represent HDMI bridges,
-> > rely on whatever format the HDMI logic set. Reject any output bus
-> > formats that do not correspond to the requested color format.
-> > 
-> > Non-HDMI last bridges with DRM_CONNECTOR_COLOR_FORMAT_AUTO set will end
-> > up choosing the first output format that functions to make a whole
-> > recursive bridge chain format selection succeed.
-> > 
-> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > ---
-> >  drivers/gpu/drm/drm_bridge.c | 89 +++++++++++++++++++++++++++++++++++++++++++-
-> >  1 file changed, 88 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-> > index ba80bebb5685..7c1516864d96 100644
-> > --- a/drivers/gpu/drm/drm_bridge.c
-> > +++ b/drivers/gpu/drm/drm_bridge.c
-> > @@ -1150,6 +1150,47 @@ static int select_bus_fmt_recursive(struct drm_bridge *first_bridge,
-> >  	return ret;
-> >  }
-> >  
-> > +static bool __pure bus_format_is_color_fmt(u32 bus_fmt, enum drm_connector_color_format fmt)
-> > +{
-> > +	if (fmt == DRM_CONNECTOR_COLOR_FORMAT_AUTO)
-> > +		return true;
-> > +
-> > +	switch (bus_fmt) {
-> > +	case MEDIA_BUS_FMT_FIXED:
-> > +		return true;
-> > +	case MEDIA_BUS_FMT_RGB888_1X24:
-> > +	case MEDIA_BUS_FMT_RGB101010_1X30:
-> > +	case MEDIA_BUS_FMT_RGB121212_1X36:
-> > +	case MEDIA_BUS_FMT_RGB161616_1X48:
-> > +		return fmt == DRM_CONNECTOR_COLOR_FORMAT_RGB444;
-> > +	case MEDIA_BUS_FMT_YUV8_1X24:
-> > +	case MEDIA_BUS_FMT_YUV10_1X30:
-> > +	case MEDIA_BUS_FMT_YUV12_1X36:
-> > +	case MEDIA_BUS_FMT_YUV16_1X48:
-> > +		return fmt == DRM_CONNECTOR_COLOR_FORMAT_YCBCR444;
-> > +	case MEDIA_BUS_FMT_UYVY8_1X16:
-> > +	case MEDIA_BUS_FMT_VYUY8_1X16:
-> > +	case MEDIA_BUS_FMT_YUYV8_1X16:
-> > +	case MEDIA_BUS_FMT_YVYU8_1X16:
-> > +	case MEDIA_BUS_FMT_UYVY10_1X20:
-> > +	case MEDIA_BUS_FMT_YUYV10_1X20:
-> > +	case MEDIA_BUS_FMT_VYUY10_1X20:
-> > +	case MEDIA_BUS_FMT_YVYU10_1X20:
-> > +	case MEDIA_BUS_FMT_UYVY12_1X24:
-> > +	case MEDIA_BUS_FMT_VYUY12_1X24:
-> > +	case MEDIA_BUS_FMT_YUYV12_1X24:
-> > +	case MEDIA_BUS_FMT_YVYU12_1X24:
-> > +		return fmt == DRM_CONNECTOR_COLOR_FORMAT_YCBCR422;
-> > +	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
-> > +	case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
-> > +	case MEDIA_BUS_FMT_UYYVYY12_0_5X36:
-> > +	case MEDIA_BUS_FMT_UYYVYY16_0_5X48:
-> > +		return fmt == DRM_CONNECTOR_COLOR_FORMAT_YCBCR420;
-> > +	default:
-> > +		return false;
-> > +	}
-> > +}
-> > +
-> >  /*
-> >   * This function is called by &drm_atomic_bridge_chain_check() just before
-> >   * calling &drm_bridge_funcs.atomic_check() on all elements of the chain.
-> > @@ -1193,6 +1234,7 @@ drm_atomic_bridge_chain_select_bus_fmts(struct drm_bridge *bridge,
-> >  	struct drm_encoder *encoder = bridge->encoder;
-> >  	struct drm_bridge_state *last_bridge_state;
-> >  	unsigned int i, num_out_bus_fmts = 0;
-> > +	enum drm_connector_color_format fmt;
-> >  	u32 *out_bus_fmts;
-> >  	int ret = 0;
-> >  
-> > @@ -1234,13 +1276,58 @@ drm_atomic_bridge_chain_select_bus_fmts(struct drm_bridge *bridge,
-> >  			out_bus_fmts[0] = MEDIA_BUS_FMT_FIXED;
-> >  	}
-> >  
-> > +	/*
-> > +	 * On HDMI connectors, use the output format chosen by whatever does the
-> > +	 * HDMI logic. For everyone else, just trust that the bridge out_bus_fmts
-> > +	 * are sorted by preference for %DRM_CONNECTOR_COLOR_FORMAT_AUTO, as
-> > +	 * bus_format_is_color_fmt() always returns true for AUTO.
-> > +	 */
-> > +	if (last_bridge->type == DRM_MODE_CONNECTOR_HDMIA) {
+On 21/03/2026 13:04, Wei-Lin Chang wrote:
+> On Fri, Mar 20, 2026 at 04:12:48PM +0000, Steven Price wrote:
+>> On 19/03/2026 17:35, Wei-Lin Chang wrote:
+>>> On Wed, Mar 18, 2026 at 03:53:39PM +0000, Steven Price wrote:
+>>>> The RMM owns the stage 2 page tables for a realm, and KVM must request
+>>>> that the RMM creates/destroys entries as necessary. The physical pages
+>>>> to store the page tables are delegated to the realm as required, and can
+>>>> be undelegated when no longer used.
+>>>>
+>>>> Creating new RTTs is the easy part, tearing down is a little more
+>>>> tricky. The result of realm_rtt_destroy() can be used to effectively
+>>>> walk the tree and destroy the entries (undelegating pages that were
+>>>> given to the realm).
+>>>>
+>>>> Signed-off-by: Steven Price <steven.price@arm.com>
+>>>> ---
+>>>> Changes since v12:
+>>>>  * Simplify some functions now we know RMM page size is the same as the
+>>>>    host's.
+>>>> Changes since v11:
+>>>>  * Moved some code from earlier in the series to this one so that it's
+>>>>    added when it's first used.
+>>>> Changes since v10:
+>>>>  * RME->RMI rename.
+>>>>  * Some code to handle freeing stage 2 PGD moved into this patch where
+>>>>    it belongs.
+>>>> Changes since v9:
+>>>>  * Add a comment clarifying that root level RTTs are not destroyed until
+>>>>    after the RD is destroyed.
+>>>> Changes since v8:
+>>>>  * Introduce free_rtt() wrapper which calls free_delegated_granule()
+>>>>    followed by kvm_account_pgtable_pages(). This makes it clear where an
+>>>>    RTT is being freed rather than just a delegated granule.
+>>>> Changes since v6:
+>>>>  * Move rme_rtt_level_mapsize() and supporting defines from kvm_rme.h
+>>>>    into rme.c as they are only used in that file.
+>>>> Changes since v5:
+>>>>  * Rename some RME_xxx defines to do with page sizes as RMM_xxx - they are
+>>>>    a property of the RMM specification not the RME architecture.
+>>>> Changes since v2:
+>>>>  * Moved {alloc,free}_delegated_page() and ensure_spare_page() to a
+>>>>    later patch when they are actually used.
+>>>>  * Some simplifications now rmi_xxx() functions allow NULL as an output
+>>>>    parameter.
+>>>>  * Improved comments and code layout.
+>>>> ---
+>>>>  arch/arm64/include/asm/kvm_rmi.h |   7 ++
+>>>>  arch/arm64/kvm/mmu.c             |  15 +++-
+>>>>  arch/arm64/kvm/rmi.c             | 145 +++++++++++++++++++++++++++++++
+>>>>  3 files changed, 166 insertions(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+>>>> index 0ada525af18f..16a297f3091a 100644
+>>>> --- a/arch/arm64/include/asm/kvm_rmi.h
+>>>> +++ b/arch/arm64/include/asm/kvm_rmi.h
+>>>> @@ -68,5 +68,12 @@ u32 kvm_realm_ipa_limit(void);
+>>>>  
+>>>>  int kvm_init_realm_vm(struct kvm *kvm);
+>>>>  void kvm_destroy_realm(struct kvm *kvm);
+>>>> +void kvm_realm_destroy_rtts(struct kvm *kvm);
+>>>> +
+>>>> +static inline bool kvm_realm_is_private_address(struct realm *realm,
+>>>> +						unsigned long addr)
+>>>> +{
+>>>> +	return !(addr & BIT(realm->ia_bits - 1));
+>>>> +}
+>>>>  
+>>>>  #endif /* __ASM_KVM_RMI_H */
+>>>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>>>> index 9dc242c3b9c8..41152abf55b2 100644
+>>>> --- a/arch/arm64/kvm/mmu.c
+>>>> +++ b/arch/arm64/kvm/mmu.c
+>>>> @@ -1098,10 +1098,23 @@ void stage2_unmap_vm(struct kvm *kvm)
+>>>>  void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
+>>>>  {
+>>>>  	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+>>>> -	struct kvm_pgtable *pgt = NULL;
+>>>> +	struct kvm_pgtable *pgt;
+>>>>  
+>>>>  	write_lock(&kvm->mmu_lock);
+>>>>  	pgt = mmu->pgt;
+>>>> +	if (kvm_is_realm(kvm) &&
+>>>> +	    (kvm_realm_state(kvm) != REALM_STATE_DEAD &&
+>>>> +	     kvm_realm_state(kvm) != REALM_STATE_NONE)) {
+>>>> +		write_unlock(&kvm->mmu_lock);
+>>>> +		kvm_realm_destroy_rtts(kvm);
+>>>> +
+>>>> +		/*
+>>>> +		 * The PGD pages can be reclaimed only after the realm (RD) is
+>>>> +		 * destroyed. We call this again from kvm_destroy_realm() after
+>>>> +		 * the RD is destroyed.
+>>>> +		 */
+>>>> +		return;
+>>>> +	}
+>>>
+>>> Hi,
+>>>
+>>> I see that kvm_free_stage2_pgd() will be called twice:
+>>>
+>>> kvm_destroy_vm()
+>>>   mmu_notifier_unregister()
+>>>     kvm_mmu_notifier_release()
+>>>       kvm_flush_shadow_all()
+>>>         kvm_arch_flush_shadow_all()
+>>>           kvm_uninit_stage2_mmu()
+>>>             kvm_free_stage2_pgd()
+>>>   kvm_arch_destroy_vm()
+>>>     kvm_destroy_realm()
+>>>       kvm_free_stage2_pgd()
+>>>
+>>> At the first call the realm state is REALM_STATE_ACTIVE, at the second
+>>> it is REALM_STATE_DEAD. Reading the comment added to
+>>> kvm_free_stage2_pgd() here, does it mean this function is called twice
+>>> on purpose? If so do you think it's better to extract this and create
+>>> another function instead, then use kvm_is_realm() to choose which to
+>>> run? I think it is confusing to have this function run twice for a
+>>> realm.
+>>
+>> So the issue here is that the RMM requires we do things in a different
+>> order to a normal VM. For a realm the PGD cannot be destroyed until the
+>> realm itself is destroyed - the RMM revent the host undelegating them.
+>>
+>> So the first call cannot actually do the free - this is the
+>> REALM_STATE_ACTIVE case.
+>>
+>> In kvm_destroy_realm() we tear down the actual realm and undelegate the
+>> granules. We then need to actually free the PGD - the "obvious" way of
+>> doing that is calling kvm_free_stage2_pgd() as that handles the KVM
+>> intricacies - e.g. updating the mmu object.
+>>
+>> I'm not sure how to structure the code better without causing
+>> duplication - I don't want another copy of the cleanup from
+>> kvm_free_stage2_pgd() in a CCA specific file because it will most likely
+>> get out of sync with the normal VM case. There is a comment added
+>> explaining "we call this again" which I hoped would make it less confusing.
+>>
 > 
-> I still think this is misplaced (and misidentified). Consider HDMI
-> bridge being routed to the DVI-D connector. The last bridge would have
-> different type, but the HDMI-specific logic must still be applied. The
-> bridge must use RGB444, but it must be handled in a generic way.
-
-Thanks for the review. I was hoping that an HDMI bridge chain going to
-a DVI connector would be a DRM_MODE_CONNECTOR_HDMIB thing, but apparently
-not. I also don't know however how doing this in the drm bridge connector
-helps us here. I guess we'd call into a drm_bridge_connector specific
-function with the connector format and connector, and get an output
-format in return, and said function checks that if any bridge in the
-bridge connector is HDMI it uses the HDMI logic? That would conflict
-with the following case from what I understand:
-
-> Or other way around, a DVI bridge being routed through the HDMI
-> connector (thinking about PandaBoard here). The combo should not go
-> through the HDMI-specific color format selection although the last
-> bridge in the chanin is the HDMI-A bridge.
-
-In that case, wouldn't the recursive bridge bus format selection
-take care of this? I assume the DVI bridge will only allow RGB444,
-and one of the bridges that follow it is an HDMI bridge for the
-HDMI connector that's physically on the board.
-
-In such a case, if the HDMI state helpers came up with something
-other than RGB444, the select_bus_fmt_recursive below would fail
-as expected, since it won't be able to find an output that
-satisfies the constraints given by the DVI bridge.
-
-> I think all these cases should be handled by the connector, which knows
-> if there is an OP_HDMI bridge in the chain or not.
-
-Kind regards,
-Nicolas Frattaroli
-
-> > +		drm_dbg_kms(last_bridge->dev,
-> > +			    "HDMI bridge requests format %s\n",
-> > +			    drm_hdmi_connector_get_output_format_name(
-> > +				    conn_state->hdmi.output_format));
-> > +		switch (conn_state->hdmi.output_format) {
-> > +		case DRM_OUTPUT_COLOR_FORMAT_RGB444:
-> > +			fmt = DRM_CONNECTOR_COLOR_FORMAT_RGB444;
-> > +			break;
-> > +		case DRM_OUTPUT_COLOR_FORMAT_YCBCR444:
-> > +			fmt = DRM_CONNECTOR_COLOR_FORMAT_YCBCR444;
-> > +			break;
-> > +		case DRM_OUTPUT_COLOR_FORMAT_YCBCR422:
-> > +			fmt = DRM_CONNECTOR_COLOR_FORMAT_YCBCR422;
-> > +			break;
-> > +		case DRM_OUTPUT_COLOR_FORMAT_YCBCR420:
-> > +			fmt = DRM_CONNECTOR_COLOR_FORMAT_YCBCR420;
-> > +			break;
-> > +		default:
-> > +			ret = -EINVAL;
-> > +			goto out_free_bus_fmts;
-> > +		}
-> > +	} else {
-> > +		fmt = conn_state->color_format;
-> > +		drm_dbg_kms(last_bridge->dev, "Non-HDMI bridge requests format %d\n", fmt);
-> > +	}
-> > +
-> >  	for (i = 0; i < num_out_bus_fmts; i++) {
-> > +		if (!bus_format_is_color_fmt(out_bus_fmts[i], fmt)) {
-> > +			drm_dbg_kms(last_bridge->dev,
-> > +				    "Skipping bus format 0x%04x as it doesn't match format %d\n",
-> > +				    out_bus_fmts[i], fmt);
-> > +			ret = -ENOTSUPP;
-> > +			continue;
-> > +		}
-> >  		ret = select_bus_fmt_recursive(bridge, last_bridge, crtc_state,
-> >  					       conn_state, out_bus_fmts[i]);
-> > -		if (ret != -ENOTSUPP)
-> > +		if (ret != -ENOTSUPP) {
-> > +			drm_dbg_kms(last_bridge->dev,
-> > +				    "Found bridge chain ending with bus format 0x%04x\n",
-> > +				    out_bus_fmts[i]);
-> >  			break;
-> > +		}
-> >  	}
-> >  
-> > +out_free_bus_fmts:
-> >  	kfree(out_bus_fmts);
-> >  
-> >  	return ret;
-> > 
+> Oh, I see, thanks for letting me know!
 > 
+> During this I found in the first call of kvm_free_stage2_pgd() it's doing
+> kvm_stage2_unmap_range() and kvm_realm_destroy_rtts(), but they are also
+> called in kvm_destroy_realm(), is that intentional?
+> If they can be called at kvm_destroy_realm() time, could we just not do
+> kvm_free_stage2_pgd() in kvm_uninit_stage2_mmu() for realms?
+> And if they should be called in kvm_free_stage2_pgd(), could we refactor
+> it to something like:
+> (just showing the idea, didn't try compiling or anything)
 > 
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 7d7caab8f573..280d2bef8492 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1030,9 +1030,25 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
+>  	return err;
+>  }
+>  
+> +static void kvm_realm_uninit_stage2(struct kvm_s2_mmu *mmu)
+> +{
+> +	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+> +	struct realm *realm = &kvm->arch.realm;
+> +
+> +	WARN_ON(kvm_realm_state(kvm) != REALM_STATE_ACTIVE);
+> +	write_lock(&kvm->mmu_lock);
+> +	kvm_stage2_unmap_range(mmu, 0, BIT(realm->ia_bits - 1), true);
+> +	write_unlock(&kvm->mmu_lock);
+> +	kvm_realm_destroy_rtts(kvm);
+> +}
+> +
+>  void kvm_uninit_stage2_mmu(struct kvm *kvm)
+>  {
+> -	kvm_free_stage2_pgd(&kvm->arch.mmu);
+> +	if (kvm_is_realm(kvm))
+> +		kvm_realm_uninit_stage2(&kvm->arch.mmu);
+> +	else
+> +		kvm_free_stage2_pgd(&kvm->arch.mmu);
+> +
+>  	kvm_mmu_free_memory_cache(&kvm->arch.mmu.split_page_cache);
+>  }
+>  
+> @@ -1117,22 +1133,7 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
+>  
+>  	write_lock(&kvm->mmu_lock);
+>  	pgt = mmu->pgt;
+> -	if (kvm_is_realm(kvm) &&
+> -	    (kvm_realm_state(kvm) != REALM_STATE_DEAD &&
+> -	     kvm_realm_state(kvm) != REALM_STATE_NONE)) {
+> -		struct realm *realm = &kvm->arch.realm;
+> -
+> -		kvm_stage2_unmap_range(mmu, 0, BIT(realm->ia_bits - 1), true);
+> -		write_unlock(&kvm->mmu_lock);
+> -		kvm_realm_destroy_rtts(kvm);
+>  
+> -		/*
+> -		 * The PGD pages can be reclaimed only after the realm (RD) is
+> -		 * destroyed. We call this again from kvm_destroy_realm() after
+> -		 * the RD is destroyed.
+> -		 */
+> -		return;
+> -	}
+>  	if (pgt) {
+>  		mmu->pgd_phys = 0;
+>  		mmu->pgt = NULL;
+> 
+> Sorry if I missed anything!
 
+No I don't think you've missed anything, that actually does look nicer.
+Thanks for the suggestion.
 
-
-
+Thanks,
+Steve
 
