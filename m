@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD066E99049
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 07:25:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46E1AE99049
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 07:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DcWWgAkaawlRZJPPVtqSkGlhDZHKznfQKlRnA0c5Grg=; b=4sMaleyO9NCHZxJhqWhazS7nqn
-	YX01U9qsISTf70J1EX3SvYBFdRBEL5SAqnwt26i9coyOXnB3KJyQkp6KOk6tbXPmdH1SwIlxgaZF9
-	RTh9QrR6JxMuTBmKsbtOGoh5YfaTIX5D9UZfb64w3WICdis9bgRxAAeYS+evrie0SHhBu5J5CjuXC
-	oAeyokPhUoZDflXkkI56rj3IzJZhJSoZ/4LuFCjA4+/TMz42J3pcIzr4a9s5+HtWVVegAZRwD7QzP
-	BQ1dZ1NRWXemmSHpazZq5BfCmIGGdL7kxVh8l0rsM8UIoBGtyN0Wgps4XKFnsGxW44vr3ql10DKbP
-	OddLDM5Q==;
+	bh=eD2GqYVYaw/AwL8YkfWsSyw3e2aXuJn+eTsStE6HBEI=; b=EAYh04p8yh1NAoqGDw3DzoPFUC
+	41yAAWK3cK2F+cBUUO9hBuhnaKftpix2zVVfX72eypYXIqOUcBsBhMLv05Ykky/Um50Dm1fpEr7iG
+	Yf3CpZce/GFUAqXzfuoln+q+iGycmZF8gElhwpZPOzeONWbkHbLj6dJbwxSykqDSA//bQZwR5JsJD
+	QI1GaGPWdULUTqWSjEFL0sGuPh0Vf8jJmivajcl0vdfXTQFuiXK9asRpb4l71oz6+qbcUssm7iN93
+	b9XXWe70YA0Pu/lrRDMObGFtNSA0llENTgWVqW+6Gzuf6gGnq7KUQF0U9E34gFhOs4oN0yvOJroHs
+	FJN7smdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB6Em-0000000BjPh-00pD;
-	Fri, 10 Apr 2026 07:25:08 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB6Ej-0000000BjO3-1Iqd
+	id 1wB6OJ-0000000Bjy5-06oY;
+	Fri, 10 Apr 2026 07:34:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wB6OG-0000000Bjxa-0oL4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 07:25:06 +0000
-Date: Fri, 10 Apr 2026 09:24:54 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1775805899;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DcWWgAkaawlRZJPPVtqSkGlhDZHKznfQKlRnA0c5Grg=;
-	b=2/IJa6AigsLTvo0bFTGC10WodpRLk8D/N7yIF4mk2hA0ic4uGfAfWjwTdg8E3Nlvtj2Lcs
-	zUJp97laoQ7CRjYNtXcqrcN5fesVUCoUTHK9oEAkQLTjs5LDANQANe67xcylvjxcoOv7E5
-	eDKnPcTyqgGMYYqyi/DFDQYfE2xe27tDKd0TrEyTes2t3NwXyMBw/gN5qP5Xipok4cZa19
-	JmOfy8zJY8p9bTmBgL6Ouwuv+fZenOL0faKHsL3WbwGKwMVtW4TWiwBb4VX2pquCJ4GiPt
-	2TWv/6h7txXmhveenNET8ahEPXsqpd+QkJw1NX7NDma4Qo7TFml40MkDAUuZvg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1775805899;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DcWWgAkaawlRZJPPVtqSkGlhDZHKznfQKlRnA0c5Grg=;
-	b=ZgqeBpjS2tQJJXjyUQm4vLhm1bLgw03s/xJ7/GPJfbak2qtTH8uDf4tZtuj4uuIZ044A61
-	lpzZZ99OEq3Ku5CA==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org
-Subject: Re: [PATCH 1/7] x86/vdso: Respect COMPAT_32BIT_TIME
-Message-ID: <20260410091131-46b6354c-9d06-4e47-9345-ee224d8528f7@linutronix.de>
-References: <20260227-vdso-compat_32bit_time-v1-0-3f0286a7bac3@linutronix.de>
- <20260227-vdso-compat_32bit_time-v1-1-3f0286a7bac3@linutronix.de>
- <c29f5e70-bd17-4e1b-a005-5a3282e70075@app.fastmail.com>
- <03cd1e21-a2f2-46a1-a674-cbaef9712016@app.fastmail.com>
- <20260227103226-cc3bb32c-0107-4c09-b81a-ca33ea03ad5c@linutronix.de>
- <49b7c9f9-198a-49f7-880b-6ae74d7bd985@zytor.com>
- <2b1ac7b9-fcc8-4aa3-a0ad-eb37e4bce030@app.fastmail.com>
+	Fri, 10 Apr 2026 07:34:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 38C5A1CE2;
+	Fri, 10 Apr 2026 00:34:48 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7353F3FAF5;
+	Fri, 10 Apr 2026 00:34:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775806493; bh=3dt6b5NFS6OMkaxBDU5Vw8gZWuujHEwxgHO+tc15hWE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RbJVWVADOhWYJ31F/RpHT4ldw6QNo1V1GBvc2jmrGLoJtSGpsf8+DcCbgVIHOtdjv
+	 ovO/VwSCnBA/f+XWM+8gK/xRNkXtLCzoAIVPGeLT6BrgYbb+J06ZiRWxwagj1heNV/
+	 LiR48gDoor5rDV0aiCrM+go283dvBpSI+HmYcOLY=
+Date: Fri, 10 Apr 2026 08:34:51 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Arnaldo Carvalho de Melo <acme@redhat.com>,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 0/4] perf arm_spe: Extend SIMD operations
+Message-ID: <20260410073451.GY356832@e132581.arm.com>
+References: <20260408-perf_support_arm_spev1-3-v5-0-b5bcea6217bb@arm.com>
+ <adiGR-A-N1tMzxTE@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <2b1ac7b9-fcc8-4aa3-a0ad-eb37e4bce030@app.fastmail.com>
+In-Reply-To: <adiGR-A-N1tMzxTE@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_002505_486663_AFC1626F 
-X-CRM114-Status: GOOD (  22.75  )
+X-CRM114-CacheID: sfid-20260410_003456_352940_8F75D0C2 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,52 +75,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 03, 2026 at 09:50:33PM +0100, Arnd Bergmann wrote:
-> On Tue, Mar 3, 2026, at 19:11, H. Peter Anvin wrote:
-> > On 2026-02-27 01:34, Thomas Weißschuh wrote:
-> >>>>
-> >>> The thing about gettimeofday() and time() is that they don't have
-> >>> a 64-bit version and libc implementations are expected to call
-> >>> clock_gettime() instead. The result was that there was never a
-> >>> patch to turn the off either.
-> >> 
-> >> gettimeofday() is currently the only way to get the timezone of the kernel.
-> >> But I guess this is a legacy thing anyways. If you say we should drop it,
-> >> let's drop it.
-> >> 
-> >
-> > The time zone in the kernel has never worked anyway, as it would require the
-> > kernel to contain at least the forward portion of the zoneinfo/tzdata table in
-> > order to actually work correctly. The only plausible use of it would be for
-> > local time-based filesystems like FAT, but I don't think we bother.
-> >
-> > A bigger question is whether or not we should omit these from the vDSO
-> > completely (potentially causing link failures) or replace them with stubs
-> > returning -ENOSYS.
+On Thu, Apr 09, 2026 at 10:10:31PM -0700, Namhyung Kim wrote:
+> On Wed, Apr 08, 2026 at 10:42:30AM +0100, Leo Yan wrote:
+> > This series extends SIMD flag for Arm SPE and updated the document.
+> > 
+> > Since I failed to get perf core maintainer's review for uAPI header
+> > updating for data source fields (since last year's Sepetember), this
+> > series I dropped uAPI changes and sent only SIMD flag changes, hope
+> > it is easier for perf tool maintainer's picking up.
+> > 
+> > Anyway, uAPI patches will be sent out separately.
+> > 
+> > This version is rebased onto the latest perf-tools-next branch.
 > 
-> I see no harm in keeping gettimeofday() in the vdso when
-> COMPAT_32BIT_TIME is turned on, as existing code will call it
-> no matter whether it's in the vdso or the syscall.
+> Unfortunately it doesn't apply due to a recent change.  Can you please
+> rebase it once again?
 
-We would still always keep them for 64-bit ABIs, right?
-
-> Equally, I see no point in having either version of
-> gettimeofday() or settimeofday() when COMPAT_32BIT_TIME is
-> disabled, as clearly anything calling it would pass incorrect
-> data for times past 2038.
-
-Should we also drop the syscalls in these cases?
-We will need to keep settimeofday() in some form to support the
-timewarping call done by init.
-
-Recap/Proposal:
-
-* Keep the gettimeofday()/time() syscalls when they are y2038 safe or
-  CONFIG_COMPAT_32BIT_TIME is set.
-* Always provide settimeofday(). If CONFIG_COMPAT_32BIT_TIME is *not*
-  set, reject passing any 'tv' argument where it may not be y2038 safe.
-* The vDSO functions always mirror the systemcall availability.
-
-
-Thomas
+Sure, I will send out a new version.  Thanks for taking care of this!
 
