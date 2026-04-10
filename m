@@ -4,62 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 431E9F45A0D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 22:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED224F459E5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 22:07:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kF298yk2g0/UD+gtMZJHmW/YcErJt71/iKzd5VLh5As=; b=KBn9Wisz/Nr4D/lC0kGtmYkiQ8
-	Jk44HNMRJIFsH1Pz4qwYdibA2rHo6kTj6sx3no+KYQv5m9x5FxRbThfoYAwzw6EZAzZRXRhMDhqpE
-	YLfqAjHkrNWuHvYr5YPh7PtkxSLpAJvdO0gTFbxt0E8zhUxAqRBB3f6mC667ttFikUViuRomWNRPV
-	ksoTpVtsvSQrN98JikMVJYmgY7Qrx9U+zPf0Bnj2cPTnZqzpA4zrUUEtO5zvulBhEKvd9hErwSDI/
-	FAIk8Ad9UOqwLAD2/49zp+6dmwOQY7y5JZCxtFH8NB91h9c+gUCDBOxpMVS3lMkgBp8CuNQ1ndKwe
-	PZBiegXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mHQY2sKvQ6ToTZWyHX+tcNsJY/woHZyxFxEt2908S7Y=; b=kQHqJ0qsEh20leexWHr1FMy5hy
+	C2N0Q356oEuN6zJ0R6+WDynOm6W9IlGtPTjzgB8q43UJbR77daBROWXY4m6W8zYWtJ4i32GStVBXG
+	BLy6ok4bFI6xKpdifAmw0A7GeTzoPbFKOmG7IV6+T/PjFYCdMGM51HkQeiraTLO+QcjOMs80ovj58
+	J93ZiS/DS/y1PVFSVUWbj0lSogKH+d4CMYqo3zmZNyuNYkIIwdNf3RepnJpvV302Et6SswPteFDUq
+	8/lbxfg662S9Qcc8BTXRcVukqoYZ0180RGSWBYiTWkLBZ3LFWEn+nq++8Jabh3Belk3HOaEzge6Fn
+	IXLjZ1gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBJzM-0000000Cqzu-44i4;
-	Fri, 10 Apr 2026 22:06:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wBK0H-0000000CrBB-3TQr;
+	Fri, 10 Apr 2026 22:07:05 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBJzM-0000000CqzH-15LJ;
-	Fri, 10 Apr 2026 22:06:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4AA5360141;
-	Fri, 10 Apr 2026 22:06:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5C74C19421;
-	Fri, 10 Apr 2026 22:06:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775858767;
-	bh=bCcl5UOrdtPlsdetM6cs63vgz5dFlpaseW2DXO7P3bw=;
-	h=From:Date:Subject:To:Cc:From;
-	b=BrEojve5DwwLPSNPgbpJ6eOfMhJOj3xeERNBKWpfNc8iYz97Gd9UyoCGwhCD9vkuV
-	 pFzKbPGBpa3at66hqPPxUnagpX1L9FO4MCude7IX6v/OnQPX+lqkNyh5CJQeIM5jgV
-	 upQTKCmdjkCA5RHltjmjeRfHNALwolUmPyyq1+r2AIVfvRnatns5xFsi5+b8JSsVRs
-	 fupAw5s6btSa5BGCkRT3mtB+eFNM7QDe3iZ+Ou+hNNPdIc3ytuFOY5YLlhLaP7FeZw
-	 P47FOmc9fwGERpxmiMP7IfX8ZOjg0WDwyPD16+Hah9XGfeP6WymGJgASkYE5HXjuOJ
-	 S+ejHGwmqHdhw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sat, 11 Apr 2026 00:05:29 +0200
-Subject: [PATCH net-next] net: airoha: Wait for TX to complete in
- airoha_dev_stop()
+	id 1wBK0E-0000000CrAK-0lsv
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Apr 2026 22:07:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s1k50b1wEFvgSsKb2bhpPRAd222KE3+KWT0z+aHn2KYD1gBPqGxzDs7ChRPnBkekIrD71X/7k7NFxmFm/HZ0n+tcUMGocQFqPhroeEyoX5mxU4DjKG9DalXpIZgkSDRglhFacZ7z2KcpAOOrXdp2co6Vm4fZlILzHOA6gtvuaOBn/Xgg4jMfeihRLRE/PjV5RuiCMTKgKwtG/J04y9YMc5EuBvDh6+PNr/ILNzWJnQaXwaEB4vn6H4T5Xrh3gfHkkJ+Y6tZWNNa6eLimWElupC0cAwDyJntOX3Xq4jpCsszznaBdQC5d4JYS1HCi7sF6msJBuWWQjGxLfsE3WfSKCw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mHQY2sKvQ6ToTZWyHX+tcNsJY/woHZyxFxEt2908S7Y=;
+ b=t00ClX+84AHziOqzQdMaGmqxdD1WsTdyfN+VHd+PGivEs9c+CNocO6+4UgKEu9LjxgKZZiM0Q/+eYWdUzRIALLpnMrQafCmx7yYA/V5yB+4zD+Q5zhIlYBa3K5wq2sNptKNot97gKv+t2gkLmLI2EDsXPpWuOAcLD77aqPyd6eNIhmG6zeEop1gWOXg8XcuF6HgbGkYrjDP8n8Mr0XIHxB2CPnl3zxCOoBlGJkB/qs1CtGZRr/yEmqzzuZKaDgwd+SHxDdXT4v+dikrD2a1mtPPNcvG0y6slf7VQQdF+NSolrj0emuNf0MM9cMyQ9X/n6rq3yTB2hVj1cizD5R4Shw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mHQY2sKvQ6ToTZWyHX+tcNsJY/woHZyxFxEt2908S7Y=;
+ b=uGH9MgYUqidD9BIgOTka2HEO+U4S+5zPCLf4OwIn/HG64ODHb39VuhAnyySiL95H+oKVC3Jm0azHP+IzrLR2R3c/1jJBvg9w4XCilREdlkLPAgprfJWvKm0+ohMygyWzO0q0n2eqwiG4RyaZm0YyLizmKsOpoTUEnQ01QFULwzwLkVF+fNNAib62OLnhoWxC4stMnnCN3DFPBPbRsgLvNdWKPSLxaegcO/6Z2iwKE+Osf6ATtHluAAY7vWCQPlHmuJ42n3heLdpmZo9BPtrwtMmoRVXhFqudgGcw5vXXSDfRJC5rwrxuJkJyrwN6vglJEgDOJQAeMVuRWqu6mQVDQw==
+Received: from PH8PR02CA0023.namprd02.prod.outlook.com (2603:10b6:510:2d0::15)
+ by PH8PR12MB7280.namprd12.prod.outlook.com (2603:10b6:510:220::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.42; Fri, 10 Apr
+ 2026 22:06:48 +0000
+Received: from CY4PEPF0000FCC0.namprd03.prod.outlook.com
+ (2603:10b6:510:2d0:cafe::e0) by PH8PR02CA0023.outlook.office365.com
+ (2603:10b6:510:2d0::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.45 via Frontend Transport; Fri,
+ 10 Apr 2026 22:06:48 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ CY4PEPF0000FCC0.mail.protection.outlook.com (10.167.242.102) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.17 via Frontend Transport; Fri, 10 Apr 2026 22:06:47 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 10 Apr
+ 2026 15:06:35 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Fri, 10 Apr 2026 15:06:34 -0700
+Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com
+ (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 10 Apr 2026 15:06:34 -0700
+Date: Fri, 10 Apr 2026 15:06:32 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<jpb@kernel.org>, <praan@google.com>, <smostafa@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>,
+	<jonathan.cameron@huawei.com>
+Subject: Re: [PATCH v4 09/10] iommu/arm-smmu-v3: Remove ASID/VMID from
+ arm_smmu_domain
+Message-ID: <adl0aEfBAKmBsMs6@Asurada-Nvidia>
+References: <cover.1773949042.git.nicolinc@nvidia.com>
+ <b6d87a722635d29e896b277cb60f0208859073d6.1773949042.git.nicolinc@nvidia.com>
+ <20260410002734.GC3357077@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260411-airoha-fix-ndo_stop-v1-1-caddaa181739@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2M0QpAQBQFf0X32a21RPkVSYuD+3JXu5uU/LvN4
- zTNPBQRBJH64qGAS6J4zVCVBS2H0x0sa2ayxramqQw7Cf5wvMnNuvopJn8y5nmrl842DoZyeQZ
- k/18HUiRW3InG9/0A47rS0W8AAAA=
-X-Change-ID: 20260410-airoha-fix-ndo_stop-ebbf3c724ae0
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260410002734.GC3357077@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC0:EE_|PH8PR12MB7280:EE_
+X-MS-Office365-Filtering-Correlation-Id: 60835ea3-1edc-41d5-f815-08de974d75ea
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|376014|7416014|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: RTcrAO0DOhJ8bCBx4Ku/OYuMCE9khHB/WoLyrg3LyqtSQj0I54h7Ml5ApevL0Z3i9Q3K+6ulT+1Ksu0LqDzN8CoJ1I9iScsj3g+fl+I4dIItNns0gIJpXGOgyJ7P2mUSRRjvkx6C1Hmb9gLmpmXpcCgDNo+Plidg1qEK5k8ZkcRZ/YDh/uL+9BQPvY9xTxNCOWF7XCMn6rmCOn2TNB+kEZwHTJwyQVw2PxDH7cDM4vtYTeAxlcfK0x+qQD2lNs8pHTCOew/zSAn7NcxW6AXkhDz8bBoJPe0l3oGXhH809C28XlK4rNMECbOaFwY+TWuuqcJH7L5+qJUj19AwCgM9joZPL8FC8bbMr3nYs8P6zcELr8HJp59tUxGveYfbbF89Sb9UTA7A9f9F+mOG6yZcmdeHs19slf9WWbl6smOWJu/n9gCBWtM22kQ1yaPDEkDROU1/GiNxI3MQW6rD/Ty1piAI5pyvM8Je+j7hIdiwdPFjdditmezYkqKK88rzgrcef3MTgtuI1drJVCLhfZHukK7v1M4IPwN05ajFKnGWtCVOir+8WyDKVfLLSR6SwTsqmtEaHT2IlNKftYhIAYZmxENb3nlipNx+pLwPxPNtu6F5FaMailAo05CeMpaTMqEPmz6UpllTRGodLQZCJutC2XuS3csK/ythaP2dyOLo0hIH40/0K+n1LX++BFPlCaGeUJV/H7XVHaxSwlBG6cD28a8xvBW0A3j5nXozBBSW6FR5nks2LJJ1qdR0QELS9t3ieidjQeo3FwTqAHnLtM2RQQ==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(376014)(7416014)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: zK59KaLunRjGuVaSq91smkR+2mGYCJOGAgKqZL6lEmYRVnIYnWTDA8WBP44QGXJZvxLvdAEXKqx3amQOtHadGc6Wu4Mk2oJ+fvnOA4q/eSc9gk+lunqzHYvsgvnO/kZ8zIBkft+UGzezu64ZgH5uqWVzBoX0WQdtxal2HaCR92SwBc+ILjCjEghyYEFCrWKaHJr54d8UWJkQ2ZsbnaWV9nQqFELeVCj9oZwhjpbCGDLfmGneUdDZe5uTDC8cvIhwoUe4iLOVs1zJGxT6ijrjLWIuCbvbB/PaSy1Cff8vxvOq1rRVk3OLgUwfwXddj6/n1E4SFlk23hMpDcdprFJKziXJtEX6q6JtR9oDJCsjmGka6pz/azFfjRi2JeqC/sQ1BoNAtoPxZl/67fyyZ+qjCjrF5ypxKaAakE8U0yz+qZl3bE3KCTOnjojSJIUhjwyx
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2026 22:06:47.7205
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 60835ea3-1edc-41d5-f815-08de974d75ea
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCC0.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7280
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260410_150702_231976_340EACD7 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,133 +132,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Wait for TX to complete in airoha_dev_stop routine before stopping the
-TX DMA and run airoha_qdma_cleanup_tx_queue routine. Moreover,
-start/stop TX/RX NAPIs in ndo_open()/ndo_stop() callbacks in order to be
-sure the TX NAPIs have completed before stopping the TX DMA engine in
-airoha_dev_stop routine.
-Please note this patch on the commit 'b1c803d5c816 ("net: airoha: Rework
-the code flow in airoha_remove() and in airoha_probe() error path")'
-that is available only in net-next tree at the moment.
+On Thu, Apr 09, 2026 at 09:27:34PM -0300, Jason Gunthorpe wrote:
+> On Thu, Mar 19, 2026 at 12:51:55PM -0700, Nicolin Chen wrote:
+> > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+> > index 846a278fa5469..0e48264ccd01b 100644
+> > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+> > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+> > @@ -300,14 +300,6 @@ static void arm_smmu_sva_domain_free(struct iommu_domain *domain)
+> >  	 */
+> >  	arm_smmu_domain_inv(smmu_domain);
+> >  
+> > -	/*
+> > -	 * Notice that the arm_smmu_mm_arch_invalidate_secondary_tlbs op can
+> > -	 * still be called/running at this point. We allow the ASID to be
+> > -	 * reused, and if there is a race then it just suffers harmless
+> > -	 * unnecessary invalidation.
+> > -	 */
+> > -	xa_erase(&arm_smmu_asid_xa, smmu_domain->cd.asid);
+> > -
+> 
+> I don't think this artifact has disappeared so the comment should
+> probably remain too. It has become slightly different because it is
+> now running under RCU protections so it will clear alot faster.
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 44 +++++++++++++++++---------------
- 1 file changed, 24 insertions(+), 20 deletions(-)
+By taking a closer look, I think either the arm_smmu_domain_inv call
+above or any concurrent arm_smmu_mm_arch_invalidate_secondary_tlbs
+call is a NOP now?
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 8e4b043af4bc..9e40c8f375c1 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1662,10 +1662,12 @@ static int airoha_dev_open(struct net_device *dev)
- 		      FIELD_PREP(GDM_SHORT_LEN_MASK, 60) |
- 		      FIELD_PREP(GDM_LONG_LEN_MASK, len));
- 
--	airoha_qdma_set(qdma, REG_QDMA_GLOBAL_CFG,
--			GLOBAL_CFG_TX_DMA_EN_MASK |
--			GLOBAL_CFG_RX_DMA_EN_MASK);
--	atomic_inc(&qdma->users);
-+	if (!atomic_fetch_inc(&qdma->users)) {
-+		airoha_qdma_set(qdma, REG_QDMA_GLOBAL_CFG,
-+				GLOBAL_CFG_TX_DMA_EN_MASK |
-+				GLOBAL_CFG_RX_DMA_EN_MASK);
-+		airoha_qdma_start_napi(qdma);
-+	}
- 
- 	if (port->id == AIROHA_GDM2_IDX &&
- 	    airoha_ppe_is_enabled(qdma->eth, 1)) {
-@@ -1684,18 +1686,26 @@ static int airoha_dev_stop(struct net_device *dev)
- 	struct airoha_qdma *qdma = port->qdma;
- 	int i, err;
- 
--	netif_tx_disable(dev);
- 	err = airoha_set_vip_for_gdm_port(port, false);
- 	if (err)
- 		return err;
- 
--	for (i = 0; i < ARRAY_SIZE(qdma->q_tx); i++)
--		netdev_tx_reset_subqueue(dev, i);
--
- 	airoha_set_gdm_port_fwd_cfg(qdma->eth, REG_GDM_FWD_CFG(port->id),
- 				    FE_PSE_PORT_DROP);
- 
-+	netif_tx_disable(dev);
- 	if (atomic_dec_and_test(&qdma->users)) {
-+		u32 val;
-+
-+		/* Wait for TX to complete */
-+		err = read_poll_timeout(airoha_qdma_rr, val,
-+					!(val & GLOBAL_CFG_TX_DMA_BUSY_MASK),
-+					USEC_PER_MSEC, 100 * USEC_PER_MSEC,
-+					false, qdma, REG_QDMA_GLOBAL_CFG);
-+		if (err)
-+			return err;
-+
-+		airoha_qdma_stop_napi(qdma);
- 		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
- 				  GLOBAL_CFG_TX_DMA_EN_MASK |
- 				  GLOBAL_CFG_RX_DMA_EN_MASK);
-@@ -1708,6 +1718,9 @@ static int airoha_dev_stop(struct net_device *dev)
- 		}
- 	}
- 
-+	for (i = 0; i < ARRAY_SIZE(qdma->q_tx); i++)
-+		netdev_tx_reset_subqueue(dev, i);
-+
- 	return 0;
- }
- 
-@@ -3048,9 +3061,6 @@ static int airoha_probe(struct platform_device *pdev)
- 	if (err)
- 		goto error_netdev_free;
- 
--	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
--		airoha_qdma_start_napi(&eth->qdma[i]);
--
- 	for_each_child_of_node(pdev->dev.of_node, np) {
- 		if (!of_device_is_compatible(np, "airoha,eth-mac"))
- 			continue;
-@@ -3061,20 +3071,17 @@ static int airoha_probe(struct platform_device *pdev)
- 		err = airoha_alloc_gdm_port(eth, np);
- 		if (err) {
- 			of_node_put(np);
--			goto error_napi_stop;
-+			goto error_netdev_unregister;
- 		}
- 	}
- 
- 	err = airoha_register_gdm_devices(eth);
- 	if (err)
--		goto error_napi_stop;
-+		goto error_netdev_unregister;
- 
- 	return 0;
- 
--error_napi_stop:
--	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
--		airoha_qdma_stop_napi(&eth->qdma[i]);
--
-+error_netdev_unregister:
- 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
- 		struct airoha_gdm_port *port = eth->ports[i];
- 
-@@ -3098,9 +3105,6 @@ static void airoha_remove(struct platform_device *pdev)
- 	struct airoha_eth *eth = platform_get_drvdata(pdev);
- 	int i;
- 
--	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
--		airoha_qdma_stop_napi(&eth->qdma[i]);
--
- 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
- 		struct airoha_gdm_port *port = eth->ports[i];
- 
+We reworked the ASID lifecycle, which now ends when the last device
+detaches. So, ASID was free-ed in arm_smmu_iotlb_tag_free() that did
+a per-ASID flush also.
 
----
-base-commit: 42f9b4c6ef19e71d2c7d9bfd3c5037d4fe434ad7
-change-id: 20260410-airoha-fix-ndo_stop-ebbf3c724ae0
+So, when freeing the SVA domain here, the domain should have an empty
+invalidation array and the HW cache is flushed as well, right?
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+Nicolin
 
