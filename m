@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FF66F36BA9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 04:51:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E709AF36BA9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 05:05:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EJ4rk8TSlWHqBuSjHV2dXYLqOAzb1DZ7Cf1cUqRIM2I=; b=lmeAuiHsimeDyI28y++RjXNj3j
-	hwdCltg//qwqrzDsvQcFRBptcq6b2fgpZIbWI0fSdwP0zyKOc7mZathiagNahonojt/8LD2G22KxU
-	EnzdKFCguWb8U0PwIUd2gi/XEfpv4w+TI+Vm6C/FLpxF+9SOCcQvcJua+M5Wn40H5v6v/LlTtKuD2
-	rxU9S+9d/OvMgyjEyJD1puldOvDYlTLVwcF+Q+yMSCvUKeXZcdZeJVsRPZeG2SIGoS1TCn3w+V7iH
-	2nq0NnhrUPSGttNgCWNwT7vQ5yBNDHcvY6wTg0aJPTx4ADYJCnIXb6Q5zTee+mOZbRUcFWXXs71Dx
-	fM1GM01w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DPCO8NIsXzNfPnxUN/lQvKa1Z8/vojZgcQtgG6QiMp8=; b=0/ZL+I0j4FveEKVyUgi13w5LQU
+	CYorkhBWw8J7R+wkvMZESbRLIJ3qQTTU/lkZ10eataf54CW1kvqtQ1MwkZKD99fKuHwqtPCAIoA2l
+	WjMW2w6KMtXkiLUufiNNhiS2LW+xdiUZ4dO+Pkd6TE+P9+TL643yjcWKCMppy4mxLygi98BjVPRC7
+	tLseucYL9Pbr53W0JLQQpVygiuAxieBE0+4YLQYR5UiI34WtrpCIV6qzVDCtTxSRvSLiq9oYQslXT
+	Dn+fbCaeGea2X9yBbE7rcXoFhO+OMl82yOMaCUyQJLOvIpUbn5R616x58ZOW5Vs2u7W+t+vkHONez
+	AlZjA/AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB3qB-0000000Bbef-3ijY;
-	Fri, 10 Apr 2026 04:51:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB3q9-0000000Bbe1-0ZXx
+	id 1wB43u-0000000Bc5s-2uVt;
+	Fri, 10 Apr 2026 05:05:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wB43s-0000000Bc5X-1s3u
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 04:51:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0044343AF8;
-	Fri, 10 Apr 2026 04:51:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A17DC19421;
-	Fri, 10 Apr 2026 04:51:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775796691;
-	bh=yII+i41CzfVGjm3uvoDYmcW+SIjbAZXbT7PnXwlXS20=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=B2BmVzf4WDck7N54Rn6ZYZw2ZbE7hIzQ+wa6wIps5j+QnQsBDTB6k3P7R/1JXdSS0
-	 /bXxgMV8gN35OQ1F1H5Z8M9Hdos2kz3htOcsl3XBnT8TWNFrb9UMHrxGRqB7v8cBos
-	 EwuqjXcfCjojt1wNbGaCbkPBphyDw3tbxpzl0hf5DcugIoGfLD/mHt7aR3GnVD3TRL
-	 zanQn/ozGIOJapBUxv4UD4aZlLV/vyZGjxLq0SAQgngzyjYtQayPUn7XKYJ4ZL2TsF
-	 mSJhlG2DagofGPEOdSCAaju6fhFqLIU1lwtz8CEmg/b2k9XJtWSwPlPHovH0gQMLbF
-	 vF962SUmVT80Q==
-Date: Thu, 9 Apr 2026 21:51:29 -0700
-From: Namhyung Kim <namhyung@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Ian Rogers <irogers@google.com>, John Garry <john.g.garry@oracle.com>,
-	Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>,
-	Leo Yan <leo.yan@linux.dev>, Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Al Grant <al.grant@arm.com>, linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/4] perf arm_spe: Decode Arm N1 IMPDEF events
-Message-ID: <adiB0V6Unmo0-AkC@google.com>
-References: <20260401-james-spe-impdef-decode-v1-0-ad0d372c220c@linaro.org>
- <20260401-james-spe-impdef-decode-v1-3-ad0d372c220c@linaro.org>
- <CAP-5=fVcYOJ_3TWd6won5FVaH2MH6QwLhCoCRnNzzeE-9PgO1Q@mail.gmail.com>
- <ee012f48-5d08-4004-b9d0-bcac825cb50c@linaro.org>
- <CAP-5=fXNb50wXT3YH0i=-U8bXwizzH4bv8EL8mC9BMQE0Anp9Q@mail.gmail.com>
- <1b40ec9a-a003-4acc-9399-1a8d96fc4e42@linaro.org>
+	Fri, 10 Apr 2026 05:05:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 564602008;
+	Thu,  9 Apr 2026 22:05:36 -0700 (PDT)
+Received: from [10.163.181.174] (unknown [10.163.181.174])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3737E3FAF5;
+	Thu,  9 Apr 2026 22:05:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775797542; bh=l0ZVxfWJ7gUGDjmiQGof6X1EzK424doNulI+ywEOOlY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=r0C8PVa9cbhsNuM+1PpHIQKCsYCQoxy2vSc5vm2DvE4BqKnMfgnHzBaPqLwsqkeXN
+	 Pvu88Nyvsr+YBOTsMX/n/8n2l/4EAJOYo/gko4uK8gTzaz3ghCa7L2kqVNjZUppTRd
+	 CdWX0tZv0gDQzLDfPWwgAxs6WyGl9PvrYDCalxpA=
+Message-ID: <c490455f-084a-4f53-86b0-89c15669efb3@arm.com>
+Date: Fri, 10 Apr 2026 10:35:35 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <1b40ec9a-a003-4acc-9399-1a8d96fc4e42@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC V1 07/16] arm64/mm: Convert READ_ONCE() as p4dp_get() while
+ accessing P4D
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
+ Linu Cherian <linu.cherian@arm.com>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, kasan-dev@googlegroups.com
+References: <20260224051153.3150613-1-anshuman.khandual@arm.com>
+ <20260224051153.3150613-8-anshuman.khandual@arm.com>
+ <238ab437-06b1-43ef-86bb-9341c02040b1@kernel.org>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <238ab437-06b1-43ef-86bb-9341c02040b1@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260409_215133_214091_59DB8CDD 
-X-CRM114-Status: GOOD (  49.41  )
+X-CRM114-CacheID: sfid-20260409_220544_578575_18989501 
+X-CRM114-Status: GOOD (  17.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,126 +78,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 08, 2026 at 09:47:41AM +0100, James Clark wrote:
+On 08/04/26 5:47 PM, David Hildenbrand (Arm) wrote:
+> On 2/24/26 06:11, Anshuman Khandual wrote:
+>> Convert all READ_ONCE() based P4D accesses as p4dp_get() instead which will
+>> support both D64 and D128 translation regime going forward.
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Ryan Roberts <ryan.roberts@arm.com>
+>> Cc: Mark Rutland <mark.rutland@arm.com>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Cc: kasan-dev@googlegroups.com
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
 > 
 > 
-> On 07/04/2026 7:26 pm, Ian Rogers wrote:
-> > On Tue, Apr 7, 2026 at 5:35 AM James Clark <james.clark@linaro.org> wrote:
-> > > 
-> > > 
-> > > 
-> > > On 02/04/2026 4:26 pm, Ian Rogers wrote:
-> > > > On Wed, Apr 1, 2026 at 7:26 AM James Clark <james.clark@linaro.org> wrote:
-> > > > > 
-> > > > >   From the TRM [1], N1 has one IMPDEF event which isn't covered by the
-> > > > > common list. Add a framework so that more cores can be added in the
-> > > > > future and that the N1 IMPDEF event can be decoded. Also increase the
-> > > > > size of the buffer because we're adding more strings and if it gets
-> > > > > truncated it falls back to a hex dump only.
-> > > > > 
-> > > > > [1]: https://developer.arm.com/documentation/100616/0401/Statistical-Profiling-Extension/implementation-defined-features-of-SPE
-> > > > > Suggested-by: Al Grant <al.grant@arm.com>
-> > > > > Signed-off-by: James Clark <james.clark@linaro.org>
-> > > > > ---
-> > > > >    tools/perf/util/arm-spe-decoder/Build              |  2 +
-> > > > >    .../util/arm-spe-decoder/arm-spe-pkt-decoder.c     | 45 ++++++++++++++++++++--
-> > > > >    .../util/arm-spe-decoder/arm-spe-pkt-decoder.h     |  5 ++-
-> > > > >    tools/perf/util/arm-spe.c                          | 13 ++++---
-> > > > >    4 files changed, 54 insertions(+), 11 deletions(-)
-> > > > > 
-> > > > > diff --git a/tools/perf/util/arm-spe-decoder/Build b/tools/perf/util/arm-spe-decoder/Build
-> > > > > index ab500e0efe24..97a298d1e279 100644
-> > > > > --- a/tools/perf/util/arm-spe-decoder/Build
-> > > > > +++ b/tools/perf/util/arm-spe-decoder/Build
-> > > > > @@ -1 +1,3 @@
-> > > > >    perf-util-y += arm-spe-pkt-decoder.o arm-spe-decoder.o
-> > > > > +
-> > > > > +CFLAGS_arm-spe-pkt-decoder.o += -I$(srctree)/tools/arch/arm64/include/ -I$(OUTPUT)arch/arm64/include/generated/
-> > > > > diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
-> > > > > index c880b0dec3a1..42a7501d4dfe 100644
-> > > > > --- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
-> > > > > +++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
-> > > > > @@ -15,6 +15,8 @@
-> > > > > 
-> > > > >    #include "arm-spe-pkt-decoder.h"
-> > > > > 
-> > > > > +#include "../../arm64/include/asm/cputype.h"
-> > > > 
-> > > > Sashiko spotted:
-> > > > https://sashiko.dev/#/patchset/20260401-james-spe-impdef-decode-v1-0-ad0d372c220c%40linaro.org
-> > > > """
-> > > > This isn't a bug, but does this include directive rely on accidental
-> > > > path normalization?
-> > > > 
-> > > > The relative path ../../arm64/include/asm/cputype.h does not exist relative
-> > > > to arm-spe-pkt-decoder.c. It only compiles because the Build file adds
-> > > > -I$(srctree)/tools/arch/arm64/include/ to CFLAGS.
-> > > > 
-> > > > Would it be cleaner to use #include <asm/cputype.h> to explicitly rely on
-> > > > the include path?
-> > > > [ ... ]
-> > > > """
-> > > > I wouldn't use <asm/cputype.h> due to cross-compilation and the like,
-> > > > instead just add the extra "../" into the include path.
-> > > > 
-> > > 
-> > > Do you mean change the #include to this?
-> > > 
-> > >     #include "../../../arm64/include/asm/cputype.h"
-> > > 
-> > > I still need to add:
-> > > 
-> > >     CFLAGS_arm-spe-pkt-decoder.o += -I$(srctree)/tools/arch/arm64/include/
-> > > 
-> > > To make the this include in cputype.h work:
-> > > 
-> > >     #include <asm/sysreg.h>
-> > > 
-> > > Which probably only works because there isn't a sysreg.h on other
-> > > architectures. But I'm not sure what the significance of ../../ vs
-> > > ../../../ is if either compile? arm-spe.c already does it with ../../
-> > > which is what I copied.
-> > 
-> > Hmm.. maybe the path should be
-> > "../../../arch/arm64/include/asm/cputype.h". The include preference is
-> > for a path relative to the source file and
-> > ../../arm64/include/asm/cputype.h doesn't exist. It is kind of horrid
+> [...]
 > 
-> Up 3 dirs from arm-spe-pkt-decoder.c would be
-> "tools/arm64/include/asm/cputype.h" which doesn't exist either unless I'm
-> missing something?
+>>  static void __init kasan_pgd_populate(unsigned long addr, unsigned long end,
+>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>> index a80d06db4de6..16ae11b29f66 100644
+>> --- a/arch/arm64/mm/mmu.c
+>> +++ b/arch/arm64/mm/mmu.c
+>> @@ -354,7 +354,7 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+>>  {
+>>  	int ret = 0;
+>>  	unsigned long next;
+>> -	p4d_t p4d = READ_ONCE(*p4dp);
+>> +	p4d_t p4d = p4dp_get(p4dp);
+>>  	pud_t *pudp;
+>>  
+>>  	if (p4d_none(p4d)) {
+>> @@ -443,7 +443,7 @@ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+>>  	}
+>>  
+>>  	do {
+>> -		p4d_t old_p4d = READ_ONCE(*p4dp);
+>> +		p4d_t old_p4d = p4dp_get(p4dp);
+>>  
+>>  		next = p4d_addr_end(addr, end);
+>>  
+>> @@ -453,7 +453,7 @@ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+>>  			goto out;
+>>  
+>>  		BUG_ON(p4d_val(old_p4d) != 0 &&
+>> -		       p4d_val(old_p4d) != READ_ONCE(p4d_val(*p4dp)));
+>> +		       p4d_val(old_p4d) != (p4d_val(p4dp_get(p4dp))));
 > 
-> If get the compiler to print the path it uses with 3 then it would use the
-> x86 uapi include path which doesn't seem any less weird to me:
+> Same here, while at it remove the BUG_ON. (see below)
 > 
->  ...
->  In file included from util/arm-spe-decoder/arm-spe-pkt-decoder.c:19:
+>>  
+>>  		phys += next - addr;
+>>  	} while (p4dp++, addr = next, addr != end);
+>> @@ -1541,7 +1541,7 @@ static void unmap_hotplug_p4d_range(pgd_t *pgdp, unsigned long addr,
+>>  	do {
+>>  		next = p4d_addr_end(addr, end);
+>>  		p4dp = p4d_offset(pgdp, addr);
+>> -		p4d = READ_ONCE(*p4dp);
+>> +		p4d = p4dp_get(p4dp);
+>>  		if (p4d_none(p4d))
+>>  			continue;
+>>  
+>> @@ -1703,7 +1703,7 @@ static void free_empty_p4d_table(pgd_t *pgdp, unsigned long addr,
+>>  	do {
+>>  		next = p4d_addr_end(addr, end);
+>>  		p4dp = p4d_offset(pgdp, addr);
+>> -		p4d = READ_ONCE(*p4dp);
+>> +		p4d = p4dp_get(p4dp);
+>>  		if (p4d_none(p4d))
+>>  			continue;
+>>  
+>> @@ -1724,7 +1724,7 @@ static void free_empty_p4d_table(pgd_t *pgdp, unsigned long addr,
+>>  	 */
+>>  	p4dp = p4d_offset(pgdp, 0UL);
+>>  	for (i = 0; i < PTRS_PER_P4D; i++) {
+>> -		if (!p4d_none(READ_ONCE(p4dp[i])))
+>> +		if (!p4d_none(p4dp_get(p4dp + i)))
+>>  			return;
+>>  	}
+>>  
+>> @@ -2258,4 +2258,21 @@ int pmdp_test_and_clear_young(struct vm_area_struct *vma,
+>>  }
+>>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
+>>  
+>> +#if CONFIG_PGTABLE_LEVELS > 3
+>> +phys_addr_t pud_offset_phys(p4d_t *p4dp, unsigned long addr)
+>> +{
+>> +	p4d_t p4d = p4dp_get(p4dp);
+>> +
+>> +	BUG_ON(!pgtable_l4_enabled());
 > 
->  linux/tools/arch/x86/include/uapi/../../../arm64/include/asm/cputype.h:254:10:
+> Heh, while at it, convert that to a VM_WARN_ON_ONCE() or anything else
+> that is not a BUG.
 > 
-> 
-> > to add an include path and then use a relative path to escape into a
-> > higher-level directory. arm-spe.c is a little different as it is one
-> > directory higher in the directory layout.
-> > 
-> 
-> It is one folder higher, but arm-spe.c still relies on adding a special
-> include path to CFLAGS_arm-spe.o to make it work. It's not including a real
-> path relative to the source either.
-> 
-> Yeah it's a bit horrible but I don't think the asm/ thing combined with
-> copying headers from the kernel to tools expected to handle the case where
-> we would want to use asm/ stuff for a different arch than the compile one.
-> It might not be normal to use relative include paths to escape to higher
-> directories, but it's not a normal situation either. I think it's a special
-> case for a special scenario. I'm not sure of a better way, but this is
-> working for now.
+> I strongly assume CONFIG_DEBUG_VM checks are sufficient.
 
-I hope we can cleanup the header inclusion path someday.  My idea is
-that it always starts from the root of the perf directory.  So it'd
-include "util/xxx.h" even if the source file is already in util/.
+There are multiple similar BUG_ON() instances
 
-Thanks,
-Namhyung
+arch/arm64/include/asm/pgtable.h:       BUG_ON(!pgtable_l4_enabled());
+arch/arm64/include/asm/pgtable.h:       BUG_ON(!pgtable_l5_enabled());
+
+arch/arm64/mm/mmu.c:                    BUG_ON(pmd_val(old_pmd) != 0 &&
+arch/arm64/mm/mmu.c:                    BUG_ON(pud_val(old_pud) != 0 &&
+arch/arm64/mm/mmu.c:            BUG_ON(p4d_val(old_p4d) != 0 &&
+
+Shall we convert all of them as VM_WARN_ON_ONCE() in a separate patch
+as a pre-requisite ?
+
+> 
+>> +
+>> +	return p4d_page_paddr(p4d) + pud_index(addr) * sizeof(pud_t);
+>> +}
+>> +
+> 
 
 
