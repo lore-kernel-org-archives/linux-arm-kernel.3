@@ -4,87 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A00B6F44868
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 13:54:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C20BF44872
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 14:02:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	References:From:Subject:To:Message-Id:Date:Content-Type:Mime-Version:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V4LNMj6lgIltlmZWf+E5PDMda2hOSl/xZGWYEn7LnYk=; b=sBUqzOezGHgc/EG1PTipoQTUS6
-	/N2caDc+DN7p5okVk5efF7xkCslaRS4PcDr9psGyESTX+NOTZiTixjMdMswN2fBDjyB3dl+zYaJ9E
-	CayL4hktTNguTf9yavj8bY2NCZsd6ViVkjC62BliqiukeEH6mDGtS2+HA8H3iF+OVG6khw6ESzOSl
-	ecyXdyVG4jJ2Iuz0IgNfaAIDDmlpd5olcf+VbzAYHuLiivxdfVduH7gABFGh1G0Ky3n2eOaPoy+HO
-	T6MAC8Xrb2L7Indv7/zKKD7/h1lHZdK9kleWKDTp2M/mfMp3oTOsoUHobs3xXl++gOVxkFJM/NYOd
-	ssUge3Nw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H/yPO7tF84novx/ZKn0aImhfQpcraoCgdwDIisBdm1I=; b=jfmoeg1BtcwnZPWS9Ytvh5QL3S
+	GvbbHNjVVB+if6cG1KdR+U3e1JavpRcP4u2wVCIfhqv1NGLKXbnK8pMgQ2Zp7wSpc/2Maa27nx+6G
+	RAnYibgxkIvHbiJH4ohDixZ76R9LfQ2k3U/lvaFdsi8TnwdmwdJdqqKNqJuB8PJmQm3rDTRPPY2Oj
+	QUQh3LDBzAf4CyllWSlCcVj6eIVoh3xfvL02sfAPor4CvOxiwcWy4hC1ijNpE7vXDLzkSFFath4JN
+	UMX0ZdWMCRl+Pe8GPsN2p1bgiTppFbrrNJ1wNieCcwxDebzGxifE2XF4lBd8v6xIcTnLUpw4JRYY8
+	HSbKXtTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBCJV-0000000CLcr-1GK9;
-	Fri, 10 Apr 2026 13:54:25 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1wBCRR-0000000CLy8-0ooJ;
+	Fri, 10 Apr 2026 14:02:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBCJR-0000000CLcQ-15LY
+	id 1wBCRP-0000000CLxg-2t9S
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 13:54:23 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-43d5e87a507so1591191f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 06:54:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1775829259; x=1776434059; darn=lists.infradead.org;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=V4LNMj6lgIltlmZWf+E5PDMda2hOSl/xZGWYEn7LnYk=;
-        b=aBvE5uCQLBfKIZfMWcnWCE96v8zbvcpIciLEwkgWYjIqio/Lo/Mkm7/bm2Zra7/uAb
-         WCdpmk0+Zh2pgjGmKmkNUtF8Oavde8pjnYd3UsqJt0Y9vGgka2UFIFAravUUcXKMTfZG
-         +kWm8k3N6G2zHh2dmqZt0VEnBKURbWwHLh8+xbED9aVeDr8KGvR/vZU88wGsb7qPnhw2
-         Tkpo0Ss1wL30l8LcI4oT160bJg+WpwhYwdMrteBW2JMzD5FlObm19R5NA9KJcouXzhOX
-         7GFhImJg0fHfN3p8bWz5xNJzk+i+3xMSFZ20qMcy0/JJU4FJY8enUOea/UelJzhGPLSH
-         B/5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775829259; x=1776434059;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=V4LNMj6lgIltlmZWf+E5PDMda2hOSl/xZGWYEn7LnYk=;
-        b=MUhAYwt0Qz/AWa2u9VF2NkqmBNlYVSrwEYS1dZXi8B1COm4ZSgZZxmj0UlWbPCOFG0
-         RYLfQMdSddQ7GE1hNYdLRXmqUS0r+yptUV4/VVoM2ycDNe4a/j+BHYi+r8tx896c9dng
-         scUcP5mAP3au/f4m7S8SW65CMgN9g6D6VibXSIptrFzon59Uaw+ALiSA5a9/9DsIw5qg
-         DhCtTODMez3RqNdykKn0KkzImdDk/Ig+1kAJBMd2bd4wMeoWuM4cf9oawSghlKYW9+0E
-         KUHsm3XX1kfpbcHNAsi6fFoHjYoA6pEdSQhvtvblIVwkepqRCOsbYxFrLB6tRCgzeoOa
-         O/Sg==
-X-Forwarded-Encrypted: i=1; AJvYcCVZMN61uCpQtKGo/mWe2jhy9CxAAIhi5a9vfUSpdt/aT4r22/Qrk8XbKy80QepzQ7YvrDMofBuhbyrLZa7jSY53@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpLojG0eQHoTByEjLxf3CnLEOdY8zDFi3o9FLn33O9elOaTYgq
-	ZkykJpZvj4ETL9sOIMo/8QKoou/gJMmPAt8KoH9w/+kdoFou4R/he2c1XdjQn0IUngc=
-X-Gm-Gg: AeBDieuGo3Cuo8SVHAZ/ALYCRiDWAUKwNsfvpnLke0WglMxZ/35wBHnKQ3usHrvse3R
-	XGSb1inSkfMKzu8QNDLQJobbJ3/njT+Xxiyn9urKv7qulv1QijxXmQPlSys/8iRRA3p9fElsXyd
-	IcO7U6voNBaYcdkTcS0lhJhrCDKv/vTEyIdnBuxZlY8mqBtOZsxZtW+OcPERbw761jh1W0xKB4Y
-	EMmXXLY1u/Wax2f1gYUbs21LFhoBMOIEUVclhNp+SxWX76X8wEJTrIt+6jcasEsYKXyA41MfNLh
-	dCT7sjTqfSK69Svxtl7o48xDB/hGQHf35IwsW9RdPkxOvAmU+se6StJtoHAq8H4lSLxWkESuZw2
-	HeroF5xHPlt/BhDQO98g4ZYgLMGjVWvS5Zlss5ar9wEj9XiAY0j5Qbn7Q3xnfH/pxq/sIMduKii
-	kW3ZkAysuU7xP0Zg==
-X-Received: by 2002:a05:6000:1a8d:b0:43c:fde6:212d with SMTP id ffacd0b85a97d-43d642cd3ddmr4879713f8f.33.1775829259168;
-        Fri, 10 Apr 2026 06:54:19 -0700 (PDT)
-Received: from localhost ([195.52.170.1])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d63e5061fsm7375169f8f.30.2026.04.10.06.54.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Apr 2026 06:54:18 -0700 (PDT)
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=6be3ff7f8d2777e4e57718e09ed562d196b76b38ee2a26325068e941d4a3;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Fri, 10 Apr 2026 15:54:13 +0200
-Message-Id: <DHPIXKPIY6JT.2DWJ2PKTQAOLX@baylibre.com>
-To: "Vignesh Raghavendra" <vigneshr@ti.com>, "Rob Herring"
- <robh@kernel.org>, "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-Subject: Re: [PATCH v3 0/7] arm64: dts: ti: k3-am62a7-sk: Split r5f memory
- region
-From: "Markus Schneider-Pargmann" <msp@baylibre.com>
-X-Mailer: aerc 0.21.0-126-g9e77103592fe
-References: <20260318-topic-am62a-ioddr-dt-v6-19-v3-0-c41473cb23c3@baylibre.com> <CAL_JsqJq=3z7SQX_26MGGRcmysnGHVke8aTwyDCesvOuQjEN+g@mail.gmail.com> <6a4aecff-f662-4620-8572-3309ea6a81e2@ti.com>
-In-Reply-To: <6a4aecff-f662-4620-8572-3309ea6a81e2@ti.com>
+	Fri, 10 Apr 2026 14:02:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4158043358;
+	Fri, 10 Apr 2026 14:02:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4261AC19421;
+	Fri, 10 Apr 2026 14:02:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775829754;
+	bh=ssRJaIuBwssRP56ZSjMSL5ZmTpEC0Ki63PHBvEJjheA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BjSUjjLkTGOFGPpvVff8toBUQXVvQiqRxOXytlYiAaMNUnJcKf1ROUqciOQr6Rve1
+	 sBBT2vZY/BLBqpVt7r+KWfq9S6OoLsUjF/IADhkv6rO/xmujxFhydjZWd5P3B/mIxB
+	 kx8JO/koizERhCeOm5pDtkZVHVez1v4Sebmv4fWDoMK6oLEsa6/cFdbtFLn9RhBMEH
+	 awRZcIR9xEhe5UHagO9GcCKJ391u/4h7qb0p+1HO3QhNUyLH+Y/v7Q4VjNQ+GB9Vvn
+	 60MX9RoZN9n4qwtKAUdRPAkOiqHIX/fMXKvagmbGJg76FdTpF2se45dGEPufGNcWBR
+	 sPVh7HvMjg/UQ==
+Message-ID: <62dc05ec-9e6e-492f-b1bc-540c19b434dd@kernel.org>
+Date: Fri, 10 Apr 2026 16:02:22 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/4] mm: improve large folio readahead and alignment
+ for exec memory
+To: Lorenzo Stoakes <ljs@kernel.org>, Usama Arif <usama.arif@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>, willy@infradead.org,
+ ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc, jack@suse.cz,
+ ajd@linux.ibm.com, apopple@nvidia.com, baohua@kernel.org,
+ baolin.wang@linux.alibaba.com, brauner@kernel.org, catalin.marinas@arm.com,
+ dev.jain@arm.com, kees@kernel.org, kevin.brodsky@arm.com,
+ lance.yang@linux.dev, Liam.Howlett@oracle.com,
+ linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, mhocko@suse.com, npache@redhat.com,
+ pasha.tatashin@soleen.com, rmclure@linux.ibm.com, rppt@kernel.org,
+ surenb@google.com, vbabka@kernel.org, Al Viro <viro@zeniv.linux.org.uk>,
+ ziy@nvidia.com, hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
+ leitao@debian.org, kernel-team@meta.com
+References: <20260402181326.3107102-1-usama.arif@linux.dev>
+ <803a0c15-0a6a-4c00-b6b3-eaae56d5fc15@linux.dev> <adjkCOiLgZ_-zovg@lucifer>
+ <adjllNan2vgBNBHJ@lucifer> <5f99b289-629c-47c4-bef0-966d6678a2a8@linux.dev>
+ <adjrKwgiZwXR9epk@lucifer>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <adjrKwgiZwXR9epk@lucifer>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_065421_325434_3D9790DD 
-X-CRM114-Status: GOOD (  22.03  )
+X-CRM114-CacheID: sfid-20260410_070235_807642_D7F9F9C0 
+X-CRM114-Status: GOOD (  18.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,135 +128,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Nishanth Menon <nm@ti.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Tero Kristo <kristo@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, Dhruva
- Gole <d-gole@ti.com>, Akashdeep Kaur <a-kaur@ti.com>, Kevin Hilman <khilman@baylibre.com>, Bjorn Andersson <andersson@kernel.org>, linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, Kendall
- Willis <k-willis@ti.com>, Vishal
- Mahaveer <vishalm@ti.com>, Sebin Francis <sebin.francis@ti.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---6be3ff7f8d2777e4e57718e09ed562d196b76b38ee2a26325068e941d4a3
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-
-Hi Vignesh,
-
-On Thu Apr 9, 2026 at 11:46 AM CEST, Vignesh Raghavendra wrote:
-> Hi Markus
->
-> On 08/04/26 20:33, Rob Herring wrote:
->> On Wed, Mar 18, 2026 at 10:14=E2=80=AFAM Markus Schneider-Pargmann (TI)
->> <msp@baylibre.com> wrote:
->>>
->>> Hi,
->>>
->>> Split the firmware memory region in more specific parts so it is better
->>> described where which information is stored. Specifically the LPM metad=
-ata
->>> region is important as bootloader software like U-Boot has to know wher=
-e
->>> that data is to be able to read that data and resume from RAM.
->>>
->>> IO+DDR is a deep sleep state in which a few pins are set to be sensitiv=
-e
->>> for wakeup while the DDR is kept in self refresh. Everything else is
->>> powered off.
->>>
->>> The changes in this series were suggested as part of the IO+DDR u-boot =
-series:
->>>   https://lore.kernel.org/r/814c211f-a9eb-4311-bb84-165b1a69755f@ti.com
->>>
->>> There are currently no real users of the memory-region that is split in
->>> this series. The size of the memory-region in total stays the same.
->>> The new layout is derived from the software running on the r5f
->>> processor:
->>>   https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/exam=
-ples/drivers/ipc/ipc_rpmsg_echo_linux/am62ax-sk/r5fss0-0_freertos/ti-arm-cl=
-ang/linker.cmd#L172
->>>   https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/sour=
-ce/drivers/device_manager/sciclient.h#L459
->>>
->>> Additionally the two important devicetree nodes for resuming from IO+DD=
-R
->>> have the bootph-pre-ram flag added as this data needs to be read before
->>> the RAM is in use.
->>>
->>> Best
->>> Markus
->>>
->>> Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
->>> ---
->>> Changes in v3:
->>> - Squash the enforcement of the memory-region-names requirement in the
->>>   patch adding the memory-region-names, as suggested.
->>> - Link to v2: https://lore.kernel.org/r/20260312-topic-am62a-ioddr-dt-v=
-6-19-v2-0-37cb7ceec658@baylibre.com
->>>
->>> Changes in v2:
->>> - Make memory-region-names required if memory-region is present
->>> - Fixup memory-region and memory-region-names conditions. Require eithe=
-r
->>>   2 or 6 regions for memory-region and memory-region-names
->>> - Reword and restructure the binding documentation for memory-region an=
-d
->>>   memory-region-names
->>> - Add memory-region-names to all uses of memory-region
->>> - Link to v1: https://lore.kernel.org/r/20260303-topic-am62a-ioddr-dt-v=
-6-19-v1-0-12fe72bb40d2@baylibre.com
->>>
->>> ---
->>> Markus Schneider-Pargmann (TI) (7):
->>>       dt-bindings: remoteproc: k3-r5f: Split up memory regions
->>>       dt-bindings: remoteproc: k3-r5f: Add memory-region-names
->>>       arm64: dts: ti: k3: Use memory-region-names for r5f
->>>       arm64: dts: ti: k3-am62a7-sk: Split r5f memory region
->>>       arm64: dts: ti: k3-am62p5-sk: Split r5f memory region
->>>       arm64: dts: ti: k3-am62a7-sk: Add r5f nodes to pre-ram bootphase
->>>       arm64: dts: ti: k3-am62p5-sk: Add r5f nodes to pre-ram bootphase
->>=20
->> TI folks, Please make sure these dts patches are picked up for 7.1.
->> There's now a crap load of warnings in next with the binding change:
->>=20
->>      58 (ti,am62-r5fss): r5f@78000000: 'memory-region-names' is a
->> required property
->
-> [...]
->
->> If they aren't applied, making  'memory-region-names' required needs
->> to be dropped from the binding.
+On 4/10/26 14:24, Lorenzo Stoakes wrote:
+> On Fri, Apr 10, 2026 at 01:19:08PM +0100, Usama Arif wrote:
 >>
->
-> This breaks DT backward compatibility. Why is memory-region-names now a
-> required item and cannot be assumed as "dma" and "firmware" as default?
-> Is that intentional (should have at least had a Fixes tag then if the
-> original definition was wrong)?
+>>
+>> On 10/04/2026 12:57, Lorenzo Stoakes wrote:
+>>>
+>>> (Note that we're in a 'quiet period' from here until -rc1 of next cycle and
+>>> won't be taking anything new until then. We plan to do this from around rc5 or
+>>> rc6 of each cycle in future).
+>>
+>> Thanks! Just wanted to check, as I am always confused about this. Is it ok
+>> to send patches for review for next release at this time? So that they
+>> are in a good state when rc1 comes. I wanted to send PMD swap entries
+>> for review after I am finished testing, but I want them for review for
+>> next release.
+> 
+> I think different people have different views on that :)
+> 
+> I mean it's debateable whether having a glut of new material on day one of -rc1
+> is preferable to having a bunch come in that might or might not get lost along
+> the way :)
+> 
+> I personally feel it'd be better to send during the cycle window rather than
+> before but I suspect others disagree with that!
+> 
+> So from your point of view, feel free to do what you like, but maybe David +
+> others would want to chime in with their opinions?
 
-Conor suggested to make the memory-region-names required for easier
-distinction of the layouts:
-  https://lore.kernel.org/all/20260303-payphone-pancake-b6068c545bc3@spud/
+I personally don't care that much. People just have to be prepared that
+there will be little review on new (non-fix) material during the quiet
+period.
 
-And a follow-up discussion here:
-  https://lore.kernel.org/all/20260313-kettle-craftily-aa087e6b74db@spud/
+It will sit in my inbox one way or the other :)
 
-Also I don't think it really breaks backward compatibility. I don't
-think there is any user for it and the previous binding documentation
-only refers to it as reserved regions.
+-- 
+Cheers,
 
-Best
-Markus
-
-
---6be3ff7f8d2777e4e57718e09ed562d196b76b38ee2a26325068e941d4a3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKMEABYKAEsWIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCadkBBRsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMiwyLDIRHG1zcEBiYXlsaWJyZS5jb20ACgkQhcFWaZAVSlNI
-+gD/bX5c82CD398I8HEnZJc39F6jPtpkaVpl2P0YheGnP04A/A+ZeGo88XB9ZT1V
-/HaA36gs9iIvFQU73v8Wnpl46jAE
-=78z7
------END PGP SIGNATURE-----
-
---6be3ff7f8d2777e4e57718e09ed562d196b76b38ee2a26325068e941d4a3--
+David
 
