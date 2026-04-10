@@ -4,62 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C900F44846
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:11:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5BF4F44847
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:13:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r74tfLijQepwdzEGIMNneZqdsCHUDDkBY+hSmnTX8x8=; b=3Du6vxLZ6rh3jIIDPgg4qpC+Ff
-	RNh4H8Y0mmPmINaLvuFDmIhbqrtOdM1wY2ySZKwQcvltBE0jIMFsJKR8+DCrde3UUO+g1IHQ4CbQR
-	NumNxnE3mSb5s43zDw+lS7F65+P2Kipw5i9ejkLR664fbwP8BFZpkuF06sfvj3x7fRh/ouMoFre4v
-	hHJu3Eq3UUj91CxOzom3Bi8JhX0YuE3Fri5n1h/kAj+PYXYpyVHKc6e/B3MX295fBM6TlgKJid429
-	9nD+QVlUyPlQlmJ4mkhq9i0Cwnj/2eNospAFw0U+RMZLrIhr8r9Vz+xo2vsv/D4dRoRDnY3wZdB62
-	y1vQpGjQ==;
+	bh=W0BvSXReYSRRwgUShrYlU35UKMeEmkue4ENtTgSs2TQ=; b=LnMUQzMLIOvflvdRDwzPXHVBPJ
+	y8uG0ZOm3yKNto0ysMdasmM/Ek9wP5DD6rI+239jp0k+twXsZrWWzDjzKFcuRIKmxGfAe7lKcieRU
+	joea4EQJKRkpAUAHU4L18Wz+6sBwmrhi6UpFERyCiFRL/zEngN4oPqbPqKHYLFGlY1Sr1u4GcQymJ
+	bJQ3j8j0fWVSd199Qse9ScaoZchlgItwhe/KKhgqjtMRkNvqmQ58fBEUJ2Cnd2v9hup7bylkBNqXs
+	ssvM0TgVwaNmptPmCXtuR66oFffOPJ8pgyPWYPrmEsPmyKnF940KH8nFS3oymWS98N3aqeZloT03a
+	H0vJJp8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAhY-0000000C8FZ-3p9A;
-	Fri, 10 Apr 2026 12:11:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wBAkE-0000000C8Od-1sS5;
+	Fri, 10 Apr 2026 12:13:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAhW-0000000C8Ep-0h6t
+	id 1wBAkC-0000000C8OX-1MF7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 12:11:07 +0000
+	Fri, 10 Apr 2026 12:13:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C9B6E42DEB;
-	Fri, 10 Apr 2026 12:11:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85461C19421;
-	Fri, 10 Apr 2026 12:11:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 72AB96024D;
+	Fri, 10 Apr 2026 12:13:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 945D6C19421;
+	Fri, 10 Apr 2026 12:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775823064;
-	bh=k78GcqpEWblcRbOUKOrDYbsYlt/6IMdePSm+NYmY/78=;
+	s=k20201202; t=1775823231;
+	bh=Mr9yxOrAKcnkKOYz0gBol4ytGWhmvk0ZGMLSGWC88UA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=m33DTTTmy/Jvp1nd5wJCymcYOK06hnl9K2J00S01KmgRyBnFwvsTcVU1SmFylucMb
-	 1CNO9wZF01DEZm7emF0aLHvw2D3UhFIIAnFlvLRRmLR8gj7kOMrRxMlLKm/dChIZFX
-	 9OhUM7legqyd8nF/3pbe/yHkzIUT5X87DxKQC+a7kyzSpC6QVSl8Rk7AaeJVA/c8ZA
-	 C5f+9+qbl/RbCB7t7EZLNDSznjtkBJsrg2h+Lc12I4o+IQj5o6rw8BrsB+FkL+8c0N
-	 A30hXuNtp60oLA0dLJNidfxFfU9Bwf6x2Zp2fWU8G7cNhwa2MiSvHLI0iY5xmDOrr2
-	 tZlyYI7RRNHtA==
-Date: Fri, 10 Apr 2026 13:11:00 +0100
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, James Morse <james.morse@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v5 0/4] arm64: Work around C1-Pro erratum 4193714
- (CVE-2026-0995)
-Message-ID: <adjo1Kuwu7v5dhqB@willie-the-truck>
-References: <20260407102848.2266988-1-catalin.marinas@arm.com>
+	b=tLzPZ7sleIRkgRUbRXWJDZwu1lql5NkDTsfvi2l3sWZDBGqnMUC2nUk1cHxoBxMms
+	 ULDJrUVTDHlAlvO4n4FTXnygk1oB0t7mC27YH2+j4No4IUzJiDsOhxw/ZGMhp3hMiR
+	 Rb8doK3idFBNSpQ4O2TMorkL/hJ4kVEGTS+3/iyOkqsJsKSL9TLtn8ihSbHVjAIBWN
+	 lL7SOh7tk79CxmERhjRi2vxcjvOUErXbhEh2C8uiy9umOXz1xoR4jYSL2+psJkS5fo
+	 G+pL7nyUzc4fZfkE9V5r6FA45of6iVKUaFTxQRjFjWRxSQ9GinlVMdY0TNMf1f81VN
+	 RCSjyXxfG69wA==
+Date: Fri, 10 Apr 2026 13:13:40 +0100
+From: Lorenzo Stoakes <ljs@kernel.org>
+To: Usama Arif <usama.arif@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org, 
+	willy@infradead.org, ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc, jack@suse.cz, 
+	ajd@linux.ibm.com, apopple@nvidia.com, baohua@kernel.org, 
+	baolin.wang@linux.alibaba.com, brauner@kernel.org, catalin.marinas@arm.com, dev.jain@arm.com, 
+	kees@kernel.org, kevin.brodsky@arm.com, lance.yang@linux.dev, 
+	Liam.Howlett@oracle.com, linux-arm-kernel@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, mhocko@suse.com, npache@redhat.com, 
+	pasha.tatashin@soleen.com, rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com, 
+	vbabka@kernel.org, Al Viro <viro@zeniv.linux.org.uk>, ziy@nvidia.com, 
+	hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev, leitao@debian.org, 
+	kernel-team@meta.com
+Subject: Re: [PATCH v3 0/4] mm: improve large folio readahead and alignment
+ for exec memory
+Message-ID: <adjotZ6nXqDk0GKS@lucifer>
+References: <20260402181326.3107102-1-usama.arif@linux.dev>
+ <803a0c15-0a6a-4c00-b6b3-eaae56d5fc15@linux.dev>
+ <adjkCOiLgZ_-zovg@lucifer>
+ <262a41db-a425-4362-bb67-df61119625d5@linux.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260407102848.2266988-1-catalin.marinas@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_051106_238612_75434C95 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <262a41db-a425-4362-bb67-df61119625d5@linux.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,15 +81,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 07, 2026 at 11:28:40AM +0100, Catalin Marinas wrote:
-> That's version 5 of the C1-Pro workaround. Version 3 here:
-> 
-> https://lore.kernel.org/r/20260402101246.3870036-1-catalin.marinas@arm.com
+On Fri, Apr 10, 2026 at 01:05:40PM +0100, Usama Arif wrote:
+>
+>
+> On 10/04/2026 12:55, Lorenzo Stoakes wrote:
+> > On Fri, Apr 10, 2026 at 12:03:03PM +0100, Usama Arif wrote:
+> >>
+> >>
+> >> On 02/04/2026 19:08, Usama Arif wrote:
+> >>> v2 -> v3: https://lore.kernel.org/all/20260320140315.979307-1-usama.arif@linux.dev/
+> >>> - Take into account READ_ONLY_THP_FOR_FS for elf alignment by aligning
+> >>>   to HPAGE_PMD_SIZE limited to 2M (Rui)
+> >>> - Reviewed-by tags for patch 1 from Kiryl and Jan
+> >>> - Remove preferred_exec_order() (Jan)
+> >>> - Change ra->order to HPAGE_PMD_ORDER if vma_pages(vma) >= HPAGE_PMD_NR
+> >>>   otherwise use exec_folio_order() with gfp &= ~__GFP_RECLAIM for
+> >>>   do_sync_mmap_readahead().
+> >>> - Change exec_folio_order() to return 2M (cont-pte size) for 64K base
+> >>>   page size for arm64.
+> >>> - remove bprm->file NULL check (Matthew)
+> >>> - Change filp to file (Matthew)
+> >>> - Improve checking of p_vaddr and p_vaddr (Rui and Matthew)
+> >>>
+> >>
+> >> Hello!
+> >>
+> >> Just wanted to check if there was any feedback/review on the latest
+> >> revision?
+> >
+> > It's -rc7, this is definitely something for next cycle :)
+> >
+>
+> Yeah no worries! Just wanted to check what people thought about it!
 
-I left a nit on the final patch but, regardless, this looks good to me
-so:
+We'll come back to it! With LSF coming too I think people are fairly distracted
+as well.
 
-Reviewed-by: Will Deacon <will@kernel.org>
+>
+> > On my part, my upstream bandwidth has drastically reduced, and review is
+> > probably going to have to be a hobbyist thing at least for now.
+> >
+> > Also, not to be mean but:
+> >
+> > $ git log -E -i --grep "(Reviewed|Acked)-by: Usama Arif" --oneline | wc -l
+> > 21
+> >
+> > So... :)
+> >
+> > Review in mm is very lop-sided, let's try to balance it out a bit!
+> >
+>
+> Ah yeah actually I have been reviewing a lot over the last few months.
 
-Will
+Good :)
+
+> I dont ack patches that have already been acked-by/reviewed-by maintainers.
+
+You should do that, it is meaningful. If you think a patch is OK, it's how you
+say so!
+
+Maintainers get things wrong too by the way, assume we are wrong and try to find
+issues, this is how a healthy technical community operates (as long as everybody
+is civil about it :)
+
+> as I am not sure if it adds anything. I never really cared about Reviewed/Acked
+> by/patch count but I can start adding tags if it helps in stats.
+
+It's the only metric I can quickly bring up, so sorry that in this case I got it
+wrong, but the overall point remains the same - we want to see a balance of
+review and contributions, right now the two are really very lopsided!
+
+>
+> The reviews I have done over the last week alone:
+> https://lore.kernel.org/all/20260408122307.1360475-1-usama.arif@linux.dev/
+> https://lore.kernel.org/all/20260408123700.1596800-1-usama.arif@linux.dev/
+> https://lore.kernel.org/all/20260409142256.131676-1-usama.arif@linux.dev/
+> https://lore.kernel.org/all/20260410114809.3592720-1-usama.arif@linux.dev/
+> https://lore.kernel.org/all/20260410112433.3248586-1-usama.arif@linux.dev/
+> https://lore.kernel.org/all/20260331103451.1070175-1-usama.arif@linux.dev/T/#t
+> https://lore.kernel.org/all/20260401152343.3294686-1-usama.arif@linux.dev/
+>
+>
+>
+>
+>
+
+Cheers, Lorenzo
 
