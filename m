@@ -4,74 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94044F45A08
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 19:56:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57F85F45A0D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 20:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1gjcWWPQhSmbrmnsR/lubaglMagOfX9bvyQffKbcT2I=; b=pK79XjjW2+JjFTTAqtXecotavH
-	mMuIUO/EptKJTPZwahIFvov6223TyqA06Xw1j/nWpmmSLz2ZPkLAKUMnE2nE1u3gQHHZrvRvJ513p
-	5pFPgM1WGqpSiMom2X5tvdyJvXn6qf0OtbOn5DQcKhm7n4RGqwdsVSqIuEhLdtHTc7eJbsbXSNtNF
-	7erY8rInFh/h0HCJaeXfZe7ZasQjbhDqqh9R13cPEJVcw8iwY7lgXxfhN/pFWvZzF63ouP42a3iyY
-	9EkrS6ySEEcXNY5dNiA67BvUlT6xZtynq5O34CPx1cyBoa+4wnzxN6Teh+b+yU0rFFjBZ2SP1sBx6
-	9S6PyOJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rEQQyigO/wTt+/tUDbybbgXIm1ePzhWpR1zTorTkXS4=; b=QH7+eposje9wuE1nw06snIKgRa
+	OCnFAu8OxfAUuiyOdjMJQOXtusjMpxCeXXlRU4BplA4Hs48znGlsyvOwwh6e8P3wneXXtOJuH5NZQ
+	CzMr7B4FSco8AoiDkDTVh9O5UaJT4cmOuLhgl7YzAindzUVVCrSjfCWQloIYwcdlqBTHT1vtVpaYj
+	lmhJrJt9ZkDpa16zMMW2ZcX60Pd3J3XQCu/iVry3GLnssNZ2UU5xYQrIw5hvmFdh4xClGjL85OJVL
+	Rswxx43D9ijdoX34g7R4ml8HDBkSZPjxUhxIxwAEYsxuMGRZhDlVomrnR0ciYBHMtAptOvYdaEA4Y
+	KCBAkPHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBHxc-0000000CkAK-1jex;
-	Fri, 10 Apr 2026 19:56:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wBIl5-0000000Cmcx-2AgU;
+	Fri, 10 Apr 2026 20:47:19 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBHxb-0000000CkAE-2J7o
+	id 1wBIl3-0000000Cmca-3P3f
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 19:56:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 597CA60181
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 19:56:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05B57C2BCB6
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 19:56:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775850970;
-	bh=J0+sK84ErorCVePEnHFFFb37BgkU1ZRXvWCpuLHsgvM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=dfZRyaxvxtlr4pV773zr0WY9t88NUP8JBvsg52mpt6qHCoyagcOIMUA8X6Sgaxf7F
-	 BU4xA1UJwP4vZ+po0YQr36fJmaLk812T33on+p0ciIq4Ebm1vB6cMDyHijDh16EpHW
-	 F+qifGlS+PsafIhiOMZdH+TJbqYJL8MqQEERsYiIG/Q//ZVDhwdoCIMI1xZRST2nT7
-	 VxXC+9u0w8I602gmpSuyqb2vYVqGYKAIkf0qXc06ygl6d8C4lSly4Xh+8jxroHhi+f
-	 ti9V6yKODlTpMqf9j5D2OBSbvKA+qH43yen1uJwfemq+ibhBT/0zjCyaYCofDMxbru
-	 idNqLBJtYK2Rg==
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-66fb5f2183fso4301912a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 12:56:09 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVArZ53bjuAV4y8GX+DzsiZhDsq1gjmXCy+378POvzsmt4HGZbRd2vDGECkkZb5LCOtod+RjBjhRUruc2wvOv0c@lists.infradead.org
-X-Gm-Message-State: AOJu0YyplsymRCiiIdzmH7c6srridUiZ4Zg54ma1taYiPBgbwAAxEEgk
-	/UoMCwsft7uJmN0sTx1Ip6RpHKetBeM5bAK0cfa6/GUhTG7SW0hGyAnzzb5JIB1vDKUDYP+QJ/d
-	+vCUt40xrhLLOpDdWr8xqIH5IGNriag==
-X-Received: by 2002:a05:6402:a21b:10b0:670:8b30:a8a5 with SMTP id
- 4fb4d7f45d1cf-6708b30a916mr1683630a12.17.1775850968328; Fri, 10 Apr 2026
- 12:56:08 -0700 (PDT)
+	Fri, 10 Apr 2026 20:47:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fow8uCVlSFd9ZBpKeGEEhUCCeu5h2HyUfe1F1Hq27vGSKAKyrmiAZZKwc9l9QzbGbFXpxfzkNbNS+1jAuT8PpfiPJDvyKBBtPx45ssjB/rIouqoNDy0+ACCDslQio2luwL3gnxz7NBLY9j3vH21AgFKS/h5cEaY3W69Lr/Ml2yPAKMvBSgNohz1db5LZAGsbm+vjyMABVCZY5g8u8ey5AdYxkgb7mKp8xg4exMd9IvzFg3cCriix+jRNRaj0pnHpwMsOYphX6XtEv57j8Ck6w4lvOtiztrpmT7kWQxaMRqCOGajz9ahU/aJGFreKM6QLG7Jsts5xU8T+ax2WoFqYXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rEQQyigO/wTt+/tUDbybbgXIm1ePzhWpR1zTorTkXS4=;
+ b=JJK4IP/l5Y7/spD927497fTKMB7BZvVRbNDo9shIR6FGymXd0qJsEdifPdi1/KEHWq5qxzuaBrDL4FsZWHUgsphKsNOVugd176bp1FUtedrqVWwSoFvehuOltdcCDfituYK1hMhKi2ZrqJmq+FZ3mSqW3uEHUjjzvRiHTgproCNhS2Bt8yGg2LfknGhmOCFtB/e/eaWyunZCZLJybkDtveJPosCjzMFiUK42aaFAzPuNfFq5D/xz5eNlqceqkguu2BHrL6cHmGjpQYjDlFH5fYdbQJiM81PlKG/v48S1Vm9/8YDu2YHqrv1PSriqVkspuMkBY0H9Svs0hFtmCW8N0A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rEQQyigO/wTt+/tUDbybbgXIm1ePzhWpR1zTorTkXS4=;
+ b=c+HISVjC6Xq3HEnpnsSi2/4SK3KbLLjq2JzZaUCJZqJ+qYuEgbutaN7rzXh5VKT+p7J2uD76TQyMZn6DVTZAyiChWvWsQor4FrpX+lWquCohgH6UQ0pbDI2hE5UXJ2PmBof9Relfp0GR0koIpGf9i/IiJzvtnj4Twis5fKgsyxTmFjFaI4VgP7802ns3B9O9pvg6pRwQd8nY5uLuk7sMV0KTw5T9bxuI8MDE2HjtpQh1kvWv35PKS700tFn935yoxT+WmwgBha77drrIanuj3wYFCNSoJvsHH5JYIxFG462nU2Zt7YBnwu5aGA8OqTkJrM4qFX1ZXphDRFLJYvaX4g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by CYYPR12MB8964.namprd12.prod.outlook.com (2603:10b6:930:bc::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.42; Fri, 10 Apr
+ 2026 20:47:11 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9791.032; Fri, 10 Apr 2026
+ 20:47:11 +0000
+Date: Fri, 10 Apr 2026 17:47:09 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jpb@kernel.org,
+	praan@google.com, smostafa@google.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
+	jonathan.cameron@huawei.com
+Subject: Re: [PATCH v4 03/10] iommu/arm-smmu-v3: Store IOTLB cache tags in
+ struct arm_smmu_attach_state
+Message-ID: <20260410204709.GB2588311@nvidia.com>
+References: <cover.1773949042.git.nicolinc@nvidia.com>
+ <ceb8150f229ee7bd355ec42d23e422ae2185492e.1773949042.git.nicolinc@nvidia.com>
+ <20260409234223.GX3357077@nvidia.com>
+ <adlG0QTAzdh9vA4M@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <adlG0QTAzdh9vA4M@Asurada-Nvidia>
+X-ClientProxiedBy: BLAPR05CA0029.namprd05.prod.outlook.com
+ (2603:10b6:208:335::10) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-References: <20241216040831.2448257-1-anshuman.khandual@arm.com>
- <20241216040831.2448257-8-anshuman.khandual@arm.com> <Z2AH1SN5CipWkkE4@J2N7QTR9R3>
- <20260331225800.GA2082670-robh@kernel.org> <ac5G8e4zWTdicDBs@J2N7QTR9R3>
- <CAL_JsqLEBJ7Ok9TngWTqjaWY_LJCPtronv8=gnm=J0FymDKLCg@mail.gmail.com> <adeE4MD0RgapI8aL@J2N7QTR9R3>
-In-Reply-To: <adeE4MD0RgapI8aL@J2N7QTR9R3>
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 10 Apr 2026 14:55:55 -0500
-X-Gmail-Original-Message-ID: <CAL_Jsq+=3CKrUDcdgSHFaSGgvnh9ZxTGEBTRLkwrYgzQ=frOdg@mail.gmail.com>
-X-Gm-Features: AQROBzA5KLZDDNcMFHPCHSCcvUxzxdbsbT_tKeErp7FMHwVLiJT0a7YPMt7UER0
-Message-ID: <CAL_Jsq+=3CKrUDcdgSHFaSGgvnh9ZxTGEBTRLkwrYgzQ=frOdg@mail.gmail.com>
-Subject: Re: [PATCH V3 7/7] arm64/hw_breakpoint: Enable FEAT_Debugv8p9
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CYYPR12MB8964:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7c4ce79b-bf44-4329-6c91-08de974256c8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: e1jpgIr2075jXxIuSU4tKa6BL1+s2uJnCMMSvEpYh2GR0enxNB1NQguwKiZhc7s5ewLufaScXwKi9wTR2ZV1a2Km3OR3+656OMa1rXsdQXoWRi6kv6P6HKnwoDzLbDIFNNpdUMkDKKlgOz9yVIeaMA6rmNvYae505TH47lO6su6yaCGpcKdJjZ+q+/TLlJRpzcTMWFgBdRKBJ3DbV27aTBVGCWQj9pQIzP+m46HYuZ7ilyZaPv0lLggw0H7fQyJ/qCoXLnMFcGniN9NoE8V3KBRdHJPuudwp0DYKYX0os+jvPeLC84tiwqkH3wo4hPs4pjYAHkJJuJlgKvktRRvnOSfRl3q9dzzt76+yjXXVHT0Qm+jAyxOEKFcVWfHFr11xE3BRtUbQpIivgZaVm4nxHExJ5FNx2K0OZAIa6pPPtIfjSQ/CbuF+r5xIeGpLUTLJ0sL//74WsPLfrFotl4TjEE2prIf6A/Jkf6zfovFFq0EyZ3wJoxDYqeLVelDG2V2JYHB1mWgu2yXSgb25H8qLe+idiWM99FjTUDi2nJ8F0blPU1IELEh2yPLeqVgfBnWWz86u1Ow1PLAiEdhCws08u4d8ZbzGBF6cYyHvQClIqTmYHofEky2iQVdSqSImSDmevk2pD0vqbkSfI4yRE575+88P0qcwI04JpIQBnT8gJvt+OOB2Qq87CZccjSIhVml+9ubSMWDjf+pfMpF0sQ4joeJAITM4OlKgLGsv6EmSTio=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?T1LJ9Cqgmkw8dUpCJJvmXCEj99G7kwD7cprbXfASPhGqo0uTXYdJXBh35JGs?=
+ =?us-ascii?Q?IXotCmZmacgcubm6/fzwTfN3kTKqTn7OGGcV4+sQVDf/sWVRotsFHxjdR0O4?=
+ =?us-ascii?Q?Mqg6eXIJEpce+fG80SS0pOedNzJFvXXh0oMA77IOtkc4hkh2eotXPR0+/We0?=
+ =?us-ascii?Q?kW1zsgUCJtXOvbr1MymBtLrz5C1BrQpudG7zdcIe5FlnYbb8ONUBnzQIOs+/?=
+ =?us-ascii?Q?fD6zjgGe27QVZQYb+gw3/Mh6O85R+w+APavweOG14zF9CtvTpx5y3HTUwzJj?=
+ =?us-ascii?Q?v4I6xG0Vvk4buazZtBDJtknFx5bkysa8SuNsEFTQxnWyfw5cPPrUI/bmX3Hd?=
+ =?us-ascii?Q?Pelb7t2xMRX718NtPqHTk5PA2dSxiVkzXsDrGTMjyqtMXOoA60jsLXfUE4T6?=
+ =?us-ascii?Q?uETGccXU0MWSbMglLxahca3706Q7JvK4BQtt0YflisLxpCJkahOPzIC/nNVg?=
+ =?us-ascii?Q?xaCMiyW+yFb+c84czNuuXwSBRGvHf8BlkRt1Grue4eYKJTmAbQO17EQyU5vU?=
+ =?us-ascii?Q?F+hhEdJr0mWweBUIkoEKWluIt5oc8uobX8w+H+yo1xW6bxYtrkqz13M8PHBh?=
+ =?us-ascii?Q?FIgnZCpo8NpaprYXjdpYY9YJJW3is64iCpJAmXQ3oqi5LAe9LdcKxjXcoKaf?=
+ =?us-ascii?Q?g75fg5FWCsTlcoZeZvMZO6jqE06amP4NIuF0QPZdfMOYiKsAL0hJynGzYVtz?=
+ =?us-ascii?Q?9lKyPskKzqrFDIvH26vAJjurV1SiPcUk9WI5xNqFSyV9TVeUNc2ng6/4qhTU?=
+ =?us-ascii?Q?rZe30W2flcHaecQvopHE9zzgvTkPXj4NV4yOwA6GwdsfjoJeNRU+Ndm0uZmz?=
+ =?us-ascii?Q?WRh0kgn/9wZ5LQ16P3tvo5n+eg8kLkMjKvNhY0LWs8FKyJvNZX389uXSUaWB?=
+ =?us-ascii?Q?qvhCdCvf1yzHxyFRr83PS8a0Jenj9W/9g+jHHVhxXMdFvP+CezJZ1+RdUXQQ?=
+ =?us-ascii?Q?z3fDfV2h64EGOXKCsMPt6hmktdP6Q1sOx1LBmruTfWGE6rLviyJYwdu065Z8?=
+ =?us-ascii?Q?M+kpyaXjk1w3dx+ALy5LgfTI3zU39xm8c5WfycgZpLJKPmowzfrJkm06SKnO?=
+ =?us-ascii?Q?NDzSR2JJu0LXiCQ1fKLoFKX8aW1+bOl+AdHv3ZF3+rlvbcifjuR16ANGOqWV?=
+ =?us-ascii?Q?lmeDxUrdQLbYbK3utGt2AaCWpTzTTN1QVYhMz9UewqyN9cDW/eCj0QRlc8NA?=
+ =?us-ascii?Q?hwCWumxMSG7JuZQnWQcWQ+OyFzQ8ASOWxzagFDB1knpBVEBiyxM6D33YMKo+?=
+ =?us-ascii?Q?NEAUoUbTlrz/oqEsW6OcyXxh52TB4k75X4j88t/rWCEUCByYhXpTCz1dc4nS?=
+ =?us-ascii?Q?EnFhxtKGcuZ3Z0LJG7fBx6ZcPK9VsnW/no4SO+/8PwvZgM+BPp3NWo2u4UdT?=
+ =?us-ascii?Q?lyMfktaKeVv+T5Wes2ghPg/v/Jr6LuKUClgTh6unFZoeMEQ6n7XXjfyJUkWE?=
+ =?us-ascii?Q?4T0YAKs7hmW4yxq386lp7lI5yZD97BkN2m3WBt5T55eozHKLWd58fyRVxquE?=
+ =?us-ascii?Q?Rk0luKR5XM1PFAvjbq+pj3EnBIXctneLywSxfjiX1OPTQMHXm4r0gO0lxu25?=
+ =?us-ascii?Q?BaJPJqWerknv/UtxD7ZHqdbbo1i8d6yfedsIF+u+UZvn3k757hHpwQ+xOvYC?=
+ =?us-ascii?Q?wwfnQFeV0U2HhBHWOyhysgRvrNCWwSbWTwA6JV7L7BBQ4rP3onwus3K6NBh3?=
+ =?us-ascii?Q?6JytFvhXyYtOCm+I43svJKPQ1ZWKL1CMAMfSj5UW9Qobicmk?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7c4ce79b-bf44-4329-6c91-08de974256c8
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2026 20:47:11.5692
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: D5rGd2aQhYAuGEX2b4Mb3NMkVE0iG2ZWTyavDl6eXhm13GJxQCCTzj1DKLnHMErS
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8964
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260410_134717_862798_2CC6B2FB 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,179 +141,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 9, 2026 at 5:52=E2=80=AFAM Mark Rutland <mark.rutland@arm.com> =
-wrote:
->
-> On Thu, Apr 02, 2026 at 12:46:56PM -0500, Rob Herring wrote:
-> > On Thu, Apr 2, 2026 at 5:37=E2=80=AFAM Mark Rutland <mark.rutland@arm.c=
-om> wrote:
-> > >
-> > > On Tue, Mar 31, 2026 at 05:58:00PM -0500, Rob Herring wrote:
-> > > > On Mon, Dec 16, 2024 at 10:58:29AM +0000, Mark Rutland wrote:
-> > > > > On Mon, Dec 16, 2024 at 09:38:31AM +0530, Anshuman Khandual wrote=
-:
-> > > That said, the use of 'bp_per_reg' looks suspect given their
-> > > arch_install_hw_breakpoint() and arch_uninstall_hw_breakpoint() modif=
-y
-> > > that non-atomically.
-> >
-> > You don't believe the comment saying counter->ctx->lock is held?
->
-> Sorry, my concern here was that hw_breakpoint_handler() (which cannot
-> hold the lock) consumes bp_per_reg[], and could race with the non-atomic
-> modification in arch_install_hw_breakpoint() or
-> arch_uninstall_hw_breakpoint().
->
-> I've sent a more elaborate mail to x86 folk, with that and another issue
-> caused by taking a breakpoint under arch_uninstall_hw_breakpoint():
->
->   https://lore.kernel.org/lkml/adZWmPW8S9Y2pwkv@J2N7QTR9R3.cambridge.arm.=
-com/
->
-> I think we have a similar latent issue where we can take an breakpoint
-> or watchpoint ad infinitum, described in more detail at the end of this
-> mail.
->
-> [...]
->
-> > > > > | What prevents a race with an exception handler? e.g.
-> > > > > |
-> > > > > | * Does the structure of the code prevent that somehow?
-> > > >
-> > > > If you can't set a breakpoint/watchpoint in NOKPROBE_SYMBOL() annot=
-ated
-> > > > code, you can't race.
-> > >
-> > > As above, I agree (with caveats), but I couldn't spot where this is
-> > > enforced.
-> > >
-> > > > However, there's no such annotation for data. It looks like the ker=
-nel
-> > > > policy is "don't do that" or disable all breakpoints/watchpoints.
-> > >
-> > > If we have to transiently disable watchpoints/breakpoints when
-> > > manipulating the relevant HW registers, that sounds fine to me.
-> >
-> > For wp/bp_on_reg, the ordering is 'data access, h/w accesses'. I think
-> > we just need a barrier to enforce that ordering so the data access
-> > (and then watchpoint) don't trigger in the middle of the h/w accesses.
->
-> I assume that by 'h/w accesses' you mean MSRs to the system registers
-> controlling breakpoints/watchpoints. Ordering-wise, I don't believe
-> memory barriers are necessary here (explain in more detail below).
-> However, I also think there's a latent issue here that might bite us
-> with the new banking, described at the end of this mail.
->
-> Both breakpoint and watchpoint exceptions are synchronous, meanning that
-> they can only be taken from the specific instruction that triggered
-> them.  However, updates to the watchpoint control registers *do* need a
-> context synchronization event before they're guarnateed to take effect.
->
-> For a sequence:
->
->     // Initially:
->     // - MDSCR, MDCR, DAIF.D permit debug exceptions at CurrentEL
->     // - No watchpoints enabled
->
->     0x000:  LDR <val>, [<addr>]
->     0x004:  MSR DBGWVR<n>_EL1, <addr>
->     0x008:  MSR DBGWCR<n>_EL1, <configure_and_enable>
->     0x010:  LDR <val>, [<addr>]
->     0x014:  ISB
->     0x018:  LDR <val>, [<addr>]
->
-> ... we know:
->
->     (a) The LDR at 0x000 *cannot* trigger the watchpoint.
+On Fri, Apr 10, 2026 at 11:52:01AM -0700, Nicolin Chen wrote:
+> > Only readers *with the possibility of concurrent access* should be
+> > marked with READ_ONCE. IIRC this is just the invalidation walker.
+> 
+> I added a cleanup patch to the beginning of the series and corrected
+> all the new reads/writes too.
+> 
+> > Places like this have to be protected by a lock or the whole thing is
+> > wrong, so it should have a lockdep annoation.
+> 
+> Hmm, is the lockdep_is_held() in rcu_dereference_protected() enough?
 
-Why not? Can't the LDR complete after the MSR? Is ordering ensured
-between those? Surely the watchpoint triggers on completion of the
-load and that wouldn't stall the PE from doing the MSR(s)?
+Yes.. but I didn't notice it there, not where I usually look for
+lockdeps :)
 
->     (b) The LDR at 0x010 *might* trigger the matchpoint.
->     (c) The LDR at 0x018 *must* trigger the watchpoint.
->
-> For C code, we can enforce this order with barrier(), e.g.
->
->         val =3D *addr;
->         barrier();
->         write_sysreg(addr, DBGWVR<n>_EL1);
->         write_sysreg(configure_and_enable, DBGWCR<n>_EL1);
->         isb();
->
-> ... where the compiler cannot re-order the memory access (or
-> write_sysreg(), or isb()) across the barrier(), and as isb() has a
-> memory clobber, the same is true for isb().
->
-> Likewise, for the inverse sequence:
->
->     // Initially:
->     // - MDSCR, MDCR, DAIF.D permit debug exceptions at CurrentEL
->     // - Watchpoint configured and enabled for <addr>
->
->     0x100:  LDR <val>, [<addr>]
->     0x104:  MSR DBGWCR<n>_EL1, <disable>
->     0x108:  LDR <val>, [<addr>]
->     0x110:  ISB
->     0x114:  LDR <val>, [<addr>]
->
-> ... we know:
->
->     (a) The LDR at 0x100 *must* trigger the watchpoint.
->     (b) The LDR at 0x108 *might* trigger the watchpoint.
->     (c) The LDR at 0x114 *cannot* trigger the watchpoint.
->
-> > Any guidance on the flavor of dsb here? (And is there any guarantee
-> > that the access is visible to the watchpoint h/w after a dsb
-> > completes?)
->
-> Hopefully the above was sufficient?
->
-> As mentioned above, I think we have a latent issue where we can take a
-> breakpoint or watchpoint under arch_uninstall_hw_breakpoint(), where we
-> have:
->
->     arch_uninstall_hw_breakpoint(bp) {
->         ...
->         hw_breakpoint_control(bp, HW_BREAKPOINT_UNINSTALL) {
->             ...
->             hw_breakpoint_slot_setup(slots, max_slots, bp, HW_BREAKPOINT_=
-UNINSTALL) {
->                  ...
->                  *slot =3D NULL;
->                  ...
->             }
->             ...
->             write_wb_reg(ctrl_reg, i, 0) {
->                 ...
->                 write_sysreg(0, ...);
->                 isb();
->                 ...
->             }
->         }
->     }
->
-> The HW breakpoint/watchpoint associated with 'bp' could be triggered
-> between setting '*slot' to NULL and the ISB. If that happens, then
-> do_breakpoint() won't find 'bp', and will return *without* disabling the
-> HW breakpoint or attempting to step.
->
-> If that first exception was taken *before* the MSR in write_sysreg(),
-> then nothing has changed, and the breakpoint/watchpoint will then be
-> taken again ad infinitum.
->
-> If that first exception was taken *after* the MSR in write_sysreg(), the
-> context synchronization provided by exception entry/return will prevent
-> it from being taken again.
->
-> Building v6.19 and testing (with pseudo-NMI enabled):
->
-> | #  grep write_wb_reg /proc/kallsyms
-> | ffff80008004b980 t write_wb_reg
-> | # ./perf-6.19 stat -a -C 1 -e 'mem:0xffff80008004b980/4:xk' true
+But also that should have failed in your testing in the SVA case, so
+make sure you test with lockdep on, and segfault some app using SVA to
+trigger the error clean up flow.
 
-I'll give it a try with v4, but that should be prevented with my
-changes to exclude kprobe regions.
+> > But why does arm_smmu_mm_release() need a tag in the first place? ASID
+> > isn't going to be used when EPD0|EPD1 is set, so the tag can just be
+> > 0. Probably make a patch with that change early on..
+> 
+> I see. I added a cleanup patch.
 
-Rob
+Also double check it still generates a hitless update, I think it
+should but worth confirming.
+
+Also is ASID 0 used at all?
+
+Jason
 
