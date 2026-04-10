@@ -4,129 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 589F0F45A0D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 23:25:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6910EF45A0F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 23:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fHS9mBulvV8iERcwjS7N8DfUQYwDFWthNEUlctDV3hg=; b=IWwCFawGY2aNJv+LERjTJiD/vS
-	IGlghYfC40gEcLWVAUuIwWY3sWcbThz8VcAIyXmBZPcZoQz3pAjKvReRHaup0tqQLYFETUu/V8G1X
-	HL0lmqnezQl0VdRLApgQxVyb2pUFF6TQ7LDUK3iMO/qSEI+Yejc6xpQsMVdzXRgd7DCOlN7nOFcoV
-	90MNm6CdXxQHdwRh29EBf8qGRwxsqDKPUvPfl6sjRtj7sPXFMUa2mmnoV/Enzgk5NAtOIXkI7YskB
-	+BmMYi3+KacZTPVxBU50+/9PBJddwXU2FJmZu0nEsjYoArinsHtxpyIgIteimGAGBE9JxFhytoIh1
-	mVWfkh6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8R1cxPctftOG89u1iC1smvABtKfPmxn/YCB26kmM4dc=; b=asPdllv/HWRbFxCOwSxMhupYet
+	6rnlqQToibHppGVBdimt96c8cUKuVTpefGZpqdv+8TGMWZeH/ZqROFFE/i0uL7PgFUqA52NwBFzMB
+	aO1dL3875OkI14wtcg0K9Ud/aLEJVce+umScxY7XYMvC7sitVFzaXaUFzu2SK6feA8e2loQS/xLie
+	z/zHBtNOy26Q4AEK4RJS/KIUOiX5nadrjreBEnD6HWnzp93u7Y6E2/sr92sXR3PX45nNMITE/JxOr
+	PhdfjAFFJa0C9d5KG6IyVCoQAiES28WGCD1jDSD4oFVFFV0RggnBq8Xyn7j9BynfbAMHM3NLnYzYs
+	uYV9uT3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBLDs-0000000CvUk-29H0;
-	Fri, 10 Apr 2026 23:25:12 +0000
-Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1wBLWy-0000000CwBR-0XXK;
+	Fri, 10 Apr 2026 23:44:56 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBLDp-0000000CvU8-3eht
+	id 1wBLWv-0000000Cw9t-0gZP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 23:25:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x200PQYWub870DSr7+Y9DV4/+NY+rn1DaJsK8uXzUupMc9dc+bma9Rvy8EQJuCLC7bni7JOusBQebWrj/O3iwobbg+W6BxL4e/dZXBAzoj1X7xppU08BSfTOO0wMyJGBkJBwUtpX1OZ8jhec35kft0DebD2A3A7gEJf86JeU/7uNtTmi2+j635Wk7aOS+YRFhLifh/lPLWzhBy2LHNdPM7hfWLtkp9n6otQE2/jhtZHSb8M6ntLtCc1z/NjJD+PnUkbWsqXNEf7i08GwpLB8pQE6BmIM301vjUikJYxOoK030x7icf134vdee6SM4PDqoTVT4X526euQydW87ZskHw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fHS9mBulvV8iERcwjS7N8DfUQYwDFWthNEUlctDV3hg=;
- b=hVRr27Uc9Parn6o+/iT6/2sMcQvBCKbzijPNGYowZ7QalF5E52ZVpLS/CYtm/2euULzSJBfh5h+xagrfIhDi2gp9zJlAwCkuSgUdg0iAVMspBwnXfmrt2IDnqA1E4Dc6RtR7DlB7JklFAZJXtXmCbkag63s05jAg9knm+ItV0OB7l9UCEu5Ul7zyn3aL//al9gLjjDPk0O2u3naGqZNm4tJeGkNxoC3EHwYVtW+2OC3v3cDCdzhxnEOpKM4pcZ9gdFeNNmRd7eMGCu5MLWkLXCkDn90FILgYztlApFuCIWxowyFUA7sdBy7/TKhSpqxptluJ6b+k83pzDpXfaixRNQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fHS9mBulvV8iERcwjS7N8DfUQYwDFWthNEUlctDV3hg=;
- b=AfeEor3gtzdMj4059izytGRR8MlTh/YAWCYg07IV1dDekxAvHXkoSrjAYvLHRZ7P/DwW9OKr3JsD5p0xZwmlzI1nBdXH6C4YIpt1lHde5YfLRnmkKuGU+h8/afWuUJsW40WewuSTFDazEivm5HkqviGJ5/pBKuI9gM501QWXWsGH4XRzgD5hqIpZfsYjGmwNXMXTfCt5nqFLGYogmYDSlTwxbbG50rSR63GohEQbyxhxvpoaBSGz75ogdbw9vStO2qYlr80xKmDtEmgmQxE7rMmwYT3419TpODazmZewbqa+B9D/Q7v9aH5WuJ+ETB4D1ErlXkR2qgGsMxQe5Vhssg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by LV8PR12MB9232.namprd12.prod.outlook.com (2603:10b6:408:182::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.46; Fri, 10 Apr
- 2026 23:25:02 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9791.032; Fri, 10 Apr 2026
- 23:25:01 +0000
-Date: Fri, 10 Apr 2026 20:25:00 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jpb@kernel.org,
-	praan@google.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
-	jonathan.cameron@huawei.com
-Subject: Re: [PATCH v4 09/10] iommu/arm-smmu-v3: Remove ASID/VMID from
- arm_smmu_domain
-Message-ID: <20260410232500.GD2588311@nvidia.com>
-References: <cover.1773949042.git.nicolinc@nvidia.com>
- <b6d87a722635d29e896b277cb60f0208859073d6.1773949042.git.nicolinc@nvidia.com>
- <20260410002734.GC3357077@nvidia.com>
- <adl0aEfBAKmBsMs6@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <adl0aEfBAKmBsMs6@Asurada-Nvidia>
-X-ClientProxiedBy: YT3PR01CA0115.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:85::26) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Fri, 10 Apr 2026 23:44:54 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-82f0884bcfaso1193810b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 16:44:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1775864692; x=1776469492; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8R1cxPctftOG89u1iC1smvABtKfPmxn/YCB26kmM4dc=;
+        b=H/pOnc/cKZV8I4p6X54hv8CZeEcTdN3+oi5ylYf3vc9qMBk+/n74qFXJ8ewiOsfnxM
+         QpI43VZp2mpS3dJmKT0HjBBFbvtYUjthPLy0FRfqnm1faTJw3Iev1DbKXu2HxxBqs6ln
+         va3J+KvKoOo7mt2nY3JVtYleVgGL5lUfTddGM57Ol1Y9vtYxf7cFl50S5fGgg5K+8q/2
+         UU5k+GjxPSETXTs7NbMVhABDPYcSRGhjEHFRBGLibRoISZTBKJLoOKYmEut4SAuBH3Cb
+         QoIQUPVkMN7rMI5zbf7m8eyL7mZ/cMhsvYEawEzXbKWioP21ZvHP0NDsFPq7CF3OgWqn
+         es5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775864692; x=1776469492;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=8R1cxPctftOG89u1iC1smvABtKfPmxn/YCB26kmM4dc=;
+        b=XFi0RgLF+3EfHQXrvqYy9r2S+76bNwJ84Oexi4m133tvwc3SQaQnGPzoZiDdkn0/Ru
+         JES/Ls4GZFh35mgYzSxEa2bhJRUGJnKDWCWANTdPl8qU4HdI/N9IvjMHZwJfQeWqOzjz
+         ownS9Or9RreyxFKBFYY+bEi049zu8Quwix6X/wVLC+OJ3sbQHFVYwWoB4DnCK16wjjIx
+         ZHfl60/+K45rl7FbVpma3BjSJkeOPJv5SZDsO4HPMYMi31gV1DXAldYFpEGxJHr6x8Mr
+         bLZKsD3xBdP8D6BO0nKZchQMZ2m9vRMQw08jFEpfX0Zj7rMG+LZmuwqC4nS9H4aly0Fq
+         pw4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUSWW0BkSE1uuXspdFe7HJDEqb2KIXJAdrDUNGoi2PCuvWgw/O81e9n89h53CLZvp7wS4zo8507S7m5+TOPkgwT@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSueitCGBhKFPa+kBVqcEbUHtePJYOO5jk7Rm7R3ox7wO72S5r
+	xcr8tcbCwRanRK3HO0ZQXUDF44AnBzlrs01sQjaU0XTtXZ98LWJcR6tnXih+KoHE7aQ=
+X-Gm-Gg: AeBDies5bBOHFiFgTrh67Agane7hTKmYoY69QTFxG09NpCs7zThPzjrVemOFuNE39A7
+	0ItvbdEjzdKCxH6rMeZX6KiOyoCmC+kYagCb7eArfMPMTNLN0qb5MUJaEdkH1COHt0L82BCUb9N
+	ZcTsFz8Co/t9LGgpSbUclkUy+qBYZIorkFN6OGoMWB5SJVxV7Vx49FFD+65woS8q7XKCyLEuC1M
+	1mE0OwekM61lPt6ivHI9Cor7XxpqMGZUL+5mmWgWv/NZNXAXnOmSevWh3aPlWwPCNCnRZ5k/twZ
+	iwG5N7XiVBglrzltCqqOQgMr8uGX094UhHfhUfe1gDB2hS37/BiY1WzwmZb76WJ3S+XZl4MmsH5
+	CU6ONlP6+0a5CetYFgEDXrQZ+hfBRmA9B8OC3ihOPc+Xd6CC3E0LArtmpLbXr9rKS25u6OhxESa
+	0nSuZoPwlS+TVK4rOR2as=
+X-Received: by 2002:a05:6a00:ab87:b0:82c:d861:3caf with SMTP id d2e1a72fcca58-82f0c330a64mr5568325b3a.36.1775864692381;
+        Fri, 10 Apr 2026 16:44:52 -0700 (PDT)
+Received: from localhost ([97.126.187.42])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f0c4df7f5sm5463230b3a.43.2026.04.10.16.44.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 Apr 2026 16:44:51 -0700 (PDT)
+From: "Kevin Hilman (TI)" <khilman@baylibre.com>
+Date: Fri, 10 Apr 2026 16:44:36 -0700
+Subject: [PATCH v2 1/3] dt-bindings: power: Add power-domains-child-ids
+ property
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|LV8PR12MB9232:EE_
-X-MS-Office365-Filtering-Correlation-Id: ece942d6-b5ca-470d-1b34-08de97586382
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: Y9nYVV5Qyd6BD63a6MPQsaP6pY3IsHhJ4aMTiiqozD2vI6PWqgOgi4/qad3zBCW8mNzLRvF/FVGNuj/WPqT62jY/gOqkLFfD0esiLH/1mAxo3MzVQXv1TyB4aCuM8MBA5KLZ3qnZ9Lpm1ROtbxZDCCJUIpaGYKs1hJlO2Sgd46vJ299zmKwpSmE18NhC2pVzQyuzSSShwgmWE+cXEcB1vsZfuBqxfXiWYESfeetgJDaqZcryUv8NJ5pVsAYBwTVY/TqFysmRuZIp+OR9SNbFL44N6KvT2wDp/9n7JxGxsg3rVN6R0AEoIHEn2gIZgyhCLp1elXytlal/URQw0Uydl/QFbUH1REWPYlP9pIwEodb4B6J6EquxPMlAU5LNk8Yqlmqr9vkwGfFHsnt+yfkfGvqZh35FxJFP64BSkimjLyjZynUy+KgMpxMR1953AMCDuEwqsJSvklYT06oKqzf/m83ruuSTvQ9lGGKyYKcbu9c6L4LsLwxnXCpwtJ1TUSWAAwvDOsvvUdsgIeIvdcw+13mi3SKUNr0NjvZ30TXQ61M690UGEWZ68DQpBbjieoxocbItTaOd5DYX9pcEexachJFMhUPDGYKdy6QVTiEjIKg4CSfsNR+tmlm4ckRxlqKXlcR4vdJoyl6XAw21CHlaxLanKW+uHG4sjGt/xwP47Z6fUliu6yjm3CS8emRXmlH6GrQATgxSGR7qCtNSCQH5gH6dx/y4/b4MYjjut9DkMKc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FSWkMqytM2QtcLwLR1Q38ebA8kqeRdTJDXF+cgy5joqN67UgMmD6SbcoXNpO?=
- =?us-ascii?Q?WKQ7M5eQI188dDj7MSQ6Xdpc6FKNaEoH8VUDLu7oihDkLsRb2bABI3cBAOde?=
- =?us-ascii?Q?TnrmwaKDCypvv2gxGggj5lAYsPOPvNnyXynEYcHCM1J/bEB6YXzOYANbPmDX?=
- =?us-ascii?Q?ydeGh1j0wnTtyMqh9s+XhLYMCAQxGy9jrnjLr2TxalJO26n6EONXLANcH/BX?=
- =?us-ascii?Q?GRzLiXrDhtPXXAVJtjRjAZNiLZ9HjDHKdKlQyBuy5PRUg+9PmJnmi3LGPzQY?=
- =?us-ascii?Q?ytlSP4izpCbL1iMe3g6AePD/PZZvF+dfzh81lhuj1q/9YollNrM0lLspOgwD?=
- =?us-ascii?Q?IHAfFS/5t1AHF6mf3WOWXDjknlaKA6lZaJhqP0S3UB8W8YFbe0UZqnCNJcWq?=
- =?us-ascii?Q?VZoo958nLcdakxO2L1MzBCEE+0eD09tKXMxZXJQZNKagwzxH5L5R8ZGJAZAV?=
- =?us-ascii?Q?Z4xQeE44F5oHKxXs+dxvrhFRkMgGhJFdeYKOtuqL4FaumcxlhnbYPvDPax9M?=
- =?us-ascii?Q?8QJWK+hyj/fpMx3TDRohQTwPiO/TO+fmFx74dslMXi2RKqXjk/PT+7TCqOYR?=
- =?us-ascii?Q?q99oXPi9JlczqEI2nXbAjcUs4FJqjhNBEKpzscFg8O3ewvvkAjDViDfIP92O?=
- =?us-ascii?Q?AjF+RqNZAyvlY3vmzHuADzwLT60ClxipjQLCcp7BUg5Y0ZD4Gu7HmBI6V2eJ?=
- =?us-ascii?Q?Sgmm5EfeWwwi2OTBtpNETDpbdLOa8WrXKeoVtPimxDFEgsKUyI5K+hi9q/Ua?=
- =?us-ascii?Q?x+vz+Dtr+4kRtFZY/kIim7B+914/qG7Is0+CPO21w1GcuFzVMIxFZL7vWNyV?=
- =?us-ascii?Q?Iu5Y2vUzISiMV2vzrmBQUe4vd3KJgR20/rm3IAN/BVmZRlrFGB2p64JFXgoe?=
- =?us-ascii?Q?cnZSKrdqI9yBCZ/IknfhR1lz29KqIZo3xEI2IQs54ItRE0WFzXA8Ssbiw+XF?=
- =?us-ascii?Q?ERdawvmkMPSAoseRxyTstve/6f2XhVP63tQmklVxtIbdCWkUxdJTnVexx7MM?=
- =?us-ascii?Q?4L/6Tx1stG+ykCzHHTrb/hoy9f+iGpuOA2GPWLmiQGlk2X2eDGEGaUJ8e5mA?=
- =?us-ascii?Q?aRe1EADPh54EBB2KMzHwk39m7aZDE/EKkUbvOWSi3zyKDvsc1h/fJUZ/F4Y8?=
- =?us-ascii?Q?Uzvx6+71B9DdOYP4v4nnpCQOc4zrevXVPGBhjS9p3bYtUcZRMxDT+AFd7XkO?=
- =?us-ascii?Q?LJU1KugaSZsjph57BY00GGGaz1S+rVE/dM59ijjeghAYCzov0K9WnaVSCjnP?=
- =?us-ascii?Q?Kx1zHX7VUqKBHZhUbxGNhKcBlCQlsH0c0XeaLw10i0qzqowNnoK55SW+KRYt?=
- =?us-ascii?Q?LGnOb1BOt7KbUY/r9UPDFOCZ4ZJdBjXdZyquukw7iwHqt1MedyuB1zrRmlcb?=
- =?us-ascii?Q?E2S9jkoaGpM8hdH1ZnJje3uRvGrNrcQQmvgBvnzXs008tzYxtJed36MiQPOl?=
- =?us-ascii?Q?JkypyCcQDUugphKqcJsrJQdT4HhRBCGcFituP15ILfvFS7x80WFHFqNjggW3?=
- =?us-ascii?Q?yIO5UPVAWi7VFvZsgvcEPu2khX/sDRagigTQCyQTdgKdqu8dxiach/M37SFG?=
- =?us-ascii?Q?oQYpXY8GvliBLtZ945oTh/bMXOPCun3OfE/bi8IA6W1DPyqv0wXPSo46OggS?=
- =?us-ascii?Q?t6/2RzBBecEJEE11XUHsJ0MkVHEi4JGzrgKukSsV9stsPFgCO101kfEAqTzR?=
- =?us-ascii?Q?fucYnq+PgMzJSmv/mdzJIZKCA4M2IufMcOVNscLBXs2/Xw/k?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ece942d6-b5ca-470d-1b34-08de97586382
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2026 23:25:01.7981
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fvugZdzyZIrjS94nov9kcjJyuy2f117i0X5r1R3PUxAWuLWj3ywf5dM8K6TEdqsi
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9232
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260410-topic-lpm-pmdomain-child-ids-v2-1-83396e4b5f8b@baylibre.com>
+References: <20260410-topic-lpm-pmdomain-child-ids-v2-0-83396e4b5f8b@baylibre.com>
+In-Reply-To: <20260410-topic-lpm-pmdomain-child-ids-v2-0-83396e4b5f8b@baylibre.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, linux-pm@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2786; i=khilman@baylibre.com;
+ h=from:subject:message-id; bh=Q7DrslDoEzNPakyLJFXorxvjgyPUA3DGKqDVH51Yzcc=;
+ b=owEBbQKS/ZANAwAIAVk3GJrT+8ZlAcsmYgBp2YtyOdtjOuG32HA1t4vZodKj+AtEzJXdLxdNK
+ SBaLyQt9hWJAjMEAAEIAB0WIQR7h0YOFpJ/qfW/8QxZNxia0/vGZQUCadmLcgAKCRBZNxia0/vG
+ ZVcMD/9z8v/EsqqHjDNjy14vtJNbHcyIHfgkcmj1hhwzj3D70G/XIhtqV07i5/gQ3fi3xIBTY3E
+ ntok5PuQhWiF5bk7yByI///EuLdnvu8CQA/OUQd5Tv4PgvFs/4pA7N8O51dzMpcmwGUGt0ypEsa
+ a09pNZud2wFIMRxcn5hsEWfd6bM7lkbrXlSKtM8ITugv+rlyHK5SjNpTbq1jiMPFMtKPHVM/J+/
+ YLDhxDToUY/yaVUPyhGRSIPRLhoFdL9MILQ4epNlNf1dBsi6HZ3vi7mFfR3a2HM0CyUdFgf1+O+
+ D5VEJGwJJuRgBDzq4B/5wDdiVcAS24uCR7q+z5SFhw3X11l4mK4lT3T6v15o6BvHBchxqCLXzmf
+ peaV81WmrdSNnKRcpBySD97Nx3ciwLFN+o3bClhYFr0+LbtPHDF9diKwHxDLjgifWR4newliHnI
+ tkJz1Cy6AeUUDV9tFWYOFVXADN2fPx3zg7lo0119TJJlbRH1xP9YwdEuSfuAsYeJrXWHtPXsvHm
+ rO6AAdGOrE6qU4/vbZNpxhZs7cLy9mz3ytBzhIN9pO3VqP1LuPoHRYIRVhDRY7YdhialFyXLb/b
+ YzIQNiLC8lAw0DjQ9sFz0b0Z5t2rUrMtqH4f9D4H+00CA0zuOwehTwi1uhoMuh/S00iifjD5c0o
+ ao9SZfFhrVfcLOw==
+X-Developer-Key: i=khilman@baylibre.com; a=openpgp;
+ fpr=7B87460E16927FA9F5BFF10C5937189AD3FBC665
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_162509_937861_3EC73445 
-X-CRM114-Status: GOOD (  21.53  )
+X-CRM114-CacheID: sfid-20260410_164453_209953_9D0EB04C 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,56 +117,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 03:06:32PM -0700, Nicolin Chen wrote:
-> On Thu, Apr 09, 2026 at 09:27:34PM -0300, Jason Gunthorpe wrote:
-> > On Thu, Mar 19, 2026 at 12:51:55PM -0700, Nicolin Chen wrote:
-> > > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> > > index 846a278fa5469..0e48264ccd01b 100644
-> > > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> > > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> > > @@ -300,14 +300,6 @@ static void arm_smmu_sva_domain_free(struct iommu_domain *domain)
-> > >  	 */
-> > >  	arm_smmu_domain_inv(smmu_domain);
-> > >  
-> > > -	/*
-> > > -	 * Notice that the arm_smmu_mm_arch_invalidate_secondary_tlbs op can
-> > > -	 * still be called/running at this point. We allow the ASID to be
-> > > -	 * reused, and if there is a race then it just suffers harmless
-> > > -	 * unnecessary invalidation.
-> > > -	 */
-> > > -	xa_erase(&arm_smmu_asid_xa, smmu_domain->cd.asid);
-> > > -
-> > 
-> > I don't think this artifact has disappeared so the comment should
-> > probably remain too. It has become slightly different because it is
-> > now running under RCU protections so it will clear alot faster.
-> 
-> By taking a closer look, I think either the arm_smmu_domain_inv call
-> above or any concurrent arm_smmu_mm_arch_invalidate_secondary_tlbs
-> call is a NOP now?
+Add binding documentation for the new power-domains-child-ids property,
+which works in conjunction with the existing power-domains property to
+establish parent-child relationships between a multi-domain power domain
+provider and external parent domains.
 
-That sounds right, with all the changes there should be no cache
-flushing on the free path since it is now always flushed on detach, so
-the arm_smmu_domain_inv() should be deleted here too.
+Each element in the uint32 array identifies the child domain
+ID (index) within the provider that should be made a child domain of
+the corresponding phandle entry in power-domains. The two arrays must
+have the same number of elements.
 
-> We reworked the ASID lifecycle, which now ends when the last device
-> detaches. So, ASID was free-ed in arm_smmu_iotlb_tag_free() that did
-> a per-ASID flush also.
+Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
+---
+ Documentation/devicetree/bindings/power/power-domain.yaml | 34 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
-Yes, so the comment is:
+diff --git a/Documentation/devicetree/bindings/power/power-domain.yaml b/Documentation/devicetree/bindings/power/power-domain.yaml
+index b1147dbf2e73..163b0af158fd 100644
+--- a/Documentation/devicetree/bindings/power/power-domain.yaml
++++ b/Documentation/devicetree/bindings/power/power-domain.yaml
+@@ -68,6 +68,21 @@ properties:
+       by the given provider should be subdomains of the domain specified
+       by this binding.
+ 
++  power-domains-child-ids:
++    $ref: /schemas/types.yaml#/definitions/uint32-array
++    description:
++      An array of child domain IDs that correspond to the power-domains
++      property. This property is only applicable to power domain providers
++      with "#power-domain-cells" > 0 (i.e., providers that supply multiple
++      power domains). It specifies which of the provider's child domains
++      should be associated with each parent domain listed in the power-domains
++      property. The number of elements in this array must match the number of
++      phandles in the power-domains property. Each element specifies the child
++      domain ID (index) that should be made a child domain of the corresponding
++      parent domain. This enables hierarchical power domain structures where
++      different child domains from the same provider can have different
++      parent domains.
++
+ required:
+   - "#power-domain-cells"
+ 
+@@ -133,3 +148,22 @@ examples:
+             min-residency-us = <7000>;
+         };
+     };
++
++  - |
++    // Example: SCMI domain 15 -> MAIN_PD, SCMI domain 19 -> WKUP_PD
++    MAIN_PD: power-controller-main {
++        compatible = "foo,power-controller";
++        #power-domain-cells = <0>;
++    };
++
++    WKUP_PD: power-controller-wkup {
++        compatible = "foo,power-controller";
++        #power-domain-cells = <0>;
++    };
++
++    scmi_pds: power-controller-scmi {
++        compatible = "foo,power-controller";
++        #power-domain-cells = <1>;
++        power-domains = <&MAIN_PD>, <&WKUP_PD>;
++        power-domains-child-ids = <15>, <19>;
++    };
 
- Notice that the arm_smmu_mm_arch_invalidate_secondary_tlbs() op can
- still be called/running at this point. Like the normal detach flow
- the RCU protected ASID may still experiance harmless invalidation.
- However unlike normal domains the SVA invalidation will continue
- into free until the mmu_notifier_put().
+-- 
+2.51.0
 
-> So, when freeing the SVA domain here, the domain should have an empty
-> invalidation array and the HW cache is flushed as well, right?
-
-Yes, but the parallel thread is still possible even in free which is
-unusual compared to normal domains where it is illegal to call
-map/unmap concurrently with free.
-
-Jason
 
