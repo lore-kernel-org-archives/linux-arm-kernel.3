@@ -4,59 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B29F459F7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 16:51:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC0B6F459EF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 16:59:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SpxvvvMHwW5S8XFerq/zSXfHt58MP2iwELTOcvUXtTA=; b=hSkJ+0UVUTxvke+MgFDxWV67fN
-	KoJS2HpuDd92tA6j63l1e/DxtkULiX9hySezN0mvq51QKjNhB7BFA8fp3PrHL06S0B8Yom/HbxhNu
-	3oDeoBbLnkgSx+zQC2ms8AMujJxfXt6BEqLeUbO+ZsDvcpUi6Yu3GvXYfpGcXX69Hsu1c6RJWdkK8
-	DpLEpovuDsGYH4KLreGWxHwdvfZtiZKvhZdmwtCkc19/DYflkOSsIl6pvAVobEvLppakuPCdvy0ao
-	iZrok1RpLbd5Waou7/EdKY78TXUZBRW+25KIJUIWrN7ksKhbXtRFClfVH7FNXg5NoVx4EpN3ELI0D
-	mGtdAC5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U2WUU+bccKGIkpkcGlJLfyzbrnuwbMPjNOX7kM0rehM=; b=lvZis8iVTE1TyWJSEa0E1jlgHw
+	/KUGUh5gZPgqPj8O8yj12rRMQ/HkGNBlFjVoibKF7JlH8gXJeVpF7WQC13ylzNY4IUKryAC2XdEb6
+	EWeq45MXFb7r3hUOzx2g8YtbctjewiM69IHdex52ZUFkoKJ71OfEZyYY8WWoaEeZ8gsoCjho+ZsVZ
+	M8m80GVS1Ee7ip/nj6MgWMf94Dkl2g6t4BHypa3MHzu8wcTju50oZUF7mDBgJgVJdQ/5a5Rx2hajd
+	LHIdH6qkDt+VYtgDCepYagLYDQdWGtwzlhjMU019maFgpvWwXr8Ln8k6PAcXenovDEMdhUQwQEIva
+	ENx16U7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBF4w-0000000CZrc-1ICf;
-	Fri, 10 Apr 2026 16:51:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBF4t-0000000CZqv-055G
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 16:51:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5074647E0;
-	Fri, 10 Apr 2026 09:51:23 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F97B3F632;
-	Fri, 10 Apr 2026 09:51:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775839889; bh=qdVzseOvTWqCZ+np1uwpYSC5FbMzSZB0d74LiMoUtd0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c2fTK+TazfaOYZ3jSTWmVNW1wplv3FpCrvaAgb28d29sxEmAgsCDF7OgHKd+mNjk/
-	 tOqOVR2tuUKOd6vuV0hSpZs8nFu/BeCTDfno67+foQKUJRhDBmn/zkSAViUW4S5vXv
-	 OxGBLhyLgX8VkyV7+mOOMMxDhbekccZTwjN1rZ3A=
-Date: Fri, 10 Apr 2026 17:51:25 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Sami Mujawar <sami.mujawar@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, steven.price@arm.com,
-	suzuki.poulose@arm.com, gshan@redhat.com,
-	Jagdish Gediya <Jagdish.Gediya@arm.com>
-Subject: Re: [PATCH 1/1] virt: arm-cca-guest: fix error check for
- RSI_INCOMPLETE
-Message-ID: <adkqjW5HzEfg3CZq@e129823.arm.com>
-References: <20260410163636.259443-1-sami.mujawar@arm.com>
+	id 1wBFC9-0000000CaHK-1zoL;
+	Fri, 10 Apr 2026 16:59:01 +0000
+Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wBFC6-0000000CaGl-3QOy;
+	Fri, 10 Apr 2026 16:59:00 +0000
+Message-ID: <08af5c73-8558-454f-a829-4ff33b0a69c0@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1775840334;
+	bh=UmZRGZba5vQQqPdfM0FaDawLz7o5OzGOJk+BR1COVAs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=omrqlx+Xg6YOQIrtVlYAx7Z8vO59bI30r2+IsHyfPkI2VuOIXD7+HwY2p51MvljFd
+	 g1S8R5wyk6Y9wuRUmfbKjLQxZmQCB98CH6Q96oecNg5nXZymCVBXA/bSmWVKFHf+a/
+	 PBe6CYW+WssEawRAZ4ekbAjNf5kK1l4ZCEF8poxg=
+Date: Fri, 10 Apr 2026 18:58:53 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260410163636.259443-1-sami.mujawar@arm.com>
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH 4/4] arm64: dts: amlogic: t7: Add clk measure support
+To: Jian Hu <jian.hu@amlogic.com>
+Cc: devicetree <devicetree@vger.kernel.org>,
+ linux-amlogic <linux-amlogic@lists.infradead.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ robh+dt <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+References: <20260410100329.3167482-1-jian.hu@amlogic.com>
+ <20260410100329.3167482-5-jian.hu@amlogic.com>
+Content-Language: en-US
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+In-Reply-To: <20260410100329.3167482-5-jian.hu@amlogic.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_095131_228558_1944682F 
-X-CRM114-Status: GOOD (  20.24  )
+X-CRM114-CacheID: sfid-20260410_095859_011203_00755C98 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,49 +73,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Look good to me.
+Hello Jian,
 
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-
-On Fri, Apr 10, 2026 at 05:36:36PM +0100, Sami Mujawar wrote:
-> The RSI interface can return RSI_INCOMPLETE when a report spans
-> multiple granules. This is an expected condition and should not be
-> treated as a fatal error.
->
-> Currently, arm_cca_report_new() checks for `info.result != RSI_SUCCESS`
-> and bails out, which incorrectly flags RSI_INCOMPLETE as a failure.
-> Fix the check to only break out on results other than RSI_SUCCESS or
-> RSI_INCOMPLETE.
->
-> This ensures partial reports are handled correctly and avoids spurious
-> -ENXIO errors when generating attestation reports.
->
-> Fixes: 7999edc484ca ("virt: arm-cca-guest: TSM_REPORT support for realms")
-> Signed-off-by: Sami Mujawar <sami.mujawar@arm.com>
-> Reported-by: Jagdish Gediya <Jagdish.Gediya@arm.com>
+On 4/10/26 12:03 PM, Jian Hu wrote:
+> Add the clock measure device to the T7 SoC family.
+> 
+> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
 > ---
->  drivers/virt/coco/arm-cca-guest/arm-cca-guest.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-> index 0c9ea24a200c..66d00b6ceb78 100644
-> --- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-> +++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-> @@ -157,7 +157,8 @@ static int arm_cca_report_new(struct tsm_report *report, void *data)
->  		} while (info.result == RSI_INCOMPLETE &&
->  			 info.offset < RSI_GRANULE_SIZE);
->
-> -		if (info.result != RSI_SUCCESS) {
-> +		/* Break out in case of failure */
-> +		if (info.result != RSI_SUCCESS && info.result != RSI_INCOMPLETE) {
->  			ret = -ENXIO;
->  			token_size = 0;
->  			goto exit_free_granule_page;
-> --
-> SAMI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
->
+>  arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+> index 7fe72c94ed62..cec2ea74850d 100644
+> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+> @@ -701,6 +701,11 @@ pwm_ao_cd: pwm@60000 {
+>  				status = "disabled";
+>  			};
+>  
+> +			clock-measurer@48000 {
+> +				compatible = "amlogic,t7-clk-measure";
+> +				reg = <0x0 0x48000 0x0 0x1c>;
+> +			};
+> +
 
---
-Sincerely,
-Yeoreum Yun
+Can you please order by reg, it should be between pwm_ao_gh and pwm_ab.
+Thank you.
+
+>  			sd_emmc_a: mmc@88000 {
+>  				compatible = "amlogic,t7-mmc", "amlogic,meson-axg-mmc";
+>  				reg = <0x0 0x88000 0x0 0x800>;
+
+
+-- 
+Best regards,
+Ronald
 
