@@ -4,141 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F5B7F44846
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:05:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D27AFF44846
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6DVWrltULqSjWgzEyse8zg3HmE3jP8nXnImlo8bGpHE=; b=oHPXf1ZJpRjxZfJwfipcydWBN7
-	A/YW31qizRpnz2RdrdFks4h4f5v3CZ3FzxC1RAGd/oDJCoOJ2bohmEGLbwyg727IhZomckDjIrK72
-	hZRAi/qt+ekopoBQLNQMZCsml6htPILyeRgMZO80wMcVIO1qOwSqG7m7Ut7GeKTS59aTP2hy4lonU
-	fLGingz6hweGzhTBtiNrLxh8Jqm5gytjg79N8mYzhcnJ2frI4c1LWWOGS6UdX3RErclIyQ+tEe0EL
-	9SSSZKeqGTqeSbyZ8UStJcEOXxf7uHXPlf+9FLpcOVQGsnK34OfEcYdtpciPHJIFwTj1CAKnOUBs9
-	q7LZhtkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UciXY4UpwF/PVQ55Oa+nceO1l3r0LRhzvlDseaImpoY=; b=KKOpDMP3uGFQ0HUfeJS/rclTi7
+	EQXxfB4KFmA9czi8Vv3sDn+gdblOV1ron/4eINCoAQ2Yki2l25nLOi9Zqm64LY60xl2G9DmsCbM/t
+	AF2Bzrv0VOt6PgRMK/lj6uxws+ehIG5FE0RaPXseufvsngHIuXRbNol2paSxgTwYmLTRsNdCXldKm
+	NAb7jl8jS6fULn2F71Gole0ZMgUggsviF38anXiTYcyjs8Ai8EeFaN8zBARKHtXvaWZT6A+AcyL2V
+	zjN7X1YD1U1tRZEARoqbEIRk8+eMVqmLqnfAr/7Luvqfit5dAgVTGGJ16mM6nK8/Zl73xHYqB1dL2
+	2yxkE76w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAby-0000000C7g4-150S;
-	Fri, 10 Apr 2026 12:05:22 +0000
-Received: from mail-centralusazon11011061.outbound.protection.outlook.com ([52.101.62.61] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1wBAcj-0000000C7lj-2VgR;
+	Fri, 10 Apr 2026 12:06:09 +0000
+Received: from out-180.mta1.migadu.com ([95.215.58.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAbv-0000000C7fa-3h9p
+	id 1wBAcg-0000000C7kd-1kU9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 12:05:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=h4Ce366s8UhnXkLmN3dolgd8+t3XCPcp2Nb4/t9Cm5Dl3NCrYM7wMoRXTRdYakkrcICmJplMmJuFSw0vX2Mw3R1Obk/VVtCvPGkcrPUUx7hqL1hvdoNAXRydBuuyRp4paRAwJSBkWFO6mAke9qQgQELDXdqhcebcMUZO8W8DyroE4fNN1rT6aIz0h7yM/0kFnaO+68HLEU03MOZjYKkdV+kEfoASzwsDN3BDOG1KMry+y03ixUZv0fsXoiaGzqVMpEz5Qn9ZFPrzBCFhOPk/yw5jBOeT9MwsG/QlO/XEs/+dmrwT4SD51jL3tYI/9Pjc1+/xkeRHjm3zilVatErlpw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6DVWrltULqSjWgzEyse8zg3HmE3jP8nXnImlo8bGpHE=;
- b=XvlXY0xZhE1rzTJB7mvUYiOqvw8EBneZGIAchap/ATNGF0M1hrK5UaPQAryjupVech6q5gEIrYqbv9qVLYjOFG9WD06A8Qr3COqVr7TE48GmcWouy8xxKVJ+ompCVo5X0OlJc9paMoIkPigYeECJNFVX5upfWkTd7sVvwqp/1pkmMl8pzpO4/FX6IBOC8T9ouiTewKJp8TRy03y3Dp3cM+XiDtNiqZQsEwk1cU1pJa3LZ0wewj0OtcYB+4SYAuluTWXwrlUmdNF4a9d/JlfHovgP3//wkqTyYQYzivqGC3ItgGe+fyCUOtgBGb+tomtzpmJVxmQ7QK+Mle8A9m/eow==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6DVWrltULqSjWgzEyse8zg3HmE3jP8nXnImlo8bGpHE=;
- b=iCYq12jqi4fAScy/xTf2DdmpAnW7hiyJiyKYdYHLVIE33U8zhs0lFKMBme9t6fkouzO684Mqa8hIkwMSQwxrNVp6dCVX0pVJ4rDkoEpBbqCbfkKA9IaAgrux7sMTulHjtMbCYgSKiX8pSODvShh1kORRTmtJbnt6qzwMHP659YeNWlQZJKgT4laVAbc8ddDmocEPH8CQ+9tLCpOoSK7bS9Wb/w4WPd+EVgl82KAdMjxk9hqXHXZgvokyAo7+sIs8ycXwUS2Ty7bWPPIPmvwUQT5A8DyN3sgC2WD7fV51UaP78AXgs5A/cdsL9rdCUEs5pFcWOfrB8p52kJ6PZS2pkA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by DS0PR12MB7874.namprd12.prod.outlook.com (2603:10b6:8:141::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9791.32; Fri, 10 Apr
- 2026 12:05:09 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9791.032; Fri, 10 Apr 2026
- 12:05:09 +0000
-Date: Fri, 10 Apr 2026 09:05:08 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, "will@kernel.org" <will@kernel.org>,
-	"robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"joro@8bytes.org" <joro@8bytes.org>,
-	"praan@google.com" <praan@google.com>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"Williams, Dan J" <dan.j.williams@intel.com>,
-	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
-	Vikram Sethi <vsethi@nvidia.com>,
-	"linux-cxl@vger.kernel.org" <linux-cxl@vger.kernel.org>
-Subject: Re: [PATCH v3 1/3] PCI: Allow ATS to be always on for CXL.cache
- capable devices
-Message-ID: <20260410120508.GA2588311@nvidia.com>
-References: <cover.1772833963.git.nicolinc@nvidia.com>
- <a0dd3e4cc5260f55bbec5b3ed6791def33028735.1772833963.git.nicolinc@nvidia.com>
- <BN9PR11MB5276A6B1B103C4B0201458348C53A@BN9PR11MB5276.namprd11.prod.outlook.com>
- <adgsBgXYy68GmxAf@Asurada-Nvidia>
- <20260409225252.GU3357077@nvidia.com>
- <BL1PR11MB527184E183703E14F6C861118C592@BL1PR11MB5271.namprd11.prod.outlook.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <BL1PR11MB527184E183703E14F6C861118C592@BL1PR11MB5271.namprd11.prod.outlook.com>
-X-ClientProxiedBy: IA4P220CA0004.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:208:558::8) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Fri, 10 Apr 2026 12:06:08 +0000
+Message-ID: <262a41db-a425-4362-bb67-df61119625d5@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1775822752;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UciXY4UpwF/PVQ55Oa+nceO1l3r0LRhzvlDseaImpoY=;
+	b=S1IPhLac5GLe8aWkzUNhPX1PlP9fq5z3WRAjL+vGJS6PRIGTZh7B7rKGP6zR510zSkjeYf
+	K2QNdKANEbpRs7f7uwGklMZu8fyrnR1UsL3rCWPzJNLUoi6SJAO92EUU22rkQ1qumaPnr5
+	nnM4xvZ//KZw8+pWbEggmfs0orX141o=
+Date: Fri, 10 Apr 2026 13:05:40 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DS0PR12MB7874:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5860b2a1-3839-4674-0530-08de96f9697c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: WIGardqNCvKwIxTnEqDIXhmgoDQ5FqmNAZpOVMmFAC+otPu0HQEVBtTitSL92V0PfFcW8oP7UOClcrBwVb0Azgpk8IhunPP2/0+JdOBDVOEJiAyMga7/gfByiVRZz4DKpUNu9p08pkbJvZhxxqhZYn7MFoki2QCeBJYU081Ic00xWnbJs2xRiyWCdeShR+qdtQgPNMTjNTKViIW/ixH63YBsQs7sSc1hYOqNvwCqfiUckt3uxVNIcNssbxrAIufIhavpjLaUpYURP9cEtNfgV1SSJHnejRV0VTP4gKt2betAOp2kV4+ZdCMnAblsfHcOAzA7T9wbSAvQI8fEwyDoWTZC7liZuvg6C+qwxH8eauz2HgWDyCht/VqMzFDZB9g/DfpgwFRBnPYAoQ/RAlEM+UtLKoMQwkVBDMSI+DKhLJAfULYPbgPokzcZ+CTnzVxHncPhzscPSzQ0ioNnEbSKiYQt65hz22YZq6bkiMk9YU6yU/kFVZzjQmd++vOiQxxF2FsEPmgvuHXIhNbF6lo1+OjM2QPxyPAJ/WSwCBOY0f2DA1H0nAwot2ritv/wjuInZujkcgvbYi9IQOnKfFOzCiPW4dDhjJlZ9l4ewm++gbX+9eVNpiCbc9sgoeRmiu//ItnuJbJRm8MZQQ+FZm/cUN6LiIqCqMMnr6/XJlS7XWYwF1ISghH5uBmsudZhL2y3RdM3pa8UW+gjdJYVoJkO68YzCNak9/Qakf2dNQgVSAY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?q4043A5mk/LKiHfdq/dFP578xVB6qRxFpIzTnnGWkNkMyEfYWMoc7eSdQ9mD?=
- =?us-ascii?Q?/hQfusE1sz3nzUTZCPJVnGz66rGPimrhX9Lq7IBk2XUsGX2jxshUJxFfV/IR?=
- =?us-ascii?Q?sxnfsAMxY4A9hiOYsQkjJWUL0AUSgIxU3Iy3g+nmjlcrX2Mx9JlwEIVBgGb6?=
- =?us-ascii?Q?n2irNRikqod+R/aT4y936Eq5+oOOLjcG3crAtGWuqdOim+2294dLRS7EjphB?=
- =?us-ascii?Q?1t2jsGhy4DniJN0YvsC9Y0sz6W3aJCUCnyTi5BX1p2TQLevqTGoHBudQL32d?=
- =?us-ascii?Q?rd48TluVABr/513g38BeACXhz7jqKHkUADpXhmdVrllzPw2qPbU9yqa8zsVx?=
- =?us-ascii?Q?kMphdnezaG/Epn4k36HMqgDG5yRVES8GyS7oV3/RC6LFv1rt+W44z+cRLn6J?=
- =?us-ascii?Q?sWzraa897dMh63XzhYYhsEbZ1XX7E6H2nhKWgFMg3goCcii8jYEHG1Nve3JL?=
- =?us-ascii?Q?SOZT9joFRkFG8n0rh/fCxc2Ne/kHyOiDsZkfk92WmjgGJbTP46m+hQU68Zw+?=
- =?us-ascii?Q?r+8ZlPP8FwLZRuNNQwOYlHjeAuV7vFVjTapzAyChCgfSW8KBBgNcJ2H4dTaU?=
- =?us-ascii?Q?SD2K4J0FSdDhst/1eLHaYOdMYlJcd8030aG9DMsgsQ2Hk+Zk+3ANNCRAmLuS?=
- =?us-ascii?Q?MpIR1inWbQqIHbO04WwT3NhAQeYBNhnKj/kkU6jN3bBRQXTmaS/fOl5xZrMJ?=
- =?us-ascii?Q?RaIdB7r4pZyAV+hEzm/tGvHM6VFyHp1xZ/ZIVML5rQvBfizqJfmUA2sRU1Z3?=
- =?us-ascii?Q?YiIT+zh2f6dMvFw4PsAMkT1Kss2+Fckclfg3SgL29vMDQY6PwJw4+KkJwmSL?=
- =?us-ascii?Q?rTzipww32YFfvOJzjfMgRTUP6EjCw2uiGRg/awlD7SzIK/DadF0uONYxSgFT?=
- =?us-ascii?Q?CGbMJmrz78DiSibWXwI0DzLqIauhEov/U9oxDWdx57oCat6gih9MR+j01N3+?=
- =?us-ascii?Q?a28L9nkqJGQGMEqC2XX47uCuO0Oy6UTZK0maEF8oNGRAVU951IKV0aKKsfL+?=
- =?us-ascii?Q?EeGS7SS/QVyQIJo/cEYcYoiXrmH7sd0yJzwdaVhAxKtwFXb+l/eVLMzPkM+o?=
- =?us-ascii?Q?vdiZheDfPyhlEvRkecv4CbkJFbzNXk2a7z/5mFXRRowlmzKGLSo3VWTgL8FD?=
- =?us-ascii?Q?YfRq54hBbtcYmtSGRYFZ9mg6Tu9PBqKCNGRKQTCSKMHKbxR2XH43i1j6+nQn?=
- =?us-ascii?Q?muupIefD3IzMuyRhlVpl/LI2k84nKfFkBKUhpxcRDrv5whWqLce7/TxHP3s1?=
- =?us-ascii?Q?i1jX28Ib4laPMURLMLI5ZY8jUgZ3DKYS6n3EuaoqXatNMQGQ05AW92VNVsHs?=
- =?us-ascii?Q?QbAZsK7ei7uylu5QiQzYvlZWuwyvqbbqPF1f7QkYkxMEtcENTd6gHjOLqj5m?=
- =?us-ascii?Q?Bx7p6HPyjw4KBB9lozIrJ9I56CDa0dvV5B/Xf9GM/SBEGk43fYchz7E1GkAv?=
- =?us-ascii?Q?wvgkHnYrwEqtKwq+CoCJY0KZEdmOPpVUONSogEXNtMJEmtlxVJ17IcSqCTXh?=
- =?us-ascii?Q?VMfYfHMXgJMMSkN1LqLVO5eAg1CzHo37/NE5KXKEIoZ7CSnQBUtmAiNhDz9C?=
- =?us-ascii?Q?PhKDLVf5NZrinrw229QdZQtpnfiolxlN3dadwi6F2kSE9B62m6UozwvydOZU?=
- =?us-ascii?Q?poL66XSspf9ca/UVPPWkkDq1LDTv9csE+KUw6vCBXTh+MNlVDO6ElKuCnUBW?=
- =?us-ascii?Q?qxeY590H+xqpUqlmUEpS7aPX3cvc/GRX1EEwEVq9uKWuMnps?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5860b2a1-3839-4674-0530-08de96f9697c
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Apr 2026 12:05:09.7319
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fAmp+LpUoxGfgtwIPnKMr5rg7rqupDhHSdXveY/t+0G+2o6CKy+pMXIcxvdj7jln
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7874
+Subject: Re: [PATCH v3 0/4] mm: improve large folio readahead and alignment
+ for exec memory
+Content-Language: en-GB
+To: Lorenzo Stoakes <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org,
+ willy@infradead.org, ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc,
+ jack@suse.cz, ajd@linux.ibm.com, apopple@nvidia.com, baohua@kernel.org,
+ baolin.wang@linux.alibaba.com, brauner@kernel.org, catalin.marinas@arm.com,
+ dev.jain@arm.com, kees@kernel.org, kevin.brodsky@arm.com,
+ lance.yang@linux.dev, Liam.Howlett@oracle.com,
+ linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, mhocko@suse.com, npache@redhat.com,
+ pasha.tatashin@soleen.com, rmclure@linux.ibm.com, rppt@kernel.org,
+ surenb@google.com, vbabka@kernel.org, Al Viro <viro@zeniv.linux.org.uk>,
+ ziy@nvidia.com, hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
+ leitao@debian.org, kernel-team@meta.com
+References: <20260402181326.3107102-1-usama.arif@linux.dev>
+ <803a0c15-0a6a-4c00-b6b3-eaae56d5fc15@linux.dev> <adjkCOiLgZ_-zovg@lucifer>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Usama Arif <usama.arif@linux.dev>
+In-Reply-To: <adjkCOiLgZ_-zovg@lucifer>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_050519_954407_71E5490B 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20260410_050606_607705_6AD3210C 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,28 +81,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 03:13:59AM +0000, Tian, Kevin wrote:
-> > From: Jason Gunthorpe <jgg@nvidia.com>
-> > Sent: Friday, April 10, 2026 6:53 AM
-> > 
-> > On Thu, Apr 09, 2026 at 03:45:26PM -0700, Nicolin Chen wrote:
-> > 
-> > > One question regarding VM case: if a device is ats_always_on, while
-> > > VM somehow doesn't set nested_domain->enable_ats. Should the kernel
-> > > at least spit a warning, given that it would surely fail the device?
-> > 
-> > No, just let break, the resulting failure has to be contained to the
-> > VM or the platform is broken..
-> > 
-> > The HV can't turn on ATS because we it can't know what invalidations
-> > to push so not much other choice.
-> > 
+
+
+On 10/04/2026 12:55, Lorenzo Stoakes wrote:
+> On Fri, Apr 10, 2026 at 12:03:03PM +0100, Usama Arif wrote:
+>>
+>>
+>> On 02/04/2026 19:08, Usama Arif wrote:
+>>> v2 -> v3: https://lore.kernel.org/all/20260320140315.979307-1-usama.arif@linux.dev/
+>>> - Take into account READ_ONLY_THP_FOR_FS for elf alignment by aligning
+>>>   to HPAGE_PMD_SIZE limited to 2M (Rui)
+>>> - Reviewed-by tags for patch 1 from Kiryl and Jan
+>>> - Remove preferred_exec_order() (Jan)
+>>> - Change ra->order to HPAGE_PMD_ORDER if vma_pages(vma) >= HPAGE_PMD_NR
+>>>   otherwise use exec_folio_order() with gfp &= ~__GFP_RECLAIM for
+>>>   do_sync_mmap_readahead().
+>>> - Change exec_folio_order() to return 2M (cont-pte size) for 64K base
+>>>   page size for arm64.
+>>> - remove bprm->file NULL check (Matthew)
+>>> - Change filp to file (Matthew)
+>>> - Improve checking of p_vaddr and p_vaddr (Rui and Matthew)
+>>>
+>>
+>> Hello!
+>>
+>> Just wanted to check if there was any feedback/review on the latest
+>> revision?
 > 
-> Taking about in theory - host can append a devtlb invalidation cmd
-> after iotlb invalidation (if vcmdq is not used)?
+> It's -rc7, this is definitely something for next cycle :)
+> 
 
-It can't map an ASID to a BDF without shadowing all the STE and CD
-tables which we don't do for nesting.
+Yeah no worries! Just wanted to check what people thought about it!
 
-Jason
+> On my part, my upstream bandwidth has drastically reduced, and review is
+> probably going to have to be a hobbyist thing at least for now.
+> 
+> Also, not to be mean but:
+> 
+> $ git log -E -i --grep "(Reviewed|Acked)-by: Usama Arif" --oneline | wc -l
+> 21
+> 
+> So... :)
+> 
+> Review in mm is very lop-sided, let's try to balance it out a bit!
+> 
+
+Ah yeah actually I have been reviewing a lot over the last few months.
+I dont ack patches that have already been acked-by/reviewed-by maintainers.
+as I am not sure if it adds anything. I never really cared about Reviewed/Acked
+by/patch count but I can start adding tags if it helps in stats.
+
+The reviews I have done over the last week alone:
+https://lore.kernel.org/all/20260408122307.1360475-1-usama.arif@linux.dev/ 
+https://lore.kernel.org/all/20260408123700.1596800-1-usama.arif@linux.dev/ 
+https://lore.kernel.org/all/20260409142256.131676-1-usama.arif@linux.dev/ 
+https://lore.kernel.org/all/20260410114809.3592720-1-usama.arif@linux.dev/ 
+https://lore.kernel.org/all/20260410112433.3248586-1-usama.arif@linux.dev/ 
+https://lore.kernel.org/all/20260331103451.1070175-1-usama.arif@linux.dev/T/#t 
+https://lore.kernel.org/all/20260401152343.3294686-1-usama.arif@linux.dev/ 
+
+
+
+
+
 
