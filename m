@@ -4,106 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7A74F364B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 10:41:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DCAFEA3C5C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 10:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q8wAkh4o7tl/zj3dU8ucWDwim4K0cFPOmp+J3PD9wxo=; b=ASlUxOpZDp0kl2gMBmxWPtyQgp
-	g/3PYNsQw42HjE78nFsgYu0nMem58RjXRGhKasgmSeApRlvWiYwnBFDti03+hnJMYgTvIbqxGsjXH
-	/5JFzT25wViCqlGMRz51rYyvdBB1PZdHO+r6m9vTbvAPTu/zs2Lf+vx4MZBtF9axhBiutEDkPJ1hQ
-	5K81TzoxfbKP33vl8hJSW5kj1Ao4DedG4d9ALZgVoiIQvKsQ3oK9zRlPM/5U6VPJL5gWquhD+GkpP
-	SuGjNQB2EhHydO2jnl16Psu6wNmD8LvKVRiorSEoBaKf+CT073f05nJNn0sjpTjSurLTcBQ+JXI0p
-	t/G6Ak9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2af8NxYuYpfnsJc9jM5WK6oq0T2GDCiKu1F+wdwYdiI=; b=lngDRob7V7W1TPNAFMSasiiE70
+	T3YdbnsJwnmOqq9Z5VWxXFcLnvpN3vDfQVi8jj6n+/na2lj9zMllJgk52900hiJ3SSGKpmrYn9I3y
+	UqeUM8wXxlLxlL6JUvonCO+nS8y4lKsbqV4YuWw6HI9k5W6UIzPn4Q6baLFaKAmMaoEqrxJFnzs69
+	Gx83wcsJmXA/zjR+tTKrM3ouXLy+jgohf+tWV+oMG36iEkRGip4XFNw4vBv9WbMoPkujG53euiM9n
+	LConhIkCIFlQyDxGKgRl94WhfKQ+1HUTsKmQj6/PS6FtEoH8e9DeZM0It8zJ+HAbY8ypafUee9ZM7
+	REHSo3Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB9Ih-0000000C1Os-23qH;
-	Fri, 10 Apr 2026 10:41:23 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1wB9OS-0000000C2Gg-1X9Z;
+	Fri, 10 Apr 2026 10:47:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB9Id-0000000C1JZ-0QRe
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 10:41:20 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-5a283c44478so2956415e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 03:41:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1775817677; x=1776422477; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Q8wAkh4o7tl/zj3dU8ucWDwim4K0cFPOmp+J3PD9wxo=;
-        b=eYGudX9UlcC5wVuD1l7nxMPhPy6wQjfWxO89yPmHpv77a3dulki735YAhq8UW318gl
-         U6jSBfb27WFf/O4Fmvbh9J5WOzI0je1ixmWahwZOlpxUgKNUsdm8dFJGgW65oYRSe+n3
-         om3GgsWasIDPMRJ55du2vWHgD/Hy2t5Tsrb6vGlNZtrwRVq4UWly8if+j0lSJ3fjSZ7j
-         pLM5XSXTVZs3hoq2AkIJCPdymxk1L1CNqgbpRzSk5Y0OXSX2WFPXaAANJGUYT8fUd1uN
-         2UuGaaBAXZV4cIbxhCehvB6E+6TnMJyyWYWMSq+23gV0U8RKDPcHIzbcSaITL9kazFbV
-         RSPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775817677; x=1776422477;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Q8wAkh4o7tl/zj3dU8ucWDwim4K0cFPOmp+J3PD9wxo=;
-        b=NJpshj9BqWXM+aJ6vQwpzr1hO2x4K/jnIYSq22y4XE446+RuyQLVSURCanPeK2AD3g
-         TaTDCb4AmVDcQK9lRmHYrVkG9xQ0T88zUqX9bVUiGGIU/4DHseqxmibi2bsg9SoFLqis
-         ODfPa62Vf4zCWhetXPGLHaY3P1RRHPIo7SEnFjmsX7G+ZAIG9RpAhdMi3zaEm7ubrM84
-         nA/2rrgjpHf7w9jr9eTfR1m1LC/fGtS78fmAC+JqQDYX1M25IB7urnJZm4RMy7t3SHBa
-         Tp7XhHAzjbhMQmw5nGgQEEgNK5RXI9C9YpiWGcGN86KwZt6LV+g1E98pkOmfui2C2is2
-         B1bg==
-X-Forwarded-Encrypted: i=1; AJvYcCUBZkfmtx71933jGNYn11NxrO+nfm3RKAnc4ZfpTOc6FP5KmBMKwEa9YbABqTIB4jez/sjeqMPVnB/IPMhE4dcF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCdJ244t8zOpXHaXyn5sGCpPxRCoMG+LK1iyf/MsqQKmvS7sdP
-	CNKPhSZShMIB8CQZb/AcCW8OkCxVbRbELJlH/jGwCqyaIZA0zeFx+XwIq0dJj2m98Yk=
-X-Gm-Gg: AeBDietGHw9GtVBwnpsxACpmUYQml9oxSbplRw/YCjJjFYk18MEZ6X1Qe85RqvJPK3g
-	su3mTIeTyw1nkGQgh+tV+qk5cihNu2l6uTGdN44+xKGsbgASHPZvQYoL3gQ635rvfSTs4T4iYnR
-	9rNy7nduYgspOdTJd1tS8lMZoatkaaBpWwsMdnte14uUEk7druVseG6K4y4CGgJjqDqkxwSiBTF
-	xGkKE5gCMM4MqIAC7TBvLXzRZioTjcp3FaO+VyCbavA4cLDdo14Y9ZPKeat7DL45542k3R44y0/
-	bKqjwIqX7ZXHw0GJj/ZHCrm8gcm9Iryb7pjccKGzOoYhGrqhpJGjDXss9wnuODU4mq8dFTJg/9t
-	9VjEO8YGlPOoNNEP62Qcnc2T6VMbqu/5iEEXV8hlEwuqpmv5iN7d/ZA8EPvLBYfXTVIUQJ0aoBf
-	Iq5+J1O0xtMbHHaHQ/oVx05BeOadTOExVNrkrgGpq/A9OmvrmK5nrbzdfJvsb0ioXhxUAXCY71
-X-Received: by 2002:a05:6512:12cf:b0:5a3:ef60:f2a2 with SMTP id 2adb3069b0e04-5a3efb5a8a3mr827213e87.43.1775817676897;
-        Fri, 10 Apr 2026 03:41:16 -0700 (PDT)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38e495455acsm5588331fa.23.2026.04.10.03.41.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Apr 2026 03:41:16 -0700 (PDT)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: Saravana Kannan <saravanak@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-pm@vger.kernel.org
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Abel Vesa <abel.vesa@oss.qualcomm.com>,
-	Peng Fan <peng.fan@oss.nxp.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Maulik Shah <maulik.shah@oss.qualcomm.com>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH v2 8/9] pmdomain: renesas: rcar-sysc: Drop GENPD_FLAG_NO_STAY_ON
-Date: Fri, 10 Apr 2026 12:40:51 +0200
-Message-ID: <20260410104058.83748-9-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260410104058.83748-1-ulf.hansson@linaro.org>
-References: <20260410104058.83748-1-ulf.hansson@linaro.org>
+	id 1wB9OQ-0000000C2GX-45OB;
+	Fri, 10 Apr 2026 10:47:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F3FF96014B;
+	Fri, 10 Apr 2026 10:47:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C2F9C19421;
+	Fri, 10 Apr 2026 10:47:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1775818037;
+	bh=VxQEfGXpxpMHA8FzWWQyJjc+5K8xS5fjOzKEGbCASu8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mULBR3uWs4EOlT9tU3UKzKzjlb0rgY30yj/W+Pb9GMiI2OzR44gW59dYOqxFMhxfq
+	 pRLpXMjibVodQOgLplqcSYKSPKZ0F5V0WZCn+IZb7Ayl3ACQMBhKgIbpkBen000KmN
+	 1oz2kPtkXSDFfrGFH9JI6cs1WkHV8UWWVDnmiKOD1s9CcTA4uWeW+RlvgB2aKHL6dX
+	 7hYV2IbiYrypSk2ZeYt3YVcBoraq8HWw2n6s+E/1GYnUQ+5T1QLQMdnlJaqa6c2LY1
+	 a9VrwbA70xXwPriIQvPcI/D6gXULqwLUGHlD7N0FsBBCxo/oe9WQwNUW3XafCfpSh+
+	 CI+dsTbVkl3JQ==
+Date: Fri, 10 Apr 2026 12:47:14 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Naushir Patuck <naush@raspberrypi.com>, Stanimir Varbanov <svarbanov@suse.de>
+Subject: Re: [PATCH 2/3] pwm: rp1: Add RP1 PWM controller driver
+Message-ID: <adjU6KqtDEweVRes@monoceros>
+References: <cover.1775223441.git.andrea.porta@suse.com>
+ <28e29fbfc20c0b8a115d006233c2759d8f49e639.1775223441.git.andrea.porta@suse.com>
+ <adLTwOTbkJ0VQXy6@monoceros>
+ <adfQ6Tvst3Vd1Mxe@apocalypse>
+ <adiW1tBC8Imd14LD@monoceros>
+ <adjQl37-6a--_y3Y@apocalypse>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_034119_160522_0B1CECE7 
-X-CRM114-Status: GOOD (  10.89  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="76qgdc7mk3nwvbgo"
+Content-Disposition: inline
+In-Reply-To: <adjQl37-6a--_y3Y@apocalypse>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,30 +77,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Due to the new fine grained sync_state support for onecell genpd provider
-drivers, we should no longer need use the legacy behaviour. Therefore,
-let's drop GENPD_FLAG_NO_STAY_ON.
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
----
- drivers/pmdomain/renesas/rcar-sysc.c | 1 -
- 1 file changed, 1 deletion(-)
+--76qgdc7mk3nwvbgo
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 2/3] pwm: rp1: Add RP1 PWM controller driver
+MIME-Version: 1.0
 
-diff --git a/drivers/pmdomain/renesas/rcar-sysc.c b/drivers/pmdomain/renesas/rcar-sysc.c
-index bd7bb9cbd9da..e4608c657629 100644
---- a/drivers/pmdomain/renesas/rcar-sysc.c
-+++ b/drivers/pmdomain/renesas/rcar-sysc.c
-@@ -241,7 +241,6 @@ static int __init rcar_sysc_pd_setup(struct rcar_sysc_pd *pd)
- 		}
- 	}
- 
--	genpd->flags |= GENPD_FLAG_NO_STAY_ON;
- 	genpd->power_off = rcar_sysc_pd_power_off;
- 	genpd->power_on = rcar_sysc_pd_power_on;
- 
--- 
-2.43.0
+Hello Andrea,
 
+On Fri, Apr 10, 2026 at 12:27:35PM +0200, Andrea della Porta wrote:
+> On 08:27 Fri 10 Apr     , Uwe Kleine-K=F6nig wrote:
+> > On Thu, Apr 09, 2026 at 06:16:41PM +0200, Andrea della Porta wrote:
+> > > On 23:45 Sun 05 Apr     , Uwe Kleine-K=F6nig wrote:
+> > > > On Fri, Apr 03, 2026 at 04:31:55PM +0200, Andrea della Porta wrote:
+> > > > > +static void rp1_pwm_free(struct pwm_chip *chip, struct pwm_devic=
+e *pwm)
+> > > > > +{
+> > > > > +	struct rp1_pwm *rp1 =3D pwmchip_get_drvdata(chip);
+> > > > > +	u32 value;
+> > > > > +
+> > > > > +	value =3D readl(rp1->base + PWM_CHANNEL_CTRL(pwm->hwpwm));
+> > > > > +	value &=3D ~PWM_MODE_MASK;
+> > > > > +	writel(value, rp1->base + PWM_CHANNEL_CTRL(pwm->hwpwm));
+> > > > > +
+> > > > > +	rp1_pwm_apply_config(chip, pwm);
+> > > >=20
+> > > > What is the purpose of this call?
+> > >=20
+> > > To update the configuration on the next PWM strobe in order to avoid
+> > > glitches. I'll add a short comment in the code.
+> >=20
+> > .pwm_free() should not touch the hardware configuration. Changing the
+> > pinmuxing (which I guess is the purpose of clearing PWM_MODE_MASK) is
+> > somewhat a grey area. If that saves energy, that's okish. Otherwise
+> > not interfering with the operation of the PWM (e.g. to keep a display on
+> > during kexec or so) is preferred.
+>=20
+> Sorry I should've been more clear on this. The pinmux/conf is not changed
+> at all by this mask, only the PWM output mode is. The controller can outp=
+ut
+> several type of waveforms and clearing PWM_MODE_MASK is just setting the
+> controller to output a 0, which is the reset default i.e. the same value
+> as just before exporting the channel.
+> I guess this is the expected behaviour in case of a fan, it should stop
+> spinning in case you unexport the pwm channel, but I see it could be
+> different with displays.
+> Honestly I don't have a strong opinion about that, please just let me
+> know if I should drop that pwm_free entirely.
+
+Yes, in this case drop the function completely. It's the responsibility
+of the consumer to stop the PWM before releasing it.
+
+> > > > > +static int rp1_pwm_resume(struct device *dev)
+> > > > > +{
+> > > > > +	struct rp1_pwm *rp1 =3D dev_get_drvdata(dev);
+> > > > > +
+> > > > > +	return clk_prepare_enable(rp1->clk);
+> > > >=20
+> > > > Hmm, if this fails and then the driver is unbound, the clk operatio=
+ns
+> > > > are not balanced.
+> > >=20
+> > > I'll add some flags to check if the clock is really enabled or not.
+> >=20
+> > To be honest, I guess that is a problem of several drivers, not only in
+> > drivers/pwm. If this complicates the driver, I guess addressing this
+> > isn't very critical.
+>=20
+> I'll come up with something, we can always drop this check if deemed
+> too 'noisy'.=20
+
+Great, thanks
+Uwe
+
+--76qgdc7mk3nwvbgo
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmnY1TAACgkQj4D7WH0S
+/k5KOAf+OQyTYcP/Ul35R81Bb5k+Ezz9DcY8HnJ6dIcCdsGfLlj5xfexCMkbGtki
+MWd1M0fgQCifDkkFHr/CaH6F8l0JUAtqbVdECz8RBUkknrsjrTawj91kp27Va4IC
+FQKRhMbpkOVJLYoU5yKeokBUZmqF/zOrmWhWxHpCKFoQq18yv+cODDR+XbHTNGRz
+8MC7YV7Fqhi1+qp1edRe5nmanvWhdi08sM5Eo9jimEphB1xlqvz8pQlPtFCoFUkp
+2n/t8rSLWRxCMmK/8q6QJ7DdJLQwIt9nw/fBHtoZ0ztNmCFVgC8uK6845uq0EnV0
+O1H3wAu8bpystWDLHqU9/oSMeQ9Nog==
+=J4+0
+-----END PGP SIGNATURE-----
+
+--76qgdc7mk3nwvbgo--
 
