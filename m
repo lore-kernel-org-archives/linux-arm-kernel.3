@@ -4,61 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D2ADF4485A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 13:26:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF99AF44868
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 13:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CsDaaZpv5n8qCkNzSvqAjTBWRAYGmVq1A4ZZMvBAgtQ=; b=EsquLX0lVjdbJ8Ly0EZuMaxQif
-	VtcLihD5dq2ez1YwSGw/TBEUv5PRXQOABJaCohaVGC2NvW5Gylw9jlBZwgCRCxNkqtirMgMIMN4Gv
-	np5Md2MhiWeJUb0O/nhLF9ilJTOpfTb/a/Adi9ah0o0BQ3qsueyHHXb9r+Z01ywXMXQnEnTv20mEH
-	KtbDd56bU2diiw+lLJVKkXxB0bk2RkGs9+MfPfkkt5YYnJO0RZcHGs4qfJQN2TbFVimacvpTtu2Oc
-	Flw9Q1vrzQfx993Uz21EIlEOBayfX3EetHDXS+HcuBasmfPD4OB+tZPED1EIlQpn0YolpfB0cMtyR
-	w1VztxNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DqL1GrdEAJcl9acbfnmWZiJ733NBeYHp8APhAnCH1ek=; b=S07XhI7yDT1Z4yHRBDuQnGzgnt
+	i0bQlGEqJcGlJfr/5RfPFEeBXLY0JRgRwyiHC5Y3OZFeRqz7cdOGCXxkthvN12ERXefEUYvdN+1MM
+	4U6d170LxmsF3RK72sAPQGNtKyE3eTt7hOMW0qmwm8oDB1C0e/geLaEdpqEh72mIYNSDJQiLGw8ba
+	AXyyBJ4fhY0kp0RWX13UuG7dx2pdkqfhqeDIAoN7pxIRoYJicjDeYrHBIO9stBAXEP8xKuV/XBTyS
+	TczoU9FqJcQOcJOgaCP3/CU6wkOk0K1hw1TpBPXyjd+X3FQgstRA5R+yXXNZAGupQ7+9OyFpC6umL
+	JDo7G7xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBBsJ-0000000CJgS-0wze;
-	Fri, 10 Apr 2026 13:26:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wBBvJ-0000000CJuE-3Ff5;
+	Fri, 10 Apr 2026 13:29:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBBsH-0000000CJgI-3qwv
+	id 1wBBvG-0000000CJts-3y69
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 13:26:17 +0000
+	Fri, 10 Apr 2026 13:29:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 028536111A;
-	Fri, 10 Apr 2026 13:26:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64FB7C19421;
-	Fri, 10 Apr 2026 13:26:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D8F7940728;
+	Fri, 10 Apr 2026 13:29:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 347F1C19421;
+	Fri, 10 Apr 2026 13:29:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775827576;
-	bh=jUlRnma1xJa8+nwYl3V3dOclO0avaVVMiv4EZmu+y9Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XkG8wasp5CWzpUJDwopaAscES9R3JseIjXRorRp+swZzYlpCRH4AsfoP/799kxCdE
-	 Yw+7Eku+oLyW4ee3eF5CD9VQIXWHp5iLY6PMoR2nVCJoTEpwqnthavC8K6vr556AGy
-	 xQeOoym3vfEEPmO9k0bKxcO8J8SEmJ2/cEjNYYisLC/3/8+cBeJsYulODdr5BFBwIf
-	 v+101L2LSyHqItg8cdBEGYffdoCihq5/QqBgErPXpjTMpSPvMl4kjUFY0VjKw6rP4A
-	 6E13a3xrAuxXzU87CPwP28nA73SRMqcdQQ3eBXKRYVsJeISlaKzCMLa3KQIrLWon0k
-	 /aXztOJC6y1Fg==
-Date: Fri, 10 Apr 2026 14:26:12 +0100
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, James Morse <james.morse@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v5 4/4] arm64: errata: Work around early CME DVMSync
- acknowledgement
-Message-ID: <adj6c84nm0K1S228@willie-the-truck>
-References: <20260407102848.2266988-1-catalin.marinas@arm.com>
- <20260407102848.2266988-5-catalin.marinas@arm.com>
- <adjohQBfrHVc1HIh@willie-the-truck>
- <adjzVTjEOz7DGmW4@arm.com>
+	s=k20201202; t=1775827761;
+	bh=BGTVhOVa+Fdq7E52HiKwBfIFKgu77QwjCb2aXOQf+Ws=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lz3e7crtUJ7MuP6SM2Vx3dNuc7GOeW4ksMX1JVpBZY0vOH3PfyBr/8ho2CDhwu9nm
+	 ojGoibQSGNm8/3W2av8EBOabOBZdX0DPf4dmTgWp1beeYIK03Q/pUKcx0LYuE11fgu
+	 kDGFZ4Bof7AAQUUtXjLoycQKPFY3ZLvSDzMQxRnPLUut0+TUHENXf3DDwAB2hCgoEq
+	 SSUT00TR1RUZyfzZJWbdBuYu+iV0qRuXh7YXt1RQnlyHMxa6tjvVTbPeDwRWKMdi3+
+	 nmAPqnMaJzMcITQMPPShhTDjBJUaP5AZhvJYbXHmUed3/UJ1XC/SFkAQA/rCp7K/Cl
+	 +M3elzl8XckDg==
+Message-ID: <40f31e5a-7161-4b17-af03-52b3a28a113e@kernel.org>
+Date: Fri, 10 Apr 2026 15:29:12 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <adjzVTjEOz7DGmW4@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/4] mm: improve large folio readahead and alignment
+ for exec memory
+Content-Language: en-US
+To: Lorenzo Stoakes <ljs@kernel.org>, Usama Arif <usama.arif@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org,
+ willy@infradead.org, ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc,
+ jack@suse.cz, ajd@linux.ibm.com, apopple@nvidia.com, baohua@kernel.org,
+ baolin.wang@linux.alibaba.com, brauner@kernel.org, catalin.marinas@arm.com,
+ dev.jain@arm.com, kees@kernel.org, kevin.brodsky@arm.com,
+ lance.yang@linux.dev, Liam.Howlett@oracle.com,
+ linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, mhocko@suse.com, npache@redhat.com,
+ pasha.tatashin@soleen.com, rmclure@linux.ibm.com, rppt@kernel.org,
+ surenb@google.com, Al Viro <viro@zeniv.linux.org.uk>, ziy@nvidia.com,
+ hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
+ leitao@debian.org, kernel-team@meta.com
+References: <20260402181326.3107102-1-usama.arif@linux.dev>
+ <803a0c15-0a6a-4c00-b6b3-eaae56d5fc15@linux.dev> <adjkCOiLgZ_-zovg@lucifer>
+ <adjllNan2vgBNBHJ@lucifer> <5f99b289-629c-47c4-bef0-966d6678a2a8@linux.dev>
+ <adjrKwgiZwXR9epk@lucifer>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+In-Reply-To: <adjrKwgiZwXR9epk@lucifer>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260410_062923_029185_089EA758 
+X-CRM114-Status: GOOD (  20.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,53 +87,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 01:55:49PM +0100, Catalin Marinas wrote:
-> On Fri, Apr 10, 2026 at 01:09:41PM +0100, Will Deacon wrote:
-> > On Tue, Apr 07, 2026 at 11:28:44AM +0100, Catalin Marinas wrote:
-> > > diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-> > > index 489554931231..4c328b7c79ba 100644
-> > > --- a/arch/arm64/kernel/process.c
-> > > +++ b/arch/arm64/kernel/process.c
-> > > @@ -26,6 +26,7 @@
-> > >  #include <linux/reboot.h>
-> > >  #include <linux/interrupt.h>
-> > >  #include <linux/init.h>
-> > > +#include <linux/cpumask.h>
-> > >  #include <linux/cpu.h>
-> > >  #include <linux/elfcore.h>
-> > >  #include <linux/pm.h>
-> > > @@ -339,8 +340,41 @@ void flush_thread(void)
-> > >  	flush_gcs();
-> > >  }
-> > >  
-> > > +#ifdef CONFIG_ARM64_ERRATUM_4193714
-> > > +
-> > > +static void arch_dup_tlbbatch_mask(struct task_struct *dst)
-> > > +{
-> > > +	/*
-> > > +	 * Clear the inherited cpumask with memset() to cover both cases where
-> > > +	 * cpumask_var_t is a pointer or an array. It will be allocated lazily
-> > > +	 * in sme_dvmsync_add_pending() if CPUMASK_OFFSTACK=y.
-> > > +	 */
-> > > +	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714))
-> > > +		memset(&dst->tlb_ubc.arch.cpumask, 0,
-> > > +		       sizeof(dst->tlb_ubc.arch.cpumask));
-> > 
-> > nit: use cpumask_clear() instead?
+On 4/10/26 14:24, Lorenzo Stoakes wrote:
+> On Fri, Apr 10, 2026 at 01:19:08PM +0100, Usama Arif wrote:
+>> >> Thanks, Lorenzo
+>> >
+>> > (Note that we're in a 'quiet period' from here until -rc1 of next cycle and
+>> > won't be taking anything new until then. We plan to do this from around rc5 or
+>> > rc6 of each cycle in future).
+>>
+>> Thanks! Just wanted to check, as I am always confused about this. Is it ok
+>> to send patches for review for next release at this time? So that they
+>> are in a good state when rc1 comes. I wanted to send PMD swap entries
+>> for review after I am finished testing, but I want them for review for
+>> next release.
 > 
-> I tried to explain in the comment above. The memset() is on purpose to
-> avoid #ifdef CPUMASK_OFFSTACK. When enabled, cpumask_var_t is a pointer
-> and we want it set to NULL (for later lazy allocation) rather than
-> clearing the parent's cpumask. I had the diff below initially but it
-> looked uglier. Or we make the erratum dependent on !CPUMASK_OFFSTACK but
-> it won't get compile coverage with defconfig.
+> I think different people have different views on that :)
+> 
+> I mean it's debateable whether having a glut of new material on day one of -rc1
+> is preferable to having a bunch come in that might or might not get lost along
+> the way :)
+> 
+> I personally feel it'd be better to send during the cycle window rather than
+> before but I suspect others disagree with that!
+> 
+> So from your point of view, feel free to do what you like, but maybe David +
+> others would want to chime in with their opinions?
 
-Sorry, my mistake. I was focussing on the mm_cpumask() changes since v3
-(which always seem to be embedded as part of the 'mm_struct' allocation)
-and didn't realise that this memset() is operating on the TLB batch
-cpumask.
+For me the more important part of the quiet period is that patches can't be
+merged, so there's less urgency to review them immediately. So I think it's
+fine to still send patches, but not having expectations about quick
+response, as people might be taking time off.
 
-So it looks like v5 is the charm :)
+On the other hand it would be better if new series could mature in this
+quiet period, so there would be less work after rc1. But the key to making
+that possible I think is to feel less urgency/being overwhelmed also in the
+non-quiet period (rc1-rc5/6). Then it's should be less necessary to take
+time off during the quiet period. So hopefully we'll get there through
+involving more reviewers, and by having more submaintainers agency.
 
-Will
+Vlastimil
 
