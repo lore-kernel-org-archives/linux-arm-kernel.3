@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33184E99063
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBAA9E9905D
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 09:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,38 +12,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Un6/5hQDB4O/MEu6q894jg317PijwDr803+Azh9z1Jg=; b=iSqMuDfJgBMa/yoGT8P/R8P8oN
-	cNF62dC///m5V4U6DMzI3ZNty56Elc1BeSUBfKkQcRZoqKbqZl2rkB7LAQ9cSCeJWDacWP4AnYdiR
-	4y8mDdUyuz6XHrGnEjgMptjNprfF4XYqdh7fT4pRt0npAnZlAjswP/oPZkeU6fUVaX1X0KqAVcLsK
-	PefDTROIeOUilQayEqAibtHcdY27f8au3f8uluUk/PemUsK6h82gk4qD5vHbG4gm/zBe1ctUAcMnq
-	YR/K5eBv9OUncZ6pbEu+hFy9yFyEifZSOpvirtzcKHDyQUaDfB+tHm0LuhWR3w7BFZl5iwUNzvKdU
-	l2obcTvg==;
+	bh=8IjqAoeDdVagfBLkiypNJEraYHsPPairzevdGS/Cfvo=; b=tr1OQZ4LfLG+fWdB0dOl9JuNVD
+	jsYHJwtEsTON0Eotd5wbdaNLvO6XOmNKvx2h6TOsKwJwnm7O9WTJgP1C5e1oMRCP6FNiGDL7khV9g
+	k6kBIxLbv2LYmCfq6SVVmNuFzdZwq1gnhj8VVOjH8W1WhPY9YrjYlKdhxvb1flnWHtq36MSSPsbCz
+	SlQ5OvUYDNruaF/6jKl9c21JjEx35ku8cTP4t5NufmCKy94KROAPHr/HW7ixAqimhtHgpSHS+9374
+	YHsiktW4y8hqq6WBWLwF6MtAORdYhzieOzOjxl9THOvvLbvLf9eEUS95v4JUmtMicVQscFZGcgI+Z
+	ZOxCE/1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB8Fe-0000000Bv5W-0fFx;
+	id 1wB8Fe-0000000Bv6O-3L2U;
 	Fri, 10 Apr 2026 09:34:10 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB8FY-0000000Bv2x-1Mtw
+	id 1wB8Fa-0000000Bv30-2n3f
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 09:34:07 +0000
+	Fri, 10 Apr 2026 09:34:08 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=Un6/5hQDB4O/MEu6q894jg317PijwDr803+Azh9z1Jg=;
-	b=i55Kip2zCvSkxi/dx8mmEUh3mlwyX/Z9rqtPkjLLA+cHvkcvtVguhivXOMcR5QNy9eaYBR6HU
-	bBEzuj6Mi9DYEnw+ol+ckj7uYIEX4BKlqm1+SdmEIzFsYGyILcEHzZ8ZwrRpq3LDZhIjof2/qIN
-	zO/WKxNMtcmialiVAmfX5tA=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4fsWfw3JNczcb16;
-	Fri, 10 Apr 2026 17:27:36 +0800 (CST)
+	bh=8IjqAoeDdVagfBLkiypNJEraYHsPPairzevdGS/Cfvo=;
+	b=jocgOYpjemc0kB90wXgea0j6u3rV4DidOaE9dm94KqDfLxUQgid6UC5yUbdFDq9cc2JK7hN4N
+	qyqOBIHRaQ6Guv7TgHA6IUOBBNRySSlz8t2SZBALwBT06CwmjA7JfSjTu/5jVUAqSb2YYV3dIQd
+	HVRTjaEbXy/OyJS3K1mSgBQ=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4fsWfs4W5Jz12LCq;
+	Fri, 10 Apr 2026 17:27:33 +0800 (CST)
 Received: from kwepemk500005.china.huawei.com (unknown [7.202.194.90])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6DA0C4048F;
-	Fri, 10 Apr 2026 17:33:57 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 7329940561;
+	Fri, 10 Apr 2026 17:33:54 +0800 (CST)
 Received: from huawei.com (10.50.163.32) by kwepemk500005.china.huawei.com
  (7.202.194.90) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 10 Apr
- 2026 17:33:56 +0800
+ 2026 17:33:53 +0800
 From: Yifan Wu <wuyifan50@huawei.com>
 To: <tony.luck@intel.com>, <reinette.chatre@intel.com>, <Dave.Martin@arm.com>,
 	<james.morse@arm.com>, <babu.moger@amd.com>, <shuah@kernel.org>,
@@ -55,9 +55,9 @@ To: <tony.luck@intel.com>, <reinette.chatre@intel.com>, <Dave.Martin@arm.com>,
 CC: <xiaqinxin@huawei.com>, <prime.zeng@hisilicon.com>,
 	<wangyushan12@huawei.com>, <xuwei5@huawei.com>, <fanghao11@huawei.com>,
 	<wangzhou1@hisilicon.com>
-Subject: [PATCH v2 5/6] selftests/resctrl: Refactor reading from IMC using linked list
-Date: Fri, 10 Apr 2026 17:33:51 +0800
-Message-ID: <20260410093352.3988125-6-wuyifan50@huawei.com>
+Subject: [PATCH v2 1/6] selftests/resctrl: Introduced linked list management for IMC counters
+Date: Fri, 10 Apr 2026 17:33:47 +0800
+Message-ID: <20260410093352.3988125-2-wuyifan50@huawei.com>
 X-Mailer: git-send-email 2.33.0
 In-Reply-To: <20260410093352.3988125-1-wuyifan50@huawei.com>
 References: <20260410093352.3988125-1-wuyifan50@huawei.com>
@@ -68,8 +68,8 @@ X-Originating-IP: [10.50.163.32]
 X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
  kwepemk500005.china.huawei.com (7.202.194.90)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_023404_733260_8B747495 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20260410_023407_108904_827610AD 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,80 +84,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Read the memory bandwidth from the IMC using linked list.
+Added linked list based management for IMC counter configurations,
+allowing the system to dynamically allocate and clean up resources based on
+actual hardware capabilities.
 
 Signed-off-by: Yifan Wu <wuyifan50@huawei.com>
 ---
- tools/testing/selftests/resctrl/resctrl_val.c | 26 +++++++++----------
- 1 file changed, 12 insertions(+), 14 deletions(-)
+ tools/testing/selftests/resctrl/mba_test.c    |  1 +
+ tools/testing/selftests/resctrl/mbm_test.c    |  1 +
+ tools/testing/selftests/resctrl/resctrl.h     |  2 ++
+ tools/testing/selftests/resctrl/resctrl_val.c | 20 +++++++++++++++++++
+ 4 files changed, 24 insertions(+)
 
+diff --git a/tools/testing/selftests/resctrl/mba_test.c b/tools/testing/selftests/resctrl/mba_test.c
+index 39cee9898359..4bb1a82eb195 100644
+--- a/tools/testing/selftests/resctrl/mba_test.c
++++ b/tools/testing/selftests/resctrl/mba_test.c
+@@ -166,6 +166,7 @@ static int check_results(void)
+ 
+ static void mba_test_cleanup(void)
+ {
++	cleanup_read_mem_bw_imc();
+ 	remove(RESULT_FILE_NAME);
+ }
+ 
+diff --git a/tools/testing/selftests/resctrl/mbm_test.c b/tools/testing/selftests/resctrl/mbm_test.c
+index 6dbbc3b76003..68c89f50a34a 100644
+--- a/tools/testing/selftests/resctrl/mbm_test.c
++++ b/tools/testing/selftests/resctrl/mbm_test.c
+@@ -125,6 +125,7 @@ static int mbm_measure(const struct user_params *uparams,
+ 
+ static void mbm_test_cleanup(void)
+ {
++	cleanup_read_mem_bw_imc();
+ 	remove(RESULT_FILE_NAME);
+ }
+ 
+diff --git a/tools/testing/selftests/resctrl/resctrl.h b/tools/testing/selftests/resctrl/resctrl.h
+index 175101022bf3..a7556cdae0de 100644
+--- a/tools/testing/selftests/resctrl/resctrl.h
++++ b/tools/testing/selftests/resctrl/resctrl.h
+@@ -24,6 +24,7 @@
+ #include <linux/perf_event.h>
+ #include <linux/compiler.h>
+ #include <linux/bits.h>
++#include <linux/list.h>
+ #include "kselftest.h"
+ 
+ #define MB			(1024 * 1024)
+@@ -183,6 +184,7 @@ void mem_flush(unsigned char *buf, size_t buf_size);
+ void fill_cache_read(unsigned char *buf, size_t buf_size, bool once);
+ ssize_t get_fill_buf_size(int cpu_no, const char *cache_type);
+ int initialize_read_mem_bw_imc(void);
++void cleanup_read_mem_bw_imc(void);
+ int measure_read_mem_bw(const struct user_params *uparams,
+ 			struct resctrl_val_param *param, pid_t bm_pid);
+ void initialize_mem_bw_resctrl(const struct resctrl_val_param *param,
 diff --git a/tools/testing/selftests/resctrl/resctrl_val.c b/tools/testing/selftests/resctrl/resctrl_val.c
-index ce5f96d5457c..65ae93205b38 100644
+index f20d2194c35f..d9ae24e9d971 100644
 --- a/tools/testing/selftests/resctrl/resctrl_val.c
 +++ b/tools/testing/selftests/resctrl/resctrl_val.c
-@@ -57,15 +57,15 @@ static void read_mem_bw_initialize_perf_event_attr(struct imc_counter_config *im
- 		PERF_FORMAT_TOTAL_TIME_ENABLED | PERF_FORMAT_TOTAL_TIME_RUNNING;
- }
+@@ -28,6 +28,7 @@ struct membw_read_format {
+ };
  
--static void read_mem_bw_ioctl_perf_event_ioc_reset_enable(int i)
-+static void read_mem_bw_ioctl_perf_event_ioc_reset_enable(struct imc_counter_config *imc_counter)
- {
--	ioctl(imc_counters_config[i].fd, PERF_EVENT_IOC_RESET, 0);
--	ioctl(imc_counters_config[i].fd, PERF_EVENT_IOC_ENABLE, 0);
-+	ioctl(imc_counter->fd, PERF_EVENT_IOC_RESET, 0);
-+	ioctl(imc_counter->fd, PERF_EVENT_IOC_ENABLE, 0);
- }
+ struct imc_counter_config {
++	struct list_head entry;
+ 	__u32 type;
+ 	__u64 event;
+ 	__u64 umask;
+@@ -38,6 +39,7 @@ struct imc_counter_config {
+ static char mbm_total_path[1024];
+ static int imcs;
+ static struct imc_counter_config imc_counters_config[MAX_IMCS];
++LIST_HEAD(imc_counters_list);
+ static const struct resctrl_test *current_test;
  
--static void read_mem_bw_ioctl_perf_event_ioc_disable(int i)
-+static void read_mem_bw_ioctl_perf_event_ioc_disable(struct imc_counter_config *imc_counter)
+ static void read_mem_bw_initialize_perf_event_attr(int i)
+@@ -113,6 +115,7 @@ static int parse_imc_read_bw_events(char *imc_dir, unsigned int type,
+ 				    unsigned int *count)
  {
--	ioctl(imc_counters_config[i].fd, PERF_EVENT_IOC_DISABLE, 0);
-+	ioctl(imc_counter->fd, PERF_EVENT_IOC_DISABLE, 0);
- }
- 
- /*
-@@ -361,16 +361,16 @@ static int perf_open_imc_read_mem_bw(int cpu_no)
-  */
- static void do_imc_read_mem_bw_test(void)
- {
--	int imc;
+ 	char imc_events_dir[PATH_MAX], imc_counter_cfg[PATH_MAX];
 +	struct imc_counter_config *imc_counter;
+ 	unsigned int orig_count = *count;
+ 	char cas_count_cfg[1024];
+ 	struct dirent *ep;
+@@ -167,11 +170,17 @@ static int parse_imc_read_bw_events(char *imc_dir, unsigned int type,
+ 			ksft_print_msg("Maximum iMC count exceeded\n");
+ 			goto out_close;
+ 		}
++		imc_counter = calloc(1, sizeof(*imc_counter));
++		if (!imc_counter) {
++			ksft_perror("Unable to allocate memory for iMC counters\n");
++			goto out_close;
++		}
  
--	for (imc = 0; imc < imcs; imc++)
--		read_mem_bw_ioctl_perf_event_ioc_reset_enable(imc);
-+	list_for_each_entry(imc_counter, &imc_counters_list, entry)
-+		read_mem_bw_ioctl_perf_event_ioc_reset_enable(imc_counter);
- 
- 	sleep(1);
- 
- 	/* Stop counters after a second to get results. */
--	for (imc = 0; imc < imcs; imc++)
--		read_mem_bw_ioctl_perf_event_ioc_disable(imc);
-+	list_for_each_entry(imc_counter, &imc_counters_list, entry)
-+		read_mem_bw_ioctl_perf_event_ioc_disable(imc_counter);
+ 		imc_counters_config[*count].type = type;
+ 		get_read_event_and_umask(cas_count_cfg, *count);
+ 		/* Do not fail after incrementing *count. */
+ 		*count += 1;
++		list_add(&imc_counter->entry, &imc_counters_list);
+ 	}
+ 	if (*count == orig_count) {
+ 		ksft_print_msg("Unable to find events in %s\n", imc_events_dir);
+@@ -303,6 +312,17 @@ int initialize_read_mem_bw_imc(void)
+ 	return 0;
  }
  
- /*
-@@ -385,17 +385,15 @@ static void do_imc_read_mem_bw_test(void)
- static int get_read_mem_bw_imc(float *bw_imc)
++void cleanup_read_mem_bw_imc(void)
++{
++	struct imc_counter_config *imc_counter, *tmp;
++
++	list_for_each_entry_safe(imc_counter, tmp,
++				 &imc_counters_list, entry) {
++		list_del(&imc_counter->entry);
++		free(imc_counter);
++	}
++}
++
+ static void perf_close_imc_read_mem_bw(void)
  {
- 	float reads = 0, of_mul_read = 1;
--	int imc;
-+	struct imc_counter_config *r;
- 
- 	/*
- 	 * Log read event values from all iMC counters into
- 	 * struct imc_counter_config.
- 	 * Take overflow into consideration before calculating total bandwidth.
- 	 */
--	for (imc = 0; imc < imcs; imc++) {
-+	list_for_each_entry(r, &imc_counters_list, entry) {
- 		struct membw_read_format measurement;
--		struct imc_counter_config *r =
--			&imc_counters_config[imc];
- 
- 		if (read(r->fd, &measurement, sizeof(measurement)) == -1) {
- 			ksft_perror("Couldn't get read bandwidth through iMC");
+ 	int mc;
 -- 
 2.43.0
 
