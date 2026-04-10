@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EF95F4484C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CCC0F44847
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=vKymtlo11yiDU4TLKycOojSP+rmgc8Jkf+2yejheXps=; b=A2imFia90VIkEL
-	w5+S2Di9GpltmZBKej6gtwHfoGzMZJoPoYapwPiMGrAP0nI3yPLPNiMBD6RT2O3rprm26V89TkehY
-	OAr6Ew5wGGEM0oYsi7ZSV+paAWVyH1wGVIffDHyrrv1MKeZ91+W6TTVm8HddAxm/tB/IgbpoMGdUN
-	TnMSdDevXP+XBJBock3fy1FhxpZJSPT8JPBzMGu9jlvuvmq8Wpl6YWEmTV+zfcyvjjrwDaBDyazaQ
-	EsMI+9/9dMP9xhwiVV3iO04NOMSXifKt+1S9MXxNvNhbnOS8NvcM2xBfjr9f1SqNyJ6oQUKpCAAo/
-	7caUaqXgLcV/gKXqyJdQ==;
+	List-Owner; bh=cA5fsHKS5zMwzBxci+DP1Qed/9F1OdcNJnHEKWRTFD0=; b=U+ZEVIdDMEoExC
+	xodMFjP3SMAabgzKZ0vx7hYHX9BfbLv2Mp8KzrdQoD56jVxKegIWQPJWzVOJkDUG9bUdVj7YOQD60
+	F4wP1vUnEPx1POtx8kOV7HYUGqKA2/weaap5bvhq/RYeym+eSe7Z9fRooeqOqY8epqXspS5BJUyej
+	SzrEXSI0X72ShPS5L4GSxoZGHwPUa4pFYJ8KqvYLiZWnojMDmAomd33d4B15bANs8pfaUJivhtroV
+	mX4kYpqArYPT4nISqlceeSpDiSK6/gFCjlUeVmb+OZ9UvPjJX8wOTrJfNHnI0RK5Qbc9pXF6ILg/3
+	m65ND2gIvYIkdPDAAh6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAr3-0000000CC6c-3hCu;
-	Fri, 10 Apr 2026 12:20:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wBAr1-0000000CC2v-2XN7;
+	Fri, 10 Apr 2026 12:20:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAqr-0000000CBmv-3hT3;
-	Fri, 10 Apr 2026 12:20:46 +0000
+	id 1wBAqm-0000000CBfk-28Kz;
+	Fri, 10 Apr 2026 12:20:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D2A206111B;
-	Fri, 10 Apr 2026 12:20:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C04A4C19425;
-	Fri, 10 Apr 2026 12:20:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1605941780;
+	Fri, 10 Apr 2026 12:20:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B1D3C2BC9E;
+	Fri, 10 Apr 2026 12:20:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775823643;
-	bh=ZI1DuZTKY+73ZiUZu5YDxjD9E28Vsj2HJPMLgb9lTAs=;
+	s=k20201202; t=1775823639;
+	bh=xuHY9CZoFUC3Uh1usl17ZiiMpll/sjP+R8Uwlr/gPtE=;
 	h=Date:From:To:Cc:Subject:References:From;
-	b=aKc8BIj04xl8fMPMfIdxvFnc9Be7sg+HcqnW4NP8XAVA8CoHWWZUH1TGoEDd3vKKD
-	 FNpRo6Iom4qBRwumLXapTj7hfgRDejsC7j6E+L/Vx4C85D2LE1/deOAcMcctONxvIo
-	 HMR5AMjZPk8wC2GcrGQEDXlt0rYZP0bNeTIqA2wyhnF5OK38Pv/q09G+oh4E6MeUyG
-	 /IRrdxDk2wKuJ9eIif/wOJjQhHy2AsumkYu8PWY0TnTc6wXQmoLW+lJrShxrt0E6Gb
-	 m+nyDRqFv+r0pZBlp7wkM/XjcKkMGym/WCszxlys26yMLXsGUqt11/GgfHwii1mXtv
-	 FSYiSRKkHgM1Q==
-Date: Fri, 10 Apr 2026 14:20:40 +0200
-Message-ID: <20260410120319.397219631@kernel.org>
+	b=q1INVKXpZHtktKQFtR7J0+4UmhxfrqTk44NJDJ9JcHhB06YLNiRtKSdKF4mgJVuJK
+	 SbcmSgsMKGBRlcg33rDyUOrFSOUDUDhFVtStbWiiXhg+24Wo0rvXGROWGoPGbTgWpY
+	 1QIfeqOqXuPtKqCTAnTH/4z6y5eKaf0+C4alVsAJYiVtcktTob8TzqOeasZ85w0p7X
+	 BtZas6qdu0vK0vHim0/6rol7iQm8En5aXNu+7ovbB+IOTj4HSKX+ow5cG7qCECZo1T
+	 4BmBLkbX+cyQgBzFeuQcBUbwDEtuOB2nQvII7+MypdiMTP4ticoX+aM+zON4QU+Q9r
+	 WXrWSNCF41x9w==
+Date: Fri, 10 Apr 2026 14:20:35 +0200
+Message-ID: <20260410120319.330598126@kernel.org>
 User-Agent: quilt/0.68
 From: Thomas Gleixner <tglx@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
- linux-m68k@lists.linux-m68k.org,
+Cc: Huacai Chen <chenhuacai@kernel.org>,
+ loongarch@lists.linux.dev,
  Arnd Bergmann <arnd@arndb.de>,
  x86@kernel.org,
  Lu Baolu <baolu.lu@linux.intel.com>,
@@ -78,8 +78,8 @@ Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
  Russell King <linux@armlinux.org.uk>,
  linux-arm-kernel@lists.infradead.org,
  Catalin Marinas <catalin.marinas@arm.com>,
- Huacai Chen <chenhuacai@kernel.org>,
- loongarch@lists.linux.dev,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ linux-m68k@lists.linux-m68k.org,
  Dinh Nguyen <dinguyen@kernel.org>,
  Jonas Bonn <jonas@southpole.se>,
  linux-openrisc@vger.kernel.org,
@@ -93,10 +93,13 @@ Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
  linux-s390@vger.kernel.org,
  "David S. Miller" <davem@davemloft.net>,
  sparclinux@vger.kernel.org
-Subject: [patch 27/38] m68k: Select ARCH_HAS_RANDOM_ENTROPY
+Subject: [patch 26/38] loongarch: Select ARCH_HAS_RANDOM_ENTROPY
 References: <20260410120044.031381086@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260410_052041_205260_927CFC5D 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,105 +114,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The only remaining usage of get_cycles() is to provide
+The only remaining non-architecture usage of get_cycles() is to provide
 random_get_entropy().
 
-Switch m68k over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY and
-providing random_get_entropy() in asm/random.h.
+Switch loongarch over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY
+and providing random_get_entropy() in asm/random.h.
 
-Remove asm/timex.h as it has no functionality anymore.
+Add 'asm/timex.h' includes to the relevant files, so the global include can
+be removed once all architectures are converted over.
 
 Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: linux-m68k@lists.linux-m68k.org
+Cc: Huacai Chen <chenhuacai@kernel.org>
+Cc: loongarch@lists.linux.dev
 ---
- arch/m68k/Kconfig              |    1 +
- arch/m68k/amiga/config.c       |    1 +
- arch/m68k/include/asm/random.h |   14 ++++++++++++++
- arch/m68k/include/asm/timex.h  |   25 -------------------------
- arch/m68k/kernel/time.c        |    2 +-
- 5 files changed, 17 insertions(+), 26 deletions(-)
+ arch/loongarch/Kconfig              |    1 +
+ arch/loongarch/include/asm/random.h |   15 +++++++++++++++
+ arch/loongarch/kernel/syscall.c     |    1 +
+ arch/loongarch/lib/delay.c          |    2 +-
+ 4 files changed, 18 insertions(+), 1 deletion(-)
 
---- a/arch/m68k/Kconfig
-+++ b/arch/m68k/Kconfig
-@@ -8,6 +8,7 @@ config M68K
- 	select ARCH_HAS_CPU_FINALIZE_INIT if MMU
- 	select ARCH_HAS_CURRENT_STACK_POINTER
- 	select ARCH_HAS_DMA_PREP_COHERENT if M68K_NONCOHERENT_DMA && !COLDFIRE
+--- a/arch/loongarch/Kconfig
++++ b/arch/loongarch/Kconfig
+@@ -26,6 +26,7 @@ config LOONGARCH
+ 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
+ 	select ARCH_HAS_PREEMPT_LAZY
+ 	select ARCH_HAS_PTE_SPECIAL
 +	select ARCH_HAS_RANDOM_ENTROPY
- 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE if M68K_NONCOHERENT_DMA
- 	select ARCH_HAVE_NMI_SAFE_CMPXCHG if RMW_INSNS
- 	select ARCH_MIGHT_HAVE_PC_PARPORT if ISA
---- a/arch/m68k/amiga/config.c
-+++ b/arch/m68k/amiga/config.c
-@@ -36,6 +36,7 @@
- #include <asm/machdep.h>
- #include <asm/io.h>
- #include <asm/config.h>
-+#include <asm/random.h>
- 
- #include "amiga.h"
- 
+ 	select ARCH_HAS_SET_MEMORY
+ 	select ARCH_HAS_SET_DIRECT_MAP
+ 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
 --- /dev/null
-+++ b/arch/m68k/include/asm/random.h
-@@ -0,0 +1,14 @@
++++ b/arch/loongarch/include/asm/random.h
+@@ -0,0 +1,15 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASMm68K_RANDOM_H
-+#define _ASMm68K_RANDOM_H
++/*
++ * Copyright (C) 2020-2022 Loongson Technology Corporation Limited
++ */
++#ifndef _ASM_RANDOM_H
++#define _ASM_RANDOM_H
 +
-+extern unsigned long (*mach_random_get_entropy)(void);
++#include <asm/timex.h>
 +
 +static inline unsigned long random_get_entropy(void)
 +{
-+	if (mach_random_get_entropy)
-+		return mach_random_get_entropy();
-+	return random_get_entropy_fallback();
++	return get_cycles();
 +}
 +
-+#endif
---- a/arch/m68k/include/asm/timex.h
-+++ /dev/null
-@@ -1,25 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--/*
-- * linux/include/asm-m68k/timex.h
-- *
-- * m68k architecture timex specifications
-- */
--#ifndef _ASMm68K_TIMEX_H
--#define _ASMm68K_TIMEX_H
--
--static inline cycles_t get_cycles(void)
--{
--	return 0;
--}
--
--extern unsigned long (*mach_random_get_entropy)(void);
--
--static inline unsigned long random_get_entropy(void)
--{
--	if (mach_random_get_entropy)
--		return mach_random_get_entropy();
--	return random_get_entropy_fallback();
--}
--#define random_get_entropy	random_get_entropy
--
--#endif
---- a/arch/m68k/kernel/time.c
-+++ b/arch/m68k/kernel/time.c
-@@ -26,12 +26,12 @@
- #include <asm/machdep.h>
- #include <asm/io.h>
- #include <asm/irq_regs.h>
-+#include <asm/random.h>
++#endif /*  _ASM_RANDOM_H */
+--- a/arch/loongarch/kernel/syscall.c
++++ b/arch/loongarch/kernel/syscall.c
+@@ -19,6 +19,7 @@
+ #include <asm/loongarch.h>
+ #include <asm/signal.h>
+ #include <asm/switch_to.h>
++#include <asm/timex.h>
+ #include <asm-generic/syscalls.h>
  
- #include <linux/time.h>
- #include <linux/timex.h>
- #include <linux/profile.h>
+ #undef __SYSCALL
+--- a/arch/loongarch/lib/delay.c
++++ b/arch/loongarch/lib/delay.c
+@@ -5,9 +5,9 @@
+ #include <linux/delay.h>
+ #include <linux/export.h>
+ #include <linux/smp.h>
+-#include <linux/timex.h>
  
--
- unsigned long (*mach_random_get_entropy)(void);
- EXPORT_SYMBOL_GPL(mach_random_get_entropy);
+ #include <asm/processor.h>
++#include <asm/timex.h>
  
+ void __delay(unsigned long cycles)
+ {
 
 
