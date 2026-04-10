@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4639EF44847
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:21:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C06ADF4484C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:21:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=55BqTpopgqyhosJe2byyDZjQwi/7tJCuwd4CS33Nh0I=; b=092S3wv5pISicJ
-	cQyS5t98oMWd2QqDv37tohT87u+SqtK+98QakQ6TidFsFFHnrf2TDvWwt+iSyv5KuJqNlPSeJaXN2
-	8pduiFWrembeXiJvP63XjXbaojoLuypZYhTaVIXVV8KJPYTnhT0c36EQyhUjlAkMbG9Hp43chAE6T
-	muZvKbfvIZxXNOD+BaIY0obEJIXFuJhvg3VgxqG3qxiuSJvf/Dr8N2ceSjxi/JD12WFx6kKYUYPfS
-	uqOhjGijfpx/Ad2/VzoNkOmBNX0D2ipjaaLS5ZEeR8wqSS8UTG/PpvrfQRMbXL42kuBbWOQHTyXPu
-	Yqu41QWA41/7WnFl3Aeg==;
+	List-Owner; bh=knDLOL3Pglg0Ub7FLYkkPKBMBdISeZid22CAd3SOyJM=; b=xVfLr3X3+Ul2EM
+	RcbuKjuZU7L4AcXuBzKP9V9SGgMvyF9yVvPjopQwkqf0r3PdFBQy+mlP/gpRg09CW/XOIpDzr28ZV
+	2LiDfLj4g1d1bFeKFrqYi4grJMtA+wq6Ehw6dDLC6leoVlJG6F6cxa4HByWqJfT1AKEx3Xe7LEhVZ
+	05IcKQ/RCkIuRHG+kjPxyBBvjf5jage+Owjsx4WGuRF16rbox/pQdmhrvKTB14ENc1vzSOJ/ufgLI
+	R3/+nNJjCKIu7SiOXL7r22pRbnmf1q/Ndq1WNuQbpwSqxGMqomYDGlgAsKQjmu9/OR+XUrHRL7+6F
+	o/Eck9DzDduyMdMjHW1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBArJ-0000000CCWt-07aB;
-	Fri, 10 Apr 2026 12:21:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wBArP-0000000CChJ-0x3K;
+	Fri, 10 Apr 2026 12:21:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAr5-0000000CC7w-1nPy;
-	Fri, 10 Apr 2026 12:21:01 +0000
+	id 1wBArA-0000000CCH0-327S;
+	Fri, 10 Apr 2026 12:21:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B18E409C7;
-	Fri, 10 Apr 2026 12:20:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82685C19421;
-	Fri, 10 Apr 2026 12:20:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5035961333;
+	Fri, 10 Apr 2026 12:21:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21923C2BCB2;
+	Fri, 10 Apr 2026 12:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775823658;
-	bh=Hb2dziS1cUz3f0ZYnY6mq4QP/VKrKM0StdHMUX+1BaE=;
+	s=k20201202; t=1775823663;
+	bh=arEz1VHg70GeH2cUr9Lpy43pf1nP5ZqGj9No6b3NvGc=;
 	h=Date:From:To:Cc:Subject:References:From;
-	b=RmyBeAjX6h1L2rIRLcz+AgNEdpyqYQZZkX4kYkgxpR9ZJA0/rvdow263wov/8PVOr
-	 hb2QUP5GwQZouavgtAcs0bwbkCd8TxgfCVh6LWoo2a7HWknstglzPKB+9aabXFzH1J
-	 rP1F6gK8dqeRn0JBTKdTohI1oCqed+5PigWBVmbAA5ah3505CMSHrUL7HPCCN4sGiu
-	 NHT4954Kmifvfva6Jx9l4xaRzDUJEaSzZYxXiP8aChKSe2ykT1tpUU6RYxqauW7DoH
-	 p3wDa9fQGCdDGL4OtStOnSEjWIThdsFEIiYqSYDvCq0zlNoVlLTrCjuWlgc/BYNO1M
-	 jFsY3AL2zO6GQ==
-Date: Fri, 10 Apr 2026 14:20:55 +0200
-Message-ID: <20260410120319.593798781@kernel.org>
+	b=NMEawaGfBmItTINOkOidvgB6jXoclDGf78qU2DQLeTlzGLrdEzTDk/muIR3isadas
+	 Eyy5g0FnRv8ECHD8WNjJd+poKDwf709MD2FUA4Zxpq4v2gA+LwpA8vel0ik9BGCmUL
+	 SRAcDP7ql7MsZ2nrhkZkSeh/8fnf2+XnKGt9MLspNLANeefspPmNjhAwKQtf/nBzwq
+	 +qFTCUz5zVqyJxqgiY8VftvHSe0PhwZa05l9UZAVCASdReHFxw2Di6MoEIbRm/DACH
+	 6EZjVdKmyCFY0ahPlTJF5Om8tUGbM3+RzMDvfnJ5JW0Kfa99RJyTmb3751RAHQJ2qn
+	 SLzORLtraR9aA==
+Date: Fri, 10 Apr 2026 14:21:00 +0200
+Message-ID: <20260410120319.658485572@kernel.org>
 User-Agent: quilt/0.68
 From: Thomas Gleixner <tglx@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: Jonas Bonn <jonas@southpole.se>,
- linux-openrisc@vger.kernel.org,
+Cc: Helge Deller <deller@gmx.de>,
+ linux-parisc@vger.kernel.org,
  Arnd Bergmann <arnd@arndb.de>,
  x86@kernel.org,
  Lu Baolu <baolu.lu@linux.intel.com>,
@@ -83,8 +83,8 @@ Cc: Jonas Bonn <jonas@southpole.se>,
  Geert Uytterhoeven <geert@linux-m68k.org>,
  linux-m68k@lists.linux-m68k.org,
  Dinh Nguyen <dinguyen@kernel.org>,
- Helge Deller <deller@gmx.de>,
- linux-parisc@vger.kernel.org,
+ Jonas Bonn <jonas@southpole.se>,
+ linux-openrisc@vger.kernel.org,
  Michael Ellerman <mpe@ellerman.id.au>,
  linuxppc-dev@lists.ozlabs.org,
  Paul Walmsley <pjw@kernel.org>,
@@ -93,13 +93,10 @@ Cc: Jonas Bonn <jonas@southpole.se>,
  linux-s390@vger.kernel.org,
  "David S. Miller" <davem@davemloft.net>,
  sparclinux@vger.kernel.org
-Subject: [patch 30/38] openrisc: Select ARCH_HAS_RANDOM_ENTROPY
+Subject: [patch 31/38] parisc: Select ARCH_HAS_RANDOM_ENTROPY
 References: <20260410120044.031381086@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_052059_700013_54DE0594 
-X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,38 +114,39 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 The only remaining non-architecture usage of get_cycles() is to provide
 random_get_entropy().
 
-Switch openrisc over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY
+Switch parisc over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY
 and providing random_get_entropy() in asm/random.h.
 
 Add 'asm/timex.h' includes to the relevant files, so the global include can
 be removed once all architectures are converted over.
 
 Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-Cc: Jonas Bonn <jonas@southpole.se>
-Cc: linux-openrisc@vger.kernel.org
+Cc: Helge Deller <deller@gmx.de>
+Cc: linux-parisc@vger.kernel.org
 ---
- arch/openrisc/Kconfig              |    1 +
- arch/openrisc/include/asm/random.h |   12 ++++++++++++
- arch/openrisc/include/asm/timex.h  |    5 -----
- arch/openrisc/lib/delay.c          |    1 +
- 4 files changed, 14 insertions(+), 5 deletions(-)
+ arch/parisc/Kconfig              |    1 +
+ arch/parisc/include/asm/random.h |   12 ++++++++++++
+ arch/parisc/include/asm/timex.h  |    6 ------
+ arch/parisc/kernel/processor.c   |    1 +
+ arch/parisc/kernel/time.c        |    1 +
+ 5 files changed, 15 insertions(+), 6 deletions(-)
 
---- a/arch/openrisc/Kconfig
-+++ b/arch/openrisc/Kconfig
-@@ -10,6 +10,7 @@ config OPENRISC
- 	select ARCH_HAS_DELAY_TIMER
- 	select ARCH_HAS_DMA_SET_UNCACHED
- 	select ARCH_HAS_DMA_CLEAR_UNCACHED
+--- a/arch/parisc/Kconfig
++++ b/arch/parisc/Kconfig
+@@ -16,6 +16,7 @@ config PARISC
+ 	select ARCH_HAS_STRICT_MODULE_RWX
+ 	select ARCH_HAS_UBSAN
+ 	select ARCH_HAS_PTE_SPECIAL
 +	select ARCH_HAS_RANDOM_ENTROPY
- 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
- 	select GENERIC_BUILTIN_DTB
- 	select COMMON_CLK
+ 	select ARCH_NO_SG_CHAIN
+ 	select ARCH_SPLIT_ARG64 if !64BIT
+ 	select ARCH_SUPPORTS_HUGETLBFS if PA20
 --- /dev/null
-+++ b/arch/openrisc/include/asm/random.h
++++ b/arch/parisc/include/asm/random.h
 @@ -0,0 +1,12 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+#ifndef __ASM_OPENRISC_RANDOM_H
-+#define __ASM_OPENRISC_RANDOM_H
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASMPARISC_RANDOM_H
++#define _ASMPARISC_RANDOM_H
 +
 +#include <asm/timex.h>
 +
@@ -158,38 +156,44 @@ Cc: linux-openrisc@vger.kernel.org
 +}
 +
 +#endif
---- a/arch/openrisc/include/asm/timex.h
-+++ b/arch/openrisc/include/asm/timex.h
-@@ -9,13 +9,9 @@
-  * OpenRISC implementation:
-  * Copyright (C) 2010-2011 Jonas Bonn <jonas@southpole.se>
-  */
--
- #ifndef __ASM_OPENRISC_TIMEX_H
- #define __ASM_OPENRISC_TIMEX_H
+--- a/arch/parisc/include/asm/timex.h
++++ b/arch/parisc/include/asm/timex.h
+@@ -1,9 +1,4 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+-/*
+- * linux/include/asm-parisc/timex.h
+- *
+- * PARISC architecture timex specifications
+- */
+ #ifndef _ASMPARISC_TIMEX_H
+ #define _ASMPARISC_TIMEX_H
  
--#define get_cycles get_cycles
--
--#include <asm-generic/timex.h>
- #include <asm/spr.h>
- #include <asm/spr_defs.h>
- 
-@@ -23,6 +19,5 @@ static inline cycles_t get_cycles(void)
+@@ -13,6 +8,5 @@ static inline cycles_t get_cycles(void)
  {
- 	return mfspr(SPR_TTCR);
+ 	return mfctl(16);
  }
 -#define get_cycles get_cycles
  
  #endif
---- a/arch/openrisc/lib/delay.c
-+++ b/arch/openrisc/lib/delay.c
-@@ -18,6 +18,7 @@
- #include <linux/init.h>
- 
- #include <asm/param.h>
+--- a/arch/parisc/kernel/processor.c
++++ b/arch/parisc/kernel/processor.c
+@@ -30,6 +30,7 @@
+ #include <asm/pdcpat.h>
+ #include <asm/irq.h>		/* for struct irq_region */
+ #include <asm/parisc-device.h>
 +#include <asm/timex.h>
- #include <asm/processor.h>
  
- bool delay_read_timer(unsigned long *timer_value)
+ struct system_cpuinfo_parisc boot_cpu_data __ro_after_init;
+ EXPORT_SYMBOL(boot_cpu_data);
+--- a/arch/parisc/kernel/time.c
++++ b/arch/parisc/kernel/time.c
+@@ -17,6 +17,7 @@
+ #include <linux/platform_device.h>
+ #include <asm/processor.h>
+ #include <asm/pdcpat.h>
++#include <asm/timex.h>
+ 
+ static u64 cr16_clock_freq;
+ static unsigned long clocktick;
 
 
