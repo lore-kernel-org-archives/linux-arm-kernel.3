@@ -4,180 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B9CE99049
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 07:39:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D36EE99050
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 07:42:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i0IIMDn4lDQWfV2K84P9DhJKDnLJizTSGujsSI/eru8=; b=w7WUjOl62IGrQ10eZ2aLbXEt39
-	zyAcpksIgHQs3lUgAkc+vjTWB/fsx8Bes9Bl9l4VxTF6vsLPtfFLRwDnNnHozUoy3OK+uQ/X3ds5F
-	Nt8tJpZ7xo0AFge/XLEzstWXrHdi/lU/rZ90+Ek1LodNt1w7VMhctxm/p+cZrXMbGcU2MJBF7kiOD
-	1tlJEH8ORiIIPJdZu2K36AR1ECGNefUAPW/1e1j3QLHdcSDQMQXafT5+vler5M+5owUcBGY4QVnmX
-	e/l3fKYFb8277uBoCs85FKOJOweQ6FtfdDaZjxxRgfLXE2GXM/8lyIiyRFszIDAc2XHmeg83j0iLe
-	oCZlbP7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
+	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MHNH9UXB0cyYa0OWDg7so8oezJOoutLQTfep4KfFZOA=; b=W/A1UU8B1K+zv0gbaiBbHOaMOe
+	fFixa7XMhnEK3N5Bd/072Fl3qeamxbTSHHFttobs1etVbhRpgHyI/YdT7U26g+vsOSZG2w1PvKSXW
+	As9DuucQmXJl4p7pK+nRF9uVMZ7xdOyDK1xbXQIjGZXvaX5lMaTYn/OoOeqBz53qe1s6mFKjtiD/B
+	2ijLeOKVpi2UFVgWM0u5PSxWpEKw7E8IREISmVfy70h8kmpEXWmImUd/REOWQMFlyFS6nCSrrvUVp
+	1sIvK6B4S8d0oWEc49xrwOxh99jwjpOB3/RYVVshzd8LD9Dimptz0rtrC4xr1tFh6En3hcP30q9tT
+	qzHQJbFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB6Sj-0000000Bkve-3MxL;
-	Fri, 10 Apr 2026 07:39:33 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1wB6VR-0000000Bm5q-1pR2;
+	Fri, 10 Apr 2026 07:42:21 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB6Sh-0000000Bkv1-0ICm
+	id 1wB6VN-0000000Bm4x-2KoY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 07:39:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1775806771; x=1807342771;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=i0IIMDn4lDQWfV2K84P9DhJKDnLJizTSGujsSI/eru8=;
-  b=ewOw3bGFIIo1c0eTH6HJegt8LSesQLsMe7FbJbATQDhm3nwYpdWCzZfk
-   dcmLxSD0SVmYqmgW++m7cvs/C2yxlhEdx0VYIxL1KhRSRQ2k/qWDqtgC2
-   KfL+2YLjnT6pmyaJ5BV9lARC04xUWkox+1hKTZ8Y99rZeyDRBDNfl3WqR
-   /oGOjca7WjQBoFAolGhbzILvjggHbhL0P/uqccbvjo+W+OeR2/RQPvQdu
-   0k3thHBf6GsEoAstleAmylJuL80NIaJprSFRbk3xM6YVZbNi/n6KR5Fzt
-   KlAOiSF/gFbL8gwhIkNfq6St32U0Hv7gdaH+I+/G1ULG+hPn3jfNExip5
-   A==;
-X-CSE-ConnectionGUID: pF1Kmeb7Sg+DgVDGJpwcvQ==
-X-CSE-MsgGUID: JVHRMvjcQWmiNDVMv5yM5g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11754"; a="76943813"
-X-IronPort-AV: E=Sophos;i="6.23,171,1770624000"; 
-   d="scan'208";a="76943813"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2026 00:39:30 -0700
-X-CSE-ConnectionGUID: k6zXFFqKR0uXSE/lfN5XWw==
-X-CSE-MsgGUID: YA6FqYd5RM+kGLUz89ZA9Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,171,1770624000"; 
-   d="scan'208";a="222518399"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by fmviesa009.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2026 00:39:29 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Fri, 10 Apr 2026 00:39:29 -0700
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37 via Frontend Transport; Fri, 10 Apr 2026 00:39:29 -0700
-Received: from CO1PR03CU002.outbound.protection.outlook.com (52.101.46.55) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Fri, 10 Apr 2026 00:39:28 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=L23V13OXdbQflEwWrTZH5lOBdR4XHb0sRWeVeouVH5IfaWyjGQiThVuAl/MtW3hj5Hmd6eioYB8c1eb2OTpYsY8y9j1ISdBYw6k/fZtBhy5UO45JtUu71hsN8rdPJyjhCarKj3tenLpSXscppaqjAazCPYqw3XZMUqT9+5fEwOX0zpy5DIw80QNixCKdIuBXpCof/D2GDKjIXDQc4G0lWDyXppvOX3xb/2W6noL+VR0YRa0LXQA0KROCrj7aiCKLkLNBkoy1msIbTia+MBBqYtpWeD5EcuU9PPzJ8r6DhOsfbMt1qYbEc26eixF9sUlTb0TZ/xIs7eARX8EfjlY4MA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=i0IIMDn4lDQWfV2K84P9DhJKDnLJizTSGujsSI/eru8=;
- b=OrYbAgUL70bUOtncXslKwy0axsB5TmS3lg7sDf6TK/rQo1xYG5glK+I418159iii48Q4a6/Wsqi4RyEzZv3Jz04dcI9ReJu+ZPhMgKMPQnNG8jEdfvBvepR12JEL004O0epoIq7Tm5yzMW0T594bapmqf4xjrTXiD2L31HftCIN0n0tsuRvJtkTrwZ2DAX3flhgnIVgbg1G2WbzJj6jI1P62JKRzdYdFn8GG68dHpcSIFOW2+6blRyn08zYXqejG/Osjwe5iUfXwlN8EruWygvm2gdF8x8q+HXEDMCK4TgapSl+1+SAqMQs14P5goe9/w6qt3XUSA1GDcUlYhZNzYQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
- by IA1PR11MB7871.namprd11.prod.outlook.com (2603:10b6:208:3f5::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9791.34; Fri, 10 Apr
- 2026 07:39:26 +0000
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::f997:762f:f079:134f]) by BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::f997:762f:f079:134f%5]) with mapi id 15.20.9791.032; Fri, 10 Apr 2026
- 07:39:26 +0000
-From: "Tian, Kevin" <kevin.tian@intel.com>
-To: Jason Gunthorpe <jgg@nvidia.com>, Nicolin Chen <nicolinc@nvidia.com>
-CC: Samiullah Khawaja <skhawaja@google.com>, "will@kernel.org"
-	<will@kernel.org>, "robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"joro@8bytes.org" <joro@8bytes.org>, "bhelgaas@google.com"
-	<bhelgaas@google.com>, "rafael@kernel.org" <rafael@kernel.org>,
-	"lenb@kernel.org" <lenb@kernel.org>, "praan@google.com" <praan@google.com>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"xueshuai@linux.alibaba.com" <xueshuai@linux.alibaba.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-acpi@vger.kernel.org"
-	<linux-acpi@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, Vikram Sethi <vsethi@nvidia.com>
-Subject: RE: [PATCH v2 4/7] iommu/arm-smmu-v3: Mark ATC invalidate timeouts
- via lockless bitmap
-Thread-Topic: [PATCH v2 4/7] iommu/arm-smmu-v3: Mark ATC invalidate timeouts
- via lockless bitmap
-Thread-Index: AQHctkK1dv4ps/vKUE+CojHzX1Q1QrWz5inQgADHk4CAACzGAIAAUyTQgAACJgCAB6OBgIAbOWMw
-Date: Fri, 10 Apr 2026 07:39:26 +0000
-Message-ID: <BN9PR11MB5276908B840B7ED348863A868C592@BN9PR11MB5276.namprd11.prod.outlook.com>
-References: <cover.1773774441.git.nicolinc@nvidia.com>
- <0c5525367cc67ccc84a675544d1d9f8462704065.1773774441.git.nicolinc@nvidia.com>
- <BN9PR11MB52763AB181F5213FAAB4F4F08C4EA@BN9PR11MB5276.namprd11.prod.outlook.com>
- <abr8aS/MDU9aeKu9@Asurada-Nvidia> <absaKimeI_TXXxuu@google.com>
- <BN9PR11MB5276467C1933E19E98277D378C4FA@BN9PR11MB5276.namprd11.prod.outlook.com>
- <abtphBuLiXxSxmAy@Asurada-Nvidia> <20260323235105.GV7340@nvidia.com>
-In-Reply-To: <20260323235105.GV7340@nvidia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|IA1PR11MB7871:EE_
-x-ms-office365-filtering-correlation-id: 9d2fa823-6e22-4e97-5107-08de96d44ab7
-x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700021|18002099003|56012099003|22082099003;
-x-microsoft-antispam-message-info: 60ma6XZRnymsz5fK4vQbJRY80sPLutMq42Zwb6byloWknhEg8YhhFD5BYC+JEDtQtj0GbZpPWpU/+xrMmKyueKgErMbq0s1sP+HZh49CwLp9SjbrycVAD0XkKDjTABEzin0kqKbBG9MMYgYqpNNmq6cW5vgqMmIuYEDg9/mgPjhw1zlYfxdP3sjLETLUZl7qTICvU2aTc3PQIshPkO8z3P5tX5+FFp1YLyShu9Fr4gryyloCaIKuuca9fiAa2er2uHfevrcLkGDB2q+cLNdjU9Tkex882b+oXHmOHHgOApgvLGclCOVliDL4sgzAmMcfAI82/K3gJfOVfpZhHWYmPAmujtQRghT1HWaVUVG03MqtGH4HMDkCwJY9nNhyYsoW4m3S/YK3Su4hThzLAcrDWUH24pcQuwgXna7q9+7zZJstQzDhLz7PlACKGKzPetRrC7+X2xJNW5QC8HRcyFn+lf6gSoMDpWEpR5TQ11DkxcCmV8j/hKwzegSWFz3JkZk+OVQ7olMPMvTSeaRtGYXDshyU7+WkG9vgdiKTwJ0iLjba6bo4V7/SLDCfhxtdQXtlUociOglVzAZqjCKfdgY5bUs3XzTa8sOuHyuVV43P75Mv0fc5geeS5cvLd16KTPdmM2KJo0/Zuc3UEaVPXOK/FlFJnuAt4SznbunzoG74QU+9hMXDwCNasheLR7t/P49/I+jYwB2AmgVT5uP3zGkDnX2mlJ6pfwsIimPXxcbLjqxau/G73k1Z+Rey3D5QY35b5Vtfq5+QDMC5aqhSYK4Kl7c8jpVnrbnl9EzXTLvRzZI=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?9XyLN0ywZsakbY/TZlHsoTn9m17O13EvRZFpLPn2xkQd0c0pyYWFOHUjof0k?=
- =?us-ascii?Q?wzKAIZWHWtb6t53u8iILtFCUZWiihYgF7rMZ7aLxR38I/hbxILl7LyWE1sL3?=
- =?us-ascii?Q?SSO7ew3aFawUIJj7lUKnx1QCH4kso40CoeJzzKysZub3kMrKXAf80V+1ymRx?=
- =?us-ascii?Q?ssoL0RRRmqPC+/ahq6nawlKY28zPC8gE6SNt9oTTmNqp3XFNQBi3CLHDUsW4?=
- =?us-ascii?Q?rFejpuxbeu1n3Pn/Fb/mPHLjE/qzCdi3F+7ThOz+qLbWnJQZNq9kI45b7ZnL?=
- =?us-ascii?Q?I0FYf2w9CEXHtvwjNp7OduUx6m9p8wJTxXQW/irpXuLTsHn/fRJQXrZwQkM9?=
- =?us-ascii?Q?Da3t+YMJfl9wtQ1q6lxANWU28UdAjFOt3vJm4ia/8ltP4NsbX8P1sgI2dE+i?=
- =?us-ascii?Q?HONOUieD5k5b1mtZmDFIBEVtBhw1qWk4UMF3fP5mQgcQ+ZlyufU8YQVFo1lk?=
- =?us-ascii?Q?KVIsPICNlrQNcVwcOQ4Cf/mEnYyXRuBKXZhioZPcXkSYmb0VtXBIwLhgNYyx?=
- =?us-ascii?Q?5UbHwEyQkgY1GWk07QopvGt6zWp/M+7/Y/TLPiAPRe8ceeHdNrjNNlSHmNC6?=
- =?us-ascii?Q?DoRYD/IYeu86Q59lR3RWgRBAHkJ2Hyhzrze+wJK4VgWVNmrSqaZARiC/Ewbv?=
- =?us-ascii?Q?sM5hOCfwGwtrp1kFgsARRE/k0q9IP3GxncJdmwz1uk/5tbJ6AI4Zfq4HQl3U?=
- =?us-ascii?Q?UPZNfBSZHI22JSjEkzJ7oPnwfS/hRVFEmRvbHLPIlvLGWTevohXZbGgVvb83?=
- =?us-ascii?Q?0r/qKKejmxpY0mtyfOD0irA8wQr3nS2Hf4le+feXX5Vus2rXI28lBZfdO0ZC?=
- =?us-ascii?Q?LJNzt4YbX8+rc00fbqX6FoM26vdr/mpIJbb0RaznfN170hzdgjYV1kAmG3f9?=
- =?us-ascii?Q?sq//nIF71+kAbeRawIbZHwKu1onMtLuHSp7t8J/fJXABe2afHf9IOms5jHMm?=
- =?us-ascii?Q?R0a4dZcgbktJr+NkRMnvA7oKUiDLVZehuBUOyX0vIIbBceEKq7p4j4GYy6/d?=
- =?us-ascii?Q?Jhg9/171qfC/PdGkaK86VULzpVAjc/oDXxrlGZk17yiw9eqihDQl3x0k/xM6?=
- =?us-ascii?Q?hZ/Byb38/MjP0oB7Pjt2o5AP75qbc92stc2kCd6eWNwtUEgEMpdpm7abOdxV?=
- =?us-ascii?Q?24YprGLgE68vr0AuZ87EddzwW+zwRuyZ/Yy8f/28q4XyJw17ILt76PiBh6NZ?=
- =?us-ascii?Q?0k8oopanYOozhn2VLf66dsPy5hN/ejSy7ca0EmVdIWvHIby6Pr6yi/WQOpP1?=
- =?us-ascii?Q?v+8Zds2lqNOnMNFWKik1E6MLGMy5654+UIR6C36kw8bdNK29+lttLBDemKTL?=
- =?us-ascii?Q?HNEwjvdVVIBjeIOnqFNFW5LyS2gEPnUYYimU1Mulxc5dMlHohPEaUr/C5TIU?=
- =?us-ascii?Q?h4s1Vacj4yg2HYJp1boNPQ/QoUT3QubO9zGo2O1C0nSVKKNof7kdP4VEUn2S?=
- =?us-ascii?Q?zWBAnoXangDz9W9QGQHMvGCRNGCs0jMXPp6bwHk4k0CfThZgOuxC0F4BZHyQ?=
- =?us-ascii?Q?T+VDvXQKAvixDjB80kxYH8AIKWDee/zZoXuGWYZ2TLN3n4UoeqhPUcvPOYCQ?=
- =?us-ascii?Q?IRQqL57D2/muaoIvtah1YYimv6kjXFuoly/5yOoOU5ny09grnFtf8caiqZyT?=
- =?us-ascii?Q?zayn38lfMdPaGmrHCNk7UjDAKlXQol9pHRJiz/C+5NO7oTWpL0cxekgHhe5m?=
- =?us-ascii?Q?PBMpPpsdoohBtuvKvza4ha+fSoc0g6VAS7QaTZyvmD34ptQb+ekICVZfRB0E?=
- =?us-ascii?Q?0KCp4HwmEg=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
+	Fri, 10 Apr 2026 07:42:20 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 525981A325A;
+	Fri, 10 Apr 2026 07:42:14 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 165CE603F0;
+	Fri, 10 Apr 2026 07:42:14 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D03FF1045001D;
+	Fri, 10 Apr 2026 09:41:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1775806932; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=MHNH9UXB0cyYa0OWDg7so8oezJOoutLQTfep4KfFZOA=;
+	b=fb6SynIsvC1cwH9UKMqmu4ZqdazkS5hj4bRDu9pSaGAYro1/prY1xJlayMW0oVjkSSaa8u
+	X2jxQ54EkZg+y6nChj6kz3mRVp7dNOtBI28A4cBrBEtqEN66r3BmY9QrxKOkp0HxY4tu2C
+	uwVKIKo6SUQzn0KW5PgsgF6hoSux+egTxZbMMxHUHhai10afej68DxjClWB2HDRxFaz3yJ
+	WlpUgceB2XIpYBiD3OIddnvBOoBsQJ7GRfS2x0EE84QrzerRTDZJwP+0vyblHujmoMcsKt
+	8LphUmAUnRscmt/LZ4XLaCBeKy45DwJF+Zm9WA3ObZBdXzaPWXpynlPIi53/wg==
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: FFfJdhhHoMZWe97b6o71ZYGN8FJgwzoV2wH7lTYLy0RYSlNDqvfEp8NSmbV0yzrLtgGmhQmafPvUG1q0eT5pG4G+xdOYlaBqV33KOK52ycBiZDZKSBUNNBhhVuYGWAp8TrdJSirE9DtSpXASBKiK5RhT90p6HcgVhjHoYzs86etqxHZloeRL0JdUFh3esUthzYoPUczmpbIXigqF+vt+E7KFG6SopU21EHmYoEkmL14W2XZ+XUTlS/aEdmguYJBampiJY+o36vFpJ18kNccS3whXXQDgtRtHRmXbmaUPfCV04LSyAOMJW0+pa4vFMpzzkMHb0mRjmfufV6KQqcwHYg==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9d2fa823-6e22-4e97-5107-08de96d44ab7
-X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Apr 2026 07:39:26.3919
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: MbCxCoD8JDS3PGwyFkoFXOfKCtWyC0qddwp2hSBKmsMB+vsOJ9GA5NHOWKzR1MqZKcQwVtbDxw7YXS4+Hksz5g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB7871
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 10 Apr 2026 09:41:58 +0200
+Message-Id: <DHPB0K9AHVR3.33XQ35I1GV96N@bootlin.com>
+To: "Damon Ding" <damon.ding@rock-chips.com>, <andrzej.hajda@intel.com>,
+ <neil.armstrong@linaro.org>, <rfoss@kernel.org>,
+ <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
+ <tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
+ <victor.liu@nxp.com>, <Frank.Li@nxp.com>, <shawnguo@kernel.org>,
+ <s.hauer@pengutronix.de>, <inki.dae@samsung.com>, <sw0312.kim@samsung.com>,
+ <kyungmin.park@samsung.com>, <krzk@kernel.org>, <jingoohan1@gmail.com>,
+ <p.zabel@pengutronix.de>, <hjc@rock-chips.com>, <heiko@sntech.de>,
+ <andy.yan@rock-chips.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v13 11/17] drm/bridge: analogix_dp: Apply
+ drm_bridge_connector helper
+Cc: <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
+ <jernej.skrabec@gmail.com>, <kernel@pengutronix.de>, <festevam@gmail.com>,
+ <alim.akhtar@samsung.com>, <dmitry.baryshkov@oss.qualcomm.com>,
+ <nicolas.frattaroli@collabora.com>, <dianders@chromium.org>,
+ <m.szyprowski@samsung.com>, <linux-kernel@vger.kernel.org>,
+ <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-samsung-soc@vger.kernel.org>, <linux-rockchip@lists.infradead.org>
+X-Mailer: aerc 0.20.1
+References: <20260409065301.446670-1-damon.ding@rock-chips.com>
+ <20260409065301.446670-12-damon.ding@rock-chips.com>
+In-Reply-To: <20260409065301.446670-12-damon.ding@rock-chips.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_003931_148591_5878CD73 
-X-CRM114-Status: GOOD (  17.95  )
+X-CRM114-CacheID: sfid-20260410_004217_764478_2BED6CFA 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,40 +91,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: Jason Gunthorpe <jgg@nvidia.com>
-> Sent: Tuesday, March 24, 2026 7:51 AM
->=20
-> On Wed, Mar 18, 2026 at 08:12:04PM -0700, Nicolin Chen wrote:
-> > > > VT-d is able to find out the SID of the device for which the device=
- TLB
-> > > > invalidation timed-out occured by using the SID reported in the
-> > > > "Invalidation Queue Error Record Register" (VT-d Specs 11.4.9.9).
-> > >
-> > > yes. but when there are multiple submissions (each with a wait descri=
-ptor)
-> > > fetched/handled by the hw and then an invalidation timeout comes, all
-> > > pending wait descriptors will be aborted (not just the one correspond=
-ing
-> > > to the timeout). In this case all affected submitters need to re-try.
-> >
-> > This sounds similar to SMMU then.
->=20
-> Not entirely.. smmu HW stops processing at a SYNC and waits for
-> everything pending to complete, then goes on forward. If there is a HW
-> reported ATC timeout then it is contained to the SYNC that followed
-> the ATC invalidation. The errored sync is skipped and whatever follows
-> continues forward, so it doesn't contaminate future work.
->=20
-> VT-d's wait descriptor with fence FN=3D1 sounds identical???
+Hello Damon,
 
-yes
+On Thu Apr 9, 2026 at 8:52 AM CEST, Damon Ding wrote:
+> Initialize bridge_connector for both Rockchip and Exynos encoder sides.
+> Then, make DRM_BRIDGE_ATTACH_NO_CONNECTOR mandatory for Analogix bridge
+> side, as the private &drm_connector is no longer created.
+>
+> The previous &drm_connector_funcs and &drm_connector_helper_funcs APIs
+> are replaced by the corresponding &drm_bridge_funcs APIs:
+>
+> analogix_dp_atomic_check() -> analogix_dp_bridge_atomic_check()
+> analogix_dp_detect()       -> analogix_dp_bridge_detect()
+> analogix_dp_get_modes()    -> analogix_dp_bridge_get_modes()
+>                               analogix_dp_bridge_edid_read()
+>
+> Additionally, the compatibilities of Analogix DP bridge based on whether
+> the next bridge is a 'panel'. If it is, OP_MODES and OP_DETECT are
+> supported; If not (the next bridge is a 'monitor' or a bridge chip),
+> OP_EDID and OP_DETECT are supported.
+>
+> The devm_drm_bridge_add() is placed in analogix_dp_bind() instead of
+> analogix_dp_probe(), because the type of next bridge (the panel, monitor
+> or bridge chip) can only be determined after the probe process has fully
+> completed.
+>
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+> Tested-by: Heiko Stuebner <heiko@sntech.de> # rk3588
 
->=20
-> I guess if FN=3D0 then things start to become indeterminate what the
-> wait actually waits for..
->=20
+I noticed two issues, sorry I haven't catched them before...
 
-Currently we use FN=3D0, so all pending works before head pointer will be
-re-submitted. It has a larger impact compared to FN=3D1 when a timeout
-happens, but allows more parallel work in hardware at other times.
+> @@ -1580,7 +1533,8 @@ EXPORT_SYMBOL_GPL(analogix_dp_unbind);
+>
+>  int analogix_dp_start_crc(struct drm_connector *connector)
+>  {
+> -	struct analogix_dp_device *dp =3D to_dp(connector);
+> +	struct analogix_dp_device *dp;
+> +	struct drm_bridge *bridge;
+>
+>  	if (!connector->state->crtc) {
+>  		DRM_ERROR("Connector %s doesn't currently have a CRTC.\n",
+> @@ -1588,13 +1542,26 @@ int analogix_dp_start_crc(struct drm_connector *c=
+onnector)
+>  		return -EINVAL;
+>  	}
+>
+> +	bridge =3D drm_bridge_chain_get_first_bridge(connector->encoder);
+> +	if (bridge->type !=3D DRM_MODE_CONNECTOR_eDP)
+> +		return -EINVAL;
+> +
+> +	dp =3D to_dp(bridge);
+> +
+>  	return drm_dp_start_crc(&dp->aux, connector->state->crtc);
+>  }
+
+drm_bridge_chain_get_first_bridge() takes a reference, you must call
+drm_bridge_put(bridge) before returning. Given there are two return paths I
+suggest:
+
+-	struct drm_bridge *bridge;
+
+-	bridge =3D drm_bridge_chain_get_first_bridge(connector->encoder);
++	struct drm_bridge *bridge __free(drm_bridge_put) =3D
++		drm_bridge_chain_get_first_bridge(connector->encoder);
+
+>  EXPORT_SYMBOL_GPL(analogix_dp_start_crc);
+>
+>  int analogix_dp_stop_crc(struct drm_connector *connector)
+>  {
+> -	struct analogix_dp_device *dp =3D to_dp(connector);
+> +	struct analogix_dp_device *dp;
+> +	struct drm_bridge *bridge;
+> +
+> +	bridge =3D drm_bridge_chain_get_first_bridge(connector->encoder);
+> +	if (bridge->type !=3D DRM_MODE_CONNECTOR_eDP)
+> +		return -EINVAL;
+> +
+> +	dp =3D to_dp(bridge);
+>
+>  	return drm_dp_stop_crc(&dp->aux);
+>  }
+
+Same here:
+
+-	struct drm_bridge *bridge;
+
+-	bridge =3D drm_bridge_chain_get_first_bridge(connector->encoder);
++	struct drm_bridge *bridge __free(drm-bridge_put) =3D
++		drm_bridge_chain_get_first_bridge(connector->encoder);
+
+With the above two changes you can add to v14:
+
++Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
