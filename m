@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 987F9F36BA0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 02:57:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7671DF36B9A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 02:57:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=viDYrlihYZNkCXCtGQ4zBOjGUY2uxxjJAlGGYzgd7jQ=; b=NbkcPU/dxEiFV7mIxEWlc1/Rom
-	YZoIRR6+uHw3SlZVcX/rKlQ08MldHlr4DxFkcWAlbP337twRBeIM+aivGD1NRqyp8r7FiJYTsAiW7
-	DiGlD5F2cqfXPu/6T+1c2d8H6CkFM5x+aW/0W9dhkhkMilsOLg2CzE8qyOmhhiLY0kocpdJALYVQW
-	7yT+7fB8siugAMFyat/sB0sC4Y9Y0Po6Yk1KVGCv6woN1aA4PirNARdfakjefRJI16lCPJUc36lgB
-	UzPg+Z1UI+qUYA6Az1nzuQ8T8gYFvEzmWVqeN7OHPpDgclYUSrCkh6Um1iDQ0NZFlx/SmkJ9EgJ/y
-	OUc54iqA==;
+	bh=BPACFZ/WrQbpl7zoRENt8HIA/hI75qHkru+84OdV0JQ=; b=2MsRUe9a82Fzu8bLQFVu4BDtB/
+	788WLUH/RRawd1cV4ODmzU6wE+lyvtZ18ZXYuF0eQq/nUinYkwA/HZyFG3LXFeDdj5VjyQZr5EuiQ
+	lht6Zq/parkK+ZbXTbiV2BQEwRpqonaFNcixJKYxiKSJ+Om0eN4eE+yWp/8AZvMDoMgFphCnUP+5Z
+	/RHcfVydog7a1+NDJh5yH9+tDpdPPr3uzs5hPN0bsnoZ1EdHmfpcDoAe15rdLBfRwxoH87/MqYJ1o
+	9qCy6XqM3Dr/+XTYphpN8Ayjowg0iBaC9PdtIgODc9CwVYsqZgfCrzCSoepfxkIU3ifj8+KlZwBJ1
+	z/dwfGXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB23h-0000000BUwb-3NcP;
-	Fri, 10 Apr 2026 02:57:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wB23i-0000000BUxd-1W21;
+	Fri, 10 Apr 2026 02:57:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB23f-0000000BUuy-0ZFX;
-	Fri, 10 Apr 2026 02:57:23 +0000
+	id 1wB23g-0000000BUw6-3oF9;
+	Fri, 10 Apr 2026 02:57:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 64AD460128;
-	Fri, 10 Apr 2026 02:57:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 743D1C4CEF7;
-	Fri, 10 Apr 2026 02:57:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5AB9260128;
+	Fri, 10 Apr 2026 02:57:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 690A3C4CEF7;
+	Fri, 10 Apr 2026 02:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775789842;
-	bh=L6wszwS8qFkzeqIRGzk3Bj9pcAOHKFzChEeUvPEdrVU=;
+	s=k20201202; t=1775789844;
+	bh=SOtsO1H4hBhJ7UgGNQF2cWoATJZ7lwtCCm/KkSB8iFI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=unC8irle7Z3WU/wQW+tQG3kvvhONwihsBJSpZ61ZtOgJMg9y5hpsgn9k+vJYEcT+c
-	 HYnfv4g5AcYBdjEkZdN/iLtFLVzOfn3zTaOYEjxRj1RKujkw18nUmpDqnYRS+C4msc
-	 cuh9JKjZta34u229RaBwakIw166xI1ktxuAkvyLaSNYGIfYh9yFd4oe5pKhUm5eyqI
-	 Byl9p1++5upj/hfB36VMkud/RZJ0jr9TG70WXdJi6q9pIyE/4v0SKCnmWr8e08WRjv
-	 LWTkLaANz/OuTlTanVHD2TpMaUj3nL5RqWBeGHwF4cv6faXsaVtlN155Li1VR129D2
-	 2CbU6tOPE5cuA==
+	b=gnFOYfpo9b+bO1fznuRTZ5Iv+akaYDbstDHVouFywHRepUoqYUoE/tDWcklCZeo4j
+	 ZfPGDK/tulUNrULmUueq4RLzPIiq6mA8ZIW7sgVtREWz+EXGkqrsF9d8A6RgPwW02I
+	 6skMAUB3KXLd7tB71Tuq253H5VmfSapnc/DsPKO9STrfKScrhkTzjEQwz7ng889dZB
+	 p9JlE0VCy4qQAei9coPoxl/2Wf/rcz0vrlH9RojTh6+XuGShXDeqjYZEGylfIwgyU6
+	 n7qVIcmNJ81sCJReDg+zIFbm4NwXjzTJVPrMWzfpTHh74r0x5ytgnp0xetXNW0e6rn
+	 IpG7M3Kr+qW+w==
 From: Jakub Kicinski <kuba@kernel.org>
 To: lorenzo@kernel.org
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -57,12 +57,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	linux-mediatek@lists.infradead.org,
 	netdev@vger.kernel.org,
 	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v3 02/12] net: airoha: Set PPE cpu port for GDM2 if loopback is enabled
-Date: Thu,  9 Apr 2026 19:57:20 -0700
-Message-ID: <20260410025720.1809934-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v3 04/12] net: airoha: Rely on net_device pointer in HTB callbacks
+Date: Thu,  9 Apr 2026 19:57:22 -0700
+Message-ID: <20260410025722.1809973-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260406-airoha-eth-multi-serdes-v3-2-ab6ea49d59ff@kernel.org>
-References: <20260406-airoha-eth-multi-serdes-v3-2-ab6ea49d59ff@kernel.org>
+In-Reply-To: <20260406-airoha-eth-multi-serdes-v3-4-ab6ea49d59ff@kernel.org>
+References: <20260406-airoha-eth-multi-serdes-v3-4-ab6ea49d59ff@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -82,76 +82,73 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email says "For your consideration."
 ---
-net: airoha: Move airoha_qdma pointer in airoha_gdm_dev struct
+net: airoha: Introduce WAN device flag
 
-This commit moves the airoha_qdma pointer from the airoha_gdm_port struct
-to the airoha_gdm_dev struct. This ensures the QDMA block used depends on
-the specific net_device WAN/LAN configuration.
+This commit introduces a WAN flag to specify whether a device is used to
+transmit or receive WAN or LAN traffic. It enables specifying multiple LAN
+devices but limits the configuration to a single WAN device.
 
-[ ... ]
-
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> index 5b0cd37b155e4..9988011dca53f 100644
 > --- a/drivers/net/ethernet/airoha/airoha_eth.c
 > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -1796,36 +1796,77 @@ static int airoha_set_gdm2_loopback(struct airoha_gdm_dev *dev)
 
 [ ... ]
 
-> @@ -1497,9 +1498,10 @@ static void airoha_qdma_stop_napi(struct airoha_qdma *qdma)
->  	}
->  }
->  
-> -static void airoha_update_hw_stats(struct airoha_gdm_port *port)
-> +static void airoha_update_hw_stats(struct airoha_gdm_dev *dev)
->  {
-> -	struct airoha_eth *eth = port->qdma->eth;
+> +static int airoha_dev_init(struct net_device *netdev)
+> +{
+> +	struct airoha_gdm_dev *dev = netdev_priv(netdev);
 > +	struct airoha_gdm_port *port = dev->port;
-> +	struct airoha_eth *eth = dev->eth;
->  	u32 val, i = 0;
 >  
->  	spin_lock(&port->stats.lock);
+>  	switch (port->id) {
+>  	case AIROHA_GDM3_IDX:
+> -	case AIROHA_GDM4_IDX:
+> -		/* If GDM2 is active we can't enable loopback */
+> -		if (!eth->ports[1]) {
+> -			int err;
+> +	case AIROHA_GDM4_IDX: {
+> +		struct airoha_eth *eth = dev->eth;
+>  
+> -			err = airoha_set_gdm2_loopback(dev);
+> -			if (err)
+> -				return err;
+> -		}
+> +		if (eth->ports[1] || airoha_get_wan_gdm_dev(eth))
+> +			break;
 
-This isn't a bug introduced by this patch, but does this spin_lock()
-carry a deadlock risk?
+If a board's Device Tree enables both GDM3 and GDM4, and GDM2 is not present,
+does this sequence permanently assign the WAN role to GDM3 since it is
+initialized first? Is there a Device Tree property or fallback configuration
+mechanism to allow users to specify GDM4 as the WAN port instead?
 
-Because ndo_get_stats64() can be called from atomic context (e.g., from a
-softirq), if a process context caller holds port->stats.lock and is
-interrupted by a softirq on the same CPU that also triggers dev_get_stats(),
-the softirq could spin forever waiting for the lock.
+> +		fallthrough;
+> +	}
+> +	case AIROHA_GDM2_IDX:
+> +		/* GDM2 is always used as wan */
+> +		dev->flags |= PRIV_FLAG_WAN;
+>  		break;
+>  	default:
+>  		break;
+>  	}
+>  
+> -	for (i = 0; i < eth->soc->num_ppe; i++)
+> -		airoha_ppe_set_cpu_port(dev, i, airoha_get_fe_port(dev));
+> +	airoha_dev_set_qdma(dev);
+> +	airoha_set_macaddr(dev, netdev->dev_addr);
 
-Should this be upgraded to spin_lock_bh() to ensure local softirqs are
-disabled during the critical section?
+Since the commit message notes it is possible to specify multiple LAN
+devices, does unconditionally calling airoha_set_macaddr() for each
+device overwrite the single shared hardware LAN MAC register?
+
+If so, could this cause only the last initialized LAN device to have its MAC
+correctly programmed into the hardware, leading to dropped unicast
+packets for the other LAN interfaces?
+
+> +
+> +	if (!airoha_is_lan_gdm_dev(dev) &&
+> +	    (port->id == AIROHA_GDM3_IDX || port->id == AIROHA_GDM4_IDX)) {
+> +		int err;
 
 [ ... ]
-
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -534,12 +534,12 @@ struct airoha_qdma {
->  
->  struct airoha_gdm_dev {
->  	struct airoha_gdm_port *port;
-> +	struct airoha_qdma *qdma;
->  	struct net_device *dev;
->  	struct airoha_eth *eth;
->  };
->  
->  struct airoha_gdm_port {
-> -	struct airoha_qdma *qdma;
->  	struct airoha_gdm_dev *dev;
->  	int id;
-
-This isn't a bug introduced by this patch, but since the qdma pointer
-is being moved to better align with the hardware structure, should 
-qos_sq_bmap, cpu_tx_packets, and fwd_tx_packets be moved to 
-struct airoha_qdma as well?
-
-Because QDMA1 is shared by all WAN ports (GDM 2, 3, 4) and qos_sq_bmap
-is currently tracked per-port instead of per-QDMA, each WAN port 
-independently allocates QDMA1 channels starting from index 0. Does this 
-cause different ports to overwrite each other's hardware QoS configurations 
-in the shared QDMA1 block?
-
-Furthermore, cpu_tx_packets and fwd_tx_packets cache per-channel ETS
-hardware counters but are single u64 scalar variables in the port structure.
-When querying stats for multiple channels, do these scalar caches get
-overwritten with values from completely different channels, resulting in
-incorrect delta calculations?
 
