@@ -4,114 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC758F44873
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 14:07:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0619CF44868
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 14:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aUTaySjIgh6lfu9rWtVOEFr4avLmeO2LROURou8Y2uw=; b=eJ9uAGoI3OnUA4QcY+8g60Cst9
-	omaPlFz41/q9QT7enWGTR3ciW/nCpHawL0Srbvy6pxvoeQZhA8cL2uuAuzibd7S1mLBLm103jLoT3
-	+R0pbbxHBdHbmI7Fr34A2a30vJzEk6rsT3VOWjN42A3CBmFV14Ut2OAM1GuHdZ9xusvakdf59+2xA
-	52oCbTCrPSOk7aXddJz7z8RcRDHY3kIPo6KJt0n45EHt9oUF0+b0gLk10dWlSezCJEJWlbu9u29gM
-	ZHprCsx/Gi24rN6XlBeN1keG60ZFk58QGMBQmfyHVSZDjJ/LP054rD6GxgppPtok4r2gEXCKhgCgV
-	MRZVEfYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+Qakn0FJV2FBpwkXmougwk+gggl5jahhhLBXSrL2j1Q=; b=uEHMSrXOvT3InhRol5XUdR8+K2
+	+VwHivjNpl4Cwhtqnh979T0FvPQk9B5HyyOdvzC8blI5EajxQbQ/b5FtbhQ8GRlJn7M2oRkJPBOSd
+	s+xlJL9BBYs+GZjaHb5RjmW3l/+RHZ/Gg3WPwFoU08rtKxZ+aJYFZaINevGFvZZUrnCFp/jZ/LCw3
+	duY3XHBhG5nUoYZl6GJwoHoQtzcFrVdGyM/O7jEMhB6PLyo2MEZfzDStezInjMR3zQAttsStFmUsH
+	uXR3kR0PR2RHZotiqniC8+Y8Z1D3AADbnpYY8l0RGJFpoe4dlu3xCvC/Ca8BH4isSGIKAPa8FCNhI
+	7k9uppEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBCVv-0000000CMJI-2iM7;
-	Fri, 10 Apr 2026 14:07:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wBCk1-0000000CNVe-1slp;
+	Fri, 10 Apr 2026 14:21:49 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBCVr-0000000CMGH-2Sa4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 10 Apr 2026 14:07:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:
-	Content-Type:Content-ID:Content-Description;
-	bh=aUTaySjIgh6lfu9rWtVOEFr4avLmeO2LROURou8Y2uw=; b=rTmYEw0TijhMcz5MdrRV3FUwKU
-	oT40dMLUtkwXgoA6Wun9q8oREvMkf/Wez96SuqeMmQ2+6jZYP+ZsfdTjVFuZaQJeNu0livV/1j3E8
-	E8GlFwJY3kOllwDkNYsS80oZ7pfGLZNpqRKeWOOr2+eGJzT9W6cu9oEt2OreyUaAYAKpjuVOINKW4
-	zfJdfcDDGxG/6nhgpf2lPIIeFc1q0c1+LR3H6wMbJE3bF8bEjOFqzCpT7JfEAf7dTKmLdWFXVr0xi
-	78QLFH93rXOeiGQXSSxvwS0VOeEEQSkU89WJHGzCVAgiAlIkyGtD6adiFKnkXCTOoNe/jJusvL5NN
-	C3f8Sw5Q==;
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBCVo-0000000Dd0I-2djb
+	id 1wBCjy-0000000CNVI-1skV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 14:07:10 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-488aa77a06eso32947655e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 07:07:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1775830027; x=1776434827; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aUTaySjIgh6lfu9rWtVOEFr4avLmeO2LROURou8Y2uw=;
-        b=gnhhXkItDyMX4J75IAow42Dkw4OxdOkoOP848vfFkDghMTyuOanDe6gjk7MagZhgyp
-         W1jRcjvtQYO3I4rnS+5wHTGjlB5opKwiDKu2QzUhk2PHdk3/xCUzDQwE1WgcvfB1+do3
-         G+cAJVVWw8dOBXtZY6QL2aldejHVc9DIpAO+Nfdjz4UFqfwgQVl/MhNyKIvY8HcUgl6V
-         y/XwEXw01uQHJtiiaPLfPI4PvtuQQERzlfsmEdpmyGVSMKo1GzcvywWXV0Su5NsZNUcL
-         FXSePTnyFSbT1OELwxIdBtIc3jtbZ129Fl/1tc477DrRsHQgfvbu/cAMIifRg1s2IS1x
-         YctA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775830027; x=1776434827;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=aUTaySjIgh6lfu9rWtVOEFr4avLmeO2LROURou8Y2uw=;
-        b=UJIO4Yqc0RDCy/hIBVMyrkWzgaO9DZ4KglS04+XgHgGz3sLMmA8fp0Vt4ce34oNVC1
-         s2h7q11Os1KLqwUPI/nsZIc0s4scSVVcf5+62b4TQ9u0+jlFPB5qQtrcNhWeTVf9xFzV
-         yKJpSCSLJRkYV1aiF/7kYR5uEaH9Sre3rZOpNc1LoVXwmY9HEuDYEwfuuqXTS2+2+Efa
-         USFKkXvKtSci0WFcf+MW8Mvwlz/dS8CpHqMygeOxlbuvWZDbZRH5DougbUkI72FdVYzV
-         HNF6niLePs7kbIp4kEpkKohzm5Y5268Ncw1cW2sUg8B6RwicVfGZBl2C/9o4FBFPKUzY
-         mSZw==
-X-Forwarded-Encrypted: i=1; AJvYcCW2dbEpZy76rEdODF52oBb3QqTvJDcoTHbKTDFV6bUNKAZD0QmdciG/+gkpyNyZEg4QDXZHzZxl0ehecsD3yy0s@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwdINNzVrMUOmkdbvLjk0LgJ8DhYxjwoXi3M39P+boY25zDcYk
-	wnVMtMqRCP1HMBtucroTA+rmzthKk9vY/W2VCcut+eAFC2aLriZ2PBT7YMp7vJW+frxXJZZkQqy
-	NwoWN5yY=
-X-Gm-Gg: AeBDievlTQjgLa5cw627iOFRCRpFjhM9mJE3EAfqIEf7DeaUfgeRe2nzvs5qfb2PEiT
-	t0Qoz/i9m4bKjA0YE+hKzmom8p6s1OmgYn5cGTMAxi+pJx5Z37KTVgNjOqDUM+4zwcLkCS2XTDK
-	z8mC/CJwcSHmWtnk5Q0Gf733loTGb6qjHWz98bwp0TB5E6JgocjcRztr1kon9lYXbok+ak8AwCw
-	8iqyo9Eb98Tio2aSozVt01VkfwRmJG3ovv4VYKW+PtOUGEA1iP7axtBiWGg7xLj5KNinyQs8S+V
-	kzFV8bDBqXnb/dV8XX4sLBEFLV2pGNDr0vtbLkgzlvcCF1kl0/gljhJchLYJRZKby5GG+/imgVq
-	fKs876dM5VBCrjDolJXRix0Vou/OFd2Yexc1CUMywyWKoqbYneCFzdiGbn4xmmMo9cLygUtNKlT
-	mnR95SuVoXi2pILEpHDZBFkQFtEy5V/+zUPa4Zq+18SZGxN4Ma9AJxSdgozK+Y
-X-Received: by 2002:a05:600c:608e:b0:488:8185:e672 with SMTP id 5b1f17b1804b1-488d688d2fbmr43720335e9.30.1775830026934;
-        Fri, 10 Apr 2026 07:07:06 -0700 (PDT)
-Received: from localhost (93-41-3-120.ip79.fastwebnet.it. [93.41.3.120])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d63deb904sm8504646f8f.9.2026.04.10.07.07.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Apr 2026 07:07:06 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	linux-pwm@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Naushir Patuck <naush@raspberrypi.com>,
-	Stanimir Varbanov <svarbanov@suse.de>,
-	mbrugger@suse.com
-Subject: [PATCH v2 3/3] arm64: dts: broadcom: rpi-5: Add RP1 PWM node
-Date: Fri, 10 Apr 2026 16:09:59 +0200
-Message-ID: <ba57b3b38757d37cf09ea1b8b9e6b6a106d0b292.1775829499.git.andrea.porta@suse.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <cover.1775829499.git.andrea.porta@suse.com>
-References: <cover.1775829499.git.andrea.porta@suse.com>
+	Fri, 10 Apr 2026 14:21:47 +0000
+Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63A6ajbh347876;
+	Fri, 10 Apr 2026 07:21:41 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=pfpt0220; bh=+Qakn0FJV2FBpwkXmougwk+
+	gggl5jahhhLBXSrL2j1Q=; b=c+OFWgl+LR3bgAeItfhdudp5CQUUTm+3Ob0R6N8
+	n3gM92l0gR2yErQYdrp+S4ty9RMEOHfmRloTC2AFnhdRFtcYTSFBmiPfzvGjgRDX
+	F7ijCOi0NJCcN15Q/DF5UmKmaxxU0uyP1Q2dWmNT8XtKq8xFtBLPSRpmmaCAn1Zw
+	5XnrnttsFG1uOaAMQOJMO9NG721CIRWX2nkl0XInYGAo/OcU6gI9ILBwQA5YayYi
+	peSdNBNmnz9zSXd4CJlplKrU7oaEx6S4GCIfoaNPOGqhiLTSknicrAXK6HmBg5mX
+	ZeYS9zdsNp/I29PthtnEYMFFeltsPPk0A6FR2wscdfft1nw==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4dee00jpkj-2
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 10 Apr 2026 07:21:41 -0700 (PDT)
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Fri, 10 Apr 2026 07:21:40 -0700
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
+ Transport; Fri, 10 Apr 2026 07:21:40 -0700
+Received: from rkannoth-OptiPlex-7090.. (unknown [10.28.36.165])
+	by maili.marvell.com (Postfix) with ESMTP id 657243F708D;
+	Fri, 10 Apr 2026 07:21:36 -0700 (PDT)
+From: Ratheesh Kannoth <rkannoth@marvell.com>
+To: <linux-pci@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <bhelgaas@google.com>
+CC: <will@kernel.org>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
+        <mani@kernel.org>, <robh@kernel.org>, <vidyas@nvidia.com>,
+        Ratheesh Kannoth
+	<rkannoth@marvell.com>,
+        Bjorn Helgaas <helgaas@kernel.org>
+Subject: [PATCH] PCI: host-common: Request bus reassignment when not probe-only
+Date: Fri, 10 Apr 2026 19:51:24 +0530
+Message-ID: <20260410142124.2673056-1-rkannoth@marvell.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEwMDEzNCBTYWx0ZWRfX7j/IeWNhisvw
+ qzoHbH2T+OyCoQukUsfQzLK5/IfjHD14qCEeITvLDCnBg4Z3lN5++gtg5guO2CA+YvyLJbiRH9n
+ /v3xDKTRDFUtnUvGlGOBG/o43AirYcRvKJ7FYNlDl58budH/QP9CNcDGzfnu1usvdXgb1Ud5dNu
+ fKBBb7OEa7L3fm45Qs6mXjncAWZKKxvQ6uceDNCVXNWx8kTQh2DD1f2GCqR3QFjTmXI45W29UVy
+ rnTtkb9gMFHldnTol39f/7OtfoAPzOmYrlFCbILazHLmRwiw6XYUJ5I4xoHjEvcwzhEL8CHExfF
+ 7wQ6PTMGoCyjUhGIm5uclZgJCmIOl3/QpURoteXHH8GlWglNy5l04jPVOKdotECwHeDmOD3t1A8
+ A8HZVsfKr3EFDRiv1dTGMhk1U9HB7dT4M2b4G14icE+TvLArohxD9cM1QMmCjmXZya3nQTggaaI
+ xFK3qgMD8Q4eFjniHVA==
+X-Authority-Analysis: v=2.4 cv=M/d97Sws c=1 sm=1 tr=0 ts=69d90775 cx=c_pps
+ a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
+ a=A5OVakUREuEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
+ a=TtqV-g6YmW1Jfm2GSLaY:22 a=VwQbUJbxAAAA:8 a=Ikd4Dj_1AAAA:8 a=M5GUcnROAAAA:8
+ a=UhbZHETWtGs1wiOFpMcA:9 a=OBjm3rFKGHvpk9ecZwUJ:22
+X-Proofpoint-GUID: YyaNPm2MXTb1M0cv0B4Im0gwWN2FQ2kB
+X-Proofpoint-ORIG-GUID: YyaNPm2MXTb1M0cv0B4Im0gwWN2FQ2kB
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-10_04,2026-04-09_02,2025-10-01_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_150708_903262_B16CBD1E 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20260410_072146_493714_38234CBD 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,72 +103,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stanimir Varbanov <svarbanov@suse.de>
+pci_host_common_init() is used by several generic ECAM host drivers.
+After PCI core changes around pci_flags and preserve_config, these hosts
+no longer opted into full bus number reassignment the way they did
+before.
 
-The RP1 chipset used on the Raspberry Pi 5 features an integrated
-PWM controller to drive the cooling fan.
+When PCI_PROBE_ONLY is not set, add PCI_REASSIGN_ALL_BUS so
+pci_scan_bridge_extend() takes the reassignment path: bus numbers can be
+assigned from firmware EA data (e.g. pci_ea_fixed_busnrs()). Skip the
+flag in probe-only mode so existing assignments are not overridden.
 
-Add the corresponding DT node for this PWM controller.
-
-Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-Co-developed-by: Andrea della Porta <andrea.porta@suse.com>
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+CC: Bjorn Helgaas <helgaas@kernel.org>
+CC: Vidya Sagar <vidyas@nvidia.com>
+Fixes: 7246a4520b4b ("PCI: Use preserve_config in place of pci_flags")
+Link: https://lore.kernel.org/netdev/adcXzcz2wWJFw4d7@rkannoth-OptiPlex-7090/
+Signed-off-by: Ratheesh Kannoth <rkannoth@marvell.com>
 ---
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 12 ++++++++++++
- arch/arm64/boot/dts/broadcom/rp1-common.dtsi     | 10 ++++++++++
- 2 files changed, 22 insertions(+)
+ drivers/pci/controller/pci-host-common.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-index 2856082814462..a4e5ba23bf536 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-@@ -64,12 +64,24 @@ phy1: ethernet-phy@1 {
- };
+diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
+index d6258c1cffe5..860783553cca 100644
+--- a/drivers/pci/controller/pci-host-common.c
++++ b/drivers/pci/controller/pci-host-common.c
+@@ -68,6 +68,10 @@ int pci_host_common_init(struct platform_device *pdev,
+ 	if (IS_ERR(cfg))
+ 		return PTR_ERR(cfg);
  
- &rp1_gpio {
-+	fan_pwm_default_state: fan-pwm-default-state {
-+		function = "pwm1";
-+		pins = "gpio45";
-+		bias-pull-down;
-+	};
++	/* Do not reassign resources if probe only */
++	if (!pci_has_flag(PCI_PROBE_ONLY))
++		pci_add_flags(PCI_REASSIGN_ALL_BUS);
 +
- 	usb_vbus_default_state: usb-vbus-default-state {
- 		function = "vbus1";
- 		groups = "vbus1";
- 	};
- };
- 
-+&rp1_pwm {
-+	pinctrl-0 = <&fan_pwm_default_state>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
- &rp1_usb0 {
- 	pinctrl-0 = <&usb_vbus_default_state>;
- 	pinctrl-names = "default";
-diff --git a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-index 5a815c3797945..d0f4d6be75500 100644
---- a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-@@ -26,6 +26,16 @@ rp1_clocks: clocks@40018000 {
- 				       <200000000>;  // RP1_CLK_SYS
- 	};
- 
-+	rp1_pwm: pwm@4009c000 {
-+		compatible = "raspberrypi,rp1-pwm";
-+		reg = <0x00 0x4009c000  0x0 0x100>;
-+		clocks = <&rp1_clocks RP1_CLK_PWM1>;
-+		assigned-clocks = <&rp1_clocks RP1_CLK_PWM1>;
-+		assigned-clock-rates = <50000000>;
-+		#pwm-cells = <3>;
-+		status = "disabled";
-+	};
-+
- 	rp1_gpio: pinctrl@400d0000 {
- 		compatible = "raspberrypi,rp1-gpio";
- 		reg = <0x00 0x400d0000  0x0 0xc000>,
+ 	bridge->sysdata = cfg;
+ 	bridge->ops = (struct pci_ops *)&ops->pci_ops;
+ 	bridge->enable_device = ops->enable_device;
 -- 
-2.35.3
+2.43.0
 
 
