@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AEE1F44847
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:18:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB8AF44847
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:18:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:cc:Content-Type:MIME-Version
 	:References:Subject:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=1svmJ9bLZm6y7AkRgd4KZ3wMzChgI+aIwiw2S8Q7kUs=; b=JeFN4pFPbPSmOY
-	eqvbCOr7PcOp7UlCkiGHmlSTToayJjHGr45x07lWSJikq+6yN1Umdon0UdL4y1Pwgvckjan9cgZz7
-	bS6ZZDVRTImPzw3mh/PMzR5U3tPELyIdtxI9nN9IDjjwGPKXlfnYfaTQ20hLp+wYNa/dUm6jLiWyW
-	W0yPKM/EVK79hqQgixmFYe09rmyfD3iJCoPon7DEhbUiYaKQRy9xa4KA171leIzY7JpaveripP7vu
-	gjLervpVA/Lwp3WHyq/WufRt8k3G8qABkabwx3EyMYxIkNZk+JnhHDd9zwtAnCzMtePm/1eMPF/nY
-	Ww30d8VjgX1pYyqhXXcw==;
+	List-Owner; bh=QNbKEqaPolXnyDtyb0N89kzCxyVMHVZnkdKQSB7ziQU=; b=G2Otp1wyQdo0XH
+	RaztXKAbSQxBArCcWN+tYsqpw3jeeh4x/WzDAFbQ0Qf1ZKzHdvEdJdAbLUnwPOjHhTIzAUyGUGUP7
+	V7xvzrZgz4Ukrvk9veSsDMTKg/rJwnAi4xSWiOf4KfSlKDDhl8zv/5MMeijA8Y5ajuxDgERjL91Q9
+	BctJot9Frc71Akciw1equd7lMGV/OMX1AIc/0VNHBjwnt8Ou6Ih2pF2jFn47odduCRLbODboUuy1R
+	2utbAI0XxPC2UHi5hyQJNa77L5HpJQKjqTAdXsQ3U0HGiZaMb78mUIA3VBeHBf8d6dl8F8/NO1ocH
+	+VfDEiIYVxT8CvpcPJVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAot-0000000C96p-3Va7;
-	Fri, 10 Apr 2026 12:18:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wBAoy-0000000C99w-1tg3;
+	Fri, 10 Apr 2026 12:18:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAor-0000000C95e-3yGG;
-	Fri, 10 Apr 2026 12:18:42 +0000
+	id 1wBAow-0000000C98i-2q6G;
+	Fri, 10 Apr 2026 12:18:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 60F576111B;
-	Fri, 10 Apr 2026 12:18:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34709C2BC87;
-	Fri, 10 Apr 2026 12:18:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 562114415B;
+	Fri, 10 Apr 2026 12:18:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51EC1C2BCB0;
+	Fri, 10 Apr 2026 12:18:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775823521;
-	bh=jM+JreNQ/pvWEKCuy6rQc5u1kgCA5N5UN7yUgNovu14=;
+	s=k20201202; t=1775823526;
+	bh=OWF9pG0hQ95RygMnh7+vDhgeHyKnJRYOWEj0GBEdTEY=;
 	h=Date:From:To:Subject:References:cc:From;
-	b=nWtTU/8bYflAI0sVDZCcTSRoMHHBafK4f8aE8OQUIADFXrWn3gkAS6D8iyeDcGytD
-	 IkAJ7wfDdphIDTv0/p2VgJLmG6txpPJj7VHjB28F0wfKCyzE07p6hHvScSQ/hPg40n
-	 m5UonCXCWoABi9Y1P5pL07/VfBtvxj5IX/qtz/8nDDpNNssj+hm09ux1rli9d/5Kp7
-	 u2W39VabHnp7xFO01m/Vf4vbZzsQaYVQbm/v4/bBGJXSthxziJGUNQp6cLMMBeBrVY
-	 Rxdzr0TBEmAzR1XxM10SdBatX0CJ8cwLuQKU2F/sGImGk9kogedHCPTsKBS8t/RjVc
-	 cuRhduaM+Iuqw==
-Date: Fri, 10 Apr 2026 14:18:37 +0200
-Message-ID: <20260410120317.709923681@kernel.org>
+	b=gYJITPmdy2GNPsbI6AD2iZ7zhMgePGS+gqPbXQCs7WsAhhu/qyX8hH+Xi69K/urPl
+	 BoSeBlt4BbqU4ZnISQ8slAdj5VCjiDRcN9bfEzsBBE9dj/wWUHwDFECfvHb21gTPQ5
+	 cvjmyUKF+jJ25R6iZ5vAzO3xaA8XXwp+1aea+F9V1esc/zHHX5PN7paJBTByHcDBl2
+	 auQKRV9dXMsXdujNzqathwxe2n8RWyCswG/DXqH2EllhOxm/ndPsrTIJX4WzacriA/
+	 t/DalYn89VnEQy6E+ROiviOqorgI/E12LPFkiSGiJSdwmaaiky6k8Wx7OG7Y+w6GUr
+	 Ni5ruNMG7XCYg==
+Date: Fri, 10 Apr 2026 14:18:42 +0200
+Message-ID: <20260410120317.776571540@kernel.org>
 User-Agent: quilt/0.68
 From: Thomas Gleixner <tglx@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
-Subject: [patch 02/38] x86: Cleanup include recursion hell
+Subject: [patch 03/38] x86/apm: Remove last LATCH usage
 References: <20260410120044.031381086@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -97,6 +97,9 @@ cc: Arnd Bergmann <arnd@arndb.de>,
  linux-s390@vger.kernel.org,
  "David S. Miller" <davem@davemloft.net>,
  sparclinux@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260410_051846_758216_C4A68FBD 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,120 +114,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Including a random architecture specific header which requires global
-headers just to avoid including that header at the two usage sites is
-really beyond lazy and tasteless. Including global headers just to get the
-__percpu macro from linux/compiler_types.h falls into the same category.
+LATCH is a historical leftover and has been replaced with PIT_LATCH in all
+other places a decade ago. Replace the last holdout and remove the
+definition from jiffies.h.
 
-Remove the linux/percpu.h and asm/cpumask.h includes from msr.h and smp.h
-and fix the resulting fallout by a simple forward struct declaration and by
-including the x86 specific asm/cpumask.h header where it is actually
-required.
+This allows to remove the otherwise unused CLOCK_TICK_RATE define in the
+next step.
 
 Signed-off-by: Thomas Gleixner <tglx@kernel.org>
 ---
- arch/x86/include/asm/msr.h               |    5 +++--
- arch/x86/include/asm/pvclock.h           |    1 +
- arch/x86/include/asm/smp.h               |    2 --
- arch/x86/include/asm/vdso/gettimeofday.h |    5 ++---
- arch/x86/kernel/cpu/mce/core.c           |    1 +
- arch/x86/kernel/nmi.c                    |    1 +
- arch/x86/kernel/smpboot.c                |    1 +
- 7 files changed, 9 insertions(+), 7 deletions(-)
+ arch/x86/kernel/apm_32.c |    4 ++--
+ include/linux/jiffies.h  |    3 ---
+ 2 files changed, 2 insertions(+), 5 deletions(-)
 
---- a/arch/x86/include/asm/msr.h
-+++ b/arch/x86/include/asm/msr.h
-@@ -8,12 +8,11 @@
+--- a/arch/x86/kernel/apm_32.c
++++ b/arch/x86/kernel/apm_32.c
+@@ -1196,9 +1196,9 @@ static void reinit_timer(void)
+ 	/* set the clock to HZ */
+ 	outb_p(0x34, PIT_MODE);		/* binary, mode 2, LSB/MSB, ch 0 */
+ 	udelay(10);
+-	outb_p(LATCH & 0xff, PIT_CH0);	/* LSB */
++	outb_p(PIT_LATCH & 0xff, PIT_CH0);	/* LSB */
+ 	udelay(10);
+-	outb_p(LATCH >> 8, PIT_CH0);	/* MSB */
++	outb_p(PIT_LATCH >> 8, PIT_CH0);	/* MSB */
+ 	udelay(10);
+ 	raw_spin_unlock_irqrestore(&i8253_lock, flags);
+ #endif
+--- a/include/linux/jiffies.h
++++ b/include/linux/jiffies.h
+@@ -56,9 +56,6 @@
+ #define SH_DIV(NOM,DEN,LSH) (   (((NOM) / (DEN)) << (LSH))              \
+                              + ((((NOM) % (DEN)) << (LSH)) + (DEN) / 2) / (DEN))
  
- #include <asm/asm.h>
- #include <asm/errno.h>
--#include <asm/cpumask.h>
- #include <uapi/asm/msr.h>
- #include <asm/shared/msr.h>
- 
-+#include <linux/compiler_types.h>
- #include <linux/types.h>
--#include <linux/percpu.h>
- 
- struct msr_info {
- 	u32			msr_no;
-@@ -256,6 +255,8 @@ int msr_set_bit(u32 msr, u8 bit);
- int msr_clear_bit(u32 msr, u8 bit);
- 
- #ifdef CONFIG_SMP
-+struct cpumask;
-+
- int rdmsr_on_cpu(unsigned int cpu, u32 msr_no, u32 *l, u32 *h);
- int wrmsr_on_cpu(unsigned int cpu, u32 msr_no, u32 l, u32 h);
- int rdmsrq_on_cpu(unsigned int cpu, u32 msr_no, u64 *q);
---- a/arch/x86/include/asm/pvclock.h
-+++ b/arch/x86/include/asm/pvclock.h
-@@ -2,6 +2,7 @@
- #ifndef _ASM_X86_PVCLOCK_H
- #define _ASM_X86_PVCLOCK_H
- 
-+#include <asm/barrier.h>
- #include <asm/clocksource.h>
- #include <asm/pvclock-abi.h>
- 
---- a/arch/x86/include/asm/smp.h
-+++ b/arch/x86/include/asm/smp.h
-@@ -5,8 +5,6 @@
- #include <linux/cpumask.h>
- #include <linux/thread_info.h>
- 
--#include <asm/cpumask.h>
+-/* LATCH is used in the interval timer and ftape setup. */
+-#define LATCH ((CLOCK_TICK_RATE + HZ/2) / HZ)	/* For divider */
 -
- DECLARE_PER_CPU_CACHE_HOT(int, cpu_number);
+ extern void register_refined_jiffies(long clock_tick_rate);
  
- DECLARE_PER_CPU_READ_MOSTLY(cpumask_var_t, cpu_sibling_map);
---- a/arch/x86/include/asm/vdso/gettimeofday.h
-+++ b/arch/x86/include/asm/vdso/gettimeofday.h
-@@ -11,13 +11,12 @@
- #define __ASM_VDSO_GETTIMEOFDAY_H
- 
- #ifndef __ASSEMBLER__
--
-+#include <clocksource/hyperv_timer.h>
- #include <uapi/linux/time.h>
-+
- #include <asm/vgtod.h>
- #include <asm/unistd.h>
--#include <asm/msr.h>
- #include <asm/pvclock.h>
--#include <clocksource/hyperv_timer.h>
- #include <asm/vdso/sys_call.h>
- 
- #define VDSO_HAS_TIME 1
---- a/arch/x86/kernel/cpu/mce/core.c
-+++ b/arch/x86/kernel/cpu/mce/core.c
-@@ -48,6 +48,7 @@
- #include <linux/vmcore_info.h>
- 
- #include <asm/fred.h>
-+#include <asm/cpumask.h>
- #include <asm/cpu_device_id.h>
- #include <asm/processor.h>
- #include <asm/traps.h>
---- a/arch/x86/kernel/nmi.c
-+++ b/arch/x86/kernel/nmi.c
-@@ -26,6 +26,7 @@
- #include <linux/sched/clock.h>
- #include <linux/kvm_types.h>
- 
-+#include <asm/cpumask.h>
- #include <asm/cpu_entry_area.h>
- #include <asm/traps.h>
- #include <asm/mach_traps.h>
---- a/arch/x86/kernel/smpboot.c
-+++ b/arch/x86/kernel/smpboot.c
-@@ -70,6 +70,7 @@
- #include <asm/irq.h>
- #include <asm/realmode.h>
- #include <asm/cpu.h>
-+#include <asm/cpumask.h>
- #include <asm/numa.h>
- #include <asm/tlbflush.h>
- #include <asm/mtrr.h>
+ /* TICK_USEC is the time between ticks in usec */
 
 
