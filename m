@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54F7EF44845
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 11:53:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4E91F44842
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 11:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+W8BQyhl2FXAtq1l8AaoMNX45tFzqDxS6dlGXM21Kk8=; b=nspad35RGKVpxTrc/OmWwcw9FD
-	ce/DzKrJCYGLj3vPvKCCrqp/UWvi9G2MNax+YC+FCE2ZRm9yJ3aR9OSlYXYpzYbuBejSpV2c0ugZu
-	wHLuK7ergeSG/bBRYtojL6d7sar04MMGzNgDD/WZgiKMCgZOVz6rakEEuQ9DPlDOPIGgBPlNMZNaq
-	ub3g2eziDXdDCgGFzfGpka+3Jt/6PNDNgx6MOCJR/uC4YY+RtzUwoyh/q6F1RJy8bZ+gUoSOhUKVW
-	2bdVNBK73aYRqVFuaOM9BRPqYKoJsP9CfGgWPJdL4wE3WQdExxZ8qdPx7ksgk9tXpb14vDn/76cYU
-	ennoNPqA==;
+	bh=LtfUfxE/xs43zAAF0blVEvJBY1bTJtOfWAwYT3PoW5Y=; b=vLADDObaToDmASPBaMT3qfVHzQ
+	B0KsFoqYp4D5s0ueAhMIxDI7XeE7uLVRZPfEac6iei5DlrIjL12Kxyo0kF5u6GeaNcZ9AXhwuUB79
+	GzMxEYYxgFgHnYaYbEFb6x4k1gNLn+IjW5MHNRp2O5KZN0qrvZmupzKCdiXwezKC3hOV52VqvM4Pb
+	j0fQC/5sqNPHuMxkLWWKNfuBdRDeq1kFkM9RuClbUyVGgDKwBBgBhOZuvgqgm+XjeDhPu+FETF5Rm
+	kd27bQ/GmoKX+zEAVpDbN9HnJPaz9GSpV/qbPTB4W6Aw2zFbtYnC4dbce2twy1S08Avdx9JNyE2Vz
+	fqANtfFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAPz-0000000C6nt-3W6Q;
-	Fri, 10 Apr 2026 11:52:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wBASe-0000000C70i-35wr;
+	Fri, 10 Apr 2026 11:55:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAPy-0000000C6nc-12Da;
-	Fri, 10 Apr 2026 11:52:58 +0000
+	id 1wBASd-0000000C70H-1GLG
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Apr 2026 11:55:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 59FC660154;
-	Fri, 10 Apr 2026 11:52:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88B71C19421;
-	Fri, 10 Apr 2026 11:52:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3DE4D60154;
+	Fri, 10 Apr 2026 11:55:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25D0DC19421;
+	Fri, 10 Apr 2026 11:55:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775821977;
-	bh=Y4GnJSxmVoLcOsU28nVNoZ44KeRm+qtdWi6Re7neJws=;
+	s=k20201202; t=1775822141;
+	bh=HFVNSZ9NdLshs/GF0kF4F3nn6TItzP93pKQuOnmZi4g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u8hkTLvdwmNEtlQbPxwGhpXKFahK7mAw84EdneFSvzt8h2dssZtDjOraINVgKLXVw
-	 zCFVOJJr0UaOhh3JHtuGLlFl8kL6eLsvcRTOdeI0ZbjWyJ98VN9BOtayLeSX6jRPfm
-	 XsbIfNl2jY9BmQNkieqFqSIKunfkAPedZWAkKJ/x8aygtpXTGcCFXbt/t/4o0Ns7g8
-	 TLmmIjcEwypFAgvyUOTa55Gs406EdHlufYK2P5Tv5HN2ZRcLTIoZZccpEWgBC6HmBM
-	 CZHB2dAjbMS+jd/Ke1lK6d62Orvfk1YtmGHmghdTeu8RPdsjOVplos307CCBnyvzl4
-	 prUynAYuTiZGA==
-Date: Fri, 10 Apr 2026 13:52:54 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Benjamin Larsson <benjamin.larsson@genexis.eu>
-Cc: Jakub Kicinski <kuba@kernel.org>, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	ansuelsmth@gmail.com, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v3 04/12] net: airoha: Rely on net_device
- pointer in HTB callbacks
-Message-ID: <adjklonQX0q7ghZD@lore-desk>
-References: <20260406-airoha-eth-multi-serdes-v3-4-ab6ea49d59ff@kernel.org>
- <20260410025722.1809973-1-kuba@kernel.org>
- <bd486b55-a8d7-4811-965a-aa1f3dc98e30@genexis.eu>
+	b=hOZIcHOx8RMyGXKW+908tLqShReyx8UHYG4egkJqVAZkly0v7p33q4UAay3LeO2Li
+	 909+KGhspCpoLhKu/yYX4lgd1bQD8j7huO7QANJEMGOMwOID5qf6JimIdEMuVtAFjW
+	 +GhHAia+VOlJjk1lkx7+BsR28wl1z47Ab6wp84ECDq4Ne2+EnT+emA7hhb4J+2rLry
+	 YlaUbwErfT9kQccM/Jz2U8uBuxnxtjdRSVkHLVeVUEjGqnHrocrFlrDSa/ozdtHXtC
+	 EO3nFkJuqdofrp1T2VseMnr7Gmf0zpuJ+5ds4RjmrJ4HjFgZMtXk4qr1svT4RRSevK
+	 SKvQh+S8cISDQ==
+Date: Fri, 10 Apr 2026 12:55:31 +0100
+From: Lorenzo Stoakes <ljs@kernel.org>
+To: Usama Arif <usama.arif@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org, 
+	willy@infradead.org, ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc, jack@suse.cz, 
+	ajd@linux.ibm.com, apopple@nvidia.com, baohua@kernel.org, 
+	baolin.wang@linux.alibaba.com, brauner@kernel.org, catalin.marinas@arm.com, dev.jain@arm.com, 
+	kees@kernel.org, kevin.brodsky@arm.com, lance.yang@linux.dev, 
+	Liam.Howlett@oracle.com, linux-arm-kernel@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, mhocko@suse.com, npache@redhat.com, 
+	pasha.tatashin@soleen.com, rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com, 
+	vbabka@kernel.org, Al Viro <viro@zeniv.linux.org.uk>, ziy@nvidia.com, 
+	hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev, leitao@debian.org, 
+	kernel-team@meta.com
+Subject: Re: [PATCH v3 0/4] mm: improve large folio readahead and alignment
+ for exec memory
+Message-ID: <adjkCOiLgZ_-zovg@lucifer>
+References: <20260402181326.3107102-1-usama.arif@linux.dev>
+ <803a0c15-0a6a-4c00-b6b3-eaae56d5fc15@linux.dev>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="i1NM/Tit3uG0u/BY"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <bd486b55-a8d7-4811-965a-aa1f3dc98e30@genexis.eu>
+In-Reply-To: <803a0c15-0a6a-4c00-b6b3-eaae56d5fc15@linux.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,96 +79,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Apr 10, 2026 at 12:03:03PM +0100, Usama Arif wrote:
+>
+>
+> On 02/04/2026 19:08, Usama Arif wrote:
+> > v2 -> v3: https://lore.kernel.org/all/20260320140315.979307-1-usama.arif@linux.dev/
+> > - Take into account READ_ONLY_THP_FOR_FS for elf alignment by aligning
+> >   to HPAGE_PMD_SIZE limited to 2M (Rui)
+> > - Reviewed-by tags for patch 1 from Kiryl and Jan
+> > - Remove preferred_exec_order() (Jan)
+> > - Change ra->order to HPAGE_PMD_ORDER if vma_pages(vma) >= HPAGE_PMD_NR
+> >   otherwise use exec_folio_order() with gfp &= ~__GFP_RECLAIM for
+> >   do_sync_mmap_readahead().
+> > - Change exec_folio_order() to return 2M (cont-pte size) for 64K base
+> >   page size for arm64.
+> > - remove bprm->file NULL check (Matthew)
+> > - Change filp to file (Matthew)
+> > - Improve checking of p_vaddr and p_vaddr (Rui and Matthew)
+> >
+>
+> Hello!
+>
+> Just wanted to check if there was any feedback/review on the latest
+> revision?
 
---i1NM/Tit3uG0u/BY
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+It's -rc7, this is definitely something for next cycle :)
 
-> On 10/04/2026 04:57, Jakub Kicinski wrote:
-> > This is an AI-generated review of your patch. The human sending this
-> > email says "For your consideration."
-> > ---
-> > net: airoha: Introduce WAN device flag
-> >=20
-> > This commit introduces a WAN flag to specify whether a device is used to
-> > transmit or receive WAN or LAN traffic. It enables specifying multiple =
-LAN
-> > devices but limits the configuration to a single WAN device.
-> >=20
->=20
-> [...]
->=20
-> > > +		fallthrough;
-> > > +	}
-> > > +	case AIROHA_GDM2_IDX:
-> > > +		/* GDM2 is always used as wan */
-> > > +		dev->flags |=3D PRIV_FLAG_WAN;
-> > >   		break;
-> > >   	default:
-> > >   		break;
-> > >   	}
-> > > -	for (i =3D 0; i < eth->soc->num_ppe; i++)
-> > > -		airoha_ppe_set_cpu_port(dev, i, airoha_get_fe_port(dev));
-> > > +	airoha_dev_set_qdma(dev);
-> > > +	airoha_set_macaddr(dev, netdev->dev_addr);
-> >=20
-> > Since the commit message notes it is possible to specify multiple LAN
-> > devices, does unconditionally calling airoha_set_macaddr() for each
-> > device overwrite the single shared hardware LAN MAC register?
-> >=20
-> > If so, could this cause only the last initialized LAN device to have it=
-s MAC
-> > correctly programmed into the hardware, leading to dropped unicast
-> > packets for the other LAN interfaces?
-> >=20
-> > > +
-> > > +	if (!airoha_is_lan_gdm_dev(dev) &&
-> > > +	    (port->id =3D=3D AIROHA_GDM3_IDX || port->id =3D=3D AIROHA_GDM4=
-_IDX)) {
-> > > +		int err;
-> >=20
-> > [ ... ]
->=20
-> Hi, the frame engine can be configured with a range of wan mac addresses =
-and
-> a range of lan mac addresses via registers that set the top 24 bits and t=
-hen
-> 2 registers that form a range of the low 24 bits.
->=20
-> Documentation says that packets that fall into this mac address range eit=
-her
-> on the lan side or the wan side are to be treated as layer 3 packages and=
- if
-> a packet is not then it will be handled as a layer 2 packet.
->=20
-> The exact implication of this and if it actually matters is unknown. But
-> traffic that comes in on an interface that is not matched by an accelerat=
-ion
-> flow is usually forwarded to the cpu for further processing.
+On my part, my upstream bandwidth has drastically reduced, and review is
+probably going to have to be a hobbyist thing at least for now.
 
-The assumption here is the mac addresses are read from the SNAND or eMMC and
-they all share the upper bits. I will fix the issue with a separated patch =
-for
-net tree.
+Also, not to be mean but:
 
-Regards,
-Lorenzo
+$ git log -E -i --grep "(Reviewed|Acked)-by: Usama Arif" --oneline | wc -l
+21
 
->=20
-> MvH
-> Benjamin Larsson
+So... :)
 
---i1NM/Tit3uG0u/BY
-Content-Type: application/pgp-signature; name=signature.asc
+Review in mm is very lop-sided, let's try to balance it out a bit!
 
------BEGIN PGP SIGNATURE-----
+>
+> Thanks!
+>
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCadjklgAKCRA6cBh0uS2t
-rOALAQDChwhT+q+W9kV8svjw4vYBOXlgu4gRACeUn8gsl1GgfQD9HP1z0i1xfifR
-9EwKX95S/PvAovnwKbRE5sYz1v1dGQY=
-=Za20
------END PGP SIGNATURE-----
-
---i1NM/Tit3uG0u/BY--
+Thanks, Lorenzo
 
