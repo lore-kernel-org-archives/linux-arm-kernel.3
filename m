@@ -4,63 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E010FF4484C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:20:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 799B7F4484C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 12:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=AqOQD77ovJbDZAalLb7LttNXWfQNwpbHnO0m4lNbaKQ=; b=lV62CT6x0b8u4O
-	L71zZVWFMC6CUWMItmbDwq2chbeJaauXTZgqNzi5nq+L4aYRXwgu9oZlXT0EbAwKdpo8AkeeYqCGl
-	0T6Ynyn0ReKGGM5kyf8AvXIFi0DoZOE02DJDksuUb9zW9GiyuCjCNOPVqlcTVtu5+iPIzMZIVQNNB
-	tMDyYawlZ+1QhAMkl2vAUfHboRCPk2hYtkb9NxBKTBIeHFpA1WdOYPsSBh/GgiTcYUzntciTsn0+c
-	i5wgXaWQZwbRHzIPMpMQbVjkbMnq1laOTPy5p+eIkl/RqmVWRnRL0AY17sU3SddG5le2uL6ceSRNE
-	vT+zeGdaqEL96HQ5hTsQ==;
+	List-Owner; bh=CLIogZKtxkoQJBct1ivrzjEJ9GwuhZlm0ijU/m5U3Ys=; b=n/AYMu+yIev2+z
+	eDNDiXoagMhpDOustFjbA/9Sjm7jXwJYeVmvp/9lAsvgiqgWGwlEOd0ADnizImkSbiTOQW8VyTSDU
+	CcoULSNqZXO18efhzVLAmGMDSlUz2gfNsnQ+g7/hsE48K+sdKo7eH05K5dtn2OK32ifEo1k2depXz
+	2AM14JWXm0eS3b60wOPz1F+al3HCAAmQmy2KdzZ7PaL78taZvBG1sD03/eRowVWytBW2J7gQVjqfb
+	5or2Yv4/+1ZzwsU1xDqevNwtGF4aQYwMxYBz5VWxe74YPgy2S9reKga0gcs21o96saHBUTT9ud5EV
+	yAOSe+eQa/cPt4xN6cbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAqZ-0000000CBOI-3yNn;
-	Fri, 10 Apr 2026 12:20:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAqY-0000000CBJd-079Y;
-	Fri, 10 Apr 2026 12:20:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To;
-	bh=AqOQD77ovJbDZAalLb7LttNXWfQNwpbHnO0m4lNbaKQ=; b=Hv69XrbVAw7ELfYPhUkH4MJ5Pw
-	cD42l2/y6+bFnN2DzvGod29q7qjUQ7nq6wNZBuIcKBzi0PKY2te9bFKWR9WFhf61/+iZDKPzKLt0Y
-	tEVGdRAKoj1yzoSxl/Wqde0SMNwMkohihiqyCSNeNlkfwpN6A6d26PwX2QX2gvG1IGgsP3cGqzPKO
-	TjUFbPLMlkNd0HUyABKh0C1IM6cLhk554NKdoSLNZaKXAfJic0SuaCQOtFeoOw2qwjmXLNMAv98mP
-	qysW/rPhWMJVrTaLVCg7elboSrTXfJ+iAOO/F2WgnK2gWaDf0hY5HAXNaNJeI7MV1E3Y7cYf5TUz/
-	UsxYCeAQ==;
+	id 1wBAqj-0000000CBdN-3SCf;
+	Fri, 10 Apr 2026 12:20:37 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBAqT-0000000DR0a-0yba;
-	Fri, 10 Apr 2026 12:20:24 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wBAqc-0000000CBRO-0TkH;
+	Fri, 10 Apr 2026 12:20:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 806A043DD1;
-	Fri, 10 Apr 2026 12:20:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E21BC19421;
-	Fri, 10 Apr 2026 12:20:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A1972441C0;
+	Fri, 10 Apr 2026 12:20:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8258C2BCAF;
+	Fri, 10 Apr 2026 12:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775823619;
-	bh=qm3xQcBXEr96lL4hegVcj0UIOMtgXH0StGBPsgVLlKQ=;
+	s=k20201202; t=1775823629;
+	bh=Xj914OB0ywB5KtjAdUFbVTIri4m7J0/9GAWloccpVyg=;
 	h=Date:From:To:Cc:Subject:References:From;
-	b=C7az2CYXx68wjErxLRkuWTeHqh2CiNCWSqYoEW7CDASKgYcRJIgZbMFxC0wyGwYuo
-	 q2wWS5Il3rSZIvkXMrziJDymJeOKDwzCu+GiLTUQ15ObFw+7EBHLm3ubP5lL1H6hxr
-	 ReCtVW/VKZ0Y6HBv+Xxa78vZHjPEyhGg6WzSGQLG1W0Tyuqe7kgGZgc8KKs+JzIX6a
-	 qzTQ3qBxeH5MKjO5ANy/+fOcCKNQ7HWyamJ7hE6VNKzzJsl13+xyi236101/gCvlT5
-	 hn6GusmLxuTParC929bCg39takaaNPRV5A3bS+11CTndJSbqW1MjcdkxKmUqQfmLua
-	 lqUqNEa3EnLWw==
-Date: Fri, 10 Apr 2026 14:20:16 +0200
-Message-ID: <20260410120319.064561422@kernel.org>
+	b=UacNbv5zzA6AzbAlRM4n4U5NaKejyQd8mANj0iWZ5RQiRAJWixjyMgZjbiDhDTyzO
+	 ay62PPnTA47MG/rmdeWa/4KfjNAnW4xtTzJ34RAhThlg0KY8nNByGNrsu9zE469dPQ
+	 hWtTJvAZ4ZE2brA8ZCckIrkzYMvi5clv/chlzjJ3PYteh92RUSFzhMNQu3+ZTJTDCI
+	 kJ6mPTSZ1AZhD1XvkSSEOtM9nEZR/77fxCsYwUjbpiFSE3ESK6EP7pbE6Ao/WrdTRD
+	 AlaT3EdsheI/WmWdaf0zz7rbsJUIcktKioLIztC89PcrEqXmxk39mPCnXjzI5yFh8X
+	 xNx6W4PqnkQAQ==
+Date: Fri, 10 Apr 2026 14:20:26 +0200
+Message-ID: <20260410120319.197793115@kernel.org>
 User-Agent: quilt/0.68
 From: Thomas Gleixner <tglx@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>,
+Cc: Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org,
  Arnd Bergmann <arnd@arndb.de>,
  x86@kernel.org,
  Lu Baolu <baolu.lu@linux.intel.com>,
@@ -85,10 +72,9 @@ Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>,
  Andrey Ryabinin <ryabinin.a.a@gmail.com>,
  Thomas Sailer <t.sailer@alumni.ethz.ch>,
  linux-hams@vger.kernel.org,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>,
  Richard Henderson <richard.henderson@linaro.org>,
  linux-alpha@vger.kernel.org,
- Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org,
  Catalin Marinas <catalin.marinas@arm.com>,
  Huacai Chen <chenhuacai@kernel.org>,
  loongarch@lists.linux.dev,
@@ -107,13 +93,13 @@ Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>,
  linux-s390@vger.kernel.org,
  "David S. Miller" <davem@davemloft.net>,
  sparclinux@vger.kernel.org
-Subject: [patch 22/38] random: Provide CONFIG_ARCH_HAS_RANDOM_ENTROPY
+Subject: [patch 24/38] ARM: Select ARCH_HAS_RANDOM_ENTROPY
 References: <20260410120044.031381086@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_132021_668582_A4CD9B01 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20260410_052032_909969_C946ACD6 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,125 +114,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Chasing down to what random_get_entropy() resolves is a 'spot the mouse'
-game through a maze of #ifdeffery. Also the placement in timex.h is
-non-obvious and has just been chosen because it provides conveniant access
-to the underlying get_cycles() #ifdeffery.
+The only remaining usage of get_cycles() is to provide
+random_get_entropy().
 
-Provide a config switch which is selectable by the architecture and a
-temporary #ifdef guard in timex.h. Architectures which select the config
-switch must provide asm/random.h with the architecture specific
-implementation.
+Switch ARM over to the new scheme of selecting ARCH_HAS_RANDOM_ENTROPY and
+providing random_get_entropy() in asm/random.h.
 
-Update all usage sites to include linux/random.h so that the gradual
-conversion does not cause build regressions.
-
-This is part of a larger effort to remove get_cycles() usage from
-non-architecture code.
+Remove asm/timex.h as it has no functionality anymore.
 
 Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org
 ---
- arch/Kconfig                     |    3 +++
- arch/loongarch/kernel/relocate.c |    1 +
- arch/mips/kernel/relocate.c      |    1 +
- crypto/jitterentropy-kcapi.c     |    1 +
- include/linux/random.h           |   15 +++++++++++++++
- include/linux/timex.h            |    2 ++
- kernel/kcsan/core.c              |    1 +
- 7 files changed, 24 insertions(+)
+ arch/arm/Kconfig              |    1 +
+ arch/arm/include/asm/random.h |   14 ++++++++++++++
+ arch/arm/include/asm/timex.h  |   18 ------------------
+ arch/arm/lib/delay.c          |    4 ++--
+ 4 files changed, 17 insertions(+), 20 deletions(-)
 
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -370,6 +370,9 @@ config ARCH_HAS_CPU_FINALIZE_INIT
- config ARCH_HAS_DELAY_TIMER
- 	bool
- 
-+config ARCH_HAS_RANDOM_ENTROPY
-+	bool
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -22,6 +22,7 @@ config ARM
+ 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
+ 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
+ 	select ARCH_HAS_PTE_SPECIAL if ARM_LPAE
++	select ARCH_HAS_RANDOM_ENTROPY
+ 	select ARCH_HAS_SETUP_DMA_OPS
+ 	select ARCH_HAS_SET_MEMORY
+ 	select ARCH_STACKWALK
+--- /dev/null
++++ b/arch/arm/include/asm/random.h
+@@ -0,0 +1,14 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _ASMARM_RANDOM_H
++#define _ASMARM_RANDOM_H
 +
- # The architecture has a per-task state that includes the mm's PASID
- config ARCH_HAS_CPU_PASID
- 	bool
---- a/arch/loongarch/kernel/relocate.c
-+++ b/arch/loongarch/kernel/relocate.c
-@@ -9,6 +9,7 @@
- #include <linux/kernel.h>
- #include <linux/printk.h>
- #include <linux/panic_notifier.h>
-+#include <linux/random.h>
- #include <linux/start_kernel.h>
- #include <asm/bootinfo.h>
- #include <asm/early_ioremap.h>
---- a/arch/mips/kernel/relocate.c
-+++ b/arch/mips/kernel/relocate.c
-@@ -19,6 +19,7 @@
- #include <linux/libfdt.h>
- #include <linux/of_fdt.h>
- #include <linux/panic_notifier.h>
-+#include <linux/random.h>
- #include <linux/sched/task.h>
- #include <linux/start_kernel.h>
- #include <linux/string.h>
---- a/crypto/jitterentropy-kcapi.c
-+++ b/crypto/jitterentropy-kcapi.c
-@@ -42,6 +42,7 @@
- #include <linux/fips.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
-+#include <linux/random.h>
- #include <linux/slab.h>
- #include <linux/time.h>
- #include <crypto/internal/rng.h>
---- a/include/linux/random.h
-+++ b/include/linux/random.h
-@@ -139,4 +139,19 @@ int random_online_cpu(unsigned int cpu);
- extern const struct file_operations random_fops, urandom_fops;
- #endif
- 
-+unsigned long random_get_entropy_fallback(void);
++bool delay_read_timer(unsigned long *t);
 +
-+/*
-+ * random_get_entropy() is used by the /dev/random driver in order to extract
-+ * entropy via the relative unpredictability of when an interrupt takes places
-+ * versus a high speed, fine-grained timing source or cycle counter.  Since it
-+ * will be occurred on every single interrupt, it must have a very low
-+ * cost/overhead.
-+ *
-+ * If an architecture does not provide it, then use random_get_entropy_fallback().
-+ */
-+#ifdef CONFIG_ARCH_HAS_RANDOM_ENTROPY
-+#include <asm/random.h>
++static inline unsigned long random_get_entropy(void)
++{
++	unsigned long t;
++
++	return delay_read_timer(&t) ? t : random_get_entropy_fallback();
++}
++
 +#endif
-+
- #endif /* _LINUX_RANDOM_H */
---- a/include/linux/timex.h
-+++ b/include/linux/timex.h
-@@ -66,6 +66,7 @@ unsigned long random_get_entropy_fallbac
+--- a/arch/arm/include/asm/timex.h
++++ /dev/null
+@@ -1,18 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only */
+-/*
+- *  arch/arm/include/asm/timex.h
+- *
+- *  Copyright (C) 1997,1998 Russell King
+- *
+- *  Architecture Specific TIME specifications
+- */
+-#ifndef _ASMARM_TIMEX_H
+-#define _ASMARM_TIMEX_H
+-
+-// Temporary workaround
+-bool delay_read_timer(unsigned long *t);
+-
+-#define get_cycles()	({ cycles_t c; delay_read_timer(&c) ? 0 : c; })
+-#define random_get_entropy() (((unsigned long)get_cycles()) ?: random_get_entropy_fallback())
+-
+-#endif
+--- a/arch/arm/lib/delay.c
++++ b/arch/arm/lib/delay.c
+@@ -42,9 +42,9 @@ static inline u64 cyc_to_ns(u64 cyc, u32
  
- #include <asm/timex.h>
+ static void __timer_delay(unsigned long cycles)
+ {
+-	cycles_t start = get_cycles();
++	cycles_t start = delay_timer->read_current_timer();
  
-+#ifndef CONFIG_ARCH_HAS_RANDOM_ENTROPY
- #ifndef random_get_entropy
- /*
-  * The random_get_entropy() function is used by the /dev/random driver
-@@ -85,6 +86,7 @@ unsigned long random_get_entropy_fallbac
- #define random_get_entropy()	random_get_entropy_fallback()
- #endif
- #endif
-+#endif
+-	while ((get_cycles() - start) < cycles)
++	while ((delay_timer->read_current_timer() - start) < cycles)
+ 		cpu_relax();
+ }
  
- /*
-  * SHIFT_PLL is used as a dampening factor to define how much we
---- a/kernel/kcsan/core.c
-+++ b/kernel/kcsan/core.c
-@@ -18,6 +18,7 @@
- #include <linux/moduleparam.h>
- #include <linux/percpu.h>
- #include <linux/preempt.h>
-+#include <linux/random.h>
- #include <linux/sched.h>
- #include <linux/string.h>
- #include <linux/uaccess.h>
 
 
