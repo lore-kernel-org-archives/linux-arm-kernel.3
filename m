@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46E1AE99049
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 07:35:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97BEEE99049
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 07:37:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eD2GqYVYaw/AwL8YkfWsSyw3e2aXuJn+eTsStE6HBEI=; b=EAYh04p8yh1NAoqGDw3DzoPFUC
-	41yAAWK3cK2F+cBUUO9hBuhnaKftpix2zVVfX72eypYXIqOUcBsBhMLv05Ykky/Um50Dm1fpEr7iG
-	Yf3CpZce/GFUAqXzfuoln+q+iGycmZF8gElhwpZPOzeONWbkHbLj6dJbwxSykqDSA//bQZwR5JsJD
-	QI1GaGPWdULUTqWSjEFL0sGuPh0Vf8jJmivajcl0vdfXTQFuiXK9asRpb4l71oz6+qbcUssm7iN93
-	b9XXWe70YA0Pu/lrRDMObGFtNSA0llENTgWVqW+6Gzuf6gGnq7KUQF0U9E34gFhOs4oN0yvOJroHs
-	FJN7smdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=b7QvNiIONQ8/Q7cf+bw0SBNKfYv4d2wa2MzThOmNBgM=; b=vzifaElH02oQ6H
+	qHB2AEuy79RdHrRwJVQvY0A8N/qwWevxUY/Gp7drTHsVBdwyTXmZsPd1Cs5EtFAxkXbpfr2BgMtXf
+	DHK9SuLuE4XeuDLWY5cpRS9WaMhrSUOWyYI3GbdNkKdbiMANlAzsv1dYrSSwsG+dP7oVT3ZNBB3up
+	qUghNWknlrkzMg6iuNQm3BIauQrzNpmxAfEXwkYQakRXSERE+PwZn7NTWLamjkRphO6EKLYf3erUM
+	u7v9ZB94ZTzn2fxS8L0p0nziH1w2ngNpB1qKkvRBJrXkhUehqlnlSrXjAwTmC3MVwvXzNoHKNP9AV
+	iUJanDmkwCO0hk0uO9YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB6OJ-0000000Bjy5-06oY;
-	Fri, 10 Apr 2026 07:34:59 +0000
+	id 1wB6QR-0000000BkBI-2C80;
+	Fri, 10 Apr 2026 07:37:11 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB6OG-0000000Bjxa-0oL4
+	id 1wB6QO-0000000BkAd-3DmI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 07:34:57 +0000
+	Fri, 10 Apr 2026 07:37:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 38C5A1CE2;
-	Fri, 10 Apr 2026 00:34:48 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7353F3FAF5;
-	Fri, 10 Apr 2026 00:34:53 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 45C731CE2;
+	Fri, 10 Apr 2026 00:37:01 -0700 (PDT)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 78E4B3FAF5;
+	Fri, 10 Apr 2026 00:37:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1775806493; bh=3dt6b5NFS6OMkaxBDU5Vw8gZWuujHEwxgHO+tc15hWE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RbJVWVADOhWYJ31F/RpHT4ldw6QNo1V1GBvc2jmrGLoJtSGpsf8+DcCbgVIHOtdjv
-	 ovO/VwSCnBA/f+XWM+8gK/xRNkXtLCzoAIVPGeLT6BrgYbb+J06ZiRWxwagj1heNV/
-	 LiR48gDoor5rDV0aiCrM+go283dvBpSI+HmYcOLY=
-Date: Fri, 10 Apr 2026 08:34:51 +0100
+	t=1775806627; bh=kePsosaY5HmDwmc+PdQQ/5g3eaPAL1GR0LrHxwQp03w=;
+	h=From:Subject:Date:To:Cc:From;
+	b=My2EjVPKBYBkyyQsKKTg+u4F8gF4MaMb/tFdDqBzcJBJqWB49G6HwchFA+1yE+a0W
+	 ASGsVI6iS2IOnEL7ZY2JZ65mlY44RnwGMSBYQ9YB49bWuuIeaOXbucdIMGLFV8U1rz
+	 hTagseIB/xGV+sdD14AtHfYmtOwnGK8QuIULIqms=
 From: Leo Yan <leo.yan@arm.com>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 0/4] perf arm_spe: Extend SIMD operations
-Message-ID: <20260410073451.GY356832@e132581.arm.com>
-References: <20260408-perf_support_arm_spev1-3-v5-0-b5bcea6217bb@arm.com>
- <adiGR-A-N1tMzxTE@google.com>
+Subject: [PATCH v6 0/4] perf arm_spe: Extend SIMD operations
+Date: Fri, 10 Apr 2026 08:36:57 +0100
+Message-Id: <20260410-perf_support_arm_spev1-3-v6-0-3c6f2dfe2cd3@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <adiGR-A-N1tMzxTE@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJmo2GkC/43R30rDMBQG8FcZubaSc/LfK99DpDTJievF1pLMo
+ oy+u+mGKxOs3gROwvfLR3JmhXJPhT3tzizT1Jd+ONZBP+xY2HfHN2r6WGeGHBW3yJuRcmrL+zg
+ O+dR2+dCWkSZoROM1pahTMMYjq/ExU+o/LvTLa533fTkN+fNy0wTL7hV13P6O1oU3JkLqpHQAG
+ J/r6WMYDssN1zi6P+IAinsRrLDK3OJLowlvLYCD2WCwMhglkDRSE/h7RqxMrbjBiMqQFsFZdMl
+ Fd8/Ib0Zz4HqDkZXxHiNI4YXV/Meb/CturfHeOZc03bdQawu5+TNqYZQP1GmEiq3MPM9fqoLcy
+ VgCAAA=
+X-Change-ID: 20250820-perf_support_arm_spev1-3-b6efd6fc77b2
+To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+ James Clark <james.clark@linaro.org>, Mark Rutland <mark.rutland@arm.com>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, 
+ linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775806625; l=2385;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=kePsosaY5HmDwmc+PdQQ/5g3eaPAL1GR0LrHxwQp03w=;
+ b=FUxnAiTZVrIMIIkhYW3edPoqtLlb5pFfzAVzZygUkAKUjgfP7kpj2F/1nLwau9r2ScOXg7Wl+
+ 6LsGxi4adzfBDwUpWss1phnJjAhN+8WG22qkFw8Ed+QFMavpOHTbarx
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_003456_352940_8F75D0C2 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20260410_003708_937913_3FE7275C 
+X-CRM114-Status: UNSURE (   9.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,21 +86,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 09, 2026 at 10:10:31PM -0700, Namhyung Kim wrote:
-> On Wed, Apr 08, 2026 at 10:42:30AM +0100, Leo Yan wrote:
-> > This series extends SIMD flag for Arm SPE and updated the document.
-> > 
-> > Since I failed to get perf core maintainer's review for uAPI header
-> > updating for data source fields (since last year's Sepetember), this
-> > series I dropped uAPI changes and sent only SIMD flag changes, hope
-> > it is easier for perf tool maintainer's picking up.
-> > 
-> > Anyway, uAPI patches will be sent out separately.
-> > 
-> > This version is rebased onto the latest perf-tools-next branch.
-> 
-> Unfortunately it doesn't apply due to a recent change.  Can you please
-> rebase it once again?
+This series extends SIMD flag for Arm SPE and updated the document.
 
-Sure, I will send out a new version.  Thanks for taking care of this!
+This version is rebased onto the latest perf-tools-next branch.
+
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+Changes in v6:
+- Rebased on perf-tools-next branch (Namhyung)
+- Link to v5: https://lore.kernel.org/r/20260408-perf_support_arm_spev1-3-v5-0-b5bcea6217bb@arm.com
+
+Changes in v5:
+- Dropped uAPI header changes for data source fields updating.
+- Link to v4: https://lore.kernel.org/r/20260106-perf_support_arm_spev1-3-v4-0-b887bb999f6e@arm.com
+
+Changes in v4 (resend):
+- Updated for Ian and James' review tags.
+- Link to v4: https://lore.kernel.org/r/20260106-perf_support_arm_spev1-3-v4-0-bb2d143b3860@arm.com
+
+Changes in v4:
+- Updated for Ian and James' review tags.
+- Rebased on the latest perf-tools-next branch.
+- Link to v3: https://lore.kernel.org/r/20251112-perf_support_arm_spev1-3-v3-0-e63c9829f9d9@arm.com
+
+Changes in v3:
+- Rebased on the latest perf-tools-next branch.
+- Link to v2: https://lore.kernel.org/r/20251017-perf_support_arm_spev1-3-v2-0-2d41e4746e1b@arm.com
+
+Changes in v2:
+- Refined to use enums for 2nd operation types. (James)
+- Avoided adjustment bit positions for operations. (James)
+- Used enum for extended operation type in uapi header and defined
+  individual bit field for operation details in uaip header. (James)
+- Refined SIMD flag definitions. (James)
+- Extracted a separate commit for updating tool's header. (James/Arnaldo)
+- Minor improvement for printing memory events.
+- Rebased on the latest perf-tools-next branch.
+- Link to v1: https://lore.kernel.org/r/20250929-perf_support_arm_spev1-3-v1-0-1150b3c83857@arm.com
+
+---
+Leo Yan (4):
+      perf sort: Support sort ASE and SME
+      perf sort: Sort disabled and full predicated flags
+      perf report: Update document for SIMD flags
+      perf arm_spe: Improve SIMD flags setting
+
+ tools/perf/Documentation/perf-report.txt |  5 ++++-
+ tools/perf/util/arm-spe.c                | 26 ++++++++++++++++++++------
+ tools/perf/util/sample.h                 | 21 ++++++++++++++++-----
+ tools/perf/util/sort.c                   | 21 +++++++++++++++------
+ 4 files changed, 55 insertions(+), 18 deletions(-)
+---
+base-commit: 4cf1f549bbcdfea9c20df52994bb342677472dcd
+change-id: 20250820-perf_support_arm_spev1-3-b6efd6fc77b2
+
+Best regards,
+-- 
+Leo Yan <leo.yan@arm.com>
+
 
