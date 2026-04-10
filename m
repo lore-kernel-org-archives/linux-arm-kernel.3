@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6649E99056
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 09:18:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA2ADE9905C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 09:24:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	References:In-Reply-To:Date:Content-Type:Subject:Cc:To:From:Message-ID:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=biSMIjMoqI6BSBHbISsyBv693FJEoQDokGFZnddUKkM=; b=CLpTHIqR9nKnVvssx9/ftVstlq
-	ty5WQFHIkQX33w9DZNp5JEid22rlU/N425KwJHE9MxACiI5AgzIBbXMCgqGbb605/32py1KekVFY5
-	f3gfOD/mUJjwuskKyua+Kjs97HQS+DdxaXm5Lx2KibtMn+DxvNwDaXgUW7AXzp/ZbIk2qnnmhp5XS
-	2RanaFPSlGazng/FGP6Uxi3WDbDLVtcxGVBT0xEt44JV0et9eyDRpzUFSOFaphWspz8JLeCp2Pi9r
-	SNeiS1vmJv8LEiPc5F6xBWStOr2LabPjXPLYhS36TMh2vuvDEj65iLdhwMYyRchanZQINqjSjRP5I
-	UYGtHzcg==;
+	bh=x55BnAYCiYc4Ou8winh9a1tHPbGxq5JqwjTCAarUD1s=; b=rft39QlydbjReMyVjxY/hs+729
+	ZbW5UcL97lG+MWXg4eFYiXtARd42ClUzrQSWYnfZGk9ZN/GxL3x0rcVBWDOZjUZoZWq8dTUAVSJj/
+	q0BSHdRgL/6mEkSjW/PLtFD0j9ICmI1LhWHRfsG2UCu1v1LlT/iTEiAkLNSvIvm//MFo/I1G4xy5w
+	6vSLLBMj4YEMepr+4JzkFaMVSQc+AbGE2FH0mdEAoXCe1TLA4rZ3EXjclqIhH1RakIMLeDhekcT39
+	C6yxJkiVfF5nsEbltaByFfMPkP91DjeXfTXRDxrpvopG9X7qoS1FAt8qehqZjqJ+uymx0DNhjYCjf
+	SuO8+t+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB80r-0000000Btz9-1K8Y;
-	Fri, 10 Apr 2026 09:18:53 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1wB86a-0000000BuGx-2ZoS;
+	Fri, 10 Apr 2026 09:24:48 +0000
+Received: from mout.gmx.net ([212.227.17.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB80o-0000000BtyZ-10l9
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 09:18:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1775812716; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=bvjtxWIGOwhhI07XetIdFYhUqGJcYhs1zYmkXxPR+bt1MMUfp+UTmkokPpSVD8koVW9oH7b4KCkzSjskeCO3JLfO8KIbFAXY7WFBPX59CCcBps+t2qMHeKgNL31T1i3BVDDEqDw6rkQWYDv874oVInplMPYPVsEl8eWNoA+UPx8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1775812716; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=biSMIjMoqI6BSBHbISsyBv693FJEoQDokGFZnddUKkM=; 
-	b=ltX0DBnvVCzideQg/qFRRhLxSZSjYBNSPbh7gM5WtTLsNf/Y2HpNC8D4PZEusaB8yggQtqb8UDuo0j5bpHhV8dz3CaZgFASdyltwVo/tibN3BrFr/eR7DTGvyavl4XHUJoq1nazHACboDTRM50Qa9rSirivlazUpI8hOEZHbyQI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1775812716;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:Cc:Cc:Subject:Subject:From:From:To:To:References:In-Reply-To:Reply-To;
-	bh=biSMIjMoqI6BSBHbISsyBv693FJEoQDokGFZnddUKkM=;
-	b=i+jDGeGgXIRG64OfX53pe45O/Du/c+8L4IPKelfAnF1mBKufshKaE5+OFLuByLT2
-	P+tmRSdtqgA4a0J+qXYu5tvRNMVjIBexFpWxqmUYH+dsWeqr65e5rflBFGSktSqN9B0
-	c3YP7u98dFywWacjkOYYaUTdZnHeL3uipmEcIgqU=
-Received: by mx.zohomail.com with SMTPS id 1775812713638605.1620198428519;
-	Fri, 10 Apr 2026 02:18:33 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+	id 1wB86X-0000000BuGM-0n9y;
+	Fri, 10 Apr 2026 09:24:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1775813076; x=1776417876; i=frank-w@public-files.de;
+	bh=x55BnAYCiYc4Ou8winh9a1tHPbGxq5JqwjTCAarUD1s=;
+	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
+	 Content-Type:Date:In-Reply-To:References:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=Xe0MHdJgqMcToxHilpfE1H7P6QH+0YdonORUma+5xYG7s1vDEb6zGaBJ/2SCE7ZM
+	 JBIRWBwtgpM+5WgGEcUbgEzRVlY06HDEXrSrFqCof5Cv4aDKRgk+di12RMQUDqqIa
+	 8JWsyhrQwEyoVYr2sb7e/+ldN7B6V2WEarcPydxqDo943diy+qqmVqtSRC90INVlh
+	 nPFsbKeGwTgA5FQ5/Z8L8qY3T7yShJB/jNbROLE08QL0PDXOArkem9ui71hIESuwt
+	 qQQJnCY5irUpJyVsSlBnL2wPNU9LFdv2MHtPmyzv+AuivU9oYsmvTWBgOYd5tNd57
+	 2aRzAUVT1IQKNV/lXg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [217.61.152.0] ([217.61.152.0]) by
+ trinity-msg-rest-gmx-gmx-live-5cf7d7879b-qwfn5 (via HTTP); Fri, 10 Apr 2026
+ 09:24:36 +0000
+MIME-Version: 1.0
+Message-ID: <trinity-5e6f6a95-e576-4f97-9085-c6de21945eab-1775813076268@trinity-msg-rest-gmx-gmx-live-5cf7d7879b-qwfn5>
+From: Frank Wunderlich <frank-w@public-files.de>
+To: bartosz.golaszewski@oss.qualcomm.com, linux@fw-web.de,
+ sean.wang@kernel.org, linusw@kernel.org, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, brgl@kernel.org
+Cc: linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ bartosz.golaszewski@oss.qualcomm.com
+Subject: Aw: [PATCH] pinctrl: mediatek: moore: implement
+ gpio_chip::get_direction()
 Content-Type: text/plain; charset=UTF-8
-Date: Fri, 10 Apr 2026 17:18:22 +0800
-Message-Id: <DHPD2DBIJNKO.11THXNWNUEEG9@pigmoral.tech>
-Cc: "Michael Turquette" <mturquette@baylibre.com>, "Stephen Boyd"
- <sboyd@kernel.org>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Samuel
- Holland" <samuel@sholland.org>, "Alexandre Belloni"
- <alexandre.belloni@bootlin.com>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Maxime Ripard" <mripard@kernel.org>,
- <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
- <linux-rtc@vger.kernel.org>, <devicetree@vger.kernel.org>
-Subject: Re: [PATCH 1/7] dt-bindings: rtc: sun6i: Add Allwinner A733 support
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-To: <wens@kernel.org>, "Junhui Liu" <junhui.liu@pigmoral.tech>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260121-a733-rtc-v1-0-d359437f23a7@pigmoral.tech>
- <20260121-a733-rtc-v1-1-d359437f23a7@pigmoral.tech>
- <CAGb2v67844OPwE6VJ0PAs5LsmCa2h0FvXOBUomZ50dM5tZ0Zow@mail.gmail.com>
-In-Reply-To: <CAGb2v67844OPwE6VJ0PAs5LsmCa2h0FvXOBUomZ50dM5tZ0Zow@mail.gmail.com>
-X-ZohoMailClient: External
+Date: Fri, 10 Apr 2026 09:24:36 +0000
+In-Reply-To: <20260410070935.9540-1-bartosz.golaszewski@oss.qualcomm.com>
+References: <20260410070935.9540-1-bartosz.golaszewski@oss.qualcomm.com>
+X-UI-CLIENT-META-MAIL-DROP: W10=
+X-Provags-ID: V03:K1:v+CtdG+miWP51FXD9E3ff9lKGyUuigRMCImtxUW3pQXoaVPjA/Tx6oMcjL/Su/mnSSsyy
+ QJzylvbVtXD4DJrMH8LsSsJ6xsjQOcqPpzMlvfP1HErHMI1pvp6lb/P4JInZlX4oVxp93xWRTEa+
+ slFJ6uLQY0t1lPHb7vPor4sieprsQpPP9Uo3Wi03tQ77+hmtOgDHOG+/w2/T9GqmTn/hCLxIsZPW
+ zr5yQLtGVMzl5ZuW6/qfk8xOyagSPeUBiFPt/CTC5WmccMIvEQnz67QoiNFeJOYGLJqxNPLi8eCK
+ G7wcalfbYHzBx9c5Bl27fQrN0fiebO2Ub+AWR+PyUF5iCcrxk6gUWwwfq7MdkxIf/A=
+UI-OutboundReport: notjunk:1;M01:P0:R2lLZiC8lLA=;cAt8Qw5xE9k3wOlNKTRacd1GwMj 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
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_021850_627435_FF599040 
-X-CRM114-Status: GOOD (  33.76  )
+X-CRM114-CacheID: sfid-20260410_022445_536702_176EDDCC 
+X-CRM114-Status: UNSURE (   7.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,109 +86,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi ChenYu,
-Thanks for your patient review.
-
-On Sat Mar 28, 2026 at 8:37 PM CST, Chen-Yu Tsai wrote:
-> On Wed, Jan 21, 2026 at 7:03=E2=80=AFPM Junhui Liu <junhui.liu@pigmoral.t=
-ech> wrote:
->>
->> The RTC module in the Allwinner A733 SoC is functionally compatible with
->> the sun6i RTC, but its internal Clock Control Unit (CCU) has significant
->> changes.
->>
->> The A733 supports selecting the oscillator between three frequencies:
->> 19.2MHz, 24MHz, and 26MHz. The RTC CCU relies on hardware to detect
->> which frequency is actually used on the board. By defining all three
->> frequencies as fixed-clocks in the device tree, the driver can identify
->> the hardware-detected frequency and expose it to the rest of the system.
+> Gesendet: Freitag, 10. April 2026 um 09:09
+> Von: "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>
+> An: "Frank Wunderlich" <linux@fw-web.de>, "Sean Wang" <sean.wang@kernel.=
+org>, "Linus Walleij" <linusw@kernel.org>, "Matthias Brugger" <matthias.bg=
+g@gmail.com>, "AngeloGioacchino Del Regno" <angelogioacchino.delregno@coll=
+abora.com>, "Bartosz Golaszewski" <brgl@kernel.org>
+> CC: linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, linu=
+x-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, "Bartosz G=
+olaszewski" <bartosz.golaszewski@oss.qualcomm.com>
+> Betreff: [PATCH] pinctrl: mediatek: moore: implement gpio_chip::get_dire=
+ction()
 >
-> No. The board device tree shall have the exact and correct frequency
-> defined in the external crystal device node. The operating system can
-> use the hardware-detected frequency to "fix" the in-system representation
-> if it is off.
+> If the gpio_chip::get_direction() callback is not implemented by the GPI=
+O
+> controller driver, GPIOLIB emits a warning.
+>=20
+> Implement get_direction() for the GPIO part of pinctrl-moore.
+>=20
+> Fixes: 471e998c0e31 ("gpiolib: remove redundant callback check")
+> Fixes: e623c4303ed1 ("gpiolib: sanitize the return value of gpio_chip::g=
+et_direction()")
+> Reported-by: Frank Wunderlich <linux@fw-web.de>
 
-Okay, I will keep only one main external crystal in the device tree.
+please use the email i used for SoB in my linked patch (closes link below)=
+, the other email i use only for sending patches due to mail provider limi=
+tation.
 
+regards Frank
+
+> Closes: https://lore.kernel.org/all/20260409132724.126258-1-linux@fw-web=
+.de/
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com=
 >
->> Additionally, the A733 RTC CCU provides several new DCXO gate clocks for
->> specific modules, including SerDes, HDMI, and UFS.
->>
->> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
->> ---
->>  .../bindings/rtc/allwinner,sun6i-a31-rtc.yaml      | 38 +++++++++++++++=
-+++++--
->>  include/dt-bindings/clock/sun60i-a733-rtc.h        | 16 +++++++++
->>  2 files changed, 52 insertions(+), 2 deletions(-)
->>
-
-[...]
-
->> diff --git a/include/dt-bindings/clock/sun60i-a733-rtc.h b/include/dt-bi=
-ndings/clock/sun60i-a733-rtc.h
->> new file mode 100644
->> index 000000000000..8a2b5facad73
->> --- /dev/null
->> +++ b/include/dt-bindings/clock/sun60i-a733-rtc.h
->> @@ -0,0 +1,16 @@
->> +/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
->> +
->> +#ifndef _DT_BINDINGS_CLK_SUN60I_A733_RTC_H_
->> +#define _DT_BINDINGS_CLK_SUN60I_A733_RTC_H_
->> +
->> +#define CLK_IOSC               0
->> +#define CLK_OSC32K             1
->> +#define CLK_HOSC               2
->
-> The DCXO enable control has been present since at least the H6. We just
-> never added it, as we would never disable it anyway.
-
-I will remove it.
-
->
-> If you compare the RTC clock trees of the A733 and A523, the only additio=
-n
-> besides the new gates seems to be the LOSC auto selection. But even that
-> is just an illusion, as the A523 has the same registers for that.
->
-> One could say the A733 RTC is almost backward compatible to the A523, if
-> not for the two fastboot registers the A523 has at 0x120 and 0x124.
->
-> So I ask that you try to integrate the differences into the existing
-> driver and bindings. You can tweak and export internal clks if you
-> need.
-
-Okay, I will try to integrate the A733 RTC support into the existing
-driver and bindings.
-
-But first I would like to ask for your advice on how to correctly
-organize the device tree binding header for the clocks? I have two ideas
-in mind:
-
-1. Add the common internal clocks (e.g., CLK_RTC_32K) to the existing
-sun6i-rtc.h. Then, create a new sun60i-a733-rtc.h which includes
-the old sun6i-rtc.h and appends the A733-specific clock gates.
-
-2. Simply append all the new A733-specific clock IDs directly to the
-bottom of the existing sun6i-rtc.h, sharing the same header file for all
-SoCs utilizing this driver.
-
->
->> +#define CLK_RTC_32K            3
->
-> AFAICT besides being an internal clock, this is also fed to GPIO for
-> debounce? We probably need to expose this on the A523 as well.
->
-
-I will do it.
-
->
-> Thanks
-> ChenYu
->
-
---=20
-Best regards,
-Junhui Liu
-
 
