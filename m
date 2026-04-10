@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 358EFE99056
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 08:27:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6507DE99055
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 08:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z75R0tX4ysdgRCqX76W/Tt05c+xcNPLtoZZGSPW5SLw=; b=WXFgQmwNODMVowgn/6/l12yhCl
-	6nJjJo4BHWJAydYwoWczJsGlqm4eVHj6kRI6BTXDN102C9yPv2ujKruwaOCfr0AGHM0ClHCpVG2p7
-	NSiLZt8cAdb7ivAEGuAa2c4mJ7anlSPq2BaeBCGZGcRku8TfwI4P9R9cKaaeDcyxypUS7ChOKmcTT
-	1SlojrTYrfEI2caGeGfOMfoLZl407otivQYfObn5WAuUy28+lH2evU8YUnPITQt1Zzc7f+m7X6DMe
-	H5ITQrRpXtIpjNP+OIG3l1TVpjTAB2NAa8yRwdWyYr/uQNGfad1Qt0bTLg9TGvNLNGrNCfN6WPg5X
-	8/UUCWfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZdOnR/1mCgonR7f2wP3H5JqrF/rCMapSujGWUMtD9/A=; b=rJekfFV9HIChh1RC9i94Ixwprg
+	5LxosdvVKxwJZ1OQER9+1lY1QNKBW8OCZYfnoM7Pk2yI03ETZnZNtxyCdfv+lgbcQ56cfAbEY4ST0
+	JN53I8ZrJuqp83w1JYBL2tLIcywYojiiKOjQ3foEsWAdUsY6ogIrgBk/DrEd0mBtVK0LbAKonHg8N
+	fVycv0n1AnR/gxOzckVTUsUpfBKbaj83pg/0RHcAP03L4q9hTf6iFgIj5Fshcb22U5x4hxd0urZ4i
+	cOyays7ZVy2svg175VQ/CQyckfRuJs/w/zpdbIqSWyJ0DWOL8DF/XOYZKRH1QL7Pp4OKcWCQI/AGn
+	VofKKKvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB7Cj-0000000BqHv-1Bkt;
-	Fri, 10 Apr 2026 08:27:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wB7PH-0000000Bqvk-0MY7;
+	Fri, 10 Apr 2026 08:40:03 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB7Ch-0000000BqHW-1yIY
+	id 1wB7PE-0000000Bqug-303U
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 08:27:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BBF9142E37;
-	Fri, 10 Apr 2026 08:27:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82EEEC19421;
-	Fri, 10 Apr 2026 08:26:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775809622;
-	bh=wiVpkLOHesaDxqsTty1+qn46GjmDPchZxN/XYbW0yVY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ETa0mesoel9QguYJ8pV0cmtc3Cyt+G6JUpWibDvnx++QugKMurkEiMLxtwQDB5+4M
-	 52/cbsopugbayzbSPnnyAbHWsP0AdFH67TlACy8kcfjh4JdG6u2Qq/LC1oH/Eiu4g6
-	 bfyMNUg5cCwzSZz9MdhsqS4IWcLAKxeL5tYLwh3e6uu5BnTlKtyIR0LjeFSbDSstuK
-	 fFnnYkgL415whPrxMxn28Q5jI5A2U/9LwBir5p2eofF6AYQid7qaJOIQ/pBC5aLcD5
-	 osR7giAvoly013z7WULooyA3wUIaHOb5+eAjs96gtEyycEn74RadjM7s8MUn7+f7Vk
-	 LV0Sgr7ATh/ZA==
-Message-ID: <b280ad04-d4ae-4904-9e99-3d057e3d221b@kernel.org>
-Date: Fri, 10 Apr 2026 09:26:56 +0100
+	Fri, 10 Apr 2026 08:40:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ZdOnR/1mCgonR7f2wP3H5JqrF/rCMapSujGWUMtD9/A=; b=rqmqyPCMlvW3KvDYDz3/ETNIAh
+	G+ESQPCwbBnKWQSJh+ewTI/voRE6d3Ofr1iTuT3bDkAk27P35fRCtsFZbsndaH/5R0K66REmgJSa9
+	6DVG3w9ciTeMT7N2D8gBgu388hIIZw6pNykZbUBWSDiL7IR0aL2hPrX8lB4FFeNyxkZ34crCfawWq
+	ET2uU1utHtMx1ISS5KHV4cXaCRdUmtsF7xMSq6W4rlj8YdqvT2Z4amTnf9HBxDn9tiMn2tvOV0lU9
+	fP2Wv8AVO7k6NoEkFKJOMMsTBV69KWgM7sywkLGQu709m6YCrVMKL6osnzUr1As2obFMhYf3OddEf
+	Nyrg83EA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:45482)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wB7P7-000000004e2-341K;
+	Fri, 10 Apr 2026 09:39:53 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wB7P4-000000005UF-3z5f;
+	Fri, 10 Apr 2026 09:39:50 +0100
+Date: Fri, 10 Apr 2026 09:39:50 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, Chen-Yu Tsai <wens@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Samuel Holland <samuel@sholland.org>
+Subject: Re: [PATCH RFC net-next 02/10] net: stmmac: rename dev_id to userver
+Message-ID: <adi3Vks-N0a83ylE@shell.armlinux.org.uk>
+References: <adYfPBHsXxQUsMyr@shell.armlinux.org.uk>
+ <E1wAPBR-0000000F7ju-1fD9@rmk-PC.armlinux.org.uk>
+ <CAMdnO-+TK65AxjTsDd017Mhop+VC3Xf8jtfaTXYpE6wBNZOt4g@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 8/8] arm64: dts: qcom: eliza: Add support for MM clock
- controllers
-To: Taniya Das <taniya.das@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
- Imran Shaik <imran.shaik@oss.qualcomm.com>,
- Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
- linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20260409-eliza_mm_cc_v2-v2-0-bc0c6dd77bc5@oss.qualcomm.com>
- <20260409-eliza_mm_cc_v2-v2-8-bc0c6dd77bc5@oss.qualcomm.com>
- <cb5a40e8-e2e3-4ed9-a9c6-0daa9f408710@nxsw.ie>
- <Z8a4y73p6MgF8gQkVtottkgG2Ok8-Vhm8zzckWEbiU_DUO84x2VlwPt-VBL2g0utw3ZwZK0aUvI4ev-p_YRGoQ==@protonmail.internalid>
- <328b388c-438e-4f91-9384-0dad903355a5@oss.qualcomm.com>
-Content-Language: en-US
-From: Bryan O'Donoghue <bod@kernel.org>
-In-Reply-To: <328b388c-438e-4f91-9384-0dad903355a5@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMdnO-+TK65AxjTsDd017Mhop+VC3Xf8jtfaTXYpE6wBNZOt4g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_012703_533865_077DAC58 
-X-CRM114-Status: UNSURE (   8.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260410_014000_762115_23F00072 
+X-CRM114-Status: GOOD (  18.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,28 +90,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/04/2026 04:55, Taniya Das wrote:
->> Why do these two controllers have no power-domains ?
-> Bryan, on Eliza the videocc and camcc are connected on CX and MXA.
+On Thu, Apr 09, 2026 at 04:07:42PM -0700, Jitendra Vegiraju wrote:
+> Hi Russell,
+> 
+> On Wed, Apr 8, 2026 at 2:27 AM Russell King (Oracle)
+> <rmk+kernel@armlinux.org.uk> wrote:
+> >
+> > The Synopsys Databook and several implementation TRMs identify bits
+> > 15:8 of the version register in dwmac v3.xx and v4.xx as "userver".
+> > We even print its value with "User ID". Rather than using "dev_id",
+> > use "userver" instead.
+> >
+> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > ---
+> >  drivers/net/ethernet/stmicro/stmmac/hwif.c | 18 +++++++++---------
+> >  1 file changed, 9 insertions(+), 9 deletions(-)
+> >
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.c b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+> > index 3774af66db48..830ff816ab4f 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/hwif.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+> > @@ -15,7 +15,7 @@
+> >
+> >  struct stmmac_version {
+> >         u8 snpsver;
+> > -       u8 dev_id;
+> > +       u8 userver;
+> >  };
+> From the XGMAC databook that I have access to bits(15:8) identify the
+> DEVID field of MAC_version register.
+> The userver field is from bits(23:16) of the same register. This is a
+> customer defined field (configured with coreConsultant).
+> Currently stmmac doesn't care about bits(23:16).
 
-Shouldn't you at least have:
+Thanks for the additional information.
 
-power-domains = <&rpmhpd RPMHPD_CX> ?
+I don't have any XGMAC documentation, but this indicates that it differs
+between XGMAC and previous cores - GMAC and GMAC4 cores, 15:8 are
+documented as userver, and 31:16 are marked as reserved.
 
-And even
+Note that the dev_info() also prints 15:8 as "User ID" not "Device ID".
 
-power-domains = <&rpmhpd RPMHPD_MX>,
-                 <&rpmhpd RPMHPD_CX>;
-power-domain-names = "mx",
-                      "cx";
+To confirm, is the XGMAC version register at offset 0x20 ? Later GMAC
+cores moved it to 0x110.
 
-Konrad's suggestion to me was that MXA should have a vote in my CSIPHY 
-series I think he and Jagadeesh discussed it but I'm not sure if they 
-_concluded_ what was the right thing to do.
-
-Right now I'm representing the dependency. MXA is always on ... and 
-there's nothing to do voting for it @ MX ?
-
----
-bod
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
