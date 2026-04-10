@@ -4,105 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD4EDE99057
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 08:58:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08588E9905C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 09:11:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z1vmmkZcYrQbBuSPIBwVZCij2+2X5p9lbMUk5Tsb6wM=; b=KNyXDyoTAlYX6Z3SvHshndPpYc
-	oGmcQq/4n9Gr46lSMReTCTxQZNdNQKQ44S5lSbMfsPgIvwYTVEi7Hu9c6ZDqFBjPezqz9s2jNaoAo
-	SYZMgivuVLLR5P1RcJReJ7FUAu3oymoVTrL5bLfE7uX7H0A0mKPOYHUbYx9UbQxHmidbE6jUiMyOO
-	ymIrOZ0H+8VaF48lck2itAxiBkxU9V2BSmxnWScYXtZV0UxNSdkiUxazQ2NMh9XSax9BCa8bWzmyt
-	2hcgeBd8/Xj2aK01PQMjTdLPLTk3GoWcTIU3lUfbPM7yNX8GqD3YiQTOufLbadiLSAR6S6Kcts8B8
-	fC3tDnVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M3Gk/iqagfgguFyW5GwgnbFlQO42N2sl+HGkMv0x0Rg=; b=qXw0sN2pGJ0dbninDe2ORRnlh1
+	J0sWpN4PByCHKuHYz5DPAAgsLmxTA2UtuoMR+hFAE5APhk6ulWiiTvzS/9N1kUVySTmmKYlnE/gaA
+	bJ/OFPzAVJHHsFgwQoP/qGC6zXMEFRidXwI6ZqrH5cLSF1HGb10YAUfUFgQHCaTPtXAyjfg9FNgsS
+	W1FVLfdDP5DQncgfXVUSeaQwlwpd0zmHDe4APOIIC+GleGIj0uQx0MyQOtBRsRvZOhOybn48W13s6
+	VLkYbH5yJ2Y7FnPOQmfxiJAX5pqLY37xEhnzOzFoqzaXwmq+q8HLh2wUgx+BvmzjA5IdeZTCofaKo
+	Yq5/h9vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB7gk-0000000Bs9E-1NWm;
-	Fri, 10 Apr 2026 08:58:06 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1wB7tK-0000000Bt9j-1rZD;
+	Fri, 10 Apr 2026 09:11:06 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wB7gi-0000000Bs8q-2fYY
+	id 1wB7tH-0000000Bt94-2zFb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 08:58:05 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-59dea72099eso1792356e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 01:58:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1775811482; cv=none;
-        d=google.com; s=arc-20240605;
-        b=bOc52l6VHVP1UCWDQ66oqKTQOEdFmk69nmZt2j6ooJgxU8Mlowefgxi1in0oDPVRd4
-         D9uK3MQWU3byJrxjgVbvNZueB0NOxDl4QxP/7VWbKevUF4wVH+vYG4RKRX3G6eVO965b
-         86PeXiBdz3b8Ex1corNVQ12gYpZ6+3PLioXqrKRekKb/to6XfAEf6kLH3Y6/vpxDG4Fk
-         wmBEuHmAVaxg8dnke0+j2j3HmvZ86amrhMXTzJBP0R7yVpZ5Y5PZZe6yXJKotJKmrgKk
-         CwCjtDETy+xOMDFVprlJg0Y4DD7zwC94xSdDUbYDlGjx5TtVz9CP6I6l3hOnvLMxq8/P
-         N1eA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Z1vmmkZcYrQbBuSPIBwVZCij2+2X5p9lbMUk5Tsb6wM=;
-        fh=2a42exe5H+c4z1F+3MWv5gZ2Tt6bbMKoW5ha5MslC0w=;
-        b=NUpKt2gSQ/UWxf3rUcN/1ext4KkNvfRjoRT7gxQCYC24mndV89eZ7W+xzqPckqLLKF
-         QiZdXIp+Q0T7l1nVxgSc1JpmYetbyYGDVuJ6fW+gt5VMc3i+urd/XyvkbVC05AHrjQ2a
-         la15uulbKXlW+3yZnt1EQCU0iytR6Zhbe284rf9z6q72/1tXZZx9UefPYRRN4u3iNXkg
-         7rVFP05LUla9eOHlKTgS8Zl+IjPHXVV3oxnMhuqkMAJKaCiJZWnIfXCg1lqLenNGM07F
-         hPjDVxv99I5b8uKgwLhJQjGqwlIQvI6QwjyNgM7esu1gfpbTYxlBIxRimIdK+L4RJFwr
-         O91w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 10 Apr 2026 09:11:04 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-48334ee0aeaso17806335e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 02:11:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1775811482; x=1776416282; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z1vmmkZcYrQbBuSPIBwVZCij2+2X5p9lbMUk5Tsb6wM=;
-        b=tmDEZWoPN0S7RL3rlqPNJAguJCVw45whbBi+d4eBueHMEiMxoa1mGQKnJTR1EXNGk9
-         t4UuJXVDLmLo8ABg2meZJlwmRNnx6lqO+w1nVgapfYiU4e4QUHNE/NqkKOmZNVr2qGsA
-         I+qOW048lHRfMUHEywZY2xI66TLHbLY++GEzdpNLAR5nyLgIj7jRiqnUw2rsB53mXM5A
-         GBzIWWpD7808U5ujypIaXvS3aACIb48o6ZSD02Nz+GdmwIIWBUoqKMv3ovtHX3fL6VoS
-         yc9MHwmwfJu1Yas2eGUQqgTS02TBj/i/jFTZld+YKsqoPEj9BKxWbQTbacAjbCLdZoVn
-         v4WA==
+        d=linaro.org; s=google; t=1775812262; x=1776417062; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=M3Gk/iqagfgguFyW5GwgnbFlQO42N2sl+HGkMv0x0Rg=;
+        b=fmr30RHjZCX9v/dbD8N+XBgxg0N4RwxcjaDTMCVoM++kBAAwWXvQkJfQogIyXfqJc9
+         rWhSJQd7DYO6if/nLUbPjKHAe6T6m5R8clIf4YyKCLomPFFI79JtZAJ2CsPZ34poVMAT
+         sVcxeNkkTDk7Pp1bhywf/XWLhCWWQR65NOzNlpLEc3j5JwBDB+RFHG6HohQTtLxFbeF/
+         YCjgPBvx36vY08wNBSCtdliiepGDHSRCZQo2imJWwi6h5x1wemXg68sNSIiRlTB+F3IO
+         O3ttbZeYYUBXvhWcrUuh7eQ30GMT4C9hR1fv/Yj+PQIibv3f8qrwbtgnX4kj9eXVwg7h
+         yDWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775811482; x=1776416282;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Z1vmmkZcYrQbBuSPIBwVZCij2+2X5p9lbMUk5Tsb6wM=;
-        b=sAj194YHWOvYxooJbCOpkavRWDf9ColPfP9aeckFftwZJDyQcTe/gDC9lGVQEiMbci
-         X1uxf8kVuOkAPmC+bmFq+oU9DkyGrJlu196SDAiwSCEGoEhRRhb5SIYTcHfYrQ7SbAkM
-         uBGis7Xf+bEytuFDlrqZq+iZtod7KKE8S6kOWoAgtK6GyKEbczNmhjFo4Uv1Pb634AP1
-         8K+dCtWgIYEBJ5CZI3vj1LCCQy35laODq83tBLemzq0I++w6uHjA4oic0JlRk3Xv6krk
-         0EEc3q6V4CNrzwbNRxgYE8gFM8brOCCP33fadCygkRr19OzQHQ9NpIFMy518Rvb802Dg
-         WQRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXmltCX3GWlYZInjraHR24/a4OuZfIIGZhb1aW/ItsUfQzeMfaEMSdgaNZkRgZt6nklgXlQob3yuj+p1+F9YaIz@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywk2RfgJAzV2uB+6ySKVWw01Bsh8+fICnMRs5qDM5R3EFQ1naR6
-	HlA26m+DDgdW0Bxry/2NNyjIOZhQojzawNysNt/s1AlK73je8hXBChT/SMcdHY0/dPAx4/oKF8m
-	vFrk8GvNHVlFIdC0PQghHljrp09YGR47R1+MxwRPirA==
-X-Gm-Gg: AeBDieupBdj8qQLrGb5qe4JtAbq/3XgGeuqOVDs6jCIgu6yLFk4kJW3zLsTP0Jr/ZLS
-	h5/nylqPxZSWBDxd5MNj1ZcuGsp+jcNkDGMX0rNCicIpbH3lCbGuaJb1dXOMcc93Pp7+h3fvZQ3
-	IzSw85cJdwOE5nDM8I4N2LUV9vI5AvNqooXTBrFmSer4s2/G1cyAjbHLAr+lqsCc2XVOLHSNQIY
-	eLmvtM+uoRMWr+K/bxuViGcbzsD5BM0n/uhTwt3Zzugfj1NLCvKhHDlcRU/lVb14aPK/U+HjYVZ
-	a0kRHztO
-X-Received: by 2002:a05:6512:1396:b0:5a2:c8d9:ec4a with SMTP id
- 2adb3069b0e04-5a3ef9127demr836109e87.19.1775811482189; Fri, 10 Apr 2026
- 01:58:02 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1775812262; x=1776417062;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=M3Gk/iqagfgguFyW5GwgnbFlQO42N2sl+HGkMv0x0Rg=;
+        b=HDRGQSMvHRzQi38yHSpDStWxTcqnC3mRbT7Ic1s9VC5amDGMV/CDM4IYnUpK7GsJLB
+         IzibBk1euHX+mwpGYx7i+ge8pM1bnokjT+ebfa+MUA1jSpVZgJkLZsBSwRhxFY28cEXt
+         dPVVi2m5QU1r4dA5lG6239YeDhnut8xXTxsLjbPSUFjxsbskjoyQ84xnlwL9zhS0LQxD
+         0Tcg4izdF+unYCDNC1s9dsRVST1GClP6DVvZ/HjvSsKqqkEMdB4wa/a9EIAYDcu30KVx
+         9swajUngQkdrxgokP7wW/bH9vH4GStZc+elkV+kM9Vr/kTB/7tWWPtuWLgKyd6d5/oxE
+         5BWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX8dKjVb2IUe5F9UiCALKd2x9xRym/SJvWSkcx/x4XpoXkbeGJVLeDwV9IXbq7RKyXXgon6bfU5SHEyZbuhEjGz@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzAz3l8xCwEmktWpt5jlX5DSMpNgzbWemQSYaqdms3FtQAmTOE
+	IWT9h1pXa/O5rx1npisRvUlaadjBiUDfpbqygyuY7ez3I66XWmANS6+GxEGTqsUItOk=
+X-Gm-Gg: AeBDiesN94KNz0iyk8BicOzTp4BxnhPitdhFM+bULGZucBof1M9JcvLxfMDc1bUHsjM
+	YYJsTDSZGOEO4NOibxc5S9zW8QIX7J4DjBKx6slox5Q8fhcVrAe7WatPCmugNELiPeejL4kiVF7
+	ZYybdkShqnQLpm1Tv9mkrLmMf7uK9fGcDL8Bj+euj/w5/+VWmeIaNmTB4CRDz0iWLIAStK579VQ
+	/A9f3Cf1yEQCW/8bI6Z6cfenN66ootBz/uUba3idVlEsErmZ6pWvpSyznCtTt2m6TDG2HqE2/Ap
+	+ArZgmBu5DFVhYlZXkWyWcd7kc3Q8Ro0Yjnn+Fe+ocSW6L9DmFOoqb/uGhnFwz+kTa/adU9UaAj
+	bqn7JSPkcvgAU+uh4hUyVNDeYxqNYS7wob7T4iqzcYCaP7AmQB7jUd9HBqnQ3ksEjhNZxj7m5ZZ
+	kTzKrePtK5hAifOcOEKtxcpxJgoX9ZwygLK4MOQqs=
+X-Received: by 2002:a05:600c:8585:b0:488:ba19:da25 with SMTP id 5b1f17b1804b1-488d6822a0bmr20352465e9.12.1775812261713;
+        Fri, 10 Apr 2026 02:11:01 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488d58bf10fsm56934555e9.8.2026.04.10.02.11.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 10 Apr 2026 02:11:01 -0700 (PDT)
+Message-ID: <140ce684-b172-4e1f-ae98-4edd88d4ca8b@linaro.org>
+Date: Fri, 10 Apr 2026 10:11:00 +0100
 MIME-Version: 1.0
-References: <20260310-topic-lpm-pmdomain-child-ids-v1-0-5361687a18ff@baylibre.com>
- <20260310-topic-lpm-pmdomain-child-ids-v1-2-5361687a18ff@baylibre.com>
- <CAPDyKFquJ7K4NcWuKMr1sjrnFVVPGAeLCiSF_FhvJf9Frbn1uA@mail.gmail.com> <7h4iljskvz.fsf@baylibre.com>
-In-Reply-To: <7h4iljskvz.fsf@baylibre.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Fri, 10 Apr 2026 10:57:24 +0200
-X-Gm-Features: AQROBzDhT0oW3z8LEIG1Euo0M3-dmugaTMajHzsT9TLnPM4O-8m4J3dOe0QMXE4
-Message-ID: <CAPDyKFrR2zyMFXTAkKs1XRgB-u5jSP256g730s=7SLuOZKsKVg@mail.gmail.com>
-Subject: Re: [PATCH 2/3] pmdomain: core: add support for power-domains-child-ids
-To: Kevin Hilman <khilman@baylibre.com>
-Cc: Rob Herring <robh@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, linux-pm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 16/20] coresight: Add PM callbacks for sink device
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, Yeoreum Yun <yeoreum.yun@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>, Mike Leach <mike.leach@arm.com>
+References: <20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be@arm.com>
+ <20260405-arm_coresight_path_power_management_improvement-v10-16-13e94754a8be@arm.com>
+ <e7c6f497-f8f0-409b-b80a-a064b222c08d@linaro.org>
+ <f20b5a00-1d68-48d6-90c8-97dca2e279a4@arm.com>
+ <ffe95710-cd52-484e-821e-a3d92ba17c33@linaro.org>
+ <20260409144949.GT356832@e132581.arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260409144949.GT356832@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_015804_723280_17B261D0 
-X-CRM114-Status: GOOD (  49.20  )
+X-CRM114-CacheID: sfid-20260410_021103_779547_8406715E 
+X-CRM114-Status: GOOD (  24.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,145 +113,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Apr 2026 at 02:45, Kevin Hilman <khilman@baylibre.com> wrote:
->
-> Ulf Hansson <ulf.hansson@linaro.org> writes:
->
-> > On Wed, 11 Mar 2026 at 01:19, Kevin Hilman (TI) <khilman@baylibre.com> wrote:
-> >>
-> >> Currently, PM domains can only support hierarchy for simple
-> >> providers (e.g. ones with #power-domain-cells = 0).
-> >>
-> >> Add support for oncell providers as well by adding a new property
-> >> `power-domains-child-ids` to describe the parent/child relationship.
-> >>
-> >> For example, an SCMI PM domain provider has multiple domains, each of
-> >> which might be a child of diffeent parent domains. In this example,
-> >> the parent domains are MAIN_PD and WKUP_PD:
-> >>
-> >>     scmi_pds: protocol@11 {
-> >>         reg = <0x11>;
-> >>         #power-domain-cells = <1>;
-> >>         power-domains = <&MAIN_PD>, <&WKUP_PD>;
-> >>         power-domains-child-ids = <15>, <19>;
-> >>     };
-> >>
-> >> With this example using the new property, SCMI PM domain 15 becomes a
-> >> child domain of MAIN_PD, and SCMI domain 19 becomes a child domain of
-> >> WKUP_PD.
-> >>
-> >> To support this feature, add two new core functions
-> >>
-> >> - of_genpd_add_child_ids()
-> >> - of_genpd_remove_child_ids()
-> >>
-> >> which can be called by pmdomain providers to add/remove child domains
-> >> if they support the new property power-domains-child-ids.
-> >>
-> >> Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
-> >
-> > Thanks for working on this! It certainly is a missing feature!
->
-> You're welcome, thanks for the detailed review.
->
-> >> ---
-> >>  drivers/pmdomain/core.c   | 169 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-> >>  include/linux/pm_domain.h |  16 ++++++++++++++++
-> >>  2 files changed, 185 insertions(+)
-> >>
-> >> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-> >> index 61c2277c9ce3..acb45dd540b7 100644
-> >> --- a/drivers/pmdomain/core.c
-> >> +++ b/drivers/pmdomain/core.c
-> >> @@ -2909,6 +2909,175 @@ static struct generic_pm_domain *genpd_get_from_provider(
-> >>         return genpd;
-> >>  }
-> >>
-> >> +/**
-> >> + * of_genpd_add_child_ids() - Parse power-domains-child-ids property
-> >> + * @np: Device node pointer associated with the PM domain provider.
-> >> + * @data: Pointer to the onecell data associated with the PM domain provider.
-> >> + *
-> >> + * Parse the power-domains and power-domains-child-ids properties to establish
-> >> + * parent-child relationships for PM domains. The power-domains property lists
-> >> + * parent domains, and power-domains-child-ids lists which child domain IDs
-> >> + * should be associated with each parent.
-> >> + *
-> >> + * Returns 0 on success, -ENOENT if properties don't exist, or negative error code.
-> >
-> > I think we should avoid returning specific error codes for specific
-> > errors, simply because it usually becomes messy.
-> >
-> > If I understand correctly the intent here is to allow the caller to
-> > check for -ENOENT and potentially avoid bailing out as it may not
-> > really be an error, right?
->
-> Right, -ENOENT is not an error of parsing, it's to indicate that there
-> are no child-ids to be parsed.
->
-> > Perhaps a better option is to return the number of children for whom
-> > we successfully assigned parents. Hence 0 or a positive value allows
-> > the caller to understand what happened. More importantly, a negative
-> > error code then really becomes an error for the caller to consider.
->
-> I explored this a bit, but it gets messy quick.  It means we have to
-> track cases where only some of the children were added as well as when
-> all children were added.   Personally, I think this should be an "all or
-> nothing" thing.  If all the children cannot be parsed/added, then none
-> of them should be added.
->
-> This also allows the remove to not have to care about how many were
-> added, and just remove them all, with the additional benefit of not
-> having to track the state of how many children were successfully added.
->
 
-I fully agree, it should be all or nothing. Failing with one
-child/parent should end up with an error code being returned.
 
-That said, it still seems to make perfect sense to return the number
-of children for whom we assigned parents for, no?
+On 09/04/2026 3:49 pm, Leo Yan wrote:
+> On Thu, Apr 09, 2026 at 03:30:56PM +0100, James Clark wrote:
+> 
+> [...]
+> 
+>>>>> @@ -1759,16 +1760,36 @@ static int coresight_pm_check(struct
+>>>>> coresight_path *path)
+>>>>>        if (source_has_cb)
+>>>>>            return 1;
+>>>>> +    sink_has_cb = coresight_ops(sink)->pm_save_disable &&
+>>>>> +              coresight_ops(sink)->pm_restore_enable;
+>>>>> +    /*
+>>>>> +     * It is not permitted that the source has no callbacks
+>>>>> while the sink
+>>>>> +     * does, as the sink cannot be disabled without disabling
+>>>>> the source,
+>>>>> +     * which may lead to lockups. Alternatively, the ETM driver should
+>>>>> +     * enable self-hosted PM mode at probe (see etm4_probe()).
+>>>>> +     */
+>>>>> +    if (sink_has_cb) {
+>>>>> +        pr_warn_once("coresight PM failed: source has no PM
+>>>>> callbacks; "
+>>>>> +                 "cannot safely control sink\n");
+>>>>
+>>>> This prints out on my Orion board on a fresh boot because of how
+>>>> pm_save_enable is setup there. Do we really need the configuration
+>>>> of pm_save_enable for ETE/TRBE if we know that it always needs
+>>>> saving?
+> 
+> Yeah, I can remove this check and always bind CPU PM ops for ETE.
+> 
+>>>> It also stops warning if I rmmod and modprobe the module after
+>>>> booting. Seems like pm_save_enable is different depending on how the
+>>>> module is loaded which doesn't seem right.
+>>>
+>>> Thats because the warning is pr_warn_*once*()
+>>
+>> I don't think so, I tested it with a printf instead of a warn once and also
+>> tested modprobeing straight after a reboot.
+> 
+> I am a bit surprised that Orion6 hits the CPU idle flow, as I observed
+> that idle states are not enabled on my board:
+> 
+>    # ls /sys/devices/system/cpu/cpu*/cpuidle
+>    ls: cannot access '/sys/devices/system/cpu/cpu*/cpuidle': No such file or directory
+> 
 
-[...]
+/sys/devices/system/cpu/cpu0/cpuidle:
+total 0
+drwxr-xr-x 9 root 0 Apr 10 10:08 ..
+drwxr-xr-x 2 root 0 Apr 10 10:10 state2
+drwxr-xr-x 2 root 0 Apr 10 10:10 state1
+drwxr-xr-x 2 root 0 Apr 10 10:10 state0
+drwxr-xr-x 2 root 0 Apr 10 10:10 driver
+drwxr-xr-x 6 root 0 Apr 10 10:10 .
 
-> >> +int of_genpd_remove_child_ids(struct device_node *np,
-> >> +                          struct genpd_onecell_data *data)
-> >> +{
-> >> +       struct of_phandle_args parent_args;
-> >> +       struct generic_pm_domain *parent_genpd, *child_genpd;
-> >> +       struct of_phandle_iterator it;
-> >> +       const struct property *prop;
-> >> +       const __be32 *item;
-> >> +       u32 child_id;
-> >> +       int ret;
-> >> +
-> >> +       /* Check if both properties exist */
-> >> +       if (of_count_phandle_with_args(np, "power-domains", "#power-domain-cells") <= 0)
-> >> +               return -ENOENT;
-> >> +
-> >> +       prop = of_find_property(np, "power-domains-child-ids", NULL);
-> >> +       if (!prop)
-> >> +               return -ENOENT;
-> >> +
-> >> +       item = of_prop_next_u32(prop, NULL, &child_id);
-> >
-> > Similar comments as for of_genpd_add_child_ids().
-> >
-> > Moreover, I think we should remove the children in the reverse order
-> > of how we added them.
->
-> I'm curious why does the order matter?  The children are all siblings
-> (no hierarchy), so why would the order be important?
 
-It might not be that important, but generally, it seems like a good
-idea to me to reverse the order when undoing things.
+> If you hit only once CPU idle notifier, it is good to add a
+> dump_stack() in coresight_cpu_pm_notify and print the "cmd" argument,
+> so we can know the calling coming from where.  I am a bit suspect it
+> might be a glitch in CPUIdle layer.
+> 
+> Thanks,
+> Leo
 
->
-> I'm not ware of a phandle iterator/helper to parse in the reverse, so
-> that would mean iterating once to create a list, and then walking it in
-> reverse.  Seems unnecessary.
 
-Sure, I leave the call to you, to see what fits best.
+cmd: 2
 
-Kind regards
-Uffe
+
+[    7.878456]  coresight_cpu_pm_notify+0x148/0x4b0
+[    7.878462]  notifier_call_chain+0x8c/0x1e0
+[    7.878467]  raw_notifier_call_chain+0x24/0x38
+[    7.878469]  cpu_pm_exit+0x34/0x68
+[    7.878472]  acpi_processor_ffh_lpi_enter+0x40/0x78
+[    7.878476]  acpi_idle_lpi_enter+0x54/0x78
+[    7.878481]  cpuidle_enter_state+0xb4/0x250
+[    7.878483]  cpuidle_enter+0x44/0x68
+[    7.878487]  do_idle+0x1e0/0x278
+[    7.878492]  cpu_startup_entry+0x40/0x50
+[    7.878495]  rest_init+0xec/0xf8
+[    7.878497]  start_kernel+0x348/0x400
+[    7.878503]  __primary_switched+0x88/0x98
+
+
+
+  -> zcat /proc/config.gz | grep IDLE
+CONFIG_CONTEXT_TRACKING_IDLE=y
+CONFIG_NO_HZ_IDLE=y
+CONFIG_CPU_IDLE=y
+CONFIG_CPU_IDLE_MULTIPLE_DRIVERS=y
+# CONFIG_CPU_IDLE_GOV_LADDER is not set
+CONFIG_CPU_IDLE_GOV_MENU=y
+# CONFIG_CPU_IDLE_GOV_TEO is not set
+CONFIG_DT_IDLE_STATES=y
+CONFIG_DT_IDLE_GENPD=y
+CONFIG_ARM_PSCI_CPUIDLE=y
+CONFIG_ARM_PSCI_CPUIDLE_DOMAIN=y
+CONFIG_ACPI_PROCESSOR_IDLE=y
+CONFIG_GENERIC_SMP_IDLE_THREAD=y
+CONFIG_GENERIC_IDLE_POLL_SETUP=y
+# CONFIG_IDLE_PAGE_TRACKING is not set
+# CONFIG_NETFILTER_XT_TARGET_IDLETIMER is not set
+
+
 
