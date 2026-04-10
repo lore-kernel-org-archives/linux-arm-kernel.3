@@ -4,66 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F18B0F459EF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 16:07:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CDF3F459F7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 16:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NY3KWEUOusIIfG2oing/yfJNg81guQtT/ZD/qoygk5k=; b=GfBrkvImBpEQTO3DLv0fbKFkoj
-	kN8dHOQCCxqbERyiou/iWvPslCDM2/U0UtQ/Fp8kJV9/Rhu21ZVZpgeZ6ynXKpUCoKz+oQ8LPJEca
-	6Xpn/W1j5g3a5t8NDyNiOuq4J8cPfpwqgZCvOEvxsL8tvpxrxcD7NRy7e4QZgvoT4NI5xcunwpflt
-	W6uu0SkAlDIpZ5YWA0bkP3N2ztFqH6q6TRO/EGN8eBNMoz3KxXZ4wPI9yFdHLW6DctR5YnJhmbj/4
-	klwpB2v6zgvOE70EguJdtdctkHx2z/vq1yYsE/o9SLKwjuCXkJNca2/1IFG4G9pj4LCXBPEXDuEQZ
-	AUTw6ueg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kSs3TRusdQg+9TklYZUTvlL9CWTjWWjDxl2yW7rRtSE=; b=dNkIg3Ys9TL0kuiCbOVdHb232V
+	54ziTzfLAA6WIMPUhjA7WgZqTITeoOPaTOlk22xzLNUU2n0zvQoHZMGmRr59FVn22tUvIblZMbo2s
+	WW8KjmN+8VRBZB2QBrcvxM//RlrJtMmd6rC0FCSgJ6e5OwnNGDpqKWg1AQyySZDPPi0mBBu2SBcdt
+	cBdnKLmUGDHeow6jUl6kK/3UeFR1vtNlzdl0FKhtmGHhQsHN5by3gabUeF7Au6LNGjNS5hFBVxjwY
+	VYBY+qHE23PCU5mxjtCzLS0gTItaDRFzELcvdg0CkuvfOnNssr+g9iGaOFZR2ohBNDzjG9Gu9AWpg
+	+idI5OpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBENo-0000000CVwn-2j6n;
-	Fri, 10 Apr 2026 16:07:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wBEbW-0000000CXBn-3R3H;
+	Fri, 10 Apr 2026 16:21:10 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBENm-0000000CVw2-1c86;
-	Fri, 10 Apr 2026 16:06:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3EF3840666;
-	Fri, 10 Apr 2026 16:06:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EC58C19424;
-	Fri, 10 Apr 2026 16:06:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775837217;
-	bh=InBJWG19h0+ocfWhzOz5yXHmGn26YdyrjOCUIv8oAQ4=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=O/iEoR7q5dHHj3xFLfWvvDYNxicAeYLLXMR1Y6Vpcrvc2qeKOuw1xzL09mFJZ/Fbh
-	 FLdsH9dhbHVNBZDwGIaRTmaiYrDDxFrKFsKwqKPjafN/XA2Q3kVYC1HBoTPd2++4aC
-	 q7l1PhRJF0E7Wr6ZRkMAsLMeyOpj1TbKpe8kfIFibS1vgPhjrZA+BTm2hIk8kQz7sj
-	 eXHDpj7Ki5psNpNN25XiVN166bUWGpVw8o0h2PKN6HcTqJwb4VeBXUPNrcpmWOln8Z
-	 XP1CHiJrjY+NGchAlyl/XdhBQ+LT4gkZmmuv7gsh0uOwhXoF8I7p/nvMmcrfNbXqS3
-	 PEG2yE2y932Yw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 02CE13809A87;
-	Fri, 10 Apr 2026 16:06:33 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1wBEbT-0000000CXBE-2cw1;
+	Fri, 10 Apr 2026 16:21:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1775838068; x=1807374068;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=L4JnN6ymkD02thfr3D7lc2Ddeg6CXvhtgVtpVinHkfY=;
+  b=md4z6xdsM2qt3+0RoBeRQjx9ZhP9mD/2TZfzShZFbJ2qbNLlt/r5s6Is
+   bnKDILfDd+zCex9I4Ox7FJj9mQk3uq0KBWwpd5q7AHGODQF045sKiXN+p
+   /9ICbpQGFD1G+5OdJSuxKxcKPDuLgDtCYfOQnCFiNmgINq7rxg0zlzfLd
+   yYWVZplcAORGgTS8kOTiIZ/LSjKY7k41k2VtyrbI+kX5doYVvhezL0QG7
+   V2r9TRkD9kzsMFoMAG9slqtKqBKVnrb8sqYAhDreXbSIssUDSLMz50dhw
+   xsSY4TikpRdmWoDffZ5Clg7FI/zgqIKq/wY0mnfrZmv/GqfgBTalLwGl3
+   w==;
+X-CSE-ConnectionGUID: 3/CfYusiQbyh5v9T2ujYJA==
+X-CSE-MsgGUID: doLFC7eRSRynzvOW5DmaZw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11755"; a="76575376"
+X-IronPort-AV: E=Sophos;i="6.23,171,1770624000"; 
+   d="scan'208";a="76575376"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2026 09:21:06 -0700
+X-CSE-ConnectionGUID: 7iDZzSfNTFujT5f7GhEQ5g==
+X-CSE-MsgGUID: ++Zffgl8QfWm3j0Dwaa+zQ==
+X-ExtLoop1: 1
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.246.149])
+  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Apr 2026 09:20:55 -0700
+From: Jani Nikula <jani.nikula@linux.intel.com>
+To: Kory Maincent <kory.maincent@bootlin.com>, Rodrigo Vivi
+ <rodrigo.vivi@intel.com>, Joonas Lahtinen
+ <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Dave
+ Airlie <airlied@redhat.com>, Jesse Barnes <jbarnes@virtuousgeek.org>, Eric
+ Anholt <eric@anholt.net>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Chun-Kuang Hu
+ <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Chris Wilson
+ <chris@chris-wilson.co.uk>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Mark Yacoub
+ <markyacoub@google.com>, Sean Paul <seanpaul@google.com>, Louis Chauvet
+ <louis.chauvet@bootlin.com>, intel-gfx@lists.freedesktop.org,
+ intel-xe@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, Simona Vetter
+ <simona.vetter@ffwll.ch>, Kory Maincent <kory.maincent@bootlin.com>
+Subject: Re: [PATCH RFC 09/12] drm: Introduce drmm_connector_dp_init() with
+ link training state properties
+In-Reply-To: <20260409-feat_link_cap-v1-9-7069e8199ce2@bootlin.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
+ 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
+References: <20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com>
+ <20260409-feat_link_cap-v1-9-7069e8199ce2@bootlin.com>
+Date: Fri, 10 Apr 2026 19:20:53 +0300
+Message-ID: <52197e5711b7ceabeb48035910fe39978e96a497@intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v5 0/8] Bluetooth: Add MediaTek MT7927 (MT6639) support
-From: patchwork-bot+bluetooth@kernel.org
-Message-Id: <177583719178.2534919.12672771691448146176.git-patchwork-notify@kernel.org>
-Date: Fri, 10 Apr 2026 16:06:31 +0000
-References: <20260331-mt7927-bt-support-v5-0-6f31b4342daa@jetm.me>
-In-Reply-To: <20260331-mt7927-bt-support-v5-0-6f31b4342daa@jetm.me>
-To: Javier Tia <floss@jetm.me>
-Cc: marcel@holtmann.org, luiz.dentz@gmail.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, linux-bluetooth@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, xelnaga@gmail.com, jnetto@mineiro.io,
- melinko2003@gmail.com, chapuisdario4@gmail.com, 3193631@gmail.com,
- nitin.reddy88@gmail.com, tibo@humeurlibre.fr, lubnin.ivan@gmail.com
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_090658_439696_99A5A9C8 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260410_092107_778606_DFCD452B 
+X-CRM114-Status: GOOD (  34.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,45 +103,593 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Thu, 09 Apr 2026, Kory Maincent <kory.maincent@bootlin.com> wrote:
+> Add a managed DisplayPort connector initialization helper,
+> drmm_connector_dp_init(), modeled after the existing HDMI counterpart
+> drmm_connector_hdmi_init(). Cleanup is handled automatically via a
+> DRM-managed action.
+>
+> The helper creates the following immutable connector properties to expose
+> DP link training capabilities and state to userspace:
+>
+>   - num_lanes: bitmask of supported lane counts (1, 2, 4)
+>   - link_rate: Array of supported link rates.
+>   - dsc_en: Display Stream Compression supported
+>   - voltage_swingN: per-lane voltage swing level bitmask
+>   - pre-emphasisN: per-lane pre-emphasis level bitmask
 
-This series was applied to bluetooth/bluetooth-next.git (master)
-by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
+The main question is, why do we need to provide these details to the
+userspace via ABI?
 
-On Tue, 31 Mar 2026 11:09:30 -0600 you wrote:
-> Add Bluetooth support for the MediaTek MT7927 (Filogic 380), a PCIe
-> combo WiFi 7 + BT 5.4 module. The BT subsystem uses hardware variant
-> 0x6639 and connects via USB.
-> 
-> The MT7927 is shipping in motherboards and PCIe add-in cards from ASUS,
-> Gigabyte, Lenovo, MSI, and TP-Link since mid-2024. Without these patches,
-> users see "Unsupported hardware variant (00006639)" or the BT subsystem
-> hangs during firmware download.
-> 
-> [...]
+I mean yeah, we can unify on a debugfs interface, but connector
+properties and ABI seems a bit over the top. The userspace should not
+have to act on any of this information, except perhaps in a test
+scenario, for which debugfs should be just fine.
 
-Here is the summary with links:
-  - [v5,1/8] Bluetooth: btmtk: Add MT6639 (MT7927) Bluetooth support
-    https://git.kernel.org/bluetooth/bluetooth-next/c/2e16247422fb
-  - [v5,2/8] Bluetooth: btmtk: fix ISO interface setup for single alt setting
-    https://git.kernel.org/bluetooth/bluetooth-next/c/798c2ba5006c
-  - [v5,3/8] Bluetooth: btusb: Add MT7927 ID for ASUS ROG Crosshair X870E Hero
-    https://git.kernel.org/bluetooth/bluetooth-next/c/3e148151bc75
-  - [v5,4/8] Bluetooth: btusb: Add MT7927 ID for Lenovo Legion Pro 7 16ARX9
-    https://git.kernel.org/bluetooth/bluetooth-next/c/fa528d431d10
-  - [v5,5/8] Bluetooth: btusb: Add MT7927 ID for Gigabyte Z790 AORUS MASTER X
-    https://git.kernel.org/bluetooth/bluetooth-next/c/a4a3b78a8b3d
-  - [v5,6/8] Bluetooth: btusb: Add MT7927 ID for MSI X870E Ace Max
-    https://git.kernel.org/bluetooth/bluetooth-next/c/b8185eff87a7
-  - [v5,7/8] Bluetooth: btusb: Add MT7927 ID for TP-Link Archer TBE550E
-    https://git.kernel.org/bluetooth/bluetooth-next/c/54834ec3a5b0
-  - [v5,8/8] Bluetooth: btusb: Add MT7927 ID for ASUS X870E / ProArt X870E-Creator
-    https://git.kernel.org/bluetooth/bluetooth-next/c/b816ef8a31b7
+I'm also concerned about the duplication of data here. I think debugfs
+could be constructed in a way to query the actual information from the
+driver right then and there, instead of having to copy data over to
+properties, which can go stale.
 
-You are awesome, thank you!
+Oh, there's also too much going on in one patch here.
+
+
+BR,
+Jani.
+
+
+
+>
+> Link rates are passed by the driver in deca-kbps, following the DRM
+> convention, but exposed to userspace in kbps for clarity.
+>
+> Two additional helpers are provided to update and reset those properties
+> at runtime:
+>   - drm_connector_dp_set_link_train_properties()
+>   - drm_connector_dp_reset_link_train_properties()
+>
+> Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+> ---
+>  drivers/gpu/drm/Makefile           |   1 +
+>  drivers/gpu/drm/drm_dp_connector.c | 344 +++++++++++++++++++++++++++++++++++++
+>  include/drm/drm_connector.h        |  38 ++++
+>  include/drm/drm_dp_connector.h     | 109 ++++++++++++
+>  4 files changed, 492 insertions(+)
+>
+> diff --git a/drivers/gpu/drm/Makefile b/drivers/gpu/drm/Makefile
+> index e97faabcd7830..8ff08c2fb863e 100644
+> --- a/drivers/gpu/drm/Makefile
+> +++ b/drivers/gpu/drm/Makefile
+> @@ -42,6 +42,7 @@ drm-y := \
+>  	drm_color_mgmt.o \
+>  	drm_colorop.o \
+>  	drm_connector.o \
+> +	drm_dp_connector.o \
+>  	drm_crtc.o \
+>  	drm_displayid.o \
+>  	drm_drv.o \
+> diff --git a/drivers/gpu/drm/drm_dp_connector.c b/drivers/gpu/drm/drm_dp_connector.c
+> new file mode 100644
+> index 0000000000000..b25637a4378d5
+> --- /dev/null
+> +++ b/drivers/gpu/drm/drm_dp_connector.c
+> @@ -0,0 +1,344 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2026 Google
+> + * Author: Kory Maincent <kory.maincent@bootlin.com>
+> + */
+> +#include <drm/drm_dp_connector.h>
+> +#include <drm/drm_print.h>
+> +#include <linux/list.h>
+> +
+> +/**
+> + * drm_connector_dp_link_reset_properties() - Reset DisplayPort link configuration
+> + * @connector: DRM connector
+> + * @dp_link: Link training informations
+> + *
+> + * Returns: Zero on success, or an errno code otherwise.
+> + */
+> +int
+> +drm_connector_dp_set_link_train_properties(struct drm_connector *connector,
+> +					   const struct drm_connector_dp_link_train *dp_link_train)
+> +{
+> +	u32 lrate = 0;
+> +	int ret;
+> +
+> +	if (!connector)
+> +		return -ENODEV;
+> +
+> +	if (dp_link_train->nlanes && !is_power_of_2(dp_link_train->nlanes & DRM_NLANES_MASK)) {
+> +		drm_err(connector->dev, "Wrong lane number");
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (dp_link_train->rate) {
+> +		struct drm_property_enum *prop_enum;
+> +		bool found = false;
+> +
+> +		list_for_each_entry(prop_enum, &connector->dp.link_rate_property->enum_list, head) {
+> +			u32 parsed_rate;
+> +
+> +			/* Convert dp_link_train->rate from deca-kbps to kbps */
+> +			if (!kstrtou32(prop_enum->name, 10, &parsed_rate) &&
+> +			    dp_link_train->rate * 10 == parsed_rate) {
+> +				lrate = 1 << prop_enum->value;
+> +				found = true;
+> +				break;
+> +			}
+> +		}
+> +
+> +		if (!found) {
+> +			drm_err(connector->dev, "Wrong rate value");
+> +			return -EINVAL;
+> +		}
+> +	}
+> +
+> +	ret = drm_object_property_set_value(&connector->base, connector->dp.nlanes_property,
+> +					    dp_link_train->nlanes);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = drm_object_property_set_value(&connector->base, connector->dp.link_rate_property,
+> +					    lrate);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (connector->dp.dsc_en_property) {
+> +		ret = drm_object_property_set_value(&connector->base, connector->dp.dsc_en_property,
+> +						    dp_link_train->dsc_en);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	for (int i = 0; i < 4; i++) {
+> +		if (connector->dp.v_swing_property[i]) {
+> +			ret = drm_object_property_set_value(&connector->base,
+> +							    connector->dp.v_swing_property[i],
+> +							    dp_link_train->v_swing[i]);
+> +			if (ret)
+> +				return ret;
+> +		}
+> +
+> +		if (connector->dp.pre_emph_property[i]) {
+> +			ret = drm_object_property_set_value(&connector->base,
+> +							    connector->dp.pre_emph_property[i],
+> +							    dp_link_train->pre_emph[i]);
+> +			if (ret)
+> +				return ret;
+> +		}
+> +	}
+> +
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL(drm_connector_dp_set_link_train_properties);
+> +
+> +/**
+> + * drm_connector_dp_link_reset_properties() - Reset DisplayPort link configuration
+> + * @connector: DRM connector
+> + */
+> +void drm_connector_dp_reset_link_train_properties(struct drm_connector *connector)
+> +{
+> +	struct drm_connector_dp_link_train dp_link_train = {0};
+> +
+> +	drm_connector_dp_set_link_train_properties(connector, &dp_link_train);
+> +}
+> +EXPORT_SYMBOL(drm_connector_dp_reset_link_train_properties);
+> +
+> +static int drm_connector_create_nlanes_prop(struct drm_connector *connector,
+> +					    u8 sup_nlanes)
+> +{
+> +	static const struct drm_prop_enum_list props[] = {
+> +		{__builtin_ffs(DRM_DP_1LANE) - 1, "1" },
+> +		{__builtin_ffs(DRM_DP_2LANE) - 1, "2" },
+> +		{__builtin_ffs(DRM_DP_4LANE) - 1, "4" },
+> +	};
+> +	struct drm_property *prop;
+> +
+> +	if (drm_WARN_ON(connector->dev, sup_nlanes != (sup_nlanes & DRM_NLANES_MASK)))
+> +		return -EINVAL;
+> +
+> +	prop = drm_property_create_bitmask(connector->dev, DRM_MODE_PROP_IMMUTABLE,
+> +					   "num_lanes", props, ARRAY_SIZE(props),
+> +					   sup_nlanes);
+> +	if (!prop)
+> +		return -ENOMEM;
+> +
+> +	drm_object_attach_property(&connector->base, prop, 0);
+> +
+> +	connector->dp.nlanes_property = prop;
+> +
+> +	return 0;
+> +}
+> +
+> +static int drm_connector_create_lrate_prop(struct drm_connector *connector,
+> +					   u32 sup_nlrates,
+> +					   const u32 *sup_lrates)
+> +{
+> +	struct drm_prop_enum_list *props;
+> +	u32 supp_nlrates_bitmask = 0;
+> +	struct drm_property *prop;
+> +	int ret = 0;
+> +
+> +	if (!sup_nlrates || !sup_lrates)
+> +		return 0;
+> +
+> +	props = kcalloc(sup_nlrates, sizeof(*props), GFP_KERNEL);
+> +	if (!props)
+> +		return -ENOMEM;
+> +
+> +	for (int i = 0; i < sup_nlrates; i++) {
+> +		props[i].type = i;
+> +		/* Convert deca-kbps to kbps */
+> +		props[i].name = kasprintf(GFP_KERNEL, "%d", sup_lrates[i] * 10);
+> +		if (!props[i].name) {
+> +			while (i--)
+> +				kfree(props[i].name);
+> +			kfree(props);
+> +			return -ENOMEM;
+> +		}
+> +		supp_nlrates_bitmask |= 1 << i;
+> +	}
+> +
+> +	prop = drm_property_create_bitmask(connector->dev, DRM_MODE_PROP_IMMUTABLE,
+> +					   "link_rate", props, sup_nlrates,
+> +					   supp_nlrates_bitmask);
+> +	if (!prop) {
+> +		ret = -ENOMEM;
+> +		goto out;
+> +	}
+> +
+> +	drm_object_attach_property(&connector->base, prop, 0);
+> +
+> +	connector->dp.link_rate_property = prop;
+> +
+> +out:
+> +	for (int i = 0; i < sup_nlrates; i++)
+> +		kfree(props[i].name);
+> +
+> +	kfree(props);
+> +	return ret;
+> +}
+> +
+> +static int drm_connector_create_dsc_prop(struct drm_connector *connector)
+> +{
+> +	struct drm_property *prop;
+> +
+> +	prop = drm_property_create_bool(connector->dev, DRM_MODE_PROP_IMMUTABLE, "dsc_en");
+> +	if (!prop)
+> +		return -ENOMEM;
+> +
+> +	drm_object_attach_property(&connector->base, prop, 0);
+> +
+> +	connector->dp.dsc_en_property = prop;
+> +
+> +	return 0;
+> +}
+> +
+> +static int drm_connector_create_vswing_prop(struct drm_connector *connector,
+> +					    u8 sup_v_swings, int id)
+> +{
+> +	static const struct drm_prop_enum_list props[] = {
+> +		{__builtin_ffs(DRM_DP_VOLTAGE_SWING_LEVEL_0) - 1, "level_0" },
+> +		{__builtin_ffs(DRM_DP_VOLTAGE_SWING_LEVEL_1) - 1, "level_1" },
+> +		{__builtin_ffs(DRM_DP_VOLTAGE_SWING_LEVEL_2) - 1, "level_2" },
+> +		{__builtin_ffs(DRM_DP_VOLTAGE_SWING_LEVEL_3) - 1, "level_3" },
+> +	};
+> +	struct drm_property *prop;
+> +	char str[16];
+> +
+> +	if (!sup_v_swings)
+> +		return 0;
+> +
+> +	if (drm_WARN_ON(connector->dev, sup_v_swings != (sup_v_swings &
+> +						   DRM_DP_VOLTAGE_SWING_LEVEL_MASK)))
+> +		return -EINVAL;
+> +
+> +	snprintf(str, sizeof(str), "voltage_swing%d", id);
+> +	prop = drm_property_create_bitmask(connector->dev, DRM_MODE_PROP_IMMUTABLE,
+> +					   str, props, ARRAY_SIZE(props),
+> +					   sup_v_swings);
+> +	if (!prop)
+> +		return -ENOMEM;
+> +
+> +	drm_object_attach_property(&connector->base, prop, 0);
+> +
+> +	connector->dp.v_swing_property[id] = prop;
+> +
+> +	return 0;
+> +}
+> +
+> +static int drm_connector_create_pre_emph_prop(struct drm_connector *connector,
+> +					      u8 sup_pre_emph, int id)
+> +{
+> +	static const struct drm_prop_enum_list props[] = {
+> +		{__builtin_ffs(DRM_DP_PRE_EMPH_LEVEL_0) - 1, "level_0" },
+> +		{__builtin_ffs(DRM_DP_PRE_EMPH_LEVEL_1) - 1, "level_1" },
+> +		{__builtin_ffs(DRM_DP_PRE_EMPH_LEVEL_2) - 1, "level_2" },
+> +		{__builtin_ffs(DRM_DP_PRE_EMPH_LEVEL_3) - 1, "level_3" },
+> +	};
+> +	struct drm_property *prop;
+> +	char str[16];
+> +
+> +	if (!sup_pre_emph)
+> +		return 0;
+> +
+> +	if (drm_WARN_ON(connector->dev, sup_pre_emph != (sup_pre_emph &
+> +						   DRM_DP_PRE_EMPH_LEVEL_MASK)))
+> +		return -EINVAL;
+> +
+> +	snprintf(str, sizeof(str), "pre_emphasis%d", id);
+> +	prop = drm_property_create_bitmask(connector->dev, DRM_MODE_PROP_IMMUTABLE,
+> +					   str, props, ARRAY_SIZE(props),
+> +					   sup_pre_emph);
+> +	if (!prop)
+> +		return -ENOMEM;
+> +
+> +	drm_object_attach_property(&connector->base, prop, 0);
+> +
+> +	connector->dp.pre_emph_property[id] = prop;
+> +
+> +	return 0;
+> +}
+> +
+> +static int
+> +drm_connector_dp_create_props(struct drm_connector *connector,
+> +			      const struct drm_connector_dp_link_train_caps *dp_link_train_caps)
+> +{
+> +	u8 nlanes;
+> +	int ret;
+> +
+> +	ret = drm_connector_create_nlanes_prop(connector, dp_link_train_caps->nlanes);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = drm_connector_create_lrate_prop(connector, dp_link_train_caps->nrates,
+> +					      dp_link_train_caps->rates);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (dp_link_train_caps->dsc) {
+> +		ret = drm_connector_create_dsc_prop(connector);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	nlanes = 1 << (fls(dp_link_train_caps->nlanes) - 1);
+> +	for (int i = 0; i < nlanes; i++) {
+> +		ret = drm_connector_create_vswing_prop(connector,
+> +						       dp_link_train_caps->v_swings, i);
+> +		if (ret)
+> +			return ret;
+> +
+> +		ret = drm_connector_create_pre_emph_prop(connector,
+> +							 dp_link_train_caps->pre_emphs, i);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * drmm_connector_dp_init - Init a preallocated DisplayPort connector
+> + * @dev: DRM device
+> + * @connector: A pointer to the DisplayPort connector to init
+> + * @funcs: callbacks for this connector
+> + * @dp_link_train_caps: DisplayPort link training capabilities. The pointer
+> + *			is not kept by the DRM core
+> + * @connector_type: user visible type of the connector
+> + * @ddc: optional pointer to the associated ddc adapter
+> + *
+> + * Initialises a preallocated DisplayPort connector. Connectors can be
+> + * subclassed as part of driver connector objects.
+> + *
+> + * Cleanup is automatically handled with a call to
+> + * drm_connector_cleanup() in a DRM-managed action.
+> + *
+> + * The connector structure should be allocated with drmm_kzalloc().
+> + *
+> + * The @drm_connector_funcs.destroy hook must be NULL.
+> + *
+> + * Returns:
+> + * Zero on success, error code on failure.
+> + */
+> +int drmm_connector_dp_init(struct drm_device *dev,
+> +			   struct drm_connector *connector,
+> +			   const struct drm_connector_funcs *funcs,
+> +			   const struct drm_connector_dp_link_train_caps *dp_link_train_caps,
+> +			   int connector_type,
+> +			   struct i2c_adapter *ddc)
+> +{
+> +	int ret;
+> +
+> +	if (!(connector_type == DRM_MODE_CONNECTOR_DisplayPort ||
+> +	      connector_type == DRM_MODE_CONNECTOR_eDP))
+> +		return -EINVAL;
+> +
+> +	if (!dp_link_train_caps)
+> +		return -EINVAL;
+> +
+> +	ret = drmm_connector_init(dev, connector, funcs, connector_type, ddc);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return drm_connector_dp_create_props(connector, dp_link_train_caps);
+> +}
+> +EXPORT_SYMBOL(drmm_connector_dp_init);
+> diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+> index f83f28cae2075..df3a71fed35b1 100644
+> --- a/include/drm/drm_connector.h
+> +++ b/include/drm/drm_connector.h
+> @@ -1987,6 +1987,39 @@ struct drm_connector_cec {
+>  	void *data;
+>  };
+>  
+> +/**
+> + * struct drm_connector_dp - DRM Connector DisplayPort-related structure
+> + */
+> +struct drm_connector_dp {
+> +	/**
+> +	 * @nlanes_property: Connector property to report the number of lanes
+> +	 */
+> +	struct drm_property *nlanes_property;
+> +
+> +	/**
+> +	 * @link_rate_property: Connector property to report the link rate
+> +	 */
+> +	struct drm_property *link_rate_property;
+> +
+> +	/**
+> +	 * @dsc_en_property: Connector property to report the Display Stream
+> +	 * Compression supporrt
+> +	 */
+> +	struct drm_property *dsc_en_property;
+> +
+> +	/**
+> +	 * @v_swing_property: Connector property to report the voltage
+> +	 * swing per lane
+> +	 */
+> +	struct drm_property *v_swing_property[4];
+> +
+> +	/**
+> +	 * @pre_emph_property: Connector property to report the
+> +	 * pre-emphasis per lane
+> +	 */
+> +	struct drm_property *pre_emph_property[4];
+> +};
+> +
+>  /**
+>   * struct drm_connector - central DRM connector control structure
+>   *
+> @@ -2410,6 +2443,11 @@ struct drm_connector {
+>  	 * @cec: CEC-related data.
+>  	 */
+>  	struct drm_connector_cec cec;
+> +
+> +	/**
+> +	 * @dp: DisplayPort-related variable and properties.
+> +	 */
+> +	struct drm_connector_dp dp;
+>  };
+>  
+>  #define obj_to_connector(x) container_of(x, struct drm_connector, base)
+> diff --git a/include/drm/drm_dp_connector.h b/include/drm/drm_dp_connector.h
+> new file mode 100644
+> index 0000000000000..77d2f4bb6df68
+> --- /dev/null
+> +++ b/include/drm/drm_dp_connector.h
+> @@ -0,0 +1,109 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +
+> +#ifndef DRM_DP_CONNECTOR_H_
+> +#define DRM_DP_CONNECTOR_H_
+> +
+> +#include <drm/drm_connector.h>
+> +
+> +#define DRM_DP_1LANE	BIT(0)
+> +#define DRM_DP_2LANE	BIT(1)
+> +#define DRM_DP_4LANE	BIT(2)
+> +#define DRM_NLANES_MASK (DRM_DP_1LANE | DRM_DP_2LANE | DRM_DP_4LANE)
+> +#define DRM_DP_VOLTAGE_SWING_LEVEL_0 BIT(0)
+> +#define DRM_DP_VOLTAGE_SWING_LEVEL_1 BIT(1)
+> +#define DRM_DP_VOLTAGE_SWING_LEVEL_2 BIT(2)
+> +#define DRM_DP_VOLTAGE_SWING_LEVEL_3 BIT(3)
+> +#define DRM_DP_VOLTAGE_SWING_LEVEL_MASK (DRM_DP_VOLTAGE_SWING_LEVEL_0 | \
+> +					 DRM_DP_VOLTAGE_SWING_LEVEL_1 | \
+> +					 DRM_DP_VOLTAGE_SWING_LEVEL_2 | \
+> +					 DRM_DP_VOLTAGE_SWING_LEVEL_3)
+> +#define DRM_DP_PRE_EMPH_LEVEL_0 BIT(0)
+> +#define DRM_DP_PRE_EMPH_LEVEL_1 BIT(1)
+> +#define DRM_DP_PRE_EMPH_LEVEL_2 BIT(2)
+> +#define DRM_DP_PRE_EMPH_LEVEL_3 BIT(3)
+> +#define DRM_DP_PRE_EMPH_LEVEL_MASK (DRM_DP_PRE_EMPH_LEVEL_0 | \
+> +				    DRM_DP_PRE_EMPH_LEVEL_1 | \
+> +				    DRM_DP_PRE_EMPH_LEVEL_2 | \
+> +				    DRM_DP_PRE_EMPH_LEVEL_3)
+> +
+> +/**
+> + * struct drm_connector_dp_link_train_caps - DRM DisplayPort link training
+> + * capabilities
+> + */
+> +struct drm_connector_dp_link_train_caps {
+> +	/**
+> +	 * @nlanes: Bitmask of lanes number supported
+> +	 */
+> +	u8 nlanes;
+> +
+> +	/**
+> +	 * @nrates: Number of link rates supported
+> +	 */
+> +	u32 nrates;
+> +
+> +	/**
+> +	 * @rates: Array listing the supported link rates in deca-kbps
+> +	 */
+> +	const u32 *rates;
+> +
+> +	/**
+> +	 * @dsc: Display Stream Compression supported
+> +	 */
+> +	bool dsc;
+> +
+> +	/**
+> +	 * @v_swings: Bitmask of voltage swing level supported
+> +	 */
+> +	u8 v_swings;
+> +
+> +	/**
+> +	 * @pre_emphs: Bitmask of pre-emphasis level supported
+> +	 */
+> +	u8 pre_emphs;
+> +};
+> +
+> +/**
+> + * struct drm_connector_dp_link_train - DRM DisplayPort link training
+> + * information report
+> + */
+> +struct drm_connector_dp_link_train {
+> +	/**
+> +	 * @nlanes: The number of lanes used
+> +	 */
+> +	u8 nlanes;
+> +
+> +	/**
+> +	 * @rates: Link rate value selected in deca-kbps
+> +	 */
+> +	u32 rate;
+> +
+> +	/**
+> +	 * @dsc: Display Stream Compression enabled
+> +	 */
+> +	bool dsc_en;
+> +
+> +	/**
+> +	 * @v_swings: Array listing the bitmask voltage swing level per lanes
+> +	 */
+> +	u8 v_swing[4];
+> +
+> +	/**
+> +	 * @pre_emph: Array listing the bitmask pre-emphasis level per lanes
+> +	 */
+> +	u8 pre_emph[4];
+> +};
+> +
+> +int drmm_connector_dp_init(struct drm_device *dev,
+> +			   struct drm_connector *connector,
+> +			   const struct drm_connector_funcs *funcs,
+> +			   const struct drm_connector_dp_link_train_caps *dp_link_train_caps,
+> +			   int connector_type,
+> +			   struct i2c_adapter *ddc);
+> +
+> +int
+> +drm_connector_dp_set_link_train_properties(struct drm_connector *con,
+> +					   const struct drm_connector_dp_link_train *dp_link_train);
+> +
+> +void drm_connector_dp_reset_link_train_properties(struct drm_connector *connector);
+> +
+> +#endif // DRM_DP_CONNECTOR_H_
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Jani Nikula, Intel
 
