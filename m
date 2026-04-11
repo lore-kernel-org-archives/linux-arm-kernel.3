@@ -4,77 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46C9FF3ED43
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 10:26:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91150F3ED42
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 10:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=oyjFfLOVr4/tAinbTSgmI+kMMDNqw+dYn58LCXlZnV4=; b=4Z9g8h92qjVSb6
-	Qy2/BkT0/XpXZBJaNwJOs3QohTqyfxmXtDObDP14M8oRvA0uMym2WwqcQYU73ywDzLc7ytFkWV40O
-	UfqggLCYErXorM7Fiw/8p7jTJetI9P86wiDvNlyyUS6g44gyjA2wTyyrHku4Q/nuu51t3VaishLOp
-	LPcN+8z0nFn2Op6fE1XEJU/6uRQ8fqxgbtthOH4kOkGkn9O3mac4ickSeVHpF+7xvigu5xDUcmE/b
-	UEb1YVqymoBkfuqJjn0Q/ceSAgden2tgJBZIP161IFLZhX2IiRyfz0edARWaQDBK9cbRY8RBB1tga
-	jBjedNY6u1XqDMcLClsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=epd4iytnIGyxOlqFSKCuRuhrFgMvBf5YrmdM6MyGa8U=; b=bvZ0xyCNq/GezN7TyEOD1M267I
+	siUFCgfJY8KYglnVXG1qMdnUF4QzapEGDEzibmXMZOgrumC5wD3ErjOCzB3IuOKi1Dg9vTUNUa1Uj
+	8CMmxENENqdpND+ILGgvlIaSliOx2SBNkUEexe2/gbLMr5SQ5ntWRoC9fkPAG2C/W3DBqGFiWapfe
+	mL7IxTDihO15YED+Ro9t0z7FZQx7nUfB+vAEMOt64ne7hkZjVsLzEvHSFZv9WnuKvcwed3R0o4qmf
+	zwGCUs15L9yXOm/U+BXbj1z5SHLGaid01TuBolQo+qqJj3BnmpxL2pbdi6eLqvAc18E2fm8IkUN3C
+	3G5KljUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBVXm-0000000DM1F-3Mtt;
-	Sat, 11 Apr 2026 10:26:26 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	id 1wBVhV-0000000DML2-3QWR;
+	Sat, 11 Apr 2026 10:36:29 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBVXk-0000000DM0U-24Id
+	id 1wBVhS-0000000DMKg-2jAz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Apr 2026 10:26:25 +0000
-Received: from h205.csg.ci.i.u-tokyo.ac.jp (h205.csg.ci.i.u-tokyo.ac.jp [133.11.54.205])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 63BAKqRl021769
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Sat, 11 Apr 2026 19:20:54 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=oyjFfLOVr4/tAinbTSgmI+kMMDNqw+dYn58LCXlZnV4=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=From:Message-Id:To:Subject:Date;
-        s=rs20250326; t=1775902854; v=1;
-        b=ty/jo9vbXApetQXw8+YlWhkBNzXcBxBdxesTaFhYeoUO0PbR+z/rky1YMxteHQTt
-         vshKPTx/sTCPSoiX2pMhgFwwWxu1m6lxhhfMVFxaYwvB4S8vGFkYA9quLuxsU8dN
-         /C8QkS6rHtxErl/lZQXbX7xwnt1apFNbOVmBbm+WuoXoFl6IPMZ1yOzszbIMeCQY
-         gc/RUxvAknkyaTlSsDiVPmVyyzyEdE1FTOupqi2+wpOhYAd+nzD1zlCQ4D/J9ehi
-         AKbpMYdOw7MRN6y0DSp8w82mFcpcekIEBRn3qVAuHtpmI8pBY2k2fQ3IyGnVGGll
-         J9D0xhZcZ3uV2ANx7ipDeQ==
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Subject: [PATCH v5 0/4] KVM: arm64: PMU: Use multiple host PMUs
-Date: Sat, 11 Apr 2026 19:20:30 +0900
-Message-Id: <20260411-hybrid-v5-0-b043b4d9f49e@rsg.ci.i.u-tokyo.ac.jp>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33QTW6DMBAF4KtEXtdo/IvJKveoujDjIbhVIDUEB
- UXcvS4oZNUunzXzzZMfbKAUaWDHw4MlmuIQ+y4H83Zg2PruTDyGnJkEaUBKzdu5TjFwEME0jS4
- pBMny8DVRE+8r9P6x5UTft+yN2yOr/UAc+8sljsdD5St0SAoAg3KmQnRlrcFRY4zEYKsSUfq6Z
- L9WG4exT/PacRIrttZRonrWmQQXXAfhgxdAJZhT8HMX70U+uBqTfO05sPue5MDBWuEJlW8cntJ
- wLjAWsbjxsf+a+8Jj8XndDPU0bP4KsxsqG9qSa0hKcA7+NfTLUKLcDZ2NOlhZY9DOav2nsSzLD
- 03leFO1AQAA
-X-Change-ID: 20250224-hybrid-01d5ff47edd2
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kselftest@vger.kernel.org,
-        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-X-Mailer: b4 0.15-dev-5ab4c
+	Sat, 11 Apr 2026 10:36:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1775903787; x=1807439787;
+  h=date:from:to:cc:subject:message-id;
+  bh=MSwQffNizCjrvycl9YKJxhHBLE4eWHgLs8Z/oRY0qjY=;
+  b=R7yv9BIYQm4+NlkYVBPNdFk45Yu1vPoQe1kKr2kLp7iMJ8wBpPzLuB7A
+   fAA3DqLmDqKUZZrljSjkgn/cZv8sZDEiFoMnC0TxG40oatoDS73QnU2lg
+   KPF/iHsXGdoko6SkQA8XtkSQ4PXo9zk5Yp42rN17wu6YKK1GxrWCJ07MF
+   k8gC2CKf4C8ipXZRk1goVgylQEDsnbncyX/yCyGOIIdgkLeKI/m8jvK/T
+   3TCAFrXx7bkB1Qli9gXOd9SHPfFo+y9oHPaNpS8VEzFWbVTX/HRNNjQBc
+   NnJgTaiutQ3cKfPH+HkbL7jhLxxc7kSPKRw+ym0as6urSNd/uckORaVGQ
+   Q==;
+X-CSE-ConnectionGUID: rpyWfuW4Q0W0GA6uF9KALg==
+X-CSE-MsgGUID: ND6xV0j2Q22M6Me2vQoGTA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11755"; a="76785599"
+X-IronPort-AV: E=Sophos;i="6.23,173,1770624000"; 
+   d="scan'208";a="76785599"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Apr 2026 03:36:23 -0700
+X-CSE-ConnectionGUID: 1YXSAKThQlGN344kS6KZZg==
+X-CSE-MsgGUID: Swq682HjQYGjbQTRU6dROw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,173,1770624000"; 
+   d="scan'208";a="233721471"
+Received: from lkp-server01.sh.intel.com (HELO 3eaaf1a74b89) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 11 Apr 2026 03:36:21 -0700
+Received: from kbuild by 3eaaf1a74b89 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wBVhK-0000000014u-31Jv;
+	Sat, 11 Apr 2026 10:36:18 +0000
+Date: Sat, 11 Apr 2026 18:35:23 +0800
+From: kernel test robot <lkp@intel.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:for-next] BUILD SUCCESS
+ 249ca93803738427749b611f728601c8da41c2d1
+Message-ID: <202604111817.06NIsjVB-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260411_032624_785218_03AAB311 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20260411_033626_741076_50A0A822 
+X-CRM114-Status: UNSURE (   4.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,87 +83,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On a heterogeneous arm64 system, KVM's PMU emulation is based on the
-features of a single host PMU instance. When a vCPU is migrated to a
-pCPU with an incompatible PMU, counters such as PMCCNTR_EL0 stop
-incrementing.
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+branch HEAD: 249ca93803738427749b611f728601c8da41c2d1  soc: document merges
 
-Although this behavior is permitted by the architecture, Windows does
-not handle it gracefully and may crash with a division-by-zero error.
+elapsed time: 726m
 
-The current workaround requires VMMs to pin vCPUs to a set of pCPUs
-that share a compatible PMU. This is difficult to implement correctly in
-QEMU/libvirt, where pinning occurs after vCPU initialization, and it
-also restricts the guest to a subset of available pCPUs.
+configs tested: 180
+configs skipped: 2
 
-This patch introduces the KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY
-attribute. If set, PMUv3 will be emulated without programmable event
-counters. KVM will be able to run VCPUs on any physical CPUs with a
-compatible hardware PMU.
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-This allows Windows guests to run reliably on heterogeneous systems
-without crashing, even without vCPU pinning, and enables VMMs to
-schedule vCPUs across all available pCPUs, making full use of the host
-hardware.
+tested configs:
+alpha                             allnoconfig    gcc-15.2.0
+alpha                            allyesconfig    gcc-15.2.0
+alpha                               defconfig    gcc-15.2.0
+arc                              allmodconfig    clang-16
+arc                               allnoconfig    gcc-15.2.0
+arc                              allyesconfig    clang-23
+arc                                 defconfig    gcc-15.2.0
+arc                   randconfig-001-20260411    gcc-12.5.0
+arc                   randconfig-002-20260411    gcc-12.5.0
+arm                               allnoconfig    gcc-15.2.0
+arm                              allyesconfig    clang-16
+arm                                 defconfig    gcc-15.2.0
+arm                         nhk8815_defconfig    clang-23
+arm                   randconfig-001-20260411    gcc-12.5.0
+arm                   randconfig-002-20260411    gcc-12.5.0
+arm                   randconfig-003-20260411    gcc-12.5.0
+arm                   randconfig-004-20260411    gcc-12.5.0
+arm                        shmobile_defconfig    gcc-15.2.0
+arm64                            allmodconfig    clang-23
+arm64                             allnoconfig    gcc-15.2.0
+arm64                               defconfig    gcc-15.2.0
+arm64                 randconfig-001-20260411    clang-23
+arm64                 randconfig-002-20260411    clang-23
+arm64                 randconfig-003-20260411    clang-23
+arm64                 randconfig-004-20260411    clang-23
+csky                             allmodconfig    gcc-15.2.0
+csky                              allnoconfig    gcc-15.2.0
+csky                                defconfig    gcc-15.2.0
+csky                  randconfig-001-20260411    clang-23
+csky                  randconfig-002-20260411    clang-23
+hexagon                          allmodconfig    gcc-15.2.0
+hexagon                           allnoconfig    gcc-15.2.0
+hexagon                             defconfig    gcc-15.2.0
+hexagon               randconfig-001-20260411    gcc-14.3.0
+hexagon               randconfig-002-20260411    gcc-14.3.0
+i386                             allmodconfig    clang-20
+i386                              allnoconfig    gcc-15.2.0
+i386                             allyesconfig    clang-20
+i386        buildonly-randconfig-001-20260411    gcc-14
+i386        buildonly-randconfig-002-20260411    gcc-14
+i386        buildonly-randconfig-003-20260411    gcc-14
+i386        buildonly-randconfig-004-20260411    gcc-14
+i386        buildonly-randconfig-005-20260411    gcc-14
+i386        buildonly-randconfig-006-20260411    gcc-14
+i386                                defconfig    gcc-15.2.0
+i386                  randconfig-001-20260411    clang-20
+i386                  randconfig-002-20260411    clang-20
+i386                  randconfig-003-20260411    clang-20
+i386                  randconfig-004-20260411    clang-20
+i386                  randconfig-005-20260411    clang-20
+i386                  randconfig-006-20260411    clang-20
+i386                  randconfig-007-20260411    clang-20
+i386                  randconfig-011-20260411    clang-20
+i386                  randconfig-012-20260411    clang-20
+i386                  randconfig-013-20260411    clang-20
+i386                  randconfig-014-20260411    clang-20
+i386                  randconfig-015-20260411    clang-20
+i386                  randconfig-016-20260411    clang-20
+i386                  randconfig-017-20260411    clang-20
+loongarch                        allmodconfig    clang-23
+loongarch                         allnoconfig    gcc-15.2.0
+loongarch                           defconfig    clang-19
+loongarch             randconfig-001-20260411    gcc-14.3.0
+loongarch             randconfig-002-20260411    gcc-14.3.0
+m68k                             allmodconfig    gcc-15.2.0
+m68k                              allnoconfig    gcc-15.2.0
+m68k                             allyesconfig    clang-16
+m68k                                defconfig    clang-19
+microblaze                        allnoconfig    gcc-15.2.0
+microblaze                       allyesconfig    gcc-15.2.0
+microblaze                          defconfig    clang-19
+mips                             allmodconfig    gcc-15.2.0
+mips                              allnoconfig    gcc-15.2.0
+mips                             allyesconfig    gcc-15.2.0
+nios2                            allmodconfig    clang-23
+nios2                            allmodconfig    gcc-11.5.0
+nios2                             allnoconfig    clang-23
+nios2                             allnoconfig    gcc-11.5.0
+nios2                               defconfig    clang-19
+nios2                 randconfig-001-20260411    gcc-14.3.0
+nios2                 randconfig-002-20260411    gcc-14.3.0
+openrisc                         allmodconfig    clang-23
+openrisc                         allmodconfig    gcc-15.2.0
+openrisc                          allnoconfig    clang-23
+openrisc                          allnoconfig    gcc-15.2.0
+openrisc                            defconfig    gcc-15.2.0
+parisc                           allmodconfig    gcc-15.2.0
+parisc                            allnoconfig    clang-23
+parisc                            allnoconfig    gcc-15.2.0
+parisc                           allyesconfig    clang-19
+parisc                              defconfig    gcc-15.2.0
+parisc                randconfig-001-20260411    gcc-11.5.0
+parisc                randconfig-002-20260411    gcc-11.5.0
+parisc64                            defconfig    clang-19
+powerpc                          allmodconfig    gcc-15.2.0
+powerpc                           allnoconfig    clang-23
+powerpc                           allnoconfig    gcc-15.2.0
+powerpc               randconfig-001-20260411    gcc-11.5.0
+powerpc               randconfig-002-20260411    gcc-11.5.0
+powerpc64             randconfig-001-20260411    gcc-11.5.0
+powerpc64             randconfig-002-20260411    gcc-11.5.0
+riscv                            allmodconfig    clang-23
+riscv                             allnoconfig    clang-23
+riscv                             allnoconfig    gcc-15.2.0
+riscv                            allyesconfig    clang-16
+riscv                               defconfig    gcc-15.2.0
+riscv                 randconfig-001-20260411    gcc-10.5.0
+riscv                 randconfig-002-20260411    gcc-10.5.0
+s390                             allmodconfig    clang-19
+s390                              allnoconfig    clang-23
+s390                             allyesconfig    gcc-15.2.0
+s390                                defconfig    gcc-15.2.0
+s390                  randconfig-001-20260411    gcc-10.5.0
+s390                  randconfig-002-20260411    gcc-10.5.0
+sh                               allmodconfig    gcc-15.2.0
+sh                                allnoconfig    clang-23
+sh                                allnoconfig    gcc-15.2.0
+sh                               allyesconfig    clang-19
+sh                                  defconfig    gcc-14
+sh                    randconfig-001-20260411    gcc-10.5.0
+sh                    randconfig-002-20260411    gcc-10.5.0
+sparc                             allnoconfig    clang-23
+sparc                             allnoconfig    gcc-15.2.0
+sparc                               defconfig    gcc-15.2.0
+sparc                 randconfig-001-20260411    gcc-14
+sparc                 randconfig-002-20260411    gcc-14
+sparc64                          allmodconfig    clang-23
+sparc64                             defconfig    gcc-14
+sparc64               randconfig-001-20260411    gcc-14
+sparc64               randconfig-002-20260411    gcc-14
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-23
+um                               allyesconfig    gcc-15.2.0
+um                                  defconfig    gcc-14
+um                             i386_defconfig    gcc-14
+um                    randconfig-001-20260411    gcc-14
+um                    randconfig-002-20260411    gcc-14
+um                           x86_64_defconfig    gcc-14
+x86_64                           allmodconfig    clang-20
+x86_64                            allnoconfig    clang-20
+x86_64                            allnoconfig    clang-23
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20260411    gcc-14
+x86_64      buildonly-randconfig-002-20260411    gcc-14
+x86_64      buildonly-randconfig-003-20260411    gcc-14
+x86_64      buildonly-randconfig-004-20260411    gcc-14
+x86_64      buildonly-randconfig-005-20260411    gcc-14
+x86_64      buildonly-randconfig-006-20260411    gcc-14
+x86_64                              defconfig    gcc-14
+x86_64                                  kexec    clang-20
+x86_64                randconfig-001-20260411    gcc-14
+x86_64                randconfig-002-20260411    gcc-14
+x86_64                randconfig-003-20260411    gcc-14
+x86_64                randconfig-004-20260411    gcc-14
+x86_64                randconfig-005-20260411    gcc-14
+x86_64                randconfig-006-20260411    gcc-14
+x86_64                randconfig-011-20260411    clang-20
+x86_64                randconfig-012-20260411    clang-20
+x86_64                randconfig-013-20260411    clang-20
+x86_64                randconfig-014-20260411    clang-20
+x86_64                randconfig-015-20260411    clang-20
+x86_64                randconfig-016-20260411    clang-20
+x86_64                randconfig-071-20260411    clang-20
+x86_64                randconfig-072-20260411    clang-20
+x86_64                randconfig-073-20260411    clang-20
+x86_64                randconfig-074-20260411    clang-20
+x86_64                randconfig-075-20260411    clang-20
+x86_64                randconfig-076-20260411    clang-20
+x86_64                               rhel-9.4    clang-20
+x86_64                           rhel-9.4-bpf    gcc-14
+x86_64                          rhel-9.4-func    clang-20
+x86_64                    rhel-9.4-kselftests    clang-20
+x86_64                         rhel-9.4-kunit    gcc-14
+x86_64                           rhel-9.4-ltp    gcc-14
+x86_64                          rhel-9.4-rust    clang-20
+xtensa                            allnoconfig    clang-23
+xtensa                            allnoconfig    gcc-15.2.0
+xtensa                           allyesconfig    clang-23
+xtensa                randconfig-001-20260411    gcc-14
+xtensa                randconfig-002-20260411    gcc-14
 
-A QEMU patch that demonstrates the usage of the new attribute is
-available at:
-https://lore.kernel.org/qemu-devel/20260225-kvm-v2-1-b8d743db0f73@rsg.ci.i.u-tokyo.ac.jp/
-("[PATCH RFC v2] target/arm/kvm: Choose PMU backend")
-
-Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
----
-Changes in v5:
-- Rebased.
-- Fixed the order to clear KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY in
-  kvm_arm_pmu_v3_set_pmu().
-- Fixed the setting of KVM_ARM_VCPU_PMU_V3_IRQ in
-  test_fixed_counters_only().
-- Changed to WARN_ON_ONCE() when kvm_pmu_probe_armpmu() returns NULL in
-  kvm_pmu_create_perf_event(), which is no longer supposed to happen.
-- Link to v4: https://lore.kernel.org/r/20260317-hybrid-v4-0-bd62bcd48644@rsg.ci.i.u-tokyo.ac.jp
-
-Changes in v4:
-- Extracted kvm_pmu_enabled_counter_mask() into a separate patch.
-- Added patch "KVM: arm64: PMU: Protect the list of PMUs with RCU".
-- Merged KVM_REQ_CREATE_PMU into KVM_REQ_RELOAD_PMU.
-- Added a check to avoid unnecessary KVM_REQ_RELOAD_PMU requests.
-- Dropped the change to avoid setting kvm_arm_set_default_pmu() when
-  KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY is not set.
-- Link to v3: https://lore.kernel.org/r/20260225-hybrid-v3-0-46e8fe220880@rsg.ci.i.u-tokyo.ac.jp
-
-Changes in v3:
-- Renamed the attribute to KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY.
-- Changed to request the creation of perf counters when loading vCPU.
-- Link to v2: https://lore.kernel.org/r/20250806-hybrid-v2-0-0661aec3af8c@rsg.ci.i.u-tokyo.ac.jp
-
-Changes in v2:
-- Added the KVM_ARM_VCPU_PMU_V3_COMPOSITION attribute to opt in the
-  feature.
-- Added code to handle overflow.
-- Link to v1: https://lore.kernel.org/r/20250319-hybrid-v1-1-4d1ada10e705@daynix.com
-
----
-Akihiko Odaki (4):
-      KVM: arm64: PMU: Add kvm_pmu_enabled_counter_mask()
-      KVM: arm64: PMU: Protect the list of PMUs with RCU
-      KVM: arm64: PMU: Introduce FIXED_COUNTERS_ONLY
-      KVM: arm64: selftests: Test PMU_V3_FIXED_COUNTERS_ONLY
-
- Documentation/virt/kvm/devices/vcpu.rst            |  29 ++++
- arch/arm64/include/asm/kvm_host.h                  |   2 +
- arch/arm64/include/uapi/asm/kvm.h                  |   1 +
- arch/arm64/kvm/arm.c                               |   1 +
- arch/arm64/kvm/pmu-emul.c                          | 188 ++++++++++++++-------
- include/kvm/arm_pmu.h                              |   2 +
- .../selftests/kvm/arm64/vpmu_counter_access.c      | 148 +++++++++++++---
- 7 files changed, 288 insertions(+), 83 deletions(-)
----
-base-commit: 9a9c8ce300cd3859cc87b408ef552cd697cc2ab7
-change-id: 20250224-hybrid-01d5ff47edd2
-
-Best regards,
---  
-Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
