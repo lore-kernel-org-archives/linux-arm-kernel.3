@@ -4,58 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24A33F45A19
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 08:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F107EF45A19
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 08:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qk8tj/g2UeOZIFVcaf2v+ebFtp2jZYs1yZrDdM93vlI=; b=U3VCsMOu9xXZKc9nlAbsK8Txwl
-	3xrtyh2qfw+9Bxbf5t3BIpjbg8MI/LmJ9J7S4hmmP/kFq+3q9HGChcTBV5ZC0hdE1/fj+cZlmhL/v
-	cXSctboDmTuB8Mguw+NQJ0L/SRCgOo1FVwL+DVfMbL4axp/tzphPDcA4c01+nMVt2FRvBf0QcA6go
-	fCuOgjQXBdNAiUYoMo+ruTzR0rOUn1xtHSJCcJeBcN0V3eHj50E7fB2t3P+SOUCJwpucT3X4k2ueu
-	xLHLkBEiXxtu3cilmXvQg/G6IlzCCKGmmI0xy/eRYas1gIMSDb4BlxJIQIADeT1FkbEcCg4/C/exF
-	vr3z89+Q==;
+	bh=c7s28u91RY4sb0eXvmbry/utC+BuQrhKUtGgZ/bEf6k=; b=U37Fhs8PhTLtQS7adG9JahZaH2
+	8QCTJjAleDX1fjDGIOZ1kJbFhK2lIQ6KM4Sqc6L1cgLZPpwjOyubYU2Z8jDlinnoeKpwR4G7NJng1
+	AmtDDZsx/0jEIoIg+X+xPzk4+ZiEv9GMelmo2tOmmjtpeuwecuBurledgLMpY15qY9EoMN04V1+cc
+	hhA1s2f9fNDu9yXOKncbMVi2sVpngmwwiPTfv/x+NiPZSo62gWwcOtpMwKajAWkQJ3QjNiTHhWQoz
+	toJhvpO3L+yzXFXWmRfjUMqkXxKRAJ99bslNrXxtwq3ycbLUZ1eQkUhNJq9iAL3CLjdO7hGAw1Wir
+	BfRo8C3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBTea-0000000DGhF-3a7D;
-	Sat, 11 Apr 2026 08:25:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wBTpQ-0000000DHAW-2VxT;
+	Sat, 11 Apr 2026 08:36:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBTeY-0000000DGh9-3sBO
+	id 1wBTpP-0000000DHAN-0joY
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Apr 2026 08:25:18 +0000
+	Sat, 11 Apr 2026 08:36:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 159B060141;
-	Sat, 11 Apr 2026 08:25:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B1E6C4CEF7;
-	Sat, 11 Apr 2026 08:25:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 313F260141;
+	Sat, 11 Apr 2026 08:36:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60921C4CEF7;
+	Sat, 11 Apr 2026 08:36:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775895917;
-	bh=UNE/FDKJlKGVYWqaC8jppJoejgnR0BL7bQaOen40Y7E=;
+	s=k20201202; t=1775896589;
+	bh=wprADVJKu9wHnF7hgXcFtU3lqaLTiDIRd/Vv8wZiTZc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kZ0gnSW0NU0/XQ3BE9PFVmO1hpWpS0Wc7CQ1q9zLKt0griIZ3iS912V5O5S2YKLBl
-	 2ZvC7QwupywZ1zEBYd/j800dp1o/VYOrBCsBevZuRbf/tExm/xMJRnpELdmPDlQK4x
-	 Lt1pB5INeGUqXmYNEiLUvKSZNB5QSc3MCwWvpOqy3mfjkim6BTbWZ7GvZ+IfmOlgbG
-	 Tc7Db5p7nGCde9yz6wSJZIlwtDSv5+tlMWL8DDFbj7CXg+06d6wdGI2HyJa5ukDFKi
-	 bmNExfAR0ywMKN6gXgE6+7Ka2XyPvLZOaotskH0VoPmEgmucVCdanJB9ZlbRhegmFE
-	 b9m1etNmJj+Ow==
-Date: Sat, 11 Apr 2026 10:25:15 +0200
+	b=OEq+8xdWHBmKWDgsA2JDojibVUDQ9tmJo4A3w1aQXafDDRStzOQqLETOsS6bezolZ
+	 UKhyks9z07BeunXBMPTFcVyXwkKc0zQmsEAw0lrzUp2Crii6pe5I8k39RO0E9l5UtF
+	 k2Cvmuvh7v1MW7uxqVyRwtlzFW3Hw/RGw1QBtpNQLqPv7QRY1lc8/9HBs7vOTVwpzD
+	 0r72IMin8TyOAnSaiiiWsVM0mMCMv2nig7HJ/pklvK0UAmv35RXys9qVuScr518QBz
+	 Vz4nqNB73JpzeVIrrTtCBQHEZGJ17N/QqSq0gqcbw+LIs7vMlRyX5dt9+dmoGAm43+
+	 qyUPV2pSRQN7w==
+Date: Sat, 11 Apr 2026 10:36:27 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: soc@kernel.org, arm@kernel.org, Shawn Guo <shawnguo@kernel.org>, 
-	Fabio Estevam <festevam@gmail.com>, kernel@pengutronix.de, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL] i.MX arm dts changes for v7.1 (V2)
-Message-ID: <20260411-honored-cockatoo-of-inquire-2d5c26@quoll>
-References: <20260406020819.2812877-1-Frank.Li@nxp.com>
+To: Bjorn Andersson <andersson@kernel.org>
+Cc: arm@kernel.org, soc@kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
+	Paul Sajna <sajattack@postmarketos.org>, Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>, 
+	Sudarshan Shetty <tessolveupstream@gmail.com>, Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, 
+	Casey Connolly <casey.connolly@linaro.org>, Jie Zhang <quic_jiezh@quicinc.com>, 
+	Abel Vesa <abel.vesa@oss.qualcomm.com>, Alexander Martinz <amartinz@shiftphones.com>, 
+	Amir Dahan <system64fumo@tuta.io>, Christopher Brown <crispybrown@gmail.com>, 
+	Gaurav Kohli <gaurav.kohli@oss.qualcomm.com>, Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, 
+	Odelu Kukatla <odelu.kukatla@oss.qualcomm.com>, Qingqing Zhou <quic_qqzhou@quicinc.com>
+Subject: Re: [GIT PULL] A few more Arm64 DeviceTree updates for v7.1
+Message-ID: <20260411-strict-nifty-otter-fcd6dd@quoll>
+References: <20260406132007.2264408-1-andersson@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260406020819.2812877-1-Frank.Li@nxp.com>
+In-Reply-To: <20260406132007.2264408-1-andersson@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,65 +75,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 05, 2026 at 10:08:08PM -0400, Frank Li wrote:
-> From: Frank.Li@nxp.com
->=20
-> The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f2=
-7f:
->=20
->   Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
->=20
+On Mon, Apr 06, 2026 at 08:20:07AM -0500, Bjorn Andersson wrote:
+> 
+> The following changes since commit b683730e27ba4f91986c4c92f5cb7297f1e01a6d:
+> 
+>   arm64: dts: qcom: sm8250: Add missing CPU7 3.09GHz OPP (2026-03-30 09:35:01 -0500)
+> 
 > are available in the Git repository at:
->=20
->   git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git tags/i=
-mx-dt-7.1
->=20
-> for you to fetch changes up to 0037d16644b15686eec420a90f05bcd2804edf6d:
->=20
->   ARM: dts: imx: Add DT overlays for DH i.MX6 DHCOM SoM and boards (2026-=
-04-05 21:35:41 -0400)
->=20
-> Changes in v2:
->   drop patch: ARM: dts: imx53: drop fallback compatible "dlg,da9052"
->=20
+> 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm64-for-7.1-2
+> 
+> for you to fetch changes up to af241225893ac4933bb8f0615f2dfda8ea2326ce:
+> 
+>   arm64: dts: qcom: Add the Lenovo IdeaCentre Mini X (2026-04-02 16:08:54 -0500)
+> 
 > ----------------------------------------------------------------
-> i.MX ARM device tree changes for 7.1:
->=20
-> - Device Tree Schema Compliance Fixes
->=20
->   Fixed numerous CHECK_DTBS warnings across multiple i.MX SoC families
->   Renamed nodes to match schema requirements (tcq=E2=86=92touchscreen,
->   uart8250=E2=86=92serial, iomuxc=E2=86=92pinmux, etc.). Fixed node namin=
-g conventions
->   (added "led-" prefix, proper addressing formats).
->=20
->   Corrected compatible strings and removed undocumented fallbacks. Added
->   required properties (clocks, clock-names, power supplies,
->   #sound-dai-cells).
->=20
-> - New Hardware Support
->=20
->   Added DT overlays for various expansion modules (i.MX6 DHCOM PDK2,
->   PicoITX display boards). Added support for muRata 1YN WiFi chip
->   (replacement for 1DX) on i.MX6ULL DHCOR board.
->=20
->   i.MX7ULP: Added CPU clock and OPP table support for frequency scaling.
->=20
-> - Boot Phase Properties
->   Added bootph.yaml properties to multiple TQ-Systems boards and SoCs:
->   imx7s, tqma7, mba7 imx6ul/ull, tqma6ul/ull, mba6ulx imx6qdl, tqma6, mba=
-6.
->=20
-> - Bug Fixes & Corrections
->=20
->   Fixed interrupt property usage (interrupts=E2=86=92interrupts-extended =
-where
->   needed). Corrected spelling ("TQ-Systems" with hyphen). Removed redunda=
-nt
->   intermediate nodes in pinmux hierarchy. Fixed clock references and
->   naming.
->=20
-> ----------------------------------------------------------------
+> A few more Arm64 DeviceTree updates for v7.1
+> 
+> Introduce the Hamoa-based Lenovo IdeaCentre Mini X, the Dragonwing
+> IQ-615 (Talos) EVK, and a Talos EVK camera overlay.
+> 
+> Enable DisplayPort support on the Glymur CRD.
+> 
+> Add WiFi, Bluetooh, LEDs, and venus on LG-based SDM845 devices. Add
+> battery, charger, and display on the LG G7 ThinQ.
+> 
+> Enable SD-card, describe the audio amplifier, and increase the speed of
+> the i2c clock for touchscreen on the SHIFT SHIFT6mq.
+> 
+> Add camera subsystem, camera control interface, GPU, GMU, and GPU
+> cooling on the Talos platform. Enable the GPU on the Ride board.
+> 
 
 Thanks, applied
 
