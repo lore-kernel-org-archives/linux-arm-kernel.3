@@ -4,107 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08406F45A0F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Apr 2026 23:45:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61FFBF45A13
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 00:06:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=huYHr9pbT+aIbCmPuPJO5mChpAaAzejhwMiDIrUto84=; b=P4wrDeQT69p8gV
-	9zuBc8j+MjVzTAOBhlmsQqvLdbE4NtU1KOxxODSLnlRv4ydMb8BuH4R0IRzp57LBltsp3+Hbgvwir
-	JBs43JVIfJaxKOmsarSePjMzKuletnXZteYPDWg8h/UCLJXV9y5ABF4TTfjfxPDrJ7N4F9tOceMl9
-	lWJ61tR8TIXIlv/RyydczXxkPgPfgAfVgdAJWyrfYBqF3FmM0X1reDt92GWycmpi9QPaJb4QaP/GA
-	ruPDHAs6RJWzYDzjso765ZtuFGY3fTAVRZCryLkUVCw0Cw6pmWiS4L+dlKxnpOVdX0lqjIi7KU8vv
-	D9lqbl1B/yUaScWIWdLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F0+e+g4CbwEmgN+HXC+e9w9/Yd6s3MlCcRlMtalmEtg=; b=2gwwK/q7U0YVfoRrW25cn6qz0X
+	HzKfE6ZMXCgN2eC1AMuSJdrwuwKknE7SDBH+PnnVwHjDdlJ386iws4xE0FKqvdH9N+0DAlYxcNcxI
+	9yw8wBa9ctjIUOTIJOW0gC9hnV5sHCEmvDB4DEK+mYvBRBAWOKRr9/85sk+pnuQZxmhErIhYKvJeR
+	g8pFHp+CwUKqJ+Wn/8GfiJbREs9ti59RthExY/XiugX2aB9Idv83vswS/63bRelBXpfD+wvcJRkBs
+	+D+YSKpTABuMfmTLspA3LVOjpBjEZxsgQ/3fgN4z6K69Oe3P/84VzSS2zlRmpWGb1gvWyGi9h/14Q
+	tVcS6iXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBLWy-0000000CwBZ-1qB9;
-	Fri, 10 Apr 2026 23:44:56 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1wBLs5-0000000Cx99-1mJf;
+	Sat, 11 Apr 2026 00:06:45 +0000
+Received: from mail-eastusazon11011026.outbound.protection.outlook.com ([52.101.52.26] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBLWu-0000000Cw9s-3qvT
+	id 1wBLs2-0000000Cx8l-1z27
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Apr 2026 23:44:54 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-82ce49785a0so1220199b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 16:44:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1775864691; x=1776469491; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=huYHr9pbT+aIbCmPuPJO5mChpAaAzejhwMiDIrUto84=;
-        b=MG+wLcfWxadKlyzejnFSYH8HoH94bGdiXRuv2sy2OSB8ONtjbyxsOm/412B5+rXJvf
-         f+DAG6/5plSvgqWbNuA/fIuL3E3mVnz8j1vSdQgDd/pDizXxr2XXxgALQGknjkX1Xr6v
-         8l0pcOHtjT70swfeEK9nVGGNjlC5F2DXo4+TEvE7MJOmBQxKu2W43gmbZWhrmOE63zwD
-         I7vreY5HtyYfPXZ3Fp73V+Tmf6ibARicVMMerax35JHuBzmedQ/MKJzX+mjFczGRd09B
-         dhaB98okLLHfl5kpn5R72VTHX9Z8zkpdgC3GcWDk/GE9Yqj0zC8GqJP3BWI7zt8fq9yY
-         xu+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775864691; x=1776469491;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=huYHr9pbT+aIbCmPuPJO5mChpAaAzejhwMiDIrUto84=;
-        b=QchcJyKbI/QQtyKszX92ZiVHOC0oMsmHO7qMNI9lmcyf13SIyEw+0VMYUAchSzgk/D
-         cZIwJRFbIgl94XGUBdIhR9n8rhiNK/WHMHIbter9mDuxJJ6WtRPN3zwYOx9Jt4Z6GH7A
-         Gr8ZrWbiL778qhLgJgAGd46HjpXKqj+GoG4A+LGv1ynFsG0QopyJ02kp2Z+zaS3QhnLG
-         HaBkzxTKks6Vkm3lV5jTR7hRiKzTkBp9kksHQkyybPHywnMDBOQSSal0UIlLJfd2LaPs
-         euOQw/Glel2fZipi2gtXtQ0FVKtsYy2K2cKvehDiE9sqJXB9APYY8HdcNN2OxotgiyNt
-         ceDg==
-X-Forwarded-Encrypted: i=1; AJvYcCV00Q+Enaaw9Wy3u5P96sTzi9Iq7++IyDoYpxUCiizpA9h5exCRZuCtCdfoBVl0UlgwLIOjBTVNOid50u98orwQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywdr1S2cvPDx6hzvNfWwpKzym2joYd57dT4p0KwttesCCH+Xor6
-	RyGzrz/PwqRxlQLlw6njXGcVTxYqQjwjjJkFo5Z3FxQAhSCt1j3iBXxIeWPydYJdvjI=
-X-Gm-Gg: AeBDiesJlTTGbvr5rvKKuYnBPP8XRVSRP/TpbLSpSrUt240dg17RiOxDVzOGF3YAA/w
-	ynhUnv+CNbBJjDSZkD9hrbHVHVB1phPVfLtiMgyCgO1mcjOpAqtST3Oexoxbn3B+9kbR4g5x/Ls
-	qrLVQ0KQyBu1m+Tn1gKeLCRam1pjoa5BE/592aR3aJ+RAeXnEn70QZOWkxd9eJ8OvYMiKrK8Ad/
-	a2PfwGTWqe5Emleu+x+VXNMI7gvBf0bI41SwUff86UdJ3wlOTRGFRNb+zlwtawBiL739N0vlDiO
-	5+co+w8Z/udwOlfd0cVV0Z3zKoAOUQvjlDqwOkAzuLw95o4O1LchvG6q9A8HitWed9uVVhCr6Or
-	DEBigACQ/1/JuDPI+ojNN7iagpzShDz4nHuQEOAn5u+hu1y2sLCZDPUqiakihGo+3aztj4tPUje
-	J7kIlNjaw7FSYciHr7Dys=
-X-Received: by 2002:a05:6a00:2291:b0:822:6830:5900 with SMTP id d2e1a72fcca58-82f0c131fe8mr5687894b3a.6.1775864691397;
-        Fri, 10 Apr 2026 16:44:51 -0700 (PDT)
-Received: from localhost ([97.126.187.42])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f0c50d24bsm5199585b3a.57.2026.04.10.16.44.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Apr 2026 16:44:50 -0700 (PDT)
-From: "Kevin Hilman (TI)" <khilman@baylibre.com>
-Subject: [PATCH v2 0/3] pmdomain: core: add support for domain hierarchies
- in DT
-Date: Fri, 10 Apr 2026 16:44:35 -0700
-Message-Id: <20260410-topic-lpm-pmdomain-child-ids-v2-0-83396e4b5f8b@baylibre.com>
+	Sat, 11 Apr 2026 00:06:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kicW6tb361cGrlDWTbWHH67CYUtOyw92T347VxSKKrb0XNvqhofweeS5Ev3LEPJOf3FkXYS4Gb0iRsbjWXgw0XNqWvmcCaov7jFZBGd9AoB5xzIIZpP4oLovFJPRB6UlD8bDYrmp4JCZ5h484QbAg5TPwQr06ocd9Lk+rF7ZD2dRxvG55mEzwaJuRRV9i3jVxqdFVxue2i+zOx/YqFi7kcwId1tyOjlOjRk8z7GxiSr3dDJ4dG94EdRqrJPL8QWFazhP33NSwyFb2xNrHy3eM8qlf7fbsBRKj/nZbWv+irwHQ0my1P5OjVE7FXa+cXCDx8MLbRJIfRYImBFRMt8YeQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F0+e+g4CbwEmgN+HXC+e9w9/Yd6s3MlCcRlMtalmEtg=;
+ b=K8ZHXqaIHB2x/mTyNm1fm+7JjvohEd2EVdNNkXVrvV8rdf9C0U7NmgrKXQNs6U495Uqh1DXm8V+44jK2aDbjmqnuMWirfFXpJ0Itoz/pgk/a4rFe0w10tCY4tPadjU+dXS/phzIpqiitqWdeXBZZdkB3WVuJNkoaAig9fbWUtu64pskhg/lIlA/xUCVD6Tdt40Sr6wTYNZhTxpi0dtotC2QVOTYF+hXBg+5IIg29z/XBADR56qsgRiya3U+bH7wCRDBZdy7YJ8BPPBtI8Z2A9oKOdRqkCTEG6A9G0ieR1XO9zd3MTL/vlyOO9ATtFPo6ZcVr1kzNol1Jec8nLC834w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F0+e+g4CbwEmgN+HXC+e9w9/Yd6s3MlCcRlMtalmEtg=;
+ b=gGxaWdVBM0I1zBWKUdYJa7ngirwrRhdfrxK/0F6L/AG68/Yrf10MQXqv9myVMBframMaaF7q+l7runz3L3yEYY9i8VTk0r9eGK3qCdRwSpuraHlTHaHncG6rx3vwAp25UCLwAgYgN6N3errtHiaQIhGi8H7sOsrA17z5AA+u4DZVKKPjuqFIaAfrzwADqkzajdEU+OmBZ8PwwCbTwQJf/TgZwHuE8U1XfeMDH+eDwFsD1P3ZouaphHJ0HsKWqm/2An1BfHZVTJ5YcSOAuu/VrBCVy4b+PHpIP34QhTU5ZdCozA3MHcievGkRRZv9jb5XAXL9zJVY2UUFXKoPHGKe1A==
+Received: from PH7P221CA0086.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:328::13)
+ by PH7PR12MB8107.namprd12.prod.outlook.com (2603:10b6:510:2bb::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9791.32; Sat, 11 Apr
+ 2026 00:06:35 +0000
+Received: from CY4PEPF0000EE33.namprd05.prod.outlook.com
+ (2603:10b6:510:328:cafe::95) by PH7P221CA0086.outlook.office365.com
+ (2603:10b6:510:328::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.43 via Frontend Transport; Sat,
+ 11 Apr 2026 00:06:29 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CY4PEPF0000EE33.mail.protection.outlook.com (10.167.242.39) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9769.17 via Frontend Transport; Sat, 11 Apr 2026 00:06:35 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 10 Apr
+ 2026 17:06:19 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 10 Apr
+ 2026 17:06:18 -0700
+Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.6)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 10 Apr 2026 17:06:17 -0700
+Date: Fri, 10 Apr 2026 17:06:16 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<jpb@kernel.org>, <praan@google.com>, <smostafa@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>,
+	<jonathan.cameron@huawei.com>
+Subject: Re: [PATCH v4 09/10] iommu/arm-smmu-v3: Remove ASID/VMID from
+ arm_smmu_domain
+Message-ID: <admQeGt9a3bUJNEQ@Asurada-Nvidia>
+References: <cover.1773949042.git.nicolinc@nvidia.com>
+ <b6d87a722635d29e896b277cb60f0208859073d6.1773949042.git.nicolinc@nvidia.com>
+ <20260410002734.GC3357077@nvidia.com>
+ <adl0aEfBAKmBsMs6@Asurada-Nvidia>
+ <20260410232500.GD2588311@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGOL2WkC/42OTQ6CMBCFr0Jm7ZgW5CeuvIdhUcogYyjFthIN4
- e4W9AAuX/K9770FPDkmD+dkAUcze7ZjDOkhAd2r8UbIbcyQirQQmRQY7MQah8ngZFprFI+oex7
- ayHmkrM1LRXkpTgKiYnLU8WvXX+tv9s/mTjpszh/h6PGMu+GLQaM8obbGcDgnc3GUFWzVnn2w7
- r0fneVO/vdpligwzwpZVKWSVdddGvUeuHF0jCtQr+v6AeWCMlYGAQAA
-X-Change-ID: 20260310-topic-lpm-pmdomain-child-ids-e3d57ae57040
-To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, linux-pm@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2918; i=khilman@baylibre.com;
- h=from:subject:message-id; bh=aPM/J6Atyc6lQWjkUGFT2TxILqNUCfZT//AqqZmtYrw=;
- b=owEBbQKS/ZANAwAIAVk3GJrT+8ZlAcsmYgBp2Yty8etfKsq26Uwcdeie8PHr7MO6o7FocgTRi
- Dsr/NXJk1aJAjMEAAEIAB0WIQR7h0YOFpJ/qfW/8QxZNxia0/vGZQUCadmLcgAKCRBZNxia0/vG
- ZciKD/9w5DzMzDtkLd5MFvW6NXTCrw7RU+nBKNEmAkSIKvwJJNIiVjKky6HXf7s3WaEfLY6aQQI
- TVzGCpWNNprKPNrTSFDoki3zzuSKoULopyeOodq9U8kYJLfyVMOA6FUdltIArsiHyeI8U4AswFU
- /pNN97hk2zOQfdOLYnhrnKMGZj7dfUrlp/2XdmwVcTH0wMdL2EUJWgo5nhpOXCcXmqTo0Q/Wrly
- l4WzqxaTqYWL1k5FAeJQlyL/D5ybDcP/iwk98ElOjOpBhbwpnXlthwMheOldPNkchGkESngwDv9
- 7qi3AAuK4/RAbvHr8H1NwuLA0rBb7GdzTUmBTQeh1jS9AL+5ADu0gwmMS7lBul31vbJ7ikrq+zp
- o1KBTCSiYtVYEeXa53E7iCF05XLc9AHrffhF5BGsMu2xsdemEK6hG2PURiRrXNwDxHhxm2UFFt5
- xuwxzaD/9XGOaOFXLFuIubVzI9Kv/RcawuzKLRmi5sMPNYq6Enjg59VtScYIi+gW1LMKpmHZBoy
- XiPHF+rNtaOC4DR/3bmjM//WzuXiCkbNJnYQEVVGIeAcdxQYwBU7NGFN1rZHzQzQHv93PLoFlx+
- uCHusFOjLcJES5qUWbBqXElwAy538ZgFsJ2mD/cLy6ylDsak+dfhvD9Ducp5iUixDLjEfcShLL5
- lu9h+4pnWLivOfQ==
-X-Developer-Key: i=khilman@baylibre.com; a=openpgp;
- fpr=7B87460E16927FA9F5BFF10C5937189AD3FBC665
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260410232500.GD2588311@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE33:EE_|PH7PR12MB8107:EE_
+X-MS-Office365-Filtering-Correlation-Id: a6eb531b-4319-4633-e982-08de975e31de
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|82310400026|36860700016|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: LOWnL94/JGEyu8xOaJBNWxVSRCpAelbRkNiWv4fuKO3AFknbk7ig0voG+ardVwNm53qEnZ9vwUweYsjZ8l/Dy+1vZfpAoYaxy+HcMT++3l2B2UUmvvl4Yd6C0x/27CQ4bMMGRtWPcHCcPKRmXTwCocNqH+HWh53n62MfGtEMuYib+ryL1GrUApqu35YOxJwbuG/yH/ALJ0HkWIKujcDeV7wowmeXTzVG9CfanyVp4YTL2AfNyz0qVBpSXq98m8KChg3kvB01qwlBALHtkb21y4SvphdbjL0GwklnrDqxKzzBw6mrkk8eFKLFZqNwfLjdjyCuiocfslSO6bLFj6VG76AX+Hsa9mrM6m0cpVKcnrNdmQNWbAofHjMrhea+5PxQ0zZ91bCMlssKbAAtzVS8zn81+aQ488bYDHqcgXGnvktIHq5aYZgMQr+/P5z3XKQQcG0IfFKix86McbXjrA3lW1dTUt0dzjTUcryUzh6Dos0oYZ0ux9dbS/HY18uTwLgNQ3dpS0JU1cRy1n7G6JqSVDSXIafQvBM5lGQpc+mTvmATmBB0nnj2ZUz+hk2gexBZGi4Y4YkJsz/X5dG1OAhjfBvukfHaVnIVZ3GzJZqhfDwC0A01mPmdAoMSdiujUp27yGAXcGdpNcYB6QdcKBRPb+Ab9C3KK0Kd7ZJCNYYRokW7TUmfSQYs8hN606VozbUvDZjLCkaTpZLz42SSCquyVjKBwhz5HUpFSjnR3Q7GemnGcPitTvXpsaaFV6SkveH8ThYLs/wdjHIlkFWTol4adw==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(82310400026)(36860700016)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: fb299x5173lYveXVcMujEzuP71wyO8az44/EyfpXOdoRY8qrWI5ShbCx135hG3sS3iSJbMegMeX94CRSmoO1wmzNzXgA52CxsoSdwdpMS6v6y26PBwzdnf92NjFn7BH228N/6yMj9ze/JCk+Z7VD6SgLfvAWITINxNNUzFZ0aqIZqXSerdSs1WadPi2m0kjTPmqHhgHuYTiYEQfPToOk+u8/ItjwGDQKehsw1KD4q67lzkl6EdgWKjIjg4L70ynyO/ITIl7JnYEblU4Fhdwdzo6v0QFLX/Ji1ChM2WEqnt+ElxYJAPoBjVtiPe0I57+yTnfyWtpunMdefhpIy8saLmdq6PXz1Y+NvgS63+tafl0n87bjtJQffBO91lTlfVDE9AVafdY7IzEt7r+MLE2exEAvcigt9Z5l6vj2PSEzviBqwBOfuNy6aGvffdxEKl2k
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2026 00:06:35.1379
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a6eb531b-4319-4633-e982-08de975e31de
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE33.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8107
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_164452_969724_46EEE0AF 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20260410_170642_536898_B5302A94 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,64 +134,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, PM domains can only support hierarchy for simple
-providers (e.g. ones with #power-domain-cells = 0).
+On Fri, Apr 10, 2026 at 08:25:00PM -0300, Jason Gunthorpe wrote:
+> On Fri, Apr 10, 2026 at 03:06:32PM -0700, Nicolin Chen wrote:
+> > On Thu, Apr 09, 2026 at 09:27:34PM -0300, Jason Gunthorpe wrote:
+> > > On Thu, Mar 19, 2026 at 12:51:55PM -0700, Nicolin Chen wrote:
+> > By taking a closer look, I think either the arm_smmu_domain_inv call
+> > above or any concurrent arm_smmu_mm_arch_invalidate_secondary_tlbs
+> > call is a NOP now?
+> 
+> That sounds right, with all the changes there should be no cache
+> flushing on the free path since it is now always flushed on detach, so
+> the arm_smmu_domain_inv() should be deleted here too.
 
-Add support for oncell providers as well by adding a new property
-`power-domains-child-ids` to describe the parent/child relationship.
+Yea, I did that.
 
-Also adds the first user of the new API: the Arm SCMI PM domain driver.
+> > We reworked the ASID lifecycle, which now ends when the last device
+> > detaches. So, ASID was free-ed in arm_smmu_iotlb_tag_free() that did
+> > a per-ASID flush also.
+> 
+> Yes, so the comment is:
+> 
+>  Notice that the arm_smmu_mm_arch_invalidate_secondary_tlbs() op can
+>  still be called/running at this point. Like the normal detach flow
+>  the RCU protected ASID may still experiance harmless invalidation.
+>  However unlike normal domains the SVA invalidation will continue
+>  into free until the mmu_notifier_put().
 
-Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
----
-This idea was previously discussed on the arm-scmi mailing list[1]
-where this approach was proposed by Ulf, and then an initial RFC[2]
-implementation was made.  From there, it was suggested by Rob[3] to
-use a nexus node map instead, which led to several more versions
-attempting to implement that, culminating in v5[4], where Rob and
-Geert then had second thoughts about the power-domain-map approach.
+I updated that in my words but this reads more accurate. I will
+use this (fixing the typo experiance).
 
-Therefore, I've gone back to the approach in the initial RFC[2] to use
-the child-ids approach.
-
-Changes compared to initial RFC[2]
-- dropped RFC
-- rewrote the parse/add function to use iterators/helpers from of.h
-- add a remove function for cleanup
-- use child domain language instead of subdomain
-
-[1] https://lore.kernel.org/arm-scmi/CAPDyKFo_P129sVirHHYjOQT+QUmpymcRJme9obzKJeRgO7B-1A@mail.gmail.com/
-[2] https://lore.kernel.org/all/20250528-pmdomain-hierarchy-onecell-v1-1-851780700c68@baylibre.com/
-[3] https://lore.kernel.org/all/20250528203532.GA704342-robh@kernel.org/
-[4] https://lore.kernel.org/r/20260122-pmdomain-hierarchy-onecell-v5-0-76855ec856bd@baylibre.com
-
-Changes in v2:
-- dt-bindings: fix warinings from make dt_binding_check
-- scmi_pm_domain: switch to dev_err()
-- pmdomain: core: fix locking around add/remove domains
-- pmdomain: error unwind if any children fail to be added
-- pmdomain: fix node reference leak
-- pmdomain: ensure power-domains and child-ids properties are same
-  length before iterating
-- Link to v1: https://patch.msgid.link/20260310-topic-lpm-pmdomain-child-ids-v1-0-5361687a18ff@baylibre.com
-
----
-Kevin Hilman (TI) (3):
-      dt-bindings: power: Add power-domains-child-ids property
-      pmdomain: core: add support for power-domains-child-ids
-      pmdomain: arm_scmi: add support for domain hierarchies
-
- Documentation/devicetree/bindings/power/power-domain.yaml |  34 ++++++++++++++++++++++++++++++++++
- drivers/pmdomain/arm/scmi_pm_domain.c                     |  14 +++++++++++++-
- drivers/pmdomain/core.c                                   | 166 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- include/linux/pm_domain.h                                 |  16 ++++++++++++++++
- 4 files changed, 229 insertions(+), 1 deletion(-)
----
-base-commit: f7b88edb52c8dd01b7e576390d658ae6eef0e134
-change-id: 20260310-topic-lpm-pmdomain-child-ids-e3d57ae57040
-
-Best regards,
---  
-Kevin Hilman (TI) <khilman@baylibre.com>
-
+Thanks
+Nicolin
 
