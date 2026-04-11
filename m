@@ -4,87 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 580FFF45A12
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 01:19:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB21F45A1E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 02:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jGbHxsiD0UtpFtYS9y9e27TKmMpwBsROttFf5R989xk=; b=BCX85s9v7b8crr5GQzHAXXkOoA
-	NTAxj1G/M1xZHyvw6BI8skh79ou9U6D3lbYjY4I4LTFSnrpB8aLpexkd+lgpe8hRZu+PuNNcJ9AwP
-	WJ17E6N6BeBkStHuIq5jqoKL+Vb/oEfzBE3v/iZ9BWA1s241s6ar4HbFOz2Y8Qp28KnVU3JGjy0nL
-	tT0Pkr3Jdj4/zeqadoxqkNHvgD79jc2f6XxNipdhI7ItkAEoxYOt63rgMwO3mBIdsD4zuyPms4z5v
-	fJceOSqDO2Dw1ujc9VecKv9bbuaR1YH/kWplwA1X300/NJ0Ur+iz+uljOH1E5BAg/mW7eVUv258fj
-	wFDk3eJQ==;
+	bh=8AO3/aAlun0d/2MK5fwm9gbSeroCU5cGcr9PM3HBALI=; b=PyQ1Q/nDmvTJQ1zmY8fg7OouMp
+	qT0cTKUzn6RTBV4AqkYvtjgjug1TYTKYa8uPZnCMUp9+BbYgdG6zbyFd8OWbbrkW8fIM/0kz/BQn8
+	PsgubJj9ip91JULzjygpq+8beRJF+1tf63DlnzwwTb54cEC/B0+mjZLetVhCgFo5DzUu89QOTRbXp
+	ee/NYRdZLOXUrpP7LEEnFL0KRFHLd76PAcXGJiJVAexF1gs0w1NjEK7V1W7nO2pKIOZiNlnTJ9LsT
+	BE0dvzjxfW5iuL4w2gaUszrSKt9A/g2QvWyCVgW6ZN/+qLOiOLcu2btAjyH0HQpj83be0bAw+kQ3L
+	h2LsY34Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBN0q-0000000D0TZ-4581;
-	Sat, 11 Apr 2026 01:19:52 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1wBONz-0000000D40e-35XF;
+	Sat, 11 Apr 2026 02:47:51 +0000
+Received: from mail-oa1-x61.google.com ([2001:4860:4864:20::61])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBN0n-0000000D0Sb-2uAj
+	id 1wBONx-0000000D3zG-2EvC
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Apr 2026 01:19:50 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2adbfab4501so11275295ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 18:19:49 -0700 (PDT)
+	Sat, 11 Apr 2026 02:47:50 +0000
+Received: by mail-oa1-x61.google.com with SMTP id 586e51a60fabf-40427db1300so1894240fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 19:47:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775870388; x=1776475188; darn=lists.infradead.org;
+        d=ausil.us; s=google; t=1775875667; x=1776480467; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jGbHxsiD0UtpFtYS9y9e27TKmMpwBsROttFf5R989xk=;
-        b=DQS9tZ8t/FUg9mOehy69oSUJr/Efq/Km38zQ7ak3drb4hXEH0Cf2Zy5zlOfuuzjVmL
-         6C66OyJcCeg3b29WCmu11Ykk/VBhqow31fO1tucscRxVpMzB/uQJKvZ7GJ/7k72v4pnu
-         Gkt91zfBmK8HZxJIe+QTjEZdyRuJ7KYSmkrR4AKz/MhP0x/+EGYZXmoCZ0+ZhORIOR/8
-         7Bpzqi2G3k1Omm5Kl3ZozBcWLYmsCz48Dj6uRCJ/oNBIqbfe30qTQ4BZo66D0ke5UdXQ
-         eGppG3W5+HvoOYKYuwFe4Q/EaMXfjirJBjiltbqwqdPyRjI+EFU8qKJ7h6vUAN+IWdXa
-         IMRQ==
+        bh=8AO3/aAlun0d/2MK5fwm9gbSeroCU5cGcr9PM3HBALI=;
+        b=B1CtYRC5QWTSgC8daxYx9RtvwhmceFiy07s1X/vzJjpvRcqzksjjaE6Fy+865IWjCX
+         sI8kSzifW2LXnIBdYMT5yWfJGcOvreBVb/8tYOrQDmKmGeKzw6tiedhCEL7A9BwEa/Di
+         x4aJ3jmlKGUkKS6jH7VRb5tXIsoQCnZN09O8wTS5fOurq27d83DcPGwhrPyww4vGqaIx
+         vw7wVeVUAWSnvGqa6XWxz6p0oH1iogZjanSTSzm9s7g0AMA7Soyf3pos1fM87Ncu+gAU
+         UGQ9d3SypTzEvShhJuOr05iVz4VCBHLtn6Zx9bC9TK+hKlUk0ANKZ6CB6UEy+G7k2x12
+         Ebeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775870388; x=1776475188;
+        d=1e100.net; s=20251104; t=1775875667; x=1776480467;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=jGbHxsiD0UtpFtYS9y9e27TKmMpwBsROttFf5R989xk=;
-        b=TNIo1fsG5hEbio1LOCIv2bboT0lgTp9A7zXMJu/ZUnrvpyJBbty6vquWd/TonkTPaa
-         IokmkziBGJgllF6LHLIX1tMmoGFSQOsQNnADHHTld0DwJKvSNXbEAb91aUIuTtBUoIRu
-         8bPkwTIoymF4Koz440seT8i/C8Z0QODsn1FdvdOT2geQyh1QseIRejwYdGntxQLqi/ZF
-         00gFFEDo5HnfIIiFNCFz5huOpl6ub+BEelw8P2UEv8G14+8vFOWgG8KuY/TtCyRRTVdc
-         y9xE67QujibtF/auOxdsGepmp9o1Oay1HLgzpdTHvdPLlU3cTPSEOiYVATjixjB+MPUO
-         b9WA==
-X-Forwarded-Encrypted: i=1; AJvYcCVq+iBQ5f+SlaY4Q23vlsH+nUJHpdQ6eqPicdX/qWyhGgNoceZvyb5iXTJKzDfm41yv6yb0GzWhq/a48WFy029b@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmADbuphwX3aJB4koYgzbHuJUCjsgOaFFQYOeUduHRSo3ofnh6
-	odu8q6uQmuNxCEWA0sOb2QAhYmI/oibwGwoh1qyjzJfRlVe/W4PcTN9W
-X-Gm-Gg: AeBDiet436h+hl1rn+kLBr9NOgNAIfIeE9Mb1m24JjtFuUuRCQ5Mwh7gg8UmDTOogP5
-	O7r/cO+kQEtbz0AA+cyc+J6wA7hHyNjdAgFYkg+EasHF0UfZPtE1ZNKApyYjEoBjlEXZ+Fnke3G
-	JPuZqnTFs824EfSXqcc3eMcsSjphQBsQrPonXsCJ0vnM+LMUU5944SfuxqzSzW1gubIzcSa3ZZG
-	eD9FyckLdr4y4pL/icl9WKmfXvLj5hpmDCi49bH1Qci9HMTmFJaXXcwLX4HzcZW4lA4+nAc+ynE
-	ILXf+bQGfOs2BLTT4erCDiu6XKCVVLIDvKXkspiCasEg5EGWCp6/NMaYIUJU9PfLFwfGsdPkNOE
-	4CXdC4d3tRbUQ/HeSZZfmI3T1oNvinrFCPn4McXUksKggu6H/447vaD24lstSbe1QVDHQM3OF1J
-	8x13Gn672L9RELtiwTleu7Qk/6MO8URtj5EX/7UhrIYS0OEp9KSZQfYKra2WvuG6Vc0Y4qGZMLm
-	ry6YDAmsC/ZcTZeaekeQhFzUFOQx9te
-X-Received: by 2002:a17:903:2286:b0:2b2:dca5:101b with SMTP id d9443c01a7336-2b2dca51487mr33878385ad.12.1775870388363;
-        Fri, 10 Apr 2026 18:19:48 -0700 (PDT)
-Received: from michael-mint.tail2556e3.ts.net ([50.47.84.240])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b2d4ddb462sm42866365ad.24.2026.04.10.18.19.47
+        bh=8AO3/aAlun0d/2MK5fwm9gbSeroCU5cGcr9PM3HBALI=;
+        b=NIxB084/AmmgNRvxCqPBAXONTW44wAoJHKJ85Ma/17V0mE8sBr+QinueigWLCaVOTD
+         gEBbH8UUnIHSoSqfZ4ZWjPRTaxSSOMAbqH/TjxrL9NDcr1RANAq2uOCxP0BxxUwzoRLb
+         FNPdUa0/tUAS34r6MiDLtNgaS+j+0JploNuU3kGhjB9JJyBmEuMWe1CEM7YvHzqlFj7f
+         B1WkTFQHD8M2ozlFBWPKpnU+NmpJ1L7it6eF3R0kU+nwv0W2ROZtr0gtj0sAVeYFr9hn
+         xxbHwoG6Vnh9zT9qaWLLiUOYfiiGQQpZg3NjkPlpX4XacslPZ8dQN5Fj54NZNqVMlQGC
+         Auhg==
+X-Forwarded-Encrypted: i=1; AJvYcCX4oD+//SpxAC9hUJ5+cgD501j/e9JAOCZyi7ke7czNNJbBP1WsSUtzP493q4augaSyp7knhnq0pEIBONSMR5XU@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtYHPddsiVHH48FvzSdAUqsR96hI3ytNKLwBNc1RM9leD30jLH
+	z/HZfX03UTNaeGPR54rYsKnJPtlCeuE+uwj5JWYS27Ar8knLkrVZ9SGq0HywgpOHZX3l56dLvZj
+	M8GBtu9zykcC7TwNaGv45tx2E8yZsEo27Ub56
+X-Gm-Gg: AeBDiet/aZq3ANSgHSasqHqzUzw2sawA5mw+x4eL6qh7P1O+ld7FxiNtaTHFyZQrwGg
+	VptmVFltcNY6G4LVEJMkHXNwAZNwDbAHMawQzAc/uw4elRCRPOGBJLub8e/XuLRXxmIQ/sod1vn
+	q6VG778nRrNyNloYmDwXtpHX4u1fj5/DJFsLBCkhVkL8jnYI3WGUh1NG1aSlPiiOm31jD3EVk0r
+	TmEy3dnjZAU9ZFOFxTSJ0gnvSAXmyZ93fhwciJ1p7HFM5jprgHX5A/Hhp9otuCu7gexMSZqZhcS
+	Z1WpCXpU0e7GprOqotuudn+5sFRBQXhFRChtnny3X2ONfFEyW+C7kmRY8GGiXyRlK9IoZ/XxGyb
+	MYRDqnKorQ6CAtM8Y+y8Q0VgUkwkdHT/MvSsKDy8UMULz
+X-Received: by 2002:a05:6871:2ee7:b0:404:16c6:40b3 with SMTP id 586e51a60fabf-423e114b119mr3123217fac.37.1775875667513;
+        Fri, 10 Apr 2026 19:47:47 -0700 (PDT)
+Received: from ryac.ausil.us (207-179-239-100.mtco.net. [207.179.239.100])
+        by smtp-relay.gmail.com with ESMTPS id 586e51a60fabf-423ddd32ab3sm599086fac.16.2026.04.10.19.47.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Apr 2026 18:19:47 -0700 (PDT)
-From: Michael Ugrin <mugrinphoto@gmail.com>
-To: Russell King <linux@armlinux.org.uk>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Kees Cook <kees@kernel.org>,
+        Fri, 10 Apr 2026 19:47:47 -0700 (PDT)
+X-Relaying-Domain: ausil.us
+From: dennis@ausil.us
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: FUKAUMI Naoki <naoki@radxa.com>,
+	Hsun Lai <i@chainsx.cn>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	John Clark <inindev@gmail.com>,
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	Alexey Charkov <alchark@gmail.com>,
+	Peter Robinson <pbrobinson@gmail.com>,
+	Dennis Gilmore <dennis@ausil.us>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	Mykola Kvach <xakep.amatop@gmail.com>,
+	Jimmy Hon <honyuenkwun@gmail.com>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Michael Ugrin <mugrinphoto@gmail.com>
-Subject: [PATCH] arm: Kconfig: fix duplicate words in help text
-Date: Fri, 10 Apr 2026 18:19:40 -0700
-Message-ID: <20260411011940.48941-1-mugrinphoto@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v6 0/3] Add support for Orange Pi 5 Pro
+Date: Fri, 10 Apr 2026 21:47:40 -0500
+Message-ID: <20260411024743.195385-1-dennis@ausil.us>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_181949_767154_32D1B1B0 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20260410_194749_594292_82AF852C 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,36 +116,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove two instances of duplicate words in Kconfig help text.
+From: Dennis Gilmore <dennis@ausil.us>
 
-Signed-off-by: Michael Ugrin <mugrinphoto@gmail.com>
----
- arch/arm/Kconfig | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+This series adds initial support for Orange Pi 5 Pro. The PCIe attached network
+driver(dwmac-motorcomm) was just added.
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index ec33376f8e2ba..e62af2a34f59f 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -1486,7 +1486,7 @@ config ARM_ATAG_DTB_COMPAT_CMDLINE_EXTEND
- 	bool "Extend with bootloader kernel arguments"
- 	help
- 	  The command-line arguments provided by the boot loader will be
--	  appended to the the device tree bootargs property.
-+	  appended to the device tree bootargs property.
- 
- endchoice
- 
-@@ -1628,7 +1628,7 @@ config DMI
- 	  continue to boot on existing non-UEFI platforms.
- 
- 	  NOTE: This does *NOT* enable or encourage the use of DMI quirks,
--	  i.e., the the practice of identifying the platform via DMI to
-+	  i.e., the practice of identifying the platform via DMI to
- 	  decide whether certain workarounds for buggy hardware and/or
- 	  firmware need to be enabled. This would require the DMI subsystem
- 	  to be enabled much earlier than we do on ARM, which is non-trivial.
+
+The series was tested against Linux 7.0-rc7
+
+Please take a look.
+
+Thank you,
+
+Dennis Gilmore
+Changes in v6:
+- Move the shared configs for the Orange Pi 5 and Orange Pi 5b from each
+  devices dts to a shared rk3588s-orangepi-5-5b.dtsi to avoid duplication
+- Remove empty ports subnodeis from typea_con
+- Move i2s2m1_mclk pinctrl from &i2s2 to the es8388 codec node
+- Add dp-con, dp0_out, dp0_in, and vp1 nodes, plus the vcc3v3_dp regulator
+  in order to get the second HDMI port working via its transparent
+  LT8711UXD DP to HDMI bridge
+- link to v5 https://lore.kernel.org/linux-devicetree/20260401010707.2584962-1-dennis@ausil.us/
+
+Changes in v5:
+- define a connector node for Type-A port, and list the regulator as its VBUS supply explicitly.
+- Requires https://lore.kernel.org/all/20260217-typea-vbus-v1-1-657b4e55a4c2@flipper.net/
+- link to v4 https://lore.kernel.org/linux-devicetree/20260310031002.3921234-1-dennis@ausil.us/
+
+Changes in v4:
+- rename vcc3v3_pcie20 copied from rk3588s-orangepi-5.dts to vcc3v3_phy1 to match the schematic
+- use vcc_3v3_s3 as the supply not vcc5v0_sys for PCIe
+- remove the definition for vcc3v3_pcie_m2 as it does not really exist
+  as a regulator
+
+- link to v3 https://lore.kernel.org/linux-devicetree/20260306024634.239614-1-dennis@ausil.us/
+
+Changes in v3:
+- moved leds from gpio-leds to pwm-leds
+- remove disable-wp from sdio
+- rename vcc3v3_pcie_eth regulator to vcc3v3_pcie_m2 to reflect the
+  purppose
+- actually clean up the delete lines and comments missed in v2
+- link to v2 https://lore.kernel.org/linux-devicetree/20260304025521.210377-1-dennis@ausil.us/
+
+Changes in v2:
+- moved items not shared by orangepi 5/5b/5 Pro from dtsi to 5 and 5b
+  dts files
+- removed all the comments and deleted properties from 5 Pro dts
+- Link to v1 https://lore.kernel.org/linux-devicetree/20260228205418.2944620-1-dennis@ausil.us/
+
+
+
+
+
+Dennis Gilmore (3):
+  dt-bindings: arm: rockchip: Add Orange Pi 5 Pro
+  arm64: dts: rockchip: refactor items from Orange Pi 5/b to prep for
+    Pro
+  arm64: dts: rockchip: Add Orange Pi 5 Pro board support
+
+ .../devicetree/bindings/arm/rockchip.yaml     |   1 +
+ .../display/rockchip/rockchip,dw-dp.yaml      |   7 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../dts/rockchip/rk3588s-orangepi-5-5b.dtsi   | 192 ++++++++++
+ .../dts/rockchip/rk3588s-orangepi-5-pro.dts   | 352 ++++++++++++++++++
+ .../boot/dts/rockchip/rk3588s-orangepi-5.dts  |   6 +-
+ .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi | 198 +---------
+ .../boot/dts/rockchip/rk3588s-orangepi-5b.dts |   2 +-
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c       |  12 +
+ 9 files changed, 582 insertions(+), 189 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts
+
 -- 
-2.43.0
+2.53.0
 
 
