@@ -4,60 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61783F45A1B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 09:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97B74F44875
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 09:32:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yy28/MczXqwVyD41La5AHPL1Yo3fFp0Zz3Pe/duyaCU=; b=NAErhVOJi/OyHx2PBVtLNlBy3h
-	Wam4cU60HfupUUPWgDQ7ALIslMwaDBxKKJu7OY0+l2UgxV1jnHJNfuvetgss5soEuYdVU9wlp5Gor
-	a2un74eqWYTgbDnbbMQdLRx8Nm7JfWU69+CmHBARscg4T4xtOpJe0X5aVsuCPu1SO3gIMb5yEjxbw
-	/nTTQvDT566gI5IkWfjZRUlwfEdw9r4tmuAkDaO6IUkOrnlCLnUK5/Z9Mfpl7xjXL3Jss/KhOn3mK
-	DHvzDGWU+pJUadbsMZ76VxEuzaxZoWWbjkh8kBp9HHFw3UqQOxIjzzvY2IpoBMh9Tu3OATDDmoVFS
-	pmOQ8WOw==;
+	bh=bdfN2bie5wY8/xyi/wnXRZ1OlkouBAX1kfaOBJmVvDY=; b=iTfaWN+YU2o9EAPOKV58FuXpHZ
+	ligqLIKSi3H4LngdewE1jBB0GwbogPfbv3XSHgdid03v59a1r6wqRQgs/s737UVv6kp/tJEu1Xv19
+	Uee97/ELk2ILNY6VUFUy4VeYQHfYKz3x5rAyJGX6aHw5SMnej89tHs1Ga9XKW0w6HYlndVuKdBke3
+	H1fIm0jskwu005e/QEA6gwHEYqGn5h0DDDslQW6jT4JksS5s5BMjYEN3vkBj4rqUr5cz5yl8tu+XK
+	sqiZdLeIvAZfxOWFIp5YnphUOqxzDAgBUwYMiaSvHQboTcQjGzVtF1u0a5UE/bf8GUx1Tiwix/r+y
+	Ii6ksXUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBUes-0000000DJjJ-1cTE;
-	Sat, 11 Apr 2026 09:29:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wBUhc-0000000DJrl-0nrw;
+	Sat, 11 Apr 2026 09:32:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBUep-0000000DJit-3F3z
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Apr 2026 09:29:40 +0000
+	id 1wBUha-0000000DJrY-2gMS;
+	Sat, 11 Apr 2026 09:32:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EC2DE43E68;
-	Sat, 11 Apr 2026 09:29:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4808CC4CEF7;
-	Sat, 11 Apr 2026 09:29:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A24AA60145;
+	Sat, 11 Apr 2026 09:32:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9A27C4CEF7;
+	Sat, 11 Apr 2026 09:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775899778;
-	bh=waa66iiXwVjYMPwroTuW2sKA1unznzskqc+15JbWTVQ=;
+	s=k20201202; t=1775899949;
+	bh=Bwnwhvav7SqaBcGFuZZ4+1wMWtuK1iYREbAFYllIJuc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OSKMF89bhbsJ/Sv4SzKBFapQ/3P5mpm7jjE6WXT4uuYXjX67uFLWQ6ZX2rUsWSh4G
-	 9vk3RNql4bBrTeEuX/iLHMWrT8V1um7/4DSuMBJ/6IcrzRytGxEzKX/KkpI/PjhnHg
-	 +OCvY3BWJy/c/MG83ad2LK/a+Y4yDOHhSwJ82FaaBUuyA2cyB+4B3h2dQeTAkqI5Ts
-	 KE6Dt0s+i/cBJlBS9Ob7fo/2jsstYjMCz4NGB6gTQLp/UzeiIbkrNrf9TnqcucZHQj
-	 cMaYifbLJ+BXRyY0+MNzC8PwR7UCxkPmjOFgvUOPMfBpRdxdI/i+Z+HMS5G5FcNRID
-	 ruL6/hESiJNIw==
-Date: Sat, 11 Apr 2026 11:29:36 +0200
+	b=HaXSsm1Sq4nXPSw6LEOW/k+FOhQYNeo0nXpITHwF+XkAZGvqtytXuqf0UvmMqAULG
+	 g7jE5JE8esTBkZgWclucm+z6bx/ua3ORDCWiHHyM4KPR5PhcbzBYIy20I5gsdmq1Ch
+	 XL8oyDoAhujzwdutvJXH4kcmchOYpZiaWh3iQ9WIO8xNCqWcZOWvd70kHIfG2UMJ5i
+	 Ng9+owznce4KPf5kxS4ZZfHG7BpWj4U0BwcNMqVCvzivWuatm3fFYctp2kCkh1n55p
+	 t4PtGRkdspC3qtuUhS22XXNIc04/mbaO8NiKlW0Ml8fcP/JtuupF2edZDgmV5KzDdm
+	 fDMjVip+1tg4w==
+Date: Sat, 11 Apr 2026 11:32:27 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Gregory CLEMENT <gregory.clement@bootlin.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, arm@kernel.org, soc@kernel.org, 
-	Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+To: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: soc@kernel.org, arm@kernel.org, linux-amlogic@lists.infradead.org, 
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL] ARM: mvebu: dt for v7.1 (#1)
-Message-ID: <20260411-icy-inescapable-cougar-ece4c5@quoll>
-References: <87qzoo3412.fsf@BLaptop.bootlin.com>
+Subject: Re: [GIT PULL] amlogic ARM64 DT updates for v7.1
+Message-ID: <20260411-spicy-apricot-newt-afa8a7@quoll>
+References: <2fde1b11-d2a4-4aa2-8c28-d20fbbb54f7f@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <87qzoo3412.fsf@BLaptop.bootlin.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260411_022939_856759_BAD36A50 
-X-CRM114-Status: GOOD (  10.55  )
+In-Reply-To: <2fde1b11-d2a4-4aa2-8c28-d20fbbb54f7f@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,12 +67,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 09, 2026 at 10:56:57AM +0200, Gregory CLEMENT wrote:
+On Fri, Apr 10, 2026 at 10:50:58AM +0200, Neil Armstrong wrote:
 > Hi,
 > 
-> Here is the first pull request for dt for mvebu for v7.1.
+> Here's the Amlogic ARM64 DT changes for v7.1, including a bunch of fixes
+> and improvements for the Khadas VIM4 and VIM1s SBCs, plus some additions
+> for the Phicomm N1 and a couple of low priority fixes.
 > 
-> Gregory
+> Thanks,
+> Neil
 > 
 > The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
 > 
@@ -85,15 +83,21 @@ On Thu, Apr 09, 2026 at 10:56:57AM +0200, Gregory CLEMENT wrote:
 > 
 > are available in the Git repository at:
 > 
->   git://git.kernel.org/pub/scm/linux/kernel/git/gclement/mvebu.git tags/mvebu-dt-7.1-1
+>   https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git tags/amlogic-arm64-dt-for-v7.1
 > 
-> for you to fetch changes up to 29d8a380643521422a9907f3e982e142fe22d19e:
+> for you to fetch changes up to 401e5c73eedde8225e87bd11c794b8409248ff41:
 > 
->   MAINTAINERS: drop file entry in Marvell Kirkwood and Armada SOC support (2026-03-02 16:24:43 +0100)
-> 
-> ----------------------------------------------------------------
+>   arm64: dts: meson-gxl-p230: fix ethernet PHY interrupt number (2026-04-08 14:27:20 +0200)
 
-Thanks, applied
+Days in linux-next:
+----------------------------------------
+ 1 | ++++++++ (8)
+ ...
+
+So a few things were just applied, unless this was rebased?
+
+I will wait with this. It might miss the merge window if v7.0 is
+released this weekend.
 
 Best regards,
 Krzysztof
