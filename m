@@ -4,68 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC5BF3ED40
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 13:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B770F3ED4F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 13:59:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+ShwvKt8412whVzkg4wSySqNV/BI42ZLfSENlJLNlYw=; b=W08RovxSTPwUYjXiEPUmB9uu6+
-	AWGgVrfPWRloa48j3dgU3+JnLV7xj2erIWV3kx1XfOh2cLeum9Rq9MH8dKVLffLr0IMuKeSHPCBMP
-	8X4HI11CP35kR4qu+G73rtcd5mw6gnCtQIjGp2Acjhrd7K9GFH1a7BwFHiEpLNiNJLpzJPjBjRgJP
-	2q3vExm53W2NH9igaYtNEEng5y6VOrGSxNxplgpKdofor4zpDNBNyAZAFYDhijbZxg5n1HGLKQp+a
-	tt2WzVmUNTS0wNIFI+JAAS8oxZoeqiDgmQGiKfB0YNfFlCjCkdObtUBczoyo7CcsIfN0amPP+LV7K
-	hphzRW0g==;
+	bh=wIJfRWTrZ+07bUsnMvJoooyvlrKd0kozEHz7YY49teM=; b=2LqK0pkotzQitXvrm8OSfcbSOO
+	KFzkIrTSqPGSROBg+QtPMQtXLfkMELntYVCdNcFmRw6+eAcsktG14iA1DsV6tGOKawPnxt348sdmM
+	b9nqd2KQw4oVUrWS1xq4lH/CbMHoyVcokU0ZjhuGbTO7cW8ZOke3hdBmiFeygucQKtPlAgvQZPRZj
+	KAEy+p2zI+BAO5OCK5FvLezemEVOO1OD8U+SVhIuXL5TlI4X3rrZnm337l6IL53xwzJA3dqYsVykb
+	5QbOHh5VRHfgTUMuV0kRqJJ4brjytR0rTWrDcXaW2TnUslgaXilaovMMi3AapefY58BMSOFJzKyLn
+	KPxq/48Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBYr4-0000000DU0W-4B2A;
-	Sat, 11 Apr 2026 13:58:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wBYri-0000000DU5b-2UUv;
+	Sat, 11 Apr 2026 13:59:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBYr1-0000000DU07-30RM;
-	Sat, 11 Apr 2026 13:58:32 +0000
+	id 1wBYrh-0000000DU5Q-01NP
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 11 Apr 2026 13:59:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B59D2442D0;
-	Sat, 11 Apr 2026 13:58:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A48EC4CEF7;
-	Sat, 11 Apr 2026 13:58:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7712F60145;
+	Sat, 11 Apr 2026 13:59:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB8A0C4CEF7;
+	Sat, 11 Apr 2026 13:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775915910;
-	bh=XJVN1RE5cpLgCfJiaV7vU1X5RKb/6yX6+y+wQI0OJvQ=;
+	s=k20201202; t=1775915951;
+	bh=Wjrw/VJCjibWH2naGnKur4mOqCZG8mKaHZjp6H4PZQI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kjc86yvNDh3A5XDOg9evruqJgOKDxwQxWY/HLQJRQ/5R+p3HsUi8FF1Ns7W/IEDA4
-	 Tw8Ld10WyHY3vYXoFJEIPeuWhy2k0mqQnGJx7uEKLaElvU+oCFMnDnZtQ4nRhKNKpR
-	 Vbmt2NEjiGVJ9Lsng7/OU0uxyw5lIz8+ChH9CceQC9P6ez3ciEqFrosPSCgTJ/402p
-	 q1uCTmbFct/ypcvsXhEM8B5b0RfVGm2MT/nF4erWDdrN1sDNeKXerYSvqYJPHZ0CvH
-	 HkoFhK4bAKNa8V0fIeh4fQR3/M+ipohP1IfbSLnyRSANYFwq0cu7DKtaeNRrDUQq71
-	 yCBTeODdAknkQ==
-Date: Sat, 11 Apr 2026 15:58:28 +0200
+	b=mwjsHGWC8+PIT63DO6+yO6erU5Z9LbIeuecuyPAYp2yC++QfD6Sa+vbi+hOMmb4hZ
+	 d/nxx4V79RemQQtLY0gfInEbR3a+LIo5Gf8c0bfD/LhUZvLvyyN7poRXTTYgrp213Z
+	 MHTVSX/re/Iiqt4y3LNWYOaiBKts49Z94sPKqglCUov5IgxJqx5udumZpII2YZy0Z0
+	 ZC+Elvp3FmG7Z3xaXa/jIO8tb1RJnVCjCtIXpOD9Xy5ZWCQEkRY5YI0UXfBoKP3XTQ
+	 fn/dFSouEjhQANv/RLJZ610seqWMmsNQcat3YLZhSwwyhu4KcQkvOM4fdebLKI6WG7
+	 ti2+ktv8r1x6g==
+Date: Sat, 11 Apr 2026 15:59:08 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: dennis@ausil.us
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki <naoki@radxa.com>, Hsun Lai <i@chainsx.cn>, 
-	Jonas Karlman <jonas@kwiboo.se>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
-	John Clark <inindev@gmail.com>, Michael Opdenacker <michael.opdenacker@rootcommit.com>, 
-	Quentin Schulz <quentin.schulz@cherry.de>, Andrew Lunn <andrew@lunn.ch>, Chukun Pan <amadeus@jmu.edu.cn>, 
-	Alexey Charkov <alchark@gmail.com>, Peter Robinson <pbrobinson@gmail.com>, 
-	Michael Riesch <michael.riesch@collabora.com>, Mykola Kvach <xakep.amatop@gmail.com>, 
-	Jimmy Hon <honyuenkwun@gmail.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 3/3] arm64: dts: rockchip: Add Orange Pi 5 Pro board
- support
-Message-ID: <20260411-practical-persimmon-foxhound-f5869d@quoll>
-References: <20260411024743.195385-1-dennis@ausil.us>
- <20260411024743.195385-4-dennis@ausil.us>
+To: nick.hawkins@hpe.com
+Cc: catalin.marinas@arm.com, will@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, krzysztof.kozlowski@oss.qualcomm.com, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 4/4] arm64: defconfig: Enable ARCH_HPE
+Message-ID: <20260411-strong-mega-leopard-a6e423@quoll>
+References: <20260410171611.2547255-1-nick.hawkins@hpe.com>
+ <20260410171611.2547255-5-nick.hawkins@hpe.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260411024743.195385-4-dennis@ausil.us>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260411_065831_779652_79B2BBC6 
-X-CRM114-Status: GOOD (  14.54  )
+In-Reply-To: <20260410171611.2547255-5-nick.hawkins@hpe.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,37 +71,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 09:47:43PM -0500, dennis@ausil.us wrote:
-> From: Dennis Gilmore <dennis@ausil.us>
+On Fri, Apr 10, 2026 at 05:16:11PM +0000, nick.hawkins@hpe.com wrote:
+> From: Nick Hawkins <nick.hawkins@hpe.com>
 > 
-> Add device tree for the Xunlong Orange Pi 5 Pro (RK3588S).
+> Enable ARCH_HPE in the arm64 defconfig to include HPE GSC BMC SoC
+> support in the default build.
 > 
-> - eMMC module, you can optionally solder a SPI NOR in place and turn
->  off the eMMC
-> - PCIe-attached NIC (pcie2x1l1)
-> - PCIe NVMe slot (pcie2x1l2)
-> - AP6256 WiFi (BCM43456) via SDIO with mmc-pwrseq
-> - BCM4345C5 Bluetooth
-> - es8388 audio
-> - USB 2.0 and USB 3.0
-> - Two HDMI ports, the second is connected to the SoC's DP controller
->   driven by a transparent LT8711UXD bridge that has firmware onboard and
->   needs no node defined.
-> 
-> Vendors description and links to schematics available:
-> http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html
-> 
-> Signed-off-by: Dennis Gilmore <dennis@ausil.us>
+> Signed-off-by: Nick Hawkins <nick.hawkins@hpe.com>
 > ---
->  .../display/rockchip/rockchip,dw-dp.yaml      |   7 +
+>  arch/arm64/configs/defconfig | 1 +
+>  1 file changed, 1 insertion(+)
 
-Please run scripts/checkpatch.pl on the patches and fix reported
-warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
-patches and (probably) fix more warnings. Some warnings can be ignored,
-especially from --strict run, but the code here looks like it needs a
-fix. Feel free to get in touch if the warning is not clear.
-
-Didn't you already got this comment?
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
