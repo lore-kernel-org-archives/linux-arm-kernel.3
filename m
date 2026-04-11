@@ -4,133 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA5E6F3ED4F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 14:48:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF96DF3ED55
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 14:58:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-ID:Subject:References:In-Reply-To:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UTUCzXr8nujP1lREr7vzja7hu0tKyNVQZ/nWgP+L+4k=; b=aVqbOQ5iBOp1/TM9vhQZRlhysr
-	Asa0jndtvrIv/BXwnhD8+bo5YFBpb/B5D1xnlYSS2EfjFEr9VrhJzEBrfLz0RioiM61h+0mHQkkOy
-	jljZDsV9aZbmNZA+AyUTInUM31xH6m6t18mafhr6iUVTzPnrXTVXzffvunBOTgwRzXKIFeY4giBfQ
-	sfRl+KjQF+QuyRzLnewnl/cKFjOmrza54S0ikLyPSLo2vghT939vUfMtm+TZWtJ17fQtFbHXJxmsA
-	NjhwOw4pq56TCX+FPuT+4YfCy+q3u4/c0DpasJ0Ev+9Zxsw550/TonRrbQOsUjtBQ7HCjeOqajkvr
-	ruhVZCwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sXiZV9+jNfCTqb1kpRrOCPDhkoywHHddqhZQJ9yG43Y=; b=yWsEHLYJSzYoR3
+	RbnYeJuhYVl7ppLSmu7lZy8vOfdQoLRL/YvRwOIQh/FiqFcqEJnZi9cy5ZfthBLAcuATUrSJWfPvv
+	G1VF/4VgHEDA/KMoh7IuBoFyoajuFREf5u4ct57htRwGdze+reiSpjFWMkpl2lsCUCLipxgno5+hu
+	0iFyhlvOmL4UQDv6wTxC4XHtudkE/lwm/hEOTL285mIJTmUvWOQXYUYrYCSTv1hQy3ba3wE6sO0m4
+	MuLOQCPCja+DwH2Go2K9ASbLazIkxmL1yDSCd3Ix484EvJojzqKioN0wrivpZY7Txj8J9r1pqlOOp
+	CF5fXVAoHzy3PUfyroUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBZdU-0000000DX6U-3e1R;
-	Sat, 11 Apr 2026 14:48:36 +0000
-Received: from mail-northcentralusazon11013034.outbound.protection.outlook.com ([40.107.201.34] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1wBZme-0000000DXbq-1vwq;
+	Sat, 11 Apr 2026 14:58:04 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBZdS-0000000DX60-0Jqg
+	id 1wBZmb-0000000DXZi-08sC
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Apr 2026 14:48:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=e73iSxyde1QhRTcGhLe5vRtzVzem4uSXWqeH1EYvMUAsfXdDKHaCx/fIDdy/CTHR+GZ7yQFt7e7M4uKR6+xi38U00dIUKLzXzjh5ANEO4ESvMzlh0ubMW8oF9TfZX+5tSEAWuYR9lGLOJmesqN6BxM+s3RRhI9peFEMgvlYYKr700aoXb9/0evcS79nJgLY7A127G6AKiVL9qCS4B505wupo4oyOFdjivKZEOP4blyF+AZejkCSXcCIIc/yVB8NnKQcxWx/hH0OZjyD5T0c12HfREQ03LL70bpz1V7VdMiXBA/jmgJqZ5BDuHh4bbids+HOXPJTpqdiYa33RjiaHAQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UTUCzXr8nujP1lREr7vzja7hu0tKyNVQZ/nWgP+L+4k=;
- b=OAcKkQbRyDt71ue0vJDKqN3t5+cL4N6XoHI+grZxz72Glh4vpFB7Md2EfR6OyQM1s87TuUF+OMOZSVuLq3etT3DUjJak6H0z/AJdRnNBd7/DBsQkKG8595D5Av1ogSpSBKADdp7nHvcaAn1+q2h37sUmZJcRa73oX8kow5BkIXhd4l17wSPIa1alMc2AwgZZr2oRdgiUhYSNN2eOueDSnmqatkvEmkmF92OZMHWOE2tX21bMjmVwb3NxNBj3nFjFOttSvWKn/KBT/8JI7QR/VyEWET7yIXbJzOBJqfAcv+s1kVQjDuO+FMSW7hXYuHbsT/1+uOcipWhSKwkGz9wKVg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UTUCzXr8nujP1lREr7vzja7hu0tKyNVQZ/nWgP+L+4k=;
- b=PZLaqfPhZADNB6L5r2JM0Gwe/l1PevjB6jmW1FxqOkL1sjZGV3rPmRBYER+4/Uwe/t2LrTodS5odAAcE4HGaDkAsUASdSo6HMIzKkJisysq3nYA/MNoCRCKR5/bwpNrb25hfh1P1hhawCHLJuulBmImYhvRGc1lLUTnoVh+mFRM=
-Received: from CH0PR08CA0025.namprd08.prod.outlook.com (2603:10b6:610:33::30)
- by SJ2PR10MB7059.namprd10.prod.outlook.com (2603:10b6:a03:4d2::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9745.42; Sat, 11 Apr
- 2026 14:48:27 +0000
-Received: from CH1PEPF0000A347.namprd04.prod.outlook.com
- (2603:10b6:610:33:cafe::fd) by CH0PR08CA0025.outlook.office365.com
- (2603:10b6:610:33::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.46 via Frontend Transport; Sat,
- 11 Apr 2026 14:47:59 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CH1PEPF0000A347.mail.protection.outlook.com (10.167.244.7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9769.17 via Frontend Transport; Sat, 11 Apr 2026 14:48:26 +0000
-Received: from DFLE211.ent.ti.com (10.64.6.69) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sat, 11 Apr
- 2026 09:48:25 -0500
-Received: from DFLE209.ent.ti.com (10.64.6.67) by DFLE211.ent.ti.com
- (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sat, 11 Apr
- 2026 09:48:25 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE209.ent.ti.com
- (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Sat, 11 Apr 2026 09:48:25 -0500
-Received: from [127.0.1.1] (uda0132425.dhcp.ti.com [172.24.233.103])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 63BEmEFV1983903;
-	Sat, 11 Apr 2026 09:48:20 -0500
-From: Vignesh Raghavendra <vigneshr@ti.com>
-To: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
-	<mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Suman
- Anna" <s-anna@ti.com>, Nishanth Menon <nm@ti.com>, Tero Kristo
-	<kristo@kernel.org>, "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-CC: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>,
-	Dhruva Gole <d-gole@ti.com>, Sebin Francis <sebin.francis@ti.com>, "Kendall
- Willis" <k-willis@ti.com>, Akashdeep Kaur <a-kaur@ti.com>,
-	<linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-In-Reply-To: <20260318-topic-am62a-ioddr-dt-v6-19-v3-0-c41473cb23c3@baylibre.com>
-References: <20260318-topic-am62a-ioddr-dt-v6-19-v3-0-c41473cb23c3@baylibre.com>
-Subject: Re: (subset) [PATCH v3 0/7] arm64: dts: ti: k3-am62a7-sk: Split
- r5f memory region
-Message-ID: <177591886114.88632.3713559346133832075.b4-ty@b4>
-Date: Sat, 11 Apr 2026 20:17:41 +0530
+	Sat, 11 Apr 2026 14:58:03 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-488b0046078so29493595e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Apr 2026 07:57:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1775919479; x=1776524279; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=sXiZV9+jNfCTqb1kpRrOCPDhkoywHHddqhZQJ9yG43Y=;
+        b=h3On04gDX7iCazvlO/KbimW+Iqiu+8AzF6/hbdo2dnCLAPZA9tTqtQgVhoXaeOIskr
+         5krbwC76GAUYTYLSI4MS26bhpuRlCD40cGReXgNM5dYJGRsgXW5z5YXWPzobuw+AbUFH
+         rZgvzmsoyZc67C3LH5YSo47anTUX+XA+q19y+c6Jv1BDkKXWiX9ZvC2IAyy39LkTzeJu
+         ouwTMNLisIN+x/9D9AqVAlRnEcZPLMpPd7GJVmCcM8RJFtQy3Jcs/1REk5sL2Q/JaAtv
+         TCOE+D+WrBKoH+j5CYl+X3l2JHfZcrqK7bIABInlRdAN9VDDZqTzMiwl9j72TuhEuP8x
+         cGYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775919479; x=1776524279;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sXiZV9+jNfCTqb1kpRrOCPDhkoywHHddqhZQJ9yG43Y=;
+        b=VI44QqomeYx6xY1VDS52kDHTW1DC8VCjMlrpqXzjkN8BWiFq8v2X+2lpBolhH2uqjR
+         yO2AztDP6QH0j4LJMQKbGb//2bo/TAkbT8SzOD3csRitTxWg/DOjDS2L0WS4v9fhaRT/
+         YfRIXEN+1TPEQEzHEo/mvPh88dW3uWSa7xvbCiegW1MTYpWgKWWfcO7MnDs5yTtX3M2D
+         JmOyMVNtd9a4N6k0t2pS5tk5doyevibXZ6Sn300CtprCw+uXEjcMMOrU/kpxJFJaaEC+
+         gELiv7/riHnUgZDC2ClMfcd7OY7Wrn7EupG2+ugP1vXmGnWbXuyl9JtMrqcHGc3srAjw
+         PuDw==
+X-Forwarded-Encrypted: i=1; AJvYcCXD9q4S0GrzVhsVzrE/DLVXAHxHMXVHYbGPfymHibiPtMoSO2Sadwpw8WSVOTClgvFs63tJg7ZiVoJ13WBHwxUy@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIcqfDJbtprynhy4rvRdemQ0bF9oR3MrCezUtpfJwkV99Je0mW
+	iNKiqLTUS8kudqSEpLjDxYU9RQsfx9N7w5QfmQB4158JbtcssNYNFlu59vY0xGpmt2A=
+X-Gm-Gg: AeBDieu3qwNjwkEWnmKCuRIOE8O4f2fNChLgbvZ2Wn+K8+EU7t5wCoLyD/4bGJQw7Yi
+	Vu8CEi/U9I1foWZhLxqTd9WiwA7Vwc2GtyTjkcbdoqbinCbIWROQusvP4X7MTuxqjzEN8OurTod
+	wjG+wBXcvWGM11Kq5I2YbjmN8lTW0Lqj5lOCZs6BeSsMEiofC8pozJjDRyx7Zet7a3ltvUwWiha
+	IVzP7b/zdjX3bUYPlVAGgiyaChbaGlw4AssIAX0hpwVLCcZjC+TzXW8neopzoHNOcpokXDc0gBr
+	WCHSQuhh6Fas9r5z5PB3lGC5BESiRhAhhSdxnF1bbP4zFFEjeAnlltPdV0OnJ88iLeYn5DEEu/j
+	+usTHBQPEmm7P9w9BZfYQhnEi+HlcjchT77gZtNxvQXrjYeyKH9XywzpmDTPaPE6KqO/mG1Uc5c
+	p2r/hQAVsHB4vdMTqim5Bf
+X-Received: by 2002:a05:600c:5303:b0:488:b196:d249 with SMTP id 5b1f17b1804b1-488d67bf74fmr94580245e9.5.1775919478531;
+        Sat, 11 Apr 2026 07:57:58 -0700 (PDT)
+Received: from [127.0.1.1] ([151.61.248.52])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488d5dc7070sm48882375e9.10.2026.04.11.07.57.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 11 Apr 2026 07:57:58 -0700 (PDT)
+From: Valerio Setti <vsetti@baylibre.com>
+Subject: [PATCH RFC v2 00/11] Add support for AUDIN driver in Amlogic GXBB
+Date: Sat, 11 Apr 2026 16:57:25 +0200
+Message-Id: <20260411-audin-rfc-v2-0-4c8a6ec5fcab@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1547; i=vigneshr@ti.com;
- h=from:subject:message-id; bh=yTb0twOSkhgH6DCM7BHMK1/qspIDQTQATVdUokHrO3g=;
- b=owGbwMvMwCHG7GTPG/5e9jrjabUkhsxb8XpsDRYVjtPX+V2sX//L4HDB9a/6cUm1RkdePnW4Y
- MhRkba/o5SFQYyDQVZMkSWAbdcsqxSLxxEViVth5rAygQxh4OIUgInMYmX4n3lhff4Wtv9Jh0pj
- P+hUKrDsMzL9tStxUvAGt7C80nVJiQz/DOWu+vG+1yn9Y602QTA8X9rTcv9LiQPPI/vL2h+bPi7
- gBgA=
-X-Developer-Key: i=vigneshr@ti.com; a=openpgp;
- fpr=4A5A711E8E7E44F9F12F2CFAF903332F551A78E9
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000A347:EE_|SJ2PR10MB7059:EE_
-X-MS-Office365-Filtering-Correlation-Id: 46bc7847-3fb1-47c3-5632-08de97d96345
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|7416014|376014|36860700016|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: fzaQSWBQRsNVSgxnAApnP9oC4nGsoDZ1CawnLgZ92RyO3qGZ/cfHq8qsmuTzIWkW2e6cSwOKoSiMFag3wX96su2P53QchUVDcNX8obPJ0I8+dlcS6W/h48NT7OVgICN25JvtMkFuk15PTr+MqSXeofhmAv63a9vRCOMrefw7zQq8MQnJ9V6hDen1/Tae+s1xm65rpRcSt9cNM4p0gVDQRBw7F3xqhnnretGq5NBrki+82KY6rhGOwq/rg5CKGzy1Ndo8OxhLfd2vUOU46b488mMDEILrtfZnpS5zAGeVtskM5XPOJ27d0cTt7V+1u3UdrvBixwrBXQYh5RbRwxWq1RsYQs85JkGxY8GBowLnDYW7fRqoH92GR7EzSPntmHLx+slEiS2RGGHsco9CJ8eK8UICFk8IMHG+M6hhmhV69+RLg2HW7+DTn9+aWPX17UU78uNENmtbPReM/TZYLUz2Yh7NGopO5ANqmBNRwznXg8Bo0Vc9BuMMXzxl2NKQl5ewJL6r6nS/70EqFiLktxLVTIEe8iCm6/6cynnp5AU2Y1xLmjdAr8cR6sz4KFGATTGGAPUtdjLUMW0mwh1nfhKaskrVoxcULd7Jyi95i1ZOLtMGhLqvlDZg6MJTeRLxW8hfEYHE/3EnM03uYFWrIG7fXCuLkJZgkqaBlBDitxD016aaiTJqGM38qfwjcY3LlW2/m7nmFnL8ahoohMBVnehyv5zpM7SBpue8JmIRArUZ9V8KwXgWahLvFkettDlXg4fqHjoy7o4M4Ld/b0C8KrimHQ==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(7416014)(376014)(36860700016)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 8z/PHtTsR7C57Cal1K0rYY75p43/I4MWjNUzbxcuybeP6+Pq48eNLexILQE3PrWniKgcNhbiuXGlO4aPcc9M4lhjR0fFyDDIJmk4U3WE6I7UsMZtKFK7x/coIGxmdSDvqYJgWQHWxLIK3IzBi48Y4PnRJgoAjbXjnb7/tit6uZ/9JwylkFYQY+3KzB+JpRym0jFng2+YK4XPj1V+4lfaXAJv+3lguPnNMVxzfrc4mqVnj6FBj1KqrNGOAELLp1g7B6ux/NwTrLpOeaOza2tRjZcOV3T8IF42nRbZlHrvdmmU9L5f/bRTJ39bxuLsYmtkj1cdH3rk6QjxnCOV4b+AR9TlTXmINpN6VyyoApiok1cy76wwG6ZtP1uWmsQwGJ4Dj4HwCIeaYOjCLtc5v+sYlnV7P8NTz+9wx4mUND7XOysfPXWqUgCzdzHfDSizzEZO
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2026 14:48:26.1294
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 46bc7847-3fb1-47c3-5632-08de97d96345
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000A347.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR10MB7059
+X-B4-Tracking: v=1; b=H4sIAFVh2mkC/zWMQQrCMBAAv1L2bMomTcV6Kgg+wKt4SNKNXbCtb
+ GpRSv9uEDzOMMwKiYQpwbFYQWjhxNOYwewKCL0b76S4ywwGzR6tRuVeHY9KYlDGVj742NRkK8j
+ 9Uyjy+/e6wuV8gluWUaZBzb2Q+29qNBp1jdo0pUVjD0qrJdE8c+vd58FeqAzTANv2BYV9E0GdA
+ AAA
+X-Change-ID: 20260410-audin-rfc-243bcbf95e43
+To: Jerome Brunet <jbrunet@baylibre.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Valerio Setti <vsetti@baylibre.com>
+Cc: linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4155; i=vsetti@baylibre.com;
+ h=from:subject:message-id; bh=3L+gTDPXvRqyUGB8yEtL8RbSZ9xTZaawwb3B9aSZ2Eo=;
+ b=owGbwMvMwCF2z3ty7kUrRgbG02pJDJm3EvMrp3xIYrqlk9QyY03Z7YcCk2RnTMt/5L3ztJD16
+ VYB7eczOkpZGMQ4GGTFFFlYpt/7XVCq9tA44WQBzBxWJpAhDFycAjARgRpGhrvchk/fnHOIk1ri
+ yDjFt/HV32ob1/Wp05Mt9ect9rr904+R4UTGHruHeRNEnj0r+DB3uXUYl6LVwqV9ARlRjcKspdp
+ HGAA=
+X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
+ fpr=0497DEFB707526E13360C970DE4B936DD13A0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260411_074834_119593_0C9BE5E3 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20260411_075801_264892_95BC279B 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,45 +117,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Markus Schneider-Pargmann (TI),
+This series adds support for I2S audio input (AUDIN) on the Amlogic GXBB
+platform.
 
-On Wed, 18 Mar 2026 16:13:06 +0100, Markus Schneider-Pargmann (TI) wrote:
-> arm64: dts: ti: k3-am62a7-sk: Split r5f memory region
-> 
-> Hi,
-> 
-> Split the firmware memory region in more specific parts so it is better
-> described where which information is stored. Specifically the LPM metadata
-> region is important as bootloader software like U-Boot has to know where
-> that data is to be able to read that data and resume from RAM.
-> 
-> [...]
+It has been largely reshaped compared to what proposed in v1. Instead of
+adding an HACK commit to allow AIU to export its clock so that also
+AUDIN can control it, now the design closely follows what was implemented
+in the Meson AXG platform. "aiu-encoder-i2s" becomes the shared interface
+for playback/capture and it controls pins and clocks; data formatting
+is implemented in formatters which are named "aiu-formatter-i2s" and
+"audin-decoder-i2s" [1].
+Formatters are DAPM widgets which are dynamically attached/detached to
+the streams when the latters starts/stop, respectively.
 
-I have applied the following to branch ti-k3-dts-next on [1].
-Thank you!
+As of now only I2S input is supported, because it's the only one
+I could physically test in my setup, but other input sources (ex: SPDIF)
+are also allowed according to the SOC's manual and can be added in the
+future.
+This series was tested on an OdroidC2 board (Amlogic S905 SOC) with an
+NXP SGTL5000 codec connected to its I2S input port.
 
-[3/7] arm64: dts: ti: k3: Use memory-region-names for r5f
-      commit: 8fcd12e26db9e9b2128f0d813972f76a9c846eef
+Since this work brings GX platform very close to the AXG one, once this
+series is accepted, follow up work will be done in order to unify
+GX and AXG formatters so as to minimize the number of implementations.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+The series a bit long and it includes changes to drivers, dt-bindings and
+device-tree. Of course this only happens because this is an RFC and I
+wanted to give a full overview of what will be the final design. If no
+objection is raised, this patch series will be split into 3: one for
+reshaping AIU and introducing formatters, one to add AUDIN driver and its
+dt-bindings, one for the device-tree changes.
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+[1]: Different naming for the aiu part is related to the fact that
+"aiu-encoder-i2s" is already used for the interface and the goal
+of this series was to introduce the minimum amount of changes that allow
+I2S capture to work. Renaming can be implemented in the future as follow up
+activity.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+v1 -> v2:
+- Reshaped design so that GX platforms will use the same design
+  pattern of AXG ones. This helped removing the need for an HACK commit.
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
 --
-Vignesh
+2.39.5
 
+---
+Valerio Setti (11):
+      ASoC: meson: gx: add gx-formatter and gx-interface
+      ASoC: meson: aiu-encoder-i2s: use gx_iface and gx_stream structures
+      ASoC: meson: aiu: introduce I2S output formatter
+      ASoC: meson: aiu: use aiu-formatter-i2s to format I2S output data
+      ASoC: dt-bindings: amlogic: add schema for audin-formatter and audin-toddr
+      ASoC: meson: gx: add AUDIN I2S Decoder driver
+      ASoC: meson: gx: add AUDIN FIFO driver
+      ASoC: meson: aiu: add I2S Capture DAI
+      ASoC: meson: gx-card: add support for AUDIN FIFO
+      arm64: dts: amlogic: gx: add nodes for AUDIN decoder and FIFO
+      arm64: dts: amlogic: odroid-c2: add support for I2S audio input
+
+ .../sound/amlogic,meson-gx-audin-decoder-i2s.yaml  |  49 +++
+ .../sound/amlogic,meson-gx-audin-fifo.yaml         |  63 +++
+ arch/arm64/boot/dts/amlogic/meson-gx.dtsi          |  32 ++
+ .../arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts |  34 ++
+ arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi        |  26 ++
+ sound/soc/meson/Kconfig                            |  17 +
+ sound/soc/meson/Makefile                           |   6 +
+ sound/soc/meson/aiu-encoder-i2s.c                  | 219 +++++++----
+ sound/soc/meson/aiu-formatter-i2s.c                | 106 +++++
+ sound/soc/meson/aiu.c                              |  37 +-
+ sound/soc/meson/aiu.h                              |   4 +
+ sound/soc/meson/audin-decoder-i2s.c                | 218 +++++++++++
+ sound/soc/meson/audin-fifo.c                       | 432 +++++++++++++++++++++
+ sound/soc/meson/gx-card.c                          |  14 +-
+ sound/soc/meson/gx-formatter.c                     | 304 +++++++++++++++
+ sound/soc/meson/gx-formatter.h                     |  47 +++
+ sound/soc/meson/gx-interface.h                     |  50 +++
+ 17 files changed, 1567 insertions(+), 91 deletions(-)
+---
+base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+change-id: 20260410-audin-rfc-243bcbf95e43
+
+Best regards,
+-- 
+Valerio Setti <vsetti@baylibre.com>
 
 
