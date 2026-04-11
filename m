@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9690EF36BA7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 08:10:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBB9FF36BA7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 08:14:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BqsICuNeDYtzACFY0OBqv8dh7bWOtKXThWNFKGmM5ug=; b=mb8OR9ixLVUhctD8zk5s7T2WVy
-	q52JXCicOWXufBfJWzEdkJeq8i6Ak4LHpfBjXxnaN6SIlZU39RKDGvCitvbiWJDEfLXGVPq/rDFSx
-	jJK7ojDaNTXBMYaxEkwOWz0keH9sP/4aLYw9uDpJvHbh2Nv6djJAWnht0ZgKREGj2IzVqYH2quBqQ
-	BMJxsf0ZmShoM7iroJiqxWvl1Z3mk+GBQkztBKvW9AAEYtHkbyj6E7DT1OWw9YAGEXYhWopUZN0cv
-	/WDfwxQITTP+SfclyHAAkLWRX21Jx2mCET4wyVjK1Dzx3KTuenWjnnHSPx2Jm06XfF58Ge1VjixFX
-	tTdFhQ3A==;
+	bh=2xhK77/UIpdhZz3lUa/o8N/+3Mt+a5NIgj+isXT8ZXw=; b=MQoyXlqyiCZHPf0jp/pU9CC1bi
+	e5mVZRNMxqgI/9YPJ4gQWLCpYS5nU9Jj3IgXZeG0ZlwRky/UZt3MCrO/WHrHWJY9+ui4VnhKkWNUT
+	Fnb8iM4xF1z/T3aF+0de4W1e3X25FdzL6BhOmyWUPVUbs1BYj+7GGHCxGYmwSJZNNiJlNM6lN0Mj1
+	+wlNOjXZpd/Ygeh00Bn3HDJuDlUMTQPx8kmihl0GqIPcOyHRw5IQ4XDCShT+a65PFbZpv565mGlKD
+	oHUQcRJwgFVgTHArfzErzrJSX606aKVNMtWksc3OF8Dwdf6O8JbP5LMHCXn3TDCm4qIHDcntCYJm0
+	irlGGOiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBTQ5-0000000DFfx-2oa5;
-	Sat, 11 Apr 2026 08:10:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wBTTp-0000000DFt1-2bxk;
+	Sat, 11 Apr 2026 08:14:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBTQ3-0000000DFfY-0CNB;
-	Sat, 11 Apr 2026 08:10:20 +0000
+	id 1wBTTo-0000000DFsr-2JHN
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 11 Apr 2026 08:14:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B195B43F78;
-	Sat, 11 Apr 2026 08:10:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A5CEC4CEF7;
-	Sat, 11 Apr 2026 08:10:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9240F60141;
+	Sat, 11 Apr 2026 08:14:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B89ADC19425;
+	Sat, 11 Apr 2026 08:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775895017;
-	bh=SHceqr27kEj+0RSDjwQQzD1DRgFk1oE0l7rwV13BJeg=;
+	s=k20201202; t=1775895251;
+	bh=dwBCOiXBWQ9YL4DB5lMeqs9qrMikjKAukVChq9kRbDU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V1yzoztbqGAOudaoSWJy/bw8Lb7TLv0yfsDmXWbNeLBIZudmGq8XBcBAFRSSudg4i
-	 EyuTFrGp4FXWeBHQaDNET8tlQDZTjobiIqG1fgUCFzR8abT1yc8Qqpee4Eb3wYKBGl
-	 T8mMSc4JUDTpRhcILF0+r5t2H9YPN04zFbfE4Fc/bKoD6k590sc+NxV8Y/FCGC01HG
-	 Z+6uikek37NjW9rxJmFVh2puf1Tfkf5MTnD38SdcfUlYSySV2YUK0iUnzDoc29YGsg
-	 4sw+i3UiEoW9YgbR+YUZRYc08Y9U1sue5w04sSucAoc2D+PYl9CZxlPJtMK7tJajgA
-	 zlhWyTN56f4hg==
-Date: Sat, 11 Apr 2026 10:10:15 +0200
+	b=WhwFuPMPpUhZQESrVQ7+1xVqqd844um0qi670mptM2+luPvwdYlm73uks5Oxwyim5
+	 pd3Dxztg3X9znhTbFIWjZ44uwtI8RR5Zddyb5tEC06MBEgTaZQPBEp/IvYzyQFe6of
+	 wvzKGah5MdEaI+Ny8jOHr7XnKmRrXNT+hjwFQnoQ8UQZHkSrQQ7uLETHrtzJdy9vaZ
+	 J5LHDkcgxhaoypQy5UsyviYgcNnvU0xhNfPk4t0pmA+5m/SNDZdMIsiHfj5UR9AFz/
+	 snLMBLyybSFWvDS3JbyQrxnFuGfI6ZbeFWMlCrrQAjpksDNMcKI+wM+KpJN52dUyCf
+	 JxlYYfJTb6ZWQ==
+Date: Sat, 11 Apr 2026 10:14:08 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: arm@kernel.org, soc@kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>, mturquette@baylibre.com
-Subject: Re: [GIT PULL] Rockchip dts32 changes for 7.1 #2
-Message-ID: <20260411-crafty-ethereal-boar-f7abbf@quoll>
-References: <13980380.dW097sEU6C@phil>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: soc@kernel.org, arm@kernel.org, Shawn Guo <shawnguo@kernel.org>, 
+	Fabio Estevam <festevam@gmail.com>, kernel@pengutronix.de, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [GIT PULL] i.MX fixes for 7.0 round 2
+Message-ID: <20260411-ancient-okapi-of-excitement-e5e22f@quoll>
+References: <20260404001857.3374669-1-Frank.Li@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <13980380.dW097sEU6C@phil>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260411_011019_108119_95E170D0 
-X-CRM114-Status: GOOD (  19.87  )
+In-Reply-To: <20260404001857.3374669-1-Frank.Li@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,54 +69,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 03, 2026 at 03:39:31PM +0200, Heiko Stuebner wrote:
-> Hi soc maintainers,
+On Fri, Apr 03, 2026 at 08:18:47PM -0400, Frank Li wrote:
+> From: Frank.Li@nxp.com
 > 
-> please find below a new ARM32 Rockchip SoC for 7.1 . This goes on top
-> of the generic arm32 changes I just sent.
+> The following changes since commit 511f76bf1dce5acf8907b65a7d1bc8f7e7c0d637:
 > 
-> 
-> I've split this off from the other ARM32 changes, because this contains
-> a shared clock header, shared between the devicetree side and the clock-
-> driver side.
-> 
-> The clock pull-request is sent [0], but not merged yet - probably after
-> easter I guess.
-> 
-> And while in the past this has always come together in time for the
-> merge-window, I wasn't sure if in the soc multi-maintainer context the
-> handling changes. So depending on your preference this could also wait
-> until after the clock-subsystem-side got merged.
-> 
-> 
-> Please pull.
-> Thanks
-> Heiko
-> 
-> 
-> [0] https://lore.kernel.org/all/3746710.R56niFO833@phil/
-> 
-> 
-> The following changes since commit 94c8dc1fa8e1ad4037084204152bca1e799d7d1c:
-> 
->   ARM: dts: rockchip: Pass linux,code to the power key on rk3288-veyron-pinky (2026-03-24 17:06:35 +0100)
+>   arm64: dts: imx8mq-librem5: Bump BUCK1 suspend voltage up to 0.85V (2026-03-17 23:24:44 -0400)
 > 
 > are available in the Git repository at:
 > 
->   https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v7.1-rockchip-dts32-2
+>   git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git tags/imx-fixes-7.0-2nd
 > 
-> for you to fetch changes up to 683192d7d5b47e89d920867f7c6997d2c0d1a0ad:
+> for you to fetch changes up to 42a9f5a16328ed78a88e0498556965b6c6ec515c:
 > 
->   ARM: dts: rockchip: Add Onion Omega4 Evaluation Board (2026-03-24 17:40:11 +0100)
+>   arm64: dts: imx8mm-tqma8mqml: Correct PAD settings for PMIC_nINT (2026-04-02 22:07:41 -0400)
 > 
 > ----------------------------------------------------------------
-> Support for the RV1103B SoC and the Onion Omega4 board using it.
-> While the RV1103B only got a B-extension to its name, the SoC internals
-> were reworked heavily. So likely it's mainly pin compatible to the
-> non-B variant.
+> i.MX fixes for 7.0 2nd round:
 > 
-> The dt-binding for the RV1103B clock driver is shared with the clock-
-> driver branch going into the clock-tree.
+> - Fixes interrupt storm by adding pull up pinctrl config for pin PMIC_nINT.
+
+This is way too vague. Commits are odd and suggest that you rely on
+driver. Or that DTS and driver are inter-connected. That is a warning
+sign. You need to explain all this here. We had internal discussion
+about without clear resolution, so I decide to merge it.
+
+But in future this is your message to convince SoC maintainers that
+such DTS changes are correct from rules point of view.
 
 Thanks, applied
 
