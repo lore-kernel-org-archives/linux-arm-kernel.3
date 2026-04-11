@@ -4,100 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96B8EF3ED4B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 12:28:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1304DF3ED4C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 12:51:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mbqt5Qpb1Da8WzrSORfQC8GDoEFqa1MXloGMeTyaA0w=; b=uIMMAUX5WtjnSj28YEzlcScvzO
-	+BkAGD8X2Cep2fiOYJRFXEY7QXM/P9LN9SlTULHAm8F8NIpa4bTwquFOcrEUo7d/3ftgzmuzNNSRy
-	jZaUK7X3htHMkk5T0f/8hsWJuuvLw9WX8gRi5i5nclGm5lR0fuCFRTkRM/UGrUahGadK994Gb7ZjA
-	teQqfwmmPh51nUf/3cfj5kohszddLtkaxWRG85jpRlMxLbQJ62xoo42LvLeYf2MIUJWk/apSdeDP6
-	TEeuS9NUYd1FEsO0AVK8ycWJPLlEuMHgN3Obq70hVSrCKCWX4UU5IOCX+c9ocVQbT4ApdYJGocv9I
-	0p2dVuqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KmLC3vKr19jOM+KObMFbhZvi8qiTxo7j+r8x2sBLeSk=; b=YgZDocwH08oRjXGvRWv3dLxtCW
+	HMzDQqZbK7oUM0YRZW1CCOEcoiRXIa7oIPKOyLSs4Qd70Ua3/ivW7G+OAPm8MpFLXsVUnFArQF2ox
+	S+TmTvwv4qzUroH16sCa9Yp/kJceYMcTiY2el+EmgXYPBVxWsQo/NRb1fFLV16sDrFgRnZPDc/EuC
+	gvSp66Ik6+79tsNlLj0BFbAhRUebVS33FF6gBe7KDQzpvnSzyPthPFe3jUeh+aAS2X6nF0QZ9VcOc
+	kKWnbbZpsVoBrR9Gk175LpGTx76zs1JnzlXvk0KpAwTyZPmaFxOEDQ4k6m0IHXFm4+ZJR8W21SnEn
+	8kfYyJMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBXRq-0000000DQS9-1gta;
-	Sat, 11 Apr 2026 12:28:26 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBXRn-0000000DQRl-2Lga
+	id 1wBXng-0000000DRbA-3f3A;
+	Sat, 11 Apr 2026 12:51:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wBXnd-0000000DRaU-1W1y
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Apr 2026 12:28:24 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2b299b3c739so13022655ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Apr 2026 05:28:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775910502; x=1776515302; darn=lists.infradead.org;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=mbqt5Qpb1Da8WzrSORfQC8GDoEFqa1MXloGMeTyaA0w=;
-        b=swdQNIggtUSGlmn82t+yEA3f3Z5BmNOC3yrYvkzSNVI2dnL6bOeIg4j1EREiV2rqF+
-         yctTnl/fr89MCrljgQgrBa34sZLzhmIzFpTCHXGnEmndfrI4oqbvnimeV1tRhQSKt18x
-         aIFRYUfSWtrDEX6CBfJLA4HJE6V8YYVIZ6M8fIkpwbBpHvHebFuktEGbu/imoci5zic9
-         AabfunLRZQ3RhAmSpyX53JloG9Q6HQRGAMG8QOuJNkRGzpt/SpnyDjTp5ztiDwO/P6Mn
-         fBJvmId4ILRaCcZ2hAiz70zdaWPIPoHDMJO5X0upcT5vwGjsdIrUEr3IEPOaucOx1nUn
-         ro7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775910502; x=1776515302;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mbqt5Qpb1Da8WzrSORfQC8GDoEFqa1MXloGMeTyaA0w=;
-        b=LIyK2LIpEqvF4oLFvu+omnaHMz1kT53ZKzORCvHDS1c6le1VXFR3epMIGUADWvWkEN
-         rUm2P7bN4tzanh2kGXrnzo3vvaP8ixewTI2BRj3dTUFOgwaVeU+pW31/1tqoQuy2cZB7
-         WqoNsvZkVPrVL1OObqW6Kz200/wwr9CjUVXvFSwe6i+3bLUu7VfAt42z/Sae0z1yME0D
-         JQzKFBLlJpGNz1rCmQV3nYPqZiv73by6nq6g6DcSq7PwnOmoMAIps9s7kStuXj6w1nXN
-         Sx4P04iag0GwNQaX14e9zKbg3WLs7BDoQ2xQjmWYqec5AD/qLGg25N0PHjHtUNN0VIU1
-         fsTg==
-X-Forwarded-Encrypted: i=1; AJvYcCXddhv+EqXVl7CIGcVr8KlF6zMMYbqRJQUyMXpSxd0ERczS8fODxJMTnJhTli2tL8a5/1AIEDrFuuHOiIBFA8nr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyj/0grNFiPSbZ+K0V9BEjUIpKTDIbu15TaGkXEX7VHUfZbpWsn
-	KHuSQMfmECKbqIyZCxYoL4VKpjQrr7b5hnm/vjJyBiICPeEdCWIsJjfp
-X-Gm-Gg: AeBDietbT+B5eI7fCxkSndgg6p8suwENr9b+0nWOagN23ri2z4FRpGc5dc1u4GABIMM
-	Cj+iUFuIxAa9UIzUSLZwa6mhrqF6TD0UVFrh3je0QH1nCBVPku+fm5I+TunnoQyRW4J99kYe4WJ
-	tsSUaJBUIrOBLMAdAavrbXNdwOhEoVDVa9sqUumM4sNVgAb9LMHkC/hzYIRoDbLfmILwPXlPfVN
-	OhfTab3MZpFWNXxeVm1nTIAbu6uvCREvLSAcqzKX+zyHYr7D+yTL4Vw4r5+9UPdyHiI5gEuSIFE
-	xDdTxUBq0v8LOMqfjOnG6IG1hu2vS0t9wK1dPrVwZdA2fg/5jtZg1KCpcL4I206yt//PJxIAzVD
-	0Hox3H7P6xQGbTuiVAPsX2G2ulBnIyhYVTQnnXB0tCUzl/TKpQmcXrmSiTr+e4CzEVmsjXYzn2I
-	/18QGIBKyt2c0eqx4gg6SN99D/uR8dEvkbXndlXNFU3GqOVsTzh1ED
-X-Received: by 2002:a17:902:d2c7:b0:2b0:5770:d484 with SMTP id d9443c01a7336-2b2d5a67389mr70973825ad.41.1775910502214;
-        Sat, 11 Apr 2026 05:28:22 -0700 (PDT)
-Received: from udknight.localhost ([240e:379:1ea4:201:1d74:bf36:51db:2590])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b2d4f0ada5sm62470315ad.42.2026.04.11.05.28.20
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 11 Apr 2026 05:28:21 -0700 (PDT)
-Received: from udknight.localhost (localhost [127.0.0.1])
-	by udknight.localhost (8.14.9/8.14.4) with ESMTP id 63BCS4Va011166;
-	Sat, 11 Apr 2026 20:28:05 +0800
-Received: (from root@localhost)
-	by udknight.localhost (8.14.9/8.14.9/Submit) id 63BCRtY1011157;
-	Sat, 11 Apr 2026 20:27:55 +0800
-Date: Sat, 11 Apr 2026 20:27:55 +0800
-From: Wang YanQing <udknight@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>, akpm@linux-foundation.org,
-        willy@infradead.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm: lpae: fix non-atomic page table entry update
- issue
-Message-ID: <20260411122755.GA3274@udknight>
-Mail-Followup-To: Wang YanQing <udknight@gmail.com>,
-	"Russell King (Oracle)" <linux@armlinux.org.uk>,
-	akpm@linux-foundation.org, willy@infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260315004746.GA32062@udknight>
- <abYHfGjqTRAB_oyR@shell.armlinux.org.uk>
- <20260315032950.GA5618@udknight>
+	Sat, 11 Apr 2026 12:50:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BAC502C46;
+	Sat, 11 Apr 2026 05:50:45 -0700 (PDT)
+Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DA5253F641;
+	Sat, 11 Apr 2026 05:50:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1775911851; bh=PCUm7AJBwfv68VRHQn0akZBOL7JjGV0tbIGrCcwnybM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=C+l8LqWd7CndiGGtpMNKlqHsvST33l2Sah2HTljSJ1uELhMV/Y6hBVNBeb86HdssJ
+	 y2i4C6gTV1lcthYso2WN4vPG9QPWHDB4r51CKbkc6C1oQytl0PPnJal4TSimvdD/Rx
+	 fqXwCC1yZA3p6pRYnbA6WhknHmmCHqoK4R7Qh94g=
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: [PATCH 0/1] KVM: arm64: nv: Implement nested stage-2 reverse map
+Date: Sat, 11 Apr 2026 13:50:23 +0100
+Message-ID: <20260411125024.3735989-1-weilin.chang@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260315032950.GA5618@udknight>
-User-Agent: Mutt/1.7.1 (2016-10-04)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260411_052823_619081_6ECDB57F 
-X-CRM114-Status: GOOD (  24.72  )
+X-CRM114-CacheID: sfid-20260411_055057_774444_5C326C71 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,43 +74,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 15, 2026 at 11:29:50AM +0800, Wang YanQing wrote:
-> On Sun, Mar 15, 2026 at 01:12:28AM +0000, Russell King (Oracle) wrote:
-> > On Sun, Mar 15, 2026 at 08:47:46AM +0800, Wang YanQing wrote: 
-> > Thanks. Now, please locate where the need for the updates to the page
-> > tables needs to be done atomically, bearing in mind that we program
-> > SCTLR.AFE=1 and SCTLR.HA=0, meaning the hardware won't write-back to
-> > the page tables to e.g. update the access flag.
-> 
-> When LPAE is enabled and in the 3G/1G userspace & kernel space config, we
-> use ttbr0 for address space 0-3G, and use ttbr1 for top 1G kernel space,
-> but wait a moment, the module space is in ttbr0 instead of ttbr1, because
-> module space is belong to 0-3G.
-> 
-> Then we don't switch ttbr0 to the same value as ttbr1 in task switch, so
-> when we switch from normal userspace thread to kernel thread, we use the
-> do_translation_fault() to fault in the module space for the kernel thread
-> when it accesses the module space. Now please think a situation that
-> userspace repeats create new short-lived processes (run shell cmds, etc),
-> we will use do_translation_fault() to fault in the PMD entries repeatly
-> when switch from new created process to running kernel thread, we need
-> to update pmd entry automatically here, hw is allowed to do data/instruction
-> preload and trigger page table walker to see the partial update pmd entry,
-> page table walker will cache it, and it will cause translation fault,
-> because it doesn't see the upper 32-bit.
-> 
-> When the userspace process is a multi-threads process, in smp environment,
-> other cpus could use the same pgd for their according kernel thread, all
-> the page table walker of the smp cpus have the chance to cache the partial
-> update entry.
-> 
+Hi,
 
-Hi Russell King, what is the status about this patch?
+This is v2 of optimizing the shadow s2 mmu unmapping during MMU
+notifiers. Thanks to Sashiko, who helped point out the many problems [1]
+in v1.
 
-On some SoC, Texas Instruments Keystone etc, it will run arm32 linux kernel on
-high address (KEYSTONE_HIGH_PHYS_START = 0x800000000ULL), then all the physical
-address of page table will be 64-bit and will meet the issue described in the
-patch
+* Changes from v1 [2]:
 
-Thanks
+  - Rebased on to a newer kvmarm/next, where user_mem_abort() underwent
+    a significant refactor.
+
+  - Added a flag VALID_ENTRY (bit 63) to each non-polluted reverse map
+    entry, so that if nested IPA == 0, we still insert a non-zero entry
+    to the maple tree.
+
+  - Added usage of the maple tree lock while using the tree. Previously
+    I though I could piggyback on kvm->mmu_lock, but this doesn't work
+    for 2 reasons:
+      1. The maple tree advanced API (mas_*) expects the maple tree lock
+         to be held.
+      2. At stage-2 fault time, kvm->mmu_lock is only taken for read.
+         Therefore even if 1. does not matter, parallel accesses to the
+         maple tree could still happen.
+
+  - Changed from using GFP_KERNEL_ACCOUNT to (GFP_NOWAIT | __GFP_ACCOUNT)
+    in maple tree operations. This is done because GFP_KERNEL_ACCOUNT
+    can sleep, and we are holding kvm->mmu_lock while doing the
+    operations.
+
+  - Made the code able to tolerate reverse map creation failure. In v1
+    if a maple tree operation fails, the error is reported back to the
+    caller which in the end fails the vCPU run. It shouldn't be this way
+    as the reverse map is an optimization and it shouldn't fail the
+    normal operation as we can fallback to a full unmap.
+
+  - Added a boolean nested_revmap_broken in struct kvm_s2_mmu. If
+    reverse map creation fails, the reverse map becomes unreliable. Keep
+    this failure information with nested_revmap_broken so that we can
+    fallback when we need to unmap.
+
+  - Removed patch 2,3,4 for now. After we start using the maple tree
+    lock, and keeping track of the reverse map failure state in
+    nested_revmap_broken, the s2 mmu look up acceleration in v1 patch 2
+    becomes very complicated, as the canonical maple tree used to speed
+    up s2 mmu look up can also encounter allocation failures which we
+    also need to keep track of and fallback. In the mean time the
+    consistency between the trees is not easy to reason about when
+    errors happen. Additionally, the extra lock of the canonical maple
+    tree also needs to be considered and care must be taken to not
+    introduce lock order inversion.
+    Given the above I believe it is best to leave the reverse map
+    improvements out for now, so as to not use too much time thinking
+    about optimization before the initial version of the reverse map is
+    even good.
+
+Thanks!
+
+[1]: https://sashiko.dev/#/patchset/20260330100633.2817076-1-weilin.chang%40arm.com
+[2]: https://lore.kernel.org/kvmarm/20260330100633.2817076-1-weilin.chang@arm.com/
+
+Wei-Lin Chang (1):
+  KVM: arm64: nv: Avoid full shadow s2 unmap
+
+ arch/arm64/include/asm/kvm_host.h   |   4 +
+ arch/arm64/include/asm/kvm_nested.h |   4 +
+ arch/arm64/kvm/mmu.c                |  30 ++++--
+ arch/arm64/kvm/nested.c             | 147 +++++++++++++++++++++++++++-
+ 4 files changed, 177 insertions(+), 8 deletions(-)
+
+-- 
+2.43.0
+
 
