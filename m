@@ -4,120 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A56FF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Apr 2026 22:10:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C99E7F45A1E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 04:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hAcyp6tj20FtAf4IQx3ifIttGPMFNnHtv6J7kGhC8TM=; b=ZDTfupeOl0Ake0oUhFUW02WX7i
-	+ivPA79zKrOFepWMdluaIBOrL14AR8reTExPUnskh027YQI8cNBLSoFzHbC0mI5FJYJ/qBYilNTU2
-	JM0+pUMCz8vvnthzhq9Ebsksx23x87gR8DvyVnnITvfI6jN5iNlSzF2D3rxy7JwqZXeqyziJrUX5N
-	Bbe27R6c32AshGN2tCx6Y91Zwui/1rMJDT86mud01y2kGkJ5UAqv2EbY3Be8L13UK2zOukE2nH6tq
-	GQ9v+ZAXEDjEfF+LFWk+WyWRjv9SwV/vHfha9I1ccltrriWqmpZdda9XCnOaJeyjQQqXHCdsoXZPT
-	VrJ/4/qg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BD+xwKu/bN5/gMMBjSUYvF/EGDAVlZJDs5yWBOqQPgU=; b=IMynsSIhQcG0L2h5Auh4ACPvm+
+	Mx5Xo1DEoPslmovBzLTUuVc8IpVK+S4vFV0jUBw5LX3GZQY/2SW6wssVe104/t2uPe7mqQk+fB/XE
+	hLFLOiVIH3qJaqjcxFXdg1KwChDnOfoQQOFxuNEUZRvJ//D+UDzEC2YqD1YhqN86APwlXbW0hQ6YV
+	u/M8RktYBm8EEIkwTR6nT+NNyrX1kVgCYfdYxn8EJHOYhrsuJwDY27yg1SnzKvF99iqwh7nP7dMkm
+	Ds1BzcxrpRiwUikvmLyYifz0ph5RDJg62VtAFUv0yzDDAIDcoIxxO9zWR2ZB62ABlWwuqCLDolSOx
+	2biZZzQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGOjH-0000000DnR6-3XAx;
-	Fri, 24 Apr 2026 22:10:31 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1wBQ00-0000000D8Yf-37Dy;
+	Sat, 11 Apr 2026 04:31:12 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wGOjE-0000000DnQR-2f8N
+	id 1wBPzy-0000000D8YJ-1wQ7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Apr 2026 22:10:30 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-82f943870baso3416523b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Apr 2026 15:10:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1777068627; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Jg3ld74YakW4rShBIjxgmAOWv4oNfJ28jbTuKUAMApuxqwNuPOdbC39o9RvJnzZO14
-         PZJImkAWRiNEWfYetazI9OP6rg1AMoUasZHEgcQRJfvS30dZNQPJ3c6VN5xwg1vNamvH
-         x2jvIHCnXEkMDQdSK9oNUSH2EONN3n+S5OKv+OkTDHmgkecGADiBK8RvT8vXzub7t6HV
-         4w4tGfq2KMqSOJerjbwdAm3rQaiCAp6jDUD5h6N8IH6hwdKcQBVJeCKU7zqbJwDbUWBc
-         qKRsFEN3OyZnZA5uNib+6pIDFAOkERQYmkfDBJt+H/G0pJrrkIP/rej3LU2t+A9Q9hM8
-         LVRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=hAcyp6tj20FtAf4IQx3ifIttGPMFNnHtv6J7kGhC8TM=;
-        fh=SEp4qWFZGgktWendYk7ObHvDRQXu862leezvri1JvdA=;
-        b=PDs2Dv2VYbx39313YLO4aY8+MbLllR5urqkjf7I++tDAQZekifSZJGw4qUwO6BOc20
-         XLZu6mO8QSNSaLe3ftZkHX0bUS0F9LZ8nQi0igNQnONsvvJed53sbUuIZNyC6FFYLyGc
-         6nBnslPv93b5jgWJ4uLDz8eiOp5UsLo5G1bQSs3D6aXhiLVXcf6eeyJ+Iy8960pW5Hh7
-         Mcmd04/+NZ2fMVa5UmdgT+m5swp3ezIQSipUZSPMszjcoPJL91zWEtL9Fa9gfpvdd4d4
-         mqFi3FytV9tQX5LYJO1FNxuv3XqYYtuGw0tiVfLwaRqsLp4yFtv6HpWFL8PSl+efcMJg
-         H+yQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Sat, 11 Apr 2026 04:31:11 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-35da2d35eccso2137258a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 21:31:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=paul-moore.com; s=google; t=1777068627; x=1777673427; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hAcyp6tj20FtAf4IQx3ifIttGPMFNnHtv6J7kGhC8TM=;
-        b=evdjjykQvVX6issg58b/kcgksB38fcKI36IDhW3QGpgrhrL5u/O27gOPCDhaAmwVqF
-         UcuSPNrS5w3mk15np56WiinbYYnu1duo27ioRe9Hl2lPt3XeKiJ+kKFQ+CEb3GTHwRDN
-         YtnG1rkCbCwLCNX0I5/y4fCnOxot0HalCNV20NJ+Vou4VZQr5e3ybtQskySXCRzLZZcA
-         EFu2vThHlPd9MfzVvuMhZMdKKbH+a89jxj/oH9aGxziqrPB01UTPZNi3mrUyw+PSIndg
-         MV2vy1ZdrzbhhCoGd31dL+WS6rmO4lKCb+CHgI8nX+b3Gx5snSMlYdj/YvY2cQUncPGu
-         frvw==
+        d=gmail.com; s=20251104; t=1775881869; x=1776486669; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=BD+xwKu/bN5/gMMBjSUYvF/EGDAVlZJDs5yWBOqQPgU=;
+        b=dMq6PD2iZ9MXpCBgXVwukoFMkxQLS7i7cjT79fRNUdMPHRBumSkKEm5LOq3V8mK+3t
+         fJBr046glWl8gvCl9XhzZPeJ/8HwLDmIY6iFV23s+3WIJoGEACRb8y+oTOhuD906oD3i
+         Pq/4kMm/KaGuUXnKx9MXas3/5umTdDwrQP3AVHJe9rJeWFsoV3ETjAKEbK2WfKP7GnDI
+         RSjXr0ay3khM1jh605QDUjm/kJSg3dWLxq9inMg4fNDIfdE+UA8dntglg4KXN6uujIAm
+         5Lj6jZnu36atQuOOvAbDhGl4OJs05oynSpSpP3ODFceQHH84n4wfXTQquVwS4q3b5Niy
+         zFkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1777068627; x=1777673427;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=hAcyp6tj20FtAf4IQx3ifIttGPMFNnHtv6J7kGhC8TM=;
-        b=M131AZS0Hb5XYzln3j+g4XadEBCHIJTCRg5Bw8PJRhHIZ6ZB30xST1cp7412cH/ufw
-         kDrg3GH5CB3/ohPJT8FPWvfFnwXq5tqdhPLwTZQqzkR1DZJSEWqM54l4JSm3PJHiU6NC
-         uKO7xua0WezNAK5JDsYAWWrXAdBi/fMxTyUlWlRKZNbU044fyUSOIf/WmxpJ0ssAorWL
-         3I7+WN/5JBs3aZUz6eMXDsvuMM+oNvwBYEG35LAh3UrXHRAvYOFszr5L7WLY2TLaddA4
-         bcpYX3U9HlUtQHsc6So0wTHyVO/V2KcptvjT6xpYucSuYRaH2CSsH23mI524fI5oo8Jm
-         poBQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8RAsD1jOkNv8bJNdSKMNopN+W3kFxQczGeoQU6Pg+4VbEjcPS52bVgqcWWBD0yVjhkjilgb65CghSmF1WE1yg/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+TRMGPPw4f/EuHX3rLxgYk+khrqwyozuPOpWERjIOOjc/zur6
-	ZwnWQOnUBlbnUQGQXGqzBkdThuU5VJwJBgQw9vZtR2X+s6ihsnZlxt/SBzj0jUHpbDkXHI/BTNl
-	hvJ2YwBC3dtGH/IxK8iyfIfcqfnCE55SPLgWyvdaj
-X-Gm-Gg: AeBDiet5aXMwpSWFOsKNdcP8TnqWOEc0tlXk+HXBCnG3ZCJRTLYFBTtGSTN1Xn9uWDZ
-	ZyS1igv8q8rSkNewBmORLO0ug3ULOavzkUQFVYCySGGED6sAA2WGwDmus1Q+BQACNM6n+7VuL8Y
-	iDdUkpaFO4096D3HDqq6Wat34zDHGtDTpyyomZqIoAqyB8scRfHaMNHt56mzkKGplKfJpStCpu1
-	EGYiFz0IWEMMtEfpLL4BSBuWrti6N3hN8C3LASJnvOHy5cAjnxyWfFVQ1Zi4GSPeYzK46xCG92i
-	5nTr8EZ0KJN9wPqYfw==
-X-Received: by 2002:a05:6a21:e082:b0:39f:91e9:cada with SMTP id
- adf61e73a8af0-3a08d677abemr37340839637.9.1777068627375; Fri, 24 Apr 2026
- 15:10:27 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1775881869; x=1776486669;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BD+xwKu/bN5/gMMBjSUYvF/EGDAVlZJDs5yWBOqQPgU=;
+        b=i/JdbqmEPvTTqRDs7MVZB1abb2bkPiw4GACZzthjc6jj4AZZTeK3U6QEUU6/YkGSe9
+         x2PFnLsIRBmITNMOt2zvydqJmcpNsBF6OSHx6ioyeUfc4KwOfuAxrI2p3VDnPBeTQ9IC
+         2b2Okt+Em7y40Aj91maQMO2vL6fR8JReg4pRunNWZ5j7Occ6Ct7p+Nd8EQpaiH/XFTi0
+         DenG5/3OQl9YWIkPoDUArkpzqQMHLHo3dk3S/u814pA1FCvUjWV5Yld9/VBHhwOVCFjN
+         sGvhXqpShVluIzZI+WE0Tots8HYtHQuVaTPGsIg6OX13k7r8sn4iGzsrQMqlKVjX4FdO
+         4dBg==
+X-Forwarded-Encrypted: i=1; AJvYcCUwURgDJiPffZZUtgQGoqjZptrFw+A2IuS1EuweVr2s4tg7ZYtlQs24GX0ngUtYkN2+OmdCpuyyKMgkuExeHqP2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyvb4YpZqkVfXufPy3zE5KcYUteVXcQnki7SezodJZUvdzLoL5w
+	AzIRalHVqm9A+h/q2IqmdULJLNe+mAa8h3Dq6hjah7J2kF94pCiOLbxt
+X-Gm-Gg: AeBDietWH46GcgY1vE687Gqzgow49ByigcsbMCsCvGZ2II8p0kcMBN2KSkyrqP7FeSB
+	jgFEWF2xSWtfJKP+wfEFsTj0EmjCd39KcDZ9A2eRbOpfypyEPR1Az1b0ZZ3hizPYS/al6MHsaBl
+	9nRNpWjC7Xsrou/I9yV4VbWKuCY/Eo9ynUKOD6mWaK2RDxfItZExu2lpfCuE05IbqMtt4sfXiNI
+	VVDg3Q7javGxXpiN8KkgKRENJfnuZRQMQkfZhKPunofPmQfpjBNxUKi5DPv7upNsIoboVtqQIIz
+	e45yxj6/LFyb+ZZD6cc5HQSfAbqJ/IpDTw/CyiitHhI2WmSH5PW81BrEMp3ORsPxIdelHJztTud
+	Ffkm7cKzmy5Spz7gUwvngW0yNG3R7Odeqtro/bie4zuP4WbrDnOKCbJDRGdjRLs8weE1PrzO3iI
+	+NaG2Klq/SVWBmZkgMmdIwTtKkOVVVdPdyxOAxJFewfTCM1dG/8sats2U=
+X-Received: by 2002:a17:90a:dfc7:b0:35b:e52a:6fe5 with SMTP id 98e67ed59e1d1-35e4274e358mr5585311a91.5.1775881869282;
+        Fri, 10 Apr 2026 21:31:09 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:5b5d::8bd])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-35e3512f27asm8038120a91.10.2026.04.10.21.31.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 Apr 2026 21:31:08 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-pci@vger.kernel.org
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:PCI DRIVER FOR MVEBU (Marvell Armada 370 and Ar...),
+	linux-kernel@vger.kernel.org (open list),
+	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be)?\b)
+Subject: [PATCH] PCI: mvebu: allocate ports with pcie struct
+Date: Fri, 10 Apr 2026 21:30:51 -0700
+Message-ID: <20260411043051.174309-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-References: <aeoAlVEwzRUPrlVe@e129823.arm.com> <aeoRxWPyOHGJd+Jh@e129823.arm.com>
- <aeoWO2Cwo04YYu2l@earth.li> <bd908e28298d968740d03c97bc7e441de188b7b4.camel@linux.ibm.com>
- <aeokwrC86WI7uT+K@e129823.arm.com> <aeomlp3I0eVE5mce@earth.li>
- <aeotq8nPVu4wvEx5@e129823.arm.com> <e4e242ae5533d5762a3647186a178764881bf9ff.camel@linux.ibm.com>
- <aephL3MzYoqFGaT5@e129823.arm.com> <CAHC9VhRQWHEWQ5NzOPiu8jtYv6UsRm8WVS4fd74AbkOcAd4y_g@mail.gmail.com>
- <aesGU8a3mbVzvteH@e129823.arm.com> <CAHC9VhSaT_quKYnpFjAfqvL07JNbWMgM6c4pB9F46NHawX3DCA@mail.gmail.com>
- <014cf39aa8d6a0bcfa1a95c069675977ac67b843.camel@linux.ibm.com>
- <CAHC9VhTW3=RJ8L91RWXYYA9tFjfSXGN-DMEEwdiD6big9H57Ew@mail.gmail.com> <1f78fc75b2e95239973612a4b6c4cc782960b7ac.camel@linux.ibm.com>
-In-Reply-To: <1f78fc75b2e95239973612a4b6c4cc782960b7ac.camel@linux.ibm.com>
-From: Paul Moore <paul@paul-moore.com>
-Date: Fri, 24 Apr 2026 18:10:15 -0400
-X-Gm-Features: AQROBzAx1ZA_SOme2lQN7_v2fyTxeQpFzpK5JHTmeoRh2Wyy1mmm1jq2VzT2o90
-Message-ID: <CAHC9VhS4JmPmCJrYTdbjxb3TO-uK6cB3Zij-ef=wswGce2BGzg@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 1/4] security: ima: call ima_init() again at
- late_initcall_sync for defered TPM
-To: Mimi Zohar <zohar@linux.ibm.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, roberto.sassu@huawei.com, 
-	Jonathan McDowell <noodles@earth.li>, linux-security-module@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	jmorris@namei.org, serge@hallyn.com, dmitry.kasatkin@gmail.com, 
-	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca, 
-	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com, 
-	sebastianene@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260424_151029_053860_95FB3B10 
-X-CRM114-Status: GOOD (  46.15  )
+X-CRM114-CacheID: sfid-20260410_213110_508879_1B01BB9C 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,125 +105,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 24, 2026 at 6:01=E2=80=AFPM Mimi Zohar <zohar@linux.ibm.com> wr=
-ote:
-> On Fri, 2026-04-24 at 17:08 -0400, Paul Moore wrote:
-> > On Fri, Apr 24, 2026 at 4:58=E2=80=AFPM Mimi Zohar <zohar@linux.ibm.com=
-> wrote:
-> > > On Fri, 2026-04-24 at 16:15 -0400, Paul Moore wrote:
-> > > > On Fri, Apr 24, 2026 at 1:57=E2=80=AFAM Yeoreum Yun <yeoreum.yun@ar=
-m.com> wrote:
-> > > > > > On Thu, Apr 23, 2026 at 2:13=E2=80=AFPM Yeoreum Yun <yeoreum.yu=
-n@arm.com> wrote:
-> > > > > > >
-> > > > > > > Sounds good. Once the patch is posted, I=E2=80=99ll review it=
- as well.
-> > > > > > > Sorry again for the noise, and thanks for your patience ;)
-> > > > > >
-> > > > > > My apologies for not getting a chance to look at this patchset =
-sooner.
-> > > > > >
-> > > > > > This seems like an obvious, perhaps even stupid, question, but =
-I have
-> > > > > > to ask: if IMA can be properly initialized via late_initcall_sy=
-nc(),
-> > > > > > why not simply do the initialization in late_initcall_sync() an=
-d drop
-> > > > > > the late_initcall() initialization?
-> > > > > >
-> > > > > > Does any IMA functionality suffer if initialization waits until
-> > > > > > late_initcall_sync()?  If so, it seems non-critical if waiting =
-until
-> > > > > > _sync() is acceptable, as it appears in these patches/comments.
-> > > > >
-> > > > > This is the way first patch did, and here is some discussion for =
-this
-> > > > > (Might you have seen, but in case of you missed):
-> > > > >   - https://lore.kernel.org/all/a6a0e15286c983d720de227c6827adbe9=
-76c5b9b.camel@linux.ibm.com/
-> > > >
-> > > > Thanks for the pointer.
-> > > >
-> > > > Unfortunately, my concern remains the same: it's either "safe" to
-> > > > initialize IMA at late_initcall_sync() or it isn't.  Attempting to
-> > > > initialize IMA twice seems both odd and wrong.
-> > >
-> > > Agreed.  However, IMA should be initialized as soon as the TPM become=
-s
-> > > available, not delayed.
-> > >
-> > > In patch 2/4 patch description, Jonathan describes the reasoning:
-> > >
-> > > Unfortunately some TPM drivers (such as Arm FF-A, or SPI attached TPM
-> > > devices) are not reliably available during the initcall_late stage,
-> > > resulting in a log error:
-> > >
-> > >   ima: No TPM chip found, activating TPM-bypass!
-> > >
-> > > and no measurements into the TPM by IMA. We can avoid this by doing I=
-MA
-> > > init in the initcall_late_sync stage, after the drivers have complete=
-d
-> > > their init + registration.
-> > >
-> > > Rather than do this everywhere, and needlessly delay the initialisati=
-on
-> > > of IMA when there is no need to do so, we continue to try to initiali=
-se
-> > > at the earlier stage, only deferring to the later point if the TPM is
-> > > not available yet.
-> >
-> > Once again, that heavily implies that it is safe to initialize IMA in l=
-ate-sync.
-> >
-> > Put another way, what breaks if IMA's initialization is delayed to
-> > late-sync?  If the answer is nothing, just move the initialization to
-> > late-sync.  However, if something *is* broken and we are just doing
-> > this because of TPM delays at boot, this patchset just creates
-> > additional problems and we need a different solution.  I can't
-> > envision a scenario where it makes sense to attempt initialization
-> > twice.
-> >
-> > > > I understand the need to ensure that the TPM is available, but if i=
-t
-> > > > isn't safe to wait to initialize IMA at late_initcall_sync() then i=
-t
-> > > > would seem like this is a bad option and we need another mechanism =
-to
-> > > > synchronize IMA with TPM devices.  If it is safe to initalize IMA i=
-n
-> > > > late_initcall_sync(), just do that and be done with it.
-> > >
-> > > Within the same initcall level there is no way of ordering the initia=
-lization.
-> > > Yeorum attempted to address the ordering issue in commit 0e0546eabcd6
-> > > ("firmware: arm_ffa: Change initcall level of ffa_init() to rootfs_in=
-itcall"),
-> > > which is being reverted in this patch set.
-> > >
-> > > Ordering within an initcall level needs to be fixed, but for now retr=
-ying at
-> > > late_initcall_sync works for some, hopefully most, cases.
-> >
-> > That's not a good answer.  Ignoring the TPM issue for a moment, can
-> > you confirm that moving IMA's initialization to late-sync is safe?  If
-> > not, why is this approach being considered?
->
-> I'm not seeing any measurements between late_initcall and late_initcall_s=
-ync.
-> Based on this very limited testing, I don't feel comfortable to actually =
-move
-> the syscall, but can see adding support to allow IMA initialization to be
-> deferred.
+Use a flexible array member to combine allocations and simplify
+slightly.
 
-(I'm assuming you meant initcall and not syscall above, but if you're
-talking about something else, please let me know.)
+Add __counted_by for extra runtime analysis.
 
-Saying that you aren't comfortable moving IMA initialization to
-late-sync is inconsistent with allowing IMA initialization to be
-deferred to late-sync.  Either it is okay to initialize IMA in
-late-sync or it isn't.  You must pick one.
+Needed to move mvebu_pcie struct below others as flexible array members
+require full definitions.
 
---=20
-paul-moore.com
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ drivers/pci/controller/pci-mvebu.c | 33 ++++++++++++------------------
+ 1 file changed, 13 insertions(+), 20 deletions(-)
+
+diff --git a/drivers/pci/controller/pci-mvebu.c b/drivers/pci/controller/pci-mvebu.c
+index a72aa57591c0..dea50f6e88be 100644
+--- a/drivers/pci/controller/pci-mvebu.c
++++ b/drivers/pci/controller/pci-mvebu.c
+@@ -78,18 +78,6 @@
+ #define PCIE_DEBUG_CTRL         0x1a60
+ #define  PCIE_DEBUG_SOFT_RESET		BIT(20)
+ 
+-struct mvebu_pcie_port;
+-
+-/* Structure representing all PCIe interfaces */
+-struct mvebu_pcie {
+-	struct platform_device *pdev;
+-	struct mvebu_pcie_port *ports;
+-	struct resource io;
+-	struct resource realio;
+-	struct resource mem;
+-	int nports;
+-};
+-
+ struct mvebu_pcie_window {
+ 	phys_addr_t base;
+ 	phys_addr_t remap;
+@@ -125,6 +113,16 @@ struct mvebu_pcie_port {
+ 	int intx_irq;
+ };
+ 
++/* Structure representing all PCIe interfaces */
++struct mvebu_pcie {
++	struct platform_device *pdev;
++	struct resource io;
++	struct resource realio;
++	struct resource mem;
++	int nports;
++	struct mvebu_pcie_port ports[] __counted_by(nports);
++};
++
+ static inline void mvebu_writel(struct mvebu_pcie_port *port, u32 val, u32 reg)
+ {
+ 	writel(val, port->base + reg);
+@@ -1455,11 +1453,13 @@ static int mvebu_pcie_probe(struct platform_device *pdev)
+ 	struct device_node *child;
+ 	int num, i, ret;
+ 
+-	bridge = devm_pci_alloc_host_bridge(dev, sizeof(struct mvebu_pcie));
++	num = of_get_available_child_count(np);
++	bridge = devm_pci_alloc_host_bridge(dev, struct_size(pcie, ports, num));
+ 	if (!bridge)
+ 		return -ENOMEM;
+ 
+ 	pcie = pci_host_bridge_priv(bridge);
++	pcie->nports = num;
+ 	pcie->pdev = pdev;
+ 	platform_set_drvdata(pdev, pcie);
+ 
+@@ -1467,12 +1467,6 @@ static int mvebu_pcie_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	num = of_get_available_child_count(np);
+-
+-	pcie->ports = devm_kcalloc(dev, num, sizeof(*pcie->ports), GFP_KERNEL);
+-	if (!pcie->ports)
+-		return -ENOMEM;
+-
+ 	i = 0;
+ 	for_each_available_child_of_node(np, child) {
+ 		struct mvebu_pcie_port *port = &pcie->ports[i];
+@@ -1488,7 +1482,6 @@ static int mvebu_pcie_probe(struct platform_device *pdev)
+ 		port->dn = child;
+ 		i++;
+ 	}
+-	pcie->nports = i;
+ 
+ 	for (i = 0; i < pcie->nports; i++) {
+ 		struct mvebu_pcie_port *port = &pcie->ports[i];
+-- 
+2.53.0
+
 
