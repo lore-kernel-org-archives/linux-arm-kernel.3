@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79B74F3ED40
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 14:58:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 240B0F3ED4F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 14:58:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DII7aCMHxbnEfo6qVNehUuDSdlZbo8e6WaMr0UUHHGk=; b=yd1XvLbCxTEzfHefr8gm/QOO4Z
-	KsVSYP0F4XnK3XMRDSj3Pz4jTaRQKMj9+i60rH+5Fswk2hD4o6dKa8mop99+eI6PmnARNV5xX3DNl
-	SFP6yC0DdZqc9is6FjNtW9yKQi3HN/iZQ6Msuy252dndSEKuQeD+3uomCpcyjW8gJrNUofV4g2AMW
-	rQEhpwNvbxiruiJKsWTjNr9wg2i55ttMs/tR1F9UGXptjd5tI/Ie7XjCF/BGbyWTItOW6qG9rB9/8
-	U4nNgO8scDbzKbgMVBvSTuwyr1gpadxC8sWNZ7/Wh9WltZn2ynvvS/YqgVEExeJYbAQspXzVrMi2H
-	ZS6HklNQ==;
+	bh=ZZFZpdr1MV/6QAPj7KJDoF0hCAuAn+fdtvXvgF3G4yk=; b=Iy0BovM1KcD9Hy2nUo0/njMdXj
+	MYrDNBMMHjI7TO+VkLe42G7s68X2m4KwAohoWm6VjAnz3UY/hMJ2E8mCwdb1lvR1geGaI4gKCfd9+
+	DAtzohThcBXE0sEZYRzY9P6m79CgEnmHOLux7szqH/ncU83BDcgcFTOilC0S/26RVLO5W/KAJPdbr
+	Z3L7Q/MINvAM2NgOrnpZ+TiWK/eSI4DeSFrYd9sLIRLkftirF4247+PfrI6vUPnmaC58VaM7Qu7F9
+	Y/O7FUgHmxkTX8Eh91Lwl+uYSI7+1Y9ZYxzmUqNVA6f29hfzLF6K203HbHbTmN+UP0ugf2XFUdQLL
+	zs9Gga7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBZmt-0000000DXwO-0sck;
-	Sat, 11 Apr 2026 14:58:19 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wBZms-0000000DXvA-1JlW;
+	Sat, 11 Apr 2026 14:58:18 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBZml-0000000DXjE-3ZEj
+	id 1wBZmk-0000000DXhZ-3K1e
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Apr 2026 14:58:13 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-48374014a77so41853145e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Apr 2026 07:58:11 -0700 (PDT)
+	Sat, 11 Apr 2026 14:58:11 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-488b8efed61so27352025e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Apr 2026 07:58:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1775919490; x=1776524290; darn=lists.infradead.org;
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1775919489; x=1776524289; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=DII7aCMHxbnEfo6qVNehUuDSdlZbo8e6WaMr0UUHHGk=;
-        b=FIViirpVlGARNCBAxEt+vnrme2bmXqQ4LG9FNuX4rsEafJXdY6R0dQErOOq5BSFnMx
-         Tu8lLGQEHXXgTRKtAMUCLMP4voe95dpQJwUyktGaGmKa0qEZ1fyA8GULXjPldMWABskf
-         OeRhG0DHvBp0uC57ttBHQWFuok33xwt9FaoUpH7ixZqN9Uz9DuKqxJWubRVHS10Kq5cu
-         Fj8TnWk4B7lx20JK/hTs2goPmQIKKHqW800m8XdrfzkJ3oZkIr/14/Lq35Ft3f0uT01p
-         s45T/JH3lQF6ANTRNqs+6DbiHQZPF+jEl1J45+rszOSQLDCprJRThuQX8VjD7nliOZAg
-         z9yA==
+        bh=ZZFZpdr1MV/6QAPj7KJDoF0hCAuAn+fdtvXvgF3G4yk=;
+        b=ZjhpH1yd1wnuYD+0v80UAQKbEB5/zs6Naq4QSs6r6TKUVstNkGsafirABaEr2CMiSD
+         UIHWfCCqrMeqi3tBtzQyRtpfR1hXnEA+z/t+c5+KlI+qrw3Rn69BE8TgzIICKcpk5iHK
+         kYojgCyT4kjABtxnokdm+cNbYTN2boZ7HTJTVocdz3VpJFkVdEaxrGwQlXd89TxNY1FE
+         h5SyI3YmmmF5lpabDCbOUq0ZqvDD4pRI6bLQHcJf+WcUMRPf7IOHIBhETt7yQoeIvonj
+         YSUhOVsINQ9ZjQ7H6SV8W6q5L6sG+WaB6HnovIhGgNk6zeBORI/mO2GSL5U6K/00s6cb
+         E4Ag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775919490; x=1776524290;
+        d=1e100.net; s=20251104; t=1775919489; x=1776524289;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=DII7aCMHxbnEfo6qVNehUuDSdlZbo8e6WaMr0UUHHGk=;
-        b=mL8nGNaJwyyj5ZMqwLYTOo2rJhsY4vadbFImHMkLHot+5BOhehgOtmYuxxlvozZaQ1
-         f+6Ohn8rusIAFoHv45VX32lK9P7dIDLgLOeGE69MRPwyPutOZ9fMOSP0xH5FY9Jqyaav
-         EP19R1BR1iZ4eEQO/ladGMw6Ge8NJe+8izorkt1hx2vv4tREvMptEay1tSb4eiwx9aS0
-         SgtNnP+vd/0HqSPa+kfuQ8vkExwr0u9Jobe2h5GicoTSO1QHJ9rumDffskHnZ1awsXr3
-         SspARxBwCe7fSSrqzThcSRAYI0N7MVqfCM1xf0eSVFOSjCDQUg96UDA1nLpBKDmZt3cs
-         m0Aw==
-X-Forwarded-Encrypted: i=1; AJvYcCUf3+0DcniqA/NLxltqpYbZbhpQXbpcCzcXpDGBNtlj9c0Gf55SG5YG3pIqEBD/wMzQYV6ZL1OvoZJOqtCAXhgZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwB/CZTRA5bEYgh9ozitkxqTXDI//FtcTonuqKttgcSKZ2Blb+/
-	W9wvZ/wK6orpxZU0QA+TnBJWKAhBQmSWuR8zBC21OP+3WEDYk3M3ZM6ScSglh9I6uwA=
-X-Gm-Gg: AeBDietGgxjpalRebuRg2mXCEbDyX1/Mug5ymAk7Yr3MNciRDfB2NkpSB6Syw20SayR
-	NhBi8QGhU/6JRvqub5R+QrAbcybnAspyDPbg7ziLv4qbNe2uKbP+7Cv7HwmoerILsOR7EQ4CBBu
-	TXV6FuGzuY1nDDT9pR01eybldcuvW66m9sZXvzAzcfpTlUhBw+Z1BAYA5VrWnQSNgHyaiUNO5+K
-	mEYKfxbtbpJG+R0QLplxs2J2zTLwdsE3hW7veOTiZDSrWKp8WvdRQ0Uxl1x1xFfgj5JDkk3lz4H
-	sAJGQ/8hDy21JqHjsW6NFdeW4GZ/rUjHz7PbzLgoeGKqJAF+Ce5dlyw/mBonEPBXBpYE2xn7m8T
-	f5qI9Wimqli+Xg6zpFN+Zd/+6vEJezP1lH6zBoYeJxrHvbd1z800bEAhg+ia2aAsivTtiE1PK6z
-	pNXt9fS26V+V6E73MUCNaw
-X-Received: by 2002:a05:600c:30d2:b0:488:e192:6fb5 with SMTP id 5b1f17b1804b1-488e19270cbmr11503025e9.24.1775919490161;
-        Sat, 11 Apr 2026 07:58:10 -0700 (PDT)
+        bh=ZZFZpdr1MV/6QAPj7KJDoF0hCAuAn+fdtvXvgF3G4yk=;
+        b=Zs0rENyal1LbrvG/ZdI3eQ8Pn+Jrtlg7dqZy9XaHqK+EuhcJ/pzgbMUnYbwkqm40VS
+         N+M13RiG5EAA2m6AAMzuq15VXlgMe4XacUccFbYulMtxoD5pojHQ23twyBbI2kQnPzLi
+         Yj0FQ0wOo2FiH89817rAYZnIu3Zw1NqmkC5pcbH/WhFfZBOStNnORWpmFAuhrH9BvQl0
+         M4RbQSJ+t/H+G/SiOlRSXfqfJXybsglhWIu8lzaZGKPtOeDHHef5f0cHGkSLO31unS0z
+         FbPT2q8mcBsRNd2bCSJ1IswGWZqhvgJ2BsyzLgCZQQD8o4YLInqVp3igPug8gg6y6WWx
+         Sj6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW3wE1IAmMEAb+rOY42RKSMJQfNtZFRy2jLrAuhAtsW7F1LHaTYWSQ8ut12pi9645yIvlVWydiuA2jSStEGEqp1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzdcm2v4jOQePL/Jj5UzOGGcaqyvs651ZnEqw9+5tw+hoSOCyuV
+	GJXUUKb6KnihNFL8Z1+nh3FQDHzKnBcVuthZPaVlsgwI1Pvzt83xGbTSujmHZCFOQ7g=
+X-Gm-Gg: AeBDieu8JOox4NVdL38OVFRt3+Z6JllB064NJ6OwYqbn5VLoFzoBEqO0R8Xghh/bVKE
+	lojsCQUZU764ptU5gmR9Qi4RbbADHJplKqyUvWer0yE49BVNOlVTKyCRlTctmc0+TlF6EXSZWnu
+	ZWvbqKDXnnvakP24TzIeTrFTeDUwm8oWW12MNM20otaakwSIjazdLpL97R7vOEuPWrUvnMZCw2N
+	gDJHWCxFr3P4aeQ7FcW0Pr4Pw6keDWmOfs6qsfefzCrlcajY6oW9gbwhAzdOrbzkirox+UxE5PW
+	C8+ZHV4pXvgsrmqJ8mphJG+INjkNCwg7eyJuGXUU6CLa8wTpztimMel5mHVHhc+MZW+waM+Xkrr
+	ZDBOtZngsJNYy6Aieo2i8FgfwtDp/SAR+nWA47kUDkWKiRiG80n586rKrd0ZxkGJfEyNyKuLYXL
+	gM2mynvse82+JJ8AG5+yki
+X-Received: by 2002:a05:600c:3ba4:b0:488:c6e9:1e0c with SMTP id 5b1f17b1804b1-488d6847de9mr87734405e9.5.1775919488826;
+        Sat, 11 Apr 2026 07:58:08 -0700 (PDT)
 Received: from [127.0.1.1] ([151.61.248.52])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488d5dc7070sm48882375e9.10.2026.04.11.07.58.08
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488d5dc7070sm48882375e9.10.2026.04.11.07.58.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 11 Apr 2026 07:58:09 -0700 (PDT)
+        Sat, 11 Apr 2026 07:58:08 -0700 (PDT)
 From: Valerio Setti <vsetti@baylibre.com>
-Date: Sat, 11 Apr 2026 16:57:34 +0200
-Subject: [PATCH RFC v2 09/11] ASoC: meson: gx-card: add support for AUDIN
- FIFO
+Date: Sat, 11 Apr 2026 16:57:33 +0200
+Subject: [PATCH RFC v2 08/11] ASoC: meson: aiu: add I2S Capture DAI
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260411-audin-rfc-v2-9-4c8a6ec5fcab@baylibre.com>
+Message-Id: <20260411-audin-rfc-v2-8-4c8a6ec5fcab@baylibre.com>
 References: <20260411-audin-rfc-v2-0-4c8a6ec5fcab@baylibre.com>
 In-Reply-To: <20260411-audin-rfc-v2-0-4c8a6ec5fcab@baylibre.com>
 To: Jerome Brunet <jbrunet@baylibre.com>, 
@@ -91,17 +90,17 @@ Cc: linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
  devicetree@vger.kernel.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2163; i=vsetti@baylibre.com;
- h=from:subject:message-id; bh=2ntYm7/hmH/uH7c2NHvmQVtKZ8poNaDp8J/gvOxFEnk=;
- b=owGbwMvMwCF2z3ty7kUrRgbG02pJDJm3EksmrahWzn5x4WJtQN9LV2MG+cX3n90/v2bLvk2Pc
- 56rXmW06yhlYRDjYJAVU2RhmX7vd0Gp2kPjhJMFMHNYmUCGMHBxCsBE/mgx/K+7ttJNs2e2wi0/
- j5oX17Y4BPCdOmtw+cEkWbmYU/HcskaMDI+OnHHQteZYLetsyuvQYCp/q3T7pBKJ8ze1v4kfnCj
- lywEA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1113; i=vsetti@baylibre.com;
+ h=from:subject:message-id; bh=6j3v3mDrlDrlzFC6qKMxljaBySrCYlr4KNLaCiaa91M=;
+ b=owGbwMvMwCF2z3ty7kUrRgbG02pJDJm3Ekt27DBdU6rFqj7t7+P5ibppX97/M9BYJ++QMKe1t
+ cS5WHp1RykLgxgHg6yYIgvL9Hu/C0rVHhonnCyAmcPKBDKEgYtTACYy5SQjw6zSF59O/F7VUOUe
+ +/OU/g9BQ5HD823mHpnc7d+7Ol74Kh/D/+xT3U9uKKUnLRd+JfJ163SuSvHNMh6CjbmK5ltFft5
+ p5wEA
 X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
  fpr=0497DEFB707526E13360C970DE4B936DD13A0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260411_075811_956032_54B83E83 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20260411_075810_857491_385B3F76 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,60 +115,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Slightly modify "gx_card_cpu_identify()" by making the compatible matching
-string an input parameter. This allows to easily support also
-"meson-gx-audin-fifo" with minimal changes.
+Add capture stream to CPU_I2S_ENCODER. This is the final step to add
+support for I2S capture following the recent addition of
+"audin-decoder-i2s" and "audin-fifo".
+
+As for the naming of the stream "I2S Encoder" is kept as base following
+the same pattern used for the playback stream and with the goal to minimize
+changes.
 
 Signed-off-by: Valerio Setti <vsetti@baylibre.com>
 ---
- sound/soc/meson/gx-card.c | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
+ sound/soc/meson/aiu.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/sound/soc/meson/gx-card.c b/sound/soc/meson/gx-card.c
-index b408cc2bbc9193ae56d02b4fcd05af8df3f93d80..1e48dbbf7324dfa6ca66026d944422dadf4204c0 100644
---- a/sound/soc/meson/gx-card.c
-+++ b/sound/soc/meson/gx-card.c
-@@ -65,10 +65,10 @@ static int gx_card_parse_i2s(struct snd_soc_card *card,
- }
- 
- static int gx_card_cpu_identify(struct snd_soc_dai_link_component *c,
--				char *match)
-+				char *compatible_match, char *dai_match)
- {
--	if (of_device_is_compatible(c->of_node, DT_PREFIX "aiu")) {
--		if (strstr(c->dai_name, match))
-+	if (of_device_is_compatible(c->of_node, compatible_match)) {
-+		if (strstr(c->dai_name, dai_match))
- 			return 1;
- 	}
- 
-@@ -94,21 +94,23 @@ static int gx_card_add_link(struct snd_soc_card *card, struct device_node *np,
- 	if (ret)
- 		return ret;
- 
--	if (gx_card_cpu_identify(dai_link->cpus, "FIFO"))
-+	if (gx_card_cpu_identify(dai_link->cpus, DT_PREFIX "aiu", "FIFO"))
- 		return  meson_card_set_fe_link(card, dai_link, np, true);
-+	else if (gx_card_cpu_identify(dai_link->cpus, DT_PREFIX "meson-gx-audin-fifo", "FIFO"))
-+		return  meson_card_set_fe_link(card, dai_link, np, false);
- 
- 	ret = meson_card_set_be_link(card, dai_link, np);
- 	if (ret)
- 		return ret;
- 
- 	/* Or apply codec to codec params if necessary */
--	if (gx_card_cpu_identify(dai_link->cpus, "CODEC CTRL")) {
-+	if (gx_card_cpu_identify(dai_link->cpus, DT_PREFIX "aiu", "CODEC CTRL")) {
- 		dai_link->c2c_params = &codec_params;
- 		dai_link->num_c2c_params = 1;
- 	} else {
- 		dai_link->no_pcm = 1;
- 		/* Check if the cpu is the i2s encoder and parse i2s data */
--		if (gx_card_cpu_identify(dai_link->cpus, "I2S Encoder"))
-+		if (gx_card_cpu_identify(dai_link->cpus, DT_PREFIX "aiu", "I2S Encoder"))
- 			ret = gx_card_parse_i2s(card, np, index);
- 	}
- 
+diff --git a/sound/soc/meson/aiu.c b/sound/soc/meson/aiu.c
+index bb3e0364190766ab4ce9ea3ebd313eecf220a244..2b6b94957b051976191d9b1e0dbdb4ca01ba2a94 100644
+--- a/sound/soc/meson/aiu.c
++++ b/sound/soc/meson/aiu.c
+@@ -153,6 +153,13 @@ static struct snd_soc_dai_driver aiu_cpu_dai_drv[] = {
+ 			.rates = SNDRV_PCM_RATE_8000_192000,
+ 			.formats = AIU_FORMATS,
+ 		},
++		.capture = {
++			.stream_name = "I2S Encoder Capture",
++			.channels_min = 2,
++			.channels_max = 2,
++			.rates = SNDRV_PCM_RATE_8000_192000,
++			.formats = SNDRV_PCM_FMTBIT_S16_LE,
++		},
+ 		.ops = &aiu_encoder_i2s_dai_ops,
+ 	},
+ 	[CPU_SPDIF_ENCODER] = {
 
 -- 
 2.39.5
