@@ -4,117 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B197FF3ED5E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 19:55:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27C8EF3ED66
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 20:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vNX2LeApEj4s5J5aXKcawswCbi4C1Db3gEN0t6QELng=; b=xQaZouKhz0R6eh2HA4lRsogf9i
-	aX5NGvsOABlaw2prfh3ZwyRsZ70cYrYvk0tJeIh1a5HF/ZY/FmKDlT3FdgBbetO0nEfVsCQCr46VL
-	pOk23x5XVUmRjgRy4TxWarxt3t0xOcG8kaqToGL6hn1e072tHBsPe4VYNQVfqHxXc0LVucVWDewuT
-	hQuTlYvQP2MQOIIpkqQzdQ638I5Ydz+39dhcv7nww2YdJ4KKyzyuJqGiq/Hdl+LBieAXuzQX05oNW
-	ou2Qtygh22telvyfDPD2XZZjoFY7AnLNnus8gIaXAWrXeRUaTVhOA/Xhf1cnHB3FcvI2npVVwmNg6
-	wBCRwkYg==;
+	bh=5q5RroT50XruNLk8tby8qXtaVeWRUZkkC5f73ORjtiQ=; b=KiCbxtlnO9MSfZ1lPuZpjWFjuT
+	HDebplUYWbUyJqb0ZSnG0ZHdpX06UnAbfqGjaOdmsBwxYDrtqjq93oYK/DdkTSS4IO8PnkT5MBVow
+	pcA8OxJe41vv6qo4Cz60VBwGchJh9eQc5AxbGSaPlay+oqUzL7yeQkg0F3GXDrJpQH8OofULw0vmb
+	dy1vVu05iRgglzEZaITePhu1SjMi/rRgli7NnOmIDBdLOO16mZ2/IVKgbHvLjSIwWGMJfw6JMVtpO
+	Quz02qG4z0Ys7/Dl5By56f8ZXlsEqTPS1KQtzLxiKMPuhjLlYTR2iCHYg0QOXUX71p8HeVEdVE087
+	h35wHuiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBeQ2-0000000Dl2z-1tng;
-	Sat, 11 Apr 2026 19:55:02 +0000
-Received: from mail-eastusazon11012001.outbound.protection.outlook.com ([52.101.53.1] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1wBf8e-0000000DmbD-3oFq;
+	Sat, 11 Apr 2026 20:41:08 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBePy-0000000Dl2B-1ssw;
-	Sat, 11 Apr 2026 19:55:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iVWPveU44VVv7YbPBl3zdoDCfxdJvYWqfwib/uU3CbrB/lbGA3ka+MEUYd7VmqcFhEmwuLSRZ1kBWHT2zR2thIcGW5Nh3zAVu6+26I3PRBHs1RZXqEGNH+dzeyb6VnFfC6LX8nXKKrITR86yuSm3Pxt8+cxNcCMprqmaJCvHvwzbN/KFnnKVGTqeFlkXuEq8UZaZZmFOYYGcvpXwnhQg6kDlRhPPLsv7m1rc91wW2Uf3rmNPfmcr9wm1oqNuzWf/XA68h3os3feGJrF4oaejwjgSvVS7mjPP+QuwIYV1eC990pVnBQldP6r3xE7bolDSJbnncdL9CDUWccTATe93+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vNX2LeApEj4s5J5aXKcawswCbi4C1Db3gEN0t6QELng=;
- b=sZJ43lx1rJxzzwZVDM2yNKHgLszxUHEANCbF5A4Lgf3kyuDjg3SIxoYww32hYnJ04+HKJVnkfYnwYFeWdu97U6Aaml/tyosE/YOofcST/KBytOn9O5IsaH1X/Jd/GVRlKp0mHuhbBcuuVe4dZLNUUkSDGeJtGRh6MIBIqHLZQEW28LvApVnmDJDctERfgsLTBNVrHGpu5M3ciw9L7ACqAYBdRgkjEljcn8NFjQqB5FA5D3MdgZ0+x/FEjh6O4rnEOXt63wjGwOnrNg1srOgCw7a7GLTwlGVAVBFXxKyBH+O9S8cm+9+3WnhRF0kyBZZ0b4mGYtv8Gpal092cVOLfGA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=arm.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vNX2LeApEj4s5J5aXKcawswCbi4C1Db3gEN0t6QELng=;
- b=J/OhpU+jDn/xlbni285P1keskgIctQQhaRVMoIaCIeqhzNvwfB9Kt3v6pIXTaOaPyZNeV7NDpPF63BPPLNN87238fX59bUwVAH9+lCSGgDYva98bIsskGCPHFEcWoXXYIHrwn6nCuCp7cgAmNx0lW9nnSMVw1rLtdZ36iMtMqyg=
-Received: from BN9PR03CA0572.namprd03.prod.outlook.com (2603:10b6:408:10d::7)
- by IA0PR12MB7722.namprd12.prod.outlook.com (2603:10b6:208:432::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9769.44; Sat, 11 Apr
- 2026 19:54:51 +0000
-Received: from BN1PEPF0000468B.namprd05.prod.outlook.com
- (2603:10b6:408:10d:cafe::53) by BN9PR03CA0572.outlook.office365.com
- (2603:10b6:408:10d::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.47 via Frontend Transport; Sat,
- 11 Apr 2026 19:54:51 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BN1PEPF0000468B.mail.protection.outlook.com (10.167.243.136) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9769.17 via Frontend Transport; Sat, 11 Apr 2026 19:54:51 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Sat, 11 Apr
- 2026 14:54:50 -0500
-Received: from [172.31.178.191] (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Sat, 11 Apr 2026 14:54:46 -0500
-Message-ID: <c45ede13-f8d0-4b6a-b2ed-f06af4882ebc@amd.com>
-Date: Sun, 12 Apr 2026 01:24:45 +0530
+	id 1wBf8c-0000000Dmao-0moc
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 11 Apr 2026 20:41:07 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-43d7213b6ebso71223f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Apr 2026 13:41:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775940063; cv=none;
+        d=google.com; s=arc-20240605;
+        b=leTxnQc6kgtZiw+j3Hx+BDUNAkRstgLBIxTbgIME3w20IdqdlaH1enVKhuZ6Re8UUR
+         ULduQ79oR0GlPK0j+RO6AElUm7qZcvcNS1oz0ePJyc5cVnLk89dsfjsBCVsEm0r49Bl2
+         bxrcmQPxGPn/6pGT51kOA54ZpsUKyM239iDMTNAC9MmHklSCEq3tdO3THjj1kKWGOAVm
+         Wt/fA2t2aJUDKPo2tgFmOf5FtkMqwMN53jrJOtGHDOgAHGK9YYr3rlWncP4E4DTeRZhl
+         fMrfyf3fQj5eCvlvDTBxrqFaXuT+E1e8WuvIi+7h659ChyQWiyO+oq1jk5q2SvDJyju+
+         7Egw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=5q5RroT50XruNLk8tby8qXtaVeWRUZkkC5f73ORjtiQ=;
+        fh=YKC5MJDy1XK3bOhk3/n/OU3AbWjjlXpK9Wem9qcEgL8=;
+        b=AJpsv4oEJ/DdJEG83HygfCFtkaPWnOhmbNfynqJNDQJnEsqmNuQG/kfqPCSTQyH1GR
+         VMwntw+WozCVyCr3LpEwdq9zVSlhiDqZuZe/AkuTAUAKYQ5CZFj/WZykhcYpLEd9ajlK
+         5zCE0FI9Ii4qT/Oi0v2dRyXq+4s6C0MvOdCbNTkqn2l6PQfYqmWayTQCg/3EnhQDjvJ9
+         CyTO/O2sk/glNhPFipHzghCwDTdgB/AWV+s4y1jYm6myqGKZT5FV9MRXrN9ad0bvvieT
+         HKLiywtCloKotzh65bfTHQueyosmXHkId6vZZGIJvtCci6GOYn84mPD9NdYw/IVnzIwg
+         3X+w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1775940063; x=1776544863; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5q5RroT50XruNLk8tby8qXtaVeWRUZkkC5f73ORjtiQ=;
+        b=F0B/u36WJDKPLkCAw0TApQ7gVgV7UcHQQtB+kLVced4aUigM2P+KJcoipjxgIkWq3E
+         HRKE8QfqwRmBXzuUj06UaNmJ8hKFIqG8h/lEPji6Ex1ZR4T0kwJ1fRwUQWeLuKdz+Syv
+         wL7ohfOKHoTWQHQrKuWiidmWT//gXCDMa49yUR7BEOhwdWBsUfSYjRC/nMIBbp0E8hgh
+         eY+Hjyt1CA6jajXTaKPQeTMNfynOYPB18ox2jnI1xgmk0quBFKPoW2bG4/1hkF47C8DE
+         mdcDH6Y1n9U4QKKB87WDkc/ImFcnBqg65/Mdeb06OgXIX1zmyzWVnIAl5dizd2z3aICu
+         XHHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775940063; x=1776544863;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=5q5RroT50XruNLk8tby8qXtaVeWRUZkkC5f73ORjtiQ=;
+        b=SM4TPBez0kXKtO1jPfl/aByvtpi23gj71KS9olQsjmb0NshhROun/OvVWAzrPyJaA/
+         GQJ7DoFjoQLt6pfBUepL0EyS+oDG7E1RyrrMpqGDtARVrFvkZsuseKe2BTiiXGRTxZEl
+         9+0me8nfk94yQvwsRZf4vNbFupqmChPei4e9VRbhPvGrpVsf1t5+Lj4VZ6MX8PI9Os51
+         N+sjAwqF4HV81XuJsmiaOUO9mUcbfhD4cvUZ0uwYQO0viDHWK1sAfc8BxYdXq9zFmFqO
+         zHnu+6V3eElgCCMivr5LwHVKMuQDBhup6AyUwDlpbQKWARK9d43ATXKvJIYT5EH/CJZ6
+         HBog==
+X-Forwarded-Encrypted: i=1; AFNElJ9aonu7rTux3tTgdu5r7Oegv+2NKWY7MmRpVFAixvWXwanAN0IUrMbhwJzsLyMpsZGS8xPC/dwPTyH+1LpOfKPO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9KY4/qRu8Q0GVvNND+Ai4zFh5TM1TDeDf2UlK/NqaA5nVTPa9
+	medUckHNnwIx1GE6WYGB0ONwN6HDTxDDSMBlUtBfhAXdNoj6VboMYi9RQVYAokhmrtv7Xgy5ah3
+	3R19fCqyCKHpRu/svAI0Mb8elB9c0AZo=
+X-Gm-Gg: AeBDietnLoAGNmEDraH20LYwF9PuMVs1g2z/frb0knT/5hA+F1BMZyy4OYSN5Qb5dwA
+	rNfiRJImNjGBFOUt7wBwFrnhmfFHkF19KeoDIrm3oNL+6LEuE7rgD36G/6xaubEh3rNrPgN6k58
+	fxmnhysKgIRKvO5j07WweX1dKNrN6rCPAIAQxpS3SRq968XcvAiHz7dqkAPUSnqGsHO/0m3+xHe
+	0bvXVfz16ddUuT+n42Vq0y6RQU6oUv1y+VKQbNYjR+s0opd3umgRUzyOkDcLZCuxmQWQI7SSO2U
+	vkeBvwOSGEf04XOlOwvjdXm/4lPird+nR5cvyA==
+X-Received: by 2002:a05:6000:18a9:b0:43c:f1da:488b with SMTP id
+ ffacd0b85a97d-43d642b9ce4mr12087419f8f.30.1775940063242; Sat, 11 Apr 2026
+ 13:41:03 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/7] arm64/runtime-const: Use
- aarch64_insn_patch_text_nosync() for patching
-To: Catalin Marinas <catalin.marinas@arm.com>
-CC: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Peter
- Zijlstra <peterz@infradead.org>, Sebastian Andrzej Siewior
-	<bigeasy@linutronix.de>, Will Deacon <will@kernel.org>, David Laight
-	<david.laight.linux@gmail.com>, Darren Hart <dvhart@infradead.org>, Davidlohr
- Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?=
-	<andrealmeid@igalia.com>, <linux-arch@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-s390@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
-	Jisheng Zhang <jszhang@kernel.org>
-References: <20260402112250.2138-1-kprateek.nayak@amd.com>
- <20260402112250.2138-3-kprateek.nayak@amd.com> <adjE6WzFM7NogzlU@arm.com>
-Content-Language: en-US
-From: K Prateek Nayak <kprateek.nayak@amd.com>
-In-Reply-To: <adjE6WzFM7NogzlU@arm.com>
+References: <20260401041929.12392-1-CFSworks@gmail.com> <ac6kfQ98Xjt3dCGj@shell.armlinux.org.uk>
+ <CAH5Ym4g3pbU_bWzMwJMdhEFv4K2sp3pty3g04=0=9Z80_LzW1w@mail.gmail.com> <adjrtRSepmac2hpN@shell.armlinux.org.uk>
+In-Reply-To: <adjrtRSepmac2hpN@shell.armlinux.org.uk>
+From: Sam Edwards <cfsworks@gmail.com>
+Date: Sat, 11 Apr 2026 13:40:51 -0700
+X-Gm-Features: AQROBzCWE5R1ZaXZe3VP4juckZTMVk39IF4qj9BF-f9NpOBdP5trAKumJEG9Iww
+Message-ID: <CAH5Ym4if3Wh8uBF85F8VrPWxXFHrs6eE=vrL=-bdHN0SnLat9A@mail.gmail.com>
+Subject: Re: [PATCH net v4 0/2] stmmac crash/stall fixes when under memory pressure
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, 
+	Baruch Siach <baruch@tkos.co.il>, Serge Semin <fancer.lancer@gmail.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, netdev@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF0000468B:EE_|IA0PR12MB7722:EE_
-X-MS-Office365-Filtering-Correlation-Id: ff1b5bf3-a56e-4a81-61a8-08de98043183
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|82310400026|376014|36860700016|13003099007|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: U7ldQmJMXOfFzNsS5tZsCnecmPycVVOMmMQFvuXm0vbunvvCAaBO/qVJ9av4kEeeddL3A6Df6Tn3pRa+YacQgB8McBCHmDFLXe99IJ4qOQgYIjbzs398Sx07m3jWvjfiLN4Id8MWBVTM8jlkQynnJDnHIo+j3mO4jlF404INnmAsi2AJi3cs2wP9iB+94DEJifWAbCaYwfKH4EHyJtjf8SP1yyG6x7E02QQD4t4HyN6FtO8mHgmZdbEBz1WfoVBLCZ3qd2SmVyjoX+vsoh1BquncvLARwjX+t7q6DkJhvMswjThwaVyHfgImvcCrh5rdnFGkHXBVeAIquSAzVLhCvNUXQ8ZKyz6cntfTtVP467qkfmk1vmDgUJJXM5fC7Yh+UVqhq+lHW6oQ4qRlsXdl6ML2T/RNlCVVlM4G0rm5oE62nOSckiRpvYwk9jPW3E8lWzgYVBYIJlZXhUvPeI+y0gNv3CKPj/wolX+B2V3/RTakFOECxRXMEaYn6/IWSEPlErfE8YsKeu4hIurAskoiPZT0AF1e4IfBBb2NToiBxJw9eNilYBWjaMvFmAO3tL3rQV8/Rhi321glzsTsl1yyxMjqFhAiairptSp5VyDp7POM4eUCUk95jGFStyODAPHrJcwJQRAbtTJaRDBIBjLgvj+eij7REBn8pnlkBcDs+4VKAidL+f5O7Nc+0al2c6dr9mQY555Sfo59MJ+9s6xhug==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(82310400026)(376014)(36860700016)(13003099007)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: mGhjP1GQx8cFqG/km9cRq/PSCz3nzNKgvloTNlQwm/uq0pQ3+yZXOy5Ii9818eXsvRnlVNM2MiZKL8VBf5jtiwHnGafbRYkPUxgPm00g/qoT3ADFnVGbmJWpCqyQa1euNXNfrac5gZJn+MTcixyb+gZSxPDUHkz8wqL1YNmKQJIA6zLBAEhmFeGmB2+LQNU8kArMSgfRFwfglrcwc3hPqRPuz2cmL0OLueLeqUkoS1Sv7vdNDochSgSF2tyBdrfs55aJ/sKq7PcdCpRfVojJw+UH0pVs9ptRDvaNgyZIDRYbGGumT0TrSsCboZJShJLqvo0KG98mlGEiql4b+UE72Lk2yZfF9IGHQT8VP8Xe/A5EyVC5zkL+UDlEVU5dO6lqDWnzVGMQrjCM/mrveau/PpYR8aoExIjNkFswqBGEAMxPTNbFiYAOFwHlhmbHhHfb
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2026 19:54:51.0768
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ff1b5bf3-a56e-4a81-61a8-08de98043183
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0000468B.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB7722
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260411_125458_655254_A241E723 
-X-CRM114-Status: GOOD (  18.86  )
+X-CRM114-CacheID: sfid-20260411_134106_263795_6830B55E 
+X-CRM114-Status: GOOD (  34.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,102 +124,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Catalin,
+On Fri, Apr 10, 2026 at 5:23=E2=80=AFAM Russell King (Oracle)
+<linux@armlinux.org.uk> wrote:
+>
+> On Thu, Apr 02, 2026 at 10:39:32AM -0700, Sam Edwards wrote:
+> > On Thu, Apr 2, 2026 at 10:16=E2=80=AFAM Russell King (Oracle)
+> > <linux@armlinux.org.uk> wrote:
+> > > I've tested this on my Jetson Xavier platform. One of the issues I've
+> > > had is that running iperf3 results in the receive side stalling becau=
+se
+> > > it runs out of descriptors. However, despite the receive ring
+> > > eventually being re-filled and the hardware appropriately prodded, it
+> > > steadfastly refuses to restart, despite the descriptors having been
+> > > updated.
+> >
+> > Hi Russell,
+> >
+> > Just to make sure I understand correctly: before my patches, you've
+> > been observing this problem on Xavier for a while (no interrupts, ring
+> > goes dry); with my patches, the ring is refilled, but the dwmac5
+> > doesn't resume DMA. (Ah, just saw your follow-up email.)
+> >
+> > > Any ideas?
+> >
+> > Off the top of my head, my hypothesis is that dwmac5 has an additional
+> > tripwire when the receive DMA is exhausted, and the
+> > stmmac_set_rx_tail_ptr()/stmmac_enable_dma_reception() at the end of
+> > stmmac_rx_refill() aren't sufficient to wake it back up.
+> >
+> > I think this is new to dwmac5, because my RK3588 (dwmac4.20 iirc)
+> > happily resumes after the same condition.
+> >
+> > You gave a lot of info; thanks! I'll try to scrape up some
+> > documentation on dwmac5 to see if there's something more
+> > stmmac_rx_refill() ought to be doing. I think I have a Xavier NX
+> > around here somewhere, I'll see if I can repro the problem.
+>
+> I've added dma_rmb() into dwmac4_wrback_get_tx_status() and
+> dwmac4_wrback_get_rx_status(), and with that I've had an iperf3
+> instance finally complete... but only once:
 
-Thank you for taking a look at the series and pointing to the Shashiko
-review.
+Hi Russell,
 
-On 4/10/2026 3:07 PM, Catalin Marinas wrote:
->> -static inline void __runtime_fixup_caches(void *where, unsigned int insns)
->> -{
->> -     unsigned long va = (unsigned long)where;
->> -     caches_clean_inval_pou(va, va + 4*insns);
->> +     aarch64_insn_patch_text_nosync(p, insn);
->>  }
-> 
-> Sashiko has some good points here:
+To me it feels relevant that the T194 doesn't use first-party
+ARM/Cortex cores but rather Nvidia's in-house "Carmel" architecture.
+Do you suppose the cache there is quirky in such a way that either:
+1) We're seeing poor cache hygiene in stmmac where other caches are
+more forgiving (more likely)
+2) Carmel's cache has a subtle hardware bug triggered by stmmac's
+specific access pattern (less likely)?
 
-Ack! I did check the Sashiko review a few days after posting. I think
-I'll probably start replying to Shahsiko's inline review on future
-threads on LKML to keep the record like some folks are doing.
+I'm still trying to get my Xavier NX to boot on net-next. It's running
+into eMMC corruption/stalls very early in the boot process (at
+slightly different times; feels like a problem in autocalibration)
+that I'm not seeing on older kernels. Once I'm done bisecting that
+regression I'll take a deeper look at this stmmac mystery. :)
 
-> 
-> https://sashiko.dev/#/patchset/20260402112250.2138-1-kprateek.nayak@amd.com
-> 
-> In short, aarch64_insn_patch_text_nosync() does not expect a linear map
-> address but rather a kernel text one (or vmalloc/modules). The other
-> valid point is on aliasing I-caches.
-> 
-> I think dropping the lm_alias() and just use 'where' directly would do
-> but I haven't tried.
+Cheers,
+Sam
 
-Ack! I completely missed that subtlety of passing "where" to
-caches_clean_inval_pou(). I'm still surprised that it didn't
-blow up in my testing.
-
-Anyhow, following diff, on top of the full series builds and
-tests fine and has been blessed by review-prompts:
-
-diff --git a/arch/arm64/include/asm/runtime-const.h b/arch/arm64/include/asm/runtime-const.h
-index 21f817eb5951..d3f0dfa7ced0 100644
---- a/arch/arm64/include/asm/runtime-const.h
-+++ b/arch/arm64/include/asm/runtime-const.h
-@@ -57,21 +57,21 @@
- } while (0)
- 
- /* 16-bit immediate for wide move (movz and movk) in bits 5..20 */
--static inline void __runtime_fixup_16(__le32 *p, unsigned int val)
-+static inline void __runtime_fixup_16(void *where, unsigned int val)
- {
-+	__le32 *p = lm_alias(where);
- 	u32 insn = le32_to_cpu(*p);
- 	insn &= 0xffe0001f;
- 	insn |= (val & 0xffff) << 5;
--	aarch64_insn_patch_text_nosync(p, insn);
-+	aarch64_insn_patch_text_nosync(where, insn);
- }
- 
- static inline void __runtime_fixup_ptr(void *where, unsigned long val)
- {
--	__le32 *p = lm_alias(where);
--	__runtime_fixup_16(p, val);
--	__runtime_fixup_16(p+1, val >> 16);
--	__runtime_fixup_16(p+2, val >> 32);
--	__runtime_fixup_16(p+3, val >> 48);
-+	__runtime_fixup_16(where, val);
-+	__runtime_fixup_16(where + 4, val >> 16);
-+	__runtime_fixup_16(where + 8, val >> 32);
-+	__runtime_fixup_16(where + 12, val >> 48);
- }
- 
- /* Immediate value is 6 bits starting at bit #16 */
-@@ -81,15 +81,14 @@ static inline void __runtime_fixup_shift(void *where, unsigned long val)
- 	u32 insn = le32_to_cpu(*p);
- 	insn &= 0xffc0ffff;
- 	insn |= (val & 63) << 16;
--	aarch64_insn_patch_text_nosync(p, insn);
-+	aarch64_insn_patch_text_nosync(where, insn);
- }
- 
- /* Immediate value is 6 bits starting at bit #16 */
- static inline void __runtime_fixup_mask(void *where, unsigned long val)
- {
--	__le32 *p = lm_alias(where);
--	__runtime_fixup_16(p, val);
--	__runtime_fixup_16(p+1, val >> 16);
-+	__runtime_fixup_16(where, val);
-+	__runtime_fixup_16(where + 4, val >> 16);
- }
- 
- static inline void runtime_const_fixup(void (*fn)(void *, unsigned long),
----
-
-I'll do some more sanity checks and address the rest of the comments
-before posting out v4 soon after the merge window. Thank you again
-for your feedback. Much appreciated.
-
--- 
-Thanks and Regards,
-Prateek
-
+>
+> root@tegra-ubuntu:~# iperf3 -c 192.168.248.1 -R
+> Connecting to host 192.168.248.1, port 5201
+> Reverse mode, remote host 192.168.248.1 is sending
+> [  5] local 192.168.248.174 port 42232 connected to 192.168.248.1 port 52=
+01
+> [ ID] Interval           Transfer     Bitrate
+> [  5]   0.00-1.00   sec  50.8 MBytes   426 Mbits/sec
+> [  5]   1.00-2.00   sec  54.9 MBytes   460 Mbits/sec
+> [  5]   2.00-3.00   sec  54.0 MBytes   453 Mbits/sec
+> [  5]   3.00-4.00   sec  53.8 MBytes   452 Mbits/sec
+> [  5]   4.00-5.00   sec  52.4 MBytes   438 Mbits/sec
+> [  5]   5.00-6.00   sec  54.3 MBytes   455 Mbits/sec
+> [  5]   6.00-7.00   sec  53.7 MBytes   452 Mbits/sec
+> [  5]   7.00-8.00   sec  52.8 MBytes   443 Mbits/sec
+> [  5]   8.00-9.00   sec  53.7 MBytes   451 Mbits/sec
+> [  5]   9.00-10.00  sec  54.3 MBytes   455 Mbits/sec
+> - - - - - - - - - - - - - - - - - - - - - - - - -
+> [ ID] Interval           Transfer     Bitrate         Retr
+> [  5]   0.00-10.01  sec   537 MBytes   450 Mbits/sec   13             sen=
+der
+> [  5]   0.00-10.00  sec   535 MBytes   448 Mbits/sec                  rec=
+eiver
+>
+> iperf Done.
+>
+> So, it seems better, but not completely solved.
+>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c b/drivers=
+/net/ethernet/stmicro/stmmac/dwmac4_descs.c
+> index 2994df41ec2c..119f31c94b61 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.c
+> @@ -17,10 +17,12 @@ static int dwmac4_wrback_get_tx_status(struct stmmac_=
+extra_stats *x,
+>                                        struct dma_desc *p,
+>                                        void __iomem *ioaddr)
+>  {
+> -       u32 tdes3 =3D le32_to_cpu(p->des3);
+> +       u32 tdes3;
+>         int ret =3D tx_done;
+>
+>         /* Get tx owner first */
+> +       dma_rmb();
+> +       tdes3 =3D le32_to_cpu(p->des3);
+>         if (unlikely(tdes3 & TDES3_OWN))
+>                 return tx_dma_own;
+>
+> @@ -70,12 +72,12 @@ static int dwmac4_wrback_get_tx_status(struct stmmac_=
+extra_stats *x,
+>  static int dwmac4_wrback_get_rx_status(struct stmmac_extra_stats *x,
+>                                        struct dma_desc *p)
+>  {
+> -       u32 rdes1 =3D le32_to_cpu(p->des1);
+> -       u32 rdes2 =3D le32_to_cpu(p->des2);
+> -       u32 rdes3 =3D le32_to_cpu(p->des3);
+> +       u32 rdes1, rdes2, rdes3;
+>         int message_type;
+>         int ret =3D good_frame;
+>
+> +       dma_rmb();
+> +       rdes3 =3D le32_to_cpu(p->des3);
+>         if (unlikely(rdes3 & RDES3_OWN))
+>                 return dma_own;
+>
+> @@ -107,6 +109,7 @@ static int dwmac4_wrback_get_rx_status(struct stmmac_=
+extra_stats *x,
+>
+>         message_type =3D FIELD_GET(RDES1_PTP_MSG_TYPE_MASK, rdes1);
+>
+> +       rdes1 =3D le32_to_cpu(p->des1);
+>         if (rdes1 & RDES1_IP_HDR_ERROR) {
+>                 x->ip_hdr_err++;
+>                 ret |=3D csum_none;
+> @@ -152,6 +155,7 @@ static int dwmac4_wrback_get_rx_status(struct stmmac_=
+extra_stats *x,
+>         if (rdes1 & RDES1_TIMESTAMP_DROPPED)
+>                 x->timestamp_dropped++;
+>
+> +       rdes2 =3D le32_to_cpu(p->des2);
+>         if (unlikely(rdes2 & RDES2_SA_FILTER_FAIL)) {
+>                 x->sa_rx_filter_fail++;
+>                 ret =3D discard_frame;
+>
+> --
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
