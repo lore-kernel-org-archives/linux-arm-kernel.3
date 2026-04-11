@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41A7DF3ED50
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 19:03:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C386F3ED50
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 19:03:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=cHQbtwOxcmIRSK/UYtPX+LYU+lWy7jhzQ3NwSZU5rqA=; b=R3alop35dr/zGq
-	Gt2d7zo2RnU+isRWvmmWimRZh4kMiX+AncU6OdQHEVCqkC7T088EgGmd+NsmI04bskbvwMaM6Pd5+
-	A/I1NG+LFOsu1NbNyZsXwPGwr30rKNX2dv6tYGyc1C1J/Cj9IjafnjF6q8BQE0Fn0JBcnexSlHnBM
-	nm7bi/JA5yRgYTBZ7xrwgXRk8UfqBoVpi83ovyWxcuWaa9JHROZShaB+988i4ndTHw3Eei3PcwBBK
-	NaBiyu6RCen5/fZ1snyrGxvWDStsjA8w8I2F51akkosV/EBoQHsgaVM2Te6Xz+4czZd27dKdKn3Fc
-	pEFmunszbDC5Zz68VxNw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SZCcfd2j80fnOyI9eoqdL6EvakDEWReMcJQ9OZ/rF64=; b=EYt2PnvFNGsws5ITj/BddN5beV
+	mK+CeYz5dytNTFZQipfKCiRwm8pCoSIlSoIe1lxIOI9iITpmWnclPI6ySw9sLor9F+YUvCpJk8ewN
+	kPXE598yj6YmGFthSLEa0DgRrN7WqnqkJ1MM6NRwPufRq5xwX7L8ouqCXxHJxYqWKxbNjlgXeetVS
+	e8sTUdVFc2mVOvxqBjLfJ88VWSggBVM+keWB4YuOgg9lyjDrwOY6uLwtMgTt2PwPvzt2fBZ4KdAR/
+	0IOeUWEX8wvZi/4rKIF9R2SydqKJ7G3e7Fdenyzslwr14i3I+gSk+CryALcYDIRGT0V58qEOTZcq0
+	kxtFDB3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBdc2-0000000DjDO-3SGb;
-	Sat, 11 Apr 2026 19:03:22 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1wBdcC-0000000DjEm-0ZxT;
+	Sat, 11 Apr 2026 19:03:32 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBdbz-0000000DjD3-3y0O
+	id 1wBdc9-0000000DjEJ-1uQ3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Apr 2026 19:03:21 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-82f2766905fso164386b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Apr 2026 12:03:19 -0700 (PDT)
+	Sat, 11 Apr 2026 19:03:30 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-82cd70febc7so2093068b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Apr 2026 12:03:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1775934198; x=1776538998; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=cHQbtwOxcmIRSK/UYtPX+LYU+lWy7jhzQ3NwSZU5rqA=;
-        b=kNhiEN59BZGk3kFaWWMaZtI62jklHvrHy/2UnHFVQxHS32mICYF15Vo5BItQ/VpbzA
-         fleuKpuJQunMvBUvj+5TGArtK6jrvVz6m7Xh/I4+thq/hc5ZziRZQY06IN92Yf9sR7M8
-         GRgjgC0jpAcllujKtLDiJbhvu5fqlIXeoBqZKsHQLCyiRT9dlHzJbK3Mlw8GJoAVbiaW
-         MnkQiN6+WddH2Q6PzAfRkbaYEHNeuwmfAtgnF0oHIWDHGVnHjvTDBoUv0ornA2HyZqg0
-         Pje3Jb/BiiFGrIocasnagVQdyjpiYMGL1K3QU1m0MMLDj60GfmN2oCBnT7PCQ3fNoxu+
-         4wMA==
+        d=gmail.com; s=20251104; t=1775934208; x=1776539008; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SZCcfd2j80fnOyI9eoqdL6EvakDEWReMcJQ9OZ/rF64=;
+        b=dAHQ5z2ITaOwvs7pDRkVvM0+oRnPRLWdpK3FxqOkGUXWuFzTjBJx6eyKv7gnSVqzXT
+         ayWgHa54oZ86h/xpRuCplEwRo0UD+Pzt+4uaFmFS0/U22UAyywpViIYLwU2KPTErdyc8
+         TPOaOZbup0grmbx4MbkKxYrmEpQgQ32oLvKnZM80Hqo42MwmJXDP2Ee98Spb9wnaOr2p
+         NcvmkT9GdppMuB3VDKTkhd/fsq1++k+jkRLVvdJChR8lpISnRdh13NLpOhgeouCygx/t
+         AWofq2EsNVMP3Aqggs4PiBGwXEQcfGbXUfQnRTZZ7KjSJh+5J19vBaYlN5pGWPC/bAJP
+         9ryw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775934198; x=1776538998;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cHQbtwOxcmIRSK/UYtPX+LYU+lWy7jhzQ3NwSZU5rqA=;
-        b=feBO/G4kmiE21i58CRFLgCTjN4rHmZJuF45U7XkmBnVdBtbA5RVvBZnn6Pa6a7bhat
-         TtrJVUjC4jO/x4phu8focGor+iUWyXRN1QtCNE58g1YsLH257v2LDS3xLYoL0ScWhBSl
-         MzibOSaXNX33P337t0JdkHzn9kIyxxHA/Q+ob+ZkM24u9ZjdB+UD+B75TJSGsgPzBuzH
-         OAcUEyGWpmi2TwpLE59Jy3Gh0wCTPaW37nP9eoaW36hb0KyQemAi8W8BY/DqTj9XMheZ
-         h9kbsA3mK4HYRo8PJXp8ET0MWABKntbK4xcJ7nz0HJIl5XQaaanxBi44S6nkatPesB0L
-         6d0A==
-X-Forwarded-Encrypted: i=1; AJvYcCXHP+qEzTNU+sphOml/Z/C25Lwl7cs691KWbEh7+PZyoByfmDmXBaqSuLKHvQWUEwlaofxvSh66mH4NWzCfa+PG@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJRK6xo5cXBRmFBu12yy8pd3yxgZs4kocY7yNEaftSBeiNv9/v
-	Zu6NL5DPqNRxPLtUEDyw/2rEVUpN4MJ1qVky9shW9D+oNYW3NWuLlaLqMoru97kr63o=
-X-Gm-Gg: AeBDiesuOhW/VEXdfjusDydWTIlLbiUdQreY6mf4mfgJdX399GAZhTT6tEA2QcQP6xU
-	AFuCI7XRRxrb8Vc+xqLjkf4sX1MUvU0upjClAZCozUCRMiS6UY9UBw101a0VfDieLU+w+HXV4SZ
-	+IK5zSE/YlPwr8UlQiIpbknkyr7QD6IvtNBGhLgb1eoAhqDGYcOgEcqKTP5g5x4lKutnwcv/1DX
-	0vTAw+zSvyeMiujjovqDXKsdDoBx2fWDZU42I5DteOSXl2PqmSJw4lx/m16J995nAaUPFaYcV+x
-	4KrtySwKjYtG825NSRzG3t8gqb6YR2LIXwp4At7QwXrTDvXCTs9x5B+51diXZScuh0vsHmwu+A8
-	emRGpCnKcX3bCoqrG6mfbhxyJOUCydP3iDofGNC7TgmVhYmTs+kSAyVEqzg+g/t/LxIhFn3CZoF
-	tbawrRt5SEy4u8I29oTMT6aeYfw4kp4bB9ioH7eGY5gODK+f8USgHAgOkWJf/1lqA3uD+Q7UH31
-	77nQimeWGc5jD1QSdvq
-X-Received: by 2002:a05:6a00:4511:b0:82c:d7c4:4c69 with SMTP id d2e1a72fcca58-82f0c25e146mr6937134b3a.3.1775934198466;
-        Sat, 11 Apr 2026 12:03:18 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1775934208; x=1776539008;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=SZCcfd2j80fnOyI9eoqdL6EvakDEWReMcJQ9OZ/rF64=;
+        b=CbooOo5ZK5doCgvyxe1Oz6oKccCJBN0K68t4Rd+SVaKO7jbXqjajsKy7xcvl6d3R9i
+         yuytBGg/PZhoffrmo6F9YDZuQbZXVwA1n5ZlBYyCGot1Lg7GsmgCt9SkoED77JfmJmjg
+         Rea1VyYv5XFg0yoVIrQPJyMV/67/I0QU9OsxZ12aS518emWN29KMIMKyPo+SicDMcnKg
+         M/TvD9Ujd2uG7icSnyhwrIe3hGNTI+nokRHM4JGqgkXR6JgwedmXbc4eB2wdD+RxAXcj
+         cmlSysKfT04L9OirAVWC/afwcJgZuzxjWuzNe896xOH31pVbq/mW+n4ZKOVbSP49wAtZ
+         G3Qg==
+X-Forwarded-Encrypted: i=1; AJvYcCU564RZvwCaicqQ0/NdLmqO0BDWq60QlH4MYHexWkghL7WZ7PPeberky3lyFsnxDRN6TyONChWuplqyW9Rdatr9@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJZTHIvcmdDXdCIneOywHjZwY0GFx+HKyBARoli832hkd1NS2e
+	4v8wJF2rSv/8AKxFs3hQ5ZzkXh1OzR1d6404FdDQ+s6B5VFTUNOVUHEM
+X-Gm-Gg: AeBDietZxancNh5dF88r7ss6vdjGqpueVBPcg3nPrI72PXOqZJhE+HqrEsEozC38DRC
+	BYRdG9o/TOAc/45Tqgu0jbl6Ijbyya21iFwIch5tPk1Eckut6XVyMKqERNb6cjgScDFTV+MRsLJ
+	hNvnUW1a84PqkNc3v3p6Og6KqKb/KOpqcgYO3/+HkMCIBQc1XO7QlPdD1Vwb7gw8H0Jiul8IUiV
+	7+IwYU0gV81q/ET0OttUmzGiVWJveoVaduOzmpVnoc1pUYg6gbu84XlvV6aXG/9hK4vn+NBI0iJ
+	brWZBem2SQhN24oTEnVizaLdVC6zZZP5++J5A6zcXhzrxCYQF+IFfhmmP3hPcgdraciDeQdB0lq
+	RQb9GiG78ddiCwDzl/9HRjvHUdO9b1t4tua2/iVELBqMx3EAYXJtmHAa4sZKy5ig78Mo1naDZMn
+	8vAyZxzcJlOV0DfGEoqaOp6CSu90j19qfn0mZEl+TpQAsTnV5C/A4HvYZZHCVrIygR9qaBA7KOq
+	xFLigQ7b4ZsMiDWqsfK
+X-Received: by 2002:a05:6a00:aa85:b0:824:93e4:2ddf with SMTP id d2e1a72fcca58-82f0c2108e5mr7582747b3a.13.1775934208443;
+        Sat, 11 Apr 2026 12:03:28 -0700 (PDT)
 Received: from junjungu-PC.localdomain ([223.167.147.125])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f0c338dafsm7058962b3a.17.2026.04.11.12.03.08
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-82f0c338dafsm7058962b3a.17.2026.04.11.12.03.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 11 Apr 2026 12:03:18 -0700 (PDT)
+        Sat, 11 Apr 2026 12:03:28 -0700 (PDT)
 From: Felix Gu <ustc.gu@gmail.com>
-Subject: [PATCH 0/2] thermal/drivers/imx: two fixes
-Date: Sun, 12 Apr 2026 03:03:02 +0800
-Message-Id: <20260412-imx-v1-0-cc3b45d63811@gmail.com>
+Date: Sun, 12 Apr 2026 03:03:03 +0800
+Subject: [PATCH 1/2] thermal/drivers/imx: Fix thermal zone leak on probe
+ error path
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOaa2mkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDE0ND3czcCt0kAyMjc0vD1ETDJEsloMqCotS0zAqwKdGxtbUAiHbDg1U
- AAAA=
-X-Change-ID: 20260411-imx-b022791ea1b9
+Message-Id: <20260412-imx-v1-1-cc3b45d63811@gmail.com>
+References: <20260412-imx-v1-0-cc3b45d63811@gmail.com>
+In-Reply-To: <20260412-imx-v1-0-cc3b45d63811@gmail.com>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, 
  Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
  Lukasz Luba <lukasz.luba@arm.com>, Frank Li <Frank.Li@nxp.com>, 
@@ -91,17 +91,16 @@ Cc: linux-pm@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Felix Gu <ustc.gu@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1775934187; l=466;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1775934187; l=1641;
  i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=NII7TnwJKw9YmpDBsJARaImgJVJgLGoeincDCzPqxIg=;
- b=oOk6zMzS2U2kzS+HMpp1a5HcEb8Vdhy4v8qOt3ufeM4ZWYMHoTsGqtnpnobEicfRXOpK9Rw9s
- BWfCxPCuXf+AiGyK3+8Ttl8xIe6Pr5IcO+NKkx4+Re8Ahgs/MxZAn+n
+ bh=HdJtNYVZoBcseIrEtuqZHe4dtTSU6Ka5kLHKaWeLYmo=;
+ b=neNOP4zpKWvHPkLkH0wdVnaTfqhzSv/BpzFq9DKrR/JAJc10E6mAsmmekeCLKiDqbQNajMH0i
+ B6BD4UMtexGDr1MJj8lbme6hvP/nA6/CmECAFZ/qJQoFx/UM6NYNdPC
 X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
  pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260411_120319_991247_1F4A939C 
-X-CRM114-Status: UNSURE (   6.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260411_120329_502333_A7C9EDF8 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,20 +115,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+If pm_runtime_resume_and_get() fails after the thermal zone has been
+registered, the probe error path cleans up runtime PM but skips
+thermal_zone_device_unregister(), leaking the thermal zone device.
+
+Move thermal_zone_device_unregister() into disable_runtime_pm so all
+failures after thermal zone registration unwind the probe path
+correctly.
+
+Fixes: 4cf2ddf16e17 ("thermal/drivers/imx: Implement runtime PM support")
 Signed-off-by: Felix Gu <ustc.gu@gmail.com>
 ---
-Felix Gu (2):
-      thermal/drivers/imx: Fix thermal zone leak on probe error path
-      thermal/drivers/imxl:Fix runtime PM handling on early returns
+ drivers/thermal/imx_thermal.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
 
- drivers/thermal/imx_thermal.c | 21 +++++++++------------
- 1 file changed, 9 insertions(+), 12 deletions(-)
----
-base-commit: 66672af7a095d89f082c5327f3b15bc2f93d558e
-change-id: 20260411-imx-b022791ea1b9
+diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
+index 38c993d1bcb3..68f9ce41a670 100644
+--- a/drivers/thermal/imx_thermal.c
++++ b/drivers/thermal/imx_thermal.c
+@@ -727,25 +727,24 @@ static int imx_thermal_probe(struct platform_device *pdev)
+ 	data->irq_enabled = true;
+ 	ret = thermal_zone_device_enable(data->tz);
+ 	if (ret)
+-		goto thermal_zone_unregister;
++		goto disable_runtime_pm;
+ 
+ 	ret = devm_request_threaded_irq(dev, data->irq,
+ 			imx_thermal_alarm_irq, imx_thermal_alarm_irq_thread,
+ 			0, "imx_thermal", data);
+ 	if (ret < 0) {
+ 		dev_err(dev, "failed to request alarm irq: %d\n", ret);
+-		goto thermal_zone_unregister;
++		goto disable_runtime_pm;
+ 	}
+ 
+ 	pm_runtime_put(data->dev);
+ 
+ 	return 0;
+ 
+-thermal_zone_unregister:
+-	thermal_zone_device_unregister(data->tz);
+ disable_runtime_pm:
+ 	pm_runtime_put_noidle(data->dev);
+ 	pm_runtime_disable(data->dev);
++	thermal_zone_device_unregister(data->tz);
+ clk_disable:
+ 	clk_disable_unprepare(data->thermal_clk);
+ legacy_cleanup:
 
-Best regards,
 -- 
-Felix Gu <ustc.gu@gmail.com>
+2.43.0
 
 
