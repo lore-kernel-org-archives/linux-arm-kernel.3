@@ -4,122 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61FFBF45A13
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 00:06:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B819FF45A12
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 01:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F0+e+g4CbwEmgN+HXC+e9w9/Yd6s3MlCcRlMtalmEtg=; b=2gwwK/q7U0YVfoRrW25cn6qz0X
-	HzKfE6ZMXCgN2eC1AMuSJdrwuwKknE7SDBH+PnnVwHjDdlJ386iws4xE0FKqvdH9N+0DAlYxcNcxI
-	9yw8wBa9ctjIUOTIJOW0gC9hnV5sHCEmvDB4DEK+mYvBRBAWOKRr9/85sk+pnuQZxmhErIhYKvJeR
-	g8pFHp+CwUKqJ+Wn/8GfiJbREs9ti59RthExY/XiugX2aB9Idv83vswS/63bRelBXpfD+wvcJRkBs
-	+D+YSKpTABuMfmTLspA3LVOjpBjEZxsgQ/3fgN4z6K69Oe3P/84VzSS2zlRmpWGb1gvWyGi9h/14Q
-	tVcS6iXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5uUkoCeVRblw7zUWJdM9ekrZvgfUtRileoapKEzjQbY=; b=jLgxZKfpXJVYn2Bz5mj0q6kfrv
+	pNNp1gw2wrPa7jKhpMaLdPrRoxhXQX+QK8FWctrzajXSyFphQErO43fO4XuHA5tSXiW7sCZbCnKtw
+	vd1QLvegZyHp5jy1fWilRlkdnCq+PsBD/Mhs0WwX2709j+bJZhiANRfmR1xeruwBWD6W/CPA91B6f
+	7rl09QEUF4jQGZCyZViRTr4r0ef77z6PLBNo1eqPrfxH+X14A4YlfN25F3kYBoKYn661Gh65dh02L
+	6Y8FdywwqlD2xQB7GQlzO/zq4jes9J1HJQSuDRqBgg7ZZk7SA/Rp1CNIFCasrs7qFg9/MPgeHpOmA
+	L9wp59XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBLs5-0000000Cx99-1mJf;
-	Sat, 11 Apr 2026 00:06:45 +0000
-Received: from mail-eastusazon11011026.outbound.protection.outlook.com ([52.101.52.26] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1wBMmi-0000000CzHE-05tZ;
+	Sat, 11 Apr 2026 01:05:16 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBLs2-0000000Cx8l-1z27
+	id 1wBMme-0000000CzGO-1bbu
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Apr 2026 00:06:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kicW6tb361cGrlDWTbWHH67CYUtOyw92T347VxSKKrb0XNvqhofweeS5Ev3LEPJOf3FkXYS4Gb0iRsbjWXgw0XNqWvmcCaov7jFZBGd9AoB5xzIIZpP4oLovFJPRB6UlD8bDYrmp4JCZ5h484QbAg5TPwQr06ocd9Lk+rF7ZD2dRxvG55mEzwaJuRRV9i3jVxqdFVxue2i+zOx/YqFi7kcwId1tyOjlOjRk8z7GxiSr3dDJ4dG94EdRqrJPL8QWFazhP33NSwyFb2xNrHy3eM8qlf7fbsBRKj/nZbWv+irwHQ0my1P5OjVE7FXa+cXCDx8MLbRJIfRYImBFRMt8YeQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=F0+e+g4CbwEmgN+HXC+e9w9/Yd6s3MlCcRlMtalmEtg=;
- b=K8ZHXqaIHB2x/mTyNm1fm+7JjvohEd2EVdNNkXVrvV8rdf9C0U7NmgrKXQNs6U495Uqh1DXm8V+44jK2aDbjmqnuMWirfFXpJ0Itoz/pgk/a4rFe0w10tCY4tPadjU+dXS/phzIpqiitqWdeXBZZdkB3WVuJNkoaAig9fbWUtu64pskhg/lIlA/xUCVD6Tdt40Sr6wTYNZhTxpi0dtotC2QVOTYF+hXBg+5IIg29z/XBADR56qsgRiya3U+bH7wCRDBZdy7YJ8BPPBtI8Z2A9oKOdRqkCTEG6A9G0ieR1XO9zd3MTL/vlyOO9ATtFPo6ZcVr1kzNol1Jec8nLC834w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=F0+e+g4CbwEmgN+HXC+e9w9/Yd6s3MlCcRlMtalmEtg=;
- b=gGxaWdVBM0I1zBWKUdYJa7ngirwrRhdfrxK/0F6L/AG68/Yrf10MQXqv9myVMBframMaaF7q+l7runz3L3yEYY9i8VTk0r9eGK3qCdRwSpuraHlTHaHncG6rx3vwAp25UCLwAgYgN6N3errtHiaQIhGi8H7sOsrA17z5AA+u4DZVKKPjuqFIaAfrzwADqkzajdEU+OmBZ8PwwCbTwQJf/TgZwHuE8U1XfeMDH+eDwFsD1P3ZouaphHJ0HsKWqm/2An1BfHZVTJ5YcSOAuu/VrBCVy4b+PHpIP34QhTU5ZdCozA3MHcievGkRRZv9jb5XAXL9zJVY2UUFXKoPHGKe1A==
-Received: from PH7P221CA0086.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:328::13)
- by PH7PR12MB8107.namprd12.prod.outlook.com (2603:10b6:510:2bb::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9791.32; Sat, 11 Apr
- 2026 00:06:35 +0000
-Received: from CY4PEPF0000EE33.namprd05.prod.outlook.com
- (2603:10b6:510:328:cafe::95) by PH7P221CA0086.outlook.office365.com
- (2603:10b6:510:328::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9769.43 via Frontend Transport; Sat,
- 11 Apr 2026 00:06:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CY4PEPF0000EE33.mail.protection.outlook.com (10.167.242.39) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9769.17 via Frontend Transport; Sat, 11 Apr 2026 00:06:35 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 10 Apr
- 2026 17:06:19 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 10 Apr
- 2026 17:06:18 -0700
-Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.6)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 10 Apr 2026 17:06:17 -0700
-Date: Fri, 10 Apr 2026 17:06:16 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<jpb@kernel.org>, <praan@google.com>, <smostafa@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>,
-	<jonathan.cameron@huawei.com>
-Subject: Re: [PATCH v4 09/10] iommu/arm-smmu-v3: Remove ASID/VMID from
- arm_smmu_domain
-Message-ID: <admQeGt9a3bUJNEQ@Asurada-Nvidia>
-References: <cover.1773949042.git.nicolinc@nvidia.com>
- <b6d87a722635d29e896b277cb60f0208859073d6.1773949042.git.nicolinc@nvidia.com>
- <20260410002734.GC3357077@nvidia.com>
- <adl0aEfBAKmBsMs6@Asurada-Nvidia>
- <20260410232500.GD2588311@nvidia.com>
+	Sat, 11 Apr 2026 01:05:14 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2b0c12be0ecso266535ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 18:05:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1775869511; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Nho+W86IYz3/OHImZ9FxdTH8v8QIjHkYJL3TSSWvNwhoMEFK6lhvsJ9txt0i6tCZfM
+         OvAdG1hO5XwPo95IB6DjwlaU2hc2nOtA6m5PTCHS7xeYH2PYdey3I2Z/SDmeXy2jEyYw
+         dgA8zjFnykmdFHIheETz/2Yr4E8pe58wETRsm4+n4EJUsOm3wNK8gMShQ5PI8ylafiJe
+         wt8YUUtWKnuoonlrDExHdsTajGBrBXyk2fV7vYpCj3Tat0MD8C5XjI4rIoYJLGyS4CLC
+         7Iev04bguDgBtaZkqZOqcO9T/rQ/8mPz5absIS96621nB8geqNn7JxWbwxaz5bsiNMts
+         NAkw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=5uUkoCeVRblw7zUWJdM9ekrZvgfUtRileoapKEzjQbY=;
+        fh=nOUQ8Za9zVedQmp/d3Z/e7wuikuqwZDBDCI7oL3aYz0=;
+        b=eGcgT8x/v8lryz84oLxJcyt7xHDnYz2LUIwYHnT+8YzEJFoH+OEgrOc5jx8IpuzzVH
+         yoVk2Jg992C9iYHLeMNjX4CiTlTWcvbc8FwL/A9uKW2P0A3P7MXVeVFzOvgLfjdVq18A
+         9xMfxhvPbcQGMFDZjtu6R6+5X934VZyrgzn7iSA+0b9qldy44f9XlrtLJ2arJwPKLT+B
+         wL+fLZKPTJtWKOJSMaU3FeKjHYrjYL6zmFPiljSscuutaXpR71M8Z0PqBFnVsH7eru3u
+         BgUEL5D7MJqLTVhwj2PHRvMWGXZadbGlCehrlSuMdmQv5aLZt6c9srzVoOXNpvX5XAbW
+         DrBw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1775869511; x=1776474311; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5uUkoCeVRblw7zUWJdM9ekrZvgfUtRileoapKEzjQbY=;
+        b=DvqXcJ/3aRrblh6ChBwbHuWZpqHPESvkEcjsgwFTUM5GIjgohUdUcYwWVBWkztN3g3
+         jrwAFLKZcZ2Df4LKgzYxFGLniljwPDJBxjonebq9KFFgkTh4lTJDmRDNvh4D2sOHqvV+
+         iD5RevpYvmFayQVFi7QWfZR6yzMqOvmNfzANaRNKonyuaolY+nEWYqppQYISZdrXeNmN
+         q/Alv1rLQFR5fIDZCgMdoay0IWWCCZQReVLNdyt1tWK4tXTzQbK0LlAfGlKe1oYJoEXw
+         vP7gkM0KPIEKdYzyW8jbtXtqjbYbSVgy0c2XFxGlx5lKUgqsoQR+9GeL6mY7Ls99xTat
+         U+Jg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1775869511; x=1776474311;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=5uUkoCeVRblw7zUWJdM9ekrZvgfUtRileoapKEzjQbY=;
+        b=c5QbcgZAlE0QEpWk+frkVi9IcCjiCPuRzNAruRf32hEIpwVLy2BvlqCHDlJTqhYlKs
+         aTSLE1WXelQI/mFvogCXFS6EjpKTxeFgpSZYcE6kdV3UbLEf+Re3E4uEIKl37DreKwqH
+         V3nk+dDcULQ8znRXPkvPLIwek1BxVgKMlOO4favLAKhaaMZHZEQAWuXA/7kCiE5Xszb9
+         ojgsLF4XcDtSyKijGfPTUJJ7Pu8rwKBuOnFsmiTtAVGIyMjz7x60qdD72I8whviXGsYu
+         HZnwBN6CVSSbxMcC/2/hw013Ih3anujgTkpVhiDBb8bMqjKS0n+HCLoAbWP9sAZ0AyBJ
+         ivpw==
+X-Forwarded-Encrypted: i=1; AJvYcCXkuTOdap/2orc+YvdKcJSmiYQeZv1mMHtVAmbL4yK8QEuTb7fioNuGh2xjhmWITQsF5k1qsMiUlWaSok0xwksF@lists.infradead.org
+X-Gm-Message-State: AOJu0YyM3zxJFXoRrXbQQwWfz+jl/PesXgLweZu7QHcTmTSLKFKI71IS
+	zypGEqIDL6WTZskypNUghGWhHZii1d35pJBhbKU6gfuFVCXzP3LPFZjwErJnI9u/UijB8BLoQVa
+	eLk/nqZMRYmJszU+NFIDP3bGnmBOS8dYmwkOHPN2I
+X-Gm-Gg: AeBDieuZEceuKD5vcI/9HZtdwJ48HX/n6gSFrAP4StgsVk/dytFHh3BvELcjGDtY4Dz
+	qwK0ated0Sm9yl4/o7+HHR85+6mnUJ1UciaFzIE6pR9uN6dZqXDiQ7lDsf0oz5Z4r0XEnqW+dbo
+	U7zIwCs1CD12bt7soN/Rfq7NdvOU9K0bCN0sY1PlaPIp+rQFPqdVEpIy0PKjm0gVmeWAYWtx/dz
+	lKK7DtSVU/HK7DvLIyhA3vKuoSnVOFj9mGqqC0fDvAfax9unTnR0Mdae3ht9MKpQJ03AveNxSbk
+	lMr2KPxCxhnkCY2Vu4ypKUb4W5SHCQ==
+X-Received: by 2002:a17:903:2b0f:b0:2b0:5e19:1862 with SMTP id
+ d9443c01a7336-2b2c8c74a19mr8024825ad.5.1775869509864; Fri, 10 Apr 2026
+ 18:05:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260410232500.GD2588311@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE33:EE_|PH7PR12MB8107:EE_
-X-MS-Office365-Filtering-Correlation-Id: a6eb531b-4319-4633-e982-08de975e31de
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|82310400026|36860700016|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: LOWnL94/JGEyu8xOaJBNWxVSRCpAelbRkNiWv4fuKO3AFknbk7ig0voG+ardVwNm53qEnZ9vwUweYsjZ8l/Dy+1vZfpAoYaxy+HcMT++3l2B2UUmvvl4Yd6C0x/27CQ4bMMGRtWPcHCcPKRmXTwCocNqH+HWh53n62MfGtEMuYib+ryL1GrUApqu35YOxJwbuG/yH/ALJ0HkWIKujcDeV7wowmeXTzVG9CfanyVp4YTL2AfNyz0qVBpSXq98m8KChg3kvB01qwlBALHtkb21y4SvphdbjL0GwklnrDqxKzzBw6mrkk8eFKLFZqNwfLjdjyCuiocfslSO6bLFj6VG76AX+Hsa9mrM6m0cpVKcnrNdmQNWbAofHjMrhea+5PxQ0zZ91bCMlssKbAAtzVS8zn81+aQ488bYDHqcgXGnvktIHq5aYZgMQr+/P5z3XKQQcG0IfFKix86McbXjrA3lW1dTUt0dzjTUcryUzh6Dos0oYZ0ux9dbS/HY18uTwLgNQ3dpS0JU1cRy1n7G6JqSVDSXIafQvBM5lGQpc+mTvmATmBB0nnj2ZUz+hk2gexBZGi4Y4YkJsz/X5dG1OAhjfBvukfHaVnIVZ3GzJZqhfDwC0A01mPmdAoMSdiujUp27yGAXcGdpNcYB6QdcKBRPb+Ab9C3KK0Kd7ZJCNYYRokW7TUmfSQYs8hN606VozbUvDZjLCkaTpZLz42SSCquyVjKBwhz5HUpFSjnR3Q7GemnGcPitTvXpsaaFV6SkveH8ThYLs/wdjHIlkFWTol4adw==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(82310400026)(36860700016)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: fb299x5173lYveXVcMujEzuP71wyO8az44/EyfpXOdoRY8qrWI5ShbCx135hG3sS3iSJbMegMeX94CRSmoO1wmzNzXgA52CxsoSdwdpMS6v6y26PBwzdnf92NjFn7BH228N/6yMj9ze/JCk+Z7VD6SgLfvAWITINxNNUzFZ0aqIZqXSerdSs1WadPi2m0kjTPmqHhgHuYTiYEQfPToOk+u8/ItjwGDQKehsw1KD4q67lzkl6EdgWKjIjg4L70ynyO/ITIl7JnYEblU4Fhdwdzo6v0QFLX/Ji1ChM2WEqnt+ElxYJAPoBjVtiPe0I57+yTnfyWtpunMdefhpIy8saLmdq6PXz1Y+NvgS63+tafl0n87bjtJQffBO91lTlfVDE9AVafdY7IzEt7r+MLE2exEAvcigt9Z5l6vj2PSEzviBqwBOfuNy6aGvffdxEKl2k
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Apr 2026 00:06:35.1379
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a6eb531b-4319-4633-e982-08de975e31de
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE33.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8107
+References: <20260305221927.3237145-1-irogers@google.com> <20260404054032.1538095-1-irogers@google.com>
+In-Reply-To: <20260404054032.1538095-1-irogers@google.com>
+From: Ian Rogers <irogers@google.com>
+Date: Fri, 10 Apr 2026 18:04:57 -0700
+X-Gm-Features: AQROBzCtgctYT5mXdJK7EI3KpOUNV_dJ28NxpQWANsDrRDgoBgsKRGHzUd38rjo
+Message-ID: <CAP-5=fUz60Guq_gVV6wb_FfwhPs-fUN+PAbB3rQn3pycXbF3DA@mail.gmail.com>
+Subject: Re: [PATCH v3 0/8] perf libunwind multiple remote support
+To: acme@kernel.org
+Cc: 9erthalion6@gmail.com, adrian.hunter@intel.com, alex@ghiti.fr, 
+	alexander.shishkin@linux.intel.com, andrew.jones@oss.qualcomm.com, 
+	aou@eecs.berkeley.edu, atrajeev@linux.ibm.com, blakejones@google.com, 
+	ctshao@google.com, dapeng1.mi@linux.intel.com, howardchu95@gmail.com, 
+	james.clark@linaro.org, john.g.garry@oracle.com, jolsa@kernel.org, 
+	leo.yan@linux.dev, libunwind-devel@nongnu.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	mingo@redhat.com, namhyung@kernel.org, palmer@dabbelt.com, 
+	peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com, 
+	tglozar@redhat.com, tmricht@linux.ibm.com, will@kernel.org, yuzhuo@google.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_170642_536898_B5302A94 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20260410_180512_470239_A6F50761 
+X-CRM114-Status: GOOD (  25.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,35 +125,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 08:25:00PM -0300, Jason Gunthorpe wrote:
-> On Fri, Apr 10, 2026 at 03:06:32PM -0700, Nicolin Chen wrote:
-> > On Thu, Apr 09, 2026 at 09:27:34PM -0300, Jason Gunthorpe wrote:
-> > > On Thu, Mar 19, 2026 at 12:51:55PM -0700, Nicolin Chen wrote:
-> > By taking a closer look, I think either the arm_smmu_domain_inv call
-> > above or any concurrent arm_smmu_mm_arch_invalidate_secondary_tlbs
-> > call is a NOP now?
-> 
-> That sounds right, with all the changes there should be no cache
-> flushing on the free path since it is now always flushed on detach, so
-> the arm_smmu_domain_inv() should be deleted here too.
+On Fri, Apr 3, 2026 at 10:40=E2=80=AFPM Ian Rogers <irogers@google.com> wro=
+te:
+>
+> Fix the libunwind build for when libdw and libunwind are feature
+> detected, currently failing with a duplicate symbol.
+>
+> Refactor the libunwind support so that whenever a remote target is
+> available, perf functions using the ELF machine can use that remote
+> target regardless of what the host/local machine is. Migrate existing
+> libunwind supported architectures like powerpc, arm64 and loongarch so
+> that they can work in a cross-architecture way. Add support for
+> RISC-V. Make the code more regular in function names, etc. and avoid
+> including a C-file. This increases the lines of code. It is similar in
+> style to the unwind-libdw implementation. It is hoped that the more
+> uniform nature of the code with help with refactoring the perf
+> registers for SIMD/APX support.
+>
+> Aside from local host testing these patches are under tested, in part
+> as I'm failing to see how to build libunwind with support for multiple
+> remote targets. Please could I get help in testing.
+>
+> v3: Minor whitespace clean up and warn when a dynamic choice of libdw
+>     or libunwind is selected for unwinding and support is missing (Arnald=
+o).
 
-Yea, I did that.
+Hi Arnaldo,
 
-> > We reworked the ASID lifecycle, which now ends when the last device
-> > detaches. So, ASID was free-ed in arm_smmu_iotlb_tag_free() that did
-> > a per-ASID flush also.
-> 
-> Yes, so the comment is:
-> 
->  Notice that the arm_smmu_mm_arch_invalidate_secondary_tlbs() op can
->  still be called/running at this point. Like the normal detach flow
->  the RCU protected ASID may still experiance harmless invalidation.
->  However unlike normal domains the SVA invalidation will continue
->  into free until the mmu_notifier_put().
+anything else outstanding from this series?
 
-I updated that in my words but this reads more accurate. I will
-use this (fixing the typo experiance).
+Thanks,
+Ian
 
-Thanks
-Nicolin
+> v2: Move two fixes patches to position 1 and 2 in the series. Fix
+>     struct naming inconsistency, Andrew Jones
+>     <andrew.jones@oss.qualcomm.com>. Fix other inconsistencies and
+>     potential non-x86 build issues.
+> https://lore.kernel.org/lkml/20260305221927.3237145-1-irogers@google.com/
+>
+> v1: https://lore.kernel.org/lkml/20260224142938.26088-1-irogers@google.co=
+m/
+>
+> Ian Rogers (8):
+>   perf unwind: Refactor get_entries to allow dynamic libdw/libunwind
+>     selection
+>   perf build loongarch: Remove reference to missing file
+>   tools build: Deduplicate test-libunwind for different architectures
+>   perf build: Be more programmatic when setting up libunwind variables
+>   perf unwind-libunwind: Make libunwind register reading cross platform
+>   perf unwind-libunwind: Move flush/finish access out of local
+>   perf unwind-libunwind: Remove libunwind-local
+>   perf unwind-libunwind: Add RISC-V libunwind support
+>
+>  tools/build/feature/Makefile                  |  38 +-
+>  tools/build/feature/test-libunwind-aarch64.c  |  27 -
+>  tools/build/feature/test-libunwind-arm.c      |  28 -
+>  .../test-libunwind-debug-frame-aarch64.c      |  17 -
+>  .../feature/test-libunwind-debug-frame-arm.c  |  17 -
+>  .../feature/test-libunwind-debug-frame.c      |   1 -
+>  tools/build/feature/test-libunwind-x86.c      |  28 -
+>  tools/build/feature/test-libunwind-x86_64.c   |  28 -
+>  tools/build/feature/test-libunwind.c          |   1 -
+>  tools/perf/Makefile.config                    | 215 ++---
+>  tools/perf/arch/arm/util/Build                |   2 -
+>  tools/perf/arch/arm/util/unwind-libunwind.c   |  50 --
+>  tools/perf/arch/arm64/util/Build              |   1 -
+>  tools/perf/arch/arm64/util/unwind-libunwind.c |  17 -
+>  tools/perf/arch/loongarch/util/Build          |   3 -
+>  .../arch/loongarch/util/unwind-libunwind.c    |  82 --
+>  tools/perf/arch/mips/Build                    |   1 -
+>  tools/perf/arch/mips/util/Build               |   1 -
+>  tools/perf/arch/mips/util/unwind-libunwind.c  |  22 -
+>  tools/perf/arch/powerpc/util/Build            |   1 -
+>  .../perf/arch/powerpc/util/unwind-libunwind.c |  92 --
+>  tools/perf/arch/x86/util/Build                |   3 -
+>  tools/perf/arch/x86/util/unwind-libunwind.c   | 115 ---
+>  tools/perf/builtin-inject.c                   |   4 +
+>  tools/perf/builtin-report.c                   |   4 +
+>  tools/perf/builtin-script.c                   |   4 +
+>  tools/perf/util/Build                         |   5 +-
+>  tools/perf/util/libunwind-arch/Build          |  11 +
+>  .../perf/util/libunwind-arch/libunwind-arch.c | 319 +++++++
+>  .../perf/util/libunwind-arch/libunwind-arch.h | 296 +++++++
+>  .../perf/util/libunwind-arch/libunwind-arm.c  | 290 ++++++
+>  .../util/libunwind-arch/libunwind-arm64.c     | 289 ++++++
+>  .../perf/util/libunwind-arch/libunwind-i386.c | 312 +++++++
+>  .../util/libunwind-arch/libunwind-loongarch.c | 297 +++++++
+>  .../perf/util/libunwind-arch/libunwind-mips.c | 299 +++++++
+>  .../util/libunwind-arch/libunwind-ppc32.c     | 301 +++++++
+>  .../util/libunwind-arch/libunwind-ppc64.c     | 303 +++++++
+>  .../util/libunwind-arch/libunwind-riscv.c     | 297 +++++++
+>  .../perf/util/libunwind-arch/libunwind-s390.c | 299 +++++++
+>  .../util/libunwind-arch/libunwind-x86_64.c    | 320 +++++++
+>  tools/perf/util/libunwind/arm64.c             |  40 -
+>  tools/perf/util/libunwind/x86_32.c            |  41 -
+>  tools/perf/util/maps.c                        |  29 +-
+>  tools/perf/util/maps.h                        |   4 +-
+>  tools/perf/util/symbol_conf.h                 |  10 +
+>  tools/perf/util/thread.c                      |  29 +-
+>  tools/perf/util/unwind-libdw.c                |   2 +-
+>  tools/perf/util/unwind-libunwind-local.c      | 832 ------------------
+>  tools/perf/util/unwind-libunwind.c            | 679 ++++++++++++--
+>  tools/perf/util/unwind.c                      |  98 +++
+>  tools/perf/util/unwind.h                      |  77 +-
+>  51 files changed, 4549 insertions(+), 1732 deletions(-)
+>  delete mode 100644 tools/build/feature/test-libunwind-aarch64.c
+>  delete mode 100644 tools/build/feature/test-libunwind-arm.c
+>  delete mode 100644 tools/build/feature/test-libunwind-debug-frame-aarch6=
+4.c
+>  delete mode 100644 tools/build/feature/test-libunwind-debug-frame-arm.c
+>  delete mode 100644 tools/build/feature/test-libunwind-x86.c
+>  delete mode 100644 tools/build/feature/test-libunwind-x86_64.c
+>  delete mode 100644 tools/perf/arch/arm/util/unwind-libunwind.c
+>  delete mode 100644 tools/perf/arch/arm64/util/unwind-libunwind.c
+>  delete mode 100644 tools/perf/arch/loongarch/util/unwind-libunwind.c
+>  delete mode 100644 tools/perf/arch/mips/Build
+>  delete mode 100644 tools/perf/arch/mips/util/Build
+>  delete mode 100644 tools/perf/arch/mips/util/unwind-libunwind.c
+>  delete mode 100644 tools/perf/arch/powerpc/util/unwind-libunwind.c
+>  delete mode 100644 tools/perf/arch/x86/util/unwind-libunwind.c
+>  create mode 100644 tools/perf/util/libunwind-arch/Build
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-arch.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-arch.h
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-arm.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-arm64.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-i386.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-loongarch.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-mips.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-ppc32.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-ppc64.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-riscv.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-s390.c
+>  create mode 100644 tools/perf/util/libunwind-arch/libunwind-x86_64.c
+>  delete mode 100644 tools/perf/util/libunwind/arm64.c
+>  delete mode 100644 tools/perf/util/libunwind/x86_32.c
+>  delete mode 100644 tools/perf/util/unwind-libunwind-local.c
+>  create mode 100644 tools/perf/util/unwind.c
+>
+> --
+> 2.53.0.1213.gd9a14994de-goog
+>
 
