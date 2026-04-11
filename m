@@ -4,113 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B819FF45A12
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 01:05:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB89F45A15
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 01:08:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5uUkoCeVRblw7zUWJdM9ekrZvgfUtRileoapKEzjQbY=; b=jLgxZKfpXJVYn2Bz5mj0q6kfrv
-	pNNp1gw2wrPa7jKhpMaLdPrRoxhXQX+QK8FWctrzajXSyFphQErO43fO4XuHA5tSXiW7sCZbCnKtw
-	vd1QLvegZyHp5jy1fWilRlkdnCq+PsBD/Mhs0WwX2709j+bJZhiANRfmR1xeruwBWD6W/CPA91B6f
-	7rl09QEUF4jQGZCyZViRTr4r0ef77z6PLBNo1eqPrfxH+X14A4YlfN25F3kYBoKYn661Gh65dh02L
-	6Y8FdywwqlD2xQB7GQlzO/zq4jes9J1HJQSuDRqBgg7ZZk7SA/Rp1CNIFCasrs7qFg9/MPgeHpOmA
-	L9wp59XA==;
+	bh=0bDVBAejqWe0kV9GB2+d2A1NsYQoo7EwftQT72y1HGo=; b=HvU7IJUt5ucu4/ZZbu06OUrPRq
+	ulDwOKv+WUY6ZJIESVpA+tSegAWtyS95NuWal4KyxFjPRlTRYmEifsOyaR4kPWyfKc4rknWRzGViw
+	QvaHKgLxCheT9VLEkXnCGioslUTfK4bS6hOPUVluxJ118XqWkRPD5syy3cta+jOJCUIMpsGTBIksv
+	rhhV4T4l0xPuYI/bVTk7rRGX9M2EkBb3JY57np5NHJHocIr2qTv7JTjX9LRvPpH2uBbrroxHdRaG7
+	1j1yBjhXyMaTcmfIwjLtiuJfxxtBzuRk1P5RNtVb8X8gxhV9yQsJFizOMBhjEv3Rt1WjYDnLLQfDF
+	/ocrXkkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBMmi-0000000CzHE-05tZ;
-	Sat, 11 Apr 2026 01:05:16 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1wBMpq-0000000CzaB-3KAT;
+	Sat, 11 Apr 2026 01:08:30 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBMme-0000000CzGO-1bbu
+	id 1wBMpo-0000000CzZp-0hsA
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Apr 2026 01:05:14 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2b0c12be0ecso266535ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 18:05:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1775869511; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Nho+W86IYz3/OHImZ9FxdTH8v8QIjHkYJL3TSSWvNwhoMEFK6lhvsJ9txt0i6tCZfM
-         OvAdG1hO5XwPo95IB6DjwlaU2hc2nOtA6m5PTCHS7xeYH2PYdey3I2Z/SDmeXy2jEyYw
-         dgA8zjFnykmdFHIheETz/2Yr4E8pe58wETRsm4+n4EJUsOm3wNK8gMShQ5PI8ylafiJe
-         wt8YUUtWKnuoonlrDExHdsTajGBrBXyk2fV7vYpCj3Tat0MD8C5XjI4rIoYJLGyS4CLC
-         7Iev04bguDgBtaZkqZOqcO9T/rQ/8mPz5absIS96621nB8geqNn7JxWbwxaz5bsiNMts
-         NAkw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=5uUkoCeVRblw7zUWJdM9ekrZvgfUtRileoapKEzjQbY=;
-        fh=nOUQ8Za9zVedQmp/d3Z/e7wuikuqwZDBDCI7oL3aYz0=;
-        b=eGcgT8x/v8lryz84oLxJcyt7xHDnYz2LUIwYHnT+8YzEJFoH+OEgrOc5jx8IpuzzVH
-         yoVk2Jg992C9iYHLeMNjX4CiTlTWcvbc8FwL/A9uKW2P0A3P7MXVeVFzOvgLfjdVq18A
-         9xMfxhvPbcQGMFDZjtu6R6+5X934VZyrgzn7iSA+0b9qldy44f9XlrtLJ2arJwPKLT+B
-         wL+fLZKPTJtWKOJSMaU3FeKjHYrjYL6zmFPiljSscuutaXpR71M8Z0PqBFnVsH7eru3u
-         BgUEL5D7MJqLTVhwj2PHRvMWGXZadbGlCehrlSuMdmQv5aLZt6c9srzVoOXNpvX5XAbW
-         DrBw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Sat, 11 Apr 2026 01:08:29 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63AL3Sik3962192
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Apr 2026 01:08:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	0bDVBAejqWe0kV9GB2+d2A1NsYQoo7EwftQT72y1HGo=; b=OP2U7+48Ji/6zZ+4
+	8xdPsryT+m45d9nGPJOyxVw5oo683kd730eRv/Imu4xeulIlEJLL9R1gnFwKsRQ2
+	XZq/aiJmIQ7NYp4pY8ILpj6j22uDxjelTDJkj0QYNjl/D22G63fUuj/yaCvQxzVq
+	YU4o7/meA7TIO7LFR3FKBCfTIodm0Q5iONIAKRqanGwHhYwi8pcMFi/uLaYA7ylR
+	iElJLwA+ek7qPOmcE2Gr7SB2IHcO4Pojfvy7lFxzLAFbw0H/9KhLYIS58t8hu9uB
+	SXnqtO2sDDR5Zad+E4hb4jHfdrpzNe1zNLuyCCREve53QLmGKuORRWsaQfrrArkr
+	KKrFHw==
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dey77ab2k-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Apr 2026 01:08:26 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2b250d3699aso55749695ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Apr 2026 18:08:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1775869511; x=1776474311; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5uUkoCeVRblw7zUWJdM9ekrZvgfUtRileoapKEzjQbY=;
-        b=DvqXcJ/3aRrblh6ChBwbHuWZpqHPESvkEcjsgwFTUM5GIjgohUdUcYwWVBWkztN3g3
-         jrwAFLKZcZ2Df4LKgzYxFGLniljwPDJBxjonebq9KFFgkTh4lTJDmRDNvh4D2sOHqvV+
-         iD5RevpYvmFayQVFi7QWfZR6yzMqOvmNfzANaRNKonyuaolY+nEWYqppQYISZdrXeNmN
-         q/Alv1rLQFR5fIDZCgMdoay0IWWCCZQReVLNdyt1tWK4tXTzQbK0LlAfGlKe1oYJoEXw
-         vP7gkM0KPIEKdYzyW8jbtXtqjbYbSVgy0c2XFxGlx5lKUgqsoQR+9GeL6mY7Ls99xTat
-         U+Jg==
+        d=oss.qualcomm.com; s=google; t=1775869706; x=1776474506; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=0bDVBAejqWe0kV9GB2+d2A1NsYQoo7EwftQT72y1HGo=;
+        b=ZFgR/lCDANOXVY5pitkMKPeenr2N+c0Q5FmSUsWCRRdoIjjEuBiad7HJEiO3DwB7dN
+         hkEeR7jiFOL3QiyXp2A0g7laISiwrRzlgdzFcShLPOqdz5VJzVIuhk10DBqzeQtfneNF
+         Ixf0GMDRe9+d0Daxt5QmdggTpKpfCJdFlQ87fIbHRYW+ckPfF69GfAdWMw6ALfWPpzij
+         7JraVxv9UDj8muhU9EMSIF9WMeG13hO562Vk2aTE1FlPAjILyT3wtt242B63cH6mx7hE
+         PcVIqmu6kVa0mVzC/LWt+eNLkmQw/IkcDGuMPKBqzZZE+KzIkQ6EINHQZ/hNiUCf6brs
+         Qhdg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1775869511; x=1776474311;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=5uUkoCeVRblw7zUWJdM9ekrZvgfUtRileoapKEzjQbY=;
-        b=c5QbcgZAlE0QEpWk+frkVi9IcCjiCPuRzNAruRf32hEIpwVLy2BvlqCHDlJTqhYlKs
-         aTSLE1WXelQI/mFvogCXFS6EjpKTxeFgpSZYcE6kdV3UbLEf+Re3E4uEIKl37DreKwqH
-         V3nk+dDcULQ8znRXPkvPLIwek1BxVgKMlOO4favLAKhaaMZHZEQAWuXA/7kCiE5Xszb9
-         ojgsLF4XcDtSyKijGfPTUJJ7Pu8rwKBuOnFsmiTtAVGIyMjz7x60qdD72I8whviXGsYu
-         HZnwBN6CVSSbxMcC/2/hw013Ih3anujgTkpVhiDBb8bMqjKS0n+HCLoAbWP9sAZ0AyBJ
-         ivpw==
-X-Forwarded-Encrypted: i=1; AJvYcCXkuTOdap/2orc+YvdKcJSmiYQeZv1mMHtVAmbL4yK8QEuTb7fioNuGh2xjhmWITQsF5k1qsMiUlWaSok0xwksF@lists.infradead.org
-X-Gm-Message-State: AOJu0YyM3zxJFXoRrXbQQwWfz+jl/PesXgLweZu7QHcTmTSLKFKI71IS
-	zypGEqIDL6WTZskypNUghGWhHZii1d35pJBhbKU6gfuFVCXzP3LPFZjwErJnI9u/UijB8BLoQVa
-	eLk/nqZMRYmJszU+NFIDP3bGnmBOS8dYmwkOHPN2I
-X-Gm-Gg: AeBDieuZEceuKD5vcI/9HZtdwJ48HX/n6gSFrAP4StgsVk/dytFHh3BvELcjGDtY4Dz
-	qwK0ated0Sm9yl4/o7+HHR85+6mnUJ1UciaFzIE6pR9uN6dZqXDiQ7lDsf0oz5Z4r0XEnqW+dbo
-	U7zIwCs1CD12bt7soN/Rfq7NdvOU9K0bCN0sY1PlaPIp+rQFPqdVEpIy0PKjm0gVmeWAYWtx/dz
-	lKK7DtSVU/HK7DvLIyhA3vKuoSnVOFj9mGqqC0fDvAfax9unTnR0Mdae3ht9MKpQJ03AveNxSbk
-	lMr2KPxCxhnkCY2Vu4ypKUb4W5SHCQ==
-X-Received: by 2002:a17:903:2b0f:b0:2b0:5e19:1862 with SMTP id
- d9443c01a7336-2b2c8c74a19mr8024825ad.5.1775869509864; Fri, 10 Apr 2026
- 18:05:09 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1775869706; x=1776474506;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0bDVBAejqWe0kV9GB2+d2A1NsYQoo7EwftQT72y1HGo=;
+        b=SgtdZF4GbL2aMam2xuFrrBt2zPeOUAb10n5URsmeJ0zy1FFSMZbnqzoWU42ex5ypUA
+         b+hYDddsqkBWlup9FfQjqjHr1JA7b+nVHmVIRNDVmF/cuxiLjmvbzHYZWrp3iRwjRE76
+         tXBLEVMB3veyqC+TEB0X0myVC2RyOI2dj0OLEQkvQCU1vh3fzYOcM8eIjxWtab6Sas5d
+         NU8DVACu868tmRzSJRNxsROTpSTbpNN/ieIdO48vTZnmGhiyaFGiY77TqJ9C7eRt6FoR
+         MtFuNjBvpTz9PkRt7/Dg6BrtRmnO2ifiAQQ7tlC3i7SahTZo54+Ak48t44kptnUj5GJi
+         hOCg==
+X-Gm-Message-State: AOJu0YxyQs+qZJRxKNG7+DqpT1pBE/emlL0qApMwA7VcW4ZRgOoyEMQQ
+	+fblHN0qOtPPM6ESnABycUr47QgBt2uCUN0M9UtvJI0v/dqjwp/X+Y3tonkaEujaqjtog4pVJ60
+	IXW2l/NGUNtPU2uCfsewTwk7tbSbwLidf4p05kBmU2AMYAUMkGJDV2B8WByuCZTGTkixCdpcVwE
+	1exg==
+X-Gm-Gg: AeBDieu3HcMFrcDBei63y1QiKwCR5YKoN6IRxtItjRzYCgiGXGzPbd4yVF2Per3dbks
+	QR+0rWNpcl/Ev1pDNJZvlRr2HkTL5vnWpgMyqZ3D3S3vO21OV8pNbLJXx7JBdu3cwMVaRe5rThN
+	Gmpo19t5HNdiCZ5A5lfvRVqF15y3TbtBg/3YPyQyHx+TNTWgLuyVYNvcQlHkngRZOxOpQ4uxMt/
+	R36VB5rA5Sj9R95Pu28oJ7orvZYow+G3VHs4g8irRyGzkYHCqYMFBKsSZUf2iib08ktEwL9xwLw
+	zFQ11TZDaTjpaRX+5xhrdVP+xQbNoDoGljRxQaDus7dt/9EJFxYPA+dGredYohZx0K1z++kj9kU
+	uyaFcwE48CeB4eMXND01QFQKtAZftheqJUx7usgyfXGFH/s3VWDa1ELxX+f61CMDkaxCP5QtVUL
+	NTnsLthYzDyQ==
+X-Received: by 2002:a17:902:6bc3:b0:2b0:6e60:9586 with SMTP id d9443c01a7336-2b2d599adedmr38660635ad.17.1775869705910;
+        Fri, 10 Apr 2026 18:08:25 -0700 (PDT)
+X-Received: by 2002:a17:902:6bc3:b0:2b0:6e60:9586 with SMTP id d9443c01a7336-2b2d599adedmr38660375ad.17.1775869705411;
+        Fri, 10 Apr 2026 18:08:25 -0700 (PDT)
+Received: from [10.133.33.83] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b2d4f431c3sm39322235ad.79.2026.04.10.18.08.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 10 Apr 2026 18:08:24 -0700 (PDT)
+Message-ID: <3e7645cf-28cb-4021-89e6-e467e9555ff4@oss.qualcomm.com>
+Date: Sat, 11 Apr 2026 09:08:18 +0800
 MIME-Version: 1.0
-References: <20260305221927.3237145-1-irogers@google.com> <20260404054032.1538095-1-irogers@google.com>
-In-Reply-To: <20260404054032.1538095-1-irogers@google.com>
-From: Ian Rogers <irogers@google.com>
-Date: Fri, 10 Apr 2026 18:04:57 -0700
-X-Gm-Features: AQROBzCtgctYT5mXdJK7EI3KpOUNV_dJ28NxpQWANsDrRDgoBgsKRGHzUd38rjo
-Message-ID: <CAP-5=fUz60Guq_gVV6wb_FfwhPs-fUN+PAbB3rQn3pycXbF3DA@mail.gmail.com>
-Subject: Re: [PATCH v3 0/8] perf libunwind multiple remote support
-To: acme@kernel.org
-Cc: 9erthalion6@gmail.com, adrian.hunter@intel.com, alex@ghiti.fr, 
-	alexander.shishkin@linux.intel.com, andrew.jones@oss.qualcomm.com, 
-	aou@eecs.berkeley.edu, atrajeev@linux.ibm.com, blakejones@google.com, 
-	ctshao@google.com, dapeng1.mi@linux.intel.com, howardchu95@gmail.com, 
-	james.clark@linaro.org, john.g.garry@oracle.com, jolsa@kernel.org, 
-	leo.yan@linux.dev, libunwind-devel@nongnu.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	mingo@redhat.com, namhyung@kernel.org, palmer@dabbelt.com, 
-	peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com, 
-	tglozar@redhat.com, tmricht@linux.ibm.com, will@kernel.org, yuzhuo@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 6/6] perf arm_spe: Print remaining IMPDEF event numbers
+To: James Clark <james.clark@linaro.org>,
+        John Garry
+ <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+        Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+        Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+        Arnaldo Carvalho de Melo <acme@kernel.org>,
+        Namhyung Kim <namhyung@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+        Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+References: <20260407-james-spe-impdef-decode-v2-0-55d3ef997c48@linaro.org>
+ <20260407-james-spe-impdef-decode-v2-6-55d3ef997c48@linaro.org>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260407-james-spe-impdef-decode-v2-6-55d3ef997c48@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: rA_5wCjFjLOmy3wahcOGmi38HiL8IVpH
+X-Proofpoint-GUID: rA_5wCjFjLOmy3wahcOGmi38HiL8IVpH
+X-Authority-Analysis: v=2.4 cv=VN/tWdPX c=1 sm=1 tr=0 ts=69d99f0a cx=c_pps
+ a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=7CQSdrXTAAAA:8 a=KKAkSRfTAAAA:8 a=-8vgJeR-9WfCzkiTBPAA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=GvdueXVYPmCkWapjIL-Q:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+ a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDExMDAwNyBTYWx0ZWRfX6WCtsKK7Fmd3
+ wijZpSZhpO1Ujz2rGccBlVMSKGutE43e9etDMEjt7pXIKvip4EOq4OFMkDpyQlvZSIIK+8tktnj
+ q6OOXaZfUDjuiRxwRrtEL79JDXPvXE1jXZubDtDZNbHEo343ZV/spqSPsnrgoiB6VnWdKnNPbcU
+ FBtp8l1uwNaIVru2JszOKWFlQqDTihkwXfUAI5V3KVIhnvLWyudaGWkw0D32uoAKriJVqyInXbJ
+ eMadIsEXFV2HGB2tRj3Xj1x8p2rtK766D33k/7r83+1lrgZcl5pT6egbjwb23gUrSr/4eWk6DOx
+ BAJyhaM/Nl1T6nE/FK6K6pEOdZ++ivnl7gFhyhRqK1p9DNz4MMumi6rg24mb2SYSrufu4v44bwb
+ uk5idbBvm93mcRnUix0QZ8ig69mlM7InFMC3q3c3ebixk6/+QQSozVeWw9I6ac6zou5+8dR1D5o
+ TWDQEz76aCF6jN+TB9g==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-10_07,2026-04-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 spamscore=0 bulkscore=0 lowpriorityscore=0 clxscore=1015
+ impostorscore=0 phishscore=0 adultscore=0 suspectscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604110007
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260410_180512_470239_A6F50761 
-X-CRM114-Status: GOOD (  25.26  )
+X-CRM114-CacheID: sfid-20260410_180828_336413_08520DE5 
+X-CRM114-Status: GOOD (  21.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,144 +157,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 3, 2026 at 10:40=E2=80=AFPM Ian Rogers <irogers@google.com> wro=
-te:
->
-> Fix the libunwind build for when libdw and libunwind are feature
-> detected, currently failing with a duplicate symbol.
->
-> Refactor the libunwind support so that whenever a remote target is
-> available, perf functions using the ELF machine can use that remote
-> target regardless of what the host/local machine is. Migrate existing
-> libunwind supported architectures like powerpc, arm64 and loongarch so
-> that they can work in a cross-architecture way. Add support for
-> RISC-V. Make the code more regular in function names, etc. and avoid
-> including a C-file. This increases the lines of code. It is similar in
-> style to the unwind-libdw implementation. It is hoped that the more
-> uniform nature of the code with help with refactoring the perf
-> registers for SIMD/APX support.
->
-> Aside from local host testing these patches are under tested, in part
-> as I'm failing to see how to build libunwind with support for multiple
-> remote targets. Please could I get help in testing.
->
-> v3: Minor whitespace clean up and warn when a dynamic choice of libdw
->     or libunwind is selected for unwinding and support is missing (Arnald=
-o).
+Hi James,
 
-Hi Arnaldo,
+On 4/7/2026 10:05 PM, James Clark wrote:
+> Any IMPDEF events not printed out from a known core's IMPDEF list or for
+> a completely unknown core will still not be shown to the user. Fix this
+> by printing the remaining bits as comma separated raw numbers, e.g.
+> "IMPDEF:1,2,3,4".
+> 
+> Suggested-by: Al Grant <al.grant@arm.com>
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>   tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c | 18 ++++++++++++++++++
+>   1 file changed, 18 insertions(+)
+> 
+> diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
+> index b74f887a48f2..c65b22a2179c 100644
+> --- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
+> +++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
+> @@ -8,6 +8,7 @@
+>   #include <string.h>
+>   #include <endian.h>
+>   #include <byteswap.h>
+> +#include <linux/bitmap.h>
+>   #include <linux/bitops.h>
+>   #include <stdarg.h>
+>   #include <linux/kernel.h>
+> @@ -365,6 +366,23 @@ static int arm_spe_pkt_desc_event(const struct arm_spe_pkt *packet,
+>   						   payload);
+>   	}
+>   
+> +	/*
+> +	 * Print remaining IMPDEF bits that weren't printed above as raw
+> +	 * "IMPDEF:1,2,3,4" etc.
+> +	 */
+> +	if (payload) {
+> +		int i;
+> +
+> +		arm_spe_pkt_out_string(&err, &buf, &buf_len, " IMPDEF:");
+> +		for_each_set_bit(i, &payload, 64) {
 
-anything else outstanding from this series?
+for_each_set_bit(i, &payload, 64) passes &payload where payload is u64. 
+The macro expands to find_next_bit(const unsigned long *addr, ...). On a 
+32-bit host unsigned long is 32 bits wide, so only the low 32 bits of 
+payload would be scanned; bits 32–63 would be silently ignored. While 
+perf is almost always built on a 64-bit host today, the tools/ tree is 
+explicitly portable and the compiler will emit a -Wpointer-arith / 
+-Wincompatible-pointer-types warning on a 32-bit build.
 
 Thanks,
-Ian
+Jie
 
-> v2: Move two fixes patches to position 1 and 2 in the series. Fix
->     struct naming inconsistency, Andrew Jones
->     <andrew.jones@oss.qualcomm.com>. Fix other inconsistencies and
->     potential non-x86 build issues.
-> https://lore.kernel.org/lkml/20260305221927.3237145-1-irogers@google.com/
->
-> v1: https://lore.kernel.org/lkml/20260224142938.26088-1-irogers@google.co=
-m/
->
-> Ian Rogers (8):
->   perf unwind: Refactor get_entries to allow dynamic libdw/libunwind
->     selection
->   perf build loongarch: Remove reference to missing file
->   tools build: Deduplicate test-libunwind for different architectures
->   perf build: Be more programmatic when setting up libunwind variables
->   perf unwind-libunwind: Make libunwind register reading cross platform
->   perf unwind-libunwind: Move flush/finish access out of local
->   perf unwind-libunwind: Remove libunwind-local
->   perf unwind-libunwind: Add RISC-V libunwind support
->
->  tools/build/feature/Makefile                  |  38 +-
->  tools/build/feature/test-libunwind-aarch64.c  |  27 -
->  tools/build/feature/test-libunwind-arm.c      |  28 -
->  .../test-libunwind-debug-frame-aarch64.c      |  17 -
->  .../feature/test-libunwind-debug-frame-arm.c  |  17 -
->  .../feature/test-libunwind-debug-frame.c      |   1 -
->  tools/build/feature/test-libunwind-x86.c      |  28 -
->  tools/build/feature/test-libunwind-x86_64.c   |  28 -
->  tools/build/feature/test-libunwind.c          |   1 -
->  tools/perf/Makefile.config                    | 215 ++---
->  tools/perf/arch/arm/util/Build                |   2 -
->  tools/perf/arch/arm/util/unwind-libunwind.c   |  50 --
->  tools/perf/arch/arm64/util/Build              |   1 -
->  tools/perf/arch/arm64/util/unwind-libunwind.c |  17 -
->  tools/perf/arch/loongarch/util/Build          |   3 -
->  .../arch/loongarch/util/unwind-libunwind.c    |  82 --
->  tools/perf/arch/mips/Build                    |   1 -
->  tools/perf/arch/mips/util/Build               |   1 -
->  tools/perf/arch/mips/util/unwind-libunwind.c  |  22 -
->  tools/perf/arch/powerpc/util/Build            |   1 -
->  .../perf/arch/powerpc/util/unwind-libunwind.c |  92 --
->  tools/perf/arch/x86/util/Build                |   3 -
->  tools/perf/arch/x86/util/unwind-libunwind.c   | 115 ---
->  tools/perf/builtin-inject.c                   |   4 +
->  tools/perf/builtin-report.c                   |   4 +
->  tools/perf/builtin-script.c                   |   4 +
->  tools/perf/util/Build                         |   5 +-
->  tools/perf/util/libunwind-arch/Build          |  11 +
->  .../perf/util/libunwind-arch/libunwind-arch.c | 319 +++++++
->  .../perf/util/libunwind-arch/libunwind-arch.h | 296 +++++++
->  .../perf/util/libunwind-arch/libunwind-arm.c  | 290 ++++++
->  .../util/libunwind-arch/libunwind-arm64.c     | 289 ++++++
->  .../perf/util/libunwind-arch/libunwind-i386.c | 312 +++++++
->  .../util/libunwind-arch/libunwind-loongarch.c | 297 +++++++
->  .../perf/util/libunwind-arch/libunwind-mips.c | 299 +++++++
->  .../util/libunwind-arch/libunwind-ppc32.c     | 301 +++++++
->  .../util/libunwind-arch/libunwind-ppc64.c     | 303 +++++++
->  .../util/libunwind-arch/libunwind-riscv.c     | 297 +++++++
->  .../perf/util/libunwind-arch/libunwind-s390.c | 299 +++++++
->  .../util/libunwind-arch/libunwind-x86_64.c    | 320 +++++++
->  tools/perf/util/libunwind/arm64.c             |  40 -
->  tools/perf/util/libunwind/x86_32.c            |  41 -
->  tools/perf/util/maps.c                        |  29 +-
->  tools/perf/util/maps.h                        |   4 +-
->  tools/perf/util/symbol_conf.h                 |  10 +
->  tools/perf/util/thread.c                      |  29 +-
->  tools/perf/util/unwind-libdw.c                |   2 +-
->  tools/perf/util/unwind-libunwind-local.c      | 832 ------------------
->  tools/perf/util/unwind-libunwind.c            | 679 ++++++++++++--
->  tools/perf/util/unwind.c                      |  98 +++
->  tools/perf/util/unwind.h                      |  77 +-
->  51 files changed, 4549 insertions(+), 1732 deletions(-)
->  delete mode 100644 tools/build/feature/test-libunwind-aarch64.c
->  delete mode 100644 tools/build/feature/test-libunwind-arm.c
->  delete mode 100644 tools/build/feature/test-libunwind-debug-frame-aarch6=
-4.c
->  delete mode 100644 tools/build/feature/test-libunwind-debug-frame-arm.c
->  delete mode 100644 tools/build/feature/test-libunwind-x86.c
->  delete mode 100644 tools/build/feature/test-libunwind-x86_64.c
->  delete mode 100644 tools/perf/arch/arm/util/unwind-libunwind.c
->  delete mode 100644 tools/perf/arch/arm64/util/unwind-libunwind.c
->  delete mode 100644 tools/perf/arch/loongarch/util/unwind-libunwind.c
->  delete mode 100644 tools/perf/arch/mips/Build
->  delete mode 100644 tools/perf/arch/mips/util/Build
->  delete mode 100644 tools/perf/arch/mips/util/unwind-libunwind.c
->  delete mode 100644 tools/perf/arch/powerpc/util/unwind-libunwind.c
->  delete mode 100644 tools/perf/arch/x86/util/unwind-libunwind.c
->  create mode 100644 tools/perf/util/libunwind-arch/Build
->  create mode 100644 tools/perf/util/libunwind-arch/libunwind-arch.c
->  create mode 100644 tools/perf/util/libunwind-arch/libunwind-arch.h
->  create mode 100644 tools/perf/util/libunwind-arch/libunwind-arm.c
->  create mode 100644 tools/perf/util/libunwind-arch/libunwind-arm64.c
->  create mode 100644 tools/perf/util/libunwind-arch/libunwind-i386.c
->  create mode 100644 tools/perf/util/libunwind-arch/libunwind-loongarch.c
->  create mode 100644 tools/perf/util/libunwind-arch/libunwind-mips.c
->  create mode 100644 tools/perf/util/libunwind-arch/libunwind-ppc32.c
->  create mode 100644 tools/perf/util/libunwind-arch/libunwind-ppc64.c
->  create mode 100644 tools/perf/util/libunwind-arch/libunwind-riscv.c
->  create mode 100644 tools/perf/util/libunwind-arch/libunwind-s390.c
->  create mode 100644 tools/perf/util/libunwind-arch/libunwind-x86_64.c
->  delete mode 100644 tools/perf/util/libunwind/arm64.c
->  delete mode 100644 tools/perf/util/libunwind/x86_32.c
->  delete mode 100644 tools/perf/util/unwind-libunwind-local.c
->  create mode 100644 tools/perf/util/unwind.c
->
-> --
-> 2.53.0.1213.gd9a14994de-goog
->
+> +			const char *sep = payload & (payload - 1) ? "," : "";
+> +
+> +			arm_spe_pkt_out_string(&err, &buf, &buf_len, "%d%s", i,
+> +					       sep);
+> +			payload &= ~BIT_ULL(i);
+> +		}
+> +	}
+> +
+>   	return err;
+>   }
+>   
+> 
+
 
