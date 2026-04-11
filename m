@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 917DDF36BA5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 08:41:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B14BF45A19
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Apr 2026 08:44:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s62NtN7oZTfVYRxpjVMM6kR5sZ7ZAciBy0wUGiUx7+c=; b=zPUZl1pRxzP53fQPJ0+fK9+sD1
-	alxtyoK273UXlkLKkURKhlg6079s3k6FJ/Ndc7ZYU4oeKxEzeCXkJZB9R+yca6xdoEv3wGzxTzmSz
-	wBHOIi+MnZBDga+VXhD+Wsca2P4Z5h3od4ttw3mMN1xbfHrMiz4ZQr3UY4sKcDbCC26Rb+q/94jcL
-	hQ5h/VG9AkLp8CafR690YbFKDkQGeFy/8Voy/v7NZu/luxDiPFmvHtvsM3+id87lYqubxvpOdpUy9
-	Rusd5gxUCHAMTzGNOqMh/geKNfk7Nf/vO1pf3wH5gvkekcy3CSK5SimbJ40W15v6ndZCaq0OwsqB7
-	0vC9akBA==;
+	bh=MUDS6HvKu9wf9yKpVvnB4WxHU1/2fQtjnY8ZHTnUMbE=; b=vh3nNKgvv9Zv3YFm7xwLHf8nI0
+	bFu763xSpGSWqKhgNlKk4ML2Vx1Rw09+VBe/Awc9S6Zv0wWfxihBWx7XLaqaUyJi8kmrb9H4uR+PD
+	QiwghFEUm0exWD6xfFultSEf9vSVyKbSkoYgABBIDn5T2fxFfiEtAzgmeGjN9enwjIYW/AOO+rNPX
+	p3x9jXXxPob4pQDkz0udoM8c8/YwwymV2tL5VVWR9XCpT3ASucCQlRlpOoalreuatIvufP5TPnCqK
+	sU26/BvcBCHL6iXZg3Vqc/JUwlY1C4CFHefu3EgrdlrGKbsWoP7f2PnX9XXmSYtIEoUxfg+eQowPG
+	DweDqm8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBTu3-0000000DHSc-2nOj;
-	Sat, 11 Apr 2026 08:41:19 +0000
+	id 1wBTxA-0000000DHcq-35CP;
+	Sat, 11 Apr 2026 08:44:32 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBTu1-0000000DHSJ-0FmL
+	id 1wBTx8-0000000DHcX-1TqB
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Apr 2026 08:41:18 +0000
+	Sat, 11 Apr 2026 08:44:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DD79942AC1;
-	Sat, 11 Apr 2026 08:41:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B876C4CEF7;
-	Sat, 11 Apr 2026 08:41:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F0C6141B2C;
+	Sat, 11 Apr 2026 08:44:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55440C4CEF7;
+	Sat, 11 Apr 2026 08:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775896875;
-	bh=kBsOxr3eKZCvLYnbyeQwhEckrwKolmqWuaSMv3r69rE=;
+	s=k20201202; t=1775897069;
+	bh=RntnNLUVeODVikBI+yOez3GfbM1NukCg0uXVTU/wpAw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=q5+eQ3sSpSYIFT37nLZmc0PwcBopPnwQTeTsz+FPR+P+hqhE5l3QX6t5WsGoPu6I9
-	 m1Ndn18E9QbRV3Af4FeI/uvAL6O/poM0gBgpOqEnLCmZp3KkP/Uq1+WmB41hhYR16e
-	 ic3Vav9zLb01BUObPsASr5ECqnJ6w8Hl+qxilrqls/eFd6kvW6opTq1qS75W1bKeNO
-	 OHLHY4K9PQcvCY1rn0URjWc8ZlJ98Ju/HfNtwIPL0PW5R75634hQ0Wr5VpqEFc31B8
-	 JxsZyKM/A3/HZYcjF9Z4l0VguPGIJU29iKdV7SQisN9Qc1roV/ywymJrv8cQT3vpLF
-	 gh/4IfTZOHC5A==
-Date: Sat, 11 Apr 2026 10:41:13 +0200
+	b=ev5bn4GRcJhvmrmPqreMk3g82DW5zQky9oGjim7Qz+7WNffQQSC/cxc3/qsYWE2gK
+	 nX3dPkPLySBY13x0hJdFq9Jmf0gbRSnUW80kXyGlV1XtFBhWeVKvznQnH2nyuX55Zh
+	 A221pmjk40FrnzL27EKvqBffsgK74qfUwGY/1OLOaI8PNEaUKP19ZMUtW7KeBuXsJa
+	 CKjoWGYv2lTalIeKMYxK2BhllF++PLw7T/hCbA4iWtDyocUTRxpkjgU22jAW7rpnwG
+	 f6OG7ii/CRIDHy1GqM5TnBKbh2HfQRK2GbmI7QbO4oXZswDXlqW6P/IY+QbwbbzBm0
+	 u1Nx09cpUEq9g==
+Date: Sat, 11 Apr 2026 10:44:27 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Bjorn Andersson <andersson@kernel.org>
-Cc: arm@kernel.org, soc@kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-Subject: Re: [GIT PULL] One more Qualcomm driver update for v7.1
-Message-ID: <20260411-adventurous-celadon-flamingo-10b27b@quoll>
-References: <20260406132138.2265013-1-andersson@kernel.org>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: soc@kernel.org, Jernej Skrabec <jernej@kernel.org>, 
+	Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [GIT PULL] Allwinner Device Tree Changes for 7.1 - Part 2
+Message-ID: <20260411-abiding-porcupine-of-feminism-d0c5c2@quoll>
+References: <adPIgTlQxnVpYgH4@home.wens.tw>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260406132138.2265013-1-andersson@kernel.org>
+In-Reply-To: <adPIgTlQxnVpYgH4@home.wens.tw>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260411_014117_123102_CEE18BD7 
-X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-CacheID: sfid-20260411_014430_411028_4C2F5405 
+X-CRM114-Status: UNSURE (   9.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,24 +73,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 06, 2026 at 08:21:38AM -0500, Bjorn Andersson wrote:
+On Mon, Apr 06, 2026 at 10:51:45PM +0800, Chen-Yu Tsai wrote:
+> The following changes since commit b912e48bee355b6b1faf86efc4a23191324ffecb:
 > 
-> The following changes since commit d6e766e391ef0b2be62682e007223fc72ba7764f:
-> 
->   Merge branch '20260125-iris-ubwc-v4-1-1ff30644ac81@oss.qualcomm.com' into drivers-for-7.1 (2026-03-30 12:46:14 -0500)
+>   arm64: dts: allwinner: h6: Add TaiqiCat (TQC) A01 support (2026-03-14 15:27:04 +0800)
 > 
 > are available in the Git repository at:
 > 
->   https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-7.1-2
+>   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git tags/sunxi-dt-for-7.1-2
 > 
-> for you to fetch changes up to a31ad9339eff4ce401dec816b01a94b4e3c47898:
+> for you to fetch changes up to c755e39836ec492b0bc210fd96c2b720b5b4a690:
 > 
->   firmware: qcom: scm: Allow QSEECOM on Lenovo IdeaCentre Mini X (2026-04-02 16:09:01 -0500)
+>   arm64: dts: allwinner: enable h616 timer support (2026-03-29 21:20:49 +0800)
 > 
 > ----------------------------------------------------------------
-> One more Qualcomm driver update for v7.1
+> Allwinner Device Tree Changes for 7.1 - Part 2
 > 
-> Flag Lenovo IdeaCentre Mini X to have functional QSEECOM/uefisecapp.
+> UART DMA channels added for A64 and H6. Standard resolution MMIO timer added
+> for H616. This timer can be used as a broadcast timer for wakeup from idle
+> states.
 > 
 
 Thanks, applied
