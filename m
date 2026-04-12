@@ -4,59 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAFFDE937F9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 18:45:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB7C3E937EE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 19:11:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NKNymydwkQ9LKmJcNQgFQ3eYoYUA3j/F+SLFUPNOSN4=; b=dG+NwoSjhrNWHkufKC6SuuESoY
-	IosTMuV+LKCSpju5AgEEDmj+uuKOvjotNYG1o8Rajca1xk5MG1nvtnkzzdeJloPOSTGwI6BDd5udj
-	1qBCLYbejJgNrPoQE3IosOMxzmC/aLQL2/Aj3+XAyekqOkjPdHYaXWhdXYryOeTbCrMudhq7kXOPC
-	75sJhYInnyFvVIlyXTaikrOccxUBYw3SeW/NO00FS43XoybDfOWh1qaEBtsBk/d5QCnmmhFY7y2SB
-	AOx2JO625g+USwFSwdppzkEYv94LDzM+3fnTUZjageP1vm9MXZ2AzZj2nBBxxi6SFDTJFmorMPJnG
-	ZSNygT5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VkCvOE+Re08tASG8JqNKn3T7DgKa1qoj+KXUNGulB4U=; b=B3rGSD9V1OgNfRbEEOFZIa3BsF
+	DJaHciaPRu5N5VysIe5EVnAcVY7VZeJx9QN1L0Vr3gjQYhIOBw1pGXwFumRtR7jVLkPz5I+ASqNUO
+	0w+rZZvxfOrXkEMxnvH0KnNg8Zm58jr0VYXxbzDMKh/2w/ZbaN2HbLnsT6GcCgLVxpcXt6Jh0dN18
+	h8JNYUhLZAtjvYC3+UeDHg4ju3QDc7YRw4Jca5pwXLB2p2NXC7otyHR+ptaVu8wD23aazCKLcdufM
+	VHOdlixMGW2Q+duBHhVGv/mZpcYW8C1wwy9QNqLQoe8pLWGMzLbJoiBSArsClvHzfo4Y8kY9aD3Lr
+	D27j3Txg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBzo3-0000000EbEf-2zBm;
-	Sun, 12 Apr 2026 18:45:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBzo1-0000000EbEE-2NHE
+	id 1wC0Di-0000000EcRv-2mvx;
+	Sun, 12 Apr 2026 19:11:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wC0Dg-0000000EcRc-1nLX
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Apr 2026 18:45:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A480331A;
-	Sun, 12 Apr 2026 11:45:03 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0AB803F641;
-	Sun, 12 Apr 2026 11:45:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776019508; bh=JycCwi4It/RmDM1Aoh26Y5e1GASVK7xVPWR4xn0eZE8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NuAHMdQReW1JUpva8C4r1cbQXqIATk01UJq9WTHm/C+iuZ3Mc2tYrPl53dDN7MHsJ
-	 NyhRMK27pEDOucPgnKebroKJAcy7wKvcI2p0/2CR/D59wu0/peakhyP7jV6X0if6M1
-	 QFeOL1S2bifnTia3nbbEASql4Nu2bNQlsdWiHQvI=
-Date: Sun, 12 Apr 2026 19:44:58 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Marek Vasut <marek.vasut@mailbox.org>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 0/3] firmware: arm_scmi: Miscellaneous improvements
-Message-ID: <advoKvOSGpOEN_qX@pluto>
-References: <cover.1775205358.git.geert+renesas@glider.be>
+	Sun, 12 Apr 2026 19:11:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CB07041667;
+	Sun, 12 Apr 2026 19:11:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54E8EC19424;
+	Sun, 12 Apr 2026 19:11:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776021100;
+	bh=gGbgSScs/6yv2loBTaqcJB4wn8HJrACyqH6/wGBf4zs=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=TapbgaO3aoJbvTDU1En7fURsF9LQBe0h7ueajoMOXDRR2HUncnR91tr6nm8yzE5JY
+	 +didJhAwaIXjYrFlnhbxTNKBAN96mMelVPIzO2ZEUTwi7Hv+/1yAcOv0YLcgDEQCbm
+	 W+C1gaBgciMdhnmfDKgHKL5D00G7fqS8NBXxu0+3kkxqUdLfw0+eLDROne8UO8pSdF
+	 7mKt3wgpKKR+GwvPO3hgbQP/JpOxNRJa3Cw3KG994Sfx/4gTf+ShHSptJDoz3qCkvd
+	 hlkpKGShB/7Dgx0OWzAH6UvUw8dnfvi9iHlxDY0Sp7GklnM8m0Wm0moQ/nRWvnveyK
+	 cuJLRrfIBRAQw==
+From: Namhyung Kim <namhyung@kernel.org>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ James Clark <james.clark@linaro.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Leo Yan <leo.yan@arm.com>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, 
+ linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20260410-perf_support_arm_spev1-3-v6-0-3c6f2dfe2cd3@arm.com>
+References: <20260410-perf_support_arm_spev1-3-v6-0-3c6f2dfe2cd3@arm.com>
+Subject: Re: [PATCH v6 0/4] perf arm_spe: Extend SIMD operations
+Message-Id: <177602110030.3380326.16901438429651843791.b4-ty@kernel.org>
+Date: Sun, 12 Apr 2026 12:11:40 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1775205358.git.geert+renesas@glider.be>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-c04d2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_114513_651036_F3222783 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20260412_121144_493027_CB8B4B82 
+X-CRM114-Status: UNSURE (   6.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,46 +77,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 03, 2026 at 10:41:28AM +0200, Geert Uytterhoeven wrote:
-> 	Hi all,
+On Fri, 10 Apr 2026 08:36:57 +0100, Leo Yan wrote:
+> This series extends SIMD flag for Arm SPE and updated the document.
+> 
+> This version is rebased onto the latest perf-tools-next branch.
+> 
+> 
+Applied to perf-tools-next, thanks!
 
-Hi Geert,
+Best regards,
+Namhyung
 
-thanks for this, first of all.
-
-I was a bit off the keyboard so the delay in my answer.
-
-I will get back at this SCMI/Clocks/Quirks matters in the next few weeks
-targeting next rc1-ish...
-
-In a nutshell I was thinking to proceed roughly as follows:
-
- - respinning a V3 of my original Clock Rates series WITH the addtion
-   of your previous fixes series on top (or merged into) BUT DROPPING
-   from my original series the patch that triggered a lot of FW panics
-   in the wild due to out of spec FWs. (Harden Clock protocol initialization)
-
- - spinning another NEW series on top of this 'Miscellaneous improvement'
-   series of yours, since I want to add, on top of this rework of yours, the
-   capability for the Quirk framework to match the same quirk definition
-   (static key) against multiple vendors/subvendors/impl....since, as you may
-   have noticed :P, I broke a number of boards recently with just one fix
-   kernel side BUT all of these issues can be really quirked using some
-   common identical quirk snippet to match against all the needed vendors
-   (rockchip/nxp/renesas as of now)
-   
-   ...I have some ugly working hack with which I am experimenting on this
-   quirk matching evolution...
-
-   On top of all of this I would then reapply the FW-breaking fix AND all
-   the quirks we determine as needed (possibly N matching M vendoes) and
-   test as much as possible pushing into for-next...
-
-Then we'll see what Sudeep thinks about all of this, of course.
-
-Thoughts ? Any feedback welcome.
-
-Thanks,
-Cristian
 
 
