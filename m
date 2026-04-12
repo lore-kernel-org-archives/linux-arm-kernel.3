@@ -4,136 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89516E937E4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 14:22:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5B18E937E4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 14:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iTcVGv4apLzvR0+Y73Al9/aJbgw2Thmz3b36Gg8Kn04=; b=qnzNgFqM3hHprps4f3AJUBRxxb
-	9QCWBDbqFf3GzyENglWKjdJirH+bSZ5B78BL0GD4UjzmRYhUiqzpj+FhxQl8rN4+qChOAw6Xjjuyu
-	kZruiaxwm3hAw+cUdFcZh4EUE8jxHU6a1R4C+Z96pq6+m/Qm/V7uIpI78BeMr5zghuR51beOcVvTV
-	L5cb4VN/SS2sjp6Cdaf5VbV8aRivWuiIqo9VP23hzwZjl4HhZdy4JeBPQLMhRNfKGRb6nCMEJtS1/
-	rSyHtCq88+sOH2e8IaNH/DJo1hXmHWUhUrB5rSnn32OfHfwF5i08uOkIGIE0VEc8ip0+/N6r+OBhy
-	5THPZ52Q==;
+	bh=OnIvhljOgEaSFzRrceOlRz/glboJGemj8e4dh4hByIQ=; b=AZnNsyblQ1uxctt0w5r4WhYa97
+	UX6UqponiP7Gcau/Jn8Ew9M4lToAdH5AaWuQUsjzRYcofmY6vVSxGbh9NlLJPK56F/AwlKKyIRQL0
+	upc3P+MljQ866xg/QRk6KxEboWb4/TVp0sCtL73vLsmQ+prl/zXh+l/Xj4aqf4IEPljAaTbMZ4oe1
+	8LGBYHYib2fzE/YvEySuqRK4PbXwzCQdSBY3lL++U8QotCmLvz4XjP1JMkg4Opa6adLCqlTJRI29j
+	wlptVpRS1iACXQAgwg+JDRkzRx4+gXHcw9aQf6EXKZoG3tZZ3p0/VXqQGShlifqlJYBi5QL2BAIAv
+	5BKDd6Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBvhN-0000000EN6Z-1Zqc;
-	Sun, 12 Apr 2026 14:22:05 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBvhK-0000000EN5b-2iwk
+	id 1wBvi8-0000000ENCN-0wY9;
+	Sun, 12 Apr 2026 14:22:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wBvi5-0000000ENBP-1mwP
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Apr 2026 14:22:04 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63CE4s8C3561252
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 14:22:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	iTcVGv4apLzvR0+Y73Al9/aJbgw2Thmz3b36Gg8Kn04=; b=OcmhPOi2VyKQQ9Ea
-	CMC8gSH4S1EYKb+S53ogd228I7ePNGciZaJ3DwT3RTycoeoNef2YFxcLmR8idMlC
-	o1/lpKZTcQIFPK4uveJiBLn7knAiEF6V1zV3bPUf77DBXMC5DsQ8qbhJDliVUAvI
-	oy5w+tmie4CsczYmpVP5kiQh6eFm6xxMp/1/rtBhGvsu9PVRd014PrfHO+Qyu8xT
-	W3i52EmOxX2WfZRaUQO4LX2kLiLnYYwTpuOUOwuvp0r6AX8quxoOr83idxYtTsTx
-	Ew6cd2JXcUPkzWqE4RTaHoPwpIVAJLmqAIZ9QJ08FRZKdSMuWgUFXUS0KkqYSLJ1
-	MwYEQQ==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dffb0jehw-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 14:22:00 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2b2e6ee9444so6888005ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 07:22:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776003720; x=1776608520; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=iTcVGv4apLzvR0+Y73Al9/aJbgw2Thmz3b36Gg8Kn04=;
-        b=Q9Lw/i/7l/o8/qnYLUnsZO11bKldjTHsDrno/hgM3Mt2GFrDrtPZI7WJavvrjhDPsV
-         7g9C0ZgMTPCTA4ArW5DmdkgInKWQWQuUWgHAEqYhMpUeucUL0gpVSV0Oj4hXGMnvD9jB
-         m+0tRxwJSCXNQ40bkHtpTYdDjuqg7auFvg3ZkItLCXGzQ34L+vQQA9PwtSqcTEHhGiGi
-         JHUZ2OUO9KIwTM9dyblZC4Bo4L1VbtUackRWkJQq0dMDp2Yl0zR2Jf8Numq3ZkB0DCY0
-         aVOmC48PGbRvPTmQq0uNSLivlEg21x4uxHPXWLNOb4qDGWGA8ZTWp5wYsjYKMPoF0fnn
-         ibFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776003720; x=1776608520;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=iTcVGv4apLzvR0+Y73Al9/aJbgw2Thmz3b36Gg8Kn04=;
-        b=CqSMIbdBlTGqcE66BPaX5ejplsLnI+YqURHErQyvL3/99RxDe8C/hsMH8AUpb2Vh4s
-         E5cz6SVNS6/9KXeY+L7MeBhH3bZXf9xU9rNO49ctKXr4bcn4dmbabCORF6K6jk0ga9xv
-         S2qaUXWJfuIw7bvuajL21AXXacKynLScafpQzzPTVAmY2CJESk1M5HeeGh+el72r0yjS
-         fsnfK7mkAQbDNLBs26eClML3lC762xvTfXTtCmWwqtezDSi/zZKyGLY/yYQAG4ZTXhiJ
-         uITy0QS4YOSu7Yfwa2JAnSossq7+FP1nreblVRw3SxATKJrguwDR54RKkQ2X10mZUSxb
-         Ydiw==
-X-Forwarded-Encrypted: i=1; AFNElJ/uSNWVjABZqyG6El1ZuE8SzjH8S+9KPloAbcaPcPylxYwInyVapEq5GUwqMAke6BbXBAhKqScbzBz3RxFoUppS@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOkytf3ww4C4d78shLqx6awS03Ul+OPfjtsEEavQawwv3daNSZ
-	kQQvNzcAeLeJLm/2evuoXbKY8MJnItEBBq2XP7teguWfwki61yAUhlf2GXDMTdbdBlZ/2fq9mhg
-	xidXjm4YM9Hne4Gs0AQHcIQBndDGZirwRC6gbq/kVXazU+SmpCBEwpYrc4SacMjgru+/9WMEe8D
-	l2jg==
-X-Gm-Gg: AeBDiesa2F2Ibtjk6U5EeAExRkOeVixUknl7yC4oc4RojxYvZthfBOyo1LagGYpVZsJ
-	Hgi/0ULF5/sXmijII6KL6LiM5+svr7yD39PY5zlsoohBWZhUNYtOL2Y0Oxd9m7IdYIUoV02X9E+
-	lvQ/0alD5ibaza2x8Yc+kZPkv/62q0+wmLXYTRT9pn/bjD5ZOX+apoHGsi5x4gx7NY+ZyAsgEIe
-	JjwtOnCHK1a6lxJxuClVYDPX9VbX4ZVb1KFAeRelGIjVGTpDy02ccVMSKf1dPrggjhNxwwb1h5P
-	wA2bSeu8nywCRHnn9WT6JtCaHK+xHmsjR22qG9hFlJUVPKQFp4hdLlKNnN+DBUq7qsN9HpR5eQ/
-	BOdTpxKsudQLk9jFWGBddUVXG0lm+KaKcrgb4ZaVe/wVLJwjKvLSg55vnF+aJUDOKrUDrn+7f4t
-	wxW3zAliiRYg==
-X-Received: by 2002:a17:903:120a:b0:2b2:6cab:3127 with SMTP id d9443c01a7336-2b2d5d7a278mr85328015ad.20.1776003719717;
-        Sun, 12 Apr 2026 07:21:59 -0700 (PDT)
-X-Received: by 2002:a17:903:120a:b0:2b2:6cab:3127 with SMTP id d9443c01a7336-2b2d5d7a278mr85327885ad.20.1776003719210;
-        Sun, 12 Apr 2026 07:21:59 -0700 (PDT)
-Received: from [10.133.33.83] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2b45d066afesm9055195ad.8.2026.04.12.07.21.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 12 Apr 2026 07:21:58 -0700 (PDT)
-Message-ID: <4feaf157-4015-471e-accf-d588e2345c13@oss.qualcomm.com>
-Date: Sun, 12 Apr 2026 22:21:54 +0800
+	Sun, 12 Apr 2026 14:22:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 269D135BB;
+	Sun, 12 Apr 2026 07:22:42 -0700 (PDT)
+Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A9EE63F641;
+	Sun, 12 Apr 2026 07:22:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776003767; bh=qd/xGyy1flBlfaXhDHK+Ds4y1aU389ligvtTqKbtVIY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=IoNLxSuYUX86TFsqlo+U/3ZswoamnYjHxyaMt9QdDjz9UN7Gkvw2tIpr3kGp5gIgp
+	 OvTWmNe+jNjvbBe8nsMrf59ZYEQaHRzOiUuCPm09dnC8Nd8MpBJkljN9qysKP2EjMF
+	 JQ66rf5V9cuDBi71jqNSOHxXFl0uDkffo66uOnZs=
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: [PATCH v2 1/4] KVM: arm64: selftests: Add GPR save/restore functions for NV
+Date: Sun, 12 Apr 2026 15:22:13 +0100
+Message-ID: <20260412142216.3806482-2-weilin.chang@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260412142216.3806482-1-weilin.chang@arm.com>
+References: <20260412142216.3806482-1-weilin.chang@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] coresight: etm3x: introduce struct etm_caps
-To: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: suzuki.poulose@arm.com, mike.leach@arm.com, james.clark@linaro.org,
-        alexander.shishkin@linux.intel.com, leo.yan@arm.com
-References: <20260410074310.2693385-1-yeoreum.yun@arm.com>
- <20260410074310.2693385-5-yeoreum.yun@arm.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20260410074310.2693385-5-yeoreum.yun@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=YfmNIQRf c=1 sm=1 tr=0 ts=69dbaa88 cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=7CQSdrXTAAAA:8 a=pXV8fNaFAcaORdBuSxcA:9 a=QEXdDO2ut3YA:10
- a=1OuFwYUASf3TG4hYMiVC:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEyMDE0MSBTYWx0ZWRfX5pPuTh+5FXRu
- DmwQONeCRvnB8dmZqTyvwcLUT5+bsGU1TgXm6QVldqbYOOO7mzpvDZg1UnUU9mBcjK+oYXBmnwZ
- Q0iNRhzjQg0odQwJurHCAEIVep067GQi9ykOWRb58I71EkcO/f7vvwl9+yBk3XAAolRhEX0vh+8
- Ok46YgzwDStT4BiQCOt6/7jLlxr8FuGxzWRBVfU5AvRmKVgx6SyGkYEcyKzlLeG4WTYlUD1YKWX
- z4OoATQaVU6I4UwYYmvxWgOLFcfob/ir5FdCVY4lkdrZ4kmeowOxYFj3wLFvWsz1SXAjO0lnU1T
- 3oDdHH2c0N+ahXHm69FIYJ7fNtRQBj2Bz470JvowhPSZrShQB1nx9DtML8GB1HAAz38ylqmf6Y8
- DbkHpk8sRz8aNIzbajzXwa4Uhy8z10/sBSHf/EEq8TtDXXO/M7IIGlNf1QnUtBgUGKtgYY5zOI2
- Wf6in6FXzHcXGBmjK+A==
-X-Proofpoint-ORIG-GUID: JMsYXKrM8xOXNR186d39w3X7mYWDPsk9
-X-Proofpoint-GUID: JMsYXKrM8xOXNR186d39w3X7mYWDPsk9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-04-12_03,2026-04-09_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 impostorscore=0 adultscore=0 phishscore=0 malwarescore=0
- spamscore=0 suspectscore=0 clxscore=1015 priorityscore=1501 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604120141
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_072202_750882_E805C5F4 
-X-CRM114-Status: GOOD (  30.53  )
+X-CRM114-CacheID: sfid-20260412_072249_540745_53AC0781 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,281 +80,333 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Adapt entry.S and hyp-entry.S from arch/arm64/kvm/hyp so that guest
+hypervisors can save and restore GPRs, and provide exception handlers
+to regain control after the nested guest exits. Other system register
+save/restore will be added later on demand.
 
+Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+---
+ tools/testing/selftests/kvm/Makefile.kvm      |   3 +
+ .../selftests/kvm/include/arm64/nested.h      |  45 ++++++
+ tools/testing/selftests/kvm/lib/arm64/entry.S | 132 ++++++++++++++++++
+ .../selftests/kvm/lib/arm64/hyp-entry.S       |  77 ++++++++++
+ .../testing/selftests/kvm/lib/arm64/nested.c  |  12 ++
+ 5 files changed, 269 insertions(+)
+ create mode 100644 tools/testing/selftests/kvm/include/arm64/nested.h
+ create mode 100644 tools/testing/selftests/kvm/lib/arm64/entry.S
+ create mode 100644 tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
+ create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested.c
 
-On 4/10/2026 3:43 PM, Yeoreum Yun wrote:
-> Introduce struct etm_caps to describe ETMv3 capabilities
-> and move capabilities information into it.
-> 
-> Since drvdata->etmccr and drvdata->etmccer are used to check
-> whether it supports fifofull logic and timestamping,
-> remove etmccr and etmccer field from drvdata and add relevant fields
-> in etm_caps structure.
-> 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-etm.h   | 40 +++++++++++--------
->   .../coresight/coresight-etm3x-core.c          | 33 ++++++++-------
->   .../coresight/coresight-etm3x-sysfs.c         | 14 ++++---
->   3 files changed, 52 insertions(+), 35 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm.h b/drivers/hwtracing/coresight/coresight-etm.h
-> index 1d753cca2943..6fda26039db8 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm.h
-> +++ b/drivers/hwtracing/coresight/coresight-etm.h
-> @@ -140,6 +140,28 @@
->   				 ETM_ADD_COMP_0		|	\
->   				 ETM_EVENT_NOT_A)
->   
-> +/**
-> + * struct etmv4_caps - specifics ETM capabilities
-> + * @port_size:	port size as reported by ETMCR bit 4-6 and 21.
-> + * @nr_addr_cmp:Number of pairs of address comparators as found in ETMCCR.
-> + * @nr_cntr:	Number of counters as found in ETMCCR bit 13-15.
-> + * @nr_ext_inp:	Number of external input as found in ETMCCR bit 17-19.
-> + * @nr_ext_out:	Number of external output as found in ETMCCR bit 20-22.
-> + * @nr_ctxid_cmp: Number of contextID comparators as found in ETMCCR bit 24-25.
-> + * @fifofull: FIFOFULL logic is present.
-> + * @timestamp: Timestamping is implemented.
-> + */
-> +struct etm_caps {
-> +	int	port_size;
-> +	u8	nr_addr_cmp;
-> +	u8	nr_cntr;
-> +	u8	nr_ext_inp;
-> +	u8	nr_ext_out;
-> +	u8	nr_ctxid_cmp;
-> +	bool	fifofull : 1;
-> +	bool	timestamp : 1;
-> +};
-> +
->   /**
->    * struct etm_config - configuration information related to an ETM
->    * @mode:	controls various modes supported by this ETM/PTM.
-> @@ -212,19 +234,12 @@ struct etm_config {
->    * @csdev:	component vitals needed by the framework.
->    * @spinlock:	only one at a time pls.
->    * @cpu:	the cpu this component is affined to.
-> - * @port_size:	port size as reported by ETMCR bit 4-6 and 21.
->    * @arch:	ETM/PTM version number.
-> + * @caps:	ETM capabilities.
->    * @use_cpu14:	true if management registers need to be accessed via CP14.
->    * @sticky_enable: true if ETM base configuration has been done.
->    * @boot_enable:true if we should start tracing at boot time.
->    * @os_unlock:	true if access to management registers is allowed.
-> - * @nr_addr_cmp:Number of pairs of address comparators as found in ETMCCR.
-> - * @nr_cntr:	Number of counters as found in ETMCCR bit 13-15.
-> - * @nr_ext_inp:	Number of external input as found in ETMCCR bit 17-19.
-> - * @nr_ext_out:	Number of external output as found in ETMCCR bit 20-22.
-> - * @nr_ctxid_cmp: Number of contextID comparators as found in ETMCCR bit 24-25.
-> - * @etmccr:	value of register ETMCCR.
-> - * @etmccer:	value of register ETMCCER.
->    * @traceid:	value of the current ID for this component.
->    * @config:	structure holding configuration parameters.
->    */
-> @@ -234,19 +249,12 @@ struct etm_drvdata {
->   	struct coresight_device		*csdev;
->   	spinlock_t			spinlock;
->   	int				cpu;
-> -	int				port_size;
->   	u8				arch;
-> +	struct etm_caps			caps;
->   	bool				use_cp14;
->   	bool				sticky_enable;
->   	bool				boot_enable;
->   	bool				os_unlock;
-> -	u8				nr_addr_cmp;
-> -	u8				nr_cntr;
-> -	u8				nr_ext_inp;
-> -	u8				nr_ext_out;
-> -	u8				nr_ctxid_cmp;
-> -	u32				etmccr;
-> -	u32				etmccer;
->   	u32				traceid;
->   	struct etm_config		config;
->   };
-> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> index a547a6d2e0bd..b7e977defb1c 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> @@ -367,6 +367,7 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
->   {
->   	int i, rc;
->   	u32 etmcr;
-> +	const struct etm_caps *caps = &drvdata->caps;
->   	struct etm_config *config = &drvdata->config;
->   	struct coresight_device *csdev = drvdata->csdev;
->   
-> @@ -388,7 +389,7 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
->   	etmcr = etm_readl(drvdata, ETMCR);
->   	/* Clear setting from a previous run if need be */
->   	etmcr &= ~ETM3X_SUPPORTED_OPTIONS;
-> -	etmcr |= drvdata->port_size;
-> +	etmcr |= caps->port_size;
->   	etmcr |= ETMCR_ETM_EN;
->   	etm_writel(drvdata, config->ctrl | etmcr, ETMCR);
->   	etm_writel(drvdata, config->trigger_event, ETMTRIGGER);
-> @@ -396,11 +397,11 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
->   	etm_writel(drvdata, config->enable_event, ETMTEEVR);
->   	etm_writel(drvdata, config->enable_ctrl1, ETMTECR1);
->   	etm_writel(drvdata, config->fifofull_level, ETMFFLR);
-> -	for (i = 0; i < drvdata->nr_addr_cmp; i++) {
-> +	for (i = 0; i < caps->nr_addr_cmp; i++) {
->   		etm_writel(drvdata, config->addr_val[i], ETMACVRn(i));
->   		etm_writel(drvdata, config->addr_acctype[i], ETMACTRn(i));
->   	}
-> -	for (i = 0; i < drvdata->nr_cntr; i++) {
-> +	for (i = 0; i < caps->nr_cntr; i++) {
->   		etm_writel(drvdata, config->cntr_rld_val[i], ETMCNTRLDVRn(i));
->   		etm_writel(drvdata, config->cntr_event[i], ETMCNTENRn(i));
->   		etm_writel(drvdata, config->cntr_rld_event[i],
-> @@ -414,9 +415,9 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
->   	etm_writel(drvdata, config->seq_32_event, ETMSQ32EVR);
->   	etm_writel(drvdata, config->seq_13_event, ETMSQ13EVR);
->   	etm_writel(drvdata, config->seq_curr_state, ETMSQR);
-> -	for (i = 0; i < drvdata->nr_ext_out; i++)
-> +	for (i = 0; i < caps->nr_ext_out; i++)
->   		etm_writel(drvdata, ETM_DEFAULT_EVENT_VAL, ETMEXTOUTEVRn(i));
-> -	for (i = 0; i < drvdata->nr_ctxid_cmp; i++)
-> +	for (i = 0; i < caps->nr_ctxid_cmp; i++)
->   		etm_writel(drvdata, config->ctxid_pid[i], ETMCIDCVRn(i));
->   	etm_writel(drvdata, config->ctxid_mask, ETMCIDCMR);
->   	etm_writel(drvdata, config->sync_freq, ETMSYNCFR);
-> @@ -572,7 +573,7 @@ static void etm_disable_hw(struct etm_drvdata *drvdata)
->   	/* Read back sequencer and counters for post trace analysis */
->   	config->seq_curr_state = (etm_readl(drvdata, ETMSQR) & ETM_SQR_MASK);
->   
-> -	for (i = 0; i < drvdata->nr_cntr; i++)
-> +	for (i = 0; i < caps->nr_cntr; i++)
-
-caps undeclared.
-
-Thanks,
-Jie
-
->   		config->cntr_val[i] = etm_readl(drvdata, ETMCNTVRn(i));
->   
->   	etm_set_pwrdwn(drvdata);
-> @@ -754,7 +755,9 @@ static void etm_init_arch_data(void *info)
->   {
->   	u32 etmidr;
->   	u32 etmccr;
-> +	u32 etmccer;
->   	struct etm_drvdata *drvdata = info;
-> +	struct etm_caps *caps = &drvdata->caps;
->   
->   	/* Make sure all registers are accessible */
->   	etm_os_unlock(drvdata);
-> @@ -779,16 +782,18 @@ static void etm_init_arch_data(void *info)
->   	/* Find all capabilities */
->   	etmidr = etm_readl(drvdata, ETMIDR);
->   	drvdata->arch = BMVAL(etmidr, 4, 11);
-> -	drvdata->port_size = etm_readl(drvdata, ETMCR) & PORT_SIZE_MASK;
-> +	caps->port_size = etm_readl(drvdata, ETMCR) & PORT_SIZE_MASK;
-> +
-> +	etmccer = etm_readl(drvdata, ETMCCER);
-> +	caps->timestamp = !!(drvdata->etmccer & ETMCCER_TIMESTAMP);
-
-caps->timestamp = !!(etmccer & ETMCCER_TIMESTAMP);
-
->   
-> -	drvdata->etmccer = etm_readl(drvdata, ETMCCER);
->   	etmccr = etm_readl(drvdata, ETMCCR);
-> -	drvdata->etmccr = etmccr;
-> -	drvdata->nr_addr_cmp = BMVAL(etmccr, 0, 3) * 2;
-> -	drvdata->nr_cntr = BMVAL(etmccr, 13, 15);
-> -	drvdata->nr_ext_inp = BMVAL(etmccr, 17, 19);
-> -	drvdata->nr_ext_out = BMVAL(etmccr, 20, 22);
-> -	drvdata->nr_ctxid_cmp = BMVAL(etmccr, 24, 25);
-> +	caps->fifofull = !!(drvdata->etmccr & ETMCCR_FIFOFULL);
-
-caps->fifofull = !!(etmccr & ETMCCR_FIFOFULL);
-
-> +	caps->nr_addr_cmp = BMVAL(etmccr, 0, 3) * 2;
-> +	caps->nr_cntr = BMVAL(etmccr, 13, 15);
-> +	caps->nr_ext_inp = BMVAL(etmccr, 17, 19);
-> +	caps->nr_ext_out = BMVAL(etmccr, 20, 22);
-> +	caps->nr_ctxid_cmp = BMVAL(etmccr, 24, 25);
->   
->   	coresight_clear_self_claim_tag_unlocked(&drvdata->csa);
->   	etm_set_pwrdwn(drvdata);
-> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> index 762109307b86..0d8dac29d055 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> @@ -111,6 +111,7 @@ static ssize_t mode_store(struct device *dev,
->   	int ret;
->   	unsigned long val;
->   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	const struct etm_caps *caps = &drvdata->caps;
->   	struct etm_config *config = &drvdata->config;
->   
->   	ret = kstrtoul(buf, 16, &val);
-> @@ -131,7 +132,7 @@ static ssize_t mode_store(struct device *dev,
->   		config->ctrl &= ~ETMCR_CYC_ACC;
->   
->   	if (config->mode & ETM_MODE_STALL) {
-> -		if (!(drvdata->etmccr & ETMCCR_FIFOFULL)) {
-> +		if (!caps->fifofull) {
->   			dev_warn(dev, "stall mode not supported\n");
->   			ret = -EINVAL;
->   			goto err_unlock;
-> @@ -141,7 +142,7 @@ static ssize_t mode_store(struct device *dev,
->   		config->ctrl &= ~ETMCR_STALL_MODE;
->   
->   	if (config->mode & ETM_MODE_TIMESTAMP) {
-> -		if (!(drvdata->etmccer & ETMCCER_TIMESTAMP)) {
-> +		if (!caps->timestamp) {
->   			dev_warn(dev, "timestamp not supported\n");
->   			ret = -EINVAL;
->   			goto err_unlock;
-> @@ -286,13 +287,14 @@ static ssize_t addr_idx_store(struct device *dev,
->   	int ret;
->   	unsigned long val;
->   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	const struct etm_caps *caps = &drvdata->caps;
->   	struct etm_config *config = &drvdata->config;
->   
->   	ret = kstrtoul(buf, 16, &val);
->   	if (ret)
->   		return ret;
->   
-> -	if (val >= drvdata->nr_addr_cmp)
-> +	if (val >= caps->nr_addr_cmp)
->   		return -EINVAL;
->   
->   	/*
-> @@ -589,13 +591,14 @@ static ssize_t cntr_idx_store(struct device *dev,
->   	int ret;
->   	unsigned long val;
->   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	const struct etm_caps *caps = &drvdata->caps;
->   	struct etm_config *config = &drvdata->config;
->   
->   	ret = kstrtoul(buf, 16, &val);
->   	if (ret)
->   		return ret;
->   
-> -	if (val >= drvdata->nr_cntr)
-> +	if (val >= caps->nr_cntr)
->   		return -EINVAL;
->   	/*
->   	 * Use spinlock to ensure index doesn't change while it gets
-> @@ -999,13 +1002,14 @@ static ssize_t ctxid_idx_store(struct device *dev,
->   	int ret;
->   	unsigned long val;
->   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	const struct etm_caps *caps = &drvdata->caps;
->   	struct etm_config *config = &drvdata->config;
->   
->   	ret = kstrtoul(buf, 16, &val);
->   	if (ret)
->   		return ret;
->   
-> -	if (val >= drvdata->nr_ctxid_cmp)
-> +	if (val >= caps->nr_ctxid_cmp)
->   		return -EINVAL;
->   
->   	/*
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index 98da9fa4b8b7..3dc3e39f7025 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -30,10 +30,13 @@ LIBKVM_x86 += lib/x86/svm.c
+ LIBKVM_x86 += lib/x86/ucall.c
+ LIBKVM_x86 += lib/x86/vmx.c
+ 
++LIBKVM_arm64 += lib/arm64/entry.S
+ LIBKVM_arm64 += lib/arm64/gic.c
+ LIBKVM_arm64 += lib/arm64/gic_v3.c
+ LIBKVM_arm64 += lib/arm64/gic_v3_its.c
+ LIBKVM_arm64 += lib/arm64/handlers.S
++LIBKVM_arm64 += lib/arm64/hyp-entry.S
++LIBKVM_arm64 += lib/arm64/nested.c
+ LIBKVM_arm64 += lib/arm64/processor.c
+ LIBKVM_arm64 += lib/arm64/spinlock.c
+ LIBKVM_arm64 += lib/arm64/ucall.c
+diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
+new file mode 100644
+index 000000000000..86d931facacb
+--- /dev/null
++++ b/tools/testing/selftests/kvm/include/arm64/nested.h
+@@ -0,0 +1,45 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * ARM64 Nested virtualization defines
++ */
++
++#ifndef SELFTEST_KVM_NESTED_H
++#define SELFTEST_KVM_NESTED_H
++
++#define ARM_EXCEPTION_IRQ	  0
++#define ARM_EXCEPTION_EL1_SERROR  1
++#define ARM_EXCEPTION_TRAP	  2
++#define ARM_EXCEPTION_IL	  3
++#define ARM_EXCEPTION_EL2_IRQ	  4
++#define ARM_EXCEPTION_EL2_SERROR  5
++#define ARM_EXCEPTION_EL2_TRAP	  6
++
++#ifndef __ASSEMBLER__
++
++#include <asm/ptrace.h>
++#include "kvm_util.h"
++
++extern char hyp_vectors[];
++
++struct cpu_context {
++	struct user_pt_regs regs;	/* sp = sp_el0 */
++};
++
++struct vcpu {
++	struct cpu_context context;
++};
++
++/*
++ * KVM has host_data and hyp_context, combine them because we're only doing
++ * hyp context.
++ */
++struct hyp_data {
++	struct cpu_context hyp_context;
++};
++
++u64 __guest_enter(struct vcpu *vcpu, struct cpu_context *hyp_context);
++void __hyp_exception(u64 type);
++
++#endif /* !__ASSEMBLER__ */
++
++#endif /* SELFTEST_KVM_NESTED_H */
+diff --git a/tools/testing/selftests/kvm/lib/arm64/entry.S b/tools/testing/selftests/kvm/lib/arm64/entry.S
+new file mode 100644
+index 000000000000..33bedf5e7fb2
+--- /dev/null
++++ b/tools/testing/selftests/kvm/lib/arm64/entry.S
+@@ -0,0 +1,132 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * adapted from arch/arm64/kvm/hyp/entry.S
++ */
++
++/*
++ * Manually define these for now
++ */
++// offsetof(struct vcpu, context)
++#define CPU_CONTEXT		0
++// offsetof(struct cpu_context, regs)
++#define CPU_USER_PT_REGS	0
++
++#define CPU_XREG_OFFSET(x)	(CPU_USER_PT_REGS + 8*x)
++#define CPU_LR_OFFSET		CPU_XREG_OFFSET(30)
++#define CPU_SP_EL0_OFFSET	(CPU_LR_OFFSET + 8)
++
++.macro save_callee_saved_regs ctxt
++	str	x18,      [\ctxt, #CPU_XREG_OFFSET(18)]
++	stp	x19, x20, [\ctxt, #CPU_XREG_OFFSET(19)]
++	stp	x21, x22, [\ctxt, #CPU_XREG_OFFSET(21)]
++	stp	x23, x24, [\ctxt, #CPU_XREG_OFFSET(23)]
++	stp	x25, x26, [\ctxt, #CPU_XREG_OFFSET(25)]
++	stp	x27, x28, [\ctxt, #CPU_XREG_OFFSET(27)]
++	stp	x29, lr,  [\ctxt, #CPU_XREG_OFFSET(29)]
++.endm
++
++.macro restore_callee_saved_regs ctxt
++	ldr	x18,      [\ctxt, #CPU_XREG_OFFSET(18)]
++	ldp	x19, x20, [\ctxt, #CPU_XREG_OFFSET(19)]
++	ldp	x21, x22, [\ctxt, #CPU_XREG_OFFSET(21)]
++	ldp	x23, x24, [\ctxt, #CPU_XREG_OFFSET(23)]
++	ldp	x25, x26, [\ctxt, #CPU_XREG_OFFSET(25)]
++	ldp	x27, x28, [\ctxt, #CPU_XREG_OFFSET(27)]
++	ldp	x29, lr,  [\ctxt, #CPU_XREG_OFFSET(29)]
++.endm
++
++.macro save_sp_el0 ctxt, tmp
++	mrs	\tmp,	sp_el0
++	str	\tmp,	[\ctxt, #CPU_SP_EL0_OFFSET]
++.endm
++
++.macro restore_sp_el0 ctxt, tmp
++	ldr	\tmp,	  [\ctxt, #CPU_SP_EL0_OFFSET]
++	msr	sp_el0, \tmp
++.endm
++
++/*
++ * u64 __guest_enter(struct vcpu *vcpu, struct cpu_context *hyp_context);
++ */
++.globl __guest_enter
++__guest_enter:
++	// x0: vcpu
++	// x1: hyp context
++
++	// Store vcpu and hyp context pointer on the stack
++	stp	x0, x1, [sp, #-16]!
++
++	// Store the hyp regs
++	save_callee_saved_regs x1
++
++	// Save hyp's sp_el0
++	save_sp_el0	x1, x2
++
++	// x29 = vCPU user pt regs
++	add	x29, x0, #CPU_CONTEXT
++
++	// Restore the guest's sp_el0
++	restore_sp_el0 x29, x0
++
++	// Restore guest regs x0-x17
++	ldp	x0, x1,   [x29, #CPU_XREG_OFFSET(0)]
++	ldp	x2, x3,   [x29, #CPU_XREG_OFFSET(2)]
++	ldp	x4, x5,   [x29, #CPU_XREG_OFFSET(4)]
++	ldp	x6, x7,   [x29, #CPU_XREG_OFFSET(6)]
++	ldp	x8, x9,   [x29, #CPU_XREG_OFFSET(8)]
++	ldp	x10, x11, [x29, #CPU_XREG_OFFSET(10)]
++	ldp	x12, x13, [x29, #CPU_XREG_OFFSET(12)]
++	ldp	x14, x15, [x29, #CPU_XREG_OFFSET(14)]
++	ldp	x16, x17, [x29, #CPU_XREG_OFFSET(16)]
++
++	// Restore guest regs x18-x29, lr
++	restore_callee_saved_regs x29
++
++	// Do not touch any register after this!
++	eret
++
++.globl __guest_exit
++__guest_exit:
++	// x0: return code
++	// x1: vcpu
++	// x2-x29,lr: vcpu regs
++	// vcpu x0-x1 on the stack
++
++	add	x1, x1, #CPU_CONTEXT
++
++	// Store the guest regs x2 and x3
++	stp	x2, x3,   [x1, #CPU_XREG_OFFSET(2)]
++
++	// Retrieve the guest regs x0-x1 from the stack
++	ldp	x2, x3, [sp], #16	// x0, x1
++
++	// Store the guest regs x0-x1 and x4-x17
++	stp	x2, x3,   [x1, #CPU_XREG_OFFSET(0)]
++	stp	x4, x5,   [x1, #CPU_XREG_OFFSET(4)]
++	stp	x6, x7,   [x1, #CPU_XREG_OFFSET(6)]
++	stp	x8, x9,   [x1, #CPU_XREG_OFFSET(8)]
++	stp	x10, x11, [x1, #CPU_XREG_OFFSET(10)]
++	stp	x12, x13, [x1, #CPU_XREG_OFFSET(12)]
++	stp	x14, x15, [x1, #CPU_XREG_OFFSET(14)]
++	stp	x16, x17, [x1, #CPU_XREG_OFFSET(16)]
++
++	// Store the guest regs x18-x29, lr
++	save_callee_saved_regs x1
++
++	// Store the guest's sp_el0
++	save_sp_el0	x1, x2
++
++	// At this point x0 and x1 on the stack is popped, so next is vCPU
++	// pointer, then hyp_context pointer
++	// *sp == vCPU, *(sp + 8) == hyp_context
++	// load x2 = hyp_context, x3 is just for ldp and popping sp
++	ldp	x3, x2, [sp], #16
++
++	// Restore hyp's sp_el0
++	restore_sp_el0 x2, x3
++
++	// Now restore the hyp regs
++	restore_callee_saved_regs x2
++
++	dsb	sy		// Synchronize against in-flight ld/st
++	ret
+diff --git a/tools/testing/selftests/kvm/lib/arm64/hyp-entry.S b/tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
+new file mode 100644
+index 000000000000..6341f6e05c90
+--- /dev/null
++++ b/tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
+@@ -0,0 +1,77 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * adapted from arch/arm64/kvm/hyp/hyp-entry.S
++ */
++
++#include "nested.h"
++
++// skip over x0, x1 saved on entry, must be used only before the stack is modified
++.macro get_vcpu_ptr vcpu
++	ldr	\vcpu, [sp, #16]
++.endm
++
++	.text
++
++el1_sync:	// Guest trapped into EL2
++
++	get_vcpu_ptr	x1
++	mov	x0, #ARM_EXCEPTION_TRAP
++	b	__guest_exit
++
++el1_irq:
++el1_fiq:
++	get_vcpu_ptr	x1
++	mov	x0, #ARM_EXCEPTION_IRQ
++	b	__guest_exit
++
++el1_error:
++	get_vcpu_ptr	x1
++	mov	x0, #ARM_EXCEPTION_EL1_SERROR
++	b	__guest_exit
++
++el2_sync:
++	mov	x0, #ARM_EXCEPTION_EL2_TRAP
++	b	__hyp_exception
++
++el2_irq:
++el2_fiq:
++	mov	x0, #ARM_EXCEPTION_EL2_IRQ
++	b	__hyp_exception
++
++el2_error:
++	mov	x0, #ARM_EXCEPTION_EL2_SERROR
++	b	__hyp_exception
++
++
++	.ltorg
++
++	.align 11
++
++.globl hyp_vectors
++hyp_vectors:
++
++.macro exception_vector target
++	.align 7
++	stp	x0, x1, [sp, #-16]!
++	b	\target
++.endm
++
++	exception_vector	el2_sync	// Synchronous EL2t
++	exception_vector	el2_irq		// IRQ EL2t
++	exception_vector	el2_fiq		// FIQ EL2t
++	exception_vector	el2_error	// Error EL2t
++
++	exception_vector	el2_sync	// Synchronous EL2h
++	exception_vector	el2_irq		// IRQ EL2h
++	exception_vector	el2_fiq		// FIQ EL2h
++	exception_vector	el2_error	// Error EL2h
++
++	exception_vector	el1_sync	// Synchronous 64-bit EL1
++	exception_vector	el1_irq		// IRQ 64-bit EL1
++	exception_vector	el1_fiq		// FIQ 64-bit EL1
++	exception_vector	el1_error	// Error 64-bit EL1
++
++	exception_vector	el1_sync	// Synchronous 32-bit EL1
++	exception_vector	el1_irq		// IRQ 32-bit EL1
++	exception_vector	el1_fiq		// FIQ 32-bit EL1
++	exception_vector	el1_error	// Error 32-bit EL1
+diff --git a/tools/testing/selftests/kvm/lib/arm64/nested.c b/tools/testing/selftests/kvm/lib/arm64/nested.c
+new file mode 100644
+index 000000000000..06ddaab2436f
+--- /dev/null
++++ b/tools/testing/selftests/kvm/lib/arm64/nested.c
+@@ -0,0 +1,12 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * ARM64 Nested virtualization helpers
++ */
++
++#include "nested.h"
++#include "test_util.h"
++
++void __hyp_exception(u64 type)
++{
++	GUEST_FAIL("Unexpected hyp exception! type: %lx\n", type);
++}
+-- 
+2.43.0
 
 
