@@ -4,65 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97784E937F6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 18:40:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAFFDE937F9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 18:45:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d/wzw7uIYdaxudaglIH2J9UznWiy71S4q36mUbzo1/Y=; b=BhLSGnhaaoNdyVn1jiPwRNRHxv
-	WvppavcCgZemBmbZ3fb8JGAYSHxKzXdNP1cMXG/93wQB5/Le0VRSTFxH0LbCmR61v5WVx8B731qvx
-	4EmJ/ZUZuvkummeWbPRVZxAedreizlFC7dWDUQ6+BaB9WbgG1nvBIKVxcD1JtNb7mlitrHe0QFOwS
-	GIaIfEQ5I2niWsUcw4ahSwZBdkC51XWLXkXVY+8cAhLKT6rsuuFdo3wO7+0p7HvM5TbFC91iaHiEA
-	PfZzsrxgr9hHU8vu0k4vm5+Mvaxa5W2Sf56UnrgQ8tTy0cFa2zGKtafNK6B93+1jJr6NsEdrnIXz3
-	LHK0eM3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NKNymydwkQ9LKmJcNQgFQ3eYoYUA3j/F+SLFUPNOSN4=; b=dG+NwoSjhrNWHkufKC6SuuESoY
+	IosTMuV+LKCSpju5AgEEDmj+uuKOvjotNYG1o8Rajca1xk5MG1nvtnkzzdeJloPOSTGwI6BDd5udj
+	1qBCLYbejJgNrPoQE3IosOMxzmC/aLQL2/Aj3+XAyekqOkjPdHYaXWhdXYryOeTbCrMudhq7kXOPC
+	75sJhYInnyFvVIlyXTaikrOccxUBYw3SeW/NO00FS43XoybDfOWh1qaEBtsBk/d5QCnmmhFY7y2SB
+	AOx2JO625g+USwFSwdppzkEYv94LDzM+3fnTUZjageP1vm9MXZ2AzZj2nBBxxi6SFDTJFmorMPJnG
+	ZSNygT5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBzje-0000000Eb2Q-2v7V;
-	Sun, 12 Apr 2026 18:40:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBzjc-0000000Eb24-2KN5;
-	Sun, 12 Apr 2026 18:40:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3A0F844537;
-	Sun, 12 Apr 2026 18:40:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14721C2BCB0;
-	Sun, 12 Apr 2026 18:40:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776019239;
-	bh=COsDTpK+goKtZ6v+1Eg3O5mezNOOSNJXILqQG+OL680=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=fyFbOPefESr9S9R10KtfTKx31mwLKY1l2YXY3Okb2t4icf0dAZ7EI7c/4N1DeAluc
-	 +4mDvrZX/gCAhHDISQs52gYmVxxzk5ASj1s+vqeReby/izDfaWcEyDWkSp6/cBI3WR
-	 GhkB9fTBOcenrOz/IPuvY/O+LmsWeHzTESRd9KYoRmIGwTwi8ZAG4sbeMJDggvg+44
-	 Fagib4jdfGvlcZr3mTRhKtERc2Ze2cET3w2N9fKQjKTwl/logTm0V49GSR1Y/DjxKQ
-	 ZHXp7l6uqT8Qy8ggo9jCFPTRHzcNng5rQVR69WcKfkHktLY/Karu1JL4XneJdtgxwy
-	 YNF6R9JDIctOA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B9DDB3809A8C;
-	Sun, 12 Apr 2026 18:40:12 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1wBzo3-0000000EbEf-2zBm;
+	Sun, 12 Apr 2026 18:45:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wBzo1-0000000EbEE-2NHE
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 12 Apr 2026 18:45:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A480331A;
+	Sun, 12 Apr 2026 11:45:03 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0AB803F641;
+	Sun, 12 Apr 2026 11:45:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776019508; bh=JycCwi4It/RmDM1Aoh26Y5e1GASVK7xVPWR4xn0eZE8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NuAHMdQReW1JUpva8C4r1cbQXqIATk01UJq9WTHm/C+iuZ3Mc2tYrPl53dDN7MHsJ
+	 NyhRMK27pEDOucPgnKebroKJAcy7wKvcI2p0/2CR/D59wu0/peakhyP7jV6X0if6M1
+	 QFeOL1S2bifnTia3nbbEASql4Nu2bNQlsdWiHQvI=
+Date: Sun, 12 Apr 2026 19:44:58 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Marek Vasut <marek.vasut@mailbox.org>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH 0/3] firmware: arm_scmi: Miscellaneous improvements
+Message-ID: <advoKvOSGpOEN_qX@pluto>
+References: <cover.1775205358.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: airoha: Add missing RX_CPU_IDX() configuration
- in
- airoha_qdma_cleanup_rx_queue()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177601921154.3370691.1789981504047499151.git-patchwork-notify@kernel.org>
-Date: Sun, 12 Apr 2026 18:40:11 +0000
-References: <20260408-airoha-cpu-idx-airoha_qdma_cleanup_rx_queue-v1-1-8efa64844308@kernel.org>
-In-Reply-To: <20260408-airoha-cpu-idx-airoha_qdma_cleanup_rx_queue-v1-1-8efa64844308@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1775205358.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_114040_614441_C7945993 
-X-CRM114-Status: UNSURE (   8.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260412_114513_651036_F3222783 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +71,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Fri, Apr 03, 2026 at 10:41:28AM +0200, Geert Uytterhoeven wrote:
+> 	Hi all,
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Hi Geert,
 
-On Wed, 08 Apr 2026 20:26:56 +0200 you wrote:
-> When the descriptor index written in REG_RX_CPU_IDX() is equal to the one
-> stored in REG_RX_DMA_IDX(), the hw will stop since the QDMA RX ring is
-> empty.
-> Add missing REG_RX_CPU_IDX() configuration in airoha_qdma_cleanup_rx_queue
-> routine during QDMA RX ring cleanup.
-> 
-> Fixes: 514aac359987 ("net: airoha: Add missing cleanup bits in airoha_qdma_cleanup_rx_queue()")
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> 
-> [...]
+thanks for this, first of all.
 
-Here is the summary with links:
-  - [net] net: airoha: Add missing RX_CPU_IDX() configuration in airoha_qdma_cleanup_rx_queue()
-    https://git.kernel.org/netdev/net/c/656121b15503
+I was a bit off the keyboard so the delay in my answer.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+I will get back at this SCMI/Clocks/Quirks matters in the next few weeks
+targeting next rc1-ish...
 
+In a nutshell I was thinking to proceed roughly as follows:
+
+ - respinning a V3 of my original Clock Rates series WITH the addtion
+   of your previous fixes series on top (or merged into) BUT DROPPING
+   from my original series the patch that triggered a lot of FW panics
+   in the wild due to out of spec FWs. (Harden Clock protocol initialization)
+
+ - spinning another NEW series on top of this 'Miscellaneous improvement'
+   series of yours, since I want to add, on top of this rework of yours, the
+   capability for the Quirk framework to match the same quirk definition
+   (static key) against multiple vendors/subvendors/impl....since, as you may
+   have noticed :P, I broke a number of boards recently with just one fix
+   kernel side BUT all of these issues can be really quirked using some
+   common identical quirk snippet to match against all the needed vendors
+   (rockchip/nxp/renesas as of now)
+   
+   ...I have some ugly working hack with which I am experimenting on this
+   quirk matching evolution...
+
+   On top of all of this I would then reapply the FW-breaking fix AND all
+   the quirks we determine as needed (possibly N matching M vendoes) and
+   test as much as possible pushing into for-next...
+
+Then we'll see what Sudeep thinks about all of this, of course.
+
+Thoughts ? Any feedback welcome.
+
+Thanks,
+Cristian
 
 
