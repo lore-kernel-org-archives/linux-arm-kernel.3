@@ -4,110 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A94F4487B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 10:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E9CE937E3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 11:58:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	References:In-Reply-To:Date:Content-Type:Subject:Cc:To:From:Message-ID:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nRCwerfmJ8CFG/JP0+EJXDCHaeWswDKUigeDWbjVqCY=; b=NXp3+3kwnzrgsuQhHxdXB8cEe9
-	8UqhQuAUvuiuoPtWx1obVwziSjmTH8jVxk64dBJeEdMnjY8slCEylBdjP8IHdz5N20q5YPqDJ7nTj
-	FWsaLWm8OOyw6YReqR2EgvxDMBfD+j8t2LomPZKhLuQZw30QWsXynC425GVQSr2gfRO5+dkXbGNY0
-	TNIR7/HJt3x0AGfHWsLPNdlrBJJ08wTClRJgTyo94xukj93zYSNwZjLN6UqmfNeAjZx7PviGxoKrt
-	roUsM5WdK0s4UKAie04KW29TRMsrzPXX8hdxohWMgcxdltkmhYdukiRMq+Nr52DREf9qro9P3H64+
-	GaaGPxHA==;
+	bh=kz22EaCJFqR2Sh3DIHgGI1UiKlZwsYdIx/mKmPpPpEA=; b=bdQQNOtNrypMn2cdm7CnaLaHlj
+	IJr2NTSlL0iT6v5UMGaiI9ByxGgeVwtjOK5aZk0u/o6D3uC1e8qZbY6AgnGGWC34W91RHHnOzYf4q
+	TSKNMdqed4t3VV/u74epevOC2+H0QglillIow+sXmeXEGNKPfGSTd78p7Be9WTyUIeYWXpZ5to/bK
+	SaucVIqrn/hcoqsFC6dTby1JBImjcPTxuCOhQTWcuv3rxSJ6fmW7FB1wE36mupQArhtv+mqp4ahtr
+	LKPWYEI6q+714FDB5UxRu3YkGmhWngvb7qeSRbLomKrApUdXc5dPk9b+eZ80yFyQcbC6nDUVypSH0
+	F6pgxJ7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBsLb-0000000EFrm-2nBZ;
-	Sun, 12 Apr 2026 10:47:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wBtSJ-0000000EHts-0tGs;
+	Sun, 12 Apr 2026 11:58:23 +0000
+Received: from mout.gmx.net ([212.227.15.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBsLZ-0000000EFrY-3Va5;
-	Sun, 12 Apr 2026 10:47:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D1A7560008;
-	Sun, 12 Apr 2026 10:47:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94C38C19424;
-	Sun, 12 Apr 2026 10:47:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775990839;
-	bh=Q8JsP8RERkbAIa5CY8LUTKFaYTmWQiIfSPOxemh91nw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hONO1NqFx2Wx4hFzEt/jfZWmV1VE9fT96ivNlvUs6ckYvEOhKy/JjkygvKI5q3Lx8
-	 p9rignsrF0+a0ugDrQoCm6JYlSbftsbtSm+HJBNPFXCyA5UAOYs637q+HL4EgBFjuw
-	 hAykQoYiYaOxO7Yl1GBnvAaOIjbDoXMzMTOk1l/iCSTjzQ2QXakpgXYXzD6gneiMwI
-	 bUUlaA9F3eucld+zjXnOnRDaEKvF3Ho3ubO5GgB18YUoRG8wvQx7IE5u+3XeKdd7fw
-	 OX+iyv87sBnbcQaUiGC8PMUXuKyvxlgfbBeKW96hRimeUiL2vRZNiWRl4y6X4Lxolk
-	 5A0Ywl/bJ0i0A==
-Message-ID: <6200b372-149f-48f7-ae91-a5364562058c@kernel.org>
-Date: Sun, 12 Apr 2026 12:47:13 +0200
+	id 1wBtSF-0000000EHtG-1w0F;
+	Sun, 12 Apr 2026 11:58:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1775995067; x=1776599867; i=frank-w@public-files.de;
+	bh=kz22EaCJFqR2Sh3DIHgGI1UiKlZwsYdIx/mKmPpPpEA=;
+	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
+	 Content-Type:Date:In-Reply-To:References:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=nKTwyJZgnGbugAWGKUnS23+UUoA1TgH3eEGkmqnqcSFecGqa6w/a5EbU+9xIIhRs
+	 qgI5SKrVjpdeztxmGRtqg3Y0ULezao/bXsKKIa4sTRs1+iosk+jPJMfmADcBTkBmq
+	 ZqTXWuH1+VuK8DJbeH2ERAQ5h9xYEfT+Ks6C/75NjWxfMfumPpEgZ52AEe10GSb/E
+	 c71gx7ey0+rlBUKyK4Fao4OBjK8JDxrEGnC9fbRbi9WPoMEnLlez/3zAjVG9v4OgM
+	 fW+KkwH3tEPME51ZfFrw1XASFYuv1efx/mTKnsoHrBemyLfQPYXKJ7wQj5hXIHw2d
+	 Y6zCMFzvbhomt+UtzQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [80.245.78.225] ([80.245.78.225]) by
+ trinity-msg-rest-gmx-gmx-live-579dcf886d-nkpds (via HTTP); Sun, 12 Apr 2026
+ 11:57:47 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/8] firmware: meson: sm: Add thermal calibration SMC call
-To: Ronald Claveau <linux-kernel-dev@aliel.fr>,
- Guillaume La Roque <glaroque@baylibre.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260410-add-thermal-t7-vim4-v1-0-19f2b8da74d7@aliel.fr>
- <20260410-add-thermal-t7-vim4-v1-3-19f2b8da74d7@aliel.fr>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260410-add-thermal-t7-vim4-v1-3-19f2b8da74d7@aliel.fr>
+Message-ID: <trinity-1304ecb5-9a3f-4e37-b2c6-bcd7f35c2921-1775995067670@trinity-msg-rest-gmx-gmx-live-579dcf886d-nkpds>
+From: Frank Wunderlich <frank-w@public-files.de>
+To: linux@fw-web.de, nbd@nbd.name, sean.wang@mediatek.com,
+ lorenzo@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ linux@armlinux.org.uk
+Cc: daniel@makrotopia.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Aw: [RFC net-next v5 0/3] Add RSS and LRO support
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Date: Sun, 12 Apr 2026 11:57:47 +0000
+In-Reply-To: <20251219151219.77115-1-linux@fw-web.de>
+References: <20251219151219.77115-1-linux@fw-web.de>
+X-UI-CLIENT-META-MAIL-DROP: W10=
+X-Provags-ID: V03:K1:EoGCU1oP2FpHYa9pnrkOrIyeUnVBHAl52P6LkUqWZGQSZS+p+o7n1mW3IBwicssFtAGTc
+ l6Cq/0uJh0foP+KgH37kfWRLZLgYwMVTeOUXmw1OgZilQuvQmPglXVD2cwDw5eUdoz02PTgaNoGn
+ WFLzhQ/QYdApFMIBl87UPsvy1IxTXd4K8kRrexRP689ju/3LwKJfgUNN03pLsbBFeEo/Pmat8uLz
+ 8AEZ93mTeKy3De5i0lr38Tq94rv7I98f3t85Y4s6MUOXuHnLuIGss7GQmuBAKV403RXoRzpD5K33
+ Lj6F5lBDR+/FuN/gWfWvHM1a6q29uR+1jf8z7/XFmBgj6YBZF41IBnkM4wCvPmBBTQ=
+UI-OutboundReport: notjunk:1;M01:P0:JYKe4y5Dccs=;ngiIncvC9xIAX9CQy/PeaJAWgjZ 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
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260412_045819_927576_A046DB4D 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,20 +86,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/04/2026 18:48, Ronald Claveau wrote:
-> @@ -245,6 +246,14 @@ struct meson_sm_firmware *meson_sm_get(struct device_node *sm_node)
->  }
->  EXPORT_SYMBOL_GPL(meson_sm_get);
->  
-> +int meson_sm_get_thermal_calib(struct meson_sm_firmware *fw, u32 *trim_info,
+Hi,
 
-Exported functions should have kerneldoc.
+some time has passed without a single comment, so i just send a friendly r=
+eminder ;)
 
-> +			       u32 tsensor_id)
-> +{
-> +	return meson_sm_call(fw, SM_THERMAL_CALIB_READ, trim_info, tsensor_id,
-> +			     0, 0, 0, 0);
+regards Frank
 
-Best regards,
-Krzysztof
+
+> Gesendet: Freitag, 19. Dezember 2025 um 16:12
+> Von: "Frank Wunderlich" <linux@fw-web.de>
+> An: "Felix Fietkau" <nbd@nbd.name>, "Sean Wang" <sean.wang@mediatek.com>=
+, "Lorenzo Bianconi" <lorenzo@kernel.org>, "Andrew Lunn" <andrew+netdev@lu=
+nn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric Dumazet" <edumazet@=
+google.com>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@red=
+hat.com>, "Matthias Brugger" <matthias.bgg@gmail.com>, "AngeloGioacchino D=
+el Regno" <angelogioacchino.delregno@collabora.com>, "Russell King" <linux=
+@armlinux.org.uk>
+> CC: "Frank Wunderlich" <frank-w@public-files.de>, "Daniel Golle" <daniel=
+@makrotopia.org>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, li=
+nux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+> Betreff: [RFC net-next v5 0/3] Add RSS and LRO support
+>
+> From: Frank Wunderlich <frank-w@public-files.de>
+>=20
+> This series add RSS and LRO hardware acceleration for terminating
+> traffic on MT798x.
+>=20
+> It is currently only for discussion to get the upported SDK driver
+> changes in a good shape.
+>=20
+> patches are upported from mtk SDK:
+> - https://git01.mediatek.com/plugins/gitiles/openwrt/feeds/mtk-openwrt-f=
+eeds/+/refs/heads/master/master/files/target/linux/mediatek/patches-6.12/9=
+99-eth-08-mtk_eth_soc-add-register-definitions-for-rss-lro-reg.patch
+> - https://git01.mediatek.com/plugins/gitiles/openwrt/feeds/mtk-openwrt-f=
+eeds/+/refs/heads/master/master/files/target/linux/mediatek/patches-6.12/9=
+99-eth-09-mtk_eth_soc-add-rss-support.patch
+> - https://git01.mediatek.com/plugins/gitiles/openwrt/feeds/mtk-openwrt-f=
+eeds/+/refs/heads/master/master/files/target/linux/mediatek/patches-6.12/9=
+99-eth-10-mtk_eth_soc-add-hw-lro-support.patch
+> with additional fixes
+>=20
+> changes:
+> v5:
+> - fix too long lines after macro changes reported by checkpatch
+>=20
+> v4:
+> - drop unrelated file
+> - rss-changes suggested by andrew
+>   - fix MTK_HW_LRO_RING_NUM macro (add eth)
+>   - fix MTK_LRO_CTRL_DW[123]_CFG (add reg_map param)
+>   - fix MTK_RX_DONE_INT (add eth param)
+> - fix lro reverse christmas tree and LRO params suggested by andrew
+> - drop mtk_hwlro_stats_ebl and unused IS_HW_LRO_RING (only used in
+>   properitary debugfs)
+>=20
+> v3:
+> - readded the change dropped in v2 because it was a fix
+>   for getting RSS working on mt7986
+> - changes requested by jakub
+> - reworked coverletter (dropped instructions for configuration)
+> - name all PDMA-IRQ the same way
+> - retested on
+>   - BPI-R3/mt7986 (RSS needs to be enabled)
+>   - BPI-R4/mt7988
+>   - BPI-R64/mt7622 and BPI-R2/mt7623 for not breaking network functional=
+ity
+>=20
+> v2:
+> - drop wrong change (MTK_CDMP_IG_CTRL is only netsys v1)
+> - Fix immutable string IRQ setup (thx to Emilia Schotte)
+> - drop links to 6.6 patches/commits in sdk in comments
+>=20
+> Mason Chang (3):
+>   net: ethernet: mtk_eth_soc: Add register definitions for RSS and LRO
+>   net: ethernet: mtk_eth_soc: Add RSS support
+>   net: ethernet: mtk_eth_soc: Add LRO support
+>=20
+>  drivers/net/ethernet/mediatek/mtk_eth_soc.c | 812 ++++++++++++++++----
+>  drivers/net/ethernet/mediatek/mtk_eth_soc.h | 173 +++--
+>  2 files changed, 778 insertions(+), 207 deletions(-)
+>=20
+> --=20
+> 2.43.0</frank-w@public-files.de>
 
