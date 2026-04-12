@@ -4,94 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0825BE937E9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 15:47:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 739FDE937E9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 15:48:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=35Kb1G8diUXdcUeRO6z0zPQrKqyhuQE+qiXkqgMSh9U=; b=ujs4DfDCMucTn5t8TYkqCqwAbw
-	eYfIwRA0lu0qg0HpuPQTYMQ4XUEJfa8ParcJxhb/MWJaroG2wHdTsq/YFsHb7eO0pmk6fr1Vejwx0
-	QmHpXjuL7ipwdHkH2Ttr6p7zFVqu0ENi92SrrfIMCYnKb57u7wR3yB4Qb3Ud0OaGlcrwp198O7yI4
-	Ges7jLMTEQ78hZdrgXWoXzGBHJ2cKEWGYCXQKklApzgQwc1MWz94/CqWITVcbLvTCai9ZAGvgZiCo
-	DOHV8VB2jWBrjpXSqnxwQYNB96Do4VR2h3A/sW5xHOmj41WzljYRwZGAGOQHsLrtKGyU7D1oXz4An
-	SYbLoLBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LwTm9cWrn8Gu/XuLHJi29qi0UnV3vqTGp1HNpOURT/k=; b=oEi97ReONixkBowvfzYlXJ9OmX
+	2VcigsTZl72lwL6q1fMOzerlbH2Zhedhd4lVL8HEQQ8qdu3s7mqau0eKZ2xhxCSsb+zgRq9C7+WXu
+	Cv+ST34jKvdWl94ku0Sj6UrkLygvMwn7kVX0J39zedx0UcJ9EU8moRqCdTsT2eFJ1kZLCwKszVrAl
+	YhfZzJyukjnLssOWWluaZOekLB6usjhtumWbHo+Hd9SQAPy7UF4GQjEyhuEY22Qlcr/4+V2wVP3Rv
+	wQyZeFLd8PAPDeSqoN9bxAugpVvUniWog7NTPoix2IM6K9q/teiteuKuvZr0hv4HFVaM/Dfx8ii6C
+	GdLZa95A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBx1Y-0000000ES1v-44PC;
-	Sun, 12 Apr 2026 15:47:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBx1X-0000000ES1n-18tH
+	id 1wBx2p-0000000ES7i-1YTV;
+	Sun, 12 Apr 2026 15:48:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wBx2m-0000000ES7E-0gKQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Apr 2026 15:46:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E93EB6014B;
-	Sun, 12 Apr 2026 15:46:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1ADBFC19424;
-	Sun, 12 Apr 2026 15:46:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776008816;
-	bh=23dLLAcM76ajvHwVd9STiwBmiFsqBllnva76VnjCY0A=;
-	h=Date:From:To:Cc:Subject:From;
-	b=XXZn39WKLIgN3EAJkU5ENkWYZAuWvtD3iPiOn2ozgnaDOWxI5dBZ5BQmoFtFm2rE5
-	 8SvYKVh+BiE2QtmOhZabXGgkkUUugDwoDYf8yxsZrEtcOf4wjIPBRyWiXDvNOmXVzB
-	 tikHKggIoVLzkavDBwUeYVxmpCG98H5XVARlwPdNnSzNK1w5LM+Lxeg8tY3hNZAXBD
-	 1UNYY56I3A9zV/+XMHzeoH8MDZhUK2JGiBLj7MVEywl6gQv2Fj6VG9OEJUWTyjAQji
-	 OOXucRVnk+iJt7Nhg9VqjWOE/zvhkal2k4/PrKupY+JrxnbNbTlXSyxpO3xfjV1V4C
-	 hOH6k+cYbW0tg==
-Date: Sun, 12 Apr 2026 17:46:47 +0200
-From: Nicolas Schier <nsc@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Alexander Coffin <alex@cyberialabs.net>,
-	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Bill Wendling <morbo@google.com>,
-	David Howells <dhowells@redhat.com>,
-	Dodji Seketeli <dodji@seketeli.org>,
-	"H. Peter Anvin" <hpa@zytor.com>, Helge Deller <deller@gmx.de>,
-	John Moon <john@jmoon.dev>, Jonathan Corbet <corbet@lwn.net>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Justin Stitt <justinstitt@google.com>, Kees Cook <kees@kernel.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Shuah Khan <skhan@linuxfoundation.org>, Song Liu <song@kernel.org>,
-	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
-	Yonghong Song <yonghong.song@linux.dev>, kernel-team@fb.com,
-	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	llvm@lists.linux.dev, loongarch@lists.linux.dev
-Subject: [GIT PULL] Kbuild and Kconfig changes for v7.1
-Message-ID: <adu-ZyIv47FnsVLI@levanger>
-Mail-Followup-To: Linus Torvalds <torvalds@linux-foundation.org>,
-	Alexander Coffin <alex@cyberialabs.net>,
-	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Bill Wendling <morbo@google.com>,
-	David Howells <dhowells@redhat.com>,
-	Dodji Seketeli <dodji@seketeli.org>,
-	"H. Peter Anvin" <hpa@zytor.com>, Helge Deller <deller@gmx.de>,
-	John Moon <john@jmoon.dev>, Jonathan Corbet <corbet@lwn.net>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Justin Stitt <justinstitt@google.com>, Kees Cook <kees@kernel.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Shuah Khan <skhan@linuxfoundation.org>, Song Liu <song@kernel.org>,
-	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
-	Yonghong Song <yonghong.song@linux.dev>, kernel-team@fb.com,
-	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	llvm@lists.linux.dev, loongarch@lists.linux.dev
+	Sun, 12 Apr 2026 15:48:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E7B734CFD;
+	Sun, 12 Apr 2026 08:48:08 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC4CC3F7B4;
+	Sun, 12 Apr 2026 08:48:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1776008894; bh=U6ulatf8SqiETTDO0DG0hTsg/mvDE9XwOigkPb7/Q0Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=J7jVtXKJI1UM4MuYUEKoiFtM9cuug/gRn7tmfStAiwgJ/v7dkVyBiqWlZk+ADC48F
+	 xZFQuSHyhlukoVlbjvq0vBInLB/+je7go0lsNQRj7CBkDG8zrhD4VIxtjRbC58uAcH
+	 XS/QBZoNfNKL7qXbN6nzvXjwHOAa1ue3UZVGonmo=
+Date: Sun, 12 Apr 2026 16:48:10 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, leo.yan@arm.com
+Subject: Re: [PATCH v2 2/5] coresight: etm4x: exclude ss_status from
+ drvdata->config
+Message-ID: <adu+uu3CFSbPMaFT@e129823.arm.com>
+References: <20260410074310.2693385-1-yeoreum.yun@arm.com>
+ <20260410074310.2693385-3-yeoreum.yun@arm.com>
+ <a8d11f92-2af8-46e7-9098-18a835c6ec8a@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="WEAPSl/ZOh7quu+7"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <a8d11f92-2af8-46e7-9098-18a835c6ec8a@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260412_084816_332013_17F5A2F6 
+X-CRM114-Status: GOOD (  27.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,257 +73,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jie,
 
---WEAPSl/ZOh7quu+7
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+>
+>
+> On 4/10/2026 3:43 PM, Yeoreum Yun wrote:
+> > The purpose of TRCSSCSRn register is to show status of
+> > the corresponding Single-shot Comparator Control and input supports.
+> > That means writable field's purpose for reset or restore from idle status
+> > not for configuration.
+> >
+> > Therefore, exclude ss_status from drvdata->config, move it to etm4x_caps.
+> > This includes remove TRCSSCRn from configurable item and
+> > remove saving in etm4_disable_hw().
+> >
+> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > ---
+> >   .../hwtracing/coresight/coresight-etm4x-cfg.c  |  1 -
+> >   .../hwtracing/coresight/coresight-etm4x-core.c | 18 +++++-------------
+> >   .../coresight/coresight-etm4x-sysfs.c          |  7 ++-----
+> >   drivers/hwtracing/coresight/coresight-etm4x.h  |  3 ++-
+> >   4 files changed, 9 insertions(+), 20 deletions(-)
+> >
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> > index c302072b293a..d14d7c8a23e5 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+> > @@ -86,7 +86,6 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
+> >   		off_mask =  (offset & GENMASK(11, 5));
+> >   		do {
+> >   			CHECKREGIDX(TRCSSCCRn(0), ss_ctrl, idx, off_mask);
+> > -			CHECKREGIDX(TRCSSCSRn(0), ss_status, idx, off_mask);
+> >   			CHECKREGIDX(TRCSSPCICRn(0), ss_pe_cmp, idx, off_mask);
+> >   		} while (0);
+> >   	} else if ((offset >= TRCCIDCVRn(0)) && (offset <= TRCVMIDCVRn(7))) {
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > index 6443f3717b37..b7abb171f523 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > @@ -91,7 +91,7 @@ static bool etm4x_sspcicrn_present(struct etmv4_drvdata *drvdata, int n)
+> >   	const struct etmv4_caps *caps = &drvdata->caps;
+> >   	return (n < caps->nr_ss_cmp) && caps->nr_pe &&
+> > -	       (drvdata->config.ss_status[n] & TRCSSCSRn_PC);
+> > +	       (caps->ss_status[n] & TRCSSCSRn_PC);
+> >   }
+> >   u64 etm4x_sysreg_read(u32 offset, bool _relaxed, bool _64bit)
+> > @@ -571,11 +571,9 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+> >   		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
+> >   	for (i = 0; i < caps->nr_ss_cmp; i++) {
+> > -		/* always clear status bit on restart if using single-shot */
+> > -		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
+> > -			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
+> >   		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
+> > -		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
+> > +		/* always clear status bit on restart if using single-shot */
+>
+> the clear step for the status bit has been removed. but the comment still
+> here.
+>
+> I think we cannot remove the clear step. The hardware requires the STATUS
+> bit to be cleared before re-arming a single-shot comparator; failing to do
+> so means the comparator will not fire on the next trace session
 
-Hi Linus,
+This one is intended. if you see the patch:
 
-please pull these changes to Kbuild and Kconfig for v7.1.  Please let me
-know if anything is incorrect and not matching your standards.
++  /* always clear status bit on restart if using single-shot */
++  etm4x_relaxed_write32(csa, caps->ss_status[i], TRCSSCSRn(i));
 
-All changes have been in -next, most for several cycles without reported
-problems.
-
-Thanks and kind regards,
-Nicolas
-
----
-
-The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
-
-  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
-
-are available in the Git repository at:
-
-  ssh://git@gitolite.kernel.org/pub/scm/linux/kernel/git/kbuild/linux.git t=
-ags/kbuild-7.1-1
-
-for you to fetch changes up to 404927758daac5ec4594071e033c1fa6ee9ca9b6:
-
-  kbuild: expand inlining hints with -fdiagnostics-show-inlining-chain (202=
-6-04-07 21:48:44 +0200)
-
-----------------------------------------------------------------
-Kbuild/Kconfig updates for 7.1
-
-Kbuild changes
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-
-  * tools/build: Reject unexpected values for LLVM=3D
-
-  * kbuild: uapi: remove usage of toolchain headers
-
-  * kbuild: Switch from '-fms-extensions' to '-fms-anonymous-structs'
-    when available (currently: clang >=3D 23.0.0)
-
-  * kbuild: Reduce the number of compiler-generated suffixes for clang
-    thin-lto build
-
-  * kbuild: reduce output spam ("GEN Makefile") when building out of tree
-
-  * check-uapi: improve portability for testing headers
-
-  * uapi: also test UAPI headers against C++ compilers
-
-  * kbuild: vdso_install: drop build ID architecture allow-list
-
-  * checksyscalls: only run when necessary
-
-  * Documentation: kbuild: Update the debug information notes in
-    reproducible-builds.rst
-
-  * kconfig: forbid multiple entries with the same symbol in a choice
-
-  * kbuild: expand inlining hints with -fdiagnostics-show-inlining-chain
-
-
-Kconfig changes
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-
-  * kconfig: Error out on duplicated kconfig inclusion
+cap->ss_status[i] is initialised by etm4_init_arch_data() cleared
+STATUS & PENDING bit. so the comment is still valid.
 
 
-Cc: Alexander Coffin <alex@cyberialabs.net>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Bill Wendling <morbo@google.com>
-Cc: David Howells <dhowells@redhat.com>
-Cc: Dodji Seketeli <dodji@seketeli.org>
-Cc: H. Peter Anvin <hpa@zytor.com>
-Cc: Helge Deller <deller@gmx.de>
-Cc: John Moon <john@jmoon.dev>
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: Josh Poimboeuf <jpoimboe@kernel.org>
-Cc: Justin Stitt <justinstitt@google.com>
-Cc: Kees Cook <kees@kernel.org>
-Cc: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Nathan Chancellor <nathan@kernel.org>
-Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
-Cc: Shuah Khan <skhan@linuxfoundation.org>
-Cc: Song Liu <song@kernel.org>
-Cc: Thomas Wei=DFschuh <linux@weissschuh.net>
-Cc: Yonghong Song <yonghong.song@linux.dev>
-Cc: kernel-team@fb.com
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-efi@vger.kernel.org
-Cc: linux-hexagon@vger.kernel.org
-Cc: linux-kbuild@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-parisc@vger.kernel.org
-Cc: linux-s390@vger.kernel.org
-Cc: linuxppc-dev@lists.ozlabs.org
-Cc: llvm@lists.linux.dev
-Cc: loongarch@lists.linux.dev
+Thanks.
 
-----------------------------------------------------------------
-Arnd Bergmann (3):
-      check-uapi: link into shared objects
-      check-uapi: honor ${CROSS_COMPILE} setting
-      check-uapi: use dummy libc includes
+[...]
 
-Justin Stitt (1):
-      kbuild: expand inlining hints with -fdiagnostics-show-inlining-chain
-
-Masahiro Yamada (1):
-      kconfig: forbid multiple entries with the same symbol in a choice
-
-Nathan Chancellor (3):
-      kbuild: Consolidate C dialect options
-      kbuild: Use '-fms-anonymous-structs' if it is available
-      Documentation: kbuild: Update the debug information notes in reproduc=
-ible-builds.rst
-
-Nicolas Schier (1):
-      kconfig: Error out on duplicated kconfig inclusion
-
-Thomas Wei=DFschuh (25):
-      Documentation/llvm: drop note about LLVM=3D0
-      tools/build: Reject unexpected values for LLVM=3D
-      hexagon: uapi: Fix structure alignment attribute
-      kbuild: uapi: test linux/bpf_perf_event.h on powerpc
-      kbuild: uapi: deduplicate linux/bpf_perf_event.h exclusions
-      kbuild: uapi: completely exclude linux/bpf_perf_event.h on nios2
-      kbuild: uapi: only use dummy-include for headers which use libc
-      kbuild: uapi: provide stub includes for some libc headers
-      kbuild: uapi: use custom stub headers instead of libc ones
-      kbuild: uapi: simplify libc dependency logic
-      kbuild: uapi: remove now unneeded guard headers
-      kbuild: reduce output spam when building out of tree
-      kbuild: uapi: move some compiler arguments out of the command definit=
-ion
-      kbuild: uapi: move all include path flags together
-      kbuild: uapi: handle UML in architecture-specific exclusion lists
-      kbuild: uapi: provide a C++ compatible dummy definition of NULL
-      kbuild: uapi: also test UAPI headers against C++ compilers
-      kbuild: vdso_install: split out the readelf invocation
-      kbuild: vdso_install: hide readelf warnings
-      kbuild: vdso_install: gracefully handle images without build ID
-      kbuild: vdso_install: drop build ID architecture allow-list
-      checksyscalls: move path to reference table to a variable
-      checksyscalls: fail on all intermediate errors
-      checksyscalls: only run when necessary
-      checksyscalls: move instance functionality into generic code
-
-Yonghong Song (1):
-      kbuild: Reduce the number of compiler-generated suffixes for clang th=
-in-lto build
-
- Documentation/kbuild/llvm.rst                      |  4 --
- Documentation/kbuild/reproducible-builds.rst       |  7 ++-
- Kbuild                                             | 14 +++--
- Makefile                                           | 35 +++++++++---
- arch/arm64/kernel/vdso32/Makefile                  |  3 +-
- arch/hexagon/include/uapi/asm/sigcontext.h         |  2 +-
- arch/loongarch/vdso/Makefile                       |  2 +-
- arch/mips/Makefile                                 |  6 +-
- arch/parisc/boot/compressed/Makefile               |  2 +-
- arch/powerpc/boot/Makefile                         |  3 +-
- arch/s390/Makefile                                 |  3 +-
- arch/s390/purgatory/Makefile                       |  3 +-
- arch/x86/Makefile                                  |  6 +-
- arch/x86/boot/compressed/Makefile                  |  6 +-
- drivers/firmware/efi/libstub/Makefile              |  3 +-
- init/Kconfig                                       |  5 ++
- scripts/Makefile.vdsoinst                          |  7 ++-
- scripts/Makefile.warn                              |  5 --
- scripts/check-uapi.sh                              | 19 ++++---
- scripts/checksyscalls.sh                           | 11 +++-
- scripts/kconfig/lexer.l                            |  4 +-
- scripts/kconfig/lkc.h                              |  3 +-
- scripts/kconfig/parser.y                           | 15 ++---
- scripts/kconfig/tests/err_repeated_inc/Kconfig     |  3 +
- .../kconfig/tests/err_repeated_inc/Kconfig.inc1    |  4 ++
- .../kconfig/tests/err_repeated_inc/Kconfig.inc2    |  3 +
- .../kconfig/tests/err_repeated_inc/Kconfig.inc3    |  1 +
- scripts/kconfig/tests/err_repeated_inc/__init__.py | 10 ++++
- .../kconfig/tests/err_repeated_inc/expected_stderr |  2 +
- scripts/kconfig/util.c                             | 31 ++++++++++-
- tools/scripts/Makefile.include                     |  2 +
- usr/dummy-include/endian.h                         |  0
- usr/dummy-include/limits.h                         |  8 +++
- usr/dummy-include/netinet/if_ether.h               |  0
- usr/dummy-include/netinet/in.h                     |  0
- usr/dummy-include/stdbool.h                        |  7 ---
- usr/dummy-include/stddef.h                         | 13 +++++
- usr/dummy-include/stdint.h                         | 17 ++++++
- usr/dummy-include/stdlib.h                         |  7 ---
- usr/dummy-include/string.h                         | 12 ++++
- usr/dummy-include/sys/ioctl.h                      |  0
- usr/dummy-include/sys/socket.h                     | 12 ++++
- usr/dummy-include/sys/time.h                       |  3 +
- usr/dummy-include/sys/types.h                      |  0
- usr/dummy-include/time.h                           |  0
- usr/dummy-include/unistd.h                         |  0
- usr/include/Makefile                               | 65 ++++++++++++++----=
-----
- 47 files changed, 251 insertions(+), 117 deletions(-)
- create mode 100644 scripts/kconfig/tests/err_repeated_inc/Kconfig
- create mode 100644 scripts/kconfig/tests/err_repeated_inc/Kconfig.inc1
- create mode 100644 scripts/kconfig/tests/err_repeated_inc/Kconfig.inc2
- create mode 100644 scripts/kconfig/tests/err_repeated_inc/Kconfig.inc3
- create mode 100644 scripts/kconfig/tests/err_repeated_inc/__init__.py
- create mode 100644 scripts/kconfig/tests/err_repeated_inc/expected_stderr
- create mode 100644 usr/dummy-include/endian.h
- create mode 100644 usr/dummy-include/limits.h
- create mode 100644 usr/dummy-include/netinet/if_ether.h
- create mode 100644 usr/dummy-include/netinet/in.h
- delete mode 100644 usr/dummy-include/stdbool.h
- create mode 100644 usr/dummy-include/stddef.h
- create mode 100644 usr/dummy-include/stdint.h
- delete mode 100644 usr/dummy-include/stdlib.h
- create mode 100644 usr/dummy-include/string.h
- create mode 100644 usr/dummy-include/sys/ioctl.h
- create mode 100644 usr/dummy-include/sys/socket.h
- create mode 100644 usr/dummy-include/sys/time.h
- create mode 100644 usr/dummy-include/sys/types.h
- create mode 100644 usr/dummy-include/time.h
- create mode 100644 usr/dummy-include/unistd.h
-
---=20
-Nicolas
-
---WEAPSl/ZOh7quu+7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEh0E3p4c3JKeBvsLGB1IKcBYmEmkFAmnbvloACgkQB1IKcBYm
-EmnVJBAAlJvaCwNlI1ymaWQKEC+s4udzUKo5DuA14pw/3NgGhLasok1WZaWB0LUb
-2D4NtXMeQLTFybnTE07rbHZwQ/fBpvyWNL0D9aL+bjHfYhkbJHIJIgnrTOJLn3IW
-wJuPJgJDMvgmWKyXGRLjPEevSmKF10Aej8f0QIsXuv8IG8M0ZfpIohRV35Dot9w6
-kRQC6lX0lYTfaBzp7IBMtY634rtzC9rHK+U1gkkvswuE2H26rm5TxeE1lL6Xecmf
-pd16FUspWGCMMB6YFRz3hi4ZRIMhY3MgY6LvvcHNF0RDrdoEoqWFyKLd/l5X5CNq
-HKbIrMJ4l5E4KCSw3rtaW/RzmcZjDtU1RLdXLomAhZU7sszIhyYOuptBVAncdKVC
-Vo+lxm1kLlBRG4eQjCnA51HQZN7VbO54XSvWVmRioEUevu6wSA8UvSq7Kcufzg57
-I9nn9kpwFqJZvQsNGIdDqEgIT5l3muX1Y89E723OqKZ9CoPl2meGrLQU69e4gGFc
-R/nTDktzEFINZHVk72AwAWyjvE/IGx6mmogf1+4Zz7MK2Q5aeXejy6T5aZ0QMwtH
-/290TxOxWlOqi3b57Quo0xJVltkA9WxCi++4hh0Te/x2Yjaqbaovui7fBjqeKvCh
-Oh9AhNVYbTOjIMS2CyL6xQBlr+Vp2MQ163tqds1uSP3IqrS2T+8=
-=WfCJ
------END PGP SIGNATURE-----
-
---WEAPSl/ZOh7quu+7--
+--
+Sincerely,
+Yeoreum Yun
 
