@@ -4,63 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D8DE937F6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 17:55:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C262EE937F6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 18:37:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hIYe5v6vBVl0A2v6Z5ORjR3FrsyyVNGMmolIIGzRJFY=; b=qMlP0KlY3K2Vr0FmeVZfgswd5o
-	e+nAfu7kaTmeXAFShg7j6c+oCziCEoWdpZcmUmLPjHnXHyX+dWwRczZSTgSDibxpFOH1BZQ8hdSPg
-	LyIRK7EWP8TNCy0P1ccAXvgY94VKCt7Au1D3zhIkUFtrGbakx8vz4vu+CFCBr18yJXUuR2ImaQIfa
-	XG3SOmQwjjzTPaGpS3ZA6IVUrMve65gsRI4PwabVOc6JV0rSz4koAHSen6ot9EwF1GVPtKyAkM0hP
-	tbm0n/WdmNuGpNm4or0sHJEYXJU+N6w470+O7HjnGFBRFDI6DK1DZ9b4G4Sdd3y/zzhp4TOll7NOk
-	savtaULw==;
+	bh=yJOjGgBOVhd3jh2b+dn4FpDEV+MkzCTVQfoJwc0KxkU=; b=kwev2W6MyURw6Hwlb0E+a9hWx+
+	c/gF44q7BnGwKfWaldrKqY7VWwY/YKbHDbXP3n93EZXfjrjXBQ2QXRoattQit63g7y708X7tpN1VX
+	8ohnRDt6Id6vI6NDHE317+ttvd6egGdlNyyQR/JDBwJ8SlqHJScAjhH798yTTpZzBvhqLEZMH0qFg
+	MQaIZ46d2pj8HChQB91RAAgs1+Sr+kVv/9OVlkyqgzSIV70pnFJf1P7k7O8w2BB1kOmNL0Eji4YW1
+	0TiezVv0UqkMneTBvMVCwuUBfQOILZ5feeDKj0zQ4Su5qqx3SpepSZUoNP892wfAVvcODScZz/CBU
+	QdOZ2YWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBz1m-0000000EYxH-3lZ6;
-	Sun, 12 Apr 2026 17:55:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBz1j-0000000EYsx-168C
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Apr 2026 17:55:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66FD734A9;
-	Sun, 12 Apr 2026 10:55:12 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9364A3F7B4;
-	Sun, 12 Apr 2026 10:55:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776016518; bh=0ToqdI+OuxE274iMHZhJLcBxmh0hWHOkBl6zGhr+L8Y=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GqkZSurYBffRGGnPDCK7UP1pgvjlqqKTn+LjppJGT+CDCXXhUjCB+xWzihDLHpz+4
-	 tNb1CdjHrnIN496SFY6XpRmaB+B/86ZhjSJs38zApBBacDaR316ZiOgYuX3jn5sfV+
-	 Vx4YTQe3bXRz+T5gKbogakqozKlRnOoBqXHpJYe0=
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: suzuki.poulose@arm.com,
-	mike.leach@arm.com,
-	james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com,
-	leo.yan@arm.com,
-	jie.gan@oss.qualcomm.com,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v3 4/5] coresight: etm3x: introduce struct etm_caps
-Date: Sun, 12 Apr 2026 18:55:05 +0100
-Message-Id: <20260412175506.412301-5-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260412175506.412301-1-yeoreum.yun@arm.com>
-References: <20260412175506.412301-1-yeoreum.yun@arm.com>
+	id 1wBzgc-0000000EaqL-3dvb;
+	Sun, 12 Apr 2026 18:37:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wBzga-0000000EaqB-37kH;
+	Sun, 12 Apr 2026 18:37:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 69C7560142;
+	Sun, 12 Apr 2026 18:37:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43B15C19424;
+	Sun, 12 Apr 2026 18:37:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776019051;
+	bh=PijWu97k4FMC/JNTJB1uwPX/IYoDgzxrqr5gykmeuRg=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=HwOTT/MdaGfSu+lMQ15reO4of2vDxHPOhy60wmT07ZTYlFrDnmz8INj9fBtd4caew
+	 4ZW2fqlV130b6Z+hApmwdjnf5GI7QJ1lkWeKMcByVPD4pl/MM8dwmBH2n4XT/zKSbQ
+	 QARPweAiFbTHS6oeSQ23qBLUkj6rr2Pe+xYDsxJySlDKR6xuGPzwo5pliOqgwvmzBp
+	 2ogHKHjqXjypMBtmdq6o5meV2IexDa2cyK+hoaYpFsxj0LJJh5kMD9mw/+73uw1ukI
+	 /wam1h2nO/e9hikCt9OUe25qUbTz29N1ebg7wJWBVvN3qNbkYX3gz6U0h7c/4kBtq1
+	 E8ZivocZctjZg==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Anushka Badhe <anushkabadhe@gmail.com>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260410055532.60868-1-anushkabadhe@gmail.com>
+References: <20260410055532.60868-1-anushkabadhe@gmail.com>
+Subject: Re: [PATCH v2] ASoC: dt-bindings: rockchip: convert
+ rk3399-gru-sound to DT Schema
+Message-Id: <177601109152.15951.7045747169563150515.b4-ty@b4>
+Date: Sun, 12 Apr 2026 17:24:51 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_105519_385843_5E8592C6 
-X-CRM114-Status: GOOD (  23.39  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1151; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=PijWu97k4FMC/JNTJB1uwPX/IYoDgzxrqr5gykmeuRg=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBp2+ZozNSjOGljh51Zr9GW6/olODr+U0bCjFa7X
+ 5XkH5n3dleJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCadvmaAAKCRAk1otyXVSH
+ 0Ag+B/4nyiSibB/tBisuOvNzVo5Gh7bWuT2pSAqxItMWJeEeUjqvdKRLFLS6GQ/F8aW6MK8zBTs
+ QorTnmTl1R4/ZsdhXRcoOVGIwI1SFpSRk3UpTo8NKjYR9Sqt8OBTrM//GrdI4iHQ5LWqv2tHNYL
+ 1qTndO450NNIt3qhRjWhLafyIdPSKVs+tCEHdE2qr+xDNUaUa8HP+59iXyPpH+IE3afytQ0OQAX
+ yeS68p8Y9t+1X5ULY5z6pFVM3n/rJ8kzOKjMzJMjKGRHzAmt024aBk4wCvK6a9dkYVg167VEnuZ
+ SjzhRomJGhNCIWp+ei542H0iiHu6Pzg324qyEo8ZbSjhYAS7
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,359 +84,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce struct etm_caps to describe ETMv3 capabilities
-and move capabilities information into it.
+On Fri, 10 Apr 2026 11:25:32 +0530, Anushka Badhe wrote:
+> ASoC: dt-bindings: rockchip: convert rk3399-gru-sound to DT Schema
 
-Since drvdata->etmccr and drvdata->etmccer are used to check
-whether it supports fifofull logic and timestamping,
-remove etmccr and etmccer field from drvdata and add relevant fields
-in etm_caps structure.
+Applied to
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- drivers/hwtracing/coresight/coresight-etm.h   | 42 ++++++++++++-------
- .../coresight/coresight-etm3x-core.c          | 39 ++++++++++-------
- .../coresight/coresight-etm3x-sysfs.c         | 29 ++++++++-----
- 3 files changed, 67 insertions(+), 43 deletions(-)
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.1
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm.h b/drivers/hwtracing/coresight/coresight-etm.h
-index 1d753cca2943..2ffe477c0c12 100644
---- a/drivers/hwtracing/coresight/coresight-etm.h
-+++ b/drivers/hwtracing/coresight/coresight-etm.h
-@@ -140,6 +140,30 @@
- 				 ETM_ADD_COMP_0		|	\
- 				 ETM_EVENT_NOT_A)
- 
-+/**
-+ * struct etmv_caps - specifics ETM capabilities
-+ * @port_size:	port size as reported by ETMCR bit 4-6 and 21.
-+ * @nr_addr_cmp:Number of pairs of address comparators as found in ETMCCR.
-+ * @nr_cntr:	Number of counters as found in ETMCCR bit 13-15.
-+ * @nr_ext_inp:	Number of external input as found in ETMCCR bit 17-19.
-+ * @nr_ext_out:	Number of external output as found in ETMCCR bit 20-22.
-+ * @nr_ctxid_cmp: Number of contextID comparators as found in ETMCCR bit 24-25.
-+ * @fifofull:	FIFOFULL logic is present.
-+ * @timestamp:	Timestamping is implemented.
-+ * @retstacak:	Return stack is implemented.
-+ */
-+struct etm_caps {
-+	int	port_size;
-+	u8	nr_addr_cmp;
-+	u8	nr_cntr;
-+	u8	nr_ext_inp;
-+	u8	nr_ext_out;
-+	u8	nr_ctxid_cmp;
-+	bool	fifofull : 1;
-+	bool	timestamp : 1;
-+	bool	retstack : 1;
-+};
-+
- /**
-  * struct etm_config - configuration information related to an ETM
-  * @mode:	controls various modes supported by this ETM/PTM.
-@@ -212,19 +236,12 @@ struct etm_config {
-  * @csdev:	component vitals needed by the framework.
-  * @spinlock:	only one at a time pls.
-  * @cpu:	the cpu this component is affined to.
-- * @port_size:	port size as reported by ETMCR bit 4-6 and 21.
-  * @arch:	ETM/PTM version number.
-+ * @caps:	ETM capabilities.
-  * @use_cpu14:	true if management registers need to be accessed via CP14.
-  * @sticky_enable: true if ETM base configuration has been done.
-  * @boot_enable:true if we should start tracing at boot time.
-  * @os_unlock:	true if access to management registers is allowed.
-- * @nr_addr_cmp:Number of pairs of address comparators as found in ETMCCR.
-- * @nr_cntr:	Number of counters as found in ETMCCR bit 13-15.
-- * @nr_ext_inp:	Number of external input as found in ETMCCR bit 17-19.
-- * @nr_ext_out:	Number of external output as found in ETMCCR bit 20-22.
-- * @nr_ctxid_cmp: Number of contextID comparators as found in ETMCCR bit 24-25.
-- * @etmccr:	value of register ETMCCR.
-- * @etmccer:	value of register ETMCCER.
-  * @traceid:	value of the current ID for this component.
-  * @config:	structure holding configuration parameters.
-  */
-@@ -234,19 +251,12 @@ struct etm_drvdata {
- 	struct coresight_device		*csdev;
- 	spinlock_t			spinlock;
- 	int				cpu;
--	int				port_size;
- 	u8				arch;
-+	struct etm_caps			caps;
- 	bool				use_cp14;
- 	bool				sticky_enable;
- 	bool				boot_enable;
- 	bool				os_unlock;
--	u8				nr_addr_cmp;
--	u8				nr_cntr;
--	u8				nr_ext_inp;
--	u8				nr_ext_out;
--	u8				nr_ctxid_cmp;
--	u32				etmccr;
--	u32				etmccer;
- 	u32				traceid;
- 	struct etm_config		config;
- };
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index a547a6d2e0bd..f669eeeef538 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -308,6 +308,7 @@ void etm_config_trace_mode(struct etm_config *config)
- static int etm_parse_event_config(struct etm_drvdata *drvdata,
- 				  struct perf_event *event)
- {
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 	struct perf_event_attr *attr = &event->attr;
- 	u8 ts_level;
-@@ -356,8 +357,7 @@ static int etm_parse_event_config(struct etm_drvdata *drvdata,
- 	 * has ret stack) on the same SoC. So only enable when it can be honored
- 	 * - trace will still continue normally otherwise.
- 	 */
--	if (ATTR_CFG_GET_FLD(attr, retstack) &&
--	    (drvdata->etmccer & ETMCCER_RETSTACK))
-+	if (ATTR_CFG_GET_FLD(attr, retstack) && (caps->retstack))
- 		config->ctrl |= ETMCR_RETURN_STACK;
- 
- 	return 0;
-@@ -367,6 +367,7 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- {
- 	int i, rc;
- 	u32 etmcr;
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 	struct coresight_device *csdev = drvdata->csdev;
- 
-@@ -388,7 +389,7 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- 	etmcr = etm_readl(drvdata, ETMCR);
- 	/* Clear setting from a previous run if need be */
- 	etmcr &= ~ETM3X_SUPPORTED_OPTIONS;
--	etmcr |= drvdata->port_size;
-+	etmcr |= caps->port_size;
- 	etmcr |= ETMCR_ETM_EN;
- 	etm_writel(drvdata, config->ctrl | etmcr, ETMCR);
- 	etm_writel(drvdata, config->trigger_event, ETMTRIGGER);
-@@ -396,11 +397,11 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- 	etm_writel(drvdata, config->enable_event, ETMTEEVR);
- 	etm_writel(drvdata, config->enable_ctrl1, ETMTECR1);
- 	etm_writel(drvdata, config->fifofull_level, ETMFFLR);
--	for (i = 0; i < drvdata->nr_addr_cmp; i++) {
-+	for (i = 0; i < caps->nr_addr_cmp; i++) {
- 		etm_writel(drvdata, config->addr_val[i], ETMACVRn(i));
- 		etm_writel(drvdata, config->addr_acctype[i], ETMACTRn(i));
- 	}
--	for (i = 0; i < drvdata->nr_cntr; i++) {
-+	for (i = 0; i < caps->nr_cntr; i++) {
- 		etm_writel(drvdata, config->cntr_rld_val[i], ETMCNTRLDVRn(i));
- 		etm_writel(drvdata, config->cntr_event[i], ETMCNTENRn(i));
- 		etm_writel(drvdata, config->cntr_rld_event[i],
-@@ -414,9 +415,9 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- 	etm_writel(drvdata, config->seq_32_event, ETMSQ32EVR);
- 	etm_writel(drvdata, config->seq_13_event, ETMSQ13EVR);
- 	etm_writel(drvdata, config->seq_curr_state, ETMSQR);
--	for (i = 0; i < drvdata->nr_ext_out; i++)
-+	for (i = 0; i < caps->nr_ext_out; i++)
- 		etm_writel(drvdata, ETM_DEFAULT_EVENT_VAL, ETMEXTOUTEVRn(i));
--	for (i = 0; i < drvdata->nr_ctxid_cmp; i++)
-+	for (i = 0; i < caps->nr_ctxid_cmp; i++)
- 		etm_writel(drvdata, config->ctxid_pid[i], ETMCIDCVRn(i));
- 	etm_writel(drvdata, config->ctxid_mask, ETMCIDCMR);
- 	etm_writel(drvdata, config->sync_freq, ETMSYNCFR);
-@@ -563,6 +564,7 @@ static int etm_enable(struct coresight_device *csdev, struct perf_event *event,
- static void etm_disable_hw(struct etm_drvdata *drvdata)
- {
- 	int i;
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 	struct coresight_device *csdev = drvdata->csdev;
- 
-@@ -572,7 +574,7 @@ static void etm_disable_hw(struct etm_drvdata *drvdata)
- 	/* Read back sequencer and counters for post trace analysis */
- 	config->seq_curr_state = (etm_readl(drvdata, ETMSQR) & ETM_SQR_MASK);
- 
--	for (i = 0; i < drvdata->nr_cntr; i++)
-+	for (i = 0; i < caps->nr_cntr; i++)
- 		config->cntr_val[i] = etm_readl(drvdata, ETMCNTVRn(i));
- 
- 	etm_set_pwrdwn(drvdata);
-@@ -754,7 +756,9 @@ static void etm_init_arch_data(void *info)
- {
- 	u32 etmidr;
- 	u32 etmccr;
-+	u32 etmccer;
- 	struct etm_drvdata *drvdata = info;
-+	struct etm_caps *caps = &drvdata->caps;
- 
- 	/* Make sure all registers are accessible */
- 	etm_os_unlock(drvdata);
-@@ -779,16 +783,19 @@ static void etm_init_arch_data(void *info)
- 	/* Find all capabilities */
- 	etmidr = etm_readl(drvdata, ETMIDR);
- 	drvdata->arch = BMVAL(etmidr, 4, 11);
--	drvdata->port_size = etm_readl(drvdata, ETMCR) & PORT_SIZE_MASK;
-+	caps->port_size = etm_readl(drvdata, ETMCR) & PORT_SIZE_MASK;
-+
-+	etmccer = etm_readl(drvdata, ETMCCER);
-+	caps->timestamp = !!(etmccer & ETMCCER_TIMESTAMP);
-+	caps->retstack = !!(etmccer & ETMCCER_RETSTACK);
- 
--	drvdata->etmccer = etm_readl(drvdata, ETMCCER);
- 	etmccr = etm_readl(drvdata, ETMCCR);
--	drvdata->etmccr = etmccr;
--	drvdata->nr_addr_cmp = BMVAL(etmccr, 0, 3) * 2;
--	drvdata->nr_cntr = BMVAL(etmccr, 13, 15);
--	drvdata->nr_ext_inp = BMVAL(etmccr, 17, 19);
--	drvdata->nr_ext_out = BMVAL(etmccr, 20, 22);
--	drvdata->nr_ctxid_cmp = BMVAL(etmccr, 24, 25);
-+	caps->fifofull = !!(etmccr & ETMCCR_FIFOFULL);
-+	caps->nr_addr_cmp = BMVAL(etmccr, 0, 3) * 2;
-+	caps->nr_cntr = BMVAL(etmccr, 13, 15);
-+	caps->nr_ext_inp = BMVAL(etmccr, 17, 19);
-+	caps->nr_ext_out = BMVAL(etmccr, 20, 22);
-+	caps->nr_ctxid_cmp = BMVAL(etmccr, 24, 25);
- 
- 	coresight_clear_self_claim_tag_unlocked(&drvdata->csa);
- 	etm_set_pwrdwn(drvdata);
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-index 762109307b86..056210779dd2 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-@@ -15,8 +15,9 @@ static ssize_t nr_addr_cmp_show(struct device *dev,
- {
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 
--	val = drvdata->nr_addr_cmp;
-+	val = caps->nr_addr_cmp;
- 	return sprintf(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(nr_addr_cmp);
-@@ -25,8 +26,9 @@ static ssize_t nr_cntr_show(struct device *dev,
- 			    struct device_attribute *attr, char *buf)
- {	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 
--	val = drvdata->nr_cntr;
-+	val = caps->nr_cntr;
- 	return sprintf(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(nr_cntr);
-@@ -37,7 +39,7 @@ static ssize_t nr_ctxid_cmp_show(struct device *dev,
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
--	val = drvdata->nr_ctxid_cmp;
-+	val = drvdata->caps.nr_ctxid_cmp;
- 	return sprintf(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(nr_ctxid_cmp);
-@@ -80,7 +82,7 @@ static ssize_t reset_store(struct device *dev,
- 		memset(config, 0, sizeof(struct etm_config));
- 		config->mode = ETM_MODE_EXCLUDE;
- 		config->trigger_event = ETM_DEFAULT_EVENT_VAL;
--		for (i = 0; i < drvdata->nr_addr_cmp; i++) {
-+		for (i = 0; i < drvdata->caps.nr_addr_cmp; i++) {
- 			config->addr_type[i] = ETM_ADDR_TYPE_NONE;
- 		}
- 
-@@ -111,6 +113,7 @@ static ssize_t mode_store(struct device *dev,
- 	int ret;
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 
- 	ret = kstrtoul(buf, 16, &val);
-@@ -131,7 +134,7 @@ static ssize_t mode_store(struct device *dev,
- 		config->ctrl &= ~ETMCR_CYC_ACC;
- 
- 	if (config->mode & ETM_MODE_STALL) {
--		if (!(drvdata->etmccr & ETMCCR_FIFOFULL)) {
-+		if (!caps->fifofull) {
- 			dev_warn(dev, "stall mode not supported\n");
- 			ret = -EINVAL;
- 			goto err_unlock;
-@@ -141,7 +144,7 @@ static ssize_t mode_store(struct device *dev,
- 		config->ctrl &= ~ETMCR_STALL_MODE;
- 
- 	if (config->mode & ETM_MODE_TIMESTAMP) {
--		if (!(drvdata->etmccer & ETMCCER_TIMESTAMP)) {
-+		if (!caps->timestamp) {
- 			dev_warn(dev, "timestamp not supported\n");
- 			ret = -EINVAL;
- 			goto err_unlock;
-@@ -286,13 +289,14 @@ static ssize_t addr_idx_store(struct device *dev,
- 	int ret;
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 
- 	ret = kstrtoul(buf, 16, &val);
- 	if (ret)
- 		return ret;
- 
--	if (val >= drvdata->nr_addr_cmp)
-+	if (val >= caps->nr_addr_cmp)
- 		return -EINVAL;
- 
- 	/*
-@@ -589,13 +593,14 @@ static ssize_t cntr_idx_store(struct device *dev,
- 	int ret;
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 
- 	ret = kstrtoul(buf, 16, &val);
- 	if (ret)
- 		return ret;
- 
--	if (val >= drvdata->nr_cntr)
-+	if (val >= caps->nr_cntr)
- 		return -EINVAL;
- 	/*
- 	 * Use spinlock to ensure index doesn't change while it gets
-@@ -720,18 +725,19 @@ static ssize_t cntr_val_show(struct device *dev,
- 	int i, ret = 0;
- 	u32 val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 
- 	if (!coresight_get_mode(drvdata->csdev)) {
- 		spin_lock(&drvdata->spinlock);
--		for (i = 0; i < drvdata->nr_cntr; i++)
-+		for (i = 0; i < caps->nr_cntr; i++)
- 			ret += sprintf(buf, "counter %d: %x\n",
- 				       i, config->cntr_val[i]);
- 		spin_unlock(&drvdata->spinlock);
- 		return ret;
- 	}
- 
--	for (i = 0; i < drvdata->nr_cntr; i++) {
-+	for (i = 0; i < caps->nr_cntr; i++) {
- 		val = etm_readl(drvdata, ETMCNTVRn(i));
- 		ret += sprintf(buf, "counter %d: %x\n", i, val);
- 	}
-@@ -999,13 +1005,14 @@ static ssize_t ctxid_idx_store(struct device *dev,
- 	int ret;
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 
- 	ret = kstrtoul(buf, 16, &val);
- 	if (ret)
- 		return ret;
- 
--	if (val >= drvdata->nr_ctxid_cmp)
-+	if (val >= caps->nr_ctxid_cmp)
- 		return -EINVAL;
- 
- 	/*
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+Thanks!
+
+[1/1] ASoC: dt-bindings: rockchip: convert rk3399-gru-sound to DT Schema
+      https://git.kernel.org/broonie/sound/c/115e7d764dad
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
