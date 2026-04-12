@@ -4,60 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA955E937F2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 17:13:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A145FE937F6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 17:43:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b9bT1aZc+fZ47P5keOfyluoi5sTgS3zjLq9FMh9TGWM=; b=HpDekArVLgGiru26g7FAA/pOem
-	SDoAURkp2ygadDsD9DmCCpHmez+LAbce18TJ8v0Y2Uy5GJPJiewOR0dJdHr+kDlFaiOszd157IWB+
-	/PTtoeUhVrfg22hIAdRbnH/qamudeiXI7TjYKYVBq7aM7mUyI+YD4y9h5VCzPM/mj7woaQ5EGzhuU
-	f7HNVjYAQL7J0W/Ic4fvQEpeJkPBwYihd6f8rxtxWKBfCh/WVVrEc/Rv7qLo7HHvDNiGnfuaAqjg0
-	N0U5p7EIqxuo+gotjH17YyRrpaDXwe9MRbplufYBClB3Du2Xp2cgTNy/GQbEy3od6sgkj05Wo7PsZ
-	FljeZuGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BCp70hr3uicHLXM/GL0GyVEZjJkjXaoYY9yWIBjEisA=; b=HjlRrI3hv+MFpCekfk0ol+aALR
+	UelNtTPD0KpACqkfcEAVIw4vLpwBXwGe9FKOTEU8ja5yhcStJNJfv1p/17PJOwlXR0OyvydKda6d5
+	VrI7wsmBHQ41SwoI6INhzYBUqRB0KtwmYyQ4MppOIJaRG8cwbplVBsISMzB4DD21au8FHr+BWSyBB
+	pOBcDPEPEYReCPXonTtCRDqm2lr3D7MxOaV83GtR++On1GkpAcvoyWB0S+OAxjRz7lnjA0GSMrRFy
+	ZihC6GxS6RKITe7U9eoTe9jYnQGm+Wti9/9x3VealPF7/tQsJIy9zj8YwrAq4QCyCsNmj332cyVrV
+	KHmTJ/kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wByNW-0000000EWuS-2tDO;
-	Sun, 12 Apr 2026 17:13:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wByps-0000000EYMH-1Cbg;
+	Sun, 12 Apr 2026 17:43:04 +0000
+Received: from s106b.cyber-folks.pl ([195.78.66.88])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wByNV-0000000EWsh-10UL;
-	Sun, 12 Apr 2026 17:13:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C2C960180;
-	Sun, 12 Apr 2026 17:13:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8228C19424;
-	Sun, 12 Apr 2026 17:13:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776014024;
-	bh=BwXzSKo8O6XZ4uKlUSwMzQY2fTA/0n/oxvStx7Ka5oM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=g7VwjRcKwFy7gc7X/oa6VeIRpU4Tk/HA1FXGoi5k9c4RH3PiLaA36raLAJw6wnO24
-	 WgouBjti2v0hnGvVCwXQuMVwLf0nUvk/PsuZp8cPZVyEWhAtdeu6t/PqpoH3G0l51H
-	 K/zt9lTBgho3rsapudLiFwFuAqFtvTkP8LNNwJh+LrA+9eCnAsXs4MTJ0YaI3M8ho3
-	 pY/NT5vTdsnkgfRPY6C7X7Ap/0lU2DhItyRBXs07VlQwsEu/3X32ZU/6BGCjfhmB3v
-	 Vx87RG4SMWw8uSfKJO/FqvhcDvZc6nnZKwkqVC+VCFIV8jq/S1npptrGx3jF0KksFF
-	 y8AfL9AhvIOiQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sun, 12 Apr 2026 19:13:14 +0200
-Subject: [PATCH net-next 3/3] net: airoha: Rely on net_device pointer in
- ETS callbacks
+	id 1wBypn-0000000EYLS-0aNe
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 12 Apr 2026 17:43:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=mmpsystems.pl; s=x; h=Cc:To:Message-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:Date:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=BCp70hr3uicHLXM/GL0GyVEZjJkjXaoYY9yWIBjEisA=; b=fFO122tLYz42xK+DEPSZbMUJDg
+	FdxmKDgp01GpFPjt53T1Ekg/syfTdLKKA5hC/20s7nvU8KQFuoOiNRXMJNy70s/4m+xpdT97gz348
+	lzY+cNWojtt4e0cmE3E+y8Y/fKxuc+iKv2EoiIXTlHUqrPNUbl3l+QtrD9FEXh8kl81FTzJh7s285
+	MUB9gNlFNNGPY6UX47A/8pDR2c/p1nIkXCuFinQdUP+iUIhDH9kbYP0WTuXWIuZaSvUZEjVkb934c
+	tLzgxdef+/efWIl+zaFa0Sv9Xv86imfJ6TydPZnvIj+Lv0HzpEDehQbj/D8nyppFAqTCJnBOWZpUd
+	W1j5brsg==;
+Received: from user-5-173-16-91.play-internet.pl ([5.173.16.91] helo=localhost)
+	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <michal.piekos@mmpsystems.pl>)
+	id 1wBypj-0000000A5MM-059X;
+	Sun, 12 Apr 2026 19:42:55 +0200
+From: Michal Piekos <michal.piekos@mmpsystems.pl>
+Date: Sun, 12 Apr 2026 19:42:10 +0200
+Subject: [PATCH] arm: dts: allwinner: t113s mangopi: enable watchdog for
+ reboot
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260412-airoha-multi-serdes-preliminary-patch-v1-3-08d5b670ca8f@kernel.org>
-References: <20260412-airoha-multi-serdes-preliminary-patch-v1-0-08d5b670ca8f@kernel.org>
-In-Reply-To: <20260412-airoha-multi-serdes-preliminary-patch-v1-0-08d5b670ca8f@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Xuegang Lu <xuegang.lu@airoha.com>, Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.3
+Message-Id: <20260412-t113-mangopi-reboot-hang-v1-1-5002cfa6e0cc@mmpsystems.pl>
+X-B4-Tracking: v=1; b=H4sIAHHZ22kC/x2MQQ5AMBBFryKzNokOEVxFLNoazIJKKyJpendl+
+ fLffxECe+EAQxHB8y1B3JFBlQXYTR8ro8yZgSpqq0YRXkrVuOfFnYKejXMXfiLaXvczLx0xGcj
+ 30/Miz58ep5ReK/Yrd2oAAAA=
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Michal Piekos <michal.piekos@mmpsystems.pl>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1776015732; l=986;
+ i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
+ bh=4a5CpNLwijqEeoBxf58LElhGXYoxLZYamglg2D+v9G0=;
+ b=2uyGbcT9UsQQiVrajLnas48wLY7waq2GcuVc54VU/0QPLzJPeNy+QgQ5FmsgNpz942CaHtYsi
+ zzs9eMoYHEeCoLq3jY2nZTDZ7VSnu0ohImT9m7SIeAlRYKiPv3IATyS
+X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
+ pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
+X-Authenticated-Id: michal.piekos@mmpsystems.pl
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260412_104259_796045_E0843F4F 
+X-CRM114-Status: UNSURE (   7.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,121 +90,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove airoha_gdm_port dependency in ETS tc callback signatures and rely
-on net_device pointer instead. Please note this patch does not introduce
-any logical change and it is a preliminary patch in order to support
-multiple net_devices connected to the same GDM3 or GDM4 port via an
-external hw arbiter.
+Reboot hangs on MangoPi MQ-R T113s because no restart handler is
+available.
 
-Tested-by: Xuegang Lu <xuegang.lu@airoha.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Enable the SoC watchdog whose driver registers a restart handler.
+
+Tested on MangoPi MQ-R T113s.
+
+Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 30 ++++++++++++++----------------
- 1 file changed, 14 insertions(+), 16 deletions(-)
+ arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index c2b5fcffce82..d426dc173d99 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2138,10 +2138,11 @@ airoha_ethtool_get_rmon_stats(struct net_device *dev,
- 	} while (u64_stats_fetch_retry(&port->stats.syncp, start));
- }
- 
--static int airoha_qdma_set_chan_tx_sched(struct airoha_gdm_port *port,
-+static int airoha_qdma_set_chan_tx_sched(struct net_device *dev,
- 					 int channel, enum tx_sched_mode mode,
- 					 const u16 *weights, u8 n_weights)
- {
-+	struct airoha_gdm_port *port = netdev_priv(dev);
- 	int i;
- 
- 	for (i = 0; i < AIROHA_NUM_TX_RING; i++)
-@@ -2173,17 +2174,15 @@ static int airoha_qdma_set_chan_tx_sched(struct airoha_gdm_port *port,
- 	return 0;
- }
- 
--static int airoha_qdma_set_tx_prio_sched(struct airoha_gdm_port *port,
--					 int channel)
-+static int airoha_qdma_set_tx_prio_sched(struct net_device *dev, int channel)
- {
- 	static const u16 w[AIROHA_NUM_QOS_QUEUES] = {};
- 
--	return airoha_qdma_set_chan_tx_sched(port, channel, TC_SCH_SP, w,
-+	return airoha_qdma_set_chan_tx_sched(dev, channel, TC_SCH_SP, w,
- 					     ARRAY_SIZE(w));
- }
- 
--static int airoha_qdma_set_tx_ets_sched(struct airoha_gdm_port *port,
--					int channel,
-+static int airoha_qdma_set_tx_ets_sched(struct net_device *dev, int channel,
- 					struct tc_ets_qopt_offload *opt)
- {
- 	struct tc_ets_qopt_offload_replace_params *p = &opt->replace_params;
-@@ -2224,20 +2223,21 @@ static int airoha_qdma_set_tx_ets_sched(struct airoha_gdm_port *port,
- 	else if (nstrict < AIROHA_NUM_QOS_QUEUES - 1)
- 		mode = nstrict + 1;
- 
--	return airoha_qdma_set_chan_tx_sched(port, channel, mode, w,
-+	return airoha_qdma_set_chan_tx_sched(dev, channel, mode, w,
- 					     ARRAY_SIZE(w));
- }
- 
--static int airoha_qdma_get_tx_ets_stats(struct airoha_gdm_port *port,
--					int channel,
-+static int airoha_qdma_get_tx_ets_stats(struct net_device *dev, int channel,
- 					struct tc_ets_qopt_offload *opt)
- {
-+	struct airoha_gdm_port *port = netdev_priv(dev);
- 	u64 cpu_tx_packets = airoha_qdma_rr(port->qdma,
- 					    REG_CNTR_VAL(channel << 1));
- 	u64 fwd_tx_packets = airoha_qdma_rr(port->qdma,
- 					    REG_CNTR_VAL((channel << 1) + 1));
- 	u64 tx_packets = (cpu_tx_packets - port->cpu_tx_packets) +
- 			 (fwd_tx_packets - port->fwd_tx_packets);
+diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dts b/arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dts
+index 8b3a75383816..f0232a5e903b 100644
+--- a/arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dts
++++ b/arch/arm/boot/dts/allwinner/sun8i-t113s-mangopi-mq-r-t113.dts
+@@ -33,3 +33,7 @@ rtl8189ftv: wifi@1 {
+ 		interrupt-names = "host-wake";
+ 	};
+ };
 +
- 	_bstats_update(opt->stats.bstats, 0, tx_packets);
- 
- 	port->cpu_tx_packets = cpu_tx_packets;
-@@ -2246,7 +2246,7 @@ static int airoha_qdma_get_tx_ets_stats(struct airoha_gdm_port *port,
- 	return 0;
- }
- 
--static int airoha_tc_setup_qdisc_ets(struct airoha_gdm_port *port,
-+static int airoha_tc_setup_qdisc_ets(struct net_device *dev,
- 				     struct tc_ets_qopt_offload *opt)
- {
- 	int channel;
-@@ -2259,12 +2259,12 @@ static int airoha_tc_setup_qdisc_ets(struct airoha_gdm_port *port,
- 
- 	switch (opt->command) {
- 	case TC_ETS_REPLACE:
--		return airoha_qdma_set_tx_ets_sched(port, channel, opt);
-+		return airoha_qdma_set_tx_ets_sched(dev, channel, opt);
- 	case TC_ETS_DESTROY:
- 		/* PRIO is default qdisc scheduler */
--		return airoha_qdma_set_tx_prio_sched(port, channel);
-+		return airoha_qdma_set_tx_prio_sched(dev, channel);
- 	case TC_ETS_STATS:
--		return airoha_qdma_get_tx_ets_stats(port, channel, opt);
-+		return airoha_qdma_get_tx_ets_stats(dev, channel, opt);
- 	default:
- 		return -EOPNOTSUPP;
- 	}
-@@ -2807,11 +2807,9 @@ static int airoha_tc_setup_qdisc_htb(struct net_device *dev,
- static int airoha_dev_tc_setup(struct net_device *dev, enum tc_setup_type type,
- 			       void *type_data)
- {
--	struct airoha_gdm_port *port = netdev_priv(dev);
--
- 	switch (type) {
- 	case TC_SETUP_QDISC_ETS:
--		return airoha_tc_setup_qdisc_ets(port, type_data);
-+		return airoha_tc_setup_qdisc_ets(dev, type_data);
- 	case TC_SETUP_QDISC_HTB:
- 		return airoha_tc_setup_qdisc_htb(dev, type_data);
- 	case TC_SETUP_BLOCK:
++&wdt {
++	status = "okay";
++};
 
+---
+base-commit: f5459048c38a00fc583658d6dcd0f894aff6df8f
+change-id: 20260412-t113-mangopi-reboot-hang-c9a9def82e2b
+
+Best regards,
 -- 
-2.53.0
+Michal Piekos <michal.piekos@mmpsystems.pl>
 
 
