@@ -4,60 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97A0BE937EA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 15:51:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AFC2E937EA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 16:21:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lhYaxa0mTIsXTdWxSJUk0yGRaonnUe0f+0ZWmJfzwv4=; b=thP6INh00n7mWPNFs+cHM4RElT
-	R1JCYGcQDSMrKlrrpjGOoZ+92o6FL0jE9yrySVs27pEPUGJ6qFNTpIn9AaAZjuMTZ6alFqVGfflAV
-	IgZ0h+X3Uj6iUDLpa0KSUZ3VLcoQCFV0a5OTtXsXHXjh9zDYG/Zjcu5vPgEW+bxlBCdvR4UAg5VjT
-	kGWZ9aPrRbXzfmGfhW/Kdx0W49DVpq4N6l8pL2WQlOX8eIYgzk9kabXD80LtN17+O3Tp8EoVyEfbC
-	GAJDbgZjIH/aDT8yJDim235kW2MjCAHJRyejZoKOXsU7NdD2MWImmSDisEL5rn/OiZYMxDfoky2YT
-	ri8OzPkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sXti8VrOTViLTFMO1s48YwMgytzp5Ygon3ChdIV1l04=; b=Zk4iHKI9tqvgCv
+	czAOx+CcVUOCLkw4vTZiPXjDFgM26bo+F0rQuaMx908t5ni7xYdFMYWCDy6gtrPUymcyOobx1u3+0
+	WtxIHR1R1n3nKAWxviehv/w3x9k/ht5gVcucFeHnEN2pvOFNOHW18UqFJEw5natGOWRFZ/fot0qHK
+	xXhv6tENRFl24eN7scN5C+npo7lPU1E2rpikaWd5DEChE4yohSUtqFhIBOf8+4jOFPKqXg3QxqobS
+	/0oc48AZN6mN3r7DkCr1cqbGNbFdtKzd7eCTsfYyHB1l85t6y6WQzozNmaOMKYm5MODUzPngB+ETL
+	V8+D2eq5M04YRZ8cdP5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBx5p-0000000ESMC-0u7Y;
-	Sun, 12 Apr 2026 15:51:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBx5l-0000000ESLd-2Daq
+	id 1wBxYq-0000000ETcs-1EMc;
+	Sun, 12 Apr 2026 16:21:24 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wBxYn-0000000ETcS-2jq3
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Apr 2026 15:51:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 70D221764;
-	Sun, 12 Apr 2026 08:51:14 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9CD0B3F7B4;
-	Sun, 12 Apr 2026 08:51:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776009080; bh=OtFLnztL2TZbYm/AJ2xmpyZihaWGqvUGKnB/sH3q9pg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JqaPYzmYpiYeZRv88OJi3mEox+ELekqB3qS63nz/IkdoUr/kL8sUXsm2abGSbUaB7
-	 Wzz4JbwwGR9B6EEKmeGAR5nnOMdtqPOv5sA6rs7EghJS4UgDQpfPyJYE8/IBjWIfwq
-	 d2n8f1h7IcHMFD+aQnNwZ+F56JywwvwL3FyDgrkM=
-Date: Sun, 12 Apr 2026 16:51:16 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, leo.yan@arm.com
-Subject: Re: [PATCH v2 1/5] coresight: etm4x: introduce struct etm4_caps
-Message-ID: <adu/dIPgdmZOeL/d@e129823.arm.com>
-References: <20260410074310.2693385-1-yeoreum.yun@arm.com>
- <20260410074310.2693385-2-yeoreum.yun@arm.com>
- <46776f5b-7167-4e99-ad8d-abb221f02aee@oss.qualcomm.com>
+	Sun, 12 Apr 2026 16:21:23 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63CE5Rwa3315177
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 16:21:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=sXti8VrOTViLTFMO1s48Yw
+	Mgytzp5Ygon3ChdIV1l04=; b=D1HPuz3QHfy+G8xwit2dE0OCp8kHuPV2MVf2lY
+	kE6epkPtOftWdg+EjISqHvoKa/YAHalATXMmxRR55V6/+1oq98qiTYr0dr50Fx7A
+	UHfctaATdKv28/OInW9UZnJg0Z9pLtmiTiFd2BgiZhUW+seWde3fAdgXbv8du+rQ
+	Jh7QzBnkIeolbYMRE8tCCcQkk4Zc5twJ2RVAT5VXpgMjt4Z2lau2Pia59bSjhlPc
+	DtAip9Wwq2yimqqEno2908dsSzNzr/Xc+ox8YOrrJIj2j269r8+fIU3vjMGSrWkt
+	p3N+3KJ+DcQRcCwOLhD2zOq0DeQifNwQTrj+0fNH4gz7aggQ==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dfewktmjc-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 16:21:20 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-50d9a6a853bso90192691cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 09:21:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1776010880; x=1776615680; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=sXti8VrOTViLTFMO1s48YwMgytzp5Ygon3ChdIV1l04=;
+        b=fMkJ1lJ1dS7LId99ggICptcCouXezOwoplch+QIL01t+HWzHwyqN/ouSHBuk3C79ia
+         IMNNCv9m4Et+U2imWa48Y8arPFQuUXMuqfkueZciujuPMupGlxAnbyRokSEUGDu3Bdyg
+         9sfm3yuAn0idhfAVhDThorWWbV7jVrmdDq47tNkysYaN34JP+lyVIpzjCCJO36SDpdFx
+         l/BHBoVixR7ZxY4y7TjtHG8GrTVjNU1IpEobcXzE06JBTbfDztysp/hkLusUL/KeCRYe
+         meZHGmajC0gkoKfyjLbt+qHBQ9CEbezEO2TRIFI7n/6UG23/Bs8hnlZqP74yq/xYUgsE
+         LsPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1776010880; x=1776615680;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sXti8VrOTViLTFMO1s48YwMgytzp5Ygon3ChdIV1l04=;
+        b=aI42kau4K40m6WgyVXK7he9MNnZYpfaNqkI261s+6Ea16wYmtvA0N4jeQdlCFb7XpI
+         aWTPoAlClvNih8QQzQEtoeJAk3JQ7PCmKzrjb51BtqavBv2DkXuwgIl712gacrhqmDKP
+         2WWX3jQfkDBlp5V5reePkX+r6goOZ0yUrN0NndFVQ1Z+WZbIShgSd4YdnpaibeODqojD
+         0Xum6kp8Oe/hseCk6AC7pbK9WG7S22cjIN+2J3WyX9hbxm/5+QqI8gHB41n0Is8zmUN2
+         ASessyh9ktbiIzS9tb2clsY/W6H9lsfNj6cwi9E38W4XQkvw4CUHiLVW8zJHV3ub7Wnh
+         p0Jw==
+X-Forwarded-Encrypted: i=1; AJvYcCUmx1Fu31FPimSf9l7zIYmBlVlrjgcQZJMrhi0/GIO9Oyf9rserFhGZBhpoVM0a8LEq/WIXVqByqULZkPuvy+Ol@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQ852Y0sEhv7liR5slcpA1FUd0Ov9eGMhYKcEEO9APshF7w2wE
+	dAZwNKyrjdyXG86a+4lNGTWlX+CSeymt5UUUcuXxueFwr4ybVF8Y/GWXwZiRYx5iSH5/EqP/kEF
+	nGqrAw1N03cIvjptlvHYGHUoqU+59MkfHFjyKt3U362K8UTz+BpP9YcgVIow+RoS9H1OEarKZZo
+	218w==
+X-Gm-Gg: AeBDietJfu747bmrA/vcuUNM8opwIZk3e+5/phrnrQS8lQM0LmiboLfaN/uKWY2mi5n
+	D55mJ3oq7faCCiI2pwoX5ujaWXa63bmXFtxo1IFeSeh0qfT9sSHvZ2F7gHvQyDhl5C3OvgizSeV
+	Ym5Mp51823UmoshSsu6cNQbaVz3wPIIwUPyw/3U/sffwJCcb71c01Idn8pXTI2unDk3GggNdSNW
+	9ezEuxbZWqnN3vCoLwyG1kvBxPagzaonYbFSmmYUV3WinjfzKUh6NZoIkQ8GrfaApUu/nu1h2EU
+	G3T+HeCfcUjGF/6ELRx8KzvNR86TnfB76ZgPXCAVdcaPEG47OjdQt7Uc2H+k1sSlcL6ty0VAsx+
+	TOYYzjPjFnG1tDI7vy0d7eze+PxOMyH+aYfOPa9nG97d1
+X-Received: by 2002:a05:622a:1b12:b0:50d:7f60:621f with SMTP id d75a77b69052e-50dd5b7b590mr153597131cf.29.1776010879578;
+        Sun, 12 Apr 2026 09:21:19 -0700 (PDT)
+X-Received: by 2002:a05:622a:1b12:b0:50d:7f60:621f with SMTP id d75a77b69052e-50dd5b7b590mr153596851cf.29.1776010879103;
+        Sun, 12 Apr 2026 09:21:19 -0700 (PDT)
+Received: from [127.0.1.1] ([178.197.219.94])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-488d531f229sm301286585e9.3.2026.04.12.09.21.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 12 Apr 2026 09:21:18 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH 0/6] arm64: defconfig: Cleanup and change Ethernet drivers
+Date: Sun, 12 Apr 2026 18:21:02 +0200
+Message-Id: <20260412-defconfig-v1-0-a46918286451@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <46776f5b-7167-4e99-ad8d-abb221f02aee@oss.qualcomm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAG7G22kC/yXMTQqAIBBA4avErBPSfsSuEi1Sx5oWFloRRHfPa
+ vnB410QMRBGaLMLAh4UafEJPM/ATIMfkZFNBlGIpqi4YBadWbyjkelaonRK16WqIPVrQEfn9+r
+ 633HXM5rtHcB9P9bHZCJtAAAA
+X-Change-ID: 20260412-defconfig-b57e7f9b5394
+To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+        Alexandre Belloni <alexandre.belloni@bootlin.com>,
+        Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>,
+        soc@lists.linux.dev
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=812;
+ i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=bQ+zUzzbMGJ1KdwdPcm7KPnoiDcPjH4CEbd8yVzeEec=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBp28Zze/36s8jGtr3si9JM5P/cHBO79Ku0FW4wu
+ dOtvuUxQjaJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCadvGcwAKCRDBN2bmhouD
+ 18uzD/9Nf+1gdApkTG4M9+c1DnRQw3OIRp8qebDPW5/9/+KYYpH0+51VdMK9NJUI+MS52cg/B0F
+ Ef0RJ3qKFxm/PjC/VSfb9ILpjjqjLHjs40jBnQwIYT40KKLlgeP0JsJCeL0VckY44Yv3tdKxSLu
+ phE1Di2rCEV2TAJr5ynmaQ6YrUIuHuHlVICZ7700Eqh6igSEyW5iyPcKjurCwVVkx6Ra0xsqFuC
+ K5WZdSdyAQ3+s3lBmaO/xcNNc36uxzS7y0sTlbN3xyJ1EAKgIXgNBZUNNjyaPduz0YOOCB8Yzwj
+ wayhAHAouAxJA7TLFSW79o3AKzKIvQwyuh58Tp+EgIgkFqL/dYbsYWDvk5sIoMTnVPUPaLE+57Z
+ lHNdZZPIn+O80/XLIV8JVoWvN4D1Uh+f6Xj3uhA9Xdgh1fMcJoTVZ+YrPjUGwS58nL8hvF/i3T3
+ y/RwMzqV+fm0CVZ5SLx5IqRLxwsuFL3FswONB+SvORKOMUnHE9I31ayCq7m3xK023qqONZNWYh9
+ BJAI4ndlJx/QY1MHESuVfROCY8tf72tdoFmnZOH/xO8qR5l/62lNNS9lZbdPmKU7PGOmLyvpj+Q
+ /99V1j0k4lJFkPQ2IUBuO5biIsPzCxdhQBjiBj89cGQ/iWnlOh7NnoKI0asrPunKDCBb7P3Lq2y
+ Nfv3W+0g8J7nxlg==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+X-Authority-Analysis: v=2.4 cv=bcFbluPB c=1 sm=1 tr=0 ts=69dbc680 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
+ a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=EUspDBNiAAAA:8 a=zAhwAz0-9tGWcaRmco4A:9 a=QEXdDO2ut3YA:10
+ a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEyMDE1OSBTYWx0ZWRfX795KYpCdvwrc
+ Z3jbsW16+f8pTH1pfoRVZL6JYn0xmUgSmJhLVdyC+fw+0Ogg62IJiXq/j+kiqEC3aTYFCCvHAOQ
+ 43fnfEsAFYg3NCzRDI5Fe0e0gq1zknRKr6+B2Sj9YvuWw1F6n9YFNSgMqfNUKcY/dLg8uOAIuv1
+ SvnCAXHI9BCM0N1mpeX+hVTReoqW6UiNwVOJwg4ECwCqn0lT4x/bgrydc43qJbtJUAv8+B5NaDT
+ m6rMTREdMigMFnnquKOzF3kORiEBd3l27Ted1qqp4CN3NOjzrJwz8aRZAb+5+O7OqafaHisaMIi
+ CizUEeUJslepqnlKPhO6QzjCqFi5snDzdBN1SncUFoYLIXFxGy5j1y7LUw4XuIYpLfI6iQ6ooHa
+ zX4v9DO5ZN6Uj3Py3RWpwL5yW/QLepor4k4fpsmipvJ9j2fAIDKT/NS7YbpQ76TIHp3d7sgz1/4
+ r4jxuhzn6LyDr3fVVcQ==
+X-Proofpoint-ORIG-GUID: b10flmFmiawYs6xPEudOHwPognNq_gGE
+X-Proofpoint-GUID: b10flmFmiawYs6xPEudOHwPognNq_gGE
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-04-12_04,2026-04-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 clxscore=1015 impostorscore=0 malwarescore=0
+ suspectscore=0 adultscore=0 bulkscore=0 phishscore=0 priorityscore=1501
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2604010000
+ definitions=main-2604120159
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_085121_729448_3042D15D 
-X-CRM114-Status: GOOD (  30.71  )
+X-CRM114-CacheID: sfid-20260412_092121_884400_C4B3A9E7 
+X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,890 +166,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jie,
+Several first commits have no functional impact.  The last two might
+have.
 
->
-> On 4/10/2026 3:43 PM, Yeoreum Yun wrote:
-> > introduce struct etm4_caps to describe ETMv4 capabilities
-> > and move capabilities information into it.
-> >
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > ---
-> >   .../coresight/coresight-etm4x-core.c          | 234 +++++++++---------
-> >   .../coresight/coresight-etm4x-sysfs.c         | 185 ++++++++------
-> >   drivers/hwtracing/coresight/coresight-etm4x.h | 175 ++++++-------
-> >   3 files changed, 327 insertions(+), 267 deletions(-)
-> >
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > index d565a73f0042..6443f3717b37 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > @@ -88,8 +88,9 @@ static int etm4_probe_cpu(unsigned int cpu);
-> >    */
-> >   static bool etm4x_sspcicrn_present(struct etmv4_drvdata *drvdata, int n)
-> >   {
-> > -	return (n < drvdata->nr_ss_cmp) &&
-> > -	       drvdata->nr_pe &&
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> > +
-> > +	return (n < caps->nr_ss_cmp) && caps->nr_pe &&
-> >   	       (drvdata->config.ss_status[n] & TRCSSCSRn_PC);
-> >   }
-> > @@ -160,17 +161,20 @@ static void ete_sysreg_write(u64 val, u32 offset, bool _relaxed, bool _64bit)
-> >   static void etm_detect_os_lock(struct etmv4_drvdata *drvdata,
-> >   			       struct csdev_access *csa)
-> >   {
-> > +	struct etmv4_caps *caps = &drvdata->caps;
-> >   	u32 oslsr = etm4x_relaxed_read32(csa, TRCOSLSR);
-> > -	drvdata->os_lock_model = ETM_OSLSR_OSLM(oslsr);
-> > +	caps->os_lock_model = ETM_OSLSR_OSLM(oslsr);
-> >   }
-> >   static void etm_write_os_lock(struct etmv4_drvdata *drvdata,
-> >   			      struct csdev_access *csa, u32 val)
-> >   {
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> > +
-> >   	val = !!val;
-> > -	switch (drvdata->os_lock_model) {
-> > +	switch (caps->os_lock_model) {
-> >   	case ETM_OSLOCK_PRESENT:
-> >   		etm4x_relaxed_write32(csa, val, TRCOSLAR);
-> >   		break;
-> > @@ -179,7 +183,7 @@ static void etm_write_os_lock(struct etmv4_drvdata *drvdata,
-> >   		break;
-> >   	default:
-> >   		pr_warn_once("CPU%d: Unsupported Trace OSLock model: %x\n",
-> > -			     smp_processor_id(), drvdata->os_lock_model);
-> > +			     smp_processor_id(), caps->os_lock_model);
-> >   		fallthrough;
-> >   	case ETM_OSLOCK_NI:
-> >   		return;
-> > @@ -494,6 +498,7 @@ static int etm4_enable_trace_unit(struct etmv4_drvdata *drvdata)
-> >   static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
-> >   {
-> >   	int i, rc;
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> >   	struct etmv4_config *config = &drvdata->config;
-> >   	struct coresight_device *csdev = drvdata->csdev;
-> >   	struct device *etm_dev = &csdev->dev;
-> > @@ -525,14 +530,14 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
-> >   	if (etm4x_wait_status(csa, TRCSTATR_IDLE_BIT, 1))
-> >   		dev_err(etm_dev,
-> >   			"timeout while waiting for Idle Trace Status\n");
-> > -	if (drvdata->nr_pe)
-> > +	if (caps->nr_pe)
-> >   		etm4x_relaxed_write32(csa, config->pe_sel, TRCPROCSELR);
-> >   	etm4x_relaxed_write32(csa, config->cfg, TRCCONFIGR);
-> >   	/* nothing specific implemented */
-> >   	etm4x_relaxed_write32(csa, 0x0, TRCAUXCTLR);
-> >   	etm4x_relaxed_write32(csa, config->eventctrl0, TRCEVENTCTL0R);
-> >   	etm4x_relaxed_write32(csa, config->eventctrl1, TRCEVENTCTL1R);
-> > -	if (drvdata->stallctl)
-> > +	if (caps->stallctl)
-> >   		etm4x_relaxed_write32(csa, config->stall_ctrl, TRCSTALLCTLR);
-> >   	etm4x_relaxed_write32(csa, config->ts_ctrl, TRCTSCTLR);
-> >   	etm4x_relaxed_write32(csa, config->syncfreq, TRCSYNCPR);
-> > @@ -542,17 +547,17 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
-> >   	etm4x_relaxed_write32(csa, config->vinst_ctrl, TRCVICTLR);
-> >   	etm4x_relaxed_write32(csa, config->viiectlr, TRCVIIECTLR);
-> >   	etm4x_relaxed_write32(csa, config->vissctlr, TRCVISSCTLR);
-> > -	if (drvdata->nr_pe_cmp)
-> > +	if (caps->nr_pe_cmp)
-> >   		etm4x_relaxed_write32(csa, config->vipcssctlr, TRCVIPCSSCTLR);
-> > -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> > +	for (i = 0; i < caps->nrseqstate - 1; i++)
-> >   		etm4x_relaxed_write32(csa, config->seq_ctrl[i], TRCSEQEVRn(i));
-> > -	if (drvdata->nrseqstate) {
-> > +	if (caps->nrseqstate) {
-> >   		etm4x_relaxed_write32(csa, config->seq_rst, TRCSEQRSTEVR);
-> >   		etm4x_relaxed_write32(csa, config->seq_state, TRCSEQSTR);
-> >   	}
-> > -	if (drvdata->numextinsel)
-> > +	if (caps->numextinsel)
-> >   		etm4x_relaxed_write32(csa, config->ext_inp, TRCEXTINSELR);
-> > -	for (i = 0; i < drvdata->nr_cntr; i++) {
-> > +	for (i = 0; i < caps->nr_cntr; i++) {
-> >   		etm4x_relaxed_write32(csa, config->cntrldvr[i], TRCCNTRLDVRn(i));
-> >   		etm4x_relaxed_write32(csa, config->cntr_ctrl[i], TRCCNTCTLRn(i));
-> >   		etm4x_relaxed_write32(csa, config->cntr_val[i], TRCCNTVRn(i));
-> > @@ -562,10 +567,10 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
-> >   	 * Resource selector pair 0 is always implemented and reserved.  As
-> >   	 * such start at 2.
-> >   	 */
-> > -	for (i = 2; i < drvdata->nr_resource * 2; i++)
-> > +	for (i = 2; i < caps->nr_resource * 2; i++)
-> >   		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
-> > -	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
-> > +	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> >   		/* always clear status bit on restart if using single-shot */
-> >   		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
-> >   			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
-> > @@ -574,23 +579,23 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
-> >   		if (etm4x_sspcicrn_present(drvdata, i))
-> >   			etm4x_relaxed_write32(csa, config->ss_pe_cmp[i], TRCSSPCICRn(i));
-> >   	}
-> > -	for (i = 0; i < drvdata->nr_addr_cmp * 2; i++) {
-> > +	for (i = 0; i < caps->nr_addr_cmp * 2; i++) {
-> >   		etm4x_relaxed_write64(csa, config->addr_val[i], TRCACVRn(i));
-> >   		etm4x_relaxed_write64(csa, config->addr_acc[i], TRCACATRn(i));
-> >   	}
-> > -	for (i = 0; i < drvdata->numcidc; i++)
-> > +	for (i = 0; i < caps->numcidc; i++)
-> >   		etm4x_relaxed_write64(csa, config->ctxid_pid[i], TRCCIDCVRn(i));
-> >   	etm4x_relaxed_write32(csa, config->ctxid_mask0, TRCCIDCCTLR0);
-> > -	if (drvdata->numcidc > 4)
-> > +	if (caps->numcidc > 4)
-> >   		etm4x_relaxed_write32(csa, config->ctxid_mask1, TRCCIDCCTLR1);
-> > -	for (i = 0; i < drvdata->numvmidc; i++)
-> > +	for (i = 0; i < caps->numvmidc; i++)
-> >   		etm4x_relaxed_write64(csa, config->vmid_val[i], TRCVMIDCVRn(i));
-> >   	etm4x_relaxed_write32(csa, config->vmid_mask0, TRCVMIDCCTLR0);
-> > -	if (drvdata->numvmidc > 4)
-> > +	if (caps->numvmidc > 4)
-> >   		etm4x_relaxed_write32(csa, config->vmid_mask1, TRCVMIDCCTLR1);
-> > -	if (!drvdata->skip_power_up) {
-> > +	if (!caps->skip_power_up) {
-> >   		u32 trcpdcr = etm4x_relaxed_read32(csa, TRCPDCR);
-> >   		/*
-> > @@ -666,19 +671,20 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata,
-> >   {
-> >   	int ctridx;
-> >   	int rselector;
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> >   	struct etmv4_config *config = &drvdata->config;
-> >   	/* No point in trying if we don't have at least one counter */
-> > -	if (!drvdata->nr_cntr)
-> > +	if (!caps->nr_cntr)
-> >   		return -EINVAL;
-> >   	/* Find a counter that hasn't been initialised */
-> > -	for (ctridx = 0; ctridx < drvdata->nr_cntr; ctridx++)
-> > +	for (ctridx = 0; ctridx < caps->nr_cntr; ctridx++)
-> >   		if (config->cntr_val[ctridx] == 0)
-> >   			break;
-> >   	/* All the counters have been configured already, bail out */
-> > -	if (ctridx == drvdata->nr_cntr) {
-> > +	if (ctridx == caps->nr_cntr) {
-> >   		pr_debug("%s: no available counter found\n", __func__);
-> >   		return -ENOSPC;
-> >   	}
-> > @@ -694,11 +700,11 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata,
-> >   	 * ETMIDR4 gives the number of resource selector _pairs_, hence multiply
-> >   	 * by 2.
-> >   	 */
-> > -	for (rselector = 2; rselector < drvdata->nr_resource * 2; rselector++)
-> > +	for (rselector = 2; rselector < caps->nr_resource * 2; rselector++)
-> >   		if (!config->res_ctrl[rselector])
-> >   			break;
-> > -	if (rselector == drvdata->nr_resource * 2) {
-> > +	if (rselector == caps->nr_resource * 2) {
-> >   		pr_debug("%s: no available resource selector found\n",
-> >   			 __func__);
-> >   		return -ENOSPC;
-> > @@ -749,6 +755,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
-> >   {
-> >   	int ret = 0;
-> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> >   	struct etmv4_config *config = &drvdata->config;
-> >   	struct perf_event_attr max_timestamp = {
-> >   		.ATTR_CFG_FLD_timestamp_CFG = U64_MAX,
-> > @@ -788,8 +795,8 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
-> >   		cc_threshold = ATTR_CFG_GET_FLD(attr, cc_threshold);
-> >   		if (!cc_threshold)
-> >   			cc_threshold = ETM_CYC_THRESHOLD_DEFAULT;
-> > -		if (cc_threshold < drvdata->ccitmin)
-> > -			cc_threshold = drvdata->ccitmin;
-> > +		if (cc_threshold < caps->ccitmin)
-> > +			cc_threshold = caps->ccitmin;
-> >   		config->ccctlr = cc_threshold;
-> >   	}
-> > @@ -837,7 +844,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
-> >   	}
-> >   	/* return stack - enable if selected and supported */
-> > -	if (ATTR_CFG_GET_FLD(attr, retstack) && drvdata->retstack)
-> > +	if (ATTR_CFG_GET_FLD(attr, retstack) && caps->retstack)
-> >   		/* bit[12], Return stack enable bit */
-> >   		config->cfg |= TRCCONFIGR_RS;
-> > @@ -853,7 +860,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
-> >   	/* branch broadcast - enable if selected and supported */
-> >   	if (ATTR_CFG_GET_FLD(attr, branch_broadcast)) {
-> > -		if (!drvdata->trcbb) {
-> > +		if (!caps->trcbb) {
-> >   			/*
-> >   			 * Missing BB support could cause silent decode errors
-> >   			 * so fail to open if it's not supported.
-> > @@ -1028,6 +1035,7 @@ static void etm4_disable_trace_unit(struct etmv4_drvdata *drvdata)
-> >   static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
-> >   {
-> >   	u32 control;
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> >   	struct etmv4_config *config = &drvdata->config;
-> >   	struct coresight_device *csdev = drvdata->csdev;
-> >   	struct csdev_access *csa = &csdev->access;
-> > @@ -1036,7 +1044,7 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
-> >   	etm4_cs_unlock(drvdata, csa);
-> >   	etm4_disable_arch_specific(drvdata);
-> > -	if (!drvdata->skip_power_up) {
-> > +	if (!caps->skip_power_up) {
-> >   		/* power can be removed from the trace unit now */
-> >   		control = etm4x_relaxed_read32(csa, TRCPDCR);
-> >   		control &= ~TRCPDCR_PU;
-> > @@ -1046,13 +1054,13 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
-> >   	etm4_disable_trace_unit(drvdata);
-> >   	/* read the status of the single shot comparators */
-> > -	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
-> > +	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> >   		config->ss_status[i] =
-> >   			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> >   	}
-> >   	/* read back the current counter values */
-> > -	for (i = 0; i < drvdata->nr_cntr; i++) {
-> > +	for (i = 0; i < caps->nr_cntr; i++) {
-> >   		config->cntr_val[i] =
-> >   			etm4x_relaxed_read32(csa, TRCCNTVRn(i));
-> >   	}
-> > @@ -1350,7 +1358,7 @@ static struct midr_range etm_wrong_ccitmin_cpus[] = {
-> >   	{},
-> >   };
-> > -static void etm4_fixup_wrong_ccitmin(struct etmv4_drvdata *drvdata)
-> > +static void etm4_fixup_wrong_ccitmin(struct etmv4_caps *caps)
-> >   {
-> >   	/*
-> >   	 * Erratum affected cpus will read 256 as the minimum
-> > @@ -1360,8 +1368,8 @@ static void etm4_fixup_wrong_ccitmin(struct etmv4_drvdata *drvdata)
-> >   	 * this problem.
-> >   	 */
-> >   	if (is_midr_in_range_list(etm_wrong_ccitmin_cpus)) {
-> > -		if (drvdata->ccitmin == 256)
-> > -			drvdata->ccitmin = 4;
-> > +		if (caps->ccitmin == 256)
-> > +			caps->ccitmin = 4;
-> >   	}
-> >   }
-> > @@ -1374,11 +1382,13 @@ static void etm4_init_arch_data(void *info)
-> >   	u32 etmidr5;
-> >   	struct etm4_init_arg *init_arg = info;
-> >   	struct etmv4_drvdata *drvdata;
-> > +	struct etmv4_caps *caps;
-> >   	struct csdev_access *csa;
-> >   	struct device *dev = init_arg->dev;
-> >   	int i;
-> >   	drvdata = dev_get_drvdata(init_arg->dev);
-> > +	caps = &drvdata->caps;
-> >   	csa = init_arg->csa;
-> >   	/*
-> > @@ -1391,7 +1401,7 @@ static void etm4_init_arch_data(void *info)
-> >   	if (!csa->io_mem ||
-> >   	    fwnode_property_present(dev_fwnode(dev), "qcom,skip-power-up"))
-> > -		drvdata->skip_power_up = true;
-> > +		caps->skip_power_up = true;
-> >   	/* Detect the support for OS Lock before we actually use it */
-> >   	etm_detect_os_lock(drvdata, csa);
-> > @@ -1406,71 +1416,71 @@ static void etm4_init_arch_data(void *info)
-> >   	etmidr0 = etm4x_relaxed_read32(csa, TRCIDR0);
-> >   	/* INSTP0, bits[2:1] P0 tracing support field */
-> > -	drvdata->instrp0 = !!(FIELD_GET(TRCIDR0_INSTP0_MASK, etmidr0) == 0b11);
-> > +	caps->instrp0 = !!(FIELD_GET(TRCIDR0_INSTP0_MASK, etmidr0) == 0b11);
-> >   	/* TRCBB, bit[5] Branch broadcast tracing support bit */
-> > -	drvdata->trcbb = !!(etmidr0 & TRCIDR0_TRCBB);
-> > +	caps->trcbb = !!(etmidr0 & TRCIDR0_TRCBB);
-> >   	/* TRCCOND, bit[6] Conditional instruction tracing support bit */
-> > -	drvdata->trccond = !!(etmidr0 & TRCIDR0_TRCCOND);
-> > +	caps->trccond = !!(etmidr0 & TRCIDR0_TRCCOND);
-> >   	/* TRCCCI, bit[7] Cycle counting instruction bit */
-> > -	drvdata->trccci = !!(etmidr0 & TRCIDR0_TRCCCI);
-> > +	caps->trccci = !!(etmidr0 & TRCIDR0_TRCCCI);
-> >   	/* RETSTACK, bit[9] Return stack bit */
-> > -	drvdata->retstack = !!(etmidr0 & TRCIDR0_RETSTACK);
-> > +	caps->retstack = !!(etmidr0 & TRCIDR0_RETSTACK);
-> >   	/* NUMEVENT, bits[11:10] Number of events field */
-> > -	drvdata->nr_event = FIELD_GET(TRCIDR0_NUMEVENT_MASK, etmidr0);
-> > +	caps->nr_event = FIELD_GET(TRCIDR0_NUMEVENT_MASK, etmidr0);
-> >   	/* QSUPP, bits[16:15] Q element support field */
-> > -	drvdata->q_support = FIELD_GET(TRCIDR0_QSUPP_MASK, etmidr0);
-> > -	if (drvdata->q_support)
-> > -		drvdata->q_filt = !!(etmidr0 & TRCIDR0_QFILT);
-> > +	caps->q_support = FIELD_GET(TRCIDR0_QSUPP_MASK, etmidr0);
-> > +	if (caps->q_support)
-> > +		caps->q_filt = !!(etmidr0 & TRCIDR0_QFILT);
-> >   	/* TSSIZE, bits[28:24] Global timestamp size field */
-> > -	drvdata->ts_size = FIELD_GET(TRCIDR0_TSSIZE_MASK, etmidr0);
-> > +	caps->ts_size = FIELD_GET(TRCIDR0_TSSIZE_MASK, etmidr0);
-> >   	/* maximum size of resources */
-> >   	etmidr2 = etm4x_relaxed_read32(csa, TRCIDR2);
-> >   	/* CIDSIZE, bits[9:5] Indicates the Context ID size */
-> > -	drvdata->ctxid_size = FIELD_GET(TRCIDR2_CIDSIZE_MASK, etmidr2);
-> > +	caps->ctxid_size = FIELD_GET(TRCIDR2_CIDSIZE_MASK, etmidr2);
-> >   	/* VMIDSIZE, bits[14:10] Indicates the VMID size */
-> > -	drvdata->vmid_size = FIELD_GET(TRCIDR2_VMIDSIZE_MASK, etmidr2);
-> > +	caps->vmid_size = FIELD_GET(TRCIDR2_VMIDSIZE_MASK, etmidr2);
-> >   	/* CCSIZE, bits[28:25] size of the cycle counter in bits minus 12 */
-> > -	drvdata->ccsize = FIELD_GET(TRCIDR2_CCSIZE_MASK, etmidr2);
-> > +	caps->ccsize = FIELD_GET(TRCIDR2_CCSIZE_MASK, etmidr2);
-> >   	etmidr3 = etm4x_relaxed_read32(csa, TRCIDR3);
-> >   	/* CCITMIN, bits[11:0] minimum threshold value that can be programmed */
-> > -	drvdata->ccitmin = FIELD_GET(TRCIDR3_CCITMIN_MASK, etmidr3);
-> > -	etm4_fixup_wrong_ccitmin(drvdata);
-> > +	caps->ccitmin = FIELD_GET(TRCIDR3_CCITMIN_MASK, etmidr3);
-> > +	etm4_fixup_wrong_ccitmin(caps);
-> >   	/* EXLEVEL_S, bits[19:16] Secure state instruction tracing */
-> > -	drvdata->s_ex_level = FIELD_GET(TRCIDR3_EXLEVEL_S_MASK, etmidr3);
-> > -	drvdata->config.s_ex_level = drvdata->s_ex_level;
-> > +	caps->s_ex_level = FIELD_GET(TRCIDR3_EXLEVEL_S_MASK, etmidr3);
-> > +	drvdata->config.s_ex_level = caps->s_ex_level;
-> >   	/* EXLEVEL_NS, bits[23:20] Non-secure state instruction tracing */
-> > -	drvdata->ns_ex_level = FIELD_GET(TRCIDR3_EXLEVEL_NS_MASK, etmidr3);
-> > +	caps->ns_ex_level = FIELD_GET(TRCIDR3_EXLEVEL_NS_MASK, etmidr3);
-> >   	/*
-> >   	 * TRCERR, bit[24] whether a trace unit can trace a
-> >   	 * system error exception.
-> >   	 */
-> > -	drvdata->trc_error = !!(etmidr3 & TRCIDR3_TRCERR);
-> > +	caps->trc_error = !!(etmidr3 & TRCIDR3_TRCERR);
-> >   	/* SYNCPR, bit[25] implementation has a fixed synchronization period? */
-> > -	drvdata->syncpr = !!(etmidr3 & TRCIDR3_SYNCPR);
-> > +	caps->syncpr = !!(etmidr3 & TRCIDR3_SYNCPR);
-> >   	/* STALLCTL, bit[26] is stall control implemented? */
-> > -	drvdata->stallctl = !!(etmidr3 & TRCIDR3_STALLCTL);
-> > +	caps->stallctl = !!(etmidr3 & TRCIDR3_STALLCTL);
-> >   	/* SYSSTALL, bit[27] implementation can support stall control? */
-> > -	drvdata->sysstall = !!(etmidr3 & TRCIDR3_SYSSTALL);
-> > +	caps->sysstall = !!(etmidr3 & TRCIDR3_SYSSTALL);
-> >   	/*
-> >   	 * NUMPROC - the number of PEs available for tracing, 5bits
-> >   	 *         = TRCIDR3.bits[13:12]bits[30:28]
-> >   	 *  bits[4:3] = TRCIDR3.bits[13:12] (since etm-v4.2, otherwise RES0)
-> >   	 *  bits[3:0] = TRCIDR3.bits[30:28]
-> >   	 */
-> > -	drvdata->nr_pe =  (FIELD_GET(TRCIDR3_NUMPROC_HI_MASK, etmidr3) << 3) |
-> > -			   FIELD_GET(TRCIDR3_NUMPROC_LO_MASK, etmidr3);
-> > +	caps->nr_pe = (FIELD_GET(TRCIDR3_NUMPROC_HI_MASK, etmidr3) << 3) |
-> > +			       FIELD_GET(TRCIDR3_NUMPROC_LO_MASK, etmidr3);
-> >   	/* NOOVERFLOW, bit[31] is trace overflow prevention supported */
-> > -	drvdata->nooverflow = !!(etmidr3 & TRCIDR3_NOOVERFLOW);
-> > +	caps->nooverflow = !!(etmidr3 & TRCIDR3_NOOVERFLOW);
-> >   	/* number of resources trace unit supports */
-> >   	etmidr4 = etm4x_relaxed_read32(csa, TRCIDR4);
-> >   	/* NUMACPAIRS, bits[0:3] number of addr comparator pairs for tracing */
-> > -	drvdata->nr_addr_cmp = FIELD_GET(TRCIDR4_NUMACPAIRS_MASK, etmidr4);
-> > +	caps->nr_addr_cmp = FIELD_GET(TRCIDR4_NUMACPAIRS_MASK, etmidr4);
-> >   	/* NUMPC, bits[15:12] number of PE comparator inputs for tracing */
-> > -	drvdata->nr_pe_cmp = FIELD_GET(TRCIDR4_NUMPC_MASK, etmidr4);
-> > +	caps->nr_pe_cmp = FIELD_GET(TRCIDR4_NUMPC_MASK, etmidr4);
-> >   	/*
-> >   	 * NUMRSPAIR, bits[19:16]
-> >   	 * The number of resource pairs conveyed by the HW starts at 0, i.e a
-> > @@ -1481,41 +1491,41 @@ static void etm4_init_arch_data(void *info)
-> >   	 * the default TRUE and FALSE resource selectors are omitted.
-> >   	 * Otherwise for values 0x1 and above the number is N + 1 as per v4.2.
-> >   	 */
-> > -	drvdata->nr_resource = FIELD_GET(TRCIDR4_NUMRSPAIR_MASK, etmidr4);
-> > -	if ((drvdata->arch < ETM_ARCH_V4_3) || (drvdata->nr_resource > 0))
-> > -		drvdata->nr_resource += 1;
-> > +	caps->nr_resource = FIELD_GET(TRCIDR4_NUMRSPAIR_MASK, etmidr4);
-> > +	if ((drvdata->arch < ETM_ARCH_V4_3) || (caps->nr_resource > 0))
-> > +		caps->nr_resource += 1;
-> >   	/*
-> >   	 * NUMSSCC, bits[23:20] the number of single-shot
-> >   	 * comparator control for tracing. Read any status regs as these
-> >   	 * also contain RO capability data.
-> >   	 */
-> > -	drvdata->nr_ss_cmp = FIELD_GET(TRCIDR4_NUMSSCC_MASK, etmidr4);
-> > -	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
-> > +	caps->nr_ss_cmp = FIELD_GET(TRCIDR4_NUMSSCC_MASK, etmidr4);
-> > +	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> >   		drvdata->config.ss_status[i] =
-> >   			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> >   	}
-> >   	/* NUMCIDC, bits[27:24] number of Context ID comparators for tracing */
-> > -	drvdata->numcidc = FIELD_GET(TRCIDR4_NUMCIDC_MASK, etmidr4);
-> > +	caps->numcidc = FIELD_GET(TRCIDR4_NUMCIDC_MASK, etmidr4);
-> >   	/* NUMVMIDC, bits[31:28] number of VMID comparators for tracing */
-> > -	drvdata->numvmidc = FIELD_GET(TRCIDR4_NUMVMIDC_MASK, etmidr4);
-> > +	caps->numvmidc = FIELD_GET(TRCIDR4_NUMVMIDC_MASK, etmidr4);
-> >   	etmidr5 = etm4x_relaxed_read32(csa, TRCIDR5);
-> >   	/* NUMEXTIN, bits[8:0] number of external inputs implemented */
-> > -	drvdata->nr_ext_inp = FIELD_GET(TRCIDR5_NUMEXTIN_MASK, etmidr5);
-> > -	drvdata->numextinsel = FIELD_GET(TRCIDR5_NUMEXTINSEL_MASK, etmidr5);
-> > +	caps->nr_ext_inp = FIELD_GET(TRCIDR5_NUMEXTIN_MASK, etmidr5);
-> > +	caps->numextinsel = FIELD_GET(TRCIDR5_NUMEXTINSEL_MASK, etmidr5);
-> >   	/* TRACEIDSIZE, bits[21:16] indicates the trace ID width */
-> > -	drvdata->trcid_size = FIELD_GET(TRCIDR5_TRACEIDSIZE_MASK, etmidr5);
-> > +	caps->trcid_size = FIELD_GET(TRCIDR5_TRACEIDSIZE_MASK, etmidr5);
-> >   	/* ATBTRIG, bit[22] implementation can support ATB triggers? */
-> > -	drvdata->atbtrig = !!(etmidr5 & TRCIDR5_ATBTRIG);
-> > +	caps->atbtrig = !!(etmidr5 & TRCIDR5_ATBTRIG);
-> >   	/*
-> >   	 * LPOVERRIDE, bit[23] implementation supports
-> >   	 * low-power state override
-> >   	 */
-> > -	drvdata->lpoverride = (etmidr5 & TRCIDR5_LPOVERRIDE) && (!drvdata->skip_power_up);
-> > +	caps->lpoverride = (etmidr5 & TRCIDR5_LPOVERRIDE) && (!caps->skip_power_up);
-> >   	/* NUMSEQSTATE, bits[27:25] number of sequencer states implemented */
-> > -	drvdata->nrseqstate = FIELD_GET(TRCIDR5_NUMSEQSTATE_MASK, etmidr5);
-> > +	caps->nrseqstate = FIELD_GET(TRCIDR5_NUMSEQSTATE_MASK, etmidr5);
-> >   	/* NUMCNTR, bits[30:28] number of counters available for tracing */
-> > -	drvdata->nr_cntr = FIELD_GET(TRCIDR5_NUMCNTR_MASK, etmidr5);
-> > +	caps->nr_cntr = FIELD_GET(TRCIDR5_NUMCNTR_MASK, etmidr5);
-> >   	coresight_clear_self_claim_tag_unlocked(csa);
-> >   	etm4_cs_lock(drvdata, csa);
-> > @@ -1691,7 +1701,7 @@ static int etm4_get_next_comparator(struct etmv4_drvdata *drvdata, u32 type)
-> >   	 * nr_addr_cmp holds the number of comparator _pair_, so time 2
-> >   	 * for the total number of comparators.
-> >   	 */
-> > -	nr_comparator = drvdata->nr_addr_cmp * 2;
-> > +	nr_comparator = drvdata->caps.nr_addr_cmp * 2;
-> >   	/* Go through the tally of comparators looking for a free one. */
-> >   	while (index < nr_comparator) {
-> > @@ -1869,6 +1879,7 @@ static int etm4_dying_cpu(unsigned int cpu)
-> >   static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
-> >   {
-> >   	int i, ret = 0;
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> >   	struct etmv4_save_state *state;
-> >   	struct coresight_device *csdev = drvdata->csdev;
-> >   	struct csdev_access *csa;
-> > @@ -1905,57 +1916,57 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
-> >   	state = drvdata->save_state;
-> > -	if (drvdata->nr_pe)
-> > +	if (caps->nr_pe)
-> >   		state->trcprocselr = etm4x_read32(csa, TRCPROCSELR);
-> >   	state->trcconfigr = etm4x_read32(csa, TRCCONFIGR);
-> >   	state->trcauxctlr = etm4x_read32(csa, TRCAUXCTLR);
-> >   	state->trceventctl0r = etm4x_read32(csa, TRCEVENTCTL0R);
-> >   	state->trceventctl1r = etm4x_read32(csa, TRCEVENTCTL1R);
-> > -	if (drvdata->stallctl)
-> > +	if (caps->stallctl)
-> >   		state->trcstallctlr = etm4x_read32(csa, TRCSTALLCTLR);
-> >   	state->trctsctlr = etm4x_read32(csa, TRCTSCTLR);
-> >   	state->trcsyncpr = etm4x_read32(csa, TRCSYNCPR);
-> >   	state->trcccctlr = etm4x_read32(csa, TRCCCCTLR);
-> >   	state->trcbbctlr = etm4x_read32(csa, TRCBBCTLR);
-> >   	state->trctraceidr = etm4x_read32(csa, TRCTRACEIDR);
-> > -	if (drvdata->q_filt)
-> > +	if (caps->q_filt)
-> >   		state->trcqctlr = etm4x_read32(csa, TRCQCTLR);
-> >   	state->trcvictlr = etm4x_read32(csa, TRCVICTLR);
-> >   	state->trcviiectlr = etm4x_read32(csa, TRCVIIECTLR);
-> >   	state->trcvissctlr = etm4x_read32(csa, TRCVISSCTLR);
-> > -	if (drvdata->nr_pe_cmp)
-> > +	if (caps->nr_pe_cmp)
-> >   		state->trcvipcssctlr = etm4x_read32(csa, TRCVIPCSSCTLR);
-> > -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> > +	for (i = 0; i < caps->nrseqstate - 1; i++)
-> >   		state->trcseqevr[i] = etm4x_read32(csa, TRCSEQEVRn(i));
-> > -	if (drvdata->nrseqstate) {
-> > +	if (caps->nrseqstate) {
-> >   		state->trcseqrstevr = etm4x_read32(csa, TRCSEQRSTEVR);
-> >   		state->trcseqstr = etm4x_read32(csa, TRCSEQSTR);
-> >   	}
-> > -	if (drvdata->numextinsel)
-> > +	if (caps->numextinsel)
-> >   		state->trcextinselr = etm4x_read32(csa, TRCEXTINSELR);
-> > -	for (i = 0; i < drvdata->nr_cntr; i++) {
-> > +	for (i = 0; i < caps->nr_cntr; i++) {
-> >   		state->trccntrldvr[i] = etm4x_read32(csa, TRCCNTRLDVRn(i));
-> >   		state->trccntctlr[i] = etm4x_read32(csa, TRCCNTCTLRn(i));
-> >   		state->trccntvr[i] = etm4x_read32(csa, TRCCNTVRn(i));
-> >   	}
-> >   	/* Resource selector pair 0 is reserved */
-> > -	for (i = 2; i < drvdata->nr_resource * 2; i++)
-> > +	for (i = 2; i < caps->nr_resource * 2; i++)
-> >   		state->trcrsctlr[i] = etm4x_read32(csa, TRCRSCTLRn(i));
-> > -	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
-> > +	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> >   		state->trcssccr[i] = etm4x_read32(csa, TRCSSCCRn(i));
-> >   		state->trcsscsr[i] = etm4x_read32(csa, TRCSSCSRn(i));
-> >   		if (etm4x_sspcicrn_present(drvdata, i))
-> >   			state->trcsspcicr[i] = etm4x_read32(csa, TRCSSPCICRn(i));
-> >   	}
-> > -	for (i = 0; i < drvdata->nr_addr_cmp * 2; i++) {
-> > +	for (i = 0; i < caps->nr_addr_cmp * 2; i++) {
-> >   		state->trcacvr[i] = etm4x_read64(csa, TRCACVRn(i));
-> >   		state->trcacatr[i] = etm4x_read64(csa, TRCACATRn(i));
-> >   	}
-> > @@ -1967,23 +1978,23 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
-> >   	 * unit") of ARM IHI 0064D.
-> >   	 */
-> > -	for (i = 0; i < drvdata->numcidc; i++)
-> > +	for (i = 0; i < caps->numcidc; i++)
-> >   		state->trccidcvr[i] = etm4x_read64(csa, TRCCIDCVRn(i));
-> > -	for (i = 0; i < drvdata->numvmidc; i++)
-> > +	for (i = 0; i < caps->numvmidc; i++)
-> >   		state->trcvmidcvr[i] = etm4x_read64(csa, TRCVMIDCVRn(i));
-> >   	state->trccidcctlr0 = etm4x_read32(csa, TRCCIDCCTLR0);
-> > -	if (drvdata->numcidc > 4)
-> > +	if (caps->numcidc > 4)
-> >   		state->trccidcctlr1 = etm4x_read32(csa, TRCCIDCCTLR1);
-> >   	state->trcvmidcctlr0 = etm4x_read32(csa, TRCVMIDCCTLR0);
-> > -	if (drvdata->numvmidc > 4)
-> > +	if (caps->numvmidc > 4)
-> >   		state->trcvmidcctlr0 = etm4x_read32(csa, TRCVMIDCCTLR1);
-> >   	state->trcclaimset = etm4x_read32(csa, TRCCLAIMCLR);
-> > -	if (!drvdata->skip_power_up)
-> > +	if (!caps->skip_power_up)
-> >   		state->trcpdcr = etm4x_read32(csa, TRCPDCR);
-> >   	/* wait for TRCSTATR.IDLE to go up */
-> > @@ -2000,7 +2011,7 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
-> >   	 * potentially save power on systems that respect the TRCPDCR_PU
-> >   	 * despite requesting software to save/restore state.
-> >   	 */
-> > -	if (!drvdata->skip_power_up)
-> > +	if (!caps->skip_power_up)
-> >   		etm4x_relaxed_write32(csa, (state->trcpdcr & ~TRCPDCR_PU),
-> >   				      TRCPDCR);
-> >   out:
-> > @@ -2027,6 +2038,7 @@ static int etm4_cpu_save(struct etmv4_drvdata *drvdata)
-> >   static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
-> >   {
-> >   	int i;
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> >   	struct etmv4_save_state *state = drvdata->save_state;
-> >   	struct csdev_access *csa = &drvdata->csdev->access;
-> > @@ -2036,77 +2048,77 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
-> >   	etm4_cs_unlock(drvdata, csa);
-> >   	etm4x_relaxed_write32(csa, state->trcclaimset, TRCCLAIMSET);
-> > -	if (drvdata->nr_pe)
-> > +	if (caps->nr_pe)
-> >   		etm4x_relaxed_write32(csa, state->trcprocselr, TRCPROCSELR);
-> >   	etm4x_relaxed_write32(csa, state->trcconfigr, TRCCONFIGR);
-> >   	etm4x_relaxed_write32(csa, state->trcauxctlr, TRCAUXCTLR);
-> >   	etm4x_relaxed_write32(csa, state->trceventctl0r, TRCEVENTCTL0R);
-> >   	etm4x_relaxed_write32(csa, state->trceventctl1r, TRCEVENTCTL1R);
-> > -	if (drvdata->stallctl)
-> > +	if (caps->stallctl)
-> >   		etm4x_relaxed_write32(csa, state->trcstallctlr, TRCSTALLCTLR);
-> >   	etm4x_relaxed_write32(csa, state->trctsctlr, TRCTSCTLR);
-> >   	etm4x_relaxed_write32(csa, state->trcsyncpr, TRCSYNCPR);
-> >   	etm4x_relaxed_write32(csa, state->trcccctlr, TRCCCCTLR);
-> >   	etm4x_relaxed_write32(csa, state->trcbbctlr, TRCBBCTLR);
-> >   	etm4x_relaxed_write32(csa, state->trctraceidr, TRCTRACEIDR);
-> > -	if (drvdata->q_filt)
-> > +	if (caps->q_filt)
-> >   		etm4x_relaxed_write32(csa, state->trcqctlr, TRCQCTLR);
-> >   	etm4x_relaxed_write32(csa, state->trcvictlr, TRCVICTLR);
-> >   	etm4x_relaxed_write32(csa, state->trcviiectlr, TRCVIIECTLR);
-> >   	etm4x_relaxed_write32(csa, state->trcvissctlr, TRCVISSCTLR);
-> > -	if (drvdata->nr_pe_cmp)
-> > +	if (caps->nr_pe_cmp)
-> >   		etm4x_relaxed_write32(csa, state->trcvipcssctlr, TRCVIPCSSCTLR);
-> > -	for (i = 0; i < drvdata->nrseqstate - 1; i++)
-> > +	for (i = 0; i < caps->nrseqstate - 1; i++)
-> >   		etm4x_relaxed_write32(csa, state->trcseqevr[i], TRCSEQEVRn(i));
-> > -	if (drvdata->nrseqstate) {
-> > +	if (caps->nrseqstate) {
-> >   		etm4x_relaxed_write32(csa, state->trcseqrstevr, TRCSEQRSTEVR);
-> >   		etm4x_relaxed_write32(csa, state->trcseqstr, TRCSEQSTR);
-> >   	}
-> > -	if (drvdata->numextinsel)
-> > +	if (caps->numextinsel)
-> >   		etm4x_relaxed_write32(csa, state->trcextinselr, TRCEXTINSELR);
-> > -	for (i = 0; i < drvdata->nr_cntr; i++) {
-> > +	for (i = 0; i < caps->nr_cntr; i++) {
-> >   		etm4x_relaxed_write32(csa, state->trccntrldvr[i], TRCCNTRLDVRn(i));
-> >   		etm4x_relaxed_write32(csa, state->trccntctlr[i], TRCCNTCTLRn(i));
-> >   		etm4x_relaxed_write32(csa, state->trccntvr[i], TRCCNTVRn(i));
-> >   	}
-> >   	/* Resource selector pair 0 is reserved */
-> > -	for (i = 2; i < drvdata->nr_resource * 2; i++)
-> > +	for (i = 2; i < caps->nr_resource * 2; i++)
-> >   		etm4x_relaxed_write32(csa, state->trcrsctlr[i], TRCRSCTLRn(i));
-> > -	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
-> > +	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> >   		etm4x_relaxed_write32(csa, state->trcssccr[i], TRCSSCCRn(i));
-> >   		etm4x_relaxed_write32(csa, state->trcsscsr[i], TRCSSCSRn(i));
-> >   		if (etm4x_sspcicrn_present(drvdata, i))
-> >   			etm4x_relaxed_write32(csa, state->trcsspcicr[i], TRCSSPCICRn(i));
-> >   	}
-> > -	for (i = 0; i < drvdata->nr_addr_cmp * 2; i++) {
-> > +	for (i = 0; i < caps->nr_addr_cmp * 2; i++) {
-> >   		etm4x_relaxed_write64(csa, state->trcacvr[i], TRCACVRn(i));
-> >   		etm4x_relaxed_write64(csa, state->trcacatr[i], TRCACATRn(i));
-> >   	}
-> > -	for (i = 0; i < drvdata->numcidc; i++)
-> > +	for (i = 0; i < caps->numcidc; i++)
-> >   		etm4x_relaxed_write64(csa, state->trccidcvr[i], TRCCIDCVRn(i));
-> > -	for (i = 0; i < drvdata->numvmidc; i++)
-> > +	for (i = 0; i < caps->numvmidc; i++)
-> >   		etm4x_relaxed_write64(csa, state->trcvmidcvr[i], TRCVMIDCVRn(i));
-> >   	etm4x_relaxed_write32(csa, state->trccidcctlr0, TRCCIDCCTLR0);
-> > -	if (drvdata->numcidc > 4)
-> > +	if (caps->numcidc > 4)
-> >   		etm4x_relaxed_write32(csa, state->trccidcctlr1, TRCCIDCCTLR1);
-> >   	etm4x_relaxed_write32(csa, state->trcvmidcctlr0, TRCVMIDCCTLR0);
-> > -	if (drvdata->numvmidc > 4)
-> > +	if (caps->numvmidc > 4)
-> >   		etm4x_relaxed_write32(csa, state->trcvmidcctlr0, TRCVMIDCCTLR1);
-> >   	etm4x_relaxed_write32(csa, state->trcclaimset, TRCCLAIMSET);
-> > -	if (!drvdata->skip_power_up)
-> > +	if (!caps->skip_power_up)
-> >   		etm4x_relaxed_write32(csa, state->trcpdcr, TRCPDCR);
-> >   	/*
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > index e9eeea6240d5..3d5f343130bd 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> > @@ -62,8 +62,9 @@ static ssize_t nr_pe_cmp_show(struct device *dev,
-> >   {
-> >   	unsigned long val;
-> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> > -	val = drvdata->nr_pe_cmp;
-> > +	val = caps->nr_pe_cmp;
-> >   	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-> >   }
-> >   static DEVICE_ATTR_RO(nr_pe_cmp);
-> > @@ -74,8 +75,9 @@ static ssize_t nr_addr_cmp_show(struct device *dev,
-> >   {
-> >   	unsigned long val;
-> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> > -	val = drvdata->nr_addr_cmp;
-> > +	val = caps->nr_addr_cmp;
-> >   	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-> >   }
-> >   static DEVICE_ATTR_RO(nr_addr_cmp);
-> > @@ -86,8 +88,9 @@ static ssize_t nr_cntr_show(struct device *dev,
-> >   {
-> >   	unsigned long val;
-> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> > -	val = drvdata->nr_cntr;
-> > +	val = caps->nr_cntr;
-> >   	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-> >   }
-> >   static DEVICE_ATTR_RO(nr_cntr);
-> > @@ -98,8 +101,9 @@ static ssize_t nr_ext_inp_show(struct device *dev,
-> >   {
-> >   	unsigned long val;
-> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> > -	val = drvdata->nr_ext_inp;
-> > +	val = caps->nr_ext_inp;
-> >   	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-> >   }
-> >   static DEVICE_ATTR_RO(nr_ext_inp);
-> > @@ -110,8 +114,9 @@ static ssize_t numcidc_show(struct device *dev,
-> >   {
-> >   	unsigned long val;
-> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> > -	val = drvdata->numcidc;
-> > +	val = caps->numcidc;
-> >   	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-> >   }
-> >   static DEVICE_ATTR_RO(numcidc);
-> > @@ -122,8 +127,9 @@ static ssize_t numvmidc_show(struct device *dev,
-> >   {
-> >   	unsigned long val;
-> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> > -	val = drvdata->numvmidc;
-> > +	val = caps->numvmidc;
-> >   	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-> >   }
-> >   static DEVICE_ATTR_RO(numvmidc);
-> > @@ -134,8 +140,9 @@ static ssize_t nrseqstate_show(struct device *dev,
-> >   {
-> >   	unsigned long val;
-> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> > -	val = drvdata->nrseqstate;
-> > +	val = caps->nrseqstate;
-> >   	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-> >   }
-> >   static DEVICE_ATTR_RO(nrseqstate);
-> > @@ -146,8 +153,9 @@ static ssize_t nr_resource_show(struct device *dev,
-> >   {
-> >   	unsigned long val;
-> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> > -	val = drvdata->nr_resource;
-> > +	val = caps->nr_resource;
-> >   	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-> >   }
-> >   static DEVICE_ATTR_RO(nr_resource);
-> > @@ -158,8 +166,9 @@ static ssize_t nr_ss_cmp_show(struct device *dev,
-> >   {
-> >   	unsigned long val;
-> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> > -	val = drvdata->nr_ss_cmp;
-> > +	val = caps->nr_ss_cmp;
-> >   	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
-> >   }
-> >   static DEVICE_ATTR_RO(nr_ss_cmp);
-> > @@ -171,6 +180,7 @@ static ssize_t reset_store(struct device *dev,
-> >   	int i;
-> >   	unsigned long val;
-> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> >   	struct etmv4_config *config = &drvdata->config;
-> >   	if (kstrtoul(buf, 16, &val))
-> > @@ -200,7 +210,7 @@ static ssize_t reset_store(struct device *dev,
-> >   	config->stall_ctrl = 0x0;
-> >   	/* Reset trace synchronization period  to 2^8 = 256 bytes*/
-> > -	if (drvdata->syncpr == false)
-> > +	if (caps->syncpr == false)
-> >   		config->syncfreq = 0x8;
-> >   	/*
-> > @@ -209,7 +219,7 @@ static ssize_t reset_store(struct device *dev,
-> >   	 * each trace run.
-> >   	 */
-> >   	config->vinst_ctrl = FIELD_PREP(TRCVICTLR_EVENT_MASK, 0x01);
-> > -	if (drvdata->nr_addr_cmp > 0) {
-> > +	if (caps->nr_addr_cmp > 0) {
-> >   		config->mode |= ETM_MODE_VIEWINST_STARTSTOP;
-> >   		/* SSSTATUS, bit[9] */
-> >   		config->vinst_ctrl |= TRCVICTLR_SSSTATUS;
-> > @@ -223,7 +233,7 @@ static ssize_t reset_store(struct device *dev,
-> >   	config->vipcssctlr = 0x0;
-> >   	/* Disable seq events */
-> > -	for (i = 0; i < drvdata->nrseqstate-1; i++)
-> > +	for (i = 0; i < caps->nrseqstate-1; i++)
->
-> from checkpatch:
-> CHECK: spaces preferred around '-'
->     coresight-etm4x-sysfs.c:236: caps->nrseqstate-1
+Best regards,
+Krzysztof
 
-Okay I'll change it.
+---
+Krzysztof Kozlowski (6):
+      arm64: defconfig: Move entries to match savedefconfig
+      arm64: defconfig: Drop unused legacy netfilter options
+      arm64: defconfig: Drop default or selected drivers
+      arm64: defconfig: Drop unused Ethernet vendors
+      arm64: defconfig: Drop AMD XGBE Ethernet driver
+      arm64: defconfig: Switch Ethernet drivers to modules
 
->
-> >   		config->seq_ctrl[i] = 0x0;
-> >   	config->seq_rst = 0x0;
-> >   	config->seq_state = 0x0;
-> > @@ -232,38 +242,38 @@ static ssize_t reset_store(struct device *dev,
-> >   	config->ext_inp = 0x0;
-> >   	config->cntr_idx = 0x0;
-> > -	for (i = 0; i < drvdata->nr_cntr; i++) {
-> > +	for (i = 0; i < caps->nr_cntr; i++) {
-> >   		config->cntrldvr[i] = 0x0;
-> >   		config->cntr_ctrl[i] = 0x0;
-> >   		config->cntr_val[i] = 0x0;
-> >   	}
-> >   	config->res_idx = 0x0;
-> > -	for (i = 2; i < 2 * drvdata->nr_resource; i++)
-> > +	for (i = 2; i < 2 * caps->nr_resource; i++)
-> >   		config->res_ctrl[i] = 0x0;
-> >   	config->ss_idx = 0x0;
-> > -	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
-> > +	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> >   		config->ss_ctrl[i] = 0x0;
-> >   		config->ss_pe_cmp[i] = 0x0;
-> >   	}
-> >   	config->addr_idx = 0x0;
-> > -	for (i = 0; i < drvdata->nr_addr_cmp * 2; i++) {
-> > +	for (i = 0; i < caps->nr_addr_cmp * 2; i++) {
-> >   		config->addr_val[i] = 0x0;
-> >   		config->addr_acc[i] = 0x0;
-> >   		config->addr_type[i] = ETM_ADDR_TYPE_NONE;
-> >   	}
-> >   	config->ctxid_idx = 0x0;
-> > -	for (i = 0; i < drvdata->numcidc; i++)
-> > +	for (i = 0; i < caps->numcidc; i++)
-> >   		config->ctxid_pid[i] = 0x0;
-> >   	config->ctxid_mask0 = 0x0;
-> >   	config->ctxid_mask1 = 0x0;
-> >   	config->vmid_idx = 0x0;
-> > -	for (i = 0; i < drvdata->numvmidc; i++)
-> > +	for (i = 0; i < caps->numvmidc; i++)
-> >   		config->vmid_val[i] = 0x0;
-> >   	config->vmid_mask0 = 0x0;
-> >   	config->vmid_mask1 = 0x0;
-> > @@ -297,6 +307,7 @@ static ssize_t mode_store(struct device *dev,
-> >   {
-> >   	unsigned long val, mode;
-> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > +	const struct etmv4_caps *caps = &drvdata->caps;
-> >   	struct etmv4_config *config = &drvdata->config;
-> >   	if (kstrtoul(buf, 16, &val))
-> > @@ -305,7 +316,7 @@ static ssize_t mode_store(struct device *dev,
-> >   	raw_spin_lock(&drvdata->spinlock);
-> >   	config->mode = val & ETMv4_MODE_ALL;
-> > -	if (drvdata->instrp0 == true) {
-> > +	if (caps->instrp0 == true) {
+ arch/arm64/configs/defconfig | 371 +++++++++++++++++++++++--------------------
+ 1 file changed, 195 insertions(+), 176 deletions(-)
+---
+base-commit: 66672af7a095d89f082c5327f3b15bc2f93d558e
+change-id: 20260412-defconfig-b57e7f9b5394
 
->
-> find so many foo == true && foo == false formats from legacy codes.
-> I think it's worth to change all to if (foo) && if (!foo) ?
->
-> example here,
->
-> if (caps->instrp0)
+Best regards,
+--  
+Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Agree. This is good chance to remove some legacy formats.
-
->
-> >   		/* start by clearing instruction P0 field */
-> >   		config->cfg  &= ~TRCCONFIGR_INSTP0_LOAD_STORE;
-> >   		if (config->mode & ETM_MODE_LOAD)
-> > @@ -323,45 +334,45 @@ static ssize_t mode_store(struct device *dev,
-> >   	}
-> >   	/* bit[3], Branch broadcast mode */
-> > -	if ((config->mode & ETM_MODE_BB) && (drvdata->trcbb == true))
-> > +	if ((config->mode & ETM_MODE_BB) && (caps->trcbb == true))
-> >   		config->cfg |= TRCCONFIGR_BB;
->
-> <...>
->
-> > @@ -1037,46 +1081,11 @@ struct etmv4_drvdata {
-> >   	raw_spinlock_t			spinlock;
-> >   	int				cpu;
-> >   	u8				arch;
-> > -	u8				nr_pe;
-> > -	u8				nr_pe_cmp;
-> > -	u8				nr_addr_cmp;
-> > -	u8				nr_cntr;
-> > -	u8				nr_ext_inp;
-> > -	u8				numcidc;
-> > -	u8				numextinsel;
-> > -	u8				numvmidc;
-> > -	u8				nrseqstate;
-> > -	u8				nr_event;
-> > -	u8				nr_resource;
-> > -	u8				nr_ss_cmp;
-> > +	struct etmv4_caps 		caps;
->
-> reported by checkpatch:
-> WARNING: please, no space before tabs
-
-Thanks.
-
->
-> >   	u8				trcid;
-> > -	u8				trcid_size;
-> > -	u8				ts_size;
-> > -	u8				ctxid_size;
-> > -	u8				vmid_size;
-> > -	u8				ccsize;
-> > -	u16				ccitmin;
-> > -	u8				s_ex_level;
-> > -	u8				ns_ex_level;
-> > -	u8				q_support;
-> > -	u8				os_lock_model;
-> >   	bool				sticky_enable : 1;
-> >   	bool				boot_enable : 1;
-> >   	bool				os_unlock : 1;
-> > -	bool				instrp0 : 1;
-> > -	bool				q_filt : 1;
-> > -	bool				trcbb : 1;
-> > -	bool				trccond : 1;
-> > -	bool				retstack : 1;
-> > -	bool				trccci : 1;
-> > -	bool				trc_error : 1;
-> > -	bool				syncpr : 1;
-> > -	bool				stallctl : 1;
-> > -	bool				sysstall : 1;
-> > -	bool				nooverflow : 1;
-> > -	bool				atbtrig : 1;
-> > -	bool				lpoverride : 1;
-> > -	bool				skip_power_up : 1;
-> >   	bool				paused : 1;
-> >   	u64				trfcr;
-> >   	struct etmv4_config		config;
->
-
---
-Sincerely,
-Yeoreum Yun
 
