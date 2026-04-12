@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 739FDE937E9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 15:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E25CE937E9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 15:51:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LwTm9cWrn8Gu/XuLHJi29qi0UnV3vqTGp1HNpOURT/k=; b=oEi97ReONixkBowvfzYlXJ9OmX
-	2VcigsTZl72lwL6q1fMOzerlbH2Zhedhd4lVL8HEQQ8qdu3s7mqau0eKZ2xhxCSsb+zgRq9C7+WXu
-	Cv+ST34jKvdWl94ku0Sj6UrkLygvMwn7kVX0J39zedx0UcJ9EU8moRqCdTsT2eFJ1kZLCwKszVrAl
-	YhfZzJyukjnLssOWWluaZOekLB6usjhtumWbHo+Hd9SQAPy7UF4GQjEyhuEY22Qlcr/4+V2wVP3Rv
-	wQyZeFLd8PAPDeSqoN9bxAugpVvUniWog7NTPoix2IM6K9q/teiteuKuvZr0hv4HFVaM/Dfx8ii6C
-	GdLZa95A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RVuZUPHU6NSjJI8P4/aVUeH3YbXuFDgDkkSA3QtCIxY=; b=nE/pTuQQsGogb2KuzJqS1CUxzA
+	8LqeD9LwngdNOR9lkqI4Zvuh4R4tq/8rr0EQqzo3oqm/kkLH8eIQ6EtCe0XxBlPDTWQsmW5abBh/2
+	cSBdkvqnNG+p0tRH9NREol6zLsyb5mxAzXNV6GEWo3RqxGS4e4+PpHJZ4ncxah17xpi0MCH3wFWzy
+	WuEi6WkXlQKWU07SVbEp4qRqdVYgzjxJpcfmdNAFDnhnGWLVXP7rS5rKMNAvzGim4rlYAcZs10x4f
+	WO0i8PWt+MnFtI6UftNDLmX35BnJHbH6g3bY19emE96ym4i8yJj/hnqOd/TNXj4vx93hay90Xet2h
+	ACAMHCUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBx2p-0000000ES7i-1YTV;
-	Sun, 12 Apr 2026 15:48:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBx2m-0000000ES7E-0gKQ
+	id 1wBx5Q-0000000ESIo-3pJq;
+	Sun, 12 Apr 2026 15:51:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wBx5O-0000000ESIU-2Yu9
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Apr 2026 15:48:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E7B734CFD;
-	Sun, 12 Apr 2026 08:48:08 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC4CC3F7B4;
-	Sun, 12 Apr 2026 08:48:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776008894; bh=U6ulatf8SqiETTDO0DG0hTsg/mvDE9XwOigkPb7/Q0Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=J7jVtXKJI1UM4MuYUEKoiFtM9cuug/gRn7tmfStAiwgJ/v7dkVyBiqWlZk+ADC48F
-	 xZFQuSHyhlukoVlbjvq0vBInLB/+je7go0lsNQRj7CBkDG8zrhD4VIxtjRbC58uAcH
-	 XS/QBZoNfNKL7qXbN6nzvXjwHOAa1ue3UZVGonmo=
-Date: Sun, 12 Apr 2026 16:48:10 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, leo.yan@arm.com
-Subject: Re: [PATCH v2 2/5] coresight: etm4x: exclude ss_status from
- drvdata->config
-Message-ID: <adu+uu3CFSbPMaFT@e129823.arm.com>
-References: <20260410074310.2693385-1-yeoreum.yun@arm.com>
- <20260410074310.2693385-3-yeoreum.yun@arm.com>
- <a8d11f92-2af8-46e7-9098-18a835c6ec8a@oss.qualcomm.com>
+	Sun, 12 Apr 2026 15:51:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 94DCF44401;
+	Sun, 12 Apr 2026 15:50:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70106C19424;
+	Sun, 12 Apr 2026 15:50:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776009057;
+	bh=osIpXDbFP5WXV7jXS8qAjR1DaP4puI6wth/HrHBO2ak=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=DSqTFdAeFDNZGuUocuhhDxRfJJvlljme5xMaAEfGw9JQwdxUU4j7opnCHqAs7NPNt
+	 yUcJP+iD8oDYXPteDl0GoXgb42ngaHoebNCJ1An4KrTAQ+QpR9itdb5hrSXSBuG1G+
+	 dNzlLlW124kmzrCv2glwK3rwUyV1nWb2YwqL8ZjMiMhhRAbuU2qgMsUdTtVKLGAGmQ
+	 AO4YCN81F+Q10p3v3J+Yw2AJ2b2vggwzfNoXQq4PcKOLNJY+T1sLnEfBuvTEAMnNdg
+	 1ivLW+dM0S6T0d2rPud1nBb7jutu084Nc372VgtXlCLSOzRixF83+YSgsMk/wZNfkE
+	 JPxHjk+KFibBA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FD2F3809A8B;
+	Sun, 12 Apr 2026 15:50:31 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a8d11f92-2af8-46e7-9098-18a835c6ec8a@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v4 1/2] dt-bindings: net: ti: k3-am654-cpsw-nuss:
+ Add
+ ti,j722s-cpsw-nuss compatible
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177600902979.3323732.15626307133193777506.git-patchwork-notify@kernel.org>
+Date: Sun, 12 Apr 2026 15:50:29 +0000
+References: <191e9f7e3a6c14eabe891a98c5fb646766479c0a.1775558273.git.nora.schiffer@ew.tq-group.com>
+In-Reply-To: <191e9f7e3a6c14eabe891a98c5fb646766479c0a.1775558273.git.nora.schiffer@ew.tq-group.com>
+To: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, nm@ti.com, vigneshr@ti.com,
+ kristo@kernel.org, s-vadapalli@ti.com, rogerq@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_084816_332013_17F5A2F6 
-X-CRM114-Status: GOOD (  27.01  )
+X-CRM114-CacheID: sfid-20260412_085058_692841_18549BCE 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,82 +81,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jie,
+Hello:
 
->
->
-> On 4/10/2026 3:43 PM, Yeoreum Yun wrote:
-> > The purpose of TRCSSCSRn register is to show status of
-> > the corresponding Single-shot Comparator Control and input supports.
-> > That means writable field's purpose for reset or restore from idle status
-> > not for configuration.
-> >
-> > Therefore, exclude ss_status from drvdata->config, move it to etm4x_caps.
-> > This includes remove TRCSSCRn from configurable item and
-> > remove saving in etm4_disable_hw().
-> >
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > ---
-> >   .../hwtracing/coresight/coresight-etm4x-cfg.c  |  1 -
-> >   .../hwtracing/coresight/coresight-etm4x-core.c | 18 +++++-------------
-> >   .../coresight/coresight-etm4x-sysfs.c          |  7 ++-----
-> >   drivers/hwtracing/coresight/coresight-etm4x.h  |  3 ++-
-> >   4 files changed, 9 insertions(+), 20 deletions(-)
-> >
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> > index c302072b293a..d14d7c8a23e5 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> > @@ -86,7 +86,6 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
-> >   		off_mask =  (offset & GENMASK(11, 5));
-> >   		do {
-> >   			CHECKREGIDX(TRCSSCCRn(0), ss_ctrl, idx, off_mask);
-> > -			CHECKREGIDX(TRCSSCSRn(0), ss_status, idx, off_mask);
-> >   			CHECKREGIDX(TRCSSPCICRn(0), ss_pe_cmp, idx, off_mask);
-> >   		} while (0);
-> >   	} else if ((offset >= TRCCIDCVRn(0)) && (offset <= TRCVMIDCVRn(7))) {
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > index 6443f3717b37..b7abb171f523 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > @@ -91,7 +91,7 @@ static bool etm4x_sspcicrn_present(struct etmv4_drvdata *drvdata, int n)
-> >   	const struct etmv4_caps *caps = &drvdata->caps;
-> >   	return (n < caps->nr_ss_cmp) && caps->nr_pe &&
-> > -	       (drvdata->config.ss_status[n] & TRCSSCSRn_PC);
-> > +	       (caps->ss_status[n] & TRCSSCSRn_PC);
-> >   }
-> >   u64 etm4x_sysreg_read(u32 offset, bool _relaxed, bool _64bit)
-> > @@ -571,11 +571,9 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
-> >   		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
-> >   	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> > -		/* always clear status bit on restart if using single-shot */
-> > -		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
-> > -			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
-> >   		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
-> > -		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
-> > +		/* always clear status bit on restart if using single-shot */
->
-> the clear step for the status bit has been removed. but the comment still
-> here.
->
-> I think we cannot remove the clear step. The hardware requires the STATUS
-> bit to be cleared before re-arming a single-shot comparator; failing to do
-> so means the comparator will not fire on the next trace session
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-This one is intended. if you see the patch:
+On Tue,  7 Apr 2026 12:48:01 +0200 you wrote:
+> The J722S CPSW3G is mostly identical to the AM64's, but additionally
+> supports SGMII. The AM64 compatible ti,am642-cpsw-nuss is used as a
+> fallback.
+> 
+> Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+> ---
+> 
+> [...]
 
-+  /* always clear status bit on restart if using single-shot */
-+  etm4x_relaxed_write32(csa, caps->ss_status[i], TRCSSCSRn(i));
+Here is the summary with links:
+  - [net-next,v4,1/2] dt-bindings: net: ti: k3-am654-cpsw-nuss: Add ti,j722s-cpsw-nuss compatible
+    https://git.kernel.org/netdev/net-next/c/f757a2da6df5
+  - [net-next,v4,2/2] net: ethernet: ti: am65-cpsw: add support for J722S SoC family
+    https://git.kernel.org/netdev/net-next/c/436e9e48ca51
 
-cap->ss_status[i] is initialised by etm4_init_arch_data() cleared
-STATUS & PENDING bit. so the comment is still valid.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
-Thanks.
-
-[...]
-
---
-Sincerely,
-Yeoreum Yun
 
