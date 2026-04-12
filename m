@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22DD9E937E4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 14:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1FF5E937E4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 14:24:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p4jyqy1w/9KDUcTp1JOINLNwYbEawwOrwUEfSl3zptw=; b=ZvxVZqKlLWU9Mdf40U7c+OapvD
-	Xn8eFuWTnZTYIcfGiqnJqeXYERX6UuaWDjq3BOIdpO+js5fieahFe/XZfs6qIaBq7TdhKZ/Bqk1tn
-	kBsLNnWkljEoEfcEW3zaXXd46gHzmT+KcdQR7Pjl+MdsBtq8GZIoF3RQVeBnAClhgRfOqiimh8zSi
-	Biwaf0E/sY9+6ukF1RC0KiJCYAfvQ+9KUrsYApUG0OLqjkXa8NRC5JUaURq22imXlSm2A8j4F6jXP
-	wrPYuOFK1NZCRPFY5QcmEtYjmdO6HP60TlbRJjXgGlRoLqygZMTcDMti9QKjS/yAcWHZusWiPX/f5
-	ZlsWMWzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/bZQaaA9y+PfxKdKkmD3Tt08LTFDotVPzB4Utjfybes=; b=L4anIXCO0NAEG4YTjm3lU8Y0U4
+	2P8hznz4iFeaOGX06/8O4aTgzLrD5JCaHToP6ZtAu8cK/GQ4LKYzSNk6Z8Mbm3phr0301FOstRhu+
+	DcsnO5xXNQM9xId0XdrDZJqX2lbpY8VP6Tmfh/xvq6M/Ug97pDJatMgViFjJkI03Gztlg9pOKxjJC
+	EkckI9sOF2vcWQ31LvYA87HbEyYn6GaUPDzSx7rbpHygYCf0TusDw5wFvAREJlCBaxK6SX/XXy2/e
+	gfTy0WpinnotrLPgmdRiow7BVu7bdbYXr28fjSJJFvzu9sDCnyurEDuGgs6493Nk18FsTKnXXwVvn
+	sSppDKpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBviH-0000000ENGs-3l49;
-	Sun, 12 Apr 2026 14:23:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBviB-0000000ENDK-3TZN
+	id 1wBvjF-0000000ENgv-3Zb4;
+	Sun, 12 Apr 2026 14:24:01 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wBvj8-0000000ENcp-0YDc
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Apr 2026 14:22:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F0114CE3;
-	Sun, 12 Apr 2026 07:22:47 -0700 (PDT)
-Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 909CD3F641;
-	Sun, 12 Apr 2026 07:22:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776003772; bh=0EDfWpsdxsjcAtIRZvKranYR1gx5ZSTX9J79iq1ThbA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=vgOJEwq15vuopE2NISS68i27oULnGZI5qAuOmpX6QefCKW2e1lnw98pbJrfFLRPPl
-	 HzYviLaS6/XWRXPLCfeL9Yw9TfOqDCbMI2m+q9aMDeLnkcFJdvzKIsHBja6EWMp0yL
-	 /qrlxa4RE5LPcAY0QElLGMAQSOLB3ZDtQBGdukQE=
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH v2 3/4] KVM: arm64: sefltests: Add basic NV selftest
-Date: Sun, 12 Apr 2026 15:22:15 +0100
-Message-ID: <20260412142216.3806482-4-weilin.chang@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260412142216.3806482-1-weilin.chang@arm.com>
-References: <20260412142216.3806482-1-weilin.chang@arm.com>
+	Sun, 12 Apr 2026 14:24:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=/bZQaaA9y+PfxKdKkmD3Tt08LTFDotVPzB4Utjfybes=; b=1uwnsKge/Xsow/UXYATYTv5+JC
+	4eEi/y/HAERoQHiG6FCixsZYLHu2e5FE/sVGKVh4pfwa5iy3BrAj5hDU78KtkIL9ljgZM07lFbJj5
+	OIxZ8+d52hzEcdEewFgX0MMWvarxyXDkld3wN9mJH52UTJjlbZpyPpY6LPbW0EtX+Q2xVLymxdJUk
+	+FGc0wedZufgbPy0v9yirPNdM9w9b8soAgiRLxsoyGqVOpVsGc0JcQepZqG+yyYWbWGP+39qy7KDV
+	hcehgKYkkmtlnEAgAL1I9QV5+GCVTW9KZqg0xJL8v2dzC70n5zQozupnsRKg86PTlb08T94nskf+9
+	TI26aymQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34374)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wBviy-000000007GH-0wVq;
+	Sun, 12 Apr 2026 15:23:44 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wBviu-000000007iS-2XGL;
+	Sun, 12 Apr 2026 15:23:40 +0100
+Date: Sun, 12 Apr 2026 15:23:40 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Sam Edwards <cfsworks@gmail.com>
+Subject: Re: [PATCH net-next] net: stmmac: enable RPS and RBU interrupts
+Message-ID: <aduq7Lvkfrz971Rb@shell.armlinux.org.uk>
+References: <E1wBBaR-0000000GZHR-1dbM@rmk-PC.armlinux.org.uk>
+ <266998d8-7e38-4bae-a4df-2f889538fe88@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <266998d8-7e38-4bae-a4df-2f889538fe88@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_072257_096760_0B4EF8AC 
-X-CRM114-Status: GOOD (  15.18  )
+X-CRM114-CacheID: sfid-20260412_072354_169429_9DE13589 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,139 +86,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This selftest simply starts an L1, which starts its own guest (L2). L2
-runs without stage-1 and 2 translations, it calls an HVC to jump back
-to L1.
+On Sun, Apr 12, 2026 at 04:01:59PM +0200, Maxime Chevallier wrote:
+> Hi Russell,
+> 
+> On 10/04/2026 15:07, Russell King (Oracle) wrote:
+> > Enable receive process stopped and receive buffer unavailable
+> > interrupts, so that the statistic counters can be updated.
+> > 
+> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > ---
+> > Since we are seeing receive buffer exhaustion on several platforms,
+> > let's enable the interrupts so the statistics we publish via ethtool -S
+> > actually work to aid diagnosis. I've been in two minds about whether
+> > to send this patch, but given the problems with stmmac at the moment,
+> > I think it should be merged.
+> 
+> Looks like my reply to your original RFC was lost in limbo as the review/test tags are missing.
 
-Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
----
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- .../selftests/kvm/arm64/hello_nested.c        | 103 ++++++++++++++++++
- 2 files changed, 104 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/arm64/hello_nested.c
+Thanks. Unfortunately, I can't run iperf3 against stmmac on the Jetson
+NX because stmmac just totally screws itself (at the first RBU, the
+receive side irrevocably collapses.)
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 3dc3e39f7025..e8c108e0c487 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -168,6 +168,7 @@ TEST_GEN_PROGS_arm64 += arm64/arch_timer_edge_cases
- TEST_GEN_PROGS_arm64 += arm64/at
- TEST_GEN_PROGS_arm64 += arm64/debug-exceptions
- TEST_GEN_PROGS_arm64 += arm64/hello_el2
-+TEST_GEN_PROGS_arm64 += arm64/hello_nested
- TEST_GEN_PROGS_arm64 += arm64/host_sve
- TEST_GEN_PROGS_arm64 += arm64/hypercalls
- TEST_GEN_PROGS_arm64 += arm64/external_aborts
-diff --git a/tools/testing/selftests/kvm/arm64/hello_nested.c b/tools/testing/selftests/kvm/arm64/hello_nested.c
-new file mode 100644
-index 000000000000..97387e4697b3
---- /dev/null
-+++ b/tools/testing/selftests/kvm/arm64/hello_nested.c
-@@ -0,0 +1,103 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * hello_nested - Go from vEL2 to EL1 then back
-+ */
-+
-+#include "nested.h"
-+#include "processor.h"
-+#include "test_util.h"
-+#include "ucall.h"
-+
-+#define XLATE2GPA	(0xABCD)
-+#define L2STACKSZ	(0x100)
-+
-+/*
-+ * TPIDR_EL2 is used to store vcpu id, so save and restore it.
-+ */
-+static vm_paddr_t ucall_translate_to_gpa(void *gva)
-+{
-+	vm_paddr_t gpa;
-+	u64 vcpu_id = read_sysreg(tpidr_el2);
-+
-+	GUEST_SYNC2(XLATE2GPA, gva);
-+
-+	/* get the result from userspace */
-+	gpa = read_sysreg(tpidr_el2);
-+
-+	write_sysreg(vcpu_id, tpidr_el2);
-+
-+	return gpa;
-+}
-+
-+static void l2_guest_code(void)
-+{
-+	do_hvc();
-+}
-+
-+static void guest_code(void)
-+{
-+	struct vcpu vcpu;
-+	struct hyp_data hyp_data;
-+	int ret;
-+	vm_paddr_t l2_pc, l2_stack_top;
-+	/* force 16-byte alignment for the stack pointer */
-+	u8 l2_stack[L2STACKSZ] __attribute__((aligned(16)));
-+
-+	GUEST_ASSERT_EQ(get_current_el(), 2);
-+	GUEST_PRINTF("vEL2 entry\n");
-+
-+	l2_pc = ucall_translate_to_gpa(l2_guest_code);
-+	l2_stack_top = ucall_translate_to_gpa(&l2_stack[L2STACKSZ]);
-+
-+	init_vcpu(&vcpu, l2_pc, l2_stack_top);
-+	prepare_hyp();
-+
-+	ret = run_l2(&vcpu, &hyp_data);
-+	GUEST_ASSERT_EQ(ret, ARM_EXCEPTION_TRAP);
-+	GUEST_DONE();
-+}
-+
-+int main(void)
-+{
-+	struct kvm_vcpu_init init;
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+	struct ucall uc;
-+	vm_paddr_t gpa;
-+
-+	TEST_REQUIRE(kvm_check_cap(KVM_CAP_ARM_EL2));
-+	vm = vm_create(1);
-+
-+	kvm_get_default_vcpu_target(vm, &init);
-+	init.features[0] |= BIT(KVM_ARM_VCPU_HAS_EL2);
-+	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
-+	kvm_arch_vm_finalize_vcpus(vm);
-+
-+	while (true) {
-+		vcpu_run(vcpu);
-+
-+		switch (get_ucall(vcpu, &uc)) {
-+		case UCALL_SYNC:
-+			if (uc.args[0] == XLATE2GPA) {
-+				gpa = addr_gva2gpa(vm, (vm_vaddr_t)uc.args[1]);
-+				vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TPIDR_EL2), gpa);
-+			}
-+			break;
-+		case UCALL_PRINTF:
-+			pr_info("%s", uc.buffer);
-+			break;
-+		case UCALL_DONE:
-+			pr_info("DONE!\n");
-+			goto end;
-+		case UCALL_ABORT:
-+			REPORT_GUEST_ASSERT(uc);
-+			fallthrough;
-+		default:
-+			TEST_FAIL("Unhandled ucall: %ld\n", uc.cmd);
-+		}
-+	}
-+
-+end:
-+	kvm_vm_free(vm);
-+	return 0;
-+}
+Against i.MX6 (which is limited to around 480Mbps,) it's recoverable by
+taking the interface down and back up a couple of times.
+
+Against x86 (which will saturate the link) its pretty much
+irrecoverable without entire system reboot - if one tries the down+up,
+we then get arm-smmu errors because it seems that, despite stmmac being
+reset, it still attempts to access a previous receive buffer from
+before the down/up sometime after the up. Moreover, transmit stops
+working - packets get queued but they are never processed by the
+hardware. This is a scenario that I can only rarely test myself (as
+it depends on my physical location.)
+
+As the dwmac 5.0 core receive path seems to lock up after the first
+RBU, I never see more than one of those at a time.
+
+Right now, I consider this pretty much unsolvable - I've spent quite
+some time looking at it and trying various approaches, nothing seems
+to fix it. However, adding dma_rmb() in the descriptor cleanup/refill
+paths does seem to improve the situation a little with the 480Mbps
+case, because I think it means that we're reading the descriptors in
+a more timely manner after the hardware has updated them.
+
 -- 
-2.43.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
