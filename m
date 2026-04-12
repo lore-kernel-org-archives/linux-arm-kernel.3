@@ -4,60 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5C1E937EB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 15:43:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0825BE937E9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 15:47:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U3qvZGoeKroSKJZg8fjgOltCI+eEUJJkdIsN6rRfIw8=; b=lM7E0VX2nTD3C8x6S8jC+Fj06s
-	pkmh8G0656XSiobxlT8JuphvrSsGdQBN5WpkCc7JTatWQ/UGUkMvXgZS2Pw3Mjd7P5xPRqD7iHtK7
-	9PrMMvyraKMRV70gatqI9vyhudr1GmoIBnMVVSHl1CAW3+f1Ym0As8X4G3Gwf+PrRSlyPgj/yiJ1u
-	1Sr7QnBb6nMdkcxkfPecIzLtjeDSeWroI9cf8BoO42VK96QcmtC8yaR/avVyPTtoafLkjp+UE5eFz
-	eW9jKgsvtPTjP+g+YzAKCRewI+KdHOE7D+wq82hHZw/5sIrABCC6Yd7CDV9iQySQP6g3j1pYy4ZzK
-	89eXzBKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=35Kb1G8diUXdcUeRO6z0zPQrKqyhuQE+qiXkqgMSh9U=; b=ujs4DfDCMucTn5t8TYkqCqwAbw
+	eYfIwRA0lu0qg0HpuPQTYMQ4XUEJfa8ParcJxhb/MWJaroG2wHdTsq/YFsHb7eO0pmk6fr1Vejwx0
+	QmHpXjuL7ipwdHkH2Ttr6p7zFVqu0ENi92SrrfIMCYnKb57u7wR3yB4Qb3Ud0OaGlcrwp198O7yI4
+	Ges7jLMTEQ78hZdrgXWoXzGBHJ2cKEWGYCXQKklApzgQwc1MWz94/CqWITVcbLvTCai9ZAGvgZiCo
+	DOHV8VB2jWBrjpXSqnxwQYNB96Do4VR2h3A/sW5xHOmj41WzljYRwZGAGOQHsLrtKGyU7D1oXz4An
+	SYbLoLBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBwy5-0000000ERnp-27AE;
-	Sun, 12 Apr 2026 15:43:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBwy2-0000000ERnO-0PWH
+	id 1wBx1Y-0000000ES1v-44PC;
+	Sun, 12 Apr 2026 15:47:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wBx1X-0000000ES1n-18tH
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Apr 2026 15:43:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E02A14CFD;
-	Sun, 12 Apr 2026 08:43:09 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 70DB23F7B4;
-	Sun, 12 Apr 2026 08:43:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1776008595; bh=EcMdls4weSBtngOueH6zD8jwOMCsdWcU5swg96W8Ud0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ao1bmBHgMfU5HQ7NeUHMETPo1Ub1g9JblwJIguUj6Mk6Mzm2Zw/sqWxJwKkMSOEQ8
-	 f8gd9HiuAwfHILINnwo9G/kqXtO+PcX/EFlJQZG74rNIo1UC1hK40z1SrUm+bFEzyY
-	 nVRKGuEsQtjJmIMyuAh/gdlycxHGKRpCREkGf0p8=
-Date: Sun, 12 Apr 2026 16:43:12 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, leo.yan@arm.com
-Subject: Re: [PATCH v2 4/5] coresight: etm3x: introduce struct etm_caps
-Message-ID: <adu9kImh7OrIaz8p@e129823.arm.com>
-References: <20260410074310.2693385-1-yeoreum.yun@arm.com>
- <20260410074310.2693385-5-yeoreum.yun@arm.com>
- <4feaf157-4015-471e-accf-d588e2345c13@oss.qualcomm.com>
+	Sun, 12 Apr 2026 15:46:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E93EB6014B;
+	Sun, 12 Apr 2026 15:46:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1ADBFC19424;
+	Sun, 12 Apr 2026 15:46:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1776008816;
+	bh=23dLLAcM76ajvHwVd9STiwBmiFsqBllnva76VnjCY0A=;
+	h=Date:From:To:Cc:Subject:From;
+	b=XXZn39WKLIgN3EAJkU5ENkWYZAuWvtD3iPiOn2ozgnaDOWxI5dBZ5BQmoFtFm2rE5
+	 8SvYKVh+BiE2QtmOhZabXGgkkUUugDwoDYf8yxsZrEtcOf4wjIPBRyWiXDvNOmXVzB
+	 tikHKggIoVLzkavDBwUeYVxmpCG98H5XVARlwPdNnSzNK1w5LM+Lxeg8tY3hNZAXBD
+	 1UNYY56I3A9zV/+XMHzeoH8MDZhUK2JGiBLj7MVEywl6gQv2Fj6VG9OEJUWTyjAQji
+	 OOXucRVnk+iJt7Nhg9VqjWOE/zvhkal2k4/PrKupY+JrxnbNbTlXSyxpO3xfjV1V4C
+	 hOH6k+cYbW0tg==
+Date: Sun, 12 Apr 2026 17:46:47 +0200
+From: Nicolas Schier <nsc@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Alexander Coffin <alex@cyberialabs.net>,
+	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Bill Wendling <morbo@google.com>,
+	David Howells <dhowells@redhat.com>,
+	Dodji Seketeli <dodji@seketeli.org>,
+	"H. Peter Anvin" <hpa@zytor.com>, Helge Deller <deller@gmx.de>,
+	John Moon <john@jmoon.dev>, Jonathan Corbet <corbet@lwn.net>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Justin Stitt <justinstitt@google.com>, Kees Cook <kees@kernel.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Shuah Khan <skhan@linuxfoundation.org>, Song Liu <song@kernel.org>,
+	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
+	Yonghong Song <yonghong.song@linux.dev>, kernel-team@fb.com,
+	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	llvm@lists.linux.dev, loongarch@lists.linux.dev
+Subject: [GIT PULL] Kbuild and Kconfig changes for v7.1
+Message-ID: <adu-ZyIv47FnsVLI@levanger>
+Mail-Followup-To: Linus Torvalds <torvalds@linux-foundation.org>,
+	Alexander Coffin <alex@cyberialabs.net>,
+	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Bill Wendling <morbo@google.com>,
+	David Howells <dhowells@redhat.com>,
+	Dodji Seketeli <dodji@seketeli.org>,
+	"H. Peter Anvin" <hpa@zytor.com>, Helge Deller <deller@gmx.de>,
+	John Moon <john@jmoon.dev>, Jonathan Corbet <corbet@lwn.net>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Justin Stitt <justinstitt@google.com>, Kees Cook <kees@kernel.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Shuah Khan <skhan@linuxfoundation.org>, Song Liu <song@kernel.org>,
+	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
+	Yonghong Song <yonghong.song@linux.dev>, kernel-team@fb.com,
+	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	llvm@lists.linux.dev, loongarch@lists.linux.dev
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="WEAPSl/ZOh7quu+7"
 Content-Disposition: inline
-In-Reply-To: <4feaf157-4015-471e-accf-d588e2345c13@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_084322_332472_E05CDD6A 
-X-CRM114-Status: GOOD (  34.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,273 +106,257 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jie,
 
->
->
-> On 4/10/2026 3:43 PM, Yeoreum Yun wrote:
-> > Introduce struct etm_caps to describe ETMv3 capabilities
-> > and move capabilities information into it.
-> >
-> > Since drvdata->etmccr and drvdata->etmccer are used to check
-> > whether it supports fifofull logic and timestamping,
-> > remove etmccr and etmccer field from drvdata and add relevant fields
-> > in etm_caps structure.
-> >
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > ---
-> >   drivers/hwtracing/coresight/coresight-etm.h   | 40 +++++++++++--------
-> >   .../coresight/coresight-etm3x-core.c          | 33 ++++++++-------
-> >   .../coresight/coresight-etm3x-sysfs.c         | 14 ++++---
-> >   3 files changed, 52 insertions(+), 35 deletions(-)
-> >
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm.h b/drivers/hwtracing/coresight/coresight-etm.h
-> > index 1d753cca2943..6fda26039db8 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm.h
-> > +++ b/drivers/hwtracing/coresight/coresight-etm.h
-> > @@ -140,6 +140,28 @@
-> >   				 ETM_ADD_COMP_0		|	\
-> >   				 ETM_EVENT_NOT_A)
-> > +/**
-> > + * struct etmv4_caps - specifics ETM capabilities
-> > + * @port_size:	port size as reported by ETMCR bit 4-6 and 21.
-> > + * @nr_addr_cmp:Number of pairs of address comparators as found in ETMCCR.
-> > + * @nr_cntr:	Number of counters as found in ETMCCR bit 13-15.
-> > + * @nr_ext_inp:	Number of external input as found in ETMCCR bit 17-19.
-> > + * @nr_ext_out:	Number of external output as found in ETMCCR bit 20-22.
-> > + * @nr_ctxid_cmp: Number of contextID comparators as found in ETMCCR bit 24-25.
-> > + * @fifofull: FIFOFULL logic is present.
-> > + * @timestamp: Timestamping is implemented.
-> > + */
-> > +struct etm_caps {
-> > +	int	port_size;
-> > +	u8	nr_addr_cmp;
-> > +	u8	nr_cntr;
-> > +	u8	nr_ext_inp;
-> > +	u8	nr_ext_out;
-> > +	u8	nr_ctxid_cmp;
-> > +	bool	fifofull : 1;
-> > +	bool	timestamp : 1;
-> > +};
-> > +
-> >   /**
-> >    * struct etm_config - configuration information related to an ETM
-> >    * @mode:	controls various modes supported by this ETM/PTM.
-> > @@ -212,19 +234,12 @@ struct etm_config {
-> >    * @csdev:	component vitals needed by the framework.
-> >    * @spinlock:	only one at a time pls.
-> >    * @cpu:	the cpu this component is affined to.
-> > - * @port_size:	port size as reported by ETMCR bit 4-6 and 21.
-> >    * @arch:	ETM/PTM version number.
-> > + * @caps:	ETM capabilities.
-> >    * @use_cpu14:	true if management registers need to be accessed via CP14.
-> >    * @sticky_enable: true if ETM base configuration has been done.
-> >    * @boot_enable:true if we should start tracing at boot time.
-> >    * @os_unlock:	true if access to management registers is allowed.
-> > - * @nr_addr_cmp:Number of pairs of address comparators as found in ETMCCR.
-> > - * @nr_cntr:	Number of counters as found in ETMCCR bit 13-15.
-> > - * @nr_ext_inp:	Number of external input as found in ETMCCR bit 17-19.
-> > - * @nr_ext_out:	Number of external output as found in ETMCCR bit 20-22.
-> > - * @nr_ctxid_cmp: Number of contextID comparators as found in ETMCCR bit 24-25.
-> > - * @etmccr:	value of register ETMCCR.
-> > - * @etmccer:	value of register ETMCCER.
-> >    * @traceid:	value of the current ID for this component.
-> >    * @config:	structure holding configuration parameters.
-> >    */
-> > @@ -234,19 +249,12 @@ struct etm_drvdata {
-> >   	struct coresight_device		*csdev;
-> >   	spinlock_t			spinlock;
-> >   	int				cpu;
-> > -	int				port_size;
-> >   	u8				arch;
-> > +	struct etm_caps			caps;
-> >   	bool				use_cp14;
-> >   	bool				sticky_enable;
-> >   	bool				boot_enable;
-> >   	bool				os_unlock;
-> > -	u8				nr_addr_cmp;
-> > -	u8				nr_cntr;
-> > -	u8				nr_ext_inp;
-> > -	u8				nr_ext_out;
-> > -	u8				nr_ctxid_cmp;
-> > -	u32				etmccr;
-> > -	u32				etmccer;
-> >   	u32				traceid;
-> >   	struct etm_config		config;
-> >   };
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> > index a547a6d2e0bd..b7e977defb1c 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> > @@ -367,6 +367,7 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
-> >   {
-> >   	int i, rc;
-> >   	u32 etmcr;
-> > +	const struct etm_caps *caps = &drvdata->caps;
-> >   	struct etm_config *config = &drvdata->config;
-> >   	struct coresight_device *csdev = drvdata->csdev;
-> > @@ -388,7 +389,7 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
-> >   	etmcr = etm_readl(drvdata, ETMCR);
-> >   	/* Clear setting from a previous run if need be */
-> >   	etmcr &= ~ETM3X_SUPPORTED_OPTIONS;
-> > -	etmcr |= drvdata->port_size;
-> > +	etmcr |= caps->port_size;
-> >   	etmcr |= ETMCR_ETM_EN;
-> >   	etm_writel(drvdata, config->ctrl | etmcr, ETMCR);
-> >   	etm_writel(drvdata, config->trigger_event, ETMTRIGGER);
-> > @@ -396,11 +397,11 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
-> >   	etm_writel(drvdata, config->enable_event, ETMTEEVR);
-> >   	etm_writel(drvdata, config->enable_ctrl1, ETMTECR1);
-> >   	etm_writel(drvdata, config->fifofull_level, ETMFFLR);
-> > -	for (i = 0; i < drvdata->nr_addr_cmp; i++) {
-> > +	for (i = 0; i < caps->nr_addr_cmp; i++) {
-> >   		etm_writel(drvdata, config->addr_val[i], ETMACVRn(i));
-> >   		etm_writel(drvdata, config->addr_acctype[i], ETMACTRn(i));
-> >   	}
-> > -	for (i = 0; i < drvdata->nr_cntr; i++) {
-> > +	for (i = 0; i < caps->nr_cntr; i++) {
-> >   		etm_writel(drvdata, config->cntr_rld_val[i], ETMCNTRLDVRn(i));
-> >   		etm_writel(drvdata, config->cntr_event[i], ETMCNTENRn(i));
-> >   		etm_writel(drvdata, config->cntr_rld_event[i],
-> > @@ -414,9 +415,9 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
-> >   	etm_writel(drvdata, config->seq_32_event, ETMSQ32EVR);
-> >   	etm_writel(drvdata, config->seq_13_event, ETMSQ13EVR);
-> >   	etm_writel(drvdata, config->seq_curr_state, ETMSQR);
-> > -	for (i = 0; i < drvdata->nr_ext_out; i++)
-> > +	for (i = 0; i < caps->nr_ext_out; i++)
-> >   		etm_writel(drvdata, ETM_DEFAULT_EVENT_VAL, ETMEXTOUTEVRn(i));
-> > -	for (i = 0; i < drvdata->nr_ctxid_cmp; i++)
-> > +	for (i = 0; i < caps->nr_ctxid_cmp; i++)
-> >   		etm_writel(drvdata, config->ctxid_pid[i], ETMCIDCVRn(i));
-> >   	etm_writel(drvdata, config->ctxid_mask, ETMCIDCMR);
-> >   	etm_writel(drvdata, config->sync_freq, ETMSYNCFR);
-> > @@ -572,7 +573,7 @@ static void etm_disable_hw(struct etm_drvdata *drvdata)
-> >   	/* Read back sequencer and counters for post trace analysis */
-> >   	config->seq_curr_state = (etm_readl(drvdata, ETMSQR) & ETM_SQR_MASK);
-> > -	for (i = 0; i < drvdata->nr_cntr; i++)
-> > +	for (i = 0; i < caps->nr_cntr; i++)
->
-> caps undeclared.
->
-> Thanks,
-> Jie
+--WEAPSl/ZOh7quu+7
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Sorry to mistake. I'll change.
+Hi Linus,
+
+please pull these changes to Kbuild and Kconfig for v7.1.  Please let me
+know if anything is incorrect and not matching your standards.
+
+All changes have been in -next, most for several cycles without reported
+problems.
+
+Thanks and kind regards,
+Nicolas
+
+---
+
+The following changes since commit 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f:
+
+  Linux 7.0-rc1 (2026-02-22 13:18:59 -0800)
+
+are available in the Git repository at:
+
+  ssh://git@gitolite.kernel.org/pub/scm/linux/kernel/git/kbuild/linux.git t=
+ags/kbuild-7.1-1
+
+for you to fetch changes up to 404927758daac5ec4594071e033c1fa6ee9ca9b6:
+
+  kbuild: expand inlining hints with -fdiagnostics-show-inlining-chain (202=
+6-04-07 21:48:44 +0200)
+
+----------------------------------------------------------------
+Kbuild/Kconfig updates for 7.1
+
+Kbuild changes
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+  * tools/build: Reject unexpected values for LLVM=3D
+
+  * kbuild: uapi: remove usage of toolchain headers
+
+  * kbuild: Switch from '-fms-extensions' to '-fms-anonymous-structs'
+    when available (currently: clang >=3D 23.0.0)
+
+  * kbuild: Reduce the number of compiler-generated suffixes for clang
+    thin-lto build
+
+  * kbuild: reduce output spam ("GEN Makefile") when building out of tree
+
+  * check-uapi: improve portability for testing headers
+
+  * uapi: also test UAPI headers against C++ compilers
+
+  * kbuild: vdso_install: drop build ID architecture allow-list
+
+  * checksyscalls: only run when necessary
+
+  * Documentation: kbuild: Update the debug information notes in
+    reproducible-builds.rst
+
+  * kconfig: forbid multiple entries with the same symbol in a choice
+
+  * kbuild: expand inlining hints with -fdiagnostics-show-inlining-chain
 
 
->
-> >   		config->cntr_val[i] = etm_readl(drvdata, ETMCNTVRn(i));
-> >   	etm_set_pwrdwn(drvdata);
-> > @@ -754,7 +755,9 @@ static void etm_init_arch_data(void *info)
-> >   {
-> >   	u32 etmidr;
-> >   	u32 etmccr;
-> > +	u32 etmccer;
-> >   	struct etm_drvdata *drvdata = info;
-> > +	struct etm_caps *caps = &drvdata->caps;
-> >   	/* Make sure all registers are accessible */
-> >   	etm_os_unlock(drvdata);
-> > @@ -779,16 +782,18 @@ static void etm_init_arch_data(void *info)
-> >   	/* Find all capabilities */
-> >   	etmidr = etm_readl(drvdata, ETMIDR);
-> >   	drvdata->arch = BMVAL(etmidr, 4, 11);
-> > -	drvdata->port_size = etm_readl(drvdata, ETMCR) & PORT_SIZE_MASK;
-> > +	caps->port_size = etm_readl(drvdata, ETMCR) & PORT_SIZE_MASK;
-> > +
-> > +	etmccer = etm_readl(drvdata, ETMCCER);
-> > +	caps->timestamp = !!(drvdata->etmccer & ETMCCER_TIMESTAMP);
->
-> caps->timestamp = !!(etmccer & ETMCCER_TIMESTAMP);
->
-> > -	drvdata->etmccer = etm_readl(drvdata, ETMCCER);
-> >   	etmccr = etm_readl(drvdata, ETMCCR);
-> > -	drvdata->etmccr = etmccr;
-> > -	drvdata->nr_addr_cmp = BMVAL(etmccr, 0, 3) * 2;
-> > -	drvdata->nr_cntr = BMVAL(etmccr, 13, 15);
-> > -	drvdata->nr_ext_inp = BMVAL(etmccr, 17, 19);
-> > -	drvdata->nr_ext_out = BMVAL(etmccr, 20, 22);
-> > -	drvdata->nr_ctxid_cmp = BMVAL(etmccr, 24, 25);
-> > +	caps->fifofull = !!(drvdata->etmccr & ETMCCR_FIFOFULL);
->
-> caps->fifofull = !!(etmccr & ETMCCR_FIFOFULL);
->
-> > +	caps->nr_addr_cmp = BMVAL(etmccr, 0, 3) * 2;
-> > +	caps->nr_cntr = BMVAL(etmccr, 13, 15);
-> > +	caps->nr_ext_inp = BMVAL(etmccr, 17, 19);
-> > +	caps->nr_ext_out = BMVAL(etmccr, 20, 22);
-> > +	caps->nr_ctxid_cmp = BMVAL(etmccr, 24, 25);
-> >   	coresight_clear_self_claim_tag_unlocked(&drvdata->csa);
-> >   	etm_set_pwrdwn(drvdata);
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> > index 762109307b86..0d8dac29d055 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> > @@ -111,6 +111,7 @@ static ssize_t mode_store(struct device *dev,
-> >   	int ret;
-> >   	unsigned long val;
-> >   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > +	const struct etm_caps *caps = &drvdata->caps;
-> >   	struct etm_config *config = &drvdata->config;
-> >   	ret = kstrtoul(buf, 16, &val);
-> > @@ -131,7 +132,7 @@ static ssize_t mode_store(struct device *dev,
-> >   		config->ctrl &= ~ETMCR_CYC_ACC;
-> >   	if (config->mode & ETM_MODE_STALL) {
-> > -		if (!(drvdata->etmccr & ETMCCR_FIFOFULL)) {
-> > +		if (!caps->fifofull) {
-> >   			dev_warn(dev, "stall mode not supported\n");
-> >   			ret = -EINVAL;
-> >   			goto err_unlock;
-> > @@ -141,7 +142,7 @@ static ssize_t mode_store(struct device *dev,
-> >   		config->ctrl &= ~ETMCR_STALL_MODE;
-> >   	if (config->mode & ETM_MODE_TIMESTAMP) {
-> > -		if (!(drvdata->etmccer & ETMCCER_TIMESTAMP)) {
-> > +		if (!caps->timestamp) {
-> >   			dev_warn(dev, "timestamp not supported\n");
-> >   			ret = -EINVAL;
-> >   			goto err_unlock;
-> > @@ -286,13 +287,14 @@ static ssize_t addr_idx_store(struct device *dev,
-> >   	int ret;
-> >   	unsigned long val;
-> >   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > +	const struct etm_caps *caps = &drvdata->caps;
-> >   	struct etm_config *config = &drvdata->config;
-> >   	ret = kstrtoul(buf, 16, &val);
-> >   	if (ret)
-> >   		return ret;
-> > -	if (val >= drvdata->nr_addr_cmp)
-> > +	if (val >= caps->nr_addr_cmp)
-> >   		return -EINVAL;
-> >   	/*
-> > @@ -589,13 +591,14 @@ static ssize_t cntr_idx_store(struct device *dev,
-> >   	int ret;
-> >   	unsigned long val;
-> >   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > +	const struct etm_caps *caps = &drvdata->caps;
-> >   	struct etm_config *config = &drvdata->config;
-> >   	ret = kstrtoul(buf, 16, &val);
-> >   	if (ret)
-> >   		return ret;
-> > -	if (val >= drvdata->nr_cntr)
-> > +	if (val >= caps->nr_cntr)
-> >   		return -EINVAL;
-> >   	/*
-> >   	 * Use spinlock to ensure index doesn't change while it gets
-> > @@ -999,13 +1002,14 @@ static ssize_t ctxid_idx_store(struct device *dev,
-> >   	int ret;
-> >   	unsigned long val;
-> >   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> > +	const struct etm_caps *caps = &drvdata->caps;
-> >   	struct etm_config *config = &drvdata->config;
-> >   	ret = kstrtoul(buf, 16, &val);
-> >   	if (ret)
-> >   		return ret;
-> > -	if (val >= drvdata->nr_ctxid_cmp)
-> > +	if (val >= caps->nr_ctxid_cmp)
-> >   		return -EINVAL;
-> >   	/*
->
+Kconfig changes
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
 
---
-Sincerely,
-Yeoreum Yun
+  * kconfig: Error out on duplicated kconfig inclusion
+
+
+Cc: Alexander Coffin <alex@cyberialabs.net>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Bill Wendling <morbo@google.com>
+Cc: David Howells <dhowells@redhat.com>
+Cc: Dodji Seketeli <dodji@seketeli.org>
+Cc: H. Peter Anvin <hpa@zytor.com>
+Cc: Helge Deller <deller@gmx.de>
+Cc: John Moon <john@jmoon.dev>
+Cc: Jonathan Corbet <corbet@lwn.net>
+Cc: Josh Poimboeuf <jpoimboe@kernel.org>
+Cc: Justin Stitt <justinstitt@google.com>
+Cc: Kees Cook <kees@kernel.org>
+Cc: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Nathan Chancellor <nathan@kernel.org>
+Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
+Cc: Shuah Khan <skhan@linuxfoundation.org>
+Cc: Song Liu <song@kernel.org>
+Cc: Thomas Wei=DFschuh <linux@weissschuh.net>
+Cc: Yonghong Song <yonghong.song@linux.dev>
+Cc: kernel-team@fb.com
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-efi@vger.kernel.org
+Cc: linux-hexagon@vger.kernel.org
+Cc: linux-kbuild@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-parisc@vger.kernel.org
+Cc: linux-s390@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: llvm@lists.linux.dev
+Cc: loongarch@lists.linux.dev
+
+----------------------------------------------------------------
+Arnd Bergmann (3):
+      check-uapi: link into shared objects
+      check-uapi: honor ${CROSS_COMPILE} setting
+      check-uapi: use dummy libc includes
+
+Justin Stitt (1):
+      kbuild: expand inlining hints with -fdiagnostics-show-inlining-chain
+
+Masahiro Yamada (1):
+      kconfig: forbid multiple entries with the same symbol in a choice
+
+Nathan Chancellor (3):
+      kbuild: Consolidate C dialect options
+      kbuild: Use '-fms-anonymous-structs' if it is available
+      Documentation: kbuild: Update the debug information notes in reproduc=
+ible-builds.rst
+
+Nicolas Schier (1):
+      kconfig: Error out on duplicated kconfig inclusion
+
+Thomas Wei=DFschuh (25):
+      Documentation/llvm: drop note about LLVM=3D0
+      tools/build: Reject unexpected values for LLVM=3D
+      hexagon: uapi: Fix structure alignment attribute
+      kbuild: uapi: test linux/bpf_perf_event.h on powerpc
+      kbuild: uapi: deduplicate linux/bpf_perf_event.h exclusions
+      kbuild: uapi: completely exclude linux/bpf_perf_event.h on nios2
+      kbuild: uapi: only use dummy-include for headers which use libc
+      kbuild: uapi: provide stub includes for some libc headers
+      kbuild: uapi: use custom stub headers instead of libc ones
+      kbuild: uapi: simplify libc dependency logic
+      kbuild: uapi: remove now unneeded guard headers
+      kbuild: reduce output spam when building out of tree
+      kbuild: uapi: move some compiler arguments out of the command definit=
+ion
+      kbuild: uapi: move all include path flags together
+      kbuild: uapi: handle UML in architecture-specific exclusion lists
+      kbuild: uapi: provide a C++ compatible dummy definition of NULL
+      kbuild: uapi: also test UAPI headers against C++ compilers
+      kbuild: vdso_install: split out the readelf invocation
+      kbuild: vdso_install: hide readelf warnings
+      kbuild: vdso_install: gracefully handle images without build ID
+      kbuild: vdso_install: drop build ID architecture allow-list
+      checksyscalls: move path to reference table to a variable
+      checksyscalls: fail on all intermediate errors
+      checksyscalls: only run when necessary
+      checksyscalls: move instance functionality into generic code
+
+Yonghong Song (1):
+      kbuild: Reduce the number of compiler-generated suffixes for clang th=
+in-lto build
+
+ Documentation/kbuild/llvm.rst                      |  4 --
+ Documentation/kbuild/reproducible-builds.rst       |  7 ++-
+ Kbuild                                             | 14 +++--
+ Makefile                                           | 35 +++++++++---
+ arch/arm64/kernel/vdso32/Makefile                  |  3 +-
+ arch/hexagon/include/uapi/asm/sigcontext.h         |  2 +-
+ arch/loongarch/vdso/Makefile                       |  2 +-
+ arch/mips/Makefile                                 |  6 +-
+ arch/parisc/boot/compressed/Makefile               |  2 +-
+ arch/powerpc/boot/Makefile                         |  3 +-
+ arch/s390/Makefile                                 |  3 +-
+ arch/s390/purgatory/Makefile                       |  3 +-
+ arch/x86/Makefile                                  |  6 +-
+ arch/x86/boot/compressed/Makefile                  |  6 +-
+ drivers/firmware/efi/libstub/Makefile              |  3 +-
+ init/Kconfig                                       |  5 ++
+ scripts/Makefile.vdsoinst                          |  7 ++-
+ scripts/Makefile.warn                              |  5 --
+ scripts/check-uapi.sh                              | 19 ++++---
+ scripts/checksyscalls.sh                           | 11 +++-
+ scripts/kconfig/lexer.l                            |  4 +-
+ scripts/kconfig/lkc.h                              |  3 +-
+ scripts/kconfig/parser.y                           | 15 ++---
+ scripts/kconfig/tests/err_repeated_inc/Kconfig     |  3 +
+ .../kconfig/tests/err_repeated_inc/Kconfig.inc1    |  4 ++
+ .../kconfig/tests/err_repeated_inc/Kconfig.inc2    |  3 +
+ .../kconfig/tests/err_repeated_inc/Kconfig.inc3    |  1 +
+ scripts/kconfig/tests/err_repeated_inc/__init__.py | 10 ++++
+ .../kconfig/tests/err_repeated_inc/expected_stderr |  2 +
+ scripts/kconfig/util.c                             | 31 ++++++++++-
+ tools/scripts/Makefile.include                     |  2 +
+ usr/dummy-include/endian.h                         |  0
+ usr/dummy-include/limits.h                         |  8 +++
+ usr/dummy-include/netinet/if_ether.h               |  0
+ usr/dummy-include/netinet/in.h                     |  0
+ usr/dummy-include/stdbool.h                        |  7 ---
+ usr/dummy-include/stddef.h                         | 13 +++++
+ usr/dummy-include/stdint.h                         | 17 ++++++
+ usr/dummy-include/stdlib.h                         |  7 ---
+ usr/dummy-include/string.h                         | 12 ++++
+ usr/dummy-include/sys/ioctl.h                      |  0
+ usr/dummy-include/sys/socket.h                     | 12 ++++
+ usr/dummy-include/sys/time.h                       |  3 +
+ usr/dummy-include/sys/types.h                      |  0
+ usr/dummy-include/time.h                           |  0
+ usr/dummy-include/unistd.h                         |  0
+ usr/include/Makefile                               | 65 ++++++++++++++----=
+----
+ 47 files changed, 251 insertions(+), 117 deletions(-)
+ create mode 100644 scripts/kconfig/tests/err_repeated_inc/Kconfig
+ create mode 100644 scripts/kconfig/tests/err_repeated_inc/Kconfig.inc1
+ create mode 100644 scripts/kconfig/tests/err_repeated_inc/Kconfig.inc2
+ create mode 100644 scripts/kconfig/tests/err_repeated_inc/Kconfig.inc3
+ create mode 100644 scripts/kconfig/tests/err_repeated_inc/__init__.py
+ create mode 100644 scripts/kconfig/tests/err_repeated_inc/expected_stderr
+ create mode 100644 usr/dummy-include/endian.h
+ create mode 100644 usr/dummy-include/limits.h
+ create mode 100644 usr/dummy-include/netinet/if_ether.h
+ create mode 100644 usr/dummy-include/netinet/in.h
+ delete mode 100644 usr/dummy-include/stdbool.h
+ create mode 100644 usr/dummy-include/stddef.h
+ create mode 100644 usr/dummy-include/stdint.h
+ delete mode 100644 usr/dummy-include/stdlib.h
+ create mode 100644 usr/dummy-include/string.h
+ create mode 100644 usr/dummy-include/sys/ioctl.h
+ create mode 100644 usr/dummy-include/sys/socket.h
+ create mode 100644 usr/dummy-include/sys/time.h
+ create mode 100644 usr/dummy-include/sys/types.h
+ create mode 100644 usr/dummy-include/time.h
+ create mode 100644 usr/dummy-include/unistd.h
+
+--=20
+Nicolas
+
+--WEAPSl/ZOh7quu+7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEh0E3p4c3JKeBvsLGB1IKcBYmEmkFAmnbvloACgkQB1IKcBYm
+EmnVJBAAlJvaCwNlI1ymaWQKEC+s4udzUKo5DuA14pw/3NgGhLasok1WZaWB0LUb
+2D4NtXMeQLTFybnTE07rbHZwQ/fBpvyWNL0D9aL+bjHfYhkbJHIJIgnrTOJLn3IW
+wJuPJgJDMvgmWKyXGRLjPEevSmKF10Aej8f0QIsXuv8IG8M0ZfpIohRV35Dot9w6
+kRQC6lX0lYTfaBzp7IBMtY634rtzC9rHK+U1gkkvswuE2H26rm5TxeE1lL6Xecmf
+pd16FUspWGCMMB6YFRz3hi4ZRIMhY3MgY6LvvcHNF0RDrdoEoqWFyKLd/l5X5CNq
+HKbIrMJ4l5E4KCSw3rtaW/RzmcZjDtU1RLdXLomAhZU7sszIhyYOuptBVAncdKVC
+Vo+lxm1kLlBRG4eQjCnA51HQZN7VbO54XSvWVmRioEUevu6wSA8UvSq7Kcufzg57
+I9nn9kpwFqJZvQsNGIdDqEgIT5l3muX1Y89E723OqKZ9CoPl2meGrLQU69e4gGFc
+R/nTDktzEFINZHVk72AwAWyjvE/IGx6mmogf1+4Zz7MK2Q5aeXejy6T5aZ0QMwtH
+/290TxOxWlOqi3b57Quo0xJVltkA9WxCi++4hh0Te/x2Yjaqbaovui7fBjqeKvCh
+Oh9AhNVYbTOjIMS2CyL6xQBlr+Vp2MQ163tqds1uSP3IqrS2T+8=
+=WfCJ
+-----END PGP SIGNATURE-----
+
+--WEAPSl/ZOh7quu+7--
 
