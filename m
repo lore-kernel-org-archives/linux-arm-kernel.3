@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36DF1E937EF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B16E937F2
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 17:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,90 +12,90 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EcDzNlIxPiZL0bdzdan7nhtA8ZUMs5VG9Gjq/1xDZdA=; b=VkQg2kqaom4RTFP4RmZ701XtvO
-	bIYThJMYyj3jZxSZbut7A2JRN0zKpPuaqRf/aYUx6abIyYtxzf2qFhhQQTj00rBeZy1f4aAMbbZLi
-	7+WzodUs7HxvbuB3Z/8a4V6XOljTDjdZRt54mrbz01aeG7SlO0ykkYQIZz1TfHqtkr2ZP1BZwojJW
-	PaXC5I2NYjq0iRgiExclhbz6XcEeTdFKuewyGgfeH0j37RHjw/SCMLhCrogz+xO9mW3CPhAAfhD8T
-	jERku0Mc06rEOpnLb0gOtMED9VbH6/JmEaNee/dFlhvhG39j6+vblznTNzM2/jcHAFqq9zK/IZCBU
-	KtVb7g4g==;
+	bh=aXtdqQ9gBJK0c2LGclVO5rctZAjxvI989BiAyPOViss=; b=tolVA+Qk+Ce+lisei85WqXaq2H
+	2RIb1B2O5Qi7sPf5qQ7DTOxuyqWU1dicGHdQJzlfzB173CNa4R+B0CQm3VdBPM/WOd/f5hDdOx0Fs
+	RXcOoSLSGfM1+uPRjRy2SJSYTuK6zFqe5aS+31UhXzScm4NyldEWREJyFSU3BAnfjUWnRYooVqI/T
+	MrSfR7XRA6TbIqpGjybvINWiNgr2BiSpi71m7lNff7N2Id5bf5FYmvhLWIdUQSNbuRLg2uY7GM1yl
+	oTD7MJMob6Nce3p7Bah0FlkZYkqPAcLI+t+DxfTyONIS1iXpGQYrKABdFSEKFXk/V8clMrzYBjLLy
+	e+Gc3Evw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wByMo-0000000EWSQ-2HuY;
-	Sun, 12 Apr 2026 17:13:02 +0000
+	id 1wByMs-0000000EWUR-1YDY;
+	Sun, 12 Apr 2026 17:13:06 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wByMm-0000000EWQY-05NS
+	id 1wByMo-0000000EWRq-0Wyt
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Apr 2026 17:13:01 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63CE5OUe2533785
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 17:12:59 GMT
+	Sun, 12 Apr 2026 17:13:03 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63CE61vF2785889
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 17:13:01 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	EcDzNlIxPiZL0bdzdan7nhtA8ZUMs5VG9Gjq/1xDZdA=; b=jppQqfv/toEu7kEe
-	AYpAuIUayMdyjsy+B5CNhsqcwtfFhYZEopBCP3B2DjQU6MF8TUJvaWNz3MS17PaV
-	yhoeEfTYNikaWSA9LKn96yTc8IE8DeHVtgScRiqjzybLGp1h7Xw41zV6cILGB5Ff
-	IG4RHq3KlBugp9/gG/MONvcer4DOX+dgLrkaGf6f2hFenCvnBCo/XVB1iXqrNG3O
-	Il6PY+CcWmXtXmAAuxhJTova+fDaNj4DH4A9n2gSTncOmwmuJyNum3/ZKe6/5VDO
-	xfDyFGSm9feC6cdNY+XJ1N2+fXO0FhNv0ndctjHVCEgGqPvO2WX988w65NKKIJGk
-	rhU6HQ==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dfeyytq2u-1
+	aXtdqQ9gBJK0c2LGclVO5rctZAjxvI989BiAyPOViss=; b=n5QjAkl2eGuF4aMU
+	THc4x98CWOeQms/N6j+C0gVH9iUdWDXJtfuM60xxQHWHrFB73A+H/6kUKP1cgqL1
+	byurZ78hLpVUui769k6lDOMCCHWC/F4U+8TpSP3FqJoDy5xDRL3JY0AfX9p9lJ/I
+	6Ep82VeWb8luHgSycf0X9/ag2IGxT6JQNMLv34r05RNJeZOJwn4Uddtyf51R6kWk
+	3EN64zcRLh80NYFd+qr+OybKCUbV9S1YcEps6v6UaNRGiRB/Bz6sTjj+hIZvAdOL
+	dUGeRhJPnBKM8YFD1f0fQRW5q4K21TKC5euTIHB9vI4hEpBBm5q2ysvwwDWJoHIx
+	cWQOCQ==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dfjbpad9b-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 17:12:59 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-50da529ff48so91149581cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 10:12:59 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 17:13:01 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50d8e4c29caso91547701cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 10:13:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776013979; x=1776618779; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1776013980; x=1776618780; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=EcDzNlIxPiZL0bdzdan7nhtA8ZUMs5VG9Gjq/1xDZdA=;
-        b=ZhepIHlV0TGJUlylFqsDbX26FBEAZNb25Rtcote5BBa5Cx1tIgPzZgLik4Ev9/qI5N
-         JGe7a2aStamhxBsaYcKTpLKP1JcZRYOT/A2JM0fijU8sxflwWzUVDGr8vESfvh/MDu/6
-         WUb291hb8a+EfHPu+iefkTD7A5oBG6Ag7ruIb7K/xn23CW723KIgBjthy886B79OLiR4
-         0cZ+zu/3ll8ZuN1/9WO/VkXjTSwwrP1HctVEtVJvgQMIXWV5CyljLyLSJQG4kRLaNjao
-         yluhg2Sqrs2B3adKWyIweXmyK19lrl1pLapUzxnhK2PGx2h0nFLxN4vpbukabXAyx/3x
-         d21w==
+        bh=aXtdqQ9gBJK0c2LGclVO5rctZAjxvI989BiAyPOViss=;
+        b=WnVSj89RRMxzsj7osCebqjUta+z/MUMHCHdSJqfBUuUyWhCTacfNSj4jT8Ss++OyST
+         CHyQwSjhUlDiScBDmVD4ksW4kH6oHmRiuENiHLf4iDH9rj2Gv9z0ykeJd8R5bevVqu/2
+         9HSlTWugb9HPSmmCp2M7C1XGwgu9fFs4m8eYs0lkmW28od9aHHiaptDRo4cf+nGX6HT6
+         yUAC2uoz2W/JwplwJ/+lqUeox9SQ1Nq0sj8P+l+BD2EmWh4xsnxN2mNjG0e+/IS5ECU4
+         MMmbn0WNX5kiNfyiyoMJqj2E91KRf+oYPIJsM13CeWebT1oGYPEH3SKnbpVP+SM2y0AD
+         dZqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776013979; x=1776618779;
+        d=1e100.net; s=20251104; t=1776013980; x=1776618780;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=EcDzNlIxPiZL0bdzdan7nhtA8ZUMs5VG9Gjq/1xDZdA=;
-        b=OUpwG76kjwnriKDTwvMa25CVPH8ombRJHIKf8xyz0r0py/jL9JEnsJ+DMPkEI6SIGC
-         MzOc3F5W8xsYeuDBagdRSHvUlR66Ld37W7S3CuDIdtbNkFrVk1uW+vVwHns3rHwBah0D
-         FHrdD2UsW77AFBqxYPwmKCp2YsGVjApvQBUQEyDbwfZ1eKzq88MCK9WLBw5BmpE+7Bck
-         vepHJLWqV4KJzo2IhsUSj+36pWvWj0hG26O3QZBCrXuwwojaDw+soYXqEYjC+zvyVDv5
-         BxPZDMNaCbuKoVN+hGwlM8OZyNeOt2Y66x9OhmH77QPJ4NOZ/yTX6y47zy1C/Ozna8Ny
-         nCpw==
-X-Forwarded-Encrypted: i=1; AJvYcCXxE3iRloO7WTDA14S7Bg0yz+Wyfong2Exv4y36gxKAA7R9rn18JvLkOFHw13QDDdgPKdocBZSWct5XArWLiO5R@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMO6plf2gTYXGTxrbkX5+/4m6IzXMHv4tpemjWKIT77VLnZyoO
-	grhEiUyj6kqmI5CCBrR4CptdJDntc90xkKMVETDfjO/KlTFcDFJwA4s3aPWVYPrud/Qur2YvpCl
-	uNQDiinMtL70FuCT6Fwaz6bdACjK+y1SSVmtTi8hU8rtXY0q4/Te6QuIhDBMRgc8ipzNJy78e2K
-	zh/w==
-X-Gm-Gg: AeBDietGQZnO7ozavC6BkkMTuWdBd8Boly5mcp2Nz6ki3swNfe6JuFt7GnwMQfvi2nb
-	GixJYfbt+Pov9CJULf8ere+HulgDG9bwuaXsNBAwRbIH+Igj5BASY0JcqxdslWm/QpVVjp0WZSm
-	VXHlV8ow3r/vTjhqRf6mVt3omJ3S08P0x5gWnGIKw+Vjox24HxaXI5uaChPrlyI6XYL4Ns26RRt
-	c3zA/8EVVrTt4vreDuc7rs2C9upMo3Jg0EHNgOdNTfs7QpbdimGf/t9+SxGr+LOAzBk6X0psSuB
-	K+64P13Va85ykaeXTDwc0ThPLIbnGsb/TwF4NbxETyuiw2dLLfok7NZvfds8bPZvZAPVjLzulwJ
-	Q1xAQCi3hArDGyX6//M3LAmwnoB4gSWci2nAJsQ7+sQja
-X-Received: by 2002:ac8:7e96:0:b0:509:18f4:6dba with SMTP id d75a77b69052e-50dd5c06e71mr166398581cf.62.1776013978561;
-        Sun, 12 Apr 2026 10:12:58 -0700 (PDT)
-X-Received: by 2002:ac8:7e96:0:b0:509:18f4:6dba with SMTP id d75a77b69052e-50dd5c06e71mr166397931cf.62.1776013978125;
-        Sun, 12 Apr 2026 10:12:58 -0700 (PDT)
+        bh=aXtdqQ9gBJK0c2LGclVO5rctZAjxvI989BiAyPOViss=;
+        b=pl0CEzjQ3kALDRCR507wHghlncfIuFMGhmf7+S14rQUTJYimTZeGCAar2Ix99zWlLR
+         BFvW9hngT9RVQ1EHNal2FIPg6J/Mm5WyLKEEi9mjPlL6BoWwRGdk2X4jKHCI0wi73wen
+         ckg3vX4ziboJEzTrv0U2j7HU+9GmsrnLUOJMcQlazXs4bNGJQzSnrvQn/Qg09ysrPvuf
+         3+IHjx1esIhP2D1W2MHd1b9ZQerEOlWnNaNevaizIM0uV50hOc3JjZX6n5IrG9Y+Dxkx
+         0p+HtL9w7L1GiO/Ds0B40VEJDkmYGibTsjYHJEubM64jdCKI0xa+OmJYQxSet3icoDdy
+         Kh5A==
+X-Forwarded-Encrypted: i=1; AJvYcCWDqxSt6qlC4gNez9eDH/f+yeKp0dLegy9WkYqoMuhXgI0wCPvwZnK6zN9t8ubZld8FhZhL2NwtpFcipTqGmT3p@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDw/U7xzU3zUrZLGzMFITxtdReOxvTAwPREOio43uGlI2MT71D
+	JE38PSIz85+waX/IBbk5MTLjzVAps9eDL8QUp8LQCQkT3bUdRfNWJVxIbQVhci21dulO/LTSxH8
+	It3rJLJXx+WRfUhxogWQM9wWLrzcnqfpPBzqKlvAqH/yK758+8RXd3ilbd33Sae/dbYofbol/7z
+	G0OH4h17UaVQ==
+X-Gm-Gg: AeBDievuIQ1mRIk3k3hKfEws0y0b4tyMCGgoT6X5STXFOkvzva8ScQBmD+xlz1Z7STB
+	eQz1jiDVG1P0FnfO1P78TXb2Rlnj3Qs5bylxWoZL5YFGZ45mN6bLluPXHUO1gPe8rRQVeza3MJg
+	zZ2z6/n+8qg3fnyIcvRXNjlbv9I7Y+inmKO75TOfzwNhkjEwXKMZ1dtarU+2OvgfbqUR76RG8dA
+	9YmIUmIp5fp0kKZ1qweUraUQaZQgnX+jNXbjiL3+AKW0bsOFLvRgiN/sKr1bCzCKIlkk0y9LE0l
+	ZkGcyylell8eIvVy4vaPNIDOizxpQXFKTk2OMgIfJ0szAiE0+u+CHHgPD862Vd8c9CS5oH111cn
+	8ttVJOEQyEh6mS6aDaUg1L95Dzi9D7hBiOe27V/aThWUL
+X-Received: by 2002:a05:622a:4a88:b0:50d:8cad:2381 with SMTP id d75a77b69052e-50dd5cae418mr158228381cf.54.1776013980556;
+        Sun, 12 Apr 2026 10:13:00 -0700 (PDT)
+X-Received: by 2002:a05:622a:4a88:b0:50d:8cad:2381 with SMTP id d75a77b69052e-50dd5cae418mr158227991cf.54.1776013980110;
+        Sun, 12 Apr 2026 10:13:00 -0700 (PDT)
 Received: from [127.0.1.1] ([178.197.219.94])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d63de3499sm23715547f8f.1.2026.04.12.10.12.56
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d63de3499sm23715547f8f.1.2026.04.12.10.12.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Apr 2026 10:12:57 -0700 (PDT)
+        Sun, 12 Apr 2026 10:12:59 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Date: Sun, 12 Apr 2026 19:12:46 +0200
-Subject: [PATCH 3/5] ARM: configs: Drop redundant SND_ATMEL_SOC
+Date: Sun, 12 Apr 2026 19:12:47 +0200
+Subject: [PATCH 4/5] ARM: multi_v7_defconfig: Cleanup redundant options
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260412-b4-defconfig-multi-v7-v1-3-e76de035c2df@oss.qualcomm.com>
+Message-Id: <20260412-b4-defconfig-multi-v7-v1-4-e76de035c2df@oss.qualcomm.com>
 References: <20260412-b4-defconfig-multi-v7-v1-0-e76de035c2df@oss.qualcomm.com>
 In-Reply-To: <20260412-b4-defconfig-multi-v7-v1-0-e76de035c2df@oss.qualcomm.com>
 To: Nicolas Ferre <nicolas.ferre@microchip.com>,
@@ -111,50 +111,50 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
         linux-kernel@vger.kernel.org,
         Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3188;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2464;
  i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=RV2PHCEC2W2QOfy1Y9Xpy/sCJdlSV1V6E9vi2fAesvI=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBp29KPevLw9vxMj22zUSSukW96/FY9RwLVpVOds
- SUeFeLtVnyJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCadvSjwAKCRDBN2bmhouD
- 16udD/0bTYSk4YdtCF4T2ENunVxDwYoeOFE90kATLJil3r80Die8ZHP2C18dedZn6GXgI5YProH
- SebTpZ+MWTfexKIfFSo2cA0KvZfWnonteJ4k9EwStL7599/udBG/gCeb+ZPIEKqkwumipzDqr9P
- bsf3bSYXJEiPqhnamsWP9o9PUdLBQbnKbOziYfQ1jk5+qQERvMvEPX+oZ6VyRzf8j/AJtQDJAUV
- cgHQ7IU3LVgqCbEu6nR2qTqAP7B+O+JL5uphOZnuYC/sdLIJhX64ocUKhoDsu53zfpE7LVctAuO
- OdN8WVGgvIUQjrb7O3MF/2YRWAgMIPhi9Aq2fjkWfdfqFaqKZ5g9meoQOTCnHhnUKdNuBolfr47
- iLzHXRu/xanQO4CLd46zCq8afbI29UROmla40QupRBHuPh8IKDnBL0vKYaQglHoMB7SMktQ8Vxe
- 9iXAqT4Jb1rSnWIcP0IhEQESy8VxFIw/vmLW8zxSnLQevVXvtLvscqIQUQIe30JnN8C41GOrMbC
- ebVybSKEbYjyR90n97xte0QtT/sx3zvRm3Wozy7SMXw88xJPff/8BbBqOh/EYm8vrtQItPSK78d
- 69MoI5OJ8/HQPAhO34tMT4yh2jL14GHN24OWj4ahlEItZFQbksqzxcXK+i88vbNU8hXGapJbbag
- lBXZ0VA0sqcju0g==
+ bh=gS3gQyTEEQDQLw3eknJCWE0NanahznRn/PqRqyF5SDU=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBp29KQQMj2gHAhKkq4zJa9tmDi0mYIFjdxv+UKa
+ PPbjiMWSu6JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCadvSkAAKCRDBN2bmhouD
+ 1y6JD/47abvJ/C0j6buMufC7kTBHw4zcaMSiH11DLR4cAeZNZYYdzzkh8PDkEfLOFkZI4GAZXxV
+ oa2K5RJ5u/0kPU0cDbgYiLH32Ck4zU/jo7u3EatmzPq7N7W+puLroX/B8vKPMChlucTi2qMlSZL
+ KqCgMMPX4PmoR7BRr+5Ynb2xFZf1CwmKYHtB2O7T0Gtm0o77XZvSeRcl51FPhbNVMA0pMC81ubw
+ /OvlsJ90+d00cGtAvpy80uPG78EtA1xptpx/bQlK+Fc8cNB8eJNzE5uinGeZclUU9jTk4zdMK7i
+ /FaHDD7fvEPZB9LQt9rpA8j4JtnPFWbnRRoPobXBMXC1e6YPkxJPFH2bs8w7ubFLCC4L6Clm9Gy
+ y371myM5cHA3+pjIgblBkqxXQOSEKUd4ZLooEXdXkxcRbb8CQJ9Cy/FmiyqiB8QArfRnSDkqcU8
+ joVu7DSQkcW96ory3QuCFslvUMRVcFWejEUPFXOgNBe5yrHrnqRljXSVpLLh+vHOy71sn1gfnMb
+ cyvDmzeRT+2mdQTfJetXKDTNzX+1WDb40vCBon/fkiNSvyBo7zKWRyyZV08mpq5lBagp+Q1GijN
+ aiblBLclJ9YxQ+i6ek2FFQnVcw+kPvSwcF/WzCVtnQVnb4fkEJt02IPy5V9Vvl+MgxSz4z5t3s9
+ M1xMLaT/csXybTg==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Proofpoint-GUID: PXqxU9D49WV9epfbCwtNvOgtT2slzpW3
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEyMDE2NyBTYWx0ZWRfX8KTvVPJLGQf7
- w31RTFwbYFyTlqyk/Uis/2C58+ki+y/HoMnZ2gJSr5grIFZ7VVSvebJW1+afH0qPdGsQAbKOIPx
- Gz6Koov4ZlHoXIdB80UBRFc0laB1R2tTAGSSqaEcL+7lCRFuhD4uRR8KtwkcI8gL5rZN6daKIEW
- RD5D/QITT7y5fTPzawoLCkvlwfyl3ypIQGxjKx0DEdMVxR4jIsioEiHzzw+Fcdf6j7eVAA2cuaj
- 9qq40MGBU8lpW3eED8FmHz0nCs3jRH8iwmumSiaMDGb3vU79jbz3nyUe31Vtc1ir0k7wFL9E+OQ
- Sbwsi0/FSlF3nG4vuvW9DWu9bNQkChJ+MhsBlfySH5/rolWrh8NhU9NeCxDb7LbgiU+z2uIdzV4
- 02AFId6LXAZmmo6VaDDmcJ75lTvA07PjZp2FlAyXnSJ50Ck+Wkpvzr2ru5ilGimqDZ3pojk/+w1
- PiLdSN1820bU5ZudWHw==
-X-Authority-Analysis: v=2.4 cv=FPQrAeos c=1 sm=1 tr=0 ts=69dbd29b cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
+X-Authority-Analysis: v=2.4 cv=PuijqQM3 c=1 sm=1 tr=0 ts=69dbd29d cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
  a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=EUspDBNiAAAA:8 a=ZQtQTQ4zVFyU_Biz7KcA:9 a=QEXdDO2ut3YA:10
- a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-ORIG-GUID: PXqxU9D49WV9epfbCwtNvOgtT2slzpW3
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=EUspDBNiAAAA:8 a=9NBflued9iuJHBMiackA:9 a=QEXdDO2ut3YA:10
+ a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-ORIG-GUID: hrOvtIuzWaGsA_aa1BpbC6AgYkW2uheP
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEyMDE2NyBTYWx0ZWRfX0S2xVoVRXu28
+ u95U3ni9OnCNDGp5AXznrBrTKBvBtJ86rf/pEwqhAxQjbaqdva8/jEZeELghxaG4kRrvTL+vD7W
+ 3VIX2ZeOJhm5O/hzomot9O+xfX/us+0f8yHIxPULCLY9ybDMGHqoGSPxD7sCZJXiASyndx7n0Bl
+ P6r9FBf0K0xM82QtN5z2W393rDECrVVw2AgTTuP06Lsm2pognvdtptrC88ND7+BwVFNhPIw6/n2
+ 33NVxj4aU8yWxAHTTWDe8LkWlW7iGAkZJpkK5VXV+L1sMmluNFR1Jxj4JJKpvOW6VtgLThcAM7R
+ jnehP0T5D3OUyr+E0CUbzOrZD0iFtA++4i1MD9XOwMVV2ydzpkb5Euj7nZ9It2UjgaoYVmhG+il
+ 1ZIaU7CwyLmVsxtfL4ARhmFvJdKU3d4cG0zI7wDf+ysHk4RMQ+osaX5m6CtIOfQ8K0uRSIQAUE+
+ MEczJ4M1hrTLQBboZ8Q==
+X-Proofpoint-GUID: hrOvtIuzWaGsA_aa1BpbC6AgYkW2uheP
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-12_04,2026-04-09_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 suspectscore=0 impostorscore=0 malwarescore=0 adultscore=0
- clxscore=1015 spamscore=0 priorityscore=1501 bulkscore=0 lowpriorityscore=0
+ priorityscore=1501 lowpriorityscore=0 suspectscore=0 spamscore=0 phishscore=0
+ malwarescore=0 clxscore=1015 impostorscore=0 adultscore=0 bulkscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604120167
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_101300_068935_05147D0B 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20260412_101302_176006_A1E9FF58 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,93 +169,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CONFIG_SND_ATMEL_SOC is gone since commit 4f30f84feb77 ("ASoC: atmel:
-Standardize ASoC menu") and can be simply dropped without effect.
-
-No impact on include/generated/autoconf.h.
+Drop all redundant entries:
+1. SERIAL_BCM63XX is default=y for ARCH_BCMBCA.
+2. USB_GPIO_VBUS is conflicting with enabled USB_CONN_GPIO since
+   commit 0ce0f9d0785a ("usb: phy: phy-gpio-vbus-usb: Add device tree
+   probing").
+3. SND_HDA_CODEC_REALTEK_LIB is selected by other codecs,
+   SND_HDA_CODEC_ALC269 by default.
+4. SND_PXA_SOC_SSP depends on ARCH_PXA which is only for multi v5.
+5. SND_SOC_ROCKCHIP is gone since commit cae3cc435db5 ("ASoC: rockchip:
+   Standardize ASoC menu") and can be simply dropped without effect.
+6. SND_SOC_TLV320AIC32X4 is selected by SND_SOC_TLV320AIC32X4_I2C/SPI.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- arch/arm/configs/at91_dt_defconfig  | 1 -
- arch/arm/configs/multi_v5_defconfig | 1 -
- arch/arm/configs/multi_v7_defconfig | 1 -
- arch/arm/configs/pxa_defconfig      | 1 -
- arch/arm/configs/sama5_defconfig    | 1 -
- arch/arm/configs/sama7_defconfig    | 1 -
- 6 files changed, 6 deletions(-)
+ arch/arm/configs/multi_v7_defconfig | 7 -------
+ 1 file changed, 7 deletions(-)
 
-diff --git a/arch/arm/configs/at91_dt_defconfig b/arch/arm/configs/at91_dt_defconfig
-index 4f1153098b16..e331242dece7 100644
---- a/arch/arm/configs/at91_dt_defconfig
-+++ b/arch/arm/configs/at91_dt_defconfig
-@@ -155,7 +155,6 @@ CONFIG_LOGO=y
- CONFIG_SOUND=y
- CONFIG_SND=y
- CONFIG_SND_SOC=y
--CONFIG_SND_ATMEL_SOC=y
- CONFIG_SND_AT91_SOC_SAM9G20_WM8731=y
- CONFIG_SND_ATMEL_SOC_WM8904=y
- CONFIG_SND_AT91_SOC_SAM9X5_WM8731=y
-diff --git a/arch/arm/configs/multi_v5_defconfig b/arch/arm/configs/multi_v5_defconfig
-index 59b020e66a0b..d0aea907124d 100644
---- a/arch/arm/configs/multi_v5_defconfig
-+++ b/arch/arm/configs/multi_v5_defconfig
-@@ -186,7 +186,6 @@ CONFIG_BACKLIGHT_ATMEL_LCDC=y
- CONFIG_SOUND=y
- CONFIG_SND=y
- CONFIG_SND_SOC=y
--CONFIG_SND_ATMEL_SOC=y
- CONFIG_SND_AT91_SOC_SAM9G20_WM8731=m
- CONFIG_SND_ATMEL_SOC_WM8904=m
- CONFIG_SND_AT91_SOC_SAM9X5_WM8731=m
 diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index 4f3d1fa99887..4032bf20625a 100644
+index 4032bf20625a..520e2dea77f2 100644
 --- a/arch/arm/configs/multi_v7_defconfig
 +++ b/arch/arm/configs/multi_v7_defconfig
-@@ -818,7 +818,6 @@ CONFIG_SND_HDA_CODEC_HDMI_NVIDIA=m
- CONFIG_SND_HDA_CODEC_HDMI_TEGRA=m
- CONFIG_SND_USB_AUDIO=m
- CONFIG_SND_SOC=m
--CONFIG_SND_ATMEL_SOC=m
- CONFIG_SND_ATMEL_SOC_WM8904=m
- CONFIG_SND_ATMEL_SOC_PDMIC=m
- CONFIG_SND_ATMEL_SOC_I2S=m
-diff --git a/arch/arm/configs/pxa_defconfig b/arch/arm/configs/pxa_defconfig
-index 2d5f5dfe5af6..6bbf40d073ee 100644
---- a/arch/arm/configs/pxa_defconfig
-+++ b/arch/arm/configs/pxa_defconfig
-@@ -403,7 +403,6 @@ CONFIG_SND_DEBUG=y
- CONFIG_SND_SEQUENCER=m
- CONFIG_SND_USB_AUDIO=m
- CONFIG_SND_SOC=m
--CONFIG_SND_ATMEL_SOC=m
- CONFIG_SND_PXA2XX_SOC=m
- CONFIG_SND_PXA_SOC_SSP=m
- CONFIG_SND_PXA2XX_SOC_SPITZ=m
-diff --git a/arch/arm/configs/sama5_defconfig b/arch/arm/configs/sama5_defconfig
-index 2cad045e1d8d..bd7f0b5f7d66 100644
---- a/arch/arm/configs/sama5_defconfig
-+++ b/arch/arm/configs/sama5_defconfig
-@@ -168,7 +168,6 @@ CONFIG_FRAMEBUFFER_CONSOLE=y
- CONFIG_SOUND=y
- CONFIG_SND=y
- CONFIG_SND_SOC=y
--CONFIG_SND_ATMEL_SOC=y
- CONFIG_SND_ATMEL_SOC_WM8904=y
- CONFIG_SND_ATMEL_SOC_CLASSD=y
- CONFIG_SND_ATMEL_SOC_PDMIC=y
-diff --git a/arch/arm/configs/sama7_defconfig b/arch/arm/configs/sama7_defconfig
-index e52f671ccec4..47abc56c40f5 100644
---- a/arch/arm/configs/sama7_defconfig
-+++ b/arch/arm/configs/sama7_defconfig
-@@ -159,7 +159,6 @@ CONFIG_BACKLIGHT_PWM=y
- CONFIG_SOUND=y
- CONFIG_SND=y
- CONFIG_SND_SOC=y
--CONFIG_SND_ATMEL_SOC=y
- CONFIG_SND_SOC_MIKROE_PROTO=m
- CONFIG_SND_MCHP_SOC_I2S_MCC=y
- CONFIG_SND_MCHP_SOC_SPDIFTX=y
+@@ -387,7 +387,6 @@ CONFIG_SERIAL_MSM=y
+ CONFIG_SERIAL_MSM_CONSOLE=y
+ CONFIG_SERIAL_VT8500=y
+ CONFIG_SERIAL_VT8500_CONSOLE=y
+-CONFIG_SERIAL_BCM63XX=y
+ CONFIG_SERIAL_BCM63XX_CONSOLE=y
+ CONFIG_SERIAL_XILINX_PS_UART=y
+ CONFIG_SERIAL_XILINX_PS_UART_CONSOLE=y
+@@ -810,8 +809,6 @@ CONFIG_SND_HDA_INPUT_BEEP=y
+ CONFIG_SND_HDA_PATCH_LOADER=y
+ CONFIG_SND_HDA_TEGRA=m
+ CONFIG_SND_HDA_CODEC_REALTEK=m
+-CONFIG_SND_HDA_CODEC_REALTEK_LIB=m
+-CONFIG_SND_HDA_CODEC_ALC269=m
+ CONFIG_SND_HDA_CODEC_HDMI=m
+ CONFIG_SND_HDA_CODEC_HDMI_GENERIC=m
+ CONFIG_SND_HDA_CODEC_HDMI_NVIDIA=m
+@@ -824,12 +821,10 @@ CONFIG_SND_ATMEL_SOC_I2S=m
+ CONFIG_SND_BCM2835_SOC_I2S=m
+ CONFIG_SND_IMX_SOC=m
+ CONFIG_SND_SOC_FSL_ASOC_CARD=m
+-CONFIG_SND_PXA_SOC_SSP=m
+ CONFIG_SND_MMP_SOC_SSPA=m
+ CONFIG_SND_PXA910_SOC=m
+ CONFIG_SND_SOC_QCOM=m
+ CONFIG_SND_SOC_APQ8016_SBC=m
+-CONFIG_SND_SOC_ROCKCHIP=m
+ CONFIG_SND_SOC_SH4_FSI=m
+ CONFIG_SND_SOC_RCAR=m
+ CONFIG_SND_SOC_ROCKCHIP_SPDIF=m
+@@ -871,7 +866,6 @@ CONFIG_SND_SOC_MSM8916_WCD_ANALOG=m
+ CONFIG_SND_SOC_MSM8916_WCD_DIGITAL=m
+ CONFIG_SND_SOC_SGTL5000=m
+ CONFIG_SND_SOC_STI_SAS=m
+-CONFIG_SND_SOC_TLV320AIC32X4=m
+ CONFIG_SND_SOC_TLV320AIC32X4_I2C=m
+ CONFIG_SND_SOC_TLV320AIC3X_I2C=m
+ CONFIG_SND_SOC_WM8960=m
+@@ -931,7 +925,6 @@ CONFIG_KEYSTONE_USB_PHY=m
+ CONFIG_NOP_USB_XCEIV=y
+ CONFIG_AM335X_PHY_USB=m
+ CONFIG_TWL6030_USB=m
+-CONFIG_USB_GPIO_VBUS=y
+ CONFIG_USB_ISP1301=y
+ CONFIG_USB_MXS_PHY=y
+ CONFIG_USB_GADGET=y
 
 -- 
 2.51.0
