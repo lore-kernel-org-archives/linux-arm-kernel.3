@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D89BCE64001
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 08:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5382AE64007
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 08:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=E32ka6Ina3nUMd7OiXM3vjZodFi1Ttwt14xZB74DKOU=; b=3/9xNg9NrTQ7eqcTxrexosnNed
-	h4gd8k+kOPu/xJ1ai7Tjj+NcJgjP4XEausJSlOOitjPChaJFik8qeyALkrQCakgkJhVPp1mJa2RmT
-	OoaL9ic04cxwMhSlhBHDEoDjclfrAtpehhdGXd7DiGZh7tYNL65OMtuOi5OhtMGDQUFM/IioeCHWQ
-	TZdLwhBNxwlU/ta77bxzugWPKSxf2wY2cai9YOHZ6DE5RD/fzbiorg2v92aHfxtq5viJluw1TJy2m
-	GutLjReHdxaQXZbCEQjC7gf+7unaOEvMbynjYJrdh3WzDd1gluopJ/NSKHtHDB3BjwSzPbAOdvEgr
-	NJcf3HOA==;
+	bh=jJ1vMbJfBrkdCY2MB+pu1xbv8eR080vqqGcGhYDLoAM=; b=Atu78XH7Bila5bLJcZfK+lpAKj
+	lo/2f9EtS6tb7kRKImuANO+7WMNwzYU3wYvBh2bE7rRHo/aoF9tXauM0pqfsYZR1hZEXOk7mBFhIR
+	s/avnXckjgXR0u1wYS3sO/fx6lRO2Jbqz+P5SAlmOQU1FfQ9pgXEgFPTx6A+Lfw5rEmr1f66oP/qT
+	bcktaf8fpeYaR9rO7r0b5EyK5IFZ0+8QoBjAQfC8v4u2X/q7U1acxZ6TcBbqv09IOTG7qF2eBcw4j
+	SXJrJrejNEawgWwrNgM1DPQ3i2KM4AYHg99mqgoW4RXnBbcvBN8G8ZRxzOmHyGOdEsF3XX3vH26JH
+	RLtGbLnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBptW-0000000E8sr-3GRc;
-	Sun, 12 Apr 2026 08:10:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wBq3o-0000000E9QT-3TYB;
+	Sun, 12 Apr 2026 08:20:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wBptV-0000000E8si-2zQ7;
-	Sun, 12 Apr 2026 08:10:13 +0000
+	id 1wBq3n-0000000E9QK-31tl;
+	Sun, 12 Apr 2026 08:20:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 290D460008;
-	Sun, 12 Apr 2026 08:10:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5731CC19424;
-	Sun, 12 Apr 2026 08:10:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C175160008;
+	Sun, 12 Apr 2026 08:20:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E23F7C19424;
+	Sun, 12 Apr 2026 08:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1775981411;
-	bh=36H48P9hjoQUXkzENXR+4KOVxVLh08Uk+rBggeOjamo=;
+	s=k20201202; t=1775982050;
+	bh=xKqI+P1KWypfWU+RDHzu5Y0I3ZlpFtGyeLcvopY078M=;
 	h=From:Date:Subject:To:Cc:From;
-	b=fjziGkTO/dy4HMECql4anEfWbo8cHbp0IkS9s42ZvcrWSt6akH3InZQ5hmsQpP5Ut
-	 W9g/lCICDlqUbWKxCtpqmCFMhgp+FDMs327ptDG3KeVQsVp5N5f3T1lG0VDU7AeO5c
-	 Z6j2wvqnTRkTFHghQrRr4rOEB0Uu9TP+z1FQ/eIeA0e/rhQKA1UhFhdNzjYHK5bBKG
-	 i9bpQ7YHPnwCpjJpJix4/0Oqy/ag2kKFXZ6q2gzLG+AhVbYmqF+j80jub4x3hAa3Y3
-	 zfjJcK7a7WemazFtqjSUzyidz/yG3eHTRm3Kknd3jFdgZh8Vl4ESM6JHXgCcmh14RK
-	 2oVtNaJOPHkKA==
+	b=Ji7HQV7wLSHLqUrLUzL1+khHMwXGT4URcxRT0FBdqPaKR0vd5EQoJ6AUyFPTZGJs0
+	 PVh/K4BQDRl941ayzkF1iePDiMGgRNOHkA8Eb6B7eSscy77ZWfnloHtVwGqSD5lhw3
+	 5868NX8YKMPIdfIvp6iFYSiZQTo3K9l2H8UcAbYWtwFr2Nz8KhrraEELuE2Rpf2tn+
+	 9wsH5ncsllRsijOQQ6pYDk8DLSlFzHa8UqH2dPAdknn5lS/OnvH++H/DPOV3kIoSM2
+	 lbrSnv6jCd7pT30IlUkvU4GNROE5EanlRGtC17HYRig4gJoVP6ubd4lt3SEDlNrxJh
+	 M82wB4R9Jw7cQ==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sun, 12 Apr 2026 10:09:41 +0200
-Subject: [PATCH net] net: airoha: Fix max TX packet length configuration
+Date: Sun, 12 Apr 2026 10:20:25 +0200
+Subject: [PATCH net] net: airoha: Wait for NPU PPE configuration to
+ complete in airoha_ppe_offload_setup()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260412-airoha-fix-max-mtu-v1-1-333030d0a564@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MOwqAQAwFryKpDWgUf1cRi7BGTeEquyqCeHeDx
- RTD8N4DUYJKhC55IMilUTdvkqcJuIX9LKijOVBGVVbmhKxhWxgnvXFl4zhxal3dUOGEmMCGexD
- L/2kPXg4Y3vcDABmZzGkAAAA=
-X-Change-ID: 20260412-airoha-fix-max-mtu-f9c7823ce2a2
+Message-Id: <20260412-airoha-wait-for-npu-config-offload-setup-v1-1-f4e0aa2a5d85@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2NQQrDMAzAvlJ8niEJ7WD7ytghNE5rGHZw0nVQ+
+ veFHnWQdEAlY6rwHA4w+nJllQ7+NsC8RlkIOXWG4MLdjT5gZNM14h65YVZDKRvOKpkX1Jw/GhN
+ WaltB/0hunELoUoKeK0aZf9fqBUIN3uf5B/Jyqfd/AAAA
+X-Change-ID: 20260412-airoha-wait-for-npu-config-offload-setup-19d04522412d
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Simon Horman <horms@kernel.org>
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
 Cc: linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
  Lorenzo Bianconi <lorenzo@kernel.org>
@@ -74,45 +74,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to the Airoha documentation, REG_GDM_LEN_CFG() register does not
-include FCS length. Fix MTU configuration removing ETH_FCS_LEN from
-maximum TX packet length configuration.
+In order to properly enable flowtable hw offloading, poll
+REG_PPE_PPE_FLOW_CFG register in airoha_ppe_offload_setup routine and
+wait for NPU PPE configuration triggered by ppe_init callback to complete
+before running airoha_ppe_hw_init().
 
-Fixes: 54d989d58d2ac ("net: airoha: Move min/max packet len configuration in airoha_dev_open()")
-Fixes: 03b1b69f0662c ("net: airoha: Introduce airoha_dev_change_mtu callback")
+Fixes: 00a7678310fe3 ("net: airoha: Introduce flowtable offload support")
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/net/ethernet/airoha/airoha_ppe.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index c14cdce588a7..a81ffda72b39 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1629,9 +1629,9 @@ static void airoha_update_hw_stats(struct airoha_gdm_port *port)
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index c2c32b6833df..52199f6b39f9 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -1332,6 +1332,7 @@ static int airoha_ppe_offload_setup(struct airoha_eth *eth)
+ 	struct airoha_npu *npu = airoha_ppe_npu_get(eth);
+ 	struct airoha_ppe *ppe = eth->ppe;
+ 	int err, ppe_num_stats_entries;
++	u32 val;
  
- static int airoha_dev_open(struct net_device *dev)
- {
--	int err, len = ETH_HLEN + dev->mtu + ETH_FCS_LEN;
- 	struct airoha_gdm_port *port = netdev_priv(dev);
- 	struct airoha_qdma *qdma = port->qdma;
-+	int err, len = ETH_HLEN + dev->mtu;
+ 	if (IS_ERR(npu))
+ 		return PTR_ERR(npu);
+@@ -1340,6 +1341,13 @@ static int airoha_ppe_offload_setup(struct airoha_eth *eth)
+ 	if (err)
+ 		goto error_npu_put;
  
- 	netif_tx_start_all_queues(dev);
- 	err = airoha_set_vip_for_gdm_port(port, true);
-@@ -1833,7 +1833,7 @@ static int airoha_dev_change_mtu(struct net_device *dev, int mtu)
- {
- 	struct airoha_gdm_port *port = netdev_priv(dev);
- 	struct airoha_eth *eth = port->qdma->eth;
--	u32 len = ETH_HLEN + mtu + ETH_FCS_LEN;
-+	u32 len = ETH_HLEN + mtu;
- 
- 	airoha_fe_rmw(eth, REG_GDM_LEN_CFG(port->id),
- 		      GDM_LONG_LEN_MASK,
++	/* Wait for NPU PPE configuration to complete */
++	err = read_poll_timeout(airoha_fe_rr, val, val, USEC_PER_MSEC,
++				100 * USEC_PER_MSEC, false, eth,
++				REG_PPE_PPE_FLOW_CFG(0));
++	if (err)
++		goto error_npu_put;
++
+ 	ppe_num_stats_entries = airoha_ppe_get_total_num_stats_entries(ppe);
+ 	if (ppe_num_stats_entries > 0) {
+ 		err = npu->ops.ppe_init_stats(npu, ppe->foe_stats_dma,
 
 ---
 base-commit: 02f72964395911e7a09bb2ea2fe6f79eda4ea2c2
-change-id: 20260412-airoha-fix-max-mtu-f9c7823ce2a2
+change-id: 20260412-airoha-wait-for-npu-config-offload-setup-19d04522412d
 
 Best regards,
 -- 
