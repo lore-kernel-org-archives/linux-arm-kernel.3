@@ -4,56 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E511E937EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 17:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F642E937F6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 17:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Content-Transfer-Encoding
-	:Content-Type:MIME-Version:Message-Id:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9jLXwihCSYh96p9OmAAo/ItQG73kLchdgmOdgdjJ/DI=; b=cgwot5Sd9rmCvSIzITd6z+gawg
-	ANvnaLs16JJBmPWtZdL1zidX90oXrzd5SjCYpz6y2d35dlbEiajsEGmiangVIWBqsahN7GKHB6+XN
-	TjR4lYt0qiIMiCxv1kcaWXRPPGqCQWBuG4MrbD/9kpDpRwycsm0VBYO/QBdFZXc4EToj2zWcxH+4T
-	H8WXDH0xzXFDD9n1WmPEs2qLqWs2DfxsmpHov0VoxWCxU7oElZ63QHiOnTZOvbtM6yzuOMwf48J1O
-	W5QNhec0ykXdkyFmhz0rMcT8ydZ6YRGaHA2Dr1K1+iQskMkfiuN92EFbVkFM+PN2Er7NRnajzaTFU
-	yXesSCPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xA34B4kzZX71VV7cfkHSUUShU91G3Z4WFbJq80Q9vow=; b=lcCzkuDfBr411hRRyZVfCu1dfh
+	4ie53rtCxUsIOAXzgtPhsq6IggISyB5xcUBYAuwpb1dBY3bqwDmghCYtG2i0Hbb6cZ3/kYgRMr58z
+	8svIHWEpfLtCZ956VabovrWv6v083JzV5pe9gLKJdxsU6K+s3YnJ5/v5mJru4xZKuUxiy0clMnT5F
+	ItBloVZiqggZEV29p1reTlREH66jIR7MJa4PFo0dhlN3EhfzeI72AZC6Y4+UHNSBsuzeMOq3tvc8y
+	nSp2oNL0jCWkMrNzd+NAo+DSkUB2C8URPoNs4/LTRml6YTqQDiVNfkIghXX/NE/d6jbXxtvkWOWxS
+	986MYiSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wByFb-0000000EVfN-0nmj;
-	Sun, 12 Apr 2026 17:05:35 +0000
+	id 1wByFj-0000000EVhw-48cB;
+	Sun, 12 Apr 2026 17:05:43 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wByFa-0000000EVfF-0Rna
+	id 1wByFd-0000000EVfw-0Muq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Apr 2026 17:05:34 +0000
+	Sun, 12 Apr 2026 17:05:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DF60560142
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 17:05:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B63DC19424;
-	Sun, 12 Apr 2026 17:05:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 769216014B
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 17:05:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B824CC2BCB0;
+	Sun, 12 Apr 2026 17:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776013532;
-	bh=PthFYeljXqJ3i4XcIWqo/pxPDbf552L3YLDUc5+rmpw=;
-	h=From:Subject:Date:To:From;
-	b=Riai1qEHsgYCDx7681M+hSPQ9bDjcEj+b+SAPZVuRS2QQl1vSKSoqMSNrHwaLtovV
-	 l9vkHKQM4nxqrUy5uh6yb1Hy7VrOzjh8cp7fDHZXB3J46esbZtUBGz+j+6sidjCc6T
-	 rZu+F7dZ1bCTD+s6MkgX2r2mdu+ZCa4x3ogQqb1orq/Bh5ubOgdy9aJLFzOc3oxO4Z
-	 LraJyNeg8Gcjz5crJ17JdwmZGqNv9P01+/6ri5BSM/mF+bovgcErDPs01W2xqyfX9y
-	 5naLQH03Kgc1UR/1IfW5N/dUbStmc0HszgFXuROOPpEX2k9KKJuo9HljhyAVipR5mm
-	 o7B0B3/MW0dEg==
+	s=k20201202; t=1776013536;
+	bh=OyYhkCOzrlRJO5g72u18UBvcrbV1IuXqg8djuqcBMYw=;
+	h=From:Date:Subject:References:In-Reply-To:To:From;
+	b=Z13nwc5qjjYT80p/eSN+DKekQnWxwRaHt42gGr9DhvCL2rsdFjrhY/O6k+Zb5SOCl
+	 aUT41FCudjo3kdd3gOdoxi9CnHIfWhnk5nv0peKDWQypQfTYGk77GEFZ+WQGVsAu0z
+	 GIpVX7B8A+7KJw0ZZftDD5Ak7UOx+6gl8dZLeMAgGKIKTqI0vv1xUUB2rW5ga/pi3Y
+	 e+08CMOxlkt04/uYjyf+W4PO+IH7Ddq+gbEYyaOocqx6LCugZZPeF2qMvDyiewmYtw
+	 CNLLhQoPyfdkWNec0t8aOYKX+6L+jFW3MyL2fIlYNS1gvXIZywpjr6EK6S0n1L33h2
+	 GeJArqzDzHBEA==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Subject: [PATCH 0/5] firmware/irqchip: Add FF-A DT interrupt support for
- donated NS SGIs
-Date: Sun, 12 Apr 2026 18:04:36 +0100
-Message-Id: <20260412-b4-ffa_ns_sgi_gicv3-v1-0-af61243eb405@kernel.org>
+Date: Sun, 12 Apr 2026 18:04:38 +0100
+Subject: [PATCH 2/5] irqchip/gic-v3: Support secure-donated non-secure SGIs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAKbQ22kC/yXMQQqDMBBG4avIrBvQGCz2KqUETf6k4yItmVaE4
- N2N7fJbvFdIkBlCt6ZQxsrCr1TRXRpyzylFKPbVpFs9tKbTajYqhMkmsRLZRnZrr+BhfMDorwO
- olu+MwNvven/8Ld95gfucK9r3A4JXfsp3AAAA
-X-Change-ID: 20260412-b4-ffa_ns_sgi_gicv3-ede4dfe9d76e
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260412-b4-ffa_ns_sgi_gicv3-v1-2-af61243eb405@kernel.org>
+References: <20260412-b4-ffa_ns_sgi_gicv3-v1-0-af61243eb405@kernel.org>
+In-Reply-To: <20260412-b4-ffa_ns_sgi_gicv3-v1-0-af61243eb405@kernel.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Marc Zyngier <maz@kernel.org>, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
@@ -74,57 +71,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
-
-This series wires FF-A notification interrupts up through DT using the
-standard interrupts property on the arm,ffa node and adds the
-required GICv3 and binding support for secure-donated non-secure SGIs.
-
-This has been long pending after the discussions here[1][2]. I have been
-waiting for some ACPI story to shape up for almost an year now, but no
-progress there. So posting this for now to start discussion on the approach
-taken here instead of waiting for another year to sort out ACPI 😉.
-
-It:
-
-- documents secure-donated NS SGIs in the GIC DT binding
-- teaches the GICv3 driver to accept and map those SGIs
-- adds a DT binding for the arm,ffa firmware node
-- updates the FF-A driver to use the arm,ffa node interrupt instead of
-  synthesizing its own GIC mapping
-- adds an FVP DT node using SGI 8 as the FF-A notification interrupt
-
-The FF-A DT lookup expects a single interrupt entry, verifies that it is
-a per-CPU interrupt via the reported affinity mask, and cross-checks the
-resolved Linux IRQ hwirq against the interrupt ID returned by
-FFA_FEATURES.
-
-[1] https://lore.kernel.org/all/86plqayvu6.wl-maz@kernel.org/
-[2] https://lore.kernel.org/all/86zfpgztmt.wl-maz@kernel.org/
+Parse secure-donated SGI ranges from the firmware, reject invalid
+interrupt specifiers, and allow devicetree consumers to map only the
+SGIs explicitly donated by the secure side to non-secure software.
 
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
-Sudeep Holla (5):
-      dt-bindings: interrupt-controller: Add support for secure donated SGIs
-      irqchip/gic-v3: Support secure-donated non-secure SGIs
-      dt-bindings: firmware: Add Arm FF-A binding
-      firmware: arm_ffa: Use device node interrupts property for IRQ lookup
-      arm64: dts: arm: fvp-base-revc: Add FF-A notification interrupt
+ drivers/irqchip/irq-gic-v3.c | 86 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 86 insertions(+)
 
- .../devicetree/bindings/firmware/arm,ffa.yaml      | 42 +++++++++++
- .../bindings/interrupt-controller/arm,gic-v3.yaml  | 27 ++++++-
- arch/arm64/boot/dts/arm/fvp-base-revc.dts          |  6 ++
- drivers/firmware/arm_ffa/driver.c                  | 53 +++++++++----
- drivers/irqchip/irq-gic-v3.c                       | 86 ++++++++++++++++++++++
- include/dt-bindings/interrupt-controller/arm-gic.h |  1 +
- 6 files changed, 201 insertions(+), 14 deletions(-)
----
-base-commit: f5459048c38a00fc583658d6dcd0f894aff6df8f
-change-id: 20260412-b4-ffa_ns_sgi_gicv3-ede4dfe9d76e
-
+diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+index 20f13b686ab2..cc7720d9fb0e 100644
+--- a/drivers/irqchip/irq-gic-v3.c
++++ b/drivers/irqchip/irq-gic-v3.c
+@@ -35,6 +35,8 @@
+ #include <asm/smp_plat.h>
+ #include <asm/virt.h>
+ 
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++
+ #include "irq-gic-common.h"
+ 
+ static u8 dist_prio_irq __ro_after_init = GICV3_PRIO_IRQ;
+@@ -65,6 +67,7 @@ struct gic_chip_data {
+ 	u64			flags;
+ 	bool			has_rss;
+ 	unsigned int		ppi_nr;
++	u16			donated_sgi_mask;
+ 	struct partition_affinity *parts;
+ 	unsigned int		nr_parts;
+ };
+@@ -95,6 +98,7 @@ static bool nmi_support_forbidden;
+  * with hwirq IDs, is simplified by accounting for all 16.
+  */
+ #define SGI_NR		16
++#define GIC_SGI_IPI_NR	8
+ 
+ /*
+  * The behaviours of RPR and PMR registers differ depending on the value of
+@@ -119,6 +123,74 @@ static bool nmi_support_forbidden;
+  */
+ static DEFINE_STATIC_KEY_FALSE(supports_pseudo_nmis);
+ 
++static bool gic_sgi_is_donated_to_ns(unsigned int sgi)
++{
++	return sgi < SGI_NR && (gic_data.donated_sgi_mask & BIT(sgi));
++}
++
++static int __init gic_of_init_donated_sgi_ranges(struct device_node *node)
++{
++	const char *propname = "arm,secure-donated-ns-sgi-ranges";
++	int count, i;
++	u32 *ranges;
++	u16 mask = 0;
++
++	count = of_property_count_u32_elems(node, propname);
++	if (count < 0) {
++		if (count == -EINVAL)
++			return 0;
++
++		pr_err("%pOF: unable to read %s\n", node, propname);
++		return count;
++	}
++
++	if (!count)
++		return 0;
++
++	if (count % 2) {
++		pr_err("%pOF: %s must contain <sgi span> pairs\n",
++		       node, propname);
++		return -EINVAL;
++	}
++
++	ranges = kcalloc(count, sizeof(*ranges), GFP_KERNEL);
++	if (!ranges)
++		return -ENOMEM;
++
++	if (of_property_read_u32_array(node, propname, ranges, count)) {
++		pr_err("%pOF: unable to read %s\n", node, propname);
++		kfree(ranges);
++		return -EINVAL;
++	}
++
++	for (i = 0; i < count; i += 2) {
++		u32 sgi = ranges[i];
++		u32 span = ranges[i + 1];
++		u32 end;
++
++		if (sgi < GIC_SGI_IPI_NR || sgi >= SGI_NR || !span || span > 8) {
++			pr_err("%pOF: invalid SGI range <%u %u> in %s\n",
++			       node, sgi, span, propname);
++			kfree(ranges);
++			return -EINVAL;
++		}
++
++		end = sgi + span;
++		if (end > SGI_NR) {
++			pr_err("%pOF: SGI range <%u %u> exceeds SGI space in %s\n",
++			       node, sgi, span, propname);
++			kfree(ranges);
++			return -EINVAL;
++		}
++
++		mask |= GENMASK(end - 1, sgi);
++	}
++
++	kfree(ranges);
++	gic_data.donated_sgi_mask = mask;
++	return 0;
++}
++
+ static u32 gic_get_pribits(void)
+ {
+ 	u32 pribits;
+@@ -1614,6 +1686,12 @@ static int gic_irq_domain_translate(struct irq_domain *d,
+ 		case 3:			/* EPPI */
+ 			*hwirq = fwspec->param[1] + EPPI_BASE_INTID;
+ 			break;
++		case GIC_SGI:		/* SGI */
++			if (!gic_sgi_is_donated_to_ns(fwspec->param[1]))
++				return -EINVAL;
++
++			*hwirq = fwspec->param[1];
++			break;
+ 		case GIC_IRQ_TYPE_LPI:	/* LPI */
+ 			*hwirq = fwspec->param[1];
+ 			break;
+@@ -1623,6 +1701,10 @@ static int gic_irq_domain_translate(struct irq_domain *d,
+ 
+ 		*type = fwspec->param[2] & IRQ_TYPE_SENSE_MASK;
+ 
++		if (fwspec->param[0] == GIC_SGI &&
++		    *type != IRQ_TYPE_EDGE_RISING)
++			return -EINVAL;
++
+ 		/*
+ 		 * Make it clear that broken DTs are... broken.
+ 		 */
+@@ -2239,6 +2321,10 @@ static int __init gic_of_init(struct device_node *node, struct device_node *pare
+ 
+ 	gic_enable_of_quirks(node, gic_quirks, &gic_data);
+ 
++	err = gic_of_init_donated_sgi_ranges(node);
++	if (err)
++		goto out_unmap_rdist;
++
+ 	err = gic_init_bases(dist_phys_base, dist_base, rdist_regs,
+ 			     nr_redist_regions, redist_stride, &node->fwnode);
+ 	if (err)
 
 -- 
-Regards,
-Sudeep
+2.43.0
 
 
