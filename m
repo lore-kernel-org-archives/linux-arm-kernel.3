@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86400E937EF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E511E937EC
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 17:05:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FdjU3zQw5P/OxdCeBCClA0M8Ro1pR5qA18fm4MgqPYE=; b=TWz8x7U5gPTllEki7UIvazqGz8
-	F1sXWS26yzuzxAI0aAJ1HHRJU7rIuJyU48IV+SNfTQuLbdWH10ygIyNDUYHbuaD2i+UMPuBk1xdwC
-	GijybS/ttnqNR402QD6fm4pqibImS9VPMojUuMmHt3RsQhpus+JqBnOxUGe57FBVejjevNf3ERxpo
-	PMvm74vre0rKYGmRzupHflXsCct5WwERs5xfmIDkq1+lGuno09L+eESOUZwv6g7IOMwVwAIjTXoQp
-	uQFsI8rpC8lgjc1BUVu1JCULUA2MA+dguq1ehfKuVnXzb9rpW9B3B2qZhj9hi5Kx6jDeOEPTQ4iNq
-	bioRHz8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Content-Transfer-Encoding
+	:Content-Type:MIME-Version:Message-Id:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9jLXwihCSYh96p9OmAAo/ItQG73kLchdgmOdgdjJ/DI=; b=cgwot5Sd9rmCvSIzITd6z+gawg
+	ANvnaLs16JJBmPWtZdL1zidX90oXrzd5SjCYpz6y2d35dlbEiajsEGmiangVIWBqsahN7GKHB6+XN
+	TjR4lYt0qiIMiCxv1kcaWXRPPGqCQWBuG4MrbD/9kpDpRwycsm0VBYO/QBdFZXc4EToj2zWcxH+4T
+	H8WXDH0xzXFDD9n1WmPEs2qLqWs2DfxsmpHov0VoxWCxU7oElZ63QHiOnTZOvbtM6yzuOMwf48J1O
+	W5QNhec0ykXdkyFmhz0rMcT8ydZ6YRGaHA2Dr1K1+iQskMkfiuN92EFbVkFM+PN2Er7NRnajzaTFU
+	yXesSCPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wByFf-0000000EVgl-3y8P;
-	Sun, 12 Apr 2026 17:05:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wByFb-0000000EVfN-0nmj;
+	Sun, 12 Apr 2026 17:05:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wByFb-0000000EVfM-3Lvk
+	id 1wByFa-0000000EVfF-0Rna
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Apr 2026 17:05:36 +0000
+	Sun, 12 Apr 2026 17:05:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7704E443FE
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 17:05:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 028C1C19424;
-	Sun, 12 Apr 2026 17:05:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DF60560142
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 17:05:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B63DC19424;
+	Sun, 12 Apr 2026 17:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1776013534;
-	bh=nINj9FtXsbv9p+uMbfKSjZ3iQpZizEUU7lJBoujxA+4=;
-	h=From:Date:Subject:References:In-Reply-To:To:From;
-	b=c8wwOTJhboMXKadw/Dp9XcvEuKRuZ740YI5Q+6FDr24fUDfVtgFK0DJYVBoUQEm4a
-	 ID10WPdZ3CzwaXVIyrTiWcqFNqakFlZtnc9nf6NQ8QBVz8dUebMk72CbbT3Wvj5f1+
-	 SvwKGlLfJbDC7eDXPfEZSLW4Rz4yMwvOy9KGqdAFp7ovIUbNCtE49LxGg7uLLte9RB
-	 nF34OnUMXT8i2hVadBqswaRkMR1NgicMdlx5jKe4MstX8w0uUpyZWWA+cdjYd6iDj9
-	 AJJu+jEPLfIkl1pwJ/h+aomzsFRnmmjylggSYUYJ3hIriIg/iXct9gLdnSBkWwQj+N
-	 rsrcKC0yWz4Iw==
+	s=k20201202; t=1776013532;
+	bh=PthFYeljXqJ3i4XcIWqo/pxPDbf552L3YLDUc5+rmpw=;
+	h=From:Subject:Date:To:From;
+	b=Riai1qEHsgYCDx7681M+hSPQ9bDjcEj+b+SAPZVuRS2QQl1vSKSoqMSNrHwaLtovV
+	 l9vkHKQM4nxqrUy5uh6yb1Hy7VrOzjh8cp7fDHZXB3J46esbZtUBGz+j+6sidjCc6T
+	 rZu+F7dZ1bCTD+s6MkgX2r2mdu+ZCa4x3ogQqb1orq/Bh5ubOgdy9aJLFzOc3oxO4Z
+	 LraJyNeg8Gcjz5crJ17JdwmZGqNv9P01+/6ri5BSM/mF+bovgcErDPs01W2xqyfX9y
+	 5naLQH03Kgc1UR/1IfW5N/dUbStmc0HszgFXuROOPpEX2k9KKJuo9HljhyAVipR5mm
+	 o7B0B3/MW0dEg==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Sun, 12 Apr 2026 18:04:37 +0100
-Subject: [PATCH 1/5] dt-bindings: interrupt-controller: Add support for
- secure donated SGIs
+Subject: [PATCH 0/5] firmware/irqchip: Add FF-A DT interrupt support for
+ donated NS SGIs
+Date: Sun, 12 Apr 2026 18:04:36 +0100
+Message-Id: <20260412-b4-ffa_ns_sgi_gicv3-v1-0-af61243eb405@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260412-b4-ffa_ns_sgi_gicv3-v1-1-af61243eb405@kernel.org>
-References: <20260412-b4-ffa_ns_sgi_gicv3-v1-0-af61243eb405@kernel.org>
-In-Reply-To: <20260412-b4-ffa_ns_sgi_gicv3-v1-0-af61243eb405@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAKbQ22kC/yXMQQqDMBBG4avIrBvQGCz2KqUETf6k4yItmVaE4
+ N2N7fJbvFdIkBlCt6ZQxsrCr1TRXRpyzylFKPbVpFs9tKbTajYqhMkmsRLZRnZrr+BhfMDorwO
+ olu+MwNvven/8Ld95gfucK9r3A4JXfsp3AAAA
+X-Change-ID: 20260412-b4-ffa_ns_sgi_gicv3-ede4dfe9d76e
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Marc Zyngier <maz@kernel.org>, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, 
  Sudeep Holla <sudeep.holla@kernel.org>
 X-Mailer: b4 0.15.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_100535_885220_BDE721D8 
-X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,91 +74,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In GICv3, SGI security is defined by interrupt grouping and configuration
-rather than by SGI number alone. Linux conventionally reserves SGIs 0-7
-for non-secure internal kernel IPIs, while higher SGIs is assumed to be
-owned/stolen by the Secure world unless explicitly made available.
+Hi all,
 
-Document secure donated SGI interrupt specifiers for the GICv3 binding.
-It describes "arm,secure-donated-ns-sgi-ranges" for SGIs donated by the
-secure world to non-secure software. It excludes SGIs 0-7, which are
-already used by the kernel for internal IPI purposes.
+This series wires FF-A notification interrupts up through DT using the
+standard interrupts property on the arm,ffa node and adds the
+required GICv3 and binding support for secure-donated non-secure SGIs.
+
+This has been long pending after the discussions here[1][2]. I have been
+waiting for some ACPI story to shape up for almost an year now, but no
+progress there. So posting this for now to start discussion on the approach
+taken here instead of waiting for another year to sort out ACPI 😉.
+
+It:
+
+- documents secure-donated NS SGIs in the GIC DT binding
+- teaches the GICv3 driver to accept and map those SGIs
+- adds a DT binding for the arm,ffa firmware node
+- updates the FF-A driver to use the arm,ffa node interrupt instead of
+  synthesizing its own GIC mapping
+- adds an FVP DT node using SGI 8 as the FF-A notification interrupt
+
+The FF-A DT lookup expects a single interrupt entry, verifies that it is
+a per-CPU interrupt via the reported affinity mask, and cross-checks the
+resolved Linux IRQ hwirq against the interrupt ID returned by
+FFA_FEATURES.
+
+[1] https://lore.kernel.org/all/86plqayvu6.wl-maz@kernel.org/
+[2] https://lore.kernel.org/all/86zfpgztmt.wl-maz@kernel.org/
 
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- .../bindings/interrupt-controller/arm,gic-v3.yaml  | 27 +++++++++++++++++++++-
- include/dt-bindings/interrupt-controller/arm-gic.h |  1 +
- 2 files changed, 27 insertions(+), 1 deletion(-)
+Sudeep Holla (5):
+      dt-bindings: interrupt-controller: Add support for secure donated SGIs
+      irqchip/gic-v3: Support secure-donated non-secure SGIs
+      dt-bindings: firmware: Add Arm FF-A binding
+      firmware: arm_ffa: Use device node interrupts property for IRQ lookup
+      arm64: dts: arm: fvp-base-revc: Add FF-A notification interrupt
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v3.yaml b/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v3.yaml
-index bfd30aae682b..664727d071c9 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v3.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v3.yaml
-@@ -45,17 +45,24 @@ description: |
- 
-       The 1st cell is the interrupt type; 0 for SPI interrupts, 1 for PPI
-       interrupts, 2 for interrupts in the Extended SPI range, 3 for the
--      Extended PPI range. Other values are reserved for future use.
-+      Extended PPI range, and 4 for SGI interrupts. Other values are
-+      reserved for future use.
- 
-       The 2nd cell contains the interrupt number for the interrupt type.
-       SPI interrupts are in the range [0-987]. PPI interrupts are in the
-       range [0-15]. Extended SPI interrupts are in the range [0-1023].
-       Extended PPI interrupts are in the range [0-127].
- 
-+      SGI interrupts are in the range [8-15] which overlaps with the SGIs
-+      assigned to/reserved for the secure world but donated to the non
-+      secure world to use. Refer "arm,secure-donated-ns-sgi-ranges" for
-+      more details.
-+
-       The 3rd cell is the flags, encoded as follows:
-       bits[3:0] trigger type and level flags.
-         1 = edge triggered
-         4 = level triggered
-+      SGIs are edge triggered and must be described as such.
- 
-       The 4th cell is a phandle to a node describing a set of CPUs this
-       interrupt is affine to. The interrupt must be a PPI, and the node
-@@ -136,6 +143,24 @@ description: |
-       - $ref: /schemas/types.yaml#/definitions/uint32
-       - $ref: /schemas/types.yaml#/definitions/uint64
- 
-+  arm,secure-donated-ns-sgi-ranges:
-+    description:
-+      A list of pairs <sgi span>, where "sgi" is the first SGI INTID of a
-+      range donated by the secure side to non-secure software, and "span" is
-+      the size of that range. Multiple ranges can be provided.
-+
-+      SGIs described by interrupt specifiers with type 4 (SGI) must fall
-+      within one of these ranges. SGIs(0-7) reserved by non-secure world
-+      for internal IPIs must not be listed here. "sgi" must be in the
-+      range [8-15], "span" must be in the range [1-8], and the range must
-+      not extend past SGI 15.
-+    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-+    items:
-+      - minimum: 8
-+        maximum: 15
-+      - minimum: 1
-+        maximum: 8
-+
-   ppi-partitions:
-     type: object
-     additionalProperties: false
-diff --git a/include/dt-bindings/interrupt-controller/arm-gic.h b/include/dt-bindings/interrupt-controller/arm-gic.h
-index 887f53363e8a..52c2f3f090c5 100644
---- a/include/dt-bindings/interrupt-controller/arm-gic.h
-+++ b/include/dt-bindings/interrupt-controller/arm-gic.h
-@@ -14,6 +14,7 @@
- #define GIC_PPI 1
- #define GIC_ESPI 2
- #define GIC_EPPI 3
-+#define GIC_SGI 4
- 
- /*
-  * Interrupt specifier cell 2.
+ .../devicetree/bindings/firmware/arm,ffa.yaml      | 42 +++++++++++
+ .../bindings/interrupt-controller/arm,gic-v3.yaml  | 27 ++++++-
+ arch/arm64/boot/dts/arm/fvp-base-revc.dts          |  6 ++
+ drivers/firmware/arm_ffa/driver.c                  | 53 +++++++++----
+ drivers/irqchip/irq-gic-v3.c                       | 86 ++++++++++++++++++++++
+ include/dt-bindings/interrupt-controller/arm-gic.h |  1 +
+ 6 files changed, 201 insertions(+), 14 deletions(-)
+---
+base-commit: f5459048c38a00fc583658d6dcd0f894aff6df8f
+change-id: 20260412-b4-ffa_ns_sgi_gicv3-ede4dfe9d76e
+
 
 -- 
-2.43.0
+Regards,
+Sudeep
 
 
