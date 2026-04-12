@@ -4,100 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF9E8E937EF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 17:13:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6E91E937EF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Apr 2026 17:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=srk5XjvBrNGkwBnpptSv/EhlZrJUSD3XjILm85b82iM=; b=vgfbcxXFhIh62N
-	D5Rhw9H3n825gai/UkIBrBbYXzcMObhT3G62iVbk31esiuu/HUKyMafXW411LKZpVAowNfTunZ8eG
-	SoNd+9KFatGLvYrenu7dJjKS4LvsimK7fs++B8F6de/vPww2qrQtb++zf2sEm/Ktxt1lCnnNdjaHm
-	tk6vHWlyddMbLrgq1ofJR4eWQLk3oNEyR1kbgIwWHl7+jS88pmNrrCfD+4Mn/WBWyxoj7wD4l0H5P
-	tAXM3XJSMpoK+o38jg+NlOeWvA/IQDgByjzpe/qg356cM8/MwMpHSfwGx2J018zgN399Td2AeMVHI
-	nqcIy5HmAvJ+TSynttRg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pmWYTgynkvgBD+uM77KEXQPDTogdgg03IqQ5cV8AE9w=; b=D1Z92RlCn62fmbZWuT9D4nKRiD
+	xqi6Za9QmU5kqK5cJgGOCiTplYY0aZNyKH+3WqikJTYxWymWifeuUAtXMskOBjTlgJLFkPMr2YLKy
+	7DI2fpr8NEw/tOwBS5yDLtg6yBL4N1vCEVH5Rvr8joidtc68MBW5mYrffeOya8SC+3XGJqta1mQHF
+	o/t5YUK700vygfG5SvVsnkqCQMSB3YWoHnYfo8a6UUUEdokq4KOnxcb8n+s0tIDcD7BfPSn1YHuDO
+	xj8FJ2Aqfq9tkR5f3TNpXLkImXjX/fLIKlZU4O5f8YbkU1/3bZPt41EbIVBknVWUaILsEfd08ikYt
+	tj2DY7jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wByMj-0000000EWPH-0ItF;
-	Sun, 12 Apr 2026 17:12:57 +0000
+	id 1wByMk-0000000EWQA-3qMv;
+	Sun, 12 Apr 2026 17:12:58 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wByMg-0000000EWOV-0xEG
+	id 1wByMh-0000000EWOq-3m74
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Apr 2026 17:12:55 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63CE4sLk2783584
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 17:12:53 GMT
+	Sun, 12 Apr 2026 17:12:57 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 63CE4cY43560487
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 17:12:55 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=srk5XjvBrNGkwBnpptSv/E
-	hlZrJUSD3XjILm85b82iM=; b=ZXzz0EFsDxvudj6fHNXF1Nj4wHRMF7laUg1u8h
-	ugTVZ+koU5gvz4qO7GFYBQskNO6G9AG+iGzddD4tRt7BIoO7EfcHMT8HWkT1NdWL
-	2HHb2hQTAN1faySF65njLS/PNxKj6KTgeEltK3XwALflLO28XMICYAKI/vFvmEMT
-	MG5UB4mFT03GfXSIdi+2+zEMVEHr5msbIpz1LnP/GKst4AF4xOUAIdJ8vG1I7t/E
-	DUCX7ze7PBEH6+10Td2/bWPUjWKb7R+Vk1Lo3vgsqH+PQNt7rpaMvn7MKkQ/gnRp
-	hyGE3FJY7NIDHamvFQkz3pBkIcvyEwfty0neBzQXuqL3HHjQ==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dfjbpad8w-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	pmWYTgynkvgBD+uM77KEXQPDTogdgg03IqQ5cV8AE9w=; b=CaX2YV+AWf7cr90j
+	n4IjQpL7i0qqwrwGGBIVM7OZ3hdSocvRmXicGajkRqv/VtKDexIv03dqY8yHeZLe
+	zYmncyV0kLQ04NCACfhaRzaHSxv57Zq/9lPMcsL1fr4zHPK1e9z9Z4o1k1uw2cu/
+	oy2Tybq7RgYOeUHop3rDyrVZl4DdWOe6c56788C8ZDrBzKSIdbQ7tQu4wAsO+vQI
+	FxIgSoLa1uTkvO165Anq83W+k3ON+GC8H/fctWFmtUqGJJgJSnYdJCXJAKn1whn9
+	+13HVGPlLodS1pyn6/79/bf1pBQxvwJJFi9bx0J0Rl957EArM6nsW9hhArqyFi7L
+	maYzFA==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dffb0jphu-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 17:12:53 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-50b4076dc16so70004811cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 10:12:53 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 17:12:55 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-50b4076dc16so70005461cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Apr 2026 10:12:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1776013973; x=1776618773; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=srk5XjvBrNGkwBnpptSv/EhlZrJUSD3XjILm85b82iM=;
-        b=Yjhzd2c7AOiRQ/uFaGKrpynVPlRvYDRAxm56+ZGMHRa+o30xxd/WAQj+Rezj+9nXSX
-         P1yESpMEiU95eUk9eJsHO6gkI+15V/yoD7xnu9UO5yUR8j/QTS7TphJrYOzPA49CtgCe
-         D+HuIrBeUWCPw6v8XhHuMxpfS1DfDxFeH30gHXxtObra/EHL620ehdbLnBgSHnkEB6p9
-         ySJE0Db8vfWWhoO+ZNchHhno6x/oWsrqhmUXwBAyUAEpM+T+B4ITQ5HMC2vNCLXsydHA
-         ZlUR/nD8h7LzPEI9ZAVONTrR1WXUa+F9x1Hh0pWUHNYlXYT+S1LLsIRy0jwVShzEwCIP
-         ro3w==
+        d=oss.qualcomm.com; s=google; t=1776013974; x=1776618774; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pmWYTgynkvgBD+uM77KEXQPDTogdgg03IqQ5cV8AE9w=;
+        b=czLHh4FWTFcF3lNNydJ4rAOCwQilOgm957wEUflRTlvztx5eoYTYwo2J3I/uNBHuMK
+         HNP/yghHiFqo5H4Ldcm5YXbdvu7QwvvXtmr5kFAgkLwwHwyoDaJe5Ycbv4N5Mb2LICqX
+         HxMnDAOO7ZZ4cmUVih+hnR80wYyn2nmj4AU1PjGacihVPEVr2QH2iAOL1F8MG3gEeTAk
+         HYPDfIwlNZzXHuvWFux3x/CVUoqIrxpzp5O/hvIsqF9aRPg80qXb6ziWRJomq50pjCYj
+         6RwJ3H4nLndFm5oz6hF8HrRi3f3XAeWCuhM4MQbRuMzhzDuc5GAtIuPPrQmFpTQRalmc
+         1RGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1776013973; x=1776618773;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=srk5XjvBrNGkwBnpptSv/EhlZrJUSD3XjILm85b82iM=;
-        b=mOVU7qO68hLAQShMKdsTVvg7KBTu13lSQAM90//ZimtSp7g2QmeZXXmcaimlER22Bc
-         DjKIJLH83MZcou/1M2mymCY2FUxZkdZ4zuALu7V+C3jympLgiamxRCCwxnQj5WVHAtJn
-         ZjAcXUwLZ5YCnbgTQa11OSDHO459j6C75UBn78CqP9V98EJW92MMA5mJn4BrGhOqsKV5
-         RlFVCMiKioXKEYMM6EejkCgt7Q0zU8YdABRHtGsW3zxK8t8pmEa5vlOejF9Z4d2PGNID
-         b3Yh8Skr1uNzcfaamILfdEuNaSCFMRLYyTWjc9580l0nAuv4qtcWaybt5AZFwwZCCksc
-         Bong==
-X-Forwarded-Encrypted: i=1; AJvYcCVg6QLI9VlLk1XrwdIXoboLGS1mBp68aHoPTH8En5iyONP6HJaesvi8fomQLgyvr2os7YdJUZBU9rYwQh3f9Ov5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgehUdsVUkapGgAQ47KK34lwak4grpfQKcb5e5A3d5s7ayWT92
-	+oDQz3bbXPFSFbIgdzMFcujVH8fea4Pqiq224eIwmpsAQKVcFcZb1WDazb8tzGlB1xiDINBIp+3
-	FBOPaBckhdO8GsvKvIUGW5MVw5nMpHblkel7QEtYtQPTVbAaF5KeKq3zuZkRyBPzKmH+pKduRlQ
-	LVUA==
-X-Gm-Gg: AeBDievAojhr2WMvRtSwxyePS+l7uDUOIA55vLXo/n8v5me6eqtkQsgo1hPmjFptskl
-	XnDz/tDlztRe5nV6j3+kRxmHGoFLUVoIXYyKuQng1+4TLYNomxVf17cJcLvV59JGSSGEMB0KWqF
-	lQCctEUzfwyRvTzGccGkjx6nK/6rjqFk7UVICbtCg456vWqNcsNIchCM+ZtKYJffJ2cBznQVxGq
-	F9fqDFhoOZW8eApaK3pI3Nx3i1fkI+kxTQ+tbk9HZb10PSilBdZRsJbxs8oh5bRJnCb/NOjE4HB
-	UoSj3jypaMMUKnIPvlPndWN91FuXnTmAh2LyHhuCTepw9oFwx3NbJDzBTj1X82ItDtOsjHVyj1S
-	wUruRfp3X+dZSeoRF0iZ7SxYyFrdvdvE5YhGGS/5iaPqA
-X-Received: by 2002:a05:622a:3d0:b0:509:2135:ed5e with SMTP id d75a77b69052e-50dd5cc6a8amr153946721cf.32.1776013972590;
-        Sun, 12 Apr 2026 10:12:52 -0700 (PDT)
-X-Received: by 2002:a05:622a:3d0:b0:509:2135:ed5e with SMTP id d75a77b69052e-50dd5cc6a8amr153946161cf.32.1776013971995;
-        Sun, 12 Apr 2026 10:12:51 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1776013974; x=1776618774;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=pmWYTgynkvgBD+uM77KEXQPDTogdgg03IqQ5cV8AE9w=;
+        b=EvCY0CUc3tCgNwhLWqKGaK/3gRcB6u2zb8EpNBJwR3jw7ki6Maio6im2EdIAWtPkTf
+         phktoKSORSM3JsUw6htNA0wWVbeZ8nAkkjLRkt1csbqXov0LphT77Z1th6ZOkRY3IGb5
+         f1jqPFOAC7x193DHMCLQdFgi1LjlQ2t387OLuAf/ktUElrsmlzAfBwTD8vfS5xprJea/
+         Zo3cxocUN8lXf396CGO8jm6XfU+aIZtoHPgYUfGVVga1cFz9832C7xbKIz5CKmudpJlC
+         0mhrVuEv0AblKJG7ZxjIw7IRqITQ3KDtl9jXckEyDCuSE4KHAdvhfgkK9Z4V5ReExi9h
+         hNqw==
+X-Forwarded-Encrypted: i=1; AJvYcCUdjcK4+JloIonoH0OkvKsCoc+inGQ4jEjijtWyWo9+qBVo6Ug5HMAaPttNIkSBXjn80MepnOvAgIiMUQNMbG2T@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyx272ydGcRZYMpkEkbFpXEk1uE2rpj7O7nURTzDwpcsiC+zw7+
+	7z4hBfoPTHXldVT60P8d62AnrSdomrnoB/o60qkSspQ/9GCvf38z4QDq2s/4O7la195cCJBnNxV
+	iFV3p3fsaP0Gb88lr5h48keEHgA0xhKTvbUfEJNjb2cLwBgI3EUpKtYa7N/0A9IJ9S9VeFfPoKE
+	UKFA==
+X-Gm-Gg: AeBDieuwQuV/1hiTBnT7ulUjJDATV/SrWtOcd0szEQKuqxx8HWe3F2SJIExN4w3IIxG
+	kGsLH1PlP8oEVnsZRRN07XiotSofbuajmg2JAMQ9rDkk1qKS2BgIRI6B4uJtYhGD+yppts8xom0
+	aGflOf906Tg25fFeq1O4WnN7BKNWLAh0ZUqa44Q/lC4ZIdUbW/WoYVxadulROi2+R0DGaRl32yy
+	VET0sPKU5FAEL1juALb6NkqgrQi8l+3P+4R5iTlKw+5pcLAfqAbgr5y43hhswTOq5KLRY4ODzxL
+	kphI2bhfQ4o17DRVXRIA3nvXDUDAbGaynLZDmRhhjoNGBNvFxvwMZT9KfEenQFqpcCyEIBeYupd
+	Fw+B9NjjXK++8A/kjSTKHktVNmJKsDpAaIUe3ID91n6JM
+X-Received: by 2002:a05:622a:250a:b0:50b:6b21:2bf7 with SMTP id d75a77b69052e-50dd5a44875mr159814011cf.0.1776013974387;
+        Sun, 12 Apr 2026 10:12:54 -0700 (PDT)
+X-Received: by 2002:a05:622a:250a:b0:50b:6b21:2bf7 with SMTP id d75a77b69052e-50dd5a44875mr159813671cf.0.1776013973997;
+        Sun, 12 Apr 2026 10:12:53 -0700 (PDT)
 Received: from [127.0.1.1] ([178.197.219.94])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d63de3499sm23715547f8f.1.2026.04.12.10.12.50
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43d63de3499sm23715547f8f.1.2026.04.12.10.12.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Apr 2026 10:12:51 -0700 (PDT)
+        Sun, 12 Apr 2026 10:12:53 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH 0/5] ARM: configs: Cleanup redundant options
-Date: Sun, 12 Apr 2026 19:12:43 +0200
-Message-Id: <20260412-b4-defconfig-multi-v7-v1-0-e76de035c2df@oss.qualcomm.com>
+Date: Sun, 12 Apr 2026 19:12:44 +0200
+Subject: [PATCH 1/5] ARM: multi_v7_defconfig: Move entries to match
+ savedefconfig
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIvS22kC/yXMQQ6DIBBA0auYWTsJEIKlV2lcCA52mhYbUGNiv
- Luoy7f4f4NMiSnDs9og0cKZx1gg6wr8u4sDIffFoIQyQkuFTmNPwY8x8IC/+TsxLg0KI61uHsF
- ZY6G0/0SB1+v7am/n2X3IT+cM9v0AkNs2lHkAAAA=
-X-Change-ID: 20260412-b4-defconfig-multi-v7-0619478fb969
+Message-Id: <20260412-b4-defconfig-multi-v7-v1-1-e76de035c2df@oss.qualcomm.com>
+References: <20260412-b4-defconfig-multi-v7-v1-0-e76de035c2df@oss.qualcomm.com>
+In-Reply-To: <20260412-b4-defconfig-multi-v7-v1-0-e76de035c2df@oss.qualcomm.com>
 To: Nicolas Ferre <nicolas.ferre@microchip.com>,
         Alexandre Belloni <alexandre.belloni@bootlin.com>,
         Claudiu Beznea <claudiu.beznea@tuxon.dev>,
@@ -111,50 +112,50 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
         linux-kernel@vger.kernel.org,
         Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1204;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3806;
  i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=V16ee0StzK1dYlzzSsdKE8XXpyn1tb/4yuxsLyqL3qA=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBp29KN3EvhTueFPbGVpG9rZ/ezAR8i/lkQZluab
- YKgHvTuKHCJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCadvSjQAKCRDBN2bmhouD
- 1zM4D/9S8VKwhdclDIeBx4PsqxFnep+SsM8ZzqiXkIz7KBQ3r8ZvnakUc2pab0TyJN+ENXV/5sn
- RvlG0s3foouJ7Iejfwyor4LrpvHpoBcF8I/m4lAGSBJ+wHzdMQkQyOzPd+IrEqfMuHzdS74I5ef
- aYAm9Aq8px6OM2gr3VktRTTKUWmQgPIg/iYEmOarvEwgdNcCeyA9PpcuWBKe5Q1nn8lt74uzCW3
- zCEatXAuBXDL+RjJc96zC4TqX3iyB+rfxqdoPA59zzJS455DZGf62QHQty+lqDtEwZMs4CKRxhD
- S9BQ6MW1dwXKfJN9hai/YYUGr6YJUfBYsau7ANq1JtjFlA8OJ97/H7TcB8TGiTdQnSlEiqClI7E
- TcNcE2ihTk7Ut5NHxj6w0eGvvOQgVKA7tDxgrRwVsEnPkwY26sm/9WK8XRAeDItiO9jqISd0aMm
- 3yMdooyP3iOIg8rueg5yxnF6CjGqQLmdCN1yFbF6s+e+B9Rh6XFL4/GL3GC6jfyVTZjqXBEMYkd
- 4O19VMa7/COXN7mv0uMlLAEczINNsPwX0yecjHw1sEzFwfpjYkTvneq5xSyTz4t4/QSRkvM/16k
- UWxRHNW7xLMNwzBy0FTxbBBX9St01+Mle7YNmeaX1TVvbb8ma13E7mvb7IkVvSLJHyLiZzG9Z04
- D73XNM7n+l4Jt6Q==
+ bh=YV3YfCEMXg/5PND6vVExXVVeEAoJHpkm1JRVpD4pXyk=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBp29KOqLrYx0npCq6gwpwF2lTOgGsbgP/31ghaw
+ E6eVAzbGdiJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCadvSjgAKCRDBN2bmhouD
+ 11DyEACUql4jcZA1f03hJCGBKd2/QaO8Lsp3pfN0Y9n4Fa4+YOlrZQPo/ocbQgIyeAskROqqwDT
+ kN9NftU8St6U7BjNmdI9inAGSj1tFf2bbExZFmgjFK87XqLMN/RpQb7NELew0dbjBpjGSVP82Ja
+ uzdH6vgMSzStwHQUEa3tN48ZFZHEIufBHxe556qFjKOwKtlXvdnJTMxcrX+rir2XPGbT1dVKxEa
+ bHzwd37EiT7VymCR99Fj83EMYwnXZei3pRe0DRr4Kr+rRRBSqNXcc+7aBIxlOIr2CuI4zXxraYp
+ Gca+OD8qRWwX4Qd+5i2JW88q+URmLaCh8ragxeu9puMztl7+XTeD5hNGLczpANRDdmpPgl7qnN9
+ buv3j1Y0TJaaSD6nn82Ep7AN3okLHFZYz53uUK9QL20PyARVSJWSCCSW4TlW+DSDgrglcm7G7hv
+ BtP9z17m67fZxL6SnFfyn2prLOfwWvsCHaVzJQlk2q73yvVBOPVY7YZCcSUKY7LcjRqx4192RfN
+ JIhIxCx8T77oZI7naeoZXYIa8OxuLWTuJ/pK17DpEx0Kh5+Nfp1fEBlCqQl/emVXQHYjVah/jlj
+ NXzSZCSyzxaWM8VPE1KWbM5DT2LvkDk4gVzORl/U1ZhKoHMT6f8ceqGm06/FOVqoOCkack+2yOD
+ guMcBteMNhFCTVg==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Authority-Analysis: v=2.4 cv=PuijqQM3 c=1 sm=1 tr=0 ts=69dbd295 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
+X-Authority-Analysis: v=2.4 cv=YfmNIQRf c=1 sm=1 tr=0 ts=69dbd297 cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=gOEeR9iKwsj33Yj5oN/cWg==:17
  a=IkcTkHD0fZMA:10 a=A5OVakUREuEA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=EUspDBNiAAAA:8 a=BXN8pGxehkP936TjXAoA:9 a=QEXdDO2ut3YA:10
- a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-ORIG-GUID: Mwf8-aoVki95LUsDkcC6jv9GP45ETNLE
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEyMDE2NyBTYWx0ZWRfX7UFPt2m/NZvj
- Yv18vT9liysaJ2/JlNzHeFwJJyeh99cNyDAu9WcHKB6nwd3Q9XqzQxLpBKjsmSmfG3s2WgrefMd
- LkG9FsQRPpirbimxbFygGKt+RSKqxGQxiEet21OgXEpxqCT3/+LCi4b0yNP6E8ChbSR4JLQlrgU
- 0xh5IsTJMvfyJ1agJ0tpuJk56lbEotS2R9VG1tcb9szks3OQVM6+1XO8MIim/MA+IbtdxkzyCdi
- ZRgbxfUS0g9KApHpY4w/PRRUQ5Q1suXHsNRI5TR2wWYJeHvRoespoGUmjQzmBDNvttJ/7MdzzRy
- diZFgKj23A/cUNB6JHBoR1DvL9/foxQJI/nQ0g51ky1e0O7AOow7uADOj4A3KkdZayeZwzLyvEL
- u6Ojb8vLj4wosUbNtuS6zB7nsSMckiwOX18tZ1W2QYF/hs5pOM+N3gGfB06uRESlLwi44xuzdvl
- j9zBRwRVwp9xEoBxnTg==
-X-Proofpoint-GUID: Mwf8-aoVki95LUsDkcC6jv9GP45ETNLE
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=EUspDBNiAAAA:8 a=2ShsH9uPjTmnt004chwA:9 a=QEXdDO2ut3YA:10
+ a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNDEyMDE2OCBTYWx0ZWRfX+KPzH3sHJk5V
+ NFzvdAd9O36L1XY/Vnnk8gNKKrlTrDYfI+fXM0pWorlkbcG2577otZSn2H8/cMNXyiEbSQzXw8T
+ WGaVbSBmwF3cNAYjN9JfUMovUks7Gzjyr2czQ9VpBP/yk12q2fn9eaz+06l6JJwDspxWmhh2cCE
+ uPSYtow8K5M0EJjri9XiTHMgXRyaaVT1Eqs4AG/YbXnKHlDx0ufX5ztJuU8UCY8eG1PMMCbz5Fh
+ xR96L8r04u9pSOSMIl1LPGmC8eX3JIRit8+5xYyF5W/eVKNMw4AAzybvUA3CXYiIpt5ZadNhgY7
+ F6xtcRsGgal5DkNkQLpbcKc5GNtTTgPq4JPn0lgBkHaX+TgZkb3aCehSK2ZJbDFMcUFIOewGy/l
+ fNcoGIxOGduZT77t7Z4ksglvj8/NEaSbAV7+uS3bxyQjI+3iTArx3rbVJJDthwtWWborHakdjvG
+ xkmOp6p8C3DT/2aI6qQ==
+X-Proofpoint-ORIG-GUID: z8Ml-fnsrudwyfqOeL6dm1m6H4n_GnsB
+X-Proofpoint-GUID: z8Ml-fnsrudwyfqOeL6dm1m6H4n_GnsB
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-04-12_04,2026-04-09_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 suspectscore=0 spamscore=0 phishscore=0
- malwarescore=0 clxscore=1015 impostorscore=0 adultscore=0 bulkscore=0
+ lowpriorityscore=0 impostorscore=0 adultscore=0 phishscore=0 malwarescore=0
+ spamscore=0 suspectscore=0 clxscore=1015 priorityscore=1501 bulkscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604120167
+ reason=mlx scancount=1 engine=8.22.0-2604010000 definitions=main-2604120168
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260412_101254_296360_7DB53E30 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20260412_101256_765796_170CF943 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,37 +170,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-No functional impact (verified autoconf.h).
+Only re-shuffle entries to match savedefconfig, without removing any
+symbols.  This helps in reviewing defconfig when comparing with
+savedefconfig and looking for obsolete symbols.  No impact on
+include/generated/autoconf.h.
 
-Best regards,
-Krzysztof
-
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
-Krzysztof Kozlowski (5):
-      ARM: multi_v7_defconfig: Move entries to match savedefconfig
-      ARM: configs: Drop redundant I2C_DESIGNWARE_PLATFORM
-      ARM: configs: Drop redundant SND_ATMEL_SOC
-      ARM: multi_v7_defconfig: Cleanup redundant options
-      ARM: multi_v7_defconfig: Correct QCOM_RPMH and QCOM_RPMHPD
+ arch/arm/configs/multi_v7_defconfig | 82 ++++++++++++++++++-------------------
+ 1 file changed, 41 insertions(+), 41 deletions(-)
 
- arch/arm/configs/at91_dt_defconfig   |  1 -
- arch/arm/configs/hisi_defconfig      |  1 -
- arch/arm/configs/multi_v5_defconfig  |  1 -
- arch/arm/configs/multi_v7_defconfig  | 95 ++++++++++++++++--------------------
- arch/arm/configs/pxa_defconfig       |  2 -
- arch/arm/configs/sama5_defconfig     |  1 -
- arch/arm/configs/sama7_defconfig     |  1 -
- arch/arm/configs/socfpga_defconfig   |  1 -
- arch/arm/configs/spear13xx_defconfig |  1 -
- arch/arm/configs/spear3xx_defconfig  |  1 -
- arch/arm/configs/spear6xx_defconfig  |  1 -
- 11 files changed, 43 insertions(+), 63 deletions(-)
----
-base-commit: cc27764c3072c53e1b5df83fc2e46fe1e99b8c19
-change-id: 20260412-b4-defconfig-multi-v7-0619478fb969
+diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+index bcc9aabc1202..c477454a4694 100644
+--- a/arch/arm/configs/multi_v7_defconfig
++++ b/arch/arm/configs/multi_v7_defconfig
+@@ -360,9 +360,9 @@ CONFIG_SERIAL_8250_CONSOLE=y
+ CONFIG_SERIAL_8250_NR_UARTS=5
+ CONFIG_SERIAL_8250_RUNTIME_UARTS=5
+ CONFIG_SERIAL_8250_EXTENDED=y
++CONFIG_SERIAL_8250_SHARE_IRQ=y
+ CONFIG_SERIAL_8250_MANY_PORTS=y
+ CONFIG_SERIAL_8250_ASPEED_VUART=m
+-CONFIG_SERIAL_8250_SHARE_IRQ=y
+ CONFIG_SERIAL_8250_BCM2835AUX=y
+ CONFIG_SERIAL_8250_DW=y
+ CONFIG_SERIAL_8250_EM=y
+@@ -731,40 +731,8 @@ CONFIG_VIDEO_ADV7604_CEC=y
+ CONFIG_VIDEO_ML86V7667=m
+ CONFIG_IMX_IPUV3_CORE=m
+ CONFIG_DRM=y
+-CONFIG_DRM_NOUVEAU=m
+-# CONFIG_DRM_NOUVEAU_CH7006 is not set
+-# CONFIG_DRM_NOUVEAU_SIL164 is not set
+-CONFIG_DRM_EXYNOS=m
+-CONFIG_DRM_EXYNOS_FIMD=y
+-CONFIG_DRM_EXYNOS_MIXER=y
+-CONFIG_DRM_EXYNOS_DPI=y
+-CONFIG_DRM_EXYNOS_DSI=y
+-CONFIG_DRM_EXYNOS_HDMI=y
+-CONFIG_DRM_ROCKCHIP=m
+-CONFIG_ROCKCHIP_ANALOGIX_DP=y
+-CONFIG_ROCKCHIP_DW_HDMI=y
+-CONFIG_ROCKCHIP_DW_MIPI_DSI=y
+-CONFIG_ROCKCHIP_INNO_HDMI=y
++CONFIG_DRM_ASPEED_GFX=m
+ CONFIG_DRM_ATMEL_HLCDC=m
+-CONFIG_DRM_RCAR_DU=m
+-CONFIG_DRM_SUN4I=m
+-CONFIG_DRM_OMAP=m
+-CONFIG_OMAP5_DSS_HDMI=y
+-CONFIG_DRM_TILCDC=m
+-CONFIG_DRM_MSM=m
+-CONFIG_DRM_FSL_DCU=m
+-CONFIG_DRM_TEGRA=y
+-CONFIG_DRM_STM=m
+-CONFIG_DRM_STM_DSI=m
+-CONFIG_DRM_PANEL_LVDS=m
+-CONFIG_DRM_PANEL_ORISETECH_OTM8009A=m
+-CONFIG_DRM_PANEL_RAYDIUM_RM68200=m
+-CONFIG_DRM_PANEL_SAMSUNG_LD9040=m
+-CONFIG_DRM_PANEL_SAMSUNG_S6E63J0X03=m
+-CONFIG_DRM_PANEL_SAMSUNG_S6E8AA0=m
+-CONFIG_DRM_PANEL_SHARP_LQ101R1SX01=m
+-CONFIG_DRM_PANEL_EDP=y
+-CONFIG_DRM_PANEL_SIMPLE=y
+ CONFIG_DRM_DISPLAY_CONNECTOR=m
+ CONFIG_DRM_I2C_NXP_TDA998X=m
+ CONFIG_DRM_ITE_IT66121=m
+@@ -780,20 +748,52 @@ CONFIG_DRM_TI_TFP410=m
+ CONFIG_DRM_TI_TPD12S015=m
+ CONFIG_DRM_I2C_ADV7511=m
+ CONFIG_DRM_I2C_ADV7511_AUDIO=y
+-CONFIG_DRM_STI=m
++CONFIG_DRM_ETNAVIV=m
++CONFIG_DRM_EXYNOS=m
++CONFIG_DRM_EXYNOS_FIMD=y
++CONFIG_DRM_EXYNOS_MIXER=y
++CONFIG_DRM_EXYNOS_DPI=y
++CONFIG_DRM_EXYNOS_DSI=y
++CONFIG_DRM_EXYNOS_HDMI=y
++CONFIG_DRM_FSL_DCU=m
+ CONFIG_DRM_IMX=m
+ CONFIG_DRM_IMX_PARALLEL_DISPLAY=m
+ CONFIG_DRM_IMX_TVE=m
+ CONFIG_DRM_IMX_LDB=m
+ CONFIG_DRM_IMX_HDMI=m
++CONFIG_DRM_LIMA=m
++CONFIG_DRM_MSM=m
++CONFIG_DRM_MXSFB=m
++CONFIG_DRM_NOUVEAU=m
++# CONFIG_DRM_NOUVEAU_CH7006 is not set
++# CONFIG_DRM_NOUVEAU_SIL164 is not set
++CONFIG_DRM_OMAP=m
++CONFIG_OMAP5_DSS_HDMI=y
++CONFIG_DRM_PANEL_LVDS=m
++CONFIG_DRM_PANEL_ORISETECH_OTM8009A=m
++CONFIG_DRM_PANEL_RAYDIUM_RM68200=m
++CONFIG_DRM_PANEL_SAMSUNG_LD9040=m
++CONFIG_DRM_PANEL_SAMSUNG_S6E63J0X03=m
++CONFIG_DRM_PANEL_SAMSUNG_S6E8AA0=m
++CONFIG_DRM_PANEL_SHARP_LQ101R1SX01=m
++CONFIG_DRM_PANEL_EDP=y
++CONFIG_DRM_PANEL_SIMPLE=y
++CONFIG_DRM_PANFROST=m
++CONFIG_DRM_PL111=m
++CONFIG_DRM_RCAR_DU=m
++CONFIG_DRM_ROCKCHIP=m
++CONFIG_ROCKCHIP_ANALOGIX_DP=y
++CONFIG_ROCKCHIP_DW_HDMI=y
++CONFIG_ROCKCHIP_DW_MIPI_DSI=y
++CONFIG_ROCKCHIP_INNO_HDMI=y
++CONFIG_DRM_STI=m
++CONFIG_DRM_STM=m
++CONFIG_DRM_STM_DSI=m
++CONFIG_DRM_SUN4I=m
++CONFIG_DRM_TEGRA=y
++CONFIG_DRM_TILCDC=m
+ CONFIG_DRM_V3D=m
+ CONFIG_DRM_VC4=m
+-CONFIG_DRM_ETNAVIV=m
+-CONFIG_DRM_MXSFB=m
+-CONFIG_DRM_PL111=m
+-CONFIG_DRM_LIMA=m
+-CONFIG_DRM_PANFROST=m
+-CONFIG_DRM_ASPEED_GFX=m
+ CONFIG_FB=y
+ CONFIG_FB_EFI=y
+ CONFIG_FB_WM8505=y
 
-Best regards,
---  
-Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+-- 
+2.51.0
 
 
