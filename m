@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CEB7F34C43
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 11:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13695F34C49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Apr 2026 12:10:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4IjyGsFE0RAc+jCgnm01ouXsvsI/sEbPMxALfKo5KqA=; b=whoJaMjSq2OPSMGhG6N7t03DMp
-	llzSyMQ4QhMK4FoFgjymzIfxqMBKhCeqDot57vvce5wRrpenXLhgN/VAnDCGozLE2e2sARTD3xmoV
-	3Hd8W4cy++IcCO26OVbqrCY1W2nCSxMyciYGgHzHkrohq6U/1xdCh/YTLh8UI+/EpoBzfAk3L4Hna
-	+JOJZXD8jDW4+OoQ+xO/EpkUZyne1tyiPuIGEV54kp2u8b6SRAx0ESnHJXyL9XHfUZCssTelZis/+
-	nEvzZXF5TePRRzkqu9S8vNmCompg2ES+n0drf7tsHqFPdJSOFpZLW5BnGCeZBuiH2uOEoiFN86z8O
-	p1uNe16g==;
+	bh=dhpDLI3GbjEnq5ea2C3CSlaeOYOoDERSaq/PhF217/g=; b=DfE20NY7Ic36Plbano7u2Nz/Z6
+	NkxWOKbLihtPa/stJyQKm1UnMUuQVcKhpC6GnF3uITV/UdWE9XgPVwZHlSWDbzCPCMwIQf6OlK1Su
+	h/73YsQfy3M3axnGBDNQSjNPZlMsA/+gsIOgNSmgohPj6QBQJ5W2pYVkKuCWg7wAVetAS5cmkxK34
+	K2ySlAS9jaoKTAPTM4O+fI9FwMNW2PkqpwyMbKOUWDBgdRaGipAJvf/Du6gYBKi47nQFV9HGB6Bqi
+	4OhDlqnKsop7L8qT5/LSh8wN0CnQIJBuRYjhIZ7cPRh1QQO8jpkK1UHX5bxIHcZk+LsrJ2lEMcGLr
+	uqqvYjnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCFnD-0000000FbrM-37NC;
-	Mon, 13 Apr 2026 11:49:27 +0000
-Received: from out-181.mta1.migadu.com ([95.215.58.181])
+	id 1wCG7V-0000000FcdT-1yiD;
+	Mon, 13 Apr 2026 12:10:25 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wCFnA-0000000FblU-2mfR
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Apr 2026 11:49:26 +0000
-Message-ID: <a598cd04-9db6-43bf-a3d5-9320bdf395bd@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1776080934;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4IjyGsFE0RAc+jCgnm01ouXsvsI/sEbPMxALfKo5KqA=;
-	b=uNsNyeBwjHPn6FGcHCAZ0gkvp9Rf069Jfz4KJaa1ShSN3nv64PsSgYgIJx+mLck2JyaZ7B
-	MAnIwjK2Ll9hNcQ/2scX+lSDzwcjnW3/I3ypkn5N0btau4+Yxsd+IHFbQzENNKzjkapYMI
-	oyZa1Dsf9k0v5bGaLhFv4bO5NHcIOVY=
-Date: Mon, 13 Apr 2026 12:48:42 +0100
+	id 1wCG7S-0000000Fcd3-0YTn;
+	Mon, 13 Apr 2026 12:10:24 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 406224E4296E;
+	Mon, 13 Apr 2026 12:10:17 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id EEFD25FFB9;
+	Mon, 13 Apr 2026 12:10:16 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AA50A104500A2;
+	Mon, 13 Apr 2026 14:10:02 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1776082215; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=dhpDLI3GbjEnq5ea2C3CSlaeOYOoDERSaq/PhF217/g=;
+	b=XgDbUsd0kza50SBVz4+wc3tba3Gea/Rw9Wtl9Oh3cj1zYYyx83GshUatFgLe99itaxWAJf
+	dbLqFjb/kWwi0Lrqgc0awLQeFS+zivNYqgAQVEqYi8w3nolcV+k65uHo3kdCaoU8FmQRYi
+	FNnxTfJNQn5FvhrAeOubTD8A5Hs74ZXx+AAtTu4zM20gVeAwAclh1G1dVmBb9dY1Eir7Jq
+	fvH5aaDiIW27DKzBoQbqfzu2fOc/1o1RsElFMmpjnd6CCy0Z1XUpibM/HsTJ3u3RLvDctq
+	J8mv0Uvt+qvEaqgfRTVFVct2t/QHp9kY5w5CLgxJtUaDj7TEc6nIau/Ea77HiQ==
+Date: Mon, 13 Apr 2026 14:10:00 +0200
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Ville =?UTF-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>, Jani
+ Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi
+ <rodrigo.vivi@intel.com>, Joonas Lahtinen
+ <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Dave
+ Airlie <airlied@redhat.com>, Jesse Barnes <jbarnes@virtuousgeek.org>, Eric
+ Anholt <eric@anholt.net>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Chun-Kuang Hu
+ <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Chris Wilson
+ <chris@chris-wilson.co.uk>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, Mark Yacoub <markyacoub@google.com>, Sean
+ Paul <seanpaul@google.com>, Louis Chauvet <louis.chauvet@bootlin.com>,
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Simona Vetter <simona.vetter@ffwll.ch>
+Subject: Re: [PATCH RFC 00/12] Add support for DisplayPort link training
+ information report
+Message-ID: <20260413141000.0e190dcc@kmaincent-XPS-13-7390>
+In-Reply-To: <u4ononk4cpccx77gvlywtfen5rmyslvr72v7olkhdrjf65aqce@xo777vofhcan>
+References: <20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com>
+	<adgNxaFhbQaxC5E_@intel.com>
+	<u4ononk4cpccx77gvlywtfen5rmyslvr72v7olkhdrjf65aqce@xo777vofhcan>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 2/4] mm: use tiered folio allocation for VM_EXEC
- readahead
-Content-Language: en-GB
-To: Jan Kara <jack@suse.cz>
-Cc: Andrew Morton <akpm@linux-foundation.org>, david@kernel.org,
- willy@infradead.org, ryan.roberts@arm.com, linux-mm@kvack.org, r@hev.cc,
- ajd@linux.ibm.com, apopple@nvidia.com, baohua@kernel.org,
- baolin.wang@linux.alibaba.com, brauner@kernel.org, catalin.marinas@arm.com,
- dev.jain@arm.com, kees@kernel.org, kevin.brodsky@arm.com,
- lance.yang@linux.dev, Liam.Howlett@oracle.com,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, Lorenzo Stoakes <ljs@kernel.org>,
- mhocko@suse.com, npache@redhat.com, pasha.tatashin@soleen.com,
- rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com,
- vbabka@kernel.org, Al Viro <viro@zeniv.linux.org.uk>,
- wilts.infradead.org@quack3, ziy@nvidia.com, hannes@cmpxchg.org,
- kas@kernel.org, shakeel.butt@linux.dev, leitao@debian.org,
- kernel-team@meta.com
-References: <20260402181326.3107102-1-usama.arif@linux.dev>
- <20260402181326.3107102-3-usama.arif@linux.dev>
- <aji7zs42th272khtxesk6dfcrgf7ddr5r5n62wgzeqooyexgxf@5ns3i47f5nlg>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Usama Arif <usama.arif@linux.dev>
-In-Reply-To: <aji7zs42th272khtxesk6dfcrgf7ddr5r5n62wgzeqooyexgxf@5ns3i47f5nlg>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260413_044925_013931_1F0207E8 
-X-CRM114-Status: GOOD (  36.95  )
+X-CRM114-CacheID: sfid-20260413_051022_670161_1A00D551 
+X-CRM114-Status: GOOD (  20.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,232 +99,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 10 Apr 2026 00:36:09 +0300
+Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com> wrote:
 
+> On Thu, Apr 09, 2026 at 11:36:21PM +0300, Ville Syrj=C3=A4l=C3=A4 wrote:
+> > On Thu, Apr 09, 2026 at 07:08:16PM +0200, Kory Maincent wrote: =20
+> > > DisplayPort link training negotiates the physical-layer parameters ne=
+eded
+> > > for a reliable connection: lane count, link rate, voltage swing,
+> > > pre-emphasis, and optionally Display Stream Compression (DSC). Curren=
+tly,
+> > > each driver exposes this state in its own way, often through
+> > > driver-specific debugfs entries, with no standard interface for users=
+pace
+> > > diagnostic and monitoring tools.
+> > >=20
+> > > This series introduces a generic, DRM-managed framework for exposing =
+DP
+> > > link training state as standard connector properties, modeled after t=
+he
+> > > existing HDMI helper drmm_connector_hdmi_init().
+> > >=20
+> > > The new drmm_connector_dp_init() helper initializes a DP connector and
+> > > registers the following connector properties to expose the negotiated=
+ link
+> > > state to userspace:
+> > >=20
+> > > - num_lanes:      negotiated lane count (1, 2 or 4)
+> > > - link_rate:      negotiated link rate
+> > > - dsc_en:         whether Display Stream Compression is active
+> > > - voltage_swingN: per-lane voltage swing level (lanes 0-3)
+> > > - pre_emphasisN:  per-lane pre-emphasis level (lanes 0-3) =20
+> >=20
+> > I don't see why any real userspace would be interested in those (apart
+> > from maybe DSC). If this is just for diagnostics and whatnot then I
+> > think sysfs/debugfs could be a better fit. =20
+>=20
+> I'd agree here. Please consider implementing it as a debugfs interface,
+> possibly reusing the Intel's format.
 
-On 13/04/2026 12:03, Jan Kara wrote:
-> On Thu 02-04-26 11:08:23, Usama Arif wrote:
->> When executable pages are faulted via do_sync_mmap_readahead(), request
->> a folio order that enables the best hardware TLB coalescing available:
->>
->> - If the VMA is large enough to contain a full PMD, request
->>   HPAGE_PMD_ORDER so the folio can be PMD-mapped. This benefits
->>   architectures where PMD_SIZE is reasonable (e.g. 2M on x86-64
->>   and arm64 with 4K pages). VM_EXEC VMAs are very unlikely to be
->>   large enough for 512M pages on ARM to take into affect.
-> 
-> I'm not sure relying on PMD_SIZE will be too much for a VMA is a great
-> strategy. With 16k PAGE_SIZE the PMD would be 32MB large which would fit in
-> the .text size but already looks a bit too much? Mapping with PMD sized
-> folios brings some benefits but at the same time it costs because now parts
-> of VMA that would be never paged in are pulled into memory and also LRU
-> tracking now happens with this very large granularity making it fairly
-> inefficient (big folios have much higher chances of getting accessed
-> similarly often making LRU order mostly random). We are already getting
-> reports of people with small machines (phones etc.) where the memory
-> overhead of large folios (in the page cache) is simply too much. So I'd
-> have a bigger peace of mind if we capped folio size at 2MB for now until we
-> come with a more sophisticated heuristic of picking sensible folio order
-> given the machine size. Now I'm not really an MM person so my feeling here
-> may be just wrong but I wanted to voice this concern from what I can see...
-> 
-> 								Honza
-> 
-> 
+Sorry, I completely forgot to include a paragraph explaining the rationale
+behind using DRM properties.
 
-Thanks for the feedback! I agree, it makes sense. I did that in the previous
-revision [1]. I will reinistante that in the next one.
+This DisplayPort link information report was requested by OSes to allow the=
+m to
+assess the capabilities of each DisplayPort connector on the system, and to
+guide users from the most to least capable ones. It will also enable the OS=
+ to
+warn the user when a cable is too long or experiencing noise (indicated by =
+high
+voltage swing and pre-emphasis levels).
 
-[1] https://lore.kernel.org/all/20260320140315.979307-3-usama.arif@linux.dev/
+Since this is information that OSes will consume on a regular basis, exposi=
+ng
+it directly as DRM properties seems the most appropriate approach.=20
 
->> - Otherwise, fall back to exec_folio_order(), which returns the
->>   minimum order for hardware PTE coalescing for arm64:
->>   - arm64 4K:  order 4 (64K) for contpte (16 PTEs → 1 iTLB entry)
->>   - arm64 16K: order 2 (64K) for HPA (4 pages → 1 TLB entry)
->>   - arm64 64K: order 5 (2M) for contpte (32 PTEs → 1 iTLB entry)
->>   - generic:   order 0 (no coalescing)
->>
->> Update the arm64 exec_folio_order() to return ilog2(SZ_2M >>
->> PAGE_SHIFT) on 64K page configurations, where the previous SZ_64K
->> value collapsed to order 0 (a single page) and provided no coalescing
->> benefit.
->>
->> Use ~__GFP_RECLAIM so the allocation is opportunistic: if a large
->> folio is readily available, use it, otherwise fall back to smaller
->> folios without stalling on reclaim or compaction. The existing fallback
->> in page_cache_ra_order() handles this naturally.
->>
->> The readahead window is already clamped to the VMA boundaries, so
->> ra->size naturally caps the folio order via ilog2(ra->size) in
->> page_cache_ra_order().
->>
->> Signed-off-by: Usama Arif <usama.arif@linux.dev>
->> ---
->>  arch/arm64/include/asm/pgtable.h | 16 +++++++++----
->>  mm/filemap.c                     | 40 +++++++++++++++++++++++---------
->>  mm/internal.h                    |  3 ++-
->>  mm/readahead.c                   |  7 +++---
->>  4 files changed, 45 insertions(+), 21 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->> index 52bafe79c10a..9ce9f73a6f35 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -1591,12 +1591,18 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
->>  #define arch_wants_old_prefaulted_pte	cpu_has_hw_af
->>  
->>  /*
->> - * Request exec memory is read into pagecache in at least 64K folios. This size
->> - * can be contpte-mapped when 4K base pages are in use (16 pages into 1 iTLB
->> - * entry), and HPA can coalesce it (4 pages into 1 TLB entry) when 16K base
->> - * pages are in use.
->> + * Request exec memory is read into pagecache in folios large enough for
->> + * hardware TLB coalescing. On 4K and 16K page configs this is 64K, which
->> + * enables contpte mapping (16 × 4K) and HPA coalescing (4 × 16K). On
->> + * 64K page configs, contpte requires 2M (32 × 64K).
->>   */
->> -#define exec_folio_order() ilog2(SZ_64K >> PAGE_SHIFT)
->> +#define exec_folio_order exec_folio_order
->> +static inline unsigned int exec_folio_order(void)
->> +{
->> +	if (PAGE_SIZE == SZ_64K)
->> +		return ilog2(SZ_2M >> PAGE_SHIFT);
->> +	return ilog2(SZ_64K >> PAGE_SHIFT);
->> +}
->>  
->>  static inline bool pud_sect_supported(void)
->>  {
->> diff --git a/mm/filemap.c b/mm/filemap.c
->> index a4ea869b2ca1..7ffea986b3b4 100644
->> --- a/mm/filemap.c
->> +++ b/mm/filemap.c
->> @@ -3311,6 +3311,7 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
->>  	DEFINE_READAHEAD(ractl, file, ra, mapping, vmf->pgoff);
->>  	struct file *fpin = NULL;
->>  	vm_flags_t vm_flags = vmf->vma->vm_flags;
->> +	gfp_t gfp = readahead_gfp_mask(mapping);
->>  	bool force_thp_readahead = false;
->>  	unsigned short mmap_miss;
->>  
->> @@ -3363,28 +3364,45 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
->>  			ra->size *= 2;
->>  		ra->async_size = HPAGE_PMD_NR;
->>  		ra->order = HPAGE_PMD_ORDER;
->> -		page_cache_ra_order(&ractl, ra);
->> +		page_cache_ra_order(&ractl, ra, gfp);
->>  		return fpin;
->>  	}
->>  
->>  	if (vm_flags & VM_EXEC) {
->>  		/*
->> -		 * Allow arch to request a preferred minimum folio order for
->> -		 * executable memory. This can often be beneficial to
->> -		 * performance if (e.g.) arm64 can contpte-map the folio.
->> -		 * Executable memory rarely benefits from readahead, due to its
->> -		 * random access nature, so set async_size to 0.
->> +		 * Request large folios for executable memory to enable
->> +		 * hardware PTE coalescing and PMD mappings:
->>  		 *
->> -		 * Limit to the boundaries of the VMA to avoid reading in any
->> -		 * pad that might exist between sections, which would be a waste
->> -		 * of memory.
->> +		 *  - If the VMA is large enough for a PMD, request
->> +		 *    HPAGE_PMD_ORDER so the folio can be PMD-mapped.
->> +		 *  - Otherwise, use exec_folio_order() which returns
->> +		 *    the minimum order for hardware TLB coalescing
->> +		 *    (e.g. arm64 contpte/HPA).
->> +		 *
->> +		 * Use ~__GFP_RECLAIM so large folio allocation is
->> +		 * opportunistic — if memory isn't readily available,
->> +		 * fall back to smaller folios rather than stalling on
->> +		 * reclaim or compaction.
->> +		 *
->> +		 * Executable memory rarely benefits from speculative
->> +		 * readahead due to its random access nature, so set
->> +		 * async_size to 0.
->> +		 *
->> +		 * Limit to the boundaries of the VMA to avoid reading
->> +		 * in any pad that might exist between sections, which
->> +		 * would be a waste of memory.
->>  		 */
->> +		gfp &= ~__GFP_RECLAIM;
->>  		struct vm_area_struct *vma = vmf->vma;
->>  		unsigned long start = vma->vm_pgoff;
->>  		unsigned long end = start + vma_pages(vma);
->>  		unsigned long ra_end;
->>  
->> -		ra->order = exec_folio_order();
->> +		if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) &&
->> +		    vma_pages(vma) >= HPAGE_PMD_NR)
->> +			ra->order = HPAGE_PMD_ORDER;
->> +		else
->> +			ra->order = exec_folio_order();
->>  		ra->start = round_down(vmf->pgoff, 1UL << ra->order);
->>  		ra->start = max(ra->start, start);
->>  		ra_end = round_up(ra->start + ra->ra_pages, 1UL << ra->order);
->> @@ -3403,7 +3421,7 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
->>  
->>  	fpin = maybe_unlock_mmap_for_io(vmf, fpin);
->>  	ractl._index = ra->start;
->> -	page_cache_ra_order(&ractl, ra);
->> +	page_cache_ra_order(&ractl, ra, gfp);
->>  	return fpin;
->>  }
->>  
->> diff --git a/mm/internal.h b/mm/internal.h
->> index 475bd281a10d..e624cb619057 100644
->> --- a/mm/internal.h
->> +++ b/mm/internal.h
->> @@ -545,7 +545,8 @@ int zap_vma_for_reaping(struct vm_area_struct *vma);
->>  int folio_unmap_invalidate(struct address_space *mapping, struct folio *folio,
->>  			   gfp_t gfp);
->>  
->> -void page_cache_ra_order(struct readahead_control *, struct file_ra_state *);
->> +void page_cache_ra_order(struct readahead_control *, struct file_ra_state *,
->> +			 gfp_t gfp);
->>  void force_page_cache_ra(struct readahead_control *, unsigned long nr);
->>  static inline void force_page_cache_readahead(struct address_space *mapping,
->>  		struct file *file, pgoff_t index, unsigned long nr_to_read)
->> diff --git a/mm/readahead.c b/mm/readahead.c
->> index 7b05082c89ea..b3dc08cf180c 100644
->> --- a/mm/readahead.c
->> +++ b/mm/readahead.c
->> @@ -465,7 +465,7 @@ static inline int ra_alloc_folio(struct readahead_control *ractl, pgoff_t index,
->>  }
->>  
->>  void page_cache_ra_order(struct readahead_control *ractl,
->> -		struct file_ra_state *ra)
->> +		struct file_ra_state *ra, gfp_t gfp)
->>  {
->>  	struct address_space *mapping = ractl->mapping;
->>  	pgoff_t start = readahead_index(ractl);
->> @@ -475,7 +475,6 @@ void page_cache_ra_order(struct readahead_control *ractl,
->>  	pgoff_t mark = index + ra->size - ra->async_size;
->>  	unsigned int nofs;
->>  	int err = 0;
->> -	gfp_t gfp = readahead_gfp_mask(mapping);
->>  	unsigned int new_order = ra->order;
->>  
->>  	trace_page_cache_ra_order(mapping->host, start, ra);
->> @@ -626,7 +625,7 @@ void page_cache_sync_ra(struct readahead_control *ractl,
->>  readit:
->>  	ra->order = 0;
->>  	ractl->_index = ra->start;
->> -	page_cache_ra_order(ractl, ra);
->> +	page_cache_ra_order(ractl, ra, readahead_gfp_mask(ractl->mapping));
->>  }
->>  EXPORT_SYMBOL_GPL(page_cache_sync_ra);
->>  
->> @@ -697,7 +696,7 @@ void page_cache_async_ra(struct readahead_control *ractl,
->>  		ra->size -= end - aligned_end;
->>  	ra->async_size = ra->size;
->>  	ractl->_index = ra->start;
->> -	page_cache_ra_order(ractl, ra);
->> +	page_cache_ra_order(ractl, ra, readahead_gfp_mask(ractl->mapping));
->>  }
->>  EXPORT_SYMBOL_GPL(page_cache_async_ra);
->>  
->> -- 
->> 2.52.0
->>
-
+Regards,
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
